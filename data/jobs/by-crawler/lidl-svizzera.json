@@ -1,6 +1,6 @@
 {
   "crawlerKey": "lidl-svizzera",
-  "assembledAt": "2026-07-29T11:43:38.923Z",
+  "assembledAt": "2026-07-29T22:15:24.708Z",
   "jobs": [
     {
       "id": "company-rvoh8q",
@@ -27,10 +27,10 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-07-29T11:43:30.548Z",
+      "crawledAt": "2026-07-29T22:15:16.793Z",
       "firstSeenAt": "2026-07-29T11:43:30.548Z",
       "titleByLocale": {
-        "fr": "CH Vendeur / Vendeur responsable du poste (m/f/d) 60-80%",
+        "fr": "CH_Venditore / Venditrice con responsabilità del turno (m/f/d) 60-80%",
         "it": "CH_Venditore / Venditrice con responsabilità del turno (m/f/d) 60-80%",
         "en": "CH Seller / Seller with responsibility for shift (m/f/d) 60-80%",
         "de": "CH Verkäufer / Verkäufer mit Verantwortung für Schicht (m/w/d) 60-80%"
@@ -45,7 +45,7 @@
         "it": "ch-venditore-venditrice-con-responsabilita-del-turno-m-w-d-60-80-lidl-svizzera-st-moritz-rvoh8q",
         "en": "ch-seller-seller-with-responsibility-for-shift-m-f-d-60-80-lidl-svizzera-st-moritz",
         "de": "ch-verkaufer-verkaufer-mit-verantwortung-fur-schicht-m-w-d-60-80-lidl-svizzera-st-moritz",
-        "fr": "ch-vendeur-vendeur-responsable-du-poste-m-f-d-60-80-lidl-svizzera-st-moritz"
+        "fr": "ch-venditore-venditrice-con-responsabilita-del-turno-m-w-d-60-80-lidl-svizzera-st-moritz"
       },
       "requirementsByLocale": {
         "it": [
@@ -62,15 +62,17 @@
           "ch-venditore-venditrice-con-responsabilita-del-turno-m-w-d-60-80-lidl-svizzera-st-moritz",
           "venditore-venditrice-con-responsabilita-di-turno-m-f-60-80-lidl-svizzera-st-moritz",
           "venditore-venditrice-m-f-d-20-40-lidl-svizzera-st-moritz"
+        ],
+        "fr": [
+          "ch-vendeur-vendeur-responsable-du-poste-m-f-d-60-80-lidl-svizzera-st-moritz"
         ]
       },
       "previousSlugs": [
         "ch-venditore-venditrice-con-responsabilita-del-turno-m-w-d-60-80-lidl-svizzera-st-moritz",
         "venditore-venditrice-con-responsabilita-di-turno-m-f-60-80-lidl-svizzera-st-moritz",
-        "venditore-venditrice-m-f-d-20-40-lidl-svizzera-st-moritz"
+        "venditore-venditrice-m-f-d-20-40-lidl-svizzera-st-moritz",
+        "ch-vendeur-vendeur-responsable-du-poste-m-f-d-60-80-lidl-svizzera-st-moritz"
       ],
-      "salaryMin": 54800,
-      "salaryMax": 84000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -84,7 +86,10 @@
       "addressLocality": "St. Moritz",
       "addressRegion": "GR",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
+      "salaryMin": 54800,
+      "salaryMax": 84000
     },
     {
       "id": "company-zdpsyo",
@@ -299,7 +304,8 @@
       "addressLocality": "Weinfelden",
       "addressRegion": "TG",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-cbl2la",
@@ -418,7 +424,7 @@
       "firstSeenAt": "2026-07-24T11:13:50.406Z",
       "titleByLocale": {
         "it": "Gestione delle strutture tecniche (m/f/d) 80-100 %",
-        "en": "Technical Facility Management (m/f/d) 80-100 %",
+        "en": "Fachexperte Technisches Facility Management (m/w/d) 80-100%",
         "de": "Fachexperte Technisches Facility Management (m/w/d) 80-100%",
         "fr": "Gestion des installations techniques (m/f/d) 80-100 %"
       },
@@ -468,7 +474,8 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "salaryMin": 57500,
-      "salaryMax": 87000
+      "salaryMax": 87000,
+      "needsRetranslation": true
     },
     {
       "id": "company-jijdjy",
@@ -542,7 +549,8 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "salaryMin": 23000,
-      "salaryMax": 34800
+      "salaryMax": 34800,
+      "needsRetranslation": true
     },
     {
       "id": "company-famy5q",
@@ -850,7 +858,8 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "salaryMin": 68500,
-      "salaryMax": 104000
+      "salaryMax": 104000,
+      "needsRetranslation": true
     },
     {
       "id": "company-gv1so3",
@@ -1015,7 +1024,8 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "salaryMin": 48400,
-      "salaryMax": 73200
+      "salaryMax": 73200,
+      "needsRetranslation": true
     },
     {
       "id": "company-qj53eg",
@@ -1086,7 +1096,8 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "salaryMin": 69500,
-      "salaryMax": 106000
+      "salaryMax": 106000,
+      "needsRetranslation": true
     },
     {
       "id": "company-44xn73",
@@ -1166,7 +1177,8 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "salaryMin": 55600,
-      "salaryMax": 84800
+      "salaryMax": 84800,
+      "needsRetranslation": true
     },
     {
       "id": "company-2xr7af",
@@ -1244,7 +1256,8 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "salaryMin": 57500,
-      "salaryMax": 87000
+      "salaryMax": 87000,
+      "needsRetranslation": true
     },
     {
       "id": "company-aq9sns",
@@ -1480,7 +1493,8 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "salaryMin": 44100,
-      "salaryMax": 66900
+      "salaryMax": 66900,
+      "needsRetranslation": true
     },
     {
       "id": "company-oa3raz",
@@ -1896,7 +1910,7 @@
       "firstSeenAt": "2026-07-17T21:58:40.517Z",
       "titleByLocale": {
         "it": "Allrounder vendita (m/w/d) 20-40% — Flums",
-        "en": "All-rounder Sale (m/f/d) 20-40% — Flums",
+        "en": "Allrounder Verkauf (m/w/d) 20-40% — Flums",
         "de": "Allrounder Verkauf (m/w/d) 20-40% — Flums",
         "fr": "Allrounder Vente (m/w/d) 20-40% — Flums"
       },
@@ -1908,7 +1922,7 @@
       },
       "slugByLocale": {
         "it": "allrounder-vendita-m-w-d-20-40-lidl-svizzera-flums-8npuyb",
-        "en": "all-rounder-sale-m-f-d-20-40-flums-lidl-svizzera-flums",
+        "en": "allrounder-verkauf-m-w-d-20-40-flums-lidl-svizzera-flums",
         "de": "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-flums-8npuyb",
         "fr": "allrounder-vente-m-w-d-20-40-lidl-svizzera-flums-8npuyb"
       },
@@ -1921,12 +1935,14 @@
         ],
         "en": [
           "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-flums-8npuyb",
+          "all-rounder-sale-m-f-d-20-40-flums-lidl-svizzera-flums",
           "allrounder-verkauf-m-w-d-20-40-flums-lidl-svizzera-flums"
         ]
       },
       "previousSlugs": [
         "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-flums",
         "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-flums-8npuyb",
+        "all-rounder-sale-m-f-d-20-40-flums-lidl-svizzera-flums",
         "allrounder-verkauf-m-w-d-20-40-flums-lidl-svizzera-flums"
       ],
       "baseSalary": {
@@ -1944,7 +1960,8 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "salaryMin": 23000,
-      "salaryMax": 34800
+      "salaryMax": 34800,
+      "needsRetranslation": true
     },
     {
       "id": "company-1yw6nk",
@@ -2032,7 +2049,8 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "salaryMin": 27400,
-      "salaryMax": 41600
+      "salaryMax": 41600,
+      "needsRetranslation": true
     },
     {
       "id": "company-xg8se4",
@@ -2111,7 +2129,8 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "salaryMin": 41100,
-      "salaryMax": 62400
+      "salaryMax": 62400,
+      "needsRetranslation": true
     },
     {
       "id": "company-jjj6lq",
@@ -2348,7 +2367,8 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "salaryMin": 60500,
-      "salaryMax": 91500
+      "salaryMax": 91500,
+      "needsRetranslation": true
     },
     {
       "id": "company-dd6j6x",
@@ -2377,7 +2397,7 @@
       "firstSeenAt": "2026-07-14T11:07:52.705Z",
       "titleByLocale": {
         "it": "Allrounder vendita (m/w/d) 40-60%",
-        "en": "All-rounder sale (m/f/d) 40-60 %",
+        "en": "Allrounder Verkauf (m/w/d) 40-60%",
         "de": "Allrounder Verkauf (m/w/d) 40-60%",
         "fr": "Allrounder Vente (m/w/d) 40-60%"
       },
@@ -2389,7 +2409,7 @@
       },
       "slugByLocale": {
         "it": "allrounder-vendita-m-w-d-40-60-lidl-svizzera-bachenbulach-dd6j6x",
-        "en": "all-rounder-sale-m-f-d-40-60-lidl-svizzera-bachenbulach",
+        "en": "allrounder-verkauf-m-w-d-40-60-lidl-svizzera-bachenbulach",
         "de": "allrounder-verkauf-m-w-d-40-60-lidl-svizzera-bachenbulach-dd6j6x",
         "fr": "allrounder-vente-m-w-d-40-60-lidl-svizzera-bachenbulach-dd6j6x"
       },
@@ -2403,13 +2423,15 @@
         ],
         "en": [
           "allrounder-verkauf-m-w-d-40-60-lidl-svizzera-bachenbulach-dd6j6x",
+          "all-rounder-sale-m-f-d-40-60-lidl-svizzera-bachenbulach",
           "allrounder-verkauf-m-w-d-40-60-lidl-svizzera-bachenbulach"
         ]
       },
       "previousSlugs": [
         "allrounder-verkauf-m-w-d-40-60-lidl-svizzera-bachenbulach",
         "allrounder-verkauf-m-w-d-40-60-lidl-svizzera-bachenbulach-dd6j6x",
-        "allrounder-verkauf-m-w-d-20-40-arbon-lidl-svizzera-arbon"
+        "allrounder-verkauf-m-w-d-20-40-arbon-lidl-svizzera-arbon",
+        "all-rounder-sale-m-f-d-40-60-lidl-svizzera-bachenbulach"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -2426,7 +2448,8 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "salaryMin": 44100,
-      "salaryMax": 66900
+      "salaryMax": 66900,
+      "needsRetranslation": true
     },
     {
       "id": "company-mjaa4c",
@@ -2454,7 +2477,7 @@
       "crawledAt": "2026-07-27T12:31:53.616Z",
       "firstSeenAt": "2026-07-13T22:10:31.882Z",
       "titleByLocale": {
-        "it": "Caratteristiche (m/f/d) 80-100 %",
+        "it": "Disponent / Disponentin (m/w/d) 80-100%",
         "en": "Disponent / Disponentine (m/f/d) 80-100 %",
         "de": "Disponent / Disponentin (m/w/d) 80-100%",
         "fr": "Détenteur / Détenteur (m/f/d) 80-100 %"
@@ -2505,7 +2528,8 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "salaryMin": 57500,
-      "salaryMax": 87000
+      "salaryMax": 87000,
+      "needsRetranslation": true
     },
     {
       "id": "company-k8j36j",
@@ -2662,7 +2686,8 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "salaryMin": 46000,
-      "salaryMax": 69600
+      "salaryMax": 69600,
+      "needsRetranslation": true
     },
     {
       "id": "company-2zq1q1",
@@ -2740,7 +2765,8 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "salaryMin": 46000,
-      "salaryMax": 69600
+      "salaryMax": 69600,
+      "needsRetranslation": true
     },
     {
       "id": "company-184pn7",
@@ -2818,7 +2844,8 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "salaryMin": 46000,
-      "salaryMax": 69600
+      "salaryMax": 69600,
+      "needsRetranslation": true
     },
     {
       "id": "company-ahbeb1",
@@ -2889,7 +2916,8 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "salaryMin": 69500,
-      "salaryMax": 106000
+      "salaryMax": 106000,
+      "needsRetranslation": true
     },
     {
       "id": "company-u44bdm",
@@ -3118,7 +3146,8 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "salaryMin": 34500,
-      "salaryMax": 52200
+      "salaryMax": 52200,
+      "needsRetranslation": true
     },
     {
       "id": "company-dggkxo",
@@ -3189,7 +3218,8 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "salaryMin": 34500,
-      "salaryMax": 52200
+      "salaryMax": 52200,
+      "needsRetranslation": true
     },
     {
       "id": "company-shbc61",
@@ -3279,7 +3309,8 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "salaryMin": 46000,
-      "salaryMax": 69600
+      "salaryMax": 69600,
+      "needsRetranslation": true
     },
     {
       "id": "company-8gzn2a",
@@ -3357,7 +3388,8 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "salaryMin": 49600,
-      "salaryMax": 75200
+      "salaryMax": 75200,
+      "needsRetranslation": true
     },
     {
       "id": "company-gxdrl",
@@ -3672,7 +3704,8 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "salaryMin": 55600,
-      "salaryMax": 84800
+      "salaryMax": 84800,
+      "needsRetranslation": true
     },
     {
       "id": "company-6kawt1",
@@ -3750,7 +3783,8 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "salaryMin": 49600,
-      "salaryMax": 75200
+      "salaryMax": 75200,
+      "needsRetranslation": true
     },
     {
       "id": "company-roohay",
@@ -3828,7 +3862,8 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "salaryMin": 55600,
-      "salaryMax": 84800
+      "salaryMax": 84800,
+      "needsRetranslation": true
     },
     {
       "id": "company-amcv4j",
@@ -3856,7 +3891,7 @@
       "crawledAt": "2026-07-27T12:31:53.616Z",
       "firstSeenAt": "2026-07-10T22:17:19.398Z",
       "titleByLocale": {
-        "it": "Collaboratore/self-service e partner commerciale 40% — Bulle",
+        "it": "Collaborateur/Collaboratrice libre-service et vente 40% — Bulle",
         "en": "Collaborator/self-service and sales partner 40% — Bulle",
         "de": "Mitarbeiter/Self-Service- und Vertriebspartner 40% — Bulle",
         "fr": "Collaborateur/Collaboratrice libre-service et vente 40% — Bulle"
@@ -3907,7 +3942,8 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "salaryMin": 27400,
-      "salaryMax": 41600
+      "salaryMax": 41600,
+      "needsRetranslation": true
     },
     {
       "id": "company-9hd0bm",
@@ -4067,7 +4103,8 @@
       "employmentType": "FULL_TIME",
       "postalCode": "3001",
       "salaryMin": 41100,
-      "salaryMax": 62400
+      "salaryMax": 62400,
+      "needsRetranslation": true
     },
     {
       "id": "company-8df2f7",
@@ -4299,7 +4336,8 @@
       "employmentType": "FULL_TIME",
       "postalCode": "6003",
       "salaryMin": 27800,
-      "salaryMax": 42400
+      "salaryMax": 42400,
+      "needsRetranslation": true
     },
     {
       "id": "company-igswfn",
@@ -4378,7 +4416,8 @@
       "employmentType": "FULL_TIME",
       "postalCode": "6003",
       "salaryMin": 55600,
-      "salaryMax": 84800
+      "salaryMax": 84800,
+      "needsRetranslation": true
     },
     {
       "id": "company-mvh2hl",
@@ -4536,7 +4575,8 @@
       "employmentType": "FULL_TIME",
       "postalCode": "5000",
       "salaryMin": 49600,
-      "salaryMax": 75200
+      "salaryMax": 75200,
+      "needsRetranslation": true
     },
     {
       "id": "company-9mg3qe",
@@ -4608,7 +4648,8 @@
       "employmentType": "FULL_TIME",
       "postalCode": "3001",
       "salaryMin": 68500,
-      "salaryMax": 104000
+      "salaryMax": 104000,
+      "needsRetranslation": true
     },
     {
       "id": "company-xtxi1l",
@@ -4637,7 +4678,7 @@
       "firstSeenAt": "2026-07-03T12:16:31.228Z",
       "titleByLocale": {
         "it": "Manager Sostenibilità Acquisti 80-100% (lun/f/d)",
-        "en": "Manager Sustainability Purchasing 80-100% (m/f/d)",
+        "en": "Manager Nachhaltigkeit Einkauf 80-100% (m/w/d)",
         "de": "Manager Nachhaltigkeit Einkauf 80-100% (m/w/d)",
         "fr": "Gestionnaire Achats durables 80-100 % (m/f/d)"
       },
@@ -4688,7 +4729,8 @@
       "employmentType": "FULL_TIME",
       "postalCode": "8500",
       "salaryMin": 79000,
-      "salaryMax": 120000
+      "salaryMax": 120000,
+      "needsRetranslation": true
     },
     {
       "id": "company-klc7tu",
@@ -4767,7 +4809,8 @@
       "employmentType": "FULL_TIME",
       "postalCode": "9000",
       "salaryMin": 46000,
-      "salaryMax": 69600
+      "salaryMax": 69600,
+      "needsRetranslation": true
     },
     {
       "id": "company-jll0z6",
@@ -4930,7 +4973,8 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "salaryMin": 12400,
-      "salaryMax": 18800
+      "salaryMax": 18800,
+      "needsRetranslation": true
     },
     {
       "id": "company-q7djqk",
@@ -5089,7 +5133,8 @@
       "employmentType": "FULL_TIME",
       "postalCode": "9000",
       "salaryMin": 23000,
-      "salaryMax": 34800
+      "salaryMax": 34800,
+      "needsRetranslation": true
     },
     {
       "id": "company-768217",
@@ -5488,7 +5533,8 @@
       "employmentType": "FULL_TIME",
       "postalCode": "6003",
       "salaryMin": 55600,
-      "salaryMax": 84800
+      "salaryMax": 84800,
+      "needsRetranslation": true
     },
     {
       "id": "company-2n96cd",
@@ -5564,7 +5610,8 @@
       "employmentType": "FULL_TIME",
       "postalCode": "8500",
       "salaryMin": 57500,
-      "salaryMax": 87000
+      "salaryMax": 87000,
+      "needsRetranslation": true
     },
     {
       "id": "company-mhdn80",
@@ -5687,7 +5734,8 @@
         "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-chur-g34sky",
         "allrounder-vente-m-w-d-20-40-lidl-svizzera-chur-g34sky",
         "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-chur-g34s25",
-        "allrounder-verkauf-m-w-d-20-40-chur-lidl-svizzera-chur"
+        "allrounder-verkauf-m-w-d-20-40-chur-lidl-svizzera-chur",
+        "all-rounder-sale-m-f-d-20-40-chur-lidl-svizzera-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -5701,6 +5749,7 @@
           "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-chur-ggd1wl",
           "all-rounder-sale-m-f-d-20-40-chur-lidl-svizzera-chur-fa18db",
           "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-chur-g34s25",
+          "all-rounder-sale-m-f-d-20-40-chur-lidl-svizzera-chur",
           "allrounder-verkauf-m-w-d-20-40-chur-lidl-svizzera-chur"
         ],
         "de": [
@@ -5714,7 +5763,7 @@
       },
       "titleByLocale": {
         "it": "Allrounder vendita (m/w/d) 20-40% — Chur",
-        "en": "All-rounder Sale (m/f/d) 20-40% — Chur",
+        "en": "Allrounder Verkauf (m/w/d) 20-40% — Chur",
         "de": "Allrounder Verkauf (m/w/d) 20-40% — Chur",
         "fr": "Allrounder Vente (m/w/d) 20-40% — Chur"
       },
@@ -5726,7 +5775,7 @@
       },
       "slugByLocale": {
         "it": "allrounder-vendita-m-w-d-20-40-lidl-svizzera-chur-g34s25",
-        "en": "all-rounder-sale-m-f-d-20-40-chur-lidl-svizzera-chur",
+        "en": "allrounder-verkauf-m-w-d-20-40-chur-lidl-svizzera-chur",
         "de": "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-chur-g34s25",
         "fr": "allrounder-vente-m-w-d-20-40-lidl-svizzera-chur-g34s25"
       },
@@ -5748,7 +5797,8 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "salaryMin": 23000,
-      "salaryMax": 34800
+      "salaryMax": 34800,
+      "needsRetranslation": true
     },
     {
       "id": "company-8dybhf",
@@ -6473,7 +6523,8 @@
       "employmentType": "FULL_TIME",
       "postalCode": "8500",
       "salaryMin": 34500,
-      "salaryMax": 52200
+      "salaryMax": 52200,
+      "needsRetranslation": true
     },
     {
       "id": "company-gg40dz",
@@ -6552,7 +6603,8 @@
       "employmentType": "FULL_TIME",
       "postalCode": "5000",
       "salaryMin": 62000,
-      "salaryMax": 94000
+      "salaryMax": 94000,
+      "needsRetranslation": true
     },
     {
       "id": "company-8zv1qx",
@@ -6581,7 +6633,7 @@
       "firstSeenAt": "2026-07-01T23:07:03.903Z",
       "titleByLocale": {
         "it": "Allrounder vendita (m/w/d) 20-40% — Ebikon",
-        "en": "All-rounder Sale (m/f/d) 20-40% — Ebikon",
+        "en": "Allrounder Verkauf (m/w/d) 20-40% — Ebikon",
         "de": "Allrounder Verkauf (m/w/d) 20-40% — Ebikon",
         "fr": "Allrounder Vente (m/w/d) 20-40% — Ebikon"
       },
@@ -6593,7 +6645,7 @@
       },
       "slugByLocale": {
         "it": "allrounder-vendita-m-w-d-20-40-lidl-svizzera-ebikon-8zv1qx",
-        "en": "all-rounder-sale-m-f-d-20-40-ebikon-lidl-svizzera-ebikon",
+        "en": "allrounder-verkauf-m-w-d-20-40-ebikon-lidl-svizzera-ebikon",
         "de": "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-ebikon-8zv1qx",
         "fr": "allrounder-vente-m-w-d-20-40-lidl-svizzera-ebikon-8zv1qx"
       },
@@ -6606,12 +6658,14 @@
         ],
         "en": [
           "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-ebikon-8zv1qx",
+          "all-rounder-sale-m-f-d-20-40-ebikon-lidl-svizzera-ebikon",
           "allrounder-verkauf-m-w-d-20-40-ebikon-lidl-svizzera-ebikon"
         ]
       },
       "previousSlugs": [
         "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-ebikon",
         "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-ebikon-8zv1qx",
+        "all-rounder-sale-m-f-d-20-40-ebikon-lidl-svizzera-ebikon",
         "allrounder-verkauf-m-w-d-20-40-ebikon-lidl-svizzera-ebikon"
       ],
       "baseSalary": {
@@ -6630,7 +6684,8 @@
       "employmentType": "FULL_TIME",
       "postalCode": "6003",
       "salaryMin": 27800,
-      "salaryMax": 42400
+      "salaryMax": 42400,
+      "needsRetranslation": true
     },
     {
       "id": "company-8g8gnz",
@@ -6659,7 +6714,7 @@
       "firstSeenAt": "2026-07-01T23:07:03.903Z",
       "titleByLocale": {
         "it": "Allrounder vendita (m/w/d) 20-40% — Luzern",
-        "en": "All-rounder Sale (m/f/d) 20-40% — Lucerne",
+        "en": "Allrounder Verkauf (m/w/d) 20-40% — Luzern",
         "de": "Allrounder Verkauf (m/w/d) 20-40% — Luzern",
         "fr": "Allrounder Vente (m/w/d) 20-40% — Luzern"
       },
@@ -6671,7 +6726,7 @@
       },
       "slugByLocale": {
         "it": "allrounder-vendita-m-w-d-20-40-lidl-svizzera-luzern-8g8gnz",
-        "en": "all-rounder-sale-m-f-d-20-40-lucerne-lidl-svizzera-luzern",
+        "en": "allrounder-verkauf-m-w-d-20-40-luzern-lidl-svizzera-luzern",
         "de": "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-luzern-8g8gnz",
         "fr": "allrounder-vente-m-w-d-20-40-lidl-svizzera-luzern-8g8gnz"
       },
@@ -6684,12 +6739,14 @@
         ],
         "en": [
           "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-luzern-8g8gnz",
+          "all-rounder-sale-m-f-d-20-40-lucerne-lidl-svizzera-luzern",
           "allrounder-verkauf-m-w-d-20-40-luzern-lidl-svizzera-luzern"
         ]
       },
       "previousSlugs": [
         "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-luzern",
         "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-luzern-8g8gnz",
+        "all-rounder-sale-m-f-d-20-40-lucerne-lidl-svizzera-luzern",
         "allrounder-verkauf-m-w-d-20-40-luzern-lidl-svizzera-luzern"
       ],
       "baseSalary": {
@@ -6708,7 +6765,8 @@
       "employmentType": "FULL_TIME",
       "postalCode": "6003",
       "salaryMin": 27800,
-      "salaryMax": 42400
+      "salaryMax": 42400,
+      "needsRetranslation": true
     },
     {
       "id": "company-7c4uad",
@@ -6780,7 +6838,8 @@
       "employmentType": "FULL_TIME",
       "postalCode": "8001",
       "salaryMin": 73500,
-      "salaryMax": 111500
+      "salaryMax": 111500,
+      "needsRetranslation": true
     },
     {
       "id": "company-s8n3ut",
@@ -6862,7 +6921,8 @@
       "employmentType": "FULL_TIME",
       "postalCode": "6300",
       "salaryMin": 69500,
-      "salaryMax": 106000
+      "salaryMax": 106000,
+      "needsRetranslation": true
     },
     {
       "id": "company-tz85u2",
@@ -6934,7 +6994,8 @@
       "employmentType": "FULL_TIME",
       "postalCode": "6300",
       "salaryMin": 69500,
-      "salaryMax": 106000
+      "salaryMax": 106000,
+      "needsRetranslation": true
     },
     {
       "id": "company-ixjn5g",
@@ -7013,7 +7074,8 @@
       "employmentType": "FULL_TIME",
       "postalCode": "6003",
       "salaryMin": 55600,
-      "salaryMax": 84800
+      "salaryMax": 84800,
+      "needsRetranslation": true
     },
     {
       "id": "company-98tdrr",
@@ -7091,7 +7153,8 @@
         "gerant-adjoint-gerante-adjointe-m-w-d-80-lidl-svizzera-conthey-98tdrr"
       ],
       "salaryMin": 48400,
-      "salaryMax": 73200
+      "salaryMax": 73200,
+      "needsRetranslation": true
     },
     {
       "id": "company-azl494",
@@ -7166,7 +7229,8 @@
         "gerant-gerante-de-magasin-suppleant-e-m-w-d-80-100-lidl-svizzera-sierre-azl494"
       ],
       "salaryMin": 60500,
-      "salaryMax": 91500
+      "salaryMax": 91500,
+      "needsRetranslation": true
     },
     {
       "id": "company-1wpcjw",
@@ -7241,7 +7305,8 @@
         "vendeur-polyvalent-vendeuse-polyvalente-m-w-d-40-lidl-svizzera-petit-lancy-1wpcjw"
       ],
       "salaryMin": 24200,
-      "salaryMax": 36600
+      "salaryMax": 36600,
+      "needsRetranslation": true
     },
     {
       "id": "company-ggwztk",
@@ -7321,7 +7386,8 @@
         "verkaufer-verkauferin-m-w-d-20-40-lidl-svizzera-schluein-ggwztk"
       ],
       "salaryMin": 23000,
-      "salaryMax": 34800
+      "salaryMax": 34800,
+      "needsRetranslation": true
     },
     {
       "id": "company-hk4tcm",
@@ -7393,7 +7459,8 @@
       "employmentType": "FULL_TIME",
       "postalCode": "8001",
       "salaryMin": 73500,
-      "salaryMax": 111500
+      "salaryMax": 111500,
+      "needsRetranslation": true
     },
     {
       "id": "company-o1lk3w",
@@ -7856,7 +7923,8 @@
       "employmentType": "FULL_TIME",
       "postalCode": "6003",
       "salaryMin": 55600,
-      "salaryMax": 84800
+      "salaryMax": 84800,
+      "needsRetranslation": true
     },
     {
       "id": "company-xhjnj6",
@@ -7935,7 +8003,8 @@
       "employmentType": "FULL_TIME",
       "postalCode": "6003",
       "salaryMin": 55600,
-      "salaryMax": 84800
+      "salaryMax": 84800,
+      "needsRetranslation": true
     },
     {
       "id": "company-zdt4zj",
@@ -8014,7 +8083,8 @@
       "employmentType": "FULL_TIME",
       "postalCode": "6003",
       "salaryMin": 55600,
-      "salaryMax": 84800
+      "salaryMax": 84800,
+      "needsRetranslation": true
     },
     {
       "id": "company-42zrc5",
@@ -8093,7 +8163,8 @@
       "employmentType": "FULL_TIME",
       "postalCode": "7000",
       "salaryMin": 46000,
-      "salaryMax": 69600
+      "salaryMax": 69600,
+      "needsRetranslation": true
     },
     {
       "id": "company-489ey9",
@@ -8172,7 +8243,8 @@
       "employmentType": "FULL_TIME",
       "postalCode": "9000",
       "salaryMin": 46000,
-      "salaryMax": 69600
+      "salaryMax": 69600,
+      "needsRetranslation": true
     },
     {
       "id": "company-7k0vhn",
@@ -8251,7 +8323,8 @@
       "employmentType": "FULL_TIME",
       "postalCode": "8001",
       "salaryMin": 58800,
-      "salaryMax": 89200
+      "salaryMax": 89200,
+      "needsRetranslation": true
     },
     {
       "id": "company-df6hf2",
@@ -8330,7 +8403,8 @@
       "employmentType": "FULL_TIME",
       "postalCode": "8001",
       "salaryMin": 58800,
-      "salaryMax": 89200
+      "salaryMax": 89200,
+      "needsRetranslation": true
     },
     {
       "id": "company-orw7s4",
@@ -8482,7 +8556,8 @@
       "employmentType": "FULL_TIME",
       "postalCode": "4500",
       "salaryMin": 68500,
-      "salaryMax": 104000
+      "salaryMax": 104000,
+      "needsRetranslation": true
     },
     {
       "id": "company-2t9x3o",
@@ -8816,7 +8891,8 @@
       "employmentType": "FULL_TIME",
       "postalCode": "1950",
       "salaryMin": 36300,
-      "salaryMax": 54900
+      "salaryMax": 54900,
+      "needsRetranslation": true
     },
     {
       "id": "company-2oqyzf",
@@ -8967,7 +9043,8 @@
       "employmentType": "FULL_TIME",
       "postalCode": "6003",
       "salaryMin": 69500,
-      "salaryMax": 106000
+      "salaryMax": 106000,
+      "needsRetranslation": true
     },
     {
       "id": "company-6nnfa4",
@@ -9039,7 +9116,8 @@
       "employmentType": "FULL_TIME",
       "postalCode": "6003",
       "salaryMin": 69500,
-      "salaryMax": 106000
+      "salaryMax": 106000,
+      "needsRetranslation": true
     },
     {
       "id": "company-6vm9sr",
@@ -9111,7 +9189,8 @@
       "employmentType": "FULL_TIME",
       "postalCode": "6003",
       "salaryMin": 69500,
-      "salaryMax": 106000
+      "salaryMax": 106000,
+      "needsRetranslation": true
     },
     {
       "id": "company-43uzf1",
@@ -9198,7 +9277,8 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "salaryMin": 48400,
-      "salaryMax": 73200
+      "salaryMax": 73200,
+      "needsRetranslation": true
     },
     {
       "id": "company-uianji",
@@ -9289,7 +9369,8 @@
       "employmentType": "FULL_TIME",
       "postalCode": "3001",
       "salaryMin": 54800,
-      "salaryMax": 83200
+      "salaryMax": 83200,
+      "needsRetranslation": true
     },
     {
       "id": "company-53ljh8",
@@ -9378,7 +9459,8 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "salaryMin": 58800,
-      "salaryMax": 89200
+      "salaryMax": 89200,
+      "needsRetranslation": true
     },
     {
       "id": "company-9bdwww",
@@ -9532,7 +9614,8 @@
         "vendeur-vendeuse-responsable-d-equipe-m-w-d-60-80-lidl-svizzera-bulle-115lp6"
       ],
       "salaryMin": 54800,
-      "salaryMax": 83200
+      "salaryMax": 83200,
+      "needsRetranslation": true
     },
     {
       "id": "company-4hrwqv",
@@ -9611,7 +9694,8 @@
         "vendeur-vendeuse-responsable-d-equipe-m-w-d-60-lidl-svizzera-marly-4hrwqv"
       ],
       "salaryMin": 41100,
-      "salaryMax": 62400
+      "salaryMax": 62400,
+      "needsRetranslation": true
     },
     {
       "id": "company-xsgj33",
@@ -9755,7 +9839,8 @@
       "employmentType": "FULL_TIME",
       "postalCode": "8001",
       "salaryMin": 29400,
-      "salaryMax": 44600
+      "salaryMax": 44600,
+      "needsRetranslation": true
     },
     {
       "id": "company-e8tfgo",
@@ -9786,7 +9871,7 @@
         "it": "Picker ordini (lun/f/d) 40-60%",
         "en": "Order picker (m/f/d) 40-60 %",
         "de": "Kommissionierer / Kommissioniererin (m/w/d) 40-60%",
-        "fr": "Récupérateur de commandes (m/f/d) 40-60 %"
+        "fr": "Kommissionierer / Kommissioniererin (m/w/d) 40-60%"
       },
       "descriptionByLocale": {
         "it": "Introduzione Con una moderna rete di filiali, Lidl Svizzera ha una presenza sempre più densa nel mercato svizzero. L'espansione in Svizzera è proseguita dall'entrata sul mercato nel 2009. A Lidl, attività emozionanti e opportunità di carriera versatili vi aspettano nell'ambiente dinamico del commercio al dettaglio.\n• I tuoi compiti - Raccogliere ordini dai nostri rami - Assistenza agli inventari di stoccaggio - Fornitura di pallet per spedizione - conformità con gli standard di igiene e pulizia - I giorni di lavoro fissi sono definiti insieme Il tuo profilo - Esperienza nella logistica o nella produzione - Personalità affidabile, indipendente e resiliente - Competenze di squadra, cooperazione e comunicazione - Prontezza per lavoro di turno, notte e domenica - Buona conoscenza del tedesco e/o del francese\n• Offriamo A Lidl Svizzera, c'è spazio per l'ambizione e l'innovazione. Partecipa attivamente. Crescere ogni giorno a livello professionale e personale. Vi prepariamo per i vostri vari e interessanti compiti con una formazione intensiva. Inoltre, vi offriamo la sicurezza di un lavoro permanente, una grande squadra, i vantaggi del Lidl GAV, un'eccellente fornitura professionale e altri benefici interessanti. Cogliete l'opportunità e applicate online ora!",
@@ -9798,7 +9883,7 @@
         "it": "picker-ordini-lun-f-d-40-60-lidl-svizzera-sevaz",
         "en": "order-picker-m-f-d-40-60-lidl-svizzera-sevaz",
         "de": "kommissionierer-kommissioniererin-m-w-d-40-60-lidl-svizzera-sevaz-e8tfgo",
-        "fr": "recuperateur-de-commandes-m-f-d-40-60-lidl-svizzera-sevaz"
+        "fr": "kommissionierer-kommissioniererin-m-w-d-40-60-lidl-svizzera-sevaz"
       },
       "requirementsByLocale": {},
       "country": "CH",
@@ -9813,12 +9898,14 @@
         ],
         "fr": [
           "kommissionierer-kommissioniererin-m-w-d-40-60-lidl-svizzera-sevaz-e8tfgo",
+          "recuperateur-de-commandes-m-f-d-40-60-lidl-svizzera-sevaz",
           "kommissionierer-kommissioniererin-m-w-d-40-60-lidl-svizzera-sevaz"
         ]
       },
       "previousSlugs": [
         "kommissionierer-kommissioniererin-m-w-d-40-60-lidl-svizzera-sevaz",
-        "kommissionierer-kommissioniererin-m-w-d-40-60-lidl-svizzera-sevaz-e8tfgo"
+        "kommissionierer-kommissioniererin-m-w-d-40-60-lidl-svizzera-sevaz-e8tfgo",
+        "recuperateur-de-commandes-m-f-d-40-60-lidl-svizzera-sevaz"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -9836,7 +9923,8 @@
       "employmentType": "FULL_TIME",
       "postalCode": "1700",
       "salaryMin": 41100,
-      "salaryMax": 62400
+      "salaryMax": 62400,
+      "needsRetranslation": true
     },
     {
       "id": "company-4e97nd",
@@ -9865,7 +9953,7 @@
       "firstSeenAt": "2026-06-24T11:57:40.883Z",
       "titleByLocale": {
         "it": "Allrounder vendita (m/w/d) 20-40% — Horgen",
-        "en": "All-rounder Sale (m/f/d) 20-40% — Horgen",
+        "en": "Allrounder Verkauf (m/w/d) 20-40% — Horgen",
         "de": "Allrounder Verkauf (m/w/d) 20-40% — Horgen",
         "fr": "Allrounder Vente (m/w/d) 20-40% — Horgen"
       },
@@ -9877,7 +9965,7 @@
       },
       "slugByLocale": {
         "it": "allrounder-vendita-m-w-d-20-40-lidl-svizzera-horgen-4e97nd",
-        "en": "all-rounder-sale-m-f-d-20-40-horgen-lidl-svizzera-horgen",
+        "en": "allrounder-verkauf-m-w-d-20-40-horgen-lidl-svizzera-horgen",
         "de": "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-horgen-4e97nd",
         "fr": "allrounder-vente-m-w-d-20-40-lidl-svizzera-horgen-4e97nd"
       },
@@ -9890,12 +9978,14 @@
         ],
         "en": [
           "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-horgen-4e97nd",
+          "all-rounder-sale-m-f-d-20-40-horgen-lidl-svizzera-horgen",
           "allrounder-verkauf-m-w-d-20-40-horgen-lidl-svizzera-horgen"
         ]
       },
       "previousSlugs": [
         "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-horgen",
         "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-horgen-4e97nd",
+        "all-rounder-sale-m-f-d-20-40-horgen-lidl-svizzera-horgen",
         "allrounder-verkauf-m-w-d-20-40-horgen-lidl-svizzera-horgen"
       ],
       "baseSalary": {
@@ -9914,7 +10004,8 @@
       "employmentType": "FULL_TIME",
       "postalCode": "8001",
       "salaryMin": 29400,
-      "salaryMax": 44600
+      "salaryMax": 44600,
+      "needsRetranslation": true
     },
     {
       "id": "company-e80jdc",
@@ -9942,7 +10033,7 @@
       "crawledAt": "2026-07-27T12:31:53.616Z",
       "firstSeenAt": "2026-06-24T11:57:40.883Z",
       "titleByLocale": {
-        "it": "Collaboratore/self-service e partner commerciale 40% — Fribourg",
+        "it": "Collaborateur/Collaboratrice libre-service et vente 40% — Fribourg",
         "en": "Collaborator/self-service and sales partner 40% — Fribourg",
         "de": "Mitarbeiter/Self-Service- und Vertriebspartner 40% — Freiburg — Fribourg",
         "fr": "Collaborateur/Collaboratrice libre-service et vente 40% — Fribourg"
@@ -9995,7 +10086,8 @@
       "employmentType": "FULL_TIME",
       "postalCode": "1700",
       "salaryMin": 27400,
-      "salaryMax": 41600
+      "salaryMax": 41600,
+      "needsRetranslation": true
     },
     {
       "id": "company-h3lbhq",
@@ -10070,7 +10162,8 @@
         "vendeur-vendeuse-m-w-d-40-lidl-svizzera-marly-h3lbhq"
       ],
       "salaryMin": 27400,
-      "salaryMax": 41600
+      "salaryMax": 41600,
+      "needsRetranslation": true
     },
     {
       "id": "company-74r5hc",
@@ -10164,7 +10257,8 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "salaryMin": 69500,
-      "salaryMax": 106000
+      "salaryMax": 106000,
+      "needsRetranslation": true
     },
     {
       "id": "company-hqb4qc",
@@ -10557,7 +10651,8 @@
       "employmentType": "FULL_TIME",
       "postalCode": "8001",
       "salaryMin": 58800,
-      "salaryMax": 89200
+      "salaryMax": 89200,
+      "needsRetranslation": true
     },
     {
       "id": "company-ha77u",
@@ -10587,13 +10682,13 @@
       "slugByLocale": {
         "it": "vendeur-vendeuse-m-w-d-40-chatel-saint-denis-lidl-svizzera-chatel-saint-denis",
         "en": "seller-h-f-d-40-chatel-saint-denis-lidl-svizzera-chatel-saint-denis",
-        "de": "verkaufer-h-w-d-40-chatel-saint-denis-lidl-svizzera-chatel-saint-denis",
+        "de": "vendeur-vendeuse-m-w-d-40-chatel-saint-denis-lidl-svizzera-chatel-saint-denis",
         "fr": "vendeur-vendeuse-m-w-d-40-lidl-svizzera-chatel-saint-denis-0ha77u"
       },
       "titleByLocale": {
         "it": "Vendeur / Vendeuse (f/m/d) 40% — Châtel-Saint-Denis",
         "en": "Seller (h/f/d) 40% — Châtel-Saint-Denis",
-        "de": "Verkäufer (h/w/d) 40% — Châtel-Saint-Denis",
+        "de": "Vendeur / Vendeuse (h/f/d) 40% — Châtel-Saint-Denis",
         "fr": "Vendeur / Vendeuse (h/f/d) 40% — Châtel-Saint-Denis"
       },
       "descriptionByLocale": {
@@ -10628,15 +10723,18 @@
           "vendeur-vendeuse-m-w-d-40-lidl-svizzera-chatel-saint-denis-0ha77u"
         ],
         "de": [
-          "vendeur-vendeuse-m-w-d-40-lidl-svizzera-chatel-saint-denis-0ha77u"
+          "vendeur-vendeuse-m-w-d-40-lidl-svizzera-chatel-saint-denis-0ha77u",
+          "verkaufer-h-w-d-40-chatel-saint-denis-lidl-svizzera-chatel-saint-denis"
         ]
       },
       "previousSlugs": [
         "vendeur-vendeuse-m-w-d-40-lidl-svizzera-chatel-saint-denis-0ha77u",
-        "chatel-saint-denis"
+        "chatel-saint-denis",
+        "verkaufer-h-w-d-40-chatel-saint-denis-lidl-svizzera-chatel-saint-denis"
       ],
       "salaryMin": 27400,
-      "salaryMax": 41600
+      "salaryMax": 41600,
+      "needsRetranslation": true
     },
     {
       "id": "company-xmgx0u",
@@ -10783,7 +10881,8 @@
       "employmentType": "FULL_TIME",
       "postalCode": "6003",
       "salaryMin": 69500,
-      "salaryMax": 106000
+      "salaryMax": 106000,
+      "needsRetranslation": true
     },
     {
       "id": "company-vjbd06",
@@ -10863,7 +10962,8 @@
       "employmentType": "FULL_TIME",
       "postalCode": "1003",
       "salaryMin": 24200,
-      "salaryMax": 36600
+      "salaryMax": 36600,
+      "needsRetranslation": true
     },
     {
       "id": "company-oevhqy",
@@ -10897,7 +10997,7 @@
         "fr": "emballeur-m-f-d-40-60-lidl-svizzera-bern"
       },
       "titleByLocale": {
-        "it": "Confezionamento (m/f/d) 40-60 %",
+        "it": "Abpacker (m/w/d) 40-60%",
         "en": "Packager (m/f/d) 40-60 %",
         "de": "Abpacker (m/w/d) 40-60%",
         "fr": "Emballeur (m/f/d) 40-60 %"
@@ -10938,7 +11038,8 @@
         "abpacker-m-w-d-40-60-lidl-svizzera-bern-oevhqy"
       ],
       "salaryMin": 41100,
-      "salaryMax": 62400
+      "salaryMax": 62400,
+      "needsRetranslation": true
     },
     {
       "id": "company-1ppvb1",
@@ -10967,7 +11068,7 @@
       "firstSeenAt": "2026-06-23T12:04:52.580Z",
       "titleByLocale": {
         "it": "Allrounder vendita (m/w/d) 20-40% 1 — Regensdorf",
-        "en": "All-rounder Sale (m/f/d) 20-40% 1 — Regensdorf",
+        "en": "Allrounder Verkauf (m/w/d) 20-40% 1 — Regensdorf",
         "de": "Allrounder Verkauf (m/w/d) 20-40% 1 — Regensdorf",
         "fr": "Allrounder Vente (m/w/d) 20-40% 1 — Regensdorf"
       },
@@ -10979,7 +11080,7 @@
       },
       "slugByLocale": {
         "it": "allrounder-vendita-m-w-d-20-40-1-lidl-svizzera-regensdorf-1ppvb1",
-        "en": "all-rounder-sale-m-f-d-20-40-1-regensdorf-lidl-svizzera-regensdorf",
+        "en": "allrounder-verkauf-m-w-d-20-40-1-regensdorf-lidl-svizzera-regensdorf",
         "de": "allrounder-verkauf-m-w-d-20-40-1-lidl-svizzera-regensdorf-1ppvb1",
         "fr": "allrounder-vente-m-w-d-20-40-1-lidl-svizzera-regensdorf-1ppvb1"
       },
@@ -10992,12 +11093,14 @@
         ],
         "en": [
           "allrounder-verkauf-m-w-d-20-40-1-lidl-svizzera-regensdorf-1ppvb1",
+          "all-rounder-sale-m-f-d-20-40-1-regensdorf-lidl-svizzera-regensdorf",
           "allrounder-verkauf-m-w-d-20-40-1-regensdorf-lidl-svizzera-regensdorf"
         ]
       },
       "previousSlugs": [
         "allrounder-verkauf-m-w-d-20-40-1-lidl-svizzera-regensdorf",
         "allrounder-verkauf-m-w-d-20-40-1-lidl-svizzera-regensdorf-1ppvb1",
+        "all-rounder-sale-m-f-d-20-40-1-regensdorf-lidl-svizzera-regensdorf",
         "allrounder-verkauf-m-w-d-20-40-1-regensdorf-lidl-svizzera-regensdorf"
       ],
       "baseSalary": {
@@ -11016,7 +11119,8 @@
       "employmentType": "FULL_TIME",
       "postalCode": "8001",
       "salaryMin": 29400,
-      "salaryMax": 44600
+      "salaryMax": 44600,
+      "needsRetranslation": true
     },
     {
       "id": "company-tmbjur",
@@ -11102,7 +11206,8 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "salaryMin": 41100,
-      "salaryMax": 62400
+      "salaryMax": 62400,
+      "needsRetranslation": true
     },
     {
       "id": "company-8xwpko",
@@ -11212,7 +11317,7 @@
         "it": "gestione-clienti-self-checkout-20-30-ostermundigen-lidl-svizzera-ostermundigen",
         "en": "customer-care-provider-self-checkout-20-30-lidl-svizzera-ostermundigen",
         "de": "kundenbetreuer-kundenbetreuerin-self-checkout-20-30-lidl-svizzera-ostermundigen-0928ok",
-        "fr": "fournisseur-de-soins-a-la-clientele-auto-controle-20-30-lidl-svizzera-ostermundigen"
+        "fr": "gestionnaire-de-clients-autocontrole-20-30-ostermundingen-ostermundigen-lidl-svizzera-ostermundigen"
       },
       "titleByLocale": {
         "it": "Gestione clienti Self-Checkout 20-30 — Ostermundigen",
@@ -11256,6 +11361,7 @@
         ],
         "fr": [
           "kundenbetreuer-kundenbetreuerin-self-checkout-20-30-lidl-svizzera-ostermundigen-0928ok",
+          "fournisseur-de-soins-a-la-clientele-auto-controle-20-30-lidl-svizzera-ostermundigen",
           "gestionnaire-de-clients-autocontrole-20-30-ostermundingen-ostermundigen-lidl-svizzera-ostermundigen"
         ]
       },
@@ -11265,6 +11371,7 @@
         "self-checkout-de-conseiller-client-40-60-lidl-svizzera-bern",
         "kundenbetreuer-kundenbetreuerin-self-checkout-40-60-lidl-svizzera-bern",
         "kundenbetreuer-kundenbetreuerin-self-checkout-20-30-lidl-svizzera-ostermundigen-0928ok",
+        "fournisseur-de-soins-a-la-clientele-auto-controle-20-30-lidl-svizzera-ostermundigen",
         "gestionnaire-de-clients-autocontrole-20-30-ostermundingen-ostermundigen-lidl-svizzera-ostermundigen"
       ],
       "salaryMin": 68500,
@@ -11348,7 +11455,8 @@
       "employmentType": "FULL_TIME",
       "postalCode": "3001",
       "salaryMin": 41100,
-      "salaryMax": 62400
+      "salaryMax": 62400,
+      "needsRetranslation": true
     },
     {
       "id": "company-4011gn",
@@ -11427,7 +11535,8 @@
       "employmentType": "FULL_TIME",
       "postalCode": "3001",
       "salaryMin": 61700,
-      "salaryMax": 93600
+      "salaryMax": 93600,
+      "needsRetranslation": true
     },
     {
       "id": "company-os7ajp",
@@ -11502,7 +11611,8 @@
       "employmentType": "FULL_TIME",
       "postalCode": "3960",
       "salaryMin": 24200,
-      "salaryMax": 36600
+      "salaryMax": 36600,
+      "needsRetranslation": true
     },
     {
       "id": "company-wp7upg",
@@ -11582,7 +11692,8 @@
       "employmentType": "FULL_TIME",
       "postalCode": "6300",
       "salaryMin": 69500,
-      "salaryMax": 106000
+      "salaryMax": 106000,
+      "needsRetranslation": true
     },
     {
       "id": "company-5f72jr",
@@ -11733,7 +11844,8 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "salaryMin": 69500,
-      "salaryMax": 106000
+      "salaryMax": 106000,
+      "needsRetranslation": true
     },
     {
       "id": "company-i6yhx6",
@@ -11892,7 +12004,8 @@
       "employmentType": "FULL_TIME",
       "postalCode": "5000",
       "salaryMin": 62000,
-      "salaryMax": 94000
+      "salaryMax": 94000,
+      "needsRetranslation": true
     },
     {
       "id": "company-w7rb1h",
@@ -11964,7 +12077,8 @@
       "employmentType": "FULL_TIME",
       "postalCode": "5000",
       "salaryMin": 62000,
-      "salaryMax": 94000
+      "salaryMax": 94000,
+      "needsRetranslation": true
     },
     {
       "id": "company-vetrc1",
@@ -12044,7 +12158,8 @@
       "employmentType": "FULL_TIME",
       "postalCode": "6003",
       "salaryMin": 69500,
-      "salaryMax": 106000
+      "salaryMax": 106000,
+      "needsRetranslation": true
     },
     {
       "id": "company-h9jyhr",
@@ -12108,7 +12223,8 @@
       "employmentType": "FULL_TIME",
       "postalCode": "3930",
       "salaryMin": 60500,
-      "salaryMax": 91500
+      "salaryMax": 91500,
+      "needsRetranslation": true
     },
     {
       "id": "company-asw2sw",
@@ -12180,7 +12296,8 @@
       "employmentType": "FULL_TIME",
       "postalCode": "5400",
       "salaryMin": 62000,
-      "salaryMax": 94000
+      "salaryMax": 94000,
+      "needsRetranslation": true
     },
     {
       "id": "company-tv1h51",
@@ -12252,7 +12369,8 @@
       "employmentType": "FULL_TIME",
       "postalCode": "5200",
       "salaryMin": 62000,
-      "salaryMax": 94000
+      "salaryMax": 94000,
+      "needsRetranslation": true
     },
     {
       "id": "company-dcsley",
@@ -12324,7 +12442,8 @@
       "employmentType": "FULL_TIME",
       "postalCode": "5000",
       "salaryMin": 62000,
-      "salaryMax": 94000
+      "salaryMax": 94000,
+      "needsRetranslation": true
     },
     {
       "id": "company-mdgyft",
@@ -12396,7 +12515,8 @@
       "employmentType": "FULL_TIME",
       "postalCode": "5000",
       "salaryMin": 62000,
-      "salaryMax": 94000
+      "salaryMax": 94000,
+      "needsRetranslation": true
     },
     {
       "id": "company-bnjjp4",
@@ -12475,7 +12595,8 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "salaryMin": 34500,
-      "salaryMax": 52200
+      "salaryMax": 52200,
+      "needsRetranslation": true
     },
     {
       "id": "company-71jza4",
@@ -12553,7 +12674,8 @@
         "vendeur-vendeuse-m-w-d-60-lidl-svizzera-courgevaux-71jza4"
       ],
       "salaryMin": 41100,
-      "salaryMax": 62400
+      "salaryMax": 62400,
+      "needsRetranslation": true
     },
     {
       "id": "company-bqvlmy",
@@ -12582,13 +12704,13 @@
       "firstSeenAt": "2026-07-06T22:40:50.002Z",
       "slugByLocale": {
         "it": "allrounder-vendita-m-w-d-20-40-1-lidl-svizzera-schaffhausen-bqvlmy",
-        "en": "all-rounder-sale-m-f-d-20-40-1-schaffhausen-lidl-svizzera-schaffhausen",
+        "en": "allrounder-verkauf-m-w-d-20-40-1-schaffhausen-lidl-svizzera-schaffhausen",
         "de": "allrounder-verkauf-m-w-d-20-40-1-lidl-svizzera-schaffhausen-bqvlmy",
         "fr": "allrounder-vente-m-w-d-20-40-1-lidl-svizzera-schaffhausen-bqvlmy"
       },
       "titleByLocale": {
         "it": "Allrounder vendita (m/w/d) 20-40% 1 — Schaffhausen",
-        "en": "All-rounder Sale (m/f/d) 20-40% 1 — Schaffhausen",
+        "en": "Allrounder Verkauf (m/w/d) 20-40% 1 — Schaffhausen",
         "de": "Allrounder Verkauf (m/w/d) 20-40% 1 — Schaffhausen",
         "fr": "Allrounder Vente (m/w/d) 20-40% 1 — Schaffhausen"
       },
@@ -12623,16 +12745,19 @@
         ],
         "en": [
           "allrounder-verkauf-m-w-d-20-40-1-lidl-svizzera-schaffhausen-bqvlmy",
+          "all-rounder-sale-m-f-d-20-40-1-schaffhausen-lidl-svizzera-schaffhausen",
           "allrounder-verkauf-m-w-d-20-40-1-schaffhausen-lidl-svizzera-schaffhausen"
         ]
       },
       "previousSlugs": [
         "allrounder-verkauf-m-w-d-20-40-1-lidl-svizzera-schaffhausen",
         "allrounder-verkauf-m-w-d-20-40-1-schaffhausen-lidl-svizzera-schaffhausen",
-        "allrounder-verkauf-m-w-d-20-40-1-lidl-svizzera-schaffhausen-bqvlmy"
+        "allrounder-verkauf-m-w-d-20-40-1-lidl-svizzera-schaffhausen-bqvlmy",
+        "all-rounder-sale-m-f-d-20-40-1-schaffhausen-lidl-svizzera-schaffhausen"
       ],
       "salaryMin": 23000,
-      "salaryMax": 34800
+      "salaryMax": 34800,
+      "needsRetranslation": true
     },
     {
       "id": "company-vzls6v",
@@ -12871,7 +12996,8 @@
       "employmentType": "FULL_TIME",
       "postalCode": "8200",
       "salaryMin": 34500,
-      "salaryMax": 52200
+      "salaryMax": 52200,
+      "needsRetranslation": true
     },
     {
       "id": "company-1z3xjg",
@@ -12949,7 +13075,8 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "salaryMin": 62000,
-      "salaryMax": 94000
+      "salaryMax": 94000,
+      "needsRetranslation": true
     },
     {
       "id": "company-48n2f",
@@ -13028,7 +13155,8 @@
       "employmentType": "FULL_TIME",
       "postalCode": "8001",
       "salaryMin": 29400,
-      "salaryMax": 44600
+      "salaryMax": 44600,
+      "needsRetranslation": true
     },
     {
       "id": "company-ck69q9",
@@ -13107,7 +13235,8 @@
       "employmentType": "FULL_TIME",
       "postalCode": "8400",
       "salaryMin": 29400,
-      "salaryMax": 44600
+      "salaryMax": 44600,
+      "needsRetranslation": true
     },
     {
       "id": "company-a6qr9v",
@@ -13136,7 +13265,7 @@
       "firstSeenAt": "2026-06-17T23:01:29.054Z",
       "titleByLocale": {
         "it": "Allrounder vendita (m/w/d) 20-40% 1 — Dietikon",
-        "en": "All-rounder Sale (m/f/d) 20-40% 1 — Dietikon",
+        "en": "Allrounder Verkauf (m/w/d) 20-40% 1 — Dietikon",
         "de": "Allrounder Verkauf (m/w/d) 20-40% 1 — Dietikon",
         "fr": "Allrounder Vente (m/w/d) 20-40% 1 — Dietikon"
       },
@@ -13148,7 +13277,7 @@
       },
       "slugByLocale": {
         "it": "allrounder-vendita-m-w-d-20-40-1-lidl-svizzera-dietikon-a6qr9v",
-        "en": "all-rounder-sale-m-f-d-20-40-1-dietikon-lidl-svizzera-dietikon",
+        "en": "allrounder-verkauf-m-w-d-20-40-1-dietikon-lidl-svizzera-dietikon",
         "de": "allrounder-verkauf-m-w-d-20-40-1-lidl-svizzera-dietikon-a6qr9v",
         "fr": "allrounder-vente-m-w-d-20-40-1-lidl-svizzera-dietikon-a6qr9v"
       },
@@ -13161,12 +13290,14 @@
         ],
         "en": [
           "allrounder-verkauf-m-w-d-20-40-1-lidl-svizzera-dietikon-a6qr9v",
+          "all-rounder-sale-m-f-d-20-40-1-dietikon-lidl-svizzera-dietikon",
           "allrounder-verkauf-m-w-d-20-40-1-dietikon-lidl-svizzera-dietikon"
         ]
       },
       "previousSlugs": [
         "allrounder-verkauf-m-w-d-20-40-1-lidl-svizzera-dietikon",
         "allrounder-verkauf-m-w-d-20-40-1-lidl-svizzera-dietikon-a6qr9v",
+        "all-rounder-sale-m-f-d-20-40-1-dietikon-lidl-svizzera-dietikon",
         "allrounder-verkauf-m-w-d-20-40-1-dietikon-lidl-svizzera-dietikon"
       ],
       "baseSalary": {
@@ -13185,7 +13316,8 @@
       "employmentType": "FULL_TIME",
       "postalCode": "8001",
       "salaryMin": 29400,
-      "salaryMax": 44600
+      "salaryMax": 44600,
+      "needsRetranslation": true
     },
     {
       "id": "company-olyzut",
@@ -13268,7 +13400,8 @@
         "seller-with-shift-responsibility-m-f-d-60-80-1-schlieren-lidl-svizzera-schlieren",
         "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-1-lidl-svizzera-schlieren-pt3c1h",
         "vendeur-a-responsabilite-de-quart-m-f-d-60-80-1-schlieren-lidl-svizzera-schlieren"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "company-2i2w8d",
@@ -13481,13 +13614,13 @@
       "firstSeenAt": "2026-07-06T22:40:50.002Z",
       "slugByLocale": {
         "it": "allrounder-vendita-m-w-d-20-40-lidl-svizzera-landquart-77m0yo",
-        "en": "all-rounder-sale-m-f-d-20-40-landquart-lidl-svizzera-landquart",
+        "en": "allrounder-verkauf-m-w-d-20-40-landquart-lidl-svizzera-landquart",
         "de": "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-landquart-77m0yo",
         "fr": "allrounder-vente-m-w-d-20-40-lidl-svizzera-landquart-77m0yo"
       },
       "titleByLocale": {
         "it": "Allrounder vendita (m/w/d) 20-40% — Landquart",
-        "en": "All-rounder sale (m/f/d) 20-40% — Landquart",
+        "en": "Allrounder Verkauf (m/w/d) 20-40% — Landquart",
         "de": "Allrounder Verkauf (m/w/d) 20-40% — Landquart",
         "fr": "Allrounder Vente (m/w/d) 20-40% — Landquart"
       },
@@ -13521,16 +13654,19 @@
         ],
         "en": [
           "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-landquart-77m0yo",
+          "all-rounder-sale-m-f-d-20-40-landquart-lidl-svizzera-landquart",
           "allrounder-verkauf-m-w-d-20-40-landquart-lidl-svizzera-landquart"
         ]
       },
       "previousSlugs": [
         "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-landquart",
         "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-landquart-77m0yo",
+        "all-rounder-sale-m-f-d-20-40-landquart-lidl-svizzera-landquart",
         "allrounder-verkauf-m-w-d-20-40-landquart-lidl-svizzera-landquart"
       ],
       "salaryMin": 23000,
-      "salaryMax": 34800
+      "salaryMax": 34800,
+      "needsRetranslation": true
     },
     {
       "id": "company-jo7e8g",
@@ -13758,7 +13894,8 @@
       "employmentType": "FULL_TIME",
       "postalCode": "8001",
       "salaryMin": 73500,
-      "salaryMax": 111500
+      "salaryMax": 111500,
+      "needsRetranslation": true
     },
     {
       "id": "company-md5k71",
@@ -13837,7 +13974,8 @@
       "employmentType": "FULL_TIME",
       "postalCode": "7302",
       "salaryMin": 17300,
-      "salaryMax": 26100
+      "salaryMax": 26100,
+      "needsRetranslation": true
     },
     {
       "id": "company-4vg1ny",
@@ -13909,7 +14047,8 @@
       "employmentType": "FULL_TIME",
       "postalCode": "5000",
       "salaryMin": 62000,
-      "salaryMax": 94000
+      "salaryMax": 94000,
+      "needsRetranslation": true
     },
     {
       "id": "company-fvg78y",
@@ -13952,7 +14091,7 @@
         "it": "cassiera-cassiera-lun-f-due-40-60-lidl-svizzera-bern",
         "en": "cashier-m-f-d-40-60-lidl-svizzera-bern",
         "de": "kassierer-kassiererin-m-w-d-40-60-lidl-svizzera-bern-fvg78y",
-        "fr": "caisse-m-f-j-40-60-lidl-svizzera-bern"
+        "fr": "caissier-m-w-d-40-60-lidl-svizzera-bern"
       },
       "requirementsByLocale": {},
       "country": "CH",
@@ -13967,12 +14106,14 @@
         ],
         "fr": [
           "kassierer-kassiererin-m-w-d-40-60-lidl-svizzera-bern-fvg78y",
+          "caisse-m-f-j-40-60-lidl-svizzera-bern",
           "caissier-m-w-d-40-60-lidl-svizzera-bern"
         ]
       },
       "previousSlugs": [
         "kassierer-kassiererin-m-w-d-40-60-lidl-svizzera-bern",
         "kassierer-kassiererin-m-w-d-40-60-lidl-svizzera-bern-fvg78y",
+        "caisse-m-f-j-40-60-lidl-svizzera-bern",
         "caissier-m-w-d-40-60-lidl-svizzera-bern"
       ],
       "baseSalary": {
@@ -13991,7 +14132,8 @@
       "employmentType": "FULL_TIME",
       "postalCode": "3001",
       "salaryMin": 41100,
-      "salaryMax": 62400
+      "salaryMax": 62400,
+      "needsRetranslation": true
     },
     {
       "id": "company-u85dk5",
@@ -14070,7 +14212,8 @@
       "employmentType": "FULL_TIME",
       "postalCode": "3001",
       "salaryMin": 27400,
-      "salaryMax": 41600
+      "salaryMax": 41600,
+      "needsRetranslation": true
     },
     {
       "id": "company-lw0dm5",
@@ -14150,7 +14293,8 @@
         "gerant-adjoint-gerante-adjointe-m-w-d-80-100-lidl-svizzera-courgevaux-lw0dm5"
       ],
       "salaryMin": 68500,
-      "salaryMax": 104000
+      "salaryMax": 104000,
+      "needsRetranslation": true
     },
     {
       "id": "company-m7n1la",
@@ -14230,7 +14374,8 @@
       "employmentType": "FULL_TIME",
       "postalCode": "7000",
       "salaryMin": 57500,
-      "salaryMax": 87000
+      "salaryMax": 87000,
+      "needsRetranslation": true
     },
     {
       "id": "company-wrul66",
@@ -14310,7 +14455,8 @@
       "employmentType": "FULL_TIME",
       "postalCode": "9000",
       "salaryMin": 57500,
-      "salaryMax": 87000
+      "salaryMax": 87000,
+      "needsRetranslation": true
     },
     {
       "id": "company-hupfj",
@@ -14388,7 +14534,8 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "salaryMin": 49600,
-      "salaryMax": 75200
+      "salaryMax": 75200,
+      "needsRetranslation": true
     },
     {
       "id": "company-75h5gt",
@@ -14468,7 +14615,8 @@
         "gerant-adjoint-gerante-adjointe-m-w-d-80-100-lidl-svizzera-payerne-75h5gt"
       ],
       "salaryMin": 60500,
-      "salaryMax": 91500
+      "salaryMax": 91500,
+      "needsRetranslation": true
     },
     {
       "id": "company-t36d3k",
@@ -14557,7 +14705,8 @@
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-fce2b5",
@@ -14745,13 +14894,13 @@
       "firstSeenAt": "2026-07-06T22:40:50.002Z",
       "slugByLocale": {
         "it": "allrounder-vendita-m-w-d-20-60-lidl-svizzera-sankt-gallen-s4cm0d",
-        "en": "all-rounder-sale-m-f-d-20-60-sankt-gallen-lidl-svizzera-sankt-gallen",
+        "en": "allrounder-verkauf-m-w-d-20-60-sankt-gallen-lidl-svizzera-sankt-gallen",
         "de": "allrounder-verkauf-m-w-d-20-60-lidl-svizzera-sankt-gallen-s4cm0d",
         "fr": "allrounder-vente-m-w-d-20-60-lidl-svizzera-sankt-gallen-s4cm0d"
       },
       "titleByLocale": {
         "it": "Allrounder vendita (m/w/d) 20-60% — Sankt Gallen",
-        "en": "All-rounder Sale (m/f/d) 20-60% — Sankt Gallen",
+        "en": "Allrounder Verkauf (m/w/d) 20-60% — Sankt Gallen",
         "de": "Allrounder Verkauf (m/w/d) 20-60% — Sankt Gallen",
         "fr": "Allrounder Vente (m/w/d) 20-60% — Sankt Gallen"
       },
@@ -14787,6 +14936,7 @@
           "allrounder-verkauf-m-w-d-20-60-lidl-svizzera-sankt-gallen-s4cm0d",
           "allrounder-verkauf-m-w-d-20-60-lidl-svizzera-sankt-gallen",
           "all-rounder-sale-m-f-d-20-60-lidl-svizzera-sankt-gallen",
+          "all-rounder-sale-m-f-d-20-60-sankt-gallen-lidl-svizzera-sankt-gallen",
           "allrounder-verkauf-m-w-d-20-60-sankt-gallen-lidl-svizzera-sankt-gallen"
         ]
       },
@@ -14794,10 +14944,12 @@
         "allrounder-verkauf-m-w-d-20-60-lidl-svizzera-sankt-gallen",
         "allrounder-verkauf-m-w-d-20-60-lidl-svizzera-sankt-gallen-s4cm0d",
         "all-rounder-sale-m-f-d-20-60-lidl-svizzera-sankt-gallen",
+        "all-rounder-sale-m-f-d-20-60-sankt-gallen-lidl-svizzera-sankt-gallen",
         "allrounder-verkauf-m-w-d-20-60-sankt-gallen-lidl-svizzera-sankt-gallen"
       ],
       "salaryMin": 34500,
-      "salaryMax": 52200
+      "salaryMax": 52200,
+      "needsRetranslation": true
     },
     {
       "id": "company-kpbv0p",
@@ -14826,13 +14978,13 @@
       "firstSeenAt": "2026-07-06T22:40:50.002Z",
       "slugByLocale": {
         "it": "allrounder-vendita-m-w-d-20-40-1-lidl-svizzera-brugg-kpbv0p",
-        "en": "all-rounder-sale-m-f-d-20-40-1-brugg-lidl-svizzera-brugg",
+        "en": "allrounder-verkauf-m-w-d-20-40-1-brugg-lidl-svizzera-brugg",
         "de": "allrounder-verkauf-m-w-d-20-40-1-lidl-svizzera-brugg-kpbv0p",
         "fr": "allrounder-vente-m-w-d-20-40-1-lidl-svizzera-brugg-kpbv0p"
       },
       "titleByLocale": {
         "it": "Allrounder vendita (m/w/d) 20-40% 1 — Brugg",
-        "en": "All-rounder Sale (m/f/d) 20-40% 1 — Brugg",
+        "en": "Allrounder Verkauf (m/w/d) 20-40% 1 — Brugg",
         "de": "Allrounder Verkauf (m/w/d) 20-40% 1 — Brugg",
         "fr": "Allrounder Vente (m/w/d) 20-40% 1 — Brugg"
       },
@@ -14866,16 +15018,19 @@
         ],
         "en": [
           "allrounder-verkauf-m-w-d-20-40-1-lidl-svizzera-brugg-kpbv0p",
+          "all-rounder-sale-m-f-d-20-40-1-brugg-lidl-svizzera-brugg",
           "allrounder-verkauf-m-w-d-20-40-1-brugg-lidl-svizzera-brugg"
         ]
       },
       "previousSlugs": [
         "allrounder-verkauf-m-w-d-20-40-1-lidl-svizzera-brugg",
         "allrounder-verkauf-m-w-d-20-40-1-lidl-svizzera-brugg-kpbv0p",
+        "all-rounder-sale-m-f-d-20-40-1-brugg-lidl-svizzera-brugg",
         "allrounder-verkauf-m-w-d-20-40-1-brugg-lidl-svizzera-brugg"
       ],
       "salaryMin": 24800,
-      "salaryMax": 37600
+      "salaryMax": 37600,
+      "needsRetranslation": true
     },
     {
       "id": "company-kyg4wx",
@@ -14980,13 +15135,13 @@
       "firstSeenAt": "2026-07-06T22:40:50.002Z",
       "slugByLocale": {
         "it": "allrounder-vendita-m-w-d-20-40-1-lidl-svizzera-hunzenschwil-az9oi8",
-        "en": "all-rounder-sale-m-f-d-20-40-1-hunzenschwil-lidl-svizzera-hunzenschwil",
+        "en": "allrounder-verkauf-m-w-d-20-40-1-hunzenschwil-lidl-svizzera-hunzenschwil",
         "de": "allrounder-verkauf-m-w-d-20-40-1-lidl-svizzera-hunzenschwil-az9oi8",
         "fr": "allrounder-vente-m-w-d-20-40-1-lidl-svizzera-hunzenschwil-az9oi8"
       },
       "titleByLocale": {
         "it": "Allrounder vendita (m/w/d) 20-40% 1 — Hunzenschwil",
-        "en": "All-rounder Sale (m/f/d) 20-40% 1 — Hunzenschwil",
+        "en": "Allrounder Verkauf (m/w/d) 20-40% 1 — Hunzenschwil",
         "de": "Allrounder Verkauf (m/w/d) 20-40% 1 — Hunzenschwil",
         "fr": "Allrounder Vente (m/w/d) 20-40% 1 — Hunzenschwil"
       },
@@ -15020,16 +15175,19 @@
         ],
         "en": [
           "allrounder-verkauf-m-w-d-20-40-1-lidl-svizzera-hunzenschwil-az9oi8",
+          "all-rounder-sale-m-f-d-20-40-1-hunzenschwil-lidl-svizzera-hunzenschwil",
           "allrounder-verkauf-m-w-d-20-40-1-hunzenschwil-lidl-svizzera-hunzenschwil"
         ]
       },
       "previousSlugs": [
         "allrounder-verkauf-m-w-d-20-40-1-lidl-svizzera-hunzenschwil",
         "allrounder-verkauf-m-w-d-20-40-1-lidl-svizzera-hunzenschwil-az9oi8",
+        "all-rounder-sale-m-f-d-20-40-1-hunzenschwil-lidl-svizzera-hunzenschwil",
         "allrounder-verkauf-m-w-d-20-40-1-hunzenschwil-lidl-svizzera-hunzenschwil"
       ],
       "salaryMin": 24800,
-      "salaryMax": 37600
+      "salaryMax": 37600,
+      "needsRetranslation": true
     },
     {
       "id": "company-xms4ke",
@@ -15058,13 +15216,13 @@
       "firstSeenAt": "2026-07-06T22:40:50.002Z",
       "slugByLocale": {
         "it": "allrounder-vendita-m-w-d-20-40-1-lidl-svizzera-wettingen-xms4ke",
-        "en": "all-rounder-sale-m-f-d-20-40-1-wettingen-lidl-svizzera-wettingen",
+        "en": "allrounder-verkauf-m-w-d-20-40-1-wettingen-lidl-svizzera-wettingen",
         "de": "allrounder-verkauf-m-w-d-20-40-1-lidl-svizzera-wettingen-xms4ke",
         "fr": "allrounder-vente-m-w-d-20-40-1-lidl-svizzera-wettingen-xms4ke"
       },
       "titleByLocale": {
         "it": "Allrounder vendita (m/w/d) 20-40% 1 — Wettingen",
-        "en": "All-rounder Sale (m/f/d) 20-40% 1 — Wettingen",
+        "en": "Allrounder Verkauf (m/w/d) 20-40% 1 — Wettingen",
         "de": "Allrounder Verkauf (m/w/d) 20-40% 1 — Wettingen",
         "fr": "Allrounder Vente (m/w/d) 20-40% 1 — Wettingen"
       },
@@ -15098,16 +15256,19 @@
         ],
         "en": [
           "allrounder-verkauf-m-w-d-20-40-1-lidl-svizzera-wettingen-xms4ke",
+          "all-rounder-sale-m-f-d-20-40-1-wettingen-lidl-svizzera-wettingen",
           "allrounder-verkauf-m-w-d-20-40-1-wettingen-lidl-svizzera-wettingen"
         ]
       },
       "previousSlugs": [
         "allrounder-verkauf-m-w-d-20-40-1-lidl-svizzera-wettingen",
         "allrounder-verkauf-m-w-d-20-40-1-lidl-svizzera-wettingen-xms4ke",
+        "all-rounder-sale-m-f-d-20-40-1-wettingen-lidl-svizzera-wettingen",
         "allrounder-verkauf-m-w-d-20-40-1-wettingen-lidl-svizzera-wettingen"
       ],
       "salaryMin": 24800,
-      "salaryMax": 37600
+      "salaryMax": 37600,
+      "needsRetranslation": true
     },
     {
       "id": "company-a9djgw",
@@ -15347,7 +15508,8 @@
       "employmentType": "FULL_TIME",
       "postalCode": "4500",
       "salaryMin": 27400,
-      "salaryMax": 41600
+      "salaryMax": 41600,
+      "needsRetranslation": true
     },
     {
       "id": "company-tywh7y",
@@ -15506,7 +15668,8 @@
       "employmentType": "FULL_TIME",
       "postalCode": "5200",
       "salaryMin": 49600,
-      "salaryMax": 75200
+      "salaryMax": 75200,
+      "needsRetranslation": true
     },
     {
       "id": "company-8vvgcq",
@@ -15585,7 +15748,8 @@
       "employmentType": "FULL_TIME",
       "postalCode": "5000",
       "salaryMin": 49600,
-      "salaryMax": 75200
+      "salaryMax": 75200,
+      "needsRetranslation": true
     },
     {
       "id": "company-pbr8uj",
@@ -15664,7 +15828,8 @@
       "employmentType": "FULL_TIME",
       "postalCode": "5000",
       "salaryMin": 49600,
-      "salaryMax": 75200
+      "salaryMax": 75200,
+      "needsRetranslation": true
     },
     {
       "id": "company-o458ij",
@@ -15743,7 +15908,8 @@
       "employmentType": "FULL_TIME",
       "postalCode": "2501",
       "salaryMin": 54800,
-      "salaryMax": 83200
+      "salaryMax": 83200,
+      "needsRetranslation": true
     },
     {
       "id": "company-50rrnq",
@@ -15843,7 +16009,8 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "salaryMin": 58800,
-      "salaryMax": 89200
+      "salaryMax": 89200,
+      "needsRetranslation": true
     },
     {
       "id": "company-kcillg",
@@ -15915,7 +16082,8 @@
         "mitarbeiter-mitarbeiterin-self-checkout-und-verkauf-40-80-lidl-svizzera-spiez"
       ],
       "salaryMin": 54800,
-      "salaryMax": 83200
+      "salaryMax": 83200,
+      "needsRetranslation": true
     },
     {
       "id": "company-njac6o",
@@ -16025,7 +16193,7 @@
         "it": "Picker ordini non alimentari (lunedì/venerdì/d) 40-80%",
         "en": "Order Picker Non Food (m/f/d) 40-80%",
         "de": "Kommissionierer / Kommissioniererin Nicht-Lebensmittel (m/w/d) 40-80 %",
-        "fr": "Picker de commande / Picker de commande Non alimentaire (m/f/d) 40-80 %"
+        "fr": "Kommissionierer / Kommissioniererin Non Food (m/w/d) 40-80%"
       },
       "descriptionByLocale": {
         "it": "Introduzione Lidl Svizzera è sempre più presente sul mercato svizzero con una moderna rete di filiali. L'espansione in Svizzera è continuata ininterrottamente dall'ingresso nel mercato nel 2009. Da Lidl Svizzera ti aspettano compiti entusiasmanti e diverse opportunità di carriera nel dinamico ambiente del commercio al dettaglio. Lavorerai nel nuovo centro di distribuzione merci a Derendingen. I vostri compiti - Prelievo degli ordini dalle nostre filiali - Assistenza negli inventari di magazzino e nel controllo e stoccaggio dei resi in entrata dalle filiali - Fornitura di pallet per la spedizione - Rispetto degli standard di sicurezza, igiene e pulizia sul lavoro Il vostro profilo - Esperienza nel settore della logistica o della produzione - Personalità affidabile, indipendente e resiliente - Capacità di lavorare in gruppo, cooperare e comunicare - Buona salute fisica - Disponibilità a lavorare su turni, notti e domeniche - Buono tedesco, francese e/o conoscenza dell'inglese - patente per carrelli elevatori categoria R1, R2 un vantaggio Quello che offriamo In Lidl Svizzera c'è spazio per l'ambizione e l'innovazione. Partecipa attivamente. Crescere ogni giorno a livello professionale e personale. Ti prepareremo per i tuoi compiti vari e interessanti con una formazione intensiva. Inoltre vi offriamo la sicurezza di un posto fisso, di un grande team, dei vantaggi del GAV Lidl, di un'eccellente previdenza professionale e di altri vantaggi interessanti. Approfitta dell'opportunità e candidati online adesso!",
@@ -16077,7 +16245,8 @@
       "employmentType": "FULL_TIME",
       "postalCode": "4500",
       "salaryMin": 49500,
-      "salaryMax": 75000
+      "salaryMax": 75000,
+      "needsRetranslation": true
     },
     {
       "id": "company-6prcw4",
@@ -16198,13 +16367,13 @@
       "firstSeenAt": "2026-07-06T22:40:50.002Z",
       "slugByLocale": {
         "it": "allrounder-vendita-m-w-d-20-40-lidl-svizzera-wallisellen-jmljz9",
-        "en": "all-rounder-sale-m-f-d-20-40-wallisellen-lidl-svizzera-wallisellen",
+        "en": "allrounder-verkauf-m-w-d-20-40-wallisellen-lidl-svizzera-wallisellen",
         "de": "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-wallisellen-jmljz9",
         "fr": "allrounder-vente-m-w-d-20-40-lidl-svizzera-wallisellen-jmljz9"
       },
       "titleByLocale": {
         "it": "Allrounder vendita (m/w/d) 20-40% — Wallisellen",
-        "en": "All-rounder Sale (m/f/d) 20-40% — Wallisellen",
+        "en": "Allrounder Verkauf (m/w/d) 20-40% — Wallisellen",
         "de": "Allrounder Verkauf (m/w/d) 20-40% — Wallisellen",
         "fr": "Allrounder Vente (m/w/d) 20-40% — Wallisellen"
       },
@@ -16238,16 +16407,19 @@
         ],
         "en": [
           "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-wallisellen-jmljz9",
+          "all-rounder-sale-m-f-d-20-40-wallisellen-lidl-svizzera-wallisellen",
           "allrounder-verkauf-m-w-d-20-40-wallisellen-lidl-svizzera-wallisellen"
         ]
       },
       "previousSlugs": [
         "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-wallisellen",
         "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-wallisellen-jmljz9",
+        "all-rounder-sale-m-f-d-20-40-wallisellen-lidl-svizzera-wallisellen",
         "allrounder-verkauf-m-w-d-20-40-wallisellen-lidl-svizzera-wallisellen"
       ],
       "salaryMin": 29400,
-      "salaryMax": 44600
+      "salaryMax": 44600,
+      "needsRetranslation": true
     },
     {
       "id": "company-vibzh1",
@@ -16397,7 +16569,8 @@
       "employmentType": "FULL_TIME",
       "postalCode": "8001",
       "salaryMin": 73500,
-      "salaryMax": 111500
+      "salaryMax": 111500,
+      "needsRetranslation": true
     },
     {
       "id": "company-3xzvvc",
@@ -16483,7 +16656,8 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "salaryMin": 49600,
-      "salaryMax": 75200
+      "salaryMax": 75200,
+      "needsRetranslation": true
     },
     {
       "id": "company-lmycni",
@@ -16648,7 +16822,8 @@
       "employmentType": "FULL_TIME",
       "postalCode": "5000",
       "salaryMin": 49600,
-      "salaryMax": 75200
+      "salaryMax": 75200,
+      "needsRetranslation": true
     },
     {
       "id": "company-a23ngs",
@@ -17015,7 +17190,8 @@
         "ch-allrounder-verkauf-m-w-d-20-40-lidl-svizzera-oeschgen"
       ],
       "salaryMin": 24800,
-      "salaryMax": 37600
+      "salaryMax": 37600,
+      "needsRetranslation": true
     },
     {
       "id": "company-2ah02b",
@@ -17254,7 +17430,8 @@
       "employmentType": "FULL_TIME",
       "postalCode": "6300",
       "salaryMin": 55600,
-      "salaryMax": 84800
+      "salaryMax": 84800,
+      "needsRetranslation": true
     },
     {
       "id": "company-gghbxk",
@@ -17333,7 +17510,8 @@
       "employmentType": "FULL_TIME",
       "postalCode": "6300",
       "salaryMin": 55600,
-      "salaryMax": 84800
+      "salaryMax": 84800,
+      "needsRetranslation": true
     },
     {
       "id": "company-aed2ur",
@@ -17441,13 +17619,13 @@
       "firstSeenAt": "2026-07-06T22:40:50.002Z",
       "slugByLocale": {
         "it": "allrounder-vendita-m-w-d-20-60-lidl-svizzera-st-gallen-dwpy10",
-        "en": "all-rounder-sale-m-f-d-20-60-st-gallen-lidl-svizzera-st-gallen",
+        "en": "allrounder-verkauf-m-w-d-20-60-st-gallen-lidl-svizzera-st-gallen",
         "de": "allrounder-verkauf-m-w-d-20-60-lidl-svizzera-st-gallen-dwpy10",
         "fr": "allrounder-vente-m-w-d-20-60-lidl-svizzera-st-gallen-dwpy10"
       },
       "titleByLocale": {
         "it": "Allrounder vendita (m/w/d) 20-60% — St. Gallen",
-        "en": "All-rounder Sale (m/f/d) 20-60% — St. Gallen",
+        "en": "Allrounder Verkauf (m/w/d) 20-60% — St. Gallen",
         "de": "Allrounder Verkauf (m/w/d) 20-60% — St. Gallen",
         "fr": "Allrounder Vente (m/w/d) 20-60% — St. Gallen"
       },
@@ -17481,16 +17659,19 @@
         ],
         "en": [
           "allrounder-verkauf-m-w-d-20-60-lidl-svizzera-st-gallen-dwpy10",
+          "all-rounder-sale-m-f-d-20-60-st-gallen-lidl-svizzera-st-gallen",
           "allrounder-verkauf-m-w-d-20-60-st-gallen-lidl-svizzera-st-gallen"
         ]
       },
       "previousSlugs": [
         "allrounder-verkauf-m-w-d-20-60-lidl-svizzera-st-gallen",
         "allrounder-verkauf-m-w-d-20-60-lidl-svizzera-st-gallen-dwpy10",
+        "all-rounder-sale-m-f-d-20-60-st-gallen-lidl-svizzera-st-gallen",
         "allrounder-verkauf-m-w-d-20-60-st-gallen-lidl-svizzera-st-gallen"
       ],
       "salaryMin": 34500,
-      "salaryMax": 52200
+      "salaryMax": 52200,
+      "needsRetranslation": true
     },
     {
       "id": "company-xmqkc2",
@@ -17739,7 +17920,8 @@
       "employmentType": "FULL_TIME",
       "postalCode": "4500",
       "salaryMin": 54800,
-      "salaryMax": 83200
+      "salaryMax": 83200,
+      "needsRetranslation": true
     },
     {
       "id": "company-4y4wqw",
@@ -17982,7 +18164,8 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "salaryMin": 49500,
-      "salaryMax": 75000
+      "salaryMax": 75000,
+      "needsRetranslation": true
     },
     {
       "id": "company-8chomo",
@@ -18222,7 +18405,8 @@
       "employmentType": "FULL_TIME",
       "postalCode": "8001",
       "salaryMin": 58800,
-      "salaryMax": 89200
+      "salaryMax": 89200,
+      "needsRetranslation": true
     },
     {
       "id": "company-p0o46u",
@@ -18251,13 +18435,13 @@
       "firstSeenAt": "2026-07-06T22:40:50.002Z",
       "slugByLocale": {
         "it": "allrounder-vendita-m-w-d-20-40-lidl-svizzera-horw-p0o46u",
-        "en": "all-rounder-sale-m-f-d-20-40-horw-lidl-svizzera-horw",
+        "en": "allrounder-verkauf-m-w-d-20-40-horw-lidl-svizzera-horw",
         "de": "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-horw-p0o46u",
         "fr": "allrounder-vente-m-w-d-20-40-lidl-svizzera-horw-p0o46u"
       },
       "titleByLocale": {
         "it": "Allrounder vendita (m/w/d) 20-40% — Horw",
-        "en": "All-rounder Sale (m/f/d) 20-40% — Horw",
+        "en": "Allrounder Verkauf (m/w/d) 20-40% — Horw",
         "de": "Allrounder Verkauf (m/w/d) 20-40% — Horw",
         "fr": "Allrounder Vente (m/w/d) 20-40% — Horw"
       },
@@ -18291,16 +18475,19 @@
         ],
         "en": [
           "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-horw-p0o46u",
+          "all-rounder-sale-m-f-d-20-40-horw-lidl-svizzera-horw",
           "allrounder-verkauf-m-w-d-20-40-horw-lidl-svizzera-horw"
         ]
       },
       "previousSlugs": [
         "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-horw",
         "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-horw-p0o46u",
+        "all-rounder-sale-m-f-d-20-40-horw-lidl-svizzera-horw",
         "allrounder-verkauf-m-w-d-20-40-horw-lidl-svizzera-horw"
       ],
       "salaryMin": 27800,
-      "salaryMax": 42400
+      "salaryMax": 42400,
+      "needsRetranslation": true
     },
     {
       "id": "company-5wahyo",
@@ -18329,13 +18516,13 @@
       "firstSeenAt": "2026-07-06T22:40:50.002Z",
       "slugByLocale": {
         "it": "allrounder-vendita-m-w-d-20-40-lidl-svizzera-kriens-5wahyo",
-        "en": "all-rounder-sale-m-f-d-20-40-kriens-lidl-svizzera-kriens",
+        "en": "allrounder-verkauf-m-w-d-20-40-kriens-lidl-svizzera-kriens",
         "de": "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-kriens-5wahyo",
         "fr": "allrounder-vente-m-w-d-20-40-lidl-svizzera-kriens-5wahyo"
       },
       "titleByLocale": {
         "it": "Allrounder vendita (m/w/d) 20-40% — Kriens",
-        "en": "All-rounder Sale (m/f/d) 20-40% — Kriens",
+        "en": "Allrounder Verkauf (m/w/d) 20-40% — Kriens",
         "de": "Allrounder Verkauf (m/w/d) 20-40% — Kriens",
         "fr": "Allrounder Vente (m/w/d) 20-40% — Kriens"
       },
@@ -18369,16 +18556,19 @@
         ],
         "en": [
           "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-kriens-5wahyo",
+          "all-rounder-sale-m-f-d-20-40-kriens-lidl-svizzera-kriens",
           "allrounder-verkauf-m-w-d-20-40-kriens-lidl-svizzera-kriens"
         ]
       },
       "previousSlugs": [
         "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-kriens",
         "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-kriens-5wahyo",
+        "all-rounder-sale-m-f-d-20-40-kriens-lidl-svizzera-kriens",
         "allrounder-verkauf-m-w-d-20-40-kriens-lidl-svizzera-kriens"
       ],
       "salaryMin": 27800,
-      "salaryMax": 42400
+      "salaryMax": 42400,
+      "needsRetranslation": true
     },
     {
       "id": "company-ug7fwy",
@@ -18458,7 +18648,8 @@
         "kundenbetreuer-kundenbetreuerin-self-checkout-lidl-svizzera-adliswil-ug7fwy"
       ],
       "salaryMin": 73500,
-      "salaryMax": 111500
+      "salaryMax": 111500,
+      "needsRetranslation": true
     },
     {
       "id": "company-djgrzg",
@@ -18530,7 +18721,8 @@
       "employmentType": "FULL_TIME",
       "postalCode": "3001",
       "salaryMin": 49500,
-      "salaryMax": 75000
+      "salaryMax": 75000,
+      "needsRetranslation": true
     },
     {
       "id": "company-pv2x9z",
@@ -18682,7 +18874,8 @@
       "employmentType": "FULL_TIME",
       "postalCode": "8001",
       "salaryMin": 73500,
-      "salaryMax": 111500
+      "salaryMax": 111500,
+      "needsRetranslation": true
     },
     {
       "id": "company-zc9hcc",
@@ -18713,7 +18906,7 @@
         "it": "ch-customer-manager-gestione-clienti-self-checkout-lidl-svizzera-stans",
         "en": "ch-customer-manager-gestione-clienti-self-checkout-lidl-svizzera-stans",
         "de": "ch-kundenbetreuer-kundenbetreuerin-self-checkout-lidl-svizzera-stans-zc9hcc",
-        "fr": "ch-kundenbetreuer-representant-du-service-client-caisse-libre-service-lidl-svizzera-stans"
+        "fr": "ch-customer-manager-self-check-out-lidl-svizzera-stans"
       },
       "titleByLocale": {
         "it": "CH Customer Manager / Gestione clienti Self-Checkout",
@@ -18740,6 +18933,7 @@
         ],
         "fr": [
           "ch-kundenbetreuer-kundenbetreuerin-self-checkout-lidl-svizzera-stans-zc9hcc",
+          "ch-kundenbetreuer-representant-du-service-client-caisse-libre-service-lidl-svizzera-stans",
           "ch-customer-manager-self-check-out-lidl-svizzera-stans"
         ]
       },
@@ -18747,6 +18941,7 @@
         "ch-kundenbetreuer-kundenbetreuerin-self-checkout-lidl-svizzera-stans-zc9hcc",
         "ch-kundenbetreuer-kundenbetreuerin-self-checkout-lidl-svizzera-stans",
         "ch-kundenbetreuer-customer-service-representative-self-checkout-lidl-svizzera-stans-zc9hcc",
+        "ch-kundenbetreuer-representant-du-service-client-caisse-libre-service-lidl-svizzera-stans",
         "ch-customer-manager-self-check-out-lidl-svizzera-stans"
       ],
       "country": "CH",
@@ -18766,7 +18961,8 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "salaryMin": 69500,
-      "salaryMax": 106000
+      "salaryMax": 106000,
+      "needsRetranslation": true
     },
     {
       "id": "company-2gr6sl",
@@ -18918,7 +19114,8 @@
       "employmentType": "FULL_TIME",
       "postalCode": "8001",
       "salaryMin": 73500,
-      "salaryMax": 111500
+      "salaryMax": 111500,
+      "needsRetranslation": true
     },
     {
       "id": "company-s3ly4z",
@@ -18997,7 +19194,8 @@
       "employmentType": "FULL_TIME",
       "postalCode": "8001",
       "salaryMin": 58800,
-      "salaryMax": 89200
+      "salaryMax": 89200,
+      "needsRetranslation": true
     },
     {
       "id": "company-5j5m52",
@@ -19088,7 +19286,8 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "salaryMin": 58800,
-      "salaryMax": 89200
+      "salaryMax": 89200,
+      "needsRetranslation": true
     },
     {
       "id": "company-yckctb",
@@ -19120,7 +19319,8 @@
         "allrounder-verkauf-m-w-d-20-40-1-lidl-svizzera-schlieren-yckdlp",
         "allrounder-vente-m-w-d-20-40-1-lidl-svizzera-schlieren-yckdlp",
         "allrounder-verkauf-m-w-d-20-40-1-lidl-svizzera-schlieren-yckctb",
-        "allrounder-verkauf-m-w-d-20-40-1-schlieren-lidl-svizzera-schlieren"
+        "allrounder-verkauf-m-w-d-20-40-1-schlieren-lidl-svizzera-schlieren",
+        "all-rounder-sale-m-f-d-20-40-1-schlieren-lidl-svizzera-schlieren"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -19129,6 +19329,7 @@
         ],
         "en": [
           "allrounder-verkauf-m-w-d-20-40-1-lidl-svizzera-schlieren-yckctb",
+          "all-rounder-sale-m-f-d-20-40-1-schlieren-lidl-svizzera-schlieren",
           "allrounder-verkauf-m-w-d-20-40-1-schlieren-lidl-svizzera-schlieren"
         ],
         "de": [
@@ -19140,13 +19341,13 @@
       },
       "slugByLocale": {
         "it": "allrounder-vendita-m-w-d-20-40-1-lidl-svizzera-schlieren-yckctb",
-        "en": "all-rounder-sale-m-f-d-20-40-1-schlieren-lidl-svizzera-schlieren",
+        "en": "allrounder-verkauf-m-w-d-20-40-1-schlieren-lidl-svizzera-schlieren",
         "de": "allrounder-verkauf-m-w-d-20-40-1-lidl-svizzera-schlieren-yckctb",
         "fr": "allrounder-vente-m-w-d-20-40-1-lidl-svizzera-schlieren-yckctb"
       },
       "titleByLocale": {
         "it": "Allrounder vendita (m/w/d) 20-40% 1 — Schlieren",
-        "en": "All-rounder Sale (m/f/d) 20-40% 1 — Schlieren",
+        "en": "Allrounder Verkauf (m/w/d) 20-40% 1 — Schlieren",
         "de": "Allrounder Verkauf (m/w/d) 20-40% 1 — Schlieren",
         "fr": "Allrounder Vente (m/w/d) 20-40% 1 — Schlieren"
       },
@@ -19174,7 +19375,8 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "salaryMin": 29400,
-      "salaryMax": 44600
+      "salaryMax": 44600,
+      "needsRetranslation": true
     },
     {
       "id": "company-38a0y",
@@ -19203,13 +19405,13 @@
       "firstSeenAt": "2026-07-06T22:40:50.002Z",
       "slugByLocale": {
         "it": "allrounder-vendita-m-w-d-20-40-1-lidl-svizzera-spreitenbach-038a0y",
-        "en": "all-rounder-sale-m-f-d-20-40-1-spreitenbach-lidl-svizzera-spreitenbach",
+        "en": "allrounder-verkauf-m-w-d-20-40-1-spreitenbach-lidl-svizzera-spreitenbach",
         "de": "allrounder-verkauf-m-w-d-20-40-1-lidl-svizzera-spreitenbach-038a0y",
         "fr": "allrounder-vente-m-w-d-20-40-1-lidl-svizzera-spreitenbach-038a0y"
       },
       "titleByLocale": {
         "it": "Allrounder vendita (m/w/d) 20-40% 1 — Spreitenbach",
-        "en": "All-rounder Sale (m/f/d) 20-40% 1 — Spreitenbach",
+        "en": "Allrounder Verkauf (m/w/d) 20-40% 1 — Spreitenbach",
         "de": "Allrounder Verkauf (m/w/d) 20-40% 1 — Spreitenbach",
         "fr": "Allrounder Vente (m/w/d) 20-40% 1 — Spreitenbach"
       },
@@ -19243,16 +19445,19 @@
         ],
         "en": [
           "allrounder-verkauf-m-w-d-20-40-1-lidl-svizzera-spreitenbach-038a0y",
+          "all-rounder-sale-m-f-d-20-40-1-spreitenbach-lidl-svizzera-spreitenbach",
           "allrounder-verkauf-m-w-d-20-40-1-spreitenbach-lidl-svizzera-spreitenbach"
         ]
       },
       "previousSlugs": [
         "allrounder-verkauf-m-w-d-20-40-1-lidl-svizzera-spreitenbach",
         "allrounder-verkauf-m-w-d-20-40-1-lidl-svizzera-spreitenbach-038a0y",
+        "all-rounder-sale-m-f-d-20-40-1-spreitenbach-lidl-svizzera-spreitenbach",
         "allrounder-verkauf-m-w-d-20-40-1-spreitenbach-lidl-svizzera-spreitenbach"
       ],
       "salaryMin": 24800,
-      "salaryMax": 37600
+      "salaryMax": 37600,
+      "needsRetranslation": true
     },
     {
       "id": "company-6y1ijc",
@@ -19331,7 +19536,8 @@
       "employmentType": "FULL_TIME",
       "postalCode": "5000",
       "salaryMin": 49600,
-      "salaryMax": 75200
+      "salaryMax": 75200,
+      "needsRetranslation": true
     },
     {
       "id": "company-b68ehs",
@@ -19410,7 +19616,8 @@
       "employmentType": "FULL_TIME",
       "postalCode": "5000",
       "salaryMin": 49500,
-      "salaryMax": 75000
+      "salaryMax": 75000,
+      "needsRetranslation": true
     },
     {
       "id": "company-dlxvxa",
@@ -19643,7 +19850,7 @@
       },
       "titleByLocale": {
         "it": "Allrounder vendita (m/w/d) 20-40% 1 — Baden",
-        "en": "Allrounder Sale (m/f/d) 20-40% 1 — Baden",
+        "en": "Allrounder Verkauf (m/w/d) 20-40% 1 — Baden",
         "de": "Allrounder Verkauf (m/w/d) 20-40% 1 — Baden",
         "fr": "Allrounder Vente (m/w/d) 20-40% 1 — Baden"
       },
@@ -19677,7 +19884,8 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "salaryMin": 24800,
-      "salaryMax": 37600
+      "salaryMax": 37600,
+      "needsRetranslation": true
     },
     {
       "id": "company-tgltzq",
@@ -19709,7 +19917,8 @@
         "allrounder-verkauf-m-w-d-20-40-1-lidl-svizzera-winterthur-tgltzn",
         "allrounder-vendita-m-w-d-20-40-1-lidl-svizzera-winterthur-tgltzn",
         "allrounder-vente-m-w-d-20-40-1-lidl-svizzera-winterthur-tgltzn",
-        "allrounder-verkauf-m-w-d-20-40-1-winterthur-lidl-svizzera-winterthur"
+        "allrounder-verkauf-m-w-d-20-40-1-winterthur-lidl-svizzera-winterthur",
+        "all-rounder-sale-m-f-d-20-40-1-winterthur-lidl-svizzera-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -19719,6 +19928,7 @@
         "en": [
           "all-rounder-sale-m-f-d-20-40-1-winterthur-lidl-svizzera-winterthur-9053ef",
           "allrounder-verkauf-m-w-d-20-40-1-lidl-svizzera-winterthur-tgltzn",
+          "all-rounder-sale-m-f-d-20-40-1-winterthur-lidl-svizzera-winterthur",
           "allrounder-verkauf-m-w-d-20-40-1-winterthur-lidl-svizzera-winterthur"
         ],
         "de": [
@@ -19730,13 +19940,13 @@
       },
       "slugByLocale": {
         "it": "allrounder-vendita-m-w-d-20-40-1-lidl-svizzera-winterthur-tgltzq",
-        "en": "all-rounder-sale-m-f-d-20-40-1-winterthur-lidl-svizzera-winterthur",
+        "en": "allrounder-verkauf-m-w-d-20-40-1-winterthur-lidl-svizzera-winterthur",
         "de": "allrounder-verkauf-m-w-d-20-40-1-lidl-svizzera-winterthur-tgltzq",
         "fr": "allrounder-vente-m-w-d-20-40-1-lidl-svizzera-winterthur-tgltzq"
       },
       "titleByLocale": {
         "it": "Allrounder vendita (m/w/d) 20-40% 1 — Winterthur",
-        "en": "All-rounder Sale (m/f/d) 20-40% 1 — Winterthur",
+        "en": "Allrounder Verkauf (m/w/d) 20-40% 1 — Winterthur",
         "de": "Allrounder Verkauf (m/w/d) 20-40% 1 — Winterthur",
         "fr": "Allrounder Vente (m/w/d) 20-40% 1 — Winterthur"
       },
@@ -19764,7 +19974,8 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "salaryMin": 29400,
-      "salaryMax": 44600
+      "salaryMax": 44600,
+      "needsRetranslation": true
     },
     {
       "id": "company-nsmt00",
@@ -19793,13 +20004,13 @@
       "firstSeenAt": "2026-07-06T22:40:50.002Z",
       "slugByLocale": {
         "it": "allrounder-vendita-m-w-d-20-40-1-lidl-svizzera-neftenbach-nsmt00",
-        "en": "all-rounder-sale-m-f-d-20-40-1-neftenbach-lidl-svizzera-neftenbach",
+        "en": "allrounder-verkauf-m-w-d-20-40-1-neftenbach-lidl-svizzera-neftenbach",
         "de": "allrounder-verkauf-m-w-d-20-40-1-lidl-svizzera-neftenbach-nsmt00",
         "fr": "allrounder-vente-m-w-d-20-40-1-lidl-svizzera-neftenbach-nsmt00"
       },
       "titleByLocale": {
         "it": "Allrounder vendita (m/w/d) 20-40% 1 — Neftenbach",
-        "en": "All-rounder Sale (m/f/d) 20-40% 1 — Neftenbach",
+        "en": "Allrounder Verkauf (m/w/d) 20-40% 1 — Neftenbach",
         "de": "Allrounder Verkauf (m/w/d) 20-40% 1 — Neftenbach",
         "fr": "Allrounder Vente (m/w/d) 20-40% 1 — Neftenbach"
       },
@@ -19833,16 +20044,19 @@
         ],
         "en": [
           "allrounder-verkauf-m-w-d-20-40-1-lidl-svizzera-neftenbach-nsmt00",
+          "all-rounder-sale-m-f-d-20-40-1-neftenbach-lidl-svizzera-neftenbach",
           "allrounder-verkauf-m-w-d-20-40-1-neftenbach-lidl-svizzera-neftenbach"
         ]
       },
       "previousSlugs": [
         "allrounder-verkauf-m-w-d-20-40-1-lidl-svizzera-neftenbach",
         "allrounder-verkauf-m-w-d-20-40-1-lidl-svizzera-neftenbach-nsmt00",
+        "all-rounder-sale-m-f-d-20-40-1-neftenbach-lidl-svizzera-neftenbach",
         "allrounder-verkauf-m-w-d-20-40-1-neftenbach-lidl-svizzera-neftenbach"
       ],
       "salaryMin": 29400,
-      "salaryMax": 44600
+      "salaryMax": 44600,
+      "needsRetranslation": true
     },
     {
       "id": "company-s68ezq",
@@ -19921,7 +20135,8 @@
       "employmentType": "FULL_TIME",
       "postalCode": "8001",
       "salaryMin": 58800,
-      "salaryMax": 89200
+      "salaryMax": 89200,
+      "needsRetranslation": true
     },
     {
       "id": "company-mi9e00",
@@ -20000,7 +20215,8 @@
       "employmentType": "FULL_TIME",
       "postalCode": "8400",
       "salaryMin": 58800,
-      "salaryMax": 89200
+      "salaryMax": 89200,
+      "needsRetranslation": true
     },
     {
       "id": "company-duf20d",
@@ -20085,7 +20301,8 @@
         "de": [
           "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-seewen-v352fv"
         ]
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "company-h5tlo8",
@@ -20170,7 +20387,8 @@
         "de": [
           "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-stans-0yqbqb"
         ]
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "company-m5eaje",
@@ -20353,13 +20571,13 @@
       "firstSeenAt": "2026-07-06T22:40:50.002Z",
       "slugByLocale": {
         "it": "allrounder-vendita-m-w-d-20-40-lidl-svizzera-reinach-ag-5z3c79",
-        "en": "all-rounder-sale-m-f-d-20-40-reinach-ag-lidl-svizzera-reinach-ag",
+        "en": "allrounder-verkauf-m-w-d-20-40-reinach-ag-lidl-svizzera-reinach-ag",
         "de": "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-reinach-ag-5z3c79",
         "fr": "allrounder-vente-m-w-d-20-40-lidl-svizzera-reinach-ag-5z3c79"
       },
       "titleByLocale": {
         "it": "Allrounder vendita (m/w/d) 20-40% — Reinach (AG)",
-        "en": "All-rounder Sale (m/f/d) 20-40% — Reinach (AG)",
+        "en": "Allrounder Verkauf (m/w/d) 20-40% — Reinach (AG)",
         "de": "Allrounder Verkauf (m/w/d) 20-40% — Reinach (AG)",
         "fr": "Allrounder Vente (m/w/d) 20-40% — Reinach (AG)"
       },
@@ -20392,16 +20610,19 @@
         ],
         "en": [
           "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-reinach-ag-5z3c79",
+          "all-rounder-sale-m-f-d-20-40-reinach-ag-lidl-svizzera-reinach-ag",
           "allrounder-verkauf-m-w-d-20-40-reinach-ag-lidl-svizzera-reinach-ag"
         ]
       },
       "previousSlugs": [
         "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-reinach-ag",
         "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-reinach-ag-5z3c79",
+        "all-rounder-sale-m-f-d-20-40-reinach-ag-lidl-svizzera-reinach-ag",
         "allrounder-verkauf-m-w-d-20-40-reinach-ag-lidl-svizzera-reinach-ag"
       ],
       "salaryMin": 24800,
-      "salaryMax": 37600
+      "salaryMax": 37600,
+      "needsRetranslation": true
     },
     {
       "id": "company-vat7e7",
@@ -20430,13 +20651,13 @@
       "firstSeenAt": "2026-07-06T22:40:50.002Z",
       "slugByLocale": {
         "it": "allrounder-vendita-m-w-d-20-40-lidl-svizzera-sarnen-vat7e7",
-        "en": "all-rounder-sale-m-f-d-20-40-sarnen-lidl-svizzera-sarnen",
+        "en": "allrounder-verkauf-m-w-d-20-40-sarnen-lidl-svizzera-sarnen",
         "de": "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-sarnen-vat7e7",
         "fr": "allrounder-vente-m-w-d-20-40-lidl-svizzera-sarnen-vat7e7"
       },
       "titleByLocale": {
         "it": "Allrounder vendita (m/w/d) 20-40% — Sarnen",
-        "en": "All-rounder Sale (m/f/d) 20-40% — Sarnen",
+        "en": "Allrounder Verkauf (m/w/d) 20-40% — Sarnen",
         "de": "Allrounder Verkauf (m/w/d) 20-40% — Sarnen",
         "fr": "Allrounder Vente (m/w/d) 20-40% — Sarnen"
       },
@@ -20469,16 +20690,19 @@
         ],
         "en": [
           "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-sarnen-vat7e7",
+          "all-rounder-sale-m-f-d-20-40-sarnen-lidl-svizzera-sarnen",
           "allrounder-verkauf-m-w-d-20-40-sarnen-lidl-svizzera-sarnen"
         ]
       },
       "previousSlugs": [
         "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-sarnen",
         "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-sarnen-vat7e7",
+        "all-rounder-sale-m-f-d-20-40-sarnen-lidl-svizzera-sarnen",
         "allrounder-verkauf-m-w-d-20-40-sarnen-lidl-svizzera-sarnen"
       ],
       "salaryMin": 27800,
-      "salaryMax": 42400
+      "salaryMax": 42400,
+      "needsRetranslation": true
     },
     {
       "id": "company-mra3fe",
@@ -20635,7 +20859,8 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "salaryMin": 49500,
-      "salaryMax": 75000
+      "salaryMax": 75000,
+      "needsRetranslation": true
     },
     {
       "id": "company-x4vpat",
@@ -20714,7 +20939,8 @@
       "employmentType": "FULL_TIME",
       "postalCode": "4500",
       "salaryMin": 49500,
-      "salaryMax": 75000
+      "salaryMax": 75000,
+      "needsRetranslation": true
     },
     {
       "id": "company-9l0er8",
@@ -21027,7 +21253,8 @@
       "employmentType": "FULL_TIME",
       "postalCode": "8600",
       "salaryMin": 73500,
-      "salaryMax": 111500
+      "salaryMax": 111500,
+      "needsRetranslation": true
     },
     {
       "id": "company-7g3m1j",
@@ -21275,7 +21502,8 @@
       "employmentType": "FULL_TIME",
       "postalCode": "8001",
       "salaryMin": 73500,
-      "salaryMax": 111500
+      "salaryMax": 111500,
+      "needsRetranslation": true
     },
     {
       "id": "company-yhm50p",
@@ -21354,7 +21582,8 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "salaryMin": 49600,
-      "salaryMax": 75200
+      "salaryMax": 75200,
+      "needsRetranslation": true
     },
     {
       "id": "company-dmpi4k",
@@ -21383,7 +21612,7 @@
       "firstSeenAt": "2026-07-21T22:07:43.598Z",
       "titleByLocale": {
         "it": "Allrounder vendita (m/w/d) 20-40% — Adliswil",
-        "en": "All-rounder Sale (m/f/d) 20-40% — Adliswil",
+        "en": "Allrounder Verkauf (m/w/d) 20-40% — Adliswil",
         "de": "Allrounder Verkauf (m/w/d) 20-40% — Adliswil",
         "fr": "Allrounder Vente (m/w/d) 20-40% — Adliswil"
       },
@@ -21395,7 +21624,7 @@
       },
       "slugByLocale": {
         "it": "allrounder-vendita-m-w-d-20-40-lidl-svizzera-adliswil-dmpi4k",
-        "en": "all-rounder-sale-m-f-d-20-40-adliswil-lidl-svizzera-adliswil",
+        "en": "allrounder-verkauf-m-w-d-20-40-adliswil-lidl-svizzera-adliswil",
         "de": "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-adliswil-dmpi4k",
         "fr": "allrounder-vente-m-w-d-20-40-lidl-svizzera-adliswil-dmpi4k"
       },
@@ -21411,6 +21640,7 @@
           "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-adliswil-dmpi4k",
           "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-adliswil-d9igq2",
           "all-rounder-sale-m-f-d-20-40-adliswil-lidl-svizzera-adliswil-3ad637",
+          "all-rounder-sale-m-f-d-20-40-adliswil-lidl-svizzera-adliswil",
           "allrounder-verkauf-m-w-d-20-40-adliswil-lidl-svizzera-adliswil"
         ],
         "de": [
@@ -21427,6 +21657,7 @@
         "allrounder-vendita-m-w-d-20-40-lidl-svizzera-adliswil-d9igq2",
         "all-rounder-sale-m-f-d-20-40-adliswil-lidl-svizzera-adliswil-3ad637",
         "allrounder-vente-m-w-d-20-40-lidl-svizzera-adliswil-d9igq2",
+        "all-rounder-sale-m-f-d-20-40-adliswil-lidl-svizzera-adliswil",
         "allrounder-verkauf-m-w-d-20-40-adliswil-lidl-svizzera-adliswil"
       ],
       "baseSalary": {
@@ -21444,7 +21675,8 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "salaryMin": 29400,
-      "salaryMax": 44600
+      "salaryMax": 44600,
+      "needsRetranslation": true
     },
     {
       "id": "company-f2cc15",
@@ -21473,13 +21705,13 @@
       "firstSeenAt": "2026-07-06T22:40:50.002Z",
       "slugByLocale": {
         "it": "allrounder-vendita-m-w-d-20-40-lidl-svizzera-muri-ag-f2cc15",
-        "en": "all-rounder-sale-m-f-d-20-40-muri-ag-lidl-svizzera-muri-ag",
+        "en": "allrounder-verkauf-m-w-d-20-40-muri-ag-lidl-svizzera-muri-ag",
         "de": "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-muri-ag-f2cc15",
         "fr": "allrounder-vente-m-w-d-20-40-lidl-svizzera-muri-ag-f2cc15"
       },
       "titleByLocale": {
         "it": "Allrounder vendita (m/w/d) 20-40% — Muri (AG)",
-        "en": "All-rounder Sale (m/f/d) 20-40% — Muri (AG)",
+        "en": "Allrounder Verkauf (m/w/d) 20-40% — Muri (AG)",
         "de": "Allrounder Verkauf (m/w/d) 20-40% — Muri (AG)",
         "fr": "Allrounder Vente (m/w/d) 20-40% — Muri (AG)"
       },
@@ -21513,16 +21745,19 @@
         ],
         "en": [
           "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-muri-ag-f2cc15",
+          "all-rounder-sale-m-f-d-20-40-muri-ag-lidl-svizzera-muri-ag",
           "allrounder-verkauf-m-w-d-20-40-muri-ag-lidl-svizzera-muri-ag"
         ]
       },
       "previousSlugs": [
         "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-muri-ag",
         "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-muri-ag-f2cc15",
+        "all-rounder-sale-m-f-d-20-40-muri-ag-lidl-svizzera-muri-ag",
         "allrounder-verkauf-m-w-d-20-40-muri-ag-lidl-svizzera-muri-ag"
       ],
       "salaryMin": 24800,
-      "salaryMax": 37600
+      "salaryMax": 37600,
+      "needsRetranslation": true
     },
     {
       "id": "company-imfkkd",
@@ -21685,7 +21920,8 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "salaryMin": 49500,
-      "salaryMax": 75000
+      "salaryMax": 75000,
+      "needsRetranslation": true
     },
     {
       "id": "company-7un5uo",
@@ -21769,7 +22005,8 @@
         "fr": [
           "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-regensdorf-7gwwme"
         ]
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "company-lka18a",
@@ -21857,7 +22094,8 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "salaryMin": 58800,
-      "salaryMax": 89200
+      "salaryMax": 89200,
+      "needsRetranslation": true
     },
     {
       "id": "company-fw9r9j",
@@ -22121,7 +22359,7 @@
         "fr": "apprentis-dans-le-commerce-de-detail-pfc-ou-afc-debut-2026-gravesano-lidl-svizzera-gravesano"
       },
       "titleByLocale": {
-        "it": "Apprendistato nel commercio al dettaglio CFP o AFC - Inizio 2026 - Gravesano",
+        "it": "Apprendistato nel commercio al dettaglio CFP o AFC - Inizio 2026 — Gravesano",
         "en": "Apprendistato nel commercio al dettaglio CFP o AFC - Inizio 2026 - Gravesano",
         "de": "Apprendistato nel commercio al dettaglio CFP o AFC - Inizio 2026 — Gravesano",
         "fr": "o AFC - Inizio 2026 - Gravesano"
@@ -22181,7 +22419,8 @@
         "erlernt-im-einzelhandel-cfp-oder-afc-start-2026-gravesano-lidl-svizzera-gravesano"
       ],
       "salaryMin": 41600,
-      "salaryMax": 63000
+      "salaryMax": 63000,
+      "needsRetranslation": true
     },
     {
       "id": "company-kscbfg",
@@ -22215,7 +22454,7 @@
         "fr": "o-afc-inizio-2026-locarno-lidl-svizzera-locarno"
       },
       "titleByLocale": {
-        "it": "Apprendistato nel commercio al dettaglio CFP o AFC - Inizio 2026 - Locarno",
+        "it": "Apprendistato nel commercio al dettaglio CFP o AFC - Inizio 2026 — Locarno",
         "en": "Apprendistato nel commercio al dettaglio CFP o AFC - Inizio 2026 - Locarno",
         "de": "Apprendistato nel commercio al dettaglio CFP o AFC - Inizio 2026 — Locarno",
         "fr": "o AFC - Inizio 2026 - Locarno"
@@ -22245,7 +22484,8 @@
       "employmentType": "FULL_TIME",
       "postalCode": "6600",
       "salaryMin": 41600,
-      "salaryMax": 63000
+      "salaryMax": 63000,
+      "needsRetranslation": true
     },
     {
       "id": "company-3t5gz5",
@@ -22279,7 +22519,7 @@
         "fr": "apprendistato-nel-commercio-al-detail-cfp-o-afc-inizio-2026-biasca-lidl-svizzera-biasca-3t5gz5"
       },
       "titleByLocale": {
-        "it": "Apprendistato nel commercio al dettaglio CFP o AFC - Inizio 2026 - Biasca",
+        "it": "Apprendistato nel commercio al dettaglio CFP o AFC - Inizio 2026 — Biasca",
         "en": "Apprendista nel commercial dettaglio CFP o AFC - Inizio 2026 — Biasca",
         "de": "Ausbildung im Einzelhandel CFP oder EFZ – Anfang 2026 – Biasca",
         "fr": "Apprendistato nel commercio al détail CFP o AFC - Inizio 2026 — Biasca"
@@ -22320,7 +22560,8 @@
         ]
       },
       "salaryMin": 41600,
-      "salaryMax": 63000
+      "salaryMax": 63000,
+      "needsRetranslation": true
     },
     {
       "id": "company-1s7m1i",
@@ -22463,7 +22704,8 @@
       "employmentType": "FULL_TIME",
       "postalCode": "1003",
       "salaryMin": 60500,
-      "salaryMax": 91500
+      "salaryMax": 91500,
+      "needsRetranslation": true
     },
     {
       "id": "company-sxc02f",
@@ -22555,7 +22797,8 @@
         "job-etudiant-etudiante-vente-m-w-d-20-lidl-svizzera-renens"
       ],
       "salaryMin": 12100,
-      "salaryMax": 18300
+      "salaryMax": 18300,
+      "needsRetranslation": true
     },
     {
       "id": "company-whvjc7",
@@ -22627,7 +22870,8 @@
       "employmentType": "FULL_TIME",
       "postalCode": "8600",
       "salaryMin": 73500,
-      "salaryMax": 111500
+      "salaryMax": 111500,
+      "needsRetranslation": true
     },
     {
       "id": "company-i1mkbb",
@@ -22786,7 +23030,8 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "salaryMin": 27400,
-      "salaryMax": 41600
+      "salaryMax": 41600,
+      "needsRetranslation": true
     },
     {
       "id": "company-3a59fg",
@@ -22857,7 +23102,8 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "salaryMin": 13700,
-      "salaryMax": 20800
+      "salaryMax": 20800,
+      "needsRetranslation": true
     },
     {
       "id": "company-6zkyqt",
@@ -22885,7 +23131,7 @@
       "crawledAt": "2026-07-23T22:08:22.781Z",
       "firstSeenAt": "2026-07-02T12:16:57.541Z",
       "titleByLocale": {
-        "it": "Collaboratore/auto-servizio e venditore (m/w/d) 40%",
+        "it": "Collaborateur/Collaboratrice libre-service et vente (m/w/d) 40%",
         "en": "Collaborator/self-service and sales worker (m/w/d) 40%",
         "de": "Mitarbeiter/Self-Service- und Verkaufsmitarbeiter (m/w/d) 40%",
         "fr": "Collaborateur/Collaboratrice libre-service et vente (m/w/d) 40%"
@@ -22939,7 +23185,8 @@
       "employmentType": "FULL_TIME",
       "postalCode": "1003",
       "salaryMin": 24200,
-      "salaryMax": 36600
+      "salaryMax": 36600,
+      "needsRetranslation": true
     },
     {
       "id": "company-8vp5j0",
@@ -23014,7 +23261,8 @@
         "vendeur-vendeuse-m-w-d-60-lidl-svizzera-etoy-8vp5j0"
       ],
       "salaryMin": 36300,
-      "salaryMax": 54900
+      "salaryMax": 54900,
+      "needsRetranslation": true
     },
     {
       "id": "company-7dyg41",
@@ -23043,7 +23291,7 @@
       "firstSeenAt": "2026-07-06T22:40:50.002Z",
       "slugByLocale": {
         "it": "vendeur-vendeuse-m-w-d-60-morges-lidl-svizzera-morges",
-        "en": "salesperson-m-f-d-60-morges-lidl-svizzera-morges",
+        "en": "seller-m-w-d-60-morges-lidl-svizzera-morges",
         "de": "verkaufer-m-w-d-60-morges-lidl-svizzera-morges",
         "fr": "vendeur-vendeuse-m-w-d-60-lidl-svizzera-morges-7dyg41"
       },
@@ -23084,6 +23332,7 @@
         ],
         "en": [
           "vendeur-vendeuse-m-w-d-60-lidl-svizzera-morges-7dyg41",
+          "salesperson-m-f-d-60-morges-lidl-svizzera-morges",
           "seller-m-w-d-60-morges-lidl-svizzera-morges"
         ],
         "de": [
@@ -23093,6 +23342,7 @@
       "previousSlugs": [
         "vendeur-vendeuse-m-w-d-60-lidl-svizzera-morges",
         "vendeur-vendeuse-m-w-d-60-lidl-svizzera-morges-7dyg41",
+        "salesperson-m-f-d-60-morges-lidl-svizzera-morges",
         "seller-m-w-d-60-morges-lidl-svizzera-morges"
       ],
       "salaryMin": 36300,
@@ -23256,7 +23506,8 @@
       "addressLocality": "Ascona",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-jwvt5h",
@@ -23336,7 +23587,8 @@
         "gerant-gerante-de-magasin-m-w-d-80-100-lausanne-lidl-svizzera-lausanne-2"
       ],
       "salaryMin": 60500,
-      "salaryMax": 91500
+      "salaryMax": 91500,
+      "needsRetranslation": true
     },
     {
       "id": "company-zdc951",
@@ -23606,7 +23858,7 @@
         "it": "Picker d'ordine (m/f/d) 60%",
         "en": "Order picker (m/f/d) 60%",
         "de": "Kommissionierer / Kommissioniererin (m/w/d) 60%",
-        "fr": "Récupérateur de commandes (m/f/j) 60%"
+        "fr": "Kommissionierer / Kommissioniererin (m/w/d) 60%"
       },
       "descriptionByLocale": {
         "it": "Introduzione Con una moderna rete di filiali, Lidl Svizzera ha una presenza sempre più densa nel mercato svizzero. L'espansione in Svizzera è proseguita dall'entrata sul mercato nel 2009. A Lidl, attività emozionanti e opportunità di carriera versatili vi aspettano nell'ambiente dinamico del commercio al dettaglio.\n• I tuoi compiti - Raccogliere ordini dai nostri rami - Assistenza agli inventari di magazzino - Fornitura di pallet per spedizione - conformità con gli standard di igiene e pulizia - I giorni di lavoro fissi sono definiti insieme Il tuo profilo - Esperienza nella logistica o nella produzione - Personalità affidabile, indipendente e resiliente - Competenze di squadra, cooperazione e comunicazione - Prontezza per lavoro di turno, notte e domenica - Buona conoscenza del tedesco e/o del francese\n• Offriamo A Lidl Svizzera c'è spazio per l'ambizione e l'innovazione. Partecipa attivamente. Crescere ogni giorno a livello professionale e personale. Vi prepariamo per i vostri vari e interessanti compiti con una conoscenza intensiva. Inoltre, vi offriamo la sicurezza di un lavoro permanente, un grande team, i vantaggi del Lidl GAV, un'eccellente fornitura professionale e altri benefici interessanti. Cogliete l'opportunità e applicate online ora!",
@@ -23618,7 +23870,7 @@
         "it": "picker-d-ordine-m-f-d-60-lidl-svizzera-sevaz",
         "en": "order-picker-m-f-d-60-lidl-svizzera-sevaz",
         "de": "kommissionierer-kommissioniererin-m-w-d-60-lidl-svizzera-sevaz-htt1jv",
-        "fr": "recuperateur-de-commandes-m-f-j-60-lidl-svizzera-sevaz"
+        "fr": "kommissionierer-kommissioniererin-m-w-d-60-lidl-svizzera-sevaz"
       },
       "requirementsByLocale": {},
       "country": "CH",
@@ -23633,12 +23885,14 @@
         ],
         "fr": [
           "kommissionierer-kommissioniererin-m-w-d-60-lidl-svizzera-sevaz-htt1jv",
+          "recuperateur-de-commandes-m-f-j-60-lidl-svizzera-sevaz",
           "kommissionierer-kommissioniererin-m-w-d-60-lidl-svizzera-sevaz"
         ]
       },
       "previousSlugs": [
         "kommissionierer-kommissioniererin-m-w-d-60-lidl-svizzera-sevaz",
-        "kommissionierer-kommissioniererin-m-w-d-60-lidl-svizzera-sevaz-htt1jv"
+        "kommissionierer-kommissioniererin-m-w-d-60-lidl-svizzera-sevaz-htt1jv",
+        "recuperateur-de-commandes-m-f-j-60-lidl-svizzera-sevaz"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -23656,7 +23910,8 @@
       "employmentType": "FULL_TIME",
       "postalCode": "1700",
       "salaryMin": 41100,
-      "salaryMax": 62400
+      "salaryMax": 62400,
+      "needsRetranslation": true
     },
     {
       "id": "company-53wwyt",
@@ -23735,7 +23990,8 @@
       "employmentType": "FULL_TIME",
       "postalCode": "8620",
       "salaryMin": 58800,
-      "salaryMax": 89200
+      "salaryMax": 89200,
+      "needsRetranslation": true
     },
     {
       "id": "company-1m2ag2",
@@ -23815,7 +24071,8 @@
         "gerant-gerante-de-magasin-m-w-d-80-100-lidl-svizzera-neuchatel-1m2ag2"
       ],
       "salaryMin": 60500,
-      "salaryMax": 91500
+      "salaryMax": 91500,
+      "needsRetranslation": true
     },
     {
       "id": "company-a4fmoa",
@@ -23895,7 +24152,8 @@
       "employmentType": "FULL_TIME",
       "postalCode": "8500",
       "salaryMin": 34500,
-      "salaryMax": 52200
+      "salaryMax": 52200,
+      "needsRetranslation": true
     },
     {
       "id": "company-8lr9r2",
@@ -23966,7 +24224,8 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "salaryMin": 57500,
-      "salaryMax": 87000
+      "salaryMax": 87000,
+      "needsRetranslation": true
     },
     {
       "id": "company-d9p6ox",
@@ -24353,7 +24612,8 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "salaryMin": 27800,
-      "salaryMax": 42400
+      "salaryMax": 42400,
+      "needsRetranslation": true
     },
     {
       "id": "company-y8j4ur",
@@ -24525,7 +24785,7 @@
       "crawledAt": "2026-07-20T11:52:30.220Z",
       "firstSeenAt": "2026-06-17T23:01:29.054Z",
       "titleByLocale": {
-        "it": "Collaboratore/self-service e partner commerciale 40% — Martigny",
+        "it": "Collaborateur/Collaboratrice libre-service et vente 40% — Martigny",
         "en": "Collaborator/self-service and sales partner 40% — Martigny",
         "de": "Mitarbeiter/Self-Service- und Vertriebspartner 40% — Martigny",
         "fr": "Collaborateur/Collaboratrice libre-service et vente 40% — Martigny"
@@ -24582,7 +24842,8 @@
       "employmentType": "FULL_TIME",
       "postalCode": "1920",
       "salaryMin": 24200,
-      "salaryMax": 36600
+      "salaryMax": 36600,
+      "needsRetranslation": true
     },
     {
       "id": "company-oxvtc4",
@@ -24958,7 +25219,8 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "salaryMin": 24200,
-      "salaryMax": 36600
+      "salaryMax": 36600,
+      "needsRetranslation": true
     },
     {
       "id": "company-143iwz",
@@ -25035,7 +25297,8 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "salaryMin": 48400,
-      "salaryMax": 73200
+      "salaryMax": 73200,
+      "needsRetranslation": true
     },
     {
       "id": "company-grp7da",
@@ -25106,7 +25369,8 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "salaryMin": 12100,
-      "salaryMax": 18300
+      "salaryMax": 18300,
+      "needsRetranslation": true
     },
     {
       "id": "company-s2z74y",
@@ -25248,7 +25512,8 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "salaryMin": 12100,
-      "salaryMax": 18300
+      "salaryMax": 18300,
+      "needsRetranslation": true
     },
     {
       "id": "company-5pay5",
@@ -25399,7 +25664,8 @@
       "employmentType": "FULL_TIME",
       "postalCode": "8400",
       "salaryMin": 44100,
-      "salaryMax": 66900
+      "salaryMax": 66900,
+      "needsRetranslation": true
     },
     {
       "id": "company-xpgpe6",
@@ -25433,7 +25699,7 @@
         "fr": "collaborateur-collaboratrice-libre-service-et-vente-20-lidl-svizzera-vernier-xpgpe6"
       },
       "titleByLocale": {
-        "it": "Collaboratore/self-service e partner commerciale 20%",
+        "it": "Collaborateur/Collaboratrice libre-service et vente 20%",
         "en": "Collaborator/self-service and sales partner 20%",
         "de": "Mitarbeiter/Self-Service- und Vertriebspartner 20%",
         "fr": "Collaborateur/Collaboratrice libre-service et vente 20%"
@@ -25476,7 +25742,8 @@
         "collaborateur-collaboratrice-libre-service-et-vente-20-lidl-svizzera-vernier-xpgpe6"
       ],
       "salaryMin": 12100,
-      "salaryMax": 18300
+      "salaryMax": 18300,
+      "needsRetranslation": true
     },
     {
       "id": "company-5jvnc7",
@@ -25556,7 +25823,8 @@
         "vendeur-vendeuse-responsable-d-equipe-m-w-d-60-80-lidl-svizzera-lausanne-5jvnc7"
       ],
       "salaryMin": 48400,
-      "salaryMax": 73200
+      "salaryMax": 73200,
+      "needsRetranslation": true
     },
     {
       "id": "company-xsgj3w",
@@ -25662,7 +25930,7 @@
       },
       "titleByLocale": {
         "it": "(Junior) Manager Technical Facility Management (m/f/d) 80-100 %",
-        "en": "(Junior) Manager Technical Facility Management (m/f/d) 80-100 %",
+        "en": "(Junior) Manager Technisches Facility Management (m/w/d) 80-100%",
         "de": "(Junior) Manager Technisches Facility Management (m/w/d) 80-100%",
         "fr": "(Junior) Gestionnaire Gestion des installations techniques (m/f/d) 80-100 %"
       },
@@ -25706,7 +25974,8 @@
       "employmentType": "FULL_TIME",
       "postalCode": "8500",
       "salaryMin": 48000,
-      "salaryMax": 73000
+      "salaryMax": 73000,
+      "needsRetranslation": true
     },
     {
       "id": "company-xih85k",
@@ -25785,7 +26054,8 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "salaryMin": 36300,
-      "salaryMax": 54900
+      "salaryMax": 54900,
+      "needsRetranslation": true
     },
     {
       "id": "company-usxj9i",
@@ -25860,7 +26130,8 @@
         "gerant-adjoint-gerante-adjointe-m-w-d-80-100-lidl-svizzera-la-chaux-de-fonds-usxj9i"
       ],
       "salaryMin": 60500,
-      "salaryMax": 91500
+      "salaryMax": 91500,
+      "needsRetranslation": true
     },
     {
       "id": "company-acol50",
@@ -25896,7 +26167,7 @@
         "it": "manager-procurement-acquisti-strategici-lun-f-d-80-100-lidl-svizzera-weinfelden"
       },
       "titleByLocale": {
-        "en": "Manager Procurement / Strategic Purchasing (m/f/d) 80-100 %",
+        "en": "Manager Procurement / Strategischer Einkauf (m/w/d) 80-100%",
         "de": "Manager Procurement / Strategischer Einkauf (m/w/d) 80-100%",
         "it": "Procurement Manager / Acquisti Strategici (m/f/d) 80-100 %",
         "fr": "Gestionnaire Achats / Achats stratégiques (m/f/d) 80-100 %"
@@ -25955,7 +26226,8 @@
       "employmentType": "FULL_TIME",
       "postalCode": "8500",
       "salaryMin": 79000,
-      "salaryMax": 120000
+      "salaryMax": 120000,
+      "needsRetranslation": true
     },
     {
       "id": "company-rypumq",
@@ -26027,7 +26299,8 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "salaryMin": 23600,
-      "salaryMax": 36200
+      "salaryMax": 36200,
+      "needsRetranslation": true
     },
     {
       "id": "company-l4wvub",
@@ -26099,7 +26372,8 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "salaryMin": 23600,
-      "salaryMax": 36200
+      "salaryMax": 36200,
+      "needsRetranslation": true
     },
     {
       "id": "company-mbg6tv",
@@ -26255,7 +26529,8 @@
         "ch-tuttofare-vendita-m-w-d-20-40-lidl-svizzera-lugano"
       ],
       "salaryMin": 23600,
-      "salaryMax": 36200
+      "salaryMax": 36200,
+      "needsRetranslation": true
     },
     {
       "id": "company-kammtp",
@@ -26333,7 +26608,8 @@
         "vendeur-vendeuse-responsable-d-equipe-m-w-d-60-80-lidl-svizzera-yverdon-les-bains-kammtp"
       ],
       "salaryMin": 48400,
-      "salaryMax": 73200
+      "salaryMax": 73200,
+      "needsRetranslation": true
     },
     {
       "id": "company-vmv5na",
@@ -26447,7 +26723,7 @@
       },
       "titleByLocale": {
         "it": "Responsabile/in Marketing Engagement (m/f/d) 80-100 %",
-        "en": "Manager/in Marketing Engagement (m/f/d) 80-100 %",
+        "en": "Manager/in Marketing Engagement (m/w/d) 80-100%",
         "de": "Manager/in Marketing Engagement (m/w/d) 80-100%",
         "fr": "Gestionnaire/en engagement marketing (m/f/d) 80-100 %"
       },
@@ -26488,7 +26764,8 @@
         "manager-in-marketing-engagement-m-w-d-80-100-lidl-svizzera-weinfelden-4ou151"
       ],
       "salaryMin": 79000,
-      "salaryMax": 120000
+      "salaryMax": 120000,
+      "needsRetranslation": true
     },
     {
       "id": "company-8fiz88",
@@ -26642,7 +26919,8 @@
         "mitarbeiter-mitarbeiterin-reinigung-m-w-d-20-40-lidl-svizzera-arbon-rag43z"
       ],
       "salaryMin": 23000,
-      "salaryMax": 34800
+      "salaryMax": 34800,
+      "needsRetranslation": true
     },
     {
       "id": "company-qv19et",
@@ -26751,7 +27029,7 @@
       "crawledAt": "2026-07-14T11:07:52.705Z",
       "firstSeenAt": "2026-07-14T11:07:52.705Z",
       "titleByLocale": {
-        "en": "Seller / Seller (m/f/d) 20-40% — Lugano",
+        "en": "Venditore / Venditrice (m/f/d) 20-40% — Lugano",
         "it": "Venditore / Venditrice (m/f/d) 20-40% — Lugano",
         "de": "Verkäufer / Verkäufer (m/w/d) 20-40% — Lugano",
         "fr": "Vendeur / Vendeur (m/f/d) 20-40% — Lugano"
@@ -26764,7 +27042,7 @@
       },
       "slugByLocale": {
         "it": "venditore-venditrice-m-w-d-20-40-lidl-svizzera-lugano-5hbbrl",
-        "en": "seller-seller-m-f-d-20-40-lugano-lidl-svizzera-lugano",
+        "en": "venditore-venditrice-m-w-d-20-40-lugano-lidl-svizzera-lugano",
         "de": "verkaufer-verkaufer-m-w-d-20-40-lidl-svizzera-lugano",
         "fr": "vendeur-vendeur-m-f-d-20-40-lidl-svizzera-lugano"
       },
@@ -26786,6 +27064,7 @@
           "venditore-venditrice-m-f-d-20-40-lidl-svizzera-lugano",
           "venditore-venditrice-m-w-d-20-40-lidl-svizzera-lugano",
           "seller-seller-m-f-d-20-40-lidl-svizzera-lugano",
+          "seller-seller-m-f-d-20-40-lugano-lidl-svizzera-lugano",
           "venditore-venditrice-m-w-d-20-40-lugano-lidl-svizzera-lugano"
         ]
       },
@@ -26793,6 +27072,7 @@
         "venditore-venditrice-m-w-d-20-40-lidl-svizzera-lugano",
         "venditore-venditrice-m-f-d-20-40-lidl-svizzera-lugano",
         "seller-seller-m-f-d-20-40-lidl-svizzera-lugano",
+        "seller-seller-m-f-d-20-40-lugano-lidl-svizzera-lugano",
         "venditore-venditrice-m-w-d-20-40-lugano-lidl-svizzera-lugano"
       ],
       "salaryMin": 23600,
@@ -26810,7 +27090,8 @@
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-fx5bwb",
@@ -26889,7 +27170,8 @@
       "employmentType": "FULL_TIME",
       "postalCode": "5000",
       "salaryMin": 37200,
-      "salaryMax": 56400
+      "salaryMax": 56400,
+      "needsRetranslation": true
     },
     {
       "id": "company-orrpn0",
@@ -26918,13 +27200,13 @@
       "firstSeenAt": "2026-06-23T22:45:11.288Z",
       "slugByLocale": {
         "it": "allrounder-vendita-m-w-d-20-lidl-svizzera-rothrist-orrpn0",
-        "en": "all-rounder-sale-m-f-d-20-lidl-svizzera-rothrist",
+        "en": "allrounder-verkauf-m-w-d-20-lidl-svizzera-rothrist",
         "de": "allrounder-verkauf-m-w-d-20-lidl-svizzera-rothrist-orrpn0",
         "fr": "allrounder-vente-m-w-d-20-lidl-svizzera-rothrist-orrpn0"
       },
       "titleByLocale": {
         "it": "Allrounder vendita (m/w/d) 20%",
-        "en": "All-rounder sale (m/f/d) 20%",
+        "en": "Allrounder Verkauf (m/w/d) 20%",
         "de": "Allrounder Verkauf (m/w/d) 20%",
         "fr": "Allrounder Vente (m/w/d) 20%"
       },
@@ -26955,15 +27237,18 @@
       "previousSlugsByLocale": {
         "en": [
           "allrounder-verkauf-m-w-d-20-lidl-svizzera-rothrist-orrpn0",
+          "all-rounder-sale-m-f-d-20-lidl-svizzera-rothrist",
           "allrounder-verkauf-m-w-d-20-lidl-svizzera-rothrist"
         ]
       },
       "previousSlugs": [
         "allrounder-verkauf-m-w-d-20-lidl-svizzera-rothrist-orrpn0",
+        "all-rounder-sale-m-f-d-20-lidl-svizzera-rothrist",
         "allrounder-verkauf-m-w-d-20-lidl-svizzera-rothrist"
       ],
       "salaryMin": 12400,
-      "salaryMax": 18800
+      "salaryMax": 18800,
+      "needsRetranslation": true
     },
     {
       "id": "company-hx520c",
@@ -26991,7 +27276,7 @@
       "crawledAt": "2026-07-14T11:07:52.705Z",
       "firstSeenAt": "2026-06-22T14:44:48.208Z",
       "titleByLocale": {
-        "it": "Collaboratore/self-service e partner commerciale 20-40%",
+        "it": "Collaborateur/Collaboratrice libre-service et vente 20-40%",
         "en": "Collaborator/self-service and sales co-workers 20-40%",
         "de": "Mitarbeiter/Selbstbedienung und Vertriebsmitarbeiter 20-40%",
         "fr": "Travaille avec le cabineteur/Col Lavoratrice libre-service et vente 20-40%"
@@ -27045,7 +27330,8 @@
       "employmentType": "FULL_TIME",
       "postalCode": "1003",
       "salaryMin": 24200,
-      "salaryMax": 36600
+      "salaryMax": 36600,
+      "needsRetranslation": true
     },
     {
       "id": "company-qsuhpr",
@@ -27116,7 +27402,8 @@
       "addressLocality": "Herisau",
       "addressRegion": "AR",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-xns77j",
@@ -27187,7 +27474,8 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "salaryMin": 12100,
-      "salaryMax": 18300
+      "salaryMax": 18300,
+      "needsRetranslation": true
     },
     {
       "id": "company-ggemrl",
@@ -27266,7 +27554,8 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "salaryMin": 36300,
-      "salaryMax": 54900
+      "salaryMax": 54900,
+      "needsRetranslation": true
     },
     {
       "id": "company-ngygid",
@@ -27346,7 +27635,8 @@
         "vendeur-vendeuse-m-w-d-40-lidl-svizzera-collombey-muraz-ngygid"
       ],
       "salaryMin": 24200,
-      "salaryMax": 36600
+      "salaryMax": 36600,
+      "needsRetranslation": true
     },
     {
       "id": "company-e7ygzg",
@@ -27455,7 +27745,7 @@
       "firstSeenAt": "2026-06-24T11:57:40.883Z",
       "titleByLocale": {
         "it": "Allrounder vendita (m/w/d) 40%",
-        "en": "All-rounder sale (m/f/d) 40 %",
+        "en": "Allrounder Verkauf (m/w/d) 40%",
         "de": "Allrounder Verkauf (m/w/d) 40% — Trimbach",
         "fr": "Allrounder Vente (m/w/d) 40%"
       },
@@ -27467,7 +27757,7 @@
       },
       "slugByLocale": {
         "it": "allrounder-vendita-m-w-d-40-lidl-svizzera-trimbach-4jy3lm",
-        "en": "all-rounder-sale-m-f-d-40-trimbach-lidl-svizzera-trimbach",
+        "en": "allrounder-verkauf-m-w-d-40-lidl-svizzera-trimbach",
         "de": "allrounder-verkauf-m-w-d-40-lidl-svizzera-trimbach-4jy3lm",
         "fr": "allrounder-vente-m-w-d-40-lidl-svizzera-trimbach-4jy3lm"
       },
@@ -27480,13 +27770,15 @@
         ],
         "en": [
           "allrounder-verkauf-m-w-d-40-lidl-svizzera-trimbach-4jy3lm",
+          "all-rounder-sale-m-f-d-40-trimbach-lidl-svizzera-trimbach",
           "allrounder-verkauf-m-w-d-40-lidl-svizzera-trimbach"
         ]
       },
       "previousSlugs": [
         "allrounder-verkauf-m-w-d-40-lidl-svizzera-trimbach",
         "allrounder-verkauf-m-w-d-40-lidl-svizzera-trimbach-4jy3lm",
-        "allrounder-verkauf-m-w-d-40-trimbach-lidl-svizzera-trimbach"
+        "allrounder-verkauf-m-w-d-40-trimbach-lidl-svizzera-trimbach",
+        "all-rounder-sale-m-f-d-40-trimbach-lidl-svizzera-trimbach"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -27504,7 +27796,8 @@
       "employmentType": "FULL_TIME",
       "postalCode": "4500",
       "salaryMin": 27400,
-      "salaryMax": 41600
+      "salaryMax": 41600,
+      "needsRetranslation": true
     },
     {
       "id": "company-w5spwn",
@@ -27729,7 +28022,8 @@
       },
       "previousSlugs": [
         "job-etudiant-etudiante-vente-m-w-d-20-lidl-svizzera-martigny"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "company-7oihty",
@@ -27759,7 +28053,7 @@
       "crawledAt": "2026-07-06T22:40:50.002Z",
       "firstSeenAt": "2026-07-06T22:40:50.002Z",
       "titleByLocale": {
-        "en": "Manager Culture & Engagement (m/f/d) 80-100 %",
+        "en": "Manager Culture & Engagement (m/w/d) 80-100%",
         "de": "Manager Culture & Engagement (m/w/d) 80-100%",
         "it": "Manager Cultura & Engagement (m/f/d) 80-100 %",
         "fr": "Gestionnaire Culture et engagement (m/f/d) 80-100 %"
@@ -27834,7 +28128,8 @@
       "addressRegion": "TG",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "postalCode": "8500"
+      "postalCode": "8500",
+      "needsRetranslation": true
     },
     {
       "id": "company-gtbgu6",
@@ -27994,7 +28289,8 @@
       "addressRegion": "FR",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "postalCode": "1700"
+      "postalCode": "1700",
+      "needsRetranslation": true
     },
     {
       "id": "company-8vk3vl",
@@ -28074,7 +28370,8 @@
       "previousSlugs": [
         "gerant-adjoint-gerante-adjointe-m-w-d-80-100-lidl-svizzera-moudon",
         "gerant-adjoint-gerante-adjointe-m-w-d-80-100-lidl-svizzera-moudon-8vk3vl"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "company-4qh6tw",
@@ -28327,12 +28624,12 @@
       "firstSeenAt": "2026-07-06T22:40:50.002Z",
       "slugByLocale": {
         "de": "allrounder-verkauf-m-w-d-40-lidl-svizzera-biberist-83oc1c",
-        "en": "all-rounder-sale-m-f-d-40-biberist-lidl-svizzera-biberist",
+        "en": "allrounder-verkauf-m-w-d-40-biberist-lidl-svizzera-biberist",
         "fr": "allrounder-vente-m-w-d-40-lidl-svizzera-biberist-83oc1c",
         "it": "allrounder-vendita-m-w-d-40-lidl-svizzera-biberist-83oc1c"
       },
       "titleByLocale": {
-        "en": "All-rounder Sale (m/f/d) 40% — Biberist",
+        "en": "Allrounder Verkauf (m/w/d) 40% — Biberist",
         "it": "Allrounder vendita (m/w/d) 40% — Biberist",
         "fr": "Allrounder Vente (m/w/d) 40% — Biberist",
         "de": "Allrounder Verkauf (m/w/d) 40% — Biberist"
@@ -28369,14 +28666,17 @@
         ],
         "en": [
           "allrounder-verkauf-m-w-d-40-lidl-svizzera-biberist-83oc1c",
+          "all-rounder-sale-m-f-d-40-biberist-lidl-svizzera-biberist",
           "allrounder-verkauf-m-w-d-40-biberist-lidl-svizzera-biberist"
         ]
       },
       "previousSlugs": [
         "allrounder-verkauf-m-w-d-40-lidl-svizzera-biberist",
         "allrounder-verkauf-m-w-d-40-lidl-svizzera-biberist-83oc1c",
+        "all-rounder-sale-m-f-d-40-biberist-lidl-svizzera-biberist",
         "allrounder-verkauf-m-w-d-40-biberist-lidl-svizzera-biberist"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "company-fbg2bz",
@@ -28456,7 +28756,8 @@
       "previousSlugs": [
         "gerant-adjoint-gerante-adjointe-m-w-d-80-100-lidl-svizzera-oron",
         "gerant-adjoint-gerante-adjointe-m-w-d-80-100-lidl-svizzera-oron-fbg2bz"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "company-8dme3x",
@@ -28534,7 +28835,8 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "salaryMin": 62000,
-      "salaryMax": 94000
+      "salaryMax": 94000,
+      "needsRetranslation": true
     },
     {
       "id": "company-2vkrg0",
@@ -28562,7 +28864,7 @@
       "crawledAt": "2026-07-02T22:49:19.156Z",
       "firstSeenAt": "2026-07-02T22:49:19.156Z",
       "titleByLocale": {
-        "it": "Collaboratore / International Transport & Recycling Collaboratore (h/f/d) 80-100%",
+        "it": "Collaborateur / Collaboratrice Transport Interne & Recyclage (h/f/d) 80-100%",
         "en": "Collaborator / International Transport & Recycling Collaborator (h/f/d) 80-100%",
         "de": "Collaborator / International Transport & Recycling Collaborator (h/w/d) 80-100%",
         "fr": "Collaborateur / Collaboratrice Transport Interne & Recyclage (h/f/d) 80-100%"
@@ -28619,7 +28921,8 @@
       "employmentType": "FULL_TIME",
       "postalCode": "1700",
       "salaryMin": 68500,
-      "salaryMax": 104000
+      "salaryMax": 104000,
+      "needsRetranslation": true
     },
     {
       "id": "company-6zosx5",
@@ -28648,7 +28951,7 @@
       "firstSeenAt": "2026-07-02T22:49:19.156Z",
       "titleByLocale": {
         "it": "Vendeur / Vendeuse (f/m/d) 60% — Gland",
-        "en": "Seller (h/f/d) 60% — Gland",
+        "en": "Vendeur / Vendeuse (h/f/d) 60% — Gland",
         "de": "Verkäufer (h/w/d) 60% — Gland",
         "fr": "Vendeur / Vendeuse (h/f/d) 60% — Gland"
       },
@@ -28660,7 +28963,7 @@
       },
       "slugByLocale": {
         "it": "vendeur-vendeuse-m-w-d-60-gland-lidl-svizzera-gland",
-        "en": "seller-h-f-d-60-gland-lidl-svizzera-gland",
+        "en": "vendeur-vendeuse-m-w-d-60-gland-lidl-svizzera-gland",
         "de": "verkaufer-h-w-d-60-gland-lidl-svizzera-gland",
         "fr": "vendeur-vendeuse-m-w-d-60-lidl-svizzera-gland-6zosx5"
       },
@@ -28674,7 +28977,8 @@
         ],
         "en": [
           "vendeur-vendeuse-m-w-d-60-lidl-svizzera-gland-6zosx5",
-          "vendeur-vendeuse-h-f-d-60-gland-lidl-svizzera-gland"
+          "vendeur-vendeuse-h-f-d-60-gland-lidl-svizzera-gland",
+          "seller-h-f-d-60-gland-lidl-svizzera-gland"
         ],
         "de": [
           "vendeur-vendeuse-m-w-d-60-lidl-svizzera-gland-6zosx5"
@@ -28683,7 +28987,8 @@
       "previousSlugs": [
         "vendeur-vendeuse-m-w-d-60-lidl-svizzera-gland",
         "vendeur-vendeuse-m-w-d-60-lidl-svizzera-gland-6zosx5",
-        "vendeur-vendeuse-h-f-d-60-gland-lidl-svizzera-gland"
+        "vendeur-vendeuse-h-f-d-60-gland-lidl-svizzera-gland",
+        "seller-h-f-d-60-gland-lidl-svizzera-gland"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -28701,7 +29006,8 @@
       "employmentType": "FULL_TIME",
       "postalCode": "1003",
       "salaryMin": 36300,
-      "salaryMax": 54900
+      "salaryMax": 54900,
+      "needsRetranslation": true
     },
     {
       "id": "company-hie5re",
@@ -28780,7 +29086,8 @@
       "employmentType": "FULL_TIME",
       "postalCode": "8500",
       "salaryMin": 60000,
-      "salaryMax": 102000
+      "salaryMax": 102000,
+      "needsRetranslation": true
     },
     {
       "id": "company-xsgkhv",
@@ -28816,7 +29123,7 @@
         "fr": "343-vendeur-vendeur-m-f-j-20-40-lidl-svizzera-minusio"
       },
       "titleByLocale": {
-        "en": "343 Seller / Seller (m/f/d) 20-40%",
+        "en": "343_Venditore / Venditrice (m/f/d) 20-40%",
         "it": "343_Venditore / Venditrice (m/f/d) 20-40%",
         "de": "343 Verkäufer / Verkäufer (m/w/d) 20-40%",
         "fr": "343 Vendeur / Vendeur (m/f/j) 20-40%"
@@ -28857,7 +29164,8 @@
         "venditore-venditrice-m-f-d-40-60-lidl-svizzera-minusio"
       ],
       "salaryMin": 23600,
-      "salaryMax": 36200
+      "salaryMax": 36200,
+      "needsRetranslation": true
     },
     {
       "id": "company-son2uz",
@@ -28887,7 +29195,7 @@
       "crawledAt": "2026-06-30T13:04:54.871Z",
       "firstSeenAt": "2026-06-30T13:04:54.871Z",
       "titleByLocale": {
-        "en": "Seller / Seller (m/f/d) 40% 1",
+        "en": "Venditore / Venditrice (m/f/d) 40% 1",
         "it": "Venditore / Venditrice (m/f/d) 40% 1",
         "de": "Verkäufer / Verkäufer (m/w/d) 40% 1",
         "fr": "Vendeur / Vendeur (m/f/d) 40% 1"
@@ -28900,7 +29208,7 @@
       },
       "slugByLocale": {
         "it": "venditore-venditrice-m-w-d-40-1-lidl-svizzera-locarno-son2uz",
-        "en": "seller-seller-m-f-d-40-1-lidl-svizzera-locarno",
+        "en": "venditore-venditrice-m-w-d-40-1-lidl-svizzera-locarno",
         "de": "verkaufer-verkaufer-m-w-d-40-1-lidl-svizzera-locarno",
         "fr": "vendeur-vendeur-m-f-d-40-1-lidl-svizzera-locarno"
       },
@@ -28922,6 +29230,7 @@
         ],
         "en": [
           "venditore-venditrice-m-f-d-40-1-lidl-svizzera-locarno",
+          "seller-seller-m-f-d-40-1-lidl-svizzera-locarno",
           "venditore-venditrice-m-w-d-40-1-lidl-svizzera-locarno"
         ]
       },
@@ -28930,7 +29239,8 @@
         "vendeur-m-f-d-40-lidl-svizzera-locarno",
         "verkaufer-m-w-d-40-lidl-svizzera-locarno",
         "venditore-venditrice-m-f-d-40-1-lidl-svizzera-locarno",
-        "venditore-venditrice-lun-f-d-40-lidl-svizzera-locarno"
+        "venditore-venditrice-lun-f-d-40-lidl-svizzera-locarno",
+        "seller-seller-m-f-d-40-1-lidl-svizzera-locarno"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -28949,7 +29259,8 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "salaryMin": 23600,
-      "salaryMax": 36200
+      "salaryMax": 36200,
+      "needsRetranslation": true
     },
     {
       "id": "company-21u6t0",
@@ -28978,7 +29289,7 @@
       "firstSeenAt": "2026-06-29T22:39:11.744Z",
       "titleByLocale": {
         "it": "Area Manager (m/f/d) 80-100 %",
-        "en": "Area Manager (m/f/d) 80-100 %",
+        "en": "Area Manager (m/w/d) 80-100%",
         "de": "Area Manager (m/w/d) 80-100%",
         "fr": "Gestionnaire de secteur (m/f/d) 80-100 %"
       },
@@ -29021,7 +29332,8 @@
       "employmentType": "FULL_TIME",
       "postalCode": "8500",
       "salaryMin": 79000,
-      "salaryMax": 120000
+      "salaryMax": 120000,
+      "needsRetranslation": true
     },
     {
       "id": "company-asinc0",
@@ -29100,7 +29412,8 @@
       "employmentType": "FULL_TIME",
       "postalCode": "9000",
       "salaryMin": 23000,
-      "salaryMax": 34800
+      "salaryMax": 34800,
+      "needsRetranslation": true
     },
     {
       "id": "company-b1nfr3",
@@ -29175,7 +29488,8 @@
         "mitarbeiter-mitarbeiterin-reinigung-m-w-d-20-40-lidl-svizzera-oftringen-b1nfr3"
       ],
       "salaryMin": 24800,
-      "salaryMax": 37600
+      "salaryMax": 37600,
+      "needsRetranslation": true
     },
     {
       "id": "company-bewg0a",
@@ -29254,7 +29568,8 @@
       "employmentType": "FULL_TIME",
       "postalCode": "4500",
       "salaryMin": 13700,
-      "salaryMax": 20800
+      "salaryMax": 20800,
+      "needsRetranslation": true
     },
     {
       "id": "company-28w3kl",
@@ -29333,7 +29648,8 @@
       "addressRegion": "LU",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "postalCode": "6003"
+      "postalCode": "6003",
+      "needsRetranslation": true
     },
     {
       "id": "company-sr4p8h",
@@ -29397,7 +29713,8 @@
       "addressRegion": "GR",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "postalCode": "7000"
+      "postalCode": "7000",
+      "needsRetranslation": true
     },
     {
       "id": "company-5cksze",
@@ -29472,7 +29789,8 @@
         "verkaufer-verkauferin-m-w-d-40-60-lidl-svizzera-reiden-5cksze"
       ],
       "salaryMin": 41700,
-      "salaryMax": 63600
+      "salaryMax": 63600,
+      "needsRetranslation": true
     },
     {
       "id": "company-6neuj3",
@@ -29544,7 +29862,8 @@
       "employmentType": "FULL_TIME",
       "postalCode": "1110",
       "salaryMin": 24200,
-      "salaryMax": 36600
+      "salaryMax": 36600,
+      "needsRetranslation": true
     },
     {
       "id": "company-x3006l",
@@ -29616,7 +29935,8 @@
       "employmentType": "FULL_TIME",
       "postalCode": "9000",
       "salaryMin": 49500,
-      "salaryMax": 75000
+      "salaryMax": 75000,
+      "needsRetranslation": true
     },
     {
       "id": "company-u3nxjq",
@@ -29700,7 +30020,8 @@
       "employmentType": "FULL_TIME",
       "postalCode": "8001",
       "salaryMin": 49500,
-      "salaryMax": 75000
+      "salaryMax": 75000,
+      "needsRetranslation": true
     },
     {
       "id": "company-h642w9",
@@ -29772,7 +30093,8 @@
       "employmentType": "FULL_TIME",
       "postalCode": "6300",
       "salaryMin": 41600,
-      "salaryMax": 63000
+      "salaryMax": 63000,
+      "needsRetranslation": true
     },
     {
       "id": "company-l507n4",
@@ -29844,7 +30166,8 @@
       "employmentType": "FULL_TIME",
       "postalCode": "5000",
       "salaryMin": 41600,
-      "salaryMax": 63000
+      "salaryMax": 63000,
+      "needsRetranslation": true
     },
     {
       "id": "company-evc5bf",
@@ -29916,7 +30239,8 @@
       "employmentType": "FULL_TIME",
       "postalCode": "7000",
       "salaryMin": 41600,
-      "salaryMax": 63000
+      "salaryMax": 63000,
+      "needsRetranslation": true
     }
   ]
 }

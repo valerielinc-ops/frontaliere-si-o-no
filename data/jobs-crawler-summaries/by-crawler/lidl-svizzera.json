@@ -1,21 +1,22 @@
 {
   "key": "lidl-svizzera",
   "label": "Lidl",
-  "generatedAt": "2026-07-29T11:43:38.937Z",
+  "generatedAt": "2026-07-29T22:15:24.722Z",
   "total": 380,
-  "newCount": 1,
-  "updatedCount": 61,
+  "newCount": 0,
+  "updatedCount": 62,
   "removedCount": 0,
   "unchangedCount": 318,
-  "durationMs": 606974,
-  "avgDurationMs": 606974,
+  "durationMs": 736725,
+  "avgDurationMs": 736725,
   "durationHistory": [
-    606974
+    736725
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "company-rvoh8q",
-      "slug": "ch-venditore-venditrice-con-responsabilita-del-turno-m-w-d-60-80-lidl-svizzera-st-moritz",
+      "slug": "ch-venditore-venditrice-con-responsabilita-del-turno-m-w-d-60-80-lidl-svizzera-st-moritz-rvoh8q",
       "company": "Lidl Svizzera",
       "title": "CH_Venditore / Venditrice con responsabilità del turno (m/f/d) 60-80%",
       "location": "St. Moritz",
@@ -34,21 +35,23 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-07-29T11:43:30.548Z",
+      "crawledAt": "2026-07-29T22:15:16.793Z",
       "firstSeenAt": "2026-07-29T11:43:30.548Z",
-      "needsRetranslation": true,
       "country": "CH",
       "sourceLang": "it",
-      "_qualityScore": 66,
+      "addressLocality": "St. Moritz",
+      "addressRegion": "GR",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 2,
-        "completeness": 14
+        "translation": 23,
+        "completeness": 19
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "company-ac7hip",
       "slug": "gestione-delle-strutture-tecniche-m-f-d-80-100-lidl-svizzera-weinfelden",
@@ -1228,46 +1231,6 @@
         "richness": 22,
         "translation": 23,
         "completeness": 22
-      }
-    },
-    {
-      "id": "company-yckctb",
-      "slug": "allrounder-vendita-m-w-d-20-40-1-lidl-svizzera-schlieren-yckctb",
-      "company": "Lidl Svizzera",
-      "title": "Allrounder Verkauf (m/w/d) 20-40% 1 — Schlieren",
-      "location": "Schlieren",
-      "canton": "ZH",
-      "category": "admin",
-      "contract": "part-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-15",
-      "url": "https://team.lidl.ch/de/jobs/allrounder-verkauf-m-w-d-20-40-1-schlieren-691858",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Schlieren",
-        "canton": "ZH"
-      },
-      "companyKey": "lidl-svizzera",
-      "companyDomain": "lidl.ch",
-      "crawledAt": "2026-07-27T12:31:53.616Z",
-      "firstSeenAt": "2026-07-12T22:06:12.559Z",
-      "country": "CH",
-      "sourceLang": "de",
-      "addressLocality": "Schlieren",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "salaryMin": 29400,
-      "salaryMax": 44600,
-      "needsRetranslation": true,
-      "_qualityScore": 89,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 23,
-        "completeness": 19
       }
     }
   ],
