@@ -4,10 +4,10 @@
   "jobs": [
     {
       "id": "giardino-459e1866ede0",
-      "slug": "assistant-concierge-giardino-group-champfer",
+      "slug": "assistente-giardino-group-champfer",
       "slugByLocale": {
         "de": "assistant-concierge-giardino-group-champfer",
-        "it": "assistant-concierge-giardino-group-champfer",
+        "it": "assistente-giardino-group-champfer",
         "en": "assistant-concierge-giardino-group-champfer",
         "fr": "assistant-concierge-giardino-group-champfer"
       },
@@ -84,7 +84,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-29T11:34:41.921Z"
+      "firstSeenAt": "2026-07-29T11:34:41.921Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistant-concierge-giardino-group-champfer"
+        ]
+      },
+      "previousSlugs": [
+        "assistant-concierge-giardino-group-champfer"
+      ]
     },
     {
       "id": "giardino-09336b0daa13",
@@ -236,13 +244,11 @@
         ]
       },
       "previousSlugs": [
-        "chef-de-partie-giardino-group-champfer",
-        "capopartita-giardino-group-champfer"
+        "chef-de-partie-giardino-group-champfer"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "chef-de-partie-giardino-group-champfer",
-          "capopartita-giardino-group-champfer"
+          "chef-de-partie-giardino-group-champfer"
         ]
       },
       "firstSeenAt": "2026-07-10T12:00:53.640Z",
@@ -261,12 +267,12 @@
     },
     {
       "id": "giardino-e0eabfdf6f07",
-      "slug": "bell-attendant-giardino-group-champfer",
+      "slug": "bellista-giardino-group-champfer",
       "slugByLocale": {
         "de": "bell-attendant-giardino-group-champfer",
-        "it": "bell-attendant-giardino-group-champfer",
+        "it": "bellista-giardino-group-champfer",
         "en": "bell-attendant-giardino-group-champfer",
-        "fr": "bell-attendant-giardino-group-champfer"
+        "fr": "agent-de-bell-giardino-group-champfer"
       },
       "company": "Giardino Group",
       "companyKey": "giardino",
@@ -337,7 +343,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-29T11:34:41.920Z"
+      "firstSeenAt": "2026-07-29T11:34:41.920Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "bell-attendant-giardino-group-champfer"
+        ],
+        "fr": [
+          "bell-attendant-giardino-group-champfer"
+        ]
+      },
+      "previousSlugs": [
+        "bell-attendant-giardino-group-champfer"
+      ]
     },
     {
       "id": "giardino-e983ec4646d9",
@@ -408,13 +425,11 @@
         ]
       },
       "previousSlugs": [
-        "chef-de-rang-giardino-group-champfer",
-        "capo-di-grado-giardino-group-champfer"
+        "chef-de-rang-giardino-group-champfer"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "chef-de-rang-giardino-group-champfer",
-          "capo-di-grado-giardino-group-champfer"
+          "chef-de-rang-giardino-group-champfer"
         ]
       },
       "firstSeenAt": "2026-07-14T22:23:33.588Z",
@@ -492,13 +507,11 @@
         ]
       },
       "previousSlugs": [
-        "steward-giardino-group-champfer",
-        "amministratore-giardino-group-champfer"
+        "steward-giardino-group-champfer"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "steward-giardino-group-champfer",
-          "amministratore-giardino-group-champfer"
+          "steward-giardino-group-champfer"
         ]
       },
       "firstSeenAt": "2026-07-10T12:00:53.639Z",
@@ -522,7 +535,7 @@
         "it": "addetto-alle-pulizie-giardino-group-ascona",
         "en": "housekeeping-waiting-giardino-group-ascona",
         "de": "housekeeping-attendant-giardino-group-ascona",
-        "fr": "housekeeping-attendant-giardino-group-ascona"
+        "fr": "employe-de-menage-giardino-group-ascona"
       },
       "company": "Giardino Group",
       "companyKey": "giardino",
@@ -583,17 +596,13 @@
       },
       "previousSlugs": [
         "housekeeping-attendant-giardino-group-ascona",
-        "employe-de-menage-giardino-group-ascona",
-        "agent-de-menage-giardino-group-ascona",
-        "addetto-alle-pulizie-giardino-group-ascona"
+        "agent-de-menage-giardino-group-ascona"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "housekeeping-attendant-giardino-group-ascona",
-          "addetto-alle-pulizie-giardino-group-ascona"
+          "housekeeping-attendant-giardino-group-ascona"
         ],
         "fr": [
-          "employe-de-menage-giardino-group-ascona",
           "agent-de-menage-giardino-group-ascona",
           "housekeeping-attendant-giardino-group-ascona"
         ]
