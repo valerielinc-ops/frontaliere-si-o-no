@@ -1437,7 +1437,11 @@ export function preloadBlogData(): Promise<void> {
  if (!_blogDataPromise) {
  _blogDataPromise = import('./routerBlogData').then(m => {
  _blogSlugs = m.BLOG_SLUGS;
- _reverseBlog = m.REVERSE_BLOG;
+ // packages/articles/content/routerBlogData.ts (issue #4881 Fase 6) can't
+ // import the real BlogArticleId literal union (confinement) — it exports
+ // REVERSE_BLOG as Record<ArticleLocale, Record<string, string>>. Only this
+ // module (the site) knows which ids are valid, so narrow here.
+ _reverseBlog = m.REVERSE_BLOG as Record<Locale, Record<string, BlogArticleId>>;
  });
  }
  return _blogDataPromise;

@@ -28,6 +28,7 @@ import { describe, it, expect } from 'vitest';
 import { buildSimplePage, asyncCssHeadBlock, asyncCssLink, ASYNC_CSS_FALLBACK_SCRIPT } from '../../build-plugins/htmlTemplate';
 import { CRITICAL_CSS_LINK } from '../../build-plugins/shared/criticalCss';
 import { SEO_STATIC_CSS_FILENAME } from '../../build-plugins/constants';
+import { readBuildPluginSource } from '../helpers/buildPluginSource';
 
 const SEO_STATIC_HREF = `/assets/${SEO_STATIC_CSS_FILENAME}`;
 const BUILD_PLUGINS_DIR = join(__dirname, '../../build-plugins');
@@ -91,8 +92,14 @@ describe('ASYNC_CSS_FALLBACK_SCRIPT · no literal duplication in sibling emitter
   const siblingFiles = ['ogPagesPlugin.ts', 'staticPagesPlugin.ts'];
 
   it.each(siblingFiles)('%s imports the shared constant instead of inlining the setTimeout script', (file) => {
-    const source = readFileSync(join(BUILD_PLUGINS_DIR, file), 'utf-8');
-    expect(source).toMatch(/import\s*\{[^}]*\bASYNC_CSS_FALLBACK_SCRIPT\b[^}]*\}\s*from\s*['"]\.\/htmlTemplate['"]/);
+    const source = readBuildPluginSource(join(BUILD_PLUGINS_DIR, file));
+    // Two accepted shapes: the legacy direct import, or — for the article
+    // engine after #4881 Fase 6 — the value arriving through the injected
+    // SiteShellContract. Both mean "obtained from the one shared source";
+    // the literal check below is the part that actually guards drift.
+    expect(source).toMatch(
+      /import\s*\{[^}]*\bASYNC_CSS_FALLBACK_SCRIPT\b[^}]*\}\s*from\s*['"]\.\/htmlTemplate['"]|asyncCssFallbackScript:\s*ASYNC_CSS_FALLBACK_SCRIPT|\bASYNC_CSS_FALLBACK_SCRIPT\b\s*[,}]/,
+    );
     // The raw setTimeout literal must not appear verbatim — only the
     // `${ASYNC_CSS_FALLBACK_SCRIPT}` interpolation is allowed.
     expect(source).not.toContain("setTimeout(function(){var ls=document.querySelectorAll('link[media=\"print\"]");

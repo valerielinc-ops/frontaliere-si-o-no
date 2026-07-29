@@ -28,7 +28,13 @@ describe('ogPagesPlugin skip-set covers every article section (no missingTarget 
   // under parallel closeBundle → cross-plugin write collision → a freshly
   // published svizzera article emitted FR but dropped IT/EN/DE, failing
   // audit-hreflang. The skip-set must list EVERY section ogPagesPlugin owns.
-  const ogSource = readFileSync(path.resolve(__dirname, '..', 'build-plugins', 'ogPagesPlugin.ts'), 'utf-8');
+  // build-plugins/ogPagesPlugin.ts is now a 2-line colocation shim (issue
+  // #4881 Fase 6) — the source text this test scrapes lives at the real,
+  // relocated file under packages/articles/engine/.
+  const ogSource = readFileSync(
+    path.resolve(__dirname, '..', 'packages', 'articles', 'engine', 'ogPagesPlugin.ts'),
+    'utf-8',
+  );
   const staticSource = readFileSync(path.resolve(__dirname, '..', 'build-plugins', 'staticPagesPlugin.ts'), 'utf-8');
 
   it('staticPagesPlugin skip-set references the slugData of every ogPagesPlugin SECTION', () => {

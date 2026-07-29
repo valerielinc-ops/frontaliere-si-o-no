@@ -62,8 +62,17 @@ describe('stable asset filenames', () => {
     // invisible to ad-block network filters; it is a no-op for non-tracker names.
     expect(src).toContain("import { adFilterSafeChunkName } from './build-plugins/shared/adFilterSafeChunkName'");
     expect(src).toContain("const safe = adFilterSafeChunkName(chunk.name ?? '')");
-    expect(src).toContain("return `assets/${safe}.js`");
-    expect(src).toContain("return `assets/${safe}.${m[1] ? 'ch.' : ''}${m[2]}.js`");
+    // Locale-key matching/naming itself is delegated to
+    // build-plugins/shared/blogBodyChunkNaming.ts (issue #4881 Fase 6 review
+    // fix — extracted so both the legacy services/locales/blog-body path AND
+    // the real, symlink-resolved packages/articles/content/blog-body path can
+    // be pinned by a unit test without running a build; see
+    // tests/vite-chunk-blog-body-locale-naming.test.ts for that coverage).
+    expect(src).toContain(
+      "import { matchBlogBodyChunkLocale, buildBlogBodyChunkFileName } from './build-plugins/shared/blogBodyChunkNaming'",
+    );
+    expect(src).toContain('const m = matchBlogBodyChunkLocale(chunk.facadeModuleId)');
+    expect(src).toContain('return buildBlogBodyChunkFileName(safe, m)');
     // All stylesheets stable; only non-CSS bundler assets keep the hash.
     expect(src).toContain("if (n.endsWith('.css')) return 'assets/[name][extname]'");
   });
