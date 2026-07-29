@@ -18,6 +18,8 @@ import {
   patchSitemapIndex,
 } from '@/build-plugins/fiscalMunicipalityPagesPlugin';
 import { resolveSearchConsoleCompatTarget } from '@/build-plugins/searchConsoleCompat';
+import { CORRIDOR_PROVINCES, disambiguateHomonymSlugs } from '@/scripts/build-fiscal-municipalities.mjs';
+import { TICINO_VITA_CORRIDOR_PROVINCES } from '@/build-plugins/shared/borderMunicipalityCorridors';
 
 const DIST = '/tmp/__fiscal_dist_does_not_exist__';
 
@@ -30,13 +32,26 @@ describe('fiscal-municipalities dataset (#4483)', () => {
   });
 
   it('every above-floor comune has a real addizionale, a valid slug and sits in the 20 km band', () => {
+    // Data-driven against the live CORRIDOR_PROVINCES export (issue #4893
+    // widened it from ['CO','VA','VB'] to all 11 border provinces) — never
+    // hardcode the province list here, or this test silently stops covering
+    // the real corridor the moment the builder's scope changes again.
     for (const m of FISCAL_ABOVE_FLOOR) {
       expect(m.slug).toMatch(/^[a-z0-9-]+$/);
       expect(m.population).toBeGreaterThanOrEqual(5000);
       expect(m.distanceKm).toBeLessThanOrEqual(20);
-      expect(['CO', 'VA', 'VB']).toContain(m.province);
+      expect(CORRIDOR_PROVINCES).toContain(m.province);
       expect(Number.isFinite(m.irpefAddizionale)).toBe(true);
     }
+  });
+
+  it('covers more than the original Ticino-only (CO/VA/VB) corridor (issue #4893)', () => {
+    // Guards against a regression back to the pre-#4893 3-province cut: the
+    // live dataset must have at least one above-floor comune from a
+    // province outside the original CO/VA/VB set.
+    const original = new Set(['CO', 'VA', 'VB']);
+    const widened = FISCAL_ABOVE_FLOOR.filter((m) => !original.has(m.province));
+    expect(widened.length).toBeGreaterThan(0);
   });
 });
 
@@ -85,6 +100,69 @@ describe('fiscal above-floor page render (#4484)', () => {
     // fiscal intent ("Tasse ...") — never the "vivere da frontaliere" wording.
     expect(html).toContain('Tasse frontaliere Como');
     expect(html).not.toContain('vivere da frontaliere e lavorare in Ticino');
+  });
+});
+
+describe('fiscal page "vivere a" cross-link is gated on the Ticino corridor (issue #4893)', () => {
+  it('renders the "vivere a" card for an above-floor comune inside the Ticino corridor', () => {
+    const inCorridor = FISCAL_ABOVE_FLOOR.find((m) => TICINO_VITA_CORRIDOR_PROVINCES.has(m.province));
+    expect(inCorridor, 'expected at least one above-floor comune inside CO/VA/VB').toBeTruthy();
+    const { html } = renderAboveFloorPage({
+      municipality: inCorridor!,
+      locale: 'it',
+      dateStamp: '2026-07-19',
+      distDir: DIST,
+    });
+    expect(html).toContain(`/vivere-in-ticino/comuni-di-frontiera/${inCorridor!.slug}/`);
+  });
+
+  it('omits the "vivere a" card (never a broken link) for an above-floor comune outside the Ticino corridor', () => {
+    const outsideCorridor = FISCAL_ABOVE_FLOOR.find((m) => !TICINO_VITA_CORRIDOR_PROVINCES.has(m.province));
+    expect(
+      outsideCorridor,
+      'expected at least one above-floor comune outside CO/VA/VB (issue #4893 widened the corridor)',
+    ).toBeTruthy();
+    const { html, wordCount } = renderAboveFloorPage({
+      municipality: outsideCorridor!,
+      locale: 'it',
+      dateStamp: '2026-07-19',
+      distDir: DIST,
+    });
+    expect(html).not.toContain('/vivere-in-ticino/comuni-di-frontiera/');
+    // The page must still be a real, indexable page (no thin-content regression
+    // just because a card was dropped).
+    expect(wordCount).toBeGreaterThan(50);
+    expect(html).toMatch(/name=["']?robots["']?\s+content=["']?index,follow/);
+  });
+
+  it('the bridge page for a below-floor comune outside the Ticino corridor also omits the "vivere a" link', () => {
+    const outsideCorridor = FISCAL_BELOW_FLOOR.find((m) => !TICINO_VITA_CORRIDOR_PROVINCES.has(m.province));
+    expect(outsideCorridor).toBeTruthy();
+    const html = renderBridgePage({ municipality: outsideCorridor!, locale: 'it', distDir: DIST });
+    expect(html).not.toContain('/vivere-in-ticino/comuni-di-frontiera/');
+    expect(html).toMatch(/name=["']?robots["']?\s+content=["']?noindex,follow/);
+  });
+});
+
+describe('disambiguateHomonymSlugs — synthetic homonym collision across provinces (issue #4893)', () => {
+  it('appends the province code to every member of a colliding slug group, deterministically', () => {
+    // Synthetic: the live 518-comune dataset has zero name collisions today
+    // (verified separately in tests/fiscal-municipalities-dataset.test.ts),
+    // but Italy has many repeated comune names across provinces — this must
+    // not silently collapse two comuni onto the same URL if the data ever
+    // does collide.
+    const records = [
+      { name: 'Casale', slug: 'casale', province: 'CO', population: 6000 },
+      { name: 'Casale', slug: 'casale', province: 'SO', population: 5500 },
+      { name: 'Como', slug: 'como', province: 'CO', population: 84000 },
+    ];
+    disambiguateHomonymSlugs(records);
+    const slugs = records.map((r) => r.slug);
+    expect(new Set(slugs).size).toBe(slugs.length);
+    expect(records[0].slug).toBe('casale-co');
+    expect(records[1].slug).toBe('casale-so');
+    // Non-colliding record is left untouched.
+    expect(records[2].slug).toBe('como');
   });
 });
 
