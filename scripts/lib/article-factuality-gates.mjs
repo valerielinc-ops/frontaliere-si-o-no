@@ -155,6 +155,66 @@ const TRAILING_FOOTNOTE_REF = /\s+\[?\^?\d{1,3}\]?$/;
  * @param {string} text
  * @param {{label?: string}} [opts]
  */
+// ─── Leaked prompt scaffolding ────────────────────────────────────────
+//
+// The generation and translation prompts carry section markers and rule blocks
+// ("TITOLO ARTICOLO:", "TERMINOLOGIE DEUTSCH OBBLIGATORISCH", "Verwenden Sie
+// ZERO Fettschrift", "MAI \"G-Führerschein\"") that the model sometimes copies
+// into its own output instead of obeying. The result ships as prose: one German
+// article published the entire translator rulebook, terminology bans included.
+//
+// Found 2026-07-29 while clearing the corpus: 41 bodies carried `TITOLO
+// ARTICOLO`, plus a handful with the translation rule block. It is invisible to
+// every other gate — the text is well-formed, the arithmetic is fine, the
+// institutions are real. It is simply not an article.
+//
+// Detection is exact-token, not heuristic: these are strings the prompts
+// literally contain, so a match is the prompt leaking, never prose that happens
+// to resemble it. Anchored to line starts and all-caps forms to keep an article
+// that legitimately discusses "la terminologia" from tripping it.
+const SCAFFOLDING_MARKERS = [
+  { re: /^\s*#{0,4}\s*TITOLO ARTICOLO\s*:?/m, what: 'marcatore di sezione del prompt di generazione' },
+  { re: /^\s*#{0,4}\s*(?:ESEMPIO|ESEMPI) CONCRET[OI]\s*:?\s*$/m, what: 'marcatore di sezione del prompt' },
+  { re: /^\s*#{0,4}\s*(?:NOTE|NOTA) PER (?:IL|LA) (?:MODELLO|TRADUZIONE)\s*:?/mi, what: 'nota interna del prompt' },
+  // Case-SENSITIVE and line-anchored on purpose. The prompt shouts its headings
+  // ("TERMINOLOGIE DEUTSCH OBBLIGATORISCH:"); ordinary prose does not. A
+  // case-insensitive version flagged the sentence "La terminologia usata negli
+  // accordi bilaterali è obbligatoria per i Comuni di confine" — caught by the
+  // negative test before it could block a correct article.
+  { re: /^\s*TERMINOLOGI[AE]\b[^\n]{0,40}\b(?:OBBLIGATORI\w*|OBLIGATORISCH|MANDATORY)\s*:/m, what: 'blocco di regole terminologiche del prompt di traduzione' },
+  { re: /\bVerwenden Sie ZERO\b|\bUsa ZERO\b|\bUse ZERO\b/, what: 'istruzione di formattazione del prompt' },
+  { re: /\bMAI\s+"[^"]{2,40}"/, what: 'divieto terminologico del prompt di traduzione' },
+];
+
+/**
+ * Flags prompt scaffolding that reached the published body.
+ *
+ * @param {string} text
+ * @param {{label?: string}} [opts]
+ */
+export function detectLeakedScaffolding(text, opts = {}) {
+  const issues = [];
+  if (typeof text !== 'string' || !text.trim()) return issues;
+  const label = opts.label ? `[${opts.label}] ` : '';
+
+  for (const { re, what } of SCAFFOLDING_MARKERS) {
+    const m = text.match(re);
+    if (!m) continue;
+    const at = text.indexOf(m[0]);
+    issues.push(issue(
+      'leaked-prompt-scaffolding',
+      'critical',
+      `${label}Istruzioni del prompt finite nel testo pubblicato: ${what}`,
+      text.slice(Math.max(0, at - 40), at + 160).trim(),
+      `Rimuovi il blocco: è un'istruzione rivolta al modello, non contenuto per il lettore. `
+      + `Cancella dal marcatore fino alla fine del blocco di regole, e verifica che il testo attorno `
+      + `resti una frase compiuta. Non riscrivere l'istruzione in prosa: non deve esserci affatto.`,
+    ));
+  }
+
+  return issues;
+}
+
 export function detectTruncation(text, opts = {}) {
   const issues = [];
   if (typeof text !== 'string' || !text.trim()) return issues;
@@ -1764,7 +1824,9 @@ export function runFactualityGates(params = {}) {
   let issues = [];
   for (const [label, text] of Object.entries(sections)) {
     if (typeof text !== 'string' || !text.trim()) continue;
-    issues.push(...detectTruncation(text, { label: locale === 'it' ? label : `${locale}/${label}` }));
+    const sectionLabel = locale === 'it' ? label : `${locale}/${label}`;
+    issues.push(...detectTruncation(text, { label: sectionLabel }));
+    issues.push(...detectLeakedScaffolding(text, { label: sectionLabel }));
   }
   issues.push(...checkInlineArithmetic(fullText, localeOptions));
   issues.push(...checkTaxPlausibility(fullText, localeOptions));
