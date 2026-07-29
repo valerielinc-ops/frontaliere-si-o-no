@@ -4985,6 +4985,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'accertamento-residenza-fiscale-prove-digitali',
+    category: 'fiscale',
+    date: '2026-07-29T03:42:24.857Z',
+    image: '/images/blog/accertamento-residenza-fiscale-prove-digitali.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

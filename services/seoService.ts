@@ -4984,6 +4984,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-impresari-costruttori-caldo-estremo': { name: 'Edilizia e Caldo', path: '/articoli-frontaliere/impresari-costruttori-caldo-estremo', parent: 'blog' },
     'blog-telelavoro-frontalieri-limiti-fiscali-previdenziali': { name: 'Telelavoro frontalieri', path: '/articoli-svizzera/telelavoro-frontalieri-limiti-fiscali-previdenziali/', parent: 'blog' },
     'blog-infortunio-lavoro-vallemaggia-piano-peccia': { name: 'Infortunio lavoro', path: '/articoli-frontaliere/infortunio-lavoro-vallemaggia-piano-peccia', parent: 'blog' },
+    'blog-accertamento-residenza-fiscale-prove-digitali': { name: 'Fisco e Residenza', path: '/articoli-svizzera/accertamento-residenza-fiscale-prove-digitali/', parent: 'blog' },
  };
 
  const info = sectionNames[section];
