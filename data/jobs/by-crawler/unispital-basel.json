@@ -1,6 +1,6 @@
 {
   "crawlerKey": "unispital-basel",
-  "assembledAt": "2026-07-29T11:55:15.818Z",
+  "assembledAt": "2026-07-29T11:08:03.260Z",
   "jobs": [
     {
       "id": "unispital-basel-060d3af500a7",
@@ -4541,16 +4541,25 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "medizinische-r-praxisassistent-in-mpa-unispital-basel-ch",
-        "medizinische-r-praxisassistent-in-mpa-universitatsspital-basel-basel"
+        "medizinische-r-praxisassistent-in-mpa-universitatsspital-basel-basel",
+        "medizinische-r-praxisassistent-in-mpa-frauenklinik-universitatsspital-basel-basel",
+        "medizinische-r-praxisassistent-in-mpa-frauenklinik-unispital-basel-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "medizinische-r-praxisassistent-in-mpa-unispital-basel-ch",
-          "medizinische-r-praxisassistent-in-mpa-universitatsspital-basel-basel"
+          "medizinische-r-praxisassistent-in-mpa-universitatsspital-basel-basel",
+          "medizinische-r-praxisassistent-in-mpa-frauenklinik-universitatsspital-basel-basel",
+          "medizinische-r-praxisassistent-in-mpa-frauenklinik-unispital-basel-ch"
+        ],
+        "de": [
+          "medizinische-r-praxisassistent-in-mpa-frauenklinik-unispital-basel-ch"
+        ],
+        "fr": [
+          "medizinische-r-praxisassistent-in-mpa-frauenklinik-universitatsspital-basel-basel"
         ]
       },
       "firstSeenAt": "2026-06-29T14:24:41.982Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -4562,7 +4571,8 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "unispital-basel-baeab9071b80",

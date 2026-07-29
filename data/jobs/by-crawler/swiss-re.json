@@ -1,6 +1,6 @@
 {
   "crawlerKey": "swiss-re",
-  "assembledAt": "2026-07-29T11:51:57.265Z",
+  "assembledAt": "2026-07-29T11:05:21.447Z",
   "jobs": [
     {
       "id": "swiss-re-eb683c9f7002",
@@ -16473,7 +16473,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-07-08T11:23:46.357Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -16486,7 +16485,29 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "back-office-administrator-with-spanish-temporary-swiss-re-ch",
+          "back-office-administrator-mit-spanish-temporary-swiss-re-bratislava-sk",
+          "administrateur-de-back-office-avec-espagnol-temporaire-swiss-re-bratislava-sk"
+        ],
+        "en": [
+          "back-office-administrator-with-spanish-temporary-swiss-re-ch"
+        ],
+        "de": [
+          "back-office-administrator-mit-spanish-temporary-swiss-re-bratislava-sk"
+        ],
+        "fr": [
+          "administrateur-de-back-office-avec-espagnol-temporaire-swiss-re-bratislava-sk"
+        ]
+      },
+      "previousSlugs": [
+        "back-office-administrator-with-spanish-temporary-swiss-re-ch",
+        "back-office-administrator-mit-spanish-temporary-swiss-re-bratislava-sk",
+        "administrateur-de-back-office-avec-espagnol-temporaire-swiss-re-bratislava-sk"
+      ]
     },
     {
       "id": "swiss-re-d88c008a8f6b",

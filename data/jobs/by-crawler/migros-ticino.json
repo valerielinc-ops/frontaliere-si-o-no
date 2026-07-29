@@ -1,6 +1,6 @@
 {
   "crawlerKey": "migros-ticino",
-  "assembledAt": "2026-07-29T12:10:57.233Z",
+  "assembledAt": "2026-07-29T10:41:51.468Z",
   "jobs": [
     {
       "id": "company-lrvesg",
@@ -2222,6 +2222,8 @@
         "verkaufsmitarbeiter-in-migrolino-bern-c6lpj4",
         "verkaufsmitarbeiter-in-migrolino-bern"
       ],
+      "salaryMin": 68500,
+      "salaryMax": 104000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -2237,9 +2239,7 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "country": "CH",
-      "needsRetranslation": true,
-      "salaryMin": 68500,
-      "salaryMax": 104000
+      "needsRetranslation": true
     },
     {
       "id": "company-9dhy7j",
@@ -7476,6 +7476,8 @@
         "fr": []
       },
       "sourceLang": "de",
+      "salaryMin": 73500,
+      "salaryMax": 111500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -7504,7 +7506,8 @@
         "directeur-de-succursale-stv-in-denner-ag-zurich",
         "stv-filialleiter-in-denner-ag-zurich-2zbait",
         "stv-branch-manager-in-denner-ag-zurich-3e601b",
-        "vice-direttore-di-negozio-denner-ag-zurich"
+        "vice-direttore-di-negozio-denner-ag-zurich",
+        "stv-branch-manager-in-denner-ag-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -7520,7 +7523,8 @@
           "vice-direttore-di-filiale-denner-ag-zurich",
           "stv-branch-manager-in-denner-ag-zurich-geicje",
           "stv-branch-manager-in-denner-ag-zurich-gdn8qz",
-          "vice-direttore-di-negozio-denner-ag-zurich"
+          "vice-direttore-di-negozio-denner-ag-zurich",
+          "stv-branch-manager-in-denner-ag-zurich"
         ],
         "en": [
           "deputy-branch-manager-denner-ag-zurich-6527ca"
@@ -7532,9 +7536,7 @@
           "directeur-adjoint-de-la-succursale-denner-ag-zurich-6527ca"
         ]
       },
-      "needsRetranslation": true,
-      "salaryMin": 73500,
-      "salaryMax": 111500
+      "needsRetranslation": true
     },
     {
       "id": "company-4l5uyy",
@@ -8421,18 +8423,33 @@
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-im-stundenlohn-denner-ag-burgdorf",
-          "verkaufer-in-im-stundenlohn-denner-ag-burgdorf-g3xake"
+          "verkaufer-in-im-stundenlohn-denner-ag-burgdorf-g3xake",
+          "venditore-con-salario-orario-denner-ag-worb",
+          "salesperson-on-an-hourly-wage-denner-ag-worb",
+          "verkaufer-in-im-stundenlohn-denner-ag-worb-7snk70",
+          "vendeur-a-salaire-horaire-denner-ag-worb",
+          "verkaufer-in-im-stundenlohn-denner-ag-worb"
         ],
         "en": [
-          "verkaufer-in-im-stundenlohn-denner-ag-burgdorf-g3xake"
+          "verkaufer-in-im-stundenlohn-denner-ag-burgdorf-g3xake",
+          "salesperson-on-an-hourly-wage-denner-ag-worb"
         ],
         "fr": [
-          "verkaufer-in-im-stundenlohn-denner-ag-burgdorf-g3xake"
+          "verkaufer-in-im-stundenlohn-denner-ag-burgdorf-g3xake",
+          "vendeur-a-salaire-horaire-denner-ag-worb"
+        ],
+        "de": [
+          "verkaufer-in-im-stundenlohn-denner-ag-worb-7snk70"
         ]
       },
       "previousSlugs": [
         "verkaufer-in-im-stundenlohn-denner-ag-burgdorf",
-        "verkaufer-in-im-stundenlohn-denner-ag-burgdorf-g3xake"
+        "verkaufer-in-im-stundenlohn-denner-ag-burgdorf-g3xake",
+        "venditore-con-salario-orario-denner-ag-worb",
+        "salesperson-on-an-hourly-wage-denner-ag-worb",
+        "verkaufer-in-im-stundenlohn-denner-ag-worb-7snk70",
+        "vendeur-a-salaire-horaire-denner-ag-worb",
+        "verkaufer-in-im-stundenlohn-denner-ag-worb"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -8449,9 +8466,9 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "country": "CH",
-      "needsRetranslation": true,
       "salaryMin": 68500,
-      "salaryMax": 104000
+      "salaryMax": 104000,
+      "needsRetranslation": true
     },
     {
       "id": "company-hm70qx",
@@ -28691,18 +28708,26 @@
           "mehrzweckbeihilfe-verkauf-societe-cooperative-migros-neuchatel-fribourg-avry-sur-matran",
           "aide-polyvalent-e-vente-societe-cooperative-migros-neuchatel-fribourg-avry-sur-matran-x32vyo",
           "aiuto-multiuso-sales-societe-cooperative-migros-neuchatel-fribourg-avry-sur-matran",
-          "aide-polyvalent-e-vente-societe-cooperative-migros-neuchatel-fribourg-avry-sur-matran"
+          "aide-polyvalent-e-vente-societe-cooperative-migros-neuchatel-fribourg-avry-sur-matran",
+          "decoratore-cdd-societe-cooperative-migros-neuchatel-fribourg-avry-sur-matran",
+          "decorator-cdd-societe-cooperative-migros-neuchatel-fribourg-avry-sur-matran",
+          "dekorateur-cdd-societe-cooperative-migros-neuchatel-fribourg-avry-sur-matran",
+          "decorateur-trice-cdd-societe-cooperative-migros-neuchatel-fribourg-avry-sur-matran-elkb37",
+          "decorateur-trice-cdd-societe-cooperative-migros-neuchatel-fribourg-avry-sur-matran"
         ],
         "en": [
           "vendeur-se-polyvalent-e-societe-cooperative-migros-neuchatel-fribourg-matran-r709c5",
-          "multi-purpose-aid-sales-societe-cooperative-migros-neuchatel-fribourg-avry-sur-matran"
+          "multi-purpose-aid-sales-societe-cooperative-migros-neuchatel-fribourg-avry-sur-matran",
+          "decorator-cdd-societe-cooperative-migros-neuchatel-fribourg-avry-sur-matran"
         ],
         "de": [
           "vendeur-se-polyvalent-e-societe-cooperative-migros-neuchatel-fribourg-matran-r709c5",
-          "mehrzweckbeihilfe-verkauf-societe-cooperative-migros-neuchatel-fribourg-avry-sur-matran"
+          "mehrzweckbeihilfe-verkauf-societe-cooperative-migros-neuchatel-fribourg-avry-sur-matran",
+          "dekorateur-cdd-societe-cooperative-migros-neuchatel-fribourg-avry-sur-matran"
         ],
         "fr": [
-          "aide-polyvalent-e-vente-societe-cooperative-migros-neuchatel-fribourg-avry-sur-matran-x32vyo"
+          "aide-polyvalent-e-vente-societe-cooperative-migros-neuchatel-fribourg-avry-sur-matran-x32vyo",
+          "decorateur-trice-cdd-societe-cooperative-migros-neuchatel-fribourg-avry-sur-matran-elkb37"
         ]
       },
       "previousSlugs": [
@@ -28712,7 +28737,12 @@
         "mehrzweckbeihilfe-verkauf-societe-cooperative-migros-neuchatel-fribourg-avry-sur-matran",
         "aide-polyvalent-e-vente-societe-cooperative-migros-neuchatel-fribourg-avry-sur-matran-x32vyo",
         "aiuto-multiuso-sales-societe-cooperative-migros-neuchatel-fribourg-avry-sur-matran",
-        "aide-polyvalent-e-vente-societe-cooperative-migros-neuchatel-fribourg-avry-sur-matran"
+        "aide-polyvalent-e-vente-societe-cooperative-migros-neuchatel-fribourg-avry-sur-matran",
+        "decoratore-cdd-societe-cooperative-migros-neuchatel-fribourg-avry-sur-matran",
+        "decorator-cdd-societe-cooperative-migros-neuchatel-fribourg-avry-sur-matran",
+        "dekorateur-cdd-societe-cooperative-migros-neuchatel-fribourg-avry-sur-matran",
+        "decorateur-trice-cdd-societe-cooperative-migros-neuchatel-fribourg-avry-sur-matran-elkb37",
+        "decorateur-trice-cdd-societe-cooperative-migros-neuchatel-fribourg-avry-sur-matran"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -28729,9 +28759,9 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "country": "CH",
-      "needsRetranslation": true,
       "salaryMin": 68500,
-      "salaryMax": 104000
+      "salaryMax": 104000,
+      "needsRetranslation": true
     },
     {
       "id": "company-d11ebh",
@@ -45373,26 +45403,34 @@
           "allrounder-in-vendita-im-stundenlohn-genossenschaft-migros-luzern-ruswil-fasbqg",
           "allrounder-in-verkauf-im-stundenlohn-genossenschaft-migros-luzern-ruswil",
           "allrounder-in-vendita-im-stundenlohn-genossenschaft-migros-luzern-willisau-bc9s45",
-          "allrounder-in-verkauf-im-stundenlohn-genossenschaft-migros-luzern-willisau"
+          "allrounder-in-verkauf-im-stundenlohn-genossenschaft-migros-luzern-willisau",
+          "allrounder-in-vendita-im-stundenlohn-genossenschaft-migros-luzern-rwxicp",
+          "allrounder-in-sales-at-hourly-wages-genossenschaft-migros-luzern-luzern-5ce743",
+          "allrounder-in-verkauf-im-stundenlohn-genossenschaft-migros-luzern-rwxicp",
+          "allrounder-in-vente-im-stundenlohn-genossenschaft-migros-luzern-rwxicp",
+          "allrounder-in-verkauf-im-stundenlohn-genossenschaft-migros-luzern-2"
         ],
         "en": [
           "allrounder-in-verkauf-im-stundenlohn-genossenschaft-migros-luzern-alpnach-cj030b",
           "allrounder-in-sales-at-hourly-wages-genossenschaft-migros-luzern-altdorf",
           "allrounder-in-sales-at-hourly-wages-genossenschaft-migros-luzern-engelberg-2f481f",
           "allrounder-in-sales-at-hourly-wages-genossenschaft-migros-luzern-ruswil",
-          "allrounder-in-sales-at-hourly-wages-genossenschaft-migros-luzern-willisau"
+          "allrounder-in-sales-at-hourly-wages-genossenschaft-migros-luzern-willisau",
+          "allrounder-in-sales-at-hourly-wages-genossenschaft-migros-luzern-luzern-5ce743"
         ],
         "de": [
           "allrounder-in-verkauf-im-stundenlohn-genossenschaft-migros-luzern-altdorf-9fuoi1",
           "allrounder-in-verkauf-im-stundenlohn-genossenschaft-migros-luzern-engelberg-yyoe37",
           "allrounder-in-verkauf-im-stundenlohn-genossenschaft-migros-luzern-ruswil-fasbqg",
-          "allrounder-in-verkauf-im-stundenlohn-genossenschaft-migros-luzern-willisau-bc9s45"
+          "allrounder-in-verkauf-im-stundenlohn-genossenschaft-migros-luzern-willisau-bc9s45",
+          "allrounder-in-verkauf-im-stundenlohn-genossenschaft-migros-luzern-rwxicp"
         ],
         "fr": [
           "allrounder-in-vente-im-stundenlohn-genossenschaft-migros-luzern-altdorf-9fuoi1",
           "allrounder-in-vente-im-stundenlohn-genossenschaft-migros-luzern-engelberg-yyoe37",
           "allrounder-in-vente-im-stundenlohn-genossenschaft-migros-luzern-ruswil-fasbqg",
-          "allrounder-in-vente-im-stundenlohn-genossenschaft-migros-luzern-willisau-bc9s45"
+          "allrounder-in-vente-im-stundenlohn-genossenschaft-migros-luzern-willisau-bc9s45",
+          "allrounder-in-vente-im-stundenlohn-genossenschaft-migros-luzern-rwxicp"
         ]
       },
       "previousSlugs": [
@@ -45417,7 +45455,12 @@
         "allrounder-in-vente-im-stundenlohn-genossenschaft-migros-luzern-altdorf-9fuoi1",
         "allrounder-in-vente-im-stundenlohn-genossenschaft-migros-luzern-engelberg-yyoe37",
         "allrounder-in-vente-im-stundenlohn-genossenschaft-migros-luzern-ruswil-fasbqg",
-        "allrounder-in-vente-im-stundenlohn-genossenschaft-migros-luzern-willisau-bc9s45"
+        "allrounder-in-vente-im-stundenlohn-genossenschaft-migros-luzern-willisau-bc9s45",
+        "allrounder-in-vendita-im-stundenlohn-genossenschaft-migros-luzern-rwxicp",
+        "allrounder-in-sales-at-hourly-wages-genossenschaft-migros-luzern-luzern-5ce743",
+        "allrounder-in-verkauf-im-stundenlohn-genossenschaft-migros-luzern-rwxicp",
+        "allrounder-in-vente-im-stundenlohn-genossenschaft-migros-luzern-rwxicp",
+        "allrounder-in-verkauf-im-stundenlohn-genossenschaft-migros-luzern-2"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -45434,9 +45477,9 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "country": "CH",
-      "needsRetranslation": true,
       "salaryMin": 69500,
-      "salaryMax": 106000
+      "salaryMax": 106000,
+      "needsRetranslation": true
     },
     {
       "id": "company-2zbait",
@@ -98734,11 +98777,30 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "fachleiter-in-food-migros-ettingen-genossenschaft-migros-basel-ettingen"
+          "fachleiter-in-food-migros-ettingen-genossenschaft-migros-basel-ettingen",
+          "responsabile-di-reparto-non-food-migros-ettingen-genossenschaft-migros-basel-ettingen-yr3wzp",
+          "non-food-department-manager-migros-ettingen-genossenschaft-migros-basel-ettingen-yr3wzp",
+          "fachleiter-in-non-food-migros-ettingen-genossenschaft-migros-basel-ettingen-yr3wzp",
+          "responsable-de-rayon-non-food-migros-ettingen-genossenschaft-migros-basel-ettingen-yr3wzp",
+          "fachleiter-in-non-food-migros-ettingen-genossenschaft-migros-basel-ettingen"
+        ],
+        "en": [
+          "non-food-department-manager-migros-ettingen-genossenschaft-migros-basel-ettingen-yr3wzp"
+        ],
+        "de": [
+          "fachleiter-in-non-food-migros-ettingen-genossenschaft-migros-basel-ettingen-yr3wzp"
+        ],
+        "fr": [
+          "responsable-de-rayon-non-food-migros-ettingen-genossenschaft-migros-basel-ettingen-yr3wzp"
         ]
       },
       "previousSlugs": [
-        "fachleiter-in-food-migros-ettingen-genossenschaft-migros-basel-ettingen"
+        "fachleiter-in-food-migros-ettingen-genossenschaft-migros-basel-ettingen",
+        "responsabile-di-reparto-non-food-migros-ettingen-genossenschaft-migros-basel-ettingen-yr3wzp",
+        "non-food-department-manager-migros-ettingen-genossenschaft-migros-basel-ettingen-yr3wzp",
+        "fachleiter-in-non-food-migros-ettingen-genossenschaft-migros-basel-ettingen-yr3wzp",
+        "responsable-de-rayon-non-food-migros-ettingen-genossenschaft-migros-basel-ettingen-yr3wzp",
+        "fachleiter-in-non-food-migros-ettingen-genossenschaft-migros-basel-ettingen"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -120522,18 +120584,33 @@
       "previousSlugsByLocale": {
         "it": [
           "gastro-hilfskraft-hausbackerei-migros-dreispitz-genossenschaft-migros-basel-2",
-          "gastro-hilfskraft-hausbackerei-migros-dreispitz-genossenschaft-migros-basel-j6f2az"
+          "gastro-hilfskraft-hausbackerei-migros-dreispitz-genossenschaft-migros-basel-j6f2az",
+          "assistente-gastroenterologo-casa-panetteria-migros-dreispitz-genossenschaft-migros-basel-basel",
+          "gastro-assistant-home-bakery-migros-dreispitz-genossenschaft-migros-basel-basel",
+          "gastro-hilfskraft-hausbackerei-migros-dreispitz-genossenschaft-migros-basel-bkqhkf",
+          "assistant-gastro-enterologique-boulangerie-a-domicile-migros-dreispitz-genossenschaft-migros-basel-basel",
+          "gastro-hilfskraft-hausbackerei-migros-dreispitz-genossenschaft-migros-basel"
         ],
         "en": [
-          "gastro-hilfskraft-hausbackerei-migros-dreispitz-genossenschaft-migros-basel-j6f2az"
+          "gastro-hilfskraft-hausbackerei-migros-dreispitz-genossenschaft-migros-basel-j6f2az",
+          "gastro-assistant-home-bakery-migros-dreispitz-genossenschaft-migros-basel-basel"
         ],
         "fr": [
-          "gastro-hilfskraft-hausbackerei-migros-dreispitz-genossenschaft-migros-basel-j6f2az"
+          "gastro-hilfskraft-hausbackerei-migros-dreispitz-genossenschaft-migros-basel-j6f2az",
+          "assistant-gastro-enterologique-boulangerie-a-domicile-migros-dreispitz-genossenschaft-migros-basel-basel"
+        ],
+        "de": [
+          "gastro-hilfskraft-hausbackerei-migros-dreispitz-genossenschaft-migros-basel-bkqhkf"
         ]
       },
       "previousSlugs": [
         "gastro-hilfskraft-hausbackerei-migros-dreispitz-genossenschaft-migros-basel-2",
-        "gastro-hilfskraft-hausbackerei-migros-dreispitz-genossenschaft-migros-basel-j6f2az"
+        "gastro-hilfskraft-hausbackerei-migros-dreispitz-genossenschaft-migros-basel-j6f2az",
+        "assistente-gastroenterologo-casa-panetteria-migros-dreispitz-genossenschaft-migros-basel-basel",
+        "gastro-assistant-home-bakery-migros-dreispitz-genossenschaft-migros-basel-basel",
+        "gastro-hilfskraft-hausbackerei-migros-dreispitz-genossenschaft-migros-basel-bkqhkf",
+        "assistant-gastro-enterologique-boulangerie-a-domicile-migros-dreispitz-genossenschaft-migros-basel-basel",
+        "gastro-hilfskraft-hausbackerei-migros-dreispitz-genossenschaft-migros-basel"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -120551,9 +120628,9 @@
       "employmentType": "FULL_TIME",
       "postalCode": "4001",
       "country": "CH",
-      "needsRetranslation": true,
       "salaryMin": 62000,
-      "salaryMax": 94000
+      "salaryMax": 94000,
+      "needsRetranslation": true
     },
     {
       "id": "company-x5b1hv",
@@ -121461,22 +121538,37 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "abteilungsleiter-in-food-und-non-food-genossenschaft-migros-ostschweiz-st-gallen"
+          "abteilungsleiter-in-food-und-non-food-genossenschaft-migros-ostschweiz-st-gallen",
+          "capo-dipartimento-pane-prodotti-da-forno-genossenschaft-migros-ostschweiz-turbenthal",
+          "head-of-department-bread-baked-goods-genossenschaft-migros-ostschweiz-turbenthal",
+          "abteilungsleiter-in-brot-backwaren-genossenschaft-migros-ostschweiz-turbenthal-wq7c3z",
+          "chef-de-departement-pain-produits-de-boulangerie-genossenschaft-migros-ostschweiz-turbenthal",
+          "abteilungsleiter-in-brot-backwaren-genossenschaft-migros-ostschweiz-turbenthal"
         ],
         "en": [
           "abteilungsleiter-in-food-und-non-food-genossenschaft-migros-ostschweiz-st-gallen-oo6mro",
-          "head-of-food-and-non-food-genossenschaft-migros-ostschweiz-st-gallen"
+          "head-of-food-and-non-food-genossenschaft-migros-ostschweiz-st-gallen",
+          "head-of-department-bread-baked-goods-genossenschaft-migros-ostschweiz-turbenthal"
         ],
         "fr": [
           "abteilungsleiter-in-food-und-non-food-genossenschaft-migros-ostschweiz-st-gallen-oo6mro",
-          "chef-de-l-alimentation-et-des-autres-produits-genossenschaft-migros-ostschweiz-st-gallen"
+          "chef-de-l-alimentation-et-des-autres-produits-genossenschaft-migros-ostschweiz-st-gallen",
+          "chef-de-departement-pain-produits-de-boulangerie-genossenschaft-migros-ostschweiz-turbenthal"
+        ],
+        "de": [
+          "abteilungsleiter-in-brot-backwaren-genossenschaft-migros-ostschweiz-turbenthal-wq7c3z"
         ]
       },
       "previousSlugs": [
         "abteilungsleiter-in-food-und-non-food-genossenschaft-migros-ostschweiz-st-gallen",
         "abteilungsleiter-in-food-und-non-food-genossenschaft-migros-ostschweiz-st-gallen-oo6mro",
         "head-of-food-and-non-food-genossenschaft-migros-ostschweiz-st-gallen",
-        "chef-de-l-alimentation-et-des-autres-produits-genossenschaft-migros-ostschweiz-st-gallen"
+        "chef-de-l-alimentation-et-des-autres-produits-genossenschaft-migros-ostschweiz-st-gallen",
+        "capo-dipartimento-pane-prodotti-da-forno-genossenschaft-migros-ostschweiz-turbenthal",
+        "head-of-department-bread-baked-goods-genossenschaft-migros-ostschweiz-turbenthal",
+        "abteilungsleiter-in-brot-backwaren-genossenschaft-migros-ostschweiz-turbenthal-wq7c3z",
+        "chef-de-departement-pain-produits-de-boulangerie-genossenschaft-migros-ostschweiz-turbenthal",
+        "abteilungsleiter-in-brot-backwaren-genossenschaft-migros-ostschweiz-turbenthal"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -121494,9 +121586,9 @@
       "employmentType": "FULL_TIME",
       "postalCode": "9000",
       "country": "CH",
-      "needsRetranslation": true,
       "salaryMin": 57500,
-      "salaryMax": 87000
+      "salaryMax": 87000,
+      "needsRetranslation": true
     },
     {
       "id": "company-mo0dku",
@@ -125706,13 +125798,13 @@
       "firstSeenAt": "2026-07-02T22:30:51.514Z",
       "titleByLocale": {
         "en": "Senior Network Security Engineer (w/m/d)",
-        "it": "Ingegnere Senior di Sicurezza di Rete (w/m/d)",
+        "it": "Senior Network Security Engineer (m/f/d)",
         "de": "Senior Network Security Ingenieur (w/m/d)",
-        "fr": "Ingénieur Senior en Sécurité Réseau (h/f/d)"
+        "fr": "Ingénieur Senior en sécurité réseau (h/f/d)"
       },
       "descriptionByLocale": {
         "de": "Unser Direktionsbereich Group Technology Services erbringt IT-Dienstleistungen und Services für zahlreiche Unternehmen der Migros-Gruppe. Als Senior Network Security Engineer (w/m/d) hilfst du mit, unsere Netzwerke im Bereich F5/Loadbalancer, Firewall, Proxy, VPN und weiteren Security Komponenten aufrecht zu erhalten und weiterzuentwickeln.\n\nMansioni\n- Engineering in den Bereichen F5/Loadbalancer, Firewall und Proxy im ganzen Migros Netzwerk\n- Mitgestaltung der aktuellen und zukünftigen Netzwerk-Security Umgebung mit Schwerpunkt F5/Loadbalancer\n- Unterstützung des 2nd Level Supports im Bereich Incident- und Problem-Management\n- Schulung von Mitarbeitenden unseres Network Operation Centers (NOC) sowie Pflege der Dokumentation in Confluence\n- Koordination von externen Mitarbeitenden und Partnerfirmen in definierten Themengebieten\n\nRequisiti\n- Mindestens 5 Jahre Berufserfahrung: im Netzwerk Engineering, Design und Betrieb mit F5/Loadbalancer und Netzwerksicherheit\n- Abgeschlossene Berufslehre (EFZ): in Informatik, entsprechende Weiterbildung von Vorteil\n- Fundiertes Wissen im Design und Betrieb von F5/Loadbalancer (iRules) sowie Erfahrungen im Bereich Authentication (Entra-ID, SAML)\n- Kundenorientierte Persönlichkeit mit selbständiger und strukturierter Arbeitsweise\n- Bereitschaft für Pikettdienst (ca. 10 Einsätze pro Jahr) inkl. Nacht-und Wochenendeinsätze\n- Erfahrung im Umgang mit SSL-/TLS-Zertifikaten wie Let's Encrypt und Vertrautheit in agilen Arbeitsmethoden, vorzugsweise in SAFe\n- Deutsch (sehr gute Kenntnisse)\n- Englisch (gute Kenntnisse)\n\nCosa offriamo\n- Mobil-flexibles Arbeitsmodell: Zeitliche und räumliche Flexibilität bei der Erfüllung der Funktion (als Orientierung 40% Home Office)\n- Faire Löhne: Funktionsorientierte und marktgerechte Entlöhnung - \"We pay fair\" zertifiziert\n- Klubschule und Freizeitanlagen: 70% Rabatt bei Angeboten der Migros Klubschule, 30% Rabatt für Fitness-/Wellness-/Aquaparks\n- Eigenverantwortung & Freiraum: Abwechslungsreiches Aufgabenfeld mit hoher Eigenverantwortung\n- Zentraler Arbeitsort: Zentraler Arbeitsort in der Stadt Zürich (Limmatplatz oder Nähe Hardbrücke)\n- Berufliche Vorsorge: Überdurchschnittliche Leistungen und drei verschiedene Sparpläne passend zur individuellen Lebenssituation\n\nContatto\nBewerbung & Kontakt Lisa Weissenböck Talent Acquisition Partner - LinkedIn ## Rekrutierungsprozess Bewerbungsunterlagen einreichen Für eine vollständige Bewerbung benötigen wir deinen Lebenslauf, deine Zeugnisse und Diplome. Ein Foto im Lebenslauf sowie ein Motivationsschreiben sind nicht notwendig. Wir leben Chancengleichheit für alle Bewerber*innen. Wir haben einen standardisierten Rekrutierungsprozess. Sollte das für dich nicht funktionieren, erwähne es in deinem Bewerbungsdossier. Vorselektion der Bewerbungen Eingegangene Bewerbungen prüfen wir laufend, erstellen eine Vorselektion und geben diese der Führungsperson zur Ansicht frei. Der Entscheid über das Weiterkommen oder Ausscheiden aus dem Rekrutierungsprozess wird per Telefon oder E-Mail kommuniziert. Dauer bis Rückmeldung: Bis zu drei Wochen Gespräch mit HR & Fachabteilung Das Gespräch wird mit der zuständigen Person aus dem HR und/oder der Fachabteilung virtuell oder vor Ort durchgeführt. Dabei geht es in erster Linie darum, mehr über die Personal- und Fachkompetenzen zu erfahren und gibt beiden Seiten die Möglichkeit, den kulturellen Fit ins Unternehmen und Team zu beurteilen. Dauer bis Rückmeldung: Bis zu drei Wochen Fachgespräch mit Case-Präsentation Es werden spezifische Fachkenntnisse anhand eines Cases oder anderen Assessment-Instrumenten geprüft. Nach der Bearbeitung wird das Resultat der Führungsperson präsentiert und anschliessend gemeinsam diskutiert. Üblicherweise ist auch das Team bei der Präsentation vertreten. In der Regel werden die Gespräche durch die vorgesetzte Person geführt, ohne Vertreter*in aus dem HR. Dauer bis Rückmeldung: Bis zu drei Wochen Kennenlernen Team Ob jemand ins Team passt, ist für Arbeitnehmer*innen und Arbeitgeber*innen ein wichtiger Faktor bei der Entscheidung für oder gegen eine Anstellung. In einem ungezwungenen Rahmen geben wir deshalb die Möglichkeit, dass sich alle gegenseitig kennenlernen. Angebot & Vertragsausstellung (Digital) Nach unserem mündlichen Stellenangebot werden die wichtigsten Vertragspunkte nochmals verifiziert. Nach Übereinkunft wird die Vertragserstellung in Auftrag gegeben und zur digitalen Signatur per E-Mail versendet. Dauer bis Rückmeldung: Bis zu einer Woche ## Hinweis für Personaldienstleister Für diese Stelle berücksichtigen wir ausschliesslich Direktbewerbungen.\n\nGrado di occupazione: 780%",
-        "it": "Il nostro reparto direzionale Group Technology Services fornisce servizi IT e servizi a numerose aziende del Gruppo Migros. In qualità di Senior Network Security Engineer (f/m/d), contribuisci a mantenere e sviluppare ulteriormente le nostre reti nel settore F5/Loadbalancer, firewall, proxy, VPN e altri componenti di sicurezza.\n\nMansioni\n- Ingegneria nei settori F5/bilanciamento del carico, firewall e proxy in tutta la rete Migros\n- Partecipazione alla progettazione dell'ambiente di sicurezza della rete attuale e futuro con particolare attenzione a F5/Loadbalancer\n- Supporto al 2° livello di supporto nel campo della gestione degli incidenti e dei problemi\n- Formazione dei dipendenti del nostro Network Operation Center (NOC) e cura della documentazione in Confluence\n- Coordinamento di collaboratori esterni e aziende partner in aree tematiche definite\n\nRequisiti\n- Esperienza lavorativa minima di 5 anni: nella rete di ingegneria, progettazione e funzionamento con F5/bilanciamento del carico e sicurezza di rete\n- Apprendistato professionale completato (AFC): in informatica, formazione continua adeguata vantaggiosa\n- Conoscenza approfondita della progettazione e del funzionamento di F5/Loadbalancer (iRules) ed esperienza nel campo dell'autenticazione (Entra-ID, SAML)\n- Personalità orientata al cliente con modalità di lavoro autonome e strutturate\n- Disponibilità al servizio di picchetto (ca. 10 interventi all'anno) incl. interventi notturni e nei fine settimana\n- esperienza nella gestione di certificati SSL/TLS come Let's Encrypt e familiarità con metodi di lavoro agili,",
+        "it": "La nostra divisione Servizi Tecnologici di Gruppo fornisce servizi IT per molte aziende del Gruppo Migros. Come Senior Network Security Engineer (w/m/d), aiuta a mantenere e sviluppare le nostre reti nelle aree di F5/Load Balancer, Firewall, Proxy, VPN e altri componenti di sicurezza.\n\nMansioni - Engineering in the areas of F5/Load Balancer, Firewall and Proxy into therefore Migros Network - Co-design of current and future network security environment with focus on F5/Load Balancer - Supporto del supporto di 2° livello in materia di gestione degli incidenti e dei problemi - Formazione dei dipendenti del nostro Network Operation Center (NOC) e manutenzione della documentazione in Confluence - Coordinamento dei dipendenti esterni e delle aziende partner in temi definiti\n\nSessione notturna e fine settimana - esperienza nella gestione dei certificati SSL/TLS come Let's En-Krit e la facsimile in metodi di lavoro ailron, preferibilmente in SAFe - tedesco (ottima conoscenza) - inglese (buona conoscenza)\n\nCoca-Bebe - Mobile flessibile modello di lavoro: Flessibilità temporale e spaziale per l'adempimento della funzione (come orientamento 40% Home Office) - Stipendi equi: compensazione funzionale e orientata al mercato - certificato \"Paghiamo equo\" - Club scuola e strutture ricreative: 70% di sconto per le offerte della scuola Migros Club, 30% di sconto per il fitness/wellness/aquapark - responsabilità personale e spazio: vario campo di responsabilità con elevata proprietà - luogo di lavoro centrale: luogo di lavoro centrale nella città di Zurigo (limmatplatz o vicino Hardbrücke) - offerta professionale:\n\nVantaggi superiori alla media e tre diversi piani di risparmio corrispondenti alla situazione di vita individuale\n\nContatto Richiesta & Contatto Lisa Weissenböck TotalntScif Partner - LinkedIn ## Processo di assunzione Inviare documenti di candidatura Abbiamo bisogno del tuo CV, certificati e diplomi per una domanda completa. Una foto nel tuo CV e una lettera di motivazione non sono necessari. Viviamo pari opportunità per tutti i candidati. Abbiamo un processo di reclutamento standardizzato. Se questo non funziona per voi, menzionarlo nel vostro dossier di domanda.\n\nControlliamo continuamente le domande in arrivo, prepariamo una selezione preliminare e le rilasciamo alla direzione per la vista.La decisione sullo stato di avanzamento o la partenza dal processo di reclutamento è comunicata per telefono o e-mail. Durata del feedback: Fino a tre settimane di consultazione con HR & Department L'intervista è condotta con la persona responsabile delle risorse umane e/o il dipartimento del dipartimento del campo o sul sito.\n\nL'attenzione principale è quella di approfondire le competenze umane e tecniche e dare a entrambe le parti la possibilità di valutare l'idoneità culturale dell'azienda e del team. Durata dei feedback: Fino a tre settimane di discussione con esperti con presentazione di casi specifici è esaminata con un caso o altri strumenti dell'azienda.Al termine del trattamento, il risultato della persona di direzione viene presentato e poi discusso insieme.\n\nLe interviste sono di solito condotte dalla persona superiore, senza rappresentanti dell'HR. Durata dei feedback: fino a tre settimane per conoscere il team Se qualcuno si inserisce nel team è un fattore importante per i dipendenti e i datori di lavoro nel decidere a favore o contro l'occupazione. Pertanto, in un quadro informale, diamo a tutti l'opportunità di conoscersi. Offerta & esposizione contrattuale (Digital) Dopo la nostra offerta di lavoro orale, i punti più importanti del contratto sono nuovamente verificati.\n\nIl contratto è commissionato per accordo e inviato via e-mail per la firma digitale. Durata dei feedback: Fino a una settimana ## Nota per i fornitori di servizi HR Prendiamo in considerazione le applicazioni dirette solo per questo lavoro.\n\n(') Di occupazione: 780",
         "en": "Our Group Technology Services division provides IT services and services for many Migros Group companies. As a Senior Network Security Engineer (w/m/d), you help maintain and develop our networks in the areas of F5/Load Balancer, Firewall, Proxy, VPN and other security components.\n\nMansioni - Engineering in the areas of F5/Load Balancer, Firewall and Proxy throughout Migros Network - Co-design of current and future network security environment with focus on F5/Load Balancer - Support of 2nd Level Support in the area of incident and problem management - Training of employees of our Network Operation Center (NOC) as well as maintenance of documentation in Confluence - Coordination of external employees and partner companies in defined topics\n\nRequisiti - At least 5 years of professional experience: in the network Engineering, design and operation with F5/Load Balancer and network security - Completed vocational training (EFZ): in computer science, appropriate further training of advantage - Well-founded knowledge in the design and operation of F5/Load Balancer (iñas) as well as experiences in the field of authentication (Entra-ID, SAML) - customer-oriented personality with independent and structured working methods - readiness for piket service (approx.\n\nNight and weekend sessions - experience in handling SSL/TLS certificates such as Let's En-Krit and familiarity in ailron working methods, preferably in SAFe - German (very good knowledge) - English (good knowledge)\n\nCosa offriamo - Mobile flexible working model: Time and space flexibility in fulfilling the",
         "fr": "Notre division Services de Technologie de Groupe fournit des services et des services informatiques pour de nombreuses entreprises du groupe Migros. En tant qu'ingénieur principal de la sécurité réseau (w/m/d), vous aidez à maintenir et développer nos réseaux dans les domaines de F5/Load Balancer, Firewall, Proxy, VPN et d'autres composants de sécurité.\n\nMansioni - Ingénierie dans les domaines de F5/Load Balancer, Firewall et Proxy dans tout le réseau Migros - Co-conception de l'environnement actuel et futur de sécurité du réseau avec l'accent sur F5/Load Balancer - Soutien de 2ème niveau Support dans le domaine de la gestion des incidents et des problèmes - Formation des employés de notre Centre d'exploitation du réseau (NOC) ainsi que la maintenance de la documentation dans Confluence - Coordination des employés externes et des entreprises partenaires dans des sujets définis\n\nRequisiti - Au moins 5 ans d'expérience professionnelle: dans le réseau Ingénierie, conception et fonctionnement avec F5/Load Balancer et sécurité du réseau - Formation professionnelle terminée (EFZ): en informatique, formation continue appropriée d'avantage - Connaissances bien fondées dans la conception et le fonctionnement de F5/Load Balancer (iñas) ainsi que des expériences dans le domaine de l'authentification (Entra-ID, SAML) - personnalité orientée client avec des méthodes de travail indépendantes et structurées - préparation au service piket (approx.\n\nSessions de nuit et de week-end - expérience dans le traitement des certificats SSL/TLS comme Let's En-Krit et familiarité dans les méthodes de travail ailron, de préférence en Safe - Allemand (très bonne connaissance) - Anglais (bonne connaissance)\n\nCosa offriamo - Mobile flexible working model: Time and space flexible in fairing the fonction (as orientation 40% Home Office) - Salaire équitable: rémunération fonctionnelle et orientée vers le marché - \"We pay fair\" certifié - Club school and lisure facilities: 70% de réduction pour les offres de l'école Migros Club, 30% de réduction pour la condition physique/bien-être/aquaparks - responsabilité personnelle & espace: domaine de responsabilité varié avec forte propriété - lieu de travail central: lieu de travail central dans la ville de Zurich (limmatplatz ou près de Hardbrücke) - disposition professionnelle:\n\nPrestations supérieures à la moyenne et trois régimes d'épargne différents correspondant à la situation individuelle de la vie\n\nContatto Application & Contact Lisa Weissenböck TalentScif Partner - LinkedIn ## Processus de recrutement Soumettre les documents de candidature Nous avons besoin de votre CV, de votre certificat et de votre diplôme pour une demande complète.Une photo de votre CV et une lettre de motivation ne sont pas nécessaires. Nous vivons l'égalité des chances pour tous les candidats.\n\nNous vérifions continuellement les demandes reçues, préparons une sélection préliminaire et les transmettons à la direction pour avis.La décision concernant l'avancement ou le départ du processus de recrutement est communiquée par téléphone ou par courriel.Durée de la rétroaction : Jusqu'à trois semaines de consultation avec RH & Ministère L'entrevue est menée avec la personne responsable des RH et/ou le ministère du domaine ou sur place.\n\nL'accent est mis sur l'acquisition de compétences humaines et techniques et sur la possibilité pour les deux parties d'évaluer la culture de l'entreprise et de l'équipe.Durée de la rétroaction : Jusqu'à trois semaines de discussion d'experts avec présentation de cas Une expertise spécifique est examinée à l'aide d'un cas ou d'autres instruments de l'entreprise.Après traitement, le résultat de la personne de gestion est présenté et discuté ensemble.\n\nLes entrevues sont habituellement menées par la personne supérieure, sans représentants des RH. Durée de la rétroaction : Jusqu'à trois semaines pour apprendre à connaître l'équipe Si quelqu'un s'intègre à l'équipe est un facteur important pour les employés et les employeurs dans la décision de l'emploi ou contre. Par conséquent, dans un cadre informel, nous donnons à chacun la possibilité de se connaître.\n\nLe contrat est commandé par accord et envoyé par courriel pour la signature numérique. Durée de la rétroaction : Jusqu'à une semaine ## Note pour les fournisseurs de services RH Nous prenons en compte les demandes directes pour ce travail seulement.\n\nGrado di occupationazione: 780"
       },
@@ -125766,9 +125858,7 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "8001",
-      "country": "CH",
-      "retranslationAttempts": 0,
-      "needsRetranslation": true
+      "country": "CH"
     },
     {
       "id": "company-vtqcro",
@@ -125825,13 +125915,13 @@
         "de": "Epic Owner SAP Domain (w/m/d)",
         "it": "Epic Owner SAP Domain (w/m/d)",
         "en": "Epic Owner SAP Domain (m/f/d)",
-        "fr": "Propriétaire Epic SAP Domain (h/f/d)"
+        "fr": "Domaine SAP Epic Owner (f/m/d)"
       },
       "descriptionByLocale": {
         "de": "Der Bereich Group Technology Services des Migros-Genossenschafts-Bundes erbringt eine Vielzahl von IT-Dienstleistungen für die Migros-Gruppe. Die Unit Central Services kümmert sich um zentrale IT-Services, welche für die strategischen Geschäftsfelder der M-Unternehmen nutzbar sind. Eine Kerndomäne sind Services im SAP-Umfeld, mit SAP-Plattformen,-Lifecycle, -Security oder Daten-Integration.\n\nMansioni\n- Du trägst die Verantwortung für neue Epics im SAP-Umfeld, beispielsweise in Themenbereichen wie ILM\n- Du stellst die Koordination, Planung und Steuerung verschiedener Vorhaben mit Projektcharakter sicher\n- Du unterstützt Trojka-Mitglieder (Produktmanagement und Systemarchitektur) und stellst eine wirksame Schnittstellenfunktion zwischen Business, IT und Partner*innen zur Gewährleistung optimaler Service-Lösungen sicher\n- Du bist verantwortlich für die Lösungskonzeption und das Lösungsdesign von Services, Anwendungen und Prozessen auf Basis der gemeinsam mit den Fachbereichen erarbeiteten Anforderungen und Spezifikationen\n- Du nimmst die technische Spezifizierung der einzusetzenden Technologien, der Service-Architektur, der Datenflüsse sowie der Sicherheitsanforderungen vor\n- Du berätst und stimmst Zeitpläne, Abhängigkeiten und Fortschritte mit relevanten Stakeholdern ab\n\nRequisiti\n- Mehrjährige Berufserfahrung: im Detailhandel, Industrie und/oder Logistik\n- Abgeschlossenes Studium (Uni/ETH, FH, HF): in (Wirtschafts-) Informatik-Studium oder vergleichbare Qualifikation\n- Du besitzt fundierte Erfahrung in der Leitung von Organisationseinheiten im technischen Umfeld inkl. SAP\n- Du zeichnest dich durch breites ICT Wissen aus (Technologie, Prozesse, Architekturen, Delivery Modelle)\n- Du bringst umfassende unternehmensspezifische Kenntnisse oder überdurchschnittliche Fachkenntnisse im Servicedesign und der Serviceerbringung mit\n- Deutsch (fliessend)\n- Englisch (gute Kenntnisse)\n\nCosa offriamo\n- Zentraler Arbeitsort: Zentraler Arbeitsort in der Stadt Zürich (Limmatplatz oder Nähe Hardbrücke)\n- Mobil-flexibles Arbeitsmodell: Zeitliche und räumliche Flexibilität bei der Erfüllung der Funktion (als Orientierung 40% Home Office)\n- Gestaltungs- und Entscheidungsspielraum: Möglichkeit das Aufgabenfeld selbstständig mitzugestalten und weiterzuentwickeln\n- Eigenverantwortung & Freiraum: Abwechslungsreiches Aufgabenfeld mit hoher Eigenverantwortung\n- Faire Löhne: Funktionsorientierte und marktgerechte Entlöhnung - \"We pay fair\" zertifiziert\n- Berufliche Vorsorge: Überdurchschnittliche Leistungen und drei verschiedene Sparpläne passend zur individuellen Lebenssituation\n\nContatto\nBewerbung & Kontakt Lisa Weissenböck Talent Acquisition Partner - LinkedIn ## Rekrutierungsprozess Bewerbungsunterlagen einreichen Für eine vollständige Bewerbung benötigen wir deinen Lebenslauf, deine Zeugnisse und Diplome. Ein Foto im Lebenslauf sowie ein Motivationsschreiben sind nicht notwendig. Wir leben Chancengleichheit für alle Bewerber*innen. Wir haben einen standardisierten Rekrutierungsprozess. Sollte das für dich nicht funktionieren, erwähne es in deinem Bewerbungsdossier. Vorselektion der Bewerbungen Eingegangene Bewerbungen prüfen wir laufend, erstellen eine Vorselektion und geben diese der Führungsperson zur Ansicht frei. Der Entscheid über das Weiterkommen oder Ausscheiden aus dem Rekrutierungsprozess wird per Telefon oder E-Mail kommuniziert. Dauer bis Rückmeldung: Bis zu drei Wochen Gespräch mit HR & Fachabteilung Das Gespräch wird mit der zuständigen Person aus dem HR und/oder der Fachabteilung virtuell oder vor Ort durchgeführt. Dabei geht es in erster Linie darum, mehr über die Personal- und Fachkompetenzen zu erfahren und gibt beiden Seiten die Möglichkeit, den kulturellen Fit ins Unternehmen und Team zu beurteilen. Dauer bis Rückmeldung: Bis zu drei Wochen Fachgespräch mit Case-Präsentation Es werden spezifische Fachkenntnisse anhand eines Cases oder anderen Assessment-Instrumenten geprüft. Nach der Bearbeitung wird das Resultat der Führungsperson präsentiert und anschliessend gemeinsam diskutiert. Üblicherweise ist auch das Team bei der Präsentation vertreten. In der Regel werden die Gespräche durch die vorgesetzte Person geführt, ohne Vertreter*in aus dem HR. Dauer bis Rückmeldung: Bis zu drei Wochen Kennenlernen Team Ob jemand ins Team passt, ist für Arbeitnehmer*innen und Arbeitgeber*innen ein wichtiger Faktor bei der Entscheidung für oder gegen eine Anstellung. In einem ungezwungenen Rahmen geben wir deshalb die Möglichkeit, dass sich alle gegenseitig kennenlernen. Angebot & Vertragsausstellung (Digital) Nach unserem mündlichen Stellenangebot werden die wichtigsten Vertragspunkte nochmals verifiziert. Nach Übereinkunft wird die Vertragserstellung in Auftrag gegeben und zur digitalen Signatur per E-Mail versendet. Dauer bis Rückmeldung: Bis zu einer Woche ## Hinweis für Personaldienstleister Für diese Stelle berücksichtigen wir ausschliesslich Direktbewerbungen.\n\nGrado di occupazione: 77%",
-        "it": "Il settore Group Technology Services della Federazione delle Cooperative Migros fornisce una varietà di servizi IT per il Gruppo Migros. L'Unità Servizi Centrali si occupa dei servizi IT centralizzabili per le aree di business strategiche delle M-imprese. Un dominio centrale sono i servizi in ambiente SAP, con piattaforme SAP, ciclo di vita, sicurezza o integrazione dei dati.\n\nMansioni\n- Sei responsabile di nuove epic nell'ambiente SAP, ad esempio in aree tematiche come ILM\n- Garantisci il coordinamento, la pianificazione e la gestione di vari progetti a carattere progettuale\n- Supporta i membri di Trojka (gestione del prodotto e architettura di sistema) e garantisce un'efficace funzione di interfaccia tra business, IT e partner per garantire soluzioni di servizio ottimali\n- Sei responsabile della progettazione della soluzione e della progettazione di servizi, applicazioni e processi sulla base dei requisiti e delle specifiche elaborati in collaborazione con i dipartimenti\n- Esegui le specifiche tecniche delle tecnologie da utilizzare, l'architettura del servizio, i flussi di dati e i requisiti di sicurezza\n- Consiglia e concorda orari, dipendenze e progressi con gli stakeholder rilevanti\n\nRequisiti\n- Esperienza professionale pluriennale: nel commercio al dettaglio, nell'industria e/o nella logistica\n- Laurea (UNI/ETH, SUP, SUP): in studi (economici) di informatica o equivalenti",
+        "it": "Il settore Servizi tecnologici del gruppo dell'Associazione delle cooperative Migros offre diversi servizi IT per il Gruppo Migros. L'unità Servizi centrali si occupa dei servizi IT centrali che possono essere utilizzati per le aree aziendali strategiche delle aziende M. Un dominio principale sono i servizi nell'ambiente SAP, con piattaforme SAP, ciclo di vita, sicurezza o integrazione dei dati.\n\nMansioni\n- Sei responsabile di nuove epiche nell'ambiente SAP, ad esempio in aree tematiche come ILM\n- Garantisci il coordinamento, la pianificazione e il controllo di vari progetti di natura progettuale\n- Supporti i membri Trojka (gestione del prodotto e architettura di sistema) e garantisci un'efficace funzione di interfaccia tra business, IT e partner per garantire soluzioni di servizio ottimali\n- Sei responsabile dell'ideazione e progettazione della soluzione di servizi, applicazioni e processi sulla base dei requisiti e delle specifiche sviluppate insieme ai dipartimenti\n- Effettui la specificazione tecnica delle tecnologie da utilizzare, dell'architettura del servizio, dei flussi di dati e dei requisiti di sicurezza\n- Consigli e coordini programmi, dipendenze e progressi con le parti interessate pertinenti\n\nOggetti di scena\n- Diversi anni di esperienza professionale: nel commercio al dettaglio, nell'industria e/o nella logistica\n- Studi compiuti (Università/ETH, FH, HF): in informatica (aziendale) o titolo comparabile\n- Hai un'esperienza approfondita nella gestione delle unità organizzative in un ambiente tecnico che include SAP\n- Sei caratterizzato da un'ampia conoscenza ICT (tecnologia, processi, architetture, modelli di delivery)\n- Possiedi una vasta conoscenza specifica dell'azienda o competenze superiori alla media nella progettazione e nell'erogazione dei servizi\n- Tedesco (fluente)\n- Inglese (buona conoscenza)\n\nCosa offriamo\n- Luogo di lavoro centrale: Luogo di lavoro centrale nella città di Zurigo (Limmatplatz o vicino a Hardbrücke)\n- Modello di lavoro mobile-flessibile: flessibilità di tempo e spazio nell'adempimento della funzione (40% home office a titolo indicativo)\n- Libertà di progettare e prendere decisioni: opportunità di modellare e sviluppare ulteriormente l'area di responsabilità in modo indipendente\n- Responsabilità personale e libertà: ambito di compiti vario con un elevato livello di responsabilità personale\n- Salari equi: remunerazione orientata alla funzione e orientata al mercato - Certificato \"We pay fair\".\n- Previdenza professionale: prestazioni superiori alla media e tre diversi piani di risparmio adatti alla vostra situazione di vita individuale\n\nContatto\nCandidatura e contatti Lisa Weissenböck Talent Acquisition Partner - LinkedIn ## Processo di reclutamento Invia documenti di candidatura Per una candidatura completa, abbiamo bisogno del tuo CV, certificati e diplomi. Non sono necessarie una foto nel CV e una lettera di motivazione. Viviamo pari opportunità per tutti i candidati. Abbiamo un processo di reclutamento standardizzato. Se questo non funziona per te, menzionalo nel tuo dossier di domanda. Preselezione delle candidature Controlliamo continuamente le candidature che riceviamo, creiamo una preselezione e la rilasciamo al gestore per la visione. La decisione di proseguire o abbandonare il processo di reclutamento viene comunicata telefonicamente o tramite e-mail. Durata fino al feedback: fino a tre settimane Colloquio con il reparto HR e specializzato Il colloquio si svolge virtualmente o sul posto con il responsabile del reparto HR e/o del reparto specializzato. L'obiettivo principale è quello di conoscere meglio il personale e le competenze specialistiche e offrire ad entrambe le parti l'opportunità di valutare la compatibilità culturale all'interno dell'azienda e del team. Durata fino al feedback: fino a tre settimane di discussione tecnica con presentazione del caso. Le conoscenze specialistiche specifiche vengono testate utilizzando un caso o altri strumenti di valutazione. Dopo l'elaborazione, il risultato viene presentato al responsabile e poi discusso insieme. Di solito anche la squadra è rappresentata alla presentazione. Di norma, le discussioni vengono condotte dal superiore, senza un rappresentante delle risorse umane.\n\nDurata fino al feedback: fino a tre settimane Conoscere il team Se qualcuno si inserisce nel team è un fattore importante per dipendenti e datori di lavoro quando decidono a favore o contro l'assunzione. Diamo quindi a tutti la possibilità di conoscersi in un ambiente rilassato. Offerta e emissione del contratto (digitale) Dopo la nostra offerta di lavoro verbale, i punti contrattuali più importanti vengono nuovamente verificati. Una volta concordato, il contratto verrà redatto e inviato via email per la firma digitale. Durata fino al feedback: fino a una settimana ## Nota per i fornitori di servizi per il personale Consideriamo solo candidature dirette per questa posizione.\n\nTasso di occupazione: 77%",
         "en": "The Group Technology Services division of the Migros Cooperative Federation provides a wide range of IT services for the Migros Group. The Central Services unit takes care of central IT-Services, which are usable for the strategic business areas of M companies. A core domain is services in the SAP environment, with SAP platforms, lifecycle, security or data integration.\n\nMansioni - You are responsible for new epics in SAP environments, for example in topics such as ILM - You ensure the coordination, planning and control of various projects with project character - You support Trojka members (product management and system architecture) and ensure an effective interface function between business, IT and partners to ensure optimal service solutions - You are responsible for the solution concept and the solution design of services, applications and processes based on the joint with the departments\n\nrequirements and specifications - you will specify the technologies to be used, the service architecture, the data flows and the security requirements - you will advise and agree on schedules, dependencies and progress with relevant stakeholders\n\nRequisiti - Multi-year professional experience: in retail trade, industry and/or logistics - Completed studies (Uni/ETH, FH, HF): in (economic) computer science studies or comparable qualification - You have sound experience in the management of organizational units in the technical environment incl.\n\nSAP - You draw your way through broad ICT knowledge (technology, processes, architectures, delivery models) - You bring comprehensive company-specific knowledge or above-average expertise in service design and service delivery with - German (flowing) - English (good knowledge)\n\nCosa offriamo - Central workplace: Central workplace in the city of Zurich (Limmatplatz or near Hardbrücke) - Mobile flexible working model: Time and spatial flexibility in the performance of the",
-        "fr": "La division Group Technology Services de la Coopérative Migros propose diverses prestations informatiques pour le groupe Migros. L'unité Services centraux s'occupe des services informatiques centraux qui peuvent être utilisés pour les domaines d'activité stratégiques des sociétés M. Un domaine central est celui des services dans l'environnement SAP, avec les plateformes SAP, le cycle de vie, la sécurité ou l'intégration de données.\n\nManoir\n- Vous êtes responsable des nouvelles epics dans l'environnement SAP, par exemple dans des domaines tels que l'ILM\n- Vous assurez la coordination, la planification et le contrôle des différents projets à caractère de projet\n- Vous accompagnez les membres de Trojka (gestion des produits et architecture système) et assurez une fonction d'interface efficace entre le business, l'informatique et les partenaires pour garantir des solutions de services optimales\n- Vous êtes responsable de la conception de solutions et du design de solutions de services, d'applications et de processus en fonction des exigences et des spécifications développées en collaboration avec les départements.\n- Vous réalisez la spécification technique des technologies à utiliser, de l'architecture du service, des flux de données et des exigences de sécurité\n- Vous conseillez et coordonnez les plannings, les dépendances et les progrès avec les parties prenantes concernées\n\nAccessoires\n- Plusieurs années d'expérience professionnelle : dans le commerce de détail, l'industrie et/ou la logistique\n- Études terminées (université/ETH, FH, HF) : en informatique (commerciale) ou diplôme comparable\n- Vous possédez une expérience approfondie dans la gestion d'unités organisationnelles dans un environnement technique incluant SAP\n- Vous êtes caractérisé par de vastes connaissances en TIC (technologie, processus, architectures, modèles de prestation)\n- Vous disposez de connaissances approfondies spécifiques à l'entreprise ou d'une expertise supérieure à la moyenne en matière de conception et de prestation de services.\n- Allemand (courant)\n- Anglais (bonne connaissance)\n\nCosa offriamo\n- Lieu de travail central : Lieu de travail central dans la ville de Zurich (Limmatplatz ou près du Hardbrücke)\n- Modèle de travail mobile-flexible : flexibilité temporelle et spatiale lors de l'exercice de la fonction (40 % de bureau à domicile à titre indicatif)\n- Liberté de concevoir et de prendre des décisions : possibilité de façonner et de développer de manière indépendante le domaine de responsabilité\n- Responsabilité personnelle et liberté : Domaine de tâches varié avec un haut niveau de responsabilité personnelle\n- Salaires équitables : Rémunération axée sur la fonction et adaptée au marché - Certifié « We pay fair »\n- Prévoyance professionnelle : prestations supérieures à la moyenne et trois plans d'épargne différents adaptés à votre situation de vie individuelle\n\nContact\nCandidature et contact Lisa Weissenböck Talent Acquisition Partner - LinkedIn ## Processus de recrutement Soumettre les documents de candidature Pour une candidature complète, nous avons besoin de votre CV, de vos certificats et diplômes. Une photo dans votre CV et une lettre de motivation ne sont pas nécessaires. Nous vivons l'égalité des chances pour tous les candidats. Nous avons un processus de recrutement standardisé. Si cela ne fonctionne pas pour vous, mentionnez-le dans votre dossier de candidature. Présélection des candidatures Nous vérifions en permanence les candidatures que nous recevons, créons une présélection et la communiquons au responsable pour consultation. La décision de poursuivre ou de quitter le processus de recrutement est communiquée par téléphone ou par courrier électronique. Durée jusqu'au feedback : jusqu'à trois semaines Conversation avec le service RH et spécialisé L'entretien se déroule virtuellement ou sur place avec le responsable des RH et/ou du service spécialisé. L'objectif principal est d'en savoir plus sur le personnel et les compétences spécialisées et donne aux deux parties la possibilité d'évaluer l'adéquation culturelle au sein de l'entreprise et de l'équipe. Durée jusqu'au retour d'information : Jusqu'à trois semaines de discussion technique avec présentation de cas. Les connaissances spécialisées spécifiques sont testées à l'aide d'un cas ou d'autres instruments d'évaluation. Après traitement, le résultat est présenté au manager puis discuté ensemble. L'équipe est généralement également représentée lors de la présentation. En règle générale, les discussions sont menées par le supérieur hiérarchique, sans représentant des RH.\n\nDurée jusqu'au feedback : jusqu'à trois semaines Apprendre à connaître l'équipe La question de savoir si quelqu'un s'intègre dans l'équipe est un facteur important pour les employés et les employeurs lorsqu'ils décident d'embaucher ou non. Nous donnons donc à chacun la possibilité de faire connaissance dans un cadre détendu. Offre et émission du contrat (numérique) Après notre offre d'emploi verbale, les points les plus importants du contrat sont à nouveau vérifiés. Une fois convenu, le contrat sera rédigé et envoyé par e-mail pour signature numérique. Durée jusqu'à la rétroaction : jusqu'à une semaine ## Remarque destinée aux prestataires de services de personnel Nous ne considérons que les candidatures directes pour ce poste.\n\nTaux d'occupation : 77%"
+        "fr": "La division Group Technology Services de la Coopérative Migros propose diverses prestations informatiques pour le groupe Migros. L'unité Services centraux s'occupe des services informatiques centraux qui peuvent être utilisés pour les domaines d'activité stratégiques des sociétés M. Un domaine central est celui des services dans l'environnement SAP, avec les plateformes SAP, le cycle de vie, la sécurité ou l'intégration de données.\n\nManoir\n- Vous êtes responsable des nouvelles epics dans l'environnement SAP, par exemple dans des domaines tels que l'ILM\n- Vous assurez la coordination, la planification et le contrôle des différents projets à caractère de projet\n- Vous accompagnez les membres de Trojka (gestion des produits et architecture système) et assurez une fonction d'interface efficace entre le business, l'informatique et les partenaires pour garantir des solutions de services optimales\n- Vous êtes responsable de la conception de solutions et du design de solutions de services, d'applications et de processus en fonction des exigences et des spécifications développées en collaboration avec les départements.\n- Vous réalisez la spécification technique des technologies à utiliser, de l'architecture du service, des flux de données et des exigences de sécurité\n- Vous conseillez et coordonnez les plannings, les dépendances et les progrès avec les parties prenantes concernées\n\nAccessoires\n- Plusieurs années d'expérience professionnelle : dans le commerce de détail, l'industrie et/ou la logistique\n- Études terminées (université/ETH, FH, HF) : en informatique (commerciale) ou qualification comparable\n- Vous possédez une expérience approfondie dans la gestion d'unités organisationnelles dans un environnement technique incluant SAP\n- Vous êtes caractérisé par de vastes connaissances en TIC (technologie, processus, architectures, modèles de prestation)\n- Vous disposez de connaissances approfondies spécifiques à l'entreprise ou d'une expertise supérieure à la moyenne en matière de conception et de prestation de services.\n- Allemand (courant)\n- Anglais (bonne connaissance)\n\nCosa offriamo\n- Lieu de travail central : Lieu de travail central dans la ville de Zurich (Limmatplatz ou près du Hardbrücke)\n- Modèle de travail mobile-flexible : flexibilité temporelle et spatiale lors de l'exercice de la fonction (40 % de bureau à domicile à titre indicatif)\n- Liberté de concevoir et de prendre des décisions : possibilité de façonner et de développer de manière indépendante le domaine de responsabilité\n- Responsabilité personnelle et liberté : Domaine de tâches varié avec un haut niveau de responsabilité personnelle\n- Salaires équitables : Rémunération axée sur la fonction et adaptée au marché - Certifié « We pay fair »\n- Prévoyance professionnelle : prestations supérieures à la moyenne et trois plans d'épargne différents adaptés à votre situation de vie individuelle\n\nContact\nCandidature et contact Lisa Weissenböck Talent Acquisition Partner - LinkedIn ## Processus de recrutement Soumettre les documents de candidature Pour une candidature complète, nous avons besoin de votre CV, de vos certificats et diplômes. Une photo dans votre CV et une lettre de motivation ne sont pas nécessaires. Nous vivons l'égalité des chances pour tous les candidats. Nous avons un processus de recrutement standardisé. Si cela ne fonctionne pas pour vous, mentionnez-le dans votre dossier de candidature. Présélection des candidatures Nous vérifions en permanence les candidatures que nous recevons, créons une présélection et la communiquons au responsable pour consultation. La décision de poursuivre ou de quitter le processus de recrutement est communiquée par téléphone ou par courrier électronique. Durée jusqu'au feedback : jusqu'à trois semaines Conversation avec le service RH et spécialisé L'entretien se déroule virtuellement ou sur place avec le responsable des RH et/ou du service spécialisé. L'objectif principal est d'en savoir plus sur le personnel et les compétences spécialisées et donne aux deux parties la possibilité d'évaluer l'adéquation culturelle au sein de l'entreprise et de l'équipe. Durée jusqu'au retour d'information : Jusqu'à trois semaines de discussion technique avec présentation de cas. Les connaissances spécialisées spécifiques sont testées à l'aide d'un cas ou d'autres instruments d'évaluation. Après traitement, le résultat est présenté au manager puis discuté ensemble. L'équipe est généralement également représentée lors de la présentation. En règle générale, les discussions sont menées par le supérieur hiérarchique, sans représentant des RH.\n\nDurée jusqu'au feedback : jusqu'à trois semaines Apprendre à connaître l'équipe La question de savoir si quelqu'un s'intègre dans l'équipe est un facteur important pour les employés et les employeurs lorsqu'ils décident d'embaucher ou non. Nous donnons donc à chacun la possibilité de faire connaissance dans un cadre détendu. Offre et émission du contrat (numérique) Après notre offre d'emploi verbale, les points les plus importants du contrat sont à nouveau vérifiés. Une fois convenu, le contrat sera rédigé et envoyé par e-mail pour signature numérique. Durée jusqu'à la rétroaction : jusqu'à une semaine ## Remarque destinée aux prestataires de services de personnel Nous ne considérons que les candidatures directes pour ce poste.\n\nTaux d'occupation : 77%"
       },
       "requirementsByLocale": {
         "it": [],
@@ -125872,9 +125962,7 @@
       },
       "previousSlugs": [
         "epic-owner-sap-domain-migros-genossenschafts-bund-zurich-vtqcro"
-      ],
-      "needsRetranslation": true,
-      "retranslationAttempts": 1
+      ]
     },
     {
       "id": "company-b39cbr",
@@ -127766,15 +127854,15 @@
       "firstSeenAt": "2026-06-03T06:44:54.971Z",
       "titleByLocale": {
         "de": "Senior Projektleiter*in Bauherrenvertretung Bau und Infrastruktur",
-        "it": "Senior Projektleiter*in Bauherrenvertretung Bau e Infrastruktur",
-        "en": "Senior Project Manager Client Representation Construction & Infrastructure",
-        "fr": "Chef de Projet Senior Représentation Maître d’Ouvrage Construction & Infrastructures"
+        "it": "Senior Project Manager Rappresentanza del Committente Edilizia e Infrastrutture",
+        "en": "Senior Project Manager Client Representation Construction and Infrastructure",
+        "fr": "Chef de projet senior Représentation du maître d'ouvrage Construction et Infrastructures"
       },
       "descriptionByLocale": {
-        "it": "Il Gruppo MIGROS ha uno dei più grandi portafogli edilizi della Svizzera. Migros Engineering Solutions è il centro di competenza per soluzioni nella catena di approvvigionamento, tecnologia, costruzione ed energia. Il dipartimento di gestione dei progetti supporta la logistica e le sedi industriali in tutta la Svizzera nella progettazione e realizzazione di progetti di costruzione e di tecnologia edilizia.\n\nMansioni - Consulenza e rappresentanza delle aziende industriali e logistiche del Gruppo Migros nello sviluppo, pianificazione e realizzazione di progetti costruttivi esigenti - Coordinamento di grandi progetti interdisciplinare dallo sviluppo di concept, valutazione del team di progettazione alla gara d'appalto e al monitoraggio della pianificazione e del montaggio di esecuzione con controllo funzionale/performance e accettazione con pulizia guasti - Supporto della maestria edilizia nello sviluppo di progetti, organizzazione di progetti e la compilazione di un potente team di progetto - Leading aziende esterne nella\n\nGestione dei progetti Costruzione e infrastrutture, nonché garanzia del processo di pianificazione ottimale nel progetto complessivo - Finanziamento del trasferimento di know-how alla tecnologia edilizia, tendenze e barriere future all'interno del Gruppo Migros\n\nDettagli relativi alla gestione dei progetti\n\nFormazione nelle infrastrutture Temi e gestione dei progetti - Competenza fondata in materia di costruzione e infrastrutture, nonché ampie conoscenze applicative in materia di tecnologia edilizia/energia - Metodi di lavoro flessibili, pragmatici e orientati alla soluzione per individuare lacune e fornire una soluzione vantaggiosa - Esperienza di leadership o gestione del team di vantaggio - Tedesco (negoziabile) - Francese (ottima conoscenza) - Inglese (di vantaggio)\n\nCoe libamo - Posto di lavoro centrale: lavoro centrale nella città di Zurigo (Limmatplatz o vicino Hardbrücke) - Modello mobile flessibile: tempo e flessibilità spaziale nell'adempimento della funzione (come orientamento 40% Home Office) - Provisione occupazionale: prestazioni superiori alla media e tre piani di risparmio diversi che corrispondono alla situazione di vita individuale - Benefici sociali: condizioni di lavoro attraenti con benefici sociali molto buoni - Supporto mirato: Promozione dei nostri dipendenti con misure mirate di sviluppo del personale - Autoresponsabilità e libertà:\n\nSettore di responsabilità ad alta responsabilità\n\nContatto Applicazione & Contatto Robin Maurer Responsabile del reclutamento - LinkedIn ## Processo di assunzione Inviare documenti di domanda Abbiamo bisogno del tuo CV, dei tuoi certificati e diplomi per una domanda completa. Una foto nel tuo CV e una lettera di motivazione non sono necessari. Viviamo pari opportunità per tutti i candidati. Abbiamo un processo di reclutamento standardizzato. Se questo non funziona per voi, menzionarlo nel vostro dossier di domanda.\n\nControlliamo continuamente le domande in arrivo, prepariamo una selezione preliminare e le rilasciamo alla direzione per la vista.La decisione sullo stato di avanzamento o la partenza dal processo di reclutamento è comunicata per telefono o e-mail. Durata del feedback: Fino a tre settimane di consultazione con HR & Department L'intervista è condotta con la persona responsabile delle risorse umane e/o il dipartimento del dipartimento del campo o sul sito.\n\nL'attenzione principale è quella di approfondire le competenze umane e tecniche e dare a entrambe le parti l'opportunità di valutare l'idoneità culturale dell'azienda e del team. Durata dei feedback: Fino a tre settimane di discussione con esperti con presentazione di casi La competenza specifica viene esaminata utilizzando un caso o altri strumenti dell'azienda.Al termine del trattamento, il risultato della persona dirigente viene presentato e poi discusso insieme.\n\nLe interviste sono di solito condotte dalla persona superiore, senza il rappresentante HR.Durata fino a feedback: Fino a tre settimane di offerta & esposizione contrattuale (Digital) Dopo la nostra offerta di lavoro orale i punti più importanti del contratto sono nuovamente verificati.After accordo il contratto è commissionato e inviato per la firma digitale via e-mail.Durata fino a feedback: Fino a una settimana # # Nota per i fornitori di servizi del personale Prendiamo in considerazione le applicazioni dirette solo per questo lavoro.",
-        "en": "MIGROS Group has one of Switzerland's largest building portfolios. Migros Engineering Solutions is the competence center for solutions in supply chain, technology, construction and energy. The project management department supports logistics and industrial locations throughout Switzerland in the planning and implementation of construction and building technology projects.\n\nMansioni - Advising and representing the Migros Group's industrial and logistics companies in the development, planning and implementation of demanding construction projects - Coordination of large interdisciplinary projects from concept development, evaluation of the planning team to tendering and monitoring of execution planning and assembly with functional/performance control and acceptance with fault cleaning - Support of the building mastery in project development, project organization and the compilation of a powerful project team - Leading external companies in the\n\nProject management Construction and infrastructure as well as securing the optimal planning process in the overall project - Funding of the know-how transfer to building technology, trend and future barriers within the Migros Group\n\nRequisiti - Several years of experience: as a consultant*r client representative*in large projects, in the conceptual solution development and realization of decisions at management level - Completed studies (Uni/ETH, FH, HF): as an architect*in or engineer*in the field of construction incl.\n\nTraining in infrastructure Topics and project management - Well-founded expertise in construction and infrastructure, as well as broad application knowledge in building/energy technology - Flexible, pragmatic and solution-oriented working methods to identify gaps and to provide a solution profitably - Leadership experience or team management of advantage - German (negotiable) - French (very good knowledge) - English (of advantage)\n\nCosa offriamo - Central workplace: Central workplace in the city of Zurich (Limmatplatz or near Hardbrücke) - Mobile flexible work model: Time and spatial flexibility in fulfilling the",
+        "it": "Il Gruppo MIGROS ha uno dei più grandi portafogli edilizi svizzeri. Migros Engineering Solutions è il centro di competenza per soluzioni in catena di approvvigionamento, tecnologia, costruzione ed energia. Il dipartimento di gestione dei progetti supporta la logistica e le sedi industriali in tutta la Svizzera nella progettazione e realizzazione di progetti di costruzione e di tecnologia edilizia.\n\nMansioni - Consulenza e rappresentanza delle aziende industriali e logistiche del Gruppo Migros nello sviluppo, pianificazione e realizzazione di progetti costruttivi esigenti - Coordinamento di grandi progetti interdisciplinare dallo sviluppo di concept, valutazione del team di progettazione alla gara d'appalto e al monitoraggio della pianificazione e del montaggio di esecuzione con controllo funzionale/performance e accettazione con pulizia guasti - Supporto della maestria edilizia nello sviluppo di progetti, organizzazione di progetti e la compilazione di un potente team di progetto - Leading aziende esterne nella\n\nGestione dei progetti Costruzione e infrastrutture, nonché garanzia del processo di pianificazione ottimale nel progetto complessivo - Finanziamento del trasferimento di know-how alla tecnologia edilizia, tendenze e barriere future all'interno del Gruppo Migros\n\nDettagli relativi alla gestione dei progetti\n\nFormazione nelle infrastrutture Temi e gestione dei progetti - Competenza fondata in materia di costruzione e infrastrutture, nonché ampie conoscenze applicative in materia di tecnologia edilizia/energia - Metodi di lavoro flessibili, pragmatici e orientati alla soluzione per individuare le lacune e fornire una soluzione proficua - Esperienza di gestione o gestione del team di vantaggio - Tedesco (negoziabile) - Francese (ottima conoscenza) - Inglese (di vantaggio)\n\nCoeoffamo - Posto di lavoro centrale: lavoro centrale nella città di Zurigo (Limmatplatz o vicino a Hardbrücke) - Mobile modello di lavoro flessibile: flessibilità temporale e spaziale nell'adempimento della funzione (come orientamento 40% Home Office) - Professionalità: prestazioni superiori alla media e tre diversi piani di risparmio corrispondenti alla situazione di vita individuale - Benefici sociali: condizioni di lavoro attraenti con benefici sociali molto buoni - Supporto mirato: Promozione dei nostri dipendenti con misure mirate di sviluppo del personale - Autoresponsabilità e libertà:\n\nSettore di responsabilità ad alta responsabilità\n\nContatto Applicazione & Contatto Robin Maurer Responsabile del reclutamento - LinkedIn ## Processo di assunzione Inviare documenti di domanda Abbiamo bisogno del tuo CV, dei tuoi certificati e diplomi per una domanda completa. Una foto nel tuo CV e una lettera di motivazione non sono necessari. Viviamo pari opportunità per tutti i candidati. Abbiamo un processo di reclutamento standardizzato. Se questo non funziona per voi, menzionarlo nel vostro dossier di domanda.\n\nControlliamo continuamente le domande in arrivo, prepariamo una selezione preliminare e le rilasciamo alla direzione per la vista.La decisione sullo stato di avanzamento o la partenza dal processo di reclutamento è comunicata per telefono o e-mail. Durata del feedback: Fino a tre settimane di consultazione con HR & Department L'intervista è condotta con la persona responsabile delle risorse umane e/o il dipartimento del dipartimento del campo o sul sito.\n\nL'attenzione principale è quella di approfondire le competenze umane e tecniche e dare a entrambe le parti la possibilità di valutare l'idoneità culturale dell'azienda e del team. Durata dei feedback: Fino a tre settimane di discussione con esperti con presentazione di casi specifici è esaminata con un caso o altri strumenti dell'azienda.Al termine del trattamento, il risultato della persona di direzione viene presentato e poi discusso insieme.\n\nLe interviste sono di solito condotte dalla persona superiore, senza rappresentanti dell'HR. Durata fino al feedback: Fino a tre settimane offrono & contratto espositivo (Digital) Dopo che la nostra offerta di lavoro orale i punti contrattuali più importanti sono verificati di nuovo. Dopo l'accordo il contratto è commissionato e inviato per la firma digitale via e-mail. Durata fino al feedback: Fino a una settimana # # Nota per i fornitori di servizi del personale Prendiamo in considerazione le applicazioni dirette per questo lavoro solo.",
+        "en": "MIGROS Group has one of Switzerland's largest building portfolios. Migros Engineering Solutions is the competence center for solutions in supply chain, technology, construction and energy. The project management department supports logistics and industrial locations throughout Switzerland in the planning and implementation of construction and building technology projects.\n\nMansioni - Advising and representing the Migros Group's industrial and logistics companies in the development, planning and implementation of demanding construction projects - Coordination of large interdisciplinary projects from concept development, evaluation of the planning team to tendering and monitoring of execution planning and assembly with functional/performance control and acceptance with fault cleaning - Support of the building mastery in project development, project organization and the compilation of a powerful project team - Leading external companies in the\n\nProject management Construction and infrastructure as well as securing the optimal planning process in the overall project - Funding of the know-how transfer to building technology, trend and future barriers within the Migros Group\n\nRequisiti - Several years of experience: as a consultant*r client representative*in large projects, in the conceptual solution development and realization of decisions at management level - Completed studies (Uni/ETH, FH, HF): as an architect*in or engineer*in the field of construction incl.\n\nTraining in infrastructure Topics and project management - Well-founded expertise in construction and infrastructure, as well as broad application knowledge in building/energy technology - Flexible, pragmatic and solution-oriented working methods to identify gaps and to provide a solution profitably - Management experience or team management of advantage - German (negotiable) - French (very good knowledge) - English (of advantage)\n\nCosa offriamo - Central workplace: Central workplace in the city of Zurich (Limmatplatz or near Hardbrücke) - Mobile flexible work model: Time and space flexibility in fulfilling the function (as orientation 40% Home Office) - Professional provision: Above-average benefits and three different savings plans matching the individual life situation - Social benefits: Attractive employment conditions with very good social benefits - Targeted support: Promotion of our employees with targeted personnel development measures - Self-responsibility & freedom:\n\nVaried field of responsibility with high responsibility\n\nContatto Application & Contact Robin Maurer Head of Recruiting - LinkedIn ## Recruitment process Submit application documents We need your CV, your certificates and diplomas for a complete application. A photo in your CV and a letter of motivation are not necessary. We live equal opportunities for all applicants. We have a standardized recruitment process. If this does not work for you, mention it in your application dossier.\n\nWe continuously check incoming applications, prepare a preliminary selection and release them to the management for the view.The decision about the progress or departure from the recruitment process is communicated by telephone or e-mail. Duration to feedback: Up to three weeks of consultation with HR & Department The interview is conducted with the responsible person from HR and/or the department of the department of the field or on site.\n\nThe main focus is on learning more about the human and technical skills and giving both sides the opportunity to assess the cultural fit of the company and the team. Duration to feedback: Up to three weeks of expert discussion with case presentation Specific expertise is examined using a case or other instruments of the company.After processing, the result of the management person is presented and then discussed together. Usually, the team is also represented at the presentation.\n\nThe interviews are usually conducted by the superior person, without representatives from the HR. Duration until feedback: Up to three weeks offer & contract exhibition (Digital) After our oral job offer the most important contractual points are verified again. After agreement the contract is commissioned and sent for the digital signature by e-mail. Duration until feedback: Up to one week ## Note for personnel service providers We take into account direct applications for this job only.",
         "de": "Die MIGROS-Gruppe besitzt eines der grössten Gebäude-Portfolios der Schweiz. Die Direktion Migros Engineering Solutions ist das Kompetenzzentrum für Lösungen in Supply Chain, Technik, Bau und Energie. Der Fachbereich Projektmanagement unterstützt schweizweit Logistik- und Industriestandorte bei der Planung und Umsetzung von Bau- und Gebäudetechnik-Projekten.\n\nMansioni\n- Beraten und Vertreten der Industrie- und Logistikunternehmen der Migros-Gruppe bei der Entwicklung, Planung und Realisierung von anspruchsvollen Bauvorhaben\n- Koordination grosser interdisziplinärer Projekte von der Konzeptentwicklung, Evaluation des Planerteams bis zur Ausschreibung und Überwachung der Ausführungsplanung und der Montage mit Funktions-/Leistungskontrolle sowie Abnahme mit Mängelbereinigung\n- Unterstützen der Bauherrschaft bei der Projektentwicklung, der Projektorganisation und der Zusammenstellung eines schlagkräftigen Projektteams\n- Führen externer Unternehmen im Projektmanagement Bau und Infrastruktur sowie Sicherstellen des optimalen Planungsablaufes im Gesamtprojekt\n- Fördern des Know-how-Transfers zu Bautechnik, Trend- und Zukunftshemen innerhalb der Migros-Gruppe\n\nRequisiti\n- Mehrjährige Erfahrung: als beratende*r Bauherrenvertreter*in in Grossprojekten, bei der konzeptionellen Lösungs- Entwicklung und Herbeiführung von Entscheidungen auf Management Ebene\n- Abgeschlossenes Studium (Uni/ETH, FH, HF): als Architekt*in oder Ingenieur*in im Bereich Bau inkl. Weiterbildung in Infrastruktur Themen und Projektmanagement\n- Fundiertes Fachwissen im Bau- und Infrastrukturbereich, sowie breites Anwendungs-Wissen in der Gebäude-/Energie-Technik\n- Flexible, pragmatische und lösungsorientierte Arbeitsweise, um je nach Projekterfordernissen Lücken zu identifizieren und gewinnbringend einer Lösung zuzuführen\n- Führungserfahrung bzw. Teamleitung von Vorteil\n- Deutsch (verhandlungssicher)\n- Französisch (sehr gute Kenntnisse)\n- Englisch (von Vorteil)\n\nCosa offriamo\n- Zentraler Arbeitsort: Zentraler Arbeitsort in der Stadt Zürich (Limmatplatz oder Nähe Hardbrücke)\n- Mobil-flexibles Arbeitsmodell: Zeitliche und räumliche Flexibilität bei der Erfüllung der Funktion (als Orientierung 40% Home Office)\n- Berufliche Vorsorge: Überdurchschnittliche Leistungen und drei verschiedene Sparpläne passend zur individuellen Lebenssituation\n- Sozialleistungen: Attraktive Anstellungsbedingungen mit sehr guten Sozialleistungen\n- Gezielte Förderung: Förderung unserer Mitarbeitenden mit gezielten Personalentwicklungsmassnahmen\n- Eigenverantwortung & Freiraum: Abwechslungsreiches Aufgabenfeld mit hoher Eigenverantwortung\n\nContatto\nBewerbung & Kontakt Robin Maurer Leiter Recruiting - LinkedIn ## Rekrutierungsprozess Bewerbungsunterlagen einreichen Für eine vollständige Bewerbung benötigen wir deinen Lebenslauf, deine Zeugnisse und Diplome. Ein Foto im Lebenslauf sowie ein Motivationsschreiben sind nicht notwendig. Wir leben Chancengleichheit für alle Bewerber*innen. Wir haben einen standardisierten Rekrutierungsprozess. Sollte das für dich nicht funktionieren, erwähne es in deinem Bewerbungsdossier. Vorselektion der Bewerbungen Eingegangene Bewerbungen prüfen wir laufend, erstellen eine Vorselektion und geben diese der Führungsperson zur Ansicht frei. Der Entscheid über das Weiterkommen oder Ausscheiden aus dem Rekrutierungsprozess wird per Telefon oder E-Mail kommuniziert. Dauer bis Rückmeldung: Bis zu drei Wochen Gespräch mit HR & Fachabteilung Das Gespräch wird mit der zuständigen Person aus dem HR und/oder der Fachabteilung virtuell oder vor Ort durchgeführt. Dabei geht es in erster Linie darum, mehr über die Personal- und Fachkompetenzen zu erfahren und gibt beiden Seiten die Möglichkeit, den kulturellen Fit ins Unternehmen und Team zu beurteilen. Dauer bis Rückmeldung: Bis zu drei Wochen Fachgespräch mit Case-Präsentation Es werden spezifische Fachkenntnisse anhand eines Cases oder anderen Assessment-Instrumenten geprüft. Nach der Bearbeitung wird das Resultat der Führungsperson präsentiert und anschliessend gemeinsam diskutiert. Üblicherweise ist auch das Team bei der Präsentation vertreten. In der Regel werden die Gespräche durch die vorgesetzte Person geführt, ohne Vertreter*in aus dem HR. Dauer bis Rückmeldung: Bis zu drei Wochen Angebot & Vertragsausstellung (Digital) Nach unserem mündlichen Stellenangebot werden die wichtigsten Vertragspunkte nochmals verifiziert. Nach Übereinkunft wird die Vertragserstellung in Auftrag gegeben und zur digitalen Signatur per E-Mail versendet. Dauer bis Rückmeldung: Bis zu einer Woche ## Hinweis für Personaldienstleister Für diese Stelle berücksichtigen wir ausschliesslich Direktbewerbungen.",
-        "fr": "Migros Engineering Solutions est le centre de compétence pour les solutions dans la chaîne d'approvisionnement, la technologie, la construction et l'énergie. Le service de gestion de projet soutient la logistique et les sites industriels dans toute la Suisse dans la planification et la mise en œuvre de projets de construction et de technologie de construction.\n\nMansioni - Conseil et représentation des entreprises industrielles et logistiques du groupe Migros dans le développement, la planification et la mise en œuvre de projets de construction exigeants - Coordination de grands projets interdisciplinaires, du développement de concepts, de l'évaluation de l'équipe de planification à la soumission et au suivi de la planification et de l'assemblage de l'exécution avec contrôle fonctionnel/performance et acceptation avec nettoyage des défauts - Soutien de la maîtrise du bâtiment dans le développement de projets, l'organisation du projet et la compilation d'une équipe de projet puissante - Principales entreprises externes dans le\n\nGestion de projet Construction et infrastructure, ainsi que la garantie du processus de planification optimal dans le projet global - Financement du transfert de savoir-faire à la technologie du bâtiment, tendances et futurs obstacles au sein du groupe Migros\n\nRequisiti - Plusieurs années d'expérience : en tant que consultant*r représentant de client* dans de grands projets, dans le développement de la solution conceptuelle et la réalisation des décisions au niveau de la gestion - Études terminées (Uni/ETH, FH, HF) : en tant qu'architecte*in ou ingénieur*dans le domaine de la construction incl.\n\nFormation en infrastructure Thèmes et gestion de projet - Expertise bien fondée en construction et en infrastructure, ainsi qu'en large connaissance des applications en construction et en technologie énergétique - Méthodes de travail flexibles, pragmatiques et orientées vers la solution pour identifier les lacunes et fournir une solution rentable - Expérience de leadership ou gestion par équipe d'avantages - Allemand (négociable) - Français (très bonne connaissance) - Anglais (d'avantage)\n\nCosa offriamo - Central workplace: Central workplace in the City of Zurich (Limmatplatz or near Hardbrücke) - Mobile flexible workplace model: Time and spatial flexible in emplability the fonction (orientation 40% Home Office) - Provision professionnelle: Prestations supérieures à la moyenne et trois plans d'épargne différents correspondant à la situation de vie individuelle - Prestations sociales: Conditions d'emploi attrayantes avec de très bonnes prestations sociales - Soutien ciblé: Promotion de nos employés avec des mesures ciblées de développement du personnel - Auto-responsabilité & liberté:\n\ndomaine de responsabilité varié et hautement responsable\n\nDemande et contact de Contatto Robin Maurer Chef du recrutement - LinkedIn ## Processus de recrutement Soumettre les documents de candidature Nous avons besoin de votre CV, de vos certificats et diplômes pour une demande complète.Une photo dans votre CV et une lettre de motivation ne sont pas nécessaires. Nous vivons l'égalité des chances pour tous les candidats.\n\nNous vérifions continuellement les demandes reçues, préparons une sélection préliminaire et les transmettons à la direction pour avis.La décision concernant l'avancement ou le départ du processus de recrutement est communiquée par téléphone ou par courriel.Durée de la rétroaction : Jusqu'à trois semaines de consultation avec RH & Ministère L'entrevue est menée avec la personne responsable des RH et/ou le ministère du domaine ou sur place.\n\nL'accent est mis sur l'acquisition de compétences humaines et techniques et sur la possibilité pour les deux parties d'évaluer la culture de l'entreprise et de l'équipe.Durée de la rétroaction : Jusqu'à trois semaines de discussion avec présentation de cas Une expertise spécifique est examinée à l'aide d'un cas ou d'autres instruments de l'entreprise.Après traitement, le résultat de la personne de gestion est présenté et discuté ensemble.\n\nLes entretiens sont généralement menés par la personne supérieure, sans le représentant RH.Durée jusqu'à la rétroaction : Jusqu'à trois semaines d'offre & d'exposition de contrat (Digital) Après notre offre orale, les points les plus importants du contrat sont vérifiés à nouveau.Après accord, le contrat est commandé et envoyé pour la signature numérique par e-mail.Durée jusqu'à la rétroaction : Jusqu'à une semaine ## Note pour les fournisseurs de services au personnel Nous prenons en compte les demandes directes pour ce travail seulement."
+        "fr": "Migros Engineering Solutions est le centre de compétence pour les solutions dans la chaîne d'approvisionnement, la technologie, la construction et l'énergie. Le service de gestion de projet soutient la logistique et les sites industriels dans toute la Suisse dans la planification et la mise en œuvre de projets de construction et de technologie de construction.\n\nMansioni - Conseil et représentation des entreprises industrielles et logistiques du groupe Migros dans le développement, la planification et la mise en œuvre de projets de construction exigeants - Coordination de grands projets interdisciplinaires, du développement de concepts, de l'évaluation de l'équipe de planification à la soumission et au suivi de la planification et de l'assemblage de l'exécution avec contrôle fonctionnel/performance et acceptation avec nettoyage des défauts - Soutien de la maîtrise du bâtiment dans le développement de projets, l'organisation du projet et la compilation d'une équipe de projet puissante - Les principales entreprises externes dans le\n\nGestion de projet Construction et infrastructure, ainsi que la garantie du processus de planification optimal dans le projet global - Financement du transfert de savoir-faire à la technologie du bâtiment, tendances et futurs obstacles au sein du groupe Migros\n\nRequisiti - Plusieurs années d'expérience : en tant que consultant*r représentant de client* dans de grands projets, dans le développement de la solution conceptuelle et la réalisation des décisions au niveau de la gestion - Études terminées (Uni/ETH, FH, HF) : en tant qu'architecte*in ou ingénieur*dans le domaine de la construction incl.\n\nFormation en infrastructure Thèmes et gestion de projet - Expertise bien fondée en construction et en infrastructure, ainsi qu'une vaste connaissance des applications en construction/technologie énergétique - Méthodes de travail souples, pragmatiques et orientées vers la solution pour identifier les lacunes et fournir une solution rentable - Expérience de gestion ou gestion par équipe d'avantages - Allemand (négociable) - Français (très bonne connaissance) - Anglais (d'avantage)\n\nCosa offriamo - Central workplace: Central workplace in the City of Zurich (Limmatplatz ou près de Hardbrücke) - Mobile flexible work model: Time and space flexible in emplability the fonction (as orientation 40% Home Office) - Provision professionnelle: Prestations supérieures à la moyenne et trois plans d'épargne différents correspondant à la situation individuelle - Prestations sociales: Conditions d'emploi attrayantes avec de très bonnes prestations sociales - Soutien ciblé: Promotion de nos employés avec des mesures ciblées de développement du personnel - Auto-responsabilité et liberté:\n\ndomaine de responsabilité varié et hautement responsable\n\nDemande et contact de Contatto Robin Maurer Chef du recrutement - LinkedIn ## Processus de recrutement Soumettre les documents de candidature Nous avons besoin de votre CV, de vos certificats et de vos diplômes pour une demande complète.Une photo de votre CV et une lettre de motivation ne sont pas nécessaires.Nous vivons l'égalité des chances pour tous les candidats.\n\nNous vérifions continuellement les demandes reçues, préparons une sélection préliminaire et les transmettons à la direction pour avis.La décision concernant l'avancement ou le départ du processus de recrutement est communiquée par téléphone ou par courriel.Durée de la rétroaction : Jusqu'à trois semaines de consultation avec RH & Ministère L'entrevue est menée avec la personne responsable des RH et/ou le ministère du domaine ou sur place.\n\nL'accent est mis sur l'acquisition de compétences humaines et techniques et sur la possibilité pour les deux parties d'évaluer la culture de l'entreprise et de l'équipe.Durée de la rétroaction : Jusqu'à trois semaines de discussion d'experts avec présentation de cas Une expertise spécifique est examinée à l'aide d'un cas ou d'autres instruments de l'entreprise.Après traitement, le résultat de la personne de gestion est présenté et discuté ensemble.\n\nLes entretiens sont généralement menés par la personne supérieure, sans représentants des RH. Durée jusqu'à la rétroaction : Jusqu'à trois semaines d'offre & d'exposition de contrat (Digital) Après notre offre orale les points contractuels les plus importants sont vérifiés à nouveau. Après accord, le contrat est commandé et envoyé pour la signature numérique par e-mail. Durée jusqu'à la rétroaction : Jusqu'à une semaine ## Note pour les fournisseurs de services au personnel Nous prenons en compte les demandes directes pour ce travail seulement."
       },
       "requirementsByLocale": {
         "de": [
@@ -127824,8 +127912,7 @@
       "employmentType": "FULL_TIME",
       "postalCode": "8001",
       "country": "CH",
-      "qualityScore": 97,
-      "needsRetranslation": true
+      "qualityScore": 97
     },
     {
       "id": "company-pma9rd",

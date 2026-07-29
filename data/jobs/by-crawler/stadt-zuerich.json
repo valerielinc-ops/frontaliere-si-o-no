@@ -24193,24 +24193,41 @@
       "department": "Schul- und Sportdepartement",
       "unit": "Sportamt",
       "referenceNumber": "51061",
-      "previousSlugs": [
-        "leiter-in-hr-services-stadt-zuerich-zurigo-51061",
-        "leiter-in-risorse-umane-services-stadt-zurich"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "leiter-in-hr-services-stadt-zuerich-zurigo-51061",
-          "leiter-in-risorse-umane-services-stadt-zurich"
+          "leiter-in-risorse-umane-services-stadt-zurich",
+          "responsabile-dei-servizi-verdi-stadt-zurich-zurich",
+          "head-of-green-services-stadt-zurich-zurich",
+          "leiter-in-grune-dienstleistungen-stadt-zuerich-zurigo-50151",
+          "chef-des-services-verts-stadt-zurich-zurich",
+          "leiter-in-grune-dienstleistungen-stadt-zurich",
+          "leiter-in-grune-dienstleistungen-stadt-zurich-zurich"
         ],
         "en": [
-          "leiter-in-hr-services-stadt-zuerich-zurigo-51061"
+          "leiter-in-hr-services-stadt-zuerich-zurigo-51061",
+          "head-of-green-services-stadt-zurich-zurich"
         ],
         "fr": [
-          "leiter-in-hr-services-stadt-zuerich-zurigo-51061"
+          "leiter-in-hr-services-stadt-zuerich-zurigo-51061",
+          "chef-des-services-verts-stadt-zurich-zurich"
+        ],
+        "de": [
+          "leiter-in-grune-dienstleistungen-stadt-zuerich-zurigo-50151",
+          "leiter-in-grune-dienstleistungen-stadt-zurich",
+          "leiter-in-grune-dienstleistungen-stadt-zurich-zurich"
         ]
       },
-      "firstSeenAt": "2026-07-28T22:35:38.747Z",
-      "needsRetranslation": true,
+      "previousSlugs": [
+        "leiter-in-hr-services-stadt-zuerich-zurigo-51061",
+        "leiter-in-risorse-umane-services-stadt-zurich",
+        "responsabile-dei-servizi-verdi-stadt-zurich-zurich",
+        "head-of-green-services-stadt-zurich-zurich",
+        "leiter-in-grune-dienstleistungen-stadt-zuerich-zurigo-50151",
+        "chef-des-services-verts-stadt-zurich-zurich",
+        "leiter-in-grune-dienstleistungen-stadt-zurich",
+        "leiter-in-grune-dienstleistungen-stadt-zurich-zurich"
+      ],
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -24222,7 +24239,9 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-07-28T22:35:38.747Z",
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-4abbc4ab529a",
