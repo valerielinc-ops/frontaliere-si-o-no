@@ -9114,6 +9114,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.pensioni-agosto-2026-cedolino-inps.title': 'Renten August 2026: Lohnabrechnung INPS und Betragsänderungen',
     'blog.article.pensioni-agosto-2026-cedolino-inps.excerpt': 'Analyse des Zeitpunkts der INPS-Gutschrift vom August 2026 und der Faktoren, die die Höhe der Rente für Arbeitnehmer beeinflussen.',
     'blog.article.pensioni-agosto-2026-cedolino-inps.imageAlt': 'Panoramablick auf Lugano mit dem See, Symbol für Grenzgängerarbeit',
+    'blog.article.caso-zali-politica-ticino-prospettive.title': 'Nach dem Fall Zali: Das Tessin blickt in die Zukunft',
+    'blog.article.caso-zali-politica-ticino-prospettive.excerpt': 'Der Rücktritt von Minister Zali ist ein heikler Moment für den Kanton Tessin. Die Politik versucht, das Blatt zu wenden und den Arbeitsalltag wieder aufzunehmen.',
+    'blog.article.caso-zali-politica-ticino-prospettive.imageAlt': 'Regierungsgebäude in Bellinzona, Tessin',
 };
 
 export default blogMetaDe;

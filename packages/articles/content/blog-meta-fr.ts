@@ -9117,6 +9117,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.pensioni-agosto-2026-cedolino-inps.title': 'Pensions août 2026 : coupon INPS et variations de montant',
     'blog.article.pensioni-agosto-2026-cedolino-inps.excerpt': 'Analyse des délais du bulletin INPS d\'août 2026 et des facteurs qui influent sur le montant de la pension pour les travailleurs.',
     'blog.article.pensioni-agosto-2026-cedolino-inps.imageAlt': 'Vue panoramique de Lugano avec le lac, symbole du travail transfrontalier',
+    'blog.article.caso-zali-politica-ticino-prospettive.title': 'Après l\'affaire Zali : le Tessin regarde vers l\'avenir',
+    'blog.article.caso-zali-politica-ticino-prospettive.excerpt': 'La démission du ministre Zali marque un moment délicat pour le canton du Tessin. La politique cherche à tourner la page et à reprendre le travail quotidien.',
+    'blog.article.caso-zali-politica-ticino-prospettive.imageAlt': 'Siège du gouvernement à Bellinzone, Tessin',
 };
 
 export default blogMetaFr;
