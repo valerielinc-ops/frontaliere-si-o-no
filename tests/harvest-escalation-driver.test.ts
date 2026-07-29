@@ -28,11 +28,24 @@ describe('isEscalationDriver — no-root-cause non può più driveare un\'escala
     expect(isEscalationDriver('fix-outcome', 'no-root-cause')).toBe(false);
   });
 
+  // #4938: la carve-out sopra non scattava mai in produzione. main() costruisce
+  // la chiave come `fix-outcome:${code}` (già prefissata con il source), non
+  // come il solo `code` nudo testato sopra — questo caso copre la shape reale
+  // usata dalla chiamata `consider('fix-outcome', outcomeCounts, ...)`.
+  it('fix-outcome:fix-outcome:no-root-cause (shape reale del call site in main()) → mai driver', () => {
+    expect(isEscalationDriver('fix-outcome', 'fix-outcome:no-root-cause')).toBe(false);
+  });
+
   it('altri fix-outcome code restano driver (es. blocked-workflows-scope, già un fix strutturale riuscito)', () => {
     expect(isEscalationDriver('fix-outcome', 'blocked-workflows-scope')).toBe(true);
     expect(isEscalationDriver('fix-outcome', 'already-fixed')).toBe(true);
     expect(isEscalationDriver('fix-outcome', 'max-turns')).toBe(true);
     expect(isEscalationDriver('fix-outcome', 'revenue-tracker-manual')).toBe(true);
+  });
+
+  it('altri fix-outcome code con la shape prefissata reale restano driver', () => {
+    expect(isEscalationDriver('fix-outcome', 'fix-outcome:blocked-workflows-scope')).toBe(true);
+    expect(isEscalationDriver('fix-outcome', 'fix-outcome:already-fixed')).toBe(true);
   });
 
   it('issue-class resta sempre non-driver (comportamento preesistente, volume operativo)', () => {
