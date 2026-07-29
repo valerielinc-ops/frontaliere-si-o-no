@@ -53,6 +53,16 @@ export const LOCALE_PATH_MAP = {
     de: '/de/jobs-im-tessin',
     fr: '/fr/trouver-emploi-tessin',
   },
+  // Paid 1:1 consulting. Slugs mirror services/routeSlugs.data.ts `consulting`
+  // (router.ts:3366 builds `${prefix}/${table.consulting}`); the drift test in
+  // tests/route-slugs-no-drift.test.ts asserts the two stay equal, since a
+  // Cloud Function cannot import the TypeScript source.
+  '/consulenza': {
+    it: '/consulenza',
+    en: '/en/consulting',
+    de: '/de/beratung',
+    fr: '/fr/consultation',
+  },
   // Switzerland-wide aggregate job board (data/canton-url-slugs.json →
   // aggregate). The weekly newsletter has no per-subscriber canton context
   // (its "total jobs" metric/CTA counts jobs across every canton), so its

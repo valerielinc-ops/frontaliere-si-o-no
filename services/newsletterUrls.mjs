@@ -19,6 +19,9 @@ export {
   makeResubscribeUrl,
   generateAutologinCode,
   makeAuthenticatedActionUrl,
+  makeAuthenticatedUrl,
+  shouldWrapAuthenticatedHref,
+  wrapAuthenticatedHrefs,
   makePreferencesUrl,
   PREFERENCES_SLUG,
 } from '../functions/src/lib/newsletterUrls.js';

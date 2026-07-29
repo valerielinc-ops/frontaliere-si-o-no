@@ -36,7 +36,7 @@ import { writeFile, mkdir } from 'node:fs/promises';
 import path from 'node:path';
 import { resolveWelcomeContext } from '../functions/src/lib/welcomeSegment.js';
 import { buildWelcomeEmail } from '../functions/src/lib/welcomeEmailTemplate.js';
-import { makeUnsubscribeUrl } from '../services/newsletterUrls.mjs';
+import { makeUnsubscribeUrl, makePreferencesUrl, wrapAuthenticatedHrefs } from '../services/newsletterUrls.mjs';
 
 const WELCOME_SEGMENTS = ['job', 'salary', 'utility', 'publisher', 'general'];
 const LOCALES = ['it', 'en', 'de', 'fr'];
@@ -152,7 +152,12 @@ function syntheticDocFor(segment) {
 
 function renderOne(doc, locale) {
   const ctx = resolveWelcomeContext(doc);
-  const unsubscribeUrl = makeUnsubscribeUrl(doc.email || 'preview@example.com');
+  const email = doc.email || 'preview@example.com';
+  const unsubscribeUrl = makeUnsubscribeUrl(email);
+  // Job alerts are auto-created at signup, so the live `job` email usually takes
+  // the "already active" wording. --no-job-alert renders the other branch.
+  const jobAlertActive = !flag('no-job-alert');
+  const preferencesUrl = makePreferencesUrl(email, locale, { fallbackUnsigned: true });
   const { subject, preheader, html } = buildWelcomeEmail({
     segment: ctx.segment,
     locale,
@@ -162,10 +167,14 @@ function renderOne(doc, locale) {
     locationLabel: ctx.locationLabel,
     jobBackPath: ctx.jobBackPath,
     toolKey: ctx.toolKey,
+    jobAlertActive,
     unsubscribeUrl,
+    preferencesUrl,
     acquisitionSource: ctx.acquisitionSource,
   });
-  return { resolvedSegment: ctx.segment, subject, preheader, html };
+  // Mirror the sender: every internal link carries autologin credentials.
+  const authedHtml = wrapAuthenticatedHrefs(html, email, { utmCampaign: `welcome_${ctx.segment}` });
+  return { resolvedSegment: ctx.segment, subject, preheader, html: authedHtml };
 }
 
 async function runRenderOnly() {

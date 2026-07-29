@@ -161,6 +161,46 @@ const JOB_HOOK_TEMPLATE = {
   fr: (d) => `Tu t’es inscrit en consultant ${d}. Tu n’as plus besoin de vérifier à la main : crée une alerte emploi avec ces critères et on t’écrit dès qu’une nouveauté correspond.`,
 };
 
+// Alerts are created automatically at signup by the
+// backfillJobAlertOnNewsletterSignup trigger, so for most `job` arrivals the
+// alert is ALREADY live when this email lands. Asking them to "create a job
+// alert" would request something already done, so the copy switches to
+// confirming it and offering to refine it instead.
+const JOB_HOOK_ACTIVE_TEMPLATE = {
+  it: (d) => `Ti sei iscritto mentre guardavi ${d}. Gli avvisi sono già attivi su questi criteri: da ora ti scriviamo noi appena esce un’offerta che corrisponde, non devi più controllare a mano.`,
+  en: (d) => `You signed up while looking at ${d}. Your alerts are already running on those criteria: from now on we email you the moment a matching role appears, so you don’t have to keep checking.`,
+  de: (d) => `Du hast dich angemeldet, während du dir ${d} angesehen hast. Deine Job-Alerts laufen bereits mit diesen Kriterien: Ab jetzt schreiben wir dir, sobald eine passende Stelle erscheint — manuelles Nachsehen entfällt.`,
+  fr: (d) => `Tu t’es inscrit en consultant ${d}. Tes alertes sont déjà actives sur ces critères : à partir de maintenant on t’écrit dès qu’une offre correspond, plus besoin de vérifier à la main.`,
+};
+
+const JOB_SUBJECT_ACTIVE = {
+  it: 'Sei dentro: gli avvisi lavoro sono attivi',
+  en: 'You’re in: your job alerts are live',
+  de: 'Du bist dabei: deine Job-Alerts laufen',
+  fr: 'C’est fait : tes alertes emploi sont actives',
+};
+
+const JOB_PREHEADER_ACTIVE = {
+  it: 'Ti scriviamo noi appena esce un’offerta che corrisponde ai tuoi criteri.',
+  en: 'We’ll email you the moment a role matching your criteria shows up.',
+  de: 'Wir melden uns, sobald eine Stelle zu deinen Kriterien passt.',
+  fr: 'On t’écrit dès qu’une offre correspond à tes critères.',
+};
+
+const JOB_HEADING_ACTIVE = {
+  it: 'I tuoi avvisi sono già attivi',
+  en: 'Your job alerts are already on',
+  de: 'Deine Job-Alerts sind schon aktiv',
+  fr: 'Tes alertes sont déjà actives',
+};
+
+const JOB_CTA_ACTIVE = {
+  it: 'Affina i tuoi avvisi →',
+  en: 'Fine-tune your alerts →',
+  de: 'Job-Alerts anpassen →',
+  fr: 'Affiner tes alertes →',
+};
+
 // ── Utility segment tool naming (TOOL_KEYS contract: lamal, wizard,
 // leadmagnet, selfcert, calculator, comparator) ─────────────────────
 const TOOL_LABELS = {
@@ -342,14 +382,55 @@ function renderCredibility(text) {
   return `<tr><td class="section-pad" style="padding:0 28px 16px;"><div style="font-size:12px;color:${MUTED_COLOR};text-align:center;">${escapeHtml(text)}</div></td></tr>`;
 }
 
+const CONSULTING = {
+  it: {
+    title: 'Hai una situazione che non torna?',
+    body: 'Doppia imposizione, permesso, rientro dei redditi, telelavoro oltre soglia: se il tuo caso non lo risolve un calcolatore, puoi parlarne con noi in una consulenza dedicata.',
+    cta: 'Vedi come funziona la consulenza',
+  },
+  en: {
+    title: 'Got a situation the tools can’t settle?',
+    body: 'Double taxation, permits, declaring Swiss income in Italy, remote work past the threshold: when a calculator isn’t enough, you can talk it through with us in a one-to-one session.',
+    cta: 'See how a consultation works',
+  },
+  de: {
+    title: 'Ein Fall, den kein Rechner löst?',
+    body: 'Doppelbesteuerung, Bewilligung, Deklaration in Italien, Homeoffice über der Schwelle: Wenn ein Rechner nicht reicht, kannst du deinen Fall in einer persönlichen Beratung besprechen.',
+    cta: 'So läuft eine Beratung ab',
+  },
+  fr: {
+    title: 'Une situation que les outils ne règlent pas ?',
+    body: 'Double imposition, permis, déclaration des revenus en Italie, télétravail au-delà du seuil : quand un calculateur ne suffit pas, tu peux en parler avec nous lors d’une consultation dédiée.',
+    cta: 'Voir comment se passe une consultation',
+  },
+};
+
+function renderConsulting(locale) {
+  const c = CONSULTING[locale] || CONSULTING.it;
+  const href = localizedUrlSlashed('/consulenza', locale);
+  return `<tr><td class="section-pad" style="padding:0 28px 20px;">
+      <table width="100%" cellpadding="0" cellspacing="0" style="background:${CARD_BG};border:1px solid ${BORDER_COLOR};border-radius:12px;">
+        <tr><td style="padding:16px 18px;">
+          <div style="font-size:14px;font-weight:800;color:${BRAND_DARK};padding-bottom:6px;">${escapeHtml(c.title)}</div>
+          <div style="font-size:13px;line-height:1.6;color:${TEXT_COLOR};padding-bottom:12px;">${escapeHtml(c.body)}</div>
+          <a target="_blank" rel="noopener noreferrer" href="${escapeHtml(href)}" style="font-size:13px;font-weight:700;color:${BRAND_ORANGE};text-decoration:none;">${escapeHtml(c.cta)} →</a>
+        </td></tr>
+      </table>
+    </td></tr>`;
+}
+
 function renderDeliverability(text) {
   return `<tr><td class="section-pad" style="padding:0 28px 20px;"><div style="font-size:12px;color:${MUTED_COLOR};text-align:center;line-height:1.5;">${escapeHtml(text)}</div></td></tr>`;
 }
 
 // ── Per-segment content builders ─────────────────────────────────
-function buildJobContent(locale, { company, sectorKey, locationLabel, jobBackPath }) {
+function buildJobContent(locale, { company, sectorKey, locationLabel, jobBackPath, jobAlertActive, preferencesUrl }) {
   const descriptor = buildJobDescriptor(locale, { company, sectorKey, locationLabel });
-  const hook = JOB_HOOK_TEMPLATE[locale](descriptor);
+  // Refining alerts happens on the newsletter-preferences page. Without a
+  // preferences URL (no signing secret) there is nowhere to send them, so fall
+  // back to the create-an-alert wording rather than emitting a dead button.
+  const alertsOn = Boolean(jobAlertActive && preferencesUrl);
+  const hook = (alertsOn ? JOB_HOOK_ACTIVE_TEMPLATE : JOB_HOOK_TEMPLATE)[locale](descriptor);
   const quickLinks = [];
   if (jobBackPath) {
     quickLinks.push({ label: LINKS.backToJob[locale], href: directUrlSlashed(jobBackPath) });
@@ -360,12 +441,12 @@ function buildJobContent(locale, { company, sectorKey, locationLabel, jobBackPat
   quickLinks.push({ label: LINKS.compareLamal[locale], href: localizedUrlSlashed('/compara-servizi/confronta-casse-malati', locale) });
 
   return {
-    subject: SUBJECT.job[locale],
-    preheader: PREHEADER.job[locale],
-    heading: HEADING.job[locale],
+    subject: alertsOn ? JOB_SUBJECT_ACTIVE[locale] : SUBJECT.job[locale],
+    preheader: alertsOn ? JOB_PREHEADER_ACTIVE[locale] : PREHEADER.job[locale],
+    heading: alertsOn ? JOB_HEADING_ACTIVE[locale] : HEADING.job[locale],
     hook,
-    ctaLabel: CTA_LABEL.job[locale],
-    ctaHref: localizedUrlSlashed('/cerca-lavoro-svizzera', locale),
+    ctaLabel: alertsOn ? JOB_CTA_ACTIVE[locale] : CTA_LABEL.job[locale],
+    ctaHref: alertsOn ? preferencesUrl : localizedUrlSlashed('/cerca-lavoro-svizzera', locale),
     quickLinks,
   };
 }
@@ -480,13 +561,16 @@ export function buildWelcomeEmail({
   locationLabel = null,
   jobBackPath = null,
   toolKey = null,
+  jobAlertActive = false,
   unsubscribeUrl,
   preferencesUrl = null,
   acquisitionSource = null,
 }) {
   const lang = normLocale(locale);
   const seg = SEGMENT_BUILDERS[segment] ? segment : 'general';
-  const content = SEGMENT_BUILDERS[seg](lang, { company, sectorKey, locationLabel, jobBackPath, toolKey });
+  const content = SEGMENT_BUILDERS[seg](lang, {
+    company, sectorKey, locationLabel, jobBackPath, toolKey, jobAlertActive, preferencesUrl,
+  });
   const isPublisher = seg === 'publisher';
 
   const unsub = unsubscribeUrl || `${BASE_URL}/?action=unsubscribe`;
@@ -496,6 +580,11 @@ export function buildWelcomeEmail({
   const deliverabilityText = (isPublisher ? DELIVERABILITY.publisher : DELIVERABILITY.consumer)[lang];
   // Publisher is a different audience (employer, not job seeker) — never a
   // consumer affiliate offer in their welcome email.
+  // Paid 1:1 consulting — our own service, so it sits above the affiliate
+  // block and is offered to consumers only (an employer posting a job is the
+  // wrong audience for cross-border tax advice).
+  const consultingHtml = isPublisher ? '' : renderConsulting(lang);
+
   const recommendedHtml = isPublisher
     ? ''
     : renderRecommendedBlock({
@@ -520,6 +609,7 @@ export function buildWelcomeEmail({
       <table width="100%" cellpadding="0" cellspacing="0">${renderQuickLinks(content.quickLinks)}</table>
     </td></tr>
     ${renderCredibility(credibilityText)}
+    ${consultingHtml}
     ${renderDeliverability(deliverabilityText)}
     ${recommendedHtml}
     ${renderFooter(lang, unsub, preferencesUrl)}
