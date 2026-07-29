@@ -37,6 +37,7 @@
     "https://team.lidl.ch/it/jobs/allrounder-verkauf-m-w-d-20-40-horw-695034",
     "https://team.lidl.ch/it/jobs/allrounder-verkauf-m-w-d-20-40-kriens-695036",
     "https://team.lidl.ch/it/jobs/allrounder-verkauf-m-w-d-20-40-luzern-711241",
+    "https://team.lidl.ch/it/jobs/allrounder-verkauf-m-w-d-20-40-luzern-728414",
     "https://team.lidl.ch/it/jobs/allrounder-verkauf-m-w-d-20-40-muri-ag-676618",
     "https://team.lidl.ch/it/jobs/allrounder-verkauf-m-w-d-20-40-reinach-ag-684319",
     "https://team.lidl.ch/it/jobs/allrounder-verkauf-m-w-d-20-40-romerswil-695031",
@@ -141,6 +142,7 @@
     "https://team.lidl.ch/it/jobs/stv-filialleiter-stv-filialleiterin-m-w-d-80-100-kriens-708786",
     "https://team.lidl.ch/it/jobs/stv-filialleiter-stv-filialleiterin-m-w-d-80-100-luzern-707617",
     "https://team.lidl.ch/it/jobs/stv-filialleiter-stv-filialleiterin-m-w-d-80-100-luzern-711231",
+    "https://team.lidl.ch/it/jobs/stv-filialleiter-stv-filialleiterin-m-w-d-80-100-luzern-728451",
     "https://team.lidl.ch/it/jobs/stv-filialleiter-stv-filialleiterin-m-w-d-80-100-niederlenz-700505",
     "https://team.lidl.ch/it/jobs/stv-filialleiter-stv-filialleiterin-m-w-d-80-100-oensingen-710900",
     "https://team.lidl.ch/it/jobs/stv-filialleiter-stv-filialleiterin-m-w-d-80-100-ostermundigen-713806",
@@ -220,6 +222,7 @@
     "https://team.lidl.ch/it/jobs/verkaufer-verkauferin-m-w-d-20-80-ebikon-711245",
     "https://team.lidl.ch/it/jobs/verkaufer-verkauferin-m-w-d-20-80-gretzenbach-708079",
     "https://team.lidl.ch/it/jobs/verkaufer-verkauferin-m-w-d-20-80-luzern-711235",
+    "https://team.lidl.ch/it/jobs/verkaufer-verkauferin-m-w-d-20-80-luzern-728425",
     "https://team.lidl.ch/it/jobs/verkaufer-verkauferin-m-w-d-20-80-muri-ag-671089",
     "https://team.lidl.ch/it/jobs/verkaufer-verkauferin-m-w-d-20-80-reinach-ag-677046",
     "https://team.lidl.ch/it/jobs/verkaufer-verkauferin-m-w-d-20-80-seewen-685901",
@@ -276,6 +279,7 @@
     "https://team.lidl.ch/it/jobs/verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-kriens-708788",
     "https://team.lidl.ch/it/jobs/verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-luzern-707612",
     "https://team.lidl.ch/it/jobs/verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-luzern-707618",
+    "https://team.lidl.ch/it/jobs/verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-luzern-728436",
     "https://team.lidl.ch/it/jobs/verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-muri-ag-671409",
     "https://team.lidl.ch/it/jobs/verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-regensdorf-708288",
     "https://team.lidl.ch/it/jobs/verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-reinach-ag-677051",
@@ -306,7 +310,7 @@
     "https://team.lidl.ch/it/jobs/verkaufer-verkauferin-mit-springerfunktion-m-w-d-80-100-muri-ag-695103"
   ],
   "notes": "Dedicated Lidl crawler seeds from team.lidl.ch LiCa search API (/it/api/v1/search), fetched UNFILTERED and paginated CH-wide (all 26 cantons); per-job canton inferred from the city signal.",
-  "updatedAt": "2026-07-29T11:33:40.872Z",
+  "updatedAt": "2026-07-29T22:03:20.533Z",
   "seedMetaByUrl": {
     "https://team.lidl.ch/it/jobs/verkaufer-verkauferin-m-w-d-40-60-1-schaffhausen-705269": {
       "location": "Schaffhausen",
@@ -2143,6 +2147,42 @@
       "company": "Lidl Svizzera",
       "companyDomain": "lidl.ch",
       "contract": "Part-time"
+    },
+    "https://team.lidl.ch/it/jobs/allrounder-verkauf-m-w-d-20-40-luzern-728414": {
+      "location": "Luzern",
+      "addressLocality": "Luzern",
+      "canton": "LU",
+      "country": "CH",
+      "company": "Lidl Svizzera",
+      "companyDomain": "lidl.ch",
+      "contract": "Part-time"
+    },
+    "https://team.lidl.ch/it/jobs/verkaufer-verkauferin-m-w-d-20-80-luzern-728425": {
+      "location": "Luzern",
+      "addressLocality": "Luzern",
+      "canton": "LU",
+      "country": "CH",
+      "company": "Lidl Svizzera",
+      "companyDomain": "lidl.ch",
+      "contract": "Part-time"
+    },
+    "https://team.lidl.ch/it/jobs/verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-luzern-728436": {
+      "location": "Luzern",
+      "addressLocality": "Luzern",
+      "canton": "LU",
+      "country": "CH",
+      "company": "Lidl Svizzera",
+      "companyDomain": "lidl.ch",
+      "contract": "Part-time"
+    },
+    "https://team.lidl.ch/it/jobs/stv-filialleiter-stv-filialleiterin-m-w-d-80-100-luzern-728451": {
+      "location": "Luzern",
+      "addressLocality": "Luzern",
+      "canton": "LU",
+      "country": "CH",
+      "company": "Lidl Svizzera",
+      "companyDomain": "lidl.ch",
+      "contract": "Full-time"
     },
     "https://team.lidl.ch/it/jobs/stv-filialleiter-stv-filialleiterin-m-w-d-80-100-luzern-707617": {
       "location": "Luzern",
