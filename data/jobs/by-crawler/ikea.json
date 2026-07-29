@@ -71,7 +71,6 @@
         ]
       },
       "firstSeenAt": "2026-07-06T22:20:16.453Z",
-      "needsRetranslation": true,
       "salaryMin": 24800,
       "salaryMax": 37600,
       "baseSalary": {
@@ -144,7 +143,6 @@
         ]
       },
       "firstSeenAt": "2026-07-03T22:23:34.003Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -313,7 +311,6 @@
         ]
       },
       "firstSeenAt": "2026-07-03T22:23:34.001Z",
-      "needsRetranslation": true,
       "salaryMin": 23000,
       "salaryMax": 34800,
       "baseSalary": {
@@ -392,7 +389,6 @@
         ]
       },
       "firstSeenAt": "2026-07-03T22:23:34.008Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -465,7 +461,6 @@
         ]
       },
       "firstSeenAt": "2026-07-09T22:27:11.613Z",
-      "needsRetranslation": true,
       "salaryMin": 28800,
       "salaryMax": 43500,
       "baseSalary": {
@@ -544,7 +539,6 @@
         ]
       },
       "firstSeenAt": "2026-07-07T22:18:13.980Z",
-      "needsRetranslation": true,
       "salaryMin": 44100,
       "salaryMax": 66900,
       "baseSalary": {
@@ -634,8 +628,7 @@
           "maxValue": 75200,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "ikea-b10cdf655ecb",
@@ -696,7 +689,6 @@
         ]
       },
       "firstSeenAt": "2026-07-13T22:13:32.661Z",
-      "needsRetranslation": true,
       "salaryMin": 29400,
       "salaryMax": 44600,
       "baseSalary": {
@@ -789,7 +781,6 @@
         ]
       },
       "firstSeenAt": "2026-07-13T22:13:32.658Z",
-      "needsRetranslation": true,
       "salaryMin": 14700,
       "salaryMax": 22300,
       "baseSalary": {
@@ -890,7 +881,6 @@
         ]
       },
       "firstSeenAt": "2026-07-13T22:13:32.659Z",
-      "needsRetranslation": true,
       "salaryMin": 37200,
       "salaryMax": 56400,
       "baseSalary": {
@@ -1077,7 +1067,7 @@
       "id": "ikea-7a66eddf61cd",
       "slug": "collaborateur-trice-cuisine-ikea-40-ikea-aubonne",
       "slugByLocale": {
-        "it": "collaborateur-trice-cuisine-ikea-40-ikea-aubonne",
+        "it": "contributatore-da-cucina-ikea-40-ikea-aubonne-vaud-switzerland",
         "en": "cuisine-ikea-40-team-member-ikea-aubonne",
         "de": "ikea-kuchenmitarbeiter-40-ikea-aubonne",
         "fr": "collaborateur-trice-cuisine-ikea-40-ikea-ch"
@@ -1087,7 +1077,7 @@
       "companyDomain": "ikea.ch",
       "title": "Collaborateur*trice Cuisine IKEA 40%",
       "titleByLocale": {
-        "it": "Collaborateur*trice Cuisine IKEA 40%",
+        "it": "Contributatore da cucina IKEA 40%",
         "en": "IKEA Kitchen Collaborator 40%",
         "de": "IKEA Küchenmitarbeiter 40%",
         "fr": "Collaborateur*trice Cuisine IKEA 40%"
@@ -1129,10 +1119,7 @@
         "mitarbeiter-in-restaurant-kuche-ikea-20-ikea-vernier-geneve-switzerland",
         "collaborateur-trice-restaurant-cuisine-ikea-20-ikea-ch",
         "ikea-cuisine-collaborateur-40-ikea-aubonne",
-        "contributatore-da-cucina-ikea-40-ikea-aubonne-vaud-switzerland",
         "koch-kellnerin-ikea-40-ikea-aubonne",
-        "ikea-kuchenmitarbeiter-40-ikea-aubonne",
-        "collaborateur-trice-cuisine-ikea-40-ikea-aubonne",
         "collaborateur-trice-cuisine-ikea-40-ikea-aubonne"
       ],
       "previousSlugsByLocale": {
@@ -1144,13 +1131,10 @@
           "mitarbeiter-in-restaurant-kuche-ikea-20-ikea-vernier-geneve-switzerland",
           "collaborateur-trice-restaurant-cuisine-ikea-20-ikea-ch",
           "ikea-cuisine-collaborateur-40-ikea-aubonne",
-          "contributatore-da-cucina-ikea-40-ikea-aubonne-vaud-switzerland",
-          "collaborateur-trice-cuisine-ikea-40-ikea-aubonne",
           "collaborateur-trice-cuisine-ikea-40-ikea-aubonne"
         ],
         "de": [
-          "koch-kellnerin-ikea-40-ikea-aubonne",
-          "ikea-kuchenmitarbeiter-40-ikea-aubonne"
+          "koch-kellnerin-ikea-40-ikea-aubonne"
         ],
         "fr": [
           "ikea-cuisine-collaborateur-40-ikea-aubonne"
@@ -1168,8 +1152,7 @@
           "maxValue": 36600,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "ikea-1c202382413e",
@@ -1230,7 +1213,6 @@
         ]
       },
       "firstSeenAt": "2026-07-14T22:23:31.695Z",
-      "needsRetranslation": true,
       "salaryMin": 29400,
       "salaryMax": 44600,
       "baseSalary": {
@@ -1314,8 +1296,7 @@
           "maxValue": 60900,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "ikea-67467dc30a44",
@@ -1386,7 +1367,6 @@
         ]
       },
       "firstSeenAt": "2026-07-14T22:23:31.692Z",
-      "needsRetranslation": true,
       "salaryMin": 24800,
       "salaryMax": 37600,
       "baseSalary": {
@@ -1611,7 +1591,6 @@
         ]
       },
       "firstSeenAt": "2026-07-16T22:20:01.883Z",
-      "needsRetranslation": true,
       "salaryMin": 12100,
       "salaryMax": 18300,
       "baseSalary": {
@@ -1766,7 +1745,6 @@
         ]
       },
       "firstSeenAt": "2026-07-20T12:07:43.910Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -1839,7 +1817,6 @@
         ]
       },
       "firstSeenAt": "2026-07-21T22:32:54.405Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -1920,7 +1897,6 @@
         ]
       },
       "firstSeenAt": "2026-07-08T22:14:15.996Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -2418,7 +2394,6 @@
         ]
       },
       "firstSeenAt": "2026-07-16T22:20:01.884Z",
-      "needsRetranslation": true,
       "salaryMin": 31000,
       "salaryMax": 47000,
       "baseSalary": {
@@ -2497,7 +2472,6 @@
         ]
       },
       "firstSeenAt": "2026-07-10T22:15:51.547Z",
-      "needsRetranslation": true,
       "salaryMin": 11500,
       "salaryMax": 17400,
       "baseSalary": {
@@ -2576,7 +2550,6 @@
         ]
       },
       "firstSeenAt": "2026-07-24T22:07:27.082Z",
-      "needsRetranslation": true,
       "salaryMin": 58800,
       "salaryMax": 89200,
       "baseSalary": {
@@ -2884,7 +2857,6 @@
         ]
       },
       "firstSeenAt": "2026-07-14T22:23:31.679Z",
-      "needsRetranslation": true,
       "salaryMin": 57200,
       "salaryMax": 101200,
       "baseSalary": {
@@ -2990,9 +2962,9 @@
       "description": "Who you are\n\nYour responsibilities\n\nDenkst du, das würde passen?\n\nWe want our employees to be happy and healthy.\n\nIt also means saying 'thank you'!\n\nOur way of saying thank you:\n\n• 28 vacation days (based on a 100% workload)\n• 8 weeks paid parental leave for fathers; 20 weeks paid parental leave for mothers\n• Very attractive social benefits\n• 15% staff discount on your purchase - in every Swiss IKEA store\n• You would rather travel to work by public transport? We pay between 85% and 100% of your yearly travel ticket\n• Free parking facilities\n• Unlimited access to the LinkedIn learning platform\n• Affordable and healthy meals in our staff canteen (CHF 4.50 for meat dishes and CHF 3.50 for veggie dishes)\n• Bonus payments for all employees\n\nThere are many opportunities for career development at IKEA. We encourage and support our employees to try out different roles, move between functions or even go abroad. Please submit your full application online via our website, please note however that we cannot consider applications and documents sent by email or post.\n\nThat's it from us.\n\nThat was a lot of information. We'd love to find out more about you. Just click on 'Apply now' and off you go.\n\nWe review applications on an ongoing basis and may stop the application process as soon as we have found the right person. So please apply as soon as possible",
       "descriptionByLocale": {
         "en": "Who you are\n\nYour responsibilities\n\nDenkst du, das würde passen?\n\nWe want our employees to be happy and healthy.\n\nIt also means saying 'thank you'!\n\nOur way of saying thank you:\n\n• 28 vacation days (based on a 100% workload)\n• 8 weeks paid parental leave for fathers; 20 weeks paid parental leave for mothers\n• Very attractive social benefits\n• 15% staff discount on your purchase - in every Swiss IKEA store\n• You would rather travel to work by public transport? We pay between 85% and 100% of your yearly travel ticket\n• Free parking facilities\n• Unlimited access to the LinkedIn learning platform\n• Affordable and healthy meals in our staff canteen (CHF 4.50 for meat dishes and CHF 3.50 for veggie dishes)\n• Bonus payments for all employees\n\nThere are many opportunities for career development at IKEA. We encourage and support our employees to try out different roles, move between functions or even go abroad. Please submit your full application online via our website, please note however that we cannot consider applications and documents sent by email or post.\n\nThat's it from us.\n\nThat was a lot of information. We'd love to find out more about you. Just click on 'Apply now' and off you go.\n\nWe review applications on an ongoing basis and may stop the application process as soon as we have found the right person. So please apply as soon as possible",
-        "fr": "Commercial Restaurant Manager 80-100% — IKEA",
-        "it": "Who you are\n\nYour responsibilities\n\nDenkst du, das würde passen?\n\nWe want our employees to be happy and healthy.\n\nIt also means saying 'thank you'!\n\nOur way of saying thank you:\n\n• 28 vacation days (based on a 100% workload)\n• 8 weeks paid parental leave for fathers; 20 weeks paid parental leave for mothers\n• Very attractive social benefits\n• 15% staff discount on your purchase - in every Swiss IKEA store\n• You would rather travel to work by public transport? We pay between 85% and 100% of your yearly travel ticket\n• Free parking facilities\n• Unlimited access to the LinkedIn learning platform\n• Affordable and healthy meals in our staff canteen (CHF 4.50 for meat dishes and CHF 3.50 for veggie dishes)\n• Bonus payments for all employees\n\nThere are many opportunities for career development at IKEA. We encourage and support our employees to try out different roles, move between functions or even go abroad. Please submit your full application online via our website, please note however that we cannot consider applications and documents sent by email or post.\n\nThat's it from us.\n\nThat was a lot of information. We'd love to find out more about you. Just click on 'Apply now' and off you go.\n\nWe review applications on an ongoing basis and may stop the application process as soon as we have found the right person. So please apply as soon as possible",
-        "de": "Who you are\n\nYour responsibilities\n\nDenkst du, das würde passen?\n\nWe want our employees to be happy and healthy.\n\nIt also means saying 'thank you'!\n\nOur way of saying thank you:\n\n• 28 vacation days (based on a 100% workload)\n• 8 weeks paid parental leave for fathers; 20 weeks paid parental leave for mothers\n• Very attractive social benefits\n• 15% staff discount on your purchase - in every Swiss IKEA store\n• You would rather travel to work by public transport? We pay between 85% and 100% of your yearly travel ticket\n• Free parking facilities\n• Unlimited access to the LinkedIn learning platform\n• Affordable and healthy meals in our staff canteen (CHF 4.50 for meat dishes and CHF 3.50 for veggie dishes)\n• Bonus payments for all employees\n\nThere are many opportunities for career development at IKEA. We encourage and support our employees to try out different roles, move between functions or even go abroad. Please submit your full application online via our website, please note however that we cannot consider applications and documents sent by email or post.\n\nThat's it from us.\n\nThat was a lot of information. We'd love to find out more about you. Just click on 'Apply now' and off you go.\n\nWe review applications on an ongoing basis and may stop the application process as soon as we have found the right person. So please apply as soon as possible"
+        "fr": "Qui vous êtes\n\nVos responsabilités\n\nDenkst du, das würde passen ?\n\nNous voulons que nos employés soient heureux et en bonne santé.\n\nCela signifie aussi dire 'merci'!\n\nNotre façon de dire merci :\n\n• 28 jours de vacances (sur la base d'une charge de travail de 100 %)\n• 8 semaines de congé parental payé pour les pères; 20 semaines de congé parental payé pour les mères\n• Prestations sociales très attractives\n• 15% de réduction du personnel sur votre achat - dans chaque magasin suisse IKEA\n• Vous préférez voyager au travail en transports publics ? Nous payons entre 85% et 100% de votre billet de voyage annuel\n• Parking gratuit\n• Accès illimité à la plateforme d'apprentissage LinkedIn\n• Repas abordables et sains dans notre cantine du personnel (CHF 4,50 pour les plats de viande et CHF 3,50 pour les plats végétariens)\n• Primes versées à tous les employés\n\nIl existe de nombreuses possibilités de perfectionnement professionnel à IKEA. Nous encourageons et soutenons nos employés à essayer différents rôles, à passer d'une fonction à l'autre ou même à l'étranger. Veuillez soumettre votre candidature en ligne via notre site Web, mais nous ne pouvons pas considérer les demandes et documents envoyés par courriel ou par la poste.\n\nÇa vient de nous.\n\nC'était beaucoup d'informations. Nous aimerions en savoir plus sur vous. Cliquez sur \"Appliquer maintenant\" et quittez-vous.\n\nNous examinons les demandes de façon continue et pouvons arrêter le processus de demande dès que nous avons trouvé la bonne personne. Veuillez donc postuler dès que possible",
+        "it": "Chi sei\n\nLe tue responsabilità\n\nDenkst du, das würde passen?\n\nVogliamo che i nostri dipendenti siano felici e sani.\n\nSignifica anche dire \"grazie\"!\n\nIl nostro modo di dire grazie:\n\n• 28 giorni di vacanza (basato su un carico di lavoro al 100%)\n• 8 settimane di congedo parentale pagato per i padri; 20 settimane di congedo parentale pagato per le madri\n• Prestazioni sociali molto interessanti\n• 15% sconto personale sul vostro acquisto - in ogni negozio Swiss IKEA\n• Preferisci viaggiare al lavoro con i mezzi pubblici? Paghiamo tra l'85% e il 100% del tuo biglietto annuale di viaggio\n• Parcheggio gratuito\n• Accesso illimitato alla piattaforma di apprendimento LinkedIn\n• Pasti convenienti e salutari nella nostra mensa (CHF 4.50 per piatti di carne e CHF 3.50 per piatti vegetariani)\n• Bonus per tutti i dipendenti\n\nCi sono molte opportunità per lo sviluppo di carriera a IKEA. Incoraggiamo e sosteniamo i nostri dipendenti per provare ruoli diversi, muoversi tra funzioni o anche andare all'estero. Si prega di inviare la vostra domanda completa online tramite il nostro sito web, si prega di notare tuttavia che non possiamo considerare le applicazioni e i documenti inviati via e-mail o posta.\n\nE' tutto da noi.\n\nSono state un sacco di informazioni. Ci piacerebbe scoprire di più su di te. Basta cliccare su 'Applica ora' e fuori si va.\n\nRivediamo le applicazioni su base continuativa e possiamo fermare il processo di applicazione non appena abbiamo trovato la persona giusta. Quindi si prega di applicare il più presto possibile",
+        "de": "Wer du bist\n\nIhre Verantwortung\n\nDenkst du, das war passen?\n\nWir wollen, dass unsere Mitarbeiter glücklich und gesund sind.\n\nEs bedeutet auch, \"Danke\" zu sagen!\n\nUnsere Art, Danke zu sagen:\n\n• 28 Urlaubstage (basierend auf einem 100% Workload)\n• 8 Wochen bezahlter Elternurlaub für Väter; 20 Wochen bezahlter Elternurlaub für Mütter\n• Sehr attraktive Sozialleistungen\n• 15% Personalrabatt auf Ihren Einkauf - in jedem Schweizer IKEA Store\n• Sie möchten lieber mit öffentlichen Verkehrsmitteln zur Arbeit fahren? Wir zahlen zwischen 85% und 100% Ihres jährlichen Reisetickets\n• Kostenlose Parkplätze\n• Unbegrenzter Zugang zur LinkedIn Lernplattform\n• Erschwingliche und gesunde Mahlzeiten in unserer Mitarbeiterkantine (CHF 4,50 für Fleischgerichte und CHF 3,50 für Gemüsegerichte)\n• Bonuszahlungen für alle Mitarbeiter\n\nEs gibt viele Möglichkeiten für die berufliche Entwicklung bei IKEA. Wir ermutigen und unterstützen unsere Mitarbeiter, verschiedene Rollen auszuprobieren, zwischen Funktionen zu wechseln oder sogar ins Ausland zu gehen. Bitte senden Sie Ihre vollständige Bewerbung online über unsere Website, bitte beachten Sie jedoch, dass wir Bewerbungen und Dokumente, die per E-Mail oder Post gesendet werden, nicht berücksichtigen können.\n\nDas ist es von uns.\n\nDas waren viele Informationen. Wir würden gerne mehr über dich erfahren. Klicken Sie einfach auf \"Jetzt bewerben\" und gehen Sie los.\n\nWir prüfen Bewerbungen laufend und können den Bewerbungsprozess unterbrechen, sobald wir die richtige Person gefunden haben. Bitte bewerben Sie sich so bald wie möglich"
       },
       "location": "Dietlikon, Zürich, Switzerland",
       "canton": "ZH",
@@ -3030,7 +3002,6 @@
         ]
       },
       "firstSeenAt": "2026-07-22T11:20:41.889Z",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -3042,8 +3013,7 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 1
+      }
     }
   ]
 }
