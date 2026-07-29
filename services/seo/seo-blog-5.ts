@@ -56816,6 +56816,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-lugano-lavori-di-asfaltatura': {
+    title: 'Lugano, lavori di asfaltatura: giovedì cantiere in via Alla Bozzoreda',
+    description: 'I lavori di asfaltatura in via Alla Bozzoreda a Lugano saranno contenuti ad un solo ciclo in fascia serale notturna tra le ore 20.00 di giovedì 30 luglio e le',
+    keywords: 'frontalieri, ticino, svizzera, italia, lugano, lavori, asfaltatura, giovedì',
+    ogTitle: 'Lugano, lavori di asfaltatura: giovedì cantiere in via Alla Bozzoreda',
+    ogDescription: 'I lavori di asfaltatura in via Alla Bozzoreda a Lugano saranno contenuti ad un solo ciclo in fascia serale notturna tra le ore 20.00 di giovedì 30 luglio e le',
+    canonicalPath: '/articoli-frontaliere/lugano-lavori-di-asfaltatura',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Lugano, lavori di asfaltatura: giovedì cantiere in via Alla Bozzoreda",
+      "description": "I lavori di asfaltatura in via Alla Bozzoreda a Lugano saranno contenuti ad un solo ciclo in fascia serale notturna tra le ore 20.00 di giovedì 30 luglio e le",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/lugano-lavori-di-asfaltatura.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lavori di asfaltatura in corso a Lugano"
+      },
+      "datePublished": "2026-07-29T01:01:18+00:00",
+      "dateModified": "2026-07-29T01:01:18+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/lugano-lavori-di-asfaltatura/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

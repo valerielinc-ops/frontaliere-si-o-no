@@ -9072,6 +9072,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.non-c-e-assolutamente-nessun-errore-sistemico.title': 'Es liegt absolut kein systemischer Fehler vor',
     'blog.article.non-c-e-assolutamente-nessun-errore-sistemico.excerpt': 'Das Ticinonline dementiert Gerüchte über systemische Fehler bei der Behandlung von Grenzgängern.',
     'blog.article.non-c-e-assolutamente-nessun-errore-sistemico.imageAlt': 'Frontalier warten am Ticino Grenzübergang',
+    'blog.article.lugano-lavori-di-asfaltatura.title': 'Lugano, Asphaltarbeiten: Donnerstag Baustelle in der Via Alla Bozzoreda',
+    'blog.article.lugano-lavori-di-asfaltatura.excerpt': 'Die Asphaltierungsarbeiten in der Via Alla Bozzoreda in Lugano werden nachts zwischen Donnerstag, dem 30. Juli, 20.00 Uhr und Freitag, dem 31. Juli, 5.00 Uhr in einem einzigen Zyklus durchgeführt.',
+    'blog.article.lugano-lavori-di-asfaltatura.imageAlt': 'Asphaltarbeiten in Lugano im Gange',
 };
 
 export default blogMetaDe;
