@@ -1684,6 +1684,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.gestione-immobiliare-professionale.title': 'Property management: the value of time and precision',
     'blog.article.gestione-immobiliare-professionale.excerpt': 'Why doesn\'t a successful real estate agency have time to spy on the competition? Here is the operating method based on Swiss quality and rigor.',
     'blog.article.gestione-immobiliare-professionale.imageAlt': 'Professional real estate office interior with a view of Lugano',
+    'blog.article.noleggio-sociale-frontalieri-2026.title': 'Social rent for border workers: 100 euros per month?',
+    'blog.article.noleggio-sociale-frontalieri-2026.excerpt': 'The Italian Government is preparing a project to offer new cars to frontier workers for a monthly fee of 100 euros.',
+    'blog.article.noleggio-sociale-frontalieri-2026.imageAlt': 'Image of a new vehicle with the ACI logo and the Ministry of Enterprises and Made in Italy (MIMIT) on a background of an Italian landscape',
 };
 
 export default blogMetaChEn;

@@ -4759,7 +4759,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 3617,
+ "numberOfItems": 3618,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026/` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024/` },
@@ -8377,7 +8377,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 3614, "name": "Vigilanza bancaria in Svizzera: storia, scandal...", "url": `${BASE_URL}/articoli-frontaliere/storia-vigilanza-bancaria-svizzera` },
           { "@type": "ListItem", "position": 3615, "name": "Dopo il caso Zali: il Ticino guarda al futuro", "url": `${BASE_URL}/articoli-frontaliere/caso-zali-politica-ticino-prospettive` },
           { "@type": "ListItem", "position": 3616, "name": "Gestione immobiliare: il valore del tempo e del...", "url": `${BASE_URL}/articoli-frontaliere/gestione-immobiliare-professionale` },
-          { "@type": "ListItem", "position": 3617, "name": "Lavoro temporaneo in Svizzera: torna a crescere...", "url": `${BASE_URL}/articoli-frontaliere/lavoro-temporaneo-svizzera-crescita` }
+          { "@type": "ListItem", "position": 3617, "name": "Lavoro temporaneo in Svizzera: torna a crescere...", "url": `${BASE_URL}/articoli-frontaliere/lavoro-temporaneo-svizzera-crescita` },
+          { "@type": "ListItem", "position": 3618, "name": "Noleggio sociale per frontalieri: 100 euro al m...", "url": `${BASE_URL}/articoli-frontaliere/noleggio-sociale-frontalieri-2026` }
  ]
  },
  {

@@ -1684,6 +1684,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.gestione-immobiliare-professionale.title': 'Immobilienmanagement: der Wert von Zeit und Genauigkeit',
     'blog.article.gestione-immobiliare-professionale.excerpt': 'Warum hat eine erfolgreiche Immobilienagentur keine Zeit, die Konkurrenz auszuspionieren? Das ist die operative Methode, die auf Schweizer Qualität und Strenge basiert.',
     'blog.article.gestione-immobiliare-professionale.imageAlt': 'Professionelles Immobilienbüro mit Blick auf Lugano',
+    'blog.article.noleggio-sociale-frontalieri-2026.title': 'Sozialmiete für Grenzgänger: 100 Euro pro Monat?',
+    'blog.article.noleggio-sociale-frontalieri-2026.excerpt': 'Die italienische Regierung bereitet ein Projekt vor, um Grenzgängern neue Autos für eine monatliche Gebühr von 100 Euro anzubieten.',
+    'blog.article.noleggio-sociale-frontalieri-2026.imageAlt': 'Bild eines neuen Fahrzeugs mit dem ACI-Logo und dem Ministerium für Unternehmen und Made in Italy (MIMIT) auf einem Hintergrund eines italienischen Landschafts',
 };
 
 export default blogMetaChDe;
