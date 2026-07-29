@@ -32,7 +32,7 @@ import {
 import { ALL_BLOG_ARTICLE_IDS } from '@/services/routerBlogData';
 import { ALL_SWISS_ARTICLE_IDS, SWISS_SLUGS } from '@/services/routerSwissData';
 import { AUTHORS } from '@/data/authors';
-import type { AppRoute } from '@/services/router';
+import type { AppRoute, BlogArticleId } from '@/services/router';
 import { loadSwissArticleCanonicalOverrides } from '@/build-plugins/shared/swissArticleCanonicalOverrides';
 import { GLOSSARY_TERM_DEFINITIONS, GLOSSARY_PLACEHOLDER_DESCRIPTION_RX } from '@/services/seo/glossaryTermDefinitions';
 
@@ -150,7 +150,12 @@ function getAllRoutes(): { route: AppRoute; label: string }[] {
   routes.push({ route: { activeTab: 'blog' }, label: 'blog' });
   for (const id of ALL_BLOG_ARTICLE_IDS) {
     routes.push({
-      route: { activeTab: 'blog', blogArticle: id },
+      // packages/articles/content/routerBlogData.ts (issue #4881 Fase 6)
+      // exports ALL_BLOG_ARTICLE_IDS as string[] (confinement — the package
+      // can't import the real BlogArticleId union). Every entry here IS a
+      // valid BlogArticleId by construction, so narrow at this test-only
+      // consumption site (mirrors services/router.ts's REVERSE_BLOG cast).
+      route: { activeTab: 'blog', blogArticle: id as BlogArticleId },
       label: `blog/${id}`,
     });
   }
