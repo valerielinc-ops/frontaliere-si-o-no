@@ -19,8 +19,8 @@ describe('maskNavLinks', () => {
     const { masked, expected, restore } = maskNavLinks(src);
     expect(expected).toBe(2);
     expect(masked).not.toContain('nav:');
-    expect(masked).toContain('0NAVLINK0');
-    expect(masked).toContain('0NAVLINK1');
+    expect(masked).toContain('0NAV00');
+    expect(masked).toContain('0NAV10');
     // MT returns the sentinels intact (typical case)
     const { text, ok } = restore(masked);
     expect(ok).toBe(true);
@@ -31,7 +31,7 @@ describe('maskNavLinks', () => {
     const src = 'Apri il [calcolatore](nav:calculator).';
     const { masked, restore } = maskNavLinks(src);
     // Simulate MT stripping the sentinel
-    const mangled = masked.replace('0NAVLINK0', '');
+    const mangled = masked.replace('0NAV00', '');
     expect(restore(mangled).ok).toBe(false);
   });
 
@@ -135,5 +135,40 @@ describe('joinTranslatedChunks', () => {
     expect(joinTranslatedChunks([{ body3: 'ok' }, { body3: '  ' }], 'body3')).toBeNull();
     expect(joinTranslatedChunks([{ body3: 'ok' }, null], 'body3')).toBeNull();
     expect(joinTranslatedChunks([], 'body3')).toBeNull();
+  });
+});
+
+describe('nav-link sentinel survives machine translation', () => {
+  // Regression: the sentinel used to be `0NAVLINK<n>0`. French MT reads the
+  // embedded English word and returns `0NAVLIEN<n>0`, restore() counts a
+  // mismatch, and translateFieldFreeMt drops the field — so a French body with
+  // a single nav CTA silently lost the free-MT tier. Failing closed here looks
+  // identical to "translator unavailable", which is why it went unnoticed.
+  it('emits a sentinel with no translatable word in it', () => {
+    const { masked } = maskNavLinks('Usa il [calcolatore](nav:calculator) per stimare.');
+    expect(masked).not.toMatch(/LINK/i);
+    expect(masked).toMatch(/0NAV\d+0/);
+    // Nothing a translator would recognise as a word.
+    expect(masked.replace(/0NAV\d+0/g, '')).not.toMatch(/\b(link|lien|verknüpfung)\b/i);
+  });
+
+  it('survives a translator that rewrites recognisable English words', () => {
+    const src = 'Vedi il [calcolatore](nav:calculator) e la [guida](nav:tax-return).';
+    const { masked, expected, restore } = maskNavLinks(src);
+    // Stand-in for French MT: translates any English word it can find.
+    const translated = masked
+      .replace(/LINK/g, 'LIEN')
+      .replace(/Vedi il/, 'Voir le')
+      .replace(/e la/, 'et le');
+    const r = restore(translated);
+    expect(expected).toBe(2);
+    expect(r.ok).toBe(true);
+    expect(r.text).toContain('(nav:calculator)');
+    expect(r.text).toContain('(nav:tax-return)');
+  });
+
+  it('still reports a mangled sentinel when the digits are destroyed', () => {
+    const { restore } = maskNavLinks('Usa il [calcolatore](nav:calculator).');
+    expect(restore('Usa il 0NAV-broken-0.').ok).toBe(false);
   });
 });
