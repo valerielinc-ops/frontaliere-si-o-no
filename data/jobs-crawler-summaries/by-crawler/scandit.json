@@ -1,18 +1,19 @@
 {
   "key": "scandit",
   "label": "Scandit AG",
-  "generatedAt": "2026-07-29T11:52:03.862Z",
+  "generatedAt": "2026-07-29T22:31:40.042Z",
   "total": 3,
-  "newCount": 1,
-  "updatedCount": 2,
+  "newCount": 0,
+  "updatedCount": 3,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 6046,
-  "avgDurationMs": 6046,
+  "durationMs": 6375,
+  "avgDurationMs": 6375,
   "durationHistory": [
-    6046
+    6375
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "scandit-fd9be409e48d",
       "slug": "senior-product-manager-shelfview-scandit-ch",
@@ -25,7 +26,7 @@
       "url": "https://www.scandit.com/careers/job-description/?gh_jid=8093936",
       "source": "Scandit AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-29T11:51:58.923Z",
+      "crawledAt": "2026-07-29T22:31:34.755Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -38,16 +39,15 @@
       "featured": false,
       "postedDate": "2026-07-29",
       "applyUrl": "https://www.scandit.com/careers/job-description/?gh_jid=8093936",
-      "_qualityScore": 55,
+      "firstSeenAt": "2026-07-29T11:51:58.923Z",
+      "_qualityScore": 74,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 20,
-        "translation": 4,
+        "translation": 23,
         "completeness": 14
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "scandit-a1db699edbcd",
       "slug": "product-manager-shelfview-scandit-ch",
@@ -60,7 +60,7 @@
       "url": "https://www.scandit.com/careers/job-description/?gh_jid=8043068",
       "source": "Scandit AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-29T11:51:58.299Z",
+      "crawledAt": "2026-07-29T22:31:34.136Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -94,7 +94,7 @@
       "url": "https://www.scandit.com/careers/job-description/?gh_jid=7588975",
       "source": "Scandit AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-29T11:51:58.619Z",
+      "crawledAt": "2026-07-29T22:31:34.448Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
