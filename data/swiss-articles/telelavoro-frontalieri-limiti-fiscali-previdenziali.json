@@ -1,0 +1,40 @@
+{
+  "id": "telelavoro-frontalieri-limiti-fiscali-previdenziali",
+  "slug": "telelavoro-frontalieri-limiti-fiscali-previdenziali",
+  "publishedAt": "2026-07-29T03:14:10.691Z",
+  "cluster": "pratico",
+  "_pool": "discovery",
+  "_pool_source": "news",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 3.0429698644027683,
+    "confidence": 0.8,
+    "finalScore": 2.434375891522215,
+    "topK": [
+      {
+        "slug": "telelavoro-dei-frontalieri-tra-italia-e-svizzera-doppia-soglia-tra-fisco-e-previ",
+        "cosine": 0.8686217854941649
+      },
+      {
+        "slug": "lavoro-remoto-terzo-paese-frontaliere-fiscalita",
+        "cosine": 0.857518742831591
+      },
+      {
+        "slug": "cu-telelavoro-regole-frontalieri",
+        "cosine": 0.8546905133228586
+      },
+      {
+        "slug": "lavoro-frontaliero-subordinazione-e-credito-dimposta-nei-rapporti-italiasvizzera",
+        "cosine": 0.8543595804061127
+      },
+      {
+        "slug": "frontalieri-telelavoro-ratifica-accordo",
+        "cosine": 0.8533588381811232
+      }
+    ],
+    "score": 2.434375891522215,
+    "clusterDiversityBonus": 1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "pratico"
+  }
+}

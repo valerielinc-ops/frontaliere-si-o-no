@@ -1660,6 +1660,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.assegno-unico-nuove-regole-inps.title': 'Single Allowance: new INPS rules for workers abroad',
     'blog.article.assegno-unico-nuove-regole-inps.excerpt': 'The INPS clarifies the application methods for the Single Allowance: this is what changes for EU workers and families with children residing in other EU countries.',
     'blog.article.assegno-unico-nuove-regole-inps.imageAlt': 'Documents and calculator on a modern office desk',
+    'blog.article.telelavoro-frontalieri-limiti-fiscali-previdenziali.title': 'Frontier teleworking: tax and social security limits',
+    'blog.article.telelavoro-frontalieri-limiti-fiscali-previdenziali.excerpt': 'Italy-Switzerland frontier workers: teleworking follows two distinct thresholds. Find out how tax 25% and social security 49.9% affect taxes and contributions.',
+    'blog.article.telelavoro-frontalieri-limiti-fiscali-previdenziali.imageAlt': 'Modern office in Lugano with lake view',
 };
 
 export default blogMetaChEn;

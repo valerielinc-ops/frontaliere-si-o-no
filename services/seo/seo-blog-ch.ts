@@ -21467,6 +21467,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-telelavoro-frontalieri-limiti-fiscali-previdenziali': {
+    title: 'Telelavoro frontalieri: i limiti fiscali e previdenziali',
+    description: 'Scopri i limiti del 25% fiscale e 49,9% previdenziale per il telelavoro dei frontalieri Italia-Svizzera. Guida pratica su tasse e contributi. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, telelavoro, limiti, fiscali, previdenziali',
+    ogTitle: 'Telelavoro frontalieri: limiti fiscali e previdenziali',
+    ogDescription: 'Guida pratica ai limiti di telelavoro per frontalieri: 25% fiscale e 49,9% previdenziale spiegati nel dettaglio.',
+    canonicalPath: '/articoli-svizzera/telelavoro-frontalieri-limiti-fiscali-previdenziali/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Telelavoro frontalieri: i limiti fiscali e previdenziali",
+      "description": "Scopri i limiti del 25% fiscale e 49,9% previdenziale per il telelavoro dei frontalieri Italia-Svizzera. Guida pratica su tasse e contributi. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/telelavoro-frontalieri-limiti-fiscali-previdenziali.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ufficio moderno a Lugano con vista lago"
+      },
+      "datePublished": "2026-07-29T03:14:05+00:00",
+      "dateModified": "2026-07-29T03:14:05+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/telelavoro-frontalieri-limiti-fiscali-previdenziali/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

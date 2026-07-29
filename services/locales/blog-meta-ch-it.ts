@@ -1660,6 +1660,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.assegno-unico-nuove-regole-inps.title': 'Assegno Unico: nuove regole INPS per lavoratori all\'estero',
     'blog.article.assegno-unico-nuove-regole-inps.excerpt': 'L\'INPS chiarisce le modalità applicative per l\'Assegno Unico: ecco cosa cambia per i lavoratori comunitari e le famiglie con figli residenti in altri Paesi UE.',
     'blog.article.assegno-unico-nuove-regole-inps.imageAlt': 'Documenti e calcolatrice su una scrivania in un ufficio moderno',
+    'blog.article.telelavoro-frontalieri-limiti-fiscali-previdenziali.title': 'Telelavoro frontalieri: i limiti fiscali e previdenziali',
+    'blog.article.telelavoro-frontalieri-limiti-fiscali-previdenziali.excerpt': 'Frontalieri Italia-Svizzera: il telelavoro segue due soglie distinte. Scopri come il 25% fiscale e il 49,9% previdenziale influenzano tasse e contributi.',
+    'blog.article.telelavoro-frontalieri-limiti-fiscali-previdenziali.imageAlt': 'Ufficio moderno a Lugano con vista lago',
 };
 
 export default blogMetaChIt;
