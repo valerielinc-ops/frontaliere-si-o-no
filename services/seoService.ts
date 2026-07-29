@@ -5004,6 +5004,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-lavoro-part-time-svizzera-diritti': { name: 'Lavoro part-time', path: '/articoli-svizzera/lavoro-part-time-svizzera-diritti/', parent: 'blog' },
     'blog-vivere-porto-ceresio-lavoro-ticino': { name: 'Vivere Porto Ceresio', path: '/articoli-frontaliere/vivere-porto-ceresio-lavoro-ticino', parent: 'blog' },
     'blog-petrolio-in-cambio-di-miliardi': { name: 'Petrolio in cambio di miliardi', path: '/articoli-svizzera/petrolio-in-cambio-di-miliardi/', parent: 'blog' },
+    'blog-caro-carburanti-svizzera-indagine-comco': { name: 'Carburanti', path: '/articoli-frontaliere/caro-carburanti-svizzera-indagine-comco', parent: 'blog' },
  };
 
  const info = sectionNames[section];

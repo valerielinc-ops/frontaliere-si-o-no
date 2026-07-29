@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-07-29T21:59:44.813Z",
+  "updatedAt": "2026-07-29T23:23:44.157Z",
   "entities": {
     "AASTI": {
       "status": "suspect",
@@ -6461,11 +6461,11 @@
       "statusSource": "auto",
       "statusAt": "2026-07-29T06:26:58.011Z",
       "firstSeen": "2026-07-29T06:26:58.011Z",
-      "lastSeen": "2026-07-29T19:58:12.549Z",
-      "seen": 21,
+      "lastSeen": "2026-07-29T23:23:44.157Z",
+      "seen": 23,
       "unsupportedSightings": 0,
       "unsupportedRuns": [],
-      "supportedSightings": 8,
+      "supportedSightings": 10,
       "names": [
         "Ufficio Regionale di Collocamento",
         "Uffici Regionali di Collocamento",
@@ -6475,6 +6475,20 @@
       "recentKeys": [],
       "evidence": [
         {
+          "at": "2026-07-29T23:23:44.157Z",
+          "runId": "30497755528",
+          "articleId": "caro-carburanti-svizzera-indagine-comco",
+          "support": "present",
+          "name": "Uffici regionali di collocamento"
+        },
+        {
+          "at": "2026-07-29T23:23:44.157Z",
+          "runId": "30497755528",
+          "articleId": "caro-carburanti-svizzera-indagine-comco",
+          "support": "present",
+          "name": "Uffici regionali di collocamento"
+        },
+        {
           "at": "2026-07-29T19:58:12.549Z",
           "runId": "30483804455",
           "articleId": "vivere-porto-ceresio-lavoro-ticino",
@@ -6515,20 +6529,6 @@
           "articleId": "lavoro-part-time-svizzera-diritti",
           "support": "present",
           "name": "Uffici regionali di collocamento"
-        },
-        {
-          "at": "2026-07-29T19:17:27.320Z",
-          "runId": "30480929135",
-          "articleId": "lavoro-part-time-svizzera-diritti",
-          "support": "present",
-          "name": "Uffici Regionali di Collocamento"
-        },
-        {
-          "at": "2026-07-29T19:17:27.320Z",
-          "runId": "30480929135",
-          "articleId": "lavoro-part-time-svizzera-diritti",
-          "support": "present",
-          "name": "Ufficio Regionale di Collocamento"
         }
       ]
     },

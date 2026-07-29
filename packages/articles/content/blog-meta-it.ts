@@ -9128,6 +9128,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-porto-ceresio-lavoro-ticino.title': 'Vivere a Porto Ceresio e lavorare in Ticino da frontaliere',
     'blog.article.vivere-porto-ceresio-lavoro-ticino.excerpt': 'Guida pratica per frontalieri tra Porto Ceresio e Canton Ticino: imposte, procedure, mobilità e costi secondo le normative vigenti dal 1° gennaio 2024.',
     'blog.article.vivere-porto-ceresio-lavoro-ticino.imageAlt': 'Veduta del lago di Lugano vicino al confine italo-svizzero',
+    'blog.article.caro-carburanti-svizzera-indagine-comco.title': 'Commissione della concorrenza indaga sul caro carburanti in Ticino',
+    'blog.article.caro-carburanti-svizzera-indagine-comco.excerpt': 'Il consigliere Benoît Gaillard solleva il sospetto di intese sui prezzi della benzina dopo l’arrivo di Etzelpark a Bellinzona.',
+    'blog.article.caro-carburanti-svizzera-indagine-comco.imageAlt': 'Stazione di servizio a Bellinzona con pompe di benzina e segnaletica dei prezzi',
 };
 
 export default blogMetaIt;

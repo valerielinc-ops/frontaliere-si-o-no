@@ -57401,6 +57401,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-caro-carburanti-svizzera-indagine-comco': {
+    title: 'Commissione della concorrenza indaga sul caro carburanti in Ticino',
+    description: 'Scopri perché la Commissione della concorrenza sta valutando possibili intese sui prezzi della benzina dopo l’arrivo di Etzelpark a Bellinzona. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, commissione, concorrenza, indaga, caro',
+    ogTitle: 'Commissione concorrenza indaga sul caro carburanti in Ticino',
+    ogDescription: 'La Commissione della concorrenza valuta pratiche anticoncorrenziali dopo il calo dei prezzi della benzina a Bellinzona.',
+    canonicalPath: '/articoli-frontaliere/caro-carburanti-svizzera-indagine-comco',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Commissione della concorrenza indaga sul caro carburanti in Ticino",
+      "description": "Scopri perché la Commissione della concorrenza sta valutando possibili intese sui prezzi della benzina dopo l’arrivo di Etzelpark a Bellinzona. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/caro-carburanti-svizzera-indagine-comco.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Stazione di servizio a Bellinzona con pompe di benzina e segnaletica dei prezzi"
+      },
+      "datePublished": "2026-07-29T23:23:39+00:00",
+      "dateModified": "2026-07-29T23:23:39+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/caro-carburanti-svizzera-indagine-comco/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
