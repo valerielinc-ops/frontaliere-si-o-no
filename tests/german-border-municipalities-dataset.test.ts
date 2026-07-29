@@ -2,10 +2,11 @@
  * Coherence coverage for the Germany border-municipality dataset (issue
  * #4882, third of the FR/DE/AT/LI rollout after France #4545/#4878).
  *
- * Deliberately data-level only — no SSG plugin exists yet for Germany (the
- * orchestrator integrates that separately), so unlike
- * french-border-municipality-pages.test.ts this test never imports a
- * build-plugins/* renderer. It reads the LIVE dataset via the builder's own
+ * Deliberately data-level only: the render layer is covered separately by
+ * german-border-municipality-pages.test.ts, so this file never imports a
+ * build-plugins/* renderer and stays a pure dataset check — a dataset defect
+ * fails here, a rendering defect fails there, and neither masks the other.
+ * It reads the LIVE dataset via the builder's own
  * exported parse/build functions (never a hardcoded copy of counts or rows),
  * and via the committed data/german-border-municipalities.json to also catch
  * drift between the hand-maintained .ts source and the committed JSON.
