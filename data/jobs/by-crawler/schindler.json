@@ -5557,7 +5557,6 @@
         ]
       },
       "firstSeenAt": "2026-07-01T12:43:43.278Z",
-      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -5569,7 +5568,8 @@
           "maxValue": 126500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "schindler-d2e9670b7fcc",

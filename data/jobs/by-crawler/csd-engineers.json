@@ -4,9 +4,9 @@
   "jobs": [
     {
       "id": "csd-engineers-01683e54e340",
-      "slug": "ingenieur-chef-de-projet-geotechnique-et-travaux-speciaux-f-h-d-80-100-csd-engineers-ch",
+      "slug": "ingegnere-project-manager-geotecnico-e-lavori-speciali-f-h-d-80-100-csd-engineers-lausanne",
       "slugByLocale": {
-        "it": "ingenieur-chef-de-projet-geotechnique-et-travaux-speciaux-f-h-d-80-100-csd-engineers-ch",
+        "it": "ingegnere-project-manager-geotecnico-e-lavori-speciali-f-h-d-80-100-csd-engineers-lausanne",
         "en": "engineer-chief-of-geotechnical-and-special-works-project-e-h-d-80-100-csd-engineers-lausanne",
         "de": "ingenieur-projektleiter-geotechnische-und-sonderwerke-e-h-d-80-100-csd-engineers-lausanne",
         "fr": "ingenieur-chef-de-projet-geotechnique-et-travaux-speciaux-f-h-d-80-100-csd-engineers-ch"
@@ -63,7 +63,15 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "previousSlugsByLocale": {
+        "it": [
+          "ingenieur-chef-de-projet-geotechnique-et-travaux-speciaux-f-h-d-80-100-csd-engineers-ch"
+        ]
+      },
+      "previousSlugs": [
+        "ingenieur-chef-de-projet-geotechnique-et-travaux-speciaux-f-h-d-80-100-csd-engineers-ch"
+      ]
     },
     {
       "id": "csd-engineers-b193302f66ca",

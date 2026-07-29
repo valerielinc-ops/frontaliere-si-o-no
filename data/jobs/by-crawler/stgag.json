@@ -331,15 +331,13 @@
       "previousSlugs": [
         "dipl-pflegefachperson-hf-fh-fur-die-interdisziplinare-chirurgie-stgag-munsterlingen",
         "dipl-pflegefachperson-hf-fh-fur-die-interdisziplinare-chirurgie-stgag-ch",
-        "dipl-pflegefachperson-hf-fh-per-la-interdisziplinare-chirurgie-spital-thurgau-stgag-kantonsspital-frauenfeld",
-        "dipl-pflegefachperson-hf-fh-per-la-interdisziplinare-chirurgie-spital-thurgau-stgag-munsterlingen"
+        "dipl-pflegefachperson-hf-fh-per-la-interdisziplinare-chirurgie-spital-thurgau-stgag-kantonsspital-frauenfeld"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachperson-hf-fh-fur-die-interdisziplinare-chirurgie-stgag-munsterlingen",
           "dipl-pflegefachperson-hf-fh-fur-die-interdisziplinare-chirurgie-stgag-ch",
-          "dipl-pflegefachperson-hf-fh-per-la-interdisziplinare-chirurgie-spital-thurgau-stgag-kantonsspital-frauenfeld",
-          "dipl-pflegefachperson-hf-fh-per-la-interdisziplinare-chirurgie-spital-thurgau-stgag-munsterlingen"
+          "dipl-pflegefachperson-hf-fh-per-la-interdisziplinare-chirurgie-spital-thurgau-stgag-kantonsspital-frauenfeld"
         ],
         "en": [
           "dipl-pflegefachperson-hf-fh-fur-die-interdisziplinare-chirurgie-stgag-ch"
@@ -416,15 +414,13 @@
       "previousSlugs": [
         "fachmann-frau-gesundheit-efz-stgag-munsterlingen",
         "fachmann-frau-gesundheit-efz-stgag-ch",
-        "fachmann-frau-gesundheit-cfc-spital-thurgau-stgag-kantonsspital-frauenfeld",
-        "fachmann-frau-gesundheit-cfc-spital-thurgau-stgag-munsterlingen"
+        "fachmann-frau-gesundheit-cfc-spital-thurgau-stgag-kantonsspital-frauenfeld"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fachmann-frau-gesundheit-efz-stgag-munsterlingen",
           "fachmann-frau-gesundheit-efz-stgag-ch",
-          "fachmann-frau-gesundheit-cfc-spital-thurgau-stgag-kantonsspital-frauenfeld",
-          "fachmann-frau-gesundheit-cfc-spital-thurgau-stgag-munsterlingen"
+          "fachmann-frau-gesundheit-cfc-spital-thurgau-stgag-kantonsspital-frauenfeld"
         ],
         "en": [
           "fachmann-frau-gesundheit-efz-stgag-ch"
@@ -701,12 +697,12 @@
     },
     {
       "id": "stgag-3db0c5b2a0fa",
-      "slug": "mpa-arztsekretar-in-radiologie-radio-onkologie-stgag-munsterlingen",
+      "slug": "mpa-sottosegretario-medico-radiologia-radio-oncologia-spital-thurgau-stgag-munsterlingen",
       "slugByLocale": {
         "de": "mpa-arztsekretar-in-radiologie-radio-onkologie-stgag-ch",
-        "it": "mpa-arztsekretar-in-radiologie-radio-onkologie-stgag-munsterlingen",
-        "en": "mpa-arztsekretar-in-radiologie-radio-onkologie-stgag-munsterlingen",
-        "fr": "mpa-arztsekretar-in-radiologie-radio-onkologie-stgag-munsterlingen"
+        "it": "mpa-sottosegretario-medico-radiologia-radio-oncologia-spital-thurgau-stgag-munsterlingen",
+        "en": "mpa-medical-secretary-in-radiology-radio-oncology-spital-thurgau-stgag-munsterlingen",
+        "fr": "mpa-secretaire-medical-en-radiologie-radio-oncologie-spital-thurgau-stgag-munsterlingen"
       },
       "company": "Spital Thurgau (STGAG)",
       "companyKey": "stgag",
@@ -761,7 +757,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-28T22:09:34.242Z"
+      "firstSeenAt": "2026-07-28T22:09:34.242Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "mpa-arztsekretar-in-radiologie-radio-onkologie-stgag-munsterlingen"
+        ],
+        "en": [
+          "mpa-arztsekretar-in-radiologie-radio-onkologie-stgag-munsterlingen"
+        ],
+        "fr": [
+          "mpa-arztsekretar-in-radiologie-radio-onkologie-stgag-munsterlingen"
+        ]
+      },
+      "previousSlugs": [
+        "mpa-arztsekretar-in-radiologie-radio-onkologie-stgag-munsterlingen"
+      ]
     },
     {
       "id": "stgag-69c86a92d5a3",
