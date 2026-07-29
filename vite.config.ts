@@ -29,6 +29,7 @@ import { cantonOrphanRedirectsPlugin } from './build-plugins/cantonOrphanRedirec
 import { calculatorLegacyAliasPlugin } from './build-plugins/calculatorLegacyAliasPlugin';
 import { jobOrphanBridgePlugin } from './build-plugins/jobOrphanBridgePlugin';
 import { adFilterSafeChunkName } from './build-plugins/shared/adFilterSafeChunkName';
+import { matchBlogBodyChunkLocale, buildBlogBodyChunkFileName } from './build-plugins/shared/blogBodyChunkNaming';
 import { SPA_ENTRY_JS_FILENAME } from './build-plugins/shared/spaEntryFilenames';
 import { locationHubBridgePlugin } from './build-plugins/locationHubBridgePlugin';
 import { companyHubBridgePlugin } from './build-plugins/companyHubBridgePlugin';
@@ -664,23 +665,24 @@ export default defineConfig(({ mode }) => {
  entryFileNames: `assets/${SPA_ENTRY_JS_FILENAME}`,
  chunkFileNames: (chunk) => {
  // Per-article blog-body modules share their basename across the 4 locale
- // dirs (services/locales/{blog-body,blog-body-ch}/<locale>/<slug>.ts —
- // BOTH families, Ticino and the Svizzera section). Without a qualifier
- // Rollup dedups the colliding output names by appending a counter
- // (slug2.js = en, slug3.js = fr, …) whose locale mapping is pure
- // iteration order — semantically unkeyed under stable-name caching (a
- // cached slug2.js could mean a different locale after a reorder). Key
- // them by locale instead: <slug>.<locale>.js / <slug>.ch.<locale>.js
- // (dot separator: can't be confused with a real slug suffix nor with the
- // legacy `-<hash8>` shape the CDN janitor prunes).
- const m = (chunk.facadeModuleId ?? '').match(/[\\/]services[\\/]locales[\\/]blog-body(-ch)?[\\/]([a-z]{2})[\\/]/);
+ // dirs — BOTH the legacy services/locales path and the real,
+ // symlink-resolved packages/articles/content path (issue #4881 Fase 6 —
+ // see build-plugins/shared/blogBodyChunkNaming.ts for the full rationale
+ // and why both shapes must match). Without a qualifier Rollup dedups the
+ // colliding output names by appending a counter (slug2.js = en, slug3.js
+ // = fr, …) whose locale mapping is pure iteration order — semantically
+ // unkeyed under stable-name caching (a cached slug2.js could mean a
+ // different locale after a reorder). Key them by locale instead:
+ // <slug>.<locale>.js / <slug>.ch.<locale>.js (dot separator: can't be
+ // confused with a real slug suffix nor with the legacy `-<hash8>` shape
+ // the CDN janitor prunes).
+ const m = matchBlogBodyChunkLocale(chunk.facadeModuleId);
  // Neutralise ad-filter trigger substrings in the stable basename so a
  // blocked/surrogated first-party chunk can't link-break the page (issue
  // #2971). No-op for names without a tracker keyword; Rollup rewrites every
  // internal import reference to the emitted name, so the rename is consistent.
  const safe = adFilterSafeChunkName(chunk.name ?? '');
- if (m) return `assets/${safe}.${m[1] ? 'ch.' : ''}${m[2]}.js`;
- return `assets/${safe}.js`;
+ return buildBlogBodyChunkFileName(safe, m);
  },
  assetFileNames: (assetInfo) => {
  const n = assetInfo.name || (assetInfo.names && assetInfo.names[0]) || '';

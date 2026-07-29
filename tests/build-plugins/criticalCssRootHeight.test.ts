@@ -32,6 +32,7 @@ import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 
 import { CRITICAL_CSS } from '@/build-plugins/shared/criticalCss';
+import { readBuildPluginSource } from '../helpers/buildPluginSource';
 
 const SHARED = 'build-plugins/shared/criticalCss.ts';
 const CONSUMERS = [
@@ -63,7 +64,7 @@ describe('critical CSS single source of truth (#1586)', () => {
     // (e.g. `body:has(.seo-footer-block) #root{min-height:100vh}`), so the
     // staticOverlay hubs — which have no footer block — keep their static
     // content flowing right below the chrome.
-    const indexCss = readFileSync(resolve(ROOT, 'index.css'), 'utf-8');
+    const indexCss = readBuildPluginSource(resolve(ROOT, 'index.css'), 'utf-8');
     // Match a rule whose selector list ENDS in a bare `#root` (no descendant
     // combinator prefix like `body:has(...) #root`) and whose body forces a
     // full-viewport min-height. We strip comments first so the documentation
@@ -151,11 +152,15 @@ describe('critical CSS single source of truth (#1586)', () => {
     // shared CRITICAL_CSS so the twin-file drift (#1586 root cause) is
     // impossible by construction.
     for (const rel of CONSUMERS) {
-      const src = readFileSync(resolve(ROOT, rel), 'utf-8');
+      const src = readBuildPluginSource(resolve(ROOT, rel));
+      // Two accepted shapes: the legacy direct import from shared/criticalCss,
+      // or — for the article engine after #4881 Fase 6 — the link arriving via
+      // the injected SiteShellContract. Both mean "one shared source". The
+      // @font-face literal check below is what actually guards the drift.
       expect(
-        src,
-        `${rel} must import CRITICAL_CSS from shared/criticalCss, not re-inline it`,
-      ).toContain("from './shared/criticalCss'");
+        /from '\.\/shared\/criticalCss'|criticalCssLink:\s*CRITICAL_CSS_LINK|\bCRITICAL_CSS_LINK\b/.test(src),
+        `${rel} must obtain CRITICAL_CSS from the shared module (direct import or injected site shell), not re-inline it`,
+      ).toBe(true);
       // The hand-copied literal signature (the @font-face Inter src) must NOT
       // appear inline in the consumer anymore.
       expect(
