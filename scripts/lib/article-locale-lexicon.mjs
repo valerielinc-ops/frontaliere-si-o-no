@@ -100,16 +100,30 @@ export function scaleFactor(word) {
 
 // ─── Lexicon ──────────────────────────────────────────────────────────
 //
-// `currency`, `incomeCue` and `taxCue` drive checkTaxPlausibility and
-// checkCrossSectionNumericConflicts: an amount counts as income when an income
-// cue introduces it, and as tax when a tax cue sits between it and the income.
+// These seven entries drive incomeTaxPairs() in article-factuality-gates.mjs:
+// an amount is an income when an income cue introduces it (or a genitive cue
+// trails it), and its tax when a tax cue sits between the two — unless a
+// threshold marker or a non-tax noun sits closer to the figure.
+//
+// The Italian entries are that file's own literals, moved unchanged. Each one
+// encodes a false positive that was measured on the live corpus and is
+// documented at its definition there; do not "tidy" them.
 //
 // The non-Italian cue lists are deliberately NARROWER than a dictionary would
-// be. English "pay" is the obvious omission: it is the tax verb ("pays 6,000")
-// and the income noun ("pay of 60,000") at once, so including it makes the two
-// roles collide and manufactures impossible-tax reports out of correct prose.
+// be, and every omission below is a measured one:
+//
+//   - English "pay" is absent from taxCue. It is the tax verb ("pays 6,000")
+//     and the income noun ("pay of 60,000") at once, so it makes the two roles
+//     collide. Italian has the same collision and accepts it because THRESHOLD
+//     and NON_TAX cues fence it in; English "due"/"owed" have no such fence —
+//     "due to" alone produced 32 impossible-tax reports out of correct prose
+//     (`universita-ticino-frontalieri`, `crescita-economica-ticino-2026`).
+//   - French "cotisation" is absent for the same reason: social contributions
+//     are quoted per hour next to a minimum wage and are not a tax on it
+//     (`lavoretti-estivi-2026-regole-frontalieri`).
+//
 // A missed defect in a translation costs one uncaught article; a false positive
-// costs every article that uses the word.
+// costs every article that uses the word. The asymmetry is the whole design.
 
 /** Month name → number, per locale. Accentless spellings are accepted too. */
 const MONTHS = {
@@ -135,10 +149,16 @@ const MONTHS = {
 export const LOCALE_LEXICON = {
   it: {
     months: MONTHS.it,
-    // Moved verbatim from article-factuality-gates.mjs — do not "tidy".
+    // Every entry below is moved verbatim from article-factuality-gates.mjs,
+    // where each carries the corpus false positive that shaped it.
     currency: String.raw`(?:franchi\s+svizzeri|franchi|CHF|euro|EUR|€)`,
-    incomeCue: /(?:reddito|guadagn\w*|stipendio|salario|retribuzione|percep\w*)[^.\n]{0,40}?$/i,
-    taxCue: /(?:impost\w*|tass\w*|pag\w*|trattenut\w*|prelievo|carico\s+fiscale|quota\s+di\s+imposta)/i,
+    incomeCue: /\b(reddito|guadagn\w*|stipendio|salario|retribuzione|percep\w*)([^.\n]{0,40}?)$/i,
+    incomeCueTrailing: /^\s*(?:di|d'|del|dello|della|delle|dei|sul|sui|su)\s*(?:reddito|stipendio|salario|retribuzione|guadagn\w*)/i,
+    taxCue: /\b(?:impost\w*|tass[ae]\b|tassat\w*|tassazion\w*|tassabil\w*|pag\w*|trattenut\w*|prelievo|carico\s+fiscale|quota\s+di\s+imposta)/i,
+    thresholdCue: /\b(?:oltre|pi[uù]\s+di|superior[ei]\s+a(?:i|l|lla|lle|gli)?|maggior[ei]\s+di|almeno|a\s+partire\s+da|fino\s+a(?:i|l|lla|lle|gli)?|massimo\s+di|al\s+massimo|non\s+oltre|meno\s+di|inferior[ei]\s+a(?:i|l|lla)?|sopra\s+i|sotto\s+i)\s*$/i,
+    nonTaxCue: /(?:\bcost[aoi]\b|\bcostano\b|\bcostav\w*|\bprezz[oi]\b|\babbonament[oi]\b|\bbigliett[oi]\b|\btariff[ae]\b|\bdetrazion[ei]\b|\bdetrarre\b|\bfranchigi[ae]\b|\brisparmi\w*|\bscont[oi]\b|\bbonus\b|\brimbors[oi]\b|\bcanone\b|\bnoleggi\w*|\bnett[oi]\b)/i,
+    // Words that mark a parenthesis as restating a figure already on the page.
+    approximation: String.raw`circa|pari\s+a|equivalent\w*\s+a|corrispondent\w*\s+a|ossia|ovvero|cio[èe]|all'incirca`,
     // Moved verbatim from periodOf(); matched against an already-lowercased
     // 40-char tail, which is why none of these carry the `i` flag.
     periods: [
@@ -151,8 +171,13 @@ export const LOCALE_LEXICON = {
   en: {
     months: MONTHS.en,
     currency: String.raw`(?:Swiss\s+francs?|francs?|CHF|euros?|EUR|€)`,
-    incomeCue: /(?:income|earnings|salary|salaries|wages?|remuneration|gross)[^.\n]{0,40}?$/i,
-    taxCue: /(?:tax\w*|withhold\w*|levy|levies|deduct\w*|owed?|due|remit\w*)/i,
+    incomeCue: /\b(income|earnings|salary|salaries|wages?|remuneration|gross\s+pay)([^.\n]{0,40}?)$/i,
+    incomeCueTrailing: /^\s*(?:of|in)\s*(?:income|salary|wages?|earnings)/i,
+    // No "pay"/"due"/"owed": see the note above the lexicon.
+    taxCue: /\b(?:tax\w*|withhold\w*|levy|levies|levied|deduction\w*|surcharge\w*)/i,
+    thresholdCue: /\b(?:over|above|more\s+than|at\s+least|starting\s+(?:at|from)|up\s+to|no\s+more\s+than|less\s+than|below|under|exceed\w*|maximum\s+of)\s*$/i,
+    nonTaxCue: /(?:\bcosts?\b|\bcosting\b|\bprices?\b|\bsubscriptions?\b|\btickets?\b|\bfares?\b|\bdeductibles?\b|\ballowances?\b|\bsavings?\b|\bdiscounts?\b|\bbonus\b|\brefunds?\b|\brents?\b|\bnet\b)/i,
+    approximation: String.raw`about|approximately|around|roughly|equal\s+to|equivalent\s+to|i\.e\.|that\s+is`,
     periods: [
       ['month', /\b(per|a|each|every)\s+month|monthly|\/month/],
       ['year', /\b(per|a|each|every)\s+year|annually|yearly|per\s+annum|\/year/],
@@ -163,8 +188,12 @@ export const LOCALE_LEXICON = {
   de: {
     months: MONTHS.de,
     currency: String.raw`(?:Schweizer\s+Franken|Franken|Francs?|CHF|Euros?|EUR|€)`,
-    incomeCue: /(?:Einkommen\w*|L(?:o|ö)hn\w*|Lohn\w*|Gehalt\w*|Verdienst\w*|verdien\w*|Brutto\w*|Entgelt\w*)[^.\n]{0,40}?$/i,
-    taxCue: /(?:Steuer\w*|steuer\w*|Quellensteuer\w*|Abz(?:u|ü)g\w*|Abgabe\w*|besteuer\w*)/i,
+    incomeCue: /\b(Einkommen\w*|Lohn\w*|L(?:ö|oe)hne\w*|Gehalt\w*|Geh(?:ä|ae)lter\w*|Verdienst\w*|verdien\w*|Brutto\w*|Entgelt\w*)([^.\n]{0,40}?)$/i,
+    incomeCueTrailing: /^\s*(?:an|des|der)?\s*(?:Einkommen\w*|Lohn\w*|Gehalt\w*|Verdienst\w*)/i,
+    taxCue: /\b(?:Steuer\w*|steuer\w*|Quellensteuer\w*|Abz(?:u|ü)g\w*|Abgabe\w*|besteuer\w*|Steuerlast\w*)/i,
+    thresholdCue: /\b(?:(?:mehr|weniger)\s+als|(?:ü|ue)ber|unter|mindestens|h(?:ö|oe)chstens|ab|bis\s+zu|maximal)\s*$/i,
+    nonTaxCue: /(?:\bkostet\b|\bkosten\b|\bpreis\w*|\babonnement\w*|\bticket\w*|\btarif\w*|\bfranchise\w*|\bersparnis\w*|\brabatt\w*|\bbonus\b|\br(?:ü|ue)ckerstattung\w*|\bmiete\w*|\bnetto\b)/i,
+    approximation: String.raw`circa|etwa|ungef(?:ä|ae)hr|rund|entspricht|gleich|also|d\.h\.`,
     // Lowercase on purpose: periodOf() lowercases the tail before testing, so
     // German nouns must be written lowercase here or they never match.
     periods: [
@@ -177,8 +206,13 @@ export const LOCALE_LEXICON = {
   fr: {
     months: MONTHS.fr,
     currency: String.raw`(?:francs?\s+suisses?|francs?|CHF|euros?|EUR|€)`,
-    incomeCue: /(?:revenus?|salaires?|r(?:é|e)mun(?:é|e)ration\w*|gagn\w*|brut)[^.\n]{0,40}?$/i,
-    taxCue: /(?:imp(?:ô|o)t\w*|taxes?|pr(?:é|e)l(?:è|e)vement\w*|retenue\w*|charge\s+fiscale|cotisation\w*)/i,
+    incomeCue: /\b(revenus?|salaires?|r(?:é|e)mun(?:é|e)ration\w*|gagn\w*|brut)([^.\n]{0,40}?)$/i,
+    incomeCueTrailing: /^\s*(?:de|du|des|d')\s*(?:revenus?|salaires?|r(?:é|e)mun(?:é|e)ration)/i,
+    // No "cotisation": see the note above the lexicon.
+    taxCue: /\b(?:imp(?:ô|o)t\w*|taxe\w*|impos(?:é|e)\w*|imposition\w*|pr(?:é|e)l(?:è|e)vement\w*|retenue\w*|charge\s+fiscale)/i,
+    thresholdCue: /\b(?:plus\s+de|moins\s+de|au\s+moins|au\s+plus|(?:à|a)\s+partir\s+de|jusqu'(?:à|a)|sup(?:é|e)rieur\w*\s+(?:à|a)|inf(?:é|e)rieur\w*\s+(?:à|a)|maximum\s+de|au-del(?:à|a)\s+de)\s*$/i,
+    nonTaxCue: /(?:\bco(?:û|u)te\w*\b|\bco(?:û|u)ts?\b|\bprix\b|\babonnement\w*|\bbillet\w*|\btarif\w*|\bfranchise\w*|\b(?:é|e)conomie\w*|\bremise\w*|\bbonus\b|\bremboursement\w*|\bloyer\w*|\bnet\b)/i,
+    approximation: String.raw`environ|approximativement|(?:à|a)\s+peu\s+pr(?:è|e)s|(?:é|e)quivalent\w*\s+(?:à|a)|(?:é|e)gal\w*\s+(?:à|a)|soit|c'est-(?:à|a)-dire`,
     periods: [
       ['month', /\b(par|le)\s+mois|mensuel|\/mois/],
       ['year', /\bpar\s+an\b|annuel|\/an\b/],
@@ -195,8 +229,17 @@ export function lexiconFor(locale) {
 
 // ─── Numeric facts, for the Italian↔translation comparison ────────────
 
-/** Union of all four currency vocabularies: translations mix them freely. */
-const ANY_CURRENCY = String.raw`(?:franchi\s+svizzeri|franchi|francs?\s+suisses?|Schweizer\s+Franken|Franken|francs?|CHF|euros?|EUR|€)`;
+/**
+ * Union of all four currency vocabularies: translations mix them freely, and
+ * the Italian-vs-translation comparison has to see the same amount on both
+ * sides regardless of which language named the currency.
+ *
+ * Longest-first ordering is load-bearing. With `francs?` ahead of
+ * `Swiss\s+francs?`, "6,000 Swiss francs" never matched — the number is
+ * followed by "Swiss", not by "francs" — and every English body using the
+ * spelt-out form looked like it had dropped all of its amounts.
+ */
+const ANY_CURRENCY = String.raw`(?:franchi\s+svizzeri|francs?\s+suisses?|Schweizer\s+Franken|Swiss\s+francs?|franchi|Franken|francs?|CHF|euros?|EUR|€)`;
 
 /**
  * Paragraphs the Italian body carries and the translations never do.
