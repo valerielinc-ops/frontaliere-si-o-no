@@ -145,6 +145,7 @@ import { ARTICLE_SECTION_CORE } from '../build-plugins/shared/articleSectionCore
 import { appendArticleListItem } from './lib/seo-pages-article-list.mjs';
 import { buildStructuralEvergreenTopics } from './lib/evergreen-topic-generator.mjs';
 import { resolveGitAddPaths } from './lib/resolve-git-add-path.mjs';
+import { metaFieldRegex, unescapeTsValue } from './lib/meta-field-regex.mjs';
 
 // ── Smarter generator inputs (Phase 3 — spec 2026-05-06) ───────
 // data/article-performance.json is produced weekly by Phase 1A.
@@ -1971,14 +1972,8 @@ function readAllSectionsMetaIt() {
 // checkForDuplicates) for every existing article with an apostrophe in its
 // title, not just the ones just added. The 5th copy (loadExistingItTitlesExcluding)
 // already had the correct escape-aware pattern; all 5 now share this one.
-function metaFieldRegex(field) {
-  return new RegExp(`'blog\\.article\\.([^']+)\\.${field}':\\s*'((?:[^'\\\\]|\\\\.)*)'`, 'g');
-}
-
-/** Unescapes a TS single-quoted string body captured by metaFieldRegex. */
-function unescapeTsValue(s) {
-  return s.replace(/\\'/g, "'").replace(/\\"/g, '"').replace(/\\\\/g, '\\');
-}
+// metaFieldRegex / unescapeTsValue now live in scripts/lib/meta-field-regex.mjs
+// (imported at the top) — one definition, so a test copy cannot drift from it.
 
 function getIsoWeekKey(date = new Date()) {
   const d = new Date(Date.UTC(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate()));
