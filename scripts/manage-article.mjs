@@ -489,7 +489,9 @@ function addRedirectMapping(fromId, toId) {
 }
 
 // True if `relPath` either exists on disk (modified/added) or is a git-tracked
-// path (so `git add -A -- <path>` can stage its deletion). Needed because a
+// path (so the resolved-path `git add` in gitAddAll can stage its deletion —
+// plain `git add` on a tracked-but-deleted path is an implicit `git rm`).
+// Needed because a
 // deleted body file (removeI18nKeys's unlinkSync) no longer exists on disk —
 // the old existsSync-only filter below silently EXCLUDED every such deletion
 // from staging, so `remove` left "deleted, not staged" body files behind on
@@ -545,7 +547,19 @@ function gitAddAll(articleId) {
 
   const existing = [...new Set(files)].filter(pathIsTrackedOrExists);
   if (existing.length > 0) {
-    execSync(`git add -A -- ${existing.map(f => JSON.stringify(f)).join(' ')}`, { cwd: PROJECT_ROOT, stdio: 'inherit' });
+    // ONE `git add`, on RESOLVED paths only. The raw `git add -A -- <paths>`
+    // that used to run first is gone: since pathIsTrackedOrExists started
+    // resolving symlinks, the deleted body files it correctly re-admits to
+    // `existing` traverse the services/locales/blog-body{,-ch} directory
+    // symlink, and `git add -A --` on such a pathspec always dies with
+    // "fatal: pathspec ... is beyond a symbolic link" (exit 128). Since
+    // removeI18nKeys deletes a body file on all four locales for every id,
+    // that fired on EVERY `remove`, aborting before the second add and before
+    // verifyRemovalClean — mutated tree, nothing staged.
+    //
+    // Dropping `-A` loses nothing: plain `git add` on a tracked-but-deleted
+    // path stages the deletion as an implicit `git rm` (verified), so this one
+    // call covers additions, modifications and deletions alike.
     execSync(`git add ${resolveGitAddPaths(PROJECT_ROOT, existing).join(' ')}`, { cwd: PROJECT_ROOT, stdio: 'inherit' });
     console.error('  ✅ File modificati aggiunti a git');
   }
