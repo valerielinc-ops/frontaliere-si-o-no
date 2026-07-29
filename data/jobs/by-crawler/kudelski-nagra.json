@@ -1,6 +1,6 @@
 {
   "crawlerKey": "kudelski-nagra",
-  "assembledAt": "2026-07-29T11:33:47.477Z",
+  "assembledAt": "2026-07-29T22:11:19.087Z",
   "jobs": [
     {
       "id": "kudelski-nagra-213b373baaf3",
@@ -19,7 +19,7 @@
         "it": "Apprenti(e) Employé(e) de Commerce - Voie 2",
         "en": "Apprentices(s) Employé(s) de Commerce - Voie 2",
         "de": "Auszubildende Employé(s) de Commerce - Voie 2",
-        "fr": "Apprentis(s) Emploi(s) de Commerce - Voie 2"
+        "fr": "Apprenti(e) Employé(e) de Commerce - Voie 2"
       },
       "description": "Fixed term CDD at Kudelski Group, part of the Kudelski Group — a global leader in digital security and content protection technology.",
       "descriptionByLocale": {
@@ -33,7 +33,7 @@
       "url": "https://careers.nagra.com/?page=advertisement_display&id=15596",
       "source": "Kudelski NAGRA Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-07-29T11:33:44.882Z",
+      "crawledAt": "2026-07-29T22:11:16.538Z",
       "addressLocality": "Switzerland",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -51,6 +51,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-07-22T22:19:26.636Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -63,85 +64,6 @@
           "unitText": "YEAR"
         }
       }
-    },
-    {
-      "id": "kudelski-nagra-027fe8cc43fc",
-      "slug": "security-operations-engineer-kudelski-nagra-ch",
-      "slugByLocale": {
-        "it": "security-operations-engineer-kudelski-nagra-ch",
-        "en": "security-operations-engineer-kudelski-nagra-ch",
-        "de": "security-operations-ingenieur-kudelski-nagra-switzerland",
-        "fr": "ingenieur-des-operations-de-securite-kudelski-nagra-switzerland-38306c"
-      },
-      "company": "Kudelski NAGRA",
-      "companyKey": "kudelski-nagra",
-      "companyDomain": "nagra.com",
-      "title": "Security Operations Engineer",
-      "titleByLocale": {
-        "it": "Security Operations Ingegnere",
-        "en": "Security Operations Engineer",
-        "de": "Sicherheitsingenieur",
-        "fr": "Ingénieur des opérations de sécurité"
-      },
-      "description": "Permanent CDI at Kudelski Security, part of the Kudelski Group — a global leader in digital security and content protection technology.",
-      "descriptionByLocale": {
-        "it": "Permanent CDI at Kudelski Security, part of the Kudelski Group — a global leader in digital security and content protection technology.",
-        "en": "Description We are looking for a professional for an indefinite work contract at Kudelski Security, part of Kudelski Group, a global leader in digital content security and protection technology.\n\nJobs - Working with engineers and researchers to develop and implement advanced security solutions - Contributing to the development of innovative safety products and services - Collaborating with customers to understand their security needs and provide customized solutions - Participating in research and development projects to improve safety technologies - Collaborating with the entire team to ensure the quality and effectiveness of products and services\n\nRequirements - Bachelor in Computer Science, Computer Engineering or Affiliate Field - Working experience in the field of computer security (minimum 3 years) - In-depth knowledge of programming languages (C, C++, Java, Python, etc.) - Knowledge of framework and safety libreries (OWASP, OpenSSL, etc.) - Good programming and problem solving skills - Good knowledge of English (written and oral)\n\nWhat we offer - A dynamic and collaborative working environment - The opportunity to work with innovative and advanced technologies - An indeterminate work contract with opportunities for professional growth - A package of benefits including health insurance, pension and other benefits - The opportunity to work in an international team and participate in global projects\n\nFor more information and to send your own (2006), contact us at email [enter email] or visit our website [enter website].",
-        "de": "Beschreibung Wir suchen einen professionellen für einen unbefristeten Arbeitsvertrag bei Kudelski Security, einem Teil der K-Deltaski-Gruppe, einem weltweit führenden Anbieter von digitaler Content-Sicherheit und Schutztechnologie.\n\nJobs - Zusammenarbeit mit Ingenieuren und Forschern zur Entwicklung und Umsetzung fortschrittlicher Sicherheitslösungen - Beitrag zur Entwicklung innovativer Sicherheitsprodukte und -dienstleistungen - Zusammenarbeit mit Kunden, um ihre Sicherheitsbedürfnisse zu verstehen und maßgeschneiderte Lösungen zu bieten - Teilnahme an Forschungs- und Entwicklungsprojekten zur Verbesserung der Sicherheitstechnologien - Zusammenarbeit mit dem gesamten Team, um die Qualität und Wirksamkeit der Produkte und Dienstleistungen zu gewährleisten\n\n- Kenntnisse der Programmiersprachen (C, C++, Java, Python, etc.) - Kenntnisse der Rahmen- und Sicherheitsbibliotheken (OWASP, OpenSSL, etc.) - Gute Programmier- und Problemlösungskompetenzen - Gute Englischkenntnisse (schriftlich und mündlich)\n\nWas wir bieten - Ein dynamisches und kooperatives Arbeitsumfeld - Die Möglichkeit, mit innovativen und fortschrittlichen Technologien zu arbeiten - Ein indeterminierender Arbeitsvertrag mit Möglichkeiten für berufliches Wachstum - Ein Paket von Leistungen einschließlich Krankenversicherung, Renten und andere Vorteile - Die Möglichkeit, in einem internationalen Team zu arbeiten und an globalen Projekten teilzunehmen\n\nFür weitere Informationen und um Ihre eigenen (2006) zu senden, kontaktieren Sie uns per E-Mail [E-Mail eingeben] oder besuchen Sie unsere Website [Website eingeben].",
-        "fr": "Description Nous recherchons un professionnel pour un contrat de travail indéfini chez Kudelski Security, une partie du groupe Kudelski, un leader mondial de la sécurité et de la protection des contenus numériques.\n\nEmplois - Travailler avec des ingénieurs et des chercheurs pour développer et mettre en oeuvre des solutions de sécurité avancées - Contribuer au développement de produits et services de sécurité innovants - Collaborer avec les clients pour comprendre leurs besoins en matière de sécurité et fournir des solutions personnalisées - Participer à des projets de recherche et de développement pour améliorer les technologies de sécurité - Collaborer avec toute l'équipe pour assurer la qualité et l'efficacité des produits et services\n\nExigences - Baccalauréat en informatique, génie informatique ou domaine affilié - Expérience de travail dans le domaine de la sécurité informatique (minimum 3 ans) - Connaissance approfondie des langages de programmation (C, C++, Java, Python, etc.) - Connaissance du cadre et des libreries de sécurité (OWASP, OpenSSL, etc.) - Bonnes compétences en programmation et résolution de problèmes - Bonne connaissance de l'anglais (écrit et oral)\n\nCe que nous offrons - Un environnement de travail dynamique et collaboratif - L'occasion de travailler avec des technologies innovantes et avancées - Un contrat de travail d'une durée indéterminée avec des possibilités de croissance professionnelle - Un ensemble d'avantages, y compris l'assurance maladie, les pensions et autres avantages - L'occasion de travailler dans une équipe internationale et de participer à des projets mondiaux\n\nPour plus d'informations et pour envoyer votre propre (2006), contactez-nous à l'adresse email [Inscrivez courriel] ou visitez notre site Web [Inscrivez site Web]."
-      },
-      "location": "Switzerland",
-      "canton": "TI",
-      "url": "https://careers.nagra.com/?page=advertisement_display&id=15633",
-      "source": "Kudelski NAGRA Dedicated Parser",
-      "sourceLang": "it",
-      "crawledAt": "2026-07-28T11:27:04.685Z",
-      "addressLocality": "Switzerland",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "6900",
-      "category": "Ingegneria",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Sicurezza digitale / Media technology",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-01-07",
-      "applyUrl": "https://careers.nagra.com/?page=advertisement_display&id=15633",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "ingenieur-des-operations-de-securite-kudelski-nagra-switzerland-9a4354",
-        "ingenieur-des-operations-de-securite-kudelski-nagra-switzerland",
-        "security-operations-engineer-kudelski-nagra-ch-4wn91f",
-        "security-operations-engineer-kudelski-nagra-ch-4wn919"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "security-operations-engineer-kudelski-nagra-ch-4wn91f",
-          "security-operations-engineer-kudelski-nagra-ch-4wn919"
-        ],
-        "fr": [
-          "ingenieur-des-operations-de-securite-kudelski-nagra-switzerland-9a4354",
-          "ingenieur-des-operations-de-securite-kudelski-nagra-switzerland"
-        ]
-      },
-      "firstSeenAt": "2026-07-09T12:12:34.365Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 2
     }
   ]
 }
