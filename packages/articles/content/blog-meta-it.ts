@@ -9119,6 +9119,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.caso-zali-politica-ticino-prospettive.title': 'Dopo il caso Zali: il Ticino guarda al futuro',
     'blog.article.caso-zali-politica-ticino-prospettive.excerpt': 'Le dimissioni del ministro Zali segnano un momento delicato per il Canton Ticino. La politica cerca di voltare pagina e riprendere il lavoro quotidiano.',
     'blog.article.caso-zali-politica-ticino-prospettive.imageAlt': 'Palazzo delle Orsoline a Bellinzona, sede del Governo ticinese',
+    'blog.article.lavoro-temporaneo-svizzera-crescita.title': 'Lavoro temporaneo in Svizzera: torna a crescere nel 2024',
+    'blog.article.lavoro-temporaneo-svizzera-crescita.excerpt': 'Dopo tre anni di calo, il mercato del lavoro temporaneo segna un +1,5%. Analisi dei dati Swissstaffing e implicazioni per il settore industriale.',
+    'blog.article.lavoro-temporaneo-svizzera-crescita.imageAlt': 'Vista panoramica su un ufficio a Lugano con vista lago',
 };
 
 export default blogMetaIt;

@@ -9118,6 +9118,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.caso-zali-politica-ticino-prospettive.title': 'After the Zali case: Ticino looks to the future',
     'blog.article.caso-zali-politica-ticino-prospettive.excerpt': 'The resignation of Minister Zali marks a delicate moment for the Canton of Ticino. Politics tries to turn the page and resume daily work.',
     'blog.article.caso-zali-politica-ticino-prospettive.imageAlt': 'Government building in Bellinzona, Ticino',
+    'blog.article.lavoro-temporaneo-svizzera-crescita.title': 'Temporary work in Switzerland: returns to growth in 2024',
+    'blog.article.lavoro-temporaneo-svizzera-crescita.excerpt': 'After three years of decline, the temporary labour market is up 1.5%. Analysis of Swissstaffing data and implications for the industrial sector.',
+    'blog.article.lavoro-temporaneo-svizzera-crescita.imageAlt': 'Panoramic view of an office in Lugano overlooking the lake',
 };
 
 export default blogMetaEn;

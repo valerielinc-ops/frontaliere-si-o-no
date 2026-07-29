@@ -27372,6 +27372,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'lavoro-temporaneo-svizzera-crescita',
+ category: 'novita',
+ date: '2026-07-29T17:23:30.468Z',
+ image: '/images/blog/lavoro-temporaneo-svizzera-crescita.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
