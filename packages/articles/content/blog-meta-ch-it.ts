@@ -1675,6 +1675,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.frontalieri-tassa-salute.title': 'Frontalieri, tassa sulla salute: "Una bomba dietro una manciata di spiccioli"',
     'blog.article.frontalieri-tassa-salute.excerpt': 'Secondo quanto comunicato nel febbraio 2026, il capogruppo di "Azione civica per Luino e frazioni" e consigliere di minoranza, l\'avvocato Furio Artoni, ha inviato un comunicato stampa in merito ai rapporti tra Italia e Svizzera sul tema dei frontalieri e della cosiddetta tassa sulla salute.',
     'blog.article.frontalieri-tassa-salute.imageAlt': 'Una foto di un funzionario federale svizzero che parla a una conferenza stampa a Lugano, spiegando le implicazioni della nuova tassa sulla salute per i lavoratori frontalieri.',
+    'blog.article.rendita-avs-critica-eichenberger.title': 'AVS: Eichenberger critica la 13esima rendita',
+    'blog.article.rendita-avs-critica-eichenberger.excerpt': 'L\'economista Eichenberger analizza la 13esima rendita AVS definendola una forma indiretta di imposizione sull\'immigrazione e propone riforme fiscali per gli over 65.',
+    'blog.article.rendita-avs-critica-eichenberger.imageAlt': 'Veduta panoramica di Lugano con il lago, simbolo del Ticino.',
 };
 
 export default blogMetaChIt;

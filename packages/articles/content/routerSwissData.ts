@@ -584,6 +584,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'ermotti-intervista-ubs': { it: 'ermotti-intervista-ubs', en: 'ermotti-ubs-interview-2026', de: 'ermotti-ubs-interview-2026', fr: 'ermotti-ubs-interview-2026' },
  'lavoro-tornato-aumentare-svizzera': { it: 'lavoro-tornato-aumentare-svizzera', en: 'temporary-work-switzerland', de: 'zeitarbeit-schweiz', fr: 'travail-temporaire-suisse' },
  'frontalieri-tassa-salute': { it: 'frontalieri-tassa-salute', en: 'frontalieri-tassa-salute', de: 'frontalieri-gesundheitsabgabe', fr: 'frontaliers-taxe-sante' },
+ 'rendita-avs-critica-eichenberger': { it: 'rendita-avs-critica-eichenberger', en: 'avs-pension-eichenberger-critique', de: 'ahv-rente-eichenberger-kritik', fr: 'rente-avs-critique-eichenberger' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

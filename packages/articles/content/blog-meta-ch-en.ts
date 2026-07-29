@@ -1675,6 +1675,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.frontalieri-tassa-salute.title': 'Frontierers, health tax: "A bomb behind a handful of change"',
     'blog.article.frontalieri-tassa-salute.excerpt': 'According to what was communicated in February 2026, the parent company of "Civic Action for Luino and Fractions" and minority advisor, lawyer Furio Artoni, sent a press release regarding relations between Italy and Switzerland on the issue of border workers and the so-called health tax.',
     'blog.article.frontalieri-tassa-salute.imageAlt': 'A photo of a Swiss federal official speaking at a press conference in Lugano, explaining the implications of the new tax on health care for frontier workers.',
+    'blog.article.rendita-avs-critica-eichenberger.title': 'AVS: Eichenberger criticises the 13th annuity',
+    'blog.article.rendita-avs-critica-eichenberger.excerpt': 'Economist Eichenberger analyzes the 13th AVS annuity as an indirect form of immigration taxation and proposes tax reforms for those over 65.',
+    'blog.article.rendita-avs-critica-eichenberger.imageAlt': 'Panoramic view of Lugano with the lake, symbol of Ticino.',
 };
 
 export default blogMetaChEn;
