@@ -1,16 +1,16 @@
 {
   "key": "spital-sts",
   "label": "Spital STS",
-  "generatedAt": "2026-07-29T11:36:31.125Z",
-  "total": 11,
+  "generatedAt": "2026-07-29T22:05:36.493Z",
+  "total": 10,
   "newCount": 0,
   "updatedCount": 10,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 19784,
-  "avgDurationMs": 19784,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 10947,
+  "avgDurationMs": 10947,
   "durationHistory": [
-    19784
+    10947
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -27,7 +27,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/9d7c5690-b2bb-45ab-bc45-892b3e7ab107/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T11:36:28.500Z",
+      "crawledAt": "2026-07-29T22:05:33.264Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -64,7 +64,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/3d5168e5-f274-4305-9009-bbbd126b8833/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T11:36:15.692Z",
+      "crawledAt": "2026-07-29T22:05:26.785Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -101,7 +101,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/4833763b-5802-496b-b347-b665d08a2efe/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T11:36:16.869Z",
+      "crawledAt": "2026-07-29T22:05:27.367Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -138,7 +138,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/f78efc2b-e431-4ba4-93af-da57baae1552/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T11:36:18.263Z",
+      "crawledAt": "2026-07-29T22:05:27.954Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -175,7 +175,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/c735b6c9-bb78-44c9-a6b5-cf337dfb9268/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T11:36:19.971Z",
+      "crawledAt": "2026-07-29T22:05:28.542Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -212,7 +212,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/de8683f2-389a-4677-a8c5-b7e9ea7b3230/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T11:36:21.190Z",
+      "crawledAt": "2026-07-29T22:05:29.683Z",
       "addressLocality": "Zweisimmen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -249,7 +249,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/205f7aed-85d3-4fce-a3ad-c786a6947cce/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T11:36:22.462Z",
+      "crawledAt": "2026-07-29T22:05:30.473Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -286,7 +286,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/01086ffd-7b84-466f-ae86-6a320e273ccf/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T11:36:24.110Z",
+      "crawledAt": "2026-07-29T22:05:31.173Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -323,7 +323,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/2da73495-02a6-4a71-b701-54aeb342a2aa/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T11:36:25.672Z",
+      "crawledAt": "2026-07-29T22:05:31.878Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -360,7 +360,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/92b6b8f4-f853-4391-87cb-c4902774cb5f/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T11:36:27.006Z",
+      "crawledAt": "2026-07-29T22:05:32.557Z",
       "addressLocality": "Zweisimmen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -385,8 +385,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "spital-sts-27dfae3dd234",
       "slug": "collaboratore-trice-im-patiententransport-spital-sts-thun",
@@ -426,5 +425,6 @@
         "completeness": 22
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
