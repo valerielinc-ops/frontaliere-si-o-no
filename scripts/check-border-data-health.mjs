@@ -235,12 +235,25 @@ export function collectWebcamUrls(crossings) {
 // scripts/analyze-webcam-frame.mjs.
 
 const WEBCAM_TINY_BODY_RETRY_DELAY_MS = 5000;
+// Hard cap on the TOTAL extra time this run will spend on tiny-body retries,
+// as a fixed deadline set once before the webcam loop starts (see
+// `retryDeadlineMs` in `main()`). The webcam loop already runs sequentially
+// over every registered feed inside the CI job's fixed wall-clock budget; a
+// single transient mid-capture glitch (the real #4958 case — one webcam)
+// costs one retry and is worth absorbing, but a CORRELATED outage across many
+// feeds at once (shared upstream widget/CDN serving tiny placeholders) must
+// not compound into unbounded added latency that risks the job hitting its
+// timeout before it can report — once the deadline passes, remaining webcams
+// skip the retry and are judged on the first read, same as pre-retry behavior.
+const WEBCAM_TINY_BODY_RETRY_BUDGET_MS = 60000;
 
 /**
  * Fetch a webcam URL and return {ok, status, bytes}. GET (not HEAD) because the
  * F5 stack and the GIF size check both need the real body. Follows redirects.
+ * @param {number} [retryDeadlineMs] absolute timestamp; tiny-body retries stop
+ *   being attempted once `Date.now()` passes it (see budget comment above).
  */
-async function fetchWebcam(url, minBytes = MIN_WEBCAM_BYTES) {
+async function fetchWebcam(url, minBytes = MIN_WEBCAM_BYTES, retryDeadlineMs = Infinity) {
   // Retry once on a CONNECTION-level failure (DNS/TLS/timeout/reset). Such errors
   // are ambiguous from a single cloud runner — some publisher feeds reach end
   // users fine but block/aren't routable from GitHub-hosted IPs — so a bare
@@ -277,7 +290,7 @@ async function fetchWebcam(url, minBytes = MIN_WEBCAM_BYTES) {
       // error above) and recover on the very next fetch. Give it one more chance
       // before treating a tiny body as confirmed-broken, instead of paging on a
       // single unlucky read.
-      if (result.bytes < minBytes && attempt === 0) {
+      if (result.bytes < minBytes && attempt === 0 && Date.now() < retryDeadlineMs) {
         tinyResult = result;
         await new Promise((resolve) => setTimeout(resolve, WEBCAM_TINY_BODY_RETRY_DELAY_MS));
         continue;
@@ -360,8 +373,12 @@ async function main() {
   }
   const brokenWebcams = [];
   let indeterminateWebcams = 0;
+  // Fixed once for the whole loop (not renewed per webcam) so the tiny-body
+  // retry budget is a hard cap on TOTAL added latency across this run, not a
+  // per-webcam allowance — see WEBCAM_TINY_BODY_RETRY_BUDGET_MS comment.
+  const tinyBodyRetryDeadlineMs = Date.now() + WEBCAM_TINY_BODY_RETRY_BUDGET_MS;
   for (const { url, crossings: served, label, minBytes } of webcamUrls.values()) {
-    const result = await fetchWebcam(url, minBytes ?? MIN_WEBCAM_BYTES);
+    const result = await fetchWebcam(url, minBytes ?? MIN_WEBCAM_BYTES, tinyBodyRetryDeadlineMs);
     const verdict = evaluateWebcamResult(result, minBytes ?? MIN_WEBCAM_BYTES);
     if (verdict.broken) {
       brokenWebcams.push({ url, served, label, reason: verdict.reason });
