@@ -1,16 +1,16 @@
 {
   "key": "privatklinik-hohenegg",
   "label": "Privatklinik Hohenegg",
-  "generatedAt": "2026-07-29T11:34:55.574Z",
-  "total": 3,
+  "generatedAt": "2026-07-29T22:03:44.792Z",
+  "total": 2,
   "newCount": 0,
   "updatedCount": 2,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 6160,
-  "avgDurationMs": 6160,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 6362,
+  "avgDurationMs": 6362,
   "durationHistory": [
-    6160
+    6362
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -27,7 +27,7 @@
       "url": "https://apply.refline.ch/640332/0063/pub/2/index.html",
       "source": "Privatklinik Hohenegg Dedicated Parser (Refline 640332)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T11:34:51.317Z",
+      "crawledAt": "2026-07-29T22:03:40.147Z",
       "addressLocality": "Meilen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -67,7 +67,7 @@
       "url": "https://apply.refline.ch/640332/0047/pub/13/index.html",
       "source": "Privatklinik Hohenegg Dedicated Parser (Refline 640332)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T11:34:50.821Z",
+      "crawledAt": "2026-07-29T22:03:39.630Z",
       "addressLocality": "Meilen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -95,8 +95,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "privatklinik-hohenegg-c0079b840575",
       "slug": "dipl-lavoratore-sociale-in-fh-40-60-privatklinik-hohenegg-meilen",
@@ -140,5 +139,6 @@
         "completeness": 22
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
