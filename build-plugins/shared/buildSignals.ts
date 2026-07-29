@@ -98,6 +98,8 @@ export interface EmittedEmployerProfile {
 const employerProfilesSignal = makeValueSignal<readonly EmittedEmployerProfile[]>();
 const fiscalMunicipalitiesSignal = makeValueSignal<readonly string[]>();
 const frenchBorderMunicipalitiesSignal = makeValueSignal<readonly string[]>();
+const germanBorderMunicipalitiesSignal = makeValueSignal<readonly string[]>();
+const liechtensteinBorderMunicipalitiesSignal = makeValueSignal<readonly string[]>();
 
 /** Resolves when {@link staticPagesPlugin} has flushed all its queued writes. */
 export const staticPagesFlushed: Promise<void> = staticPagesSignal.promise;
@@ -330,4 +332,32 @@ export const frenchBorderMunicipalitiesFlushed: Promise<readonly string[]> =
   frenchBorderMunicipalitiesSignal.promise;
 export function resolveFrenchBorderMunicipalitiesFlushed(paths: readonly string[]): void {
   frenchBorderMunicipalitiesSignal.resolve(paths);
+}
+
+/**
+ * Resolves with every indexable German border-municipality page
+ * {@link germanBorderMunicipalityPagesPlugin} wrote this build (below-floor
+ * bridges excluded). Same orphan-tier hazard/contract as
+ * {@link frenchBorderMunicipalitiesFlushed} — consumed by
+ * {@link germanBorderMunicipalityLinksPlugin}, which injects a hub link
+ * into the per-locale HTML sitemap pages.
+ */
+export const germanBorderMunicipalitiesFlushed: Promise<readonly string[]> =
+  germanBorderMunicipalitiesSignal.promise;
+export function resolveGermanBorderMunicipalitiesFlushed(paths: readonly string[]): void {
+  germanBorderMunicipalitiesSignal.resolve(paths);
+}
+
+/**
+ * Resolves with every indexable Liechtenstein border-municipality page
+ * {@link liechtensteinBorderMunicipalityPagesPlugin} wrote this build
+ * (below-floor bridges excluded). Same orphan-tier hazard/contract as
+ * {@link frenchBorderMunicipalitiesFlushed} — consumed by
+ * {@link liechtensteinBorderMunicipalityLinksPlugin}, which injects a hub
+ * link into the per-locale HTML sitemap pages.
+ */
+export const liechtensteinBorderMunicipalitiesFlushed: Promise<readonly string[]> =
+  liechtensteinBorderMunicipalitiesSignal.promise;
+export function resolveLiechtensteinBorderMunicipalitiesFlushed(paths: readonly string[]): void {
+  liechtensteinBorderMunicipalitiesSignal.resolve(paths);
 }

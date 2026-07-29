@@ -30,6 +30,8 @@ import { EVENTS_INDEX_PATH } from '../scripts/lib/events-utils.mjs';
 import { isExchangeSsgPath } from './exchangeRateSsgData';
 import { isFiscalMunicipalityPath } from './fiscalMunicipalityData';
 import { isFrenchBorderMunicipalityPath } from './frenchBorderMunicipalityData';
+import { isGermanBorderMunicipalityPath } from './germanBorderMunicipalityData';
+import { isLiechtensteinBorderMunicipalityPath } from './liechtensteinBorderMunicipalityData';
 
 type SupportedLocale = CantonLocale;
 
@@ -597,6 +599,28 @@ export function resolveSearchConsoleCompatTarget(
  // isFrenchBorderMunicipalityPath checks a module-load-precomputed Set, so
  // this stays O(1) per call inside the 150k+-path compat loop.
  if (isFrenchBorderMunicipalityPath(path)) {
+ return {
+ canonicalPath: ensureTrailingSlash(path),
+ kind: 'legacy',
+ locale,
+ };
+ }
+
+ // isGermanBorderMunicipalityPath checks a module-load-precomputed Set, so
+ // this stays O(1) inside this loop (150k+ paths in
+ // tests/search-console-compat.test.ts) — same rationale as the FRANCE
+ // self-map branch above.
+ if (isGermanBorderMunicipalityPath(path)) {
+ return {
+ canonicalPath: ensureTrailingSlash(path),
+ kind: 'legacy',
+ locale,
+ };
+ }
+
+ // isLiechtensteinBorderMunicipalityPath checks a module-load-precomputed
+ // Set, same O(1) rationale as the FRANCE/GERMANY self-map branches above.
+ if (isLiechtensteinBorderMunicipalityPath(path)) {
  return {
  canonicalPath: ensureTrailingSlash(path),
  kind: 'legacy',

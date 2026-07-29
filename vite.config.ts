@@ -87,6 +87,10 @@ import { fiscalMunicipalityPagesPlugin } from './build-plugins/fiscalMunicipalit
 import { fiscalMunicipalityLinksPlugin } from './build-plugins/fiscalMunicipalityLinksPlugin';
 import { frenchBorderMunicipalityPagesPlugin } from './build-plugins/frenchBorderMunicipalityPagesPlugin';
 import { frenchBorderMunicipalityLinksPlugin } from './build-plugins/frenchBorderMunicipalityLinksPlugin';
+import { germanBorderMunicipalityPagesPlugin } from './build-plugins/germanBorderMunicipalityPagesPlugin';
+import { germanBorderMunicipalityLinksPlugin } from './build-plugins/germanBorderMunicipalityLinksPlugin';
+import { liechtensteinBorderMunicipalityPagesPlugin } from './build-plugins/liechtensteinBorderMunicipalityPagesPlugin';
+import { liechtensteinBorderMunicipalityLinksPlugin } from './build-plugins/liechtensteinBorderMunicipalityLinksPlugin';
 import { eventsSeoPagesPlugin } from './build-plugins/eventsSeoPagesPlugin';
 import { nursingLandingsPlugin } from './build-plugins/nursingLandingsPlugin';
 import { healthFacilitiesPlugin } from './build-plugins/healthFacilitiesPlugin';
@@ -290,6 +294,16 @@ export default defineConfig(({ mode }) => {
  // paths, no hub patch), same ordering rationale as fiscalMunicipalityPagesPlugin.
  // Default-on; escape hatch SKIP_FRENCH_BORDER_MUNICIPALITY_PAGES=1.
  frenchBorderMunicipalityPagesPlugin(__dirname),
+ // Per-comune GERMANY border-municipality pages (issue #4882 — Baden-
+ // Württemberg corridor, second of the FR/DE/LI rollout). Same
+ // self-contained pattern as frenchBorderMunicipalityPagesPlugin above.
+ // Default-on; escape hatch SKIP_GERMAN_BORDER_MUNICIPALITY_PAGES=1.
+ germanBorderMunicipalityPagesPlugin(__dirname),
+ // Per-Gemeinde LIECHTENSTEIN border-municipality pages (issue #4884, third
+ // of the FR/DE/LI rollout). Same self-contained pattern as
+ // frenchBorderMunicipalityPagesPlugin above.
+ // Default-on; escape hatch SKIP_LIECHTENSTEIN_BORDER_MUNICIPALITY_PAGES=1.
+ liechtensteinBorderMunicipalityPagesPlugin(__dirname),
  // Per-comune Ticino events pages (issue #2963). Same post-staticPages
  // ordering as borderMunicipalityPagesPlugin: it patches the
  // /vivere-in-ticino/ hubs after they are flushed and awaits
@@ -406,6 +420,20 @@ export default defineConfig(({ mode }) => {
  // staticPagesPlugin (sitemap-page HTML). Idempotent via
  // `data-french-border-municipalities-links`.
  frenchBorderMunicipalityLinksPlugin(__dirname),
+ // Germany border-municipality hub orphan fix — same pattern as the France
+ // links plugin above, injecting a link to GERMAN_HUB_PATH into each
+ // locale's HTML sitemap page. Awaits explicit signals from
+ // germanBorderMunicipalityPagesPlugin (hub paths) + staticPagesPlugin
+ // (sitemap-page HTML). Idempotent via
+ // `data-german-border-municipalities-links`.
+ germanBorderMunicipalityLinksPlugin(__dirname),
+ // Liechtenstein border-municipality hub orphan fix — same pattern as the
+ // France links plugin above, injecting a link to LIECHTENSTEIN_HUB_PATH
+ // into each locale's HTML sitemap page. Awaits explicit signals from
+ // liechtensteinBorderMunicipalityPagesPlugin (hub paths) + staticPagesPlugin
+ // (sitemap-page HTML). Idempotent via
+ // `data-liechtenstein-border-municipalities-links`.
+ liechtensteinBorderMunicipalityLinksPlugin(__dirname),
  // Employer-profile pages orphan fix — inject an "Aziende in Svizzera" block
  // into each locale's HTML sitemap page (main-nav reachable) so the ~468
  // /aziende/{slug}/ pages reach BFS depth ≤ 3 instead of shipping fully
