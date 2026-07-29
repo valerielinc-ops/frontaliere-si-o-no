@@ -1294,9 +1294,16 @@ function renderNumericValue(kind, value) {
   return formatItalianNumber(value);
 }
 
-/** Significant digits of a number, ignoring where the separators fell. */
+/**
+ * The digits of a number, ignoring where the separator fell.
+ *
+ * Leading zeros go (0,25 and 25 are the same digits mis-scaled); trailing
+ * zeros STAY. Stripping them too would make 6.000 and 60.000 identical, which
+ * is the ordinary transcription slip this check must NOT claim to have
+ * diagnosed — 12 of the 28 corpus hits were exactly that shape.
+ */
 function digitSignature(value) {
-  return String(value).replace(/[^0-9]/g, '').replace(/^0+/, '').replace(/0+$/, '') || '0';
+  return String(value).replace(/[^0-9]/g, '').replace(/^0+/, '') || '0';
 }
 
 /**
