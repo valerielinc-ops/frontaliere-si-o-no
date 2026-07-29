@@ -82,10 +82,20 @@ function changedArticleIds(base) {
   }
   const ids = new Set();
   for (const line of out.split('\n')) {
-    // Any locale, not just `it`: the gate now judges translations too, and a
-    // PR that only touches services/locales/blog-body/en/<id>.ts is exactly
-    // the shape of change ("border guards") this was extended to catch.
-    const m = line.match(/^services\/locales\/blog-body(?:-ch)?\/(?:it|en|de|fr)\/(.+)\.ts$/);
+    // Two prefixes, because `services/locales/blog-body[-ch]` is a SYMLINK to
+    // `packages/articles/content/blog-body[-ch]`. The audit walks the symlink
+    // and reads the real files, but `git diff --name-only` reports the resolved
+    // path — so a regex anchored on the symlink prefix alone matched nothing,
+    // and the gate exited 0 on every PR: verifying nothing while looking green.
+    // A gate that silently stops gating is the exact failure this one exists to
+    // prevent, so it accepts whichever prefix the repo is currently using.
+    //
+    // Any locale, not just `it`: the gate judges translations too, and a PR
+    // that only touches <root>/blog-body/en/<id>.ts is exactly the shape of
+    // change ("border guards") it was extended to catch.
+    const m = line.match(
+      /^(?:services\/locales|packages\/articles\/content)\/blog-body(?:-ch)?\/(?:it|en|de|fr)\/(.+)\.ts$/,
+    );
     if (m) ids.add(m[1]);
   }
   return ids;
