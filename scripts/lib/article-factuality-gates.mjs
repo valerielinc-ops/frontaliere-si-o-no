@@ -336,7 +336,18 @@ const THRESHOLD_CUE = /\b(?:oltre|pi[uù]\s+di|superior[ei]\s+a(?:i|l|lla|lle|gl
 // matches "pagamento", which in `funivia-monte-lema-stagione-2026` referred to
 // a monthly invoice for a cable-car pass), so when one of these words sits
 // closer to the amount than any tax word, it vetoes the pairing.
-const NON_TAX_CUE = /(?:\bcost[aoi]\b|\bcostano\b|\bcostav\w*|\bprezz[oi]\b|\babbonament[oi]\b|\bbigliett[oi]\b|\btariff[ae]\b|\bdetrazion[ei]\b|\bdetrarre\b|\bfranchigi[ae]\b|\brisparmi\w*|\bscont[oi]\b|\bbonus\b|\brimbors[oi]\b|\bcanone\b|\bnoleggi\w*|\bnett[oi]\b)/i;
+//
+// Three groups, all learned from the audit of the surviving findings:
+//
+//  - what the worker keeps (netto, porta a casa, pensione) — six of the
+//    thirteen false positives were take-home pay read as the tax;
+//  - what the tax is computed ON rather than what it comes to (imponibile,
+//    "tassato solo su", credito d'imposta) — five more;
+//  - a tax word that is negated ("non è stata trattenuta") or that follows
+//    "dopo", which turns the clause into an after-tax residue rather than an
+//    assertion about the tax itself. These phrases deliberately SPAN the tax
+//    word so presentedAsTax() can discount it — see the overlap filter there.
+const NON_TAX_CUE = /(?:\bcost[aoi]\b|\bcostano\b|\bcostav\w*|\bprezz[oi]\b|\babbonament[oi]\b|\bbigliett[oi]\b|\btariff[ae]\b|\bdetrazion[ei]\b|\bdetrarre\b|\bfranchigi[ae]\b|\brisparmi\w*|\bscont[oi]\b|\bbonus\b|\brimbors[oi]\b|\bcanone\b|\bnoleggi\w*|\bnett[oi]\b|\bpension[ei]\b|\bimponibil[ei]\b|\bport\w*\s+a\s+casa\b|\bin\s+tasca\b|\bcredit[oi]\s+d['’]impost\w*|(?:\btassat\w*|\btassazion\w*|\bimposizion\w*)\s+(?:solo\s+)?(?:su|sul|sulla|sui|sugli|sulle)\b|\bnon\s+(?:è\s+|sono\s+|viene\s+|vengono\s+)?(?:stat[aeio]\s+)?(?:trattenut\w*|tassat\w*|pagat\w*|prelevat\w*)|\bdopo\b[^.;:]{0,40}?(?:impost[ae]\w*|tass[ae]\b|tassazion\w*|ritenut[ae]\b|prelievi|trattenut\w*|detrazion\w*|contribut\w*))/i;
 
 // How far apart an income and its alleged tax may sit. The real defects state
 // both inside one breath — 133 chars on the incident article ("un reddito di
@@ -391,7 +402,9 @@ function periodOf(text, afterIndex) {
   if (/\b(al|a|ogni|per)\s+mese|mensil|\/mese/.test(tail)) return 'month';
   if (/\b(all'anno|annu|ogni\s+anno|\/anno)/.test(tail)) return 'year';
   if (/\b(a|alla|per)\s+settimana|settimanal/.test(tail)) return 'week';
-  if (/\b(al|all'|per)\s*ora|orari/.test(tail)) return 'hour';
+  // "l’ora" with a curly apostrophe is how the corpus actually writes hourly
+  // pay, and it was the one form this missed.
+  if (/\b(?:al|all['’]|l['’]|ogni|per)\s*ora\b|orari[ao]/.test(tail)) return 'hour';
   return '';
 }
 
@@ -451,6 +464,46 @@ function statementSpans(line) {
   return spans;
 }
 
+// Global twins of the two cue sets. `.test()` needs the non-global originals
+// (a `g` regex carries lastIndex across calls and silently skips); positional
+// comparison needs matchAll, which requires `g`. Same source, one truth.
+const TAX_CUE_G = new RegExp(TAX_CUE.source, 'gi');
+const NON_TAX_CUE_G = new RegExp(NON_TAX_CUE.source, 'gi');
+
+/**
+ * What the amount at the end of `window` is being presented as, decided by the
+ * cue NEAREST to it.
+ *
+ * The first version asked two independent questions — "is there a non-tax word
+ * in the last 40 characters?" and "is there a tax word anywhere between the
+ * income and here?" — and let the second win whenever both were true. That
+ * asymmetry is the whole of the residual noise: a hand audit of the 15
+ * surviving `tax-implausible` findings returned 13 false positives and every
+ * one of them named its real, plausible tax on the same line. The check was
+ * never picking the wrong article, only the wrong amount on it.
+ *
+ *   "pagherà circa 12.480 CHF di tasse, lasciando un NETTO di 50.920 CHF"
+ *   "stipendio NETTO dopo l'applicazione dell'Imposta federale … è di 56.100 CHF"
+ *
+ * Both name the take-home pay, and in both the tax word is real but further
+ * away. Distance decides.
+ *
+ * A tax word falling INSIDE a non-tax phrase belongs to that phrase and is not
+ * a cue of its own: "DOPO le tasse", "credito d'IMPOSTA", "non è stata
+ * TRATTENUTA", "TASSATO solo su" each name something that is not the tax.
+ *
+ * @returns {'tax'|'other'|''} '' when nothing qualifies the amount at all.
+ */
+function presentedAsTax(window) {
+  const nonTax = [...window.matchAll(NON_TAX_CUE_G)];
+  const tax = [...window.matchAll(TAX_CUE_G)]
+    .filter((m) => !nonTax.some((n) => m.index >= n.index && m.index < n.index + n[0].length));
+  if (!tax.length) return nonTax.length ? 'other' : '';
+  const lastTax = tax[tax.length - 1].index;
+  const lastOther = nonTax.length ? nonTax[nonTax.length - 1].index : -1;
+  return lastTax > lastOther ? 'tax' : 'other';
+}
+
 /** True when the amount is named as an income, by a cue before or right after it. */
 function namesAnIncome(line, span, amt) {
   const cue = line.slice(span.start, amt.index).match(INCOME_CUE);
@@ -499,23 +552,24 @@ function* incomeTaxPairs(line) {
       if (periodsConflict(income, amt)) continue;
       if (Math.abs(amt.index - income.index) > MAX_PAIR_DISTANCE) continue;
 
-      // Cue nearest the amount wins: a threshold marker or a non-tax noun
-      // immediately in front of it outranks a tax word further upstream.
+      // An income tax is never quoted per hour. Reading a wage as one paired
+      // the 21 franchi/hour a company pays with the 21,50 floor it will have to
+      // meet (`salario-minimo-ticino-2027-2029`).
+      if (amt.period === 'hour') continue;
+
       const near = line.slice(Math.max(span.start, amt.index - 40), amt.index);
       if (THRESHOLD_CUE.test(near)) continue;
-      if (NON_TAX_CUE.test(near) && !TAX_CUE.test(near)) continue;
 
-      // The tax cue has to sit between the two figures, or right in front of
-      // the candidate — never upstream of the income. Reading back a flat 80
-      // characters let a tax word that belonged to the income's own clause
-      // qualify the alternative that followed it: "pagare le imposte solo sul
-      // reddito residuo di 70.000 CHF (…) o 72.500 CHF" flagged the second
-      // residual income as a 104% tax (`terzo-pilastro-3a-vantaggi-canton-ginevra`).
-      const floor = amt.index >= income.index ? Math.max(span.start, income.index) : span.start;
-      const between = line.slice(income.index, amt.index);
-      const preceding = line.slice(Math.max(floor, amt.index - 80), amt.index);
-      // Only compare amounts that are actually presented as a tax.
-      if (!TAX_CUE.test(between) && !TAX_CUE.test(preceding)) continue;
+      // The window in which the candidate has to be introduced as a tax: from
+      // the income forward, or the run-up to the candidate when it precedes the
+      // income. The cue may not sit upstream of the income — a tax word
+      // belonging to the income's own clause used to qualify the alternative
+      // that followed it ("pagare le imposte solo sul reddito residuo di 70.000
+      // CHF (…) o 72.500 CHF", `terzo-pilastro-3a-vantaggi-canton-ginevra`).
+      const from = amt.index >= income.index
+        ? Math.max(span.start, income.index)
+        : Math.max(span.start, amt.index - 80);
+      if (presentedAsTax(line.slice(from, amt.index)) !== 'tax') continue;
 
       yield { income, tax: amt };
     }
