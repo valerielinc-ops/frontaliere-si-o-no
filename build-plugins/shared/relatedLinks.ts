@@ -633,7 +633,7 @@ function crossingForCityOrZone(cityOrZone: string | undefined): BorderCrossingSl
 }
 
 /**
- * Pick sibling crossings (same region preferred).
+ * Pick sibling crossings (same region preferred, then same country).
  *
  * Ticino crossings keep sourcing exclusively from `TOP_5_CROSSINGS` — the
  * historical, byte-for-byte-live behavior for the 26 original (already
@@ -642,25 +642,38 @@ function crossingForCityOrZone(cityOrZone: string | undefined): BorderCrossingSl
  * derive siblings from the full `BORDER_WAIT_CROSSINGS` registry instead —
  * otherwise every non-Ticino page would link back to unrelated Ticino-Italy
  * crossings hundreds of km away.
+ *
+ * Small non-Ticino regions (e.g. Turgovia, 4 crossings) can exhaust their
+ * same-region pool before reaching `count`. The fallback tier is same
+ * COUNTRY first (another German region), not just "everything else" —
+ * `BORDER_WAIT_CROSSINGS` lists the 26 Ticino slugs before any German one,
+ * so a naive single fallback bucket would surface a Ticino crossing as the
+ * 4th sibling on a Turgovia page, reintroducing the exact cross-corridor
+ * link bug this function exists to prevent (#4952).
  */
 function pickSiblingCrossings(
   current: BorderCrossingSlug,
   count: number,
 ): BorderCrossingSlug[] {
   const currentRegion = CROSSING_TO_REGION[current];
+  const currentCountry = REGION_TO_COUNTRY[currentRegion];
   const pool: readonly BorderCrossingSlug[] =
-    REGION_TO_COUNTRY[currentRegion] === 'IT' ? TOP_5_CROSSINGS : BORDER_WAIT_CROSSINGS;
+    currentCountry === 'IT' ? TOP_5_CROSSINGS : BORDER_WAIT_CROSSINGS;
   const sameRegion: BorderCrossingSlug[] = [];
+  const sameCountryOtherRegion: BorderCrossingSlug[] = [];
+  const rest: BorderCrossingSlug[] = [];
   for (const c of pool) {
     if (c === current) continue;
-    if (CROSSING_TO_REGION[c] === currentRegion) sameRegion.push(c);
+    const region = CROSSING_TO_REGION[c];
+    if (region === currentRegion) {
+      sameRegion.push(c);
+    } else if (REGION_TO_COUNTRY[region] === currentCountry) {
+      sameCountryOtherRegion.push(c);
+    } else {
+      rest.push(c);
+    }
   }
-  const otherRegion: BorderCrossingSlug[] = [];
-  for (const c of pool) {
-    if (c === current) continue;
-    if (CROSSING_TO_REGION[c] !== currentRegion) otherRegion.push(c);
-  }
-  return [...sameRegion, ...otherRegion].slice(0, count);
+  return [...sameRegion, ...sameCountryOtherRegion, ...rest].slice(0, count);
 }
 
 /** Pick N sibling cities for F5 hub. */
