@@ -104,13 +104,35 @@ describe('articleArchiveUnion · section convenience wrappers', () => {
     );
   });
 
-  it('frontaliere/master union strictly EXCEEDS meta-only today (live drift)', () => {
-    // The reviewer 🔴: BLOG_SLUGS carries entries with no meta title
-    // (iniziativa-salari-ticino, cantieri-traffico-a9-ticino) → the meta-only
-    // navigator count under-counts the emitter union. This asserts the drift is
-    // real (not hypothetical) so the union-based navigator is load-bearing.
+  it('union never under-counts meta-only (the invariant, not the accident)', () => {
+    // This used to assert `toBeGreaterThan`, pinning a LIVE drift: BLOG_SLUGS
+    // carried three entries with no meta title (iniziativa-salari-ticino,
+    // cantieri-traffico-a9-ticino, permesso-g-pro-contro-2026), so the
+    // meta-only count under-counted the emitter union. Those three were
+    // repaired, the drift closed, and the assertion started failing — a test
+    // that breaks when the bug it documents gets fixed was pinning an
+    // accident, not a contract.
+    //
+    // The real invariant is one-sided: the union may EQUAL meta-only (healthy,
+    // every slug has a title) but must never fall BELOW it, which would mean
+    // meta exists for articles the emitter never emits. The load-bearing
+    // property — that the union still counts slug-only entries — is proven
+    // structurally by the test below instead of by whatever drift happens to
+    // exist in the corpus today.
     const union = readFrontaliereArticleUnionSlugs(fs, np, rootDir).size;
     const metaOnly = metaOnlySlugs('frontaliere').size;
-    expect(union).toBeGreaterThan(metaOnly);
+    expect(union).toBeGreaterThanOrEqual(metaOnly);
+  });
+
+  it('union counts slug-only entries, so the navigator cannot under-count', () => {
+    // Structural proof, independent of live data: every key in the section's
+    // slug map must appear in the union even when it has no meta title. This
+    // is what makes the union-based navigator load-bearing, and unlike the
+    // live-drift assertion it keeps holding once the corpus is clean.
+    for (const section of ['frontaliere', 'svizzera'] as ArticleSection[]) {
+      const union = readArticleArchiveUnionSlugs(fs, np, rootDir, section);
+      const missing = [...slugMapKeys(section)].filter((k) => !union.has(k));
+      expect(missing, `${section}: slug-map keys absent from the archive union`).toEqual([]);
+    }
   });
 });

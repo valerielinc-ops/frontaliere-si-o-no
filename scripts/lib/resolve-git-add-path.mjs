@@ -22,7 +22,21 @@ export function resolveGitAddPath(repoRoot, relPath) {
     const relReal = path.relative(repoRoot, real);
     return trailingSlash ? `${relReal}/` : relReal;
   } catch {
-    return relPath;
+    // The path itself no longer exists — the DELETED-file case, which is the
+    // one that matters most here: `manage-article.mjs remove` unlinks per-locale
+    // body files and then has to stage the deletion. realpathSync fails on the
+    // missing leaf, but the symlinked DIRECTORY above it still resolves, so
+    // resolve the parent and re-join the basename. Without this the function
+    // returned the symlink-traversing path unchanged, `git ls-files` on it was
+    // always empty (git only ever tracks the real path), and the deletion was
+    // silently left unstaged — the exact gap the caller believes it closed.
+    try {
+      const dir = realpathSync(path.join(repoRoot, path.dirname(bare)));
+      const relReal = path.join(path.relative(repoRoot, dir), path.basename(bare));
+      return trailingSlash ? `${relReal}/` : relReal;
+    } catch {
+      return relPath;
+    }
   }
 }
 
