@@ -372,6 +372,67 @@ describe('checkFabricatedInstitutionAcronyms', () => {
       'L\'Ufficio federale di statistica (UST) pubblica i dati.',
     )).toEqual([]);
   });
+
+  // ── 2026-07-29 corpus triage ──
+  it('accepts the non-Italian acronym of an office already listed', () => {
+    // Swiss federal offices publish under three or four acronyms and the writer
+    // quotes whichever its source used. These were 175 warnings' worth of noise.
+    for (const text of [
+      'La Segreteria di Stato per le questioni finanziarie internazionali (SFI) ha negoziato l\'accordo.',
+      'L\'Ufficio federale dell\'aviazione civile (UFAC) ha aggiornato le regole.',
+      'La Commissione federale di coordinamento per la sicurezza sul lavoro (CFSL) raccomanda i DPI.',
+    ]) expect(checkFabricatedInstitutionAcronyms(text)).toEqual([]);
+  });
+
+  it('accepts a superseded federal office quoted from an older source', () => {
+    expect(checkFabricatedInstitutionAcronyms(
+      'L\'Ufficio federale delle assicurazioni private (UFAP) vigilava sul settore prima della FINMA.',
+    )).toEqual([]);
+  });
+
+  it('accepts verified cantonal and Italian bodies', () => {
+    for (const text of [
+      'L\'Istituto delle assicurazioni sociali (IAS) preleva i contributi.',
+      'L\'Ufficio della protezione delle acque e dell\'approvvigionamento idrico (UPAAI) ha approvato il piano.',
+      'L\'Ente Regionale per lo Sviluppo del Luganese (ERSL) finanzia il progetto.',
+      'L\'Agenzia delle Dogane e dei Monopoli (ADM) ha pubblicato la circolare.',
+    ]) expect(checkFabricatedInstitutionAcronyms(text)).toEqual([]);
+  });
+
+  it('blocks federal offices the generator invented', () => {
+    // Each of these shipped in the corpus. The real body is in the allowlist.
+    for (const [text, acronym] of [
+      ['Secondo l\'Ufficio federale delle strade (UFSTR) il traffico è aumentato.', 'UFSTR'],
+      ['L\'Ufficio federale delle imposte dirette (UFID) ha comunicato le aliquote.', 'UFID'],
+      ['L\'Ufficio federale per la migrazione e il soggiorno (UVMS) rilascia il permesso.', 'UVMS'],
+      ['Il Dipartimento federale dell\'economia, delle imprese e della formazione professionale (DEEF) ha deciso.', 'DEEF'],
+    ] as const) {
+      const issues = checkFabricatedInstitutionAcronyms(text);
+      expect(codes(issues)).toContain('fabricated-institution');
+      expect(issues[0].message).toContain(acronym);
+    }
+  });
+
+  it('blocks invented cantonal offices without touching the real ones', () => {
+    // USTIC vs the real USTAT, UPAI vs the real UPAAI: one-letter inventions.
+    expect(codes(checkFabricatedInstitutionAcronyms(
+      'L\'Ufficio di statistica del Cantone Ticino (USTIC) ha diffuso i dati.',
+    ))).toContain('fabricated-institution');
+    expect(checkFabricatedInstitutionAcronyms(
+      'L\'Ufficio di statistica del Cantone Ticino (USTAT) ha diffuso i dati.',
+    )).toEqual([]);
+  });
+
+  it('keeps an unverified acronym as a non-blocking warning', () => {
+    // The triage left ~60 acronyms in neither list — real bodies from another
+    // domain (SEC, INSS, UCC …) paired with an invented Swiss expansion. They
+    // must stay `major`: blocking them would reject correct articles.
+    const issues = checkFabricatedInstitutionAcronyms(
+      'L\'Istituto nazionale della sicurezza sociale (INSS) eroga la prestazione.',
+    );
+    expect(codes(issues)).toContain('unknown-institution');
+    expect(issues[0].severity).toBe('major');
+  });
 });
 
 describe('checkContradictoryNormDates', () => {
