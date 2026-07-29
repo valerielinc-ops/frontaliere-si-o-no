@@ -33,7 +33,24 @@
  *
  * Checks never throw on malformed input; they return issue objects. Callers
  * decide what blocks (see runFactualityGates → `blocking`).
+ *
+ * LOCALES. Generation happens in Italian and en/de/fr are translations of it,
+ * so these gates were Italian-only — which left the TRANSLATION step ungated.
+ * Sections 2, 3 and 4 below now take a `locale` and read their vocabulary from
+ * article-locale-lexicon.mjs (whose Italian entries are this file's former
+ * literals, moved unchanged); sections 9 and 10 compare a translation against
+ * its Italian original. Everything else stays Italian-only by design — see the
+ * comment on runFactualityGates.
  */
+import {
+  LOCALE_LEXICON,
+  lexiconFor,
+  canonicalNumeric,
+  NUMBER_TOKEN,
+  extractNumericFacts,
+  FALSE_FRIEND_PATTERNS,
+  ITALIAN_BORDER_GUARD_ANCHOR,
+} from './article-locale-lexicon.mjs';
 
 /** Severity ranking used to sort and to decide what blocks publication. */
 export const SEVERITY = { critical: 3, major: 2, minor: 1 };
@@ -198,8 +215,30 @@ export function detectTruncation(text, opts = {}) {
 // exactly 10×. Both halves are checked separately so a correct line like
 // "3,2% (0,032 x 60.000 = 1.920)" stays clean.
 
-const ARITHMETIC_RE = /(\d[\d.,]*)\s*[x×*]\s*(\d[\d.,]*)\s*=\s*(\d[\d.,]*)/gi;
 const REL_TOLERANCE = 0.005;
+
+/** "A x B = C", written in whatever number convention `locale` uses. */
+function arithmeticRe(locale) {
+  const n = numberTokenFor(locale);
+  return new RegExp(String.raw`(${n})\s*[x×*]\s*(${n})\s*=\s*(${n})`, 'gi');
+}
+/**
+ * "…4,5%" / "…4,5 per cento" immediately before an expression.
+ *
+ * The Italian branch is the original literal and stays alone: adding the other
+ * locales' spelt-out forms to it would make "percentuale" match `percent` and
+ * silently change an Italian verdict this change is required not to move.
+ */
+const SPELT_PERCENT = {
+  it: String.raw`%|per\s*cento`,
+  en: String.raw`%|per\s*cent\b|percent\b`,
+  de: String.raw`%|Prozent\b`,
+  fr: String.raw`%|pour\s*cent\b`,
+};
+function percentRe(locale) {
+  const spelt = SPELT_PERCENT[locale] || SPELT_PERCENT.it;
+  return new RegExp(String.raw`(${numberTokenFor(locale)})\s*(?:${spelt})`, 'gi');
+}
 
 function relDiff(a, b) {
   const scale = Math.max(Math.abs(a), Math.abs(b), 1e-9);
@@ -207,15 +246,16 @@ function relDiff(a, b) {
 }
 
 /** Verifies every explicit "A x B = C" and its surrounding percentage claim. */
-export function checkInlineArithmetic(text) {
+export function checkInlineArithmetic(text, opts = {}) {
   const issues = [];
   if (typeof text !== 'string') return issues;
+  const locale = opts.locale || 'it';
 
-  for (const m of text.matchAll(ARITHMETIC_RE)) {
+  for (const m of text.matchAll(arithmeticRe(locale))) {
     const [full, aRaw, bRaw, cRaw] = m;
-    const a = parseItalianNumber(aRaw);
-    const b = parseItalianNumber(bRaw);
-    const c = parseItalianNumber(cRaw);
+    const a = parseAmount(aRaw, locale);
+    const b = parseAmount(bRaw, locale);
+    const c = parseAmount(cRaw, locale);
     if (![a, b, c].every(Number.isFinite)) continue;
 
     // (a) Does the stated product actually hold?
@@ -233,9 +273,9 @@ export function checkInlineArithmetic(text) {
     // (b) When a percentage introduces the expression, the multiplier must be
     // that percentage as a decimal. "4,5% (0,45 x ...)" is off by 10×.
     const before = text.slice(Math.max(0, m.index - 60), m.index);
-    const pctMatch = [...before.matchAll(/(\d[\d.,]*)\s*(?:%|per\s*cento)/gi)].pop();
+    const pctMatch = [...before.matchAll(percentRe(locale))].pop();
     if (pctMatch) {
-      const pct = parseItalianNumber(pctMatch[1]);
+      const pct = parseAmount(pctMatch[1], locale);
       if (Number.isFinite(pct) && pct !== 0 && relDiff(a, pct / 100) > REL_TOLERANCE) {
         const ratio = (a / (pct / 100));
         issues.push(issue(
@@ -264,9 +304,28 @@ export function checkInlineArithmetic(text) {
 // A tax equal to or above gross pay is arithmetically impossible, so this needs
 // no domain tuning and cannot false-positive.
 
-const CURRENCY = String.raw`(?:franchi\s+svizzeri|franchi|CHF|euro|EUR|€)`;
-const INCOME_CUE = /(?:reddito|guadagn\w*|stipendio|salario|retribuzione|percep\w*)[^.\n]{0,40}?$/i;
-const TAX_CUE = /(?:impost\w*|tass\w*|pag\w*|trattenut\w*|prelievo|carico\s+fiscale|quota\s+di\s+imposta)/i;
+// Vocabulary now lives in article-locale-lexicon.mjs so the same check can run
+// on a translation. `LOCALE_LEXICON.it` holds the exact literals that used to
+// sit here, so the Italian verdict is unchanged by construction.
+const { incomeCue: INCOME_CUE, taxCue: TAX_CUE } = LOCALE_LEXICON.it;
+
+/**
+ * Reads an amount the way its own locale writes it.
+ *
+ * Italian keeps parseItalianNumber untouched, deliberately: this is the parser
+ * the shipped Italian verdicts were computed with, and the corpus audit has to
+ * stay bit-for-bit comparable across this change. The other three go through
+ * the shape-reading canonicaliser, which additionally copes with 60'000 and
+ * 60 000 — forms Italian prose never uses.
+ */
+function parseAmount(raw, locale) {
+  return locale === 'it' ? parseItalianNumber(raw) : canonicalNumeric(raw);
+}
+
+/** Regex source for one amount token, in the conventions `locale` may use. */
+function numberTokenFor(locale) {
+  return locale === 'it' ? String.raw`\d[\d.,]*` : `(?:${NUMBER_TOKEN})`;
+}
 
 /**
  * Ranges of the text that restate a base figure rather than assert a new one:
@@ -288,29 +347,29 @@ function calculationSpans(text) {
  * treating it as one produced most of the residual noise ("4.000 CHF al mese"
  * vs a yearly figure). Amounts with different, known periods are never paired.
  */
-function periodOf(text, afterIndex) {
+function periodOf(text, afterIndex, locale = 'it') {
   const tail = text.slice(afterIndex, afterIndex + 40).toLowerCase();
-  if (/\b(al|a|ogni|per)\s+mese|mensil|\/mese/.test(tail)) return 'month';
-  if (/\b(all'anno|annu|ogni\s+anno|\/anno)/.test(tail)) return 'year';
-  if (/\b(a|alla|per)\s+settimana|settimanal/.test(tail)) return 'week';
-  if (/\b(al|all'|per)\s*ora|orari/.test(tail)) return 'hour';
+  for (const [name, re] of lexiconFor(locale).periods) {
+    if (re.test(tail)) return name;
+  }
   return '';
 }
 
 /** Extracts every "<amount> <currency>" occurrence with its position. */
-function extractAmounts(text) {
-  const re = new RegExp(String.raw`(\d[\d.,]*)\s*${CURRENCY}`, 'gi');
+function extractAmounts(text, locale = 'it') {
+  const { currency } = lexiconFor(locale);
+  const re = new RegExp(String.raw`(${numberTokenFor(locale)})\s*${currency}`, 'gi');
   const skip = calculationSpans(text);
   const out = [];
   for (const m of text.matchAll(re)) {
     if (skip.some(([s, e]) => m.index >= s && m.index < e)) continue;
-    const value = parseItalianNumber(m[1]);
+    const value = parseAmount(m[1], locale);
     if (!Number.isFinite(value) || value <= 0) continue;
     out.push({
       value,
       raw: m[0],
       index: m.index,
-      period: periodOf(text, m.index + m[0].length),
+      period: periodOf(text, m.index + m[0].length, locale),
     });
   }
   return out;
@@ -324,12 +383,14 @@ function periodsConflict(a, b) {
 /**
  * Flags a stated tax that meets or exceeds the gross income it is computed on.
  * @param {string} text
- * @param {{implausibleRatio?: number}} [opts] ratio above which a tax is "major"
+ * @param {{implausibleRatio?: number, locale?: string}} [opts] ratio above which a tax is "major"
  */
 export function checkTaxPlausibility(text, opts = {}) {
   const issues = [];
   if (typeof text !== 'string') return issues;
   const implausibleRatio = opts.implausibleRatio ?? 0.6;
+  const locale = opts.locale || 'it';
+  const { incomeCue, taxCue } = lexiconFor(locale);
   // One report per (income, tax) pair — the same example restated across
   // paragraphs otherwise emitted the identical issue a dozen times.
   const reported = new Set();
@@ -337,11 +398,11 @@ export function checkTaxPlausibility(text, opts = {}) {
   // Work line by line (and table rows are lines) so an income and a tax are
   // only paired when they genuinely sit in the same statement.
   for (const line of text.split('\n')) {
-    const amounts = extractAmounts(line);
+    const amounts = extractAmounts(line, locale);
     if (amounts.length < 2) continue;
 
     // The income is the amount introduced by an income cue.
-    const income = amounts.find((a) => INCOME_CUE.test(line.slice(0, a.index)));
+    const income = amounts.find((a) => incomeCue.test(line.slice(0, a.index)));
     if (!income) continue;
 
     for (const amt of amounts) {
@@ -350,7 +411,7 @@ export function checkTaxPlausibility(text, opts = {}) {
       const between = line.slice(income.index, amt.index);
       const preceding = line.slice(Math.max(0, amt.index - 80), amt.index);
       // Only compare amounts that are actually presented as a tax.
-      if (!TAX_CUE.test(between) && !TAX_CUE.test(preceding)) continue;
+      if (!taxCue.test(between) && !taxCue.test(preceding)) continue;
 
       const dedupKey = `${income.value}|${amt.value}`;
       if (reported.has(dedupKey)) continue;
@@ -401,6 +462,8 @@ export function checkCrossSectionNumericConflicts(sections, opts = {}) {
   const issues = [];
   if (!sections || typeof sections !== 'object') return issues;
   const conflictRatio = opts.conflictRatio ?? 3;
+  const locale = opts.locale || 'it';
+  const { incomeCue, taxCue } = lexiconFor(locale);
 
   // base income value → [{ section, tax }]
   const byIncome = new Map();
@@ -408,9 +471,9 @@ export function checkCrossSectionNumericConflicts(sections, opts = {}) {
   for (const [section, text] of Object.entries(sections)) {
     if (typeof text !== 'string') continue;
     for (const line of text.split('\n')) {
-      const amounts = extractAmounts(line);
+      const amounts = extractAmounts(line, locale);
       if (amounts.length < 2) continue;
-      const income = amounts.find((a) => INCOME_CUE.test(line.slice(0, a.index)));
+      const income = amounts.find((a) => incomeCue.test(line.slice(0, a.index)));
       if (!income) continue;
 
       for (const amt of amounts) {
@@ -418,7 +481,7 @@ export function checkCrossSectionNumericConflicts(sections, opts = {}) {
         if (periodsConflict(income, amt)) continue;
         const between = line.slice(income.index, amt.index);
         const preceding = line.slice(Math.max(0, amt.index - 80), amt.index);
-        if (!TAX_CUE.test(between) && !TAX_CUE.test(preceding)) continue;
+        if (!taxCue.test(between) && !taxCue.test(preceding)) continue;
 
         const key = income.value;
         if (!byIncome.has(key)) byIncome.set(key, []);
@@ -546,10 +609,9 @@ export function checkFabricatedInstitutionAcronyms(text) {
 // "Il Decreto Omnibus è stato varato il 1° gennaio 2023" coexisted with "Il 1°
 // gennaio 2024 entrerà in vigore il Decreto Omnibus" in the same article.
 
-const MONTHS_IT = {
-  gennaio: 1, febbraio: 2, marzo: 3, aprile: 4, maggio: 5, giugno: 6,
-  luglio: 7, agosto: 8, settembre: 9, ottobre: 10, novembre: 11, dicembre: 12,
-};
+// Same table the cross-locale date comparison uses; kept in one place so the
+// two can never disagree about what "marzo" means.
+const MONTHS_IT = LOCALE_LEXICON.it.months;
 const DATE_IT_RE = /(\d{1,2})\s*°?\s+(gennaio|febbraio|marzo|aprile|maggio|giugno|luglio|agosto|settembre|ottobre|novembre|dicembre)\s+(\d{4})/gi;
 // Deliberately excludes Accordo / Convenzione / Trattato. An international
 // instrument legitimately carries a signature date, a ratification date and an
