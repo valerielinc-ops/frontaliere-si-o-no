@@ -230,25 +230,41 @@ export function checkInlineArithmetic(text) {
       ));
     }
 
-    // (b) When a percentage introduces the expression, the multiplier must be
-    // that percentage as a decimal. "4,5% (0,45 x ...)" is off by 10×.
+    // (b) When a percentage introduces the expression, one of the two operands
+    // must be that percentage as a decimal. "4,5% (0,45 x ...)" is off by 10×.
+    //
+    // Either operand: multiplication is commutative and articles write it both
+    // ways. Assuming the factor was always the LEFT one blocked
+    // `stipendio-saldatore-frontaliere-ticino`, which states "del 20% … 80.000 x
+    // 0,20 = 16.000" — arithmetically perfect, reported as "400000× il valore
+    // corretto" because 80.000 was compared against 0,2.
     const before = text.slice(Math.max(0, m.index - 60), m.index);
     const pctMatch = [...before.matchAll(/(\d[\d.,]*)\s*(?:%|per\s*cento)/gi)].pop();
     if (pctMatch) {
       const pct = parseItalianNumber(pctMatch[1]);
-      if (Number.isFinite(pct) && pct !== 0 && relDiff(a, pct / 100) > REL_TOLERANCE) {
-        const ratio = (a / (pct / 100));
+      const asDecimal = pct / 100;
+      const stated = Number.isFinite(pct) && pct !== 0
+        && relDiff(a, asDecimal) > REL_TOLERANCE
+        && relDiff(b, asDecimal) > REL_TOLERANCE;
+      if (stated) {
+        // Neither operand is the rate. The one meant to be it is the smaller:
+        // a rate is a fraction, the other side is a salary.
+        const factorIsA = Math.abs(a) <= Math.abs(b);
+        const factor = factorIsA ? a : b;
+        const factorRaw = factorIsA ? aRaw : bRaw;
+        const base = factorIsA ? b : a;
+        const ratio = factor / asDecimal;
         issues.push(issue(
           'percent-factor-mismatch',
           'critical',
-          `Percentuale e fattore incoerenti: dichiarato ${pctMatch[1]}% ma moltiplicato per ${aRaw} `
-          + `(${Number.isFinite(ratio) ? `${ratio.toFixed(0)}× il valore corretto ${(pct / 100).toString().replace('.', ',')}` : 'valore incoerente'})`,
+          `Percentuale e fattore incoerenti: dichiarato ${pctMatch[1]}% ma moltiplicato per ${factorRaw} `
+          + `(${Number.isFinite(ratio) ? `${ratio.toFixed(0)}× il valore corretto ${asDecimal.toString().replace('.', ',')}` : 'valore incoerente'})`,
           `${pctMatch[0]} ... ${full}`,
           `Decidi quale dei due numeri è giusto e allinea l'altro. `
           + `Se la percentuale corretta è ${pctMatch[1]}%, il fattore deve essere `
-          + `${(pct / 100).toString().replace('.', ',')} e il risultato ${formatItalianNumber((pct / 100) * b)}. `
+          + `${asDecimal.toString().replace('.', ',')} e il risultato ${formatItalianNumber(asDecimal * base)}. `
           + `Se invece il risultato ${cRaw} è quello giusto, la percentuale da dichiarare è `
-          + `${(a * 100).toString().replace('.', ',')}%. Non lasciare i due valori incoerenti e non cancellare l'esempio.`,
+          + `${(factor * 100).toString().replace('.', ',')}%. Non lasciare i due valori incoerenti e non cancellare l'esempio.`,
         ));
       }
     }
@@ -261,22 +277,93 @@ export function checkInlineArithmetic(text) {
 //
 // The article's core error — reading "100% of the withholding TABLES" as "100%
 // of gross salary" — always surfaces as a tax that swallows the whole income.
-// A tax equal to or above gross pay is arithmetically impossible, so this needs
-// no domain tuning and cannot false-positive.
+// A tax equal to or above gross pay is arithmetically impossible.
+//
+// PRECISION PASS (2026-07-29). The first cut paired amounts per LINE and
+// reported 59 blocking findings over 48 articles; sampling them by hand showed
+// most were correct prose. A crying-wolf gate is not a harmless nuisance here:
+// its issues are fed straight back into the regeneration prompt, and the
+// writer's cheapest reply to an "impossible tax" it cannot see is to delete the
+// example — the exact failure mode these gates exist to stop. Four causes, one
+// named constant each:
+//
+//   (a) a "line" is not a statement. Bulleted scenarios ("- Scenario 1: … -
+//       Scenario 4: …") share one line, so the 4.000 CHF monthly salary of the
+//       first was paired with the 6.000 CHF salary of the fourth
+//       (`lpp-minimo-secondo-pilastro-2026`) → LIST_MARKER_RE / SENTENCE_BREAK_RE
+//       now cut a line into the statements a reader actually sees.
+//   (b) a threshold is not a sum paid. "chi ha un reddito di OLTRE 80.000
+//       franchi è tenuto a pagare le tasse" repeats one bracket twice and the
+//       second copy was read as a tax equal to the income — 4 of the 6 findings
+//       on `tasse-frontalieri-scambio-dati-stipendi-italia` → THRESHOLD_CUE.
+//   (c) not every franc figure is a tax. Prices, season passes, deductions and
+//       refunds share the paragraph → NON_TAX_CUE.
+//   (d) nothing bounded how far apart the two numbers could sit: the 41-franc
+//       IRPEF refund of `funivia-monte-lema-stagione-2026` was matched against
+//       a 290-franc ski pass eight sentences later → MAX_PAIR_DISTANCE.
+//
+// Segmentation alone would have cost the very defect it was built for: the
+// incident article states the income in one sentence and the impossible tax in
+// the next. Hence the one-statement carry-over in incomeTaxPairs().
 
 const CURRENCY = String.raw`(?:franchi\s+svizzeri|franchi|CHF|euro|EUR|€)`;
-const INCOME_CUE = /(?:reddito|guadagn\w*|stipendio|salario|retribuzione|percep\w*)[^.\n]{0,40}?$/i;
+// Capture group 2 is the text between the cue word and the amount: whatever
+// sits in that gap is closer to the figure than the income word is, and wins.
+// "Un residente con lo stesso stipendio lordo PAGA CIRCA 900 franchi di tasse"
+// opens on an income word but names a tax (`divario-salari-ticino-frontalieri-2026`).
+const INCOME_CUE = /(reddito|guadagn\w*|stipendio|salario|retribuzione|percep\w*)([^.\n]{0,40}?)$/i;
+// An amount can also be named as income AFTER the figure. "ha pagato 4.500
+// franchi di tasse per ogni 1.000 franchi DI REDDITO" only reads as a 450% rate
+// once the 1.000 is recognised as the base; with leading cues alone the gate
+// latched onto a later amount and reported the right defect against the wrong
+// pair of numbers (`bossi-commemorazione-bagarrata`).
+const INCOME_CUE_TRAILING = /^\s*(?:di|d'|del|dello|della|delle|dei|sul|sui|su)\s*(?:reddito|stipendio|salario|retribuzione|guadagn\w*)/i;
 const TAX_CUE = /(?:impost\w*|tass\w*|pag\w*|trattenut\w*|prelievo|carico\s+fiscale|quota\s+di\s+imposta)/i;
 
+// Brackets, floors and caps: the amount marks where a rule starts or stops
+// applying, never what someone hands over. Excluded from the tax role only —
+// "un reddito di oltre 80.000 franchi" is still a usable income base.
+const THRESHOLD_CUE = /(?:oltre|pi[uù]\s+di|superior[ei]\s+a(?:i|l|lla|lle|gli)?|maggior[ei]\s+di|almeno|a\s+partire\s+da|fino\s+a(?:i|l|lla|lle|gli)?|massimo\s+di|al\s+massimo|non\s+oltre|meno\s+di|inferior[ei]\s+a(?:i|l|lla)?|sopra\s+i|sotto\s+i)\s*$/i;
+
+// Money that is demonstrably not a tax. TAX_CUE is deliberately loose (`pag\w*`
+// matches "pagamento", which in `funivia-monte-lema-stagione-2026` referred to
+// a monthly invoice for a cable-car pass), so when one of these words sits
+// closer to the amount than any tax word, it vetoes the pairing.
+const NON_TAX_CUE = /(?:\bcost[aoi]\b|\bcostano\b|\bcostav\w*|\bprezz[oi]\b|\babbonament[oi]\b|\bbigliett[oi]\b|\btariff[ae]\b|\bdetrazion[ei]\b|\bdetrarre\b|\bfranchigi[ae]\b|\brisparmi\w*|\bscont[oi]\b|\bbonus\b|\brimbors[oi]\b|\bcanone\b|\bnoleggi\w*|\bnett[oi]\b)/i;
+
+// How far apart an income and its alleged tax may sit. The real defects state
+// both inside one breath — 133 chars on the incident article ("un reddito di
+// 60.000 … all'anno. … ovvero 60.000 franchi svizzeri"), 173 on
+// `proposta-choc-ticino-frontalieri`. Past ~250 chars the two figures belong to
+// different thoughts and pairing them is a coin toss.
+const MAX_PAIR_DISTANCE = 260;
+
+// A list item starts a new, independent scenario, so nothing carries across it.
+// A bare "-" counts only when it introduces a capitalised clause: otherwise
+// every numeric range ("60.000 - 70.000 franchi") would be cut in half.
+const LIST_MARKER_RE = /(?:^|\s)(?:[*•]|[-–—](?=\s+[A-ZÀ-Ü]))\s+/g;
+// Sentence break, taken only where a new clause visibly begins. The dot inside
+// "1.000" is followed by a digit and never matches. Table cell separators are
+// soft breaks, not hard ones: "| reddito 60.000 | imposta 72.000 |" is one
+// claim spread over two cells and must still be checkable.
+const SENTENCE_BREAK_RE = /(?<=[.!?;])\s+(?=[«"'([*•A-ZÀ-Ü])|\s*\|\s*/g;
+
 /**
- * Ranges of the text that restate a base figure rather than assert a new one:
- * a parenthetical containing a percentage, e.g. "24.000 CHF (30% di 80.000)".
- * Without this, the 80.000 inside the parenthesis was read as a tax equal to
- * the 80.000 income — 96 false positives on the first corpus pass.
+ * Ranges of the text that restate a figure already on the page rather than
+ * assert a new one. Two shapes, both parenthetical:
+ *
+ *  - a working ("24.000 CHF (30% di 80.000)"). Without this the 80.000 inside
+ *    the parenthesis read as a tax equal to the 80.000 income — 96 false
+ *    positives on the first corpus pass.
+ *  - a currency conversion or approximation ("30.000 euro (circa 31.200 franchi
+ *    svizzeri)"). Same number, other currency: `frontalieri-calano-ticino` was
+ *    blocked for a "tax" 104% of an income that was in fact that same income
+ *    converted to francs one word later.
  */
-function calculationSpans(text) {
+function restatementSpans(text) {
   const spans = [];
-  for (const m of text.matchAll(/\([^)]*%[^)]*\)/g)) {
+  const re = /\([^)]*%[^)]*\)|\(\s*(?:circa|pari\s+a|equivalent\w*\s+a|corrispondent\w*\s+a|ossia|ovvero|cio[èe]|all'incirca|≈|~)[^)]*\)/gi;
+  for (const m of text.matchAll(re)) {
     spans.push([m.index, m.index + m[0].length]);
   }
   return spans;
@@ -300,7 +387,7 @@ function periodOf(text, afterIndex) {
 /** Extracts every "<amount> <currency>" occurrence with its position. */
 function extractAmounts(text) {
   const re = new RegExp(String.raw`(\d[\d.,]*)\s*${CURRENCY}`, 'gi');
-  const skip = calculationSpans(text);
+  const skip = restatementSpans(text);
   const out = [];
   for (const m of text.matchAll(re)) {
     if (skip.some(([s, e]) => m.index >= s && m.index < e)) continue;
@@ -322,6 +409,87 @@ function periodsConflict(a, b) {
 }
 
 /**
+ * Cuts a line into the statements a reader treats as separate claims, tagging
+ * each with the list item ("block") it belongs to. Statements in different
+ * blocks are different scenarios and never share an income.
+ */
+function statementSpans(line) {
+  const cuts = [
+    ...[...line.matchAll(LIST_MARKER_RE)].map((m) => ({ at: m.index + m[0].length, hard: true })),
+    ...[...line.matchAll(SENTENCE_BREAK_RE)].map((m) => ({ at: m.index + m[0].length, hard: false })),
+  ].sort((a, b) => a.at - b.at || Number(b.hard) - Number(a.hard));
+
+  const spans = [];
+  let start = 0;
+  let block = 0;
+  for (const cut of cuts) {
+    if (cut.at > start) spans.push({ start, end: cut.at, block });
+    if (cut.hard) block += 1;
+    start = Math.max(start, cut.at);
+  }
+  spans.push({ start, end: line.length, block });
+  return spans;
+}
+
+/** True when the amount is named as an income, by a cue before or right after it. */
+function namesAnIncome(line, span, amt) {
+  const cue = line.slice(span.start, amt.index).match(INCOME_CUE);
+  // A tax word in the gap sits closer to the figure than the income word does,
+  // so the figure is the tax — see INCOME_CUE.
+  if (cue && !TAX_CUE.test(cue[2])) return true;
+  const after = amt.index + amt.raw.length;
+  return INCOME_CUE_TRAILING.test(line.slice(after, after + 30));
+}
+
+/**
+ * Every (income, amount-presented-as-its-tax) pair a single line asserts.
+ *
+ * Shared by the plausibility gate and the cross-section conflict gate. The two
+ * carried copy-pasted pairing code, so a precision fix applied to one left the
+ * other flagging the same false positive — the duplication is the bug.
+ */
+function* incomeTaxPairs(line) {
+  const amounts = extractAmounts(line);
+  if (amounts.length < 2) return;
+
+  // An income reaches the NEXT statement and no further: the incident article
+  // splits the claim over two sentences ("… un reddito di 60.000 franchi
+  // svizzeri all'anno." / "Se optasse …, ovvero 60.000 franchi svizzeri"), while
+  // anything beyond one hop reintroduces the cross-scenario noise. A statement
+  // that names its own income never inherits — that is what clears
+  // `lpp-minimo-secondo-pilastro-2026`, where "se il suo stipendio aumenta a
+  // 7.000 CHF" is a new base, not a tax on the 6.000 CHF of the sentence before.
+  let carried = null;
+
+  for (const span of statementSpans(line)) {
+    const local = amounts.filter((a) => a.index >= span.start && a.index < span.end);
+    const own = local.find((a) => namesAnIncome(line, span, a));
+    const income = own || (carried && carried.block === span.block ? carried.amount : null);
+    carried = own ? { amount: own, block: span.block } : null;
+    if (!income) continue;
+
+    for (const amt of local) {
+      if (amt === income) continue;
+      if (periodsConflict(income, amt)) continue;
+      if (Math.abs(amt.index - income.index) > MAX_PAIR_DISTANCE) continue;
+
+      // Cue nearest the amount wins: a threshold marker or a non-tax noun
+      // immediately in front of it outranks a tax word further upstream.
+      const near = line.slice(Math.max(span.start, amt.index - 40), amt.index);
+      if (THRESHOLD_CUE.test(near)) continue;
+      if (NON_TAX_CUE.test(near) && !TAX_CUE.test(near)) continue;
+
+      const between = line.slice(income.index, amt.index);
+      const preceding = line.slice(Math.max(span.start, amt.index - 80), amt.index);
+      // Only compare amounts that are actually presented as a tax.
+      if (!TAX_CUE.test(between) && !TAX_CUE.test(preceding)) continue;
+
+      yield { income, tax: amt };
+    }
+  }
+}
+
+/**
  * Flags a stated tax that meets or exceeds the gross income it is computed on.
  * @param {string} text
  * @param {{implausibleRatio?: number}} [opts] ratio above which a tax is "major"
@@ -334,34 +502,18 @@ export function checkTaxPlausibility(text, opts = {}) {
   // paragraphs otherwise emitted the identical issue a dozen times.
   const reported = new Set();
 
-  // Work line by line (and table rows are lines) so an income and a tax are
-  // only paired when they genuinely sit in the same statement.
   for (const line of text.split('\n')) {
-    const amounts = extractAmounts(line);
-    if (amounts.length < 2) continue;
-
-    // The income is the amount introduced by an income cue.
-    const income = amounts.find((a) => INCOME_CUE.test(line.slice(0, a.index)));
-    if (!income) continue;
-
-    for (const amt of amounts) {
-      if (amt === income) continue;
-      if (periodsConflict(income, amt)) continue;
-      const between = line.slice(income.index, amt.index);
-      const preceding = line.slice(Math.max(0, amt.index - 80), amt.index);
-      // Only compare amounts that are actually presented as a tax.
-      if (!TAX_CUE.test(between) && !TAX_CUE.test(preceding)) continue;
-
-      const dedupKey = `${income.value}|${amt.value}`;
+    for (const { income, tax } of incomeTaxPairs(line)) {
+      const dedupKey = `${income.value}|${tax.value}`;
       if (reported.has(dedupKey)) continue;
       reported.add(dedupKey);
 
-      const ratio = amt.value / income.value;
+      const ratio = tax.value / income.value;
       if (ratio >= 1) {
         issues.push(issue(
           'tax-exceeds-income',
           'critical',
-          `Imposta ${amt.raw} pari o superiore al reddito lordo ${income.raw} (${Math.round(ratio * 100)}%) — impossibile`,
+          `Imposta ${tax.raw} pari o superiore al reddito lordo ${income.raw} (${Math.round(ratio * 100)}%) — impossibile`,
           line.trim(),
           `Un'imposta non può essere pari o superiore al reddito lordo. Errore tipico: leggere "aliquota al 100%" `
           + `come "il 100% dello stipendio". Il 100% si riferisce all'ALIQUOTA PIENA della tabella d'imposta, non al reddito. `
@@ -373,10 +525,10 @@ export function checkTaxPlausibility(text, opts = {}) {
         issues.push(issue(
           'tax-implausible',
           'major',
-          `Imposta ${amt.raw} = ${Math.round(ratio * 100)}% del reddito ${income.raw} — implausibile per un frontaliere`,
+          `Imposta ${tax.raw} = ${Math.round(ratio * 100)}% del reddito ${income.raw} — implausibile per un frontaliere`,
           line.trim(),
           `Verifica l'aliquota: l'imposta alla fonte per un frontaliere in Ticino sta tipicamente tra il 5% e il 15% del lordo. `
-          + `Se ${amt.raw} include anche contributi o imposte italiane, dichiaralo esplicitamente e scomponi le voci; `
+          + `Se ${tax.raw} include anche contributi o imposte italiane, dichiaralo esplicitamente e scomponi le voci; `
           + `altrimenti correggi l'importo.`,
         ));
       }
@@ -408,21 +560,13 @@ export function checkCrossSectionNumericConflicts(sections, opts = {}) {
   for (const [section, text] of Object.entries(sections)) {
     if (typeof text !== 'string') continue;
     for (const line of text.split('\n')) {
-      const amounts = extractAmounts(line);
-      if (amounts.length < 2) continue;
-      const income = amounts.find((a) => INCOME_CUE.test(line.slice(0, a.index)));
-      if (!income) continue;
-
-      for (const amt of amounts) {
-        if (amt === income) continue;
-        if (periodsConflict(income, amt)) continue;
-        const between = line.slice(income.index, amt.index);
-        const preceding = line.slice(Math.max(0, amt.index - 80), amt.index);
-        if (!TAX_CUE.test(between) && !TAX_CUE.test(preceding)) continue;
-
+      // Same pairing rules as the plausibility gate, deliberately: this gate
+      // used to re-derive them and drifted, so a false pair fixed there kept
+      // firing here on the same sentence.
+      for (const { income, tax } of incomeTaxPairs(line)) {
         const key = income.value;
         if (!byIncome.has(key)) byIncome.set(key, []);
-        byIncome.get(key).push({ section, tax: amt.value, raw: amt.raw, line: line.trim() });
+        byIncome.get(key).push({ section, tax: tax.value, raw: tax.raw, line: line.trim() });
       }
     }
   }
