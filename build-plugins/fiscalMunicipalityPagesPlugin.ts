@@ -430,6 +430,37 @@ const TAX_RETURN_PATH: Record<FiscalLocale, string> = {
   fr: '/fr/impots-et-retraite/declaration-impots/',
 };
 
+/** Locale-native disclosure appended to the FAQ answer (both the visible
+ *  HTML and the FAQPage JSON-LD, which share faqA3) when the comune's
+ *  irpefAddizionale is not a plain flat statutory rate — see
+ *  Municipality['noteType'] in data/municipalities.ts. */
+const NOTE_DISCLOSURE: Record<FiscalLocale, Record<'progressive' | 'noTax', string>> = {
+  it: {
+    progressive:
+      "Nota: il comune applica l'addizionale a scaglioni progressivi — il valore mostrato è l'aliquota media effettiva sul reddito imponibile di riferimento del sito, non un'aliquota unica.",
+    noTax:
+      'Nota: al 2023-2025 il comune non risulta aver istituito alcuna addizionale comunale IRPEF (nessuna delibera pubblicata dal MEF).',
+  },
+  en: {
+    progressive:
+      "Note: this municipality applies the surtax on progressive brackets — the figure shown is the effective average rate on the site's reference taxable income, not a single flat rate.",
+    noTax:
+      'Note: as of 2023-2025 this municipality has not instituted any municipal IRPEF surtax (no rate on file with the Italian finance ministry, MEF).',
+  },
+  de: {
+    progressive:
+      'Hinweis: Die Gemeinde erhebt den Zuschlag nach progressiven Staffeln — der angezeigte Wert ist der effektive Durchschnittssatz auf das Referenzeinkommen der Seite, kein einheitlicher Satz.',
+    noTax:
+      'Hinweis: Für 2023-2025 hat die Gemeinde keinen kommunalen IRPEF-Zuschlag eingeführt (kein Satz beim italienischen Finanzministerium MEF hinterlegt).',
+  },
+  fr: {
+    progressive:
+      "Remarque : la commune applique la surtaxe par tranches progressives — la valeur indiquée est le taux moyen effectif sur le revenu imposable de référence du site, et non un taux unique.",
+    noTax:
+      "Remarque : entre 2023 et 2025, la commune n'a instauré aucune surtaxe communale IRPEF (aucun taux déposé auprès du ministère italien des Finances, MEF).",
+  },
+};
+
 function vitaPathFor(locale: FiscalLocale, slug: string): string {
   return `${VITA_BASE_PATH[locale]}/${slug}/`;
 }
@@ -488,6 +519,9 @@ export function renderAboveFloorPage(params: {
   const addizPctStr = pct(municipality.irpefAddizionale, locale);
   const diffMonthlyStr = eur(nums.diffMonthlyEUR, locale);
   const addizEurStr = eur(nums.addizionaleAnnualEUR, locale);
+  const faqA3Text = municipality.noteType
+    ? `${c.faqA3(n, addizPctStr, addizEurStr)} ${NOTE_DISCLOSURE[locale][municipality.noteType]}`
+    : c.faqA3(n, addizPctStr, addizEurStr);
   const canonicalPath = fiscalPathFor(locale, municipality.slug);
   const canonicalUrl = `${BASE_URL}${canonicalPath}`;
 
@@ -577,7 +611,7 @@ export function renderAboveFloorPage(params: {
       <div class="mt-4 divide-y divide-edge">
         <details class="py-3" open><summary class="cursor-pointer font-semibold text-heading">${esc(c.faqQ1)}</summary><p class="mt-2 text-sm leading-6 text-body">${esc(c.faqA1(n, diffMonthlyStr))}</p></details>
         <details class="py-3"><summary class="cursor-pointer font-semibold text-heading">${esc(c.faqQ2)}</summary><p class="mt-2 text-sm leading-6 text-body">${esc(c.faqA2)}</p></details>
-        <details class="py-3"><summary class="cursor-pointer font-semibold text-heading">${esc(c.faqQ3(n))}</summary><p class="mt-2 text-sm leading-6 text-body">${esc(c.faqA3(n, addizPctStr, addizEurStr))}</p></details>
+        <details class="py-3"><summary class="cursor-pointer font-semibold text-heading">${esc(c.faqQ3(n))}</summary><p class="mt-2 text-sm leading-6 text-body">${esc(faqA3Text)}</p></details>
       </div>
     </section>
 
@@ -593,7 +627,7 @@ export function renderAboveFloorPage(params: {
     mainEntity: [
       { '@type': 'Question', name: c.faqQ1, acceptedAnswer: { '@type': 'Answer', text: c.faqA1(n, diffMonthlyStr) } },
       { '@type': 'Question', name: c.faqQ2, acceptedAnswer: { '@type': 'Answer', text: c.faqA2 } },
-      { '@type': 'Question', name: c.faqQ3(n), acceptedAnswer: { '@type': 'Answer', text: c.faqA3(n, addizPctStr, addizEurStr) } },
+      { '@type': 'Question', name: c.faqQ3(n), acceptedAnswer: { '@type': 'Answer', text: faqA3Text } },
     ],
   });
 

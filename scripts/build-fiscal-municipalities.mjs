@@ -83,8 +83,8 @@ export function parseMunicipalities(tsSource) {
       return mm ? Number.parseFloat(mm[1]) : undefined;
     };
     const str = (key) => {
-      const mm = fields.match(new RegExp(`${key}:\\s*'([^']*)'`));
-      return mm ? mm[1] : undefined;
+      const mm = fields.match(new RegExp(`${key}:\\s*'((?:[^'\\\\]|\\\\.)*)'`));
+      return mm ? mm[1].replace(/\\'/g, "'").replace(/\\"/g, '"') : undefined;
     };
     const province = str('province');
     if (!name || !province) continue;
@@ -98,6 +98,8 @@ export function parseMunicipalities(tsSource) {
       avgRentMonthly: num('avgRentMonthly'),
       population: num('population'),
       fascia: str('fascia'),
+      note: str('note'),
+      noteType: str('noteType'),
     });
   }
   return out;
@@ -124,6 +126,8 @@ export function buildDataset(all) {
     avgRentMonthly: m.avgRentMonthly,
     lat: m.lat,
     lng: m.lng,
+    ...(m.note ? { note: m.note } : {}),
+    ...(m.noteType ? { noteType: m.noteType } : {}),
   });
 
   const isAboveFloor = (m) => m.population >= MIN_POPULATION && m.distanceKm <= MAX_DISTANCE_KM;

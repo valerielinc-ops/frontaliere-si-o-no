@@ -32,6 +32,12 @@ export interface FiscalMunicipality {
   avgRentMonthly: number;
   lat: number;
   lng: number;
+  /** Set only when irpefAddizionale is a derived/effective rate needing
+   *  context (progressive bracket schedule, or no tax instituted). */
+  note?: string;
+  /** Machine-readable discriminant for `note` — drives the locale-native
+   *  FAQ disclosure clause instead of splicing the Italian `note` text. */
+  noteType?: 'progressive' | 'noTax';
 }
 
 interface FiscalDatasetShape {
