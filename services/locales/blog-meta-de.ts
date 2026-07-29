@@ -9081,6 +9081,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.di-piu-niente-shorts-ne-infradito.title': 'Warm bei der Arbeit, obligatorische Eleganz in der Schweiz',
     'blog.article.di-piu-niente-shorts-ne-infradito.excerpt': 'Die meisten Arbeitnehmer in Europa können am Arbeitsplatz tragen, was sie wollen, aber in der Schweiz ist das anders.',
     'blog.article.di-piu-niente-shorts-ne-infradito.imageAlt': 'Ein Grenzarbeiter in der Schweiz bereitet sich auf einen heißen Arbeitstag vor.',
+    'blog.article.impresari-costruttori-caldo-estremo.title': 'Bau im Tessin: Strafstopp bei extremer Hitze',
+    'blog.article.impresari-costruttori-caldo-estremo.excerpt': 'Der SBV fordert faire Bedingungen für Baustellen während Hitzewellen und vermeidet Vertragsstrafen für Verspätungen durch extreme Temperaturen.',
+    'blog.article.impresari-costruttori-caldo-estremo.imageAlt': 'Baustelle im Tessin während einer Hitzewelle',
 };
 
 export default blogMetaDe;

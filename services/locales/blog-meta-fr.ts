@@ -9084,6 +9084,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.di-piu-niente-shorts-ne-infradito.title': 'Chaud au travail, élégance obligatoire en Suisse',
     'blog.article.di-piu-niente-shorts-ne-infradito.excerpt': 'La plupart des employés en Europe peuvent porter ce qu\'ils veulent sur leur lieu de travail, mais en Suisse, c\'est différent.',
     'blog.article.di-piu-niente-shorts-ne-infradito.imageAlt': 'Un travailleur frontalier en Suisse se prépare pour aller au travail un jour chaud.',
+    'blog.article.impresari-costruttori-caldo-estremo.title': 'Construction au Tessin : arrêt des pénalités pour chaleur extrême',
+    'blog.article.impresari-costruttori-caldo-estremo.excerpt': 'La SSIC demande des conditions équitables pour les chantiers pendant les vagues de chaleur, en évitant les pénalités contractuelles pour les retards causés par des températures extrêmes.',
+    'blog.article.impresari-costruttori-caldo-estremo.imageAlt': 'Chantier de construction au Tessin pendant une vague de chaleur',
 };
 
 export default blogMetaFr;
