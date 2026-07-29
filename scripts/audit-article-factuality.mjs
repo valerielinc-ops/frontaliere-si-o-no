@@ -33,10 +33,22 @@ import { readdirSync, readFileSync, existsSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
 import { join } from 'node:path';
 import { runFactualityGates, SEVERITY, formatIssues } from './lib/article-factuality-gates.mjs';
-import { BODY_DIRS, extractBodies } from './lib/blog-body-io.mjs';
+import { BODY_DIRS, LOCALES, extractBodies } from './lib/blog-body-io.mjs';
 
 const AS_JSON = process.argv.includes('--json');
 const CRITICAL_ONLY = process.argv.includes('--critical');
+/**
+ * Which locales to scan. Italian is the generated body and the reference the
+ * other three are compared against, so it is always read even when not scanned.
+ * `--locale it` reproduces the pre-2026-07-29 report exactly, which is how the
+ * "Italian verdict unchanged" claim is checked.
+ */
+const LOCALE_FILTER = (() => {
+  const i = process.argv.indexOf('--locale');
+  if (i === -1) return LOCALES;
+  const wanted = (process.argv[i + 1] || '').split(',').map((s) => s.trim()).filter(Boolean);
+  return wanted.length ? LOCALES.filter((l) => wanted.includes(l)) : LOCALES;
+})();
 const LIMIT = (() => {
   const i = process.argv.indexOf('--limit');
   return i !== -1 ? Number(process.argv[i + 1]) || Infinity : Infinity;
@@ -70,7 +82,10 @@ function changedArticleIds(base) {
   }
   const ids = new Set();
   for (const line of out.split('\n')) {
-    const m = line.match(/^services\/locales\/blog-body(?:-ch)?\/it\/(.+)\.ts$/);
+    // Any locale, not just `it`: the gate now judges translations too, and a
+    // PR that only touches services/locales/blog-body/en/<id>.ts is exactly
+    // the shape of change ("border guards") this was extended to catch.
+    const m = line.match(/^services\/locales\/blog-body(?:-ch)?\/(?:it|en|de|fr)\/(.+)\.ts$/);
     if (m) ids.add(m[1]);
   }
   return ids;
@@ -83,31 +98,62 @@ const changedIds = diffUnavailable ? new Set() : changedIdsRaw;
 
 const findings = [];
 let scanned = 0;
+/** locale → { scanned, flagged, critical, byCode } — for the per-locale table. */
+const perLocale = new Map();
+function tally(locale) {
+  if (!perLocale.has(locale)) {
+    perLocale.set(locale, {
+      scanned: 0, flagged: 0, critical: 0, byCode: new Map(),
+    });
+  }
+  return perLocale.get(locale);
+}
+
+/** Reads one article's body sections for one locale; {} when absent. */
+function sectionsFor(bodyDir, locale, file, id) {
+  const path = join(bodyDir, locale, file);
+  if (!existsSync(path)) return {};
+  return extractBodies(readFileSync(path, 'utf-8'), id);
+}
 
 for (const bodyDir of BODY_DIRS) {
   const itDir = join(bodyDir, 'it');
   if (!existsSync(itDir)) continue;
 
+  // The Italian file list drives the walk in every locale: an article that
+  // exists only as a translation has no reference to be judged against.
   for (const file of readdirSync(itDir).filter((f) => f.endsWith('.ts'))) {
     const id = file.replace('.ts', '');
     if (changedIds && !changedIds.has(id)) continue;
-    const sections = extractBodies(readFileSync(join(itDir, file), 'utf-8'), id);
-    if (!Object.keys(sections).length) continue;
-    scanned++;
+    const italianSections = extractBodies(readFileSync(join(itDir, file), 'utf-8'), id);
+    if (!Object.keys(italianSections).length) continue;
 
-    // No sourceText / sourceDate: those gates are skipped by construction.
-    const { issues, blocking } = runFactualityGates({ sections });
-    const relevant = CRITICAL_ONLY ? blocking : issues;
-    if (!relevant.length) continue;
+    for (const locale of LOCALE_FILTER) {
+      const sections = locale === 'it' ? italianSections : sectionsFor(bodyDir, locale, file, id);
+      if (!Object.keys(sections).length) continue;
+      scanned++;
+      const t = tally(locale);
+      t.scanned++;
 
-    findings.push({
-      id,
-      dir: bodyDir,
-      criticalCount: blocking.length,
-      issueCount: issues.length,
-      worst: Math.max(...issues.map((i) => SEVERITY[i.severity] || 0)),
-      issues: relevant,
-    });
+      // No sourceText / sourceDate: those gates are skipped by construction.
+      const { issues, blocking } = runFactualityGates({ sections, locale, italianSections });
+      const relevant = CRITICAL_ONLY ? blocking : issues;
+      if (!relevant.length) continue;
+
+      t.flagged++;
+      if (blocking.length) t.critical++;
+      for (const i of issues) t.byCode.set(i.code, (t.byCode.get(i.code) || 0) + 1);
+
+      findings.push({
+        id,
+        dir: bodyDir,
+        locale,
+        criticalCount: blocking.length,
+        issueCount: issues.length,
+        worst: Math.max(...issues.map((i) => SEVERITY[i.severity] || 0)),
+        issues: relevant,
+      });
+    }
   }
 }
 
@@ -115,13 +161,33 @@ findings.sort((a, b) => b.criticalCount - a.criticalCount || b.worst - a.worst |
 const shown = findings.slice(0, LIMIT);
 
 if (AS_JSON) {
-  console.log(JSON.stringify({ scanned, flagged: findings.length, findings: shown }, null, 2));
+  console.log(JSON.stringify({
+    scanned,
+    flagged: findings.length,
+    perLocale: Object.fromEntries([...perLocale].map(([l, t]) => [l, {
+      scanned: t.scanned,
+      flagged: t.flagged,
+      critical: t.critical,
+      byCode: Object.fromEntries([...t.byCode].sort((a, b) => b[1] - a[1])),
+    }])),
+    findings: shown,
+  }, null, 2));
 } else {
   const icon = { critical: '🚨', major: '⚠️', minor: 'ℹ️' };
   console.log(`\n📊 Audit factuality — ${scanned} articoli analizzati, ${findings.length} con problemi\n`);
   const withCritical = findings.filter((f) => f.criticalCount > 0).length;
   console.log(`   🚨 con problemi BLOCCANTI: ${withCritical}`);
   console.log(`   ⚠️  solo warning:          ${findings.length - withCritical}\n`);
+
+  if (perLocale.size > 1) {
+    console.log('   Per locale (analizzati / con problemi / bloccanti):');
+    for (const locale of LOCALE_FILTER) {
+      const t = perLocale.get(locale);
+      if (!t) continue;
+      console.log(`     ${locale}  ${String(t.scanned).padStart(5)} / ${String(t.flagged).padStart(5)} / ${String(t.critical).padStart(5)}`);
+    }
+    console.log('');
+  }
 
   // Which defect classes are most common across the corpus.
   const byCode = new Map();
@@ -130,12 +196,17 @@ if (AS_JSON) {
   }
   console.log('   Classi di difetto per frequenza:');
   for (const [code, n] of [...byCode].sort((a, b) => b[1] - a[1])) {
-    console.log(`     ${String(n).padStart(4)}×  ${code}`);
+    const split = LOCALE_FILTER
+      .map((l) => [l, perLocale.get(l)?.byCode.get(code) || 0])
+      .filter(([, v]) => v > 0)
+      .map(([l, v]) => `${l}:${v}`)
+      .join(' ');
+    console.log(`     ${String(n).padStart(4)}×  ${code.padEnd(34)} ${split}`);
   }
   console.log('');
 
   for (const f of shown) {
-    console.log(`\n─── ${f.id}  (${f.criticalCount} bloccanti / ${f.issueCount} totali)`);
+    console.log(`\n─── [${f.locale}] ${f.id}  (${f.criticalCount} bloccanti / ${f.issueCount} totali)`);
     for (const i of f.issues) {
       console.log(`  ${icon[i.severity] || '•'} [${i.code}] ${i.message}`);
       if (i.evidence) console.log(`       ↳ ${i.evidence.slice(0, 160)}`);
@@ -164,7 +235,7 @@ if (CHANGED_BASE) {
   }
   console.error(`\n🚫 ${blocking.length} articoli modificati con problemi BLOCCANTI:\n`);
   for (const f of blocking) {
-    console.error(`─── ${f.id}`);
+    console.error(`─── [${f.locale}] ${f.id}`);
     console.error(formatIssues(f.issues.filter((i) => i.severity === 'critical')));
   }
   console.error('\nOgni problema riporta la correzione richiesta (🔧). Correggi il contenuto:');
