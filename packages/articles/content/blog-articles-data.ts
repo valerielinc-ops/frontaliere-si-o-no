@@ -27345,6 +27345,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'tassa-salute-frontalieri-doppia-imposizione',
+ category: 'fiscale',
+ date: '2026-07-29T15:23:02.829Z',
+ image: '/images/blog/tassa-salute-frontalieri-doppia-imposizione.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

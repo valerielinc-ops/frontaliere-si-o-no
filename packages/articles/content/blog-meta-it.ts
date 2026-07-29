@@ -9110,6 +9110,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.agenzie-immobiliari-lavoro-ticino.title': 'Efficienza nel settore immobiliare: come lavorano i professionisti',
     'blog.article.agenzie-immobiliari-lavoro-ticino.excerpt': 'Perché le agenzie immobiliari di successo in Ticino non perdono tempo sui social ma si concentrano sulla gestione operativa degli immobili.',
     'blog.article.agenzie-immobiliari-lavoro-ticino.imageAlt': 'Ufficio professionale a Lugano con vista sul lago',
+    'blog.article.tassa-salute-frontalieri-doppia-imposizione.title': 'Tassa salute frontalieri: sindacati e Cantone contro la doppia imposizione',
+    'blog.article.tassa-salute-frontalieri-doppia-imposizione.excerpt': 'Un parere legale commissionato dal Canton Ticino boccia la \'tassa sulla salute\' del 2024: si tratta di un\'imposta che viola il trattato del 2020.',
+    'blog.article.tassa-salute-frontalieri-doppia-imposizione.imageAlt': 'Veduta di Bellinzona con i castelli, sede di discussioni sul lavoro transfrontaliero.',
 };
 
 export default blogMetaIt;

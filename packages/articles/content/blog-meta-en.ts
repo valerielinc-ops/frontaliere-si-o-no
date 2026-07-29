@@ -9109,6 +9109,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.agenzie-immobiliari-lavoro-ticino.title': 'Efficiency in real estate: how professionals work',
     'blog.article.agenzie-immobiliari-lavoro-ticino.excerpt': 'Because successful real estate agencies in Ticino do not waste time on social media but focus on the operational management of real estate.',
     'blog.article.agenzie-immobiliari-lavoro-ticino.imageAlt': 'Professional office in Lugano with a view of the lake',
+    'blog.article.tassa-salute-frontalieri-doppia-imposizione.title': 'Border health tax: trade unions and Canton against double taxation',
+    'blog.article.tassa-salute-frontalieri-doppia-imposizione.excerpt': 'A legal opinion commissioned by the Canton of Ticino rejects the 2024 \'health tax\': it is a tax that violates the 2020 treaty.',
+    'blog.article.tassa-salute-frontalieri-doppia-imposizione.imageAlt': 'View of Bellinzona with castles, site of cross-border work discussions.',
 };
 
 export default blogMetaEn;
