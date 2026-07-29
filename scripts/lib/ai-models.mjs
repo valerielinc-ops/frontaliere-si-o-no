@@ -791,6 +791,11 @@ const OMNIROUTE_FAILURE_STORM_THRESHOLD = 5;
 // via _withClaudeCliSlot and never deadlock: the slot is always released in
 // a `finally`, including on throw/reject.
 const CLAUDE_CLI_MAX_CONCURRENCY = 2;
+
+// Per-call timeout FLOOR for the claude CLI subprocess (raised 60s → 120s by
+// the T2 diagnosis, see _callClaudeCli). Shared so _hardCallCapMs sizes its
+// backstop off the same floor instead of a second copy of the literal.
+const CLAUDE_CLI_MIN_TIMEOUT_MS = 120_000;
 let _claudeCliInFlight = 0;
 const _claudeCliWaiters = [];
 
@@ -1216,6 +1221,12 @@ const MAX_CONSECUTIVE_CONTENT_FAILURES = 2;
 // Maps provider name → cooldown-until timestamp (ms).
 const _providerCooldown = new Map();
 const PROVIDER_COOLDOWN_MS = 60_000; // 1 minute cooldown after 429
+
+// Ceiling applied to a provider's `Retry-After` header (some return 86399 =
+// 24h, which would freeze the pipeline). Read in two places that must never
+// drift apart: the 429 backoff in _callOpenAICompatible, and _hardCallCapMs
+// below, which sizes the per-call hard cap off this same worst-case wait.
+const MAX_RETRY_AFTER_MS = 2 * 60 * 1000;
 
 function isProviderCoolingDown(provider) {
   const until = _providerCooldown.get(provider);
@@ -3191,8 +3202,9 @@ async function _callOpenAICompatible(apiModel, messages, opts, { endpoint, apiKe
           }
           // Respect Retry-After header if present (seconds or HTTP-date)
           // Cap at 2 minutes — some providers (e.g. Cerebras) return Retry-After: 86399 (24h)
-          // which would freeze the entire translation pipeline.
-          const MAX_RETRY_AFTER_MS = 2 * 60 * 1000;
+          // which would freeze the entire translation pipeline. Shared module
+          // constant (MAX_RETRY_AFTER_MS) so the per-call hard cap below can
+          // size itself off the same worst-case wait instead of duplicating it.
           const retryAfterHeader = res.headers?.get?.('retry-after');
           const retryAfterRaw = retryAfterHeader ? (Number(retryAfterHeader) > 0 ? Number(retryAfterHeader) * 1000 : 0) : 0;
           const retryAfterMs = Math.min(retryAfterRaw, MAX_RETRY_AFTER_MS);
@@ -3662,7 +3674,7 @@ async function _callClaudeCli(model, messages, opts) {
   // never the bottleneck by itself, so the floor alone isn't the fix, but it
   // buys headroom against the CI-runner contention the semaphore below
   // (CLAUDE_CLI_MAX_CONCURRENCY) reduces but may not fully absorb.
-  const baseTimeoutMs = Math.max(opts.timeout || 0, 120_000);
+  const baseTimeoutMs = Math.max(opts.timeout || 0, CLAUDE_CLI_MIN_TIMEOUT_MS);
 
   // Acquire the dedicated concurrency slot BEFORE computing the deadlineMs
   // cap below, so time spent queued behind another in-flight claude-cli call
@@ -3896,8 +3908,107 @@ async function _callGeminiRaw(model, messages, opts) {
 
 // ── Model routing ────────────────────────────────────────────
 
-/** Route a model call to the correct provider */
+/**
+ * Grace added on top of the computed worst case, so the provider's OWN abort
+ * (AbortSignal.timeout / claude-CLI SIGKILL timer) always gets the first shot
+ * at ending the call — the hard cap below is the backstop for when it doesn't.
+ */
+const HARD_CALL_CAP_GRACE_MS = 60_000;
+
+/**
+ * Absolute wall-clock ceiling for ONE _callModel invocation, in ms.
+ *
+ * Every provider already sets its own per-request timeout (AbortSignal.timeout
+ * in the fetch callers, a SIGKILL timer in _runClaudeCliProcess), and callLLM
+ * re-checks opts.deadlineMs BETWEEN models. Run 30436268314 proved that is not
+ * enough: a single call hung 3h36m (08:54:32 → cancelled at 12:30) with ZERO
+ * log output — no per-model failure line, no fallback line, no deadline abort —
+ * i.e. neither the 90s AbortSignal nor the 55min run deadline ever fired. The
+ * between-models deadline check cannot help while one call is in flight, and an
+ * in-request signal cannot help if the provider (or a starved/frozen runner)
+ * never lets it fire. This cap sits OUTSIDE the call and is the only in-process
+ * guard that survives that failure mode; the workflow's `timeout` wrapper in
+ * generate-article.yml covers the case where even this timer never fires.
+ *
+ * Sized to the worst LEGITIMATE case so it never truncates a healthy call: each
+ * of the maxRetriesPerModel attempts may burn its full per-request timeout AND
+ * a capped Retry-After wait, doubled for headroom, plus grace. For the article
+ * generator (timeout 90s, maxRetriesPerModel 2) that is 15min — comfortably
+ * above the slowest observed successful call (507s, run 30420300910) and three
+ * orders of magnitude below the incident. Providers that legitimately run long
+ * (local CPU inference, claude CLI cold start) are sized off their own floors.
+ * Finally clamped to the caller's remaining wall-clock budget when it supplied
+ * one: nothing should outlive the deadline its caller already declared.
+ */
+function _hardCallCapMs(model, opts) {
+  const provider = getProvider(model);
+  let base = Math.max(opts?.timeout || 0, 30_000);
+  // Mirror the per-provider timeout floors _callLocal / _callClaudeCli apply,
+  // otherwise the cap would fire before their own timeout ever could.
+  if (provider === PROVIDER.LOCAL) base = Math.max(base, getLocalLlmTimeoutMs());
+  else if (provider === PROVIDER.CLAUDE_CLI) base = Math.max(base, CLAUDE_CLI_MIN_TIMEOUT_MS);
+  const attempts = Math.max(1, opts?.maxRetriesPerModel || 1);
+  let cap = attempts * (base + MAX_RETRY_AFTER_MS) * 2 + HARD_CALL_CAP_GRACE_MS;
+  if (opts?.deadlineMs) {
+    const remaining = opts.deadlineMs - Date.now();
+    // Floor at the grace window so an already-expired deadline still gets one
+    // honest short attempt instead of an instant 0ms abort.
+    cap = Math.min(cap, Math.max(HARD_CALL_CAP_GRACE_MS, remaining + HARD_CALL_CAP_GRACE_MS));
+  }
+  return cap;
+}
+
+/**
+ * Interval between in-flight heartbeat lines. A call that outlives one interval
+ * prints which model it is waiting on and for how long — run 30436268314 was
+ * undiagnosable precisely because 3h36m of silence named no model. Silence that
+ * persists even with this heartbeat installed is itself the diagnosis: the
+ * event loop is blocked (frozen/starved runner), not an await hanging on I/O.
+ */
+const HARD_CALL_HEARTBEAT_MS = 60_000;
+
+/**
+ * Route a model call to the correct provider, under a hard wall-clock cap.
+ *
+ * Deliberately the single choke point (both public entry points — callLLM's
+ * cascade and callSingleModel — route through here), so no caller can acquire
+ * an uncapped model call by construction.
+ */
 function _callModel(model, messages, opts) {
+  const capMs = _hardCallCapMs(model, opts || {});
+  const started = Date.now();
+  let heartbeat;
+  let capTimer;
+  const call = (async () => _routeModelCall(model, messages, opts))();
+  const capped = new Promise((_resolve, reject) => {
+    capTimer = setTimeout(() => {
+      const err = new Error(
+        `[${model}] hard cap: no response after ${Math.round(capMs / 1000)}s (provider timeout never fired) — abandoning call`,
+      );
+      // Named so the existing timeout branches (retry suppression in the
+      // provider callers, the timeout circuit-breaker in callLLM's catch)
+      // classify it exactly as they classify a provider-side abort.
+      err.name = 'TimeoutError';
+      reject(err);
+    }, capMs);
+    capTimer.unref?.();
+  });
+  heartbeat = setInterval(() => {
+    console.warn(`⏳ [${model}] in-flight ${Math.round((Date.now() - started) / 1000)}s (hard cap ${Math.round(capMs / 1000)}s)`);
+  }, HARD_CALL_HEARTBEAT_MS);
+  heartbeat.unref?.();
+  // The abandoned call keeps running until its own socket/subprocess gives up;
+  // swallow its eventual settlement so it can never surface as an
+  // unhandledRejection after the cascade has already moved on.
+  call.catch(() => {});
+  return Promise.race([call, capped]).finally(() => {
+    clearTimeout(capTimer);
+    clearInterval(heartbeat);
+  });
+}
+
+/** Route a model call to the correct provider */
+function _routeModelCall(model, messages, opts) {
   const provider = getProvider(model);
   switch (provider) {
     case PROVIDER.GITHUB:      return _callGitHub(model, messages, opts);

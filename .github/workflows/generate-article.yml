@@ -60,7 +60,14 @@ jobs:
     # Models PATs (+ multi-PAT rotation) aren't IP-throttled. See
     # docs/SELFHOSTED-RUNNER.md. Falls back to ubuntu-latest otherwise.
     runs-on: ${{ (github.event.inputs.runner || vars.ARTICLE_RUNNER) == 'self-hosted' && fromJSON('["self-hosted","article-gen"]') || 'ubuntu-latest' }}
-    timeout-minutes: 360
+    # 80min = setup (~6) + the generate step's own hard kill (55min frontaliere
+    # budget + 5min grace) + post steps (~5) + margin. Was 360: with `concurrency:
+    # cancel-in-progress: false` and a cron every 30min, a single hung run held
+    # the article-generation slot for HOURS and queued every following run behind
+    # it (run 30436268314 burned 3h52m before a manual cancel; the next run then
+    # sat queued 2h18m). The generate step's `timeout` wrapper is the primary
+    # guard — this is the backstop for a hang anywhere else in the job.
+    timeout-minutes: 80
     steps:
       # NOTE: the deploy.yml-style "Free disk space" toolchain cleanup was
       # removed here (2026-06-15). It cost ~260s of pure overhead per run and is
@@ -315,11 +322,44 @@ jobs:
           CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
         run: |
           echo "📰 Generating blog article (section=$TARGET_SECTION)..."
+          # Out-of-process wall-clock kill. CREATE_ARTICLE_MAX_WALL_MS is an
+          # IN-process budget: it only fires if the generator's own event loop
+          # is still running its checks. Run 30436268314 showed that assumption
+          # break — one model call hung 3h36m with zero output, past both the
+          # 90s per-request AbortSignal and the 55min run deadline, until it was
+          # cancelled by hand. `timeout` runs outside the process, so it holds
+          # even when nothing inside it can. Sized at the section's own budget
+          # + 5min grace so the in-process deadline always gets to finish the
+          # run gracefully (and publish) first; this only ever fires on a hang.
+          # SIGTERM first (Node exits, Post steps still run), SIGKILL 60s later.
+          hard_kill_s=$(( CREATE_ARTICLE_MAX_WALL_MS / 1000 + 300 ))
+          echo "⏱️  hard kill after ${hard_kill_s}s (in-process budget $(( CREATE_ARTICLE_MAX_WALL_MS / 1000 ))s + 300s grace)"
+          set +e
           if [ -n "${{ inputs.url }}" ]; then
-            node scripts/create-article.mjs --section="$TARGET_SECTION" "${{ inputs.url }}"
+            timeout --signal=TERM --kill-after=60s "${hard_kill_s}s" node scripts/create-article.mjs --section="$TARGET_SECTION" "${{ inputs.url }}"
           else
-            node scripts/create-article.mjs --section="$TARGET_SECTION"
+            timeout --signal=TERM --kill-after=60s "${hard_kill_s}s" node scripts/create-article.mjs --section="$TARGET_SECTION"
           fi
+          rc=$?
+          set -e
+          # 124 = timeout fired, 137 = SIGKILL after --kill-after. Both mean the
+          # generator hung. Treated as a no-article DEFER, not a failure: the
+          # transient-exhaustion path already exits 0 with no changes, and the
+          # self-trigger chain must keep advancing (a hard failure here stops
+          # article production entirely until someone notices). Loud in the
+          # step summary so a recurring hang is never silent.
+          if [ "$rc" -eq 124 ] || [ "$rc" -eq 137 ]; then
+            echo "⏱️  HARD TIMEOUT: create-article.mjs killed after ${hard_kill_s}s — deferring to next run (no article this run)"
+            {
+              echo "## ⏱️ Create-article hard timeout"
+              echo ""
+              echo "Generation exceeded ${hard_kill_s}s (section \`$TARGET_SECTION\`) and was killed out-of-process."
+              echo "No article produced this run; the self-trigger chain continues."
+              echo "Check the log for the last \`⏳ [<model>] in-flight\` heartbeat — it names the model that stalled."
+            } >> "$GITHUB_STEP_SUMMARY"
+            exit 0
+          fi
+          exit "$rc"
 
       - name: Create-article final report
         if: always()

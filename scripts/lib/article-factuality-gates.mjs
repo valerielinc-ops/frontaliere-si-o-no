@@ -1380,6 +1380,10 @@ export function checkSourceFreshness(params = {}) {
       'minor',
       'Data di pubblicazione della fonte non estratta — freshness non verificabile',
       '',
+      `Non datare il fatto al presente ("oggi", "da questa settimana", "in queste ore"): la data della fonte `
+      + `non è nota, quindi una collocazione temporale implicita è un'affermazione non verificata. Attribuisci `
+      + `il fatto alla fonte senza fissarlo nel tempo ("come riportato dalla fonte") oppure usa solo le date `
+      + `esplicitamente citate nel SOURCE CONTENT.`,
     ));
   }
 
@@ -1455,6 +1459,160 @@ export function extractSourceAnchors(sourceText) {
   return anchors;
 }
 
+/**
+ * Render one anchor in the EXACT literal form matchedAnchors() searches for.
+ *
+ * Anchors are stored in a machine key form (`date:2023-07-17`, `km:20`) that
+ * the recall matcher never looks for verbatim — dates, for instance, are only
+ * matched as "17 luglio 2023". Every message that asks a writer to include an
+ * anchor must therefore go through this function, or it asks for a string that
+ * cannot satisfy the check it is quoting. That is not hypothetical: the
+ * `source-fidelity-low` remediation used to interpolate the raw key, so an
+ * article that dutifully wrote "2023-07-17" still failed the gate that had
+ * demanded it, and the retry loop could never converge on a date anchor.
+ *
+ * Kept next to matchedAnchors() deliberately: check and instruction are one
+ * unit, and a change to either without the other is a silent contradiction.
+ */
+export function renderAnchorForPrompt(anchor) {
+  const [kind, value] = String(anchor).split(':');
+  if (kind === 'pct') return `${value}%`;
+  if (kind === 'km') return `${Number(value)} km`;
+  if (kind === 'date') {
+    const [y, mo, d] = value.split('-');
+    const monthName = Object.keys(MONTHS_IT).find((k) => MONTHS_IT[k] === Number(mo));
+    return monthName ? `${Number(d)} ${monthName} ${y}` : value;
+  }
+  return value;
+}
+
+/**
+ * The source's OWN sentence carrying `anchor`, trimmed for prompt use.
+ *
+ * A gate that only names what is missing leaves the writer to reconstruct the
+ * fact from memory — which is how a dropped "80%" comes back as an invented
+ * one, and how the same anchor gets lost again on the next attempt. Handing
+ * back the source sentence makes the repair mechanical: the material to
+ * reinstate is already in front of the writer, quoted from the very text the
+ * recall check reads. Returns '' when the anchor cannot be located (the
+ * instruction then degrades to naming it, never to a wrong quote).
+ */
+export function anchorEvidence(sourceText, anchor) {
+  if (typeof sourceText !== 'string' || !sourceText) return '';
+  const [kind, value] = String(anchor).split(':');
+  let needle = null;
+  if (kind === 'pct') needle = new RegExp(String.raw`${value.replace('.', '[.,]')}\s*%`);
+  else if (kind === 'km') needle = new RegExp(String.raw`${Number(value)}\s*km`, 'i');
+  else if (kind === 'org') needle = new RegExp(String.raw`\b${value}\b`);
+  else if (kind === 'date') {
+    const [y, mo, d] = value.split('-');
+    const monthName = Object.keys(MONTHS_IT).find((k) => MONTHS_IT[k] === Number(mo));
+    if (!monthName) return '';
+    needle = new RegExp(String.raw`${Number(d)}\s*°?\s+${monthName}\s+${y}`, 'i');
+  }
+  if (!needle) return '';
+
+  // Sentence-ish split: enough to isolate the claim without dragging in the
+  // whole paragraph, and tolerant of the ragged text scrapers produce.
+  for (const sentence of sourceText.split(/(?<=[.!?])\s+|\n+/)) {
+    if (needle.test(sentence)) {
+      const clean = sentence.replace(/\s+/g, ' ').trim();
+      return clean.length > 240 ? `${clean.slice(0, 237)}…` : clean;
+    }
+  }
+  return '';
+}
+
+/** Human label per anchor kind, for grouping the contract below. */
+const ANCHOR_KIND_LABEL_IT = {
+  pct: 'percentuali',
+  km: 'distanze',
+  date: 'date',
+  org: 'istituzioni e sigle',
+};
+
+/**
+ * The blocking gates in this module, restated UP FRONT as instructions the
+ * writer can actually satisfy — the single most important thing this file
+ * exports.
+ *
+ * Until this existed the generator ran an open loop. The prompt only ever
+ * stated a PRECISION rule ("every fact must come from the source"), while
+ * `checkSourceFidelity` blocks on RECALL ("did you keep what the source
+ * said?") and `checkSourceFreshness` blocks on an old source not being dated
+ * in the text. Neither requirement was ever shown to the writer before it
+ * wrote, so the safest-looking strategy — generic prose that asserts nothing
+ * specific — was exactly the one that maximised rejection. Run 30442955458:
+ * 8 headlines × 6 model attempts, 48 full articles generated, ZERO published,
+ * with recall going 38% → 13% → 0% → 0% across the retries of one headline
+ * because each attempt was as blind as the first.
+ *
+ * Returns '' when the source carries too few anchors for the fidelity gate to
+ * apply, so the contract is never stated where it would not be enforced.
+ *
+ * @param {{sourceText?: string, sourceDate?: string|Date, publishedAt?: string|Date,
+ *          minRecall?: number, minAnchors?: number, maxAgeDays?: number}} params
+ */
+export function buildSourceContract(params = {}) {
+  const {
+    sourceText = '',
+    sourceDate,
+    publishedAt,
+    minRecall = 0.5,
+    minAnchors = 3,
+    maxAgeDays = 30,
+  } = params;
+
+  const lines = [];
+  const anchors = extractSourceAnchors(sourceText);
+  if (anchors.size >= minAnchors) {
+    const byKind = new Map();
+    for (const a of anchors) {
+      const kind = String(a).split(':')[0];
+      if (!byKind.has(kind)) byKind.set(kind, []);
+      byKind.get(kind).push(renderAnchorForPrompt(a));
+    }
+    const needed = Math.ceil(anchors.size * minRecall);
+    lines.push(
+      `═══ DATI OBBLIGATORI DALLA FONTE (controllo automatico, non negoziabile) ═══`,
+      `La bozza viene RIGETTATA se cita meno di ${needed} di questi ${anchors.size} dati. Riportali TESTUALMENTE, nella forma indicata:`,
+    );
+    for (const [kind, values] of byKind) {
+      lines.push(`- ${ANCHOR_KIND_LABEL_IT[kind] || kind}: ${values.join(', ')}`);
+    }
+    const pcts = byKind.get('pct') || [];
+    if (pcts.length >= 2) {
+      lines.push(
+        `- Le percentuali sono controllate a parte: perderne due (${pcts.join(', ')}) blocca la pubblicazione da sola. `
+        + `Scrivi ogni percentuale spiegando a cosa si riferisce, come fa la fonte.`,
+      );
+    }
+    lines.push(
+      `Il controllo è LETTERALE: "${renderAnchorForPrompt([...anchors][0])}" conta solo se compare esattamente così. `
+      + `Non parafrasare una cifra ("circa un quarto"), non sostituirla con una formulazione generica.`,
+    );
+  }
+
+  const src = sourceDate ? new Date(sourceDate) : null;
+  const pub = publishedAt ? new Date(publishedAt) : null;
+  if (src && !Number.isNaN(src.getTime()) && pub && !Number.isNaN(pub.getTime())) {
+    const ageDays = Math.floor((pub.getTime() - src.getTime()) / 86_400_000);
+    if (ageDays > maxAgeDays) {
+      const monthName = Object.keys(MONTHS_IT).find((k) => MONTHS_IT[k] === src.getUTCMonth() + 1);
+      const stamp = `${monthName} ${src.getUTCFullYear()}`;
+      lines.push(
+        ``,
+        `═══ FONTE NON RECENTE (${ageDays} giorni fa) — DATAZIONE OBBLIGATORIA ═══`,
+        `DEVI scrivere nel testo la stringa esatta "${stamp}" (es. "secondo quanto comunicato nel ${stamp}"). `
+        + `Senza quella datazione esplicita l'articolo viene rigettato perché presenta un fatto vecchio come notizia di oggi. `
+        + `Usa i tempi al passato per ciò che è già accaduto e metti in evidenza ciò che è ancora attuale oggi.`,
+      );
+    }
+  }
+
+  return lines.length ? lines.join('\n') : '';
+}
+
 /** Returns the subset of `anchors` that the article still mentions. */
 export function matchedAnchors(articleText, anchors) {
   const found = new Set();
@@ -1513,7 +1671,11 @@ export function checkSourceFidelity(articleText, sourceText, opts = {}) {
       `L'articolo ha perso ${missingPct.length}/${srcPct.length} delle percentuali della fonte `
       + `(${missingPct.map((p) => `${p.slice(4)}%`).join(', ')}) — senza queste il dato resta incomprensibile`,
       `percentuali fonte: ${srcPct.map((p) => `${p.slice(4)}%`).join(', ')}`,
-      `Reintegra nel testo le percentuali ${missingPct.map((p) => `${p.slice(4)}%`).join(' e ')} spiegando a cosa si riferiscono, `
+      `${missingPct.map((p) => {
+        const evidence = anchorEvidence(sourceText, p);
+        return evidence ? `${renderAnchorForPrompt(p)} — la fonte dice: «${evidence}»` : '';
+      }).filter(Boolean).join('\n')}\n`
+      + `Reintegra nel testo le percentuali ${missingPct.map((p) => `${p.slice(4)}%`).join(' e ')} spiegando a cosa si riferiscono, `
       + `come fa la fonte. NON rimuovere le altre cifre per "mettere a posto" l'articolo: il problema è che ne mancano, `
       + `non che ce ne siano troppe. Un'aliquota citata senza il suo termine di paragone è incomprensibile per il lettore.`,
     ));
@@ -1528,14 +1690,22 @@ export function checkSourceFidelity(articleText, sourceText, opts = {}) {
       `L'articolo conserva solo ${found.size}/${anchors.size} dei fatti verificabili della fonte `
       + `(recall ${(recall * 100).toFixed(0)}% < ${(minRecall * 100).toFixed(0)}%) — omissioni critiche`,
       `mancanti: ${missing.slice(0, 12).join(', ')}`,
-      `Riscrivi ATTENENDOTI alla fonte e reintegra i dati mancanti: `
+      // renderAnchorForPrompt, not a local copy: the `date` branch here used to
+      // return the raw key, so this instruction asked for "2023-07-17" while
+      // matchedAnchors only ever accepts "17 luglio 2023" — a writer that
+      // complied exactly still failed the gate, and no retry could converge on
+      // a date anchor.
+      //
+      // Each missing anchor ships with the source sentence that carries it, so
+      // the writer reinstates the fact by reusing verified material instead of
+      // recalling it (see anchorEvidence).
+      `Riscrivi ATTENENDOTI alla fonte e reintegra i dati mancanti. `
+      + `Per ognuno hai qui sotto la frase della fonte da cui ricavarlo — riusala, non ricostruirla a memoria:\n`
       + `${missing.slice(0, 10).map((a) => {
-        const [kind, v] = a.split(':');
-        if (kind === 'pct') return `${v}%`;
-        if (kind === 'km') return `${v} km`;
-        if (kind === 'date') return v;
-        return v;
-      }).join(', ')}. `
+        const label = renderAnchorForPrompt(a);
+        const evidence = anchorEvidence(sourceText, a);
+        return evidence ? `  • ${label} — la fonte dice: «${evidence}»` : `  • ${label}`;
+      }).join('\n')}\n`
       + `Ogni dato della fonte è verificato: riportarlo è sempre corretto. Se un fatto ti sembra dubbio, `
       + `attribuiscilo alla fonte invece di ometterlo. Non sostituire i dati della fonte con formulazioni generiche.`,
     ));
