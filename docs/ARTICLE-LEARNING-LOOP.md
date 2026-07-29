@@ -4,7 +4,13 @@ How the article pipeline is supposed to get better at not repeating its own
 mistakes, and — the harder half — how it is stopped from getting worse at it.
 
 Related: `docs/CRAWLERS.md`, `docs/SEO-GATES.md`,
-`scripts/lib/article-factuality-gates.mjs`, `scripts/lib/article-defect-memory.mjs`.
+`scripts/lib/article-factuality-gates.mjs`, `scripts/lib/article-defect-memory.mjs`,
+`scripts/lib/article-defect-history.mjs`.
+
+Two links are live (§4.1 denylist enrichment, §4.2 rejection ledger); three are
+specified and unbuilt (§4.3–§4.5), one of them deliberately so (§4.4). §4.0
+gives the ordering rule and §5 the stability argument each link has to satisfy
+before it ships.
 
 ---
 
@@ -67,28 +73,39 @@ ground truth. Two lessons are load-bearing for everything below.
 
 ## 2. Signal inventory: what each run produces, and what survives
 
-| Signal | Produced by | Where it goes today | Survives? |
+| Signal | Produced by | Where it goes | Survives? |
 |---|---|---|---|
-| Deterministic gate issues (code, severity, evidence, fix) | `runFactualityGates` | stderr | **no** |
-| Which gate rejected which attempt, and how many attempts it cost | retry loop | stderr | **no** |
-| LLM fact-check verdicts (category, claim, reason), per model | `llmFactCheck` | stderr | **no** |
-| Consensus issues dropped as source-contradicted | `dropSourceContradictedIssues` | stderr | **no** |
-| Institution acronyms the article introduced | (did not exist) | — | **no** |
-| Whether the run's own source backed those acronyms up | (did not exist) | — | **no** |
-| Headlines dropped pre-generation, with reason | `RUN_REPORT.discardedHeadlineSamples` | `.tmp/…json` (gitignored) → step summary | **no** |
-| Duplicate-rejection reason breakdown | `RUN_REPORT.duplicateReasonBreakdown` | same | **no** |
-| Source scan success/failure by domain | `RUN_REPORT.sources` | same | **no** |
-| Used source URLs, consumed topics, evergreen rejects | `data/article-source-urls.json`, `data/topic-candidates-*.json` | committed to `main` | **yes** |
+| Institution acronyms the article introduced | `collectInstitutionAcronyms` | `data/article-defect-memory.json` | **yes** — L1 |
+| Whether the run's own source backed those acronyms up | `collectInstitutionAcronyms` | same | **yes** — L1 |
+| Which deterministic gate codes rejected a draft | `runFactualityGates` | `data/article-defect-history.jsonl` | **yes** — L2 |
+| How many generation attempts the run spent | retry loop | same | **yes** — L2 |
+| Whether the run published, deferred, skipped or errored | `finalizeRunReport` | same | **yes** — L2 |
+| LLM fact-check rejection categories | `llmFactCheck` | same, **quarantined** (§5.10) | **yes** — L2 |
+| Duplicate-rejection reason breakdown | `RUN_REPORT.duplicateReasonBreakdown` | same | **yes** — L2 |
+| LLM fact-check *claims and reasons*, per model | `llmFactCheck` | stderr | no — deliberately (§5.10) |
+| Consensus issues dropped as source-contradicted | `dropSourceContradictedIssues` | stderr | no |
+| Headlines dropped pre-generation, with reason | `RUN_REPORT.discardedHeadlineSamples` | `.tmp/…json` (gitignored) → step summary | no |
+| Source scan success/failure by domain | `RUN_REPORT.sources` | same | no |
+| Used source URLs, consumed topics, evergreen rejects | `data/article-source-urls.json`, `data/topic-candidates-*.json` | committed to `main` | yes (pre-existing) |
 
-The last row is the important one: the pipeline already knows how to keep
-cross-run state, and does it in several places, with FIFO caps and TTLs
+The bottom row is where the pattern came from: the pipeline already knew how to
+keep cross-run state, in several places, with FIFO caps and TTLs
 (`article-source-urls.json` keeps the last 500; `topic-candidates-consumed.json`
 caps at 500 ids; `quota-state.json` caps history at 100). Every one of those
-files is about *what has been done*. None of them is about *what went wrong*.
+files is about *what has been done*. None of them was about *what went wrong* —
+that is what L1 and L2 add.
 
-`RUN_REPORT` is the natural hook: it is already assembled during the run,
-already written to a file, already rendered into the job summary. It just
-terminates in `.tmp/`, which is gitignored.
+`RUN_REPORT` is the hook both links use: it is already assembled during the run,
+already written to a file, already rendered into the job summary. It terminates
+in `.tmp/`, which is gitignored, so a single post-run step folds the two durable
+projections out of it before the log dies.
+
+The three rows still marked "no" are not oversights. Verifier *claims and
+reasons* are free text produced by the component that failed on 2026-07-28;
+persisting them would create a corpus of plausible-looking judgements that a
+later link would eventually be tempted to learn from, and the category counts
+already carry every aggregate signal the free text does. Headline-drop samples
+and per-domain scan results are pre-generation plumbing, not defect signal.
 
 ---
 
@@ -103,14 +120,23 @@ failure.
 ### 3.1 Per-run feed — `RUN_REPORT.factuality` (ephemeral, by design)
 
 ```jsonc
+"section": "frontaliere",             // which pipeline; the two differ in gates
+"status": "generated",                // generated | skipped | deferred | error
 "factuality": {
   "institutionObservations": [        // capped at 60/run
     { "acronym": "UFI", "name": "Ufficio federale delle imposte",
       "support": "absent", "attempt": 3 }
   ],
-  "gateRejectionsByCode": { "tax-exceeds-income": 2, "fabricated-institution": 1 }
+  "attempts": 4,                      // generation attempts across all headlines
+  "gateRejectionsByCode": { "tax-exceeds-income": 2, "fabricated-institution": 1 },
+  "factCheckRejectionsByCategory": { "unsupported_claim": 3 }   // quarantined
 }
 ```
+
+`attempts` is counted at the top of the retry loop, *before* any early
+`continue`. An attempt abandoned on the wall-clock guard still spent the run's
+budget, and a cost metric that only counted attempts reaching a gate would show
+the pipeline getting cheaper precisely as it started running out of time.
 
 `support` is the whole point and takes exactly three values:
 
@@ -157,18 +183,89 @@ existing `merge=json-first-seen` driver is the model.
 Seeded from the corpus: 224 entities, 153 under watch, 67 auto-cleared by the
 allowlist, 4 human-confirmed, **0 auto-promoted to blocking**.
 
-### 3.3 Not yet persisted (see §7)
+### 3.3 Durable ledger — `data/article-defect-history.jsonl`
 
-Gate rejection counts, LLM verdict categories and retry costs are collected into
-the run report but not yet accumulated into a history file. That is the second
-link, and it is a JSONL append with `merge=union` — the pattern
-`data/quality-alerts-history.jsonl` already uses.
+One row per run, appended by the same step that folds the memory. JSONL rather
+than a JSON document because the access pattern is append-once-read-rarely and
+because that is what makes `merge=union` the correct resolution — the pattern
+`data/quality-alerts-history.jsonl` and `data/quota-history.jsonl` already use.
+
+```jsonc
+{ "v": 1, "at": "2026-07-29T…", "runId": "30361707533", "section": "frontaliere",
+  "status": "generated", "attempts": 4, "articleId": "…", "sourceDomain": "tio.ch",
+  "gateRejections":      { "tax-exceeds-income": 2 },        // deterministic
+  "duplicateRejections": { "semantic-near-duplicate": 1 },   // deterministic
+  "verifierOpinion":     { "unsupported_claim": 3 },         // QUARANTINED (§5.10)
+  "sourceSupport":       { "present": 1, "absent": 2, "unknown": 0 } }
+```
+
+Written on **every** run report, including runs that published nothing. "Nothing
+shipped" is the most informative row in the file: a defence quietly taking the
+pipeline to zero — which is exactly what over-tight gates did to the evergreen
+path in issue #2947 — is indistinguishable from a quiet week unless the empty
+runs are recorded too.
+
+Three properties, each argued in §5.9–§5.12: it has **no action surface**, the
+model-derived column is **quarantined**, and it is **bounded and convergent**
+(180 days / 12000 rows, retention applied inside the append, duplicates from a
+union merge collapsed on read so no count can be inflated).
+
+Growth: ~48 rows/day at ~300 bytes, so the retention window is the steady state
+at ~2.5MB, not a theoretical ceiling. That number is the whole reason retention
+exists — `data/dist-size-history.jsonl` is 42MB and is part of why `git push`
+from this repo needed its own runbook. Note this is *not* the forbidden
+prune-and-recommit of an existing archive: the file is born bounded, and no
+compaction ever removes a row a reader was told would be there.
 
 ---
 
-## 4. From signal to defence
+## 4. The links, and the order they ship in
+
+### 4.0 The ordering rule
+
+Links are ordered by **what it costs to be wrong**, not by what they deliver
+when right. Every one of them has a plausible story about why it will help;
+2026-07-28 also had one. So the sequence is decided by two rules, applied in
+this order:
+
+1. **A link that only observes ships before any link that acts.** Its worst
+   failure is "we learn nothing". An acting link's worst failure is "we learn
+   the wrong thing", and this pipeline has already paid for that once.
+2. **Among acting links, cheap-to-reverse before cheap-to-get-wrong.** A gate
+   that blocks a correct article is visible the same day and is undone by one
+   `--clear`. A prompt that teaches the model a defect is invisible until
+   somebody counts, and by then it has shipped forty-eight times a day.
+
+| # | Link | Acts on | Cost of being wrong | How it is undone | Status |
+|---|---|---|---|---|---|
+| **L1** | Denylist enrichment (§4.1) | the gate — blocks publication | a correct article is blocked | one `--clear`, absorbing and permanent | **shipped** |
+| **L2** | Rejection ledger (§4.2) | *nothing* | we learn nothing | n/a — no action surface | **shipped** |
+| **L3** | Threshold recommendations (§4.3) | a person's attention | a wasted review | ignore the report | next |
+| **L4** | Negative few-shots (§4.4) | the generation prompt | **the model learns the defect** | a revert — but only once somebody notices | gated, see §4.4 |
+| **L5** | Beyond acronyms (§4.5) | the gate — blocks publication | a correct article is blocked | one `--clear`, but only after a new oracle exists | last |
+
+L1 shipped before L2 and so appears to break rule 1. It does not: the
+observation L2 automates had already been produced by hand for L1's domain — the
+corpus audit that found 56 invented acronyms across 52 articles is the
+measurement, it just was not repeatable. L1 acted on a measurement that existed.
+Everything after L2 acts on a measurement L2 produces, which is why nothing
+after L2 could honestly have gone first.
+
+Each planned link below is specified in the same five fields, because those are
+the five things that were not written down before 2026-07-28: **what feeds it,
+what it changes, what stops it degenerating, what must exist first, and how
+anyone would know it worked.**
 
 ### 4.1 Denylist enrichment — IMPLEMENTED
+
+**Signal.** Institution acronyms an article introduced, each paired with whether
+the run's own fetched source names them. **Transformation.** A three-tier gate:
+curated denylist, learned `confirmed` (blocks), learned `suspect` (reports).
+**Stability criterion.** §5.1–§5.7 in full — the load-bearing ones are the
+external oracle (below), asymmetric evidence (§5.2), and the ratchet brakes
+(§5.4). **Preconditions.** A fetched source per run; met on the news path,
+absent on the evergreen path, which is why `unknown` exists. **Measured by.**
+`fabricated-institution` rejections per run and recidivism (§6).
 
 Three tiers, in descending order of confidence *and of consequence*:
 
@@ -191,37 +288,161 @@ published, the system could never observe the counter-evidence that would clear
 its own mistake. That is a self-sealing error, and it is why the corpus scan —
 which has no sources — is *structurally incapable* of promoting anything.
 
-### 4.2 Negative few-shots in the generation prompt — PLANNED
+### 4.2 Rejection ledger — IMPLEMENTED
 
-The store already holds, per entity, the expanded names the generator invented
-("Ufficio federale delle questioni giuridiche (UQJ)", "Agenzia dell'Ambiente
-della Svizzera Italiana (AASTI)"). Those are real rejected outputs, which makes
-them far better negative examples than anything hand-written. Injecting the top
-N `suspect`/`confirmed` names as a short "do not invent institutions like these"
-block costs zero extra model calls — it rides the prompt that is being sent
-anyway.
+**Signal.** Per run: the deterministic gate codes that rejected a draft, the
+duplicate-detector's reasons, the LLM verifier's rejection categories, the
+attempts spent, the outcome, and the run's own source-support tally.
 
-Held back deliberately: prompt changes are the highest-variance edit in this
-pipeline, and this document's first job is to make the *memory* trustworthy. See
-§7 for the ordering argument.
+**Transformation.** *None, and that is the point.* This link converts signal
+into a queryable record and stops. Nothing reads it to change anything. It
+exists because every metric in §6 is a time series and every input to one was
+previously written to stderr — a snapshot of the memory answers "what do we
+currently believe", never "is `fabricated-institution` firing more than it did
+last week, and did anything ship while it fired".
 
-### 4.3 Threshold tuning from data — PLANNED
+**Stability criterion.** A ledger cannot converge on the wrong objective if it
+cannot act, so the entire argument reduces to proving it cannot: no import edge
+to the memory or the gates in either direction (§5.9), the model-derived column
+quarantined at every read site (§5.10), bounded and convergent under concurrent
+writers (§5.11), and no silent loss or unsupported confidence (§5.12). Four
+assertions in `tests/article-defect-history.test.ts` pin the non-edges, so
+wiring the ledger into a defence means deleting a test that says why not to.
 
-`checkTaxPlausibility`'s `implausibleRatio: 0.6`, `checkSourceFidelity`'s
-`minRecall: 0.5`, `MAJOR_BLOCK_WEIGHT_THRESHOLD: 3.0` are all eyeballed. With
-per-code rejection counts accumulating (§3.3), each becomes answerable from
-data: a threshold whose code fires constantly while publication rate falls is
-too tight; one that never fires is decoration. This must stay a *reported
-recommendation*, never an automatic adjustment — a loop allowed to move its own
-thresholds to raise its own pass rate is the 2026-07-28 loop with extra steps.
+**Preconditions.** `RUN_REPORT` carrying `section`, `status`, `attempts`,
+`gateRejectionsByCode`, `factCheckRejectionsByCategory` — all shipped.
 
-### 4.4 Emergent fabrication patterns — PLANNED
+**Measured by.** Its own output: `--trends` prints run counts per window and
+refuses to report a direction below `MIN_RUNS_FOR_TREND` (10 runs/window). A
+ledger that is not being written shows up as a window with fewer runs than the
+cadence implies, which is the failure it most needs to make visible.
 
-Beyond acronyms: invented law names ("legge federale sulla retribuzione dei
-lavoratori frontalieri (LRF)"), invented statistics attributed to real bodies,
-quotes attributed to real people. The same two-axis machinery applies; the
-extraction differs. Acronyms first because they are the cleanest to extract and
-the most frequent.
+### 4.3 Threshold recommendations from data — PLANNED (next)
+
+**Signal.** L2's per-code series, split by section, joined against publish rate
+and attempts-per-published over the same window.
+
+**Transformation.** A **report**, not an adjustment. For each eyeballed constant
+— `checkTaxPlausibility`'s `implausibleRatio: 0.6`, `checkSourceFidelity`'s
+`minRecall: 0.5`, `MAJOR_BLOCK_WEIGHT_THRESHOLD: 3.0` — print its firing rate,
+the publish rate of the runs where it fired, and a plain reading: a code that
+has not fired in 180 days is decoration; a code that fires on most runs which
+then never publish is a candidate false-positive machine.
+
+**Stability criterion.** *A loop allowed to move its own thresholds to raise its
+own pass rate is the 2026-07-28 loop with extra steps.* Two mechanisms, and a
+third that is really a warning:
+
+1. **No write path.** The constants stay literals in one module, changed by a
+   person in a reviewed commit. Enforced the same way as §5.9 — the report
+   module must not import the gate module's constants for anything but reading,
+   and nothing may import the report.
+2. **No direction without movement.** A code with a low, *stable* firing rate is
+   a working gate, not decoration, and the report must not recommend loosening
+   it. Recommendations attach to codes whose rate moved, never to codes whose
+   rate is merely low.
+3. **A firing rate is not a false-positive rate.** `fabricated-institution`
+   firing on every run could mean the gate is broken or that the generator is
+   inventing constantly, and no amount of counting separates those. So the
+   report *ranks what to adjudicate*; the adjudication is a person reading
+   samples. This is the same reasoning that stops L1 promoting on frequency
+   (§4.1) applied one level up.
+
+**Preconditions.** L2 with ≥2 full windows above the trend floor — ~1 day at the
+current cadence for a 7-day window to be *computable*, but ≥30 days before a
+recommendation is worth acting on, because model routing drifts week to week and
+a single week's rate carries that drift.
+
+**Measured by.** Whether recommendations get acted on, and whether the acted-on
+ones moved the metric they predicted. Tracked by hand: this link is small enough
+that instrumenting its own effectiveness would cost more than reading it.
+
+### 4.4 Negative few-shots in the generation prompt — PLANNED, AND GATED
+
+**Signal.** The memory's `names[]` per `suspect`/`confirmed` entity — the
+expanded names the generator actually invented ("Ufficio federale delle
+questioni giuridiche (UQJ)", "Agenzia dell'Ambiente della Svizzera Italiana
+(AASTI)"). Real rejected outputs, which makes them better negative examples than
+anything hand-written, at zero extra model calls: the block rides a prompt that
+is being sent anyway.
+
+**Transformation.** A short "these are not real institutions; do not use them"
+block in the generation prompt.
+
+**Stability criterion — and why this link is not built.** Showing a model text
+it should not produce is a documented way to make it *more* likely to produce
+it. Negation is the weakest instruction form there is, and the degraded
+free-tier models this pipeline falls back to are the worst at honouring it. The
+prompt that lists `UQJ` may be the reason the next article contains `UQJ`.
+
+The problem is not that this risk is large. It is that **I cannot presently tell
+the two outcomes apart.** "The block worked" and "the block primed the model"
+both show up as a *change* in the suspect-acronym emission rate; only the sign
+differs, and the sign is exactly what cannot be predicted from the design.
+Shipping a prompt change whose failure mode is "the defect gets more common"
+into a pipeline that publishes forty-eight times a day, without the instrument
+to see which way it went, is 2026-07-28 in a different costume: an intervention
+justified by a plausible story instead of a measurement. So it stays unbuilt,
+with a concrete gate rather than an indefinite deferral.
+
+**Preconditions — the go/no-go gate.**
+
+1. **≥30 days of L2 rows** (≈1400 runs), so the baseline `sourceSupport.absent`
+   per run has a stable mean *and* a known week-to-week variance. Without the
+   variance there is no threshold to compare an effect against.
+2. **Ship it as a split, not a flag flip.** Enable the block on `svizzera` only
+   and leave `frontaliere` as a simultaneous control. The two sections share the
+   writer and the model cascade, run on the same cadence, and already carry
+   `section` on every ledger row — so the control is free and *concurrent*,
+   which a before/after comparison is not. Before/after would attribute a model
+   routing change to the prompt.
+3. **Keep it only if `sourceSupport.absent` per run falls on the treated section
+   by more than the control's own week-to-week variance, over ≥14 days. Revert
+   on any rise, however small.** The asymmetry is deliberate and is the whole
+   safeguard: the downside of being wrong here is teaching the pipeline the
+   defect the pipeline exists to prevent.
+4. **Acronym tokens only — never the invented expansions.** "Ufficio federale
+   delle questioni giuridiche" is a fluent, plausible Italian phrase and is
+   precisely the shape of text a language model completes from. A bare token is
+   much less so. This makes the example weaker; it is the version whose failure
+   mode is smallest, and at this risk level that is the correct trade.
+
+**Measured by.** `sourceSupport.absent` per run and `fabricated-institution`
+gate rejections per run, treated section vs control, both already in the ledger.
+
+### 4.5 Beyond acronyms — PLANNED (last)
+
+**Signal.** Invented law and decree names ("legge federale sulla retribuzione
+dei lavoratori frontalieri (LRF)"), statistics attributed to real bodies, quotes
+attributed to real people.
+
+**Transformation.** The same two-axis machinery as L1 — prevalence learned
+freely, source support the only thing that promotes — with a different extractor
+per class.
+
+**Stability criterion.** The machinery transfers; **the oracle does not**, and
+that is what makes this last rather than second. An acronym is a token: the
+source contains it or it does not, and that check is a string comparison with no
+judgement in it. "The source supports this statistic" is not. A source saying
+*«circa 2000 lavoratori»* supports "2000 workers" and does not support "2000
+frontalieri italiani", and no string comparison decides which. A link whose
+oracle requires judgement **cannot use a model as the judge** — that is the
+2026-07-28 rule, without exception — so this link is blocked on finding a
+deterministic oracle, not on writing an extractor.
+
+That is also why **norms go first within this link**: a law name is as binary as
+an acronym. It can be checked against the run's fetched source exactly as an
+acronym is, and additionally against the curated register of real federal acts,
+which makes it the one class here that already has both halves.
+
+**Preconditions.** Per class: a deterministic extractor *and* a deterministic
+oracle. Norms have both today. Statistics and quotes have neither, and until one
+appears they stay out — an approximate oracle is worse than none, because it
+promotes with confidence.
+
+**Measured by.** The same shape as L1: confirmed entities, recidivism
+(`lastSeen` newer than `statusAt`), and rejections per run for the new gate
+code, all already computable from the ledger the moment the code exists.
 
 ---
 
@@ -230,6 +451,12 @@ the most frequent.
 This is the section that matters. The previous loop degenerated; this one has to
 demonstrate it cannot. Each failure mode below is paired with the mechanism that
 forecloses it and the test that pins the mechanism.
+
+§5.1–§5.8 belong to L1 (§4.1), the link that acts. §5.9–§5.12 belong to L2
+(§4.2), the link that only records — a much shorter argument, because most of it
+is "this component cannot do anything" and the work is in making that
+structurally true rather than merely intended. Every future link is expected to
+produce a section of its own here **before** it ships, not after.
 
 ### 5.1 Measurement capture (Goodhart) — the 2026-07-28 failure
 
@@ -357,28 +584,132 @@ the source, integer counters. Nothing here touches the shared Max quota, and
 nothing here can fail open because "the verifier was down". The store adds one
 file read per run and one conditional write; the write is skipped when nothing
 changed, so the 30-minute cadence does not put ~48 no-op diffs a day into `main`.
+The ledger adds one more read and one append — unconditional, because one row
+per run *is* the signal and a skipped row is a hole in a denominator.
+
+The four sections below are the ledger's (§4.2) stability argument. It is short
+for a reason: almost all of it is "this component cannot do anything", and the
+work is in making that structurally true rather than merely intended.
+
+### 5.9 The ledger has no action surface
+
+*The failure the entire design is shaped around.* 2026-07-28 happened because a
+measurement was wired back into the thing it measured. A record that nothing
+reads cannot repeat that, so the only thing worth proving is that nothing reads
+it — and "we intend not to" does not survive the next refactor.
+
+`article-defect-history.mjs` does not import `article-defect-memory.mjs`.
+`article-defect-memory.mjs` does not import `article-defect-history.mjs`.
+`article-factuality-gates.mjs` does not import the ledger. All three non-edges
+are asserted, so connecting them means deleting a test that explains why not.
+
+The reverse direction is the one people underestimate. A promotion policy able
+to read rejection counts is one commit away from "block whatever gets rejected
+most", which is frequency-as-evidence — the thing §4.1 exists to forbid. USTRA,
+EOC and DECS are real *and* frequent.
+→ `does not import the defect memory`, `is not imported BY the defect memory`,
+`is not read by the gates that decide whether an article ships`
+
+### 5.10 The verifier's opinions are quarantined, not excluded
+
+The LLM fact-checker's category counts are recorded. They are also the one
+column that must never be treated as a fact about the world, because they are
+one model's opinion about another model's output. Both are true simultaneously,
+and dropping the column would be the easy wrong answer: the 2026-07-28 signature
+is only visible in the aggregate *through* it (§6), and the incident's own
+counts are precisely what would have shown it on day one instead of week two.
+
+So the field is named for what it is at every read site (`verifierOpinion`), the
+trend view tags its series `admissible: false` while deterministic series are
+`admissible: true`, and the rendered summary prints the two under separate
+headings, the second of which states that no defence may be promoted from those
+rows. The tag travels with the data rather than living in this document, so a
+future link would have to strip it deliberately. The verifier's free-text
+*claims and reasons* are not persisted at all (§2): a corpus of plausible-looking
+judgements is a temptation with no aggregate value the counts do not already have.
+→ `marks deterministic series admissible and the verifier series NOT`,
+`never lets a verifier code be counted as a gate code`, `prints the two kinds
+under separate headings that state the difference`
+
+### 5.11 Bounded, and convergent under concurrent writers
+
+An unbounded accumulator is a repo problem, not a feature:
+`data/dist-size-history.jsonl` reached 42MB and is part of why `git push` from
+this repo needed its own runbook. Retention (180 days / 12000 rows) is applied
+*inside the append call*, so the file is born bounded and there is never a
+separate prune-and-recommit pass over an archive somebody else depends on.
+
+Retention rewrites the file, and a rewrite does not commute with the
+`merge=union` driver this path is registered under: a union merge keeps both
+sides' lines, so it can resurrect rows a compaction just dropped. That tension
+is resolved by **convergence rather than locking** — rows are identified by
+`runId|at`, the reader collapses duplicates on that key so a resurrected row can
+never be counted twice, and the next append's retention pass drops it again.
+Temporary bloat, permanently correct arithmetic, no coordination required. The
+alternative (a lock, or abandoning retention) buys nothing the dedup does not.
+→ `collapses rows a union merge resurrected`, `heals a file polluted by
+union-merge duplicates and stale rows in ONE append`, `never drops the row it
+was just handed, even at the ceiling`, `is idempotent`
+
+### 5.12 No silent loss, and no confidence the sample cannot support
+
+Two ways a ledger stops being citable, and neither announces itself.
+
+**Silent loss.** A malformed line — a runner killed mid-append — is dropped
+individually rather than blinding the file, *and counted*, and the count is
+surfaced to the CI step summary. An unwritable ledger exits non-zero, after the
+memory has been saved so the run's verdicts are never the price of a ledger
+failure; the step is `continue-on-error`, so it goes red without holding up the
+article. A missing file is not degradation, it is the cold start.
+
+**Confidence the sample cannot support.** The fastest way to make a measurement
+untrusted is to print a confident "+200%" computed over three runs. Below 10
+runs per window the view reports its counts and explicitly refuses to call a
+direction. Series are compared as *per-run rates*, not raw counts, so a window
+shortened by an outage is not read as the defect halving.
+→ `drops one malformed line and COUNTS it`, `refuses to call a direction on a
+sample too thin to support one`, `compares per-run rates, so a short window is
+not mistaken for a fall`, `treats a missing file as cold start`
 
 ---
 
 ## 6. Is the loop working?
 
-Four questions, and what answers them.
+Five questions. Until L2 all of them were snapshot questions asked of a store
+that only knows the present; four are now time series.
 
-**Is the defence catching things?** `RUN_REPORT.factuality.gateRejectionsByCode`
-— rejections per gate code per run. A healthy learned defence shows
-`fabricated-institution` rejections rising as entities are confirmed, then
-falling as the generator stops emitting them.
+```bash
+node scripts/update-article-defect-memory.mjs --trends            # 7d vs prior 7d
+node scripts/update-article-defect-memory.mjs --trends --window 30
+```
+
+**Is the defence catching things?** `gateRejections` per code per run, current
+window against the previous one. A healthy learned defence shows
+`fabricated-institution` rising as entities are confirmed, then falling as the
+generator stops emitting them. Falling *without* having risen means the
+generator changed, not the defence.
 
 **Is the same class of error recurring?** Recidivism = confirmed entities with a
 `lastSeen` newer than their `statusAt`, i.e. the generator still emitting what it
 has already been blocked for. Persistent recidivism means the block is
 suppressing publication without changing behaviour, and the fix belongs in the
-prompt (§4.2), not in more blocking.
+prompt (§4.4), not in more blocking.
 
-**Is the loop costing more than it saves?** Attempts per published article, and
-the share of attempts rejected by learned (as opposed to curated) rules. A
-learned rule that pushes mean attempts up without a matching fall in shipped
-defects is a false-positive machine.
+**Is the loop costing more than it saves?** `attemptsPerPublished`, window over
+window. A learned rule that pushes it up without a matching fall in shipped
+defects is a false-positive machine. Reported as `null`, never `Infinity`, when
+nothing published: "nothing shipped" is a fact about the window, not a very
+large cost.
+
+**Has the verifier been captured?** The one question that is *only* answerable
+from the ledger, and the one whose absence cost this pipeline a day. The
+2026-07-28 signature is three things moving together: verifier rejections per
+run up, attempts per run up, publish rate down. Any two without the third is
+noise — rejections rising while articles still ship is a verifier doing its job
+on a worse writer, the opposite diagnosis. All three together is a verifier that
+has stopped measuring the world, and the trend view names it and says to
+adjudicate verdicts by hand *before* touching any gate. Advisory only: the
+warning changes nothing anywhere, a person does.
 
 **Is the learner itself healthy?** `memoryHealth()` — `autoConfirmed` against
 the cap, `nearCapacity`, and the `oracleSuspect` / `saturated` flags. Both
@@ -387,13 +718,18 @@ separate health check that can go red *without* taking content generation down
 with it.
 
 Baseline at seeding (2026-07-29): 224 entities, 153 suspect, 4 confirmed (all
-human), 67 cleared, 0 auto-confirmed.
+human), 67 cleared, 0 auto-confirmed. The ledger starts empty; at ~48 runs/day
+the 7-day window clears its 10-run trend floor within hours, and a 30-day
+window is worth acting on after a month.
 
 ---
 
-## 7. Status and plan
+## 7. Status and sequence
 
 **Implemented.**
+- `scripts/lib/article-defect-history.mjs` — L2: row builder, reader with dedup
+  and malformed-line accounting, bounded append, trend view with the
+  verifier-capture detector. 37 tests.
 - `scripts/lib/article-defect-memory.mjs` — store, policy, decay, caps, health.
 - `article-factuality-gates.mjs` — `collectInstitutionAcronyms()` emits
   observations with the support verdict; `checkFabricatedInstitutionAcronyms()`
@@ -401,24 +737,31 @@ human), 67 cleared, 0 auto-confirmed.
   threads memory in and observations out. Called without a memory it behaves
   byte-identically to before, which is what keeps the corpus retro-audit honest
   and makes the change revertible by deleting one argument.
-- `create-article.mjs` — reads the memory once per run, collects observations
-  into `RUN_REPORT`, counts gate rejections by code. Read-only.
+- `create-article.mjs` — reads the memory once per run; collects observations,
+  attempts, gate codes and verifier categories into `RUN_REPORT`. Read-only:
+  it records, it never writes a verdict into a defence.
 - `scripts/update-article-defect-memory.mjs` — ingest, policy, review queue,
-  human `--confirm`/`--clear`. Dry-run by default.
-- `generate-article.yml` — the fold step, `always()` + `continue-on-error`.
+  human `--confirm`/`--clear`, ledger append, `--trends`. Dry-run by default.
+- `generate-article.yml` — the fold step, `always()` + `continue-on-error`, now
+  also rendering the trend view into the job summary.
 - `data/article-defect-memory.json` — seeded from the corpus.
-- 41 tests; every promotion paired with the near-miss that must not promote.
+  `data/article-defect-history.jsonl` — cold start, `merge=union`.
+- 78 tests; every promotion paired with the near-miss that must not promote,
+  every detector paired with the shape that must leave it quiet.
 
-**Next, in order.**
+**Next, in order** — see §4.0 for why this order and not another.
 
-1. **Rejection history** (`data/article-defect-history.jsonl`, `merge=union`) —
-   append one row per run: codes that rejected, attempts spent, published or
-   not. Unlocks every metric in §6 as a time series rather than a snapshot.
-2. **Negative few-shots** (§4.2) — after (1), because (1) is what will show
-   whether the prompt block reduced emissions or merely moved them.
-3. **Threshold recommendations** (§4.3) — reported, never auto-applied.
-4. **Beyond acronyms** (§4.4) — invented norms first; they are the second most
-   frequent fabricated-entity class.
+1. **L3 — Threshold recommendations** (§4.3). Reported, never auto-applied.
+   Precondition: ≥30 days of ledger rows. Acts only on a person's attention, so
+   it is the cheapest acting link to be wrong about.
+2. **L4 — Negative few-shots** (§4.4). *Gated, not queued*: it ships only if the
+   split-by-section trial in §4.4 clears its threshold, and reverts on any rise
+   in suspect-acronym emissions. It is third and not second because its failure
+   mode — teaching the model the defect — is the only one on this list that gets
+   worse the longer it goes unnoticed.
+3. **L5 — Beyond acronyms** (§4.5). Invented norms first; they are the second
+   most frequent fabricated-entity class *and* the only remaining class with a
+   deterministic oracle. Statistics and quotes wait for one.
 
 **Deliberately not done.**
 
@@ -426,9 +769,14 @@ human), 67 cleared, 0 auto-confirmed.
   its own evidence bar to change its own promotion rate is the 2026-07-28 loop.
   The thresholds are constants in one place, changed by people.
 - *Using the LLM verifier's verdicts as learning signal.* They are opinions
-  about the world produced by the same class of system being judged. The source
-  text is the only oracle admitted.
+  about the world produced by the same class of system being judged. Their
+  *counts* are recorded as diagnostics (§5.10) and are inadmissible as evidence;
+  their claims and reasons are not persisted at all. The source text is the only
+  oracle admitted.
 - *Auto-promoting on prevalence.* See §4.1.
+- *Letting any link read the ledger.* It is a record, not a control input, and
+  §5.9 is the reason the record is safe to accumulate automatically at all. A
+  link that needs ledger data needs a person between the two.
 
 ---
 
@@ -450,7 +798,24 @@ node scripts/update-article-defect-memory.mjs --from-corpus --apply
 
 # Health check for a separate monitor; red here must not stop generation.
 node scripts/update-article-defect-memory.mjs --health --strict
+
+# Which error classes are growing or shrinking, and at what cost? (§6)
+node scripts/update-article-defect-memory.mjs --trends
+node scripts/update-article-defect-memory.mjs --trends --window 30 --limit 40
 ```
+
+**Reading the trend view.** The two blocks are not interchangeable. Anything
+under *rigetti deterministici* is reproducible from the article text and may be
+acted on. Anything under *verdetti del verificatore LLM* is one model's opinion
+about another's output: useful for spotting that something changed, never
+evidence that the something is real, and never a reason on its own to change a
+gate. A `?` in place of an arrow means the window held fewer than 10 runs and
+the tool is declining to call a direction — the counts beside it are still real.
+
+**When the verifier-capture warning fires.** Read a sample of the verifier's
+rejections by hand before touching anything. On 2026-07-28 the verdicts were
+wrong and the drafts were right; loosening a gate in response would have been
+the exact opposite of the fix.
 
 **When an article is wrongly blocked by a learned entity.** Clear it
 (`--clear <ACR> --reason …`), which pins it as a human verdict the learner can
