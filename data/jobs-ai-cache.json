@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "savedAt": "2026-07-29T22:07:58.886Z",
+  "savedAt": "2026-07-29T22:20:10.529Z",
   "entries": [
     {
       "key": "d75719e12bc559369b74abd12b1a133042ef5e67255856876010887a99333ff9",
@@ -262048,7 +262048,7 @@
     },
     {
       "key": "94e2df269dee06298ca5f282e72f6d0b4f7f43028a60f3fca25a492c6a34831f",
-      "touchedAt": 1785326643029,
+      "touchedAt": 1785363551285,
       "value": {
         "isJob": true,
         "confidence": 0.9,
@@ -262057,7 +262057,7 @@
     },
     {
       "key": "8fdc8149e0005a7ec7b3cd4cab8ed4b0713d90211efadb31d2dda43d4d006509",
-      "touchedAt": 1785326643399,
+      "touchedAt": 1785363551638,
       "value": {
         "isJob": true,
         "confidence": 0.9,
@@ -262137,7 +262137,7 @@
     },
     {
       "key": "174ed66312a41c8428ffecfe8d86fb33127d68e26e702cc55043dce4542097a5",
-      "touchedAt": 1785326716100,
+      "touchedAt": 1785363581308,
       "value": {
         "isJob": true,
         "confidence": 0.9,
@@ -262146,7 +262146,7 @@
     },
     {
       "key": "f905ddb018db0674c30b3b76acaf369db9ffda28c49caa0bb7613e9de268d046",
-      "touchedAt": 1785326716423,
+      "touchedAt": 1785363581708,
       "value": {
         "isJob": true,
         "confidence": 0.9,
@@ -262155,7 +262155,7 @@
     },
     {
       "key": "4a97c1ca1ddf0b8599e83c2f34a37e17edb4ff1f599b83a7fef76c7467617899",
-      "touchedAt": 1785326716796,
+      "touchedAt": 1785363582012,
       "value": {
         "isJob": true,
         "confidence": 0.9,
@@ -262164,7 +262164,7 @@
     },
     {
       "key": "9079b38d2d2bef11b34fc0ce70276da212fc2bb61c6ba060a029bb4796becc13",
-      "touchedAt": 1785326717201,
+      "touchedAt": 1785363582352,
       "value": {
         "isJob": true,
         "confidence": 0.9,
@@ -262173,7 +262173,7 @@
     },
     {
       "key": "643318525d5e72b37be96a3c22d805704348a2d5aad7e4be0ed549557860c4bf",
-      "touchedAt": 1785326717531,
+      "touchedAt": 1785363586404,
       "value": {
         "isJob": true,
         "confidence": 0.8,
@@ -262182,7 +262182,7 @@
     },
     {
       "key": "ca1619260794e8ce438b6a538e826c0f5735217e0d2321dfd4aa5efdbc0fe69e",
-      "touchedAt": 1785326717812,
+      "touchedAt": 1785363583029,
       "value": {
         "isJob": true,
         "confidence": 0.9,
@@ -262191,7 +262191,7 @@
     },
     {
       "key": "79a1161aaf39507ab9093772eff0e8f5b5531dbbd2d0a9f4520f4d097ae31ee6",
-      "touchedAt": 1785326718123,
+      "touchedAt": 1785363583648,
       "value": {
         "isJob": true,
         "confidence": 0.9,
@@ -262200,7 +262200,7 @@
     },
     {
       "key": "e810f8426c2147fda1e410122157eadbefdf638bdaad95c8728bec5d63883c3a",
-      "touchedAt": 1785326718458,
+      "touchedAt": 1785363584338,
       "value": {
         "isJob": true,
         "confidence": 0.9,
@@ -262209,7 +262209,7 @@
     },
     {
       "key": "7fdccd8919f1fa2fac7a8474d86a1d2930f8c7b054f5dc5f62c7ff4337aaa18f",
-      "touchedAt": 1785326718864,
+      "touchedAt": 1785363584739,
       "value": {
         "isJob": true,
         "confidence": 0.9,
@@ -262218,7 +262218,7 @@
     },
     {
       "key": "72ddb70c6a7ba8a13e4adbbfcd918be895a3e7faef1710122b316b29c905742f",
-      "touchedAt": 1785326719205,
+      "touchedAt": 1785363585050,
       "value": {
         "isJob": true,
         "confidence": 0.9,
@@ -262227,7 +262227,7 @@
     },
     {
       "key": "f9ba30bb3e34eb1febe027b906411d394cd6850e3c1d657621e5265e5021dccf",
-      "touchedAt": 1785326719604,
+      "touchedAt": 1785363588132,
       "value": {
         "isJob": true,
         "confidence": 0.9,
@@ -262236,7 +262236,7 @@
     },
     {
       "key": "a2b728a7014fb793b5f5d501057abdbdf1d7b70fbe068bfeb065e74a3265a380",
-      "touchedAt": 1785326719923,
+      "touchedAt": 1785363585474,
       "value": {
         "isJob": true,
         "confidence": 0.9,
@@ -264624,6 +264624,177 @@
         "isJob": true,
         "confidence": 1,
         "reason": "The page contains a specific job title (Junior HR Business Partner), a detailed job description, requirements, location, and a clear call to action to apply."
+      }
+    },
+    {
+      "key": "8ce6cf8c4d72e1d67d0a523451cd9ddf7c845f1449a775208512690e3be1cdf0",
+      "touchedAt": 1785363565800,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title, responsibilities, and requirements, as well as an application context, which suggests that it is a real single job detail page."
+      }
+    },
+    {
+      "key": "37ff2aab9b792531c1ae8db305573c3ce2d8859c1f1deb0a2d502785e6138284",
+      "touchedAt": 1785363568679,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title 'Werkstudent im Bereich Compliance (m/w/d)', responsibilities/requirements, and application context, indicating a real single job detail page."
+      }
+    },
+    {
+      "key": "bb7991c84070771956b82ada2fbd3c09f1bfeb59e62b966330874193654e7d06",
+      "touchedAt": 1785363575486,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title, responsibilities, and requirements, as well as an application context, which suggests that it is a real single job detail page."
+      }
+    },
+    {
+      "key": "4826ef54b98bd16755f8b937a8cf7f3a33bbca651b1d4c7dd5bf3d09c5fba6fb",
+      "touchedAt": 1785363582711,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title, responsibilities, and requirements, as well as an application context, which meets the criteria for a real single job detail page."
+      }
+    },
+    {
+      "key": "1bbab2e003feecd75b5034860e0fd72bb502eac7d2c7bc29ea8bf411f4655aa1",
+      "touchedAt": 1785363585794,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title, responsibilities, and requirements, as well as an application context, indicating a real single job detail page."
+      }
+    },
+    {
+      "key": "b3d6768e04e570abe6e6f8c3f565981b1c4d1b08602bf64d243a3fd57100ad4b",
+      "touchedAt": 1785363586113,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title, responsibilities, and requirements, as well as an application context, indicating a real single job detail page."
+      }
+    },
+    {
+      "key": "fe2cb9be7403515556ea7e0a847fac97d9050c301353df0ada2c33d38e9e44e9",
+      "touchedAt": 1785363586683,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title (UNDERWRITER III), responsibilities/requirements (Suscribir negocios de Affinities, Analizar los negocios rentables del apetito de riesgo de la compañía, etc.), and application context (Enviar candidatura ahora, Iniciar la solicitud con LinkedIn, etc.). The page also provides information about the company culture and benefits, which suggests that it is a specific job listing rather than a generic careers page."
+      }
+    },
+    {
+      "key": "3d694da9e686558201ad8e67da41695ae485faf5f7af435db88a37e7013ee3af",
+      "touchedAt": 1785363587042,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title, responsibilities, and requirements, as well as application context, including a job description, qualifications, and compensation information."
+      }
+    },
+    {
+      "key": "32002bac06440af6e4b879a419004dff6071f187b4490468513e8f0766349c44",
+      "touchedAt": 1785363587437,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title, responsibilities, and requirements, as well as an application context, indicating a real single job detail page."
+      }
+    },
+    {
+      "key": "302db198f9f11ff681e5d560b99ae2205c57c5275f5b3ed02ef9542f3fffa1e8",
+      "touchedAt": 1785363587807,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title, responsibilities, and application context, indicating a real single job detail page."
+      }
+    },
+    {
+      "key": "49dcc43df4dc059c080d14cefb62f8d71df972012add8ad00d356ad88a9b35d3",
+      "touchedAt": 1785363588446,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title, detailed job responsibilities, and application context, which meets the criteria for a real single job detail page."
+      }
+    },
+    {
+      "key": "14b2af73f246a64e313ee5ee8f1a3cc20fea8e621deac99fe7bebe36cd06456e",
+      "touchedAt": 1785363588900,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title, responsibilities, and requirements, as well as an application context, indicating that it is a real single job detail page."
+      }
+    },
+    {
+      "key": "b7d7cf8a13fcc3b7afe1a50fd5e49722a2d66194d1e657a27bbbf20b7b086a70",
+      "touchedAt": 1785363589405,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title, responsibilities, and requirements, as well as an application context, which suggests that it is a real single job detail page."
+      }
+    },
+    {
+      "key": "180cea5fb7fb2d2f00777a734e287fcd7b92df30a270f730bcbcac4f84f6d8a5",
+      "touchedAt": 1785363589701,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title, responsibilities, and requirements, as well as an application context, indicating that it is a real single job detail page."
+      }
+    },
+    {
+      "key": "85ffab36374c88158afb389f3ee3e50d4d1885c9e4348450193f4cc1def1b348",
+      "touchedAt": 1785363590023,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title, responsibilities, and requirements, as well as an application context, which meets the criteria for a real single job detail page."
+      }
+    },
+    {
+      "key": "b9538aaade147344439c19a75c19e7220d17db1f326c05d363dd2e71cd415a6c",
+      "touchedAt": 1785363590320,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title 'Credit Analyst Kautionsversicherung (m/w/d)', detailed responsibilities and requirements, and an application context, which meets the criteria for a real single job detail page."
+      }
+    },
+    {
+      "key": "ce66e686c3483f964067f5262602e906e3d67915f3655010e9c36ff54ee5c454",
+      "touchedAt": 1785363593448,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title, responsibilities, and requirements, which are typical characteristics of a real single job detail page."
+      }
+    },
+    {
+      "key": "eeee0dedcb47d04c7dc0f963fe354ccd4edc1a69b62d0d1ccb65ab41a4a157dd",
+      "touchedAt": 1785363593854,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title, responsibilities, and requirements, as well as application context, including salary range and benefits information."
+      }
+    },
+    {
+      "key": "b4b8b25bbeb4ee4fd7310773b51cb01d0b3fa322aa90b88a4ccca2ed8ed53f82",
+      "touchedAt": 1785363594344,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title, responsibilities, and requirements, as well as an application context, indicating a real single job detail page."
       }
     }
   ]
