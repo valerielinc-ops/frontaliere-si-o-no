@@ -9117,6 +9117,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.caso-zali-politica-ticino-prospettive.title': 'Nach dem Fall Zali: Das Tessin blickt in die Zukunft',
     'blog.article.caso-zali-politica-ticino-prospettive.excerpt': 'Der Rücktritt von Minister Zali ist ein heikler Moment für den Kanton Tessin. Die Politik versucht, das Blatt zu wenden und den Arbeitsalltag wieder aufzunehmen.',
     'blog.article.caso-zali-politica-ticino-prospettive.imageAlt': 'Regierungsgebäude in Bellinzona, Tessin',
+    'blog.article.lavoro-temporaneo-svizzera-crescita.title': 'Temporärarbeit in der Schweiz: 2024 wieder wachsen',
+    'blog.article.lavoro-temporaneo-svizzera-crescita.excerpt': 'Nach drei Jahren des Rückgangs liegt der befristete Arbeitsmarkt bei +1,5%. Swissstaffing Datenanalyse und Implikationen für die Industrie.',
+    'blog.article.lavoro-temporaneo-svizzera-crescita.imageAlt': 'Panoramablick auf ein Büro in Lugano mit Seeblick',
 };
 
 export default blogMetaDe;

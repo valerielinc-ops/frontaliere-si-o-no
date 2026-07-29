@@ -4998,6 +4998,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-storia-vigilanza-bancaria-svizzera': { name: 'Vigilanza bancaria', path: '/articoli-svizzera/storia-vigilanza-bancaria-svizzera/', parent: 'blog' },
     'blog-caso-zali-politica-ticino-prospettive': { name: 'Politica Ticino', path: '/articoli-frontaliere/caso-zali-politica-ticino-prospettive', parent: 'blog' },
     'blog-gestione-immobiliare-professionale': { name: 'Gestione immobiliare', path: '/articoli-svizzera/gestione-immobiliare-professionale/', parent: 'blog' },
+    'blog-lavoro-temporaneo-svizzera-crescita': { name: 'Mercato Lavoro CH', path: '/articoli-frontaliere/lavoro-temporaneo-svizzera-crescita', parent: 'blog' },
  };
 
  const info = sectionNames[section];
