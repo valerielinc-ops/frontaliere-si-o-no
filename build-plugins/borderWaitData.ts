@@ -63,8 +63,7 @@ export type BorderCrossingSlug =
   | 'dumenza-cassinone'
   | 'camedo'
   | 'piaggio-valmara'
-  // Germania (issue #4889, corridor 1 of N — DE fully wired, AT/LI/FR
-  // still pending; see the checklist above BorderCrossingRegion).
+  // Germania (issue #4889, corridor 1 of 4)
   | 'basel-weil-am-rhein-hiltalingerstrasse'
   | 'basel-weil-am-rhein-autostrada-a2-a5'
   | 'basel-weil-am-rhein-freiburgerstrasse'
@@ -131,7 +130,51 @@ export type BorderCrossingSlug =
   | 'diessenhofen-gailingen-am-hochrhein'
   | 'konstanz-tagerwilen-gottlieber-strasse'
   | 'konstanz-tagerwilen-autostrada-b33n-a7'
-  | 'konstanz-kreuzlingen';
+  | 'konstanz-kreuzlingen'
+  // Austria (issue #4889, corridor 2 of 4)
+  | 'rheineck-gai-au'
+  | 'st-margrethen-hochst'
+  | 'au-lustenau'
+  | 'widnau-lustenau'
+  | 'diepoldsau-hohenems'
+  | 'kriessern-mader'
+  | 'montlingen-koblach'
+  | 'ruthi-meiningen'
+  | 'martina-nauders'
+  | 'samnaun-spiss'
+  // Liechtenstein (issue #4889, corridor 3 of 4)
+  | 'trubbach-balzers'
+  | 'sevelen-vaduz'
+  | 'buchs-schaan'
+  | 'haag-bendern'
+  | 'salez-ruggell'
+  | 'st-luzisteig'
+  // Francia (issue #4889, corridor 4 of 4)
+  | 'bardonnex'
+  | 'ferney-voltaire-grand-saconnex'
+  | 'meyrin-cern'
+  | 'thonex-vallard'
+  | 'moillesulaz'
+  | 'perly'
+  | 'anieres'
+  | 'sauverny'
+  | 'hermance'
+  | 'landecy'
+  | 'vallorbe-jougne'
+  | 'la-cure-les-rousses'
+  | 'l-auberson-les-fourgs'
+  | 'le-brassus-bois-d-amont'
+  | 'crassier-divonne'
+  | 'chavannes-de-bogis-divonne'
+  | 'les-verrieres'
+  | 'col-des-roches'
+  | 'biaufond'
+  | 'boncourt-delle'
+  | 'fahy-abbevillers'
+  | 'goumois'
+  | 'le-chatelard-vallorcine'
+  | 'saint-gingolph'
+  | 'morgins-chatel';
 
 /**
  * Closed union of crossing "regional hub" groupings — currently one per
@@ -185,12 +228,21 @@ export type BorderCrossingRegion =
   | 'argovia-germania'
   | 'zurigo-germania'
   | 'sciaffusa-germania'
-  | 'turgovia-germania';
+  | 'turgovia-germania'
+  | 'san-gallo-austria'
+  | 'grigioni-austria'
+  | 'san-gallo-liechtenstein'
+  | 'grigioni-liechtenstein'
+  | 'geneve-francia'
+  | 'vaud-francia'
+  | 'neuchatel-francia'
+  | 'giura-francia'
+  | 'vallese-francia';
 
 export const BORDER_WAIT_LOCALES: readonly BorderWaitLocale[] = ['it', 'en', 'de', 'fr'] as const;
 
 /**
- * Full crossing registry (93) — must match ALL_BORDER_CROSSING_IDS in
+ * Full crossing registry (134) — must match ALL_BORDER_CROSSING_IDS in
  * router.ts. New crossing → append its slug here too (see "Adding a new
  * crossing" checklist above BorderCrossingRegion, step 5).
  */
@@ -293,6 +345,56 @@ export const BORDER_WAIT_CROSSINGS: readonly BorderCrossingSlug[] = [
   'konstanz-tagerwilen-gottlieber-strasse',
   'konstanz-tagerwilen-autostrada-b33n-a7',
   'konstanz-kreuzlingen',
+  // Austria — SG (8)
+  'rheineck-gai-au',
+  'st-margrethen-hochst',
+  'au-lustenau',
+  'widnau-lustenau',
+  'diepoldsau-hohenems',
+  'kriessern-mader',
+  'montlingen-koblach',
+  'ruthi-meiningen',
+  // Austria — GR (2)
+  'martina-nauders',
+  'samnaun-spiss',
+  // Liechtenstein — SG (5)
+  'trubbach-balzers',
+  'sevelen-vaduz',
+  'buchs-schaan',
+  'haag-bendern',
+  'salez-ruggell',
+  // Liechtenstein — GR (1)
+  'st-luzisteig',
+  // Francia — GE (10)
+  'bardonnex',
+  'ferney-voltaire-grand-saconnex',
+  'meyrin-cern',
+  'thonex-vallard',
+  'moillesulaz',
+  'perly',
+  'anieres',
+  'sauverny',
+  'hermance',
+  'landecy',
+  // Francia — VD (6)
+  'vallorbe-jougne',
+  'la-cure-les-rousses',
+  'l-auberson-les-fourgs',
+  'le-brassus-bois-d-amont',
+  'crassier-divonne',
+  'chavannes-de-bogis-divonne',
+  // Francia — NE (3)
+  'les-verrieres',
+  'col-des-roches',
+  'biaufond',
+  // Francia — JU (3)
+  'boncourt-delle',
+  'fahy-abbevillers',
+  'goumois',
+  // Francia — VS (3)
+  'le-chatelard-vallorcine',
+  'saint-gingolph',
+  'morgins-chatel',
 ] as const;
 
 /** Top-5 crossings eligible for monthly archive pages (highest GSC demand). */
@@ -402,6 +504,47 @@ export const BORDER_CROSSING_DISPLAY: Record<BorderCrossingSlug, string> = {
   'konstanz-tagerwilen-gottlieber-strasse': 'Konstanz – Tägerwilen, Gottlieber Strasse',
   'konstanz-tagerwilen-autostrada-b33n-a7': 'Konstanz – Tägerwilen, Autostrada B33n/A7',
   'konstanz-kreuzlingen': 'Konstanz – Kreuzlingen',
+  'rheineck-gai-au': 'Rheineck-Gaißau',
+  'st-margrethen-hochst': 'St. Margrethen-Höchst',
+  'au-lustenau': 'Au-Lustenau',
+  'widnau-lustenau': 'Widnau-Lustenau (Wiesenrain)',
+  'diepoldsau-hohenems': 'Diepoldsau-Hohenems',
+  'kriessern-mader': 'Kriessern-Mäder',
+  'montlingen-koblach': 'Montlingen-Koblach',
+  'ruthi-meiningen': 'Rüthi-Meiningen',
+  'martina-nauders': 'Martina-Nauders (Finstermünz)',
+  'samnaun-spiss': 'Samnaun-Spiss',
+  'trubbach-balzers': 'Trübbach-Balzers',
+  'sevelen-vaduz': 'Sevelen-Vaduz',
+  'buchs-schaan': 'Buchs (SG)-Schaan',
+  'haag-bendern': 'Haag-Bendern',
+  'salez-ruggell': 'Salez-Ruggell',
+  'st-luzisteig': 'St. Luzisteig (Fläsch-Balzers)',
+  bardonnex: 'Bardonnex',
+  'ferney-voltaire-grand-saconnex': 'Ferney-Voltaire / Grand-Saconnex',
+  'meyrin-cern': 'Meyrin / CERN',
+  'thonex-vallard': 'Thônex-Vallard (Autoroute Blanche)',
+  moillesulaz: 'Moillesulaz',
+  perly: 'Perly (Perly-Certoux)',
+  anieres: 'Anières',
+  sauverny: 'Sauverny',
+  hermance: 'Hermance',
+  landecy: 'Landecy',
+  'vallorbe-jougne': 'Vallorbe-Jougne (La Ferrière)',
+  'la-cure-les-rousses': 'La Cure-Les Rousses',
+  'l-auberson-les-fourgs': "L'Auberson-Les Fourgs",
+  'le-brassus-bois-d-amont': "Le Brassus-Bois-d'Amont",
+  'crassier-divonne': 'Crassier-Divonne',
+  'chavannes-de-bogis-divonne': 'Chavannes-de-Bogis-Divonne',
+  'les-verrieres': 'Les Verrières',
+  'col-des-roches': 'Col-des-Roches (Col France)',
+  biaufond: 'Biaufond',
+  'boncourt-delle': 'Boncourt-Delle (A16)',
+  'fahy-abbevillers': 'Fahy-Abbévillers',
+  goumois: 'Goumois',
+  'le-chatelard-vallorcine': 'Le Châtelard-Vallorcine',
+  'saint-gingolph': 'Saint-Gingolph',
+  'morgins-chatel': 'Morgins-Châtel (Pas de Morgins)',
 };
 
 /**
@@ -505,6 +648,47 @@ export const CROSSING_TO_REGION: Record<BorderCrossingSlug, BorderCrossingRegion
   'konstanz-tagerwilen-gottlieber-strasse': 'turgovia-germania',
   'konstanz-tagerwilen-autostrada-b33n-a7': 'turgovia-germania',
   'konstanz-kreuzlingen': 'turgovia-germania',
+  'rheineck-gai-au': 'san-gallo-austria',
+  'st-margrethen-hochst': 'san-gallo-austria',
+  'au-lustenau': 'san-gallo-austria',
+  'widnau-lustenau': 'san-gallo-austria',
+  'diepoldsau-hohenems': 'san-gallo-austria',
+  'kriessern-mader': 'san-gallo-austria',
+  'montlingen-koblach': 'san-gallo-austria',
+  'ruthi-meiningen': 'san-gallo-austria',
+  'martina-nauders': 'grigioni-austria',
+  'samnaun-spiss': 'grigioni-austria',
+  'trubbach-balzers': 'san-gallo-liechtenstein',
+  'sevelen-vaduz': 'san-gallo-liechtenstein',
+  'buchs-schaan': 'san-gallo-liechtenstein',
+  'haag-bendern': 'san-gallo-liechtenstein',
+  'salez-ruggell': 'san-gallo-liechtenstein',
+  'st-luzisteig': 'grigioni-liechtenstein',
+  bardonnex: 'geneve-francia',
+  'ferney-voltaire-grand-saconnex': 'geneve-francia',
+  'meyrin-cern': 'geneve-francia',
+  'thonex-vallard': 'geneve-francia',
+  moillesulaz: 'geneve-francia',
+  perly: 'geneve-francia',
+  anieres: 'geneve-francia',
+  sauverny: 'geneve-francia',
+  hermance: 'geneve-francia',
+  landecy: 'geneve-francia',
+  'vallorbe-jougne': 'vaud-francia',
+  'la-cure-les-rousses': 'vaud-francia',
+  'l-auberson-les-fourgs': 'vaud-francia',
+  'le-brassus-bois-d-amont': 'vaud-francia',
+  'crassier-divonne': 'vaud-francia',
+  'chavannes-de-bogis-divonne': 'vaud-francia',
+  'les-verrieres': 'neuchatel-francia',
+  'col-des-roches': 'neuchatel-francia',
+  biaufond: 'neuchatel-francia',
+  'boncourt-delle': 'giura-francia',
+  'fahy-abbevillers': 'giura-francia',
+  goumois: 'giura-francia',
+  'le-chatelard-vallorcine': 'vallese-francia',
+  'saint-gingolph': 'vallese-francia',
+  'morgins-chatel': 'vallese-francia',
 };
 
 /**
@@ -626,6 +810,15 @@ export const BORDER_WAIT_REGIONS: readonly BorderCrossingRegion[] = [
   'zurigo-germania',
   'sciaffusa-germania',
   'turgovia-germania',
+  'san-gallo-austria',
+  'grigioni-austria',
+  'san-gallo-liechtenstein',
+  'grigioni-liechtenstein',
+  'geneve-francia',
+  'vaud-francia',
+  'neuchatel-francia',
+  'giura-francia',
+  'vallese-francia',
 ] as const;
 
 /**
@@ -641,6 +834,15 @@ export const BORDER_REGION_DISPLAY: Record<BorderCrossingRegion, string> = {
   'zurigo-germania': 'Zurigo — Germania',
   'sciaffusa-germania': 'Sciaffusa — Germania',
   'turgovia-germania': 'Turgovia — Germania',
+  'san-gallo-austria': 'San Gallo — Austria',
+  'grigioni-austria': 'Grigioni — Austria',
+  'san-gallo-liechtenstein': 'San Gallo — Liechtenstein',
+  'grigioni-liechtenstein': 'Grigioni — Liechtenstein',
+  'geneve-francia': 'Ginevra — Francia',
+  'vaud-francia': 'Vaud — Francia',
+  'neuchatel-francia': 'Neuchâtel — Francia',
+  'giura-francia': 'Giura — Francia',
+  'vallese-francia': 'Vallese — Francia',
 };
 
 /**
@@ -653,7 +855,7 @@ export const BORDER_REGION_DISPLAY: Record<BorderCrossingRegion, string> = {
  * BorderCrossingRegion, step 2b) — kept an exhaustive Record on purpose so
  * a forgotten entry is a compile error, not a silently-wrong page.
  */
-export const REGION_TO_COUNTRY: Record<BorderCrossingRegion, 'IT' | 'DE'> = {
+export const REGION_TO_COUNTRY: Record<BorderCrossingRegion, 'IT' | 'DE' | 'AT' | 'LI' | 'FR'> = {
   'ticino-como': 'IT',
   'ticino-varese': 'IT',
   'ticino-verbano': 'IT',
@@ -662,6 +864,15 @@ export const REGION_TO_COUNTRY: Record<BorderCrossingRegion, 'IT' | 'DE'> = {
   'zurigo-germania': 'DE',
   'sciaffusa-germania': 'DE',
   'turgovia-germania': 'DE',
+  'san-gallo-austria': 'AT',
+  'grigioni-austria': 'AT',
+  'san-gallo-liechtenstein': 'LI',
+  'grigioni-liechtenstein': 'LI',
+  'geneve-francia': 'FR',
+  'vaud-francia': 'FR',
+  'neuchatel-francia': 'FR',
+  'giura-francia': 'FR',
+  'vallese-francia': 'FR',
 };
 
 // ── Path builders ─────────────────────────────────────────────────
@@ -712,7 +923,7 @@ export function buildArchivePath(
  * services/router.ts so unknown `/traffico-dogane/...` URLs resolve to a known
  * route (guida/border sub-tab) instead of falling through to 404.
  *
- * Count: 4 locales × (1 root + 8 regional + 93 crossings) = 408 canonical paths.
+ * Count: 4 locales × (1 root + 17 regional + 134 crossings) = 608 canonical paths.
  */
 export const BORDER_WAIT_ROUTES: readonly string[] = (() => {
   const out: string[] = [];
