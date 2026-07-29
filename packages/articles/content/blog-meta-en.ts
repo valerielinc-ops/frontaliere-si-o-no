@@ -9103,6 +9103,12 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.edilizia-ticino-estate-sfide-ssic.title': 'Construction in Ticino: the challenges of the sector before the summer',
     'blog.article.edilizia-ticino-estate-sfide-ssic.excerpt': 'The point of the situation between procurement, material supply and the critical issues related to summer temperatures with the SSIC.',
     'blog.article.edilizia-ticino-estate-sfide-ssic.imageAlt': 'Construction site in Ticino during the summer season',
+    'blog.article.ubs-taglio-posti-lavoro-svizzera.title': 'UBS cuts other jobs: it falls below 100,000',
+    'blog.article.ubs-taglio-posti-lavoro-svizzera.excerpt': 'The UBS banking group reduces its workforce to 99,085 employees following the integration of Credit Suisse. Target: 13.5 billion in savings by 2026.',
+    'blog.article.ubs-taglio-posti-lavoro-svizzera.imageAlt': 'View of the financial center of Lugano',
+    'blog.article.agenzie-immobiliari-lavoro-ticino.title': 'Efficiency in real estate: how professionals work',
+    'blog.article.agenzie-immobiliari-lavoro-ticino.excerpt': 'Because successful real estate agencies in Ticino do not waste time on social media but focus on the operational management of real estate.',
+    'blog.article.agenzie-immobiliari-lavoro-ticino.imageAlt': 'Professional office in Lugano with a view of the lake',
 };
 
 export default blogMetaEn;

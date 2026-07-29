@@ -9104,6 +9104,12 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.edilizia-ticino-estate-sfide-ssic.title': 'Edilizia in Ticino: le sfide del settore prima dell\'estate',
     'blog.article.edilizia-ticino-estate-sfide-ssic.excerpt': 'Il punto della situazione tra appalti, approvvigionamento materiali e le criticità legate alle temperature estive con la SSIC.',
     'blog.article.edilizia-ticino-estate-sfide-ssic.imageAlt': 'Cantiere edile in Ticino durante la stagione estiva',
+    'blog.article.ubs-taglio-posti-lavoro-svizzera.title': 'UBS taglia altri impieghi: scende sotto i 100\'000',
+    'blog.article.ubs-taglio-posti-lavoro-svizzera.excerpt': 'Il gruppo bancario UBS riduce l\'organico a 99\'085 dipendenti a seguito dell\'integrazione di Credit Suisse. Obiettivo: 13,5 miliardi di risparmi entro il 2026.',
+    'blog.article.ubs-taglio-posti-lavoro-svizzera.imageAlt': 'Veduta del centro finanziario di Lugano',
+    'blog.article.agenzie-immobiliari-lavoro-ticino.title': 'Efficienza nel settore immobiliare: come lavorano i professionisti',
+    'blog.article.agenzie-immobiliari-lavoro-ticino.excerpt': 'Perché le agenzie immobiliari di successo in Ticino non perdono tempo sui social ma si concentrano sulla gestione operativa degli immobili.',
+    'blog.article.agenzie-immobiliari-lavoro-ticino.imageAlt': 'Ufficio professionale a Lugano con vista sul lago',
 };
 
 export default blogMetaIt;

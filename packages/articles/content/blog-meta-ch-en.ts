@@ -1672,6 +1672,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.lavoro-tornato-aumentare-svizzera.title': 'Temporary work increases again in Switzerland',
     'blog.article.lavoro-tornato-aumentare-svizzera.excerpt': 'The number of hours worked in the temporary work sector increased by 1.5% in the first half of 2023 compared to the same period of the previous year.',
     'blog.article.lavoro-tornato-aumentare-svizzera.imageAlt': 'Temporary work in Switzerland',
+    'blog.article.frontalieri-tassa-salute.title': 'Frontierers, health tax: "A bomb behind a handful of change"',
+    'blog.article.frontalieri-tassa-salute.excerpt': 'According to what was communicated in February 2026, the parent company of "Civic Action for Luino and Fractions" and minority advisor, lawyer Furio Artoni, sent a press release regarding relations between Italy and Switzerland on the issue of border workers and the so-called health tax.',
+    'blog.article.frontalieri-tassa-salute.imageAlt': 'A photo of a Swiss federal official speaking at a press conference in Lugano, explaining the implications of the new tax on health care for frontier workers.',
 };
 
 export default blogMetaChEn;

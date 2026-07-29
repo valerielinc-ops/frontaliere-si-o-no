@@ -9102,6 +9102,12 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.edilizia-ticino-estate-sfide-ssic.title': 'Bauen im Tessin: Die Herausforderungen der Branche vor dem Sommer',
     'blog.article.edilizia-ticino-estate-sfide-ssic.excerpt': 'Der Punkt der Situation zwischen Beschaffung, Materialbeschaffung und den kritischen Sommertemperaturen mit dem SBV.',
     'blog.article.edilizia-ticino-estate-sfide-ssic.imageAlt': 'Baustelle im Tessin während der Sommersaison',
+    'blog.article.ubs-taglio-posti-lavoro-svizzera.title': 'UBS streicht weitere Stellen: Unter 100\'000',
+    'blog.article.ubs-taglio-posti-lavoro-svizzera.excerpt': 'Die Bankengruppe UBS reduziert den Personalbestand durch die Integration der Credit Suisse auf 99\'085 Mitarbeitende. Ziel: 13,5 Milliarden Einsparungen bis 2026.',
+    'blog.article.ubs-taglio-posti-lavoro-svizzera.imageAlt': 'Blick auf das Finanzzentrum von Lugano',
+    'blog.article.agenzie-immobiliari-lavoro-ticino.title': 'Effizienz in der Immobilienbranche: Wie Profis arbeiten',
+    'blog.article.agenzie-immobiliari-lavoro-ticino.excerpt': 'Denn erfolgreiche Immobilienagenturen im Tessin verschwenden keine Zeit mit sozialen Medien, sondern konzentrieren sich auf das operative Management von Immobilien.',
+    'blog.article.agenzie-immobiliari-lavoro-ticino.imageAlt': 'Professionelles Büro in Lugano mit Blick auf den See',
 };
 
 export default blogMetaDe;

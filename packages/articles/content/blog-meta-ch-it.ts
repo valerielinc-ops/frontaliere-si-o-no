@@ -1672,6 +1672,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.lavoro-tornato-aumentare-svizzera.title': 'Il lavoro temporaneo torna ad aumentare in Svizzera',
     'blog.article.lavoro-tornato-aumentare-svizzera.excerpt': 'Il numero di ore lavorate nel settore del lavoro temporaneo è aumentato del 1,5% nel primo semestre 2023 rispetto allo stesso periodo dell\'anno precedente.',
     'blog.article.lavoro-tornato-aumentare-svizzera.imageAlt': 'Lavoro temporaneo in Svizzera',
+    'blog.article.frontalieri-tassa-salute.title': 'Frontalieri, tassa sulla salute: "Una bomba dietro una manciata di spiccioli"',
+    'blog.article.frontalieri-tassa-salute.excerpt': 'Secondo quanto comunicato nel febbraio 2026, il capogruppo di "Azione civica per Luino e frazioni" e consigliere di minoranza, l\'avvocato Furio Artoni, ha inviato un comunicato stampa in merito ai rapporti tra Italia e Svizzera sul tema dei frontalieri e della cosiddetta tassa sulla salute.',
+    'blog.article.frontalieri-tassa-salute.imageAlt': 'Una foto di un funzionario federale svizzero che parla a una conferenza stampa a Lugano, spiegando le implicazioni della nuova tassa sulla salute per i lavoratori frontalieri.',
 };
 
 export default blogMetaChIt;

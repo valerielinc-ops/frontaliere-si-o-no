@@ -4989,6 +4989,9 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-ermotti-intervista-ubs': { name: 'Sergio Ermotti, CEO di UBS', path: '/articoli-svizzera/ermotti-intervista-ubs/', parent: 'blog' },
     'blog-edilizia-ticino-estate-sfide-ssic': { name: 'Edilizia Ticino', path: '/articoli-frontaliere/edilizia-ticino-estate-sfide-ssic', parent: 'blog' },
     'blog-lavoro-tornato-aumentare-svizzera': { name: 'Lavoro temporaneo in Svizzera', path: '/articoli-svizzera/lavoro-tornato-aumentare-svizzera/', parent: 'blog' },
+    'blog-ubs-taglio-posti-lavoro-svizzera': { name: 'UBS economia', path: '/articoli-frontaliere/ubs-taglio-posti-lavoro-svizzera', parent: 'blog' },
+    'blog-agenzie-immobiliari-lavoro-ticino': { name: 'Immobiliare Ticino', path: '/articoli-frontaliere/agenzie-immobiliari-lavoro-ticino', parent: 'blog' },
+    'blog-frontalieri-tassa-salute': { name: 'Frontalieri, tassa sulla salute', path: '/articoli-svizzera/frontalieri-tassa-salute/', parent: 'blog' },
  };
 
  const info = sectionNames[section];
