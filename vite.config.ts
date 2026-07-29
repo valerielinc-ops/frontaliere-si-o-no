@@ -91,6 +91,8 @@ import { germanBorderMunicipalityPagesPlugin } from './build-plugins/germanBorde
 import { germanBorderMunicipalityLinksPlugin } from './build-plugins/germanBorderMunicipalityLinksPlugin';
 import { liechtensteinBorderMunicipalityPagesPlugin } from './build-plugins/liechtensteinBorderMunicipalityPagesPlugin';
 import { liechtensteinBorderMunicipalityLinksPlugin } from './build-plugins/liechtensteinBorderMunicipalityLinksPlugin';
+import { austrianBorderMunicipalityPagesPlugin } from './build-plugins/austrianBorderMunicipalityPagesPlugin';
+import { austrianBorderMunicipalityLinksPlugin } from './build-plugins/austrianBorderMunicipalityLinksPlugin';
 import { eventsSeoPagesPlugin } from './build-plugins/eventsSeoPagesPlugin';
 import { nursingLandingsPlugin } from './build-plugins/nursingLandingsPlugin';
 import { healthFacilitiesPlugin } from './build-plugins/healthFacilitiesPlugin';
@@ -304,6 +306,13 @@ export default defineConfig(({ mode }) => {
  // frenchBorderMunicipalityPagesPlugin above.
  // Default-on; escape hatch SKIP_LIECHTENSTEIN_BORDER_MUNICIPALITY_PAGES=1.
  liechtensteinBorderMunicipalityPagesPlugin(__dirname),
+ // Per-Gemeinde AUSTRIA border-municipality pages (issue #4883, fourth of
+ // the FR/DE/AT/LI rollout — Vorarlberg/Tirol corridor). Same
+ // self-contained pattern as frenchBorderMunicipalityPagesPlugin above.
+ // Unlike its siblings this regime has NO favourable frontalieri tax
+ // treatment (abrogated 2006/2007) — see austrianBorderMunicipalityData.ts.
+ // Default-on; escape hatch SKIP_AUSTRIAN_BORDER_MUNICIPALITY_PAGES=1.
+ austrianBorderMunicipalityPagesPlugin(__dirname),
  // Per-comune Ticino events pages (issue #2963). Same post-staticPages
  // ordering as borderMunicipalityPagesPlugin: it patches the
  // /vivere-in-ticino/ hubs after they are flushed and awaits
@@ -434,6 +443,13 @@ export default defineConfig(({ mode }) => {
  // (sitemap-page HTML). Idempotent via
  // `data-liechtenstein-border-municipalities-links`.
  liechtensteinBorderMunicipalityLinksPlugin(__dirname),
+ // Austria border-municipality hub orphan fix — same pattern as the
+ // Germany/Liechtenstein links plugins above, injecting a link to
+ // AUSTRIAN_HUB_PATH into each locale's HTML sitemap page. Awaits explicit
+ // signals from austrianBorderMunicipalityPagesPlugin (hub paths) +
+ // staticPagesPlugin (sitemap-page HTML). Idempotent via
+ // `data-austrian-border-municipalities-links`.
+ austrianBorderMunicipalityLinksPlugin(__dirname),
  // Employer-profile pages orphan fix — inject an "Aziende in Svizzera" block
  // into each locale's HTML sitemap page (main-nav reachable) so the ~468
  // /aziende/{slug}/ pages reach BFS depth ≤ 3 instead of shipping fully

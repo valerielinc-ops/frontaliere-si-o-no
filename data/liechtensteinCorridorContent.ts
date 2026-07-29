@@ -14,8 +14,7 @@
  *
  * SCOPE OF FACTS — every claim below traces to one of two places, nothing
  * else. Do not add a fact here without adding its source to one of these:
- *   1. /Users/saggesel/.claude/jobs/acadf57f/tmp/tax-research-de-li.md,
- *      section "Passo 2" (fiscal treaty, customs union, AVS/AI, 45-day
+ *   1. data/liechtensteinMunicipalities.ts's SOURCES header (fiscal treaty, customs union, AVS/AI, 45-day
  *      threshold, what the source does NOT say about losing frontaliere
  *      status).
  *   2. `LIECHTENSTEIN_COMMUTING_CONTEXT` / `NATIONAL_POPULATION` exported by
@@ -75,6 +74,15 @@ const nationalPop = groupThousands(NATIONAL.value);
 export interface LiechtensteinFaqEntry {
   question: string;
   answer: string;
+  /**
+   * Marks the entry carrying the mandatory inverted-commuting disclosure
+   * (CH->FL outnumbers FL->CH ~6:1). The page renders that answer in its own
+   * accent box, and it used to be picked positionally as the LAST array
+   * element — so reordering this array would have silently swapped the
+   * disclosure for an unrelated answer, with nothing failing. Keyed lookup
+   * makes the intent explicit and reorder-proof.
+   */
+  kind?: 'commuting-direction';
 }
 
 export interface LiechtensteinLocaleContent {
@@ -120,6 +128,7 @@ export const LIECHTENSTEIN_CONTENT: Record<LiechtensteinLocale, LiechtensteinLoc
         question: 'Il flusso Liechtenstein → Svizzera è il più comune su questo corridoio?',
         answer:
           `No, ed è importante saperlo: nel ${CTX.year} il flusso dominante era l'opposto, Svizzera → Liechtenstein (${chToLi} persone contro ${liToCh}, rapporto ${CTX.ratio}). Questa guida copre il flusso minoritario perché coerente con il pubblico del sito, non perché sia il pattern maggioritario del corridoio.`,
+        kind: 'commuting-direction',
       },
     ],
   },
@@ -156,6 +165,7 @@ export const LIECHTENSTEIN_CONTENT: Record<LiechtensteinLocale, LiechtensteinLoc
         question: 'Is the Liechtenstein → Switzerland flow the most common on this corridor?',
         answer:
           `No — and this matters: in ${CTX.year} the dominant flow was the opposite, Switzerland → Liechtenstein (${chToLi} people versus ${liToCh}, a ratio of ${CTX.ratio}). This guide covers the minority flow because it matches this site’s audience, not because it is the corridor’s majority pattern.`,
+        kind: 'commuting-direction',
       },
     ],
   },
@@ -192,6 +202,7 @@ export const LIECHTENSTEIN_CONTENT: Record<LiechtensteinLocale, LiechtensteinLoc
         question: 'Ist die Richtung Liechtenstein → Schweiz auf diesem Korridor die häufigste?',
         answer:
           `Nein — und das ist wichtig zu wissen: ${CTX.year} war die dominante Richtung die umgekehrte, Schweiz → Liechtenstein (${chToLi} Personen gegenüber ${liToCh}, Verhältnis ${CTX.ratio}). Dieser Ratgeber deckt die Minderheitsrichtung ab, weil sie zur Leserschaft dieser Seite passt — nicht weil sie das Mehrheitsmuster des Korridors wäre.`,
+        kind: 'commuting-direction',
       },
     ],
   },
@@ -228,6 +239,7 @@ export const LIECHTENSTEIN_CONTENT: Record<LiechtensteinLocale, LiechtensteinLoc
         question: 'Le flux Liechtenstein → Suisse est-il le plus courant sur ce corridor ?',
         answer:
           `Non — et c'est important à savoir : en ${CTX.year}, le flux dominant était l'inverse, Suisse → Liechtenstein (${chToLi} personnes contre ${liToCh}, ratio ${CTX.ratio}). Ce guide couvre le flux minoritaire parce qu'il correspond au public de ce site, pas parce qu'il serait le schéma majoritaire du corridor.`,
+        kind: 'commuting-direction',
       },
     ],
   },
