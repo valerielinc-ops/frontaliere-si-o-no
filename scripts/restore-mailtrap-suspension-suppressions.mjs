@@ -51,15 +51,19 @@ if (!admin.apps?.length) {
 }
 const db = admin.firestore();
 
-/** Causes that are genuinely about the recipient and must stay suppressed. */
-const REAL_RECIPIENT_FAILURES = new Set(['bounce', 'soft_bounce', 'reject', 'spam_complaint', 'hard_bounce']);
-
 /**
  * Origins that confirm at signup by design (the user performed an explicit act
  * — unlocking a job, signing in with a provider — so no double opt-in is sent).
  * Mirrors CONFIRMED_NEWSLETTER_SOURCES in services/newsletterSubscribers.ts.
+ *
+ * `publisher_gate_social` only. Its sibling `publisher_gate_email` is
+ * pending-BY-DESIGN: components/pages/PublisherPublishPage.tsx deliberately
+ * omits status/isActive there so a new address falls to `pending` and gets the
+ * opt-in email, and CONFIRMED_NEWSLETTER_SOURCES does not list it. Matching the
+ * bare `publisher_gate` prefix would have restored those to `confirmed` —
+ * exactly the fabricated consent this function exists to prevent.
  */
-const AUTO_CONFIRMED_ORIGIN_RE = /^(signup|auth_|chatbot_|job_|tax_calendar_(google|facebook)|resubscribe_link|newsletter_email_link|one_tap|publisher_gate)/i;
+const AUTO_CONFIRMED_ORIGIN_RE = /^(signup|auth_|chatbot_|job_|tax_calendar_(google|facebook)|resubscribe_link|newsletter_email_link|one_tap|publisher_gate_social)/i;
 
 function hasConsentEvidence(data, events) {
   if (data?.confirmed_at || data?.confirmedAt) return true;
@@ -82,9 +86,11 @@ function classify(events) {
     const raw = String(e.mailtrap_event || e.provider_event || '').toLowerCase();
     if (type === 'unsubscribed' || raw === 'unsubscribe') sawUnsubscribe = true;
     if (type !== 'suppressed') continue;
+    // Anything that is not a suspension counts as a real recipient-level
+    // failure, INCLUDING an empty/unknown raw event: an unrecognised cause must
+    // keep the address suppressed rather than resurrect it on a guess.
     if (raw === 'suspension') sawSuspension = true;
     else sawRealFailure = true;
-    if (REAL_RECIPIENT_FAILURES.has(raw)) sawRealFailure = true;
   }
   return { sawSuspension, sawRealFailure, sawUnsubscribe };
 }
