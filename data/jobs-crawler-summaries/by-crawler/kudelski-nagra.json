@@ -1,16 +1,16 @@
 {
   "key": "kudelski-nagra",
   "label": "Kudelski NAGRA",
-  "generatedAt": "2026-07-28T22:17:04.152Z",
+  "generatedAt": "2026-07-29T11:33:47.477Z",
   "total": 2,
   "newCount": 0,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 10539,
-  "avgDurationMs": 10539,
+  "durationMs": 3932,
+  "avgDurationMs": 3932,
   "durationHistory": [
-    10539
+    3932
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -26,7 +26,7 @@
       "url": "https://careers.nagra.com/?page=advertisement_display&id=15596",
       "source": "Kudelski NAGRA Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-07-28T22:17:00.964Z",
+      "crawledAt": "2026-07-29T11:33:44.882Z",
       "addressLocality": "Switzerland",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -83,7 +83,7 @@
       "firstSeenAt": "2026-07-09T12:12:34.365Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 75,
       "_qualityBreakdown": {
         "cleanliness": 25,
