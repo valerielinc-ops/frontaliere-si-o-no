@@ -209,7 +209,11 @@ console.log(`🔧 ${targets.length} file con "${MARKER}" (locali: ${LOCALES.join
 
 let repaired = 0; let failed = 0; let fields = 0;
 for (const t of targets.slice(0, LIMIT)) {
-  const itPath = `${t.dir}/it/${t.id}.ts`;
+  // `it` is the SOURCE language here, not the target locale: this script repairs
+  // en/de/fr bodies by re-translating from the Italian original, the only copy
+  // the `[object Object]` bug never touched (it/ is generated, not translated).
+  // Substituting `${t.locale}` would read the corrupted file as its own source.
+  const itPath = `${t.dir}/it/${t.id}.ts`; // locale-segment-ok: Italian is the repair source, not a target locale
   if (!existsSync(itPath)) { console.error(`  ❌ ${t.locale}/${t.id}: sorgente IT assente`); failed++; continue; }
   let src = readFileSync(t.path, 'utf8');
   const itSrc = readFileSync(itPath, 'utf8');
