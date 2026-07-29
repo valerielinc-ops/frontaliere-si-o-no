@@ -35,6 +35,8 @@
  * decide what blocks (see runFactualityGates → `blocking`).
  */
 
+import { tokenizeIt, containmentSim } from './it-text-similarity.mjs';
+
 /** Severity ranking used to sort and to decide what blocks publication. */
 export const SEVERITY = { critical: 3, major: 2, minor: 1 };
 
@@ -117,7 +119,18 @@ function issue(code, severity, message, evidence, fix = '') {
 // generation pipeline has fought free-tier truncation before (see the cap
 // comments in create-article.mjs), so the class is worth a cheap standing check.
 
-const SENTENCE_END = /[.!?:;»"')\]}…]$/;
+// Typographic closing quotes count as sentence ends exactly like the ASCII `"`
+// already listed. Italian sources quote with `”` and `›`, and the corpus triage
+// (2026-07-29) found three articles flagged purely for closing a quotation
+// properly ("…che ne certificano l'ubicazione.”").
+// U+2019 `’` is deliberately NOT here: Italian uses it as an apostrophe
+// ("un po’", "l’ufficio"), so accepting it would rescue genuine cut-offs.
+const SENTENCE_END = /[.!?:;»›"”')\]}…]$/;
+
+// A footnote reference sits AFTER the full stop it annotates ("…in seguito. 6").
+// Whitespace before the digits is required: without it "…il tetto sale a 60.000"
+// would lose its "000" and pass on the "60." left behind.
+const TRAILING_FOOTNOTE_REF = /\s+\[?\^?\d{1,3}\]?$/;
 
 /**
  * Detects text that was cut off mid-generation.
@@ -166,19 +179,38 @@ export function detectTruncation(text, opts = {}) {
   // (b) The text should end on a sentence boundary. Several endings are
   // legitimate and must not be flagged (they produced 117 false positives on
   // the first corpus pass): tables, lists, headings, "Fonte: …" attribution
-  // lines, footnote markers, and a trailing emoji after real punctuation.
+  // lines, footnote entries and markers, a typographic closing quote, and a
+  // trailing emoji after real punctuation.
+  //
+  // The exemptions stop there on purpose. The 2026-07-29 triage read all 47
+  // corpus hits: 41 were real defects (24 sentences cut mid-word, 17 bodies
+  // ending on leaked scaffolding — "TITOLO ARTICOLO:", a source footer, a slug
+  // list). Only 6 were noise, and all 6 fall in the classes handled here. In
+  // particular the `looksLikeHeading` cut-off stays at 60 chars: the leaked
+  // "TITOLO ARTICOLO:" tails run 61-80 chars and must keep failing.
   const trimmed = text.trimEnd();
   const lastLine = trimmed.split('\n').filter((l) => l.trim()).pop() || '';
   const isStructural = /^\s*([|#\-*>]|\d+\.)/.test(lastLine);
   const isAttribution = /^\s*\*?\s*(fonte|source|quelle)\s*:/i.test(lastLine);
+  // A markdown footnote entry closes on the back-reference glyph "↩" and carries
+  // no sentence punctuation of its own. Same call as `isAttribution`: the line is
+  // reference apparatus, not prose, so its ending says nothing about truncation.
+  const isFootnote = /↩\s*$/.test(lastLine);
   // Strip trailing emoji / footnote glyphs before judging the punctuation.
-  const withoutTrailingGlyphs = trimmed
+  let withoutTrailingGlyphs = trimmed
     .replace(/[\p{Extended_Pictographic}\p{Emoji_Presentation}️‍↩*_\s]+$/gu, '');
+  // Drop a trailing footnote reference ONLY when the text still ends on a
+  // sentence boundary once it is gone. A genuine cut-off that happens to end in
+  // a digit is therefore never rescued — it simply fails the check below.
+  const withoutFootnoteRef = withoutTrailingGlyphs.replace(TRAILING_FOOTNOTE_REF, '');
+  if (withoutFootnoteRef !== withoutTrailingGlyphs && SENTENCE_END.test(withoutFootnoteRef)) {
+    withoutTrailingGlyphs = withoutFootnoteRef;
+  }
   const endsCleanly = SENTENCE_END.test(withoutTrailingGlyphs);
   // A short tail is usually a heading, not a cut-off sentence.
   const looksLikeHeading = lastLine.trim().length < 60 && !/[,;]$/.test(lastLine.trim());
 
-  if (!isStructural && !isAttribution && !endsCleanly && !looksLikeHeading) {
+  if (!isStructural && !isAttribution && !isFootnote && !endsCleanly && !looksLikeHeading) {
     issues.push(issue(
       'incomplete-ending',
       'major',
@@ -230,25 +262,41 @@ export function checkInlineArithmetic(text) {
       ));
     }
 
-    // (b) When a percentage introduces the expression, the multiplier must be
-    // that percentage as a decimal. "4,5% (0,45 x ...)" is off by 10×.
+    // (b) When a percentage introduces the expression, one of the two operands
+    // must be that percentage as a decimal. "4,5% (0,45 x ...)" is off by 10×.
+    //
+    // Either operand: multiplication is commutative and articles write it both
+    // ways. Assuming the factor was always the LEFT one blocked
+    // `stipendio-saldatore-frontaliere-ticino`, which states "del 20% … 80.000 x
+    // 0,20 = 16.000" — arithmetically perfect, reported as "400000× il valore
+    // corretto" because 80.000 was compared against 0,2.
     const before = text.slice(Math.max(0, m.index - 60), m.index);
     const pctMatch = [...before.matchAll(/(\d[\d.,]*)\s*(?:%|per\s*cento)/gi)].pop();
     if (pctMatch) {
       const pct = parseItalianNumber(pctMatch[1]);
-      if (Number.isFinite(pct) && pct !== 0 && relDiff(a, pct / 100) > REL_TOLERANCE) {
-        const ratio = (a / (pct / 100));
+      const asDecimal = pct / 100;
+      const stated = Number.isFinite(pct) && pct !== 0
+        && relDiff(a, asDecimal) > REL_TOLERANCE
+        && relDiff(b, asDecimal) > REL_TOLERANCE;
+      if (stated) {
+        // Neither operand is the rate. The one meant to be it is the smaller:
+        // a rate is a fraction, the other side is a salary.
+        const factorIsA = Math.abs(a) <= Math.abs(b);
+        const factor = factorIsA ? a : b;
+        const factorRaw = factorIsA ? aRaw : bRaw;
+        const base = factorIsA ? b : a;
+        const ratio = factor / asDecimal;
         issues.push(issue(
           'percent-factor-mismatch',
           'critical',
-          `Percentuale e fattore incoerenti: dichiarato ${pctMatch[1]}% ma moltiplicato per ${aRaw} `
-          + `(${Number.isFinite(ratio) ? `${ratio.toFixed(0)}× il valore corretto ${(pct / 100).toString().replace('.', ',')}` : 'valore incoerente'})`,
+          `Percentuale e fattore incoerenti: dichiarato ${pctMatch[1]}% ma moltiplicato per ${factorRaw} `
+          + `(${Number.isFinite(ratio) ? `${ratio.toFixed(0)}× il valore corretto ${asDecimal.toString().replace('.', ',')}` : 'valore incoerente'})`,
           `${pctMatch[0]} ... ${full}`,
           `Decidi quale dei due numeri è giusto e allinea l'altro. `
           + `Se la percentuale corretta è ${pctMatch[1]}%, il fattore deve essere `
-          + `${(pct / 100).toString().replace('.', ',')} e il risultato ${formatItalianNumber((pct / 100) * b)}. `
+          + `${asDecimal.toString().replace('.', ',')} e il risultato ${formatItalianNumber(asDecimal * base)}. `
           + `Se invece il risultato ${cRaw} è quello giusto, la percentuale da dichiarare è `
-          + `${(a * 100).toString().replace('.', ',')}%. Non lasciare i due valori incoerenti e non cancellare l'esempio.`,
+          + `${(factor * 100).toString().replace('.', ',')}%. Non lasciare i due valori incoerenti e non cancellare l'esempio.`,
         ));
       }
     }
@@ -261,22 +309,115 @@ export function checkInlineArithmetic(text) {
 //
 // The article's core error — reading "100% of the withholding TABLES" as "100%
 // of gross salary" — always surfaces as a tax that swallows the whole income.
-// A tax equal to or above gross pay is arithmetically impossible, so this needs
-// no domain tuning and cannot false-positive.
+// A tax equal to or above gross pay is arithmetically impossible.
+//
+// PRECISION PASS (2026-07-29). The first cut paired amounts per LINE and
+// reported 59 blocking findings over 48 articles; sampling them by hand showed
+// most were correct prose. A crying-wolf gate is not a harmless nuisance here:
+// its issues are fed straight back into the regeneration prompt, and the
+// writer's cheapest reply to an "impossible tax" it cannot see is to delete the
+// example — the exact failure mode these gates exist to stop. Four causes, one
+// named constant each:
+//
+//   (a) a "line" is not a statement. Bulleted scenarios ("- Scenario 1: … -
+//       Scenario 4: …") share one line, so the 4.000 CHF monthly salary of the
+//       first was paired with the 6.000 CHF salary of the fourth
+//       (`lpp-minimo-secondo-pilastro-2026`) → LIST_MARKER_RE / SENTENCE_BREAK_RE
+//       now cut a line into the statements a reader actually sees.
+//   (b) a threshold is not a sum paid. "chi ha un reddito di OLTRE 80.000
+//       franchi è tenuto a pagare le tasse" repeats one bracket twice and the
+//       second copy was read as a tax equal to the income — 4 of the 6 findings
+//       on `tasse-frontalieri-scambio-dati-stipendi-italia` → THRESHOLD_CUE.
+//   (c) not every franc figure is a tax. Prices, season passes, deductions and
+//       refunds share the paragraph → NON_TAX_CUE.
+//   (d) nothing bounded how far apart the two numbers could sit: the 41-franc
+//       IRPEF refund of `funivia-monte-lema-stagione-2026` was matched against
+//       a 290-franc ski pass eight sentences later → MAX_PAIR_DISTANCE.
+//
+// Segmentation alone would have cost the very defect it was built for: the
+// incident article states the income in one sentence and the impossible tax in
+// the next. Hence the one-statement carry-over in incomeTaxPairs().
 
 const CURRENCY = String.raw`(?:franchi\s+svizzeri|franchi|CHF|euro|EUR|€)`;
-const INCOME_CUE = /(?:reddito|guadagn\w*|stipendio|salario|retribuzione|percep\w*)[^.\n]{0,40}?$/i;
-const TAX_CUE = /(?:impost\w*|tass\w*|pag\w*|trattenut\w*|prelievo|carico\s+fiscale|quota\s+di\s+imposta)/i;
+// Capture group 2 is the text between the cue word and the amount: whatever
+// sits in that gap is closer to the figure than the income word is, and wins.
+// "Un residente con lo stesso stipendio lordo PAGA CIRCA 900 franchi di tasse"
+// opens on an income word but names a tax (`divario-salari-ticino-frontalieri-2026`).
+const INCOME_CUE = /\b(reddito|guadagn\w*|stipendio|salario|retribuzione|percep\w*)([^.\n]{0,40}?)$/i;
+// An amount can also be named as income AFTER the figure. "ha pagato 4.500
+// franchi di tasse per ogni 1.000 franchi DI REDDITO" only reads as a 450% rate
+// once the 1.000 is recognised as the base; with leading cues alone the gate
+// latched onto a later amount and reported the right defect against the wrong
+// pair of numbers (`bossi-commemorazione-bagarrata`).
+const INCOME_CUE_TRAILING = /^\s*(?:di|d'|del|dello|della|delle|dei|sul|sui|su)\s*(?:reddito|stipendio|salario|retribuzione|guadagn\w*)/i;
+// "tass\w*" also matched `tasso`/`tassi` — the exchange RATE, not a tax. That
+// one collision blocked `franco-forte-stipendio-frontalieri`, whose only sin
+// was converting a salary: "guadagna 5.000 CHF netti al mese, convertendo a un
+// TASSO di 0,92, porta a casa circa 5.435 EUR" became a 109% tax.
+// The leading \b is load-bearing: unanchored, `pag\w*` matched the middle of
+// "equiPAGGi" and turned a charity donation into a tax
+// (`momoride-carpooling-frontalieri-benefici`).
+const TAX_CUE = /\b(?:impost\w*|tass[ae]\b|tassat\w*|tassazion\w*|tassabil\w*|pag\w*|trattenut\w*|prelievo|carico\s+fiscale|quota\s+di\s+imposta)/i;
+
+// Brackets, floors and caps: the amount marks where a rule starts or stops
+// applying, never what someone hands over. Excluded from the tax role only —
+// "un reddito di oltre 80.000 franchi" is still a usable income base.
+const THRESHOLD_CUE = /\b(?:oltre|pi[uù]\s+di|superior[ei]\s+a(?:i|l|lla|lle|gli)?|maggior[ei]\s+di|almeno|a\s+partire\s+da|fino\s+a(?:i|l|lla|lle|gli)?|massimo\s+di|al\s+massimo|non\s+oltre|meno\s+di|inferior[ei]\s+a(?:i|l|lla)?|sopra\s+i|sotto\s+i)\s*$/i;
+
+// Money that is demonstrably not a tax. TAX_CUE is deliberately loose (`pag\w*`
+// matches "pagamento", which in `funivia-monte-lema-stagione-2026` referred to
+// a monthly invoice for a cable-car pass), so when one of these words sits
+// closer to the amount than any tax word, it vetoes the pairing.
+//
+// Three groups, all learned from the audit of the surviving findings:
+//
+//  - what the worker keeps (netto, porta a casa, pensione) — six of the
+//    thirteen false positives were take-home pay read as the tax;
+//  - what the tax is computed ON rather than what it comes to (imponibile,
+//    "tassato solo su", credito d'imposta) — five more;
+//  - a tax word that is negated ("non è stata trattenuta") or that follows
+//    "dopo", which turns the clause into an after-tax residue rather than an
+//    assertion about the tax itself. These phrases deliberately SPAN the tax
+//    word so presentedAsTax() can discount it — see the overlap filter there.
+const NON_TAX_CUE = /(?:\bcost[aoi]\b|\bcostano\b|\bcostav\w*|\bprezz[oi]\b|\babbonament[oi]\b|\bbigliett[oi]\b|\btariff[ae]\b|\bdetrazion[ei]\b|\bdetrarre\b|\bfranchigi[ae]\b|\brisparmi\w*|\bscont[oi]\b|\bbonus\b|\brimbors[oi]\b|\bcanone\b|\bnoleggi\w*|\bnett[oi]\b|\bpension[ei]\b|\bimponibil[ei]\b|\bport\w*\s+a\s+casa\b|\bin\s+tasca\b|\bcredit[oi]\s+d['’]impost\w*|(?:\btassat\w*|\btassazion\w*|\bimposizion\w*)\s+(?:solo\s+)?(?:su|sul|sulla|sui|sugli|sulle)\b|\bnon\s+(?:è\s+|sono\s+|viene\s+|vengono\s+)?(?:stat[aeio]\s+)?(?:trattenut\w*|tassat\w*|pagat\w*|prelevat\w*)|\bdopo\b[^.;:]{0,40}?(?:impost[ae]\w*|tass[ae]\b|tassazion\w*|ritenut[ae]\b|prelievi|trattenut\w*|detrazion\w*|contribut\w*))/i;
+
+// How far apart an income and its alleged tax may sit. The real defects state
+// both inside one breath — 133 chars on the incident article ("un reddito di
+// 60.000 … all'anno. … ovvero 60.000 franchi svizzeri"), 173 on
+// `proposta-choc-ticino-frontalieri`. Past ~250 chars the two figures belong to
+// different thoughts and pairing them is a coin toss.
+const MAX_PAIR_DISTANCE = 260;
+
+// A list item starts a new, independent scenario, so nothing carries across it.
+// A bare "-" counts only when it introduces a capitalised clause: otherwise
+// every numeric range ("60.000 - 70.000 franchi") would be cut in half.
+const LIST_MARKER_RE = /(?:^|\s)(?:[*•]|[-–—](?=\s+[A-ZÀ-Ü]))\s+/g;
+// Sentence break, taken only where a new clause visibly begins. The dot inside
+// "1.000" is followed by a digit and never matches. Table cell separators are
+// soft breaks, not hard ones: "| reddito 60.000 | imposta 72.000 |" is one
+// claim spread over two cells and must still be checkable.
+const SENTENCE_BREAK_RE = /(?<=[.!?;])\s+(?=[«"'([*•A-ZÀ-Ü])|\s*\|\s*/g;
 
 /**
- * Ranges of the text that restate a base figure rather than assert a new one:
- * a parenthetical containing a percentage, e.g. "24.000 CHF (30% di 80.000)".
- * Without this, the 80.000 inside the parenthesis was read as a tax equal to
- * the 80.000 income — 96 false positives on the first corpus pass.
+ * Ranges of the text that restate a figure already on the page rather than
+ * assert a new one. Two shapes, both parenthetical:
+ *
+ *  - a working ("24.000 CHF (30% di 80.000)"). Without this the 80.000 inside
+ *    the parenthesis read as a tax equal to the 80.000 income — 96 false
+ *    positives on the first corpus pass.
+ *  - a currency conversion or approximation ("30.000 euro (circa 31.200 franchi
+ *    svizzeri)"). Same number, other currency: `frontalieri-calano-ticino` was
+ *    blocked for a "tax" 104% of an income that was in fact that same income
+ *    converted to francs one word later.
+ *  - a working with no percentage in it, "(80.000 CHF - 10.000 CHF)", which
+ *    shows where the figure in front of it came from. The 80.000 inside read
+ *    as a 114% tax on the 70.000 it derives
+ *    (`terzo-pilastro-3a-vantaggi-canton-ginevra`).
  */
-function calculationSpans(text) {
+function restatementSpans(text) {
   const spans = [];
-  for (const m of text.matchAll(/\([^)]*%[^)]*\)/g)) {
+  const re = /\([^)]*%[^)]*\)|\(\s*(?:circa|pari\s+a|equivalent\w*\s+a|corrispondent\w*\s+a|ossia|ovvero|cio[èe]|all'incirca|≈|~)[^)]*\)|\([^)]*\d[^)]*[-−+x×*=/][^)]*\d[^)]*\)/gi;
+  for (const m of text.matchAll(re)) {
     spans.push([m.index, m.index + m[0].length]);
   }
   return spans;
@@ -293,18 +434,29 @@ function periodOf(text, afterIndex) {
   if (/\b(al|a|ogni|per)\s+mese|mensil|\/mese/.test(tail)) return 'month';
   if (/\b(all'anno|annu|ogni\s+anno|\/anno)/.test(tail)) return 'year';
   if (/\b(a|alla|per)\s+settimana|settimanal/.test(tail)) return 'week';
-  if (/\b(al|all'|per)\s*ora|orari/.test(tail)) return 'hour';
+  // "l’ora" with a curly apostrophe is how the corpus actually writes hourly
+  // pay, and it was the one form this missed.
+  if (/\b(?:al|all['’]|l['’]|ogni|per)\s*ora\b|orari[ao]/.test(tail)) return 'hour';
   return '';
 }
 
-/** Extracts every "<amount> <currency>" occurrence with its position. */
+/**
+ * Extracts every "<amount> <currency>" occurrence with its position.
+ *
+ * The apostrophe is the Swiss thousands separator and half the corpus writes
+ * salaries that way. Reading only `[\d.,]` truncated "4'500 CHF" to 500 and
+ * "80'000 CHF" to zero, which invented impossible ratios out of perfectly
+ * correct arithmetic — "guadagna 4'500 CHF al mese e paga 1'200 CHF di
+ * imposte" came out as a 120% tax (`frontaliere-ticino-panettiere-guadagno`,
+ * `quanto-guadagna-un-polimeccanico-frontaliere-in-ticino`).
+ */
 function extractAmounts(text) {
-  const re = new RegExp(String.raw`(\d[\d.,]*)\s*${CURRENCY}`, 'gi');
-  const skip = calculationSpans(text);
+  const re = new RegExp(String.raw`(\d[\d.,]*(?:['’]\d{3})*(?:[.,]\d+)?)\s*${CURRENCY}`, 'gi');
+  const skip = restatementSpans(text);
   const out = [];
   for (const m of text.matchAll(re)) {
     if (skip.some(([s, e]) => m.index >= s && m.index < e)) continue;
-    const value = parseItalianNumber(m[1]);
+    const value = parseItalianNumber(m[1].replace(/['’]/g, ''));
     if (!Number.isFinite(value) || value <= 0) continue;
     out.push({
       value,
@@ -322,6 +474,141 @@ function periodsConflict(a, b) {
 }
 
 /**
+ * Cuts a line into the statements a reader treats as separate claims, tagging
+ * each with the list item ("block") it belongs to. Statements in different
+ * blocks are different scenarios and never share an income.
+ */
+function statementSpans(line) {
+  const cuts = [
+    ...[...line.matchAll(LIST_MARKER_RE)].map((m) => ({ at: m.index + m[0].length, hard: true })),
+    ...[...line.matchAll(SENTENCE_BREAK_RE)].map((m) => ({ at: m.index + m[0].length, hard: false })),
+  ].sort((a, b) => a.at - b.at || Number(b.hard) - Number(a.hard));
+
+  const spans = [];
+  let start = 0;
+  let block = 0;
+  for (const cut of cuts) {
+    if (cut.at > start) spans.push({ start, end: cut.at, block });
+    if (cut.hard) block += 1;
+    start = Math.max(start, cut.at);
+  }
+  spans.push({ start, end: line.length, block });
+  return spans;
+}
+
+// Global twins of the two cue sets. `.test()` needs the non-global originals
+// (a `g` regex carries lastIndex across calls and silently skips); positional
+// comparison needs matchAll, which requires `g`. Same source, one truth.
+const TAX_CUE_G = new RegExp(TAX_CUE.source, 'gi');
+const NON_TAX_CUE_G = new RegExp(NON_TAX_CUE.source, 'gi');
+
+/**
+ * What the amount at the end of `window` is being presented as, decided by the
+ * cue NEAREST to it.
+ *
+ * The first version asked two independent questions — "is there a non-tax word
+ * in the last 40 characters?" and "is there a tax word anywhere between the
+ * income and here?" — and let the second win whenever both were true. That
+ * asymmetry is the whole of the residual noise: a hand audit of the 15
+ * surviving `tax-implausible` findings returned 13 false positives and every
+ * one of them named its real, plausible tax on the same line. The check was
+ * never picking the wrong article, only the wrong amount on it.
+ *
+ *   "pagherà circa 12.480 CHF di tasse, lasciando un NETTO di 50.920 CHF"
+ *   "stipendio NETTO dopo l'applicazione dell'Imposta federale … è di 56.100 CHF"
+ *
+ * Both name the take-home pay, and in both the tax word is real but further
+ * away. Distance decides.
+ *
+ * A tax word falling INSIDE a non-tax phrase belongs to that phrase and is not
+ * a cue of its own: "DOPO le tasse", "credito d'IMPOSTA", "non è stata
+ * TRATTENUTA", "TASSATO solo su" each name something that is not the tax.
+ *
+ * @returns {'tax'|'other'|''} '' when nothing qualifies the amount at all.
+ */
+function presentedAsTax(window) {
+  const nonTax = [...window.matchAll(NON_TAX_CUE_G)];
+  const tax = [...window.matchAll(TAX_CUE_G)]
+    .filter((m) => !nonTax.some((n) => m.index >= n.index && m.index < n.index + n[0].length));
+  if (!tax.length) return nonTax.length ? 'other' : '';
+  const lastTax = tax[tax.length - 1].index;
+  const lastOther = nonTax.length ? nonTax[nonTax.length - 1].index : -1;
+  return lastTax > lastOther ? 'tax' : 'other';
+}
+
+/** True when the amount is named as an income, by a cue before or right after it. */
+function namesAnIncome(line, span, amt) {
+  const cue = line.slice(span.start, amt.index).match(INCOME_CUE);
+  // A tax word in the gap sits closer to the figure than the income word does,
+  // so the figure is the tax — see INCOME_CUE.
+  if (cue && !TAX_CUE.test(cue[2])) return true;
+  const after = amt.index + amt.raw.length;
+  return INCOME_CUE_TRAILING.test(line.slice(after, after + 30));
+}
+
+/**
+ * Every (income, amount-presented-as-its-tax) pair a single line asserts.
+ *
+ * Shared by the plausibility gate and the cross-section conflict gate. The two
+ * carried copy-pasted pairing code, so a precision fix applied to one left the
+ * other flagging the same false positive — the duplication is the bug.
+ */
+function* incomeTaxPairs(line) {
+  const amounts = extractAmounts(line);
+  if (amounts.length < 2) return;
+
+  // An income reaches the NEXT statement and no further: the incident article
+  // splits the claim over two sentences ("… un reddito di 60.000 franchi
+  // svizzeri all'anno." / "Se optasse …, ovvero 60.000 franchi svizzeri"), while
+  // anything beyond one hop reintroduces the cross-scenario noise. A statement
+  // that names its own income never inherits — that is what clears
+  // `lpp-minimo-secondo-pilastro-2026`, where "se il suo stipendio aumenta a
+  // 7.000 CHF" is a new base, not a tax on the 6.000 CHF of the sentence before.
+  let carried = null;
+
+  for (const span of statementSpans(line)) {
+    const local = amounts.filter((a) => a.index >= span.start && a.index < span.end);
+    const own = local.find((a) => namesAnIncome(line, span, a));
+    const income = own || (carried && carried.block === span.block ? carried.amount : null);
+    carried = own ? { amount: own, block: span.block } : null;
+    if (!income) continue;
+
+    for (const amt of local) {
+      if (amt === income) continue;
+      // A second income is a second scenario, never the first one's tax. One
+      // sentence routinely carries both: "un paziente con un reddito di 50.000
+      // franchi pagherà il 10%, mentre un paziente con un reddito di 100.000
+      // franchi pagherà il 20%" was read as a 200% tax rate
+      // (`costi-cure-domocilio-ticino-2026`).
+      if (namesAnIncome(line, span, amt)) continue;
+      if (periodsConflict(income, amt)) continue;
+      if (Math.abs(amt.index - income.index) > MAX_PAIR_DISTANCE) continue;
+
+      // An income tax is never quoted per hour. Reading a wage as one paired
+      // the 21 franchi/hour a company pays with the 21,50 floor it will have to
+      // meet (`salario-minimo-ticino-2027-2029`).
+      if (amt.period === 'hour') continue;
+
+      const near = line.slice(Math.max(span.start, amt.index - 40), amt.index);
+      if (THRESHOLD_CUE.test(near)) continue;
+
+      // The window in which the candidate has to be introduced as a tax: from
+      // the income forward, or the run-up to the candidate when it precedes the
+      // income. The cue may not sit upstream of the income — a tax word
+      // belonging to the income's own clause used to qualify the alternative
+      // that followed it ("pagare le imposte solo sul reddito residuo di 70.000
+      // CHF (…) o 72.500 CHF", `terzo-pilastro-3a-vantaggi-canton-ginevra`).
+      const from = amt.index >= income.index
+        ? Math.max(span.start, income.index)
+        : Math.max(span.start, amt.index - 80);
+      if (presentedAsTax(line.slice(from, amt.index)) !== 'tax') continue;
+
+      yield { income, tax: amt };
+    }
+  }
+}
+
+/**
  * Flags a stated tax that meets or exceeds the gross income it is computed on.
  * @param {string} text
  * @param {{implausibleRatio?: number}} [opts] ratio above which a tax is "major"
@@ -334,34 +621,18 @@ export function checkTaxPlausibility(text, opts = {}) {
   // paragraphs otherwise emitted the identical issue a dozen times.
   const reported = new Set();
 
-  // Work line by line (and table rows are lines) so an income and a tax are
-  // only paired when they genuinely sit in the same statement.
   for (const line of text.split('\n')) {
-    const amounts = extractAmounts(line);
-    if (amounts.length < 2) continue;
-
-    // The income is the amount introduced by an income cue.
-    const income = amounts.find((a) => INCOME_CUE.test(line.slice(0, a.index)));
-    if (!income) continue;
-
-    for (const amt of amounts) {
-      if (amt === income) continue;
-      if (periodsConflict(income, amt)) continue;
-      const between = line.slice(income.index, amt.index);
-      const preceding = line.slice(Math.max(0, amt.index - 80), amt.index);
-      // Only compare amounts that are actually presented as a tax.
-      if (!TAX_CUE.test(between) && !TAX_CUE.test(preceding)) continue;
-
-      const dedupKey = `${income.value}|${amt.value}`;
+    for (const { income, tax } of incomeTaxPairs(line)) {
+      const dedupKey = `${income.value}|${tax.value}`;
       if (reported.has(dedupKey)) continue;
       reported.add(dedupKey);
 
-      const ratio = amt.value / income.value;
+      const ratio = tax.value / income.value;
       if (ratio >= 1) {
         issues.push(issue(
           'tax-exceeds-income',
           'critical',
-          `Imposta ${amt.raw} pari o superiore al reddito lordo ${income.raw} (${Math.round(ratio * 100)}%) — impossibile`,
+          `Imposta ${tax.raw} pari o superiore al reddito lordo ${income.raw} (${Math.round(ratio * 100)}%) — impossibile`,
           line.trim(),
           `Un'imposta non può essere pari o superiore al reddito lordo. Errore tipico: leggere "aliquota al 100%" `
           + `come "il 100% dello stipendio". Il 100% si riferisce all'ALIQUOTA PIENA della tabella d'imposta, non al reddito. `
@@ -373,10 +644,10 @@ export function checkTaxPlausibility(text, opts = {}) {
         issues.push(issue(
           'tax-implausible',
           'major',
-          `Imposta ${amt.raw} = ${Math.round(ratio * 100)}% del reddito ${income.raw} — implausibile per un frontaliere`,
+          `Imposta ${tax.raw} = ${Math.round(ratio * 100)}% del reddito ${income.raw} — implausibile per un frontaliere`,
           line.trim(),
           `Verifica l'aliquota: l'imposta alla fonte per un frontaliere in Ticino sta tipicamente tra il 5% e il 15% del lordo. `
-          + `Se ${amt.raw} include anche contributi o imposte italiane, dichiaralo esplicitamente e scomponi le voci; `
+          + `Se ${tax.raw} include anche contributi o imposte italiane, dichiaralo esplicitamente e scomponi le voci; `
           + `altrimenti correggi l'importo.`,
         ));
       }
@@ -408,21 +679,13 @@ export function checkCrossSectionNumericConflicts(sections, opts = {}) {
   for (const [section, text] of Object.entries(sections)) {
     if (typeof text !== 'string') continue;
     for (const line of text.split('\n')) {
-      const amounts = extractAmounts(line);
-      if (amounts.length < 2) continue;
-      const income = amounts.find((a) => INCOME_CUE.test(line.slice(0, a.index)));
-      if (!income) continue;
-
-      for (const amt of amounts) {
-        if (amt === income) continue;
-        if (periodsConflict(income, amt)) continue;
-        const between = line.slice(income.index, amt.index);
-        const preceding = line.slice(Math.max(0, amt.index - 80), amt.index);
-        if (!TAX_CUE.test(between) && !TAX_CUE.test(preceding)) continue;
-
+      // Same pairing rules as the plausibility gate, deliberately: this gate
+      // used to re-derive them and drifted, so a false pair fixed there kept
+      // firing here on the same sentence.
+      for (const { income, tax } of incomeTaxPairs(line)) {
         const key = income.value;
         if (!byIncome.has(key)) byIncome.set(key, []);
-        byIncome.get(key).push({ section, tax: amt.value, raw: amt.raw, line: line.trim() });
+        byIncome.get(key).push({ section, tax: tax.value, raw: tax.raw, line: line.trim() });
       }
     }
   }
@@ -489,42 +752,285 @@ export const KNOWN_INSTITUTION_ACRONYMS = new Set([
   // EU / international
   'UE', 'EU', 'SEE', 'EEA', 'OCSE', 'OECD', 'AELS', 'EFTA', 'ONU', 'OIL', 'ILO', 'OMS', 'WHO',
   'FMI', 'IMF', 'BCE', 'ECB', 'NATO', 'CEDU', 'CGUE',
+
+  // ── Added by the 2026-07-29 corpus triage ──
+  // 175 `unknown-institution` warnings over 156 distinct acronyms, each one
+  // checked against the body's own site before being listed here. Swiss federal
+  // offices publish under three or four acronyms (IT / FR / DE / EN) and the
+  // generator quotes whichever the source used, so the language variants of an
+  // office already listed above still have to be enumerated.
+
+  // Swiss federal — Italian, French and English acronyms of listed offices
+  'SFI',      // Segreteria di Stato per le questioni finanziarie internazionali — sif.admin.ch
+  'AFD',      // Amministrazione federale delle dogane — pre-2022 name of UDSC/BAZG
+  'FSO',      // Federal Statistical Office — English acronym of UST/BFS/OFS
+  'UFAC',     // Ufficio federale dell'aviazione civile — bazl.admin.ch/it
+  'UFSPO',    // Ufficio federale dello sport — baspo.admin.ch/it
+  'FOSPO',    // Federal Office for Sport — English acronym of UFSPO/BASPO
+  'FSVO',     // Federal Food Safety and Veterinary Office — English acronym of USAV/BLV
+  'OFAS',     // Office fédéral des assurances sociales — French acronym of UFAS/BSV
+  'OFT',      // Office fédéral des transports — French acronym of UFT/BAV
+  'DETEC',    // French/English acronym of DATEC — uvek.admin.ch
+  'CFSL',     // Commissione federale di coordinamento per la sicurezza sul lavoro — ekas.admin.ch/it
+  'CFST',     // French acronym of the same commission
+  'MEBEKO',   // Commissione delle professioni mediche — bag.admin.ch/it
+  // Superseded federal offices. Still correct in articles that quote an older
+  // source, and the successor bodies are already listed above.
+  'UFAP',     // Ufficio federale delle assicurazioni private → FINMA (2009)
+  'UFFT',     // Ufficio federale della formazione professionale e della tecnologia → SEFRI (2013)
+  'UFPC',     // Ufficio federale della protezione civile → UFPP (2003)
+
+  // Swiss cantonal, consortia and academic institutes
+  'IAS',      // Istituto delle assicurazioni sociali, Ticino — ti.ch/ias
+  'UPAAI',    // Ufficio della protezione delle acque e dell'approvvigionamento idrico, TI
+  'IFC',      // Istituto della formazione continua, Ticino — ifc.ti.ch
+  'IRE',      // Istituto di ricerche economiche, USI — ire.usi.ch
+  'IAST',     // Istituto per l'architettura sostenibile e la tecnologia, USI — arc.usi.ch
+  'ERSL',     // Ente Regionale per lo Sviluppo del Luganese — ersl.ch
+  'CMAL',     // Consorzio Manutenzione Alta Leventina — cmal.ch
+  'CPC',      // Commissione paritetica cantonale — cpc-ticino.ch
+  'OCIRT',    // Office cantonal de l'inspection et des relations du travail, Ginevra — ge.ch
+  'DGSS',     // Dipartimento di giustizia, sicurezza e sanità, Grigioni — gr.ch
+  'KOF',      // KOF Konjunkturforschungsstelle, ETH Zurigo — kof.ethz.ch
+  'UPI',      // Ufficio prevenzione infortuni (bfu/upi) — bfu.ch/it
+
+  // Italian
+  'ADM',      // Agenzia delle Dogane e dei Monopoli — adm.gov.it
+  'INGV',     // Istituto Nazionale di Geofisica e Vulcanologia — ingv.it
+  'ISS',      // Istituto Superiore di Sanità — iss.it
+  'IVASS',    // Istituto per la Vigilanza sulle Assicurazioni — ivass.it
+  'AIFA',     // Agenzia Italiana del Farmaco — aifa.gov.it
+  'IEO',      // Istituto Europeo di Oncologia — ieo.it
+  'IGM',      // Istituto Geografico Militare — igmi.esercito.difesa.it
+  'ADBPO',    // Autorità di bacino distrettuale del fiume Po — adbpo.it
+  'COSFEL',   // Commissione per la stabilità finanziaria degli enti locali — Min. Interno
+  'AVC',      // Autorità di vigilanza e controllo — usata testualmente negli atti VIA (mite.gov.it)
+  'DDA',      // Direzione distrettuale antimafia
+
+  // EU / international
+  'EPO',      // European Patent Office — epo.org
+  'ESA',      // European Space Agency — esa.int
+  'EASA',     // Agenzia dell'Unione europea per la sicurezza aerea — easa.europa.eu
+  'IARC',     // International Agency for Research on Cancer — iarc.who.int
+  'AIE',      // Agenzia internazionale dell'energia (IEA)
+  'SMPA',     // Swiss Music Promoters Association — smpa.ch
+  'FIBL',     // FiBL, Istituto di ricerca dell'agricoltura biologica — fibl.org
+  'NIA',      // National Immigration Administration (Cina) — en.nia.gov.cn
 ]);
 
 /**
  * Acronyms caught being invented by the generator. These block.
  * `UFI` ("Ufficio federale delle imposte") shipped in 4 articles — the federal
  * body is the AFC/ESTV, and withholding tax is administered CANTONALLY.
+ *
+ * ENTRY CRITERION (2026-07-29). An acronym is listed here only when BOTH hold:
+ *   1. searching its own expansion returns the REAL body under a DIFFERENT
+ *      acronym (or returns nothing at all), and
+ *   2. no institution reachable by this site's subject matter — Swiss federal
+ *      or cantonal, Italian national or regional, EU/international bodies
+ *      relevant to cross-border work — publishes under that acronym.
+ * Collisions with unrelated foreign or technical acronyms do not disqualify an
+ * entry, because the check only fires on `<institution noun> … (ACRONYM)`.
+ *
+ * Anything that failed either test was left out of BOTH lists on purpose: it
+ * keeps reporting as `major`, which surfaces it for a human without blocking.
+ * A real body listed here would block correct articles, so "uncertain" always
+ * loses to "unlisted".
  */
 export const FABRICATED_INSTITUTION_ACRONYMS = new Set([
   'UFI', 'UFOL', 'UWL', 'UFIS', 'CFL', 'DEMAS', 'LCFL', 'UFLAV', 'CNFL', 'UFIF',
+
+  // ── Added by the 2026-07-29 corpus triage ──
+  // Invented federal offices. Every one of these was generated as a plausible
+  // Italian expansion of a Swiss federal office that does not exist; the real
+  // body (named in each comment) is already in the allowlist above.
+  'UFSTR',    // "Ufficio federale delle strade" → USTRA/ASTRA
+  'UFID',     // "Ufficio federale delle imposte dirette" → AFC/ESTV
+  'FSD',      // same invention, different acronym → AFC/ESTV
+  'UQF',      // "Ufficio federale delle questioni fiscali" → AFC/ESTV
+  'UEF',      // "Ufficio federale delle Entrate" → AFC/ESTV
+  'UFEF',     // "Ufficio federale delle finanze" → AFF/EFV
+  'UQJ',      // "Ufficio federale delle questioni giuridiche" → UFG/BJ
+  'UJG',      // same invention, different acronym → UFG/BJ
+  'UVMS',     // "Ufficio federale per la migrazione e il soggiorno" → SEM
+  'UFIAI',    // "Ufficio federale per l'immigrazione e l'integrazione" → SEM
+  'UVIA',     // same invention, different acronym → SEM
+  'UFA',      // "Ufficio federale per l'assistenza sociale" → UFAS/BSV
+  'UVAS',     // "Ufficio federale delle assicurazioni sociali" → UFAS/BSV
+  'UAS',      // same invention, different acronym → UFAS/BSV
+  'UVA',      // same invention, different acronym → UFAS/BSV
+  'UVSS',     // "Ufficio federale dei servizi sociali" → UFAS/BSV
+  'UFP',      // "Ufficio federale delle pensioni" → UFAS/BSV
+  'USVP',     // "Ufficio federale per la sanità pubblica" → UFSP/BAG
+  'UFSK',     // "Ufficio federale per l'istruzione e la cultura" → UFC/BAK
+  'UFEFP',    // "Ufficio federale dell'istruzione e della formazione professionale" → SEFRI
+  'UFES',     // "Ufficio di Stato per l'istruzione e la formazione professionale" → SEFRI
+  'UFJU',     // "Ufficio federale per l'istruzione e la gioventù" → SEFRI
+  'JUW',      // "Ufficio federale della formazione, dell'istruzione e della ricerca" → SEFRI
+  'SEFO',     // "Segreteria di Stato per la formazione, la ricerca e l'innovazione" → SEFRI
+  'AGP',      // "Agenzia Svizzera per la Protezione dell'Ambiente" → UFAM/BAFU
+  'AASTI',    // "Agenzia dell'Ambiente della Svizzera Italiana" → UFAM/BAFU
+  'ALPA',     // "Dipartimento federale dell'agricoltura, degli alloggi e dell'ambiente" → UFAM/UFAG
+  'SERAT',    // "Ufficio federale della statistica sulla ricerca e le tecnologie" → UST/BFS
+  'UZBS',     // "Ufficio federale statistici svizzero" → UST/BFS
+  'UVTTB',    // "Ufficio federale dei trasporti, ticche e brevetti" → UFT/BAV
+  'USGC',     // "Ufficio di Stato per la Gestione dei Conti" — no such body
+  'IUSM',     // "Istituto Universitario Svizzero di Santa Maria della Versa" — no such body
+
+  // Invented federal departments. The Swiss federal departments are a closed
+  // set of seven, all already in the allowlist (DFI, DFGP, DFF, DFAE, DDPS,
+  // DATEC, DEFR).
+  'DEEF',     // "Dipartimento federale dell'economia, delle imprese e della formazione" → DEFR
+  'DFFFR',    // same invention, different acronym → DEFR
+  'EFER',     // same invention, different acronym → DEFR
+  'DEDF',     // "Dipartimento federale dell'economia e delle finanze" → DEFR/DFF
+  'DETEA',    // "Dipartimento federale dei trasporti, dell'energia e dell'ambiente" → DATEC
+  'DET',      // "Dipartimento federale dei trasporti, ticinesi e di famiglia" → DATEC
+  'DTF',      // "Dipartimento federale delle strade ticinese" → USTRA/ASTRA
+  'DSPSS',    // "Dipartimento federale per la sanità pubblica e la protezione sociale" → DFI
+  'DIJ',      // "Dipartimento federale dell'istruzione e della gioventù" → DEFR
+  'UGCI',     // "Ufficio del Governo Confederale per la Svizzera italiana" — no such body
+
+  // Invented cantonal offices. Ticino's real ones (URC, USTAT, SPAAS, UPAAI,
+  // IAS, IFC …) are in the allowlist above.
+  'USTIC',    // "Ufficio di statistica del Cantone Ticino" → USTAT
+  'UCL',      // "Ufficio cantonale del lavoro" → URC / USML / UIL
+  'UCO',      // "Ufficio Cantonale dell'Occupazione" → URC
+  'UTL',      // "Ufficio ticinese del Lavoro" → USML / UIL
+  'UPL',      // "Ufficio della protezione dei lavoratori" → UIL
+  'OLPS',     // "Ufficio del Lavoro e delle Politiche Sociali" → UIL / DSS
+  'UCAS',     // "Ufficio Cantonale delle Assicurazioni Sociali" → IAS (TI) / OCAS (GE)
+  'UTPS',     // "Ufficio ticinese delle prestazioni sociali" → DASF/DSS
+  'UPAI',     // "Ufficio protezione delle acque e dell'approvvigionamento idrico" → UPAAI
+  'UCSV',     // "Ufficio di Controllo e Sanità Veterinaria" → USAV / UVAC
+  'UMP',      // "Ufficio di Miglioramento Professionale" — no such body
+  'DVC',      // "Dipartimento per la Valutazione delle Competenze" — no such body
+  'EMC',      // "Ufficio della migrazione ticinese" → Ufficio della migrazione (nessuna sigla EMC)
+  'CIVIF',    // "Commissione di vigilanza degli intermediari finanziari" → FINMA
 ]);
 
 const INSTITUTION_NOUN = String.raw`(?:Ufficio|Uffici|Istituto|Agenzia|Commissione|Osservatorio|Autorit[àa]|Dipartimento|Segreteria|Direzione|Ente|Amministrazione)`;
+const INSTITUTION_RE = new RegExp(String.raw`(${INSTITUTION_NOUN}[^().\n]{0,80}?)\(([A-Z]{2,8})\)`, 'g');
 
-/** Flags institution acronyms that are not in the known-real allowlist. */
-export function checkFabricatedInstitutionAcronyms(text) {
-  const issues = [];
-  if (typeof text !== 'string') return issues;
+/** Below this, a source page is too thin to conclude anything from an absence. */
+const MIN_SOURCE_CHARS_FOR_SUPPORT = 400;
+
+/**
+ * Fraction of an institution NAME's distinctive tokens that must survive in the
+ * source for the entity to count as supported.
+ *
+ * Looser than fact-check-consensus's SOURCE_SUPPORT_THRESHOLD (0.7) on purpose:
+ * that one judges a whole claim, this one judges a 3-8 word institution name
+ * whose tokens are largely generic ("Ufficio", "federale", "delle"). After
+ * tokenizeIt drops stop-words and stems, "Ufficio federale delle imposte" is
+ * three tokens — one miss already costs 33%. The asymmetry of the store makes
+ * this the right way to err: a loose support test produces false CLEARANCES
+ * (an entity stays merely reported), a strict one produces false BLOCKS.
+ */
+const INSTITUTION_NAME_SUPPORT_THRESHOLD = 0.6;
+
+/**
+ * Every institution acronym the article introduces, with a verdict on whether
+ * the run's own SOURCE backs it up.
+ *
+ * This is the observation feed of the learning loop (see
+ * scripts/lib/article-defect-memory.mjs). The support verdict is what makes
+ * learning possible without a model call and without the loop grading its own
+ * homework: the source text is fetched, not written, so it is an oracle the
+ * generator being judged cannot influence. Absence of support is the ONLY
+ * signal allowed to push an entity toward blocking; frequency is not.
+ *
+ * The article's own text is never used as evidence for or against itself.
+ *
+ * @param {string} text
+ * @param {{sourceText?: string}} [opts]
+ * @returns {Array<{acronym: string, name: string, support: 'present'|'absent'|'unknown'}>}
+ */
+export function collectInstitutionAcronyms(text, opts = {}) {
+  const out = [];
+  if (typeof text !== 'string') return out;
+  const sourceText = typeof opts.sourceText === 'string' ? opts.sourceText : '';
+  // No usable source (evergreen path, corpus retro-scan) → 'unknown'. Reporting
+  // 'absent' here would let source-less runs manufacture blocking evidence out
+  // of nothing, which is the fabrication of evidence, not the detection of it.
+  const canJudge = sourceText.length >= MIN_SOURCE_CHARS_FOR_SUPPORT;
+  const sourceTokens = canJudge ? tokenizeIt(sourceText) : [];
 
   const seen = new Set();
-  const re = new RegExp(String.raw`(${INSTITUTION_NOUN}[^().\n]{0,80}?)\(([A-Z]{2,8})\)`, 'g');
-  for (const m of text.matchAll(re)) {
+  for (const m of text.matchAll(INSTITUTION_RE)) {
+    const [, name, acronym] = m;
+    if (seen.has(acronym)) continue;
+    seen.add(acronym);
+
+    let support = 'unknown';
+    if (canJudge) {
+      const literal = new RegExp(String.raw`\b${acronym}\b`).test(sourceText);
+      // An article may correctly introduce an acronym the source only spells
+      // out in full ("Amministrazione federale delle contribuzioni" → "(AFC)").
+      // Judging on the literal acronym alone would score that as fabricated.
+      const nameSupported = containmentSim(tokenizeIt(name), sourceTokens) >= INSTITUTION_NAME_SUPPORT_THRESHOLD;
+      support = literal || nameSupported ? 'present' : 'absent';
+    }
+    out.push({ acronym, name: name.trim(), support });
+  }
+  return out;
+}
+
+/**
+ * Flags institution acronyms that are not in the known-real allowlist.
+ *
+ * Three tiers, in descending order of confidence and of consequence:
+ *   1. curated denylist + learned CONFIRMED → critical (blocks)
+ *   2. learned SUSPECT                      → major   (reported, prompt hint)
+ *   3. anything else unknown                → major   (reported)
+ *
+ * Tiers 2 and 3 carry the same severity today; they are kept distinct because
+ * the message differs (a suspect can tell the writer how many times the
+ * pipeline has already seen it invented) and because collapsing them would
+ * lose the only signal that says the memory is doing something.
+ *
+ * @param {string} text
+ * @param {{learnedDenylist?: Set<string>, learnedSuspects?: Set<string>,
+ *          memoryDegraded?: string|null}} [opts]
+ */
+export function checkFabricatedInstitutionAcronyms(text, opts = {}) {
+  const issues = [];
+  if (typeof text !== 'string') return issues;
+  const learnedDenylist = opts.learnedDenylist || new Set();
+  const learnedSuspects = opts.learnedSuspects || new Set();
+
+  const seen = new Set();
+  for (const m of text.matchAll(INSTITUTION_RE)) {
     const [full, name, acronym] = m;
+    // The curated allowlist wins over everything, including the learner: a
+    // human checked a register, the learner counted. Belt and braces — the
+    // memory refuses to promote allowlisted acronyms too (evaluateEntity).
     if (KNOWN_INSTITUTION_ACRONYMS.has(acronym)) continue;
     if (seen.has(acronym)) continue;
     seen.add(acronym);
 
-    if (FABRICATED_INSTITUTION_ACRONYMS.has(acronym)) {
+    if (FABRICATED_INSTITUTION_ACRONYMS.has(acronym) || learnedDenylist.has(acronym)) {
+      const learned = !FABRICATED_INSTITUTION_ACRONYMS.has(acronym);
       issues.push(issue(
         'fabricated-institution',
         'critical',
-        `Ente inesistente: "${name.trim()} (${acronym})" — acronimo noto come inventato dal generatore`,
+        `Ente inesistente: "${name.trim()} (${acronym})" — acronimo noto come inventato dal generatore`
+        + `${learned ? ' (appreso: confermato da avvistamenti ripetuti senza riscontro nelle fonti)' : ''}`,
         full.trim(),
         `Rimuovi "${acronym}": non esiste. In materia fiscale federale svizzera l'ente reale è l'Amministrazione federale `
         + `delle contribuzioni (AFC/ESTV); l'imposta alla fonte è però amministrata a livello CANTONALE `
         + `("ufficio imposte alla fonte" del Cantone). Se il dato non ha una fonte verificabile, elimina l'attribuzione `
         + `e il dato insieme — non sostituire un ente inventato con un altro.`,
+      ));
+    } else if (learnedSuspects.has(acronym)) {
+      issues.push(issue(
+        'suspected-institution',
+        'major',
+        `Ente sotto osservazione: "${name.trim()} (${acronym})" — già emesso in run precedenti senza riscontro nelle fonti`,
+        full.trim(),
+        `"${acronym}" è nella lista di sorveglianza: il generatore lo ha già scritto senza che la fonte lo nominasse. `
+        + `Se la fonte di questo articolo lo cita, tienilo. Altrimenti usa il nome per esteso dell'ente reale, `
+        + `oppure togli l'attribuzione insieme al dato che le si appoggia.`,
       ));
     } else {
       issues.push(issue(
@@ -536,6 +1042,21 @@ export function checkFabricatedInstitutionAcronyms(text) {
         + `Se non ne hai conferma nella fonte, togli l'acronimo e cita l'ente per esteso, o rimuovi l'attribuzione.`,
       ));
     }
+  }
+
+  // Never fail open in silence. If the memory could not be read, the run has
+  // been evaluated with a defence that is not actually there, and the log must
+  // say so — the curated lists still hold, so this is a `minor`, not a block.
+  if (opts.memoryDegraded) {
+    issues.push(issue(
+      'defect-memory-unavailable',
+      'minor',
+      `Memoria dei difetti non leggibile (${opts.memoryDegraded}) — le difese apprese NON sono state applicate `
+      + 'in questo run; restano attive solo le liste curate a mano',
+      '',
+      'Ripristina o rigenera data/article-defect-memory.json: finché è illeggibile il loop non apprende e '
+      + 'gli enti già confermati come inventati non bloccano.',
+    ));
   }
 
   return issues;
@@ -843,13 +1364,25 @@ export function checkSourceFidelity(articleText, sourceText, opts = {}) {
 /**
  * Runs every deterministic gate.
  *
+ * `memory` is the OPTIONAL learned-defence input (see article-defect-memory.mjs).
+ * Omitting it reproduces the pre-learning behaviour exactly — the curated lists
+ * still apply — which is what the corpus retro-audit wants and what keeps this
+ * change safe to roll back by deleting one argument.
+ *
+ * The returned `observations` are this run's contribution BACK to the memory.
+ * They are returned rather than written here on purpose: a gate that mutates
+ * persistent state while deciding whether to block would be judging a corpus
+ * it is concurrently editing, and would learn from drafts that never ship.
+ * The caller persists them once, after the run's outcome is known.
+ *
  * @param {{sections: Record<string,string>, sourceText?: string,
  *          sourceDate?: string|Date, publishedAt?: string|Date,
- *          options?: object}} params
- * @returns {{passed: boolean, issues: object[], blocking: object[]}}
+ *          options?: object,
+ *          memory?: {denylist?: Set<string>, suspects?: Set<string>, degraded?: string|null}}} params
+ * @returns {{passed: boolean, issues: object[], blocking: object[], observations: object[]}}
  */
 export function runFactualityGates(params = {}) {
-  const { sections = {}, sourceText = '', sourceDate, publishedAt, options = {} } = params;
+  const { sections = {}, sourceText = '', sourceDate, publishedAt, options = {}, memory = {} } = params;
   const fullText = Object.values(sections).filter((v) => typeof v === 'string').join('\n\n');
 
   const issues = [];
@@ -860,16 +1393,22 @@ export function runFactualityGates(params = {}) {
   issues.push(...checkInlineArithmetic(fullText));
   issues.push(...checkTaxPlausibility(fullText, options));
   issues.push(...checkCrossSectionNumericConflicts(sections, options));
-  issues.push(...checkFabricatedInstitutionAcronyms(fullText));
+  issues.push(...checkFabricatedInstitutionAcronyms(fullText, {
+    learnedDenylist: memory.denylist,
+    learnedSuspects: memory.suspects,
+    memoryDegraded: memory.degraded,
+  }));
   issues.push(...checkContradictoryNormDates(fullText));
   issues.push(...checkSourceFreshness({ sourceDate, publishedAt, text: fullText, ...options }));
   if (sourceText && sourceText.length >= 100) {
     issues.push(...checkSourceFidelity(fullText, sourceText, options));
   }
 
+  const observations = collectInstitutionAcronyms(fullText, { sourceText });
+
   issues.sort((a, b) => (SEVERITY[b.severity] || 0) - (SEVERITY[a.severity] || 0));
   const blocking = issues.filter((i) => i.severity === 'critical');
-  return { passed: blocking.length === 0, issues, blocking };
+  return { passed: blocking.length === 0, issues, blocking, observations };
 }
 
 /** Human-readable one-line-per-issue rendering for CI logs. */

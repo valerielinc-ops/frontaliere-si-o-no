@@ -380,6 +380,44 @@ jobs:
             fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY, lines.join("\n") + "\n");
           '
 
+      # ── Learning loop: turn this run's observations into next run's defence ──
+      #
+      # Every run today is amnesic — a defect at run N does not make the same
+      # defect less likely at run N+1, because the gate verdicts die with this
+      # job's log. This step folds the run's institution observations into
+      # data/article-defect-memory.json, which the NEXT run's gates read.
+      # See docs/ARTICLE-LEARNING-LOOP.md.
+      #
+      # `always()`: a run that FAILED generation still produced evidence — an
+      # acronym its sources never backed up is a fact about the generator
+      # whether or not that draft shipped. Restricting the signal to published
+      # articles would blind the store to exactly the drafts the gates stop.
+      #
+      # `continue-on-error`: a corrupt or unwritable memory must never hold up
+      # a finished article. The script refuses to overwrite a degraded store
+      # (exit 1) and that shows red here, but the commit below still runs.
+      # Zero model calls — pure string comparison, no quota cost.
+      - name: Update article defect memory
+        if: always()
+        continue-on-error: true
+        run: |
+          # `set -e` is on by default here, and the script exits 1 when it
+          # refuses to overwrite a degraded store — capture the status so the
+          # summary is written either way and the step still reports the failure.
+          rc=0
+          node scripts/update-article-defect-memory.mjs \
+            --from-run .tmp/create-article-run-report.json --apply \
+            > .tmp/defect-memory.log 2>&1 || rc=$?
+          cat .tmp/defect-memory.log
+          {
+            echo '## Article defect memory'
+            echo ''
+            echo '```'
+            cat .tmp/defect-memory.log
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+          exit "$rc"
+
       - name: Check for changes
         id: changes
         run: |
