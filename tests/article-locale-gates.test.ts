@@ -528,3 +528,44 @@ describe('runFactualityGates on a translation', () => {
     expect(codes(result.blocking)).toContain('percent-factor-mismatch');
   });
 });
+
+describe('a translation judged without its Italian reference', () => {
+  // Reviewer finding on PR #4944: the three cross-locale checks live behind
+  // `else if (italianSections)`, so a wrong article id or a stale cache on the
+  // caller's side would disable the whole translation-fidelity layer while the
+  // audit still printed a reassuring "0 blocking" for that locale. Silence is
+  // the failure mode this project forbids.
+  const sections = {
+    body1: 'Cross-border commuters pay withholding tax at 100% of the tables instead of 80%.',
+  };
+
+  it('reports that the fidelity checks did not run', () => {
+    const { issues } = runFactualityGates({ sections, locale: 'en' });
+    const found = issues.find((i) => i.code === 'translation-unadjudicated');
+    expect(found).toBeTruthy();
+    expect(found?.severity).toBe('major');
+    expect(found?.message).toMatch(/NON sono stati eseguiti/);
+  });
+
+  it('does not block on it — a wiring fault is not evidence about the article', () => {
+    const { blocking } = runFactualityGates({ sections, locale: 'en' });
+    expect(blocking.map((i) => i.code)).not.toContain('translation-unadjudicated');
+  });
+
+  it('stays quiet when the reference is supplied', () => {
+    const { issues } = runFactualityGates({
+      sections,
+      locale: 'en',
+      italianSections: { body1: "I frontalieri pagano l'imposta alla fonte al 100% delle tabelle invece che all'80%." },
+    });
+    expect(issues.map((i) => i.code)).not.toContain('translation-unadjudicated');
+  });
+
+  it('stays quiet for Italian, which is the reference', () => {
+    const { issues } = runFactualityGates({
+      sections: { body1: "I frontalieri pagano l'imposta alla fonte." },
+      locale: 'it',
+    });
+    expect(issues.map((i) => i.code)).not.toContain('translation-unadjudicated');
+  });
+});

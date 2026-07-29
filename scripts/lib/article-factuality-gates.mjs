@@ -1857,6 +1857,26 @@ export function runFactualityGates(params = {}) {
 
     issues.push(...checkTranslationNumericConsistency(italianText, fullText, locale, options));
     issues.push(...checkTranslationFalseFriends(italianText, fullText, locale));
+  } else {
+    // A translation judged with no Italian to judge it against. Every
+    // cross-locale check above needs the reference, so all three go quiet —
+    // and quiet is the problem: a wrong article id or a stale cache on the
+    // caller's side would disable the entire translation-fidelity layer while
+    // the audit still printed a reassuring "0 blocking" for that locale.
+    //
+    // Say so instead. `major`, not `critical`: the missing reference is a
+    // wiring fault, not evidence about the article, and blocking on it would
+    // punish the content for the harness being wrong. But it is never silent.
+    issues.push(issue(
+      'translation-unadjudicated',
+      'major',
+      `[${locale}] Traduzione valutata senza il testo italiano di riferimento — `
+      + 'i controlli di fedeltà (numeri, falsi amici, ordini di grandezza) NON sono stati eseguiti',
+      '',
+      `Passa \`italianSections\` a runFactualityGates() per il locale "${locale}". `
+      + "Se l'articolo esiste solo come traduzione, senza originale italiano, allora non c'è "
+      + 'riferimento contro cui verificarlo e il verdetto su questo locale va letto come parziale.',
+    ));
   }
 
   // Institution acronyms are an Italian-vocabulary observation, and the learner
