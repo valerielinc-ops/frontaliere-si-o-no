@@ -20,6 +20,7 @@ import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { tokenizeIt, jaccardSim, containmentSim } from '../scripts/lib/it-text-similarity.mjs';
 import { filterDistinctive } from '../scripts/lib/dup-stoplist.mjs';
+import { metaFieldRegex, unescapeTsValue } from '../scripts/lib/meta-field-regex.mjs';
 
 const ROOT = resolve(__dirname, '..');
 const src = readFileSync(resolve(ROOT, 'scripts/create-article.mjs'), 'utf8');
@@ -36,7 +37,14 @@ type CheckResult =
   | { duplicate: true; signal: string; sim: number; existingId: string; existingTitle: string };
 
 // The function references `readAllSectionsMetaIt`, `tokenizeIt`, `jaccardSim`,
-// `containmentSim`, and `filterDistinctive` — inject them. Since 2026-07-11 the
+// `containmentSim`, `filterDistinctive`, and — since the quote-safe extractor
+// consolidation (#4881) — the shared `metaFieldRegex` / `unescapeTsValue`
+// pair, imported from scripts/lib/meta-field-regex.mjs rather than re-declared
+// here (a local copy would let the script regress while this suite stays
+// green — the very drift the consolidation closed). Inject them all: this harness lifts the function body out of
+// create-article.mjs by regex, so every free identifier it gains has to be
+// mirrored here or the whole suite fails with a ReferenceError rather than a
+// meaningful assertion. Since 2026-07-11 the
 // meta seam is cross-section (readAllSectionsMetaIt → both blog-meta-it.ts and
 // blog-meta-ch-it.ts) so a sibling-section twin is caught too. The dedup
 // contract under test is unchanged; injecting the frontaliere reader alone
@@ -49,11 +57,19 @@ const runner = new Function(
   'jaccardSim',
   'containmentSim',
   'filterDistinctive',
+  'metaFieldRegex',
+  'unescapeTsValue',
   `${fnMatch[0]}\nreturn preFlightHeadlineCheck;`,
 );
-const preFlightHeadlineCheck = runner(readAllSectionsMetaIt, tokenizeIt, jaccardSim, containmentSim, filterDistinctive) as (
-  headline: string,
-) => CheckResult;
+const preFlightHeadlineCheck = runner(
+  readAllSectionsMetaIt,
+  tokenizeIt,
+  jaccardSim,
+  containmentSim,
+  filterDistinctive,
+  metaFieldRegex,
+  unescapeTsValue,
+) as (headline: string) => CheckResult;
 
 describe('preFlightHeadlineCheck', () => {
   describe('catches semantic duplicates of existing articles', () => {
