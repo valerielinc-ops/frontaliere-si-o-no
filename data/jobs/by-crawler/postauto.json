@@ -59,15 +59,13 @@
         "ticket-controller-in-and-customer-advice-postauto-ag-chur",
         "controleur-de-billetterie-in-et-conseil-client-postauto-ag-chur",
         "ticketkontrolleur-in-e-kundenberatung-postauto-ag-chur",
-        "ticketkontrolleur-in-und-kundenberatung-post-2",
-        "ticketkontrolleur-in-und-kundenberatung-post"
+        "ticketkontrolleur-in-und-kundenberatung-post-2"
       ],
       "previousSlugsByLocale": {
         "it": [
           "ticketkontrolleur-in-und-kundenberatung-postauto-chur",
           "ticketkontrolleur-in-e-kundenberatung-postauto-ag-chur",
-          "ticketkontrolleur-in-und-kundenberatung-post-2",
-          "ticketkontrolleur-in-und-kundenberatung-post"
+          "ticketkontrolleur-in-und-kundenberatung-post-2"
         ],
         "en": [
           "ticketkontrolleur-in-und-kundenberatung-postauto-chur",
@@ -177,7 +175,7 @@
       "slug": "postbus-driver-in-postauto-chur",
       "slugByLocale": {
         "it": "postbus-driver-in-postauto-chur",
-        "en": "postbus-driver-in-postauto-ag-chur",
+        "en": "postauto-fahrer-in-post",
         "de": "postauto-fahrer-in-postauto-chur",
         "fr": "pilote-postbus-in-postauto-chur"
       },
@@ -229,20 +227,16 @@
         "pilote-postbus-in-postauto-ag-chur",
         "autista-postbus-postauto-ag-chur",
         "postbus-driver-in-postauto-ag-chur-egmnfn",
-        "postauto-fahrer-in-post",
-        "postbus-driver-in-postauto-chur",
         "postbus-driver-in-postauto-ag-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
           "postauto-fahrer-in-postauto-chur",
-          "autista-postbus-postauto-ag-chur",
-          "postbus-driver-in-postauto-chur"
+          "autista-postbus-postauto-ag-chur"
         ],
         "en": [
           "postauto-fahrer-in-postauto-chur",
           "postbus-driver-in-postauto-ag-chur-egmnfn",
-          "postauto-fahrer-in-post",
           "postbus-driver-in-postauto-ag-chur"
         ],
         "fr": [
@@ -320,14 +314,12 @@
         "postauto-fahrer-in-postauto-sarnen",
         "postbus-driver-in-postauto-ag-sarnen",
         "pilote-postbus-in-postauto-ag-sarnen",
-        "autista-postbus-postauto-ag-sarnen",
-        "autista-postbus-postauto-sarnen"
+        "autista-postbus-postauto-ag-sarnen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "postauto-fahrer-in-postauto-sarnen",
-          "autista-postbus-postauto-ag-sarnen",
-          "autista-postbus-postauto-sarnen"
+          "autista-postbus-postauto-ag-sarnen"
         ],
         "en": [
           "postauto-fahrer-in-postauto-sarnen",
@@ -357,7 +349,7 @@
       "slug": "postbus-driver-in-postauto-stans",
       "slugByLocale": {
         "it": "postbus-driver-in-postauto-stans",
-        "en": "postbus-driver-in-postauto-ag-stans",
+        "en": "postauto-fahrer-in-post",
         "de": "postauto-fahrer-in-postauto-stans",
         "fr": "pilote-postbus-in-postauto-stans"
       },
@@ -406,17 +398,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "postauto-fahrer-in-postauto-stans",
-        "postauto-fahrer-in-post",
-        "postbus-driver-in-postauto-stans",
         "postbus-driver-in-postauto-ag-stans"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "postauto-fahrer-in-postauto-stans",
-          "postbus-driver-in-postauto-stans"
+          "postauto-fahrer-in-postauto-stans"
         ],
         "en": [
-          "postauto-fahrer-in-post",
           "postbus-driver-in-postauto-ag-stans"
         ]
       },
@@ -490,14 +478,12 @@
         "sicherheitsspezialist-in-offentlicher-verkehr-postauto-wallisellen",
         "security-specialist-in-public-transport-postauto-ag-wallisellen",
         "specialiste-de-la-securite-dans-les-transports-publics-postauto-ag-wallisellen",
-        "specialista-in-sicurezza-del-trasporto-pubblico-postauto-ag-wallisellen",
-        "specialista-di-sicurezza-nei-trasporti-pubblici-postauto-wallisellen"
+        "specialista-in-sicurezza-del-trasporto-pubblico-postauto-ag-wallisellen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "sicherheitsspezialist-in-offentlicher-verkehr-postauto-wallisellen",
-          "specialista-in-sicurezza-del-trasporto-pubblico-postauto-ag-wallisellen",
-          "specialista-di-sicurezza-nei-trasporti-pubblici-postauto-wallisellen"
+          "specialista-in-sicurezza-del-trasporto-pubblico-postauto-ag-wallisellen"
         ],
         "en": [
           "sicherheitsspezialist-in-offentlicher-verkehr-postauto-wallisellen",
@@ -576,13 +562,11 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "sicherheitsspezialist-in-offentlicher-verkehr-postauto-winterthur",
-          "sicherheitsspezialist-in-offentlicher-verkehr-postauto-wallisellen"
+          "sicherheitsspezialist-in-offentlicher-verkehr-postauto-winterthur"
         ],
         "it": [
           "sicherheitsspezialist-in-offentlicher-verkehr-postauto-winterthur",
-          "specialista-in-sicurezza-del-trasporto-pubblico-postauto-ag-winterthur",
-          "specialista-di-sicurezza-nei-trasporti-pubblici-postauto-winterthur"
+          "specialista-in-sicurezza-del-trasporto-pubblico-postauto-ag-winterthur"
         ],
         "en": [
           "sicherheitsspezialist-in-offentlicher-verkehr-postauto-winterthur",
@@ -597,9 +581,7 @@
         "sicherheitsspezialist-in-offentlicher-verkehr-postauto-winterthur",
         "security-specialist-in-public-transport-postauto-ag-winterthur",
         "specialiste-de-la-securite-dans-les-transports-publics-postauto-ag-winterthur",
-        "specialista-in-sicurezza-del-trasporto-pubblico-postauto-ag-winterthur",
-        "sicherheitsspezialist-in-offentlicher-verkehr-postauto-wallisellen",
-        "specialista-di-sicurezza-nei-trasporti-pubblici-postauto-winterthur"
+        "specialista-in-sicurezza-del-trasporto-pubblico-postauto-ag-winterthur"
       ],
       "firstSeenAt": "2026-07-04T11:33:25.279Z",
       "salaryMin": 73500,
@@ -671,14 +653,12 @@
         "quereinsteiger-in-als-postauto-fahrer-in-postauto-stans",
         "lateral-entrant-in-as-postbus-driver-in-postauto-ag-stans",
         "entree-laterale-in-comme-pilote-postbus-in-postauto-ag-stans",
-        "candidato-a-in-riqualificazione-come-postauto-fahrer-in-postauto-ag-stans",
-        "candidato-a-in-riqualificazione-come-postauto-fahrer-in-postauto-stans"
+        "candidato-a-in-riqualificazione-come-postauto-fahrer-in-postauto-ag-stans"
       ],
       "previousSlugsByLocale": {
         "it": [
           "quereinsteiger-in-als-postauto-fahrer-in-postauto-stans",
-          "candidato-a-in-riqualificazione-come-postauto-fahrer-in-postauto-ag-stans",
-          "candidato-a-in-riqualificazione-come-postauto-fahrer-in-postauto-stans"
+          "candidato-a-in-riqualificazione-come-postauto-fahrer-in-postauto-ag-stans"
         ],
         "en": [
           "quereinsteiger-in-als-postauto-fahrer-in-postauto-stans",
@@ -756,13 +736,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "postauto-fahrer-in-postauto-chur",
-        "postbus-driver-in-postauto-ag-chur"
+        "postauto-fahrer-in-postauto-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "postauto-fahrer-in-postauto-chur",
-          "postbus-driver-in-postauto-ag-chur"
+          "postauto-fahrer-in-postauto-chur"
         ],
         "en": [
           "postauto-fahrer-in-postauto-chur"
@@ -870,7 +848,7 @@
       "slug": "postbus-driver-in-postauto-trimmis",
       "slugByLocale": {
         "it": "postbus-driver-in-postauto-trimmis",
-        "en": "postbus-driver-in-postauto-ag-trimmis",
+        "en": "postauto-fahrer-in-post",
         "de": "postauto-fahrer-in-postauto-trimmis",
         "fr": "pilote-postbus-in-postauto-trimmis"
       },
@@ -920,19 +898,15 @@
       "previousSlugs": [
         "postauto-fahrer-in-postauto-trimmis",
         "pilote-postbus-in-postauto-ag-trimmis",
-        "postbus-driver-in-postauto-ag-trimmis",
-        "postauto-fahrer-in-post",
-        "postbus-driver-in-postauto-trimmis"
+        "postbus-driver-in-postauto-ag-trimmis"
       ],
       "previousSlugsByLocale": {
         "it": [
           "postauto-fahrer-in-postauto-trimmis",
-          "postbus-driver-in-postauto-ag-trimmis",
-          "postbus-driver-in-postauto-trimmis"
+          "postbus-driver-in-postauto-ag-trimmis"
         ],
         "en": [
           "postauto-fahrer-in-postauto-trimmis",
-          "postauto-fahrer-in-post",
           "postbus-driver-in-postauto-ag-trimmis"
         ],
         "fr": [
@@ -1007,13 +981,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "postauto-fahrer-in-postauto-lenzerheide-lai",
-        "postbus-driver-in-postauto-ag-lenzerheide-lai"
+        "postauto-fahrer-in-postauto-lenzerheide-lai"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "postauto-fahrer-in-postauto-lenzerheide-lai",
-          "postbus-driver-in-postauto-ag-lenzerheide-lai"
+          "postauto-fahrer-in-postauto-lenzerheide-lai"
         ],
         "en": [
           "postauto-fahrer-in-postauto-lenzerheide-lai"
@@ -1041,7 +1013,7 @@
       "slug": "postbus-driver-in-postauto-schiers",
       "slugByLocale": {
         "it": "postbus-driver-in-postauto-schiers",
-        "en": "postbus-driver-in-postauto-ag-schiers",
+        "en": "postauto-fahrer-in-post",
         "de": "postauto-fahrer-in-postauto-schiers",
         "fr": "pilote-postbus-in-postauto-schiers"
       },
@@ -1091,19 +1063,15 @@
       "previousSlugs": [
         "postauto-fahrer-in-postauto-schiers",
         "pilote-postbus-in-postauto-ag-schiers",
-        "postbus-driver-in-postauto-ag-schiers",
-        "postauto-fahrer-in-post",
-        "postbus-driver-in-postauto-schiers"
+        "postbus-driver-in-postauto-ag-schiers"
       ],
       "previousSlugsByLocale": {
         "it": [
           "postauto-fahrer-in-postauto-schiers",
-          "postbus-driver-in-postauto-ag-schiers",
-          "postbus-driver-in-postauto-schiers"
+          "postbus-driver-in-postauto-ag-schiers"
         ],
         "en": [
           "postauto-fahrer-in-postauto-schiers",
-          "postauto-fahrer-in-post",
           "postbus-driver-in-postauto-ag-schiers"
         ],
         "fr": [
@@ -1178,13 +1146,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "postauto-fahrer-in-postauto-laax-gr",
-        "postbus-driver-in-postauto-ag-laax-gr"
+        "postauto-fahrer-in-postauto-laax-gr"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "postauto-fahrer-in-postauto-laax-gr",
-          "postbus-driver-in-postauto-ag-laax-gr"
+          "postauto-fahrer-in-postauto-laax-gr"
         ],
         "en": [
           "postauto-fahrer-in-postauto-laax-gr"
@@ -1212,7 +1178,7 @@
       "slug": "postbus-driver-in-postauto-endingen",
       "slugByLocale": {
         "it": "postbus-driver-in-postauto-endingen",
-        "en": "postbus-driver-in-postauto-ag-endingen",
+        "en": "postauto-fahrer-in-post",
         "de": "postauto-fahrer-in-postauto-endingen",
         "fr": "pilote-postbus-in-postauto-endingen"
       },
@@ -1262,19 +1228,15 @@
       "previousSlugs": [
         "postauto-fahrer-in-postauto-endingen",
         "pilote-postbus-in-postauto-ag-endingen",
-        "postbus-driver-in-postauto-ag-endingen",
-        "postauto-fahrer-in-post",
-        "postbus-driver-in-postauto-endingen"
+        "postbus-driver-in-postauto-ag-endingen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "postauto-fahrer-in-postauto-endingen",
-          "postbus-driver-in-postauto-ag-endingen",
-          "postbus-driver-in-postauto-endingen"
+          "postbus-driver-in-postauto-ag-endingen"
         ],
         "en": [
           "postauto-fahrer-in-postauto-endingen",
-          "postauto-fahrer-in-post",
           "postbus-driver-in-postauto-ag-endingen"
         ],
         "fr": [
@@ -1349,13 +1311,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "postauto-fahrer-in-postauto-ilanz",
-        "postbus-driver-in-postauto-ag-ilanz"
+        "postauto-fahrer-in-postauto-ilanz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "postauto-fahrer-in-postauto-ilanz",
-          "postbus-driver-in-postauto-ag-ilanz"
+          "postauto-fahrer-in-postauto-ilanz"
         ],
         "en": [
           "postauto-fahrer-in-postauto-ilanz"
@@ -1383,7 +1343,7 @@
       "slug": "postbus-driver-in-postauto-wilderswil",
       "slugByLocale": {
         "it": "postbus-driver-in-postauto-wilderswil",
-        "en": "postbus-driver-postauto-ag-wilderswil",
+        "en": "postauto-fahrer-in-post",
         "de": "postauto-fahrer-in-postauto-wilderswil",
         "fr": "pilote-postbus-in-postauto-wilderswil"
       },
@@ -1432,17 +1392,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "postauto-fahrer-in-postauto-wilderswil",
-        "postauto-fahrer-in-post",
-        "postbus-driver-in-postauto-wilderswil",
         "postbus-driver-postauto-ag-wilderswil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "postauto-fahrer-in-postauto-wilderswil",
-          "postbus-driver-in-postauto-wilderswil"
+          "postauto-fahrer-in-postauto-wilderswil"
         ],
         "en": [
-          "postauto-fahrer-in-post",
           "postbus-driver-postauto-ag-wilderswil"
         ]
       },
@@ -1514,13 +1470,11 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "safety-driver-amigo-postauto-altstatten-sg",
-        "driver-di-sicurezza-amigo-postauto-ag-altstatten-sg",
         "conducteur-de-securite-amigo-postauto-ag-altstatten-sg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "safety-driver-amigo-postauto-altstatten-sg",
-          "driver-di-sicurezza-amigo-postauto-ag-altstatten-sg"
+          "safety-driver-amigo-postauto-altstatten-sg"
         ],
         "en": [
           "safety-driver-amigo-postauto-altstatten-sg"
@@ -1597,18 +1551,14 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "kundenbetreuer-in-flottenmanagement-geschaftskunden-postauto-moosseedorf",
-          "kundenbetreuer-in-flottenmanagement-geschaftskunden-post"
+          "kundenbetreuer-in-flottenmanagement-geschaftskunden-postauto-moosseedorf"
         ],
         "it": [
-          "kundenbetreuer-in-flottenmanagement-geschaftskunden-postauto-moosseedorf",
-          "customer-manager-nella-gestione-della-flotta-die-schweizerische-post-moosseedorf"
+          "kundenbetreuer-in-flottenmanagement-geschaftskunden-postauto-moosseedorf"
         ]
       },
       "previousSlugs": [
-        "kundenbetreuer-in-flottenmanagement-geschaftskunden-postauto-moosseedorf",
-        "kundenbetreuer-in-flottenmanagement-geschaftskunden-post",
-        "customer-manager-nella-gestione-della-flotta-die-schweizerische-post-moosseedorf"
+        "kundenbetreuer-in-flottenmanagement-geschaftskunden-postauto-moosseedorf"
       ],
       "firstSeenAt": "2026-07-14T22:07:15.144Z",
       "salaryMin": 94500,
@@ -1678,14 +1628,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "teamleiter-in-fahrpersonal-postauto-weinfelden",
-        "team-leader-nel-personale-di-guida-postauto-ag-weinfelden",
         "team-leader-in-driving-personnel-postauto-ag-weinfelden",
         "chef-d-equipe-dans-le-personnel-de-conduite-postauto-ag-weinfelden"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "teamleiter-in-fahrpersonal-postauto-weinfelden",
-          "team-leader-nel-personale-di-guida-postauto-ag-weinfelden"
+          "teamleiter-in-fahrpersonal-postauto-weinfelden"
         ],
         "en": [
           "teamleiter-in-fahrpersonal-postauto-weinfelden",
@@ -1764,13 +1712,11 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "postauto-fahrer-in-postauto-appenzell",
-        "postbus-driver-in-postauto-ag-appenzell",
         "pilote-postbus-in-postauto-ag-appenzell"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "postauto-fahrer-in-postauto-appenzell",
-          "postbus-driver-in-postauto-ag-appenzell"
+          "postauto-fahrer-in-postauto-appenzell"
         ],
         "en": [
           "postauto-fahrer-in-postauto-appenzell"
@@ -1847,13 +1793,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "co-teamleiter-in-fahrpersonal-postauto-ilanz",
-        "co-team-leader-nel-personale-di-guida-postauto-ag-ilanz"
+        "co-teamleiter-in-fahrpersonal-postauto-ilanz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "co-teamleiter-in-fahrpersonal-postauto-ilanz",
-          "co-team-leader-nel-personale-di-guida-postauto-ag-ilanz"
+          "co-teamleiter-in-fahrpersonal-postauto-ilanz"
         ],
         "en": [
           "co-teamleiter-in-fahrpersonal-postauto-ilanz"
