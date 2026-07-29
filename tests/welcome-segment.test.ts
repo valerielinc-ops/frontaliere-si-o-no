@@ -478,4 +478,14 @@ describe('resolveWelcomeContext — never throws, always sane', () => {
       expect(value).toBeNull();
     }
   });
+
+  // Idempotence: normalize(normalize(x)) === normalize(x). Five canonical keys
+  // used to return null when fed back in, which would demote a subscriber from
+  // the `job` segment to `general` the day a writer stored the canonical value.
+  it.each(['health', 'admin', 'retail', 'hospitality', 'logistics', 'finance', 'tech', 'industry', 'education', 'construction', 'transport', 'cleaning', 'other'])(
+    'normalizeSector is idempotent for the canonical key "%s"',
+    (key) => {
+      expect(normalizeSector(key)).toBe(key);
+    },
+  );
 });
