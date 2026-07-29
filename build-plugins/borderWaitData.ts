@@ -664,6 +664,18 @@ export const REGION_TO_COUNTRY: Record<BorderCrossingRegion, 'IT' | 'DE'> = {
   'turgovia-germania': 'DE',
 };
 
+/**
+ * True for the 26 Ticino–Italy crossings, false for the 67 Germany-corridor
+ * ones. Single source of truth for "is this crossing in scope for
+ * Ticino-only content" (evergreen ranking article, monthly archive pages,
+ * etc.) — derived from CROSSING_TO_REGION + REGION_TO_COUNTRY instead of a
+ * second hand-maintained list, so a new non-Italy corridor is excluded
+ * automatically instead of silently leaking into Ticino-scoped copy.
+ */
+export function isTicinoCrossing(crossing: BorderCrossingSlug): boolean {
+  return REGION_TO_COUNTRY[CROSSING_TO_REGION[crossing]] === 'IT';
+}
+
 // ── Path builders ─────────────────────────────────────────────────
 
 function joinPath(parts: string[]): string {

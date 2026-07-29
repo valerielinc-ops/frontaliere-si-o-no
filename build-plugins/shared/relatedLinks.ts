@@ -87,7 +87,9 @@ import {
   CROSSING_TO_REGION,
   CROSSING_TO_FUEL_ZONE,
   CROSSING_TO_WEEKLY_CITY,
+  BORDER_WAIT_CROSSINGS,
   TOP_5_CROSSINGS,
+  REGION_TO_COUNTRY,
   type BorderCrossingSlug,
   type BorderWaitLocale,
 } from '../borderWaitData';
@@ -630,19 +632,31 @@ function crossingForCityOrZone(cityOrZone: string | undefined): BorderCrossingSl
   return 'chiasso-brogeda';
 }
 
-/** Pick sibling crossings (same region preferred). */
+/**
+ * Pick sibling crossings (same region preferred).
+ *
+ * Ticino crossings keep sourcing exclusively from `TOP_5_CROSSINGS` — the
+ * historical, byte-for-byte-live behavior for the 26 original (already
+ * indexed) pages must not change. Non-Ticino crossings (e.g. the German
+ * corridor) have no representation in `TOP_5_CROSSINGS` at all, so they
+ * derive siblings from the full `BORDER_WAIT_CROSSINGS` registry instead —
+ * otherwise every non-Ticino page would link back to unrelated Ticino-Italy
+ * crossings hundreds of km away.
+ */
 function pickSiblingCrossings(
   current: BorderCrossingSlug,
   count: number,
 ): BorderCrossingSlug[] {
   const currentRegion = CROSSING_TO_REGION[current];
+  const pool: readonly BorderCrossingSlug[] =
+    REGION_TO_COUNTRY[currentRegion] === 'IT' ? TOP_5_CROSSINGS : BORDER_WAIT_CROSSINGS;
   const sameRegion: BorderCrossingSlug[] = [];
-  for (const c of TOP_5_CROSSINGS) {
+  for (const c of pool) {
     if (c === current) continue;
     if (CROSSING_TO_REGION[c] === currentRegion) sameRegion.push(c);
   }
   const otherRegion: BorderCrossingSlug[] = [];
-  for (const c of TOP_5_CROSSINGS) {
+  for (const c of pool) {
     if (c === current) continue;
     if (CROSSING_TO_REGION[c] !== currentRegion) otherRegion.push(c);
   }
