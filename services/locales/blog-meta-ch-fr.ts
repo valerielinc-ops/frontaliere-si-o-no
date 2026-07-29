@@ -1651,6 +1651,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.caldo-estremo-cantieri-ssic.title': 'Chaud sur les chantiers : la SSIC demande l\'arrêt des pénalités',
     'blog.article.caldo-estremo-cantieri-ssic.excerpt': 'La Société suisse des entrepreneurs constructeurs demande des conditions équitables et des exemptions des pénalités contractuelles en cas d\'arrêt des travaux pour la canicule.',
     'blog.article.caldo-estremo-cantieri-ssic.imageAlt': 'Chantier de construction en Suisse pendant une vague de chaleur.',
+    'blog.article.fedelta-banca-costosa.title': 'La fidélité coûte cher, avec des fournisseurs séparés',
+    'blog.article.fedelta-banca-costosa.excerpt': 'Les Suisses sont notoirement fidèles à leur banque de référence, mais cette fidélité a un prix salé.',
+    'blog.article.fedelta-banca-costosa.imageAlt': 'Un frontalier gérant ses comptes dans une banque suisse',
 };
 
 export default blogMetaChFr;

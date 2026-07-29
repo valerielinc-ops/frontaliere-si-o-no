@@ -1651,6 +1651,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.caldo-estremo-cantieri-ssic.title': 'Caldo nei cantieri: la SSIC chiede stop alle penali',
     'blog.article.caldo-estremo-cantieri-ssic.excerpt': 'La Società svizzera degli impresari costruttori chiede condizioni eque ed esenzioni dalle penali contrattuali in caso di stop ai lavori per la canicola.',
     'blog.article.caldo-estremo-cantieri-ssic.imageAlt': 'Cantiere edile in Svizzera durante un\'ondata di caldo e lavori di costruzione.',
+    'blog.article.fedelta-banca-costosa.title': 'Di più banche, la fedeltà costa cara: con fornitori separati si risparmia',
+    'blog.article.fedelta-banca-costosa.excerpt': 'Gli svizzeri sono notoriamente fedeli alla loro banca di riferimento, ma questa fedeltà ha un prezzo salato.',
+    'blog.article.fedelta-banca-costosa.imageAlt': 'Un frontaliere che tiene i conti in una banca svizzera',
 };
 
 export default blogMetaChIt;
