@@ -164,6 +164,37 @@ describe('disambiguateHomonymSlugs — synthetic homonym collision across provin
     // Non-colliding record is left untouched.
     expect(records[2].slug).toBe('como');
   });
+
+  it('still yields unique slugs when the colliding comuni share a province', () => {
+    // The province suffix alone cannot separate these: both would become
+    // 'casale-co'. Without the seen-set counter the duplicate survives, and
+    // survives *silently* — WRITE_COLLISION_MODE defaults to 'report', so the
+    // build stays green while one comune's page overwrites the other's.
+    const records = [
+      { name: 'Casale', slug: 'casale', province: 'CO', population: 6000 },
+      { name: 'Casale', slug: 'casale', province: 'CO', population: 5500 },
+      { name: 'Casale', slug: 'casale', province: 'SO', population: 5200 },
+    ];
+    disambiguateHomonymSlugs(records);
+    const slugs = records.map((r) => r.slug);
+    expect(new Set(slugs).size).toBe(slugs.length);
+    expect(slugs).toEqual(['casale-co', 'casale-co-2', 'casale-so']);
+  });
+
+  it('never hands a disambiguated slug to a comune that already owns it', () => {
+    // 'casale-co' is a legitimate standalone slug here. The two colliding
+    // 'casale' rows must route around it rather than overwrite it.
+    const records = [
+      { name: 'Casale', slug: 'casale', province: 'CO', population: 6000 },
+      { name: 'Casale', slug: 'casale', province: 'CO', population: 5500 },
+      { name: 'Casale Co', slug: 'casale-co', province: 'VA', population: 7000 },
+    ];
+    disambiguateHomonymSlugs(records);
+    const slugs = records.map((r) => r.slug);
+    expect(new Set(slugs).size).toBe(slugs.length);
+    // The pre-existing owner keeps its slug untouched.
+    expect(records[2].slug).toBe('casale-co');
+  });
 });
 
 describe('fiscal below-floor bridge + self-map (#4484)', () => {

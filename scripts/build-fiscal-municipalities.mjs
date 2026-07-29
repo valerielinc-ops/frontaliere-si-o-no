@@ -166,11 +166,23 @@ export function parseMunicipalities(tsSource) {
  * 518-row dataset has zero such collisions today but that is a fact about
  * today's data, not a structural guarantee once the corridor spans 11
  * provinces instead of 3), every member of the colliding group gets its
- * province code appended to the slug (`{base}-{province-lowercase}`) so no
- * two comuni ever emit the same URL. Deterministic (same input → same
- * output, no random/incrementing suffix) and applied to ALL members of a
- * colliding group (not just the 2nd-and-later one) so a slug never silently
- * shifts meaning depending on array order.
+ * province code appended to the slug (`{base}-{province-lowercase}`) and is
+ * then claimed against a `seen` set, so no two comuni ever emit the same URL.
+ * Applied to ALL members of a colliding group (not just the 2nd-and-later
+ * one) so a slug never silently shifts meaning depending on array order.
+ *
+ * The `seen`-set loop is load-bearing, not belt-and-braces: the province
+ * suffix alone does NOT guarantee uniqueness when two colliding records share
+ * the same province (two genuinely homonymous comuni within one province, or
+ * a duplicated source row) — both would land on the identical
+ * `{base}-{province}` and the collision would survive. It would also survive
+ * *silently*: `WRITE_COLLISION_MODE` defaults to `'report'`, not `'throw'`
+ * (`build-plugins/sharedWriteRegistry.ts`), so the build logs
+ * last-writer-wins and stays green while one comune's page overwrites the
+ * other's. The incrementing-counter idiom mirrors `makeExpiredKeyAssigner`
+ * in `build-plugins/shared/slimExpiredIndex.ts`; determinism is preserved
+ * because input order is deterministic (sorted upstream) and the counter is
+ * only reached in the same-province case the suffix cannot resolve.
  */
 export function disambiguateHomonymSlugs(records) {
   const bySlug = new Map();
@@ -178,10 +190,24 @@ export function disambiguateHomonymSlugs(records) {
     if (!bySlug.has(r.slug)) bySlug.set(r.slug, []);
     bySlug.get(r.slug).push(r);
   }
+  // Slugs that were never in a colliding group keep their base and must be
+  // reserved up-front, so a disambiguated slug can never collide with them.
+  const seen = new Set();
+  for (const [slug, group] of bySlug) {
+    if (group.length < 2) seen.add(slug);
+  }
   for (const group of bySlug.values()) {
     if (group.length < 2) continue;
     for (const r of group) {
-      r.slug = `${r.slug}-${r.province.toLowerCase()}`;
+      const base = `${r.slug}-${r.province.toLowerCase()}`;
+      let candidate = base;
+      let n = 2;
+      while (seen.has(candidate)) {
+        candidate = `${base}-${n}`;
+        n += 1;
+      }
+      seen.add(candidate);
+      r.slug = candidate;
     }
   }
   return records;
