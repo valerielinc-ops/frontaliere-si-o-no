@@ -864,6 +864,26 @@ function toRfc2822Utc(date) {
 const RFC2822_DAY_NAMES = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 const RFC2822_MONTH_NAMES = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
+// ── Transport-level ambiguity guard ──────────────────────────
+// fetch() throwing (network drop, DNS failure, or an AbortSignal firing
+// mid-request) means we never got an HTTP response at all — unlike the
+// provider replying with an explicit 4xx/5xx, which tells us definitively
+// "not delivered, safe to cascade to the next provider". A transport failure
+// could just as easily mean the provider fully received and queued the
+// message but the ack never made it back (timeout/5xx-after-accept, #4911):
+// sendSingle below must NOT fall back to another provider in that case, or a
+// message that already went out gets sent again. Every sendVia* fetch() call
+// below goes through this wrapper so that ambiguity is tagged, not lost.
+async function fetchOrTagAmbiguous(url, opts) {
+  try {
+    return await fetch(url, opts);
+  } catch (err) {
+    const wrapped = new Error(`no response received (network/timeout) — delivery status unknown: ${err.message}`);
+    wrapped.ambiguousDelivery = true;
+    throw wrapped;
+  }
+}
+
 // ── Mailjet API (v3.1) ──────────────────────────────────────
 // Docs: https://dev.mailjet.com/email/guides/send-api-v31/
 
@@ -876,7 +896,7 @@ async function sendViaMailjet(email, _scheduledAt, signal) {
 
   const fromParsed = parseEmailAddress(email.from);
 
-  const res = await fetch('https://api.mailjet.com/v3.1/send', {
+  const res = await fetchOrTagAmbiguous('https://api.mailjet.com/v3.1/send', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -952,7 +972,7 @@ async function sendViaMailgun(email, scheduledAt, signal) {
   // send's form body is byte-identical to before this feature.
   if (scheduledAt) form.append('o:deliverytime', toRfc2822Utc(scheduledAt));
 
-  const res = await fetch(`https://api.eu.mailgun.net/v3/${domain}/messages`, {
+  const res = await fetchOrTagAmbiguous(`https://api.eu.mailgun.net/v3/${domain}/messages`, {
     method: 'POST',
     headers: { Authorization: `Basic ${auth}` },
     body: form,
@@ -987,7 +1007,7 @@ async function sendViaMailtrap(email, _scheduledAt, signal) {
   if (email.tags?.length) body.category = campaignIdTag(email);
   if (email.headers && typeof email.headers === 'object') body.headers = email.headers;
 
-  const res = await fetch('https://send.api.mailtrap.io/api/send', {
+  const res = await fetchOrTagAmbiguous('https://send.api.mailtrap.io/api/send', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -1040,7 +1060,7 @@ async function sendViaMaileroo(email, scheduledAt, signal) {
   // scheduledAt, so an unscheduled send's body is byte-identical to before.
   if (scheduledAt) body.scheduled_at = scheduledAt.toISOString();
 
-  const res = await fetch('https://smtp.maileroo.com/api/v2/emails', {
+  const res = await fetchOrTagAmbiguous('https://smtp.maileroo.com/api/v2/emails', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -1095,7 +1115,7 @@ async function sendViaResend(email, scheduledAt, signal) {
   // byte-identical to before this feature.
   if (scheduledAt) body.scheduled_at = scheduledAt.toISOString();
 
-  const res = await fetch('https://api.resend.com/emails', {
+  const res = await fetchOrTagAmbiguous('https://api.resend.com/emails', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -1158,7 +1178,7 @@ async function sendViaCloudflare(email, _scheduledAt, signal) {
     if (Object.keys(filtered).length > 0) body.headers = filtered;
   }
 
-  const res = await fetch(
+  const res = await fetchOrTagAmbiguous(
     `https://api.cloudflare.com/client/v4/accounts/${accountId}/email/sending/send`,
     {
       method: 'POST',
@@ -1323,6 +1343,14 @@ async function sendSingle(email, forceProvider, finalizeForProvider, signal) {
       return { ...result, scheduledFor: resolved ? resolved.toISOString() : null };
     } catch (err) {
       errors.push(`[${provider.id}] ${err.message}`);
+      if (err.ambiguousDelivery) {
+        // The provider may have already accepted/delivered this message —
+        // falling back to another provider here risks a second delivery
+        // (#4911). Stop the cascade for this email instead of guessing.
+        const ambiguousErr = new Error(`ambiguous delivery at [${provider.id}], not retried elsewhere: ${errors.join(' | ')}`);
+        ambiguousErr.ambiguousDelivery = true;
+        throw ambiguousErr;
+      }
       if (isSoftThrottleError(err.message)) {
         cooldownProvider(provider.id);
       } else if (isRateLimitedError(err.message)) {
@@ -1433,7 +1461,11 @@ export async function sendEmailCascade(emails, opts = {}) {
         sent.push({ ...item, ...result });
         if (onSent) await onSent(item, result);
       } catch (err) {
-        failed.push({ ...item, error: err.message });
+        // ambiguousDelivery (#4911): the message may have already gone out
+        // via a provider that then failed on the response — surfaced here
+        // instead of silently deducing failure, so callers can distinguish
+        // "never sent" from "unknown, do not resend blindly".
+        failed.push({ ...item, error: err.message, ambiguousDelivery: !!err.ambiguousDelivery });
         console.warn(`❌ [${i + 1}/${emails.length}] ${item.recipient?.email}: ${err.message.slice(0, 100)}`);
       }
     }
