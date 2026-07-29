@@ -27354,6 +27354,15 @@ const RAW_ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'pensioni-agosto-2026-cedolino-inps',
+ category: 'pensione',
+ date: '2026-07-29T16:10:27.901Z',
+ image: '/images/blog/pensioni-agosto-2026-cedolino-inps.webp',
+ hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
