@@ -11,22 +11,45 @@
  * What "remove" does:
  *   1. Removes article from BlogArticleId type union in router.ts
  *   2. Removes from ALL_BLOG_ARTICLE_IDS array in router.ts
- *   3. Removes slug entries from all 4 locale SlugTable objects in router.ts
- *   4. Removes from BLOG_ARTICLE_TO_SLUG mapping in router.ts
- *   5. Removes article entry from ARTICLES array in BlogArticles.tsx
- *   6. Removes all i18n keys (title, excerpt, body1-3, ctaTitle, ctaDescription, imageAlt) from i18n.ts
- *   7. Removes same keys from en.ts, de.ts, fr.ts
- *   8. Removes SEO_METADATA entry from seoService.ts
- *   9. Removes breadcrumb entry from seoService.ts
- *  10. Removes <url> block from sitemap-blog.xml
- *  11. Deletes generated image from public/images/blog/ (if exists)
- *  12. If --redirect-to specified, adds a redirect mapping for SEO
- *  13. Stages all changes with git add
+ *   3. Removes slug entry from BLOG_SLUGS in routerBlogData.ts
+ *   4. Removes the registry entry (id/category/date/...) from BOTH section
+ *      registries (data/blog-articles-data.ts, data/swiss-articles-data.ts —
+ *      see ARTICLE_SECTION_CORE; an id lives in exactly one, both are checked)
+ *   5. Removes all i18n keys (title, excerpt, imageAlt, ...) from
+ *      blog-meta-{locale}.ts / blog-meta-ch-{locale}.ts, all 4 locales
+ *   6. Deletes the per-article body file from blog-body/ / blog-body-ch/,
+ *      all 4 locales
+ *   7. Removes the SEO metadata entry ('blog-<id>': {...}) from every
+ *      services/seo/seo-blog*.ts lazy-loaded chunk (discovered dynamically —
+ *      see removeFromSeoService)
+ *   8. Removes <url> block from sitemap-blog.xml
+ *   9. Deletes generated image from public/images/blog/ (if exists)
+ *  10. Verifies NO target file still references the removed id — exits 1
+ *      loudly (verifyRemovalClean) instead of silently leaving an orphan
+ *  11. If --redirect-to specified, adds a redirect mapping for SEO
+ *  12. Stages all changes with git add
+ *
+ * History: steps 4 and 7 used to target components/community/BlogArticles.tsx
+ * (an inline ARTICLES array) and services/seoService.ts's SEO_METADATA object
+ * respectively. FRO-328 extracted the inline array to data/blog-articles-data.ts
+ * (BlogArticles.tsx now just re-exports it) and blog SEO metadata was later
+ * code-split into services/seo/seo-blog{,-2..7,-ch}.ts lazy chunks — both
+ * regexes kept matching the OLD, now-stale files, so they silently matched
+ * ZERO entries on every run regardless of the id being removed. Steps 5-6
+ * (i18n + body) DID target the current files and worked correctly, which is
+ * why past removals left an orphan registry+SEO entry behind while i18n/body
+ * were cleanly gone — the exact shape of the /articoli-frontaliere/ list
+ * rendering raw `blog.article.<id>.title` keys for a "removed" article whose
+ * registry entry was never actually removed. Step 10 is the general fix:
+ * whatever future refactor moves a target file again, the tool now refuses
+ * to report success while any reference to the id remains, instead of
+ * silently no-op'ing that one step.
  */
 
 import { readFileSync, writeFileSync, existsSync, unlinkSync, readdirSync } from 'node:fs';
 import { execSync } from 'node:child_process';
 import { createInterface } from 'node:readline';
+import { ARTICLE_SECTION_CORE_LIST } from '../build-plugins/shared/articleSectionCore.mjs';
 
 const PROJECT_ROOT = new URL('..', import.meta.url).pathname.replace(/\/$/, '');
 
@@ -36,26 +59,148 @@ function write(rel, content) { writeFileSync(resolve(rel), content, 'utf-8'); }
 
 function escapeRegex(s) { return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); }
 
+// Scans a TS string literal starting at src[startIdx] (must be a quote
+// char), honoring backslash escapes so a value containing an escaped
+// same-type quote (`\'`) or an embedded, UNESCAPED other-type quote
+// (`'"Ore gratis la sera": ...'` — a real blog-meta-it.ts title) is captured
+// in full instead of truncating at the first quote character found. Returns
+// { value, endIdx } (endIdx = index right after the closing quote, for
+// callers that need to know WHERE a value ends, not just its content) or
+// null if unterminated / startIdx isn't a quote.
+function scanQuotedValue(src, startIdx) {
+  const quote = src[startIdx];
+  if (quote !== "'" && quote !== '"') return null;
+  let out = '';
+  for (let i = startIdx + 1; i < src.length; i++) {
+    const ch = src[i];
+    if (ch === '\\') { out += src[i + 1] ?? ''; i++; continue; }
+    if (ch === quote) return { value: out, endIdx: i + 1 };
+    out += ch;
+  }
+  return null;
+}
+
+// Extracts a TS string-literal value from `src` starting at `startIdx`
+// (index of the opening quote). See scanQuotedValue for the escaping rules.
+// Returns null if unterminated or startIdx isn't a quote.
+function extractQuotedValue(src, startIdx) {
+  return scanQuotedValue(src, startIdx)?.value ?? null;
+}
+
+// Finds `'<keyLiteral>': '<value>'` (or double-quoted value) in `src` and
+// returns the value via extractQuotedValue, or null if the key isn't present.
+function findKeyValue(src, keyLiteral) {
+  const keyRe = new RegExp(`['"]${escapeRegex(keyLiteral)}['"]:\\s*(['"])`);
+  const m = keyRe.exec(src);
+  if (!m) return null;
+  return extractQuotedValue(src, m.index + m[0].length - 1);
+}
+
+// Blog SEO metadata lazy-loaded chunks (services/seoService.ts's
+// loadBlogSeoChunk()): 'seo-blog.ts' plus numbered/ch shards. Discovered
+// dynamically (not hardcoded as a fixed list) so a future new shard
+// (seo-blog-8.ts, ...) is picked up automatically — the same class of
+// drift that made removeFromSeoService a silent no-op here otherwise.
+function listBlogSeoShardFiles() {
+  const dir = resolve('services/seo');
+  if (!existsSync(dir)) return [];
+  return readdirSync(dir)
+    .filter((f) => /^seo-blog(-\d+|-ch)?\.ts$/.test(f))
+    .map((f) => `services/seo/${f}`);
+}
+
+// Scans `src` starting at the opening `{` at `startIdx` and returns the index
+// just past its matching closing `}`, skipping over string/template literal
+// contents (so a stray `{`/`}` inside a quoted title or a template literal
+// like `${BASE_URL}/x` — a REAL brace pair, tracked via the '${' stack frame
+// below — doesn't perturb the depth count). Returns -1 if unmatched (caller
+// must treat as "could not safely remove").
+function findMatchingBraceEnd(src, startIdx) {
+  let depth = 0;
+  const stack = [];
+  for (let i = startIdx; i < src.length; i++) {
+    const ch = src[i];
+    const top = stack[stack.length - 1];
+    if (top === "'" || top === '"') {
+      if (ch === '\\') { i++; continue; }
+      if (ch === top) stack.pop();
+      continue;
+    }
+    if (top === '`') {
+      if (ch === '\\') { i++; continue; }
+      if (ch === '`') { stack.pop(); continue; }
+      if (ch === '$' && src[i + 1] === '{') { stack.push('${'); depth++; i++; continue; }
+      continue;
+    }
+    if (top === '${') {
+      if (ch === "'" || ch === '"' || ch === '`') { stack.push(ch); continue; }
+      if (ch === '{') { depth++; continue; }
+      if (ch === '}') { depth--; stack.pop(); continue; }
+      continue;
+    }
+    if (ch === "'" || ch === '"' || ch === '`') { stack.push(ch); continue; }
+    if (ch === '{') { depth++; continue; }
+    if (ch === '}') {
+      depth--;
+      if (depth === 0) return i + 1;
+      continue;
+    }
+  }
+  return -1;
+}
+
+// Removes a top-level `'KEY': { ... },` object entry from `src`, using
+// brace-depth scanning (not a fixed-nesting regex) so it's correct
+// regardless of how deeply the value object nests (SEO entries nest
+// structuredData.image.{...}, author.{...}, etc. — a fixed-depth regex like
+// the old `[^}]*(?:\{[^}]*\}[^}]*)*` silently stops matching as soon as a
+// consumer adds one more nesting level).
+function removeTopLevelObjectEntry(src, key) {
+  const keyRe = new RegExp(`(^|\\n)([ \\t]*)['"]${escapeRegex(key)}['"]:\\s*\\{`, 'm');
+  const m = keyRe.exec(src);
+  if (!m) return { result: src, removed: false };
+  const braceStart = m.index + m[0].length - 1;
+  const braceEnd = findMatchingBraceEnd(src, braceStart);
+  if (braceEnd === -1) return { result: src, removed: false };
+  let end = braceEnd;
+  while (src[end] === ' ' || src[end] === '\t') end++;
+  if (src[end] === ',') end++;
+  while (src[end] === ' ' || src[end] === '\t') end++;
+  if (src[end] === '\n') end++;
+  const start = m.index + (m[1] ? m[1].length : 0);
+  return { result: src.slice(0, start) + src.slice(end), removed: true };
+}
+
 async function ask(question) {
   const rl = createInterface({ input: process.stdin, output: process.stderr });
   return new Promise(r => rl.question(question, ans => { rl.close(); r(ans.trim()); }));
 }
 
 // ── List all articles ───────────────────────────────────────
+// Was: read ONLY components/community/BlogArticles.tsx (frontaliere section)
+// for both the id/category/date/image tuple AND the title lookup (against
+// services/i18n.ts). Both targets are stale: BlogArticles.tsx is now just
+// `export { ARTICLES } from '@/data/blog-articles-data'` (FRO-328), so the
+// articleRegex below always matched zero entries — `list` unconditionally
+// printed "Nessun articolo trovato" — and services/i18n.ts never held static
+// per-article title strings (titles live in blog-meta-it.ts, loaded at
+// runtime). Fixed to read each section's real registryFile
+// (ARTICLE_SECTION_CORE_LIST) and its own IT meta file for titles.
 function listArticles() {
-  const blogSrc = read('components/community/BlogArticles.tsx');
-  const i18nSrc = read('services/i18n.ts');
-
-  // Extract articles from ARTICLES array
   const articleRegex = /\{\s*id:\s*["']([^"']+)["'],\s*category:\s*["']([^"']+)["'],\s*date:\s*["']([^"']+)["'],\s*image:\s*["']([^"']+)["']/g;
   const articles = [];
-  let m;
-  while ((m = articleRegex.exec(blogSrc)) !== null) {
-    const [, id, category, date, image] = m;
-    // Get title from i18n
-    const titleMatch = i18nSrc.match(new RegExp(`["']blog\\.article\\.${escapeRegex(id)}\\.title["']:\s*["']([^"']+)["']`));
-    const title = titleMatch ? titleMatch[1] : '(title not found)';
-    articles.push({ id, category, date, image, title });
+  for (const { section, registryFile, metaPrefix } of ARTICLE_SECTION_CORE_LIST) {
+    if (!existsSync(resolve(registryFile))) continue;
+    const src = read(registryFile);
+    const metaFile = `services/locales/${metaPrefix}-it.ts`;
+    const metaSrc = existsSync(resolve(metaFile)) ? read(metaFile) : '';
+    articleRegex.lastIndex = 0;
+    let m;
+    while ((m = articleRegex.exec(src)) !== null) {
+      const [, id, category, date, image] = m;
+      const title = findKeyValue(metaSrc, `blog.article.${id}.title`) ?? '(title not found)';
+      articles.push({ id, category, date, image, title, section });
+    }
   }
 
   if (articles.length === 0) {
@@ -65,12 +210,16 @@ function listArticles() {
 
   console.error(`\n📚 ${articles.length} articoli trovati:\n`);
   console.error('─'.repeat(100));
-  console.error(` ${'#'.padEnd(3)} ${'ID'.padEnd(45)} ${'Categoria'.padEnd(12)} ${'Data'.padEnd(12)} Titolo`);
+  console.error(` ${'#'.padEnd(3)} ${'ID'.padEnd(45)} ${'Sezione'.padEnd(12)} ${'Data'.padEnd(12)} Titolo`);
   console.error('─'.repeat(100));
   articles.forEach((a, i) => {
-    console.error(` ${String(i + 1).padEnd(3)} ${a.id.padEnd(45)} ${a.category.padEnd(12)} ${a.date.padEnd(12)} ${a.title.slice(0, 55)}`);
+    console.error(` ${String(i + 1).padEnd(3)} ${a.id.padEnd(45)} ${a.section.padEnd(12)} ${a.date.padEnd(12)} ${a.title.slice(0, 55)}`);
   });
   console.error('─'.repeat(100));
+  const orphans = articles.filter((a) => a.title === '(title not found)');
+  if (orphans.length > 0) {
+    console.error(`\n⚠️  ${orphans.length} articolo/i in registry SENZA titolo IT (orfani, vedi node scripts/ci/check-orphan-article-meta.mjs): ${orphans.map(a => a.id).join(', ')}`);
+  }
 }
 
 // ── Remove article from router.ts + routerBlogData.ts ───────
@@ -106,16 +255,63 @@ function removeFromRouter(articleId) {
 }
 
 // ── Remove article from BlogArticles.tsx ────────────────────
+// Was: regexed components/community/BlogArticles.tsx for an inline object
+// literal `{ id: 'xxx', ... },`. FRO-328 extracted that array out to
+// data/blog-articles-data.ts (BlogArticles.tsx now just
+// `export { ARTICLES } from '@/data/blog-articles-data'`) — this always
+// matched zero entries, a guaranteed silent no-op regardless of the id
+// removed. THIS is the confirmed root cause of the orphan registry entries
+// behind the /articoli-frontaliere/ list rendering raw `blog.article.<id>.title`
+// keys: i18n + body were correctly deleted by removeI18nKeys, but the
+// registry entry survived every "remove" that ran before this fix. Fixed to
+// target the current registryFile from ARTICLE_SECTION_CORE_LIST, checking
+// BOTH sections (an id lives in exactly one, but checking only frontaliere
+// would silently no-op a svizzera-section removal the same way).
 function removeFromBlogArticles(articleId) {
-  let src = read('components/community/BlogArticles.tsx');
   const escaped = escapeRegex(articleId);
-
-  // Match the full article object block: { id: 'xxx', ... },
   const blockRegex = new RegExp(`\\s*\\{[^}]*id:\\s*'${escaped}'[^}]*\\},?`, 's');
-  src = src.replace(blockRegex, '');
+  let removedFromAny = false;
+  for (const { registryFile } of ARTICLE_SECTION_CORE_LIST) {
+    if (!existsSync(resolve(registryFile))) continue;
+    let src = read(registryFile);
+    if (!blockRegex.test(src)) continue;
+    src = src.replace(blockRegex, '');
+    write(registryFile, src);
+    console.error(`  ✅ ${registryFile} aggiornato`);
+    removedFromAny = true;
+  }
+  if (!removedFromAny) {
+    console.error(`  ⚠️  ATTENZIONE: nessuna voce registry trovata per '${articleId}' in ${ARTICLE_SECTION_CORE_LIST.map(s => s.registryFile).join(', ')}`);
+  }
+}
 
-  write('components/community/BlogArticles.tsx', src);
-  console.error('  ✅ BlogArticles.tsx aggiornato');
+// Removes EVERY `'blog.article.<id>.<suffix>': '<value>',` entry for
+// `articleId` from `src` (title, excerpt, imageAlt, and any future suffix —
+// not a fixed list). Value-quote-safe via scanQuotedValue: the regex it
+// replaces (`'blog\\.article\\.${id}\\.[^']*':\\s*'[^']*',?\\n?`) captured
+// the value with `[^']*`, which excludes ALL `'` chars — escaped or not —
+// from the match. A title/excerpt/imageAlt with an embedded escaped
+// apostrophe (e.g. "l'iniziativa", "dell'A9" — both real values in this
+// corpus, see services/locales/blog-meta-it.ts) stopped that capture at the
+// escaped quote, so `.replace()` matched only the entry's opening fragment
+// and left a dangling, syntactically-broken tail like `iniziativa',` behind
+// instead of deleting the whole line — corrupting the meta file on removal
+// of ANY article whose title/excerpt/imageAlt has an apostrophe.
+function removeI18nKeyEntries(src, articleId) {
+  const escaped = escapeRegex(articleId);
+  const keyStartRe = new RegExp(`\\s*['"]blog\\.article\\.${escaped}\\.[A-Za-z]+['"]:\\s*['"]`);
+  let out = src;
+  let m;
+  while ((m = keyStartRe.exec(out)) !== null) {
+    const quoteIdx = m.index + m[0].length - 1;
+    const scanned = scanQuotedValue(out, quoteIdx);
+    if (!scanned) break; // unterminated value — bail rather than risk corrupting further
+    let sliceEnd = scanned.endIdx;
+    if (out[sliceEnd] === ',') sliceEnd += 1;
+    if (out[sliceEnd] === '\n') sliceEnd += 1;
+    out = out.slice(0, m.index) + out.slice(sliceEnd);
+  }
+  return out;
 }
 
 // ── Remove i18n keys from a meta file + delete per-article body file ────
@@ -131,10 +327,7 @@ function removeI18nKeys(articleId, locale) {
     `services/locales/blog-meta-ch-${locale}.ts`,
   ]) {
     if (existsSync(resolve(metaFile))) {
-      let src = read(metaFile);
-      const escaped = escapeRegex(articleId);
-      const keyRegex = new RegExp(`\\s*'blog\\.article\\.${escaped}\\.[^']*':\\s*'[^']*',?\\n?`, 'g');
-      src = src.replace(keyRegex, '');
+      const src = removeI18nKeyEntries(read(metaFile), articleId);
       write(metaFile, src);
       console.error(`  ✅ ${metaFile} aggiornato`);
     }
@@ -153,44 +346,94 @@ function removeI18nKeys(articleId, locale) {
 }
 
 // ── Remove SEO metadata from seoService.ts ──────────────────
+// Was: regexed services/seoService.ts's SEO_METADATA object (one-level-nesting
+// regex `[^}]*(?:\{[^}]*\}[^}]*)*`), plus a "breadcrumb entry" step matching
+// `'blog-<id>': '<string>'`. Blog SEO metadata was code-split OUT of
+// SEO_METADATA into lazy-loaded services/seo/seo-blog{,-N,-ch}.ts chunks
+// (loadBlogSeoChunk()) — the SEO_METADATA regex always matched zero blog
+// entries. The breadcrumb step targeted a static per-article breadcrumb map
+// that no longer exists either: breadcrumbs are computed dynamically by
+// buildBreadcrumbs(route, locale, title) at render time — dropped, not
+// ported. Fixed to target the real shard files (listBlogSeoShardFiles,
+// discovered dynamically) using brace-depth scanning (removeTopLevelObjectEntry)
+// instead of a fixed-nesting regex, since these entries nest arbitrarily
+// (structuredData.image.{...}, structuredData.author.{...}, ...).
 function removeFromSeoService(articleId) {
-  let src = read('services/seoService.ts');
-  const escaped = escapeRegex(articleId);
-
-  // Remove SEO_METADATA block: 'blog-<id>': { ... },
-  // This is a multi-line block so we need to match it carefully
-  const seoRegex = new RegExp(`\\s*'blog-${escaped}':\\s*\\{[^}]*(?:\\{[^}]*\\}[^}]*)*\\},?`, 's');
-  src = src.replace(seoRegex, '');
-
-  // Remove breadcrumb entry if it exists
-  const breadcrumbRegex = new RegExp(`\\s*'blog-${escaped}':\\s*'[^']*',?\\n?`, 'g');
-  src = src.replace(breadcrumbRegex, '');
-
-  write('services/seoService.ts', src);
-  console.error('  ✅ seoService.ts aggiornato');
+  const key = `blog-${articleId}`;
+  let removedFromAny = false;
+  for (const seoFile of listBlogSeoShardFiles()) {
+    const src = read(seoFile);
+    const { result, removed } = removeTopLevelObjectEntry(src, key);
+    if (!removed) continue;
+    write(seoFile, result);
+    console.error(`  ✅ ${seoFile} aggiornato`);
+    removedFromAny = true;
+  }
+  if (!removedFromAny) {
+    console.error(`  ⚠️  ATTENZIONE: nessuna voce SEO trovata per '${key}' in services/seo/seo-blog*.ts`);
+  }
 }
 
-// ── Remove URL block from sitemap-blog.xml ───────────────────────
+// Section → sitemap file. Mirrors the convention already established in
+// scripts/ci/check-blog-slugs-sitemap-sync.mjs (BLOG_SLUGS ↔ sitemap-blog.xml,
+// SWISS_SLUGS ↔ sitemap-blog-ch.xml) — not a new invention.
+const SITEMAP_FILE_BY_SECTION = { frontaliere: 'public/sitemap-blog.xml', svizzera: 'public/sitemap-blog-ch.xml' };
+
+// Parses a `const <slugConst>: Record<string, Record<Locale,string>> = { ... }`
+// slug map out of `slugDataFile` (same shape/regex as
+// check-blog-slugs-sitemap-sync.mjs's parseSlugsConst — single source of the
+// parsing convention would require exporting it from a shared module; kept
+// local here to avoid widening that script's surface for these 2 callers).
+// Returns `{ [articleId]: { it, en, de, fr } }`.
+function parseSectionSlugs(slugDataFile, slugConst) {
+  const src = read(slugDataFile);
+  const block = src.match(new RegExp(`const ${slugConst}[\\s\\S]*?\\n\\};`, 'm'))?.[0] ?? '';
+  const rx = /["']([^"']+)["']:\s*\{\s*it:\s*["']([^"']+)["'],\s*en:\s*["']([^"']+)["'],\s*de:\s*["']([^"']+)["'],\s*fr:\s*["']([^"']+)["']/g;
+  const slugs = {};
+  let m;
+  while ((m = rx.exec(block)) !== null) {
+    slugs[m[1]] = { it: m[2], en: m[3], de: m[4], fr: m[5] };
+  }
+  return slugs;
+}
+
+// Finds which section's registry contains `articleId` (an id lives in
+// exactly one section). Returns the ARTICLE_SECTION_CORE entry, or undefined.
+function findOwningSection(articleId) {
+  return ARTICLE_SECTION_CORE_LIST.find(({ registryFile }) => {
+    if (!existsSync(resolve(registryFile))) return false;
+    return new RegExp(`id:\\s*['"]${escapeRegex(articleId)}['"]`).test(read(registryFile));
+  });
+}
+
+// ── Remove <url> block from the article's sitemap ────────────────────────
+// Was: hardcoded to public/sitemap-blog.xml (frontaliere only — a svizzera
+// article's stale URL in sitemap-blog-ch.xml was never touched) and looked
+// up the IT slug via a camelCase `slugKey` constant in services/router.ts —
+// a per-locale slug-table shape that no longer exists (slugs live in the
+// unified BLOG_SLUGS/SWISS_SLUGS maps in routerBlogData.ts/routerSwissData.ts
+// today). That lookup always returned null, so `itSlug` silently fell back to
+// the raw `articleId`, which only coincidentally matches the real slug.
+// Fixed to resolve the section from the id (checked against both registries)
+// and parse the real IT slug from the section's own slug map.
 function removeFromSitemap(articleId) {
-  let src = read('public/sitemap-blog.xml');
-  const escaped = escapeRegex(articleId);
-
-  // Match the entire <url>...</url> block that contains the article slug
-  // The slug in the sitemap is the Italian slug, which we need to find
-  // Look for <url> blocks containing the article ID or its slug
-  const routerSrc = read('services/router.ts');
-  const slugKey = articleId.replace(/-([a-z])/g, (_, c) => c.toUpperCase());
-
-  // Try to find the IT slug from router.ts
-  const slugMatch = routerSrc.match(new RegExp(`${escapeRegex(slugKey)}:\\s*["']([^"']+)["']`));
-  const itSlug = slugMatch ? slugMatch[1] : articleId;
-
-  // Remove the <url>...</url> block containing this slug
+  const owningSection = findOwningSection(articleId);
+  if (!owningSection) {
+    console.error(`  ⚠️  ATTENZIONE: sezione non determinabile per '${articleId}' — sitemap non aggiornata`);
+    return;
+  }
+  const slugs = parseSectionSlugs(owningSection.slugDataFile, owningSection.slugConst);
+  const itSlug = slugs[articleId]?.it || articleId;
+  const sitemapFile = SITEMAP_FILE_BY_SECTION[owningSection.section];
+  if (!existsSync(resolve(sitemapFile))) {
+    console.error(`  ⚠️  ${sitemapFile} non trovato — skip`);
+    return;
+  }
+  let src = read(sitemapFile);
   const urlBlockRegex = new RegExp(`\\s*<url>\\s*<loc>[^<]*${escapeRegex(itSlug)}[^<]*</loc>[\\s\\S]*?</url>`, 'g');
   src = src.replace(urlBlockRegex, '');
-
-  write('public/sitemap-blog.xml', src);
-  console.error('  ✅ sitemap-blog.xml aggiornato');
+  write(sitemapFile, src);
+  console.error(`  ✅ ${sitemapFile} aggiornato`);
 }
 
 // ── Delete generated image ──────────────────────────────────
@@ -244,33 +487,113 @@ function addRedirectMapping(fromId, toId) {
   console.error(`     File: ${redirectsPath}`);
 }
 
+// True if `relPath` either exists on disk (modified/added) or is a git-tracked
+// path (so `git add -A -- <path>` can stage its deletion). Needed because a
+// deleted body file (removeI18nKeys's unlinkSync) no longer exists on disk —
+// the old existsSync-only filter below silently EXCLUDED every such deletion
+// from staging, so `remove` left "deleted, not staged" body files behind on
+// every run (git add on a never-tracked, nonexistent path errors and aborts
+// the whole `execSync`, which is why the deletions couldn't just be
+// unconditionally included either).
+function pathIsTrackedOrExists(relPath) {
+  if (existsSync(resolve(relPath))) return true;
+  try {
+    return execSync(`git ls-files -- ${JSON.stringify(relPath)}`, { cwd: PROJECT_ROOT, encoding: 'utf-8' }).trim().length > 0;
+  } catch {
+    return false;
+  }
+}
+
 // ── Git add all modified files ──────────────────────────────
-function gitAddAll() {
+// Was: a hand-maintained list missing services/routerBlogData.ts entirely
+// (removeFromRouter's BLOG_SLUGS edit was never staged — left as an unstaged
+// modification after every "successful" remove), listing services/i18n.ts
+// (never modified by anything in this script — dead entry) and
+// services/seoService.ts / public/sitemap-blog.xml only (missing the real
+// seo-blog*.ts shards, the registry files, sitemap-blog-ch.xml, and every
+// per-locale body-file DELETION, since existsSync filtered those out — see
+// pathIsTrackedOrExists). Rebuilt from ARTICLE_SECTION_CORE_LIST so it can't
+// silently drift out of sync with the removal functions above again.
+function gitAddAll(articleId) {
   const files = [
     'services/router.ts',
     'components/community/BlogArticles.tsx',
-    'services/i18n.ts',
-    'services/locales/blog-meta-it.ts',
-    'services/locales/blog-meta-en.ts',
-    'services/locales/blog-meta-de.ts',
-    'services/locales/blog-meta-fr.ts',
-    'services/locales/blog-meta-ch-it.ts',
-    'services/locales/blog-meta-ch-en.ts',
-    'services/locales/blog-meta-ch-de.ts',
-    'services/locales/blog-meta-ch-fr.ts',
+    'services/routerBlogData.ts',
+    'services/routerSwissData.ts',
+    ...listBlogSeoShardFiles(),
     'services/seoService.ts',
-    'public/sitemap-blog.xml',
   ];
+  for (const { registryFile, bodyDir, metaPrefix } of ARTICLE_SECTION_CORE_LIST) {
+    files.push(registryFile);
+    for (const locale of ['it', 'en', 'de', 'fr']) {
+      files.push(`services/locales/${metaPrefix}-${locale}.ts`);
+      files.push(`services/locales/${bodyDir}/${locale}/${articleId}.ts`);
+    }
+  }
+  files.push(...Object.values(SITEMAP_FILE_BY_SECTION));
 
   if (existsSync(resolve('data/article-redirects.json'))) {
     files.push('data/article-redirects.json');
   }
 
-  const existing = files.filter(f => existsSync(resolve(f)));
+  const existing = [...new Set(files)].filter(pathIsTrackedOrExists);
   if (existing.length > 0) {
-    execSync(`git add ${existing.join(' ')}`, { cwd: PROJECT_ROOT, stdio: 'inherit' });
+    execSync(`git add -A -- ${existing.map(f => JSON.stringify(f)).join(' ')}`, { cwd: PROJECT_ROOT, stdio: 'inherit' });
     console.error('  ✅ File modificati aggiunti a git');
   }
+}
+
+// ── Post-removal verification ────────────────────────────────────────────
+// Generic safety net for the "stale target file" bug class that made
+// removeFromBlogArticles/removeFromSeoService/listArticles silently no-op in
+// the first place (see their history comments above). Whatever a future
+// refactor moves again, `remove` refuses to report success while ANY of
+// these checks still finds a reference to the id — loud failure instead of
+// a silent orphan. Deliberately checks BOTH BLOG_SLUGS (routerBlogData.ts)
+// and SWISS_SLUGS (routerSwissData.ts) even though removeFromRouter only
+// ever edits the former (it has no svizzera-section slug removal at all,
+// see its docstring note) — a svizzera-section removal is EXPECTED to fail
+// this check today, surfacing that known gap loudly instead of hiding it.
+function verifyRemovalClean(articleId) {
+  const escaped = escapeRegex(articleId);
+  const problems = [];
+
+  for (const { registryFile } of ARTICLE_SECTION_CORE_LIST) {
+    if (existsSync(resolve(registryFile)) && new RegExp(`id:\\s*['"]${escaped}['"]`).test(read(registryFile))) {
+      problems.push(`registry: ${registryFile} still has an entry for '${articleId}'`);
+    }
+  }
+
+  for (const seoFile of listBlogSeoShardFiles()) {
+    if (new RegExp(`['"]blog-${escaped}['"]:\\s*\\{`).test(read(seoFile))) {
+      problems.push(`SEO: ${seoFile} still has 'blog-${articleId}'`);
+    }
+  }
+
+  for (const locale of ['it', 'en', 'de', 'fr']) {
+    for (const metaFile of [`services/locales/blog-meta-${locale}.ts`, `services/locales/blog-meta-ch-${locale}.ts`]) {
+      if (existsSync(resolve(metaFile)) && new RegExp(`blog\\.article\\.${escaped}\\.`).test(read(metaFile))) {
+        problems.push(`i18n: ${metaFile} still has blog.article.${articleId}.* keys`);
+      }
+    }
+    for (const bodyFile of [`services/locales/blog-body/${locale}/${articleId}.ts`, `services/locales/blog-body-ch/${locale}/${articleId}.ts`]) {
+      if (existsSync(resolve(bodyFile))) {
+        problems.push(`body: ${bodyFile} still exists`);
+      }
+    }
+  }
+
+  if (new RegExp(`['"]${escaped}['"]:\\s*\\{\\s*it:`).test(read('services/routerBlogData.ts'))) {
+    problems.push(`slugs: services/routerBlogData.ts BLOG_SLUGS still has '${articleId}'`);
+  }
+  if (new RegExp(`['"]${escaped}['"]:\\s*\\{\\s*it:`).test(read('services/routerSwissData.ts'))) {
+    problems.push(`slugs: services/routerSwissData.ts SWISS_SLUGS still has '${articleId}' (removeFromRouter has no svizzera-section slug removal — known gap)`);
+  }
+  if (new RegExp(`['"]${escaped}['"]`).test(read('services/router.ts'))) {
+    problems.push(`router.ts: still references '${articleId}' (BlogArticleId union or ALL_BLOG_ARTICLE_IDS)`);
+  }
+
+  return problems;
 }
 
 // ── Verify article exists ───────────────────────────────────
@@ -338,10 +661,15 @@ Esempi:
       process.exit(1);
     }
 
-    // Get article title for confirmation
-    const i18nSrc = read('services/i18n.ts');
-    const titleMatch = i18nSrc.match(new RegExp(`'blog\\.article\\.${escapeRegex(articleId)}\\.title':\\s*["']([^"']+)["']`));
-    const title = titleMatch ? titleMatch[1] : articleId;
+    // Get article title for confirmation. Was: read from services/i18n.ts,
+    // which never held static per-article title strings (see listArticles()
+    // history note above) — titleMatch was always null and this always fell
+    // back to printing the raw id. Fixed to read the owning section's real
+    // IT meta file.
+    const owningSectionForTitle = findOwningSection(articleId);
+    const metaItFile = owningSectionForTitle ? `services/locales/${owningSectionForTitle.metaPrefix}-it.ts` : null;
+    const metaItSrc = metaItFile && existsSync(resolve(metaItFile)) ? read(metaItFile) : '';
+    const title = findKeyValue(metaItSrc, `blog.article.${articleId}.title`) ?? articleId;
 
     if (!forceFlag) {
       console.error(`\n⚠️  Stai per rimuovere l'articolo:`);
@@ -365,20 +693,36 @@ Esempi:
       addRedirectMapping(articleId, redirectTo);
     }
 
-    // Remove from all source files
+    // Remove from all source files. removeFromSitemap runs BEFORE
+    // removeFromBlogArticles: it resolves the owning section via
+    // findOwningSection(articleId), which looks the id up in the registry —
+    // that lookup must happen while the registry entry still exists.
     removeFromRouter(articleId);
+    removeFromSitemap(articleId);
     removeFromBlogArticles(articleId);
     removeI18nKeys(articleId, 'it');
     removeI18nKeys(articleId, 'en');
     removeI18nKeys(articleId, 'de');
     removeI18nKeys(articleId, 'fr');
     removeFromSeoService(articleId);
-    removeFromSitemap(articleId);
     deleteGeneratedImage(articleId);
 
     // Git add
     console.error('\n📦 Staging file:');
-    gitAddAll();
+    gitAddAll(articleId);
+
+    // Post-removal verification: refuse to report success while any target
+    // file still references the id (see verifyRemovalClean's docstring —
+    // this is the generic safety net for the whole "stale target file" bug
+    // class this fix addresses).
+    const problems = verifyRemovalClean(articleId);
+    if (problems.length > 0) {
+      console.error(`\n❌ VERIFICA FALLITA — '${articleId}' rimane referenziato dopo la rimozione:`);
+      problems.forEach(p => console.error(`   - ${p}`));
+      console.error('\n   Le modifiche parziali sono state comunque stagate (vedi sopra) per ispezione manuale.');
+      console.error('   NON considerare questa rimozione completa finché ogni riga sopra non è risolta.');
+      process.exit(1);
+    }
 
     console.error(`\n✅ Articolo "${articleId}" rimosso con successo!`);
     if (redirectTo) {

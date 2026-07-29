@@ -1898,6 +1898,27 @@ function readAllSectionsMetaIt() {
   return _sectionsMetaItCache;
 }
 
+// Value-quote-safe regex for 'blog.article.<id>.<field>': '<value>' meta
+// entries — honors backslash-escaped quotes inside the value instead of
+// truncating at the first embedded one. Consolidates what used to be 5
+// independent copies of this construct in this file: 4 used a naive
+// `'([^']+)'` (or `'([^']*)'`) capture that silently truncated any
+// title/excerpt containing an apostrophe (e.g. "l'iniziativa",
+// "dell'A9" — both real values in services/locales/blog-meta-it.ts) at the
+// escaped quote, corrupting the duplicate-detection input those 4 call sites
+// feed (selectArticle, loadExistingArticleSummaries, preFlightHeadlineCheck,
+// checkForDuplicates) for every existing article with an apostrophe in its
+// title, not just the ones just added. The 5th copy (loadExistingItTitlesExcluding)
+// already had the correct escape-aware pattern; all 5 now share this one.
+function metaFieldRegex(field) {
+  return new RegExp(`'blog\\.article\\.([^']+)\\.${field}':\\s*'((?:[^'\\\\]|\\\\.)*)'`, 'g');
+}
+
+/** Unescapes a TS single-quoted string body captured by metaFieldRegex. */
+function unescapeTsValue(s) {
+  return s.replace(/\\'/g, "'").replace(/\\"/g, '"').replace(/\\\\/g, '\\');
+}
+
 function getIsoWeekKey(date = new Date()) {
   const d = new Date(Date.UTC(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate()));
   const dayNum = d.getUTCDay() || 7; // Mon=1 .. Sun=7
@@ -4552,8 +4573,10 @@ async function selectArticle(headlines) {
 
   // Get existing article titles AND excerpts from the section meta-it for robust duplicate detection
   const blogItSrc = readSectionMetaIt();
-  const titleMatches = [...blogItSrc.matchAll(/'blog\.article\.([^.]+)\.title':\s*'([^']+)'/g)];
-  const excerptMatches = [...blogItSrc.matchAll(/'blog\.article\.([^.]+)\.excerpt':\s*'([^']+)'/g)];
+  const titleMatches = [...blogItSrc.matchAll(metaFieldRegex('title'))];
+  const excerptMatches = [...blogItSrc.matchAll(metaFieldRegex('excerpt'))];
+  titleMatches.forEach((m) => { m[2] = unescapeTsValue(m[2]); });
+  excerptMatches.forEach((m) => { m[2] = unescapeTsValue(m[2]); });
   const existingTitles = titleMatches.map(m => m[2]);
   // Build compact "title — excerpt" list for last 30 articles (most relevant for duplicate avoidance)
   const recentArticles = titleMatches.slice(-30).map(m => {
@@ -6510,11 +6533,11 @@ function loadExistingItTitlesExcluding(currentArticleId) {
   if (_existingItTitlesCache === null) {
     const src = readSectionMetaIt();
     const map = new Map(); // articleId -> normalizedTitle
-    const rx = /'blog\.article\.([^']+)\.title'\s*:\s*'((?:[^'\\]|\\.)*)'/g;
+    const rx = metaFieldRegex('title');
     let m;
     while ((m = rx.exec(src)) !== null) {
       const articleId = m[1];
-      const rawTitle = m[2].replace(/\\'/g, "'").replace(/\\"/g, '"').replace(/\\\\/g, '\\');
+      const rawTitle = unescapeTsValue(m[2]);
       const normalized = rawTitle
         .replace(/\s*\|\s*Frontaliere Ticino\s*$/i, '')
         .replace(/\s+/g, ' ')
@@ -6761,8 +6784,10 @@ function loadExistingArticleSummaries() {
   // topics recur in both sections, so a sibling-section twin must be caught
   // BEFORE spending an LLM generation cycle on a duplicate.
   const blogItSrc = readAllSectionsMetaIt();
-  const titleMatches = [...blogItSrc.matchAll(/'blog\.article\.([^.]+)\.title':\s*'([^']+)'/g)];
-  const excerptMatches = [...blogItSrc.matchAll(/'blog\.article\.([^.]+)\.excerpt':\s*'([^']*)'/g)];
+  const titleMatches = [...blogItSrc.matchAll(metaFieldRegex('title'))];
+  const excerptMatches = [...blogItSrc.matchAll(metaFieldRegex('excerpt'))];
+  titleMatches.forEach((m) => { m[2] = unescapeTsValue(m[2]); });
+  excerptMatches.forEach((m) => { m[2] = unescapeTsValue(m[2]); });
   const excerptsById = new Map(excerptMatches.map((m) => [m[1], m[2]]));
   _existingArticleSummariesCache = titleMatches.map((m) => ({
     id: m[1],
@@ -6815,7 +6840,8 @@ function preFlightHeadlineCheck(headline) {
   // Cross-section (2026-07-11): a news headline already covered in the sibling
   // section is a duplicate too (shared id/title namespace).
   const blogItSrc = readAllSectionsMetaIt();
-  const titleMatches = [...blogItSrc.matchAll(/'blog\.article\.([^.]+)\.title':\s*'([^']+)'/g)];
+  const titleMatches = [...blogItSrc.matchAll(metaFieldRegex('title'))];
+  titleMatches.forEach((m) => { m[2] = unescapeTsValue(m[2]); });
 
   const headlineWords = tokenizeIt(headline);
   if (headlineWords.length < 3) return { duplicate: false }; // too short to compare reliably
@@ -6873,8 +6899,10 @@ function checkForDuplicates(data) {
   // one-letter `…-frontaliere`/`…-frontalieri` twins, "vivere nei Grigioni",
   // etc. (2026-07-11). Same shared id/title namespace as getAllArticleIds.
   const blogItSrc = readAllSectionsMetaIt();
-  const titleMatches = [...blogItSrc.matchAll(/'blog\.article\.([^.]+)\.title':\s*'([^']+)'/g)];
-  const excerptMatches = [...blogItSrc.matchAll(/'blog\.article\.([^.]+)\.excerpt':\s*'([^']+)'/g)];
+  const titleMatches = [...blogItSrc.matchAll(metaFieldRegex('title'))];
+  const excerptMatches = [...blogItSrc.matchAll(metaFieldRegex('excerpt'))];
+  titleMatches.forEach((m) => { m[2] = unescapeTsValue(m[2]); });
+  excerptMatches.forEach((m) => { m[2] = unescapeTsValue(m[2]); });
   const existingArticles = titleMatches.map(m => {
     const id = m[1];
     const title = m[2];

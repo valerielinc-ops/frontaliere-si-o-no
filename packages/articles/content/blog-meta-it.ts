@@ -9089,6 +9089,15 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.infortunio-lavoro-vallemaggia-piano-peccia.title': 'Grave infortunio sul lavoro in Vallemaggia',
     'blog.article.infortunio-lavoro-vallemaggia-piano-peccia.excerpt': 'Un 29enne residente nel Bellinzonese è rimasto gravemente ferito a Piano di Peccia dopo essere stato colpito da una trave caduta da un carroponte.',
     'blog.article.infortunio-lavoro-vallemaggia-piano-peccia.imageAlt': 'Panorama della Vallemaggia, Ticino, luogo di attività lavorativa.',
+ 'blog.article.permesso-g-pro-contro-2026.title': 'Permesso G: Conviene Ancora Lavorare in Ticino nel 2026?',
+ 'blog.article.permesso-g-pro-contro-2026.excerpt': 'Fisco, pensione, sanità: scopri tutti i pro e i contro del permesso G per frontalieri dopo il nuovo accordo fiscale Italia-Svizzera.',
+ 'blog.article.permesso-g-pro-contro-2026.imageAlt': 'Permesso G svizzero per frontalieri su una scrivania con vista su Lugano, simbolo del lavoro in Ticino.',
+ 'blog.article.cantieri-traffico-a9-ticino.title': 'Cantieri sull\'A9: disagi per i frontalieri',
+ 'blog.article.cantieri-traffico-a9-ticino.excerpt': 'Scopri come i lavori sulla A9 stanno influenzando traffico e costi per i frontalieri. Consigli pratici e strumenti utili.',
+ 'blog.article.cantieri-traffico-a9-ticino.imageAlt': 'Traffico congestionato al valico di Chiasso con lavori sulla A9 visibili.',
+ 'blog.article.iniziativa-salari-ticino.title': 'Voto cruciale in Ticino: l\'iniziativa anti-dumping salariale',
+ 'blog.article.iniziativa-salari-ticino.excerpt': 'Il Ticino, Cantone con i salari più bassi, si prepara a votare un\'iniziativa che vuole blindare le buste paga. Un\'analisi delle conseguenze per i frontalieri.',
+ 'blog.article.iniziativa-salari-ticino.imageAlt': 'Vista di una via trafficata di Lugano, con persone che camminano, simboleggiando il dinamismo del mercato del lavoro ticinese.',
 };
 
 export default blogMetaIt;

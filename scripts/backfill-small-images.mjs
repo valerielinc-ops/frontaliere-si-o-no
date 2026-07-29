@@ -76,10 +76,14 @@ function loadArticleTitles() {
     const src = readFileSync(metaPath, 'utf8');
     const titleMap = {};
     // Parse 'blog.article.{id}.title': 'Title text',
-    const re = /'blog\.article\.([^']+)\.title':\s*'([^']+)'/g;
+    // Escape-aware capture ((?:[^'\\]|\\.)*) — a naive `[^']+` truncated at
+    // the first embedded escaped apostrophe (e.g. "l'iniziativa", "dell'A9",
+    // both real titles in this corpus), silently showing a cut-off title in
+    // this script's console output / image-gen prompts.
+    const re = /'blog\.article\.([^']+)\.title':\s*'((?:[^'\\]|\\.)*)'/g;
     let m;
     while ((m = re.exec(src)) !== null) {
-      titleMap[m[1]] = m[2];
+      titleMap[m[1]] = m[2].replace(/\\'/g, "'").replace(/\\"/g, '"').replace(/\\\\/g, '\\');
     }
     return titleMap;
   } catch (e) {

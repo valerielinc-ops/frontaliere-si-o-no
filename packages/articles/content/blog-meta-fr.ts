@@ -9090,6 +9090,15 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.infortunio-lavoro-vallemaggia-piano-peccia.title': 'Accident grave du travail à Vallemaggia',
     'blog.article.infortunio-lavoro-vallemaggia-piano-peccia.excerpt': 'Un résident de 29 ans de la région de Bellinzona a été grièvement blessé à Piano di Peccia après avoir été touché par une poutre tombée d\'une grue aérienne.',
     'blog.article.infortunio-lavoro-vallemaggia-piano-peccia.imageAlt': 'Paysage du Vallemaggia, Tessin, lieu d\'activité professionnelle.',
+ 'blog.article.permesso-g-pro-contro-2026.title': 'Permis G : Est-ce que ça vaut encore la peine de travailler au Tessin en 2026?',
+ 'blog.article.permesso-g-pro-contro-2026.excerpt': 'Fiscalité, pensions, soins de santé : découvrez tous les avantages et inconvénients du permis G pour les navetteurs transfrontaliers après le nouvel accord fiscal Italie-Suisse.',
+ 'blog.article.permesso-g-pro-contro-2026.imageAlt': 'Permis suisse G pour les navetteurs transfrontaliers sur un bureau surplombant Lugano, symbole du travail au Tessin.',
+ 'blog.article.cantieri-traffico-a9-ticino.title': 'Chantiers sur l\'A9 : désagrément pour les navetteurs transfrontaliers',
+ 'blog.article.cantieri-traffico-a9-ticino.excerpt': 'Découvrez comment les travaux sur l\'A9 affectent le trafic et les coûts pour les navetteurs transfrontaliers. Conseils pratiques et outils utiles.',
+ 'blog.article.cantieri-traffico-a9-ticino.imageAlt': 'Trafic congestionné au carrefour de Chiasso avec des travaux routiers visibles sur l\'A9.',
+ 'blog.article.iniziativa-salari-ticino.title': 'Vote crucial au Tessin : l\'initiative anti-dumping salarial',
+ 'blog.article.iniziativa-salari-ticino.excerpt': 'Le Tessin, le canton aux salaires les plus bas, se prépare à voter sur une initiative visant à augmenter les salaires. Une analyse des conséquences pour les navetteurs transfrontaliers.',
+ 'blog.article.iniziativa-salari-ticino.imageAlt': 'Vue d\'une rue animée à Lugano, avec des gens qui marchent, symbolisant le dynamisme du marché du travail tessin.',
 };
 
 export default blogMetaFr;
