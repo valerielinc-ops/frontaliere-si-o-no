@@ -4976,6 +4976,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'telelavoro-frontalieri-limiti-fiscali-previdenziali',
+    category: 'fiscale',
+    date: '2026-07-29T03:14:05.759Z',
+    image: '/images/blog/telelavoro-frontalieri-limiti-fiscali-previdenziali.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

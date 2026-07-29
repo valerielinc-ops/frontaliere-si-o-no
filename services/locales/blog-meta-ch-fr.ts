@@ -1660,6 +1660,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.assegno-unico-nuove-regole-inps.title': 'Chèque unique : nouvelles règles INPS pour les travailleurs à l\'étranger',
     'blog.article.assegno-unico-nuove-regole-inps.excerpt': 'L\'INPS clarifie les modalités d\'application de l\'allocation unique : voici ce qui change pour les travailleurs communautaires et les familles avec enfants résidant dans d\'autres pays de l\'UE.',
     'blog.article.assegno-unico-nuove-regole-inps.imageAlt': 'Documents et calculatrice sur un bureau moderne',
+    'blog.article.telelavoro-frontalieri-limiti-fiscali-previdenziali.title': 'Télétravail frontalier : les limites fiscales et de sécurité sociale',
+    'blog.article.telelavoro-frontalieri-limiti-fiscali-previdenziali.excerpt': 'Frontaliers Italie-Suisse : le télétravail suit deux seuils distincts. Découvrez comment 25 % d\'impôt et 49,9 % de prévoyance affectent les impôts et les cotisations.',
+    'blog.article.telelavoro-frontalieri-limiti-fiscali-previdenziali.imageAlt': 'Bureau moderne à Lugano avec vue sur le lac',
 };
 
 export default blogMetaChFr;
