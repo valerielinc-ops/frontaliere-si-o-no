@@ -17,10 +17,15 @@
  *   1. data/liechtensteinMunicipalities.ts's SOURCES header (fiscal treaty, customs union, AVS/AI, 45-day
  *      threshold, what the source does NOT say about losing frontaliere
  *      status).
- *   2. `LIECHTENSTEIN_COMMUTING_CONTEXT` / `NATIONAL_POPULATION` exported by
- *      scripts/build-liechtenstein-municipalities.mjs (imported below, not
- *      re-typed as literals, so the numbers cannot drift out of sync with
- *      the dataset).
+ *   2. the `commutingContext` / `nationalPopulation` blocks of the generated
+ *      data/liechtenstein-municipalities.json (read below, not re-typed as
+ *      literals, so the numbers cannot drift out of sync with the dataset).
+ *      Read from the JSON rather than from the builder script on purpose:
+ *      this module is reachable from vite.config.ts (plugin -> content), and
+ *      pulling a `.mjs` with a `#!/usr/bin/env node` shebang into that graph
+ *      makes esbuild fail with `Syntax error "!"`, breaking every locale
+ *      build. The sibling builders are imported only by tests, which is why
+ *      only this one ever hit it.
  * Deliberately NOT included anywhere in this copy (see
  * data/liechtensteinMunicipalities.ts header, "NOT included"): no
  * health-insurance "Optionsrecht" claim (unsourced to a primary), no
@@ -50,16 +55,29 @@
  * all 4 locales instead, so this can never silently regress again.
  */
 
-import {
-  LIECHTENSTEIN_COMMUTING_CONTEXT,
-  NATIONAL_POPULATION,
-} from '../scripts/build-liechtenstein-municipalities.mjs';
+import liechtensteinDataset from './liechtenstein-municipalities.json';
 
 export type LiechtensteinLocale = 'it' | 'en' | 'de' | 'fr';
 export const LIECHTENSTEIN_LOCALES: readonly LiechtensteinLocale[] = ['it', 'en', 'de', 'fr'] as const;
 
-const CTX = LIECHTENSTEIN_COMMUTING_CONTEXT;
-const NATIONAL = NATIONAL_POPULATION;
+interface LiechtensteinCommutingContext {
+  year: number;
+  chToLi: number;
+  liToCh: number;
+  ratio: string;
+  workforceShareCrossBorder: string;
+  note: string;
+  source: string;
+}
+
+interface LiechtensteinNationalPopulation {
+  value: number;
+  year: number;
+  source: string;
+}
+
+const CTX = liechtensteinDataset.commutingContext as LiechtensteinCommutingContext;
+const NATIONAL = liechtensteinDataset.nationalPopulation as LiechtensteinNationalPopulation;
 
 /** Deterministic thousands grouping (Swiss apostrophe convention), used for
  *  every locale here instead of `toLocaleString()` — see file header. */
