@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-07-29T13:20:08.917Z",
+  "updatedAt": "2026-07-29T14:56:18.665Z",
   "entities": {
     "AASTI": {
       "status": "suspect",
@@ -704,6 +704,37 @@
           "articleId": "dumping-salari-architetti-ticino",
           "support": "unknown",
           "name": "Commissione Paritetica Cantonale"
+        }
+      ]
+    },
+    "CFB": {
+      "status": "cleared",
+      "statusSource": "auto",
+      "statusAt": "2026-07-29T14:56:18.665Z",
+      "firstSeen": "2026-07-29T14:56:18.665Z",
+      "lastSeen": "2026-07-29T14:56:18.665Z",
+      "seen": 2,
+      "unsupportedSightings": 0,
+      "unsupportedRuns": [],
+      "supportedSightings": 2,
+      "names": [
+        "Commissione federale delle banche"
+      ],
+      "recentKeys": [],
+      "evidence": [
+        {
+          "at": "2026-07-29T14:56:18.665Z",
+          "runId": "30460991205",
+          "articleId": "frontalieri-tassa-salute",
+          "support": "present",
+          "name": "Commissione federale delle banche"
+        },
+        {
+          "at": "2026-07-29T14:56:18.665Z",
+          "runId": "30460991205",
+          "articleId": "frontalieri-tassa-salute",
+          "support": "present",
+          "name": "Commissione federale delle banche"
         }
       ]
     },
