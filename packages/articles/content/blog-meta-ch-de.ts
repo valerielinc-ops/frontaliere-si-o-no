@@ -1687,6 +1687,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.noleggio-sociale-frontalieri-2026.title': 'Sozialmiete für Grenzgänger: 100 Euro pro Monat?',
     'blog.article.noleggio-sociale-frontalieri-2026.excerpt': 'Die italienische Regierung bereitet ein Projekt vor, um Grenzgängern neue Autos für eine monatliche Gebühr von 100 Euro anzubieten.',
     'blog.article.noleggio-sociale-frontalieri-2026.imageAlt': 'Bild eines neuen Fahrzeugs mit dem ACI-Logo und dem Ministerium für Unternehmen und Made in Italy (MIMIT) auf einem Hintergrund eines italienischen Landschafts',
+    'blog.article.lavoro-part-time-svizzera-diritti.title': 'Teilzeitarbeit in der Schweiz: Rechte und Vertrag',
+    'blog.article.lavoro-part-time-svizzera-diritti.excerpt': 'Praktischer Leitfaden zu vertraglichen Rechten, Sozialbeiträgen und Steuern für Teilzeitbeschäftigte in der Schweiz.',
+    'blog.article.lavoro-part-time-svizzera-diritti.imageAlt': 'Modernes Büro mit Blick auf eine Schweizer Stadt',
 };
 
 export default blogMetaChDe;

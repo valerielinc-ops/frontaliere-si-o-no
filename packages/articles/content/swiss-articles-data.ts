@@ -5059,6 +5059,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'lavoro-part-time-svizzera-diritti',
+    category: 'pratico',
+    date: '2026-07-29T19:17:21.500Z',
+    image: '/images/blog/lavoro-part-time-svizzera-diritti.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

@@ -1687,6 +1687,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.noleggio-sociale-frontalieri-2026.title': 'Noleggio sociale per frontalieri: 100 euro al mese?',
     'blog.article.noleggio-sociale-frontalieri-2026.excerpt': 'Il Governo italiano prepara un progetto per offrire auto nuove a frontalieri a un canone mensile di 100 euro.',
     'blog.article.noleggio-sociale-frontalieri-2026.imageAlt': 'Immagine di un veicolo nuovo con il logo dell\'ACI e il Ministero delle Imprese e del Made in Italy (MIMIT) su un sfondo di un paesaggio italiano',
+    'blog.article.lavoro-part-time-svizzera-diritti.title': 'Lavoro part-time in Svizzera: diritti e contratto',
+    'blog.article.lavoro-part-time-svizzera-diritti.excerpt': 'Guida pratica sui diritti contrattuali, contributi sociali e fiscalità per chi lavora a tempo parziale in Svizzera.',
+    'blog.article.lavoro-part-time-svizzera-diritti.imageAlt': 'Ufficio moderno con vista su una città svizzera',
 };
 
 export default blogMetaChIt;
