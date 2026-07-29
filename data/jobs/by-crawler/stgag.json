@@ -711,9 +711,9 @@
       "id": "stgag-3db0c5b2a0fa",
       "slug": "mpa-sottosegretario-medico-radiologia-radio-oncologia-spital-thurgau-stgag-munsterlingen",
       "slugByLocale": {
+        "de": "mpa-arztsekretar-in-radiologie-radio-onkologie-stgag-ch-r134nd",
         "it": "mpa-sottosegretario-medico-radiologia-radio-oncologia-spital-thurgau-stgag-munsterlingen",
         "en": "mpa-medical-secretary-in-radiology-radio-oncology-spital-thurgau-stgag-munsterlingen",
-        "de": "mpa-arztsekretar-in-radiologie-radio-onkologie-stgag-ch",
         "fr": "mpa-secretaire-medical-en-radiologie-radio-oncologie-spital-thurgau-stgag-munsterlingen"
       },
       "company": "Spital Thurgau (STGAG)",
@@ -733,7 +733,6 @@
         "de": "MPA / Arztsekretär/-in Radiologie Radio-Onkologie bei Team Radiologie Plus (Kantonsspital Frauenfeld) in Münsterlingen (8596, TG), Schweiz.\n\n• Bereich: Administration\n• Art: Vollzeit, Teilzeit möglich\n• Befristung: Unbefristet\n• Standort: Münsterlingen (TG)\n• Bewerbung über das Umantis-Karriereportal von Spital Thurgau (STGAG)",
         "fr": "MPA / Medical Secretary/-in Radiologie Radio-Oncologie à l'équipe Radiologie Plus (Kantonsspital Frauenfeld) à Münsterlingen (8596, TG), Suisse.\n\n• Domaine: Administration\n• Type: Temps plein, temps partiel\n• Terme temporaire : perpétuel\n• Lieu: Münsterlingen (TG)\n• Application via le portail de carrière Umantis de Spital Thurgau (STGAG)"
       },
-      "needsRetranslation": true,
       "location": "Münsterlingen",
       "canton": "TG",
       "url": "https://rekrutierung.stgag.ch/Vacancies/3732/Description/1",
@@ -756,11 +755,19 @@
       "applyUrl": "https://rekrutierung.stgag.ch/Vacancies/3732/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "mpa-arztsekretar-in-radiologie-radio-onkologie-stgag-munsterlingen",
-        "mpa-arztsekretar-in-radiologie-radio-onkologie-stgag-ch",
-        "mpa-sottosegretario-medico-radiologia-radio-oncologia-spital-thurgau-stgag-munsterlingen"
-      ],
+      "salaryMin": 57500,
+      "salaryMax": 87000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 57500,
+          "maxValue": 87000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-07-28T22:09:34.242Z",
       "previousSlugsByLocale": {
         "it": [
           "mpa-arztsekretar-in-radiologie-radio-onkologie-stgag-munsterlingen",
@@ -779,19 +786,12 @@
           "mpa-arztsekretar-in-radiologie-radio-onkologie-stgag-ch"
         ]
       },
-      "firstSeenAt": "2026-07-28T22:09:34.242Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
-          "unitText": "YEAR"
-        }
-      }
+      "previousSlugs": [
+        "mpa-arztsekretar-in-radiologie-radio-onkologie-stgag-munsterlingen",
+        "mpa-arztsekretar-in-radiologie-radio-onkologie-stgag-ch",
+        "mpa-sottosegretario-medico-radiologia-radio-oncologia-spital-thurgau-stgag-munsterlingen"
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "stgag-69c86a92d5a3",

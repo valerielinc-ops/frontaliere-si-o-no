@@ -1,6 +1,6 @@
 {
   "crawlerKey": "zfv-unternehmungen",
-  "assembledAt": "2026-07-29T11:51:10.076Z",
+  "assembledAt": "2026-07-29T11:16:39.413Z",
   "jobs": [
     {
       "id": "zfv-unternehmungen-74d19ea56c29",
@@ -650,7 +650,6 @@
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
       "crawledAt": "2026-07-29T11:51:01.288Z",
-      "needsRetranslation": true,
       "addressLocality": "Zürich",
       "postalCode": "8005",
       "streetAddress": "Technoparkstrasse 1",
@@ -674,7 +673,19 @@
         "kuchenchef-in-zfv-unternehmungen-zurich",
         "chef-zfv-unternehmungen-zurich",
         "tour-operateur-e-80-zfv-unternehmungen-zurich",
-        "tour-operator-e-80-zfv-unternehmungen-zurich"
+        "tour-operator-e-80-zfv-unternehmungen-zurich",
+        "operatore-turistico-operativo-e-50-zfv-unternehmungen-zurich",
+        "operating-tour-operator-e-50-zfv-unternehmungen-zurich",
+        "betriebstournant-e-50-zfv-unternehmungen-zurich",
+        "tour-operateur-e-50-zfv-unternehmungen-zurich",
+        "operatore-turistico-operativo-e-50-zfv-unternehmungen-zurich",
+        "operating-tour-operator-e-50-zfv-unternehmungen-zurich",
+        "betriebstournant-e-50-zfv-unternehmungen-zurich",
+        "tour-operateur-e-50-zfv-unternehmungen-zurich",
+        "operatore-turistico-operativo-e-50-zfv-unternehmungen-zurich",
+        "operating-tour-operator-e-50-zfv-unternehmungen-zurich",
+        "betriebstournant-e-50-zfv-unternehmungen-zurich",
+        "tour-operateur-e-50-zfv-unternehmungen-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -682,19 +693,34 @@
           "chef-in-zfv-unternehmungen-zurich",
           "kuchenchef-in-zfv-unternehmungen-zurich",
           "chef-zfv-unternehmungen-zurich",
-          "tour-operator-e-80-zfv-unternehmungen-zurich"
+          "tour-operator-e-80-zfv-unternehmungen-zurich",
+          "operatore-turistico-operativo-e-50-zfv-unternehmungen-zurich",
+          "operating-tour-operator-e-50-zfv-unternehmungen-zurich",
+          "betriebstournant-e-50-zfv-unternehmungen-zurich",
+          "tour-operateur-e-50-zfv-unternehmungen-zurich",
+          "operatore-turistico-operativo-e-50-zfv-unternehmungen-zurich",
+          "operating-tour-operator-e-50-zfv-unternehmungen-zurich",
+          "betriebstournant-e-50-zfv-unternehmungen-zurich",
+          "tour-operateur-e-50-zfv-unternehmungen-zurich",
+          "operatore-turistico-operativo-e-50-zfv-unternehmungen-zurich",
+          "operating-tour-operator-e-50-zfv-unternehmungen-zurich",
+          "betriebstournant-e-50-zfv-unternehmungen-zurich",
+          "tour-operateur-e-50-zfv-unternehmungen-zurich"
         ],
         "en": [
           "betriebstournant-e-80-zfv-unternehmungen-zurich",
-          "chef-in-zfv-unternehmungen-zurich"
+          "chef-in-zfv-unternehmungen-zurich",
+          "operating-tour-operator-e-50-zfv-unternehmungen-zurich"
         ],
         "de": [
-          "kuchenchef-in-zfv-unternehmungen-zurich"
+          "kuchenchef-in-zfv-unternehmungen-zurich",
+          "betriebstournant-e-50-zfv-unternehmungen-zurich"
         ],
         "fr": [
           "voyagiste-e-80-zfv-unternehmungen-zurich",
           "chef-zfv-unternehmungen-zurich",
-          "tour-operateur-e-80-zfv-unternehmungen-zurich"
+          "tour-operateur-e-80-zfv-unternehmungen-zurich",
+          "tour-operateur-e-50-zfv-unternehmungen-zurich"
         ]
       },
       "firstSeenAt": "2026-07-22T11:41:22.564Z",
@@ -709,7 +735,8 @@
           "maxValue": 89200,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "zfv-unternehmungen-ef4added16e2",

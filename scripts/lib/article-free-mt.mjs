@@ -13,7 +13,7 @@
  */
 
 const NAV_LINK_RE = /\[[^\]]+\]\(nav:[^)]+\)/g;
-const NAV_SENTINEL_RE = /0NAVLINK(\d+)0/g;
+const NAV_SENTINEL_RE = /0NAV(\d+)0/g;
 
 /**
  * Returns the translated field only when the model actually produced a string.
@@ -70,11 +70,20 @@ export function joinTranslatedChunks(results, bodyKey) {
  * Mask internal `[testo](nav:azione)` CTA links so machine translation passes
  * them through verbatim (the `nav:azione` target is a router action, not prose).
  *
- * The sentinel `0NAVLINK<n>0` is digit-delimited ASCII — MT engines reorder /
- * translate / strip bracketed or word-like placeholders, but leave this token
- * intact in practice. `restore()` reports `ok:false` if the restored count does
- * not match the masked count, letting the caller drop a mangled field rather
- * than ship a body with a broken internal link.
+ * The sentinel is digit-delimited ASCII and — this is the load-bearing part —
+ * contains NO translatable word. It used to be `0NAVLINK<n>0`, and the docstring
+ * claimed MT engines "leave this token intact in practice". They do not: French
+ * MT reads the embedded English word and returns `0NAVLIEN<n>0`. `restore()`
+ * then counts a mismatch and the caller drops the field, so a French body
+ * carrying a single nav CTA silently lost the free-MT tier and fell through to
+ * the paid/degraded path — a quiet coverage loss, invisible because failing
+ * closed here looks exactly like a translator being unavailable.
+ *
+ * Found while repairing the 2026-07-28 `[object Object]` corruption, where the
+ * same sentinel made six files unrepairable until the mask was changed.
+ *
+ * `restore()` still reports `ok:false` on a count mismatch, letting the caller
+ * drop a mangled field rather than ship a body with a broken internal link.
  *
  * @param {string} text
  * @returns {{ masked: string, expected: number, restore: (s: string) => { text: string, ok: boolean } }}
@@ -82,7 +91,7 @@ export function joinTranslatedChunks(results, bodyKey) {
 export function maskNavLinks(text) {
   const store = [];
   const masked = String(text ?? '').replace(NAV_LINK_RE, (m) => {
-    const token = `0NAVLINK${store.length}0`;
+    const token = `0NAV${store.length}0`;
     store.push(m);
     return token;
   });

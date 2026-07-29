@@ -450,9 +450,16 @@ export function isAvoidableNoRootCause(commentBody) {
 // mistake. isAvoidableNoRootCause / the regexes above stay in place for the
 // volume/context count shown in the harvest summary; they just no longer gate
 // whether the bucket can escalate.
+// #4938: the carve-out above never actually fired in production. main()'s
+// outcome-tally loop builds keys as `fix-outcome:${code}` (already prefixed
+// with the source), but the check below only ever matched the bare code -
+// a shape that only existed in the unit test, not at the real call site.
+// Strip the redundant `${source}:` prefix (same normalization
+// `alreadyDocumented` already does for non-taxonomy keys) before comparing.
 export function isEscalationDriver(source, key) {
   if (source === 'issue-class') return false;
-  if (source === 'fix-outcome' && key === 'no-root-cause') return false;
+  const bareKey = key.startsWith(`${source}:`) ? key.slice(source.length + 1) : key;
+  if (source === 'fix-outcome' && bareKey === 'no-root-cause') return false;
   return true;
 }
 

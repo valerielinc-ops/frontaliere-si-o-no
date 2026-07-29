@@ -1,6 +1,6 @@
 {
   "crawlerKey": "ikea",
-  "assembledAt": "2026-07-29T11:40:42.173Z",
+  "assembledAt": "2026-07-29T10:26:19.960Z",
   "jobs": [
     {
       "id": "ikea-b15ea684758f",
@@ -1130,7 +1130,10 @@
         "collaborateur-trice-restaurant-cuisine-ikea-20-ikea-ch",
         "ikea-cuisine-collaborateur-40-ikea-aubonne",
         "contributatore-da-cucina-ikea-40-ikea-aubonne-vaud-switzerland",
-        "koch-kellnerin-ikea-40-ikea-aubonne"
+        "koch-kellnerin-ikea-40-ikea-aubonne",
+        "collaborateur-trice-cuisine-ikea-40-ikea-aubonne",
+        "collaborateur-trice-cuisine-ikea-40-ikea-aubonne",
+        "collaborateur-trice-cuisine-ikea-40-ikea-aubonne"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1141,17 +1144,19 @@
           "mitarbeiter-in-restaurant-kuche-ikea-20-ikea-vernier-geneve-switzerland",
           "collaborateur-trice-restaurant-cuisine-ikea-20-ikea-ch",
           "ikea-cuisine-collaborateur-40-ikea-aubonne",
-          "contributatore-da-cucina-ikea-40-ikea-aubonne-vaud-switzerland"
-        ],
-        "fr": [
-          "ikea-cuisine-collaborateur-40-ikea-aubonne"
+          "contributatore-da-cucina-ikea-40-ikea-aubonne-vaud-switzerland",
+          "collaborateur-trice-cuisine-ikea-40-ikea-aubonne",
+          "collaborateur-trice-cuisine-ikea-40-ikea-aubonne",
+          "collaborateur-trice-cuisine-ikea-40-ikea-aubonne"
         ],
         "de": [
           "koch-kellnerin-ikea-40-ikea-aubonne"
+        ],
+        "fr": [
+          "ikea-cuisine-collaborateur-40-ikea-aubonne"
         ]
       },
       "firstSeenAt": "2026-07-14T22:23:31.696Z",
-      "needsRetranslation": true,
       "salaryMin": 24200,
       "salaryMax": 36600,
       "baseSalary": {
@@ -1163,7 +1168,8 @@
           "maxValue": 36600,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ikea-1c202382413e",
@@ -2480,18 +2486,91 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "mitarbeiter-in-verkauf-springer-in-markthalle-30-ikea-ch",
-        "addetto-a-alle-vendite-springer-in-markthalle-30-ikea-lyssach"
+        "addetto-a-alle-vendite-springer-in-markthalle-30-ikea-lyssach",
+        "venditore-a-in-mercato-e-auto-service-100-ikea-lyssach",
+        "sales-associate-in-market-hall-and-self-service-hall-100-ikea-lyssach",
+        "mitarbeiter-in-verkauf-in-der-markthalle-und-selbstbedienungshalle-100-ikea-ch",
+        "collaborateur-trice-vente-in-der-markthalle-und-selbstbedienungshalle-100-ikea-lyssach-bern-switzerland",
+        "mitarbeiter-in-verkauf-selbstbedienungshalle-40-ikea-ch",
+        "vendeur-trice-en-marche-et-auto-service-100-ikea-lyssach",
+        "dipendenti-in-vendita-self-service-hall-100-ikea-st-gallen",
+        "employee-sales-self-service-hall-100-ikea-st-gallen",
+        "mitarbeiter-in-verkauf-selbstbedienungshalle-100-ikea-ch",
+        "salle-de-libre-service-des-ventes-des-employes-a-100-ikea-st-gallen",
+        "addetto-a-alle-vendite-selbstbedienungshalle-40-ikea-dietlikon-zurich-switzerland",
+        "venditore-a-in-mercato-e-auto-service-100-ikea-lyssach",
+        "sales-associate-in-market-hall-and-self-service-hall-100-ikea-lyssach",
+        "mitarbeiter-in-verkauf-in-der-markthalle-und-selbstbedienungshalle-100-ikea-ch",
+        "collaborateur-trice-vente-in-der-markthalle-und-selbstbedienungshalle-100-ikea-lyssach-bern-switzerland",
+        "mitarbeiter-in-verkauf-selbstbedienungshalle-40-ikea-ch",
+        "vendeur-trice-en-marche-et-auto-service-100-ikea-lyssach",
+        "dipendenti-in-vendita-self-service-hall-100-ikea-st-gallen",
+        "employee-sales-self-service-hall-100-ikea-st-gallen",
+        "mitarbeiter-in-verkauf-selbstbedienungshalle-100-ikea-ch",
+        "salle-de-libre-service-des-ventes-des-employes-a-100-ikea-st-gallen",
+        "addetto-a-alle-vendite-selbstbedienungshalle-40-ikea-dietlikon-zurich-switzerland",
+        "venditore-a-in-mercato-e-auto-service-100-ikea-lyssach",
+        "sales-associate-in-market-hall-and-self-service-hall-100-ikea-lyssach",
+        "mitarbeiter-in-verkauf-in-der-markthalle-und-selbstbedienungshalle-100-ikea-ch",
+        "collaborateur-trice-vente-in-der-markthalle-und-selbstbedienungshalle-100-ikea-lyssach-bern-switzerland",
+        "mitarbeiter-in-verkauf-selbstbedienungshalle-40-ikea-ch",
+        "vendeur-trice-en-marche-et-auto-service-100-ikea-lyssach",
+        "dipendenti-in-vendita-self-service-hall-100-ikea-st-gallen",
+        "employee-sales-self-service-hall-100-ikea-st-gallen",
+        "mitarbeiter-in-verkauf-selbstbedienungshalle-100-ikea-ch",
+        "salle-de-libre-service-des-ventes-des-employes-a-100-ikea-st-gallen",
+        "addetto-a-alle-vendite-selbstbedienungshalle-40-ikea-dietlikon-zurich-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-verkauf-springer-in-markthalle-30-ikea-ch",
-          "addetto-a-alle-vendite-springer-in-markthalle-30-ikea-lyssach"
+          "addetto-a-alle-vendite-springer-in-markthalle-30-ikea-lyssach",
+          "venditore-a-in-mercato-e-auto-service-100-ikea-lyssach",
+          "sales-associate-in-market-hall-and-self-service-hall-100-ikea-lyssach",
+          "mitarbeiter-in-verkauf-in-der-markthalle-und-selbstbedienungshalle-100-ikea-ch",
+          "collaborateur-trice-vente-in-der-markthalle-und-selbstbedienungshalle-100-ikea-lyssach-bern-switzerland",
+          "mitarbeiter-in-verkauf-selbstbedienungshalle-40-ikea-ch",
+          "vendeur-trice-en-marche-et-auto-service-100-ikea-lyssach",
+          "dipendenti-in-vendita-self-service-hall-100-ikea-st-gallen",
+          "employee-sales-self-service-hall-100-ikea-st-gallen",
+          "mitarbeiter-in-verkauf-selbstbedienungshalle-100-ikea-ch",
+          "salle-de-libre-service-des-ventes-des-employes-a-100-ikea-st-gallen",
+          "addetto-a-alle-vendite-selbstbedienungshalle-40-ikea-dietlikon-zurich-switzerland",
+          "venditore-a-in-mercato-e-auto-service-100-ikea-lyssach",
+          "sales-associate-in-market-hall-and-self-service-hall-100-ikea-lyssach",
+          "mitarbeiter-in-verkauf-in-der-markthalle-und-selbstbedienungshalle-100-ikea-ch",
+          "collaborateur-trice-vente-in-der-markthalle-und-selbstbedienungshalle-100-ikea-lyssach-bern-switzerland",
+          "mitarbeiter-in-verkauf-selbstbedienungshalle-40-ikea-ch",
+          "vendeur-trice-en-marche-et-auto-service-100-ikea-lyssach",
+          "dipendenti-in-vendita-self-service-hall-100-ikea-st-gallen",
+          "employee-sales-self-service-hall-100-ikea-st-gallen",
+          "mitarbeiter-in-verkauf-selbstbedienungshalle-100-ikea-ch",
+          "salle-de-libre-service-des-ventes-des-employes-a-100-ikea-st-gallen",
+          "addetto-a-alle-vendite-selbstbedienungshalle-40-ikea-dietlikon-zurich-switzerland",
+          "venditore-a-in-mercato-e-auto-service-100-ikea-lyssach",
+          "sales-associate-in-market-hall-and-self-service-hall-100-ikea-lyssach",
+          "mitarbeiter-in-verkauf-in-der-markthalle-und-selbstbedienungshalle-100-ikea-ch",
+          "collaborateur-trice-vente-in-der-markthalle-und-selbstbedienungshalle-100-ikea-lyssach-bern-switzerland",
+          "mitarbeiter-in-verkauf-selbstbedienungshalle-40-ikea-ch",
+          "vendeur-trice-en-marche-et-auto-service-100-ikea-lyssach",
+          "dipendenti-in-vendita-self-service-hall-100-ikea-st-gallen",
+          "employee-sales-self-service-hall-100-ikea-st-gallen",
+          "mitarbeiter-in-verkauf-selbstbedienungshalle-100-ikea-ch",
+          "salle-de-libre-service-des-ventes-des-employes-a-100-ikea-st-gallen",
+          "addetto-a-alle-vendite-selbstbedienungshalle-40-ikea-dietlikon-zurich-switzerland"
         ],
         "en": [
-          "mitarbeiter-in-verkauf-springer-in-markthalle-30-ikea-ch"
+          "mitarbeiter-in-verkauf-springer-in-markthalle-30-ikea-ch",
+          "sales-associate-in-market-hall-and-self-service-hall-100-ikea-lyssach"
         ],
         "fr": [
-          "mitarbeiter-in-verkauf-springer-in-markthalle-30-ikea-ch"
+          "mitarbeiter-in-verkauf-springer-in-markthalle-30-ikea-ch",
+          "collaborateur-trice-vente-in-der-markthalle-und-selbstbedienungshalle-100-ikea-lyssach-bern-switzerland"
+        ],
+        "de": [
+          "mitarbeiter-in-verkauf-in-der-markthalle-und-selbstbedienungshalle-100-ikea-ch",
+          "mitarbeiter-in-verkauf-selbstbedienungshalle-40-ikea-ch",
+          "mitarbeiter-in-verkauf-selbstbedienungshalle-100-ikea-ch"
         ]
       },
       "firstSeenAt": "2026-07-24T22:07:27.077Z",

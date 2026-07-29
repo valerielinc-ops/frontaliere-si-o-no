@@ -1,6 +1,6 @@
 {
   "crawlerKey": "fust",
-  "assembledAt": "2026-07-29T11:43:27.909Z",
+  "assembledAt": "2026-07-29T10:21:58.077Z",
   "jobs": [
     {
       "id": "company-m3c8k7",
@@ -345,29 +345,33 @@
           "verkaufsberater-in-grossraum-zurich-coop-genossenschaft-winterthur-zurich-mtiixp",
           "sales-consultants-in-greater-zurich-coop-genossenschaft-winterthur-zurich",
           "consultants-en-ventes-dans-le-grand-zurich-coop-genossenschaft-winterthur-zurich",
+          "consulenti-di-vendita-in-maggiore-zurigo-coop-genossenschaft-winterthur-zurich",
+          "consulenti-di-vendita-in-maggiore-zurigo-coop-genossenschaft-winterthur-zurich",
           "consulenti-di-vendita-in-maggiore-zurigo-coop-genossenschaft-winterthur-zurich"
         ],
         "en": [
           "verkaufsberater-in-grossraum-zurich-coop-genossenschaft-winterthur-zurich-58472n",
           "sales-consultants-in-greater-zurich-coop-genossenschaft-winterthur-zurich"
         ],
-        "de": [
-          "verkaufsberater-in-grossraum-zurich-coop-genossenschaft-winterthur-zurich-mtiixp"
-        ],
         "fr": [
           "verkaufsberater-in-grossraum-zurich-coop-genossenschaft-winterthur-zurich-58472n",
           "consultants-en-ventes-dans-le-grand-zurich-coop-genossenschaft-winterthur-zurich"
+        ],
+        "de": [
+          "verkaufsberater-in-grossraum-zurich-coop-genossenschaft-winterthur-zurich-mtiixp"
         ]
       },
       "previousSlugs": [
         "verkaufsberater-in-grossraum-zurich-coop-genossenschaft-winterthur-zurich",
         "verkaufsberater-in-grossraum-zurich-coop-genossenschaft-winterthur-zurich-58472n",
-        "verkaufsberater-in-grossraum-zurich-coop-genossenschaft-winterthur",
-        "verkaufsberater-in-grossraum-zurich-coop-genossenschaft-winterthur-zurich-mtiixp",
         "sales-consultants-in-greater-zurich-coop-genossenschaft-winterthur-zurich",
         "consultants-en-ventes-dans-le-grand-zurich-coop-genossenschaft-winterthur-zurich",
-        "consulenti-di-vendita-in-maggiore-zurigo-coop-genossenschaft-winterthur-zurich"
+        "consulenti-di-vendita-in-maggiore-zurigo-coop-genossenschaft-winterthur-zurich",
+        "sales-consultants-in-greater-zurich-coop-genossenschaft-winterthur-zurich",
+        "consultants-en-ventes-dans-le-grand-zurich-coop-genossenschaft-winterthur-zurich"
       ],
+      "salaryMin": 73500,
+      "salaryMax": 111500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -382,9 +386,7 @@
       "addressRegion": "ZH",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "country": "CH",
-      "salaryMin": 73500,
-      "salaryMax": 111500
+      "country": "CH"
     },
     {
       "id": "company-d8fkpx",
@@ -428,7 +430,6 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "sanitarmonteur-in-kuchen-bader-fust-steg-hohtenn-wallis",
           "sanitary-fitter-in-kitchens-bathrooms-fust-swiss-household-services-ag-steg-hohtenn-wallis",
           "installation-sanitaire-dans-les-cuisines-et-salles-de-bains-fust-swiss-household-services-ag-steg-hohtenn-wallis",
           "sanitarmonteur-in-kuchen-bader-fust-swiss-household-services-ag-steg-hohtenn-h26um4",
@@ -447,7 +448,8 @@
           "sanitarmonteur-in-kuchen-bader-fust-swiss-household-services-ag-steg-hohtenn-wallis-h26um4",
           "sanitary-fitter-in-kitchens-bathrooms-fust-swiss-household-services-ag-burgdorf-lzkg1f",
           "sanitarmonteur-in-kuchen-bader-fust-burgdorf-bern-lzkg1f",
-          "cucine-e-bagni-per-impianti-igienici-fust-swiss-household-services-ag-steg-hohtenn-wallis"
+          "cucine-e-bagni-per-impianti-igienici-fust-swiss-household-services-ag-steg-hohtenn-wallis",
+          "fiteria-sanitaria-in-cucine-e-bagni-fust-swiss-household-services-ag-steg-hohtenn-wallis"
         ],
         "en": [
           "sanitarmonteur-in-kuchen-bader-fust-swiss-household-services-ag-steg-hohtenn-wallis-d8fkpx",
@@ -468,31 +470,21 @@
       "previousSlugs": [
         "sanitarmonteur-in-kuchen-bader-fust-swiss-household-services-ag-steg-hohtenn-wallis",
         "sanitarmonteur-in-kuchen-bader-fust-steg-hohtenn-wallis-d8fkpx",
-        "sanitarmonteur-in-kuchen-bader-fust-swiss-household-services-ag-steg-hohtenn-wallis-d8fkpx",
-        "sanitarmonteur-in-kuchen-bader-fust-swiss-household-services-ag-steg-hohtenn-h26um4",
-        "installation-sanitaire-dans-les-cuisines-et-salles-de-bains-fust-swiss-household-services-ag-burgdorf-lzkg1f",
-        "sanitarmonteur-in-kuchen-bader-fust-swiss-household-services-ag-burgdorf-bern",
-        "sanitarmonteur-in-kuchen-bader-fust-swiss-household-services-ag-burgdorf-bern-lzkg1f",
-        "sanitary-fitter-in-kitchens-bathrooms-fust-swiss-household-services-ag-burgdorf-bern",
-        "installation-sanitaire-dans-les-cuisines-et-salles-de-bains-fust-swiss-household-services-ag-burgdorf-bern",
-        "fiteria-sanitaria-in-cucine-e-bagni-fust-swiss-household-services-ag-burgdorf-bern",
-        "sanitarmonteur-in-kuchen-bader-fust-burgdorf-bern",
-        "sanitarmonteur-in-kuchen-bader-fust-swiss-household-services-ag-burgdorf-lzkg1f",
-        "sanitary-fitter-in-kitchens-bathrooms-fust-swiss-household-services-ag-burgdorf",
-        "sanitarmonteur-dans-kuchen-bader-fust-swiss-household-services-ag-burgdorf-lzkg1f",
-        "installation-sanitaire-dans-les-cuisines-et-salles-de-bains-fust-swiss-household-services-ag-burgdorf",
-        "installatore-sanitario-in-cucine-e-bagni-fust-swiss-household-services-ag-burgdorf",
-        "sanitarmonteur-in-kuchen-bader-fust-swiss-household-services-ag-steg-hohtenn-wallis-h26um4",
-        "sanitary-fitter-in-kitchens-bathrooms-fust-swiss-household-services-ag-burgdorf-lzkg1f",
-        "sanitarmonteur-in-kuchen-bader-fust-burgdorf-bern-lzkg1f",
-        "sanitarmonteur-in-kuchen-bader-fust-steg-hohtenn-wallis-h26um4",
-        "sanitarmonteur-dans-kuchen-bader-fust-swiss-household-services-ag-steg-hohtenn-h26um4",
-        "cucine-e-bagni-per-impianti-igienici-fust-swiss-household-services-ag-steg-hohtenn-wallis",
         "sanitary-fitter-in-kitchens-bathrooms-fust-swiss-household-services-ag-steg-hohtenn-wallis",
         "installation-sanitaire-dans-les-cuisines-et-salles-de-bains-fust-swiss-household-services-ag-steg-hohtenn-wallis",
         "fiteria-sanitaria-in-cucine-e-bagni-fust-swiss-household-services-ag-steg-hohtenn-wallis",
-        "sanitarmonteur-in-kuchen-bader-fust-steg-hohtenn-wallis"
+        "sanitarmonteur-in-kuchen-bader-fust-steg-hohtenn-wallis",
+        "sanitary-fitter-in-kitchens-bathrooms-fust-swiss-household-services-ag-steg-hohtenn-wallis",
+        "installation-sanitaire-dans-les-cuisines-et-salles-de-bains-fust-swiss-household-services-ag-steg-hohtenn-wallis",
+        "fiteria-sanitaria-in-cucine-e-bagni-fust-swiss-household-services-ag-steg-hohtenn-wallis",
+        "sanitary-fitter-in-kitchens-bathrooms-fust-swiss-household-services-ag-steg-hohtenn-wallis",
+        "installation-sanitaire-dans-les-cuisines-et-salles-de-bains-fust-swiss-household-services-ag-steg-hohtenn-wallis",
+        "fiteria-sanitaria-in-cucine-e-bagni-fust-swiss-household-services-ag-steg-hohtenn-wallis",
+        "sanitary-fitter-in-kitchens-bathrooms-fust-swiss-household-services-ag-steg-hohtenn-wallis",
+        "installation-sanitaire-dans-les-cuisines-et-salles-de-bains-fust-swiss-household-services-ag-steg-hohtenn-wallis"
       ],
+      "salaryMin": 60500,
+      "salaryMax": 91500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -512,9 +504,7 @@
         "type": "adapter_seed_meta",
         "location": "Vallese",
         "canton": "VS"
-      },
-      "salaryMin": 60500,
-      "salaryMax": 91500
+      }
     },
     {
       "id": "company-x1cr3h",
@@ -4910,19 +4900,11 @@
       "country": "CH",
       "previousSlugsByLocale": {
         "it": [
-          "teammember-restaurant-m-w-d-marche-restaurants-schweiz-ag-dietlikon-zfr8up",
           "teammember-restaurant-m-w-d-marche-restaurants-schweiz-ag-dietlikon",
           "teammember-restaurant-m-w-d-marche-restaurants-schweiz-ag-dietlikon"
-        ],
-        "en": [
-          "teammember-restaurant-m-w-d-marche-restaurants-schweiz-ag-dietlikon-zfr8up"
-        ],
-        "fr": [
-          "teammember-restaurant-m-w-d-marche-restaurants-schweiz-ag-dietlikon-zfr8up"
         ]
       },
       "previousSlugs": [
-        "teammember-restaurant-m-w-d-marche-restaurants-schweiz-ag-dietlikon-zfr8up",
         "teammember-restaurant-m-w-d-marche-restaurants-schweiz-ag-dietlikon"
       ],
       "needsRetranslation": true
@@ -5004,16 +4986,13 @@
           "teammember-restaurant-m-w-d-marche-dietlikon",
           "teammitglied-restaurant-m-w-d-marche-restaurants-schweiz-ag-dietlikon-dw475s",
           "teammember-restaurant-m-w-d-marche-dietlikon-2",
-          "teammember-restaurant-m-w-d-marche-restaurants-schweiz-ag-dietlikon-2",
-          "teammember-restaurant-m-w-d-marche-restaurants-schweiz-ag-dietlikon-678f1e"
+          "teammember-restaurant-m-w-d-marche-restaurants-schweiz-ag-dietlikon-2"
         ],
         "en": [
-          "teammember-restaurant-m-w-d-marche-restaurants-schweiz-ag-dietlikon-678f1e",
           "team-member-restaurant-m-w-d-marche-restaurants-schweiz-ag-dietlikon-dw475s",
           "team-member-restaurant-m-w-d-marche-restaurants-schweiz-ag-dietlikon-dw475s"
         ],
         "fr": [
-          "teammember-restaurant-m-w-d-marche-restaurants-schweiz-ag-dietlikon-678f1e",
           "teammember-restaurant-m-w-d-marche-restaurants-schweiz-ag-dietlikon-dw475s",
           "teammember-restaurant-m-w-d-marche-restaurants-schweiz-ag-dietlikon-dw475s"
         ],
@@ -5022,7 +5001,6 @@
         ]
       },
       "previousSlugs": [
-        "teammember-restaurant-m-w-d-marche-restaurants-schweiz-ag-dietlikon-678f1e",
         "ristorante-per-membri-del-team-f-m-d-marche-restaurants-schweiz-ag-dietlikon",
         "team-member-restaurant-m-w-d-marche-restaurants-schweiz-ag-dietlikon-dw475s",
         "teammember-restaurant-m-w-d-marche-dietlikon-dw475s",
@@ -20801,10 +20779,10 @@
         "fr": "Tâche\n\n- Lorsque vous dirigez la rayonne, vous vous concentrez clairement sur les besoins de la clientèle.\n\n- Chaque jour, vous êtes compétent et motivé pour nos clients exigeants.\n\n- Quand il s'agit de soutenir vos gestionnaires avec la gestion, vous êtes heureux d'aider.\n\n- Vous avez toujours les dirigeants sous contrôle et s'il y a encore des problèmes, vous réagissez en conséquence.\n\n- Le fait que le point de vente vous donne envie d'acheter et les étagères sont toujours remplies, vous et votre équipe en prenez soin tous les jours.\n\nExigences\n\n- Formation de vente terminée ou déjà beaucoup d'expérience dans les ventes? Alors vous êtes prêt pour ce travail.\n\n- Montrez-nous dans votre dossier que vous avez une expérience en leadership et en industrie.\n\n- Vous êtes toujours de bonne humeur et vous présentez dans les ventes exactement comme vous êtes.\n\n- Heure de déploiement ? Vous êtes très flexible.\n\n- Maîtres allemands Vous êtes très bon – verbalement et par écrit.\n\n- Réductions: réduction sur l'offre de voyage ITS Coop Travel, 5 fois le nombre de super points dans le supermarché, jusqu'à 20% de réduction sur les différents services d'assurance, jusqu'à 20% de réduction dans tous les formats du groupe Coop, abonnements mobiles et prépayés moins chers chez Coop Mobile, réduction personnelle également pour les partenaires:in (habitant dans le même ménage)\n\n- Conditions d'emploi: Caisse de retraite: 2/3 est payé par Coop, contrat de travail collectif (GAV), 18 semaines de congé de maternité payé et 4 semaines de congé de paternité payé, primes de fidélité, plan d'épargne à la caisse de retraite, régime flexible et attrayant de retraite anticipée à partir de 58. Année\n\n- Heures de travail: 5 semaines de congés\n\n- Formation : plus de 600 cours de formation interne, soutien à l'éducation et à la formation externes, gestion des talents avec un large éventail de possibilités de développement\n\n- Santé : Mise à jour de la condition physique : Fr. 200.– Rabais d'abonnement annuel\n\nVotre personne à contacter\nSuzana Jovanovic\nMarketing des ressources humaines"
       },
       "slugByLocale": {
-        "it": "conduttore-rayon-in-do-it-jumbo-division-der-coop-genossenschaft-rickenbach-thurgau",
-        "en": "rayon-conductor-in-do-it-jumbo-division-der-coop-genossenschaft-rickenbach-thurgau",
+        "it": "conduttore-rayon-in-do-it-jumbo-rickenbach",
+        "en": "rayon-conductor-in-do-it-jumbo-rickenbach",
         "de": "rayonleiter-in-do-it-jumbo-division-der-coop-genossenschaft-rickenbach-thurgau-4xra2x",
-        "fr": "conducteur-de-rayon-en-do-it-jumbo-division-der-coop-genossenschaft-rickenbach-thurgau"
+        "fr": "conducteur-de-rayon-en-do-it-jumbo-rickenbach"
       },
       "requirementsByLocale": {
         "it": [],
@@ -20821,15 +20799,19 @@
           "rayonleiter-in-do-it-jumbo-division-der-coop-genossenschaft-rickenbach-thurgau-4xra2x"
         ],
         "en": [
-          "rayonleiter-in-do-it-jumbo-division-der-coop-genossenschaft-rickenbach-thurgau-4xra2x"
+          "rayonleiter-in-do-it-jumbo-division-der-coop-genossenschaft-rickenbach-thurgau-4xra2x",
+          "rayon-conductor-in-do-it-jumbo-division-der-coop-genossenschaft-rickenbach-thurgau"
         ],
         "fr": [
-          "rayonleiter-in-do-it-jumbo-division-der-coop-genossenschaft-rickenbach-thurgau-4xra2x"
+          "rayonleiter-in-do-it-jumbo-division-der-coop-genossenschaft-rickenbach-thurgau-4xra2x",
+          "conducteur-de-rayon-en-do-it-jumbo-division-der-coop-genossenschaft-rickenbach-thurgau"
         ]
       },
       "previousSlugs": [
         "rayonleiter-in-do-it-jumbo-division-der-coop-genossenschaft-rickenbach-thurgau",
-        "rayonleiter-in-do-it-jumbo-division-der-coop-genossenschaft-rickenbach-thurgau-4xra2x"
+        "rayonleiter-in-do-it-jumbo-division-der-coop-genossenschaft-rickenbach-thurgau-4xra2x",
+        "rayon-conductor-in-do-it-jumbo-division-der-coop-genossenschaft-rickenbach-thurgau",
+        "conducteur-de-rayon-en-do-it-jumbo-division-der-coop-genossenschaft-rickenbach-thurgau"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -23003,7 +22985,9 @@
         "it": [
           "facility-technician-m-w-d-coop-genossenschaft-frutigen-bern",
           "tecnico-di-facility-m-f-d-coop-genossenschaft-frutigen-bern",
-          "facility-technician-m-w-d-coop-genossenschaft-frutigen-bern-1lrh2g"
+          "facility-technician-m-w-d-coop-genossenschaft-frutigen-bern-1lrh2g",
+          "tecnico-di-manutenzione-m-f-d-coop-genossenschaft-frutigen-bern",
+          "tecnico-di-manutenzione-m-f-d-coop-genossenschaft-frutigen-bern"
         ],
         "en": [
           "facility-technician-m-w-d-bergquellfisch-frutigen-bern-1lrh2g"
@@ -23013,7 +22997,9 @@
         "facility-technician-m-w-d-coop-genossenschaft-frutigen-bern",
         "tecnico-di-facility-m-f-d-coop-genossenschaft-frutigen-bern",
         "facility-technician-m-w-d-bergquellfisch-frutigen-bern-1lrh2g",
-        "facility-technician-m-w-d-coop-genossenschaft-frutigen-bern-1lrh2g"
+        "facility-technician-m-w-d-coop-genossenschaft-frutigen-bern-1lrh2g",
+        "tecnico-di-manutenzione-m-f-d-coop-genossenschaft-frutigen-bern",
+        "tecnico-di-manutenzione-m-f-d-coop-genossenschaft-frutigen-bern"
       ],
       "salaryMin": 105500,
       "salaryMax": 185000,
@@ -24217,7 +24203,7 @@
       },
       "descriptionByLocale": {
         "de": "## Beschreibung\n\nMit den berufsbegleitenden Quereinsteigerprogrammen schaffst du neue Perspektiven für deine berufliche Karriere.",
-        "it": "Descrizione\n\nCon i programmi di inserimento lavorativo, crei nuove prospettive per la tua carriera professionale.",
+        "it": "Descrizione Con i programmi di avviamento incrociato che accompagnano la carriera, creerai nuove prospettive per la tua carriera.",
         "en": "Description With the career-accompanying cross-starter programs you create new perspectives for your career.",
         "fr": "Description Avec les programmes de démarrage croisés qui accompagnent votre carrière, vous créez de nouvelles perspectives pour votre carrière."
       },

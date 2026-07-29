@@ -1,6 +1,6 @@
 {
   "crawlerKey": "bkw",
-  "assembledAt": "2026-07-29T11:48:31.376Z",
+  "assembledAt": "2026-07-29T09:46:24.565Z",
   "jobs": [
     {
       "id": "bkw-4f0a6bacc40f",
@@ -19056,17 +19056,55 @@
       "previousSlugs": [
         "lehrstelle-2027-gebaudetechnikplaner-in-efz-bkw-ch",
         "apprendistato-2027-progettista-di-impianti-tecnici-per-edifici-efz-bkw-koniz",
-        "apprendistato-2027-gebaudetechnikplaner-in-cfc-bkw-koniz"
+        "apprendistato-2027-gebaudetechnikplaner-in-cfc-bkw-koniz",
+        "apprendistato-gebaudetechnikplaner-in-heizung-cfc-alle-bkw-kriens",
+        "apprenticeship-as-a-building-technology-planner-for-heating-efz-all-bkw-kriens",
+        "lehrstelle-gebaudetechnikplaner-in-heizung-efz-alle-bkw-ch",
+        "planificateur-technologique-de-construction-d-apprentis-dans-le-chauffage-efz-tous-bkw-kriens",
+        "apprenticeship-building-technology-planner-in-riscaldamento-efz-tutti-bkw-kriens",
+        "apprendistato-gebaudetechnikplaner-in-heizung-cfc-alle-bkw-kriens",
+        "apprenticeship-as-a-building-technology-planner-for-heating-efz-all-bkw-kriens",
+        "lehrstelle-gebaudetechnikplaner-in-heizung-efz-alle-bkw-ch",
+        "planificateur-technologique-de-construction-d-apprentis-dans-le-chauffage-efz-tous-bkw-kriens",
+        "apprenticeship-building-technology-planner-in-riscaldamento-efz-tutti-bkw-kriens",
+        "apprendistato-gebaudetechnikplaner-in-heizung-cfc-alle-bkw-kriens",
+        "apprenticeship-as-a-building-technology-planner-for-heating-efz-all-bkw-kriens",
+        "lehrstelle-gebaudetechnikplaner-in-heizung-efz-alle-bkw-ch",
+        "planificateur-technologique-de-construction-d-apprentis-dans-le-chauffage-efz-tous-bkw-kriens",
+        "apprenticeship-building-technology-planner-in-riscaldamento-efz-tutti-bkw-kriens"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-2027-gebaudetechnikplaner-in-efz-bkw-ch",
           "apprendistato-2027-progettista-di-impianti-tecnici-per-edifici-efz-bkw-koniz",
-          "apprendistato-2027-gebaudetechnikplaner-in-cfc-bkw-koniz"
+          "apprendistato-2027-gebaudetechnikplaner-in-cfc-bkw-koniz",
+          "apprendistato-gebaudetechnikplaner-in-heizung-cfc-alle-bkw-kriens",
+          "apprenticeship-as-a-building-technology-planner-for-heating-efz-all-bkw-kriens",
+          "lehrstelle-gebaudetechnikplaner-in-heizung-efz-alle-bkw-ch",
+          "planificateur-technologique-de-construction-d-apprentis-dans-le-chauffage-efz-tous-bkw-kriens",
+          "apprenticeship-building-technology-planner-in-riscaldamento-efz-tutti-bkw-kriens",
+          "apprendistato-gebaudetechnikplaner-in-heizung-cfc-alle-bkw-kriens",
+          "apprenticeship-as-a-building-technology-planner-for-heating-efz-all-bkw-kriens",
+          "lehrstelle-gebaudetechnikplaner-in-heizung-efz-alle-bkw-ch",
+          "planificateur-technologique-de-construction-d-apprentis-dans-le-chauffage-efz-tous-bkw-kriens",
+          "apprenticeship-building-technology-planner-in-riscaldamento-efz-tutti-bkw-kriens",
+          "apprendistato-gebaudetechnikplaner-in-heizung-cfc-alle-bkw-kriens",
+          "apprenticeship-as-a-building-technology-planner-for-heating-efz-all-bkw-kriens",
+          "lehrstelle-gebaudetechnikplaner-in-heizung-efz-alle-bkw-ch",
+          "planificateur-technologique-de-construction-d-apprentis-dans-le-chauffage-efz-tous-bkw-kriens",
+          "apprenticeship-building-technology-planner-in-riscaldamento-efz-tutti-bkw-kriens"
+        ],
+        "en": [
+          "apprenticeship-as-a-building-technology-planner-for-heating-efz-all-bkw-kriens"
+        ],
+        "de": [
+          "lehrstelle-gebaudetechnikplaner-in-heizung-efz-alle-bkw-ch"
+        ],
+        "fr": [
+          "planificateur-technologique-de-construction-d-apprentis-dans-le-chauffage-efz-tous-bkw-kriens"
         ]
       },
       "firstSeenAt": "2026-06-10T07:58:50.791Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -19078,7 +19116,8 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "bkw-bdde1f302375",

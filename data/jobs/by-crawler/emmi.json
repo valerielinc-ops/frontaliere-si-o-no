@@ -8949,40 +8949,6 @@
           "• Dein technisches Flair für Maschinen und Systeme sowie dein hohes Hygienebewusstsein zeichnen dich aus."
         ]
       },
-      "previousSlugsByLocale": {
-        "de": [
-          "anlagenfuhrer-in-pet-emmi-ch",
-          "anlagenfuhrer-in-abfullung-emmi-ch-cbcifb",
-          "anlagenfuhrer-in-abfullung-emmi-ch"
-        ],
-        "it": [
-          "anlagenfuhrer-in-abfullung-emmi-ch",
-          "gestore-dell-impianto-in-pet-emmi-suhr",
-          "plant-operator-pet-emmi-suhr",
-          "anlagenfuhrer-in-pet-emmi-ch",
-          "conducteur-d-installation-en-pet-emmi-suhr",
-          "responsabile-impianti-di-riempimento-emmi-suhr-kwvxof"
-        ],
-        "en": [
-          "anlagenfuhrer-in-abfullung-emmi-ch",
-          "plant-operator-pet-emmi-suhr"
-        ],
-        "fr": [
-          "anlagenfuhrer-in-abfullung-emmi-ch",
-          "conducteur-d-installation-en-pet-emmi-suhr"
-        ]
-      },
-      "previousSlugs": [
-        "anlagenfuhrer-in-abfullung-emmi-ch",
-        "gestore-dell-impianto-in-pet-emmi-suhr",
-        "plant-operator-pet-emmi-suhr",
-        "anlagenfuhrer-in-pet-emmi-ch",
-        "conducteur-d-installation-en-pet-emmi-suhr",
-        "responsabile-impianti-di-riempimento-emmi-suhr-kwvxof",
-        "anlagenfuhrer-in-abfullung-emmi-ch-cbcifb"
-      ],
-      "firstSeenAt": "2026-07-28T22:26:08.600Z",
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "baseSalary": {
@@ -8994,7 +8960,54 @@
           "maxValue": 129500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-07-28T22:26:08.600Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "anlagenfuhrer-in-abfullung-emmi-ch",
+          "gestore-dell-impianto-in-pet-emmi-suhr",
+          "plant-operator-pet-emmi-suhr",
+          "anlagenfuhrer-in-pet-emmi-ch",
+          "conducteur-d-installation-en-pet-emmi-suhr",
+          "responsabile-impianti-di-riempimento-emmi-suhr-kwvxof",
+          "responsabile-impianti-di-riempimento-emmi-suhr",
+          "responsabile-impianti-di-riempimento-emmi-suhr",
+          "responsabile-impianti-di-riempimento-emmi-suhr"
+        ],
+        "en": [
+          "anlagenfuhrer-in-abfullung-emmi-ch",
+          "plant-operator-pet-emmi-suhr",
+          "filling-plant-operator-emmi-suhr",
+          "filling-plant-operator-emmi-suhr",
+          "filling-plant-operator-emmi-suhr"
+        ],
+        "de": [
+          "anlagenfuhrer-in-pet-emmi-ch",
+          "anlagenfuhrer-in-abfullung-emmi-ch-cbcifb",
+          "anlagenfuhrer-in-abfullung-emmi-ch"
+        ],
+        "fr": [
+          "anlagenfuhrer-in-abfullung-emmi-ch",
+          "conducteur-d-installation-en-pet-emmi-suhr",
+          "responsable-d-installation-de-remplissage-emmi-suhr",
+          "responsable-d-installation-de-remplissage-emmi-suhr",
+          "responsable-d-installation-de-remplissage-emmi-suhr"
+        ]
+      },
+      "previousSlugs": [
+        "anlagenfuhrer-in-abfullung-emmi-ch",
+        "anlagenfuhrer-in-abfullung-emmi-ch-cbcifb",
+        "responsabile-impianti-di-riempimento-emmi-suhr",
+        "filling-plant-operator-emmi-suhr",
+        "responsable-d-installation-de-remplissage-emmi-suhr",
+        "responsabile-impianti-di-riempimento-emmi-suhr",
+        "filling-plant-operator-emmi-suhr",
+        "responsable-d-installation-de-remplissage-emmi-suhr",
+        "responsabile-impianti-di-riempimento-emmi-suhr",
+        "filling-plant-operator-emmi-suhr",
+        "responsable-d-installation-de-remplissage-emmi-suhr"
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "emmi-20673336045c",

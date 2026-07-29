@@ -19,6 +19,7 @@ import { readFileSync } from 'node:fs';
 import {
   parseItalianNumber,
   detectTruncation,
+  detectLeakedScaffolding,
   checkInlineArithmetic,
   checkTaxPlausibility,
   checkCrossSectionNumericConflicts,
@@ -925,5 +926,47 @@ describe('reviewer follow-ups (PR #4900)', () => {
     for (const noise of ['org:CHF', 'org:PDF', 'org:ANSA', 'org:LEGGI', 'org:ANCHE']) {
       expect(anchors, `token spurio conteggiato: ${noise}`).not.toContain(noise);
     }
+  });
+});
+
+describe('detectLeakedScaffolding', () => {
+  // 2026-07-29: 49 published bodies carried instructions meant for the model.
+  // One German article shipped the translator's entire rulebook — terminology
+  // bans included. Invisible to every other gate: the prose is well-formed, the
+  // arithmetic is fine, the institutions are real. It just isn't an article.
+  it('flags a generation section marker left in the body', () => {
+    expect(codes(detectLeakedScaffolding('## TITOLO ARTICOLO: come funziona il permesso G\n\nIl permesso G...')))
+      .toContain('leaked-prompt-scaffolding');
+  });
+
+  it('flags the translator rulebook', () => {
+    const leaked = 'TERMINOLOGIE DEUTSCH OBBLIGATORISCH:\n'
+      + '*   "G-Bewilligung" / "Grenzgängerbewilligung" (MAI "G-Führerschein")\n'
+      + '*   "Franken" (MAI "Francs" — es ist Französisch)';
+    expect(codes(detectLeakedScaffolding(leaked))).toContain('leaked-prompt-scaffolding');
+  });
+
+  it('flags a formatting directive addressed to the model', () => {
+    expect(codes(detectLeakedScaffolding('Verwenden Sie ZERO Fettschrift im ganzen Feld.')))
+      .toContain('leaked-prompt-scaffolding');
+  });
+
+  it('tells the writer to delete it, not to rephrase it', () => {
+    const fix = detectLeakedScaffolding('## TITOLO ARTICOLO: prova')[0]?.fix || '';
+    expect(fix).toMatch(/non deve esserci affatto/i);
+  });
+
+  // The negatives matter as much: an article may legitimately discuss
+  // terminology, bans, or the word "titolo" without being scaffolding.
+  it('does not flag prose that merely talks about terminology', () => {
+    expect(detectLeakedScaffolding(
+      'La terminologia usata negli accordi bilaterali è obbligatoria per i Comuni di confine, '
+      + 'e il titolo dell\'articolo 5 chiarisce quali documenti servono.',
+    )).toEqual([]);
+  });
+
+  it('does not flag a normal heading or a quoted phrase', () => {
+    expect(detectLeakedScaffolding('## Requisiti\n\nServe il "permesso G" e nulla più.')).toEqual([]);
+    expect(detectLeakedScaffolding('Il datore di lavoro non può MAI trattenere il documento.')).toEqual([]);
   });
 });
