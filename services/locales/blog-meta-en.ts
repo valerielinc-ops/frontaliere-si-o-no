@@ -9085,6 +9085,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.impresari-costruttori-caldo-estremo.title': 'Construction in Ticino: stop penalties for extreme heat',
     'blog.article.impresari-costruttori-caldo-estremo.excerpt': 'SSIC calls for fair conditions for construction sites during heatwaves, avoiding contractual penalties for delays caused by extreme temperatures.',
     'blog.article.impresari-costruttori-caldo-estremo.imageAlt': 'Construction site in Ticino during a heatwave',
+    'blog.article.infortunio-lavoro-vallemaggia-piano-peccia.title': 'Serious accident at work in Vallemaggia',
+    'blog.article.infortunio-lavoro-vallemaggia-piano-peccia.excerpt': 'A 29-year-old resident of Bellinzonese was seriously injured in Piano di Peccia after being hit by a beam falling from a bridge crane.',
+    'blog.article.infortunio-lavoro-vallemaggia-piano-peccia.imageAlt': 'Maggia Valley landscape, Ticino, site of work activity.',
 };
 
 export default blogMetaEn;

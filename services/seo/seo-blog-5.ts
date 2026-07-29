@@ -56972,6 +56972,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-infortunio-lavoro-vallemaggia-piano-peccia': {
+    title: 'Grave infortunio sul lavoro in Vallemaggia | Frontaliere Ticino',
+    description: 'Grave incidente a Piano di Peccia: operaio 29enne colpito da una trave. Intervento della Rega e Polizia cantonale. Informazioni sulla copertura assicurativa.',
+    keywords: 'frontalieri, ticino, svizzera, italia, grave, infortunio, lavoro, vallemaggia',
+    ogTitle: 'Grave infortunio sul lavoro in Vallemaggia',
+    ogDescription: 'Un operaio di 29 anni è rimasto gravemente ferito a Piano di Peccia dopo essere stato colpito da una trave caduta da un carroponte.',
+    canonicalPath: '/articoli-frontaliere/infortunio-lavoro-vallemaggia-piano-peccia',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Grave infortunio sul lavoro in Vallemaggia",
+      "description": "Grave incidente a Piano di Peccia: operaio 29enne colpito da una trave. Intervento della Rega e Polizia cantonale. Informazioni sulla copertura assicurativa.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/infortunio-lavoro-vallemaggia-piano-peccia.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Panorama della Vallemaggia, Ticino, luogo di attività lavorativa."
+      },
+      "datePublished": "2026-07-29T03:28:10+00:00",
+      "dateModified": "2026-07-29T03:28:10+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/infortunio-lavoro-vallemaggia-piano-peccia/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

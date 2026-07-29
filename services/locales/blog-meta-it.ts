@@ -9086,6 +9086,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.impresari-costruttori-caldo-estremo.title': 'Edilizia in Ticino: stop alle penali per caldo estremo',
     'blog.article.impresari-costruttori-caldo-estremo.excerpt': 'La SSIC chiede condizioni eque per i cantieri durante le ondate di calore, evitando penali contrattuali per ritardi causati da temperature estreme.',
     'blog.article.impresari-costruttori-caldo-estremo.imageAlt': 'Cantiere edile in Ticino durante un\'ondata di calore',
+    'blog.article.infortunio-lavoro-vallemaggia-piano-peccia.title': 'Grave infortunio sul lavoro in Vallemaggia',
+    'blog.article.infortunio-lavoro-vallemaggia-piano-peccia.excerpt': 'Un 29enne residente nel Bellinzonese è rimasto gravemente ferito a Piano di Peccia dopo essere stato colpito da una trave caduta da un carroponte.',
+    'blog.article.infortunio-lavoro-vallemaggia-piano-peccia.imageAlt': 'Panorama della Vallemaggia, Ticino, luogo di attività lavorativa.',
 };
 
 export default blogMetaIt;
