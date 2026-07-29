@@ -38,10 +38,18 @@ describe('blog body locale files', () => {
   // single-threaded ts.transpileModule loop this replaced, for the same
   // syntax-only (no type-check) validation.
   it('parse as valid TypeScript modules', async () => {
+    // PER-ROOT floor, deliberately not a total. blog-body alone yields ~12.1k
+    // files, so a total-based threshold stays satisfied even if blog-body-ch
+    // resolves to zero — an orphaned symlink or a renamed directory, exactly
+    // the Fase 6 scenario this guard exists for — and would silence the very
+    // gap being closed. Each corpus has to prove it was actually scanned.
+    for (const root of BLOG_BODY_ROOTS) {
+      expect(
+        collectTypeScriptFiles(root).length,
+        `${path.relative(process.cwd(), root)} resolved to no files — the guard would scan nothing`,
+      ).toBeGreaterThan(1_000);
+    }
     const files = BLOG_BODY_ROOTS.flatMap(collectTypeScriptFiles);
-    // Both roots must actually yield files: a path that silently resolves to
-    // nothing would make this whole gate pass vacuously.
-    expect(files.length, 'blog body corpora resolved to no files').toBeGreaterThan(10_000);
 
     const results = await Promise.all(files.map(async (filePath) => {
       const source = fs.readFileSync(filePath, 'utf8');
