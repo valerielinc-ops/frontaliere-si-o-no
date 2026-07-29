@@ -9121,6 +9121,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.lavoro-temporaneo-svizzera-crescita.title': 'Temporary work in Switzerland: returns to growth in 2024',
     'blog.article.lavoro-temporaneo-svizzera-crescita.excerpt': 'After three years of decline, the temporary labour market is up 1.5%. Analysis of Swissstaffing data and implications for the industrial sector.',
     'blog.article.lavoro-temporaneo-svizzera-crescita.imageAlt': 'Panoramic view of an office in Lugano overlooking the lake',
+    'blog.article.fondo-liberta-svizzera-multe.title': 'Fines on public transport: the fund that pays for the needy',
+    'blog.article.fondo-liberta-svizzera-multe.excerpt': 'The association Freiheitsfonds Schweiz supports people in financial difficulties to avoid alternative detention in case of non-payment of fines.',
+    'blog.article.fondo-liberta-svizzera-multe.imageAlt': 'Public tram in Lugano, Swiss urban setting',
 };
 
 export default blogMetaEn;

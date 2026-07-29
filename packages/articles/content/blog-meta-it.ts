@@ -9122,6 +9122,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.lavoro-temporaneo-svizzera-crescita.title': 'Lavoro temporaneo in Svizzera: torna a crescere nel 2024',
     'blog.article.lavoro-temporaneo-svizzera-crescita.excerpt': 'Dopo tre anni di calo, il mercato del lavoro temporaneo segna un +1,5%. Analisi dei dati Swissstaffing e implicazioni per il settore industriale.',
     'blog.article.lavoro-temporaneo-svizzera-crescita.imageAlt': 'Vista panoramica su un ufficio a Lugano con vista lago',
+    'blog.article.fondo-liberta-svizzera-multe.title': 'Multe sui mezzi pubblici: il fondo che paga per gli indigenti',
+    'blog.article.fondo-liberta-svizzera-multe.excerpt': 'L\'associazione Freiheitsfonds Schweiz sostiene le persone in difficoltà economica per evitare la detenzione sostitutiva in caso di mancato pagamento delle multe.',
+    'blog.article.fondo-liberta-svizzera-multe.imageAlt': 'Tram pubblico a Lugano, contesto urbano svizzero',
 };
 
 export default blogMetaIt;

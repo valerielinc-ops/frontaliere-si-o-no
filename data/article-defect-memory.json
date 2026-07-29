@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-07-29T16:30:57.787Z",
+  "updatedAt": "2026-07-29T18:38:55.212Z",
   "entities": {
     "AASTI": {
       "status": "suspect",
@@ -172,17 +172,24 @@
       "statusSource": "auto",
       "statusAt": "2026-07-29T06:26:58.011Z",
       "firstSeen": "2026-07-29T06:26:58.011Z",
-      "lastSeen": "2026-07-29T15:50:36.608Z",
-      "seen": 20,
+      "lastSeen": "2026-07-29T18:38:55.212Z",
+      "seen": 21,
       "unsupportedSightings": 0,
       "unsupportedRuns": [],
-      "supportedSightings": 2,
+      "supportedSightings": 3,
       "names": [
         "Amministrazione federale delle contribuzioni",
         "Amministrazione Federale delle Contribuzioni"
       ],
       "recentKeys": [],
       "evidence": [
+        {
+          "at": "2026-07-29T18:38:55.212Z",
+          "runId": "30477280585",
+          "articleId": "fondo-liberta-svizzera-multe",
+          "support": "present",
+          "name": "Amministrazione federale delle contribuzioni"
+        },
         {
           "at": "2026-07-29T15:50:36.608Z",
           "runId": "30465633884",
@@ -229,13 +236,6 @@
           "at": "2026-07-29T06:26:58.011Z",
           "runId": "corpus-scan",
           "articleId": "quellensteuer-tarife-2026",
-          "support": "unknown",
-          "name": "Amministrazione Federale delle Contribuzioni"
-        },
-        {
-          "at": "2026-07-29T06:26:58.011Z",
-          "runId": "corpus-scan",
-          "articleId": "investimento-immobiliare-frontaliere",
           "support": "unknown",
           "name": "Amministrazione Federale delle Contribuzioni"
         }
@@ -1666,10 +1666,12 @@
       "statusSource": "auto",
       "statusAt": "2026-07-29T06:26:58.011Z",
       "firstSeen": "2026-07-29T06:26:58.011Z",
-      "lastSeen": "2026-07-29T06:26:58.011Z",
-      "seen": 90,
-      "unsupportedSightings": 0,
-      "unsupportedRuns": [],
+      "lastSeen": "2026-07-29T18:38:55.212Z",
+      "seen": 92,
+      "unsupportedSightings": 1,
+      "unsupportedRuns": [
+        "30477280585"
+      ],
       "supportedSightings": 0,
       "names": [
         "Dipartimento federale dell'economia",
@@ -1678,8 +1680,24 @@
         "Dipartimento delle Finanze e dell'Economia del Canton Ticino",
         "Dipartimento delle Finanze e dell’Economia"
       ],
-      "recentKeys": [],
+      "recentKeys": [
+        "30477280585:fondo-liberta-svizzera-multe"
+      ],
       "evidence": [
+        {
+          "at": "2026-07-29T18:38:55.212Z",
+          "runId": "30477280585",
+          "articleId": "fondo-liberta-svizzera-multe",
+          "support": "absent",
+          "name": "Dipartimento delle finanze e dell'economia"
+        },
+        {
+          "at": "2026-07-29T18:38:55.212Z",
+          "runId": "30477280585",
+          "articleId": "fondo-liberta-svizzera-multe",
+          "support": "absent",
+          "name": "Dipartimento delle finanze e dell'economia"
+        },
         {
           "at": "2026-07-29T06:26:58.011Z",
           "runId": "corpus-scan",
@@ -1721,20 +1739,6 @@
           "articleId": "tristan-brenn-fischer-decisione",
           "support": "unknown",
           "name": "Dipartimento delle finanze e dell'economia"
-        },
-        {
-          "at": "2026-07-29T06:26:58.011Z",
-          "runId": "corpus-scan",
-          "articleId": "trasporti-lombardia-ticino-record-tilo",
-          "support": "unknown",
-          "name": "Dipartimento delle Finanze e dell'Economia del Canton Ticino"
-        },
-        {
-          "at": "2026-07-29T06:26:58.011Z",
-          "runId": "corpus-scan",
-          "articleId": "tilo-25-milioni-passeggeri-2025",
-          "support": "unknown",
-          "name": "Dipartimento delle Finanze e dell’Economia"
         }
       ]
     },
