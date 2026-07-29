@@ -2429,7 +2429,7 @@
       "id": "sbb-599e1ca8fd44",
       "slug": "chef-fe-de-quart-transport-ffs-officine-ferrovie-federali-biel-bienne",
       "slugByLocale": {
-        "it": "chef-fe-de-quart-transport-ffs-officine-ferrovie-federali-biel-bienne",
+        "it": "capo-dei-trasporti-ffs-officine-ferrovie-federali-biel-bienne",
         "en": "shift-manager-transport-ffs-officine-ferrovie-federali-biel-bienne",
         "de": "transportschichtleiter-ffs-officine-ferrovie-federali-biel-bienne",
         "fr": "chef-fe-de-quart-transport-ffs-officine-ferrovie-federali-biel-bienne"
@@ -2486,13 +2486,11 @@
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-07-28T22:13:04.590Z",
       "previousSlugs": [
-        "capo-quartiere-trasporti-ffs-officine-ferrovie-federali-biel-bienne",
-        "capo-dei-trasporti-ffs-officine-ferrovie-federali-biel-bienne"
+        "capo-quartiere-trasporti-ffs-officine-ferrovie-federali-biel-bienne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "capo-quartiere-trasporti-ffs-officine-ferrovie-federali-biel-bienne",
-          "capo-dei-trasporti-ffs-officine-ferrovie-federali-biel-bienne"
+          "capo-quartiere-trasporti-ffs-officine-ferrovie-federali-biel-bienne"
         ]
       },
       "firstSeenAt": "2026-07-20T22:43:29.008Z",
@@ -6151,7 +6149,7 @@
       "id": "sbb-39da0c1a3100",
       "slug": "chef-fe-de-site-intervention-ffs-officine-ferrovie-federali-biel-bienne",
       "slugByLocale": {
-        "it": "chef-fe-de-site-intervention-ffs-officine-ferrovie-federali-biel-bienne",
+        "it": "responsabile-del-sito-intervento-ffs-officine-ferrovie-federali-biel-bienne",
         "en": "sitemanager-intervention-ffs-officine-ferrovie-federali-biel-bienne",
         "de": "einsatzleiter-in-ffs-officine-ferrovie-federali-biel-bienne",
         "fr": "chef-fe-de-site-intervention-ffs-officine-ferrovie-federali-biel-bienne"
@@ -6213,14 +6211,12 @@
       "crawledAt": "2026-07-28T22:15:28.499Z",
       "previousSlugs": [
         "capo-fe-del-sito-intervento-ffs-officine-ferrovie-federali-biel-bienne",
-        "intervento-di-site-manager-ffs-officine-ferrovie-federali-biel-bienne",
-        "responsabile-del-sito-intervento-ffs-officine-ferrovie-federali-biel-bienne"
+        "intervento-di-site-manager-ffs-officine-ferrovie-federali-biel-bienne"
       ],
       "previousSlugsByLocale": {
         "it": [
           "capo-fe-del-sito-intervento-ffs-officine-ferrovie-federali-biel-bienne",
-          "intervento-di-site-manager-ffs-officine-ferrovie-federali-biel-bienne",
-          "responsabile-del-sito-intervento-ffs-officine-ferrovie-federali-biel-bienne"
+          "intervento-di-site-manager-ffs-officine-ferrovie-federali-biel-bienne"
         ]
       },
       "firstSeenAt": "2026-07-10T12:04:42.584Z",
@@ -9124,9 +9120,9 @@
       "slug": "collaboratore-trice-weichenmontage-ffs-officine-ferrovie-federali-hagendorf",
       "slugByLocale": {
         "it": "collaboratore-trice-weichenmontage-ffs-officine-ferrovie-federali-hagendorf",
-        "en": "associate-weichenmontage-ffs-officine-ferrovie-federali-hagendorf",
+        "en": "switch-assembler-ffs-officine-ferrovie-federali-hagendorf",
         "de": "mitarbeiter-in-weichenmontage-ffs-officine-ferrovie-federali-hagendorf",
-        "fr": "employes-dans-pointsmontage-ffs-officine-ferrovie-federali-hagendorf"
+        "fr": "employe-en-montage-d-aiguillage-ffs-officine-ferrovie-federali-hagendorf"
       },
       "company": "FFS Officine (Ferrovie Federali)",
       "companyKey": "ffs-officine-ferrovie-federali",
@@ -9186,8 +9182,6 @@
       "previousSlugs": [
         "mitarbeiter-in-weichenmontage-ffs-officine-ferrovie-federali-hagendorf",
         "dipendente-in-assemblaggio-deviatoi-ffs-officine-ferrovie-federali-hagendorf",
-        "switch-assembler-ffs-officine-ferrovie-federali-hagendorf",
-        "employe-en-montage-d-aiguillage-ffs-officine-ferrovie-federali-hagendorf",
         "associate-weichenmontage-ffs-officine-ferrovie-federali-hagendorf",
         "employes-dans-pointsmontage-ffs-officine-ferrovie-federali-hagendorf"
       ],
@@ -9197,11 +9191,9 @@
           "dipendente-in-assemblaggio-deviatoi-ffs-officine-ferrovie-federali-hagendorf"
         ],
         "en": [
-          "switch-assembler-ffs-officine-ferrovie-federali-hagendorf",
           "associate-weichenmontage-ffs-officine-ferrovie-federali-hagendorf"
         ],
         "fr": [
-          "employe-en-montage-d-aiguillage-ffs-officine-ferrovie-federali-hagendorf",
           "employes-dans-pointsmontage-ffs-officine-ferrovie-federali-hagendorf"
         ]
       },

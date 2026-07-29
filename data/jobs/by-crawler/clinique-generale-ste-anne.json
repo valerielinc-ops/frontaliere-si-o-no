@@ -52,13 +52,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "aide-en-salle-d-operation-ou-assistant-e-technique-specialise-e-en-salle-d-operation-atsso-clinique-generale-ste-anne",
-        "supporto-in-sala-operatoria-o-assistente-tecnico-specializzato-in-sala-operatoria-atsso-clinique-generale-ste-anne"
+        "aide-en-salle-d-operation-ou-assistant-e-technique-specialise-e-en-salle-d-operation-atsso-clinique-generale-ste-anne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "aide-en-salle-d-operation-ou-assistant-e-technique-specialise-e-en-salle-d-operation-atsso-clinique-generale-ste-anne",
-          "supporto-in-sala-operatoria-o-assistente-tecnico-specializzato-in-sala-operatoria-atsso-clinique-generale-ste-anne"
+          "aide-en-salle-d-operation-ou-assistant-e-technique-specialise-e-en-salle-d-operation-atsso-clinique-generale-ste-anne"
         ],
         "en": [
           "aide-en-salle-d-operation-ou-assistant-e-technique-specialise-e-en-salle-d-operation-atsso-clinique-generale-ste-anne"
@@ -128,13 +126,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "assistant-e-medical-e-h-f-ouverture-d-un-nouveau-centre-medical-clinique-generale-ste-anne",
-        "assistente-medico-h-f-apertura-di-un-nuovo-centro-medico-clinique-generale-ste-anne-fribourg"
+        "assistant-e-medical-e-h-f-ouverture-d-un-nouveau-centre-medical-clinique-generale-ste-anne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistant-e-medical-e-h-f-ouverture-d-un-nouveau-centre-medical-clinique-generale-ste-anne",
-          "assistente-medico-h-f-apertura-di-un-nuovo-centro-medico-clinique-generale-ste-anne-fribourg"
+          "assistant-e-medical-e-h-f-ouverture-d-un-nouveau-centre-medical-clinique-generale-ste-anne"
         ],
         "en": [
           "assistant-e-medical-e-h-f-ouverture-d-un-nouveau-centre-medical-clinique-generale-ste-anne"
@@ -159,12 +155,12 @@
     },
     {
       "id": "clinique-generale-ste-anne-cacefd794dc2",
-      "slug": "physiotherapeute-cabinet-ambulatoire-suivi-hospitalier-clinique-generale-ste-anne",
+      "slug": "fisioterapia-pratica-ambulatoriale-e-monitoraggio-ospedaliero-clinique-generale-ste-anne-fribourg",
       "slugByLocale": {
         "fr": "physiotherapeute-cabinet-ambulatoire-suivi-hospitalier-clinique-generale-ste-anne",
-        "it": "physiotherapeute-cabinet-ambulatoire-suivi-hospitalier-clinique-generale-ste-anne",
-        "en": "physiotherapeute-cabinet-ambulatoire-suivi-hospitalier-clinique-generale-ste-anne",
-        "de": "physiotherapeute-cabinet-ambulatoire-suivi-hospitalier-clinique-generale-ste-anne"
+        "it": "fisioterapia-pratica-ambulatoriale-e-monitoraggio-ospedaliero-clinique-generale-ste-anne-fribourg",
+        "en": "physiotherapy-outpatient-practice-hospital-monitoring-clinique-generale-ste-anne-fribourg",
+        "de": "physiotherapie-ambulante-praxis-krankenhausuberwachung-clinique-generale-ste-anne-fribourg"
       },
       "company": "Clinique Générale Ste-Anne",
       "companyKey": "clinique-generale-ste-anne",
@@ -220,7 +216,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-28T22:15:38.703Z"
+      "firstSeenAt": "2026-07-28T22:15:38.703Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "physiotherapeute-cabinet-ambulatoire-suivi-hospitalier-clinique-generale-ste-anne"
+        ],
+        "en": [
+          "physiotherapeute-cabinet-ambulatoire-suivi-hospitalier-clinique-generale-ste-anne"
+        ],
+        "de": [
+          "physiotherapeute-cabinet-ambulatoire-suivi-hospitalier-clinique-generale-ste-anne"
+        ]
+      },
+      "previousSlugs": [
+        "physiotherapeute-cabinet-ambulatoire-suivi-hospitalier-clinique-generale-ste-anne"
+      ]
     }
   ]
 }
