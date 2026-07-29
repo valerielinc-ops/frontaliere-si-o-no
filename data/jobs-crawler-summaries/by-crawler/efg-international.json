@@ -1,16 +1,16 @@
 {
   "key": "efg-international",
   "label": "EFG",
-  "generatedAt": "2026-07-29T11:35:16.410Z",
+  "generatedAt": "2026-07-29T22:13:25.363Z",
   "total": 35,
   "newCount": 0,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 34,
-  "durationMs": 26192,
-  "avgDurationMs": 26192,
+  "durationMs": 24165,
+  "avgDurationMs": 24165,
   "durationHistory": [
-    26192
+    24165
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -48,7 +48,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-29T11:35:13.456Z",
+      "crawledAt": "2026-07-29T22:13:22.379Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "datePosted": "2026-07-10",
@@ -217,7 +217,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-29T11:35:13.502Z",
+      "crawledAt": "2026-07-29T22:13:22.408Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-06-25",
@@ -333,7 +333,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-29T11:35:13.499Z",
+      "crawledAt": "2026-07-29T22:13:22.406Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-06-23",
@@ -453,7 +453,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-29T11:35:13.497Z",
+      "crawledAt": "2026-07-29T22:13:22.404Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-07-02",
@@ -469,93 +469,6 @@
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 25,
-        "completeness": 22
-      }
-    },
-    {
-      "id": "efg-6266",
-      "slug": "investment-risk-specialista-efg-international-ag-zurich",
-      "company": "EFG International AG",
-      "title": "Investment Risk Specialist",
-      "location": "Zurich",
-      "canton": "ZH",
-      "category": "finance",
-      "contract": "permanent",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-18",
-      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6266",
-      "source": "Oracle HCM API",
-      "sourceLang": "en",
-      "companyKey": "efg-international",
-      "companyDomain": "efginternational.com",
-      "canonicalContent": {
-        "byLocale": {
-          "en": {
-            "summary": [],
-            "responsibilities": [
-              "Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement",
-              "Hands-on: Being proactive to rapidly deliver high-quality results",
-              "Passionate: Being committed and striving for excellence",
-              "Solution-driven: Focusing on client outcomes and treating clients fairly with a risk-aware mindset",
-              "Partnership-oriented: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.<br>"
-            ],
-            "requirements": [],
-            "benefits": [],
-            "process": [],
-            "highlights": [
-              "Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement",
-              "Hands-on: Being proactive to rapidly deliver high-quality results",
-              "Passionate: Being committed and striving for excellence"
-            ],
-            "keywords": [
-              "Accountability",
-              "Hands-on",
-              "Passionate",
-              "Solution-driven"
-            ],
-            "sections": [
-              {
-                "id": "company",
-                "heading": "Our Company",
-                "paragraphs": [
-                  "<br>EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice.",
-                  "<br>EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation.<br>"
-                ],
-                "bullets": []
-              },
-              {
-                "id": "company",
-                "heading": "Our Purpose and Mission",
-                "paragraphs": [
-                  "<br>Empowering entrepreneurial minds to create value – today and for the future.",
-                  "We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value."
-                ],
-                "bullets": []
-              }
-            ],
-            "readingMinutes": 5
-          }
-        }
-      },
-      "crawledAt": "2026-07-29T11:35:13.494Z",
-      "addressLocality": "Zurich",
-      "addressCountry": "CH",
-      "datePosted": "2026-05-18",
-      "salaryMin": 85500,
-      "salaryMax": 150000,
-      "streetAddress": "",
-      "postalCode": "8001",
-      "addressRegion": "ZH",
-      "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-05-18T12:15:53.907Z",
-      "country": "CH",
-      "needsRetranslation": true,
-      "_qualityScore": 94,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
         "translation": 25,
         "completeness": 22
       }
@@ -594,7 +507,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-29T11:35:13.492Z",
+      "crawledAt": "2026-07-29T22:13:22.402Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-05-20",
@@ -649,7 +562,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-29T11:35:13.489Z",
+      "crawledAt": "2026-07-29T22:13:22.400Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-06-03",
@@ -778,7 +691,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-29T11:35:13.486Z",
+      "crawledAt": "2026-07-29T22:13:22.399Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-04-01",
@@ -879,7 +792,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-29T11:35:13.482Z",
+      "crawledAt": "2026-07-29T22:13:22.395Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "sourceLang": "en",
@@ -999,7 +912,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-29T11:35:13.476Z",
+      "crawledAt": "2026-07-29T22:13:22.393Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "datePosted": "2026-07-08",
@@ -1115,7 +1028,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-29T11:35:13.474Z",
+      "crawledAt": "2026-07-29T22:13:22.391Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "sourceLang": "en",
@@ -1170,7 +1083,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-29T11:35:13.469Z",
+      "crawledAt": "2026-07-29T22:13:22.389Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-05-28",
@@ -1294,7 +1207,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-29T11:35:13.466Z",
+      "crawledAt": "2026-07-29T22:13:22.387Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-01-19",
@@ -1349,7 +1262,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-29T11:35:13.462Z",
+      "crawledAt": "2026-07-29T22:13:22.385Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-04-07",
@@ -1404,7 +1317,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-29T11:35:13.460Z",
+      "crawledAt": "2026-07-29T22:13:22.382Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "datePosted": "2026-04-21",
@@ -1459,7 +1372,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-29T11:35:13.459Z",
+      "crawledAt": "2026-07-29T22:13:22.381Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-04-08",
@@ -1570,7 +1483,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-29T11:35:13.454Z",
+      "crawledAt": "2026-07-29T22:13:22.376Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "sourceLang": "en",
@@ -1698,7 +1611,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-29T11:35:13.445Z",
+      "crawledAt": "2026-07-29T22:13:22.368Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "sourceLang": "en",
@@ -1754,7 +1667,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-29T11:35:13.444Z",
+      "crawledAt": "2026-07-29T22:13:22.366Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-06-24",
@@ -1901,7 +1814,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-29T11:35:13.441Z",
+      "crawledAt": "2026-07-29T22:13:22.364Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-02-11",
@@ -2022,7 +1935,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-29T11:35:13.438Z",
+      "crawledAt": "2026-07-29T22:13:22.361Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "datePosted": "2026-07-20",
@@ -2143,7 +2056,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-29T11:35:13.434Z",
+      "crawledAt": "2026-07-29T22:13:22.359Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "datePosted": "2026-07-21",
@@ -2196,7 +2109,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-29T11:35:13.431Z",
+      "crawledAt": "2026-07-29T22:13:22.356Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "datePosted": "2026-04-08",
@@ -2304,7 +2217,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-29T11:35:13.407Z",
+      "crawledAt": "2026-07-29T22:13:22.335Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-07-23",
@@ -2321,6 +2234,92 @@
         "richness": 25,
         "translation": 25,
         "completeness": 19
+      }
+    },
+    {
+      "id": "efg-6266",
+      "slug": "investment-risk-specialista-efg-international-ag-zurich",
+      "company": "EFG International AG",
+      "title": "Investment Risk Specialist",
+      "location": "Zurich",
+      "canton": "ZH",
+      "category": "finance",
+      "contract": "permanent",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-18",
+      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6266",
+      "source": "Oracle HCM API",
+      "sourceLang": "en",
+      "companyKey": "efg-international",
+      "companyDomain": "efginternational.com",
+      "canonicalContent": {
+        "byLocale": {
+          "en": {
+            "summary": [],
+            "responsibilities": [
+              "Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement",
+              "Hands-on: Being proactive to rapidly deliver high-quality results",
+              "Passionate: Being committed and striving for excellence",
+              "Solution-driven: Focusing on client outcomes and treating clients fairly with a risk-aware mindset",
+              "Partnership-oriented: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.<br>"
+            ],
+            "requirements": [],
+            "benefits": [],
+            "process": [],
+            "highlights": [
+              "Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement",
+              "Hands-on: Being proactive to rapidly deliver high-quality results",
+              "Passionate: Being committed and striving for excellence"
+            ],
+            "keywords": [
+              "Accountability",
+              "Hands-on",
+              "Passionate",
+              "Solution-driven"
+            ],
+            "sections": [
+              {
+                "id": "company",
+                "heading": "Our Company",
+                "paragraphs": [
+                  "<br>EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice.",
+                  "<br>EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation.<br>"
+                ],
+                "bullets": []
+              },
+              {
+                "id": "company",
+                "heading": "Our Purpose and Mission",
+                "paragraphs": [
+                  "<br>Empowering entrepreneurial minds to create value – today and for the future.",
+                  "We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value."
+                ],
+                "bullets": []
+              }
+            ],
+            "readingMinutes": 5
+          }
+        }
+      },
+      "crawledAt": "2026-07-29T11:35:13.494Z",
+      "addressLocality": "Zurich",
+      "addressCountry": "CH",
+      "datePosted": "2026-05-18",
+      "salaryMin": 85500,
+      "salaryMax": 150000,
+      "streetAddress": "",
+      "postalCode": "8001",
+      "addressRegion": "ZH",
+      "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-05-18T12:15:53.907Z",
+      "country": "CH",
+      "_qualityScore": 94,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 25,
+        "completeness": 22
       }
     },
     {

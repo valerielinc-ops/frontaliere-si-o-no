@@ -1,6 +1,6 @@
 {
   "crawlerKey": "efg-international",
-  "assembledAt": "2026-07-29T11:35:16.404Z",
+  "assembledAt": "2026-07-29T22:13:25.357Z",
   "jobs": [
     {
       "id": "efg-6336",
@@ -196,7 +196,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-29T11:35:13.502Z",
+      "crawledAt": "2026-07-29T22:13:22.408Z",
       "slugByLocale": {
         "it": "governance-risk-oversight-manager-legal-compliance-efg-geneve",
         "en": "governance-risk-oversight-manager-legal-compliance-efg-geneve",
@@ -222,7 +222,8 @@
       "employmentType": "FULL_TIME",
       "postalCode": "1204",
       "country": "CH",
-      "firstSeenAt": "2026-06-25T22:13:58.906Z"
+      "firstSeenAt": "2026-06-25T22:13:58.906Z",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6334",
@@ -353,7 +354,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-29T11:35:13.499Z",
+      "crawledAt": "2026-07-29T22:13:22.406Z",
       "slugByLocale": {
         "it": "senior-compliance-officer-onboarding-recensioni-periodiche-efg-international-ag-geneve",
         "en": "senior-compliance-officer-onboarding-periodic-reviews-efg-geneve",
@@ -387,7 +388,8 @@
       },
       "previousSlugs": [
         "senior-compliance-officer-onboarding-periodic-reviews-efg-geneve"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "efg-6326",
@@ -526,7 +528,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-29T11:35:13.497Z",
+      "crawledAt": "2026-07-29T22:13:22.404Z",
       "slugByLocale": {
         "it": "cash-reconciliation-specialista-efg-international-ag-geneve",
         "en": "cash-reconciliation-specialist-efg-geneve",
@@ -579,133 +581,8 @@
         "back-office-cash-reconciliation-specialist-efg-geneve",
         "back-office-cash-reconciliation-spezialist-efg-international-ag-geneve",
         "back-office-cash-reconciliation-specialiste-efg-international-ag-geneve"
-      ]
-    },
-    {
-      "id": "efg-6266",
-      "slug": "investment-risk-specialista-efg-international-ag-zurich",
-      "company": "EFG International AG",
-      "title": "Investment Risk Specialist",
-      "location": "Zurich",
-      "canton": "ZH",
-      "category": "finance",
-      "contract": "permanent",
-      "currency": "CHF",
-      "description": "## Job Description\n\nTo act as a strategic partner across all service lines, providing the discipline that secures EFG’s growth ambitions. The role owns the group‑wide investment risk and analytics agenda, transforming complex market data into actionable conviction and embedding institutional‑grade oversight across Advisory, New Capital, and Discretionary Portfolio Management (DPM).\n\nCombining deep technical expertise with a broad strategic remit, this position sets direction for investment risk frameworks, leads cross‑functional initiatives, and ensures that risk‑intelligent growth is consistently delivered across the franchise\n\nKey Responsibilities\n\n- Strategic Leadership & Framework Ownership :\n- Define and own the investment risk and analytics framework for Advisory, ensuring consistency, robustness, and alignment with EFG’s risk appetite and investment philosophy.\n\n- Translate the global investment strategy into concrete risk and analytics standards, methodologies, and processes across Advisory, New Capital, and DPM.\n\n- Act as the recognised senior authority on investment risk and analytics, providing guidance to senior management and key governance bodies\n\n- Ownership of Portfolio Risk Measurement for Advisory\n- Own the end ‑ to ‑ end Product and Portfolio Risk Measurement for Advisory, including: the Product Risk Classification (PRC) and the related quality controls and the aggregation to a portfolio risk measurement\n\n- Lead the Globalization of the Product and Portfolio Risk Measurement for Advisory into Asia with the result that around the globe EFG uses consistent and aligned risk measurements\n\n- Define and lead the evolution from todays Prodcut risk Score to a more sophisticated, Aladdin ‑ enabled measures (e.g. factor ‑ based risk, scenario analysis, stress testing, liquidity and concentration metrics).\n\n- Ensure that Portfolio Risk Measurement for Advisory is fully embedded in advisory processes, portfolio construction, and client communication.\n\n- Risk‑Driven Culture & Franchise Leadership:\n- Lead a cultural shift in the first line of defence by positioning risk management as a core part across all our solutions.\n\n- Drive the adoption of independent, high‑quality risk analytics on funds and portfolios, and embed portfolio risk measurement into everyday practices.\n\n-\nLead and deliver multiple cross‑functional projects to enhance investment risk and analytics frameworks, using these initiatives to strengthen each franchise, improve transparency, and demonstrate that disciplined risk management supports better, faster, and more confident investment decisions.\n\n- CIO Investment Framework\n- Play a key role in shaping the bank’s long‑term investment stance by contributing to the quantitative process and qualitative overlay for 7–10 year Capital Market Assumptions and their translation into strategic asset allocation.\n\n- Actively engage in the Global Investment Committee to challenge risk‑taking, ensure portfolios remain aligned with the house view, and bring a disciplined risk and analytics perspective into core investment governance.\n\n-\nInnovation and Automation: Actively seek to introduce new ideas—including Power BI dashboards, intranet enhancements, and process automation—to improve transparency and efficiency.\n\nSkills and Qualifications\n\n- Education: Master’s degree in Banking and Finance.\n\n- Certification: CFA Level III, demonstrating a commitment to professional development and technical excellence.\n\n- Experience: at least 8-10 years of experience within the bank, with a proven track record of delivering analytical and project-based value across investment areas.\n\n- Technical Proficiency: Advanced proficiency in Excel, Python Bloomberg, and Power BI, alongside experience with risk engines like Aladdin is a plus.\n\n- Domain Knowledge: Strong understanding of investment products, risk concepts, and cross-asset correlations .\n\n- Driven by Accountability: Focuses on driving results and building trust to power growth.\n\n- Powered by Insight: Utilizes data-driven insights for continuous improvement and smart decision-making.\n\n- Safety and Agility: Maintains the balance between institutional safety and the agility required to create unrivalled client value.\n\nOur Values\n\n- Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement\n\n- Hands-on: Being proactive to rapidly deliver high-quality results\n\n- Passionate: Being committed and striving for excellence\n\n- Solution-driven: Focusing on client outcomes and treating clients fairly with a risk-aware mindset\n\n- Partnership-oriented: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.",
-      "requirements": [],
-      "featured": false,
-      "postedDate": "2026-05-18",
-      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6266",
-      "source": "Oracle HCM API",
-      "sourceLang": "en",
-      "companyKey": "efg-international",
-      "companyDomain": "efginternational.com",
-      "titleByLocale": {
-        "en": "Investment Risk Specialist",
-        "it": "Investment Risk Specialista",
-        "de": "Investment Risk Spezialist",
-        "fr": "Investment Risk Spécialiste"
-      },
-      "descriptionByLocale": {
-        "en": "## Job Description\n\nTo act as a strategic partner across all service lines, providing the discipline that secures EFG’s growth ambitions. The role owns the group‑wide investment risk and analytics agenda, transforming complex market data into actionable conviction and embedding institutional‑grade oversight across Advisory, New Capital, and Discretionary Portfolio Management (DPM).\n\nCombining deep technical expertise with a broad strategic remit, this position sets direction for investment risk frameworks, leads cross‑functional initiatives, and ensures that risk‑intelligent growth is consistently delivered across the franchise\n\nKey Responsibilities\n\n- Strategic Leadership & Framework Ownership :\n- Define and own the investment risk and analytics framework for Advisory, ensuring consistency, robustness, and alignment with EFG’s risk appetite and investment philosophy.\n\n- Translate the global investment strategy into concrete risk and analytics standards, methodologies, and processes across Advisory, New Capital, and DPM.\n\n- Act as the recognised senior authority on investment risk and analytics, providing guidance to senior management and key governance bodies\n\n- Ownership of Portfolio Risk Measurement for Advisory\n- Own the end ‑ to ‑ end Product and Portfolio Risk Measurement for Advisory, including: the Product Risk Classification (PRC) and the related quality controls and the aggregation to a portfolio risk measurement\n\n- Lead the Globalization of the Product and Portfolio Risk Measurement for Advisory into Asia with the result that around the globe EFG uses consistent and aligned risk measurements\n\n- Define and lead the evolution from todays Prodcut risk Score to a more sophisticated, Aladdin ‑ enabled measures (e.g. factor ‑ based risk, scenario analysis, stress testing, liquidity and concentration metrics).\n\n- Ensure that Portfolio Risk Measurement for Advisory is fully embedded in advisory processes, portfolio construction, and client communication.\n\n- Risk‑Driven Culture & Franchise Leadership:\n- Lead a cultural shift in the first line of defence by positioning risk management as a core part across all our solutions.\n\n- Drive the adoption of independent, high‑quality risk analytics on funds and portfolios, and embed portfolio risk measurement into everyday practices.\n\n-\nLead and deliver multiple cross‑functional projects to enhance investment risk and analytics frameworks, using these initiatives to strengthen each franchise, improve transparency, and demonstrate that disciplined risk management supports better, faster, and more confident investment decisions.\n\n- CIO Investment Framework\n- Play a key role in shaping the bank’s long‑term investment stance by contributing to the quantitative process and qualitative overlay for 7–10 year Capital Market Assumptions and their translation into strategic asset allocation.\n\n- Actively engage in the Global Investment Committee to challenge risk‑taking, ensure portfolios remain aligned with the house view, and bring a disciplined risk and analytics perspective into core investment governance.\n\n-\nInnovation and Automation: Actively seek to introduce new ideas—including Power BI dashboards, intranet enhancements, and process automation—to improve transparency and efficiency.\n\nSkills and Qualifications\n\n- Education: Master’s degree in Banking and Finance.\n\n- Certification: CFA Level III, demonstrating a commitment to professional development and technical excellence.\n\n- Experience: at least 8-10 years of experience within the bank, with a proven track record of delivering analytical and project-based value across investment areas.\n\n- Technical Proficiency: Advanced proficiency in Excel, Python Bloomberg, and Power BI, alongside experience with risk engines like Aladdin is a plus.\n\n- Domain Knowledge: Strong understanding of investment products, risk concepts, and cross-asset correlations .\n\n- Driven by Accountability: Focuses on driving results and building trust to power growth.\n\n- Powered by Insight: Utilizes data-driven insights for continuous improvement and smart decision-making.\n\n- Safety and Agility: Maintains the balance between institutional safety and the agility required to create unrivalled client value.\n\nOur Values\n\n- Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement\n\n- Hands-on: Being proactive to rapidly deliver high-quality results\n\n- Passionate: Being committed and striving for excellence\n\n- Solution-driven: Focusing on client outcomes and treating clients fairly with a risk-aware mindset\n\n- Partnership-oriented: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.",
-        "it": "Descrizione del lavoro\n\nAgire come partner strategico in tutte le linee di servizio, fornendo la disciplina che assicura le ambizioni di crescita di EFG. Il ruolo possiede l'agenda dei rischi di investimento a livello di gruppo e dell'analisi, trasformando i dati di mercato complessi in convinzione attuabile e integrando la supervisione di livello istituzionale attraverso Advisory, New Capital e Discretionary Portfolio Management (DPM).\n\nCombinando competenze tecniche profonde con un ampio remit strategico, questa posizione imposta la direzione per i framework di rischio di investimento, conduce iniziative interfunzionali e assicura che la crescita intelligente del rischio sia costantemente consegnata attraverso il franchising\n\nPrincipali responsabilità\n- Leadership strategica e proprietà quadro:\n- Definire e possedere il quadro di rischio di investimento e analisi per Advisory, assicurando coerenza, robustezza e allineamento con l’appetito di rischio di EFG e la filosofia di investimento.\n- Traduci la strategia di investimento globale in standard di rischio e analisi concrete, metodologie e processi in Advisory, New Capital e DPM.\n- Atto come l'autorità senior riconosciuta sul rischio di investimento e analisi, fornendo indicazioni agli enti di gestione senior e di governance chiave\n- ProprietÃ della misura del rischio Portfolio per Advisory\n- Misurazione del rischio di prodotto e del portafoglio per i consulenti, compresa: la classificazione del rischio di prodotto (PRC) e i relativi controlli di qualità e l'aggregazione a una misurazione del rischio di portafoglio\n- Condurre la Globalizzazione del Misuratore di rischio prodotto e portafoglio per Advisory in Asia con il risultato che in tutto il mondo EFG utilizza misure di rischio coerenti e allineate\n- Definire e condurre l'evoluzione da oggi Prodcut rischio Punteggio ad una più sofisticata, Aladdin ‐ abilitato misure (ad esempio rischio basato fattore, analisi scenari, test di stress, liquidità e metriche di concentrazione).\n- Assicurarsi che Portfolio Risk Measurement for Advisory sia completamente integrato in processi di consulenza, costruzione di portafoglio e comunicazione client.\n- Risk-Driven Culture & Leadership:\n- Condurre un cambiamento culturale nella prima linea di difesa posizionando la gestione del rischio come parte integrante di tutte le nostre soluzioni.\n- Guidare l'adozione di analisi di rischio indipendenti e di alta qualità su fondi e portafogli, e incorporare la misurazione del rischio portafoglio nelle pratiche quotidiane.\n- Condurre e fornire progetti multifunzionali per migliorare il rischio di investimento e i framework di analisi, utilizzando queste iniziative per rafforzare ogni franchising, migliorare la trasparenza e dimostrare che la gestione del rischio disciplinata supporta decisioni di investimento migliori, più veloci e più sicure.\n- No.\n- CIO Investment Framework\n- Svolgere un ruolo chiave nella definizione della posizione di investimento a lungo termine della banca contribuendo al processo quantitativo e alla sovrapposizione qualitativa per 7-10 anni Capital Market Assunzioni e alla loro traduzione in assetto strategico.\n- Impegnarsi attivamente nel Global Investment Committee per sfidare l'assunzione del rischio, garantire che i portafogli rimangano allineati con la vista della casa, e portare una prospettiva di rischio disciplinata e di analisi nel core governance degli investimenti.\n- No.\nInnovazione e Automazione: cercare attivamente di introdurre nuove idee, tra cui cruscotti Power BI, miglioramenti intranet e automazione dei processi, per migliorare la trasparenza e l'efficienza.\n\nCompetenze e qualifiche\n- Istruzione: Master in Banca e Finanza.\n- Certificazione: CFA Livello III, dimostrando un impegno per lo sviluppo professionale e l'eccellenza tecnica.\n- Esperienza: almeno 8-10 anni di esperienza all'interno della banca, con un comprovato track record di fornitura di valore analitico e basato sul progetto in aree di investimento.\n- Proficienza tecnica: competenza avanzata in Excel, Python Bloomberg e Power BI, insieme all'esperienza con motori a rischio come Aladdin è un plus.\n- Conoscenza del dominio: Forte comprensione dei prodotti di investimento, concetti di rischio e correlazioni cross-asset .\n- Guidato dalla Responsabilità: si concentra sui risultati della guida e sulla fiducia nella crescita del potere.\n- Powered by Insight: Utilizza le informazioni basate sui dati per il miglioramento continuo e il processo decisionale intelligente.\n- Sicurezza e Agility: Mantiene l'equilibrio tra sicurezza istituzionale e l'agilità necessaria per creare valore cliente senza rivalità.\n\nI nostri valori\n- Responsabilità: Prendere la proprietà per i compiti e le sfide, nonché cercare un miglioramento continuo\n- Hands-on: essere proattivi per fornire rapidamente risultati di alta qualità\n- Passionato: Impegnarsi e lottare per l'eccellenza\n- Soluzione-driven: Concentrarsi sui risultati del cliente e trattare i clienti in modo corretto con una mentalità di rischio-consapevole\n- Partnership-oriented: promuovere la collaborazione e il lavoro di squadra. Lavorare insieme a uno spirito imprenditoriale.",
-        "de": "Job Description\n\nAls strategischer Partner in allen Servicelinien zu fungieren und die Disziplin zu schaffen, die die Wachstumsambitionen der EFG sichert. Die Rolle besitzt die konzernweite Investitionsrisiko- und Analytik-Agenda, die komplexe Marktdaten in eine handlungsfähige Überzeugung umwandelt und institutionelle Aufsicht über das Advisory, New Capital und Diskretion Portfolio Management (DPM) einbettet.\n\nDiese Position kombiniert tiefes technisches Know-how mit einem breiten strategischen Remit, setzt Richtung für Investment-Risiko-Frameworks, führt funktionsübergreifende Initiativen und stellt sicher, dass risikointelligentes Wachstum im gesamten Franchise-Bereich konsequent ausgeliefert wird\n\nHauptverantwortlichkeiten\n- Strategische Führung und Rahmenbesitz :\n- Definieren und besitzen Sie den Rahmen für das Investitionsrisiko und die Analytik für die Beratung, die Gewährleistung von Konsistenz, Robustheit und die Ausrichtung auf die Risikobereitschaft und Investitionsphilosophie der EFG.\n- Übersetzen Sie die globale Investitionsstrategie in konkrete Risiko- und Analysestandards, Methoden und Prozesse über Advisory, New Capital und DPM.\n- Gesetz als anerkannte leitende Behörde für Investitionsrisiko und Analytik, die Leitlinien für leitende Management- und Schlüsselverwaltungsgremien\n- Eigentum an Portfolio-Risikomessung für Beratung\n- Besitzen Sie das Ende ‐ bis ‐ end Product and Portfolio Risk Measurement for Advisory, einschließlich: die Product Risk Classification (PRC) und die damit verbundenen Qualitätskontrollen und die Aggregation einer Portfolio-Risikomessung\n- Führen Sie die Globalisierung der Produkt- und Portfolio-Risikomessung für das Beraten in Asien mit dem Ergebnis, dass EFG weltweit konsequente und ausgerichtete Risikomessungen verwendet\n- Definieren und führen Sie die Entwicklung aus dem heutigen Staatsrisiko Ergebnis zu einer anspruchsvolleren, Aladdin ‐fähigen Maßnahmen (z.B. faktorbasiertes Risiko, Szenarioanalyse, Stresstests, Liquiditäts- und Konzentrationsmetriken).\n- Stellen Sie sicher, dass Portfolio Risk Measurement for Advisory vollständig in Beratungsprozesse, Portfoliobau und Kundenkommunikation eingebettet ist.\n- Risikoorientierte Kultur & Franchise Leadership:\n- Führen Sie eine kulturelle Verschiebung in der ersten Verteidigungslinie durch die Positionierung von Risikomanagement als Kernteil über alle unsere Lösungen.\n- Führen Sie die Einführung unabhängiger, qualitativ hochwertiger Risikoanalysen auf Fonds und Portfolios sowie die Einbindung von Portfolio-Risikomessungen in alltägliche Praktiken.\n- Führen und liefern Sie mehrere funktionsübergreifende Projekte, um das Investitionsrisiko und die analytischen Rahmenbedingungen zu verbessern, indem Sie diese Initiativen nutzen, um jeden Franchise zu stärken, Transparenz zu verbessern und zu zeigen, dass diszipliniertes Risikomanagement bessere, schnellere und sicherere Investitionsentscheidungen unterstützt.\n- Ja.\n- CIO Investitionsrahmen\n- Spielen Sie eine Schlüsselrolle bei der Gestaltung der langfristigen Anlagehaltung der Bank, indem Sie zum quantitativen Prozess und qualitativen Overlay für die 7–10-Jahre Capital Market Assumptions und ihre Übersetzung in die strategische Asset Allocation beitragen.\n- Aktiv in das Global Investment Committee eingebunden, um Risiken zu bewältigen, Portfolios mit Blick auf das Haus zu vereinbaren und eine disziplinierte Risiko- und Analyseperspektive in die zentrale Investment Governance zu bringen.\n- Ja.\nInnovation und Automatisierung: Aktiv wollen neue Ideen einführen – darunter Power BI Dashboards, Intranet-Erweiterungen und Prozessautomatisierung – um Transparenz und Effizienz zu verbessern.\n\nFähigkeiten und Qualifikationen\n- Ausbildung: Masterstudium Banking und Finanzen.\n- Zertifizierung: CFA Level III, die ein Engagement für professionelle Entwicklung und technische Exzellenz zeigen.\n- Erfahrung: mindestens 8-10 Jahre Erfahrung innerhalb der Bank, mit einem nachgewiesenen Erfolgsrekord, analytischen und projektbasierten Wert in Investitionsbereichen zu liefern.\n- Technische Effizienz: Fortgeschrittene Kenntnisse in Excel, Python Bloomberg und Power BI, zusammen mit der Erfahrung mit Risikomotoren wie Aladdin ist ein Plus.\n- Domain Knowledge: Ein starkes Verständnis von Investitionsprodukten, Risikokonzepten und Cross-Asset-Korrelationen .\n- Angetrieben durch Rechenschaftspflicht: Fokussiert auf das Fahren von Ergebnissen und das Vertrauen auf das Stromwachstum.\n- Powered by Insight: Nutzen Sie datengesteuerte Erkenntnisse für kontinuierliche Verbesserung und intelligente Entscheidungsfindung.\n- Sicherheit und Agilität: Bewahrt das Gleichgewicht zwischen der institutionellen Sicherheit und der Agilität, die erforderlich ist, um unübertroffenen Kundenwert zu schaffen.\n\nUnsere Werte\n- Rechenschaftspflicht: Eigentumsbesitz für Aufgaben und Herausforderungen sowie kontinuierliche Verbesserung\n- Hands-on: Als proaktiv, um schnell qualitativ hochwertige Ergebnisse zu liefern\n- Leidenschaftlich: Engagement und Streben nach Exzellenz\n- Lösungsgetrieben: Konzentrieren Sie sich auf Client-Ergebnisse und Behandlung von Kunden ziemlich mit einem risikobewussten Mindset\n- Partnerschaftsorientiert: Förderung von Zusammenarbeit und Teamarbeit. Zusammenarbeit mit einem Unternehmergeist.",
-        "fr": "Description de l'emploi\n\nAgir en tant que partenaire stratégique dans toutes les lignes de service, en fournissant la discipline qui garantit les ambitions de croissance de l'EFG. Ce rôle est le propriétaire du programme de gestion des risques d'investissement et d'analyse à l'échelle du groupe, transformant des données de marché complexes en conviction concrète et intégrant la surveillance de niveau institutionnel dans la gestion de portefeuille discrétionnaire (DGP) des services consultatifs et des nouveaux capitaux.\n\nCombinant une expertise technique approfondie à un vaste mandat stratégique, ce poste définit l'orientation des cadres de risque d'investissement, dirige des initiatives interfonctionnelles et veille à ce que la croissance axée sur l'intelligence des risques soit constamment assurée dans l'ensemble de la franchise.\n\nPrincipales responsabilités\n- Leadership stratégique et propriété du cadre :\n- Définir et posséder le cadre de risque d'investissement et d'analyse pour la consultation, en assurant la cohérence, la robustesse et l'alignement avec la philosophie de risque et d'investissement de l'EFG.\n- Traduire la stratégie globale d'investissement en normes, méthodologies et processus concrets de risque et d'analyse dans l'ensemble des secteurs de la consultation, du nouveau capital et du DPM.\n- Agir en tant qu'autorité supérieure reconnue en matière de risques d'investissement et d'analyse, en fournissant des conseils aux cadres supérieurs et aux principaux organes de gouvernance\n- Propriété de la mesure des risques du portefeuille pour consultation\n- Posséder la mesure finale des risques pour les produits et les portefeuilles à des fins de consultation, y compris : la classification des risques pour les produits (CPR) et les contrôles de qualité connexes et l'agrégation à une mesure des risques pour les portefeuilles\n- Diriger la mondialisation de la mesure des risques liés aux produits et aux portefeuilles en Asie, avec pour résultat que partout dans le monde EFG utilise des mesures des risques cohérentes et alignées\n- Définir et diriger l'évolution du risque Prodcut d'aujourd'hui Score vers des mesures plus sophistiquées, rendues possibles par Aladdin (p. ex. risque fondé sur les facteurs, analyse de scénarios, tests de stress, mesures de liquidité et de concentration).\n- Veiller à ce que la mesure du risque du portefeuille pour les avis soit entièrement intégrée aux processus consultatifs, à la construction du portefeuille et à la communication avec les clients.\n- Culture axée sur le risque et leadership en franchise :\n- Diriger un changement culturel dans la première ligne de défense en plaçant la gestion des risques au cœur de toutes nos solutions.\n- Favoriser l'adoption d'analyses de risque indépendantes et de haute qualité sur les fonds et les portefeuilles, et intégrer la mesure des risques de portefeuille dans les pratiques quotidiennes.\n- Diriger et exécuter de multiples projets interfonctionnels afin d'améliorer les cadres de risque et d'analyse en matière d'investissement, en utilisant ces initiatives pour renforcer chaque franchise, améliorer la transparence et démontrer que la gestion des risques disciplinée favorise de meilleures décisions d'investissement, plus rapides et plus confiantes.\n- Oui.\n- Cadre d'investissement des DPI\n- Jouer un rôle clé dans l'orientation à long terme de la banque en contribuant au processus quantitatif et au recouvrement qualitatif pour les hypothèses du marché des capitaux de 7 à 10 ans et leur traduction en répartition stratégique des actifs.\n- S'engager activement au sein du Comité mondial de l'investissement pour remettre en question la prise de risques, veiller à ce que les portefeuilles restent alignés sur le point de vue de la maison et intégrer une perspective de risque et d'analyse disciplinée dans la gouvernance de l'investissement de base.\n- Oui.\nInnovation et automatisation : s'efforcer activement d'introduire de nouvelles idées – y compris des tableaux de bord Power BI, des améliorations intranet et l'automatisation des processus – pour améliorer la transparence et l'efficacité.\n\nCompétences et qualifications\n- Études : Maîtrise en Banque et Finance.\n- Certification : CFA Niveau III, démontrant un engagement en faveur du perfectionnement professionnel et de l'excellence technique.\n- Expérience : au moins 8 à 10 ans d'expérience au sein de la banque, avec une expérience éprouvée de la fourniture d'une valeur analytique et d'un projet dans tous les domaines d'investissement.\n- Compétences techniques : Compétences avancées en Excel, Python Bloomberg et Power BI, ainsi que l'expérience avec les moteurs à risque comme Aladdin est un plus.\n- Connaissance du domaine : Une bonne compréhension des produits d'investissement, des concepts de risque et des corrélations entre les actifs.\n- Inspiré par la responsabilisation : met l'accent sur les résultats et le renforcement de la confiance dans la croissance du pouvoir.\n- Powered by Insight: Utilise des informations basées sur les données pour une amélioration continue et une prise de décision intelligente.\n- Sécurité et agilité : maintient l'équilibre entre la sécurité institutionnelle et l'agilité nécessaire pour créer une valeur client inégalée.\n\nNos valeurs\n- Responsabilité : prise en charge des tâches et des défis, et recherche d'améliorations continues\n- Hands-on: être proactif pour obtenir rapidement des résultats de haute qualité\n- Passionné : être engagé et viser l'excellence\n- Déterminé par la solution : se concentrer sur les résultats des clients et traiter les clients de façon équitable en tenant compte des risques\n- Objectif partenariat : promouvoir la collaboration et le travail d'équipe. Travailler ensemble avec un esprit d'entreprise."
-      },
-      "requirementsByLocale": {},
-      "canonicalContent": {
-        "byLocale": {
-          "en": {
-            "summary": [],
-            "responsibilities": [
-              "Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement",
-              "Hands-on: Being proactive to rapidly deliver high-quality results",
-              "Passionate: Being committed and striving for excellence",
-              "Solution-driven: Focusing on client outcomes and treating clients fairly with a risk-aware mindset",
-              "Partnership-oriented: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.<br>"
-            ],
-            "requirements": [],
-            "benefits": [],
-            "process": [],
-            "highlights": [
-              "Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement",
-              "Hands-on: Being proactive to rapidly deliver high-quality results",
-              "Passionate: Being committed and striving for excellence"
-            ],
-            "keywords": [
-              "Accountability",
-              "Hands-on",
-              "Passionate",
-              "Solution-driven"
-            ],
-            "sections": [
-              {
-                "id": "company",
-                "heading": "Our Company",
-                "paragraphs": [
-                  "<br>EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice.",
-                  "<br>EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation.<br>"
-                ],
-                "bullets": []
-              },
-              {
-                "id": "company",
-                "heading": "Our Purpose and Mission",
-                "paragraphs": [
-                  "<br>Empowering entrepreneurial minds to create value – today and for the future.",
-                  "We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value."
-                ],
-                "bullets": []
-              }
-            ],
-            "readingMinutes": 5
-          }
-        }
-      },
-      "crawledAt": "2026-07-29T11:35:13.494Z",
-      "slugByLocale": {
-        "it": "investment-risk-specialista-efg-international-ag-zurich",
-        "en": "investment-risk-specialist-efg-zurich",
-        "de": "investment-risk-spezialist-efg-international-ag-zurich",
-        "fr": "investment-risk-specialiste-efg-international-ag-zurich"
-      },
-      "addressLocality": "Zurich",
-      "addressCountry": "CH",
-      "datePosted": "2026-05-18",
-      "salaryMin": 85500,
-      "salaryMax": 150000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 85500,
-          "maxValue": 150000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "",
-      "postalCode": "8001",
-      "addressRegion": "ZH",
-      "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-05-18T12:15:53.907Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "investment-risk-specialist-efg-zurich",
-          "specialista-del-rischio-di-investimento-efg-international-ag-zurich"
-        ],
-        "de": [
-          "investment-risk-specialist-efg-zurich"
-        ],
-        "fr": [
-          "investment-risk-specialist-efg-zurich"
-        ]
-      },
-      "previousSlugs": [
-        "investment-risk-specialist-efg-zurich",
-        "specialista-del-rischio-di-investimento-efg-international-ag-zurich"
       ],
-      "country": "CH"
+      "needsRetranslation": true
     },
     {
       "id": "efg-6219",
@@ -756,7 +633,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-29T11:35:13.492Z",
+      "crawledAt": "2026-07-29T22:13:22.402Z",
       "slugByLocale": {
         "it": "data-ops-ingegnere-efg-international-ag-geneve",
         "en": "data-ops-engineer-efg-geneve",
@@ -799,7 +676,8 @@
         "data-ops-engineer-efg-geneve",
         "ingenieur-des-operations-de-donnees-efg-international-ag-geneve"
       ],
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6210",
@@ -822,7 +700,7 @@
       "companyDomain": "efginternational.com",
       "titleByLocale": {
         "en": "General Services Employee",
-        "de": "Mitarbeiter für allgemeine Dienstleistungen",
+        "de": "General Services Employee",
         "it": "Servizi generali Dipendenti",
         "fr": "Services généraux Employé"
       },
@@ -850,11 +728,11 @@
           }
         }
       },
-      "crawledAt": "2026-07-29T11:35:13.489Z",
+      "crawledAt": "2026-07-29T22:13:22.400Z",
       "slugByLocale": {
         "it": "servizi-generali-dipendenti-efg-international-ag-geneve",
         "en": "general-services-employee-efg-geneve",
-        "de": "mitarbeiter-fur-allgemeine-dienstleistungen-efg-international-ag-geneve",
+        "de": "general-services-employee-efg-international-ag-geneve",
         "fr": "services-generaux-employe-efg-international-ag-geneve"
       },
       "addressLocality": "Geneve",
@@ -887,14 +765,17 @@
         ],
         "de": [
           "general-services-employee-efg-geneve",
+          "mitarbeiter-fur-allgemeine-dienstleistungen-efg-international-ag-geneve",
           "general-services-employee-efg-international-ag-geneve"
         ]
       },
       "previousSlugs": [
         "general-services-employee-efg-geneve",
         "g-id-1-impiegata-servizi-generali-g-g-id-2-g-efg-international-ag-geneve",
+        "mitarbeiter-fur-allgemeine-dienstleistungen-efg-international-ag-geneve",
         "general-services-employee-efg-international-ag-geneve"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "efg-6175",
@@ -1020,7 +901,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-29T11:35:13.486Z",
+      "crawledAt": "2026-07-29T22:13:22.399Z",
       "slugByLocale": {
         "it": "specialista-supporto-pb-medio-oriente-ch-efg-international-ag-geneve",
         "en": "pb-support-specialist-middle-east-ch-efg-geneve",
@@ -1065,7 +946,8 @@
         "pb-support-specialista-middle-east-ch-efg-international-ag-geneve",
         "pb-support-specialist-middle-east-ch-efg-international-ag-geneve"
       ],
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6163",
@@ -1218,7 +1100,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-29T11:35:13.482Z",
+      "crawledAt": "2026-07-29T22:13:22.395Z",
       "slugByLocale": {
         "it": "learning-development-specialista-efg-international-ag-lugano-n932z9",
         "en": "learning-development-specialist-efg-international-ag-lugano-n932z9",
@@ -1426,7 +1308,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-29T11:35:13.476Z",
+      "crawledAt": "2026-07-29T22:13:22.393Z",
       "slugByLocale": {
         "it": "responsabile-pubblicita-media-e-marketing-strategico-efg-international-ag-zurich",
         "en": "advertising-media-and-strategic-marketing-manager-efg-zurich",
@@ -1462,7 +1344,8 @@
       },
       "previousSlugs": [
         "advertising-media-and-strategic-marketing-manager-efg-zurich"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "efg-6137",
@@ -1616,7 +1499,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-29T11:35:13.474Z",
+      "crawledAt": "2026-07-29T22:13:22.391Z",
       "slugByLocale": {
         "it": "international-payroll-specialista-efg-international-ag-lugano-n9331q",
         "en": "international-payroll-specialist-efg-international-ag-lugano-n9331q",
@@ -1751,7 +1634,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-29T11:35:13.469Z",
+      "crawledAt": "2026-07-29T22:13:22.389Z",
       "slugByLocale": {
         "it": "responsabile-del-servizio-dati-it-efg-international-ag-geneve",
         "en": "it-data-service-manager-efg-geneve",
@@ -1933,7 +1816,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-29T11:35:13.466Z",
+      "crawledAt": "2026-07-29T22:13:22.387Z",
       "slugByLocale": {
         "it": "client-services-officer-geneva-talent-pool-efg-geneve",
         "en": "client-services-officer-geneva-talent-pool-efg-geneve",
@@ -1971,7 +1854,8 @@
         "cybersecurity-internal-penetration-tester-efg-geneve",
         "tester-di-penetrazione-interna-della-sicurezza-informatica-efg-international-ag-geneve"
       ],
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6064",
@@ -2022,7 +1906,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-29T11:35:13.462Z",
+      "crawledAt": "2026-07-29T22:13:22.385Z",
       "slugByLocale": {
         "it": "tester-di-penetrazione-interna-della-sicurezza-informatica-efg-international-ag-geneve",
         "en": "cybersecurity-internal-penetration-tester-efg-geneve",
@@ -2066,7 +1950,8 @@
         "client-services-officer-geneva-talent-pool-efg-international-ag-geneve",
         "client-services-officer-geneva-talent-pool-efg-geneve"
       ],
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6046",
@@ -2117,7 +2002,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-29T11:35:13.460Z",
+      "crawledAt": "2026-07-29T22:13:22.382Z",
       "slugByLocale": {
         "it": "senior-private-markets-product-specialista-efg-international-ag-zurich",
         "en": "senior-private-markets-product-specialist-efg-zurich",
@@ -2160,7 +2045,8 @@
         "senior-private-markets-product-specialist-efg-zurich",
         "specialiste-principal-des-produits-des-marches-prives-efg-international-ag-zurich"
       ],
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6040",
@@ -2211,7 +2097,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-29T11:35:13.459Z",
+      "crawledAt": "2026-07-29T22:13:22.381Z",
       "slugByLocale": {
         "it": "gruppo-di-supporto-per-rete-e-proxy-efg-international-ag-geneve",
         "en": "network-proxy-support-team-lead-efg-geneve",
@@ -2254,7 +2140,8 @@
         "network-proxy-support-team-lead-efg-geneve",
         "network-proxy-support-capo-team-efg-international-ag-geneve"
       ],
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-5984",
@@ -2277,7 +2164,7 @@
       "companyDomain": "efginternational.com",
       "titleByLocale": {
         "en": "Switchboard operator",
-        "it": "Operatore di commutazione",
+        "it": "Switchboard operator",
         "de": "Schaltstelle-Operator",
         "fr": "Opérateur de central"
       },
@@ -2305,11 +2192,11 @@
           }
         }
       },
-      "crawledAt": "2026-07-29T11:35:13.456Z",
+      "crawledAt": "2026-07-29T22:13:22.379Z",
       "slugByLocale": {
-        "it": "operatore-di-commutazione-efg-international-ag-lugano",
+        "it": "switchboard-operator-efg-international-ag-lugano",
         "en": "switchboard-operator-efg-lugano",
-        "de": "schaltnetzbetreiber-efg-international-ag-lugano",
+        "de": "schaltstelle-operator-efg-international-ag-lugano",
         "fr": "switchboard-operateur-efg-international-ag-lugano"
       },
       "addressLocality": "Lugano",
@@ -2335,17 +2222,22 @@
       "firstSeenAt": "2026-07-10T10:26:15.024Z",
       "previousSlugsByLocale": {
         "it": [
-          "switchboard-operator-efg-lugano"
+          "switchboard-operator-efg-lugano",
+          "operatore-di-commutazione-efg-international-ag-lugano"
         ],
         "de": [
           "switchboard-operator-efg-lugano",
+          "schaltnetzbetreiber-efg-international-ag-lugano",
           "schaltstelle-operator-efg-international-ag-lugano"
         ]
       },
       "previousSlugs": [
         "switchboard-operator-efg-lugano",
+        "operatore-di-commutazione-efg-international-ag-lugano",
+        "schaltnetzbetreiber-efg-international-ag-lugano",
         "schaltstelle-operator-efg-international-ag-lugano"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "efg-5969",
@@ -2496,7 +2388,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-29T11:35:13.454Z",
+      "crawledAt": "2026-07-29T22:13:22.376Z",
       "slugByLocale": {
         "it": "it-trading-treasury-solutions-specialista-efg-international-ag-lugano-n93k12",
         "en": "it-trading-treasury-solutions-specialist-efg-international-ag-lugano-n93k12",
@@ -2713,7 +2605,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-29T11:35:13.445Z",
+      "crawledAt": "2026-07-29T22:13:22.368Z",
       "slugByLocale": {
         "it": "responsabile-della-fondazione-efg-international-ag-zurich",
         "en": "foundation-manager-efg-international-ag-lugano-n93k14",
@@ -2773,7 +2665,8 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:36:50.620Z",
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-5892",
@@ -2824,7 +2717,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-29T11:35:13.444Z",
+      "crawledAt": "2026-07-29T22:13:22.366Z",
       "slugByLocale": {
         "it": "data-ingegnere-efg-international-ag-geneve",
         "en": "data-engineer-efg-geneve",
@@ -2894,7 +2787,7 @@
       "companyDomain": "efginternational.com",
       "titleByLocale": {
         "en": "Group Financial Controller",
-        "fr": "Contrôleur financier du groupe",
+        "fr": "Group Financial Controller",
         "it": "Gruppo Controllore finanziario",
         "de": "Konzern Finanzverantwortlicher"
       },
@@ -3028,7 +2921,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-29T11:35:13.441Z",
+      "crawledAt": "2026-07-29T22:13:22.364Z",
       "slugByLocale": {
         "it": "gruppo-controllore-finanziario-efg-international-ag-geneve",
         "en": "group-financial-controller-efg-geneve",
@@ -3066,7 +2959,8 @@
       "previousSlugs": [
         "group-financial-controller-efg-geneve"
       ],
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6384",
@@ -3201,7 +3095,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-29T11:35:13.438Z",
+      "crawledAt": "2026-07-29T22:13:22.361Z",
       "slugByLocale": {
         "it": "business-risk-manager-pb-coo-brm-temp-efg-zurich",
         "en": "business-risk-manager-pb-coo-brm-temp-efg-zurich",
@@ -3226,7 +3120,8 @@
       "addressRegion": "ZH",
       "employmentType": "FULL_TIME",
       "country": "CH",
-      "firstSeenAt": "2026-07-20T22:01:00.554Z"
+      "firstSeenAt": "2026-07-20T22:01:00.554Z",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6327",
@@ -3371,7 +3266,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-29T11:35:13.434Z",
+      "crawledAt": "2026-07-29T22:13:22.359Z",
       "slugByLocale": {
         "it": "ricevitore-efg-international-ag-zurich",
         "en": "receptionist-efg-international-ag-zurich",
@@ -3410,7 +3305,8 @@
       },
       "previousSlugs": [
         "receptionist-efg-zurich"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "efg-6039",
@@ -3461,7 +3357,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-29T11:35:13.431Z",
+      "crawledAt": "2026-07-29T22:13:22.356Z",
       "slugByLocale": {
         "it": "sviluppatore-epm-onestream-analista-dati-business-efg-international-ag-lugano",
         "en": "epm-onestream-developer-business-data-analyst-efg-lugano",
@@ -3499,7 +3395,8 @@
         "epm-onestream-developer-business-data-analyst-efg-lugano"
       ],
       "firstSeenAt": "2026-04-13T10:28:21.934Z",
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6317",
@@ -3624,7 +3521,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-29T11:35:13.407Z",
+      "crawledAt": "2026-07-29T22:13:22.335Z",
       "slugByLocale": {
         "it": "iam-support-specialista-efg-international-ag-geneve",
         "en": "iam-support-specialist-efg-geneve",
@@ -3663,7 +3560,134 @@
       },
       "previousSlugs": [
         "iam-support-specialist-efg-geneve"
-      ]
+      ],
+      "needsRetranslation": true
+    },
+    {
+      "id": "efg-6266",
+      "slug": "investment-risk-specialista-efg-international-ag-zurich",
+      "company": "EFG International AG",
+      "title": "Investment Risk Specialist",
+      "location": "Zurich",
+      "canton": "ZH",
+      "category": "finance",
+      "contract": "permanent",
+      "currency": "CHF",
+      "description": "## Job Description\n\nTo act as a strategic partner across all service lines, providing the discipline that secures EFG’s growth ambitions. The role owns the group‑wide investment risk and analytics agenda, transforming complex market data into actionable conviction and embedding institutional‑grade oversight across Advisory, New Capital, and Discretionary Portfolio Management (DPM).\n\nCombining deep technical expertise with a broad strategic remit, this position sets direction for investment risk frameworks, leads cross‑functional initiatives, and ensures that risk‑intelligent growth is consistently delivered across the franchise\n\nKey Responsibilities\n\n- Strategic Leadership & Framework Ownership :\n- Define and own the investment risk and analytics framework for Advisory, ensuring consistency, robustness, and alignment with EFG’s risk appetite and investment philosophy.\n\n- Translate the global investment strategy into concrete risk and analytics standards, methodologies, and processes across Advisory, New Capital, and DPM.\n\n- Act as the recognised senior authority on investment risk and analytics, providing guidance to senior management and key governance bodies\n\n- Ownership of Portfolio Risk Measurement for Advisory\n- Own the end ‑ to ‑ end Product and Portfolio Risk Measurement for Advisory, including: the Product Risk Classification (PRC) and the related quality controls and the aggregation to a portfolio risk measurement\n\n- Lead the Globalization of the Product and Portfolio Risk Measurement for Advisory into Asia with the result that around the globe EFG uses consistent and aligned risk measurements\n\n- Define and lead the evolution from todays Prodcut risk Score to a more sophisticated, Aladdin ‑ enabled measures (e.g. factor ‑ based risk, scenario analysis, stress testing, liquidity and concentration metrics).\n\n- Ensure that Portfolio Risk Measurement for Advisory is fully embedded in advisory processes, portfolio construction, and client communication.\n\n- Risk‑Driven Culture & Franchise Leadership:\n- Lead a cultural shift in the first line of defence by positioning risk management as a core part across all our solutions.\n\n- Drive the adoption of independent, high‑quality risk analytics on funds and portfolios, and embed portfolio risk measurement into everyday practices.\n\n-\nLead and deliver multiple cross‑functional projects to enhance investment risk and analytics frameworks, using these initiatives to strengthen each franchise, improve transparency, and demonstrate that disciplined risk management supports better, faster, and more confident investment decisions.\n\n- CIO Investment Framework\n- Play a key role in shaping the bank’s long‑term investment stance by contributing to the quantitative process and qualitative overlay for 7–10 year Capital Market Assumptions and their translation into strategic asset allocation.\n\n- Actively engage in the Global Investment Committee to challenge risk‑taking, ensure portfolios remain aligned with the house view, and bring a disciplined risk and analytics perspective into core investment governance.\n\n-\nInnovation and Automation: Actively seek to introduce new ideas—including Power BI dashboards, intranet enhancements, and process automation—to improve transparency and efficiency.\n\nSkills and Qualifications\n\n- Education: Master’s degree in Banking and Finance.\n\n- Certification: CFA Level III, demonstrating a commitment to professional development and technical excellence.\n\n- Experience: at least 8-10 years of experience within the bank, with a proven track record of delivering analytical and project-based value across investment areas.\n\n- Technical Proficiency: Advanced proficiency in Excel, Python Bloomberg, and Power BI, alongside experience with risk engines like Aladdin is a plus.\n\n- Domain Knowledge: Strong understanding of investment products, risk concepts, and cross-asset correlations .\n\n- Driven by Accountability: Focuses on driving results and building trust to power growth.\n\n- Powered by Insight: Utilizes data-driven insights for continuous improvement and smart decision-making.\n\n- Safety and Agility: Maintains the balance between institutional safety and the agility required to create unrivalled client value.\n\nOur Values\n\n- Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement\n\n- Hands-on: Being proactive to rapidly deliver high-quality results\n\n- Passionate: Being committed and striving for excellence\n\n- Solution-driven: Focusing on client outcomes and treating clients fairly with a risk-aware mindset\n\n- Partnership-oriented: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.",
+      "requirements": [],
+      "featured": false,
+      "postedDate": "2026-05-18",
+      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6266",
+      "source": "Oracle HCM API",
+      "sourceLang": "en",
+      "companyKey": "efg-international",
+      "companyDomain": "efginternational.com",
+      "titleByLocale": {
+        "en": "Investment Risk Specialist",
+        "it": "Investment Risk Specialista",
+        "de": "Investment Risk Spezialist",
+        "fr": "Investment Risk Spécialiste"
+      },
+      "descriptionByLocale": {
+        "en": "## Job Description\n\nTo act as a strategic partner across all service lines, providing the discipline that secures EFG’s growth ambitions. The role owns the group‑wide investment risk and analytics agenda, transforming complex market data into actionable conviction and embedding institutional‑grade oversight across Advisory, New Capital, and Discretionary Portfolio Management (DPM).\n\nCombining deep technical expertise with a broad strategic remit, this position sets direction for investment risk frameworks, leads cross‑functional initiatives, and ensures that risk‑intelligent growth is consistently delivered across the franchise\n\nKey Responsibilities\n\n- Strategic Leadership & Framework Ownership :\n- Define and own the investment risk and analytics framework for Advisory, ensuring consistency, robustness, and alignment with EFG’s risk appetite and investment philosophy.\n\n- Translate the global investment strategy into concrete risk and analytics standards, methodologies, and processes across Advisory, New Capital, and DPM.\n\n- Act as the recognised senior authority on investment risk and analytics, providing guidance to senior management and key governance bodies\n\n- Ownership of Portfolio Risk Measurement for Advisory\n- Own the end ‑ to ‑ end Product and Portfolio Risk Measurement for Advisory, including: the Product Risk Classification (PRC) and the related quality controls and the aggregation to a portfolio risk measurement\n\n- Lead the Globalization of the Product and Portfolio Risk Measurement for Advisory into Asia with the result that around the globe EFG uses consistent and aligned risk measurements\n\n- Define and lead the evolution from todays Prodcut risk Score to a more sophisticated, Aladdin ‑ enabled measures (e.g. factor ‑ based risk, scenario analysis, stress testing, liquidity and concentration metrics).\n\n- Ensure that Portfolio Risk Measurement for Advisory is fully embedded in advisory processes, portfolio construction, and client communication.\n\n- Risk‑Driven Culture & Franchise Leadership:\n- Lead a cultural shift in the first line of defence by positioning risk management as a core part across all our solutions.\n\n- Drive the adoption of independent, high‑quality risk analytics on funds and portfolios, and embed portfolio risk measurement into everyday practices.\n\n-\nLead and deliver multiple cross‑functional projects to enhance investment risk and analytics frameworks, using these initiatives to strengthen each franchise, improve transparency, and demonstrate that disciplined risk management supports better, faster, and more confident investment decisions.\n\n- CIO Investment Framework\n- Play a key role in shaping the bank’s long‑term investment stance by contributing to the quantitative process and qualitative overlay for 7–10 year Capital Market Assumptions and their translation into strategic asset allocation.\n\n- Actively engage in the Global Investment Committee to challenge risk‑taking, ensure portfolios remain aligned with the house view, and bring a disciplined risk and analytics perspective into core investment governance.\n\n-\nInnovation and Automation: Actively seek to introduce new ideas—including Power BI dashboards, intranet enhancements, and process automation—to improve transparency and efficiency.\n\nSkills and Qualifications\n\n- Education: Master’s degree in Banking and Finance.\n\n- Certification: CFA Level III, demonstrating a commitment to professional development and technical excellence.\n\n- Experience: at least 8-10 years of experience within the bank, with a proven track record of delivering analytical and project-based value across investment areas.\n\n- Technical Proficiency: Advanced proficiency in Excel, Python Bloomberg, and Power BI, alongside experience with risk engines like Aladdin is a plus.\n\n- Domain Knowledge: Strong understanding of investment products, risk concepts, and cross-asset correlations .\n\n- Driven by Accountability: Focuses on driving results and building trust to power growth.\n\n- Powered by Insight: Utilizes data-driven insights for continuous improvement and smart decision-making.\n\n- Safety and Agility: Maintains the balance between institutional safety and the agility required to create unrivalled client value.\n\nOur Values\n\n- Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement\n\n- Hands-on: Being proactive to rapidly deliver high-quality results\n\n- Passionate: Being committed and striving for excellence\n\n- Solution-driven: Focusing on client outcomes and treating clients fairly with a risk-aware mindset\n\n- Partnership-oriented: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.",
+        "it": "Descrizione del lavoro\n\nAgire come partner strategico in tutte le linee di servizio, fornendo la disciplina che assicura le ambizioni di crescita di EFG. Il ruolo possiede l'agenda dei rischi di investimento a livello di gruppo e dell'analisi, trasformando i dati di mercato complessi in convinzione attuabile e integrando la supervisione di livello istituzionale attraverso Advisory, New Capital e Discretionary Portfolio Management (DPM).\n\nCombinando competenze tecniche profonde con un ampio remit strategico, questa posizione imposta la direzione per i framework di rischio di investimento, conduce iniziative interfunzionali e assicura che la crescita intelligente del rischio sia costantemente consegnata attraverso il franchising\n\nPrincipali responsabilità\n- Leadership strategica e proprietà quadro:\n- Definire e possedere il quadro di rischio di investimento e analisi per Advisory, assicurando coerenza, robustezza e allineamento con l’appetito di rischio di EFG e la filosofia di investimento.\n- Traduci la strategia di investimento globale in standard di rischio e analisi concrete, metodologie e processi in Advisory, New Capital e DPM.\n- Atto come l'autorità senior riconosciuta sul rischio di investimento e analisi, fornendo indicazioni agli enti di gestione senior e di governance chiave\n- ProprietÃ della misura del rischio Portfolio per Advisory\n- Misurazione del rischio di prodotto e del portafoglio per i consulenti, compresa: la classificazione del rischio di prodotto (PRC) e i relativi controlli di qualità e l'aggregazione a una misurazione del rischio di portafoglio\n- Condurre la Globalizzazione del Misuratore di rischio prodotto e portafoglio per Advisory in Asia con il risultato che in tutto il mondo EFG utilizza misure di rischio coerenti e allineate\n- Definire e condurre l'evoluzione da oggi Prodcut rischio Punteggio ad una più sofisticata, Aladdin ‐ abilitato misure (ad esempio rischio basato fattore, analisi scenari, test di stress, liquidità e metriche di concentrazione).\n- Assicurarsi che Portfolio Risk Measurement for Advisory sia completamente integrato in processi di consulenza, costruzione di portafoglio e comunicazione client.\n- Risk-Driven Culture & Leadership:\n- Condurre un cambiamento culturale nella prima linea di difesa posizionando la gestione del rischio come parte integrante di tutte le nostre soluzioni.\n- Guidare l'adozione di analisi di rischio indipendenti e di alta qualità su fondi e portafogli, e incorporare la misurazione del rischio portafoglio nelle pratiche quotidiane.\n- Condurre e fornire progetti multifunzionali per migliorare il rischio di investimento e i framework di analisi, utilizzando queste iniziative per rafforzare ogni franchising, migliorare la trasparenza e dimostrare che la gestione del rischio disciplinata supporta decisioni di investimento migliori, più veloci e più sicure.\n- No.\n- CIO Investment Framework\n- Svolgere un ruolo chiave nella definizione della posizione di investimento a lungo termine della banca contribuendo al processo quantitativo e alla sovrapposizione qualitativa per 7-10 anni Capital Market Assunzioni e alla loro traduzione in assetto strategico.\n- Impegnarsi attivamente nel Global Investment Committee per sfidare l'assunzione del rischio, garantire che i portafogli rimangano allineati con la vista della casa, e portare una prospettiva di rischio disciplinata e di analisi nel core governance degli investimenti.\n- No.\nInnovazione e Automazione: cercare attivamente di introdurre nuove idee, tra cui cruscotti Power BI, miglioramenti intranet e automazione dei processi, per migliorare la trasparenza e l'efficienza.\n\nCompetenze e qualifiche\n- Istruzione: Master in Banca e Finanza.\n- Certificazione: CFA Livello III, dimostrando un impegno per lo sviluppo professionale e l'eccellenza tecnica.\n- Esperienza: almeno 8-10 anni di esperienza all'interno della banca, con un comprovato track record di fornitura di valore analitico e basato sul progetto in aree di investimento.\n- Proficienza tecnica: competenza avanzata in Excel, Python Bloomberg e Power BI, insieme all'esperienza con motori a rischio come Aladdin è un plus.\n- Conoscenza del dominio: Forte comprensione dei prodotti di investimento, concetti di rischio e correlazioni cross-asset .\n- Guidato dalla Responsabilità: si concentra sui risultati della guida e sulla fiducia nella crescita del potere.\n- Powered by Insight: Utilizza le informazioni basate sui dati per il miglioramento continuo e il processo decisionale intelligente.\n- Sicurezza e Agility: Mantiene l'equilibrio tra sicurezza istituzionale e l'agilità necessaria per creare valore cliente senza rivalità.\n\nI nostri valori\n- Responsabilità: Prendere la proprietà per i compiti e le sfide, nonché cercare un miglioramento continuo\n- Hands-on: essere proattivi per fornire rapidamente risultati di alta qualità\n- Passionato: Impegnarsi e lottare per l'eccellenza\n- Soluzione-driven: Concentrarsi sui risultati del cliente e trattare i clienti in modo corretto con una mentalità di rischio-consapevole\n- Partnership-oriented: promuovere la collaborazione e il lavoro di squadra. Lavorare insieme a uno spirito imprenditoriale.",
+        "de": "Job Description\n\nAls strategischer Partner in allen Servicelinien zu fungieren und die Disziplin zu schaffen, die die Wachstumsambitionen der EFG sichert. Die Rolle besitzt die konzernweite Investitionsrisiko- und Analytik-Agenda, die komplexe Marktdaten in eine handlungsfähige Überzeugung umwandelt und institutionelle Aufsicht über das Advisory, New Capital und Diskretion Portfolio Management (DPM) einbettet.\n\nDiese Position kombiniert tiefes technisches Know-how mit einem breiten strategischen Remit, setzt Richtung für Investment-Risiko-Frameworks, führt funktionsübergreifende Initiativen und stellt sicher, dass risikointelligentes Wachstum im gesamten Franchise-Bereich konsequent ausgeliefert wird\n\nHauptverantwortlichkeiten\n- Strategische Führung und Rahmenbesitz :\n- Definieren und besitzen Sie den Rahmen für das Investitionsrisiko und die Analytik für die Beratung, die Gewährleistung von Konsistenz, Robustheit und die Ausrichtung auf die Risikobereitschaft und Investitionsphilosophie der EFG.\n- Übersetzen Sie die globale Investitionsstrategie in konkrete Risiko- und Analysestandards, Methoden und Prozesse über Advisory, New Capital und DPM.\n- Gesetz als anerkannte leitende Behörde für Investitionsrisiko und Analytik, die Leitlinien für leitende Management- und Schlüsselverwaltungsgremien\n- Eigentum an Portfolio-Risikomessung für Beratung\n- Besitzen Sie das Ende ‐ bis ‐ end Product and Portfolio Risk Measurement for Advisory, einschließlich: die Product Risk Classification (PRC) und die damit verbundenen Qualitätskontrollen und die Aggregation einer Portfolio-Risikomessung\n- Führen Sie die Globalisierung der Produkt- und Portfolio-Risikomessung für das Beraten in Asien mit dem Ergebnis, dass EFG weltweit konsequente und ausgerichtete Risikomessungen verwendet\n- Definieren und führen Sie die Entwicklung aus dem heutigen Staatsrisiko Ergebnis zu einer anspruchsvolleren, Aladdin ‐fähigen Maßnahmen (z.B. faktorbasiertes Risiko, Szenarioanalyse, Stresstests, Liquiditäts- und Konzentrationsmetriken).\n- Stellen Sie sicher, dass Portfolio Risk Measurement for Advisory vollständig in Beratungsprozesse, Portfoliobau und Kundenkommunikation eingebettet ist.\n- Risikoorientierte Kultur & Franchise Leadership:\n- Führen Sie eine kulturelle Verschiebung in der ersten Verteidigungslinie durch die Positionierung von Risikomanagement als Kernteil über alle unsere Lösungen.\n- Führen Sie die Einführung unabhängiger, qualitativ hochwertiger Risikoanalysen auf Fonds und Portfolios sowie die Einbindung von Portfolio-Risikomessungen in alltägliche Praktiken.\n- Führen und liefern Sie mehrere funktionsübergreifende Projekte, um das Investitionsrisiko und die analytischen Rahmenbedingungen zu verbessern, indem Sie diese Initiativen nutzen, um jeden Franchise zu stärken, Transparenz zu verbessern und zu zeigen, dass diszipliniertes Risikomanagement bessere, schnellere und sicherere Investitionsentscheidungen unterstützt.\n- Ja.\n- CIO Investitionsrahmen\n- Spielen Sie eine Schlüsselrolle bei der Gestaltung der langfristigen Anlagehaltung der Bank, indem Sie zum quantitativen Prozess und qualitativen Overlay für die 7–10-Jahre Capital Market Assumptions und ihre Übersetzung in die strategische Asset Allocation beitragen.\n- Aktiv in das Global Investment Committee eingebunden, um Risiken zu bewältigen, Portfolios mit Blick auf das Haus zu vereinbaren und eine disziplinierte Risiko- und Analyseperspektive in die zentrale Investment Governance zu bringen.\n- Ja.\nInnovation und Automatisierung: Aktiv wollen neue Ideen einführen – darunter Power BI Dashboards, Intranet-Erweiterungen und Prozessautomatisierung – um Transparenz und Effizienz zu verbessern.\n\nFähigkeiten und Qualifikationen\n- Ausbildung: Masterstudium Banking und Finanzen.\n- Zertifizierung: CFA Level III, die ein Engagement für professionelle Entwicklung und technische Exzellenz zeigen.\n- Erfahrung: mindestens 8-10 Jahre Erfahrung innerhalb der Bank, mit einem nachgewiesenen Erfolgsrekord, analytischen und projektbasierten Wert in Investitionsbereichen zu liefern.\n- Technische Effizienz: Fortgeschrittene Kenntnisse in Excel, Python Bloomberg und Power BI, zusammen mit der Erfahrung mit Risikomotoren wie Aladdin ist ein Plus.\n- Domain Knowledge: Ein starkes Verständnis von Investitionsprodukten, Risikokonzepten und Cross-Asset-Korrelationen .\n- Angetrieben durch Rechenschaftspflicht: Fokussiert auf das Fahren von Ergebnissen und das Vertrauen auf das Stromwachstum.\n- Powered by Insight: Nutzen Sie datengesteuerte Erkenntnisse für kontinuierliche Verbesserung und intelligente Entscheidungsfindung.\n- Sicherheit und Agilität: Bewahrt das Gleichgewicht zwischen der institutionellen Sicherheit und der Agilität, die erforderlich ist, um unübertroffenen Kundenwert zu schaffen.\n\nUnsere Werte\n- Rechenschaftspflicht: Eigentumsbesitz für Aufgaben und Herausforderungen sowie kontinuierliche Verbesserung\n- Hands-on: Als proaktiv, um schnell qualitativ hochwertige Ergebnisse zu liefern\n- Leidenschaftlich: Engagement und Streben nach Exzellenz\n- Lösungsgetrieben: Konzentrieren Sie sich auf Client-Ergebnisse und Behandlung von Kunden ziemlich mit einem risikobewussten Mindset\n- Partnerschaftsorientiert: Förderung von Zusammenarbeit und Teamarbeit. Zusammenarbeit mit einem Unternehmergeist.",
+        "fr": "Description de l'emploi\n\nAgir en tant que partenaire stratégique dans toutes les lignes de service, en fournissant la discipline qui garantit les ambitions de croissance de l'EFG. Ce rôle est le propriétaire du programme de gestion des risques d'investissement et d'analyse à l'échelle du groupe, transformant des données de marché complexes en conviction concrète et intégrant la surveillance de niveau institutionnel dans la gestion de portefeuille discrétionnaire (DGP) des services consultatifs et des nouveaux capitaux.\n\nCombinant une expertise technique approfondie à un vaste mandat stratégique, ce poste définit l'orientation des cadres de risque d'investissement, dirige des initiatives interfonctionnelles et veille à ce que la croissance axée sur l'intelligence des risques soit constamment assurée dans l'ensemble de la franchise.\n\nPrincipales responsabilités\n- Leadership stratégique et propriété du cadre :\n- Définir et posséder le cadre de risque d'investissement et d'analyse pour la consultation, en assurant la cohérence, la robustesse et l'alignement avec la philosophie de risque et d'investissement de l'EFG.\n- Traduire la stratégie globale d'investissement en normes, méthodologies et processus concrets de risque et d'analyse dans l'ensemble des secteurs de la consultation, du nouveau capital et du DPM.\n- Agir en tant qu'autorité supérieure reconnue en matière de risques d'investissement et d'analyse, en fournissant des conseils aux cadres supérieurs et aux principaux organes de gouvernance\n- Propriété de la mesure des risques du portefeuille pour consultation\n- Posséder la mesure finale des risques pour les produits et les portefeuilles à des fins de consultation, y compris : la classification des risques pour les produits (CPR) et les contrôles de qualité connexes et l'agrégation à une mesure des risques pour les portefeuilles\n- Diriger la mondialisation de la mesure des risques liés aux produits et aux portefeuilles en Asie, avec pour résultat que partout dans le monde EFG utilise des mesures des risques cohérentes et alignées\n- Définir et diriger l'évolution du risque Prodcut d'aujourd'hui Score vers des mesures plus sophistiquées, rendues possibles par Aladdin (p. ex. risque fondé sur les facteurs, analyse de scénarios, tests de stress, mesures de liquidité et de concentration).\n- Veiller à ce que la mesure du risque du portefeuille pour les avis soit entièrement intégrée aux processus consultatifs, à la construction du portefeuille et à la communication avec les clients.\n- Culture axée sur le risque et leadership en franchise :\n- Diriger un changement culturel dans la première ligne de défense en plaçant la gestion des risques au cœur de toutes nos solutions.\n- Favoriser l'adoption d'analyses de risque indépendantes et de haute qualité sur les fonds et les portefeuilles, et intégrer la mesure des risques de portefeuille dans les pratiques quotidiennes.\n- Diriger et exécuter de multiples projets interfonctionnels afin d'améliorer les cadres de risque et d'analyse en matière d'investissement, en utilisant ces initiatives pour renforcer chaque franchise, améliorer la transparence et démontrer que la gestion des risques disciplinée favorise de meilleures décisions d'investissement, plus rapides et plus confiantes.\n- Oui.\n- Cadre d'investissement des DPI\n- Jouer un rôle clé dans l'orientation à long terme de la banque en contribuant au processus quantitatif et au recouvrement qualitatif pour les hypothèses du marché des capitaux de 7 à 10 ans et leur traduction en répartition stratégique des actifs.\n- S'engager activement au sein du Comité mondial de l'investissement pour remettre en question la prise de risques, veiller à ce que les portefeuilles restent alignés sur le point de vue de la maison et intégrer une perspective de risque et d'analyse disciplinée dans la gouvernance de l'investissement de base.\n- Oui.\nInnovation et automatisation : s'efforcer activement d'introduire de nouvelles idées – y compris des tableaux de bord Power BI, des améliorations intranet et l'automatisation des processus – pour améliorer la transparence et l'efficacité.\n\nCompétences et qualifications\n- Études : Maîtrise en Banque et Finance.\n- Certification : CFA Niveau III, démontrant un engagement en faveur du perfectionnement professionnel et de l'excellence technique.\n- Expérience : au moins 8 à 10 ans d'expérience au sein de la banque, avec une expérience éprouvée de la fourniture d'une valeur analytique et d'un projet dans tous les domaines d'investissement.\n- Compétences techniques : Compétences avancées en Excel, Python Bloomberg et Power BI, ainsi que l'expérience avec les moteurs à risque comme Aladdin est un plus.\n- Connaissance du domaine : Une bonne compréhension des produits d'investissement, des concepts de risque et des corrélations entre les actifs.\n- Inspiré par la responsabilisation : met l'accent sur les résultats et le renforcement de la confiance dans la croissance du pouvoir.\n- Powered by Insight: Utilise des informations basées sur les données pour une amélioration continue et une prise de décision intelligente.\n- Sécurité et agilité : maintient l'équilibre entre la sécurité institutionnelle et l'agilité nécessaire pour créer une valeur client inégalée.\n\nNos valeurs\n- Responsabilité : prise en charge des tâches et des défis, et recherche d'améliorations continues\n- Hands-on: être proactif pour obtenir rapidement des résultats de haute qualité\n- Passionné : être engagé et viser l'excellence\n- Déterminé par la solution : se concentrer sur les résultats des clients et traiter les clients de façon équitable en tenant compte des risques\n- Objectif partenariat : promouvoir la collaboration et le travail d'équipe. Travailler ensemble avec un esprit d'entreprise."
+      },
+      "requirementsByLocale": {},
+      "canonicalContent": {
+        "byLocale": {
+          "en": {
+            "summary": [],
+            "responsibilities": [
+              "Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement",
+              "Hands-on: Being proactive to rapidly deliver high-quality results",
+              "Passionate: Being committed and striving for excellence",
+              "Solution-driven: Focusing on client outcomes and treating clients fairly with a risk-aware mindset",
+              "Partnership-oriented: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.<br>"
+            ],
+            "requirements": [],
+            "benefits": [],
+            "process": [],
+            "highlights": [
+              "Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement",
+              "Hands-on: Being proactive to rapidly deliver high-quality results",
+              "Passionate: Being committed and striving for excellence"
+            ],
+            "keywords": [
+              "Accountability",
+              "Hands-on",
+              "Passionate",
+              "Solution-driven"
+            ],
+            "sections": [
+              {
+                "id": "company",
+                "heading": "Our Company",
+                "paragraphs": [
+                  "<br>EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice.",
+                  "<br>EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation.<br>"
+                ],
+                "bullets": []
+              },
+              {
+                "id": "company",
+                "heading": "Our Purpose and Mission",
+                "paragraphs": [
+                  "<br>Empowering entrepreneurial minds to create value – today and for the future.",
+                  "We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value."
+                ],
+                "bullets": []
+              }
+            ],
+            "readingMinutes": 5
+          }
+        }
+      },
+      "crawledAt": "2026-07-29T11:35:13.494Z",
+      "slugByLocale": {
+        "it": "investment-risk-specialista-efg-international-ag-zurich",
+        "en": "investment-risk-specialist-efg-zurich",
+        "de": "investment-risk-spezialist-efg-international-ag-zurich",
+        "fr": "investment-risk-specialiste-efg-international-ag-zurich"
+      },
+      "addressLocality": "Zurich",
+      "addressCountry": "CH",
+      "datePosted": "2026-05-18",
+      "salaryMin": 85500,
+      "salaryMax": 150000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 85500,
+          "maxValue": 150000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "",
+      "postalCode": "8001",
+      "addressRegion": "ZH",
+      "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-05-18T12:15:53.907Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "investment-risk-specialist-efg-zurich",
+          "specialista-del-rischio-di-investimento-efg-international-ag-zurich"
+        ],
+        "de": [
+          "investment-risk-specialist-efg-zurich"
+        ],
+        "fr": [
+          "investment-risk-specialist-efg-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "investment-risk-specialist-efg-zurich",
+        "specialista-del-rischio-di-investimento-efg-international-ag-zurich"
+      ],
+      "country": "CH"
     },
     {
       "id": "efg-6235",
@@ -3789,7 +3813,8 @@
         "cis-specialist-onboarding-periodic-reviews-compliance-officer-efg-geneve",
         "cis-specialist-onboarding-recensioni-periodiche-compliance-officer-efg-international-ag-geneve"
       ],
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6203",
@@ -3811,7 +3836,7 @@
       "companyDomain": "efginternational.com",
       "titleByLocale": {
         "en": "EFG Graduate Programme 2026 - Corporate Functions - Human Resources - Lugano",
-        "fr": "EFG Programme d'études supérieures 2026 - Fonctions corporatives - Ressources humaines - Lugano",
+        "fr": "EFG Graduate Programme 2026 - Corporate Functions - Human Resources - Lugano",
         "it": "Programma di Laurea EFG 2026 - Funzioni Corporate - Risorse Umane - Lugano",
         "de": "EFG Graduate Programme 2026 - Corporate Functions - Personalwesen - Lugano"
       },
@@ -3896,7 +3921,8 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:36:50.620Z",
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6177",
@@ -4156,7 +4182,8 @@
         "pb-support-specialist-americas-geneva-efg-geneve",
         "pb-specialist-americas-ginevra-efg-international-ag-geneve"
       ],
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-5799",
@@ -4339,7 +4366,8 @@
       "previousSlugs": [
         "business-analyst-legal-compliance-efg-geneve"
       ],
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-5869",
@@ -4568,7 +4596,8 @@
         "bi-solution-specialiste-efg-international-ag-geneve",
         "bi-solution-specialista-efg-international-ag-geneve"
       ],
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6280",
@@ -4660,7 +4689,8 @@
       "previousSlugs": [
         "regulatory-reporting-analyst-efg-geneve"
       ],
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6212",
@@ -4850,7 +4880,8 @@
         "finance-data-analytics-power-bi-internship-efg-geneve",
         "finanza-analisi-dei-dati-e-internamento-bi-potenza-efg-international-ag-geneve"
       ],
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6151",
@@ -5051,7 +5082,8 @@
       "previousSlugs": [
         "senior-strategic-transformation-manager-efg-geneve"
       ],
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6168",
@@ -5261,7 +5293,8 @@
         "talent-acquisition-internship-efg-international-ag-geneve"
       ],
       "firstSeenAt": "2026-04-13T21:36:50.620Z",
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     }
   ]
 }
