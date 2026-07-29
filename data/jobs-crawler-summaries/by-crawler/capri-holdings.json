@@ -1,19 +1,57 @@
 {
   "key": "capri-holdings",
   "label": "Capri Holdings",
-  "generatedAt": "2026-07-29T11:34:18.169Z",
+  "generatedAt": "2026-07-29T22:04:21.970Z",
   "total": 8,
   "newCount": 0,
   "updatedCount": 8,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 17130,
-  "avgDurationMs": 17130,
+  "durationMs": 23126,
+  "avgDurationMs": 23126,
   "durationHistory": [
-    17130
+    23126
   ],
   "newJobs": [],
   "updatedJobs": [
+    {
+      "url": "https://capri.wd1.myworkdayjobs.com/en-US/Michael_Kors/job/Geneva/fix-term-Sales-Associate--Geneva---Part-Time_R_785478",
+      "applyUrl": "https://capri.wd1.myworkdayjobs.com/en-US/Michael_Kors/job/Geneva/fix-term-Sales-Associate--Geneva---Part-Time_R_785478",
+      "title": "Sales Associate, Geneva - Part Time, Fixed term",
+      "company": "Capri Holdings (Michael Kors / Versace)",
+      "companyKey": "capri-holdings",
+      "location": "Geneva",
+      "canton": "GE",
+      "country": "CH",
+      "addressLocality": "Geneva",
+      "addressRegion": "GE",
+      "addressCountry": "CH",
+      "postalCode": "6850",
+      "streetAddress": "Via Penate",
+      "slug": "addetto-alle-vendite-a-termine-fisso-ginevra-part-time-capri-holdings-michael-kors-versace-geneva",
+      "category": "retail",
+      "datePosted": "2026-07-15",
+      "source": "capri-holdings-workday-crawler",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "MID",
+      "sourceLang": "en",
+      "sector": "Fashion / Luxury Retail",
+      "_brand": "Michael Kors",
+      "_targetScope": {
+        "canton": "GE",
+        "location": "Geneva"
+      },
+      "id": "capri-holdings-44afb9000147",
+      "firstSeenAt": "2026-07-15T22:02:52.200Z",
+      "crawledAt": "",
+      "_qualityScore": 85,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 25,
+        "completeness": 15
+      }
+    },
     {
       "url": "https://capri.wd1.myworkdayjobs.com/en-US/Michael_Kors/job/Manno/Senior-General-Ledger-Accountant_R_785638",
       "applyUrl": "https://capri.wd1.myworkdayjobs.com/en-US/Michael_Kors/job/Manno/Senior-General-Ledger-Accountant_R_785638",
@@ -49,44 +87,6 @@
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
-        "translation": 25,
-        "completeness": 15
-      }
-    },
-    {
-      "url": "https://capri.wd1.myworkdayjobs.com/en-US/Michael_Kors/job/Geneva/fix-term-Sales-Associate--Geneva---Part-Time_R_785478",
-      "applyUrl": "https://capri.wd1.myworkdayjobs.com/en-US/Michael_Kors/job/Geneva/fix-term-Sales-Associate--Geneva---Part-Time_R_785478",
-      "title": "fix term Sales Associate, Geneva - Part Time",
-      "company": "Capri Holdings (Michael Kors / Versace)",
-      "companyKey": "capri-holdings",
-      "location": "Geneva",
-      "canton": "GE",
-      "country": "CH",
-      "addressLocality": "Geneva",
-      "addressRegion": "GE",
-      "addressCountry": "CH",
-      "postalCode": "6850",
-      "streetAddress": "Via Penate",
-      "slug": "addetto-alle-vendite-a-termine-fisso-ginevra-part-time-capri-holdings-michael-kors-versace-geneva",
-      "category": "retail",
-      "datePosted": "2026-07-15",
-      "source": "capri-holdings-workday-crawler",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "MID",
-      "sourceLang": "en",
-      "sector": "Fashion / Luxury Retail",
-      "_brand": "Michael Kors",
-      "_targetScope": {
-        "canton": "GE",
-        "location": "Geneva"
-      },
-      "id": "capri-holdings-44afb9000147",
-      "firstSeenAt": "2026-07-15T22:02:52.200Z",
-      "crawledAt": "",
-      "_qualityScore": 85,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
         "translation": 25,
         "completeness": 15
       }

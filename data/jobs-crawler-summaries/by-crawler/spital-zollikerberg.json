@@ -1,19 +1,21 @@
 {
   "key": "spital-zollikerberg",
   "label": "Spital Zollikerberg",
-  "generatedAt": "2026-07-29T11:33:34.944Z",
+  "generatedAt": "2026-07-29T22:03:30.917Z",
   "total": 7,
   "newCount": 0,
-  "updatedCount": 1,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 38557,
-  "avgDurationMs": 38557,
+  "unchangedCount": 1,
+  "durationMs": 42733,
+  "avgDurationMs": 42733,
   "durationHistory": [
-    38557
+    42733
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "spital-zollikerberg-c4b20e521e4e",
       "slug": "medizinische-praxisassistentin-medizinischer-praxisassistent-mpa-im-medizinischen",
@@ -44,7 +46,7 @@
       "firstSeenAt": "2026-05-19T12:20:47.142Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -53,7 +55,5 @@
         "completeness": 22
       }
     }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": []
+  ]
 }

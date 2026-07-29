@@ -1,18 +1,19 @@
 {
   "key": "novelis",
   "label": "Novelis",
-  "generatedAt": "2026-07-29T11:43:47.270Z",
+  "generatedAt": "2026-07-29T22:06:35.299Z",
   "total": 8,
-  "newCount": 1,
-  "updatedCount": 7,
+  "newCount": 0,
+  "updatedCount": 8,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 8550,
-  "avgDurationMs": 8550,
+  "durationMs": 8721,
+  "avgDurationMs": 8721,
   "durationHistory": [
-    8550
+    8721
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "novelis-6d9ed5f80764",
       "slug": "senior-global-event-specialist-m-f-d-novelis-ch",
@@ -39,17 +40,16 @@
       "applyUrl": "https://ch-external-novelis.icims.com/jobs/52824/senior-global-event-specialist-%28m-f-d%29/job?hub=13&in_iframe=1",
       "source": "Novelis Dedicated Parser (iCIMS)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-29T11:43:39.712Z",
-      "_qualityScore": 63,
+      "crawledAt": "2026-07-29T22:06:27.711Z",
+      "firstSeenAt": "2026-07-29T11:43:39.712Z",
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "novelis-afad27588e25",
       "slug": "stagiaire-communication-visuelle-novelis-ch",
@@ -76,7 +76,7 @@
       "applyUrl": "https://ch-external-novelis.icims.com/jobs/52701/stagiaire-communication-visuelle/job?hub=13&in_iframe=1",
       "source": "Novelis Dedicated Parser (iCIMS)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-29T11:43:41.503Z",
+      "crawledAt": "2026-07-29T22:06:29.841Z",
       "firstSeenAt": "2026-07-27T22:11:08.633Z",
       "_qualityScore": 87,
       "_qualityBreakdown": {
@@ -112,7 +112,7 @@
       "applyUrl": "https://ch-external-novelis.icims.com/jobs/52694/stagiaire/job?hub=13&in_iframe=1",
       "source": "Novelis Dedicated Parser (iCIMS)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-29T11:43:43.179Z",
+      "crawledAt": "2026-07-29T22:06:31.676Z",
       "firstSeenAt": "2026-07-27T22:11:10.828Z",
       "_qualityScore": 87,
       "_qualityBreakdown": {
@@ -148,7 +148,7 @@
       "applyUrl": "https://de-careers-novelis.icims.com/jobs/52802/it-solutions-lead-%28m-w-d%29/job?hub=13&in_iframe=1",
       "source": "Novelis Dedicated Parser (iCIMS)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-29T11:43:40.344Z",
+      "crawledAt": "2026-07-29T22:06:28.537Z",
       "firstSeenAt": "2026-07-23T11:46:56.934Z",
       "_qualityScore": 84,
       "_qualityBreakdown": {
@@ -184,7 +184,7 @@
       "applyUrl": "https://ch-external-novelis.icims.com/jobs/52764/m%c3%a9canicien-de-maintenance/job?hub=13&in_iframe=1",
       "source": "Novelis Dedicated Parser (iCIMS)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-29T11:43:40.961Z",
+      "crawledAt": "2026-07-29T22:06:29.194Z",
       "firstSeenAt": "2026-07-15T22:17:22.223Z",
       "_qualityScore": 87,
       "_qualityBreakdown": {
@@ -220,7 +220,7 @@
       "applyUrl": "https://ch-external-novelis.icims.com/jobs/52696/finance-lead-%28m-f-d%29-%e2%80%93-digital-transformation-%26-business-projects/job?hub=13&in_iframe=1",
       "source": "Novelis Dedicated Parser (iCIMS)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-29T11:43:42.091Z",
+      "crawledAt": "2026-07-29T22:06:30.472Z",
       "firstSeenAt": "2026-07-09T22:26:43.200Z",
       "_qualityScore": 84,
       "_qualityBreakdown": {
@@ -256,7 +256,7 @@
       "applyUrl": "https://ch-external-novelis.icims.com/jobs/52695/internship-%28m-f-d%29-human-resources-%2860%25-80%26%29/job?hub=13&in_iframe=1",
       "source": "Novelis Dedicated Parser (iCIMS)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-29T11:43:42.620Z",
+      "crawledAt": "2026-07-29T22:06:31.051Z",
       "firstSeenAt": "2026-07-08T11:23:10.202Z",
       "_qualityScore": 84,
       "_qualityBreakdown": {
@@ -292,7 +292,7 @@
       "applyUrl": "https://ch-external-novelis.icims.com/jobs/52599/plant-hr-manager-%28f-m-d%29/job?hub=13&in_iframe=1",
       "source": "Novelis Dedicated Parser (iCIMS)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-29T11:43:43.690Z",
+      "crawledAt": "2026-07-29T22:06:32.273Z",
       "firstSeenAt": "2026-07-08T11:23:11.600Z",
       "_qualityScore": 87,
       "_qualityBreakdown": {
