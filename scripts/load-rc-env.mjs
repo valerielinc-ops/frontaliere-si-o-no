@@ -221,6 +221,21 @@ const RC_TO_ENV = {
   ENABLE_OMNIROUTE_FALLBACK:      ['ENABLE_OMNIROUTE_FALLBACK'],
 };
 
+/**
+ * RC keys whose EMPTY value is a real signal, not a missing setting.
+ *
+ * The load loop skips falsy values, which is right for the ~90 keys where an
+ * empty string means "never configured". These are the exceptions: their
+ * consumer distinguishes unset (fall back to a built-in default) from
+ * explicitly-empty (turn the behaviour off), so collapsing the two would make
+ * the "off" position of the switch unreachable from Remote Config.
+ */
+const ALLOW_EMPTY_RC_KEYS = new Set([
+  // '' disables free-only provider filtering — see
+  // scripts/lib/omniroute-free-providers.mjs (resolveOmniRouteAllowlist).
+  'OMNIROUTE_PROVIDER_ALLOWLIST',
+]);
+
 // ─── Helpers ─────────────────────────────────────────────────────────────
 
 function getRcValue(template, key) {
@@ -345,7 +360,15 @@ async function main() {
   for (const [rcKey, envKeys] of Object.entries(RC_TO_ENV)) {
     const value = getRcValue(template, rcKey);
 
-    if (!value) {
+    // getRcValue() already distinguishes "absent from the template" (null) from
+    // "present with an empty value" (''), but `!value` collapsed the two, so an
+    // RC key whose empty value MEANS something never reached $GITHUB_ENV and
+    // read back as undefined in CI. Kept as an explicit opt-in set rather than a
+    // blanket `value !== null`: for ~90 other keys an empty RC value is a
+    // misconfiguration, and exporting it would shadow a legitimate default
+    // instead of falling through to it.
+    const emptyIsMeaningful = value === '' && ALLOW_EMPTY_RC_KEYS.has(rcKey);
+    if (!value && !emptyIsMeaningful) {
       missing++;
       continue;
     }

@@ -90,16 +90,34 @@ describe('OmniRoute free-provider allowlist', () => {
     });
   });
 
-  it('is bridged from Remote Config to env, or the override is inert in CI', async () => {
+  describe('Remote Config -> env bridge (load-rc-env.mjs)', () => {
     // load-rc-env.mjs is the ONLY Remote Config -> env bridge on a runner, and
-    // both consumers read the override through process.env. An unmapped param
-    // stays undefined there no matter what Remote Config says, which would make
-    // the documented "no deploy" escape hatch silently do nothing during the
-    // exact incident it exists for. Caught in review of PR #4940.
-    const src = await readFile(
+    // both consumers read the override through process.env. Two ways the lever
+    // can be silently dead in CI, both found in review of PR #4940 and both
+    // guarded here: the key not mapped at all, and the key mapped but its empty
+    // value dropped as if it were unset.
+    const loadRcEnv = async () => readFile(
       new URL('../../scripts/load-rc-env.mjs', import.meta.url), 'utf8',
     );
-    expect(src).toContain('OMNIROUTE_PROVIDER_ALLOWLIST');
+
+    it('maps the override, or setting it in Remote Config does nothing', async () => {
+      expect(await loadRcEnv()).toContain('OMNIROUTE_PROVIDER_ALLOWLIST');
+    });
+
+    it('treats an explicitly-empty value as meaningful, so "off" stays reachable', async () => {
+      const src = await loadRcEnv();
+      // The loader skips falsy RC values; without this opt-in the '' that means
+      // "disable filtering" never reaches $GITHUB_ENV and reads back undefined,
+      // which resolveOmniRouteAllowlist maps to the built-in list — the exact
+      // opposite of what the operator asked for.
+      expect(src).toMatch(/ALLOW_EMPTY_RC_KEYS[\s\S]{0,400}OMNIROUTE_PROVIDER_ALLOWLIST/);
+      expect(src).toContain('emptyIsMeaningful');
+    });
+
+    it('resolves the empty override to filtering-off, end to end', () => {
+      // What the bridge above delivers as process.env.X === '' must land here.
+      expect(resolveOmniRouteAllowlist('').filteringOff).toBe(true);
+    });
   });
 
   it('filters a realistic mixed payload down to free providers only', () => {
