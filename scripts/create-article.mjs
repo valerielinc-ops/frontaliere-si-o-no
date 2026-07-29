@@ -143,6 +143,7 @@ import { appendCatalogEntry } from './generate-journalist-image-catalog.mjs';
 import { ARTICLE_SECTION_CORE } from '../build-plugins/shared/articleSectionCore.mjs';
 import { appendArticleListItem } from './lib/seo-pages-article-list.mjs';
 import { buildStructuralEvergreenTopics } from './lib/evergreen-topic-generator.mjs';
+import { resolveGitAddPaths } from './lib/resolve-git-add-path.mjs';
 
 // ── Smarter generator inputs (Phase 3 — spec 2026-05-06) ───────
 // data/article-performance.json is produced weekly by Phase 1A.
@@ -8569,7 +8570,7 @@ function gitAddAll(data) {
       files.push(fsPath);
     }
   }
-  execSync(`git add ${files.join(' ')}`, { cwd: PROJECT_ROOT, stdio: 'inherit' });
+  execSync(`git add ${resolveGitAddPaths(PROJECT_ROOT, files).join(' ')}`, { cwd: PROJECT_ROOT, stdio: 'inherit' });
   console.error('  ✅ Tutti i file modificati aggiunti a git');
 }
 
