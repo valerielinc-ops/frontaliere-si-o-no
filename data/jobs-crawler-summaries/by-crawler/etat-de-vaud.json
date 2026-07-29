@@ -1,19 +1,21 @@
 {
   "key": "etat-de-vaud",
   "label": "État de Vaud (Administration cantonale vaudoise)",
-  "generatedAt": "2026-07-28T22:21:42.370Z",
-  "total": 43,
+  "generatedAt": "2026-07-29T11:55:17.925Z",
+  "total": 45,
   "newCount": 0,
-  "updatedCount": 1,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 24437,
-  "avgDurationMs": 24437,
+  "unchangedCount": 1,
+  "durationMs": 25829,
+  "avgDurationMs": 25829,
   "durationHistory": [
-    24437
+    25829
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "etat-de-vaud-5318",
       "slug": "capo-del-gruppo-di-protezione-degli-adulti-etat-de-vaud-administration-cantonale-vaudoise-vevey",
@@ -45,7 +47,7 @@
       "firstSeenAt": "2026-07-05T11:43:20.864Z",
       "salaryMin": 83500,
       "salaryMax": 126500,
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -54,7 +56,5 @@
         "completeness": 25
       }
     }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": []
+  ]
 }
