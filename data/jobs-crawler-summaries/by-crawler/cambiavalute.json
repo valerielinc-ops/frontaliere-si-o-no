@@ -1,16 +1,16 @@
 {
   "key": "cambiavalute",
   "label": "Cambiavalute",
-  "generatedAt": "2026-07-28T22:06:59.912Z",
+  "generatedAt": "2026-07-29T11:37:05.021Z",
   "total": 3,
   "newCount": 0,
   "updatedCount": 3,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 59545,
-  "avgDurationMs": 59545,
+  "durationMs": 65247,
+  "avgDurationMs": 65247,
   "durationHistory": [
-    59545
+    65247
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -35,7 +35,7 @@
       },
       "companyKey": "cambiavalute",
       "companyDomain": "cambiavalute.ch",
-      "crawledAt": "2026-07-28T22:06:59.348Z",
+      "crawledAt": "2026-07-29T11:37:04.256Z",
       "firstSeenAt": "2026-07-08T11:14:55.248Z",
       "country": "CH",
       "sourceLang": "it",
@@ -75,7 +75,7 @@
       },
       "companyKey": "cambiavalute",
       "companyDomain": "cambiavalute.ch",
-      "crawledAt": "2026-07-28T22:06:59.348Z",
+      "crawledAt": "2026-07-29T11:37:04.256Z",
       "firstSeenAt": "2026-07-08T11:14:55.248Z",
       "country": "CH",
       "sourceLang": "it",
@@ -115,7 +115,7 @@
       },
       "companyKey": "cambiavalute",
       "companyDomain": "cambiavalute.ch",
-      "crawledAt": "2026-07-28T22:06:59.348Z",
+      "crawledAt": "2026-07-29T11:37:04.256Z",
       "firstSeenAt": "2026-07-08T11:14:55.248Z",
       "country": "CH",
       "sourceLang": "it",
@@ -135,47 +135,6 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "id": "company-kbhp6",
-      "slug": "senior-backend-sviluppatore-cambiavalute-ch-2025-cambiavalute-0kbhp6",
-      "company": "CambiaValute.ch",
-      "title": "Senior Backend developer",
-      "location": "2026 CambiaValute",
-      "canton": "TI",
-      "category": "tech",
-      "contract": "part-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-08",
-      "url": "https://cambiavalute.ch/annuncio-di-lavoro/senior-backend-developer/",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Chiasso",
-        "canton": "TI"
-      },
-      "companyKey": "cambiavalute",
-      "companyDomain": "cambiavalute.ch",
-      "crawledAt": "2026-07-27T12:36:10.998Z",
-      "firstSeenAt": "2026-07-08T11:14:55.248Z",
-      "country": "CH",
-      "sourceLang": "it",
-      "salaryMin": 79500,
-      "salaryMax": 135000,
-      "addressLocality": "2026 CambiaValute",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 90,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 21,
-        "translation": 25,
-        "completeness": 19
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }
