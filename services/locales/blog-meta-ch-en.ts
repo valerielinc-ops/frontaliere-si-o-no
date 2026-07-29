@@ -1663,6 +1663,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.telelavoro-frontalieri-limiti-fiscali-previdenziali.title': 'Frontier teleworking: tax and social security limits',
     'blog.article.telelavoro-frontalieri-limiti-fiscali-previdenziali.excerpt': 'Italy-Switzerland frontier workers: teleworking follows two distinct thresholds. Find out how tax 25% and social security 49.9% affect taxes and contributions.',
     'blog.article.telelavoro-frontalieri-limiti-fiscali-previdenziali.imageAlt': 'Modern office in Lugano with lake view',
+    'blog.article.accertamento-residenza-fiscale-prove-digitali.title': 'Verification of tax residence: the digital evidence of the ADE',
+    'blog.article.accertamento-residenza-fiscale-prove-digitali.excerpt': 'How the Revenue Agency uses digital traces to verify the tax residence of taxpayers. Practical analysis and regulatory references.',
+    'blog.article.accertamento-residenza-fiscale-prove-digitali.imageAlt': 'Digital documents and computer in a Swiss office',
 };
 
 export default blogMetaChEn;

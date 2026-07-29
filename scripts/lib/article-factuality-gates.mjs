@@ -35,12 +35,13 @@
  * decide what blocks (see runFactualityGates → `blocking`).
  *
  * LOCALES. Generation happens in Italian and en/de/fr are translations of it,
- * so these gates were Italian-only — which left the TRANSLATION step ungated.
- * Sections 2, 3 and 4 below now take a `locale` and read their vocabulary from
- * article-locale-lexicon.mjs (whose Italian entries are this file's former
- * literals, moved unchanged); sections 9 and 10 compare a translation against
- * its Italian original. Everything else stays Italian-only by design — see the
- * comment on runFactualityGates.
+ * so these gates were Italian-only — which left the TRANSLATION step ungated,
+ * and that is where "frontalieri" shipped as "border guards" in 7 English
+ * titles. Sections 2, 3 and 4 now take a `locale` and read their vocabulary
+ * from article-locale-lexicon.mjs, whose Italian entries are this file's own
+ * literals moved unchanged; sections 9 and 10 compare a translation against
+ * the Italian it derives from. Everything else stays Italian-only on purpose —
+ * see the comment on runFactualityGates.
  */
 import {
   LOCALE_LEXICON,
@@ -134,7 +135,18 @@ function issue(code, severity, message, evidence, fix = '') {
 // generation pipeline has fought free-tier truncation before (see the cap
 // comments in create-article.mjs), so the class is worth a cheap standing check.
 
-const SENTENCE_END = /[.!?:;»"')\]}…]$/;
+// Typographic closing quotes count as sentence ends exactly like the ASCII `"`
+// already listed. Italian sources quote with `”` and `›`, and the corpus triage
+// (2026-07-29) found three articles flagged purely for closing a quotation
+// properly ("…che ne certificano l'ubicazione.”").
+// U+2019 `’` is deliberately NOT here: Italian uses it as an apostrophe
+// ("un po’", "l’ufficio"), so accepting it would rescue genuine cut-offs.
+const SENTENCE_END = /[.!?:;»›"”')\]}…]$/;
+
+// A footnote reference sits AFTER the full stop it annotates ("…in seguito. 6").
+// Whitespace before the digits is required: without it "…il tetto sale a 60.000"
+// would lose its "000" and pass on the "60." left behind.
+const TRAILING_FOOTNOTE_REF = /\s+\[?\^?\d{1,3}\]?$/;
 
 /**
  * Detects text that was cut off mid-generation.
@@ -183,19 +195,38 @@ export function detectTruncation(text, opts = {}) {
   // (b) The text should end on a sentence boundary. Several endings are
   // legitimate and must not be flagged (they produced 117 false positives on
   // the first corpus pass): tables, lists, headings, "Fonte: …" attribution
-  // lines, footnote markers, and a trailing emoji after real punctuation.
+  // lines, footnote entries and markers, a typographic closing quote, and a
+  // trailing emoji after real punctuation.
+  //
+  // The exemptions stop there on purpose. The 2026-07-29 triage read all 47
+  // corpus hits: 41 were real defects (24 sentences cut mid-word, 17 bodies
+  // ending on leaked scaffolding — "TITOLO ARTICOLO:", a source footer, a slug
+  // list). Only 6 were noise, and all 6 fall in the classes handled here. In
+  // particular the `looksLikeHeading` cut-off stays at 60 chars: the leaked
+  // "TITOLO ARTICOLO:" tails run 61-80 chars and must keep failing.
   const trimmed = text.trimEnd();
   const lastLine = trimmed.split('\n').filter((l) => l.trim()).pop() || '';
   const isStructural = /^\s*([|#\-*>]|\d+\.)/.test(lastLine);
   const isAttribution = /^\s*\*?\s*(fonte|source|quelle)\s*:/i.test(lastLine);
+  // A markdown footnote entry closes on the back-reference glyph "↩" and carries
+  // no sentence punctuation of its own. Same call as `isAttribution`: the line is
+  // reference apparatus, not prose, so its ending says nothing about truncation.
+  const isFootnote = /↩\s*$/.test(lastLine);
   // Strip trailing emoji / footnote glyphs before judging the punctuation.
-  const withoutTrailingGlyphs = trimmed
+  let withoutTrailingGlyphs = trimmed
     .replace(/[\p{Extended_Pictographic}\p{Emoji_Presentation}️‍↩*_\s]+$/gu, '');
+  // Drop a trailing footnote reference ONLY when the text still ends on a
+  // sentence boundary once it is gone. A genuine cut-off that happens to end in
+  // a digit is therefore never rescued — it simply fails the check below.
+  const withoutFootnoteRef = withoutTrailingGlyphs.replace(TRAILING_FOOTNOTE_REF, '');
+  if (withoutFootnoteRef !== withoutTrailingGlyphs && SENTENCE_END.test(withoutFootnoteRef)) {
+    withoutTrailingGlyphs = withoutFootnoteRef;
+  }
   const endsCleanly = SENTENCE_END.test(withoutTrailingGlyphs);
   // A short tail is usually a heading, not a cut-off sentence.
   const looksLikeHeading = lastLine.trim().length < 60 && !/[,;]$/.test(lastLine.trim());
 
-  if (!isStructural && !isAttribution && !endsCleanly && !looksLikeHeading) {
+  if (!isStructural && !isAttribution && !isFootnote && !endsCleanly && !looksLikeHeading) {
     issues.push(issue(
       'incomplete-ending',
       'major',
@@ -217,17 +248,40 @@ export function detectTruncation(text, opts = {}) {
 
 const REL_TOLERANCE = 0.005;
 
+/**
+ * Reads an amount the way its own locale writes it.
+ *
+ * Italian keeps parseItalianNumber untouched, deliberately: it is the parser
+ * every shipped Italian verdict was computed with, and the corpus audit has to
+ * stay bit-for-bit comparable across the locale change. The other three go
+ * through the shape-reading canonicaliser, which additionally copes with
+ * 60'000 and 60 000 — forms Italian prose never uses.
+ */
+function parseAmount(raw, locale) {
+  return locale === 'it' ? parseItalianNumber(raw) : canonicalNumeric(raw);
+}
+
+/**
+ * Regex source for one number token, in the conventions `locale` may use.
+ * The Italian branch is the original literal: widening it would change which
+ * Italian expressions the arithmetic gate sees.
+ */
+function numberTokenFor(locale) {
+  return locale === 'it' ? String.raw`\d[\d.,]*` : `(?:${NUMBER_TOKEN})`;
+}
+
 /** "A x B = C", written in whatever number convention `locale` uses. */
 function arithmeticRe(locale) {
   const n = numberTokenFor(locale);
   return new RegExp(String.raw`(${n})\s*[x×*]\s*(${n})\s*=\s*(${n})`, 'gi');
 }
+
 /**
  * "…4,5%" / "…4,5 per cento" immediately before an expression.
  *
- * The Italian branch is the original literal and stays alone: adding the other
- * locales' spelt-out forms to it would make "percentuale" match `percent` and
- * silently change an Italian verdict this change is required not to move.
+ * The Italian branch stays alone with its two original spellings: folding the
+ * other locales' words into it would make "percentuale" match `percent` and
+ * silently move an Italian verdict this change is required not to move.
  */
 const SPELT_PERCENT = {
   it: String.raw`%|per\s*cento`,
@@ -270,25 +324,41 @@ export function checkInlineArithmetic(text, opts = {}) {
       ));
     }
 
-    // (b) When a percentage introduces the expression, the multiplier must be
-    // that percentage as a decimal. "4,5% (0,45 x ...)" is off by 10×.
+    // (b) When a percentage introduces the expression, one of the two operands
+    // must be that percentage as a decimal. "4,5% (0,45 x ...)" is off by 10×.
+    //
+    // Either operand: multiplication is commutative and articles write it both
+    // ways. Assuming the factor was always the LEFT one blocked
+    // `stipendio-saldatore-frontaliere-ticino`, which states "del 20% … 80.000 x
+    // 0,20 = 16.000" — arithmetically perfect, reported as "400000× il valore
+    // corretto" because 80.000 was compared against 0,2.
     const before = text.slice(Math.max(0, m.index - 60), m.index);
     const pctMatch = [...before.matchAll(percentRe(locale))].pop();
     if (pctMatch) {
       const pct = parseAmount(pctMatch[1], locale);
-      if (Number.isFinite(pct) && pct !== 0 && relDiff(a, pct / 100) > REL_TOLERANCE) {
-        const ratio = (a / (pct / 100));
+      const asDecimal = pct / 100;
+      const stated = Number.isFinite(pct) && pct !== 0
+        && relDiff(a, asDecimal) > REL_TOLERANCE
+        && relDiff(b, asDecimal) > REL_TOLERANCE;
+      if (stated) {
+        // Neither operand is the rate. The one meant to be it is the smaller:
+        // a rate is a fraction, the other side is a salary.
+        const factorIsA = Math.abs(a) <= Math.abs(b);
+        const factor = factorIsA ? a : b;
+        const factorRaw = factorIsA ? aRaw : bRaw;
+        const base = factorIsA ? b : a;
+        const ratio = factor / asDecimal;
         issues.push(issue(
           'percent-factor-mismatch',
           'critical',
-          `Percentuale e fattore incoerenti: dichiarato ${pctMatch[1]}% ma moltiplicato per ${aRaw} `
-          + `(${Number.isFinite(ratio) ? `${ratio.toFixed(0)}× il valore corretto ${(pct / 100).toString().replace('.', ',')}` : 'valore incoerente'})`,
+          `Percentuale e fattore incoerenti: dichiarato ${pctMatch[1]}% ma moltiplicato per ${factorRaw} `
+          + `(${Number.isFinite(ratio) ? `${ratio.toFixed(0)}× il valore corretto ${asDecimal.toString().replace('.', ',')}` : 'valore incoerente'})`,
           `${pctMatch[0]} ... ${full}`,
           `Decidi quale dei due numeri è giusto e allinea l'altro. `
           + `Se la percentuale corretta è ${pctMatch[1]}%, il fattore deve essere `
-          + `${(pct / 100).toString().replace('.', ',')} e il risultato ${formatItalianNumber((pct / 100) * b)}. `
+          + `${asDecimal.toString().replace('.', ',')} e il risultato ${formatItalianNumber(asDecimal * base)}. `
           + `Se invece il risultato ${cRaw} è quello giusto, la percentuale da dichiarare è `
-          + `${(a * 100).toString().replace('.', ',')}%. Non lasciare i due valori incoerenti e non cancellare l'esempio.`,
+          + `${(factor * 100).toString().replace('.', ',')}%. Non lasciare i due valori incoerenti e non cancellare l'esempio.`,
         ));
       }
     }
@@ -301,41 +371,110 @@ export function checkInlineArithmetic(text, opts = {}) {
 //
 // The article's core error — reading "100% of the withholding TABLES" as "100%
 // of gross salary" — always surfaces as a tax that swallows the whole income.
-// A tax equal to or above gross pay is arithmetically impossible, so this needs
-// no domain tuning and cannot false-positive.
+// A tax equal to or above gross pay is arithmetically impossible.
+//
+// PRECISION PASS (2026-07-29). The first cut paired amounts per LINE and
+// reported 59 blocking findings over 48 articles; sampling them by hand showed
+// most were correct prose. A crying-wolf gate is not a harmless nuisance here:
+// its issues are fed straight back into the regeneration prompt, and the
+// writer's cheapest reply to an "impossible tax" it cannot see is to delete the
+// example — the exact failure mode these gates exist to stop. Four causes, one
+// named constant each:
+//
+//   (a) a "line" is not a statement. Bulleted scenarios ("- Scenario 1: … -
+//       Scenario 4: …") share one line, so the 4.000 CHF monthly salary of the
+//       first was paired with the 6.000 CHF salary of the fourth
+//       (`lpp-minimo-secondo-pilastro-2026`) → LIST_MARKER_RE / SENTENCE_BREAK_RE
+//       now cut a line into the statements a reader actually sees.
+//   (b) a threshold is not a sum paid. "chi ha un reddito di OLTRE 80.000
+//       franchi è tenuto a pagare le tasse" repeats one bracket twice and the
+//       second copy was read as a tax equal to the income — 4 of the 6 findings
+//       on `tasse-frontalieri-scambio-dati-stipendi-italia` → THRESHOLD_CUE.
+//   (c) not every franc figure is a tax. Prices, season passes, deductions and
+//       refunds share the paragraph → NON_TAX_CUE.
+//   (d) nothing bounded how far apart the two numbers could sit: the 41-franc
+//       IRPEF refund of `funivia-monte-lema-stagione-2026` was matched against
+//       a 290-franc ski pass eight sentences later → MAX_PAIR_DISTANCE.
+//
+// Segmentation alone would have cost the very defect it was built for: the
+// incident article states the income in one sentence and the impossible tax in
+// the next. Hence the one-statement carry-over in incomeTaxPairs().
 
-// Vocabulary now lives in article-locale-lexicon.mjs so the same check can run
-// on a translation. `LOCALE_LEXICON.it` holds the exact literals that used to
-// sit here, so the Italian verdict is unchanged by construction.
-const { incomeCue: INCOME_CUE, taxCue: TAX_CUE } = LOCALE_LEXICON.it;
+// The seven cue sets below now live in article-locale-lexicon.mjs, one entry
+// per locale, so the same pairing rules can judge a translation. The Italian
+// entries there are the literals that used to sit here, moved unchanged —
+// each with the corpus false positive that shaped it, reproduced verbatim:
+//
+//   incomeCue           capture group 2 is the text between the cue word and
+//                       the amount; whatever sits in that gap is closer to the
+//                       figure than the income word is, and wins. "Un residente
+//                       con lo stesso stipendio lordo PAGA CIRCA 900 franchi di
+//                       tasse" opens on an income word but names a tax
+//                       (`divario-salari-ticino-frontalieri-2026`).
+//   incomeCueTrailing   an amount can be named as income AFTER the figure:
+//                       "4.500 franchi di tasse per ogni 1.000 franchi DI
+//                       REDDITO" only reads as 450% once the 1.000 is the base
+//                       (`bossi-commemorazione-bagarrata`).
+//   taxCue              "tass\w*" also matched `tasso` — the exchange RATE —
+//                       which blocked `franco-forte-stipendio-frontalieri`; the
+//                       leading \b stops `pag\w*` matching inside "equiPAGGi"
+//                       (`momoride-carpooling-frontalieri-benefici`).
+//   thresholdCue        brackets, floors and caps mark where a rule starts
+//                       applying, never what someone hands over. Excluded from
+//                       the tax role only — "un reddito di oltre 80.000
+//                       franchi" is still a usable income base.
+//   nonTaxCue           prices, passes, deductions and refunds share the
+//                       paragraph; when one sits closer to the amount than any
+//                       tax word it vetoes the pairing
+//                       (`funivia-monte-lema-stagione-2026`).
+//   approximation       words that mark a parenthesis as restating a figure
+//                       already on the page (`frontalieri-calano-ticino`).
+//   periods             time base, so a monthly salary is never compared with
+//                       an annual tax.
+
+// How far apart an income and its alleged tax may sit. The real defects state
+// both inside one breath — 133 chars on the incident article ("un reddito di
+// 60.000 … all'anno. … ovvero 60.000 franchi svizzeri"), 173 on
+// `proposta-choc-ticino-frontalieri`. Past ~250 chars the two figures belong to
+// different thoughts and pairing them is a coin toss.
+const MAX_PAIR_DISTANCE = 260;
+
+// A list item starts a new, independent scenario, so nothing carries across it.
+// A bare "-" counts only when it introduces a capitalised clause: otherwise
+// every numeric range ("60.000 - 70.000 franchi") would be cut in half.
+const LIST_MARKER_RE = /(?:^|\s)(?:[*•]|[-–—](?=\s+[A-ZÀ-Ü]))\s+/g;
+// Sentence break, taken only where a new clause visibly begins. The dot inside
+// "1.000" is followed by a digit and never matches. Table cell separators are
+// soft breaks, not hard ones: "| reddito 60.000 | imposta 72.000 |" is one
+// claim spread over two cells and must still be checkable.
+const SENTENCE_BREAK_RE = /(?<=[.!?;])\s+(?=[«"'([*•A-ZÀ-Ü])|\s*\|\s*/g;
 
 /**
- * Reads an amount the way its own locale writes it.
+ * Ranges of the text that restate a figure already on the page rather than
+ * assert a new one. Two shapes, both parenthetical:
  *
- * Italian keeps parseItalianNumber untouched, deliberately: this is the parser
- * the shipped Italian verdicts were computed with, and the corpus audit has to
- * stay bit-for-bit comparable across this change. The other three go through
- * the shape-reading canonicaliser, which additionally copes with 60'000 and
- * 60 000 — forms Italian prose never uses.
+ *  - a working ("24.000 CHF (30% di 80.000)"). Without this the 80.000 inside
+ *    the parenthesis read as a tax equal to the 80.000 income — 96 false
+ *    positives on the first corpus pass.
+ *  - a currency conversion or approximation ("30.000 euro (circa 31.200 franchi
+ *    svizzeri)"). Same number, other currency: `frontalieri-calano-ticino` was
+ *    blocked for a "tax" 104% of an income that was in fact that same income
+ *    converted to francs one word later.
+ *  - a working with no percentage in it, "(80.000 CHF - 10.000 CHF)", which
+ *    shows where the figure in front of it came from. The 80.000 inside read
+ *    as a 114% tax on the 70.000 it derives
+ *    (`terzo-pilastro-3a-vantaggi-canton-ginevra`).
  */
-function parseAmount(raw, locale) {
-  return locale === 'it' ? parseItalianNumber(raw) : canonicalNumeric(raw);
-}
-
-/** Regex source for one amount token, in the conventions `locale` may use. */
-function numberTokenFor(locale) {
-  return locale === 'it' ? String.raw`\d[\d.,]*` : `(?:${NUMBER_TOKEN})`;
-}
-
-/**
- * Ranges of the text that restate a base figure rather than assert a new one:
- * a parenthetical containing a percentage, e.g. "24.000 CHF (30% di 80.000)".
- * Without this, the 80.000 inside the parenthesis was read as a tax equal to
- * the 80.000 income — 96 false positives on the first corpus pass.
- */
-function calculationSpans(text) {
+function restatementSpans(text, locale = 'it') {
   const spans = [];
-  for (const m of text.matchAll(/\([^)]*%[^)]*\)/g)) {
+  const { approximation } = lexiconFor(locale);
+  const re = new RegExp(
+    String.raw`\([^)]*%[^)]*\)`
+    + String.raw`|\(\s*(?:${approximation}|≈|~)[^)]*\)`
+    + String.raw`|\([^)]*\d[^)]*[-−+x×*=/][^)]*\d[^)]*\)`,
+    'gi',
+  );
+  for (const m of text.matchAll(re)) {
     spans.push([m.index, m.index + m[0].length]);
   }
   return spans;
@@ -355,15 +494,33 @@ function periodOf(text, afterIndex, locale = 'it') {
   return '';
 }
 
-/** Extracts every "<amount> <currency>" occurrence with its position. */
+/**
+ * Extracts every "<amount> <currency>" occurrence with its position.
+ *
+ * The apostrophe is the Swiss thousands separator and half the corpus writes
+ * salaries that way. Reading only `[\d.,]` truncated "4'500 CHF" to 500 and
+ * "80'000 CHF" to zero, which invented impossible ratios out of perfectly
+ * correct arithmetic — "guadagna 4'500 CHF al mese e paga 1'200 CHF di
+ * imposte" came out as a 120% tax (`frontaliere-ticino-panettiere-guadagno`,
+ * `quanto-guadagna-un-polimeccanico-frontaliere-in-ticino`).
+ *
+ * Italian keeps that hand-written token and parseItalianNumber; the other
+ * locales use the shared shape-reading token, which covers the same apostrophe
+ * plus the French "70 000" and the English "70,000".
+ */
 function extractAmounts(text, locale = 'it') {
   const { currency } = lexiconFor(locale);
-  const re = new RegExp(String.raw`(${numberTokenFor(locale)})\s*${currency}`, 'gi');
-  const skip = calculationSpans(text);
+  const token = locale === 'it'
+    ? String.raw`\d[\d.,]*(?:['’]\d{3})*(?:[.,]\d+)?`
+    : `(?:${NUMBER_TOKEN})`;
+  const re = new RegExp(String.raw`(${token})\s*${currency}`, 'gi');
+  const skip = restatementSpans(text, locale);
   const out = [];
   for (const m of text.matchAll(re)) {
     if (skip.some(([s, e]) => m.index >= s && m.index < e)) continue;
-    const value = parseAmount(m[1], locale);
+    const value = locale === 'it'
+      ? parseItalianNumber(m[1].replace(/['’]/g, ''))
+      : canonicalNumeric(m[1]);
     if (!Number.isFinite(value) || value <= 0) continue;
     out.push({
       value,
@@ -381,6 +538,102 @@ function periodsConflict(a, b) {
 }
 
 /**
+ * Cuts a line into the statements a reader treats as separate claims, tagging
+ * each with the list item ("block") it belongs to. Statements in different
+ * blocks are different scenarios and never share an income.
+ */
+function statementSpans(line) {
+  const cuts = [
+    ...[...line.matchAll(LIST_MARKER_RE)].map((m) => ({ at: m.index + m[0].length, hard: true })),
+    ...[...line.matchAll(SENTENCE_BREAK_RE)].map((m) => ({ at: m.index + m[0].length, hard: false })),
+  ].sort((a, b) => a.at - b.at || Number(b.hard) - Number(a.hard));
+
+  const spans = [];
+  let start = 0;
+  let block = 0;
+  for (const cut of cuts) {
+    if (cut.at > start) spans.push({ start, end: cut.at, block });
+    if (cut.hard) block += 1;
+    start = Math.max(start, cut.at);
+  }
+  spans.push({ start, end: line.length, block });
+  return spans;
+}
+
+/** True when the amount is named as an income, by a cue before or right after it. */
+function namesAnIncome(line, span, amt, locale = 'it') {
+  const { incomeCue, incomeCueTrailing, taxCue } = lexiconFor(locale);
+  const cue = line.slice(span.start, amt.index).match(incomeCue);
+  // A tax word in the gap sits closer to the figure than the income word does,
+  // so the figure is the tax — see the incomeCue note above.
+  if (cue && !taxCue.test(cue[2])) return true;
+  const after = amt.index + amt.raw.length;
+  return incomeCueTrailing.test(line.slice(after, after + 30));
+}
+
+/**
+ * Every (income, amount-presented-as-its-tax) pair a single line asserts.
+ *
+ * Shared by the plausibility gate and the cross-section conflict gate. The two
+ * carried copy-pasted pairing code, so a precision fix applied to one left the
+ * other flagging the same false positive — the duplication is the bug.
+ */
+function* incomeTaxPairs(line, locale = 'it') {
+  const { taxCue, thresholdCue, nonTaxCue } = lexiconFor(locale);
+  const amounts = extractAmounts(line, locale);
+  if (amounts.length < 2) return;
+
+  // An income reaches the NEXT statement and no further: the incident article
+  // splits the claim over two sentences ("… un reddito di 60.000 franchi
+  // svizzeri all'anno." / "Se optasse …, ovvero 60.000 franchi svizzeri"), while
+  // anything beyond one hop reintroduces the cross-scenario noise. A statement
+  // that names its own income never inherits — that is what clears
+  // `lpp-minimo-secondo-pilastro-2026`, where "se il suo stipendio aumenta a
+  // 7.000 CHF" is a new base, not a tax on the 6.000 CHF of the sentence before.
+  let carried = null;
+
+  for (const span of statementSpans(line)) {
+    const local = amounts.filter((a) => a.index >= span.start && a.index < span.end);
+    const own = local.find((a) => namesAnIncome(line, span, a, locale));
+    const income = own || (carried && carried.block === span.block ? carried.amount : null);
+    carried = own ? { amount: own, block: span.block } : null;
+    if (!income) continue;
+
+    for (const amt of local) {
+      if (amt === income) continue;
+      // A second income is a second scenario, never the first one's tax. One
+      // sentence routinely carries both: "un paziente con un reddito di 50.000
+      // franchi pagherà il 10%, mentre un paziente con un reddito di 100.000
+      // franchi pagherà il 20%" was read as a 200% tax rate
+      // (`costi-cure-domocilio-ticino-2026`).
+      if (namesAnIncome(line, span, amt, locale)) continue;
+      if (periodsConflict(income, amt)) continue;
+      if (Math.abs(amt.index - income.index) > MAX_PAIR_DISTANCE) continue;
+
+      // Cue nearest the amount wins: a threshold marker or a non-tax noun
+      // immediately in front of it outranks a tax word further upstream.
+      const near = line.slice(Math.max(span.start, amt.index - 40), amt.index);
+      if (thresholdCue.test(near)) continue;
+      if (nonTaxCue.test(near) && !taxCue.test(near)) continue;
+
+      // The tax cue has to sit between the two figures, or right in front of
+      // the candidate — never upstream of the income. Reading back a flat 80
+      // characters let a tax word that belonged to the income's own clause
+      // qualify the alternative that followed it: "pagare le imposte solo sul
+      // reddito residuo di 70.000 CHF (…) o 72.500 CHF" flagged the second
+      // residual income as a 104% tax (`terzo-pilastro-3a-vantaggi-canton-ginevra`).
+      const floor = amt.index >= income.index ? Math.max(span.start, income.index) : span.start;
+      const between = line.slice(income.index, amt.index);
+      const preceding = line.slice(Math.max(floor, amt.index - 80), amt.index);
+      // Only compare amounts that are actually presented as a tax.
+      if (!taxCue.test(between) && !taxCue.test(preceding)) continue;
+
+      yield { income, tax: amt };
+    }
+  }
+}
+
+/**
  * Flags a stated tax that meets or exceeds the gross income it is computed on.
  * @param {string} text
  * @param {{implausibleRatio?: number, locale?: string}} [opts] ratio above which a tax is "major"
@@ -390,39 +643,22 @@ export function checkTaxPlausibility(text, opts = {}) {
   if (typeof text !== 'string') return issues;
   const implausibleRatio = opts.implausibleRatio ?? 0.6;
   const locale = opts.locale || 'it';
-  const { incomeCue, taxCue } = lexiconFor(locale);
   // One report per (income, tax) pair — the same example restated across
   // paragraphs otherwise emitted the identical issue a dozen times.
   const reported = new Set();
 
-  // Work line by line (and table rows are lines) so an income and a tax are
-  // only paired when they genuinely sit in the same statement.
   for (const line of text.split('\n')) {
-    const amounts = extractAmounts(line, locale);
-    if (amounts.length < 2) continue;
-
-    // The income is the amount introduced by an income cue.
-    const income = amounts.find((a) => incomeCue.test(line.slice(0, a.index)));
-    if (!income) continue;
-
-    for (const amt of amounts) {
-      if (amt === income) continue;
-      if (periodsConflict(income, amt)) continue;
-      const between = line.slice(income.index, amt.index);
-      const preceding = line.slice(Math.max(0, amt.index - 80), amt.index);
-      // Only compare amounts that are actually presented as a tax.
-      if (!taxCue.test(between) && !taxCue.test(preceding)) continue;
-
-      const dedupKey = `${income.value}|${amt.value}`;
+    for (const { income, tax } of incomeTaxPairs(line, locale)) {
+      const dedupKey = `${income.value}|${tax.value}`;
       if (reported.has(dedupKey)) continue;
       reported.add(dedupKey);
 
-      const ratio = amt.value / income.value;
+      const ratio = tax.value / income.value;
       if (ratio >= 1) {
         issues.push(issue(
           'tax-exceeds-income',
           'critical',
-          `Imposta ${amt.raw} pari o superiore al reddito lordo ${income.raw} (${Math.round(ratio * 100)}%) — impossibile`,
+          `Imposta ${tax.raw} pari o superiore al reddito lordo ${income.raw} (${Math.round(ratio * 100)}%) — impossibile`,
           line.trim(),
           `Un'imposta non può essere pari o superiore al reddito lordo. Errore tipico: leggere "aliquota al 100%" `
           + `come "il 100% dello stipendio". Il 100% si riferisce all'ALIQUOTA PIENA della tabella d'imposta, non al reddito. `
@@ -434,10 +670,10 @@ export function checkTaxPlausibility(text, opts = {}) {
         issues.push(issue(
           'tax-implausible',
           'major',
-          `Imposta ${amt.raw} = ${Math.round(ratio * 100)}% del reddito ${income.raw} — implausibile per un frontaliere`,
+          `Imposta ${tax.raw} = ${Math.round(ratio * 100)}% del reddito ${income.raw} — implausibile per un frontaliere`,
           line.trim(),
           `Verifica l'aliquota: l'imposta alla fonte per un frontaliere in Ticino sta tipicamente tra il 5% e il 15% del lordo. `
-          + `Se ${amt.raw} include anche contributi o imposte italiane, dichiaralo esplicitamente e scomponi le voci; `
+          + `Se ${tax.raw} include anche contributi o imposte italiane, dichiaralo esplicitamente e scomponi le voci; `
           + `altrimenti correggi l'importo.`,
         ));
       }
@@ -463,7 +699,6 @@ export function checkCrossSectionNumericConflicts(sections, opts = {}) {
   if (!sections || typeof sections !== 'object') return issues;
   const conflictRatio = opts.conflictRatio ?? 3;
   const locale = opts.locale || 'it';
-  const { incomeCue, taxCue } = lexiconFor(locale);
 
   // base income value → [{ section, tax }]
   const byIncome = new Map();
@@ -471,21 +706,13 @@ export function checkCrossSectionNumericConflicts(sections, opts = {}) {
   for (const [section, text] of Object.entries(sections)) {
     if (typeof text !== 'string') continue;
     for (const line of text.split('\n')) {
-      const amounts = extractAmounts(line, locale);
-      if (amounts.length < 2) continue;
-      const income = amounts.find((a) => incomeCue.test(line.slice(0, a.index)));
-      if (!income) continue;
-
-      for (const amt of amounts) {
-        if (amt === income) continue;
-        if (periodsConflict(income, amt)) continue;
-        const between = line.slice(income.index, amt.index);
-        const preceding = line.slice(Math.max(0, amt.index - 80), amt.index);
-        if (!taxCue.test(between) && !taxCue.test(preceding)) continue;
-
+      // Same pairing rules as the plausibility gate, deliberately: this gate
+      // used to re-derive them and drifted, so a false pair fixed there kept
+      // firing here on the same sentence.
+      for (const { income, tax } of incomeTaxPairs(line, locale)) {
         const key = income.value;
         if (!byIncome.has(key)) byIncome.set(key, []);
-        byIncome.get(key).push({ section, tax: amt.value, raw: amt.raw, line: line.trim() });
+        byIncome.get(key).push({ section, tax: tax.value, raw: tax.raw, line: line.trim() });
       }
     }
   }
@@ -609,8 +836,8 @@ export function checkFabricatedInstitutionAcronyms(text) {
 // "Il Decreto Omnibus è stato varato il 1° gennaio 2023" coexisted with "Il 1°
 // gennaio 2024 entrerà in vigore il Decreto Omnibus" in the same article.
 
-// Same table the cross-locale date comparison uses; kept in one place so the
-// two can never disagree about what "marzo" means.
+// The same table the cross-locale date comparison reads, kept in one place so
+// the two can never disagree about what "marzo" means.
 const MONTHS_IT = LOCALE_LEXICON.it.months;
 const DATE_IT_RE = /(\d{1,2})\s*°?\s+(gennaio|febbraio|marzo|aprile|maggio|giugno|luglio|agosto|settembre|ottobre|novembre|dicembre)\s+(\d{4})/gi;
 // Deliberately excludes Accordo / Convenzione / Trattato. An international
@@ -902,16 +1129,14 @@ export function checkSourceFidelity(articleText, sourceText, opts = {}) {
 
 // ─── 9. Italian ↔ translation numeric consistency ─────────────────────
 //
-// The gates above judge one body against itself or against its source. This
-// one judges a TRANSLATION against the Italian it was translated from, which
-// is the only place a translation-time defect can be seen at all: a number the
-// translator dropped, invented, or mangled while reformatting.
+// Everything above judges one body against itself or against its source. This
+// judges a TRANSLATION against the Italian it came from — the only vantage
+// point from which a translation-time defect is visible at all.
 //
-// Reading the shape rather than the locale is what makes it usable. Italian
-// writes 60.000 and 0,25, English writes 60,000 and 0.25, and the corpus mixes
-// both inside every locale — see canonicalNumeric.
+// Reading numbers by SHAPE rather than by locale is what makes it usable: the
+// corpus mixes conventions inside every locale, and 6.500 CHF and 6,500 CHF
+// both occur in English bodies. See canonicalNumeric.
 
-/** Names used in messages; the codes stay stable and language-neutral. */
 const NUMERIC_KIND_LABEL = {
   pct: 'percentuali', amt: 'importi', km: 'distanze in km', date: 'date',
 };
@@ -923,24 +1148,55 @@ function renderNumericValue(kind, value) {
   return formatItalianNumber(value);
 }
 
+/** Significant digits of a number, ignoring where the separators fell. */
+function digitSignature(value) {
+  return String(value).replace(/[^0-9]/g, '').replace(/^0+/, '').replace(/0+$/, '') || '0';
+}
+
 /**
- * A value that is some other value shifted by a whole power of ten.
+ * The Italian value a translated number is a rescaled copy of.
  *
- * This is the signature of a botched separator conversion — 60.000 read as
- * "sixty point zero", 0,25 re-typed as 25 — and it is the one shape in this
- * check that is decidable without judgement, so it is the one that blocks.
- * Plain omissions and additions cannot be: translations legitimately restate,
- * merge and reorder, and the measured rate on the live corpus is in the
- * hundreds per locale (see the audit's own report).
+ * Two conditions, and the second one is what makes this check publishable.
+ * The ratio must be a whole power of ten AND the two numbers must carry the
+ * SAME significant digits. Ratio alone is not evidence: on the live corpus it
+ * paired an Italian nursery fee of 70-120 CHF/day with a German rent gap of
+ * 800-1.200 EUR/month, and a 50% AVS pro-rata with an unrelated French 5%
+ * capital tax — coincidences, because percentages live in a small value space
+ * and every article carries dozens of numbers.
+ *
+ * Same digits + different magnitude is not a coincidence: it is what a botched
+ * separator conversion leaves behind. The case that survives the rule is real
+ * — `franco-svizzero-minimi-euro` states "465 franchi svizzeri" in Italian and
+ * "CHF 4.65" in English, a 100× error introduced purely by re-punctuating.
  */
-function magnitudeTwin(value, candidates) {
+function rescaledFrom(value, candidates) {
+  const signature = digitSignature(value);
   for (const other of candidates) {
+    if (digitSignature(other) !== signature) continue;
     for (const factor of [10, 100, 1000, 0.1, 0.01, 0.001]) {
       const scaled = other * factor;
       if (Math.abs(value - scaled) <= Math.max(1e-9, Math.abs(scaled) * 1e-9)) return other;
     }
   }
   return null;
+}
+
+/**
+ * Below this, a set difference is noise rather than signal.
+ *
+ * Measured, not guessed. A single missing number is dominated by artefacts the
+ * comparison cannot see through: ranges name only one endpoint next to the
+ * currency ("da 60.000 a 100.000 franchi" yields 100000, "from CHF 60,000 to
+ * 100,000" yields 60000), and translations legitimately merge or reorder
+ * clauses. Requiring at least two values AND a quarter of that kind's set
+ * concentrates the report on translations that actually lost their figures.
+ */
+const MIN_NUMERIC_DIVERGENCE = 2;
+const MIN_NUMERIC_DIVERGENCE_SHARE = 0.25;
+
+function worthReporting(diverged, total) {
+  return diverged.length >= MIN_NUMERIC_DIVERGENCE
+    && diverged.length >= total * MIN_NUMERIC_DIVERGENCE_SHARE;
 }
 
 /**
@@ -965,30 +1221,30 @@ export function checkTranslationNumericConsistency(italianText, translatedText, 
     const added = [...dst[kind]].filter((v) => !src[kind].has(v));
     const label = NUMERIC_KIND_LABEL[kind];
 
-    // Dates carry no magnitude, and a date is never a rescaled other date.
+    // A date carries no magnitude, so it can never be a rescaled other date.
     if (kind !== 'date') {
       for (const value of added) {
-        const twin = magnitudeTwin(value, dropped);
-        if (twin === null) continue;
+        const original = rescaledFrom(value, dropped);
+        if (original === null) continue;
         issues.push(issue(
           'translation-number-magnitude',
           'critical',
           `[${locale}] ${renderNumericValue(kind, value)} nella traduzione dove l'italiano scrive `
-          + `${renderNumericValue(kind, twin)} — errore di ordine di grandezza introdotto in traduzione`,
-          `it: ${renderNumericValue(kind, twin)} → ${locale}: ${renderNumericValue(kind, value)}`,
-          `Riporta il valore dell'italiano: ${renderNumericValue(kind, twin)}. `
-          + `Lo scarto è un fattore esatto di 10, quindi non è un arrotondamento ma una conversione `
-          + `sbagliata del separatore (l'italiano scrive 60.000 e 0,25 dove l'inglese scrive 60,000 e 0.25). `
-          + `Non cancellare la cifra: correggila.`,
+          + `${renderNumericValue(kind, original)} — stessa cifra, ordine di grandezza diverso`,
+          `it: ${renderNumericValue(kind, original)} → ${locale}: ${renderNumericValue(kind, value)}`,
+          `Riporta il valore dell'italiano: ${renderNumericValue(kind, original)}. `
+          + `Le due cifre hanno le stesse cifre significative e differiscono per un fattore esatto di 10, `
+          + `quindi non è un arrotondamento ma una conversione sbagliata del separatore `
+          + `(l'italiano scrive 60.000 e 0,25 dove l'inglese scrive 60,000 e 0.25). Correggi la cifra, non cancellarla.`,
         ));
       }
     }
 
-    if (dropped.length) {
+    if (worthReporting(dropped, src[kind].size)) {
       issues.push(issue(
         'translation-number-dropped',
         'major',
-        `[${locale}] ${dropped.length} ${label} presenti nell'italiano e assenti dalla traduzione`,
+        `[${locale}] ${dropped.length}/${src[kind].size} ${label} dell'italiano assenti dalla traduzione`,
         dropped.slice(0, maxReported).map((v) => renderNumericValue(kind, v)).join(', '),
         `Reintegra nella versione ${locale} i valori mancanti così come li scrive l'italiano. `
         + `Se un passaggio è stato riassunto, il riassunto deve comunque conservare le cifre: `
@@ -996,11 +1252,11 @@ export function checkTranslationNumericConsistency(italianText, translatedText, 
       ));
     }
 
-    if (added.length) {
+    if (worthReporting(added, dst[kind].size)) {
       issues.push(issue(
         'translation-number-added',
         'major',
-        `[${locale}] ${added.length} ${label} presenti nella traduzione e assenti dall'italiano`,
+        `[${locale}] ${added.length}/${dst[kind].size} ${label} della traduzione assenti dall'italiano`,
         added.slice(0, maxReported).map((v) => renderNumericValue(kind, v)).join(', '),
         `Una traduzione non introduce dati nuovi. Rimuovi dalla versione ${locale} i valori che `
         + `l'italiano non riporta, oppure — se il dato è giusto e manca all'italiano — aggiungilo prima all'italiano.`,
@@ -1011,19 +1267,25 @@ export function checkTranslationNumericConsistency(italianText, translatedText, 
   return issues;
 }
 
-// ─── 10. Translated-away professions ──────────────────────────────────
+// ─── 10. Professions invented in translation ──────────────────────────
 //
 // A "frontaliere" is a cross-border COMMUTER. Every target language has a
 // similar-looking word for a border GUARD, and the translation step reached for
-// it: 7 English titles/excerpts shipped calling the site's entire audience
+// it: 7 English titles/excerpts shipped calling this site's entire audience
 // "border guards", plus one French "gardes-frontières". Fixed by hand on
 // 2026-07-28 — no gate saw them, because no gate ever read a translation.
-//
-// The pattern alone cannot convict: some articles are genuinely about customs
-// officers. The Italian source settles it. See ITALIAN_BORDER_GUARD_ANCHOR.
 
 /**
  * Flags a profession the translation invented out of "frontalieri".
+ *
+ * LIMIT, stated plainly: this does not read the sentence, so it cannot tell a
+ * mistranslated commuter from a genuine customs officer on its own. It defers
+ * to the Italian instead — if the Italian body names a guard, a customs
+ * officer, a finanziere or the dogana anywhere, the check stays silent for the
+ * whole article. That is a deliberate loss of recall: an article that discusses
+ * BOTH real border guards and frontalieri will not be checked at all. It buys
+ * the precision the gate needs to block, and it is why the anchor list is
+ * broad enough to include plain "dogana".
  *
  * @param {string} italianText    the Italian original
  * @param {string} translatedText the translation to judge
@@ -1034,9 +1296,6 @@ export function checkTranslationFalseFriends(italianText, translatedText, locale
   if (typeof italianText !== 'string' || typeof translatedText !== 'string') return issues;
   const patterns = FALSE_FRIEND_PATTERNS[locale];
   if (!patterns) return issues;
-
-  // The Italian original really discusses border guards → the translation is
-  // entitled to name them, and we cannot tell the two uses apart from here.
   if (ITALIAN_BORDER_GUARD_ANCHOR.test(italianText)) return issues;
 
   for (const { re, correct } of patterns) {
@@ -1062,15 +1321,15 @@ export function checkTranslationFalseFriends(italianText, translatedText, locale
 /**
  * Runs every deterministic gate.
  *
- * On a translation (`locale` != 'it') only the checks that can be decided
- * without Italian-specific knowledge run — arithmetic, tax plausibility,
- * cross-section conflicts, truncation — plus the two cross-locale checks, and
- * only when `italianSections` is supplied. The four that are skipped are
- * skipped on purpose, not for lack of time: the institution allowlist, the
- * norm-date predicates and the future-tense markers are Italian vocabulary
- * whose translated equivalents would need their own hand-tuned allowlists, and
- * the source-fidelity gate already ran against the Italian the translation
- * derives from — re-running it here would only re-report the same finding.
+ * On a translation (`locale` != 'it') only the checks decidable without
+ * Italian-specific knowledge run — truncation, arithmetic, tax plausibility,
+ * cross-section conflicts — plus the two cross-locale checks, and those only
+ * when `italianSections` is supplied. The four that are skipped are skipped on
+ * purpose, not for lack of time: the institution allowlist, the norm-date
+ * predicates and the future-tense markers are Italian vocabulary whose
+ * translated equivalents would each need their own hand-tuned allowlist, and
+ * the source-fidelity gate has already judged the Italian this text derives
+ * from — re-running it here would only restate the same finding four times.
  *
  * @param {{sections: Record<string,string>, sourceText?: string,
  *          sourceDate?: string|Date, publishedAt?: string|Date,

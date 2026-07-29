@@ -21506,6 +21506,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-accertamento-residenza-fiscale-prove-digitali': {
+    title: 'Accertamento residenza fiscale: le prove digitali dell\'ADE',
+    description: 'Scopri come l\'Agenzia delle Entrate utilizza le prove digitali per l\'accertamento della residenza fiscale e cosa devono sapere i lavoratori frontalieri.',
+    keywords: 'frontalieri, ticino, svizzera, italia, accertamento, residenza, fiscale, prove',
+    ogTitle: 'Residenza fiscale: come l\'ADE usa le prove digitali',
+    ogDescription: 'Approfondimento sulle tecniche di accertamento della residenza fiscale tramite dati digitali e implicazioni per i lavoratori frontalieri.',
+    canonicalPath: '/articoli-svizzera/accertamento-residenza-fiscale-prove-digitali/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Accertamento residenza fiscale: le prove digitali dell'ADE",
+      "description": "Scopri come l'Agenzia delle Entrate utilizza le prove digitali per l'accertamento della residenza fiscale e cosa devono sapere i lavoratori frontalieri.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/accertamento-residenza-fiscale-prove-digitali.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Documenti digitali e computer in un ufficio svizzero"
+      },
+      "datePublished": "2026-07-29T03:42:24+00:00",
+      "dateModified": "2026-07-29T03:42:24+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/accertamento-residenza-fiscale-prove-digitali/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

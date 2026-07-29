@@ -1663,6 +1663,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.telelavoro-frontalieri-limiti-fiscali-previdenziali.title': 'Grenzgänger-Telearbeit: Steuer- und Sozialversicherungsgrenzen',
     'blog.article.telelavoro-frontalieri-limiti-fiscali-previdenziali.excerpt': 'Grenzgänger Italien-Schweiz: Die Telearbeit folgt zwei unterschiedlichen Schwellenwerten. Erfahren Sie, wie sich 25 % Steuern und 49,9 % Vorsorge auf Steuern und Beiträge auswirken.',
     'blog.article.telelavoro-frontalieri-limiti-fiscali-previdenziali.imageAlt': 'Modernes Büro in Lugano mit Blick auf den See',
+    'blog.article.accertamento-residenza-fiscale-prove-digitali.title': 'Feststellung des steuerlichen Wohnsitzes: die digitalen Beweise des ADE',
+    'blog.article.accertamento-residenza-fiscale-prove-digitali.excerpt': 'Wie das Finanzamt digitale Spuren verwendet, um den steuerlichen Wohnsitz der Steuerpflichtigen zu überprüfen. Praktische Analyse und normative Referenzen.',
+    'blog.article.accertamento-residenza-fiscale-prove-digitali.imageAlt': 'Digitale Dokumente und Computer in einem Schweizer Büro',
 };
 
 export default blogMetaChDe;
