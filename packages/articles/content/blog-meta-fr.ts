@@ -9123,6 +9123,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.lavoro-temporaneo-svizzera-crescita.title': 'Travail temporaire en Suisse : renoue avec la croissance en 2024',
     'blog.article.lavoro-temporaneo-svizzera-crescita.excerpt': 'Après trois ans de baisse, le marché du travail temporaire marque +1,5%. Analyse des données Swissstaffing et implications pour le secteur industriel.',
     'blog.article.lavoro-temporaneo-svizzera-crescita.imageAlt': 'Vue panoramique sur un bureau à Lugano avec vue sur le lac',
+    'blog.article.fondo-liberta-svizzera-multe.title': 'Amendes sur les transports en commun : le fonds qui paie pour les plus démunis',
+    'blog.article.fondo-liberta-svizzera-multe.excerpt': 'L\'association Freiheitsfonds Schweiz soutient les personnes en difficulté économique pour éviter la détention de substitution en cas de non-paiement des amendes.',
+    'blog.article.fondo-liberta-svizzera-multe.imageAlt': 'Tramway public à Lugano, cadre urbain suisse',
 };
 
 export default blogMetaFr;

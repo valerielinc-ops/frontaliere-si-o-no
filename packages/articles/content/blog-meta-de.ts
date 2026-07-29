@@ -9120,6 +9120,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.lavoro-temporaneo-svizzera-crescita.title': 'Temporärarbeit in der Schweiz: 2024 wieder wachsen',
     'blog.article.lavoro-temporaneo-svizzera-crescita.excerpt': 'Nach drei Jahren des Rückgangs liegt der befristete Arbeitsmarkt bei +1,5%. Swissstaffing Datenanalyse und Implikationen für die Industrie.',
     'blog.article.lavoro-temporaneo-svizzera-crescita.imageAlt': 'Panoramablick auf ein Büro in Lugano mit Seeblick',
+    'blog.article.fondo-liberta-svizzera-multe.title': 'Bußgelder für öffentliche Verkehrsmittel: Fonds für Bedürftige',
+    'blog.article.fondo-liberta-svizzera-multe.excerpt': 'Der Verein Freiheitsfonds Schweiz unterstützt Menschen in wirtschaftlichen Schwierigkeiten, um eine Ersatzhaft bei Nichtzahlung der Busse zu vermeiden.',
+    'blog.article.fondo-liberta-svizzera-multe.imageAlt': 'Öffentliche Straßenbahn in Lugano, Schweizer Stadtbild',
 };
 
 export default blogMetaDe;
