@@ -2,10 +2,10 @@
  * Data-integrity coverage for the Liechtenstein corridor dataset (issue
  * #4884, third of the FR/DE/AT/LI rollout started by #4545).
  *
- * No SSG plugin exists yet for this corridor (out of scope for this slice —
- * see scripts/build-liechtenstein-municipalities.mjs header), so unlike
- * tests/french-border-municipality-pages.test.ts / fiscal-municipality-pages.test.ts
- * this file cannot import any `@/build-plugins/*` render path. It follows
+ * Data-level only by design: the render layer is covered separately by
+ * tests/liechtenstein-border-municipality-pages.test.ts, so this file
+ * deliberately imports no `@/build-plugins/*` render path — a dataset defect
+ * fails here, a rendering defect fails there, neither masks the other. It follows
  * tests/border-crossings-data-integrity.test.ts's pattern instead: validate
  * the live data + builder directly, no hard-coded copies of the dataset, no
  * absolute calendar dates (population `year` is checked to be plausible and

@@ -100,6 +100,7 @@ const fiscalMunicipalitiesSignal = makeValueSignal<readonly string[]>();
 const frenchBorderMunicipalitiesSignal = makeValueSignal<readonly string[]>();
 const germanBorderMunicipalitiesSignal = makeValueSignal<readonly string[]>();
 const liechtensteinBorderMunicipalitiesSignal = makeValueSignal<readonly string[]>();
+const austrianBorderMunicipalitiesSignal = makeValueSignal<readonly string[]>();
 
 /** Resolves when {@link staticPagesPlugin} has flushed all its queued writes. */
 export const staticPagesFlushed: Promise<void> = staticPagesSignal.promise;
@@ -360,4 +361,18 @@ export const liechtensteinBorderMunicipalitiesFlushed: Promise<readonly string[]
   liechtensteinBorderMunicipalitiesSignal.promise;
 export function resolveLiechtensteinBorderMunicipalitiesFlushed(paths: readonly string[]): void {
   liechtensteinBorderMunicipalitiesSignal.resolve(paths);
+}
+
+/**
+ * Resolves with every indexable Austrian border-municipality page
+ * {@link austrianBorderMunicipalityPagesPlugin} wrote this build (below-floor
+ * bridges excluded). Same orphan-tier hazard/contract as
+ * {@link frenchBorderMunicipalitiesFlushed} — consumed by
+ * {@link austrianBorderMunicipalityLinksPlugin}, which injects a hub link
+ * into the per-locale HTML sitemap pages.
+ */
+export const austrianBorderMunicipalitiesFlushed: Promise<readonly string[]> =
+  austrianBorderMunicipalitiesSignal.promise;
+export function resolveAustrianBorderMunicipalitiesFlushed(paths: readonly string[]): void {
+  austrianBorderMunicipalitiesSignal.resolve(paths);
 }

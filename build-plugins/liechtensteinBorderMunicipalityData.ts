@@ -94,7 +94,8 @@ export const LIECHTENSTEIN_BELOW_FLOOR: readonly LiechtensteinBorderMunicipality
 /**
  * Treaty SR 0.672.951.43 (Switzerland-Liechtenstein double-taxation
  * agreement), read directly, plus Statistisches Jahrbuch 2025. Sourced
- * 2026-07-29 — see /Users/saggesel/.claude/jobs/acadf57f/tmp/tax-research-de-li.md.
+ * 2026-07-29 — full sourcing trail in data/liechtensteinMunicipalities.ts's
+ * SOURCES header.
  *
  * Deliberately a QUALITATIVE rule, not a numeric CHF/EUR figure: this
  * corridor has no sourced annual tax amount at all (unlike France's

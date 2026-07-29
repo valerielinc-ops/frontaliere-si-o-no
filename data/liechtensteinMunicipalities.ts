@@ -22,7 +22,7 @@
  * scripts/build-liechtenstein-municipalities.mjs, which carries it into the
  * emitted JSON so no downstream consumer re-derives or misquotes the figure.
  * Full sourcing trail (fiscal treaty, customs union, social security):
- * /Users/saggesel/.claude/jobs/acadf57f/tmp/tax-research-de-li.md, "Passo 2".
+ * see the SOURCES block below — every figure carries its own primary URL.
  *
  * SOURCES (verified 2026-07-29, all primary/official, no paid tool)
  * -------------------------------------------------------------------------

@@ -46,7 +46,10 @@ import { endOfContentMultiplexHtml } from './lib/adSlotHtml';
 import { inlineScriptJson } from './shared/inlineJsonScript';
 import { resolveLiechtensteinBorderMunicipalitiesFlushed } from './shared/buildSignals';
 import { composePlaceTitle, TITLE_MAX_CHARS } from './shared/titleSuffix';
-import { LIECHTENSTEIN_CONTENT } from '../data/liechtensteinCorridorContent';
+import {
+  LIECHTENSTEIN_CONTENT,
+  type LiechtensteinLocaleContent,
+} from '../data/liechtensteinCorridorContent';
 import {
   LIECHTENSTEIN_LOCALES,
   LIECHTENSTEIN_ABOVE_FLOOR,
@@ -74,6 +77,30 @@ function esc(value: unknown): string {
     .replace(/</g, '&lt;')
     .replace(/>/g, '&gt;')
     .replace(/"/g, '&quot;');
+}
+
+/**
+ * The inverted-commuting disclosure is mandatory on every page of this
+ * corridor: the dominant flow is CH->FL (14'891 vs 2'426 in 2023, ~6:1), the
+ * opposite of what the "living abroad, working in Switzerland" template
+ * implies. A reader must be able to tell which of the two groups they are in.
+ *
+ * This used to read `faq[faq.length - 1]`, i.e. it depended on the disclosure
+ * happening to sit last in the array. Reordering the FAQ — an edit nobody would
+ * think twice about — would have swapped the accent box for an unrelated answer
+ * silently, with every test still green. Keyed lookup, and a hard failure if the
+ * marked entry disappears, so the guarantee can't erode by accident.
+ */
+function commutingDisclosure(content: LiechtensteinLocaleContent): string {
+  const entry = content.faq.find((f) => f.kind === 'commuting-direction');
+  if (!entry) {
+    throw new Error(
+      'liechtenstein: no FAQ entry marked `kind: "commuting-direction"` — the mandatory ' +
+        'inverted-commuting disclosure would silently vanish from the page. Restore the marker ' +
+        'in data/liechtensteinCorridorContent.ts instead of removing this check.',
+    );
+  }
+  return entry.answer;
 }
 
 function intlLang(locale: LiechtensteinLocale): string {
@@ -353,7 +380,7 @@ export function renderAboveFloorPage(params: {
     </dl>
 
     <section class="mt-6 rounded-md border border-accent-border bg-accent-subtle p-5">
-      <p class="text-sm leading-6 text-body">${esc(content.faq[content.faq.length - 1].answer)}</p>
+      <p class="text-sm leading-6 text-body">${esc(commutingDisclosure(content))}</p>
     </section>
 
     <section class="mt-6 rounded-md border border-edge bg-surface p-5">

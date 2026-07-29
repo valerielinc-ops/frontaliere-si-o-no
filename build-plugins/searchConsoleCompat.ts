@@ -32,6 +32,7 @@ import { isFiscalMunicipalityPath } from './fiscalMunicipalityData';
 import { isFrenchBorderMunicipalityPath } from './frenchBorderMunicipalityData';
 import { isGermanBorderMunicipalityPath } from './germanBorderMunicipalityData';
 import { isLiechtensteinBorderMunicipalityPath } from './liechtensteinBorderMunicipalityData';
+import { isAustrianBorderMunicipalityPath } from './austrianBorderMunicipalityData';
 
 type SupportedLocale = CantonLocale;
 
@@ -621,6 +622,21 @@ export function resolveSearchConsoleCompatTarget(
  // isLiechtensteinBorderMunicipalityPath checks a module-load-precomputed
  // Set, same O(1) rationale as the FRANCE/GERMANY self-map branches above.
  if (isLiechtensteinBorderMunicipalityPath(path)) {
+ return {
+ canonicalPath: ensureTrailingSlash(path),
+ kind: 'legacy',
+ locale,
+ };
+ }
+
+ // isAustrianBorderMunicipalityPath checks a module-load-precomputed Set,
+ // same O(1) rationale as the FRANCE/GERMANY/LIECHTENSTEIN self-map branches
+ // above. Austria's own regime has no favourable frontalieri treatment (see
+ // austrianBorderMunicipalityData.ts's AUSTRIAN_REGIME) but the self-map
+ // contract is identical: every enumerated Gemeinde is live at its path on
+ // every build, above-floor as an indexable page, below-floor as a
+ // noindex,follow bridge, never a silent skip.
+ if (isAustrianBorderMunicipalityPath(path)) {
  return {
  canonicalPath: ensureTrailingSlash(path),
  kind: 'legacy',
