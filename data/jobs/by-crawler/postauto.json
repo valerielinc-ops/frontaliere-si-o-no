@@ -79,7 +79,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:33:34.678Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -160,7 +159,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:33:33.292Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -253,7 +251,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:33:31.889Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -342,7 +339,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:33:30.476Z",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -425,7 +421,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:33:29.067Z",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -695,7 +690,6 @@
         ]
       },
       "firstSeenAt": "2026-07-06T14:41:08.629Z",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -778,7 +772,6 @@
         ]
       },
       "firstSeenAt": "2026-07-07T12:15:02.400Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -859,7 +852,6 @@
         ]
       },
       "firstSeenAt": "2026-07-07T12:15:00.874Z",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -949,7 +941,6 @@
         ]
       },
       "firstSeenAt": "2026-07-07T12:14:59.372Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -1032,7 +1023,6 @@
         ]
       },
       "firstSeenAt": "2026-07-07T12:14:57.973Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -1122,7 +1112,6 @@
         ]
       },
       "firstSeenAt": "2026-07-07T12:14:55.757Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -1205,7 +1194,6 @@
         ]
       },
       "firstSeenAt": "2026-07-08T22:23:45.073Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -1295,7 +1283,6 @@
         ]
       },
       "firstSeenAt": "2026-07-08T22:23:43.698Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -1378,7 +1365,6 @@
         ]
       },
       "firstSeenAt": "2026-07-09T12:19:18.739Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -1461,7 +1447,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:33:37.505Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -1556,8 +1541,7 @@
           "maxValue": 98500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "postauto-9f6345c5106a",
@@ -1627,7 +1611,6 @@
         "customer-manager-nella-gestione-della-flotta-die-schweizerische-post-moosseedorf"
       ],
       "firstSeenAt": "2026-07-14T22:07:15.144Z",
-      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "baseSalary": {
@@ -1809,8 +1792,7 @@
           "maxValue": 98500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "postauto-83917ae29257",
@@ -1977,8 +1959,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     }
   ]
 }

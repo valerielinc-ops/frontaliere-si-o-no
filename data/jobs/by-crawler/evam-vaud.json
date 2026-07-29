@@ -67,7 +67,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T10:58:13.369Z",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -226,7 +225,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T10:58:13.349Z",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -255,7 +253,7 @@
       "title": "Un.e formateur.trice en charge de l'information aux migrants (50 - 70%) – CDD",
       "titleByLocale": {
         "it": "Formatore responsabile delle informazioni per migranti (50 - 70%) – contratto a tempo determinato",
-        "en": "Un.e formateur.trice en charge de l'information aux migrants (50 - 70%) – CDD",
+        "en": "A trainer in charge of information to migrants (50 - 70%) – CSD",
         "de": "Ein Trainer, der für Informationen für Migranten verantwortlich ist (50 - 70%) - CSD",
         "fr": "Un.e formateur.trice en charge de l'information aux migrants (50 - 70%) – CDD"
       },
@@ -306,7 +304,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T10:58:13.342Z",
-      "needsRetranslation": true,
       "salaryMin": 58400,
       "salaryMax": 88600,
       "baseSalary": {
@@ -407,7 +404,6 @@
         ]
       },
       "firstSeenAt": "2026-07-08T22:18:15.824Z",
-      "needsRetranslation": true,
       "salaryMin": 48400,
       "salaryMax": 73200,
       "baseSalary": {
@@ -576,7 +572,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T10:58:13.269Z",
-      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -655,7 +650,6 @@
         ]
       },
       "firstSeenAt": "2026-07-08T22:18:15.753Z",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -797,18 +791,31 @@
       "hiringOrganizationName": "EVAM",
       "previousSlugs": [
         "specialiste-rh-100-cdi-evam-vaud-ch",
-        "specialista-hr-100-contratto-permanente-evam-lausanne"
+        "specialista-hr-100-contratto-permanente-evam-lausanne",
+        "specialista-in-contenzioso-100-contratto-permanente-evam-lausanne",
+        "litigation-specialist-100-cdi-evam-lausanne",
+        "litigment-specialist-100-cdi-evam-lausanne",
+        "specialiste-contentieux-100-cdi-evam-vaud-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "specialiste-rh-100-cdi-evam-vaud-ch",
-          "specialista-hr-100-contratto-permanente-evam-lausanne"
+          "specialista-hr-100-contratto-permanente-evam-lausanne",
+          "specialista-in-contenzioso-100-contratto-permanente-evam-lausanne",
+          "litigation-specialist-100-cdi-evam-lausanne",
+          "litigment-specialist-100-cdi-evam-lausanne",
+          "specialiste-contentieux-100-cdi-evam-vaud-ch"
         ],
         "en": [
-          "specialiste-rh-100-cdi-evam-vaud-ch"
+          "specialiste-rh-100-cdi-evam-vaud-ch",
+          "litigation-specialist-100-cdi-evam-lausanne"
         ],
         "de": [
-          "specialiste-rh-100-cdi-evam-vaud-ch"
+          "specialiste-rh-100-cdi-evam-vaud-ch",
+          "litigment-specialist-100-cdi-evam-lausanne"
+        ],
+        "fr": [
+          "specialiste-contentieux-100-cdi-evam-vaud-ch"
         ]
       },
       "firstSeenAt": "2026-07-04T10:58:13.195Z",
@@ -968,7 +975,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T10:58:13.137Z",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -1215,7 +1221,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T10:58:13.051Z",
-      "needsRetranslation": true,
       "salaryMin": 48400,
       "salaryMax": 73200,
       "baseSalary": {
@@ -1290,7 +1295,6 @@
         ]
       },
       "firstSeenAt": "2026-07-08T22:18:15.507Z",
-      "needsRetranslation": true,
       "salaryMin": 48400,
       "salaryMax": 73200,
       "baseSalary": {
@@ -1615,7 +1619,6 @@
         ]
       },
       "firstSeenAt": "2026-07-21T12:45:40.545Z",
-      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -1780,7 +1783,6 @@
         ]
       },
       "firstSeenAt": "2026-07-21T12:45:40.485Z",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -2035,7 +2037,6 @@
         ]
       },
       "firstSeenAt": "2026-07-28T11:53:35.977Z",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -2134,8 +2135,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "evam-vaud-8000172",
@@ -2214,8 +2214,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "evam-vaud-7954438",
@@ -2232,7 +2231,7 @@
       "title": "Formateur·trice FLE/FLI cours en ligne (100%) – CDD 12 mois",
       "titleByLocale": {
         "it": "Corso online per trainer FLE/FLI (100%) – contratto a tempo determinato di 12 mesi",
-        "en": "Formateur·trice FLE/FLI cours en ligne (100%) – CDD 12 mois",
+        "en": "FLE/FLI trainer online course (100%) – CSD 12 months",
         "de": "FLE / FLI Trainer Online-Kurs (100%) - CSD 12 Monate",
         "fr": "Formateur·trice FLE/FLI cours en ligne (100%) – CDD 12 mois"
       },
@@ -2293,8 +2292,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true
+      "crawlerMissStreak": 2
     },
     {
       "id": "evam-vaud-8102197",
@@ -2312,7 +2310,7 @@
       "titleByLocale": {
         "it": "Un'era casseruola (100%) – CDI",
         "en": "A casserolier era (100%) – CDI",
-        "de": "Un·e Casserolier·ère (100 %) – CDI",
+        "de": "Eine Kasserolier-Ära (100%) - CDI",
         "fr": "Un·e Casserolier·ère (100 %) – CDI"
       },
       "description": "L'EVAM (Établissement vaudois de l'accueil des migrants) est un acteur majeur du service public vaudois. Avec plus de 1'000 collaboratrices et collaborateurs engagés et un budget annuel de 360 millions de francs, nous assurons l'accueil, l'accompagnement et l'intégration des personnes migrantes dans le canton de Vaud.\n\nChaque jour, nos équipes œuvrent avec ouverture et responsabilité pour répondre à des enjeux sociaux essentiels. Rejoindre l'EVAM, c'est mettre ses compétences au service d'une mission humaine et d'utilité publique, dans un environnement professionnel stimulant, diversifié et en constante évolution.\n\nDans le cadre d'un remplacement nous recrutons:\n\nUn·e Casserolier·ère (100 %) – CDI\n\n[Classe salariale](https://www.evam.ch/app/uploads/2026/06/Bareme-salarial_2026.pdf)  1*(ce barème s’entend à prérequis validés, à défaut desquels l’enclassement se fait à hauteur de classe -1)*\n\nLieu : Lausanne Entrée en fonction : 1er octobre 2026\n\n## Ce que vous apportez à notre mission\n\nVous assurez l'entretien, la propreté et la disponibilité du matériel de cuisine afin de garantir le bon fonctionnement des activités de restauration. Vous veillez au respect des normes d'hygiène et de sécurité alimentaire et contribuez à maintenir un environnement de travail propre, organisé et sécurisé.\n\n## Le mot de votre futur responsable Karim :\n\n« Le métier de casserolier est essentiel au bon fonctionnement d'une cuisine professionnelle. Par votre travail, vous contribuez à la fluidité de la production, au respect des normes d'hygiène et à la qualité des prestations du pôle Restauration.\n\nNous recherchons une personne fiable, organisée et investie, attachée au travail bien fait, à l'esprit d'équipe et au respect des procédures. Vous évoluerez dans un environnement où l'autonomie, la collaboration et l'entraide sont des valeurs fortes.\n\nNotre contexte, au service d'un public migrant, demande également une bonne capacité d'adaptation et un véritable sens du collectif. J'aurai plaisir à découvrir votre parcours et à échanger avec vous. »\n\n## Vos missions clés\n\n- Vous assurez le lavage et l'entretien des casseroles, marmites, poêles et de l'ensemble des ustensiles de cuisine.\n- Vous nettoyez les équipements de cuisine (fours, braisières, plaques, etc.) dans le respect des procédures internes.\n- Vous entretenez les surfaces de travail, les chambres froides, les hottes, les placards, les murs et les sols afin de garantir un haut niveau d'hygiène.\n- Vous rangez le matériel propre et veillez à sa disponibilité pour les équipes de cuisine.\n- Vous contrôlez l'état des équipements et signalez toute anomalie ou dysfonctionnement à votre responsable.\n- Vous assurez un approvisionnement suffisant en produits de nettoyage.\n- Vous collaborez étroitement avec les équipes de cuisine afin de répondre efficacement aux besoins du service.\n- Vous appliquez rigoureusement les normes HACCP ainsi que les procédures de tri des déchets et de recyclage.\n\n## Votre profil\n\n- AFP d'employé·e en cuisine, un atout.\n- Minimum 1 année d'expérience dans une fonction similaire.\n- Bonnes connaissances des règles d'hygiène et de sécurité alimentaire.\n- Maîtrise de l'utilisation des produits de nettoyage professionnels.\n- Bonne condition physique, sens de l'organisation et capacité à travailler dans un environnement rythmé.\n- Esprit d'équipe, fiabilité et sens des responsabilités.\n- Intérêt pour le domaine de la migration et les valeurs du service public.\n\n## Ce que l’EVAM vous propose\n\n- Un environnement de travail engagé\n- Une politique de formation continue pour évoluer dans votre carrière\n- Une politique de télétravail\n- 5 semaines de vacances (6 dès 50 ans)\n- De très bonnes prestations sociales\n- Des projets porteurs de sens dans un contexte interculturel stimulant\n\n## Le processus de recrutement en 2 étapes :\n\n1. Un entretien avec le responsable du domaine et la chargée de recrutement.\n2. Une demi-journée d'immersion afin de découvrir concrètement votre futur environnement de travail.\n\n*À l’issue du processus : demande d’un extrait du casier judiciaire, (documents vierges requis).*\n\n*Vous vous reconnaissez dans cette mission ? Nous avons hâte de découvrir votre candidature et de construire ensemble un avenir solidaire.* Toutes les candidatures sont traitées directement par notre équipe Recrutement. Nous ne collaborons pas avec des cabinets ou agences de recrutement pour ce poste.",
@@ -2373,8 +2371,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true
+      "crawlerMissStreak": 2
     }
   ]
 }
