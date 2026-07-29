@@ -1,18 +1,52 @@
 {
   "key": "scandit",
   "label": "Scandit AG",
-  "generatedAt": "2026-07-28T22:34:42.959Z",
-  "total": 2,
-  "newCount": 0,
+  "generatedAt": "2026-07-29T11:52:03.862Z",
+  "total": 3,
+  "newCount": 1,
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 5443,
-  "avgDurationMs": 5443,
+  "durationMs": 6046,
+  "avgDurationMs": 6046,
   "durationHistory": [
-    5443
+    6046
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "id": "scandit-fd9be409e48d",
+      "slug": "senior-product-manager-shelfview-scandit-ch",
+      "company": "Scandit AG",
+      "companyKey": "scandit",
+      "companyDomain": "scandit.com",
+      "title": "Senior Product Manager (ShelfView)",
+      "location": "Zurich",
+      "canton": "ZH",
+      "url": "https://www.scandit.com/careers/job-description/?gh_jid=8093936",
+      "source": "Scandit AG Dedicated Parser",
+      "sourceLang": "en",
+      "crawledAt": "2026-07-29T11:51:58.923Z",
+      "addressLocality": "Zurich",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "senior",
+      "sector": "IT",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-29",
+      "applyUrl": "https://www.scandit.com/careers/job-description/?gh_jid=8093936",
+      "_qualityScore": 55,
+      "_qualityBreakdown": {
+        "cleanliness": 17,
+        "richness": 20,
+        "translation": 4,
+        "completeness": 14
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "id": "scandit-a1db699edbcd",
@@ -26,7 +60,7 @@
       "url": "https://www.scandit.com/careers/job-description/?gh_jid=8043068",
       "source": "Scandit AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-28T22:34:37.852Z",
+      "crawledAt": "2026-07-29T11:51:58.299Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -60,7 +94,7 @@
       "url": "https://www.scandit.com/careers/job-description/?gh_jid=7588975",
       "source": "Scandit AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-28T22:34:38.185Z",
+      "crawledAt": "2026-07-29T11:51:58.619Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
