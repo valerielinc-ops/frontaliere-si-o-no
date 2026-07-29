@@ -15,7 +15,7 @@
  * path only: the mixed cases are where the bug lived both times.
  */
 import { describe, it, expect } from 'vitest';
-import { categorizeLocaleVerdicts } from '../scripts/audit-article-corpus-drift.mjs';
+import { categorizeLocaleVerdicts, DIVERGENT_CATEGORIES } from '../scripts/audit-article-corpus-drift.mjs';
 
 describe('categorizeLocaleVerdicts — precedence', () => {
   it('reports no-locale-verdicts when the checker printed nothing', () => {
@@ -67,15 +67,22 @@ describe('categorizeLocaleVerdicts — precedence', () => {
     expect(categorizeLocaleVerdicts({ it: 'fetch-or-liveness', en: 'ok' })).toBe('fetch-or-liveness');
   });
 
-  it('fails the run for exactly the categories that mean "not verified"', async () => {
+  it('fails the run for exactly the categories that mean "not verified"', () => {
     // Guards the pairing between the precedence above and the failing set:
     // a category can only be added to one without considering the other.
-    const src = await import('node:fs').then((fs) =>
-      fs.readFileSync(new URL('../scripts/audit-article-corpus-drift.mjs', import.meta.url), 'utf8'),
+    // Imports the real Set rather than regex-parsing the source, so a
+    // reformat of the literal cannot silently neuter this assertion
+    // (reviewer finding on PR #4915).
+    expect([...DIVERGENT_CATEGORIES].sort()).toEqual(
+      ['content-mismatch', 'no-locale-verdicts', 'unrecognized-verdicts'].sort(),
     );
-    const m = /const DIVERGENT_CATEGORIES = new Set\(\[([^\]]*)\]\)/.exec(src);
-    expect(m).not.toBeNull();
-    const divergent = [...m![1].matchAll(/'([^']+)'/g)].map((x) => x[1]).sort();
-    expect(divergent).toEqual(['content-mismatch', 'no-locale-verdicts', 'unrecognized-verdicts'].sort());
+  });
+
+  it('never fails the run for a category the precedence can return as a pass', () => {
+    // The other half of the pairing: every non-divergent category the
+    // categorizer can produce must be absent from the failing set.
+    for (const c of ['ok', 'ok-cf-bot-script-only', 'render-failure', 'fetch-or-liveness']) {
+      expect(DIVERGENT_CATEGORIES.has(c)).toBe(false);
+    }
   });
 });

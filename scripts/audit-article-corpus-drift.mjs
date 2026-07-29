@@ -233,7 +233,7 @@ export function categorizeLocaleVerdicts(localeVerdicts) {
   return 'ok';
 }
 
-const DIVERGENT_CATEGORIES = new Set(['content-mismatch', 'no-locale-verdicts', 'unrecognized-verdicts']);
+export const DIVERGENT_CATEGORIES = new Set(['content-mismatch', 'no-locale-verdicts', 'unrecognized-verdicts']);
 
 async function main() {
   const args = parseArgs(process.argv.slice(2));
