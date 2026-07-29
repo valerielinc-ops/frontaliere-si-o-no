@@ -46,6 +46,28 @@ jobs:
             echo "::warning::FIREBASE_SERVICE_ACCOUNT_JSON unset — Remote Config secrets unavailable"
           fi
 
+      # Serialize against in-flight fast-publish runs WITHOUT forcing them to
+      # share a concurrency group: fast-publish-article.yml is deliberately
+      # keyed per-article (#4874 — a per-section group silently dropped queued
+      # runs), so a shared group would regress it. The hazard is narrow and
+      # one-directional: a resync started on a slightly older `main` whose
+      # companion upload lands AFTER a fast-publish's registry upload would
+      # recreate the very divergence this workflow exists to repair. Waiting
+      # here closes it at the only point where both can overlap.
+      - name: Wait for in-flight fast-publish runs
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          for i in $(seq 1 30); do
+            n="$(gh run list --workflow fast-publish-article.yml --status in_progress --json databaseId --jq 'length' 2>/dev/null || echo 0)"
+            q="$(gh run list --workflow fast-publish-article.yml --status queued --json databaseId --jq 'length' 2>/dev/null || echo 0)"
+            total=$(( n + q ))
+            if [ "$total" -eq 0 ]; then echo "no fast-publish in flight — proceeding"; exit 0; fi
+            echo "waiting: $total fast-publish run(s) in flight (attempt $i/30)"
+            sleep 20
+          done
+          echo "::warning::fast-publish still in flight after 10 min — proceeding anyway; a stale overwrite stays possible but the next run reconciles"
+
       - name: Load secrets from Remote Config (R2 + CF)
         run: node scripts/load-rc-env.mjs
 
