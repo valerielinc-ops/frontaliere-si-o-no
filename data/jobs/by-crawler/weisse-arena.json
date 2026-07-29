@@ -1,6 +1,6 @@
 {
   "crawlerKey": "weisse-arena",
-  "assembledAt": "2026-07-28T22:09:51.429Z",
+  "assembledAt": "2026-07-29T11:35:56.164Z",
   "jobs": [
     {
       "id": "weisse-arena-5c5b05a18eeb",
@@ -33,7 +33,7 @@
       "url": "https://www.weissearena.com/jobs/details.html?jobId=4521&jobTitle=Servicemitarbeiter%3Ain",
       "source": "Weisse Arena Gruppe Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-28T22:09:47.260Z",
+      "crawledAt": "2026-07-29T11:35:51.911Z",
       "addressLocality": "Laax",
       "postalCode": "7031",
       "addressCountry": "CH",
@@ -62,12 +62,14 @@
         "servicemitarbeiter-in-im-fruhstuckservice-weisse-arena-ch",
         "addetto-al-servizio-di-colazione-weisse-arena-gruppe-laax",
         "breakfast-service-attendant-weisse-arena-gruppe-laax",
-        "employe-de-service-de-petit-dejeuner-weisse-arena-gruppe-laax"
+        "employe-de-service-de-petit-dejeuner-weisse-arena-gruppe-laax",
+        "dipendente-del-servizio-weisse-arena-gruppe-laax"
       ],
       "previousSlugsByLocale": {
         "it": [
           "servicemitarbeiter-in-weisse-arena-ch",
-          "servicemitarbeiter-in-weisse-arena-gruppe-laax"
+          "servicemitarbeiter-in-weisse-arena-gruppe-laax",
+          "dipendente-del-servizio-weisse-arena-gruppe-laax"
         ],
         "en": [
           "servicemitarbeiter-in-weisse-arena-gruppe-laax"
@@ -77,6 +79,94 @@
         ]
       },
       "firstSeenAt": "2026-06-16T14:41:43.956Z",
+      "needsRetranslation": true,
+      "salaryMin": 57500,
+      "salaryMax": 87000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 57500,
+          "maxValue": 87000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "GR"
+    },
+    {
+      "id": "weisse-arena-c79c97c1152d",
+      "slug": "assistente-cuoco-weisse-arena-gruppe-laax",
+      "slugByLocale": {
+        "it": "assistente-cuoco-weisse-arena-gruppe-laax",
+        "en": "hilfskoch-hilfskochin-weisse-arena-gruppe-laax",
+        "de": "hilfskoch-hilfskochin-weisse-arena-ch",
+        "fr": "cuisiniere-auxiliaire-weisse-arena-gruppe-laax"
+      },
+      "company": "Weisse Arena Gruppe",
+      "companyKey": "weisse-arena",
+      "companyDomain": "weissearena.com",
+      "title": "Hilfskoch/Hilfsköchin",
+      "titleByLocale": {
+        "it": "Assistente cuoco",
+        "en": "Hilfskoch/Hilfsköchin",
+        "de": "Hilfskoch/Hilfsköchin",
+        "fr": "Cuisinière auxiliaire"
+      },
+      "description": "Die Weisse Arena Gruppe in LAAX ist Vorreiter im alpinen Tourismus und eine begeisterte Community für einmalige Bergabenteuer. Zur Gruppe gehören diverse Hotel- und Gastronomiebetriebe, Sport und Rental Shops, eine Ski-, Snowboard- und Bikeschule sowie eine Management- und eine Baugesellschaft. Unser Erfolg? Ein motiviertes und engagiertes Team, das seine Leidenschaft täglich lebt. | Das Restaurant Grandis Vinoteca & Grill in Laax mit klarem Fokus auf Qualität und Gastfreundschaft ist ein Ort, der Weinliebhaber und Feinschmecker gleichermassen begeistert. Unser Konzept verbindet eine erstklassige Vinothek mit einem modernen Grillrestaurant, das sich dem Kochen mit dem Feuer verschrieben hat. Unsere Gerichte werden auf dem offen Grill und über der Glut zubereitet. | Für unser Restaurant, das sich ganz der regionalen, saisonalen Küche und einer bewussten Fleischwahl verschrieben hat, suchen wir ab sofort oder nach Vereinbarung Unterstützung. | Was du bewegst:\n• Du kümmerst dich um das Mise en place\n• Du bist verantwortlich für die Zubereitung der kalten Gerichte\n• Du bereitest die warmen Speisen über dem Feuer zu\n• Vor- und Nachbereitung der Arbeitsstationen und Einhaltung aller Qualitäts- und Hygienestandards (HACCP) in der Küche | Was dich ausmacht:\n• Du verfügst über fundierte praktische Erfahrung als Hilfskoch/Hilfsköchin\n• Du kennst die Abläufe und die Anforderungen in einer professionellen Küche\n• Auch in stressigen Situationen behältst du einen klaren Kopf und passt dich flexibel an wechselnde Anforderungen an\n• Du arbeitest eigenverantwortlich und zuverlässig, ohne dabei die wichtigen Details aus den Augen zu verlieren\n• Du sprichst Deutsch; Englischkenntnisse sind ein Plus | Ein attraktiver Arbeitsplatz inmitten einer atemberaubenden Bergwelt ist dir gewiss. Zudem hast du die Möglichkeit, d ich in unserem dynamischen, aufgeweckten Team und der lebhaften Unternehmenskultur weiterzuentwickeln. Freue dich auf zahlreiche Mitarbeitervergünstigungen , wie freie Bergfahrten, Vergünstigungen in unseren Shops, Hotels und Gastronomiebetrieben sowie Vorteile für deine Familie. Starte jetzt dein berufliches Abenteuer bei der Weissen Arena Gruppe mit deiner vollständigen Online-Bewerbung mit Foto. Wir freuen uns darauf. | Startgels AG Grandis Vinoteca & Grill Silvija Hodobasa Tel. +41 79 369 94 74 www.grandislaax.ch I www.weissearena.com I www.laax.com",
+      "descriptionByLocale": {
+        "it": "Il White Arena Group di LAAX è un pioniere nel turismo alpino e una comunità entusiasta per avventure di montagna uniche. Il gruppo comprende diverse società di hotel e catering, negozi di sport e noleggio, una scuola di sci, snowboard e bici, nonché una società di gestione e costruzione. Il nostro successo? Un team motivato e dedicato che vive quotidianamente la sua passione. Il ristorante Grandis Vinoteca & Grill di Laax con una chiara attenzione alla qualità e all'ospitalità è un luogo che delizia gli amanti del vino e i buongustai. Il nostro concept combina un vinothek di prima classe con un moderno ristorante barbecue dedicato alla cucina con il fuoco. I nostri piatti sono preparati sulla griglia aperta e sulle braci. # Per il nostro ristorante, che è completamente dedicato alla cucina regionale, stagionale e una scelta consapevole di carne, siamo alla ricerca di sostegno da ora su o su appuntamento. Cosa fai?\n• Si prende cura della mise in atto\n• Siete responsabili della preparazione dei piatti freddi\n• Preparate il cibo caldo sopra il fuoco\n• Preparazione e follow-up di postazioni di lavoro e conformità a tutti gli standard di qualità e igiene (HACCP) in cucina | Cosa ti fa notare:\n• Hai un'esperienza pratica approfondita come cuoca ausiliaria\n• Conosci le procedure e i requisiti in una cucina professionale\n• Anche in situazioni stressanti, si mantiene una testa chiara e si adatta in modo flessibile ai requisiti di cambiamento\n• Si lavora in modo indipendente e affidabile senza perdere di vista i dettagli importanti\n• Si parla tedesco; le competenze in inglese sono un plus | Un posto di lavoro attraente in mezzo a un mondo di montagna mozzafiato è per voi. Inoltre, avete la possibilità di sviluppare ulteriormente d ich nel nostro team dinamico, brillante e vivace cultura aziendale. Attendere con ansia numerosi vantaggi per i dipendenti, come gite in montagna gratuite, vantaggi nei nostri negozi, hotel e ristoranti, e benefici per la vostra famiglia. Inizia la tua avventura professionale con il Weissen Arena Group ora con la tua applicazione online completa con la foto. Non vediamo l'ora. | Startgels AG Grandis Vinoteca & Grill Silvija Hodobasa Tel. +41 79 369 94 74 www.grandislaax.ch I www.weissearena.com I www.laax",
+        "en": "The White Arena Group in LAAX is a pioneer in alpine tourism and an enthusiastic community for unique mountain adventures. The group includes various hotel and catering companies, sports and rental shops, a ski, snowboard and bike school as well as a management and construction company. Our success? A motivated and dedicated team that lives its passion daily. The Grandis Vinoteca & Grill restaurant in Laax with a clear focus on quality and hospitality is a place that delights wine lovers and foodies alike. Our concept combines a first-class vinothek with a modern barbecue restaurant dedicated to cooking with fire. Our dishes are prepared on the open grill and over the embers. | For our restaurant, which is completely dedicated to regional, seasonal cuisine and a conscious choice of meat, we are looking for support from now on or by appointment. What you do move:\n• You take care of the mise en place\n• You are responsible for preparing the cold dishes\n• You prepare the warm food over the fire\n• Preparation and follow-up of workstations and compliance with all quality and hygiene standards (HACCP) in the kitchen | What makes you stand out:\n• You have in-depth practical experience as an auxiliary cook\n• You know the procedures and requirements in a professional kitchen\n• Even in stressful situations, you keep a clear head and adapt flexibly to changing requirements\n• You work independently and reliably without losing sight of the important details\n• You speak German; English skills are a plus | An attractive workplace in the midst of a breathtaking mountain world is for you. In addition, you have the opportunity to further develop d ich in our dynamic, bright team and lively corporate culture. Look forward to numerous employee benefits, such as free mountain rides, perks in our shops, hotels and restaurants, and benefits for your family. Start your professional adventure with the Weissen Arena Group now with your complete online application with photo. We look forward to it. | Startgels AG Grandis Vinoteca & Grill Silvija Hodobasa Tel. +41 79 369 94 74 www.grandislaax.ch I www.weissearena.com I www.laax.com",
+        "de": "Die Weisse Arena Gruppe in LAAX ist Vorreiter im alpinen Tourismus und eine begeisterte Community für einmalige Bergabenteuer. Zur Gruppe gehören diverse Hotel- und Gastronomiebetriebe, Sport und Rental Shops, eine Ski-, Snowboard- und Bikeschule sowie eine Management- und eine Baugesellschaft. Unser Erfolg? Ein motiviertes und engagiertes Team, das seine Leidenschaft täglich lebt. | Das Restaurant Grandis Vinoteca & Grill in Laax mit klarem Fokus auf Qualität und Gastfreundschaft ist ein Ort, der Weinliebhaber und Feinschmecker gleichermassen begeistert. Unser Konzept verbindet eine erstklassige Vinothek mit einem modernen Grillrestaurant, das sich dem Kochen mit dem Feuer verschrieben hat. Unsere Gerichte werden auf dem offen Grill und über der Glut zubereitet. | Für unser Restaurant, das sich ganz der regionalen, saisonalen Küche und einer bewussten Fleischwahl verschrieben hat, suchen wir ab sofort oder nach Vereinbarung Unterstützung. | Was du bewegst:\n• Du kümmerst dich um das Mise en place\n• Du bist verantwortlich für die Zubereitung der kalten Gerichte\n• Du bereitest die warmen Speisen über dem Feuer zu\n• Vor- und Nachbereitung der Arbeitsstationen und Einhaltung aller Qualitäts- und Hygienestandards (HACCP) in der Küche | Was dich ausmacht:\n• Du verfügst über fundierte praktische Erfahrung als Hilfskoch/Hilfsköchin\n• Du kennst die Abläufe und die Anforderungen in einer professionellen Küche\n• Auch in stressigen Situationen behältst du einen klaren Kopf und passt dich flexibel an wechselnde Anforderungen an\n• Du arbeitest eigenverantwortlich und zuverlässig, ohne dabei die wichtigen Details aus den Augen zu verlieren\n• Du sprichst Deutsch; Englischkenntnisse sind ein Plus | Ein attraktiver Arbeitsplatz inmitten einer atemberaubenden Bergwelt ist dir gewiss. Zudem hast du die Möglichkeit, d ich in unserem dynamischen, aufgeweckten Team und der lebhaften Unternehmenskultur weiterzuentwickeln. Freue dich auf zahlreiche Mitarbeitervergünstigungen , wie freie Bergfahrten, Vergünstigungen in unseren Shops, Hotels und Gastronomiebetrieben sowie Vorteile für deine Familie. Starte jetzt dein berufliches Abenteuer bei der Weissen Arena Gruppe mit deiner vollständigen Online-Bewerbung mit Foto. Wir freuen uns darauf. | Startgels AG Grandis Vinoteca & Grill Silvija Hodobasa Tel. +41 79 369 94 74 www.grandislaax.ch I www.weissearena.com I www.laax.com",
+        "fr": "Le White Arena Group de LAAX est un pionnier du tourisme alpin et une communauté enthousiaste pour des aventures de montagne uniques. Le groupe comprend diverses entreprises hôtelières et de restauration, des magasins de sport et de location, une école de ski, de snowboard et de vélo ainsi qu'une société de gestion et de construction. Notre succès ? Une équipe motivée et dévouée qui vit sa passion au quotidien. Le restaurant Grandis Vinoteca & Grill à Laax avec un accent clair sur la qualité et l'hospitalité est un endroit qui ravit les amateurs de vin et les gourmets. Notre concept combine un vinothek de première classe avec un restaurant barbecue moderne dédié à la cuisine avec le feu. Nos plats sont préparés sur le grill ouvert et sur les braises. - Oui. Pour notre restaurant, entièrement dédié à la cuisine régionale, saisonnière et à un choix conscient de viande, nous recherchons désormais du soutien sur rendez-vous. Ce que vous faites bouger:\n• Vous prenez soin de la mise en place\n• Vous êtes responsable de la préparation des plats froids\n• Vous préparez la nourriture chaude sur le feu\n• Préparation et suivi des postes de travail et respect de toutes les normes de qualité et d'hygiène (HACCP) dans la cuisine Ce qui te distingue :\n• Vous avez une expérience pratique approfondie en tant que cuisinier auxiliaire\n• Vous connaissez les procédures et les exigences dans une cuisine professionnelle\n• Même dans les situations stressantes, vous gardez une tête claire et vous adaptez avec souplesse aux exigences changeantes\n• Vous travaillez de manière indépendante et fiable sans perdre de vue les détails importants\n• Vous parlez allemand; les compétences en anglais sont un plus Un lieu de travail attrayant au milieu d'un monde montagneux à couper le souffle est pour vous. En outre, vous avez l'occasion de développer davantage dich dans notre équipe dynamique, lumineuse et la culture d'entreprise animée. Profitez de nombreux avantages pour les employés, tels que des promenades en montagne gratuites, des avantages dans nos magasins, hôtels et restaurants, et des avantages pour votre famille. Commencez votre aventure professionnelle avec le groupe Weissen Arena maintenant avec votre demande en ligne complète avec photo. Nous attendons avec impatience. Startgels AG Grandis Vinoteca & Grill Silvija Hodobasa Tél. +41 79 369 94 74 www.grandislaax.ch I www.weissearena.com I www.laax.com"
+      },
+      "location": "Laax",
+      "canton": "GR",
+      "url": "https://www.weissearena.com/jobs/details.html?jobId=4519&jobTitle=Hilfskoch%2FHilfsk%C3%B6chin",
+      "source": "Weisse Arena Gruppe Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-07-29T11:35:51.910Z",
+      "addressLocality": "Laax",
+      "postalCode": "7031",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Turismo",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Turismo / Sport",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-15",
+      "applyUrl": "https://emea3.recruitmentplatform.com/apply-app/pages/application-form?jobId=PD6FK026203F3VBQBLO8NV79D-4519&langCode=de_DE",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "department": "Grandis Ustria da vin",
+      "jobNumber": "WAG02397",
+      "pensum": "100%",
+      "contractLabel": "Festanstellung",
+      "previousSlugs": [
+        "hilfskoch-hilfskochin-weisse-arena-ch",
+        "auxiliary-cook-weisse-arena-gruppe-laax",
+        "assistente-cuoco-weisse-arena-gruppe-laax",
+        "hilfskoch-hilfskochin-weisse-arena-gruppe-laax"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "hilfskoch-hilfskochin-weisse-arena-ch",
+          "assistente-cuoco-weisse-arena-gruppe-laax"
+        ],
+        "en": [
+          "hilfskoch-hilfskochin-weisse-arena-ch",
+          "auxiliary-cook-weisse-arena-gruppe-laax",
+          "hilfskoch-hilfskochin-weisse-arena-gruppe-laax"
+        ],
+        "fr": [
+          "hilfskoch-hilfskochin-weisse-arena-ch"
+        ]
+      },
+      "firstSeenAt": "2026-06-16T14:41:43.954Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -122,7 +212,7 @@
       "url": "https://www.weissearena.com/jobs/details.html?jobId=4518&jobTitle=Koch%2FK%C3%B6chin+mit+Feuer+und+Leidenschaft",
       "source": "Weisse Arena Gruppe Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-28T22:09:47.259Z",
+      "crawledAt": "2026-07-29T11:35:51.910Z",
       "addressLocality": "Laax",
       "postalCode": "7031",
       "addressCountry": "CH",
@@ -157,88 +247,7 @@
         ]
       },
       "firstSeenAt": "2026-06-16T14:41:43.955Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "GR"
-    },
-    {
-      "id": "weisse-arena-c79c97c1152d",
-      "slug": "assistente-cuoco-weisse-arena-gruppe-laax",
-      "slugByLocale": {
-        "it": "assistente-cuoco-weisse-arena-gruppe-laax",
-        "en": "auxiliary-cook-weisse-arena-gruppe-laax",
-        "de": "hilfskoch-hilfskochin-weisse-arena-ch",
-        "fr": "cuisiniere-auxiliaire-weisse-arena-gruppe-laax"
-      },
-      "company": "Weisse Arena Gruppe",
-      "companyKey": "weisse-arena",
-      "companyDomain": "weissearena.com",
-      "title": "Hilfskoch/Hilfsköchin",
-      "titleByLocale": {
-        "it": "Assistente cuoco",
-        "en": "Hilfskoch/Hilfsköchin",
-        "de": "Hilfskoch/Hilfsköchin",
-        "fr": "Cuisinière auxiliaire"
-      },
-      "description": "Die Weisse Arena Gruppe in LAAX ist Vorreiter im alpinen Tourismus und eine begeisterte Community für einmalige Bergabenteuer. Zur Gruppe gehören diverse Hotel- und Gastronomiebetriebe, Sport und Rental Shops, eine Ski-, Snowboard- und Bikeschule sowie eine Management- und eine Baugesellschaft. Unser Erfolg? Ein motiviertes und engagiertes Team, das seine Leidenschaft täglich lebt. | Das Restaurant Grandis Vinoteca & Grill in Laax mit klarem Fokus auf Qualität und Gastfreundschaft ist ein Ort, der Weinliebhaber und Feinschmecker gleichermassen begeistert. Unser Konzept verbindet eine erstklassige Vinothek mit einem modernen Grillrestaurant, das sich dem Kochen mit dem Feuer verschrieben hat. Unsere Gerichte werden auf dem offen Grill und über der Glut zubereitet. | Für unser Restaurant, das sich ganz der regionalen, saisonalen Küche und einer bewussten Fleischwahl verschrieben hat, suchen wir ab sofort oder nach Vereinbarung Unterstützung. | Was du bewegst:\n• Du kümmerst dich um das Mise en place\n• Du bist verantwortlich für die Zubereitung der kalten Gerichte\n• Du bereitest die warmen Speisen über dem Feuer zu\n• Vor- und Nachbereitung der Arbeitsstationen und Einhaltung aller Qualitäts- und Hygienestandards (HACCP) in der Küche | Was dich ausmacht:\n• Du verfügst über fundierte praktische Erfahrung als Hilfskoch/Hilfsköchin\n• Du kennst die Abläufe und die Anforderungen in einer professionellen Küche\n• Auch in stressigen Situationen behältst du einen klaren Kopf und passt dich flexibel an wechselnde Anforderungen an\n• Du arbeitest eigenverantwortlich und zuverlässig, ohne dabei die wichtigen Details aus den Augen zu verlieren\n• Du sprichst Deutsch; Englischkenntnisse sind ein Plus | Ein attraktiver Arbeitsplatz inmitten einer atemberaubenden Bergwelt ist dir gewiss. Zudem hast du die Möglichkeit, d ich in unserem dynamischen, aufgeweckten Team und der lebhaften Unternehmenskultur weiterzuentwickeln. Freue dich auf zahlreiche Mitarbeitervergünstigungen , wie freie Bergfahrten, Vergünstigungen in unseren Shops, Hotels und Gastronomiebetrieben sowie Vorteile für deine Familie. Starte jetzt dein berufliches Abenteuer bei der Weissen Arena Gruppe mit deiner vollständigen Online-Bewerbung mit Foto. Wir freuen uns darauf. | Startgels AG Grandis Vinoteca & Grill Silvija Hodobasa Tel. +41 79 369 94 74 www.grandislaax.ch I www.weissearena.com I www.laax.com",
-      "descriptionByLocale": {
-        "it": "Il White Arena Group di LAAX è un pioniere nel turismo alpino e una comunità entusiasta per avventure di montagna uniche. Il gruppo comprende diverse società di hotel e catering, negozi di sport e noleggio, una scuola di sci, snowboard e bici, nonché una società di gestione e costruzione. Il nostro successo? Un team motivato e dedicato che vive quotidianamente la sua passione. Il ristorante Grandis Vinoteca & Grill di Laax con una chiara attenzione alla qualità e all'ospitalità è un luogo che delizia gli amanti del vino e i buongustai. Il nostro concept combina un vinothek di prima classe con un moderno ristorante barbecue dedicato alla cucina con il fuoco. I nostri piatti sono preparati sulla griglia aperta e sulle braci. # Per il nostro ristorante, che è completamente dedicato alla cucina regionale, stagionale e una scelta consapevole di carne, siamo alla ricerca di sostegno da ora su o su appuntamento. Cosa fai?\n• Si prende cura della mise in atto\n• Siete responsabili della preparazione dei piatti freddi\n• Preparate il cibo caldo sopra il fuoco\n• Preparazione e follow-up di postazioni di lavoro e conformità a tutti gli standard di qualità e igiene (HACCP) in cucina | Cosa ti fa notare:\n• Hai un'esperienza pratica approfondita come cuoca ausiliaria\n• Conosci le procedure e i requisiti in una cucina professionale\n• Anche in situazioni stressanti, si mantiene una testa chiara e si adatta in modo flessibile ai requisiti di cambiamento\n• Si lavora in modo indipendente e affidabile senza perdere di vista i dettagli importanti\n• Si parla tedesco; le competenze in inglese sono un plus | Un posto di lavoro attraente in mezzo a un mondo di montagna mozzafiato è per voi. Inoltre, avete la possibilità di sviluppare ulteriormente d ich nel nostro team dinamico, brillante e vivace cultura aziendale. Attendere con ansia numerosi vantaggi per i dipendenti, come gite in montagna gratuite, vantaggi nei nostri negozi, hotel e ristoranti, e benefici per la vostra famiglia. Inizia la tua avventura professionale con il Weissen Arena Group ora con la tua applicazione online completa con la foto. Non vediamo l'ora. | Startgels AG Grandis Vinoteca & Grill Silvija Hodobasa Tel. +41 79 369 94 74 www.grandislaax.ch I www.weissearena.com I www.laax",
-        "en": "The White Arena Group in LAAX is a pioneer in alpine tourism and an enthusiastic community for unique mountain adventures. The group includes various hotel and catering companies, sports and rental shops, a ski, snowboard and bike school as well as a management and construction company. Our success? A motivated and dedicated team that lives its passion daily. The Grandis Vinoteca & Grill restaurant in Laax with a clear focus on quality and hospitality is a place that delights wine lovers and foodies alike. Our concept combines a first-class vinothek with a modern barbecue restaurant dedicated to cooking with fire. Our dishes are prepared on the open grill and over the embers. | For our restaurant, which is completely dedicated to regional, seasonal cuisine and a conscious choice of meat, we are looking for support from now on or by appointment. What you do move:\n• You take care of the mise en place\n• You are responsible for preparing the cold dishes\n• You prepare the warm food over the fire\n• Preparation and follow-up of workstations and compliance with all quality and hygiene standards (HACCP) in the kitchen | What makes you stand out:\n• You have in-depth practical experience as an auxiliary cook\n• You know the procedures and requirements in a professional kitchen\n• Even in stressful situations, you keep a clear head and adapt flexibly to changing requirements\n• You work independently and reliably without losing sight of the important details\n• You speak German; English skills are a plus | An attractive workplace in the midst of a breathtaking mountain world is for you. In addition, you have the opportunity to further develop d ich in our dynamic, bright team and lively corporate culture. Look forward to numerous employee benefits, such as free mountain rides, perks in our shops, hotels and restaurants, and benefits for your family. Start your professional adventure with the Weissen Arena Group now with your complete online application with photo. We look forward to it. | Startgels AG Grandis Vinoteca & Grill Silvija Hodobasa Tel. +41 79 369 94 74 www.grandislaax.ch I www.weissearena.com I www.laax.com",
-        "de": "Die Weisse Arena Gruppe in LAAX ist Vorreiter im alpinen Tourismus und eine begeisterte Community für einmalige Bergabenteuer. Zur Gruppe gehören diverse Hotel- und Gastronomiebetriebe, Sport und Rental Shops, eine Ski-, Snowboard- und Bikeschule sowie eine Management- und eine Baugesellschaft. Unser Erfolg? Ein motiviertes und engagiertes Team, das seine Leidenschaft täglich lebt. | Das Restaurant Grandis Vinoteca & Grill in Laax mit klarem Fokus auf Qualität und Gastfreundschaft ist ein Ort, der Weinliebhaber und Feinschmecker gleichermassen begeistert. Unser Konzept verbindet eine erstklassige Vinothek mit einem modernen Grillrestaurant, das sich dem Kochen mit dem Feuer verschrieben hat. Unsere Gerichte werden auf dem offen Grill und über der Glut zubereitet. | Für unser Restaurant, das sich ganz der regionalen, saisonalen Küche und einer bewussten Fleischwahl verschrieben hat, suchen wir ab sofort oder nach Vereinbarung Unterstützung. | Was du bewegst:\n• Du kümmerst dich um das Mise en place\n• Du bist verantwortlich für die Zubereitung der kalten Gerichte\n• Du bereitest die warmen Speisen über dem Feuer zu\n• Vor- und Nachbereitung der Arbeitsstationen und Einhaltung aller Qualitäts- und Hygienestandards (HACCP) in der Küche | Was dich ausmacht:\n• Du verfügst über fundierte praktische Erfahrung als Hilfskoch/Hilfsköchin\n• Du kennst die Abläufe und die Anforderungen in einer professionellen Küche\n• Auch in stressigen Situationen behältst du einen klaren Kopf und passt dich flexibel an wechselnde Anforderungen an\n• Du arbeitest eigenverantwortlich und zuverlässig, ohne dabei die wichtigen Details aus den Augen zu verlieren\n• Du sprichst Deutsch; Englischkenntnisse sind ein Plus | Ein attraktiver Arbeitsplatz inmitten einer atemberaubenden Bergwelt ist dir gewiss. Zudem hast du die Möglichkeit, d ich in unserem dynamischen, aufgeweckten Team und der lebhaften Unternehmenskultur weiterzuentwickeln. Freue dich auf zahlreiche Mitarbeitervergünstigungen , wie freie Bergfahrten, Vergünstigungen in unseren Shops, Hotels und Gastronomiebetrieben sowie Vorteile für deine Familie. Starte jetzt dein berufliches Abenteuer bei der Weissen Arena Gruppe mit deiner vollständigen Online-Bewerbung mit Foto. Wir freuen uns darauf. | Startgels AG Grandis Vinoteca & Grill Silvija Hodobasa Tel. +41 79 369 94 74 www.grandislaax.ch I www.weissearena.com I www.laax.com",
-        "fr": "Le White Arena Group de LAAX est un pionnier du tourisme alpin et une communauté enthousiaste pour des aventures de montagne uniques. Le groupe comprend diverses entreprises hôtelières et de restauration, des magasins de sport et de location, une école de ski, de snowboard et de vélo ainsi qu'une société de gestion et de construction. Notre succès ? Une équipe motivée et dévouée qui vit sa passion au quotidien. Le restaurant Grandis Vinoteca & Grill à Laax avec un accent clair sur la qualité et l'hospitalité est un endroit qui ravit les amateurs de vin et les gourmets. Notre concept combine un vinothek de première classe avec un restaurant barbecue moderne dédié à la cuisine avec le feu. Nos plats sont préparés sur le grill ouvert et sur les braises. - Oui. Pour notre restaurant, entièrement dédié à la cuisine régionale, saisonnière et à un choix conscient de viande, nous recherchons désormais du soutien sur rendez-vous. Ce que vous faites bouger:\n• Vous prenez soin de la mise en place\n• Vous êtes responsable de la préparation des plats froids\n• Vous préparez la nourriture chaude sur le feu\n• Préparation et suivi des postes de travail et respect de toutes les normes de qualité et d'hygiène (HACCP) dans la cuisine Ce qui te distingue :\n• Vous avez une expérience pratique approfondie en tant que cuisinier auxiliaire\n• Vous connaissez les procédures et les exigences dans une cuisine professionnelle\n• Même dans les situations stressantes, vous gardez une tête claire et vous adaptez avec souplesse aux exigences changeantes\n• Vous travaillez de manière indépendante et fiable sans perdre de vue les détails importants\n• Vous parlez allemand; les compétences en anglais sont un plus Un lieu de travail attrayant au milieu d'un monde montagneux à couper le souffle est pour vous. En outre, vous avez l'occasion de développer davantage dich dans notre équipe dynamique, lumineuse et la culture d'entreprise animée. Profitez de nombreux avantages pour les employés, tels que des promenades en montagne gratuites, des avantages dans nos magasins, hôtels et restaurants, et des avantages pour votre famille. Commencez votre aventure professionnelle avec le groupe Weissen Arena maintenant avec votre demande en ligne complète avec photo. Nous attendons avec impatience. Startgels AG Grandis Vinoteca & Grill Silvija Hodobasa Tél. +41 79 369 94 74 www.grandislaax.ch I www.weissearena.com I www.laax.com"
-      },
-      "location": "Laax",
-      "canton": "GR",
-      "url": "https://www.weissearena.com/jobs/details.html?jobId=4519&jobTitle=Hilfskoch%2FHilfsk%C3%B6chin",
-      "source": "Weisse Arena Gruppe Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-28T22:09:47.258Z",
-      "addressLocality": "Laax",
-      "postalCode": "7031",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Turismo",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Turismo / Sport",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-15",
-      "applyUrl": "https://emea3.recruitmentplatform.com/apply-app/pages/application-form?jobId=PD6FK026203F3VBQBLO8NV79D-4519&langCode=de_DE",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "department": "Grandis Ustria da vin",
-      "jobNumber": "WAG02397",
-      "pensum": "100%",
-      "contractLabel": "Festanstellung",
-      "previousSlugs": [
-        "hilfskoch-hilfskochin-weisse-arena-ch",
-        "hilfskoch-hilfskochin-weisse-arena-gruppe-laax"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "hilfskoch-hilfskochin-weisse-arena-ch"
-        ],
-        "en": [
-          "hilfskoch-hilfskochin-weisse-arena-ch",
-          "hilfskoch-hilfskochin-weisse-arena-gruppe-laax"
-        ],
-        "fr": [
-          "hilfskoch-hilfskochin-weisse-arena-ch"
-        ]
-      },
-      "firstSeenAt": "2026-06-16T14:41:43.954Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -284,7 +293,7 @@
       "url": "https://www.weissearena.com/jobs/details.html?jobId=4524&jobTitle=Nachtportier%3Ain",
       "source": "Weisse Arena Gruppe Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-28T22:09:47.257Z",
+      "crawledAt": "2026-07-29T11:35:51.909Z",
       "addressLocality": "Laax",
       "postalCode": "7031",
       "addressCountry": "CH",
@@ -306,10 +315,12 @@
       "contractLabel": "Saisonanstellung",
       "previousSlugsByLocale": {
         "de": [
-          "nachtportier-in-weisse-arena-ch"
+          "nachtportier-in-weisse-arena-ch",
+          "nachtportier-in-weisse-arena-gruppe-laax"
         ],
         "it": [
-          "nachtportier-in-weisse-arena-ch"
+          "nachtportier-in-weisse-arena-ch",
+          "portatore-notturno-weisse-arena-gruppe-laax"
         ],
         "en": [
           "nachtportier-in-weisse-arena-ch"
@@ -319,9 +330,12 @@
         ]
       },
       "previousSlugs": [
-        "nachtportier-in-weisse-arena-ch"
+        "nachtportier-in-weisse-arena-ch",
+        "nachtportier-in-weisse-arena-gruppe-laax",
+        "portatore-notturno-weisse-arena-gruppe-laax"
       ],
       "firstSeenAt": "2026-06-22T15:11:23.123Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -367,7 +381,7 @@
       "url": "https://www.weissearena.com/jobs/details.html?jobId=4522&jobTitle=HR+Generalist%3Ain",
       "source": "Weisse Arena Gruppe Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-28T22:09:47.257Z",
+      "crawledAt": "2026-07-29T11:35:51.909Z",
       "addressLocality": "Laax",
       "postalCode": "7031",
       "addressCountry": "CH",
@@ -388,17 +402,20 @@
       "pensum": "80 - 100%",
       "contractLabel": "Festanstellung",
       "previousSlugs": [
-        "hr-generalist-in-weisse-arena-ch"
+        "hr-generalist-in-weisse-arena-ch",
+        "risorse-umane-generalist-in-weisse-arena-gruppe-laax"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "hr-generalist-in-weisse-arena-ch"
+          "hr-generalist-in-weisse-arena-ch",
+          "risorse-umane-generalist-in-weisse-arena-gruppe-laax"
         ],
         "fr": [
           "hr-generalist-in-weisse-arena-ch"
         ]
       },
       "firstSeenAt": "2026-06-19T13:38:45.726Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -444,7 +461,7 @@
       "url": "https://www.weissearena.com/jobs/details.html?jobId=4527&jobTitle=K%C3%BCchenchef%3Ain+rocksresorts",
       "source": "Weisse Arena Gruppe Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-28T22:09:47.256Z",
+      "crawledAt": "2026-07-29T11:35:51.905Z",
       "addressLocality": "Laax",
       "postalCode": "7031",
       "addressCountry": "CH",
@@ -465,11 +482,13 @@
       "pensum": "100%",
       "contractLabel": "Festanstellung",
       "previousSlugs": [
-        "kuchenchef-in-rocksresorts-weisse-arena-ch"
+        "kuchenchef-in-rocksresorts-weisse-arena-ch",
+        "chef-in-scogliere-weisse-arena-gruppe-laax"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "kuchenchef-in-rocksresorts-weisse-arena-ch"
+          "kuchenchef-in-rocksresorts-weisse-arena-ch",
+          "chef-in-scogliere-weisse-arena-gruppe-laax"
         ],
         "en": [
           "kuchenchef-in-rocksresorts-weisse-arena-ch"
@@ -524,7 +543,7 @@
       "url": "https://www.weissearena.com/jobs/details.html?jobId=4530&jobTitle=Mitarbeiter%3Ain+Bahn%C3%BCberwachung",
       "source": "Weisse Arena Gruppe Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-28T22:09:47.255Z",
+      "crawledAt": "2026-07-29T11:35:51.904Z",
       "addressLocality": "Laax",
       "postalCode": "7031",
       "addressCountry": "CH",
@@ -548,14 +567,16 @@
         "mitarbeiter-in-bahnuberwachung-weisse-arena-ch",
         "collaboratore-trice-bahnuberwachung-weisse-arena-gruppe-laax-z3tj49",
         "associate-bahnuberwachung-weisse-arena-gruppe-laax",
-        "collaborateur-trice-bahnuberwachung-weisse-arena-gruppe-laax"
+        "collaborateur-trice-bahnuberwachung-weisse-arena-gruppe-laax",
+        "collaboratore-trice-bahnuberwachung-weisse-arena-gruppe-laax"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-bahnuberwachung-weisse-arena-ch",
           "collaboratore-trice-bahnuberwachung-weisse-arena-gruppe-laax-z3tj49",
           "associate-bahnuberwachung-weisse-arena-gruppe-laax",
-          "collaborateur-trice-bahnuberwachung-weisse-arena-gruppe-laax"
+          "collaborateur-trice-bahnuberwachung-weisse-arena-gruppe-laax",
+          "collaboratore-trice-bahnuberwachung-weisse-arena-gruppe-laax"
         ],
         "en": [
           "mitarbeiter-in-bahnuberwachung-weisse-arena-ch"
@@ -565,6 +586,7 @@
         ]
       },
       "firstSeenAt": "2026-07-16T22:06:42.752Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -610,7 +632,7 @@
       "url": "https://www.weissearena.com/jobs/details.html?jobId=4533&jobTitle=Squad+Lead+Marketing+%26+Product-Communication",
       "source": "Weisse Arena Gruppe Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-28T22:09:47.254Z",
+      "crawledAt": "2026-07-29T11:35:51.903Z",
       "addressLocality": "Laax",
       "postalCode": "7031",
       "addressCountry": "CH",
@@ -631,17 +653,20 @@
       "pensum": "80 - 100%",
       "contractLabel": "Festanstellung",
       "previousSlugs": [
-        "squad-lead-marketing-product-communication-weisse-arena-ch"
+        "squad-lead-marketing-product-communication-weisse-arena-ch",
+        "squad-lead-marketing-amp-comunicazione-di-prodotto-weisse-arena-gruppe-laax"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "squad-lead-marketing-product-communication-weisse-arena-ch"
+          "squad-lead-marketing-product-communication-weisse-arena-ch",
+          "squad-lead-marketing-amp-comunicazione-di-prodotto-weisse-arena-gruppe-laax"
         ],
         "fr": [
           "squad-lead-marketing-product-communication-weisse-arena-ch"
         ]
       },
       "firstSeenAt": "2026-07-24T11:11:09.086Z",
+      "needsRetranslation": true,
       "salaryMin": 87500,
       "salaryMax": 154500,
       "baseSalary": {
@@ -651,86 +676,6 @@
           "@type": "QuantitativeValue",
           "minValue": 87500,
           "maxValue": 154500,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "GR"
-    },
-    {
-      "id": "weisse-arena-0970f167630a",
-      "slug": "ricevitore-in-weisse-arena-gruppe-laax",
-      "slugByLocale": {
-        "it": "ricevitore-in-weisse-arena-gruppe-laax",
-        "en": "receptionist-in-weisse-arena-gruppe-laax",
-        "de": "receptionist-in-weisse-arena-ch",
-        "fr": "receptionniste-in-weisse-arena-gruppe-laax"
-      },
-      "company": "Weisse Arena Gruppe",
-      "companyKey": "weisse-arena",
-      "companyDomain": "weissearena.com",
-      "title": "Réceptionist:in",
-      "titleByLocale": {
-        "it": "Ricevitore:in",
-        "en": "Receptionist:in",
-        "de": "Réceptionist:in",
-        "fr": "Réceptionniste:in"
-      },
-      "description": "Die Weisse Arena Gruppe ist ein integriertes Dienstleistungsunternehmen im Bereich Tourismus und Freizeit. Wir verstehen uns als Anbieter von alpinen Freizeiterlebnissen. Zur Gruppe gehören eine Seilbahn- und Skiliftgesellschaft, Hotel und Gastronomiebetriebe, ein Sportgerätevertrieb und -verleih, eine Ski- und Snowboardschule sowie eine Verwaltungsgesellschaft. Zudem ist die Weisse Arena Gruppe für die Vermarktung der Tourismusdestination Flims Laax Falera verantwortlich. | Im rocksresort, signinahotel und Riders Hotel bist du weit mehr als nur Réceptionist:in. Als Teil unseres Teams im Guest Experience übernimmst du Verantwortung dafür, dass unsere Gäste vom ersten Kontakt bis zur Abreise ein stimmiges, persönliches und unvergessliches Erlebnis geniessen. | Stell dir vor, verstärkst unser Team als Réceptionist:in, mit viel Herz und Begeisterung für die Region und unsere Gäste im rocksresort, signinahotel und Riders | Was du bewegst:\n• Du bist erste Ansprechperson für unsere Gäste – persönlich, telefonisch und digital.\n• Du führst Check-in und Check-out professionell und herzlich durch.\n• Du übernimmst Verantwortung für die Qualität des Gästeerlebnisses und koordinierst bereichsübergreifend alle notwendigen Massnahmen.\n• Du erkennst Wünsche, Bedürfnisse und mögliche Herausforderungen frühzeitig und handelst proaktiv.\n• Du findest betriebswirtschaftliche, gästefreundliche Lösungen und triffst im Rahmen deiner Kompetenzen selbstständig Entscheidungen.\n• Du koordinierst die Zusammenarbeit mit Housekeeping, Haustechnik, Food & Beverage und weiteren Bereichen, damit Gästewünsche effizient umgesetzt werden.\n• Du bearbeitest Gästekorrespondenz während des Aufenthaltes auf verschiedenen Kanälen.\n• Du erstellst und kontrollierst Rechnungen und führst die Schichtkasse pflichtbewusst.\n• Du beteiligst dich aktiv an der Einhaltung und Weiterentwicklung Guest Experience Standards.\n• Bereitschaft im Schichtdienst Früh- und Spätdienst sowie im Winter regelmäßig an Wochenenden zu arbeiten. | Was dich ausmacht:\n• Du erkennst Handlungsbedarf, bevor andere ihn sehen, und handelst eigeninitiativ.\n• Du arbeitest selbstständig, entscheidungsfreudig und behältst auch in anspruchsvollen Situationen den Überblick.\n• Du verfügst über eine Ausbildung in der Hotellerie oder eine vergleichbare Berufserfahrung.\n• Du hast Erfahrung im Front Office oder einer vergleichbaren Gästefunktion.\n• Du verfügst über sehr gute Deutsch- und Englischkenntnisse; weitere Sprachen sind willkommen.\n• Erfahrung mit Protel oder einem vergleichbaren Hotelmanagementsystem ist von Vorteil. | Ein attraktiver Arbeitsplatz inmitten einer atemberaubenden Bergwelt ist dir gewiss. Zudem hast du die Möglichkeit, dich in unserem dynamischen, aufgeweckten Team und der lebhaften Unternehmenskultur weiterzuentwickeln. Freue dich auf zahlreiche Mitarbeitervergünstigungen, wie freie Bergfahrten, Vergünstigungen in unseren Shops, Hotels und Gastronomiebetrieben sowie Vorteile für deine Familie. Starte jetzt dein berufliches Abenteuer bei der Weissen Arena Gruppe mit deiner vollständigen Online-Bewerbung mit Foto. Wir freuen uns darauf. | Weisse Arena Hospitality AG signinahotel/rocksresort Sandra Stilz www.signinahotel.com I www.weissearena.com I www.laax.com",
-      "descriptionByLocale": {
-        "it": "Il Weisse Arena Group è una società di servizi turistici e per il tempo libero integrata. Ci vediamo come fornitore di esperienze per il tempo libero alpino. Il gruppo comprende una compagnia di cabinovia e ski lift, società di hotel e catering, una società di vendita e noleggio attrezzature sportive, una scuola di sci e snowboard e una società di gestione. Inoltre, il Gruppo Weisse Arena è responsabile della commercializzazione della destinazione turistica Flims Laax Falera. Nelle rocceresort, signinahotel e Riders Hotel si sono molto più di una receptionist:in. Nell'ambito del nostro team Guest Experience, vi assumete la responsabilità di garantire ai nostri ospiti un'esperienza coerente, personale e indimenticabile dal primo contatto fino alla partenza. # Immaginate di rafforzare il nostro team come receptionist: in, con un sacco di cuore ed entusiasmo per la regione e i nostri ospiti nella rocciaresort, signinahotel e Riders\n• Siete la prima persona di contatto per i nostri ospiti – personalmente, per telefono e digitale.\n• Condurre check-in e check-out professionalmente e calorosamente.\n• Si assume la responsabilità della qualità dell'esperienza degli ospiti e coordina tutte le misure necessarie in tutte le aree.\n• Riconosce i desideri, le esigenze e le possibili sfide in un primo momento e agisce proattivamente.\n• Troverete soluzioni business-friendly, guest-friendly e prendere decisioni in modo indipendente nell'ambito delle vostre competenze.\n• Coordinate la collaborazione con Housekeeping, Home Technology, Food & Beverage e altre aree, in modo che i desideri degli ospiti siano implementati in modo efficiente.\n• Modifica la corrispondenza degli ospiti durante il soggiorno su diversi canali.\n• Crea e controlla le bollette e gestisci il registro di cassa a turni debitamente.\n• Partecipate attivamente alla conformità e allo sviluppo di Guest Experience Standards.\n• Volontà di lavorare nel lavoro a turni presto e tardi, così come in inverno regolarmente nei fine settimana. # Cosa ti fa:\n• Riconoscete la necessità di agire prima che gli altri la vedano e agiscano su vostra iniziativa.\n• Si lavora in modo indipendente, volentieri e mantenere una panoramica anche in situazioni difficili.\n• Hai una formazione nel settore alberghiero o un'esperienza professionale paragonabile.\n• Avete esperienza in ufficio anteriore o una funzione ospite paragonabile.\n• Hai una buona conoscenza di tedesco e inglese; Altre lingue sono i benvenuti.\n• L'esperienza con Protel o un sistema di gestione alberghiera comparabile è un vantaggio. # Un posto di lavoro attraente nel mezzo di un mondo di montagna mozzafiato è certo per voi. Hai anche l'opportunità di sviluppare nel nostro team dinamico, brillante e vivace cultura aziendale. Attendere con ansia numerosi vantaggi per i dipendenti, come gite in montagna gratuite, vantaggi nei nostri negozi, hotel e ristoranti, nonché benefici per la vostra famiglia. Inizia la tua avventura professionale al Weissen Arena Group ora con la tua applicazione online completa con la foto. Non vediamo l'ora. | Weisse Arena Hospitality AG signinahotel/rocksresort Sandra Stilz www.signinahotel.com I www.weissearena.com I www.laax.com",
-        "en": "The Weisse Arena Group is an integrated tourism and leisure services company. We see ourselves as a provider of alpine leisure experiences. The group includes a cable car and ski lift company, hotel and catering companies, a sports equipment sales and rental company, a ski and snowboard school and a management company. In addition, the Weisse Arena Group is responsible for marketing the tourism destination Flims Laax Falera. | In the rocksresort, signinahotel and Riders Hotel you are much more than just a receptionist:in. As part of our Guest Experience team, you take responsibility for ensuring that our guests enjoy a coherent, personal and unforgettable experience from the first contact until departure. | Imagine strengthening our team as a receptionist: in, with a lot of heart and enthusiasm for the region and our guests in the rocksresort, signinahotel and Riders | What moves you:\n• You are the first contact person for our guests – personally, by phone and digitally.\n• You conduct check-in and check-out professionally and warmly.\n• You take responsibility for the quality of the guest experience and coordinate all necessary measures across all areas.\n• You recognize wishes, needs and possible challenges at an early stage and act proactively.\n• You will find business-friendly, guest-friendly solutions and make decisions independently within the scope of your competences.\n• You coordinate the cooperation with Housekeeping, Home Technology, Food & Beverage and other areas, so that guest wishes are implemented efficiently.\n• You edit guest correspondence during the stay on different channels.\n• You create and control bills and manage the shift cash register dutifully.\n• You actively participate in the compliance and further development of Guest Experience Standards.\n• Willingness to work in shift work early and late as well as in winter regularly on weekends. | What makes you:\n• You recognize the need for action before others see it and act on your own initiative.\n• You work independently, willingly and keep an overview even in challenging situations.\n• You have an education in the hotel industry or a comparable professional experience.\n• You have experience in the front office or a comparable guest function.\n• You have very good knowledge of German and English; Other languages are welcome.\n• Experience with Protel or a comparable hotel management system is an advantage. | An attractive workplace in the middle of a breathtaking mountain world is certain for you. You also have the opportunity to develop in our dynamic, bright team and vibrant company culture. Look forward to numerous employee benefits, such as free mountain rides, perks in our shops, hotels and restaurants, as well as benefits for your family. Start your professional adventure at the Weissen Arena Group now with your complete online application with photo. We look forward to that. | Weisse Arena Hospitality AG signinahotel/rocksresort Sandra Stilz www.signinahotel.com I www.weissearena.com I www.laax.com",
-        "de": "Die Weisse Arena Gruppe ist ein integriertes Dienstleistungsunternehmen im Bereich Tourismus und Freizeit. Wir verstehen uns als Anbieter von alpinen Freizeiterlebnissen. Zur Gruppe gehören eine Seilbahn- und Skiliftgesellschaft, Hotel und Gastronomiebetriebe, ein Sportgerätevertrieb und -verleih, eine Ski- und Snowboardschule sowie eine Verwaltungsgesellschaft. Zudem ist die Weisse Arena Gruppe für die Vermarktung der Tourismusdestination Flims Laax Falera verantwortlich. | Im rocksresort, signinahotel und Riders Hotel bist du weit mehr als nur Réceptionist:in. Als Teil unseres Teams im Guest Experience übernimmst du Verantwortung dafür, dass unsere Gäste vom ersten Kontakt bis zur Abreise ein stimmiges, persönliches und unvergessliches Erlebnis geniessen. | Stell dir vor, verstärkst unser Team als Réceptionist:in, mit viel Herz und Begeisterung für die Region und unsere Gäste im rocksresort, signinahotel und Riders | Was du bewegst:\n• Du bist erste Ansprechperson für unsere Gäste – persönlich, telefonisch und digital.\n• Du führst Check-in und Check-out professionell und herzlich durch.\n• Du übernimmst Verantwortung für die Qualität des Gästeerlebnisses und koordinierst bereichsübergreifend alle notwendigen Massnahmen.\n• Du erkennst Wünsche, Bedürfnisse und mögliche Herausforderungen frühzeitig und handelst proaktiv.\n• Du findest betriebswirtschaftliche, gästefreundliche Lösungen und triffst im Rahmen deiner Kompetenzen selbstständig Entscheidungen.\n• Du koordinierst die Zusammenarbeit mit Housekeeping, Haustechnik, Food & Beverage und weiteren Bereichen, damit Gästewünsche effizient umgesetzt werden.\n• Du bearbeitest Gästekorrespondenz während des Aufenthaltes auf verschiedenen Kanälen.\n• Du erstellst und kontrollierst Rechnungen und führst die Schichtkasse pflichtbewusst.\n• Du beteiligst dich aktiv an der Einhaltung und Weiterentwicklung Guest Experience Standards.\n• Bereitschaft im Schichtdienst Früh- und Spätdienst sowie im Winter regelmäßig an Wochenenden zu arbeiten. | Was dich ausmacht:\n• Du erkennst Handlungsbedarf, bevor andere ihn sehen, und handelst eigeninitiativ.\n• Du arbeitest selbstständig, entscheidungsfreudig und behältst auch in anspruchsvollen Situationen den Überblick.\n• Du verfügst über eine Ausbildung in der Hotellerie oder eine vergleichbare Berufserfahrung.\n• Du hast Erfahrung im Front Office oder einer vergleichbaren Gästefunktion.\n• Du verfügst über sehr gute Deutsch- und Englischkenntnisse; weitere Sprachen sind willkommen.\n• Erfahrung mit Protel oder einem vergleichbaren Hotelmanagementsystem ist von Vorteil. | Ein attraktiver Arbeitsplatz inmitten einer atemberaubenden Bergwelt ist dir gewiss. Zudem hast du die Möglichkeit, dich in unserem dynamischen, aufgeweckten Team und der lebhaften Unternehmenskultur weiterzuentwickeln. Freue dich auf zahlreiche Mitarbeitervergünstigungen, wie freie Bergfahrten, Vergünstigungen in unseren Shops, Hotels und Gastronomiebetrieben sowie Vorteile für deine Familie. Starte jetzt dein berufliches Abenteuer bei der Weissen Arena Gruppe mit deiner vollständigen Online-Bewerbung mit Foto. Wir freuen uns darauf. | Weisse Arena Hospitality AG signinahotel/rocksresort Sandra Stilz www.signinahotel.com I www.weissearena.com I www.laax.com",
-        "fr": "Le Groupe Weisse Arena est une société intégrée de services touristiques et de loisirs. Nous nous considérons comme un fournisseur d'expériences de loisirs alpins. Le groupe comprend une compagnie de téléphérique et de téléski, des entreprises d'hôtellerie et de restauration, une société de vente et de location de matériel de sport, une école de ski et de snowboard et une société de gestion. En outre, le Groupe Weisse Arena est responsable de la commercialisation de la destination touristique Flims Laax Falera. Dans la réserve de rochers, signinahotel et Riders Hotel vous êtes beaucoup plus qu'une réceptionniste:in. Dans le cadre de notre équipe Guest Experience, vous devez vous assurer que nos clients bénéficient d'une expérience cohérente, personnelle et inoubliable du premier contact jusqu'au départ. Autres Imaginez renforcer notre équipe en tant que réceptionniste: dans, avec beaucoup de cœur et d'enthousiasme pour la région et nos invités dans le rockresort, signinahotel et Riders.\n• Vous êtes la première personne de contact pour nos clients – personnellement, par téléphone et numériquement.\n• Vous effectuez l'enregistrement et le départ professionnel et chaleureux.\n• Vous assumez la responsabilité de la qualité de l'expérience client et coordonnez toutes les mesures nécessaires dans tous les domaines.\n• Vous reconnaissez les souhaits, les besoins et les défis éventuels à un stade précoce et agissez de manière proactive.\n• Vous trouverez des solutions favorables aux entreprises et aux clients et prendrez des décisions indépendantes dans le cadre de vos compétences.\n• Vous coordonnez la coopération avec le ménage, la technologie domestique, l'alimentation et la boisson et d'autres domaines, afin que les souhaits des invités soient mis en œuvre efficacement.\n• Vous modifiez la correspondance des invités pendant le séjour sur différents canaux.\n• Vous créez et contrôlez les factures et gérez la caisse enregistreuse de poste avec diligence.\n• Vous participez activement à la conformité et au développement des normes d'expérience client.\n• Volonté de travailler en équipe tôt et tard ainsi qu'en hiver régulièrement le week-end. Autres Qu'est-ce qui vous fait :\n• Vous reconnaissez la nécessité d'agir avant que les autres le voient et agissent de votre propre initiative.\n• Vous travaillez de manière indépendante, volontairement et gardez un aperçu même dans des situations difficiles.\n• Vous avez une formation dans l'industrie hôtelière ou une expérience professionnelle comparable.\n• Vous avez de l'expérience au front office ou une fonction d'invité comparable.\n• Vous avez une très bonne connaissance de l'allemand et de l'anglais; D'autres langues sont les bienvenues.\n• Expérience avec Protel ou un système de gestion hôtelière comparable est un avantage. Autres Un lieu de travail attrayant au milieu d'un monde montagneux à couper le souffle est certain pour vous. Vous avez également l'occasion de vous développer dans notre équipe dynamique, lumineuse et dynamique culture d'entreprise. Profitez de nombreux avantages pour les employés, comme des randonnées en montagne gratuites, des avantages dans nos magasins, hôtels et restaurants, ainsi que des avantages pour votre famille. Commencez votre aventure professionnelle au Weissen Arena Group avec votre candidature complète en ligne avec photo. Nous attendons cela avec impatience. Weisse Arena Hospitality AG signinahotel/rocksresort Sandra Stilz www.signinahotel.com I www.weissearena.com I www.laax.com"
-      },
-      "location": "Laax",
-      "canton": "GR",
-      "url": "https://www.weissearena.com/jobs/details.html?jobId=4534&jobTitle=R%C3%A9ceptionist%3Ain",
-      "source": "Weisse Arena Gruppe Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-28T22:09:47.253Z",
-      "addressLocality": "Laax",
-      "postalCode": "7031",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Turismo",
-      "contract": "full-time",
-      "employmentType": "CONTRACTOR",
-      "experienceLevel": "mid",
-      "sector": "Turismo / Sport",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-26",
-      "applyUrl": "https://emea3.recruitmentplatform.com/apply-app/pages/application-form?jobId=PD6FK026203F3VBQBLO8NV79D-4534&langCode=de_DE",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "department": "signinahotel/rocksresort",
-      "jobNumber": "WAG02444",
-      "pensum": "100%",
-      "contractLabel": "Saisonanstellung",
-      "previousSlugs": [
-        "receptionist-in-weisse-arena-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "receptionist-in-weisse-arena-ch"
-        ],
-        "en": [
-          "receptionist-in-weisse-arena-ch"
-        ],
-        "fr": [
-          "receptionist-in-weisse-arena-ch"
-        ]
-      },
-      "firstSeenAt": "2026-07-27T12:32:58.031Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
           "unitText": "YEAR"
         }
       },
@@ -767,7 +712,7 @@
       "url": "https://www.weissearena.com/jobs/details.html?jobId=4535&jobTitle=Restaurantleiter%3Ain",
       "source": "Weisse Arena Gruppe Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-28T22:09:47.252Z",
+      "crawledAt": "2026-07-29T11:35:51.899Z",
       "addressLocality": "Laax",
       "postalCode": "7031",
       "addressCountry": "CH",
@@ -790,7 +735,8 @@
       "previousSlugsByLocale": {
         "it": [
           "restaurantleiter-in-weisse-arena-gruppe-laax",
-          "restaurantleiter-in-weisse-arena-ch"
+          "restaurantleiter-in-weisse-arena-ch",
+          "ristorante-manager-in-weisse-arena-gruppe-laax"
         ],
         "en": [
           "restaurantleiter-in-weisse-arena-gruppe-laax"
@@ -799,14 +745,17 @@
           "restaurantleiter-in-weisse-arena-gruppe-laax"
         ],
         "de": [
-          "restaurantleiter-in-weisse-arena-ch"
+          "restaurantleiter-in-weisse-arena-ch",
+          "restaurantleiter-in-weisse-arena-gruppe-laax"
         ]
       },
       "previousSlugs": [
         "restaurantleiter-in-weisse-arena-gruppe-laax",
-        "restaurantleiter-in-weisse-arena-ch"
+        "restaurantleiter-in-weisse-arena-ch",
+        "ristorante-manager-in-weisse-arena-gruppe-laax"
       ],
       "firstSeenAt": "2026-07-27T22:09:19.913Z",
+      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -816,6 +765,89 @@
           "@type": "QuantitativeValue",
           "minValue": 79000,
           "maxValue": 120000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "GR"
+    },
+    {
+      "id": "weisse-arena-0970f167630a",
+      "slug": "ricevitore-in-weisse-arena-gruppe-laax",
+      "slugByLocale": {
+        "it": "ricevitore-in-weisse-arena-gruppe-laax",
+        "en": "receptionist-in-weisse-arena-gruppe-laax",
+        "de": "receptionist-in-weisse-arena-ch",
+        "fr": "receptionniste-in-weisse-arena-gruppe-laax"
+      },
+      "company": "Weisse Arena Gruppe",
+      "companyKey": "weisse-arena",
+      "companyDomain": "weissearena.com",
+      "title": "Réceptionist:in",
+      "titleByLocale": {
+        "it": "Ricevitore:in",
+        "en": "Receptionist:in",
+        "de": "Réceptionist:in",
+        "fr": "Réceptionniste:in"
+      },
+      "description": "Die Weisse Arena Gruppe ist ein integriertes Dienstleistungsunternehmen im Bereich Tourismus und Freizeit. Wir verstehen uns als Anbieter von alpinen Freizeiterlebnissen. Zur Gruppe gehören eine Seilbahn- und Skiliftgesellschaft, Hotel und Gastronomiebetriebe, ein Sportgerätevertrieb und -verleih, eine Ski- und Snowboardschule sowie eine Verwaltungsgesellschaft. Zudem ist die Weisse Arena Gruppe für die Vermarktung der Tourismusdestination Flims Laax Falera verantwortlich. | Im rocksresort, signinahotel und Riders Hotel bist du weit mehr als nur Réceptionist:in. Als Teil unseres Teams im Guest Experience übernimmst du Verantwortung dafür, dass unsere Gäste vom ersten Kontakt bis zur Abreise ein stimmiges, persönliches und unvergessliches Erlebnis geniessen. | Stell dir vor, verstärkst unser Team als Réceptionist:in, mit viel Herz und Begeisterung für die Region und unsere Gäste im rocksresort, signinahotel und Riders | Was du bewegst:\n• Du bist erste Ansprechperson für unsere Gäste – persönlich, telefonisch und digital.\n• Du führst Check-in und Check-out professionell und herzlich durch.\n• Du übernimmst Verantwortung für die Qualität des Gästeerlebnisses und koordinierst bereichsübergreifend alle notwendigen Massnahmen.\n• Du erkennst Wünsche, Bedürfnisse und mögliche Herausforderungen frühzeitig und handelst proaktiv.\n• Du findest betriebswirtschaftliche, gästefreundliche Lösungen und triffst im Rahmen deiner Kompetenzen selbstständig Entscheidungen.\n• Du koordinierst die Zusammenarbeit mit Housekeeping, Haustechnik, Food & Beverage und weiteren Bereichen, damit Gästewünsche effizient umgesetzt werden.\n• Du bearbeitest Gästekorrespondenz während des Aufenthaltes auf verschiedenen Kanälen.\n• Du erstellst und kontrollierst Rechnungen und führst die Schichtkasse pflichtbewusst.\n• Du beteiligst dich aktiv an der Einhaltung und Weiterentwicklung Guest Experience Standards.\n• Bereitschaft im Schichtdienst Früh- und Spätdienst sowie im Winter regelmäßig an Wochenenden zu arbeiten. | Was dich ausmacht:\n• Du erkennst Handlungsbedarf, bevor andere ihn sehen, und handelst eigeninitiativ.\n• Du arbeitest selbstständig, entscheidungsfreudig und behältst auch in anspruchsvollen Situationen den Überblick.\n• Du verfügst über eine Ausbildung in der Hotellerie oder eine vergleichbare Berufserfahrung.\n• Du hast Erfahrung im Front Office oder einer vergleichbaren Gästefunktion.\n• Du verfügst über sehr gute Deutsch- und Englischkenntnisse; weitere Sprachen sind willkommen.\n• Erfahrung mit Protel oder einem vergleichbaren Hotelmanagementsystem ist von Vorteil. | Ein attraktiver Arbeitsplatz inmitten einer atemberaubenden Bergwelt ist dir gewiss. Zudem hast du die Möglichkeit, dich in unserem dynamischen, aufgeweckten Team und der lebhaften Unternehmenskultur weiterzuentwickeln. Freue dich auf zahlreiche Mitarbeitervergünstigungen, wie freie Bergfahrten, Vergünstigungen in unseren Shops, Hotels und Gastronomiebetrieben sowie Vorteile für deine Familie. Starte jetzt dein berufliches Abenteuer bei der Weissen Arena Gruppe mit deiner vollständigen Online-Bewerbung mit Foto. Wir freuen uns darauf. | Weisse Arena Hospitality AG signinahotel/rocksresort Sandra Stilz www.signinahotel.com I www.weissearena.com I www.laax.com",
+      "descriptionByLocale": {
+        "it": "Il Weisse Arena Group è una società di servizi turistici e per il tempo libero integrata. Ci vediamo come fornitore di esperienze per il tempo libero alpino. Il gruppo comprende una compagnia di cabinovia e ski lift, società di hotel e catering, una società di vendita e noleggio attrezzature sportive, una scuola di sci e snowboard e una società di gestione. Inoltre, il Gruppo Weisse Arena è responsabile della commercializzazione della destinazione turistica Flims Laax Falera. Nelle rocceresort, signinahotel e Riders Hotel si sono molto più di una receptionist:in. Nell'ambito del nostro team Guest Experience, vi assumete la responsabilità di garantire ai nostri ospiti un'esperienza coerente, personale e indimenticabile dal primo contatto fino alla partenza. # Immaginate di rafforzare il nostro team come receptionist: in, con un sacco di cuore ed entusiasmo per la regione e i nostri ospiti nella rocciaresort, signinahotel e Riders\n• Siete la prima persona di contatto per i nostri ospiti – personalmente, per telefono e digitale.\n• Condurre check-in e check-out professionalmente e calorosamente.\n• Si assume la responsabilità della qualità dell'esperienza degli ospiti e coordina tutte le misure necessarie in tutte le aree.\n• Riconosce i desideri, le esigenze e le possibili sfide in un primo momento e agisce proattivamente.\n• Troverete soluzioni business-friendly, guest-friendly e prendere decisioni in modo indipendente nell'ambito delle vostre competenze.\n• Coordinate la collaborazione con Housekeeping, Home Technology, Food & Beverage e altre aree, in modo che i desideri degli ospiti siano implementati in modo efficiente.\n• Modifica la corrispondenza degli ospiti durante il soggiorno su diversi canali.\n• Crea e controlla le bollette e gestisci il registro di cassa a turni debitamente.\n• Partecipate attivamente alla conformità e allo sviluppo di Guest Experience Standards.\n• Volontà di lavorare nel lavoro a turni presto e tardi, così come in inverno regolarmente nei fine settimana. # Cosa ti fa:\n• Riconoscete la necessità di agire prima che gli altri la vedano e agiscano su vostra iniziativa.\n• Si lavora in modo indipendente, volentieri e mantenere una panoramica anche in situazioni difficili.\n• Hai una formazione nel settore alberghiero o un'esperienza professionale paragonabile.\n• Avete esperienza in ufficio anteriore o una funzione ospite paragonabile.\n• Hai una buona conoscenza di tedesco e inglese; Altre lingue sono i benvenuti.\n• L'esperienza con Protel o un sistema di gestione alberghiera comparabile è un vantaggio. # Un posto di lavoro attraente nel mezzo di un mondo di montagna mozzafiato è certo per voi. Hai anche l'opportunità di sviluppare nel nostro team dinamico, brillante e vivace cultura aziendale. Attendere con ansia numerosi vantaggi per i dipendenti, come gite in montagna gratuite, vantaggi nei nostri negozi, hotel e ristoranti, nonché benefici per la vostra famiglia. Inizia la tua avventura professionale al Weissen Arena Group ora con la tua applicazione online completa con la foto. Non vediamo l'ora. | Weisse Arena Hospitality AG signinahotel/rocksresort Sandra Stilz www.signinahotel.com I www.weissearena.com I www.laax.com",
+        "en": "The Weisse Arena Group is an integrated tourism and leisure services company. We see ourselves as a provider of alpine leisure experiences. The group includes a cable car and ski lift company, hotel and catering companies, a sports equipment sales and rental company, a ski and snowboard school and a management company. In addition, the Weisse Arena Group is responsible for marketing the tourism destination Flims Laax Falera. | In the rocksresort, signinahotel and Riders Hotel you are much more than just a receptionist:in. As part of our Guest Experience team, you take responsibility for ensuring that our guests enjoy a coherent, personal and unforgettable experience from the first contact until departure. | Imagine strengthening our team as a receptionist: in, with a lot of heart and enthusiasm for the region and our guests in the rocksresort, signinahotel and Riders | What moves you:\n• You are the first contact person for our guests – personally, by phone and digitally.\n• You conduct check-in and check-out professionally and warmly.\n• You take responsibility for the quality of the guest experience and coordinate all necessary measures across all areas.\n• You recognize wishes, needs and possible challenges at an early stage and act proactively.\n• You will find business-friendly, guest-friendly solutions and make decisions independently within the scope of your competences.\n• You coordinate the cooperation with Housekeeping, Home Technology, Food & Beverage and other areas, so that guest wishes are implemented efficiently.\n• You edit guest correspondence during the stay on different channels.\n• You create and control bills and manage the shift cash register dutifully.\n• You actively participate in the compliance and further development of Guest Experience Standards.\n• Willingness to work in shift work early and late as well as in winter regularly on weekends. | What makes you:\n• You recognize the need for action before others see it and act on your own initiative.\n• You work independently, willingly and keep an overview even in challenging situations.\n• You have an education in the hotel industry or a comparable professional experience.\n• You have experience in the front office or a comparable guest function.\n• You have very good knowledge of German and English; Other languages are welcome.\n• Experience with Protel or a comparable hotel management system is an advantage. | An attractive workplace in the middle of a breathtaking mountain world is certain for you. You also have the opportunity to develop in our dynamic, bright team and vibrant company culture. Look forward to numerous employee benefits, such as free mountain rides, perks in our shops, hotels and restaurants, as well as benefits for your family. Start your professional adventure at the Weissen Arena Group now with your complete online application with photo. We look forward to that. | Weisse Arena Hospitality AG signinahotel/rocksresort Sandra Stilz www.signinahotel.com I www.weissearena.com I www.laax.com",
+        "de": "Die Weisse Arena Gruppe ist ein integriertes Dienstleistungsunternehmen im Bereich Tourismus und Freizeit. Wir verstehen uns als Anbieter von alpinen Freizeiterlebnissen. Zur Gruppe gehören eine Seilbahn- und Skiliftgesellschaft, Hotel und Gastronomiebetriebe, ein Sportgerätevertrieb und -verleih, eine Ski- und Snowboardschule sowie eine Verwaltungsgesellschaft. Zudem ist die Weisse Arena Gruppe für die Vermarktung der Tourismusdestination Flims Laax Falera verantwortlich. | Im rocksresort, signinahotel und Riders Hotel bist du weit mehr als nur Réceptionist:in. Als Teil unseres Teams im Guest Experience übernimmst du Verantwortung dafür, dass unsere Gäste vom ersten Kontakt bis zur Abreise ein stimmiges, persönliches und unvergessliches Erlebnis geniessen. | Stell dir vor, verstärkst unser Team als Réceptionist:in, mit viel Herz und Begeisterung für die Region und unsere Gäste im rocksresort, signinahotel und Riders | Was du bewegst:\n• Du bist erste Ansprechperson für unsere Gäste – persönlich, telefonisch und digital.\n• Du führst Check-in und Check-out professionell und herzlich durch.\n• Du übernimmst Verantwortung für die Qualität des Gästeerlebnisses und koordinierst bereichsübergreifend alle notwendigen Massnahmen.\n• Du erkennst Wünsche, Bedürfnisse und mögliche Herausforderungen frühzeitig und handelst proaktiv.\n• Du findest betriebswirtschaftliche, gästefreundliche Lösungen und triffst im Rahmen deiner Kompetenzen selbstständig Entscheidungen.\n• Du koordinierst die Zusammenarbeit mit Housekeeping, Haustechnik, Food & Beverage und weiteren Bereichen, damit Gästewünsche effizient umgesetzt werden.\n• Du bearbeitest Gästekorrespondenz während des Aufenthaltes auf verschiedenen Kanälen.\n• Du erstellst und kontrollierst Rechnungen und führst die Schichtkasse pflichtbewusst.\n• Du beteiligst dich aktiv an der Einhaltung und Weiterentwicklung Guest Experience Standards.\n• Bereitschaft im Schichtdienst Früh- und Spätdienst sowie im Winter regelmäßig an Wochenenden zu arbeiten. | Was dich ausmacht:\n• Du erkennst Handlungsbedarf, bevor andere ihn sehen, und handelst eigeninitiativ.\n• Du arbeitest selbstständig, entscheidungsfreudig und behältst auch in anspruchsvollen Situationen den Überblick.\n• Du verfügst über eine Ausbildung in der Hotellerie oder eine vergleichbare Berufserfahrung.\n• Du hast Erfahrung im Front Office oder einer vergleichbaren Gästefunktion.\n• Du verfügst über sehr gute Deutsch- und Englischkenntnisse; weitere Sprachen sind willkommen.\n• Erfahrung mit Protel oder einem vergleichbaren Hotelmanagementsystem ist von Vorteil. | Ein attraktiver Arbeitsplatz inmitten einer atemberaubenden Bergwelt ist dir gewiss. Zudem hast du die Möglichkeit, dich in unserem dynamischen, aufgeweckten Team und der lebhaften Unternehmenskultur weiterzuentwickeln. Freue dich auf zahlreiche Mitarbeitervergünstigungen, wie freie Bergfahrten, Vergünstigungen in unseren Shops, Hotels und Gastronomiebetrieben sowie Vorteile für deine Familie. Starte jetzt dein berufliches Abenteuer bei der Weissen Arena Gruppe mit deiner vollständigen Online-Bewerbung mit Foto. Wir freuen uns darauf. | Weisse Arena Hospitality AG signinahotel/rocksresort Sandra Stilz www.signinahotel.com I www.weissearena.com I www.laax.com",
+        "fr": "Le Groupe Weisse Arena est une société intégrée de services touristiques et de loisirs. Nous nous considérons comme un fournisseur d'expériences de loisirs alpins. Le groupe comprend une compagnie de téléphérique et de téléski, des entreprises d'hôtellerie et de restauration, une société de vente et de location de matériel de sport, une école de ski et de snowboard et une société de gestion. En outre, le Groupe Weisse Arena est responsable de la commercialisation de la destination touristique Flims Laax Falera. Dans la réserve de rochers, signinahotel et Riders Hotel vous êtes beaucoup plus qu'une réceptionniste:in. Dans le cadre de notre équipe Guest Experience, vous devez vous assurer que nos clients bénéficient d'une expérience cohérente, personnelle et inoubliable du premier contact jusqu'au départ. Autres Imaginez renforcer notre équipe en tant que réceptionniste: dans, avec beaucoup de cœur et d'enthousiasme pour la région et nos invités dans le rockresort, signinahotel et Riders.\n• Vous êtes la première personne de contact pour nos clients – personnellement, par téléphone et numériquement.\n• Vous effectuez l'enregistrement et le départ professionnel et chaleureux.\n• Vous assumez la responsabilité de la qualité de l'expérience client et coordonnez toutes les mesures nécessaires dans tous les domaines.\n• Vous reconnaissez les souhaits, les besoins et les défis éventuels à un stade précoce et agissez de manière proactive.\n• Vous trouverez des solutions favorables aux entreprises et aux clients et prendrez des décisions indépendantes dans le cadre de vos compétences.\n• Vous coordonnez la coopération avec le ménage, la technologie domestique, l'alimentation et la boisson et d'autres domaines, afin que les souhaits des invités soient mis en œuvre efficacement.\n• Vous modifiez la correspondance des invités pendant le séjour sur différents canaux.\n• Vous créez et contrôlez les factures et gérez la caisse enregistreuse de poste avec diligence.\n• Vous participez activement à la conformité et au développement des normes d'expérience client.\n• Volonté de travailler en équipe tôt et tard ainsi qu'en hiver régulièrement le week-end. Autres Qu'est-ce qui vous fait :\n• Vous reconnaissez la nécessité d'agir avant que les autres le voient et agissent de votre propre initiative.\n• Vous travaillez de manière indépendante, volontairement et gardez un aperçu même dans des situations difficiles.\n• Vous avez une formation dans l'industrie hôtelière ou une expérience professionnelle comparable.\n• Vous avez de l'expérience au front office ou une fonction d'invité comparable.\n• Vous avez une très bonne connaissance de l'allemand et de l'anglais; D'autres langues sont les bienvenues.\n• Expérience avec Protel ou un système de gestion hôtelière comparable est un avantage. Autres Un lieu de travail attrayant au milieu d'un monde montagneux à couper le souffle est certain pour vous. Vous avez également l'occasion de vous développer dans notre équipe dynamique, lumineuse et dynamique culture d'entreprise. Profitez de nombreux avantages pour les employés, comme des randonnées en montagne gratuites, des avantages dans nos magasins, hôtels et restaurants, ainsi que des avantages pour votre famille. Commencez votre aventure professionnelle au Weissen Arena Group avec votre candidature complète en ligne avec photo. Nous attendons cela avec impatience. Weisse Arena Hospitality AG signinahotel/rocksresort Sandra Stilz www.signinahotel.com I www.weissearena.com I www.laax.com"
+      },
+      "location": "Laax",
+      "canton": "GR",
+      "url": "https://www.weissearena.com/jobs/details.html?jobId=4534&jobTitle=R%C3%A9ceptionist%3Ain",
+      "source": "Weisse Arena Gruppe Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-07-29T11:35:51.899Z",
+      "addressLocality": "Laax",
+      "postalCode": "7031",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Turismo",
+      "contract": "full-time",
+      "employmentType": "CONTRACTOR",
+      "experienceLevel": "mid",
+      "sector": "Turismo / Sport",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-26",
+      "applyUrl": "https://emea3.recruitmentplatform.com/apply-app/pages/application-form?jobId=PD6FK026203F3VBQBLO8NV79D-4534&langCode=de_DE",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "department": "signinahotel/rocksresort",
+      "jobNumber": "WAG02444",
+      "pensum": "100%",
+      "contractLabel": "Saisonanstellung",
+      "previousSlugs": [
+        "receptionist-in-weisse-arena-ch",
+        "ricevitore-in-weisse-arena-gruppe-laax"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "receptionist-in-weisse-arena-ch",
+          "ricevitore-in-weisse-arena-gruppe-laax"
+        ],
+        "en": [
+          "receptionist-in-weisse-arena-ch"
+        ],
+        "fr": [
+          "receptionist-in-weisse-arena-ch"
+        ]
+      },
+      "firstSeenAt": "2026-07-27T12:32:58.031Z",
+      "needsRetranslation": true,
+      "salaryMin": 57500,
+      "salaryMax": 87000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 57500,
+          "maxValue": 87000,
           "unitText": "YEAR"
         }
       },
@@ -852,7 +884,7 @@
       "url": "https://www.weissearena.com/jobs/details.html?jobId=4538&jobTitle=Guest+Experience+Host",
       "source": "Weisse Arena Gruppe Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-28T22:09:47.251Z",
+      "crawledAt": "2026-07-29T11:35:51.897Z",
       "addressLocality": "Laax",
       "postalCode": "7031",
       "addressCountry": "CH",
@@ -873,6 +905,7 @@
       "pensum": "100%",
       "contractLabel": "Saisonanstellung",
       "firstSeenAt": "2026-07-27T22:09:19.912Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -966,7 +999,8 @@
         }
       },
       "addressRegion": "GR",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2,
+      "needsRetranslation": true
     }
   ]
 }
