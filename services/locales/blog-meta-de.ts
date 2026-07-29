@@ -9075,6 +9075,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.lugano-lavori-di-asfaltatura.title': 'Lugano, Asphaltarbeiten: Donnerstag Baustelle in der Via Alla Bozzoreda',
     'blog.article.lugano-lavori-di-asfaltatura.excerpt': 'Die Asphaltierungsarbeiten in der Via Alla Bozzoreda in Lugano werden nachts zwischen Donnerstag, dem 30. Juli, 20.00 Uhr und Freitag, dem 31. Juli, 5.00 Uhr in einem einzigen Zyklus durchgeführt.',
     'blog.article.lugano-lavori-di-asfaltatura.imageAlt': 'Asphaltarbeiten in Lugano im Gange',
+    'blog.article.sospenda-riversamento-allitalia-della-quota-dellimposta-alla-fonte-prelevata-ai-frontalieri.title': 'Freigabe des Quellensteuerbetrags für Grenzgänger aussetzen',
+    'blog.article.sospenda-riversamento-allitalia-della-quota-dellimposta-alla-fonte-prelevata-ai-frontalieri.excerpt': 'Die Abgeordnete Plr Cristina Maderni und andere Großräte fordern den Staatsrat auf, die Rückführung des von den Grenzgängern erhobenen Anteils an der Quellensteuer an Italien auszusetzen.',
+    'blog.article.sospenda-riversamento-allitalia-della-quota-dellimposta-alla-fonte-prelevata-ai-frontalieri.imageAlt': 'Die Sicht auf den Luganoer See vom Monte Bre',
 };
 
 export default blogMetaDe;

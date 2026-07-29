@@ -4977,6 +4977,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-non-c-e-assolutamente-nessun-errore-sistemico': { name: 'Frontalieri Ticino', path: '/articoli-frontaliere/non-c-e-assolutamente-nessun-errore-sistemico', parent: 'blog' },
     'blog-lugano-lavori-di-asfaltatura': { name: 'Lavori di asfaltatura in via Alla', path: '/articoli-frontaliere/lugano-lavori-di-asfaltatura', parent: 'blog' },
     'blog-fedelta-banca-costosa': { name: 'La fedeltà costa cara: con fornitori', path: '/articoli-svizzera/fedelta-banca-costosa/', parent: 'blog' },
+    'blog-sospenda-riversamento-allitalia-della-quota-dellimposta-alla-fonte-prelevata-ai-frontalieri': { name: 'sospenda-riversamento-allitali', path: '/articoli-frontaliere/sospenda-riversamento-allitalia-della-quota-dellimposta-alla-fonte-prelevata-ai-frontalieri', parent: 'blog' },
  };
 
  const info = sectionNames[section];
