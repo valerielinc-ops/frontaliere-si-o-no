@@ -1690,6 +1690,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.lavoro-part-time-svizzera-diritti.title': 'Travail à temps partiel en Suisse : droits et contrat',
     'blog.article.lavoro-part-time-svizzera-diritti.excerpt': 'Guide pratique sur les droits contractuels, les cotisations sociales et la fiscalité pour les travailleurs à temps partiel en Suisse.',
     'blog.article.lavoro-part-time-svizzera-diritti.imageAlt': 'Bureau moderne avec vue sur une ville suisse',
+    'blog.article.petrolio-in-cambio-di-miliardi.title': 'Pétrole en échange de milliards : le pouvoir caché des traders suisses',
+    'blog.article.petrolio-in-cambio-di-miliardi.excerpt': 'Les sociétés suisses de matières premières offrent des financements aux États en échange de fournitures de pétrole',
+    'blog.article.petrolio-in-cambio-di-miliardi.imageAlt': 'Un pétrolier en mouvement sur le lac de Lugano',
 };
 
 export default blogMetaChFr;

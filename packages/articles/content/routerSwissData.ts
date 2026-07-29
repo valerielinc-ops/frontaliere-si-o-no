@@ -589,6 +589,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'gestione-immobiliare-professionale': { it: 'gestione-immobiliare-professionale', en: 'professional-real-estate-management', de: 'professionelle-immobilienverwaltung', fr: 'gestion-immobiliere-professionnelle' },
  'noleggio-sociale-frontalieri-2026': { it: 'noleggio-sociale-frontalieri-2026', en: 'social-car-rental-for-frontalieri-2026', de: 'soziale-mietwagen-fur-frontalieri-2026', fr: 'location-sociale-de-voitures-pour-frontaliers-2026' },
  'lavoro-part-time-svizzera-diritti': { it: 'lavoro-part-time-svizzera-diritti', en: 'part-time-work-switzerland-rights', de: 'teilzeitarbeit-schweiz-rechte', fr: 'travail-partiel-suisse-droits' },
+ 'petrolio-in-cambio-di-miliardi': { it: 'petrolio-in-cambio-di-miliardi', en: 'petroleum-in-exchange-for-millions', de: 'ol-in-tausch-fur-milliarden', fr: 'petrole-en-contrepartie-de-milliards' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

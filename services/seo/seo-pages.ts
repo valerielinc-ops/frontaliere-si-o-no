@@ -4759,7 +4759,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 3621,
+ "numberOfItems": 3622,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026/` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024/` },
@@ -8381,7 +8381,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 3618, "name": "Noleggio sociale per frontalieri: 100 euro al m...", "url": `${BASE_URL}/articoli-frontaliere/noleggio-sociale-frontalieri-2026` },
           { "@type": "ListItem", "position": 3619, "name": "Multe sui mezzi pubblici: il fondo che paga per...", "url": `${BASE_URL}/articoli-frontaliere/fondo-liberta-svizzera-multe` },
           { "@type": "ListItem", "position": 3620, "name": "Lavoro part-time in Svizzera: diritti e contratto", "url": `${BASE_URL}/articoli-frontaliere/lavoro-part-time-svizzera-diritti` },
-          { "@type": "ListItem", "position": 3621, "name": "Vivere a Porto Ceresio e lavorare in Ticino da ...", "url": `${BASE_URL}/articoli-frontaliere/vivere-porto-ceresio-lavoro-ticino` }
+          { "@type": "ListItem", "position": 3621, "name": "Vivere a Porto Ceresio e lavorare in Ticino da ...", "url": `${BASE_URL}/articoli-frontaliere/vivere-porto-ceresio-lavoro-ticino` },
+          { "@type": "ListItem", "position": 3622, "name": "Petrolio in cambio di miliardi: il potere nasco...", "url": `${BASE_URL}/articoli-frontaliere/petrolio-in-cambio-di-miliardi` }
  ]
  },
  {
