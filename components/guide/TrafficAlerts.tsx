@@ -155,7 +155,13 @@ const TrafficAlerts: React.FC<TrafficAlertsProps> = ({ initialCrossingId }) => {
 
  const allCrossingsWithTraffic = useMemo(() => {
  return borderCrossings
- .filter(c => c.trafficLevel !== undefined && c.trafficLevel !== 'closed')
+ // trafficLevel undefined just means "no historical trafficLevel label
+ // assigned yet" (e.g. non-Ticino borders added later) — it is NOT the
+ // same as 'closed' and must not be excluded here, else this list is
+ // blind to every non-Ticino crossing (issue #4892 sibling fix). The
+ // map markers already render every crossing unfiltered; this list
+ // must match, filtering only the crossings actually marked closed.
+ .filter(c => c.trafficLevel !== 'closed')
  .map(c => {
  const traffic = trafficData.find(t => t.crossingName === c.name);
  return {
