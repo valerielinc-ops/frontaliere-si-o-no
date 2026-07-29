@@ -82,7 +82,17 @@ async function main() {
   }
 }
 
-main().catch((err) => {
-  console.error(`[notify-search-engines] unexpected error: ${err?.message || err}`);
-  // Deliberately exit 0 — see the header contract.
-});
+// Run as standalone only if invoked directly (repo idiom — see
+// scripts/audit-footer-root-presence.mjs). Guards against a plain `import`
+// of this module executing its whole side-effecting run.
+const invokedDirectly = (() => {
+  try { return import.meta.url === `file://${process.argv[1]}` || import.meta.url.endsWith(process.argv[1]); }
+  catch { return false; }
+})();
+
+if (invokedDirectly) {
+  main().catch((err) => {
+    console.error(`[notify-search-engines] unexpected error: ${err?.message || err}`);
+    // Deliberately exit 0 — see the header contract.
+  });
+}

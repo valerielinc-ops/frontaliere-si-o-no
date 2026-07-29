@@ -400,7 +400,17 @@ async function main() {
   await runOrchestrator(args);
 }
 
-main().catch((err) => {
-  console.error('[rerender-article-corpus] fatal error:', err);
-  process.exit(1);
-});
+// Run as standalone only if invoked directly (repo idiom — see
+// scripts/audit-footer-root-presence.mjs). Guards against a plain `import`
+// of this module executing its whole side-effecting run.
+const invokedDirectly = (() => {
+  try { return import.meta.url === `file://${process.argv[1]}` || import.meta.url.endsWith(process.argv[1]); }
+  catch { return false; }
+})();
+
+if (invokedDirectly) {
+  main().catch((err) => {
+    console.error('[rerender-article-corpus] fatal error:', err);
+    process.exit(1);
+  });
+}

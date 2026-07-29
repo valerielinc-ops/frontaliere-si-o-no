@@ -158,7 +158,7 @@ function sampleWithoutReplacement(arr, n) {
 //     article still propagating; see header comment).
 //   - 'content-mismatch'    — a real MISMATCH with no CF marker in its
 //     reported diff block: the signal this audit actually exists to catch.
-function parseLocaleVerdicts(combinedOutput) {
+export function parseLocaleVerdicts(combinedOutput) {
   const verdicts = {};
   let currentLocale = null;
   let currentBlockLines = [];
@@ -203,6 +203,36 @@ function parseLocaleVerdicts(combinedOutput) {
 // 'fetch-or-liveness' are recorded and printed but do NOT fail the run: they
 // are operational/timing noise (a slow deploy propagation, a transient
 // network blip), not template drift — the thing this audit exists to catch.
+/**
+ * Collapses the per-locale verdicts of one article into a single category.
+ *
+ * Pure and exported so the precedence order is unit-testable: it has been
+ * wrong twice. The first version fell through to 'ok' whenever no known
+ * verdict matched; the second only caught the all-'unknown' case, so a mix
+ * (it=ok, en=unknown) still passed silently with en never actually verified
+ * — the same blind spot, just narrowed (reviewer finding on PR #4914).
+ *
+ * Precedence, and why:
+ *   1. no-locale-verdicts — the checker never printed a single line.
+ *   2. content-mismatch   — real drift, the thing this audit exists to catch.
+ *   3. unrecognized-verdicts — ANY locale unparseable. Outranks the tolerated
+ *      noise below: 'it=cf-bot-script-only, en=unknown' must not report as a
+ *      pass, because en was never verified at all.
+ *   4-5. render-failure / fetch-or-liveness — operational noise, reported but
+ *      not failing (see DIVERGENT_CATEGORIES).
+ *   6. ok.
+ */
+export function categorizeLocaleVerdicts(localeVerdicts) {
+  const values = Object.values(localeVerdicts ?? {});
+  if (values.length === 0) return 'no-locale-verdicts';
+  if (values.includes('content-mismatch')) return 'content-mismatch';
+  if (values.includes('unknown')) return 'unrecognized-verdicts';
+  if (values.includes('cf-bot-script-only')) return 'ok-cf-bot-script-only';
+  if (values.includes('render-failure')) return 'render-failure';
+  if (values.includes('fetch-or-liveness')) return 'fetch-or-liveness';
+  return 'ok';
+}
+
 const DIVERGENT_CATEGORIES = new Set(['content-mismatch', 'no-locale-verdicts', 'unrecognized-verdicts']);
 
 async function main() {
@@ -229,30 +259,8 @@ async function main() {
       });
       const combinedOutput = `${result.stdout || ''}\n${result.stderr || ''}`;
       const localeVerdicts = parseLocaleVerdicts(combinedOutput);
-      const hasVerdicts = Object.keys(localeVerdicts).length > 0;
 
-      let category;
-      if (!hasVerdicts) {
-        // check-article-byte-identity.mjs never got far enough to print a
-        // single per-locale line (e.g. publish-article-fast.mjs itself
-        // failed) — cannot categorize, so this counts as a finding rather
-        // than a silent pass.
-        category = 'no-locale-verdicts';
-      } else {
-        const values = Object.values(localeVerdicts);
-        if (values.includes('content-mismatch')) category = 'content-mismatch';
-        else if (values.includes('cf-bot-script-only')) category = 'ok-cf-bot-script-only';
-        else if (values.includes('render-failure')) category = 'render-failure';
-        else if (values.includes('fetch-or-liveness')) category = 'fetch-or-liveness';
-        // Every locale line parsed to 'unknown': none of the four known
-        // stdout shapes matched. Unreachable today, but if the render
-        // script's wording ever drifts this is the branch that would fire —
-        // and falling through to 'ok' here would turn this audit into a
-        // blind spot that reports success while checking nothing, the exact
-        // opposite of its fail-loud contract (post-merge review #4908).
-        else if (values.every((v) => v === 'unknown')) category = 'unrecognized-verdicts';
-        else category = 'ok';
-      }
+      const category = categorizeLocaleVerdicts(localeVerdicts);
 
       const ok = !DIVERGENT_CATEGORIES.has(category);
       if (!ok) anyDivergence = true;
@@ -281,7 +289,19 @@ async function main() {
   console.log('[audit-article-corpus-drift] PASS — no divergence found in this sample');
 }
 
-main().catch((err) => {
-  console.error('[audit-article-corpus-drift] fatal error:', err);
-  process.exit(1);
-});
+// Run as standalone only if invoked directly. Same idiom as
+// scripts/audit-footer-root-presence.mjs and siblings — without it, merely
+// IMPORTING this module (as tests/audit-article-corpus-drift-categorize.test.ts
+// does to reach the pure categorizer) would execute the whole audit: spawn
+// `npx tsx` per sampled article, hit the live site, and call process.exit.
+const invokedDirectly = (() => {
+  try { return import.meta.url === `file://${process.argv[1]}` || import.meta.url.endsWith(process.argv[1]); }
+  catch { return false; }
+})();
+
+if (invokedDirectly) {
+  main().catch((err) => {
+    console.error('[audit-article-corpus-drift] fatal error:', err);
+    process.exit(1);
+  });
+}

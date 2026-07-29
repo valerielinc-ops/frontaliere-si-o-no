@@ -164,9 +164,19 @@ function main() {
   }
 }
 
-try {
-  main();
-} catch (err) {
-  console.error(`::error::[publish-edge-files] unexpected failure: ${err.message}`);
-  process.exit(1);
+// Run as standalone only if invoked directly (repo idiom — see
+// scripts/audit-footer-root-presence.mjs). Guards against a plain `import`
+// of this module executing its whole side-effecting run.
+const invokedDirectly = (() => {
+  try { return import.meta.url === `file://${process.argv[1]}` || import.meta.url.endsWith(process.argv[1]); }
+  catch { return false; }
+})();
+
+if (invokedDirectly) {
+  try {
+    main();
+  } catch (err) {
+    console.error(`::error::[publish-edge-files] unexpected failure: ${err.message}`);
+    process.exit(1);
+  }
 }
