@@ -1343,6 +1343,8 @@ const translations: Record<string, string> = {
  'bordermap.cheapest': 'Più conveniente',
  'bordermap.campione': 'Campione d\'Italia ha uno status fiscale speciale come exclave italiana in territorio svizzero.',
  'bordermap.municipalities': '{count} comuni',
+ 'bordermap.liveWait': 'Attesa live',
+ 'bordermap.liveUpdatedAgo': 'aggiornato {minutes} min fa',
 
  // ── Residency Simulator ──
  'comparators.residency': 'Cambio Residenza',
