@@ -1690,6 +1690,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.lavoro-part-time-svizzera-diritti.title': 'Part-time work in Switzerland: rights and contract',
     'blog.article.lavoro-part-time-svizzera-diritti.excerpt': 'Practical guide on contract rights, social security contributions and taxation for part-time workers in Switzerland.',
     'blog.article.lavoro-part-time-svizzera-diritti.imageAlt': 'Modern office with a view of a Swiss city',
+    'blog.article.petrolio-in-cambio-di-miliardi.title': 'Oil for billions: the hidden power of Swiss traders',
+    'blog.article.petrolio-in-cambio-di-miliardi.excerpt': 'Swiss Commodity Companies Offer Funding to States in Exchange for Oil Supplies',
+    'blog.article.petrolio-in-cambio-di-miliardi.imageAlt': 'A oil tanker moving on Lake Lugano',
 };
 
 export default blogMetaChEn;
