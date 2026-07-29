@@ -26,8 +26,16 @@ describe('route-slugs anti-drift guard (#4315)', () => {
     ['build-plugins/eventsSeoPagesPlugin.ts', /from '\.\.\/services\/routeSlugs\.data'/, "it: '/cerca-lavoro-ticino/'"],
     ['build-plugins/exchangeRatePagesPlugin.ts', /from '\.\.\/services\/routeSlugs\.data'/, "it: '/calcola-stipendio/',"],
     ['build-plugins/shared/employerCtaBlock.ts', /from '\.\.\/\.\.\/services\/routeSlugs\.data'/, "it: '/per-le-aziende/',"],
-    ['build-plugins/blogContextualLinksPlugin.ts', /from '\.\.\/services\/routeSlugs\.data\.ts'/, "it: 'articoli-frontaliere',"],
-    ['build-plugins/ogPagesPlugin.ts', /from '\.\.\/services\/routeSlugs\.data'/, "const stBlock = routerSrc.match"],
+    // #4881 Fase 6: both moved into packages/articles/engine and now receive the
+    // SAME SLUG_TABLES values through the injected SiteShellContract instead of
+    // importing routeSlugs.data directly (the package cannot reach outside its
+    // own tree — see tests/packages-articles-confinement.test.ts). That is a
+    // stricter form of this guard, not a weaker one: the literals still may not
+    // appear, and the values still originate from SLUG_TABLES. Follow the
+    // implementation rather than dropping the rows, or the guard silently stops
+    // covering these two files.
+    ['packages/articles/engine/blogContextualLinksPlugin.ts', /getSiteShell\(\)\.blogIndexSlugs/, "it: 'articoli-frontaliere',"],
+    ['packages/articles/engine/ogPagesPlugin.ts', /shell\.blogIndexSlugs/, "const stBlock = routerSrc.match"],
     ['components/vita/TicineseDialect.tsx', /from '@\/services\/routeSlugs\.data'/, "'/dialetto-ticinese/'"],
     ['scripts/validate-critical-dist-pages.mjs', /from '\.\.\/services\/routeSlugs\.data\.ts'/, "'calcola-stipendio/index.html'"],
     ['build-plugins/seoHubsData.ts', /from '\.\.\/services\/routeSlugs\.data'/, "articlesAll: '/articoli-frontaliere/tutti/'"],

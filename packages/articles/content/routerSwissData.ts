@@ -10,9 +10,12 @@
  * frontaliere registry hits the same limit and chunks the union; the svizzera
  * section sidesteps it entirely by validating ids at runtime via REVERSE_SWISS.
  */
-import type { Locale } from './i18n';
+import type { ArticleLocale } from '../engine/siteShell';
+// Colocated under packages/articles/content (issue #4881 Fase 6):
+// `ArticleLocale` (siteShell.ts) is identical to the site's `Locale`
+// union ('it'|'en'|'de'|'fr') — package-local alias, confinement.
 
-export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
+export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
   'costo-vita-svizzera-2026': {
     it: 'costo-vita-svizzera-2026',
     en: 'cost-of-living-switzerland-2026',
@@ -578,10 +581,10 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'assegno-unico-nuove-regole-inps': { it: 'assegno-unico-nuove-regole-inps', en: 'assegno-unico-inps-new-rules', de: 'assegno-unico-inps-neue-regeln', fr: 'assegno-unico-inps-nouvelles-regles' },
 };
 
-export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {
-  const result = { it: {}, en: {}, de: {}, fr: {} } as Record<Locale, Record<string, string>>;
+export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
+  const result = { it: {}, en: {}, de: {}, fr: {} } as Record<ArticleLocale, Record<string, string>>;
   for (const [articleId, locSlugs] of Object.entries(SWISS_SLUGS)) {
-    for (const locale of ['it', 'en', 'de', 'fr'] as Locale[]) {
+    for (const locale of ['it', 'en', 'de', 'fr'] as ArticleLocale[]) {
       result[locale][locSlugs[locale]] = articleId;
     }
   }

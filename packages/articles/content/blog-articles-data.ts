@@ -1,17 +1,21 @@
 /**
  * Blog articles metadata — extracted from BlogArticles.tsx for code-splitting.
  * This module is dynamically imported so it doesn't block the critical rendering path.
- * 
+ *
  * FRO-328: ~113KB of article data extracted to its own chunk.
+ *
+ * Colocated under packages/articles/content (issue #4881 Fase 6): relative
+ * (not `@/`) import below — this module is also pulled into vite.config's
+ * build graph (build-plugins → packages/articles/articleSections →
+ * blog-articles-data), and Vite's config loader can't resolve the `@/`
+ * alias — a `@/` value import here breaks config load (build fails at
+ * ~2min). `cdnBlogImage` comes from this package's own
+ * `blogImageCdnMirror.ts` (a byte-compatible twin of
+ * `services/seo/blogImageCdn.ts` — see that file's header for the other
+ * gemello, `build-plugins/shared/blogImageCdn.ts`) rather than the site-side
+ * module directly, since this package cannot import outside its own tree.
  */
-import type { BlogArticleId } from '@/services/router';
-// Relative (not `@/`) import: this module is also pulled into vite.config's
-// build graph (build-plugins → services/articleSections → blog-articles-data),
-// and Vite's config loader can't resolve the `@/` alias — a `@/` value import
-// here breaks config load (build fails at ~2min). The type import above is
-// fine (stripped at compile). See build-plugins/shared/blogImageCdn for the
-// build-side twin.
-import { cdnBlogImage } from '../services/seo/blogImageCdn';
+import { cdnBlogImage } from './blogImageCdnMirror';
 
 export interface Article {
  // Loose `string` to avoid TS2590 union-too-complex when ARTICLES literal is checked.

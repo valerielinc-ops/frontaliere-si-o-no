@@ -12,7 +12,9 @@
 import type { Article } from './blog-articles-data';
 // Relative (not `@/`): this module is in vite.config's build graph; the config
 // loader can't resolve `@/`. See feedback_no_alias_imports_in_config_graph.
-import { cdnBlogImage } from '../services/seo/blogImageCdn';
+// `cdnBlogImage` from this package's own mirror (confinement — see
+// blog-articles-data.ts header for the twin-file rationale).
+import { cdnBlogImage } from './blogImageCdnMirror';
 
 export type { Article };
 
