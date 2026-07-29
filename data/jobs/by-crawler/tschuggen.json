@@ -1,6 +1,6 @@
 {
   "crawlerKey": "tschuggen",
-  "assembledAt": "2026-07-28T22:23:52.398Z",
+  "assembledAt": "2026-07-29T11:38:31.865Z",
   "jobs": [
     {
       "id": "tschuggen-2cb375117405",
@@ -33,7 +33,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1331/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-28T22:23:49.663Z",
+      "crawledAt": "2026-07-29T11:38:28.915Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -78,6 +78,7 @@
         ]
       },
       "firstSeenAt": "2026-07-21T22:10:28.044Z",
+      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -123,7 +124,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1346/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-28T22:23:48.777Z",
+      "crawledAt": "2026-07-29T11:38:28.035Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -157,6 +158,7 @@
         ]
       },
       "firstSeenAt": "2026-05-27T14:17:00.840Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -202,7 +204,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1367/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-28T22:23:47.860Z",
+      "crawledAt": "2026-07-29T11:38:27.154Z",
       "addressLocality": "Arosa",
       "postalCode": "7050",
       "addressCountry": "CH",
@@ -282,7 +284,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1374/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-28T22:23:46.947Z",
+      "crawledAt": "2026-07-29T11:38:26.259Z",
       "addressLocality": "Arosa",
       "postalCode": "7050",
       "addressCountry": "CH",
@@ -330,6 +332,7 @@
         ]
       },
       "firstSeenAt": "2026-07-08T22:13:55.244Z",
+      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -375,7 +378,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1373/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-28T22:23:46.044Z",
+      "crawledAt": "2026-07-29T11:38:25.354Z",
       "addressLocality": "Arosa",
       "postalCode": "7050",
       "addressCountry": "CH",
@@ -404,6 +407,7 @@
         ]
       },
       "firstSeenAt": "2026-07-11T11:08:38.644Z",
+      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -449,7 +453,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/840/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-28T22:23:45.127Z",
+      "crawledAt": "2026-07-29T11:38:24.480Z",
       "addressLocality": "Arosa",
       "postalCode": "7050",
       "addressCountry": "CH",
@@ -488,6 +492,7 @@
         ]
       },
       "firstSeenAt": "2026-07-11T11:08:37.949Z",
+      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -533,7 +538,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1375/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-28T22:23:44.226Z",
+      "crawledAt": "2026-07-29T11:38:23.611Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -572,6 +577,7 @@
         ]
       },
       "firstSeenAt": "2026-07-14T22:04:38.287Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -617,7 +623,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1378/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-28T22:23:43.321Z",
+      "crawledAt": "2026-07-29T11:38:22.729Z",
       "addressLocality": "Arosa",
       "postalCode": "7050",
       "addressCountry": "CH",
@@ -662,84 +668,6 @@
         }
       },
       "addressRegion": "GR"
-    },
-    {
-      "id": "tschuggen-91a1ce90ad72",
-      "slug": "parrucchiere-m-f-d-stagione-invernale-2026-2027-tschuggen-collection-arosa",
-      "slugByLocale": {
-        "it": "parrucchiere-m-f-d-stagione-invernale-2026-2027-tschuggen-collection-arosa",
-        "en": "hairdresser-m-w-d-wintersaison-2026-2027-tschuggen-ch",
-        "de": "hairdresser-m-w-d-wintersaison-2026-2027-tschuggen-ch",
-        "fr": "salon-de-coiffure-m-f-j-saison-hivernale-2026-2027-tschuggen-collection-arosa"
-      },
-      "company": "Tschuggen Collection",
-      "companyKey": "tschuggen",
-      "companyDomain": "tschuggencollection.ch",
-      "title": "Hairdresser (m/w/d) Wintersaison 2026/2027",
-      "titleByLocale": {
-        "it": "Hairdresser (m/w/d) Wintersaison 2026/2027",
-        "en": "Hairdresser (m/f/d) Winter season 2026/2027",
-        "de": "Hairdresser (m/w/d) Wintersaison 2026/2027",
-        "fr": "Salon de coiffure (m/f/j) Saison hivernale 2026/2027"
-      },
-      "description": "Das Tschuggen Grand Hotel in Arosa ist ein auf 1'800m Höhe gelegenes 5‑Sterne‑Superior‑Luxushotel in den Bündner Bergen. Als eines der vier Häuser der \"The Tschuggen Collection\", bietet unser Haus 128 individuell gestaltete Zimmer, Suiten und Mountainlofts, dazu vier stilvolle Restaurants – darunter das Gourmet‑Highlight La Brezza mit 19 Punkten Gault Millau & zwei Michelin‑Sternen – sowie eine beeindruckende 5 000 m² grosse Spa‑Bergoase, designed by Mario Botta . UNSERE VISION - Wir geben der Zeit Ihren Wert zurück. Sie sind ein leidenschaftlicher und empathischer Gastgeber, wertschätzend & respektvoll? Dann sind Sie bei uns richtig. Eintritt per 14. Dezember 2026 Arbeitsverhältnis befristet bis 14. März 2027 |\n• Abgeschlossene Ausbildung als Hairdresser - Coiffeur / Coiffeuse EFZ oder eine vergleichbare Qualifikation\n• Mehrjährige Berufserfahrung, idealerweise in einem 5*-Hotel, Luxury Spa oder gehobenen Salon\n• Leidenschaft für exzellenten Service sowie ein ausgeprägtes Gespür für Trends, Stil und Ästhetik\n• Hohe Fachkompetenz in Schnitt-, Farb- und Stylingtechniken\n• Freude an der individuellen Beratung anspruchsvoller, internationaler Gäste\n• Sicherer Umgang mit MS Office sowie idealerweise Erfahrung mit Termin- und Kassensystemen TAC\n• Fliessende Deutsch- und Englischkenntnisse; weitere Fremdsprachen sind von Vorteil\n• Gepflegtes Erscheinungsbild, ausgezeichnete Umgangsformen und ein souveränes Auftreten\n• Selbstständige, verantwortungsbewusste und strukturierte Arbeitsweise\n• Verkaufsstärke sowie Freude daran, hochwertige Haarpflegeprodukte und Behandlungen zu empfehlen\n• Teamorientierte, flexible und belastbare Persönlichkeit mit hoher Serviceorientierung |\n• Professionelle Durchführung von Damen-, Herren- und Kinderhaarschnitten sowie individuellen Stylings\n• Ausführung von Colorationen, Tönungen, Pflegebehandlungen und weiteren hochwertigen Friseurdienstleistungen\n• Persönliche und typgerechte Beratung unserer internationalen Gäste hinsichtlich Frisuren, Haarpflege und Styling\n• Aktiver Verkauf exklusiver Haarpflege- und Stylingprodukte\n• Sicherstellung eines erstklassigen Gästeerlebnisses mit höchster Service- und Beratungsqualität\n• Verantwortung für die Vorbereitung und Pflege des Coiffeursalons gemäss unseren 5-Sterne-Superior-Standards\n• Professionelle Terminplanung und enge Zusammenarbeit mit der Spa-Rezeption\n• Einhaltung höchster Hygiene-, Qualitäts- und Sicherheitsstandards\n• Mitwirkung bei saisonalen Aktionen, exklusiven Events sowie individuellen Gästeanfragen\n• Enge Zusammenarbeit mit dem Spa-Team, um ein ganzheitliches Wellness- und Beauty-Erlebnis zu schaffen\n• Unterstützung beim Verkauf in unserem Hotelshop\n• Unterstützung des Spa Receptiosteams | Attraktive Mitarbeiterunterkünfte in der Nähe des Hotel Ausgewogenes Menü-Angebot in unserer Mitarbeitertrattoria mit vegetarischen & veganen Optionen 24/7 Nutzung unseres Fitnesscenters Einheimische Vorteile wie Spezialpreise bei Sportgeschäften, Skipässen und vielem mehr Spezialpreise für Übernachtungen in unseren Häusern der \"The Tschuggen Collection\" sowie den Swiss Deluxe Hotels | Fühlen Sie sich angesprochen - Bewerben Sie sich jetzt! Wir freuen uns über Ihr Bewerbungsdossier - gerne digital: Bewerbungsschreiben Vollständiger Lebenslauf inkl. Foto Zeugnisse & Diplome | Ennio Loffreda Tschuggentorweg 1 7050 Arosa",
-      "descriptionByLocale": {
-        "it": "Il Tschuggen Grand Hotel di Arosa è un hotel di lusso a 5 stelle superior situato a 1'800m. Come una delle quattro case della \"Collezione Tschuggen\", la nostra casa offre 128 camere, suite e soppalchi di montagna, oltre a quattro eleganti ristoranti - tra cui l'evidenziatore gourmet di 19 punti La Brezza Gault Millau & due stelle Michelin - così come un'impressionante oasi di montagna di 5 000 m2, progettato da Mario Botta . VISIONE - Ritorniamo il vostro valore in tempo. Sei un ospite appassionato ed empatico, apprezzato e rispettoso? Allora hai ragione con noi. Ingresso di 14. Dicembre 2026 Occupazione limitata a 14. Marzo 2027\n• Formazione completa come parrucchiere - Coiffeur / Coiffeuse EFZ o una qualifica paragonabile\n• Diversi anni di esperienza professionale, idealmente in un hotel 5*, spa di lusso o salone di lusso\n• Passione per un servizio eccellente e un forte senso di tendenze, stile ed estetica\n• Alta competenza nelle tecniche di taglio, colorazione e styling\n• Godere di consulenza individuale di ospiti esigenti e internazionali\n• Gestione sicura di MS Office e esperienza ideale con i sistemi TAC e cash\n• conoscenza fluente del tedesco e dell'inglese; Altre lingue straniere sono utili\n• Aspetto ben curato, buone maniere e un aspetto sovrano\n• Metodi di lavoro autonomi, responsabili e strutturati\n• Forza di vendita e piacere nel consigliare prodotti e trattamenti per la cura dei capelli di alta qualità\n• Personalità orientata al team, flessibile e resiliente con alto orientamento al servizio |\n• Applicazione professionale dei tagli di capelli delle donne, degli uomini e dei bambini e degli stili individuali\n• Esecuzione di colorazioni, tinture, trattamenti di cura e altri servizi di parrucchiere di alta qualità\n• Consigli personali e di tipo appropriato dei nostri ospiti internazionali per quanto riguarda acconciature, cura dei capelli e styling\n• Vendita attiva di prodotti esclusivi per la cura dei capelli e lo styling\n• Garantire un'esperienza di prima classe con la massima qualità di servizio e consulenza\n• Responsabilità per la preparazione e la cura del salone Coiffeur secondo i nostri standard superiori a 5 stelle\n• Programmazione professionale e stretta collaborazione con la reception Spa\n• Rispetto ai più elevati standard di igiene, qualità e sicurezza\n• Partecipazione a promozioni stagionali, eventi esclusivi e richieste individuali degli ospiti\n• Lavorare a stretto contatto con il team spa per creare un'esperienza olistica di benessere e bellezza\n• Supporto per le vendite nel nostro hotel shop\n• Supporto della Spa Receptios Team | Staff attraente Alloggio Vicino al menu Hotel Balanced offerta nel nostro stafftrattoria con opzioni vegetariane e vegane 24/7 Utilizzo del nostro centro fitness Vantaggi locali come tariffe speciali presso negozi di sport, skipass e molto più tariffe speciali per soggiorni di notte nei nostri hotel di \"The Tschuggen Collection\" così come gli Swiss Deluxe Hotels | Feel indirizzati - Applicare ora! Attendiamo con ansia il vostro dossier di applicazione - felicemente digitale: Lettera di applicazione Full CV incl. Certificati fotografici e diplomi | Ennio Loffreda Tschuggentorweg 1 7050 Arosa",
-        "en": "The Tschuggen Grand Hotel in Arosa is a 5-star superior luxury hotel in the Bündner Bergen located at 1'800m. As one of the four houses in the \"The Tschuggen Collection\", our house offers 128 individually designed rooms, suites and mountain lofts, plus four stylish restaurants - including the 19-point gourmet highlight La Brezza Gault Millau & two Michelin stars - as well as an impressive 5 000 m2 spa mountain oasis, designed by Mario Botta . OUR VISION - We return your value to time. Are you a passionate and empathetic host, appreciative & respectful? Then you are right with us. Entrance by 14. December 2026 Employment limited to 14. March 2027 |\n• Completed training as a hairdresser - Coiffeur / Coiffeuse EFZ or a comparable qualification\n• Several years of professional experience, ideally in a 5* hotel, luxury spa or upscale salon\n• Passion for excellent service and a strong sense of trends, style and aesthetics\n• High level of expertise in cutting, colouring and styling techniques\n• Enjoyment of individual advice of demanding, international guests\n• Safe handling of MS Office and ideally experience with TAC appointment and cash systems\n• fluent knowledge of German and English; Other foreign languages are beneficial\n• Well-groomed appearance, excellent manners and a sovereign appearance\n• Self-employed, responsible and structured working methods\n• Sales strength and pleasure in recommending high-quality hair care products and treatments\n• Team-oriented, flexible and resilient personality with high service orientation |\n• Professional implementation of women’s, men’s and children’s haircuts as well as individual stylings\n• Execution of colorations, tintings, care treatments and other high-quality hairdressing services\n• Personal and type-appropriate advice of our international guests regarding hairstyles, hair care and styling\n• Active sale of exclusive hair care and styling products\n• Ensuring a first-class guest experience with the highest quality of service and advice\n• Responsibility for the preparation and care of the Coiffeur salon according to our 5-star superior standards\n• Professional scheduling and close cooperation with the Spa reception\n• Compliance with the highest hygiene, quality and safety standards\n• Participation in seasonal promotions, exclusive events and individual guest requests\n• Working closely with the spa team to create a holistic wellness and beauty experience\n• Support for sales in our hotel shop\n• Support of the Spa Receptios Team | Attractive Staff Accommodation Near the Hotel Balanced menu offer in our stafftrattoria with vegetarian & vegan options 24/7 Use of our fitness center Local benefits such as special rates at sports shops, ski passes and much more special rates for overnight stays in our hotels of \"The Tschuggen Collection\" as well as the Swiss Deluxe Hotels | Feel addressed - Apply now! We look forward to your application dossier - gladly digital: Application letter Full CV incl. Photo Certificates & Diplomas | Ennio Loffreda Tschuggentorweg 1 7050 Arosa",
-        "de": "Das Tschuggen Grand Hotel in Arosa ist ein auf 1'800m Höhe gelegenes 5‑Sterne‑Superior‑Luxushotel in den Bündner Bergen. Als eines der vier Häuser der \"The Tschuggen Collection\", bietet unser Haus 128 individuell gestaltete Zimmer, Suiten und Mountainlofts, dazu vier stilvolle Restaurants – darunter das Gourmet‑Highlight La Brezza mit 19 Punkten Gault Millau & zwei Michelin‑Sternen – sowie eine beeindruckende 5 000 m² grosse Spa‑Bergoase, designed by Mario Botta . UNSERE VISION - Wir geben der Zeit Ihren Wert zurück. Sie sind ein leidenschaftlicher und empathischer Gastgeber, wertschätzend & respektvoll? Dann sind Sie bei uns richtig. Eintritt per 14. Dezember 2026 Arbeitsverhältnis befristet bis 14. März 2027 |\n• Abgeschlossene Ausbildung als Hairdresser - Coiffeur / Coiffeuse EFZ oder eine vergleichbare Qualifikation\n• Mehrjährige Berufserfahrung, idealerweise in einem 5*-Hotel, Luxury Spa oder gehobenen Salon\n• Leidenschaft für exzellenten Service sowie ein ausgeprägtes Gespür für Trends, Stil und Ästhetik\n• Hohe Fachkompetenz in Schnitt-, Farb- und Stylingtechniken\n• Freude an der individuellen Beratung anspruchsvoller, internationaler Gäste\n• Sicherer Umgang mit MS Office sowie idealerweise Erfahrung mit Termin- und Kassensystemen TAC\n• Fliessende Deutsch- und Englischkenntnisse; weitere Fremdsprachen sind von Vorteil\n• Gepflegtes Erscheinungsbild, ausgezeichnete Umgangsformen und ein souveränes Auftreten\n• Selbstständige, verantwortungsbewusste und strukturierte Arbeitsweise\n• Verkaufsstärke sowie Freude daran, hochwertige Haarpflegeprodukte und Behandlungen zu empfehlen\n• Teamorientierte, flexible und belastbare Persönlichkeit mit hoher Serviceorientierung |\n• Professionelle Durchführung von Damen-, Herren- und Kinderhaarschnitten sowie individuellen Stylings\n• Ausführung von Colorationen, Tönungen, Pflegebehandlungen und weiteren hochwertigen Friseurdienstleistungen\n• Persönliche und typgerechte Beratung unserer internationalen Gäste hinsichtlich Frisuren, Haarpflege und Styling\n• Aktiver Verkauf exklusiver Haarpflege- und Stylingprodukte\n• Sicherstellung eines erstklassigen Gästeerlebnisses mit höchster Service- und Beratungsqualität\n• Verantwortung für die Vorbereitung und Pflege des Coiffeursalons gemäss unseren 5-Sterne-Superior-Standards\n• Professionelle Terminplanung und enge Zusammenarbeit mit der Spa-Rezeption\n• Einhaltung höchster Hygiene-, Qualitäts- und Sicherheitsstandards\n• Mitwirkung bei saisonalen Aktionen, exklusiven Events sowie individuellen Gästeanfragen\n• Enge Zusammenarbeit mit dem Spa-Team, um ein ganzheitliches Wellness- und Beauty-Erlebnis zu schaffen\n• Unterstützung beim Verkauf in unserem Hotelshop\n• Unterstützung des Spa Receptiosteams | Attraktive Mitarbeiterunterkünfte in der Nähe des Hotel Ausgewogenes Menü-Angebot in unserer Mitarbeitertrattoria mit vegetarischen & veganen Optionen 24/7 Nutzung unseres Fitnesscenters Einheimische Vorteile wie Spezialpreise bei Sportgeschäften, Skipässen und vielem mehr Spezialpreise für Übernachtungen in unseren Häusern der \"The Tschuggen Collection\" sowie den Swiss Deluxe Hotels | Fühlen Sie sich angesprochen - Bewerben Sie sich jetzt! Wir freuen uns über Ihr Bewerbungsdossier - gerne digital: Bewerbungsschreiben Vollständiger Lebenslauf inkl. Foto Zeugnisse & Diplome | Ennio Loffreda Tschuggentorweg 1 7050 Arosa",
-        "fr": "Le Grand Hôtel Tschuggen à Arosa est un hôtel de luxe 5 étoiles situé à 1800m. Notre maison, l'une des quatre maisons de la collection « The Tschuggen », offre 128 chambres, suites et lofts de montagne conçus individuellement, ainsi que quatre restaurants élégants - dont le top gastronomique 19 points La Brezza Gault Millau et deux étoiles Michelin - ainsi qu'une impressionnante oasis de montagne de 5 000 m2, conçue par Mario Botta. NOTRE VISION - Nous retournons votre valeur au temps. Êtes-vous un hôte passionné et empathique, reconnaissant et respectueux? Alors tu as raison avec nous. Entrée par 14. Décembre 2026 Emploi limité à 14. Mars 2027\n• Formation complète comme coiffeur - Coiffeur / Coiffeuse EFZ ou une qualification comparable\n• Plusieurs années d'expérience professionnelle, idéalement dans un hôtel 5*, un spa de luxe ou un salon haut de gamme\n• Passion pour un excellent service et un fort sens des tendances, du style et de l'esthétique\n• Haute expertise en techniques de découpe, de coloration et de coiffage\n• Profitez des conseils individuels d'invités internationaux exigeants\n• Gestion sécuritaire du MS Office et expérience idéale avec les systèmes de nomination et de trésorerie TAC\n• Connaissance courante de l'allemand et de l'anglais; Les autres langues étrangères sont bénéfiques\n• Aspect soigné, excellentes manières et une apparence souveraine\n• Méthodes de travail indépendantes, responsables et structurées\n• La force des ventes et le plaisir de recommander des produits et des traitements de soins capillaires de haute qualité\n• Personnalité orientée équipe, flexible et résiliente avec une orientation de service élevée.\n• Implémentation professionnelle des femmes, des hommes et des enfants\n• Exécution de colorations, teintes, soins et autres services de coiffure de haute qualité\n• Conseils personnels et de type approprié de nos clients internationaux concernant les coiffures, soins capillaires et le style\n• Vente active de produits exclusifs de soins capillaires et de coiffage\n• Assurer une expérience client de première classe avec la plus haute qualité de service et de conseils\n• Responsabilité de la préparation et du soin du salon Coiffeur selon nos normes supérieures 5 étoiles\n• Programmation professionnelle et coopération étroite avec la réception Spa\n• Respect des normes d'hygiène, de qualité et de sécurité les plus élevées\n• Participation aux promotions saisonnières, événements exclusifs et demandes individuelles d'invités\n• Travailler en étroite collaboration avec l'équipe spa pour créer une expérience holistique de bien-être et de beauté\n• Soutien aux ventes dans notre boutique d'hôtel\n• Support de l'équipe Spa Receptios Hébergement à proximité de l'hôtel Offre de menu équilibré dans notre stafftrattoria avec des options végétariennes et végétaliennes 24/7 Utilisation de notre centre de fitness Avantages locaux tels que les tarifs spéciaux dans les magasins de sport, les forfaits de ski et beaucoup plus de tarifs spéciaux pour les séjours de nuit dans nos hôtels de \"La Collection Tschuggen\" ainsi que les hôtels de luxe suisses. Nous attendons avec impatience votre dossier de candidature - volontiers numérique: Lettre de candidature CV complet incl. Certificats et diplômes photographiques Ennio Loffreda Tschuggentorweg 1 7050 Arosa"
-      },
-      "location": "Arosa",
-      "canton": "GR",
-      "url": "https://recruitingapp-2904.umantis.com/Vacancies/1379/Description/1",
-      "source": "Tschuggen Collection Dedicated Parser (Umantis)",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-27T22:11:22.604Z",
-      "addressLocality": "Arosa",
-      "postalCode": "7050",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Ospitalità",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Ospitalità / Hotellerie",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-19",
-      "applyUrl": "https://recruitingapp-2904.umantis.com/Vacancies/1379/Description/1",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "department": "Spa",
-      "hotelName": "Tschuggen Grand Hotel",
-      "previousSlugs": [
-        "hairdresser-m-w-d-wintersaison-2026-2027-tschuggen-ch",
-        "parrucchiere-m-f-d-stagione-invernale-2026-2027-tschuggen-collection-arosa"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "hairdresser-m-w-d-wintersaison-2026-2027-tschuggen-ch",
-          "parrucchiere-m-f-d-stagione-invernale-2026-2027-tschuggen-collection-arosa"
-        ],
-        "fr": [
-          "hairdresser-m-w-d-wintersaison-2026-2027-tschuggen-ch"
-        ]
-      },
-      "firstSeenAt": "2026-07-19T22:14:08.776Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "GR",
-      "crawlerMissStreak": 2
     }
   ]
 }
