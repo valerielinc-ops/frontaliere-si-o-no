@@ -151,9 +151,15 @@ function extractLocaleKeys(locale: string): Set<string> {
     extractKeysFromObject(blogMetaFilePath, blogMetaSearchStart, keys);
   }
 
-  // 3. Extract keys from per-article blog body files
-  const blogBodyDir = path.join(PROJECT_ROOT, 'services', 'locales', 'blog-body', locale);
-  if (fs.existsSync(blogBodyDir)) {
+  // 3. Extract keys from per-article blog body files — BOTH corpora.
+  //     Scanning only `blog-body` left the svizzera corpus (`blog-body-ch`,
+  //     ~2.2k files) invisible to every check in this file: a translation
+  //     missing from a svizzera article could never be reported by the
+  //     cross-locale consistency test below. Same blind spot, same shape, as
+  //     the syntax guard fixed alongside this.
+  for (const bodyRoot of ['blog-body', 'blog-body-ch']) {
+    const blogBodyDir = path.join(PROJECT_ROOT, 'services', 'locales', bodyRoot, locale);
+    if (!fs.existsSync(blogBodyDir)) continue;
     const bodyFiles = fs.readdirSync(blogBodyDir).filter((f: string) => f.endsWith('.ts'));
     for (const file of bodyFiles) {
       const bodyFilePath = path.join(blogBodyDir, file);
