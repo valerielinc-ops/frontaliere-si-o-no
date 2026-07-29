@@ -83,6 +83,11 @@ import {
   parseLiechtensteinBorderMunicipalityPath,
 } from '../build-plugins/liechtensteinBorderMunicipalityData';
 import {
+  isAustrianBorderMunicipalityHubPath,
+  parseAustrianBorderMunicipalityHubPath,
+  parseAustrianBorderMunicipalityPath,
+} from '../build-plugins/austrianBorderMunicipalityData';
+import {
   COST_OF_LIVING_LANDING_ROUTES,
   isCostOfLivingLandingPath,
   parseCostOfLivingLandingPath,
@@ -2237,6 +2242,26 @@ export function parsePath(pathname: string): ParseResult {
  }
  {
    const parsed = parseLiechtensteinBorderMunicipalityPath(pathname);
+   if (parsed) {
+     return { route: { activeTab: 'vita', staticOverlay: true }, locale: parsed.locale as Locale };
+   }
+ }
+
+ // Per-municipality AUSTRIA border pages (issue #4883,
+ // austrianBorderMunicipalityPagesPlugin.ts) — hub index at
+ // /vivere-in-austria-lavorare-in-svizzera/ (+ locale variants) plus
+ // per-Gemeinde detail pages, same self-mapping/above-below-floor pattern as
+ // the FRANCE/GERMANY/LIECHTENSTEIN branches above (see
+ // austrianBorderMunicipalityData.ts). Unlike its siblings this regime has
+ // NO favourable frontalieri tax treatment — abrogated 2006/2007, ordinary
+ // taxation applies — but the routing shape is identical.
+ // Routed to the existing `vita` tab with NO sub-tab.
+ if (isAustrianBorderMunicipalityHubPath(pathname)) {
+   const parsed = parseAustrianBorderMunicipalityHubPath(pathname);
+   return { route: { activeTab: 'vita', staticOverlay: true }, locale: (parsed?.locale ?? locale) as Locale };
+ }
+ {
+   const parsed = parseAustrianBorderMunicipalityPath(pathname);
    if (parsed) {
      return { route: { activeTab: 'vita', staticOverlay: true }, locale: parsed.locale as Locale };
    }
