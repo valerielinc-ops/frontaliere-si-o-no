@@ -195,7 +195,19 @@ async function processFile(filePath) {
 
   if (!isBridge) {
     const __tHl = profileStart();
-    const hreflangResult = transformHreflang(html, distDir, baseUrl, existsCheck);
+    // Same 5th argument the coordinator's single-threaded path passes. Without
+    // it the page-level half of the landing-plan gate (a page that is itself a
+    // landing the build no longer emits) can never fire — and deploy.yml sets
+    // POST_WALK_WORKERS=2, so in production EVERY file goes through this
+    // worker, not runSingleThreaded. Missing it would leave the repair half
+    // inert exactly where it matters.
+    const hreflangResult = transformHreflang(
+      html,
+      distDir,
+      baseUrl,
+      existsCheck,
+      path.relative(distDir, filePath).split(path.sep).join('/'),
+    );
     profileRecord('hreflang-transform', __tHl);
     if (hreflangResult !== null) {
       html = hreflangResult.html;

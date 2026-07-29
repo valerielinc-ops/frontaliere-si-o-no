@@ -93,6 +93,11 @@ import {
 } from './relatedSearchClustersData';
 import { jobsSeoPagesFlushed } from './shared/buildSignals';
 import { shouldEmitLocale, EMIT_ALL_LOCALES, localeOfDistPath } from './shared/localeEmitFilter';
+import {
+  registerKeywordLandingPaths,
+  keywordLandingPlanSize,
+  landingPathFromDistRelative,
+} from './shared/keywordLandingPlan';
 import { inlineScriptJson } from './shared/inlineJsonScript';
 import {
   startTimer as profileStart,
@@ -2765,6 +2770,14 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
           // cache-hit path. Await the jobs flush first (the emit path gets this
           // barrier inside writeSitemap; here we must do it explicitly since we
           // skip writeSitemap entirely).
+          // The cache-hit path never builds `contexts`, so register the plan
+          // from the restored manifest instead. Without this the plan would
+          // be missing its cluster half and every live cluster page would
+          // look stale to transformHreflang — see keywordLandingPlan.ts.
+          registerKeywordLandingPaths(
+            'related-search-clusters',
+            (restored.files ?? []).map(landingPathFromDistRelative),
+          );
           await jobsSeoPagesFlushed;
           await reconcileSitemapJobsWithDist(distDir, restored.crossSectionMirrorLocs ?? []);
           profileRecord('cache-hit-patches', __tCacheHitPatch);
@@ -2962,6 +2975,32 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
         printRelatedSearchProfile();
         return;
       }
+
+      // Register every path this build plans to emit — canonical + legacy
+      // mirrors, for ALL locales, not just the one this shard renders. The
+      // loop below skips non-owned locales, but the plan must stay complete:
+      // it is what `transformHreflang` uses to tell a live keyword landing
+      // from one left over in the incremental `dist/` (see
+      // shared/keywordLandingPlan.ts). Cheap: string paths only, derived from
+      // the same `buildClusterPath` the emit uses, so plan and emit cannot
+      // drift.
+      const __tPlan = profileStart();
+      const plannedPaths: string[] = [];
+      for (const ctx of contexts) {
+        const loc = ctx.candidate.locale;
+        plannedPaths.push(buildClusterPath(loc, ctx.candidate.slug, ctx.cantonGroup));
+        for (const mirrorCanton of [ctx.legacyCantonGroup, 'TI']) {
+          if (mirrorCanton === AGGREGATE_KEY) continue;
+          plannedPaths.push(buildClusterPath(loc, ctx.candidate.slug, mirrorCanton));
+        }
+        const extras = indexedClusterUrlsByKey.get(`${loc}::${ctx.candidate.slug}`);
+        if (extras) for (const p of extras) plannedPaths.push(p);
+      }
+      registerKeywordLandingPaths('related-search-clusters', plannedPaths);
+      profileRecord('register-landing-plan', __tPlan);
+      console.log(
+        `\x1b[36m[related-search-clusters]\x1b[0m registered ${plannedPaths.length} planned keyword-landing path(s) (plan total ${keywordLandingPlanSize()})`,
+      );
 
       // Group by (normalized keyword + city) for cross-locale hreflang lookup.
       // The composite key is also reused inside the per-cluster render loop

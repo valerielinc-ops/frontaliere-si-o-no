@@ -38,6 +38,13 @@ import fs from 'node:fs';
 import type { Plugin } from 'vite';
 import { filterExistingAlternates, type LocaleAlternates } from './shared/hreflangGuard.ts';
 import { shouldEmitLocale, ownerEmitLocale, EMIT_ALL_LOCALES } from './shared/localeEmitFilter.ts';
+import {
+  hasKeywordLandingPlan,
+  isKeywordLandingPath,
+  isPlannedKeywordLanding,
+  isStaleKeywordLanding,
+  landingPathFromDistRelative,
+} from './shared/keywordLandingPlan.ts';
 
 interface HreflangPostprocessOptions {
   readonly baseUrl: string;
@@ -101,6 +108,8 @@ export function transformHreflang(
   distDir: string,
   baseUrl: string,
   existsCheck?: (absPath: string) => boolean,
+  /** dist-relative path of the page being rewritten (enables the stale-landing repair). */
+  pagePath?: string,
 ): HreflangTransformResult | null {
   if (!html.includes('hreflang=')) return null;
 
@@ -121,6 +130,48 @@ export function transformHreflang(
   if (matches.length === 0) return null;
 
   const alternates: readonly LocaleAlternates[] = matches.map((x) => x.entry);
+
+  // Landing-plan gate. Fires only once both owners have sealed the plan
+  // (shared/keywordLandingPlan.ts) and only on that URL family.
+  //
+  // The `/{section}/{ricerca|search|suche|recherche}-{slug}/` pages are
+  // emitted per locale from per-locale query data, so a keyword can earn a
+  // landing in one locale and not in another while the emitter still writes
+  // the full four-locale alternate set. On a BUILD_LOCALE shard the existence
+  // check cannot see that: an alternate for a locale this shard does not emit
+  // is absent by design, so it is kept unchecked — correct for a sibling that
+  // lives on another shard, blind for one that exists nowhere. That blind spot
+  // is the 75 `missingTarget` offenders on run 30376520728.
+  //
+  // The whole block goes, not the offending entries: audit-hreflang requires
+  // 4 locales + x-default once ANY hreflang is present, so a thinned set only
+  // trades `[missingTarget]` for `[tooFew]`. Pages carrying no hreflang are
+  // explicitly skipped by that audit, and no page is deleted — only the
+  // unresolvable block is.
+  //
+  // Deliberately narrower than the blanket "drop ALL if kept < 5" that Phase
+  // 8a reverted on 2026-05-12: that fired everywhere, on the premise that
+  // every page emitting hreflang has its full set on disk. This fires only
+  // where the build's own plan says a target is never written.
+  if (hasKeywordLandingPlan()) {
+    const pageIsStale =
+      pagePath !== undefined && isStaleKeywordLanding(landingPathFromDistRelative(pagePath));
+    const hasUnplannedTarget = alternates.some(
+      (a) => isKeywordLandingPath(a.url) && !isPlannedKeywordLanding(a.url),
+    );
+    if (pageIsStale || hasUnplannedTarget) {
+      let stripped = html;
+      for (let i = matches.length - 1; i >= 0; i--) {
+        const match = matches[i];
+        const end = match.index + match.full.length;
+        const tail = stripped.slice(end);
+        const trailingNl = tail.startsWith('\n') ? 1 : 0;
+        stripped = stripped.slice(0, match.index) + stripped.slice(end + trailingNl);
+      }
+      return { html: stripped, kept: 0, dropped: matches.length };
+    }
+  }
+
   const kept = existsCheck
     ? filterExistingAlternatesWith(alternates, distDir, baseUrl, existsCheck)
     : filterExistingAlternates(alternates, distDir, baseUrl);
