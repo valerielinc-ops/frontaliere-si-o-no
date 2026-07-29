@@ -35,6 +35,8 @@
  * decide what blocks (see runFactualityGates → `blocking`).
  */
 
+import { tokenizeIt, containmentSim } from './it-text-similarity.mjs';
+
 /** Severity ranking used to sort and to decide what blocks publication. */
 export const SEVERITY = { critical: 3, major: 2, minor: 1 };
 
@@ -501,30 +503,127 @@ export const FABRICATED_INSTITUTION_ACRONYMS = new Set([
 ]);
 
 const INSTITUTION_NOUN = String.raw`(?:Ufficio|Uffici|Istituto|Agenzia|Commissione|Osservatorio|Autorit[àa]|Dipartimento|Segreteria|Direzione|Ente|Amministrazione)`;
+const INSTITUTION_RE = new RegExp(String.raw`(${INSTITUTION_NOUN}[^().\n]{0,80}?)\(([A-Z]{2,8})\)`, 'g');
 
-/** Flags institution acronyms that are not in the known-real allowlist. */
-export function checkFabricatedInstitutionAcronyms(text) {
-  const issues = [];
-  if (typeof text !== 'string') return issues;
+/** Below this, a source page is too thin to conclude anything from an absence. */
+const MIN_SOURCE_CHARS_FOR_SUPPORT = 400;
+
+/**
+ * Fraction of an institution NAME's distinctive tokens that must survive in the
+ * source for the entity to count as supported.
+ *
+ * Looser than fact-check-consensus's SOURCE_SUPPORT_THRESHOLD (0.7) on purpose:
+ * that one judges a whole claim, this one judges a 3-8 word institution name
+ * whose tokens are largely generic ("Ufficio", "federale", "delle"). After
+ * tokenizeIt drops stop-words and stems, "Ufficio federale delle imposte" is
+ * three tokens — one miss already costs 33%. The asymmetry of the store makes
+ * this the right way to err: a loose support test produces false CLEARANCES
+ * (an entity stays merely reported), a strict one produces false BLOCKS.
+ */
+const INSTITUTION_NAME_SUPPORT_THRESHOLD = 0.6;
+
+/**
+ * Every institution acronym the article introduces, with a verdict on whether
+ * the run's own SOURCE backs it up.
+ *
+ * This is the observation feed of the learning loop (see
+ * scripts/lib/article-defect-memory.mjs). The support verdict is what makes
+ * learning possible without a model call and without the loop grading its own
+ * homework: the source text is fetched, not written, so it is an oracle the
+ * generator being judged cannot influence. Absence of support is the ONLY
+ * signal allowed to push an entity toward blocking; frequency is not.
+ *
+ * The article's own text is never used as evidence for or against itself.
+ *
+ * @param {string} text
+ * @param {{sourceText?: string}} [opts]
+ * @returns {Array<{acronym: string, name: string, support: 'present'|'absent'|'unknown'}>}
+ */
+export function collectInstitutionAcronyms(text, opts = {}) {
+  const out = [];
+  if (typeof text !== 'string') return out;
+  const sourceText = typeof opts.sourceText === 'string' ? opts.sourceText : '';
+  // No usable source (evergreen path, corpus retro-scan) → 'unknown'. Reporting
+  // 'absent' here would let source-less runs manufacture blocking evidence out
+  // of nothing, which is the fabrication of evidence, not the detection of it.
+  const canJudge = sourceText.length >= MIN_SOURCE_CHARS_FOR_SUPPORT;
+  const sourceTokens = canJudge ? tokenizeIt(sourceText) : [];
 
   const seen = new Set();
-  const re = new RegExp(String.raw`(${INSTITUTION_NOUN}[^().\n]{0,80}?)\(([A-Z]{2,8})\)`, 'g');
-  for (const m of text.matchAll(re)) {
+  for (const m of text.matchAll(INSTITUTION_RE)) {
+    const [, name, acronym] = m;
+    if (seen.has(acronym)) continue;
+    seen.add(acronym);
+
+    let support = 'unknown';
+    if (canJudge) {
+      const literal = new RegExp(String.raw`\b${acronym}\b`).test(sourceText);
+      // An article may correctly introduce an acronym the source only spells
+      // out in full ("Amministrazione federale delle contribuzioni" → "(AFC)").
+      // Judging on the literal acronym alone would score that as fabricated.
+      const nameSupported = containmentSim(tokenizeIt(name), sourceTokens) >= INSTITUTION_NAME_SUPPORT_THRESHOLD;
+      support = literal || nameSupported ? 'present' : 'absent';
+    }
+    out.push({ acronym, name: name.trim(), support });
+  }
+  return out;
+}
+
+/**
+ * Flags institution acronyms that are not in the known-real allowlist.
+ *
+ * Three tiers, in descending order of confidence and of consequence:
+ *   1. curated denylist + learned CONFIRMED → critical (blocks)
+ *   2. learned SUSPECT                      → major   (reported, prompt hint)
+ *   3. anything else unknown                → major   (reported)
+ *
+ * Tiers 2 and 3 carry the same severity today; they are kept distinct because
+ * the message differs (a suspect can tell the writer how many times the
+ * pipeline has already seen it invented) and because collapsing them would
+ * lose the only signal that says the memory is doing something.
+ *
+ * @param {string} text
+ * @param {{learnedDenylist?: Set<string>, learnedSuspects?: Set<string>,
+ *          memoryDegraded?: string|null}} [opts]
+ */
+export function checkFabricatedInstitutionAcronyms(text, opts = {}) {
+  const issues = [];
+  if (typeof text !== 'string') return issues;
+  const learnedDenylist = opts.learnedDenylist || new Set();
+  const learnedSuspects = opts.learnedSuspects || new Set();
+
+  const seen = new Set();
+  for (const m of text.matchAll(INSTITUTION_RE)) {
     const [full, name, acronym] = m;
+    // The curated allowlist wins over everything, including the learner: a
+    // human checked a register, the learner counted. Belt and braces — the
+    // memory refuses to promote allowlisted acronyms too (evaluateEntity).
     if (KNOWN_INSTITUTION_ACRONYMS.has(acronym)) continue;
     if (seen.has(acronym)) continue;
     seen.add(acronym);
 
-    if (FABRICATED_INSTITUTION_ACRONYMS.has(acronym)) {
+    if (FABRICATED_INSTITUTION_ACRONYMS.has(acronym) || learnedDenylist.has(acronym)) {
+      const learned = !FABRICATED_INSTITUTION_ACRONYMS.has(acronym);
       issues.push(issue(
         'fabricated-institution',
         'critical',
-        `Ente inesistente: "${name.trim()} (${acronym})" — acronimo noto come inventato dal generatore`,
+        `Ente inesistente: "${name.trim()} (${acronym})" — acronimo noto come inventato dal generatore`
+        + `${learned ? ' (appreso: confermato da avvistamenti ripetuti senza riscontro nelle fonti)' : ''}`,
         full.trim(),
         `Rimuovi "${acronym}": non esiste. In materia fiscale federale svizzera l'ente reale è l'Amministrazione federale `
         + `delle contribuzioni (AFC/ESTV); l'imposta alla fonte è però amministrata a livello CANTONALE `
         + `("ufficio imposte alla fonte" del Cantone). Se il dato non ha una fonte verificabile, elimina l'attribuzione `
         + `e il dato insieme — non sostituire un ente inventato con un altro.`,
+      ));
+    } else if (learnedSuspects.has(acronym)) {
+      issues.push(issue(
+        'suspected-institution',
+        'major',
+        `Ente sotto osservazione: "${name.trim()} (${acronym})" — già emesso in run precedenti senza riscontro nelle fonti`,
+        full.trim(),
+        `"${acronym}" è nella lista di sorveglianza: il generatore lo ha già scritto senza che la fonte lo nominasse. `
+        + `Se la fonte di questo articolo lo cita, tienilo. Altrimenti usa il nome per esteso dell'ente reale, `
+        + `oppure togli l'attribuzione insieme al dato che le si appoggia.`,
       ));
     } else {
       issues.push(issue(
@@ -536,6 +635,21 @@ export function checkFabricatedInstitutionAcronyms(text) {
         + `Se non ne hai conferma nella fonte, togli l'acronimo e cita l'ente per esteso, o rimuovi l'attribuzione.`,
       ));
     }
+  }
+
+  // Never fail open in silence. If the memory could not be read, the run has
+  // been evaluated with a defence that is not actually there, and the log must
+  // say so — the curated lists still hold, so this is a `minor`, not a block.
+  if (opts.memoryDegraded) {
+    issues.push(issue(
+      'defect-memory-unavailable',
+      'minor',
+      `Memoria dei difetti non leggibile (${opts.memoryDegraded}) — le difese apprese NON sono state applicate `
+      + 'in questo run; restano attive solo le liste curate a mano',
+      '',
+      'Ripristina o rigenera data/article-defect-memory.json: finché è illeggibile il loop non apprende e '
+      + 'gli enti già confermati come inventati non bloccano.',
+    ));
   }
 
   return issues;
@@ -843,13 +957,25 @@ export function checkSourceFidelity(articleText, sourceText, opts = {}) {
 /**
  * Runs every deterministic gate.
  *
+ * `memory` is the OPTIONAL learned-defence input (see article-defect-memory.mjs).
+ * Omitting it reproduces the pre-learning behaviour exactly — the curated lists
+ * still apply — which is what the corpus retro-audit wants and what keeps this
+ * change safe to roll back by deleting one argument.
+ *
+ * The returned `observations` are this run's contribution BACK to the memory.
+ * They are returned rather than written here on purpose: a gate that mutates
+ * persistent state while deciding whether to block would be judging a corpus
+ * it is concurrently editing, and would learn from drafts that never ship.
+ * The caller persists them once, after the run's outcome is known.
+ *
  * @param {{sections: Record<string,string>, sourceText?: string,
  *          sourceDate?: string|Date, publishedAt?: string|Date,
- *          options?: object}} params
- * @returns {{passed: boolean, issues: object[], blocking: object[]}}
+ *          options?: object,
+ *          memory?: {denylist?: Set<string>, suspects?: Set<string>, degraded?: string|null}}} params
+ * @returns {{passed: boolean, issues: object[], blocking: object[], observations: object[]}}
  */
 export function runFactualityGates(params = {}) {
-  const { sections = {}, sourceText = '', sourceDate, publishedAt, options = {} } = params;
+  const { sections = {}, sourceText = '', sourceDate, publishedAt, options = {}, memory = {} } = params;
   const fullText = Object.values(sections).filter((v) => typeof v === 'string').join('\n\n');
 
   const issues = [];
@@ -860,16 +986,22 @@ export function runFactualityGates(params = {}) {
   issues.push(...checkInlineArithmetic(fullText));
   issues.push(...checkTaxPlausibility(fullText, options));
   issues.push(...checkCrossSectionNumericConflicts(sections, options));
-  issues.push(...checkFabricatedInstitutionAcronyms(fullText));
+  issues.push(...checkFabricatedInstitutionAcronyms(fullText, {
+    learnedDenylist: memory.denylist,
+    learnedSuspects: memory.suspects,
+    memoryDegraded: memory.degraded,
+  }));
   issues.push(...checkContradictoryNormDates(fullText));
   issues.push(...checkSourceFreshness({ sourceDate, publishedAt, text: fullText, ...options }));
   if (sourceText && sourceText.length >= 100) {
     issues.push(...checkSourceFidelity(fullText, sourceText, options));
   }
 
+  const observations = collectInstitutionAcronyms(fullText, { sourceText });
+
   issues.sort((a, b) => (SEVERITY[b.severity] || 0) - (SEVERITY[a.severity] || 0));
   const blocking = issues.filter((i) => i.severity === 'critical');
-  return { passed: blocking.length === 0, issues, blocking };
+  return { passed: blocking.length === 0, issues, blocking, observations };
 }
 
 /** Human-readable one-line-per-issue rendering for CI logs. */
