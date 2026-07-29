@@ -5032,6 +5032,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'laura-bianchi',
     authorName: 'Laura Bianchi',
    },
+   {
+    id: 'storia-vigilanza-bancaria-svizzera',
+    category: 'novita',
+    date: '2026-07-29T16:30:50.538Z',
+    image: '/images/blog/storia-vigilanza-bancaria-svizzera.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

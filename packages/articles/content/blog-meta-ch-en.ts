@@ -1678,6 +1678,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.rendita-avs-critica-eichenberger.title': 'AVS: Eichenberger criticises the 13th annuity',
     'blog.article.rendita-avs-critica-eichenberger.excerpt': 'Economist Eichenberger analyzes the 13th AVS annuity as an indirect form of immigration taxation and proposes tax reforms for those over 65.',
     'blog.article.rendita-avs-critica-eichenberger.imageAlt': 'Panoramic view of Lugano with the lake, symbol of Ticino.',
+    'blog.article.storia-vigilanza-bancaria-svizzera.title': 'Banking supervision in Switzerland: history, scandals and reforms',
+    'blog.article.storia-vigilanza-bancaria-svizzera.excerpt': 'From the 1935 law to the Credit Suisse case: historical analysis of Swiss banking supervision and the new challenges for Finma between scandals and reforms.',
+    'blog.article.storia-vigilanza-bancaria-svizzera.imageAlt': 'Federal Palace in Bern, seat of Swiss institutions',
 };
 
 export default blogMetaChEn;
