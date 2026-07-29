@@ -21350,6 +21350,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-fedelta-banca-costosa': {
+    title: 'Di più banche, la fedeltà costa cara: con fornitori separati si risparmia',
+    description: 'Gli svizzeri sono notoriamente fedeli alle loro banche di riferimento, ma la fedeltà costa cara. Un\'analisi ha calcolato il costo complessivo dei principali',
+    keywords: 'frontalieri, ticino, svizzera, italia, banche, fedeltà, costa, cara',
+    ogTitle: 'La fedeltà costa cara: con fornitori separati si risparmia',
+    ogDescription: 'Gli svizzeri sono notoriamente fedeli alle loro banche di riferimento, ma la fedeltà costa cara.',
+    canonicalPath: '/articoli-svizzera/fedelta-banca-costosa/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Di più banche, la fedeltà costa cara: con fornitori separati si risparmia",
+      "description": "Gli svizzeri sono notoriamente fedeli alle loro banche di riferimento, ma la fedeltà costa cara. Un'analisi ha calcolato il costo complessivo dei principali",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/fedelta-banca-costosa.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un frontaliere che tiene i conti in una banca svizzera"
+      },
+      "datePublished": "2026-07-29T01:21:43+00:00",
+      "dateModified": "2026-07-29T01:21:43+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/fedelta-banca-costosa/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

@@ -1651,6 +1651,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.caldo-estremo-cantieri-ssic.title': 'Hitze auf Baustellen: SBV fordert Strafstopp',
     'blog.article.caldo-estremo-cantieri-ssic.excerpt': 'Der Schweizerische Baumeisterverband fordert faire Konditionen und Freistellungen von Vertragsstrafen bei Baustopp für den Hitzkopf.',
     'blog.article.caldo-estremo-cantieri-ssic.imageAlt': 'Baustelle in der Schweiz während einer Hitzewelle mit Gerüst.',
+    'blog.article.fedelta-banca-costosa.title': 'Mehr Banken, Loyalität ist teuer: Mit separaten Anbietern sparen Sie',
+    'blog.article.fedelta-banca-costosa.excerpt': 'Die Schweizer sind ihrer Referenzbank notorisch treu, aber diese Loyalität hat einen hohen Preis.',
+    'blog.article.fedelta-banca-costosa.imageAlt': 'Ein Frontalier, der seine Konten in einer Schweizer Bank verwaltet',
 };
 
 export default blogMetaChDe;
