@@ -55,6 +55,39 @@ function resendEntries(count: number, dateStr: string) {
   return Array.from({ length: count }, () => entry);
 }
 
+// Regression: removing a provider from PROVIDERS must not make the quota sync
+// throw. computeMailtrapDynamicDailyLimit() looked mailtrap up in PROVIDERS and
+// dereferenced `.monthlyLimit` — undefined once the entry was gone. That throw
+// escaped syncQuotasFromAPIs(), which sendEmailCascade() awaits, so it would
+// have failed EVERY send. It was invisible under the existing mocks because the
+// dereference only runs when the provider API returns a plan limit; it appeared
+// only against real credentials. This test reproduces that shape: credentials
+// present for a provider that is NOT in PROVIDERS, and an API answering with a
+// plan limit.
+describe('quota sync tolerates credentials for a provider absent from PROVIDERS', () => {
+  const realFetch = globalThis.fetch;
+  afterEach(() => {
+    globalThis.fetch = realFetch;
+    for (const key of PROVIDER_ENV_VARS) delete process.env[key];
+  });
+
+  it('does not throw when MAILTRAP_API_TOKEN is set but mailtrap is not a provider', async () => {
+    process.env.MAILTRAP_API_TOKEN = 'token-for-a-removed-provider';
+    // Answer every lookup with a plan limit — the exact condition that used to
+    // reach `provider.monthlyLimit` on an undefined provider.
+    globalThis.fetch = (async () => ({
+      ok: true,
+      status: 200,
+      json: async () => ({ id: 1, sent_count: 10, delivery_count: 10, bounce_count: 0, limit: 4000, plan: { limit: 4000 } }),
+      text: async () => '{}',
+    })) as any;
+
+    const { getAvailableCascadeQuota, PROVIDERS } = await loadCascade();
+    expect(PROVIDERS.find((p) => p.id === 'mailtrap')).toBeUndefined();
+    await expect(getAvailableCascadeQuota()).resolves.toBeTypeOf('number');
+  });
+});
+
 describe('getAvailableCascadeQuota', () => {
   const realFetch = globalThis.fetch;
   const today = new Date().toISOString().slice(0, 10);

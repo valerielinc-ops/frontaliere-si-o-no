@@ -750,32 +750,40 @@ async function syncQuotasFromAPIs() {
   if (_quotasSynced && _counterDate === getTodayUTC()) return;
 
   console.log('📊 Syncing quotas from provider APIs...');
-  const [mailgun, mailjet, mailtrap, resend, maileroo, cloudflare, resendDynamicLimit, mailerooDynamicLimit, mailtrapDynamicLimit] = await Promise.all([
+  // Only providers actually in PROVIDERS are synced. mailtrap was removed from
+  // the cascade (see the PROVIDERS entry) and syncing it here used to throw:
+  // computeMailtrapDynamicDailyLimit() looks the provider up in PROVIDERS and
+  // dereferences `.monthlyLimit`, which is undefined once the entry is gone.
+  // That throw propagated out of syncQuotasFromAPIs — which sendEmailCascade
+  // awaits — so it would have failed EVERY send, not just mailtrap's. It stayed
+  // invisible in tests because the dereference only happens when the provider
+  // API returns a plan limit, which the mocks never did; it surfaced only when
+  // run against real credentials.
+  const [mailgun, mailjet, resend, maileroo, cloudflare, resendDynamicLimit, mailerooDynamicLimit] = await Promise.all([
     fetchMailgunDailyUsage(),
     fetchMailjetDailyUsage(),
-    fetchMailtrapDailyUsage(),
     fetchResendDailyUsage(),
     fetchMailerooDailyUsage(),
     fetchCloudflareDailyUsage(),
     computeResendDynamicDailyLimit(),
     computeMailerooDynamicDailyLimit(),
-    computeMailtrapDynamicDailyLimit(),
   ]);
 
   _counterDate = getTodayUTC();
   _counters.mailgun = mailgun;
   _counters.mailjet = mailjet;
-  _counters.mailtrap = mailtrap;
   _counters.resend = resend;
   _counters.maileroo = maileroo;
   _counters.cloudflare = cloudflare;
   _dynamicDailyLimits.resend = resendDynamicLimit;
   _dynamicDailyLimits.maileroo = mailerooDynamicLimit;
-  _dynamicDailyLimits.mailtrap = mailtrapDynamicLimit;
   _quotasSynced = true;
 
-  const limit = id => _dynamicDailyLimits[id] ?? PROVIDERS.find(p => p.id === id).dailyLimit;
-  console.log(`   Usage today: mailgun=${mailgun}/${limit('mailgun')}, mailjet=${mailjet}/${limit('mailjet')}, mailtrap=${mailtrap}/${limit('mailtrap')}, resend=${resend}/${limit('resend')}, maileroo=${maileroo}/${limit('maileroo')}, cloudflare=${cloudflare}/${limit('cloudflare')}`);
+  // Optional-chained on purpose: a provider removed from PROVIDERS must degrade
+  // to an unknown limit in a log line, never throw inside the send path.
+  const limit = id => _dynamicDailyLimits[id] ?? PROVIDERS.find(p => p.id === id)?.dailyLimit ?? '—';
+  const usage = PROVIDERS.map(p => `${p.id}=${_counters[p.id] ?? 0}/${limit(p.id)}`).join(', ');
+  console.log(`   Usage today: ${usage}`);
 }
 
 // ── Provider availability check ──────────────────────────────
