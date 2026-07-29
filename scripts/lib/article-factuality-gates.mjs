@@ -900,33 +900,213 @@ export function checkSourceFidelity(articleText, sourceText, opts = {}) {
   return issues;
 }
 
+// ─── 9. Italian ↔ translation numeric consistency ─────────────────────
+//
+// The gates above judge one body against itself or against its source. This
+// one judges a TRANSLATION against the Italian it was translated from, which
+// is the only place a translation-time defect can be seen at all: a number the
+// translator dropped, invented, or mangled while reformatting.
+//
+// Reading the shape rather than the locale is what makes it usable. Italian
+// writes 60.000 and 0,25, English writes 60,000 and 0.25, and the corpus mixes
+// both inside every locale — see canonicalNumeric.
+
+/** Names used in messages; the codes stay stable and language-neutral. */
+const NUMERIC_KIND_LABEL = {
+  pct: 'percentuali', amt: 'importi', km: 'distanze in km', date: 'date',
+};
+
+function renderNumericValue(kind, value) {
+  if (kind === 'pct') return `${formatItalianNumber(value)}%`;
+  if (kind === 'km') return `${formatItalianNumber(value)} km`;
+  if (kind === 'date') return String(value);
+  return formatItalianNumber(value);
+}
+
+/**
+ * A value that is some other value shifted by a whole power of ten.
+ *
+ * This is the signature of a botched separator conversion — 60.000 read as
+ * "sixty point zero", 0,25 re-typed as 25 — and it is the one shape in this
+ * check that is decidable without judgement, so it is the one that blocks.
+ * Plain omissions and additions cannot be: translations legitimately restate,
+ * merge and reorder, and the measured rate on the live corpus is in the
+ * hundreds per locale (see the audit's own report).
+ */
+function magnitudeTwin(value, candidates) {
+  for (const other of candidates) {
+    for (const factor of [10, 100, 1000, 0.1, 0.01, 0.001]) {
+      const scaled = other * factor;
+      if (Math.abs(value - scaled) <= Math.max(1e-9, Math.abs(scaled) * 1e-9)) return other;
+    }
+  }
+  return null;
+}
+
+/**
+ * Compares the numbers of an Italian body against one of its translations.
+ *
+ * @param {string} italianText
+ * @param {string} translatedText
+ * @param {string} locale        en | de | fr
+ * @param {{maxReported?: number}} [opts]
+ */
+export function checkTranslationNumericConsistency(italianText, translatedText, locale, opts = {}) {
+  const issues = [];
+  if (typeof italianText !== 'string' || typeof translatedText !== 'string') return issues;
+  if (!italianText.trim() || !translatedText.trim()) return issues;
+  const maxReported = opts.maxReported ?? 8;
+
+  const src = extractNumericFacts(italianText, 'it');
+  const dst = extractNumericFacts(translatedText, locale);
+
+  for (const kind of ['pct', 'amt', 'km', 'date']) {
+    const dropped = [...src[kind]].filter((v) => !dst[kind].has(v));
+    const added = [...dst[kind]].filter((v) => !src[kind].has(v));
+    const label = NUMERIC_KIND_LABEL[kind];
+
+    // Dates carry no magnitude, and a date is never a rescaled other date.
+    if (kind !== 'date') {
+      for (const value of added) {
+        const twin = magnitudeTwin(value, dropped);
+        if (twin === null) continue;
+        issues.push(issue(
+          'translation-number-magnitude',
+          'critical',
+          `[${locale}] ${renderNumericValue(kind, value)} nella traduzione dove l'italiano scrive `
+          + `${renderNumericValue(kind, twin)} — errore di ordine di grandezza introdotto in traduzione`,
+          `it: ${renderNumericValue(kind, twin)} → ${locale}: ${renderNumericValue(kind, value)}`,
+          `Riporta il valore dell'italiano: ${renderNumericValue(kind, twin)}. `
+          + `Lo scarto è un fattore esatto di 10, quindi non è un arrotondamento ma una conversione `
+          + `sbagliata del separatore (l'italiano scrive 60.000 e 0,25 dove l'inglese scrive 60,000 e 0.25). `
+          + `Non cancellare la cifra: correggila.`,
+        ));
+      }
+    }
+
+    if (dropped.length) {
+      issues.push(issue(
+        'translation-number-dropped',
+        'major',
+        `[${locale}] ${dropped.length} ${label} presenti nell'italiano e assenti dalla traduzione`,
+        dropped.slice(0, maxReported).map((v) => renderNumericValue(kind, v)).join(', '),
+        `Reintegra nella versione ${locale} i valori mancanti così come li scrive l'italiano. `
+        + `Se un passaggio è stato riassunto, il riassunto deve comunque conservare le cifre: `
+        + `un lettore non italiano non ha modo di recuperarle.`,
+      ));
+    }
+
+    if (added.length) {
+      issues.push(issue(
+        'translation-number-added',
+        'major',
+        `[${locale}] ${added.length} ${label} presenti nella traduzione e assenti dall'italiano`,
+        added.slice(0, maxReported).map((v) => renderNumericValue(kind, v)).join(', '),
+        `Una traduzione non introduce dati nuovi. Rimuovi dalla versione ${locale} i valori che `
+        + `l'italiano non riporta, oppure — se il dato è giusto e manca all'italiano — aggiungilo prima all'italiano.`,
+      ));
+    }
+  }
+
+  return issues;
+}
+
+// ─── 10. Translated-away professions ──────────────────────────────────
+//
+// A "frontaliere" is a cross-border COMMUTER. Every target language has a
+// similar-looking word for a border GUARD, and the translation step reached for
+// it: 7 English titles/excerpts shipped calling the site's entire audience
+// "border guards", plus one French "gardes-frontières". Fixed by hand on
+// 2026-07-28 — no gate saw them, because no gate ever read a translation.
+//
+// The pattern alone cannot convict: some articles are genuinely about customs
+// officers. The Italian source settles it. See ITALIAN_BORDER_GUARD_ANCHOR.
+
+/**
+ * Flags a profession the translation invented out of "frontalieri".
+ *
+ * @param {string} italianText    the Italian original
+ * @param {string} translatedText the translation to judge
+ * @param {string} locale         en | de | fr
+ */
+export function checkTranslationFalseFriends(italianText, translatedText, locale) {
+  const issues = [];
+  if (typeof italianText !== 'string' || typeof translatedText !== 'string') return issues;
+  const patterns = FALSE_FRIEND_PATTERNS[locale];
+  if (!patterns) return issues;
+
+  // The Italian original really discusses border guards → the translation is
+  // entitled to name them, and we cannot tell the two uses apart from here.
+  if (ITALIAN_BORDER_GUARD_ANCHOR.test(italianText)) return issues;
+
+  for (const { re, correct } of patterns) {
+    const m = translatedText.match(re);
+    if (!m) continue;
+    const at = translatedText.indexOf(m[0]);
+    issues.push(issue(
+      'translation-false-friend',
+      'critical',
+      `[${locale}] "${m[0]}" traduce "frontalieri": è la guardia di confine, un mestiere diverso `
+      + `— l'italiano non nomina mai guardie, dogane o finanzieri`,
+      translatedText.slice(Math.max(0, at - 70), at + 70).replace(/\n/g, ' ').trim(),
+      `Sostituisci "${m[0]}" con "${correct}". "Frontaliere" è chi RISIEDE in Italia e LAVORA in Svizzera, `
+      + `non chi presidia il confine. Correggi ogni occorrenza nel testo, nel titolo e nell'excerpt.`,
+    ));
+  }
+
+  return issues;
+}
+
 // ─── Orchestrator ─────────────────────────────────────────────────────
 
 /**
  * Runs every deterministic gate.
  *
+ * On a translation (`locale` != 'it') only the checks that can be decided
+ * without Italian-specific knowledge run — arithmetic, tax plausibility,
+ * cross-section conflicts, truncation — plus the two cross-locale checks, and
+ * only when `italianSections` is supplied. The four that are skipped are
+ * skipped on purpose, not for lack of time: the institution allowlist, the
+ * norm-date predicates and the future-tense markers are Italian vocabulary
+ * whose translated equivalents would need their own hand-tuned allowlists, and
+ * the source-fidelity gate already ran against the Italian the translation
+ * derives from — re-running it here would only re-report the same finding.
+ *
  * @param {{sections: Record<string,string>, sourceText?: string,
  *          sourceDate?: string|Date, publishedAt?: string|Date,
+ *          locale?: string, italianSections?: Record<string,string>,
  *          options?: object}} params
  * @returns {{passed: boolean, issues: object[], blocking: object[]}}
  */
 export function runFactualityGates(params = {}) {
-  const { sections = {}, sourceText = '', sourceDate, publishedAt, options = {} } = params;
-  const fullText = Object.values(sections).filter((v) => typeof v === 'string').join('\n\n');
+  const {
+    sections = {}, sourceText = '', sourceDate, publishedAt,
+    locale = 'it', italianSections = null, options = {},
+  } = params;
+  const joined = (obj) => Object.values(obj).filter((v) => typeof v === 'string').join('\n\n');
+  const fullText = joined(sections);
+  const localeOptions = { ...options, locale };
 
   const issues = [];
   for (const [label, text] of Object.entries(sections)) {
     if (typeof text !== 'string' || !text.trim()) continue;
-    issues.push(...detectTruncation(text, { label }));
+    issues.push(...detectTruncation(text, { label: locale === 'it' ? label : `${locale}/${label}` }));
   }
-  issues.push(...checkInlineArithmetic(fullText));
-  issues.push(...checkTaxPlausibility(fullText, options));
-  issues.push(...checkCrossSectionNumericConflicts(sections, options));
-  issues.push(...checkFabricatedInstitutionAcronyms(fullText));
-  issues.push(...checkContradictoryNormDates(fullText));
-  issues.push(...checkSourceFreshness({ sourceDate, publishedAt, text: fullText, ...options }));
-  if (sourceText && sourceText.length >= 100) {
-    issues.push(...checkSourceFidelity(fullText, sourceText, options));
+  issues.push(...checkInlineArithmetic(fullText, localeOptions));
+  issues.push(...checkTaxPlausibility(fullText, localeOptions));
+  issues.push(...checkCrossSectionNumericConflicts(sections, localeOptions));
+
+  if (locale === 'it') {
+    issues.push(...checkFabricatedInstitutionAcronyms(fullText));
+    issues.push(...checkContradictoryNormDates(fullText));
+    issues.push(...checkSourceFreshness({ sourceDate, publishedAt, text: fullText, ...options }));
+    if (sourceText && sourceText.length >= 100) {
+      issues.push(...checkSourceFidelity(fullText, sourceText, options));
+    }
+  } else if (italianSections) {
+    const italianText = joined(italianSections);
+    issues.push(...checkTranslationNumericConsistency(italianText, fullText, locale, options));
+    issues.push(...checkTranslationFalseFriends(italianText, fullText, locale));
   }
 
   issues.sort((a, b) => (SEVERITY[b.severity] || 0) - (SEVERITY[a.severity] || 0));
