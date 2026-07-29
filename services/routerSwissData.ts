@@ -577,6 +577,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'sulzer-ristrutturazione-chemtech-2026': { it: 'sulzer-ristrutturazione-chemtech-2026', en: 'sulzer-chemtech-restructuring', de: 'sulzer-chemtech-restrukturierung', fr: 'sulzer-restructuration-chemtech' },
  'assegno-unico-nuove-regole-inps': { it: 'assegno-unico-nuove-regole-inps', en: 'assegno-unico-inps-new-rules', de: 'assegno-unico-inps-neue-regeln', fr: 'assegno-unico-inps-nouvelles-regles' },
  'telelavoro-frontalieri-limiti-fiscali-previdenziali': { it: 'telelavoro-frontalieri-limiti-fiscali-previdenziali', en: 'cross-border-telework-fiscal-social-security-limits', de: 'grenzgaenger-telearbeit-steuer-sozialversicherung', fr: 'teletravail-frontaliers-limites-fiscales-sociales' },
+ 'accertamento-residenza-fiscale-prove-digitali': { it: 'accertamento-residenza-fiscale-prove-digitali', en: 'fiscal-residency-audit-digital-evidence', de: 'steuerwohnsitz-pruefung-digitale-beweise', fr: 'controle-residence-fiscale-preuves-numeriques' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {

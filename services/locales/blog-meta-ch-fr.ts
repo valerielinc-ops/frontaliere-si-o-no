@@ -1663,6 +1663,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.telelavoro-frontalieri-limiti-fiscali-previdenziali.title': 'Télétravail frontalier : les limites fiscales et de sécurité sociale',
     'blog.article.telelavoro-frontalieri-limiti-fiscali-previdenziali.excerpt': 'Frontaliers Italie-Suisse : le télétravail suit deux seuils distincts. Découvrez comment 25 % d\'impôt et 49,9 % de prévoyance affectent les impôts et les cotisations.',
     'blog.article.telelavoro-frontalieri-limiti-fiscali-previdenziali.imageAlt': 'Bureau moderne à Lugano avec vue sur le lac',
+    'blog.article.accertamento-residenza-fiscale-prove-digitali.title': 'Attestation de résidence fiscale : les preuves numériques de l\'ADE',
+    'blog.article.accertamento-residenza-fiscale-prove-digitali.excerpt': 'Comment l\'administration fiscale utilise les traces numériques pour vérifier la résidence fiscale des contribuables. Analyse pratique et références normatives.',
+    'blog.article.accertamento-residenza-fiscale-prove-digitali.imageAlt': 'Documents numériques et ordinateur dans un bureau suisse',
 };
 
 export default blogMetaChFr;
