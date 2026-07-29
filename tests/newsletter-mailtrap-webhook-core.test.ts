@@ -160,23 +160,44 @@ describe('newsletterMailtrapWebhookCore — job alert bounce handling', () => {
   });
 });
 
-describe('newsletterMailtrapWebhookCore — suppression (account-level suspension)', () => {
-  it('stamps suppressed_at alongside status=suppressed, same as the unsubscribed_at/complained_at siblings', async () => {
+// This suite used to assert the opposite — that a `suspension` stamps
+// status=suppressed on the subscriber. That expectation encoded a defect, and
+// production proved it: over 1700 subscribers, more than a fifth of the base, ended up suppressed
+// and a 400-doc sample found 400 of them caused by a `suspension` event, none
+// by a real bounce or complaint. Some were suppressed seconds after a delivery
+// and an open. `suspension` is account/stream-level — Mailtrap saying it
+// stopped sending — and its payload carries no bounce_category, response or
+// response_code precisely because no recipient-side failure occurred.
+describe('newsletterMailtrapWebhookCore — account-level suspension must not touch the subscriber', () => {
+  it('ignores the event instead of suppressing the recipient', async () => {
     const db = createFakeDb();
 
     const result = await persistMailtrapEvent(db as any, {
       event: 'suspension',
-      email: 'fullmailbox@example.com',
+      email: 'healthy@example.com',
       message_id: 'm-suspend',
       timestamp: 1700000300,
     });
 
-    expect(result).toMatchObject({ processed: true, type: 'suppressed' });
+    expect(result).toMatchObject({ skipped: true });
+    // The load-bearing assertion: no write of any kind reaches the subscriber.
     const subscriberSet = db.__sets.find(
-      (s) => s.collection === 'newsletter_subscribers' && s.docId === 'fullmailbox@example.com',
+      (s) => s.collection === 'newsletter_subscribers' && s.docId === 'healthy@example.com',
     );
-    expect(subscriberSet!.data.status).toBe('suppressed');
-    expect(subscriberSet!.data.suppressed_at).toBeTruthy();
+    expect(subscriberSet).toBeUndefined();
+  });
+
+  it('still suppresses on signals that really are recipient-level', async () => {
+    // Guard the other direction: the fix must not have made the webhook inert
+    // for genuine hard failures.
+    const db = createFakeDb();
+    const result = await persistMailtrapEvent(db as any, {
+      event: 'spam_complaint',
+      email: 'complainer@example.com',
+      message_id: 'm-complaint',
+      timestamp: 1700000400,
+    });
+    expect(result).toMatchObject({ processed: true, type: 'complaint' });
   });
 });
 

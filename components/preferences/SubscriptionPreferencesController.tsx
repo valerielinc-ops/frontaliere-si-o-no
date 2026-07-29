@@ -803,13 +803,13 @@ interface FrequencyToggleProps {
 const FrequencyToggle: React.FC<FrequencyToggleProps> = ({ value, saving, onChange, S }) => {
  const normalized = (value || '').toLowerCase() === 'daily' ? 'daily' : 'weekly';
  return (
- <div role="group" aria-label={S.frequencyLabel} className="inline-flex border border-edge rounded-lg overflow-hidden bg-surface">
+ <div role="group" aria-label={S.frequencyLabel} className="flex flex-wrap w-full shrink-0 border border-edge rounded-lg overflow-hidden bg-surface">
  <button
  type="button"
  onClick={() => normalized !== 'daily' && onChange('daily')}
  disabled={saving}
  aria-pressed={normalized === 'daily'}
- className={`px-3 py-1 text-xs font-bold transition-colors ${
+ className={`flex-1 min-w-[100px] px-3 py-1 text-xs font-bold transition-colors ${
  normalized === 'daily' ? 'bg-accent text-on-accent' : 'text-body hover:bg-surface-alt'
  } ${saving ? 'opacity-60 cursor-wait' : ''}`}
  >
@@ -820,7 +820,7 @@ const FrequencyToggle: React.FC<FrequencyToggleProps> = ({ value, saving, onChan
  onClick={() => normalized !== 'weekly' && onChange('weekly')}
  disabled={saving}
  aria-pressed={normalized === 'weekly'}
- className={`px-3 py-1 text-xs font-bold transition-colors ${
+ className={`flex-1 min-w-[100px] px-3 py-1 text-xs font-bold transition-colors ${
  normalized === 'weekly' ? 'bg-accent text-on-accent' : 'text-body hover:bg-surface-alt'
  } ${saving ? 'opacity-60 cursor-wait' : ''}`}
  >
@@ -903,13 +903,21 @@ const AlertRow: React.FC<AlertRowProps> = ({
  </div>
  ))
  )}
- <div className="flex flex-wrap items-center gap-2 mt-1">
+ <div className="mt-1 space-y-1.5">
+ <div className="flex flex-wrap items-center gap-2">
  <FrequencyToggle
  value={alert.frequency}
  saving={saving}
  onChange={onChangeFrequency}
  S={S}
  />
+ {alert.paused && (
+ <span className="px-2 py-0.5 bg-surface-raised text-muted text-xs font-bold rounded-md">
+ {S.alertPaused}
+ </span>
+ )}
+ </div>
+ <div className="flex flex-wrap items-center gap-2">
  {alert.frequencyOverride ? (
  <>
  <span className="text-[10px] sm:text-xs px-1.5 py-0.5 rounded-full bg-surface-raised text-muted border border-edge">
@@ -932,22 +940,18 @@ const AlertRow: React.FC<AlertRowProps> = ({
  <span className="text-xs text-muted">{S.frequencyAutoHint}</span>
  </>
  )}
- {alert.paused && (
- <span className="px-2 py-0.5 bg-surface-raised text-muted text-xs font-bold rounded-md">
- {S.alertPaused}
- </span>
- )}
  </div>
  </div>
- <div className="flex flex-row sm:flex-col items-center sm:items-end justify-end gap-2 shrink-0">
+ </div>
+ <div className="flex flex-col items-stretch sm:items-end justify-end gap-2 shrink-0">
  <button
  type="button"
  onClick={onTogglePause}
  disabled={saving || deleting}
  aria-label={alert.paused ? S.alertResume : S.alertPause}
- className="flex items-center gap-1.5 px-3 py-1.5 bg-surface-raised text-body text-xs font-bold rounded-lg hover:bg-surface-raised transition-colors disabled:opacity-60"
+ className="flex items-center justify-center gap-1.5 w-full sm:w-auto h-11 sm:h-auto px-3 py-1.5 bg-surface-raised text-body text-xs font-bold rounded-lg hover:bg-surface-raised transition-colors disabled:opacity-60 whitespace-nowrap"
  >
- {alert.paused ? <Play size={12} /> : <Pause size={12} />}
+ {alert.paused ? <Play size={14} /> : <Pause size={14} />}
  {alert.paused ? S.alertResume : S.alertPause}
  </button>
  <button
@@ -955,9 +959,9 @@ const AlertRow: React.FC<AlertRowProps> = ({
  onClick={onStartEdit}
  disabled={saving || deleting}
  aria-label={S.edit}
- className="flex items-center gap-1.5 px-3 py-1.5 bg-surface-raised text-body text-xs font-bold rounded-lg hover:bg-surface-raised transition-colors disabled:opacity-60"
+ className="flex items-center justify-center gap-1.5 w-full sm:w-auto h-11 sm:h-auto px-3 py-1.5 bg-surface-raised text-body text-xs font-bold rounded-lg hover:bg-surface-raised transition-colors disabled:opacity-60 whitespace-nowrap"
  >
- <Pencil size={12} />
+ <Pencil size={14} />
  {S.edit}
  </button>
  {!confirming ? (
@@ -966,18 +970,18 @@ const AlertRow: React.FC<AlertRowProps> = ({
  onClick={() => setConfirming(true)}
  disabled={deleting}
  aria-label={S.alertDelete}
- className="flex items-center gap-1.5 px-3 py-1.5 bg-danger-subtle text-danger text-xs font-bold rounded-lg hover:bg-danger-subtle transition-colors disabled:opacity-60"
+ className="flex items-center justify-center gap-1.5 w-full sm:w-auto h-11 sm:h-auto px-3 py-1.5 bg-danger-subtle text-danger text-xs font-bold rounded-lg hover:bg-danger-subtle transition-colors disabled:opacity-60 whitespace-nowrap"
  >
  {deleting ? (
- <Loader2 size={12} className="animate-spin" />
+ <Loader2 size={14} className="animate-spin" />
  ) : (
- <Trash2 size={12} />
+ <Trash2 size={14} />
  )}
  {deleting ? S.alertDeleting : S.alertDelete}
  </button>
  ) : (
- <div className="flex flex-col items-end gap-1">
- <span className="text-xs text-danger font-medium">{S.alertConfirmDelete}</span>
+ <div className="flex flex-col items-stretch sm:items-end gap-1.5 w-full sm:w-auto">
+ <span className="text-xs text-danger font-medium text-center sm:text-right">{S.alertConfirmDelete}</span>
  <div className="flex gap-1.5">
  <button
  type="button"
@@ -986,7 +990,7 @@ const AlertRow: React.FC<AlertRowProps> = ({
  onDelete();
  }}
  disabled={deleting}
- className="px-2 py-1 bg-danger-strong text-on-accent text-xs font-bold rounded-md hover:bg-danger-strong-hover transition-colors disabled:opacity-60"
+ className="flex-1 sm:flex-none h-11 sm:h-auto px-2 py-1 bg-danger-strong text-on-accent text-xs font-bold rounded-md hover:bg-danger-strong-hover transition-colors disabled:opacity-60 whitespace-nowrap"
  >
  {S.alertDelete}
  </button>
@@ -994,7 +998,7 @@ const AlertRow: React.FC<AlertRowProps> = ({
  type="button"
  onClick={() => setConfirming(false)}
  disabled={deleting}
- className="px-2 py-1 bg-surface-raised text-body text-xs font-bold rounded-md hover:bg-surface-raised transition-colors"
+ className="flex-1 sm:flex-none h-11 sm:h-auto px-2 py-1 bg-surface-raised text-body text-xs font-bold rounded-md hover:bg-surface-raised transition-colors whitespace-nowrap"
  >
  {S.alertCancel}
  </button>
@@ -1390,7 +1394,7 @@ export function SubscriptionPreferencesController({
  }
 
  return (
- <div className="space-y-5">
+ <div className="space-y-5 pb-20 md:pb-0">
  {errorMsg && (
  <div
  role="alert"
@@ -1404,7 +1408,7 @@ export function SubscriptionPreferencesController({
  {/* ── Job alerts card ── (shown first: this page is reached from the
  "Gestisci alert" link in job-alert emails, so the alerts a user came to
  manage are the first thing they see) */}
- <section className="border border-edge rounded-xl p-5 bg-surface">
+ <section className="border border-edge rounded-xl p-5 bg-surface scroll-mt-20">
  <div className="flex items-center gap-2 mb-1">
  <Bell size={16} className="text-muted" />
  <h2 className="font-semibold text-heading">{S.alertsTitle}</h2>
@@ -1480,7 +1484,7 @@ export function SubscriptionPreferencesController({
  </section>
 
  {/* ── Newsletter subscription card ── */}
- <section className="border border-edge rounded-xl p-5 bg-surface">
+ <section className="border border-edge rounded-xl p-5 bg-surface scroll-mt-20">
  <div className="flex items-start justify-between gap-4">
  <div className="flex-1">
  <div className="flex items-center gap-2 mb-1">
@@ -1512,7 +1516,7 @@ export function SubscriptionPreferencesController({
  </section>
 
  {/* ── Auto-login card ── */}
- <section className="border border-edge rounded-xl p-5 bg-surface">
+ <section className="border border-edge rounded-xl p-5 bg-surface scroll-mt-20">
  <div className="flex items-start justify-between gap-4">
  <div className="flex-1">
  <div className="flex items-center gap-2 mb-1">

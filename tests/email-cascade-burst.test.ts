@@ -157,6 +157,21 @@ describe('fetchResendDailyUsage', () => {
 
 /* ------------------------------------------------------------------ */
 /*  Burst mitigation — a 403 "reached" stops re-hitting the provider  */
+/*  Vehicle: maileroo (mailtrap itself was removed from PROVIDERS     */
+/*  2026-07-29 — send stream suspended, silently swallowed mail — see */
+/*  the PROVIDERS comment in functions/src/emailCascade.js). This     */
+/*  test is about the generic benching behaviour in sendSingle(), not */
+/*  about mailtrap specifically, so any still-cascaded provider is a  */
+/*  valid stand-in as long as the mocked error text actually trips    */
+/*  isRateLimitedError() (see that test above for the exact matcher).*/
+/*  Picked maileroo specifically (not mailjet/mailgun/cloudflare):    */
+/*  this file imports the cascade module ONCE at top scope (no        */
+/*  vi.resetModules() per test, unlike email-cascade-available-quota  */
+/*  .test.ts), so the in-memory quota counters are SHARED across every */
+/*  describe block below. Driving a provider's quota to exhaustion    */
+/*  here would leak into the "ambiguous delivery" describe (mailgun + */
+/*  mailjet) or the "cloudflare provider" describe further down —     */
+/*  maileroo is untouched by every other describe in this file.       */
 /* ------------------------------------------------------------------ */
 
 describe('sendEmailCascade burst mitigation', () => {
@@ -165,33 +180,32 @@ describe('sendEmailCascade burst mitigation', () => {
 
   beforeEach(() => {
     calls = [];
-    process.env.MAILTRAP_API_TOKEN = 'test-token';
-    // Mock every network call. Mailtrap stats/accounts → benign; send → 403 reached.
+    process.env.MAILEROO_API_KEY = 'test-key';
+    // Mock every network call. Maileroo statistics/summary lookup
+    // (syncQuotasFromAPIs) → benign; send → 403 "reached the limit" (matches
+    // isRateLimitedError's `reached...limit` pattern).
     globalThis.fetch = (async (url: string, opts?: any) => {
       calls.push(String(url));
-      if (String(url).includes('send.api.mailtrap.io')) {
+      if (String(url).includes('smtp.maileroo.com/api/v2/emails')) {
         return {
           ok: false,
           status: 403,
           statusText: 'Forbidden',
-          text: async () => '{"success":false,"errors":["Your account has reached the limit"]}',
-          json: async () => ({ success: false }),
+          text: async () => '{"success":false,"message":"You have reached the limit of your monthly quota"}',
+          json: async () => ({}),
         } as any;
       }
-      // accounts / stats lookups during syncQuotasFromAPIs
-      if (String(url).includes('/api/accounts')) {
-        return { ok: true, status: 200, json: async () => [{ id: 1 }], text: async () => '[]' } as any;
-      }
+      // statistics/summary lookup during syncQuotasFromAPIs
       return { ok: true, status: 200, json: async () => ({}), text: async () => '{}' } as any;
     }) as any;
   });
 
   afterEach(() => {
     globalThis.fetch = realFetch;
-    delete process.env.MAILTRAP_API_TOKEN;
+    delete process.env.MAILEROO_API_KEY;
   });
 
-  it('hits the Mailtrap send endpoint only once for a 50-email batch', async () => {
+  it('hits the Maileroo send endpoint only once for a 50-email batch', async () => {
     const emails = Array.from({ length: 50 }, (_, i) => ({
       payload: { from: 'a@b.ch', to: ['x@y.com'], subject: 's', html: '<p>h</p>' },
       recipient: { email: `r${i}@y.com` },
@@ -199,13 +213,15 @@ describe('sendEmailCascade burst mitigation', () => {
     }));
 
     const { sent, failed } = await sendEmailCascade(emails, {
-      forceProvider: 'mailtrap',
+      forceProvider: 'maileroo',
       delayMs: 0,
     });
 
-    const sendCalls = calls.filter(u => u.includes('send.api.mailtrap.io')).length;
-    // Before the fix: 50 burst calls. After: provider marked exhausted on the
-    // first 403 → remainingQuota 0 → every subsequent email is skipped locally.
+    const sendCalls = calls.filter(u => u.includes('smtp.maileroo.com/api/v2/emails')).length;
+    // Before the fix (originally observed against mailtrap — see the "258
+    // Mailtrap 403s in 5s" incident referenced in emailCascade.js): 50 burst
+    // calls. After: provider marked exhausted on the first 403 →
+    // remainingQuota 0 → every subsequent email is skipped locally.
     expect(sendCalls).toBe(1);
     expect(sent.length).toBe(0);
     expect(failed.length).toBe(50);

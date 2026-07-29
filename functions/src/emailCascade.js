@@ -97,12 +97,22 @@ const PROVIDERS = [
     // delivery time must not be farther than 72h0m0s from now". Not a guess.
     scheduledSend: { param: 'o:deliverytime', maxLookaheadMs: 3 * DAY_MS } },
   { id: 'mailjet',  dailyLimit: 200, monthlyLimit: 6000  },
-  // Like resend/maileroo, effective daily cap is read from
-  // `_dynamicDailyLimits.mailtrap` — computeMailtrapDynamicDailyLimit() paces
-  // against the REAL billing-cycle boundaries Mailtrap's own API returns
-  // (no anchor-day guessing needed here, unlike Resend/Maileroo). `dailyLimit:
-  // 150` below is only the pre-sync/unverifiable-usage fallback.
-  { id: 'mailtrap', dailyLimit: 150, monthlyLimit: 4000  },
+  // mailtrap: REMOVED FROM THE CASCADE 2026-07-29 (owner decision). Its send
+  // stream is suspended: the API accepts the message, returns a message_id, and
+  // delivers nothing — so every send through it was silently lost while being
+  // counted as a success. Worse, Mailtrap then posts a `suspension` webhook per
+  // message, which mapMailtrapEvent() used to translate into a per-SUBSCRIBER
+  // suppression (see newsletterMailtrapWebhookCore.js): over 1700 subscribers,
+  // more than a fifth of the base, were burned that way without a single real
+  // bounce or complaint.
+  // Restore this entry only once Mailtrap's stream is verified sending again
+  // AND a live test send is confirmed received.
+  //
+  // Like resend/maileroo, its effective daily cap was read from
+  // `_dynamicDailyLimits.mailtrap` — computeMailtrapDynamicDailyLimit() paced
+  // against the REAL billing-cycle boundaries Mailtrap's own API returns.
+  // `dailyLimit: 150` was only the pre-sync/unverifiable-usage fallback.
+  // { id: 'mailtrap', dailyLimit: 150, monthlyLimit: 4000  },
   // maileroo: paid plan bumped 3000/mo → 100000/mo 2026-07-20 (owner activated
   // it explicitly to become the primary channel for newsletter + job-alert
   // volume). DKIM selector mta._domainkey.frontaliereticino.ch is published and
@@ -382,6 +392,12 @@ const MAILTRAP_CYCLE_FALLBACK_DAILY = 150;
  */
 async function computeMailtrapDynamicDailyLimit(nowMs = Date.now()) {
   const provider = PROVIDERS.find(p => p.id === 'mailtrap');
+  // mailtrap is no longer in PROVIDERS (see the commented-out entry). Nothing
+  // calls this today, but it is still exported, and dereferencing the missing
+  // provider below is exactly the throw that would have failed every send when
+  // it was still wired into syncQuotasFromAPIs. Guard rather than leave the
+  // same landmine for whoever re-enables the provider.
+  if (!provider) return MAILTRAP_CYCLE_FALLBACK_DAILY;
   const { count, apiLimit, cycleStart, cycleEnd, verified } = await fetchMailtrapCycleUsage();
   if (!verified) {
     console.warn(`⚠️  [mailtrap] billing-cycle usage unverifiable — falling back to conservative ${MAILTRAP_CYCLE_FALLBACK_DAILY}/day floor`);
@@ -741,32 +757,40 @@ async function syncQuotasFromAPIs() {
   if (_quotasSynced && _counterDate === getTodayUTC()) return;
 
   console.log('📊 Syncing quotas from provider APIs...');
-  const [mailgun, mailjet, mailtrap, resend, maileroo, cloudflare, resendDynamicLimit, mailerooDynamicLimit, mailtrapDynamicLimit] = await Promise.all([
+  // Only providers actually in PROVIDERS are synced. mailtrap was removed from
+  // the cascade (see the PROVIDERS entry) and syncing it here used to throw:
+  // computeMailtrapDynamicDailyLimit() looks the provider up in PROVIDERS and
+  // dereferences `.monthlyLimit`, which is undefined once the entry is gone.
+  // That throw propagated out of syncQuotasFromAPIs — which sendEmailCascade
+  // awaits — so it would have failed EVERY send, not just mailtrap's. It stayed
+  // invisible in tests because the dereference only happens when the provider
+  // API returns a plan limit, which the mocks never did; it surfaced only when
+  // run against real credentials.
+  const [mailgun, mailjet, resend, maileroo, cloudflare, resendDynamicLimit, mailerooDynamicLimit] = await Promise.all([
     fetchMailgunDailyUsage(),
     fetchMailjetDailyUsage(),
-    fetchMailtrapDailyUsage(),
     fetchResendDailyUsage(),
     fetchMailerooDailyUsage(),
     fetchCloudflareDailyUsage(),
     computeResendDynamicDailyLimit(),
     computeMailerooDynamicDailyLimit(),
-    computeMailtrapDynamicDailyLimit(),
   ]);
 
   _counterDate = getTodayUTC();
   _counters.mailgun = mailgun;
   _counters.mailjet = mailjet;
-  _counters.mailtrap = mailtrap;
   _counters.resend = resend;
   _counters.maileroo = maileroo;
   _counters.cloudflare = cloudflare;
   _dynamicDailyLimits.resend = resendDynamicLimit;
   _dynamicDailyLimits.maileroo = mailerooDynamicLimit;
-  _dynamicDailyLimits.mailtrap = mailtrapDynamicLimit;
   _quotasSynced = true;
 
-  const limit = id => _dynamicDailyLimits[id] ?? PROVIDERS.find(p => p.id === id).dailyLimit;
-  console.log(`   Usage today: mailgun=${mailgun}/${limit('mailgun')}, mailjet=${mailjet}/${limit('mailjet')}, mailtrap=${mailtrap}/${limit('mailtrap')}, resend=${resend}/${limit('resend')}, maileroo=${maileroo}/${limit('maileroo')}, cloudflare=${cloudflare}/${limit('cloudflare')}`);
+  // Optional-chained on purpose: a provider removed from PROVIDERS must degrade
+  // to an unknown limit in a log line, never throw inside the send path.
+  const limit = id => _dynamicDailyLimits[id] ?? PROVIDERS.find(p => p.id === id)?.dailyLimit ?? '—';
+  const usage = PROVIDERS.map(p => `${p.id}=${_counters[p.id] ?? 0}/${limit(p.id)}`).join(', ');
+  console.log(`   Usage today: ${usage}`);
 }
 
 // ── Provider availability check ──────────────────────────────
