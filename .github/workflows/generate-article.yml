@@ -397,6 +397,14 @@ jobs:
       # a finished article. The script refuses to overwrite a degraded store
       # (exit 1) and that shows red here, but the commit below still runs.
       # Zero model calls — pure string comparison, no quota cost.
+      #
+      # The same step also appends this run's row to the rejection ledger
+      # (data/article-defect-history.jsonl) and renders the 7-day trend into the
+      # job summary. One step and not two because both stores are fed by the
+      # same run report at the same moment, and a second step would mean a
+      # second commit racing the first over the same push. The ledger is a
+      # RECORD, not a control input: nothing in the pipeline reads it, which is
+      # the property that makes it safe to accumulate automatically at all.
       - name: Update article defect memory
         if: always()
         continue-on-error: true
@@ -406,7 +414,7 @@ jobs:
           # summary is written either way and the step still reports the failure.
           rc=0
           node scripts/update-article-defect-memory.mjs \
-            --from-run .tmp/create-article-run-report.json --apply \
+            --from-run .tmp/create-article-run-report.json --trends --apply \
             > .tmp/defect-memory.log 2>&1 || rc=$?
           cat .tmp/defect-memory.log
           {
