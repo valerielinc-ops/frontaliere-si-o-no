@@ -325,6 +325,154 @@ describe('tax plausibility — defects that must keep firing', () => {
   });
 });
 
+/**
+ * Second audit round: the 15 surviving `tax-implausible` findings were read by
+ * hand against the article source. One true positive, thirteen false, and every
+ * false one stated its real, plausible tax on the same line (12.480/62.400 =
+ * 20%, 10.000/60.000 = 17%). The gate was never picking the wrong article, only
+ * the wrong amount on it.
+ *
+ * The three causes below each get the lines that must go quiet AND a line that
+ * must keep firing, because the fix is positional — the cue nearest the figure
+ * decides — and a positional rule is only worth having if it can still say yes.
+ */
+describe('tax plausibility — the cue nearest the figure decides', () => {
+  const silent = (text: string) => expect(codes(checkTaxPlausibility(text))).toEqual([]);
+
+  describe('cause 1: take-home pay read as the tax', () => {
+    // `aumenti-stipendi-svizzera-2026`. "netto" was already a non-tax cue and
+    // never bit: "tasse" sat in the same 40-character window, and the old rule
+    // let any tax word veto the veto. Here "tasse" is real — 12.480 on 62.400
+    // is 20% — it is just further away than "netto".
+    it('prefers "netto" over a real tax word further upstream', () => {
+      silent(
+        '- Scenario 1: Un frontaliere residente a Como con uno stipendio di 60.000 CHF potrebbe vedere un '
+        + 'aumento del 4% nel 2026, portando il suo stipendio a 62.400 CHF. Con un\'aliquota fiscale alla fonte '
+        + 'del 20%, pagherà circa 12.480 CHF di tasse, lasciando un netto di 50.920 CHF.',
+      );
+    });
+
+    // `frontaliere-ottico-optometrista-ticino-stipendio-requisiti`: here the tax
+    // word is not merely further away, it is governed by "dopo" — the clause
+    // describes what is left, not what is owed.
+    it('reads "netto dopo l\'applicazione dell\'Imposta" as what is left', () => {
+      silent(
+        'Esempio 1: Un ottico optometrista frontaliero italiano che lavora in Ticino guadagna 60.000 CHF '
+        + "all'anno. Il suo stipendio netto dopo l'applicazione dell'Imposta federale diretta del 5,3% e "
+        + "dell'IVA del 7,7% è di 56.100 CHF.",
+      );
+    });
+
+    // `dumping-salariale-iniziativa-mps` and `licenziamento-postino-ticino`:
+    // "dopo le tasse … porta a casa" and "dopo le imposte … il netto".
+    it('reads "dopo le tasse … porta a casa" and "dopo le imposte … il netto" as net pay', () => {
+      silent(
+        'Ad esempio, un lavoratore che guadagna 5.000 CHF al mese, dopo le tasse, potrebbe portare a casa '
+        + 'circa 3.800 CHF, mentre un collega italiano con lo stesso stipendio lordo in Italia potrebbe '
+        + 'ricevere un netto di circa 3.000 EUR.',
+      );
+      silent(
+        'Ad esempio, considerando un reddito lordo mensile di 4.500 CHF, dopo le imposte svizzere e italiane '
+        + '(a seconda della convenzione fiscale applicabile) e le assicurazioni sociali, il netto potrebbe '
+        + 'attestarsi tra i 2.800 e i 3.200 CHF, a seconda della situazione specifica.',
+      );
+    });
+
+    // THE TRUE POSITIVE of this audit round, and the reason the rule is
+    // positional rather than a blanket mute on "tasse": `frontalieri-ristorni-da-record`
+    // really does claim an 80% tax, with the tax cue sitting next to the figure.
+    it('still flags a tax at 80% of income when the tax cue is the nearest one', () => {
+      const issues = checkTaxPlausibility(
+        "- Un frontaliero che guadagna 50.000 franchi svizzeri all'anno in Lugano deve pagare 40.000 franchi "
+        + "svizzeri di tasse (80% del suo reddito). - Un frontaliero che guadagna 100.000 franchi svizzeri all'anno "
+        + 'in Mendrisio deve pagare 80.000 franchi svizzeri di tasse (80% del suo reddito).',
+      );
+      expect(codes(issues)).toEqual(['tax-implausible', 'tax-implausible']);
+      expect(issues[0].message).toContain('80% del reddito 50.000 franchi svizzeri');
+    });
+  });
+
+  describe('cause 2: the base the tax is computed on, read as the tax', () => {
+    // `tassazione-frontalieri-2026-nuovo-accordo`: "tassato SU 45.000" names
+    // what is taxed, not what is paid.
+    it('reads "tassato solo su X" as the taxable base', () => {
+      silent(
+        'Ad esempio, se prima veniva tassato su un reddito di 50.000 CHF, con la nuova franchigia potrebbe '
+        + 'essere tassato solo su 45.000 CHF, risparmiando così sulle imposte italiane.',
+      );
+    });
+
+    // `assicurazione-rc-auto-svizzera-differenze-italia-frontalieri`: a credito
+    // d'imposta is a credit. The word "imposta" inside it is not a cue of its own.
+    it('does not take the "imposta" inside "credito d\'imposta" as a cue', () => {
+      silent(
+        "* Un lavoratore frontaliere che guadagna 80.000 CHF all'anno (circa 76.000 €) in Italia potrà "
+        + "beneficiare di un credito d'imposta di 1.500 €, per un totale di 78.500 € da cui detrarre le tasse.",
+      );
+    });
+
+    // `frontalieri-busta-paga-svizzera-2026`: once under "dopo", once under a
+    // negation. Both describe the residue, not the levy.
+    it('discounts a tax word that is negated or governed by "dopo"', () => {
+      silent(
+        '> Esempio 1: Supponiamo che un frontaliero italiano con un reddito da lavoro di 60.000 euro lordi '
+        + "lavori in Svizzera. In Svizzera, dopo aver pagato l'imposta sul reddito da lavoro (IRL) e "
+        + "l'assicurazione sanitaria obbligatoria (ASO), la parte del reddito da lavoro che non è stata "
+        + 'trattenuta è di 45.000 euro.',
+      );
+      silent(
+        '> - Un frontaliero italiano con un reddito da lavoro lordo netto di 60.000 euro potrebbe ricevere un '
+        + 'reddito da lavoro lordo dopo le tasse di circa 45.000 euro.',
+      );
+    });
+
+    // The contrast: `bossi-commemorazione-bagarrata` names its base too ("per
+    // ogni 1.000 franchi DI REDDITO") and still asserts a tax, because the cue
+    // next to the 4.500 is "pagato".
+    it('still flags a rate stated against an explicit base', () => {
+      const issues = checkTaxPlausibility(
+        '* Nel 2022 il canton Ticino ha pagato 4.500 franchi svizzeri di tasse per ogni 1.000 franchi '
+        + 'svizzeri di reddito.',
+      );
+      expect(codes(issues)).toContain('tax-exceeds-income');
+    });
+  });
+
+  describe('cause 3: two examples on one line, cross-paired', () => {
+    // `salario-minimo-ticino-2027-2029`: an hourly wage paired with the hourly
+    // floor it must clear. Neither is a tax, and an income tax is never quoted
+    // per hour — periodOf() simply could not see "l’ora" with a curly apostrophe.
+    it('does not read an hourly wage as a tax on an hourly floor', () => {
+      silent(
+        '- Scenario B: Un’azienda di Locarno che paga 21 franchi l’ora può mantenere il CCL attuale fino al '
+        + '2029, ma dovrà adeguarsi se il salario minimo legale supera i 21,50 franchi.',
+      );
+    });
+
+    // `stipendio-veterinario-frontaliere-ticino`: a chain of additions in which
+    // only the first item is a tax. The 72'000 is labelled "la pensione".
+    it('does not pair an income with a pension listed further down the same chain', () => {
+      silent(
+        "La sua retribuzione annuale sarebbe di 80'000 franchi, meno l'imposta alla fonte di 24'000 franchi, "
+        + "più il contributo all'AVS di 1'920 franchi, più il contributo al LPP di 24'000 franchi, più la "
+        + "pensione di 72'000 franchi al mese, cioè 864'000 franchi all'anno.",
+      );
+    });
+
+    // The contrast: `proposta-choc-ticino-frontalieri` also spreads its two
+    // figures over two sentences on one line, and must still be paired.
+    it('still pairs an income with an impossible total in the next sentence', () => {
+      const issues = checkTaxPlausibility(
+        'Ad esempio, se un frontaliero ha lavorato nel Canton Ticino per 10 anni e ha un stipendio di 60.000 '
+        + "franchi all'anno, dovrà pagare le tasse di un nuovo frontaliero, che ammontano a 12.000 franchi "
+        + "all'anno. Ciò significa che il frontaliero dovrà pagare un totale di 72.000 franchi all'anno, di cui "
+        + '12.000 franchi sono tasse.',
+      );
+      expect(codes(issues)).toContain('tax-exceeds-income');
+    });
+  });
+});
+
 describe('checkCrossSectionNumericConflicts', () => {
   // SHIPPED: the same 60.000 CHF scenario was answered 28.920 (body1),
   // 60.000 (body2) and "+6.000" (body3).
