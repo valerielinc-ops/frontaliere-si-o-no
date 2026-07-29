@@ -9108,6 +9108,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.ubs-taglio-posti-lavoro-svizzera.title': 'UBS coupe d\'autres emplois : tombe en dessous de 100\'000',
     'blog.article.ubs-taglio-posti-lavoro-svizzera.excerpt': 'Le groupe bancaire UBS réduit ses effectifs à 99\'085 salariés suite à l\'intégration de Credit Suisse. Objectif : 13,5 milliards d\'économies d\'ici 2026.',
     'blog.article.ubs-taglio-posti-lavoro-svizzera.imageAlt': 'Vue du centre financier de Lugano',
+    'blog.article.agenzie-immobiliari-lavoro-ticino.title': 'Efficacité dans l\'immobilier : comment travaillent les professionnels',
+    'blog.article.agenzie-immobiliari-lavoro-ticino.excerpt': 'Parce que les agences immobilières performantes du Tessin ne perdent pas de temps sur les réseaux sociaux mais se concentrent sur la gestion opérationnelle des biens immobiliers.',
+    'blog.article.agenzie-immobiliari-lavoro-ticino.imageAlt': 'Bureau professionnel à Lugano avec vue sur le lac',
 };
 
 export default blogMetaFr;
