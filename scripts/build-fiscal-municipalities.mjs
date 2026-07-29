@@ -41,7 +41,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-import { assertPlausibleMunicipality } from './lib/municipality-plausibility-guard.mjs';
+import { assertPlausibleMunicipality, assertPlausibleDistribution } from './lib/municipality-plausibility-guard.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -52,6 +52,13 @@ const OUT = path.join(ROOT, 'data', 'fiscal-municipalities.json');
 export const CORRIDOR_PROVINCES = ['CO', 'VA', 'VB'];
 export const MIN_POPULATION = 5000;
 export const MAX_DISTANCE_KM = 20;
+// 2000 was data/municipalities.ts's unreplaced default population (issue
+// #4922, fixed 2026-07-29: real ISTAT figures now populate all 518 rows).
+// Kept as a defensive exclusion, not a comment-out — a future new/edited
+// row left at this exact default must still be excluded from the corridor
+// (never published with a fabricated population), and assertPlausibleDistribution
+// below now also fails the whole build loud if this value ever again covers
+// an implausible share of the corridor, instead of silently draining rows here.
 const PLACEHOLDER_POPULATION = 2000;
 
 const SOURCE_LABEL =
@@ -107,13 +114,21 @@ export function parseMunicipalities(tsSource) {
 
 /** Apply the corridor + real-data filter and the population/proximity floor. */
 export function buildDataset(all) {
-  const corridor = all.filter(
+  // Distribution check runs on the raw corridor rows, BEFORE the
+  // placeholder-exclusion filter below drops population === 2000 rows —
+  // otherwise a placeholder that dominates the input (issue #4922: 417/518
+  // rows) would just get silently excluded here instead of failing the
+  // build loud.
+  const corridorRaw = all.filter(
+    (m) => CORRIDOR_PROVINCES.includes(m.province) && Number.isFinite(m.population),
+  );
+  assertPlausibleDistribution(corridorRaw, { field: 'population', sourceLabel: 'fiscal-municipalities' });
+
+  const corridor = corridorRaw.filter(
     (m) =>
-      CORRIDOR_PROVINCES.includes(m.province) &&
       m.population !== PLACEHOLDER_POPULATION &&
       Number.isFinite(m.irpefAddizionale) &&
-      Number.isFinite(m.distanceKm) &&
-      Number.isFinite(m.population),
+      Number.isFinite(m.distanceKm),
   );
   for (const m of corridor) {
     assertPlausibleMunicipality(m, { sourceLabel: 'fiscal-municipalities' });

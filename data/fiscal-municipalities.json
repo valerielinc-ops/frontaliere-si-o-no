@@ -153,6 +153,17 @@
       "lng": 8.9878
     },
     {
+      "name": "Cislago",
+      "slug": "cislago",
+      "province": "VA",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 20,
+      "population": 10463,
+      "avgRentMonthly": 520,
+      "lat": 45.6588,
+      "lng": 8.9719
+    },
+    {
       "name": "Induno Olona",
       "slug": "induno-olona",
       "province": "VA",
@@ -186,6 +197,17 @@
       "lng": 9.0454
     },
     {
+      "name": "Cermenate",
+      "slug": "cermenate",
+      "province": "CO",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 15,
+      "population": 9426,
+      "avgRentMonthly": 550,
+      "lat": 45.7001,
+      "lng": 9.0801
+    },
+    {
       "name": "Gavirate",
       "slug": "gavirate",
       "province": "VA",
@@ -195,6 +217,17 @@
       "avgRentMonthly": 530,
       "lat": 45.8426,
       "lng": 8.7242
+    },
+    {
+      "name": "Inverigo",
+      "slug": "inverigo",
+      "province": "CO",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 18,
+      "population": 9209,
+      "avgRentMonthly": 550,
+      "lat": 45.7405,
+      "lng": 9.2236
     },
     {
       "name": "Besozzo",
@@ -230,6 +263,17 @@
       "lng": 8.6144
     },
     {
+      "name": "Mozzate",
+      "slug": "mozzate",
+      "province": "CO",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 19,
+      "population": 8744,
+      "avgRentMonthly": 550,
+      "lat": 45.6752,
+      "lng": 8.9558
+    },
+    {
       "name": "Lomazzo",
       "slug": "lomazzo",
       "province": "CO",
@@ -241,6 +285,50 @@
       "lng": 9.0414
     },
     {
+      "name": "Cadorago",
+      "slug": "cadorago",
+      "province": "CO",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 12,
+      "population": 8019,
+      "avgRentMonthly": 550,
+      "lat": 45.7246,
+      "lng": 9.0382
+    },
+    {
+      "name": "Rovellasca",
+      "slug": "rovellasca",
+      "province": "CO",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 19,
+      "population": 8009,
+      "avgRentMonthly": 550,
+      "lat": 45.668,
+      "lng": 9.0542
+    },
+    {
+      "name": "Cairate",
+      "slug": "cairate",
+      "province": "VA",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 20,
+      "population": 7818,
+      "avgRentMonthly": 520,
+      "lat": 45.6909,
+      "lng": 8.8725
+    },
+    {
+      "name": "Villa Guardia",
+      "slug": "villa-guardia",
+      "province": "CO",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 7,
+      "population": 7814,
+      "avgRentMonthly": 550,
+      "lat": 45.7738,
+      "lng": 9.0237
+    },
+    {
       "name": "Appiano Gentile",
       "slug": "appiano-gentile",
       "province": "CO",
@@ -250,6 +338,39 @@
       "avgRentMonthly": 600,
       "lat": 45.7361,
       "lng": 8.9814
+    },
+    {
+      "name": "Venegono Superiore",
+      "slug": "venegono-superiore",
+      "province": "VA",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 13,
+      "population": 7485,
+      "avgRentMonthly": 520,
+      "lat": 45.7514,
+      "lng": 8.9048
+    },
+    {
+      "name": "Castiglione Olona",
+      "slug": "castiglione-olona",
+      "province": "VA",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 15,
+      "population": 7455,
+      "avgRentMonthly": 520,
+      "lat": 45.7556,
+      "lng": 8.8668
+    },
+    {
+      "name": "Vedano Olona",
+      "slug": "vedano-olona",
+      "province": "VA",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 13,
+      "population": 7444,
+      "avgRentMonthly": 520,
+      "lat": 45.7769,
+      "lng": 8.8856
     },
     {
       "name": "Cernobbio",
@@ -274,6 +395,72 @@
       "lng": 8.2636
     },
     {
+      "name": "Carugo",
+      "slug": "carugo",
+      "province": "CO",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 19,
+      "population": 6632,
+      "avgRentMonthly": 550,
+      "lat": 45.7092,
+      "lng": 9.1946
+    },
+    {
+      "name": "Carnago",
+      "slug": "carnago",
+      "province": "VA",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 20,
+      "population": 6588,
+      "avgRentMonthly": 520,
+      "lat": 45.7228,
+      "lng": 8.8358
+    },
+    {
+      "name": "Albavilla",
+      "slug": "albavilla",
+      "province": "CO",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 13,
+      "population": 6411,
+      "avgRentMonthly": 550,
+      "lat": 45.8031,
+      "lng": 9.1885
+    },
+    {
+      "name": "Bregnano",
+      "slug": "bregnano",
+      "province": "CO",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 16,
+      "population": 6402,
+      "avgRentMonthly": 550,
+      "lat": 45.6971,
+      "lng": 9.0595
+    },
+    {
+      "name": "Rovello Porro",
+      "slug": "rovello-porro",
+      "province": "CO",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 20,
+      "population": 6310,
+      "avgRentMonthly": 550,
+      "lat": 45.6512,
+      "lng": 9.0403
+    },
+    {
+      "name": "Venegono Inferiore",
+      "slug": "venegono-inferiore",
+      "province": "VA",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 15,
+      "population": 5913,
+      "avgRentMonthly": 520,
+      "lat": 45.7381,
+      "lng": 8.9018
+    },
+    {
       "name": "Lipomo",
       "slug": "lipomo",
       "province": "CO",
@@ -296,6 +483,39 @@
       "lng": 9.0169
     },
     {
+      "name": "Tavernerio",
+      "slug": "tavernerio",
+      "province": "CO",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 10,
+      "population": 5624,
+      "avgRentMonthly": 550,
+      "lat": 45.8024,
+      "lng": 9.1464
+    },
+    {
+      "name": "Colverde",
+      "slug": "colverde",
+      "province": "CO",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 4,
+      "population": 5535,
+      "avgRentMonthly": 550,
+      "lat": 45.8047,
+      "lng": 9.0015
+    },
+    {
+      "name": "Lurago d'Erba",
+      "slug": "lurago-derba",
+      "province": "CO",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 17,
+      "population": 5534,
+      "avgRentMonthly": 550,
+      "lat": 45.7471,
+      "lng": 9.2145
+    },
+    {
       "name": "Lavena Ponte Tresa",
       "slug": "lavena-ponte-tresa",
       "province": "VA",
@@ -316,6 +536,17 @@
       "avgRentMonthly": 680,
       "lat": 45.7903,
       "lng": 9.0275
+    },
+    {
+      "name": "Capiago Intimiano",
+      "slug": "capiago-intimiano",
+      "province": "CO",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 11,
+      "population": 5426,
+      "avgRentMonthly": 550,
+      "lat": 45.7708,
+      "lng": 9.13
     },
     {
       "name": "Viggiù",
@@ -349,6 +580,39 @@
       "avgRentMonthly": 750,
       "lat": 45.9835,
       "lng": 9.1915
+    },
+    {
+      "name": "Arosio",
+      "slug": "arosio",
+      "province": "CO",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 19,
+      "population": 5193,
+      "avgRentMonthly": 550,
+      "lat": 45.717,
+      "lng": 9.208
+    },
+    {
+      "name": "Canzo",
+      "slug": "canzo",
+      "province": "CO",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 19,
+      "population": 5168,
+      "avgRentMonthly": 550,
+      "lat": 45.8505,
+      "lng": 9.2743
+    },
+    {
+      "name": "Lonate Ceppino",
+      "slug": "lonate-ceppino",
+      "province": "VA",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 19,
+      "population": 5159,
+      "avgRentMonthly": 520,
+      "lat": 45.7045,
+      "lng": 8.8743
     },
     {
       "name": "Cannobio",
@@ -397,6 +661,160 @@
       "lng": 9.0399
     },
     {
+      "name": "Cassano Magnago",
+      "slug": "cassano-magnago",
+      "province": "VA",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 24,
+      "population": 21315,
+      "avgRentMonthly": 520,
+      "lat": 45.6752,
+      "lng": 8.8256
+    },
+    {
+      "name": "Fagnano Olona",
+      "slug": "fagnano-olona",
+      "province": "VA",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 22,
+      "population": 12396,
+      "avgRentMonthly": 520,
+      "lat": 45.6689,
+      "lng": 8.8728
+    },
+    {
+      "name": "Gerenzano",
+      "slug": "gerenzano",
+      "province": "VA",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 22,
+      "population": 10924,
+      "avgRentMonthly": 520,
+      "lat": 45.6387,
+      "lng": 9.0003
+    },
+    {
+      "name": "Vergiate",
+      "slug": "vergiate",
+      "province": "VA",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 29,
+      "population": 8635,
+      "avgRentMonthly": 520,
+      "lat": 45.7248,
+      "lng": 8.694
+    },
+    {
+      "name": "Gorla Minore",
+      "slug": "gorla-minore",
+      "province": "VA",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 24,
+      "population": 8181,
+      "avgRentMonthly": 520,
+      "lat": 45.6443,
+      "lng": 8.8979
+    },
+    {
+      "name": "Cabiate",
+      "slug": "cabiate",
+      "province": "CO",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 21,
+      "population": 7346,
+      "avgRentMonthly": 550,
+      "lat": 45.6742,
+      "lng": 9.1737
+    },
+    {
+      "name": "Sumirago",
+      "slug": "sumirago",
+      "province": "VA",
+      "irpefAddizionale": 0.8,
+      "distanceKm": 22,
+      "population": 6020,
+      "avgRentMonthly": 520,
+      "lat": 45.7392,
+      "lng": 8.781
+    },
+    {
+      "name": "Cavaria con Premezzo",
+      "slug": "cavaria-con-premezzo",
+      "province": "VA",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 24,
+      "population": 5772,
+      "avgRentMonthly": 520,
+      "lat": 45.6927,
+      "lng": 8.7965
+    },
+    {
+      "name": "Besnate",
+      "slug": "besnate",
+      "province": "VA",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 25,
+      "population": 5449,
+      "avgRentMonthly": 520,
+      "lat": 45.7002,
+      "lng": 8.7683
+    },
+    {
+      "name": "Solbiate Olona",
+      "slug": "solbiate-olona",
+      "province": "VA",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 23,
+      "population": 5384,
+      "avgRentMonthly": 520,
+      "lat": 45.6514,
+      "lng": 8.8878
+    },
+    {
+      "name": "Albizzate",
+      "slug": "albizzate",
+      "province": "VA",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 21,
+      "population": 5175,
+      "avgRentMonthly": 520,
+      "lat": 45.7239,
+      "lng": 8.8031
+    },
+    {
+      "name": "Jerago con Orago",
+      "slug": "jerago-con-orago",
+      "province": "VA",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 23,
+      "population": 5171,
+      "avgRentMonthly": 520,
+      "lat": 45.708,
+      "lng": 8.794
+    },
+    {
+      "name": "Castronno",
+      "slug": "castronno",
+      "province": "VA",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 19,
+      "population": 4994,
+      "avgRentMonthly": 520,
+      "lat": 45.7468,
+      "lng": 8.8142
+    },
+    {
+      "name": "Figino Serenza",
+      "slug": "figino-serenza",
+      "province": "CO",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 16,
+      "population": 4958,
+      "avgRentMonthly": 550,
+      "lat": 45.7098,
+      "lng": 9.1289
+    },
+    {
       "name": "Faloppio",
       "slug": "faloppio",
       "province": "CO",
@@ -408,6 +826,50 @@
       "lng": 8.9712
     },
     {
+      "name": "Mornago",
+      "slug": "mornago",
+      "province": "VA",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 24,
+      "population": 4843,
+      "avgRentMonthly": 520,
+      "lat": 45.7475,
+      "lng": 8.7523
+    },
+    {
+      "name": "Binago",
+      "slug": "binago",
+      "province": "CO",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 10,
+      "population": 4832,
+      "avgRentMonthly": 550,
+      "lat": 45.7844,
+      "lng": 8.9222
+    },
+    {
+      "name": "Alzate Brianza",
+      "slug": "alzate-brianza",
+      "province": "CO",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 14,
+      "population": 4830,
+      "avgRentMonthly": 550,
+      "lat": 45.7698,
+      "lng": 9.182
+    },
+    {
+      "name": "Caronno Varesino",
+      "slug": "caronno-varesino",
+      "province": "VA",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 19,
+      "population": 4820,
+      "avgRentMonthly": 520,
+      "lat": 45.7386,
+      "lng": 8.8312
+    },
+    {
       "name": "Uggiate-Trevano",
       "slug": "uggiate-trevano",
       "province": "CO",
@@ -417,6 +879,28 @@
       "avgRentMonthly": 570,
       "lat": 45.8234,
       "lng": 8.9602
+    },
+    {
+      "name": "Gorla Maggiore",
+      "slug": "gorla-maggiore",
+      "province": "VA",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 22,
+      "population": 4786,
+      "avgRentMonthly": 520,
+      "lat": 45.6641,
+      "lng": 8.8909
+    },
+    {
+      "name": "Arsago Seprio",
+      "slug": "arsago-seprio",
+      "province": "VA",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 28,
+      "population": 4738,
+      "avgRentMonthly": 520,
+      "lat": 45.6882,
+      "lng": 8.7315
     },
     {
       "name": "Cantello",
@@ -452,6 +936,39 @@
       "lng": 9.1184
     },
     {
+      "name": "Solbiate con Cagno",
+      "slug": "solbiate-con-cagno",
+      "province": "CO",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 10,
+      "population": 4659,
+      "avgRentMonthly": 550,
+      "lat": 45.8004,
+      "lng": 8.9154
+    },
+    {
+      "name": "Cocquio-Trevisago",
+      "slug": "cocquio-trevisago",
+      "province": "VA",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 17,
+      "population": 4638,
+      "avgRentMonthly": 520,
+      "lat": 45.8634,
+      "lng": 8.6957
+    },
+    {
+      "name": "Gazzada Schianno",
+      "slug": "gazzada-schianno",
+      "province": "VA",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 16,
+      "population": 4609,
+      "avgRentMonthly": 520,
+      "lat": 45.781,
+      "lng": 8.8324
+    },
+    {
       "name": "Azzate",
       "slug": "azzate",
       "province": "VA",
@@ -485,6 +1002,83 @@
       "lng": 8.8703
     },
     {
+      "name": "Carimate",
+      "slug": "carimate",
+      "province": "CO",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 16,
+      "population": 4350,
+      "avgRentMonthly": 550,
+      "lat": 45.703,
+      "lng": 9.1106
+    },
+    {
+      "name": "Oggiona con Santo Stefano",
+      "slug": "oggiona-con-santo-stefano",
+      "province": "VA",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 22,
+      "population": 4328,
+      "avgRentMonthly": 520,
+      "lat": 45.6994,
+      "lng": 8.8184
+    },
+    {
+      "name": "Locate Varesino",
+      "slug": "locate-varesino",
+      "province": "CO",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 18,
+      "population": 4320,
+      "avgRentMonthly": 550,
+      "lat": 45.6889,
+      "lng": 8.9307
+    },
+    {
+      "name": "Morazzone",
+      "slug": "morazzone",
+      "province": "VA",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 17,
+      "population": 4317,
+      "avgRentMonthly": 520,
+      "lat": 45.765,
+      "lng": 8.8315
+    },
+    {
+      "name": "Albese con Cassano",
+      "slug": "albese-con-cassano",
+      "province": "CO",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 11,
+      "population": 4271,
+      "avgRentMonthly": 550,
+      "lat": 45.8116,
+      "lng": 9.1686
+    },
+    {
+      "name": "Ponte Lambro",
+      "slug": "ponte-lambro",
+      "province": "CO",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 15,
+      "population": 4251,
+      "avgRentMonthly": 550,
+      "lat": 45.8266,
+      "lng": 9.2254
+    },
+    {
+      "name": "Vertemate con Minoprio",
+      "slug": "vertemate-con-minoprio",
+      "province": "CO",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 12,
+      "population": 4201,
+      "avgRentMonthly": 550,
+      "lat": 45.7282,
+      "lng": 9.0784
+    },
+    {
       "name": "Gravedona ed Uniti",
       "slug": "gravedona-ed-uniti",
       "province": "CO",
@@ -494,6 +1088,28 @@
       "avgRentMonthly": 480,
       "lat": 46.151,
       "lng": 9.3061
+    },
+    {
+      "name": "Merone",
+      "slug": "merone",
+      "province": "CO",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 18,
+      "population": 4043,
+      "avgRentMonthly": 550,
+      "lat": 45.7879,
+      "lng": 9.2465
+    },
+    {
+      "name": "Solbiate Arno",
+      "slug": "solbiate-arno",
+      "province": "VA",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 21,
+      "population": 4038,
+      "avgRentMonthly": 520,
+      "lat": 45.7191,
+      "lng": 8.8143
     },
     {
       "name": "Bulgarograsso",
@@ -518,6 +1134,28 @@
       "lng": 8.6615
     },
     {
+      "name": "Limido Comasco",
+      "slug": "limido-comasco",
+      "province": "CO",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 17,
+      "population": 3942,
+      "avgRentMonthly": 550,
+      "lat": 45.6892,
+      "lng": 8.9798
+    },
+    {
+      "name": "Travedona-Monate",
+      "slug": "travedona-monate",
+      "province": "VA",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 23,
+      "population": 3861,
+      "avgRentMonthly": 520,
+      "lat": 45.8051,
+      "lng": 8.6742
+    },
+    {
       "name": "Germignaga",
       "slug": "germignaga",
       "province": "VA",
@@ -527,6 +1165,72 @@
       "avgRentMonthly": 480,
       "lat": 45.9924,
       "lng": 8.7261
+    },
+    {
+      "name": "Centro Valle Intelvi",
+      "slug": "centro-valle-intelvi",
+      "province": "CO",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 8,
+      "population": 3796,
+      "avgRentMonthly": 550,
+      "lat": 45.9505,
+      "lng": 9.0637
+    },
+    {
+      "name": "Bardello con Malgesso e Bregano",
+      "slug": "bardello-con-malgesso-e-bregano",
+      "province": "VA",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 21,
+      "population": 3621,
+      "avgRentMonthly": 520,
+      "lat": 45.8241,
+      "lng": 8.6822
+    },
+    {
+      "name": "Leggiuno",
+      "slug": "leggiuno",
+      "province": "VA",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 18,
+      "population": 3610,
+      "avgRentMonthly": 520,
+      "lat": 45.8754,
+      "lng": 8.6205
+    },
+    {
+      "name": "Casciago",
+      "slug": "casciago",
+      "province": "VA",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 16,
+      "population": 3559,
+      "avgRentMonthly": 520,
+      "lat": 45.8355,
+      "lng": 8.7812
+    },
+    {
+      "name": "Cuasso al Monte",
+      "slug": "cuasso-al-monte",
+      "province": "VA",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 6,
+      "population": 3524,
+      "avgRentMonthly": 520,
+      "lat": 45.9148,
+      "lng": 8.8791
+    },
+    {
+      "name": "Asso",
+      "slug": "asso",
+      "province": "CO",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 19,
+      "population": 3522,
+      "avgRentMonthly": 550,
+      "lat": 45.8613,
+      "lng": 9.2695
     },
     {
       "name": "Marchirolo",
@@ -540,6 +1244,17 @@
       "lng": 8.8324
     },
     {
+      "name": "Cucciago",
+      "slug": "cucciago",
+      "province": "CO",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 12,
+      "population": 3410,
+      "avgRentMonthly": 550,
+      "lat": 45.7399,
+      "lng": 9.0955
+    },
+    {
       "name": "Dongo",
       "slug": "dongo",
       "province": "CO",
@@ -549,6 +1264,50 @@
       "avgRentMonthly": 450,
       "lat": 46.1268,
       "lng": 9.2822
+    },
+    {
+      "name": "Cuveglio",
+      "slug": "cuveglio",
+      "province": "VA",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 12,
+      "population": 3368,
+      "avgRentMonthly": 520,
+      "lat": 45.9044,
+      "lng": 8.7333
+    },
+    {
+      "name": "Cassina Rizzardi",
+      "slug": "cassina-rizzardi",
+      "province": "CO",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 9,
+      "population": 3323,
+      "avgRentMonthly": 550,
+      "lat": 45.7505,
+      "lng": 9.0312
+    },
+    {
+      "name": "Fenegrò",
+      "slug": "fenegro",
+      "province": "CO",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 15,
+      "population": 3262,
+      "avgRentMonthly": 550,
+      "lat": 45.7007,
+      "lng": 8.9986
+    },
+    {
+      "name": "Carlazzo",
+      "slug": "carlazzo",
+      "province": "CO",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 13,
+      "population": 3205,
+      "avgRentMonthly": 550,
+      "lat": 46.05,
+      "lng": 9.1545
     },
     {
       "name": "Cugliate-Fabiasco",
@@ -573,6 +1332,72 @@
       "lng": 9.2365
     },
     {
+      "name": "Biandronno",
+      "slug": "biandronno",
+      "province": "VA",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 20,
+      "population": 3183,
+      "avgRentMonthly": 520,
+      "lat": 45.8215,
+      "lng": 8.7132
+    },
+    {
+      "name": "Senna Comasco",
+      "slug": "senna-comasco",
+      "province": "CO",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 10,
+      "population": 3161,
+      "avgRentMonthly": 550,
+      "lat": 45.763,
+      "lng": 9.111
+    },
+    {
+      "name": "Alta Valle Intelvi",
+      "slug": "alta-valle-intelvi",
+      "province": "CO",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 4,
+      "population": 3157,
+      "avgRentMonthly": 550,
+      "lat": 45.9809,
+      "lng": 9.0419
+    },
+    {
+      "name": "Maslianico",
+      "slug": "maslianico",
+      "province": "CO",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 2,
+      "population": 3144,
+      "avgRentMonthly": 550,
+      "lat": 45.8428,
+      "lng": 9.0472
+    },
+    {
+      "name": "Brebbia",
+      "slug": "brebbia",
+      "province": "VA",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 22,
+      "population": 3131,
+      "avgRentMonthly": 520,
+      "lat": 45.8285,
+      "lng": 8.6501
+    },
+    {
+      "name": "Veniano",
+      "slug": "veniano",
+      "province": "CO",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 14,
+      "population": 3129,
+      "avgRentMonthly": 550,
+      "lat": 45.7156,
+      "lng": 8.9831
+    },
+    {
       "name": "Maccagno con Pino e Veddasca",
       "slug": "maccagno-con-pino-e-veddasca",
       "province": "VA",
@@ -595,6 +1420,17 @@
       "lng": 8.9217
     },
     {
+      "name": "Buguggiate",
+      "slug": "buguggiate",
+      "province": "VA",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 18,
+      "population": 3088,
+      "avgRentMonthly": 520,
+      "lat": 45.786,
+      "lng": 8.805
+    },
+    {
       "name": "Bellagio",
       "slug": "bellagio",
       "province": "CO",
@@ -606,6 +1442,17 @@
       "lng": 9.2613
     },
     {
+      "name": "Daverio",
+      "slug": "daverio",
+      "province": "VA",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 21,
+      "population": 3027,
+      "avgRentMonthly": 520,
+      "lat": 45.7784,
+      "lng": 8.7718
+    },
+    {
       "name": "Porto Ceresio",
       "slug": "porto-ceresio",
       "province": "VA",
@@ -615,6 +1462,17 @@
       "avgRentMonthly": 520,
       "lat": 45.9075,
       "lng": 8.9042
+    },
+    {
+      "name": "Carbonate",
+      "slug": "carbonate",
+      "province": "CO",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 18,
+      "population": 2940,
+      "avgRentMonthly": 550,
+      "lat": 45.6837,
+      "lng": 8.94
     },
     {
       "name": "Cunardo",
@@ -639,6 +1497,94 @@
       "lng": 9.064
     },
     {
+      "name": "Novedrate",
+      "slug": "novedrate",
+      "province": "CO",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 17,
+      "population": 2877,
+      "avgRentMonthly": 550,
+      "lat": 45.6989,
+      "lng": 9.1205
+    },
+    {
+      "name": "Gemonio",
+      "slug": "gemonio",
+      "province": "VA",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 16,
+      "population": 2866,
+      "avgRentMonthly": 520,
+      "lat": 45.8792,
+      "lng": 8.6754
+    },
+    {
+      "name": "Luisago",
+      "slug": "luisago",
+      "province": "CO",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 8,
+      "population": 2818,
+      "avgRentMonthly": 550,
+      "lat": 45.7629,
+      "lng": 9.0354
+    },
+    {
+      "name": "Beregazzo con Figliaro",
+      "slug": "beregazzo-con-figliaro",
+      "province": "CO",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 9,
+      "population": 2808,
+      "avgRentMonthly": 550,
+      "lat": 45.771,
+      "lng": 8.9583
+    },
+    {
+      "name": "Albiolo",
+      "slug": "albiolo",
+      "province": "CO",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 8,
+      "population": 2790,
+      "avgRentMonthly": 550,
+      "lat": 45.8068,
+      "lng": 8.9393
+    },
+    {
+      "name": "Comerio",
+      "slug": "comerio",
+      "province": "VA",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 17,
+      "population": 2790,
+      "avgRentMonthly": 520,
+      "lat": 45.8396,
+      "lng": 8.7464
+    },
+    {
+      "name": "Casale Litta",
+      "slug": "casale-litta",
+      "province": "VA",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 24,
+      "population": 2759,
+      "avgRentMonthly": 520,
+      "lat": 45.7673,
+      "lng": 8.7401
+    },
+    {
+      "name": "Cadrezzate con Osmate",
+      "slug": "cadrezzate-con-osmate",
+      "province": "VA",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 26,
+      "population": 2712,
+      "avgRentMonthly": 520,
+      "lat": 45.7899,
+      "lng": 8.6493
+    },
+    {
       "name": "Valmorea",
       "slug": "valmorea",
       "province": "CO",
@@ -648,6 +1594,105 @@
       "avgRentMonthly": 510,
       "lat": 45.8174,
       "lng": 8.9322
+    },
+    {
+      "name": "Orsenigo",
+      "slug": "orsenigo",
+      "province": "CO",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 13,
+      "population": 2635,
+      "avgRentMonthly": 550,
+      "lat": 45.7773,
+      "lng": 9.1811
+    },
+    {
+      "name": "Valbrona",
+      "slug": "valbrona",
+      "province": "CO",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 22,
+      "population": 2627,
+      "avgRentMonthly": 550,
+      "lat": 45.8811,
+      "lng": 9.3016
+    },
+    {
+      "name": "Lurago Marinone",
+      "slug": "lurago-marinone",
+      "province": "CO",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 15,
+      "population": 2592,
+      "avgRentMonthly": 550,
+      "lat": 45.7058,
+      "lng": 8.9813
+    },
+    {
+      "name": "Caravate",
+      "slug": "caravate",
+      "province": "VA",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 17,
+      "population": 2557,
+      "avgRentMonthly": 520,
+      "lat": 45.8779,
+      "lng": 8.652
+    },
+    {
+      "name": "Lambrugo",
+      "slug": "lambrugo",
+      "province": "CO",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 18,
+      "population": 2546,
+      "avgRentMonthly": 550,
+      "lat": 45.7592,
+      "lng": 9.2418
+    },
+    {
+      "name": "Ternate",
+      "slug": "ternate",
+      "province": "VA",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 24,
+      "population": 2533,
+      "avgRentMonthly": 520,
+      "lat": 45.7823,
+      "lng": 8.6903
+    },
+    {
+      "name": "Eupilio",
+      "slug": "eupilio",
+      "province": "CO",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 18,
+      "population": 2526,
+      "avgRentMonthly": 550,
+      "lat": 45.8182,
+      "lng": 9.2647
+    },
+    {
+      "name": "Montorfano",
+      "slug": "montorfano",
+      "province": "CO",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 11,
+      "population": 2518,
+      "avgRentMonthly": 550,
+      "lat": 45.7855,
+      "lng": 9.1461
+    },
+    {
+      "name": "Varano Borghi",
+      "slug": "varano-borghi",
+      "province": "VA",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 25,
+      "population": 2514,
+      "avgRentMonthly": 520,
+      "lat": 45.7746,
+      "lng": 8.7037
     },
     {
       "name": "Besano",
@@ -661,6 +1706,17 @@
       "lng": 8.89
     },
     {
+      "name": "Pieve Vergonte",
+      "slug": "pieve-vergonte",
+      "province": "VB",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 34,
+      "population": 2416,
+      "avgRentMonthly": 450,
+      "lat": 46.0062,
+      "lng": 8.2665
+    },
+    {
       "name": "Ghiffa",
       "slug": "ghiffa",
       "province": "VB",
@@ -670,6 +1726,105 @@
       "avgRentMonthly": 480,
       "lat": 45.9527,
       "lng": 8.5888
+    },
+    {
+      "name": "Monguzzo",
+      "slug": "monguzzo",
+      "province": "CO",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 17,
+      "population": 2356,
+      "avgRentMonthly": 550,
+      "lat": 45.7829,
+      "lng": 9.2326
+    },
+    {
+      "name": "Oltrona di San Mamette",
+      "slug": "oltrona-di-san-mamette",
+      "province": "CO",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 10,
+      "population": 2353,
+      "avgRentMonthly": 550,
+      "lat": 45.757,
+      "lng": 8.9763
+    },
+    {
+      "name": "Porto Valtravaglia",
+      "slug": "porto-valtravaglia",
+      "province": "VA",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 8,
+      "population": 2293,
+      "avgRentMonthly": 520,
+      "lat": 45.9614,
+      "lng": 8.6818
+    },
+    {
+      "name": "Bodio Lomnago",
+      "slug": "bodio-lomnago",
+      "province": "VA",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 21,
+      "population": 2238,
+      "avgRentMonthly": 520,
+      "lat": 45.7912,
+      "lng": 8.751
+    },
+    {
+      "name": "Brenna",
+      "slug": "brenna",
+      "province": "CO",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 16,
+      "population": 2190,
+      "avgRentMonthly": 550,
+      "lat": 45.743,
+      "lng": 9.1871
+    },
+    {
+      "name": "Gornate Olona",
+      "slug": "gornate-olona",
+      "province": "VA",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 17,
+      "population": 2183,
+      "avgRentMonthly": 520,
+      "lat": 45.7396,
+      "lng": 8.8598
+    },
+    {
+      "name": "Cirimido",
+      "slug": "cirimido",
+      "province": "CO",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 15,
+      "population": 2179,
+      "avgRentMonthly": 550,
+      "lat": 45.6998,
+      "lng": 9.0125
+    },
+    {
+      "name": "Cadegliano-Viconago",
+      "slug": "cadegliano-viconago",
+      "province": "VA",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 2,
+      "population": 2142,
+      "avgRentMonthly": 520,
+      "lat": 45.9646,
+      "lng": 8.8308
+    },
+    {
+      "name": "Mergozzo",
+      "slug": "mergozzo",
+      "province": "VB",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 24,
+      "population": 2135,
+      "avgRentMonthly": 450,
+      "lat": 45.9613,
+      "lng": 8.4495
     },
     {
       "name": "Varzo",
@@ -683,6 +1838,28 @@
       "lng": 8.2526
     },
     {
+      "name": "Longone al Segrino",
+      "slug": "longone-al-segrino",
+      "province": "CO",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 17,
+      "population": 1965,
+      "avgRentMonthly": 550,
+      "lat": 45.8192,
+      "lng": 9.2504
+    },
+    {
+      "name": "Arizzano",
+      "slug": "arizzano",
+      "province": "VB",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 14,
+      "population": 1957,
+      "avgRentMonthly": 450,
+      "lat": 45.9566,
+      "lng": 8.5838
+    },
+    {
       "name": "Clivio",
       "slug": "clivio",
       "province": "VA",
@@ -694,6 +1871,83 @@
       "lng": 8.9293
     },
     {
+      "name": "Lezzeno",
+      "slug": "lezzeno",
+      "province": "CO",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 16,
+      "population": 1889,
+      "avgRentMonthly": 550,
+      "lat": 45.9451,
+      "lng": 9.1941
+    },
+    {
+      "name": "Monvalle",
+      "slug": "monvalle",
+      "province": "VA",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 19,
+      "population": 1889,
+      "avgRentMonthly": 520,
+      "lat": 45.8569,
+      "lng": 8.6337
+    },
+    {
+      "name": "Premosello-Chiovenda",
+      "slug": "premosello-chiovenda",
+      "province": "VB",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 31,
+      "population": 1833,
+      "avgRentMonthly": 450,
+      "lat": 46.004,
+      "lng": 8.3276
+    },
+    {
+      "name": "Castelveccana",
+      "slug": "castelveccana",
+      "province": "VA",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 9,
+      "population": 1831,
+      "avgRentMonthly": 520,
+      "lat": 45.9509,
+      "lng": 8.6693
+    },
+    {
+      "name": "Campione d'Italia",
+      "slug": "campione-ditalia",
+      "province": "CO",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 5,
+      "population": 1800,
+      "avgRentMonthly": 550,
+      "lat": 45.9681,
+      "lng": 8.971
+    },
+    {
+      "name": "Mercallo",
+      "slug": "mercallo",
+      "province": "VA",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 28,
+      "population": 1790,
+      "avgRentMonthly": 520,
+      "lat": 45.7499,
+      "lng": 8.6696
+    },
+    {
+      "name": "Mesenzana",
+      "slug": "mesenzana",
+      "province": "VA",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 7,
+      "population": 1769,
+      "avgRentMonthly": 520,
+      "lat": 45.9478,
+      "lng": 8.7578
+    },
+    {
       "name": "Brunate",
       "slug": "brunate",
       "province": "CO",
@@ -703,6 +1957,28 @@
       "avgRentMonthly": 600,
       "lat": 45.8244,
       "lng": 9.0922
+    },
+    {
+      "name": "Cuvio",
+      "slug": "cuvio",
+      "province": "VA",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 13,
+      "population": 1731,
+      "avgRentMonthly": 520,
+      "lat": 45.896,
+      "lng": 8.733
+    },
+    {
+      "name": "Brenta",
+      "slug": "brenta",
+      "province": "VA",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 14,
+      "population": 1707,
+      "avgRentMonthly": 520,
+      "lat": 45.8932,
+      "lng": 8.6851
     },
     {
       "name": "Moltrasio",
@@ -725,6 +2001,83 @@
       "avgRentMonthly": 520,
       "lat": 45.8323,
       "lng": 8.9836
+    },
+    {
+      "name": "Vogogna",
+      "slug": "vogogna",
+      "province": "VB",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 33,
+      "population": 1693,
+      "avgRentMonthly": 450,
+      "lat": 46.009,
+      "lng": 8.293
+    },
+    {
+      "name": "Barasso",
+      "slug": "barasso",
+      "province": "VA",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 16,
+      "population": 1690,
+      "avgRentMonthly": 520,
+      "lat": 45.8405,
+      "lng": 8.7568
+    },
+    {
+      "name": "Caslino d'Erba",
+      "slug": "caslino-derba",
+      "province": "CO",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 16,
+      "population": 1690,
+      "avgRentMonthly": 550,
+      "lat": 45.8376,
+      "lng": 9.2309
+    },
+    {
+      "name": "Anzano del Parco",
+      "slug": "anzano-del-parco",
+      "province": "CO",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 15,
+      "population": 1673,
+      "avgRentMonthly": 550,
+      "lat": 45.7698,
+      "lng": 9.1993
+    },
+    {
+      "name": "San Siro",
+      "slug": "san-siro",
+      "province": "CO",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 21,
+      "population": 1665,
+      "avgRentMonthly": 550,
+      "lat": 46.0469,
+      "lng": 9.2615
+    },
+    {
+      "name": "Trontano",
+      "slug": "trontano",
+      "province": "VB",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 29,
+      "population": 1661,
+      "avgRentMonthly": 450,
+      "lat": 46.1225,
+      "lng": 8.3332
+    },
+    {
+      "name": "Cambiasca",
+      "slug": "cambiasca",
+      "province": "VB",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 17,
+      "population": 1603,
+      "avgRentMonthly": 450,
+      "lat": 45.9624,
+      "lng": 8.5446
     },
     {
       "name": "Bizzarone",
@@ -760,6 +2113,94 @@
       "lng": 9.0439
     },
     {
+      "name": "Montegrino Valtravaglia",
+      "slug": "montegrino-valtravaglia",
+      "province": "VA",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 4,
+      "population": 1532,
+      "avgRentMonthly": 520,
+      "lat": 45.9731,
+      "lng": 8.7689
+    },
+    {
+      "name": "Masera",
+      "slug": "masera",
+      "province": "VB",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 28,
+      "population": 1486,
+      "avgRentMonthly": 450,
+      "lat": 46.14,
+      "lng": 8.3234
+    },
+    {
+      "name": "Dumenza",
+      "slug": "dumenza",
+      "province": "VA",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 3,
+      "population": 1444,
+      "avgRentMonthly": 520,
+      "lat": 46.0192,
+      "lng": 8.7871
+    },
+    {
+      "name": "Piedimulera",
+      "slug": "piedimulera",
+      "province": "VB",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 32,
+      "population": 1439,
+      "avgRentMonthly": 450,
+      "lat": 46.0242,
+      "lng": 8.2593
+    },
+    {
+      "name": "Crodo",
+      "slug": "crodo",
+      "province": "VB",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 25,
+      "population": 1438,
+      "avgRentMonthly": 450,
+      "lat": 46.2233,
+      "lng": 8.3239
+    },
+    {
+      "name": "Sangiano",
+      "slug": "sangiano",
+      "province": "VA",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 18,
+      "population": 1420,
+      "avgRentMonthly": 520,
+      "lat": 45.8751,
+      "lng": 8.6333
+    },
+    {
+      "name": "Beura-Cardezza",
+      "slug": "beura-cardezza",
+      "province": "VB",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 30,
+      "population": 1407,
+      "avgRentMonthly": 450,
+      "lat": 46.0796,
+      "lng": 8.2997
+    },
+    {
+      "name": "Alserio",
+      "slug": "alserio",
+      "province": "CO",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 15,
+      "population": 1405,
+      "avgRentMonthly": 550,
+      "lat": 45.7791,
+      "lng": 9.1995
+    },
+    {
       "name": "Domaso",
       "slug": "domaso",
       "province": "CO",
@@ -782,6 +2223,127 @@
       "lng": 8.9178
     },
     {
+      "name": "Casalzuigno",
+      "slug": "casalzuigno",
+      "province": "VA",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 12,
+      "population": 1386,
+      "avgRentMonthly": 520,
+      "lat": 45.9045,
+      "lng": 8.7061
+    },
+    {
+      "name": "Luvinate",
+      "slug": "luvinate",
+      "province": "VA",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 16,
+      "population": 1335,
+      "avgRentMonthly": 520,
+      "lat": 45.8393,
+      "lng": 8.7691
+    },
+    {
+      "name": "Malesco",
+      "slug": "malesco",
+      "province": "VB",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 17,
+      "population": 1332,
+      "avgRentMonthly": 450,
+      "lat": 46.1266,
+      "lng": 8.5009
+    },
+    {
+      "name": "Castelseprio",
+      "slug": "castelseprio",
+      "province": "VA",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 18,
+      "population": 1331,
+      "avgRentMonthly": 520,
+      "lat": 45.7183,
+      "lng": 8.8629
+    },
+    {
+      "name": "Brissago-Valtravaglia",
+      "slug": "brissago-valtravaglia",
+      "province": "VA",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 7,
+      "population": 1304,
+      "avgRentMonthly": 520,
+      "lat": 45.9486,
+      "lng": 8.7472
+    },
+    {
+      "name": "Pusiano",
+      "slug": "pusiano",
+      "province": "CO",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 20,
+      "population": 1300,
+      "avgRentMonthly": 550,
+      "lat": 45.8139,
+      "lng": 9.2818
+    },
+    {
+      "name": "Santa Maria Maggiore",
+      "slug": "santa-maria-maggiore",
+      "province": "VB",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 20,
+      "population": 1284,
+      "avgRentMonthly": 450,
+      "lat": 46.135,
+      "lng": 8.4673
+    },
+    {
+      "name": "Grandola ed Uniti",
+      "slug": "grandola-ed-uniti",
+      "province": "CO",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 16,
+      "population": 1272,
+      "avgRentMonthly": 550,
+      "lat": 46.0509,
+      "lng": 9.1899
+    },
+    {
+      "name": "Montecrestese",
+      "slug": "montecrestese",
+      "province": "VB",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 27,
+      "population": 1260,
+      "avgRentMonthly": 450,
+      "lat": 46.1628,
+      "lng": 8.3298
+    },
+    {
+      "name": "Sorico",
+      "slug": "sorico",
+      "province": "CO",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 35,
+      "population": 1255,
+      "avgRentMonthly": 550,
+      "lat": 46.1723,
+      "lng": 9.3799
+    },
+    {
+      "name": "Castelmarte",
+      "slug": "castelmarte",
+      "province": "CO",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 16,
+      "population": 1254,
+      "avgRentMonthly": 550,
+      "lat": 45.8332,
+      "lng": 9.2327
+    },
+    {
       "name": "Blevio",
       "slug": "blevio",
       "province": "CO",
@@ -791,6 +2353,28 @@
       "avgRentMonthly": 700,
       "lat": 45.8399,
       "lng": 9.1025
+    },
+    {
+      "name": "San Bernardino Verbano",
+      "slug": "san-bernardino-verbano",
+      "province": "VB",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 22,
+      "population": 1228,
+      "avgRentMonthly": 450,
+      "lat": 45.9952,
+      "lng": 8.4561
+    },
+    {
+      "name": "Grantola",
+      "slug": "grantola",
+      "province": "VA",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 7,
+      "population": 1227,
+      "avgRentMonthly": 520,
+      "lat": 45.9492,
+      "lng": 8.7743
     },
     {
       "name": "Brusimpiano",
@@ -815,6 +2399,61 @@
       "lng": 9.1105
     },
     {
+      "name": "Lozza",
+      "slug": "lozza",
+      "province": "VA",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 15,
+      "population": 1190,
+      "avgRentMonthly": 520,
+      "lat": 45.7757,
+      "lng": 8.8577
+    },
+    {
+      "name": "Vignone",
+      "slug": "vignone",
+      "province": "VB",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 15,
+      "population": 1180,
+      "avgRentMonthly": 450,
+      "lat": 45.9598,
+      "lng": 8.5666
+    },
+    {
+      "name": "Comabbio",
+      "slug": "comabbio",
+      "province": "VA",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 26,
+      "population": 1175,
+      "avgRentMonthly": 520,
+      "lat": 45.772,
+      "lng": 8.6744
+    },
+    {
+      "name": "Valstrona",
+      "slug": "valstrona",
+      "province": "VB",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 39,
+      "population": 1135,
+      "avgRentMonthly": 450,
+      "lat": 45.923,
+      "lng": 8.2563
+    },
+    {
+      "name": "Nesso",
+      "slug": "nesso",
+      "province": "CO",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 13,
+      "population": 1101,
+      "avgRentMonthly": 550,
+      "lat": 45.9114,
+      "lng": 9.1571
+    },
+    {
       "name": "Brezzo di Bedero",
       "slug": "brezzo-di-bedero",
       "province": "VA",
@@ -824,6 +2463,94 @@
       "avgRentMonthly": 450,
       "lat": 45.9777,
       "lng": 8.7187
+    },
+    {
+      "name": "Faggeto Lario",
+      "slug": "faggeto-lario",
+      "province": "CO",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 11,
+      "population": 1099,
+      "avgRentMonthly": 550,
+      "lat": 45.8581,
+      "lng": 9.1709
+    },
+    {
+      "name": "Pianello del Lario",
+      "slug": "pianello-del-lario",
+      "province": "CO",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 24,
+      "population": 1085,
+      "avgRentMonthly": 550,
+      "lat": 46.1028,
+      "lng": 9.2766
+    },
+    {
+      "name": "Pallanzeno",
+      "slug": "pallanzeno",
+      "province": "VB",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 31,
+      "population": 1079,
+      "avgRentMonthly": 450,
+      "lat": 46.042,
+      "lng": 8.2581
+    },
+    {
+      "name": "Gera Lario",
+      "slug": "gera-lario",
+      "province": "CO",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 34,
+      "population": 1065,
+      "avgRentMonthly": 550,
+      "lat": 46.1711,
+      "lng": 9.3719
+    },
+    {
+      "name": "Inarzo",
+      "slug": "inarzo",
+      "province": "VA",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 23,
+      "population": 1060,
+      "avgRentMonthly": 520,
+      "lat": 45.7853,
+      "lng": 8.7345
+    },
+    {
+      "name": "Galliate Lombardo",
+      "slug": "galliate-lombardo",
+      "province": "VA",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 21,
+      "population": 1043,
+      "avgRentMonthly": 520,
+      "lat": 45.7846,
+      "lng": 8.7709
+    },
+    {
+      "name": "Druogno",
+      "slug": "druogno",
+      "province": "VB",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 22,
+      "population": 1040,
+      "avgRentMonthly": 450,
+      "lat": 46.1351,
+      "lng": 8.4342
+    },
+    {
+      "name": "Torno",
+      "slug": "torno",
+      "province": "CO",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 7,
+      "population": 1040,
+      "avgRentMonthly": 550,
+      "lat": 45.8576,
+      "lng": 9.1163
     },
     {
       "name": "Cannero Riviera",
@@ -837,6 +2564,28 @@
       "lng": 8.6688
     },
     {
+      "name": "Proserpio",
+      "slug": "proserpio",
+      "province": "CO",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 17,
+      "population": 966,
+      "avgRentMonthly": 550,
+      "lat": 45.8283,
+      "lng": 9.2455
+    },
+    {
+      "name": "Musso",
+      "slug": "musso",
+      "province": "CO",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 25,
+      "population": 953,
+      "avgRentMonthly": 550,
+      "lat": 46.1143,
+      "lng": 9.2764
+    },
+    {
       "name": "Laglio",
       "slug": "laglio",
       "province": "CO",
@@ -846,6 +2595,61 @@
       "avgRentMonthly": 900,
       "lat": 45.8778,
       "lng": 9.1383
+    },
+    {
+      "name": "San Bartolomeo Val Cavargna",
+      "slug": "san-bartolomeo-val-cavargna",
+      "province": "CO",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 14,
+      "population": 946,
+      "avgRentMonthly": 550,
+      "lat": 46.0835,
+      "lng": 9.1491
+    },
+    {
+      "name": "Brunello",
+      "slug": "brunello",
+      "province": "VA",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 20,
+      "population": 926,
+      "avgRentMonthly": 520,
+      "lat": 45.7654,
+      "lng": 8.7974
+    },
+    {
+      "name": "Castelnuovo Bozzente",
+      "slug": "castelnuovo-bozzente",
+      "province": "CO",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 10,
+      "population": 906,
+      "avgRentMonthly": 550,
+      "lat": 45.7646,
+      "lng": 8.9435
+    },
+    {
+      "name": "Rancio Valcuvia",
+      "slug": "rancio-valcuvia",
+      "province": "VA",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 9,
+      "population": 904,
+      "avgRentMonthly": 520,
+      "lat": 45.916,
+      "lng": 8.771
+    },
+    {
+      "name": "Schignano",
+      "slug": "schignano",
+      "province": "CO",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 11,
+      "population": 881,
+      "avgRentMonthly": 550,
+      "lat": 45.92,
+      "lng": 9.1001
     },
     {
       "name": "Oggebbio",
@@ -859,6 +2663,160 @@
       "lng": 8.641
     },
     {
+      "name": "Baceno",
+      "slug": "baceno",
+      "province": "VB",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 25,
+      "population": 867,
+      "avgRentMonthly": 450,
+      "lat": 46.2609,
+      "lng": 8.3202
+    },
+    {
+      "name": "Corrido",
+      "slug": "corrido",
+      "province": "CO",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 12,
+      "population": 850,
+      "avgRentMonthly": 550,
+      "lat": 46.0458,
+      "lng": 9.1398
+    },
+    {
+      "name": "Orino",
+      "slug": "orino",
+      "province": "VA",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 14,
+      "population": 840,
+      "avgRentMonthly": 520,
+      "lat": 45.8826,
+      "lng": 8.7178
+    },
+    {
+      "name": "Plesio",
+      "slug": "plesio",
+      "province": "CO",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 18,
+      "population": 813,
+      "avgRentMonthly": 550,
+      "lat": 46.0464,
+      "lng": 9.2303
+    },
+    {
+      "name": "Craveggia",
+      "slug": "craveggia",
+      "province": "VB",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 18,
+      "population": 809,
+      "avgRentMonthly": 450,
+      "lat": 46.1397,
+      "lng": 8.4908
+    },
+    {
+      "name": "Cazzago Brabbia",
+      "slug": "cazzago-brabbia",
+      "province": "VA",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 21,
+      "population": 784,
+      "avgRentMonthly": 520,
+      "lat": 45.7977,
+      "lng": 8.7332
+    },
+    {
+      "name": "Brinzio",
+      "slug": "brinzio",
+      "province": "VA",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 10,
+      "population": 776,
+      "avgRentMonthly": 520,
+      "lat": 45.8891,
+      "lng": 8.7904
+    },
+    {
+      "name": "Cremenaga",
+      "slug": "cremenaga",
+      "province": "VA",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 5,
+      "population": 768,
+      "avgRentMonthly": 520,
+      "lat": 45.9889,
+      "lng": 8.8022
+    },
+    {
+      "name": "Bee",
+      "slug": "bee",
+      "province": "VB",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 14,
+      "population": 766,
+      "avgRentMonthly": 450,
+      "lat": 45.9611,
+      "lng": 8.5814
+    },
+    {
+      "name": "Azzio",
+      "slug": "azzio",
+      "province": "VA",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 14,
+      "population": 762,
+      "avgRentMonthly": 520,
+      "lat": 45.8848,
+      "lng": 8.7092
+    },
+    {
+      "name": "Premeno",
+      "slug": "premeno",
+      "province": "VB",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 12,
+      "population": 750,
+      "avgRentMonthly": 450,
+      "lat": 45.9781,
+      "lng": 8.5961
+    },
+    {
+      "name": "Toceno",
+      "slug": "toceno",
+      "province": "VB",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 20,
+      "population": 750,
+      "avgRentMonthly": 450,
+      "lat": 46.1436,
+      "lng": 8.4667
+    },
+    {
+      "name": "Vercana",
+      "slug": "vercana",
+      "province": "CO",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 31,
+      "population": 728,
+      "avgRentMonthly": 550,
+      "lat": 46.1595,
+      "lng": 9.3351
+    },
+    {
+      "name": "Re",
+      "slug": "re",
+      "province": "VB",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 14,
+      "population": 720,
+      "avgRentMonthly": 450,
+      "lat": 46.1305,
+      "lng": 8.5445
+    },
+    {
       "name": "Argegno",
       "slug": "argegno",
       "province": "CO",
@@ -868,6 +2826,204 @@
       "avgRentMonthly": 580,
       "lat": 45.9433,
       "lng": 9.1282
+    },
+    {
+      "name": "Cremia",
+      "slug": "cremia",
+      "province": "CO",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 23,
+      "population": 698,
+      "avgRentMonthly": 550,
+      "lat": 46.0861,
+      "lng": 9.2726
+    },
+    {
+      "name": "Ferrera di Varese",
+      "slug": "ferrera-di-varese",
+      "province": "VA",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 7,
+      "population": 690,
+      "avgRentMonthly": 520,
+      "lat": 45.9345,
+      "lng": 8.7858
+    },
+    {
+      "name": "Sormano",
+      "slug": "sormano",
+      "province": "CO",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 18,
+      "population": 674,
+      "avgRentMonthly": 550,
+      "lat": 45.8778,
+      "lng": 9.2487
+    },
+    {
+      "name": "Cossogno",
+      "slug": "cossogno",
+      "province": "VB",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 19,
+      "population": 670,
+      "avgRentMonthly": 450,
+      "lat": 45.9641,
+      "lng": 8.5096
+    },
+    {
+      "name": "Magreglio",
+      "slug": "magreglio",
+      "province": "CO",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 20,
+      "population": 663,
+      "avgRentMonthly": 550,
+      "lat": 45.9207,
+      "lng": 9.2621
+    },
+    {
+      "name": "Pognana Lario",
+      "slug": "pognana-lario",
+      "province": "CO",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 12,
+      "population": 662,
+      "avgRentMonthly": 550,
+      "lat": 45.8819,
+      "lng": 9.1646
+    },
+    {
+      "name": "Dizzasco",
+      "slug": "dizzasco",
+      "province": "CO",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 10,
+      "population": 660,
+      "avgRentMonthly": 550,
+      "lat": 45.9438,
+      "lng": 9.0997
+    },
+    {
+      "name": "Bedero Valcuvia",
+      "slug": "bedero-valcuvia",
+      "province": "VA",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 8,
+      "population": 658,
+      "avgRentMonthly": 520,
+      "lat": 45.9143,
+      "lng": 8.7942
+    },
+    {
+      "name": "Garzeno",
+      "slug": "garzeno",
+      "province": "CO",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 24,
+      "population": 655,
+      "avgRentMonthly": 550,
+      "lat": 46.1343,
+      "lng": 9.2483
+    },
+    {
+      "name": "Cassano Valcuvia",
+      "slug": "cassano-valcuvia",
+      "province": "VA",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 8,
+      "population": 639,
+      "avgRentMonthly": 520,
+      "lat": 45.9316,
+      "lng": 8.7683
+    },
+    {
+      "name": "Crosio della Valle",
+      "slug": "crosio-della-valle",
+      "province": "VA",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 22,
+      "population": 623,
+      "avgRentMonthly": 520,
+      "lat": 45.76,
+      "lng": 8.7704
+    },
+    {
+      "name": "Barni",
+      "slug": "barni",
+      "province": "CO",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 20,
+      "population": 606,
+      "avgRentMonthly": 550,
+      "lat": 45.9113,
+      "lng": 9.2651
+    },
+    {
+      "name": "Stazzona",
+      "slug": "stazzona",
+      "province": "CO",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 26,
+      "population": 602,
+      "avgRentMonthly": 550,
+      "lat": 46.1385,
+      "lng": 9.2747
+    },
+    {
+      "name": "Cerano d'Intelvi",
+      "slug": "cerano-dintelvi",
+      "province": "CO",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 10,
+      "population": 595,
+      "avgRentMonthly": 550,
+      "lat": 45.9433,
+      "lng": 9.0888
+    },
+    {
+      "name": "Calasca-Castiglione",
+      "slug": "calasca-castiglione",
+      "province": "VB",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 32,
+      "population": 583,
+      "avgRentMonthly": 450,
+      "lat": 45.9917,
+      "lng": 8.1934
+    },
+    {
+      "name": "Griante",
+      "slug": "griante",
+      "province": "CO",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 18,
+      "population": 569,
+      "avgRentMonthly": 550,
+      "lat": 45.9953,
+      "lng": 9.2355
+    },
+    {
+      "name": "Premia",
+      "slug": "premia",
+      "province": "VB",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 26,
+      "population": 564,
+      "avgRentMonthly": 450,
+      "lat": 46.2681,
+      "lng": 8.339
+    },
+    {
+      "name": "Laino",
+      "slug": "laino",
+      "province": "CO",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 6,
+      "population": 558,
+      "avgRentMonthly": 550,
+      "lat": 45.9845,
+      "lng": 9.0754
     },
     {
       "name": "Claino con Osteno",
@@ -892,6 +3048,94 @@
       "lng": 8.756
     },
     {
+      "name": "Macugnaga",
+      "slug": "macugnaga",
+      "province": "VB",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 31,
+      "population": 496,
+      "avgRentMonthly": 450,
+      "lat": 45.9684,
+      "lng": 7.9673
+    },
+    {
+      "name": "Caglio",
+      "slug": "caglio",
+      "province": "CO",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 17,
+      "population": 491,
+      "avgRentMonthly": 550,
+      "lat": 45.8716,
+      "lng": 9.2383
+    },
+    {
+      "name": "Lasnigo",
+      "slug": "lasnigo",
+      "province": "CO",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 19,
+      "population": 457,
+      "avgRentMonthly": 550,
+      "lat": 45.8822,
+      "lng": 9.2671
+    },
+    {
+      "name": "Sala Comacina",
+      "slug": "sala-comacina",
+      "province": "CO",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 14,
+      "population": 456,
+      "avgRentMonthly": 550,
+      "lat": 45.9657,
+      "lng": 9.1683
+    },
+    {
+      "name": "Bannio Anzino",
+      "slug": "bannio-anzino",
+      "province": "VB",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 34,
+      "population": 455,
+      "avgRentMonthly": 450,
+      "lat": 45.96,
+      "lng": 8.1551
+    },
+    {
+      "name": "Valle Cannobina",
+      "slug": "valle-cannobina",
+      "province": "VB",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 9,
+      "population": 435,
+      "avgRentMonthly": 450,
+      "lat": 46.103,
+      "lng": 8.5997
+    },
+    {
+      "name": "Formazza",
+      "slug": "formazza",
+      "province": "VB",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 34,
+      "population": 428,
+      "avgRentMonthly": 450,
+      "lat": 46.3919,
+      "lng": 8.3904
+    },
+    {
+      "name": "Colonno",
+      "slug": "colonno",
+      "province": "CO",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 13,
+      "population": 426,
+      "avgRentMonthly": 550,
+      "lat": 45.9576,
+      "lng": 9.1556
+    },
+    {
       "name": "Brienno",
       "slug": "brienno",
       "province": "CO",
@@ -903,6 +3147,259 @@
       "lng": 9.1313
     },
     {
+      "name": "Antrona Schieranco",
+      "slug": "antrona-schieranco",
+      "province": "VB",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 23,
+      "population": 393,
+      "avgRentMonthly": 450,
+      "lat": 46.0569,
+      "lng": 8.0965
+    },
+    {
+      "name": "Trarego Viggiona",
+      "slug": "trarego-viggiona",
+      "province": "VB",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 7,
+      "population": 393,
+      "avgRentMonthly": 450,
+      "lat": 46.0387,
+      "lng": 8.6461
+    },
+    {
+      "name": "Miazzina",
+      "slug": "miazzina",
+      "province": "VB",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 18,
+      "population": 392,
+      "avgRentMonthly": 450,
+      "lat": 45.9764,
+      "lng": 8.5222
+    },
+    {
+      "name": "Agra",
+      "slug": "agra",
+      "province": "VA",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 3,
+      "population": 383,
+      "avgRentMonthly": 520,
+      "lat": 46.035,
+      "lng": 8.7717
+    },
+    {
+      "name": "Vanzone con San Carlo",
+      "slug": "vanzone-con-san-carlo",
+      "province": "VB",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 31,
+      "population": 379,
+      "avgRentMonthly": 450,
+      "lat": 45.9804,
+      "lng": 8.1141
+    },
+    {
+      "name": "Montescheno",
+      "slug": "montescheno",
+      "province": "VB",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 27,
+      "population": 363,
+      "avgRentMonthly": 450,
+      "lat": 46.0679,
+      "lng": 8.2252
+    },
+    {
+      "name": "Bene Lario",
+      "slug": "bene-lario",
+      "province": "CO",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 13,
+      "population": 353,
+      "avgRentMonthly": 550,
+      "lat": 46.0234,
+      "lng": 9.1711
+    },
+    {
+      "name": "Blessagno",
+      "slug": "blessagno",
+      "province": "CO",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 9,
+      "population": 318,
+      "avgRentMonthly": 550,
+      "lat": 45.9595,
+      "lng": 9.0975
+    },
+    {
+      "name": "Marzio",
+      "slug": "marzio",
+      "province": "VA",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 3,
+      "population": 312,
+      "avgRentMonthly": 520,
+      "lat": 45.9387,
+      "lng": 8.8592
+    },
+    {
+      "name": "Rezzago",
+      "slug": "rezzago",
+      "province": "CO",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 17,
+      "population": 300,
+      "avgRentMonthly": 550,
+      "lat": 45.8668,
+      "lng": 9.2497
+    },
+    {
+      "name": "Ceppo Morelli",
+      "slug": "ceppo-morelli",
+      "province": "VB",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 31,
+      "population": 291,
+      "avgRentMonthly": 450,
+      "lat": 45.9718,
+      "lng": 8.0677
+    },
+    {
+      "name": "Borgomezzavalle",
+      "slug": "borgomezzavalle",
+      "province": "VB",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 27,
+      "population": 286,
+      "avgRentMonthly": 450,
+      "lat": 46.0473,
+      "lng": 8.1994
+    },
+    {
+      "name": "Masciago Primo",
+      "slug": "masciago-primo",
+      "province": "VA",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 8,
+      "population": 286,
+      "avgRentMonthly": 520,
+      "lat": 45.9178,
+      "lng": 8.7811
+    },
+    {
+      "name": "Villette",
+      "slug": "villette",
+      "province": "VB",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 15,
+      "population": 275,
+      "avgRentMonthly": 450,
+      "lat": 46.1322,
+      "lng": 8.5353
+    },
+    {
+      "name": "San Nazzaro Val Cavargna",
+      "slug": "san-nazzaro-val-cavargna",
+      "province": "CO",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 14,
+      "population": 261,
+      "avgRentMonthly": 550,
+      "lat": 46.0894,
+      "lng": 9.1274
+    },
+    {
+      "name": "Cusino",
+      "slug": "cusino",
+      "province": "CO",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 14,
+      "population": 244,
+      "avgRentMonthly": 550,
+      "lat": 46.0746,
+      "lng": 9.1525
+    },
+    {
+      "name": "Pigra",
+      "slug": "pigra",
+      "province": "CO",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 11,
+      "population": 239,
+      "avgRentMonthly": 550,
+      "lat": 45.9576,
+      "lng": 9.1277
+    },
+    {
+      "name": "Dosso del Liro",
+      "slug": "dosso-del-liro",
+      "province": "CO",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 27,
+      "population": 236,
+      "avgRentMonthly": 550,
+      "lat": 46.164,
+      "lng": 9.2729
+    },
+    {
+      "name": "Ponna",
+      "slug": "ponna",
+      "province": "CO",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 9,
+      "population": 233,
+      "avgRentMonthly": 550,
+      "lat": 45.9957,
+      "lng": 9.1108
+    },
+    {
+      "name": "Trezzone",
+      "slug": "trezzone",
+      "province": "CO",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 33,
+      "population": 233,
+      "avgRentMonthly": 550,
+      "lat": 46.1881,
+      "lng": 9.3463
+    },
+    {
+      "name": "Tronzano Lago Maggiore",
+      "slug": "tronzano-lago-maggiore",
+      "province": "VA",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 2,
+      "population": 227,
+      "avgRentMonthly": 520,
+      "lat": 46.0891,
+      "lng": 8.7338
+    },
+    {
+      "name": "Montemezzo",
+      "slug": "montemezzo",
+      "province": "CO",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 34,
+      "population": 203,
+      "avgRentMonthly": 550,
+      "lat": 46.1782,
+      "lng": 9.3743
+    },
+    {
+      "name": "Peglio",
+      "slug": "peglio",
+      "province": "CO",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 29,
+      "population": 200,
+      "avgRentMonthly": 550,
+      "lat": 46.1604,
+      "lng": 9.2947
+    },
+    {
       "name": "Trasquera",
       "slug": "trasquera",
       "province": "VB",
@@ -912,6 +3409,138 @@
       "avgRentMonthly": 320,
       "lat": 46.2189,
       "lng": 8.2068
+    },
+    {
+      "name": "Bognanco",
+      "slug": "bognanco",
+      "province": "VB",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 21,
+      "population": 198,
+      "avgRentMonthly": 450,
+      "lat": 46.1264,
+      "lng": 8.2011
+    },
+    {
+      "name": "Veleso",
+      "slug": "veleso",
+      "province": "CO",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 14,
+      "population": 192,
+      "avgRentMonthly": 550,
+      "lat": 45.9084,
+      "lng": 9.1821
+    },
+    {
+      "name": "Zelbio",
+      "slug": "zelbio",
+      "province": "CO",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 14,
+      "population": 184,
+      "avgRentMonthly": 550,
+      "lat": 45.9046,
+      "lng": 9.1805
+    },
+    {
+      "name": "Caprezzo",
+      "slug": "caprezzo",
+      "province": "VB",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 15,
+      "population": 176,
+      "avgRentMonthly": 450,
+      "lat": 45.982,
+      "lng": 8.5628
+    },
+    {
+      "name": "Cavargna",
+      "slug": "cavargna",
+      "province": "CO",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 13,
+      "population": 171,
+      "avgRentMonthly": 550,
+      "lat": 46.0901,
+      "lng": 9.1112
+    },
+    {
+      "name": "Val Rezzo",
+      "slug": "val-rezzo",
+      "province": "CO",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 11,
+      "population": 171,
+      "avgRentMonthly": 550,
+      "lat": 46.0703,
+      "lng": 9.1009
+    },
+    {
+      "name": "Gurro",
+      "slug": "gurro",
+      "province": "VB",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 11,
+      "population": 162,
+      "avgRentMonthly": 450,
+      "lat": 46.0857,
+      "lng": 8.5704
+    },
+    {
+      "name": "Livo",
+      "slug": "livo",
+      "province": "CO",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 30,
+      "population": 157,
+      "avgRentMonthly": 550,
+      "lat": 46.1688,
+      "lng": 9.3045
+    },
+    {
+      "name": "Duno",
+      "slug": "duno",
+      "province": "VA",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 11,
+      "population": 155,
+      "avgRentMonthly": 520,
+      "lat": 45.9142,
+      "lng": 8.7379
+    },
+    {
+      "name": "Curiglia con Monteviasco",
+      "slug": "curiglia-con-monteviasco",
+      "province": "VA",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 7,
+      "population": 140,
+      "avgRentMonthly": 520,
+      "lat": 46.0602,
+      "lng": 8.8043
+    },
+    {
+      "name": "Aurano",
+      "slug": "aurano",
+      "province": "VB",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 13,
+      "population": 107,
+      "avgRentMonthly": 450,
+      "lat": 45.9991,
+      "lng": 8.5883
+    },
+    {
+      "name": "Intragna",
+      "slug": "intragna",
+      "province": "VB",
+      "irpefAddizionale": 0.55,
+      "distanceKm": 14,
+      "population": 89,
+      "avgRentMonthly": 450,
+      "lat": 45.9942,
+      "lng": 8.5729
     }
   ]
 }
