@@ -9090,6 +9090,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.integrazione-ubs-credit-suisse-risultati.title': 'UBS und Credit Suisse: Die Ergebnisse der Integration',
     'blog.article.integrazione-ubs-credit-suisse-risultati.excerpt': 'Drei Jahre nach der Ankündigung bestätigt CEO Sergio Ermotti greifbare Ergebnisse und die Überwindung der anfänglichen Herausforderungen für die Bankengruppe.',
     'blog.article.integrazione-ubs-credit-suisse-risultati.imageAlt': 'Finanzviertel in Lugano mit Blick auf den See',
+    'blog.article.edilizia-ticino-estate-sfide-ssic.title': 'Bauen im Tessin: Die Herausforderungen der Branche vor dem Sommer',
+    'blog.article.edilizia-ticino-estate-sfide-ssic.excerpt': 'Der Punkt der Situation zwischen Beschaffung, Materialbeschaffung und den kritischen Sommertemperaturen mit dem SBV.',
+    'blog.article.edilizia-ticino-estate-sfide-ssic.imageAlt': 'Baustelle im Tessin während der Sommersaison',
 };
 
 export default blogMetaDe;
