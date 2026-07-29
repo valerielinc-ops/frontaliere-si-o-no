@@ -11,7 +11,7 @@
     "https://www.hoval.it/it_IT/jobs"
   ],
   "notes": "Dedicated Hoval crawler uses SAP Hybris JSON API (/jobs/results?q=:sortIndex:country:Switzerland) filtered by country. Extracts description from detail pages. ATS: Umantis (recruitingapp-2710.umantis.com).",
-  "updatedAt": "2026-07-29T11:49:21.357Z",
+  "updatedAt": "2026-07-29T22:17:17.207Z",
   "seedMetaByUrl": {
     "https://www.hoval.it/it_IT/job/3991": {
       "location": "Crissier",
@@ -31,21 +31,9 @@
       "company": "Hoval",
       "postedDate": "2026-07-29"
     },
-    "https://www.hoval.it/it_IT/job/3912": {
-      "location": "Ostschweiz Wil",
-      "canton": "SG",
-      "company": "Hoval",
-      "postedDate": "2026-07-29"
-    },
     "https://www.hoval.it/it_IT/job/3990": {
       "location": "Härkingen",
       "canton": "SO",
-      "company": "Hoval",
-      "postedDate": "2026-07-29"
-    },
-    "https://www.hoval.it/it_IT/job/3965": {
-      "location": "Feldmeilen",
-      "canton": "CH",
       "company": "Hoval",
       "postedDate": "2026-07-29"
     },
