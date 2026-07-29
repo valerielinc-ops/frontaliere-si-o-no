@@ -1,0 +1,19 @@
+{
+  "id": "rendita-avs-critica-eichenberger",
+  "slug": "rendita-avs-critica-eichenberger",
+  "publishedAt": "2026-07-29T15:50:36.184Z",
+  "cluster": "pensioni",
+  "_pool": "proven",
+  "_pool_source": "swissinfo.ch",
+  "_score_breakdown": {
+    "stage": "gsc",
+    "rawScore": 145.27493026666667,
+    "confidence": 1,
+    "finalScore": 145.27493026666667,
+    "matchedQuery": "offerte di lavoro ticino",
+    "score": 145.27493026666667,
+    "clusterDiversityBonus": 1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "pensioni"
+  }
+}

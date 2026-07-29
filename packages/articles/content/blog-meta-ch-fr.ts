@@ -1675,6 +1675,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.frontalieri-tassa-salute.title': 'Frontaliers, taxe de santé : « Une bombe derrière une poignée de pognons »',
     'blog.article.frontalieri-tassa-salute.excerpt': 'Selon ce qui a été communiqué en février 2026, le chef du groupe « Action civique pour Luino et fractions » et conseiller minoritaire, l\'avocat Furio Artoni, a envoyé un communiqué de presse concernant les relations entre l\'Italie et la Suisse sur la question des frontaliers et de la taxe dite de santé.',
     'blog.article.frontalieri-tassa-salute.imageAlt': 'Une photo d\'un fonctionnaire fédéral suisse qui parle à une conférence de presse à Lugano, expliquant les implications de la nouvelle taxe sur les soins de santé pour les travailleurs frontaliers.',
+    'blog.article.rendita-avs-critica-eichenberger.title': 'AVS : Eichenberger critique la 13e rente',
+    'blog.article.rendita-avs-critica-eichenberger.excerpt': 'L\'économiste Eichenberger analyse la 13e rente AVS en la qualifiant de forme indirecte d\'imposition sur l\'immigration et propose des réformes fiscales pour les plus de 65 ans.',
+    'blog.article.rendita-avs-critica-eichenberger.imageAlt': 'Vue panoramique de Lugano avec le lac, symbole du Tessin.',
 };
 
 export default blogMetaChFr;

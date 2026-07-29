@@ -4993,6 +4993,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-agenzie-immobiliari-lavoro-ticino': { name: 'Immobiliare Ticino', path: '/articoli-frontaliere/agenzie-immobiliari-lavoro-ticino', parent: 'blog' },
     'blog-frontalieri-tassa-salute': { name: 'Frontalieri, tassa sulla salute', path: '/articoli-svizzera/frontalieri-tassa-salute/', parent: 'blog' },
     'blog-tassa-salute-frontalieri-doppia-imposizione': { name: 'Tassa salute frontalieri', path: '/articoli-frontaliere/tassa-salute-frontalieri-doppia-imposizione', parent: 'blog' },
+    'blog-rendita-avs-critica-eichenberger': { name: 'Pensione Svizzera', path: '/articoli-svizzera/rendita-avs-critica-eichenberger/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

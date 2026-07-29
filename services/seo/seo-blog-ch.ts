@@ -21662,6 +21662,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-rendita-avs-critica-eichenberger': {
+    title: 'AVS: Eichenberger critica la 13esima rendita | Frontaliere Ticino',
+    description: 'L\'economista Eichenberger analizza la 13esima rendita AVS definendola una forma indiretta di imposizione sull\'immigrazione e propone riforme fiscali.',
+    keywords: 'frontalieri, ticino, svizzera, italia, eichenberger, critica, 13esima, rendita',
+    ogTitle: 'AVS: Eichenberger critica la 13esima rendita',
+    ogDescription: 'L\'economista Eichenberger analizza la 13esima rendita AVS definendola una forma indiretta di imposizione sull\'immigrazione e propone riforme fiscali.',
+    canonicalPath: '/articoli-svizzera/rendita-avs-critica-eichenberger/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "AVS: Eichenberger critica la 13esima rendita",
+      "description": "L'economista Eichenberger analizza la 13esima rendita AVS definendola una forma indiretta di imposizione sull'immigrazione e propone riforme fiscali.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/rendita-avs-critica-eichenberger.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Veduta panoramica di Lugano con il lago, simbolo del Ticino."
+      },
+      "datePublished": "2026-07-29T15:50:29+00:00",
+      "dateModified": "2026-07-29T15:50:29+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/rendita-avs-critica-eichenberger/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
