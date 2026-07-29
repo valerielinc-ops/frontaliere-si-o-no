@@ -1,18 +1,56 @@
 {
   "key": "fincons-group",
   "label": "Fincons Group",
-  "generatedAt": "2026-07-27T22:21:02.054Z",
-  "total": 4,
-  "newCount": 0,
-  "updatedCount": 4,
+  "generatedAt": "2026-07-29T22:16:51.670Z",
+  "total": 3,
+  "newCount": 1,
+  "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 1081,
-  "avgDurationMs": 1081,
+  "durationMs": 1343,
+  "avgDurationMs": 1343,
   "durationHistory": [
-    1081
+    1343
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "title": "Accounts Payable & Accounting Specialist",
+      "slug": "accounts-payable-accounting-specialist-fincons-group-lugano-ticino-switzerland",
+      "url": "https://fincons.applytojob.com/apply/MuAijinxCZ/Accounts-Payable-Accounting-Specialist",
+      "applyUrl": "https://fincons.applytojob.com/apply/MuAijinxCZ/Accounts-Payable-Accounting-Specialist",
+      "company": "Fincons Group",
+      "companyKey": "fincons-group",
+      "companyDomain": "finconsgroup.com",
+      "location": "Lugano",
+      "addressLocality": "Lugano",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "postalCode": "6900",
+      "canton": "TI",
+      "country": "CH",
+      "category": "tech",
+      "sector": "Tecnologia & IT",
+      "source": "fincons-dedicated-crawler",
+      "sourceLang": "en",
+      "postedDate": "2026-07-29",
+      "validThrough": "2026-10-27",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "metadata": {
+        "experienceRequirements": "Entry Level",
+        "uniqueJobCode": "job_20260729132125_MXNDQEMZFNMJKAXO",
+        "listingLocation": "Lugano, Ticino, Switzerland",
+        "listingDepartment": "Lugano"
+      },
+      "_qualityScore": 70,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 4,
+        "completeness": 17
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "title": "Corporate PMO / Business Operations Expert",
@@ -53,92 +91,6 @@
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 25,
-        "completeness": 22
-      }
-    },
-    {
-      "title": "Cyber Security Expert",
-      "slug": "cyber-security-expert-fincons-group-lugano-lugano-switzerland",
-      "url": "https://fincons.applytojob.com/apply/bAiM1H8t7y/Cyber-Security-Expert",
-      "applyUrl": "https://fincons.applytojob.com/apply/bAiM1H8t7y/Cyber-Security-Expert",
-      "company": "Fincons Group",
-      "companyKey": "fincons-group",
-      "companyDomain": "finconsgroup.com",
-      "location": "Lugano",
-      "addressLocality": "Lugano",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "postalCode": "6900",
-      "canton": "TI",
-      "country": "CH",
-      "category": "tech",
-      "sector": "Tecnologia & IT",
-      "source": "fincons-dedicated-crawler",
-      "sourceLang": "en",
-      "postedDate": "2026-06-12",
-      "validThrough": "2026-09-10",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "metadata": {
-        "experienceRequirements": "Mid Level",
-        "uniqueJobCode": "job_20260612083607_GYS5AV9LIZTCYD9Z",
-        "listingLocation": "Lugano, Lugano, Switzerland",
-        "listingDepartment": ""
-      },
-      "id": "fincons-group-17da97acf192",
-      "salaryMin": 51500,
-      "salaryMax": 88000,
-      "currency": "CHF",
-      "streetAddress": "",
-      "firstSeenAt": "2026-06-12T12:06:56.780Z",
-      "_qualityScore": 94,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 22
-      }
-    },
-    {
-      "title": "Developer PL/SQL - Banking Area",
-      "slug": "developer-pl-sql-banking-area-fincons-group-lugano-switzerland",
-      "url": "https://fincons.applytojob.com/apply/Af7BR0uaxx/Developer-PLSQL-Banking-Area",
-      "applyUrl": "https://fincons.applytojob.com/apply/Af7BR0uaxx/Developer-PLSQL-Banking-Area",
-      "company": "Fincons Group",
-      "companyKey": "fincons-group",
-      "companyDomain": "finconsgroup.com",
-      "location": "Lugano",
-      "addressLocality": "Lugano",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "postalCode": "6900",
-      "canton": "TI",
-      "country": "CH",
-      "category": "tech",
-      "sector": "Tecnologia & IT",
-      "source": "fincons-dedicated-crawler",
-      "sourceLang": "en",
-      "postedDate": "2026-06-22",
-      "validThrough": "2026-09-20",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "metadata": {
-        "experienceRequirements": "Experienced",
-        "uniqueJobCode": "job_20260402151543_KQ4FIE2ATX4JQ4IX",
-        "listingLocation": "Lugano, Switzerland",
-        "listingDepartment": ""
-      },
-      "id": "fincons-group-9817cd4f0da2",
-      "salaryMin": 51500,
-      "salaryMax": 88000,
-      "currency": "CHF",
-      "streetAddress": "",
-      "firstSeenAt": "2026-05-07T11:00:54.190Z",
-      "_qualityScore": 96,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
         "translation": 25,
         "completeness": 22
       }
