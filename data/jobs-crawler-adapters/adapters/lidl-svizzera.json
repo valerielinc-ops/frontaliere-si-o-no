@@ -60,6 +60,7 @@
     "https://team.lidl.ch/it/jobs/ch-allrounder-verkauf-m-w-d-20-40-zurich-708647",
     "https://team.lidl.ch/it/jobs/ch-kundenbetreuer-kundenbetreuerin-self-checkout-1-zurich-705580",
     "https://team.lidl.ch/it/jobs/ch-kundenbetreuer-kundenbetreuerin-self-checkout-stans-693686",
+    "https://team.lidl.ch/it/jobs/ch-venditore-venditrice-con-responsabilita-del-turno-m-f-d-60-80-st-moritz-728439",
     "https://team.lidl.ch/it/jobs/ch-verkaufer-verkauferin-m-w-d-20-80-niederlenz-700507",
     "https://team.lidl.ch/it/jobs/ch-verkaufer-verkauferin-m-w-d-20-80-oeschgen-696557",
     "https://team.lidl.ch/it/jobs/ch-verkaufer-verkauferin-m-w-d-20-80-zurich-682875",
@@ -92,6 +93,7 @@
     "https://team.lidl.ch/it/jobs/kundenbetreuer-kundenbetreuerin-self-checkout-20-30-ostermundigen-694216",
     "https://team.lidl.ch/it/jobs/kundenbetreuer-kundenbetreuerin-self-checkout-20-40-fluelen-696623",
     "https://team.lidl.ch/it/jobs/kundenbetreuer-kundenbetreuerin-self-checkout-30-winterthur-722347",
+    "https://team.lidl.ch/it/jobs/kundenbetreuer-kundenbetreuerin-self-checkout-40-60-aegerten-728130",
     "https://team.lidl.ch/it/jobs/kundenbetreuer-kundenbetreuerin-self-checkout-40-60-bern-682222",
     "https://team.lidl.ch/it/jobs/kundenbetreuer-kundenbetreuerin-self-checkout-adliswil-693703",
     "https://team.lidl.ch/it/jobs/kundenbetreuer-kundenbetreuerin-self-checkout-baar-706644",
@@ -120,9 +122,7 @@
     "https://team.lidl.ch/it/jobs/studentenjob-verkauf-m-w-d-20-60-1-regensdorf-673301",
     "https://team.lidl.ch/it/jobs/studentenjob-verkauf-m-w-d-20-60-1-zurich-673295",
     "https://team.lidl.ch/it/jobs/studentenjob-verkauf-m-w-d-20-60-1-zurich-673296",
-    "https://team.lidl.ch/it/jobs/studentenjob-verkauf-m-w-d-20-60-bern-713831",
     "https://team.lidl.ch/it/jobs/studentenjob-verkauf-m-w-d-20-60-dubendorf-701459",
-    "https://team.lidl.ch/it/jobs/studentenjob-verkauf-m-w-d-20-60-landquart-705714",
     "https://team.lidl.ch/it/jobs/studentenjob-verkauf-m-w-d-20-60-wallisellen-701469",
     "https://team.lidl.ch/it/jobs/studentenjob-verkauf-m-w-d-20-muri-ag-671408",
     "https://team.lidl.ch/it/jobs/stv-filialleiter-stv-filialleiterin-m-w-d-80-100-1-muri-ag-695104",
@@ -157,10 +157,10 @@
     "https://team.lidl.ch/it/jobs/stv-filialleiter-stv-filialleiterin-m-w-d-80-100-zurich-701239",
     "https://team.lidl.ch/it/jobs/stv-filialleiter-stv-filialleiterin-m-w-d-80-100-zurich-712451",
     "https://team.lidl.ch/it/jobs/vendeur-polyvalent-vendeuse-polyvalente-h-f-d-40-petit-lancy-705752",
+    "https://team.lidl.ch/it/jobs/vendeur-vendeuse-h-f-d-20-payerne-726953",
     "https://team.lidl.ch/it/jobs/vendeur-vendeuse-h-f-d-40-1-sierre-707571",
     "https://team.lidl.ch/it/jobs/vendeur-vendeuse-h-f-d-40-60-yverdon-les-bains-707735",
     "https://team.lidl.ch/it/jobs/vendeur-vendeuse-h-f-d-40-geneve-705849",
-    "https://team.lidl.ch/it/jobs/vendeur-vendeuse-h-f-d-40-geneve-720826",
     "https://team.lidl.ch/it/jobs/vendeur-vendeuse-h-f-d-40-marly-695473",
     "https://team.lidl.ch/it/jobs/vendeur-vendeuse-h-f-d-40-matran-721192",
     "https://team.lidl.ch/it/jobs/vendeur-vendeuse-h-f-d-60-courgevaux-705947",
@@ -306,7 +306,7 @@
     "https://team.lidl.ch/it/jobs/verkaufer-verkauferin-mit-springerfunktion-m-w-d-80-100-muri-ag-695103"
   ],
   "notes": "Dedicated Lidl crawler seeds from team.lidl.ch LiCa search API (/it/api/v1/search), fetched UNFILTERED and paginated CH-wide (all 26 cantons); per-job canton inferred from the city signal.",
-  "updatedAt": "2026-07-28T22:06:40.376Z",
+  "updatedAt": "2026-07-29T11:33:40.872Z",
   "seedMetaByUrl": {
     "https://team.lidl.ch/it/jobs/verkaufer-verkauferin-m-w-d-40-60-1-schaffhausen-705269": {
       "location": "Schaffhausen",
@@ -1928,15 +1928,6 @@
       "companyDomain": "lidl.ch",
       "contract": "Part-time"
     },
-    "https://team.lidl.ch/it/jobs/studentenjob-verkauf-m-w-d-20-60-landquart-705714": {
-      "location": "Landquart",
-      "addressLocality": "Landquart",
-      "canton": "GR",
-      "country": "CH",
-      "company": "Lidl Svizzera",
-      "companyDomain": "lidl.ch",
-      "contract": "Part-time"
-    },
     "https://team.lidl.ch/it/jobs/verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-sursee-716574": {
       "location": "Sursee",
       "addressLocality": "Sursee",
@@ -2288,6 +2279,15 @@
       "companyDomain": "lidl.ch",
       "contract": "Part-time"
     },
+    "https://team.lidl.ch/it/jobs/kundenbetreuer-kundenbetreuerin-self-checkout-40-60-aegerten-728130": {
+      "location": "Aegerten",
+      "addressLocality": "Aegerten",
+      "canton": "BE",
+      "country": "CH",
+      "company": "Lidl Svizzera",
+      "companyDomain": "lidl.ch",
+      "contract": "Part-time"
+    },
     "https://team.lidl.ch/it/jobs/filialleiter-filialleiterin-m-w-d-80-100-stans-697837": {
       "location": "Stans",
       "addressLocality": "Stans",
@@ -2594,15 +2594,6 @@
       "companyDomain": "lidl.ch",
       "contract": "Part-time"
     },
-    "https://team.lidl.ch/it/jobs/studentenjob-verkauf-m-w-d-20-60-bern-713831": {
-      "location": "Bern",
-      "addressLocality": "Bern",
-      "canton": "BE",
-      "country": "CH",
-      "company": "Lidl Svizzera",
-      "companyDomain": "lidl.ch",
-      "contract": "Part-time"
-    },
     "https://team.lidl.ch/it/jobs/verkaufer-verkauferin-m-w-d-40-60-bern-682221": {
       "location": "Bern",
       "addressLocality": "Bern",
@@ -2666,6 +2657,15 @@
       "companyDomain": "lidl.ch",
       "contract": "Part-time"
     },
+    "https://team.lidl.ch/it/jobs/ch-venditore-venditrice-con-responsabilita-del-turno-m-f-d-60-80-st-moritz-728439": {
+      "location": "St. Moritz",
+      "addressLocality": "St. Moritz",
+      "canton": "GR",
+      "country": "CH",
+      "company": "Lidl Svizzera",
+      "companyDomain": "lidl.ch",
+      "contract": "Part-time"
+    },
     "https://team.lidl.ch/it/jobs/collaborateur-collaboratrice-libre-service-et-vente-40-fribourg-696132": {
       "location": "Fribourg",
       "addressLocality": "Fribourg",
@@ -2710,6 +2710,15 @@
       "company": "Lidl Svizzera",
       "companyDomain": "lidl.ch",
       "contract": "Full-time"
+    },
+    "https://team.lidl.ch/it/jobs/vendeur-vendeuse-h-f-d-20-payerne-726953": {
+      "location": "Payerne",
+      "addressLocality": "Payerne",
+      "canton": "VD",
+      "country": "CH",
+      "company": "Lidl Svizzera",
+      "companyDomain": "lidl.ch",
+      "contract": "Part-time"
     },
     "https://team.lidl.ch/it/jobs/vendeur-vendeuse-h-f-d-40-marly-695473": {
       "location": "Marly",
@@ -2922,15 +2931,6 @@
       "location": "Conthey",
       "addressLocality": "Conthey",
       "canton": "VS",
-      "country": "CH",
-      "company": "Lidl Svizzera",
-      "companyDomain": "lidl.ch",
-      "contract": "Part-time"
-    },
-    "https://team.lidl.ch/it/jobs/vendeur-vendeuse-h-f-d-40-geneve-720826": {
-      "location": "Genève",
-      "addressLocality": "Genève",
-      "canton": "GE",
       "country": "CH",
       "company": "Lidl Svizzera",
       "companyDomain": "lidl.ch",

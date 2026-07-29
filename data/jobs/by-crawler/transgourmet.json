@@ -3,6 +3,196 @@
   "assembledAt": "2026-07-29T11:06:08.289Z",
   "jobs": [
     {
+      "id": "transgourmet-f633a1ed-4c6",
+      "slug": "system-ingegnere-windows-transgourmet-moosseedorf",
+      "slugByLocale": {
+        "it": "system-ingegnere-windows-transgourmet-moosseedorf",
+        "en": "system-engineer-windows-transgourmet-moosseedorf",
+        "de": "system-engineer-windows-transgourmet-moosseedorf",
+        "fr": "ingenieur-systemes-windows-transgourmet-moosseedorf"
+      },
+      "company": "Transgourmet",
+      "companyKey": "transgourmet",
+      "companyDomain": "transgourmet.ch",
+      "title": "System Engineer Windows",
+      "titleByLocale": {
+        "it": "System Ingegnere Windows",
+        "en": "System Engineer Windows",
+        "de": "System Ingenieur Windows",
+        "fr": "Ingénieur Systèmes Windows"
+      },
+      "description": "Unser Herz schlägt für die Schweizer Gastronomie. Mit viel Engagement sind wir für unsere Kunden da. In unseren 31 Abholmärkten, per Aussendienst und Belieferung, genauso wie in der digitalen Welt. Mit einem vielseitigen Sortiment, attraktiven Eigenmarken, professioneller Fachberatung und innovativen Services.\n\nTransgourmet Schweiz AG gehört zur internationalen Transgourmet-Gruppe. Das Unternehmen ist führend im Schweizer Belieferungs- und Abholgrosshandel und zählt rund 2'100 Mitarbeitende sowie 100'000 Kunden (Restaurants, Hotels, Kantinen, Heime und Spitäler sowie Detailhandel).\n\n## Aufgaben\n• Du konzipierst, implementierst und betreibst moderne Windows-basierte Plattformen und entwickelst sie aktiv weiter (Fokus der Stelle auf Engineering, mit aktiver Mitarbeit im Betrieb)\n\n• Du stellst zusammen mit dem Team den stabilen und sicheren Betrieb über den gesamten Lifecycle sicher (Run/Operate & Improve): Monitoring/Alerting, Incident-/Problem-Management, Patch-/Release-Management, Capacity/Performance sowie Verfügbarkeit\n\n• Du treibst Standardisierung, Automatisierung und Härtung (Security) der Systemumgebungen voran (z. B. via IaC/Skripting)\n\n• Du übernimmst Engineering-Verantwortung für Lifecycle-Themen: Design, Build, Patch-/Release-Management, Capacity, Performance sowie Verfügbarkeit\n\n• Du analysierst Störungen nachhaltig, führst Root-Cause-Analysen durch und etablierst dauerhafte Verbesserungen (Problem Management)\n\n• Du arbeitest in unternehmensweiten Projekten als technischer Lead oder Spezialist mit und bringst dein Know-how ein\n\n• Du berätst Applikationsverantwortliche und interne Teams zu Infrastruktur, Architektur, Security und Betriebsmodellen\n\n• Du pflegst System-, Architektur- und Betriebsdokumentationen, Standards und Runbooks und sorgst für deren Verfügbarkeit\n\n• Du übernimmst nach der Einarbeitung Pikett-Dienste im definierten Turnus und stellst die Betriebssicherheit auch ausserhalb der Bürozeiten sicher\n\n• Geplante Wartungsfenster und Changes finden regelmässig ausserhalb der Bürozeiten sowie an Wochenenden statt (je nach Bedarf)\n\n## Anforderungen\n• Abgeschlossene Informatikausbildung (EFZ/HF/FH) oder vergleichbare, mehrjährige Praxiserfahrung als Windows System Engineer\n\n• Sehr gute Kenntnisse im Microsoft-Ökosystem, z. B. Microsoft 365, Azure, Windows Server & Clients, MS SQL (betriebsnah), Active Directory/Entra ID, Exchange (Online/Hybrid), Teams/VoIP\n\n• Erfahrung mit Virtualisierungstechnologien, idealerweise VMware (vSphere/ESXi/vCenter)\n\n• Gute Kenntnisse in Netzwerktechnologien und Security-Grundlagen (LAN/WLAN, Cisco, 802.1x, Härtung, Identity- & Access-Konzepte)\n\n• Erfahrung mit Backup/Restore und Storage (z. B. Veeam) sowie Monitoring/Logging\n\n• Starke Skills in Automatisierung & Skripting (PowerShell; idealerweise Git-gestützte Arbeitsweise, CI/CD-nahe Methoden von Vorteil)\n\n• Von Vorteil bist du vertraut mit Ansible und Quellcodeverwaltung mit Git\n\n• Strukturierte, eigenverantwortliche Arbeitsweise, hohe Serviceorientierung und gute Kommunikation; Anwenderkenntnisse in der Atlassian Cloud Suite\n\n• Sehr gutes Deutsch; Französisch- und/oder Italienischkenntnisse sind von Vorteil",
+      "descriptionByLocale": {
+        "it": "Siamo impegnati nei nostri clienti. Ci impegniamo nei nostri 31 mercati di ritiro, per servizio sul campo e consegna, così come nel mondo digitale.Con una gamma di marchi privati versatile interessanti, consulenza professionale e servizi innovativi.Transgourmet Schweiz AG appartiene al Gruppo internazionale Transgourmet. L'azienda è leader nella fornitura e ritiro all'ingrosso svizzero e conta circa 2.100 dipendenti e 100.000 clienti (ristauranti, alberghi, mense, case e ospedali, nonché al dettaglio). Attività\n• Progetta, implementa e gestisce le moderne piattaforme basate su Windows e le sviluppa attivamente (con focus sull'ingegneria, con partecipazione attiva alle operazioni)\n• Tu e il team assicurate un funzionamento stabile e sicuro durante tutto il ciclo di vita (Run/Operate &/81): Monitoraggio/Allertazione, Gestione degli incidenti/Problemi, Gestione delle licenze/Patch, Capacità/Performance e Disponibilità• Avanzate la standardizzazione, l'automazione e la curità degli ambienti di sistema (ad esempio. tramite IaC/Skripting)• Si assume la responsabilità ingegneristica per gli argomenti del ciclo di vita: progettazione, costruzione, gestione patch/release, capacità, prestazioni e disponibilità• Si analizzano i difetti in modo sostenibile, si esegue l'analisi basata su root e root e si implementare miglioramenti duraturi (gestione dei problemi)• Si lavora come leader tecnico o specialista in progetti aziendali e si guadagna il proprio know-how• Si consiglia ai gestori delle applicazioni e ai team interni su infrastrutture, architettura, sicurezza e modelli operativi• Si prende cura di sistemi, architettura e documentazione operativa, Standard e Runbook e garantirne la disponibilità• Dopo l'introduzione dei servizi piket, si assume il controllo nel ciclo definito e garantisce la sicurezza operativa anche al di fuori degli orari di ufficio• Finestre di manutenzione e modifiche previste sono regolarmente tenute al di fuori degli orari di ufficio e nei fine settimana (a seconda dei requisiti) Requisiti\n• Completato addestramento informatico (EFZ/HF/FH) o comparabile, esperienza pluriennale come ingegnere di sistema Windows• Ottima conoscenza dell'ecosistema Microsoft, ad esempio. Microsoft 365, Azure, Windows Server & Clients, MS SQL (operativo), Active Directory/Entra ID, Exchange (Online/Hybrid), Teams/VoIP• Esperienza con tecnologie di virtualizzazione, idealmente VV (vSphere/ESXi/vCenter)• Buona conoscenza delle tecnologie di rete e dei principi di sicurezza (LAN/WLAN, Cisco, 802.1x, indurimento e simpatie)• Esperienza con backup/restore e storage (ad es. Veeam) e Monitoraggio/Logging• Forte capacità di automazione e scripting (PowerShell; idealmente modalità di funzionamento supportata da Git, metodi di vantaggio correlati a CI/CD)• Vantaggio è familiare con la gestione del codice Ansible e sorgente con Git• Modalità di funzionamento strutturata, auto-responsabile, orientamento di servizio elevato e buona comunicazione; Conoscenza degli utenti in Atlxian Cloud Suite• Ottime competenze tedesche; Francese e/o Italiane sono vantaggiose",
+        "en": "We are committed to our customers. We are committed to our 31 pick-up markets, by field service and delivery, as well as in the digital world. With a versatile range, attractive private brands, professional specialist advice and innovative services.Transgourmet Schweiz AG belongs to the international Transgourmet Group. The company is a leader in Swiss supply and pick-up wholesale and has around 2,100 employees and 100,000 customers (restaurants, hotels, canteens, homes and hospitals as well as retail). Tasks\n• You design, implement and operate modern Windows-based platforms and actively develop them (focus on engineering, with active participation in operations)• You and the team ensure stable and safe operation throughout the Lifecycle (Run/Operate &/81): Monitoring/Alerting, Incident/Problem Management, Patch/Release Management, Capacity/Performance and Availability• You advance standardization, automation and curity of the system environments (e.g. via IaC/Skripting)• You take over engineering responsibility for Lifecycle topics: design, build, patch/release management, capacity, performance and availability• You analyze faults sustainably, perform root- and root-based analysis and implement lasting improvements (problem management)• You work as a technical lead or specialist in company-wide projects and gain your know-how• You advise application managers and internal teams on infrastructure, architecture, security and operating models• You take care of system, architecture and operational documentation, Standards and Runbooks and ensure their availability• After the introduction of piket services, you take over in the defined cycle and ensure operational safety even outside of office times• Planned maintenance windows and Changes are regularly held outside office hours and on weekends (depending on requirements) Requirements\n• Completed computer science training (EFZ/HF/FH) or comparable, multi-year experience as Windows System Engineer• Very good knowledge of the Microsoft ecosystem, e.g. Microsoft 365, Azure, Windows Server & Clients, MS SQL (operational), Active Directory/Entra ID, Exchange (Online/Hybrid), Teams/VoIP• Experience with virtualization technologies, ideally VV (vSphere/ESXi/vCenter)• Good knowledge of network technologies and security principles (LAN/WLAN, Cisco, 802.1x, hardening, and sympathies)• Experience with backup/restore and storage (e.g. Veeam) and Monitoring/Logging• Strong skills in automation & scripting (PowerShell; ideally Git-supported mode of operation, CI/CD-related methods of advantage)• Advantage is familiar with Ansible and source code management with Git• Structured, self-responsible mode of operation, high service orientation and good communication; User knowledge in Atlassian Cloud Suite• Very good German; French and/or Italian skills are advantageous",
+        "de": "Unser Herz schlägt für die Schweizer Gastronomie. Mit viel Engagement sind wir für unsere Kunden da. In unseren 31 Abholmärkten, per Aussendienst und Belieferung, genauso wie in der digitalen Welt. Mit einem vielseitigen Sortiment, attraktiven Eigenmarken, professioneller Fachberatung und innovativen Services.\n\nTransgourmet Schweiz AG gehört zur internationalen Transgourmet-Gruppe. Das Unternehmen ist führend im Schweizer Belieferungs- und Abholgrosshandel und zählt rund 2'100 Mitarbeitende sowie 100'000 Kunden (Restaurants, Hotels, Kantinen, Heime und Spitäler sowie Detailhandel).\n\n## Aufgaben\n• Du konzipierst, implementierst und betreibst moderne Windows-basierte Plattformen und entwickelst sie aktiv weiter (Fokus der Stelle auf Engineering, mit aktiver Mitarbeit im Betrieb)\n\n• Du stellst zusammen mit dem Team den stabilen und sicheren Betrieb über den gesamten Lifecycle sicher (Run/Operate & Improve): Monitoring/Alerting, Incident-/Problem-Management, Patch-/Release-Management, Capacity/Performance sowie Verfügbarkeit\n\n• Du treibst Standardisierung, Automatisierung und Härtung (Security) der Systemumgebungen voran (z. B. via IaC/Skripting)\n\n• Du übernimmst Engineering-Verantwortung für Lifecycle-Themen: Design, Build, Patch-/Release-Management, Capacity, Performance sowie Verfügbarkeit\n\n• Du analysierst Störungen nachhaltig, führst Root-Cause-Analysen durch und etablierst dauerhafte Verbesserungen (Problem Management)\n\n• Du arbeitest in unternehmensweiten Projekten als technischer Lead oder Spezialist mit und bringst dein Know-how ein\n\n• Du berätst Applikationsverantwortliche und interne Teams zu Infrastruktur, Architektur, Security und Betriebsmodellen\n\n• Du pflegst System-, Architektur- und Betriebsdokumentationen, Standards und Runbooks und sorgst für deren Verfügbarkeit\n\n• Du übernimmst nach der Einarbeitung Pikett-Dienste im definierten Turnus und stellst die Betriebssicherheit auch ausserhalb der Bürozeiten sicher\n\n• Geplante Wartungsfenster und Changes finden regelmässig ausserhalb der Bürozeiten sowie an Wochenenden statt (je nach Bedarf)\n\n## Anforderungen\n• Abgeschlossene Informatikausbildung (EFZ/HF/FH) oder vergleichbare, mehrjährige Praxiserfahrung als Windows System Engineer\n\n• Sehr gute Kenntnisse im Microsoft-Ökosystem, z. B. Microsoft 365, Azure, Windows Server & Clients, MS SQL (betriebsnah), Active Directory/Entra ID, Exchange (Online/Hybrid), Teams/VoIP\n\n• Erfahrung mit Virtualisierungstechnologien, idealerweise VMware (vSphere/ESXi/vCenter)\n\n• Gute Kenntnisse in Netzwerktechnologien und Security-Grundlagen (LAN/WLAN, Cisco, 802.1x, Härtung, Identity- & Access-Konzepte)\n\n• Erfahrung mit Backup/Restore und Storage (z. B. Veeam) sowie Monitoring/Logging\n\n• Starke Skills in Automatisierung & Skripting (PowerShell; idealerweise Git-gestützte Arbeitsweise, CI/CD-nahe Methoden von Vorteil)\n\n• Von Vorteil bist du vertraut mit Ansible und Quellcodeverwaltung mit Git\n\n• Strukturierte, eigenverantwortliche Arbeitsweise, hohe Serviceorientierung und gute Kommunikation; Anwenderkenntnisse in der Atlassian Cloud Suite\n\n• Sehr gutes Deutsch; Französisch- und/oder Italienischkenntnisse sind von Vorteil",
+        "fr": "Nous nous engageons auprès de nos clients. Nous sommes engagés dans nos 31 marchés de ramassage, par service sur le terrain et par livraison, ainsi que dans le monde numérique. Avec une gamme polyvalente, des marques privées attrayantes, des conseils professionnels spécialisés et des services innovants.Transgourmet Schweiz AG appartient au groupe international Transgourmet. L'entreprise est un leader dans la fourniture et la ramassage en gros suisse et compte environ 2 100 employés et 100 000 clients (restaurants, hôtels, cantines, maisons et hôpitaux ainsi que de détail). Tâches\n• Vous concevez, implémentez et exploitez des plateformes modernes basées sur Windows et vous les développez activement (en mettant l'accent sur l'ingénierie, avec une participation active aux opérations)• Vous et l'équipe vous assurez un fonctionnement stable et sûr tout au long du cycle de vie (Run/Operate &/81): Surveillance/Alertation, Gestion des incidents/problèmes, Gestion des patchs/releases, Capacité/Performance et Disponibilité• Vous faites progresser la normalisation, l'automatisation et la curité des environnements système (p. ex. via IaC/Skripting)• Vous assumez la responsabilité de l'ingénierie des thèmes du cycle de vie : conception, construction, gestion de patch/release, capacité, performance et disponibilité• Vous analysez durablement les défauts, effectuez des analyses root- and root-based et implémentez des améliorations durables (gestion de problèmes)• Vous travaillez comme chef de file technique ou spécialiste dans des projets à l'échelle de l'entreprise et gagnez votre savoir-faire• Vous conseillez les gestionnaires d'applications et les équipes internes sur les modèles d'infrastructure, d'architecture, de sécurité et d'exploitation• Vous vous occupez des systèmes, de l'architecture et de la documentation opérationnelle, Normes et cahiers de course et assurer leur disponibilité• Après l'introduction des services de piquet, vous prenez le relais dans le cycle défini et assurer la sécurité opérationnelle même en dehors des heures de bureau• Les fenêtres de maintenance prévues et les modifications sont tenues régulièrement en dehors des heures de bureau et les week-ends (selon les exigences) Exigences\n• Formation informatique complète (EFZ/HF/FH) ou expérience comparable, pluriannuelle en tant qu'ingénieur système Windows• Très bonne connaissance de l'écosystème Microsoft, par exemple. Microsoft 365, Azure, Windows Server & Clients, MS SQL (opérationnel), Active Directory/Entra ID, Exchange (Online/Hybrid), Teams/VoIP• Expérience des technologies de virtualisation, idéalement VV (vSphere/ESXi/vCenter)• Bonne connaissance des technologies de réseau et des principes de sécurité (LAN/WLAN, Cisco, 802.1x, durcissement et les fichiers de sécurité)• Expérience de la sauvegarde/restauration et du stockage (par exemple: Veeam) et Monitoring/Logging• Des compétences élevées en automatisation et en script (PowerShell; idéalement soutenu par Git mode de fonctionnement, IC/CD-profit méthodes)• Avantage est familier avec Ansible et la gestion de code source avec Git• Mode de fonctionnement structuré, auto-responsible, orientation de service élevé et bonne communication; Connaissances utilisateur dans Atlassian Cloud Suite• Très bon allemand; les compétences françaises et/ou italiennes sont avantageuses"
+      },
+      "location": "Moosseedorf",
+      "canton": "BE",
+      "url": "https://jobs.transgourmet.ch/offene-stellen/system-engineer-windows/f633a1ed-4c62-4291-be3c-dd3d535cc231",
+      "source": "Transgourmet Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-07-29T11:34:54.557Z",
+      "addressLocality": "Moosseedorf",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "3302",
+      "streetAddress": "Lochackerweg 5",
+      "category": "Ingegneria",
+      "contract": "permanent",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Commercio all'ingrosso alimentare",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-05",
+      "pensum": "100%",
+      "applyUrl": "https://career2.successfactors.eu/career?company=Coop&career_ns=job_application&career_job_req_id=164960",
+      "requirements": [
+        "• Abgeschlossene Informatikausbildung (EFZ/HF/FH) oder vergleichbare, mehrjährige Praxiserfahrung als Windows System Engineer",
+        "• Sehr gute Kenntnisse im Microsoft-Ökosystem, z. B. Microsoft 365, Azure, Windows Server & Clients, MS SQL (betriebsnah), Active Directory/Entra ID, Exchange (Online/Hybrid), Teams/VoIP",
+        "• Erfahrung mit Virtualisierungstechnologien, idealerweise VMware (vSphere/ESXi/vCenter)",
+        "• Gute Kenntnisse in Netzwerktechnologien und Security-Grundlagen (LAN/WLAN, Cisco, 802.1x, Härtung, Identity- & Access-Konzepte)",
+        "• Erfahrung mit Backup/Restore und Storage (z. B. Veeam) sowie Monitoring/Logging",
+        "• Starke Skills in Automatisierung & Skripting (PowerShell; idealerweise Git-gestützte Arbeitsweise, CI/CD-nahe Methoden von Vorteil)",
+        "• Von Vorteil bist du vertraut mit Ansible und Quellcodeverwaltung mit Git",
+        "• Strukturierte, eigenverantwortliche Arbeitsweise, hohe Serviceorientierung und gute Kommunikation; Anwenderkenntnisse in der Atlassian Cloud Suite",
+        "• Sehr gutes Deutsch; Französisch- und/oder Italienischkenntnisse sind von Vorteil"
+      ],
+      "requirementsByLocale": {
+        "de": [
+          "• Erfahrung mit Virtualisierungstechnologien, idealerweise VMware (vSphere/ESXi/vCenter)",
+          "• Erfahrung mit Backup/Restore und Storage (z. B. Veeam) sowie Monitoring/Logging",
+          "• Von Vorteil bist du vertraut mit Ansible und Quellcodeverwaltung mit Git",
+          "• Sehr gutes Deutsch; Französisch- und/oder Italienischkenntnisse sind von Vorteil"
+        ]
+      },
+      "previousSlugs": [
+        "system-engineer-windows-transgourmet-moosseedorf",
+        "finestre-del-system-engineer-transgourmet-moosseedorf",
+        "system-ingegnere-windows-transgourmet-moosseedorf"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "system-engineer-windows-transgourmet-moosseedorf",
+          "finestre-del-system-engineer-transgourmet-moosseedorf",
+          "system-ingegnere-windows-transgourmet-moosseedorf"
+        ]
+      },
+      "firstSeenAt": "2026-07-06T15:46:10.889Z",
+      "needsRetranslation": true,
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68500,
+          "maxValue": 104000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "transgourmet-9c2f9e11-dcc",
+      "slug": "ordina-picker-ordina-picker-tk-transgourmet-neuendorf",
+      "slugByLocale": {
+        "it": "ordina-picker-ordina-picker-tk-transgourmet-neuendorf",
+        "en": "order-picker-order-picker-tk-transgourmet-neuendorf",
+        "de": "kommissioniererin-kommissionierer-tk-transgourmet-neuendorf",
+        "fr": "kommissioniererin-kommissionierer-tk-transgourmet-neuendorf"
+      },
+      "company": "Transgourmet",
+      "companyKey": "transgourmet",
+      "companyDomain": "transgourmet.ch",
+      "title": "Kommissioniererin / Kommissionierer TK",
+      "titleByLocale": {
+        "it": "Ordina picker / Ordina picker TK",
+        "en": "Order picker / Order picker TK",
+        "de": "Kommissioniererin / Kommissionierer TK",
+        "fr": "Kommissioniererin / Kommissionierer TK"
+      },
+      "description": "Unser Herz schlägt für die Schweizer Gastronomie. Mit viel Engagement sind wir für unsere Kunden da. In unseren 31 Abholmärkten, per Aussendienst und Belieferung, genauso wie in der digitalen Welt. Mit einem vielseitigen Sortiment, attraktiven Eigenmarken, professioneller Fachberatung und innovativen Services.\n\nTransgourmet Schweiz AG gehört zur internationalen Transgourmet-Gruppe. Das Unternehmen ist führend im Schweizer Belieferungs- und Abholgrosshandel und zählt rund 2'100 Mitarbeitende sowie 100'000 Kunden (Restaurants, Hotels, Kantinen, Heime und Spitäler sowie Detailhandel).\n\n## Aufgaben\n• Du kommissionierst Kundenaufträge termingerecht, fehlerfrei und qualitativ top – im Bereich Tiefkühlprodukte bei ca. -20°C\n\n• Du hältst Rüstreihenfolgen ein und belädst die Transportgebinde korrekt.\n\n• Du ordnest Aufträge der richtigen Tour zu und platzierst sie am passenden Bereitstellungsplatz.\n\n• Du löst Nachschub aus, wenn Artikel zur Neige gehen.\n\n• Du unterstützt bei Inventuren und entsorgst Abfall fachgerecht.\n\n• Du arbeitest systemgeführt und hältst alle Kommissionier-, QS- und ASIB-Richtlinien ein.\n\n## Anforderungen\n• Du hast Erfahrung im Wareneingang und in der Kommissionierung.\n\n• Du besitzt ein gültigen SUVA-anerkannten Staplerausweis.\n\n• Du arbeitest zielorientiert, strukturiert und mit hoher Eigeninitiative.\n\n• Du bist körperlich belastbar und für Kühlräume gemacht.\n\n• Du kennst dich mit Lagerverwaltungssystemen aus.\n\n• Du sprichst gut Deutsch und bist zuverlässig.",
+      "descriptionByLocale": {
+        "it": "Il nostro cuore batte per la gastronomia svizzera. Con un sacco di impegno, siamo lì per i nostri clienti. Nei nostri 31 mercati di pick-up, per servizio di campo e consegna, così come nel mondo digitale. Con una gamma versatile, marchi propri attraenti, consulenza professionale e servizi innovativi. Transgourmet Schweiz AG appartiene al Gruppo Transgourmet internazionale. L'azienda è leader nel commercio all'ingrosso di approvvigionamento e pick-up svizzero e ha circa 2.100 dipendenti e 100.000 clienti (ristoranti, hotel, mense, case e ospedali e rivenditori). ## Compiti\n• Scegli gli ordini dei clienti in tempo, senza errori e di alta qualità – nell'area dei prodotti congelati a circa -20°C• Mantenere gli ordini di configurazione e caricare correttamente i contenitori di trasporto.• Assegnate gli ordini al tour giusto e metteteli nello spazio di consegna appropriato.• Si attivano forniture quando gli articoli vengono esauriti.• Sosteni gli inventari e disfasci correttamente i rifiuti.• Lei lavora sistema-gestito e conforme a tutte le linee guida di raccolta ordini, QS e ASIB. ## Requisiti\n• Avete esperienza nella ricevuta e nella raccolta delle merci.• Hai un pass valido per carrello elevatore omologato SUVA.• Lavorate orientati agli obiettivi, strutturati e con alta iniziativa.• Siete fisicamente resilienti e fatti per le stanze fredde.• Conoscete i sistemi di gestione del magazzino.• Parli bene tedesco e sei affidabile.",
+        "en": "Our heart beats for Swiss gastronomy. With a lot of commitment, we are there for our customers. In our 31 pick-up markets, by field service and delivery, as well as in the digital world. With a versatile range, attractive own brands, professional consulting and innovative services.Transgourmet Schweiz AG belongs to the international Transgourmet Group. The company is a leader in the Swiss supply and pick-up wholesale trade and has around 2,100 employees and 100,000 customers (restaurants, hotels, canteens, homes and hospitals as well as retailers). ## Tasks\n• You pick customer orders on time, error-free and top-quality – in the area of frozen products at approximately -20°C• You keep setup orders and load the transport containers correctly.• You assign orders to the right tour and place them in the appropriate delivery space.• You trigger supplies when articles run out.• You support with inventories and dispose of waste properly.• You work system-managed and comply with all order picking, QS and ASIB guidelines. ## Requirements\n• You have experience in goods receipt and picking.• You have a valid SUVA-approved forklift pass.• You work goal-oriented, structured and with high initiative.• You are physically resilient and made for cold rooms.• You are familiar with warehouse management systems.• You speak good German and are reliable.",
+        "de": "Unser Herz schlägt für die Schweizer Gastronomie. Mit viel Engagement sind wir für unsere Kunden da. In unseren 31 Abholmärkten, per Aussendienst und Belieferung, genauso wie in der digitalen Welt. Mit einem vielseitigen Sortiment, attraktiven Eigenmarken, professioneller Fachberatung und innovativen Services.\n\nTransgourmet Schweiz AG gehört zur internationalen Transgourmet-Gruppe. Das Unternehmen ist führend im Schweizer Belieferungs- und Abholgrosshandel und zählt rund 2'100 Mitarbeitende sowie 100'000 Kunden (Restaurants, Hotels, Kantinen, Heime und Spitäler sowie Detailhandel).\n\n## Aufgaben\n• Du kommissionierst Kundenaufträge termingerecht, fehlerfrei und qualitativ top – im Bereich Tiefkühlprodukte bei ca. -20°C\n\n• Du hältst Rüstreihenfolgen ein und belädst die Transportgebinde korrekt.\n\n• Du ordnest Aufträge der richtigen Tour zu und platzierst sie am passenden Bereitstellungsplatz.\n\n• Du löst Nachschub aus, wenn Artikel zur Neige gehen.\n\n• Du unterstützt bei Inventuren und entsorgst Abfall fachgerecht.\n\n• Du arbeitest systemgeführt und hältst alle Kommissionier-, QS- und ASIB-Richtlinien ein.\n\n## Anforderungen\n• Du hast Erfahrung im Wareneingang und in der Kommissionierung.\n\n• Du besitzt ein gültigen SUVA-anerkannten Staplerausweis.\n\n• Du arbeitest zielorientiert, strukturiert und mit hoher Eigeninitiative.\n\n• Du bist körperlich belastbar und für Kühlräume gemacht.\n\n• Du kennst dich mit Lagerverwaltungssystemen aus.\n\n• Du sprichst gut Deutsch und bist zuverlässig.",
+        "fr": "Notre cœur bat pour la gastronomie suisse. Avec beaucoup d'engagement, nous sommes là pour nos clients. Dans nos 31 marchés de ramassage, par service sur le terrain et par livraison, ainsi que dans le monde numérique. Avec une gamme polyvalente, des marques propres attrayantes, des conseils professionnels et des services innovants. Transgourmet Schweiz AG appartient au groupe international Transgourmet. L'entreprise est leader dans le commerce de gros suisse d'approvisionnement et de ramassage et compte environ 2 100 employés et 100 000 clients (restaurants, hôtels, cantines, maisons et hôpitaux ainsi que détaillants). ## Tâche\n• Vous choisissez les commandes du client à temps, sans erreur et de qualité supérieure – dans le domaine des produits congelés à environ -20°C• Vous gardez les commandes de configuration et chargez correctement les conteneurs de transport.• Vous assignez les commandes à la bonne visite et les placez dans l'espace de livraison approprié.• Vous déclenchez les fournitures lorsque les articles sont épuisés.• Vous supportez les stocks et éliminez les déchets correctement.• Vous travaillez système géré et se conforme à toutes les commandes, QS et ASIB lignes directrices. ## Exigences\n• Vous avez de l'expérience dans la réception et la cueillette des marchandises.• Vous disposez d'une carte de chariot élévateur valide approuvée par le VUSA.• Vous travaillez orienté vers les objectifs, structuré et avec une grande initiative.• Vous êtes physiquement résistant et conçu pour les chambres froides.• Vous connaissez les systèmes de gestion des entrepôts.• Tu parles bien l'allemand et tu es fiable."
+      },
+      "location": "Neuendorf",
+      "canton": "SO",
+      "url": "https://jobs.transgourmet.ch/offene-stellen/kommissioniererin-kommissionierer-tk/9c2f9e11-dcce-4520-a951-180866b272a2",
+      "source": "Transgourmet Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-07-29T11:34:54.557Z",
+      "addressLocality": "Neuendorf",
+      "addressRegion": "SO",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "4623",
+      "streetAddress": "Industriestrasse 20",
+      "category": "Altro",
+      "contract": "permanent",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Commercio all'ingrosso alimentare",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-03",
+      "pensum": "100%",
+      "applyUrl": "https://career2.successfactors.eu/career?company=Coop&career_ns=job_application&career_job_req_id=167552",
+      "requirements": [
+        "• Du hast Erfahrung im Wareneingang und in der Kommissionierung.",
+        "• Du besitzt ein gültigen SUVA-anerkannten Staplerausweis.",
+        "• Du arbeitest zielorientiert, strukturiert und mit hoher Eigeninitiative.",
+        "• Du bist körperlich belastbar und für Kühlräume gemacht.",
+        "• Du kennst dich mit Lagerverwaltungssystemen aus.",
+        "• Du sprichst gut Deutsch und bist zuverlässig."
+      ],
+      "requirementsByLocale": {
+        "de": [
+          "• Du hast Erfahrung im Wareneingang und in der Kommissionierung.",
+          "• Du besitzt ein gültigen SUVA-anerkannten Staplerausweis.",
+          "• Du arbeitest zielorientiert, strukturiert und mit hoher Eigeninitiative.",
+          "• Du bist körperlich belastbar und für Kühlräume gemacht.",
+          "• Du kennst dich mit Lagerverwaltungssystemen aus.",
+          "• Du sprichst gut Deutsch und bist zuverlässig."
+        ]
+      },
+      "previousSlugs": [
+        "kommissioniererin-kommissionierer-tk-transgourmet-neuendorf",
+        "recuperer-recuperer-tk-transgourmet-neuendorf",
+        "ordina-picker-ordina-picker-tk-transgourmet-neuendorf"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "kommissioniererin-kommissionierer-tk-transgourmet-neuendorf",
+          "ordina-picker-ordina-picker-tk-transgourmet-neuendorf"
+        ],
+        "fr": [
+          "recuperer-recuperer-tk-transgourmet-neuendorf",
+          "kommissioniererin-kommissionierer-tk-transgourmet-neuendorf"
+        ]
+      },
+      "firstSeenAt": "2026-07-03T12:59:52.439Z",
+      "needsRetranslation": true,
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68500,
+          "maxValue": 104000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
       "id": "transgourmet-d300d820-4d6",
       "slug": "mitarbeiterin-addetto-a-alle-vendite-getranke-tabak-transgourmet-heimberg",
       "slugByLocale": {
@@ -33,7 +223,7 @@
       "url": "https://jobs.transgourmet.ch/offene-stellen/mitarbeiterin-mitarbeiter-verkauf-getraenke-tabak/d300d820-4d61-44de-9ca6-50054637ba8c",
       "source": "Transgourmet Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-28T22:07:46.393Z",
+      "crawledAt": "2026-07-29T11:34:54.557Z",
       "addressLocality": "Heimberg",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -73,196 +263,17 @@
         ]
       },
       "previousSlugs": [
-        "mitarbeiterin-mitarbeiter-verkauf-getranke-amp-tabak-transgourmet-heimberg"
+        "mitarbeiterin-mitarbeiter-verkauf-getranke-amp-tabak-transgourmet-heimberg",
+        "mitarbeiterin-addetto-a-alle-vendite-getranke-tabak-transgourmet-heimberg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiterin-mitarbeiter-verkauf-getranke-amp-tabak-transgourmet-heimberg"
+          "mitarbeiterin-mitarbeiter-verkauf-getranke-amp-tabak-transgourmet-heimberg",
+          "mitarbeiterin-addetto-a-alle-vendite-getranke-tabak-transgourmet-heimberg"
         ]
       },
       "firstSeenAt": "2026-07-02T23:21:53.707Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "transgourmet-9c2f9e11-dcc",
-      "slug": "ordina-picker-ordina-picker-tk-transgourmet-neuendorf",
-      "slugByLocale": {
-        "it": "ordina-picker-ordina-picker-tk-transgourmet-neuendorf",
-        "en": "order-picker-order-picker-tk-transgourmet-neuendorf",
-        "de": "kommissioniererin-kommissionierer-tk-transgourmet-neuendorf",
-        "fr": "recuperer-recuperer-tk-transgourmet-neuendorf"
-      },
-      "company": "Transgourmet",
-      "companyKey": "transgourmet",
-      "companyDomain": "transgourmet.ch",
-      "title": "Kommissioniererin / Kommissionierer TK",
-      "titleByLocale": {
-        "it": "Ordina picker / Ordina picker TK",
-        "en": "Order picker / Order picker TK",
-        "de": "Kommissioniererin / Kommissionierer TK",
-        "fr": "Récupérer / Récupérer TK"
-      },
-      "description": "Unser Herz schlägt für die Schweizer Gastronomie. Mit viel Engagement sind wir für unsere Kunden da. In unseren 31 Abholmärkten, per Aussendienst und Belieferung, genauso wie in der digitalen Welt. Mit einem vielseitigen Sortiment, attraktiven Eigenmarken, professioneller Fachberatung und innovativen Services.\n\nTransgourmet Schweiz AG gehört zur internationalen Transgourmet-Gruppe. Das Unternehmen ist führend im Schweizer Belieferungs- und Abholgrosshandel und zählt rund 2'100 Mitarbeitende sowie 100'000 Kunden (Restaurants, Hotels, Kantinen, Heime und Spitäler sowie Detailhandel).\n\n## Aufgaben\n• Du kommissionierst Kundenaufträge termingerecht, fehlerfrei und qualitativ top – im Bereich Tiefkühlprodukte bei ca. -20°C\n\n• Du hältst Rüstreihenfolgen ein und belädst die Transportgebinde korrekt.\n\n• Du ordnest Aufträge der richtigen Tour zu und platzierst sie am passenden Bereitstellungsplatz.\n\n• Du löst Nachschub aus, wenn Artikel zur Neige gehen.\n\n• Du unterstützt bei Inventuren und entsorgst Abfall fachgerecht.\n\n• Du arbeitest systemgeführt und hältst alle Kommissionier-, QS- und ASIB-Richtlinien ein.\n\n## Anforderungen\n• Du hast Erfahrung im Wareneingang und in der Kommissionierung.\n\n• Du besitzt ein gültigen SUVA-anerkannten Staplerausweis.\n\n• Du arbeitest zielorientiert, strukturiert und mit hoher Eigeninitiative.\n\n• Du bist körperlich belastbar und für Kühlräume gemacht.\n\n• Du kennst dich mit Lagerverwaltungssystemen aus.\n\n• Du sprichst gut Deutsch und bist zuverlässig.",
-      "descriptionByLocale": {
-        "it": "Il nostro cuore batte per la gastronomia svizzera. Con un sacco di impegno, siamo lì per i nostri clienti. Nei nostri 31 mercati di pick-up, per servizio di campo e consegna, così come nel mondo digitale. Con una gamma versatile, marchi propri attraenti, consulenza professionale e servizi innovativi. Transgourmet Schweiz AG appartiene al Gruppo Transgourmet internazionale. L'azienda è leader nel commercio all'ingrosso di approvvigionamento e pick-up svizzero e ha circa 2.100 dipendenti e 100.000 clienti (ristoranti, hotel, mense, case e ospedali e rivenditori). ## Compiti\n• Scegli gli ordini dei clienti in tempo, senza errori e di alta qualità – nell'area dei prodotti congelati a circa -20°C• Mantenere gli ordini di configurazione e caricare correttamente i contenitori di trasporto.• Assegnate gli ordini al tour giusto e metteteli nello spazio di consegna appropriato.• Si attivano forniture quando gli articoli vengono esauriti.• Sosteni gli inventari e disfasci correttamente i rifiuti.• Lei lavora sistema-gestito e conforme a tutte le linee guida di raccolta ordini, QS e ASIB. ## Requisiti\n• Avete esperienza nella ricevuta e nella raccolta delle merci.• Hai un pass valido per carrello elevatore omologato SUVA.• Lavorate orientati agli obiettivi, strutturati e con alta iniziativa.• Siete fisicamente resilienti e fatti per le stanze fredde.• Conoscete i sistemi di gestione del magazzino.• Parli bene tedesco e sei affidabile.",
-        "en": "Our heart beats for Swiss gastronomy. With a lot of commitment, we are there for our customers. In our 31 pick-up markets, by field service and delivery, as well as in the digital world. With a versatile range, attractive own brands, professional consulting and innovative services.Transgourmet Schweiz AG belongs to the international Transgourmet Group. The company is a leader in the Swiss supply and pick-up wholesale trade and has around 2,100 employees and 100,000 customers (restaurants, hotels, canteens, homes and hospitals as well as retailers). ## Tasks\n• You pick customer orders on time, error-free and top-quality – in the area of frozen products at approximately -20°C• You keep setup orders and load the transport containers correctly.• You assign orders to the right tour and place them in the appropriate delivery space.• You trigger supplies when articles run out.• You support with inventories and dispose of waste properly.• You work system-managed and comply with all order picking, QS and ASIB guidelines. ## Requirements\n• You have experience in goods receipt and picking.• You have a valid SUVA-approved forklift pass.• You work goal-oriented, structured and with high initiative.• You are physically resilient and made for cold rooms.• You are familiar with warehouse management systems.• You speak good German and are reliable.",
-        "de": "Unser Herz schlägt für die Schweizer Gastronomie. Mit viel Engagement sind wir für unsere Kunden da. In unseren 31 Abholmärkten, per Aussendienst und Belieferung, genauso wie in der digitalen Welt. Mit einem vielseitigen Sortiment, attraktiven Eigenmarken, professioneller Fachberatung und innovativen Services.\n\nTransgourmet Schweiz AG gehört zur internationalen Transgourmet-Gruppe. Das Unternehmen ist führend im Schweizer Belieferungs- und Abholgrosshandel und zählt rund 2'100 Mitarbeitende sowie 100'000 Kunden (Restaurants, Hotels, Kantinen, Heime und Spitäler sowie Detailhandel).\n\n## Aufgaben\n• Du kommissionierst Kundenaufträge termingerecht, fehlerfrei und qualitativ top – im Bereich Tiefkühlprodukte bei ca. -20°C\n\n• Du hältst Rüstreihenfolgen ein und belädst die Transportgebinde korrekt.\n\n• Du ordnest Aufträge der richtigen Tour zu und platzierst sie am passenden Bereitstellungsplatz.\n\n• Du löst Nachschub aus, wenn Artikel zur Neige gehen.\n\n• Du unterstützt bei Inventuren und entsorgst Abfall fachgerecht.\n\n• Du arbeitest systemgeführt und hältst alle Kommissionier-, QS- und ASIB-Richtlinien ein.\n\n## Anforderungen\n• Du hast Erfahrung im Wareneingang und in der Kommissionierung.\n\n• Du besitzt ein gültigen SUVA-anerkannten Staplerausweis.\n\n• Du arbeitest zielorientiert, strukturiert und mit hoher Eigeninitiative.\n\n• Du bist körperlich belastbar und für Kühlräume gemacht.\n\n• Du kennst dich mit Lagerverwaltungssystemen aus.\n\n• Du sprichst gut Deutsch und bist zuverlässig.",
-        "fr": "Notre cœur bat pour la gastronomie suisse. Avec beaucoup d'engagement, nous sommes là pour nos clients. Dans nos 31 marchés de ramassage, par service sur le terrain et par livraison, ainsi que dans le monde numérique. Avec une gamme polyvalente, des marques propres attrayantes, des conseils professionnels et des services innovants. Transgourmet Schweiz AG appartient au groupe international Transgourmet. L'entreprise est leader dans le commerce de gros suisse d'approvisionnement et de ramassage et compte environ 2 100 employés et 100 000 clients (restaurants, hôtels, cantines, maisons et hôpitaux ainsi que détaillants). ## Tâche\n• Vous choisissez les commandes du client à temps, sans erreur et de qualité supérieure – dans le domaine des produits congelés à environ -20°C• Vous gardez les commandes de configuration et chargez correctement les conteneurs de transport.• Vous assignez les commandes à la bonne visite et les placez dans l'espace de livraison approprié.• Vous déclenchez les fournitures lorsque les articles sont épuisés.• Vous supportez les stocks et éliminez les déchets correctement.• Vous travaillez système géré et se conforme à toutes les commandes, QS et ASIB lignes directrices. ## Exigences\n• Vous avez de l'expérience dans la réception et la cueillette des marchandises.• Vous disposez d'une carte de chariot élévateur valide approuvée par le VUSA.• Vous travaillez orienté vers les objectifs, structuré et avec une grande initiative.• Vous êtes physiquement résistant et conçu pour les chambres froides.• Vous connaissez les systèmes de gestion des entrepôts.• Tu parles bien l'allemand et tu es fiable."
-      },
-      "location": "Neuendorf",
-      "canton": "SO",
-      "url": "https://jobs.transgourmet.ch/offene-stellen/kommissioniererin-kommissionierer-tk/9c2f9e11-dcce-4520-a951-180866b272a2",
-      "source": "Transgourmet Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-28T22:07:46.392Z",
-      "addressLocality": "Neuendorf",
-      "addressRegion": "SO",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "4623",
-      "streetAddress": "Industriestrasse 20",
-      "category": "Altro",
-      "contract": "permanent",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Commercio all'ingrosso alimentare",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-03",
-      "pensum": "100%",
-      "applyUrl": "https://career2.successfactors.eu/career?company=Coop&career_ns=job_application&career_job_req_id=167552",
-      "requirements": [
-        "• Du hast Erfahrung im Wareneingang und in der Kommissionierung.",
-        "• Du besitzt ein gültigen SUVA-anerkannten Staplerausweis.",
-        "• Du arbeitest zielorientiert, strukturiert und mit hoher Eigeninitiative.",
-        "• Du bist körperlich belastbar und für Kühlräume gemacht.",
-        "• Du kennst dich mit Lagerverwaltungssystemen aus.",
-        "• Du sprichst gut Deutsch und bist zuverlässig."
-      ],
-      "requirementsByLocale": {
-        "de": [
-          "• Du hast Erfahrung im Wareneingang und in der Kommissionierung.",
-          "• Du besitzt ein gültigen SUVA-anerkannten Staplerausweis.",
-          "• Du arbeitest zielorientiert, strukturiert und mit hoher Eigeninitiative.",
-          "• Du bist körperlich belastbar und für Kühlräume gemacht.",
-          "• Du kennst dich mit Lagerverwaltungssystemen aus.",
-          "• Du sprichst gut Deutsch und bist zuverlässig."
-        ]
-      },
-      "previousSlugs": [
-        "kommissioniererin-kommissionierer-tk-transgourmet-neuendorf"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "kommissioniererin-kommissionierer-tk-transgourmet-neuendorf"
-        ],
-        "fr": [
-          "kommissioniererin-kommissionierer-tk-transgourmet-neuendorf"
-        ]
-      },
-      "firstSeenAt": "2026-07-03T12:59:52.439Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "transgourmet-f633a1ed-4c6",
-      "slug": "system-ingegnere-windows-transgourmet-moosseedorf",
-      "slugByLocale": {
-        "it": "system-ingegnere-windows-transgourmet-moosseedorf",
-        "en": "system-engineer-windows-transgourmet-moosseedorf",
-        "de": "system-engineer-windows-transgourmet-moosseedorf",
-        "fr": "ingenieur-systemes-windows-transgourmet-moosseedorf"
-      },
-      "company": "Transgourmet",
-      "companyKey": "transgourmet",
-      "companyDomain": "transgourmet.ch",
-      "title": "System Engineer Windows",
-      "titleByLocale": {
-        "it": "System Ingegnere Windows",
-        "en": "System Engineer Windows",
-        "de": "System Ingenieur Windows",
-        "fr": "Ingénieur Systèmes Windows"
-      },
-      "description": "Unser Herz schlägt für die Schweizer Gastronomie. Mit viel Engagement sind wir für unsere Kunden da. In unseren 31 Abholmärkten, per Aussendienst und Belieferung, genauso wie in der digitalen Welt. Mit einem vielseitigen Sortiment, attraktiven Eigenmarken, professioneller Fachberatung und innovativen Services.\n\nTransgourmet Schweiz AG gehört zur internationalen Transgourmet-Gruppe. Das Unternehmen ist führend im Schweizer Belieferungs- und Abholgrosshandel und zählt rund 2'100 Mitarbeitende sowie 100'000 Kunden (Restaurants, Hotels, Kantinen, Heime und Spitäler sowie Detailhandel).\n\n## Aufgaben\n• Du konzipierst, implementierst und betreibst moderne Windows-basierte Plattformen und entwickelst sie aktiv weiter (Fokus der Stelle auf Engineering, mit aktiver Mitarbeit im Betrieb)\n\n• Du stellst zusammen mit dem Team den stabilen und sicheren Betrieb über den gesamten Lifecycle sicher (Run/Operate & Improve): Monitoring/Alerting, Incident-/Problem-Management, Patch-/Release-Management, Capacity/Performance sowie Verfügbarkeit\n\n• Du treibst Standardisierung, Automatisierung und Härtung (Security) der Systemumgebungen voran (z. B. via IaC/Skripting)\n\n• Du übernimmst Engineering-Verantwortung für Lifecycle-Themen: Design, Build, Patch-/Release-Management, Capacity, Performance sowie Verfügbarkeit\n\n• Du analysierst Störungen nachhaltig, führst Root-Cause-Analysen durch und etablierst dauerhafte Verbesserungen (Problem Management)\n\n• Du arbeitest in unternehmensweiten Projekten als technischer Lead oder Spezialist mit und bringst dein Know-how ein\n\n• Du berätst Applikationsverantwortliche und interne Teams zu Infrastruktur, Architektur, Security und Betriebsmodellen\n\n• Du pflegst System-, Architektur- und Betriebsdokumentationen, Standards und Runbooks und sorgst für deren Verfügbarkeit\n\n• Du übernimmst nach der Einarbeitung Pikett-Dienste im definierten Turnus und stellst die Betriebssicherheit auch ausserhalb der Bürozeiten sicher\n\n• Geplante Wartungsfenster und Changes finden regelmässig ausserhalb der Bürozeiten sowie an Wochenenden statt (je nach Bedarf)\n\n## Anforderungen\n• Abgeschlossene Informatikausbildung (EFZ/HF/FH) oder vergleichbare, mehrjährige Praxiserfahrung als Windows System Engineer\n\n• Sehr gute Kenntnisse im Microsoft-Ökosystem, z. B. Microsoft 365, Azure, Windows Server & Clients, MS SQL (betriebsnah), Active Directory/Entra ID, Exchange (Online/Hybrid), Teams/VoIP\n\n• Erfahrung mit Virtualisierungstechnologien, idealerweise VMware (vSphere/ESXi/vCenter)\n\n• Gute Kenntnisse in Netzwerktechnologien und Security-Grundlagen (LAN/WLAN, Cisco, 802.1x, Härtung, Identity- & Access-Konzepte)\n\n• Erfahrung mit Backup/Restore und Storage (z. B. Veeam) sowie Monitoring/Logging\n\n• Starke Skills in Automatisierung & Skripting (PowerShell; idealerweise Git-gestützte Arbeitsweise, CI/CD-nahe Methoden von Vorteil)\n\n• Von Vorteil bist du vertraut mit Ansible und Quellcodeverwaltung mit Git\n\n• Strukturierte, eigenverantwortliche Arbeitsweise, hohe Serviceorientierung und gute Kommunikation; Anwenderkenntnisse in der Atlassian Cloud Suite\n\n• Sehr gutes Deutsch; Französisch- und/oder Italienischkenntnisse sind von Vorteil",
-      "descriptionByLocale": {
-        "it": "Siamo impegnati nei nostri clienti. Ci impegniamo nei nostri 31 mercati di ritiro, per servizio sul campo e consegna, così come nel mondo digitale.Con una gamma di marchi privati versatile interessanti, consulenza professionale e servizi innovativi.Transgourmet Schweiz AG appartiene al Gruppo internazionale Transgourmet. L'azienda è leader nella fornitura e ritiro all'ingrosso svizzero e conta circa 2.100 dipendenti e 100.000 clienti (ristauranti, alberghi, mense, case e ospedali, nonché al dettaglio). Attività\n• Progetta, implementa e gestisce le moderne piattaforme basate su Windows e le sviluppa attivamente (con focus sull'ingegneria, con partecipazione attiva alle operazioni)\n• Tu e il team assicurate un funzionamento stabile e sicuro durante tutto il ciclo di vita (Run/Operate &/81): Monitoraggio/Allertazione, Gestione degli incidenti/Problemi, Gestione delle licenze/Patch, Capacità/Performance e Disponibilità• Avanzate la standardizzazione, l'automazione e la curità degli ambienti di sistema (ad esempio. tramite IaC/Skripting)• Si assume la responsabilità ingegneristica per gli argomenti del ciclo di vita: progettazione, costruzione, gestione patch/release, capacità, prestazioni e disponibilità• Si analizzano i difetti in modo sostenibile, si esegue l'analisi basata su root e root e si implementare miglioramenti duraturi (gestione dei problemi)• Si lavora come leader tecnico o specialista in progetti aziendali e si guadagna il proprio know-how• Si consiglia ai gestori delle applicazioni e ai team interni su infrastrutture, architettura, sicurezza e modelli operativi• Si prende cura di sistemi, architettura e documentazione operativa, Standard e Runbook e garantirne la disponibilità• Dopo l'introduzione dei servizi piket, si assume il controllo nel ciclo definito e garantisce la sicurezza operativa anche al di fuori degli orari di ufficio• Finestre di manutenzione e modifiche previste sono regolarmente tenute al di fuori degli orari di ufficio e nei fine settimana (a seconda dei requisiti) Requisiti\n• Completato addestramento informatico (EFZ/HF/FH) o comparabile, esperienza pluriennale come ingegnere di sistema Windows• Ottima conoscenza dell'ecosistema Microsoft, ad esempio. Microsoft 365, Azure, Windows Server & Clients, MS SQL (operativo), Active Directory/Entra ID, Exchange (Online/Hybrid), Teams/VoIP• Esperienza con tecnologie di virtualizzazione, idealmente VV (vSphere/ESXi/vCenter)• Buona conoscenza delle tecnologie di rete e dei principi di sicurezza (LAN/WLAN, Cisco, 802.1x, indurimento e simpatie)• Esperienza con backup/restore e storage (ad es. Veeam) e Monitoraggio/Logging• Forte capacità di automazione e scripting (PowerShell; idealmente modalità di funzionamento supportata da Git, metodi di vantaggio correlati a CI/CD)• Vantaggio è familiare con la gestione del codice Ansible e sorgente con Git• Modalità di funzionamento strutturata, auto-responsabile, orientamento di servizio elevato e buona comunicazione; Conoscenza degli utenti in Atlxian Cloud Suite• Ottime competenze tedesche; Francese e/o Italiane sono vantaggiose",
-        "en": "We are committed to our customers. We are committed to our 31 pick-up markets, by field service and delivery, as well as in the digital world. With a versatile range, attractive private brands, professional specialist advice and innovative services.Transgourmet Schweiz AG belongs to the international Transgourmet Group. The company is a leader in Swiss supply and pick-up wholesale and has around 2,100 employees and 100,000 customers (restaurants, hotels, canteens, homes and hospitals as well as retail). Tasks\n• You design, implement and operate modern Windows-based platforms and actively develop them (focus on engineering, with active participation in operations)• You and the team ensure stable and safe operation throughout the Lifecycle (Run/Operate &/81): Monitoring/Alerting, Incident/Problem Management, Patch/Release Management, Capacity/Performance and Availability• You advance standardization, automation and curity of the system environments (e.g. via IaC/Skripting)• You take over engineering responsibility for Lifecycle topics: design, build, patch/release management, capacity, performance and availability• You analyze faults sustainably, perform root- and root-based analysis and implement lasting improvements (problem management)• You work as a technical lead or specialist in company-wide projects and gain your know-how• You advise application managers and internal teams on infrastructure, architecture, security and operating models• You take care of system, architecture and operational documentation, Standards and Runbooks and ensure their availability• After the introduction of piket services, you take over in the defined cycle and ensure operational safety even outside of office times• Planned maintenance windows and Changes are regularly held outside office hours and on weekends (depending on requirements) Requirements\n• Completed computer science training (EFZ/HF/FH) or comparable, multi-year experience as Windows System Engineer• Very good knowledge of the Microsoft ecosystem, e.g. Microsoft 365, Azure, Windows Server & Clients, MS SQL (operational), Active Directory/Entra ID, Exchange (Online/Hybrid), Teams/VoIP• Experience with virtualization technologies, ideally VV (vSphere/ESXi/vCenter)• Good knowledge of network technologies and security principles (LAN/WLAN, Cisco, 802.1x, hardening, and sympathies)• Experience with backup/restore and storage (e.g. Veeam) and Monitoring/Logging• Strong skills in automation & scripting (PowerShell; ideally Git-supported mode of operation, CI/CD-related methods of advantage)• Advantage is familiar with Ansible and source code management with Git• Structured, self-responsible mode of operation, high service orientation and good communication; User knowledge in Atlassian Cloud Suite• Very good German; French and/or Italian skills are advantageous",
-        "de": "Unser Herz schlägt für die Schweizer Gastronomie. Mit viel Engagement sind wir für unsere Kunden da. In unseren 31 Abholmärkten, per Aussendienst und Belieferung, genauso wie in der digitalen Welt. Mit einem vielseitigen Sortiment, attraktiven Eigenmarken, professioneller Fachberatung und innovativen Services.\n\nTransgourmet Schweiz AG gehört zur internationalen Transgourmet-Gruppe. Das Unternehmen ist führend im Schweizer Belieferungs- und Abholgrosshandel und zählt rund 2'100 Mitarbeitende sowie 100'000 Kunden (Restaurants, Hotels, Kantinen, Heime und Spitäler sowie Detailhandel).\n\n## Aufgaben\n• Du konzipierst, implementierst und betreibst moderne Windows-basierte Plattformen und entwickelst sie aktiv weiter (Fokus der Stelle auf Engineering, mit aktiver Mitarbeit im Betrieb)\n\n• Du stellst zusammen mit dem Team den stabilen und sicheren Betrieb über den gesamten Lifecycle sicher (Run/Operate & Improve): Monitoring/Alerting, Incident-/Problem-Management, Patch-/Release-Management, Capacity/Performance sowie Verfügbarkeit\n\n• Du treibst Standardisierung, Automatisierung und Härtung (Security) der Systemumgebungen voran (z. B. via IaC/Skripting)\n\n• Du übernimmst Engineering-Verantwortung für Lifecycle-Themen: Design, Build, Patch-/Release-Management, Capacity, Performance sowie Verfügbarkeit\n\n• Du analysierst Störungen nachhaltig, führst Root-Cause-Analysen durch und etablierst dauerhafte Verbesserungen (Problem Management)\n\n• Du arbeitest in unternehmensweiten Projekten als technischer Lead oder Spezialist mit und bringst dein Know-how ein\n\n• Du berätst Applikationsverantwortliche und interne Teams zu Infrastruktur, Architektur, Security und Betriebsmodellen\n\n• Du pflegst System-, Architektur- und Betriebsdokumentationen, Standards und Runbooks und sorgst für deren Verfügbarkeit\n\n• Du übernimmst nach der Einarbeitung Pikett-Dienste im definierten Turnus und stellst die Betriebssicherheit auch ausserhalb der Bürozeiten sicher\n\n• Geplante Wartungsfenster und Changes finden regelmässig ausserhalb der Bürozeiten sowie an Wochenenden statt (je nach Bedarf)\n\n## Anforderungen\n• Abgeschlossene Informatikausbildung (EFZ/HF/FH) oder vergleichbare, mehrjährige Praxiserfahrung als Windows System Engineer\n\n• Sehr gute Kenntnisse im Microsoft-Ökosystem, z. B. Microsoft 365, Azure, Windows Server & Clients, MS SQL (betriebsnah), Active Directory/Entra ID, Exchange (Online/Hybrid), Teams/VoIP\n\n• Erfahrung mit Virtualisierungstechnologien, idealerweise VMware (vSphere/ESXi/vCenter)\n\n• Gute Kenntnisse in Netzwerktechnologien und Security-Grundlagen (LAN/WLAN, Cisco, 802.1x, Härtung, Identity- & Access-Konzepte)\n\n• Erfahrung mit Backup/Restore und Storage (z. B. Veeam) sowie Monitoring/Logging\n\n• Starke Skills in Automatisierung & Skripting (PowerShell; idealerweise Git-gestützte Arbeitsweise, CI/CD-nahe Methoden von Vorteil)\n\n• Von Vorteil bist du vertraut mit Ansible und Quellcodeverwaltung mit Git\n\n• Strukturierte, eigenverantwortliche Arbeitsweise, hohe Serviceorientierung und gute Kommunikation; Anwenderkenntnisse in der Atlassian Cloud Suite\n\n• Sehr gutes Deutsch; Französisch- und/oder Italienischkenntnisse sind von Vorteil",
-        "fr": "Nous nous engageons auprès de nos clients. Nous sommes engagés dans nos 31 marchés de ramassage, par service sur le terrain et par livraison, ainsi que dans le monde numérique. Avec une gamme polyvalente, des marques privées attrayantes, des conseils professionnels spécialisés et des services innovants.Transgourmet Schweiz AG appartient au groupe international Transgourmet. L'entreprise est un leader dans la fourniture et la ramassage en gros suisse et compte environ 2 100 employés et 100 000 clients (restaurants, hôtels, cantines, maisons et hôpitaux ainsi que de détail). Tâches\n• Vous concevez, implémentez et exploitez des plateformes modernes basées sur Windows et vous les développez activement (en mettant l'accent sur l'ingénierie, avec une participation active aux opérations)• Vous et l'équipe vous assurez un fonctionnement stable et sûr tout au long du cycle de vie (Run/Operate &/81): Surveillance/Alertation, Gestion des incidents/problèmes, Gestion des patchs/releases, Capacité/Performance et Disponibilité• Vous faites progresser la normalisation, l'automatisation et la curité des environnements système (p. ex. via IaC/Skripting)• Vous assumez la responsabilité de l'ingénierie des thèmes du cycle de vie : conception, construction, gestion de patch/release, capacité, performance et disponibilité• Vous analysez durablement les défauts, effectuez des analyses root- and root-based et implémentez des améliorations durables (gestion de problèmes)• Vous travaillez comme chef de file technique ou spécialiste dans des projets à l'échelle de l'entreprise et gagnez votre savoir-faire• Vous conseillez les gestionnaires d'applications et les équipes internes sur les modèles d'infrastructure, d'architecture, de sécurité et d'exploitation• Vous vous occupez des systèmes, de l'architecture et de la documentation opérationnelle, Normes et cahiers de course et assurer leur disponibilité• Après l'introduction des services de piquet, vous prenez le relais dans le cycle défini et assurer la sécurité opérationnelle même en dehors des heures de bureau• Les fenêtres de maintenance prévues et les modifications sont tenues régulièrement en dehors des heures de bureau et les week-ends (selon les exigences) Exigences\n• Formation informatique complète (EFZ/HF/FH) ou expérience comparable, pluriannuelle en tant qu'ingénieur système Windows• Très bonne connaissance de l'écosystème Microsoft, par exemple. Microsoft 365, Azure, Windows Server & Clients, MS SQL (opérationnel), Active Directory/Entra ID, Exchange (Online/Hybrid), Teams/VoIP• Expérience des technologies de virtualisation, idéalement VV (vSphere/ESXi/vCenter)• Bonne connaissance des technologies de réseau et des principes de sécurité (LAN/WLAN, Cisco, 802.1x, durcissement et les fichiers de sécurité)• Expérience de la sauvegarde/restauration et du stockage (par exemple: Veeam) et Monitoring/Logging• Des compétences élevées en automatisation et en script (PowerShell; idéalement soutenu par Git mode de fonctionnement, IC/CD-profit méthodes)• Avantage est familier avec Ansible et la gestion de code source avec Git• Mode de fonctionnement structuré, auto-responsible, orientation de service élevé et bonne communication; Connaissances utilisateur dans Atlassian Cloud Suite• Très bon allemand; les compétences françaises et/ou italiennes sont avantageuses"
-      },
-      "location": "Moosseedorf",
-      "canton": "BE",
-      "url": "https://jobs.transgourmet.ch/offene-stellen/system-engineer-windows/f633a1ed-4c62-4291-be3c-dd3d535cc231",
-      "source": "Transgourmet Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-28T22:07:46.391Z",
-      "addressLocality": "Moosseedorf",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3302",
-      "streetAddress": "Lochackerweg 5",
-      "category": "Ingegneria",
-      "contract": "permanent",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Commercio all'ingrosso alimentare",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-05",
-      "pensum": "100%",
-      "applyUrl": "https://career2.successfactors.eu/career?company=Coop&career_ns=job_application&career_job_req_id=164960",
-      "requirements": [
-        "• Abgeschlossene Informatikausbildung (EFZ/HF/FH) oder vergleichbare, mehrjährige Praxiserfahrung als Windows System Engineer",
-        "• Sehr gute Kenntnisse im Microsoft-Ökosystem, z. B. Microsoft 365, Azure, Windows Server & Clients, MS SQL (betriebsnah), Active Directory/Entra ID, Exchange (Online/Hybrid), Teams/VoIP",
-        "• Erfahrung mit Virtualisierungstechnologien, idealerweise VMware (vSphere/ESXi/vCenter)",
-        "• Gute Kenntnisse in Netzwerktechnologien und Security-Grundlagen (LAN/WLAN, Cisco, 802.1x, Härtung, Identity- & Access-Konzepte)",
-        "• Erfahrung mit Backup/Restore und Storage (z. B. Veeam) sowie Monitoring/Logging",
-        "• Starke Skills in Automatisierung & Skripting (PowerShell; idealerweise Git-gestützte Arbeitsweise, CI/CD-nahe Methoden von Vorteil)",
-        "• Von Vorteil bist du vertraut mit Ansible und Quellcodeverwaltung mit Git",
-        "• Strukturierte, eigenverantwortliche Arbeitsweise, hohe Serviceorientierung und gute Kommunikation; Anwenderkenntnisse in der Atlassian Cloud Suite",
-        "• Sehr gutes Deutsch; Französisch- und/oder Italienischkenntnisse sind von Vorteil"
-      ],
-      "requirementsByLocale": {
-        "de": [
-          "• Erfahrung mit Virtualisierungstechnologien, idealerweise VMware (vSphere/ESXi/vCenter)",
-          "• Erfahrung mit Backup/Restore und Storage (z. B. Veeam) sowie Monitoring/Logging",
-          "• Von Vorteil bist du vertraut mit Ansible und Quellcodeverwaltung mit Git",
-          "• Sehr gutes Deutsch; Französisch- und/oder Italienischkenntnisse sind von Vorteil"
-        ]
-      },
-      "previousSlugs": [
-        "system-engineer-windows-transgourmet-moosseedorf",
-        "finestre-del-system-engineer-transgourmet-moosseedorf"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "system-engineer-windows-transgourmet-moosseedorf",
-          "finestre-del-system-engineer-transgourmet-moosseedorf"
-        ]
-      },
-      "firstSeenAt": "2026-07-06T15:46:10.889Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -307,7 +318,7 @@
       "url": "https://jobs.transgourmet.ch/offene-stellen/mitarbeiterin-mitarbeiter-verkauf-allrounder/cf1ffd74-342b-41ae-b5d8-e70e704ab167",
       "source": "Transgourmet Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-28T22:07:46.390Z",
+      "crawledAt": "2026-07-29T11:34:54.556Z",
       "addressLocality": "Hinwil",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -347,7 +358,8 @@
         "mitarbeiterin-mitarbeiter-verkauf-allrounder-50-transgourmet-hinwil",
         "mitarbeiterin-vendeur-se-allrounder-50-transgourmet-hinwil",
         "mitarbeiterin-addetto-a-alle-vendite-allrounder-50-transgourmet-hinwil-fte7qr",
-        "mitarbeiterin-mitarbeiter-verkauf-allrounder-50-transgourmet-hinwil-2"
+        "mitarbeiterin-mitarbeiter-verkauf-allrounder-50-transgourmet-hinwil-2",
+        "mitarbeiterin-addetto-a-alle-vendite-allrounder-80-100-transgourmet-hinwil"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -357,7 +369,8 @@
           "mitarbeiterin-mitarbeiter-verkauf-allrounder-50-transgourmet-hinwil",
           "mitarbeiterin-vendeur-se-allrounder-50-transgourmet-hinwil",
           "mitarbeiterin-addetto-a-alle-vendite-allrounder-50-transgourmet-hinwil-fte7qr",
-          "mitarbeiterin-mitarbeiter-verkauf-allrounder-50-transgourmet-hinwil-2"
+          "mitarbeiterin-mitarbeiter-verkauf-allrounder-50-transgourmet-hinwil-2",
+          "mitarbeiterin-addetto-a-alle-vendite-allrounder-80-100-transgourmet-hinwil"
         ],
         "en": [
           "mitarbeiterin-mitarbeiter-verkauf-allrounder-80-100-transgourmet-hinwil",
@@ -374,6 +387,7 @@
         ]
       },
       "firstSeenAt": "2026-07-09T12:12:17.945Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -418,7 +432,7 @@
       "url": "https://jobs.transgourmet.ch/offene-stellen/sachbearbeiterin-sachbearbeiter-kundencenter/6febfcab-91b2-4070-b2f0-b299dc1507ee",
       "source": "Transgourmet Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-28T22:07:46.388Z",
+      "crawledAt": "2026-07-29T11:34:54.554Z",
       "addressLocality": "Kriens",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -454,14 +468,17 @@
         ]
       },
       "previousSlugs": [
-        "sachbearbeiterin-sachbearbeiter-kundencenter-transgourmet-kriens"
+        "sachbearbeiterin-sachbearbeiter-kundencenter-transgourmet-kriens",
+        "centro-clienti-personale-personale-transgourmet-kriens"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sachbearbeiterin-sachbearbeiter-kundencenter-transgourmet-kriens"
+          "sachbearbeiterin-sachbearbeiter-kundencenter-transgourmet-kriens",
+          "centro-clienti-personale-personale-transgourmet-kriens"
         ]
       },
       "firstSeenAt": "2026-07-01T23:19:34.150Z",
+      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -506,7 +523,7 @@
       "url": "https://jobs.transgourmet.ch/offene-stellen/abteilungsleiterin-abteilungsleiter-non-food/571a790a-e80c-42a9-b3d6-7bdfdfaf1939",
       "source": "Transgourmet Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-28T22:07:46.384Z",
+      "crawledAt": "2026-07-29T11:34:54.553Z",
       "addressLocality": "Bellach",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -542,11 +559,13 @@
         ]
       },
       "previousSlugs": [
-        "abteilungsleiterin-abteilungsleiter-non-food-transgourmet-bellach"
+        "abteilungsleiterin-abteilungsleiter-non-food-transgourmet-bellach",
+        "capo-dipartimento-capo-dipartimento-non-food-transgourmet-bellach"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "abteilungsleiterin-abteilungsleiter-non-food-transgourmet-bellach"
+          "abteilungsleiterin-abteilungsleiter-non-food-transgourmet-bellach",
+          "capo-dipartimento-capo-dipartimento-non-food-transgourmet-bellach"
         ],
         "en": [
           "abteilungsleiterin-abteilungsleiter-non-food-transgourmet-bellach"
@@ -556,6 +575,7 @@
         ]
       },
       "firstSeenAt": "2026-07-14T10:53:50.759Z",
+      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "baseSalary": {
@@ -565,6 +585,103 @@
           "@type": "QuantitativeValue",
           "minValue": 94500,
           "maxValue": 143000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "transgourmet-fa2e39fb-574",
+      "slug": "collaboratore-collaboratore-di-arrivi-transgourmet-gals",
+      "slugByLocale": {
+        "it": "collaboratore-collaboratore-di-arrivi-transgourmet-gals",
+        "en": "collaborator-collaborator-of-arrivals-transgourmet-gals",
+        "de": "mitarbeiter-mitarbeiter-von-arrivals-transgourmet-gals",
+        "fr": "collaboratrice-collaborateur-des-arrivages-transgourmet-gals"
+      },
+      "company": "Transgourmet",
+      "companyKey": "transgourmet",
+      "companyDomain": "transgourmet.ch",
+      "title": "Collaboratrice / Collaborateur des Arrivages",
+      "titleByLocale": {
+        "it": "Collaboratore / Collaboratore di Arrivi",
+        "en": "Collaborator / Collaborator of Arrivals",
+        "de": "Mitarbeiter / Mitarbeiter von Arrivals",
+        "fr": "Collaboratrice / Collaborateur des Arrivages"
+      },
+      "description": "Notre cœur bat pour le secteur gastronomique suisse. Nous nous engageons sans cesse pour nos clients. Dans nos 31 marchés de libre-service, par le biais du Service externe et de la livraison, tout autant que dans le monde numérique. Avec un assortiment varié, des marques propres attrayantes, des conseils spécialisés et professionnels et des services innovateurs.\n\nTransgourmet Suisse SA fait partie du groupe international Transgourmet. L'entreprise est leader dans le commerce de livraison et de libre-service en Suisse et compte quelque 2'100 collaborateurs, ainsi que 100'000 clients (restaurants, hôtels, cantines, foyers et hôpitaux, ainsi que commerce de détail).\n\n## Aufgaben\n• Assurer un traitement qualitatif de l'arrivage des marchandises de Transgourmet\n\n• Effectuer le contrôle des marchandises lors de l'arrivage et du stockage de manière professionnel en suivant les directives internes.\n\n• Travailler en étroite collaboration avec les collègues de l'entrepôt mais aussi avec les fournisseurs.\n\n• Assurer les différents échanges / retours d'emballages et d'articles consignés ou non avec les fournisseurs\n\n• Respecter des directives légales en matière d'assurance qualité\n\n## Anforderungen\n• Formation complète en tant que logisticien CFC/AFP ou au moins 3 ans d'expérience professionnelle dans ce domaine\n\n• Permis de conduire un chariot élévateur (reconnu par la SUVA) avec suffisamment   d'expérience\n\n• Initiative personnelle, fiabilité et forte volonté de s'engager\n\n• Bonne résistance physique au froid et aux charges\n\n• Bonnes connaissances dans l'utilisation des systèmes de gestion des stocks\n\n• Bonnes connaissances du français parlé / écrit",
+      "descriptionByLocale": {
+        "it": "Il nostro cuore batte per il settore gastronomico svizzero. Siamo costantemente impegnati nei nostri clienti. Nei nostri 31 mercati self-service, attraverso il servizio esterno e la consegna, così come nel mondo digitale. Con un assortimento vario, attraenti marchi puliti, consulenza specializzata e professionale e servizi innovativi.\n\nTransgourmet Suisse SA fa parte del gruppo internazionale Transgourmet. L'azienda è leader nel commercio di consegna e self-service in Svizzera e ha circa 2'100 dipendenti, così come 100'000 clienti (ristoranti, hotel, mense, case e ospedali, così come al dettaglio).\n\n## Aufgaben\n• Lavorazione qualitativa dell'arrivo dei beni Transgourmet\n\n• Eseguire il controllo delle merci quando si arriva e memorizzato in modo professionale seguendo le istruzioni interne.\n\n• Lavorare a stretto contatto con colleghi e fornitori di magazzino.\n\n• Assicurare diversi scambi / resi di pacchetti e articoli registrati o non con i fornitori\n\n• Osservare le linee guida di garanzia della qualità giuridica\n\n## Anforderungen\n• Full training as a CFC/AFP Logistician o almeno 3 anni di esperienza professionale in questo campo\n\n• Permesso di guidare un carrello elevatore (riconosciuto da SUVA) con esperienza sufficiente\n\n• Iniziativa personale, affidabilità e forte impegno\n\n• Buona resistenza fisica al freddo e ai carichi\n\n• Buona conoscenza nell'uso dei sistemi di gestione delle scorte\n\n• Buona conoscenza del francese parlato/scritto",
+        "en": "Our heart beats for the Swiss gastronomic sector. We are constantly committed to our clients. In our 31 self-service markets, through external service and delivery, as well as in the digital world. With a varied assortment, attractive clean brands, specialized and professional advice and innovative services.\n\nTransgourmet Suisse SA is part of the international group Transgourmet. The company is a leader in the delivery and self-service trade in Switzerland and has some 2'100 employees, as well as 100'000 customers (restaurants, hotels, canteens, homes and hospitals, as well as retail).\n\n## Aufgaben\n• Qualitative processing of the arrival of Transgourmet goods\n\n• Perform control of goods when arriving and stored in a professional manner following internal instructions.\n\n• Work closely with warehouse colleagues and suppliers.\n\n• Ensure different exchanges / returns of packages and items recorded or not with suppliers\n\n• Observe legal quality assurance guidelines\n\n## Anforderungen\n• Full training as a CFC/AFP Logistician or at least 3 years of professional experience in this field\n\n• Permit to drive a forklift (recognized by SUVA) with sufficient experience\n\n• Personal initiative, reliability and strong commitment\n\n• Good physical resistance to cold and loads\n\n• Good knowledge in the use of inventory management systems\n\n• Good knowledge of spoken/written French",
+        "de": "Unser Herz schlägt für die Schweizer Gastronomie. Wir sind unseren Kunden ständig verpflichtet. In unseren 31 Self-Service-Märkten, durch externe Dienstleistung und Lieferung, sowie in der digitalen Welt. Mit einem abwechslungsreichen Sortiment, attraktiven sauberen Marken, spezialisierter und professioneller Beratung und innovativen Dienstleistungen.\n\nTransgourmet Suisse SA ist Teil der internationalen Gruppe Transgourmet. Das Unternehmen ist führend im Liefer- und Selbstbedienungshandel der Schweiz und beschäftigt rund 2'100 Mitarbeiter sowie 100'000 Kunden (Restaurants, Hotels, Kantinen, Häuser und Krankenhäuser sowie Einzelhandel).\n\n## Aufgaben\n• Qualitative Verarbeitung der Ankunft von Transgourmet-Waren\n\n• Kontrollieren Sie die Waren bei der Ankunft und lagern Sie sie professionell nach internen Anweisungen.\n\n• Arbeiten Sie eng mit Lagerkollegen und Lieferanten zusammen.\n\n• Stellen Sie sicher, dass unterschiedliche Umtausch / Rückgabe von Paketen und Artikeln aufgezeichnet oder nicht mit Lieferanten\n\n• Einhaltung der gesetzlichen Qualitätssicherungsrichtlinien\n\n## Vorschriften\n• Vollständige Ausbildung zum CFC/AFP-Logistiker oder mindestens 3 Jahre Berufserfahrung in diesem Bereich\n\n• Genehmigung zum Führen eines Gabelstaplers (anerkannt von SUVA) mit ausreichender Erfahrung\n\n• Eigeninitiative, Zuverlässigkeit und starkes Engagement\n\n• Gute physikalische Beständigkeit gegen Kälte und Belastungen\n\n• Gute Kenntnisse im Einsatz von Bestandsverwaltungssystemen\n\n• Gute Kenntnisse des gesprochenen / geschriebenen Französisch",
+        "fr": "Notre cœur bat pour le secteur gastronomique suisse. Nous nous engageons sans cesse pour nos clients. Dans nos 31 marchés de libre-service, par le biais du Service externe et de la livraison, tout autant que dans le monde numérique. Avec un assortiment varié, des marques propres attrayantes, des conseils spécialisés et professionnels et des services innovateurs.\n\nTransgourmet Suisse SA fait partie du groupe international Transgourmet. L'entreprise est leader dans le commerce de livraison et de libre-service en Suisse et compte quelque 2'100 collaborateurs, ainsi que 100'000 clients (restaurants, hôtels, cantines, foyers et hôpitaux, ainsi que commerce de détail).\n\n## Aufgaben\n• Assurer un traitement qualitatif de l'arrivage des marchandises de Transgourmet\n\n• Effectuer le contrôle des marchandises lors de l'arrivage et du stockage de manière professionnel en suivant les directives internes.\n\n• Travailler en étroite collaboration avec les collègues de l'entrepôt mais aussi avec les fournisseurs.\n\n• Assurer les différents échanges / retours d'emballages et d'articles consignés ou non avec les fournisseurs\n\n• Respecter des directives légales en matière d'assurance qualité\n\n## Anforderungen\n• Formation complète en tant que logisticien CFC/AFP ou au moins 3 ans d'expérience professionnelle dans ce domaine\n\n• Permis de conduire un chariot élévateur (reconnu par la SUVA) avec suffisamment d'expérience\n\n• Initiative personnelle, fiabilité et forte volonté de s'engager\n\n• Bonne résistance physique au froid et aux charges\n\n• Bonnes connaissances dans l'utilisation des systèmes de gestion des stocks\n\n• Bonnes connaissances du français parlé / écrit"
+      },
+      "location": "Gals",
+      "canton": "BE",
+      "url": "https://jobs.transgourmet.ch/postes-vacantes/collaboratrice-collaborateur-des-arrivages/fa2e39fb-5748-44dd-86b8-a76543b37633",
+      "source": "Transgourmet Dedicated Parser",
+      "sourceLang": "fr",
+      "crawledAt": "2026-07-29T11:34:54.550Z",
+      "addressLocality": "Gals",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "3238",
+      "streetAddress": "Bernstrasse 9",
+      "category": "Altro",
+      "contract": "permanent",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Commercio all'ingrosso alimentare",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-21",
+      "pensum": "100%",
+      "applyUrl": "https://career2.successfactors.eu/career?company=Coop&career_ns=job_application&career_job_req_id=168623",
+      "requirements": [
+        "• Formation complète en tant que logisticien CFC/AFP ou au moins 3 ans d'expérience professionnelle dans ce domaine",
+        "• Permis de conduire un chariot élévateur (reconnu par la SUVA) avec suffisamment   d'expérience",
+        "• Initiative personnelle, fiabilité et forte volonté de s'engager",
+        "• Bonne résistance physique au froid et aux charges",
+        "• Bonnes connaissances dans l'utilisation des systèmes de gestion des stocks",
+        "• Bonnes connaissances du français parlé / écrit"
+      ],
+      "requirementsByLocale": {
+        "fr": [
+          "• Formation complète en tant que logisticien CFC/AFP ou au moins 3 ans d'expérience professionnelle dans ce domaine",
+          "• Permis de conduire un chariot élévateur (reconnu par la SUVA) avec suffisamment d'expérience",
+          "• Initiative personnelle, fiabilité et forte volonté de s'engager",
+          "• Bonne résistance physique au froid et aux charges",
+          "• Bonnes connaissances dans l'utilisation des systèmes de gestion des stocks",
+          "• Bonnes connaissances du français parlé / écrit"
+        ]
+      },
+      "previousSlugs": [
+        "collaboratrice-collaborateur-des-arrivages-transgourmet-gals",
+        "collaboratore-collaboratore-di-arrivi-transgourmet-gals"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "collaboratrice-collaborateur-des-arrivages-transgourmet-gals",
+          "collaboratore-collaboratore-di-arrivi-transgourmet-gals"
+        ],
+        "en": [
+          "collaboratrice-collaborateur-des-arrivages-transgourmet-gals"
+        ],
+        "de": [
+          "collaboratrice-collaborateur-des-arrivages-transgourmet-gals"
+        ]
+      },
+      "firstSeenAt": "2026-07-21T11:15:23.704Z",
+      "needsRetranslation": true,
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68500,
+          "maxValue": 104000,
           "unitText": "YEAR"
         }
       }
@@ -600,7 +717,7 @@
       "url": "https://jobs.transgourmet.ch/offene-stellen/mitarbeiterin-mitarbeiter-verkauf-markt/57aaf462-20f3-4c1f-8b7c-cff06ebbe1c8",
       "source": "Transgourmet Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-28T22:07:46.380Z",
+      "crawledAt": "2026-07-29T11:34:54.550Z",
       "addressLocality": "Gamsen",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -641,13 +758,15 @@
         "mitarbeiterin-mitarbeiter-verkauf-markt-transgourmet-gamsen",
         "addetta-addetto-alle-vendite-nel-reparto-mercato-transgourmet-gamsen",
         "employee-employe-de-vente-en-marche-transgourmet-gamsen",
-        "sales-assistant-in-market-department-transgourmet-gamsen"
+        "sales-assistant-in-market-department-transgourmet-gamsen",
+        "mitarbeiterin-addetto-a-alle-vendite-markt-transgourmet-gamsen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiterin-mitarbeiter-verkauf-markt-transgourmet-gamsen",
           "addetta-addetto-alle-vendite-nel-reparto-mercato-transgourmet-gamsen",
-          "sales-assistant-in-market-department-transgourmet-gamsen"
+          "sales-assistant-in-market-department-transgourmet-gamsen",
+          "mitarbeiterin-addetto-a-alle-vendite-markt-transgourmet-gamsen"
         ],
         "en": [
           "mitarbeiterin-mitarbeiter-verkauf-markt-transgourmet-gamsen"
@@ -658,6 +777,7 @@
         ]
       },
       "firstSeenAt": "2026-07-16T11:07:22.804Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -667,100 +787,6 @@
           "@type": "QuantitativeValue",
           "minValue": 60500,
           "maxValue": 91500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "transgourmet-fa2e39fb-574",
-      "slug": "collaboratore-collaboratore-di-arrivi-transgourmet-gals",
-      "slugByLocale": {
-        "it": "collaboratore-collaboratore-di-arrivi-transgourmet-gals",
-        "en": "collaborator-collaborator-of-arrivals-transgourmet-gals",
-        "de": "mitarbeiter-mitarbeiter-von-arrivals-transgourmet-gals",
-        "fr": "collaboratrice-collaborateur-des-arrivages-transgourmet-gals"
-      },
-      "company": "Transgourmet",
-      "companyKey": "transgourmet",
-      "companyDomain": "transgourmet.ch",
-      "title": "Collaboratrice / Collaborateur des Arrivages",
-      "titleByLocale": {
-        "it": "Collaboratore / Collaboratore di Arrivi",
-        "en": "Collaborator / Collaborator of Arrivals",
-        "de": "Mitarbeiter / Mitarbeiter von Arrivals",
-        "fr": "Collaboratrice / Collaborateur des Arrivages"
-      },
-      "description": "Notre cœur bat pour le secteur gastronomique suisse. Nous nous engageons sans cesse pour nos clients. Dans nos 31 marchés de libre-service, par le biais du Service externe et de la livraison, tout autant que dans le monde numérique. Avec un assortiment varié, des marques propres attrayantes, des conseils spécialisés et professionnels et des services innovateurs.\n\nTransgourmet Suisse SA fait partie du groupe international Transgourmet. L'entreprise est leader dans le commerce de livraison et de libre-service en Suisse et compte quelque 2'100 collaborateurs, ainsi que 100'000 clients (restaurants, hôtels, cantines, foyers et hôpitaux, ainsi que commerce de détail).\n\n## Aufgaben\n• Assurer un traitement qualitatif de l'arrivage des marchandises de Transgourmet\n\n• Effectuer le contrôle des marchandises lors de l'arrivage et du stockage de manière professionnel en suivant les directives internes.\n\n• Travailler en étroite collaboration avec les collègues de l'entrepôt mais aussi avec les fournisseurs.\n\n• Assurer les différents échanges / retours d'emballages et d'articles consignés ou non avec les fournisseurs\n\n• Respecter des directives légales en matière d'assurance qualité\n\n## Anforderungen\n• Formation complète en tant que logisticien CFC/AFP ou au moins 3 ans d'expérience professionnelle dans ce domaine\n\n• Permis de conduire un chariot élévateur (reconnu par la SUVA) avec suffisamment   d'expérience\n\n• Initiative personnelle, fiabilité et forte volonté de s'engager\n\n• Bonne résistance physique au froid et aux charges\n\n• Bonnes connaissances dans l'utilisation des systèmes de gestion des stocks\n\n• Bonnes connaissances du français parlé / écrit",
-      "descriptionByLocale": {
-        "it": "Il nostro cuore batte per il settore gastronomico svizzero. Siamo costantemente impegnati nei nostri clienti. Nei nostri 31 mercati self-service, attraverso il servizio esterno e la consegna, così come nel mondo digitale. Con un assortimento vario, attraenti marchi puliti, consulenza specializzata e professionale e servizi innovativi.\n\nTransgourmet Suisse SA fa parte del gruppo internazionale Transgourmet. L'azienda è leader nel commercio di consegna e self-service in Svizzera e ha circa 2'100 dipendenti, così come 100'000 clienti (ristoranti, hotel, mense, case e ospedali, così come al dettaglio).\n\n## Aufgaben\n• Lavorazione qualitativa dell'arrivo dei beni Transgourmet\n\n• Eseguire il controllo delle merci quando si arriva e memorizzato in modo professionale seguendo le istruzioni interne.\n\n• Lavorare a stretto contatto con colleghi e fornitori di magazzino.\n\n• Assicurare diversi scambi / resi di pacchetti e articoli registrati o non con i fornitori\n\n• Osservare le linee guida di garanzia della qualità giuridica\n\n## Anforderungen\n• Full training as a CFC/AFP Logistician o almeno 3 anni di esperienza professionale in questo campo\n\n• Permesso di guidare un carrello elevatore (riconosciuto da SUVA) con esperienza sufficiente\n\n• Iniziativa personale, affidabilità e forte impegno\n\n• Buona resistenza fisica al freddo e ai carichi\n\n• Buona conoscenza nell'uso dei sistemi di gestione delle scorte\n\n• Buona conoscenza del francese parlato/scritto",
-        "en": "Our heart beats for the Swiss gastronomic sector. We are constantly committed to our clients. In our 31 self-service markets, through external service and delivery, as well as in the digital world. With a varied assortment, attractive clean brands, specialized and professional advice and innovative services.\n\nTransgourmet Suisse SA is part of the international group Transgourmet. The company is a leader in the delivery and self-service trade in Switzerland and has some 2'100 employees, as well as 100'000 customers (restaurants, hotels, canteens, homes and hospitals, as well as retail).\n\n## Aufgaben\n• Qualitative processing of the arrival of Transgourmet goods\n\n• Perform control of goods when arriving and stored in a professional manner following internal instructions.\n\n• Work closely with warehouse colleagues and suppliers.\n\n• Ensure different exchanges / returns of packages and items recorded or not with suppliers\n\n• Observe legal quality assurance guidelines\n\n## Anforderungen\n• Full training as a CFC/AFP Logistician or at least 3 years of professional experience in this field\n\n• Permit to drive a forklift (recognized by SUVA) with sufficient experience\n\n• Personal initiative, reliability and strong commitment\n\n• Good physical resistance to cold and loads\n\n• Good knowledge in the use of inventory management systems\n\n• Good knowledge of spoken/written French",
-        "de": "Unser Herz schlägt für die Schweizer Gastronomie. Wir sind unseren Kunden ständig verpflichtet. In unseren 31 Self-Service-Märkten, durch externe Dienstleistung und Lieferung, sowie in der digitalen Welt. Mit einem abwechslungsreichen Sortiment, attraktiven sauberen Marken, spezialisierter und professioneller Beratung und innovativen Dienstleistungen.\n\nTransgourmet Suisse SA ist Teil der internationalen Gruppe Transgourmet. Das Unternehmen ist führend im Liefer- und Selbstbedienungshandel der Schweiz und beschäftigt rund 2'100 Mitarbeiter sowie 100'000 Kunden (Restaurants, Hotels, Kantinen, Häuser und Krankenhäuser sowie Einzelhandel).\n\n## Aufgaben\n• Qualitative Verarbeitung der Ankunft von Transgourmet-Waren\n\n• Kontrollieren Sie die Waren bei der Ankunft und lagern Sie sie professionell nach internen Anweisungen.\n\n• Arbeiten Sie eng mit Lagerkollegen und Lieferanten zusammen.\n\n• Stellen Sie sicher, dass unterschiedliche Umtausch / Rückgabe von Paketen und Artikeln aufgezeichnet oder nicht mit Lieferanten\n\n• Einhaltung der gesetzlichen Qualitätssicherungsrichtlinien\n\n## Vorschriften\n• Vollständige Ausbildung zum CFC/AFP-Logistiker oder mindestens 3 Jahre Berufserfahrung in diesem Bereich\n\n• Genehmigung zum Führen eines Gabelstaplers (anerkannt von SUVA) mit ausreichender Erfahrung\n\n• Eigeninitiative, Zuverlässigkeit und starkes Engagement\n\n• Gute physikalische Beständigkeit gegen Kälte und Belastungen\n\n• Gute Kenntnisse im Einsatz von Bestandsverwaltungssystemen\n\n• Gute Kenntnisse des gesprochenen / geschriebenen Französisch",
-        "fr": "Notre cœur bat pour le secteur gastronomique suisse. Nous nous engageons sans cesse pour nos clients. Dans nos 31 marchés de libre-service, par le biais du Service externe et de la livraison, tout autant que dans le monde numérique. Avec un assortiment varié, des marques propres attrayantes, des conseils spécialisés et professionnels et des services innovateurs.\n\nTransgourmet Suisse SA fait partie du groupe international Transgourmet. L'entreprise est leader dans le commerce de livraison et de libre-service en Suisse et compte quelque 2'100 collaborateurs, ainsi que 100'000 clients (restaurants, hôtels, cantines, foyers et hôpitaux, ainsi que commerce de détail).\n\n## Aufgaben\n• Assurer un traitement qualitatif de l'arrivage des marchandises de Transgourmet\n\n• Effectuer le contrôle des marchandises lors de l'arrivage et du stockage de manière professionnel en suivant les directives internes.\n\n• Travailler en étroite collaboration avec les collègues de l'entrepôt mais aussi avec les fournisseurs.\n\n• Assurer les différents échanges / retours d'emballages et d'articles consignés ou non avec les fournisseurs\n\n• Respecter des directives légales en matière d'assurance qualité\n\n## Anforderungen\n• Formation complète en tant que logisticien CFC/AFP ou au moins 3 ans d'expérience professionnelle dans ce domaine\n\n• Permis de conduire un chariot élévateur (reconnu par la SUVA) avec suffisamment d'expérience\n\n• Initiative personnelle, fiabilité et forte volonté de s'engager\n\n• Bonne résistance physique au froid et aux charges\n\n• Bonnes connaissances dans l'utilisation des systèmes de gestion des stocks\n\n• Bonnes connaissances du français parlé / écrit"
-      },
-      "location": "Gals",
-      "canton": "BE",
-      "url": "https://jobs.transgourmet.ch/postes-vacantes/collaboratrice-collaborateur-des-arrivages/fa2e39fb-5748-44dd-86b8-a76543b37633",
-      "source": "Transgourmet Dedicated Parser",
-      "sourceLang": "fr",
-      "crawledAt": "2026-07-28T22:07:46.379Z",
-      "addressLocality": "Gals",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3238",
-      "streetAddress": "Bernstrasse 9",
-      "category": "Altro",
-      "contract": "permanent",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Commercio all'ingrosso alimentare",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-21",
-      "pensum": "100%",
-      "applyUrl": "https://career2.successfactors.eu/career?company=Coop&career_ns=job_application&career_job_req_id=168623",
-      "requirements": [
-        "• Formation complète en tant que logisticien CFC/AFP ou au moins 3 ans d'expérience professionnelle dans ce domaine",
-        "• Permis de conduire un chariot élévateur (reconnu par la SUVA) avec suffisamment   d'expérience",
-        "• Initiative personnelle, fiabilité et forte volonté de s'engager",
-        "• Bonne résistance physique au froid et aux charges",
-        "• Bonnes connaissances dans l'utilisation des systèmes de gestion des stocks",
-        "• Bonnes connaissances du français parlé / écrit"
-      ],
-      "requirementsByLocale": {
-        "fr": [
-          "• Formation complète en tant que logisticien CFC/AFP ou au moins 3 ans d'expérience professionnelle dans ce domaine",
-          "• Permis de conduire un chariot élévateur (reconnu par la SUVA) avec suffisamment d'expérience",
-          "• Initiative personnelle, fiabilité et forte volonté de s'engager",
-          "• Bonne résistance physique au froid et aux charges",
-          "• Bonnes connaissances dans l'utilisation des systèmes de gestion des stocks",
-          "• Bonnes connaissances du français parlé / écrit"
-        ]
-      },
-      "previousSlugs": [
-        "collaboratrice-collaborateur-des-arrivages-transgourmet-gals"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "collaboratrice-collaborateur-des-arrivages-transgourmet-gals"
-        ],
-        "en": [
-          "collaboratrice-collaborateur-des-arrivages-transgourmet-gals"
-        ],
-        "de": [
-          "collaboratrice-collaborateur-des-arrivages-transgourmet-gals"
-        ]
-      },
-      "firstSeenAt": "2026-07-21T11:15:23.704Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
           "unitText": "YEAR"
         }
       }
@@ -796,7 +822,7 @@
       "url": "https://jobs.transgourmet.ch/offene-stellen/mitarbeiterin-mitarbeiter-verkauf-metzgerei/9d860179-c1b1-4c61-bbfd-76fac3939ee0",
       "source": "Transgourmet Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-28T22:07:46.378Z",
+      "crawledAt": "2026-07-29T11:34:54.549Z",
       "addressLocality": "Dietikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -839,7 +865,8 @@
         "mitarbeiterin-addetto-a-alle-vendite-metzgerei-transgourmet-dubendorf",
         "mitarbeiterin-sales-associate-metzgerei-transgourmet-dubendorf",
         "mitarbeiterin-mitarbeiter-verkauf-metzgerei-transgourmet-dubendorf",
-        "mitarbeiterin-vendeur-se-metzgerei-transgourmet-dubendorf"
+        "mitarbeiterin-vendeur-se-metzgerei-transgourmet-dubendorf",
+        "mitarbeiterin-addetto-a-alle-vendite-metzgerei-transgourmet-dietikon"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -850,7 +877,8 @@
           "mitarbeiterin-addetto-a-alle-vendite-metzgerei-transgourmet-dubendorf",
           "mitarbeiterin-sales-associate-metzgerei-transgourmet-dubendorf",
           "mitarbeiterin-mitarbeiter-verkauf-metzgerei-transgourmet-dubendorf",
-          "mitarbeiterin-vendeur-se-metzgerei-transgourmet-dubendorf"
+          "mitarbeiterin-vendeur-se-metzgerei-transgourmet-dubendorf",
+          "mitarbeiterin-addetto-a-alle-vendite-metzgerei-transgourmet-dietikon"
         ],
         "en": [
           "mitarbeiterin-mitarbeiter-verkauf-metzgerei-transgourmet-dietikon"
@@ -860,6 +888,7 @@
         ]
       },
       "firstSeenAt": "2026-07-21T22:06:00.871Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -869,98 +898,6 @@
           "@type": "QuantitativeValue",
           "minValue": 73500,
           "maxValue": 111500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "transgourmet-75222981-fde",
-      "slug": "ordina-picker-ordine-picker-transgourmet-landquart",
-      "slugByLocale": {
-        "it": "ordina-picker-ordine-picker-transgourmet-landquart",
-        "en": "order-picker-order-picker-transgourmet-landquart",
-        "de": "kommissioniererin-kommissionierer-transgourmet-landquart",
-        "fr": "recuperateur-de-commandes-recuperateur-de-commandes-transgourmet-landquart"
-      },
-      "company": "Transgourmet",
-      "companyKey": "transgourmet",
-      "companyDomain": "transgourmet.ch",
-      "title": "Kommissioniererin / Kommissionierer",
-      "titleByLocale": {
-        "it": "Ordina picker / ordine picker",
-        "en": "Order picker / order picker",
-        "de": "Kommissioniererin / Kommissionierer",
-        "fr": "Récupérateur de commandes / Récupérateur de commandes"
-      },
-      "description": "Unser Herz schlägt für die Schweizer Gastronomie. Mit viel Engagement sind wir für unsere Kunden da. In unseren 31 Abholmärkten, per Aussendienst und Belieferung, genauso wie in der digitalen Welt. Mit einem vielseitigen Sortiment, attraktiven Eigenmarken, professioneller Fachberatung und innovativen Services.\n\nTransgourmet Schweiz AG gehört zur internationalen Transgourmet-Gruppe. Das Unternehmen ist führend im Schweizer Belieferungs- und Abholgrosshandel und zählt rund 2'100 Mitarbeitende sowie 100'000 Kunden (Restaurants, Hotels, Kantinen, Heime und Spitäler sowie Detailhandel).\n\n## Aufgaben\n• Du kommissionierst Kundenaufträge termingerecht, fehlerfrei und qualitativ top – auch in Kühlräumen (3–5 °C).\n\n• Du hältst Rüstreihenfolgen ein und belädst die Transportgebinde korrekt.\n\n• Du ordnest Aufträge der richtigen Tour zu und platzierst sie am passenden Bereitstellungsplatz.\n\n• Du löst Nachschub aus, wenn Artikel zur Neige gehen.\n\n• Du unterstützt bei Inventuren und entsorgst Abfall fachgerecht.\n\n• Du arbeitest systemgeführt und hältst alle Kommissionier-, QS- und ASIB-Richtlinien ein.\n\n## Anforderungen\n• Du hast Erfahrung im Wareneingang und in der Kommissionierung.\n\n• Du besitzt ein gültigen SUVA-anerkannten Staplerausweis.\n\n• Du arbeitest zielorientiert, strukturiert und mit hoher Eigeninitiative.\n\n• Du bist körperlich belastbar und für Kühlräume gemacht.\n\n• Du kennst dich mit Lagerverwaltungssystemen aus.\n\n• Du sprichst gut Deutsch und bist zuverlässig.",
-      "descriptionByLocale": {
-        "it": "Il nostro cuore batte per la gastronomia svizzera. Con un sacco di impegno, siamo lì per i nostri clienti. Nei nostri 31 mercati di pick-up, per servizio di campo e consegna, così come nel mondo digitale. Con una gamma versatile, marchi propri attraenti, consulenza specialistica professionale e servizi innovativi.\n\nTransgourmet Schweiz AG fa parte del Gruppo Transgourmet internazionale. L'azienda è leader nel commercio all'ingrosso di approvvigionamento e pick-up svizzero e ha circa 2.100 dipendenti e 100.000 clienti (ristoranti, hotel, mense, case e ospedali e rivenditori).\n\n## Compiti\n• Scegli gli ordini dei clienti in tempo, senza errori e di alta qualità, anche nelle sale frigorifere (3-5 °C).\n\n• Mantenere gli ordini di configurazione e caricare correttamente i contenitori di trasporto.\n\n• Assegnare gli ordini al tour giusto e posizionarli nello spazio di consegna appropriato.\n\n• Si attivano forniture quando gli articoli vengono esauriti.\n\n• Sosteni gli inventari e disfasci correttamente i rifiuti.\n\n• Lei lavora sistema-gestito e conforme a tutte le linee guida di raccolta ordini, QS e ASIB.\n\n## Requisiti\n• Hai esperienza nella ricevuta e nella raccolta delle merci.\n\n• Hai un pass valido per carrello elevatore omologato SUVA.\n\n• Si lavora orientato all'obiettivo, strutturato e con un alto livello di iniziativa.\n\n• Siete fisicamente resilienti e fatti per le stanze fredde.\n\n• Conosci i sistemi di gestione del magazzino.\n\n• Parli bene tedesco e sei affidabile.",
-        "en": "Our heart beats for Swiss gastronomy. With a lot of commitment, we are there for our customers. In our 31 pick-up markets, by field service and delivery, as well as in the digital world. With a versatile range, attractive own brands, professional specialist advice and innovative services.\n\nTransgourmet Schweiz AG is part of the international Transgourmet Group. The company is a leader in the Swiss supply and pick-up wholesale trade and has around 2,100 employees and 100,000 customers (restaurants, hotels, canteens, homes and hospitals as well as retailers).\n\n## Tasks\n• You pick customer orders on time, error-free and top-quality – even in refrigeration rooms (3–5 °C).\n\n• You keep setup orders and load the transport containers correctly.\n\n• You assign orders to the right tour and place them in the appropriate delivery space.\n\n• You trigger supplies when articles run out.\n\n• You support with inventories and dispose of waste properly.\n\n• You work system-managed and comply with all order picking, QS and ASIB guidelines.\n\n## Requirements\n• You have experience in goods receipt and picking.\n\n• You have a valid SUVA-approved forklift pass.\n\n• You work goal-oriented, structured and with a high level of initiative.\n\n• You are physically resilient and made for cold rooms.\n\n• You are familiar with warehouse management systems.\n\n• You speak good German and are reliable.",
-        "de": "Unser Herz schlägt für die Schweizer Gastronomie. Mit viel Engagement sind wir für unsere Kunden da. In unseren 31 Abholmärkten, per Aussendienst und Belieferung, genauso wie in der digitalen Welt. Mit einem vielseitigen Sortiment, attraktiven Eigenmarken, professioneller Fachberatung und innovativen Services.\n\nTransgourmet Schweiz AG gehört zur internationalen Transgourmet-Gruppe. Das Unternehmen ist führend im Schweizer Belieferungs- und Abholgrosshandel und zählt rund 2'100 Mitarbeitende sowie 100'000 Kunden (Restaurants, Hotels, Kantinen, Heime und Spitäler sowie Detailhandel).\n\n## Aufgaben\n• Du kommissionierst Kundenaufträge termingerecht, fehlerfrei und qualitativ top – auch in Kühlräumen (3–5 °C).\n\n• Du hältst Rüstreihenfolgen ein und belädst die Transportgebinde korrekt.\n\n• Du ordnest Aufträge der richtigen Tour zu und platzierst sie am passenden Bereitstellungsplatz.\n\n• Du löst Nachschub aus, wenn Artikel zur Neige gehen.\n\n• Du unterstützt bei Inventuren und entsorgst Abfall fachgerecht.\n\n• Du arbeitest systemgeführt und hältst alle Kommissionier-, QS- und ASIB-Richtlinien ein.\n\n## Anforderungen\n• Du hast Erfahrung im Wareneingang und in der Kommissionierung.\n\n• Du besitzt ein gültigen SUVA-anerkannten Staplerausweis.\n\n• Du arbeitest zielorientiert, strukturiert und mit hoher Eigeninitiative.\n\n• Du bist körperlich belastbar und für Kühlräume gemacht.\n\n• Du kennst dich mit Lagerverwaltungssystemen aus.\n\n• Du sprichst gut Deutsch und bist zuverlässig.",
-        "fr": "Notre cœur bat pour la gastronomie suisse. Avec beaucoup d'engagement, nous sommes là pour nos clients. Dans nos 31 marchés de ramassage, par service sur le terrain et par livraison, ainsi que dans le monde numérique. Avec une gamme polyvalente, des marques propres attrayantes, des conseils professionnels spécialisés et des services innovants.\n\nTransgourmet Schweiz AG fait partie du groupe international Transgourmet. L'entreprise est leader dans le commerce de gros suisse d'approvisionnement et de ramassage et compte environ 2 100 employés et 100 000 clients (restaurants, hôtels, cantines, maisons et hôpitaux ainsi que détaillants).\n\n## Tâche\n• Vous choisissez les commandes des clients à temps, sans erreur et de qualité supérieure – même dans les salles de réfrigération (3-5 °C).\n\n• Vous gardez les commandes de configuration et chargez correctement les conteneurs de transport.\n\n• Vous assignez des commandes à la bonne visite et les placez dans l'espace de livraison approprié.\n\n• Vous déclenchez des fournitures quand les articles sont épuisés.\n\n• Vous supportez les stocks et éliminez les déchets correctement.\n\n• Vous travaillez système géré et se conforme à toutes les commandes, QS et ASIB lignes directrices.\n\n## Exigences\n• Vous avez de l'expérience dans la réception et la cueillette des marchandises.\n\n• Vous avez une carte de chariot élévateur valide approuvée par le SUVA.\n\n• Vous travaillez sur des objectifs, structurés et avec un haut niveau d'initiative.\n\n• Vous êtes physiquement résistant et fait pour les chambres froides.\n\n• Vous connaissez bien les systèmes de gestion des entrepôts.\n\n• Tu parles bien l'allemand et tu es fiable."
-      },
-      "location": "Landquart",
-      "canton": "GR",
-      "url": "https://jobs.transgourmet.ch/offene-stellen/kommissioniererin-kommissionierer/75222981-fdea-4776-a3ed-9b9edea180cf",
-      "source": "Transgourmet Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-28T22:07:46.370Z",
-      "addressLocality": "Landquart",
-      "addressRegion": "GR",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "permanent",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Commercio all'ingrosso alimentare",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-24",
-      "pensum": "80-100%",
-      "applyUrl": "https://career2.successfactors.eu/career?company=Coop&career_ns=job_application&career_job_req_id=168551",
-      "requirements": [
-        "• Du hast Erfahrung im Wareneingang und in der Kommissionierung.",
-        "• Du besitzt ein gültigen SUVA-anerkannten Staplerausweis.",
-        "• Du arbeitest zielorientiert, strukturiert und mit hoher Eigeninitiative.",
-        "• Du bist körperlich belastbar und für Kühlräume gemacht.",
-        "• Du kennst dich mit Lagerverwaltungssystemen aus.",
-        "• Du sprichst gut Deutsch und bist zuverlässig."
-      ],
-      "requirementsByLocale": {
-        "de": [
-          "• Du hast Erfahrung im Wareneingang und in der Kommissionierung.",
-          "• Du besitzt ein gültigen SUVA-anerkannten Staplerausweis.",
-          "• Du arbeitest zielorientiert, strukturiert und mit hoher Eigeninitiative.",
-          "• Du bist körperlich belastbar und für Kühlräume gemacht.",
-          "• Du kennst dich mit Lagerverwaltungssystemen aus.",
-          "• Du sprichst gut Deutsch und bist zuverlässig."
-        ]
-      },
-      "previousSlugs": [
-        "kommissioniererin-kommissionierer-transgourmet-landquart"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "kommissioniererin-kommissionierer-transgourmet-landquart"
-        ],
-        "en": [
-          "kommissioniererin-kommissionierer-transgourmet-landquart"
-        ],
-        "fr": [
-          "kommissioniererin-kommissionierer-transgourmet-landquart"
-        ]
-      },
-      "firstSeenAt": "2026-07-24T22:06:53.285Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
           "unitText": "YEAR"
         }
       }
@@ -996,7 +933,7 @@
       "url": "https://jobs.transgourmet.ch/offene-stellen/mitarbeiterin-bereitstellung-mitarbeiter-bereitstellung/4b66d7c3-4136-47e2-b212-1d3645daf99a",
       "source": "Transgourmet Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-28T22:07:46.369Z",
+      "crawledAt": "2026-07-29T11:34:54.544Z",
       "addressLocality": "Landquart",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -1031,11 +968,13 @@
         ]
       },
       "previousSlugs": [
-        "mitarbeiterin-bereitstellung-mitarbeiter-bereitstellung-transgourmet-landquart"
+        "mitarbeiterin-bereitstellung-mitarbeiter-bereitstellung-transgourmet-landquart",
+        "mitarbeiterin-bereitstellung-collaboratore-trice-bereitstellung-transgourmet-landquart"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiterin-bereitstellung-mitarbeiter-bereitstellung-transgourmet-landquart"
+          "mitarbeiterin-bereitstellung-mitarbeiter-bereitstellung-transgourmet-landquart",
+          "mitarbeiterin-bereitstellung-collaboratore-trice-bereitstellung-transgourmet-landquart"
         ],
         "en": [
           "mitarbeiterin-bereitstellung-mitarbeiter-bereitstellung-transgourmet-landquart"
@@ -1045,6 +984,104 @@
         ]
       },
       "firstSeenAt": "2026-07-24T22:06:53.284Z",
+      "needsRetranslation": true,
+      "salaryMin": 57500,
+      "salaryMax": 87000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 57500,
+          "maxValue": 87000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "transgourmet-75222981-fde",
+      "slug": "ordina-picker-ordine-picker-transgourmet-landquart",
+      "slugByLocale": {
+        "it": "ordina-picker-ordine-picker-transgourmet-landquart",
+        "en": "order-picker-order-picker-transgourmet-landquart",
+        "de": "kommissioniererin-kommissionierer-transgourmet-landquart",
+        "fr": "kommissioniererin-kommissionierer-transgourmet-landquart"
+      },
+      "company": "Transgourmet",
+      "companyKey": "transgourmet",
+      "companyDomain": "transgourmet.ch",
+      "title": "Kommissioniererin / Kommissionierer",
+      "titleByLocale": {
+        "it": "Ordina picker / ordine picker",
+        "en": "Order picker / order picker",
+        "de": "Kommissioniererin / Kommissionierer",
+        "fr": "Kommissioniererin / Kommissionierer"
+      },
+      "description": "Unser Herz schlägt für die Schweizer Gastronomie. Mit viel Engagement sind wir für unsere Kunden da. In unseren 31 Abholmärkten, per Aussendienst und Belieferung, genauso wie in der digitalen Welt. Mit einem vielseitigen Sortiment, attraktiven Eigenmarken, professioneller Fachberatung und innovativen Services.\n\nTransgourmet Schweiz AG gehört zur internationalen Transgourmet-Gruppe. Das Unternehmen ist führend im Schweizer Belieferungs- und Abholgrosshandel und zählt rund 2'100 Mitarbeitende sowie 100'000 Kunden (Restaurants, Hotels, Kantinen, Heime und Spitäler sowie Detailhandel).\n\n## Aufgaben\n• Du kommissionierst Kundenaufträge termingerecht, fehlerfrei und qualitativ top – auch in Kühlräumen (3–5 °C).\n\n• Du hältst Rüstreihenfolgen ein und belädst die Transportgebinde korrekt.\n\n• Du ordnest Aufträge der richtigen Tour zu und platzierst sie am passenden Bereitstellungsplatz.\n\n• Du löst Nachschub aus, wenn Artikel zur Neige gehen.\n\n• Du unterstützt bei Inventuren und entsorgst Abfall fachgerecht.\n\n• Du arbeitest systemgeführt und hältst alle Kommissionier-, QS- und ASIB-Richtlinien ein.\n\n## Anforderungen\n• Du hast Erfahrung im Wareneingang und in der Kommissionierung.\n\n• Du besitzt ein gültigen SUVA-anerkannten Staplerausweis.\n\n• Du arbeitest zielorientiert, strukturiert und mit hoher Eigeninitiative.\n\n• Du bist körperlich belastbar und für Kühlräume gemacht.\n\n• Du kennst dich mit Lagerverwaltungssystemen aus.\n\n• Du sprichst gut Deutsch und bist zuverlässig.",
+      "descriptionByLocale": {
+        "it": "Il nostro cuore batte per la gastronomia svizzera. Con un sacco di impegno, siamo lì per i nostri clienti. Nei nostri 31 mercati di pick-up, per servizio di campo e consegna, così come nel mondo digitale. Con una gamma versatile, marchi propri attraenti, consulenza specialistica professionale e servizi innovativi.\n\nTransgourmet Schweiz AG fa parte del Gruppo Transgourmet internazionale. L'azienda è leader nel commercio all'ingrosso di approvvigionamento e pick-up svizzero e ha circa 2.100 dipendenti e 100.000 clienti (ristoranti, hotel, mense, case e ospedali e rivenditori).\n\n## Compiti\n• Scegli gli ordini dei clienti in tempo, senza errori e di alta qualità, anche nelle sale frigorifere (3-5 °C).\n\n• Mantenere gli ordini di configurazione e caricare correttamente i contenitori di trasporto.\n\n• Assegnare gli ordini al tour giusto e posizionarli nello spazio di consegna appropriato.\n\n• Si attivano forniture quando gli articoli vengono esauriti.\n\n• Sosteni gli inventari e disfasci correttamente i rifiuti.\n\n• Lei lavora sistema-gestito e conforme a tutte le linee guida di raccolta ordini, QS e ASIB.\n\n## Requisiti\n• Hai esperienza nella ricevuta e nella raccolta delle merci.\n\n• Hai un pass valido per carrello elevatore omologato SUVA.\n\n• Si lavora orientato all'obiettivo, strutturato e con un alto livello di iniziativa.\n\n• Siete fisicamente resilienti e fatti per le stanze fredde.\n\n• Conosci i sistemi di gestione del magazzino.\n\n• Parli bene tedesco e sei affidabile.",
+        "en": "Our heart beats for Swiss gastronomy. With a lot of commitment, we are there for our customers. In our 31 pick-up markets, by field service and delivery, as well as in the digital world. With a versatile range, attractive own brands, professional specialist advice and innovative services.\n\nTransgourmet Schweiz AG is part of the international Transgourmet Group. The company is a leader in the Swiss supply and pick-up wholesale trade and has around 2,100 employees and 100,000 customers (restaurants, hotels, canteens, homes and hospitals as well as retailers).\n\n## Tasks\n• You pick customer orders on time, error-free and top-quality – even in refrigeration rooms (3–5 °C).\n\n• You keep setup orders and load the transport containers correctly.\n\n• You assign orders to the right tour and place them in the appropriate delivery space.\n\n• You trigger supplies when articles run out.\n\n• You support with inventories and dispose of waste properly.\n\n• You work system-managed and comply with all order picking, QS and ASIB guidelines.\n\n## Requirements\n• You have experience in goods receipt and picking.\n\n• You have a valid SUVA-approved forklift pass.\n\n• You work goal-oriented, structured and with a high level of initiative.\n\n• You are physically resilient and made for cold rooms.\n\n• You are familiar with warehouse management systems.\n\n• You speak good German and are reliable.",
+        "de": "Unser Herz schlägt für die Schweizer Gastronomie. Mit viel Engagement sind wir für unsere Kunden da. In unseren 31 Abholmärkten, per Aussendienst und Belieferung, genauso wie in der digitalen Welt. Mit einem vielseitigen Sortiment, attraktiven Eigenmarken, professioneller Fachberatung und innovativen Services.\n\nTransgourmet Schweiz AG gehört zur internationalen Transgourmet-Gruppe. Das Unternehmen ist führend im Schweizer Belieferungs- und Abholgrosshandel und zählt rund 2'100 Mitarbeitende sowie 100'000 Kunden (Restaurants, Hotels, Kantinen, Heime und Spitäler sowie Detailhandel).\n\n## Aufgaben\n• Du kommissionierst Kundenaufträge termingerecht, fehlerfrei und qualitativ top – auch in Kühlräumen (3–5 °C).\n\n• Du hältst Rüstreihenfolgen ein und belädst die Transportgebinde korrekt.\n\n• Du ordnest Aufträge der richtigen Tour zu und platzierst sie am passenden Bereitstellungsplatz.\n\n• Du löst Nachschub aus, wenn Artikel zur Neige gehen.\n\n• Du unterstützt bei Inventuren und entsorgst Abfall fachgerecht.\n\n• Du arbeitest systemgeführt und hältst alle Kommissionier-, QS- und ASIB-Richtlinien ein.\n\n## Anforderungen\n• Du hast Erfahrung im Wareneingang und in der Kommissionierung.\n\n• Du besitzt ein gültigen SUVA-anerkannten Staplerausweis.\n\n• Du arbeitest zielorientiert, strukturiert und mit hoher Eigeninitiative.\n\n• Du bist körperlich belastbar und für Kühlräume gemacht.\n\n• Du kennst dich mit Lagerverwaltungssystemen aus.\n\n• Du sprichst gut Deutsch und bist zuverlässig.",
+        "fr": "Notre cœur bat pour la gastronomie suisse. Avec beaucoup d'engagement, nous sommes là pour nos clients. Dans nos 31 marchés de ramassage, par service sur le terrain et par livraison, ainsi que dans le monde numérique. Avec une gamme polyvalente, des marques propres attrayantes, des conseils professionnels spécialisés et des services innovants.\n\nTransgourmet Schweiz AG fait partie du groupe international Transgourmet. L'entreprise est leader dans le commerce de gros suisse d'approvisionnement et de ramassage et compte environ 2 100 employés et 100 000 clients (restaurants, hôtels, cantines, maisons et hôpitaux ainsi que détaillants).\n\n## Tâche\n• Vous choisissez les commandes des clients à temps, sans erreur et de qualité supérieure – même dans les salles de réfrigération (3-5 °C).\n\n• Vous gardez les commandes de configuration et chargez correctement les conteneurs de transport.\n\n• Vous assignez des commandes à la bonne visite et les placez dans l'espace de livraison approprié.\n\n• Vous déclenchez des fournitures quand les articles sont épuisés.\n\n• Vous supportez les stocks et éliminez les déchets correctement.\n\n• Vous travaillez système géré et se conforme à toutes les commandes, QS et ASIB lignes directrices.\n\n## Exigences\n• Vous avez de l'expérience dans la réception et la cueillette des marchandises.\n\n• Vous avez une carte de chariot élévateur valide approuvée par le SUVA.\n\n• Vous travaillez sur des objectifs, structurés et avec un haut niveau d'initiative.\n\n• Vous êtes physiquement résistant et fait pour les chambres froides.\n\n• Vous connaissez bien les systèmes de gestion des entrepôts.\n\n• Tu parles bien l'allemand et tu es fiable."
+      },
+      "location": "Landquart",
+      "canton": "GR",
+      "url": "https://jobs.transgourmet.ch/offene-stellen/kommissioniererin-kommissionierer/75222981-fdea-4776-a3ed-9b9edea180cf",
+      "source": "Transgourmet Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-07-29T11:34:54.544Z",
+      "addressLocality": "Landquart",
+      "addressRegion": "GR",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "permanent",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Commercio all'ingrosso alimentare",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-24",
+      "pensum": "80-100%",
+      "applyUrl": "https://career2.successfactors.eu/career?company=Coop&career_ns=job_application&career_job_req_id=168551",
+      "requirements": [
+        "• Du hast Erfahrung im Wareneingang und in der Kommissionierung.",
+        "• Du besitzt ein gültigen SUVA-anerkannten Staplerausweis.",
+        "• Du arbeitest zielorientiert, strukturiert und mit hoher Eigeninitiative.",
+        "• Du bist körperlich belastbar und für Kühlräume gemacht.",
+        "• Du kennst dich mit Lagerverwaltungssystemen aus.",
+        "• Du sprichst gut Deutsch und bist zuverlässig."
+      ],
+      "requirementsByLocale": {
+        "de": [
+          "• Du hast Erfahrung im Wareneingang und in der Kommissionierung.",
+          "• Du besitzt ein gültigen SUVA-anerkannten Staplerausweis.",
+          "• Du arbeitest zielorientiert, strukturiert und mit hoher Eigeninitiative.",
+          "• Du bist körperlich belastbar und für Kühlräume gemacht.",
+          "• Du kennst dich mit Lagerverwaltungssystemen aus.",
+          "• Du sprichst gut Deutsch und bist zuverlässig."
+        ]
+      },
+      "previousSlugs": [
+        "kommissioniererin-kommissionierer-transgourmet-landquart",
+        "recuperateur-de-commandes-recuperateur-de-commandes-transgourmet-landquart",
+        "ordina-picker-ordine-picker-transgourmet-landquart"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "kommissioniererin-kommissionierer-transgourmet-landquart",
+          "ordina-picker-ordine-picker-transgourmet-landquart"
+        ],
+        "en": [
+          "kommissioniererin-kommissionierer-transgourmet-landquart"
+        ],
+        "fr": [
+          "recuperateur-de-commandes-recuperateur-de-commandes-transgourmet-landquart",
+          "kommissioniererin-kommissionierer-transgourmet-landquart"
+        ]
+      },
+      "firstSeenAt": "2026-07-24T22:06:53.285Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -1060,9 +1097,9 @@
     },
     {
       "id": "transgourmet-02920716-191",
-      "slug": "logistica-notturna-logistica-notturna-transgourmet-landquart",
+      "slug": "nachtlogistikerin-nachtlogistiker-transgourmet-landquart",
       "slugByLocale": {
-        "it": "logistica-notturna-logistica-notturna-transgourmet-landquart",
+        "it": "nachtlogistikerin-nachtlogistiker-transgourmet-landquart",
         "en": "night-logistician-night-logistician-transgourmet-landquart",
         "de": "nachtlogistikerin-nachtlogistiker-transgourmet-landquart",
         "fr": "logisticien-nocturne-logisticien-nocturne-transgourmet-landquart"
@@ -1072,7 +1109,7 @@
       "companyDomain": "transgourmet.ch",
       "title": "Nachtlogistikerin / Nachtlogistiker",
       "titleByLocale": {
-        "it": "Logistica notturna / logistica notturna",
+        "it": "Nachtlogistikerin / Nachtlogistiker",
         "en": "Night logistician/night logistician",
         "de": "Nachtlogistikerin / Nachtlogistiker",
         "fr": "Logisticien nocturne/Logisticien nocturne"
@@ -1089,7 +1126,7 @@
       "url": "https://jobs.transgourmet.ch/offene-stellen/nachtlogistikerin-nachtlogistiker/02920716-1913-4628-949c-695424f4420e",
       "source": "Transgourmet Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-28T22:07:46.368Z",
+      "crawledAt": "2026-07-29T11:34:54.543Z",
       "addressLocality": "Landquart",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -1125,10 +1162,12 @@
         ]
       },
       "previousSlugs": [
+        "logistica-notturna-logistica-notturna-transgourmet-landquart",
         "nachtlogistikerin-nachtlogistiker-transgourmet-landquart"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "logistica-notturna-logistica-notturna-transgourmet-landquart",
           "nachtlogistikerin-nachtlogistiker-transgourmet-landquart"
         ],
         "en": [
@@ -1139,6 +1178,7 @@
         ]
       },
       "firstSeenAt": "2026-07-27T22:07:36.242Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -1183,7 +1223,7 @@
       "url": "https://jobs.transgourmet.ch/offene-stellen/chauffeuse-chauffeur-kat-c/0149d4f5-e441-45df-9326-5286982c8e6e",
       "source": "Transgourmet Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-28T22:07:46.367Z",
+      "crawledAt": "2026-07-29T11:34:54.542Z",
       "addressLocality": "Landquart",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -1240,6 +1280,7 @@
         ]
       },
       "firstSeenAt": "2026-07-24T22:06:53.283Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -1270,7 +1311,7 @@
         "it": "Gestione aggiuntiva della categoria",
         "en": "Assistant Category Management Non-Food",
         "de": "Assistent Category Management Non Food",
-        "fr": "Gestion de catégorie adjointe Non-alimentaire"
+        "fr": "Assistant Category Management Non Food"
       },
       "description": "Unser Herz schlägt für die Schweizer Gastronomie. Mit viel Engagement sind wir für unsere Kunden da. In unseren 31 Abholmärkten, per Aussendienst und Belieferung, genauso wie in der digitalen Welt. Mit einem vielseitigen Sortiment, attraktiven Eigenmarken, professioneller Fachberatung und innovativen Services.\n\nTransgourmet Schweiz AG gehört zur internationalen Transgourmet-Gruppe. Das Unternehmen ist führend im Schweizer Belieferungs- und Abholgrosshandel und zählt rund 2'100 Mitarbeitende sowie 100'000 Kunden (Restaurants, Hotels, Kantinen, Heime und Spitäler sowie Detailhandel).\n\n## Aufgaben\n• Gemeinsam mit dem Category Manager bildest du ein eingespieltes Team, entwickelst euren Sortimentsbereich weiter und bist die zentrale Anlaufstelle für Lieferanten sowie interne Anspruchsgruppen\n\n• Du unterstützt den Category Manager in der Sortimentsgestaltung\n\n• Du wirkst bei Preiskalkulationen und Preisanpassungen mit\n\n• Du erstellst Auswertungen, Analysen und Entscheidungsgrundlagen\n\n• Du beobachtest den Markt, erkennst Trends frühzeitig und bringst neue Impulse für das Sortiment ein\n\n• Du arbeitest aktiv in Projekten mit und hilfst dabei, Prozesse kontinuierlich weiterzuentwickeln\n\n• Du eröffnest, pflegst und optimierst eure Artikelstammdaten\n\n## Anforderungen\n• Du verfügst über einen Abschluss als Kauffrau/Kaufmann oder eine vergleichbare Qualifikation\n\n• Von Vorteil hast du Berufserfahrung im Category Management, Produkt Management oder in der Beschaffung\n\n• Du bist versiert in den MS-Office Anwendungen, insbesondere Excel\n\n• Dich zeichnet deine äusserst strukturierte, exakte und selbständige Arbeitsweise aus\n\n• Du bist eine teamfähige, verantwortungsbewusste und zuverlässige Persönlichkeit\n\n• Neben deiner fliessenden Deutschkenntnisse bringst du idealerweise Französischkenntnisse mit",
       "descriptionByLocale": {
@@ -1284,7 +1325,7 @@
       "url": "https://jobs.transgourmet.ch/offene-stellen/assistant-category-management-non-food/db4e176e-3bdc-4111-9186-370fe51ebfb7",
       "source": "Transgourmet Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-28T22:07:46.366Z",
+      "crawledAt": "2026-07-29T11:34:54.541Z",
       "addressLocality": "Moosseedorf",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1321,18 +1362,21 @@
       },
       "previousSlugs": [
         "gestion-de-categorie-adjointe-non-alimentaire-transgourmet-moosseedorf",
-        "assistant-category-management-non-food-transgourmet-moosseedorf"
+        "assistant-category-management-non-food-transgourmet-moosseedorf",
+        "gestione-aggiuntiva-della-categoria-transgourmet-moosseedorf"
       ],
       "previousSlugsByLocale": {
         "it": [
           "gestion-de-categorie-adjointe-non-alimentaire-transgourmet-moosseedorf",
-          "assistant-category-management-non-food-transgourmet-moosseedorf"
+          "assistant-category-management-non-food-transgourmet-moosseedorf",
+          "gestione-aggiuntiva-della-categoria-transgourmet-moosseedorf"
         ],
         "fr": [
           "assistant-category-management-non-food-transgourmet-moosseedorf"
         ]
       },
       "firstSeenAt": "2026-07-27T12:31:31.084Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -1377,7 +1421,7 @@
       "url": "https://jobs.transgourmet.ch/offene-stellen/linux-system-administrator/74f7cf7c-dae8-4dee-a904-967abaab171b",
       "source": "Transgourmet Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-28T22:07:46.364Z",
+      "crawledAt": "2026-07-29T11:34:54.540Z",
       "addressLocality": "Moosseedorf",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1425,6 +1469,7 @@
         ]
       },
       "firstSeenAt": "2026-07-27T12:31:31.082Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -1444,7 +1489,7 @@
       "slugByLocale": {
         "it": "driver-cat-c-transgourmet-gals",
         "en": "driver-cat-c-transgourmet-gals",
-        "de": "fahrer-katze-c-transgourmet-gals",
+        "de": "chauffeuse-chauffeur-cat-c-transgourmet-gals",
         "fr": "chauffeuse-chauffeur-cat-c-transgourmet-gals"
       },
       "company": "Transgourmet",
@@ -1454,7 +1499,7 @@
       "titleByLocale": {
         "it": "Driver/Cat. C",
         "en": "Driver/Cat. C",
-        "de": "Fahrer/Katze C",
+        "de": "Chauffeuse/Chauffeur cat. C",
         "fr": "Chauffeuse/Chauffeur cat. C"
       },
       "description": "Notre cœur bat pour le secteur gastronomique suisse. Nous nous engageons sans cesse pour nos clients. Dans nos 31 marchés de libre-service, par le biais du Service externe et de la livraison, tout autant que dans le monde numérique. Avec un assortiment varié, des marques propres attrayantes, des conseils spécialisés et professionnels et des services innovateurs.\n\nTransgourmet Suisse SA fait partie du groupe international Transgourmet. L'entreprise est leader dans le commerce de livraison et de libre-service en Suisse et compte quelque 2'100 collaborateurs, ainsi que 100'000 clients (restaurants, hôtels, cantines, foyers et hôpitaux, ainsi que commerce de détail).\n\n## Aufgaben\n• Établir la tournée quotidienne à l'aide du bordereau de la tournée\n\n• Traiter le jour même les tournées et la clôture des tournées à l'aide du système de préparation des marchandises pour le transport\n\n• Charger le véhicule en respectant les directives de températures, y compris arrimage du chargement\n\n• Vérifier l'exactitude et l'intégralité des commandes de clients à l'aide des bulletins de livraison\n\n• Décharger correctement la livraison chez le client\n\n• Reprise d'emballages consignés et d'éventuels retours de marchandises\n\n• Reconnaître, saisir et transmettre les besoins des clients à l'agent de transport\n\n## Anforderungen\n• Permis de conduire cat. C\n\n• Plusieurs années d'expérience en tant que chauffeuse/chauffeur\n\n• Bonnes connaissances de géographie\n\n• Bonne constitution physique\n\n• Bonne expression orale et écrite en français\n\n• Initiative personnelle, fiabilité et forte volonté de s'engager\n\n• Manière de travailler structurée et orientée vers les objectifs et le client",
@@ -1469,7 +1514,7 @@
       "url": "https://jobs.transgourmet.ch/postes-vacantes/chauffeuse-chauffeur-cat-c/e409b323-0a35-4a78-adc3-f97bb66416fe",
       "source": "Transgourmet Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-28T22:07:46.361Z",
+      "crawledAt": "2026-07-29T11:34:54.538Z",
       "addressLocality": "Gals",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1507,20 +1552,25 @@
         ]
       },
       "previousSlugs": [
-        "chauffeuse-chauffeur-cat-c-transgourmet-gals"
+        "chauffeuse-chauffeur-cat-c-transgourmet-gals",
+        "fahrer-katze-c-transgourmet-gals",
+        "driver-cat-c-transgourmet-gals"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "chauffeuse-chauffeur-cat-c-transgourmet-gals",
+          "driver-cat-c-transgourmet-gals"
+        ],
+        "en": [
           "chauffeuse-chauffeur-cat-c-transgourmet-gals"
         ],
         "de": [
-          "chauffeuse-chauffeur-cat-c-transgourmet-gals"
-        ],
-        "en": [
+          "fahrer-katze-c-transgourmet-gals",
           "chauffeuse-chauffeur-cat-c-transgourmet-gals"
         ]
       },
       "firstSeenAt": "2026-07-28T11:27:17.030Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {

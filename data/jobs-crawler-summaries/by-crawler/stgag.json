@@ -1,18 +1,19 @@
 {
   "key": "stgag",
   "label": "Spital Thurgau (STGAG)",
-  "generatedAt": "2026-07-28T22:09:45.538Z",
-  "total": 12,
-  "newCount": 1,
-  "updatedCount": 9,
-  "removedCount": 0,
-  "unchangedCount": 2,
-  "durationMs": 14812,
-  "avgDurationMs": 14812,
+  "generatedAt": "2026-07-29T11:43:10.553Z",
+  "total": 11,
+  "newCount": 0,
+  "updatedCount": 10,
+  "removedCount": 1,
+  "unchangedCount": 1,
+  "durationMs": 13509,
+  "avgDurationMs": 13509,
   "durationHistory": [
-    14812
+    13509
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "stgag-3db0c5b2a0fa",
       "slug": "mpa-arztsekretar-in-radiologie-radio-onkologie-stgag-munsterlingen",
@@ -20,13 +21,13 @@
       "companyKey": "stgag",
       "companyDomain": "stgag.ch",
       "title": "MPA / Arztsekretär/-in Radiologie Radio-Onkologie",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Münsterlingen",
       "canton": "TG",
       "url": "https://rekrutierung.stgag.ch/Vacancies/3732/Description/1",
       "source": "Spital Thurgau (STGAG) Dedicated Parser (Umantis listing @ rekrutierung.stgag.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-28T22:09:34.242Z",
+      "crawledAt": "2026-07-29T11:42:59.908Z",
       "addressLocality": "Münsterlingen",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -41,16 +42,15 @@
       "featured": false,
       "postedDate": "2026-07-28",
       "applyUrl": "https://rekrutierung.stgag.ch/Vacancies/3732/Application/CheckLogin/1",
-      "_qualityScore": 56,
+      "firstSeenAt": "2026-07-28T22:09:34.242Z",
+      "_qualityScore": 77,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 10,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "stgag-3dde8eb6fa57",
       "slug": "medizinische-n-praxisassistenten-in-fachmann-frau-gesundheit-spital-thurgau-stgag-munsterlingen",
@@ -64,7 +64,7 @@
       "url": "https://rekrutierung.stgag.ch/Vacancies/3730/Description/1",
       "source": "Spital Thurgau (STGAG) Dedicated Parser (Umantis listing @ rekrutierung.stgag.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-28T22:09:36.339Z",
+      "crawledAt": "2026-07-29T11:43:01.854Z",
       "addressLocality": "Münsterlingen",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -101,7 +101,7 @@
       "url": "https://rekrutierung.stgag.ch/Vacancies/3727/Description/1",
       "source": "Spital Thurgau (STGAG) Dedicated Parser (Umantis listing @ rekrutierung.stgag.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-28T22:09:37.338Z",
+      "crawledAt": "2026-07-29T11:43:02.745Z",
       "addressLocality": "Münsterlingen",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -138,7 +138,7 @@
       "url": "https://rekrutierung.stgag.ch/Vacancies/3720/Description/1",
       "source": "Spital Thurgau (STGAG) Dedicated Parser (Umantis listing @ rekrutierung.stgag.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-28T22:09:35.348Z",
+      "crawledAt": "2026-07-29T11:43:00.957Z",
       "addressLocality": "Münsterlingen",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -175,7 +175,7 @@
       "url": "https://rekrutierung.stgag.ch/Vacancies/3713/Description/1",
       "source": "Spital Thurgau (STGAG) Dedicated Parser (Umantis listing @ rekrutierung.stgag.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-28T22:09:38.360Z",
+      "crawledAt": "2026-07-29T11:43:03.664Z",
       "addressLocality": "Münsterlingen",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -212,7 +212,7 @@
       "url": "https://rekrutierung.stgag.ch/Vacancies/3677/Description/1",
       "source": "Spital Thurgau (STGAG) Dedicated Parser (Umantis listing @ rekrutierung.stgag.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-28T22:09:39.364Z",
+      "crawledAt": "2026-07-29T11:43:04.566Z",
       "addressLocality": "Münsterlingen",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -249,7 +249,7 @@
       "url": "https://rekrutierung.stgag.ch/Vacancies/3719/Description/1",
       "source": "Spital Thurgau (STGAG) Dedicated Parser (Umantis listing @ rekrutierung.stgag.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-28T22:09:40.484Z",
+      "crawledAt": "2026-07-29T11:43:05.454Z",
       "addressLocality": "Münsterlingen",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -286,7 +286,7 @@
       "url": "https://rekrutierung.stgag.ch/Vacancies/3718/Description/1",
       "source": "Spital Thurgau (STGAG) Dedicated Parser (Umantis listing @ rekrutierung.stgag.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-28T22:09:41.455Z",
+      "crawledAt": "2026-07-29T11:43:06.324Z",
       "addressLocality": "Münsterlingen",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -323,7 +323,7 @@
       "url": "https://rekrutierung.stgag.ch/Vacancies/3326/Description/1",
       "source": "Spital Thurgau (STGAG) Dedicated Parser (Umantis listing @ rekrutierung.stgag.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-28T22:09:42.415Z",
+      "crawledAt": "2026-07-29T11:43:07.257Z",
       "addressLocality": "Münsterlingen",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -360,7 +360,7 @@
       "url": "https://rekrutierung.stgag.ch/Vacancies/1536/Description/1",
       "source": "Spital Thurgau (STGAG) Dedicated Parser (Umantis listing @ rekrutierung.stgag.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-28T22:09:43.365Z",
+      "crawledAt": "2026-07-29T11:43:08.114Z",
       "addressLocality": "Münsterlingen",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -385,8 +385,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "stgag-0a3e5322d1f0",
       "slug": "psychologen-in-stgag-munsterlingen",
@@ -425,7 +424,9 @@
         "translation": 25,
         "completeness": 22
       }
-    },
+    }
+  ],
+  "unchangedJobs": [
     {
       "id": "stgag-69c86a92d5a3",
       "slug": "assistenzarzte-innen-psychiatrie-e-psychotherapie-spital-thurgau-stgag-munsterlingen",
@@ -456,7 +457,7 @@
       "firstSeenAt": "2026-07-15T22:04:05.216Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,

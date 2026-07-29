@@ -1,6 +1,6 @@
 {
   "crawlerKey": "igs-bern",
-  "assembledAt": "2026-07-28T22:14:54.636Z",
+  "assembledAt": "2026-07-29T11:58:50.966Z",
   "jobs": [
     {
       "id": "igs-bern-53da410315b2",
@@ -34,7 +34,7 @@
       "url": "https://www.publicjobs.ch/jobs/behinderung-beeintr%C3%A4chtigung-agogik/~job160824?ext",
       "source": "Interessengemeinschaft Sozialpsychiatrie Bern Dedicated Parser (PastaHR / publicjobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-28T22:14:52.234Z",
+      "crawledAt": "2026-07-29T11:58:48.575Z",
       "addressLocality": "Bern",
       "postalCode": "3000",
       "addressCountry": "CH",
@@ -196,7 +196,8 @@
         }
       },
       "addressRegion": "BE",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2,
+      "needsRetranslation": true
     }
   ]
 }

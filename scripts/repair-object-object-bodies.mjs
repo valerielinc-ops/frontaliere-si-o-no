@@ -122,11 +122,33 @@ function maskAcronyms(text) {
   return { masked, expected: store.length, restore };
 }
 
+/**
+ * Once nav-links and acronyms are masked, a block can hold no translatable text
+ * at all: a `---` thematic break, a `|---|---|` table rule, or a block that is
+ * nothing but a nav-link (the shared mask swallows the whole `[text](nav:x)`,
+ * leaving a bare sentinel), or an all-caps marker heading such as `### CTA`.
+ * MT answers empty for those, which used to abort the whole file over a
+ * horizontal rule. Pass them through verbatim — that is the identity
+ * translation, not a skipped check.
+ *
+ * The test is "no LOWERCASE letter": Italian prose always carries lowercase, so
+ * this cannot swallow a real sentence, while `### CTA` (an editorial marker in
+ * 327 Italian bodies, already kept verbatim in the healthy DE/FR/EN corpus)
+ * passes straight through.
+ */
+const hasNothingToTranslate = (masked) =>
+  !/\p{Ll}/u.test(String(masked).replace(/0NAV\d+0|0ACR\d+0/g, ''));
+
 /** Translate one markdown block, preserving internal nav-links. */
 async function translateBlock(block, locale) {
   if (!block.trim()) return '';
   const { masked: navMasked, expected, restore } = maskNavLinks(block);
+  // The shared mask now emits a wordless `0NAV<n>0` sentinel — see the note in
+  // article-free-mt.mjs. This script used to re-mask it locally because the old
+  // `0NAVLINK<n>0` carried a translatable English word that French MT turned into
+  // `0NAVLIEN<n>0`; the fix moved upstream, so the local shield is gone.
   const acr = maskAcronyms(navMasked);
+  if (hasNothingToTranslate(acr.masked)) return block;
   const raw = await freeTranslateWithRetry({
     text: acr.masked, sourceLang: 'it', targetLang: locale, fieldType: 'description',
   });

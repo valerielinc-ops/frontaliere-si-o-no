@@ -33,9 +33,27 @@
  *
  * Checks never throw on malformed input; they return issue objects. Callers
  * decide what blocks (see runFactualityGates → `blocking`).
+ *
+ * LOCALES. Generation happens in Italian and en/de/fr are translations of it,
+ * so these gates were Italian-only — which left the TRANSLATION step ungated,
+ * and that is where "frontalieri" shipped as "border guards" in 7 English
+ * titles. Sections 2, 3 and 4 now take a `locale` and read their vocabulary
+ * from article-locale-lexicon.mjs, whose Italian entries are this file's own
+ * literals moved unchanged; sections 9 and 10 compare a translation against
+ * the Italian it derives from. Everything else stays Italian-only on purpose —
+ * see the comment on runFactualityGates.
  */
 
 import { tokenizeIt, containmentSim } from './it-text-similarity.mjs';
+import {
+  LOCALE_LEXICON,
+  lexiconFor,
+  canonicalNumeric,
+  NUMBER_TOKEN,
+  extractNumericFacts,
+  FALSE_FRIEND_PATTERNS,
+  ITALIAN_BORDER_GUARD_ANCHOR,
+} from './article-locale-lexicon.mjs';
 
 /** Severity ranking used to sort and to decide what blocks publication. */
 export const SEVERITY = { critical: 3, major: 2, minor: 1 };
@@ -137,6 +155,66 @@ const TRAILING_FOOTNOTE_REF = /\s+\[?\^?\d{1,3}\]?$/;
  * @param {string} text
  * @param {{label?: string}} [opts]
  */
+// ─── Leaked prompt scaffolding ────────────────────────────────────────
+//
+// The generation and translation prompts carry section markers and rule blocks
+// ("TITOLO ARTICOLO:", "TERMINOLOGIE DEUTSCH OBBLIGATORISCH", "Verwenden Sie
+// ZERO Fettschrift", "MAI \"G-Führerschein\"") that the model sometimes copies
+// into its own output instead of obeying. The result ships as prose: one German
+// article published the entire translator rulebook, terminology bans included.
+//
+// Found 2026-07-29 while clearing the corpus: 41 bodies carried `TITOLO
+// ARTICOLO`, plus a handful with the translation rule block. It is invisible to
+// every other gate — the text is well-formed, the arithmetic is fine, the
+// institutions are real. It is simply not an article.
+//
+// Detection is exact-token, not heuristic: these are strings the prompts
+// literally contain, so a match is the prompt leaking, never prose that happens
+// to resemble it. Anchored to line starts and all-caps forms to keep an article
+// that legitimately discusses "la terminologia" from tripping it.
+const SCAFFOLDING_MARKERS = [
+  { re: /^\s*#{0,4}\s*TITOLO ARTICOLO\s*:?/m, what: 'marcatore di sezione del prompt di generazione' },
+  { re: /^\s*#{0,4}\s*(?:ESEMPIO|ESEMPI) CONCRET[OI]\s*:?\s*$/m, what: 'marcatore di sezione del prompt' },
+  { re: /^\s*#{0,4}\s*(?:NOTE|NOTA) PER (?:IL|LA) (?:MODELLO|TRADUZIONE)\s*:?/mi, what: 'nota interna del prompt' },
+  // Case-SENSITIVE and line-anchored on purpose. The prompt shouts its headings
+  // ("TERMINOLOGIE DEUTSCH OBBLIGATORISCH:"); ordinary prose does not. A
+  // case-insensitive version flagged the sentence "La terminologia usata negli
+  // accordi bilaterali è obbligatoria per i Comuni di confine" — caught by the
+  // negative test before it could block a correct article.
+  { re: /^\s*TERMINOLOGI[AE]\b[^\n]{0,40}\b(?:OBBLIGATORI\w*|OBLIGATORISCH|MANDATORY)\s*:/m, what: 'blocco di regole terminologiche del prompt di traduzione' },
+  { re: /\bVerwenden Sie ZERO\b|\bUsa ZERO\b|\bUse ZERO\b/, what: 'istruzione di formattazione del prompt' },
+  { re: /\bMAI\s+"[^"]{2,40}"/, what: 'divieto terminologico del prompt di traduzione' },
+];
+
+/**
+ * Flags prompt scaffolding that reached the published body.
+ *
+ * @param {string} text
+ * @param {{label?: string}} [opts]
+ */
+export function detectLeakedScaffolding(text, opts = {}) {
+  const issues = [];
+  if (typeof text !== 'string' || !text.trim()) return issues;
+  const label = opts.label ? `[${opts.label}] ` : '';
+
+  for (const { re, what } of SCAFFOLDING_MARKERS) {
+    const m = text.match(re);
+    if (!m) continue;
+    const at = text.indexOf(m[0]);
+    issues.push(issue(
+      'leaked-prompt-scaffolding',
+      'critical',
+      `${label}Istruzioni del prompt finite nel testo pubblicato: ${what}`,
+      text.slice(Math.max(0, at - 40), at + 160).trim(),
+      `Rimuovi il blocco: è un'istruzione rivolta al modello, non contenuto per il lettore. `
+      + `Cancella dal marcatore fino alla fine del blocco di regole, e verifica che il testo attorno `
+      + `resti una frase compiuta. Non riscrivere l'istruzione in prosa: non deve esserci affatto.`,
+    ));
+  }
+
+  return issues;
+}
+
 export function detectTruncation(text, opts = {}) {
   const issues = [];
   if (typeof text !== 'string' || !text.trim()) return issues;
@@ -230,24 +308,74 @@ export function detectTruncation(text, opts = {}) {
 // exactly 10×. Both halves are checked separately so a correct line like
 // "3,2% (0,032 x 60.000 = 1.920)" stays clean.
 
-const ARITHMETIC_RE = /(\d[\d.,]*)\s*[x×*]\s*(\d[\d.,]*)\s*=\s*(\d[\d.,]*)/gi;
 const REL_TOLERANCE = 0.005;
+
+/**
+ * Reads an amount the way its own locale writes it.
+ *
+ * Italian keeps parseItalianNumber untouched, deliberately: it is the parser
+ * every shipped Italian verdict was computed with, and the corpus audit has to
+ * stay bit-for-bit comparable across the locale change. The other three go
+ * through the shape-reading canonicaliser, which additionally copes with
+ * 60'000 and 60 000 — forms Italian prose never uses.
+ */
+function parseAmount(raw, locale) {
+  return locale === 'it' ? parseItalianNumber(raw) : canonicalNumeric(raw);
+}
+
+/**
+ * Regex source for one number token, in the conventions `locale` may use.
+ * The Italian branch is the original literal: widening it would change which
+ * Italian expressions the arithmetic gate sees.
+ */
+function numberTokenFor(locale) {
+  return locale === 'it' ? String.raw`\d[\d.,]*` : `(?:${NUMBER_TOKEN})`;
+}
+
+/** "A x B = C", written in whatever number convention `locale` uses. */
+function arithmeticRe(locale) {
+  const n = numberTokenFor(locale);
+  return new RegExp(String.raw`(${n})\s*[x×*]\s*(${n})\s*=\s*(${n})`, 'gi');
+}
+
+/**
+ * "…4,5%" / "…4,5 per cento" immediately before an expression.
+ *
+ * The Italian branch stays alone with its two original spellings: folding the
+ * other locales' words into it would make "percentuale" match `percent` and
+ * silently move an Italian verdict this change is required not to move.
+ */
+const SPELT_PERCENT = {
+  it: String.raw`%|per\s*cento`,
+  en: String.raw`%|per\s*cent\b|percent\b`,
+  de: String.raw`%|Prozent\b`,
+  fr: String.raw`%|pour\s*cent\b`,
+};
+function percentRe(locale) {
+  const spelt = SPELT_PERCENT[locale] || SPELT_PERCENT.it;
+  return new RegExp(String.raw`(${numberTokenFor(locale)})\s*(?:${spelt})`, 'gi');
+}
 
 function relDiff(a, b) {
   const scale = Math.max(Math.abs(a), Math.abs(b), 1e-9);
   return Math.abs(a - b) / scale;
 }
 
-/** Verifies every explicit "A x B = C" and its surrounding percentage claim. */
-export function checkInlineArithmetic(text) {
+/**
+ * Verifies every explicit "A x B = C" and its surrounding percentage claim.
+ * @param {string} text
+ * @param {{locale?: string}} [opts]
+ */
+export function checkInlineArithmetic(text, opts = {}) {
   const issues = [];
   if (typeof text !== 'string') return issues;
+  const locale = opts.locale || 'it';
 
-  for (const m of text.matchAll(ARITHMETIC_RE)) {
+  for (const m of text.matchAll(arithmeticRe(locale))) {
     const [full, aRaw, bRaw, cRaw] = m;
-    const a = parseItalianNumber(aRaw);
-    const b = parseItalianNumber(bRaw);
-    const c = parseItalianNumber(cRaw);
+    const a = parseAmount(aRaw, locale);
+    const b = parseAmount(bRaw, locale);
+    const c = parseAmount(cRaw, locale);
     if (![a, b, c].every(Number.isFinite)) continue;
 
     // (a) Does the stated product actually hold?
@@ -271,9 +399,9 @@ export function checkInlineArithmetic(text) {
     // 0,20 = 16.000" — arithmetically perfect, reported as "400000× il valore
     // corretto" because 80.000 was compared against 0,2.
     const before = text.slice(Math.max(0, m.index - 60), m.index);
-    const pctMatch = [...before.matchAll(/(\d[\d.,]*)\s*(?:%|per\s*cento)/gi)].pop();
+    const pctMatch = [...before.matchAll(percentRe(locale))].pop();
     if (pctMatch) {
-      const pct = parseItalianNumber(pctMatch[1]);
+      const pct = parseAmount(pctMatch[1], locale);
       const asDecimal = pct / 100;
       const stated = Number.isFinite(pct) && pct !== 0
         && relDiff(a, asDecimal) > REL_TOLERANCE
@@ -327,9 +455,9 @@ export function checkInlineArithmetic(text) {
 //   (b) a threshold is not a sum paid. "chi ha un reddito di OLTRE 80.000
 //       franchi è tenuto a pagare le tasse" repeats one bracket twice and the
 //       second copy was read as a tax equal to the income — 4 of the 6 findings
-//       on `tasse-frontalieri-scambio-dati-stipendi-italia` → THRESHOLD_CUE.
+//       on `tasse-frontalieri-scambio-dati-stipendi-italia` → `thresholdCue`.
 //   (c) not every franc figure is a tax. Prices, season passes, deductions and
-//       refunds share the paragraph → NON_TAX_CUE.
+//       refunds share the paragraph → `nonTaxCue`.
 //   (d) nothing bounded how far apart the two numbers could sit: the 41-franc
 //       IRPEF refund of `funivia-monte-lema-stagione-2026` was matched against
 //       a 290-franc ski pass eight sentences later → MAX_PAIR_DISTANCE.
@@ -338,48 +466,28 @@ export function checkInlineArithmetic(text) {
 // incident article states the income in one sentence and the impossible tax in
 // the next. Hence the one-statement carry-over in incomeTaxPairs().
 
-const CURRENCY = String.raw`(?:franchi\s+svizzeri|franchi|CHF|euro|EUR|€)`;
-// Capture group 2 is the text between the cue word and the amount: whatever
-// sits in that gap is closer to the figure than the income word is, and wins.
-// "Un residente con lo stesso stipendio lordo PAGA CIRCA 900 franchi di tasse"
-// opens on an income word but names a tax (`divario-salari-ticino-frontalieri-2026`).
-const INCOME_CUE = /\b(reddito|guadagn\w*|stipendio|salario|retribuzione|percep\w*)([^.\n]{0,40}?)$/i;
-// An amount can also be named as income AFTER the figure. "ha pagato 4.500
-// franchi di tasse per ogni 1.000 franchi DI REDDITO" only reads as a 450% rate
-// once the 1.000 is recognised as the base; with leading cues alone the gate
-// latched onto a later amount and reported the right defect against the wrong
-// pair of numbers (`bossi-commemorazione-bagarrata`).
-const INCOME_CUE_TRAILING = /^\s*(?:di|d'|del|dello|della|delle|dei|sul|sui|su)\s*(?:reddito|stipendio|salario|retribuzione|guadagn\w*)/i;
-// "tass\w*" also matched `tasso`/`tassi` — the exchange RATE, not a tax. That
-// one collision blocked `franco-forte-stipendio-frontalieri`, whose only sin
-// was converting a salary: "guadagna 5.000 CHF netti al mese, convertendo a un
-// TASSO di 0,92, porta a casa circa 5.435 EUR" became a 109% tax.
-// The leading \b is load-bearing: unanchored, `pag\w*` matched the middle of
-// "equiPAGGi" and turned a charity donation into a tax
-// (`momoride-carpooling-frontalieri-benefici`).
-const TAX_CUE = /\b(?:impost\w*|tass[ae]\b|tassat\w*|tassazion\w*|tassabil\w*|pag\w*|trattenut\w*|prelievo|carico\s+fiscale|quota\s+di\s+imposta)/i;
-
-// Brackets, floors and caps: the amount marks where a rule starts or stops
-// applying, never what someone hands over. Excluded from the tax role only —
-// "un reddito di oltre 80.000 franchi" is still a usable income base.
-const THRESHOLD_CUE = /\b(?:oltre|pi[uù]\s+di|superior[ei]\s+a(?:i|l|lla|lle|gli)?|maggior[ei]\s+di|almeno|a\s+partire\s+da|fino\s+a(?:i|l|lla|lle|gli)?|massimo\s+di|al\s+massimo|non\s+oltre|meno\s+di|inferior[ei]\s+a(?:i|l|lla)?|sopra\s+i|sotto\s+i)\s*$/i;
-
-// Money that is demonstrably not a tax. TAX_CUE is deliberately loose (`pag\w*`
-// matches "pagamento", which in `funivia-monte-lema-stagione-2026` referred to
-// a monthly invoice for a cable-car pass), so when one of these words sits
-// closer to the amount than any tax word, it vetoes the pairing.
+// The seven cue sets this section runs on now live in article-locale-lexicon.mjs,
+// one entry per locale, so the same pairing rules can judge a translation. The
+// Italian entries there are the literals that used to sit here, moved unchanged
+// — each still carrying, at its definition, the corpus false positive that
+// shaped it:
 //
-// Three groups, all learned from the audit of the surviving findings:
-//
-//  - what the worker keeps (netto, porta a casa, pensione) — six of the
-//    thirteen false positives were take-home pay read as the tax;
-//  - what the tax is computed ON rather than what it comes to (imponibile,
-//    "tassato solo su", credito d'imposta) — five more;
-//  - a tax word that is negated ("non è stata trattenuta") or that follows
-//    "dopo", which turns the clause into an after-tax residue rather than an
-//    assertion about the tax itself. These phrases deliberately SPAN the tax
-//    word so presentedAsTax() can discount it — see the overlap filter there.
-const NON_TAX_CUE = /(?:\bcost[aoi]\b|\bcostano\b|\bcostav\w*|\bprezz[oi]\b|\babbonament[oi]\b|\bbigliett[oi]\b|\btariff[ae]\b|\bdetrazion[ei]\b|\bdetrarre\b|\bfranchigi[ae]\b|\brisparmi\w*|\bscont[oi]\b|\bbonus\b|\brimbors[oi]\b|\bcanone\b|\bnoleggi\w*|\bnett[oi]\b|\bpension[ei]\b|\bimponibil[ei]\b|\bport\w*\s+a\s+casa\b|\bin\s+tasca\b|\bcredit[oi]\s+d['’]impost\w*|(?:\btassat\w*|\btassazion\w*|\bimposizion\w*)\s+(?:solo\s+)?(?:su|sul|sulla|sui|sugli|sulle)\b|\bnon\s+(?:è\s+|sono\s+|viene\s+|vengono\s+)?(?:stat[aeio]\s+)?(?:trattenut\w*|tassat\w*|pagat\w*|prelevat\w*)|\bdopo\b[^.;:]{0,40}?(?:impost[ae]\w*|tass[ae]\b|tassazion\w*|ritenut[ae]\b|prelievi|trattenut\w*|detrazion\w*|contribut\w*))/i;
+//   currency            what counts as money at all.
+//   incomeCue           whatever sits between the cue word and the amount is
+//                       closer to the figure than the income word is, and wins
+//                       (`divario-salari-ticino-frontalieri-2026`).
+//   incomeCueTrailing   an amount can be named as income AFTER the figure
+//                       (`bossi-commemorazione-bagarrata`).
+//   taxCue              excludes `tasso`, the exchange RATE
+//                       (`franco-forte-stipendio-frontalieri`).
+//   thresholdCue        brackets, floors and caps mark where a rule starts
+//                       applying, never what someone hands over.
+//   nonTaxCue           prices, passes, net pay, taxable bases and after-tax
+//                       residues (`funivia-monte-lema-stagione-2026`).
+//   approximation       words that mark a parenthesis as restating a figure
+//                       already on the page (`frontalieri-calano-ticino`).
+//   periods             time base, so a monthly salary is never compared with
+//                       an annual tax.
 
 // How far apart an income and its alleged tax may sit. The real defects state
 // both inside one breath — 133 chars on the incident article ("un reddito di
@@ -414,9 +522,15 @@ const SENTENCE_BREAK_RE = /(?<=[.!?;])\s+(?=[«"'([*•A-ZÀ-Ü])|\s*\|\s*/g;
  *    as a 114% tax on the 70.000 it derives
  *    (`terzo-pilastro-3a-vantaggi-canton-ginevra`).
  */
-function restatementSpans(text) {
+function restatementSpans(text, locale = 'it') {
   const spans = [];
-  const re = /\([^)]*%[^)]*\)|\(\s*(?:circa|pari\s+a|equivalent\w*\s+a|corrispondent\w*\s+a|ossia|ovvero|cio[èe]|all'incirca|≈|~)[^)]*\)|\([^)]*\d[^)]*[-−+x×*=/][^)]*\d[^)]*\)/gi;
+  const { approximation } = lexiconFor(locale);
+  const re = new RegExp(
+    String.raw`\([^)]*%[^)]*\)`
+    + String.raw`|\(\s*(?:${approximation}|≈|~)[^)]*\)`
+    + String.raw`|\([^)]*\d[^)]*[-−+x×*=/][^)]*\d[^)]*\)`,
+    'gi',
+  );
   for (const m of text.matchAll(re)) {
     spans.push([m.index, m.index + m[0].length]);
   }
@@ -429,14 +543,11 @@ function restatementSpans(text) {
  * treating it as one produced most of the residual noise ("4.000 CHF al mese"
  * vs a yearly figure). Amounts with different, known periods are never paired.
  */
-function periodOf(text, afterIndex) {
+function periodOf(text, afterIndex, locale = 'it') {
   const tail = text.slice(afterIndex, afterIndex + 40).toLowerCase();
-  if (/\b(al|a|ogni|per)\s+mese|mensil|\/mese/.test(tail)) return 'month';
-  if (/\b(all'anno|annu|ogni\s+anno|\/anno)/.test(tail)) return 'year';
-  if (/\b(a|alla|per)\s+settimana|settimanal/.test(tail)) return 'week';
-  // "l’ora" with a curly apostrophe is how the corpus actually writes hourly
-  // pay, and it was the one form this missed.
-  if (/\b(?:al|all['’]|l['’]|ogni|per)\s*ora\b|orari[ao]/.test(tail)) return 'hour';
+  for (const [name, re] of lexiconFor(locale).periods) {
+    if (re.test(tail)) return name;
+  }
   return '';
 }
 
@@ -449,20 +560,30 @@ function periodOf(text, afterIndex) {
  * correct arithmetic — "guadagna 4'500 CHF al mese e paga 1'200 CHF di
  * imposte" came out as a 120% tax (`frontaliere-ticino-panettiere-guadagno`,
  * `quanto-guadagna-un-polimeccanico-frontaliere-in-ticino`).
+ *
+ * Italian keeps that hand-written token and parseItalianNumber; the other
+ * locales use the shared shape-reading token, which covers the same apostrophe
+ * plus the French "70 000" and the English "70,000".
  */
-function extractAmounts(text) {
-  const re = new RegExp(String.raw`(\d[\d.,]*(?:['’]\d{3})*(?:[.,]\d+)?)\s*${CURRENCY}`, 'gi');
-  const skip = restatementSpans(text);
+function extractAmounts(text, locale = 'it') {
+  const { currency } = lexiconFor(locale);
+  const token = locale === 'it'
+    ? String.raw`\d[\d.,]*(?:['’]\d{3})*(?:[.,]\d+)?`
+    : `(?:${NUMBER_TOKEN})`;
+  const re = new RegExp(String.raw`(${token})\s*${currency}`, 'gi');
+  const skip = restatementSpans(text, locale);
   const out = [];
   for (const m of text.matchAll(re)) {
     if (skip.some(([s, e]) => m.index >= s && m.index < e)) continue;
-    const value = parseItalianNumber(m[1].replace(/['’]/g, ''));
+    const value = locale === 'it'
+      ? parseItalianNumber(m[1].replace(/['’]/g, ''))
+      : canonicalNumeric(m[1]);
     if (!Number.isFinite(value) || value <= 0) continue;
     out.push({
       value,
       raw: m[0],
       index: m.index,
-      period: periodOf(text, m.index + m[0].length),
+      period: periodOf(text, m.index + m[0].length, locale),
     });
   }
   return out;
@@ -496,11 +617,37 @@ function statementSpans(line) {
   return spans;
 }
 
-// Global twins of the two cue sets. `.test()` needs the non-global originals
-// (a `g` regex carries lastIndex across calls and silently skips); positional
-// comparison needs matchAll, which requires `g`. Same source, one truth.
-const TAX_CUE_G = new RegExp(TAX_CUE.source, 'gi');
-const NON_TAX_CUE_G = new RegExp(NON_TAX_CUE.source, 'gi');
+// Global twins of the two cue sets, one pair per locale. `.test()` needs the
+// non-global originals (a `g` regex carries lastIndex across calls and silently
+// skips); positional comparison needs matchAll, which requires `g`. Same source,
+// one truth — built once per locale rather than per call, because these are
+// recompiled for every candidate amount of every line of every body.
+const CUE_GLOBALS = new Map();
+function cueGlobals(locale) {
+  const key = LOCALE_LEXICON[locale] ? locale : 'it';
+  if (!CUE_GLOBALS.has(key)) {
+    const { taxCue, nonTaxCue } = LOCALE_LEXICON[key];
+    CUE_GLOBALS.set(key, {
+      tax: new RegExp(taxCue.source, 'gi'),
+      nonTax: new RegExp(nonTaxCue.source, 'gi'),
+    });
+  }
+  return CUE_GLOBALS.get(key);
+}
+
+/**
+ * The cue matches in `window`, with tax cues that fall INSIDE a non-tax phrase
+ * discarded. Such a tax word belongs to that phrase and is not a cue of its
+ * own: "DOPO le tasse", "credito d'IMPOSTA", "non è stata TRATTENUTA",
+ * "TASSATO solo su" each name something that is not the tax.
+ */
+function cueMatches(window, locale) {
+  const { tax: taxG, nonTax: nonTaxG } = cueGlobals(locale);
+  const nonTax = [...window.matchAll(nonTaxG)];
+  const tax = [...window.matchAll(taxG)]
+    .filter((m) => !nonTax.some((n) => m.index >= n.index && m.index < n.index + n[0].length));
+  return { tax, nonTax };
+}
 
 /**
  * What the amount at the end of `window` is being presented as, decided by the
@@ -520,30 +667,53 @@ const NON_TAX_CUE_G = new RegExp(NON_TAX_CUE.source, 'gi');
  * Both name the take-home pay, and in both the tax word is real but further
  * away. Distance decides.
  *
- * A tax word falling INSIDE a non-tax phrase belongs to that phrase and is not
- * a cue of its own: "DOPO le tasse", "credito d'IMPOSTA", "non è stata
- * TRATTENUTA", "TASSATO solo su" each name something that is not the tax.
- *
  * @returns {'tax'|'other'|''} '' when nothing qualifies the amount at all.
  */
-function presentedAsTax(window) {
-  const nonTax = [...window.matchAll(NON_TAX_CUE_G)];
-  const tax = [...window.matchAll(TAX_CUE_G)]
-    .filter((m) => !nonTax.some((n) => m.index >= n.index && m.index < n.index + n[0].length));
+function presentedAsTax(window, locale = 'it') {
+  const { tax, nonTax } = cueMatches(window, locale);
   if (!tax.length) return nonTax.length ? 'other' : '';
   const lastTax = tax[tax.length - 1].index;
   const lastOther = nonTax.length ? nonTax[nonTax.length - 1].index : -1;
   return lastTax > lastOther ? 'tax' : 'other';
 }
 
+/**
+ * How far past the currency a postposed qualifier is still read as belonging to
+ * the amount. Long enough for "3.600 Franken netto" and "3 600 francs net",
+ * short enough not to reach into the next clause.
+ */
+const TRAILING_QUALIFIER_CHARS = 18;
+
+/**
+ * The same verdict read FORWARD, for languages that put the qualifier after the
+ * figure: Italian writes "un netto di 3.600 franchi", German "3.600 Franken
+ * netto" and French "3 600 francs net". Reading backwards only, the veto fired
+ * on the Italian and missed both translations, and net pay was reported as a
+ * 300% tax (`divario-salari-ticino-frontalieri-2026`).
+ *
+ * Only the veto direction is implemented. A trailing TAX word is not taken as
+ * promoting an amount to a tax, because backwards is where the evidence for
+ * that already comes from and widening it would move Italian verdicts — which
+ * this whole change is required not to do.
+ *
+ * @returns {boolean} true when a non-tax word owns the amount.
+ */
+function trailingCueVetoes(window, locale = 'it') {
+  const { tax, nonTax } = cueMatches(window, locale);
+  if (!nonTax.length) return false;
+  // Nearest wins, and forward nearest means the LOWEST index.
+  return !(tax.length && tax[0].index < nonTax[0].index);
+}
+
 /** True when the amount is named as an income, by a cue before or right after it. */
-function namesAnIncome(line, span, amt) {
-  const cue = line.slice(span.start, amt.index).match(INCOME_CUE);
+function namesAnIncome(line, span, amt, locale = 'it') {
+  const { incomeCue, incomeCueTrailing, taxCue } = lexiconFor(locale);
+  const cue = line.slice(span.start, amt.index).match(incomeCue);
   // A tax word in the gap sits closer to the figure than the income word does,
-  // so the figure is the tax — see INCOME_CUE.
-  if (cue && !TAX_CUE.test(cue[2])) return true;
+  // so the figure is the tax — see the incomeCue note in the lexicon.
+  if (cue && !taxCue.test(cue[2])) return true;
   const after = amt.index + amt.raw.length;
-  return INCOME_CUE_TRAILING.test(line.slice(after, after + 30));
+  return incomeCueTrailing.test(line.slice(after, after + 30));
 }
 
 /**
@@ -553,8 +723,9 @@ function namesAnIncome(line, span, amt) {
  * carried copy-pasted pairing code, so a precision fix applied to one left the
  * other flagging the same false positive — the duplication is the bug.
  */
-function* incomeTaxPairs(line) {
-  const amounts = extractAmounts(line);
+function* incomeTaxPairs(line, locale = 'it') {
+  const { thresholdCue } = lexiconFor(locale);
+  const amounts = extractAmounts(line, locale);
   if (amounts.length < 2) return;
 
   // An income reaches the NEXT statement and no further: the incident article
@@ -568,7 +739,7 @@ function* incomeTaxPairs(line) {
 
   for (const span of statementSpans(line)) {
     const local = amounts.filter((a) => a.index >= span.start && a.index < span.end);
-    const own = local.find((a) => namesAnIncome(line, span, a));
+    const own = local.find((a) => namesAnIncome(line, span, a, locale));
     const income = own || (carried && carried.block === span.block ? carried.amount : null);
     carried = own ? { amount: own, block: span.block } : null;
     if (!income) continue;
@@ -580,7 +751,7 @@ function* incomeTaxPairs(line) {
       // franchi pagherà il 10%, mentre un paziente con un reddito di 100.000
       // franchi pagherà il 20%" was read as a 200% tax rate
       // (`costi-cure-domocilio-ticino-2026`).
-      if (namesAnIncome(line, span, amt)) continue;
+      if (namesAnIncome(line, span, amt, locale)) continue;
       if (periodsConflict(income, amt)) continue;
       if (Math.abs(amt.index - income.index) > MAX_PAIR_DISTANCE) continue;
 
@@ -590,7 +761,13 @@ function* incomeTaxPairs(line) {
       if (amt.period === 'hour') continue;
 
       const near = line.slice(Math.max(span.start, amt.index - 40), amt.index);
-      if (THRESHOLD_CUE.test(near)) continue;
+      if (thresholdCue.test(near)) continue;
+
+      // A qualifier sitting right AFTER the currency owns the amount, whatever
+      // the run-up says: see trailingCueVetoes.
+      const afterAmt = amt.index + amt.raw.length;
+      const trailing = line.slice(afterAmt, afterAmt + TRAILING_QUALIFIER_CHARS);
+      if (trailingCueVetoes(trailing, locale)) continue;
 
       // The window in which the candidate has to be introduced as a tax: from
       // the income forward, or the run-up to the candidate when it precedes the
@@ -601,7 +778,7 @@ function* incomeTaxPairs(line) {
       const from = amt.index >= income.index
         ? Math.max(span.start, income.index)
         : Math.max(span.start, amt.index - 80);
-      if (presentedAsTax(line.slice(from, amt.index)) !== 'tax') continue;
+      if (presentedAsTax(line.slice(from, amt.index), locale) !== 'tax') continue;
 
       yield { income, tax: amt };
     }
@@ -611,18 +788,19 @@ function* incomeTaxPairs(line) {
 /**
  * Flags a stated tax that meets or exceeds the gross income it is computed on.
  * @param {string} text
- * @param {{implausibleRatio?: number}} [opts] ratio above which a tax is "major"
+ * @param {{implausibleRatio?: number, locale?: string}} [opts] ratio above which a tax is "major"
  */
 export function checkTaxPlausibility(text, opts = {}) {
   const issues = [];
   if (typeof text !== 'string') return issues;
   const implausibleRatio = opts.implausibleRatio ?? 0.6;
+  const locale = opts.locale || 'it';
   // One report per (income, tax) pair — the same example restated across
   // paragraphs otherwise emitted the identical issue a dozen times.
   const reported = new Set();
 
   for (const line of text.split('\n')) {
-    for (const { income, tax } of incomeTaxPairs(line)) {
+    for (const { income, tax } of incomeTaxPairs(line, locale)) {
       const dedupKey = `${income.value}|${tax.value}`;
       if (reported.has(dedupKey)) continue;
       reported.add(dedupKey);
@@ -672,6 +850,7 @@ export function checkCrossSectionNumericConflicts(sections, opts = {}) {
   const issues = [];
   if (!sections || typeof sections !== 'object') return issues;
   const conflictRatio = opts.conflictRatio ?? 3;
+  const locale = opts.locale || 'it';
 
   // base income value → [{ section, tax }]
   const byIncome = new Map();
@@ -682,7 +861,7 @@ export function checkCrossSectionNumericConflicts(sections, opts = {}) {
       // Same pairing rules as the plausibility gate, deliberately: this gate
       // used to re-derive them and drifted, so a false pair fixed there kept
       // firing here on the same sentence.
-      for (const { income, tax } of incomeTaxPairs(line)) {
+      for (const { income, tax } of incomeTaxPairs(line, locale)) {
         const key = income.value;
         if (!byIncome.has(key)) byIncome.set(key, []);
         byIncome.get(key).push({ section, tax: tax.value, raw: tax.raw, line: line.trim() });
@@ -1067,11 +1246,17 @@ export function checkFabricatedInstitutionAcronyms(text, opts = {}) {
 // "Il Decreto Omnibus è stato varato il 1° gennaio 2023" coexisted with "Il 1°
 // gennaio 2024 entrerà in vigore il Decreto Omnibus" in the same article.
 
-const MONTHS_IT = {
-  gennaio: 1, febbraio: 2, marzo: 3, aprile: 4, maggio: 5, giugno: 6,
-  luglio: 7, agosto: 8, settembre: 9, ottobre: 10, novembre: 11, dicembre: 12,
-};
-const DATE_IT_RE = /(\d{1,2})\s*°?\s+(gennaio|febbraio|marzo|aprile|maggio|giugno|luglio|agosto|settembre|ottobre|novembre|dicembre)\s+(\d{4})/gi;
+// The same table the cross-locale date comparison reads, kept in one place so
+// the two can never disagree about what "marzo" means.
+const MONTHS_IT = LOCALE_LEXICON.it.months;
+// Built from that same table rather than re-listing the twelve names: a regex
+// and a lookup map that must agree on the spelling of "märz" is exactly the
+// literal duplication AGENTS.md #6 forbids, and here the two are now in
+// different files, where the drift would be invisible.
+const DATE_IT_RE = new RegExp(
+  String.raw`(\d{1,2})\s*°?\s+(${Object.keys(MONTHS_IT).join('|')})\s+(\d{4})`,
+  'gi',
+);
 // Deliberately excludes Accordo / Convenzione / Trattato. An international
 // instrument legitimately carries a signature date, a ratification date and an
 // entry-into-force date, all of which read as "promulgation" — that alone
@@ -1359,10 +1544,255 @@ export function checkSourceFidelity(articleText, sourceText, opts = {}) {
   return issues;
 }
 
+// ─── 9. Italian ↔ translation numeric consistency ─────────────────────
+//
+// Everything above judges one body against itself or against its source. This
+// judges a TRANSLATION against the Italian it came from — the only vantage
+// point from which a translation-time defect is visible at all.
+//
+// Reading numbers by SHAPE rather than by locale is what makes it usable: the
+// corpus mixes conventions inside every locale, and 6.500 CHF and 6,500 CHF
+// both occur in English bodies. See canonicalNumeric.
+
+const NUMERIC_KIND_LABEL = {
+  pct: 'percentuali', amt: 'importi', km: 'distanze in km', date: 'date',
+};
+
+function renderNumericValue(kind, value) {
+  if (kind === 'pct') return `${formatItalianNumber(value)}%`;
+  if (kind === 'km') return `${formatItalianNumber(value)} km`;
+  if (kind === 'date') return String(value);
+  return formatItalianNumber(value);
+}
+
+/**
+ * The digits of a number, ignoring where the separator fell.
+ *
+ * Leading zeros go (0,25 and 25 are the same digits mis-scaled); trailing
+ * zeros STAY. Stripping them too would make 6.000 and 60.000 identical, which
+ * is the ordinary transcription slip this check must NOT claim to have
+ * diagnosed — 12 of the 28 corpus hits were exactly that shape.
+ */
+function digitSignature(value) {
+  return String(value).replace(/[^0-9]/g, '').replace(/^0+/, '') || '0';
+}
+
+/**
+ * The Italian value a translated number is a rescaled copy of.
+ *
+ * Two conditions, and the second one is what makes this check publishable.
+ * The ratio must be a whole power of ten AND the two numbers must carry the
+ * SAME significant digits. Ratio alone is not evidence: on the live corpus it
+ * paired an Italian nursery fee of 70-120 CHF/day with a German rent gap of
+ * 800-1.200 EUR/month, and a 50% AVS pro-rata with an unrelated French 5%
+ * capital tax — coincidences, because percentages live in a small value space
+ * and every article carries dozens of numbers.
+ *
+ * Same digits + different magnitude is not a coincidence: it is what a botched
+ * separator conversion leaves behind. The case that survives the rule is real
+ * — `franco-svizzero-minimi-euro` states "465 franchi svizzeri" in Italian and
+ * "CHF 4.65" in English, a 100× error introduced purely by re-punctuating.
+ */
+function rescaledFrom(value, candidates) {
+  const signature = digitSignature(value);
+  for (const other of candidates) {
+    if (digitSignature(other) !== signature) continue;
+    for (const factor of [10, 100, 1000, 0.1, 0.01, 0.001]) {
+      const scaled = other * factor;
+      if (Math.abs(value - scaled) <= Math.max(1e-9, Math.abs(scaled) * 1e-9)) return other;
+    }
+  }
+  return null;
+}
+
+/**
+ * Below this, a set difference is noise rather than signal.
+ *
+ * Measured, not guessed. A single missing number is dominated by artefacts the
+ * comparison cannot see through: ranges name only one endpoint next to the
+ * currency ("da 60.000 a 100.000 franchi" yields 100000, "from CHF 60,000 to
+ * 100,000" yields 60000), and translations legitimately merge or reorder
+ * clauses. Requiring at least two values AND a quarter of that kind's set
+ * concentrates the report on translations that actually lost their figures.
+ */
+const MIN_NUMERIC_DIVERGENCE = 2;
+const MIN_NUMERIC_DIVERGENCE_SHARE = 0.25;
+
+function worthReporting(diverged, total) {
+  return diverged.length >= MIN_NUMERIC_DIVERGENCE
+    && diverged.length >= total * MIN_NUMERIC_DIVERGENCE_SHARE;
+}
+
+/**
+ * Compares the numbers of an Italian body against one of its translations.
+ *
+ * @param {string} italianText
+ * @param {string} translatedText
+ * @param {string} locale        en | de | fr
+ * @param {{maxReported?: number}} [opts]
+ */
+export function checkTranslationNumericConsistency(italianText, translatedText, locale, opts = {}) {
+  const issues = [];
+  if (typeof italianText !== 'string' || typeof translatedText !== 'string') return issues;
+  if (!italianText.trim() || !translatedText.trim()) return issues;
+  const maxReported = opts.maxReported ?? 8;
+
+  const src = extractNumericFacts(italianText, 'it');
+  const dst = extractNumericFacts(translatedText, locale);
+
+  for (const kind of ['pct', 'amt', 'km', 'date']) {
+    const dropped = [...src[kind]].filter((v) => !dst[kind].has(v));
+    const added = [...dst[kind]].filter((v) => !src[kind].has(v));
+    const label = NUMERIC_KIND_LABEL[kind];
+
+    // A date carries no magnitude, so it can never be a rescaled other date.
+    if (kind !== 'date') {
+      for (const value of added) {
+        const original = rescaledFrom(value, dropped);
+        if (original === null) continue;
+        issues.push(issue(
+          'translation-number-magnitude',
+          'critical',
+          `[${locale}] ${renderNumericValue(kind, value)} nella traduzione dove l'italiano scrive `
+          + `${renderNumericValue(kind, original)} — stessa cifra, ordine di grandezza diverso`,
+          `it: ${renderNumericValue(kind, original)} → ${locale}: ${renderNumericValue(kind, value)}`,
+          `Riporta il valore dell'italiano: ${renderNumericValue(kind, original)}. `
+          + `Le due cifre hanno le stesse cifre significative e differiscono per un fattore esatto di 10, `
+          + `quindi non è un arrotondamento ma una conversione sbagliata del separatore `
+          + `(l'italiano scrive 60.000 e 0,25 dove l'inglese scrive 60,000 e 0.25). Correggi la cifra, non cancellarla.`,
+        ));
+      }
+    }
+
+    if (worthReporting(dropped, src[kind].size)) {
+      issues.push(issue(
+        'translation-number-dropped',
+        'major',
+        `[${locale}] ${dropped.length}/${src[kind].size} ${label} dell'italiano assenti dalla traduzione`,
+        dropped.slice(0, maxReported).map((v) => renderNumericValue(kind, v)).join(', '),
+        `Reintegra nella versione ${locale} i valori mancanti così come li scrive l'italiano. `
+        + `Se un passaggio è stato riassunto, il riassunto deve comunque conservare le cifre: `
+        + `un lettore non italiano non ha modo di recuperarle.`,
+      ));
+    }
+
+    if (worthReporting(added, dst[kind].size)) {
+      issues.push(issue(
+        'translation-number-added',
+        'major',
+        `[${locale}] ${added.length}/${dst[kind].size} ${label} della traduzione assenti dall'italiano`,
+        added.slice(0, maxReported).map((v) => renderNumericValue(kind, v)).join(', '),
+        `Una traduzione non introduce dati nuovi. Rimuovi dalla versione ${locale} i valori che `
+        + `l'italiano non riporta, oppure — se il dato è giusto e manca all'italiano — aggiungilo prima all'italiano.`,
+      ));
+    }
+  }
+
+  return issues;
+}
+
+// ─── 10. Professions invented in translation ──────────────────────────
+//
+// A "frontaliere" is a cross-border COMMUTER. Every target language has a
+// similar-looking word for a border GUARD, and the translation step reached for
+// it: 7 English titles/excerpts shipped calling this site's entire audience
+// "border guards", plus one French "gardes-frontières". Fixed by hand on
+// 2026-07-28 — no gate saw them, because no gate ever read a translation.
+
+/**
+ * Flags a profession the translation invented out of "frontalieri".
+ *
+ * LIMIT, stated plainly: this does not read the sentence, so it cannot tell a
+ * mistranslated commuter from a genuine customs officer on its own. It defers
+ * to the Italian instead — if the Italian body names a guard, a customs
+ * officer, a finanziere or the dogana anywhere, the check stays silent for the
+ * whole article. That is a deliberate loss of recall: an article that discusses
+ * BOTH real border guards and frontalieri will not be checked at all. It buys
+ * the precision the gate needs to block, and it is why the anchor list is
+ * broad enough to include plain "dogana".
+ *
+ * @param {string} italianText    the Italian original
+ * @param {string} translatedText the translation to judge
+ * @param {string} locale         en | de | fr
+ */
+export function checkTranslationFalseFriends(italianText, translatedText, locale) {
+  const issues = [];
+  if (typeof italianText !== 'string' || typeof translatedText !== 'string') return issues;
+  const patterns = FALSE_FRIEND_PATTERNS[locale];
+  if (!patterns) return issues;
+  if (ITALIAN_BORDER_GUARD_ANCHOR.test(italianText)) return issues;
+
+  for (const { re, correct } of patterns) {
+    const m = translatedText.match(re);
+    if (!m) continue;
+    const at = translatedText.indexOf(m[0]);
+    issues.push(issue(
+      'translation-false-friend',
+      'critical',
+      `[${locale}] "${m[0]}" traduce "frontalieri": è la guardia di confine, un mestiere diverso `
+      + `— l'italiano non nomina mai guardie, dogane o finanzieri`,
+      translatedText.slice(Math.max(0, at - 70), at + 70).replace(/\n/g, ' ').trim(),
+      `Sostituisci "${m[0]}" con "${correct}". "Frontaliere" è chi RISIEDE in Italia e LAVORA in Svizzera, `
+      + `non chi presidia il confine. Correggi ogni occorrenza nel testo, nel titolo e nell'excerpt.`,
+    ));
+  }
+
+  return issues;
+}
+
 // ─── Orchestrator ─────────────────────────────────────────────────────
 
 /**
+ * Content claims whose source of truth is the Italian body, not the translation.
+ *
+ * A translation restates what the Italian says; it does not decide whether a
+ * tax exceeds an income. So when one of these fires on a translation and NOT
+ * on the Italian it derives from, the likelier explanation is the translated
+ * cue list, not a defect in the article — and the corpus says so plainly:
+ * every one of the 14 surviving `tax-exceeds-income` reports on en/de/fr had
+ * no Italian counterpart, and all five read by hand were misreadings of word
+ * order ("500,000 francs income", "4.000 Franken brutto", "IRPEF brute").
+ *
+ * They stay reported, because a translation CAN mangle a figure badly enough
+ * to invert a ratio — they simply stop blocking on their own evidence.
+ * Structural defects are not in this set: an unclosed `**` in the German body
+ * is the German body's own defect and keeps blocking.
+ */
+const ITALIAN_ADJUDICATED_CODES = new Set([
+  'tax-exceeds-income', 'contradictory-figures', 'arithmetic-error', 'percent-factor-mismatch',
+]);
+
+/**
+ * Demotes a translation-only content claim to `major`, saying why in the text.
+ * Issues the Italian raises too are left alone: those are real, and blocking
+ * them once on the Italian body is enough.
+ */
+function adjudicateAgainstItalian(issues, italianCodes) {
+  return issues.map((i) => {
+    if (i.severity !== 'critical') return i;
+    if (!ITALIAN_ADJUDICATED_CODES.has(i.code)) return i;
+    if (italianCodes.has(i.code)) return i;
+    return {
+      ...i,
+      severity: 'major',
+      message: `${i.message} — non presente nell'italiano, quindi verosimilmente `
+        + 'un limite del riconoscimento nella lingua di destinazione: da verificare a mano, non bloccante',
+    };
+  });
+}
+
+/**
  * Runs every deterministic gate.
+ *
+ * On a translation (`locale` != 'it') only the checks decidable without
+ * Italian-specific knowledge run — truncation, arithmetic, tax plausibility,
+ * cross-section conflicts — plus the two cross-locale checks, and those only
+ * when `italianSections` is supplied. The four that are skipped are skipped on
+ * purpose, not for lack of time: the institution allowlist, the norm-date
+ * predicates and the future-tense markers are Italian vocabulary whose
+ * translated equivalents would each need their own hand-tuned allowlist, and
+ * the source-fidelity gate has already judged the Italian this text derives
+ * from — re-running it here would only restate the same finding four times.
  *
  * `memory` is the OPTIONAL learned-defence input (see article-defect-memory.mjs).
  * Omitting it reproduces the pre-learning behaviour exactly — the curated lists
@@ -1377,34 +1807,83 @@ export function checkSourceFidelity(articleText, sourceText, opts = {}) {
  *
  * @param {{sections: Record<string,string>, sourceText?: string,
  *          sourceDate?: string|Date, publishedAt?: string|Date,
+ *          locale?: string, italianSections?: Record<string,string>,
  *          options?: object,
  *          memory?: {denylist?: Set<string>, suspects?: Set<string>, degraded?: string|null}}} params
  * @returns {{passed: boolean, issues: object[], blocking: object[], observations: object[]}}
  */
 export function runFactualityGates(params = {}) {
-  const { sections = {}, sourceText = '', sourceDate, publishedAt, options = {}, memory = {} } = params;
-  const fullText = Object.values(sections).filter((v) => typeof v === 'string').join('\n\n');
+  const {
+    sections = {}, sourceText = '', sourceDate, publishedAt,
+    locale = 'it', italianSections = null, options = {}, memory = {},
+  } = params;
+  const joined = (obj) => Object.values(obj).filter((v) => typeof v === 'string').join('\n\n');
+  const fullText = joined(sections);
+  const localeOptions = { ...options, locale };
 
-  const issues = [];
+  let issues = [];
   for (const [label, text] of Object.entries(sections)) {
     if (typeof text !== 'string' || !text.trim()) continue;
-    issues.push(...detectTruncation(text, { label }));
+    const sectionLabel = locale === 'it' ? label : `${locale}/${label}`;
+    issues.push(...detectTruncation(text, { label: sectionLabel }));
+    issues.push(...detectLeakedScaffolding(text, { label: sectionLabel }));
   }
-  issues.push(...checkInlineArithmetic(fullText));
-  issues.push(...checkTaxPlausibility(fullText, options));
-  issues.push(...checkCrossSectionNumericConflicts(sections, options));
-  issues.push(...checkFabricatedInstitutionAcronyms(fullText, {
-    learnedDenylist: memory.denylist,
-    learnedSuspects: memory.suspects,
-    memoryDegraded: memory.degraded,
-  }));
-  issues.push(...checkContradictoryNormDates(fullText));
-  issues.push(...checkSourceFreshness({ sourceDate, publishedAt, text: fullText, ...options }));
-  if (sourceText && sourceText.length >= 100) {
-    issues.push(...checkSourceFidelity(fullText, sourceText, options));
+  issues.push(...checkInlineArithmetic(fullText, localeOptions));
+  issues.push(...checkTaxPlausibility(fullText, localeOptions));
+  issues.push(...checkCrossSectionNumericConflicts(sections, localeOptions));
+
+  if (locale === 'it') {
+    issues.push(...checkFabricatedInstitutionAcronyms(fullText, {
+      learnedDenylist: memory.denylist,
+      learnedSuspects: memory.suspects,
+      memoryDegraded: memory.degraded,
+    }));
+    issues.push(...checkContradictoryNormDates(fullText));
+    issues.push(...checkSourceFreshness({ sourceDate, publishedAt, text: fullText, ...options }));
+    if (sourceText && sourceText.length >= 100) {
+      issues.push(...checkSourceFidelity(fullText, sourceText, options));
+    }
+  } else if (italianSections) {
+    const italianText = joined(italianSections);
+
+    // What the Italian says about its own numbers, used to adjudicate the
+    // content claims above — see ITALIAN_ADJUDICATED_CODES.
+    const italianCodes = new Set([
+      ...checkInlineArithmetic(italianText, options),
+      ...checkTaxPlausibility(italianText, options),
+      ...checkCrossSectionNumericConflicts(italianSections, options),
+    ].map((i) => i.code));
+    issues = adjudicateAgainstItalian(issues, italianCodes);
+
+    issues.push(...checkTranslationNumericConsistency(italianText, fullText, locale, options));
+    issues.push(...checkTranslationFalseFriends(italianText, fullText, locale));
+  } else {
+    // A translation judged with no Italian to judge it against. Every
+    // cross-locale check above needs the reference, so all three go quiet —
+    // and quiet is the problem: a wrong article id or a stale cache on the
+    // caller's side would disable the entire translation-fidelity layer while
+    // the audit still printed a reassuring "0 blocking" for that locale.
+    //
+    // Say so instead. `major`, not `critical`: the missing reference is a
+    // wiring fault, not evidence about the article, and blocking on it would
+    // punish the content for the harness being wrong. But it is never silent.
+    issues.push(issue(
+      'translation-unadjudicated',
+      'major',
+      `[${locale}] Traduzione valutata senza il testo italiano di riferimento — `
+      + 'i controlli di fedeltà (numeri, falsi amici, ordini di grandezza) NON sono stati eseguiti',
+      '',
+      `Passa \`italianSections\` a runFactualityGates() per il locale "${locale}". `
+      + "Se l'articolo esiste solo come traduzione, senza originale italiano, allora non c'è "
+      + 'riferimento contro cui verificarlo e il verdetto su questo locale va letto come parziale.',
+    ));
   }
 
-  const observations = collectInstitutionAcronyms(fullText, { sourceText });
+  // Institution acronyms are an Italian-vocabulary observation, and the learner
+  // that consumes them is keyed on the acronym alone. Harvesting the same
+  // acronym four times, once per locale, would quadruple every sighting count
+  // and promote unknowns to CONFIRMED on one article's evidence.
+  const observations = locale === 'it' ? collectInstitutionAcronyms(fullText, { sourceText }) : [];
 
   issues.sort((a, b) => (SEVERITY[b.severity] || 0) - (SEVERITY[a.severity] || 0));
   const blocking = issues.filter((i) => i.severity === 'critical');

@@ -1,6 +1,6 @@
 {
   "crawlerKey": "rado",
-  "assembledAt": "2026-07-28T22:12:49.655Z",
+  "assembledAt": "2026-07-29T11:43:45.865Z",
   "jobs": [
     {
       "id": "company-7ubgq6",
@@ -22,7 +22,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "rado",
       "companyDomain": "swatchgroup.com",
-      "crawledAt": "2026-07-28T11:33:51.233Z",
+      "crawledAt": "2026-07-29T11:43:41.235Z",
       "firstSeenAt": "2026-07-24T11:14:03.673Z",
       "titleByLocale": {
         "de": "Uhrmacher:in Produktion Lehrstelle 2027",
@@ -87,7 +87,7 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "country": "CH",
-      "crawlerMissStreak": 1
+      "needsRetranslation": true
     },
     {
       "id": "company-7ubgpk",
@@ -109,7 +109,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "rado",
       "companyDomain": "swatchgroup.com",
-      "crawledAt": "2026-07-28T11:33:51.233Z",
+      "crawledAt": "2026-07-29T11:43:41.235Z",
       "firstSeenAt": "2026-07-24T11:14:03.673Z",
       "titleByLocale": {
         "de": "Logistiker:in Lehrstelle 2027",
@@ -176,7 +176,7 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "country": "CH",
-      "crawlerMissStreak": 1
+      "needsRetranslation": true
     },
     {
       "id": "company-7ubgpi",
@@ -198,7 +198,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "rado",
       "companyDomain": "swatchgroup.com",
-      "crawledAt": "2026-07-28T11:33:51.233Z",
+      "crawledAt": "2026-07-29T11:43:41.235Z",
       "firstSeenAt": "2026-07-24T11:14:03.673Z",
       "titleByLocale": {
         "de": "KV Lehrstelle 2027",
@@ -265,7 +265,7 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "country": "CH",
-      "crawlerMissStreak": 1
+      "needsRetranslation": true
     }
   ]
 }

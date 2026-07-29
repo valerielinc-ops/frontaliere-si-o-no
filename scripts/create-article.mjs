@@ -145,6 +145,7 @@ import { ARTICLE_SECTION_CORE } from '../build-plugins/shared/articleSectionCore
 import { appendArticleListItem } from './lib/seo-pages-article-list.mjs';
 import { buildStructuralEvergreenTopics } from './lib/evergreen-topic-generator.mjs';
 import { resolveGitAddPaths } from './lib/resolve-git-add-path.mjs';
+import { metaFieldRegex, unescapeTsValue } from './lib/meta-field-regex.mjs';
 
 // ── Smarter generator inputs (Phase 3 — spec 2026-05-06) ───────
 // data/article-performance.json is produced weekly by Phase 1A.
@@ -1137,6 +1138,10 @@ const RUN_REPORT = {
   // DISTINCT runs (one degraded run must not be able to confirm its own
   // hallucination six times over). 'local' outside CI.
   runId: process.env.GITHUB_RUN_ID || 'local',
+  // Which pipeline produced the run (frontaliere | svizzera). Recorded because
+  // the two have different gates and different budgets, so a rejection-rate
+  // trend pooled across both hides which one moved. Set once SECTION resolves.
+  section: null,
   status: 'running',
   selectedArticleType: null, // news | evergreen_static | evergreen_dynamic
   selectedSource: null,
@@ -1204,8 +1209,31 @@ const RUN_REPORT = {
   factuality: {
     /** [{acronym, name, support, articleId, attempt}] — one entry per attempt. */
     institutionObservations: [],
+    /**
+     * Generation attempts spent this run, summed across every headline tried.
+     * The cost half of the loop's health metric (docs/ARTICLE-LEARNING-LOOP.md
+     * §6): a defence that halves shipped defects while tripling attempts per
+     * published article is not obviously an improvement, and there is no way to
+     * notice that without counting the denominator.
+     */
+    attempts: 0,
     /** gate issue code → times it rejected a draft this run. */
     gateRejectionsByCode: {},
+    /**
+     * LLM verifier category → times it rejected a draft this run.
+     *
+     * DIAGNOSTIC ONLY, AND DELIBERATELY SO. These are one model's opinions
+     * about another model's output; they are not admissible as evidence about
+     * the world, and no defence may ever be promoted from them (that is exactly
+     * the 2026-07-28 degeneration). They are recorded anyway because the
+     * incident's signature is only visible here: on run 30350429920 the
+     * verifier rejected a FAITHFUL draft six times running, and the only
+     * observable that would have caught it in the aggregate is this counter
+     * climbing while the publish rate fell. The quarantine is carried in the
+     * field name, in the ledger's `verifierOpinion` column, and in the
+     * `admissible: false` tag the trend view prints.
+     */
+    factCheckRejectionsByCategory: {},
   },
   notes: [],
 };
@@ -1801,6 +1829,9 @@ function parseSectionArg(argv) {
 const SECTION_NAME = parseSectionArg(process.argv.slice(2));
 const SECTION = ARTICLE_SECTION_CONFIGS[SECTION_NAME];
 const IS_FRONTALIERE = SECTION_NAME === 'frontaliere';
+// Stamped here rather than in the RUN_REPORT literal because SECTION_NAME is
+// parsed from argv ~700 lines later than the report is declared.
+RUN_REPORT.section = SECTION_NAME;
 
 // Section-keyed source-tracking files (frontaliere defaults = original paths).
 const SOURCE_QUOTA_FILE = SECTION.sourceQuotaFile;
@@ -1958,6 +1989,21 @@ function readAllSectionsMetaIt() {
   _sectionsMetaItCache = parts.join('\n');
   return _sectionsMetaItCache;
 }
+
+// Value-quote-safe regex for 'blog.article.<id>.<field>': '<value>' meta
+// entries — honors backslash-escaped quotes inside the value instead of
+// truncating at the first embedded one. Consolidates what used to be 5
+// independent copies of this construct in this file: 4 used a naive
+// `'([^']+)'` (or `'([^']*)'`) capture that silently truncated any
+// title/excerpt containing an apostrophe (e.g. "l'iniziativa",
+// "dell'A9" — both real values in services/locales/blog-meta-it.ts) at the
+// escaped quote, corrupting the duplicate-detection input those 4 call sites
+// feed (selectArticle, loadExistingArticleSummaries, preFlightHeadlineCheck,
+// checkForDuplicates) for every existing article with an apostrophe in its
+// title, not just the ones just added. The 5th copy (loadExistingItTitlesExcluding)
+// already had the correct escape-aware pattern; all 5 now share this one.
+// metaFieldRegex / unescapeTsValue now live in scripts/lib/meta-field-regex.mjs
+// (imported at the top) — one definition, so a test copy cannot drift from it.
 
 function getIsoWeekKey(date = new Date()) {
   const d = new Date(Date.UTC(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate()));
@@ -4613,8 +4659,10 @@ async function selectArticle(headlines) {
 
   // Get existing article titles AND excerpts from the section meta-it for robust duplicate detection
   const blogItSrc = readSectionMetaIt();
-  const titleMatches = [...blogItSrc.matchAll(/'blog\.article\.([^.]+)\.title':\s*'([^']+)'/g)];
-  const excerptMatches = [...blogItSrc.matchAll(/'blog\.article\.([^.]+)\.excerpt':\s*'([^']+)'/g)];
+  const titleMatches = [...blogItSrc.matchAll(metaFieldRegex('title'))];
+  const excerptMatches = [...blogItSrc.matchAll(metaFieldRegex('excerpt'))];
+  titleMatches.forEach((m) => { m[2] = unescapeTsValue(m[2]); });
+  excerptMatches.forEach((m) => { m[2] = unescapeTsValue(m[2]); });
   const existingTitles = titleMatches.map(m => m[2]);
   // Build compact "title — excerpt" list for last 30 articles (most relevant for duplicate avoidance)
   const recentArticles = titleMatches.slice(-30).map(m => {
@@ -6588,11 +6636,11 @@ function loadExistingItTitlesExcluding(currentArticleId) {
   if (_existingItTitlesCache === null) {
     const src = readSectionMetaIt();
     const map = new Map(); // articleId -> normalizedTitle
-    const rx = /'blog\.article\.([^']+)\.title'\s*:\s*'((?:[^'\\]|\\.)*)'/g;
+    const rx = metaFieldRegex('title');
     let m;
     while ((m = rx.exec(src)) !== null) {
       const articleId = m[1];
-      const rawTitle = m[2].replace(/\\'/g, "'").replace(/\\"/g, '"').replace(/\\\\/g, '\\');
+      const rawTitle = unescapeTsValue(m[2]);
       const normalized = rawTitle
         .replace(/\s*\|\s*Frontaliere Ticino\s*$/i, '')
         .replace(/\s+/g, ' ')
@@ -6839,8 +6887,10 @@ function loadExistingArticleSummaries() {
   // topics recur in both sections, so a sibling-section twin must be caught
   // BEFORE spending an LLM generation cycle on a duplicate.
   const blogItSrc = readAllSectionsMetaIt();
-  const titleMatches = [...blogItSrc.matchAll(/'blog\.article\.([^.]+)\.title':\s*'([^']+)'/g)];
-  const excerptMatches = [...blogItSrc.matchAll(/'blog\.article\.([^.]+)\.excerpt':\s*'([^']*)'/g)];
+  const titleMatches = [...blogItSrc.matchAll(metaFieldRegex('title'))];
+  const excerptMatches = [...blogItSrc.matchAll(metaFieldRegex('excerpt'))];
+  titleMatches.forEach((m) => { m[2] = unescapeTsValue(m[2]); });
+  excerptMatches.forEach((m) => { m[2] = unescapeTsValue(m[2]); });
   const excerptsById = new Map(excerptMatches.map((m) => [m[1], m[2]]));
   _existingArticleSummariesCache = titleMatches.map((m) => ({
     id: m[1],
@@ -6893,7 +6943,8 @@ function preFlightHeadlineCheck(headline) {
   // Cross-section (2026-07-11): a news headline already covered in the sibling
   // section is a duplicate too (shared id/title namespace).
   const blogItSrc = readAllSectionsMetaIt();
-  const titleMatches = [...blogItSrc.matchAll(/'blog\.article\.([^.]+)\.title':\s*'([^']+)'/g)];
+  const titleMatches = [...blogItSrc.matchAll(metaFieldRegex('title'))];
+  titleMatches.forEach((m) => { m[2] = unescapeTsValue(m[2]); });
 
   const headlineWords = tokenizeIt(headline);
   if (headlineWords.length < 3) return { duplicate: false }; // too short to compare reliably
@@ -6951,8 +7002,10 @@ function checkForDuplicates(data) {
   // one-letter `…-frontaliere`/`…-frontalieri` twins, "vivere nei Grigioni",
   // etc. (2026-07-11). Same shared id/title namespace as getAllArticleIds.
   const blogItSrc = readAllSectionsMetaIt();
-  const titleMatches = [...blogItSrc.matchAll(/'blog\.article\.([^.]+)\.title':\s*'([^']+)'/g)];
-  const excerptMatches = [...blogItSrc.matchAll(/'blog\.article\.([^.]+)\.excerpt':\s*'([^']+)'/g)];
+  const titleMatches = [...blogItSrc.matchAll(metaFieldRegex('title'))];
+  const excerptMatches = [...blogItSrc.matchAll(metaFieldRegex('excerpt'))];
+  titleMatches.forEach((m) => { m[2] = unescapeTsValue(m[2]); });
+  excerptMatches.forEach((m) => { m[2] = unescapeTsValue(m[2]); });
   const existingArticles = titleMatches.map(m => {
     const id = m[1];
     const title = m[2];
@@ -9768,6 +9821,14 @@ async function generateAndValidateArticle(url, sourceContext = null) {
   let previousMinWordsModel = null;
 
   for (let attempt = 1; attempt <= maxAttempts; attempt++) {
+    // Cost accounting for the rejection ledger. Counted here — at the top of
+    // the loop, before any early `continue` — because an attempt abandoned on
+    // the wall-clock guard below still consumed the run's budget, and a cost
+    // metric that only counts attempts which reached a gate would show the
+    // pipeline getting cheaper precisely as it started running out of time.
+    // Accumulates across headlines: this function runs once per candidate.
+    RUN_REPORT.factuality.attempts += 1;
+
     // Wall-clock guard for the local-only cascade (2026-07-06, incident run
     // 28802314827): once local/fallback has generated at least one attempt
     // for THIS headline (flag reset per-headline — see the reset at the top
@@ -10068,6 +10129,16 @@ async function generateAndValidateArticle(url, sourceContext = null) {
     try {
       const factResult = await llmFactCheck(data.content.it, pageContent, url);
       if (!factResult.passed) {
+        // Ledger only. These categories never reach the defect memory and can
+        // never promote anything: they are the verifier's opinion, and the
+        // verifier is the component that failed on 2026-07-28. What they DO
+        // give us is the only aggregate view under which that failure is
+        // visible — see factCheckRejectionsByCategory in RUN_REPORT.
+        for (const i of factResult.issues || []) {
+          const cat = String(i?.category || 'uncategorized');
+          RUN_REPORT.factuality.factCheckRejectionsByCategory[cat] =
+            (RUN_REPORT.factuality.factCheckRejectionsByCategory[cat] || 0) + 1;
+        }
         const issuesSummary = factResult.issues.map(i => `[${i.category || '?'}] "${(i.claim || '').slice(0, 60)}" — ${(i.reason || '').slice(0, 80)}`).join('; ');
         const err = new Error(`Articolo rigettato da fact-check: ${factResult.issues.length} problemi: ${issuesSummary}`);
         if (attempt < maxAttempts) {

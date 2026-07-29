@@ -33,7 +33,17 @@ function mapMailtrapEvent(event) {
  case 'reject': return 'bounce';
  case 'unsubscribe': return 'unsubscribed';
  case 'spam_complaint': return 'complaint';
- case 'suspension': return 'suppressed';
+ // `suspension` is an ACCOUNT/STREAM-level signal from Mailtrap — it means
+ // Mailtrap stopped sending, not that this recipient is undeliverable. Its
+ // payload carries no bounce_category, no response and no response_code,
+ // precisely because there was no recipient-side failure to report. Mapping
+ // it to 'suppressed' burned over 1700 subscribers, more than a fifth of the base, who had
+ // never bounced or complained, including ones with opens and deliveries
+ // minutes earlier. Left unmapped on purpose, which makes handleMailtrapWebhook
+ // return { skipped: true } without recording anything — acceptable because
+ // mailtrap is no longer in the send cascade, so no new suspensions can arrive
+ // for messages we sent. What matters is that it never changes a status again.
+ case 'suspension': return null;
  default: return null;
  }
 }
