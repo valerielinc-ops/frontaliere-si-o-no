@@ -60,7 +60,10 @@ function applyWrite(existing: Record<string, unknown> | undefined, data: Record<
   return base;
 }
 
-function createFakeDb(initialDocs: Record<string, Record<string, Record<string, unknown>>> = {}) {
+function createFakeDb(
+  initialDocs: Record<string, Record<string, Record<string, unknown>>> = {},
+  initialSubDocs: Record<string, Array<Record<string, unknown>>> = {},
+) {
   // initialDocs is keyed per-collection-then-id (e.g. { newsletter_subscribers:
   // { 'user@example.com': {...} } }) for call-site readability; flatten it to
   // the same `${collection}/${id}` keys makeDocRef()/get()/set() operate on.
@@ -71,6 +74,11 @@ function createFakeDb(initialDocs: Record<string, Record<string, Record<string, 
     }
   }
   const events: Array<{ collection: string; data: Record<string, unknown> }> = [];
+  // Sub-collection rows keyed `${collection}/${id}/${subName}`, e.g. the
+  // job_alert_subscribers alerts the welcome copy branches on.
+  const subDocs: Record<string, Array<Record<string, unknown>>> = initialSubDocs;
+  // Every sub-collection get(), so a test can assert a read did NOT happen.
+  const subCollectionGets: string[] = [];
   let chain: Promise<unknown> = Promise.resolve();
 
   function makeDocRef(name: string, id: string) {
@@ -84,6 +92,20 @@ function createFakeDb(initialDocs: Record<string, Record<string, Record<string, 
         add: async (data: Record<string, unknown>) => {
           events.push({ collection: `${key}/${subName}`, data });
         },
+        // Subcollections must support get(), not just add(): the sender reads
+        // job_alert_subscribers/{email}/alerts to decide whether the welcome
+        // confirms existing alerts or offers to create them. Without this the
+        // read throws, the sender's catch swallows it, and the whole
+        // alert-aware branch silently tests as "no alerts".
+        get: async () => {
+          subCollectionGets.push(`${key}/${subName}`);
+          const rows = subDocs[`${key}/${subName}`] || [];
+          return {
+            empty: rows.length === 0,
+            size: rows.length,
+            docs: rows.map((d) => ({ data: () => d })),
+          };
+        },
       }),
     };
   }
@@ -91,6 +113,7 @@ function createFakeDb(initialDocs: Record<string, Record<string, Record<string, 
   return {
     docs,
     events,
+    subCollectionGets,
     collection: (name: string) => ({ doc: (id: string) => makeDocRef(name, id) }),
     runTransaction: (fn: (tx: { get: (ref: ReturnType<typeof makeDocRef>) => Promise<unknown>; set: (ref: ReturnType<typeof makeDocRef>, data: Record<string, unknown>, opts?: { merge?: boolean }) => void }) => Promise<unknown>) => {
       const run = chain.then(() =>
@@ -547,5 +570,96 @@ describe('handleSubscriptionManagement — confirm action fires the welcome emai
     sendEmailCascadeMock.mockClear();
     await handleSubscriptionManagement({ action: 'confirm', email, token, secret, locale: 'it', db });
     expect(sendEmailCascadeMock).not.toHaveBeenCalled();
+  });
+});
+
+// ── Job-alert awareness ──────────────────────────────────────────
+// Alerts are auto-created at signup by the backfillJobAlertOnNewsletterSignup
+// trigger, so the welcome must confirm them rather than ask for something
+// already done. These tests exercise the real lookup — before the fake db
+// grew subcollection get(), the read threw, the sender's catch swallowed it,
+// and this whole branch silently tested as "no alerts".
+describe('sendNewsletterWelcomeEmail — job alert awareness', () => {
+  const EMAIL = 'jobseeker@example.com';
+  const ALERTS_KEY = `job_alert_subscribers/${EMAIL}/alerts`;
+
+  // A doc carrying a job signal: this is what makes the trigger create an alert.
+  function jobDoc(overrides: Record<string, unknown> = {}) {
+    return recentDoc({ sector_interest: 'health', job_location: 'Lugano', job_company: 'EOC – Ente Ospedaliero Cantonale', ...overrides });
+  }
+
+  async function sentHtml() {
+    const call = sendEmailCascadeMock.mock.calls.at(-1)?.[0] as Array<{ payload: { html: string; subject: string } }>;
+    return call[0].payload;
+  }
+
+  it('confirms alerts when an active alert doc exists', async () => {
+    const { sendNewsletterWelcomeEmail } = await import('../functions/src/newsletterWelcomeEmail.js');
+    const db = createFakeDb(
+      { newsletter_subscribers: { [EMAIL]: jobDoc() } },
+      { [ALERTS_KEY]: [{ active: true, keywords: ['infermiere'] }] },
+    );
+    const result = await sendNewsletterWelcomeEmail({ email: EMAIL, locale: 'it', db, trigger: 'confirm' });
+    expect(result.success).toBe(true);
+    const { subject, html } = await sentHtml();
+    expect(subject).toBe('Sei dentro: gli avvisi lavoro sono attivi');
+    expect(html).not.toContain('Crea il tuo job alert');
+  });
+
+  it('offers to create when every alert was explicitly deactivated', async () => {
+    // deleteAlert sets active:false — an explicit opt-out we must not override
+    // by claiming their alerts are running.
+    const { sendNewsletterWelcomeEmail } = await import('../functions/src/newsletterWelcomeEmail.js');
+    const db = createFakeDb(
+      { newsletter_subscribers: { [EMAIL]: jobDoc() } },
+      { [ALERTS_KEY]: [{ active: false }] },
+    );
+    await sendNewsletterWelcomeEmail({ email: EMAIL, locale: 'it', db, trigger: 'confirm' });
+    const { subject } = await sentHtml();
+    expect(subject).not.toBe('Sei dentro: gli avvisi lavoro sono attivi');
+  });
+
+  it('falls back to the trigger predicate when the alert doc has not been written yet', async () => {
+    // The trigger races this send. A signal-bearing subscriber WILL get an
+    // alert, so the copy may confirm it even before the doc lands.
+    const { sendNewsletterWelcomeEmail } = await import('../functions/src/newsletterWelcomeEmail.js');
+    const db = createFakeDb({ newsletter_subscribers: { [EMAIL]: jobDoc() } }, {});
+    await sendNewsletterWelcomeEmail({ email: EMAIL, locale: 'it', db, trigger: 'confirm' });
+    const { subject } = await sentHtml();
+    expect(subject).toBe('Sei dentro: gli avvisi lavoro sono attivi');
+  });
+
+  it('does not claim alerts for a subscriber with no job signal at all', async () => {
+    const { sendNewsletterWelcomeEmail } = await import('../functions/src/newsletterWelcomeEmail.js');
+    const db = createFakeDb({ newsletter_subscribers: { 'plain@example.com': recentDoc() } }, {});
+    const result = await sendNewsletterWelcomeEmail({ email: 'plain@example.com', locale: 'it', db, trigger: 'confirm' });
+    expect(result.success).toBe(true);
+    const { subject } = await sentHtml();
+    expect(subject).not.toBe('Sei dentro: gli avvisi lavoro sono attivi');
+  });
+});
+
+// Only the `job` segment consumes jobAlertActive, so the other four must not
+// pay a Firestore sub-collection round-trip per send for a value nothing reads.
+describe('sendNewsletterWelcomeEmail — no wasted alert lookup', () => {
+  it('reads the alerts sub-collection for the job segment', async () => {
+    const { sendNewsletterWelcomeEmail } = await import('../functions/src/newsletterWelcomeEmail.js');
+    const db = createFakeDb(
+      { newsletter_subscribers: { 'j@example.com': recentDoc({ sector_interest: 'health', job_location: 'Lugano' }) } },
+      {},
+    );
+    await sendNewsletterWelcomeEmail({ email: 'j@example.com', locale: 'it', db, trigger: 'confirm' });
+    expect(db.subCollectionGets.some((k) => k.includes('job_alert_subscribers'))).toBe(true);
+  });
+
+  it('does not read it for a non-job segment', async () => {
+    const { sendNewsletterWelcomeEmail } = await import('../functions/src/newsletterWelcomeEmail.js');
+    const db = createFakeDb(
+      { newsletter_subscribers: { 'p@example.com': recentDoc({ source_cta: 'publisher_gate_email' }) } },
+      {},
+    );
+    const result = await sendNewsletterWelcomeEmail({ email: 'p@example.com', locale: 'it', db, trigger: 'confirm' });
+    expect(result.segment).toBe('publisher');
+    expect(db.subCollectionGets.some((k) => k.includes('job_alert_subscribers'))).toBe(false);
   });
 });
