@@ -4759,7 +4759,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 3603,
+ "numberOfItems": 3604,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026/` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024/` },
@@ -8363,7 +8363,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 3600, "name": "Edilizia in Ticino: stop alle penali per caldo ...", "url": `${BASE_URL}/articoli-frontaliere/impresari-costruttori-caldo-estremo` },
           { "@type": "ListItem", "position": 3601, "name": "Telelavoro frontalieri: i limiti fiscali e prev...", "url": `${BASE_URL}/articoli-frontaliere/telelavoro-frontalieri-limiti-fiscali-previdenziali` },
           { "@type": "ListItem", "position": 3602, "name": "Grave infortunio sul lavoro in Vallemaggia", "url": `${BASE_URL}/articoli-frontaliere/infortunio-lavoro-vallemaggia-piano-peccia` },
-          { "@type": "ListItem", "position": 3603, "name": "Accertamento residenza fiscale: le prove digita...", "url": `${BASE_URL}/articoli-frontaliere/accertamento-residenza-fiscale-prove-digitali` }
+          { "@type": "ListItem", "position": 3603, "name": "Accertamento residenza fiscale: le prove digita...", "url": `${BASE_URL}/articoli-frontaliere/accertamento-residenza-fiscale-prove-digitali` },
+          { "@type": "ListItem", "position": 3604, "name": "UBS e Credit Suisse: i risultati dell'integrazione", "url": `${BASE_URL}/articoli-frontaliere/integrazione-ubs-credit-suisse-risultati` }
  ]
  },
  {

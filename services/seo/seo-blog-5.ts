@@ -57011,6 +57011,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-integrazione-ubs-credit-suisse-risultati': {
+    title: 'UBS e Credit Suisse: i risultati dell\'integrazione',
+    description: 'A tre anni dall\'annuncio, il CEO di UBS Sergio Ermotti conferma risultati tangibili e il superamento delle sfide per il gruppo bancario svizzero.',
+    keywords: 'frontalieri, ticino, svizzera, italia, credit, suisse, risultati, dell',
+    ogTitle: 'UBS e Credit Suisse: i risultati dell\'integrazione',
+    ogDescription: 'A tre anni dall\'annuncio, il CEO di UBS Sergio Ermotti conferma risultati tangibili e il superamento delle sfide per il gruppo bancario svizzero.',
+    canonicalPath: '/articoli-frontaliere/integrazione-ubs-credit-suisse-risultati',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "UBS e Credit Suisse: i risultati dell'integrazione",
+      "description": "A tre anni dall'annuncio, il CEO di UBS Sergio Ermotti conferma risultati tangibili e il superamento delle sfide per il gruppo bancario svizzero.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/integrazione-ubs-credit-suisse-risultati.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Distretto finanziario di Lugano con vista sul lago"
+      },
+      "datePublished": "2026-07-29T07:38:29+00:00",
+      "dateModified": "2026-07-29T07:38:29+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/integrazione-ubs-credit-suisse-risultati/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
