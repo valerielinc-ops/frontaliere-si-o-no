@@ -7,6 +7,8 @@
 // one intentionally-dead key (mistral) to prove OmniRoute's auto fallback
 // skips it and still serves the completion via a live provider.
 
+import { resolveOmniRouteAllowlist } from '../lib/omniroute-free-providers.mjs';
+
 const OMNIROUTE_URL = 'http://localhost:20128';
 
 // Tuple shape: [provider, name, envNames|null, presetApiKey|null] — envNames
@@ -27,43 +29,17 @@ const providersFromJson = (() => {
 
 // ── Free-only allowlist ──────────────────────────────────────
 // OMNIROUTE_PROVIDERS_JSON carries EVERY apikey connection decrypted from the
-// dev machine's OmniRoute install (~90), including pay-per-token accounts,
-// search/image APIs that never serve chat completions, reverse-engineered web
-// endpoints and CLI/OAuth-bound providers that cannot work on a CI runner at
-// all. Registering the lot had two costs, both measured:
+// dev machine's OmniRoute install (77 active on 2026-07-29), pay-per-token
+// accounts included. Registering the lot had two costs, both measured:
 //   1. MONEY RISK — a paid connection is one auto-routing decision away from
 //      billing a real account. The project's standing constraint is $0.
 //   2. FAILURES — run 30427526187 (send-newsletter): omniroute/auto 97 calls,
 //      0 successes, incl. HTTP 400 "Invalid model name passed in
-//      model=claude-fable-5". Local call_logs show the same shape of dead
-//      routes: aimlapi/gpt-4o 403, novita 403, modal 502, duckduckgo-web 418
-//      ("anti-abuse challenge"), auggie 502 ("Auggie CLI not found").
-// So: allowlist, not denylist. An unknown provider is EXCLUDED — losing a free
-// provider costs some capacity, admitting a paid one costs money.
-//
-// Inclusion criterion: a PERMANENT free tier reachable with an API key alone —
-// not a trial credit balance that silently converts to billing once spent.
-// That is why fireworks/together are absent despite living in our own
-// DEFAULT_CHAIN: their initial credits run out, and OmniRoute's auto routing
-// gives us no per-model control over what it spends them on.
-const FREE_PROVIDERS = new Set([
-  // Free tiers we already run at $0 in scripts/lib/ai-models.mjs's own chain.
-  'cerebras', 'cloudflare-ai', 'codestral', 'cohere', 'gemini', 'github-models',
-  'groq', 'huggingface', 'mistral', 'nvidia', 'openrouter', 'sambanova', 'zai',
-  // Free-by-construction gateways (no paid plan to fall through to).
-  'freeaiapikey', 'freemodel-dev', 'hackclub', 'llm7', 'pollinations',
-  'publicai', 'puter', 'uncloseai',
-]);
-
-// Ops override, no redeploy: a CSV replaces the list above outright. Empty
-// string disables filtering entirely (registers everything, pre-2026-07-29
-// behaviour) — deliberate, so a live incident can be widened or reverted from
-// Remote Config without a PR.
-const allowlistOverride = process.env.OMNIROUTE_PROVIDER_ALLOWLIST;
-const allowlist = allowlistOverride === undefined
-  ? FREE_PROVIDERS
-  : new Set(allowlistOverride.split(',').map((s) => s.trim()).filter(Boolean));
-const filteringOff = allowlistOverride !== undefined && allowlist.size === 0;
+//      model=claude-fable-5".
+// The list itself + the override contract live in the shared module, because
+// scripts/sync-omniroute-providers-rc.mjs applies the same filter upstream and
+// a second copy would drift (AGENTS.md #6).
+const { allowlist, filteringOff } = resolveOmniRouteAllowlist(process.env.OMNIROUTE_PROVIDER_ALLOWLIST);
 
 const PROVIDERS_RAW = providersFromJson || [
   ['groq', 'Groq (CI POC)', ['GROQ_API_KEY'], null],

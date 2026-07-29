@@ -12,6 +12,11 @@
  * error/expired/unknown connections; default skips them since CI has no use
  * for keys already known-dead).
  *
+ * Free-tier providers ONLY (2026-07-29): the payload is filtered through
+ * OMNIROUTE_FREE_PROVIDERS (scripts/lib/omniroute-free-providers.mjs, shared
+ * with the CI registrar), so paid-account keys never reach Remote Config in
+ * the first place. Pass --include-paid to publish everything anyway.
+ *
  * OAuth-type connections (github, antigravity, kilocode) are session/device
  * bound — no portable credential to sync, always excluded.
  *
@@ -24,6 +29,7 @@ import path from 'node:path';
 import crypto from 'node:crypto';
 import { DatabaseSync } from 'node:sqlite';
 import { getRemoteConfig, fetchRcTemplate, stageRcParam, publishRcTemplate } from './lib/remote-config-admin.mjs';
+import { resolveOmniRouteAllowlist } from './lib/omniroute-free-providers.mjs';
 
 const DB_PATH = process.env.OMNIROUTE_DB_PATH || path.join(os.homedir(), '.omniroute', 'storage.sqlite');
 const STORAGE_KEY = process.env.STORAGE_ENCRYPTION_KEY;
@@ -62,15 +68,31 @@ const rows = db.prepare(
 ).all();
 db.close();
 
+// Same free-only allowlist the CI registrar applies, from the shared module so
+// the two cannot drift (AGENTS.md #6). Filtering here as well is not
+// redundant: it keeps paid-account API keys OUT of Remote Config entirely
+// rather than publishing them and declining to use them downstream — smaller
+// blast radius if the RC value ever leaks. Pass --include-paid to publish the
+// full set anyway (the registrar still filters unless overridden there too).
+const INCLUDE_PAID = process.argv.includes('--include-paid');
+const { allowlist } = resolveOmniRouteAllowlist(undefined);
+
 const payload = [];
+const excludedPaid = [];
 let failed = 0;
 for (const row of rows) {
+  if (!INCLUDE_PAID && !allowlist.has(row.provider)) { excludedPaid.push(row.provider); continue; }
   const apiKey = decryptApiKey(row.api_key);
   if (!apiKey) { failed++; continue; }
   payload.push({ provider: row.provider, name: row.name || row.provider, apiKey });
 }
 
 if (failed > 0) console.warn(`⚠️  ${failed} connection(s) failed to decrypt — skipped.`);
+if (excludedPaid.length) {
+  console.log(`🆓 Free-only: excluded ${excludedPaid.length} non-allowlisted connection(s) — ${[...new Set(excludedPaid)].sort().join(', ')}`);
+} else if (INCLUDE_PAID) {
+  console.warn('⚠️  --include-paid: publishing EVERY connection, paid accounts included.');
+}
 if (payload.length === 0) {
   console.error('❌ Nothing to publish (0 decryptable apikey connections matched the filter).');
   process.exit(1);
