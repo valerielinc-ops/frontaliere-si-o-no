@@ -5002,6 +5002,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-noleggio-sociale-frontalieri-2026': { name: 'Noleggio sociale per frontalieri', path: '/articoli-svizzera/noleggio-sociale-frontalieri-2026/', parent: 'blog' },
     'blog-fondo-liberta-svizzera-multe': { name: 'Fondo multe trasporti', path: '/articoli-frontaliere/fondo-liberta-svizzera-multe', parent: 'blog' },
     'blog-lavoro-part-time-svizzera-diritti': { name: 'Lavoro part-time', path: '/articoli-svizzera/lavoro-part-time-svizzera-diritti/', parent: 'blog' },
+    'blog-vivere-porto-ceresio-lavoro-ticino': { name: 'Vivere Porto Ceresio', path: '/articoli-frontaliere/vivere-porto-ceresio-lavoro-ticino', parent: 'blog' },
  };
 
  const info = sectionNames[section];

@@ -9126,6 +9126,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.fondo-liberta-svizzera-multe.title': 'Amendes sur les transports en commun : le fonds qui paie pour les plus démunis',
     'blog.article.fondo-liberta-svizzera-multe.excerpt': 'L\'association Freiheitsfonds Schweiz soutient les personnes en difficulté économique pour éviter la détention de substitution en cas de non-paiement des amendes.',
     'blog.article.fondo-liberta-svizzera-multe.imageAlt': 'Tramway public à Lugano, cadre urbain suisse',
+    'blog.article.vivere-porto-ceresio-lavoro-ticino.title': 'Vivre à Porto Ceresio et travailler au Tessin en tant que frontalier',
+    'blog.article.vivere-porto-ceresio-lavoro-ticino.excerpt': 'Guide pratique pour les frontaliers entre Porto Ceresio et le canton du Tessin : taxes, procédures, mobilité et coûts selon la réglementation en vigueur depuis le 1er janvier 2024.',
+    'blog.article.vivere-porto-ceresio-lavoro-ticino.imageAlt': 'Vue du lac de Lugano près de la frontière italo-suisse',
 };
 
 export default blogMetaFr;

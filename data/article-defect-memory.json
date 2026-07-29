@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-07-29T19:17:27.320Z",
+  "updatedAt": "2026-07-29T19:58:12.549Z",
   "entities": {
     "AASTI": {
       "status": "suspect",
@@ -172,11 +172,11 @@
       "statusSource": "auto",
       "statusAt": "2026-07-29T06:26:58.011Z",
       "firstSeen": "2026-07-29T06:26:58.011Z",
-      "lastSeen": "2026-07-29T19:17:27.320Z",
-      "seen": 25,
+      "lastSeen": "2026-07-29T19:58:12.549Z",
+      "seen": 30,
       "unsupportedSightings": 0,
       "unsupportedRuns": [],
-      "supportedSightings": 7,
+      "supportedSightings": 12,
       "names": [
         "Amministrazione federale delle contribuzioni",
         "Amministrazione Federale delle Contribuzioni"
@@ -184,6 +184,41 @@
       "recentKeys": [],
       "evidence": [
         {
+          "at": "2026-07-29T19:58:12.549Z",
+          "runId": "30483804455",
+          "articleId": "vivere-porto-ceresio-lavoro-ticino",
+          "support": "present",
+          "name": "Amministrazione Federale delle Contribuzioni"
+        },
+        {
+          "at": "2026-07-29T19:58:12.549Z",
+          "runId": "30483804455",
+          "articleId": "vivere-porto-ceresio-lavoro-ticino",
+          "support": "present",
+          "name": "Amministrazione federale delle contribuzioni"
+        },
+        {
+          "at": "2026-07-29T19:58:12.549Z",
+          "runId": "30483804455",
+          "articleId": "vivere-porto-ceresio-lavoro-ticino",
+          "support": "present",
+          "name": "Amministrazione federale delle contribuzioni"
+        },
+        {
+          "at": "2026-07-29T19:58:12.549Z",
+          "runId": "30483804455",
+          "articleId": "vivere-porto-ceresio-lavoro-ticino",
+          "support": "present",
+          "name": "Amministrazione federale delle contribuzioni"
+        },
+        {
+          "at": "2026-07-29T19:58:12.549Z",
+          "runId": "30483804455",
+          "articleId": "vivere-porto-ceresio-lavoro-ticino",
+          "support": "present",
+          "name": "Amministrazione federale delle contribuzioni"
+        },
+        {
           "at": "2026-07-29T19:17:27.320Z",
           "runId": "30480929135",
           "articleId": "lavoro-part-time-svizzera-diritti",
@@ -202,41 +237,6 @@
           "runId": "30480929135",
           "articleId": "lavoro-part-time-svizzera-diritti",
           "support": "present",
-          "name": "Amministrazione Federale delle Contribuzioni"
-        },
-        {
-          "at": "2026-07-29T19:17:27.320Z",
-          "runId": "30480929135",
-          "articleId": "lavoro-part-time-svizzera-diritti",
-          "support": "present",
-          "name": "Amministrazione Federale delle Contribuzioni"
-        },
-        {
-          "at": "2026-07-29T18:38:55.212Z",
-          "runId": "30477280585",
-          "articleId": "fondo-liberta-svizzera-multe",
-          "support": "present",
-          "name": "Amministrazione federale delle contribuzioni"
-        },
-        {
-          "at": "2026-07-29T15:50:36.608Z",
-          "runId": "30465633884",
-          "articleId": "rendita-avs-critica-eichenberger",
-          "support": "present",
-          "name": "Amministrazione Federale delle Contribuzioni"
-        },
-        {
-          "at": "2026-07-29T13:20:08.917Z",
-          "runId": "30442955458",
-          "articleId": "ubs-taglio-posti-lavoro-svizzera",
-          "support": "present",
-          "name": "Amministrazione federale delle contribuzioni"
-        },
-        {
-          "at": "2026-07-29T06:26:58.011Z",
-          "runId": "corpus-scan",
-          "articleId": "terzo-pilastro-3a-vantaggi-2026",
-          "support": "unknown",
           "name": "Amministrazione Federale delle Contribuzioni"
         }
       ]
@@ -6457,11 +6457,11 @@
       "statusSource": "auto",
       "statusAt": "2026-07-29T06:26:58.011Z",
       "firstSeen": "2026-07-29T06:26:58.011Z",
-      "lastSeen": "2026-07-29T19:17:27.320Z",
-      "seen": 17,
+      "lastSeen": "2026-07-29T19:58:12.549Z",
+      "seen": 21,
       "unsupportedSightings": 0,
       "unsupportedRuns": [],
-      "supportedSightings": 4,
+      "supportedSightings": 8,
       "names": [
         "Ufficio Regionale di Collocamento",
         "Uffici Regionali di Collocamento",
@@ -6470,6 +6470,34 @@
       ],
       "recentKeys": [],
       "evidence": [
+        {
+          "at": "2026-07-29T19:58:12.549Z",
+          "runId": "30483804455",
+          "articleId": "vivere-porto-ceresio-lavoro-ticino",
+          "support": "present",
+          "name": "Uffici regionali di collocamento"
+        },
+        {
+          "at": "2026-07-29T19:58:12.549Z",
+          "runId": "30483804455",
+          "articleId": "vivere-porto-ceresio-lavoro-ticino",
+          "support": "present",
+          "name": "Uffici regionali di collocamento"
+        },
+        {
+          "at": "2026-07-29T19:58:12.549Z",
+          "runId": "30483804455",
+          "articleId": "vivere-porto-ceresio-lavoro-ticino",
+          "support": "present",
+          "name": "Uffici regionali di collocamento"
+        },
+        {
+          "at": "2026-07-29T19:58:12.549Z",
+          "runId": "30483804455",
+          "articleId": "vivere-porto-ceresio-lavoro-ticino",
+          "support": "present",
+          "name": "Uffici regionali di collocamento"
+        },
         {
           "at": "2026-07-29T19:17:27.320Z",
           "runId": "30480929135",
@@ -6497,34 +6525,6 @@
           "articleId": "lavoro-part-time-svizzera-diritti",
           "support": "present",
           "name": "Ufficio Regionale di Collocamento"
-        },
-        {
-          "at": "2026-07-29T06:26:58.011Z",
-          "runId": "corpus-scan",
-          "articleId": "svizzera-disoccupazione-frontalieri-ue",
-          "support": "unknown",
-          "name": "Uffici regionali di collocamento"
-        },
-        {
-          "at": "2026-07-29T06:26:58.011Z",
-          "runId": "corpus-scan",
-          "articleId": "frontalieri-disoccupati-urc-ticino",
-          "support": "unknown",
-          "name": "Uffici regionali di collocamento"
-        },
-        {
-          "at": "2026-07-29T06:26:58.011Z",
-          "runId": "corpus-scan",
-          "articleId": "disoccupazione-svizzera-maggio-2026",
-          "support": "unknown",
-          "name": "Uffici regionali di collocamento"
-        },
-        {
-          "at": "2026-07-29T06:26:58.011Z",
-          "runId": "corpus-scan",
-          "articleId": "disoccupazione-frontalieri-nuove-regole-ue",
-          "support": "unknown",
-          "name": "Uffici regionali di collocamento"
         }
       ]
     },

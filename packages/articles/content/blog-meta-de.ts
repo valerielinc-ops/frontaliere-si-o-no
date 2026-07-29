@@ -9123,6 +9123,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.fondo-liberta-svizzera-multe.title': 'Bußgelder für öffentliche Verkehrsmittel: Fonds für Bedürftige',
     'blog.article.fondo-liberta-svizzera-multe.excerpt': 'Der Verein Freiheitsfonds Schweiz unterstützt Menschen in wirtschaftlichen Schwierigkeiten, um eine Ersatzhaft bei Nichtzahlung der Busse zu vermeiden.',
     'blog.article.fondo-liberta-svizzera-multe.imageAlt': 'Öffentliche Straßenbahn in Lugano, Schweizer Stadtbild',
+    'blog.article.vivere-porto-ceresio-lavoro-ticino.title': 'Leben in Porto Ceresio und Arbeiten im Tessin als Grenzgänger',
+    'blog.article.vivere-porto-ceresio-lavoro-ticino.excerpt': 'Praktischer Leitfaden für Grenzgänger zwischen Porto Ceresio und dem Kanton Tessin: Steuern, Verfahren, Mobilität und Kosten gemäß den ab dem 1. Januar 2024 geltenden Vorschriften.',
+    'blog.article.vivere-porto-ceresio-lavoro-ticino.imageAlt': 'Blick auf den Luganersee nahe der schweizerisch-italienischen Grenze',
 };
 
 export default blogMetaDe;
