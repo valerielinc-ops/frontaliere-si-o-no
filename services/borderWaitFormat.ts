@@ -16,3 +16,16 @@ export function fmtSignedMinutesDelta(deltaMinutes: number): string {
   if (rounded === 0) return '±0 min';
   return `${deltaMinutes > 0 ? '+' : '−'}${rounded} min`;
 }
+
+/**
+ * Whole minutes elapsed between an ISO timestamp and `nowMs` (defaults to
+ * `Date.now()`). Returns `null` for missing/unparseable input so callers can
+ * fall back cleanly instead of rendering "NaN min ago". Clamped to >= 0 so a
+ * clock-skewed/future timestamp never displays as negative.
+ */
+export function minutesSince(iso: string | null | undefined, nowMs: number = Date.now()): number | null {
+  if (!iso) return null;
+  const t = Date.parse(iso);
+  if (Number.isNaN(t)) return null;
+  return Math.max(0, Math.round((nowMs - t) / 60000));
+}
