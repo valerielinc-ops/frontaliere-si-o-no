@@ -21623,6 +21623,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-frontalieri-tassa-salute': {
+    title: 'Frontalieri, tassa sulla salute: "Una bomba dietro una manciata di spiccioli"',
+    description: 'Secondo quanto comunicato nel febbraio 2026, il capogruppo di "Azione civica per Luino e frazioni" e consigliere di minoranza, l\'avvocato Furio Artoni, ha',
+    keywords: 'frontalieri, ticino, svizzera, italia, tassa, sulla, salute, bomba',
+    ogTitle: 'Frontalieri, tassa sulla salute: "Una bomba dietro una manciata di spiccioli"',
+    ogDescription: 'Secondo quanto comunicato nel febbraio 2026, il capogruppo di "Azione civica per Luino e frazioni" e consigliere di minoranza, l\'avvocato Furio Artoni, ha',
+    canonicalPath: '/articoli-svizzera/frontalieri-tassa-salute/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Frontalieri, tassa sulla salute: \"Una bomba dietro una manciata di spiccioli\"",
+      "description": "Secondo quanto comunicato nel febbraio 2026, il capogruppo di \"Azione civica per Luino e frazioni\" e consigliere di minoranza, l'avvocato Furio Artoni, ha",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/frontalieri-tassa-salute.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una foto di un funzionario federale svizzero che parla a una conferenza stampa a Lugano, spiegando le implicazioni della nuova tassa sulla salute per i lavoratori frontalieri."
+      },
+      "datePublished": "2026-07-29T14:56:12+00:00",
+      "dateModified": "2026-07-29T14:56:12+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/frontalieri-tassa-salute/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

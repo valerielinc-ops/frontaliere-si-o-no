@@ -5014,6 +5014,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'frontalieri-tassa-salute',
+    category: 'fiscale',
+    date: '2026-07-29T14:56:12.880Z',
+    image: '/images/blog/frontalieri-tassa-salute.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

@@ -583,6 +583,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'accertamento-residenza-fiscale-prove-digitali': { it: 'accertamento-residenza-fiscale-prove-digitali', en: 'fiscal-residency-audit-digital-evidence', de: 'steuerwohnsitz-pruefung-digitale-beweise', fr: 'controle-residence-fiscale-preuves-numeriques' },
  'ermotti-intervista-ubs': { it: 'ermotti-intervista-ubs', en: 'ermotti-ubs-interview-2026', de: 'ermotti-ubs-interview-2026', fr: 'ermotti-ubs-interview-2026' },
  'lavoro-tornato-aumentare-svizzera': { it: 'lavoro-tornato-aumentare-svizzera', en: 'temporary-work-switzerland', de: 'zeitarbeit-schweiz', fr: 'travail-temporaire-suisse' },
+ 'frontalieri-tassa-salute': { it: 'frontalieri-tassa-salute', en: 'frontalieri-tassa-salute', de: 'frontalieri-gesundheitsabgabe', fr: 'frontaliers-taxe-sante' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
