@@ -9087,6 +9087,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.impresari-costruttori-caldo-estremo.title': 'Construction au Tessin : arrêt des pénalités pour chaleur extrême',
     'blog.article.impresari-costruttori-caldo-estremo.excerpt': 'La SSIC demande des conditions équitables pour les chantiers pendant les vagues de chaleur, en évitant les pénalités contractuelles pour les retards causés par des températures extrêmes.',
     'blog.article.impresari-costruttori-caldo-estremo.imageAlt': 'Chantier de construction au Tessin pendant une vague de chaleur',
+    'blog.article.infortunio-lavoro-vallemaggia-piano-peccia.title': 'Accident grave du travail à Vallemaggia',
+    'blog.article.infortunio-lavoro-vallemaggia-piano-peccia.excerpt': 'Un résident de 29 ans de la région de Bellinzona a été grièvement blessé à Piano di Peccia après avoir été touché par une poutre tombée d\'une grue aérienne.',
+    'blog.article.infortunio-lavoro-vallemaggia-piano-peccia.imageAlt': 'Paysage du Vallemaggia, Tessin, lieu d\'activité professionnelle.',
 };
 
 export default blogMetaFr;

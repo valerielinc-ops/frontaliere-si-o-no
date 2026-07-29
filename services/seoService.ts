@@ -4983,6 +4983,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-assegno-unico-nuove-regole-inps': { name: 'Assegno Unico INPS', path: '/articoli-svizzera/assegno-unico-nuove-regole-inps/', parent: 'blog' },
     'blog-impresari-costruttori-caldo-estremo': { name: 'Edilizia e Caldo', path: '/articoli-frontaliere/impresari-costruttori-caldo-estremo', parent: 'blog' },
     'blog-telelavoro-frontalieri-limiti-fiscali-previdenziali': { name: 'Telelavoro frontalieri', path: '/articoli-svizzera/telelavoro-frontalieri-limiti-fiscali-previdenziali/', parent: 'blog' },
+    'blog-infortunio-lavoro-vallemaggia-piano-peccia': { name: 'Infortunio lavoro', path: '/articoli-frontaliere/infortunio-lavoro-vallemaggia-piano-peccia', parent: 'blog' },
  };
 
  const info = sectionNames[section];
