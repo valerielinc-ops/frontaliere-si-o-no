@@ -171,6 +171,51 @@ function sanitizeJobLocationField(rawValue) {
 }
 
 /**
+ * Repair a `company` value that is actually a slice of the job DESCRIPTION.
+ *
+ * The extraction bug that produced these was fixed upstream on 2026-07-27
+ * (`looksLikeShortLabelValue` in scripts/lib/shared-jobs-crawler.mjs, #4810),
+ * but records crawled before that keep the bad value forever: a job is only
+ * rewritten when it is re-crawled, and `company` feeds the job page's
+ * structured-data `hiringOrganization.name` (AGENTS.md Non-Negotiable #3) plus
+ * the newsletter/job-alert context. This is the persist-time net that repairs
+ * them and stops the same class returning through any of the ~80 other parsers.
+ *
+ * Deliberately LOOSER than `looksLikeShortLabelValue`: that one filters a
+ * risky extraction branch and may safely reject a real name (another branch
+ * then supplies it), whereas here a false positive would discard a genuine
+ * employer. Verified against the live dataset: flags all 37 corrupted records
+ * and none of "asana Spital AG (Menziken / Leuggern)",
+ * "tl (Transports publics de la région lausannoise)" or
+ * "KSML — Kantonaler Stellenmarkt für Lehrerinnen und Lehrer (Kanton Bern)".
+ *
+ * @param {string} rawValue
+ * @param {string} [fallback] display name to use when the value is prose
+ * @returns {string} the original value, or the fallback when it was prose
+ */
+export function sanitizeJobCompanyField(rawValue, fallback = '') {
+  const s = String(rawValue ?? '').trim();
+  if (!s) return fallback || s;
+  // Control / bidi / zero-width characters never belong in an employer name.
+  if (/[\u0000-\u001F\u007F\u200B-\u200F\u202A-\u202E\u2060-\u2064\uFEFF]/.test(s)) return fallback || '';
+  // Short values are names, however oddly cased ("tl", "asana Spital AG").
+  if (s.length <= 60) return s;
+  const startsMidSentence = /^[^\p{Lu}\p{N}]/u.test(s);
+  const hasSentenceBreak = /[.;]\s+\p{Ll}/u.test(s);
+  if (startsMidSentence || hasSentenceBreak) return fallback || '';
+  return s;
+}
+
+/** "zurich-insurance-sede-ticino" → "Zurich Insurance Sede Ticino". */
+function humanizeCompanyKey(key) {
+  return String(key || '')
+    .split(/[-_]+/)
+    .filter(Boolean)
+    .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
+    .join(' ');
+}
+
+/**
  * Upstream normalization applied to every crawler slice BEFORE it is written
  * to disk (the single funnel `writeJobsCrawlerSlice`). This moves location
  * hardening to write-time so corrupted `location` strings never reach the
@@ -198,6 +243,7 @@ function sanitizeJobLocationField(rawValue) {
  */
 export function normalizeParsedJobsForSlice(jobs) {
   let locationFixed = 0;
+  let companyFixed = 0;
   let localityBackfilled = 0;
   let countryDefaulted = 0;
   let regionDefaulted = 0;
@@ -209,6 +255,14 @@ export function normalizeParsedJobsForSlice(jobs) {
       if (cleaned !== job.location) {
         job.location = cleaned;
         locationFixed++;
+      }
+    }
+
+    if (typeof job.company === 'string') {
+      const cleanedCompany = sanitizeJobCompanyField(job.company, humanizeCompanyKey(job.companyKey));
+      if (cleanedCompany !== job.company) {
+        job.company = cleanedCompany;
+        companyFixed++;
       }
     }
     // Guard on .trim(): an empty/whitespace addressLocality is `typeof string`
