@@ -9081,6 +9081,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.sospenda-riversamento-allitalia-della-quota-dellimposta-alla-fonte-prelevata-ai-frontalieri.title': 'Suspendre le versement de la taxe de source frontalière',
     'blog.article.sospenda-riversamento-allitalia-della-quota-dellimposta-alla-fonte-prelevata-ai-frontalieri.excerpt': 'La députée Plr Cristina Maderni et d\'autres grands conseillers demandent au Conseil d\'État de suspendre le versement à l\'Italie de la part de l\'impôt à la source prélevée auprès des frontaliers.',
     'blog.article.sospenda-riversamento-allitalia-della-quota-dellimposta-alla-fonte-prelevata-ai-frontalieri.imageAlt': 'La vue du lac de Lugano du mont Bre',
+    'blog.article.di-piu-niente-shorts-ne-infradito.title': 'Chaud au travail, élégance obligatoire en Suisse',
+    'blog.article.di-piu-niente-shorts-ne-infradito.excerpt': 'La plupart des employés en Europe peuvent porter ce qu\'ils veulent sur leur lieu de travail, mais en Suisse, c\'est différent.',
+    'blog.article.di-piu-niente-shorts-ne-infradito.imageAlt': 'Un travailleur frontalier en Suisse se prépare pour aller au travail un jour chaud.',
 };
 
 export default blogMetaFr;

@@ -56894,6 +56894,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-di-piu-niente-shorts-ne-infradito': {
+    title: 'Caldo al lavoro, eleganza obbligatoria in Svizzera',
+    description: 'La maggior parte dei dipendenti in Europa può indossare ciò che desidera sul posto di lavoro, ma in Svizzera è diverso. Gli svizzeri mantengono una certa',
+    keywords: 'frontalieri, ticino, svizzera, italia, caldo, lavoro, eleganza, obbligatoria',
+    ogTitle: 'Di più: Niente shorts né infradito: in Svizzera al lavoro si sfida il caldo con una certa eleganza',
+    ogDescription: 'La maggior parte dei dipendenti in Europa può indossare ciò che desidera sul posto di lavoro, ma in Svizzera è diverso. Gli svizzeri mantengono una certa',
+    canonicalPath: '/articoli-frontaliere/di-piu-niente-shorts-ne-infradito',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Caldo al lavoro, eleganza obbligatoria in Svizzera",
+      "description": "La maggior parte dei dipendenti in Europa può indossare ciò che desidera sul posto di lavoro, ma in Svizzera è diverso. Gli svizzeri mantengono una certa",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/di-piu-niente-shorts-ne-infradito.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un frontaliere che lavora in Svizzera si prepara per andare al lavoro in un giorno caldo."
+      },
+      "datePublished": "2026-07-29T02:15:09+00:00",
+      "dateModified": "2026-07-29T02:15:09+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/di-piu-niente-shorts-ne-infradito/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

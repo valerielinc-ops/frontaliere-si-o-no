@@ -9080,6 +9080,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.sospenda-riversamento-allitalia-della-quota-dellimposta-alla-fonte-prelevata-ai-frontalieri.title': 'Sospendi riversamento quota imposta fonte frontalieri',
     'blog.article.sospenda-riversamento-allitalia-della-quota-dellimposta-alla-fonte-prelevata-ai-frontalieri.excerpt': 'La deputata Plr Cristina Maderni e altri granconsiglieri chiedono al Consiglio di Stato di sospendere il riversamento all\'Italia della quota dell\'imposta alla fonte prelevata ai frontalieri.',
     'blog.article.sospenda-riversamento-allitalia-della-quota-dellimposta-alla-fonte-prelevata-ai-frontalieri.imageAlt': 'La vista del Lago di Lugano dal Monte Bre',
+    'blog.article.di-piu-niente-shorts-ne-infradito.title': 'Caldo al lavoro, eleganza obbligatoria in Svizzera',
+    'blog.article.di-piu-niente-shorts-ne-infradito.excerpt': 'La maggior parte dei dipendenti in Europa può indossare ciò che desidera sul posto di lavoro, ma in Svizzera è diverso.',
+    'blog.article.di-piu-niente-shorts-ne-infradito.imageAlt': 'Un frontaliere che lavora in Svizzera si prepara per andare al lavoro in un giorno caldo.',
 };
 
 export default blogMetaIt;

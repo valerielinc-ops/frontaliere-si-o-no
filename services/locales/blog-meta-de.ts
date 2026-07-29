@@ -9078,6 +9078,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.sospenda-riversamento-allitalia-della-quota-dellimposta-alla-fonte-prelevata-ai-frontalieri.title': 'Freigabe des Quellensteuerbetrags für Grenzgänger aussetzen',
     'blog.article.sospenda-riversamento-allitalia-della-quota-dellimposta-alla-fonte-prelevata-ai-frontalieri.excerpt': 'Die Abgeordnete Plr Cristina Maderni und andere Großräte fordern den Staatsrat auf, die Rückführung des von den Grenzgängern erhobenen Anteils an der Quellensteuer an Italien auszusetzen.',
     'blog.article.sospenda-riversamento-allitalia-della-quota-dellimposta-alla-fonte-prelevata-ai-frontalieri.imageAlt': 'Die Sicht auf den Luganoer See vom Monte Bre',
+    'blog.article.di-piu-niente-shorts-ne-infradito.title': 'Warm bei der Arbeit, obligatorische Eleganz in der Schweiz',
+    'blog.article.di-piu-niente-shorts-ne-infradito.excerpt': 'Die meisten Arbeitnehmer in Europa können am Arbeitsplatz tragen, was sie wollen, aber in der Schweiz ist das anders.',
+    'blog.article.di-piu-niente-shorts-ne-infradito.imageAlt': 'Ein Grenzarbeiter in der Schweiz bereitet sich auf einen heißen Arbeitstag vor.',
 };
 
 export default blogMetaDe;
