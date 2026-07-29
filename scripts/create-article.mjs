@@ -83,7 +83,7 @@ import {
   MAJOR_BLOCK_WEIGHT_THRESHOLD,
   dropSourceContradictedIssues,
 } from './lib/fact-check-consensus.mjs';
-import { runFactualityGates, formatIssues, formatRemediation, FACT_CHECK_CATEGORIES } from './lib/article-factuality-gates.mjs';
+import { runFactualityGates, formatIssues, formatRemediation, buildSourceContract, FACT_CHECK_CATEGORIES } from './lib/article-factuality-gates.mjs';
 import { loadDefectMemory, learnedDenylist, learnedSuspects } from './lib/article-defect-memory.mjs';
 import {
   stripCompetitorPromotion,
@@ -5003,6 +5003,27 @@ Il notizia/evento è solo il punto di partenza. Il valore sta nelle implicazioni
   // Feeding the same compact brief here closes the generator/checker grounding
   // gap for every model in the cascade, not just local.
   const isSyntheticSource = url.startsWith('evergreen://') || url.startsWith('stats-bfs://');
+
+  // The blocking factuality gates, stated to the writer BEFORE it writes
+  // instead of being discovered after it has written — see buildSourceContract
+  // for the measured cost of the open loop this closes (run 30442955458: 8
+  // headlines × 6 attempts, 48 articles generated, none published, recall
+  // falling 38% → 13% → 0% across one headline's retries because every attempt
+  // was as blind as the first).
+  //
+  // Built from the FULL pageContent, deliberately NOT truncatedContent: the
+  // recall gate reads the whole source, so an anchor sitting past
+  // MAX_SOURCE_CHARS is demanded by the gate while being invisible in the
+  // prompt. Listing the anchors explicitly is what makes those satisfiable.
+  //
+  // Skipped for synthetic sources (evergreen://, stats-bfs://): they carry no
+  // scraped source text and the fidelity gate does not apply to them.
+  const sourceContract = isSyntheticSource ? '' : buildSourceContract({
+    sourceText: pageContent || '',
+    sourceDate: lastSourcePublishedAt || undefined,
+    publishedAt: new Date().toISOString(),
+  });
+
   const domainFactsBlock = isSyntheticSource ? '' : `\nFATTI DI DOMINIO VERIFICATI (materiale di riferimento per contesto/implicazioni pratiche, SEPARATO dalla notizia sopra — non attribuirli alla fonte, usali solo se pertinenti al tema):\n${EVERGREEN_FACTS_BRIEF}\n`;
 
   const prompt = `${systemRoleLine}
@@ -5018,7 +5039,7 @@ ${idsSection}
 ⚠️ The "id" must NOT share >60% words with any existing ID.
 
 ${topicalRelevanceGate}
-
+${sourceContract ? `\n${sourceContract}\n` : ''}
 ═══ REGOLA #1 — FEDELTÀ ALLA FONTE (PRIORITÀ MASSIMA) ═══
 
 Il tuo articolo è una RISCRITTURA EDITORIALE della fonte, NON un articolo originale. Questo significa:
