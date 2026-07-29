@@ -1,18 +1,54 @@
 {
   "key": "novelis",
   "label": "Novelis",
-  "generatedAt": "2026-07-28T22:10:16.267Z",
-  "total": 7,
-  "newCount": 0,
+  "generatedAt": "2026-07-29T11:43:47.270Z",
+  "total": 8,
+  "newCount": 1,
   "updatedCount": 7,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 10272,
-  "avgDurationMs": 10272,
+  "durationMs": 8550,
+  "avgDurationMs": 8550,
   "durationHistory": [
-    10272
+    8550
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "id": "novelis-6d9ed5f80764",
+      "slug": "senior-global-event-specialist-m-f-d-novelis-ch",
+      "company": "Novelis",
+      "companyKey": "novelis",
+      "companyDomain": "novelis.com",
+      "title": "Senior Global Event Specialist (m/f/d)",
+      "location": "Küsnacht | DE-BW-Stuttgart",
+      "canton": "ZH",
+      "addressLocality": "Küsnacht | DE-BW-Stuttgart",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "senior",
+      "sector": "Metallurgia / Alluminio",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-29",
+      "url": "https://ch-external-novelis.icims.com/jobs/52824/senior-global-event-specialist-%28m-f-d%29/job?hub=13&in_iframe=1",
+      "applyUrl": "https://ch-external-novelis.icims.com/jobs/52824/senior-global-event-specialist-%28m-f-d%29/job?hub=13&in_iframe=1",
+      "source": "Novelis Dedicated Parser (iCIMS)",
+      "sourceLang": "en",
+      "crawledAt": "2026-07-29T11:43:39.712Z",
+      "_qualityScore": 63,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 4,
+        "completeness": 14
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "id": "novelis-afad27588e25",
@@ -40,7 +76,7 @@
       "applyUrl": "https://ch-external-novelis.icims.com/jobs/52701/stagiaire-communication-visuelle/job?hub=13&in_iframe=1",
       "source": "Novelis Dedicated Parser (iCIMS)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-28T22:10:09.402Z",
+      "crawledAt": "2026-07-29T11:43:41.503Z",
       "firstSeenAt": "2026-07-27T22:11:08.633Z",
       "_qualityScore": 87,
       "_qualityBreakdown": {
@@ -76,7 +112,7 @@
       "applyUrl": "https://ch-external-novelis.icims.com/jobs/52694/stagiaire/job?hub=13&in_iframe=1",
       "source": "Novelis Dedicated Parser (iCIMS)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-28T22:10:11.586Z",
+      "crawledAt": "2026-07-29T11:43:43.179Z",
       "firstSeenAt": "2026-07-27T22:11:10.828Z",
       "_qualityScore": 87,
       "_qualityBreakdown": {
@@ -112,7 +148,7 @@
       "applyUrl": "https://de-careers-novelis.icims.com/jobs/52802/it-solutions-lead-%28m-w-d%29/job?hub=13&in_iframe=1",
       "source": "Novelis Dedicated Parser (iCIMS)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-28T22:10:07.724Z",
+      "crawledAt": "2026-07-29T11:43:40.344Z",
       "firstSeenAt": "2026-07-23T11:46:56.934Z",
       "_qualityScore": 84,
       "_qualityBreakdown": {
@@ -148,7 +184,7 @@
       "applyUrl": "https://ch-external-novelis.icims.com/jobs/52764/m%c3%a9canicien-de-maintenance/job?hub=13&in_iframe=1",
       "source": "Novelis Dedicated Parser (iCIMS)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-28T22:10:08.686Z",
+      "crawledAt": "2026-07-29T11:43:40.961Z",
       "firstSeenAt": "2026-07-15T22:17:22.223Z",
       "_qualityScore": 87,
       "_qualityBreakdown": {
@@ -184,7 +220,7 @@
       "applyUrl": "https://ch-external-novelis.icims.com/jobs/52696/finance-lead-%28m-f-d%29-%e2%80%93-digital-transformation-%26-business-projects/job?hub=13&in_iframe=1",
       "source": "Novelis Dedicated Parser (iCIMS)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-28T22:10:10.145Z",
+      "crawledAt": "2026-07-29T11:43:42.091Z",
       "firstSeenAt": "2026-07-09T22:26:43.200Z",
       "_qualityScore": 84,
       "_qualityBreakdown": {
@@ -220,7 +256,7 @@
       "applyUrl": "https://ch-external-novelis.icims.com/jobs/52695/internship-%28m-f-d%29-human-resources-%2860%25-80%26%29/job?hub=13&in_iframe=1",
       "source": "Novelis Dedicated Parser (iCIMS)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-28T22:10:10.954Z",
+      "crawledAt": "2026-07-29T11:43:42.620Z",
       "firstSeenAt": "2026-07-08T11:23:10.202Z",
       "_qualityScore": 84,
       "_qualityBreakdown": {
@@ -256,7 +292,7 @@
       "applyUrl": "https://ch-external-novelis.icims.com/jobs/52599/plant-hr-manager-%28f-m-d%29/job?hub=13&in_iframe=1",
       "source": "Novelis Dedicated Parser (iCIMS)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-28T22:10:12.277Z",
+      "crawledAt": "2026-07-29T11:43:43.690Z",
       "firstSeenAt": "2026-07-08T11:23:11.600Z",
       "_qualityScore": 87,
       "_qualityBreakdown": {

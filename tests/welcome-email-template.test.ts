@@ -206,6 +206,126 @@ describe('preferences link', () => {
   });
 });
 
+describe('CTA and quick links never point at the alert/newsletter preferences page', () => {
+  // The preferences page only offers to pause/delete/unsubscribe — inviting
+  // a just-signed-up reader there from a CTA or quick link would actively
+  // hurt conversion. The footer's "manage preferences" link is the sole
+  // legal exception and must keep working; this test scopes its assertion
+  // to distinguish the two rather than banning the URL from the whole page.
+  const PREFERENCES_SLUGS = ['preferenze-newsletter', 'newsletter-preferences', 'newsletter-einstellungen', 'preferences-newsletter'];
+
+  it('no segment, in any locale, links to preferences from the CTA or quick links', () => {
+    for (const segment of SEGMENTS) {
+      for (const locale of LOCALES) {
+        const { html } = buildWelcomeEmail({
+          segment,
+          locale,
+          company: 'UBS',
+          sectorKey: 'finance',
+          locationLabel: 'Lugano',
+          jobBackPath: '/annuncio/nestle-operaio-chiasso/',
+          toolKey: 'lamal',
+          jobAlertActive: true,
+          unsubscribeUrl: UNSUB_URL,
+          preferencesUrl: PREFS_URL,
+        });
+
+        const footerIndex = html.indexOf('class="footer-pad"');
+        expect(footerIndex).toBeGreaterThan(-1);
+        const aboveFooter = html.slice(0, footerIndex);
+        const footer = html.slice(footerIndex);
+
+        for (const slug of PREFERENCES_SLUGS) {
+          expect(aboveFooter).not.toContain(slug);
+        }
+
+        // Sanity check the split is meaningful — the footer itself DOES
+        // still legitimately carry the preferences link.
+        expect(footer).toContain('newsletter-preferences');
+      }
+    }
+  });
+
+  it('holds for the job segment with alerts NOT yet active too', () => {
+    for (const locale of LOCALES) {
+      const { html } = buildWelcomeEmail({
+        segment: 'job', locale, jobAlertActive: false,
+        unsubscribeUrl: UNSUB_URL, preferencesUrl: PREFS_URL,
+      });
+      const footerIndex = html.indexOf('class="footer-pad"');
+      const aboveFooter = html.slice(0, footerIndex);
+      for (const slug of PREFERENCES_SLUGS) {
+        expect(aboveFooter).not.toContain(slug);
+      }
+    }
+  });
+});
+
+describe('CTA and quick-link labels never use alert-management verbs', () => {
+  // "Refine/manage/pause/edit/delete your alerts" invites undoing the alert
+  // that was just created — banned from the CTA and quick-link labels in
+  // every locale. (The footer's "manage preferences" label is exempt, same
+  // legal-link carve-out as the URL check above.)
+  const BANNED_VERBS: Record<string, string[]> = {
+    it: ['affina', 'gestisci', 'modifica', 'pausa', 'elimina'],
+    en: ['manage', 'pause', 'edit', 'delete', 'adjust'],
+    de: ['verwalten', 'pausieren', 'bearbeiten', 'löschen'],
+    fr: ['gérer', 'mettre en pause', 'modifier', 'supprimer'],
+  };
+
+  function extractCtaLabels(html: string): string[] {
+    return (html.match(/<a\b[^>]*>[^<]*<\/a>/g) || [])
+      .filter((tag) => tag.includes('display:block;width:100%'))
+      .map((tag) => (tag.match(/>([^<]*)<\/a>/)?.[1] || '').trim());
+  }
+
+  function extractQuickLinkLabels(html: string): string[] {
+    return [...html.matchAll(/style="padding:14px 12px 14px 16px;font-size:14px;font-weight:700;color:[^"]*;">([^<]*)<\/td>/g)]
+      .map((m) => m[1].trim());
+  }
+
+  it('no CTA or quick-link label, in any segment/locale, contains an alert-management verb', () => {
+    for (const segment of SEGMENTS) {
+      for (const locale of LOCALES) {
+        const { html } = buildWelcomeEmail({
+          segment,
+          locale,
+          company: 'UBS',
+          sectorKey: 'finance',
+          locationLabel: 'Lugano',
+          jobBackPath: '/annuncio/nestle-operaio-chiasso/',
+          toolKey: 'lamal',
+          jobAlertActive: true,
+          unsubscribeUrl: UNSUB_URL,
+          preferencesUrl: PREFS_URL,
+        });
+
+        const labels = extractCtaLabels(html);
+        const quickLinkLabels = extractQuickLinkLabels(html);
+        expect(labels.length).toBeGreaterThan(0);
+        expect(quickLinkLabels.length).toBeGreaterThan(0);
+        const combined = [...labels, ...quickLinkLabels].join(' | ').toLowerCase();
+        for (const verb of BANNED_VERBS[locale]) {
+          expect(combined).not.toContain(verb.toLowerCase());
+        }
+      }
+    }
+  });
+
+  it('holds for the job segment with alerts NOT yet active too', () => {
+    for (const locale of LOCALES) {
+      const { html } = buildWelcomeEmail({
+        segment: 'job', locale, jobAlertActive: false,
+        unsubscribeUrl: UNSUB_URL, preferencesUrl: PREFS_URL,
+      });
+      const combined = [...extractCtaLabels(html), ...extractQuickLinkLabels(html)].join(' | ').toLowerCase();
+      for (const verb of BANNED_VERBS[locale]) {
+        expect(combined).not.toContain(verb.toLowerCase());
+      }
+    }
+  });
+});
+
 describe('recommended block — uses the real, registry-backed renderRecommendedBlock()', () => {
   // welcomeEmailTemplate.js now imports functions/src/lib/recommendedBlock.js
   // (which reads the live enable gate from

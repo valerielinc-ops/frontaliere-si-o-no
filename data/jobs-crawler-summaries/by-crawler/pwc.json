@@ -1,18 +1,19 @@
 {
   "key": "pwc",
   "label": "PwC Switzerland",
-  "generatedAt": "2026-07-28T22:26:49.360Z",
+  "generatedAt": "2026-07-29T11:50:21.404Z",
   "total": 126,
-  "newCount": 2,
-  "updatedCount": 78,
+  "newCount": 0,
+  "updatedCount": 80,
   "removedCount": 0,
   "unchangedCount": 11,
-  "durationMs": 2879,
-  "avgDurationMs": 2879,
+  "durationMs": 3216,
+  "avgDurationMs": 3216,
   "durationHistory": [
-    2879
+    3216
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "title": "(Senior) Manager - Quality Management",
       "slug": "senior-manager-quality-management-pwc-zurich",
@@ -35,12 +36,17 @@
       "validThrough": "2036-07-24",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "_qualityScore": 75,
+      "id": "pwc-c506555211b7",
+      "salaryMin": 101500,
+      "salaryMax": 154000,
+      "currency": "CHF",
+      "firstSeenAt": "2026-07-28T22:26:49.336Z",
+      "_qualityScore": 89,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 16,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 19
       }
     },
     {
@@ -65,16 +71,19 @@
       "validThrough": "2036-07-24",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "_qualityScore": 75,
+      "id": "pwc-74c73477200c",
+      "salaryMin": 101500,
+      "salaryMax": 154000,
+      "currency": "CHF",
+      "firstSeenAt": "2026-07-28T22:26:49.336Z",
+      "_qualityScore": 89,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 16,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 19
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "title": "Audit Manager - Trade, Industries & Services",
       "slug": "audit-manager-trade-industries-services-pwc-zurich",
@@ -1060,72 +1069,6 @@
         "richness": 18,
         "translation": 25,
         "completeness": 22
-      }
-    },
-    {
-      "title": "Manager – International Tax Mergers & Acquisitions and Structuring (Financial Services)",
-      "slug": "manager-international-tax-mergers-acquisitions-and-structuring-financial-services-pwc-zurich",
-      "url": "https://jobs.pwc.ch/job-vacancies/manager-international-tax-mergers-acquisitions-and-structuring-financial-services/177fe03f-e57e-440b-a32a-909432f18cf1",
-      "applyUrl": "https://pwc.wd3.myworkdayjobs.com/Global_Experienced_Careers/job/Zrich/Manager---International-Tax-Mergers---Acquisitions-and-Structuring--Financial-Services-_732422WD/apply",
-      "company": "PwC Switzerland",
-      "companyKey": "pwc",
-      "companyDomain": "pwc.ch",
-      "location": "Zurich",
-      "addressLocality": "Zurich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "canton": "ZH",
-      "country": "CH",
-      "category": "tax",
-      "sector": "Consulenza",
-      "source": "pwc-dedicated-crawler",
-      "sourceLang": "en",
-      "postedDate": "2026-06-02",
-      "validThrough": "2036-05-30",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "id": "pwc-0f3f08a83fc7",
-      "salaryMin": 68000,
-      "salaryMax": 103000,
-      "currency": "CHF",
-      "postalCode": "8001",
-      "firstSeenAt": "2026-06-04T00:48:53.187Z",
-      "_qualityScore": 90,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 22
-      }
-    },
-    {
-      "title": "(Assistant) Manager / zukünftige:r Mandatsleiter:in – Eingeschränkte Revisionen & KMU‑Audit (70 - 100%)",
-      "slug": "assistant-manager-zukunftige-r-mandatsleiter-in-eingeschrankte-revisionen-kmu-audit-70-100-pwc-zug",
-      "url": "https://jobs.pwc.ch/job-vacancies/assistant-manager-zukuenftige-r-mandatsleiter-in-eingeschraenkte-revisionen-kmuaudit/f8155961-a690-44d0-aa9f-99eab330dc8c",
-      "applyUrl": "https://pwc.wd3.myworkdayjobs.com/Global_Experienced_Careers/job/Zrich/XMLNAME--Assistant--Manager---zuknftige-r-Mandatsleiter-in---Eingeschrnkte-Revisionen---KMU-Audit_732836WD/apply",
-      "company": "PwC Switzerland",
-      "companyKey": "pwc",
-      "companyDomain": "pwc.ch",
-      "location": "Zug",
-      "addressLocality": "Zug",
-      "addressRegion": "ZG",
-      "addressCountry": "CH",
-      "canton": "ZG",
-      "country": "CH",
-      "category": "audit",
-      "sector": "Consulenza",
-      "source": "pwc-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-05-29",
-      "validThrough": "2036-05-25",
-      "employmentType": "part-time",
-      "contractType": "part-time",
-      "_qualityScore": 73,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 16,
-        "completeness": 14
       }
     }
   ],

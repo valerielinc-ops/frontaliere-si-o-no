@@ -194,11 +194,15 @@ const JOB_HEADING_ACTIVE = {
   fr: 'Tes alertes sont déjà actives',
 };
 
+// The alert is already live, so the ask is never to manage/pause/edit it —
+// that page only invites the opposite (pause, delete, unsubscribe). The CTA
+// stays a pure traffic-back-to-the-site action: browse today's board, the
+// same ad-carrying, tool-linking page the inactive variant points to.
 const JOB_CTA_ACTIVE = {
-  it: 'Affina i tuoi avvisi →',
-  en: 'Fine-tune your alerts →',
-  de: 'Job-Alerts anpassen →',
-  fr: 'Affiner tes alertes →',
+  it: 'Vedi le offerte di oggi →',
+  en: 'See today’s listings →',
+  de: 'Aktuelle Stellen ansehen →',
+  fr: 'Voir les offres du jour →',
 };
 
 // ── Utility segment tool naming (TOOL_KEYS contract: lamal, wizard,
@@ -337,11 +341,13 @@ const FOOTER_REASON = { it: 'Ricevi questa email perché ti sei iscritto su', en
 
 function renderFooter(locale, unsubscribeUrl, preferencesUrl) {
   const lang = normLocale(locale);
+  // Legal/necessary links only — never CTAs, so they stay exactly as they
+  // were: unsubscribe and preferences, both untouched by the CTA rework.
   const prefsLine = preferencesUrl
     ? `<div style="font-size:12px;color:${MUTED_COLOR};margin:4px 0;"><a target="_blank" rel="noopener noreferrer" href="${escapeHtml(preferencesUrl)}" style="color:${BRAND_ORANGE};text-decoration:underline;">${escapeHtml(PREFS_LABEL[lang])}</a></div>`
     : '';
   return `
-    <tr><td class="footer-pad" style="background:${BRAND_DARK};padding:28px;text-align:center;">
+    <tr><td class="footer-pad" bgcolor="${BRAND_DARK}" style="background:${BRAND_DARK};padding:28px;text-align:center;">
       <div style="font-size:12px;color:${MUTED_COLOR};margin:4px 0;">${escapeHtml(FOOTER_REASON[lang])} <a target="_blank" rel="noopener noreferrer" href="${BASE_URL}/" style="color:${BRAND_ORANGE};text-decoration:underline;">frontaliereticino.ch</a></div>
       <div style="font-size:12px;color:${MUTED_COLOR};margin:4px 0;"><a target="_blank" rel="noopener noreferrer" href="${escapeHtml(unsubscribeUrl)}" style="color:${BRAND_ORANGE};text-decoration:underline;">${escapeHtml(UNSUB_LABEL[lang])}</a></div>
       ${prefsLine}
@@ -352,30 +358,71 @@ function renderFooter(locale, unsubscribeUrl, preferencesUrl) {
 // ── Section renderers ────────────────────────────────────────────
 function renderBrandBar(locale) {
   return `
-    <tr><td class="section-pad" style="background:${BRAND_DARK};padding:14px 28px;">
-      <table width="100%" cellpadding="0" cellspacing="0"><tr>
+    <tr><td class="section-pad" bgcolor="${BRAND_DARK}" style="background:${BRAND_DARK};padding:16px 28px;">
+      <table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr>
         <td style="font-size:15px;font-weight:900;color:${BRAND_ORANGE};letter-spacing:-0.3px;">Frontaliere Ticino</td>
         <td align="right" style="font-size:11px;color:${MUTED_COLOR};">${escapeHtml(WELCOME_LABEL[locale])}</td>
       </tr></table>
     </td></tr>`;
 }
 
+// Full-width, high-contrast, generously padded button — the "unmistakably
+// the main thing" CTA. Rendered twice per email (hero + repeated lower
+// down): a repeated CTA measurably lifts clicks in longer emails, and both
+// instances always carry the identical label/href so there is only ever one
+// primary action being asked for. Table-based so Outlook (which ignores
+// `display:inline-block` sizing and CSS on <a>) still renders a solid,
+// correctly colored, tappable block via the bgcolor attribute.
+function renderCtaButton(href, label) {
+  return `
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="width:100%;">
+      <tr><td align="center" bgcolor="${BRAND_ORANGE}" style="background:${BRAND_ORANGE};border-radius:10px;">
+        <a target="_blank" rel="noopener noreferrer" href="${escapeHtml(href)}" style="display:block;width:100%;box-sizing:border-box;padding:17px 24px;font-size:16px;line-height:20px;font-weight:800;color:#ffffff;text-decoration:none;text-align:center;border-radius:10px;">${escapeHtml(label)}</a>
+      </td></tr>
+    </table>`;
+}
+
 function renderExpectBox(heading, bullets) {
-  const items = bullets.map((b) => `<li style="margin:0 0 6px;">${escapeHtml(b)}</li>`).join('');
+  // Checkmark prefix instead of the default disc bullet — same information,
+  // reads as a scannable checklist rather than a generic <ul>.
+  const items = bullets.map((b) => `<li style="margin:0 0 8px;list-style:none;"><span style="color:${BRAND_ORANGE};font-weight:800;">&#10003;&nbsp;</span>${escapeHtml(b)}</li>`).join('');
   return `
     <tr><td class="section-pad" style="background:${WHITE};padding:0 28px 20px;">
-      <div style="background:${CARD_BG};border:1px solid ${BORDER_COLOR};border-radius:12px;padding:18px 20px;">
-        <div style="font-size:13px;font-weight:800;color:${BRAND_DARK};margin:0 0 8px;text-transform:uppercase;letter-spacing:0.5px;">${escapeHtml(heading)}</div>
-        <ul style="margin:0;padding-left:18px;font-size:13px;color:${TEXT_COLOR};line-height:1.55;">${items}</ul>
+      <div style="background:${CARD_BG};border:1px solid ${BORDER_COLOR};border-top:3px solid ${BRAND_ORANGE};border-radius:12px;padding:18px 20px;">
+        <div style="font-size:13px;font-weight:800;color:${BRAND_DARK};margin:0 0 10px;text-transform:uppercase;letter-spacing:0.5px;">${escapeHtml(heading)}</div>
+        <ul style="margin:0;padding-left:0;font-size:13px;color:${TEXT_COLOR};line-height:1.55;">${items}</ul>
       </div>
     </td></tr>`;
 }
 
+const QUICKLINKS_HEADING = { it: 'Continua da qui', en: 'Keep exploring', de: 'Hier geht’s weiter', fr: 'Continue par ici' };
+
 function renderQuickLinks(links) {
-  return links.map((l) => `
-    <tr><td style="padding:0 0 8px;">
-      <a target="_blank" rel="noopener noreferrer" href="${escapeHtml(l.href)}" style="display:block;background:${CARD_BG};border:1px solid ${BORDER_COLOR};border-radius:10px;padding:12px 16px;font-size:13px;font-weight:700;color:${BRAND_DARK};text-decoration:none;">${escapeHtml(l.label)} →</a>
+  // Each row is its own mini-table so the whole card — label AND the arrow
+  // badge — is inside the single <a>, giving a real ≥44px tap target with
+  // clear tappable affordance instead of a plain text row.
+  const rows = links.map((l) => `
+    <tr><td style="padding:0 0 10px;">
+      <a target="_blank" rel="noopener noreferrer" href="${escapeHtml(l.href)}" style="display:block;text-decoration:none;">
+        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:${CARD_BG};border:1px solid ${BORDER_COLOR};border-left:4px solid ${BRAND_ORANGE};border-radius:10px;">
+          <tr>
+            <td bgcolor="${CARD_BG}" style="padding:14px 12px 14px 16px;font-size:14px;font-weight:700;color:${BRAND_DARK};">${escapeHtml(l.label)}</td>
+            <td width="34" align="center" style="padding:14px 14px 14px 0;">
+              <div style="width:26px;height:26px;border-radius:50%;background:${BRAND_ORANGE};color:#ffffff;font-size:13px;font-weight:700;line-height:26px;text-align:center;">&#8594;</div>
+            </td>
+          </tr>
+        </table>
+      </a>
     </td></tr>`).join('');
+  return rows;
+}
+
+function renderQuickLinksSection(heading, links) {
+  return `
+    <tr><td class="section-pad" style="background:${WHITE};padding:4px 28px 4px;">
+      <div style="font-size:11px;font-weight:800;color:${MUTED_COLOR};text-transform:uppercase;letter-spacing:1px;margin:0 0 10px;">${escapeHtml(heading)}</div>
+      <table role="presentation" width="100%" cellpadding="0" cellspacing="0">${renderQuickLinks(links)}</table>
+    </td></tr>`;
 }
 
 function renderCredibility(text) {
@@ -408,12 +455,14 @@ const CONSULTING = {
 function renderConsulting(locale) {
   const c = CONSULTING[locale] || CONSULTING.it;
   const href = localizedUrlSlashed('/consulenza', locale);
+  // Own paid product — a revenue block, so the CTA is a real button (not a
+  // plain text link) to give it visual weight and a proper tap target.
   return `<tr><td class="section-pad" style="padding:0 28px 20px;">
-      <table width="100%" cellpadding="0" cellspacing="0" style="background:${CARD_BG};border:1px solid ${BORDER_COLOR};border-radius:12px;">
-        <tr><td style="padding:16px 18px;">
+      <table role="presentation" width="100%" cellpadding="0" cellspacing="0" bgcolor="${CARD_BG}" style="background:${CARD_BG};border:1px solid ${BORDER_COLOR};border-top:3px solid ${BRAND_DARK};border-radius:12px;">
+        <tr><td style="padding:18px;">
           <div style="font-size:14px;font-weight:800;color:${BRAND_DARK};padding-bottom:6px;">${escapeHtml(c.title)}</div>
-          <div style="font-size:13px;line-height:1.6;color:${TEXT_COLOR};padding-bottom:12px;">${escapeHtml(c.body)}</div>
-          <a target="_blank" rel="noopener noreferrer" href="${escapeHtml(href)}" style="font-size:13px;font-weight:700;color:${BRAND_ORANGE};text-decoration:none;">${escapeHtml(c.cta)} →</a>
+          <div style="font-size:13px;line-height:1.6;color:${TEXT_COLOR};padding-bottom:14px;">${escapeHtml(c.body)}</div>
+          <a target="_blank" rel="noopener noreferrer" href="${escapeHtml(href)}" style="display:inline-block;background:${BRAND_ORANGE};color:#ffffff;font-size:13px;font-weight:700;text-decoration:none;padding:11px 20px;border-radius:8px;">${escapeHtml(c.cta)} →</a>
         </td></tr>
       </table>
     </td></tr>`;
@@ -424,12 +473,12 @@ function renderDeliverability(text) {
 }
 
 // ── Per-segment content builders ─────────────────────────────────
-function buildJobContent(locale, { company, sectorKey, locationLabel, jobBackPath, jobAlertActive, preferencesUrl }) {
+function buildJobContent(locale, { company, sectorKey, locationLabel, jobBackPath, jobAlertActive }) {
   const descriptor = buildJobDescriptor(locale, { company, sectorKey, locationLabel });
-  // Refining alerts happens on the newsletter-preferences page. Without a
-  // preferences URL (no signing secret) there is nowhere to send them, so fall
-  // back to the create-an-alert wording rather than emitting a dead button.
-  const alertsOn = Boolean(jobAlertActive && preferencesUrl);
+  // Alerts already live vs. not yet created is the only thing that changes
+  // the copy — the CTA target (job board) is the same either way, so unlike
+  // the old preferences-page CTA this no longer needs a signed link to exist.
+  const alertsOn = Boolean(jobAlertActive);
   const hook = (alertsOn ? JOB_HOOK_ACTIVE_TEMPLATE : JOB_HOOK_TEMPLATE)[locale](descriptor);
   const quickLinks = [];
   if (jobBackPath) {
@@ -446,7 +495,7 @@ function buildJobContent(locale, { company, sectorKey, locationLabel, jobBackPat
     heading: alertsOn ? JOB_HEADING_ACTIVE[locale] : HEADING.job[locale],
     hook,
     ctaLabel: alertsOn ? JOB_CTA_ACTIVE[locale] : CTA_LABEL.job[locale],
-    ctaHref: alertsOn ? preferencesUrl : localizedUrlSlashed('/cerca-lavoro-svizzera', locale),
+    ctaHref: localizedUrlSlashed('/cerca-lavoro-svizzera', locale),
     quickLinks,
   };
 }
@@ -594,19 +643,26 @@ export function buildWelcomeEmail({
         campaign: 'welcome',
       });
 
+  // Hero → expectation box → quick links → repeated CTA → trust line → own
+  // consulting product → deliverability ask → affiliate block → footer. The
+  // CTA button is rendered twice with the IDENTICAL label/href (a repeated
+  // CTA measurably lifts clicks in longer emails) — once right under the
+  // hook, once again after the quick links, before the reader reaches the
+  // supporting/trust content lower down.
+  const ctaButtonHtml = renderCtaButton(content.ctaHref, content.ctaLabel);
+
   const bodyHtml = `
     ${renderBrandBar(lang)}
-    <tr><td class="section-pad" style="background:${WHITE};padding:28px 28px 4px;">
-      <div style="font-size:14px;color:${TEXT_COLOR};margin:0 0 12px;">${greeting}</div>
-      <div style="font-size:22px;font-weight:800;color:${BRAND_DARK};margin:0 0 12px;line-height:1.28;">${escapeHtml(content.heading)}</div>
-      <div style="font-size:14px;color:${TEXT_COLOR};line-height:1.65;margin:0 0 20px;">${content.hook}</div>
-      <div style="margin:0 0 8px;">
-        <a target="_blank" rel="noopener noreferrer" href="${escapeHtml(content.ctaHref)}" style="display:inline-block;background:${BRAND_ORANGE};color:#fff;font-weight:700;font-size:14px;text-decoration:none;padding:12px 28px;border-radius:8px;">${escapeHtml(content.ctaLabel)}</a>
-      </div>
+    <tr><td class="section-pad" bgcolor="${WHITE}" style="background:${WHITE};padding:32px 28px 24px;">
+      <div style="font-size:14px;color:${TEXT_COLOR};margin:0 0 10px;">${greeting}</div>
+      <h1 style="margin:0 0 12px;font-size:22px;font-weight:800;color:${BRAND_DARK};line-height:1.28;">${escapeHtml(content.heading)}</h1>
+      <p style="font-size:14px;color:${TEXT_COLOR};line-height:1.65;margin:0 0 24px;">${content.hook}</p>
+      ${ctaButtonHtml}
     </td></tr>
     ${renderExpectBox(EXPECT.heading[lang], expectBullets)}
-    <tr><td class="section-pad" style="background:${WHITE};padding:0 28px 20px;">
-      <table width="100%" cellpadding="0" cellspacing="0">${renderQuickLinks(content.quickLinks)}</table>
+    ${renderQuickLinksSection(QUICKLINKS_HEADING[lang], content.quickLinks)}
+    <tr><td class="section-pad" style="background:${WHITE};padding:4px 28px 28px;">
+      ${ctaButtonHtml}
     </td></tr>
     ${renderCredibility(credibilityText)}
     ${consultingHtml}
@@ -620,7 +676,8 @@ export function buildWelcomeEmail({
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="color-scheme" content="light dark">
+  <meta name="color-scheme" content="light">
+  <meta name="supported-color-schemes" content="light">
   <title>${escapeHtml(content.subject)}</title>
   <style>
     body{margin:0;padding:0;background:${LIGHT_BG};font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;-webkit-text-size-adjust:100%;}
@@ -629,11 +686,11 @@ export function buildWelcomeEmail({
     @media only screen and (max-width:620px){.section-pad{padding-left:16px!important;padding-right:16px!important;}.footer-pad{padding:20px 16px!important;}}
   </style>
 </head>
-<body>
+<body style="margin:0;padding:0;background:${LIGHT_BG};">
   <div style="display:none;font-size:0;line-height:0;max-height:0;max-width:0;overflow:hidden;mso-hide:all;opacity:0;">${escapeHtml(content.preheader)}${PREHEADER_PAD}</div>
-  <table width="100%" cellpadding="0" cellspacing="0" style="background:${LIGHT_BG};">
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" bgcolor="${LIGHT_BG}" style="background:${LIGHT_BG};">
     <tr><td align="center" style="padding:0;">
-      <table width="620" cellpadding="0" cellspacing="0" style="width:100%;max-width:620px;background:${WHITE};">
+      <table role="presentation" width="620" cellpadding="0" cellspacing="0" bgcolor="${WHITE}" style="width:100%;max-width:620px;background:${WHITE};">
         ${bodyHtml}
       </table>
     </td></tr>

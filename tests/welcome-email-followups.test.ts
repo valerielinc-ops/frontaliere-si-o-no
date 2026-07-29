@@ -4,8 +4,9 @@
  * Guards:
  *  - job alerts are auto-created at signup by the backfillJobAlertOnNewsletterSignup
  *    trigger, so the `job` segment must CONFIRM them rather than ask the reader to
- *    create what already exists — and must fall back to the create wording when
- *    there is no preferences URL to send them to;
+ *    create what already exists — and the active-variant CTA must send them back
+ *    to the job board, never to the alert-preferences page (that page only
+ *    offers to pause/delete the alert just created);
  *  - the paid consulting block renders, localized, for consumers and never for
  *    the publisher (employer) audience;
  *  - every internal link carries autologin credentials so the recipient lands
@@ -66,7 +67,11 @@ describe('welcome email — job alert already active', () => {
     }
   });
 
-  it.each(LOCALES)('[%s] active-variant CTA points at the preferences page, not the job board', (locale) => {
+  it.each(LOCALES)('[%s] active-variant CTA button points at the job board, never at the preferences page', (locale) => {
+    // The alert already exists — the preferences page only offers to pause
+    // or delete it, which is the opposite of what a fresh signee should be
+    // asked to do. The CTA button must always target the job board instead,
+    // regardless of whether a preferencesUrl is even supplied.
     const prefs = makePreferencesUrl(EMAIL, locale, { secret: SECRET });
     const active = buildWelcomeEmail({
       segment: 'job', locale, jobAlertActive: true,
@@ -74,19 +79,42 @@ describe('welcome email — job alert already active', () => {
       unsubscribeUrl: 'https://frontaliereticino.ch/?action=unsubscribe',
       preferencesUrl: prefs,
     });
-    expect(active.html).toContain(prefs.replace(/&/g, '&amp;'));
+
+    // Match on the CTA button's own markup (its bulletproof-button inline
+    // style is unique in the document) rather than on locale-specific label
+    // text, so one regex works for every locale. Two buttons are expected —
+    // the hero CTA and the identical repeated CTA further down the page.
+    const ctaTags = (active.html.match(/<a\b[^>]*>[^<]*<\/a>/g) || [])
+      .filter((tag) => tag.includes('display:block;width:100%'));
+    expect(ctaTags.length).toBe(2);
+    for (const tag of ctaTags) {
+      const href = (tag.match(/href="([^"]+)"/)?.[1] || '').replace(/&amp;/g, '&');
+      expect(href).not.toBe(prefs);
+      expect(href).not.toContain('preferenze-newsletter');
+      expect(href).not.toContain('newsletter-preferences');
+      expect(href).not.toContain('newsletter-einstellungen');
+      expect(href).not.toContain('preferences-newsletter');
+    }
   });
 
-  it.each(LOCALES)('[%s] falls back to the create wording when there is no preferences URL', (locale) => {
-    // No signing secret → no preferences URL → the "refine your alerts" button
-    // would be dead, so the copy must revert rather than emit a broken CTA.
-    // Compare against the inactive variant built under the SAME conditions, so
-    // the only thing that could differ is the alert wording itself.
-    const degraded = jobEmail(locale, true, null);
-    const inactive = jobEmail(locale, false, null);
-    expect(degraded.subject).toBe(inactive.subject);
-    expect(degraded.preheader).toBe(inactive.preheader);
-    expect(visibleText(degraded.html)).toBe(visibleText(inactive.html));
+  it.each(LOCALES)('[%s] alert-active wording depends only on jobAlertActive, never on preferencesUrl', (locale) => {
+    // The CTA no longer targets preferencesUrl at all (previous test), so
+    // there is nothing left to "fall back" from when it's missing: supplying
+    // or omitting preferencesUrl must not change which variant renders. The
+    // footer's separate "manage preferences" link legitimately appears or
+    // disappears with preferencesUrl (unrelated, expected behavior — see the
+    // "preferences link" describe block in welcome-email-template.test.ts),
+    // so this comparison is scoped to everything ABOVE the footer.
+    const withPrefsUrl = jobEmail(locale, true, 'https://frontaliereticino.ch/preferenze-newsletter?email=x&token=y');
+    const withoutPrefsUrl = jobEmail(locale, true, null);
+    expect(withPrefsUrl.subject).toBe(withoutPrefsUrl.subject);
+    expect(withPrefsUrl.preheader).toBe(withoutPrefsUrl.preheader);
+    const aboveFooter = (html: string) => html.slice(0, html.indexOf('class="footer-pad"'));
+    expect(visibleText(aboveFooter(withPrefsUrl.html))).toBe(visibleText(aboveFooter(withoutPrefsUrl.html)));
+
+    // ...and it still genuinely differs from the inactive variant either way.
+    const inactiveNoPrefs = jobEmail(locale, false, null);
+    expect(withoutPrefsUrl.subject).not.toBe(inactiveNoPrefs.subject);
   });
 
   it('subjects stay within the 60-character budget in every locale', () => {

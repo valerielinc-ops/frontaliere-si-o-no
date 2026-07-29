@@ -11,11 +11,29 @@
     "https://www.hitachienergy.com/careers/open-jobs?filterable587622750-location=Switzerland"
   ],
   "notes": "Dedicated Hitachi Energy crawler uses the AEM JSON listing API filtered to Switzerland, then filters for Ticino/GR locations. Descriptions enriched from detail pages.",
-  "updatedAt": "2026-07-28T22:09:36.552Z",
+  "updatedAt": "2026-07-29T11:38:53.170Z",
   "seedMetaByUrl": {
+    "https://www.hitachienergy.com/careers/open-jobs/details/JID3-208292": {
+      "location": "Zurich, Switzerland",
+      "canton": "ZH",
+      "company": "Hitachi Energy",
+      "postedDate": "2026-07-29"
+    },
+    "https://www.hitachienergy.com/careers/open-jobs/details/JID3-208321": {
+      "location": "Zurich, Switzerland",
+      "canton": "ZH",
+      "company": "Hitachi Energy",
+      "postedDate": "2026-07-29"
+    },
     "https://www.hitachienergy.com/careers/open-jobs/details/JID3-208106": {
       "location": "Zurich, Switzerland",
       "canton": "ZH",
+      "company": "Hitachi Energy",
+      "postedDate": "2026-07-28"
+    },
+    "https://www.hitachienergy.com/careers/open-jobs/details/JID3-208123": {
+      "location": "Molinazzo di Monteggio, Switzerland",
+      "canton": "TI",
       "company": "Hitachi Energy",
       "postedDate": "2026-07-28"
     },
@@ -429,12 +447,6 @@
     },
     "https://www.hitachienergy.com/careers/open-jobs/details/JID3-196561": {
       "location": "Lenzburg, Switzerland",
-      "canton": "AG",
-      "company": "Hitachi Energy",
-      "postedDate": "2026-05-27"
-    },
-    "https://www.hitachienergy.com/careers/open-jobs/details/JID3-196557": {
-      "location": "Wettingen, Switzerland",
       "canton": "AG",
       "company": "Hitachi Energy",
       "postedDate": "2026-05-27"
