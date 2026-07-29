@@ -1669,6 +1669,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.ermotti-intervista-ubs.title': 'Plus Ermotti : « beaucoup de travail, mais les efforts portent leurs fruits »',
     'blog.article.ermotti-intervista-ubs.excerpt': 'Sergio Ermotti, CEO d\'UBS, sur l\'intégration du Credit Suisse',
     'blog.article.ermotti-intervista-ubs.imageAlt': 'Sergio Ermotti, CEO de UBS, dans un contexte suisse national',
+    'blog.article.lavoro-tornato-aumentare-svizzera.title': 'Le travail temporaire augmente à nouveau en Suisse',
+    'blog.article.lavoro-tornato-aumentare-svizzera.excerpt': 'Le nombre d\'heures travaillées dans le secteur du travail temporaire a augmenté de 1,5 % au premier semestre 2023 par rapport à la même période de l\'année précédente.',
+    'blog.article.lavoro-tornato-aumentare-svizzera.imageAlt': 'Travail temporaire en Suisse',
 };
 
 export default blogMetaChFr;

@@ -1669,6 +1669,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.ermotti-intervista-ubs.title': 'More Ermotti: "a lot of work, but efforts are bearing fruit"',
     'blog.article.ermotti-intervista-ubs.excerpt': 'Sergio Ermotti, CEO of UBS, on the integration of Credit Suisse',
     'blog.article.ermotti-intervista-ubs.imageAlt': 'Sergio Ermotti, CEO of UBS, in a Swiss national context',
+    'blog.article.lavoro-tornato-aumentare-svizzera.title': 'Temporary work increases again in Switzerland',
+    'blog.article.lavoro-tornato-aumentare-svizzera.excerpt': 'The number of hours worked in the temporary work sector increased by 1.5% in the first half of 2023 compared to the same period of the previous year.',
+    'blog.article.lavoro-tornato-aumentare-svizzera.imageAlt': 'Temporary work in Switzerland',
 };
 
 export default blogMetaChEn;
