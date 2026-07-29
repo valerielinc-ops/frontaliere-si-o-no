@@ -50,7 +50,7 @@ import { readFileSync, writeFileSync, existsSync, unlinkSync, readdirSync } from
 import { execSync } from 'node:child_process';
 import { createInterface } from 'node:readline';
 import { ARTICLE_SECTION_CORE_LIST } from '../build-plugins/shared/articleSectionCore.mjs';
-import { resolveGitAddPaths } from './lib/resolve-git-add-path.mjs';
+import { resolveGitAddPath, resolveGitAddPaths } from './lib/resolve-git-add-path.mjs';
 
 const PROJECT_ROOT = new URL('..', import.meta.url).pathname.replace(/\/$/, '');
 
@@ -498,8 +498,14 @@ function addRedirectMapping(fromId, toId) {
 // unconditionally included either).
 function pathIsTrackedOrExists(relPath) {
   if (existsSync(resolve(relPath))) return true;
+  // Ask git about the REAL path. Since #4881 Fase 6 the body/meta paths under
+  // services/locales/ traverse a directory symlink into packages/articles/
+  // content/, and git only ever tracks the resolved path — querying the
+  // symlink-traversing literal always came back empty, so every deleted body
+  // file was filtered out of staging.
+  const real = resolveGitAddPath(PROJECT_ROOT, relPath);
   try {
-    return execSync(`git ls-files -- ${JSON.stringify(relPath)}`, { cwd: PROJECT_ROOT, encoding: 'utf-8' }).trim().length > 0;
+    return execSync(`git ls-files -- ${JSON.stringify(real)}`, { cwd: PROJECT_ROOT, encoding: 'utf-8' }).trim().length > 0;
   } catch {
     return false;
   }

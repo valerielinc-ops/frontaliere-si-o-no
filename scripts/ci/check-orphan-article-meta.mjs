@@ -48,23 +48,39 @@ function idsOf(registryFile) {
 
 let exitCode = 0;
 
+// EVERY locale the list route is served on, not just IT. `services/router.ts`
+// exposes the archive on four routes per section (/articoli-frontaliere/,
+// /cross-border-articles/, /grenzgaenger-artikel/, /articles-frontalier/ and
+// the svizzera equivalents), and BlogArticles.tsx calls t() with no fallback
+// on all of them. An id with complete IT meta but missing EN/DE/FR still
+// renders the raw `blog.article.<id>.title` key on three routes out of four —
+// checking IT alone would let this PR's own incident survive on the locales
+// nobody inspected.
+const LOCALES = ['it', 'en', 'de', 'fr'];
+
 for (const { section, registryFile, metaPrefix } of ARTICLE_SECTION_CORE_LIST) {
-  const metaFile = `services/locales/${metaPrefix}-it.ts`;
-  const metaSrc = readFileSync(resolve(root, metaFile), 'utf-8');
   const ids = idsOf(registryFile);
-  const orphans = [];
-  for (const id of ids) {
-    const missing = REQUIRED_SUFFIXES.filter(
-      (suffix) => !metaSrc.includes(`'blog.article.${id}.${suffix}'`),
-    );
-    if (missing.length) orphans.push(`  ${id}: missing ${missing.join(', ')}`);
+  const orphansByLocale = new Map();
+  for (const locale of LOCALES) {
+    const metaFile = `services/locales/${metaPrefix}-${locale}.ts`;
+    const metaSrc = readFileSync(resolve(root, metaFile), 'utf-8');
+    const orphans = [];
+    for (const id of ids) {
+      const missing = REQUIRED_SUFFIXES.filter(
+        (suffix) => !metaSrc.includes(`'blog.article.${id}.${suffix}'`),
+      );
+      if (missing.length) orphans.push(`  ${id}: missing ${missing.join(', ')}`);
+    }
+    if (orphans.length) orphansByLocale.set(metaFile, orphans);
   }
-  if (orphans.length) {
-    console.error(`\n❌ ${section} (${registryFile} ↔ ${metaFile}): ${orphans.length} orphan id(s):`);
-    orphans.forEach((l) => console.error(l));
+  if (orphansByLocale.size) {
+    for (const [metaFile, orphans] of orphansByLocale) {
+      console.error(`\n❌ ${section} (${registryFile} ↔ ${metaFile}): ${orphans.length} orphan id(s):`);
+      orphans.forEach((l) => console.error(l));
+    }
     exitCode = 1;
   } else {
-    console.log(`✅ ${section}: all ${ids.length} registry ids have complete IT meta (${metaFile})`);
+    console.log(`✅ ${section}: all ${ids.length} registry ids have complete meta in all ${LOCALES.length} locales`);
   }
 }
 
