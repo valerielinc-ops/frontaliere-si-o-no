@@ -1,38 +1,38 @@
 {
   "key": "galenica",
   "label": "Galenica",
-  "generatedAt": "2026-07-29T11:42:17.414Z",
-  "total": 383,
+  "generatedAt": "2026-07-29T22:05:43.637Z",
+  "total": 384,
   "newCount": 0,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 112003,
-  "avgDurationMs": 112003,
+  "durationMs": 84052,
+  "avgDurationMs": 84052,
   "durationHistory": [
-    112003
+    84052
   ],
   "newJobs": [],
   "updatedJobs": [
     {
-      "title": "Assistante en pharmacie (f/h/d)",
+      "title": "Sviluppatore/trice business digitale AFC",
       "company": "Galenica AG (Galenica)",
       "companyKey": "galenica",
-      "url": "https://jobs.galenica.com/it/jobs/#job.id=3119686.4033205",
+      "url": "https://jobs.galenica.com/it/jobs/#job.id=12704139",
       "location": "Bern",
       "canton": "BE",
       "country": "CH",
-      "category": "healthcare",
-      "descriptionIt": "Assistante en pharmacie (f/h/d) presso Galenica AG (Gruppo Galenica), con sede a Bern, Untermattweg 8, Svizzera. Galenica è il principale gruppo svizzero nel settore sanitario e gestisce la più grande rete di farmacie del Paese, con i marchi Amavita, Sun Store e Coop Vitality. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al paziente con eccellenti prospettive di sviluppo professionale.",
-      "applyUrl": "",
-      "postedDate": "2026-06-04",
+      "category": "apprenticeship",
+      "descriptionIt": "Sviluppatore/trice business digitale AFC presso Galenica AG (Gruppo Galenica), con sede a Bern, Untermattweg 8, Svizzera. Galenica è il principale gruppo svizzero nel settore sanitario e gestisce la più grande rete di farmacie del Paese, con i marchi Amavita, Sun Store e Coop Vitality. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al paziente con eccellenti prospettive di sviluppo professionale.",
+      "applyUrl": "https://www.yousty.ch/de-CH/lehrstellen/profile/12704139-entwickler-in-digitales-business-efz-bern-be-galenica-ag?widget=60fe46a6-e22b-4512-ae18-ab0157fbb01d",
+      "postedDate": "",
       "source": "company-website",
       "sourceLang": "en",
-      "slug": "assistente-in-farmacia-f-h-d-galenica-ag-galenica-bern",
-      "id": "galenica-1a7feb269ffa",
+      "slug": "galenica-galenica-ag-sviluppatore-trice-business-digitale-afc-bern",
+      "id": "galenica-8b2103d49ea7",
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "salaryMin": 85000,
-      "salaryMax": 119000,
+      "salaryMin": 68500,
+      "salaryMax": 104000,
       "currency": "CHF",
       "streetAddress": "Untermattweg 8",
       "postalCode": "3027",
@@ -41,12 +41,12 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "crawlerMissStreak": 2,
-      "_qualityScore": 86,
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 14,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     }
   ],
