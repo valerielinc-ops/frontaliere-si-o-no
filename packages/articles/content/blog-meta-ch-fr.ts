@@ -1666,6 +1666,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.accertamento-residenza-fiscale-prove-digitali.title': 'Attestation de résidence fiscale : les preuves numériques de l\'ADE',
     'blog.article.accertamento-residenza-fiscale-prove-digitali.excerpt': 'Comment l\'administration fiscale utilise les traces numériques pour vérifier la résidence fiscale des contribuables. Analyse pratique et références normatives.',
     'blog.article.accertamento-residenza-fiscale-prove-digitali.imageAlt': 'Documents numériques et ordinateur dans un bureau suisse',
+    'blog.article.ermotti-intervista-ubs.title': 'Plus Ermotti : « beaucoup de travail, mais les efforts portent leurs fruits »',
+    'blog.article.ermotti-intervista-ubs.excerpt': 'Sergio Ermotti, CEO d\'UBS, sur l\'intégration du Credit Suisse',
+    'blog.article.ermotti-intervista-ubs.imageAlt': 'Sergio Ermotti, CEO de UBS, dans un contexte suisse national',
 };
 
 export default blogMetaChFr;
