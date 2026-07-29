@@ -51,13 +51,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "customer-service-specialist-riri-zippers-oerlikon-ch",
-        "servizio-clienti-specialista-riri-zippers-oerlikon-mendrisio-ti"
+        "customer-service-specialist-riri-zippers-oerlikon-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "customer-service-specialist-riri-zippers-oerlikon-ch",
-          "servizio-clienti-specialista-riri-zippers-oerlikon-mendrisio-ti"
+          "customer-service-specialist-riri-zippers-oerlikon-ch"
         ],
         "de": [
           "customer-service-specialist-riri-zippers-oerlikon-ch"
@@ -82,12 +80,12 @@
     },
     {
       "id": "oerlikon-46f314305eb7",
-      "slug": "projektingenieur-gn-electrical-engineering-oerlikon-ch",
+      "slug": "ingegnere-di-progetto-gn-ingegneria-elettrica-oerlikon-wohlen",
       "slugByLocale": {
         "de": "projektingenieur-gn-electrical-engineering-oerlikon-ch",
-        "it": "projektingenieur-gn-electrical-engineering-oerlikon-ch",
-        "en": "projektingenieur-gn-electrical-engineering-oerlikon-ch",
-        "fr": "projektingenieur-gn-electrical-engineering-oerlikon-ch"
+        "it": "ingegnere-di-progetto-gn-ingegneria-elettrica-oerlikon-wohlen",
+        "en": "project-engineer-gn-electrical-engineering-oerlikon-wohlen",
+        "fr": "ingenieur-de-projet-gn-genie-electrique-oerlikon-wohlen"
       },
       "company": "Oerlikon",
       "companyKey": "oerlikon",
@@ -142,7 +140,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-29T11:34:39.187Z"
+      "firstSeenAt": "2026-07-29T11:34:39.187Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "projektingenieur-gn-electrical-engineering-oerlikon-ch"
+        ],
+        "en": [
+          "projektingenieur-gn-electrical-engineering-oerlikon-ch"
+        ],
+        "fr": [
+          "projektingenieur-gn-electrical-engineering-oerlikon-ch"
+        ]
+      },
+      "previousSlugs": [
+        "projektingenieur-gn-electrical-engineering-oerlikon-ch"
+      ]
     },
     {
       "id": "oerlikon-3fabe7d8c82f",
@@ -151,7 +163,7 @@
         "it": "costruttore-gn-oerlikon-wohlen",
         "en": "constructor-gn-oerlikon-wohlen",
         "de": "konstrukteur-gn-oerlikon-ch",
-        "fr": "konstrukteur-gn-oerlikon-wohlen"
+        "fr": "constructeur-gn-oerlikon-wohlen"
       },
       "company": "Oerlikon",
       "companyKey": "oerlikon",
@@ -194,20 +206,16 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "konstrukteur-gn-oerlikon-ch",
-        "constructeur-gn-oerlikon-wohlen",
-        "costruttore-gn-oerlikon-wohlen",
         "konstrukteur-gn-oerlikon-wohlen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "konstrukteur-gn-oerlikon-ch",
-          "costruttore-gn-oerlikon-wohlen"
+          "konstrukteur-gn-oerlikon-ch"
         ],
         "en": [
           "konstrukteur-gn-oerlikon-ch"
         ],
         "fr": [
-          "constructeur-gn-oerlikon-wohlen",
           "konstrukteur-gn-oerlikon-wohlen"
         ]
       },
@@ -348,13 +356,11 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "automatiker-gn-im-anlagenbau-oerlikon-ch",
-        "automatiker-gn-im-anlagenbau-oerlikon-wohlen",
-        "automatico-gn-in-ingegneria-vegetale-oerlikon-wohlen"
+        "automatiker-gn-im-anlagenbau-oerlikon-wohlen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "automatiker-gn-im-anlagenbau-oerlikon-ch",
-          "automatico-gn-in-ingegneria-vegetale-oerlikon-wohlen"
+          "automatiker-gn-im-anlagenbau-oerlikon-ch"
         ],
         "en": [
           "automatiker-gn-im-anlagenbau-oerlikon-ch"
@@ -429,13 +435,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehrstelle-als-konstrukteur-gn-efz-oerlikon-ch",
-        "apprendistato-come-konstrukteur-gn-cfc-oerlikon-wohlen"
+        "lehrstelle-als-konstrukteur-gn-efz-oerlikon-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-konstrukteur-gn-efz-oerlikon-ch",
-          "apprendistato-come-konstrukteur-gn-cfc-oerlikon-wohlen"
+          "lehrstelle-als-konstrukteur-gn-efz-oerlikon-ch"
         ],
         "en": [
           "lehrstelle-als-konstrukteur-gn-efz-oerlikon-ch"
@@ -570,13 +574,11 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "export-verpacker-gn-oerlikon-ch",
-        "export-verpacker-gn-oerlikon-wohlen",
-        "esportatore-gn-oerlikon-wohlen"
+        "export-verpacker-gn-oerlikon-wohlen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "export-verpacker-gn-oerlikon-ch",
-          "esportatore-gn-oerlikon-wohlen"
+          "export-verpacker-gn-oerlikon-ch"
         ],
         "en": [
           "export-verpacker-gn-oerlikon-ch"
@@ -652,14 +654,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "konstruktionsingenieur-gn-oerlikon-ch",
-        "konstruktionsingenieur-gn-oerlikon-wohlen",
-        "ingegnere-di-progettazione-gn-oerlikon-wohlen"
+        "konstruktionsingenieur-gn-oerlikon-wohlen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "konstruktionsingenieur-gn-oerlikon-ch",
-          "konstruktionsingenieur-gn-oerlikon-wohlen",
-          "ingegnere-di-progettazione-gn-oerlikon-wohlen"
+          "konstruktionsingenieur-gn-oerlikon-wohlen"
         ],
         "en": [
           "konstruktionsingenieur-gn-oerlikon-wohlen"
@@ -768,7 +768,7 @@
         "it": "tecnico-di-servizio-gn-oerlikon-wohlen",
         "en": "service-technician-gn-oerlikon-wohlen",
         "de": "servicetechniker-gn-oerlikon-ch",
-        "fr": "servicetechniker-gn-oerlikon-wohlen"
+        "fr": "technicien-des-services-gn-oerlikon-wohlen"
       },
       "company": "Oerlikon",
       "companyKey": "oerlikon",
@@ -811,21 +811,17 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "servicetechniker-gn-oerlikon-ch",
-        "servicetechniker-gn-oerlikon-wohlen",
-        "technicien-des-services-gn-oerlikon-wohlen",
-        "tecnico-di-servizio-gn-oerlikon-wohlen"
+        "servicetechniker-gn-oerlikon-wohlen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "servicetechniker-gn-oerlikon-ch",
-          "servicetechniker-gn-oerlikon-wohlen",
-          "tecnico-di-servizio-gn-oerlikon-wohlen"
+          "servicetechniker-gn-oerlikon-wohlen"
         ],
         "en": [
           "servicetechniker-gn-oerlikon-wohlen"
         ],
         "fr": [
-          "technicien-des-services-gn-oerlikon-wohlen",
           "servicetechniker-gn-oerlikon-wohlen"
         ]
       },
@@ -892,13 +888,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "software-engineer-gn-oerlikon-ch",
-        "software-ingegnere-gn-oerlikon-wohlen"
+        "software-engineer-gn-oerlikon-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "software-engineer-gn-oerlikon-ch",
-          "software-ingegnere-gn-oerlikon-wohlen"
+          "software-engineer-gn-oerlikon-ch"
         ],
         "fr": [
           "software-engineer-gn-oerlikon-ch"
