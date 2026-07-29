@@ -249,7 +249,12 @@ export async function sendNewsletterWelcomeEmail({ email, locale, db: injectedDb
   // done. Prefer the alert doc as ground truth; when the trigger has not fired yet
   // (it races this send) fall back to the SAME predicate the trigger uses, so the
   // two can't disagree.
-  const jobAlertActive = await hasOrWillHaveJobAlert(db, normalizedEmail, data);
+  // Only the `job` segment branches on this, so the sub-collection read is
+  // skipped for the other four — no point paying a Firestore round-trip per
+  // send for a value nothing downstream reads.
+  const jobAlertActive = ctx.segment === 'job'
+    ? await hasOrWillHaveJobAlert(db, normalizedEmail, data)
+    : false;
 
   const unsubscribeUrl = makeOneClickUnsubscribeUrl(normalizedEmail, { secret: newsletterSecret });
   const preferencesUrl = makePreferencesUrl(normalizedEmail, resolvedLocale, { secret: newsletterSecret });

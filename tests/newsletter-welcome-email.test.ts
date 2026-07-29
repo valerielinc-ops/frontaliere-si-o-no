@@ -77,6 +77,8 @@ function createFakeDb(
   // Sub-collection rows keyed `${collection}/${id}/${subName}`, e.g. the
   // job_alert_subscribers alerts the welcome copy branches on.
   const subDocs: Record<string, Array<Record<string, unknown>>> = initialSubDocs;
+  // Every sub-collection get(), so a test can assert a read did NOT happen.
+  const subCollectionGets: string[] = [];
   let chain: Promise<unknown> = Promise.resolve();
 
   function makeDocRef(name: string, id: string) {
@@ -96,6 +98,7 @@ function createFakeDb(
         // read throws, the sender's catch swallows it, and the whole
         // alert-aware branch silently tests as "no alerts".
         get: async () => {
+          subCollectionGets.push(`${key}/${subName}`);
           const rows = subDocs[`${key}/${subName}`] || [];
           return {
             empty: rows.length === 0,
@@ -110,6 +113,7 @@ function createFakeDb(
   return {
     docs,
     events,
+    subCollectionGets,
     collection: (name: string) => ({ doc: (id: string) => makeDocRef(name, id) }),
     runTransaction: (fn: (tx: { get: (ref: ReturnType<typeof makeDocRef>) => Promise<unknown>; set: (ref: ReturnType<typeof makeDocRef>, data: Record<string, unknown>, opts?: { merge?: boolean }) => void }) => Promise<unknown>) => {
       const run = chain.then(() =>
@@ -632,5 +636,30 @@ describe('sendNewsletterWelcomeEmail — job alert awareness', () => {
     expect(result.success).toBe(true);
     const { subject } = await sentHtml();
     expect(subject).not.toBe('Sei dentro: gli avvisi lavoro sono attivi');
+  });
+});
+
+// Only the `job` segment consumes jobAlertActive, so the other four must not
+// pay a Firestore sub-collection round-trip per send for a value nothing reads.
+describe('sendNewsletterWelcomeEmail — no wasted alert lookup', () => {
+  it('reads the alerts sub-collection for the job segment', async () => {
+    const { sendNewsletterWelcomeEmail } = await import('../functions/src/newsletterWelcomeEmail.js');
+    const db = createFakeDb(
+      { newsletter_subscribers: { 'j@example.com': recentDoc({ sector_interest: 'health', job_location: 'Lugano' }) } },
+      {},
+    );
+    await sendNewsletterWelcomeEmail({ email: 'j@example.com', locale: 'it', db, trigger: 'confirm' });
+    expect(db.subCollectionGets.some((k) => k.includes('job_alert_subscribers'))).toBe(true);
+  });
+
+  it('does not read it for a non-job segment', async () => {
+    const { sendNewsletterWelcomeEmail } = await import('../functions/src/newsletterWelcomeEmail.js');
+    const db = createFakeDb(
+      { newsletter_subscribers: { 'p@example.com': recentDoc({ source_cta: 'publisher_gate_email' }) } },
+      {},
+    );
+    const result = await sendNewsletterWelcomeEmail({ email: 'p@example.com', locale: 'it', db, trigger: 'confirm' });
+    expect(result.segment).toBe('publisher');
+    expect(db.subCollectionGets.some((k) => k.includes('job_alert_subscribers'))).toBe(false);
   });
 });

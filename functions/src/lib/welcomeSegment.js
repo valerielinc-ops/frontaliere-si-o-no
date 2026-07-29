@@ -300,6 +300,14 @@ export function normalizeSector(raw) {
     const wordCount = trimmed.split(/\s+/).filter(Boolean).length;
     if (wordCount > 8) return null;
     const key = normalizeSectorKey(trimmed);
+    // Idempotence: an already-canonical key must map to itself. Five of them
+    // (health, industry, education, construction, transport) only ever appear
+    // as human labels today ("Sanita / Ospedali"), so nothing in production
+    // feeds them back in — but a reader reasonably assumes normalize(normalize(x))
+    // === normalize(x), and the day a writer stores the canonical key those
+    // sectors would silently resolve to null and demote the reader from the
+    // `job` segment to `general`.
+    if (SECTOR_KEYS.includes(key)) return key;
     if (SECTOR_EXACT_MAP.has(key)) return SECTOR_EXACT_MAP.get(key);
     for (const [sectorKey, patterns] of SECTOR_KEYWORD_BUCKETS) {
       if (patterns.some((re) => re.test(key))) return sectorKey;

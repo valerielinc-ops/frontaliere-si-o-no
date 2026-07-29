@@ -154,12 +154,22 @@ export function shouldWrapAuthenticatedHref(rawHref) {
  * @param {{secret?: string, autologinCode?: string|null, utmCampaign?: string|null}} [opts]
  * @returns {string}
  */
-export function makeAuthenticatedUrl(targetUrl, email, { secret, autologinCode, utmCampaign } = {}) {
+export function makeAuthenticatedUrl(
+  targetUrl,
+  email,
+  { secret, autologinCode, utmCampaign, utmMedium = 'newsletter', preserveExistingUtmMedium = false } = {},
+) {
   const url = new URL(targetUrl, BASE_URL);
   const code = autologinCode === undefined ? generateAutologinCode(email, { secret }) : autologinCode;
   url.searchParams.set('ne', String(email || '').toLowerCase());
   if (code) url.searchParams.set('ac', code);
-  url.searchParams.set('utm_medium', 'newsletter');
+  // Job alerts build their links from a utmBase that already carries a
+  // utm_medium; overwriting it would lose that attribution. The newsletter and
+  // the welcome email have no such base and always want the GA4 Email channel
+  // value, so overwrite stays the default.
+  if (!(preserveExistingUtmMedium && url.searchParams.has('utm_medium'))) {
+    url.searchParams.set('utm_medium', utmMedium);
+  }
   if (utmCampaign) url.searchParams.set('utm_campaign', utmCampaign);
   return url.toString();
 }

@@ -55,6 +55,19 @@ describe('route-slugs anti-drift guard (#4315)', () => {
   // builder now live once in functions/src/lib/newsletterUrls.js (guarded
   // against SLUG_TABLES drift by the test below) and are imported here via
   // services/newsletterUrls.mjs instead of hand-copied.
+  // The autologin URL builder was privately reimplemented three times
+  // (send-newsletter.mjs, send-job-alerts.mjs, and the welcome email) before
+  // being centralized. Guard against a fourth: the senders must import it, not
+  // define their own `function makeAuthenticatedUrl`.
+  it.each(['scripts/send-newsletter.mjs', 'scripts/send-job-alerts.mjs'])(
+    '%s uses the shared makeAuthenticatedUrl instead of a private copy',
+    (file) => {
+      const src = read(file);
+      expect(src).toMatch(/from '\.\.\/services\/newsletterUrls\.mjs'/);
+      expect(src).not.toMatch(/^function makeAuthenticatedUrl\s*\(/m);
+    },
+  );
+
   it.each(['scripts/send-newsletter.mjs', 'scripts/send-job-alerts.mjs'])(
     '%s imports makePreferencesUrl from the shared builder instead of hand-copying a slug table',
     (file) => {
