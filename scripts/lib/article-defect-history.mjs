@@ -64,7 +64,7 @@
  * Zero model calls, zero network: one file read and one append per run.
  */
 
-import { appendFileSync, existsSync, mkdirSync, readFileSync, renameSync, writeFileSync } from 'node:fs';
+import { appendFileSync, existsSync, mkdirSync, readFileSync, renameSync, unlinkSync, writeFileSync } from 'node:fs';
 import { dirname } from 'node:path';
 
 export const HISTORY_SCHEMA_VERSION = 1;
@@ -298,7 +298,7 @@ export function appendHistoryRow(row, filePath = DEFAULT_HISTORY_FILE, opts = {}
     writeFileSync(tmp, kept.map((r) => JSON.stringify(r)).join('\n') + (kept.length ? '\n' : ''), 'utf-8');
     renameSync(tmp, filePath);
   } catch (err) {
-    try { writeFileSync(tmp, ''); } catch { /* best-effort */ }
+    try { unlinkSync(tmp); } catch { /* best-effort cleanup */ }
     throw err;
   }
   return { appended: true, compacted: dropped, malformed, duplicates, total: kept.length };

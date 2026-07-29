@@ -276,9 +276,20 @@ describe('appendHistoryRow — bounded by construction', () => {
     expect(readHistory(file)).toMatchObject({ duplicates: 0, malformed: 0 });
   });
 
-  it('leaves the file untouched and reports up when it cannot be read', () => {
-    // Never fail open in silence: the caller turns this into a red CI step.
-    expect(() => appendHistoryRow(row(), join(dir, 'sub', 'dir', 'x.jsonl'), { now: NOW })).not.toThrow();
+  it('creates missing parent directories rather than dropping the run silently', () => {
+    // The ledger path is configurable and the first run on a fresh checkout has
+    // no data/ tree in the .tmp-style layouts the tooling uses.
+    const nested = join(dir, 'sub', 'dir', 'x.jsonl');
+    expect(() => appendHistoryRow(row(), nested, { now: NOW })).not.toThrow();
+    expect(readHistory(nested).rows).toHaveLength(1);
+  });
+
+  it('throws rather than appending blind when the ledger cannot be read', () => {
+    // Never fail open in silence: the caller turns this into a red CI step and
+    // a "questo run non lascia traccia" line. Appending to a file we could not
+    // read would mean appending past an unknown amount of unretained history.
+    appendHistoryRow(row(), file, { now: NOW });
+    expect(() => appendHistoryRow(row({ runId: 'x' }), dir, { now: NOW })).toThrow();
   });
 });
 
