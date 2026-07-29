@@ -71,8 +71,16 @@ describe('publish-article-chunks — registry never ships ahead of its translati
     const idsOf = (rel: string) =>
       [...readFileSync(resolve(ROOT, rel), 'utf-8').matchAll(/^\s*id:\s*'([^']+)'/gm)].map((m) => m[1]);
     const cases = [
-      { registry: 'data/blog-articles-data.ts', meta: 'services/locales/blog-meta-it.ts', slugs: 'services/routerBlogData.ts' },
-      { registry: 'data/swiss-articles-data.ts', meta: 'services/locales/blog-meta-ch-it.ts', slugs: 'services/routerSwissData.ts' },
+      ...['it', 'en', 'de', 'fr'].map((loc) => ({
+        registry: 'data/blog-articles-data.ts',
+        meta: `services/locales/blog-meta-${loc}.ts`,
+        slugs: 'services/routerBlogData.ts',
+      })),
+      ...['it', 'en', 'de', 'fr'].map((loc) => ({
+        registry: 'data/swiss-articles-data.ts',
+        meta: `services/locales/blog-meta-ch-${loc}.ts`,
+        slugs: 'services/routerSwissData.ts',
+      })),
     ];
     for (const c of cases) {
       const meta = readFileSync(resolve(ROOT, c.meta), 'utf-8');

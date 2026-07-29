@@ -124,17 +124,34 @@ export const CDN_BASE = 'https://cdn.frontaliereticino.ch';
 // determinism rationale as publish-article-fast.mjs pinning `tsx@4`.
 const ESBUILD_VERSION = '0.25.12';
 
-/** The two client-loaded article registries this script keeps CDN-fresh. */
+/**
+ * The two client-loaded article registries this script keeps CDN-fresh.
+ *
+ * `requiredCompanionKeys` names the companion chunks (see COMPANION_CHUNKS
+ * below) each registry's rendered list actually depends on. `main()` checks
+ * these landed in `uploadedKeys` before publishing the registry — a
+ * companion that failed its OWN upload (caught, warned, non-fatal) must not
+ * let the registry publish anyway, or the #4881 incident reproduces for that
+ * one article even with the companions-first ordering in place.
+ */
 export const REGISTRIES = [
   {
     source: 'data/blog-articles-data.ts',
     cdnKey: 'assets/blog-articles-data.js',
     exportName: 'ARTICLES',
+    requiredCompanionKeys: [
+      ...['it', 'en', 'de', 'fr'].map((loc) => `assets/blog-meta-${loc}.js`),
+      'assets/routerBlogData.js',
+    ],
   },
   {
     source: 'data/swiss-articles-data.ts',
     cdnKey: 'assets/swiss-articles-data.js',
     exportName: 'SWISS_ARTICLES',
+    requiredCompanionKeys: [
+      ...['it', 'en', 'de', 'fr'].map((loc) => `assets/blog-meta-ch-${loc}.js`),
+      'assets/routerSwissData.js',
+    ],
   },
 ];
 
@@ -315,6 +332,15 @@ async function main() {
         console.log(`[publish-article-chunks] --dry-run: skipping upload of ${registry.cdnKey}`);
         continue;
       }
+
+      const missingCompanions = registry.requiredCompanionKeys.filter((key) => !uploadedKeys.includes(key));
+      if (missingCompanions.length > 0) {
+        console.log(
+          `::warning::[publish-article-chunks] skipping ${registry.cdnKey} publish — companion chunk(s) not on CDN this run (${missingCompanions.join(', ')}); publishing the registry now would reproduce #4881 for its new articles.`,
+        );
+        continue;
+      }
+
       uploadViaScript(outFile, registry.cdnKey, CHUNK_CACHE_CONTROL);
       uploadedKeys.push(registry.cdnKey);
     } catch (err) {
