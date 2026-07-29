@@ -25,13 +25,69 @@ const providersFromJson = (() => {
   }
 })();
 
-const PROVIDERS = providersFromJson || [
+// ── Free-only allowlist ──────────────────────────────────────
+// OMNIROUTE_PROVIDERS_JSON carries EVERY apikey connection decrypted from the
+// dev machine's OmniRoute install (~90), including pay-per-token accounts,
+// search/image APIs that never serve chat completions, reverse-engineered web
+// endpoints and CLI/OAuth-bound providers that cannot work on a CI runner at
+// all. Registering the lot had two costs, both measured:
+//   1. MONEY RISK — a paid connection is one auto-routing decision away from
+//      billing a real account. The project's standing constraint is $0.
+//   2. FAILURES — run 30427526187 (send-newsletter): omniroute/auto 97 calls,
+//      0 successes, incl. HTTP 400 "Invalid model name passed in
+//      model=claude-fable-5". Local call_logs show the same shape of dead
+//      routes: aimlapi/gpt-4o 403, novita 403, modal 502, duckduckgo-web 418
+//      ("anti-abuse challenge"), auggie 502 ("Auggie CLI not found").
+// So: allowlist, not denylist. An unknown provider is EXCLUDED — losing a free
+// provider costs some capacity, admitting a paid one costs money.
+//
+// Inclusion criterion: a PERMANENT free tier reachable with an API key alone —
+// not a trial credit balance that silently converts to billing once spent.
+// That is why fireworks/together are absent despite living in our own
+// DEFAULT_CHAIN: their initial credits run out, and OmniRoute's auto routing
+// gives us no per-model control over what it spends them on.
+const FREE_PROVIDERS = new Set([
+  // Free tiers we already run at $0 in scripts/lib/ai-models.mjs's own chain.
+  'cerebras', 'cloudflare-ai', 'codestral', 'cohere', 'gemini', 'github-models',
+  'groq', 'huggingface', 'mistral', 'nvidia', 'openrouter', 'sambanova', 'zai',
+  // Free-by-construction gateways (no paid plan to fall through to).
+  'freeaiapikey', 'freemodel-dev', 'hackclub', 'llm7', 'pollinations',
+  'publicai', 'puter', 'uncloseai',
+]);
+
+// Ops override, no redeploy: a CSV replaces the list above outright. Empty
+// string disables filtering entirely (registers everything, pre-2026-07-29
+// behaviour) — deliberate, so a live incident can be widened or reverted from
+// Remote Config without a PR.
+const allowlistOverride = process.env.OMNIROUTE_PROVIDER_ALLOWLIST;
+const allowlist = allowlistOverride === undefined
+  ? FREE_PROVIDERS
+  : new Set(allowlistOverride.split(',').map((s) => s.trim()).filter(Boolean));
+const filteringOff = allowlistOverride !== undefined && allowlist.size === 0;
+
+const PROVIDERS_RAW = providersFromJson || [
   ['groq', 'Groq (CI POC)', ['GROQ_API_KEY'], null],
   ['openrouter', 'OpenRouter (CI POC)', ['OPENROUTER_API_KEY'], null],
   ['gemini', 'Gemini (CI POC)', ['GEMINI_API_KEY'], null],
   ['mistral', 'Mistral (CI POC, expected dead)', ['MISTRAL_API_KEY'], null],
 ];
-if (providersFromJson) console.log(`ℹ️  Using OMNIROUTE_PROVIDERS_JSON — ${PROVIDERS.length} provider connection(s).`);
+
+const excluded = [];
+const PROVIDERS = filteringOff
+  ? PROVIDERS_RAW
+  : PROVIDERS_RAW.filter(([provider]) => {
+    if (allowlist.has(provider)) return true;
+    excluded.push(provider);
+    return false;
+  });
+
+if (providersFromJson) console.log(`ℹ️  Using OMNIROUTE_PROVIDERS_JSON — ${PROVIDERS_RAW.length} provider connection(s) offered.`);
+if (filteringOff) {
+  console.log('⚠️  OMNIROUTE_PROVIDER_ALLOWLIST="" — free-only filtering DISABLED, registering every provider (paid accounts included).');
+} else {
+  console.log(`🆓 Free-only allowlist: ${PROVIDERS.length} kept, ${excluded.length} excluded (paid / non-chat / CLI-bound).`);
+  if (excluded.length) console.log(`   excluded: ${[...new Set(excluded)].sort().join(', ')}`);
+}
 
 // A fresh OmniRoute boot (always the case in CI — new sqlite db each run) sets
 // requireLogin:true and needs a session cookie for /api/* management routes
@@ -80,6 +136,17 @@ if (skipped.length) console.log('Skipped (no key in env):', skipped.join(', '));
 console.log(results.join('\n'));
 
 if (!results.some((line) => line.startsWith('  OK'))) {
+  // Name the allowlist explicitly when it is what emptied the list: this step
+  // failing hard takes ~32 workflows down with it, so the log must say which
+  // knob to turn instead of leaving "POC cannot proceed" as the only clue.
+  if (!filteringOff && PROVIDERS.length === 0 && PROVIDERS_RAW.length > 0) {
+    console.error(
+      `No provider registered: the free-only allowlist excluded all ${PROVIDERS_RAW.length} offered connection(s). ` +
+      'Provider names may have changed upstream. Widen FREE_PROVIDERS in this file, ' +
+      'or set OMNIROUTE_PROVIDER_ALLOWLIST (CSV) — or "" to disable filtering — in Remote Config.'
+    );
+    process.exit(1);
+  }
   console.error('No provider registered successfully — POC cannot proceed.');
   process.exit(1);
 }
