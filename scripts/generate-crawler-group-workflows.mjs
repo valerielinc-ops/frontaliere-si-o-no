@@ -389,7 +389,8 @@ function shellQuote(s) {
 function buildCrawlerStepEnv(crawler, summaryFile) {
   const merged = {
     SLUG_HISTORY_SUMMARY_FILE: summaryFile,
-    // Auth for the opt-in Claude CLI Haiku last-resort fallback (see the
+    // Auth for the opt-in Claude CLI Haiku fallback (tier-0 by default since
+    // 2026-07-29 — see AI_COMPETING_TIERS in ai-models.mjs; see the
     // "Setup Claude CLI Haiku fallback" step below). Harmless to always
     // pass: ai-models.mjs only offers the model when this AND the RC flag
     // are both set. Most crawlers route callLLM through
@@ -472,10 +473,12 @@ function buildGroupWorkflowObject(groupIndex, group, needsPlaywright, needsIgnor
 
   // OmniRoute (ON by default, RC kill-switch ENABLE_OMNIROUTE_FALLBACK='0')
   // — self-hosted local AI gateway, offered in ai-models.mjs's DEFAULT_CHAIN
-  // as AI_MODELS.OMNIROUTE_AUTO, sorted below the direct free-tier providers
-  // but (since 2026-07-28, see ai-models.mjs's _lastResortTier doc comment)
-  // ABOVE LOCAL_FALLBACK, still above CLAUDE_CLI_HAIKU. Order overridable via
-  // AI_LAST_RESORT_ORDER. Shared composite action: see
+  // as AI_MODELS.OMNIROUTE_AUTO. Since 2026-07-29 (AI_COMPETING_TIERS
+  // default, see ai-models.mjs's _lastResortTier doc comment) this tier is
+  // tier-0 BY DEFAULT — it competes on real score against the direct
+  // free-tier providers, it is not pinned relative to LOCAL_FALLBACK/
+  // CLAUDE_CLI_HAIKU by tier rank anymore (AI_COMPETING_TIERS='' restores
+  // that). Shared composite action: see
   // .github/actions/setup-omniroute/action.yml for the full rationale +
   // incident history. Must run before the per-crawler steps below so
   // OMNIROUTE_ENABLED is set in $GITHUB_ENV in time for every background
@@ -485,10 +488,13 @@ function buildGroupWorkflowObject(groupIndex, group, needsPlaywright, needsIgnor
   // itself relies on below).
   steps.push({ uses: './.github/actions/setup-omniroute' });
 
-  // Claude CLI Haiku fallback (ON by default, kill-switch '0') — absolute
-  // last resort in ai-models.mjs's DEFAULT_CHAIN, reached only after every
-  // free-tier model has failed. Shared composite action: see
-  // .github/actions/setup-claude-haiku-fallback/action.yml for the full
+  // Claude CLI Haiku fallback (ON by default, kill-switch '0') — tier-0 by
+  // default in ai-models.mjs's DEFAULT_CHAIN since 2026-07-29
+  // (AI_COMPETING_TIERS), competing on real score instead of being reached
+  // only after every free-tier model has failed. Capped at
+  // CLAUDE_CLI_MAX_CALLS_PER_RUN calls/run (default 25) since this quota is
+  // shared with pr-review-loop.yml/issue-fix.yml. Shared composite action:
+  // see .github/actions/setup-claude-haiku-fallback/action.yml for the full
   // rationale + incident history. Must run before the per-crawler steps
   // below so ENABLE_HAIKU_ARTICLE_FALLBACK is forced into $GITHUB_ENV in
   // time for every background step to inherit it.

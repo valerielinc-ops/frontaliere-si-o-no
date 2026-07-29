@@ -51,7 +51,7 @@ async function main() {
   }
 
   const staged = stageRcParam(template, RC_PARAM, RC_VALUE,
-    `Enable claude-cli haiku last-resort AI fallback (set ${new Date().toISOString().slice(0, 10)})`);
+    `Enable claude-cli haiku AI fallback (set ${new Date().toISOString().slice(0, 10)})`);
 
   await publishRcTemplate(rc, template, staged ? 1 : 0);
   console.log(`✅ Published ${RC_PARAM}=${RC_VALUE} to Remote Config.`);
