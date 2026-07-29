@@ -9088,6 +9088,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.infortunio-lavoro-vallemaggia-piano-peccia.title': 'Serious accident at work in Vallemaggia',
     'blog.article.infortunio-lavoro-vallemaggia-piano-peccia.excerpt': 'A 29-year-old resident of Bellinzonese was seriously injured in Piano di Peccia after being hit by a beam falling from a bridge crane.',
     'blog.article.infortunio-lavoro-vallemaggia-piano-peccia.imageAlt': 'Maggia Valley landscape, Ticino, site of work activity.',
+    'blog.article.integrazione-ubs-credit-suisse-risultati.title': 'UBS and Credit Suisse: the results of the integration',
+    'blog.article.integrazione-ubs-credit-suisse-risultati.excerpt': 'Three years after the announcement, CEO Sergio Ermotti confirms tangible results and overcoming the initial challenges for the banking group.',
+    'blog.article.integrazione-ubs-credit-suisse-risultati.imageAlt': 'Lugano financial district with lake view',
 };
 
 export default blogMetaEn;
