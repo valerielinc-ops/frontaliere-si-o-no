@@ -565,7 +565,7 @@
       "slugByLocale": {
         "it": "dipl-pflegefachfrau-pflegefachmann-hf-fh-mit-ndk-uberwachungspflege-ksa-ch-2",
         "en": "dipl-nursing-specialist-nursing-specialist-hf-fh-with-ndk-monitoring-care-kantonsspital-aarau-ksa-aarau",
-        "de": "dipl-pflegefachfrau-pflegefachmann-hf-fh-mit-ndk-uberwachungspflege-ksa-ch",
+        "de": "dipl-pflegefachfrau-pflegefachmann-hf-fh-mit-ndk-uberwachungspflege-ksa-ch-9zut0b",
         "fr": "dipl-specialiste-des-soins-infirmiers-specialiste-des-soins-infirmiers-hf-fh-avec-suivi-ndk-kantonsspital-aarau-ksa"
       },
       "company": "Kantonsspital Aarau (KSA)",
@@ -617,7 +617,8 @@
           "dipl-pflegefachfrau-pflegefachmann-hf-fh-mit-ndk-uberwachungspflege-ksa-ch"
         ],
         "de": [
-          "dipl-pflegefachfrau-pflegefachmann-hf-fh-mit-ndk-uberwachungspflege-ksa-ch-9zut0b"
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-mit-ndk-uberwachungspflege-ksa-ch-9zut0b",
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-mit-ndk-uberwachungspflege-ksa-ch"
         ]
       },
       "firstSeenAt": "2026-07-10T12:11:07.793Z",
@@ -773,6 +774,7 @@
         "dipl-pflegefachfrau-pflegefachmann-kantonsspital-aarau-ksa-aarau-9zvgm1",
         "registered-nurse-nursing-professional-kantonsspital-aarau-ksa-aarau",
         "dipl-pflegefachfrau-pflegefachmann-kantonsspital-aarau-ksa-aarau",
+        "dipl-pflegefachfrau-pflegefachmann-ksa-ch-2",
         "dipl-pflegefachfrau-pflegefachmann-ksa-ch-2",
         "dipl-pflegefachfrau-pflegefachmann-ksa-ch-2",
         "dipl-pflegefachfrau-pflegefachmann-ksa-ch-2"
@@ -3266,6 +3268,7 @@
         "dipl-pflegefachfrau-pflegefachmann-kantonsspital-aarau-ksa-aarau",
         "dipl-pflegefachfrau-pflegefachmann-ksa-ch-5",
         "dipl-pflegefachfrau-pflegefachmann-ksa-ch-5",
+        "dipl-pflegefachfrau-pflegefachmann-ksa-ch-5",
         "dipl-pflegefachfrau-pflegefachmann-ksa-ch-5"
       ],
       "firstSeenAt": "2026-07-10T12:11:07.792Z",
@@ -3683,6 +3686,7 @@
         "dipl-pflegefachfrau-pflegefachmann-kantonsspital-aarau-ksa-aarau-9zu4ig",
         "registered-nurse-nursing-specialist-kantonsspital-aarau-ksa-aarau",
         "dipl-pflegefachfrau-pflegefachmann-kantonsspital-aarau-ksa-aarau",
+        "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8",
         "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8",
         "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8",
         "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8"
@@ -4487,6 +4491,7 @@
         "dipl-pflegefachfrau-pflegefachmann-kantonsspital-aarau-ksa-aarau",
         "dipl-pflegefachfrau-pflegefachmann-ksa-ch-9",
         "dipl-pflegefachfrau-pflegefachmann-ksa-ch-9",
+        "dipl-pflegefachfrau-pflegefachmann-ksa-ch-9",
         "dipl-pflegefachfrau-pflegefachmann-ksa-ch-9"
       ],
       "firstSeenAt": "2026-07-10T12:11:07.792Z",
@@ -4511,7 +4516,7 @@
         "it": "med-praxisassistente-in-kantonsspital-aarau-ksa-aarau",
         "en": "med-assistant-kantonsspital-aarau-ksa-aarau",
         "de": "med-praxisassistent-in-ksa-ch",
-        "fr": "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau"
+        "fr": "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau-9ztjrt"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -4576,7 +4581,6 @@
         ]
       },
       "firstSeenAt": "2026-07-10T12:11:07.792Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -4588,7 +4592,8 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ksa-b6e1ec77798d",
@@ -7272,7 +7277,7 @@
         "it": "med-assistente-pratico-kantonsspital-aarau-ksa-aarau",
         "en": "med-practical-assistant-kantonsspital-aarau-ksa-aarau",
         "de": "med-praxisassistent-in-ksa-ch",
-        "fr": "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau"
+        "fr": "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau-9ztlty"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -7345,11 +7350,11 @@
         ],
         "fr": [
           "med-praxissing-in-notfall-kantonsspital-aarau-ksa-aarau",
-          "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau-9ztlty"
+          "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau-9ztlty",
+          "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau"
         ]
       },
       "firstSeenAt": "2026-07-10T12:11:07.791Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -7361,7 +7366,8 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ksa-860cd5cd29b0",

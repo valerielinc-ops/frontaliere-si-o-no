@@ -414175,7 +414175,10 @@
   "id|solique.ch|4045322": {
     "canonicalSlug": "praxisbildnerin-praxisbildner-fachperson-gesundheit-wochenbett-gha-ksw-ch",
     "slugByLocale": {
-      "de": "praxisbildnerin-praxisbildner-fachperson-gesundheit-wochenbett-gha-ksw-ch"
+      "de": "praxisbildnerin-praxisbildner-fachperson-gesundheit-wochenbett-gha-ksw-ch",
+      "it": "istruttore-di-pratica-istruttore-di-pratica-specialist-health-week-letto-gha-kantonsspital-winterthur-ksw-winterthur",
+      "en": "practice-instructor-practice-instructor-specialist-health-week-bed-gha-kantonsspital-winterthur-ksw-winterthur",
+      "fr": "instructeur-de-pratique-instructeur-de-pratique-specialiste-de-la-sante-lit-de-semaine-gha-kantonsspital-winterthur-ksw"
     },
     "createdAt": "2026-07-28",
     "canton": "ZH"
@@ -418772,5 +418775,60 @@
     },
     "createdAt": "2026-07-29",
     "canton": "VS"
+  },
+  "id|solique.ch|4044688": {
+    "canonicalSlug": "assistente-assistente-clinica-femminile-kantonsspital-winterthur-ksw-winterthur",
+    "slugByLocale": {
+      "it": "assistente-assistente-clinica-femminile-kantonsspital-winterthur-ksw-winterthur",
+      "en": "assistant-assistant-women-s-clinic-kantonsspital-winterthur-ksw-winterthur",
+      "de": "unterassistentin-unterassistent-frauenklinik-ksw-ch",
+      "fr": "assistante-clinique-des-femmes-adjointes-kantonsspital-winterthur-ksw-winterthur"
+    },
+    "createdAt": "2026-07-29",
+    "canton": "ZH"
+  },
+  "id|solique.ch|4045871": {
+    "canonicalSlug": "pflegefachfrau-pflegefachmann-kantonsspital-winterthur-ksw-winterthur",
+    "slugByLocale": {
+      "it": "pflegefachfrau-pflegefachmann-kantonsspital-winterthur-ksw-winterthur",
+      "en": "nursing-professional-nursing-professional-kantonsspital-winterthur-ksw-winterthur",
+      "de": "pflegefachfrau-pflegefachmann-ksw-ch",
+      "fr": "professionnels-des-soins-infirmiers-professionnels-des-soins-infirmiers-kantonsspital-winterthur-ksw-winterthur"
+    },
+    "createdAt": "2026-07-29",
+    "canton": "ZH"
+  },
+  "id|solique.ch|4043783": {
+    "canonicalSlug": "assistente-di-pratica-medica-assistente-di-pratica-medica-kantonsspital-winterthur-ksw-winterthur-fcf325",
+    "slugByLocale": {
+      "it": "assistente-di-pratica-medica-assistente-di-pratica-medica-kantonsspital-winterthur-ksw-winterthur-fcf325",
+      "en": "medical-practice-assistant-medical-practice-assistant-kantonsspital-winterthur-ksw-winterthur",
+      "de": "medizinische-praxisassistentin-medizinischer-praxisassistent-ksw-ch",
+      "fr": "assistant-de-pratique-medicale-assistant-de-pratique-medicale-kantonsspital-winterthur-ksw-winterthur-fcf325"
+    },
+    "createdAt": "2026-07-29",
+    "canton": "ZH"
+  },
+  "id|solique.ch|4045908": {
+    "canonicalSlug": "fachfrau-fachmann-gesundheit-viszeral-e-thoraxchirurgie-kantonsspital-winterthur-ksw-winterthur",
+    "slugByLocale": {
+      "it": "fachfrau-fachmann-gesundheit-viszeral-e-thoraxchirurgie-kantonsspital-winterthur-ksw-winterthur",
+      "en": "specialist-specialist-health-visceral-and-thoracic-surgery-kantonsspital-winterthur-ksw-winterthur",
+      "de": "fachfrau-fachmann-gesundheit-viszeral-und-thoraxchirurgie-ksw-ch",
+      "fr": "specialiste-specialiste-de-la-sante-chirurgie-viscerale-et-thoracique-kantonsspital-winterthur-ksw-winterthur"
+    },
+    "createdAt": "2026-07-29",
+    "canton": "ZH"
+  },
+  "id|solique.ch|4043757": {
+    "canonicalSlug": "fachfrau-fachmann-gesundheit-urologie-e-orthopala-kantonsspital-winterthur-ksw-winterthur",
+    "slugByLocale": {
+      "it": "fachfrau-fachmann-gesundheit-urologie-e-orthopala-kantonsspital-winterthur-ksw-winterthur",
+      "en": "professional-health-urology-and-orthopaedics-kantonsspital-winterthur-ksw-winterthur",
+      "de": "fachfrau-fachmann-gesundheit-urologie-und-orthopadie-ksw-ch",
+      "fr": "urologie-professionnelle-sante-et-orthopedie-kantonsspital-winterthur-ksw-winterthur"
+    },
+    "createdAt": "2026-07-29",
+    "canton": "ZH"
   }
 }
