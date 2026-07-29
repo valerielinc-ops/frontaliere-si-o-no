@@ -94,6 +94,15 @@ jobs:
       - name: Diff article registries (build SHA vs current main) and re-dispatch new ids
         env:
           BUILD_SHA: ${{ github.event.workflow_run.head_sha }}
+          # Issue #4881 Fase 5 — same two repo variables that gate the
+          # build-time emit skip and the full-replace push-loop exclusion
+          # in deploy.yml (see ogPagesPlugin.ts's closeBundle docblock).
+          # Once a section's flag is true, this reconciler's premise (full
+          # deploy racing ahead of a fast-published article) can't occur
+          # for that section — reconcile-fast-publish-articles.mjs skips
+          # it. Default (unset) = unchanged legacy behavior.
+          ARTICOLIFRONTALIERE_BUILD_EMIT_SKIP: ${{ vars.ARTICOLIFRONTALIERE_BUILD_EMIT_SKIP }}
+          ARTICOLISVIZZERA_BUILD_EMIT_SKIP: ${{ vars.ARTICOLISVIZZERA_BUILD_EMIT_SKIP }}
         run: node scripts/reconcile-fast-publish-articles.mjs
 
       - name: Report failure to GitHub Issues

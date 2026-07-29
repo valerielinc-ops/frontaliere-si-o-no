@@ -2622,7 +2622,22 @@ export function emitSeoHubs(args: EmitArgs): { pagesEmitted: number; sitemapEntr
   // locales internally (NOT one call per locale like emitHub above; see the
   // function doc). Emits a single empty archive page per locale while a
   // registry is empty (see the core's fn doc).
+  //
+  // Build-time emit skip (issue #4881 Fase 5): same
+  // ARTICOLIFRONTALIERE_BUILD_EMIT_SKIP / ARTICOLISVIZZERA_BUILD_EMIT_SKIP
+  // repo-variable flags ogPagesPlugin.ts's closeBundle checks for
+  // renderArticlePages — MUST be flipped in lockstep with that gate and
+  // with excluding the section from deploy.yml's push loop (see that
+  // file's docblock for the full rationale/rollback contract). Both
+  // sections already serve fully from their shard; this hub archive is
+  // redundant weight in the monolith build once the flag is on. Default
+  // (unset) = unchanged legacy behavior, both sections keep emitting.
+  const articleBuildEmitSkip: Record<'frontaliere' | 'svizzera', boolean> = {
+    frontaliere: process.env.ARTICOLIFRONTALIERE_BUILD_EMIT_SKIP === 'true',
+    svizzera: process.env.ARTICOLISVIZZERA_BUILD_EMIT_SKIP === 'true',
+  };
   for (const section of ['frontaliere', 'svizzera'] as const) {
+    if (articleBuildEmitSkip[section]) continue;
     renderArticleHubPagesCore({
       fs,
       np,

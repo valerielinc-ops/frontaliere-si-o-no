@@ -27,6 +27,21 @@
  *   GITHUB_PAT or GH_TOKEN — token (Contents API read + workflow dispatch;
  *                             GITHUB_TOKEN cannot dispatch other workflows —
  *                             GitHub anti-recursion rule)
+ *   ARTICOLIFRONTALIERE_BUILD_EMIT_SKIP / ARTICOLISVIZZERA_BUILD_EMIT_SKIP —
+ *                             issue #4881 Fase 5. When a section's flag is
+ *                             'true', deploy.yml's full build never emits
+ *                             that section into dist/ AND excludes it from
+ *                             the full-replace push loop entirely (same
+ *                             two repo variables gate both, in lockstep —
+ *                             see ogPagesPlugin.ts's closeBundle docblock).
+ *                             This reconciler's entire premise — a full
+ *                             deploy's OWN push overwriting a fast-published
+ *                             article because the build raced ahead of it —
+ *                             cannot occur for a section the full deploy
+ *                             never pushes at all, so that registry is
+ *                             skipped rather than dispatching a no-op
+ *                             re-publish. Default (unset) = unchanged
+ *                             legacy behavior for both registries.
  *
  * Exit codes: always 0 — best-effort. A failed re-dispatch just means the
  * article waits for the NEXT full deploy to pick it up, exactly the
@@ -43,8 +58,8 @@ const TOKEN = process.env.GITHUB_PAT || process.env.GH_TOKEN || '';
 const API_VERSION = '2022-11-28';
 
 const REGISTRIES = [
-  { file: 'data/blog-articles-data.ts', section: 'frontaliere' },
-  { file: 'data/swiss-articles-data.ts', section: 'svizzera' },
+  { file: 'data/blog-articles-data.ts', section: 'frontaliere', buildEmitSkipEnv: 'ARTICOLIFRONTALIERE_BUILD_EMIT_SKIP' },
+  { file: 'data/swiss-articles-data.ts', section: 'svizzera', buildEmitSkipEnv: 'ARTICOLISVIZZERA_BUILD_EMIT_SKIP' },
 ];
 
 function extractArticleIds(source) {
@@ -133,7 +148,17 @@ async function main() {
   console.log(`🔍 Comparing article registries: build=${BUILD_SHA} vs current=${currentSha}`);
 
   let totalNew = 0;
-  for (const { file, section } of REGISTRIES) {
+  for (const { file, section, buildEmitSkipEnv } of REGISTRIES) {
+    // Issue #4881 Fase 5: once the full build no longer emits (and
+    // deploy.yml's full-replace push loop no longer touches) this section
+    // at all, there is no "flicker race" left for this registry — the
+    // fast-publish shard push is the section's ONLY writer, so re-dispatch
+    // would just be a redundant no-op push. See file header for the full
+    // rationale.
+    if (process.env[buildEmitSkipEnv] === 'true') {
+      console.log(`✅ ${file}: ${buildEmitSkipEnv}=true — full deploy no longer pushes this section, no race to reconcile — skipping.`);
+      continue;
+    }
     let buildContent;
     let currentContent;
     try {

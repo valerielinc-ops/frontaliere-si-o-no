@@ -315,6 +315,16 @@ jobs:
       # dist/build-id.txt across all shards).
       BUILD_LOCALE: ${{ matrix.locale }}
       DEPLOY_BUILD_ID: ${{ needs.matrix-setup.outputs.build_id }}
+      # Build-time article emit skip (issue #4881 Fase 5). Read by
+      # ogPagesPlugin.ts's closeBundle (renderArticlePages) and
+      # seoHubsPlugin.ts's emitSeoHubs (renderArticleHubPagesCore) — see
+      # those files' docblocks. Repo variables, same per-section convention
+      # as <SECTION>_SHARD_LIVE; default (unset) = unchanged legacy
+      # behavior (both sections keep emitting into the monolith build).
+      # MUST stay in lockstep with the push-loop exclusion below — never
+      # flip one true without the other in the SAME deploy.
+      ARTICOLIFRONTALIERE_BUILD_EMIT_SKIP: ${{ vars.ARTICOLIFRONTALIERE_BUILD_EMIT_SKIP }}
+      ARTICOLISVIZZERA_BUILD_EMIT_SKIP: ${{ vars.ARTICOLISVIZZERA_BUILD_EMIT_SKIP }}
     steps:
       - name: Free disk space (remove unused toolchains)
         shell: bash
@@ -568,6 +578,14 @@ jobs:
           SHARD_ARTICOLISVIZZERA_FR_DEPLOY_KEY: ${{ secrets.SHARD_ARTICOLISVIZZERA_FR_DEPLOY_KEY }}
           GITHUB_SHA: ${{ github.sha }}
           GITHUB_RUN_ID: ${{ github.run_id }}
+          # Issue #4881 Fase 5 — see ogPagesPlugin.ts's closeBundle docblock
+          # for the full contract. When true, this run's build never
+          # emitted this section into dist/, so a full-replace push here
+          # would force-push a near-empty tree over the live shard —
+          # excluded from the loop below instead. MUST stay in lockstep
+          # with the build-time emit skip (same two repo variables).
+          ARTICOLIFRONTALIERE_BUILD_EMIT_SKIP: ${{ vars.ARTICOLIFRONTALIERE_BUILD_EMIT_SKIP }}
+          ARTICOLISVIZZERA_BUILD_EMIT_SKIP: ${{ vars.ARTICOLISVIZZERA_BUILD_EMIT_SKIP }}
         run: |
           set -uo pipefail
           # Each section pushes to its OWN shard repo — one section's push
@@ -589,6 +607,17 @@ jobs:
           fail=0
           pids=(); names=()
           for section in $(jq -r 'keys[] | select(startswith("_")|not)' scripts/lib/section-shard-slugs.json); do
+            # #4881 Fase 5: build no longer emits this section when its
+            # BUILD_EMIT_SKIP flag is on — a full-replace push here would
+            # force-push a near-empty dist/ tree over the live shard, wiping
+            # it. scripts/publish-article-fast.mjs is this section's only
+            # push path once the flag is on (see strip-loop + reconcile
+            # workflow disposition in the same PR).
+            skip_var="$(echo "$section" | tr a-z A-Z)_BUILD_EMIT_SKIP"
+            if [ "${!skip_var:-}" = "true" ]; then
+              echo "$section-it: BUILD_EMIT_SKIP=true — excluded from full-replace push (served by fast-publish only)"
+              continue
+            fi
             bash scripts/lib/push-section-shard.sh "$section" it dist &
             pids+=("$!"); names+=("$section")
             if [ "${#pids[@]}" -ge "$MAX_PARALLEL" ]; then
@@ -658,6 +687,19 @@ jobs:
             local section="$1"
             local live_var="$(echo "$section" | tr a-z A-Z)_SHARD_LIVE"
             if [ "${!live_var:-}" != "true" ]; then
+              return 0
+            fi
+            # Gate on the SAME push ok-marker strip-section-subtree.sh
+            # requires (issue #4881 Fase 5 audit finding), not just
+            # "$src/$sub" existing. push-section-shard.sh stages "$src/$sub"
+            # BEFORE its own index.html assertion / shrink guard can still
+            # fail the push — without this check a failed-but-staged push
+            # (or, once BUILD_EMIT_SKIP is on, a section the push loop never
+            # even attempted) would still get packed and uploaded as a
+            # same-run tar, and validate-dist would rehydrate from that
+            # incomplete tar instead of correctly falling back to git-clone.
+            if [ ! -f "$RUNNER_TEMP/shard-ok-$section-it" ]; then
+              echo "no push ok-marker for $section-it (push skipped/failed this run) — validate-dist will fall back to git clone"
               return 0
             fi
             local sub src packed_n src_n
@@ -813,9 +855,22 @@ jobs:
           SANGALLO_SHARD_LIVE: ${{ vars.SANGALLO_SHARD_LIVE }}
           ARTICOLIFRONTALIERE_SHARD_LIVE: ${{ vars.ARTICOLIFRONTALIERE_SHARD_LIVE }}
           ARTICOLISVIZZERA_SHARD_LIVE: ${{ vars.ARTICOLISVIZZERA_SHARD_LIVE }}
+          # Issue #4881 Fase 5: these sections never got an ok-marker this
+          # run when BUILD_EMIT_SKIP is on (excluded from the push loop
+          # above), so strip-section-subtree.sh would already safely no-op
+          # for them (its own ok-marker gate) — skipped explicitly here
+          # instead to avoid a permanent "no push ok-marker" ::warning::
+          # every deploy that reads like a failure but isn't one.
+          ARTICOLIFRONTALIERE_BUILD_EMIT_SKIP: ${{ vars.ARTICOLIFRONTALIERE_BUILD_EMIT_SKIP }}
+          ARTICOLISVIZZERA_BUILD_EMIT_SKIP: ${{ vars.ARTICOLISVIZZERA_BUILD_EMIT_SKIP }}
         run: |
           set -uo pipefail
           for section in $(jq -r 'keys[] | select(startswith("_")|not)' scripts/lib/section-shard-slugs.json); do
+            skip_var="$(echo "$section" | tr a-z A-Z)_BUILD_EMIT_SKIP"
+            if [ "${!skip_var:-}" = "true" ]; then
+              echo "$section-it: BUILD_EMIT_SKIP=true — build never emitted this section, no ok-marker, nothing to strip"
+              continue
+            fi
             bash scripts/lib/strip-section-subtree.sh "$section" it dist
           done
 
@@ -1140,6 +1195,10 @@ jobs:
           SHARD_ARTICOLISVIZZERA_FR_DEPLOY_KEY: ${{ secrets.SHARD_ARTICOLISVIZZERA_FR_DEPLOY_KEY }}
           GITHUB_SHA: ${{ github.sha }}
           GITHUB_RUN_ID: ${{ github.run_id }}
+          # Issue #4881 Fase 5 — see ogPagesPlugin.ts's closeBundle docblock
+          # and the IT-leg push step above for the full contract.
+          ARTICOLIFRONTALIERE_BUILD_EMIT_SKIP: ${{ vars.ARTICOLIFRONTALIERE_BUILD_EMIT_SKIP }}
+          ARTICOLISVIZZERA_BUILD_EMIT_SKIP: ${{ vars.ARTICOLISVIZZERA_BUILD_EMIT_SKIP }}
         run: |
           set -uo pipefail
           # Each section pushes to its OWN shard repo — one section's push
@@ -1160,6 +1219,14 @@ jobs:
           fail=0
           pids=(); names=()
           for section in $(jq -r 'keys[] | select(startswith("_")|not)' scripts/lib/section-shard-slugs.json); do
+            # #4881 Fase 5: same exclusion as the IT-leg push step above —
+            # build no longer emitted this section, so a full-replace push
+            # here would force-push a near-empty dist/ tree over the shard.
+            skip_var="$(echo "$section" | tr a-z A-Z)_BUILD_EMIT_SKIP"
+            if [ "${!skip_var:-}" = "true" ]; then
+              echo "$section-${{ matrix.locale }}: BUILD_EMIT_SKIP=true — excluded from full-replace push (served by fast-publish only)"
+              continue
+            fi
             bash scripts/lib/push-section-shard.sh "$section" "${{ matrix.locale }}" dist &
             pids+=("$!"); names+=("$section")
             if [ "${#pids[@]}" -ge "$MAX_PARALLEL" ]; then
@@ -1220,6 +1287,13 @@ jobs:
             local section="$1"
             local live_var="$(echo "$section" | tr a-z A-Z)_SHARD_LIVE"
             if [ "${!live_var:-}" != "true" ]; then
+              return 0
+            fi
+            # Gate on the push ok-marker — see the IT leg's "Pack section
+            # shard dist" step above (issue #4881 Fase 5 audit finding) for
+            # the full rationale.
+            if [ ! -f "$RUNNER_TEMP/shard-ok-$section-$loc" ]; then
+              echo "no push ok-marker for $section-$loc (push skipped/failed this run) — validate-dist will fall back to git clone"
               return 0
             fi
             local slug sub src packed_n src_n
@@ -1375,9 +1449,18 @@ jobs:
           SANGALLO_SHARD_LIVE: ${{ vars.SANGALLO_SHARD_LIVE }}
           ARTICOLIFRONTALIERE_SHARD_LIVE: ${{ vars.ARTICOLIFRONTALIERE_SHARD_LIVE }}
           ARTICOLISVIZZERA_SHARD_LIVE: ${{ vars.ARTICOLISVIZZERA_SHARD_LIVE }}
+          # Issue #4881 Fase 5: same exclusion as the IT-leg strip step —
+          # see that step's comment for the rationale.
+          ARTICOLIFRONTALIERE_BUILD_EMIT_SKIP: ${{ vars.ARTICOLIFRONTALIERE_BUILD_EMIT_SKIP }}
+          ARTICOLISVIZZERA_BUILD_EMIT_SKIP: ${{ vars.ARTICOLISVIZZERA_BUILD_EMIT_SKIP }}
         run: |
           set -uo pipefail
           for section in $(jq -r 'keys[] | select(startswith("_")|not)' scripts/lib/section-shard-slugs.json); do
+            skip_var="$(echo "$section" | tr a-z A-Z)_BUILD_EMIT_SKIP"
+            if [ "${!skip_var:-}" = "true" ]; then
+              echo "$section-${{ matrix.locale }}: BUILD_EMIT_SKIP=true — build never emitted this section, no ok-marker, nothing to strip"
+              continue
+            fi
             bash scripts/lib/strip-section-subtree.sh "$section" "${{ matrix.locale }}" dist
           done
 

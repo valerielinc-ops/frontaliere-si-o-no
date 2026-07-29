@@ -63,7 +63,23 @@ rehydrate_section() {
       it) sub="$slug" ;;
       en|de|fr) sub="$loc/$slug" ;;
     esac
-    if [ -d "dist/$sub" ]; then
+    # Completeness, not just existence (issue #4881 Fase 5 audit finding).
+    # `[ -d dist/$sub ]` alone is a false positive whenever something OTHER
+    # than this section's own push left a non-empty-but-partial directory in
+    # place — e.g. legacyRedirectsPlugin.ts independently writes a handful
+    # of old-slug redirect-bridge pages under this exact prefix regardless
+    # of whether the section's own build-time emit ran (issue #4881 Fase
+    # 5's ARTICOLIFRONTALIERE_BUILD_EMIT_SKIP / ARTICOLISVIZZERA_BUILD_EMIT_SKIP,
+    # or any section whose own emit is skipped/fails for an unrelated
+    # reason). A bare directory check would then wrongly treat the section
+    # as fully rehydrated and skip the tar/clone fallback below, so every
+    # dist-walking post-deploy audit fails against a genuinely incomplete
+    # tree. Mirrors push-section-shard.sh's own `test -s
+    # "$stage/$sub/index.html"` liveness assertion: the section's own root
+    # index.html only exists once its FULL emit (hub/index page included)
+    # has actually run, so checking for it (non-empty) is a reliable
+    # completeness signal a bare `-d` check is not.
+    if [ -s "dist/$sub/index.html" ]; then
       echo "$section $loc ($sub) present in artifact — skip rehydrate"
       continue
     fi
