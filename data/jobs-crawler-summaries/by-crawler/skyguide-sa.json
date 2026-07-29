@@ -1,16 +1,16 @@
 {
   "key": "skyguide-sa",
   "label": "Skyguide",
-  "generatedAt": "2026-07-29T11:36:44.735Z",
+  "generatedAt": "2026-07-29T22:04:53.931Z",
   "total": 10,
   "newCount": 0,
   "updatedCount": 10,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 6736,
-  "avgDurationMs": 6736,
+  "durationMs": 6606,
+  "avgDurationMs": 6606,
   "durationHistory": [
-    6736
+    6606
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -40,13 +40,14 @@
       "salaryMax": 126500,
       "currency": "CHF",
       "firstSeenAt": "2026-07-28T22:08:46.992Z",
-      "needsRetranslation": true,
-      "retranslationAttempts": 2,
-      "_qualityScore": 80,
+      "retranslationAttempts": 3,
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 3423,
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 18,
-        "translation": 23,
+        "translation": 25,
         "completeness": 19
       }
     },
