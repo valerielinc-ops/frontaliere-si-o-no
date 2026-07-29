@@ -4759,7 +4759,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 3615,
+ "numberOfItems": 3616,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026/` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024/` },
@@ -8375,7 +8375,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 3612, "name": "AVS: Eichenberger critica la 13esima rendita", "url": `${BASE_URL}/articoli-frontaliere/rendita-avs-critica-eichenberger` },
           { "@type": "ListItem", "position": 3613, "name": "Pensioni agosto 2026: cedolino INPS e variazion...", "url": `${BASE_URL}/articoli-frontaliere/pensioni-agosto-2026-cedolino-inps` },
           { "@type": "ListItem", "position": 3614, "name": "Vigilanza bancaria in Svizzera: storia, scandal...", "url": `${BASE_URL}/articoli-frontaliere/storia-vigilanza-bancaria-svizzera` },
-          { "@type": "ListItem", "position": 3615, "name": "Dopo il caso Zali: il Ticino guarda al futuro", "url": `${BASE_URL}/articoli-frontaliere/caso-zali-politica-ticino-prospettive` }
+          { "@type": "ListItem", "position": 3615, "name": "Dopo il caso Zali: il Ticino guarda al futuro", "url": `${BASE_URL}/articoli-frontaliere/caso-zali-politica-ticino-prospettive` },
+          { "@type": "ListItem", "position": 3616, "name": "Gestione immobiliare: il valore del tempo e del...", "url": `${BASE_URL}/articoli-frontaliere/gestione-immobiliare-professionale` }
  ]
  },
  {

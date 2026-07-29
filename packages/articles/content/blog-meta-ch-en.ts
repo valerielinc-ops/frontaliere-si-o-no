@@ -1681,6 +1681,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.storia-vigilanza-bancaria-svizzera.title': 'Banking supervision in Switzerland: history, scandals and reforms',
     'blog.article.storia-vigilanza-bancaria-svizzera.excerpt': 'From the 1935 law to the Credit Suisse case: historical analysis of Swiss banking supervision and the new challenges for Finma between scandals and reforms.',
     'blog.article.storia-vigilanza-bancaria-svizzera.imageAlt': 'Federal Palace in Bern, seat of Swiss institutions',
+    'blog.article.gestione-immobiliare-professionale.title': 'Property management: the value of time and precision',
+    'blog.article.gestione-immobiliare-professionale.excerpt': 'Why doesn\'t a successful real estate agency have time to spy on the competition? Here is the operating method based on Swiss quality and rigor.',
+    'blog.article.gestione-immobiliare-professionale.imageAlt': 'Professional real estate office interior with a view of Lugano',
 };
 
 export default blogMetaChEn;

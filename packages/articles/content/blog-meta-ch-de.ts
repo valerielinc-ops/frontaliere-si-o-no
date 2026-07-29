@@ -1681,6 +1681,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.storia-vigilanza-bancaria-svizzera.title': 'Bankenaufsicht in der Schweiz: Geschichte, Skandale und Reformen',
     'blog.article.storia-vigilanza-bancaria-svizzera.excerpt': 'Vom Gesetz von 1935 zum Fall Credit Suisse: Historische Analyse der Schweizer Bankenaufsicht und die neuen Herausforderungen für die Finma zwischen Skandalen und Reformen.',
     'blog.article.storia-vigilanza-bancaria-svizzera.imageAlt': 'Bundeshaus in Bern, Sitz der Schweizer Institutionen',
+    'blog.article.gestione-immobiliare-professionale.title': 'Immobilienmanagement: der Wert von Zeit und Genauigkeit',
+    'blog.article.gestione-immobiliare-professionale.excerpt': 'Warum hat eine erfolgreiche Immobilienagentur keine Zeit, die Konkurrenz auszuspionieren? Das ist die operative Methode, die auf Schweizer Qualität und Strenge basiert.',
+    'blog.article.gestione-immobiliare-professionale.imageAlt': 'Professionelles Immobilienbüro mit Blick auf Lugano',
 };
 
 export default blogMetaChDe;

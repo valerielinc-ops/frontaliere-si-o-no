@@ -5041,6 +5041,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'gestione-immobiliare-professionale',
+    category: 'pratico',
+    date: '2026-07-29T17:10:09.756Z',
+    image: '/images/blog/gestione-immobiliare-professionale.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
