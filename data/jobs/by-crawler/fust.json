@@ -1,6 +1,6 @@
 {
   "crawlerKey": "fust",
-  "assembledAt": "2026-07-29T11:43:27.909Z",
+  "assembledAt": "2026-07-29T10:21:58.077Z",
   "jobs": [
     {
       "id": "company-m3c8k7",
@@ -345,18 +345,19 @@
           "verkaufsberater-in-grossraum-zurich-coop-genossenschaft-winterthur-zurich-mtiixp",
           "sales-consultants-in-greater-zurich-coop-genossenschaft-winterthur-zurich",
           "consultants-en-ventes-dans-le-grand-zurich-coop-genossenschaft-winterthur-zurich",
+          "consulenti-di-vendita-in-maggiore-zurigo-coop-genossenschaft-winterthur-zurich",
           "consulenti-di-vendita-in-maggiore-zurigo-coop-genossenschaft-winterthur-zurich"
         ],
         "en": [
           "verkaufsberater-in-grossraum-zurich-coop-genossenschaft-winterthur-zurich-58472n",
           "sales-consultants-in-greater-zurich-coop-genossenschaft-winterthur-zurich"
         ],
-        "de": [
-          "verkaufsberater-in-grossraum-zurich-coop-genossenschaft-winterthur-zurich-mtiixp"
-        ],
         "fr": [
           "verkaufsberater-in-grossraum-zurich-coop-genossenschaft-winterthur-zurich-58472n",
           "consultants-en-ventes-dans-le-grand-zurich-coop-genossenschaft-winterthur-zurich"
+        ],
+        "de": [
+          "verkaufsberater-in-grossraum-zurich-coop-genossenschaft-winterthur-zurich-mtiixp"
         ]
       },
       "previousSlugs": [
@@ -368,6 +369,8 @@
         "consultants-en-ventes-dans-le-grand-zurich-coop-genossenschaft-winterthur-zurich",
         "consulenti-di-vendita-in-maggiore-zurigo-coop-genossenschaft-winterthur-zurich"
       ],
+      "salaryMin": 73500,
+      "salaryMax": 111500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -382,9 +385,7 @@
       "addressRegion": "ZH",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "country": "CH",
-      "salaryMin": 73500,
-      "salaryMax": 111500
+      "country": "CH"
     },
     {
       "id": "company-d8fkpx",
@@ -428,7 +429,6 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "sanitarmonteur-in-kuchen-bader-fust-steg-hohtenn-wallis",
           "sanitary-fitter-in-kitchens-bathrooms-fust-swiss-household-services-ag-steg-hohtenn-wallis",
           "installation-sanitaire-dans-les-cuisines-et-salles-de-bains-fust-swiss-household-services-ag-steg-hohtenn-wallis",
           "sanitarmonteur-in-kuchen-bader-fust-swiss-household-services-ag-steg-hohtenn-h26um4",
@@ -447,7 +447,8 @@
           "sanitarmonteur-in-kuchen-bader-fust-swiss-household-services-ag-steg-hohtenn-wallis-h26um4",
           "sanitary-fitter-in-kitchens-bathrooms-fust-swiss-household-services-ag-burgdorf-lzkg1f",
           "sanitarmonteur-in-kuchen-bader-fust-burgdorf-bern-lzkg1f",
-          "cucine-e-bagni-per-impianti-igienici-fust-swiss-household-services-ag-steg-hohtenn-wallis"
+          "cucine-e-bagni-per-impianti-igienici-fust-swiss-household-services-ag-steg-hohtenn-wallis",
+          "fiteria-sanitaria-in-cucine-e-bagni-fust-swiss-household-services-ag-steg-hohtenn-wallis"
         ],
         "en": [
           "sanitarmonteur-in-kuchen-bader-fust-swiss-household-services-ag-steg-hohtenn-wallis-d8fkpx",
@@ -468,31 +469,16 @@
       "previousSlugs": [
         "sanitarmonteur-in-kuchen-bader-fust-swiss-household-services-ag-steg-hohtenn-wallis",
         "sanitarmonteur-in-kuchen-bader-fust-steg-hohtenn-wallis-d8fkpx",
-        "sanitarmonteur-in-kuchen-bader-fust-swiss-household-services-ag-steg-hohtenn-wallis-d8fkpx",
-        "sanitarmonteur-in-kuchen-bader-fust-swiss-household-services-ag-steg-hohtenn-h26um4",
-        "installation-sanitaire-dans-les-cuisines-et-salles-de-bains-fust-swiss-household-services-ag-burgdorf-lzkg1f",
-        "sanitarmonteur-in-kuchen-bader-fust-swiss-household-services-ag-burgdorf-bern",
-        "sanitarmonteur-in-kuchen-bader-fust-swiss-household-services-ag-burgdorf-bern-lzkg1f",
-        "sanitary-fitter-in-kitchens-bathrooms-fust-swiss-household-services-ag-burgdorf-bern",
-        "installation-sanitaire-dans-les-cuisines-et-salles-de-bains-fust-swiss-household-services-ag-burgdorf-bern",
-        "fiteria-sanitaria-in-cucine-e-bagni-fust-swiss-household-services-ag-burgdorf-bern",
-        "sanitarmonteur-in-kuchen-bader-fust-burgdorf-bern",
-        "sanitarmonteur-in-kuchen-bader-fust-swiss-household-services-ag-burgdorf-lzkg1f",
-        "sanitary-fitter-in-kitchens-bathrooms-fust-swiss-household-services-ag-burgdorf",
-        "sanitarmonteur-dans-kuchen-bader-fust-swiss-household-services-ag-burgdorf-lzkg1f",
-        "installation-sanitaire-dans-les-cuisines-et-salles-de-bains-fust-swiss-household-services-ag-burgdorf",
-        "installatore-sanitario-in-cucine-e-bagni-fust-swiss-household-services-ag-burgdorf",
-        "sanitarmonteur-in-kuchen-bader-fust-swiss-household-services-ag-steg-hohtenn-wallis-h26um4",
-        "sanitary-fitter-in-kitchens-bathrooms-fust-swiss-household-services-ag-burgdorf-lzkg1f",
-        "sanitarmonteur-in-kuchen-bader-fust-burgdorf-bern-lzkg1f",
-        "sanitarmonteur-in-kuchen-bader-fust-steg-hohtenn-wallis-h26um4",
-        "sanitarmonteur-dans-kuchen-bader-fust-swiss-household-services-ag-steg-hohtenn-h26um4",
-        "cucine-e-bagni-per-impianti-igienici-fust-swiss-household-services-ag-steg-hohtenn-wallis",
         "sanitary-fitter-in-kitchens-bathrooms-fust-swiss-household-services-ag-steg-hohtenn-wallis",
         "installation-sanitaire-dans-les-cuisines-et-salles-de-bains-fust-swiss-household-services-ag-steg-hohtenn-wallis",
         "fiteria-sanitaria-in-cucine-e-bagni-fust-swiss-household-services-ag-steg-hohtenn-wallis",
-        "sanitarmonteur-in-kuchen-bader-fust-steg-hohtenn-wallis"
+        "sanitarmonteur-in-kuchen-bader-fust-steg-hohtenn-wallis",
+        "sanitary-fitter-in-kitchens-bathrooms-fust-swiss-household-services-ag-steg-hohtenn-wallis",
+        "installation-sanitaire-dans-les-cuisines-et-salles-de-bains-fust-swiss-household-services-ag-steg-hohtenn-wallis",
+        "fiteria-sanitaria-in-cucine-e-bagni-fust-swiss-household-services-ag-steg-hohtenn-wallis"
       ],
+      "salaryMin": 60500,
+      "salaryMax": 91500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -512,9 +498,7 @@
         "type": "adapter_seed_meta",
         "location": "Vallese",
         "canton": "VS"
-      },
-      "salaryMin": 60500,
-      "salaryMax": 91500
+      }
     },
     {
       "id": "company-x1cr3h",
@@ -23003,7 +22987,8 @@
         "it": [
           "facility-technician-m-w-d-coop-genossenschaft-frutigen-bern",
           "tecnico-di-facility-m-f-d-coop-genossenschaft-frutigen-bern",
-          "facility-technician-m-w-d-coop-genossenschaft-frutigen-bern-1lrh2g"
+          "facility-technician-m-w-d-coop-genossenschaft-frutigen-bern-1lrh2g",
+          "tecnico-di-manutenzione-m-f-d-coop-genossenschaft-frutigen-bern"
         ],
         "en": [
           "facility-technician-m-w-d-bergquellfisch-frutigen-bern-1lrh2g"
@@ -23013,7 +22998,8 @@
         "facility-technician-m-w-d-coop-genossenschaft-frutigen-bern",
         "tecnico-di-facility-m-f-d-coop-genossenschaft-frutigen-bern",
         "facility-technician-m-w-d-bergquellfisch-frutigen-bern-1lrh2g",
-        "facility-technician-m-w-d-coop-genossenschaft-frutigen-bern-1lrh2g"
+        "facility-technician-m-w-d-coop-genossenschaft-frutigen-bern-1lrh2g",
+        "tecnico-di-manutenzione-m-f-d-coop-genossenschaft-frutigen-bern"
       ],
       "salaryMin": 105500,
       "salaryMax": 185000,
@@ -24217,7 +24203,7 @@
       },
       "descriptionByLocale": {
         "de": "## Beschreibung\n\nMit den berufsbegleitenden Quereinsteigerprogrammen schaffst du neue Perspektiven für deine berufliche Karriere.",
-        "it": "Descrizione\n\nCon i programmi di inserimento lavorativo, crei nuove prospettive per la tua carriera professionale.",
+        "it": "Descrizione Con i programmi di avviamento incrociato che accompagnano la carriera, creerai nuove prospettive per la tua carriera.",
         "en": "Description With the career-accompanying cross-starter programs you create new perspectives for your career.",
         "fr": "Description Avec les programmes de démarrage croisés qui accompagnent votre carrière, vous créez de nouvelles perspectives pour votre carrière."
       },
