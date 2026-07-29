@@ -1288,6 +1288,8 @@ const deCore: Record<string, string> = {
  'bordermap.cheapest': 'Günstigste',
  'bordermap.campione': 'Campione d\'Italia hat einen speziellen Steuerstatus als italienische Exklave auf Schweizer Gebiet.',
  'bordermap.municipalities': '{count} Gemeinden',
+ 'bordermap.liveWait': 'Live-Wartezeit',
+ 'bordermap.liveUpdatedAgo': 'aktualisiert vor {minutes} Min.',
  'comparators.residency': 'Umzugssimulator',
  'nav.dashboard': 'Dashboard',
  'dashboard.title': 'Persönliches Dashboard',

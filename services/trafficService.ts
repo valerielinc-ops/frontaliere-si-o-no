@@ -52,8 +52,13 @@ interface BorderWaitSnapshot {
 
 const BORDER_WAIT_SNAPSHOT = borderWaitCurrent as BorderWaitSnapshot;
 
+// trafficLevel undefined just means "no historical trafficLevel label
+// assigned yet" (e.g. non-Ticino borders added later), NOT 'closed' — see
+// data/borderCrossings.ts doc comment. Filtering on `!== undefined` here
+// left the fallback snapshot blind to every non-Ticino crossing (111/143,
+// issue #4892 sibling fix); only crossings actually marked closed drop out.
 const BORDER_CROSSINGS: BorderCrossingCoordinates[] = centralizedCrossings
- .filter(c => c.trafficLevel !== undefined && c.trafficLevel !== 'closed')
+ .filter(c => c.trafficLevel !== 'closed')
  .map(c => ({ name: c.name }));
 
 export function hasLiveTrafficData(data: TrafficData[]): boolean {

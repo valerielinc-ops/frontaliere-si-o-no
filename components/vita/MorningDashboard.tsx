@@ -254,7 +254,12 @@ const MorningDashboard: React.FC = () => {
 
  // Traffic summary
  const topCrossings = useMemo(() => {
- const openCrossings = borderCrossings.filter(bc => bc.trafficLevel !== undefined && bc.trafficLevel !== 'closed');
+ // trafficLevel undefined = no historical label yet (e.g. non-Ticino
+ // borders), NOT 'closed' — filtering it out left this "fastest crossings"
+ // widget blind to every non-Ticino crossing (issue #4892 sibling fix).
+ // `status` below already degrades gracefully when trafficLevel is
+ // undefined (falls through the 'high' check to 'green').
+ const openCrossings = borderCrossings.filter(bc => bc.trafficLevel !== 'closed');
  return openCrossings
  .map(bc => {
  const live = traffic.find(t => t.crossingName === bc.name);

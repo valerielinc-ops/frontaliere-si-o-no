@@ -1285,6 +1285,8 @@ const enCore: Record<string, string> = {
  'bordermap.cheapest': 'Cheapest',
  'bordermap.campione': 'Campione d\'Italia has special fiscal status as an Italian exclave in Swiss territory.',
  'bordermap.municipalities': '{count} municipalities',
+ 'bordermap.liveWait': 'Live wait',
+ 'bordermap.liveUpdatedAgo': 'updated {minutes} min ago',
  'comparators.residency': 'Move Simulator',
  'nav.dashboard': 'Dashboard',
  'dashboard.title': 'Personal Dashboard',

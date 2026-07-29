@@ -9,6 +9,10 @@ import { MapContainer, TileLayer, CircleMarker, Popup } from 'react-leaflet';
 import { MapPin, Filter, Info, AlertTriangle, TrendingDown, TrendingUp, ArrowUpDown, Award, DollarSign, Building2, Navigation, ChevronUp, ChevronDown, SlidersHorizontal } from 'lucide-react';
 import { MAP_COLORS } from '@/services/mapColors';
 import 'leaflet/dist/leaflet.css';
+import { fetchBorderWaitCurrent, effectiveWaitMinutes, type BorderWaitCurrentSnapshot } from '@/services/borderWaitCurrentService';
+import { fmtMinutes, minutesSince } from '@/services/borderWaitFormat';
+import { slugifyCrossingName } from '@/services/borderCrossingSlug';
+import type { BorderCrossing } from '@/data/borderCrossings';
 
 import type { UserProfileData } from '@/components/pages/UserProfile';
 
@@ -18,6 +22,13 @@ type SortDir = 'asc' | 'desc';
 
 interface MunicipalityWithTax extends Municipality {
  taxResult: MunicipalityTaxResult;
+}
+
+/** Border crossing marker data merged with its live wait (issue #4892). */
+interface BorderCrossingMarker {
+ bc: BorderCrossing;
+ liveMinutes: number | null;
+ liveAgoMinutes: number | null;
 }
 
 interface Props {
@@ -66,6 +77,34 @@ const BorderMunicipalitiesMap: React.FC<Props> = ({ userProfile }) => {
  if (!isNaN(s) && s > 0) setSalary(s);
  }
  }, [userProfile]);
+ // Live border-wait snapshot (issue #4892): fetched ONCE at mount, outside the
+ // slider/filter interaction path — never re-fetched on salary/province/sort
+ // changes, so it cannot add synchronous work to those interactions (same INP
+ // constraint as the useDeferredValue block above, #4676). fetchBorderWaitCurrent
+ // never throws (try/catch/null internally); a failed/absent fetch simply leaves
+ // this null and the popup below falls back to the static field, then 'n.d.'.
+ const [borderWaitSnapshot, setBorderWaitSnapshot] = useState<BorderWaitCurrentSnapshot | null>(null);
+ useEffect(() => {
+ let cancelled = false;
+ fetchBorderWaitCurrent().then(data => {
+ if (!cancelled && data) setBorderWaitSnapshot(data);
+ });
+ return () => { cancelled = true; };
+ }, []);
+ // Merge static crossings with the live snapshot ONCE per snapshot change
+ // (mount + the single resolve above), not per render — so re-renders
+ // triggered by salary/filter/sort interactions reuse this same array
+ // reference instead of re-computing the slug lookup for all 143 crossings.
+ const borderCrossingsWithLiveWait = useMemo<BorderCrossingMarker[]>(() => {
+ const perCrossing = borderWaitSnapshot?.perCrossing;
+ return borderCrossings.map(bc => {
+ if (!perCrossing) return { bc, liveMinutes: null, liveAgoMinutes: null };
+ const entry = perCrossing[slugifyCrossingName(bc.name)];
+ const liveMinutes = effectiveWaitMinutes(entry);
+ const liveAgoMinutes = liveMinutes !== null ? minutesSince(entry?.lastUpdate) : null;
+ return { bc, liveMinutes, liveAgoMinutes };
+ });
+ }, [borderWaitSnapshot]);
  const provinces = useMemo(() => {
  const set = new Set(MUNICIPALITIES.map(m => m.province));
  return ['all', ...Array.from(set).sort()];
@@ -222,7 +261,7 @@ const BorderMunicipalitiesMap: React.FC<Props> = ({ userProfile }) => {
  attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
  url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
  />
- {borderCrossings.map((bc, i) => (
+ {borderCrossingsWithLiveWait.map(({ bc, liveMinutes, liveAgoMinutes }, i) => (
  <CircleMarker
  key={`bc-${i}`}
  center={[bc.lat, bc.lng]}
@@ -233,7 +272,16 @@ const BorderMunicipalitiesMap: React.FC<Props> = ({ userProfile }) => {
  <div className="text-xs">
  <p className="font-bold">{bc.name}</p>
  <p>{bc.type} — {bc.hours}</p>
+ {liveMinutes !== null ? (
+ <p>
+ ⏱ {t('bordermap.liveWait')}: <b>{fmtMinutes(liveMinutes)}</b>
+ {liveAgoMinutes !== null && (
+ <span className="text-muted"> ({t('bordermap.liveUpdatedAgo', { minutes: liveAgoMinutes })})</span>
+ )}
+ </p>
+ ) : (
  <p>⏱ AM: {bc.avgWaitMorning ?? 'n.d.'}</p>
+ )}
  </div>
  </Popup>
  </CircleMarker>
@@ -611,7 +659,7 @@ const BorderMunicipalitiesMap: React.FC<Props> = ({ userProfile }) => {
  attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
  url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
  />
- {borderCrossings.map((bc, i) => (
+ {borderCrossingsWithLiveWait.map(({ bc, liveMinutes, liveAgoMinutes }, i) => (
  <CircleMarker
  key={`bc-${i}`}
  center={[bc.lat, bc.lng]}
@@ -622,7 +670,16 @@ const BorderMunicipalitiesMap: React.FC<Props> = ({ userProfile }) => {
  <div className="text-xs">
  <p className="font-bold">{bc.name}</p>
  <p>{bc.type} — {bc.hours}</p>
+ {liveMinutes !== null ? (
+ <p>
+ ⏱ {t('bordermap.liveWait')}: <b>{fmtMinutes(liveMinutes)}</b>
+ {liveAgoMinutes !== null && (
+ <span className="text-muted"> ({t('bordermap.liveUpdatedAgo', { minutes: liveAgoMinutes })})</span>
+ )}
+ </p>
+ ) : (
  <p>⏱ AM: {bc.avgWaitMorning ?? 'n.d.'}</p>
+ )}
  </div>
  </Popup>
  </CircleMarker>

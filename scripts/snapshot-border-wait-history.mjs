@@ -20,6 +20,11 @@
  *
  * Writes:
  *   - data/border-wait-current.json            — last-known value per crossing
+ *   - public/data/border-wait-current.json     — SAME content, browser-servable copy
+ *     (offloaded to the CDN repo at deploy time like public/data/border-wait-ranking.json,
+ *     see scripts/offload-generated-images-cdn.mjs); written from the same `current`
+ *     object as the data/ copy in the SAME call so it can never independently drift
+ *     stale — see services/borderWaitCurrentService.ts (issue #4892).
  *   - data/border-wait-history/{YYYY-MM-DD}.json — 24-hour × per-crossing aggregate for today
  *
  * Optionally prunes history files older than 90 days to keep the repo lean.
@@ -160,19 +165,27 @@ function pruneOldHistory(historyDir, days = 90) {
  *   - `prune` (default: `true`, meaning 90 days). Pass `false` to skip, or a
  *     positive integer to override the retention window.
  *   - `today` (default: current UTC date `YYYY-MM-DD`) — overridable for tests.
- * @returns {Promise<{ slugs: string[], dayFile: string, currentPath: string }>}
+ * @returns {Promise<{ slugs: string[], dayFile: string, currentPath: string, publicCurrentPath: string }>}
  */
 export async function snapshotBorderWaitFiles(db, opts = {}) {
   const repoRoot = opts.repoRoot ?? DEFAULT_REPO_ROOT;
   const historyDir = path.join(repoRoot, 'data', 'border-wait-history');
   const currentPath = path.join(repoRoot, 'data', 'border-wait-current.json');
+  const publicCurrentPath = path.join(repoRoot, 'public', 'data', 'border-wait-current.json');
   const today = opts.today ?? new Date().toISOString().slice(0, 10);
 
   ensureDirs(historyDir);
+  ensureDirs(path.dirname(publicCurrentPath));
 
-  // 1. Current snapshot.
+  // 1. Current snapshot. Written to BOTH data/ (git-tracked source, consumed
+  // at build time by services/trafficService.ts) and public/data/ (the
+  // browser-servable copy fetched at runtime by
+  // services/borderWaitCurrentService.ts) from the same `current` object so
+  // the two can never independently drift out of sync.
   const current = await fetchTrafficCurrent(db);
-  fs.writeFileSync(currentPath, JSON.stringify(current, null, 2) + '\n', 'utf-8');
+  const currentJson = JSON.stringify(current, null, 2) + '\n';
+  fs.writeFileSync(currentPath, currentJson, 'utf-8');
+  fs.writeFileSync(publicCurrentPath, currentJson, 'utf-8');
 
   // 2. Daily history aggregate (today, UTC).
   const slugs = Object.keys(current.perCrossing);
@@ -200,7 +213,7 @@ export async function snapshotBorderWaitFiles(db, opts = {}) {
     pruneOldHistory(historyDir, days);
   }
 
-  return { slugs, dayFile, currentPath };
+  return { slugs, dayFile, currentPath, publicCurrentPath };
 }
 
 async function main() {
@@ -215,8 +228,9 @@ async function main() {
   const today = new Date().toISOString().slice(0, 10);
   console.log(`🚦 Snapshotting border-wait history for ${today}…`);
 
-  const { slugs, dayFile, currentPath } = await snapshotBorderWaitFiles(db, { today });
+  const { slugs, dayFile, currentPath, publicCurrentPath } = await snapshotBorderWaitFiles(db, { today });
   console.log(`✅ Wrote ${currentPath} (${slugs.length} crossings)`);
+  console.log(`✅ Wrote ${publicCurrentPath} (${slugs.length} crossings)`);
   console.log(`✅ Wrote ${dayFile} (${slugs.length} crossings × 24 hour buckets)`);
 
   console.log('✅ Snapshot done');

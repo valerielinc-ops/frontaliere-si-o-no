@@ -32,6 +32,9 @@ import { useJournalistRole } from '@/hooks/useJournalistRole';
 import { Analytics } from '@/services/analytics';
 import { unlockAchievement } from '@/services/gamificationService';
 import { borderCrossings } from '@/data/borderCrossings';
+import { fetchBorderWaitCurrent, effectiveWaitMinutes, type BorderWaitCurrentSnapshot } from '@/services/borderWaitCurrentService';
+import { fmtMinutes } from '@/services/borderWaitFormat';
+import { slugifyCrossingName } from '@/services/borderCrossingSlug';
 import { getMunicipalityNames, findMunicipality } from '@/data/municipalities';
 import { calculateSimulation } from '@/services/calculationService';
 import { useExchangeRate } from '@/services/exchangeRateService';
@@ -447,6 +450,21 @@ const UserProfile: React.FC = () => {
  const googleButtonRef = useRef<HTMLDivElement>(null);
  const [gisButtonRendered, setGisButtonRendered] = useState(false);
  const [linkedInAvailable, setLinkedInAvailable] = useState(false);
+
+ // Live border-wait snapshot for the "preferred dogana" badge below (issue
+ // #4892 sibling fix): that badge showed avgWaitMorning/avgWaitEvening's
+ // 'n.d.' for ~111/143 crossings — same root defect as BorderMunicipalitiesMap's
+ // popup, fixed there via this same service. Fetched once at mount; a
+ // failed/null fetch just leaves this null and the badge below falls back to
+ // the static fields, same contract as the map popup.
+ const [borderWaitSnapshot, setBorderWaitSnapshot] = useState<BorderWaitCurrentSnapshot | null>(null);
+ useEffect(() => {
+ let cancelled = false;
+ fetchBorderWaitCurrent().then(data => {
+ if (!cancelled && data) setBorderWaitSnapshot(data);
+ });
+ return () => { cancelled = true; };
+ }, []);
 
  const municipalityNames = useMemo(() => getMunicipalityNames(), []);
 
@@ -1662,11 +1680,20 @@ const UserProfile: React.FC = () => {
  // borders) fall back to the neutral "closed" tone/n.d. label rather
  // than crashing on an undefined lookup key.
  const trafficKey = bc.trafficLevel ?? 'closed';
+ // Live wait (issue #4892 sibling fix): merged from borderWaitSnapshot
+ // fetched once at mount above; null when not yet loaded/absent for this
+ // crossing, in which case the badge below simply doesn't render.
+ const liveMinutes = effectiveWaitMinutes(borderWaitSnapshot?.perCrossing?.[slugifyCrossingName(bc.name)]);
  return (
  <div className="flex flex-wrap gap-2 mt-2">
  <span className={`px-2 py-0.5 text-xs font-bold rounded-md ${levelColors[trafficKey]}`}>
  {bc.trafficLevel === 'high' ? '🔴' : bc.trafficLevel === 'medium' ? '🟡' : bc.trafficLevel === 'low' ? '🟢' : '⚪'} {t('profile.doganaTraffic')}: {bc.trafficLevel ?? 'n.d.'}
  </span>
+ {liveMinutes !== null && (
+ <span className="px-2 py-0.5 bg-success-subtle text-success text-xs font-bold rounded-md">
+ ⏱ {t('guide.municipalities.detail.currentWait')}: {fmtMinutes(liveMinutes)}
+ </span>
+ )}
  <span className="px-2 py-0.5 bg-accent-subtle text-accent text-xs font-bold rounded-md">
  🌅 {t('profile.doganaMorning')}: {bc.avgWaitMorning ?? 'n.d.'}
  </span>

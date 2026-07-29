@@ -237,6 +237,11 @@ vi.mock('react-leaflet', () => ({
  MapContainer: ({ children }: any) => <div data-testid="map-container">{children}</div>,
  TileLayer: () => <div data-testid="tile-layer" />,
  Marker: ({ children }: any) => <div data-testid="marker">{children}</div>,
+ // CircleMarker used by BorderMunicipalitiesMap.tsx / TrafficAlerts.tsx border-crossing
+ // markers (issue #4892) — was missing here, so any test rendering those components
+ // would get `undefined` as the element type. Popup children rendered directly (no
+ // portal), same as Marker above, so popup content is queryable without simulating a click.
+ CircleMarker: ({ children }: any) => <div data-testid="circle-marker">{children}</div>,
  Popup: ({ children }: any) => <div data-testid="popup">{children}</div>,
 }));
 
