@@ -1678,6 +1678,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.rendita-avs-critica-eichenberger.title': 'AVS: Eichenberger critica la 13esima rendita',
     'blog.article.rendita-avs-critica-eichenberger.excerpt': 'L\'economista Eichenberger analizza la 13esima rendita AVS definendola una forma indiretta di imposizione sull\'immigrazione e propone riforme fiscali per gli over 65.',
     'blog.article.rendita-avs-critica-eichenberger.imageAlt': 'Veduta panoramica di Lugano con il lago, simbolo del Ticino.',
+    'blog.article.storia-vigilanza-bancaria-svizzera.title': 'Vigilanza bancaria in Svizzera: storia, scandali e riforme',
+    'blog.article.storia-vigilanza-bancaria-svizzera.excerpt': 'Dalla legge del 1935 al caso Credit Suisse: analisi storica della vigilanza bancaria svizzera e le nuove sfide per la Finma tra scandali e riforme.',
+    'blog.article.storia-vigilanza-bancaria-svizzera.imageAlt': 'Palazzo federale a Berna, sede delle istituzioni svizzere',
 };
 
 export default blogMetaChIt;

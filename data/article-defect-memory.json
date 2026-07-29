@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-07-29T15:50:36.608Z",
+  "updatedAt": "2026-07-29T16:30:57.787Z",
   "entities": {
     "AASTI": {
       "status": "suspect",
@@ -712,16 +712,23 @@
       "statusSource": "auto",
       "statusAt": "2026-07-29T14:56:18.665Z",
       "firstSeen": "2026-07-29T14:56:18.665Z",
-      "lastSeen": "2026-07-29T14:56:18.665Z",
-      "seen": 2,
+      "lastSeen": "2026-07-29T16:30:57.787Z",
+      "seen": 3,
       "unsupportedSightings": 0,
       "unsupportedRuns": [],
-      "supportedSightings": 2,
+      "supportedSightings": 3,
       "names": [
         "Commissione federale delle banche"
       ],
       "recentKeys": [],
       "evidence": [
+        {
+          "at": "2026-07-29T16:30:57.787Z",
+          "runId": "30469517452",
+          "articleId": "storia-vigilanza-bancaria-svizzera",
+          "support": "present",
+          "name": "Commissione federale delle banche"
+        },
         {
           "at": "2026-07-29T14:56:18.665Z",
           "runId": "30460991205",

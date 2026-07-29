@@ -1678,6 +1678,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.rendita-avs-critica-eichenberger.title': 'AHV: Eichenberger kritisiert 13. Rente',
     'blog.article.rendita-avs-critica-eichenberger.excerpt': 'Der Ökonom Eichenberger analysiert die 13. AHV-Rente als indirekte Form der Zuwanderungsbesteuerung und schlägt Steuerreformen für die über 65-Jährigen vor.',
     'blog.article.rendita-avs-critica-eichenberger.imageAlt': 'Panoramablick auf Lugano mit dem See, Symbol des Kantons Tessin.',
+    'blog.article.storia-vigilanza-bancaria-svizzera.title': 'Bankenaufsicht in der Schweiz: Geschichte, Skandale und Reformen',
+    'blog.article.storia-vigilanza-bancaria-svizzera.excerpt': 'Vom Gesetz von 1935 zum Fall Credit Suisse: Historische Analyse der Schweizer Bankenaufsicht und die neuen Herausforderungen für die Finma zwischen Skandalen und Reformen.',
+    'blog.article.storia-vigilanza-bancaria-svizzera.imageAlt': 'Bundeshaus in Bern, Sitz der Schweizer Institutionen',
 };
 
 export default blogMetaChDe;
