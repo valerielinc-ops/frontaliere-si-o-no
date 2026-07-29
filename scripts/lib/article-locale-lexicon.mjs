@@ -63,14 +63,26 @@ export const NUMBER_TOKEN = String.raw`\d{1,3}(?:${GROUP_SEP}\d{3})+(?:[.,]\d+)?
  */
 export function canonicalNumeric(raw) {
   if (typeof raw !== 'string') return NaN;
-  const t = raw.replace(/\s*['’]\s*/g, '').replace(/[    ]/g, '');
+  // Apostrophes group unconditionally, tolerating the stray spaces the German
+  // bodies carry ("80 '000"). A bare space groups ONLY when followed by exactly
+  // three digits: without that guard "2023, 20" — a year and the start of a
+  // list — collapsed into the number 2023,20.
+  const t = raw
+    .replace(/\s*['’]\s*/g, '')
+    .replace(/[   ]/g, '')
+    .replace(/ (?=\d{3}(?!\d))/g, '');
   if (!/^\d+(?:[.,]\d+)*$/.test(t)) return NaN;
 
   const parts = t.split(/[.,]/);
   if (parts.length === 1) return Number(parts[0]);
 
   const tail = parts.slice(1);
-  if (tail.every((g) => g.length === 3)) return Number(parts.join(''));
+  // A number that opens on a bare 0 has no thousands to group, so its separator
+  // is the decimal mark whatever follows it. Without this the rate "0.032" read as
+  // the integer 32 — three digits after a separator look exactly like a thousands
+  // group — and the arithmetic gate then rejected "0.032 x 60,000 = 1,920", which
+  // is correct English prose.
+  if (parts[0] !== '0' && tail.every((g) => g.length === 3)) return Number(parts.join(''));
 
   // The last separator is the decimal mark; every earlier one must still be a
   // well-formed thousands group, otherwise the token is not a number at all.
