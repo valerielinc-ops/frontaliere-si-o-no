@@ -9083,6 +9083,12 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.di-piu-niente-shorts-ne-infradito.title': 'Caldo al lavoro, eleganza obbligatoria in Svizzera',
     'blog.article.di-piu-niente-shorts-ne-infradito.excerpt': 'La maggior parte dei dipendenti in Europa può indossare ciò che desidera sul posto di lavoro, ma in Svizzera è diverso.',
     'blog.article.di-piu-niente-shorts-ne-infradito.imageAlt': 'Un frontaliere che lavora in Svizzera si prepara per andare al lavoro in un giorno caldo.',
+    'blog.article.impresari-costruttori-caldo-estremo.title': 'Edilizia in Ticino: stop alle penali per caldo estremo',
+    'blog.article.impresari-costruttori-caldo-estremo.excerpt': 'La SSIC chiede condizioni eque per i cantieri durante le ondate di calore, evitando penali contrattuali per ritardi causati da temperature estreme.',
+    'blog.article.impresari-costruttori-caldo-estremo.imageAlt': 'Cantiere edile in Ticino durante un\'ondata di calore',
+    'blog.article.infortunio-lavoro-vallemaggia-piano-peccia.title': 'Grave infortunio sul lavoro in Vallemaggia',
+    'blog.article.infortunio-lavoro-vallemaggia-piano-peccia.excerpt': 'Un 29enne residente nel Bellinzonese è rimasto gravemente ferito a Piano di Peccia dopo essere stato colpito da una trave caduta da un carroponte.',
+    'blog.article.infortunio-lavoro-vallemaggia-piano-peccia.imageAlt': 'Panorama della Vallemaggia, Ticino, luogo di attività lavorativa.',
 };
 
 export default blogMetaIt;

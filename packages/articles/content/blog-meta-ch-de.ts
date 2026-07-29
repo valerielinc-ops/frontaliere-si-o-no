@@ -1660,6 +1660,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.assegno-unico-nuove-regole-inps.title': 'Einmalzulage: Neue INPS-Regeln für Arbeitnehmer im Ausland',
     'blog.article.assegno-unico-nuove-regole-inps.excerpt': 'Das INPS klärt die Anwendungsmodalitäten für die Einmalzulage: Das ändert sich für EU-Arbeitnehmer und Familien mit Kindern, die in anderen EU-Ländern wohnen.',
     'blog.article.assegno-unico-nuove-regole-inps.imageAlt': 'Dokumente und Taschenrechner auf einem modernen Schreibtisch',
+    'blog.article.telelavoro-frontalieri-limiti-fiscali-previdenziali.title': 'Grenzgänger-Telearbeit: Steuer- und Sozialversicherungsgrenzen',
+    'blog.article.telelavoro-frontalieri-limiti-fiscali-previdenziali.excerpt': 'Grenzgänger Italien-Schweiz: Die Telearbeit folgt zwei unterschiedlichen Schwellenwerten. Erfahren Sie, wie sich 25 % Steuern und 49,9 % Vorsorge auf Steuern und Beiträge auswirken.',
+    'blog.article.telelavoro-frontalieri-limiti-fiscali-previdenziali.imageAlt': 'Modernes Büro in Lugano mit Blick auf den See',
 };
 
 export default blogMetaChDe;

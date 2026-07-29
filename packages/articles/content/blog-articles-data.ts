@@ -27291,6 +27291,24 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'impresari-costruttori-caldo-estremo',
+ category: 'pratico',
+ date: '2026-07-29T02:54:31.788Z',
+ image: '/images/blog/impresari-costruttori-caldo-estremo.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
+ {
+ id: 'infortunio-lavoro-vallemaggia-piano-peccia',
+ category: 'pratico',
+ date: '2026-07-29T03:28:10.833Z',
+ image: '/images/blog/infortunio-lavoro-vallemaggia-piano-peccia.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

@@ -579,6 +579,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'fedelta-banca-costosa': { it: 'fedelta-banca-costosa', en: 'bank-loyalty-costly', de: 'banken-loyalitaet-teuer', fr: 'loyalite-bancaux-couteuse' },
  'sulzer-ristrutturazione-chemtech-2026': { it: 'sulzer-ristrutturazione-chemtech-2026', en: 'sulzer-chemtech-restructuring', de: 'sulzer-chemtech-restrukturierung', fr: 'sulzer-restructuration-chemtech' },
  'assegno-unico-nuove-regole-inps': { it: 'assegno-unico-nuove-regole-inps', en: 'assegno-unico-inps-new-rules', de: 'assegno-unico-inps-neue-regeln', fr: 'assegno-unico-inps-nouvelles-regles' },
+ 'telelavoro-frontalieri-limiti-fiscali-previdenziali': { it: 'telelavoro-frontalieri-limiti-fiscali-previdenziali', en: 'cross-border-telework-fiscal-social-security-limits', de: 'grenzgaenger-telearbeit-steuer-sozialversicherung', fr: 'teletravail-frontaliers-limites-fiscales-sociales' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
