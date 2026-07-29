@@ -87,6 +87,6 @@ for (const { section, registryFile, metaPrefix } of ARTICLE_SECTION_CORE_LIST) {
 if (exitCode === 0) {
   console.log('\n✅ no orphan article meta — every registry id renders a real title in the live list');
 } else {
-  console.error('\n❌ orphan article meta found — add title/excerpt/imageAlt to the section\'s IT meta file (services/locales/*, translate to en/de/fr) before merging; see scripts/manage-article.mjs list for the orphan finder and scripts/lib/free-translate.mjs for the translation cascade');
+  console.error('\n❌ orphan article meta found — add title/excerpt/imageAlt to the locale meta file(s) named above (services/locales/*) before merging — every locale the archive route serves must resolve, not just IT; see scripts/manage-article.mjs list for the orphan finder and scripts/lib/free-translate.mjs for the translation cascade');
 }
 process.exit(exitCode);
