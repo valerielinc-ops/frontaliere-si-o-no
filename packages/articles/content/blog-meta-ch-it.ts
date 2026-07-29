@@ -1666,6 +1666,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.accertamento-residenza-fiscale-prove-digitali.title': 'Accertamento residenza fiscale: le prove digitali dell\'ADE',
     'blog.article.accertamento-residenza-fiscale-prove-digitali.excerpt': 'Come l\'Agenzia delle Entrate utilizza le tracce digitali per verificare la residenza fiscale dei contribuenti. Analisi pratica e riferimenti normativi.',
     'blog.article.accertamento-residenza-fiscale-prove-digitali.imageAlt': 'Documenti digitali e computer in un ufficio svizzero',
+    'blog.article.ermotti-intervista-ubs.title': 'Di più Ermotti: "molto lavoro, ma gli sforzi stanno dando frutti"',
+    'blog.article.ermotti-intervista-ubs.excerpt': 'Sergio Ermotti, CEO di UBS, sulla integrazione di Credit Suisse',
+    'blog.article.ermotti-intervista-ubs.imageAlt': 'Sergio Ermotti, CEO di UBS, in un contesto svizzero nazionale',
 };
 
 export default blogMetaChIt;
