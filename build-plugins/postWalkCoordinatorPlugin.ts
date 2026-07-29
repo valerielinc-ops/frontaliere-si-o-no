@@ -283,8 +283,12 @@ function runSingleThreaded(
 
     if (!isBridge) {
       const __tHl = profileStart();
-      const r = transformHreflang(html, distDir, baseUrl, (absPath) =>
-        existingHtmlSet.has(absPath),
+      const r = transformHreflang(
+        html,
+        distDir,
+        baseUrl,
+        (absPath) => existingHtmlSet.has(absPath),
+        path.relative(distDir, filePath).split(path.sep).join('/'),
       );
       profileRecord('hreflang-transform', __tHl);
       if (r !== null) {
