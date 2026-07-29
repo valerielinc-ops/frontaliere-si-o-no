@@ -9111,6 +9111,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.agenzie-immobiliari-lavoro-ticino.title': 'Efficacité dans l\'immobilier : comment travaillent les professionnels',
     'blog.article.agenzie-immobiliari-lavoro-ticino.excerpt': 'Parce que les agences immobilières performantes du Tessin ne perdent pas de temps sur les réseaux sociaux mais se concentrent sur la gestion opérationnelle des biens immobiliers.',
     'blog.article.agenzie-immobiliari-lavoro-ticino.imageAlt': 'Bureau professionnel à Lugano avec vue sur le lac',
+    'blog.article.tassa-salute-frontalieri-doppia-imposizione.title': 'Taxe santé frontalière : syndicats et canton contre la double imposition',
+    'blog.article.tassa-salute-frontalieri-doppia-imposizione.excerpt': 'Un avis juridique commandé par le canton du Tessin rejette la « taxe sur la santé » de 2024 : il s\'agit d\'une taxe qui viole le traité de 2020.',
+    'blog.article.tassa-salute-frontalieri-doppia-imposizione.imageAlt': 'Vue de Bellinzone avec ses châteaux, lieu de discussions sur le travail transfrontalier.',
 };
 
 export default blogMetaFr;
