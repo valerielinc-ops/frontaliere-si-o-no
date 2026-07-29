@@ -45,6 +45,7 @@ import {
   buildBackfillPrompt,
   validateBackfillPayload,
 } from './lib/ai-search-template.mjs';
+import { resolveGitAddPath } from './lib/resolve-git-add-path.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -282,7 +283,7 @@ async function main() {
 
 async function runLocaleBackfill(locale, callLLM, AI_MODELS) {
   const dir = bodyDirFor(locale);
-  const relDir = path.relative(ROOT, dir);
+  const relDir = resolveGitAddPath(ROOT, path.relative(ROOT, dir));
   const files = listItBodyFiles(dir);
   const { needing, skipped } = findArticlesNeedingBackfill(files);
   const alreadyOptimized = skipped.filter((s) => s.reason === 'already-optimized').length;

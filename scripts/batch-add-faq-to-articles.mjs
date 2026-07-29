@@ -26,6 +26,7 @@ import { execSync } from 'child_process';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 const ROOT = resolve(__dirname, '..');
+import { resolveGitAddPath } from './lib/resolve-git-add-path.mjs';
 import { callLLM, callSingleModel, AI_MODELS, initScoreStore, getStats, flushScores, resetExhaustedModel, printRunSummary } from './lib/ai-models.mjs';
 import { freeTranslateWithRetry, logCascadeSummary } from './lib/free-translate.mjs';
 import { stripCodeFences, findMatchingClose, fixJsonStringBody, JSON_QUOTE_SAFETY_RULE_IT, describeJsonParseError, describeRawForDiagnostics } from './lib/llm-json-repair.mjs';
@@ -224,8 +225,9 @@ const COMMIT_EVERY = 25;
 
 function gitCommitAndPush(label) {
   try {
+    const bodyDirGitPath = resolveGitAddPath(ROOT, `services/locales/${SECTION_BODY_DIR}/`);
     execSync(
-      `git add services/locales/${SECTION_BODY_DIR}/ && git add -f ${PROGRESS_FILE} 2>/dev/null; ` +
+      `git add ${bodyDirGitPath} && git add -f ${PROGRESS_FILE} 2>/dev/null; ` +
       `git diff --cached --quiet || git commit -m "❓ FAQ batch checkpoint (${label})"`,
       { cwd: ROOT, stdio: 'pipe', timeout: 30000 }
     );

@@ -27,6 +27,7 @@
 import { readFileSync, writeFileSync, existsSync, unlinkSync, readdirSync } from 'node:fs';
 import { execSync } from 'node:child_process';
 import { createInterface } from 'node:readline';
+import { resolveGitAddPaths } from './lib/resolve-git-add-path.mjs';
 
 const PROJECT_ROOT = new URL('..', import.meta.url).pathname.replace(/\/$/, '');
 
@@ -268,7 +269,7 @@ function gitAddAll() {
 
   const existing = files.filter(f => existsSync(resolve(f)));
   if (existing.length > 0) {
-    execSync(`git add ${existing.join(' ')}`, { cwd: PROJECT_ROOT, stdio: 'inherit' });
+    execSync(`git add ${resolveGitAddPaths(PROJECT_ROOT, existing).join(' ')}`, { cwd: PROJECT_ROOT, stdio: 'inherit' });
     console.error('  ✅ File modificati aggiunti a git');
   }
 }
