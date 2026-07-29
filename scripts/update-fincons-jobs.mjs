@@ -115,8 +115,11 @@ async function fetchListings() {
   const html = await fetchText(LISTING_URL);
   const rows = parseFinconsListingsPage(html);
   console.log(`📋 Lugano job rows found: ${rows.length}`);
-  if (rows.length < 4) {
-    throw new Error(`Expected at least 4 Fincons Lugano jobs, found ${rows.length}`);
+  // Floor of 4 (set when the listing had that many openings) false-positived
+  // repeatedly as real headcount dipped to 2-3 (#4868). 1 still catches total
+  // selector collapse (0 rows) without tripping on legitimate fluctuation.
+  if (rows.length < 1) {
+    throw new Error(`Expected at least 1 Fincons Lugano job, found ${rows.length}`);
   }
   rows.forEach((row) => console.log(`  📄 ${row.title} (${row.location})`));
   return rows;
