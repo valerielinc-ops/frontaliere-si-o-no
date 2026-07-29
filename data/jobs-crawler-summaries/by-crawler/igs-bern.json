@@ -1,16 +1,16 @@
 {
   "key": "igs-bern",
   "label": "Interessengemeinschaft Sozialpsychiatrie Bern",
-  "generatedAt": "2026-07-29T11:58:50.966Z",
-  "total": 2,
+  "generatedAt": "2026-07-29T22:37:46.379Z",
+  "total": 1,
   "newCount": 0,
   "updatedCount": 1,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 3469,
-  "avgDurationMs": 3469,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 3588,
+  "avgDurationMs": 3588,
   "durationHistory": [
-    3469
+    3588
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -27,7 +27,7 @@
       "url": "https://www.publicjobs.ch/jobs/behinderung-beeintr%C3%A4chtigung-agogik/~job160824?ext",
       "source": "Interessengemeinschaft Sozialpsychiatrie Bern Dedicated Parser (PastaHR / publicjobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T11:58:48.575Z",
+      "crawledAt": "2026-07-29T22:37:43.724Z",
       "addressLocality": "Bern",
       "postalCode": "3000",
       "addressCountry": "CH",
@@ -51,8 +51,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "igs-bern-f53e647688d0",
       "slug": "assistente-professionale-per-assistenza-fabe-assistenza-sanitaria-fage-efz-50-80-interessengemeinschaft",
@@ -95,5 +94,6 @@
         "completeness": 22
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
