@@ -138,6 +138,34 @@ export const REGISTRIES = [
   },
 ];
 
+/**
+ * Chunks that MUST reach the CDN before (or with) the registries above.
+ *
+ * The registries carry the article LIST. The titles/excerpts the client renders
+ * come from the `blog-meta-*` translation chunks, and the URLs it links to come
+ * from the router slug maps. Before this script existed all three moved
+ * together in one deploy, so they could not disagree. Publishing only the
+ * registry out-of-band broke that invariant in production (#4881): the list
+ * gained articles whose translations and slugs were still the previous
+ * build's, so the page rendered raw `blog.article.<id>.title` keys and links
+ * that resolved nowhere.
+ *
+ * Publish order is the fix: companions first, registries last. A half-finished
+ * run then leaves the client with translations for articles it cannot see yet
+ * — invisible — instead of articles it cannot name or open.
+ *
+ * All ten are self-contained: the meta modules import nothing, and the router
+ * maps import only types, which esbuild erases.
+ */
+export const COMPANION_CHUNKS = [
+  ...['it', 'en', 'de', 'fr'].flatMap((loc) => [
+    { source: `services/locales/blog-meta-${loc}.ts`, cdnKey: `assets/blog-meta-${loc}.js`, exportName: 'default', shape: 'object' },
+    { source: `services/locales/blog-meta-ch-${loc}.ts`, cdnKey: `assets/blog-meta-ch-${loc}.js`, exportName: 'default', shape: 'object' },
+  ]),
+  { source: 'services/routerBlogData.ts', cdnKey: 'assets/routerBlogData.js', exportName: 'BLOG_SLUGS', shape: 'object' },
+  { source: 'services/routerSwissData.ts', cdnKey: 'assets/routerSwissData.js', exportName: 'SWISS_SLUGS', shape: 'object' },
+];
+
 // Short override so any edge fetch-through after this publish settles quickly
 // (see header comment) — applies ONLY to these two out-of-band PUTs, not the
 // full-deploy R2 sync (deploy-it-pages-prep.sh keeps its own 1-year immutable
@@ -204,9 +232,18 @@ export async function buildRegistryChunk(rootDir, sourceRel, outFile) {
  * `main()` below treats it as non-fatal, per this script's best-effort
  * posture; the vitest test treats it as a real failure).
  */
-export async function validateRegistryChunk(outFile, exportName) {
+export async function validateRegistryChunk(outFile, exportName, shape = 'array') {
   const mod = await import(pathToFileURL(outFile).href);
   const value = mod[exportName];
+  if (shape === 'object') {
+    // Translation tables and slug maps are keyed objects, not arrays. Empty is
+    // still a failure: shipping an empty table is exactly the state that makes
+    // the client render raw i18n keys.
+    if (!value || typeof value !== 'object' || Array.isArray(value) || Object.keys(value).length === 0) {
+      throw new Error(`[publish-article-chunks] ${outFile} export "${exportName}" is not a non-empty object`);
+    }
+    return value;
+  }
   if (!Array.isArray(value) || value.length === 0) {
     throw new Error(`[publish-article-chunks] ${outFile} export "${exportName}" is not a non-empty array`);
   }
@@ -243,6 +280,27 @@ async function main() {
   const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'publish-article-chunks-'));
   const uploadedKeys = [];
   let blogArticles = null;
+
+  // Companions FIRST — see COMPANION_CHUNKS' comment for why the order is the
+  // fix, not an optimisation.
+  for (const companion of COMPANION_CHUNKS) {
+    const outFile = path.join(tmpDir, path.basename(companion.cdnKey));
+    try {
+      await buildRegistryChunk(ROOT_DIR, companion.source, outFile);
+      const value = await validateRegistryChunk(outFile, companion.exportName, companion.shape);
+      console.log(`[publish-article-chunks] ${companion.cdnKey}: ${Object.keys(value).length} keys`);
+      if (dryRun) {
+        console.log(`[publish-article-chunks] --dry-run: skipping upload of ${companion.cdnKey}`);
+        continue;
+      }
+      uploadViaScript(outFile, companion.cdnKey, CHUNK_CACHE_CONTROL);
+      uploadedKeys.push(companion.cdnKey);
+    } catch (err) {
+      console.log(
+        `::warning::[publish-article-chunks] ${companion.source} publish failed — client keeps serving the last full-build chunk: ${err.message}`,
+      );
+    }
+  }
 
   for (const registry of REGISTRIES) {
     const outFile = path.join(tmpDir, path.basename(registry.cdnKey));

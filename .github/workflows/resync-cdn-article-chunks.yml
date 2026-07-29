@@ -1,0 +1,54 @@
+name: Resync CDN article chunks
+
+# Manual lever to bring the CDN's article chunks back in sync with `main`
+# without waiting for a full deploy.
+#
+# Why it exists: publish-article-chunks.mjs normally runs inside
+# fast-publish-article.yml, i.e. only when an article is published. If the CDN
+# and `main` ever diverge for another reason — a failed upload, a partial run,
+# or (2026-07-29, #4881) a bug that published the registry without its
+# translations — there was no way to force a resync short of a full deploy,
+# which can take hours and is frequently superseded by newer runs.
+on:
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Build and validate the chunks without uploading'
+        type: boolean
+        default: false
+
+concurrency:
+  group: resync-cdn-article-chunks
+  cancel-in-progress: false
+
+jobs:
+  resync:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    environment: shard-secrets-overflow
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 1
+
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '22'
+
+      - name: Prepare Firebase credentials
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -n "${FIREBASE_SERVICE_ACCOUNT_JSON:-}" ]; then
+            printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > "$RUNNER_TEMP/firebase-sa.json"
+            echo "GOOGLE_APPLICATION_CREDENTIALS=$RUNNER_TEMP/firebase-sa.json" >> "$GITHUB_ENV"
+          else
+            echo "::warning::FIREBASE_SERVICE_ACCOUNT_JSON unset — Remote Config secrets unavailable"
+          fi
+
+      - name: Load secrets from Remote Config (R2 + CF)
+        run: node scripts/load-rc-env.mjs
+
+      - name: Publish article chunks
+        run: |
+          npx -y tsx@4 scripts/publish-article-chunks.mjs ${{ inputs.dry_run && '--dry-run' || '' }}
