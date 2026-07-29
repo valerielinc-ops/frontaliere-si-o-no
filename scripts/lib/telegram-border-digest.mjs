@@ -17,6 +17,7 @@ import {
   BORDER_CROSSING_DISPLAY,
   buildOggiPath,
   buildRootHubPath,
+  isTicinoCrossing,
 } from '../../build-plugins/borderWaitData.ts';
 import { fmtMinutes } from '../../services/borderWaitFormat.ts';
 import { SITE_URL, buildArticleUrl, MONTHS_IT } from './social-post-utils.mjs';
@@ -59,7 +60,14 @@ function crossingLine(entry, index) {
 export function buildWeeklyBorderDigest({ historyDir, todayIso, days = DEFAULT_WINDOW_DAYS } = {}) {
   const iso = todayIso || new Date().toISOString().slice(0, 10);
   const ranking = computeRanking(historyDir, iso, { days });
-  const known = ranking.filter((r) => BORDER_CROSSING_DISPLAY[r.slug]);
+  // "Classifica dogane Ticino" broadcast is Ticino-branded — the display-name
+  // truthiness check used to double as the Ticino-only filter back when the
+  // registry only covered 26 Ticino crossings. Now that it covers 134
+  // (108 non-Ticino Germany/Austria/Liechtenstein/France crossings added,
+  // #4952/#4889), every crossing has a display name, so that check no
+  // longer excludes them. Filter explicitly instead (same class of bug as
+  // border-wait-ranking-content.mjs `known`, #4952).
+  const known = ranking.filter((r) => BORDER_CROSSING_DISPLAY[r.slug] && isTicinoCrossing(r.slug));
   const { weekStart, weekEnd } = computeWeekWindow(iso, days);
 
   if (known.length < 2) {

@@ -34,6 +34,7 @@ import { computeRanking, computeTrend, computeFunFacts, computeWeekWindow, compu
 import { buildBorderWaitRankingArticle } from './lib/border-wait-ranking-content.mjs';
 import { registerArticleFiles, checkArticleIdExists, buildBodyFile } from './create-article.mjs';
 import { bumpUpdatedAt, bumpDateModified, bumpSitemapLastmod } from './lib/evergreen-article-refresh.mjs';
+import { isTicinoCrossing } from '../build-plugins/borderWaitData.ts';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = path.resolve(__dirname, '..');
@@ -63,8 +64,20 @@ const STATIC_META = {
 
 /** Compute the current ranking/trend/fun-facts/week-window/movers snapshot for todayIso. */
 export function computeSnapshot(todayIso, historyDir = HISTORY_DIR) {
-  const ranking = computeRanking(historyDir, todayIso, { days: 7 });
-  const trend = computeTrend(historyDir, todayIso, { days: 7 });
+  // This snapshot feeds the evergreen "Classifica delle dogane in Ticino"
+  // article + its embedded live chart (buildRankingJson below) — both
+  // Ticino-only by identity. computeRanking/computeTrend are generic
+  // aggregation over ALL registered crossings (now 134, incl. the 108
+  // non-Ticino Germany/Austria/Liechtenstein/France-corridor ones from
+  // #4889), so scope to Ticino here, once, before funFacts/movers derive
+  // from it — otherwise a foreign crossing could surface as this
+  // Ticino-only article's best/worst/biggest mover.
+  const rankingAll = computeRanking(historyDir, todayIso, { days: 7 });
+  const ranking = rankingAll
+    .filter((r) => isTicinoCrossing(r.slug))
+    .map((r, idx) => ({ ...r, rank: idx + 1 }));
+  const trendAll = computeTrend(historyDir, todayIso, { days: 7 });
+  const trend = Object.fromEntries(Object.entries(trendAll).filter(([slug]) => isTicinoCrossing(slug)));
   const funFacts = computeFunFacts(ranking);
   const { weekStart, weekEnd } = computeWeekWindow(todayIso, 7);
   const movers = computeMovers(trend);

@@ -1672,6 +1672,12 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.lavoro-tornato-aumentare-svizzera.title': 'Temporärarbeit nimmt in der Schweiz wieder zu',
     'blog.article.lavoro-tornato-aumentare-svizzera.excerpt': 'Die Zahl der geleisteten Arbeitsstunden im Bereich Zeitarbeit stieg im ersten Halbjahr 2023 gegenüber dem Vorjahreszeitraum um 1,5%.',
     'blog.article.lavoro-tornato-aumentare-svizzera.imageAlt': 'Zeitarbeit in der Schweiz',
+    'blog.article.frontalieri-tassa-salute.title': 'Grenzgänger, Gesundheitssteuer: "Eine Bombe hinter einer Handvoll Kleingeld"',
+    'blog.article.frontalieri-tassa-salute.excerpt': 'Wie im Februar 2026 mitgeteilt, hat der Fraktionsvorsitzende von „Aczione civica per Luino e frazioni“ und Minderheitsrat, Rechtsanwalt Furio Artoni, eine Pressemitteilung zu den Beziehungen zwischen Italien und der Schweiz zum Thema Grenzgänger und der sogenannten Gesundheitsabgabe verschickt.',
+    'blog.article.frontalieri-tassa-salute.imageAlt': 'Ein Foto eines Schweizer Bundesbeamten, der an einer Pressekonferenz in Lugano spricht und die Auswirkungen der neuen Gesundheitsabgabe für Grenzgänger erklärt.',
+    'blog.article.rendita-avs-critica-eichenberger.title': 'AHV: Eichenberger kritisiert 13. Rente',
+    'blog.article.rendita-avs-critica-eichenberger.excerpt': 'Der Ökonom Eichenberger analysiert die 13. AHV-Rente als indirekte Form der Zuwanderungsbesteuerung und schlägt Steuerreformen für die über 65-Jährigen vor.',
+    'blog.article.rendita-avs-critica-eichenberger.imageAlt': 'Panoramablick auf Lugano mit dem See, Symbol des Kantons Tessin.',
 };
 
 export default blogMetaChDe;

@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-07-29T08:23:04.319Z",
+  "updatedAt": "2026-07-29T15:50:36.608Z",
   "entities": {
     "AASTI": {
       "status": "suspect",
@@ -172,17 +172,31 @@
       "statusSource": "auto",
       "statusAt": "2026-07-29T06:26:58.011Z",
       "firstSeen": "2026-07-29T06:26:58.011Z",
-      "lastSeen": "2026-07-29T06:26:58.011Z",
-      "seen": 18,
+      "lastSeen": "2026-07-29T15:50:36.608Z",
+      "seen": 20,
       "unsupportedSightings": 0,
       "unsupportedRuns": [],
-      "supportedSightings": 0,
+      "supportedSightings": 2,
       "names": [
         "Amministrazione federale delle contribuzioni",
         "Amministrazione Federale delle Contribuzioni"
       ],
       "recentKeys": [],
       "evidence": [
+        {
+          "at": "2026-07-29T15:50:36.608Z",
+          "runId": "30465633884",
+          "articleId": "rendita-avs-critica-eichenberger",
+          "support": "present",
+          "name": "Amministrazione Federale delle Contribuzioni"
+        },
+        {
+          "at": "2026-07-29T13:20:08.917Z",
+          "runId": "30442955458",
+          "articleId": "ubs-taglio-posti-lavoro-svizzera",
+          "support": "present",
+          "name": "Amministrazione federale delle contribuzioni"
+        },
         {
           "at": "2026-07-29T06:26:58.011Z",
           "runId": "corpus-scan",
@@ -222,20 +236,6 @@
           "at": "2026-07-29T06:26:58.011Z",
           "runId": "corpus-scan",
           "articleId": "investimento-immobiliare-frontaliere",
-          "support": "unknown",
-          "name": "Amministrazione Federale delle Contribuzioni"
-        },
-        {
-          "at": "2026-07-29T06:26:58.011Z",
-          "runId": "corpus-scan",
-          "articleId": "intesa-telelavoro-frontalieri-svizzera-italia",
-          "support": "unknown",
-          "name": "Amministrazione federale delle contribuzioni"
-        },
-        {
-          "at": "2026-07-29T06:26:58.011Z",
-          "runId": "corpus-scan",
-          "articleId": "frontaliere-meccanico-auto-ticino",
           "support": "unknown",
           "name": "Amministrazione Federale delle Contribuzioni"
         }
@@ -704,6 +704,37 @@
           "articleId": "dumping-salari-architetti-ticino",
           "support": "unknown",
           "name": "Commissione Paritetica Cantonale"
+        }
+      ]
+    },
+    "CFB": {
+      "status": "cleared",
+      "statusSource": "auto",
+      "statusAt": "2026-07-29T14:56:18.665Z",
+      "firstSeen": "2026-07-29T14:56:18.665Z",
+      "lastSeen": "2026-07-29T14:56:18.665Z",
+      "seen": 2,
+      "unsupportedSightings": 0,
+      "unsupportedRuns": [],
+      "supportedSightings": 2,
+      "names": [
+        "Commissione federale delle banche"
+      ],
+      "recentKeys": [],
+      "evidence": [
+        {
+          "at": "2026-07-29T14:56:18.665Z",
+          "runId": "30460991205",
+          "articleId": "frontalieri-tassa-salute",
+          "support": "present",
+          "name": "Commissione federale delle banche"
+        },
+        {
+          "at": "2026-07-29T14:56:18.665Z",
+          "runId": "30460991205",
+          "articleId": "frontalieri-tassa-salute",
+          "support": "present",
+          "name": "Commissione federale delle banche"
         }
       ]
     },

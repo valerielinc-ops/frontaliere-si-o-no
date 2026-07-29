@@ -49,7 +49,16 @@ runs:
         # duplicated per-caller) so both callers stay byte-identical by
         # construction (AGENTS.md non-negotiable #6).
         FAST_BUILD: ''
-        POST_WALK_WORKERS: '2'
+        POST_WALK_WORKERS: '1'  # hotfix #4881: worker threads cannot load the post-walk
+        # module graph since the Fase 6 colocation. `new Worker(..., {execArgv:
+        # ['--import','tsx']})` does NOT activate tsx inside the worker (verified
+        # by direct repro), so the worker resolves with plain Node ESM. That was
+        # fine while blogContextualLinksPlugin was self-contained; it now
+        # re-exports from packages/articles and pulls a 48-module graph with
+        # extensionless specifiers and attribute-less JSON imports, neither of
+        # which plain Node resolves — ERR_MODULE_NOT_FOUND on every deploy since
+        # 06:08 UTC. Single-threaded runs in the Vite process, where resolution
+        # works. Re-enable once the worker's import graph is slimmed back down.
         MALLOC_ARENA_MAX: '2'
         SEQUENTIAL_PROFILE: '1'
       run: |

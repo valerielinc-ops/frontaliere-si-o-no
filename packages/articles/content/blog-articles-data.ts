@@ -27327,6 +27327,33 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'ubs-taglio-posti-lavoro-svizzera',
+ category: 'novita',
+ date: '2026-07-29T13:20:01.875Z',
+ image: '/images/blog/ubs-taglio-posti-lavoro-svizzera.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
+ {
+ id: 'agenzie-immobiliari-lavoro-ticino',
+ category: 'pratico',
+ date: '2026-07-29T14:27:29.180Z',
+ image: '/images/blog/agenzie-immobiliari-lavoro-ticino.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
+ {
+ id: 'tassa-salute-frontalieri-doppia-imposizione',
+ category: 'fiscale',
+ date: '2026-07-29T15:23:02.829Z',
+ image: '/images/blog/tassa-salute-frontalieri-doppia-imposizione.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
