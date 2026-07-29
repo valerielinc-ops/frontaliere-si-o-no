@@ -56933,6 +56933,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-impresari-costruttori-caldo-estremo': {
+    title: 'Edilizia in Ticino: stop alle penali per caldo estremo',
+    description: 'La SSIC chiede condizioni eque per i cantieri durante le ondate di calore. Scopri come gestire i ritardi e le penali contrattuali in Ticino. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, edilizia, stop, alle, penali',
+    ogTitle: 'Edilizia Ticino: stop a penali per caldo estremo',
+    ogDescription: 'La SSIC chiede condizioni eque per i cantieri durante le ondate di calore. Scopri come gestire i ritardi e le penali contrattuali in Ticino.',
+    canonicalPath: '/articoli-frontaliere/impresari-costruttori-caldo-estremo',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Edilizia in Ticino: stop alle penali per caldo estremo",
+      "description": "La SSIC chiede condizioni eque per i cantieri durante le ondate di calore. Scopri come gestire i ritardi e le penali contrattuali in Ticino. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/impresari-costruttori-caldo-estremo.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Cantiere edile in Ticino durante un'ondata di calore"
+      },
+      "datePublished": "2026-07-29T02:54:31+00:00",
+      "dateModified": "2026-07-29T02:54:31+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/impresari-costruttori-caldo-estremo/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

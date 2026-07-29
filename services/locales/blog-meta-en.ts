@@ -9082,6 +9082,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.di-piu-niente-shorts-ne-infradito.title': 'Warm at work, elegance mandatory in Switzerland',
     'blog.article.di-piu-niente-shorts-ne-infradito.excerpt': 'Most employees in Europe can wear what they want in the workplace, but in Switzerland it\'s different.',
     'blog.article.di-piu-niente-shorts-ne-infradito.imageAlt': 'A Swiss border worker prepares for work on a hot day.',
+    'blog.article.impresari-costruttori-caldo-estremo.title': 'Construction in Ticino: stop penalties for extreme heat',
+    'blog.article.impresari-costruttori-caldo-estremo.excerpt': 'SSIC calls for fair conditions for construction sites during heatwaves, avoiding contractual penalties for delays caused by extreme temperatures.',
+    'blog.article.impresari-costruttori-caldo-estremo.imageAlt': 'Construction site in Ticino during a heatwave',
 };
 
 export default blogMetaEn;

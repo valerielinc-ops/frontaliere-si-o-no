@@ -4981,6 +4981,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-sulzer-ristrutturazione-chemtech-2026': { name: 'Sulzer Chemtech Ristrutturazione', path: '/articoli-svizzera/sulzer-ristrutturazione-chemtech-2026/', parent: 'blog' },
     'blog-di-piu-niente-shorts-ne-infradito': { name: 'Di più: Niente shorts né infradito: in', path: '/articoli-frontaliere/di-piu-niente-shorts-ne-infradito', parent: 'blog' },
     'blog-assegno-unico-nuove-regole-inps': { name: 'Assegno Unico INPS', path: '/articoli-svizzera/assegno-unico-nuove-regole-inps/', parent: 'blog' },
+    'blog-impresari-costruttori-caldo-estremo': { name: 'Edilizia e Caldo', path: '/articoli-frontaliere/impresari-costruttori-caldo-estremo', parent: 'blog' },
  };
 
  const info = sectionNames[section];
