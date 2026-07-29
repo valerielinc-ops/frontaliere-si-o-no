@@ -29,25 +29,31 @@
       "titleByLocale": {
         "de": "Leitende/r Mechaniker/in und Stv. Bereichsleiter/in Werkstatt und Flottenmanagement",
         "it": "Leitende/r Mechaniker/in e Stv. Bereichsleiter/in Werkstatt e Flottenmanagement",
-        "en": "Leitende/r Mechaniker/in und Stv. Bereichsleiter/in Werkstatt und Flottenmanagement",
-        "fr": "Leitende/r Mechaniker/in und Stv. Bereichsleiter/in Werkstatt und Flottenmanagement"
+        "en": "Leading mechanic and Stv. Division manager/in workshop and fleet management",
+        "fr": "Mécanicien chef et directeur de division Stv. dans l'atelier et la gestion de la flotte"
       },
       "descriptionByLocale": {
         "de": "Chur ist mit rund 41'000 Einwohnerinnen und Einwohnern das urbane Zentrum Graubündens. Als attraktive und vielseitige Stadt erbringen rund 1'400 Mitarbeitende täglich kundenorientierte und moderne Dienstleistungen für Bevölkerung und Wirtschaft.   Der Bereich Werkstatt ...",
-        "it": "Chur ist mit rund 41'000 Einwohnerinnen und Einwohnern das urbane Zentrum Graubündens. Als attraktive und vielseitige Stadt erbringen rund 1'400 Mitarbeitende täglich kundenorientierte und moderne Dienstleistungen für Bevölkerung und Wirtschaft.   Der Bereich Werkstatt ...",
-        "en": "Chur ist mit rund 41'000 Einwohnerinnen und Einwohnern das urbane Zentrum Graubündens. Als attraktive und vielseitige Stadt erbringen rund 1'400 Mitarbeitende täglich kundenorientierte und moderne Dienstleistungen für Bevölkerung und Wirtschaft.   Der Bereich Werkstatt ...",
-        "fr": "Chur ist mit rund 41'000 Einwohnerinnen und Einwohnern das urbane Zentrum Graubündens. Als attraktive und vielseitige Stadt erbringen rund 1'400 Mitarbeitende täglich kundenorientierte und moderne Dienstleistungen für Bevölkerung und Wirtschaft.   Der Bereich Werkstatt ..."
+        "it": "Con una popolazione di circa 41'000 abitanti, Chur è il centro urbano di Grigioni. Come una città attraente e diversificata, circa 1.400 dipendenti forniscono servizi orientati al cliente e moderni per la popolazione e l'economia ogni giorno. L'area del workshop...",
+        "en": "With a population of around 41'000, Chur is the urban centre of Graubünden. As an attractive and diverse city, around 1,400 employees provide customer-oriented and modern services for the population and economy every day. The workshop area ...",
+        "fr": "Avec une population d'environ 41'000 habitants, Chur est le centre urbain des Grisons. En tant que ville attrayante et diversifiée, environ 1 400 employés offrent chaque jour des services axés sur la clientèle et modernes à la population et à l'économie. La zone d'atelier ..."
       },
       "slugByLocale": {
         "it": "leitende-r-mechaniker-in-e-stv-bereichsleiter-in-werkstatt-e-flottenmanagement-stadt-chur",
-        "en": "leitende-r-mechaniker-in-und-stv-bereichsleiter-in-werkstatt-und-flottenmanagement-stadt-chur-1704",
+        "en": "leading-mechanic-and-stv-division-manager-in-workshop-and-fleet-management-stadt-chur-chur",
         "de": "leitende-r-mechaniker-in-und-stv-bereichsleiter-in-werkstatt-und-flottenmanagement-stadt-chur-1704",
-        "fr": "leitende-r-mechaniker-in-und-stv-bereichsleiter-in-werkstatt-und-flottenmanagement-stadt-chur-1704"
+        "fr": "mecanicien-chef-et-directeur-de-division-stv-dans-l-atelier-et-la-gestion-de-la-flotte-stadt-chur-chur"
       },
       "crawledAt": "2026-07-29T11:40:18.156Z",
       "id": "stadt-chur-74fdc42733da",
       "previousSlugsByLocale": {
         "it": [
+          "leitende-r-mechaniker-in-und-stv-bereichsleiter-in-werkstatt-und-flottenmanagement-stadt-chur-1704"
+        ],
+        "en": [
+          "leitende-r-mechaniker-in-und-stv-bereichsleiter-in-werkstatt-und-flottenmanagement-stadt-chur-1704"
+        ],
+        "fr": [
           "leitende-r-mechaniker-in-und-stv-bereichsleiter-in-werkstatt-und-flottenmanagement-stadt-chur-1704"
         ]
       },
@@ -67,7 +73,6 @@
           "unitText": "YEAR"
         }
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-29T11:40:18.156Z"
     },
     {
@@ -127,8 +132,7 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-28T11:49:42.646Z",
-      "needsRetranslation": true
+      "firstSeenAt": "2026-07-28T11:49:42.646Z"
     },
     {
       "title": "Treffmitarbeit Queerer Jugendtreff",
@@ -349,8 +353,7 @@
       "previousSlugs": [
         "civil-status-officer-stadt-chur-chur",
         "zivilstandsbeamtin-zivilstandsbeamter-stadt-chur-1699"
-      ],
-      "needsRetranslation": true
+      ]
     },
     {
       "title": "Stadtgeometer/-in und Verantwortliche/-r Landerwerb (80%)",

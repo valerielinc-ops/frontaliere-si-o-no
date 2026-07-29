@@ -60,7 +60,6 @@
         ]
       },
       "firstSeenAt": "2026-07-09T22:38:49.171Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "currency": "CHF",
@@ -217,7 +216,6 @@
         ]
       },
       "firstSeenAt": "2026-05-13T11:12:50.193Z",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "currency": "CHF",
@@ -452,7 +450,6 @@
         ]
       },
       "firstSeenAt": "2026-05-28T12:46:57.564Z",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "currency": "CHF",
@@ -533,7 +530,6 @@
         ]
       },
       "firstSeenAt": "2026-05-28T12:46:50.069Z",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "currency": "CHF",
@@ -609,7 +605,6 @@
         ]
       },
       "firstSeenAt": "2026-06-25T22:27:52.893Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "currency": "CHF",
@@ -685,7 +680,6 @@
         ]
       },
       "firstSeenAt": "2026-07-22T11:56:39.423Z",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "currency": "CHF",
@@ -764,7 +758,6 @@
         ]
       },
       "firstSeenAt": "2026-07-28T22:34:47.887Z",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "currency": "CHF",
@@ -854,8 +847,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "heineken-ch-a5b866815800",
@@ -932,8 +924,7 @@
       "previousSlugs": [
         "verkaufsberater-in-im-aussendienst-gastronomie-heineken-ch-chur"
       ],
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true
+      "crawlerMissStreak": 2
     }
   ]
 }

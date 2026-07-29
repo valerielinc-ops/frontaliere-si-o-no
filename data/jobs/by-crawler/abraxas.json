@@ -17,7 +17,7 @@
       "title": "Werkstudent Customer Service (Sales Support) 60–70 %",
       "titleByLocale": {
         "it": "Werkstudent Servizio Clienti (Sales Support) 60–70 %",
-        "en": "Werkstudent Customer Service (Sales Support) 60–70 %",
+        "en": "Working student Customer Service (Sales Support) 60–70%",
         "de": "Werkstudent Kundendienst (Sales Support) 60–70 %",
         "fr": "Werkstudent Service Client (Sales Support) 60–70 %"
       },
@@ -34,7 +34,6 @@
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
       "crawledAt": "2026-07-29T11:38:24.178Z",
-      "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -204,7 +203,7 @@
       "title": "Software-Engineer 80–100 %",
       "titleByLocale": {
         "it": "Software-Ingegnere 80–100 %",
-        "en": "Software-Engineer 80–100 %",
+        "en": "Software Engineer 80-100%",
         "de": "Software-Ingenieur 80–100 %",
         "fr": "Software-Ingénieur 80–100 %"
       },
@@ -221,7 +220,6 @@
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
       "crawledAt": "2026-07-29T11:38:23.223Z",
-      "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -248,7 +246,13 @@
         "software-architekt-in-80-100-abraxas-st-gallen",
         "software-architect-in-80-100-abraxas-informatik-ag-st-gallen",
         "architecte-logiciel-en-80-100-abraxas-informatik-ag-st-gallen",
-        "software-ingegnere-80-100-abraxas-informatik-ag-st-gallen"
+        "software-ingegnere-80-100-abraxas-informatik-ag-st-gallen",
+        "software-ingegnere-c-net-80-100-abraxas-informatik-ag-st-gallen",
+        "software-engineer-c-net-80-100-abraxas-st-gallen",
+        "software-ingenieur-c-net-80-100-abraxas-informatik-ag-st-gallen",
+        "senior-software-ingegnere-c-net-80-100-abraxas-informatik-ag-st-gallen",
+        "senior-software-engineer-c-net-80-100-abraxas-st-gallen",
+        "senior-software-ingenieur-c-net-80-100-abraxas-informatik-ag-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -256,17 +260,27 @@
           "software-architekt-in-80-100-abraxas-st-gallen",
           "software-architect-in-80-100-abraxas-informatik-ag-st-gallen",
           "architecte-logiciel-en-80-100-abraxas-informatik-ag-st-gallen",
-          "software-ingegnere-80-100-abraxas-informatik-ag-st-gallen"
+          "software-ingegnere-80-100-abraxas-informatik-ag-st-gallen",
+          "software-ingegnere-c-net-80-100-abraxas-informatik-ag-st-gallen",
+          "software-engineer-c-net-80-100-abraxas-st-gallen",
+          "software-ingenieur-c-net-80-100-abraxas-informatik-ag-st-gallen",
+          "senior-software-ingegnere-c-net-80-100-abraxas-informatik-ag-st-gallen",
+          "senior-software-engineer-c-net-80-100-abraxas-st-gallen",
+          "senior-software-ingenieur-c-net-80-100-abraxas-informatik-ag-st-gallen"
         ],
         "en": [
           "software-architect-in-80-100-abraxas-informatik-ag-st-gallen"
         ],
         "de": [
-          "software-architekt-in-80-100-abraxas-st-gallen"
+          "software-architekt-in-80-100-abraxas-st-gallen",
+          "software-engineer-c-net-80-100-abraxas-st-gallen",
+          "senior-software-engineer-c-net-80-100-abraxas-st-gallen"
         ],
         "fr": [
           "software-engineer-80-100-abraxas-st-gallen",
-          "architecte-logiciel-en-80-100-abraxas-informatik-ag-st-gallen"
+          "architecte-logiciel-en-80-100-abraxas-informatik-ag-st-gallen",
+          "software-ingenieur-c-net-80-100-abraxas-informatik-ag-st-gallen",
+          "senior-software-ingenieur-c-net-80-100-abraxas-informatik-ag-st-gallen"
         ]
       },
       "firstSeenAt": "2026-07-04T10:00:06.178Z",
@@ -298,7 +312,7 @@
       "title": "Software Engineer – Data Migration 80 - 100%",
       "titleByLocale": {
         "it": "Software Ingegnere – Data Migration 80 - 100%",
-        "en": "Software Engineer – Data Migration 80 - 100%",
+        "en": "Software Engineer – Data Migration 80 – 100%",
         "de": "Software Ingenieur – Data Migration 80 - 100%",
         "fr": "Software Ingénieur – Data Migration 80 - 100%"
       },
@@ -315,7 +329,6 @@
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
       "crawledAt": "2026-07-29T11:38:22.749Z",
-      "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -366,7 +379,7 @@
       "title": "ServiceNow Engineer KI & Automation 80-100%",
       "titleByLocale": {
         "it": "ServiceNow Ingegnere KI & Automation 80-100%",
-        "en": "ServiceNow Engineer KI & Automation 80-100%",
+        "en": "ServiceNow Engineer KI & Automation 80-100 %",
         "de": "ServiceNow Ingenieur KI & Automation 80-100%",
         "fr": "ServiceNow Ingénieur KI & Automation 80-100%"
       },
@@ -383,7 +396,6 @@
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
       "crawledAt": "2026-07-29T11:38:22.276Z",
-      "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -447,7 +459,7 @@
       "title": "Senior Software-Engineer 80–100 %",
       "titleByLocale": {
         "it": "Senior Software-Ingegnere 80–100 %",
-        "en": "Senior Software-Engineer 80–100 %",
+        "en": "Senior Software Engineer 80-100%",
         "de": "Senior Software-Ingenieur 80–100 %",
         "fr": "Senior Software-Ingénieur 80–100 %"
       },
@@ -464,7 +476,6 @@
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
       "crawledAt": "2026-07-29T11:38:21.802Z",
-      "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -528,7 +539,7 @@
       "title": "Senior OpenStack Engineer 80–100 %",
       "titleByLocale": {
         "it": "Senior OpenStack Ingegnere 80–100 %",
-        "en": "Senior OpenStack Engineer 80–100 %",
+        "en": "Senior OpenStack Engineer 80-100%",
         "de": "Senior OpenStack Ingenieur 80–100 %",
         "fr": "Senior OpenStack Ingénieur 80–100 %"
       },
@@ -545,7 +556,6 @@
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
       "crawledAt": "2026-07-29T11:38:21.329Z",
-      "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -636,7 +646,6 @@
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
       "crawledAt": "2026-07-29T11:38:20.855Z",
-      "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -871,7 +880,7 @@
       "title": "Lead Software Engineer – Data Migration 80 - 100%",
       "titleByLocale": {
         "it": "Lead Software Ingegnere – Data Migration 80 - 100%",
-        "en": "Lead Software Engineer – Data Migration 80 - 100%",
+        "en": "Lead Software Engineer – Data Migration 80 – 100%",
         "de": "Lead Software Ingenieur – Data Migration 80 - 100%",
         "fr": "Lead Software Ingénieur – Data Migration 80 - 100%"
       },
@@ -888,7 +897,6 @@
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
       "crawledAt": "2026-07-29T11:38:19.423Z",
-      "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -939,7 +947,7 @@
       "title": "ICT-System Engineer Citrix 80–100 %",
       "titleByLocale": {
         "it": "ICT-System Ingegnere Citrix 80–100 %",
-        "en": "ICT-System Engineer Citrix 80–100 %",
+        "en": "ICT System Engineer Citrix 80-100%",
         "de": "ICT-System Ingenieur Citrix 80–100 %",
         "fr": "ICT-System Ingénieur Citrix 80–100 %"
       },
@@ -956,7 +964,6 @@
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
       "crawledAt": "2026-07-29T11:38:18.947Z",
-      "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1007,7 +1014,7 @@
       "title": "ICT-System Engineer Betrieb 80–100 %",
       "titleByLocale": {
         "it": "ICT-System Ingegnere Betrieb 80–100 %",
-        "en": "ICT-System Engineer Betrieb 80–100 %",
+        "en": "ICT System Engineer Operation 80-100%",
         "de": "ICT-System Ingenieur Betrieb 80–100 %",
         "fr": "ICT-System Ingénieur Betrieb 80–100 %"
       },
@@ -1024,7 +1031,6 @@
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
       "crawledAt": "2026-07-29T11:38:18.463Z",
-      "needsRetranslation": true,
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1104,7 +1110,7 @@
       "title": "ICT System Engineer mit Projektleitungserfahrung 80–100 %",
       "titleByLocale": {
         "it": "ICT System Ingegnere con Projektleitungserfahrung 80–100 %",
-        "en": "ICT System Engineer mit Projektleitungserfahrung 80–100 %",
+        "en": "ICT System Engineer with project management experience 80-100%",
         "de": "ICT System Ingenieur mit Projektleitungserfahrung 80–100 %",
         "fr": "ICT System Ingénieur mit Projektleitungserfahrung 80–100 %"
       },
@@ -1121,7 +1127,6 @@
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
       "crawledAt": "2026-07-29T11:38:17.988Z",
-      "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1189,7 +1194,6 @@
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
       "crawledAt": "2026-07-29T11:38:17.506Z",
-      "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1240,7 +1244,7 @@
       "title": "ICT System Engineer – IAM (WAF/IDP) 80%–100 %",
       "titleByLocale": {
         "it": "ICT System Ingegnere – IAM (WAF/IDP) 80%–100 %",
-        "en": "ICT System Engineer – IAM (WAF/IDP) 80%–100 %",
+        "en": "ICT System Engineer – IAM (WAF/IDP) 80%-100%",
         "de": "ICT System Ingenieur – IAM (WAF/IDP) 80%–100 %",
         "fr": "ICT System Ingénieur – IAM (WAF/IDP) 80%–100 %"
       },
@@ -1257,7 +1261,6 @@
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
       "crawledAt": "2026-07-29T11:38:16.688Z",
-      "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1308,7 +1311,7 @@
       "title": "DevOps Engineer 80–100 %",
       "titleByLocale": {
         "it": "DevOps Ingegnere 80–100 %",
-        "en": "DevOps Engineer 80–100 %",
+        "en": "DevOps Engineer 80-100%",
         "de": "DevOps Ingenieur 80–100 %",
         "fr": "DevOps Ingénieur 80–100 %"
       },
@@ -1325,7 +1328,6 @@
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
       "crawledAt": "2026-07-29T11:38:16.211Z",
-      "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1423,7 +1425,6 @@
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
       "crawledAt": "2026-07-29T11:38:15.734Z",
-      "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1573,7 +1574,7 @@
       "title": "AIOps Transformation Lead 80-100%",
       "titleByLocale": {
         "it": "Responsabile Trasformazione AIOps 80-100%",
-        "en": "AIOps Transformation Lead 80-100%",
+        "en": "AIOps Transformation Lead 80-100 %",
         "de": "AIOps Transformation Lead 80-100%",
         "fr": "AIOps Transformation plomb 80- 100%"
       },
@@ -1590,7 +1591,6 @@
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
       "crawledAt": "2026-07-29T11:38:14.774Z",
-      "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1671,7 +1671,6 @@
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
       "crawledAt": "2026-07-29T11:38:14.287Z",
-      "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1739,7 +1738,6 @@
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
       "crawledAt": "2026-07-29T11:38:13.810Z",
-      "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1823,7 +1821,6 @@
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
       "crawledAt": "2026-07-29T11:38:13.336Z",
-      "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1907,7 +1904,6 @@
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
       "crawledAt": "2026-07-29T11:38:12.855Z",
-      "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1991,7 +1987,6 @@
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
       "crawledAt": "2026-07-29T11:38:12.231Z",
-      "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
