@@ -1651,6 +1651,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.caldo-estremo-cantieri-ssic.title': 'Heat on construction sites: SSIC calls for an end to penalties',
     'blog.article.caldo-estremo-cantieri-ssic.excerpt': 'The Swiss Society of Manufacturers and Entrepreneurs asks for fair conditions and exemptions from contractual penalties in the event of a stop to the work for the canicola.',
     'blog.article.caldo-estremo-cantieri-ssic.imageAlt': 'Construction site in Switzerland during a heatwave with scaffolding.',
+    'blog.article.fedelta-banca-costosa.title': 'More banks, loyalty is expensive: with separate suppliers you save',
+    'blog.article.fedelta-banca-costosa.excerpt': 'The Swiss are notoriously loyal to their reference bank, but this loyalty comes at a steep price.',
+    'blog.article.fedelta-banca-costosa.imageAlt': 'A frontalier managing their accounts in a Swiss bank',
 };
 
 export default blogMetaChEn;
