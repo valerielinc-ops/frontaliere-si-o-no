@@ -78,7 +78,6 @@
         ]
       },
       "firstSeenAt": "2026-07-21T22:10:28.044Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -158,7 +157,6 @@
         ]
       },
       "firstSeenAt": "2026-05-27T14:17:00.840Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -332,7 +330,6 @@
         ]
       },
       "firstSeenAt": "2026-07-08T22:13:55.244Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -407,7 +404,6 @@
         ]
       },
       "firstSeenAt": "2026-07-11T11:08:38.644Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -492,7 +488,6 @@
         ]
       },
       "firstSeenAt": "2026-07-11T11:08:37.949Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -577,7 +572,6 @@
         ]
       },
       "firstSeenAt": "2026-07-14T22:04:38.287Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -643,15 +637,27 @@
       "hotelName": "Tschuggen Grand Hotel",
       "previousSlugs": [
         "spa-receptionist-m-w-d-wintersaison-2025-2026-tschuggen-ch",
-        "spa-receptionist-m-f-d-stagione-invernale-2025-2026-tschuggen-collection-arosa"
+        "spa-receptionist-m-f-d-stagione-invernale-2025-2026-tschuggen-collection-arosa",
+        "parrucchiere-m-f-d-stagione-invernale-2026-2027-tschuggen-collection-arosa",
+        "hairdresser-m-w-d-wintersaison-2026-2027-tschuggen-ch",
+        "salon-de-coiffure-m-f-j-saison-hivernale-2026-2027-tschuggen-collection-arosa"
       ],
       "previousSlugsByLocale": {
         "it": [
           "spa-receptionist-m-w-d-wintersaison-2025-2026-tschuggen-ch",
-          "spa-receptionist-m-f-d-stagione-invernale-2025-2026-tschuggen-collection-arosa"
+          "spa-receptionist-m-f-d-stagione-invernale-2025-2026-tschuggen-collection-arosa",
+          "parrucchiere-m-f-d-stagione-invernale-2026-2027-tschuggen-collection-arosa",
+          "hairdresser-m-w-d-wintersaison-2026-2027-tschuggen-ch",
+          "salon-de-coiffure-m-f-j-saison-hivernale-2026-2027-tschuggen-collection-arosa"
         ],
         "en": [
           "spa-receptionist-m-w-d-wintersaison-2025-2026-tschuggen-ch"
+        ],
+        "de": [
+          "hairdresser-m-w-d-wintersaison-2026-2027-tschuggen-ch"
+        ],
+        "fr": [
+          "salon-de-coiffure-m-f-j-saison-hivernale-2026-2027-tschuggen-collection-arosa"
         ]
       },
       "firstSeenAt": "2026-07-19T22:14:09.707Z",
