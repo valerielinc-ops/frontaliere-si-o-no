@@ -9079,6 +9079,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.sospenda-riversamento-allitalia-della-quota-dellimposta-alla-fonte-prelevata-ai-frontalieri.title': 'Suspend reversal OF border source tax quota',
     'blog.article.sospenda-riversamento-allitalia-della-quota-dellimposta-alla-fonte-prelevata-ai-frontalieri.excerpt': 'The deputy Plr Cristina Maderni and other senior councillors ask the Council of State to suspend the reimbursement to Italy of the portion of the tax at source collected from border workers.',
     'blog.article.sospenda-riversamento-allitalia-della-quota-dellimposta-alla-fonte-prelevata-ai-frontalieri.imageAlt': 'The view of Lake Lugano from Monte Bre',
+    'blog.article.di-piu-niente-shorts-ne-infradito.title': 'Warm at work, elegance mandatory in Switzerland',
+    'blog.article.di-piu-niente-shorts-ne-infradito.excerpt': 'Most employees in Europe can wear what they want in the workplace, but in Switzerland it\'s different.',
+    'blog.article.di-piu-niente-shorts-ne-infradito.imageAlt': 'A Swiss border worker prepares for work on a hot day.',
 };
 
 export default blogMetaEn;
