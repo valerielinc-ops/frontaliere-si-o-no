@@ -1,6 +1,6 @@
 {
   "crawlerKey": "sfs-group",
-  "assembledAt": "2026-07-29T22:24:26.496Z",
+  "assembledAt": "2026-07-29T22:54:48.801Z",
   "jobs": [
     {
       "id": "sfs-group-d28e368a8b5c",
@@ -33,7 +33,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/techniker-in-wärmebehandlung-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:24:23.220Z",
+      "crawledAt": "2026-07-29T22:54:45.610Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -114,7 +114,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/teamleiter-in-qm-reklamationsmanagement-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:24:23.060Z",
+      "crawledAt": "2026-07-29T22:54:45.437Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -153,7 +153,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:18:33.392Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -165,7 +164,8 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "sfs-group-9499ee92ed73",
@@ -198,7 +198,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/spécialiste-vente-interne-pour-(epi)-en-équipement-d'atelier-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-29T22:24:22.894Z",
+      "crawledAt": "2026-07-29T22:54:45.266Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "postalCode": "1000",
@@ -278,7 +278,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/senior-software-engineer-–-smart-factory-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:24:22.733Z",
+      "crawledAt": "2026-07-29T22:54:45.098Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -299,7 +299,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-07-04T12:18:33.038Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -311,7 +310,8 @@
           "maxValue": 120000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "sfs-group-8f9491b17b68",
@@ -344,7 +344,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/senior-qualitätsmanager-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:24:22.570Z",
+      "crawledAt": "2026-07-29T22:54:44.924Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -381,7 +381,6 @@
         ]
       },
       "firstSeenAt": "2026-07-16T11:15:23.617Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -393,7 +392,8 @@
           "maxValue": 120000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "sfs-group-ce9f0dab623e",
@@ -426,7 +426,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/sap-modulbetreuung-pp-qm-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:24:22.408Z",
+      "crawledAt": "2026-07-29T22:54:44.754Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -463,7 +463,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:18:32.860Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -475,7 +474,8 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "sfs-group-629fdba747dc",
@@ -508,7 +508,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/sap-modulbetreuer-fi-co-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:24:22.249Z",
+      "crawledAt": "2026-07-29T22:54:44.583Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -545,7 +545,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:18:32.686Z",
-      "needsRetranslation": true,
       "salaryMin": 60000,
       "salaryMax": 102000,
       "baseSalary": {
@@ -557,7 +556,8 @@
           "maxValue": 102000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "sfs-group-5dbce9df082c",
@@ -590,7 +590,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/produktentwickler-in-—-aerospace-blind-fastener-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:24:22.089Z",
+      "crawledAt": "2026-07-29T22:54:44.414Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -668,7 +668,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/polymechaniker-in-–-schleifen-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:24:21.927Z",
+      "crawledAt": "2026-07-29T22:54:44.244Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -705,7 +705,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:18:32.163Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -717,7 +716,8 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "sfs-group-e53ccccd56ba",
@@ -750,7 +750,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/polymechaniker-in-–-erosion-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:24:21.762Z",
+      "crawledAt": "2026-07-29T22:54:44.073Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -831,7 +831,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/logistiker-in-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:24:21.598Z",
+      "crawledAt": "2026-07-29T22:54:43.900Z",
       "addressLocality": "Rebstein",
       "addressRegion": "SG",
       "postalCode": "9000",
@@ -850,9 +850,6 @@
       "legalEntity": "SFS",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "logistiker-in-m-f-d-sfs-group-rebstein"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "logistiker-in-m-f-d-sfs-group-rebstein"
@@ -864,8 +861,9 @@
           "logistiker-in-m-f-d-sfs-group-rebstein"
         ]
       },
-      "firstSeenAt": "2026-07-29T11:54:54.123Z",
-      "needsRetranslation": true,
+      "previousSlugs": [
+        "logistiker-in-m-f-d-sfs-group-rebstein"
+      ],
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -877,7 +875,9 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-07-29T11:54:54.123Z",
+      "needsRetranslation": true
     },
     {
       "id": "sfs-group-1e2211aaad8e",
@@ -910,7 +910,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/kunststofftechnologe-in-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:24:21.436Z",
+      "crawledAt": "2026-07-29T22:54:43.727Z",
       "addressLocality": "Hallau",
       "addressRegion": "SH",
       "postalCode": "8200",
@@ -946,7 +946,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:18:31.814Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -958,7 +957,8 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "sfs-group-096b86a82b9f",
@@ -991,7 +991,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/group-finance-specialist-sap-fi-key-user-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-29T22:24:21.273Z",
+      "crawledAt": "2026-07-29T22:54:43.555Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -1069,7 +1069,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/automatiker-in-schichtmodell-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:24:21.111Z",
+      "crawledAt": "2026-07-29T22:54:43.386Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -1150,7 +1150,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/automatiker-in-instandhaltung-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:24:20.943Z",
+      "crawledAt": "2026-07-29T22:54:43.213Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -1191,7 +1191,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:18:31.117Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -1203,7 +1202,8 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "sfs-group-1cbd91e253d8",
@@ -1236,7 +1236,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/anwendungstechniker-in-rainscreen-vhf-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:24:20.778Z",
+      "crawledAt": "2026-07-29T22:54:43.039Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -1317,7 +1317,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/anwendungstechniker-in-hauraton-entwässerungssysteme-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:24:20.574Z",
+      "crawledAt": "2026-07-29T22:54:42.832Z",
       "addressLocality": "Buchs ZH",
       "addressRegion": "ZH",
       "postalCode": "9435",
@@ -1397,7 +1397,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/anlagenbediener-in-wärmebehandlung-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:24:20.407Z",
+      "crawledAt": "2026-07-29T22:54:42.658Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
