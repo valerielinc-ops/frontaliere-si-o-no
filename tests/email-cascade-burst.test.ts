@@ -213,6 +213,81 @@ describe('sendEmailCascade burst mitigation', () => {
 });
 
 /* ------------------------------------------------------------------ */
+/*  Ambiguous delivery (#4911) — a provider accepting-then-failing on  */
+/*  the response must not be retried on another provider (double-send) */
+/* ------------------------------------------------------------------ */
+
+describe('sendEmailCascade — ambiguous delivery does not double-send', () => {
+  const realFetch = globalThis.fetch;
+
+  beforeEach(() => {
+    process.env.MAILGUN_API_KEY = 'mg-test-key';
+    process.env.MAILGUN_DOMAIN = 'test.example.com';
+    process.env.MAILJET_API_KEY = 'mj-key';
+    process.env.MAILJET_SECRET_KEY = 'mj-secret';
+  });
+
+  afterEach(() => {
+    globalThis.fetch = realFetch;
+    delete process.env.MAILGUN_API_KEY;
+    delete process.env.MAILGUN_DOMAIN;
+    delete process.env.MAILJET_API_KEY;
+    delete process.env.MAILJET_SECRET_KEY;
+  });
+
+  it('does NOT fall back to the next provider when fetch() itself throws (transport-level, no HTTP response) — and flags the failure ambiguous', async () => {
+    const calls: string[] = [];
+    globalThis.fetch = (async (url: string) => {
+      calls.push(String(url));
+      if (String(url).includes('api.eu.mailgun.net') && String(url).includes('/messages')) {
+        // Simulates a timeout/connection drop AFTER the request may already
+        // have been accepted by Mailgun — no HTTP response was ever received.
+        throw new TypeError('fetch failed');
+      }
+      return { ok: true, status: 200, json: async () => ({}), text: async () => '{}' } as any;
+    }) as any;
+
+    const { sent, failed } = await sendEmailCascade(
+      [{ payload: { from: 'a@b.ch', to: ['x@y.com'], subject: 's', html: '<p>h</p>' }, recipient: { email: 'x@y.com' }, meta: {} }],
+      { delayMs: 0 },
+    );
+
+    expect(sent.length).toBe(0);
+    expect(failed.length).toBe(1);
+    expect(failed[0].ambiguousDelivery).toBe(true);
+    // Mailjet (the next provider in cascade order) must never be tried —
+    // falling back here risks a second delivery if Mailgun actually
+    // accepted the message before the response was lost.
+    expect(calls.some(u => u.includes('api.mailjet.com'))).toBe(false);
+  });
+
+  it('still cascades to the next provider on an explicit HTTP rejection (not ambiguous, no regression)', async () => {
+    globalThis.fetch = (async (url: string) => {
+      if (String(url).includes('api.eu.mailgun.net') && String(url).includes('/messages')) {
+        return { ok: false, status: 500, text: async () => 'internal error', json: async () => ({}) } as any;
+      }
+      if (String(url).includes('api.mailjet.com')) {
+        return {
+          ok: true, status: 200,
+          json: async () => ({ Messages: [{ Status: 'success', To: [{ MessageID: 'mj-1' }] }] }),
+          text: async () => '{}',
+        } as any;
+      }
+      return { ok: true, status: 200, json: async () => ({}), text: async () => '{}' } as any;
+    }) as any;
+
+    const { sent, failed } = await sendEmailCascade(
+      [{ payload: { from: 'a@b.ch', to: ['x@y.com'], subject: 's', html: '<p>h</p>' }, recipient: { email: 'x@y.com' }, meta: {} }],
+      { delayMs: 0 },
+    );
+
+    expect(failed.length).toBe(0);
+    expect(sent.length).toBe(1);
+    expect(sent[0].provider).toBe('mailjet');
+  });
+});
+
+/* ------------------------------------------------------------------ */
 /*  Cloudflare Email Service provider                                  */
 /* ------------------------------------------------------------------ */
 
