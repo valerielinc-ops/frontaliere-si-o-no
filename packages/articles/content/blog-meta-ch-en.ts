@@ -1693,6 +1693,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.petrolio-in-cambio-di-miliardi.title': 'Oil for billions: the hidden power of Swiss traders',
     'blog.article.petrolio-in-cambio-di-miliardi.excerpt': 'Swiss Commodity Companies Offer Funding to States in Exchange for Oil Supplies',
     'blog.article.petrolio-in-cambio-di-miliardi.imageAlt': 'A oil tanker moving on Lake Lugano',
+    'blog.article.contributo-sanita-vecchi-frontalieri.title': 'Healthcare and old border workers: the contribution for the staff',
+    'blog.article.contributo-sanita-vecchi-frontalieri.excerpt': 'Lombardy Region intends to finance the 20% increase for doctors and nurses through monthly contributions for old border workers.',
+    'blog.article.contributo-sanita-vecchi-frontalieri.imageAlt': 'Corridor of a modern Swiss healthcare facility',
 };
 
 export default blogMetaChEn;

@@ -1693,6 +1693,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.petrolio-in-cambio-di-miliardi.title': 'Petrolio in cambio di miliardi: il potere nascosto dei trader svizzeri',
     'blog.article.petrolio-in-cambio-di-miliardi.excerpt': 'Le società elvetiche di materie prime offrono finanziamenti agli Stati in cambio di forniture di petrolio',
     'blog.article.petrolio-in-cambio-di-miliardi.imageAlt': 'Una nave petroliera in movimento sul lago Lugano',
+    'blog.article.contributo-sanita-vecchi-frontalieri.title': 'Sanità e vecchi frontalieri: il contributo per il personale',
+    'blog.article.contributo-sanita-vecchi-frontalieri.excerpt': 'Regione Lombardia intende finanziare l\'aumento del 20% per medici e infermieri tramite contributi mensili per i vecchi frontalieri.',
+    'blog.article.contributo-sanita-vecchi-frontalieri.imageAlt': 'Corridoio di una struttura sanitaria svizzera moderna',
 };
 
 export default blogMetaChIt;

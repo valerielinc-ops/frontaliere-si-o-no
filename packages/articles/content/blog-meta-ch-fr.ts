@@ -1693,6 +1693,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.petrolio-in-cambio-di-miliardi.title': 'Pétrole en échange de milliards : le pouvoir caché des traders suisses',
     'blog.article.petrolio-in-cambio-di-miliardi.excerpt': 'Les sociétés suisses de matières premières offrent des financements aux États en échange de fournitures de pétrole',
     'blog.article.petrolio-in-cambio-di-miliardi.imageAlt': 'Un pétrolier en mouvement sur le lac de Lugano',
+    'blog.article.contributo-sanita-vecchi-frontalieri.title': 'Santé et anciens frontaliers : la contribution pour le personnel',
+    'blog.article.contributo-sanita-vecchi-frontalieri.excerpt': 'Région Lombardie entend financer l\'augmentation de 20 % pour les médecins et les infirmières par des cotisations mensuelles pour les anciens frontaliers.',
+    'blog.article.contributo-sanita-vecchi-frontalieri.imageAlt': 'Couloir d\'un établissement de santé suisse moderne',
 };
 
 export default blogMetaChFr;

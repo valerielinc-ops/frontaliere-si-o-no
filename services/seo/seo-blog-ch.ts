@@ -21896,6 +21896,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-contributo-sanita-vecchi-frontalieri': {
+    title: 'Sanità e vecchi frontalieri: il contributo per il personale',
+    description: 'Regione Lombardia introduce contributi per vecchi frontalieri (30-200€/mese) per finanziare l\'aumento del 20% degli stipendi di medici e infermieri.',
+    keywords: 'frontalieri, ticino, svizzera, italia, sanità, vecchi, contributo, personale',
+    ogTitle: 'Sanità frontalieri: contributo mensile e stipendi medici',
+    ogDescription: 'Contributi per vecchi frontalieri per finanziare l\'aumento del 20% degli stipendi sanitari in zona frontiera.',
+    canonicalPath: '/articoli-svizzera/contributo-sanita-vecchi-frontalieri/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Sanità e vecchi frontalieri: il contributo per il personale",
+      "description": "Regione Lombardia introduce contributi per vecchi frontalieri (30-200€/mese) per finanziare l'aumento del 20% degli stipendi di medici e infermieri.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/contributo-sanita-vecchi-frontalieri.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Corridoio di una struttura sanitaria svizzera moderna"
+      },
+      "datePublished": "2026-07-29T23:36:42+00:00",
+      "dateModified": "2026-07-29T23:36:42+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/contributo-sanita-vecchi-frontalieri/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

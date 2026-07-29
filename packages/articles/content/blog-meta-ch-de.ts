@@ -1693,6 +1693,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.petrolio-in-cambio-di-miliardi.title': 'Öl im Tausch gegen Milliarden: Die verborgene Macht der Schweizer Trader',
     'blog.article.petrolio-in-cambio-di-miliardi.excerpt': 'Schweizer Rohstofffirmen bieten den Staaten Finanzierungen im Austausch für Öllieferungen an',
     'blog.article.petrolio-in-cambio-di-miliardi.imageAlt': 'Ein Öltanker bewegt sich auf dem Luganersee',
+    'blog.article.contributo-sanita-vecchi-frontalieri.title': 'Gesundheit und alte Grenzgänger: der Personalbeitrag',
+    'blog.article.contributo-sanita-vecchi-frontalieri.excerpt': 'Die Region Lombardei beabsichtigt, die Erhöhung von 20% für Ärzte und Krankenschwestern durch monatliche Beiträge für alte Grenzgänger zu finanzieren.',
+    'blog.article.contributo-sanita-vecchi-frontalieri.imageAlt': 'Flur einer modernen Schweizer Gesundheitseinrichtung',
 };
 
 export default blogMetaChDe;
