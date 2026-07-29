@@ -802,7 +802,18 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
  : -1;
 
  // Dogane Canton Ticino - Italia (fonte centralizzata: data/borderCrossings.ts)
- const borderCrossings = useMemo(() => centralizedBorderCrossings.map(c => ({
+ // waitNow/waitSource (issue #4892 sibling fix): avgWaitMorning/avgWaitEvening
+ // are hand-curated for only ~32/143 crossings and render 'n.d.' for the rest,
+ // even though `liveWait` (fetched above) already has data for ~140/143 — the
+ // exact same root defect fixed in BorderMunicipalitiesMap.tsx's popup, here in
+ // FrontierGuide's own crossing cards. Reuses the currentWaitLabel/liveWait
+ // machinery already wired up for lombardyMunicipalities' borderCrossingWaitNow
+ // above — added as an EXTRA "now" stat, not a replacement, since a live
+ // reading is a single current value, not bucketed by time-of-day like the
+ // historical morning/evening averages.
+ const borderCrossings = useMemo(() => centralizedBorderCrossings.map(c => {
+ const slug = slugifyCrossingName(c.name);
+ return {
  name: c.name,
  foreignSide: c.foreignSide,
  avgWaitMorning: c.avgWaitMorning,
@@ -813,8 +824,11 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
  lat: c.lat,
  lng: c.lng,
  traffic: c.trafficLevel,
- slug: slugifyCrossingName(c.name),
- })), []);
+ slug,
+ waitNow: currentWaitLabel(slug, liveWait),
+ waitSource: liveWait.perCrossing?.[slug]?.source ?? 'storico dogane',
+ };
+ }), [liveWait]);
 
  const filteredBorderCrossings = useMemo(() =>
  borderCrossings
@@ -1360,6 +1374,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
  <div className="font-bold text-strong mb-1">{border.name}</div>
  <div className="text-sm text-subtle mb-2">📍 {border.foreignSide}</div>
  <div className="text-xs space-y-1">
+ <div><strong>⏱ {t('guide.municipalities.detail.currentWait')}:</strong> {border.waitNow}</div>
  <div><strong>🌅 {t('guide.border.morning')}:</strong> {border.avgWaitMorning ?? 'n.d.'}</div>
  <div><strong>🌆 {t('guide.border.evening')}:</strong> {border.avgWaitEvening ?? 'n.d.'}</div>
  <div><strong>⏰ {t('guide.border.hours')}:</strong> {t(border.hours)}</div>
@@ -1429,6 +1444,10 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
  </div>
 
  <div className="space-y-2">
+ <div className="flex items-center justify-between">
+ <span className="text-sm text-subtle">⏱ {t('guide.municipalities.detail.currentWait')}</span>
+ <span className="text-sm font-bold text-strong">{border.waitNow}</span>
+ </div>
  <div className="flex items-center justify-between">
  <span className="text-sm text-subtle">{t('guide.border.waitMorning')} (🌅 7-9)</span>
  <span className={`text-sm font-bold ${selectedTime === 'morning' ? 'text-warning' : 'text-subtle'}`}>{border.avgWaitMorning ?? 'n.d.'}</span>

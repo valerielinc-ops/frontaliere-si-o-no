@@ -35,6 +35,30 @@ interface Release {
 
 export const RELEASES: Release[] = [
   {
+    version: '3.89.0',
+    date: '2026-07-29',
+    titleKey: 'whatsNew.v3890.title',
+    items: [
+      {
+        type: 'feature',
+        titleKey: 'whatsNew.v3890.liechtensteinBorderMunicipality.title',
+        descKey: 'whatsNew.v3890.liechtensteinBorderMunicipality.desc',
+      },
+    ],
+  },
+  {
+    version: '3.88.0',
+    date: '2026-07-29',
+    titleKey: 'whatsNew.v3880.title',
+    items: [
+      {
+        type: 'feature',
+        titleKey: 'whatsNew.v3880.germanBorderMunicipality.title',
+        descKey: 'whatsNew.v3880.germanBorderMunicipality.desc',
+      },
+    ],
+  },
+  {
     version: '3.87.0',
     date: '2026-07-28',
     titleKey: 'whatsNew.v3870.title',

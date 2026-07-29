@@ -4985,6 +4985,10 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-telelavoro-frontalieri-limiti-fiscali-previdenziali': { name: 'Telelavoro frontalieri', path: '/articoli-svizzera/telelavoro-frontalieri-limiti-fiscali-previdenziali/', parent: 'blog' },
     'blog-infortunio-lavoro-vallemaggia-piano-peccia': { name: 'Infortunio lavoro', path: '/articoli-frontaliere/infortunio-lavoro-vallemaggia-piano-peccia', parent: 'blog' },
     'blog-accertamento-residenza-fiscale-prove-digitali': { name: 'Fisco e Residenza', path: '/articoli-svizzera/accertamento-residenza-fiscale-prove-digitali/', parent: 'blog' },
+    'blog-integrazione-ubs-credit-suisse-risultati': { name: 'Integrazione bancaria', path: '/articoli-frontaliere/integrazione-ubs-credit-suisse-risultati', parent: 'blog' },
+    'blog-ermotti-intervista-ubs': { name: 'Sergio Ermotti, CEO di UBS', path: '/articoli-svizzera/ermotti-intervista-ubs/', parent: 'blog' },
+    'blog-edilizia-ticino-estate-sfide-ssic': { name: 'Edilizia Ticino', path: '/articoli-frontaliere/edilizia-ticino-estate-sfide-ssic', parent: 'blog' },
+    'blog-lavoro-tornato-aumentare-svizzera': { name: 'Lavoro temporaneo in Svizzera', path: '/articoli-svizzera/lavoro-tornato-aumentare-svizzera/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

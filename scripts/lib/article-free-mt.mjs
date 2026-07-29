@@ -16,6 +16,57 @@ const NAV_LINK_RE = /\[[^\]]+\]\(nav:[^)]+\)/g;
 const NAV_SENTINEL_RE = /0NAVLINK(\d+)0/g;
 
 /**
+ * Returns the translated field only when the model actually produced a string.
+ *
+ * A translation call asks for `{"body1": "..."}` but a model is free to answer
+ * `{"body1": {"text": "..."}}` or `{"body1": ["...", "..."]}`. That still parses
+ * as valid JSON, so `callWithRetry` returns it happily and every downstream
+ * truthiness check (`if (!content[field])`, `chunk || ''`) passes — an object is
+ * truthy. The value then reached a string context (a `.join('\n\n')` over the
+ * chunks, or the TS serializer) and JavaScript stringified it to the literal
+ * `[object Object]`, which shipped as published prose.
+ *
+ * That is exactly how 206 en/de/fr body files ended up with an `[object Object]`
+ * paragraph where a real block should have been (it/ was untouched because it is
+ * generated, not translated). Two shapes were produced: the whole body replaced
+ * (single-call path) and one paragraph replaced among good prose (chunked path).
+ *
+ * Failing CLOSED here — returning null rather than a stringified object — is what
+ * makes the existing recovery work: the field reads as missing, so the per-field
+ * missing-translation retry runs and, failing that, falls back to the IT source.
+ * A stringified object is unrecoverable; a missing field is not.
+ *
+ * @param {unknown} value raw field value as parsed from the model's JSON
+ * @returns {string|null} the string, or null when it is anything else / blank
+ */
+export function translatedStringOrNull(value) {
+  return typeof value === 'string' && value.trim() ? value : null;
+}
+
+/**
+ * Joins per-chunk translations of one body field, refusing to stringify a chunk
+ * the model returned as a non-string.
+ *
+ * Returns null when ANY chunk is unusable: a body silently missing its third
+ * paragraph is worse than a body the recovery path re-translates whole, and the
+ * caller cannot tell the difference once the chunks are joined.
+ *
+ * @param {unknown[]} results  per-chunk parsed JSON objects
+ * @param {string} bodyKey     'body1' | 'body2' | 'body3'
+ * @returns {string|null}
+ */
+export function joinTranslatedChunks(results, bodyKey) {
+  if (!Array.isArray(results) || results.length === 0) return null;
+  const parts = [];
+  for (const r of results) {
+    const part = translatedStringOrNull(r?.[bodyKey]);
+    if (part === null) return null;
+    parts.push(part);
+  }
+  return parts.join('\n\n');
+}
+
+/**
  * Mask internal `[testo](nav:azione)` CTA links so machine translation passes
  * them through verbatim (the `nav:azione` target is a router action, not prose).
  *

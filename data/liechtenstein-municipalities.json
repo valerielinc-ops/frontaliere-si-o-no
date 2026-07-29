@@ -1,0 +1,125 @@
+{
+  "source": "Amt für Statistik Liechtenstein, \"Statistisches Jahrbuch Liechtensteins 2025\", tab. T_2.1_01 \"Bevölkerung nach Wohngemeinde, 1960-2023\", p. 75 (dato 31.12.2023) + Wikidata (wdt:P31 wd:Q203300, wdt:P625) per le coordinate; vedi data/liechtensteinMunicipalities.ts per dettaglio fonte-per-fonte.",
+  "year": 2023,
+  "nationalPopulation": {
+    "value": 40015,
+    "year": 2023,
+    "source": "Amt für Statistik Liechtenstein, \"Statistisches Jahrbuch Liechtensteins 2025\", tab. T_2.1_01, p. 75 — totale nazionale pubblicato, somma dei valori per-comune verificata coerente."
+  },
+  "commutingContext": {
+    "year": 2023,
+    "chToLi": 14891,
+    "liToCh": 2426,
+    "ratio": "~6.1:1 (CH->LI is the dominant direction)",
+    "workforceShareCrossBorder": "57% (2022) of Liechtenstein's total workforce commutes in from abroad",
+    "note": "Questo sito copre il flusso minoritario (residenti in Liechtenstein che lavorano in Svizzera, 2'426 persone nel 2023) perché coerente col suo pubblico, ma DEVE dichiarare che il flusso dominante e' l'opposto — mai presentare 'vivere in Liechtenstein, lavorare in Svizzera' come il pattern maggioritario.",
+    "source": "Statistisches Jahrbuch Liechtensteins 2025, Amt für Statistik Liechtenstein, tab. T_3.1_23, p. 141."
+  },
+  "floor": {
+    "minPopulation": 2000,
+    "note": "Above-floor comuni get an indexable page; below-floor comuni get a noindex,follow bridge at the same URL (never a silent gap). No distance filter — see scripts/build-liechtenstein-municipalities.mjs header for why a population-only floor fits this corridor."
+  },
+  "aboveFloor": [
+    {
+      "name": "Schaan",
+      "slug": "schaan",
+      "wikidataId": "Q49657",
+      "lat": 47.1667,
+      "lng": 9.5167,
+      "population": 6109,
+      "populationYear": 2023
+    },
+    {
+      "name": "Vaduz",
+      "slug": "vaduz",
+      "wikidataId": "Q1844",
+      "lat": 47.1406,
+      "lng": 9.5222,
+      "population": 5826,
+      "populationYear": 2023
+    },
+    {
+      "name": "Triesen",
+      "slug": "triesen",
+      "wikidataId": "Q49654",
+      "lat": 47.1,
+      "lng": 9.5167,
+      "population": 5532,
+      "populationYear": 2023
+    },
+    {
+      "name": "Balzers",
+      "slug": "balzers",
+      "wikidataId": "Q49663",
+      "lat": 47.0667,
+      "lng": 9.5,
+      "population": 4747,
+      "populationYear": 2023
+    },
+    {
+      "name": "Eschen",
+      "slug": "eschen",
+      "wikidataId": "Q4540",
+      "lat": 47.2,
+      "lng": 9.5167,
+      "population": 4607,
+      "populationYear": 2023
+    },
+    {
+      "name": "Mauren",
+      "slug": "mauren",
+      "wikidataId": "Q49661",
+      "lat": 47.2197,
+      "lng": 9.5428,
+      "population": 4589,
+      "populationYear": 2023
+    },
+    {
+      "name": "Triesenberg",
+      "slug": "triesenberg",
+      "wikidataId": "Q49651",
+      "lat": 47.1167,
+      "lng": 9.5333,
+      "population": 2671,
+      "populationYear": 2023
+    },
+    {
+      "name": "Ruggell",
+      "slug": "ruggell",
+      "wikidataId": "Q49659",
+      "lat": 47.245,
+      "lng": 9.5332,
+      "population": 2523,
+      "populationYear": 2023
+    }
+  ],
+  "belowFloor": [
+    {
+      "name": "Gamprin",
+      "slug": "gamprin",
+      "wikidataId": "Q49662",
+      "lat": 47.2199,
+      "lng": 9.51,
+      "population": 1768,
+      "populationYear": 2023
+    },
+    {
+      "name": "Schellenberg",
+      "slug": "schellenberg",
+      "wikidataId": "Q49655",
+      "lat": 47.2283,
+      "lng": 9.5395,
+      "population": 1155,
+      "populationYear": 2023
+    },
+    {
+      "name": "Planken",
+      "slug": "planken",
+      "wikidataId": "Q49660",
+      "lat": 47.1833,
+      "lng": 9.5333,
+      "population": 488,
+      "populationYear": 2023
+    }
+  ]
+}

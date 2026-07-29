@@ -1343,6 +1343,8 @@ const translations: Record<string, string> = {
  'bordermap.cheapest': 'Più conveniente',
  'bordermap.campione': 'Campione d\'Italia ha uno status fiscale speciale come exclave italiana in territorio svizzero.',
  'bordermap.municipalities': '{count} comuni',
+ 'bordermap.liveWait': 'Attesa live',
+ 'bordermap.liveUpdatedAgo': 'aggiornato {minutes} min fa',
 
  // ── Residency Simulator ──
  'comparators.residency': 'Cambio Residenza',
@@ -2868,6 +2870,12 @@ Regole:
  'whatsNew.v3870.title': 'Vivere in Francia, lavorare in Svizzera',
  'whatsNew.v3870.frenchBorderMunicipality.title': 'Comuni di confine francesi: affitti, tasse e distanza',
  'whatsNew.v3870.frenchBorderMunicipality.desc': 'Nuove pagine per i comuni francesi della fascia di confine (Ginevra, Vaud, Neuchâtel, Giura, Vallese): affitto medio, meccanismo fiscale (imposta alla fonte a Ginevra o dichiarazione francese negli altri cantoni) e distanza dal valico più vicino.',
+ 'whatsNew.v3890.title': 'Vivere in Liechtenstein, lavorare in Svizzera',
+ 'whatsNew.v3890.liechtensteinBorderMunicipality.title': 'Comuni del Liechtenstein: tassazione nello Stato di residenza',
+ 'whatsNew.v3890.liechtensteinBorderMunicipality.desc': 'Nuove pagine comune per comune per il Liechtenstein: tassazione esclusiva nel Paese di residenza (art. 15 cpv. 4), soglia dei 45 giorni di non rientro annuo e il flusso reale del corridoio, oggi a maggioranza Svizzera → Liechtenstein.',
+ 'whatsNew.v3880.title': 'Vivere in Germania, lavorare in Svizzera',
+ 'whatsNew.v3880.germanBorderMunicipality.title': 'Comuni di confine tedeschi: imposta alla fonte e giorni di non rientro',
+ 'whatsNew.v3880.germanBorderMunicipality.desc': 'Nuove pagine per i comuni tedeschi del Baden-Württemberg (Lörrach, Waldshut, Costanza, Schwarzwald-Baar): imposta alla fonte del 4,5% sulla retribuzione lorda, soglia dei 60 giorni di non rientro annuo e diritto di opzione per l’assicurazione malattia.',
  'whatsNew.v3790.title': 'Guide fiscali per comune di residenza',
  'whatsNew.v3790.fiscalMunicipality.title': 'Tasse frontalieri: vecchio vs nuovo regime, comune per comune',
  'whatsNew.v3790.fiscalMunicipality.desc': 'Nuove pagine per i comuni italiani della fascia di frontiera: confronto numerico tra vecchio e nuovo regime frontalieri (accordo 2024) con l’addizionale comunale IRPEF reale e uno scenario per un profilo tipo.',

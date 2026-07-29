@@ -20,7 +20,7 @@ const aiModels = await import('../../scripts/lib/ai-models.mjs');
 const { AI_MODELS, isModelAvailable, isOmniRouteEnabled, getPreferredModel, callLLM, resetState } = aiModels;
 
 describe('ai-models OmniRoute opt-in pilot fallback', () => {
-  const ENV_KEYS = ['OMNIROUTE_ENABLED', 'OMNIROUTE_URL', 'OMNIROUTE_API_KEY', 'LOCAL_LLM_ENABLED', 'ENABLE_HAIKU_ARTICLE_FALLBACK'] as const;
+  const ENV_KEYS = ['OMNIROUTE_ENABLED', 'OMNIROUTE_URL', 'OMNIROUTE_API_KEY', 'LOCAL_LLM_ENABLED', 'ENABLE_HAIKU_ARTICLE_FALLBACK', 'AI_COMPETING_TIERS'] as const;
   const saved: Record<string, string | undefined> = {};
   let prevFetch: typeof fetch;
 
@@ -70,11 +70,17 @@ describe('ai-models OmniRoute opt-in pilot fallback', () => {
     }
   });
 
-  it('sinks below omniroute/auto but above Claude CLI Haiku when all three opt-ins are enabled (2026-07-28 reorder)', () => {
+  it('sinks below omniroute/auto but above Claude CLI Haiku when all three opt-ins are enabled (2026-07-28 reorder, pre-AI_COMPETING_TIERS ordering)', () => {
     process.env.OMNIROUTE_ENABLED = '1';
     process.env.LOCAL_LLM_ENABLED = '1';
     process.env.ENABLE_HAIKU_ARTICLE_FALLBACK = '1';
     process.env.CLAUDE_CODE_OAUTH_TOKEN = process.env.CLAUDE_CODE_OAUTH_TOKEN || 'test-oauth-token';
+    // Since 2026-07-29, omniroute + claude-cli are promoted to tier-0 by
+    // DEFAULT (AI_COMPETING_TIERS) — this test is specifically about the
+    // sub-order AMONG the 3 tiers while all 3 are still last-resort, so it
+    // opts into the '' rollback (see ai-models-competing-tiers.test.ts for
+    // default-config coverage of the promotion itself).
+    process.env.AI_COMPETING_TIERS = '';
     const chain = [AI_MODELS.CLAUDE_CLI_HAIKU, AI_MODELS.OMNIROUTE_AUTO, AI_MODELS.LOCAL_FALLBACK];
     // OMNIROUTE_AUTO now has the lowest last-resort tier of the three (run
     // 30286278791 proved it reaches a frontier-class model over the network in
@@ -137,5 +143,87 @@ describe('ai-models OmniRoute opt-in pilot fallback', () => {
     // Still reported available afterwards — a transient/ephemeral-instance
     // failure must not sink it for the remainder of the process.
     expect(isModelAvailable(AI_MODELS.OMNIROUTE_AUTO)).toBe(true);
+  });
+
+  /**
+   * In-run failure-storm breaker. Regression guard for run 30427526187
+   * (send-newsletter, 2026-07-29): omniroute/auto was retried 97 times with 0
+   * successes — 74 of those 30s timeouts, the rest instant HTTP 400 "Invalid
+   * model name passed in model=claude-fable-5" — because _isLastResortProvider
+   * exempts OmniRoute from markModelExhausted on every failure class. ~37min of
+   * a 50min job went to a gateway that was unusable from the first call.
+   */
+  describe('failure-storm breaker (in-run, never persisted)', () => {
+    const failingFetch = (status: number, body: string) =>
+      (async () => new Response(body, { status })) as typeof fetch;
+
+    async function driveFailures(n: number) {
+      for (let i = 0; i < n; i++) {
+        await callLLM([{ role: 'user', content: 'hi' }], {
+          chain: [AI_MODELS.OMNIROUTE_AUTO], maxTokens: 8, maxRetriesPerModel: 1,
+        }).catch(() => undefined);
+      }
+    }
+
+    it('keeps omniroute available below the threshold', async () => {
+      process.env.OMNIROUTE_ENABLED = '1';
+      globalThis.fetch = failingFetch(400, 'Invalid model name passed in model=claude-fable-5');
+
+      await driveFailures(4);
+
+      expect(isModelAvailable(AI_MODELS.OMNIROUTE_AUTO)).toBe(true);
+    });
+
+    it('disables omniroute for the rest of the run once the threshold is reached', async () => {
+      process.env.OMNIROUTE_ENABLED = '1';
+      globalThis.fetch = failingFetch(400, 'Invalid model name passed in model=claude-fable-5');
+
+      await driveFailures(5);
+
+      expect(isModelAvailable(AI_MODELS.OMNIROUTE_AUTO)).toBe(false);
+    });
+
+    it('counts mixed failure classes together — a 400 must not reset a timeout streak', async () => {
+      process.env.OMNIROUTE_ENABLED = '1';
+      let call = 0;
+      // Alternates the two shapes seen live in run 30427526187. A
+      // timeout-only counter would be reset by each 400 and never trip.
+      globalThis.fetch = (async () => {
+        call++;
+        if (call % 2 === 0) throw Object.assign(new Error('The operation was aborted due to timeout'), { name: 'TimeoutError' });
+        return new Response('Invalid model name passed in model=claude-fable-5', { status: 400 });
+      }) as typeof fetch;
+
+      await driveFailures(5);
+
+      expect(isModelAvailable(AI_MODELS.OMNIROUTE_AUTO)).toBe(false);
+    });
+
+    it('a success resets the streak, so intermittent failures never trip it', async () => {
+      process.env.OMNIROUTE_ENABLED = '1';
+      let call = 0;
+      globalThis.fetch = (async () => {
+        call++;
+        // Fail 4×, succeed once, repeat — never 5 consecutive failures.
+        if (call % 5 === 0) return new Response(JSON.stringify({ choices: [{ message: { content: 'OK' } }] }), { status: 200 });
+        return new Response('boom', { status: 400 });
+      }) as typeof fetch;
+
+      await driveFailures(12);
+
+      expect(isModelAvailable(AI_MODELS.OMNIROUTE_AUTO)).toBe(true);
+    });
+
+    it('resetState() clears a tripped breaker', async () => {
+      process.env.OMNIROUTE_ENABLED = '1';
+      globalThis.fetch = failingFetch(400, 'boom');
+
+      await driveFailures(5);
+      expect(isModelAvailable(AI_MODELS.OMNIROUTE_AUTO)).toBe(false);
+
+      resetState();
+
+      expect(isModelAvailable(AI_MODELS.OMNIROUTE_AUTO)).toBe(true);
+    });
   });
 });

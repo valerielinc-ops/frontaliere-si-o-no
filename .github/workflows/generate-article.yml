@@ -106,10 +106,12 @@ jobs:
       - uses: ./.github/actions/setup-omniroute
 
       # ── Claude CLI Haiku fallback (ON by default, kill-switch '0') ──────
-      # Absolute last resort, reached only after every free-tier model AND the
-      # local/ollama fallback above have failed. Owner request 2026-07-11: the
-      # recurring free-pool exhaustion deferrals must never zero production
-      # again. Extracted to a shared composite action 2026-07-24 (was
+      # Since 2026-07-29 (AI_COMPETING_TIERS default in ai-models.mjs) this
+      # tier is tier-0 BY DEFAULT — it competes on real score against every
+      # free-tier model above, no longer reached only as an absolute last
+      # resort. Owner request 2026-07-11: the recurring free-pool exhaustion
+      # deferrals must never zero production again. Extracted to a shared
+      # composite action 2026-07-24 (was
       # duplicated byte-for-byte in this file and send-newsletter.yml, then
       # about to be copy-pasted into more workflows for the fleet-wide
       # rollout — see .github/actions/setup-claude-haiku-fallback/action.yml
@@ -159,10 +161,14 @@ jobs:
       # wall-clock (CPU inference is slow), which is fine for a last-resort path.
       # Entirely inert unless the variable is set: no env exported → LOCAL_LLM_ENABLED
       # stays unset → ai-models marks local/* unavailable → identical to today.
-      # Order INSIDE the last-resort block is omniroute → local → claude-cli
-      # (OmniRoute first: it fronts real network providers and answers in
-      # seconds, vs 12-17min of CPU inference here). Overridable at runtime via
-      # AI_LAST_RESORT_ORDER — see scripts/lib/ai-models.mjs.
+      # local/ is deliberately NEVER promoted by AI_COMPETING_TIERS (CPU
+      # inference must never win a live race against a network call) — it
+      # always stays in the last-resort block. omniroute/claude-cli are
+      # tier-0 BY DEFAULT since 2026-07-29 (see AI_COMPETING_TIERS in
+      # scripts/lib/ai-models.mjs) so they no longer share this block with
+      # local/ unless AI_COMPETING_TIERS='' is set, in which case the classic
+      # omniroute → local → claude-cli order applies (overridable via
+      # AI_LAST_RESORT_ORDER).
       - name: Cache local LLM model
         if: vars.ARTICLE_LOCAL_FALLBACK == '1'
         uses: actions/cache@v5
@@ -299,7 +305,8 @@ jobs:
           # the deadlineMs abort and keeps local fallback available (it still
           # fires when reached) without the runaway ceiling.
           CREATE_ARTICLE_MAX_WALL_MS: ${{ steps.section.outputs.section == 'svizzera' && '1800000' || '3300000' }}
-          # Auth for the opt-in Claude CLI Haiku last-resort fallback (see
+          # Auth for the opt-in Claude CLI Haiku fallback (tier-0 by default
+          # since 2026-07-29 — see AI_COMPETING_TIERS in ai-models.mjs; see
           # "Setup Claude CLI Haiku fallback" step above). Same secret already
           # used by pr-review-loop.yml/issue-fix.yml — zero marginal cost
           # (Max-plan subscription), never ANTHROPIC_API_KEY. Harmless to
@@ -372,6 +379,44 @@ jobs:
             ];
             fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY, lines.join("\n") + "\n");
           '
+
+      # ── Learning loop: turn this run's observations into next run's defence ──
+      #
+      # Every run today is amnesic — a defect at run N does not make the same
+      # defect less likely at run N+1, because the gate verdicts die with this
+      # job's log. This step folds the run's institution observations into
+      # data/article-defect-memory.json, which the NEXT run's gates read.
+      # See docs/ARTICLE-LEARNING-LOOP.md.
+      #
+      # `always()`: a run that FAILED generation still produced evidence — an
+      # acronym its sources never backed up is a fact about the generator
+      # whether or not that draft shipped. Restricting the signal to published
+      # articles would blind the store to exactly the drafts the gates stop.
+      #
+      # `continue-on-error`: a corrupt or unwritable memory must never hold up
+      # a finished article. The script refuses to overwrite a degraded store
+      # (exit 1) and that shows red here, but the commit below still runs.
+      # Zero model calls — pure string comparison, no quota cost.
+      - name: Update article defect memory
+        if: always()
+        continue-on-error: true
+        run: |
+          # `set -e` is on by default here, and the script exits 1 when it
+          # refuses to overwrite a degraded store — capture the status so the
+          # summary is written either way and the step still reports the failure.
+          rc=0
+          node scripts/update-article-defect-memory.mjs \
+            --from-run .tmp/create-article-run-report.json --apply \
+            > .tmp/defect-memory.log 2>&1 || rc=$?
+          cat .tmp/defect-memory.log
+          {
+            echo '## Article defect memory'
+            echo ''
+            echo '```'
+            cat .tmp/defect-memory.log
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+          exit "$rc"
 
       - name: Check for changes
         id: changes

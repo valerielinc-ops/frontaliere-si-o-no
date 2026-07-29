@@ -187,11 +187,14 @@ const RC_TO_ENV = {
   // by default — code falls back to the built-in 0.86 baseline. Lets a single
   // test window relax the threshold without a code change or redeploy.
   NEAR_DUP_COSINE:                ['NEAR_DUP_COSINE'],
-  // Opt-in last-resort article-generation fallback: when every free model in
-  // ai-models.mjs's DEFAULT_CHAIN (including local/fallback) fails, retry via
-  // the `claude` CLI (see AI_MODELS.CLAUDE_CLI_HAIKU). Unset in RC by default
-  // (OFF) — code requires this AND CLAUDE_CODE_OAUTH_TOKEN before offering the
-  // model at all (see isClaudeCliFallbackEnabled/hasClaudeCodeOauthToken).
+  // Opt-in article-generation fallback via the `claude` CLI (see
+  // AI_MODELS.CLAUDE_CLI_HAIKU). Since 2026-07-29 (AI_COMPETING_TIERS default
+  // in ai-models.mjs) this tier is tier-0 BY DEFAULT — it competes on real
+  // score against every model in DEFAULT_CHAIN, it is NOT reached only after
+  // every other model (including local/fallback) has failed anymore; set
+  // AI_COMPETING_TIERS='' to restore that old behavior. Unset in RC by
+  // default (OFF) — code requires this AND CLAUDE_CODE_OAUTH_TOKEN before
+  // offering the model at all (see isClaudeCliFallbackEnabled/hasClaudeCodeOauthToken).
   ENABLE_HAIKU_ARTICLE_FALLBACK:  ['ENABLE_HAIKU_ARTICLE_FALLBACK'],
 
   // JSON array of {provider, name, apiKey} — decrypted OmniRoute provider

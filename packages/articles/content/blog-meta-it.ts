@@ -9089,6 +9089,12 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.infortunio-lavoro-vallemaggia-piano-peccia.title': 'Grave infortunio sul lavoro in Vallemaggia',
     'blog.article.infortunio-lavoro-vallemaggia-piano-peccia.excerpt': 'Un 29enne residente nel Bellinzonese è rimasto gravemente ferito a Piano di Peccia dopo essere stato colpito da una trave caduta da un carroponte.',
     'blog.article.infortunio-lavoro-vallemaggia-piano-peccia.imageAlt': 'Panorama della Vallemaggia, Ticino, luogo di attività lavorativa.',
+    'blog.article.integrazione-ubs-credit-suisse-risultati.title': 'UBS e Credit Suisse: i risultati dell\'integrazione',
+    'blog.article.integrazione-ubs-credit-suisse-risultati.excerpt': 'A tre anni dall\'annuncio, il CEO Sergio Ermotti conferma risultati tangibili e il superamento delle sfide iniziali per il gruppo bancario.',
+    'blog.article.integrazione-ubs-credit-suisse-risultati.imageAlt': 'Distretto finanziario di Lugano con vista sul lago',
+    'blog.article.edilizia-ticino-estate-sfide-ssic.title': 'Edilizia in Ticino: le sfide del settore prima dell\'estate',
+    'blog.article.edilizia-ticino-estate-sfide-ssic.excerpt': 'Il punto della situazione tra appalti, approvvigionamento materiali e le criticità legate alle temperature estive con la SSIC.',
+    'blog.article.edilizia-ticino-estate-sfide-ssic.imageAlt': 'Cantiere edile in Ticino durante la stagione estiva',
 };
 
 export default blogMetaIt;

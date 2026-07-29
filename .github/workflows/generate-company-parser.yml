@@ -24,7 +24,7 @@ on:
           - 'false'
           - 'true'
       omniroute_enabled:
-        description: 'Pilot: register OmniRoute (self-hosted local AI gateway) as an opt-in last-resort AI fallback for this run only'
+        description: 'Pilot: register OmniRoute (self-hosted local AI gateway) as an opt-in AI fallback for this run only (tier-0 by default — see AI_COMPETING_TIERS in ai-models.mjs)'
         required: false
         default: false
         type: boolean
@@ -94,8 +94,9 @@ jobs:
           node scripts/omniroute-diagnose.mjs || true
 
       # ── Claude CLI Haiku fallback (ON by default, kill-switch '0') ──────
-      # Absolute last resort in ai-models.mjs's DEFAULT_CHAIN, reached only
-      # after every free-tier model has failed. See
+      # Tier-0 in ai-models.mjs's DEFAULT_CHAIN by default since 2026-07-29
+      # (AI_COMPETING_TIERS) — competes on real score instead of being
+      # reached only after every free-tier model has failed. See
       # .github/actions/setup-claude-haiku-fallback/action.yml for the full
       # rationale + incident history.
       - uses: ./.github/actions/setup-claude-haiku-fallback
@@ -106,7 +107,8 @@ jobs:
           PARSER_COMPANY_WEBSITE: ${{ inputs.company_website }}
           PARSER_COMPANY_KEY: ${{ inputs.company_key }}
           PARSER_APPLY_CONFIG: ${{ inputs.apply_config == 'true' && '1' || '0' }}
-          # Auth for the opt-in Claude CLI Haiku last-resort fallback (see
+          # Auth for the opt-in Claude CLI Haiku fallback (tier-0 by default
+          # since 2026-07-29 — see AI_COMPETING_TIERS in ai-models.mjs; see
           # "Setup Claude CLI Haiku fallback" step above). Harmless to always
           # pass: ai-models.mjs only offers the model when this AND the RC
           # flag are both set.
