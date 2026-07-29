@@ -1,119 +1,5 @@
 [
   {
-    "timestamp": "2026-07-09T23:03:39.292Z",
-    "label": "before",
-    "total": 23861,
-    "needsRetranslation": 3364,
-    "suppressed": 195,
-    "incomplete": 581,
-    "complete": 23280,
-    "missingByLocale": {
-      "it": 551,
-      "en": 529,
-      "de": 361,
-      "fr": 526
-    },
-    "topPending": [
-      {
-        "company": "Swiss Re",
-        "pending": 193
-      },
-      {
-        "company": "Two Spice AG",
-        "pending": 174
-      },
-      {
-        "company": "Kantonsspital Aarau (KSA)",
-        "pending": 83
-      },
-      {
-        "company": "Holcim Group",
-        "pending": 31
-      },
-      {
-        "company": "Sunrise Communications AG",
-        "pending": 25
-      },
-      {
-        "company": "Canton du Valais",
-        "pending": 17
-      },
-      {
-        "company": "CSD ENGINEERS",
-        "pending": 13
-      },
-      {
-        "company": "Swiss Medical Network",
-        "pending": 10
-      },
-      {
-        "company": "IKEA",
-        "pending": 5
-      },
-      {
-        "company": "Die Schweizerische Post",
-        "pending": 4
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-07-09T23:18:32.099Z",
-    "label": "after",
-    "total": 23861,
-    "needsRetranslation": 2864,
-    "suppressed": 203,
-    "incomplete": 581,
-    "complete": 23280,
-    "missingByLocale": {
-      "it": 551,
-      "en": 528,
-      "de": 360,
-      "fr": 528
-    },
-    "topPending": [
-      {
-        "company": "Swiss Re",
-        "pending": 193
-      },
-      {
-        "company": "Two Spice AG",
-        "pending": 174
-      },
-      {
-        "company": "Kantonsspital Aarau (KSA)",
-        "pending": 83
-      },
-      {
-        "company": "Holcim Group",
-        "pending": 31
-      },
-      {
-        "company": "Sunrise Communications AG",
-        "pending": 25
-      },
-      {
-        "company": "Canton du Valais",
-        "pending": 17
-      },
-      {
-        "company": "CSD ENGINEERS",
-        "pending": 13
-      },
-      {
-        "company": "Swiss Medical Network",
-        "pending": 10
-      },
-      {
-        "company": "IKEA",
-        "pending": 5
-      },
-      {
-        "company": "Die Schweizerische Post",
-        "pending": 4
-      }
-    ]
-  },
-  {
     "timestamp": "2026-07-10T06:52:55.585Z",
     "label": "before",
     "total": 23840,
@@ -11396,6 +11282,120 @@
       {
         "company": "Kantonsspital Aarau (KSA)",
         "pending": 2
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-29T06:46:54.656Z",
+    "label": "before",
+    "total": 24923,
+    "needsRetranslation": 10304,
+    "suppressed": 34,
+    "incomplete": 239,
+    "complete": 24684,
+    "missingByLocale": {
+      "it": 178,
+      "en": 92,
+      "de": 106,
+      "fr": 144
+    },
+    "topPending": [
+      {
+        "company": "Swiss Medical Network",
+        "pending": 35
+      },
+      {
+        "company": "Roche",
+        "pending": 34
+      },
+      {
+        "company": "Sunrise Communications AG",
+        "pending": 25
+      },
+      {
+        "company": "USI – Università della Svizzera italiana",
+        "pending": 13
+      },
+      {
+        "company": "CSD ENGINEERS",
+        "pending": 11
+      },
+      {
+        "company": "SUPSI / DTI",
+        "pending": 10
+      },
+      {
+        "company": "Swiss Re",
+        "pending": 10
+      },
+      {
+        "company": "Sulzer",
+        "pending": 8
+      },
+      {
+        "company": "Volksschule Stadt Luzern",
+        "pending": 7
+      },
+      {
+        "company": "Zurich Insurance (sede Ticino)",
+        "pending": 7
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-29T07:00:51.743Z",
+    "label": "after",
+    "total": 24923,
+    "needsRetranslation": 789,
+    "suppressed": 34,
+    "incomplete": 239,
+    "complete": 24684,
+    "missingByLocale": {
+      "it": 178,
+      "en": 92,
+      "de": 106,
+      "fr": 144
+    },
+    "topPending": [
+      {
+        "company": "Swiss Medical Network",
+        "pending": 35
+      },
+      {
+        "company": "Roche",
+        "pending": 34
+      },
+      {
+        "company": "Sunrise Communications AG",
+        "pending": 25
+      },
+      {
+        "company": "USI – Università della Svizzera italiana",
+        "pending": 13
+      },
+      {
+        "company": "CSD ENGINEERS",
+        "pending": 11
+      },
+      {
+        "company": "SUPSI / DTI",
+        "pending": 10
+      },
+      {
+        "company": "Swiss Re",
+        "pending": 10
+      },
+      {
+        "company": "Sulzer",
+        "pending": 8
+      },
+      {
+        "company": "Volksschule Stadt Luzern",
+        "pending": 7
+      },
+      {
+        "company": "Zurich Insurance (sede Ticino)",
+        "pending": 7
       }
     ]
   }
