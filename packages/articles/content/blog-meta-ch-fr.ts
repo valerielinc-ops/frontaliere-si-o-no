@@ -1684,6 +1684,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.gestione-immobiliare-professionale.title': 'Gestion immobilière : la valeur du temps et de la précision',
     'blog.article.gestione-immobiliare-professionale.excerpt': 'Pourquoi une agence immobilière prospère n\'a-t-elle pas le temps d\'espionner la concurrence ? Voici la méthode opérationnelle basée sur la qualité et la rigueur suisse.',
     'blog.article.gestione-immobiliare-professionale.imageAlt': 'Intérieur de bureau immobilier professionnel avec vue sur Lugano',
+    'blog.article.noleggio-sociale-frontalieri-2026.title': 'Location sociale pour frontaliers : 100 euros par mois ?',
+    'blog.article.noleggio-sociale-frontalieri-2026.excerpt': 'Le gouvernement italien prépare un projet pour offrir des voitures neuves aux frontaliers à un tarif mensuel de 100 euros.',
+    'blog.article.noleggio-sociale-frontalieri-2026.imageAlt': 'Image d\'un véhicule nouveau avec le logo de l\'ACI et le ministère des Entreprises et du Made in Italy (MIMIT) sur un fond de paysage italien',
 };
 
 export default blogMetaChFr;

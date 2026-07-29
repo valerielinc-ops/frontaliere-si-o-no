@@ -4999,6 +4999,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-caso-zali-politica-ticino-prospettive': { name: 'Politica Ticino', path: '/articoli-frontaliere/caso-zali-politica-ticino-prospettive', parent: 'blog' },
     'blog-gestione-immobiliare-professionale': { name: 'Gestione immobiliare', path: '/articoli-svizzera/gestione-immobiliare-professionale/', parent: 'blog' },
     'blog-lavoro-temporaneo-svizzera-crescita': { name: 'Mercato Lavoro CH', path: '/articoli-frontaliere/lavoro-temporaneo-svizzera-crescita', parent: 'blog' },
+    'blog-noleggio-sociale-frontalieri-2026': { name: 'Noleggio sociale per frontalieri', path: '/articoli-svizzera/noleggio-sociale-frontalieri-2026/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

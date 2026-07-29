@@ -1684,6 +1684,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.gestione-immobiliare-professionale.title': 'Gestione immobiliare: il valore del tempo e della precisione',
     'blog.article.gestione-immobiliare-professionale.excerpt': 'Perché un\'agenzia immobiliare di successo non ha tempo di spiare la concorrenza? Ecco il metodo operativo basato su qualità e rigore svizzero.',
     'blog.article.gestione-immobiliare-professionale.imageAlt': 'Interno di un ufficio immobiliare professionale con vista su Lugano',
+    'blog.article.noleggio-sociale-frontalieri-2026.title': 'Noleggio sociale per frontalieri: 100 euro al mese?',
+    'blog.article.noleggio-sociale-frontalieri-2026.excerpt': 'Il Governo italiano prepara un progetto per offrire auto nuove a frontalieri a un canone mensile di 100 euro.',
+    'blog.article.noleggio-sociale-frontalieri-2026.imageAlt': 'Immagine di un veicolo nuovo con il logo dell\'ACI e il Ministero delle Imprese e del Made in Italy (MIMIT) su un sfondo di un paesaggio italiano',
 };
 
 export default blogMetaChIt;
