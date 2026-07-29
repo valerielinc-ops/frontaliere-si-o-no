@@ -4759,7 +4759,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 3608,
+ "numberOfItems": 3609,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026/` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024/` },
@@ -8368,7 +8368,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 3605, "name": "Di più Ermotti: \"molto lavoro, ma gli sforzi st...", "url": `${BASE_URL}/articoli-frontaliere/ermotti-intervista-ubs` },
           { "@type": "ListItem", "position": 3606, "name": "Edilizia in Ticino: le sfide del settore prima ...", "url": `${BASE_URL}/articoli-frontaliere/edilizia-ticino-estate-sfide-ssic` },
           { "@type": "ListItem", "position": 3607, "name": "Il lavoro temporaneo torna ad aumentare in Sviz...", "url": `${BASE_URL}/articoli-frontaliere/lavoro-tornato-aumentare-svizzera` },
-          { "@type": "ListItem", "position": 3608, "name": "UBS taglia altri impieghi: scende sotto i 100'000", "url": `${BASE_URL}/articoli-frontaliere/ubs-taglio-posti-lavoro-svizzera` }
+          { "@type": "ListItem", "position": 3608, "name": "UBS taglia altri impieghi: scende sotto i 100'000", "url": `${BASE_URL}/articoli-frontaliere/ubs-taglio-posti-lavoro-svizzera` },
+          { "@type": "ListItem", "position": 3609, "name": "Efficienza nel settore immobiliare: come lavora...", "url": `${BASE_URL}/articoli-frontaliere/agenzie-immobiliari-lavoro-ticino` }
  ]
  },
  {
