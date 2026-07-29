@@ -27309,6 +27309,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'integrazione-ubs-credit-suisse-risultati',
+ category: 'novita',
+ date: '2026-07-29T07:38:29.344Z',
+ image: '/images/blog/integrazione-ubs-credit-suisse-risultati.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

@@ -9087,6 +9087,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.infortunio-lavoro-vallemaggia-piano-peccia.title': 'Schwerer Arbeitsunfall im Maggiatal',
     'blog.article.infortunio-lavoro-vallemaggia-piano-peccia.excerpt': 'Ein 29-jähriger Einwohner von Bellinzona wurde in Piano di Peccia schwer verletzt, nachdem er von einem Balken getroffen wurde, der von einem Brückenkran gefallen war.',
     'blog.article.infortunio-lavoro-vallemaggia-piano-peccia.imageAlt': 'Landschaft im Maggiatal, Tessin, Ort beruflicher Tätigkeit.',
+    'blog.article.integrazione-ubs-credit-suisse-risultati.title': 'UBS und Credit Suisse: Die Ergebnisse der Integration',
+    'blog.article.integrazione-ubs-credit-suisse-risultati.excerpt': 'Drei Jahre nach der Ankündigung bestätigt CEO Sergio Ermotti greifbare Ergebnisse und die Überwindung der anfänglichen Herausforderungen für die Bankengruppe.',
+    'blog.article.integrazione-ubs-credit-suisse-risultati.imageAlt': 'Finanzviertel in Lugano mit Blick auf den See',
 };
 
 export default blogMetaDe;
