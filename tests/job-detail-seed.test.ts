@@ -3,6 +3,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { SLIM_INDEX_FIELDS, buildLocaleJob, buildSlimSeed } from '../build-plugins/shared/slimJobIndex';
 import { inlineScriptJson } from '../build-plugins/shared/inlineJsonScript';
+import { readBuildPluginSource } from './helpers/buildPluginSource';
 
 const root = path.resolve(__dirname, '..');
 
@@ -174,7 +175,7 @@ describe('Per-job detail seed (window.__JOB_SEED__)', () => {
       const offenders = files.filter((f) => RAW.test(fs.readFileSync(f, 'utf-8')));
       expect(offenders).toEqual([]);
       // And the three arbitrary-content sites specifically go through the escape.
-      const og = fs.readFileSync(path.resolve(root, 'build-plugins/ogPagesPlugin.ts'), 'utf-8');
+      const og = readBuildPluginSource(path.resolve(root, 'build-plugins/ogPagesPlugin.ts'));
       expect(og).toMatch(/window\.__ARTICLE_TITLE__=\$\{inlineScriptJson\(localizedTitle\)\}/);
       const jp = fs.readFileSync(path.resolve(root, 'build-plugins/jobsSeoPagesPlugin.ts'), 'utf-8');
       expect(jp).toMatch(/const expiredWindowData = inlineScriptJson\(expiredDataObj\)/);
