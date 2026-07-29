@@ -126,12 +126,18 @@ function maskAcronyms(text) {
  * Once nav-links and acronyms are masked, a block can hold no translatable text
  * at all: a `---` thematic break, a `|---|---|` table rule, or a block that is
  * nothing but a nav-link (the shared mask swallows the whole `[text](nav:x)`,
- * leaving a bare sentinel). MT answers empty for those, which used to abort the
- * whole file over a horizontal rule. Pass them through verbatim — that is the
- * identity translation, not a skipped check.
+ * leaving a bare sentinel), or an all-caps marker heading such as `### CTA`.
+ * MT answers empty for those, which used to abort the whole file over a
+ * horizontal rule. Pass them through verbatim — that is the identity
+ * translation, not a skipped check.
+ *
+ * The test is "no LOWERCASE letter": Italian prose always carries lowercase, so
+ * this cannot swallow a real sentence, while `### CTA` (an editorial marker in
+ * 327 Italian bodies, already kept verbatim in the healthy DE/FR/EN corpus)
+ * passes straight through.
  */
 const hasNothingToTranslate = (masked) =>
-  !/\p{L}/u.test(String(masked).replace(/0NAV\d+0|0ACR\d+0/g, ''));
+  !/\p{Ll}/u.test(String(masked).replace(/0NAV\d+0|0ACR\d+0/g, ''));
 
 /**
  * The shared nav mask emits `0NAVLINK<n>0`, which still contains a translatable
