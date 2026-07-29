@@ -1,0 +1,19 @@
+{
+  "id": "ermotti-intervista-ubs",
+  "slug": "ermotti-intervista-ubs",
+  "publishedAt": "2026-07-29T07:55:47.974Z",
+  "cluster": "generic",
+  "_pool": "proven",
+  "_pool_source": "swissinfo.ch",
+  "_score_breakdown": {
+    "stage": "gsc",
+    "rawScore": 145.27493026666667,
+    "confidence": 1,
+    "finalScore": 145.27493026666667,
+    "matchedQuery": "offerte di lavoro ticino",
+    "score": 36.31873256666667,
+    "clusterDiversityBonus": 0.25,
+    "sourceQualityMultiplier": 1,
+    "cluster": "generic"
+  }
+}

@@ -1666,6 +1666,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.accertamento-residenza-fiscale-prove-digitali.title': 'Verification of tax residence: the digital evidence of the ADE',
     'blog.article.accertamento-residenza-fiscale-prove-digitali.excerpt': 'How the Revenue Agency uses digital traces to verify the tax residence of taxpayers. Practical analysis and regulatory references.',
     'blog.article.accertamento-residenza-fiscale-prove-digitali.imageAlt': 'Digital documents and computer in a Swiss office',
+    'blog.article.ermotti-intervista-ubs.title': 'More Ermotti: "a lot of work, but efforts are bearing fruit"',
+    'blog.article.ermotti-intervista-ubs.excerpt': 'Sergio Ermotti, CEO of UBS, on the integration of Credit Suisse',
+    'blog.article.ermotti-intervista-ubs.imageAlt': 'Sergio Ermotti, CEO of UBS, in a Swiss national context',
 };
 
 export default blogMetaChEn;

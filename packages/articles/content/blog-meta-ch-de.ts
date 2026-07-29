@@ -1666,6 +1666,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.accertamento-residenza-fiscale-prove-digitali.title': 'Feststellung des steuerlichen Wohnsitzes: die digitalen Beweise des ADE',
     'blog.article.accertamento-residenza-fiscale-prove-digitali.excerpt': 'Wie das Finanzamt digitale Spuren verwendet, um den steuerlichen Wohnsitz der Steuerpflichtigen zu überprüfen. Praktische Analyse und normative Referenzen.',
     'blog.article.accertamento-residenza-fiscale-prove-digitali.imageAlt': 'Digitale Dokumente und Computer in einem Schweizer Büro',
+    'blog.article.ermotti-intervista-ubs.title': 'Mehr Ermotti: "Viel Arbeit, aber die Bemühungen tragen Früchte"',
+    'blog.article.ermotti-intervista-ubs.excerpt': 'Sergio Ermotti, CEO der UBS, zur Integration der Credit Suisse',
+    'blog.article.ermotti-intervista-ubs.imageAlt': 'Sergio Ermotti, CEO von UBS, in einem schweizerischen nationalen Kontext',
 };
 
 export default blogMetaChDe;
