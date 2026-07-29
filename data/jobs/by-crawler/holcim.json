@@ -1,6 +1,6 @@
 {
   "crawlerKey": "holcim",
-  "assembledAt": "2026-07-29T22:42:44.515Z",
+  "assembledAt": "2026-07-29T22:57:45.315Z",
   "jobs": [
     {
       "id": "holcim-c6569cf25abe",
@@ -33,7 +33,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/W%C3%BCrenlingen-People-Partnerin-AG-5303/1367342357/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:42:40.406Z",
+      "crawledAt": "2026-07-29T22:57:40.403Z",
       "addressLocality": "Eclépens",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -66,7 +66,6 @@
         ]
       },
       "firstSeenAt": "2026-07-22T12:49:42.003Z",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -78,7 +77,8 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "holcim-031c669f5cde",
@@ -111,7 +111,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/St_-Gallen-ChauffeureChauffeuse-St_-9000/1365498457/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:42:39.919Z",
+      "crawledAt": "2026-07-29T22:57:39.952Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -141,7 +141,6 @@
         ]
       },
       "firstSeenAt": "2026-07-08T22:25:54.263Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -153,7 +152,8 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "holcim-e40022c902ad",
@@ -186,7 +186,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/Oberdorf-Lastwagenf%C3%BChrerin-NW-6370/1358626157/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:42:39.436Z",
+      "crawledAt": "2026-07-29T22:57:39.505Z",
       "addressLocality": "Oberdorf",
       "addressRegion": "NW",
       "addressCountry": "CH",
@@ -221,7 +221,6 @@
         ]
       },
       "firstSeenAt": "2026-07-08T22:25:39.818Z",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -233,7 +232,8 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "holcim-193168f8ee0c",
@@ -266,7 +266,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/Oberdorf-H&S-Koordinatorin-Kies-&-Beton-80-100-NW-6370/1358872357/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:42:38.964Z",
+      "crawledAt": "2026-07-29T22:57:39.063Z",
       "addressLocality": "Oberdorf",
       "addressRegion": "NW",
       "addressCountry": "CH",
@@ -342,7 +342,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/Niederstetten-Springerin-als-Lastwagenf%C3%BChrerin-Niederstetten-St_-9249/1367719057/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:42:38.490Z",
+      "crawledAt": "2026-07-29T22:57:38.625Z",
       "addressLocality": "Niederstetten",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -373,7 +373,6 @@
         ]
       },
       "firstSeenAt": "2026-07-27T12:54:39.767Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -385,7 +384,8 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "holcim-4485ff6d6510",
@@ -418,7 +418,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/Niederstetten-Lastwagenf%C3%BChrerin-Niederstetten-St_-9249/1367206557/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:42:38.029Z",
+      "crawledAt": "2026-07-29T22:57:38.184Z",
       "addressLocality": "Niederstetten",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -453,7 +453,6 @@
         ]
       },
       "firstSeenAt": "2026-07-21T12:14:20.190Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -465,7 +464,8 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "holcim-de6f7059de98",
@@ -498,7 +498,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/Ingenbohl-Brunnen-Allrounderin-SZ-6440/1365697857/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:42:37.562Z",
+      "crawledAt": "2026-07-29T22:57:37.728Z",
       "addressLocality": "Ingenbohl-Brunnen",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -528,7 +528,6 @@
         ]
       },
       "firstSeenAt": "2026-07-08T22:25:53.801Z",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -540,7 +539,8 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "holcim-dfafbfed9771",
@@ -573,7 +573,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/Niederstetten-Springerin-Disposition-und-Fahrmischer-Region-Nordost-St_-9249/1367725457/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:42:37.096Z",
+      "crawledAt": "2026-07-29T22:57:37.295Z",
       "addressLocality": "Niederstetten",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -604,7 +604,6 @@
         ]
       },
       "firstSeenAt": "2026-07-27T12:54:40.223Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -616,7 +615,8 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "holcim-5705f9c01b31",
@@ -649,7 +649,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/Wil-Verkauf-und-Stoffstrommanager-Region-Nordost-St_-9500/1361727757/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:42:36.635Z",
+      "crawledAt": "2026-07-29T22:57:36.849Z",
       "addressLocality": "Wil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -726,7 +726,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/W%C3%BCrenlingen-Projektleiterin-Elektrotechnik-&-Automatisierung-80-100-AG-5303/1354026357/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:42:36.166Z",
+      "crawledAt": "2026-07-29T22:57:36.395Z",
       "addressLocality": "Würenlingen",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -795,7 +795,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/Ecl%C3%A9pens-People-Partnerin-1-VD-1312/1367591457/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:42:35.702Z",
+      "crawledAt": "2026-07-29T22:57:35.945Z",
       "addressLocality": "Eclépens",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -825,7 +825,6 @@
         ]
       },
       "firstSeenAt": "2026-07-24T11:25:15.230Z",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -837,7 +836,8 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "holcim-b6ba4e576b26",
@@ -870,7 +870,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/Ecl%C3%A9pens-People-Partner-VD-1312/1367591357/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-29T22:42:35.230Z",
+      "crawledAt": "2026-07-29T22:57:35.509Z",
       "addressLocality": "Eclépens",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -900,7 +900,6 @@
         ]
       },
       "firstSeenAt": "2026-07-24T11:25:15.696Z",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -912,7 +911,8 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "holcim-113a217f6ab9",
@@ -945,7 +945,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/Ecl%C3%A9pens-Installateur%C2%B7trice-%C3%A9lectricien%C2%B7ne-80-100-VD-1312/1351942457/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-29T22:42:34.758Z",
+      "crawledAt": "2026-07-29T22:57:35.062Z",
       "addressLocality": "Eclépens",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -962,7 +962,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-07-08T22:25:49.237Z",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -982,7 +981,8 @@
       },
       "previousSlugs": [
         "materiel-electrique-80-100-holcim-group-eclepens"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "holcim-0c635c1fceff",
@@ -1015,7 +1015,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/Ecl%C3%A9pens-Responsable-Exploitation-%C3%89lectrique-%28BPEL-ou-IFCF%29-VD-1312/1354182257/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-29T22:42:34.290Z",
+      "crawledAt": "2026-07-29T22:57:34.618Z",
       "addressLocality": "Eclépens",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1048,7 +1048,6 @@
         ]
       },
       "firstSeenAt": "2026-07-08T22:25:49.676Z",
-      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -1060,7 +1059,8 @@
           "maxValue": 126500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "holcim-5c1d3cb4c66b",
@@ -1093,7 +1093,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/W%C3%BCrenlingen-Projektleiterin-80-100-AG-5303/1363974657/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:42:33.820Z",
+      "crawledAt": "2026-07-29T22:57:34.181Z",
       "addressLocality": "Würenlingen",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1170,7 +1170,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/W%C3%BCrenlingen-Praktikantin-Werkstudentin-Nachhaltigkeit-&-Prozessoptimierung-80-100-AG-5303/1361236157/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:42:33.357Z",
+      "crawledAt": "2026-07-29T22:57:33.742Z",
       "addressLocality": "Würenlingen",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1203,7 +1203,6 @@
         ]
       },
       "firstSeenAt": "2026-07-08T22:25:42.934Z",
-      "needsRetranslation": true,
       "salaryMin": 52000,
       "salaryMax": 78500,
       "baseSalary": {
@@ -1215,7 +1214,8 @@
           "maxValue": 78500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "holcim-930d09a79c32",
@@ -1248,7 +1248,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/W%C3%BCrenlingen-Laborantin-Bindemitteltechnologie-80-100-AG-5303/1359795357/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:42:32.880Z",
+      "crawledAt": "2026-07-29T22:57:33.296Z",
       "addressLocality": "Würenlingen",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1281,7 +1281,6 @@
         ]
       },
       "firstSeenAt": "2026-07-08T22:25:43.387Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -1293,7 +1292,8 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "holcim-50fd0d3e46b7",
@@ -1326,7 +1326,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/Untervaz-Anlagen-und-Apparatebauerin-GR-7204/1364250357/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:42:32.416Z",
+      "crawledAt": "2026-07-29T22:57:32.852Z",
       "addressLocality": "Untervaz",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -1359,7 +1359,6 @@
         ]
       },
       "firstSeenAt": "2026-07-08T22:25:52.910Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -1371,7 +1370,8 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "holcim-fd9804a1ae73",
@@ -1404,7 +1404,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/W%C3%BCrenlingen-Spezialistin-Aufbereitungstechnik-80-100-%28Operations-Excellence-Managerin%29-AG-5303/1357553857/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:42:31.945Z",
+      "crawledAt": "2026-07-29T22:57:32.412Z",
       "addressLocality": "Würenlingen",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1444,7 +1444,6 @@
         "operazioni-excellence-manager-agg-80-100-holcim-group-wurenlingen"
       ],
       "firstSeenAt": "2026-07-08T22:25:51.964Z",
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "baseSalary": {
@@ -1456,7 +1455,8 @@
           "maxValue": 129500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "holcim-f26ec4eb52d4",
@@ -1489,7 +1489,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/W%C3%BCrenlingen-Baumaschinenf%C3%BChrerin-im-Steinbruch-80-100-AG-5303/1366126257/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:42:31.472Z",
+      "crawledAt": "2026-07-29T22:57:31.977Z",
       "addressLocality": "Würenlingen",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1566,7 +1566,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/W%C3%BCrenlingen-Mitarbeiterin-f%C3%BCr-Betriebsstoffgruppe-AG-5303/1365752557/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:42:31.005Z",
+      "crawledAt": "2026-07-29T22:57:31.537Z",
       "addressLocality": "Würenlingen",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1644,7 +1644,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/Bi%C3%A8re-Machiniste-polyvalent-Bi%C3%A8re-VD-1145/1366311957/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-29T22:42:30.538Z",
+      "crawledAt": "2026-07-29T22:57:31.098Z",
       "addressLocality": "Bière",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1677,7 +1677,6 @@
         ]
       },
       "firstSeenAt": "2026-07-10T22:55:02.432Z",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -1689,7 +1688,8 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "holcim-73e174d33a12",
@@ -1722,7 +1722,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/Ecl%C3%A9pens-Project-Manager-VD-1312/1366460257/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-29T22:42:30.072Z",
+      "crawledAt": "2026-07-29T22:57:30.662Z",
       "addressLocality": "Eclépens",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1752,7 +1752,6 @@
         ]
       },
       "firstSeenAt": "2026-07-13T22:57:57.231Z",
-      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -1764,7 +1763,8 @@
           "maxValue": 126500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "holcim-097f9f53c70a",
@@ -1797,7 +1797,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/Kehrsiten-Baumaschinenf%C3%BChrerin-Allrounderin-NW-6365/1366127957/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:42:29.601Z",
+      "crawledAt": "2026-07-29T22:57:30.217Z",
       "addressLocality": "Kehrsiten",
       "addressRegion": "NW",
       "addressCountry": "CH",
@@ -1845,7 +1845,6 @@
         ]
       },
       "firstSeenAt": "2026-07-21T23:05:24.812Z",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -1857,7 +1856,8 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "holcim-1ca2fdb8a050",
@@ -1890,7 +1890,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/Untervaz-Baumaschinenf%C3%BChrerin-GR-7204/1361159157/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:42:29.120Z",
+      "crawledAt": "2026-07-29T22:57:29.729Z",
       "addressLocality": "Untervaz",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -1948,7 +1948,6 @@
         ]
       },
       "firstSeenAt": "2026-07-08T22:25:52.438Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -1960,7 +1959,8 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "holcim-1abb0f826975",
@@ -1993,7 +1993,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/Birsfelden-Matrosein-BL-4127/1352166957/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:42:28.641Z",
+      "crawledAt": "2026-07-29T22:57:29.275Z",
       "addressLocality": "Birsfelden",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -2026,7 +2026,6 @@
         ]
       },
       "firstSeenAt": "2026-07-10T12:52:15.945Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -2038,7 +2037,8 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "holcim-68f18d3bd0c0",
@@ -2071,7 +2071,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/W%C3%BCrenlingen-Schichtfachmann-Schichtfachfrau-in-Siggenthal-AG-5303/1366828857/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:42:28.168Z",
+      "crawledAt": "2026-07-29T22:57:28.832Z",
       "addressLocality": "Würenlingen",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2148,7 +2148,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/W%C3%BCrenlingen-ExperteExpertin-in-Automations-und-Steuerungstechnik-80-100-AG-5303/1367844357/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:42:27.691Z",
+      "crawledAt": "2026-07-29T22:57:28.378Z",
       "addressLocality": "Würenlingen",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2179,7 +2179,6 @@
         ]
       },
       "firstSeenAt": "2026-07-28T12:15:05.953Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -2191,7 +2190,8 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "holcim-13dd947bc254",
@@ -2224,7 +2224,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/Zurich-People-Business-Partner-&-Lead-Talent-Attraction-80-%28mwd%29-CH-%C2%AD8050/1367462757/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:42:27.226Z",
+      "crawledAt": "2026-07-29T22:57:27.939Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2252,7 +2252,6 @@
         ]
       },
       "firstSeenAt": "2026-07-23T11:43:16.154Z",
-      "needsRetranslation": true,
       "salaryMin": 81200,
       "salaryMax": 123200,
       "baseSalary": {
@@ -2264,7 +2263,8 @@
           "maxValue": 123200,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "holcim-93d4849194d3",
@@ -2297,7 +2297,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/W%C3%BCrenlingen-Project-&-Engineering-Manager-Grossprojekte-%28CapEx%29-AG-5303/1367774957/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:42:26.757Z",
+      "crawledAt": "2026-07-29T22:57:27.492Z",
       "addressLocality": "Würenlingen",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2322,7 +2322,6 @@
         ]
       },
       "firstSeenAt": "2026-07-27T12:54:37.930Z",
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "baseSalary": {
@@ -2334,7 +2333,8 @@
           "maxValue": 129500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "holcim-e9a89ca87e37",
@@ -2367,7 +2367,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/Untervaz-Koch-K%C3%B6chin-Personalrestaurant-60-70-GR-7204/1361996657/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:42:26.175Z",
+      "crawledAt": "2026-07-29T22:57:27.050Z",
       "addressLocality": "Untervaz",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -2444,7 +2444,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/W%C3%BCrenlingen-Health-&-Safety-%28H&S%29-Project-Manager-80-100-AG-5303/1361727957/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:42:24.821Z",
+      "crawledAt": "2026-07-29T22:57:26.611Z",
       "addressLocality": "Würenlingen",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2472,7 +2472,6 @@
         "health-amp-safety-h-amp-s-project-manager-80-100-holcim-ch"
       ],
       "firstSeenAt": "2026-07-08T22:25:42.496Z",
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "baseSalary": {
@@ -2484,7 +2483,8 @@
           "maxValue": 129500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "holcim-d568554a4494",
@@ -2517,7 +2517,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/Untervaz-Technikerin-HF-im-Bereich-Elektrotechnik-oder-Systemtechnik-GR-7204/1327558657/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:42:23.847Z",
+      "crawledAt": "2026-07-29T22:57:26.164Z",
       "addressLocality": "Untervaz",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -2548,7 +2548,6 @@
         ]
       },
       "firstSeenAt": "2026-07-08T22:25:47.422Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -2560,7 +2559,8 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "holcim-db6e7707f7be",
@@ -2593,7 +2593,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/Schaffhausen-Lastwagenf%C3%BChrerin-Beton-Shaf-8207/1364150157/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:42:23.379Z",
+      "crawledAt": "2026-07-29T22:57:25.720Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -2672,7 +2672,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/Untervaz-Schichtverantwortlicher-60-100-GR-7204/1364122157/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:42:22.913Z",
+      "crawledAt": "2026-07-29T22:57:25.280Z",
       "addressLocality": "Untervaz",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -2751,7 +2751,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/W%C3%BCrenlingen-Mechanikerin-80-100-AG-5303/829324802/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:42:22.452Z",
+      "crawledAt": "2026-07-29T22:57:24.833Z",
       "addressLocality": "Würenlingen",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2784,7 +2784,6 @@
         ]
       },
       "firstSeenAt": "2026-07-08T22:25:51.494Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -2796,7 +2795,8 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "holcim-713b82cea56b",
@@ -2829,7 +2829,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/Zurich-Specialist-Cash-Collection-&-Debitoren-CH-%C2%AD8050/1363033857/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:42:21.978Z",
+      "crawledAt": "2026-07-29T22:57:24.396Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2857,7 +2857,6 @@
         ]
       },
       "firstSeenAt": "2026-07-08T22:25:51.030Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -2869,7 +2868,8 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "holcim-0079f4bf9f26",
@@ -2902,7 +2902,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/W%C3%BCrenlingen-Baumaschinenmechanikerin-AG-5303/1365325057/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:42:21.502Z",
+      "crawledAt": "2026-07-29T22:57:23.948Z",
       "addressLocality": "Würenlingen",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2937,7 +2937,6 @@
         ]
       },
       "firstSeenAt": "2026-07-08T22:25:42.042Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -2949,7 +2948,8 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "holcim-8d3b1fb12a26",
@@ -2982,7 +2982,7 @@
       "url": "https://careers.holcimgroup.com/job/Zug-Corporate-Communications-intern-for-6-months-6300/1362016757/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-29T22:42:21.021Z",
+      "crawledAt": "2026-07-29T22:57:23.503Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -3056,7 +3056,7 @@
       "url": "https://careers.holcimgroup.com/job/Zug-Head-of-Logistics-Central-Eastern-Europe-%28CEE%29-6300/1365323157/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-29T22:42:20.541Z",
+      "crawledAt": "2026-07-29T22:57:23.062Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -3131,7 +3131,7 @@
       "url": "https://careers.holcimgroup.com/job/Zug-International-Mobility-Manager-6300/1367556757/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-29T22:42:20.079Z",
+      "crawledAt": "2026-07-29T22:57:22.613Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -3161,7 +3161,6 @@
         ]
       },
       "firstSeenAt": "2026-07-23T22:17:49.144Z",
-      "needsRetranslation": true,
       "salaryMin": 96000,
       "salaryMax": 146000,
       "baseSalary": {
@@ -3173,7 +3172,8 @@
           "maxValue": 146000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "holcim-db0c08f8ab7b",
@@ -3206,7 +3206,7 @@
       "url": "https://careers.holcimgroup.com/job/Zug-Global-Head-of-Specification-Selling-6300/1367627357/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-29T22:42:19.589Z",
+      "crawledAt": "2026-07-29T22:57:22.175Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -3283,7 +3283,7 @@
       "url": "https://careers.holcimgroup.com/job/Zug-Innovation-Process-Engineer-Thermal-6300/1358364657/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-29T22:42:19.115Z",
+      "crawledAt": "2026-07-29T22:57:21.724Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -3360,7 +3360,7 @@
       "url": "https://careers.holcimgroup.com/job/Zug-Head-of-Ready-to-Operate-CCUS-6300/1357793157/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-29T22:42:18.635Z",
+      "crawledAt": "2026-07-29T22:57:21.273Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "addressCountry": "CH",
