@@ -1,16 +1,16 @@
 {
   "key": "canton-valais",
   "label": "Canton du Valais",
-  "generatedAt": "2026-07-29T11:54:41.308Z",
-  "total": 12,
+  "generatedAt": "2026-07-29T22:33:14.505Z",
+  "total": 11,
   "newCount": 0,
   "updatedCount": 11,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 13407,
-  "avgDurationMs": 13407,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 12498,
+  "avgDurationMs": 12498,
   "durationHistory": [
-    13407
+    12498
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -26,7 +26,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=108497&publication=2630",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-29T11:54:31.381Z",
+      "crawledAt": "2026-07-29T22:33:04.728Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -62,7 +62,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=101419&publication=2630",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T11:54:32.136Z",
+      "crawledAt": "2026-07-29T22:33:05.390Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -98,7 +98,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=111893&publication=2630",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-29T11:54:32.834Z",
+      "crawledAt": "2026-07-29T22:33:06.032Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -134,7 +134,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=101159&publication=2630",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-29T11:54:33.542Z",
+      "crawledAt": "2026-07-29T22:33:06.661Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -170,7 +170,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=112454&publication=2630",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-29T11:54:34.233Z",
+      "crawledAt": "2026-07-29T22:33:07.265Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -206,7 +206,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=107177&publication=2629",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-29T11:54:34.937Z",
+      "crawledAt": "2026-07-29T22:33:07.907Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -242,7 +242,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=110385&publication=2629",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-29T11:54:35.630Z",
+      "crawledAt": "2026-07-29T22:33:08.528Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -278,7 +278,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=107976&publication=2629",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-29T11:54:36.338Z",
+      "crawledAt": "2026-07-29T22:33:09.175Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -314,7 +314,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=112048&publication=2629",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-29T11:54:37.022Z",
+      "crawledAt": "2026-07-29T22:33:09.806Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -350,7 +350,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=113381&publication=2629",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-29T11:54:37.735Z",
+      "crawledAt": "2026-07-29T22:33:10.463Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -386,7 +386,7 @@
       "url": "https://otb.apps.vs.ch/svc/api/joboffersdocument/20183?language=fr",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-29T11:54:38.433Z",
+      "crawledAt": "2026-07-29T22:33:11.105Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -411,8 +411,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "canton-valais-ccea40004fb4",
       "slug": "uno-psicologo-specializzato-nella-formazione-iniziale-60-80-canton-du-valais-sion",
@@ -452,5 +451,6 @@
         "completeness": 22
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
