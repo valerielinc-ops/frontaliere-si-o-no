@@ -1095,28 +1095,42 @@ function clustersForBorderWait(
 
   // Cross-category: fuel (nearest zone) + weekly employers (nearest city) +
   // cost-of-living (AE-4 nearest city) + job-market hub + frontier guide.
+  // Those 4 clusters (fuel/weekly/cost-of-living/job-market) are Ticino-only
+  // features (CROSSING_TO_FUEL_ZONE / CROSSING_TO_WEEKLY_CITY are `Partial`
+  // — undefined for non-Ticino crossings, e.g. the DE/AT/LI/FR corridors).
+  // Fabricating a "nearest Ticino zone/city" for a Basel or Vaduz crossing
+  // would be dishonest content, so those crossings fall back to the
+  // nationwide-applicable frontier guide + salary benchmarks hub instead.
   const fuelZone = CROSSING_TO_FUEL_ZONE[currentCrossing];
-  const weeklyCity = CROSSING_TO_WEEKLY_CITY[currentCrossing] as WeeklyEmployersCity;
-  const colCity = mapWeeklyCityToColCity(weeklyCity);
-  const cross: RelatedLink[] = [
-    {
+  const weeklyCity = CROSSING_TO_WEEKLY_CITY[currentCrossing];
+  const cross: RelatedLink[] = [];
+  if (fuelZone) {
+    cross.push({
       href: buildFuelTodayPath(locale as FuelDailyLocale, 'diesel', fuelZone),
       title: copy.fuelToday(fuelLabel(locale, 'diesel'), zoneLabel(fuelZone)),
-    },
-    {
-      href: buildCurrentWeekPath(locale as WeeklyEmployersLocale, weeklyCity),
-      title: copy.weeklyEmployers(cityDisplay(weeklyCity, locale)),
-    },
-    {
-      href: buildCostOfLivingLandingPath(locale as ColLocale, colCity),
-      title: copy.costOfLivingCity(COL_CITY_DISPLAY[colCity][locale as ColLocale]),
-    },
-    {
-      href: buildJobMarketHubPath(locale as JobMarketSnapshotLocale),
-      title: copy.jobMarketSnapshot,
-    },
-    { href: FRONTIER_GUIDE_PATH[locale], title: copy.frontierGuide },
-  ];
+    });
+  }
+  if (weeklyCity) {
+    const colCity = mapWeeklyCityToColCity(weeklyCity);
+    cross.push(
+      {
+        href: buildCurrentWeekPath(locale as WeeklyEmployersLocale, weeklyCity),
+        title: copy.weeklyEmployers(cityDisplay(weeklyCity, locale)),
+      },
+      {
+        href: buildCostOfLivingLandingPath(locale as ColLocale, colCity),
+        title: copy.costOfLivingCity(COL_CITY_DISPLAY[colCity][locale as ColLocale]),
+      },
+      {
+        href: buildJobMarketHubPath(locale as JobMarketSnapshotLocale),
+        title: copy.jobMarketSnapshot,
+      },
+    );
+  }
+  cross.push({ href: FRONTIER_GUIDE_PATH[locale], title: copy.frontierGuide });
+  if (!fuelZone && !weeklyCity) {
+    cross.push({ href: SALARY_HUB_PATH[locale], title: copy.salaryBenchmarks });
+  }
 
   return { sibling, hubs, cross, siblingHeadingKey: 'siblingCrossings' };
 }
@@ -1446,12 +1460,21 @@ function legacyFlatLinks(
     case 'border_wait': {
       const crossing = context.borderCrossing ?? 'chiasso-brogeda';
       const fuelZone = CROSSING_TO_FUEL_ZONE[crossing];
-      const nearCity = CROSSING_TO_WEEKLY_CITY[crossing] as WeeklyEmployersCity;
+      const nearCity = CROSSING_TO_WEEKLY_CITY[crossing];
+      const siblings = pickSiblingCrossings(crossing, 2);
+      // fuel/weekly are Ticino-only (Partial maps, undefined elsewhere —
+      // e.g. DE/AT/LI/FR corridors); fall back to the frontier guide +
+      // a 3rd sibling crossing instead of fabricating a nearest Ticino
+      // zone/city for a non-Ticino crossing.
       return [
-        { href: buildFuelTodayPath(fuelDailyLocale, 'diesel', fuelZone), title: copy.fuelToday(fuelLabel(locale, 'diesel'), zoneLabel(fuelZone)) },
-        { href: buildCurrentWeekPath(weeklyLocale, nearCity), title: copy.weeklyEmployers(cityDisplay(nearCity, locale)) },
-        { href: buildBorderOggiPath(borderLocale, pickSiblingCrossings(crossing, 1)[0]), title: copy.borderWaitCrossing(BORDER_CROSSING_DISPLAY[pickSiblingCrossings(crossing, 1)[0]]) },
-        { href: buildBorderOggiPath(borderLocale, pickSiblingCrossings(crossing, 2)[1]), title: copy.borderWaitCrossing(BORDER_CROSSING_DISPLAY[pickSiblingCrossings(crossing, 2)[1]]) },
+        ...(fuelZone
+          ? [{ href: buildFuelTodayPath(fuelDailyLocale, 'diesel', fuelZone), title: copy.fuelToday(fuelLabel(locale, 'diesel'), zoneLabel(fuelZone)) }]
+          : []),
+        ...(nearCity
+          ? [{ href: buildCurrentWeekPath(weeklyLocale, nearCity), title: copy.weeklyEmployers(cityDisplay(nearCity, locale)) }]
+          : [{ href: SALARY_HUB_PATH[locale], title: copy.salaryBenchmarks }]),
+        { href: buildBorderOggiPath(borderLocale, siblings[0]), title: copy.borderWaitCrossing(BORDER_CROSSING_DISPLAY[siblings[0]]) },
+        { href: buildBorderOggiPath(borderLocale, siblings[1]), title: copy.borderWaitCrossing(BORDER_CROSSING_DISPLAY[siblings[1]]) },
         { href: FRONTIER_GUIDE_PATH[locale], title: copy.frontierGuide },
       ];
     }
