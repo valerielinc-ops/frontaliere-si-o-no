@@ -73,9 +73,22 @@ function makeFixture(overrides: {
   mkdirSync(path.join(dir, 'data'), { recursive: true });
   mkdirSync(path.join(dir, 'services', 'locales'), { recursive: true });
   writeFileSync(path.join(dir, 'data', 'blog-articles-data.ts'), overrides.blogRegistry ?? cleanRegistry);
-  writeFileSync(path.join(dir, 'services', 'locales', 'blog-meta-it.ts'), overrides.blogMeta ?? cleanMeta);
   writeFileSync(path.join(dir, 'data', 'swiss-articles-data.ts'), overrides.swissRegistry ?? cleanRegistry);
-  writeFileSync(path.join(dir, 'services', 'locales', 'blog-meta-ch-it.ts'), overrides.swissMeta ?? cleanMeta);
+  // One meta file per locale per section: the gate checks all four, because
+  // the archive list is served on four locale routes and t() has no fallback
+  // on any of them. Overrides apply to IT (where the fixtures assert) and the
+  // other three get clean meta, so a test that injects an IT orphan proves the
+  // gate catches it without also tripping on unrelated locales.
+  for (const loc of ['it', 'en', 'de', 'fr']) {
+    writeFileSync(
+      path.join(dir, 'services', 'locales', `blog-meta-${loc}.ts`),
+      loc === 'it' ? (overrides.blogMeta ?? cleanMeta) : cleanMeta,
+    );
+    writeFileSync(
+      path.join(dir, 'services', 'locales', `blog-meta-ch-${loc}.ts`),
+      loc === 'it' ? (overrides.swissMeta ?? cleanMeta) : cleanMeta,
+    );
+  }
   return dir;
 }
 
@@ -100,8 +113,8 @@ describe('check-orphan-article-meta — real repo tree', () => {
   it('exits 0 on the current clean tree and checks BOTH sections', () => {
     const { status, output } = runCli(ROOT);
     expect(status).toBe(0);
-    expect(output).toMatch(/frontaliere: all \d+ registry ids have complete IT meta/);
-    expect(output).toMatch(/svizzera: all \d+ registry ids have complete IT meta/);
+    expect(output).toMatch(/frontaliere: all \d+ registry ids have complete meta in all 4 locales/);
+    expect(output).toMatch(/svizzera: all \d+ registry ids have complete meta in all 4 locales/);
   });
 });
 
@@ -182,6 +195,6 @@ describe('check-orphan-article-meta — fixtures', () => {
     expect(output).toMatch(/swiss-orphan: missing title, excerpt, imageAlt/);
     // frontaliere section (clean fixture data) must still report OK, not be
     // swallowed by the svizzera failure.
-    expect(output).toMatch(/frontaliere: all \d+ registry ids have complete IT meta/);
+    expect(output).toMatch(/frontaliere: all \d+ registry ids have complete meta in all 4 locales/);
   });
 });
