@@ -311,19 +311,26 @@ const CURRENCY = String.raw`(?:franchi\s+svizzeri|franchi|CHF|euro|EUR|€)`;
 // sits in that gap is closer to the figure than the income word is, and wins.
 // "Un residente con lo stesso stipendio lordo PAGA CIRCA 900 franchi di tasse"
 // opens on an income word but names a tax (`divario-salari-ticino-frontalieri-2026`).
-const INCOME_CUE = /(reddito|guadagn\w*|stipendio|salario|retribuzione|percep\w*)([^.\n]{0,40}?)$/i;
+const INCOME_CUE = /\b(reddito|guadagn\w*|stipendio|salario|retribuzione|percep\w*)([^.\n]{0,40}?)$/i;
 // An amount can also be named as income AFTER the figure. "ha pagato 4.500
 // franchi di tasse per ogni 1.000 franchi DI REDDITO" only reads as a 450% rate
 // once the 1.000 is recognised as the base; with leading cues alone the gate
 // latched onto a later amount and reported the right defect against the wrong
 // pair of numbers (`bossi-commemorazione-bagarrata`).
 const INCOME_CUE_TRAILING = /^\s*(?:di|d'|del|dello|della|delle|dei|sul|sui|su)\s*(?:reddito|stipendio|salario|retribuzione|guadagn\w*)/i;
-const TAX_CUE = /(?:impost\w*|tass\w*|pag\w*|trattenut\w*|prelievo|carico\s+fiscale|quota\s+di\s+imposta)/i;
+// "tass\w*" also matched `tasso`/`tassi` — the exchange RATE, not a tax. That
+// one collision blocked `franco-forte-stipendio-frontalieri`, whose only sin
+// was converting a salary: "guadagna 5.000 CHF netti al mese, convertendo a un
+// TASSO di 0,92, porta a casa circa 5.435 EUR" became a 109% tax.
+// The leading \b is load-bearing: unanchored, `pag\w*` matched the middle of
+// "equiPAGGi" and turned a charity donation into a tax
+// (`momoride-carpooling-frontalieri-benefici`).
+const TAX_CUE = /\b(?:impost\w*|tass[ae]\b|tassat\w*|tassazion\w*|tassabil\w*|pag\w*|trattenut\w*|prelievo|carico\s+fiscale|quota\s+di\s+imposta)/i;
 
 // Brackets, floors and caps: the amount marks where a rule starts or stops
 // applying, never what someone hands over. Excluded from the tax role only —
 // "un reddito di oltre 80.000 franchi" is still a usable income base.
-const THRESHOLD_CUE = /(?:oltre|pi[uù]\s+di|superior[ei]\s+a(?:i|l|lla|lle|gli)?|maggior[ei]\s+di|almeno|a\s+partire\s+da|fino\s+a(?:i|l|lla|lle|gli)?|massimo\s+di|al\s+massimo|non\s+oltre|meno\s+di|inferior[ei]\s+a(?:i|l|lla)?|sopra\s+i|sotto\s+i)\s*$/i;
+const THRESHOLD_CUE = /\b(?:oltre|pi[uù]\s+di|superior[ei]\s+a(?:i|l|lla|lle|gli)?|maggior[ei]\s+di|almeno|a\s+partire\s+da|fino\s+a(?:i|l|lla|lle|gli)?|massimo\s+di|al\s+massimo|non\s+oltre|meno\s+di|inferior[ei]\s+a(?:i|l|lla)?|sopra\s+i|sotto\s+i)\s*$/i;
 
 // Money that is demonstrably not a tax. TAX_CUE is deliberately loose (`pag\w*`
 // matches "pagamento", which in `funivia-monte-lema-stagione-2026` referred to
@@ -359,10 +366,14 @@ const SENTENCE_BREAK_RE = /(?<=[.!?;])\s+(?=[«"'([*•A-ZÀ-Ü])|\s*\|\s*/g;
  *    svizzeri)"). Same number, other currency: `frontalieri-calano-ticino` was
  *    blocked for a "tax" 104% of an income that was in fact that same income
  *    converted to francs one word later.
+ *  - a working with no percentage in it, "(80.000 CHF - 10.000 CHF)", which
+ *    shows where the figure in front of it came from. The 80.000 inside read
+ *    as a 114% tax on the 70.000 it derives
+ *    (`terzo-pilastro-3a-vantaggi-canton-ginevra`).
  */
 function restatementSpans(text) {
   const spans = [];
-  const re = /\([^)]*%[^)]*\)|\(\s*(?:circa|pari\s+a|equivalent\w*\s+a|corrispondent\w*\s+a|ossia|ovvero|cio[èe]|all'incirca|≈|~)[^)]*\)/gi;
+  const re = /\([^)]*%[^)]*\)|\(\s*(?:circa|pari\s+a|equivalent\w*\s+a|corrispondent\w*\s+a|ossia|ovvero|cio[èe]|all'incirca|≈|~)[^)]*\)|\([^)]*\d[^)]*[-−+x×*=/][^)]*\d[^)]*\)/gi;
   for (const m of text.matchAll(re)) {
     spans.push([m.index, m.index + m[0].length]);
   }
@@ -384,14 +395,23 @@ function periodOf(text, afterIndex) {
   return '';
 }
 
-/** Extracts every "<amount> <currency>" occurrence with its position. */
+/**
+ * Extracts every "<amount> <currency>" occurrence with its position.
+ *
+ * The apostrophe is the Swiss thousands separator and half the corpus writes
+ * salaries that way. Reading only `[\d.,]` truncated "4'500 CHF" to 500 and
+ * "80'000 CHF" to zero, which invented impossible ratios out of perfectly
+ * correct arithmetic — "guadagna 4'500 CHF al mese e paga 1'200 CHF di
+ * imposte" came out as a 120% tax (`frontaliere-ticino-panettiere-guadagno`,
+ * `quanto-guadagna-un-polimeccanico-frontaliere-in-ticino`).
+ */
 function extractAmounts(text) {
-  const re = new RegExp(String.raw`(\d[\d.,]*)\s*${CURRENCY}`, 'gi');
+  const re = new RegExp(String.raw`(\d[\d.,]*(?:['’]\d{3})*(?:[.,]\d+)?)\s*${CURRENCY}`, 'gi');
   const skip = restatementSpans(text);
   const out = [];
   for (const m of text.matchAll(re)) {
     if (skip.some(([s, e]) => m.index >= s && m.index < e)) continue;
-    const value = parseItalianNumber(m[1]);
+    const value = parseItalianNumber(m[1].replace(/['’]/g, ''));
     if (!Number.isFinite(value) || value <= 0) continue;
     out.push({
       value,
@@ -470,6 +490,12 @@ function* incomeTaxPairs(line) {
 
     for (const amt of local) {
       if (amt === income) continue;
+      // A second income is a second scenario, never the first one's tax. One
+      // sentence routinely carries both: "un paziente con un reddito di 50.000
+      // franchi pagherà il 10%, mentre un paziente con un reddito di 100.000
+      // franchi pagherà il 20%" was read as a 200% tax rate
+      // (`costi-cure-domocilio-ticino-2026`).
+      if (namesAnIncome(line, span, amt)) continue;
       if (periodsConflict(income, amt)) continue;
       if (Math.abs(amt.index - income.index) > MAX_PAIR_DISTANCE) continue;
 
@@ -479,8 +505,15 @@ function* incomeTaxPairs(line) {
       if (THRESHOLD_CUE.test(near)) continue;
       if (NON_TAX_CUE.test(near) && !TAX_CUE.test(near)) continue;
 
+      // The tax cue has to sit between the two figures, or right in front of
+      // the candidate — never upstream of the income. Reading back a flat 80
+      // characters let a tax word that belonged to the income's own clause
+      // qualify the alternative that followed it: "pagare le imposte solo sul
+      // reddito residuo di 70.000 CHF (…) o 72.500 CHF" flagged the second
+      // residual income as a 104% tax (`terzo-pilastro-3a-vantaggi-canton-ginevra`).
+      const floor = amt.index >= income.index ? Math.max(span.start, income.index) : span.start;
       const between = line.slice(income.index, amt.index);
-      const preceding = line.slice(Math.max(span.start, amt.index - 80), amt.index);
+      const preceding = line.slice(Math.max(floor, amt.index - 80), amt.index);
       // Only compare amounts that are actually presented as a tax.
       if (!TAX_CUE.test(between) && !TAX_CUE.test(preceding)) continue;
 
