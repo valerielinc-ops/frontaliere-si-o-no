@@ -1,8 +1,12 @@
 /**
  * Per-municipality FISCAL guide pages (epic #4482 / sub #4484).
  *
- * Emits, for every Italian border comune in the CO/VA/VB corridor that is
- * ABOVE the fiscal floor (data/fiscal-municipalities.json), a page:
+ * Emits, for every Italian border comune in the fiscal corridor (ALL 11
+ * provinces present in data/municipalities.ts — CO/VA/VB/SO/AO/VC/BS/BZ/MB/
+ * BG/TN, widened from the original CO/VA/VB-only cut by issue #4893; see
+ * scripts/build-fiscal-municipalities.mjs's CORRIDOR CRITERION doc comment
+ * for the numeric rationale) that is ABOVE the fiscal floor
+ * (data/fiscal-municipalities.json), a page:
  *
  *   /tasse-frontalieri-comune/{slug}/            (it, + 3 locale prefixes)
  *   "Tasse frontaliere residente a {comune}: vecchio vs nuovo regime"
@@ -19,7 +23,11 @@
  * Anti-cannibalization: the fiscal page cross-links to the existing
  * "vivere a {comune}" page (borderMunicipalityPagesPlugin) with a DISTINCT
  * intent in the title/H1 (fiscale vs vita), and vice-versa the two never share
- * a title.
+ * a title. That "vivere a" page family stays Ticino-only (CO/VA/VB —
+ * shared/borderMunicipalityCorridors.ts): the cross-link is gated on
+ * province membership (hasVitaLink()) so the 198 comuni added by #4893
+ * outside that narrower corridor never emit a link to a page that doesn't
+ * exist for them.
  */
 
 import fs from 'node:fs';
