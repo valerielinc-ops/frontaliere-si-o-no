@@ -1,6 +1,6 @@
 {
   "crawlerKey": "rado",
-  "assembledAt": "2026-07-29T11:43:45.865Z",
+  "assembledAt": "2026-07-29T22:07:59.643Z",
   "jobs": [
     {
       "id": "company-7ubgq6",
@@ -86,7 +86,9 @@
       "addressRegion": "BE",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "country": "CH"
+      "country": "CH",
+      "crawlerMissStreak": 1,
+      "needsRetranslation": true
     },
     {
       "id": "company-7ubgpk",
@@ -174,7 +176,9 @@
       "addressRegion": "BE",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "country": "CH"
+      "country": "CH",
+      "crawlerMissStreak": 1,
+      "needsRetranslation": true
     },
     {
       "id": "company-7ubgpi",
@@ -262,7 +266,9 @@
       "addressRegion": "BE",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "country": "CH"
+      "country": "CH",
+      "crawlerMissStreak": 1,
+      "needsRetranslation": true
     }
   ]
 }
