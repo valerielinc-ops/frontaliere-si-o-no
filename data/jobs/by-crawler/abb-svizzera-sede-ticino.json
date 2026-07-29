@@ -1,6 +1,6 @@
 {
   "crawlerKey": "abb-svizzera-sede-ticino",
-  "assembledAt": "2026-07-29T09:40:42.212Z",
+  "assembledAt": "2026-07-29T22:22:29.597Z",
   "jobs": [
     {
       "id": "company-sk5fye",
@@ -29,7 +29,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-07-29T11:57:02.900Z",
+      "crawledAt": "2026-07-29T22:22:28.275Z",
       "firstSeenAt": "2026-07-28T11:59:24.338Z",
       "titleByLocale": {
         "en": "Global Product Manager",
@@ -85,6 +85,7 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
       "salaryMin": 142000,
       "salaryMax": 249500
     },
@@ -113,7 +114,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-07-29T11:57:02.900Z",
+      "crawledAt": "2026-07-29T22:22:28.275Z",
       "firstSeenAt": "2026-07-24T11:28:01.819Z",
       "titleByLocale": {
         "en": "Sales, Service and Project Execution Regional Sales Leader Critical Power DACH",
@@ -174,6 +175,7 @@
       "addressRegion": "AG",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
       "salaryMin": 107000,
       "salaryMax": 187500
     },
@@ -200,7 +202,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-07-29T11:57:02.900Z",
+      "crawledAt": "2026-07-29T22:22:28.275Z",
       "firstSeenAt": "2026-07-24T11:28:01.819Z",
       "titleByLocale": {
         "it": "Senior Lead Ingegnere",
@@ -271,7 +273,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-07-29T11:57:02.900Z",
+      "crawledAt": "2026-07-29T22:22:28.275Z",
       "firstSeenAt": "2026-07-24T22:26:24.459Z",
       "titleByLocale": {
         "it": "Product Manager Sistemi e-Power mobili (m/w/d)",
@@ -324,6 +326,7 @@
       "addressRegion": "AG",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
       "salaryMin": 178000,
       "salaryMax": 313000
     },
@@ -350,7 +353,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-07-29T11:57:02.900Z",
+      "crawledAt": "2026-07-29T22:22:28.275Z",
       "firstSeenAt": "2026-07-23T22:14:38.167Z",
       "titleByLocale": {
         "it": "Finanza Analista (m/w/d) 80 - 100%",
@@ -411,6 +414,7 @@
       "addressRegion": "AG",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
       "salaryMin": 107000,
       "salaryMax": 187500
     },
@@ -419,7 +423,7 @@
       "slug": "global-category-specialista-power-components-abb-svizzera-sede-ticino-quartino-ticino-v0b0q8",
       "company": "ABB Svizzera (sede Ticino)",
       "title": "Global Category Specialist Power Components",
-      "location": "Quartino, Ticino",
+      "location": "Ticino",
       "canton": "TI",
       "category": "finance",
       "contract": "part-time",
@@ -437,7 +441,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-07-29T11:57:02.900Z",
+      "crawledAt": "2026-07-29T22:22:28.275Z",
       "firstSeenAt": "2026-07-23T22:14:38.167Z",
       "titleByLocale": {
         "it": "Global Category Specialista Power Components",
@@ -485,7 +489,8 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "salaryMin": 85500,
-      "salaryMax": 150000
+      "salaryMax": 150000,
+      "needsRetranslation": true
     },
     {
       "id": "company-4q2bcd",
@@ -510,7 +515,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-07-29T11:57:02.900Z",
+      "crawledAt": "2026-07-29T22:22:28.275Z",
       "firstSeenAt": "2026-07-23T22:14:38.167Z",
       "titleByLocale": {
         "it": "Global Quality Specialista - UPS",
@@ -557,6 +562,7 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 150000
     },
@@ -583,7 +589,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-07-29T11:57:02.900Z",
+      "crawledAt": "2026-07-29T22:22:28.275Z",
       "firstSeenAt": "2026-07-23T22:14:38.167Z",
       "titleByLocale": {
         "it": "Technical Sales Support Ingegnere (80-100%)",
@@ -628,6 +634,7 @@
       "addressRegion": "TG",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
       "salaryMin": 99000,
       "salaryMax": 174000
     },
@@ -654,10 +661,10 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-07-29T11:57:02.900Z",
+      "crawledAt": "2026-07-29T22:22:28.275Z",
       "firstSeenAt": "2026-07-21T11:35:09.458Z",
       "titleByLocale": {
-        "it": "Materiale Planner (IPU)",
+        "it": "Material Planner (IPU)",
         "en": "Material Planner (IPU)",
         "de": "Materialplaner (IPU)",
         "fr": "Planificateur de matériaux (IPU)"
@@ -724,6 +731,7 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 150000
     },
@@ -750,7 +758,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-07-29T11:57:02.900Z",
+      "crawledAt": "2026-07-29T22:22:28.275Z",
       "firstSeenAt": "2026-07-20T22:13:03.020Z",
       "titleByLocale": {
         "it": "Sales Specialista Panel Builder (80 - 100%)",
@@ -811,6 +819,7 @@
       "addressRegion": "AG",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
       "salaryMin": 64500,
       "salaryMax": 110000
     },
@@ -837,7 +846,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-07-29T11:57:02.900Z",
+      "crawledAt": "2026-07-29T22:22:28.275Z",
       "firstSeenAt": "2026-07-17T11:28:52.195Z",
       "titleByLocale": {
         "it": "Customer Quality Electronics Specialista",
@@ -884,6 +893,7 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 150000
     },
@@ -897,7 +907,7 @@
       "category": "finance",
       "contract": "full-time",
       "currency": "CHF",
-      "description": "<p>At <b>ABB</b>, we help industries run leaner and cleaner—and every person here makes that happen. You’ll be empowered to lead, supported to grow, and proud of the impact we create together. Join us and help run what runs the world.</p><p style=\"text-align:inherit !important\"></p><p style=\"text-align:left !important\"><b>This position reports to:</b></p>Regional Sales Manager Europe for Excitation & Hydropower<p style=\"text-align:inherit !important\"></p><p style=\"text-align:inherit !important\">__</p><p>At ABB, we are dedicated to addressing global challenges. Our core values: care, courage, curiosity, and collaboration - combined with a focus on diversity, inclusion, and equal opportunities - are key drivers in our aim to empower everyone to create sustainable solutions. That's our story. Make it your story.</p><p></p><p><b>Your role and responsibilities</b></p><p>In this role, you will be responsible to develop the Energy market by executing sales strategy aiming to meet the sales target and ensure high levels of customer satisfaction. You will create, and complete winning bids, estimations or quotations based on customer specification, customer requirements or budget to meet market competitiveness and high margin of the Energy Industries’ sales strategy to accomplish both qualitative and quantitative targets for the business line Excitation in a profitable way.</p><p></p><p>The work model for the role is: #LI-Hybrid</p><p></p><p>This role is contributing to the Energy Industries division in Switzerland.</p><p></p><p><b>You will be mainly accountable for:</b></p><ul><li>Customer Engagement: Build and maintain solid customer relationships, ensuring a positive experience and providing technical support during sales interactions.</li><li>Sales Execution: Enhance sales through strategic initiatives, value-based selling, target setting, and engaged participation in contract negotiations.</li><li>Bid Management: Manage the preparation of competitive bids and proposals, addressing technical, financial, and project aspects while identifying risks and ensuring accurate documentation.</li><li>Process & Compliance: Ensure compliance with internal guidelines, efficient use of tools, accurate forecasting, and support for administrative and reporting processes.</li></ul><p></p><p><b>\n• Qualifications for the role</b></p><ul><li>Bachelor/master’s Electrical Engineering</li><li>More than 8 years of experience in related field e.g., In Bids & Proposals/Engineering in power generation/industry projects or service</li><li>Previous experience in the field of Excitation- / power electronics systems / protection or synchronous generators will be a benefit</li><li>Experience in system modelling or simulation will be an advantage</li><li>Experience in developing strong customer and internal relationships locally and globally as well as enjoy working in a wide variety of cultures and in many different sectors</li><li>Fluent in English, German or French language beneficial</li><li>Willingness to engage directly with clients and teams worldwide—travel commitment up to 15%.</li></ul><p></p><p><b>More about us</b></p><p>ABB Energy Industries is enabling safe, smart and sustainable projects and operations for businesses across the oil, gas, chemicals, life sciences, power generation and water sectors. Driving integrated solutions that automate, digitalize and electrify industry we connect our people and technology to help our customers adapt and succeed. With over 50 years domain expertise, we continue to innovate and reshape traditional approaches across the energy sector with our technologies designed to improve operational efficiency, reduce risk, reduce energy consumption and waste.</p><p></p><p>Are you ready to take off a new journey with ABB? This is your opportunity! We look forward to receiving your application. The recruiting process is being led by Ceren Oezen, Talent Partner at ABB Switzerland Ltd. If you want to discover more about ABB, take another look at our website www.abb.com.</p><p></p><p>ABB Data Privacy Statement: https://new.abb.com/privacy-notice/candidate</p><p style=\"text-align:inherit !important\"></p><p style=\"text-align:left !important\">Building a cleaner, smarter future takes all kinds of minds: the curious, the courageous, and the creative. That's why we welcome people from all backgrounds and experiences.</p><p style=\"text-align:left !important\"> </p><p>Ready to make an impact? </p><p></p><p>Apply today or visit <a target=\"_blank\" href=\"https://www.abb.com\"><span style=\"color:#0000ff\"><b><u>https://www.abb.com</u></b></span></a> to learn more about the impact of our solutions across the globe.</p>",
+      "description": "<p>At <b>ABB</b>, we help industries run leaner and cleaner—and every person here makes that happen. You’ll be empowered to lead, supported to grow, and proud of the impact we create together. Join us and help run what runs the world.</p><p style=\"text-align:inherit !important\"></p><p style=\"text-align:left !important\"><b>This position reports to:</b></p>Regional Sales Manager Europe for Excitation & Hydropower<p style=\"text-align:inherit !important\"></p><p style=\"text-align:inherit !important\">__</p><p>At ABB, we are dedicated to addressing global challenges. Our core values: care, courage, curiosity, and collaboration - combined with a focus on diversity, inclusion, and equal opportunities - are key drivers in our aim to empower everyone to create sustainable solutions. That's our story. Make it your story.</p><p></p><p><b>Your role and responsibilities</b></p><p>In this role, you will be responsible to develop the Energy market by executing sales strategy aiming to meet the sales target and ensure high levels of customer satisfaction. You will create, and complete winning bids, estimations or quotations based on customer specification, customer requirements or budget to meet market competitiveness and high margin of the Energy Industries’ sales strategy to accomplish both qualitative and quantitative targets for the business line Excitation in a profitable way.</p><p></p><p>The work model for the role is: #LI-Hybrid</p><p><br /><span>This position does <b>not require relocation</b>. The successful candidate will be employed and hosted through their nearest suitable ABB office (our current ABB location)<b>*</b></span><br /> </p><p>This role is contributing to the Energy Industries division in Switzerland.</p><p></p><p><b>You will be mainly accountable for:</b></p><ul><li>Customer Engagement: Build and maintain solid customer relationships, ensuring a positive experience and providing technical support during sales interactions.</li><li>Sales Execution: Enhance sales through strategic initiatives, value-based selling, target setting, and engaged participation in contract negotiations.</li><li>Bid Management: Manage the preparation of competitive bids and proposals, addressing technical, financial, and project aspects while identifying risks and ensuring accurate documentation.</li><li>Process & Compliance: Ensure compliance with internal guidelines, efficient use of tools, accurate forecasting, and support for administrative and reporting processes.</li></ul><p></p><p><b>\n• Qualifications for the role</b></p><ul><li>Bachelor/master’s Electrical Engineering</li><li>More than 8 years of experience in related field e.g., In Bids & Proposals/Engineering in power generation/industry projects or service</li><li>Previous experience in the field of Excitation- / power electronics systems / medium - high voltage/ protection or synchronous generators</li><li>Experience in system modelling or simulation will be an advantage</li><li>Experience in developing efficient customer and internal relationships locally and globally as well as enjoy working in a wide variety of cultures and in many different sectors</li><li>Fluent in English, with German or French language beneficial</li><li>Willingness to engage directly with clients and teams worldwide—travel commitment up to 15%.</li></ul><p></p><p><b>More about us</b></p><p>ABB Energy Industries is enabling safe, smart and sustainable projects and operations for businesses across the oil, gas, chemicals, life sciences, power generation and water sectors. Driving integrated solutions that automate, digitalize and electrify industry we connect our people and technology to help our customers adapt and succeed. With over 50 years domain expertise, we continue to innovate and reshape traditional approaches across the energy sector with our technologies designed to improve operational efficiency, reduce risk, reduce energy consumption and waste.</p><p></p><p>Are you ready to take off a new journey with ABB? This is your opportunity! We look forward to receiving your application. If you want to discover more about ABB, take another look at our website www.abb.com.</p><p><br /><i><b>*</b>This opportunity is open to candidates in multiple countries, with the final work location determined based on the selected candidate. As compensation may vary by location, we are committed to being transparent throughout the hiring process and will share details of the salary range, variable compensation and benefits package with candidates who progress to the first interview stage for a location in the European Union, covered by the EU Pay Transparency Directive.</i></p><p><i>The final offer will be tailored based on your role location, experience, skills and qualifications, internal market positioning and alignment with ABB internal standards. </i></p><p></p><p>ABB Data Privacy Statement: https://new.abb.com/privacy-notice/candidate</p><p style=\"text-align:inherit !important\"></p><p style=\"text-align:left !important\">Building a cleaner, smarter future takes all kinds of minds: the curious, the courageous, and the creative. That's why we welcome people from all backgrounds and experiences.</p><p style=\"text-align:left !important\"> </p><p>Ready to make an impact? </p><p></p><p>Apply today or visit <a target=\"_blank\" href=\"https://www.abb.com\"><span style=\"color:#0000ff\"><b><u>https://www.abb.com</u></b></span></a> to learn more about the impact of our solutions across the globe.</p>",
       "requirements": [],
       "featured": false,
       "postedDate": "2026-07-17",
@@ -910,7 +920,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-07-29T11:57:02.900Z",
+      "crawledAt": "2026-07-29T22:22:28.275Z",
       "firstSeenAt": "2026-07-17T11:28:52.195Z",
       "titleByLocale": {
         "it": "Sales Specialista – Business Line Excitation (80-100%)",
@@ -955,6 +965,7 @@
       "addressRegion": "AG",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
       "salaryMin": 107000,
       "salaryMax": 187500
     },
@@ -981,7 +992,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-07-29T11:57:02.900Z",
+      "crawledAt": "2026-07-29T22:22:28.275Z",
       "firstSeenAt": "2026-07-17T11:28:52.195Z",
       "titleByLocale": {
         "it": "Analista M&A",
@@ -1030,6 +1041,7 @@
       "addressRegion": "ZH",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
       "salaryMin": 113000,
       "salaryMax": 198500
     },
@@ -1056,7 +1068,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-07-29T11:57:02.900Z",
+      "crawledAt": "2026-07-29T22:22:28.275Z",
       "firstSeenAt": "2026-07-17T22:24:17.785Z",
       "titleByLocale": {
         "it": "Sales Manager – Progetti Strategici Globali, Settore Minerario",
@@ -1121,6 +1133,7 @@
       "addressRegion": "AG",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
       "salaryMin": 178000,
       "salaryMax": 313000
     },
@@ -1147,7 +1160,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-07-29T11:57:02.900Z",
+      "crawledAt": "2026-07-29T22:22:28.275Z",
       "firstSeenAt": "2026-07-17T22:24:17.785Z",
       "titleByLocale": {
         "it": "End Sales Manager – Progetti Strategici Globali, Mining",
@@ -1200,6 +1213,7 @@
       "addressRegion": "AG",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
       "salaryMin": 178000,
       "salaryMax": 313000
     },
@@ -1226,7 +1240,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-07-29T11:57:02.900Z",
+      "crawledAt": "2026-07-29T22:22:28.275Z",
       "firstSeenAt": "2026-07-17T22:24:17.785Z",
       "titleByLocale": {
         "it": "Direttore vendite - Produttori di pannelli (80-100%)",
@@ -1276,6 +1290,7 @@
       "addressRegion": "AG",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
       "salaryMin": 178000,
       "salaryMax": 313000
     },
@@ -1302,7 +1317,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-07-29T11:57:02.900Z",
+      "crawledAt": "2026-07-29T22:22:28.275Z",
       "firstSeenAt": "2026-07-15T11:28:32.129Z",
       "slugByLocale": {
         "it": "stage-strategischer-einkauf-80-100-abb-svizzera-sede-ticino-schaffhausen",
@@ -1358,6 +1373,7 @@
           "internship-strategischer-einkauf-80-100-abb-svizzera-sede-ticino-schaffhausen-gzgcmy"
         ]
       },
+      "needsRetranslation": true,
       "salaryMin": 60000,
       "salaryMax": 102000
     },
@@ -1384,7 +1400,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-07-29T11:57:02.900Z",
+      "crawledAt": "2026-07-29T22:22:28.275Z",
       "firstSeenAt": "2026-07-14T11:08:48.231Z",
       "titleByLocale": {
         "it": "Technical Service Specialista - Gearless Mill Drive (80-100%)",
@@ -1430,7 +1446,8 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "salaryMin": 107000,
-      "salaryMax": 187500
+      "salaryMax": 187500,
+      "needsRetranslation": true
     },
     {
       "id": "company-q2s226",
@@ -1455,7 +1472,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-07-29T11:57:02.900Z",
+      "crawledAt": "2026-07-29T22:22:28.275Z",
       "firstSeenAt": "2026-07-14T22:17:51.360Z",
       "titleByLocale": {
         "it": "Specialista in test e laboratorio R&S (f/m/d) 80-100%",
@@ -1500,6 +1517,7 @@
       "addressRegion": "SH",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
       "salaryMin": 60000,
       "salaryMax": 102000
     },
@@ -1526,7 +1544,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-07-29T11:57:02.900Z",
+      "crawledAt": "2026-07-29T22:22:28.275Z",
       "firstSeenAt": "2026-07-14T22:17:51.360Z",
       "slugByLocale": {
         "it": "technical-support-ingegnere-80-100-abb-svizzera-sede-ticino-quartino-ticino-tooege",
@@ -1628,7 +1646,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-07-29T11:57:02.900Z",
+      "crawledAt": "2026-07-29T22:22:28.275Z",
       "firstSeenAt": "2026-07-14T22:17:51.360Z",
       "titleByLocale": {
         "it": "Responsabile di Progetto R&D (f/m/d) 80-100%",
@@ -1703,7 +1721,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-07-29T11:57:02.900Z",
+      "crawledAt": "2026-07-29T22:22:28.275Z",
       "firstSeenAt": "2026-07-10T23:23:02.570Z",
       "titleByLocale": {
         "it": "Gerente Global de Sistemas de Energía Móvil Electrónica – Tracción de Movimiento",
@@ -1755,6 +1773,7 @@
       "addressRegion": "AG",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
       "salaryMin": 99500,
       "salaryMax": 151000
     },
@@ -1781,7 +1800,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-07-29T11:57:02.900Z",
+      "crawledAt": "2026-07-29T22:22:28.275Z",
       "firstSeenAt": "2026-07-10T12:36:33.860Z",
       "slugByLocale": {
         "it": "process-quality-specialista-80-100-abb-svizzera-sede-ticino-quartino-ticino-u6aw32",
@@ -1847,6 +1866,7 @@
         "specialiste-qualite-des-processus-80-100-abb-svizzera-sede-ticino-quartino-ticino",
         "specialiste-qualite-processus-80-100-abb-svizzera-sede-ticino-quartino-ticino"
       ],
+      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 150000
     },
@@ -1873,7 +1893,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-07-29T11:57:02.900Z",
+      "crawledAt": "2026-07-29T22:22:28.275Z",
       "firstSeenAt": "2026-07-10T10:26:11.298Z",
       "titleByLocale": {
         "it": "R&D (Senior)Testing & Lab Ingegnere",
@@ -1918,6 +1938,7 @@
       "addressRegion": "AG",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
       "salaryMin": 99500,
       "salaryMax": 151000
     },
@@ -1944,7 +1965,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-07-29T11:57:02.900Z",
+      "crawledAt": "2026-07-29T22:22:28.275Z",
       "firstSeenAt": "2026-07-10T10:26:11.298Z",
       "titleByLocale": {
         "it": "Maintenance Specialista",
@@ -2027,12 +2048,12 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-07-29T11:57:02.900Z",
+      "crawledAt": "2026-07-29T22:22:28.275Z",
       "firstSeenAt": "2026-07-06T22:24:49.189Z",
       "titleByLocale": {
         "it": "(80 - 100%) Allenatore tecnico - Elettronica di potenza",
         "en": "(80 - 100%) Technical Trainer - Power Electronics",
-        "de": "(80 - 100%) Technischer Trainer - Power Electronics",
+        "de": "(80 - 100%) Technical Trainer - Power Electronics",
         "fr": "(80 - 100%) Technical Trainer - Power Electronics"
       },
       "descriptionByLocale": {
@@ -2086,6 +2107,7 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 150000
     },
@@ -2112,7 +2134,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-07-29T11:57:02.900Z",
+      "crawledAt": "2026-07-29T22:22:28.275Z",
       "firstSeenAt": "2026-07-06T22:24:49.189Z",
       "titleByLocale": {
         "it": "Production Shift Supervisore (80–100%)",
@@ -2158,6 +2180,7 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "8200",
+      "needsRetranslation": true,
       "salaryMin": 60000,
       "salaryMax": 102000
     },
@@ -2184,7 +2207,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-07-29T11:57:02.900Z",
+      "crawledAt": "2026-07-29T22:22:28.275Z",
       "firstSeenAt": "2026-07-06T22:24:49.189Z",
       "titleByLocale": {
         "it": "Field Service Technician (Midlands / Regione di Berna) (80-100%)",
@@ -2232,6 +2255,7 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "5400",
+      "needsRetranslation": true,
       "salaryMin": 88000,
       "salaryMax": 123000
     },
@@ -2258,7 +2282,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-07-29T11:57:02.900Z",
+      "crawledAt": "2026-07-29T22:22:28.275Z",
       "firstSeenAt": "2026-07-22T12:33:42.277Z",
       "slugByLocale": {
         "it": "sales-ingegnere-french-fluency-required-80-100-abb-svizzera-sede-ticino-morges-vaud-k6p09l",
@@ -2304,7 +2328,8 @@
         "sales-engineer-french-fluency-required-80-100-abb-svizzera-sede-ticino-morges-vaud"
       ],
       "salaryMin": 104500,
-      "salaryMax": 183500
+      "salaryMax": 183500,
+      "needsRetranslation": true
     },
     {
       "id": "company-3fu7v8",
@@ -2329,7 +2354,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-07-29T11:57:02.900Z",
+      "crawledAt": "2026-07-29T22:22:28.275Z",
       "firstSeenAt": "2026-07-06T22:24:49.189Z",
       "titleByLocale": {
         "it": "Field Service Ingegnere",
@@ -2401,7 +2426,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-07-29T11:57:02.900Z",
+      "crawledAt": "2026-07-29T22:22:28.275Z",
       "firstSeenAt": "2026-07-06T22:24:49.189Z",
       "titleByLocale": {
         "it": "(Senior) Scienziato nei sistemi di distribuzione basati su convertitori (80 - 100%)",
@@ -2496,7 +2521,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-07-29T11:57:02.900Z",
+      "crawledAt": "2026-07-29T22:22:28.275Z",
       "firstSeenAt": "2026-07-06T22:24:49.189Z",
       "titleByLocale": {
         "it": "Sales Specialista OEM (Talent Pool) | 80–100%",
@@ -2542,6 +2567,7 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "5400",
+      "needsRetranslation": true,
       "salaryMin": 107000,
       "salaryMax": 187500
     }
