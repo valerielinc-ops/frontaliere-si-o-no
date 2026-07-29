@@ -476,9 +476,17 @@ describe('Sitemap — every IT canonical URL is in sitemap.xml', () => {
     it(`${label} → sitemap has ${buildPath(route, 'it')}`, () => {
       const itPath = buildPath(route, 'it');
       const fullUrl = `${BASE_URL}${itPath}`;
+      // The remediation hint matters: `public/sitemap-pages.xml` is a static
+      // committed file that Vite copies verbatim, so it does NOT pick up new
+      // routes on its own. Border-wait crossings drifted silently this way
+      // when BORDER_WAIT_CROSSINGS grew (#4952) — the failure was caught here,
+      // but told nobody there is a script that fixes it.
+      const remedy = activeTab === 'border'
+        ? '\n  Fix: node scripts/sync-border-wait-static-sitemap.mjs (regenerates the crossing block from BORDER_WAIT_CROSSINGS).'
+        : '\n  Fix: add the URL to the matching public/sitemap-*.xml, or to the generator that emits it.';
       expect(
         sitemapContent.includes(fullUrl),
-        `Missing from sitemap.xml: ${fullUrl}`
+        `Missing from sitemap.xml: ${fullUrl}${remedy}`
       ).toBe(true);
     });
   }

@@ -371,9 +371,10 @@ function renderTable(locale, rows, trend, t) {
  */
 export function buildBorderWaitRankingArticle({ ranking, trend, funFacts, weekStart, weekEnd, movers, todayIso }) {
   // Evergreen id/copy is Ticino-only ("Classifica delle dogane in Ticino") —
-  // BORDER_WAIT_CROSSINGS now also covers the 67 Germany-corridor crossings
-  // (#4889/#4952), so this must additionally exclude non-Ticino slugs or a
-  // German crossing could surface as this Ticino-only article's best/worst.
+  // BORDER_WAIT_CROSSINGS now also covers the 108 non-Ticino Germany/
+  // Austria/Liechtenstein/France-corridor crossings (#4889/#4952), so this
+  // must additionally exclude non-Ticino slugs or a foreign crossing could
+  // surface as this Ticino-only article's best/worst.
   const known = ranking.filter((r) => BORDER_WAIT_CROSSINGS.includes(r.slug) && isTicinoCrossing(r.slug));
   const best = known.slice(0, MAX_TOP);
   const worst = known.slice(-MAX_TOP).reverse();
