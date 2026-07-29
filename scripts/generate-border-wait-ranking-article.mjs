@@ -67,10 +67,11 @@ export function computeSnapshot(todayIso, historyDir = HISTORY_DIR) {
   // This snapshot feeds the evergreen "Classifica delle dogane in Ticino"
   // article + its embedded live chart (buildRankingJson below) — both
   // Ticino-only by identity. computeRanking/computeTrend are generic
-  // aggregation over ALL registered crossings (now 93, incl. the 67
-  // Germany-corridor ones from #4889), so scope to Ticino here, once,
-  // before funFacts/movers derive from it — otherwise a German crossing
-  // could surface as this Ticino-only article's best/worst/biggest mover.
+  // aggregation over ALL registered crossings (now 134, incl. the 108
+  // non-Ticino Germany/Austria/Liechtenstein/France-corridor ones from
+  // #4889), so scope to Ticino here, once, before funFacts/movers derive
+  // from it — otherwise a foreign crossing could surface as this
+  // Ticino-only article's best/worst/biggest mover.
   const rankingAll = computeRanking(historyDir, todayIso, { days: 7 });
   const ranking = rankingAll
     .filter((r) => isTicinoCrossing(r.slug))

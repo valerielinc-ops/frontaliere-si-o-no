@@ -4,8 +4,8 @@
  * Covers:
  *  - Slug tables + path builders for all 4 locales × (root + regional hubs + crossings)
  *  - Route enumeration (BORDER_WAIT_ROUTES = locales × (1 + regions + crossings), derived
- *    from the live registries — see borderWaitData.ts, expanded post-#4889 from 26 to 93
- *    crossings across 8 regions)
+ *    from the live registries — see borderWaitData.ts, expanded post-#4889 from 26 to 134
+ *    crossings across 17 regions)
  *  - Page generation: ≥50 words per page (MIN_INDEXABLE_WORDS), JSON-LD
  *    present & parseable, canonical self-referent, webcam section renders
  *    conditionally, related-links block present
@@ -84,9 +84,9 @@ const MINIMAL_CURRENT: BorderWaitCurrent = {
 // ── Slug / path tests ─────────────────────────────────────────────
 
 describe('borderWaitData — slug tables + path builders', () => {
-  it('exports exactly 93 crossings, all unique (post-#4889 expansion from 26)', () => {
-    expect(BORDER_WAIT_CROSSINGS).toHaveLength(93);
-    expect(new Set(BORDER_WAIT_CROSSINGS).size).toBe(93);
+  it('exports exactly 134 crossings, all unique (post-#4889 expansion from 26)', () => {
+    expect(BORDER_WAIT_CROSSINGS).toHaveLength(134);
+    expect(new Set(BORDER_WAIT_CROSSINGS).size).toBe(134);
   });
 
   it('TOP_5_CROSSINGS is a strict subset of 5 crossings', () => {
@@ -114,10 +114,10 @@ describe('borderWaitData — slug tables + path builders', () => {
     expect(buildOggiPath('fr', 'chiasso-brogeda')).toMatch(/^\/fr\/temps-attente-douane\//);
   });
 
-  it('root + regional + crossing routes total 408 (4 locales × (1 + 8 regions + 93 crossings))', () => {
+  it('root + regional + crossing routes total 608 (4 locales × (1 + 17 regions + 134 crossings))', () => {
     const expected = BORDER_WAIT_LOCALES.length * (1 + BORDER_WAIT_REGIONS.length + BORDER_WAIT_CROSSINGS.length);
     expect(BORDER_WAIT_ROUTES).toHaveLength(expected);
-    expect(expected).toBe(408);
+    expect(expected).toBe(608);
     expect(new Set(BORDER_WAIT_ROUTES).size).toBe(expected);
   });
 

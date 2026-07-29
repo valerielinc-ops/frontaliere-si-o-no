@@ -250,10 +250,19 @@ function cantonAdministrativeAreaName(code: string, locale: BorderWaitLocale): s
  * Country-specific tokens for the leaf-page `paragraph()` copy: the
  * customs-checkpoint nationality and the bare country name used in
  * "returning to X after work" / "in direzione X" phrasing. Every existing
- * preposition in the 4 locale templates (in/to/nach/en) already agrees with
- * a bare country name, so only the name itself varies — except the
- * customs adjective, which needs its fully agreed/declined form per locale
- * (masc. sg. IT, invariant EN, dative-declined DE, masc. pl. FR).
+ * preposition in the IT/EN/DE templates (in/to/nach) already agrees with a
+ * bare country name regardless of the target country's grammatical gender,
+ * so only the name itself varies there — except the customs adjective,
+ * which needs its fully agreed/declined form per locale (masc. sg. IT,
+ * invariant EN, dative-declined DE, masc. pl. FR).
+ *
+ * The FR template is the one exception: French distinguishes "en" (feminine
+ * countries — Italie, Allemagne, Autriche, France) from "au" (masculine,
+ * no-article countries — Liechtenstein). `frDestinationPreposition`
+ * (optional, defaults to 'en' at the call site) exists solely to carry that
+ * one override; do not add more locale-specific preposition fields here
+ * unless another FR-only grammar exception actually surfaces — IT/EN/DE
+ * have no equivalent gender-agreement problem with any of AT/LI/FR.
  *
  * Keyed by REGION_TO_COUNTRY's country code (see that map's doc comment in
  * borderWaitData.ts) — exhaustive Record on purpose: a region added for a
@@ -263,24 +272,38 @@ function cantonAdministrativeAreaName(code: string, locale: BorderWaitLocale): s
 interface ParagraphCountryTokens {
   name: string;
   customsAdjective: string;
+  /** FR-only: 'au' for masculine no-article countries (Liechtenstein). Defaults to 'en' at the call site. */
+  frDestinationPreposition?: 'en' | 'au';
 }
 
-const PARAGRAPH_COUNTRY_TOKENS: Record<BorderWaitLocale, Record<'IT' | 'DE', ParagraphCountryTokens>> = {
+const PARAGRAPH_COUNTRY_TOKENS: Record<BorderWaitLocale, Record<'IT' | 'DE' | 'AT' | 'LI' | 'FR', ParagraphCountryTokens>> = {
   it: {
     IT: { name: 'Italia', customsAdjective: 'italiano' },
     DE: { name: 'Germania', customsAdjective: 'tedesco' },
+    AT: { name: 'Austria', customsAdjective: 'austriaco' },
+    LI: { name: 'Liechtenstein', customsAdjective: 'liechtensteinese' },
+    FR: { name: 'Francia', customsAdjective: 'francese' },
   },
   en: {
     IT: { name: 'Italy', customsAdjective: 'Italian' },
     DE: { name: 'Germany', customsAdjective: 'German' },
+    AT: { name: 'Austria', customsAdjective: 'Austrian' },
+    LI: { name: 'Liechtenstein', customsAdjective: 'Liechtenstein' },
+    FR: { name: 'France', customsAdjective: 'French' },
   },
   de: {
     IT: { name: 'Italien', customsAdjective: 'italienischen' },
     DE: { name: 'Deutschland', customsAdjective: 'deutschen' },
+    AT: { name: 'Österreich', customsAdjective: 'österreichischen' },
+    LI: { name: 'Liechtenstein', customsAdjective: 'liechtensteinischen' },
+    FR: { name: 'Frankreich', customsAdjective: 'französischen' },
   },
   fr: {
     IT: { name: 'Italie', customsAdjective: 'italiens' },
     DE: { name: 'Allemagne', customsAdjective: 'allemands' },
+    AT: { name: 'Autriche', customsAdjective: 'autrichiens' },
+    LI: { name: 'Liechtenstein', customsAdjective: 'liechtensteinois', frDestinationPreposition: 'au' },
+    FR: { name: 'France', customsAdjective: 'français' },
   },
 };
 
@@ -460,6 +483,15 @@ interface Copy {
   regionalLabelZurigoGermania: string;
   regionalLabelSciaffusaGermania: string;
   regionalLabelTurgoviaGermania: string;
+  regionalLabelSanGalloAustria: string;
+  regionalLabelGrigioniAustria: string;
+  regionalLabelSanGalloLiechtenstein: string;
+  regionalLabelGrigioniLiechtenstein: string;
+  regionalLabelGeneveFrancia: string;
+  regionalLabelVaudFrancia: string;
+  regionalLabelNeuchatelFrancia: string;
+  regionalLabelGiuraFrancia: string;
+  regionalLabelValleseFrancia: string;
   noHistory: string;
   chartDataAccruing: string;
   staticFallbackBanner: string;
@@ -524,6 +556,15 @@ const COPY: Record<BorderWaitLocale, Copy> = {
     regionalLabelZurigoGermania: 'Zurigo–Germania',
     regionalLabelSciaffusaGermania: 'Sciaffusa–Germania',
     regionalLabelTurgoviaGermania: 'Turgovia–Germania',
+    regionalLabelSanGalloAustria: 'San Gallo–Austria',
+    regionalLabelGrigioniAustria: 'Grigioni–Austria',
+    regionalLabelSanGalloLiechtenstein: 'San Gallo–Liechtenstein',
+    regionalLabelGrigioniLiechtenstein: 'Grigioni–Liechtenstein',
+    regionalLabelGeneveFrancia: 'Ginevra–Francia',
+    regionalLabelVaudFrancia: 'Vaud–Francia',
+    regionalLabelNeuchatelFrancia: 'Neuchâtel–Francia',
+    regionalLabelGiuraFrancia: 'Giura–Francia',
+    regionalLabelValleseFrancia: 'Vallese–Francia',
     noHistory:
       'Storico in accumulo: gli archivi mensili e i pattern di 30 giorni appariranno non appena ci saranno dati sufficienti.',
     chartDataAccruing:
@@ -559,7 +600,7 @@ const COPY: Record<BorderWaitLocale, Copy> = {
       },
     ],
     rootIntro: (count) =>
-      `Panoramica completa dei ${count} valichi di frontiera svizzeri monitorati in tempo reale dalla nostra pipeline, sui corridoi Ticino–Italia e Svizzera–Germania. Scegliere il valico giusto può farti risparmiare 20–30 minuti per ogni viaggio. Sul corridoio Ticino–Italia, nei giorni feriali Chiasso-Brogeda e Gaggiolo sono i più congestionati durante i picchi pendolari 06:30–08:30 (direzione IT→CH) e 17:00–19:00 (direzione CH→IT); i valichi minori come Crociale dei Mulini, Drezzo-Pedrinate o Clivio-Ligornetto hanno capacità inferiore ma code quasi sempre inferiori ai 5 minuti. Sul corridoio Svizzera–Germania i valichi coprono i cantoni di Basilea, Argovia, Zurigo, Sciaffusa e Turgovia: la disponibilità del dato live varia da valico a valico, consulta la pagina del singolo passaggio per lo stato aggiornato.`,
+      `Panoramica completa dei ${count} valichi di frontiera svizzeri monitorati in tempo reale dalla nostra pipeline, sui corridoi Ticino–Italia, Svizzera–Germania, Svizzera–Austria, Svizzera–Liechtenstein e Svizzera–Francia. Scegliere il valico giusto può farti risparmiare 20–30 minuti per ogni viaggio. Sul corridoio Ticino–Italia, nei giorni feriali Chiasso-Brogeda e Gaggiolo sono i più congestionati durante i picchi pendolari 06:30–08:30 (direzione IT→CH) e 17:00–19:00 (direzione CH→IT); i valichi minori come Crociale dei Mulini, Drezzo-Pedrinate o Clivio-Ligornetto hanno capacità inferiore ma code quasi sempre inferiori ai 5 minuti. Sul corridoio Svizzera–Germania i valichi coprono i cantoni di Basilea, Argovia, Zurigo, Sciaffusa e Turgovia. Il corridoio Svizzera–Austria copre i cantoni di San Gallo e Grigioni, quello Svizzera–Liechtenstein gli stessi due cantoni verso il Principato, e il corridoio Svizzera–Francia copre Ginevra, Vaud, Neuchâtel, Giura e Vallese: la disponibilità del dato live varia da valico a valico, consulta la pagina del singolo passaggio per lo stato aggiornato.`,
     regionalIntro: (r, count) =>
       `La regione ${r} raggruppa ${count} valichi di frontiera monitorati in tempo reale. Questo hub mostra lo stato live di ciascun passaggio e consiglia quello con attesa minore in questo momento. Ricorda che gli orari di punta pendolare concentrano solitamente i volumi sui valichi autostradali o principali, mentre i valichi locali restano più spesso fluidi anche nelle ore di traffico intenso.`,
   },
@@ -614,6 +655,15 @@ const COPY: Record<BorderWaitLocale, Copy> = {
     regionalLabelZurigoGermania: 'Zurich–Germany',
     regionalLabelSciaffusaGermania: 'Schaffhausen–Germany',
     regionalLabelTurgoviaGermania: 'Thurgau–Germany',
+    regionalLabelSanGalloAustria: 'St. Gallen–Austria',
+    regionalLabelGrigioniAustria: 'Graubünden–Austria',
+    regionalLabelSanGalloLiechtenstein: 'St. Gallen–Liechtenstein',
+    regionalLabelGrigioniLiechtenstein: 'Graubünden–Liechtenstein',
+    regionalLabelGeneveFrancia: 'Geneva–France',
+    regionalLabelVaudFrancia: 'Vaud–France',
+    regionalLabelNeuchatelFrancia: 'Neuchâtel–France',
+    regionalLabelGiuraFrancia: 'Jura–France',
+    regionalLabelValleseFrancia: 'Valais–France',
     noHistory:
       'History is being collected: monthly archives and 30-day weekly patterns will appear as soon as enough data is available.',
     chartDataAccruing:
@@ -649,7 +699,7 @@ const COPY: Record<BorderWaitLocale, Copy> = {
       },
     ],
     rootIntro: (count) =>
-      `Complete overview of the ${count} Swiss border crossings monitored in real time by our pipeline, across the Ticino–Italy and Switzerland–Germany corridors. Picking the right crossing can save you 20–30 minutes per trip. On the Ticino–Italy corridor, weekday Chiasso-Brogeda and Gaggiolo are the most congested during the commuter peaks 06:30–08:30 (IT→CH direction) and 17:00–19:00 (CH→IT direction); smaller crossings like Crociale dei Mulini, Drezzo-Pedrinate or Clivio-Ligornetto have lower capacity but queues almost always under 5 minutes. On the Switzerland–Germany corridor the crossings span the cantons of Basel, Aargau, Zurich, Schaffhausen and Thurgau — live-data coverage varies crossing by crossing, so check each crossing's own page for the current status.`,
+      `Complete overview of the ${count} Swiss border crossings monitored in real time by our pipeline, across the Ticino–Italy, Switzerland–Germany, Switzerland–Austria, Switzerland–Liechtenstein and Switzerland–France corridors. Picking the right crossing can save you 20–30 minutes per trip. On the Ticino–Italy corridor, weekday Chiasso-Brogeda and Gaggiolo are the most congested during the commuter peaks 06:30–08:30 (IT→CH direction) and 17:00–19:00 (CH→IT direction); smaller crossings like Crociale dei Mulini, Drezzo-Pedrinate or Clivio-Ligornetto have lower capacity but queues almost always under 5 minutes. On the Switzerland–Germany corridor the crossings span the cantons of Basel, Aargau, Zurich, Schaffhausen and Thurgau. The Switzerland–Austria corridor covers the cantons of St. Gallen and Graubünden, the Switzerland–Liechtenstein corridor the same two cantons toward the Principality, and the Switzerland–France corridor covers Geneva, Vaud, Neuchâtel, Jura and Valais — live-data coverage varies crossing by crossing, so check each crossing's own page for the current status.`,
     regionalIntro: (r, count) =>
       `The ${r} region groups ${count} monitored border crossings. This hub shows the live status of each and recommends the one with the shortest wait right now. Keep in mind that commuter peaks usually concentrate traffic on the main motorway or trunk-road crossings, while local crossings more often stay fluid even during heavy commute hours.`,
   },
@@ -704,6 +754,15 @@ const COPY: Record<BorderWaitLocale, Copy> = {
     regionalLabelZurigoGermania: 'Zürich–Deutschland',
     regionalLabelSciaffusaGermania: 'Schaffhausen–Deutschland',
     regionalLabelTurgoviaGermania: 'Thurgau–Deutschland',
+    regionalLabelSanGalloAustria: 'St. Gallen–Österreich',
+    regionalLabelGrigioniAustria: 'Graubünden–Österreich',
+    regionalLabelSanGalloLiechtenstein: 'St. Gallen–Liechtenstein',
+    regionalLabelGrigioniLiechtenstein: 'Graubünden–Liechtenstein',
+    regionalLabelGeneveFrancia: 'Genf–Frankreich',
+    regionalLabelVaudFrancia: 'Waadt–Frankreich',
+    regionalLabelNeuchatelFrancia: 'Neuenburg–Frankreich',
+    regionalLabelGiuraFrancia: 'Jura–Frankreich',
+    regionalLabelValleseFrancia: 'Wallis–Frankreich',
     noHistory:
       'Historie wird aufgebaut: Monatliche Archive und 30-Tage-Wochenmuster erscheinen, sobald genügend Daten vorhanden sind.',
     chartDataAccruing:
@@ -739,7 +798,7 @@ const COPY: Record<BorderWaitLocale, Copy> = {
       },
     ],
     rootIntro: (count) =>
-      `Vollständiger Überblick über die ${count} Schweizer Grenzübergänge, die unsere Pipeline in Echtzeit überwacht, auf den Korridoren Tessin–Italien und Schweiz–Deutschland. Die richtige Wahl des Übergangs kann 20–30 Minuten pro Fahrt sparen. Auf dem Korridor Tessin–Italien sind an Werktagen Chiasso-Brogeda und Gaggiolo während der Pendler-Stosszeiten 06:30–08:30 (Richtung IT→CH) und 17:00–19:00 (Richtung CH→IT) am stärksten belastet; kleinere Übergänge wie Crociale dei Mulini, Drezzo-Pedrinate oder Clivio-Ligornetto haben geringere Kapazität, aber fast immer Wartezeiten unter 5 Minuten. Auf dem Korridor Schweiz–Deutschland verteilen sich die Übergänge auf die Kantone Basel, Aargau, Zürich, Schaffhausen und Thurgau — die Live-Datenabdeckung ist von Übergang zu Übergang unterschiedlich, den aktuellen Status findest du auf der jeweiligen Übergangsseite.`,
+      `Vollständiger Überblick über die ${count} Schweizer Grenzübergänge, die unsere Pipeline in Echtzeit überwacht, auf den Korridoren Tessin–Italien, Schweiz–Deutschland, Schweiz–Österreich, Schweiz–Liechtenstein und Schweiz–Frankreich. Die richtige Wahl des Übergangs kann 20–30 Minuten pro Fahrt sparen. Auf dem Korridor Tessin–Italien sind an Werktagen Chiasso-Brogeda und Gaggiolo während der Pendler-Stosszeiten 06:30–08:30 (Richtung IT→CH) und 17:00–19:00 (Richtung CH→IT) am stärksten belastet; kleinere Übergänge wie Crociale dei Mulini, Drezzo-Pedrinate oder Clivio-Ligornetto haben geringere Kapazität, aber fast immer Wartezeiten unter 5 Minuten. Auf dem Korridor Schweiz–Deutschland verteilen sich die Übergänge auf die Kantone Basel, Aargau, Zürich, Schaffhausen und Thurgau. Der Korridor Schweiz–Österreich umfasst die Kantone St. Gallen und Graubünden, der Korridor Schweiz–Liechtenstein dieselben zwei Kantone Richtung Fürstentum, und der Korridor Schweiz–Frankreich umfasst Genf, Waadt, Neuenburg, Jura und Wallis — die Live-Datenabdeckung ist von Übergang zu Übergang unterschiedlich, den aktuellen Status findest du auf der jeweiligen Übergangsseite.`,
     regionalIntro: (r, count) =>
       `Die Region ${r} umfasst ${count} überwachte Grenzübergänge. Dieser Hub zeigt den Live-Status jedes einzelnen und empfiehlt denjenigen mit der kürzesten Wartezeit im Moment. Beachten Sie, dass Pendlerspitzen den Verkehr meist auf die grossen Autobahn- oder Hauptübergänge konzentrieren, während lokale Übergänge häufiger auch in Stosszeiten flüssig bleiben.`,
   },
@@ -761,7 +820,7 @@ const COPY: Record<BorderWaitLocale, Copy> = {
         "Données en direct indisponibles pour le moment. Les valeurs ci-dessous sont des moyennes historiques du poste — à utiliser comme référence.",
     },
     paragraph: (c, direction, country, bestHour, worstHour) =>
-      `Planifiez votre passage par ${c} en consultant d'abord la valeur actuelle et, lorsqu'elle est disponible, la webcam en direct. Sur les 30 derniers jours la meilleure heure de transit (direction ${direction}) a été ${bestHour}, la pire ${worstHour}. Cette page est régénérée à chaque déploiement — les données live proviennent de la collection Firestore alimentée par le cron de trafic TomTom, les mêmes chiffres que la carte interactive du site. Si vous rentrez en ${country.name} après le travail, notez que le flux du soir inverse souvent la direction : entre 17h et 19h ${c} aussi peut afficher des files dans le sens opposé à celui du matin. Pour les frontaliers réguliers, gardez toujours votre pièce d'identité à portée de main : même dans l'espace Schengen, le passage de ${c} peut faire l'objet de contrôles aléatoires sur les véhicules, les marchandises et les déclarations douanières (importations alimentaires au-delà de la franchise personnelle, espèces au-delà de 10 000 CHF, substances réglementées). Les contrôles les plus ciblés se concentrent entre 06h00–08h00 en direction de la Suisse et 17h00–19h30 au retour en ${country.name}, soit pendant les pics pendulaires. Si vous conduisez un véhicule de société immatriculé en Suisse, gardez la lettre d'autorisation de l'employeur et une copie de la carte grise dans la boîte à gants : cela évite les interrogations prolongées aux postes douaniers ${country.customsAdjective}.`,
+      `Planifiez votre passage par ${c} en consultant d'abord la valeur actuelle et, lorsqu'elle est disponible, la webcam en direct. Sur les 30 derniers jours la meilleure heure de transit (direction ${direction}) a été ${bestHour}, la pire ${worstHour}. Cette page est régénérée à chaque déploiement — les données live proviennent de la collection Firestore alimentée par le cron de trafic TomTom, les mêmes chiffres que la carte interactive du site. Si vous rentrez ${country.frDestinationPreposition ?? 'en'} ${country.name} après le travail, notez que le flux du soir inverse souvent la direction : entre 17h et 19h ${c} aussi peut afficher des files dans le sens opposé à celui du matin. Pour les frontaliers réguliers, gardez toujours votre pièce d'identité à portée de main : même dans l'espace Schengen, le passage de ${c} peut faire l'objet de contrôles aléatoires sur les véhicules, les marchandises et les déclarations douanières (importations alimentaires au-delà de la franchise personnelle, espèces au-delà de 10 000 CHF, substances réglementées). Les contrôles les plus ciblés se concentrent entre 06h00–08h00 en direction de la Suisse et 17h00–19h30 au retour ${country.frDestinationPreposition ?? 'en'} ${country.name}, soit pendant les pics pendulaires. Si vous conduisez un véhicule de société immatriculé en Suisse, gardez la lettre d'autorisation de l'employeur et une copie de la carte grise dans la boîte à gants : cela évite les interrogations prolongées aux postes douaniers ${country.customsAdjective}.`,
     updatedLabel: 'Mis à jour',
     currentStatusLabel: 'État actuel',
     waitMinutesLabel: "Minutes d'attente",
@@ -794,6 +853,15 @@ const COPY: Record<BorderWaitLocale, Copy> = {
     regionalLabelZurigoGermania: 'Zurich–Allemagne',
     regionalLabelSciaffusaGermania: 'Schaffhouse–Allemagne',
     regionalLabelTurgoviaGermania: 'Thurgovie–Allemagne',
+    regionalLabelSanGalloAustria: 'Saint-Gall–Autriche',
+    regionalLabelGrigioniAustria: 'Grisons–Autriche',
+    regionalLabelSanGalloLiechtenstein: 'Saint-Gall–Liechtenstein',
+    regionalLabelGrigioniLiechtenstein: 'Grisons–Liechtenstein',
+    regionalLabelGeneveFrancia: 'Genève–France',
+    regionalLabelVaudFrancia: 'Vaud–France',
+    regionalLabelNeuchatelFrancia: 'Neuchâtel–France',
+    regionalLabelGiuraFrancia: 'Jura–France',
+    regionalLabelValleseFrancia: 'Valais–France',
     noHistory:
       "Historique en construction : archives mensuelles et tendances 30 jours apparaîtront dès que suffisamment de données seront collectées.",
     chartDataAccruing:
@@ -829,7 +897,7 @@ const COPY: Record<BorderWaitLocale, Copy> = {
       },
     ],
     rootIntro: (count) =>
-      `Vue d'ensemble complète des ${count} passages frontière suisses surveillés en temps réel par notre pipeline, sur les corridors Tessin–Italie et Suisse–Allemagne. Choisir le bon passage peut vous faire gagner 20–30 minutes par trajet. Sur le corridor Tessin–Italie, en semaine Chiasso-Brogeda et Gaggiolo sont les plus chargés pendant les pointes pendulaires 06:30–08:30 (direction IT→CH) et 17:00–19:00 (direction CH→IT) ; les passages mineurs comme Crociale dei Mulini, Drezzo-Pedrinate ou Clivio-Ligornetto ont une capacité plus faible mais des files presque toujours inférieures à 5 minutes. Sur le corridor Suisse–Allemagne les passages couvrent les cantons de Bâle, Argovie, Zurich, Schaffhouse et Thurgovie — la disponibilité de la donnée live varie d'un passage à l'autre, consultez la page de chaque passage pour son état actuel.`,
+      `Vue d'ensemble complète des ${count} passages frontière suisses surveillés en temps réel par notre pipeline, sur les corridors Tessin–Italie, Suisse–Allemagne, Suisse–Autriche, Suisse–Liechtenstein et Suisse–France. Choisir le bon passage peut vous faire gagner 20–30 minutes par trajet. Sur le corridor Tessin–Italie, en semaine Chiasso-Brogeda et Gaggiolo sont les plus chargés pendant les pointes pendulaires 06:30–08:30 (direction IT→CH) et 17:00–19:00 (direction CH→IT) ; les passages mineurs comme Crociale dei Mulini, Drezzo-Pedrinate ou Clivio-Ligornetto ont une capacité plus faible mais des files presque toujours inférieures à 5 minutes. Sur le corridor Suisse–Allemagne les passages couvrent les cantons de Bâle, Argovie, Zurich, Schaffhouse et Thurgovie. Le corridor Suisse–Autriche couvre les cantons de Saint-Gall et des Grisons, le corridor Suisse–Liechtenstein les deux mêmes cantons vers la Principauté, et le corridor Suisse–France couvre Genève, Vaud, Neuchâtel, le Jura et le Valais — la disponibilité de la donnée live varie d'un passage à l'autre, consultez la page de chaque passage pour son état actuel.`,
     regionalIntro: (r, count) =>
       `La région ${r} regroupe ${count} passages frontière surveillés. Ce hub montre l'état en direct de chacun et recommande celui avec la file la plus courte en ce moment. Notez que les pointes pendulaires concentrent généralement le trafic sur les grands postes autoroutiers ou principaux, tandis que les passages locaux restent plus souvent fluides même en heures chargées.`,
   },
@@ -877,6 +945,15 @@ function regionLabel(copy: Copy, region: BorderCrossingRegion): string {
     'zurigo-germania': copy.regionalLabelZurigoGermania,
     'sciaffusa-germania': copy.regionalLabelSciaffusaGermania,
     'turgovia-germania': copy.regionalLabelTurgoviaGermania,
+    'san-gallo-austria': copy.regionalLabelSanGalloAustria,
+    'grigioni-austria': copy.regionalLabelGrigioniAustria,
+    'san-gallo-liechtenstein': copy.regionalLabelSanGalloLiechtenstein,
+    'grigioni-liechtenstein': copy.regionalLabelGrigioniLiechtenstein,
+    'geneve-francia': copy.regionalLabelGeneveFrancia,
+    'vaud-francia': copy.regionalLabelVaudFrancia,
+    'neuchatel-francia': copy.regionalLabelNeuchatelFrancia,
+    'giura-francia': copy.regionalLabelGiuraFrancia,
+    'vallese-francia': copy.regionalLabelValleseFrancia,
   };
   return byRegion[region];
 }

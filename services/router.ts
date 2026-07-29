@@ -353,6 +353,56 @@ export const ALL_BORDER_CROSSING_IDS = [
  'konstanz-tagerwilen-gottlieber-strasse',
  'konstanz-tagerwilen-autostrada-b33n-a7',
  'konstanz-kreuzlingen',
+ // Austria — SG (8)
+ 'rheineck-gai-au',
+ 'st-margrethen-hochst',
+ 'au-lustenau',
+ 'widnau-lustenau',
+ 'diepoldsau-hohenems',
+ 'kriessern-mader',
+ 'montlingen-koblach',
+ 'ruthi-meiningen',
+ // Austria — GR (2)
+ 'martina-nauders',
+ 'samnaun-spiss',
+ // Liechtenstein — SG (5)
+ 'trubbach-balzers',
+ 'sevelen-vaduz',
+ 'buchs-schaan',
+ 'haag-bendern',
+ 'salez-ruggell',
+ // Liechtenstein — GR (1)
+ 'st-luzisteig',
+ // Francia — GE (10)
+ 'bardonnex',
+ 'ferney-voltaire-grand-saconnex',
+ 'meyrin-cern',
+ 'thonex-vallard',
+ 'moillesulaz',
+ 'perly',
+ 'anieres',
+ 'sauverny',
+ 'hermance',
+ 'landecy',
+ // Francia — VD (6)
+ 'vallorbe-jougne',
+ 'la-cure-les-rousses',
+ 'l-auberson-les-fourgs',
+ 'le-brassus-bois-d-amont',
+ 'crassier-divonne',
+ 'chavannes-de-bogis-divonne',
+ // Francia — NE (3)
+ 'les-verrieres',
+ 'col-des-roches',
+ 'biaufond',
+ // Francia — JU (3)
+ 'boncourt-delle',
+ 'fahy-abbevillers',
+ 'goumois',
+ // Francia — VS (3)
+ 'le-chatelard-vallorcine',
+ 'saint-gingolph',
+ 'morgins-chatel',
 ] as const;
 
 export type BorderCrossingId = (typeof ALL_BORDER_CROSSING_IDS)[number];
