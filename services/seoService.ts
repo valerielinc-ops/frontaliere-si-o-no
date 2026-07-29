@@ -4996,6 +4996,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-rendita-avs-critica-eichenberger': { name: 'Pensione Svizzera', path: '/articoli-svizzera/rendita-avs-critica-eichenberger/', parent: 'blog' },
     'blog-pensioni-agosto-2026-cedolino-inps': { name: 'Pensioni 2026', path: '/articoli-frontaliere/pensioni-agosto-2026-cedolino-inps', parent: 'blog' },
     'blog-storia-vigilanza-bancaria-svizzera': { name: 'Vigilanza bancaria', path: '/articoli-svizzera/storia-vigilanza-bancaria-svizzera/', parent: 'blog' },
+    'blog-caso-zali-politica-ticino-prospettive': { name: 'Politica Ticino', path: '/articoli-frontaliere/caso-zali-politica-ticino-prospettive', parent: 'blog' },
  };
 
  const info = sectionNames[section];

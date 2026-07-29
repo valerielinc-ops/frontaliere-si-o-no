@@ -9115,6 +9115,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.pensioni-agosto-2026-cedolino-inps.title': 'Pensions August 2026: INPS payroll and changes in amount',
     'blog.article.pensioni-agosto-2026-cedolino-inps.excerpt': 'Analysis of the timing of the INPS coupon of August 2026 and the factors that affect the amount of the pension for workers.',
     'blog.article.pensioni-agosto-2026-cedolino-inps.imageAlt': 'Panoramic view of Lugano with the lake, symbol of cross-border work',
+    'blog.article.caso-zali-politica-ticino-prospettive.title': 'After the Zali case: Ticino looks to the future',
+    'blog.article.caso-zali-politica-ticino-prospettive.excerpt': 'The resignation of Minister Zali marks a delicate moment for the Canton of Ticino. Politics tries to turn the page and resume daily work.',
+    'blog.article.caso-zali-politica-ticino-prospettive.imageAlt': 'Government building in Bellinzona, Ticino',
 };
 
 export default blogMetaEn;

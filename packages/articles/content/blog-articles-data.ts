@@ -27363,6 +27363,15 @@ const RAW_ARTICLES = [
  authorSlug: 'laura-bianchi',
  authorName: 'Laura Bianchi',
  },
+ {
+ id: 'caso-zali-politica-ticino-prospettive',
+ category: 'novita',
+ date: '2026-07-29T16:44:00.687Z',
+ image: '/images/blog/caso-zali-politica-ticino-prospettive.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

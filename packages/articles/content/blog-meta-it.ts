@@ -9116,6 +9116,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.pensioni-agosto-2026-cedolino-inps.title': 'Pensioni agosto 2026: cedolino INPS e variazioni importo',
     'blog.article.pensioni-agosto-2026-cedolino-inps.excerpt': 'Analisi sulle tempistiche del cedolino INPS di agosto 2026 e i fattori che influenzano l\'importo della pensione per i lavoratori.',
     'blog.article.pensioni-agosto-2026-cedolino-inps.imageAlt': 'Vista panoramica di Lugano con il lago, simbolo del lavoro transfrontaliero',
+    'blog.article.caso-zali-politica-ticino-prospettive.title': 'Dopo il caso Zali: il Ticino guarda al futuro',
+    'blog.article.caso-zali-politica-ticino-prospettive.excerpt': 'Le dimissioni del ministro Zali segnano un momento delicato per il Canton Ticino. La politica cerca di voltare pagina e riprendere il lavoro quotidiano.',
+    'blog.article.caso-zali-politica-ticino-prospettive.imageAlt': 'Palazzo delle Orsoline a Bellinzona, sede del Governo ticinese',
 };
 
 export default blogMetaIt;
