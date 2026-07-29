@@ -139,27 +139,15 @@ function maskAcronyms(text) {
 const hasNothingToTranslate = (masked) =>
   !/\p{Ll}/u.test(String(masked).replace(/0NAV\d+0|0ACR\d+0/g, ''));
 
-/**
- * The shared nav mask emits `0NAVLINK<n>0`, which still contains a translatable
- * English word: French MT returns `0NAVLIEN<n>0`, the restore count then fails
- * and a whole file is skipped over one link. Re-mask those tokens into the same
- * wordless, digit-delimited shape the acronym mask uses before MT sees them.
- * The shared regex stays single-sourced in article-free-mt.mjs — this only
- * rewrites the token it produces.
- */
-function shieldNavTokens(text) {
-  return {
-    masked: String(text).replace(/0NAVLINK(\d+)0/g, (_m, i) => `0NAV${i}0`),
-    unshield: (s) => String(s).replace(/0NAV(\d+)0/g, (_m, i) => `0NAVLINK${i}0`),
-  };
-}
-
 /** Translate one markdown block, preserving internal nav-links. */
 async function translateBlock(block, locale) {
   if (!block.trim()) return '';
   const { masked: navMasked, expected, restore } = maskNavLinks(block);
-  const shield = shieldNavTokens(navMasked);
-  const acr = maskAcronyms(shield.masked);
+  // The shared mask now emits a wordless `0NAV<n>0` sentinel — see the note in
+  // article-free-mt.mjs. This script used to re-mask it locally because the old
+  // `0NAVLINK<n>0` carried a translatable English word that French MT turned into
+  // `0NAVLIEN<n>0`; the fix moved upstream, so the local shield is gone.
+  const acr = maskAcronyms(navMasked);
   if (hasNothingToTranslate(acr.masked)) return block;
   const raw = await freeTranslateWithRetry({
     text: acr.masked, sourceLang: 'it', targetLang: locale, fieldType: 'description',
@@ -172,7 +160,6 @@ async function translateBlock(block, locale) {
     if (!a.ok) throw new Error(`acronym sentinel mangled (expected ${acr.expected})`);
     restored = a.text;
   }
-  restored = shield.unshield(restored);
   if (expected > 0) {
     const r = restore(restored);
     if (!r.ok) throw new Error(`nav-link sentinel mangled (expected ${expected})`);
