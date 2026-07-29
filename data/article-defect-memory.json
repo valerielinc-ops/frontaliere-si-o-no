@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-07-29T18:38:55.212Z",
+  "updatedAt": "2026-07-29T19:17:27.320Z",
   "entities": {
     "AASTI": {
       "status": "suspect",
@@ -172,17 +172,45 @@
       "statusSource": "auto",
       "statusAt": "2026-07-29T06:26:58.011Z",
       "firstSeen": "2026-07-29T06:26:58.011Z",
-      "lastSeen": "2026-07-29T18:38:55.212Z",
-      "seen": 21,
+      "lastSeen": "2026-07-29T19:17:27.320Z",
+      "seen": 25,
       "unsupportedSightings": 0,
       "unsupportedRuns": [],
-      "supportedSightings": 3,
+      "supportedSightings": 7,
       "names": [
         "Amministrazione federale delle contribuzioni",
         "Amministrazione Federale delle Contribuzioni"
       ],
       "recentKeys": [],
       "evidence": [
+        {
+          "at": "2026-07-29T19:17:27.320Z",
+          "runId": "30480929135",
+          "articleId": "lavoro-part-time-svizzera-diritti",
+          "support": "present",
+          "name": "Amministrazione federale delle contribuzioni"
+        },
+        {
+          "at": "2026-07-29T19:17:27.320Z",
+          "runId": "30480929135",
+          "articleId": "lavoro-part-time-svizzera-diritti",
+          "support": "present",
+          "name": "Amministrazione Federale delle Contribuzioni"
+        },
+        {
+          "at": "2026-07-29T19:17:27.320Z",
+          "runId": "30480929135",
+          "articleId": "lavoro-part-time-svizzera-diritti",
+          "support": "present",
+          "name": "Amministrazione Federale delle Contribuzioni"
+        },
+        {
+          "at": "2026-07-29T19:17:27.320Z",
+          "runId": "30480929135",
+          "articleId": "lavoro-part-time-svizzera-diritti",
+          "support": "present",
+          "name": "Amministrazione Federale delle Contribuzioni"
+        },
         {
           "at": "2026-07-29T18:38:55.212Z",
           "runId": "30477280585",
@@ -208,34 +236,6 @@
           "at": "2026-07-29T06:26:58.011Z",
           "runId": "corpus-scan",
           "articleId": "terzo-pilastro-3a-vantaggi-2026",
-          "support": "unknown",
-          "name": "Amministrazione Federale delle Contribuzioni"
-        },
-        {
-          "at": "2026-07-29T06:26:58.011Z",
-          "runId": "corpus-scan",
-          "articleId": "sulzer-ristrutturazione-chemtech-2026",
-          "support": "unknown",
-          "name": "Amministrazione Federale delle Contribuzioni"
-        },
-        {
-          "at": "2026-07-29T06:26:58.011Z",
-          "runId": "corpus-scan",
-          "articleId": "saldatore-frontaliere-ticino-guida",
-          "support": "unknown",
-          "name": "Amministrazione Federale delle Contribuzioni"
-        },
-        {
-          "at": "2026-07-29T06:26:58.011Z",
-          "runId": "corpus-scan",
-          "articleId": "redditi-estero-controllo-fiscale",
-          "support": "unknown",
-          "name": "Amministrazione Federale delle Contribuzioni"
-        },
-        {
-          "at": "2026-07-29T06:26:58.011Z",
-          "runId": "corpus-scan",
-          "articleId": "quellensteuer-tarife-2026",
           "support": "unknown",
           "name": "Amministrazione Federale delle Contribuzioni"
         }
@@ -590,17 +590,39 @@
       "statusSource": "auto",
       "statusAt": "2026-07-29T06:26:58.011Z",
       "firstSeen": "2026-07-29T06:26:58.011Z",
-      "lastSeen": "2026-07-29T06:26:58.011Z",
-      "seen": 12,
+      "lastSeen": "2026-07-29T19:17:27.320Z",
+      "seen": 15,
       "unsupportedSightings": 0,
       "unsupportedRuns": [],
-      "supportedSightings": 0,
+      "supportedSightings": 3,
       "names": [
+        "Amministrazione federale delle contribuzioni o dall'Ufficio federale di statistica",
         "Ufficio Federale di Statistica",
         "Ufficio federale di statistica"
       ],
       "recentKeys": [],
       "evidence": [
+        {
+          "at": "2026-07-29T19:17:27.320Z",
+          "runId": "30480929135",
+          "articleId": "lavoro-part-time-svizzera-diritti",
+          "support": "present",
+          "name": "Amministrazione federale delle contribuzioni o dall'Ufficio federale di statistica"
+        },
+        {
+          "at": "2026-07-29T19:17:27.320Z",
+          "runId": "30480929135",
+          "articleId": "lavoro-part-time-svizzera-diritti",
+          "support": "present",
+          "name": "Ufficio Federale di Statistica"
+        },
+        {
+          "at": "2026-07-29T19:17:27.320Z",
+          "runId": "30480929135",
+          "articleId": "lavoro-part-time-svizzera-diritti",
+          "support": "present",
+          "name": "Ufficio Federale di Statistica"
+        },
         {
           "at": "2026-07-29T06:26:58.011Z",
           "runId": "corpus-scan",
@@ -633,27 +655,6 @@
           "at": "2026-07-29T06:26:58.011Z",
           "runId": "corpus-scan",
           "articleId": "frontaliere-veterinario-ticino-requisiti",
-          "support": "unknown",
-          "name": "Ufficio Federale di Statistica"
-        },
-        {
-          "at": "2026-07-29T06:26:58.011Z",
-          "runId": "corpus-scan",
-          "articleId": "frontaliere-magazziniere-logistica-ticino",
-          "support": "unknown",
-          "name": "Ufficio Federale di Statistica"
-        },
-        {
-          "at": "2026-07-29T06:26:58.011Z",
-          "runId": "corpus-scan",
-          "articleId": "vivere-luino-lavorare-ticino",
-          "support": "unknown",
-          "name": "Ufficio Federale di Statistica"
-        },
-        {
-          "at": "2026-07-29T06:26:58.011Z",
-          "runId": "corpus-scan",
-          "articleId": "pemsa-lugano-servizi-frontalieri",
           "support": "unknown",
           "name": "Ufficio Federale di Statistica"
         }
@@ -4253,11 +4254,11 @@
       "statusSource": "auto",
       "statusAt": "2026-07-29T06:26:58.011Z",
       "firstSeen": "2026-07-29T06:26:58.011Z",
-      "lastSeen": "2026-07-29T06:26:58.011Z",
-      "seen": 11,
+      "lastSeen": "2026-07-29T19:17:27.320Z",
+      "seen": 14,
       "unsupportedSightings": 0,
       "unsupportedRuns": [],
-      "supportedSightings": 0,
+      "supportedSightings": 3,
       "names": [
         "Ufficio federale delle migrazioni",
         "Segreteria di Stato della migrazione",
@@ -4267,6 +4268,27 @@
       ],
       "recentKeys": [],
       "evidence": [
+        {
+          "at": "2026-07-29T19:17:27.320Z",
+          "runId": "30480929135",
+          "articleId": "lavoro-part-time-svizzera-diritti",
+          "support": "present",
+          "name": "Segreteria di Stato della migrazione"
+        },
+        {
+          "at": "2026-07-29T19:17:27.320Z",
+          "runId": "30480929135",
+          "articleId": "lavoro-part-time-svizzera-diritti",
+          "support": "present",
+          "name": "Segreteria di Stato della migrazione"
+        },
+        {
+          "at": "2026-07-29T19:17:27.320Z",
+          "runId": "30480929135",
+          "articleId": "lavoro-part-time-svizzera-diritti",
+          "support": "present",
+          "name": "Segreteria di Stato della migrazione"
+        },
         {
           "at": "2026-07-29T06:26:58.011Z",
           "runId": "corpus-scan",
@@ -4301,27 +4323,6 @@
           "articleId": "ucraini-in-svizzera-permesso-s-b-timori-dei-cantoni",
           "support": "unknown",
           "name": "Segreteria di Stato della migrazione"
-        },
-        {
-          "at": "2026-07-29T06:26:58.011Z",
-          "runId": "corpus-scan",
-          "articleId": "permesso-s-salari-bassi-ticino",
-          "support": "unknown",
-          "name": "Segreteria di Stato della migrazione"
-        },
-        {
-          "at": "2026-07-29T06:26:58.011Z",
-          "runId": "corpus-scan",
-          "articleId": "mercato-lavoro-svizzera-rallenta-estate-2024",
-          "support": "unknown",
-          "name": "Segreteria di Stato della Migrazione"
-        },
-        {
-          "at": "2026-07-29T06:26:58.011Z",
-          "runId": "corpus-scan",
-          "articleId": "integrazione-lavoro-stranieri-ticino-2026",
-          "support": "unknown",
-          "name": "Ufficio federale per le migrazioni"
         }
       ]
     },
@@ -6456,11 +6457,11 @@
       "statusSource": "auto",
       "statusAt": "2026-07-29T06:26:58.011Z",
       "firstSeen": "2026-07-29T06:26:58.011Z",
-      "lastSeen": "2026-07-29T06:26:58.011Z",
-      "seen": 13,
+      "lastSeen": "2026-07-29T19:17:27.320Z",
+      "seen": 17,
       "unsupportedSightings": 0,
       "unsupportedRuns": [],
-      "supportedSightings": 0,
+      "supportedSightings": 4,
       "names": [
         "Ufficio Regionale di Collocamento",
         "Uffici Regionali di Collocamento",
@@ -6469,6 +6470,34 @@
       ],
       "recentKeys": [],
       "evidence": [
+        {
+          "at": "2026-07-29T19:17:27.320Z",
+          "runId": "30480929135",
+          "articleId": "lavoro-part-time-svizzera-diritti",
+          "support": "present",
+          "name": "Ufficio Regionale di Collocamento"
+        },
+        {
+          "at": "2026-07-29T19:17:27.320Z",
+          "runId": "30480929135",
+          "articleId": "lavoro-part-time-svizzera-diritti",
+          "support": "present",
+          "name": "Uffici regionali di collocamento"
+        },
+        {
+          "at": "2026-07-29T19:17:27.320Z",
+          "runId": "30480929135",
+          "articleId": "lavoro-part-time-svizzera-diritti",
+          "support": "present",
+          "name": "Uffici Regionali di Collocamento"
+        },
+        {
+          "at": "2026-07-29T19:17:27.320Z",
+          "runId": "30480929135",
+          "articleId": "lavoro-part-time-svizzera-diritti",
+          "support": "present",
+          "name": "Ufficio Regionale di Collocamento"
+        },
         {
           "at": "2026-07-29T06:26:58.011Z",
           "runId": "corpus-scan",
@@ -6494,34 +6523,6 @@
           "at": "2026-07-29T06:26:58.011Z",
           "runId": "corpus-scan",
           "articleId": "disoccupazione-frontalieri-nuove-regole-ue",
-          "support": "unknown",
-          "name": "Uffici regionali di collocamento"
-        },
-        {
-          "at": "2026-07-29T06:26:58.011Z",
-          "runId": "corpus-scan",
-          "articleId": "bocciatura-sportello-disoccupati-coldrerio",
-          "support": "unknown",
-          "name": "Ufficio Regionale di Collocamento"
-        },
-        {
-          "at": "2026-07-29T06:26:58.011Z",
-          "runId": "corpus-scan",
-          "articleId": "svizzera-disoccupazione-frontalieri-quadri",
-          "support": "unknown",
-          "name": "Uffici regionali di collocamento"
-        },
-        {
-          "at": "2026-07-29T06:26:58.011Z",
-          "runId": "corpus-scan",
-          "articleId": "riforma-disoccupazione-frontalieri-ue",
-          "support": "unknown",
-          "name": "Uffici regionali di collocamento"
-        },
-        {
-          "at": "2026-07-29T06:26:58.011Z",
-          "runId": "corpus-scan",
-          "articleId": "frontalieri-disoccupati-urc-diritti",
           "support": "unknown",
           "name": "Uffici regionali di collocamento"
         }

@@ -5001,6 +5001,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-lavoro-temporaneo-svizzera-crescita': { name: 'Mercato Lavoro CH', path: '/articoli-frontaliere/lavoro-temporaneo-svizzera-crescita', parent: 'blog' },
     'blog-noleggio-sociale-frontalieri-2026': { name: 'Noleggio sociale per frontalieri', path: '/articoli-svizzera/noleggio-sociale-frontalieri-2026/', parent: 'blog' },
     'blog-fondo-liberta-svizzera-multe': { name: 'Fondo multe trasporti', path: '/articoli-frontaliere/fondo-liberta-svizzera-multe', parent: 'blog' },
+    'blog-lavoro-part-time-svizzera-diritti': { name: 'Lavoro part-time', path: '/articoli-svizzera/lavoro-part-time-svizzera-diritti/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

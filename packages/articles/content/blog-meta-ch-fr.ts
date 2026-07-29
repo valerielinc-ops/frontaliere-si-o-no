@@ -1687,6 +1687,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.noleggio-sociale-frontalieri-2026.title': 'Location sociale pour frontaliers : 100 euros par mois ?',
     'blog.article.noleggio-sociale-frontalieri-2026.excerpt': 'Le gouvernement italien prépare un projet pour offrir des voitures neuves aux frontaliers à un tarif mensuel de 100 euros.',
     'blog.article.noleggio-sociale-frontalieri-2026.imageAlt': 'Image d\'un véhicule nouveau avec le logo de l\'ACI et le ministère des Entreprises et du Made in Italy (MIMIT) sur un fond de paysage italien',
+    'blog.article.lavoro-part-time-svizzera-diritti.title': 'Travail à temps partiel en Suisse : droits et contrat',
+    'blog.article.lavoro-part-time-svizzera-diritti.excerpt': 'Guide pratique sur les droits contractuels, les cotisations sociales et la fiscalité pour les travailleurs à temps partiel en Suisse.',
+    'blog.article.lavoro-part-time-svizzera-diritti.imageAlt': 'Bureau moderne avec vue sur une ville suisse',
 };
 
 export default blogMetaChFr;

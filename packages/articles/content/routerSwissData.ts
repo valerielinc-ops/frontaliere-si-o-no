@@ -588,6 +588,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'storia-vigilanza-bancaria-svizzera': { it: 'storia-vigilanza-bancaria-svizzera', en: 'history-swiss-banking-oversight', de: 'geschichte-schweizer-bankenaufsicht', fr: 'histoire-surveillance-bancaire-suisse' },
  'gestione-immobiliare-professionale': { it: 'gestione-immobiliare-professionale', en: 'professional-real-estate-management', de: 'professionelle-immobilienverwaltung', fr: 'gestion-immobiliere-professionnelle' },
  'noleggio-sociale-frontalieri-2026': { it: 'noleggio-sociale-frontalieri-2026', en: 'social-car-rental-for-frontalieri-2026', de: 'soziale-mietwagen-fur-frontalieri-2026', fr: 'location-sociale-de-voitures-pour-frontaliers-2026' },
+ 'lavoro-part-time-svizzera-diritti': { it: 'lavoro-part-time-svizzera-diritti', en: 'part-time-work-switzerland-rights', de: 'teilzeitarbeit-schweiz-rechte', fr: 'travail-partiel-suisse-droits' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

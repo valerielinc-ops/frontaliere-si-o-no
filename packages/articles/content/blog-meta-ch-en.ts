@@ -1687,6 +1687,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.noleggio-sociale-frontalieri-2026.title': 'Social rent for border workers: 100 euros per month?',
     'blog.article.noleggio-sociale-frontalieri-2026.excerpt': 'The Italian Government is preparing a project to offer new cars to frontier workers for a monthly fee of 100 euros.',
     'blog.article.noleggio-sociale-frontalieri-2026.imageAlt': 'Image of a new vehicle with the ACI logo and the Ministry of Enterprises and Made in Italy (MIMIT) on a background of an Italian landscape',
+    'blog.article.lavoro-part-time-svizzera-diritti.title': 'Part-time work in Switzerland: rights and contract',
+    'blog.article.lavoro-part-time-svizzera-diritti.excerpt': 'Practical guide on contract rights, social security contributions and taxation for part-time workers in Switzerland.',
+    'blog.article.lavoro-part-time-svizzera-diritti.imageAlt': 'Modern office with a view of a Swiss city',
 };
 
 export default blogMetaChEn;
