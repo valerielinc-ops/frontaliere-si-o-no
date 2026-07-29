@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-07-29T19:58:12.549Z",
+  "updatedAt": "2026-07-29T21:16:04.477Z",
   "entities": {
     "AASTI": {
       "status": "suspect",
@@ -172,18 +172,36 @@
       "statusSource": "auto",
       "statusAt": "2026-07-29T06:26:58.011Z",
       "firstSeen": "2026-07-29T06:26:58.011Z",
-      "lastSeen": "2026-07-29T19:58:12.549Z",
-      "seen": 30,
-      "unsupportedSightings": 0,
-      "unsupportedRuns": [],
+      "lastSeen": "2026-07-29T21:16:04.477Z",
+      "seen": 32,
+      "unsupportedSightings": 1,
+      "unsupportedRuns": [
+        "30489213850"
+      ],
       "supportedSightings": 12,
       "names": [
         "Amministrazione federale delle contribuzioni",
         "Amministrazione Federale delle Contribuzioni"
       ],
-      "recentKeys": [],
+      "recentKeys": [
+        "30489213850:unknown"
+      ],
       "evidence": [
         {
+          "at": "2026-07-29T21:16:04.477Z",
+          "runId": "30489213850",
+          "articleId": "unknown",
+          "support": "absent",
+          "name": "Amministrazione federale delle contribuzioni"
+        },
+        {
+          "at": "2026-07-29T21:16:04.477Z",
+          "runId": "30489213850",
+          "articleId": "unknown",
+          "support": "absent",
+          "name": "Amministrazione Federale delle Contribuzioni"
+        },
+        {
           "at": "2026-07-29T19:58:12.549Z",
           "runId": "30483804455",
           "articleId": "vivere-porto-ceresio-lavoro-ticino",
@@ -224,20 +242,6 @@
           "articleId": "lavoro-part-time-svizzera-diritti",
           "support": "present",
           "name": "Amministrazione federale delle contribuzioni"
-        },
-        {
-          "at": "2026-07-29T19:17:27.320Z",
-          "runId": "30480929135",
-          "articleId": "lavoro-part-time-svizzera-diritti",
-          "support": "present",
-          "name": "Amministrazione Federale delle Contribuzioni"
-        },
-        {
-          "at": "2026-07-29T19:17:27.320Z",
-          "runId": "30480929135",
-          "articleId": "lavoro-part-time-svizzera-diritti",
-          "support": "present",
-          "name": "Amministrazione Federale delle Contribuzioni"
         }
       ]
     },
@@ -2536,11 +2540,11 @@
       "statusSource": "auto",
       "statusAt": "2026-07-29T06:26:58.011Z",
       "firstSeen": "2026-07-29T06:26:58.011Z",
-      "lastSeen": "2026-07-29T06:26:58.011Z",
-      "seen": 17,
+      "lastSeen": "2026-07-29T21:16:04.477Z",
+      "seen": 18,
       "unsupportedSightings": 0,
       "unsupportedRuns": [],
-      "supportedSightings": 0,
+      "supportedSightings": 1,
       "names": [
         "Ente: Ente Ospedaliero Cantonale",
         "Dipartimento della sanità",
@@ -2549,6 +2553,13 @@
       ],
       "recentKeys": [],
       "evidence": [
+        {
+          "at": "2026-07-29T21:16:04.477Z",
+          "runId": "30489213850",
+          "articleId": "unknown",
+          "support": "present",
+          "name": "Ente Ospedaliero Cantonale"
+        },
         {
           "at": "2026-07-29T06:26:58.011Z",
           "runId": "corpus-scan",
@@ -2595,13 +2606,6 @@
           "at": "2026-07-29T06:26:58.011Z",
           "runId": "corpus-scan",
           "articleId": "malattia-frontaliere-guida-assicurazione",
-          "support": "unknown",
-          "name": "Ente Ospedaliero Cantonale"
-        },
-        {
-          "at": "2026-07-29T06:26:58.011Z",
-          "runId": "corpus-scan",
-          "articleId": "long-covid-malattia-professionale",
           "support": "unknown",
           "name": "Ente Ospedaliero Cantonale"
         }
