@@ -72,7 +72,7 @@ import { callLLM as _aiCallLLM, AI_MODELS, DEFAULT_CHAIN, getPreferredModel, isL
 // Routing article translation through it instead of the generation LLM frees
 // ~60% of per-article LLM calls for actual generation (the quota bottleneck).
 import { freeTranslateWithRetry, balanceMarkdownMarkers } from './lib/free-translate.mjs';
-import { translateFieldFreeMt } from './lib/article-free-mt.mjs';
+import { translateFieldFreeMt, translatedStringOrNull, joinTranslatedChunks } from './lib/article-free-mt.mjs';
 import { AI_SEARCH_PROMPT_BLOCK_IT } from './lib/ai-search-template.mjs';
 import { tokenizeIt, jaccardSim, containmentSim, normalizeItWord, STOP_WORDS_IT } from './lib/it-text-similarity.mjs';
 import { DOMAIN_DUP_STOPLIST, filterDistinctive } from './lib/dup-stoplist.mjs';
@@ -5634,10 +5634,17 @@ ${terminologyByLang[targetLang] || ''}`;
           `CONTENUTO ITALIANO DA TRADURRE:\n- ${bodyKey}: ${bodyText}`,
           `{"${bodyKey}": "..."}`,
         ), bodyTokens(bodyText), `${lang}:${bodyKey.replace('body', 'b')}`);
-        if (result && typeof result[bodyKey] === 'string') {
-          result[bodyKey] = sanitizeBodyText(result[bodyKey]);
+        // A model answering {"body1": {...}} / {"body1": [...]} still parses as
+        // valid JSON. Returning it would carry an object into a string context
+        // downstream, which stringifies to the literal "[object Object]" and
+        // ships as prose. Drop the key instead so the per-field missing-
+        // translation retry (and then the IT fallback) can recover it.
+        const text = translatedStringOrNull(result?.[bodyKey]);
+        if (text === null) {
+          console.error(`  ⚠️  ${lang}:${bodyKey} non è una stringa (${typeof result?.[bodyKey]}) — campo scartato, recupero per-campo downstream`);
+          return {};
         }
-        return result;
+        return { [bodyKey]: sanitizeBodyText(text) };
       }
 
       // Sub-chunk: split at paragraph boundaries into ~500-word pieces
@@ -5671,8 +5678,15 @@ ${terminologyByLang[targetLang] || ''}`;
         ),
       );
 
-      // Join translated chunks
-      const joined = translated.map((r) => r[bodyKey] || '').join('\n\n');
+      // Join translated chunks. A chunk the model returned as an object used to
+      // be stringified into the joined body as "[object Object]" — one corrupted
+      // paragraph in the middle of otherwise-good prose. Refuse the whole field
+      // instead and let the per-field recovery re-translate it.
+      const joined = joinTranslatedChunks(translated, bodyKey);
+      if (joined === null) {
+        console.error(`  ⚠️  ${lang}:${bodyKey} — almeno un chunk non è una stringa, campo scartato: recupero per-campo downstream`);
+        return {};
+      }
       return { [bodyKey]: sanitizeBodyText(joined) };
     }
 
@@ -5790,8 +5804,11 @@ ${terminologyByLang[targetLang] || ''}`;
           1500,
           `${locale}:${field}-missing-retry`,
         );
-        const retried = parsed?.[field];
-        if (retried && String(retried).trim() && String(retried).trim() !== String(itValue).trim()) {
+        // `String(retried)` on an object yields "[object Object]" — truthy and
+        // different from the IT value, so the old check ASSIGNED it. Require a
+        // real string so a non-string retry falls through to the IT fallback.
+        const retried = translatedStringOrNull(parsed?.[field]);
+        if (retried && String(retried).trim() !== String(itValue).trim()) {
           data.content[locale][field] = retried;
           console.error(`  ✅ Campo ${field} (${locale}) ritradotto con successo dopo missing-field retry`);
           continue;
