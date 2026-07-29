@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-07-29T06:27:10.003Z",
+  "updatedAt": "2026-07-29T08:23:04.319Z",
   "entities": {
     "AASTI": {
       "status": "suspect",
@@ -51,9 +51,9 @@
       ]
     },
     "ADBPO": {
-      "status": "suspect",
+      "status": "cleared",
       "statusSource": "auto",
-      "statusAt": "2026-07-29T06:26:58.011Z",
+      "statusAt": "2026-07-29T08:23:04.319Z",
       "firstSeen": "2026-07-29T06:26:58.011Z",
       "lastSeen": "2026-07-29T06:26:58.011Z",
       "seen": 1,
@@ -106,9 +106,9 @@
       ]
     },
     "ADM": {
-      "status": "suspect",
+      "status": "cleared",
       "statusSource": "auto",
-      "statusAt": "2026-07-29T06:26:58.011Z",
+      "statusAt": "2026-07-29T08:23:04.319Z",
       "firstSeen": "2026-07-29T06:26:58.011Z",
       "lastSeen": "2026-07-29T06:26:58.011Z",
       "seen": 3,
@@ -242,9 +242,9 @@
       ]
     },
     "AFD": {
-      "status": "suspect",
+      "status": "cleared",
       "statusSource": "auto",
-      "statusAt": "2026-07-29T06:26:58.011Z",
+      "statusAt": "2026-07-29T08:23:04.319Z",
       "firstSeen": "2026-07-29T06:26:58.011Z",
       "lastSeen": "2026-07-29T06:26:58.011Z",
       "seen": 3,
@@ -330,9 +330,9 @@
       ]
     },
     "AIE": {
-      "status": "suspect",
+      "status": "cleared",
       "statusSource": "auto",
-      "statusAt": "2026-07-29T06:26:58.011Z",
+      "statusAt": "2026-07-29T08:23:04.319Z",
       "firstSeen": "2026-07-29T06:26:58.011Z",
       "lastSeen": "2026-07-29T06:26:58.011Z",
       "seen": 1,
@@ -354,9 +354,9 @@
       ]
     },
     "AIFA": {
-      "status": "suspect",
+      "status": "cleared",
       "statusSource": "auto",
-      "statusAt": "2026-07-29T06:26:58.011Z",
+      "statusAt": "2026-07-29T08:23:04.319Z",
       "firstSeen": "2026-07-29T06:26:58.011Z",
       "lastSeen": "2026-07-29T06:26:58.011Z",
       "seen": 1,
@@ -538,9 +538,9 @@
       ]
     },
     "AVC": {
-      "status": "suspect",
+      "status": "cleared",
       "statusSource": "auto",
-      "statusAt": "2026-07-29T06:26:58.011Z",
+      "statusAt": "2026-07-29T08:23:04.319Z",
       "firstSeen": "2026-07-29T06:26:58.011Z",
       "lastSeen": "2026-07-29T06:26:58.011Z",
       "seen": 1,
@@ -708,9 +708,9 @@
       ]
     },
     "CFSL": {
-      "status": "suspect",
+      "status": "cleared",
       "statusSource": "auto",
-      "statusAt": "2026-07-29T06:26:58.011Z",
+      "statusAt": "2026-07-29T08:23:04.319Z",
       "firstSeen": "2026-07-29T06:26:58.011Z",
       "lastSeen": "2026-07-29T06:26:58.011Z",
       "seen": 1,
@@ -732,9 +732,9 @@
       ]
     },
     "CFST": {
-      "status": "suspect",
+      "status": "cleared",
       "statusSource": "auto",
-      "statusAt": "2026-07-29T06:26:58.011Z",
+      "statusAt": "2026-07-29T08:23:04.319Z",
       "firstSeen": "2026-07-29T06:26:58.011Z",
       "lastSeen": "2026-07-29T06:26:58.011Z",
       "seen": 2,
@@ -787,9 +787,9 @@
       ]
     },
     "CMAL": {
-      "status": "suspect",
+      "status": "cleared",
       "statusSource": "auto",
-      "statusAt": "2026-07-29T06:26:58.011Z",
+      "statusAt": "2026-07-29T08:23:04.319Z",
       "firstSeen": "2026-07-29T06:26:58.011Z",
       "lastSeen": "2026-07-29T06:26:58.011Z",
       "seen": 1,
@@ -919,9 +919,9 @@
       ]
     },
     "COSFEL": {
-      "status": "suspect",
+      "status": "cleared",
       "statusSource": "auto",
-      "statusAt": "2026-07-29T06:26:58.011Z",
+      "statusAt": "2026-07-29T08:23:04.319Z",
       "firstSeen": "2026-07-29T06:26:58.011Z",
       "lastSeen": "2026-07-29T06:26:58.011Z",
       "seen": 1,
@@ -943,9 +943,9 @@
       ]
     },
     "CPC": {
-      "status": "suspect",
+      "status": "cleared",
       "statusSource": "auto",
-      "statusAt": "2026-07-29T06:26:58.011Z",
+      "statusAt": "2026-07-29T08:23:04.319Z",
       "firstSeen": "2026-07-29T06:26:58.011Z",
       "lastSeen": "2026-07-29T06:26:58.011Z",
       "seen": 2,
@@ -1164,9 +1164,9 @@
       ]
     },
     "DDA": {
-      "status": "suspect",
+      "status": "cleared",
       "statusSource": "auto",
-      "statusAt": "2026-07-29T06:26:58.011Z",
+      "statusAt": "2026-07-29T08:23:04.319Z",
       "firstSeen": "2026-07-29T06:26:58.011Z",
       "lastSeen": "2026-07-29T06:26:58.011Z",
       "seen": 1,
@@ -1492,9 +1492,9 @@
       ]
     },
     "DETEC": {
-      "status": "suspect",
+      "status": "cleared",
       "statusSource": "auto",
-      "statusAt": "2026-07-29T06:26:58.011Z",
+      "statusAt": "2026-07-29T08:23:04.319Z",
       "firstSeen": "2026-07-29T06:26:58.011Z",
       "lastSeen": "2026-07-29T06:26:58.011Z",
       "seen": 2,
@@ -1952,9 +1952,9 @@
       ]
     },
     "DGSS": {
-      "status": "suspect",
+      "status": "cleared",
       "statusSource": "auto",
-      "statusAt": "2026-07-29T06:26:58.011Z",
+      "statusAt": "2026-07-29T08:23:04.319Z",
       "firstSeen": "2026-07-29T06:26:58.011Z",
       "lastSeen": "2026-07-29T06:26:58.011Z",
       "seen": 1,
@@ -2369,9 +2369,9 @@
       ]
     },
     "EASA": {
-      "status": "suspect",
+      "status": "cleared",
       "statusSource": "auto",
-      "statusAt": "2026-07-29T06:26:58.011Z",
+      "statusAt": "2026-07-29T08:23:04.319Z",
       "firstSeen": "2026-07-29T06:26:58.011Z",
       "lastSeen": "2026-07-29T06:26:58.011Z",
       "seen": 1,
@@ -2565,9 +2565,9 @@
       ]
     },
     "EPO": {
-      "status": "suspect",
+      "status": "cleared",
       "statusSource": "auto",
-      "statusAt": "2026-07-29T06:26:58.011Z",
+      "statusAt": "2026-07-29T08:23:04.319Z",
       "firstSeen": "2026-07-29T06:26:58.011Z",
       "lastSeen": "2026-07-29T06:26:58.011Z",
       "seen": 2,
@@ -2596,9 +2596,9 @@
       ]
     },
     "ERSL": {
-      "status": "suspect",
+      "status": "cleared",
       "statusSource": "auto",
-      "statusAt": "2026-07-29T06:26:58.011Z",
+      "statusAt": "2026-07-29T08:23:04.319Z",
       "firstSeen": "2026-07-29T06:26:58.011Z",
       "lastSeen": "2026-07-29T06:26:58.011Z",
       "seen": 1,
@@ -2620,9 +2620,9 @@
       ]
     },
     "ESA": {
-      "status": "suspect",
+      "status": "cleared",
       "statusSource": "auto",
-      "statusAt": "2026-07-29T06:26:58.011Z",
+      "statusAt": "2026-07-29T08:23:04.319Z",
       "firstSeen": "2026-07-29T06:26:58.011Z",
       "lastSeen": "2026-07-29T06:26:58.011Z",
       "seen": 1,
@@ -2699,9 +2699,9 @@
       ]
     },
     "FIBL": {
-      "status": "suspect",
+      "status": "cleared",
       "statusSource": "auto",
-      "statusAt": "2026-07-29T06:26:58.011Z",
+      "statusAt": "2026-07-29T08:23:04.319Z",
       "firstSeen": "2026-07-29T06:26:58.011Z",
       "lastSeen": "2026-07-29T06:26:58.011Z",
       "seen": 1,
@@ -2762,9 +2762,9 @@
       ]
     },
     "FOSPO": {
-      "status": "suspect",
+      "status": "cleared",
       "statusSource": "auto",
-      "statusAt": "2026-07-29T06:26:58.011Z",
+      "statusAt": "2026-07-29T08:23:04.319Z",
       "firstSeen": "2026-07-29T06:26:58.011Z",
       "lastSeen": "2026-07-29T06:26:58.011Z",
       "seen": 1,
@@ -2834,9 +2834,9 @@
       ]
     },
     "FSO": {
-      "status": "suspect",
+      "status": "cleared",
       "statusSource": "auto",
-      "statusAt": "2026-07-29T06:26:58.011Z",
+      "statusAt": "2026-07-29T08:23:04.319Z",
       "firstSeen": "2026-07-29T06:26:58.011Z",
       "lastSeen": "2026-07-29T06:26:58.011Z",
       "seen": 2,
@@ -2865,9 +2865,9 @@
       ]
     },
     "FSVO": {
-      "status": "suspect",
+      "status": "cleared",
       "statusSource": "auto",
-      "statusAt": "2026-07-29T06:26:58.011Z",
+      "statusAt": "2026-07-29T08:23:04.319Z",
       "firstSeen": "2026-07-29T06:26:58.011Z",
       "lastSeen": "2026-07-29T06:26:58.011Z",
       "seen": 1,
@@ -2889,9 +2889,9 @@
       ]
     },
     "IARC": {
-      "status": "suspect",
+      "status": "cleared",
       "statusSource": "auto",
-      "statusAt": "2026-07-29T06:26:58.011Z",
+      "statusAt": "2026-07-29T08:23:04.319Z",
       "firstSeen": "2026-07-29T06:26:58.011Z",
       "lastSeen": "2026-07-29T06:26:58.011Z",
       "seen": 1,
@@ -2913,9 +2913,9 @@
       ]
     },
     "IAS": {
-      "status": "suspect",
+      "status": "cleared",
       "statusSource": "auto",
-      "statusAt": "2026-07-29T06:26:58.011Z",
+      "statusAt": "2026-07-29T08:23:04.319Z",
       "firstSeen": "2026-07-29T06:26:58.011Z",
       "lastSeen": "2026-07-29T06:26:58.011Z",
       "seen": 1,
@@ -2937,9 +2937,9 @@
       ]
     },
     "IAST": {
-      "status": "suspect",
+      "status": "cleared",
       "statusSource": "auto",
-      "statusAt": "2026-07-29T06:26:58.011Z",
+      "statusAt": "2026-07-29T08:23:04.319Z",
       "firstSeen": "2026-07-29T06:26:58.011Z",
       "lastSeen": "2026-07-29T06:26:58.011Z",
       "seen": 1,
@@ -2961,9 +2961,9 @@
       ]
     },
     "IEO": {
-      "status": "suspect",
+      "status": "cleared",
       "statusSource": "auto",
-      "statusAt": "2026-07-29T06:26:58.011Z",
+      "statusAt": "2026-07-29T08:23:04.319Z",
       "firstSeen": "2026-07-29T06:26:58.011Z",
       "lastSeen": "2026-07-29T06:26:58.011Z",
       "seen": 1,
@@ -2985,9 +2985,9 @@
       ]
     },
     "IFC": {
-      "status": "suspect",
+      "status": "cleared",
       "statusSource": "auto",
-      "statusAt": "2026-07-29T06:26:58.011Z",
+      "statusAt": "2026-07-29T08:23:04.319Z",
       "firstSeen": "2026-07-29T06:26:58.011Z",
       "lastSeen": "2026-07-29T06:26:58.011Z",
       "seen": 1,
@@ -3064,9 +3064,9 @@
       ]
     },
     "IGM": {
-      "status": "suspect",
+      "status": "cleared",
       "statusSource": "auto",
-      "statusAt": "2026-07-29T06:26:58.011Z",
+      "statusAt": "2026-07-29T08:23:04.319Z",
       "firstSeen": "2026-07-29T06:26:58.011Z",
       "lastSeen": "2026-07-29T06:26:58.011Z",
       "seen": 1,
@@ -3112,9 +3112,9 @@
       ]
     },
     "INGV": {
-      "status": "suspect",
+      "status": "cleared",
       "statusSource": "auto",
-      "statusAt": "2026-07-29T06:26:58.011Z",
+      "statusAt": "2026-07-29T08:23:04.319Z",
       "firstSeen": "2026-07-29T06:26:58.011Z",
       "lastSeen": "2026-07-29T06:26:58.011Z",
       "seen": 2,
@@ -3349,9 +3349,9 @@
       ]
     },
     "IRE": {
-      "status": "suspect",
+      "status": "cleared",
       "statusSource": "auto",
-      "statusAt": "2026-07-29T06:26:58.011Z",
+      "statusAt": "2026-07-29T08:23:04.319Z",
       "firstSeen": "2026-07-29T06:26:58.011Z",
       "lastSeen": "2026-07-29T06:26:58.011Z",
       "seen": 1,
@@ -3397,9 +3397,9 @@
       ]
     },
     "ISS": {
-      "status": "suspect",
+      "status": "cleared",
       "statusSource": "auto",
-      "statusAt": "2026-07-29T06:26:58.011Z",
+      "statusAt": "2026-07-29T08:23:04.319Z",
       "firstSeen": "2026-07-29T06:26:58.011Z",
       "lastSeen": "2026-07-29T06:26:58.011Z",
       "seen": 1,
@@ -3549,9 +3549,9 @@
       ]
     },
     "IVASS": {
-      "status": "suspect",
+      "status": "cleared",
       "statusSource": "auto",
-      "statusAt": "2026-07-29T06:26:58.011Z",
+      "statusAt": "2026-07-29T08:23:04.319Z",
       "firstSeen": "2026-07-29T06:26:58.011Z",
       "lastSeen": "2026-07-29T06:26:58.011Z",
       "seen": 1,
@@ -3645,9 +3645,9 @@
       ]
     },
     "KOF": {
-      "status": "suspect",
+      "status": "cleared",
       "statusSource": "auto",
-      "statusAt": "2026-07-29T06:26:58.011Z",
+      "statusAt": "2026-07-29T08:23:04.319Z",
       "firstSeen": "2026-07-29T06:26:58.011Z",
       "lastSeen": "2026-07-29T06:26:58.011Z",
       "seen": 1,
@@ -3669,9 +3669,9 @@
       ]
     },
     "MEBEKO": {
-      "status": "suspect",
+      "status": "cleared",
       "statusSource": "auto",
-      "statusAt": "2026-07-29T06:26:58.011Z",
+      "statusAt": "2026-07-29T08:23:04.319Z",
       "firstSeen": "2026-07-29T06:26:58.011Z",
       "lastSeen": "2026-07-29T06:26:58.011Z",
       "seen": 1,
@@ -3741,9 +3741,9 @@
       ]
     },
     "NIA": {
-      "status": "suspect",
+      "status": "cleared",
       "statusSource": "auto",
-      "statusAt": "2026-07-29T06:26:58.011Z",
+      "statusAt": "2026-07-29T08:23:04.319Z",
       "firstSeen": "2026-07-29T06:26:58.011Z",
       "lastSeen": "2026-07-29T06:26:58.011Z",
       "seen": 1,
@@ -3765,9 +3765,9 @@
       ]
     },
     "OCIRT": {
-      "status": "suspect",
+      "status": "cleared",
       "statusSource": "auto",
-      "statusAt": "2026-07-29T06:26:58.011Z",
+      "statusAt": "2026-07-29T08:23:04.319Z",
       "firstSeen": "2026-07-29T06:26:58.011Z",
       "lastSeen": "2026-07-29T06:26:58.011Z",
       "seen": 1,
@@ -3789,9 +3789,9 @@
       ]
     },
     "OFAS": {
-      "status": "suspect",
+      "status": "cleared",
       "statusSource": "auto",
-      "statusAt": "2026-07-29T06:26:58.011Z",
+      "statusAt": "2026-07-29T08:23:04.319Z",
       "firstSeen": "2026-07-29T06:26:58.011Z",
       "lastSeen": "2026-07-29T06:26:58.011Z",
       "seen": 1,
@@ -3891,9 +3891,9 @@
       ]
     },
     "OFT": {
-      "status": "suspect",
+      "status": "cleared",
       "statusSource": "auto",
-      "statusAt": "2026-07-29T06:26:58.011Z",
+      "statusAt": "2026-07-29T08:23:04.319Z",
       "firstSeen": "2026-07-29T06:26:58.011Z",
       "lastSeen": "2026-07-29T06:26:58.011Z",
       "seen": 1,
@@ -4308,9 +4308,9 @@
       ]
     },
     "SFI": {
-      "status": "suspect",
+      "status": "cleared",
       "statusSource": "auto",
-      "statusAt": "2026-07-29T06:26:58.011Z",
+      "statusAt": "2026-07-29T08:23:04.319Z",
       "firstSeen": "2026-07-29T06:26:58.011Z",
       "lastSeen": "2026-07-29T06:26:58.011Z",
       "seen": 3,
@@ -4346,9 +4346,9 @@
       ]
     },
     "SMPA": {
-      "status": "suspect",
+      "status": "cleared",
       "statusSource": "auto",
-      "statusAt": "2026-07-29T06:26:58.011Z",
+      "statusAt": "2026-07-29T08:23:04.319Z",
       "firstSeen": "2026-07-29T06:26:58.011Z",
       "lastSeen": "2026-07-29T06:26:58.011Z",
       "seen": 1,
@@ -4853,9 +4853,9 @@
       ]
     },
     "UFAC": {
-      "status": "suspect",
+      "status": "cleared",
       "statusSource": "auto",
-      "statusAt": "2026-07-29T06:26:58.011Z",
+      "statusAt": "2026-07-29T08:23:04.319Z",
       "firstSeen": "2026-07-29T06:26:58.011Z",
       "lastSeen": "2026-07-29T06:26:58.011Z",
       "seen": 2,
@@ -5016,9 +5016,9 @@
       ]
     },
     "UFAP": {
-      "status": "suspect",
+      "status": "cleared",
       "statusSource": "auto",
-      "statusAt": "2026-07-29T06:26:58.011Z",
+      "statusAt": "2026-07-29T08:23:04.319Z",
       "firstSeen": "2026-07-29T06:26:58.011Z",
       "lastSeen": "2026-07-29T06:26:58.011Z",
       "seen": 1,
@@ -5437,9 +5437,9 @@
       ]
     },
     "UFFT": {
-      "status": "suspect",
+      "status": "cleared",
       "statusSource": "auto",
-      "statusAt": "2026-07-29T06:26:58.011Z",
+      "statusAt": "2026-07-29T08:23:04.319Z",
       "firstSeen": "2026-07-29T06:26:58.011Z",
       "lastSeen": "2026-07-29T06:26:58.011Z",
       "seen": 1,
@@ -5652,9 +5652,9 @@
       ]
     },
     "UFPC": {
-      "status": "suspect",
+      "status": "cleared",
       "statusSource": "auto",
-      "statusAt": "2026-07-29T06:26:58.011Z",
+      "statusAt": "2026-07-29T08:23:04.319Z",
       "firstSeen": "2026-07-29T06:26:58.011Z",
       "lastSeen": "2026-07-29T06:26:58.011Z",
       "seen": 1,
@@ -5902,9 +5902,9 @@
       ]
     },
     "UFSPO": {
-      "status": "suspect",
+      "status": "cleared",
       "statusSource": "auto",
-      "statusAt": "2026-07-29T06:26:58.011Z",
+      "statusAt": "2026-07-29T08:23:04.319Z",
       "firstSeen": "2026-07-29T06:26:58.011Z",
       "lastSeen": "2026-07-29T06:26:58.011Z",
       "seen": 1,
@@ -6251,9 +6251,9 @@
       ]
     },
     "UPAAI": {
-      "status": "suspect",
+      "status": "cleared",
       "statusSource": "auto",
-      "statusAt": "2026-07-29T06:26:58.011Z",
+      "statusAt": "2026-07-29T08:23:04.319Z",
       "firstSeen": "2026-07-29T06:26:58.011Z",
       "lastSeen": "2026-07-29T06:26:58.011Z",
       "seen": 1,
@@ -6299,9 +6299,9 @@
       ]
     },
     "UPI": {
-      "status": "suspect",
+      "status": "cleared",
       "statusSource": "auto",
-      "statusAt": "2026-07-29T06:26:58.011Z",
+      "statusAt": "2026-07-29T08:23:04.319Z",
       "firstSeen": "2026-07-29T06:26:58.011Z",
       "lastSeen": "2026-07-29T06:26:58.011Z",
       "seen": 2,
