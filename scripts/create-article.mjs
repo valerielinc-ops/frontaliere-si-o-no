@@ -72,7 +72,7 @@ import { callLLM as _aiCallLLM, AI_MODELS, DEFAULT_CHAIN, getPreferredModel, isL
 // Routing article translation through it instead of the generation LLM frees
 // ~60% of per-article LLM calls for actual generation (the quota bottleneck).
 import { freeTranslateWithRetry, balanceMarkdownMarkers } from './lib/free-translate.mjs';
-import { translateFieldFreeMt } from './lib/article-free-mt.mjs';
+import { translateFieldFreeMt, translatedStringOrNull, joinTranslatedChunks } from './lib/article-free-mt.mjs';
 import { AI_SEARCH_PROMPT_BLOCK_IT } from './lib/ai-search-template.mjs';
 import { tokenizeIt, jaccardSim, containmentSim, normalizeItWord, STOP_WORDS_IT } from './lib/it-text-similarity.mjs';
 import { DOMAIN_DUP_STOPLIST, filterDistinctive } from './lib/dup-stoplist.mjs';
@@ -84,6 +84,7 @@ import {
   dropSourceContradictedIssues,
 } from './lib/fact-check-consensus.mjs';
 import { runFactualityGates, formatIssues, formatRemediation, FACT_CHECK_CATEGORIES } from './lib/article-factuality-gates.mjs';
+import { loadDefectMemory, learnedDenylist, learnedSuspects } from './lib/article-defect-memory.mjs';
 import {
   stripCompetitorPromotion,
   sanitizeNavLinkSemantics,
@@ -950,6 +951,36 @@ function _hashString(s) {
 // SOURCE_QUOTA_FILE / SOURCE_URLS_FILE are section-keyed — see SECTION config
 // below (frontaliere → data/article-source-*.json, byte-identical default).
 const CREATE_ARTICLE_REPORT_FILE = process.env.CREATE_ARTICLE_REPORT_FILE || '.tmp/create-article-run-report.json';
+
+// ── Cross-run defect memory (docs/ARTICLE-LEARNING-LOOP.md) ───────────
+//
+// Read ONCE per run and cached: the deterministic gates run on every retry
+// attempt, and re-reading the store mid-run would let a concurrent writer
+// change the rules between attempt 3 and attempt 4 of the same article.
+//
+// This process only READS. Observations are collected into the run report and
+// folded into the store by scripts/update-article-defect-memory.mjs after the
+// run, so the gate never mutates the state it is judging against and never
+// learns from drafts that were rejected and never shipped.
+let _DEFECT_MEMORY = null;
+function defectMemory() {
+  if (_DEFECT_MEMORY) return _DEFECT_MEMORY;
+  const { memory, degraded } = loadDefectMemory(
+    process.env.ARTICLE_DEFECT_MEMORY_FILE || 'data/article-defect-memory.json',
+  );
+  if (degraded) {
+    // Loud, never silent: the run is about to be evaluated with a defence that
+    // is not actually there. The curated lists still hold, so this degrades
+    // rather than stops — but it must show up in the log and in the gate output.
+    console.error(`  🚨 Memoria dei difetti illeggibile (${degraded}) — difese apprese NON attive in questo run.`);
+  }
+  _DEFECT_MEMORY = {
+    denylist: learnedDenylist(memory),
+    suspects: learnedSuspects(memory),
+    degraded,
+  };
+  return _DEFECT_MEMORY;
+}
 // Source quota disabled by default 2026-05-07: with article generation
 // firing every 15 min (~672 articles/week) the 3/domain weekly cap was
 // rejecting 321/321 headlines — the demand-driven ranker now handles
@@ -1102,6 +1133,10 @@ export function computeMaxGenerationAttempts(
 const RUN_REPORT = {
   startedAt: new Date().toISOString(),
   endedAt: null,
+  // Identifies the run for the defect memory, whose evidence bar counts
+  // DISTINCT runs (one degraded run must not be able to confirm its own
+  // hallucination six times over). 'local' outside CI.
+  runId: process.env.GITHUB_RUN_ID || 'local',
   status: 'running',
   selectedArticleType: null, // news | evergreen_static | evergreen_dynamic
   selectedSource: null,
@@ -1155,8 +1190,33 @@ const RUN_REPORT = {
     url: null,
     sourceDomain: null,
   },
+  // ── Learning-loop feed (docs/ARTICLE-LEARNING-LOOP.md) ──────────────
+  //
+  // What this run OBSERVED, for the next run to defend against. Everything
+  // else in this report is diagnostics that die with the CI log; this section
+  // is the only part meant to outlive the run, and it is folded into
+  // data/article-defect-memory.json by update-article-defect-memory.mjs.
+  //
+  // Deliberately raw observations, not verdicts: the promotion policy (with
+  // its evidence bar, decay and caps) lives in one place, and a generator that
+  // could write verdicts straight into its own defences would be grading its
+  // own homework — the failure mode of the 2026-07-28 fact-check loop.
+  factuality: {
+    /** [{acronym, name, support, articleId, attempt}] — one entry per attempt. */
+    institutionObservations: [],
+    /** gate issue code → times it rejected a draft this run. */
+    gateRejectionsByCode: {},
+  },
   notes: [],
 };
+
+/**
+ * Cap on institutionObservations. A pathological run retries ~6 times and each
+ * attempt can introduce a handful of acronyms; the cap stops a runaway loop
+ * from writing a multi-megabyte report, and losing the tail costs nothing
+ * because evidence is counted once per (run, article) anyway.
+ */
+const INSTITUTION_OBSERVATION_CAP = 60;
 
 let REPORT_FINALIZED = false;
 
@@ -5635,10 +5695,17 @@ ${terminologyByLang[targetLang] || ''}`;
           `CONTENUTO ITALIANO DA TRADURRE:\n- ${bodyKey}: ${bodyText}`,
           `{"${bodyKey}": "..."}`,
         ), bodyTokens(bodyText), `${lang}:${bodyKey.replace('body', 'b')}`);
-        if (result && typeof result[bodyKey] === 'string') {
-          result[bodyKey] = sanitizeBodyText(result[bodyKey]);
+        // A model answering {"body1": {...}} / {"body1": [...]} still parses as
+        // valid JSON. Returning it would carry an object into a string context
+        // downstream, which stringifies to the literal "[object Object]" and
+        // ships as prose. Drop the key instead so the per-field missing-
+        // translation retry (and then the IT fallback) can recover it.
+        const text = translatedStringOrNull(result?.[bodyKey]);
+        if (text === null) {
+          console.error(`  ⚠️  ${lang}:${bodyKey} non è una stringa (${typeof result?.[bodyKey]}) — campo scartato, recupero per-campo downstream`);
+          return {};
         }
-        return result;
+        return { [bodyKey]: sanitizeBodyText(text) };
       }
 
       // Sub-chunk: split at paragraph boundaries into ~500-word pieces
@@ -5672,8 +5739,15 @@ ${terminologyByLang[targetLang] || ''}`;
         ),
       );
 
-      // Join translated chunks
-      const joined = translated.map((r) => r[bodyKey] || '').join('\n\n');
+      // Join translated chunks. A chunk the model returned as an object used to
+      // be stringified into the joined body as "[object Object]" — one corrupted
+      // paragraph in the middle of otherwise-good prose. Refuse the whole field
+      // instead and let the per-field recovery re-translate it.
+      const joined = joinTranslatedChunks(translated, bodyKey);
+      if (joined === null) {
+        console.error(`  ⚠️  ${lang}:${bodyKey} — almeno un chunk non è una stringa, campo scartato: recupero per-campo downstream`);
+        return {};
+      }
       return { [bodyKey]: sanitizeBodyText(joined) };
     }
 
@@ -5791,8 +5865,11 @@ ${terminologyByLang[targetLang] || ''}`;
           1500,
           `${locale}:${field}-missing-retry`,
         );
-        const retried = parsed?.[field];
-        if (retried && String(retried).trim() && String(retried).trim() !== String(itValue).trim()) {
+        // `String(retried)` on an object yields "[object Object]" — truthy and
+        // different from the IT value, so the old check ASSIGNED it. Require a
+        // real string so a non-string retry falls through to the IT fallback.
+        const retried = translatedStringOrNull(parsed?.[field]);
+        if (retried && String(retried).trim() !== String(itValue).trim()) {
           data.content[locale][field] = retried;
           console.error(`  ✅ Campo ${field} (${locale}) ritradotto con successo dopo missing-field retry`);
           continue;
@@ -9943,7 +10020,18 @@ async function generateAndValidateArticle(url, sourceContext = null) {
         sourceText: pageContent,
         sourceDate: lastSourcePublishedAt || undefined,
         publishedAt: new Date().toISOString(),
+        memory: defectMemory(),
       });
+
+      // Feed the learning loop. Recorded for EVERY attempt, including the ones
+      // that go on to be rejected: an acronym the source does not back up is
+      // evidence about the generator regardless of whether that particular
+      // draft shipped, and restricting the signal to published articles would
+      // make the store blind to exactly the drafts the gates already stop.
+      for (const obs of gateResult.observations) {
+        if (RUN_REPORT.factuality.institutionObservations.length >= INSTITUTION_OBSERVATION_CAP) break;
+        RUN_REPORT.factuality.institutionObservations.push({ ...obs, attempt });
+      }
 
       if (gateResult.issues.length) {
         console.error(`  🔎 Gate deterministici: ${gateResult.issues.length} problemi `
@@ -9952,6 +10040,14 @@ async function generateAndValidateArticle(url, sourceContext = null) {
       }
 
       if (!gateResult.passed) {
+        // Rejection-rate-by-cause over time is the loop's primary health
+        // metric: a defence that is working shows its code declining, one that
+        // has become a false-positive machine shows it climbing while nothing
+        // ships. Counting it here is what makes that measurable at all.
+        for (const i of gateResult.blocking) {
+          RUN_REPORT.factuality.gateRejectionsByCode[i.code] =
+            (RUN_REPORT.factuality.gateRejectionsByCode[i.code] || 0) + 1;
+        }
         const summary = gateResult.blocking.map((i) => `[${i.code}] ${i.message}`).join('; ');
         const gateErr = new Error(`Articolo rigettato dai gate deterministici: ${summary}`);
         if (attempt < maxAttempts) {
