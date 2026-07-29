@@ -1479,10 +1479,10 @@
       "id": "postauto-d2685274910e",
       "slug": "driver-di-sicurezza-amigo-postauto-ag-altstatten-sg",
       "slugByLocale": {
-        "it": "driver-di-sicurezza-amigo-postauto-ag-altstatten-sg",
-        "en": "safety-driver-amigo-postauto-altstatten-sg",
+        "it": "driver-di-sicurezza-amigo-postauto-altstatten-sg",
+        "en": "safety-driver-amigo-post",
         "de": "safety-driver-amigo-postauto-altstatten-sg",
-        "fr": "conducteur-de-securite-amigo-postauto-ag-altstatten-sg"
+        "fr": "conducteur-de-securite-amigo-postauto-altstatten-sg"
       },
       "company": "PostAuto AG",
       "companyKey": "postauto",
@@ -1529,16 +1529,22 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "safety-driver-amigo-postauto-altstatten-sg",
-        "driver-di-sicurezza-amigo-postauto-ag-altstatten-sg"
+        "driver-di-sicurezza-amigo-postauto-ag-altstatten-sg",
+        "conducteur-de-securite-amigo-postauto-ag-altstatten-sg"
       ],
       "previousSlugsByLocale": {
         "it": [
           "safety-driver-amigo-postauto-altstatten-sg",
           "driver-di-sicurezza-amigo-postauto-ag-altstatten-sg"
+        ],
+        "en": [
+          "safety-driver-amigo-postauto-altstatten-sg"
+        ],
+        "fr": [
+          "conducteur-de-securite-amigo-postauto-ag-altstatten-sg"
         ]
       },
       "firstSeenAt": "2026-07-20T12:51:59.916Z",
-      "needsRetranslation": true,
       "salaryMin": 65000,
       "salaryMax": 98500,
       "baseSalary": {
@@ -1550,7 +1556,8 @@
           "maxValue": 98500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "postauto-9f6345c5106a",
@@ -1638,10 +1645,10 @@
       "id": "postauto-db0b7fe4d307",
       "slug": "team-leader-nel-personale-di-guida-postauto-ag-weinfelden",
       "slugByLocale": {
-        "it": "team-leader-nel-personale-di-guida-postauto-ag-weinfelden",
-        "en": "team-leader-in-driving-personnel-postauto-ag-weinfelden",
+        "it": "team-leader-nel-personale-di-guida-postauto-weinfelden",
+        "en": "team-leader-in-driving-personnel-postauto-weinfelden",
         "de": "teamleiter-in-fahrpersonal-postauto-weinfelden",
-        "fr": "chef-d-equipe-dans-le-personnel-de-conduite-postauto-ag-weinfelden"
+        "fr": "chef-d-equipe-dans-le-personnel-de-conduite-postauto-weinfelden"
       },
       "company": "PostAuto AG",
       "companyKey": "postauto",
@@ -1688,7 +1695,9 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "teamleiter-in-fahrpersonal-postauto-weinfelden",
-        "team-leader-nel-personale-di-guida-postauto-ag-weinfelden"
+        "team-leader-nel-personale-di-guida-postauto-ag-weinfelden",
+        "team-leader-in-driving-personnel-postauto-ag-weinfelden",
+        "chef-d-equipe-dans-le-personnel-de-conduite-postauto-ag-weinfelden"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1696,10 +1705,12 @@
           "team-leader-nel-personale-di-guida-postauto-ag-weinfelden"
         ],
         "en": [
-          "teamleiter-in-fahrpersonal-postauto-weinfelden"
+          "teamleiter-in-fahrpersonal-postauto-weinfelden",
+          "team-leader-in-driving-personnel-postauto-ag-weinfelden"
         ],
         "fr": [
-          "teamleiter-in-fahrpersonal-postauto-weinfelden"
+          "teamleiter-in-fahrpersonal-postauto-weinfelden",
+          "chef-d-equipe-dans-le-personnel-de-conduite-postauto-ag-weinfelden"
         ]
       },
       "firstSeenAt": "2026-07-21T12:32:36.958Z",
@@ -1720,10 +1731,10 @@
       "id": "postauto-e542d1622bec",
       "slug": "postbus-driver-in-postauto-ag-appenzell",
       "slugByLocale": {
-        "it": "postbus-driver-in-postauto-ag-appenzell",
-        "en": "postbus-driver-in-postauto-ag-appenzell",
+        "it": "postbus-driver-in-postauto-appenzell",
+        "en": "postbus-driver-in-postauto-appenzell",
         "de": "postauto-fahrer-in-postauto-appenzell",
-        "fr": "pilote-postbus-in-postauto-ag-appenzell"
+        "fr": "pilote-postbus-in-postauto-appenzell"
       },
       "company": "PostAuto AG",
       "companyKey": "postauto",
@@ -1770,7 +1781,8 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "postauto-fahrer-in-postauto-appenzell",
-        "postbus-driver-in-postauto-ag-appenzell"
+        "postbus-driver-in-postauto-ag-appenzell",
+        "pilote-postbus-in-postauto-ag-appenzell"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1781,11 +1793,11 @@
           "postauto-fahrer-in-postauto-appenzell"
         ],
         "fr": [
-          "postauto-fahrer-in-postauto-appenzell"
+          "postauto-fahrer-in-postauto-appenzell",
+          "pilote-postbus-in-postauto-ag-appenzell"
         ]
       },
       "firstSeenAt": "2026-07-21T12:32:34.703Z",
-      "needsRetranslation": true,
       "salaryMin": 65000,
       "salaryMax": 98500,
       "baseSalary": {
@@ -1797,7 +1809,8 @@
           "maxValue": 98500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "postauto-83917ae29257",
@@ -1885,10 +1898,10 @@
       "id": "postauto-e3f91bb1e72b",
       "slug": "key-account-manager-in-business-clienti-svizzera-orientale-postauto-ag-st-gallen",
       "slugByLocale": {
-        "it": "key-account-manager-in-business-clienti-svizzera-orientale-postauto-ag-st-gallen",
-        "en": "key-account-manager-in-business-customers-eastern-switzerland-postauto-ag-st-gallen",
+        "it": "key-account-manager-in-business-clienti-svizzera-orientale-postauto-st-gallen",
+        "en": "key-account-manager-in-business-customers-eastern-switzerland-postauto-st-gallen",
         "de": "key-account-manager-in-geschaftskunden-ostschweiz-postauto-st-gallen",
-        "fr": "key-account-manager-dans-les-clients-d-affaires-de-suisse-orientale-postauto-ag-st-gallen"
+        "fr": "key-account-manager-dans-les-clients-d-affaires-de-suisse-orientale-postauto-st-gallen"
       },
       "company": "PostAuto AG",
       "companyKey": "postauto",
@@ -1934,17 +1947,21 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "key-account-manager-in-geschaftskunden-ostschweiz-postauto-st-gallen"
+        "key-account-manager-in-geschaftskunden-ostschweiz-postauto-st-gallen",
+        "key-account-manager-in-business-customers-eastern-switzerland-postauto-ag-st-gallen",
+        "key-account-manager-dans-les-clients-d-affaires-de-suisse-orientale-postauto-ag-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "key-account-manager-in-geschaftskunden-ostschweiz-postauto-st-gallen"
         ],
         "en": [
-          "key-account-manager-in-geschaftskunden-ostschweiz-postauto-st-gallen"
+          "key-account-manager-in-geschaftskunden-ostschweiz-postauto-st-gallen",
+          "key-account-manager-in-business-customers-eastern-switzerland-postauto-ag-st-gallen"
         ],
         "fr": [
-          "key-account-manager-in-geschaftskunden-ostschweiz-postauto-st-gallen"
+          "key-account-manager-in-geschaftskunden-ostschweiz-postauto-st-gallen",
+          "key-account-manager-dans-les-clients-d-affaires-de-suisse-orientale-postauto-ag-st-gallen"
         ]
       },
       "firstSeenAt": "2026-07-26T22:15:58.727Z",
