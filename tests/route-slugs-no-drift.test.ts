@@ -26,8 +26,16 @@ describe('route-slugs anti-drift guard (#4315)', () => {
     ['build-plugins/eventsSeoPagesPlugin.ts', /from '\.\.\/services\/routeSlugs\.data'/, "it: '/cerca-lavoro-ticino/'"],
     ['build-plugins/exchangeRatePagesPlugin.ts', /from '\.\.\/services\/routeSlugs\.data'/, "it: '/calcola-stipendio/',"],
     ['build-plugins/shared/employerCtaBlock.ts', /from '\.\.\/\.\.\/services\/routeSlugs\.data'/, "it: '/per-le-aziende/',"],
-    ['build-plugins/blogContextualLinksPlugin.ts', /from '\.\.\/services\/routeSlugs\.data\.ts'/, "it: 'articoli-frontaliere',"],
-    ['build-plugins/ogPagesPlugin.ts', /from '\.\.\/services\/routeSlugs\.data'/, "const stBlock = routerSrc.match"],
+    // #4881 Fase 6: both moved into packages/articles/engine and now receive the
+    // SAME SLUG_TABLES values through the injected SiteShellContract instead of
+    // importing routeSlugs.data directly (the package cannot reach outside its
+    // own tree — see tests/packages-articles-confinement.test.ts). That is a
+    // stricter form of this guard, not a weaker one: the literals still may not
+    // appear, and the values still originate from SLUG_TABLES. Follow the
+    // implementation rather than dropping the rows, or the guard silently stops
+    // covering these two files.
+    ['packages/articles/engine/blogContextualLinksPlugin.ts', /getSiteShell\(\)\.blogIndexSlugs/, "it: 'articoli-frontaliere',"],
+    ['packages/articles/engine/ogPagesPlugin.ts', /shell\.blogIndexSlugs/, "const stBlock = routerSrc.match"],
     ['components/vita/TicineseDialect.tsx', /from '@\/services\/routeSlugs\.data'/, "'/dialetto-ticinese/'"],
     ['scripts/validate-critical-dist-pages.mjs', /from '\.\.\/services\/routeSlugs\.data\.ts'/, "'calcola-stipendio/index.html'"],
     ['build-plugins/seoHubsData.ts', /from '\.\.\/services\/routeSlugs\.data'/, "articlesAll: '/articoli-frontaliere/tutti/'"],
@@ -47,6 +55,19 @@ describe('route-slugs anti-drift guard (#4315)', () => {
   // builder now live once in functions/src/lib/newsletterUrls.js (guarded
   // against SLUG_TABLES drift by the test below) and are imported here via
   // services/newsletterUrls.mjs instead of hand-copied.
+  // The autologin URL builder was privately reimplemented three times
+  // (send-newsletter.mjs, send-job-alerts.mjs, and the welcome email) before
+  // being centralized. Guard against a fourth: the senders must import it, not
+  // define their own `function makeAuthenticatedUrl`.
+  it.each(['scripts/send-newsletter.mjs', 'scripts/send-job-alerts.mjs'])(
+    '%s uses the shared makeAuthenticatedUrl instead of a private copy',
+    (file) => {
+      const src = read(file);
+      expect(src).toMatch(/from '\.\.\/services\/newsletterUrls\.mjs'/);
+      expect(src).not.toMatch(/^function makeAuthenticatedUrl\s*\(/m);
+    },
+  );
+
   it.each(['scripts/send-newsletter.mjs', 'scripts/send-job-alerts.mjs'])(
     '%s imports makePreferencesUrl from the shared builder instead of hand-copying a slug table',
     (file) => {
@@ -95,6 +116,22 @@ describe('route-slugs anti-drift guard (#4315)', () => {
     const { PREFERENCES_SLUG } = await import('../functions/src/lib/newsletterUrls.js');
     for (const locale of ['it', 'en', 'de', 'fr'] as const) {
       expect(PREFERENCES_SLUG[locale]).toBe(SLUG_TABLES[locale].newsletterPreferences);
+    }
+  });
+
+  // Same forced-copy situation for the consulting route: the welcome email
+  // promotes the paid 1:1 consultation, so functions/src/lib/newsletterUrlPaths.js
+  // carries the per-locale path. router.ts builds it as `${prefix}/${table.consulting}`,
+  // so the map entry must equal that, trailing-slash aside.
+  it('functions/src/lib/newsletterUrlPaths.js consulting paths stay in sync with SLUG_TABLES.*.consulting', async () => {
+    const { LOCALE_PATH_MAP } = await import('../functions/src/lib/newsletterUrlPaths.js');
+    const variants = LOCALE_PATH_MAP['/consulenza'];
+    expect(variants).toBeTruthy();
+    for (const locale of ['it', 'en', 'de', 'fr'] as const) {
+      const expected = locale === 'it'
+        ? `/${SLUG_TABLES.it.consulting}`
+        : `/${locale}/${SLUG_TABLES[locale].consulting}`;
+      expect(variants[locale]).toBe(expected);
     }
   });
 });

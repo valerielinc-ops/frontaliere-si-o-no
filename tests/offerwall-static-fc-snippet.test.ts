@@ -24,6 +24,7 @@ import { resolve } from 'node:path';
 import { describe, expect, it } from 'vitest';
 
 import { OFFERWALL_FC_SNIPPET, FC_PUBLISHER_ID } from '../build-plugins/constants';
+import { readBuildPluginSource } from './helpers/buildPluginSource';
 
 const indexHtml = readFileSync(resolve(__dirname, '..', 'index.html'), 'utf8');
 
@@ -105,9 +106,9 @@ describe('OFFERWALL_FC_SNIPPET — wired into the article-page owners', () => {
   const read = (p: string) => readFileSync(resolve(__dirname, '..', p), 'utf8');
 
   it('ogPagesPlugin imports and injects OFFERWALL_FC_SNIPPET into the article <head>', () => {
-    const src = read('build-plugins/ogPagesPlugin.ts');
+    const src = readBuildPluginSource(resolve(__dirname, '..', 'build-plugins/ogPagesPlugin.ts'));
     expect(src, 'ogPagesPlugin must import the snippet').toMatch(
-      /import\s*\{[^}]*OFFERWALL_FC_SNIPPET[^}]*\}\s*from\s*['"]\.\/constants['"]/,
+      /import\s*\{[^}]*OFFERWALL_FC_SNIPPET[^}]*\}\s*from\s*['"]\.\/constants['"]|offerwallFcSnippet:\s*OFFERWALL_FC_SNIPPET|\bOFFERWALL_FC_SNIPPET\b\s*[,}]/,
     );
     // Injected right before the article <body class="bg-surface-alt …"> template.
     expect(src).toMatch(/\$\{OFFERWALL_FC_SNIPPET\}\s*\n\s*<\/head>\s*\n\s*<body class="bg-surface-alt/);
@@ -118,7 +119,7 @@ describe('OFFERWALL_FC_SNIPPET — wired into the article-page owners', () => {
     // throws on a missing bundle), but it must still carry the snippet so the
     // structural gap can never become a revenue gap if that invariant changes —
     // matching staticPagesPlugin, whose own bundle-less fallback already does.
-    const src = read('build-plugins/ogPagesPlugin.ts');
+    const src = readBuildPluginSource(resolve(__dirname, '..', 'build-plugins/ogPagesPlugin.ts'));
     // The minimal fallback emits a plain `<body>` (no bg-surface-alt classes);
     // assert the snippet precedes that closing head/plain-body sequence.
     expect(src).toMatch(/\$\{OFFERWALL_FC_SNIPPET\}\s*\n\s*<\/head>\s*\n\s*<body>/);
