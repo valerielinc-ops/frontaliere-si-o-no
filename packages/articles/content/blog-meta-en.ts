@@ -9127,6 +9127,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-porto-ceresio-lavoro-ticino.title': 'Living in Porto Ceresio and working in Ticino as a border worker',
     'blog.article.vivere-porto-ceresio-lavoro-ticino.excerpt': 'Practical guide for border workers between Porto Ceresio and Canton Ticino: taxes, procedures, mobility and costs according to the regulations in force from 1 January 2024.',
     'blog.article.vivere-porto-ceresio-lavoro-ticino.imageAlt': 'View of Lake Lugano near the Swiss-Italian border',
+    'blog.article.caro-carburanti-svizzera-indagine-comco.title': 'Competition Commission investigates expensive fuels in Ticino',
+    'blog.article.caro-carburanti-svizzera-indagine-comco.excerpt': 'Councillor Benoît Gaillard raises suspicion of understandings on gasoline prices after Etzelpark\'s arrival in Bellinzona.',
+    'blog.article.caro-carburanti-svizzera-indagine-comco.imageAlt': 'Fuel station in Bellinzona showing pumps and price signs',
 };
 
 export default blogMetaEn;

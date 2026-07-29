@@ -9126,6 +9126,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vivere-porto-ceresio-lavoro-ticino.title': 'Leben in Porto Ceresio und Arbeiten im Tessin als Grenzgänger',
     'blog.article.vivere-porto-ceresio-lavoro-ticino.excerpt': 'Praktischer Leitfaden für Grenzgänger zwischen Porto Ceresio und dem Kanton Tessin: Steuern, Verfahren, Mobilität und Kosten gemäß den ab dem 1. Januar 2024 geltenden Vorschriften.',
     'blog.article.vivere-porto-ceresio-lavoro-ticino.imageAlt': 'Blick auf den Luganersee nahe der schweizerisch-italienischen Grenze',
+    'blog.article.caro-carburanti-svizzera-indagine-comco.title': 'Wettbewerbskommission untersucht teure Treibstoffe im Tessin',
+    'blog.article.caro-carburanti-svizzera-indagine-comco.excerpt': 'Stadtrat Benoît Gaillard wirft nach der Ankunft des Etzelparks in Bellinzona den Verdacht auf eine Verständigung über die Benzinpreise auf.',
+    'blog.article.caro-carburanti-svizzera-indagine-comco.imageAlt': 'Tankstelle in Bellinzona mit Zapfsäulen und Preisschildern',
 };
 
 export default blogMetaDe;

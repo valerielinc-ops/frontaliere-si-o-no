@@ -1,0 +1,18 @@
+{
+  "id": "caro-carburanti-svizzera-indagine-comco",
+  "slug": "caro-carburanti-svizzera-indagine-comco",
+  "publishedAt": "2026-07-29T23:23:43.741Z",
+  "cluster": "fiscale",
+  "_pool": "proven",
+  "_pool_source": "tvsvizzera.it",
+  "_score_breakdown": {
+    "stage": "cluster",
+    "rawScore": 0,
+    "confidence": 0.3,
+    "finalScore": 0,
+    "cluster": "fiscale",
+    "score": 0,
+    "clusterDiversityBonus": 0.1,
+    "sourceQualityMultiplier": 1
+  }
+}
