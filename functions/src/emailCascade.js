@@ -97,12 +97,21 @@ const PROVIDERS = [
     // delivery time must not be farther than 72h0m0s from now". Not a guess.
     scheduledSend: { param: 'o:deliverytime', maxLookaheadMs: 3 * DAY_MS } },
   { id: 'mailjet',  dailyLimit: 200, monthlyLimit: 6000  },
-  // Like resend/maileroo, effective daily cap is read from
-  // `_dynamicDailyLimits.mailtrap` — computeMailtrapDynamicDailyLimit() paces
-  // against the REAL billing-cycle boundaries Mailtrap's own API returns
-  // (no anchor-day guessing needed here, unlike Resend/Maileroo). `dailyLimit:
-  // 150` below is only the pre-sync/unverifiable-usage fallback.
-  { id: 'mailtrap', dailyLimit: 150, monthlyLimit: 4000  },
+  // mailtrap: REMOVED FROM THE CASCADE 2026-07-29 (owner decision). Its send
+  // stream is suspended: the API accepts the message, returns a message_id, and
+  // delivers nothing — so every send through it was silently lost while being
+  // counted as a success. Worse, Mailtrap then posts a `suspension` webhook per
+  // message, which mapMailtrapEvent() used to translate into a per-SUBSCRIBER
+  // suppression (see newsletterMailtrapWebhookCore.js): 1730 subscribers, 23% of
+  // the base, were burned that way without a single real bounce or complaint.
+  // Restore this entry only once Mailtrap's stream is verified sending again
+  // AND a live test send is confirmed received.
+  //
+  // Like resend/maileroo, its effective daily cap was read from
+  // `_dynamicDailyLimits.mailtrap` — computeMailtrapDynamicDailyLimit() paced
+  // against the REAL billing-cycle boundaries Mailtrap's own API returns.
+  // `dailyLimit: 150` was only the pre-sync/unverifiable-usage fallback.
+  // { id: 'mailtrap', dailyLimit: 150, monthlyLimit: 4000  },
   // maileroo: paid plan bumped 3000/mo → 100000/mo 2026-07-20 (owner activated
   // it explicitly to become the primary channel for newsletter + job-alert
   // volume). DKIM selector mta._domainkey.frontaliereticino.ch is published and
