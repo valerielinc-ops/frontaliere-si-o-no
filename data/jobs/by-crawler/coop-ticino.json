@@ -51802,8 +51802,7 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "kochin-koch-m-w-d-coop-ristorante-rickenbach-thurgau-v71pno",
-          "kochin-koch-m-w-d-coop-ristorante-rickenbach-thurgau"
+          "kochin-koch-m-w-d-coop-ristorante-rickenbach-thurgau-v71pno"
         ],
         "en": [
           "kochin-koch-m-w-d-coop-ristorante-rickenbach-thurgau-v71pno",
@@ -51815,8 +51814,7 @@
       },
       "previousSlugs": [
         "kochin-koch-m-w-d-coop-ristorante-rickenbach-thurgau-v71pno",
-        "kochin-koch-m-w-d-coop-genossenschaft-rickenbach-v71pno",
-        "kochin-koch-m-w-d-coop-ristorante-rickenbach-thurgau"
+        "kochin-koch-m-w-d-coop-genossenschaft-rickenbach-v71pno"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000
@@ -150471,7 +150469,6 @@
           "teammember-food-m-w-d-marche-restaurants-schweiz-ag-dietlikon"
         ],
         "fr": [
-          "teammember-food-m-w-d-marche-restaurants-schweiz-ag-dietlikon-ovsjoj",
           "membre-de-l-equipe-zopf-zopfli-f-m-d-marche-restaurants-schweiz-ag-dietlikon"
         ],
         "en": [
@@ -150482,7 +150479,6 @@
         ]
       },
       "previousSlugs": [
-        "teammember-food-m-w-d-marche-restaurants-schweiz-ag-dietlikon-ovsjoj",
         "membro-della-squadra-zopf-zopfli-f-m-d-marche-restaurants-schweiz-ag-dietlikon",
         "team-member-zopf-zopfli-f-m-d-marche-restaurants-schweiz-ag-dietlikon",
         "teammember-zopf-zopfli-m-w-d-marche-dietlikon-15oy8t",
@@ -152062,7 +152058,7 @@
       },
       "slugByLocale": {
         "it": "aspirant-in-stv-managing-director-in-coop-genossenschaft-buochs",
-        "en": "aspirant-in-stv-geschaftsfuhrer-in-coop-buochs-nidwalden-gzj6w9",
+        "en": "aspirant-in-stv-managing-director-in-coop-genossenschaft-buochs-nidwalden",
         "de": "aspirant-in-stv-geschaftsfuhrer-in-coop-buochs-nidwalden-gzj6w9",
         "fr": "aspirant-dans-stv-directeur-general-in-coop-genossenschaft-buochs"
       },
@@ -152101,7 +152097,9 @@
           "aspirant-vice-directeur-coop-genossenschaft-buochs-w74wpj"
         ],
         "en": [
-          "aspirant-vice-manager-coop-genossenschaft-buochs-w74wpj"
+          "aspirant-vice-manager-coop-genossenschaft-buochs-w74wpj",
+          "aspirant-vice-manager-coop-genossenschaft-buochs-w74wpj",
+          "aspirant-in-stv-geschaftsfuhrer-in-coop-buochs-nidwalden-gzj6w9"
         ],
         "de": [
           "aspirant-in-stv-geschaftsfuhrer-in-coop-buochs-nidwalden-w74wpj"
@@ -152162,7 +152160,7 @@
       },
       "slugByLocale": {
         "it": "aspirant-in-stv-managing-director-in-coop-genossenschaft-unterageri",
-        "en": "aspirant-in-stv-geschaftsfuhrer-in-coop-unterageri-zug-4w5ske",
+        "en": "aspirant-in-stv-managing-director-in-coop-genossenschaft-unterageri-zug",
         "de": "aspirant-in-stv-geschaftsfuhrer-in-coop-unterageri-zug-4w5ske",
         "fr": "aspirant-dans-stv-directeur-general-in-coop-genossenschaft-unterageri"
       },
@@ -152188,6 +152186,9 @@
           "aspirant-in-stv-geschaftsfuhrer-in-coop-unterageri-zug"
         ],
         "fr": [
+          "aspirant-in-stv-geschaftsfuhrer-in-coop-unterageri-zug-4w5ske"
+        ],
+        "en": [
           "aspirant-in-stv-geschaftsfuhrer-in-coop-unterageri-zug-4w5ske"
         ]
       },
@@ -153637,7 +153638,7 @@
     },
     {
       "id": "company-v0jq63",
-      "slug": "kochin-koch-m-w-d-coop-genossenschaft-biel-bern",
+      "slug": "cucinare-cucinare-f-m-d-coop-genossenschaft-biel-3c0095",
       "company": "Coop Genossenschaft",
       "title": "Köchin / Koch (w/m/d)",
       "location": "Biel",
@@ -153670,10 +153671,10 @@
       },
       "needsRetranslation": true,
       "slugByLocale": {
-        "it": "kochin-koch-m-w-d-coop-genossenschaft-biel-bern-v0jq63",
-        "en": "kochin-koch-m-w-d-coop-genossenschaft-biel-bern-v0jq63",
+        "it": "cucinare-cucinare-f-m-d-coop-genossenschaft-biel-3c0095",
+        "en": "cook-cook-f-m-d-coop-genossenschaft-biel-3c0095",
         "de": "kochin-koch-m-w-d-coop-genossenschaft-biel-bern-v0jq63",
-        "fr": "kochin-koch-m-w-d-coop-genossenschaft-biel-bern-v0jq63"
+        "fr": "cuire-cuire-f-m-d-coop-genossenschaft-biel-3c0095"
       },
       "requirementsByLocale": {
         "it": [],
@@ -153699,11 +153700,27 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "kochin-koch-m-w-d-coop-genossenschaft-biel-bern-v0jq63",
+          "kochin-koch-m-w-d-coop-genossenschaft-biel-bern"
+        ],
+        "en": [
+          "kochin-koch-m-w-d-coop-genossenschaft-biel-bern-v0jq63"
+        ],
+        "fr": [
+          "kochin-koch-m-w-d-coop-genossenschaft-biel-bern-v0jq63"
+        ]
+      },
+      "previousSlugs": [
+        "kochin-koch-m-w-d-coop-genossenschaft-biel-bern-v0jq63",
+        "kochin-koch-m-w-d-coop-genossenschaft-biel-bern"
+      ]
     },
     {
       "id": "company-4568z7",
-      "slug": "staplerfahrer-in-coop-genossenschaft-thun-bern",
+      "slug": "driver-per-il-carrello-elevatore-in-coop-genossenschaft-thun",
       "company": "Coop Genossenschaft",
       "title": "Staplerfahrer:in",
       "location": "Thun",
@@ -153736,10 +153753,10 @@
         "fr": "## Conducteur de chariot élévateur:in\n\n**Coop cooperative** — Thun, Berne, Svizzera\n\n## Tâches\n- Entreposage et enlèvement des marchandises dans les entrepôts à grande baie à l'aide de chariots élévateurs.\n- Les produits commandés peuvent être choisis au moyen d'un terminal radio de données Pick par Voix ou scanner à main radio-commandé.\n- Tout sous contrôle : vous vérifiez la quantité et la qualité des produits.\n- Dans le camp, vous faites des tâches générales.\n- En cas de charge de travail élevée, vous aidez activement d'autres ministères.\n\n## Exigences\n- Vous connaissez la logistique.\n- Physiquement, vous êtes en forme.\n- Votre connaissance orale et écrite de l'allemand est bonne.\n- Vous avez un permis de conduire de camion.\n- Préparation au travail saisonnier (mars-juin).\n- Réductions: Réduction sur l'offre de voyage ITS Coop Travel, 5 fois le nombre de super points dans le supermarché, jusqu'à 20% de réduction sur les différents services d'assurance, jusqu'à 20% de réduction dans tous les formats du groupe Coop, abonnements mobiles et prépayés moins chers sur Coop Mobile, Reka Card: Réduction sur l'achat, Réduction sur le partage de voiture de mobilité, Réduction personnel également pour les partenaires:dans (habitant dans le même ménage), Réduction sur l'abonnement GA, Réductions sur les événements culturels, Réductions pour les activités de loisirs\n- Conditions d'emploi: Caisse de retraite: 2/3 est payé par Coop, Conditions d'emploi attrayantes et salaire égal certifié, Primes de fidélité, Régime d'épargne-retraite, Contrat d'emploi total (GAV), 18 semaines de congé de maternité payé et trois semaines de congé de paternité payé\n- Temps de travail: 5 semaines de vacances, modèles flexibles de temps de travail\n- Formation complémentaire: plus de 600 cours de formation interne, gestion des talents avec des possibilités de développement diverses, formation et offres de formation complémentaire du L-GAV et du Coop\n- Durabilité : Engagement envers les personnes, les animaux et la nature avec plus de 400 actions\n- Communication: application interne pour les salariés\n- Santé : Mise à jour de la condition physique : 200.– Réduction sur l'abonnement annuel, participation gratuite à diverses activités d'entreprise, offres de sports maison\n\n## Votre personne à contacter\nAllemand Steiner\nMarketing des ressources humaines\n\n**Tipo:** Temps plein\n**Sécurité :** Thun"
       },
       "slugByLocale": {
-        "it": "staplerfahrer-in-coop-genossenschaft-thun-bern-4568z7",
-        "en": "staplerfahrer-in-coop-genossenschaft-thun-bern-4568z7",
+        "it": "driver-per-il-carrello-elevatore-in-coop-genossenschaft-thun",
+        "en": "forklift-driver-in-coop-genossenschaft-thun",
         "de": "staplerfahrer-in-coop-genossenschaft-thun-bern-4568z7",
-        "fr": "staplerfahrer-in-coop-genossenschaft-thun-bern-4568z7"
+        "fr": "conducteur-de-chariot-elevateur-in-coop-genossenschaft-thun"
       },
       "requirementsByLocale": {
         "it": [],
@@ -153765,11 +153782,27 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "staplerfahrer-in-coop-genossenschaft-thun-bern-4568z7",
+          "staplerfahrer-in-coop-genossenschaft-thun-bern"
+        ],
+        "en": [
+          "staplerfahrer-in-coop-genossenschaft-thun-bern-4568z7"
+        ],
+        "fr": [
+          "staplerfahrer-in-coop-genossenschaft-thun-bern-4568z7"
+        ]
+      },
+      "previousSlugs": [
+        "staplerfahrer-in-coop-genossenschaft-thun-bern-4568z7",
+        "staplerfahrer-in-coop-genossenschaft-thun-bern"
+      ]
     },
     {
       "id": "company-utx1ku",
-      "slug": "kommissionierer-in-coop-genossenschaft-bern",
+      "slug": "picker-d-ordine-in-coop-genossenschaft-bern-fd78b4",
       "company": "Coop Genossenschaft",
       "title": "Kommissionierer:in",
       "location": "Bern",
@@ -153802,10 +153835,10 @@
         "fr": "## Récupérateur de commande:in\n\n**Coopérative Coop** — Berne, Berne, Svizzera\n\n## Tâches\n- Les produits commandés peuvent être choisis au moyen d'un terminal radio de données Pick par Voix ou scanner à main radio-commandé.\n- Tout sous contrôle : vous vérifiez la quantité et la qualité des produits.\n- Dans le camp, vous faites des tâches générales.\n- En cas de charge de travail élevée, vous aidez activement d'autres ministères.\n\n## Exigences\n- Vous connaissez la logistique.\n- Physiquement, vous êtes en forme.\n- Votre connaissance orale et écrite de l'allemand est bonne.\n- Travail posté ? Pas de problème pour toi.\n- Le fait que votre poste commence ou se termine tôt ne vous importe pas. Vous êtes mobile et flexible.\n- Réductions: Réduction sur l'offre de voyage ITS Coop Travel, 5 fois le nombre de super points dans le supermarché, jusqu'à 20% de réduction sur les différents services d'assurance, jusqu'à 20% de réduction dans tous les formats du groupe Coop, abonnements mobiles et prépayés moins chers sur Coop Mobile, Reka Card: Réduction sur l'achat, Réduction sur le partage de voiture de mobilité, Réduction personnel également pour les partenaires:dans (habitant dans le même ménage), Réduction sur l'abonnement GA, Réductions sur les événements culturels, Réductions pour les activités de loisirs\n- Conditions d'emploi: Caisse de retraite: 2/3 est payé par Coop, Conditions d'emploi attrayantes et salaire égal certifié, Primes de fidélité, Régime d'épargne-retraite, Contrat d'emploi total (GAV), 18 semaines de congé de maternité payé et trois semaines de congé de paternité payé\n- Temps de travail: 5 semaines de vacances, modèles flexibles de temps de travail\n- Formation complémentaire: plus de 600 cours de formation interne, gestion des talents avec des possibilités de développement diverses, formation et offres de formation complémentaire du L-GAV et du Coop\n- Durabilité : Engagement envers les personnes, les animaux et la nature avec plus de 400 actions\n- Communication: application interne pour les salariés\n- Santé : Mise à jour de la condition physique : 200.– Réduction sur l'abonnement annuel, participation gratuite à diverses activités d'entreprise, offres de sports maison\n\n## Votre personne à contacter\nAllemand Steiner\nMarketing des ressources humaines\n\n**Tipo:** Temps partiel\n**Sécurité :** Berne"
       },
       "slugByLocale": {
-        "it": "kommissionierer-in-coop-genossenschaft-bern-utx1ku",
-        "en": "kommissionierer-in-coop-genossenschaft-bern-utx1ku",
+        "it": "picker-d-ordine-in-coop-genossenschaft-bern-fd78b4",
+        "en": "order-picker-in-coop-genossenschaft-bern-fd78b4",
         "de": "kommissionierer-in-coop-genossenschaft-bern-utx1ku",
-        "fr": "kommissionierer-in-coop-genossenschaft-bern-utx1ku"
+        "fr": "recuperateur-de-commande-in-coop-genossenschaft-bern"
       },
       "requirementsByLocale": {
         "it": [],
@@ -153831,11 +153864,27 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "kommissionierer-in-coop-genossenschaft-bern-utx1ku",
+          "kommissionierer-in-coop-genossenschaft-bern"
+        ],
+        "en": [
+          "kommissionierer-in-coop-genossenschaft-bern-utx1ku"
+        ],
+        "fr": [
+          "kommissionierer-in-coop-genossenschaft-bern-utx1ku"
+        ]
+      },
+      "previousSlugs": [
+        "kommissionierer-in-coop-genossenschaft-bern-utx1ku",
+        "kommissionierer-in-coop-genossenschaft-bern"
+      ]
     },
     {
       "id": "company-cqf4w8",
-      "slug": "verkaufer-in-food-coop-genossenschaft-kerzers-freiburg",
+      "slug": "venditore-in-food-coop-genossenschaft-kerzers",
       "company": "Coop Genossenschaft",
       "title": "Verkäufer:in Food",
       "location": "Kerzers",
@@ -153868,10 +153917,10 @@
         "fr": "## Vendeur:dans la nourriture\n\n**Coopérative de coop** — Kerzers, Freiburg, Svizzera\n\n## Tâches\n- Vous aimez la variété, de sorte que vous servez et conseillez nos clients dans différents départements – toujours amical et engagé.\n- Grâce à votre utilisation active, les marchandises se vendent mieux et sont gérées haut.\n- Il est clair que vous respectez nos exigences, qu'il s'agisse de fraîcheur et de qualité, d'hygiène, de régulation de la température ou de la date d'expiration.\n- Vos efforts aux caisses enregistreuses sont également variés si vous soutenez l'équipe.\n\n## Exigences\n- Êtes-vous formé au commerce de détail (éducation de base) ou avez-vous déjà acquis beaucoup d'expérience dans les ventes? Bingo, puis appliquez.\n- Vos temps d'affectation sont flexibles, mais cela ne vous cause aucun problème.\n- Vous maîtrisez bien l'allemand, en conversation et sur papier.\n- Réductions: Réduction sur l'offre de voyage ITS Coop Travel, 5 fois le nombre de super points dans le supermarché, jusqu'à 20% de réduction sur les différents services d'assurance, jusqu'à 20% de réduction dans tous les formats du groupe Coop, abonnements mobiles et prépayés moins chers sur Coop Mobile, Reka Card: Réduction sur l'achat, Réduction sur le partage de voiture de mobilité, Réduction personnel également pour les partenaires:dans (habitant dans le même ménage), Réduction sur l'abonnement GA, Réductions sur les événements culturels, Réductions pour les activités de loisirs\n- Conditions d'emploi: Caisse de retraite: 2/3 est payé par Coop, Conditions d'emploi attrayantes et salaire égal certifié, Primes de fidélité, Régime d'épargne-retraite, Contrat d'emploi total (GAV), 18 semaines de congé de maternité payé et trois semaines de congé de paternité payé\n- Temps de travail: 5 semaines de vacances, modèles flexibles de temps de travail\n- Formation complémentaire: plus de 600 cours de formation interne, gestion des talents avec des possibilités de développement diverses, formation et offres de formation complémentaire du L-GAV et du Coop\n- Durabilité : Engagement envers les personnes, les animaux et la nature avec plus de 400 actions\n- Communication: application interne pour les salariés\n- Santé : Mise à jour de la condition physique : 200.– Réduction sur l'abonnement annuel, participation gratuite à diverses activités d'entreprise, offres de sports maison\n\n## Votre personne à contacter\nViviane Natsch-Artmann\nMarketing des ressources humaines\n\n**Tipo:** Temps partiel\n**Sede:** Kerzers"
       },
       "slugByLocale": {
-        "it": "verkaufer-in-food-coop-genossenschaft-kerzers-freiburg-cqf4w8",
-        "en": "verkaufer-in-food-coop-genossenschaft-kerzers-freiburg-cqf4w8",
+        "it": "venditore-in-food-coop-genossenschaft-kerzers",
+        "en": "seller-in-food-coop-genossenschaft-kerzers",
         "de": "verkaufer-in-food-coop-genossenschaft-kerzers-freiburg-cqf4w8",
-        "fr": "verkaufer-in-food-coop-genossenschaft-kerzers-freiburg-cqf4w8"
+        "fr": "vendeur-dans-la-nourriture-coop-genossenschaft-kerzers"
       },
       "requirementsByLocale": {
         "it": [],
@@ -153897,11 +153946,27 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufer-in-food-coop-genossenschaft-kerzers-freiburg-cqf4w8",
+          "verkaufer-in-food-coop-genossenschaft-kerzers-freiburg"
+        ],
+        "en": [
+          "verkaufer-in-food-coop-genossenschaft-kerzers-freiburg-cqf4w8"
+        ],
+        "fr": [
+          "verkaufer-in-food-coop-genossenschaft-kerzers-freiburg-cqf4w8"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufer-in-food-coop-genossenschaft-kerzers-freiburg-cqf4w8",
+        "verkaufer-in-food-coop-genossenschaft-kerzers-freiburg"
+      ]
     },
     {
       "id": "company-1w4qdz",
-      "slug": "verkaufsberater-in-coop-genossenschaft-zurich",
+      "slug": "consulente-commerciale-in-coop-genossenschaft-zurich",
       "company": "Coop Genossenschaft",
       "title": "Verkaufsberater:in",
       "location": "Zürich",
@@ -153934,10 +153999,10 @@
         "fr": "## Consultant en ventes:\n\n**Coopérative Coop** — Zurich, Zurich, Svizzera\n\n## Tâches\n- Inspirer les clients avec des tendances et des nouveautés et les conseiller individuellement et selon le type est exactement votre chose – et votre tâche quotidienne.\n- Motivé, vous aidez que le magasin semble toujours bien gardé.\n- Vous prenez la gestion des marchandises sur notre zone de vente très consciencieusement.\n- La responsabilité de la gestion de la trésorerie vous incombe également.\n\n## Exigences\n- Tu préfères travailler avec les gens. L'équipe et les clients ressentent votre passion jour après jour.\n- Achevé une formation professionnelle et/ou une expérience de préférence en tant que vendeur de parfums:in, esthéticien:in ou drogué:in? Nous cherchons des gens comme vous.\n- Vous avez l'allemand sous contrôle – verbalement et par écrit. Si vous connaissez des langues étrangères, tant mieux.\n- Bien sûr, vous êtes flexible dans les temps de fonctionnement (Mo à Sa). Vous appartenez à la vente.\n\n## Ce que nous offrons\n- Réductions: Réduction sur l'offre voyage ITS Coop Travel, 5 fois le nombre de super points dans le supermarché, jusqu'à 20% de réduction sur les différents services d'assurance, jusqu'à 20% de réduction dans tous les formats du groupe Coop, abonnements mobiles et prépayés moins chers chez Coop Mobile, Reka Card: réduction sur l'abonnement, réduction personnel également pour les partenaires:dans (habitant dans le même ménage), réduction sur l'abonnement GA\n- Conditions d'emploi: Caisse de retraite: 2/3 est payé par la Coop, 18 semaines de congé de maternité payé et 4 semaines de congé de paternité payé, primes de fidélité, plan d'épargne à la caisse de retraite, régime flexible et attrayant de la retraite anticipée achevée 58. Année\n- Heures de travail: 5 semaines de congés\n- Formation: plus de 600 cours de formation interne, soutien à l'éducation et à la formation externes, gestion des talents avec un large éventail de possibilités de développement\n- Durabilité :\n- Communication:\n- Santé : Mise à jour de la condition physique : 200.– Réduction sur abonnement annuel\n\n## Votre personne à contacter\nSinduja Kugasothy\nMarketing des ressources humaines\n\n**Tipo:** Temps partiel\n**Sede:** Zurich"
       },
       "slugByLocale": {
-        "it": "verkaufsberater-in-coop-genossenschaft-zurich-1w4qdz",
-        "en": "verkaufsberater-in-coop-genossenschaft-zurich-1w4qdz",
+        "it": "consulente-commerciale-in-coop-genossenschaft-zurich",
+        "en": "sales-consultant-in-coop-genossenschaft-zurich",
         "de": "verkaufsberater-in-coop-genossenschaft-zurich-1w4qdz",
-        "fr": "verkaufsberater-in-coop-genossenschaft-zurich-1w4qdz"
+        "fr": "consultant-en-ventes-coop-genossenschaft-zurich"
       },
       "requirementsByLocale": {
         "it": [],
@@ -153967,12 +154032,26 @@
       "previousSlugsByLocale": {
         "it": [
           "verkaufsberater-in-hartwaren-coop-genossenschaft-zurich",
-          "verkaufsberater-in-heimtextilien-coop-genossenschaft-zurich"
+          "verkaufsberater-in-heimtextilien-coop-genossenschaft-zurich",
+          "verkaufsberater-in-hartwaren-coop-genossenschaft-zurich",
+          "verkaufsberater-in-heimtextilien-coop-genossenschaft-zurich",
+          "verkaufsberater-in-coop-genossenschaft-zurich-1w4qdz",
+          "verkaufsberater-in-coop-genossenschaft-zurich"
+        ],
+        "en": [
+          "verkaufsberater-in-coop-genossenschaft-zurich-1w4qdz"
+        ],
+        "fr": [
+          "verkaufsberater-in-coop-genossenschaft-zurich-1w4qdz"
         ]
       },
       "previousSlugs": [
         "verkaufsberater-in-hartwaren-coop-genossenschaft-zurich",
-        "verkaufsberater-in-heimtextilien-coop-genossenschaft-zurich"
+        "verkaufsberater-in-heimtextilien-coop-genossenschaft-zurich",
+        "verkaufsberater-in-hartwaren-coop-genossenschaft-zurich",
+        "verkaufsberater-in-heimtextilien-coop-genossenschaft-zurich",
+        "verkaufsberater-in-coop-genossenschaft-zurich-1w4qdz",
+        "verkaufsberater-in-coop-genossenschaft-zurich"
       ]
     },
     {
@@ -154042,7 +154121,7 @@
     },
     {
       "id": "company-5x5slw",
-      "slug": "verkaufer-in-frischprodukte-fruchte-gemuse-coop-genossenschaft-kaiseraugst-aargau",
+      "slug": "venditore-in-prodotti-freschi-frutteti-e-verdure-coop-genossenschaft-kaiseraugst-2df33d",
       "company": "Coop Genossenschaft",
       "title": "Verkäufer:in Frischprodukte (Früchte & Gemüse)",
       "location": "Kaiseraugst",
@@ -154075,10 +154154,10 @@
         "fr": "## Vendeur:en produits frais (fruits et légumes)\n\n**Coopérative Coop** — Kaiseraugst, Aargau, Svizzera\n\n## Tâches\n- Vous aimez la variété, de sorte que vous servez et conseillez nos clients dans différents départements – toujours amical et engagé.\n- Grâce à votre utilisation active, les marchandises se vendent mieux et sont gérées haut.\n- Il est clair que vous respectez nos exigences, qu'il s'agisse de fraîcheur et de qualité, d'hygiène, de régulation de la température ou de la date d'expiration.\n- Vos efforts aux caisses enregistreuses sont également variés si vous soutenez l'équipe.\n\n## Exigences\n- Êtes-vous formé au commerce de détail (éducation de base) ou avez-vous déjà acquis beaucoup d'expérience dans les ventes? Bingo, puis appliquez.\n- Vos temps d'affectation sont flexibles, mais cela ne vous cause aucun problème.\n- Vous maîtrisez bien l'allemand, en conversation et sur papier.\n- Réductions: Réduction sur l'offre de voyage ITS Coop Travel, 5 fois le nombre de super points dans le supermarché, jusqu'à 20% de réduction sur les différents services d'assurance, jusqu'à 20% de réduction dans tous les formats du groupe Coop, abonnements mobiles et prépayés moins chers sur Coop Mobile, Reka Card: Réduction sur l'achat, Réduction sur le partage de voiture de mobilité, Réduction personnel également pour les partenaires:dans (habitant dans le même ménage), Réduction sur l'abonnement GA, Réductions sur les événements culturels, Réductions pour les activités de loisirs\n- Conditions d'emploi: Caisse de retraite: 2/3 est payé par Coop, Conditions d'emploi attrayantes et salaire égal certifié, Primes de fidélité, Régime d'épargne-retraite, Contrat d'emploi total (GAV), 18 semaines de congé de maternité payé et trois semaines de congé de paternité payé\n- Temps de travail: 5 semaines de vacances, modèles flexibles de temps de travail\n- Formation complémentaire: plus de 600 cours de formation interne, gestion des talents avec des possibilités de développement diverses, formation et offres de formation complémentaire du L-GAV et du Coop\n- Durabilité : Engagement envers les personnes, les animaux et la nature avec plus de 400 actions\n- Communication: application interne pour les salariés\n- Santé : Mise à jour de la condition physique : 200.– Réduction sur l'abonnement annuel, participation gratuite à diverses activités d'entreprise, offres de sports maison\n\n## Votre personne à contacter\nChristelle Heitz\nMarketing des ressources humaines\n\n**Tipo:** Temps partiel\n**Sede:** Kaiseraugst"
       },
       "slugByLocale": {
-        "it": "verkaufer-in-frischprodukte-fruchte-gemuse-coop-genossenschaft-kaiseraugst-aargau-5x5slw",
-        "en": "verkaufer-in-frischprodukte-fruchte-gemuse-coop-genossenschaft-kaiseraugst-aargau-5x5slw",
+        "it": "venditore-in-prodotti-freschi-frutteti-e-verdure-coop-genossenschaft-kaiseraugst-2df33d",
+        "en": "seller-in-fresh-products-fruits-vegetables-coop-genossenschaft-kaiseraugst-2df33d",
         "de": "verkaufer-in-frischprodukte-fruchte-gemuse-coop-genossenschaft-kaiseraugst-aargau-5x5slw",
-        "fr": "verkaufer-in-frischprodukte-fruchte-gemuse-coop-genossenschaft-kaiseraugst-aargau-5x5slw"
+        "fr": "vendeur-en-produits-frais-fruits-et-legumes-coop-genossenschaft-kaiseraugst-2df33d"
       },
       "requirementsByLocale": {
         "it": [],
@@ -154104,11 +154183,27 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufer-in-frischprodukte-fruchte-gemuse-coop-genossenschaft-kaiseraugst-aargau-5x5slw",
+          "verkaufer-in-frischprodukte-fruchte-gemuse-coop-genossenschaft-kaiseraugst-aargau"
+        ],
+        "en": [
+          "verkaufer-in-frischprodukte-fruchte-gemuse-coop-genossenschaft-kaiseraugst-aargau-5x5slw"
+        ],
+        "fr": [
+          "verkaufer-in-frischprodukte-fruchte-gemuse-coop-genossenschaft-kaiseraugst-aargau-5x5slw"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufer-in-frischprodukte-fruchte-gemuse-coop-genossenschaft-kaiseraugst-aargau-5x5slw",
+        "verkaufer-in-frischprodukte-fruchte-gemuse-coop-genossenschaft-kaiseraugst-aargau"
+      ]
     },
     {
       "id": "company-2p0631",
-      "slug": "verkaufsberater-in-kosmetik-coop-city-basel-stadt",
+      "slug": "consulente-di-vendita-in-cosmetici-coop-genossenschaft-basel-87e3ae",
       "company": "Coop Genossenschaft",
       "title": "Verkaufsberater:in Kosmetik",
       "location": "Basel",
@@ -154144,10 +154239,10 @@
         "fr": "## Consultant commercial: en cosmétique\n\n**Coopérative Coop** — Bâle, Bâle, Svizzera\n\n## Tâches\n- Vous vivez pour le commerce de détail et savez surprendre nos clients chaque jour.\n- Il va sans dire que vous êtes amical et orienté vers le client.\n- Vous inspirez les clients en les servant de manière proactive et en leur fournissant des conseils professionnels.\n- Assurer une image de magasin attrayante? Vous êtes également passionné par cette tâche.\n\n## Exigences\n- Avoir du plaisir à vendre est votre secret pour le succès? Bien joué.\n- La connaissance dans le domaine de la bijouterie vous apporte - un avantage!\n- Amicaux, sympathiques, compétents : c'est ce que vous êtes.\n- Aussi important : En tant qu'équipe, vous transmettez vos connaissances et célébrez les succès ensemble.\n- Réductions: Réduction personnel également pour les partenaires:dans (habitant dans le même ménage), réduction pour l'abonnement GA\n- Conditions d'emploi: fonds de pension: 2/3 est payé par Coop, contrat de travail collectif (GAV), 18 semaines de congé de maternité payé et 4 semaines de congé de paternité payé, primes de fidélité, plan d'épargne à la caisse de pension, régime flexible et attrayant de retraite anticipée à partir de 58. Année d'âge, conditions d'emploi attrayantes\n- Heures de travail: 5 semaines de congés\n- Formation: plus de 600 cours de formation interne, soutien à l'éducation et à la formation externes, gestion des talents avec un large éventail de possibilités de développement\n- Durabilité :\n- Communication:\n- Santé : Mise à jour de la condition physique : 200.– Réduction sur abonnement annuel\n\n## Votre personne à contacter\nPamela Padovano\nMarketing des ressources humaines\n\n**Tipo:** Temps partiel\n**Sécurité :** Bâle"
       },
       "slugByLocale": {
-        "it": "verkaufsberater-in-kosmetik-coop-city-basel-stadt-2p0631",
-        "en": "verkaufsberater-in-kosmetik-coop-city-basel-stadt-2p0631",
+        "it": "consulente-di-vendita-in-cosmetici-coop-genossenschaft-basel-87e3ae",
+        "en": "sales-consultant-in-cosmetics-coop-genossenschaft-basel-87e3ae",
         "de": "verkaufsberater-in-kosmetik-coop-city-basel-stadt-2p0631",
-        "fr": "verkaufsberater-in-kosmetik-coop-city-basel-stadt-2p0631"
+        "fr": "consultant-commercial-en-cosmetique-coop-genossenschaft-basel-87e3ae"
       },
       "requirementsByLocale": {},
       "addressLocality": "Basel",
@@ -154166,11 +154261,27 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufsberater-in-kosmetik-coop-city-basel-stadt-2p0631",
+          "verkaufsberater-in-kosmetik-coop-city-basel-stadt"
+        ],
+        "en": [
+          "verkaufsberater-in-kosmetik-coop-city-basel-stadt-2p0631"
+        ],
+        "fr": [
+          "verkaufsberater-in-kosmetik-coop-city-basel-stadt-2p0631"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufsberater-in-kosmetik-coop-city-basel-stadt-2p0631",
+        "verkaufsberater-in-kosmetik-coop-city-basel-stadt"
+      ]
     },
     {
       "id": "company-fdc6aw",
-      "slug": "verkaufer-in-kassen-kiosk-coop-ilanz-glion-graubunden",
+      "slug": "venditore-in-registratori-di-cassa-kiosk-coop-genossenschaft-ilanz-glion",
       "company": "Coop Genossenschaft",
       "title": "Verkäufer:in Kassen/Kiosk",
       "location": "Ilanz/Glion",
@@ -154209,10 +154320,10 @@
         "fr": "## Vendeur:dans les caisses enregistreuses/kiosk\n\n**Coopérative de coop** — Ilanz/Glion, Graubünden, Svizzera\n\n## Tâches\n- La caisse enregistreuse est votre territoire, ici vous assurez une bonne humeur et un processus en douceur.\n- Vous veillez à ce que tous les processus et règlements soient respectés.\n- En équipe, vous aidez également vos collègues dans d'autres domaines.\n\n## Exigences\n- Nous nous réjouissons de votre expérience dans les ventes.\n- Vous êtes pleinement engagé et prêt à fournir des services.\n- La flexibilité est également importante pour vous quand il s'agit de temps de déploiement.\n- Vous maîtrisez l'allemand bien verbalement et par écrit.\n- Réductions: Réduction sur l'offre de voyage ITS Coop Travel, 5 fois le nombre de super points dans le supermarché, jusqu'à 20% de réduction sur les différents services d'assurance, jusqu'à 20% de réduction dans tous les formats du groupe Coop, abonnements mobiles et prépayés moins chers sur Coop Mobile, Reka Card: Réduction sur l'achat, Réduction sur le partage de voiture de mobilité, Réduction personnel également pour les partenaires:dans (habitant dans le même ménage), Réduction sur l'abonnement GA, Réductions sur les événements culturels, Réductions pour les activités de loisirs\n- Conditions d'emploi: Caisse de retraite: 2/3 est payé par Coop, Conditions d'emploi attrayantes et salaire égal certifié, Primes de fidélité, Régime d'épargne-retraite, Contrat d'emploi total (GAV), 18 semaines de congé de maternité payé et trois semaines de congé de paternité payé\n- Temps de travail: 5 semaines de vacances, modèles flexibles de temps de travail\n- Formation complémentaire: plus de 600 cours de formation interne, gestion des talents avec des possibilités de développement diverses, formation et offres de formation complémentaire du L-GAV et du Coop\n- Durabilité : Engagement envers les personnes, les animaux et la nature avec plus de 400 actions\n- Communication: application interne pour les salariés\n- Santé : Mise à jour de la condition physique : 200.– Réduction sur l'abonnement annuel, participation gratuite à diverses activités d'entreprise, offres de sports maison\n\n## Votre personne à contacter\nNadia Ruetsch\nMarketing des ressources humaines\n\n**Tipo:** Temps partiel\n**Sede:** Ilanz/Glion"
       },
       "slugByLocale": {
-        "it": "verkaufer-in-kassen-kiosk-coop-ilanz-glion-graubunden-fdc6aw",
-        "en": "verkaufer-in-kassen-kiosk-coop-ilanz-glion-graubunden-fdc6aw",
+        "it": "venditore-in-registratori-di-cassa-kiosk-coop-genossenschaft-ilanz-glion",
+        "en": "seller-in-cash-registers-kiosk-coop-genossenschaft-ilanz-glion",
         "de": "verkaufer-in-kassen-kiosk-coop-ilanz-glion-graubunden-fdc6aw",
-        "fr": "verkaufer-in-kassen-kiosk-coop-ilanz-glion-graubunden-fdc6aw"
+        "fr": "vendeur-dans-les-caisses-enregistreuses-kiosk-coop-genossenschaft-ilanz-glion"
       },
       "requirementsByLocale": {
         "it": [],
@@ -154239,11 +154350,27 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufer-in-kassen-kiosk-coop-ilanz-glion-graubunden-fdc6aw",
+          "verkaufer-in-kassen-kiosk-coop-ilanz-glion-graubunden"
+        ],
+        "en": [
+          "verkaufer-in-kassen-kiosk-coop-ilanz-glion-graubunden-fdc6aw"
+        ],
+        "fr": [
+          "verkaufer-in-kassen-kiosk-coop-ilanz-glion-graubunden-fdc6aw"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufer-in-kassen-kiosk-coop-ilanz-glion-graubunden-fdc6aw",
+        "verkaufer-in-kassen-kiosk-coop-ilanz-glion-graubunden"
+      ]
     },
     {
       "id": "company-j27jvx",
-      "slug": "verkaufer-in-food-coop-arlesheim-solothurn",
+      "slug": "venditore-in-food-coop-genossenschaft-arlesheim",
       "company": "Coop Genossenschaft",
       "title": "Verkäufer:in Food",
       "location": "Arlesheim",
@@ -154281,10 +154408,10 @@
         "fr": "## Vendeur:dans la nourriture\n\n**Coopérative de coop** — Arlesheim, Soleure, Svizzera\n\n## Tâches\n- Vous aimez la variété, de sorte que vous servez et conseillez nos clients dans différents départements – toujours amical et engagé.\n- Grâce à votre utilisation active, les marchandises se vendent mieux et sont gérées haut.\n- Il est clair que vous respectez nos exigences, qu'il s'agisse de fraîcheur et de qualité, d'hygiène, de régulation de la température ou de la date d'expiration.\n- Vos efforts aux caisses enregistreuses sont également variés si vous soutenez l'équipe.\n\n## Exigences\n- Êtes-vous formé au commerce de détail (éducation de base) ou avez-vous déjà acquis beaucoup d'expérience dans les ventes? Bingo, puis appliquez.\n- Vos temps d'affectation sont flexibles, mais cela ne vous cause aucun problème.\n- Vous maîtrisez bien l'allemand, en conversation et sur papier.\n- Réductions: Réduction sur l'offre de voyage ITS Coop Travel, 5 fois le nombre de super points dans le supermarché, jusqu'à 20% de réduction sur les différents services d'assurance, jusqu'à 20% de réduction dans tous les formats du groupe Coop, abonnements mobiles et prépayés moins chers sur Coop Mobile, Reka Card: Réduction sur l'achat, Réduction sur le partage de voiture de mobilité, Réduction personnel également pour les partenaires:dans (habitant dans le même ménage), Réduction sur l'abonnement GA, Réductions sur les événements culturels, Réductions pour les activités de loisirs\n- Conditions d'emploi: Caisse de retraite: 2/3 est payé par Coop, Conditions d'emploi attrayantes et salaire égal certifié, Primes de fidélité, Régime d'épargne-retraite, Contrat d'emploi total (GAV), 18 semaines de congé de maternité payé et trois semaines de congé de paternité payé\n- Temps de travail: 5 semaines de vacances, modèles flexibles de temps de travail\n- Formation complémentaire: plus de 600 cours de formation interne, gestion des talents avec des possibilités de développement diverses, formation et offres de formation complémentaire du L-GAV et du Coop\n- Durabilité : Engagement envers les personnes, les animaux et la nature avec plus de 400 actions\n- Communication: application interne pour les salariés\n- Santé : Mise à jour de la condition physique : 200.– Réduction sur l'abonnement annuel, participation gratuite à diverses activités d'entreprise, offres de sports maison\n\n## Votre personne à contacter\nChristelle Heitz\nMarketing des ressources humaines\n\n**Tipo:** Temps partiel\n**Sécurité :** Arlesheim"
       },
       "slugByLocale": {
-        "it": "verkaufer-in-food-coop-arlesheim-solothurn-j27jvx",
-        "en": "verkaufer-in-food-coop-arlesheim-solothurn-j27jvx",
+        "it": "venditore-in-food-coop-genossenschaft-arlesheim",
+        "en": "seller-in-food-coop-genossenschaft-arlesheim",
         "de": "verkaufer-in-food-coop-arlesheim-solothurn-j27jvx",
-        "fr": "verkaufer-in-food-coop-arlesheim-solothurn-j27jvx"
+        "fr": "vendeur-dans-la-nourriture-coop-genossenschaft-arlesheim"
       },
       "requirementsByLocale": {
         "it": [],
@@ -154310,11 +154437,27 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufer-in-food-coop-arlesheim-solothurn-j27jvx",
+          "verkaufer-in-food-coop-arlesheim-solothurn"
+        ],
+        "en": [
+          "verkaufer-in-food-coop-arlesheim-solothurn-j27jvx"
+        ],
+        "fr": [
+          "verkaufer-in-food-coop-arlesheim-solothurn-j27jvx"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufer-in-food-coop-arlesheim-solothurn-j27jvx",
+        "verkaufer-in-food-coop-arlesheim-solothurn"
+      ]
     },
     {
       "id": "company-tfhrfb",
-      "slug": "verkaufer-in-food-coop-kusnacht-zurich",
+      "slug": "venditore-in-food-coop-genossenschaft-kusnacht",
       "company": "Coop Genossenschaft",
       "title": "Verkäufer:in Food",
       "location": "Küsnacht",
@@ -154352,10 +154495,10 @@
         "fr": "## Vendeur:dans la nourriture\n\n**Coopérative de coop** — Küsnacht, Zurich, Svizzera\n\n## Tâches\n- Vous aimez la variété, de sorte que vous servez et conseillez nos clients dans différents départements – toujours amical et engagé.\n- Grâce à votre utilisation active, les marchandises se vendent mieux et sont gérées haut.\n- Il est clair que vous respectez nos exigences, qu'il s'agisse de fraîcheur et de qualité, d'hygiène, de régulation de la température ou de la date d'expiration.\n- Vos efforts aux caisses enregistreuses sont également variés si vous soutenez l'équipe.\n\n## Exigences\n- Êtes-vous formé au commerce de détail (éducation de base) ou avez-vous déjà acquis beaucoup d'expérience dans les ventes? Bingo, puis appliquez.\n- Vos temps d'affectation sont flexibles, mais cela ne vous cause aucun problème.\n- Vous maîtrisez bien l'allemand, en conversation et sur papier.\n\n## Ce que nous offrons\n- Réductions: Réduction sur l'offre de voyage ITS Coop Travel, 5 fois le nombre de super points dans le supermarché, jusqu'à 20% de réduction sur les différents services d'assurance, jusqu'à 20% de réduction dans tous les formats du groupe Coop, abonnements mobiles et prépayés moins chers sur Coop Mobile, Reka Card: Réduction sur l'achat, Réduction sur le partage de voiture de mobilité, Réduction personnel également pour les partenaires:dans (habitant dans le même ménage), Réduction sur l'abonnement GA, Réductions sur les événements culturels, Réductions pour les activités de loisirs\n- Conditions d'emploi: Caisse de retraite: 2/3 est payé par Coop, Conditions d'emploi attrayantes et salaire égal certifié, Primes de fidélité, Régime d'épargne-retraite, Contrat d'emploi total (GAV), 18 semaines de congé de maternité payé et trois semaines de congé de paternité payé\n- Temps de travail: 5 semaines de vacances, modèles flexibles de temps de travail\n- Formation complémentaire: plus de 600 cours de formation interne, gestion des talents avec des possibilités de développement diverses, formation et offres de formation complémentaire du L-GAV et du Coop\n- Durabilité : Engagement envers les personnes, les animaux et la nature avec plus de 400 actions\n- Communication: application interne pour les salariés\n- Santé : Mise à jour de la condition physique : 200.– Réduction sur l'abonnement annuel, participation gratuite à diverses activités d'entreprise, offres de sports maison\n\n## Votre personne à contacter\nValeria Mazziari Randazzo\nMarketing des ressources humaines\n\n**Tipo:** Temps partiel\n**Sede:** Kiss Night"
       },
       "slugByLocale": {
-        "it": "verkaufer-in-food-coop-kusnacht-zurich-tfhrfb",
-        "en": "verkaufer-in-food-coop-kusnacht-zurich-tfhrfb",
+        "it": "venditore-in-food-coop-genossenschaft-kusnacht",
+        "en": "seller-in-food-coop-genossenschaft-kusnacht",
         "de": "verkaufer-in-food-coop-kusnacht-zurich-tfhrfb",
-        "fr": "verkaufer-in-food-coop-kusnacht-zurich-tfhrfb"
+        "fr": "vendeur-dans-la-nourriture-coop-genossenschaft-kusnacht"
       },
       "requirementsByLocale": {
         "it": [],
@@ -154381,11 +154524,27 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufer-in-food-coop-kusnacht-zurich-tfhrfb",
+          "verkaufer-in-food-coop-kusnacht-zurich"
+        ],
+        "en": [
+          "verkaufer-in-food-coop-kusnacht-zurich-tfhrfb"
+        ],
+        "fr": [
+          "verkaufer-in-food-coop-kusnacht-zurich-tfhrfb"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufer-in-food-coop-kusnacht-zurich-tfhrfb",
+        "verkaufer-in-food-coop-kusnacht-zurich"
+      ]
     },
     {
       "id": "company-i1l4v",
-      "slug": "verkaufer-in-frischprodukte-food-coop-mellingen-aargau",
+      "slug": "venditore-in-prodotti-freschi-alimenti-coop-genossenschaft-mellingen",
       "company": "Coop Genossenschaft",
       "title": "Verkäufer:in Frischprodukte / Food",
       "location": "Mellingen",
@@ -154423,10 +154582,10 @@
         "fr": "## Vendeur: dans Produits frais / Alimentation\n\n**Coopérative de coop** — Mellingen, Aargau, Svizzera\n\n## Tâches\n- Vous aimez la variété, de sorte que vous servez et conseillez nos clients dans différents départements – toujours amical et engagé.\n- Grâce à votre utilisation active, les marchandises se vendent mieux et sont gérées haut.\n- Il est clair que vous respectez nos exigences, qu'il s'agisse de fraîcheur et de qualité, d'hygiène, de régulation de la température ou de la date d'expiration.\n- Vos efforts aux caisses enregistreuses sont également variés si vous soutenez l'équipe.\n\n## Exigences\n- Êtes-vous formé au commerce de détail (éducation de base) ou avez-vous déjà acquis beaucoup d'expérience dans les ventes? Bingo, puis appliquez.\n- Vos temps d'affectation sont flexibles, mais cela ne vous cause aucun problème.\n- Vous maîtrisez bien l'allemand, en conversation et sur papier.\n- Réductions: Réduction sur l'offre de voyage ITS Coop Travel, 5 fois le nombre de super points dans le supermarché, jusqu'à 20% de réduction sur les différents services d'assurance, jusqu'à 20% de réduction dans tous les formats du groupe Coop, abonnements mobiles et prépayés moins chers sur Coop Mobile, Reka Card: Réduction sur l'achat, Réduction sur le partage de voiture de mobilité, Réduction personnel également pour les partenaires:dans (habitant dans le même ménage), Réduction sur l'abonnement GA, Réductions sur les événements culturels, Réductions pour les activités de loisirs\n- Conditions d'emploi: Caisse de retraite: 2/3 est payé par Coop, Conditions d'emploi attrayantes et salaire égal certifié, Primes de fidélité, Régime d'épargne-retraite, Contrat d'emploi total (GAV), 18 semaines de congé de maternité payé et trois semaines de congé de paternité payé\n- Temps de travail: 5 semaines de vacances, modèles flexibles de temps de travail\n- Formation complémentaire: plus de 600 cours de formation interne, gestion des talents avec des possibilités de développement diverses, formation et offres de formation complémentaire du L-GAV et du Coop\n- Durabilité : Engagement envers les personnes, les animaux et la nature avec plus de 400 actions\n- Communication: application interne pour les salariés\n- Santé : Mise à jour de la condition physique : 200.– Réduction sur l'abonnement annuel, participation gratuite à diverses activités d'entreprise, offres de sports maison\n\n## Votre personne à contacter\nValeria Mazziari Randazzo\nMarketing des ressources humaines\n\n**Tipo:** Temps partiel\n**Sede:** Mellingen"
       },
       "slugByLocale": {
-        "it": "verkaufer-in-frischprodukte-food-coop-mellingen-aargau-0i1l4v",
-        "en": "verkaufer-in-frischprodukte-food-coop-mellingen-aargau-0i1l4v",
+        "it": "venditore-in-prodotti-freschi-alimenti-coop-genossenschaft-mellingen",
+        "en": "seller-in-fresh-products-food-coop-genossenschaft-mellingen",
         "de": "verkaufer-in-frischprodukte-food-coop-mellingen-aargau-0i1l4v",
-        "fr": "verkaufer-in-frischprodukte-food-coop-mellingen-aargau-0i1l4v"
+        "fr": "vendeur-dans-produits-frais-alimentation-coop-genossenschaft-mellingen"
       },
       "requirementsByLocale": {
         "it": [],
@@ -154459,16 +154618,27 @@
           "verkaufer-in-frischprodukte-food-coop-mellingen-aargau-ee59w4",
           "salesperson-fresh-products-food-coop-genossenschaft-mellingen-ee59w4",
           "vendeur-vendeuse-produits-frais-food-coop-genossenschaft-mellingen-ee59w4",
-          "verkaufer-in-frischprodukte-food-coop-genossenschaft-mellingen"
+          "verkaufer-in-frischprodukte-food-coop-genossenschaft-mellingen",
+          "venditore-venditrice-prodotti-freschi-food-coop-genossenschaft-mellingen",
+          "verkaufer-in-frischprodukte-food-coop-mellingen-aargau-ee59w4",
+          "salesperson-fresh-products-food-coop-genossenschaft-mellingen-ee59w4",
+          "vendeur-vendeuse-produits-frais-food-coop-genossenschaft-mellingen-ee59w4",
+          "verkaufer-in-frischprodukte-food-coop-genossenschaft-mellingen",
+          "verkaufer-in-frischprodukte-food-coop-mellingen-aargau-0i1l4v",
+          "verkaufer-in-frischprodukte-food-coop-mellingen-aargau"
         ],
         "en": [
-          "salesperson-fresh-products-food-coop-genossenschaft-mellingen-ee59w4"
+          "salesperson-fresh-products-food-coop-genossenschaft-mellingen-ee59w4",
+          "salesperson-fresh-products-food-coop-genossenschaft-mellingen-ee59w4",
+          "verkaufer-in-frischprodukte-food-coop-mellingen-aargau-0i1l4v"
         ],
         "de": [
           "verkaufer-in-frischprodukte-food-coop-mellingen-aargau-ee59w4"
         ],
         "fr": [
-          "vendeur-vendeuse-produits-frais-food-coop-genossenschaft-mellingen-ee59w4"
+          "vendeur-vendeuse-produits-frais-food-coop-genossenschaft-mellingen-ee59w4",
+          "vendeur-vendeuse-produits-frais-food-coop-genossenschaft-mellingen-ee59w4",
+          "verkaufer-in-frischprodukte-food-coop-mellingen-aargau-0i1l4v"
         ]
       },
       "previousSlugs": [
@@ -154476,12 +154646,19 @@
         "verkaufer-in-frischprodukte-food-coop-mellingen-aargau-ee59w4",
         "salesperson-fresh-products-food-coop-genossenschaft-mellingen-ee59w4",
         "vendeur-vendeuse-produits-frais-food-coop-genossenschaft-mellingen-ee59w4",
-        "verkaufer-in-frischprodukte-food-coop-genossenschaft-mellingen"
+        "verkaufer-in-frischprodukte-food-coop-genossenschaft-mellingen",
+        "venditore-venditrice-prodotti-freschi-food-coop-genossenschaft-mellingen",
+        "verkaufer-in-frischprodukte-food-coop-mellingen-aargau-ee59w4",
+        "salesperson-fresh-products-food-coop-genossenschaft-mellingen-ee59w4",
+        "vendeur-vendeuse-produits-frais-food-coop-genossenschaft-mellingen-ee59w4",
+        "verkaufer-in-frischprodukte-food-coop-genossenschaft-mellingen",
+        "verkaufer-in-frischprodukte-food-coop-mellingen-aargau-0i1l4v",
+        "verkaufer-in-frischprodukte-food-coop-mellingen-aargau"
       ]
     },
     {
       "id": "company-i134vr",
-      "slug": "verkaufer-in-kassen-services-studentenaushilfe-coop-zurich",
+      "slug": "venditore-in-cassa-registri-servizi-assistenza-studentesca-coop-genossenschaft-zurich",
       "company": "Coop Genossenschaft",
       "title": "Verkäufer:in Kassen/Services Studentenaushilfe",
       "location": "Zürich",
@@ -154520,10 +154697,10 @@
         "en": "## Seller:in cash registers/services student assistance\n\n**Coop Cooperative** — Zurich, Zurich, Svizzera\n\n## Tasks\n- The cash register is your territory, here you ensure a good mood and a smooth process.\n- You ensure that all processes and regulations are adhered to.\n- In teamwork, you also support your colleagues in other areas.\n\n## Requirements\n- You are student:in or student:in, and want to earn something on the side.\n- You are fully committed and ready to provide services.\n- You master German well verbally and in writing.\n- Discounts: Discount on the travel offer ITS Coop Travel, 5 times the number of super points in the supermarket, up to 20% discount on various insurance services, up to 20% discount in all formats of the Coop Group, cheaper mobile and prepaid subscriptions on Coop Mobile, Reka Card: Discount on purchase, Discount on Mobility CarSharing, Personnel discount also for partners:in (living in the same household), Discount on GA subscription, Discounts on cultural events, Discounts for leisure activities\n- Conditions of Employment: Pension Fund: 2/3 is paid by Coop, Attractive Conditions of Employment and Certified Equal Pay, Loyalty Premiums, Pension Fund Savings Plan, Total Employment Contract (GAV), 18 weeks of paid maternity leave and three weeks of paid paternity leave\n- Working time: 5 weeks holidays, flexible working time models\n- Further education: More than 600 internal training courses, talent management with diverse development opportunities, training and further education offers of the L-GAV and Coop\n- Sustainability: Commitment to people, animals and nature with more than 400 actions\n- Communication: internal app for employees\n- Health: Update Fitness: Fr. 200.– Discount on annual subscription, free participation in various company runs, in-house sports offers\n\n## Your contact person\nValeria Mazziari Randazzo\nHR Marketing\n\n**Tipo:** Part-time\n**Sede:** Zurich"
       },
       "slugByLocale": {
-        "it": "verkaufer-in-kassen-services-studentenaushilfe-coop-zurich-i134vr",
-        "en": "verkaufer-in-kassen-services-studentenaushilfe-coop-zurich-i134vr",
+        "it": "venditore-in-cassa-registri-servizi-assistenza-studentesca-coop-genossenschaft-zurich",
+        "en": "seller-in-cash-registers-services-student-assistance-coop-genossenschaft-zurich-b90ed5",
         "de": "verkaufer-in-kassen-services-studentenaushilfe-coop-zurich-i134vr",
-        "fr": "verkaufer-in-kassen-services-studentenaushilfe-coop-zurich-i134vr"
+        "fr": "vendeur-dans-caisses-enregistreuses-services-assistance-aux-etudiants-coop-genossenschaft-zurich"
       },
       "requirementsByLocale": {
         "it": [],
@@ -154557,16 +154734,27 @@
           "seller-in-cash-registers-services-student-assistance-coop-genossenschaft-zurich-24e43e",
           "vendeur-dans-les-caisses-enregistreuses-services-assistance-aux-etudiants-coop-genossenschaft-zurich-24e43e",
           "venditore-in-registratori-di-cassa-servizi-assistenza-agli-studenti-coop-genossensc-osc941",
-          "venditore-in-registratori-di-cassa-servizi-assistenza-agli-studenti-coop-genossenschaft-zurich-24e43e"
+          "venditore-in-registratori-di-cassa-servizi-assistenza-agli-studenti-coop-genossenschaft-zurich-24e43e",
+          "verkaufer-in-kassen-services-studentenaushilfe-coop-zurich-osc941",
+          "seller-in-cash-registers-services-student-assistance-coop-genossenschaft-zurich-24e43e",
+          "vendeur-dans-les-caisses-enregistreuses-services-assistance-aux-etudiants-coop-genossenschaft-zurich-24e43e",
+          "venditore-in-registratori-di-cassa-servizi-assistenza-agli-studenti-coop-genossensc-osc941",
+          "venditore-in-registratori-di-cassa-servizi-assistenza-agli-studenti-coop-genossenschaft-zurich-24e43e",
+          "verkaufer-in-kassen-services-studentenaushilfe-coop-zurich-i134vr",
+          "verkaufer-in-kassen-services-studentenaushilfe-coop-zurich"
         ],
         "en": [
-          "seller-in-cash-registers-services-student-assistance-coop-genossenschaft-zurich-24e43e"
+          "seller-in-cash-registers-services-student-assistance-coop-genossenschaft-zurich-24e43e",
+          "seller-in-cash-registers-services-student-assistance-coop-genossenschaft-zurich-24e43e",
+          "verkaufer-in-kassen-services-studentenaushilfe-coop-zurich-i134vr"
         ],
         "de": [
           "verkaufer-in-kassen-services-studentenaushilfe-coop-zurich-osc941"
         ],
         "fr": [
-          "vendeur-dans-les-caisses-enregistreuses-services-assistance-aux-etudiants-coop-genossenschaft-zurich-24e43e"
+          "vendeur-dans-les-caisses-enregistreuses-services-assistance-aux-etudiants-coop-genossenschaft-zurich-24e43e",
+          "vendeur-dans-les-caisses-enregistreuses-services-assistance-aux-etudiants-coop-genossenschaft-zurich-24e43e",
+          "verkaufer-in-kassen-services-studentenaushilfe-coop-zurich-i134vr"
         ]
       },
       "previousSlugs": [
@@ -154574,12 +154762,19 @@
         "seller-in-cash-registers-services-student-assistance-coop-genossenschaft-zurich-24e43e",
         "vendeur-dans-les-caisses-enregistreuses-services-assistance-aux-etudiants-coop-genossenschaft-zurich-24e43e",
         "venditore-in-registratori-di-cassa-servizi-assistenza-agli-studenti-coop-genossensc-osc941",
-        "venditore-in-registratori-di-cassa-servizi-assistenza-agli-studenti-coop-genossenschaft-zurich-24e43e"
+        "venditore-in-registratori-di-cassa-servizi-assistenza-agli-studenti-coop-genossenschaft-zurich-24e43e",
+        "verkaufer-in-kassen-services-studentenaushilfe-coop-zurich-osc941",
+        "seller-in-cash-registers-services-student-assistance-coop-genossenschaft-zurich-24e43e",
+        "vendeur-dans-les-caisses-enregistreuses-services-assistance-aux-etudiants-coop-genossenschaft-zurich-24e43e",
+        "venditore-in-registratori-di-cassa-servizi-assistenza-agli-studenti-coop-genossensc-osc941",
+        "venditore-in-registratori-di-cassa-servizi-assistenza-agli-studenti-coop-genossenschaft-zurich-24e43e",
+        "verkaufer-in-kassen-services-studentenaushilfe-coop-zurich-i134vr",
+        "verkaufer-in-kassen-services-studentenaushilfe-coop-zurich"
       ]
     },
     {
       "id": "company-7nd6vy",
-      "slug": "verkaufer-in-food-frischprodukte-coop-volketswil-zurich",
+      "slug": "venditore-in-prodotti-food-fresh-coop-genossenschaft-volketswil",
       "company": "Coop Genossenschaft",
       "title": "Verkäufer:in Food/Frischprodukte",
       "location": "Volketswil",
@@ -154617,10 +154812,10 @@
         "fr": "## Vendeur: en Food/Fresh produits\n\n**Coop Genossenschaft** — Volketswil, Zurich, Svizzera\n\n## Tâches\n- Vous aimez la variété, de sorte que vous servez et conseillez nos clients dans différents départements – toujours amical et engagé.\n- Grâce à votre utilisation active, les marchandises se vendent mieux et sont gérées haut.\n- Il est clair que vous respectez nos exigences, qu'il s'agisse de fraîcheur et de qualité, d'hygiène, de régulation de la température ou de la date d'expiration.\n- Vos efforts aux caisses enregistreuses sont également variés si vous soutenez l'équipe.\n\n## Exigences\n- Êtes-vous formé au commerce de détail (éducation de base) ou avez-vous déjà acquis beaucoup d'expérience dans les ventes? Bingo, puis appliquez.\n- Vos temps d'affectation sont flexibles, mais cela ne vous cause aucun problème.\n- Vous maîtrisez bien l'allemand, en conversation et sur papier.\n- Réductions: Réduction sur l'offre de voyage ITS Coop Travel, 5 fois le nombre de super points dans le supermarché, jusqu'à 20% de réduction sur les différents services d'assurance, jusqu'à 20% de réduction dans tous les formats du groupe Coop, abonnements mobiles et prépayés moins chers sur Coop Mobile, Reka Card: Réduction sur l'achat, Réduction sur le partage de voiture de mobilité, Réduction personnel également pour les partenaires:dans (habitant dans le même ménage), Réduction sur l'abonnement GA, Réductions sur les événements culturels, Réductions pour les activités de loisirs\n- Conditions d'emploi: Caisse de retraite: 2/3 est payé par Coop, Conditions d'emploi attrayantes et salaire égal certifié, Primes de fidélité, Régime d'épargne-retraite, Contrat d'emploi total (GAV), 18 semaines de congé de maternité payé et trois semaines de congé de paternité payé\n- Temps de travail: 5 semaines de vacances, modèles flexibles de temps de travail\n- Formation complémentaire: plus de 600 cours de formation interne, gestion des talents avec des possibilités de développement diverses, formation et offres de formation complémentaire du L-GAV et du Coop\n- Durabilité : Engagement envers les personnes, les animaux et la nature avec plus de 400 actions\n- Communication: application interne pour les salariés\n- Santé : Mise à jour de la condition physique : 200.– Réduction sur l'abonnement annuel, participation gratuite à diverses activités d'entreprise, offres de sports maison\n\n## Votre personne à contacter\nValeria Mazziari Randazzo\nMarketing des ressources humaines\n\n**Tipo:** Temps partiel\n**Sede:** Volketswil"
       },
       "slugByLocale": {
-        "it": "verkaufer-in-food-frischprodukte-coop-volketswil-zurich-7nd6vy",
-        "en": "verkaufer-in-food-frischprodukte-coop-volketswil-zurich-7nd6vy",
+        "it": "venditore-in-prodotti-food-fresh-coop-genossenschaft-volketswil",
+        "en": "seller-in-food-fresh-products-coop-genossenschaft-volketswil",
         "de": "verkaufer-in-food-frischprodukte-coop-volketswil-zurich-7nd6vy",
-        "fr": "verkaufer-in-food-frischprodukte-coop-volketswil-zurich-7nd6vy"
+        "fr": "vendeur-en-food-fresh-produits-coop-genossenschaft-volketswil"
       },
       "requirementsByLocale": {
         "it": [],
@@ -154653,16 +154848,27 @@
           "verkaufer-in-food-frischprodukte-coop-volketswil-zurich-7h4oam",
           "salesperson-food-fresh-products-coop-genossenschaft-volketswil-7h4oam",
           "vendeur-se-produits-alimentaires-frais-coop-genossenschaft-volketswil-7h4oam",
-          "verkaufer-in-food-frischprodukte-coop-genossenschaft-volketswil"
+          "verkaufer-in-food-frischprodukte-coop-genossenschaft-volketswil",
+          "venditore-trice-food-prodotti-freschi-coop-genossenschaft-volketswil",
+          "verkaufer-in-food-frischprodukte-coop-volketswil-zurich-7h4oam",
+          "salesperson-food-fresh-products-coop-genossenschaft-volketswil-7h4oam",
+          "vendeur-se-produits-alimentaires-frais-coop-genossenschaft-volketswil-7h4oam",
+          "verkaufer-in-food-frischprodukte-coop-genossenschaft-volketswil",
+          "verkaufer-in-food-frischprodukte-coop-volketswil-zurich-7nd6vy",
+          "verkaufer-in-food-frischprodukte-coop-volketswil-zurich"
         ],
         "en": [
-          "salesperson-food-fresh-products-coop-genossenschaft-volketswil-7h4oam"
+          "salesperson-food-fresh-products-coop-genossenschaft-volketswil-7h4oam",
+          "salesperson-food-fresh-products-coop-genossenschaft-volketswil-7h4oam",
+          "verkaufer-in-food-frischprodukte-coop-volketswil-zurich-7nd6vy"
         ],
         "de": [
           "verkaufer-in-food-frischprodukte-coop-volketswil-zurich-7h4oam"
         ],
         "fr": [
-          "vendeur-se-produits-alimentaires-frais-coop-genossenschaft-volketswil-7h4oam"
+          "vendeur-se-produits-alimentaires-frais-coop-genossenschaft-volketswil-7h4oam",
+          "vendeur-se-produits-alimentaires-frais-coop-genossenschaft-volketswil-7h4oam",
+          "verkaufer-in-food-frischprodukte-coop-volketswil-zurich-7nd6vy"
         ]
       },
       "previousSlugs": [
@@ -154670,12 +154876,19 @@
         "verkaufer-in-food-frischprodukte-coop-volketswil-zurich-7h4oam",
         "salesperson-food-fresh-products-coop-genossenschaft-volketswil-7h4oam",
         "vendeur-se-produits-alimentaires-frais-coop-genossenschaft-volketswil-7h4oam",
-        "verkaufer-in-food-frischprodukte-coop-genossenschaft-volketswil"
+        "verkaufer-in-food-frischprodukte-coop-genossenschaft-volketswil",
+        "venditore-trice-food-prodotti-freschi-coop-genossenschaft-volketswil",
+        "verkaufer-in-food-frischprodukte-coop-volketswil-zurich-7h4oam",
+        "salesperson-food-fresh-products-coop-genossenschaft-volketswil-7h4oam",
+        "vendeur-se-produits-alimentaires-frais-coop-genossenschaft-volketswil-7h4oam",
+        "verkaufer-in-food-frischprodukte-coop-genossenschaft-volketswil",
+        "verkaufer-in-food-frischprodukte-coop-volketswil-zurich-7nd6vy",
+        "verkaufer-in-food-frischprodukte-coop-volketswil-zurich"
       ]
     },
     {
       "id": "company-bllh6v",
-      "slug": "verkaufer-in-kassen-services-coop-matzendorf-solothurn",
+      "slug": "venditore-in-cassa-servizi-coop-genossenschaft-matzendorf",
       "company": "Coop Genossenschaft",
       "title": "Verkäufer:in Kassen/Services",
       "location": "Matzendorf",
@@ -154714,10 +154927,10 @@
         "fr": "## Vendeur:dans les caisses enregistreuses/services\n\n**Coopérative Coop** — Matzendorf, Soleure, Svizzera\n\n## Tâches\n- La caisse enregistreuse est votre territoire, ici vous assurez une bonne humeur et un processus en douceur.\n- Vous veillez à ce que tous les processus et règlements soient respectés.\n- En équipe, vous aidez également vos collègues dans d'autres domaines.\n\n## Exigences\n- Nous nous réjouissons de votre expérience dans les ventes.\n- Vous êtes pleinement engagé et prêt à fournir des services.\n- La flexibilité est également importante pour vous quand il s'agit de temps de déploiement.\n- Vous maîtrisez l'allemand bien verbalement et par écrit.\n- Réductions: Réduction sur l'offre de voyage ITS Coop Travel, 5 fois le nombre de super points dans le supermarché, jusqu'à 20% de réduction sur les différents services d'assurance, jusqu'à 20% de réduction dans tous les formats du groupe Coop, abonnements mobiles et prépayés moins chers sur Coop Mobile, Reka Card: Réduction sur l'achat, Réduction sur le partage de voiture de mobilité, Réduction personnel également pour les partenaires:dans (habitant dans le même ménage), Réduction sur l'abonnement GA, Réductions sur les événements culturels, Réductions pour les activités de loisirs\n- Conditions d'emploi: Caisse de retraite: 2/3 est payé par Coop, Conditions d'emploi attrayantes et salaire égal certifié, Primes de fidélité, Régime d'épargne-retraite, Contrat d'emploi total (GAV), 18 semaines de congé de maternité payé et trois semaines de congé de paternité payé\n- Temps de travail: 5 semaines de vacances, modèles flexibles de temps de travail\n- Formation complémentaire: plus de 600 cours de formation interne, gestion des talents avec des possibilités de développement diverses, formation et offres de formation complémentaire du L-GAV et du Coop\n- Durabilité : Engagement envers les personnes, les animaux et la nature avec plus de 400 actions\n- Communication: application interne pour les salariés\n- Santé : Mise à jour de la condition physique : 200.– Réduction sur l'abonnement annuel, participation gratuite à diverses activités d'entreprise, offres de sports maison\n\n## Votre personne à contacter\nAllemand Steiner\nMarketing des ressources humaines\n\n**Tipo:** Temps partiel\n**Sede:** Matzendorf"
       },
       "slugByLocale": {
-        "it": "verkaufer-in-kassen-services-coop-matzendorf-solothurn-bllh6v",
-        "en": "verkaufer-in-kassen-services-coop-matzendorf-solothurn-bllh6v",
+        "it": "venditore-in-cassa-servizi-coop-genossenschaft-matzendorf",
+        "en": "seller-in-cash-registers-services-coop-genossenschaft-matzendorf",
         "de": "verkaufer-in-kassen-services-coop-matzendorf-solothurn-bllh6v",
-        "fr": "verkaufer-in-kassen-services-coop-matzendorf-solothurn-bllh6v"
+        "fr": "vendeur-dans-les-caisses-enregistreuses-services-coop-genossenschaft-matzendorf"
       },
       "requirementsByLocale": {
         "it": [],
@@ -154744,11 +154957,27 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufer-in-kassen-services-coop-matzendorf-solothurn-bllh6v",
+          "verkaufer-in-kassen-services-coop-matzendorf-solothurn"
+        ],
+        "en": [
+          "verkaufer-in-kassen-services-coop-matzendorf-solothurn-bllh6v"
+        ],
+        "fr": [
+          "verkaufer-in-kassen-services-coop-matzendorf-solothurn-bllh6v"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufer-in-kassen-services-coop-matzendorf-solothurn-bllh6v",
+        "verkaufer-in-kassen-services-coop-matzendorf-solothurn"
+      ]
     },
     {
       "id": "company-xu0mdb",
-      "slug": "verkaufer-in-kassen-services-coop-biberist-solothurn",
+      "slug": "venditore-in-cassa-servizi-coop-genossenschaft-biberist",
       "company": "Coop Genossenschaft",
       "title": "Verkäufer:in Kassen/Services",
       "location": "Biberist",
@@ -154787,10 +155016,10 @@
         "fr": "## Vendeur:dans les caisses enregistreuses/services\n\n**Coopérative Coop** — Biberiste, Soleure, Svizzera\n\n## Tâches\n- La caisse enregistreuse est votre territoire, ici vous assurez une bonne humeur et un processus en douceur.\n- Vous veillez à ce que tous les processus et règlements soient respectés.\n- En équipe, vous aidez également vos collègues dans d'autres domaines.\n\n## Exigences\n- Nous nous réjouissons de votre expérience dans les ventes.\n- Vous êtes pleinement engagé et prêt à fournir des services.\n- La flexibilité est également importante pour vous quand il s'agit de temps de déploiement.\n- Vous maîtrisez l'allemand bien verbalement et par écrit.\n- Réductions: Réduction sur l'offre de voyage ITS Coop Travel, 5 fois le nombre de super points dans le supermarché, jusqu'à 20% de réduction sur les différents services d'assurance, jusqu'à 20% de réduction dans tous les formats du groupe Coop, abonnements mobiles et prépayés moins chers sur Coop Mobile, Reka Card: Réduction sur l'achat, Réduction sur le partage de voiture de mobilité, Réduction personnel également pour les partenaires:dans (habitant dans le même ménage), Réduction sur l'abonnement GA, Réductions sur les événements culturels, Réductions pour les activités de loisirs\n- Conditions d'emploi: Caisse de retraite: 2/3 est payé par Coop, Conditions d'emploi attrayantes et salaire égal certifié, Primes de fidélité, Régime d'épargne-retraite, Contrat d'emploi total (GAV), 18 semaines de congé de maternité payé et trois semaines de congé de paternité payé\n- Temps de travail: 5 semaines de vacances, modèles flexibles de temps de travail\n- Formation complémentaire: plus de 600 cours de formation interne, gestion des talents avec des possibilités de développement diverses, formation et offres de formation complémentaire du L-GAV et du Coop\n- Durabilité : Engagement envers les personnes, les animaux et la nature avec plus de 400 actions\n- Communication: application interne pour les salariés\n- Santé : Mise à jour de la condition physique : 200.– Réduction sur l'abonnement annuel, participation gratuite à diverses activités d'entreprise, offres de sports maison\n\n## Votre personne à contacter\nAllemand Steiner\nMarketing des ressources humaines\n\n**Tipo:** Temps partiel\n**Sécurité :** Biberiste"
       },
       "slugByLocale": {
-        "it": "verkaufer-in-kassen-services-coop-biberist-solothurn-xu0mdb",
-        "en": "verkaufer-in-kassen-services-coop-biberist-solothurn-xu0mdb",
+        "it": "venditore-in-cassa-servizi-coop-genossenschaft-biberist",
+        "en": "seller-in-cash-registers-services-coop-genossenschaft-biberist",
         "de": "verkaufer-in-kassen-services-coop-biberist-solothurn-xu0mdb",
-        "fr": "verkaufer-in-kassen-services-coop-biberist-solothurn-xu0mdb"
+        "fr": "vendeur-dans-les-caisses-enregistreuses-services-coop-genossenschaft-biberist"
       },
       "requirementsByLocale": {
         "it": [],
@@ -154823,28 +155052,44 @@
           "venditore-trice-cassa-servizi-studente-coop-genossenschaft-biberist",
           "verkaufer-in-kassen-services-studentenaushilfe-coop-biberist-solothurn-nmbw2e",
           "sales-associate-cashier-services-student-assistant-coop-genossenschaft-biberist-nmbw2e",
-          "vendeur-se-caisses-services-etudiant-coop-genossenschaft-biberist-nmbw2e"
+          "vendeur-se-caisses-services-etudiant-coop-genossenschaft-biberist-nmbw2e",
+          "venditore-trice-cassa-servizi-studente-coop-genossenschaft-biberist",
+          "verkaufer-in-kassen-services-studentenaushilfe-coop-biberist-solothurn-nmbw2e",
+          "sales-associate-cashier-services-student-assistant-coop-genossenschaft-biberist-nmbw2e",
+          "vendeur-se-caisses-services-etudiant-coop-genossenschaft-biberist-nmbw2e",
+          "verkaufer-in-kassen-services-coop-biberist-solothurn-xu0mdb",
+          "verkaufer-in-kassen-services-coop-biberist-solothurn"
         ],
         "en": [
-          "sales-associate-cashier-services-student-assistant-coop-genossenschaft-biberist-nmbw2e"
+          "sales-associate-cashier-services-student-assistant-coop-genossenschaft-biberist-nmbw2e",
+          "sales-associate-cashier-services-student-assistant-coop-genossenschaft-biberist-nmbw2e",
+          "verkaufer-in-kassen-services-coop-biberist-solothurn-xu0mdb"
         ],
         "de": [
           "verkaufer-in-kassen-services-studentenaushilfe-coop-biberist-solothurn-nmbw2e"
         ],
         "fr": [
-          "vendeur-se-caisses-services-etudiant-coop-genossenschaft-biberist-nmbw2e"
+          "vendeur-se-caisses-services-etudiant-coop-genossenschaft-biberist-nmbw2e",
+          "vendeur-se-caisses-services-etudiant-coop-genossenschaft-biberist-nmbw2e",
+          "verkaufer-in-kassen-services-coop-biberist-solothurn-xu0mdb"
         ]
       },
       "previousSlugs": [
         "venditore-trice-cassa-servizi-studente-coop-genossenschaft-biberist",
         "verkaufer-in-kassen-services-studentenaushilfe-coop-biberist-solothurn-nmbw2e",
         "sales-associate-cashier-services-student-assistant-coop-genossenschaft-biberist-nmbw2e",
-        "vendeur-se-caisses-services-etudiant-coop-genossenschaft-biberist-nmbw2e"
+        "vendeur-se-caisses-services-etudiant-coop-genossenschaft-biberist-nmbw2e",
+        "venditore-trice-cassa-servizi-studente-coop-genossenschaft-biberist",
+        "verkaufer-in-kassen-services-studentenaushilfe-coop-biberist-solothurn-nmbw2e",
+        "sales-associate-cashier-services-student-assistant-coop-genossenschaft-biberist-nmbw2e",
+        "vendeur-se-caisses-services-etudiant-coop-genossenschaft-biberist-nmbw2e",
+        "verkaufer-in-kassen-services-coop-biberist-solothurn-xu0mdb",
+        "verkaufer-in-kassen-services-coop-biberist-solothurn"
       ]
     },
     {
       "id": "company-a46wgy",
-      "slug": "stv-rayonleiter-in-hausbackerei-coop-langenthal-bern",
+      "slug": "stv-rayonleiter-in-hausbakerei-coop-genossenschaft-langenthal",
       "company": "Coop Genossenschaft",
       "title": "Stv. Rayonleiter:in in Hausbäckerei",
       "location": "Langenthal",
@@ -154882,10 +155127,10 @@
         "fr": "## Stv. Rayonleiter:in à Hausbakerei\n\n**Coopérative de coop** — Langenthal, Berne, Svizzera\n\n## Tâches\n- Quelle odeur délicieuse ! En tant qu'adjoint, vous dirigez le département de boulangerie maison dans le but d'offrir à nos clients une expérience d'achat agréable en termes de fraîcheur et de qualité.\n- Avec beaucoup de soin, vous faites du pain et des pâtisseries maison.\n- Vous assurez-vous que les produits proposés sur les étagères sont toujours disponibles et laissez nos clients faire fonctionner l'eau dans leur bouche.\n- Vous vous souciez des préoccupations de nos clients et vous répondez toujours amicalement à leurs questions ou souhaits.\n- En l'absence de la direction de la rayonne, vous assumez l'entière responsabilité du département.\n\n## Exigences\n- Vous avez déjà acquis une expérience professionnelle dans une boulangerie ou, idéalement, une éducation de base terminée en tant que boulanger:in ou confiseur:in.\n- La connaissance des biens de la zone de responsabilité pain / produits de boulangerie est un avantage.\n- Au service du client, vous êtes toujours pleinement engagé.\n- Vous connaissez très bien la langue allemande en paroles et en écritures.\n- Lorsque vous traitez de nouveaux outils informatiques, êtes-vous absolument résistant à la selle? Parfait !\n- Bénéfice de frange: En tant que membre du monde coopératif, vous bénéficiez également en tant que boulanger:in / chef pâtissier:in des heures de travail réglementées.\n- Réductions: Réduction sur l'offre de voyage ITS Coop Travel, 5 fois le nombre de super points dans le supermarché, jusqu'à 20% de réduction sur les différents services d'assurance, jusqu'à 20% de réduction dans tous les formats du groupe Coop, abonnements mobiles et prépayés moins chers sur Coop Mobile, Reka Card: Réduction sur l'achat, Réduction sur le partage de voiture de mobilité, Réduction personnel également pour les partenaires:dans (habitant dans le même ménage), Réduction sur l'abonnement GA, Réductions sur les événements culturels, Réductions pour les activités de loisirs\n- Conditions d'emploi: Caisse de retraite: 2/3 est payé par Coop, Conditions d'emploi attrayantes et salaire égal certifié, Primes de fidélité, Régime d'épargne-retraite, Contrat d'emploi total (GAV), 18 semaines de congé de maternité payé et trois semaines de congé de paternité payé\n- Temps de travail: 5 semaines de vacances, modèles flexibles de temps de travail\n- Formation complémentaire: plus de 600 cours de formation interne, gestion des talents avec des possibilités de développement diverses, formation et offres de formation complémentaire du L-GAV et du Coop\n- Durabilité : Engagement envers les personnes, les animaux et la nature avec plus de 400 actions\n- Communication: application interne pour les salariés\n- Santé : Mise à jour de la condition physique : 200.– Réduction sur l'abonnement annuel, participation gratuite à diverses activités d'entreprise, offres de sports maison\n\n## Votre personne à contacter\nAllemand Steiner\nMarketing des ressources humaines\n\n**Tipo:** Temps partiel\nSede: Langenthal"
       },
       "slugByLocale": {
-        "it": "stv-rayonleiter-in-hausbackerei-coop-langenthal-bern-a46wgy",
-        "en": "stv-rayonleiter-in-hausbackerei-coop-langenthal-bern-a46wgy",
+        "it": "stv-rayonleiter-in-hausbakerei-coop-genossenschaft-langenthal",
+        "en": "stv-rayonleiter-in-in-hausbakerei-coop-genossenschaft-langenthal",
         "de": "stv-rayonleiter-in-hausbackerei-coop-langenthal-bern-a46wgy",
-        "fr": "stv-rayonleiter-in-hausbackerei-coop-langenthal-bern-a46wgy"
+        "fr": "stv-rayonleiter-in-a-hausbakerei-coop-genossenschaft-langenthal"
       },
       "requirementsByLocale": {
         "it": [],
@@ -154911,11 +155156,27 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "stv-rayonleiter-in-hausbackerei-coop-langenthal-bern-a46wgy",
+          "stv-rayonleiter-in-hausbackerei-coop-langenthal-bern"
+        ],
+        "en": [
+          "stv-rayonleiter-in-hausbackerei-coop-langenthal-bern-a46wgy"
+        ],
+        "fr": [
+          "stv-rayonleiter-in-hausbackerei-coop-langenthal-bern-a46wgy"
+        ]
+      },
+      "previousSlugs": [
+        "stv-rayonleiter-in-hausbackerei-coop-langenthal-bern-a46wgy",
+        "stv-rayonleiter-in-hausbackerei-coop-langenthal-bern"
+      ]
     },
     {
       "id": "company-e1nyea",
-      "slug": "aspirant-in-stv-geschaftsfuhrer-in-coop-schwyz",
+      "slug": "aspirant-in-stv-managing-director-in-coop-genossenschaft-schwyz",
       "company": "Coop Genossenschaft",
       "title": "Aspirant:in Stv. Geschäftsführer:in",
       "location": "Schwyz",
@@ -154951,10 +155212,10 @@
         "fr": "## Aspirant: dans Stv. Directeur général:in\n\n**Coopérative de coop** — Schwyz, Schwyz, Svizzera\n\n## Tâches\n- Coopération active dans toutes les rayonnes du point de vente\n- Participation à la formation technique et de gestion\n- Compléter un programme aspirant individuel\n\n## Exigences\n- Formation de base dans le commerce de détail ou expérience professionnelle correspondante dans le secteur des ventes\n- L'expérience du leadership est bénéfique\n- Haut sens des responsabilités\n- Personnalité amicale et axée sur l'équipe avec une apparence soignée\n- Haute performance et résilience ainsi que l'affinité du système\n- Ambition, engagement et volonté d'atteindre nos objectifs communs\n- Flexibilité en termes de temps de fonctionnement\n- Réductions: 5 fois le nombre de super points dans le supermarché\n- Conditions d'emploi: Caisse de retraite: 2/3 est payé par Coop\n- Heures de travail: 5 semaines de congés\n- Formation: soutien à l'éducation et à la formation externes\n- Durabilité: Engagement envers les personnes, les animaux et la nature avec plus de 400 actions\n- Communication: application interne pour les salariés\n- Santé : Mise à jour de la condition physique : 200.– Réduction sur abonnement annuel\n\n## Votre personne à contacter\nCecilia Mazzotta\nMarketing des ressources humaines\n\n**Tipo:** Temps partiel\n**Sede:** Schwyz"
       },
       "slugByLocale": {
-        "it": "aspirant-in-stv-geschaftsfuhrer-in-coop-schwyz-e1nyea",
+        "it": "aspirant-in-stv-managing-director-in-coop-genossenschaft-schwyz",
         "en": "aspirant-in-stv-geschaftsfuhrer-in-coop-schwyz-e1nyea",
         "de": "aspirant-in-stv-geschaftsfuhrer-in-coop-schwyz-e1nyea",
-        "fr": "aspirant-in-stv-geschaftsfuhrer-in-coop-schwyz-e1nyea"
+        "fr": "aspirant-dans-stv-directeur-general-in-coop-genossenschaft-schwyz"
       },
       "requirementsByLocale": {},
       "addressLocality": "Schwyz",
@@ -154985,7 +155246,18 @@
           "aspirant-directeur-trice-adjoint-e-coop-genossenschaft-schwyz",
           "aspirant-in-stv-geschaftsfuhrer-in-coop-genossenschaft-schwyz-u5kwmv",
           "aspirante-vice-direttore-generale-coop-genossenschaft-schwyz",
-          "aspirant-in-stv-geschaftsfuhrer-in-coop-schwyz"
+          "aspirant-in-stv-geschaftsfuhrer-in-coop-schwyz",
+          "aspirante-direttore-trice-vice-coop-genossenschaft-schwyz",
+          "aspirant-in-stv-geschaftsfuhrer-in-coop-schwyz-u5kwmv",
+          "aspirant-deputy-manager-coop-genossenschaft-schwyz-u5kwmv",
+          "aspirant-directeur-trice-adjoint-e-coop-genossenschaft-schwyz-u5kwmv",
+          "aspirant-in-stv-geschaftsfuhrer-in-coop-genossenschaft-schwyz",
+          "aspirant-deputy-manager-coop-genossenschaft-schwyz",
+          "aspirant-directeur-trice-adjoint-e-coop-genossenschaft-schwyz",
+          "aspirant-in-stv-geschaftsfuhrer-in-coop-genossenschaft-schwyz-u5kwmv",
+          "aspirante-vice-direttore-generale-coop-genossenschaft-schwyz",
+          "aspirant-in-stv-geschaftsfuhrer-in-coop-schwyz",
+          "aspirant-in-stv-geschaftsfuhrer-in-coop-schwyz-e1nyea"
         ],
         "en": [
           "aspirant-deputy-manager-coop-genossenschaft-schwyz-u5kwmv"
@@ -154994,7 +155266,9 @@
           "aspirant-in-stv-geschaftsfuhrer-in-coop-schwyz-u5kwmv"
         ],
         "fr": [
-          "aspirant-directeur-trice-adjoint-e-coop-genossenschaft-schwyz-u5kwmv"
+          "aspirant-directeur-trice-adjoint-e-coop-genossenschaft-schwyz-u5kwmv",
+          "aspirant-directeur-trice-adjoint-e-coop-genossenschaft-schwyz-u5kwmv",
+          "aspirant-in-stv-geschaftsfuhrer-in-coop-schwyz-e1nyea"
         ]
       },
       "previousSlugs": [
@@ -155007,12 +155281,23 @@
         "aspirant-directeur-trice-adjoint-e-coop-genossenschaft-schwyz",
         "aspirant-in-stv-geschaftsfuhrer-in-coop-genossenschaft-schwyz-u5kwmv",
         "aspirante-vice-direttore-generale-coop-genossenschaft-schwyz",
-        "aspirant-in-stv-geschaftsfuhrer-in-coop-schwyz"
+        "aspirant-in-stv-geschaftsfuhrer-in-coop-schwyz",
+        "aspirante-direttore-trice-vice-coop-genossenschaft-schwyz",
+        "aspirant-in-stv-geschaftsfuhrer-in-coop-schwyz-u5kwmv",
+        "aspirant-deputy-manager-coop-genossenschaft-schwyz-u5kwmv",
+        "aspirant-directeur-trice-adjoint-e-coop-genossenschaft-schwyz-u5kwmv",
+        "aspirant-in-stv-geschaftsfuhrer-in-coop-genossenschaft-schwyz",
+        "aspirant-deputy-manager-coop-genossenschaft-schwyz",
+        "aspirant-directeur-trice-adjoint-e-coop-genossenschaft-schwyz",
+        "aspirant-in-stv-geschaftsfuhrer-in-coop-genossenschaft-schwyz-u5kwmv",
+        "aspirante-vice-direttore-generale-coop-genossenschaft-schwyz",
+        "aspirant-in-stv-geschaftsfuhrer-in-coop-schwyz",
+        "aspirant-in-stv-geschaftsfuhrer-in-coop-schwyz-e1nyea"
       ]
     },
     {
       "id": "company-6z15k0",
-      "slug": "aspirant-in-stv-geschaftsfuhrer-in-coop-altdorf-uri",
+      "slug": "aspirant-in-stv-managing-director-in-coop-genossenschaft-altdorf",
       "company": "Coop Genossenschaft",
       "title": "Aspirant:in Stv. Geschäftsführer:in",
       "location": "Altdorf",
@@ -155048,10 +155333,10 @@
         "fr": "## Aspirant: dans Stv. Directeur général:in\n\n**Coopérative de coop** — Altdorf, Uri, Svizzera\n\n## Tâches\n- Coopération active dans toutes les rayonnes du point de vente\n- Participation à la formation technique et de gestion\n- Compléter un programme aspirant individuel\n\n## Exigences\n- Formation de base dans le commerce de détail ou expérience professionnelle correspondante dans le secteur des ventes\n- L'expérience du leadership est bénéfique\n- Haut sens des responsabilités\n- Personnalité amicale et axée sur l'équipe avec une apparence soignée\n- Haute performance et résilience ainsi que l'affinité du système\n- Ambition, engagement et volonté d'atteindre nos objectifs communs\n- Flexibilité en termes de temps de fonctionnement\n- Réductions: 5 fois le nombre de super points dans le supermarché\n- Conditions d'emploi: Caisse de retraite: 2/3 est payé par Coop\n- Heures de travail: 5 semaines de congés\n- Formation: soutien à l'éducation et à la formation externes\n- Durabilité: Engagement envers les personnes, les animaux et la nature avec plus de 400 actions\n- Communication: application interne pour les salariés\n- Santé : Mise à jour de la condition physique : 200.– Réduction sur abonnement annuel\n\n## Votre personne à contacter\nCecilia Mazzotta\nMarketing des ressources humaines\n\n**Tipo:** Temps partiel\n**Sécurité :** Tél."
       },
       "slugByLocale": {
-        "it": "aspirant-in-stv-geschaftsfuhrer-in-coop-altdorf-uri-6z15k0",
+        "it": "aspirant-in-stv-managing-director-in-coop-genossenschaft-altdorf",
         "en": "aspirant-in-stv-geschaftsfuhrer-in-coop-altdorf-uri-6z15k0",
         "de": "aspirant-in-stv-geschaftsfuhrer-in-coop-altdorf-uri-6z15k0",
-        "fr": "aspirant-in-stv-geschaftsfuhrer-in-coop-altdorf-uri-6z15k0"
+        "fr": "aspirant-dans-stv-directeur-general-in-coop-genossenschaft-altdorf"
       },
       "requirementsByLocale": {},
       "addressLocality": "Altdorf",
@@ -155070,11 +155355,24 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "aspirant-in-stv-geschaftsfuhrer-in-coop-altdorf-uri-6z15k0",
+          "aspirant-in-stv-geschaftsfuhrer-in-coop-altdorf-uri"
+        ],
+        "fr": [
+          "aspirant-in-stv-geschaftsfuhrer-in-coop-altdorf-uri-6z15k0"
+        ]
+      },
+      "previousSlugs": [
+        "aspirant-in-stv-geschaftsfuhrer-in-coop-altdorf-uri-6z15k0",
+        "aspirant-in-stv-geschaftsfuhrer-in-coop-altdorf-uri"
+      ]
     },
     {
       "id": "company-1jlkpr",
-      "slug": "aspirant-in-stv-geschaftsfuhrer-in-coop-sarnen-obwalden",
+      "slug": "aspirant-in-stv-managing-director-in-coop-genossenschaft-sarnen",
       "company": "Coop Genossenschaft",
       "title": "Aspirant:in Stv. Geschäftsführer:in",
       "location": "Sarnen",
@@ -155110,10 +155408,10 @@
         "fr": "## Aspirant: dans Stv. Directeur général:in\n\n**Coopérative de coopératives** — Sarnen, Obwalden, Svizzera\n\n## Tâches\n- Coopération active dans toutes les rayonnes du point de vente\n- Participation à la formation technique et de gestion\n- Compléter un programme aspirant individuel\n\n## Exigences\n- Formation de base dans le commerce de détail ou expérience professionnelle correspondante dans le secteur des ventes\n- L'expérience du leadership est bénéfique\n- Haut sens des responsabilités\n- Personnalité amicale et axée sur l'équipe avec une apparence soignée\n- Haute performance et résilience ainsi que l'affinité du système\n- Ambition, engagement et volonté d'atteindre nos objectifs communs\n- Flexibilité en termes de temps de fonctionnement\n- Réductions: 5 fois le nombre de super points dans le supermarché\n- Conditions d'emploi: Caisse de retraite: 2/3 est payé par Coop\n- Heures de travail: 5 semaines de congés\n- Formation: soutien à l'éducation et à la formation externes\n- Durabilité: Engagement envers les personnes, les animaux et la nature avec plus de 400 actions\n- Communication: application interne pour les salariés\n- Santé : Mise à jour de la condition physique : 200.– Réduction sur abonnement annuel\n\n## Votre personne à contacter\nCecilia Mazzotta\nMarketing des ressources humaines\n\n**Tipo:** Temps partiel\n**Sécurité :** Sarnes"
       },
       "slugByLocale": {
-        "it": "aspirant-in-stv-geschaftsfuhrer-in-coop-sarnen-obwalden-1jlkpr",
+        "it": "aspirant-in-stv-managing-director-in-coop-genossenschaft-sarnen",
         "en": "aspirant-in-stv-geschaftsfuhrer-in-coop-sarnen-obwalden-1jlkpr",
         "de": "aspirant-in-stv-geschaftsfuhrer-in-coop-sarnen-obwalden-1jlkpr",
-        "fr": "aspirant-in-stv-geschaftsfuhrer-in-coop-sarnen-obwalden-1jlkpr"
+        "fr": "aspirant-dans-stv-directeur-general-in-coop-genossenschaft-sarnen"
       },
       "requirementsByLocale": {},
       "addressLocality": "Sarnen",
@@ -155140,7 +155438,15 @@
           "trainee-deputy-manager-coop-genossenschaft-sarnen-rv8uku",
           "aspirant-e-directeur-trice-adjoint-e-coop-genossenschaft-sarnen-rv8uku",
           "aspirant-dans-stv-geschaftsfuhrer-in-coop-genossenschaft-sarnen",
-          "aspirant-in-stv-geschaftsfuhrer-in-coop-genossenschaft-sarnen"
+          "aspirant-in-stv-geschaftsfuhrer-in-coop-genossenschaft-sarnen",
+          "aspirante-vice-direttore-direttrice-coop-genossenschaft-sarnen",
+          "aspirant-in-stv-geschaftsfuhrer-in-coop-genossenschaft-sarnen-obwalden-rv8uku",
+          "trainee-deputy-manager-coop-genossenschaft-sarnen-rv8uku",
+          "aspirant-e-directeur-trice-adjoint-e-coop-genossenschaft-sarnen-rv8uku",
+          "aspirant-dans-stv-geschaftsfuhrer-in-coop-genossenschaft-sarnen",
+          "aspirant-in-stv-geschaftsfuhrer-in-coop-genossenschaft-sarnen",
+          "aspirant-in-stv-geschaftsfuhrer-in-coop-sarnen-obwalden-1jlkpr",
+          "aspirant-in-stv-geschaftsfuhrer-in-coop-sarnen-obwalden"
         ],
         "en": [
           "trainee-deputy-manager-coop-genossenschaft-sarnen-rv8uku"
@@ -155149,7 +155455,9 @@
           "aspirant-in-stv-geschaftsfuhrer-in-coop-genossenschaft-sarnen-obwalden-rv8uku"
         ],
         "fr": [
-          "aspirant-e-directeur-trice-adjoint-e-coop-genossenschaft-sarnen-rv8uku"
+          "aspirant-e-directeur-trice-adjoint-e-coop-genossenschaft-sarnen-rv8uku",
+          "aspirant-e-directeur-trice-adjoint-e-coop-genossenschaft-sarnen-rv8uku",
+          "aspirant-in-stv-geschaftsfuhrer-in-coop-sarnen-obwalden-1jlkpr"
         ]
       },
       "previousSlugs": [
@@ -155158,12 +155466,20 @@
         "trainee-deputy-manager-coop-genossenschaft-sarnen-rv8uku",
         "aspirant-e-directeur-trice-adjoint-e-coop-genossenschaft-sarnen-rv8uku",
         "aspirant-dans-stv-geschaftsfuhrer-in-coop-genossenschaft-sarnen",
-        "aspirant-in-stv-geschaftsfuhrer-in-coop-genossenschaft-sarnen"
+        "aspirant-in-stv-geschaftsfuhrer-in-coop-genossenschaft-sarnen",
+        "aspirante-vice-direttore-direttrice-coop-genossenschaft-sarnen",
+        "aspirant-in-stv-geschaftsfuhrer-in-coop-genossenschaft-sarnen-obwalden-rv8uku",
+        "trainee-deputy-manager-coop-genossenschaft-sarnen-rv8uku",
+        "aspirant-e-directeur-trice-adjoint-e-coop-genossenschaft-sarnen-rv8uku",
+        "aspirant-dans-stv-geschaftsfuhrer-in-coop-genossenschaft-sarnen",
+        "aspirant-in-stv-geschaftsfuhrer-in-coop-genossenschaft-sarnen",
+        "aspirant-in-stv-geschaftsfuhrer-in-coop-sarnen-obwalden-1jlkpr",
+        "aspirant-in-stv-geschaftsfuhrer-in-coop-sarnen-obwalden"
       ]
     },
     {
       "id": "company-jpguvq",
-      "slug": "aspirant-in-stv-geschaftsfuhrer-in-coop-zug",
+      "slug": "aspirant-in-stv-managing-director-in-coop-genossenschaft-zug",
       "company": "Coop Genossenschaft",
       "title": "Aspirant:in Stv. Geschäftsführer:in",
       "location": "Zug",
@@ -155199,10 +155515,10 @@
         "fr": "## Aspirant: dans Stv. Directeur général:in\n\n**Coopérative Coop** — Train, Train, Svizzera\n\n## Tâches\n- Coopération active dans toutes les rayonnes du point de vente\n- Participation à la formation technique et de gestion\n- Compléter un programme aspirant individuel\n\n## Exigences\n- Formation de base dans le commerce de détail ou expérience professionnelle correspondante dans le secteur des ventes\n- L'expérience du leadership est bénéfique\n- Haut sens des responsabilités\n- Personnalité amicale et axée sur l'équipe avec une apparence soignée\n- Haute performance et résilience ainsi que l'affinité du système\n- Ambition, engagement et volonté d'atteindre nos objectifs communs\n- Flexibilité en termes de temps de fonctionnement\n- Réductions: 5 fois le nombre de super points dans le supermarché\n- Conditions d'emploi: Caisse de retraite: 2/3 est payé par Coop\n- Heures de travail: 5 semaines de congés\n- Formation: soutien à l'éducation et à la formation externes\n- Durabilité: Engagement envers les personnes, les animaux et la nature avec plus de 400 actions\n- Communication: application interne pour les salariés\n- Santé : Mise à jour de la condition physique : 200.– Réduction sur abonnement annuel\n\n## Votre personne à contacter\nCecilia Mazzotta\nMarketing des ressources humaines\n\n**Tipo:** Temps partiel\n**Sécurité :** Train"
       },
       "slugByLocale": {
-        "it": "aspirant-in-stv-geschaftsfuhrer-in-coop-zug-jpguvq",
+        "it": "aspirant-in-stv-managing-director-in-coop-genossenschaft-zug",
         "en": "aspirant-in-stv-geschaftsfuhrer-in-coop-zug-jpguvq",
         "de": "aspirant-in-stv-geschaftsfuhrer-in-coop-zug-jpguvq",
-        "fr": "aspirant-in-stv-geschaftsfuhrer-in-coop-zug-jpguvq"
+        "fr": "aspirant-dans-stv-directeur-general-in-coop-genossenschaft-zug"
       },
       "requirementsByLocale": {},
       "addressLocality": "Zug",
@@ -155243,7 +155559,27 @@
           "aspirant-directeur-trice-adjoint-e-coop-genossenschaft-schwyz-b06ca4",
           "aspirant-in-stv-geschaftsfuhrer-in-coop-genossenschaft-schwyz-jtzmo1",
           "aspirant-deputy-managing-director-coop-genossenschaft-schwyz-jtzmo1",
-          "aspirant-deputy-managing-director-coop-genossenschaft-schwyz"
+          "aspirant-deputy-managing-director-coop-genossenschaft-schwyz",
+          "trainee-deputy-manager-coop-genossenschaft-zug",
+          "stagiaire-directeur-adjoint-coop-genossenschaft-zug",
+          "aspirant-in-stv-geschaftsfuhrer-in-coop-genossenschaft-schwyz",
+          "aspirant-in-stv-geschaftsfuhrer-in-coop-schwyz",
+          "aspirant-directeur-general-adjoint-coop-genossenschaft-schwyz-jtzmo1",
+          "aspirant-directeur-general-adjoint-coop-genossenschaft-schwyz",
+          "aspirant-stv-directeur-coop-genossenschaft-schwyz-jtzmo1",
+          "aspirant-stv-directeur-coop-genossenschaft-schwyz",
+          "aspirant-in-stv-geschaftsfuhrer-in-coop-genossenschaft-buochs",
+          "aspirant-in-stv-geschaftsfuhrer-in-coop-genossenschaft-unterageri",
+          "aspirant-deputy-manager-coop-genossenschaft-schwyz-b06ca4",
+          "aspirante-vice-direttore-generale-coop-genossenschaft-zug",
+          "aspirante-vice-direttore-direttrice-coop-genossenschaft-zug",
+          "aspirant-in-stv-geschaftsfuhrer-in-coop-genossenschaft-zug",
+          "aspirant-directeur-trice-adjoint-e-coop-genossenschaft-schwyz-b06ca4",
+          "aspirant-in-stv-geschaftsfuhrer-in-coop-genossenschaft-schwyz-jtzmo1",
+          "aspirant-deputy-managing-director-coop-genossenschaft-schwyz-jtzmo1",
+          "aspirant-deputy-managing-director-coop-genossenschaft-schwyz",
+          "aspirant-in-stv-geschaftsfuhrer-in-coop-zug-jpguvq",
+          "aspirant-in-stv-geschaftsfuhrer-in-coop-zug"
         ],
         "en": [
           "aspiring-deputy-manager-coop-genossenschaft-zug-b26n08"
@@ -155252,7 +155588,9 @@
           "aspirant-in-stv-geschaftsfuhrer-in-coop-genossenschaft-zug-b26n08"
         ],
         "fr": [
-          "aspirant-e-directeur-trice-adjoint-e-coop-genossenschaft-zug-b26n08"
+          "aspirant-e-directeur-trice-adjoint-e-coop-genossenschaft-zug-b26n08",
+          "aspirant-e-directeur-trice-adjoint-e-coop-genossenschaft-zug-b26n08",
+          "aspirant-in-stv-geschaftsfuhrer-in-coop-zug-jpguvq"
         ]
       },
       "previousSlugs": [
@@ -155281,12 +155619,40 @@
         "aspirant-e-directeur-trice-adjoint-e-coop-genossenschaft-zug-b26n08",
         "aspirante-vice-direttore-direttrice-coop-genossenschaft-zug",
         "aspirant-in-stv-geschaftsfuhrer-in-coop-genossenschaft-zug",
-        "aspirant-directeur-trice-adjoint-e-coop-genossenschaft-schwyz-b06ca4"
+        "aspirant-directeur-trice-adjoint-e-coop-genossenschaft-schwyz-b06ca4",
+        "aspirant-in-stv-geschaftsfuhrer-in-coop-genossenschaft-schwyz-jtzmo1",
+        "aspirant-deputy-managing-director-coop-genossenschaft-schwyz-jtzmo1",
+        "aspirant-deputy-managing-director-coop-genossenschaft-schwyz",
+        "aspiring-deputy-manager-coop-genossenschaft-zug",
+        "aspirant-e-directeur-trice-adjoint-e-coop-genossenschaft-zug",
+        "aspirant-in-stv-geschaftsfuhrer-in-coop-schwyz-jtzmo1",
+        "aspirant-stv-director-coop-genossenschaft-schwyz-jtzmo1",
+        "aspirant-stv-director-coop-genossenschaft-schwyz",
+        "trainee-deputy-manager-coop-genossenschaft-zug",
+        "stagiaire-directeur-adjoint-coop-genossenschaft-zug",
+        "aspirant-in-stv-geschaftsfuhrer-in-coop-genossenschaft-schwyz",
+        "aspirant-in-stv-geschaftsfuhrer-in-coop-schwyz",
+        "aspirant-directeur-general-adjoint-coop-genossenschaft-schwyz-jtzmo1",
+        "aspirant-directeur-general-adjoint-coop-genossenschaft-schwyz",
+        "aspirant-stv-directeur-coop-genossenschaft-schwyz-jtzmo1",
+        "aspirant-stv-directeur-coop-genossenschaft-schwyz",
+        "aspirant-in-stv-geschaftsfuhrer-in-coop-genossenschaft-buochs",
+        "aspirant-in-stv-geschaftsfuhrer-in-coop-genossenschaft-unterageri",
+        "aspirant-deputy-manager-coop-genossenschaft-schwyz-b06ca4",
+        "aspirante-vice-direttore-generale-coop-genossenschaft-zug",
+        "aspiring-deputy-manager-coop-genossenschaft-zug-b26n08",
+        "aspirant-in-stv-geschaftsfuhrer-in-coop-genossenschaft-zug-b26n08",
+        "aspirant-e-directeur-trice-adjoint-e-coop-genossenschaft-zug-b26n08",
+        "aspirante-vice-direttore-direttrice-coop-genossenschaft-zug",
+        "aspirant-in-stv-geschaftsfuhrer-in-coop-genossenschaft-zug",
+        "aspirant-directeur-trice-adjoint-e-coop-genossenschaft-schwyz-b06ca4",
+        "aspirant-in-stv-geschaftsfuhrer-in-coop-zug-jpguvq",
+        "aspirant-in-stv-geschaftsfuhrer-in-coop-zug"
       ]
     },
     {
       "id": "company-pc3xj4",
-      "slug": "verkaufer-in-food-coop-ebnat-kappel-sankt-gallen",
+      "slug": "venditore-in-food-coop-genossenschaft-ebnat-kappel",
       "company": "Coop Genossenschaft",
       "title": "Verkäufer:in Food",
       "location": "Ebnat-Kappel",
@@ -155324,10 +155690,10 @@
         "fr": "## Vendeur:dans la nourriture\n\n**Coopérative Coop** — Ebnat-Kappel, Sankt Gallen, Svizzera\n\n## Tâches\n- Vous aimez la variété, de sorte que vous servez et conseillez nos clients dans différents départements – toujours amical et engagé.\n- Grâce à votre utilisation active, les marchandises se vendent mieux et sont gérées haut.\n- Il est clair que vous respectez nos exigences, qu'il s'agisse de fraîcheur et de qualité, d'hygiène, de régulation de la température ou de la date d'expiration.\n- Vos efforts aux caisses enregistreuses sont également variés si vous soutenez l'équipe.\n\n## Exigences\n- Êtes-vous formé au commerce de détail (éducation de base) ou avez-vous déjà acquis beaucoup d'expérience dans les ventes? Bingo, puis appliquez.\n- Vos temps d'affectation sont flexibles, mais cela ne vous cause aucun problème.\n- Vous maîtrisez bien l'allemand, en conversation et sur papier.\n- Réductions: Réduction sur l'offre de voyage ITS Coop Travel, 5 fois le nombre de super points dans le supermarché, jusqu'à 20% de réduction sur les différents services d'assurance, jusqu'à 20% de réduction dans tous les formats du groupe Coop, abonnements mobiles et prépayés moins chers sur Coop Mobile, Reka Card: Réduction sur l'achat, Réduction sur le partage de voiture de mobilité, Réduction personnel également pour les partenaires:dans (habitant dans le même ménage), Réduction sur l'abonnement GA, Réductions sur les événements culturels, Réductions pour les activités de loisirs\n- Conditions d'emploi: Caisse de retraite: 2/3 est payé par Coop, Conditions d'emploi attrayantes et salaire égal certifié, Primes de fidélité, Régime d'épargne-retraite, Contrat d'emploi total (GAV), 18 semaines de congé de maternité payé et trois semaines de congé de paternité payé\n- Temps de travail: 5 semaines de vacances, modèles flexibles de temps de travail\n- Formation complémentaire: plus de 600 cours de formation interne, gestion des talents avec des possibilités de développement diverses, formation et offres de formation complémentaire du L-GAV et du Coop\n- Durabilité : Engagement envers les personnes, les animaux et la nature avec plus de 400 actions\n- Communication: application interne pour les salariés\n- Santé : Mise à jour de la condition physique : 200.– Réduction sur l'abonnement annuel, participation gratuite à diverses activités d'entreprise, offres de sports maison\n\n## Votre personne à contacter\nNadia Ruetsch\nMarketing des ressources humaines\n\n**Tipo:** Temps partiel\n**Sécurité :** Gélule d'Ebnat"
       },
       "slugByLocale": {
-        "it": "verkaufer-in-food-coop-ebnat-kappel-sankt-gallen-pc3xj4",
-        "en": "verkaufer-in-food-coop-ebnat-kappel-sankt-gallen-pc3xj4",
+        "it": "venditore-in-food-coop-genossenschaft-ebnat-kappel",
+        "en": "seller-in-food-coop-genossenschaft-ebnat-kappel",
         "de": "verkaufer-in-food-coop-ebnat-kappel-sankt-gallen-pc3xj4",
-        "fr": "verkaufer-in-food-coop-ebnat-kappel-sankt-gallen-pc3xj4"
+        "fr": "vendeur-dans-la-nourriture-coop-genossenschaft-ebnat-kappel"
       },
       "requirementsByLocale": {
         "it": [],
@@ -155353,11 +155719,27 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufer-in-food-coop-ebnat-kappel-sankt-gallen-pc3xj4",
+          "verkaufer-in-food-coop-ebnat-kappel-sankt-gallen"
+        ],
+        "en": [
+          "verkaufer-in-food-coop-ebnat-kappel-sankt-gallen-pc3xj4"
+        ],
+        "fr": [
+          "verkaufer-in-food-coop-ebnat-kappel-sankt-gallen-pc3xj4"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufer-in-food-coop-ebnat-kappel-sankt-gallen-pc3xj4",
+        "verkaufer-in-food-coop-ebnat-kappel-sankt-gallen"
+      ]
     },
     {
       "id": "company-6lj67d",
-      "slug": "2-stv-geschaftsfuhrer-in-coop-bern",
+      "slug": "2-stv-amministratore-delegato-in-coop-genossenschaft-bern",
       "company": "Coop Genossenschaft",
       "title": "2. Stv. Geschäftsführer:in",
       "location": "Bern",
@@ -155395,10 +155777,10 @@
         "fr": "## 2. Directeur général de Stv.\n\n**Coopérative Coop** — Berne, Berne, Svizzera\n\n## Tâches\n- Si vous dirigez les aliments de base de Rayon, le client veut vraiment magasiner avec nous.\n- Les produits sont toujours disponibles et font l'appétit: cela est garanti si vous portez la responsabilité.\n- Des questions ou des préoccupations? Vous êtes toujours heureux de donner des informations à vos clients.\n- Avec respect, vous créez une atmosphère agréable : c'est ainsi que vous dirigez votre équipe.\n- En l'absence de la direction et de son adjoint, vous assumez la responsabilité du bureau de vente\n\n## Exigences\n- Achevé la formation de base dans le commerce de détail ou l'expérience professionnelle correspondante dans le secteur des ventes? Alors vous avez raison pour ce travail.\n- Avec des ventes et un leadership dans une fonction comparable, vous avez de l'expérience.\n- Vous connaissez déjà les produits de base en matière de responsabilité alimentaire? Tu peux marquer avec nous.\n- Vous maîtrisez très bien l'allemand – en paroles et en écriture.\n- En ce qui concerne les temps de déploiement, vous êtes flexible.\n- Faire face aux systèmes est facile pour vous.\n\n## Ce que nous offrons\n- Réductions: Réduction sur l'offre de voyage ITS Coop Travel, 5 fois le nombre de super points dans le supermarché, jusqu'à 20% de réduction sur les différents services d'assurance, jusqu'à 20% de réduction dans tous les formats du groupe Coop, abonnements mobiles et prépayés moins chers sur Coop Mobile, Reka Card: Réduction sur l'achat, Réduction sur le partage de voiture de mobilité, Réduction personnel également pour les partenaires:dans (habitant dans le même ménage), Réduction sur l'abonnement GA, Réductions sur les événements culturels, Réductions pour les activités de loisirs\n- Conditions d'emploi: Caisse de retraite: 2/3 est payé par Coop, Conditions d'emploi attrayantes et salaire égal certifié, Primes de fidélité, Régime d'épargne-retraite, Contrat d'emploi total (GAV), 18 semaines de congé de maternité payé et trois semaines de congé de paternité payé\n- Temps de travail: 5 semaines de vacances, modèles flexibles de temps de travail\n- Formation: plus de 600 cours de formation interne, gestion des talents avec un large éventail de possibilités de développement, soutien à la formation continue et offres de formation du LGAV et Coop\n- Durabilité : Engagement envers les personnes, les animaux et la nature avec plus de 400 actions\n- Communication: application interne pour les salariés\n- Santé : Mise à jour de la condition physique : 200.– Réduction sur l'abonnement annuel, participation gratuite à diverses activités d'entreprise, offres de sports maison\n\n## Votre personne à contacter\nJoel Linz\nMarketing des ressources humaines\n\n**Tipo:** Temps plein\n**Sécurité :** Berne"
       },
       "slugByLocale": {
-        "it": "2-stv-geschaftsfuhrer-in-coop-bern-6lj67d",
-        "en": "2-stv-geschaftsfuhrer-in-coop-bern-6lj67d",
+        "it": "2-stv-amministratore-delegato-in-coop-genossenschaft-bern",
+        "en": "2-stv-managing-director-in-coop-genossenschaft-bern",
         "de": "2-stv-geschaftsfuhrer-in-coop-bern-6lj67d",
-        "fr": "2-stv-geschaftsfuhrer-in-coop-bern-6lj67d"
+        "fr": "2-directeur-general-de-stv-in-coop-genossenschaft-bern"
       },
       "requirementsByLocale": {
         "it": [],
@@ -155437,16 +155819,32 @@
           "2-stv-geschaftsfuhrer-in-coop-genossenschaft-bern-wst861",
           "2-vice-direttore-coop-genossenschaft-wohlen-bei-bern",
           "vice-direttore-trice-coop-genossenschaft-wohlen-bei-bern",
-          "2-stv-geschaftsfuhrer-in-coop-bern"
+          "2-stv-geschaftsfuhrer-in-coop-bern",
+          "2-vice-direttore-coop-genossenschaft-bern",
+          "2-stv-geschaftsfuhrer-in-coop-bern-wst861",
+          "2nd-deputy-managing-director-coop-genossenschaft-bern-wst861",
+          "2eme-directeur-general-adjoint-coop-genossenschaft-bern-wst861",
+          "2-stv-geschaftsfuhrer-in-coop-genossenschaft-wohlen-bei-bern",
+          "2nd-deputy-managing-director-coop-genossenschaft-bern",
+          "2eme-directeur-general-adjoint-coop-genossenschaft-bern",
+          "2-stv-geschaftsfuhrer-in-coop-genossenschaft-bern-wst861",
+          "2-vice-direttore-coop-genossenschaft-wohlen-bei-bern",
+          "vice-direttore-trice-coop-genossenschaft-wohlen-bei-bern",
+          "2-stv-geschaftsfuhrer-in-coop-bern",
+          "2-stv-geschaftsfuhrer-in-coop-bern-6lj67d"
         ],
         "en": [
-          "2nd-deputy-managing-director-coop-genossenschaft-bern-wst861"
+          "2nd-deputy-managing-director-coop-genossenschaft-bern-wst861",
+          "2nd-deputy-managing-director-coop-genossenschaft-bern-wst861",
+          "2-stv-geschaftsfuhrer-in-coop-bern-6lj67d"
         ],
         "de": [
           "2-stv-geschaftsfuhrer-in-coop-bern-wst861"
         ],
         "fr": [
-          "2eme-directeur-general-adjoint-coop-genossenschaft-bern-wst861"
+          "2eme-directeur-general-adjoint-coop-genossenschaft-bern-wst861",
+          "2eme-directeur-general-adjoint-coop-genossenschaft-bern-wst861",
+          "2-stv-geschaftsfuhrer-in-coop-bern-6lj67d"
         ]
       },
       "previousSlugs": [
@@ -155460,7 +155858,19 @@
         "2-stv-geschaftsfuhrer-in-coop-genossenschaft-bern-wst861",
         "2-vice-direttore-coop-genossenschaft-wohlen-bei-bern",
         "vice-direttore-trice-coop-genossenschaft-wohlen-bei-bern",
-        "2-stv-geschaftsfuhrer-in-coop-bern"
+        "2-stv-geschaftsfuhrer-in-coop-bern",
+        "2-vice-direttore-coop-genossenschaft-bern",
+        "2-stv-geschaftsfuhrer-in-coop-bern-wst861",
+        "2nd-deputy-managing-director-coop-genossenschaft-bern-wst861",
+        "2eme-directeur-general-adjoint-coop-genossenschaft-bern-wst861",
+        "2-stv-geschaftsfuhrer-in-coop-genossenschaft-wohlen-bei-bern",
+        "2nd-deputy-managing-director-coop-genossenschaft-bern",
+        "2eme-directeur-general-adjoint-coop-genossenschaft-bern",
+        "2-stv-geschaftsfuhrer-in-coop-genossenschaft-bern-wst861",
+        "2-vice-direttore-coop-genossenschaft-wohlen-bei-bern",
+        "vice-direttore-trice-coop-genossenschaft-wohlen-bei-bern",
+        "2-stv-geschaftsfuhrer-in-coop-bern",
+        "2-stv-geschaftsfuhrer-in-coop-bern-6lj67d"
       ]
     }
   ]

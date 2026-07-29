@@ -984,9 +984,9 @@
       },
       "slugByLocale": {
         "it": "collaboratore-trice-in-gebaudebetrieb-swiss-armed-forces-vtg-bern-ydhmt3",
-        "en": "employees-in-buildings-confederazione-svizzera-emmen",
+        "en": "employees-in-buildings-swiss-armed-forces-vtg-bern",
         "de": "mitarbeiter-in-gebaudebetrieb-swiss-armed-forces-vtg-bern-ydhmt3",
-        "fr": "employes-dans-les-batiments-confederazione-svizzera-emmen"
+        "fr": "employes-dans-les-batiments-swiss-armed-forces-vtg-bern"
       },
       "id": "confederazione-ticino-253d599d482f",
       "previousSlugsByLocale": {
@@ -998,15 +998,19 @@
           "mitarbeiter-in-gebaudebetrieb-confederazione-emmen"
         ],
         "en": [
-          "mitarbeiter-in-gebaudebetrieb-confederazione-emmen"
+          "mitarbeiter-in-gebaudebetrieb-confederazione-emmen",
+          "employees-in-buildings-confederazione-svizzera-emmen"
         ],
         "fr": [
-          "mitarbeiter-in-gebaudebetrieb-confederazione-emmen"
+          "mitarbeiter-in-gebaudebetrieb-confederazione-emmen",
+          "employes-dans-les-batiments-confederazione-svizzera-emmen"
         ]
       },
       "previousSlugs": [
         "collaboratore-trice-in-gebaudebetrieb-confederazione-svizzera-emmen",
-        "mitarbeiter-in-gebaudebetrieb-confederazione-emmen"
+        "mitarbeiter-in-gebaudebetrieb-confederazione-emmen",
+        "employees-in-buildings-confederazione-svizzera-emmen",
+        "employes-dans-les-batiments-confederazione-svizzera-emmen"
       ],
       "salaryMin": 69500,
       "salaryMax": 106000,

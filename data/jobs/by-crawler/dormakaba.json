@@ -93,7 +93,7 @@
         "de": "servicetechniker-in-w-m-d-st-gallen-rheintal-dormakaba-ch",
         "it": "servicetechniker-in-m-w-d-st-gallen-rheintal-dormakaba-st-gallen",
         "en": "service-technician-in-f-m-d-st-gallen-rheintal-dormakaba-st-gallen",
-        "fr": "servicetechniker-in-m-w-d-st-gallen-rheintal-dormakaba-st-gallen"
+        "fr": "technicien-in-f-m-d-dormakaba-st-gallen"
       },
       "company": "dormakaba",
       "companyKey": "dormakaba",
@@ -142,8 +142,7 @@
         "tecnico-di-assistenza-f-m-d-st-gallen-rheintal-dormakaba-st-gallen",
         "tecnico-in-servizio-f-m-d-st-gallen-rheintal-dormakaba-st-gallen",
         "technicien-in-f-m-d-dormakaba-st-gallen-627471",
-        "servicetechniker-in-w-m-d-st-gallen-rheintal-dormakaba-ch",
-        "technicien-in-f-m-d-dormakaba-st-gallen"
+        "servicetechniker-in-w-m-d-st-gallen-rheintal-dormakaba-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -154,7 +153,6 @@
         ],
         "fr": [
           "technicien-in-f-m-d-dormakaba-st-gallen-627471",
-          "technicien-in-f-m-d-dormakaba-st-gallen",
           "servicetechniker-in-w-m-d-st-gallen-rheintal-dormakaba-ch"
         ],
         "en": [
@@ -953,12 +951,12 @@
     },
     {
       "id": "dormakaba-11893",
-      "slug": "technicien-portes-automatiques-f-m-d-dormakaba-ch",
+      "slug": "tecnico-porta-automatica-f-m-d-dormakaba-le-mont-sur-lausanne",
       "slugByLocale": {
         "fr": "technicien-portes-automatiques-f-m-d-dormakaba-ch",
-        "it": "technicien-portes-automatiques-f-m-d-dormakaba-ch",
-        "en": "technicien-portes-automatiques-f-m-d-dormakaba-ch",
-        "de": "technicien-portes-automatiques-f-m-d-dormakaba-ch"
+        "it": "tecnico-porta-automatica-f-m-d-dormakaba-le-mont-sur-lausanne",
+        "en": "automatic-door-technician-f-m-d-dormakaba-le-mont-sur-lausanne",
+        "de": "automatischer-turtechniker-m-m-d-dormakaba-le-mont-sur-lausanne"
       },
       "company": "dormakaba",
       "companyKey": "dormakaba",
@@ -1014,16 +1012,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-28T22:36:09.538Z"
+      "firstSeenAt": "2026-07-28T22:36:09.538Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "technicien-portes-automatiques-f-m-d-dormakaba-ch"
+        ],
+        "en": [
+          "technicien-portes-automatiques-f-m-d-dormakaba-ch"
+        ],
+        "de": [
+          "technicien-portes-automatiques-f-m-d-dormakaba-ch"
+        ]
+      },
+      "previousSlugs": [
+        "technicien-portes-automatiques-f-m-d-dormakaba-ch"
+      ]
     },
     {
       "id": "dormakaba-11911",
-      "slug": "responsable-service-montage-modernisation-m-f-d-dormakaba-ch",
+      "slug": "service-manager-assemblaggio-e-modernizzazione-m-f-d-dormakaba-le-mont-sur-lausanne",
       "slugByLocale": {
         "fr": "responsable-service-montage-modernisation-m-f-d-dormakaba-ch",
-        "it": "responsable-service-montage-modernisation-m-f-d-dormakaba-ch",
-        "en": "responsable-service-montage-modernisation-m-f-d-dormakaba-ch",
-        "de": "responsable-service-montage-modernisation-m-f-d-dormakaba-ch"
+        "it": "service-manager-assemblaggio-e-modernizzazione-m-f-d-dormakaba-le-mont-sur-lausanne",
+        "en": "service-manager-assembly-modernization-m-f-d-dormakaba-le-mont-sur-lausanne",
+        "de": "service-manager-montage-modernisierung-m-w-d-dormakaba-le-mont-sur-lausanne"
       },
       "company": "dormakaba",
       "companyKey": "dormakaba",
@@ -1079,7 +1091,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-28T22:36:09.534Z"
+      "firstSeenAt": "2026-07-28T22:36:09.534Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "responsable-service-montage-modernisation-m-f-d-dormakaba-ch"
+        ],
+        "en": [
+          "responsable-service-montage-modernisation-m-f-d-dormakaba-ch"
+        ],
+        "de": [
+          "responsable-service-montage-modernisation-m-f-d-dormakaba-ch"
+        ]
+      },
+      "previousSlugs": [
+        "responsable-service-montage-modernisation-m-f-d-dormakaba-ch"
+      ]
     }
   ]
 }
