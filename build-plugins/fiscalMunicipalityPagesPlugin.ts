@@ -1,8 +1,12 @@
 /**
  * Per-municipality FISCAL guide pages (epic #4482 / sub #4484).
  *
- * Emits, for every Italian border comune in the CO/VA/VB corridor that is
- * ABOVE the fiscal floor (data/fiscal-municipalities.json), a page:
+ * Emits, for every Italian border comune in the fiscal corridor (ALL 11
+ * provinces present in data/municipalities.ts — CO/VA/VB/SO/AO/VC/BS/BZ/MB/
+ * BG/TN, widened from the original CO/VA/VB-only cut by issue #4893; see
+ * scripts/build-fiscal-municipalities.mjs's CORRIDOR CRITERION doc comment
+ * for the numeric rationale) that is ABOVE the fiscal floor
+ * (data/fiscal-municipalities.json), a page:
  *
  *   /tasse-frontalieri-comune/{slug}/            (it, + 3 locale prefixes)
  *   "Tasse frontaliere residente a {comune}: vecchio vs nuovo regime"
@@ -19,7 +23,11 @@
  * Anti-cannibalization: the fiscal page cross-links to the existing
  * "vivere a {comune}" page (borderMunicipalityPagesPlugin) with a DISTINCT
  * intent in the title/H1 (fiscale vs vita), and vice-versa the two never share
- * a title.
+ * a title. That "vivere a" page family stays Ticino-only (CO/VA/VB —
+ * shared/borderMunicipalityCorridors.ts): the cross-link is gated on
+ * province membership (hasVitaLink()) so the 198 comuni added by #4893
+ * outside that narrower corridor never emit a link to a page that doesn't
+ * exist for them.
  */
 
 import fs from 'node:fs';
@@ -44,6 +52,7 @@ import {
   type FiscalLocale,
   type FiscalMunicipality,
 } from './fiscalMunicipalityData';
+import { TICINO_VITA_CORRIDOR_PROVINCES } from './shared/borderMunicipalityCorridors';
 
 // "Vivere a {comune}" cross-link base paths (borderMunicipalityPagesPlugin).
 const VITA_BASE_PATH: Record<FiscalLocale, string> = {
@@ -451,6 +460,17 @@ function vitaPathFor(locale: FiscalLocale, slug: string): string {
   return `${VITA_BASE_PATH[locale]}/${slug}/`;
 }
 
+// The fiscal corridor (scripts/build-fiscal-municipalities.mjs) covers all
+// 11 Italian border provinces (issue #4893); the "vivere a {comune}" page
+// family (borderMunicipalityPagesPlugin.ts) stays Ticino-only
+// (TICINO_VITA_CORRIDOR_PROVINCES). A fiscal comune outside that narrower
+// corridor has no live "vivere a" target — cross-linking to it unconditionally
+// would emit a broken internal link (404). Gate on province membership so the
+// card/list-item is only rendered where the target actually exists.
+function hasVitaLink(municipality: FiscalMunicipality): boolean {
+  return TICINO_VITA_CORRIDOR_PROVINCES.has(municipality.province);
+}
+
 // ── hreflang / breadcrumb ───────────────────────────────────────
 
 function hreflangFor(slug: string, locales: readonly FiscalLocale[] = FISCAL_LOCALES): string {
@@ -580,8 +600,8 @@ export function renderAboveFloorPage(params: {
 
     <section class="mt-6 rounded-md border border-edge bg-surface p-5">
       <h2 class="text-xl font-bold text-heading">${esc(c.crossTitle)}</h2>
-      <div class="mt-4 grid gap-3 sm:grid-cols-3">
-        <a class="rounded-md border border-accent-border bg-accent-subtle p-4 text-sm font-semibold text-heading hover:border-accent-strong" href="${vitaPathFor(locale, municipality.slug)}">${esc(c.vitaLink(n))}</a>
+      <div class="mt-4 grid gap-3 ${hasVitaLink(municipality) ? 'sm:grid-cols-3' : 'sm:grid-cols-2'}">
+        ${hasVitaLink(municipality) ? `<a class="rounded-md border border-accent-border bg-accent-subtle p-4 text-sm font-semibold text-heading hover:border-accent-strong" href="${vitaPathFor(locale, municipality.slug)}">${esc(c.vitaLink(n))}</a>` : ''}
         <a class="rounded-md border border-edge bg-surface-raised p-4 text-sm font-semibold text-heading hover:border-accent-border" href="${CALC_PATH[locale]}">${esc(c.calcLink)}</a>
         <a class="rounded-md border border-edge bg-surface-raised p-4 text-sm font-semibold text-heading hover:border-accent-border" href="${TAX_RETURN_PATH[locale]}">${esc(c.taxReturnLink)}</a>
       </div>
@@ -673,7 +693,7 @@ export function renderBridgePage(params: {
     <ul class="space-y-2 list-none p-0 m-0">
       <li><a href="${CALC_PATH[locale]}" class="text-sm font-semibold text-link">${esc(c.calcLink)} →</a></li>
       <li><a href="${TAX_RETURN_PATH[locale]}" class="text-sm font-semibold text-link">${esc(c.taxReturnLink)} →</a></li>
-      <li><a href="${vitaPathFor(locale, municipality.slug)}" class="text-sm font-semibold text-link">${esc(c.vitaLink(n))} →</a></li>
+      ${hasVitaLink(municipality) ? `<li><a href="${vitaPathFor(locale, municipality.slug)}" class="text-sm font-semibold text-link">${esc(c.vitaLink(n))} →</a></li>` : ''}
       <li><a href="${FISCAL_HUB_PATH[locale]}" class="text-sm font-semibold text-link">${esc(c.hubTitle)} →</a></li>
     </ul>
   </main>`;
