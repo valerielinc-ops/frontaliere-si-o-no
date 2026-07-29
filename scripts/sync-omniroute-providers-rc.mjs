@@ -75,7 +75,11 @@ db.close();
 // blast radius if the RC value ever leaks. Pass --include-paid to publish the
 // full set anyway (the registrar still filters unless overridden there too).
 const INCLUDE_PAID = process.argv.includes('--include-paid');
-const { allowlist } = resolveOmniRouteAllowlist(undefined);
+// Honours OMNIROUTE_PROVIDER_ALLOWLIST exactly like the CI registrar does:
+// hardcoding `undefined` here would mean the same env var widened the
+// downstream gate while leaving this one on the built-in list, so the two
+// halves of one control would disagree.
+const { allowlist } = resolveOmniRouteAllowlist(process.env.OMNIROUTE_PROVIDER_ALLOWLIST);
 
 const payload = [];
 const excludedPaid = [];

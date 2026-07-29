@@ -204,6 +204,15 @@ const RC_TO_ENV = {
   // into a fresh CI OmniRoute instance instead of the small hardcoded list.
   OMNIROUTE_PROVIDERS_JSON:       ['OMNIROUTE_PROVIDERS_JSON'],
 
+  // Overrides the free-only provider allowlist in
+  // scripts/lib/omniroute-free-providers.mjs: a CSV replaces the built-in list
+  // outright, an explicit empty string disables filtering altogether. Must be
+  // mapped HERE or the override is inert in CI — load-rc-env.mjs is the only
+  // Remote Config → env bridge on a runner, and the registrar reads it via
+  // process.env, so an unmapped param stays undefined no matter what Remote
+  // Config says. Unset in RC by default (the built-in free list applies).
+  OMNIROUTE_PROVIDER_ALLOWLIST:   ['OMNIROUTE_PROVIDER_ALLOWLIST'],
+
   // Global kill-switch for .github/actions/setup-omniroute (default ON —
   // set this RC flag to '0' to disable OmniRoute registration across every
   // workflow that includes the composite action, without editing each one).

@@ -1,3 +1,4 @@
+import { readFile } from 'node:fs/promises';
 import { describe, expect, it } from 'vitest';
 import {
   OMNIROUTE_FREE_PROVIDERS,
@@ -87,6 +88,18 @@ describe('OmniRoute free-provider allowlist', () => {
     it('a whitespace-only override reads as empty, i.e. filtering off', () => {
       expect(resolveOmniRouteAllowlist('   ').filteringOff).toBe(true);
     });
+  });
+
+  it('is bridged from Remote Config to env, or the override is inert in CI', async () => {
+    // load-rc-env.mjs is the ONLY Remote Config -> env bridge on a runner, and
+    // both consumers read the override through process.env. An unmapped param
+    // stays undefined there no matter what Remote Config says, which would make
+    // the documented "no deploy" escape hatch silently do nothing during the
+    // exact incident it exists for. Caught in review of PR #4940.
+    const src = await readFile(
+      new URL('../../scripts/load-rc-env.mjs', import.meta.url), 'utf8',
+    );
+    expect(src).toContain('OMNIROUTE_PROVIDER_ALLOWLIST');
   });
 
   it('filters a realistic mixed payload down to free providers only', () => {
