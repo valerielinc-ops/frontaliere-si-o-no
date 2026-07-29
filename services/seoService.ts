@@ -4975,6 +4975,12 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-trasferirsi-maccagno-frontaliere-pro-contro': { name: 'Maccagno Frontalieri', path: '/articoli-frontaliere/trasferirsi-maccagno-frontaliere-pro-contro', parent: 'blog' },
     'blog-caldo-estremo-cantieri-ssic': { name: 'Caldo nei cantieri', path: '/articoli-svizzera/caldo-estremo-cantieri-ssic/', parent: 'blog' },
     'blog-non-c-e-assolutamente-nessun-errore-sistemico': { name: 'Frontalieri Ticino', path: '/articoli-frontaliere/non-c-e-assolutamente-nessun-errore-sistemico', parent: 'blog' },
+    'blog-lugano-lavori-di-asfaltatura': { name: 'Lavori di asfaltatura in via Alla', path: '/articoli-frontaliere/lugano-lavori-di-asfaltatura', parent: 'blog' },
+    'blog-fedelta-banca-costosa': { name: 'La fedeltà costa cara: con fornitori', path: '/articoli-svizzera/fedelta-banca-costosa/', parent: 'blog' },
+    'blog-sospenda-riversamento-allitalia-della-quota-dellimposta-alla-fonte-prelevata-ai-frontalieri': { name: 'sospenda-riversamento-allitali', path: '/articoli-frontaliere/sospenda-riversamento-allitalia-della-quota-dellimposta-alla-fonte-prelevata-ai-frontalieri', parent: 'blog' },
+    'blog-sulzer-ristrutturazione-chemtech-2026': { name: 'Sulzer Chemtech Ristrutturazione', path: '/articoli-svizzera/sulzer-ristrutturazione-chemtech-2026/', parent: 'blog' },
+    'blog-di-piu-niente-shorts-ne-infradito': { name: 'Di più: Niente shorts né infradito: in', path: '/articoli-frontaliere/di-piu-niente-shorts-ne-infradito', parent: 'blog' },
+    'blog-assegno-unico-nuove-regole-inps': { name: 'Assegno Unico INPS', path: '/articoli-svizzera/assegno-unico-nuove-regole-inps/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

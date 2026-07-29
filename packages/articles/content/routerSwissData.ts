@@ -10,12 +10,9 @@
  * frontaliere registry hits the same limit and chunks the union; the svizzera
  * section sidesteps it entirely by validating ids at runtime via REVERSE_SWISS.
  */
-import type { ArticleLocale } from '../engine/siteShell';
-// Colocated under packages/articles/content (issue #4881 Fase 6):
-// `ArticleLocale` (siteShell.ts) is identical to the site's `Locale`
-// union ('it'|'en'|'de'|'fr') — package-local alias, confinement.
+import type { Locale } from './i18n';
 
-export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
+export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
   'costo-vita-svizzera-2026': {
     it: 'costo-vita-svizzera-2026',
     en: 'cost-of-living-switzerland-2026',
@@ -576,12 +573,15 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'canicola-cantieri-ssic': { it: 'canicola-cantieri-ssic', en: 'canicola-cantieri-ssic', de: 'canicola-cantieri-ssic', fr: 'canicola-cantieri-ssic' },
  'zurich-finma-licenziamenti-previdenza': { it: 'zurich-finma-licenziamenti-previdenza', en: 'zurich-layoffs-finma-pension', de: 'zurich-entlassungen-finma-vorsorge', fr: 'zurich-licenciements-finma-prevoyance' },
  'caldo-estremo-cantieri-ssic': { it: 'caldo-estremo-cantieri-ssic', en: 'extreme-heat-construction-sites-penalties-ssic', de: 'extreme-hitze-baustellen-strafen-ssic', fr: 'canicule-chantiers-penalites-ssic' },
+ 'fedelta-banca-costosa': { it: 'fedelta-banca-costosa', en: 'bank-loyalty-costly', de: 'banken-loyalitaet-teuer', fr: 'loyalite-bancaux-couteuse' },
+ 'sulzer-ristrutturazione-chemtech-2026': { it: 'sulzer-ristrutturazione-chemtech-2026', en: 'sulzer-chemtech-restructuring', de: 'sulzer-chemtech-restrukturierung', fr: 'sulzer-restructuration-chemtech' },
+ 'assegno-unico-nuove-regole-inps': { it: 'assegno-unico-nuove-regole-inps', en: 'assegno-unico-inps-new-rules', de: 'assegno-unico-inps-neue-regeln', fr: 'assegno-unico-inps-nouvelles-regles' },
 };
 
-export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
-  const result = { it: {}, en: {}, de: {}, fr: {} } as Record<ArticleLocale, Record<string, string>>;
+export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {
+  const result = { it: {}, en: {}, de: {}, fr: {} } as Record<Locale, Record<string, string>>;
   for (const [articleId, locSlugs] of Object.entries(SWISS_SLUGS)) {
-    for (const locale of ['it', 'en', 'de', 'fr'] as ArticleLocale[]) {
+    for (const locale of ['it', 'en', 'de', 'fr'] as Locale[]) {
       result[locale][locSlugs[locale]] = articleId;
     }
   }

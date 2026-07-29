@@ -1651,6 +1651,15 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.caldo-estremo-cantieri-ssic.title': 'Heat on construction sites: SSIC calls for an end to penalties',
     'blog.article.caldo-estremo-cantieri-ssic.excerpt': 'The Swiss Society of Manufacturers and Entrepreneurs asks for fair conditions and exemptions from contractual penalties in the event of a stop to the work for the canicola.',
     'blog.article.caldo-estremo-cantieri-ssic.imageAlt': 'Construction site in Switzerland during a heatwave with scaffolding.',
+    'blog.article.fedelta-banca-costosa.title': 'More banks, loyalty is expensive: with separate suppliers you save',
+    'blog.article.fedelta-banca-costosa.excerpt': 'The Swiss are notoriously loyal to their reference bank, but this loyalty comes at a steep price.',
+    'blog.article.fedelta-banca-costosa.imageAlt': 'A frontalier managing their accounts in a Swiss bank',
+    'blog.article.sulzer-ristrutturazione-chemtech-2026.title': 'Sulzer: 10% cut in costs and personnel in Chemtech',
+    'blog.article.sulzer-ristrutturazione-chemtech-2026.excerpt': 'The Sulzer industrial group announces a restructuring for the Chemtech division after a 22% drop in orders in the first half.',
+    'blog.article.sulzer-ristrutturazione-chemtech-2026.imageAlt': 'Sulzer industrial group headquarters in Switzerland',
+    'blog.article.assegno-unico-nuove-regole-inps.title': 'Single Allowance: new INPS rules for workers abroad',
+    'blog.article.assegno-unico-nuove-regole-inps.excerpt': 'The INPS clarifies the application methods for the Single Allowance: this is what changes for EU workers and families with children residing in other EU countries.',
+    'blog.article.assegno-unico-nuove-regole-inps.imageAlt': 'Documents and calculator on a modern office desk',
 };
 
 export default blogMetaChEn;

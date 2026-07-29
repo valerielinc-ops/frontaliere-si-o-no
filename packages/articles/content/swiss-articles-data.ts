@@ -12,9 +12,7 @@
 import type { Article } from './blog-articles-data';
 // Relative (not `@/`): this module is in vite.config's build graph; the config
 // loader can't resolve `@/`. See feedback_no_alias_imports_in_config_graph.
-// `cdnBlogImage` from this package's own mirror (confinement — see
-// blog-articles-data.ts header for the twin-file rationale).
-import { cdnBlogImage } from './blogImageCdnMirror';
+import { cdnBlogImage } from '../services/seo/blogImageCdn';
 
 export type { Article };
 
@@ -4950,6 +4948,33 @@ const RAW_SWISS_ARTICLES: Article[] = [
     hasCalculator: true,
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
+   },
+   {
+    id: 'fedelta-banca-costosa',
+    category: 'fiscale',
+    date: '2026-07-29T01:21:43.385Z',
+    image: '/images/blog/fedelta-banca-costosa.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
+   {
+    id: 'sulzer-ristrutturazione-chemtech-2026',
+    category: 'novita',
+    date: '2026-07-29T02:04:03.974Z',
+    image: '/images/blog/sulzer-ristrutturazione-chemtech-2026.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
+   {
+    id: 'assegno-unico-nuove-regole-inps',
+    category: 'fiscale',
+    date: '2026-07-29T02:31:49.847Z',
+    image: '/images/blog/assegno-unico-nuove-regole-inps.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
    },
 ];
 

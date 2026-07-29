@@ -1310,6 +1310,31 @@ ${headTags}
  * function was extracted (#4837 stream A). Do not add per-section logic
  * here — it belongs in renderArticlePages so the fast single-article path
  * (scripts/publish-article-fast.mjs) gets it for free.
+ *
+ * **Build-time emit skip (issue #4881 Fase 5).** Both article sections
+ * already serve fully from their own per-locale shard repos
+ * (`ARTICOLIFRONTALIERE_SHARD_LIVE` / `ARTICOLISVIZZERA_SHARD_LIVE`, #4881
+ * Fase 1/3/3-bis/4) — the full build's own copy of the ~29,600 article
+ * pages is redundant weight in the monolith `dist/` that deploy.yml's
+ * full-replace push loop then force-pushes over the shard on every deploy,
+ * even though `scripts/publish-article-fast.mjs` already keeps the shard
+ * incrementally current. `ARTICOLIFRONTALIERE_BUILD_EMIT_SKIP` /
+ * `ARTICOLISVIZZERA_BUILD_EMIT_SKIP` (repo variables, same per-section
+ * convention as `<SECTION>_SHARD_LIVE`, plumbed into this job's env by
+ * deploy.yml) let the owner turn off one section's build-time emission at
+ * a time once rehydration (`scripts/lib/rehydrate-section-shards.sh`) is
+ * verified to keep post-deploy dist-walking audits green — WITHOUT a code
+ * change, same instant-rollback shape as every other shard-live flag.
+ * Default (unset) = unchanged legacy behavior: both sections keep emitting
+ * into the monolith build exactly as before this flag existed. MUST be
+ * flipped true here in lockstep with excluding the section from
+ * deploy.yml's push loop (never emit-off with push-loop still active —
+ * that would force-push a near-empty tree over the live shard).
+ * `renderArticlePages` itself is UNCHANGED and stays exported/callable —
+ * `scripts/publish-article-fast.mjs` (single-article fast path) and
+ * `scripts/rerender-article-corpus.mjs` (corpus re-render) both call it
+ * directly, bypassing this plugin entirely; only the closeBundle
+ * invocation below is ever skipped.
  */
 export function ogPagesPlugin(rootDir: string): Plugin {
  return {
@@ -1319,11 +1344,20 @@ export function ogPagesPlugin(rootDir: string): Plugin {
  async closeBundle() {
  const np = await import('node:path');
  const distDir = np.resolve(rootDir, 'dist');
- const frontaliere = await renderArticlePages({ rootDir, distDir, section: 'frontaliere' });
- const svizzera = await renderArticlePages({ rootDir, distDir, section: 'svizzera' });
+ const skipFrontaliere = process.env.ARTICOLIFRONTALIERE_BUILD_EMIT_SKIP === 'true';
+ const skipSvizzera = process.env.ARTICOLISVIZZERA_BUILD_EMIT_SKIP === 'true';
+ const frontaliere = skipFrontaliere
+ ? { written: 0, entries: [] }
+ : await renderArticlePages({ rootDir, distDir, section: 'frontaliere' });
+ const svizzera = skipSvizzera
+ ? { written: 0, entries: [] }
+ : await renderArticlePages({ rootDir, distDir, section: 'svizzera' });
  const written = frontaliere.written + svizzera.written;
  const totalArticles = frontaliere.entries.length + svizzera.entries.length;
- console.log(`\x1b[36m[og-pages]\x1b[0m Done — wrote ${written} files across ${totalArticles} article(s) total (frontaliere + svizzera).`);
+ const skipNote = skipFrontaliere || skipSvizzera
+ ? ` (build-time emit SKIPPED for ${[skipFrontaliere && 'frontaliere', skipSvizzera && 'svizzera'].filter(Boolean).join(', ')} — served from shard, see ARTICOLI*_BUILD_EMIT_SKIP)`
+ : '';
+ console.log(`\x1b[36m[og-pages]\x1b[0m Done — wrote ${written} files across ${totalArticles} article(s) total (frontaliere + svizzera).${skipNote}`);
  },
  };
 }

@@ -1651,6 +1651,15 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.caldo-estremo-cantieri-ssic.title': 'Caldo nei cantieri: la SSIC chiede stop alle penali',
     'blog.article.caldo-estremo-cantieri-ssic.excerpt': 'La Società svizzera degli impresari costruttori chiede condizioni eque ed esenzioni dalle penali contrattuali in caso di stop ai lavori per la canicola.',
     'blog.article.caldo-estremo-cantieri-ssic.imageAlt': 'Cantiere edile in Svizzera durante un\'ondata di caldo e lavori di costruzione.',
+    'blog.article.fedelta-banca-costosa.title': 'Di più banche, la fedeltà costa cara: con fornitori separati si risparmia',
+    'blog.article.fedelta-banca-costosa.excerpt': 'Gli svizzeri sono notoriamente fedeli alla loro banca di riferimento, ma questa fedeltà ha un prezzo salato.',
+    'blog.article.fedelta-banca-costosa.imageAlt': 'Un frontaliere che tiene i conti in una banca svizzera',
+    'blog.article.sulzer-ristrutturazione-chemtech-2026.title': 'Sulzer: taglio del 10% a costi e personale in Chemtech',
+    'blog.article.sulzer-ristrutturazione-chemtech-2026.excerpt': 'Il gruppo industriale Sulzer annuncia una ristrutturazione per la divisione Chemtech dopo un calo del 22% negli ordinativi del primo semestre.',
+    'blog.article.sulzer-ristrutturazione-chemtech-2026.imageAlt': 'Sede del gruppo industriale Sulzer in Svizzera',
+    'blog.article.assegno-unico-nuove-regole-inps.title': 'Assegno Unico: nuove regole INPS per lavoratori all\'estero',
+    'blog.article.assegno-unico-nuove-regole-inps.excerpt': 'L\'INPS chiarisce le modalità applicative per l\'Assegno Unico: ecco cosa cambia per i lavoratori comunitari e le famiglie con figli residenti in altri Paesi UE.',
+    'blog.article.assegno-unico-nuove-regole-inps.imageAlt': 'Documenti e calcolatrice su una scrivania in un ufficio moderno',
 };
 
 export default blogMetaChIt;

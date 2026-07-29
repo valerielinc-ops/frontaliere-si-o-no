@@ -4759,7 +4759,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 3593,
+ "numberOfItems": 3599,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026/` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024/` },
@@ -8353,7 +8353,13 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 3590, "name": "Zurich licenzia dipendenti dopo intervento FINMA", "url": `${BASE_URL}/articoli-frontaliere/zurich-finma-licenziamenti-previdenza` },
           { "@type": "ListItem", "position": 3591, "name": "Trasferirsi a Maccagno da frontaliere: guida pr...", "url": `${BASE_URL}/articoli-frontaliere/trasferirsi-maccagno-frontaliere-pro-contro` },
           { "@type": "ListItem", "position": 3592, "name": "Caldo nei cantieri: la SSIC chiede stop alle pe...", "url": `${BASE_URL}/articoli-frontaliere/caldo-estremo-cantieri-ssic` },
-          { "@type": "ListItem", "position": 3593, "name": "Non c'è assolutamente nessun errore sistemico", "url": `${BASE_URL}/articoli-frontaliere/non-c-e-assolutamente-nessun-errore-sistemico` }
+          { "@type": "ListItem", "position": 3593, "name": "Non c'è assolutamente nessun errore sistemico", "url": `${BASE_URL}/articoli-frontaliere/non-c-e-assolutamente-nessun-errore-sistemico` },
+          { "@type": "ListItem", "position": 3594, "name": "Lugano, lavori di asfaltatura: giovedì cantiere...", "url": `${BASE_URL}/articoli-frontaliere/lugano-lavori-di-asfaltatura` },
+          { "@type": "ListItem", "position": 3595, "name": "Di più banche, la fedeltà costa cara: con forni...", "url": `${BASE_URL}/articoli-frontaliere/fedelta-banca-costosa` },
+          { "@type": "ListItem", "position": 3596, "name": "Sospendi riversamento quota imposta fonte front...", "url": `${BASE_URL}/articoli-frontaliere/sospenda-riversamento-allitalia-della-quota-dellimposta-alla-fonte-prelevata-ai-frontalieri` },
+          { "@type": "ListItem", "position": 3597, "name": "Sulzer: taglio del 10% a costi e personale in C...", "url": `${BASE_URL}/articoli-frontaliere/sulzer-ristrutturazione-chemtech-2026` },
+          { "@type": "ListItem", "position": 3598, "name": "Caldo al lavoro, eleganza obbligatoria in Svizzera", "url": `${BASE_URL}/articoli-frontaliere/di-piu-niente-shorts-ne-infradito` },
+          { "@type": "ListItem", "position": 3599, "name": "Assegno Unico: nuove regole INPS per lavoratori...", "url": `${BASE_URL}/articoli-frontaliere/assegno-unico-nuove-regole-inps` }
  ]
  },
  {

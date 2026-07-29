@@ -1651,6 +1651,15 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.caldo-estremo-cantieri-ssic.title': 'Chaud sur les chantiers : la SSIC demande l\'arrêt des pénalités',
     'blog.article.caldo-estremo-cantieri-ssic.excerpt': 'La Société suisse des entrepreneurs constructeurs demande des conditions équitables et des exemptions des pénalités contractuelles en cas d\'arrêt des travaux pour la canicule.',
     'blog.article.caldo-estremo-cantieri-ssic.imageAlt': 'Chantier de construction en Suisse pendant une vague de chaleur.',
+    'blog.article.fedelta-banca-costosa.title': 'La fidélité coûte cher, avec des fournisseurs séparés',
+    'blog.article.fedelta-banca-costosa.excerpt': 'Les Suisses sont notoirement fidèles à leur banque de référence, mais cette fidélité a un prix salé.',
+    'blog.article.fedelta-banca-costosa.imageAlt': 'Un frontalier gérant ses comptes dans une banque suisse',
+    'blog.article.sulzer-ristrutturazione-chemtech-2026.title': 'Sulzer : réduction de 10 % des coûts et du personnel chez Chemtech',
+    'blog.article.sulzer-ristrutturazione-chemtech-2026.excerpt': 'Le groupe industriel Sulzer annonce une restructuration de la division Chemtech après une baisse de 22% des commandes au premier semestre.',
+    'blog.article.sulzer-ristrutturazione-chemtech-2026.imageAlt': 'Siège du groupe industriel Sulzer en Suisse',
+    'blog.article.assegno-unico-nuove-regole-inps.title': 'Chèque unique : nouvelles règles INPS pour les travailleurs à l\'étranger',
+    'blog.article.assegno-unico-nuove-regole-inps.excerpt': 'L\'INPS clarifie les modalités d\'application de l\'allocation unique : voici ce qui change pour les travailleurs communautaires et les familles avec enfants résidant dans d\'autres pays de l\'UE.',
+    'blog.article.assegno-unico-nuove-regole-inps.imageAlt': 'Documents et calculatrice sur un bureau moderne',
 };
 
 export default blogMetaChFr;

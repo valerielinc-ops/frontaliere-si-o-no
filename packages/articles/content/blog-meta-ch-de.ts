@@ -1651,6 +1651,15 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.caldo-estremo-cantieri-ssic.title': 'Hitze auf Baustellen: SBV fordert Strafstopp',
     'blog.article.caldo-estremo-cantieri-ssic.excerpt': 'Der Schweizerische Baumeisterverband fordert faire Konditionen und Freistellungen von Vertragsstrafen bei Baustopp für den Hitzkopf.',
     'blog.article.caldo-estremo-cantieri-ssic.imageAlt': 'Baustelle in der Schweiz während einer Hitzewelle mit Gerüst.',
+    'blog.article.fedelta-banca-costosa.title': 'Mehr Banken, Loyalität ist teuer: Mit separaten Anbietern sparen Sie',
+    'blog.article.fedelta-banca-costosa.excerpt': 'Die Schweizer sind ihrer Referenzbank notorisch treu, aber diese Loyalität hat einen hohen Preis.',
+    'blog.article.fedelta-banca-costosa.imageAlt': 'Ein Frontalier, der seine Konten in einer Schweizer Bank verwaltet',
+    'blog.article.sulzer-ristrutturazione-chemtech-2026.title': 'Sulzer: 10% Kosten- und Personalabbau bei Chemtech',
+    'blog.article.sulzer-ristrutturazione-chemtech-2026.excerpt': 'Der Industriekonzern Sulzer kündigt eine Restrukturierung für die Division Chemtech nach einem Auftragsrückgang von 22 Prozent im ersten Halbjahr an.',
+    'blog.article.sulzer-ristrutturazione-chemtech-2026.imageAlt': 'Sitz des Industriekonzerns Sulzer in der Schweiz',
+    'blog.article.assegno-unico-nuove-regole-inps.title': 'Einmalzulage: Neue INPS-Regeln für Arbeitnehmer im Ausland',
+    'blog.article.assegno-unico-nuove-regole-inps.excerpt': 'Das INPS klärt die Anwendungsmodalitäten für die Einmalzulage: Das ändert sich für EU-Arbeitnehmer und Familien mit Kindern, die in anderen EU-Ländern wohnen.',
+    'blog.article.assegno-unico-nuove-regole-inps.imageAlt': 'Dokumente und Taschenrechner auf einem modernen Schreibtisch',
 };
 
 export default blogMetaChDe;
