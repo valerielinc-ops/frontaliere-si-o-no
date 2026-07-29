@@ -9113,6 +9113,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.tassa-salute-frontalieri-doppia-imposizione.title': 'Tassa salute frontalieri: sindacati e Cantone contro la doppia imposizione',
     'blog.article.tassa-salute-frontalieri-doppia-imposizione.excerpt': 'Un parere legale commissionato dal Canton Ticino boccia la \'tassa sulla salute\' del 2024: si tratta di un\'imposta che viola il trattato del 2020.',
     'blog.article.tassa-salute-frontalieri-doppia-imposizione.imageAlt': 'Veduta di Bellinzona con i castelli, sede di discussioni sul lavoro transfrontaliero.',
+    'blog.article.pensioni-agosto-2026-cedolino-inps.title': 'Pensioni agosto 2026: cedolino INPS e variazioni importo',
+    'blog.article.pensioni-agosto-2026-cedolino-inps.excerpt': 'Analisi sulle tempistiche del cedolino INPS di agosto 2026 e i fattori che influenzano l\'importo della pensione per i lavoratori.',
+    'blog.article.pensioni-agosto-2026-cedolino-inps.imageAlt': 'Vista panoramica di Lugano con il lago, simbolo del lavoro transfrontaliero',
 };
 
 export default blogMetaIt;

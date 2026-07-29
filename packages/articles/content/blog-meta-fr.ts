@@ -9114,6 +9114,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.tassa-salute-frontalieri-doppia-imposizione.title': 'Taxe santé frontalière : syndicats et canton contre la double imposition',
     'blog.article.tassa-salute-frontalieri-doppia-imposizione.excerpt': 'Un avis juridique commandé par le canton du Tessin rejette la « taxe sur la santé » de 2024 : il s\'agit d\'une taxe qui viole le traité de 2020.',
     'blog.article.tassa-salute-frontalieri-doppia-imposizione.imageAlt': 'Vue de Bellinzone avec ses châteaux, lieu de discussions sur le travail transfrontalier.',
+    'blog.article.pensioni-agosto-2026-cedolino-inps.title': 'Pensions août 2026 : coupon INPS et variations de montant',
+    'blog.article.pensioni-agosto-2026-cedolino-inps.excerpt': 'Analyse des délais du bulletin INPS d\'août 2026 et des facteurs qui influent sur le montant de la pension pour les travailleurs.',
+    'blog.article.pensioni-agosto-2026-cedolino-inps.imageAlt': 'Vue panoramique de Lugano avec le lac, symbole du travail transfrontalier',
 };
 
 export default blogMetaFr;

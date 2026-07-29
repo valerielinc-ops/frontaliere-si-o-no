@@ -9111,6 +9111,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.tassa-salute-frontalieri-doppia-imposizione.title': 'Grenzgänger-Gesundheitsabgabe: Gewerkschaften und Kanton gegen Doppelbesteuerung',
     'blog.article.tassa-salute-frontalieri-doppia-imposizione.excerpt': 'Ein vom Kanton Tessin in Auftrag gegebenes Rechtsgutachten lehnt die "Gesundheitssteuer" von 2024 ab: Es handelt sich um eine Steuer, die gegen den Vertrag von 2020 verstößt.',
     'blog.article.tassa-salute-frontalieri-doppia-imposizione.imageAlt': 'Blick auf Bellinzona mit den Schlössern, Ort der Diskussionen über Grenzgängerarbeit.',
+    'blog.article.pensioni-agosto-2026-cedolino-inps.title': 'Renten August 2026: Lohnabrechnung INPS und Betragsänderungen',
+    'blog.article.pensioni-agosto-2026-cedolino-inps.excerpt': 'Analyse des Zeitpunkts der INPS-Gutschrift vom August 2026 und der Faktoren, die die Höhe der Rente für Arbeitnehmer beeinflussen.',
+    'blog.article.pensioni-agosto-2026-cedolino-inps.imageAlt': 'Panoramablick auf Lugano mit dem See, Symbol für Grenzgängerarbeit',
 };
 
 export default blogMetaDe;

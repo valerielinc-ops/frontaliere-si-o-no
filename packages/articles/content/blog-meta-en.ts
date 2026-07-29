@@ -9112,6 +9112,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.tassa-salute-frontalieri-doppia-imposizione.title': 'Border health tax: trade unions and Canton against double taxation',
     'blog.article.tassa-salute-frontalieri-doppia-imposizione.excerpt': 'A legal opinion commissioned by the Canton of Ticino rejects the 2024 \'health tax\': it is a tax that violates the 2020 treaty.',
     'blog.article.tassa-salute-frontalieri-doppia-imposizione.imageAlt': 'View of Bellinzona with castles, site of cross-border work discussions.',
+    'blog.article.pensioni-agosto-2026-cedolino-inps.title': 'Pensions August 2026: INPS payroll and changes in amount',
+    'blog.article.pensioni-agosto-2026-cedolino-inps.excerpt': 'Analysis of the timing of the INPS coupon of August 2026 and the factors that affect the amount of the pension for workers.',
+    'blog.article.pensioni-agosto-2026-cedolino-inps.imageAlt': 'Panoramic view of Lugano with the lake, symbol of cross-border work',
 };
 
 export default blogMetaEn;
