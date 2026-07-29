@@ -18,13 +18,22 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
  * regardless of the flag's value — this file has no absolute dates, matching
  * the repo-wide relative-date fixture rule (not that any date is involved
  * here at all — tier ordering is a pure string/env-var concern).
+ *
+ * AI_COMPETING_TIERS note (2026-07-29): by default omniroute/claude-cli are
+ * now PROMOTED to tier-0 (see ai-models-competing-tiers.test.ts), which would
+ * make AI_LAST_RESORT_ORDER a no-op for them (a promoted tier never sinks, so
+ * it never reaches the ordering this file exercises). enableAllLastResortTiers()
+ * below sets AI_COMPETING_TIERS='' so every test here keeps exercising the
+ * ordering among all 3 tiers while still sinking, exactly as before that
+ * feature existed — this file is specifically about AI_LAST_RESORT_ORDER's
+ * behavior among tiers that ARE last-resort, not about which ones are.
  */
 const aiModels = await import('../../scripts/lib/ai-models.mjs');
 const { AI_MODELS, getPreferredModel, resetState } = aiModels;
 
 describe('ai-models AI_LAST_RESORT_ORDER kill-switch', () => {
   const ENV_KEYS = [
-    'AI_LAST_RESORT_ORDER',
+    'AI_LAST_RESORT_ORDER', 'AI_COMPETING_TIERS',
     'OMNIROUTE_ENABLED', 'OMNIROUTE_URL', 'OMNIROUTE_API_KEY',
     'LOCAL_LLM_ENABLED',
     'ENABLE_HAIKU_ARTICLE_FALLBACK', 'CLAUDE_CODE_OAUTH_TOKEN',
@@ -54,6 +63,10 @@ describe('ai-models AI_LAST_RESORT_ORDER kill-switch', () => {
     process.env.LOCAL_LLM_ENABLED = '1';
     process.env.ENABLE_HAIKU_ARTICLE_FALLBACK = '1';
     process.env.CLAUDE_CODE_OAUTH_TOKEN = 'test-oauth-token';
+    // '' = zero AI_COMPETING_TIERS promotions — keeps all 3 tiers last-resort
+    // so this file's AI_LAST_RESORT_ORDER assertions stay meaningful (see the
+    // file-level doc comment above).
+    process.env.AI_COMPETING_TIERS = '';
   }
 
   const lastResortChain = () => [

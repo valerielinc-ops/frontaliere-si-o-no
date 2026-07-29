@@ -8797,9 +8797,11 @@ async function main() {
     // not a bug: this check's purpose is "is local/fallback literally the
     // only thing left", and both of those ARE viable non-local alternatives
     // for that purpose (see comment above) even though they're themselves
-    // last-resort/opt-in tiers. Renaming would be a pure identifier change
-    // with no behavior difference; left as-is as a comment-only fix (2026-07-28)
-    // to keep this edit surgical.
+    // opt-in tiers (tier-0 by default since 2026-07-29's AI_COMPETING_TIERS —
+    // see ai-models.mjs — but still excluded here by identity, not rank, so
+    // this check is unaffected by that promotion either way). Renaming would
+    // be a pure identifier change with no behavior difference; left as-is as
+    // a comment-only fix (2026-07-28) to keep this edit surgical.
     const cloudOnlyChain = DEFAULT_CHAIN.filter((m) => m !== AI_MODELS.LOCAL_FALLBACK);
     const cloudCascadeExhausted = isLocalLlmEnabled() && !getPreferredModel({ chain: cloudOnlyChain });
     if (cloudCascadeExhausted) {

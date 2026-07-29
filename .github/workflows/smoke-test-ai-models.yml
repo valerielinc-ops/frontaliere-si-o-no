@@ -59,10 +59,11 @@ jobs:
       - uses: ./.github/actions/setup-omniroute
 
       # ── Claude CLI Haiku fallback (ON by default, kill-switch '0') ──────
-      # Absolute last resort in ai-models.mjs's DEFAULT_CHAIN, reached only
-      # after every free-tier model has failed. Wired here too so the
-      # smoke-test's one-ping-per-model sweep actually exercises this tier
-      # instead of silently no-op'ing on it. See
+      # Tier-0 in ai-models.mjs's DEFAULT_CHAIN by default since 2026-07-29
+      # (AI_COMPETING_TIERS) — competes on real score instead of being
+      # reached only after every free-tier model has failed. Wired here too
+      # so the smoke-test's one-ping-per-model sweep actually exercises this
+      # tier instead of silently no-op'ing on it. See
       # .github/actions/setup-claude-haiku-fallback/action.yml for the full
       # rationale + incident history.
       - uses: ./.github/actions/setup-claude-haiku-fallback
