@@ -203,4 +203,25 @@ describe('buildWeeklyBorderDigest', () => {
     expect(rankedCount).toBeLessThan(2);
     expect(text).toBe('');
   });
+
+  it('excludes Germany-corridor crossings from the Ticino-branded broadcast (#4952 regression)', () => {
+    const dir = mkdtempSync(path.join(os.tmpdir(), 'bw-'));
+    for (let d = 3; d <= 9; d++) {
+      const date = `2026-07-0${d}`;
+      writeDay(dir, date, {
+        'chiasso-centro': makeHours(2),   // Ticino, fastest
+        'ponte-tresa': makeHours(25),     // Ticino, slowest
+        gaggiolo: makeHours(10),          // Ticino
+        // Germany corridor: display names exist (registry #4952), must not
+        // appear in this Ticino-branded "Classifica dogane Ticino" text.
+        'basel-weil-am-rhein-hiltalingerstrasse': makeHours(1),
+      });
+    }
+    const { text, rankedCount } = buildWeeklyBorderDigest({ historyDir: dir, todayIso: '2026-07-10' });
+    expect(rankedCount).toBe(3); // Germany-corridor entry excluded from the count
+    expect(text).toContain('Chiasso Centro');
+    expect(text).toContain('Ponte Tresa');
+    expect(text).not.toContain('Weil am Rhein');
+    expect(text).not.toContain('Hiltalingerstrasse');
+  });
 });

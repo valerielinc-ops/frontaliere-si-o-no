@@ -372,6 +372,20 @@ function buildCrossingLiveUrl(slug: BorderCrossingSlug, locale: BorderWaitLocale
   return `${BASE_URL}${prefix}/${section}/${slug}/${today}/`.replace(/([^:])\/+/g, '$1/');
 }
 
+// This page's entire identity (H1, meta description, hand-written editorial
+// prose in all 4 locales, "26 valichi Italia-Svizzera" copy) is scoped to
+// the original Italy-Switzerland crossings. When issue #4889 extended
+// BORDER_WAIT_CROSSINGS/BORDER_WAIT_REGIONS with the Germania corridor,
+// this page's table/structured-data must stay filtered to the 3 original
+// regions — otherwise the page would show German crossings while its own
+// prose still says "Italia-Svizzera" (factually wrong content). A future
+// agent adding a Germany-specific linkbait map page should NOT extend this
+// one; it should follow the same pattern with its own copy.
+const ITALY_REGIONS: readonly BorderCrossingRegion[] = ['ticino-como', 'ticino-varese', 'ticino-verbano'];
+const ITALY_CROSSINGS: readonly BorderCrossingSlug[] = BORDER_WAIT_CROSSINGS.filter((slug) =>
+  ITALY_REGIONS.includes(CROSSING_TO_REGION[slug]),
+);
+
 function buildHubUrl(locale: BorderWaitLocale): string {
   const prefix = BORDER_WAIT_LOCALE_PREFIX[locale];
   const section = BORDER_WAIT_SECTION[locale];
@@ -379,22 +393,25 @@ function buildHubUrl(locale: BorderWaitLocale): string {
 }
 
 function renderCrossingsTable(locale: BorderWaitLocale, copy: Copy): string {
-  const crossings = BORDER_WAIT_CROSSINGS.slice();
+  const crossings = ITALY_CROSSINGS.slice();
   const rows = crossings.map((slug) => {
     const name = BORDER_CROSSING_DISPLAY[slug];
     const region = CROSSING_TO_REGION[slug];
-    const regionLabelByRegion: Record<BorderCrossingRegion, string> = {
+    // Partial + fallback: `crossings` is filtered to ITALY_CROSSINGS above,
+    // so `region` is always one of the 3 keys below at runtime, but
+    // BorderCrossingRegion itself now has 5 more (non-Italy) members.
+    const regionLabelByRegion: Partial<Record<BorderCrossingRegion, string>> = {
       'ticino-como': copy.comoRegionLabel,
       'ticino-varese': copy.vareseRegionLabel,
       'ticino-verbano': copy.verbanoRegionLabel,
     };
-    const chipClassByRegion: Record<BorderCrossingRegion, string> = {
+    const chipClassByRegion: Partial<Record<BorderCrossingRegion, string>> = {
       'ticino-como': 'bw-chip bw-chip-co',
       'ticino-varese': 'bw-chip bw-chip-va',
       'ticino-verbano': 'bw-chip bw-chip-ve',
     };
-    const regionLabel = regionLabelByRegion[region];
-    const chipClass = chipClassByRegion[region];
+    const regionLabel = regionLabelByRegion[region] ?? BORDER_REGION_DISPLAY[region];
+    const chipClass = chipClassByRegion[region] ?? 'bw-chip';
     const liveUrl = buildCrossingLiveUrl(slug, locale);
     return `<tr>
       <td class="s-tcl" style="font-weight:600;color:var(--color-heading)">${esc(name)}</td>
@@ -472,7 +489,7 @@ function renderPage(opts: {
   });
 
   // Build a Place[] list of the crossings for the Map structured data
-  const places = BORDER_WAIT_CROSSINGS.map((slug) => ({
+  const places = ITALY_CROSSINGS.map((slug) => ({
     '@type': 'Place',
     name: BORDER_CROSSING_DISPLAY[slug],
     url: buildCrossingLiveUrl(slug, locale),

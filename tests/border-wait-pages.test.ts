@@ -2,8 +2,10 @@
  * Tests for border-wait SEO pages (F8).
  *
  * Covers:
- *  - Slug tables + path builders for all 4 locales × (root + 3 regional + 26 crossings)
- *  - Route enumeration (BORDER_WAIT_ROUTES contains 108 unique paths)
+ *  - Slug tables + path builders for all 4 locales × (root + regional hubs + crossings)
+ *  - Route enumeration (BORDER_WAIT_ROUTES = locales × (1 + regions + crossings), derived
+ *    from the live registries — see borderWaitData.ts, expanded post-#4889 from 26 to 93
+ *    crossings across 8 regions)
  *  - Page generation: ≥50 words per page (MIN_INDEXABLE_WORDS), JSON-LD
  *    present & parseable, canonical self-referent, webcam section renders
  *    conditionally, related-links block present
@@ -82,9 +84,9 @@ const MINIMAL_CURRENT: BorderWaitCurrent = {
 // ── Slug / path tests ─────────────────────────────────────────────
 
 describe('borderWaitData — slug tables + path builders', () => {
-  it('exports exactly 26 crossings', () => {
-    expect(BORDER_WAIT_CROSSINGS).toHaveLength(26);
-    expect(new Set(BORDER_WAIT_CROSSINGS).size).toBe(26);
+  it('exports exactly 93 crossings, all unique (post-#4889 expansion from 26)', () => {
+    expect(BORDER_WAIT_CROSSINGS).toHaveLength(93);
+    expect(new Set(BORDER_WAIT_CROSSINGS).size).toBe(93);
   });
 
   it('TOP_5_CROSSINGS is a strict subset of 5 crossings', () => {
@@ -112,10 +114,10 @@ describe('borderWaitData — slug tables + path builders', () => {
     expect(buildOggiPath('fr', 'chiasso-brogeda')).toMatch(/^\/fr\/temps-attente-douane\//);
   });
 
-  it('root + regional + crossing routes total 120', () => {
+  it('root + regional + crossing routes total 408 (4 locales × (1 + 8 regions + 93 crossings))', () => {
     const expected = BORDER_WAIT_LOCALES.length * (1 + BORDER_WAIT_REGIONS.length + BORDER_WAIT_CROSSINGS.length);
     expect(BORDER_WAIT_ROUTES).toHaveLength(expected);
-    expect(expected).toBe(120);
+    expect(expected).toBe(408);
     expect(new Set(BORDER_WAIT_ROUTES).size).toBe(expected);
   });
 
@@ -291,7 +293,7 @@ describe('borderWaitPagesPlugin — page generation', () => {
     expect(mainBody).not.toContain('/traffico-dogane/ponte-tresa/oggi/');
   });
 
-  it('root hub page lists all 26 crossings', () => {
+  it('root hub page lists every registered crossing', () => {
     const root = pages[buildRootHubPath('it')];
     for (const c of BORDER_WAIT_CROSSINGS) {
       expect(root).toContain(buildOggiPath('it', c));
@@ -309,7 +311,7 @@ describe('borderWaitPagesPlugin — page generation', () => {
     expect(html).toContain('Storico in accumulo');
   });
 
-  it('every locale has a root hub, 3 regional hubs, and 26 leaves', () => {
+  it('every locale has a root hub, every regional hub, and every crossing leaf', () => {
     for (const loc of BORDER_WAIT_LOCALES) {
       expect(pages[buildRootHubPath(loc)]).toBeDefined();
       for (const r of BORDER_WAIT_REGIONS) {

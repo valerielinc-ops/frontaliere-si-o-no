@@ -59,6 +59,7 @@ import {
   CROSSING_TO_REGION,
   CROSSING_TO_FUEL_ZONE,
   CROSSING_TO_WEEKLY_CITY,
+  REGION_TO_COUNTRY,
   TOP_5_CROSSINGS,
   buildArchivePath,
   buildOggiPath,
@@ -245,6 +246,44 @@ function cantonAdministrativeAreaName(code: string, locale: BorderWaitLocale): s
   return `${CANTON_ADMIN_AREA_PREFIX[locale]}${getCantonDisplayName(code, locale as CantonDisplayLocale)}`;
 }
 
+/**
+ * Country-specific tokens for the leaf-page `paragraph()` copy: the
+ * customs-checkpoint nationality and the bare country name used in
+ * "returning to X after work" / "in direzione X" phrasing. Every existing
+ * preposition in the 4 locale templates (in/to/nach/en) already agrees with
+ * a bare country name, so only the name itself varies — except the
+ * customs adjective, which needs its fully agreed/declined form per locale
+ * (masc. sg. IT, invariant EN, dative-declined DE, masc. pl. FR).
+ *
+ * Keyed by REGION_TO_COUNTRY's country code (see that map's doc comment in
+ * borderWaitData.ts) — exhaustive Record on purpose: a region added for a
+ * country not covered here is a compile error, not silently-wrong customs
+ * copy on a live page.
+ */
+interface ParagraphCountryTokens {
+  name: string;
+  customsAdjective: string;
+}
+
+const PARAGRAPH_COUNTRY_TOKENS: Record<BorderWaitLocale, Record<'IT' | 'DE', ParagraphCountryTokens>> = {
+  it: {
+    IT: { name: 'Italia', customsAdjective: 'italiano' },
+    DE: { name: 'Germania', customsAdjective: 'tedesco' },
+  },
+  en: {
+    IT: { name: 'Italy', customsAdjective: 'Italian' },
+    DE: { name: 'Germany', customsAdjective: 'German' },
+  },
+  de: {
+    IT: { name: 'Italien', customsAdjective: 'italienischen' },
+    DE: { name: 'Deutschland', customsAdjective: 'deutschen' },
+  },
+  fr: {
+    IT: { name: 'Italie', customsAdjective: 'italiens' },
+    DE: { name: 'Allemagne', customsAdjective: 'allemands' },
+  },
+};
+
 // ── Hero card helpers (exported for tests) ───────────────────────
 // The hub page renders a "Valico più veloce" hero when at least one
 // crossing has a measurable non-zero wait. When every scope crossing
@@ -389,7 +428,7 @@ interface Copy {
     bad: (bestHour: string) => string;
     unknown: string;
   };
-  paragraph: (crossing: string, direction: string, bestHour: string, worstHour: string) => string;
+  paragraph: (crossing: string, direction: string, country: ParagraphCountryTokens, bestHour: string, worstHour: string) => string;
   updatedLabel: string;
   currentStatusLabel: string;
   waitMinutesLabel: string;
@@ -416,6 +455,11 @@ interface Copy {
   regionalLabelTicinoComo: string;
   regionalLabelTicinoVarese: string;
   regionalLabelTicinoVerbano: string;
+  regionalLabelBasileaGermania: string;
+  regionalLabelArgoviaGermania: string;
+  regionalLabelZurigoGermania: string;
+  regionalLabelSciaffusaGermania: string;
+  regionalLabelTurgoviaGermania: string;
   noHistory: string;
   chartDataAccruing: string;
   staticFallbackBanner: string;
@@ -423,15 +467,15 @@ interface Copy {
   open24h: string;
   hoursLabel: string;
   historicalAvg: string;
-  faq: Array<{ q: (crossing: string) => string; a: (crossing: string) => string }>;
-  rootIntro: string;
+  faq: Array<{ q: (crossing: string) => string; a: (crossing: string, country: ParagraphCountryTokens) => string }>;
+  rootIntro: (count: number) => string;
   regionalIntro: (region: string, count: number) => string;
 }
 
 const COPY: Record<BorderWaitLocale, Copy> = {
   it: {
     leafH1: (c, d) => `Tempi attesa alla dogana ${c} — oggi ${d}`,
-    rootH1: 'Tempi di attesa alle dogane Ticino–Italia — live oggi',
+    rootH1: 'Tempi di attesa alle dogane svizzere — live oggi',
     regionalH1: (r) => `Tempi attesa ai valichi ${r}`,
     intro: (c, s, d) =>
       `Aggiornamento del ${d}: il valico di ${c} presenta un'attesa ${s}. Dati aggiornati ogni 15 minuti nelle ore di punta (06:00–10:00 e 16:00–20:00 CET) dalla nostra pipeline di monitoraggio.`,
@@ -446,8 +490,8 @@ const COPY: Record<BorderWaitLocale, Copy> = {
       unknown:
         'Dato live non disponibile in questo momento. I numeri sotto sono medie storiche del valico — usali come riferimento.',
     },
-    paragraph: (c, direction, bestHour, worstHour) =>
-      `Pianifica il passaggio da ${c} consultando prima il dato corrente ed eventualmente la webcam live quando disponibile. Negli ultimi 30 giorni l'ora migliore per transitare (direzione ${direction}) è stata ${bestHour}, mentre l'ora peggiore è ${worstHour}. Questa pagina viene rigenerata automaticamente ad ogni deploy — i dati live provengono dalla collezione Firestore alimentata dal cron di traffico TomTom, gli stessi numeri usati nella mappa interattiva del sito. Se stai tornando in Italia dopo il lavoro, ricorda che il flusso serale inverte la direzione: tra le 17 e le 19 i valichi di Brogeda e Gaggiolo registrano tipicamente code nel senso opposto rispetto al mattino. Per i frontalieri abituali, conviene sempre tenere il documento d'identità a portata di mano: anche con l'area Schengen, il valico di ${c} può essere oggetto di controlli a campione su veicoli, merci e dichiarazioni doganali (importazioni di alimentari oltre la franchigia, valuta in contanti sopra 10.000 CHF, sostanze regolamentate). I controlli più mirati avvengono solitamente nella fascia 6:00–8:00 in direzione Svizzera e nella fascia 17:00–19:30 in direzione Italia, sovrapposti ai picchi pendolari. Per chi guida un'auto aziendale registrata in Svizzera, ricorda di portare la lettera di autorizzazione del datore di lavoro e l'estratto del libretto di circolazione: in caso di controllo doganale italiano evita lunghi accertamenti.`,
+    paragraph: (c, direction, country, bestHour, worstHour) =>
+      `Pianifica il passaggio da ${c} consultando prima il dato corrente ed eventualmente la webcam live quando disponibile. Negli ultimi 30 giorni l'ora migliore per transitare (direzione ${direction}) è stata ${bestHour}, mentre l'ora peggiore è ${worstHour}. Questa pagina viene rigenerata automaticamente ad ogni deploy — i dati live provengono dalla collezione Firestore alimentata dal cron di traffico TomTom, gli stessi numeri usati nella mappa interattiva del sito. Se stai tornando in ${country.name} dopo il lavoro, ricorda che il flusso serale inverte spesso la direzione: tra le 17 e le 19 anche ${c} può registrare code nel senso opposto rispetto al mattino. Per i frontalieri abituali, conviene sempre tenere il documento d'identità a portata di mano: anche con l'area Schengen, il valico di ${c} può essere oggetto di controlli a campione su veicoli, merci e dichiarazioni doganali (importazioni di alimentari oltre la franchigia, valuta in contanti sopra 10.000 CHF, sostanze regolamentate). I controlli più mirati avvengono solitamente nella fascia 6:00–8:00 in direzione Svizzera e nella fascia 17:00–19:30 in direzione ${country.name}, sovrapposti ai picchi pendolari. Per chi guida un'auto aziendale registrata in Svizzera, ricorda di portare la lettera di autorizzazione del datore di lavoro e l'estratto del libretto di circolazione: in caso di controllo doganale ${country.customsAdjective} evita lunghi accertamenti.`,
     updatedLabel: 'Aggiornamento',
     currentStatusLabel: 'Stato attuale',
     waitMinutesLabel: 'Minuti di attesa',
@@ -469,12 +513,17 @@ const COPY: Record<BorderWaitLocale, Copy> = {
     webcamNote:
       "Immagini aggiornate automaticamente ogni minuto quando la pagina è aperta. Usa il link \"Fonte\" per la versione ufficiale live.",
     webcamSource: 'Fonte',
-    webcamUnavailable: 'Webcam non disponibile per questo valico. Il Dipartimento del territorio del Canton Ticino non pubblica immagini live per questa frontiera.',
+    webcamUnavailable: 'Webcam non disponibile per questo valico. Nessuna immagine live è pubblicata al momento per questa frontiera.',
     faqTitle: 'Domande frequenti',
     breadcrumbHome: 'Home',
     regionalLabelTicinoComo: 'Ticino–Como',
     regionalLabelTicinoVarese: 'Ticino–Varese',
     regionalLabelTicinoVerbano: 'Ticino–Verbano',
+    regionalLabelBasileaGermania: 'Basilea–Germania',
+    regionalLabelArgoviaGermania: 'Argovia–Germania',
+    regionalLabelZurigoGermania: 'Zurigo–Germania',
+    regionalLabelSciaffusaGermania: 'Sciaffusa–Germania',
+    regionalLabelTurgoviaGermania: 'Turgovia–Germania',
     noHistory:
       'Storico in accumulo: gli archivi mensili e i pattern di 30 giorni appariranno non appena ci saranno dati sufficienti.',
     chartDataAccruing:
@@ -494,27 +543,29 @@ const COPY: Record<BorderWaitLocale, Copy> = {
       {
         q: () => "Come vengono calcolati i minuti di attesa?",
         a: () =>
-          "I tempi di attesa derivano da due misure routing: il segmento di avvicinamento (≈500 m prima del valico lato italiano) e il segmento di passaggio (valico → checkpoint svizzero). Il tempo aggiuntivo rispetto alla percorrenza senza traffico è la coda. I dati vengono raccolti ogni 15 minuti nelle ore di punta e salvati in Firestore.",
+          "I tempi di attesa derivano da due misure routing: il segmento di avvicinamento (≈500 m prima del valico) e il segmento di passaggio (valico → checkpoint svizzero). Il tempo aggiuntivo rispetto alla percorrenza senza traffico è la coda. I dati vengono raccolti ogni 15 minuti nelle ore di punta e salvati in Firestore.",
       },
       {
         q: () => 'Cosa fare se la coda supera i 40 minuti?',
-        a: () =>
-          "Se il valico principale è congestionato, valuta un valico locale alternativo nella stessa zona (Maslianico-Pizzamiglio al posto di Chiasso Centro, Crociale dei Mulini al posto di Brogeda, Clivio-Ligornetto al posto di Gaggiolo). I valichi locali hanno capacità minore ma spesso restano fluidi quando quelli principali saturano.",
+        a: (_c, country) =>
+          country.name === 'Italia'
+            ? "Se il valico principale è congestionato, valuta un valico locale alternativo nella stessa zona (Maslianico-Pizzamiglio al posto di Chiasso Centro, Crociale dei Mulini al posto di Brogeda, Clivio-Ligornetto al posto di Gaggiolo). I valichi locali hanno capacità minore ma spesso restano fluidi quando quelli principali saturano."
+            : "Se il valico principale è congestionato, controlla se un valico locale della stessa zona mostra un'attesa inferiore nella mappa qui sopra: i valichi locali hanno di norma capacità minore ma spesso restano fluidi quando quelli principali saturano.",
       },
       {
         q: () => 'Le webcam funzionano anche di notte?',
         a: () =>
-          "Le webcam del Dipartimento del territorio del Canton Ticino sono attive 24/7 ma la visibilità notturna dipende dall'illuminazione del valico. Brogeda ha illuminazione costante, i valichi locali potrebbero risultare scuri nelle ore notturne.",
+          "Dove disponibili, le webcam sono attive 24/7 ma la visibilità notturna dipende dall'illuminazione del valico: i valichi con illuminazione costante restano leggibili, quelli locali potrebbero risultare scuri nelle ore notturne.",
       },
     ],
-    rootIntro:
-      'Panoramica completa dei 26 valichi Ticino–Italia monitorati in tempo reale dalla nostra pipeline. Scegliere il valico giusto può farti risparmiare 20–30 minuti per ogni viaggio. Nei giorni feriali Chiasso-Brogeda e Gaggiolo sono i più congestionati durante i picchi pendolari 06:30–08:30 (direzione IT→CH) e 17:00–19:00 (direzione CH→IT). I valichi minori come Crociale dei Mulini, Drezzo-Pedrinate o Clivio-Ligornetto hanno capacità inferiore ma code quasi sempre inferiori ai 5 minuti — ideali per chi vuole evitare la coda autostradale.',
+    rootIntro: (count) =>
+      `Panoramica completa dei ${count} valichi di frontiera svizzeri monitorati in tempo reale dalla nostra pipeline, sui corridoi Ticino–Italia e Svizzera–Germania. Scegliere il valico giusto può farti risparmiare 20–30 minuti per ogni viaggio. Sul corridoio Ticino–Italia, nei giorni feriali Chiasso-Brogeda e Gaggiolo sono i più congestionati durante i picchi pendolari 06:30–08:30 (direzione IT→CH) e 17:00–19:00 (direzione CH→IT); i valichi minori come Crociale dei Mulini, Drezzo-Pedrinate o Clivio-Ligornetto hanno capacità inferiore ma code quasi sempre inferiori ai 5 minuti. Sul corridoio Svizzera–Germania i valichi coprono i cantoni di Basilea, Argovia, Zurigo, Sciaffusa e Turgovia: la disponibilità del dato live varia da valico a valico, consulta la pagina del singolo passaggio per lo stato aggiornato.`,
     regionalIntro: (r, count) =>
-      `La regione ${r} raggruppa ${count} valichi di frontiera Ticino–Italia. Questo hub mostra lo stato live di ciascun passaggio e consiglia quello con attesa minore in questo momento. Ricorda che gli orari di punta pendolare concentrano i volumi sui valichi autostradali principali (Chiasso-Brogeda in zona Como, Gaggiolo in zona Varese), mentre i valichi locali restano fluidi anche nelle ore di traffico intenso.`,
+      `La regione ${r} raggruppa ${count} valichi di frontiera monitorati in tempo reale. Questo hub mostra lo stato live di ciascun passaggio e consiglia quello con attesa minore in questo momento. Ricorda che gli orari di punta pendolare concentrano solitamente i volumi sui valichi autostradali o principali, mentre i valichi locali restano più spesso fluidi anche nelle ore di traffico intenso.`,
   },
   en: {
     leafH1: (c, d) => `${c} border wait times — today ${d}`,
-    rootH1: 'Ticino–Italy border wait times — live today',
+    rootH1: 'Swiss border wait times — live today',
     regionalH1: (r) => `${r} border crossings — live wait times`,
     intro: (c, s, d) =>
       `Updated ${d}: the ${c} crossing currently shows a ${s} wait. Data refreshes every 15 minutes during commuter peak hours (06:00–10:00 and 16:00–20:00 CET) from our monitoring pipeline.`,
@@ -529,8 +580,8 @@ const COPY: Record<BorderWaitLocale, Copy> = {
       unknown:
         'Live data is currently unavailable. The numbers below are historical averages for this crossing — use them as a reference.',
     },
-    paragraph: (c, direction, bestHour, worstHour) =>
-      `Plan your ${c} crossing by checking the current reading and, when available, the live webcam feed. Over the last 30 days the best hour to transit (${direction} direction) has been ${bestHour}; the worst hour is ${worstHour}. This page is regenerated on every deploy — live data comes from the Firestore collection fed by the TomTom traffic cron, the same numbers used across the site's interactive map. If you are returning to Italy after work, remember that the evening flow reverses direction: between 17:00 and 19:00 the main commercial crossings typically show queues in the opposite direction compared to the morning. For regular cross-border commuters, always keep your ID document at hand: even within the Schengen area, the ${c} crossing can be subject to spot checks on vehicles, goods and customs declarations (food imports above the personal allowance, cash above CHF 10,000, regulated substances). The most targeted checks usually fall between 06:00–08:00 inbound to Switzerland and 17:00–19:30 returning to Italy, overlapping with commuter peaks. If you drive a Switzerland-registered company car, keep the employer authorisation letter and a copy of the vehicle registration in the glovebox: this avoids prolonged customs questioning at Italian border checkpoints.`,
+    paragraph: (c, direction, country, bestHour, worstHour) =>
+      `Plan your ${c} crossing by checking the current reading and, when available, the live webcam feed. Over the last 30 days the best hour to transit (${direction} direction) has been ${bestHour}; the worst hour is ${worstHour}. This page is regenerated on every deploy — live data comes from the Firestore collection fed by the TomTom traffic cron, the same numbers used across the site's interactive map. If you are returning to ${country.name} after work, remember that the evening flow often reverses direction: between 17:00 and 19:00 ${c} can also show queues in the opposite direction compared to the morning. For regular cross-border commuters, always keep your ID document at hand: even within the Schengen area, the ${c} crossing can be subject to spot checks on vehicles, goods and customs declarations (food imports above the personal allowance, cash above CHF 10,000, regulated substances). The most targeted checks usually fall between 06:00–08:00 inbound to Switzerland and 17:00–19:30 returning to ${country.name}, overlapping with commuter peaks. If you drive a Switzerland-registered company car, keep the employer authorisation letter and a copy of the vehicle registration in the glovebox: this avoids prolonged customs questioning at ${country.customsAdjective} border checkpoints.`,
     updatedLabel: 'Updated',
     currentStatusLabel: 'Current status',
     waitMinutesLabel: 'Wait minutes',
@@ -552,12 +603,17 @@ const COPY: Record<BorderWaitLocale, Copy> = {
     webcamNote:
       'Images refresh automatically every minute while the page is open. Use the "Source" link for the official live feed.',
     webcamSource: 'Source',
-    webcamUnavailable: 'No webcam available for this crossing. The Canton of Ticino Territory Department does not publish live images for this border.',
+    webcamUnavailable: 'No webcam available for this crossing. No live images are currently published for this border.',
     faqTitle: 'Frequently asked questions',
     breadcrumbHome: 'Home',
     regionalLabelTicinoComo: 'Ticino–Como',
     regionalLabelTicinoVarese: 'Ticino–Varese',
     regionalLabelTicinoVerbano: 'Ticino–Verbano',
+    regionalLabelBasileaGermania: 'Basel–Germany',
+    regionalLabelArgoviaGermania: 'Aargau–Germany',
+    regionalLabelZurigoGermania: 'Zurich–Germany',
+    regionalLabelSciaffusaGermania: 'Schaffhausen–Germany',
+    regionalLabelTurgoviaGermania: 'Thurgau–Germany',
     noHistory:
       'History is being collected: monthly archives and 30-day weekly patterns will appear as soon as enough data is available.',
     chartDataAccruing:
@@ -577,27 +633,29 @@ const COPY: Record<BorderWaitLocale, Copy> = {
       {
         q: () => 'How are wait minutes calculated?',
         a: () =>
-          'Wait times are derived from two routing measurements: an approach segment (~500 m before the crossing on the Italian side) and the crossing segment (crossing → Swiss checkpoint). The excess time over the traffic-free baseline is the queue. Data is collected every 15 minutes during peak hours and persisted to Firestore.',
+          'Wait times are derived from two routing measurements: an approach segment (~500 m before the crossing) and the crossing segment (crossing → Swiss checkpoint). The excess time over the traffic-free baseline is the queue. Data is collected every 15 minutes during peak hours and persisted to Firestore.',
       },
       {
         q: () => 'What should I do if the queue exceeds 40 minutes?',
-        a: () =>
-          "If the main crossing is congested, consider a nearby local crossing: Maslianico-Pizzamiglio instead of Chiasso Centro, Crociale dei Mulini instead of Brogeda, Clivio-Ligornetto instead of Gaggiolo. Local crossings have lower capacity but often remain fluid when the main ones saturate.",
+        a: (_c, country) =>
+          country.name === 'Italy'
+            ? "If the main crossing is congested, consider a nearby local crossing: Maslianico-Pizzamiglio instead of Chiasso Centro, Crociale dei Mulini instead of Brogeda, Clivio-Ligornetto instead of Gaggiolo. Local crossings have lower capacity but often remain fluid when the main ones saturate."
+            : "If the main crossing is congested, check whether a local crossing in the same area shows a shorter wait in the map above. Local crossings typically have lower capacity but often remain fluid when the main ones saturate.",
       },
       {
         q: () => 'Do the webcams work at night?',
         a: () =>
-          'The Canton of Ticino Territory Department webcams are active 24/7, but night-time visibility depends on how the crossing is lit. Brogeda has constant lighting; smaller local crossings may appear dark during night hours.',
+          'Where available, webcams run 24/7, but night-time visibility depends on how the crossing is lit: crossings with constant lighting stay readable, smaller local crossings may appear dark during night hours.',
       },
     ],
-    rootIntro:
-      'Complete overview of the 26 Ticino–Italy border crossings monitored in real time by our pipeline. Picking the right crossing can save you 20–30 minutes per trip. On weekdays Chiasso-Brogeda and Gaggiolo are the most congested during the commuter peaks 06:30–08:30 (IT→CH direction) and 17:00–19:00 (CH→IT direction). Smaller crossings like Crociale dei Mulini, Drezzo-Pedrinate or Clivio-Ligornetto have lower capacity but queues almost always under 5 minutes — ideal if you want to avoid the motorway backlog.',
+    rootIntro: (count) =>
+      `Complete overview of the ${count} Swiss border crossings monitored in real time by our pipeline, across the Ticino–Italy and Switzerland–Germany corridors. Picking the right crossing can save you 20–30 minutes per trip. On the Ticino–Italy corridor, weekday Chiasso-Brogeda and Gaggiolo are the most congested during the commuter peaks 06:30–08:30 (IT→CH direction) and 17:00–19:00 (CH→IT direction); smaller crossings like Crociale dei Mulini, Drezzo-Pedrinate or Clivio-Ligornetto have lower capacity but queues almost always under 5 minutes. On the Switzerland–Germany corridor the crossings span the cantons of Basel, Aargau, Zurich, Schaffhausen and Thurgau — live-data coverage varies crossing by crossing, so check each crossing's own page for the current status.`,
     regionalIntro: (r, count) =>
-      `The ${r} region groups ${count} Ticino–Italy border crossings. This hub shows the live status of each and recommends the one with the shortest wait right now. Keep in mind that commuter peaks concentrate traffic on the main motorway crossings (Chiasso-Brogeda in the Como area, Gaggiolo in the Varese area), while local crossings stay fluid even during heavy commute hours.`,
+      `The ${r} region groups ${count} monitored border crossings. This hub shows the live status of each and recommends the one with the shortest wait right now. Keep in mind that commuter peaks usually concentrate traffic on the main motorway or trunk-road crossings, while local crossings more often stay fluid even during heavy commute hours.`,
   },
   de: {
     leafH1: (c, d) => `Wartezeiten am Grenzübergang ${c} — heute ${d}`,
-    rootH1: 'Wartezeiten an den Tessiner Grenzen zu Italien — live heute',
+    rootH1: 'Wartezeiten an den Schweizer Grenzübergängen — live heute',
     regionalH1: (r) => `Grenzübergänge ${r} — Wartezeiten live`,
     intro: (c, s, d) =>
       `Aktualisiert am ${d}: Der Grenzübergang ${c} zeigt derzeit eine ${s} Wartezeit. Daten werden während der Pendler-Stosszeiten (06:00–10:00 und 16:00–20:00 MEZ) alle 15 Minuten aktualisiert.`,
@@ -612,8 +670,8 @@ const COPY: Record<BorderWaitLocale, Copy> = {
       unknown:
         'Live-Daten sind derzeit nicht verfügbar. Die Werte unten sind historische Mittelwerte für diesen Übergang — als Orientierung nutzen.',
     },
-    paragraph: (c, direction, bestHour, worstHour) =>
-      `Planen Sie die Überquerung bei ${c}, indem Sie zuerst den aktuellen Messwert und — falls verfügbar — die Live-Webcam prüfen. In den letzten 30 Tagen war die beste Transitzeit (Richtung ${direction}) ${bestHour}, die schlechteste ${worstHour}. Diese Seite wird bei jedem Deploy neu generiert — Live-Daten stammen aus der Firestore-Kollektion, die der TomTom-Verkehrs-Cronjob füllt, dieselben Werte wie auf der interaktiven Karte der Seite. Wer abends nach Italien zurückkehrt, sollte beachten, dass der Verkehr die Richtung wechselt: Zwischen 17:00 und 19:00 Uhr weisen die Hauptübergänge Brogeda und Gaggiolo typischerweise Rückstaus in Gegenrichtung zum Morgen auf. Für regelmässige Grenzgänger empfiehlt es sich, das Ausweisdokument griffbereit zu halten: Auch innerhalb des Schengen-Raums kann ${c} Stichprobenkontrollen für Fahrzeuge, Waren und Zollanmeldungen unterliegen (Lebensmittelimporte über der Personenfreimenge, Bargeld über CHF 10'000, regulierte Substanzen). Die gezieltesten Kontrollen finden in der Regel zwischen 06:00–08:00 Uhr in Richtung Schweiz und zwischen 17:00–19:30 Uhr in Richtung Italien statt — also genau in den Pendler-Stosszeiten. Wer einen in der Schweiz zugelassenen Firmenwagen fährt, sollte das Schreiben des Arbeitgebers und eine Kopie der Fahrzeugausweispapiere im Handschuhfach mitführen, um langwierige Befragungen am italienischen Zoll zu vermeiden.`,
+    paragraph: (c, direction, country, bestHour, worstHour) =>
+      `Planen Sie die Überquerung bei ${c}, indem Sie zuerst den aktuellen Messwert und — falls verfügbar — die Live-Webcam prüfen. In den letzten 30 Tagen war die beste Transitzeit (Richtung ${direction}) ${bestHour}, die schlechteste ${worstHour}. Diese Seite wird bei jedem Deploy neu generiert — Live-Daten stammen aus der Firestore-Kollektion, die der TomTom-Verkehrs-Cronjob füllt, dieselben Werte wie auf der interaktiven Karte der Seite. Wer abends nach ${country.name} zurückkehrt, sollte beachten, dass sich der Verkehr oft umkehrt: Zwischen 17:00 und 19:00 Uhr kann auch ${c} Rückstau in Gegenrichtung zum Morgen aufweisen. Für regelmässige Grenzgänger empfiehlt es sich, das Ausweisdokument griffbereit zu halten: Auch innerhalb des Schengen-Raums kann ${c} Stichprobenkontrollen für Fahrzeuge, Waren und Zollanmeldungen unterliegen (Lebensmittelimporte über der Personenfreimenge, Bargeld über CHF 10'000, regulierte Substanzen). Die gezieltesten Kontrollen finden in der Regel zwischen 06:00–08:00 Uhr in Richtung Schweiz und zwischen 17:00–19:30 Uhr in Richtung ${country.name} statt — also genau in den Pendler-Stosszeiten. Wer einen in der Schweiz zugelassenen Firmenwagen fährt, sollte das Schreiben des Arbeitgebers und eine Kopie der Fahrzeugausweispapiere im Handschuhfach mitführen, um langwierige Befragungen am ${country.customsAdjective} Zoll zu vermeiden.`,
     updatedLabel: 'Aktualisiert',
     currentStatusLabel: 'Aktueller Stand',
     waitMinutesLabel: 'Wartezeit (Min.)',
@@ -635,12 +693,17 @@ const COPY: Record<BorderWaitLocale, Copy> = {
     webcamNote:
       'Bilder aktualisieren sich automatisch jede Minute, solange die Seite geöffnet ist. Klicken Sie auf „Quelle" für den offiziellen Feed.',
     webcamSource: 'Quelle',
-    webcamUnavailable: 'Keine Webcam für diesen Grenzübergang verfügbar. Das Departement für Bau, Verkehr und Umwelt des Kantons Tessin veröffentlicht für diese Grenze keine Live-Bilder.',
+    webcamUnavailable: 'Keine Webcam für diesen Grenzübergang verfügbar. Für diese Grenze werden derzeit keine Live-Bilder veröffentlicht.',
     faqTitle: 'Häufige Fragen',
     breadcrumbHome: 'Startseite',
     regionalLabelTicinoComo: 'Tessin–Como',
     regionalLabelTicinoVarese: 'Tessin–Varese',
     regionalLabelTicinoVerbano: 'Tessin–Verbano',
+    regionalLabelBasileaGermania: 'Basel–Deutschland',
+    regionalLabelArgoviaGermania: 'Aargau–Deutschland',
+    regionalLabelZurigoGermania: 'Zürich–Deutschland',
+    regionalLabelSciaffusaGermania: 'Schaffhausen–Deutschland',
+    regionalLabelTurgoviaGermania: 'Thurgau–Deutschland',
     noHistory:
       'Historie wird aufgebaut: Monatliche Archive und 30-Tage-Wochenmuster erscheinen, sobald genügend Daten vorhanden sind.',
     chartDataAccruing:
@@ -660,27 +723,29 @@ const COPY: Record<BorderWaitLocale, Copy> = {
       {
         q: () => 'Wie werden die Wartezeiten berechnet?',
         a: () =>
-          'Die Wartezeiten stammen aus zwei Routing-Messungen: einem Annäherungssegment (~500 m vor dem Übergang auf italienischer Seite) und dem Übergangssegment (Übergang → Schweizer Kontrollpunkt). Die Mehrzeit gegenüber dem verkehrsfreien Referenzwert ist die Wartezeit. Die Daten werden während der Stosszeiten alle 15 Minuten erfasst und in Firestore persistiert.',
+          'Die Wartezeiten stammen aus zwei Routing-Messungen: einem Annäherungssegment (~500 m vor dem Übergang) und dem Übergangssegment (Übergang → Schweizer Kontrollpunkt). Die Mehrzeit gegenüber dem verkehrsfreien Referenzwert ist die Wartezeit. Die Daten werden während der Stosszeiten alle 15 Minuten erfasst und in Firestore persistiert.',
       },
       {
         q: () => 'Was tun, wenn die Wartezeit 40 Minuten überschreitet?',
-        a: () =>
-          'Bei Staus am Hauptübergang lohnt ein nahegelegener lokaler Übergang: Maslianico-Pizzamiglio statt Chiasso Centro, Crociale dei Mulini statt Brogeda, Clivio-Ligornetto statt Gaggiolo. Lokale Übergänge haben geringere Kapazität, bleiben aber oft flüssig, wenn die Hauptübergänge überlastet sind.',
+        a: (_c, country) =>
+          country.name === 'Italien'
+            ? 'Bei Staus am Hauptübergang lohnt ein nahegelegener lokaler Übergang: Maslianico-Pizzamiglio statt Chiasso Centro, Crociale dei Mulini statt Brogeda, Clivio-Ligornetto statt Gaggiolo. Lokale Übergänge haben geringere Kapazität, bleiben aber oft flüssig, wenn die Hauptübergänge überlastet sind.'
+            : 'Bei Stau am Hauptübergang lohnt sich ein Blick auf die Karte oben: Zeigt ein lokaler Übergang in derselben Zone eine kürzere Wartezeit, lohnt sich oft der Wechsel. Lokale Übergänge haben in der Regel geringere Kapazität, bleiben aber oft flüssig, wenn die Hauptübergänge überlastet sind.',
       },
       {
         q: () => 'Funktionieren die Webcams auch nachts?',
         a: () =>
-          'Die Webcams des Departements für Bau, Verkehr und Umwelt des Kantons Tessin sind rund um die Uhr aktiv, aber die Nachtqualität hängt von der Beleuchtung ab. Brogeda ist permanent beleuchtet, kleinere Übergänge können nachts dunkel erscheinen.',
+          'Wo verfügbar, sind die Webcams rund um die Uhr aktiv, aber die Nachtqualität hängt von der Beleuchtung des Übergangs ab: dauerhaft beleuchtete Übergänge bleiben gut sichtbar, kleinere lokale Übergänge können nachts dunkel erscheinen.',
       },
     ],
-    rootIntro:
-      'Vollständiger Überblick über die 26 Grenzübergänge Tessin–Italien, die unsere Pipeline in Echtzeit überwacht. Die richtige Wahl des Übergangs kann 20–30 Minuten pro Fahrt sparen. An Werktagen sind Chiasso-Brogeda und Gaggiolo während der Pendler-Stosszeiten 06:30–08:30 (Richtung IT→CH) und 17:00–19:00 (Richtung CH→IT) am stärksten belastet. Kleinere Übergänge wie Crociale dei Mulini, Drezzo-Pedrinate oder Clivio-Ligornetto haben geringere Kapazität, aber fast immer Wartezeiten unter 5 Minuten — ideal, um den Autobahnstau zu umgehen.',
+    rootIntro: (count) =>
+      `Vollständiger Überblick über die ${count} Schweizer Grenzübergänge, die unsere Pipeline in Echtzeit überwacht, auf den Korridoren Tessin–Italien und Schweiz–Deutschland. Die richtige Wahl des Übergangs kann 20–30 Minuten pro Fahrt sparen. Auf dem Korridor Tessin–Italien sind an Werktagen Chiasso-Brogeda und Gaggiolo während der Pendler-Stosszeiten 06:30–08:30 (Richtung IT→CH) und 17:00–19:00 (Richtung CH→IT) am stärksten belastet; kleinere Übergänge wie Crociale dei Mulini, Drezzo-Pedrinate oder Clivio-Ligornetto haben geringere Kapazität, aber fast immer Wartezeiten unter 5 Minuten. Auf dem Korridor Schweiz–Deutschland verteilen sich die Übergänge auf die Kantone Basel, Aargau, Zürich, Schaffhausen und Thurgau — die Live-Datenabdeckung ist von Übergang zu Übergang unterschiedlich, den aktuellen Status findest du auf der jeweiligen Übergangsseite.`,
     regionalIntro: (r, count) =>
-      `Die Region ${r} umfasst ${count} Grenzübergänge Tessin–Italien. Dieser Hub zeigt den Live-Status jedes einzelnen und empfiehlt denjenigen mit der kürzesten Wartezeit im Moment. Beachten Sie, dass Pendlerspitzen den Verkehr auf die grossen Autobahnübergänge konzentrieren (Chiasso-Brogeda im Raum Como, Gaggiolo im Raum Varese), während lokale Übergänge auch in Stosszeiten flüssig bleiben.`,
+      `Die Region ${r} umfasst ${count} überwachte Grenzübergänge. Dieser Hub zeigt den Live-Status jedes einzelnen und empfiehlt denjenigen mit der kürzesten Wartezeit im Moment. Beachten Sie, dass Pendlerspitzen den Verkehr meist auf die grossen Autobahn- oder Hauptübergänge konzentrieren, während lokale Übergänge häufiger auch in Stosszeiten flüssig bleiben.`,
   },
   fr: {
     leafH1: (c, d) => `Temps d'attente à la douane ${c} — aujourd'hui ${d}`,
-    rootH1: "Temps d'attente aux douanes Tessin–Italie — en direct aujourd'hui",
+    rootH1: "Temps d'attente aux douanes suisses — en direct aujourd'hui",
     regionalH1: (r) => `Douanes ${r} — temps d'attente en direct`,
     intro: (c, s, d) =>
       `Mis à jour le ${d} : le poste de ${c} affiche actuellement une attente ${s}. Données rafraîchies toutes les 15 minutes pendant les heures de pointe pendulaire (06:00–10:00 et 16:00–20:00 CET).`,
@@ -695,8 +760,8 @@ const COPY: Record<BorderWaitLocale, Copy> = {
       unknown:
         "Données en direct indisponibles pour le moment. Les valeurs ci-dessous sont des moyennes historiques du poste — à utiliser comme référence.",
     },
-    paragraph: (c, direction, bestHour, worstHour) =>
-      `Planifiez votre passage par ${c} en consultant d'abord la valeur actuelle et, lorsqu'elle est disponible, la webcam en direct. Sur les 30 derniers jours la meilleure heure de transit (direction ${direction}) a été ${bestHour}, la pire ${worstHour}. Cette page est régénérée à chaque déploiement — les données live proviennent de la collection Firestore alimentée par le cron de trafic TomTom, les mêmes chiffres que la carte interactive du site. Si vous rentrez en Italie après le travail, notez que le flux du soir inverse la direction : entre 17h et 19h les postes principaux de Brogeda et Gaggiolo affichent généralement des files dans le sens opposé à celui du matin. Pour les frontaliers réguliers, gardez toujours votre pièce d'identité à portée de main : même dans l'espace Schengen, le passage de ${c} peut faire l'objet de contrôles aléatoires sur les véhicules, les marchandises et les déclarations douanières (importations alimentaires au-delà de la franchise personnelle, espèces au-delà de 10 000 CHF, substances réglementées). Les contrôles les plus ciblés se concentrent entre 06h00–08h00 en direction de la Suisse et 17h00–19h30 au retour en Italie, soit pendant les pics pendulaires. Si vous conduisez un véhicule de société immatriculé en Suisse, gardez la lettre d'autorisation de l'employeur et une copie de la carte grise dans la boîte à gants : cela évite les interrogations prolongées aux postes douaniers italiens.`,
+    paragraph: (c, direction, country, bestHour, worstHour) =>
+      `Planifiez votre passage par ${c} en consultant d'abord la valeur actuelle et, lorsqu'elle est disponible, la webcam en direct. Sur les 30 derniers jours la meilleure heure de transit (direction ${direction}) a été ${bestHour}, la pire ${worstHour}. Cette page est régénérée à chaque déploiement — les données live proviennent de la collection Firestore alimentée par le cron de trafic TomTom, les mêmes chiffres que la carte interactive du site. Si vous rentrez en ${country.name} après le travail, notez que le flux du soir inverse souvent la direction : entre 17h et 19h ${c} aussi peut afficher des files dans le sens opposé à celui du matin. Pour les frontaliers réguliers, gardez toujours votre pièce d'identité à portée de main : même dans l'espace Schengen, le passage de ${c} peut faire l'objet de contrôles aléatoires sur les véhicules, les marchandises et les déclarations douanières (importations alimentaires au-delà de la franchise personnelle, espèces au-delà de 10 000 CHF, substances réglementées). Les contrôles les plus ciblés se concentrent entre 06h00–08h00 en direction de la Suisse et 17h00–19h30 au retour en ${country.name}, soit pendant les pics pendulaires. Si vous conduisez un véhicule de société immatriculé en Suisse, gardez la lettre d'autorisation de l'employeur et une copie de la carte grise dans la boîte à gants : cela évite les interrogations prolongées aux postes douaniers ${country.customsAdjective}.`,
     updatedLabel: 'Mis à jour',
     currentStatusLabel: 'État actuel',
     waitMinutesLabel: "Minutes d'attente",
@@ -718,12 +783,17 @@ const COPY: Record<BorderWaitLocale, Copy> = {
     webcamNote:
       "Les images se rafraîchissent automatiquement chaque minute tant que la page est ouverte. Cliquez sur « Source » pour la version officielle.",
     webcamSource: 'Source',
-    webcamUnavailable: "Webcam non disponible pour ce poste frontière. Le Département du territoire du Canton du Tessin ne publie pas d'images en direct pour cette frontière.",
+    webcamUnavailable: "Webcam non disponible pour ce poste frontière. Aucune image en direct n'est actuellement publiée pour cette frontière.",
     faqTitle: 'Questions fréquentes',
     breadcrumbHome: 'Accueil',
     regionalLabelTicinoComo: 'Tessin–Côme',
     regionalLabelTicinoVarese: 'Tessin–Varèse',
     regionalLabelTicinoVerbano: 'Tessin–Verbano',
+    regionalLabelBasileaGermania: 'Bâle–Allemagne',
+    regionalLabelArgoviaGermania: 'Argovie–Allemagne',
+    regionalLabelZurigoGermania: 'Zurich–Allemagne',
+    regionalLabelSciaffusaGermania: 'Schaffhouse–Allemagne',
+    regionalLabelTurgoviaGermania: 'Thurgovie–Allemagne',
     noHistory:
       "Historique en construction : archives mensuelles et tendances 30 jours apparaîtront dès que suffisamment de données seront collectées.",
     chartDataAccruing:
@@ -743,23 +813,25 @@ const COPY: Record<BorderWaitLocale, Copy> = {
       {
         q: () => "Comment les minutes d'attente sont-elles calculées ?",
         a: () =>
-          "Les temps d'attente dérivent de deux mesures de routage : un segment d'approche (≈500 m avant le poste côté italien) et le segment de passage (poste → point de contrôle suisse). Le temps supplémentaire par rapport à la référence sans trafic correspond à la file. Les données sont collectées toutes les 15 minutes en heures de pointe et persistées dans Firestore.",
+          "Les temps d'attente dérivent de deux mesures de routage : un segment d'approche (≈500 m avant le poste) et le segment de passage (poste → point de contrôle suisse). Le temps supplémentaire par rapport à la référence sans trafic correspond à la file. Les données sont collectées toutes les 15 minutes en heures de pointe et persistées dans Firestore.",
       },
       {
         q: () => "Que faire si la file dépasse 40 minutes ?",
-        a: () =>
-          "Si le poste principal est congestionné, envisagez un passage local à proximité : Maslianico-Pizzamiglio au lieu de Chiasso Centro, Crociale dei Mulini au lieu de Brogeda, Clivio-Ligornetto au lieu de Gaggiolo. Les passages locaux ont une capacité moindre mais restent souvent fluides quand les grands saturent.",
+        a: (_c, country) =>
+          country.name === 'Italie'
+            ? "Si le poste principal est congestionné, envisagez un passage local à proximité : Maslianico-Pizzamiglio au lieu de Chiasso Centro, Crociale dei Mulini au lieu de Brogeda, Clivio-Ligornetto au lieu de Gaggiolo. Les passages locaux ont une capacité moindre mais restent souvent fluides quand les grands saturent."
+            : "Si le poste principal est congestionné, vérifiez sur la carte ci-dessus si un passage local du même secteur affiche une file plus courte : les passages locaux ont généralement une capacité moindre mais restent souvent fluides quand les grands saturent.",
       },
       {
         q: () => "Les webcams fonctionnent-elles la nuit ?",
         a: () =>
-          "Les webcams du Département du territoire du Canton du Tessin sont actives 24h/24, mais la visibilité nocturne dépend de l'éclairage du poste. Brogeda est éclairé en permanence, les plus petits postes peuvent être sombres la nuit.",
+          "Lorsqu'elles sont disponibles, les webcams sont actives 24h/24, mais la visibilité nocturne dépend de l'éclairage du poste : les postes éclairés en permanence restent lisibles, les plus petits passages locaux peuvent être sombres la nuit.",
       },
     ],
-    rootIntro:
-      "Vue d'ensemble complète des 26 passages frontière Tessin–Italie surveillés en temps réel par notre pipeline. Choisir le bon passage peut vous faire gagner 20–30 minutes par trajet. En semaine Chiasso-Brogeda et Gaggiolo sont les plus chargés pendant les pointes pendulaires 06:30–08:30 (direction IT→CH) et 17:00–19:00 (direction CH→IT). Les passages mineurs comme Crociale dei Mulini, Drezzo-Pedrinate ou Clivio-Ligornetto ont une capacité plus faible mais des files presque toujours inférieures à 5 minutes — idéaux pour éviter l'embouteillage autoroutier.",
+    rootIntro: (count) =>
+      `Vue d'ensemble complète des ${count} passages frontière suisses surveillés en temps réel par notre pipeline, sur les corridors Tessin–Italie et Suisse–Allemagne. Choisir le bon passage peut vous faire gagner 20–30 minutes par trajet. Sur le corridor Tessin–Italie, en semaine Chiasso-Brogeda et Gaggiolo sont les plus chargés pendant les pointes pendulaires 06:30–08:30 (direction IT→CH) et 17:00–19:00 (direction CH→IT) ; les passages mineurs comme Crociale dei Mulini, Drezzo-Pedrinate ou Clivio-Ligornetto ont une capacité plus faible mais des files presque toujours inférieures à 5 minutes. Sur le corridor Suisse–Allemagne les passages couvrent les cantons de Bâle, Argovie, Zurich, Schaffhouse et Thurgovie — la disponibilité de la donnée live varie d'un passage à l'autre, consultez la page de chaque passage pour son état actuel.`,
     regionalIntro: (r, count) =>
-      `La région ${r} regroupe ${count} passages frontière Tessin–Italie. Ce hub montre l'état en direct de chacun et recommande celui avec la file la plus courte en ce moment. Notez que les pointes pendulaires concentrent le trafic sur les grands postes autoroutiers (Chiasso-Brogeda dans la zone Côme, Gaggiolo dans la zone Varèse), tandis que les passages locaux restent fluides même en heures chargées.`,
+      `La région ${r} regroupe ${count} passages frontière surveillés. Ce hub montre l'état en direct de chacun et recommande celui avec la file la plus courte en ce moment. Notez que les pointes pendulaires concentrent généralement le trafic sur les grands postes autoroutiers ou principaux, tandis que les passages locaux restent plus souvent fluides même en heures chargées.`,
   },
 };
 
@@ -800,6 +872,11 @@ function regionLabel(copy: Copy, region: BorderCrossingRegion): string {
     'ticino-como': copy.regionalLabelTicinoComo,
     'ticino-varese': copy.regionalLabelTicinoVarese,
     'ticino-verbano': copy.regionalLabelTicinoVerbano,
+    'basilea-germania': copy.regionalLabelBasileaGermania,
+    'argovia-germania': copy.regionalLabelArgoviaGermania,
+    'zurigo-germania': copy.regionalLabelZurigoGermania,
+    'sciaffusa-germania': copy.regionalLabelSciaffusaGermania,
+    'turgovia-germania': copy.regionalLabelTurgoviaGermania,
   };
   return byRegion[region];
 }
@@ -812,35 +889,75 @@ function renderCommuterContextProse(
   worstHour: string,
 ): string {
   const regionDisplay = regionLabel(COPY[locale], region);
+  // Paragraphs 4-5 (fiscal context) describe the Italian frontaliere regime
+  // (CU model, TIS withholding tables, IRPEF, the Italy–Switzerland tax
+  // agreement) verbatim for the Ticino–Italy corridor — those facts do not
+  // apply to Switzerland–Germany crossings, which have an entirely
+  // different bilateral tax treaty. Branch on country rather than invent
+  // unverified German-specific fiscal claims.
+  const country = REGION_TO_COUNTRY[region];
+  const countryTokens = PARAGRAPH_COUNTRY_TOKENS[locale][country];
   const headline =
     locale === 'it' ? `Come usiamo i dati di traffico per pianificare il passaggio a ${crossingLabel}`
     : locale === 'en' ? `How we use traffic data to plan the crossing at ${crossingLabel}`
     : locale === 'de' ? `So nutzen wir Verkehrsdaten zur Planung des Übergangs ${crossingLabel}`
     : `Comment nous utilisons les données de trafic pour planifier le passage à ${crossingLabel}`;
   const paragraphs = locale === 'it' ? [
-    `Il tempo di attesa al valico di ${crossingLabel} dipende da tre fattori principali: il volume di traffico in ingresso (legato al pendolarismo frontaliere e al turismo del fine settimana), la quantità di personale doganale presente nel turno e la presenza di controlli mirati su veicoli pesanti, importazioni di valuta o sostanze. Nei mesi tra ottobre e febbraio l'orario di apertura standard del valico subisce variazioni in caso di chiusura notturna o festività italo-svizzere — verifica sempre il calendario doganale ufficiale dell'AFD prima di partire.`,
+    `Il tempo di attesa al valico di ${crossingLabel} dipende da tre fattori principali: il volume di traffico in ingresso (legato al pendolarismo frontaliere e al turismo del fine settimana), la quantità di personale doganale presente nel turno e la presenza di controlli mirati su veicoli pesanti, importazioni di valuta o sostanze. Nei mesi tra ottobre e febbraio l'orario di apertura standard del valico subisce variazioni in caso di chiusura notturna o festività locali — verifica sempre il calendario doganale ufficiale dell'AFD prima di partire.`,
     `Per il pendolarismo abituale dalla zona ${regionDisplay}, l'orario di passaggio ottimizzato è ${bestHour}, mentre la fascia con maggiore congestione tipicamente è ${worstHour}. Queste finestre vengono ricalcolate ogni notte aggregando le ultime 4 settimane di rilevazioni TomTom: se sposti la partenza anche solo di 15-20 minuti rispetto al picco principale puoi tagliare l'attesa di 8-12 minuti in media. La stessa pipeline alimenta il widget interattivo nella mappa principale del sito, dove puoi confrontare ${crossingLabel} con i valichi alternativi della stessa direttrice e scegliere quello con il polling-time minore al momento della partenza.`,
-    `Tieni a mente che la fascia oraria del rientro serale (16:30–19:30 CET) inverte il senso di marcia: il flusso preponderante è dalla Svizzera verso l'Italia, quindi le code si formano sul lato svizzero. Per questo motivo molti frontalieri esperti monitorano la webcam live (quando disponibile sopra) negli ultimi 5 minuti prima di lasciare l'ufficio: una rapida verifica visiva è spesso più affidabile di una stima previsionale, specialmente in giornate con eventi anomali (incidenti, lavori sull'autostrada A2, manifestazioni a Como o Varese). Se preferisci ricevere un alert automatico quando l'attesa scende sotto una soglia, usa la funzione "notifica frontaliere" sul calcolatore stipendio: gli alert si basano sugli stessi dati live che vedi in questa pagina.`,
-    `Considera anche il contesto fiscale del passaggio quotidiano da ${crossingLabel}: il tempo perso in coda fa parte delle spese di trasporto deducibili nel modello CU del frontaliere. Le tabelle dell'imposta alla fonte ticinese (TIS) calcolano una franchigia chilometrica sul tragitto casa-lavoro, ma il tempo aggiuntivo dovuto alla congestione transfrontaliera non è esplicitamente compensato. Per questo motivo, i pendolari abituali nella tratta ${regionDisplay} dovrebbero monitorare regolarmente l'evoluzione delle attese e valutare alternative come carpooling, treno (linea TILO S40 o S50 a seconda del valico) o un orario flessibile concordato con il datore di lavoro svizzero. La pagina include la mappa dei valichi alternativi vicini con i tempi attuali e la distanza chilometrica, in modo da aiutarti a quantificare la differenza in minuti e in costo carburante tra le diverse opzioni di passaggio nella stessa fascia oraria.`,
-    `Da gennaio 2024 il Nuovo Accordo Fiscale Italia–Svizzera modifica anche il regime di tassazione sui giorni di telelavoro: i frontalieri possono lavorare da casa fino al 25 % dei giorni lavorativi annui senza perdere lo status fiscale frontaliere. Per chi attraversa ${crossingLabel} ogni giorno, questo significa che ridurre i giorni di passaggio non costa più la perdita del regime IRPEF agevolato — un fattore concreto da considerare in caso di code croniche o lavori prolungati sull'asse autostradale. Le aziende ticinesi più strutturate (Lugano, Mendrisio, Bellinzona) hanno già aggiornato i contratti per integrare questa flessibilità; verifica con il tuo HR se la tua azienda offre l'opzione di lavoro ibrido. Per un confronto puntuale tra netto frontaliere e netto smart-working, usa il simulatore stipendi del sito: copre entrambi gli scenari con calcolo aggiornato per il 2026.`,
+    `Tieni a mente che la fascia oraria del rientro serale (16:30–19:30 CET) inverte il senso di marcia: il flusso preponderante è dalla Svizzera verso ${countryTokens.name}, quindi le code si formano sul lato svizzero. ${
+      country === 'IT'
+        ? `Per questo motivo molti frontalieri esperti monitorano la webcam live (quando disponibile sopra) negli ultimi 5 minuti prima di lasciare l'ufficio: una rapida verifica visiva è spesso più affidabile di una stima previsionale, specialmente in giornate con eventi anomali (incidenti, lavori sull'autostrada A2, manifestazioni a Como o Varese). Se preferisci ricevere un alert automatico quando l'attesa scende sotto una soglia, usa la funzione "notifica frontaliere" sul calcolatore stipendio: gli alert si basano sugli stessi dati live che vedi in questa pagina.`
+        : `Per questo motivo molti pendolari esperti monitorano la webcam live (quando disponibile sopra) negli ultimi 5 minuti prima di lasciare l'ufficio: una rapida verifica visiva è spesso più affidabile di una stima previsionale, specialmente in giornate con eventi anomali (incidenti, lavori stradali, eventi locali). La mappa interattiva del sito mostra in tempo reale come si comportano i valichi vicini, utile per un confronto rapido prima di partire.`
+    }`,
+    country === 'IT'
+      ? `Considera anche il contesto fiscale del passaggio quotidiano da ${crossingLabel}: il tempo perso in coda fa parte delle spese di trasporto deducibili nel modello CU del frontaliere. Le tabelle dell'imposta alla fonte ticinese (TIS) calcolano una franchigia chilometrica sul tragitto casa-lavoro, ma il tempo aggiuntivo dovuto alla congestione transfrontaliera non è esplicitamente compensato. Per questo motivo, i pendolari abituali nella tratta ${regionDisplay} dovrebbero monitorare regolarmente l'evoluzione delle attese e valutare alternative come carpooling, treno (linea TILO S40 o S50 a seconda del valico) o un orario flessibile concordato con il datore di lavoro svizzero. La pagina include la mappa dei valichi alternativi vicini con i tempi attuali e la distanza chilometrica, in modo da aiutarti a quantificare la differenza in minuti e in costo carburante tra le diverse opzioni di passaggio nella stessa fascia oraria.`
+      : `Considera anche il costo complessivo del passaggio quotidiano da ${crossingLabel}: il tempo perso in coda si somma al costo del carburante e, per chi lavora a orario fisso, al tempo effettivo di lavoro perso. I pendolari abituali della tratta ${regionDisplay} traggono beneficio dal monitorare regolarmente l'evoluzione delle attese e dal valutare alternative come il car-pooling, il trasporto pubblico transfrontaliero dove disponibile, o un orario flessibile concordato con il datore di lavoro svizzero. La pagina include la mappa dei valichi alternativi vicini con i tempi attuali e la distanza chilometrica, così puoi confrontare le opzioni di passaggio nella stessa fascia oraria.`,
+    country === 'IT'
+      ? `Da gennaio 2024 il Nuovo Accordo Fiscale Italia–Svizzera modifica anche il regime di tassazione sui giorni di telelavoro: i frontalieri possono lavorare da casa fino al 25 % dei giorni lavorativi annui senza perdere lo status fiscale frontaliere. Per chi attraversa ${crossingLabel} ogni giorno, questo significa che ridurre i giorni di passaggio non costa più la perdita del regime IRPEF agevolato — un fattore concreto da considerare in caso di code croniche o lavori prolungati sull'asse autostradale. Le aziende ticinesi più strutturate (Lugano, Mendrisio, Bellinzona) hanno già aggiornato i contratti per integrare questa flessibilità; verifica con il tuo HR se la tua azienda offre l'opzione di lavoro ibrido. Per un confronto puntuale tra netto frontaliere e netto smart-working, usa il simulatore stipendi del sito: copre entrambi gli scenari con calcolo aggiornato per il 2026.`
+      : `Molti datori di lavoro svizzeri offrono oggi opzioni di lavoro flessibile o telelavoro parziale: per chi attraversa ${crossingLabel} regolarmente, anche solo uno o due giorni di home office alla settimana riduce direttamente l'esposizione alle code di punta. Le regole fiscali per il lavoro da remoto transfrontaliero variano da paese a paese — verifica sempre le condizioni applicabili al tuo caso specifico con il tuo datore di lavoro o con un consulente fiscale prima di modificare la tua routine di pendolarismo.`,
   ] : locale === 'en' ? [
-    `Wait time at the ${crossingLabel} crossing depends on three main factors: inbound traffic volume (driven by cross-border commuter patterns and weekend tourism), the customs staffing on the active shift, and any targeted checks on heavy vehicles, currency declarations or controlled substances. Between October and February the crossing's standard opening hours can shift due to overnight closures or Italo-Swiss public holidays — always confirm the official Swiss Customs (AFD) calendar before you leave.`,
+    `Wait time at the ${crossingLabel} crossing depends on three main factors: inbound traffic volume (driven by cross-border commuter patterns and weekend tourism), the customs staffing on the active shift, and any targeted checks on heavy vehicles, currency declarations or controlled substances. Between October and February the crossing's standard opening hours can shift due to overnight closures or local public holidays — always confirm the official Swiss Customs (AFD) calendar before you leave.`,
     `For regular commuters from the ${regionDisplay} catchment, the optimal departure window is ${bestHour}, while the heaviest congestion typically falls in the ${worstHour} slot. We recompute these windows every night from the most recent 4 weeks of TomTom polling: shifting your departure even 15–20 minutes off the main peak shaves 8–12 minutes off the average wait. The same pipeline powers the interactive map widget elsewhere on the site, where you can compare ${crossingLabel} side-by-side with alternative crossings on the same corridor and pick the one with the lowest current polling time.`,
-    `Remember that the evening return window (16:30–19:30 CET) flips the direction of flow: the dominant outbound traffic is Switzerland → Italy, so queues build up on the Swiss side. Experienced cross-border workers therefore re-check the live webcam (when listed above) in the last five minutes before leaving the office: a quick visual confirmation is often more reliable than a forecast, especially on days with non-standard events (accidents, A2 motorway works, protests around Como or Varese). If you'd rather receive an automatic alert whenever the wait drops below a chosen threshold, the "frontaliere notification" feature on the salary calculator subscribes you to the same live feed shown on this page.`,
-    `Consider the fiscal context of crossing ${crossingLabel} daily as well: time lost in queues is part of the transport expenses you can declare in the cross-border CU model. Ticino's withholding-tax tables (TIS) include a per-kilometre allowance for the home-to-work route, but the extra time due to cross-border congestion is not explicitly compensated. For commuters along the ${regionDisplay} corridor, regularly monitoring wait-time trends and evaluating alternatives — carpooling, the TILO S40 or S50 train depending on the crossing, or a flexible schedule negotiated with the Swiss employer — is therefore worth the analysis. This page includes the map of nearby alternative crossings with their current wait times and kilometre distances, so you can quantify the trade-off in minutes and fuel cost across crossing options in the same time slot.`,
-    `Since January 2024, the New Italy–Switzerland Tax Agreement also updates the taxation of remote-work days: cross-border workers can work from home up to 25 % of annual working days without losing the frontaliere fiscal status. For those who cross ${crossingLabel} every day, this means cutting the number of border crossings no longer costs the favourable IRPEF regime — a concrete factor when chronic queues or extended motorway works hit the corridor. Better-organised Ticino employers (Lugano, Mendrisio, Bellinzona) have already updated contracts to embed this flexibility; check with your HR whether your employer supports hybrid work. For a side-by-side comparison of frontaliere net pay vs. smart-working net pay, use the site's salary simulator: it covers both scenarios with 2026-current calculations.`,
+    `Remember that the evening return window (16:30–19:30 CET) flips the direction of flow: the dominant outbound traffic is Switzerland → ${countryTokens.name}, so queues build up on the Swiss side. ${
+      country === 'IT'
+        ? `Experienced cross-border workers therefore re-check the live webcam (when listed above) in the last five minutes before leaving the office: a quick visual confirmation is often more reliable than a forecast, especially on days with non-standard events (accidents, A2 motorway works, protests around Como or Varese). If you'd rather receive an automatic alert whenever the wait drops below a chosen threshold, the "frontaliere notification" feature on the salary calculator subscribes you to the same live feed shown on this page.`
+        : `Experienced commuters therefore re-check the live webcam (when listed above) in the last five minutes before leaving the office: a quick visual confirmation is often more reliable than a forecast, especially on days with non-standard events (accidents, roadworks, local events). The site's interactive map shows nearby crossings in real time, useful for a quick comparison before you leave.`
+    }`,
+    country === 'IT'
+      ? `Consider the fiscal context of crossing ${crossingLabel} daily as well: time lost in queues is part of the transport expenses you can declare in the cross-border CU model. Ticino's withholding-tax tables (TIS) include a per-kilometre allowance for the home-to-work route, but the extra time due to cross-border congestion is not explicitly compensated. For commuters along the ${regionDisplay} corridor, regularly monitoring wait-time trends and evaluating alternatives — carpooling, the TILO S40 or S50 train depending on the crossing, or a flexible schedule negotiated with the Swiss employer — is therefore worth the analysis. This page includes the map of nearby alternative crossings with their current wait times and kilometre distances, so you can quantify the trade-off in minutes and fuel cost across crossing options in the same time slot.`
+      : `Consider the overall cost of crossing ${crossingLabel} daily as well: time lost in queues adds to fuel cost and, for those on fixed working hours, to actual lost working time. Regular commuters along the ${regionDisplay} corridor benefit from regularly monitoring wait-time trends and evaluating alternatives such as carpooling, cross-border public transport where available, or a flexible schedule agreed with the Swiss employer. This page includes the map of nearby alternative crossings with their current wait times and kilometre distances, so you can compare crossing options in the same time slot.`,
+    country === 'IT'
+      ? `Since January 2024, the New Italy–Switzerland Tax Agreement also updates the taxation of remote-work days: cross-border workers can work from home up to 25 % of annual working days without losing the frontaliere fiscal status. For those who cross ${crossingLabel} every day, this means cutting the number of border crossings no longer costs the favourable IRPEF regime — a concrete factor when chronic queues or extended motorway works hit the corridor. Better-organised Ticino employers (Lugano, Mendrisio, Bellinzona) have already updated contracts to embed this flexibility; check with your HR whether your employer supports hybrid work. For a side-by-side comparison of frontaliere net pay vs. smart-working net pay, use the site's salary simulator: it covers both scenarios with 2026-current calculations.`
+      : `Many Swiss employers now offer flexible-work or partial remote-work options: for those crossing ${crossingLabel} regularly, even one or two home-office days per week directly cuts exposure to peak queues. Tax rules for cross-border remote work vary by country — always check the conditions that apply to your specific situation with your employer or a tax adviser before changing your commuting routine.`,
   ] : locale === 'de' ? [
-    `Die Wartezeit am Grenzübergang ${crossingLabel} hängt von drei Hauptfaktoren ab: dem einfahrenden Verkehrsaufkommen (Pendlerströme der Grenzgänger und Wochenend-Tourismus), der Anzahl des Zollpersonals in der aktiven Schicht und gezielten Kontrollen bei Lastwagen, Bardevisen-Deklarationen oder kontrollierten Substanzen. Zwischen Oktober und Februar können sich die regulären Öffnungszeiten des Übergangs aufgrund nächtlicher Schliessungen oder italienisch-schweizerischer Feiertage verschieben — überprüfe immer den offiziellen Kalender der Eidgenössischen Zollverwaltung (AFD), bevor du losfährst.`,
+    `Die Wartezeit am Grenzübergang ${crossingLabel} hängt von drei Hauptfaktoren ab: dem einfahrenden Verkehrsaufkommen (Pendlerströme der Grenzgänger und Wochenend-Tourismus), der Anzahl des Zollpersonals in der aktiven Schicht und gezielten Kontrollen bei Lastwagen, Bardevisen-Deklarationen oder kontrollierten Substanzen. Zwischen Oktober und Februar können sich die regulären Öffnungszeiten des Übergangs aufgrund nächtlicher Schliessungen oder lokaler Feiertage verschieben — überprüfe immer den offiziellen Kalender der Eidgenössischen Zollverwaltung (AFD), bevor du losfährst.`,
     `Für regelmässige Pendler aus dem Einzugsgebiet ${regionDisplay} liegt das optimale Abfahrtsfenster bei ${bestHour}, die dichteste Stauzeit fällt typischerweise in die ${worstHour}-Phase. Wir berechnen diese Fenster jede Nacht neu aus den letzten vier Wochen der TomTom-Messungen: Wenn du deine Abfahrt nur um 15–20 Minuten ausserhalb der Hauptspitze verschiebst, sparst du im Durchschnitt 8–12 Minuten Wartezeit. Dieselbe Pipeline speist das interaktive Karten-Widget auf der Website, mit dem du ${crossingLabel} direkt mit Alternativübergängen im gleichen Korridor vergleichen und den Übergang mit der derzeit geringsten Wartezeit wählen kannst.`,
-    `Beachte, dass das abendliche Rückreisefenster (16:30–19:30 MEZ) die Verkehrsrichtung umkehrt: Die Hauptbewegung verläuft von der Schweiz nach Italien, sodass sich die Staus auf der Schweizer Seite bilden. Erfahrene Grenzgänger prüfen daher die Live-Webcam (sofern oben aufgeführt) in den letzten fünf Minuten vor dem Verlassen des Büros — eine kurze visuelle Bestätigung ist oft zuverlässiger als eine Prognose, besonders an Tagen mit Sonderereignissen (Unfälle, A2-Bauarbeiten, Demonstrationen rund um Como oder Varese). Wer lieber eine automatische Benachrichtigung erhält, sobald die Wartezeit unter einen gewählten Schwellenwert sinkt, kann die "Grenzgänger-Benachrichtigung" im Lohnrechner aktivieren — sie nutzt denselben Live-Datenfeed wie diese Seite.`,
-    `Berücksichtige auch den steuerlichen Kontext der täglichen Grenzfahrt durch ${crossingLabel}: Die in der Warteschlange verbrachte Zeit zählt zu den Fahrtkosten, die im CU-Modell des Grenzgängers absetzbar sind. Die Tessiner Quellensteuertabellen (TIS) enthalten eine Kilometerpauschale für den Arbeitsweg, doch die zusätzliche Zeit aufgrund der grenzüberschreitenden Verkehrsstauung wird nicht explizit ausgeglichen. Für Pendler auf der Strecke ${regionDisplay} lohnt es sich daher, die Entwicklung der Wartezeiten regelmässig zu beobachten und Alternativen wie Fahrgemeinschaften, den Zug (TILO-Linie S40 oder S50 je nach Übergang) oder flexible Arbeitszeiten mit dem Schweizer Arbeitgeber zu prüfen. Diese Seite zeigt die Karte der nahegelegenen Alternativübergänge mit aktuellen Wartezeiten und Kilometerdistanz, damit du den Unterschied in Minuten und Treibstoffkosten zwischen den Übergangsoptionen im selben Zeitfenster quantifizieren kannst.`,
-    `Seit Januar 2024 ändert das neue italienisch–schweizerische Steuerabkommen auch die Besteuerung der Homeoffice-Tage: Grenzgänger dürfen bis zu 25 % der jährlichen Arbeitstage von zu Hause arbeiten, ohne ihren Grenzgänger-Steuerstatus zu verlieren. Für alle, die täglich ${crossingLabel} überqueren, bedeutet das: Die Reduktion der Grenzübertritte führt nicht mehr zum Verlust des günstigen IRPEF-Regimes — ein konkreter Faktor, wenn chronische Staus oder grossflächige Autobahnarbeiten den Korridor lähmen. Grössere Tessiner Arbeitgeber (Lugano, Mendrisio, Bellinzona) haben ihre Verträge bereits angepasst; kläre mit deiner HR-Abteilung, ob dein Arbeitgeber hybrides Arbeiten unterstützt. Für einen Vergleich zwischen Grenzgänger-Nettolohn und Smart-Working-Nettolohn nutze den Lohnrechner der Website: Beide Szenarien werden mit aktualisierter Berechnung für 2026 abgedeckt.`,
+    `Beachte, dass das abendliche Rückreisefenster (16:30–19:30 MEZ) die Verkehrsrichtung umkehrt: Die Hauptbewegung verläuft von der Schweiz nach ${countryTokens.name}, sodass sich die Staus auf der Schweizer Seite bilden. ${
+      country === 'IT'
+        ? `Erfahrene Grenzgänger prüfen daher die Live-Webcam (sofern oben aufgeführt) in den letzten fünf Minuten vor dem Verlassen des Büros — eine kurze visuelle Bestätigung ist oft zuverlässiger als eine Prognose, besonders an Tagen mit Sonderereignissen (Unfälle, A2-Bauarbeiten, Demonstrationen rund um Como oder Varese). Wer lieber eine automatische Benachrichtigung erhält, sobald die Wartezeit unter einen gewählten Schwellenwert sinkt, kann die "Grenzgänger-Benachrichtigung" im Lohnrechner aktivieren — sie nutzt denselben Live-Datenfeed wie diese Seite.`
+        : `Erfahrene Pendler prüfen daher die Live-Webcam (sofern oben aufgeführt) in den letzten fünf Minuten vor dem Verlassen des Büros — eine kurze visuelle Bestätigung ist oft zuverlässiger als eine Prognose, besonders an Tagen mit Sonderereignissen (Unfälle, Strassenarbeiten, lokale Ereignisse). Die interaktive Karte der Website zeigt in Echtzeit, wie sich die nahegelegenen Übergänge verhalten — nützlich für einen schnellen Vergleich vor der Abfahrt.`
+    }`,
+    country === 'IT'
+      ? `Berücksichtige auch den steuerlichen Kontext der täglichen Grenzfahrt durch ${crossingLabel}: Die in der Warteschlange verbrachte Zeit zählt zu den Fahrtkosten, die im CU-Modell des Grenzgängers absetzbar sind. Die Tessiner Quellensteuertabellen (TIS) enthalten eine Kilometerpauschale für den Arbeitsweg, doch die zusätzliche Zeit aufgrund der grenzüberschreitenden Verkehrsstauung wird nicht explizit ausgeglichen. Für Pendler auf der Strecke ${regionDisplay} lohnt es sich daher, die Entwicklung der Wartezeiten regelmässig zu beobachten und Alternativen wie Fahrgemeinschaften, den Zug (TILO-Linie S40 oder S50 je nach Übergang) oder flexible Arbeitszeiten mit dem Schweizer Arbeitgeber zu prüfen. Diese Seite zeigt die Karte der nahegelegenen Alternativübergänge mit aktuellen Wartezeiten und Kilometerdistanz, damit du den Unterschied in Minuten und Treibstoffkosten zwischen den Übergangsoptionen im selben Zeitfenster quantifizieren kannst.`
+      : `Berücksichtige auch die Gesamtkosten der täglichen Grenzfahrt durch ${crossingLabel}: Die in der Warteschlange verbrachte Zeit summiert sich zu Treibstoffkosten und, bei fester Arbeitszeit, zu tatsächlich verlorener Arbeitszeit. Pendler auf der Strecke ${regionDisplay} profitieren davon, die Entwicklung der Wartezeiten regelmässig zu beobachten und Alternativen wie Fahrgemeinschaften, grenzüberschreitenden öffentlichen Verkehr (wo verfügbar) oder flexible Arbeitszeiten mit dem Schweizer Arbeitgeber zu prüfen. Diese Seite zeigt die Karte der nahegelegenen Alternativübergänge mit aktuellen Wartezeiten und Kilometerdistanz, damit du die Übergangsoptionen im selben Zeitfenster vergleichen kannst.`,
+    country === 'IT'
+      ? `Seit Januar 2024 ändert das neue italienisch–schweizerische Steuerabkommen auch die Besteuerung der Homeoffice-Tage: Grenzgänger dürfen bis zu 25 % der jährlichen Arbeitstage von zu Hause arbeiten, ohne ihren Grenzgänger-Steuerstatus zu verlieren. Für alle, die täglich ${crossingLabel} überqueren, bedeutet das: Die Reduktion der Grenzübertritte führt nicht mehr zum Verlust des günstigen IRPEF-Regimes — ein konkreter Faktor, wenn chronische Staus oder grossflächige Autobahnarbeiten den Korridor lähmen. Grössere Tessiner Arbeitgeber (Lugano, Mendrisio, Bellinzona) haben ihre Verträge bereits angepasst; kläre mit deiner HR-Abteilung, ob dein Arbeitgeber hybrides Arbeiten unterstützt. Für einen Vergleich zwischen Grenzgänger-Nettolohn und Smart-Working-Nettolohn nutze den Lohnrechner der Website: Beide Szenarien werden mit aktualisierter Berechnung für 2026 abgedeckt.`
+      : `Viele Schweizer Arbeitgeber bieten heute flexible Arbeitszeiten oder anteiliges Homeoffice an: Für alle, die regelmässig ${crossingLabel} überqueren, reduziert bereits ein oder zwei Homeoffice-Tage pro Woche die Belastung durch Stosszeiten-Staus direkt. Die steuerlichen Regeln für grenzüberschreitendes Homeoffice unterscheiden sich von Land zu Land — kläre die für deine Situation geltenden Bedingungen immer mit deinem Arbeitgeber oder einem Steuerberater, bevor du deine Pendelroutine änderst.`,
   ] : [
-    `Le temps d'attente au passage frontalier ${crossingLabel} dépend de trois facteurs principaux : le volume de trafic entrant (lié aux flux pendulaires des frontaliers et au tourisme du week-end), l'effectif douanier présent sur l'équipe en cours et la présence de contrôles ciblés sur les poids lourds, les déclarations de devises ou les substances contrôlées. Entre octobre et février, les horaires d'ouverture standard du passage peuvent évoluer en raison de fermetures nocturnes ou de jours fériés italo-suisses — vérifiez toujours le calendrier officiel de l'AFD avant de partir.`,
+    `Le temps d'attente au passage frontalier ${crossingLabel} dépend de trois facteurs principaux : le volume de trafic entrant (lié aux flux pendulaires des frontaliers et au tourisme du week-end), l'effectif douanier présent sur l'équipe en cours et la présence de contrôles ciblés sur les poids lourds, les déclarations de devises ou les substances contrôlées. Entre octobre et février, les horaires d'ouverture standard du passage peuvent évoluer en raison de fermetures nocturnes ou de jours fériés locaux — vérifiez toujours le calendrier officiel de l'AFD avant de partir.`,
     `Pour les frontaliers réguliers de la zone ${regionDisplay}, la fenêtre de départ optimale est ${bestHour}, tandis que la période la plus congestionnée se situe typiquement autour de ${worstHour}. Ces fenêtres sont recalculées chaque nuit à partir des 4 dernières semaines de mesures TomTom : décaler votre départ de seulement 15 à 20 minutes par rapport au pic principal peut réduire l'attente de 8 à 12 minutes en moyenne. Le même pipeline alimente le widget cartographique interactif du site, où vous pouvez comparer ${crossingLabel} avec les passages alternatifs du même corridor et choisir celui dont le temps de polling est actuellement le plus bas.`,
-    `N'oubliez pas que la fenêtre de retour en soirée (16h30–19h30 CET) inverse le sens du flux : le trafic prédominant va de Suisse vers Italie, donc les files se forment côté suisse. Les frontaliers expérimentés vérifient ainsi la webcam en direct (si listée plus haut) dans les cinq dernières minutes avant de quitter le bureau : une confirmation visuelle rapide est souvent plus fiable qu'une prévision, surtout les jours d'événements non standards (accidents, chantiers sur l'A2, manifestations autour de Côme ou Varèse). Pour recevoir une alerte automatique dès que l'attente passe sous un seuil choisi, activez la fonction "notification frontalier" du calculateur de salaire : elle utilise le même flux de données en direct que cette page.`,
-    `Tenez également compte du contexte fiscal du passage quotidien par ${crossingLabel} : le temps perdu dans la file fait partie des frais de transport déductibles dans le modèle CU du frontalier. Les tables d'imposition à la source du Tessin (TIS) intègrent une indemnité kilométrique pour le trajet domicile-travail, mais le temps supplémentaire dû à la congestion transfrontalière n'est pas explicitement compensé. Pour les pendulaires de l'axe ${regionDisplay}, il est donc judicieux de suivre régulièrement l'évolution des temps d'attente et d'évaluer des alternatives — covoiturage, train (ligne TILO S40 ou S50 selon le passage), ou horaire flexible négocié avec l'employeur suisse. Cette page inclut la carte des passages alternatifs voisins avec leurs temps d'attente actuels et la distance en kilomètres, pour quantifier l'écart en minutes et en coût carburant entre les différentes options dans le même créneau.`,
-    `Depuis janvier 2024, le nouvel Accord fiscal Italie–Suisse modifie également la fiscalité des jours de télétravail : les frontaliers peuvent travailler depuis chez eux jusqu'à 25 % des jours ouvrés annuels sans perdre le statut fiscal de frontalier. Pour ceux qui traversent ${crossingLabel} chaque jour, cela signifie que réduire les passages frontaliers ne coûte plus la perte du régime IRPEF avantageux — un facteur concret lorsqu'apparaissent des files chroniques ou des chantiers prolongés sur l'autoroute. Les employeurs tessinois mieux structurés (Lugano, Mendrisio, Bellinzone) ont déjà actualisé les contrats pour intégrer cette flexibilité ; vérifiez avec votre RH si votre employeur propose le travail hybride. Pour comparer net frontalier et net télétravail, utilisez le simulateur de salaires du site : il couvre les deux scénarios avec un calcul à jour pour 2026.`,
+    `N'oubliez pas que la fenêtre de retour en soirée (16h30–19h30 CET) inverse le sens du flux : le trafic prédominant va de Suisse vers ${countryTokens.name}, donc les files se forment côté suisse. ${
+      country === 'IT'
+        ? `Les frontaliers expérimentés vérifient ainsi la webcam en direct (si listée plus haut) dans les cinq dernières minutes avant de quitter le bureau : une confirmation visuelle rapide est souvent plus fiable qu'une prévision, surtout les jours d'événements non standards (accidents, chantiers sur l'A2, manifestations autour de Côme ou Varèse). Pour recevoir une alerte automatique dès que l'attente passe sous un seuil choisi, activez la fonction "notification frontalier" du calculateur de salaire : elle utilise le même flux de données en direct que cette page.`
+        : `Les pendulaires expérimentés vérifient ainsi la webcam en direct (si listée plus haut) dans les cinq dernières minutes avant de quitter le bureau : une confirmation visuelle rapide est souvent plus fiable qu'une prévision, surtout les jours d'événements non standards (accidents, travaux routiers, événements locaux). La carte interactive du site montre en temps réel le comportement des passages voisins — utile pour une comparaison rapide avant de partir.`
+    }`,
+    country === 'IT'
+      ? `Tenez également compte du contexte fiscal du passage quotidien par ${crossingLabel} : le temps perdu dans la file fait partie des frais de transport déductibles dans le modèle CU du frontalier. Les tables d'imposition à la source du Tessin (TIS) intègrent une indemnité kilométrique pour le trajet domicile-travail, mais le temps supplémentaire dû à la congestion transfrontalière n'est pas explicitement compensé. Pour les pendulaires de l'axe ${regionDisplay}, il est donc judicieux de suivre régulièrement l'évolution des temps d'attente et d'évaluer des alternatives — covoiturage, train (ligne TILO S40 ou S50 selon le passage), ou horaire flexible négocié avec l'employeur suisse. Cette page inclut la carte des passages alternatifs voisins avec leurs temps d'attente actuels et la distance en kilomètres, pour quantifier l'écart en minutes et en coût carburant entre les différentes options dans le même créneau.`
+      : `Tenez également compte du coût global du passage quotidien par ${crossingLabel} : le temps perdu dans la file se traduit en coût carburant et, pour un horaire de travail fixe, en temps de travail réellement perdu. Pour les pendulaires de l'axe ${regionDisplay}, il est donc judicieux de suivre régulièrement l'évolution des temps d'attente et d'évaluer des alternatives — covoiturage, transports publics transfrontaliers (là où ils existent), ou horaire flexible négocié avec l'employeur suisse. Cette page inclut la carte des passages alternatifs voisins avec leurs temps d'attente actuels et la distance en kilomètres, pour comparer les différentes options dans le même créneau.`,
+    country === 'IT'
+      ? `Depuis janvier 2024, le nouvel Accord fiscal Italie–Suisse modifie également la fiscalité des jours de télétravail : les frontaliers peuvent travailler depuis chez eux jusqu'à 25 % des jours ouvrés annuels sans perdre le statut fiscal de frontalier. Pour ceux qui traversent ${crossingLabel} chaque jour, cela signifie que réduire les passages frontaliers ne coûte plus la perte du régime IRPEF avantageux — un facteur concret lorsqu'apparaissent des files chroniques ou des chantiers prolongés sur l'autoroute. Les employeurs tessinois mieux structurés (Lugano, Mendrisio, Bellinzone) ont déjà actualisé les contrats pour intégrer cette flexibilité ; vérifiez avec votre RH si votre employeur propose le travail hybride. Pour comparer net frontalier et net télétravail, utilisez le simulateur de salaires du site : il couvre les deux scénarios avec un calcul à jour pour 2026.`
+      : `De nombreux employeurs suisses proposent aujourd'hui des horaires flexibles ou du télétravail partiel : pour ceux qui traversent régulièrement ${crossingLabel}, ne serait-ce qu'un ou deux jours de télétravail par semaine réduit directement l'exposition aux files aux heures de pointe. Les règles fiscales applicables au télétravail transfrontalier varient selon les pays — vérifiez toujours les conditions applicables à votre situation avec votre employeur ou un conseiller fiscal avant de modifier votre routine de déplacement.`,
   ];
   return `<section class="s-6B_yvh">
     <h2 style="${H2_STYLE}">${esc(headline)}</h2>
@@ -869,6 +986,12 @@ function renderLeafLivePlanningProse(
 ): string {
   const regionDisplay = regionLabel(COPY[locale], region);
   const altSentence = altLabels.length > 0 ? altLabels.join(' · ') : '';
+  // The Ticino–Italy corridor has verified illustrative travel-time facts
+  // (Lugano–Brogeda via A2, "Italian side" phrasing). Those facts do not
+  // hold for the Switzerland–Germany corridor, so the second planning
+  // paragraph branches on the crossing's own country rather than reusing
+  // Italy-specific numbers/place names on non-Italy pages.
+  const country = REGION_TO_COUNTRY[region];
   const headline =
     locale === 'it' ? `Pianificare il passaggio a ${crossingLabel}: snapshot, dato live e finestre di picco`
     : locale === 'en' ? `Planning the ${crossingLabel} crossing: snapshot, live reading and peak windows`
@@ -876,16 +999,32 @@ function renderLeafLivePlanningProse(
     : `Planifier le passage de ${crossingLabel} : instantané, valeur live et heures de pointe`;
   const paragraphs = locale === 'it' ? [
     `Il numero che vedi nella card "Stato attuale" di ${crossingLabel} può cambiare anche dopo l'apertura della pagina. Al momento della build (l'orario indicato accanto alla pillola "snapshot") leggiamo lo stato dalla collezione Firestore alimentata dal cron TomTom; quando il browser carica la pagina, uno script di hydration di circa 2 KB richiede via REST la lettura più recente e sostituisce in-place i minuti, l'ora di aggiornamento e la pillola — che diventa "live (Firestore, agg. HH:MM)". Se il browser blocca la richiesta (estensioni privacy, rete aziendale restrittiva o offline), continui a vedere lo snapshot di build: è un dato reale, ma più vecchio. Per ${crossingLabel} la finestra di picco rilevata sulle ultime 4 settimane è ${peakWindow || '6:30–8:30 e 17:00–19:00'} CET, valore coerente con il pattern pendolare ${regionDisplay}.`,
-    `Se il dato live mostra una coda significativa, valuta i valichi della stessa zona: ${altSentence || 'i valichi alternativi listati sopra'}. Le pagine corrispondenti hanno la stessa pipeline di hydration, quindi puoi tenerne due aperte in tab separati e scegliere quella con il numero più basso al momento della partenza. Ricorda che il valore "min di attesa" misura solo il segmento di approccio + checkpoint: il tempo di percorrenza dell'autostrada A2 da Lugano a ${crossingLabel} non è incluso, e va sommato a parte (tipicamente 12–25 minuti a seconda del punto di origine in Ticino). Per chi rientra di sera dal lavoro a Lugano, Mendrisio o Bellinzona, la differenza tra valico autostradale e valico locale può variare di 8–15 minuti complessivi anche quando il dato di coda è simile, perché lo svincolo locale evita le riconfigurazioni di corsia tipiche del lato italiano dell'autostrada.`,
+    `Se il dato live mostra una coda significativa, valuta i valichi della stessa zona: ${altSentence || 'i valichi alternativi listati sopra'}. Le pagine corrispondenti hanno la stessa pipeline di hydration, quindi puoi tenerne due aperte in tab separati e scegliere quella con il numero più basso al momento della partenza. ${
+      country === 'IT'
+        ? `Ricorda che il valore "min di attesa" misura solo il segmento di approccio + checkpoint: il tempo di percorrenza dell'autostrada A2 da Lugano a ${crossingLabel} non è incluso, e va sommato a parte (tipicamente 12–25 minuti a seconda del punto di origine in Ticino). Per chi rientra di sera dal lavoro a Lugano, Mendrisio o Bellinzona, la differenza tra valico autostradale e valico locale può variare di 8–15 minuti complessivi anche quando il dato di coda è simile, perché lo svincolo locale evita le riconfigurazioni di corsia tipiche del lato italiano dell'autostrada.`
+        : `Ricorda che il valore "min di attesa" misura solo il segmento di approccio + checkpoint: il tempo di percorrenza dal tuo punto di partenza fino a ${crossingLabel} non è incluso nel dato e va sommato a parte, in base alla distanza reale del tuo tragitto. Per chi rientra di sera dal lavoro, la differenza tra un valico principale e un valico locale della stessa zona può comunque valere alcuni minuti complessivi anche quando il dato di coda è simile, perché lo svincolo locale evita spesso le code improvvise tipiche dei valichi a maggior volume.`
+    }`,
   ] : locale === 'en' ? [
     `The number shown in the "Current status" card for ${crossingLabel} can change after you open the page. At build time (the timestamp next to the "snapshot" pill) we read the state from the Firestore collection fed by the TomTom cron; when the browser loads the page, a ~2 KB hydration script requests the freshest reading via REST and swaps the minute count, the update timestamp and the pill — which becomes "live (Firestore, upd. HH:MM)". If the browser blocks the request (privacy extensions, restrictive corporate network or offline), you keep seeing the build-time snapshot: it is a real measurement, just older. For ${crossingLabel} the peak window observed over the last 4 weeks is ${peakWindow || '6:30–8:30 and 17:00–19:00'} CET, consistent with the ${regionDisplay} commuter pattern.`,
-    `If the live reading shows a significant queue, consider the crossings in the same cluster: ${altSentence || 'the alternative crossings listed above'}. The corresponding pages share the same hydration pipeline, so you can keep two open in separate tabs and pick the one with the lowest number at departure time. Remember that the "wait minutes" value only measures the approach + checkpoint segment: the A2 motorway travel time from Lugano to ${crossingLabel} is not included and must be added separately (typically 12–25 minutes depending on the Ticino starting point). For those returning in the evening from work in Lugano, Mendrisio or Bellinzona, the difference between motorway and local crossing can vary by 8–15 total minutes even when the queue figure is similar, because the local exit avoids the lane-reconfiguration patterns typical of the Italian side of the motorway.`,
+    `If the live reading shows a significant queue, consider the crossings in the same cluster: ${altSentence || 'the alternative crossings listed above'}. The corresponding pages share the same hydration pipeline, so you can keep two open in separate tabs and pick the one with the lowest number at departure time. ${
+      country === 'IT'
+        ? `Remember that the "wait minutes" value only measures the approach + checkpoint segment: the A2 motorway travel time from Lugano to ${crossingLabel} is not included and must be added separately (typically 12–25 minutes depending on the Ticino starting point). For those returning in the evening from work in Lugano, Mendrisio or Bellinzona, the difference between motorway and local crossing can vary by 8–15 total minutes even when the queue figure is similar, because the local exit avoids the lane-reconfiguration patterns typical of the Italian side of the motorway.`
+        : `Remember that the "wait minutes" value only measures the approach + checkpoint segment: the travel time from your own starting point to ${crossingLabel} is not included in the figure and must be added separately, depending on your actual route. For those returning in the evening, the difference between a main crossing and a local crossing in the same area can still be worth a few total minutes even when the queue figure is similar, because the local exit often avoids the sudden backups typical of higher-volume crossings.`
+    }`,
   ] : locale === 'de' ? [
     `Die in der Karte "Aktueller Stand" für ${crossingLabel} angezeigte Zahl kann sich auch nach dem Öffnen der Seite ändern. Beim Build-Zeitpunkt (der Zeitstempel neben der "Snapshot"-Pille) lesen wir den Zustand aus der Firestore-Kollektion, die der TomTom-Cron speist; sobald der Browser die Seite lädt, fordert ein etwa 2 KB grosses Hydration-Skript per REST die aktuellste Messung an und ersetzt die Minutenzahl, den Aktualisierungszeitstempel und die Pille — die zu "live (Firestore, akt. HH:MM)" wird. Wenn der Browser die Anfrage blockiert (Privacy-Erweiterungen, restriktives Firmennetzwerk oder offline), siehst du weiterhin den Build-Snapshot: ein echter, aber älterer Messwert. Für ${crossingLabel} liegt das Spitzenfenster der letzten 4 Wochen bei ${peakWindow || '6:30–8:30 und 17:00–19:00'} MEZ, im Einklang mit dem Pendlermuster ${regionDisplay}.`,
-    `Wenn der Live-Wert eine deutliche Warteschlange anzeigt, prüfe die Übergänge derselben Zone: ${altSentence || 'die oben gelisteten Alternativübergänge'}. Die zugehörigen Seiten teilen dieselbe Hydration-Pipeline, du kannst also zwei in getrennten Tabs offen lassen und beim Losfahren denjenigen mit dem kleinsten Wert wählen. Beachte, dass der Wert "Wartezeit (Min.)" nur das Annäherungs- + Kontrollsegment misst: Die Fahrzeit auf der A2 von Lugano nach ${crossingLabel} ist nicht enthalten und muss separat addiert werden (typischerweise 12–25 Minuten je nach Tessiner Ausgangspunkt). Für die Rückfahrer am Abend aus Lugano, Mendrisio oder Bellinzona kann der Unterschied zwischen Autobahn- und lokalem Übergang 8–15 Minuten Gesamtzeit ausmachen, auch wenn die Warteschlangenanzeige ähnlich ist — die lokale Ausfahrt umgeht die für die italienische Autobahnseite typischen Spurumbauten.`,
+    `Wenn der Live-Wert eine deutliche Warteschlange anzeigt, prüfe die Übergänge derselben Zone: ${altSentence || 'die oben gelisteten Alternativübergänge'}. Die zugehörigen Seiten teilen dieselbe Hydration-Pipeline, du kannst also zwei in getrennten Tabs offen lassen und beim Losfahren denjenigen mit dem kleinsten Wert wählen. ${
+      country === 'IT'
+        ? `Beachte, dass der Wert "Wartezeit (Min.)" nur das Annäherungs- + Kontrollsegment misst: Die Fahrzeit auf der A2 von Lugano nach ${crossingLabel} ist nicht enthalten und muss separat addiert werden (typischerweise 12–25 Minuten je nach Tessiner Ausgangspunkt). Für die Rückfahrer am Abend aus Lugano, Mendrisio oder Bellinzona kann der Unterschied zwischen Autobahn- und lokalem Übergang 8–15 Minuten Gesamtzeit ausmachen, auch wenn die Warteschlangenanzeige ähnlich ist — die lokale Ausfahrt umgeht die für die italienische Autobahnseite typischen Spurumbauten.`
+        : `Beachte, dass der Wert "Wartezeit (Min.)" nur das Annäherungs- + Kontrollsegment misst: Die Fahrzeit von deinem Ausgangspunkt bis ${crossingLabel} ist darin nicht enthalten und muss je nach tatsächlicher Strecke separat addiert werden. Für Rückfahrer am Abend kann der Unterschied zwischen einem Hauptübergang und einem lokalen Übergang derselben Zone auch bei ähnlicher Warteschlangenanzeige noch einige Minuten insgesamt ausmachen, weil die lokale Ausfahrt die für stark frequentierte Übergänge typischen plötzlichen Rückstaus oft vermeidet.`
+    }`,
   ] : [
     `Le nombre affiché dans la carte « État actuel » pour ${crossingLabel} peut évoluer après l'ouverture de la page. Au moment de la build (l'horodatage à côté de la pastille « instantané »), nous lisons l'état depuis la collection Firestore alimentée par le cron TomTom ; quand le navigateur charge la page, un script d'hydratation d'environ 2 Ko interroge en REST la mesure la plus récente et remplace les minutes, l'heure de mise à jour et la pastille — qui devient « live (Firestore, maj HH:MM) ». Si le navigateur bloque la requête (extensions de confidentialité, réseau d'entreprise restrictif ou hors ligne), vous continuez à voir l'instantané de build : c'est une vraie mesure, simplement plus ancienne. Pour ${crossingLabel}, la fenêtre de pointe observée sur les 4 dernières semaines est ${peakWindow || '6h30–8h30 et 17h00–19h00'} CET, cohérente avec le motif pendulaire ${regionDisplay}.`,
-    `Si la valeur live affiche une file importante, regardez les passages du même secteur : ${altSentence || 'les passages alternatifs listés plus haut'}. Les pages correspondantes partagent le même pipeline d'hydratation : vous pouvez en garder deux ouvertes dans des onglets séparés et choisir celle avec la valeur la plus basse au moment du départ. Rappelez-vous que la valeur « minutes d'attente » mesure uniquement le segment d'approche + contrôle : le temps de trajet sur l'A2 entre Lugano et ${crossingLabel} n'est pas inclus et doit être additionné séparément (généralement 12–25 minutes selon le point de départ au Tessin). Pour ceux qui rentrent le soir depuis Lugano, Mendrisio ou Bellinzona, l'écart entre passage autoroutier et passage local peut atteindre 8–15 minutes au total même quand la file affichée est similaire, car la sortie locale évite les reconfigurations de voies typiques du côté italien de l'autoroute.`,
+    `Si la valeur live affiche une file importante, regardez les passages du même secteur : ${altSentence || 'les passages alternatifs listés plus haut'}. Les pages correspondantes partagent le même pipeline d'hydratation : vous pouvez en garder deux ouvertes dans des onglets séparés et choisir celle avec la valeur la plus basse au moment du départ. ${
+      country === 'IT'
+        ? `Rappelez-vous que la valeur « minutes d'attente » mesure uniquement le segment d'approche + contrôle : le temps de trajet sur l'A2 entre Lugano et ${crossingLabel} n'est pas inclus et doit être additionné séparément (généralement 12–25 minutes selon le point de départ au Tessin). Pour ceux qui rentrent le soir depuis Lugano, Mendrisio ou Bellinzona, l'écart entre passage autoroutier et passage local peut atteindre 8–15 minutes au total même quand la file affichée est similaire, car la sortie locale évite les reconfigurations de voies typiques du côté italien de l'autoroute.`
+        : `Rappelez-vous que la valeur « minutes d'attente » mesure uniquement le segment d'approche + contrôle : le temps de trajet depuis votre point de départ jusqu'à ${crossingLabel} n'est pas inclus et doit être additionné séparément selon votre itinéraire réel. Pour ceux qui rentrent le soir, l'écart entre un passage principal et un passage local du même secteur peut malgré tout représenter quelques minutes au total même quand la file affichée est similaire, car la sortie locale évite souvent les à-coups soudains typiques des passages à fort volume.`
+    }`,
   ];
   const faqLabels = locale === 'it'
     ? {
@@ -946,32 +1085,56 @@ function renderHubPlanningProse(
   rowCount: number,
 ): string {
   const regionDisplay = region ? regionLabel(COPY[locale], region) : '';
+  // Root scope has no single country (spans every corridor); only a region
+  // scope maps to exactly one via REGION_TO_COUNTRY.
+  const scopeCountry = region ? REGION_TO_COUNTRY[region] : undefined;
   const scopeLabel = region
     ? regionDisplay
     : locale === 'it'
-      ? 'tutti i 26 valichi Ticino–Italia'
+      ? `tutti i ${rowCount} valichi monitorati`
       : locale === 'en'
-        ? 'all 26 Ticino–Italy crossings'
+        ? `all ${rowCount} monitored crossings`
         : locale === 'de'
-          ? 'alle 26 Tessin–Italien-Übergänge'
-          : 'les 26 passages Tessin–Italie';
+          ? `alle ${rowCount} erfassten Übergänge`
+          : `tous les ${rowCount} passages surveillés`;
   const headline =
     locale === 'it' ? `Come scegliere il valico ${region ? `nella zona ${regionDisplay}` : 'più adatto al tuo viaggio'}`
     : locale === 'en' ? `How to choose the right crossing ${region ? `in the ${regionDisplay} area` : 'for your trip'}`
     : locale === 'de' ? `Wie wählt man den richtigen Übergang ${region ? `in der Zone ${regionDisplay}` : 'für die Fahrt'}`
     : `Comment choisir le bon passage ${region ? `dans la zone ${regionDisplay}` : 'pour votre trajet'}`;
+  // The Ticino–Italy corridor has verified illustrative travel times
+  // (Lugano–Brogeda, Mendrisio–Stabio) and named local alternates
+  // (Bizzarone, Stabio, Crociale dei Mulini) from PR #4541. Root scope
+  // spans every corridor and the Germania regions have no equivalent
+  // verified numbers yet, so both get a corridor-agnostic version of the
+  // same decision framework instead of fabricated specifics.
+  const howToChoose = locale === 'it'
+    ? scopeCountry === 'IT'
+      ? `Per scegliere il valico, valuta tre fattori in ordine: (1) tempo di percorrenza dall'origine fino allo svincolo (Lugano–Brogeda è ~12 minuti via A2; Mendrisio–Stabio è ~6 minuti via E35); (2) tempo di coda live in tabella; (3) tipo di valico — autostrada, statale o locale. Un valico autostradale con 12 minuti di coda è quasi sempre più veloce di un locale con 4 minuti di coda, perché lo svincolo statale ha capacità minore e i tempi di percorrenza dei tratti urbani aggiungono ulteriori 5–10 minuti. La regola pratica per i pendolari: usa l'autostrada nei giorni feriali fra le 06:00 e le 09:30 e dopo le 16:00 solo se la coda live è sotto 8 minuti; sopra 15 minuti, conviene quasi sempre passare a un valico locale come Bizzarone, Stabio o Crociale dei Mulini.`
+      : `Per scegliere il valico, valuta tre fattori in ordine: (1) tempo di percorrenza dall'origine fino allo svincolo di frontiera; (2) tempo di coda live in tabella; (3) tipo di valico — autostrada, statale o locale. Un valico principale con più minuti di coda è spesso comunque più veloce di un valico locale con coda apparentemente più breve, perché lo svincolo secondario ha capacità minore e i tratti di accesso urbano aggiungono tempo. Regola pratica per i pendolari: nelle ore di punta (06:00–09:30 e 16:00–19:00) preferisci il valico con la coda live più bassa in tabella, non necessariamente quello più vicino in linea d'aria.`
+    : locale === 'en'
+    ? scopeCountry === 'IT'
+      ? `To pick a crossing, weigh three factors in order: (1) travel time from your origin to the exit (Lugano–Brogeda is ~12 minutes via A2; Mendrisio–Stabio is ~6 minutes via E35); (2) live queue time in the table; (3) crossing type — motorway, main road or local. A motorway crossing with a 12-minute queue is almost always faster than a local one with a 4-minute queue, because the main-road exit has lower capacity and the urban segments add another 5–10 minutes. Commuter rule of thumb: use the motorway on weekdays between 06:00 and 09:30 and after 16:00 only if the live queue is below 8 minutes; above 15 minutes, switching to a local crossing like Bizzarone, Stabio or Crociale dei Mulini is almost always worth it.`
+      : `To pick a crossing, weigh three factors in order: (1) travel time from your origin to the border exit; (2) live queue time in the table; (3) crossing type — motorway, main road or local. A main crossing with a longer queue is often still faster than a local one with an apparently shorter queue, because the secondary exit has lower capacity and urban access roads add extra time. Commuter rule of thumb: during peak hours (06:00–09:30 and 16:00–19:00), prefer whichever crossing shows the lowest live queue in the table, not necessarily the one that is geographically closest.`
+    : locale === 'de'
+    ? scopeCountry === 'IT'
+      ? `Um einen Übergang zu wählen, gewichte drei Faktoren in dieser Reihenfolge: (1) Fahrzeit vom Ausgangspunkt bis zur Ausfahrt (Lugano–Brogeda ca. 12 Minuten via A2; Mendrisio–Stabio ca. 6 Minuten via E35); (2) Live-Wartezeit in der Tabelle; (3) Übergangstyp — Autobahn, Hauptstrasse oder lokal. Ein Autobahnübergang mit 12 Minuten Wartezeit ist fast immer schneller als ein lokaler mit 4 Minuten Wartezeit, weil die Hauptstrassen-Ausfahrt weniger Kapazität hat und die Stadtabschnitte 5–10 zusätzliche Minuten kosten. Pendler-Faustregel: an Werktagen zwischen 06:00 und 09:30 und nach 16:00 nur dann die Autobahn nehmen, wenn die Live-Wartezeit unter 8 Minuten liegt; über 15 Minuten lohnt fast immer der Wechsel auf einen lokalen Übergang wie Bizzarone, Stabio oder Crociale dei Mulini.`
+      : `Um einen Übergang zu wählen, gewichte drei Faktoren in dieser Reihenfolge: (1) Fahrzeit vom Ausgangspunkt bis zur Grenzausfahrt; (2) Live-Wartezeit in der Tabelle; (3) Übergangstyp — Autobahn, Hauptstrasse oder lokal. Ein Hauptübergang mit längerer Wartezeit ist oft trotzdem schneller als ein lokaler mit scheinbar kürzerer Wartezeit, weil die Nebenausfahrt weniger Kapazität hat und die städtischen Zufahrten zusätzliche Zeit kosten. Pendler-Faustregel: Bevorzuge in Spitzenzeiten (06:00–09:30 und 16:00–19:00) den Übergang mit der niedrigsten Live-Wartezeit in der Tabelle, nicht zwangsläufig den geografisch nächstgelegenen.`
+    : scopeCountry === 'IT'
+      ? `Pour choisir un passage, pondérez trois facteurs dans l'ordre : (1) temps de trajet depuis l'origine jusqu'à la sortie (Lugano–Brogeda ~12 minutes via l'A2 ; Mendrisio–Stabio ~6 minutes via l'E35) ; (2) file live affichée dans le tableau ; (3) type de passage — autoroute, route principale ou local. Un passage autoroutier avec 12 minutes de file est presque toujours plus rapide qu'un local avec 4 minutes, car la sortie de route principale a une capacité moindre et les tronçons urbains ajoutent 5 à 10 minutes. Règle empirique pour pendulaires : prendre l'autoroute en semaine entre 06h00 et 09h30 et après 16h00 uniquement si la file live est sous 8 minutes ; au-delà de 15 minutes, basculer sur un passage local comme Bizzarone, Stabio ou Crociale dei Mulini est presque toujours plus rapide.`
+      : `Pour choisir un passage, pondérez trois facteurs dans l'ordre : (1) temps de trajet depuis l'origine jusqu'à la sortie frontalière ; (2) file live affichée dans le tableau ; (3) type de passage — autoroute, route principale ou local. Un passage principal avec une file plus longue est souvent malgré tout plus rapide qu'un passage local à la file apparemment plus courte, car la sortie secondaire a une capacité moindre et les accès urbains ajoutent du temps. Règle empirique pour pendulaires : en heures de pointe (06h00–09h30 et 16h00–19h00), privilégiez le passage affichant la file live la plus basse dans le tableau, pas nécessairement le plus proche géographiquement.`;
   const paragraphs = locale === 'it' ? [
     `I numeri che vedi nella tabella di ${scopeLabel} (${rowCount} ${rowCount === 1 ? 'valico' : 'valichi'}) sono uno snapshot Firestore alimentato dal cron TomTom (workflow GitHub Actions traffic-scheduler.yml), aggiornato ogni 10–15 minuti nelle fasce di punta. Quando apri la pagina, un piccolo script di hydration richiede tramite REST la lettura più fresca e sostituisce ogni cella della colonna "Minuti di attesa" — la pillola accanto alla data passa da "snapshot" a "live (Firestore, agg. HH:MM)". Se l'hydration fallisce (browser offline, estensioni privacy aggressive, reti aziendali con CSP molto rigida), continui a vedere lo snapshot di build: ricarica la pagina o controlla la console se sospetti un blocco.`,
-    `Per scegliere il valico, valuta tre fattori in ordine: (1) tempo di percorrenza dall'origine fino allo svincolo (Lugano–Brogeda è ~12 minuti via A2; Mendrisio–Stabio è ~6 minuti via E35); (2) tempo di coda live in tabella; (3) tipo di valico — autostrada, statale o locale. Un valico autostradale con 12 minuti di coda è quasi sempre più veloce di un locale con 4 minuti di coda, perché lo svincolo statale ha capacità minore e i tempi di percorrenza dei tratti urbani aggiungono ulteriori 5–10 minuti. La regola pratica per i pendolari: usa l'autostrada nei giorni feriali fra le 06:00 e le 09:30 e dopo le 16:00 solo se la coda live è sotto 8 minuti; sopra 15 minuti, conviene quasi sempre passare a un valico locale come Bizzarone, Stabio o Crociale dei Mulini.`,
+    howToChoose,
   ] : locale === 'en' ? [
     `The numbers in the ${scopeLabel} table (${rowCount} crossing${rowCount === 1 ? '' : 's'}) are a Firestore snapshot fed by the TomTom cron (GitHub Actions workflow traffic-scheduler.yml), refreshed every 10–15 minutes during peak windows. When you open the page, a small hydration script requests the freshest reading via REST and swaps every "wait minutes" cell — the pill next to the date flips from "snapshot" to "live (Firestore, upd. HH:MM)". If hydration fails (browser offline, aggressive privacy extensions, corporate networks with strict CSP), you keep seeing the build-time snapshot: reload the page or check the console if you suspect a block.`,
-    `To pick a crossing, weigh three factors in order: (1) travel time from your origin to the exit (Lugano–Brogeda is ~12 minutes via A2; Mendrisio–Stabio is ~6 minutes via E35); (2) live queue time in the table; (3) crossing type — motorway, main road or local. A motorway crossing with a 12-minute queue is almost always faster than a local one with a 4-minute queue, because the main-road exit has lower capacity and the urban segments add another 5–10 minutes. Commuter rule of thumb: use the motorway on weekdays between 06:00 and 09:30 and after 16:00 only if the live queue is below 8 minutes; above 15 minutes, switching to a local crossing like Bizzarone, Stabio or Crociale dei Mulini is almost always worth it.`,
+    howToChoose,
   ] : locale === 'de' ? [
     `Die Zahlen in der Tabelle ${scopeLabel} (${rowCount} ${rowCount === 1 ? 'Übergang' : 'Übergänge'}) sind ein Firestore-Snapshot, gespeist vom TomTom-Cron (GitHub-Actions-Workflow traffic-scheduler.yml), in Spitzenzeiten alle 10–15 Minuten aktualisiert. Beim Öffnen der Seite fordert ein kleines Hydration-Skript per REST die jüngste Messung an und ersetzt jede Zelle der Spalte „Wartezeit (Min.)" — die Pille neben dem Datum wechselt von „Snapshot" zu „live (Firestore, akt. HH:MM)". Schlägt die Hydration fehl (offline, aggressive Privacy-Erweiterungen, Firmennetzwerk mit strenger CSP), siehst du weiterhin den Build-Snapshot: Seite neu laden oder Konsole prüfen, falls du einen Block vermutest.`,
-    `Um einen Übergang zu wählen, gewichte drei Faktoren in dieser Reihenfolge: (1) Fahrzeit vom Ausgangspunkt bis zur Ausfahrt (Lugano–Brogeda ca. 12 Minuten via A2; Mendrisio–Stabio ca. 6 Minuten via E35); (2) Live-Wartezeit in der Tabelle; (3) Übergangstyp — Autobahn, Hauptstrasse oder lokal. Ein Autobahnübergang mit 12 Minuten Wartezeit ist fast immer schneller als ein lokaler mit 4 Minuten Wartezeit, weil die Hauptstrassen-Ausfahrt weniger Kapazität hat und die Stadtabschnitte 5–10 zusätzliche Minuten kosten. Pendler-Faustregel: an Werktagen zwischen 06:00 und 09:30 und nach 16:00 nur dann die Autobahn nehmen, wenn die Live-Wartezeit unter 8 Minuten liegt; über 15 Minuten lohnt fast immer der Wechsel auf einen lokalen Übergang wie Bizzarone, Stabio oder Crociale dei Mulini.`,
+    howToChoose,
   ] : [
     `Les nombres du tableau ${scopeLabel} (${rowCount} passage${rowCount === 1 ? '' : 's'}) sont un instantané Firestore alimenté par le cron TomTom (workflow GitHub Actions traffic-scheduler.yml), rafraîchi toutes les 10–15 minutes en période de pointe. À l'ouverture de la page, un petit script d'hydratation demande la mesure la plus récente via REST et remplace chaque cellule de la colonne « minutes d'attente » — la pastille à côté de la date passe d'« instantané » à « live (Firestore, maj HH:MM) ». Si l'hydratation échoue (navigateur hors ligne, extensions de confidentialité agressives, réseau d'entreprise avec CSP stricte), vous continuez à voir l'instantané de build : rechargez la page ou vérifiez la console en cas de blocage.`,
-    `Pour choisir un passage, pondérez trois facteurs dans l'ordre : (1) temps de trajet depuis l'origine jusqu'à la sortie (Lugano–Brogeda ~12 minutes via l'A2 ; Mendrisio–Stabio ~6 minutes via l'E35) ; (2) file live affichée dans le tableau ; (3) type de passage — autoroute, route principale ou local. Un passage autoroutier avec 12 minutes de file est presque toujours plus rapide qu'un local avec 4 minutes, car la sortie de route principale a une capacité moindre et les tronçons urbains ajoutent 5 à 10 minutes. Règle empirique pour pendulaires : prendre l'autoroute en semaine entre 06h00 et 09h30 et après 16h00 uniquement si la file live est sous 8 minutes ; au-delà de 15 minutes, basculer sur un passage local comme Bizzarone, Stabio ou Crociale dei Mulini est presque toujours plus rapide.`,
+    howToChoose,
   ];
   const faqLabels = locale === 'it'
     ? {
@@ -1364,11 +1527,13 @@ function renderLeafPage(inp: LeafInputs): string {
                 ? 'modérée'
                 : 'longue';
   const waitFmt = liveWait === null ? '—' : `${liveWait} min`;
+  const countryCode = REGION_TO_COUNTRY[region];
   const direction = snapshot?.status === undefined
-    ? 'IT→CH'
+    ? `${countryCode}→CH`
     : new Date().getUTCHours() < 12
-      ? 'IT→CH'
-      : 'CH→IT';
+      ? `${countryCode}→CH`
+      : `CH→${countryCode}`;
+  const countryTokens = PARAGRAPH_COUNTRY_TOKENS[locale][countryCode];
 
   const todayBuckets = aggregateToday(crossing, history, inp.today);
   const weekly = aggregateWeekly(crossing, history);
@@ -1391,7 +1556,7 @@ function renderLeafPage(inp: LeafInputs): string {
   let h1 = copy.leafH1(crossingDisplay, dateStamp);
   const intro = copy.intro(crossingDisplay, statusWord, dateStamp);
   const adviceBannerHtml = renderAdviceBanner(status.label, liveWait, bestHour, worstHour, copy);
-  const paragraph = copy.paragraph(crossingDisplay, direction, bestHour, worstHour);
+  const paragraph = copy.paragraph(crossingDisplay, direction, countryTokens, bestHour, worstHour);
 
   // Webcam: prefer reg.webcams (data/borderCrossings.ts)
   const webcams = reg?.webcams ?? [];
@@ -1571,7 +1736,7 @@ function renderLeafPage(inp: LeafInputs): string {
         (f) =>
           `<details class="s-card" style="margin-bottom:8px">
         <summary class="s-HBR0NM">${esc(f.q(crossingDisplay))}</summary>
-        <p class="s-OCic8j">${esc(f.a(crossingDisplay))}</p>
+        <p class="s-OCic8j">${esc(f.a(crossingDisplay, countryTokens))}</p>
       </details>`,
       )
       .join('')}
@@ -1604,7 +1769,7 @@ function renderLeafPage(inp: LeafInputs): string {
     mainEntity: faqItems.map((f) => ({
       '@type': 'Question',
       name: f.q(crossingDisplay),
-      acceptedAnswer: { '@type': 'Answer', text: f.a(crossingDisplay) },
+      acceptedAnswer: { '@type': 'Answer', text: f.a(crossingDisplay, countryTokens) },
     })),
   });
 
@@ -1744,6 +1909,7 @@ function renderLeafPage(inp: LeafInputs): string {
 
   // Related-links helper context
   const relatedCtx = {
+    borderCrossing: crossing,
     city: CROSSING_TO_WEEKLY_CITY[crossing],
     weeklyCity: CROSSING_TO_WEEKLY_CITY[crossing],
     fuelZone: CROSSING_TO_FUEL_ZONE[crossing],
@@ -1876,14 +2042,14 @@ function renderHubPage(inp: HubInputs): string {
   // is preserved and the Semrush text-to-HTML ratio gate is unchanged.
   const introLong = region
     ? copy.regionalIntro(regionDisplay, crossingsInScope.length)
-    : copy.rootIntro;
+    : copy.rootIntro(crossingsInScope.length);
   // Above-the-fold tagline (≤120 chars) — keeps the lede information-dense
   // without burying the table that visitors actually came for.
   const taglineByLocale: Record<BorderWaitLocale, string> = {
-    it: `Stato live dei ${crossingsInScope.length} valichi ${region ? regionDisplay : 'Ticino–Italia'}, aggiornato ogni 15 minuti nelle ore di punta.`,
-    en: `Live status of ${crossingsInScope.length} ${region ? regionDisplay : 'Ticino–Italy'} crossings, refreshed every 15 minutes during peak hours.`,
-    de: `Live-Status der ${crossingsInScope.length} ${region ? regionDisplay : 'Tessin–Italien'}-Übergänge, alle 15 Minuten während der Spitzenzeiten aktualisiert.`,
-    fr: `État en direct des ${crossingsInScope.length} passages ${region ? regionDisplay : 'Tessin–Italie'}, rafraîchi toutes les 15 minutes en heures de pointe.`,
+    it: `Stato live dei ${crossingsInScope.length} valichi ${region ? regionDisplay : 'svizzeri'}, aggiornato ogni 15 minuti nelle ore di punta.`,
+    en: `Live status of ${crossingsInScope.length} ${region ? regionDisplay : 'Swiss'} crossings, refreshed every 15 minutes during peak hours.`,
+    de: `Live-Status der ${crossingsInScope.length} ${region ? `${regionDisplay}-Übergänge` : 'Schweizer Grenzübergänge'}, alle 15 Minuten während der Spitzenzeiten aktualisiert.`,
+    fr: `État en direct des ${crossingsInScope.length} passages ${region ? regionDisplay : 'suisses'}, rafraîchi toutes les 15 minutes en heures de pointe.`,
   };
   const introTagline = taglineByLocale[locale];
 
@@ -1991,15 +2157,31 @@ function renderHubPage(inp: HubInputs): string {
   h1 = differentiateH1FromTitle(h1, title, locale);
   const description = introLong.slice(0, 180);
 
+  // Root scope has no single country (spans every corridor); only a region
+  // scope maps to exactly one via REGION_TO_COUNTRY. The Ticino–Italy
+  // corridor has named, verified webcam towns (Brogeda, Stabio, Mendrisio,
+  // Chiasso) — those names do not exist on the Switzerland–Germany
+  // corridor's crossings, so this paragraph branches instead of naming
+  // Ticino towns on every hub (including the root hub, which spans both).
+  const hubScopeCountry = region ? REGION_TO_COUNTRY[region] : undefined;
+
   // Secondary editorial paragraph for word-count
   const secondary =
     locale === 'it'
-      ? `Questa pagina si aggiorna automaticamente ad ogni deploy del sito (tipicamente 4–8 volte al giorno). Le misure live provengono dalla stessa pipeline che alimenta la mappa interattiva del sito e la sezione Guida → Traffico dogane nel nostro SPA. Per ogni valico trovi una pagina dedicata con dato corrente, pattern orario oggi, pattern settimanale degli ultimi 30 giorni, webcam live quando disponibile (Brogeda, Stabio, Mendrisio, Chiasso) e FAQ mirate sul comportamento del traffico pendolare Ticino–Italia.`
+      ? hubScopeCountry === 'IT'
+        ? `Questa pagina si aggiorna automaticamente ad ogni deploy del sito (tipicamente 4–8 volte al giorno). Le misure live provengono dalla stessa pipeline che alimenta la mappa interattiva del sito e la sezione Guida → Traffico dogane nel nostro SPA. Per ogni valico trovi una pagina dedicata con dato corrente, pattern orario oggi, pattern settimanale degli ultimi 30 giorni, webcam live quando disponibile (Brogeda, Stabio, Mendrisio, Chiasso) e FAQ mirate sul comportamento del traffico pendolare Ticino–Italia.`
+        : `Questa pagina si aggiorna automaticamente ad ogni deploy del sito (tipicamente 4–8 volte al giorno). Le misure live provengono dalla stessa pipeline che alimenta la mappa interattiva del sito e la sezione Guida → Traffico dogane nel nostro SPA. Per ogni valico trovi una pagina dedicata con dato corrente, pattern orario oggi, pattern settimanale degli ultimi 30 giorni, webcam live dove disponibile e FAQ mirate sul comportamento del traffico pendolare per quel valico.`
       : locale === 'en'
-        ? `This page is regenerated automatically on every deploy (typically 4–8 per day). Live readings come from the same pipeline that powers the site's interactive map and the Guide → Border traffic section in our SPA. For each crossing you get a dedicated page with current data, hourly pattern for today, 30-day weekly pattern, live webcam when available (Brogeda, Stabio, Mendrisio, Chiasso) and FAQs focused on commuter traffic behaviour between Ticino and Italy.`
+        ? hubScopeCountry === 'IT'
+          ? `This page is regenerated automatically on every deploy (typically 4–8 per day). Live readings come from the same pipeline that powers the site's interactive map and the Guide → Border traffic section in our SPA. For each crossing you get a dedicated page with current data, hourly pattern for today, 30-day weekly pattern, live webcam when available (Brogeda, Stabio, Mendrisio, Chiasso) and FAQs focused on commuter traffic behaviour between Ticino and Italy.`
+          : `This page is regenerated automatically on every deploy (typically 4–8 per day). Live readings come from the same pipeline that powers the site's interactive map and the Guide → Border traffic section in our SPA. For each crossing you get a dedicated page with current data, hourly pattern for today, 30-day weekly pattern, live webcam where available and FAQs focused on that crossing's commuter traffic behaviour.`
         : locale === 'de'
-          ? `Diese Seite wird bei jedem Deploy automatisch neu generiert (typischerweise 4–8 pro Tag). Live-Messwerte stammen aus derselben Pipeline, die die interaktive Karte der Seite und den Abschnitt Guida → Grenzverkehr in unserer SPA speist. Für jeden Übergang erhalten Sie eine eigene Seite mit aktuellen Daten, Stundenmuster von heute, Wochenmuster der letzten 30 Tage, Live-Webcam wo verfügbar (Brogeda, Stabio, Mendrisio, Chiasso) und FAQs zum Pendlerverkehr zwischen dem Tessin und Italien.`
-          : `Cette page est régénérée automatiquement à chaque déploiement (généralement 4–8 par jour). Les mesures live proviennent de la même pipeline qui alimente la carte interactive du site et la section Guide → Trafic douane dans notre SPA. Pour chaque passage vous obtenez une page dédiée avec les données actuelles, la tendance horaire du jour, la tendance hebdomadaire sur 30 jours, la webcam en direct quand disponible (Brogeda, Stabio, Mendrisio, Chiasso) et des FAQs centrées sur le trafic pendulaire entre le Tessin et l'Italie.`;
+          ? hubScopeCountry === 'IT'
+            ? `Diese Seite wird bei jedem Deploy automatisch neu generiert (typischerweise 4–8 pro Tag). Live-Messwerte stammen aus derselben Pipeline, die die interaktive Karte der Seite und den Abschnitt Guida → Grenzverkehr in unserer SPA speist. Für jeden Übergang erhalten Sie eine eigene Seite mit aktuellen Daten, Stundenmuster von heute, Wochenmuster der letzten 30 Tage, Live-Webcam wo verfügbar (Brogeda, Stabio, Mendrisio, Chiasso) und FAQs zum Pendlerverkehr zwischen dem Tessin und Italien.`
+            : `Diese Seite wird bei jedem Deploy automatisch neu generiert (typischerweise 4–8 pro Tag). Live-Messwerte stammen aus derselben Pipeline, die die interaktive Karte der Seite und den Abschnitt Guida → Grenzverkehr in unserer SPA speist. Für jeden Übergang erhalten Sie eine eigene Seite mit aktuellen Daten, Stundenmuster von heute, Wochenmuster der letzten 30 Tage, Live-Webcam wo verfügbar und FAQs zum Pendlerverkehr an diesem Übergang.`
+          : hubScopeCountry === 'IT'
+            ? `Cette page est régénérée automatiquement à chaque déploiement (généralement 4–8 par jour). Les mesures live proviennent de la même pipeline qui alimente la carte interactive du site et la section Guide → Trafic douane dans notre SPA. Pour chaque passage vous obtenez une page dédiée avec les données actuelles, la tendance horaire du jour, la tendance hebdomadaire sur 30 jours, la webcam en direct quand disponible (Brogeda, Stabio, Mendrisio, Chiasso) et des FAQs centrées sur le trafic pendulaire entre le Tessin et l'Italie.`
+            : `Cette page est régénérée automatiquement à chaque déploiement (généralement 4–8 par jour). Les mesures live proviennent de la même pipeline qui alimente la carte interactive du site et la section Guide → Trafic douane dans notre SPA. Pour chaque passage vous obtenez une page dédiée avec les données actuelles, la tendance horaire du jour, la tendance hebdomadaire sur 30 jours, la webcam en direct là où elle est disponible et des FAQs centrées sur le trafic pendulaire de ce passage.`;
 
   // Methodology + commuter-impact paragraphs (~1.2 KB visible text per locale).
   // Substantive page-relevant prose explaining how to use this hub for trip
@@ -2007,28 +2189,41 @@ function renderHubPage(inp: HubInputs): string {
   // border commuters. Lifts the hub page above the 10 % text/HTML threshold.
   const methodologyPara =
     locale === 'it'
-      ? `Da dove arrivano i dati e come usarli. La rilevazione "live" che vedi nella tabella è il valore minuti di attesa più recente, in genere refresh ogni 15 minuti durante le fasce critiche (06:00–10:00 in direzione Italia→Ticino e 16:00–20:00 nel senso opposto). Le tre fonti sono, in ordine di priorità: la pagina ufficiale BAZG (Amministrazione federale delle dogane) per i valichi monitorati con telecamera, l'API TomTom Traffic per gli archi stradali in approccio al valico (latenza ~5 minuti), e una stima statica calcolata sui pattern storici quando le altre due fonti tacciono. La differenza fra "live" e "statico" è esplicita su ogni pagina di valico: il banner giallo segnala quando il dato è una stima fallback e non una misura reale.`
+      ? `Da dove arrivano i dati e come usarli. La rilevazione "live" che vedi nella tabella è il valore minuti di attesa più recente, in genere refresh ogni 15 minuti durante le fasce critiche (06:00–10:00 in direzione Svizzera e 16:00–20:00 nel senso opposto). Le tre fonti sono, in ordine di priorità: la pagina ufficiale BAZG (Amministrazione federale delle dogane) per i valichi monitorati con telecamera, l'API TomTom Traffic per gli archi stradali in approccio al valico (latenza ~5 minuti), e una stima statica calcolata sui pattern storici quando le altre due fonti tacciono. La differenza fra "live" e "statico" è esplicita su ogni pagina di valico: il banner giallo segnala quando il dato è una stima fallback e non una misura reale.`
       : locale === 'en'
-        ? `Where the numbers come from and how to use them. The "live" reading in the table is the most recent wait-minutes figure, usually refreshed every 15 minutes during peak windows (06:00–10:00 northbound into Ticino and 16:00–20:00 in the reverse direction). The three sources, in priority order, are: the official BAZG (Swiss Federal Customs) page for camera-monitored crossings, the TomTom Traffic API for the road segments approaching the crossing (~5-minute latency), and a static estimate from historical patterns when the other two are silent. The difference between "live" and "static" is explicit on every crossing page: a yellow banner flags whenever the figure is a fallback estimate rather than a real measurement.`
+        ? `Where the numbers come from and how to use them. The "live" reading in the table is the most recent wait-minutes figure, usually refreshed every 15 minutes during peak windows (06:00–10:00 inbound into Switzerland and 16:00–20:00 in the reverse direction). The three sources, in priority order, are: the official BAZG (Swiss Federal Customs) page for camera-monitored crossings, the TomTom Traffic API for the road segments approaching the crossing (~5-minute latency), and a static estimate from historical patterns when the other two are silent. The difference between "live" and "static" is explicit on every crossing page: a yellow banner flags whenever the figure is a fallback estimate rather than a real measurement.`
         : locale === 'de'
-          ? `Woher die Zahlen kommen und wie man sie nutzt. Der "Live"-Wert in der Tabelle ist die jüngste Wartezeit in Minuten, im Allgemeinen alle 15 Minuten während der Spitzenzeiten aktualisiert (06:00–10:00 Richtung Tessin und 16:00–20:00 in Gegenrichtung). Die drei Quellen, nach Priorität geordnet: die offizielle BAZG-Seite (Eidgenössische Zollverwaltung) für die kameraüberwachten Übergänge, die TomTom-Traffic-API für die Strassensegmente vor dem Übergang (~5 Minuten Latenz), und eine statische Schätzung aus historischen Mustern, wenn beide anderen Quellen schweigen. Der Unterschied zwischen "Live" und "Statisch" ist auf jeder Übergangsseite explizit: ein gelbes Banner kennzeichnet einen Fallback-Schätzwert anstelle einer echten Messung.`
-          : `D'où viennent les chiffres et comment les utiliser. La valeur "live" affichée dans le tableau est le temps d'attente le plus récent en minutes, mis à jour en général toutes les 15 minutes pendant les pics (06:00–10:00 vers le Tessin et 16:00–20:00 dans le sens inverse). Les trois sources, par ordre de priorité, sont : la page officielle BAZG (Administration fédérale des douanes) pour les passages surveillés par caméra, l'API TomTom Traffic pour les tronçons routiers menant au passage (~5 minutes de latence), et une estimation statique à partir des moyennes historiques lorsque les deux autres se taisent. La différence entre "live" et "statique" est explicite sur chaque page de passage : un bandeau jaune signale qu'il s'agit d'une estimation de repli et non d'une mesure réelle.`;
+          ? `Woher die Zahlen kommen und wie man sie nutzt. Der "Live"-Wert in der Tabelle ist die jüngste Wartezeit in Minuten, im Allgemeinen alle 15 Minuten während der Spitzenzeiten aktualisiert (06:00–10:00 Richtung Schweiz und 16:00–20:00 in Gegenrichtung). Die drei Quellen, nach Priorität geordnet: die offizielle BAZG-Seite (Eidgenössische Zollverwaltung) für die kameraüberwachten Übergänge, die TomTom-Traffic-API für die Strassensegmente vor dem Übergang (~5 Minuten Latenz), und eine statische Schätzung aus historischen Mustern, wenn beide anderen Quellen schweigen. Der Unterschied zwischen "Live" und "Statisch" ist auf jeder Übergangsseite explizit: ein gelbes Banner kennzeichnet einen Fallback-Schätzwert anstelle einer echten Messung.`
+          : `D'où viennent les chiffres et comment les utiliser. La valeur "live" affichée dans le tableau est le temps d'attente le plus récent en minutes, mis à jour en général toutes les 15 minutes pendant les pics (06:00–10:00 vers la Suisse et 16:00–20:00 dans le sens inverse). Les trois sources, par ordre de priorité, sont : la page officielle BAZG (Administration fédérale des douanes) pour les passages surveillés par caméra, l'API TomTom Traffic pour les tronçons routiers menant au passage (~5 minutes de latence), et une estimation statique à partir des moyennes historiques lorsque les deux autres se taisent. La différence entre "live" et "statique" est explicite sur chaque page de passage : un bandeau jaune signale qu'il s'agit d'une estimation de repli et non d'une mesure réelle.`;
 
   const commuterImpactPara =
     locale === 'it'
-      ? `Quanto costa un'attesa al valico in termini concreti. Per un frontaliere che passa la dogana 5 giorni a settimana, ogni 10 minuti aggiuntivi di coda valgono mediamente 35–55 EUR/mese di costo opportunità (stipendio orario netto medio in Ticino di 28–34 CHF + carburante consumato a motore acceso). Una mattina con 30 minuti di coda invece dei 5 minuti tipici di Brogeda alle 06:30 costa quindi circa 1,80 EUR in più di carburante più ~12 EUR di tempo perso. La scelta del valico fa una differenza misurabile: chi vive a Como Sud guadagna circa 8 minuti scegliendo Bizzarone–Stabio rispetto a Chiasso-Brogeda dopo le 07:00 in direzione Lugano; chi rientra alla sera dal Mendrisiotto verso Varese trova spesso Gaggiolo più scorrevole di Stabio dopo le 17:30. Combina questi tempi con il prezzo del carburante della giornata e con il <a class="s-IjpSYt" href="/calcola-stipendio/">simulatore stipendio</a> per vedere il costo netto del pendolarismo della prossima settimana.`
+      ? hubScopeCountry === 'IT'
+        ? `Quanto costa un'attesa al valico in termini concreti. Per un frontaliere che passa la dogana 5 giorni a settimana, ogni 10 minuti aggiuntivi di coda valgono mediamente 35–55 EUR/mese di costo opportunità (stipendio orario netto medio in Ticino di 28–34 CHF + carburante consumato a motore acceso). Una mattina con 30 minuti di coda invece dei 5 minuti tipici di Brogeda alle 06:30 costa quindi circa 1,80 EUR in più di carburante più ~12 EUR di tempo perso. La scelta del valico fa una differenza misurabile: chi vive a Como Sud guadagna circa 8 minuti scegliendo Bizzarone–Stabio rispetto a Chiasso-Brogeda dopo le 07:00 in direzione Lugano; chi rientra alla sera dal Mendrisiotto verso Varese trova spesso Gaggiolo più scorrevole di Stabio dopo le 17:30. Combina questi tempi con il prezzo del carburante della giornata e con il <a class="s-IjpSYt" href="/calcola-stipendio/">simulatore stipendio</a> per vedere il costo netto del pendolarismo della prossima settimana.`
+        : `Quanto costa un'attesa al valico in termini concreti. Ogni minuto in coda si traduce in carburante consumato a motore acceso e, per chi lavora a orario fisso, in tempo di lavoro effettivamente perso. La scelta del valico può fare una differenza misurabile in minuti: confronta il tempo di attesa live di questo valico con quello dei valichi alternativi nella stessa zona, elencati più sotto, prima di partire. Il prezzo del carburante della giornata sommato al tempo perso in coda dà una stima rapida del costo reale del pendolarismo transfrontaliero.`
       : locale === 'en'
-        ? `What a wait at the crossing actually costs. For a cross-border worker who clears customs five days a week, every additional 10 minutes of queue is worth on average 35–55 EUR/month of opportunity cost (average net hourly wage in Ticino of CHF 28–34 plus fuel burned at idle). A morning with a 30-minute queue instead of the typical 5 minutes at Brogeda at 06:30 therefore costs about 1.80 EUR of extra fuel plus ~12 EUR of lost time. Choosing the right crossing makes a measurable difference: residents of southern Como gain about 8 minutes by picking Bizzarone–Stabio over Chiasso-Brogeda after 07:00 heading to Lugano; those returning in the evening from Mendrisiotto towards Varese often find Gaggiolo smoother than Stabio after 17:30. Combine these wait times with the day's fuel price and the <a class="s-IjpSYt" href="/en/calculate-salary/">salary simulator</a> to see next week's net commute cost.`
+        ? hubScopeCountry === 'IT'
+          ? `What a wait at the crossing actually costs. For a cross-border worker who clears customs five days a week, every additional 10 minutes of queue is worth on average 35–55 EUR/month of opportunity cost (average net hourly wage in Ticino of CHF 28–34 plus fuel burned at idle). A morning with a 30-minute queue instead of the typical 5 minutes at Brogeda at 06:30 therefore costs about 1.80 EUR of extra fuel plus ~12 EUR of lost time. Choosing the right crossing makes a measurable difference: residents of southern Como gain about 8 minutes by picking Bizzarone–Stabio over Chiasso-Brogeda after 07:00 heading to Lugano; those returning in the evening from Mendrisiotto towards Varese often find Gaggiolo smoother than Stabio after 17:30. Combine these wait times with the day's fuel price and the <a class="s-IjpSYt" href="/en/calculate-salary/">salary simulator</a> to see next week's net commute cost.`
+          : `What a wait at the crossing actually costs. Every minute spent in a queue means fuel burned at idle and, for those on fixed working hours, working time genuinely lost. Choosing the right crossing can make a measurable difference in minutes: compare this crossing's live wait time with the alternative crossings in the same area, listed further down, before you leave. The day's fuel price combined with time lost in queues gives a quick estimate of the real cost of cross-border commuting.`
         : locale === 'de'
-          ? `Was eine Grenzwartezeit konkret kostet. Für einen Grenzgänger, der fünf Tage pro Woche durch den Zoll fährt, sind jede zusätzlichen 10 Minuten Warteschlange im Schnitt 35–55 EUR/Monat Opportunitätskosten wert (Tessiner Nettostundenlohn von 28–34 CHF plus Treibstoffverbrauch im Standgas). Ein Morgen mit 30 Minuten Wartezeit statt der typischen 5 Minuten in Brogeda um 06:30 kostet also rund 1,80 EUR Treibstoff plus ~12 EUR Zeitverlust. Die Wahl des Übergangs macht einen messbaren Unterschied: Wer in Süd-Como wohnt, gewinnt etwa 8 Minuten mit Bizzarone–Stabio gegenüber Chiasso-Brogeda nach 07:00 Richtung Lugano; abends auf der Rückfahrt vom Mendrisiotto nach Varese ist Gaggiolo nach 17:30 oft flüssiger als Stabio. Kombinieren Sie diese Wartezeiten mit dem Tagespreis des Treibstoffs und dem <a class="s-IjpSYt" href="/de/gehalt-berechnen/">Lohnsimulator</a>, um die Nettokosten Ihres Pendlerwegs nächste Woche zu sehen.`
-          : `Ce que coûte concrètement une attente au passage. Pour un frontalier qui franchit la douane cinq jours par semaine, chaque tranche supplémentaire de 10 minutes de file vaut en moyenne 35–55 EUR/mois de coût d'opportunité (salaire horaire net moyen au Tessin de 28–34 CHF plus le carburant consommé moteur tournant). Une matinée à 30 minutes de file au lieu des 5 minutes typiques à Brogeda à 06:30 coûte donc environ 1,80 EUR de carburant supplémentaire et ~12 EUR de temps perdu. Choisir le bon passage fait une différence mesurable : les résidents du sud de Côme gagnent environ 8 minutes en privilégiant Bizzarone–Stabio plutôt que Chiasso-Brogeda après 07:00 vers Lugano ; au retour le soir du Mendrisiotto vers Varèse, Gaggiolo est souvent plus fluide que Stabio après 17:30. Combinez ces temps d'attente avec le prix du carburant du jour et le <a class="s-IjpSYt" href="/fr/calculer-salaire/">simulateur de salaire</a> pour estimer le coût net de votre pendulaire la semaine prochaine.`;
+          ? hubScopeCountry === 'IT'
+            ? `Was eine Grenzwartezeit konkret kostet. Für einen Grenzgänger, der fünf Tage pro Woche durch den Zoll fährt, sind jede zusätzlichen 10 Minuten Warteschlange im Schnitt 35–55 EUR/Monat Opportunitätskosten wert (Tessiner Nettostundenlohn von 28–34 CHF plus Treibstoffverbrauch im Standgas). Ein Morgen mit 30 Minuten Wartezeit statt der typischen 5 Minuten in Brogeda um 06:30 kostet also rund 1,80 EUR Treibstoff plus ~12 EUR Zeitverlust. Die Wahl des Übergangs macht einen messbaren Unterschied: Wer in Süd-Como wohnt, gewinnt etwa 8 Minuten mit Bizzarone–Stabio gegenüber Chiasso-Brogeda nach 07:00 Richtung Lugano; abends auf der Rückfahrt vom Mendrisiotto nach Varese ist Gaggiolo nach 17:30 oft flüssiger als Stabio. Kombinieren Sie diese Wartezeiten mit dem Tagespreis des Treibstoffs und dem <a class="s-IjpSYt" href="/de/gehalt-berechnen/">Lohnsimulator</a>, um die Nettokosten Ihres Pendlerwegs nächste Woche zu sehen.`
+            : `Was eine Grenzwartezeit konkret kostet. Jede Minute in der Warteschlange bedeutet Treibstoffverbrauch im Standgas und, bei fester Arbeitszeit, tatsächlich verlorene Arbeitszeit. Die Wahl des Übergangs kann einen messbaren Unterschied in Minuten machen: Vergleiche die Live-Wartezeit dieses Übergangs mit den weiter unten aufgeführten Alternativübergängen in derselben Zone, bevor du losfährst. Der Tagespreis des Treibstoffs zusammen mit der in der Warteschlange verlorenen Zeit ergibt eine schnelle Schätzung der tatsächlichen Kosten des grenzüberschreitenden Pendelns.`
+          : hubScopeCountry === 'IT'
+            ? `Ce que coûte concrètement une attente au passage. Pour un frontalier qui franchit la douane cinq jours par semaine, chaque tranche supplémentaire de 10 minutes de file vaut en moyenne 35–55 EUR/mois de coût d'opportunité (salaire horaire net moyen au Tessin de 28–34 CHF plus le carburant consommé moteur tournant). Une matinée à 30 minutes de file au lieu des 5 minutes typiques à Brogeda à 06:30 coûte donc environ 1,80 EUR de carburant supplémentaire et ~12 EUR de temps perdu. Choisir le bon passage fait une différence mesurable : les résidents du sud de Côme gagnent environ 8 minutes en privilégiant Bizzarone–Stabio plutôt que Chiasso-Brogeda après 07:00 vers Lugano ; au retour le soir du Mendrisiotto vers Varèse, Gaggiolo est souvent plus fluide que Stabio après 17:30. Combinez ces temps d'attente avec le prix du carburant du jour et le <a class="s-IjpSYt" href="/fr/calculer-salaire/">simulateur de salaire</a> pour estimer le coût net de votre pendulaire la semaine prochaine.`
+            : `Ce que coûte concrètement une attente au passage. Chaque minute passée dans la file se traduit en carburant consommé moteur tournant et, pour un horaire de travail fixe, en temps de travail réellement perdu. Choisir le bon passage peut faire une différence mesurable en minutes : comparez le temps d'attente live de ce passage avec les passages alternatifs de la même zone, listés plus bas, avant de partir. Le prix du carburant du jour combiné au temps perdu en file donne une estimation rapide du coût réel du trajet transfrontalier.`;
 
-  // Related links context based on "primary" crossing for the region
-  const primaryCrossing: BorderCrossingSlug =
-    region === 'ticino-varese' ? 'gaggiolo'
-    : region === 'ticino-verbano' ? 'camedo'
+  // Related links context based on "primary" crossing for the region — the
+  // first crossing in registry order within crossingsInScope (already
+  // filtered to this region above), so every current AND future region
+  // gets a correct primary crossing with no per-region hardcoding. Root hub
+  // (no region) keeps the historical 'chiasso-brogeda' default (highest-
+  // traffic crossing overall).
+  const primaryCrossing: BorderCrossingSlug = region
+    ? (crossingsInScope[0] ?? 'chiasso-brogeda')
     : 'chiasso-brogeda';
   const relatedCtx = {
+    borderCrossing: primaryCrossing,
     city: CROSSING_TO_WEEKLY_CITY[primaryCrossing],
     weeklyCity: CROSSING_TO_WEEKLY_CITY[primaryCrossing],
     fuelZone: CROSSING_TO_FUEL_ZONE[primaryCrossing],
@@ -2214,6 +2409,11 @@ function renderArchiveContextProse(
       : 'non disponible pour le mois')
     : `${overallAvg} min`;
   const peakDefault = peakWindow || (locale === 'fr' ? '6h30–8h30 et 17h00–19h00' : '6:30–8:30 and 17:00–19:00');
+  // The Lugano–A2 motorway-leg travel time and "events in Como" framing are
+  // verified facts for the Ticino–Italy corridor only; they are wrong for
+  // Switzerland–Germany crossings, so this prose (and the matching FAQ
+  // answer below) branches on the crossing's own country.
+  const country = REGION_TO_COUNTRY[region];
 
   const headline =
     locale === 'it' ? `Come leggere lo storico ${crossingLabel} (${monthKey})`
@@ -2223,20 +2423,44 @@ function renderArchiveContextProse(
 
   const paragraphs = locale === 'it' ? [
     `La tabella aggrega ${observedDays} giorni di osservazioni TomTom per ${crossingLabel} nel mese ${monthKey}. Ogni cella della colonna "minuti d'attesa" è la media oraria su tutti i giorni feriali e festivi del mese a quell'ora: la cella delle 07:00 racchiude tutte le rilevazioni fatte tra le 07:00 e le 07:59 di ogni giorno. La media mensile complessiva è ${meanTxt}, calcolata sull'intera giornata 24/24. Le ore con "—" non hanno raccolto abbastanza polling per produrre una stima affidabile (tipicamente le notti profonde, 02:00–04:00, sui valichi minori senza copertura BAZG).`,
-    `Per pianificare un viaggio futuro a ${crossingLabel}, confronta le ore di picco osservate con la finestra teorica della zona ${regionDisplay} (${peakDefault} CET). Le ore con valori sopra la media indicano una congestione stabile, prevedibile mese dopo mese e principalmente trainata dal flusso pendolare frontaliere; le ore con valori bassi rappresentano finestre operative — utili per anticipare la partenza al mattino, posticipare il rientro alla sera, o programmare uno spostamento atipico (visita medica, appuntamento, viaggio non lavorativo). Lo storico copre solo il segmento di approccio + checkpoint del valico: la percorrenza dell'autostrada A2 da Lugano fino a ${crossingLabel} non è inclusa e va sommata a parte (12–25 minuti tipici).`,
-    `Per scegliere il valico migliore in un dato giorno, confronta lo storico di ${crossingLabel} con quello dei valichi alternativi della stessa zona ${regionDisplay}: nel mese ${monthKey} le code possono spostarsi da un valico all'altro a seconda di cantieri sull'A2, manifestazioni a Como o eventi pendolari atipici. La pagina di dettaglio "oggi" del valico mostra il dato live aggiornato ogni 10–15 minuti durante le fasce di picco, mentre lo storico mensile resta utile come baseline contro cui confrontare l'anomalia del giorno.`,
+    `Per pianificare un viaggio futuro a ${crossingLabel}, confronta le ore di picco osservate con la finestra teorica della zona ${regionDisplay} (${peakDefault} CET). Le ore con valori sopra la media indicano una congestione stabile, prevedibile mese dopo mese e principalmente trainata dal flusso pendolare frontaliere; le ore con valori bassi rappresentano finestre operative — utili per anticipare la partenza al mattino, posticipare il rientro alla sera, o programmare uno spostamento atipico (visita medica, appuntamento, viaggio non lavorativo). Lo storico copre solo il segmento di approccio + checkpoint del valico: ${
+      country === 'IT'
+        ? `la percorrenza dell'autostrada A2 da Lugano fino a ${crossingLabel} non è inclusa e va sommata a parte (12–25 minuti tipici).`
+        : `il tempo di percorrenza per raggiungere il valico dal tuo punto di partenza non è incluso e va sommato a parte.`
+    }`,
+    `Per scegliere il valico migliore in un dato giorno, confronta lo storico di ${crossingLabel} con quello dei valichi alternativi della stessa zona ${regionDisplay}: nel mese ${monthKey} le code possono spostarsi da un valico all'altro a seconda di ${
+      country === 'IT' ? `cantieri sull'A2, manifestazioni a Como` : `lavori stradali, eventi locali`
+    } o eventi pendolari atipici. La pagina di dettaglio "oggi" del valico mostra il dato live aggiornato ogni 10–15 minuti durante le fasce di picco, mentre lo storico mensile resta utile come baseline contro cui confrontare l'anomalia del giorno.`,
   ] : locale === 'en' ? [
     `The table aggregates ${observedDays} days of TomTom observations for ${crossingLabel} in ${monthKey}. Each cell in the "wait minutes" column is the hourly average over every weekday and weekend in the month at that time: the 07:00 cell pools every reading taken between 07:00 and 07:59 each day. The monthly mean is ${meanTxt}, computed over the full 24-hour day. Hours showing "—" lack enough polling samples to produce a reliable estimate (typically deep night, 02:00–04:00, at minor crossings without BAZG coverage).`,
-    `To plan a future trip via ${crossingLabel}, compare the observed peak hours against the theoretical window for the ${regionDisplay} cluster (${peakDefault} CET). Hours above the monthly mean signal stable congestion, repeatable month after month and primarily driven by cross-border commuter flow; hours below the mean represent operational windows — useful for an earlier morning departure, a later evening return, or an atypical trip (medical appointment, non-work travel). The archive covers only the approach + checkpoint segment of the crossing: A2 motorway travel time from Lugano to ${crossingLabel} is not included and must be added separately (typically 12–25 minutes).`,
-    `To pick the best crossing for a given day, compare the ${crossingLabel} archive with the same-month archive of nearby crossings in the ${regionDisplay} cluster: in ${monthKey} queues can shift between crossings depending on A2 roadworks, events in Como or atypical commuter peaks. The crossing's "today" detail page shows the live value, refreshed every 10–15 minutes during peak windows, while the monthly archive stays useful as a baseline to detect day-of-week anomalies.`,
+    `To plan a future trip via ${crossingLabel}, compare the observed peak hours against the theoretical window for the ${regionDisplay} cluster (${peakDefault} CET). Hours above the monthly mean signal stable congestion, repeatable month after month and primarily driven by cross-border commuter flow; hours below the mean represent operational windows — useful for an earlier morning departure, a later evening return, or an atypical trip (medical appointment, non-work travel). The archive covers only the approach + checkpoint segment of the crossing: ${
+      country === 'IT'
+        ? `A2 motorway travel time from Lugano to ${crossingLabel} is not included and must be added separately (typically 12–25 minutes).`
+        : `motorway travel time to reach the crossing from your own starting point is not included and must be added separately.`
+    }`,
+    `To pick the best crossing for a given day, compare the ${crossingLabel} archive with the same-month archive of nearby crossings in the ${regionDisplay} cluster: in ${monthKey} queues can shift between crossings depending on ${
+      country === 'IT' ? `A2 roadworks, events in Como` : `roadworks, local events`
+    } or atypical commuter peaks. The crossing's "today" detail page shows the live value, refreshed every 10–15 minutes during peak windows, while the monthly archive stays useful as a baseline to detect day-of-week anomalies.`,
   ] : locale === 'de' ? [
     `Die Tabelle aggregiert ${observedDays} Beobachtungstage von TomTom für ${crossingLabel} im Monat ${monthKey}. Jede Zelle der Spalte "Wartezeit (Min.)" ist der Stundendurchschnitt über alle Werk- und Wochenendtage des Monats zur jeweiligen Stunde: Die 07:00-Zelle bündelt jede Messung zwischen 07:00 und 07:59 pro Tag. Der Monatsdurchschnitt liegt bei ${meanTxt}, gerechnet über die ganze 24-Stunden-Spanne. Stunden mit "—" haben zu wenig Polling-Proben für eine verlässliche Schätzung (typischerweise tiefe Nacht, 02:00–04:00, bei kleineren Übergängen ohne BAZG-Abdeckung).`,
-    `Zur Planung einer künftigen Fahrt über ${crossingLabel} vergleichen Sie die beobachteten Spitzenzeiten mit dem theoretischen Fenster der Zone ${regionDisplay} (${peakDefault} MEZ). Stunden über dem Monatsdurchschnitt signalisieren stabile Stauungen, monatlich wiederkehrend und hauptsächlich vom Grenzgänger-Pendlerstrom getrieben; Stunden unter dem Durchschnitt stellen operative Fenster dar — nützlich für einen früheren Morgenstart, eine spätere Rückfahrt am Abend oder eine atypische Fahrt (Arzttermin, nicht-arbeitsbezogene Reise). Das Archiv erfasst nur das Annäherungs- + Kontrollsegment: Die A2-Fahrzeit von Lugano nach ${crossingLabel} ist nicht enthalten und muss separat addiert werden (typisch 12–25 Minuten).`,
-    `Um an einem bestimmten Tag den besten Übergang zu wählen, vergleichen Sie das ${crossingLabel}-Archiv mit dem Archiv benachbarter Übergänge in der Zone ${regionDisplay}: Im Monat ${monthKey} können sich Staus zwischen Übergängen verschieben, abhängig von A2-Baustellen, Veranstaltungen in Como oder atypischen Pendlerspitzen. Die "heute"-Detailseite des Übergangs zeigt den Live-Wert, alle 10–15 Minuten in Spitzenzeiten aktualisiert, während das Monatsarchiv als Baseline dient, um wochentags-spezifische Anomalien zu erkennen.`,
+    `Zur Planung einer künftigen Fahrt über ${crossingLabel} vergleichen Sie die beobachteten Spitzenzeiten mit dem theoretischen Fenster der Zone ${regionDisplay} (${peakDefault} MEZ). Stunden über dem Monatsdurchschnitt signalisieren stabile Stauungen, monatlich wiederkehrend und hauptsächlich vom Grenzgänger-Pendlerstrom getrieben; Stunden unter dem Durchschnitt stellen operative Fenster dar — nützlich für einen früheren Morgenstart, eine spätere Rückfahrt am Abend oder eine atypische Fahrt (Arzttermin, nicht-arbeitsbezogene Reise). Das Archiv erfasst nur das Annäherungs- + Kontrollsegment: ${
+      country === 'IT'
+        ? `Die A2-Fahrzeit von Lugano nach ${crossingLabel} ist nicht enthalten und muss separat addiert werden (typisch 12–25 Minuten).`
+        : `Die Fahrzeit vom eigenen Ausgangspunkt bis zum Übergang ist nicht enthalten und muss separat addiert werden.`
+    }`,
+    `Um an einem bestimmten Tag den besten Übergang zu wählen, vergleichen Sie das ${crossingLabel}-Archiv mit dem Archiv benachbarter Übergänge in der Zone ${regionDisplay}: Im Monat ${monthKey} können sich Staus zwischen Übergängen verschieben, abhängig von ${
+      country === 'IT' ? `A2-Baustellen, Veranstaltungen in Como` : `Strassenarbeiten, lokalen Veranstaltungen`
+    } oder atypischen Pendlerspitzen. Die "heute"-Detailseite des Übergangs zeigt den Live-Wert, alle 10–15 Minuten in Spitzenzeiten aktualisiert, während das Monatsarchiv als Baseline dient, um wochentags-spezifische Anomalien zu erkennen.`,
   ] : [
     `Le tableau agrège ${observedDays} jours d'observations TomTom pour ${crossingLabel} au mois ${monthKey}. Chaque cellule de la colonne « minutes d'attente » est la moyenne horaire sur tous les jours ouvrés et week-ends du mois à cette heure : la cellule 07h00 regroupe chaque mesure prise entre 07h00 et 07h59 chaque jour. La moyenne mensuelle est de ${meanTxt}, calculée sur les 24 heures de la journée. Les heures affichant « — » manquent de suffisamment d'échantillons de polling pour produire une estimation fiable (typiquement nuit profonde, 02h00–04h00, sur les passages mineurs sans couverture BAZG).`,
-    `Pour planifier un futur trajet par ${crossingLabel}, comparez les heures de pointe observées à la fenêtre théorique du secteur ${regionDisplay} (${peakDefault} CET). Les heures au-dessus de la moyenne signalent une congestion stable, reproductible d'un mois à l'autre et principalement portée par le flux pendulaire frontalier ; les heures en dessous représentent des fenêtres opérationnelles — utiles pour un départ matinal anticipé, un retour du soir tardif ou un trajet atypique (rendez-vous médical, voyage non professionnel). L'archive couvre uniquement le segment d'approche + contrôle : le temps de trajet A2 de Lugano à ${crossingLabel} n'est pas inclus et doit être additionné séparément (12–25 minutes typiques).`,
-    `Pour choisir le meilleur passage un jour donné, comparez l'archive ${crossingLabel} avec l'archive du même mois des passages voisins du secteur ${regionDisplay} : au mois ${monthKey} les files peuvent se déplacer entre passages selon les chantiers sur l'A2, les événements à Côme ou des pics pendulaires atypiques. La page de détail « aujourd'hui » du passage affiche la valeur live, rafraîchie toutes les 10–15 minutes en heures de pointe, alors que l'archive mensuelle reste utile comme référence pour détecter les anomalies propres au jour de la semaine.`,
+    `Pour planifier un futur trajet par ${crossingLabel}, comparez les heures de pointe observées à la fenêtre théorique du secteur ${regionDisplay} (${peakDefault} CET). Les heures au-dessus de la moyenne signalent une congestion stable, reproductible d'un mois à l'autre et principalement portée par le flux pendulaire frontalier ; les heures en dessous représentent des fenêtres opérationnelles — utiles pour un départ matinal anticipé, un retour du soir tardif ou un trajet atypique (rendez-vous médical, voyage non professionnel). L'archive couvre uniquement le segment d'approche + contrôle : ${
+      country === 'IT'
+        ? `le temps de trajet A2 de Lugano à ${crossingLabel} n'est pas inclus et doit être additionné séparément (12–25 minutes typiques).`
+        : `le temps de trajet depuis votre propre point de départ jusqu'au passage n'est pas inclus et doit être additionné séparément.`
+    }`,
+    `Pour choisir le meilleur passage un jour donné, comparez l'archive ${crossingLabel} avec l'archive du même mois des passages voisins du secteur ${regionDisplay} : au mois ${monthKey} les files peuvent se déplacer entre passages selon ${
+      country === 'IT' ? `les chantiers sur l'A2, les événements à Côme` : `les travaux routiers, les événements locaux`
+    } ou des pics pendulaires atypiques. La page de détail « aujourd'hui » du passage affiche la valeur live, rafraîchie toutes les 10–15 minutes en heures de pointe, alors que l'archive mensuelle reste utile comme référence pour détecter les anomalies propres au jour de la semaine.`,
   ];
 
   const faqLabels = locale === 'it'
@@ -2245,7 +2469,11 @@ function renderArchiveContextProse(
         q1: `Come è calcolata la media oraria di ${crossingLabel}?`,
         a1: `Per ogni ora della giornata raggruppiamo tutte le misure TomTom dei ${observedDays} giorni del mese ${monthKey} a quell'ora (un campione ogni 10–15 minuti nelle fasce di punta, ogni 30–60 minuti fuori picco) e calcoliamo la media aritmetica. Le ore senza dati sufficienti restano "—" invece di mostrare un valore inaffidabile.`,
         q2: `Posso usare questi dati per pianificare il rientro serale?`,
-        a2: `Sì: confronta la riga delle 17:00–19:00 con la finestra di picco osservata per ${crossingLabel} (${peakDefault} CET). Se la media è inferiore al picco di altre zone, ${crossingLabel} è una buona opzione per il rientro pendolare. Aggiungi sempre 12–25 minuti per la percorrenza autostradale Lugano–${crossingLabel} non inclusa nel dato di coda.`,
+        a2: `Sì: confronta la riga delle 17:00–19:00 con la finestra di picco osservata per ${crossingLabel} (${peakDefault} CET). Se la media è inferiore al picco di altre zone, ${crossingLabel} è una buona opzione per il rientro pendolare. ${
+          country === 'IT'
+            ? `Aggiungi sempre 12–25 minuti per la percorrenza autostradale Lugano–${crossingLabel} non inclusa nel dato di coda.`
+            : `Aggiungi sempre il tempo di percorrenza dal tuo punto di partenza fino al valico, non incluso nel dato di coda.`
+        }`,
       }
     : locale === 'en'
     ? {
@@ -2253,7 +2481,11 @@ function renderArchiveContextProse(
         q1: `How is the hourly mean for ${crossingLabel} computed?`,
         a1: `For every hour of the day we pool all TomTom samples taken in the ${observedDays} days of ${monthKey} at that hour (one sample every 10–15 minutes during peak windows, every 30–60 minutes off peak) and average them. Hours without enough samples stay at "—" instead of surfacing an unreliable value.`,
         q2: `Can I use this data to plan an evening return?`,
-        a2: `Yes: compare the 17:00–19:00 row with the observed peak window for ${crossingLabel} (${peakDefault} CET). If the mean is below the peak of other clusters, ${crossingLabel} is a good option for the commuter return. Always add 12–25 minutes for the Lugano–${crossingLabel} motorway leg, which is not included in the queue figure.`,
+        a2: `Yes: compare the 17:00–19:00 row with the observed peak window for ${crossingLabel} (${peakDefault} CET). If the mean is below the peak of other clusters, ${crossingLabel} is a good option for the commuter return. ${
+          country === 'IT'
+            ? `Always add 12–25 minutes for the Lugano–${crossingLabel} motorway leg, which is not included in the queue figure.`
+            : `Always add the travel time from your own starting point to the crossing, which is not included in the queue figure.`
+        }`,
       }
     : locale === 'de'
     ? {
@@ -2261,14 +2493,22 @@ function renderArchiveContextProse(
         q1: `Wie wird der Stundendurchschnitt für ${crossingLabel} berechnet?`,
         a1: `Für jede Stunde des Tages bündeln wir alle TomTom-Proben aus den ${observedDays} Tagen des Monats ${monthKey} zu dieser Stunde (eine Probe alle 10–15 Minuten in Spitzenzeiten, alle 30–60 Minuten ausserhalb) und mitteln sie. Stunden ohne ausreichende Proben bleiben auf "—" stehen statt einen unzuverlässigen Wert anzuzeigen.`,
         q2: `Kann ich diese Daten zur Planung der Abendrückfahrt nutzen?`,
-        a2: `Ja: Vergleichen Sie die 17:00–19:00-Zeile mit dem beobachteten Spitzenfenster von ${crossingLabel} (${peakDefault} MEZ). Liegt der Durchschnitt unter dem Spitzenwert anderer Zonen, ist ${crossingLabel} eine gute Option für die Pendlerrückfahrt. Addieren Sie immer 12–25 Minuten für die Autobahnstrecke Lugano–${crossingLabel}, die nicht in der Wartezahl enthalten ist.`,
+        a2: `Ja: Vergleichen Sie die 17:00–19:00-Zeile mit dem beobachteten Spitzenfenster von ${crossingLabel} (${peakDefault} MEZ). Liegt der Durchschnitt unter dem Spitzenwert anderer Zonen, ist ${crossingLabel} eine gute Option für die Pendlerrückfahrt. ${
+          country === 'IT'
+            ? `Addieren Sie immer 12–25 Minuten für die Autobahnstrecke Lugano–${crossingLabel}, die nicht in der Wartezahl enthalten ist.`
+            : `Addieren Sie immer die Fahrzeit von Ihrem eigenen Ausgangspunkt bis zum Übergang, die nicht in der Wartezahl enthalten ist.`
+        }`,
       }
     : {
         title: `FAQ archives ${monthKey}`,
         q1: `Comment la moyenne horaire pour ${crossingLabel} est-elle calculée ?`,
         a1: `Pour chaque heure de la journée, nous regroupons tous les échantillons TomTom des ${observedDays} jours du mois ${monthKey} à cette heure (un échantillon toutes les 10–15 minutes en heures de pointe, toutes les 30–60 minutes hors pointe) et calculons la moyenne. Les heures sans échantillons suffisants restent à « — » au lieu d'afficher une valeur peu fiable.`,
         q2: `Puis-je utiliser ces données pour planifier le retour du soir ?`,
-        a2: `Oui : comparez la ligne 17h00–19h00 avec la fenêtre de pointe observée pour ${crossingLabel} (${peakDefault} CET). Si la moyenne est inférieure au pic d'autres secteurs, ${crossingLabel} est une bonne option pour le retour pendulaire. Ajoutez toujours 12–25 minutes pour le tronçon autoroutier Lugano–${crossingLabel}, non inclus dans la valeur de file.`,
+        a2: `Oui : comparez la ligne 17h00–19h00 avec la fenêtre de pointe observée pour ${crossingLabel} (${peakDefault} CET). Si la moyenne est inférieure au pic d'autres secteurs, ${crossingLabel} est une bonne option pour le retour pendulaire. ${
+          country === 'IT'
+            ? `Ajoutez toujours 12–25 minutes pour le tronçon autoroutier Lugano–${crossingLabel}, non inclus dans la valeur de file.`
+            : `Ajoutez toujours le temps de trajet depuis votre propre point de départ jusqu'au passage, non inclus dans la valeur de file.`
+        }`,
       };
 
   return `<section class="s-_cuQ7T" aria-labelledby="archiveContext">
