@@ -4759,7 +4759,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 3623,
+ "numberOfItems": 3624,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026/` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024/` },
@@ -8383,7 +8383,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 3620, "name": "Lavoro part-time in Svizzera: diritti e contratto", "url": `${BASE_URL}/articoli-frontaliere/lavoro-part-time-svizzera-diritti` },
           { "@type": "ListItem", "position": 3621, "name": "Vivere a Porto Ceresio e lavorare in Ticino da ...", "url": `${BASE_URL}/articoli-frontaliere/vivere-porto-ceresio-lavoro-ticino` },
           { "@type": "ListItem", "position": 3622, "name": "Petrolio in cambio di miliardi: il potere nasco...", "url": `${BASE_URL}/articoli-frontaliere/petrolio-in-cambio-di-miliardi` },
-          { "@type": "ListItem", "position": 3623, "name": "Commissione della concorrenza indaga sul caro c...", "url": `${BASE_URL}/articoli-frontaliere/caro-carburanti-svizzera-indagine-comco` }
+          { "@type": "ListItem", "position": 3623, "name": "Commissione della concorrenza indaga sul caro c...", "url": `${BASE_URL}/articoli-frontaliere/caro-carburanti-svizzera-indagine-comco` },
+          { "@type": "ListItem", "position": 3624, "name": "Sanità e vecchi frontalieri: il contributo per ...", "url": `${BASE_URL}/articoli-frontaliere/contributo-sanita-vecchi-frontalieri` }
  ]
  },
  {

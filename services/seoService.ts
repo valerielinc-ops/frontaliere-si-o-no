@@ -5005,6 +5005,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-vivere-porto-ceresio-lavoro-ticino': { name: 'Vivere Porto Ceresio', path: '/articoli-frontaliere/vivere-porto-ceresio-lavoro-ticino', parent: 'blog' },
     'blog-petrolio-in-cambio-di-miliardi': { name: 'Petrolio in cambio di miliardi', path: '/articoli-svizzera/petrolio-in-cambio-di-miliardi/', parent: 'blog' },
     'blog-caro-carburanti-svizzera-indagine-comco': { name: 'Carburanti', path: '/articoli-frontaliere/caro-carburanti-svizzera-indagine-comco', parent: 'blog' },
+    'blog-contributo-sanita-vecchi-frontalieri': { name: 'Fiscale Sanità', path: '/articoli-svizzera/contributo-sanita-vecchi-frontalieri/', parent: 'blog' },
  };
 
  const info = sectionNames[section];
