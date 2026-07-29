@@ -586,6 +586,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'frontalieri-tassa-salute': { it: 'frontalieri-tassa-salute', en: 'frontalieri-tassa-salute', de: 'frontalieri-gesundheitsabgabe', fr: 'frontaliers-taxe-sante' },
  'rendita-avs-critica-eichenberger': { it: 'rendita-avs-critica-eichenberger', en: 'avs-pension-eichenberger-critique', de: 'ahv-rente-eichenberger-kritik', fr: 'rente-avs-critique-eichenberger' },
  'storia-vigilanza-bancaria-svizzera': { it: 'storia-vigilanza-bancaria-svizzera', en: 'history-swiss-banking-oversight', de: 'geschichte-schweizer-bankenaufsicht', fr: 'histoire-surveillance-bancaire-suisse' },
+ 'gestione-immobiliare-professionale': { it: 'gestione-immobiliare-professionale', en: 'professional-real-estate-management', de: 'professionelle-immobilienverwaltung', fr: 'gestion-immobiliere-professionnelle' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

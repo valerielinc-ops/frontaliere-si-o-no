@@ -1681,6 +1681,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.storia-vigilanza-bancaria-svizzera.title': 'Surveillance bancaire en Suisse : histoire, scandales et réformes',
     'blog.article.storia-vigilanza-bancaria-svizzera.excerpt': 'De la loi de 1935 à l\'affaire Credit Suisse : analyse historique de la surveillance bancaire suisse et les nouveaux défis pour la Finma entre scandales et réformes.',
     'blog.article.storia-vigilanza-bancaria-svizzera.imageAlt': 'Palais fédéral à Berne, siège des institutions suisses',
+    'blog.article.gestione-immobiliare-professionale.title': 'Gestion immobilière : la valeur du temps et de la précision',
+    'blog.article.gestione-immobiliare-professionale.excerpt': 'Pourquoi une agence immobilière prospère n\'a-t-elle pas le temps d\'espionner la concurrence ? Voici la méthode opérationnelle basée sur la qualité et la rigueur suisse.',
+    'blog.article.gestione-immobiliare-professionale.imageAlt': 'Intérieur de bureau immobilier professionnel avec vue sur Lugano',
 };
 
 export default blogMetaChFr;
