@@ -9125,6 +9125,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.fondo-liberta-svizzera-multe.title': 'Multe sui mezzi pubblici: il fondo che paga per gli indigenti',
     'blog.article.fondo-liberta-svizzera-multe.excerpt': 'L\'associazione Freiheitsfonds Schweiz sostiene le persone in difficoltà economica per evitare la detenzione sostitutiva in caso di mancato pagamento delle multe.',
     'blog.article.fondo-liberta-svizzera-multe.imageAlt': 'Tram pubblico a Lugano, contesto urbano svizzero',
+    'blog.article.vivere-porto-ceresio-lavoro-ticino.title': 'Vivere a Porto Ceresio e lavorare in Ticino da frontaliere',
+    'blog.article.vivere-porto-ceresio-lavoro-ticino.excerpt': 'Guida pratica per frontalieri tra Porto Ceresio e Canton Ticino: imposte, procedure, mobilità e costi secondo le normative vigenti dal 1° gennaio 2024.',
+    'blog.article.vivere-porto-ceresio-lavoro-ticino.imageAlt': 'Veduta del lago di Lugano vicino al confine italo-svizzero',
 };
 
 export default blogMetaIt;

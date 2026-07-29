@@ -9124,6 +9124,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.fondo-liberta-svizzera-multe.title': 'Fines on public transport: the fund that pays for the needy',
     'blog.article.fondo-liberta-svizzera-multe.excerpt': 'The association Freiheitsfonds Schweiz supports people in financial difficulties to avoid alternative detention in case of non-payment of fines.',
     'blog.article.fondo-liberta-svizzera-multe.imageAlt': 'Public tram in Lugano, Swiss urban setting',
+    'blog.article.vivere-porto-ceresio-lavoro-ticino.title': 'Living in Porto Ceresio and working in Ticino as a border worker',
+    'blog.article.vivere-porto-ceresio-lavoro-ticino.excerpt': 'Practical guide for border workers between Porto Ceresio and Canton Ticino: taxes, procedures, mobility and costs according to the regulations in force from 1 January 2024.',
+    'blog.article.vivere-porto-ceresio-lavoro-ticino.imageAlt': 'View of Lake Lugano near the Swiss-Italian border',
 };
 
 export default blogMetaEn;
