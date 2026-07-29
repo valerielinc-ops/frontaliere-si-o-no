@@ -83,6 +83,24 @@ describe('checkInlineArithmetic', () => {
   it('ignores prose without an explicit calculation', () => {
     expect(checkInlineArithmetic('Il 25% dell\'imposta pagata in Svizzera.')).toEqual([]);
   });
+
+  // SHIPPED and blocked for nothing: `stipendio-saldatore-frontaliere-ticino`
+  // writes the rate on the RIGHT. Assuming the factor was always the left
+  // operand reported "400000× il valore corretto" on arithmetic that is exact.
+  it('accepts the rate on either side of the multiplication', () => {
+    expect(checkInlineArithmetic(
+      "Secondo la Convenzione di doppia imposizione, l'imposta alla fonte in Svizzera sarebbe del 20% "
+      + '(80.000 x 0,20 = 16.000 franchi svizzeri).',
+    )).toEqual([]);
+    expect(checkInlineArithmetic("un'aliquota del 3,2% (60.000 x 0,032 = 1.920 franchi)")).toEqual([]);
+  });
+
+  it('still flags a factor that matches neither operand', () => {
+    const issues = checkInlineArithmetic("un'imposta del 4,5% (60.000 x 0,45 = 27.000 franchi)");
+    expect(codes(issues)).toContain('percent-factor-mismatch');
+    // The rate is the smaller operand — the other side is a salary.
+    expect(issues[0].message).toContain('0,45');
+  });
 });
 
 describe('checkTaxPlausibility', () => {
@@ -115,6 +133,195 @@ describe('checkTaxPlausibility', () => {
       'Il reddito di 60.000 franchi svizzeri è superiore alla media di 75.000 franchi svizzeri del settore.',
     );
     expect(issues).toEqual([]);
+  });
+});
+
+/**
+ * The corpus audit that followed the gates' first release: 59 blocking findings
+ * over 48 articles, most of them correct prose. Every fixture below is the
+ * verbatim line that was blocked — paraphrasing would drop the exact construct
+ * that broke the gate, which is the only thing these cases are pinning.
+ *
+ * Precision is not cosmetic here. Blocking issues are fed back into the
+ * regeneration prompt, and the writer's cheapest answer to an "impossible tax"
+ * it cannot see in its own text is to delete the passage — the same silent
+ * shedding of real facts that produced the incident article in the first place.
+ */
+describe('tax plausibility — false positives from the corpus audit', () => {
+  const silent = (text: string) => expect(codes(checkTaxPlausibility(text))).toEqual([]);
+
+  // `tasse-frontalieri-scambio-dati-stipendi-italia`: one income BRACKET, stated
+  // twice. Both 80.000 are the same threshold, neither is a sum handed over.
+  it('reads "oltre 80.000 franchi" as a threshold, not as a tax', () => {
+    silent(
+      'La normativa prevede anche che i frontalieri che lavorano in Svizzera e che hanno un reddito di '
+      + "oltre 80.000 franchi svizzeri all'anno saranno tenuti a pagare le tasse in Svizzera. Questo significa "
+      + 'che i frontalieri che lavorano in Svizzera e che hanno un reddito di oltre 80.000 franchi svizzeri '
+      + "all'anno saranno tenuti a pagare le tasse in Svizzera, anche se non risiedono in Svizzera.",
+    );
+  });
+
+  // `funivia-monte-lema-stagione-2026`: no tax anywhere in the pairing. A
+  // 41-franc IRPEF refund was matched against the 290-franc price of a season
+  // pass eight sentences later, on a paragraph that is one physical line.
+  it('does not pair a refund with the price of a ski pass eight sentences later', () => {
+    silent(
+      'Chi lavora in Ticino e risiede in Lombardia può detrarre l’abbonamento stagionale nel modulo «Altri '
+      + 'costi professionali» della dichiarazione redditi 2026, fino a un massimo di 3 000 franchi. Il rimborso '
+      + 'IRPEF corrispondente, calcolato al 23% per un reddito tra 65 000 e 85 000 franchi, è di 41 franchi; se '
+      + 'il reddito supera i 120 000 franchi la detrazione sale a 55 franchi. Il pagamento avviene tramite '
+      + 'fattura mensile con 30 giorni dilazione. L’abbonamento cumulativo «Ticino Monte» lanciato nel 2025 '
+      + 'include anche Monte Generoso e Monte Tamaro: costa 290 franchi, offre 10% di sconto nelle malghe '
+      + 'affiliate e si può acquistare online su montelema.ch.',
+    );
+  });
+
+  // `lpp-minimo-secondo-pilastro-2026`, two distinct defects on one article.
+  // Four bulleted scenarios share a line: the 4.000 CHF salary of the first was
+  // paired with the 6.000 CHF salary of the fourth.
+  it('does not pair salaries across bulleted scenarios on the same line', () => {
+    silent(
+      '- Scenario 1: Un operaio che guadagna 4.000 CHF al mese dovrà pagare 50 CHF di tasse per la previdenza '
+      + 'sociale per il 2026, indipendentemente dal fatto che lavori in Svizzera o in Italia. - Scenario 2: Un '
+      + 'commerciante che guadagna 5.000 CHF al mese dovrà pagare 62,50 CHF di tasse per la previdenza sociale '
+      + 'per il 2026, indipendentemente dal fatto che lavori in Svizzera o in Italia. - Scenario 4: Un ingegnere '
+      + 'che guadagna 6.000 CHF al mese dovrà pagare 75 CHF di tasse per la previdenza sociale per il 2026, '
+      + 'indipendentemente dal fatto che lavori in Svizzera o in Italia.',
+    );
+  });
+
+  it('treats a raised salary as a new base, not as a tax on the previous one', () => {
+    silent(
+      'Ad esempio, un ingegnere che guadagna 6.000 CHF al mese dovrà pagare 75 CHF di tasse per la previdenza '
+      + 'sociale, indipendentemente dal fatto che lavori in Svizzera o in Italia. Tuttavia, se il suo stipendio '
+      + 'aumenta a 7.000 CHF, potrebbe essere in grado di ridurre le tasse per la previdenza sociale a 87,50 CHF.',
+    );
+  });
+
+  // `costo-vita-lugano-confronto-milano-frontalieri`: two bullets, one line. The
+  // 200.000 income of the second was read as a tax on the 60.000 of the first.
+  it('does not reach into the next bullet for a tax figure', () => {
+    silent(
+      "* Un impiegato con un reddito di 60.000 franchi svizzeri all'anno a Lugano può pagare intorno ai 10.000 "
+      + 'franchi svizzeri di tasse in Svizzera, mentre a Milano potrebbe pagare intorno ai 20.000 euro di tasse '
+      + "(circa 24.000 franchi svizzeri). * Un imprenditore con un reddito di 200.000 franchi svizzeri all'anno "
+      + 'a Lugano può pagare intorno ai 30.000 franchi svizzeri di tasse in Svizzera, mentre a Milano potrebbe '
+      + 'pagare intorno ai 50.000 euro di tasse (circa 60.000 franchi svizzeri).',
+    );
+  });
+
+  // `frontaliere-ticino-panettiere-guadagno` and
+  // `quanto-guadagna-un-polimeccanico-frontaliere-in-ticino`: the apostrophe is
+  // the Swiss thousands separator. Truncating "4'500 CHF" to 500 invented an
+  // impossible ratio out of correct arithmetic.
+  it('reads the Swiss apostrophe as a thousands separator', () => {
+    silent(
+      "* Un panettiere frontaliere in Lugano guadagna 4'500 CHF al mese e paga 1'200 CHF di imposte sul reddito "
+      + "in Svizzera. Il credito d'imposta sarebbe di 600 CHF (50% delle imposte pagate).",
+    );
+    silent(
+      "* Un polimeccanico frontaliere che lavora a Lugano, in Ticino, ha un reddito lordo di 80'000 CHF all'anno. "
+      + "Se è già presente in Svizzera prima del 17 luglio 2023, l'esenzione dalle imposte gli permetterebbe di "
+      + "conservare 7'500 CHF, lasciandogli un reddito netto di 72'500 CHF all'anno.",
+    );
+  });
+
+  // `franco-forte-stipendio-frontalieri`: "tasso" is the exchange RATE. Merely
+  // converting a salary to euro was enough to be blocked as a 109% tax.
+  it('does not read "tasso di cambio" as a tax cue', () => {
+    silent(
+      'Un frontaliere che guadagna 5.000 CHF netti al mese, convertendo a un tasso di 0,92, porta a casa circa '
+      + '5.435 EUR — ben 430 EUR in più rispetto a cinque anni fa a parità di stipendio in franchi.',
+    );
+  });
+
+  // `momoride-carpooling-frontalieri-benefici`: "pag\w*" matched the middle of
+  // "equiPAGGi", so a charity donation became a tax on a carpooling bonus.
+  it('does not find a tax cue inside an unrelated word', () => {
+    silent(
+      'I partecipanti possono guadagnare fino a 500 franchi al mese tracciando i loro spostamenti pendolari con '
+      + "l'app Mobalt. Inoltre, unendo le forze per raggiungere l'obiettivo di 40.000 punti in un mese, gli "
+      + 'equipaggi possono donare 1.000 franchi alla Fondazione Provvida Madre di Balerna.',
+    );
+  });
+
+  // `costi-cure-domocilio-ticino-2026` and `tassa-salute-frontalieri-vantaggio-ticino`:
+  // a second income is a second scenario, never the first one's tax.
+  it('does not treat a second income in the same sentence as a tax', () => {
+    silent(
+      'Per esempio, un paziente con un reddito annuo di 50.000 franchi pagherà il 10%, mentre un paziente con '
+      + 'un reddito di 100.000 franchi pagherà il 20%.',
+    );
+    silent(
+      'Secondo le prime stime, un lavoratore singolo con un reddito annuo di 50.000 CHF potrebbe pagare circa '
+      + '200 CHF al mese, mentre per una famiglia di quattro persone con un reddito di 80.000 CHF l\'importo '
+      + 'potrebbe salire fino a 450 CHF mensili.',
+    );
+  });
+
+  // `terzo-pilastro-3a-vantaggi-canton-ginevra`: two defects in one sentence.
+  // "(80.000 CHF - 10.000 CHF)" is a working, and the tax cue that qualified
+  // the 72.500 alternative sat upstream of the income it was compared against.
+  it('ignores a parenthesised working and a tax cue upstream of the income', () => {
+    silent(
+      'Ciò significherebbe che il frontaliero dovrebbe pagare le imposte solo sul reddito residuo di 70.000 CHF '
+      + '(80.000 CHF - 10.000 CHF) o 72.500 CHF (80.000 CHF - 7.500 CHF), rispettivamente.',
+    );
+  });
+
+  // `frontalieri-calano-ticino`: "(circa 31.200 franchi svizzeri)" is the income
+  // one word earlier in another currency, not a 104% tax on it.
+  it('ignores a currency conversion in parentheses', () => {
+    silent(
+      'Se in Italia viene tassato al 20% su un reddito di 30.000 euro (circa 31.200 franchi svizzeri), la tassa '
+      + 'italiana sarà di 6.240 euro (circa 6.456 franchi svizzeri).',
+    );
+  });
+
+  // `divario-salari-ticino-frontalieri-2026`: an income word opens the clause
+  // ("stipendio lordo") but the word next to the figure is "paga", so 900 is
+  // the tax; and net pay is not a tax at all.
+  it('yields to the cue nearest the figure and never reads net pay as a tax', () => {
+    silent(
+      'Un residente con lo stesso stipendio lordo paga circa 900 franchi di tasse in Svizzera, rimanendo con '
+      + 'un netto di 3.900 franchi.',
+    );
+  });
+});
+
+/**
+ * The other half of the same audit. These three articles are genuinely broken
+ * and every precision fix above had to leave them blocked — a gate tuned until
+ * it says nothing is not a gate.
+ */
+describe('tax plausibility — defects that must keep firing', () => {
+  // `proposta-choc-ticino-frontalieri`: the income is stated in one sentence and
+  // the impossible total in the next, which is why the income carries over one
+  // statement instead of being confined to its own.
+  it('flags a total that exceeds the salary it is levied on, across a sentence break', () => {
+    const issues = checkTaxPlausibility(
+      'Ad esempio, se un frontaliero ha lavorato nel Canton Ticino per 10 anni e ha un stipendio di 60.000 '
+      + "franchi all'anno, dovrà pagare le tasse di un nuovo frontaliero, che ammontano a 12.000 franchi "
+      + "all'anno. Ciò significa che il frontaliero dovrà pagare un totale di 72.000 franchi all'anno, di cui "
+      + '12.000 franchi sono tasse.',
+    );
+    expect(codes(issues)).toContain('tax-exceeds-income');
+    expect(issues[0].message).toContain('72.000');
+    expect(issues[0].message).toContain('60.000');
+  });
+
+  // `bossi-commemorazione-bagarrata`: 450% of income, and the base is named
+  // AFTER the figure ("per ogni 1.000 franchi svizzeri di reddito"). Without a
+  // trailing income cue the gate still fired, but reported the right verdict
+  // against the wrong pair of numbers.
+  it('flags a per-unit rate above 100% and names the correct base', () => {
+    const issues = checkTaxPlausibility(
+      "Secondo i dati dell'UFS, nel 2022 il Ticino ha pagato 4.500 franchi svizzeri di tasse per ogni 1.000 "
+      + 'franchi svizzeri di reddito, che è il più alto della Svizzera.',
+    );
+    expect(codes(issues)).toContain('tax-exceeds-income');
+    expect(issues[0].message).toContain('Imposta 4.500 franchi svizzeri');
+    expect(issues[0].message).toContain('reddito lordo 1.000 franchi svizzeri');
   });
 });
 
