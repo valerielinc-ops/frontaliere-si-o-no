@@ -1654,6 +1654,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.fedelta-banca-costosa.title': 'Mehr Banken, Loyalität ist teuer: Mit separaten Anbietern sparen Sie',
     'blog.article.fedelta-banca-costosa.excerpt': 'Die Schweizer sind ihrer Referenzbank notorisch treu, aber diese Loyalität hat einen hohen Preis.',
     'blog.article.fedelta-banca-costosa.imageAlt': 'Ein Frontalier, der seine Konten in einer Schweizer Bank verwaltet',
+    'blog.article.sulzer-ristrutturazione-chemtech-2026.title': 'Sulzer: 10% Kosten- und Personalabbau bei Chemtech',
+    'blog.article.sulzer-ristrutturazione-chemtech-2026.excerpt': 'Der Industriekonzern Sulzer kündigt eine Restrukturierung für die Division Chemtech nach einem Auftragsrückgang von 22 Prozent im ersten Halbjahr an.',
+    'blog.article.sulzer-ristrutturazione-chemtech-2026.imageAlt': 'Sitz des Industriekonzerns Sulzer in der Schweiz',
 };
 
 export default blogMetaChDe;

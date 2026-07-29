@@ -1654,6 +1654,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.fedelta-banca-costosa.title': 'Di più banche, la fedeltà costa cara: con fornitori separati si risparmia',
     'blog.article.fedelta-banca-costosa.excerpt': 'Gli svizzeri sono notoriamente fedeli alla loro banca di riferimento, ma questa fedeltà ha un prezzo salato.',
     'blog.article.fedelta-banca-costosa.imageAlt': 'Un frontaliere che tiene i conti in una banca svizzera',
+    'blog.article.sulzer-ristrutturazione-chemtech-2026.title': 'Sulzer: taglio del 10% a costi e personale in Chemtech',
+    'blog.article.sulzer-ristrutturazione-chemtech-2026.excerpt': 'Il gruppo industriale Sulzer annuncia una ristrutturazione per la divisione Chemtech dopo un calo del 22% negli ordinativi del primo semestre.',
+    'blog.article.sulzer-ristrutturazione-chemtech-2026.imageAlt': 'Sede del gruppo industriale Sulzer in Svizzera',
 };
 
 export default blogMetaChIt;

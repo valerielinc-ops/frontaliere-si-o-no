@@ -1654,6 +1654,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.fedelta-banca-costosa.title': 'More banks, loyalty is expensive: with separate suppliers you save',
     'blog.article.fedelta-banca-costosa.excerpt': 'The Swiss are notoriously loyal to their reference bank, but this loyalty comes at a steep price.',
     'blog.article.fedelta-banca-costosa.imageAlt': 'A frontalier managing their accounts in a Swiss bank',
+    'blog.article.sulzer-ristrutturazione-chemtech-2026.title': 'Sulzer: 10% cut in costs and personnel in Chemtech',
+    'blog.article.sulzer-ristrutturazione-chemtech-2026.excerpt': 'The Sulzer industrial group announces a restructuring for the Chemtech division after a 22% drop in orders in the first half.',
+    'blog.article.sulzer-ristrutturazione-chemtech-2026.imageAlt': 'Sulzer industrial group headquarters in Switzerland',
 };
 
 export default blogMetaChEn;
