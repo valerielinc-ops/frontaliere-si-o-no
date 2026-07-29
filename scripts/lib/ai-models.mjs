@@ -343,26 +343,30 @@ export const AI_MODELS = Object.freeze({
   // remote API — it only runs when all remote providers are exhausted.
   LOCAL_FALLBACK:      'local/fallback',
 
-  // ── Claude CLI Haiku fallback (opt-in via Remote Config, absolute last
-  // resort) ── Routed through the local `claude` CLI subprocess using the
-  // existing CLAUDE_CODE_OAUTH_TOKEN (Max subscription — $0 marginal cost,
-  // same auth already used by pr-review-loop.yml/issue-fix.yml). Inert unless
-  // ENABLE_HAIKU_ARTICLE_FALLBACK is set (see load-rc-env.mjs) AND the token
-  // is present. Pinned even below LOCAL_FALLBACK by sortChainByScore — only
-  // reached when every free-tier cloud model AND local/fallback have failed.
+  // ── Claude CLI Haiku fallback (opt-in via Remote Config) ── Routed through
+  // the local `claude` CLI subprocess using the existing CLAUDE_CODE_OAUTH_TOKEN
+  // (Max subscription — $0 marginal cost, same auth already used by
+  // pr-review-loop.yml/issue-fix.yml). Inert unless ENABLE_HAIKU_ARTICLE_FALLBACK
+  // is set (see load-rc-env.mjs) AND the token is present. Since 2026-07-29
+  // (AI_COMPETING_TIERS) this tier is tier-0 BY DEFAULT — it competes with
+  // every normal model on real score, not pinned last. See _lastResortTier /
+  // AI_COMPETING_TIERS below for the ramp-up mechanics; set
+  // AI_COMPETING_TIERS='' to restore the old pinned-last behavior.
   // Uses the CLI's own 'haiku' alias (confirmed live: `claude --model haiku`
   // resolves to claude-haiku-4-5-20251001 today) instead of a dated snapshot
   // id, so this tracks whatever Anthropic ships as "current Haiku" without
   // needing a code change on every Haiku release.
   CLAUDE_CLI_HAIKU:    'claude-cli/haiku',
 
-  // ── OmniRoute (self-hosted local AI gateway, opt-in, last-resort) ──
-  // Single node using OmniRoute's own "auto" routing sentinel — OmniRoute
-  // fans out across its ~78-100+ locally-registered providers internally, so
-  // this deliberately does NOT enumerate those providers as separate chain
-  // entries (that would duplicate routing logic OmniRoute already does, and
-  // the roster is a developer-local runtime concern, not a stable identity).
-  // Inert unless OMNIROUTE_ENABLED is set. See PROVIDER.OMNIROUTE / _callOmniRoute.
+  // ── OmniRoute (self-hosted local AI gateway, opt-in) ── Single node using
+  // OmniRoute's own "auto" routing sentinel — OmniRoute fans out across its
+  // ~78-100+ locally-registered providers internally, so this deliberately
+  // does NOT enumerate those providers as separate chain entries (that would
+  // duplicate routing logic OmniRoute already does, and the roster is a
+  // developer-local runtime concern, not a stable identity). Inert unless
+  // OMNIROUTE_ENABLED is set. Since 2026-07-29 (AI_COMPETING_TIERS) this tier
+  // is tier-0 BY DEFAULT — see CLAUDE_CLI_HAIKU comment above, same mechanism.
+  // See PROVIDER.OMNIROUTE / _callOmniRoute.
   OMNIROUTE_AUTO:      'omniroute/auto',
 });
 
@@ -588,32 +592,33 @@ export const DEFAULT_CHAIN = [
   // AI_MODELS.CF_QWEN_25_CODER_32B removed — wrapper crash "text.replace is not a function" (2026-05-27, run 26537033519).
   // AI_MODELS.GROQ_LLAMA_3_3_SPEC removed — Groq HTTP 400 "decommissioned" (2026-05-27, run 26537033519).
 
-  // Last-resort local model. Sorted below every real remote API but ABOVE
-  // claude-cli (sortChainByScore / _lastResortTier — see its doc comment for
-  // the 2026-07-28 reorder + the AI_LAST_RESORT_ORDER kill-switch) and skipped
-  // entirely unless LOCAL_LLM_ENABLED — so when every remote provider above is
+  // Last-resort local model. Always sorted below every real remote API
+  // (sortChainByScore / _lastResortTier — local/ is never a member of
+  // AI_COMPETING_TIERS, see that const's doc comment) and skipped entirely
+  // unless LOCAL_LLM_ENABLED — so when every remote provider above is
   // daily-exhausted, generation still produces instead of deferring.
   AI_MODELS.LOCAL_FALLBACK,
 
-  // Self-hosted local AI gateway (OmniRoute), opt-in pilot. Since 2026-07-28
-  // sorted ABOVE LOCAL_FALLBACK (sortChainByScore / _lastResortTier): run
-  // 30286278791 (omniroute-poc.yml) proved it reaches a frontier-class model
-  // over the network in seconds ("POC OK — model used:
-  // deepseek-ai/DeepSeek-V3.2", 2020 prompt tokens, real response), while run
-  // 28802314827 showed LOCAL_FALLBACK's Ollama qwen2.5:14b CPU inference on
-  // the CI runner costs ~12-17min PER generation — network beats CPU
-  // wall-clock when both are reachable. Still above the reserved,
-  // Max-subscription-backed Claude CLI tier. Skipped entirely unless
-  // OMNIROUTE_ENABLED is set. Order overridable via AI_LAST_RESORT_ORDER.
+  // Self-hosted local AI gateway (OmniRoute), opt-in pilot. Since 2026-07-29
+  // (AI_COMPETING_TIERS default) this tier is PROMOTED to tier-0 — it competes
+  // on real Firestore score against every normal model above, it does NOT get
+  // sorted relative to LOCAL_FALLBACK/CLAUDE_CLI_HAIKU by tier rank anymore.
+  // Bottom-of-array position here is deliberate ramp-up: initial score 0 +
+  // index tiebreak means it starts BEHIND models with accumulated positive
+  // score, rising only through real successes (see _lastResortTier /
+  // AI_COMPETING_TIERS doc comment). Set AI_COMPETING_TIERS='' to fall back to
+  // the pre-2026-07-29 pinned-last-resort behavior (order still governed by
+  // AI_LAST_RESORT_ORDER in that mode). Skipped entirely unless
+  // OMNIROUTE_ENABLED is set.
   AI_MODELS.OMNIROUTE_AUTO,
 
-  // Absolute last resort. By default sorted below LOCAL_FALLBACK and
-  // OMNIROUTE_AUTO (sortChainByScore / _lastResortTier — see that function's
-  // doc comment; AI_LAST_RESORT_ORDER can reorder it for an operator-driven
-  // rollback, but the code never promotes it by itself) and skipped unless
-  // ENABLE_HAIKU_ARTICLE_FALLBACK (RC) + CLAUDE_CODE_OAUTH_TOKEN are both
-  // present — so a run only ever reaches it once every free-tier cloud model
-  // AND the local/OmniRoute fallbacks have already failed.
+  // Claude CLI Haiku, opt-in via Remote Config + CLAUDE_CODE_OAUTH_TOKEN.
+  // Since 2026-07-29 (AI_COMPETING_TIERS default) also PROMOTED to tier-0 —
+  // same mechanism as OMNIROUTE_AUTO above, same bottom-of-array ramp-up
+  // rationale. Additionally capped by CLAUDE_CLI_MAX_CALLS_PER_RUN (default
+  // 25/run) since this tier burns the shared Max-subscription quota that also
+  // powers pr-review-loop.yml/issue-fix.yml — see the callLLM loop's cap
+  // check. Set AI_COMPETING_TIERS='' to restore pinned-last-resort behavior.
   AI_MODELS.CLAUDE_CLI_HAIKU,
 ];
 
@@ -641,13 +646,18 @@ const PROVIDER = Object.freeze({
   // would otherwise produce 0 articles for that window. A local open-source model
   // (e.g. Qwen2.5) keeps the funnel producing at $0/zero-quota. See _callLocal.
   LOCAL:       'local',
-  // Claude CLI subprocess (Haiku), opt-in via Remote Config, absolute last
-  // resort below LOCAL. See AI_MODELS.CLAUDE_CLI_HAIKU / _callClaudeCli.
+  // Claude CLI subprocess (Haiku), opt-in via Remote Config. Tier-0 (competing)
+  // by default since 2026-07-29 — see AI_MODELS.CLAUDE_CLI_HAIKU /
+  // AI_COMPETING_TIERS. _isLastResortProvider() still exempts it from
+  // markModelExhausted/429-ban regardless of tier rank (technical property:
+  // no daily-quota concept for a local CLI call, not a rank statement).
+  // See AI_MODELS.CLAUDE_CLI_HAIKU / _callClaudeCli.
   CLAUDE_CLI:  'claude_cli',
   // Self-hosted local AI gateway (OmniRoute — Homebrew CLI, OpenAI-compatible
-  // /v1/chat/completions on http://localhost:20128). Opt-in pilot, last resort
-  // between LOCAL and CLAUDE_CLI. Single model id calls with model:"auto" so
-  // OmniRoute does its OWN internal multi-provider fallback across whatever it
+  // /v1/chat/completions on http://localhost:20128). Opt-in pilot, tier-0
+  // (competing) by default since 2026-07-29 — see AI_COMPETING_TIERS. Single
+  // model id calls with model:"auto" so OmniRoute does its OWN internal
+  // multi-provider fallback across whatever it
   // has registered — we deliberately don't mirror its provider roster here.
   // See AI_MODELS.OMNIROUTE_AUTO / _callOmniRoute.
   OMNIROUTE:   'omniroute',
@@ -781,6 +791,39 @@ async function _withClaudeCliSlot(fn) {
     const next = _claudeCliWaiters.shift();
     if (next) next();
   }
+}
+
+// Per-run call CAP on claude-cli/* (distinct from CLAUDE_CLI_MAX_CONCURRENCY
+// above, which bounds simultaneous subprocesses, not total calls over a run).
+// Safety net for 2026-07-29's AI_COMPETING_TIERS promotion: CLAUDE_CODE_OAUTH_TOKEN
+// powers pr-review-loop.yml/issue-fix.yml/post-merge-followup.yml too — a
+// crawler run now free to call claude-cli/* as often as any tier-0 model
+// could otherwise burn the SAME shared Max-subscription quota those workflows
+// need, stalling the review/auto-merge pipeline. Counted per-process (module
+// state), reset by resetState().
+const DEFAULT_CLAUDE_CLI_MAX_CALLS_PER_RUN = 25;
+let _claudeCliCallsThisRun = 0;
+let _claudeCliMaxCallsWarned = false;
+
+/**
+ * CLAUDE_CLI_MAX_CALLS_PER_RUN — max claude-cli/* calls this process attempts
+ * before skipping it for the rest of the run (see the cap check in callLLM's
+ * main loop). Unset/blank → DEFAULT_CLAUDE_CLI_MAX_CALLS_PER_RUN above.
+ * "0" explicitly DISABLES the cap (unlimited) — checked via Number.isInteger
+ * + >=0, not `Number.parseInt(x) || default`, because that idiom can't
+ * distinguish a real 0 from "unparseable". Malformed value (non-integer,
+ * negative) → falls back to the default and warns ONCE per process.
+ */
+function _getClaudeCliMaxCallsPerRun() {
+  const raw = (process.env.CLAUDE_CLI_MAX_CALLS_PER_RUN || '').trim();
+  if (!raw) return DEFAULT_CLAUDE_CLI_MAX_CALLS_PER_RUN;
+  const n = Number(raw);
+  if (Number.isInteger(n) && n >= 0) return n;
+  if (!_claudeCliMaxCallsWarned) {
+    _claudeCliMaxCallsWarned = true;
+    console.warn(`⚠️ CLAUDE_CLI_MAX_CALLS_PER_RUN="${raw}" invalid (expected a non-negative integer, 0 = unlimited) — using default ${DEFAULT_CLAUDE_CLI_MAX_CALLS_PER_RUN}.`);
+  }
+  return DEFAULT_CLAUDE_CLI_MAX_CALLS_PER_RUN;
 }
 
 // ── API keys (lazy-loaded from environment) ──────────────────
@@ -943,18 +986,25 @@ function getApiKeyForProvider(provider) {
 }
 
 /**
- * True for opt-in, absolute-last-resort providers (local CPU fallback, Claude
- * CLI Haiku, OmniRoute — see AI_MODELS.LOCAL_FALLBACK / CLAUDE_CLI_HAIKU /
- * OMNIROUTE_AUTO) that must never be marked exhausted/banned. Local and Claude
- * CLI have no daily-quota concept at all, so persisting a ban just guarantees
- * zero output for the rest of the budget. OmniRoute's reasoning is distinct
- * but lands on the same exemption: the CI pilot instance is EPHEMERAL — a
- * fresh, empty sqlite provider DB every run (scripts/ci/omniroute-poc-register.mjs
- * re-registers from scratch each boot) — so a Firestore-persisted "exhausted
- * until midnight" ban computed from one run's registered providers is
- * meaningless (and actively harmful) for a different run's freshly-provisioned
- * instance. Centralizes what were several separate `!== PROVIDER.LOCAL`
- * checks so adding further last-resort tiers didn't require touching each one.
+ * True for opt-in providers (local CPU fallback, Claude CLI Haiku, OmniRoute —
+ * see AI_MODELS.LOCAL_FALLBACK / CLAUDE_CLI_HAIKU / OMNIROUTE_AUTO) that must
+ * never be marked exhausted/banned. Local and Claude CLI have no daily-quota
+ * concept at all, so persisting a ban just guarantees zero output for the
+ * rest of the budget. OmniRoute's reasoning is distinct but lands on the same
+ * exemption: the CI pilot instance is EPHEMERAL — a fresh, empty sqlite
+ * provider DB every run (scripts/ci/omniroute-poc-register.mjs re-registers
+ * from scratch each boot) — so a Firestore-persisted "exhausted until
+ * midnight" ban computed from one run's registered providers is meaningless
+ * (and actively harmful) for a different run's freshly-provisioned instance.
+ * Centralizes what were several separate `!== PROVIDER.LOCAL` checks so
+ * adding further last-resort tiers didn't require touching each one.
+ *
+ * Orthogonal to AI_COMPETING_TIERS (2026-07-29): this is about a PROVIDER's
+ * technical properties (no real quota / ephemeral instance), not its current
+ * tier RANK. omniroute/claude-cli stay exempt here even while promoted to
+ * tier-0 — the 60s per-provider cooldown (cooldownProvider(), unconditional,
+ * see the main callLLM loop) plus ordinary score-based sinking on failure
+ * already bound the "retry forever" risk without needing the ban too.
  */
 function _isLastResortProvider(modelId) {
   const p = getProvider(modelId);
@@ -2178,15 +2228,58 @@ function _getLastResortOrder() {
   return DEFAULT_LAST_RESORT_ORDER;
 }
 
+// Tiers promoted to tier-0 by default (2026-07-29 — owner decision: OmniRoute
+// has ~74 registered providers/~45 unused = real spare capacity, and free-tier
+// direct models hit 429/exhaustion often — run 30375068235: 42×429, 3
+// cooldowns, 185s pure sleep. Let both compete on real score instead of
+// sinking unconditionally). local/ deliberately NOT in this list — CPU
+// inference (~12-17min/gen, run 28802314827) must never win a live race
+// against a network call regardless of score.
+const DEFAULT_COMPETING_TIERS = ['omniroute', 'claude-cli'];
+
+// Set once a malformed AI_COMPETING_TIERS has been warned about — same
+// warn-once discipline as _lastResortOrderWarned. Reset by resetState().
+let _competingTiersWarned = false;
+
+/**
+ * AI_COMPETING_TIERS — CSV of last-resort tier names (LAST_RESORT_TIER_PREFIXES
+ * keys) to treat as tier-0 (competing on real score against every normal
+ * model) instead of sinking below all of them. Unset → DEFAULT_COMPETING_TIERS
+ * above. Explicit empty string ("") → zero competing tiers, i.e. the exact
+ * pre-2026-07-29 behavior (all 3 tiers sink, ranked only by
+ * _getLastResortOrder()) — this is the instant-rollback lever. Malformed
+ * value (unknown tier name, all-empty entries like ",,") → falls back to
+ * DEFAULT_COMPETING_TIERS and warns ONCE per process (see
+ * _competingTiersWarned), never throws. Tiers NOT listed here keep sinking,
+ * ranked relative to each other by _getLastResortOrder() same as before.
+ */
+function _getCompetingTiers() {
+  const raw = process.env.AI_COMPETING_TIERS;
+  if (raw === undefined) return DEFAULT_COMPETING_TIERS; // unset → default
+  const trimmed = raw.trim();
+  if (trimmed === '') return []; // explicit empty → zero competing tiers
+  const validNames = Object.keys(LAST_RESORT_TIER_PREFIXES);
+  const parsed = [...new Set(trimmed.split(',').map((s) => s.trim()).filter(Boolean))];
+  const isValid = parsed.length > 0 && parsed.every((n) => validNames.includes(n));
+  if (isValid) return parsed;
+  if (!_competingTiersWarned) {
+    _competingTiersWarned = true;
+    console.warn(`⚠️ AI_COMPETING_TIERS="${raw}" invalid (expected a comma-separated subset of ${validNames.join(',')}) — using default ${DEFAULT_COMPETING_TIERS.join(',')}.`);
+  }
+  return DEFAULT_COMPETING_TIERS;
+}
+
 // Last-resort tiering for sortChainByScore: higher tier always sinks below
 // lower tier regardless of score, tier 0 = normal chain model (always ranked
-// above all 3 last-resort tiers). Rank among the 3 last-resort tiers follows
-// _getLastResortOrder() (default above, or the AI_LAST_RESORT_ORDER
+// above all last-resort tiers) OR a tier promoted via AI_COMPETING_TIERS
+// (checked first — see its doc comment). Rank among the tiers still sinking
+// follows _getLastResortOrder() (default above, or the AI_LAST_RESORT_ORDER
 // override) — a model's tier IDENTITY (_lastResortTierName) never changes,
 // only its numeric RANK does.
 function _lastResortTier(model) {
   const name = _lastResortTierName(model);
   if (!name) return 0;
+  if (_getCompetingTiers().includes(name)) return 0; // promoted — competes like a normal model
   return _getLastResortOrder().indexOf(name) + 1; // 1-based; 0 reserved for "not last-resort"
 }
 
@@ -2331,8 +2424,12 @@ export function getStats() {
 // Formats one last-resort tier's bucket for printRunSummary()'s compact
 // line, e.g. "local 0 served/0 failed/3 skipped(no API key)". Omits the
 // "skipped(...)" segment when nothing was skipped — keeps the common
-// "reached and worked/failed normally" case from being cluttered.
-function _formatLastResortTier(name, t) {
+// "reached and worked/failed normally" case from being cluttered. Appends a
+// " [competing]" SUFFIX (not a prefix/mid-string insert) when the tier is
+// currently promoted via AI_COMPETING_TIERS — a suffix keeps every existing
+// `toMatch(/name N served\/M failed/)` test assertion (unanchored substring
+// search) intact regardless of promotion state.
+function _formatLastResortTier(name, t, isCompeting) {
   const parts = [`${t.served} served`, `${t.failed} failed`];
   if (t.skipped > 0) {
     const reasons = Object.entries(t.skipReasons)
@@ -2341,7 +2438,7 @@ function _formatLastResortTier(name, t) {
       .join(', ');
     parts.push(`${t.skipped} skipped(${reasons})`);
   }
-  return `${name} ${parts.join('/')}`;
+  return `${name} ${parts.join('/')}${isCompeting ? ' [competing]' : ''}`;
 }
 
 /**
@@ -2363,11 +2460,16 @@ export function printRunSummary() {
   // Names from LAST_RESORT_TIER_PREFIXES, not a 4th hardcoded copy (AGENTS.md
   // #6). Display order fixed (not driven by AI_LAST_RESORT_ORDER) so the
   // summary line's shape stays grep-able/diffable across runs regardless of
-  // which priority order was actually in effect.
+  // which priority order was actually in effect. Line is still labeled
+  // "last-resort:" even for tiers currently promoted via AI_COMPETING_TIERS —
+  // this is the identity bucket (LAST_RESORT_TIER_PREFIXES), not the current
+  // rank; the per-tier " [competing]" suffix (_formatLastResortTier) is what
+  // stays truthful about rank across both configurations.
   const lrTiers = Object.keys(LAST_RESORT_TIER_PREFIXES);
+  const competing = _getCompetingTiers();
   const lrReached = lrTiers.some((t) => lr[t].served + lr[t].failed + lr[t].skipped > 0);
   lines.push(lrReached
-    ? `   last-resort: ${lrTiers.map((t) => _formatLastResortTier(t, lr[t])).join(' · ')}`
+    ? `   last-resort: ${lrTiers.map((t) => _formatLastResortTier(t, lr[t], competing.includes(t))).join(' · ')}`
     : `   last-resort: ${lrTiers.join('/')} not reached this run`);
   if (s.errors.length > 0) {
     lines.push(`   Errors: ${s.errors.length}`);
@@ -2401,6 +2503,9 @@ export function resetState() {
   _stats.errors = [];
   _stats.lastResort = _freshLastResortStats();
   _lastResortOrderWarned = false;
+  _competingTiersWarned = false;
+  _claudeCliCallsThisRun = 0;
+  _claudeCliMaxCallsWarned = false;
   _responseCache.clear();
   _claudeCliBinaryMissing = false;
   _claudeCliConsecutiveTimeouts = 0;
@@ -4035,6 +4140,24 @@ export async function callLLM(messages, opts = {}) {
         _recordLastResortSkip(model, 'request token limit');
         continue;
       }
+    }
+
+    // Per-run call CAP on claude-cli/* (CLAUDE_CLI_MAX_CALLS_PER_RUN, default
+    // 25, see its doc comment) — safety net now that AI_COMPETING_TIERS lets
+    // this tier compete as freely as any tier-0 model, and it shares the same
+    // Max-subscription quota as pr-review-loop.yml/issue-fix.yml. Checked
+    // AFTER every other pre-flight skip (so a model that would've been
+    // skipped anyway doesn't burn cap budget) and BEFORE the actual call so
+    // the counter only tracks real attempts.
+    if (provider === PROVIDER.CLAUDE_CLI) {
+      const cap = _getClaudeCliMaxCallsPerRun();
+      if (cap > 0 && _claudeCliCallsThisRun >= cap) {
+        _logPreflightSkipOnce(model, 'claudeCliCap', `claude-cli call cap reached (${cap}/run, CLAUDE_CLI_MAX_CALLS_PER_RUN)`);
+        errors.push(`${model}: skipped — claude-cli call cap reached (${cap}/run)`);
+        _recordLastResortSkip(model, 'claude-cli call cap reached');
+        continue;
+      }
+      _claudeCliCallsThisRun++;
     }
 
     try {

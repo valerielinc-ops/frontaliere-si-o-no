@@ -2,12 +2,16 @@ name: "Setup Claude CLI Haiku fallback"
 description: >-
   Installs @anthropic-ai/claude-code and forces ENABLE_HAIKU_ARTICLE_FALLBACK=1
   (RC kill-switch: set the Remote Config flag to '0' to disable this
-  workflow). Absolute last-resort model tier in scripts/lib/ai-models.mjs
-  (AI_MODELS.CLAUDE_CLI_HAIKU, pinned below local/* by sortChainByScore),
-  reached only after every free-tier model AND the local/ollama fallback have
-  failed. Zero marginal cost: auth is CLAUDE_CODE_OAUTH_TOKEN (same Max-plan
-  subscription token already used by pr-review-loop.yml/issue-fix.yml), never
-  ANTHROPIC_API_KEY.
+  workflow). Model tier AI_MODELS.CLAUDE_CLI_HAIKU in scripts/lib/ai-models.mjs.
+  Since 2026-07-29 (AI_COMPETING_TIERS default) this tier is tier-0 BY
+  DEFAULT — it competes on real score against every free-tier model
+  (sortChainByScore), no longer pinned below local/* or reached only after
+  every other model has failed; capped at CLAUDE_CLI_MAX_CALLS_PER_RUN
+  calls/run (default 25) since this quota is shared with
+  pr-review-loop.yml/issue-fix.yml. Set AI_COMPETING_TIERS='' to restore the
+  old pinned-last-resort behavior. Zero marginal cost: auth is
+  CLAUDE_CODE_OAUTH_TOKEN (same Max-plan subscription token already used by
+  pr-review-loop.yml/issue-fix.yml), never ANTHROPIC_API_KEY.
   Caller MUST run "node scripts/load-rc-env.mjs" before this action so
   env.ENABLE_HAIKU_ARTICLE_FALLBACK reflects Remote Config. Caller MUST also
   pass CLAUDE_CODE_OAUTH_TOKEN (sourced from secrets.CLAUDE_CODE_OAUTH_TOKEN)
