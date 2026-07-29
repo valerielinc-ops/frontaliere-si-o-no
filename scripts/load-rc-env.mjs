@@ -204,6 +204,15 @@ const RC_TO_ENV = {
   // into a fresh CI OmniRoute instance instead of the small hardcoded list.
   OMNIROUTE_PROVIDERS_JSON:       ['OMNIROUTE_PROVIDERS_JSON'],
 
+  // Overrides the free-only provider allowlist in
+  // scripts/lib/omniroute-free-providers.mjs: a CSV replaces the built-in list
+  // outright, an explicit empty string disables filtering altogether. Must be
+  // mapped HERE or the override is inert in CI — load-rc-env.mjs is the only
+  // Remote Config → env bridge on a runner, and the registrar reads it via
+  // process.env, so an unmapped param stays undefined no matter what Remote
+  // Config says. Unset in RC by default (the built-in free list applies).
+  OMNIROUTE_PROVIDER_ALLOWLIST:   ['OMNIROUTE_PROVIDER_ALLOWLIST'],
+
   // Global kill-switch for .github/actions/setup-omniroute (default ON —
   // set this RC flag to '0' to disable OmniRoute registration across every
   // workflow that includes the composite action, without editing each one).
@@ -211,6 +220,39 @@ const RC_TO_ENV = {
   // other than '0': proceed).
   ENABLE_OMNIROUTE_FALLBACK:      ['ENABLE_OMNIROUTE_FALLBACK'],
 };
+
+/**
+ * RC keys whose EMPTY value is a real signal, not a missing setting.
+ *
+ * The load loop skips falsy values, which is right for the ~90 keys where an
+ * empty string means "never configured". These are the exceptions: their
+ * consumer distinguishes unset (fall back to a built-in default) from
+ * explicitly-empty (turn the behaviour off), so collapsing the two would make
+ * the "off" position of the switch unreachable from Remote Config.
+ */
+export const ALLOW_EMPTY_RC_KEYS = new Set([
+  // '' disables free-only provider filtering — see
+  // scripts/lib/omniroute-free-providers.mjs (resolveOmniRouteAllowlist).
+  'OMNIROUTE_PROVIDER_ALLOWLIST',
+]);
+
+/**
+ * Whether an RC value should be written to the environment.
+ *
+ * Exported and used by the load loop (rather than inlined there) so the rule
+ * can be tested by EXECUTION, like isTrivialSecret already is — a test that
+ * greps this file for a variable name keeps passing when the logic inverts.
+ * Two review rounds were lost to this rule being subtly wrong, so it earns a
+ * real test.
+ *
+ * @param {string|null} value  as returned by getRcValue(): null when the key is
+ *   absent from the template, '' when present but empty.
+ * @param {string} rcKey
+ */
+export function shouldExportRcValue(value, rcKey) {
+  if (value) return true;
+  return value === '' && ALLOW_EMPTY_RC_KEYS.has(rcKey);
+}
 
 // ─── Helpers ─────────────────────────────────────────────────────────────
 
@@ -336,7 +378,10 @@ async function main() {
   for (const [rcKey, envKeys] of Object.entries(RC_TO_ENV)) {
     const value = getRcValue(template, rcKey);
 
-    if (!value) {
+    // See shouldExportRcValue: getRcValue() already distinguishes "absent" (null)
+    // from "present but empty" (''), and collapsing the two hid an RC key whose
+    // empty value carries meaning.
+    if (!shouldExportRcValue(value, rcKey)) {
       missing++;
       continue;
     }
