@@ -120,10 +120,11 @@ jobs:
       - uses: ./.github/actions/setup-omniroute
 
       # ── Claude CLI Haiku fallback (ON by default, kill-switch '0') ──────
-      # Same mechanism as generate-article.yml: absolute last resort in
-      # NEWSLETTER_AI_CHAIN (scripts/send-newsletter.mjs), reached only after
-      # every free-tier model has failed. Extracted to a shared composite
-      # action 2026-07-24 (was duplicated byte-for-byte with
+      # Same mechanism as generate-article.yml: tier-0 in NEWSLETTER_AI_CHAIN
+      # (scripts/send-newsletter.mjs) by default since 2026-07-29
+      # (AI_COMPETING_TIERS) — competes on real score instead of being
+      # reached only after every free-tier model has failed. Extracted to a
+      # shared composite action 2026-07-24 (was duplicated byte-for-byte with
       # generate-article.yml, then about to be copy-pasted into more
       # workflows for the fleet-wide rollout — see
       # .github/actions/setup-claude-haiku-fallback/action.yml for the full
@@ -152,7 +153,8 @@ jobs:
           VARIANT: ${{ inputs.variant || 'general' }}
           ENHANCEMENTS: ${{ inputs.enhancements || 'topJobs,clusterPages,evergreen' }}
           AB_TEST: ${{ inputs.ab_test || '' }}
-          # Auth for the opt-in Claude CLI Haiku last-resort fallback (see
+          # Auth for the opt-in Claude CLI Haiku fallback (tier-0 by default
+          # since 2026-07-29 — see AI_COMPETING_TIERS in ai-models.mjs; see
           # "Setup Claude CLI Haiku fallback" step above). Harmless to always
           # pass: ai-models.mjs only offers the model when this AND the RC
           # flag are both set.

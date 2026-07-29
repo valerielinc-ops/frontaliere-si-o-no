@@ -31,6 +31,7 @@ import { buildBridgeThinHtml } from './shared/bridgeThinShell';
 import { buildSoftLandingThinHtml } from './shared/softLandingThinShell';
 import { buildGscKeywordThinBody, GSC_KEYWORD_THIN_HEAD_SCRIPT } from './shared/gscKeywordThinShell';
 import { shouldEmitLocale } from './shared/localeEmitFilter';
+import { registerKeywordLandingPaths } from './shared/keywordLandingPlan';
 import { jobDescriptionTextToHtml, inlineTextToHtml } from './shared/jobDescription/toHtml';
 import { markCantonNoindex } from './shared/cantonNoindexRegistry';
 import { markCantonSectorPage } from './shared/cantonSectorPageRegistry';
@@ -8572,7 +8573,12 @@ ${staticAnalyticsHtml}
  const __otherFullSlug = `${searchRoutePrefix[__otherLocale]}-${kwSlug}`;
  __kwCandidatePaths.push(withSlash(`${localePrefix[__otherLocale]}/${sectionByLocale[__otherLocale]}/${__otherFullSlug}`.replace(/\/+/g, '/')));
  }
- const __kwDecision = trafficFilter.decideMulti(__kwCandidatePaths, 'gsc-keyword-landing');
+ // Only the canonical path — __kwCandidatePaths also carries cross-locale PROBE
+        // paths for the traffic decision below, which this build does not
+        // necessarily emit. Registering those would make the plan
+        // over-inclusive and silently disarm the stale-landing repair.
+        registerKeywordLandingPaths('jobs-seo-pages', [kwCanonicalPath]);
+        const __kwDecision = trafficFilter.decideMulti(__kwCandidatePaths, 'gsc-keyword-landing');
  const __kwAction: 'full' | 'thin' = __kwDecision.action === 'thin' ? 'thin' : 'full';
  const __kwFullBody = `<h1>${esc(itCopy.heading)}</h1>\n <p>${esc(kwDesc)}</p>\n ${kwQueryIntro}\n ${kwIntro}\n <p>${esc(kwCta)}</p>\n <ul class="s-0WjlyL">${kwListHtml}</ul>\n <p><a href="${kwSectionUrl}">${esc(kwOpenAllLabel)}</a></p>\n ${kwMarketSection}\n ${renderJobBoardListingDensityProse(locale, { subject: _kwQuery || kwQueryDisplay || itCopy.heading, location: _kwCity ? _kwCity.charAt(0).toUpperCase() + _kwCity.slice(1) : getCantonDisplayLabel(DEFAULT_CANTON, locale), resultCount: kwJobs.length, companyCount: kwUniqueCompanies.length, locationCount: kwUniqueLocations.length })}\n ${kwCommuterBlock}`;
  const __kwBody = __kwAction === 'thin'
@@ -8781,7 +8787,12 @@ ${staticAnalyticsHtml}
  const __ssOtherSlug = `${searchRoutePrefix[__ssOtherLocale]}-${key}`;
  __ssCandidatePaths.push(withSlash(`${localePrefix[__ssOtherLocale]}/${sectionByLocale[__ssOtherLocale]}/${__ssOtherSlug}`.replace(/\/+/g, '/')));
  }
- const __ssDecision = trafficFilter.decideMulti(__ssCandidatePaths, 'gsc-keyword-landing');
+ // Only the canonical path — __ssCandidatePaths also carries cross-locale PROBE
+        // paths for the traffic decision below, which this build does not
+        // necessarily emit. Registering those would make the plan
+        // over-inclusive and silently disarm the stale-landing repair.
+        registerKeywordLandingPaths('jobs-seo-pages', [canonicalPath]);
+        const __ssDecision = trafficFilter.decideMulti(__ssCandidatePaths, 'gsc-keyword-landing');
  const __ssAction: 'full' | 'thin' = __ssDecision.action === 'thin' ? 'thin' : 'full';
  const __ssBody = __ssAction === 'thin'
  ? buildGscKeywordThinBody({ locale, query: String(name || key || ''), listingUrl: _sListUrl, h1Title: esc(copy.heading(name)), jobCount: matchingJobs.length, companies: [...new Set(matchingJobs.map((j: any) => String(j.company || '')).filter(Boolean))].slice(0, 3).map((c: string) => esc(c)) })
@@ -8981,7 +8992,12 @@ ${staticAnalyticsHtml}
  const __cmOtherSlug = `${searchRoutePrefix[__cmOtherLocale]}-${comboKey}`;
  __cmCandidatePaths.push(withSlash(`${localePrefix[__cmOtherLocale]}/${sectionByLocale[__cmOtherLocale]}/${__cmOtherSlug}`.replace(/\/+/g, '/')));
  }
- const __cmDecision = trafficFilter.decideMulti(__cmCandidatePaths, 'gsc-keyword-landing');
+ // Only the canonical path — __cmCandidatePaths also carries cross-locale PROBE
+        // paths for the traffic decision below, which this build does not
+        // necessarily emit. Registering those would make the plan
+        // over-inclusive and silently disarm the stale-landing repair.
+        registerKeywordLandingPaths('jobs-seo-pages', [canonicalPath]);
+        const __cmDecision = trafficFilter.decideMulti(__cmCandidatePaths, 'gsc-keyword-landing');
  const __cmAction: 'full' | 'thin' = __cmDecision.action === 'thin' ? 'thin' : 'full';
  const __cmBody = __cmAction === 'thin'
  ? buildGscKeywordThinBody({ locale, query: String(copy.heading || comboTitle || ''), listingUrl: _cListUrl, h1Title: esc(copy.heading), jobCount: matchingJobs.length, companies: [...new Set(matchingJobs.map((j: any) => String(j.company || '')).filter(Boolean))].slice(0, 3).map((c: string) => esc(c)) })

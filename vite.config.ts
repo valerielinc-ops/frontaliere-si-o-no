@@ -29,6 +29,7 @@ import { cantonOrphanRedirectsPlugin } from './build-plugins/cantonOrphanRedirec
 import { calculatorLegacyAliasPlugin } from './build-plugins/calculatorLegacyAliasPlugin';
 import { jobOrphanBridgePlugin } from './build-plugins/jobOrphanBridgePlugin';
 import { adFilterSafeChunkName } from './build-plugins/shared/adFilterSafeChunkName';
+import { matchBlogBodyChunkLocale, buildBlogBodyChunkFileName } from './build-plugins/shared/blogBodyChunkNaming';
 import { SPA_ENTRY_JS_FILENAME } from './build-plugins/shared/spaEntryFilenames';
 import { locationHubBridgePlugin } from './build-plugins/locationHubBridgePlugin';
 import { companyHubBridgePlugin } from './build-plugins/companyHubBridgePlugin';
@@ -86,6 +87,10 @@ import { fiscalMunicipalityPagesPlugin } from './build-plugins/fiscalMunicipalit
 import { fiscalMunicipalityLinksPlugin } from './build-plugins/fiscalMunicipalityLinksPlugin';
 import { frenchBorderMunicipalityPagesPlugin } from './build-plugins/frenchBorderMunicipalityPagesPlugin';
 import { frenchBorderMunicipalityLinksPlugin } from './build-plugins/frenchBorderMunicipalityLinksPlugin';
+import { germanBorderMunicipalityPagesPlugin } from './build-plugins/germanBorderMunicipalityPagesPlugin';
+import { germanBorderMunicipalityLinksPlugin } from './build-plugins/germanBorderMunicipalityLinksPlugin';
+import { liechtensteinBorderMunicipalityPagesPlugin } from './build-plugins/liechtensteinBorderMunicipalityPagesPlugin';
+import { liechtensteinBorderMunicipalityLinksPlugin } from './build-plugins/liechtensteinBorderMunicipalityLinksPlugin';
 import { eventsSeoPagesPlugin } from './build-plugins/eventsSeoPagesPlugin';
 import { nursingLandingsPlugin } from './build-plugins/nursingLandingsPlugin';
 import { healthFacilitiesPlugin } from './build-plugins/healthFacilitiesPlugin';
@@ -289,6 +294,16 @@ export default defineConfig(({ mode }) => {
  // paths, no hub patch), same ordering rationale as fiscalMunicipalityPagesPlugin.
  // Default-on; escape hatch SKIP_FRENCH_BORDER_MUNICIPALITY_PAGES=1.
  frenchBorderMunicipalityPagesPlugin(__dirname),
+ // Per-comune GERMANY border-municipality pages (issue #4882 — Baden-
+ // Württemberg corridor, second of the FR/DE/LI rollout). Same
+ // self-contained pattern as frenchBorderMunicipalityPagesPlugin above.
+ // Default-on; escape hatch SKIP_GERMAN_BORDER_MUNICIPALITY_PAGES=1.
+ germanBorderMunicipalityPagesPlugin(__dirname),
+ // Per-Gemeinde LIECHTENSTEIN border-municipality pages (issue #4884, third
+ // of the FR/DE/LI rollout). Same self-contained pattern as
+ // frenchBorderMunicipalityPagesPlugin above.
+ // Default-on; escape hatch SKIP_LIECHTENSTEIN_BORDER_MUNICIPALITY_PAGES=1.
+ liechtensteinBorderMunicipalityPagesPlugin(__dirname),
  // Per-comune Ticino events pages (issue #2963). Same post-staticPages
  // ordering as borderMunicipalityPagesPlugin: it patches the
  // /vivere-in-ticino/ hubs after they are flushed and awaits
@@ -405,6 +420,20 @@ export default defineConfig(({ mode }) => {
  // staticPagesPlugin (sitemap-page HTML). Idempotent via
  // `data-french-border-municipalities-links`.
  frenchBorderMunicipalityLinksPlugin(__dirname),
+ // Germany border-municipality hub orphan fix — same pattern as the France
+ // links plugin above, injecting a link to GERMAN_HUB_PATH into each
+ // locale's HTML sitemap page. Awaits explicit signals from
+ // germanBorderMunicipalityPagesPlugin (hub paths) + staticPagesPlugin
+ // (sitemap-page HTML). Idempotent via
+ // `data-german-border-municipalities-links`.
+ germanBorderMunicipalityLinksPlugin(__dirname),
+ // Liechtenstein border-municipality hub orphan fix — same pattern as the
+ // France links plugin above, injecting a link to LIECHTENSTEIN_HUB_PATH
+ // into each locale's HTML sitemap page. Awaits explicit signals from
+ // liechtensteinBorderMunicipalityPagesPlugin (hub paths) + staticPagesPlugin
+ // (sitemap-page HTML). Idempotent via
+ // `data-liechtenstein-border-municipalities-links`.
+ liechtensteinBorderMunicipalityLinksPlugin(__dirname),
  // Employer-profile pages orphan fix — inject an "Aziende in Svizzera" block
  // into each locale's HTML sitemap page (main-nav reachable) so the ~468
  // /aziende/{slug}/ pages reach BFS depth ≤ 3 instead of shipping fully
@@ -664,23 +693,24 @@ export default defineConfig(({ mode }) => {
  entryFileNames: `assets/${SPA_ENTRY_JS_FILENAME}`,
  chunkFileNames: (chunk) => {
  // Per-article blog-body modules share their basename across the 4 locale
- // dirs (services/locales/{blog-body,blog-body-ch}/<locale>/<slug>.ts —
- // BOTH families, Ticino and the Svizzera section). Without a qualifier
- // Rollup dedups the colliding output names by appending a counter
- // (slug2.js = en, slug3.js = fr, …) whose locale mapping is pure
- // iteration order — semantically unkeyed under stable-name caching (a
- // cached slug2.js could mean a different locale after a reorder). Key
- // them by locale instead: <slug>.<locale>.js / <slug>.ch.<locale>.js
- // (dot separator: can't be confused with a real slug suffix nor with the
- // legacy `-<hash8>` shape the CDN janitor prunes).
- const m = (chunk.facadeModuleId ?? '').match(/[\\/]services[\\/]locales[\\/]blog-body(-ch)?[\\/]([a-z]{2})[\\/]/);
+ // dirs — BOTH the legacy services/locales path and the real,
+ // symlink-resolved packages/articles/content path (issue #4881 Fase 6 —
+ // see build-plugins/shared/blogBodyChunkNaming.ts for the full rationale
+ // and why both shapes must match). Without a qualifier Rollup dedups the
+ // colliding output names by appending a counter (slug2.js = en, slug3.js
+ // = fr, …) whose locale mapping is pure iteration order — semantically
+ // unkeyed under stable-name caching (a cached slug2.js could mean a
+ // different locale after a reorder). Key them by locale instead:
+ // <slug>.<locale>.js / <slug>.ch.<locale>.js (dot separator: can't be
+ // confused with a real slug suffix nor with the legacy `-<hash8>` shape
+ // the CDN janitor prunes).
+ const m = matchBlogBodyChunkLocale(chunk.facadeModuleId);
  // Neutralise ad-filter trigger substrings in the stable basename so a
  // blocked/surrogated first-party chunk can't link-break the page (issue
  // #2971). No-op for names without a tracker keyword; Rollup rewrites every
  // internal import reference to the emitted name, so the rename is consistent.
  const safe = adFilterSafeChunkName(chunk.name ?? '');
- if (m) return `assets/${safe}.${m[1] ? 'ch.' : ''}${m[2]}.js`;
- return `assets/${safe}.js`;
+ return buildBlogBodyChunkFileName(safe, m);
  },
  assetFileNames: (assetInfo) => {
  const n = assetInfo.name || (assetInfo.names && assetInfo.names[0]) || '';

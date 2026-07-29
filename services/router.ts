@@ -73,6 +73,16 @@ import {
   parseFrenchBorderMunicipalityPath,
 } from '../build-plugins/frenchBorderMunicipalityData';
 import {
+  isGermanBorderMunicipalityHubPath,
+  parseGermanBorderMunicipalityHubPath,
+  parseGermanBorderMunicipalityPath,
+} from '../build-plugins/germanBorderMunicipalityData';
+import {
+  isLiechtensteinBorderMunicipalityHubPath,
+  parseLiechtensteinBorderMunicipalityHubPath,
+  parseLiechtensteinBorderMunicipalityPath,
+} from '../build-plugins/liechtensteinBorderMunicipalityData';
+import {
   COST_OF_LIVING_LANDING_ROUTES,
   isCostOfLivingLandingPath,
   parseCostOfLivingLandingPath,
@@ -1437,7 +1447,11 @@ export function preloadBlogData(): Promise<void> {
  if (!_blogDataPromise) {
  _blogDataPromise = import('./routerBlogData').then(m => {
  _blogSlugs = m.BLOG_SLUGS;
- _reverseBlog = m.REVERSE_BLOG;
+ // packages/articles/content/routerBlogData.ts (issue #4881 Fase 6) can't
+ // import the real BlogArticleId literal union (confinement) — it exports
+ // REVERSE_BLOG as Record<ArticleLocale, Record<string, string>>. Only this
+ // module (the site) knows which ids are valid, so narrow here.
+ _reverseBlog = m.REVERSE_BLOG as Record<Locale, Record<string, BlogArticleId>>;
  });
  }
  return _blogDataPromise;
@@ -2189,6 +2203,40 @@ export function parsePath(pathname: string): ParseResult {
  }
  {
    const parsed = parseFrenchBorderMunicipalityPath(pathname);
+   if (parsed) {
+     return { route: { activeTab: 'vita', staticOverlay: true }, locale: parsed.locale as Locale };
+   }
+ }
+
+ // Per-municipality GERMANY border pages (issue #4882,
+ // germanBorderMunicipalityPagesPlugin.ts) — hub index at
+ // /vivere-in-germania-lavorare-in-svizzera/ (+ locale variants) plus
+ // per-commune detail pages, same self-mapping/above-below-floor pattern as
+ // the FRANCE branch above (see germanBorderMunicipalityData.ts). Routed to
+ // the existing `vita` tab with NO sub-tab.
+ if (isGermanBorderMunicipalityHubPath(pathname)) {
+   const parsed = parseGermanBorderMunicipalityHubPath(pathname);
+   return { route: { activeTab: 'vita', staticOverlay: true }, locale: (parsed?.locale ?? locale) as Locale };
+ }
+ {
+   const parsed = parseGermanBorderMunicipalityPath(pathname);
+   if (parsed) {
+     return { route: { activeTab: 'vita', staticOverlay: true }, locale: parsed.locale as Locale };
+   }
+ }
+
+ // Per-municipality LIECHTENSTEIN border pages (issue #4884,
+ // liechtensteinBorderMunicipalityPagesPlugin.ts) — hub index at
+ // /vivere-in-liechtenstein-lavorare-in-svizzera/ (+ locale variants) plus
+ // per-Gemeinde detail pages, same self-mapping/above-below-floor pattern as
+ // the FRANCE/GERMANY branches above (see liechtensteinBorderMunicipalityData.ts).
+ // Routed to the existing `vita` tab with NO sub-tab.
+ if (isLiechtensteinBorderMunicipalityHubPath(pathname)) {
+   const parsed = parseLiechtensteinBorderMunicipalityHubPath(pathname);
+   return { route: { activeTab: 'vita', staticOverlay: true }, locale: (parsed?.locale ?? locale) as Locale };
+ }
+ {
+   const parsed = parseLiechtensteinBorderMunicipalityPath(pathname);
    if (parsed) {
      return { route: { activeTab: 'vita', staticOverlay: true }, locale: parsed.locale as Locale };
    }

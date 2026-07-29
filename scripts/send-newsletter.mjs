@@ -45,7 +45,7 @@ import { captureEmailEvent, EMAIL_EXPERIMENT_EVENTS } from '../functions/src/lib
 import { refreshEngagementScore } from '../functions/src/lib/engagementScore.js';
 import { prioritizeSubscribers } from '../services/newsletter-priority.mjs';
 import { NEWSLETTER_EXCLUDED_STATUSES } from '../services/emailSuppression.mjs';
-import { makeUnsubscribeUrl, makeResubscribeUrl, makeOneClickUnsubscribeUrl, generateAutologinCode, makePreferencesUrl } from '../services/newsletterUrls.mjs';
+import { makeUnsubscribeUrl, makeResubscribeUrl, makeOneClickUnsubscribeUrl, generateAutologinCode, makePreferencesUrl, makeAuthenticatedUrl, shouldWrapAuthenticatedHref } from '../services/newsletterUrls.mjs';
 import { filterFixtureJobs } from './lib/fixture-data-filter.mjs';
 import { isOwnerEmail, isCanaryJob } from './lib/canaryAd.mjs';
 import { getCascadeDailyCapacity, finiteDailyLimit, PROVIDERS as EMAIL_PROVIDERS } from './lib/email-cascade.mjs';
@@ -72,7 +72,9 @@ const AI_CONCURRENCY = 5; // Max parallel AI calls
 // see buildBriefingBatchPrompt). Keeps total request volume comfortably under
 // the tightest top-of-chain free-tier daily cap (Gemini flash: 1500/day) even
 // on high-subscriber days, so most batches succeed on the first model instead
-// of cascading through the whole chain to the claude-cli/haiku last resort.
+// of cascading through the whole chain toward the bottom-of-array tiers
+// (omniroute/claude-cli — see NEWSLETTER_AI_CHAIN comment below for their
+// current tier-0/last-resort status).
 // Kept at 3 (not higher) so the batch's combined maxTokens request stays
 // comfortably under smaller free-tier models' per-request output caps —
 // a bigger batch cuts request volume further but risks silent truncation
@@ -216,17 +218,25 @@ const NEWSLETTER_AI_CHAIN = [
   'mistral/mistral-small-latest', // Mistral — 1B tokens/month free
   'gemini-2.5-pro',             // Google — 500 req/day free, highest quality fallback
   // Self-hosted local AI gateway (OmniRoute), same AI_MODELS.OMNIROUTE_AUTO
-  // used by create-article.mjs's DEFAULT_CHAIN. Sits below every free-tier
-  // cloud model above (sortChainByScore) but above the reserved, Max-plan
-  // Claude CLI tier below — mirrors DEFAULT_CHAIN's priority order. Skipped
-  // entirely unless OMNIROUTE_ENABLED is set (see "Setup OmniRoute" step in
-  // send-newsletter.yml) — inert no-op otherwise, so it's safe to always list.
+  // used by create-article.mjs's DEFAULT_CHAIN. Since 2026-07-29
+  // (AI_COMPETING_TIERS default in ai-models.mjs) this is tier-0 BY DEFAULT —
+  // it competes on real score against every free-tier cloud model above, it
+  // is NOT pinned below them anymore. Bottom-of-array position here is
+  // deliberate ramp-up (starts at score 0, same as DEFAULT_CHAIN — see
+  // _lastResortTier/AI_COMPETING_TIERS doc comment in ai-models.mjs), not a
+  // rank guarantee. Skipped entirely unless OMNIROUTE_ENABLED is set (see
+  // "Setup OmniRoute" step in send-newsletter.yml) — inert no-op otherwise,
+  // so it's safe to always list.
   'omniroute/auto',
-  // Absolute last resort — same AI_MODELS.CLAUDE_CLI_HAIKU used by
-  // create-article.mjs's DEFAULT_CHAIN. Routed through the local `claude` CLI
-  // using CLAUDE_CODE_OAUTH_TOKEN (Max-plan subscription, $0 marginal cost),
-  // never ANTHROPIC_API_KEY. Only reached once every free model above has
-  // failed (sortChainByScore always sinks it to the bottom); inert unless
+  // Same AI_MODELS.CLAUDE_CLI_HAIKU used by create-article.mjs's
+  // DEFAULT_CHAIN. Routed through the local `claude` CLI using
+  // CLAUDE_CODE_OAUTH_TOKEN (Max-plan subscription, $0 marginal cost), never
+  // ANTHROPIC_API_KEY. Since 2026-07-29 (AI_COMPETING_TIERS default) also
+  // tier-0 BY DEFAULT — same ramp-up rationale as omniroute/auto above,
+  // additionally capped at CLAUDE_CLI_MAX_CALLS_PER_RUN calls/run (default
+  // 25) since this quota is shared with pr-review-loop.yml/issue-fix.yml.
+  // Set AI_COMPETING_TIERS='' to restore the old pinned-last-resort behavior
+  // for both tiers. Inert unless
   // ENABLE_HAIKU_ARTICLE_FALLBACK + CLAUDE_CODE_OAUTH_TOKEN are both set (see
   // "Setup Claude CLI Haiku fallback" step in send-newsletter.yml). Uses the
   // CLI's 'haiku' alias (not a dated snapshot id) so it tracks whatever
@@ -657,31 +667,12 @@ async function generateAISubject(ctx) {
 // services/newsletterUrls.mjs (shared with send-job-alerts.mjs and the
 // sunset/win-back runner so the HMAC token scheme can't drift, AGENTS.md #6).
 
-// generateAutologinCode lives in services/newsletterUrls.mjs (shared with the
-// win-back/sunset runner so the autologin HMAC scheme can't drift). Deterministic,
-// never-expiring; the client exchanges it for a fresh token via Cloud Function.
-function makeAuthenticatedUrl(targetUrl, email, autologinCode) {
-  const url = new URL(targetUrl, BASE_URL);
-  // Short param names keep total URL < 1000 chars — Mailgun silently
-  // skips click-tracking for href values ≥ 1000 characters.
-  url.searchParams.set('ne', email.toLowerCase());
-  // 'ac' = autologin code (64-char HMAC hex, never expires)
-  if (autologinCode) url.searchParams.set('ac', autologinCode);
-  // GA4 "Email" channel: utm_medium matching "newsletter" is sufficient
-  url.searchParams.set('utm_medium', 'newsletter');
-  return url.toString();
-}
-
-function shouldWrapNewsletterHref(rawHref) {
-  if (!rawHref) return false;
-  if (rawHref.startsWith('mailto:') || rawHref.startsWith('tel:') || rawHref.startsWith('#')) return false;
-  let url;
-  try { url = new URL(rawHref, BASE_URL); } catch { return false; }
-  const host = url.hostname.replace(/^www\./, '');
-  if (host !== 'frontaliereticino.ch') return false;
-  if (url.pathname.startsWith('/images/') || url.pathname.startsWith('/icons/')) return false;
-  return true;
-}
+// makeAuthenticatedUrl / shouldWrapNewsletterHref / generateAutologinCode all
+// live in services/newsletterUrls.mjs (canonical under functions/src/lib/), shared
+// with the win-back/sunset runner and the welcome email so the autologin HMAC
+// scheme and the wrapping rules can't drift. Deterministic, never-expiring; the
+// client exchanges the code for a fresh token via Cloud Function.
+const shouldWrapNewsletterHref = shouldWrapAuthenticatedHref;
 
 async function personalizeHtmlForRecipient(email, html) {
   const hrefMatches = [...html.matchAll(/href="([^"]+)"/g)];
@@ -693,7 +684,7 @@ async function personalizeHtmlForRecipient(email, html) {
   const replacements = new Map();
   const uniqueHrefs = [...new Set(hrefMatches.map((m) => m[1]).filter(shouldWrapNewsletterHref))];
   for (const href of uniqueHrefs) {
-    const wrapped = makeAuthenticatedUrl(href, email, autologinCode);
+    const wrapped = makeAuthenticatedUrl(href, email, { autologinCode });
     replacements.set(href, wrapped);
   }
 
@@ -715,7 +706,7 @@ function personalizeHtmlWithToken(email, html, autologinCode) {
   const replacements = new Map();
   const uniqueHrefs = [...new Set(hrefMatches.map((m) => m[1]).filter(shouldWrapNewsletterHref))];
   for (const href of uniqueHrefs) {
-    const wrapped = makeAuthenticatedUrl(href, email, autologinCode);
+    const wrapped = makeAuthenticatedUrl(href, email, { autologinCode });
     replacements.set(href, wrapped);
   }
 

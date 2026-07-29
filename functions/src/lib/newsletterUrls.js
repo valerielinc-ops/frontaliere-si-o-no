@@ -125,6 +125,86 @@ export function makeAuthenticatedActionUrl(action, email, { secret } = {}) {
   return code ? `${base}&ac=${code}` : base;
 }
 
+/**
+ * True when an href should carry autologin credentials: our own site only,
+ * never mailto/tel/anchors, never static assets.
+ * @param {string} rawHref
+ * @returns {boolean}
+ */
+export function shouldWrapAuthenticatedHref(rawHref) {
+  if (!rawHref) return false;
+  if (rawHref.startsWith('mailto:') || rawHref.startsWith('tel:') || rawHref.startsWith('#')) return false;
+  let url;
+  try { url = new URL(rawHref, BASE_URL); } catch { return false; }
+  if (url.hostname.replace(/^www\./, '') !== 'frontaliereticino.ch') return false;
+  if (url.pathname.startsWith('/images/') || url.pathname.startsWith('/icons/')) return false;
+  return true;
+}
+
+/**
+ * Add autologin credentials to one of our own URLs so the recipient lands
+ * signed in. `ne`/`ac` are deliberately short: Mailgun silently drops click
+ * tracking for href values >= 1000 characters.
+ *
+ * utm_medium defaults to 'newsletter' because GA4's Email channel grouping keys
+ * on it; pass utmCampaign to keep campaigns separable within that channel.
+ * Job alerts override both: they use 'email' (medium = channel, source =
+ * identifier) and must keep the utm_medium their utmBase already set.
+ *
+ * @param {string} targetUrl absolute or site-relative
+ * @param {string} email
+ * @param {object} [opts]
+ * @param {string} [opts.secret] signing secret; falls back to
+ *   process.env.NEWSLETTER_SECRET, read at call time.
+ * @param {string|null} [opts.autologinCode] reuse a code already generated for
+ *   this recipient instead of computing another HMAC.
+ * @param {string|null} [opts.utmCampaign] added as utm_campaign when set.
+ * @param {string} [opts.utmMedium='newsletter'] value written to utm_medium.
+ * @param {boolean} [opts.preserveExistingUtmMedium=false] when true, leave a
+ *   utm_medium already present on targetUrl untouched.
+ * @returns {string}
+ */
+export function makeAuthenticatedUrl(
+  targetUrl,
+  email,
+  { secret, autologinCode, utmCampaign, utmMedium = 'newsletter', preserveExistingUtmMedium = false } = {},
+) {
+  const url = new URL(targetUrl, BASE_URL);
+  const code = autologinCode === undefined ? generateAutologinCode(email, { secret }) : autologinCode;
+  url.searchParams.set('ne', String(email || '').toLowerCase());
+  if (code) url.searchParams.set('ac', code);
+  // Job alerts build their links from a utmBase that already carries a
+  // utm_medium; overwriting it would lose that attribution. The newsletter and
+  // the welcome email have no such base and always want the GA4 Email channel
+  // value, so overwrite stays the default.
+  if (!(preserveExistingUtmMedium && url.searchParams.has('utm_medium'))) {
+    url.searchParams.set('utm_medium', utmMedium);
+  }
+  if (utmCampaign) url.searchParams.set('utm_campaign', utmCampaign);
+  return url.toString();
+}
+
+/**
+ * Rewrite every eligible href in an email body to its autologin form. One
+ * code is generated per recipient and reused across links (it never expires),
+ * so this costs a single HMAC regardless of link count.
+ *
+ * @param {string} html
+ * @param {string} email
+ * @param {{secret?: string, utmCampaign?: string|null}} [opts]
+ * @returns {string}
+ */
+export function wrapAuthenticatedHrefs(html, email, { secret, utmCampaign } = {}) {
+  if (!html || !email) return html;
+  const autologinCode = generateAutologinCode(email, { secret });
+  return html.replace(/href="([^"]+)"/g, (whole, rawHref) => {
+    const href = rawHref.replace(/&amp;/g, '&');
+    if (!shouldWrapAuthenticatedHref(href)) return whole;
+    const wrapped = makeAuthenticatedUrl(href, email, { secret, autologinCode, utmCampaign });
+    return `href="${wrapped.replace(/&/g, '&amp;')}"`;
+  });
+}
+
 // ── Preferences URL — Cloud-Functions-only. Part of the newsletterWelcomeEmail
 // extraction (AGENTS.md Non-Negotiable #6, docs/AGENTS-HISTORY.md#sibling-pattern-fix).
 // The per-locale slug table below is a RUNTIME COPY of services/routeSlugs.data.ts's

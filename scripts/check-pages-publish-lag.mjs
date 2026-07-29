@@ -56,7 +56,16 @@ export function parsePathsIgnore(yamlText) {
   if (startIdx === -1) return [];
   const globs = [];
   for (let i = startIdx + 1; i < lines.length; i++) {
-    const m = lines[i].match(/^\s*-\s*'([^']+)'\s*$/);
+    const line = lines[i];
+    // Comments and blank lines sit BETWEEN entries in this block — each glob
+    // carries its own rationale. Skipping them instead of stopping matters:
+    // bailing on the first comment silently truncates the list, and every glob
+    // after it (docs/**, .github/**, tests/**) stops being recognised as
+    // ignorable, so unrelated commits start triggering full deploys. The
+    // failure is invisible — the script still returns a plausible array.
+    if (/^\s*$/.test(line) || /^\s*#/.test(line)) continue;
+    const m = line.match(/^\s*-\s*'([^']+)'\s*$/);
+    // A non-item, non-comment line means the block ended (next YAML key).
     if (!m) break;
     globs.push(m[1]);
   }
