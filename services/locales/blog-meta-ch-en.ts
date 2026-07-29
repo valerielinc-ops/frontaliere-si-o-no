@@ -1657,6 +1657,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.sulzer-ristrutturazione-chemtech-2026.title': 'Sulzer: 10% cut in costs and personnel in Chemtech',
     'blog.article.sulzer-ristrutturazione-chemtech-2026.excerpt': 'The Sulzer industrial group announces a restructuring for the Chemtech division after a 22% drop in orders in the first half.',
     'blog.article.sulzer-ristrutturazione-chemtech-2026.imageAlt': 'Sulzer industrial group headquarters in Switzerland',
+    'blog.article.assegno-unico-nuove-regole-inps.title': 'Single Allowance: new INPS rules for workers abroad',
+    'blog.article.assegno-unico-nuove-regole-inps.excerpt': 'The INPS clarifies the application methods for the Single Allowance: this is what changes for EU workers and families with children residing in other EU countries.',
+    'blog.article.assegno-unico-nuove-regole-inps.imageAlt': 'Documents and calculator on a modern office desk',
 };
 
 export default blogMetaChEn;

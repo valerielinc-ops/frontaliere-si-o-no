@@ -575,6 +575,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'caldo-estremo-cantieri-ssic': { it: 'caldo-estremo-cantieri-ssic', en: 'extreme-heat-construction-sites-penalties-ssic', de: 'extreme-hitze-baustellen-strafen-ssic', fr: 'canicule-chantiers-penalites-ssic' },
  'fedelta-banca-costosa': { it: 'fedelta-banca-costosa', en: 'bank-loyalty-costly', de: 'banken-loyalitaet-teuer', fr: 'loyalite-bancaux-couteuse' },
  'sulzer-ristrutturazione-chemtech-2026': { it: 'sulzer-ristrutturazione-chemtech-2026', en: 'sulzer-chemtech-restructuring', de: 'sulzer-chemtech-restrukturierung', fr: 'sulzer-restructuration-chemtech' },
+ 'assegno-unico-nuove-regole-inps': { it: 'assegno-unico-nuove-regole-inps', en: 'assegno-unico-inps-new-rules', de: 'assegno-unico-inps-neue-regeln', fr: 'assegno-unico-inps-nouvelles-regles' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {

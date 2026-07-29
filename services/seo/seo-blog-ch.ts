@@ -21428,6 +21428,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-assegno-unico-nuove-regole-inps': {
+    title: 'Assegno Unico: nuove regole INPS per lavoratori all\'estero',
+    description: 'L\'INPS chiarisce le regole per l\'Assegno Unico: nuove disposizioni per lavoratori comunitari e figli residenti in UE. Scopri cosa cambia e come fare domanda.',
+    keywords: 'frontalieri, ticino, svizzera, italia, assegno, unico, nuove, regole',
+    ogTitle: 'Assegno Unico: nuove regole INPS per lavoratori all\'estero',
+    ogDescription: 'L\'INPS chiarisce le modalità applicative per l\'Assegno Unico: cosa cambia per i lavoratori comunitari e famiglie con figli residenti in altri Paesi UE.',
+    canonicalPath: '/articoli-svizzera/assegno-unico-nuove-regole-inps/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Assegno Unico: nuove regole INPS per lavoratori all'estero",
+      "description": "L'INPS chiarisce le regole per l'Assegno Unico: nuove disposizioni per lavoratori comunitari e figli residenti in UE. Scopri cosa cambia e come fare domanda.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/assegno-unico-nuove-regole-inps.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Documenti e calcolatrice su una scrivania in un ufficio moderno"
+      },
+      "datePublished": "2026-07-29T02:31:49+00:00",
+      "dateModified": "2026-07-29T02:31:49+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/assegno-unico-nuove-regole-inps/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
