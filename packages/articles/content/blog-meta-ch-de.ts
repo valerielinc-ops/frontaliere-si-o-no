@@ -1669,6 +1669,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.ermotti-intervista-ubs.title': 'Mehr Ermotti: "Viel Arbeit, aber die Bemühungen tragen Früchte"',
     'blog.article.ermotti-intervista-ubs.excerpt': 'Sergio Ermotti, CEO der UBS, zur Integration der Credit Suisse',
     'blog.article.ermotti-intervista-ubs.imageAlt': 'Sergio Ermotti, CEO von UBS, in einem schweizerischen nationalen Kontext',
+    'blog.article.lavoro-tornato-aumentare-svizzera.title': 'Temporärarbeit nimmt in der Schweiz wieder zu',
+    'blog.article.lavoro-tornato-aumentare-svizzera.excerpt': 'Die Zahl der geleisteten Arbeitsstunden im Bereich Zeitarbeit stieg im ersten Halbjahr 2023 gegenüber dem Vorjahreszeitraum um 1,5%.',
+    'blog.article.lavoro-tornato-aumentare-svizzera.imageAlt': 'Zeitarbeit in der Schweiz',
 };
 
 export default blogMetaChDe;
