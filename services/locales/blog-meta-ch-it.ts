@@ -1657,6 +1657,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.sulzer-ristrutturazione-chemtech-2026.title': 'Sulzer: taglio del 10% a costi e personale in Chemtech',
     'blog.article.sulzer-ristrutturazione-chemtech-2026.excerpt': 'Il gruppo industriale Sulzer annuncia una ristrutturazione per la divisione Chemtech dopo un calo del 22% negli ordinativi del primo semestre.',
     'blog.article.sulzer-ristrutturazione-chemtech-2026.imageAlt': 'Sede del gruppo industriale Sulzer in Svizzera',
+    'blog.article.assegno-unico-nuove-regole-inps.title': 'Assegno Unico: nuove regole INPS per lavoratori all\'estero',
+    'blog.article.assegno-unico-nuove-regole-inps.excerpt': 'L\'INPS chiarisce le modalità applicative per l\'Assegno Unico: ecco cosa cambia per i lavoratori comunitari e le famiglie con figli residenti in altri Paesi UE.',
+    'blog.article.assegno-unico-nuove-regole-inps.imageAlt': 'Documenti e calcolatrice su una scrivania in un ufficio moderno',
 };
 
 export default blogMetaChIt;

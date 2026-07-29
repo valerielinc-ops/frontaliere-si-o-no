@@ -4759,7 +4759,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 3598,
+ "numberOfItems": 3599,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026/` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024/` },
@@ -8358,7 +8358,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 3595, "name": "Di più banche, la fedeltà costa cara: con forni...", "url": `${BASE_URL}/articoli-frontaliere/fedelta-banca-costosa` },
           { "@type": "ListItem", "position": 3596, "name": "Sospendi riversamento quota imposta fonte front...", "url": `${BASE_URL}/articoli-frontaliere/sospenda-riversamento-allitalia-della-quota-dellimposta-alla-fonte-prelevata-ai-frontalieri` },
           { "@type": "ListItem", "position": 3597, "name": "Sulzer: taglio del 10% a costi e personale in C...", "url": `${BASE_URL}/articoli-frontaliere/sulzer-ristrutturazione-chemtech-2026` },
-          { "@type": "ListItem", "position": 3598, "name": "Caldo al lavoro, eleganza obbligatoria in Svizzera", "url": `${BASE_URL}/articoli-frontaliere/di-piu-niente-shorts-ne-infradito` }
+          { "@type": "ListItem", "position": 3598, "name": "Caldo al lavoro, eleganza obbligatoria in Svizzera", "url": `${BASE_URL}/articoli-frontaliere/di-piu-niente-shorts-ne-infradito` },
+          { "@type": "ListItem", "position": 3599, "name": "Assegno Unico: nuove regole INPS per lavoratori...", "url": `${BASE_URL}/articoli-frontaliere/assegno-unico-nuove-regole-inps` }
  ]
  },
  {

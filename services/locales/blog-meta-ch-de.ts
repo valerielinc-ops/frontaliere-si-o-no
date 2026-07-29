@@ -1657,6 +1657,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.sulzer-ristrutturazione-chemtech-2026.title': 'Sulzer: 10% Kosten- und Personalabbau bei Chemtech',
     'blog.article.sulzer-ristrutturazione-chemtech-2026.excerpt': 'Der Industriekonzern Sulzer kündigt eine Restrukturierung für die Division Chemtech nach einem Auftragsrückgang von 22 Prozent im ersten Halbjahr an.',
     'blog.article.sulzer-ristrutturazione-chemtech-2026.imageAlt': 'Sitz des Industriekonzerns Sulzer in der Schweiz',
+    'blog.article.assegno-unico-nuove-regole-inps.title': 'Einmalzulage: Neue INPS-Regeln für Arbeitnehmer im Ausland',
+    'blog.article.assegno-unico-nuove-regole-inps.excerpt': 'Das INPS klärt die Anwendungsmodalitäten für die Einmalzulage: Das ändert sich für EU-Arbeitnehmer und Familien mit Kindern, die in anderen EU-Ländern wohnen.',
+    'blog.article.assegno-unico-nuove-regole-inps.imageAlt': 'Dokumente und Taschenrechner auf einem modernen Schreibtisch',
 };
 
 export default blogMetaChDe;
