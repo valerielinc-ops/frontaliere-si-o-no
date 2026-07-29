@@ -7,6 +7,8 @@
 // one intentionally-dead key (mistral) to prove OmniRoute's auto fallback
 // skips it and still serves the completion via a live provider.
 
+import { resolveOmniRouteAllowlist } from '../lib/omniroute-free-providers.mjs';
+
 const OMNIROUTE_URL = 'http://localhost:20128';
 
 // Tuple shape: [provider, name, envNames|null, presetApiKey|null] — envNames
@@ -25,13 +27,70 @@ const providersFromJson = (() => {
   }
 })();
 
-const PROVIDERS = providersFromJson || [
+// ── Free-only allowlist ──────────────────────────────────────
+// OMNIROUTE_PROVIDERS_JSON carries EVERY apikey connection decrypted from the
+// dev machine's OmniRoute install (77 active on 2026-07-29), pay-per-token
+// accounts included. Registering the lot had two costs, both measured:
+//   1. MONEY RISK — a paid connection is one auto-routing decision away from
+//      billing a real account. The project's standing constraint is $0.
+//   2. FAILURES — run 30427526187 (send-newsletter): omniroute/auto 97 calls,
+//      0 successes, incl. HTTP 400 "Invalid model name passed in
+//      model=claude-fable-5".
+// The list itself + the override contract live in the shared module, because
+// scripts/sync-omniroute-providers-rc.mjs applies the same filter upstream and
+// a second copy would drift (AGENTS.md #6).
+const { allowlist, filteringOff, malformed } = resolveOmniRouteAllowlist(process.env.OMNIROUTE_PROVIDER_ALLOWLIST);
+if (malformed) {
+  console.warn(`⚠️  OMNIROUTE_PROVIDER_ALLOWLIST="${process.env.OMNIROUTE_PROVIDER_ALLOWLIST}" has separators but no provider names — treating as misconfigured and keeping the built-in free list (use "" to disable filtering).`);
+}
+
+// Small curated set, all free-tier, resolved from env keys already present in
+// CI. Used when OMNIROUTE_PROVIDERS_JSON is absent, and as the safety net below
+// when the allowlist admits nothing from the JSON payload.
+const CURATED_FALLBACK = [
   ['groq', 'Groq (CI POC)', ['GROQ_API_KEY'], null],
   ['openrouter', 'OpenRouter (CI POC)', ['OPENROUTER_API_KEY'], null],
   ['gemini', 'Gemini (CI POC)', ['GEMINI_API_KEY'], null],
   ['mistral', 'Mistral (CI POC, expected dead)', ['MISTRAL_API_KEY'], null],
 ];
-if (providersFromJson) console.log(`ℹ️  Using OMNIROUTE_PROVIDERS_JSON — ${PROVIDERS.length} provider connection(s).`);
+
+const PROVIDERS_RAW = providersFromJson || CURATED_FALLBACK;
+
+const excluded = [];
+const PROVIDERS = filteringOff
+  ? PROVIDERS_RAW
+  : PROVIDERS_RAW.filter(([provider]) => {
+    if (allowlist.has(provider)) return true;
+    excluded.push(provider);
+    return false;
+  });
+
+if (providersFromJson) console.log(`ℹ️  Using OMNIROUTE_PROVIDERS_JSON — ${PROVIDERS_RAW.length} provider connection(s) offered.`);
+if (filteringOff) {
+  console.log('⚠️  OMNIROUTE_PROVIDER_ALLOWLIST="" — free-only filtering DISABLED, registering every provider (paid accounts included).');
+} else {
+  console.log(`🆓 Free-only allowlist: ${PROVIDERS.length} kept, ${excluded.length} excluded (paid / non-chat / CLI-bound).`);
+  if (excluded.length) console.log(`   excluded: ${[...new Set(excluded)].sort().join(', ')}`);
+}
+
+// Safety net: the JSON blob in Remote Config is published by a separate,
+// manually-run script, so a future edit there could in principle leave nothing
+// that the allowlist admits. Without this, PROVIDERS would be empty, no
+// registration would succeed, and the exit(1) at the bottom would fail the
+// whole job — in ~32 workflows, none of which set continue-on-error on this
+// step. Falling back to the small curated list (all free-tier, resolved from
+// env keys already present in CI) keeps OmniRoute degraded-but-alive instead
+// of taking the pipeline down. Not a live risk today — the current RC payload
+// is 19 providers, all 19 of which pass the filter — but the failure mode is
+// invisible until it fires, so it is worth a guard rather than a comment.
+if (!filteringOff && PROVIDERS.length === 0 && PROVIDERS_RAW.length > 0) {
+  console.warn(
+    `⚠️  Allowlist excluded ALL ${PROVIDERS_RAW.length} offered connection(s) — provider names likely changed upstream. ` +
+    'Falling back to the curated free-tier list so this step does not take the job down. ' +
+    'Fix OMNIROUTE_FREE_PROVIDERS (scripts/lib/omniroute-free-providers.mjs) or OMNIROUTE_PROVIDER_ALLOWLIST in Remote Config.'
+  );
+  PROVIDERS.push(...CURATED_FALLBACK.filter(([provider]) => allowlist.has(provider)));
+}
 
 // A fresh OmniRoute boot (always the case in CI — new sqlite db each run) sets
 // requireLogin:true and needs a session cookie for /api/* management routes
@@ -80,6 +139,17 @@ if (skipped.length) console.log('Skipped (no key in env):', skipped.join(', '));
 console.log(results.join('\n'));
 
 if (!results.some((line) => line.startsWith('  OK'))) {
+  // Name the allowlist explicitly when it is what emptied the list: this step
+  // failing hard takes ~32 workflows down with it, so the log must say which
+  // knob to turn instead of leaving "POC cannot proceed" as the only clue.
+  if (!filteringOff && PROVIDERS.length === 0 && PROVIDERS_RAW.length > 0) {
+    console.error(
+      `No provider registered: the free-only allowlist excluded all ${PROVIDERS_RAW.length} offered connection(s). ` +
+      'Provider names may have changed upstream. Widen FREE_PROVIDERS in this file, ' +
+      'or set OMNIROUTE_PROVIDER_ALLOWLIST (CSV) — or "" to disable filtering — in Remote Config.'
+    );
+    process.exit(1);
+  }
   console.error('No provider registered successfully — POC cannot proceed.');
   process.exit(1);
 }
