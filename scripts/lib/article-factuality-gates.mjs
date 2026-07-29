@@ -117,7 +117,18 @@ function issue(code, severity, message, evidence, fix = '') {
 // generation pipeline has fought free-tier truncation before (see the cap
 // comments in create-article.mjs), so the class is worth a cheap standing check.
 
-const SENTENCE_END = /[.!?:;»"')\]}…]$/;
+// Typographic closing quotes count as sentence ends exactly like the ASCII `"`
+// already listed. Italian sources quote with `”` and `›`, and the corpus triage
+// (2026-07-29) found three articles flagged purely for closing a quotation
+// properly ("…che ne certificano l'ubicazione.”").
+// U+2019 `’` is deliberately NOT here: Italian uses it as an apostrophe
+// ("un po’", "l’ufficio"), so accepting it would rescue genuine cut-offs.
+const SENTENCE_END = /[.!?:;»›"”')\]}…]$/;
+
+// A footnote reference sits AFTER the full stop it annotates ("…in seguito. 6").
+// Whitespace before the digits is required: without it "…il tetto sale a 60.000"
+// would lose its "000" and pass on the "60." left behind.
+const TRAILING_FOOTNOTE_REF = /\s+\[?\^?\d{1,3}\]?$/;
 
 /**
  * Detects text that was cut off mid-generation.
@@ -166,19 +177,38 @@ export function detectTruncation(text, opts = {}) {
   // (b) The text should end on a sentence boundary. Several endings are
   // legitimate and must not be flagged (they produced 117 false positives on
   // the first corpus pass): tables, lists, headings, "Fonte: …" attribution
-  // lines, footnote markers, and a trailing emoji after real punctuation.
+  // lines, footnote entries and markers, a typographic closing quote, and a
+  // trailing emoji after real punctuation.
+  //
+  // The exemptions stop there on purpose. The 2026-07-29 triage read all 47
+  // corpus hits: 41 were real defects (24 sentences cut mid-word, 17 bodies
+  // ending on leaked scaffolding — "TITOLO ARTICOLO:", a source footer, a slug
+  // list). Only 6 were noise, and all 6 fall in the classes handled here. In
+  // particular the `looksLikeHeading` cut-off stays at 60 chars: the leaked
+  // "TITOLO ARTICOLO:" tails run 61-80 chars and must keep failing.
   const trimmed = text.trimEnd();
   const lastLine = trimmed.split('\n').filter((l) => l.trim()).pop() || '';
   const isStructural = /^\s*([|#\-*>]|\d+\.)/.test(lastLine);
   const isAttribution = /^\s*\*?\s*(fonte|source|quelle)\s*:/i.test(lastLine);
+  // A markdown footnote entry closes on the back-reference glyph "↩" and carries
+  // no sentence punctuation of its own. Same call as `isAttribution`: the line is
+  // reference apparatus, not prose, so its ending says nothing about truncation.
+  const isFootnote = /↩\s*$/.test(lastLine);
   // Strip trailing emoji / footnote glyphs before judging the punctuation.
-  const withoutTrailingGlyphs = trimmed
+  let withoutTrailingGlyphs = trimmed
     .replace(/[\p{Extended_Pictographic}\p{Emoji_Presentation}️‍↩*_\s]+$/gu, '');
+  // Drop a trailing footnote reference ONLY when the text still ends on a
+  // sentence boundary once it is gone. A genuine cut-off that happens to end in
+  // a digit is therefore never rescued — it simply fails the check below.
+  const withoutFootnoteRef = withoutTrailingGlyphs.replace(TRAILING_FOOTNOTE_REF, '');
+  if (withoutFootnoteRef !== withoutTrailingGlyphs && SENTENCE_END.test(withoutFootnoteRef)) {
+    withoutTrailingGlyphs = withoutFootnoteRef;
+  }
   const endsCleanly = SENTENCE_END.test(withoutTrailingGlyphs);
   // A short tail is usually a heading, not a cut-off sentence.
   const looksLikeHeading = lastLine.trim().length < 60 && !/[,;]$/.test(lastLine.trim());
 
-  if (!isStructural && !isAttribution && !endsCleanly && !looksLikeHeading) {
+  if (!isStructural && !isAttribution && !isFootnote && !endsCleanly && !looksLikeHeading) {
     issues.push(issue(
       'incomplete-ending',
       'major',
