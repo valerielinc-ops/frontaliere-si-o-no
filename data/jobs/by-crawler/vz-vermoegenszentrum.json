@@ -239,31 +239,39 @@
           "• Tu as de l'expérience dans le secteur financier ou dans le contact avec la clientèle."
         ]
       },
-      "previousSlugs": [
-        "collaborateur-collaboratrice-contact-center-40-80-vz-vermogenszentrum-zurich",
-        "collaborateur-collaboratrice-contact-center-40-80-vz-vermoegenszentrum-ch",
-        "collaborateur-collaboratrice-contact-center-40-vz-vermoegenszentrum-ch",
-        "centro-contatti-collaboratore-40-80-vz-vermogenszentrum-zurich-zurich"
-      ],
       "previousSlugsByLocale": {
+        "fr": [
+          "collaborateur-collaboratrice-contact-center-40-vz-vermoegenszentrum-ch",
+          "conseiller-ere-clients-service-center-80-100-vz-vermoegenszentrum-ch"
+        ],
         "it": [
           "collaborateur-collaboratrice-contact-center-40-80-vz-vermogenszentrum-zurich",
           "collaborateur-collaboratrice-contact-center-40-80-vz-vermoegenszentrum-ch",
           "collaborateur-collaboratrice-contact-center-40-vz-vermoegenszentrum-ch",
-          "centro-contatti-collaboratore-40-80-vz-vermogenszentrum-zurich-zurich"
+          "centro-contatti-collaboratore-40-80-vz-vermogenszentrum-zurich-zurich",
+          "conseiller-ere-clients-service-center-80-100-vz-vermogenszentrum-lausanne",
+          "service-center-80-100-vz-vermogenszentrum-lausanne-vaud",
+          "conseiller-ere-clients-service-center-80-100-vz-vermoegenszentrum-ch"
         ],
         "en": [
-          "collaborateur-collaboratrice-contact-center-40-80-vz-vermogenszentrum-zurich"
+          "collaborateur-collaboratrice-contact-center-40-80-vz-vermogenszentrum-zurich",
+          "conseiller-ere-clients-service-center-80-100-vz-vermogenszentrum-lausanne"
         ],
         "de": [
-          "collaborateur-collaboratrice-contact-center-40-80-vz-vermoegenszentrum-ch"
-        ],
-        "fr": [
-          "collaborateur-collaboratrice-contact-center-40-vz-vermoegenszentrum-ch"
+          "collaborateur-collaboratrice-contact-center-40-80-vz-vermoegenszentrum-ch",
+          "service-center-80-100-vz-vermogenszentrum-lausanne-vaud"
         ]
       },
+      "previousSlugs": [
+        "collaborateur-collaboratrice-contact-center-40-80-vz-vermogenszentrum-zurich",
+        "collaborateur-collaboratrice-contact-center-40-80-vz-vermoegenszentrum-ch",
+        "collaborateur-collaboratrice-contact-center-40-vz-vermoegenszentrum-ch",
+        "centro-contatti-collaboratore-40-80-vz-vermogenszentrum-zurich-zurich",
+        "conseiller-ere-clients-service-center-80-100-vz-vermogenszentrum-lausanne",
+        "service-center-80-100-vz-vermogenszentrum-lausanne-vaud",
+        "conseiller-ere-clients-service-center-80-100-vz-vermoegenszentrum-ch"
+      ],
       "firstSeenAt": "2026-07-04T12:46:45.787Z",
-      "needsRetranslation": true,
       "salaryMin": 48400,
       "salaryMax": 73200,
       "baseSalary": {
@@ -275,7 +283,8 @@
           "maxValue": 73200,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "vz-vermoegenszentrum-20362b2dcf3f",

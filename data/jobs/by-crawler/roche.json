@@ -12277,7 +12277,6 @@
         ]
       },
       "firstSeenAt": "2026-06-03T15:16:10.885Z",
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "baseSalary": {
@@ -12290,7 +12289,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "needsRetranslation": true
     },
     {
       "id": "roche-fde92bb4bfa3",
@@ -19271,7 +19271,6 @@
         ]
       },
       "firstSeenAt": "2026-06-02T14:31:48.519Z",
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "baseSalary": {
@@ -19284,7 +19283,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "needsRetranslation": true
     },
     {
       "id": "roche-2be2bf7bb947",
@@ -20003,7 +20003,7 @@
       "companyDomain": "roche.com",
       "title": "Lead Software Engineer (Rust)",
       "titleByLocale": {
-        "it": "Ingegnere software di piombo (Rust)",
+        "it": "Ingegnere capo del software",
         "en": "Lead Software Engineer (Rust)",
         "de": "Lead Software Ingenieur (Rust)",
         "fr": "Ingénieur principal en logiciels (Rust)"
@@ -20065,7 +20065,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "retranslationAttempts": 2
     },
     {
       "id": "roche-0390317d6214",

@@ -255,8 +255,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH",
-      "needsRetranslation": true
+      "addressRegion": "ZH"
     },
     {
       "id": "ubs-1e97654f7d40",
@@ -336,8 +335,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH",
-      "needsRetranslation": true
+      "addressRegion": "ZH"
     },
     {
       "id": "ubs-ec1f87ac894d",
@@ -506,8 +504,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH",
-      "needsRetranslation": true
+      "addressRegion": "ZH"
     },
     {
       "id": "ubs-3b9dfc956fc6",
@@ -565,7 +562,6 @@
         "jobType": ""
       },
       "firstSeenAt": "2026-07-14T22:32:24.834Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -824,7 +820,6 @@
         ]
       },
       "firstSeenAt": "2026-07-03T12:37:47.871Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -895,7 +890,6 @@
         "jobType": ""
       },
       "firstSeenAt": "2026-07-17T21:59:53.752Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -966,7 +960,6 @@
         "jobType": ""
       },
       "firstSeenAt": "2026-07-15T11:09:39.560Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 134500,
       "baseSalary": {
@@ -1053,7 +1046,6 @@
         ]
       },
       "firstSeenAt": "2026-07-24T22:05:53.306Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -1137,7 +1129,6 @@
         ]
       },
       "firstSeenAt": "2026-07-24T22:05:53.306Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -1208,7 +1199,6 @@
         "jobType": ""
       },
       "firstSeenAt": "2026-07-23T11:24:45.152Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -3493,7 +3483,6 @@
         "jobType": ""
       },
       "firstSeenAt": "2026-07-03T12:37:47.777Z",
-      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
@@ -3666,7 +3655,6 @@
         ]
       },
       "firstSeenAt": "2026-07-03T12:37:47.783Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -3753,7 +3741,6 @@
         ]
       },
       "firstSeenAt": "2026-07-03T12:37:47.793Z",
-      "needsRetranslation": true,
       "salaryMin": 51000,
       "salaryMax": 77500,
       "baseSalary": {
@@ -3840,7 +3827,6 @@
         ]
       },
       "firstSeenAt": "2026-07-03T12:37:47.791Z",
-      "needsRetranslation": true,
       "salaryMin": 51000,
       "salaryMax": 77500,
       "baseSalary": {
@@ -3927,7 +3913,6 @@
         ]
       },
       "firstSeenAt": "2026-07-03T12:37:47.785Z",
-      "needsRetranslation": true,
       "salaryMin": 51000,
       "salaryMax": 77500,
       "baseSalary": {
@@ -4014,7 +3999,6 @@
         ]
       },
       "firstSeenAt": "2026-07-03T12:37:47.795Z",
-      "needsRetranslation": true,
       "salaryMin": 51000,
       "salaryMax": 77500,
       "baseSalary": {
@@ -4101,7 +4085,6 @@
         ]
       },
       "firstSeenAt": "2026-07-03T12:37:47.785Z",
-      "needsRetranslation": true,
       "salaryMin": 51000,
       "salaryMax": 77500,
       "baseSalary": {
@@ -4188,7 +4171,6 @@
         ]
       },
       "firstSeenAt": "2026-07-03T12:37:47.787Z",
-      "needsRetranslation": true,
       "salaryMin": 51000,
       "salaryMax": 77500,
       "baseSalary": {
@@ -4949,7 +4931,6 @@
         ]
       },
       "firstSeenAt": "2026-07-02T15:04:48.694Z",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -5110,7 +5091,6 @@
         ]
       },
       "firstSeenAt": "2026-07-02T15:04:48.477Z",
-      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -5270,7 +5250,6 @@
         ]
       },
       "firstSeenAt": "2026-07-02T15:04:48.423Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -5537,17 +5516,17 @@
       "companyDomain": "ubs.com",
       "title": "Speditionsfachfrau/mann",
       "titleByLocale": {
-        "en": "Speditionsfachfrau/mann",
-        "fr": "Speditionsfachfrau/mann",
+        "en": "Freight forwarding specialist",
+        "fr": "Spécialiste du transport de marchandises",
         "de": "Speditionsfachfrau/mann",
-        "it": "Speditionsfachfrau/mann"
+        "it": "Specialista di spedizione"
       },
       "description": "Arbeiten Sie gerne selbständig und sind Multitasking fähig? Möchten Sie uns helfen, unser Kundenerlebnis jetzt und in Zukunft zu verbessern? Sind Sie kundenorientiert und haben ein hohes Risikobewusstsein? Dann sind Sie in unserem Team genau richtig!\n\nIm Bereich Investment Bank Operations sind wir die Experten welche für einen reibungslosen Ablauf im Tagesgeschäft sorgen. Unsere Vision ist es, das Erlebnis für unsere Kunden jetzt und in Zukunft zu verbessern. Um erfolgreich zu sein, müssen unsere Mitarbeiter:\n• Höchstleistungen erbringen.\n• Wissen, was unsere Kunden benötigen und wollen.\n• Die Organisation voran bringen, indem Sie zielstrebig und leidenschaftlich arbeiten\n\nWir suchen eine neue Kollegin oder einen neuen Kollegen, welche(r) die folgenden Aufgaben übernehmen möchte:\n• Interaktion mit externen Partnern/Kunden sowie Zollbehörde\n• Mitarbeit in diversen Projekten und stetige Verbesserung der Arbeitsprozesse\n• Mithilfe im Tagesgeschäft, welche folgende Tätigkeiten beinhalten:\n korrekte und speditive Ausführung von Edelmetall Inlandsendungen, Importe & Exporte\n OZL Abwicklung (Ein- und Ausgänge)\n Offertanfrage und Transportkalkulationen\n Raffinations- & Produktionsbereich (Abstimmungen)\n Überwachen, analysieren und wenn notwendig, richtigstellen der MwSt. Statistiken\n Erstellen und versenden der monatlichen und quartalsmässigen MwSt. Reporte\n Rechnungskontrolle (Debitoren/Kreditoren)",
       "descriptionByLocale": {
-        "en": "Arbeiten Sie gerne selbständig und sind Multitasking fähig? Möchten Sie uns helfen, unser Kundenerlebnis jetzt und in Zukunft zu verbessern? Sind Sie kundenorientiert und haben ein hohes Risikobewusstsein? Dann sind Sie in unserem Team genau richtig!\n\nIm Bereich Investment Bank Operations sind wir die Experten welche für einen reibungslosen Ablauf im Tagesgeschäft sorgen. Unsere Vision ist es, das Erlebnis für unsere Kunden jetzt und in Zukunft zu verbessern. Um erfolgreich zu sein, müssen unsere Mitarbeiter:\n• Höchstleistungen erbringen.\n• Wissen, was unsere Kunden benötigen und wollen.\n• Die Organisation voran bringen, indem Sie zielstrebig und leidenschaftlich arbeiten\n\nWir suchen eine neue Kollegin oder einen neuen Kollegen, welche(r) die folgenden Aufgaben übernehmen möchte:\n• Interaktion mit externen Partnern/Kunden sowie Zollbehörde\n• Mitarbeit in diversen Projekten und stetige Verbesserung der Arbeitsprozesse\n• Mithilfe im Tagesgeschäft, welche folgende Tätigkeiten beinhalten:\n korrekte und speditive Ausführung von Edelmetall Inlandsendungen, Importe & Exporte\n OZL Abwicklung (Ein- und Ausgänge)\n Offertanfrage und Transportkalkulationen\n Raffinations- & Produktionsbereich (Abstimmungen)\n Überwachen, analysieren und wenn notwendig, richtigstellen der MwSt. Statistiken\n Erstellen und versenden der monatlichen und quartalsmässigen MwSt. Reporte\n Rechnungskontrolle (Debitoren/Kreditoren)",
+        "en": "Do you like working independently and are you capable of multitasking? Want to help us improve our customer experience now and in the future? Are you customer-oriented and have a high risk awareness? Then you are exactly right in our team!\n\nIn the area of investment bank operations, we are the experts who ensure a smooth flow in day-to-day business. Our vision is to improve the experience for our customers now and in the future. To be successful, our employees must:\n• Provide maximum performance.\n• Know what our customers need and want.\n• Moving the organization forward by working with determination and passion\n\nWe are looking for a new colleague who would like to take on the following tasks:\n• Interaction with external partners/customers and customs authority\n• Participation in various projects and continuous improvement of work processes\n• Assistance in day-to-day business, including the following activities:\n correct and forwarded execution of precious metal domestic consignments, imports & exports\n OZL settlement (entry and exit)\n Offer request and transport calculations\n Refining and production sector (vote)\n Monitor, analyse and, if necessary, correct VAT. Statistics\n Create and send monthly and quarterly VAT. Reports\n Invoice control (debitors/creditors)",
         "de": "Arbeiten Sie gerne selbständig und sind Multitasking fähig? Möchten Sie uns helfen, unser Kundenerlebnis jetzt und in Zukunft zu verbessern? Sind Sie kundenorientiert und haben ein hohes Risikobewusstsein? Dann sind Sie in unserem Team genau richtig!\n\nIm Bereich Investment Bank Operations sind wir die Experten welche für einen reibungslosen Ablauf im Tagesgeschäft sorgen. Unsere Vision ist es, das Erlebnis für unsere Kunden jetzt und in Zukunft zu verbessern. Um erfolgreich zu sein, müssen unsere Mitarbeiter:\n• Höchstleistungen erbringen.\n• Wissen, was unsere Kunden benötigen und wollen.\n• Die Organisation voran bringen, indem Sie zielstrebig und leidenschaftlich arbeiten\n\nWir suchen eine neue Kollegin oder einen neuen Kollegen, welche(r) die folgenden Aufgaben übernehmen möchte:\n• Interaktion mit externen Partnern/Kunden sowie Zollbehörde\n• Mitarbeit in diversen Projekten und stetige Verbesserung der Arbeitsprozesse\n• Mithilfe im Tagesgeschäft, welche folgende Tätigkeiten beinhalten:\n korrekte und speditive Ausführung von Edelmetall Inlandsendungen, Importe & Exporte\n OZL Abwicklung (Ein- und Ausgänge)\n Offertanfrage und Transportkalkulationen\n Raffinations- & Produktionsbereich (Abstimmungen)\n Überwachen, analysieren und wenn notwendig, richtigstellen der MwSt. Statistiken\n Erstellen und versenden der monatlichen und quartalsmässigen MwSt. Reporte\n Rechnungskontrolle (Debitoren/Kreditoren)",
-        "it": "Arbeiten Sie gerne selbständig und sind Multitasking fähig? Möchten Sie uns helfen, unser Kundenerlebnis jetzt und in Zukunft zu verbessern? Sind Sie kundenorientiert und haben ein hohes Risikobewusstsein? Dann sind Sie in unserem Team genau richtig!\n\nIm Bereich Investment Bank Operations sind wir die Experten welche für einen reibungslosen Ablauf im Tagesgeschäft sorgen. Unsere Vision ist es, das Erlebnis für unsere Kunden jetzt und in Zukunft zu verbessern. Um erfolgreich zu sein, müssen unsere Mitarbeiter:\n• Höchstleistungen erbringen.\n• Wissen, was unsere Kunden benötigen und wollen.\n• Die Organisation voran bringen, indem Sie zielstrebig und leidenschaftlich arbeiten\n\nWir suchen eine neue Kollegin oder einen neuen Kollegen, welche(r) die folgenden Aufgaben übernehmen möchte:\n• Interaktion mit externen Partnern/Kunden sowie Zollbehörde\n• Mitarbeit in diversen Projekten und stetige Verbesserung der Arbeitsprozesse\n• Mithilfe im Tagesgeschäft, welche folgende Tätigkeiten beinhalten:\n korrekte und speditive Ausführung von Edelmetall Inlandsendungen, Importe & Exporte\n OZL Abwicklung (Ein- und Ausgänge)\n Offertanfrage und Transportkalkulationen\n Raffinations- & Produktionsbereich (Abstimmungen)\n Überwachen, analysieren und wenn notwendig, richtigstellen der MwSt. Statistiken\n Erstellen und versenden der monatlichen und quartalsmässigen MwSt. Reporte\n Rechnungskontrolle (Debitoren/Kreditoren)",
-        "fr": "Arbeiten Sie gerne selbständig und sind Multitasking fähig? Möchten Sie uns helfen, unser Kundenerlebnis jetzt und in Zukunft zu verbessern? Sind Sie kundenorientiert und haben ein hohes Risikobewusstsein? Dann sind Sie in unserem Team genau richtig!\n\nIm Bereich Investment Bank Operations sind wir die Experten welche für einen reibungslosen Ablauf im Tagesgeschäft sorgen. Unsere Vision ist es, das Erlebnis für unsere Kunden jetzt und in Zukunft zu verbessern. Um erfolgreich zu sein, müssen unsere Mitarbeiter:\n• Höchstleistungen erbringen.\n• Wissen, was unsere Kunden benötigen und wollen.\n• Die Organisation voran bringen, indem Sie zielstrebig und leidenschaftlich arbeiten\n\nWir suchen eine neue Kollegin oder einen neuen Kollegen, welche(r) die folgenden Aufgaben übernehmen möchte:\n• Interaktion mit externen Partnern/Kunden sowie Zollbehörde\n• Mitarbeit in diversen Projekten und stetige Verbesserung der Arbeitsprozesse\n• Mithilfe im Tagesgeschäft, welche folgende Tätigkeiten beinhalten:\n korrekte und speditive Ausführung von Edelmetall Inlandsendungen, Importe & Exporte\n OZL Abwicklung (Ein- und Ausgänge)\n Offertanfrage und Transportkalkulationen\n Raffinations- & Produktionsbereich (Abstimmungen)\n Überwachen, analysieren und wenn notwendig, richtigstellen der MwSt. Statistiken\n Erstellen und versenden der monatlichen und quartalsmässigen MwSt. Reporte\n Rechnungskontrolle (Debitoren/Kreditoren)"
+        "it": "Ti piace lavorare in modo indipendente e sei capace di multitasking? Vuoi aiutarci a migliorare la nostra esperienza cliente ora e in futuro? Siete orientati al cliente e avete un'alta consapevolezza del rischio? Allora siete esattamente nella nostra squadra!\n\nNel settore delle operazioni bancarie di investimento, siamo gli esperti che garantiscono un flusso regolare nel business quotidiano. La nostra visione è di migliorare l'esperienza per i nostri clienti ora e in futuro. Per avere successo, i nostri dipendenti devono:\n• Fornire le massime prestazioni.\n• Sapere cosa i nostri clienti hanno bisogno e vogliono.\n• Promuovere l'organizzazione lavorando con determinazione e passione\n\nSiamo alla ricerca di un nuovo collega che voglia assumere i seguenti compiti:\n• Interazione con partner esterni/clienti e autorità doganale\n• Partecipazione a vari progetti e miglioramento continuo dei processi di lavoro\n• Assistenza nelle attività quotidiane, comprese le seguenti attività:\n esecuzione corretta e inoltrata delle spedizioni metalliche domestiche, delle importazioni e delle esportazioni\n insediamento OZL (ingresso e uscita)\n Offerta richiesta e calcoli di trasporto\n Settore di raffinazione e produzione (voto)\n Monitorare, analizzare e, se necessario, correggere l'IVA. Statistiche\n Creare e inviare IVA mensile e trimestrale. Relazioni\nControllo delle fatture (debitori/creditori)",
+        "fr": "Vous aimez travailler indépendamment et êtes-vous capable de multitâcher ? Vous voulez nous aider à améliorer notre expérience client maintenant et dans le futur? Êtes-vous orienté vers le client et avez-vous une sensibilisation au risque élevé? Alors vous êtes exactement dans notre équipe !\n\nDans le domaine des opérations bancaires d'investissement, nous sommes les experts qui assurent un flux fluide dans les affaires quotidiennes. Notre vision est d'améliorer l'expérience pour nos clients maintenant et à l'avenir. Pour réussir, nos employés doivent :\n• Fournir des performances maximales.\n• Sachez ce que nos clients ont besoin et veulent.\n• Faire avancer l'organisation en travaillant avec détermination et passion\n\nNous sommes à la recherche d'un nouveau collègue qui aimerait assumer les tâches suivantes :\n• Interaction avec les partenaires extérieurs/clients et les autorités douanières\n• Participation à divers projets et amélioration continue des processus de travail\n• Assistance dans les affaires courantes, y compris les activités suivantes:\n• corriger et transmettre l'exécution des envois, importations et exportations nationaux de métaux précieux\nRèglement OZL (entrée et sortie)\nDemande d'offre et calculs de transport\nSecteur du raffinage et de la production (vote)\nContrôler, analyser et, si nécessaire, corriger la TVA. Statistiques\nCréer et envoyer la TVA mensuelle et trimestrielle. Rapports\nContrôle des factures (débiteurs/créanciers)"
       },
       "location": "Zürich",
       "canton": "ZH",
@@ -5578,7 +5557,6 @@
         "categoryRaw": "Operations",
         "jobType": ""
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "en": [
           "logistics-specialist-ubs-zurich",
@@ -5682,7 +5660,6 @@
         ]
       },
       "firstSeenAt": "2026-07-02T15:04:48.132Z",
-      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -5842,7 +5819,6 @@
         ]
       },
       "firstSeenAt": "2026-07-02T15:04:47.999Z",
-      "needsRetranslation": true,
       "salaryMin": 96000,
       "salaryMax": 146000,
       "baseSalary": {
@@ -5921,7 +5897,6 @@
         ]
       },
       "firstSeenAt": "2026-07-01T23:34:49.557Z",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -6012,7 +5987,6 @@
         ]
       },
       "firstSeenAt": "2026-07-01T23:34:49.548Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -6098,7 +6072,6 @@
         ]
       },
       "firstSeenAt": "2026-07-01T23:34:49.539Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -6260,7 +6233,6 @@
         ]
       },
       "firstSeenAt": "2026-07-02T15:04:47.871Z",
-      "needsRetranslation": true,
       "salaryMin": 121500,
       "salaryMax": 206500,
       "baseSalary": {
@@ -6459,7 +6431,7 @@
         "it": "Progettisti di Successione",
         "en": "Succession Planners",
         "de": "Succession Planner/in Wealth Management",
-        "fr": "Succession Planner/in Wealth Management"
+        "fr": "Planificateur de relève/Gestion de la masse"
       },
       "description": "Bringen Sie fundierte Expertise im Güter- und Erbrecht mit?\nDenken Sie unternehmerisch und erkennen komplexe Kundenbedürfnisse frühzeitig?\nArbeiten Sie gerne interdisziplinär und überzeugen durch klare Kommunikation?\n\nWir suchen Sie für die:\n• Ganzheitliche Beratung von vermögenden Privatkunden sowie Entrepreneurs und Executives in Nachlass- und Vermögensfragen\n• Erstellung von Testamenten, Ehe- und Erbverträgen sowie Vorsorgeaufträgen\n• Strukturierung von lebzeitigen Vermögensübertragungen und Begleitung von Unternehmensnachfolgen\n• Proaktive Erkennung von Kundenbedürfnissen und Entwicklung massgeschneiderter Lösungen\n• Enge Zusammenarbeit mit Kundenberatern und internen/externalen Spezialisten\n• Repräsentation der Fachkompetenz in Präsentationen, Events und im Wissenstransfer",
       "descriptionByLocale": {
@@ -6522,7 +6494,6 @@
         ]
       },
       "firstSeenAt": "2026-07-01T23:34:49.546Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -6764,7 +6735,6 @@
         "jobType": ""
       },
       "firstSeenAt": "2026-07-09T22:23:01.790Z",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -7152,7 +7122,6 @@
         "jobType": ""
       },
       "firstSeenAt": "2026-07-09T22:23:01.790Z",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -7223,7 +7192,6 @@
         "jobType": ""
       },
       "firstSeenAt": "2026-07-14T22:32:23.886Z",
-      "needsRetranslation": true,
       "salaryMin": 121500,
       "salaryMax": 206500,
       "baseSalary": {
@@ -7253,7 +7221,7 @@
       "title": "BANK-now - Product Owner Credit & Leasing, 80-100%",
       "titleByLocale": {
         "it": "BANK-now - Proprietario del prodotto Credit & Leasing, 80-100 %",
-        "en": "BANK-now - Product Owner Credit & Leasing, 80-100%",
+        "en": "BANK-now - Product Owner Credit & Leasing, 80-100 %",
         "de": "BANK-now - Product Owner Credit & Leasing, 80-100%",
         "fr": "BANQUE-maintenant - Crédit et crédit-bail du propriétaire du produit, 80-100 %"
       },
@@ -7304,7 +7272,6 @@
         ]
       },
       "firstSeenAt": "2026-07-14T11:04:55.876Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -7542,7 +7509,6 @@
         ]
       },
       "firstSeenAt": "2026-07-10T10:26:25.170Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -7570,7 +7536,7 @@
       "companyDomain": "ubs.com",
       "title": "Group M&A - Business Strategist",
       "titleByLocale": {
-        "it": "Group M&A - Business Strategist",
+        "it": "Gruppo M&A - Business Strategist",
         "en": "Group M&A - Business Strategist",
         "de": "Group M&A - Business Strategist",
         "fr": "M&A de groupe - Stratège d'affaires"
@@ -7612,7 +7578,6 @@
         "jobType": ""
       },
       "firstSeenAt": "2026-07-14T11:04:55.905Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -7726,7 +7691,7 @@
         "it": "Addetto agli eventi (pagato a ore)",
         "en": "Event Attendant (hourly paid)",
         "de": "Veranstaltungsmitarbeiter (stundenweise bezahlt)",
-        "fr": "Event Attendant (hourly paid)"
+        "fr": "Participant à l'événement (payé en heures)"
       },
       "description": "Do you always put clients at the center of everything you do? Are you passionate about creating a welcoming and positive atmosphere?\nAs additional support for our team in Geneva, we are looking for a new colleague (female or male) to join us as an Event Attendant on an hourly, on-call basis (on average, approximately 65 hours per year).\nIn this role, you will be responsible for welcoming guests and providing excellent client service at a variety of events, including client gatherings, press conferences, and third-party events involving UBS. You will support the event manager and play a key role in ensuring each event runs smoothly and safely.",
       "descriptionByLocale": {
@@ -7779,7 +7744,6 @@
         ]
       },
       "firstSeenAt": "2026-07-02T15:04:48.362Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -7864,7 +7828,6 @@
         ]
       },
       "firstSeenAt": "2026-07-17T21:59:52.646Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -7958,7 +7921,6 @@
         ]
       },
       "firstSeenAt": "2026-07-20T12:03:58.695Z",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -8042,7 +8004,6 @@
         ]
       },
       "firstSeenAt": "2026-07-21T11:19:29.678Z",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -8228,7 +8189,7 @@
       "title": "Remote Advisor Mortgage – Remote Sales & Advice Basel, 80-100%",
       "titleByLocale": {
         "it": "Consulente Ipotechario Remoto – Vendite e Consulenza a Distanza",
-        "en": "Remote Advisor Mortgage – Remote Sales & Advice Basel, 80-100%",
+        "en": "Remote Advisor Mortgage – Remote Sales & Advice Basel, 80-100 %",
         "de": "Remote Berater Mortgage – Remote Sales & Advice Basel, 80-100%",
         "fr": "Conseiller Hypothécaire à Distance – Ventes et Conseils à Distance"
       },
@@ -8279,7 +8240,6 @@
         ]
       },
       "firstSeenAt": "2026-07-02T15:04:48.239Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -8365,7 +8325,6 @@
         ]
       },
       "firstSeenAt": "2026-07-01T23:34:49.523Z",
-      "needsRetranslation": true,
       "salaryMin": 96000,
       "salaryMax": 146000,
       "baseSalary": {
@@ -8436,7 +8395,6 @@
         "jobType": ""
       },
       "firstSeenAt": "2026-07-21T11:19:29.685Z",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -8590,7 +8548,6 @@
         "jobType": ""
       },
       "firstSeenAt": "2026-07-21T22:05:28.281Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -8661,7 +8618,6 @@
         "jobType": ""
       },
       "firstSeenAt": "2026-07-22T11:18:43.425Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -8745,7 +8701,6 @@
         ]
       },
       "firstSeenAt": "2026-07-22T22:05:28.551Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -9215,7 +9170,7 @@
       "title": "BANK-now - Head Software Development",
       "titleByLocale": {
         "it": "BANK-now - Capo dello sviluppo del software",
-        "en": "BANK-now - Head Software Development",
+        "en": "BANK-now - Head of Software Development",
         "de": "BANK-now - Head Software Development",
         "fr": "BANQUE-maintenant - Chef du développement logiciel"
       },
@@ -9269,7 +9224,6 @@
         ]
       },
       "firstSeenAt": "2026-07-21T22:05:28.266Z",
-      "needsRetranslation": true,
       "salaryMin": 121500,
       "salaryMax": 206500,
       "baseSalary": {
@@ -9340,7 +9294,6 @@
         "jobType": ""
       },
       "firstSeenAt": "2026-07-14T11:04:55.875Z",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -9370,7 +9323,7 @@
       "title": "Hub Head Basel/AG-SO/Bern Financial Planning Personal Banking, 80-100%",
       "titleByLocale": {
         "it": "Hub Head Basel/AG-SO/Bern Financial Planning Personal Banking, 80-100 %",
-        "en": "Hub Head Basel/AG-SO/Bern Financial Planning Personal Banking, 80-100%",
+        "en": "Hub Head Basel/AG-SO/Bern Financial Planning Personal Banking, 80-100 %",
         "de": "Hub Head Basel/AG-SO/Bern Financial Planning Personal Banking, 80-100%",
         "fr": "Responsable central Bâle/AG-SO/Bern Planification financière Services bancaires personnels, 80-100 %"
       },
@@ -9411,7 +9364,6 @@
         "jobType": ""
       },
       "firstSeenAt": "2026-07-28T11:27:55.957Z",
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "baseSalary": {
@@ -9512,16 +9464,16 @@
       "title": "Senior Business Risk Manager - Financial Crime Prevention AML/KYC",
       "titleByLocale": {
         "en": "Senior Business Risk Manager - Financial Crime Prevention AML/KYC",
-        "it": "Senior Business Risk Manager - Financial Crime Prevention AML/KYC",
-        "de": "Senior Business Risk Manager - Financial Crime Prevention AML/KYC",
-        "fr": "Senior Business Risk Manager - Financial Crime Prevention AML/KYC"
+        "it": "Senior Business Risk Manager - Prevenzione del crimine finanziario AML/KYC",
+        "de": "Senior Business Risk Manager - Finanzkriminalitätsprävention AML / KYC",
+        "fr": "Gestionnaire principal des risques opérationnels - Prévention de la criminalité financière AML/KYC"
       },
       "description": "Are you a recognized expert in financial crime prevention-AML/KYC? Do you thrive on providing strategic advice and consulting to drive regulatory excellence? Are you passionate about shaping processes and leading change in a dynamic environment?\n\nAt UBS, we re-imagine the way we work, the way we connect with each other – our colleagues, clients and partners – and the way we deliver value. Being agile makes us more responsive, more adaptable, and ultimately more innovative.\n\nWe’re looking for a Senior Specialist Financial Crime Prevention – AML/KYC to:\n\n• Serve as a senior subject matter expert and trusted advisor for AML/KYC, providing high-level consulting, strategic guidance, and thought leadership to stakeholders across the organization.\n• Lead comprehensive risk assessments and ad-hoc reviews, defining and implementing effective remediation measures to strengthen processes, controls, and systems.\n• Oversee and coordinate audit management activities, including the closure of remediation actions, ensuring full compliance with regulatory requirements and internal standards.\n• Drive the documentation, optimization, and continuous improvement of AML/KYC-relevant processes, supporting operational excellence and regulatory compliance.\n• Take ownership of regulatory change management for AML and related areas, ensuring the seamless implementation of new requirements and supporting the organization in adapting to evolving regulatory landscapes.\n• Communicate complex topics clearly and persuasively, preparing high-impact PowerPoint presentations and management updates for senior audiences.\n• Deliver targeted guidance and training to the Front Office and other stakeholders, fostering a culture of compliance and risk awareness.",
       "descriptionByLocale": {
         "en": "Are you a recognized expert in financial crime prevention-AML/KYC? Do you thrive on providing strategic advice and consulting to drive regulatory excellence? Are you passionate about shaping processes and leading change in a dynamic environment?\n\nAt UBS, we re-imagine the way we work, the way we connect with each other – our colleagues, clients and partners – and the way we deliver value. Being agile makes us more responsive, more adaptable, and ultimately more innovative.\n\nWe’re looking for a Senior Specialist Financial Crime Prevention – AML/KYC to:\n\n• Serve as a senior subject matter expert and trusted advisor for AML/KYC, providing high-level consulting, strategic guidance, and thought leadership to stakeholders across the organization.\n• Lead comprehensive risk assessments and ad-hoc reviews, defining and implementing effective remediation measures to strengthen processes, controls, and systems.\n• Oversee and coordinate audit management activities, including the closure of remediation actions, ensuring full compliance with regulatory requirements and internal standards.\n• Drive the documentation, optimization, and continuous improvement of AML/KYC-relevant processes, supporting operational excellence and regulatory compliance.\n• Take ownership of regulatory change management for AML and related areas, ensuring the seamless implementation of new requirements and supporting the organization in adapting to evolving regulatory landscapes.\n• Communicate complex topics clearly and persuasively, preparing high-impact PowerPoint presentations and management updates for senior audiences.\n• Deliver targeted guidance and training to the Front Office and other stakeholders, fostering a culture of compliance and risk awareness.",
-        "it": "Are you a recognized expert in financial crime prevention-AML/KYC? Do you thrive on providing strategic advice and consulting to drive regulatory excellence? Are you passionate about shaping processes and leading change in a dynamic environment?\n\nAt UBS, we re-imagine the way we work, the way we connect with each other – our colleagues, clients and partners – and the way we deliver value. Being agile makes us more responsive, more adaptable, and ultimately more innovative.\n\nWe’re looking for a Senior Specialist Financial Crime Prevention – AML/KYC to:\n\n• Serve as a senior subject matter expert and trusted advisor for AML/KYC, providing high-level consulting, strategic guidance, and thought leadership to stakeholders across the organization.\n• Lead comprehensive risk assessments and ad-hoc reviews, defining and implementing effective remediation measures to strengthen processes, controls, and systems.\n• Oversee and coordinate audit management activities, including the closure of remediation actions, ensuring full compliance with regulatory requirements and internal standards.\n• Drive the documentation, optimization, and continuous improvement of AML/KYC-relevant processes, supporting operational excellence and regulatory compliance.\n• Take ownership of regulatory change management for AML and related areas, ensuring the seamless implementation of new requirements and supporting the organization in adapting to evolving regulatory landscapes.\n• Communicate complex topics clearly and persuasively, preparing high-impact PowerPoint presentations and management updates for senior audiences.\n• Deliver targeted guidance and training to the Front Office and other stakeholders, fostering a culture of compliance and risk awareness.",
-        "de": "Are you a recognized expert in financial crime prevention-AML/KYC? Do you thrive on providing strategic advice and consulting to drive regulatory excellence? Are you passionate about shaping processes and leading change in a dynamic environment?\n\nAt UBS, we re-imagine the way we work, the way we connect with each other – our colleagues, clients and partners – and the way we deliver value. Being agile makes us more responsive, more adaptable, and ultimately more innovative.\n\nWe’re looking for a Senior Specialist Financial Crime Prevention – AML/KYC to:\n\n• Serve as a senior subject matter expert and trusted advisor for AML/KYC, providing high-level consulting, strategic guidance, and thought leadership to stakeholders across the organization.\n• Lead comprehensive risk assessments and ad-hoc reviews, defining and implementing effective remediation measures to strengthen processes, controls, and systems.\n• Oversee and coordinate audit management activities, including the closure of remediation actions, ensuring full compliance with regulatory requirements and internal standards.\n• Drive the documentation, optimization, and continuous improvement of AML/KYC-relevant processes, supporting operational excellence and regulatory compliance.\n• Take ownership of regulatory change management for AML and related areas, ensuring the seamless implementation of new requirements and supporting the organization in adapting to evolving regulatory landscapes.\n• Communicate complex topics clearly and persuasively, preparing high-impact PowerPoint presentations and management updates for senior audiences.\n• Deliver targeted guidance and training to the Front Office and other stakeholders, fostering a culture of compliance and risk awareness.",
-        "fr": "Are you a recognized expert in financial crime prevention-AML/KYC? Do you thrive on providing strategic advice and consulting to drive regulatory excellence? Are you passionate about shaping processes and leading change in a dynamic environment?\n\nAt UBS, we re-imagine the way we work, the way we connect with each other – our colleagues, clients and partners – and the way we deliver value. Being agile makes us more responsive, more adaptable, and ultimately more innovative.\n\nWe’re looking for a Senior Specialist Financial Crime Prevention – AML/KYC to:\n\n• Serve as a senior subject matter expert and trusted advisor for AML/KYC, providing high-level consulting, strategic guidance, and thought leadership to stakeholders across the organization.\n• Lead comprehensive risk assessments and ad-hoc reviews, defining and implementing effective remediation measures to strengthen processes, controls, and systems.\n• Oversee and coordinate audit management activities, including the closure of remediation actions, ensuring full compliance with regulatory requirements and internal standards.\n• Drive the documentation, optimization, and continuous improvement of AML/KYC-relevant processes, supporting operational excellence and regulatory compliance.\n• Take ownership of regulatory change management for AML and related areas, ensuring the seamless implementation of new requirements and supporting the organization in adapting to evolving regulatory landscapes.\n• Communicate complex topics clearly and persuasively, preparing high-impact PowerPoint presentations and management updates for senior audiences.\n• Deliver targeted guidance and training to the Front Office and other stakeholders, fostering a culture of compliance and risk awareness."
+        "it": "Sei un esperto riconosciuto nella prevenzione della criminalità finanziaria-AML/KYC? Si prospera sulla fornitura di consulenza strategica e consulenza per guidare l'eccellenza normativa? Sei appassionato di modellare i processi e di cambiare in un ambiente dinamico?\n\nA UBS, ri-immaginamo il modo in cui lavoriamo, il modo in cui ci colleghiamo – i nostri colleghi, clienti e partner – e il modo in cui forniamo valore. Essere agili ci rende più reattivi, più adattabili, e alla fine più innovativi.\n\nStiamo cercando una prevenzione del crimine finanziario specialistico senior – AML/KYC per:\n\n• Servire come esperto di materia senior e consulente di fiducia per AML/KYC, fornendo consulenza di alto livello, guida strategica e leadership di pensiero per gli stakeholder di tutta l'organizzazione.\n• Condurre valutazioni complete dei rischi e recensioni ad-hoc, definendo e implementando misure efficaci di bonifica per rafforzare processi, controlli e sistemi.\n• Controllare e coordinare le attività di gestione dell'audit, compresa la chiusura delle azioni di bonifica, garantendo il pieno rispetto dei requisiti normativi e degli standard interni.\n• Guidare la documentazione, l'ottimizzazione e il miglioramento continuo dei processi AML/KYC-relevant, supportando l'eccellenza operativa e la conformità normativa.\n• Prendere la proprietà della gestione dei cambiamenti normativi per AML e le aree correlate, assicurando l'implementazione senza soluzione di continuità di nuovi requisiti e supportando l'organizzazione nell'adattare ai paesaggi normativi in evoluzione.\n• Comunicare argomenti complessi in modo chiaro e persuasivo, preparare presentazioni PowerPoint ad alto impatto e aggiornamenti di gestione per il pubblico senior.\n• Fornire una guida mirata e una formazione al Front Office e ad altri stakeholder, promuovendo una cultura della conformità e della consapevolezza dei rischi.",
+        "de": "Sind Sie ein anerkannter Experte für Finanzkriminalitätsprävention-AML / KYC? Gedeihen Sie von der Bereitstellung strategischer Beratung und Beratung, um regulatorische Exzellenz zu fördern? Sind Sie leidenschaftlich daran interessiert, Prozesse zu gestalten und Veränderungen in einem dynamischen Umfeld voranzutreiben?\n\nBei UBS stellen wir uns neu vor, wie wir arbeiten, wie wir miteinander verbunden sind - unsere Kollegen, Kunden und Partner - und wie wir Wert liefern. Agil zu sein macht uns reaktionsfähiger, anpassungsfähiger und letztlich innovativer.\n\nWir suchen einen Senior Specialist Financial Crime Prevention - AML / KYC, um:\n\n• Dienen Sie als leitender Fachexperte und vertrauenswürdiger Berater für AML / KYC und bieten Sie hochrangige Beratung, strategische Beratung und Vordenkerführung für Stakeholder in der gesamten Organisation.\n• Führen Sie umfassende Risikobewertungen und Ad-hoc-Überprüfungen durch Definition und Umsetzung wirksamer Sanierungsmaßnahmen zur Stärkung von Prozessen, Kontrollen und Systemen.\n• Überwachung und Koordinierung der Tätigkeiten des Auditmanagements, einschließlich des Abschlusses von Sanierungsmaßnahmen, um die vollständige Einhaltung der regulatorischen Anforderungen und internen Standards sicherzustellen.\n• Führen Sie die Dokumentation, Optimierung und kontinuierliche Verbesserung von AML / KYC-relevanten Prozessen voran und unterstützen Sie die operative Exzellenz und die Einhaltung gesetzlicher Vorschriften.\n• Übernahme der Verantwortung für das regulatorische Change Management für AML und verwandte Bereiche, um die nahtlose Umsetzung neuer Anforderungen sicherzustellen und die Organisation bei der Anpassung an sich verändernde regulatorische Landschaften zu unterstützen.\n• Kommunizieren Sie komplexe Themen klar und überzeugend und erstellen Sie wirkungsvolle PowerPoint-Präsentationen und Management-Updates für Senioren.\n• Bereitstellung gezielter Anleitungen und Schulungen für das Front Office und andere Interessengruppen, um eine Kultur der Compliance und des Risikobewusstseins zu fördern.",
+        "fr": "Êtes-vous un expert reconnu en prévention du crime financier-AML/KYC? Êtes-vous prospère en fournissant des conseils stratégiques et des conseils pour stimuler l'excellence en matière de réglementation? Êtes-vous passionné de façonner les processus et de diriger le changement dans un environnement dynamique?\n\nChez UBS, nous réimaginons la façon dont nous travaillons, la façon dont nous nous connectons les uns avec les autres – nos collègues, nos clients et nos partenaires – et la façon dont nous offrons de la valeur. Être agile nous rend plus réactifs, plus adaptables et finalement plus innovants.\n\nNous cherchons un spécialiste principal en prévention de la criminalité financière – AML/KYC pour :\n\n• Servir d'expert principal en la matière et de conseiller de confiance pour la LMA/CJA, fournir des conseils de haut niveau, des conseils stratégiques et un leadership réfléchi aux intervenants de l'ensemble de l'organisation.\n• Diriger des évaluations exhaustives des risques et des examens ad hoc, définir et mettre en oeuvre des mesures d'assainissement efficaces pour renforcer les processus, les contrôles et les systèmes.\n• Superviser et coordonner les activités de gestion de la vérification, y compris la clôture des mesures d'assainissement, en assurant le plein respect des exigences réglementaires et des normes internes.\n• Diriger la documentation, l'optimisation et l'amélioration continue des processus pertinents à la LAM/CJA, en soutenant l'excellence opérationnelle et la conformité réglementaire.\n• S'approprier la gestion du changement réglementaire pour la LAM et les domaines connexes, assurer la mise en oeuvre transparente des nouvelles exigences et aider l'organisation à s'adapter à l'évolution des paysages réglementaires.\n• Communiquer les sujets complexes de façon claire et convaincante, en préparant des présentations PowerPoint à fort impact et des mises à jour de gestion pour les publics supérieurs.\n• Fournir une orientation et une formation ciblées au Front Office et à d'autres intervenants, en favorisant une culture de conformité et de sensibilisation aux risques."
       },
       "location": "Zürich",
       "canton": "ZH",
@@ -9554,7 +9506,6 @@
         "categoryRaw": "Risk",
         "jobType": ""
       },
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -9586,15 +9537,15 @@
       "titleByLocale": {
         "de": "Head Hospitality Services",
         "en": "Head Hospitality Services",
-        "it": "Head Hospitality Services",
-        "fr": "Head Hospitality Services"
+        "it": "Servizi di accoglienza",
+        "fr": "Chef des services d ' accueil"
       },
       "description": "Sie verbinden exzellente Hospitality mit strategischer Führung und verstehen es, anspruchsvolle Serviceorganisationen mit klarem Fokus auf externe Kunden (lokal / international) und hochwertige Nutzererlebnisse erfolgreich weiterzuentwickeln?\nSie verfügen über Erfahrung in der Führung grösserer Teams und schaffen Mehrwert durch hohe Servicequalität, Effizienz und verlässliche Partnerschaften?\n\nDann übernehmen Sie die Leitung unserer Hospitality Services innerhalb von Switzerland Real Estate & Services (SRES) und gestalten die Weiterentwicklung unseres Serviceportfolios aktiv mit.\nIn dieser Schlüsselrolle verantworten Sie die strategische, operative und kommerzielle Weiterentwicklung der Hospitality Services für die UBS. Gemeinsam mit Ihrem Team stellen Sie sicher, dass externe Kunden, internationale Gäste, Besucherinnen und Besucher sowie interne Anspruchsgruppen an unseren Standorten ein konsistent hochwertiges, professionelles und repräsentatives Serviceerlebnis erfahren.\n\n• Gesamtverantwortung für die strategische, operative und kommerzielle Weiterentwicklung des Hospitality-Serviceportfolios mit besonderem Fokus auf externe Kunden, internationale Gäste und repräsentative Kundenerlebnisse\n• Sicherstellung einer konsistent hochwertigen Leistungserbringung über alle Servicelinien hinweg sowie kontinuierliche Weiterentwicklung des Angebots entlang der Erwartungen der Anspruchsgruppen\n• Führung und Weiterentwicklung einer komplexen, kunden- und serviceorientierten Organisation mit den Bereichen Reception, Conference & Event Services sowie Staff Catering, Client Dining & Pantry Services\n• Enge Zusammenarbeit mit allen SRES Funktionen zur ganzheitlichen Weiterentwicklung kundenorientierter Dienstleistungen und hochwertiger Standorterlebnisse\n• Beobachtung relevanter Markttrends in Premium Hospitality, Corporate Services und Client Experience sowie Ableitung innovativer Servicekonzepte zur Weiterentwicklung des Hospitality-Angebots\n• Vorantreiben von Digitalisierungs- und Optimierungsinitiativen zur Steigerung von Effizienz, Servicequalität und Kunden- beziehungsweise Nutzererlebnis\n• Positionierung von SRES als strategischer, wertschöpfender und kundenorientierter Servicepartner innerhalb der Bank",
       "descriptionByLocale": {
         "de": "Sie verbinden exzellente Hospitality mit strategischer Führung und verstehen es, anspruchsvolle Serviceorganisationen mit klarem Fokus auf externe Kunden (lokal / international) und hochwertige Nutzererlebnisse erfolgreich weiterzuentwickeln?\nSie verfügen über Erfahrung in der Führung grösserer Teams und schaffen Mehrwert durch hohe Servicequalität, Effizienz und verlässliche Partnerschaften?\n\nDann übernehmen Sie die Leitung unserer Hospitality Services innerhalb von Switzerland Real Estate & Services (SRES) und gestalten die Weiterentwicklung unseres Serviceportfolios aktiv mit.\nIn dieser Schlüsselrolle verantworten Sie die strategische, operative und kommerzielle Weiterentwicklung der Hospitality Services für die UBS. Gemeinsam mit Ihrem Team stellen Sie sicher, dass externe Kunden, internationale Gäste, Besucherinnen und Besucher sowie interne Anspruchsgruppen an unseren Standorten ein konsistent hochwertiges, professionelles und repräsentatives Serviceerlebnis erfahren.\n\n• Gesamtverantwortung für die strategische, operative und kommerzielle Weiterentwicklung des Hospitality-Serviceportfolios mit besonderem Fokus auf externe Kunden, internationale Gäste und repräsentative Kundenerlebnisse\n• Sicherstellung einer konsistent hochwertigen Leistungserbringung über alle Servicelinien hinweg sowie kontinuierliche Weiterentwicklung des Angebots entlang der Erwartungen der Anspruchsgruppen\n• Führung und Weiterentwicklung einer komplexen, kunden- und serviceorientierten Organisation mit den Bereichen Reception, Conference & Event Services sowie Staff Catering, Client Dining & Pantry Services\n• Enge Zusammenarbeit mit allen SRES Funktionen zur ganzheitlichen Weiterentwicklung kundenorientierter Dienstleistungen und hochwertiger Standorterlebnisse\n• Beobachtung relevanter Markttrends in Premium Hospitality, Corporate Services und Client Experience sowie Ableitung innovativer Servicekonzepte zur Weiterentwicklung des Hospitality-Angebots\n• Vorantreiben von Digitalisierungs- und Optimierungsinitiativen zur Steigerung von Effizienz, Servicequalität und Kunden- beziehungsweise Nutzererlebnis\n• Positionierung von SRES als strategischer, wertschöpfender und kundenorientierter Servicepartner innerhalb der Bank",
-        "it": "Sie verbinden exzellente Hospitality mit strategischer Führung und verstehen es, anspruchsvolle Serviceorganisationen mit klarem Fokus auf externe Kunden (lokal / international) und hochwertige Nutzererlebnisse erfolgreich weiterzuentwickeln?\nSie verfügen über Erfahrung in der Führung grösserer Teams und schaffen Mehrwert durch hohe Servicequalität, Effizienz und verlässliche Partnerschaften?\n\nDann übernehmen Sie die Leitung unserer Hospitality Services innerhalb von Switzerland Real Estate & Services (SRES) und gestalten die Weiterentwicklung unseres Serviceportfolios aktiv mit.\nIn dieser Schlüsselrolle verantworten Sie die strategische, operative und kommerzielle Weiterentwicklung der Hospitality Services für die UBS. Gemeinsam mit Ihrem Team stellen Sie sicher, dass externe Kunden, internationale Gäste, Besucherinnen und Besucher sowie interne Anspruchsgruppen an unseren Standorten ein konsistent hochwertiges, professionelles und repräsentatives Serviceerlebnis erfahren.\n\n• Gesamtverantwortung für die strategische, operative und kommerzielle Weiterentwicklung des Hospitality-Serviceportfolios mit besonderem Fokus auf externe Kunden, internationale Gäste und repräsentative Kundenerlebnisse\n• Sicherstellung einer konsistent hochwertigen Leistungserbringung über alle Servicelinien hinweg sowie kontinuierliche Weiterentwicklung des Angebots entlang der Erwartungen der Anspruchsgruppen\n• Führung und Weiterentwicklung einer komplexen, kunden- und serviceorientierten Organisation mit den Bereichen Reception, Conference & Event Services sowie Staff Catering, Client Dining & Pantry Services\n• Enge Zusammenarbeit mit allen SRES Funktionen zur ganzheitlichen Weiterentwicklung kundenorientierter Dienstleistungen und hochwertiger Standorterlebnisse\n• Beobachtung relevanter Markttrends in Premium Hospitality, Corporate Services und Client Experience sowie Ableitung innovativer Servicekonzepte zur Weiterentwicklung des Hospitality-Angebots\n• Vorantreiben von Digitalisierungs- und Optimierungsinitiativen zur Steigerung von Effizienz, Servicequalität und Kunden- beziehungsweise Nutzererlebnis\n• Positionierung von SRES als strategischer, wertschöpfender und kundenorientierter Servicepartner innerhalb der Bank",
-        "en": "Sie verbinden exzellente Hospitality mit strategischer Führung und verstehen es, anspruchsvolle Serviceorganisationen mit klarem Fokus auf externe Kunden (lokal / international) und hochwertige Nutzererlebnisse erfolgreich weiterzuentwickeln?\nSie verfügen über Erfahrung in der Führung grösserer Teams und schaffen Mehrwert durch hohe Servicequalität, Effizienz und verlässliche Partnerschaften?\n\nDann übernehmen Sie die Leitung unserer Hospitality Services innerhalb von Switzerland Real Estate & Services (SRES) und gestalten die Weiterentwicklung unseres Serviceportfolios aktiv mit.\nIn dieser Schlüsselrolle verantworten Sie die strategische, operative und kommerzielle Weiterentwicklung der Hospitality Services für die UBS. Gemeinsam mit Ihrem Team stellen Sie sicher, dass externe Kunden, internationale Gäste, Besucherinnen und Besucher sowie interne Anspruchsgruppen an unseren Standorten ein konsistent hochwertiges, professionelles und repräsentatives Serviceerlebnis erfahren.\n\n• Gesamtverantwortung für die strategische, operative und kommerzielle Weiterentwicklung des Hospitality-Serviceportfolios mit besonderem Fokus auf externe Kunden, internationale Gäste und repräsentative Kundenerlebnisse\n• Sicherstellung einer konsistent hochwertigen Leistungserbringung über alle Servicelinien hinweg sowie kontinuierliche Weiterentwicklung des Angebots entlang der Erwartungen der Anspruchsgruppen\n• Führung und Weiterentwicklung einer komplexen, kunden- und serviceorientierten Organisation mit den Bereichen Reception, Conference & Event Services sowie Staff Catering, Client Dining & Pantry Services\n• Enge Zusammenarbeit mit allen SRES Funktionen zur ganzheitlichen Weiterentwicklung kundenorientierter Dienstleistungen und hochwertiger Standorterlebnisse\n• Beobachtung relevanter Markttrends in Premium Hospitality, Corporate Services und Client Experience sowie Ableitung innovativer Servicekonzepte zur Weiterentwicklung des Hospitality-Angebots\n• Vorantreiben von Digitalisierungs- und Optimierungsinitiativen zur Steigerung von Effizienz, Servicequalität und Kunden- beziehungsweise Nutzererlebnis\n• Positionierung von SRES als strategischer, wertschöpfender und kundenorientierter Servicepartner innerhalb der Bank",
-        "fr": "Sie verbinden exzellente Hospitality mit strategischer Führung und verstehen es, anspruchsvolle Serviceorganisationen mit klarem Fokus auf externe Kunden (lokal / international) und hochwertige Nutzererlebnisse erfolgreich weiterzuentwickeln?\nSie verfügen über Erfahrung in der Führung grösserer Teams und schaffen Mehrwert durch hohe Servicequalität, Effizienz und verlässliche Partnerschaften?\n\nDann übernehmen Sie die Leitung unserer Hospitality Services innerhalb von Switzerland Real Estate & Services (SRES) und gestalten die Weiterentwicklung unseres Serviceportfolios aktiv mit.\nIn dieser Schlüsselrolle verantworten Sie die strategische, operative und kommerzielle Weiterentwicklung der Hospitality Services für die UBS. Gemeinsam mit Ihrem Team stellen Sie sicher, dass externe Kunden, internationale Gäste, Besucherinnen und Besucher sowie interne Anspruchsgruppen an unseren Standorten ein konsistent hochwertiges, professionelles und repräsentatives Serviceerlebnis erfahren.\n\n• Gesamtverantwortung für die strategische, operative und kommerzielle Weiterentwicklung des Hospitality-Serviceportfolios mit besonderem Fokus auf externe Kunden, internationale Gäste und repräsentative Kundenerlebnisse\n• Sicherstellung einer konsistent hochwertigen Leistungserbringung über alle Servicelinien hinweg sowie kontinuierliche Weiterentwicklung des Angebots entlang der Erwartungen der Anspruchsgruppen\n• Führung und Weiterentwicklung einer komplexen, kunden- und serviceorientierten Organisation mit den Bereichen Reception, Conference & Event Services sowie Staff Catering, Client Dining & Pantry Services\n• Enge Zusammenarbeit mit allen SRES Funktionen zur ganzheitlichen Weiterentwicklung kundenorientierter Dienstleistungen und hochwertiger Standorterlebnisse\n• Beobachtung relevanter Markttrends in Premium Hospitality, Corporate Services und Client Experience sowie Ableitung innovativer Servicekonzepte zur Weiterentwicklung des Hospitality-Angebots\n• Vorantreiben von Digitalisierungs- und Optimierungsinitiativen zur Steigerung von Effizienz, Servicequalität und Kunden- beziehungsweise Nutzererlebnis\n• Positionierung von SRES als strategischer, wertschöpfender und kundenorientierter Servicepartner innerhalb der Bank"
+        "it": "Unisci un'ottima ospitalità alla leadership strategica e sviluppi con successo organizzazioni di servizi esigenti con una chiara attenzione ai clienti esterni (locali / internazionali) e alle esperienze utente di alta qualità?\nHai esperienza nei team più grandi leader e creare valore aggiunto attraverso un'alta qualità del servizio, efficienza e partnership affidabili?\n\nPoi si assume la gestione dei nostri servizi di ospitalità all'interno della Svizzera Real Estate & Services (SRES) e partecipa attivamente all'ulteriore sviluppo del nostro portafoglio di servizi.\nIn questo ruolo chiave, sarete responsabili dello sviluppo strategico, operativo e commerciale dei servizi di ospitalità per UBS. Insieme al vostro team, assicuratevi che i clienti esterni, gli ospiti internazionali, i visitatori e gli stakeholder interni nelle nostre sedi vivano un'esperienza di servizio costantemente di alta qualità, professionale e rappresentativa.\n\n• Responsabilità complessiva per lo sviluppo strategico, operativo e commerciale del portafoglio di servizi di ospitalità con particolare attenzione ai clienti esterni, agli ospiti internazionali e alle esperienze dei clienti rappresentativi\n• Garantire una costante consegna di servizi di alta qualità in tutte le linee di servizio e lo sviluppo continuo dell'offerta in linea con le aspettative degli stakeholder\n• Gestione e sviluppo di un'organizzazione complessa, orientata al cliente e al servizio con le aree di accoglienza, servizi di conferenze e eventi, nonché catering per il personale, servizi di ristorazione e dispensa clienti\n• Una stretta collaborazione con tutte le funzioni SRES per un ulteriore sviluppo olistico dei servizi orientati al cliente e delle esperienze di localizzazione di alta qualità\n• Osservazione delle tendenze di mercato rilevanti nell'ospitalità premium, nei servizi aziendali e nell'esperienza dei clienti, nonché la derivazione di concetti di servizio innovativi per l'ulteriore sviluppo dell'offerta di ospitalità\n• Guidare le iniziative di digitalizzazione e ottimizzazione per aumentare l'efficienza, la qualità del servizio e l'esperienza del cliente e dell'utente\n• Posizionamento SRES come partner strategico, a valore aggiunto e orientato al cliente all'interno della banca",
+        "en": "Do you combine excellent hospitality with strategic leadership and successfully develop demanding service organizations with a clear focus on external customers (local / international) and high-quality user experiences?\nDo you have experience in leading larger teams and create added value through high service quality, efficiency and reliable partnerships?\n\nThen you take over the management of our hospitality services within Switzerland Real Estate & Services (SRES) and actively participate in the further development of our service portfolio.\nIn this key role, you will be responsible for the strategic, operational and commercial development of hospitality services for UBS. Together with your team, you ensure that external customers, international guests, visitors and internal stakeholders at our locations experience a consistently high-quality, professional and representative service experience.\n\n• Overall responsibility for the strategic, operational and commercial development of the hospitality service portfolio with a particular focus on external customers, international guests and representative customer experiences\n• Ensuring consistent high-quality service delivery across all service lines as well as continuous development of the offer in line with the expectations of stakeholders\n• Management and further development of a complex, customer- and service-oriented organization with the areas of reception, conference & event services as well as staff catering, client dining & pantry services\n• Close cooperation with all SRES functions for the holistic further development of customer-oriented services and high-quality location experiences\n• Observation of relevant market trends in premium hospitality, corporate services and client experience as well as derivation of innovative service concepts for the further development of the hospitality offering\n• Drive digitalization and optimization initiatives to increase efficiency, service quality and customer and user experience\n• Positioning SRES as a strategic, value-added and customer-oriented service partner within the bank",
+        "fr": "Combinez-vous une excellente hospitalité avec un leadership stratégique et développez-vous avec succès des organismes de services exigeants avec un accent clair sur les clients externes (local / international) et des expériences utilisateur de haute qualité?\nAvez-vous de l'expérience dans la direction d'équipes plus grandes et créer une valeur ajoutée grâce à une qualité de service élevée, l'efficacité et des partenariats fiables?\n\nEnsuite, vous prenez en charge la gestion de nos services d'accueil en Suisse Immobilier & Services (SRES) et participez activement au développement de notre portefeuille de services.\nDans ce rôle clé, vous serez responsable du développement stratégique, opérationnel et commercial des services d'accueil pour UBS. En collaboration avec votre équipe, vous veillez à ce que les clients externes, les invités internationaux, les visiteurs et les intervenants internes de nos sites bénéficient d'une expérience de service de haute qualité, professionnelle et représentative.\n\n• Responsabilité globale pour le développement stratégique, opérationnel et commercial du portefeuille de services d'accueil, en particulier pour les clients externes, les invités internationaux et les expériences client représentatives\n• Assurer la prestation uniforme de services de haute qualité dans toutes les gammes de services ainsi que le développement continu de l'offre conformément aux attentes des intervenants\n• Gestion et développement d'une organisation complexe, axée sur le client et le service, avec des services d'accueil, de conférence et d'événements ainsi que des services de restauration, de restauration et de garde-manger\n• Coopération étroite avec toutes les fonctions de SRES pour le développement global des services axés sur la clientèle et des expériences de localisation de haute qualité\n• Observation des tendances du marché en matière d'accueil haut de gamme, de services corporatifs et d'expérience client ainsi que de l'élaboration de concepts de services innovants pour le développement de l'offre d'accueil\n• Encourager les initiatives de numérisation et d'optimisation pour accroître l'efficacité, la qualité du service et l'expérience client et utilisateur\n• Positionner SRES comme un partenaire de service stratégique, à valeur ajoutée et axé sur la clientèle au sein de la banque"
       },
       "location": "Zürich",
       "canton": "ZH",
@@ -9627,7 +9578,6 @@
         "categoryRaw": "Corporate Services, Infrastruktur und Standorte",
         "jobType": ""
       },
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -9699,7 +9649,6 @@
         "jobType": ""
       },
       "firstSeenAt": "2026-07-14T11:04:55.873Z",
-      "needsRetranslation": true,
       "salaryMin": 114500,
       "salaryMax": 203000,
       "baseSalary": {
@@ -9855,7 +9804,6 @@
         "jobType": ""
       },
       "firstSeenAt": "2026-07-28T11:27:55.931Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 134500,
       "baseSalary": {
@@ -10129,7 +10077,7 @@
       "title": "UBS Card Center AG - Chapter Lead Scrum Master 80-100% (w/m/d)",
       "titleByLocale": {
         "it": "UBS Card Center AG - Capitolo Lead Scrum Master 80-100% (f/m/d)",
-        "en": "UBS Card Center AG - Chapter Lead Scrum Master 80-100% (w/m/d)",
+        "en": "UBS Card Center AG - Chapter Lead Scrum Master 80-100% (f/m/d)",
         "de": "UBS Card Center AG - Chapter Lead Scrum Master 80-100% (w/m/d)",
         "fr": "UBS Card Center AG - Chapter Lead Scrum Master 80-100% (f/m/d)"
       },
@@ -10183,8 +10131,7 @@
         }
       },
       "addressRegion": "ZH",
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true
+      "crawlerMissStreak": 2
     },
     {
       "id": "ubs-9544b45c8c72",
@@ -10255,8 +10202,7 @@
         }
       },
       "addressRegion": "ZH",
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true
+      "crawlerMissStreak": 2
     }
   ]
 }
