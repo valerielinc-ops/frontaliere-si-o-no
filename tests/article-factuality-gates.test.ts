@@ -289,6 +289,46 @@ describe('detectTruncation', () => {
     expect(detectTruncation('Checklist:\n\n- Presentare la dichiarazione\n- Verificare la residenza')).toEqual([]);
     expect(detectTruncation('| Scenario | Imposta |\n| --- | --- |\n| Omnibus | 6.000 |')).toEqual([]);
   });
+
+  // Corpus triage 2026-07-29: the three noise classes below accounted for 5 of
+  // the 47 `incomplete-ending` hits; the other 42 are real defects.
+  it('accepts a sentence closed with a typographic quote', () => {
+    expect(codes(detectTruncation(
+      'Il sindaco precisa: “l’azienda deve consegnare in Municipio i documenti che ne certificano l’ubicazione.”',
+    ))).not.toContain('incomplete-ending');
+  });
+
+  it('accepts a footnote reference number after the full stop', () => {
+    expect(codes(detectTruncation(
+      'Le sintesi degli specialisti collocano la svolta operativa nel 2023 dopo la ratifica, '
+      + 'con l\'allineamento delle misure nazionali in seguito. 6',
+    ))).not.toContain('incomplete-ending');
+  });
+
+  it('accepts a markdown footnote entry closing on the back-reference glyph', () => {
+    expect(codes(detectTruncation(
+      'Testo del comunicato: Ministero dell\'economia e delle finanze, 06/06/2024. Parte seconda. 83 ↩',
+    ))).not.toContain('incomplete-ending');
+  });
+
+  it('still flags a cut-off that merely happens to end in digits', () => {
+    // The footnote exemption must not rescue this: dropping "000" would leave
+    // "…sale a 60." which ends on a full stop, so the guard requires whitespace
+    // before the number AND a clean boundary once it is removed.
+    expect(codes(detectTruncation(
+      'Per i frontalieri residenti entro i venti chilometri dal confine il tetto imponibile sale a 60.000',
+    ))).toContain('incomplete-ending');
+  });
+
+  it('still flags leaked generation scaffolding at the end of a body', () => {
+    // 17 of the 47 corpus hits end on a leaked prompt header like this one.
+    // Its tail is 66 chars — just past the `looksLikeHeading` cut-off, which is
+    // why that threshold must not be raised.
+    expect(codes(detectTruncation(
+      'Il quadro resta quindi invariato per i frontalieri con permesso G.\n\n'
+      + 'TITOLO ARTICOLO: Svizzeri scelgono capitale al posto della rendita',
+    ))).toContain('incomplete-ending');
+  });
 });
 
 describe('runFactualityGates', () => {
