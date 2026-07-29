@@ -229,6 +229,47 @@ describe('applyPromotionPolicy — saturation stop', () => {
     expect(out.warnings.join(' ')).toMatch(/satura/i);
   });
 
+  it('holds the whole batch when too many entities qualify at once (oracle-failure guard)', () => {
+    // Source extraction breaking — a paywall stub, a cookie wall — makes every
+    // acronym in every article read as unsupported at the same instant. From
+    // inside the store that is indistinguishable from the generator becoming
+    // six times more inventive overnight, and the second hypothesis is the
+    // implausible one: hallucination rates drift, they do not step.
+    const m = emptyMemory();
+    const policy = { ...PROMOTION_POLICY, maxPromotionsPerApplication: 2 };
+    for (const acr of ['AAA', 'BBB', 'CCC', 'DDD']) feedUnsupported(m, acr, 3);
+
+    const out = applyPromotionPolicy(m, { policy, now: '2026-07-28T00:00:00.000Z' });
+    expect(out.oracleSuspect).toBe(true);
+    expect(out.promoted).toHaveLength(0);
+    expect(learnedDenylist(m).size).toBe(0);
+    expect(out.warnings.join(' ')).toMatch(/estrazione fonte/);
+  });
+
+  it('still lets clearings through during a promotion burst — the guard only ever loosens', () => {
+    // A broken oracle can suppress support, never manufacture it: a clearance
+    // requires the source to POSITIVELY name the entity. So holding clearings
+    // back during a burst would trap false positives for no safety gain.
+    const m = emptyMemory();
+    const policy = { ...PROMOTION_POLICY, maxPromotionsPerApplication: 1 };
+    for (const acr of ['AAA', 'BBB', 'CCC']) feedUnsupported(m, acr, 3);
+    recordObservations(m, [{ acronym: 'REAL', support: SUPPORT.PRESENT }], { runId: 'r1', articleId: 'a1' });
+
+    const out = applyPromotionPolicy(m, { policy, now: '2026-07-28T00:00:00.000Z' });
+    expect(out.oracleSuspect).toBe(true);
+    expect(m.entities.REAL.status).toBe(ENTITY_STATUS.CLEARED);
+    expect(out.cleared.map((c: any) => c.acronym)).toContain('REAL');
+  });
+
+  it('promotes normally when the batch is within the burst budget', () => {
+    const m = emptyMemory();
+    feedUnsupported(m, 'AAA', 3);
+    feedUnsupported(m, 'BBB', 3);
+    const out = applyPromotionPolicy(m, { now: '2026-07-28T00:00:00.000Z' });
+    expect(out.oracleSuspect).toBe(false);
+    expect(learnedDenylist(m)).toEqual(new Set(['AAA', 'BBB']));
+  });
+
   it('does not report saturation when the population is healthy', () => {
     const m = emptyMemory();
     feedUnsupported(m, 'AAA', 3);

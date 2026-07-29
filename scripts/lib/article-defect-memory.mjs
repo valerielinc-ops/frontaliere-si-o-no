@@ -96,6 +96,22 @@ export const PROMOTION_POLICY = {
    * is wrong, not that the generator got 120× more inventive.
    */
   maxAutoConfirmed: 120,
+  /**
+   * Entities a SINGLE policy application may promote to blocking. Above this,
+   * ALL promotions in that application are refused.
+   *
+   * This is the oracle-failure guard, and it is a different failure from
+   * saturation. If source extraction breaks — a fetch returning a cookie wall,
+   * a paywall stub, an encoding change — then every acronym in every article
+   * suddenly reads as "the source does not mention it", and the evidence bar
+   * is met legitimately and simultaneously for a dozen real institutions. From
+   * inside the store that is indistinguishable from the generator becoming
+   * twelve times more inventive overnight. The two hypotheses are not equally
+   * likely: hallucination rates drift, they do not step. So a burst is treated
+   * as evidence about the ORACLE, not about the entities, and nothing is
+   * promoted until a human has looked.
+   */
+  maxPromotionsPerApplication: 5,
   /** Total entity cap; low-prevalence suspects are evicted first. */
   maxEntities: 600,
   /** A suspect nobody has emitted for this long is forgotten entirely. */
@@ -397,7 +413,10 @@ export function evaluateEntity(acronym, entry, opts = {}) {
 export function applyPromotionPolicy(memory, opts = {}) {
   const now = opts.now || new Date().toISOString();
   const policy = { ...PROMOTION_POLICY, ...(opts.policy || {}) };
-  const out = { promoted: [], demoted: [], cleared: [], evicted: [], saturated: false, blockedPromotions: [], warnings: [] };
+  const out = {
+    promoted: [], demoted: [], cleared: [], evicted: [],
+    saturated: false, oracleSuspect: false, blockedPromotions: [], warnings: [],
+  };
   memory.entities = memory.entities || {};
 
   // ── 1. Decay ────────────────────────────────────────────────────────
@@ -429,9 +448,34 @@ export function applyPromotionPolicy(memory, opts = {}) {
   const confirmedCount = () => Object.values(memory.entities)
     .filter((e) => e.status === ENTITY_STATUS.CONFIRMED && e.statusSource !== 'human').length;
 
+  // Burst guard, decided BEFORE anything is promoted: a simultaneous rush of
+  // qualifying entities is far better explained by the source oracle breaking
+  // than by a step change in the generator, so the whole batch is held.
+  // Clearings and demotions still apply — they only ever loosen the defences,
+  // and a broken oracle cannot manufacture a clearance (that needs the source
+  // to POSITIVELY name the entity).
+  const pendingPromotions = Object.entries(memory.entities)
+    .filter(([acr, e]) => e.status !== ENTITY_STATUS.CONFIRMED
+      && evaluateEntity(acr, e, { policy, allowlist: opts.allowlist }).status === ENTITY_STATUS.CONFIRMED)
+    .map(([acr]) => acr);
+  const burst = pendingPromotions.length > policy.maxPromotionsPerApplication;
+  if (burst) {
+    out.oracleSuspect = true;
+    out.blockedPromotions.push(...pendingPromotions);
+    out.warnings.push(
+      `${pendingPromotions.length} entità hanno superato la soglia di evidenza NELLO STESSO passaggio `
+      + `(max ${policy.maxPromotionsPerApplication}): ${pendingPromotions.slice(0, 10).join(', ')}. `
+      + 'Nessuna promossa. Un picco simultaneo si spiega molto meglio con un guasto '
+      + "dell'estrazione fonte (paywall, cookie wall, encoding) che con un salto improvviso del generatore: "
+      + 'verifica che le fonti dei run recenti arrivino davvero complete, poi rilancia.',
+    );
+  }
+
   for (const [acronym, entry] of Object.entries(memory.entities)) {
     const verdict = evaluateEntity(acronym, entry, { policy, allowlist: opts.allowlist });
     if (verdict.status === entry.status) continue;
+
+    if (verdict.status === ENTITY_STATUS.CONFIRMED && burst) continue;
 
     if (verdict.status === ENTITY_STATUS.CONFIRMED && confirmedCount() >= policy.maxAutoConfirmed) {
       // Hard stop 3. Refuse, loudly. Growing the blocking set without bound is
