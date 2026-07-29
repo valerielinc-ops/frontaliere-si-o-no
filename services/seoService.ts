@@ -4987,6 +4987,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-accertamento-residenza-fiscale-prove-digitali': { name: 'Fisco e Residenza', path: '/articoli-svizzera/accertamento-residenza-fiscale-prove-digitali/', parent: 'blog' },
     'blog-integrazione-ubs-credit-suisse-risultati': { name: 'Integrazione bancaria', path: '/articoli-frontaliere/integrazione-ubs-credit-suisse-risultati', parent: 'blog' },
     'blog-ermotti-intervista-ubs': { name: 'Sergio Ermotti, CEO di UBS', path: '/articoli-svizzera/ermotti-intervista-ubs/', parent: 'blog' },
+    'blog-edilizia-ticino-estate-sfide-ssic': { name: 'Edilizia Ticino', path: '/articoli-frontaliere/edilizia-ticino-estate-sfide-ssic', parent: 'blog' },
  };
 
  const info = sectionNames[section];
