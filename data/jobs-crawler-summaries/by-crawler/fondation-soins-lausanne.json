@@ -1,17 +1,12 @@
 {
   "key": "fondation-soins-lausanne",
   "label": "Fondation Soins Lausanne",
-  "generatedAt": "2026-07-29T22:36:42.838Z",
+  "generatedAt": "2026-07-29T22:56:05.522Z",
   "total": 1,
   "newCount": 0,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 3862,
-  "avgDurationMs": 3862,
-  "durationHistory": [
-    3862
-  ],
   "newJobs": [],
   "updatedJobs": [
     {
@@ -27,7 +22,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/f06b6560-639a-40d7-a6a4-dfb395e25cf4/",
       "source": "Fondation Soins Lausanne Dedicated Parser (jobup.ch search SERP + strict employer filter)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-29T22:36:40.211Z",
+      "crawledAt": "2026-07-29T22:56:02.818Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -54,5 +49,11 @@
     }
   ],
   "removedJobs": [],
-  "unchangedJobs": []
+  "unchangedJobs": [],
+  "durationMs": 3863,
+  "avgDurationMs": 3863,
+  "durationHistory": [
+    3862,
+    3863
+  ]
 }
