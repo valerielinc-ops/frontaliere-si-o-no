@@ -14,8 +14,7 @@
  *
  * SCOPE OF FACTS — every claim below traces to one of two places, nothing
  * else. Do not add a fact here without adding its source to one of these:
- *   1. /Users/saggesel/.claude/jobs/acadf57f/tmp/tax-research-de-li.md,
- *      section "Passo 2" (fiscal treaty, customs union, AVS/AI, 45-day
+ *   1. data/liechtensteinMunicipalities.ts's SOURCES header (fiscal treaty, customs union, AVS/AI, 45-day
  *      threshold, what the source does NOT say about losing frontaliere
  *      status).
  *   2. `LIECHTENSTEIN_COMMUTING_CONTEXT` / `NATIONAL_POPULATION` exported by

@@ -74,7 +74,7 @@ export const GERMAN_BELOW_FLOOR: readonly GermanBorderMunicipality[] = DATASET.b
  * Gemeinde in this dataset (no per-canton split like the French corridor: see
  * data/germanBorderMunicipalities.ts's "REGIME" header note). Sourced
  * 2026-07-29 from the BMF letter of 2023-12-07, the treaty text and KVV/BAG —
- * see /Users/saggesel/.claude/jobs/acadf57f/tmp/tax-research-de-li.md.
+ * see data/germanBorderMunicipalities.ts's SOURCES header for the URLs.
  *
  * Deliberately expressed as a RATE on gross pay, not a computed CHF/EUR
  * amount: unlike the French dataset (which ships a reference income profile,

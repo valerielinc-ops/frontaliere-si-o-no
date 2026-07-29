@@ -3,9 +3,11 @@
  * #4883, fourth of the FR/DE/AT/LI rollout after France #4545/#4878,
  * Germany #4882, Liechtenstein #4884).
  *
- * Deliberately data-level only — no SSG plugin exists yet for Austria (the
- * orchestrator integrates that separately), so like the German/Liechtenstein
- * twins this test never imports a build-plugins/* renderer. It reads the
+ * Deliberately data-level only: the render layer is covered separately by
+ * austrian-border-municipality-pages.test.ts, so like the German/Liechtenstein
+ * twins this file never imports a build-plugins/* renderer — a dataset defect
+ * fails here, a rendering defect fails there, and neither masks the other.
+ * It reads the
  * LIVE dataset via the builder's own exported parse/build functions (never a
  * hardcoded copy of counts or rows), and via the committed
  * data/austrian-border-municipalities.json to also catch drift between the

@@ -96,8 +96,8 @@ export const AUSTRIAN_BELOW_FLOOR: readonly AustrianBorderMunicipality[] = DATAS
  * from SR 0.672.916.31 (RIS Austria, consolidated treaty text), BGBl. III
  * Nr. 22/2007 (abrogation), and the Swiss Federal Council report to
  * Parliament 2013-11-15 (Postulato Robbiani 11.3607) — see
- * /Users/saggesel/.claude/jobs/acadf57f/tmp/at-research.md for the full
- * sourcing and data/austrianBorderMunicipalities.ts's "REGIME" header.
+ * data/austrianBorderMunicipalities.ts's "REGIME" header for the full
+ * sourcing trail (treaty text, RIS consolidated version, Council report).
  *
  * Every `has*`/`is*` flag below is `false` DELIBERATELY: this object exists
  * so no page copy or test can silently reuse a German-shaped figure (4.5%
