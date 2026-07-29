@@ -696,15 +696,161 @@ export const KNOWN_INSTITUTION_ACRONYMS = new Set([
   // EU / international
   'UE', 'EU', 'SEE', 'EEA', 'OCSE', 'OECD', 'AELS', 'EFTA', 'ONU', 'OIL', 'ILO', 'OMS', 'WHO',
   'FMI', 'IMF', 'BCE', 'ECB', 'NATO', 'CEDU', 'CGUE',
+
+  // ── Added by the 2026-07-29 corpus triage ──
+  // 175 `unknown-institution` warnings over 156 distinct acronyms, each one
+  // checked against the body's own site before being listed here. Swiss federal
+  // offices publish under three or four acronyms (IT / FR / DE / EN) and the
+  // generator quotes whichever the source used, so the language variants of an
+  // office already listed above still have to be enumerated.
+
+  // Swiss federal — Italian, French and English acronyms of listed offices
+  'SFI',      // Segreteria di Stato per le questioni finanziarie internazionali — sif.admin.ch
+  'AFD',      // Amministrazione federale delle dogane — pre-2022 name of UDSC/BAZG
+  'FSO',      // Federal Statistical Office — English acronym of UST/BFS/OFS
+  'UFAC',     // Ufficio federale dell'aviazione civile — bazl.admin.ch/it
+  'UFSPO',    // Ufficio federale dello sport — baspo.admin.ch/it
+  'FOSPO',    // Federal Office for Sport — English acronym of UFSPO/BASPO
+  'FSVO',     // Federal Food Safety and Veterinary Office — English acronym of USAV/BLV
+  'OFAS',     // Office fédéral des assurances sociales — French acronym of UFAS/BSV
+  'OFT',      // Office fédéral des transports — French acronym of UFT/BAV
+  'DETEC',    // French/English acronym of DATEC — uvek.admin.ch
+  'CFSL',     // Commissione federale di coordinamento per la sicurezza sul lavoro — ekas.admin.ch/it
+  'CFST',     // French acronym of the same commission
+  'MEBEKO',   // Commissione delle professioni mediche — bag.admin.ch/it
+  // Superseded federal offices. Still correct in articles that quote an older
+  // source, and the successor bodies are already listed above.
+  'UFAP',     // Ufficio federale delle assicurazioni private → FINMA (2009)
+  'UFFT',     // Ufficio federale della formazione professionale e della tecnologia → SEFRI (2013)
+  'UFPC',     // Ufficio federale della protezione civile → UFPP (2003)
+
+  // Swiss cantonal, consortia and academic institutes
+  'IAS',      // Istituto delle assicurazioni sociali, Ticino — ti.ch/ias
+  'UPAAI',    // Ufficio della protezione delle acque e dell'approvvigionamento idrico, TI
+  'IFC',      // Istituto della formazione continua, Ticino — ifc.ti.ch
+  'IRE',      // Istituto di ricerche economiche, USI — ire.usi.ch
+  'IAST',     // Istituto per l'architettura sostenibile e la tecnologia, USI — arc.usi.ch
+  'ERSL',     // Ente Regionale per lo Sviluppo del Luganese — ersl.ch
+  'CMAL',     // Consorzio Manutenzione Alta Leventina — cmal.ch
+  'CPC',      // Commissione paritetica cantonale — cpc-ticino.ch
+  'OCIRT',    // Office cantonal de l'inspection et des relations du travail, Ginevra — ge.ch
+  'DGSS',     // Dipartimento di giustizia, sicurezza e sanità, Grigioni — gr.ch
+  'KOF',      // KOF Konjunkturforschungsstelle, ETH Zurigo — kof.ethz.ch
+  'UPI',      // Ufficio prevenzione infortuni (bfu/upi) — bfu.ch/it
+
+  // Italian
+  'ADM',      // Agenzia delle Dogane e dei Monopoli — adm.gov.it
+  'INGV',     // Istituto Nazionale di Geofisica e Vulcanologia — ingv.it
+  'ISS',      // Istituto Superiore di Sanità — iss.it
+  'IVASS',    // Istituto per la Vigilanza sulle Assicurazioni — ivass.it
+  'AIFA',     // Agenzia Italiana del Farmaco — aifa.gov.it
+  'IEO',      // Istituto Europeo di Oncologia — ieo.it
+  'IGM',      // Istituto Geografico Militare — igmi.esercito.difesa.it
+  'ADBPO',    // Autorità di bacino distrettuale del fiume Po — adbpo.it
+  'COSFEL',   // Commissione per la stabilità finanziaria degli enti locali — Min. Interno
+  'AVC',      // Autorità di vigilanza e controllo — usata testualmente negli atti VIA (mite.gov.it)
+  'DDA',      // Direzione distrettuale antimafia
+
+  // EU / international
+  'EPO',      // European Patent Office — epo.org
+  'ESA',      // European Space Agency — esa.int
+  'EASA',     // Agenzia dell'Unione europea per la sicurezza aerea — easa.europa.eu
+  'IARC',     // International Agency for Research on Cancer — iarc.who.int
+  'AIE',      // Agenzia internazionale dell'energia (IEA)
+  'SMPA',     // Swiss Music Promoters Association — smpa.ch
+  'FIBL',     // FiBL, Istituto di ricerca dell'agricoltura biologica — fibl.org
+  'NIA',      // National Immigration Administration (Cina) — en.nia.gov.cn
 ]);
 
 /**
  * Acronyms caught being invented by the generator. These block.
  * `UFI` ("Ufficio federale delle imposte") shipped in 4 articles — the federal
  * body is the AFC/ESTV, and withholding tax is administered CANTONALLY.
+ *
+ * ENTRY CRITERION (2026-07-29). An acronym is listed here only when BOTH hold:
+ *   1. searching its own expansion returns the REAL body under a DIFFERENT
+ *      acronym (or returns nothing at all), and
+ *   2. no institution reachable by this site's subject matter — Swiss federal
+ *      or cantonal, Italian national or regional, EU/international bodies
+ *      relevant to cross-border work — publishes under that acronym.
+ * Collisions with unrelated foreign or technical acronyms do not disqualify an
+ * entry, because the check only fires on `<institution noun> … (ACRONYM)`.
+ *
+ * Anything that failed either test was left out of BOTH lists on purpose: it
+ * keeps reporting as `major`, which surfaces it for a human without blocking.
+ * A real body listed here would block correct articles, so "uncertain" always
+ * loses to "unlisted".
  */
 export const FABRICATED_INSTITUTION_ACRONYMS = new Set([
   'UFI', 'UFOL', 'UWL', 'UFIS', 'CFL', 'DEMAS', 'LCFL', 'UFLAV', 'CNFL', 'UFIF',
+
+  // ── Added by the 2026-07-29 corpus triage ──
+  // Invented federal offices. Every one of these was generated as a plausible
+  // Italian expansion of a Swiss federal office that does not exist; the real
+  // body (named in each comment) is already in the allowlist above.
+  'UFSTR',    // "Ufficio federale delle strade" → USTRA/ASTRA
+  'UFID',     // "Ufficio federale delle imposte dirette" → AFC/ESTV
+  'FSD',      // same invention, different acronym → AFC/ESTV
+  'UQF',      // "Ufficio federale delle questioni fiscali" → AFC/ESTV
+  'UEF',      // "Ufficio federale delle Entrate" → AFC/ESTV
+  'UFEF',     // "Ufficio federale delle finanze" → AFF/EFV
+  'UQJ',      // "Ufficio federale delle questioni giuridiche" → UFG/BJ
+  'UJG',      // same invention, different acronym → UFG/BJ
+  'UVMS',     // "Ufficio federale per la migrazione e il soggiorno" → SEM
+  'UFIAI',    // "Ufficio federale per l'immigrazione e l'integrazione" → SEM
+  'UVIA',     // same invention, different acronym → SEM
+  'UFA',      // "Ufficio federale per l'assistenza sociale" → UFAS/BSV
+  'UVAS',     // "Ufficio federale delle assicurazioni sociali" → UFAS/BSV
+  'UAS',      // same invention, different acronym → UFAS/BSV
+  'UVA',      // same invention, different acronym → UFAS/BSV
+  'UVSS',     // "Ufficio federale dei servizi sociali" → UFAS/BSV
+  'UFP',      // "Ufficio federale delle pensioni" → UFAS/BSV
+  'USVP',     // "Ufficio federale per la sanità pubblica" → UFSP/BAG
+  'UFSK',     // "Ufficio federale per l'istruzione e la cultura" → UFC/BAK
+  'UFEFP',    // "Ufficio federale dell'istruzione e della formazione professionale" → SEFRI
+  'UFES',     // "Ufficio di Stato per l'istruzione e la formazione professionale" → SEFRI
+  'UFJU',     // "Ufficio federale per l'istruzione e la gioventù" → SEFRI
+  'JUW',      // "Ufficio federale della formazione, dell'istruzione e della ricerca" → SEFRI
+  'SEFO',     // "Segreteria di Stato per la formazione, la ricerca e l'innovazione" → SEFRI
+  'AGP',      // "Agenzia Svizzera per la Protezione dell'Ambiente" → UFAM/BAFU
+  'AASTI',    // "Agenzia dell'Ambiente della Svizzera Italiana" → UFAM/BAFU
+  'ALPA',     // "Dipartimento federale dell'agricoltura, degli alloggi e dell'ambiente" → UFAM/UFAG
+  'SERAT',    // "Ufficio federale della statistica sulla ricerca e le tecnologie" → UST/BFS
+  'UZBS',     // "Ufficio federale statistici svizzero" → UST/BFS
+  'UVTTB',    // "Ufficio federale dei trasporti, ticche e brevetti" → UFT/BAV
+  'USGC',     // "Ufficio di Stato per la Gestione dei Conti" — no such body
+  'IUSM',     // "Istituto Universitario Svizzero di Santa Maria della Versa" — no such body
+
+  // Invented federal departments. The Swiss federal departments are a closed
+  // set of seven, all already in the allowlist (DFI, DFGP, DFF, DFAE, DDPS,
+  // DATEC, DEFR).
+  'DEEF',     // "Dipartimento federale dell'economia, delle imprese e della formazione" → DEFR
+  'DFFFR',    // same invention, different acronym → DEFR
+  'EFER',     // same invention, different acronym → DEFR
+  'DEDF',     // "Dipartimento federale dell'economia e delle finanze" → DEFR/DFF
+  'DETEA',    // "Dipartimento federale dei trasporti, dell'energia e dell'ambiente" → DATEC
+  'DET',      // "Dipartimento federale dei trasporti, ticinesi e di famiglia" → DATEC
+  'DTF',      // "Dipartimento federale delle strade ticinese" → USTRA/ASTRA
+  'DSPSS',    // "Dipartimento federale per la sanità pubblica e la protezione sociale" → DFI
+  'DIJ',      // "Dipartimento federale dell'istruzione e della gioventù" → DEFR
+  'UGCI',     // "Ufficio del Governo Confederale per la Svizzera italiana" — no such body
+
+  // Invented cantonal offices. Ticino's real ones (URC, USTAT, SPAAS, UPAAI,
+  // IAS, IFC …) are in the allowlist above.
+  'USTIC',    // "Ufficio di statistica del Cantone Ticino" → USTAT
+  'UCL',      // "Ufficio cantonale del lavoro" → URC / USML / UIL
+  'UCO',      // "Ufficio Cantonale dell'Occupazione" → URC
+  'UTL',      // "Ufficio ticinese del Lavoro" → USML / UIL
+  'UPL',      // "Ufficio della protezione dei lavoratori" → UIL
+  'OLPS',     // "Ufficio del Lavoro e delle Politiche Sociali" → UIL / DSS
+  'UCAS',     // "Ufficio Cantonale delle Assicurazioni Sociali" → IAS (TI) / OCAS (GE)
+  'UTPS',     // "Ufficio ticinese delle prestazioni sociali" → DASF/DSS
+  'UPAI',     // "Ufficio protezione delle acque e dell'approvvigionamento idrico" → UPAAI
+  'UCSV',     // "Ufficio di Controllo e Sanità Veterinaria" → USAV / UVAC
+  'UMP',      // "Ufficio di Miglioramento Professionale" — no such body
+  'DVC',      // "Dipartimento per la Valutazione delle Competenze" — no such body
+  'EMC',      // "Ufficio della migrazione ticinese" → Ufficio della migrazione (nessuna sigla EMC)
+  'CIVIF',    // "Commissione di vigilanza degli intermediari finanziari" → FINMA
 ]);
 
 const INSTITUTION_NOUN = String.raw`(?:Ufficio|Uffici|Istituto|Agenzia|Commissione|Osservatorio|Autorit[àa]|Dipartimento|Segreteria|Direzione|Ente|Amministrazione)`;
