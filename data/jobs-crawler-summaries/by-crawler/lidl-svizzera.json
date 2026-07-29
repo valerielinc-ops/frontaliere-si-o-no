@@ -1,18 +1,53 @@
 {
   "key": "lidl-svizzera",
   "label": "Lidl",
-  "generatedAt": "2026-07-28T22:17:36.494Z",
-  "total": 379,
-  "newCount": 0,
+  "generatedAt": "2026-07-29T11:43:38.937Z",
+  "total": 380,
+  "newCount": 1,
   "updatedCount": 61,
   "removedCount": 0,
   "unchangedCount": 318,
-  "durationMs": 665994,
-  "avgDurationMs": 665994,
+  "durationMs": 606974,
+  "avgDurationMs": 606974,
   "durationHistory": [
-    665994
+    606974
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "id": "company-rvoh8q",
+      "slug": "ch-venditore-venditrice-con-responsabilita-del-turno-m-w-d-60-80-lidl-svizzera-st-moritz",
+      "company": "Lidl Svizzera",
+      "title": "CH_Venditore / Venditrice con responsabilità del turno (m/f/d) 60-80%",
+      "location": "St. Moritz",
+      "canton": "GR",
+      "category": "sales",
+      "contract": "part-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-29",
+      "url": "https://team.lidl.ch/it/jobs/ch-venditore-venditrice-con-responsabilita-del-turno-m-f-d-60-80-st-moritz-728439",
+      "source": "Company Careers Crawler",
+      "_targetScope": {
+        "type": "adapter_seed_meta",
+        "location": "St. Moritz",
+        "canton": "GR"
+      },
+      "companyKey": "lidl-svizzera",
+      "companyDomain": "lidl.ch",
+      "crawledAt": "2026-07-29T11:43:30.548Z",
+      "firstSeenAt": "2026-07-29T11:43:30.548Z",
+      "needsRetranslation": true,
+      "country": "CH",
+      "sourceLang": "it",
+      "_qualityScore": 66,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 25,
+        "translation": 2,
+        "completeness": 14
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "id": "company-ac7hip",
