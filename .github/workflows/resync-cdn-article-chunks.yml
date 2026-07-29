@@ -1,0 +1,76 @@
+name: Resync CDN article chunks
+
+# Manual lever to bring the CDN's article chunks back in sync with `main`
+# without waiting for a full deploy.
+#
+# Why it exists: publish-article-chunks.mjs normally runs inside
+# fast-publish-article.yml, i.e. only when an article is published. If the CDN
+# and `main` ever diverge for another reason — a failed upload, a partial run,
+# or (2026-07-29, #4881) a bug that published the registry without its
+# translations — there was no way to force a resync short of a full deploy,
+# which can take hours and is frequently superseded by newer runs.
+on:
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Build and validate the chunks without uploading'
+        type: boolean
+        default: false
+
+concurrency:
+  group: resync-cdn-article-chunks
+  cancel-in-progress: false
+
+jobs:
+  resync:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    environment: shard-secrets-overflow
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 1
+
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '22'
+
+      - name: Prepare Firebase credentials
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -n "${FIREBASE_SERVICE_ACCOUNT_JSON:-}" ]; then
+            printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > "$RUNNER_TEMP/firebase-sa.json"
+            echo "GOOGLE_APPLICATION_CREDENTIALS=$RUNNER_TEMP/firebase-sa.json" >> "$GITHUB_ENV"
+          else
+            echo "::warning::FIREBASE_SERVICE_ACCOUNT_JSON unset — Remote Config secrets unavailable"
+          fi
+
+      # Serialize against in-flight fast-publish runs WITHOUT forcing them to
+      # share a concurrency group: fast-publish-article.yml is deliberately
+      # keyed per-article (#4874 — a per-section group silently dropped queued
+      # runs), so a shared group would regress it. The hazard is narrow and
+      # one-directional: a resync started on a slightly older `main` whose
+      # companion upload lands AFTER a fast-publish's registry upload would
+      # recreate the very divergence this workflow exists to repair. Waiting
+      # here closes it at the only point where both can overlap.
+      - name: Wait for in-flight fast-publish runs
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          for i in $(seq 1 30); do
+            n="$(gh run list --workflow fast-publish-article.yml --status in_progress --json databaseId --jq 'length' 2>/dev/null || echo 0)"
+            q="$(gh run list --workflow fast-publish-article.yml --status queued --json databaseId --jq 'length' 2>/dev/null || echo 0)"
+            total=$(( n + q ))
+            if [ "$total" -eq 0 ]; then echo "no fast-publish in flight — proceeding"; exit 0; fi
+            echo "waiting: $total fast-publish run(s) in flight (attempt $i/30)"
+            sleep 20
+          done
+          echo "::warning::fast-publish still in flight after 10 min — proceeding anyway; a stale overwrite stays possible but the next run reconciles"
+
+      - name: Load secrets from Remote Config (R2 + CF)
+        run: node scripts/load-rc-env.mjs
+
+      - name: Publish article chunks
+        run: |
+          npx -y tsx@4 scripts/publish-article-chunks.mjs ${{ inputs.dry_run && '--dry-run' || '' }}

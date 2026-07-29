@@ -18,7 +18,7 @@ import { AI_MODELS, callLLM, getPreferredModel, resetState } from '../../scripts
  * (and fails) a real run.
  */
 describe('ai-models Claude CLI Haiku fallback', () => {
-  const ENV_KEYS = ['ENABLE_HAIKU_ARTICLE_FALLBACK', 'CLAUDE_CODE_OAUTH_TOKEN', 'LOCAL_LLM_ENABLED'] as const;
+  const ENV_KEYS = ['ENABLE_HAIKU_ARTICLE_FALLBACK', 'CLAUDE_CODE_OAUTH_TOKEN', 'LOCAL_LLM_ENABLED', 'AI_COMPETING_TIERS'] as const;
   const saved: Record<string, string | undefined> = {};
 
   beforeEach(() => {
@@ -28,6 +28,7 @@ describe('ai-models Claude CLI Haiku fallback', () => {
     delete process.env.ENABLE_HAIKU_ARTICLE_FALLBACK;
     delete process.env.CLAUDE_CODE_OAUTH_TOKEN;
     delete process.env.LOCAL_LLM_ENABLED;
+    delete process.env.AI_COMPETING_TIERS;
   });
 
   afterEach(() => {
@@ -57,10 +58,16 @@ describe('ai-models Claude CLI Haiku fallback', () => {
     expect(getPreferredModel({ chain: [AI_MODELS.CLAUDE_CLI_HAIKU] })).toBe(AI_MODELS.CLAUDE_CLI_HAIKU);
   });
 
-  it('sinks below local/fallback even when both are enabled (absolute last resort)', () => {
+  it('sinks below local/fallback when both are enabled AND AI_COMPETING_TIERS is rolled back to "" (pre-2026-07-29 absolute-last-resort ordering)', () => {
     process.env.ENABLE_HAIKU_ARTICLE_FALLBACK = '1';
     process.env.CLAUDE_CODE_OAUTH_TOKEN = 'test-oauth-token';
     process.env.LOCAL_LLM_ENABLED = '1';
+    // Since 2026-07-29, claude-cli is promoted to tier-0 by DEFAULT
+    // (AI_COMPETING_TIERS) and would otherwise WIN this matchup outright —
+    // see ai-models-competing-tiers.test.ts for that default-config coverage.
+    // This test specifically exercises the '' rollback that restores the
+    // exact pre-promotion ordering.
+    process.env.AI_COMPETING_TIERS = '';
     const chain = [AI_MODELS.CLAUDE_CLI_HAIKU, AI_MODELS.LOCAL_FALLBACK];
     expect(getPreferredModel({ chain })).toBe(AI_MODELS.LOCAL_FALLBACK);
   });

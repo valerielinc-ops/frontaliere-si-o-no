@@ -18,6 +18,14 @@ on:
     # dist-bound e deve poter deployare.
     paths-ignore:
       - 'data/border-wait-current.json'
+      # Browser-servable copy of the same file (services/borderWaitCurrentService.ts,
+      # issue #4892), written in the SAME commit/call as data/border-wait-current.json
+      # by scripts/snapshot-border-wait-history.mjs. Ignored for the same reason as
+      # the line above: traffic-scheduler.yml commits it up to every 30 min, and a
+      # full SEO deploy per commit would be a deploy-storm. Accepted tradeoff:
+      # freshness = as fresh as the next deploy triggered by something else (same
+      # contract already accepted for data/border-wait-current.json's SSG usage).
+      - 'public/data/border-wait-current.json'
       - 'data/border-wait-history/**'
       - 'data/border-wait-averages.json'
       - 'data/weather-snapshot.json'

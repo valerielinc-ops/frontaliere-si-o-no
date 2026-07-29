@@ -146,20 +146,40 @@ export function shouldWrapAuthenticatedHref(rawHref) {
  * signed in. `ne`/`ac` are deliberately short: Mailgun silently drops click
  * tracking for href values >= 1000 characters.
  *
- * utm_medium stays 'newsletter' because GA4's Email channel grouping keys on
- * it; pass utmCampaign to keep campaigns separable within that channel.
+ * utm_medium defaults to 'newsletter' because GA4's Email channel grouping keys
+ * on it; pass utmCampaign to keep campaigns separable within that channel.
+ * Job alerts override both: they use 'email' (medium = channel, source =
+ * identifier) and must keep the utm_medium their utmBase already set.
  *
  * @param {string} targetUrl absolute or site-relative
  * @param {string} email
- * @param {{secret?: string, autologinCode?: string|null, utmCampaign?: string|null}} [opts]
+ * @param {object} [opts]
+ * @param {string} [opts.secret] signing secret; falls back to
+ *   process.env.NEWSLETTER_SECRET, read at call time.
+ * @param {string|null} [opts.autologinCode] reuse a code already generated for
+ *   this recipient instead of computing another HMAC.
+ * @param {string|null} [opts.utmCampaign] added as utm_campaign when set.
+ * @param {string} [opts.utmMedium='newsletter'] value written to utm_medium.
+ * @param {boolean} [opts.preserveExistingUtmMedium=false] when true, leave a
+ *   utm_medium already present on targetUrl untouched.
  * @returns {string}
  */
-export function makeAuthenticatedUrl(targetUrl, email, { secret, autologinCode, utmCampaign } = {}) {
+export function makeAuthenticatedUrl(
+  targetUrl,
+  email,
+  { secret, autologinCode, utmCampaign, utmMedium = 'newsletter', preserveExistingUtmMedium = false } = {},
+) {
   const url = new URL(targetUrl, BASE_URL);
   const code = autologinCode === undefined ? generateAutologinCode(email, { secret }) : autologinCode;
   url.searchParams.set('ne', String(email || '').toLowerCase());
   if (code) url.searchParams.set('ac', code);
-  url.searchParams.set('utm_medium', 'newsletter');
+  // Job alerts build their links from a utmBase that already carries a
+  // utm_medium; overwriting it would lose that attribution. The newsletter and
+  // the welcome email have no such base and always want the GA4 Email channel
+  // value, so overwrite stays the default.
+  if (!(preserveExistingUtmMedium && url.searchParams.has('utm_medium'))) {
+    url.searchParams.set('utm_medium', utmMedium);
+  }
   if (utmCampaign) url.searchParams.set('utm_campaign', utmCampaign);
   return url.toString();
 }

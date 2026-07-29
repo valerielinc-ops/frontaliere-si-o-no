@@ -45,7 +45,7 @@ import { runWithConcurrency, checkPageBodyLive } from './lib/live-link-check.mjs
 import { computeScheduledSendAt, resolveEffectivePreferredHour, perUserSendTimeEnabled, logScheduleDistribution } from './lib/send-schedule.mjs';
 import { resolveEffectiveJobAlertTier, JOB_ALERT_ENGAGEMENT_TIERS } from './lib/jobAlertEngagementTier.mjs';
 import { buildDeliveryDocId } from '../functions/src/lib/deliveryDocId.js';
-import { makePreferencesUrl, generateAutologinCode } from '../services/newsletterUrls.mjs';
+import { makePreferencesUrl, generateAutologinCode, makeAuthenticatedUrl as makeAuthenticatedUrlShared } from '../services/newsletterUrls.mjs';
 // localePathPrefix aliased to the local name this script has always used for
 // its locale-aware URL construction — the implementation is the canonical
 // shared helper (also used by send-newsletter.mjs, send-saved-jobs-digest.mjs).
@@ -483,16 +483,17 @@ function makeAllAlertsUnsubscribeUrl(email) {
 // generateAutologinCode lives in services/newsletterUrls.mjs (shared with
 // send-newsletter.mjs and the win-back/sunset runner, AGENTS.md #6).
 
-function makeAuthenticatedUrl(targetUrl, email, autologinCode, utmMedium = 'email') {
-  const url = new URL(targetUrl, BASE_URL);
-  url.searchParams.set('ne', email.toLowerCase());
-  if (autologinCode) url.searchParams.set('ac', autologinCode);
-  // Preserve utm_medium if caller already set it on the URL (e.g. utmBase).
-  // Default switched from 'job_alert' (which duplicated utm_source) to 'email'
-  // — analytics convention is utm_medium=channel, utm_source=identifier.
-  if (!url.searchParams.has('utm_medium')) url.searchParams.set('utm_medium', utmMedium);
-  return url.toString();
-}
+// makeAuthenticatedUrl is the shared builder in services/newsletterUrls.mjs
+// (canonical under functions/src/lib/) — same autologin scheme as the weekly
+// newsletter and the welcome email. Job alerts keep their own defaults:
+// utm_medium 'email' (analytics convention is medium=channel,
+// source=identifier) and preserve a utm_medium already set by utmBase.
+const makeAuthenticatedUrl = (targetUrl, email, autologinCode, utmMedium = 'email') =>
+  makeAuthenticatedUrlShared(targetUrl, email, {
+    autologinCode,
+    utmMedium,
+    preserveExistingUtmMedium: true,
+  });
 
 // ── Firebase Admin SDK (lazy init) ───────────────────────────
 

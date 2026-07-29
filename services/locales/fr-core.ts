@@ -1288,6 +1288,8 @@ const frCore: Record<string, string> = {
  'bordermap.cheapest': 'La moins chère',
  'bordermap.campione': 'Campione d\'Italia a un statut fiscal spécial en tant qu\'exclave italienne en territoire suisse.',
  'bordermap.municipalities': '{count} communes',
+ 'bordermap.liveWait': 'Attente en direct',
+ 'bordermap.liveUpdatedAgo': 'mis à jour il y a {minutes} min',
  'comparators.residency': 'Simulateur Déménagement',
  'nav.dashboard': 'Tableau de bord',
  'dashboard.title': 'Tableau de Bord Personnel',
