@@ -51,6 +51,21 @@ export function resolveOmniRouteAllowlist(rawOverride) {
   if (rawOverride === undefined) {
     return { allowlist: new Set(OMNIROUTE_FREE_PROVIDERS), filteringOff: false };
   }
-  const parsed = rawOverride.split(',').map((s) => s.trim()).filter(Boolean);
-  return { allowlist: new Set(parsed), filteringOff: parsed.length === 0 };
+  const trimmed = rawOverride.trim();
+  // Blank (or whitespace-only) means someone cleared the field: filtering off.
+  if (trimmed === '') {
+    return { allowlist: new Set(), filteringOff: true };
+  }
+  const parsed = trimmed.split(',').map((s) => s.trim()).filter(Boolean);
+  // Non-blank but no names left after parsing (',', ' , ', ',,') is a
+  // MALFORMED value, not a request to disable the guard. Treating it as "off"
+  // would let a stray comma from a copy-paste silently unprotect a project
+  // whose whole constraint is $0 — so fall back to the built-in free list,
+  // the safe direction, and say so. Signalled via `malformed` rather than
+  // logged here: this module is imported by both a CI script and a local
+  // one-shot, which warn in their own idiom.
+  if (parsed.length === 0) {
+    return { allowlist: new Set(OMNIROUTE_FREE_PROVIDERS), filteringOff: false, malformed: true };
+  }
+  return { allowlist: new Set(parsed), filteringOff: false };
 }

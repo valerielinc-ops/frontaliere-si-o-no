@@ -79,13 +79,20 @@ const INCLUDE_PAID = process.argv.includes('--include-paid');
 // hardcoding `undefined` here would mean the same env var widened the
 // downstream gate while leaving this one on the built-in list, so the two
 // halves of one control would disagree.
-const { allowlist } = resolveOmniRouteAllowlist(process.env.OMNIROUTE_PROVIDER_ALLOWLIST);
+const { allowlist, filteringOff, malformed } = resolveOmniRouteAllowlist(process.env.OMNIROUTE_PROVIDER_ALLOWLIST);
+if (malformed) {
+  console.warn(`⚠️  OMNIROUTE_PROVIDER_ALLOWLIST="${process.env.OMNIROUTE_PROVIDER_ALLOWLIST}" has separators but no provider names — treating as misconfigured, keeping the built-in free list (use "" to disable filtering).`);
+}
 
 const payload = [];
 const excludedPaid = [];
 let failed = 0;
 for (const row of rows) {
-  if (!INCLUDE_PAID && !allowlist.has(row.provider)) { excludedPaid.push(row.provider); continue; }
+  // `filteringOff` must be honoured here too, not just `allowlist`: with the
+  // override set to "" the allowlist is EMPTY, so testing membership alone
+  // would exclude every connection and abort with "Nothing to publish" —
+  // precisely when the operator asked to publish everything.
+  if (!INCLUDE_PAID && !filteringOff && !allowlist.has(row.provider)) { excludedPaid.push(row.provider); continue; }
   const apiKey = decryptApiKey(row.api_key);
   if (!apiKey) { failed++; continue; }
   payload.push({ provider: row.provider, name: row.name || row.provider, apiKey });

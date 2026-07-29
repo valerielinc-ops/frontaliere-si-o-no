@@ -1,9 +1,9 @@
-import { readFile } from 'node:fs/promises';
 import { describe, expect, it } from 'vitest';
 import {
   OMNIROUTE_FREE_PROVIDERS,
   resolveOmniRouteAllowlist,
 } from '../../scripts/lib/omniroute-free-providers.mjs';
+import { shouldExportRcValue } from '../../scripts/load-rc-env.mjs';
 
 /**
  * Free-only allowlist for OmniRoute provider registration.
@@ -85,38 +85,66 @@ describe('OmniRoute free-provider allowlist', () => {
       expect([...allowlist].sort()).toEqual(['gemini', 'groq']);
     });
 
-    it('a whitespace-only override reads as empty, i.e. filtering off', () => {
+    it('a whitespace-only override reads as cleared, i.e. filtering off', () => {
       expect(resolveOmniRouteAllowlist('   ').filteringOff).toBe(true);
+    });
+
+    it('separators with no names are MALFORMED, not a request to disable the guard', () => {
+      // A stray comma from a copy-paste must not silently unprotect a project
+      // whose whole constraint is $0. Falls back to the built-in list — the
+      // safe direction — and flags itself so the caller can warn.
+      for (const raw of [',', ' , ', ',,,', ' ,, ']) {
+        const { allowlist, filteringOff, malformed } = resolveOmniRouteAllowlist(raw);
+        expect(filteringOff, `"${raw}" must not disable filtering`).toBe(false);
+        expect(malformed, `"${raw}" must be flagged malformed`).toBe(true);
+        expect(allowlist.has('groq')).toBe(true);
+        expect(allowlist.has('deepinfra')).toBe(false);
+      }
+    });
+
+    it('does not flag well-formed values as malformed', () => {
+      expect(resolveOmniRouteAllowlist('groq').malformed).toBeUndefined();
+      expect(resolveOmniRouteAllowlist('').malformed).toBeUndefined();
+      expect(resolveOmniRouteAllowlist(undefined).malformed).toBeUndefined();
     });
   });
 
   describe('Remote Config -> env bridge (load-rc-env.mjs)', () => {
     // load-rc-env.mjs is the ONLY Remote Config -> env bridge on a runner, and
     // both consumers read the override through process.env. Two ways the lever
-    // can be silently dead in CI, both found in review of PR #4940 and both
-    // guarded here: the key not mapped at all, and the key mapped but its empty
-    // value dropped as if it were unset.
-    const loadRcEnv = async () => readFile(
-      new URL('../../scripts/load-rc-env.mjs', import.meta.url), 'utf8',
-    );
+    // can be silently dead in CI, both found in review of PR #4940: the key not
+    // mapped at all, and the key mapped but its empty value dropped as if unset.
+    // Exercised by EXECUTION, not by grepping the source — a text assertion
+    // keeps passing when the logic inverts, and the same string appears in two
+    // independent places in that file.
 
-    it('maps the override, or setting it in Remote Config does nothing', async () => {
-      expect(await loadRcEnv()).toContain('OMNIROUTE_PROVIDER_ALLOWLIST');
+    it('exports the override when Remote Config carries an explicit empty value', () => {
+      // getRcValue() returns '' for present-but-empty. Dropping it here is what
+      // made the documented "off" switch unreachable in CI.
+      expect(shouldExportRcValue('', 'OMNIROUTE_PROVIDER_ALLOWLIST')).toBe(true);
     });
 
-    it('treats an explicitly-empty value as meaningful, so "off" stays reachable', async () => {
-      const src = await loadRcEnv();
-      // The loader skips falsy RC values; without this opt-in the '' that means
-      // "disable filtering" never reaches $GITHUB_ENV and reads back undefined,
-      // which resolveOmniRouteAllowlist maps to the built-in list — the exact
-      // opposite of what the operator asked for.
-      expect(src).toMatch(/ALLOW_EMPTY_RC_KEYS[\s\S]{0,400}OMNIROUTE_PROVIDER_ALLOWLIST/);
-      expect(src).toContain('emptyIsMeaningful');
+    it('still drops an empty value for every other key', () => {
+      // ~90 other params: empty means "never configured", and exporting it
+      // would shadow a legitimate built-in default instead of falling through.
+      expect(shouldExportRcValue('', 'GEMINI_API_KEY')).toBe(false);
+      expect(shouldExportRcValue('', 'ENABLE_OMNIROUTE_FALLBACK')).toBe(false);
     });
 
-    it('resolves the empty override to filtering-off, end to end', () => {
-      // What the bridge above delivers as process.env.X === '' must land here.
-      expect(resolveOmniRouteAllowlist('').filteringOff).toBe(true);
+    it('drops an absent key (null) even when empty is allowed for it', () => {
+      expect(shouldExportRcValue(null, 'OMNIROUTE_PROVIDER_ALLOWLIST')).toBe(false);
+    });
+
+    it('exports normal values unchanged, for allowed and ordinary keys alike', () => {
+      expect(shouldExportRcValue('groq,gemini', 'OMNIROUTE_PROVIDER_ALLOWLIST')).toBe(true);
+      expect(shouldExportRcValue('some-secret', 'GEMINI_API_KEY')).toBe(true);
+    });
+
+    it('bridges through to filtering-off, end to end', () => {
+      // What the bridge delivers as process.env.X === '' must land here as "off".
+      const rcValue = '';
+      expect(shouldExportRcValue(rcValue, 'OMNIROUTE_PROVIDER_ALLOWLIST')).toBe(true);
+      expect(resolveOmniRouteAllowlist(rcValue).filteringOff).toBe(true);
     });
   });
 

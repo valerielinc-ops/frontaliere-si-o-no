@@ -39,14 +39,22 @@ const providersFromJson = (() => {
 // The list itself + the override contract live in the shared module, because
 // scripts/sync-omniroute-providers-rc.mjs applies the same filter upstream and
 // a second copy would drift (AGENTS.md #6).
-const { allowlist, filteringOff } = resolveOmniRouteAllowlist(process.env.OMNIROUTE_PROVIDER_ALLOWLIST);
+const { allowlist, filteringOff, malformed } = resolveOmniRouteAllowlist(process.env.OMNIROUTE_PROVIDER_ALLOWLIST);
+if (malformed) {
+  console.warn(`⚠️  OMNIROUTE_PROVIDER_ALLOWLIST="${process.env.OMNIROUTE_PROVIDER_ALLOWLIST}" has separators but no provider names — treating as misconfigured and keeping the built-in free list (use "" to disable filtering).`);
+}
 
-const PROVIDERS_RAW = providersFromJson || [
+// Small curated set, all free-tier, resolved from env keys already present in
+// CI. Used when OMNIROUTE_PROVIDERS_JSON is absent, and as the safety net below
+// when the allowlist admits nothing from the JSON payload.
+const CURATED_FALLBACK = [
   ['groq', 'Groq (CI POC)', ['GROQ_API_KEY'], null],
   ['openrouter', 'OpenRouter (CI POC)', ['OPENROUTER_API_KEY'], null],
   ['gemini', 'Gemini (CI POC)', ['GEMINI_API_KEY'], null],
   ['mistral', 'Mistral (CI POC, expected dead)', ['MISTRAL_API_KEY'], null],
 ];
+
+const PROVIDERS_RAW = providersFromJson || CURATED_FALLBACK;
 
 const excluded = [];
 const PROVIDERS = filteringOff
@@ -63,6 +71,25 @@ if (filteringOff) {
 } else {
   console.log(`🆓 Free-only allowlist: ${PROVIDERS.length} kept, ${excluded.length} excluded (paid / non-chat / CLI-bound).`);
   if (excluded.length) console.log(`   excluded: ${[...new Set(excluded)].sort().join(', ')}`);
+}
+
+// Safety net: the JSON blob in Remote Config is published by a separate,
+// manually-run script, so a future edit there could in principle leave nothing
+// that the allowlist admits. Without this, PROVIDERS would be empty, no
+// registration would succeed, and the exit(1) at the bottom would fail the
+// whole job — in ~32 workflows, none of which set continue-on-error on this
+// step. Falling back to the small curated list (all free-tier, resolved from
+// env keys already present in CI) keeps OmniRoute degraded-but-alive instead
+// of taking the pipeline down. Not a live risk today — the current RC payload
+// is 19 providers, all 19 of which pass the filter — but the failure mode is
+// invisible until it fires, so it is worth a guard rather than a comment.
+if (!filteringOff && PROVIDERS.length === 0 && PROVIDERS_RAW.length > 0) {
+  console.warn(
+    `⚠️  Allowlist excluded ALL ${PROVIDERS_RAW.length} offered connection(s) — provider names likely changed upstream. ` +
+    'Falling back to the curated free-tier list so this step does not take the job down. ' +
+    'Fix OMNIROUTE_FREE_PROVIDERS (scripts/lib/omniroute-free-providers.mjs) or OMNIROUTE_PROVIDER_ALLOWLIST in Remote Config.'
+  );
+  PROVIDERS.push(...CURATED_FALLBACK.filter(([provider]) => allowlist.has(provider)));
 }
 
 // A fresh OmniRoute boot (always the case in CI — new sqlite db each run) sets

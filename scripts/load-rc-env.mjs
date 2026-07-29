@@ -230,11 +230,29 @@ const RC_TO_ENV = {
  * explicitly-empty (turn the behaviour off), so collapsing the two would make
  * the "off" position of the switch unreachable from Remote Config.
  */
-const ALLOW_EMPTY_RC_KEYS = new Set([
+export const ALLOW_EMPTY_RC_KEYS = new Set([
   // '' disables free-only provider filtering — see
   // scripts/lib/omniroute-free-providers.mjs (resolveOmniRouteAllowlist).
   'OMNIROUTE_PROVIDER_ALLOWLIST',
 ]);
+
+/**
+ * Whether an RC value should be written to the environment.
+ *
+ * Exported and used by the load loop (rather than inlined there) so the rule
+ * can be tested by EXECUTION, like isTrivialSecret already is — a test that
+ * greps this file for a variable name keeps passing when the logic inverts.
+ * Two review rounds were lost to this rule being subtly wrong, so it earns a
+ * real test.
+ *
+ * @param {string|null} value  as returned by getRcValue(): null when the key is
+ *   absent from the template, '' when present but empty.
+ * @param {string} rcKey
+ */
+export function shouldExportRcValue(value, rcKey) {
+  if (value) return true;
+  return value === '' && ALLOW_EMPTY_RC_KEYS.has(rcKey);
+}
 
 // ─── Helpers ─────────────────────────────────────────────────────────────
 
@@ -360,15 +378,10 @@ async function main() {
   for (const [rcKey, envKeys] of Object.entries(RC_TO_ENV)) {
     const value = getRcValue(template, rcKey);
 
-    // getRcValue() already distinguishes "absent from the template" (null) from
-    // "present with an empty value" (''), but `!value` collapsed the two, so an
-    // RC key whose empty value MEANS something never reached $GITHUB_ENV and
-    // read back as undefined in CI. Kept as an explicit opt-in set rather than a
-    // blanket `value !== null`: for ~90 other keys an empty RC value is a
-    // misconfiguration, and exporting it would shadow a legitimate default
-    // instead of falling through to it.
-    const emptyIsMeaningful = value === '' && ALLOW_EMPTY_RC_KEYS.has(rcKey);
-    if (!value && !emptyIsMeaningful) {
+    // See shouldExportRcValue: getRcValue() already distinguishes "absent" (null)
+    // from "present but empty" (''), and collapsing the two hid an RC key whose
+    // empty value carries meaning.
+    if (!shouldExportRcValue(value, rcKey)) {
       missing++;
       continue;
     }
