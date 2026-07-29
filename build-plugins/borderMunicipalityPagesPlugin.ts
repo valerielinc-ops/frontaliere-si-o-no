@@ -22,6 +22,7 @@ import { MUNICIPALITIES, type Municipality } from '../data/municipalities';
 import { borderCrossings, type BorderCrossing } from '../data/borderCrossings';
 import { inlineScriptJson } from './shared/inlineJsonScript';
 import { getCantonDisplayName, type CantonDisplayLocale } from './shared/cantonDisplay';
+import { TICINO_VITA_CORRIDOR_PROVINCES } from './shared/borderMunicipalityCorridors';
 
 type Locale = 'it' | 'en' | 'de' | 'fr';
 type WaitSnapshot = {
@@ -37,7 +38,10 @@ type WaitSnapshot = {
 };
 
 const LOCALES: readonly Locale[] = ['it', 'en', 'de', 'fr'] as const;
-const TICINO_CORRIDOR_PROVINCES = new Set(['CO', 'VA', 'VB']);
+// Moved to shared/borderMunicipalityCorridors.ts (issue #4893) so
+// fiscalMunicipalityPagesPlugin.ts can reuse the same province Set instead
+// of duplicating the literal — see that module's doc comment.
+const TICINO_CORRIDOR_PROVINCES = TICINO_VITA_CORRIDOR_PROVINCES;
 const SITEMAP_NAME = 'sitemap-comuni-frontiera.xml';
 
 const MUNICIPALITY_BASE_PATH: Record<Locale, string> = {
