@@ -131,27 +131,6 @@ export function transformHreflang(
 
   const alternates: readonly LocaleAlternates[] = matches.map((x) => x.entry);
 
-  // Stale GSC keyword landing (see shared/keywordLandingPlan.ts): `dist/` is
-  // preserved between incremental builds and the plugins owning this URL
-  // family cannot `cleanNamespaces` (their sections are shared), so a cluster
-  // that drops out of the candidate set stops being re-rendered but keeps
-  // being served — with its `<link rel="alternate">` block frozen at the day
-  // all four locales were still candidates. Those frozen alternates are the
-  // 75 `missingTarget` offenders on post-deploy run 30376520728.
-  //
-  // Per-alternate stripping is the wrong tool here: the whole block is
-  // untrustworthy, and thinning it to 2 entries would just trade
-  // `[missingTarget]` for `[tooFew]` (audit-hreflang requires 4 locales +
-  // x-default once ANY hreflang is present). Pages with NO hreflang are
-  // explicitly skipped by that audit, so dropping the block outright is the
-  // correct repair — and it deletes no page.
-  //
-  // Deliberately narrower than the "drop ALL if kept < 5" band-aid Phase 8a
-  // reverted on 2026-05-12: that fired on every page, justified by "every
-  // page that emits hreflang has its full 4-locale set on disk". Stale
-  // landings are exactly the class where that premise is false, and this
-  // branch fires only there — a page the current build positively does not
-  // plan to emit.
   // Landing-plan gate. Fires only once both owners have sealed the plan
   // (shared/keywordLandingPlan.ts) and only on that URL family.
   //

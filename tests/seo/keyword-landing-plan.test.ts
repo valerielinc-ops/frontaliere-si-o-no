@@ -21,6 +21,8 @@
  */
 
 import { describe, it, expect, beforeEach } from 'vitest';
+import { readFileSync } from 'node:fs';
+import { resolve } from 'node:path';
 
 import {
   registerKeywordLandingPaths,
@@ -226,5 +228,48 @@ describe('transformHreflang — stale landing repair', () => {
     const r = transformHreflang(page(STALE), '/dist', BASE, () => true);
     expect(r).not.toBeNull();
     expect(r!.html).not.toContain('hreflang=');
+  });
+});
+
+/**
+ * Both post-walk execution paths must feed the gate.
+ *
+ * `transformHreflang`'s page-level half needs the file's dist-relative path.
+ * The coordinator has two paths — `runSingleThreaded`, used only when
+ * `POST_WALK_WORKERS <= 1`, and `postWalkWorker.mjs`, used otherwise. Since
+ * `deploy.yml` sets `POST_WALK_WORKERS: '2'`, PRODUCTION runs the worker
+ * exclusively. Wiring only the coordinator left the repair fully green in
+ * every local run and fully inert on every real deploy (caught in review of
+ * PR #4921, not by a test — hence this one).
+ *
+ * A source-level guard rather than a behavioural one: the worker runs in a
+ * worker_thread over a real dist/, which a unit test cannot stand up cheaply.
+ * What it pins is exactly what broke — a call site silently dropping the
+ * argument.
+ */
+describe('post-walk wiring — every path supplies pagePath', () => {
+  const CALL_RE = /transformHreflang\s*\(([\s\S]*?)\)\s*;/g;
+
+  it.each([
+    ['build-plugins/postWalkWorker.mjs', 'worker path (POST_WALK_WORKERS >= 2 — production)'],
+    ['build-plugins/postWalkCoordinatorPlugin.ts', 'single-threaded path (POST_WALK_WORKERS <= 1)'],
+  ])('%s passes the 5th argument — %s', (file) => {
+    const src = readFileSync(resolve(__dirname, '../..', file), 'utf-8');
+    const calls = [...src.matchAll(CALL_RE)].filter(
+      (m) => !m[0].includes('import') && m[1].includes('html'),
+    );
+    expect(calls.length, `no transformHreflang( call found in ${file}`).toBeGreaterThan(0);
+    for (const call of calls) {
+      // Count top-level commas in the argument list, ignoring a trailing one.
+      const argText = call[1].trim().replace(/,\s*$/, '');
+      let depth = 0;
+      let args = argText.length > 0 ? 1 : 0;
+      for (const ch of argText) {
+        if (ch === '(' || ch === '[' || ch === '{') depth++;
+        else if (ch === ')' || ch === ']' || ch === '}') depth--;
+        else if (ch === ',' && depth === 0) args++;
+      }
+      expect(args, `${file}: transformHreflang called with ${args} args, expected 5`).toBe(5);
+    }
   });
 });
