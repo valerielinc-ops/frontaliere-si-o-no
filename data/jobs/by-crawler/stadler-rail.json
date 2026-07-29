@@ -1,6 +1,6 @@
 {
   "crawlerKey": "stadler-rail",
-  "assembledAt": "2026-07-29T22:36:57.712Z",
+  "assembledAt": "2026-07-29T22:57:17.063Z",
   "jobs": [
     {
       "id": "stadler-rail-0bf8f26981af",
@@ -33,7 +33,7 @@
       "url": "https://careers.stadlerrail.com/job/Frauenfeld-Chief-Operations-Officer-Division-Service%2C-Mitglied-der-Divisionsleitung-TG-T-8500/1359093055/",
       "source": "Stadler Rail Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:36:47.487Z",
+      "crawledAt": "2026-07-29T22:57:07.358Z",
       "addressLocality": "Frauenfeld",
       "postalCode": "8500",
       "addressRegion": "Thurgau",
@@ -64,7 +64,6 @@
         ]
       },
       "firstSeenAt": "2026-07-01T23:29:07.531Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -76,7 +75,8 @@
           "maxValue": 120000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-8c318de2c74c",
@@ -109,7 +109,7 @@
       "url": "https://careers.stadlerrail.com/job/St_-Margrethen-Teilprojektleiterin-RAM-LCC-SG-S-9430/1359079355/",
       "source": "Stadler Rail Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:36:46.929Z",
+      "crawledAt": "2026-07-29T22:57:06.883Z",
       "addressLocality": "St. Margrethen",
       "postalCode": "9430",
       "addressRegion": "SG",
@@ -143,7 +143,6 @@
         ]
       },
       "firstSeenAt": "2026-07-01T23:29:08.027Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -155,7 +154,8 @@
           "maxValue": 120000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-c40d899dc17f",
@@ -188,7 +188,7 @@
       "url": "https://careers.stadlerrail.com/job/St_-Margrethen-Umweltspezialistin-SG-S-9430/1354198155/",
       "source": "Stadler Rail Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:36:46.369Z",
+      "crawledAt": "2026-07-29T22:57:06.405Z",
       "addressLocality": "St. Margrethen",
       "postalCode": "9430",
       "addressRegion": "SG",
@@ -262,7 +262,7 @@
       "url": "https://careers.stadlerrail.com/job/Bussnang-Master-Data-Managerin-100-TG-T-9565/1354104055/",
       "source": "Stadler Rail Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:36:45.802Z",
+      "crawledAt": "2026-07-29T22:57:05.910Z",
       "addressLocality": "Bussnang",
       "postalCode": "9565",
       "addressRegion": "Thurgau",
@@ -280,7 +280,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-06-10T07:52:27.340Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -292,7 +291,8 @@
           "maxValue": 120000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-9214c0e0b8df",
@@ -325,7 +325,7 @@
       "url": "https://careers.stadlerrail.com/job/St_-Margrethen-Elektromonteurin-Schaltschrankbauerin-SG-S-9430/1329028355/",
       "source": "Stadler Rail Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:36:45.236Z",
+      "crawledAt": "2026-07-29T22:57:05.428Z",
       "addressLocality": "St. Margrethen",
       "postalCode": "9430",
       "addressRegion": "SG",
@@ -353,7 +353,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:52:23.895Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -365,7 +364,8 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-1090919ad538",
@@ -398,7 +398,7 @@
       "url": "https://careers.stadlerrail.com/job/Bussnang-Systemingenieurin-Antrieb%2C-Schwerpunkt-EMV-TG-T-9565/1354268555/",
       "source": "Stadler Rail Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:36:44.675Z",
+      "crawledAt": "2026-07-29T22:57:04.934Z",
       "addressLocality": "Bussnang",
       "postalCode": "9565",
       "addressRegion": "Thurgau",
@@ -470,7 +470,7 @@
       "url": "https://careers.stadlerrail.com/job/St_-Margrethen-Testingenieurin-mit-Fokus-EMV-SG-S-9430/1351227455/",
       "source": "Stadler Rail Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:36:44.115Z",
+      "crawledAt": "2026-07-29T22:57:04.437Z",
       "addressLocality": "St. Margrethen",
       "postalCode": "9430",
       "addressRegion": "SG",
@@ -544,7 +544,7 @@
       "url": "https://careers.stadlerrail.com/job/St_-Margrethen-Projektleiter-Offert-Engineering-SG-S-9430/1330461355/",
       "source": "Stadler Rail Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:36:43.563Z",
+      "crawledAt": "2026-07-29T22:57:03.936Z",
       "addressLocality": "St. Margrethen",
       "postalCode": "9430",
       "addressRegion": "SG",
@@ -572,7 +572,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:52:23.313Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -584,7 +583,8 @@
           "maxValue": 120000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-f04118d145a7",
@@ -617,7 +617,7 @@
       "url": "https://careers.stadlerrail.com/job/St_-Margrethen-Elektrikerin-international-SG-S-9430/1327192655/",
       "source": "Stadler Rail Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:36:43.011Z",
+      "crawledAt": "2026-07-29T22:57:03.442Z",
       "addressLocality": "St. Margrethen",
       "postalCode": "9430",
       "addressRegion": "SG",
@@ -689,7 +689,7 @@
       "url": "https://careers.stadlerrail.com/job/St_-Margrethen-Systemingenieurin-Licht-und-Beleuchtungstechnik-SG-S-9430/1359346055/",
       "source": "Stadler Rail Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:36:42.450Z",
+      "crawledAt": "2026-07-29T22:57:02.946Z",
       "addressLocality": "St. Margrethen",
       "postalCode": "9430",
       "addressRegion": "SG",
@@ -721,7 +721,6 @@
         ]
       },
       "firstSeenAt": "2026-07-03T12:15:17.774Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -733,7 +732,8 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-85fc77596430",
@@ -766,7 +766,7 @@
       "url": "https://careers.stadlerrail.com/job/St_-Margrethen-Zulassungsmanagerin-SG-S-9430/1328803855/",
       "source": "Stadler Rail Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:36:41.899Z",
+      "crawledAt": "2026-07-29T22:57:02.468Z",
       "addressLocality": "St. Margrethen",
       "postalCode": "9430",
       "addressRegion": "SG",
@@ -816,7 +816,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:52:18.705Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -828,7 +827,8 @@
           "maxValue": 120000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-7933578b1a3d",
@@ -861,7 +861,7 @@
       "url": "https://careers.stadlerrail.com/job/St_-Margrethen-Mitarbeiterin-Elektrovormontage-Pr%C3%BCffeld-SG-S-9430/1348155455/",
       "source": "Stadler Rail Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:36:41.333Z",
+      "crawledAt": "2026-07-29T22:57:01.975Z",
       "addressLocality": "St. Margrethen",
       "postalCode": "9430",
       "addressRegion": "SG",
@@ -899,7 +899,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:52:19.266Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -911,7 +910,8 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-b413c5561c67",
@@ -944,7 +944,7 @@
       "url": "https://careers.stadlerrail.com/job/Bussnang-Servicetechniker-Region-Interlaken-TG-T-9565/1332948155/",
       "source": "Stadler Rail Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:36:40.778Z",
+      "crawledAt": "2026-07-29T22:57:01.492Z",
       "addressLocality": "Bussnang",
       "postalCode": "9565",
       "addressRegion": "Thurgau",
@@ -970,7 +970,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:52:15.805Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -982,7 +981,8 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-ed3d448ce232",
@@ -1015,7 +1015,7 @@
       "url": "https://careers.stadlerrail.com/job/Bussnang-Migration-Manager-ERP-TG-T-9565/1351382555/",
       "source": "Stadler Rail Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:36:40.203Z",
+      "crawledAt": "2026-07-29T22:57:00.997Z",
       "addressLocality": "Bussnang",
       "postalCode": "9565",
       "addressRegion": "Thurgau",
@@ -1043,7 +1043,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:52:16.948Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -1055,7 +1054,8 @@
           "maxValue": 120000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-dca83855a6a7",
@@ -1088,7 +1088,7 @@
       "url": "https://careers.stadlerrail.com/job/Frauenfeld-Project-ManagerEngineer-Bogie-Maintenance-Engineering-TG-T-8500/1351288955/",
       "source": "Stadler Rail Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:36:39.647Z",
+      "crawledAt": "2026-07-29T22:57:00.507Z",
       "addressLocality": "Frauenfeld",
       "postalCode": "8500",
       "addressRegion": "Thurgau",
@@ -1118,7 +1118,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:52:21.015Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -1130,7 +1129,8 @@
           "maxValue": 120000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-1e4453ef49f4",
@@ -1163,7 +1163,7 @@
       "url": "https://careers.stadlerrail.com/job/Bussnang-Recruiting-TG-T-9565/1348109555/",
       "source": "Stadler Rail Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:36:39.083Z",
+      "crawledAt": "2026-07-29T22:57:00.016Z",
       "addressLocality": "Bussnang",
       "postalCode": "9565",
       "addressRegion": "Thurgau",
@@ -1193,7 +1193,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:52:18.107Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -1205,7 +1204,8 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-f1f5ae6776e1",
@@ -1238,7 +1238,7 @@
       "url": "https://careers.stadlerrail.com/job/Bussnang-Technicien%28ne%29-de-maintenance-mise-en-service-en-Suisse-romande-TG-T-9565/1348109455/",
       "source": "Stadler Rail Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:36:38.527Z",
+      "crawledAt": "2026-07-29T22:56:59.504Z",
       "addressLocality": "Bussnang",
       "postalCode": "9565",
       "addressRegion": "Thurgau",
@@ -1266,7 +1266,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:52:17.541Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -1278,7 +1277,8 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-a960eeb925cc",
@@ -1311,7 +1311,7 @@
       "url": "https://careers.stadlerrail.com/job/Bussnang-Elektrikerin-TG-T-9565/1327670855/",
       "source": "Stadler Rail Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:36:37.962Z",
+      "crawledAt": "2026-07-29T22:56:58.998Z",
       "addressLocality": "Bussnang",
       "postalCode": "9565",
       "addressRegion": "Thurgau",
@@ -1383,7 +1383,7 @@
       "url": "https://careers.stadlerrail.com/job/Frauenfeld-Inbetriebsetzungstechnikerin-TG-T-8500/1348293255/",
       "source": "Stadler Rail Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:36:37.388Z",
+      "crawledAt": "2026-07-29T22:56:58.517Z",
       "addressLocality": "Frauenfeld",
       "postalCode": "8500",
       "addressRegion": "Thurgau",
@@ -1455,7 +1455,7 @@
       "url": "https://careers.stadlerrail.com/job/Wallisellen-Kundenprojektleiterin-SignallingBahnautomatisierung-ZH-Z-8304/1330689255/",
       "source": "Stadler Rail Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:36:36.814Z",
+      "crawledAt": "2026-07-29T22:56:58.024Z",
       "addressLocality": "Wallisellen",
       "postalCode": "8304",
       "addressRegion": "ZH",
@@ -1527,7 +1527,7 @@
       "url": "https://careers.stadlerrail.com/job/Bussnang-Inbetriebsetzungstechnikerin-TG-T-9565/1327468955/",
       "source": "Stadler Rail Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:36:36.249Z",
+      "crawledAt": "2026-07-29T22:56:57.538Z",
       "addressLocality": "Bussnang",
       "postalCode": "9565",
       "addressRegion": "Thurgau",
@@ -1601,7 +1601,7 @@
       "url": "https://careers.stadlerrail.com/job/Bussnang-Application-Manager-E-CAD-TG-T-9565/1341110155/",
       "source": "Stadler Rail Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:36:35.676Z",
+      "crawledAt": "2026-07-29T22:56:57.061Z",
       "addressLocality": "Bussnang",
       "postalCode": "9565",
       "addressRegion": "Thurgau",
@@ -1619,7 +1619,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-06-10T07:52:13.484Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -1631,7 +1630,8 @@
           "maxValue": 120000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-802888cf39c9",
@@ -1664,7 +1664,7 @@
       "url": "https://careers.stadlerrail.com/job/Winterthur-Technischer-Sachbearbeiterin-Dokumentation-ZH-Z-8404/1351597055/",
       "source": "Stadler Rail Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:36:35.125Z",
+      "crawledAt": "2026-07-29T22:56:56.558Z",
       "addressLocality": "Winterthur",
       "postalCode": "8404",
       "addressRegion": "ZH",
@@ -1736,7 +1736,7 @@
       "url": "https://careers.stadlerrail.com/job/Bussnang-Productmanager-TG-T-9565/1351599855/",
       "source": "Stadler Rail Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:36:34.546Z",
+      "crawledAt": "2026-07-29T22:56:56.056Z",
       "addressLocality": "Bussnang",
       "postalCode": "9565",
       "addressRegion": "Thurgau",
@@ -1764,7 +1764,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:52:10.587Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -1776,7 +1775,8 @@
           "maxValue": 120000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-adae11434b63",
@@ -1809,7 +1809,7 @@
       "url": "https://careers.stadlerrail.com/job/Wallisellen-Railway-Signalling-Specialist-ZH-Z-8304/1359527155/",
       "source": "Stadler Rail Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-29T22:36:33.973Z",
+      "crawledAt": "2026-07-29T22:56:55.579Z",
       "addressLocality": "Wallisellen",
       "postalCode": "8304",
       "addressRegion": "ZH",
@@ -1893,7 +1893,7 @@
       "url": "https://careers.stadlerrail.com/job/Bussnang-Bid-Engineer-RAMLCC-TG-T-9565/1359463555/",
       "source": "Stadler Rail Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:36:33.405Z",
+      "crawledAt": "2026-07-29T22:56:55.104Z",
       "addressLocality": "Bussnang",
       "postalCode": "9565",
       "addressRegion": "Thurgau",
@@ -1924,7 +1924,6 @@
         ]
       },
       "firstSeenAt": "2026-07-06T15:08:16.399Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -1936,7 +1935,8 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-88568c603273",
@@ -1969,7 +1969,7 @@
       "url": "https://careers.stadlerrail.com/job/Wallisellen-Railway-Signalling-Specialist-ZH-Z-8304/1359527055/",
       "source": "Stadler Rail Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:36:32.845Z",
+      "crawledAt": "2026-07-29T22:56:54.624Z",
       "addressLocality": "Wallisellen",
       "postalCode": "8304",
       "addressRegion": "ZH",
@@ -2000,7 +2000,6 @@
         ]
       },
       "firstSeenAt": "2026-07-06T15:08:16.903Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -2012,7 +2011,8 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-8c840103cf4b",
@@ -2045,7 +2045,7 @@
       "url": "https://careers.stadlerrail.com/job/Bussnang-Cyber-Security-Engineer-TG-T-9565/1337089855/",
       "source": "Stadler Rail Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:36:32.285Z",
+      "crawledAt": "2026-07-29T22:56:54.141Z",
       "addressLocality": "Bussnang",
       "postalCode": "9565",
       "addressRegion": "Thurgau",
@@ -2075,7 +2075,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:52:08.272Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -2087,7 +2086,8 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-0dc873b7ebff",
@@ -2120,7 +2120,7 @@
       "url": "https://careers.stadlerrail.com/job/Bussnang-Entwicklungsingenieur-PowerPack-TG-T-9565/1359621655/",
       "source": "Stadler Rail Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:36:31.718Z",
+      "crawledAt": "2026-07-29T22:56:53.650Z",
       "addressLocality": "Bussnang",
       "postalCode": "9565",
       "addressRegion": "Thurgau",
@@ -2211,7 +2211,7 @@
       "url": "https://careers.stadlerrail.com/job/Altenrhein-Sachbearbeiterin-Transportplanung-SG-S-9423/1354645155/",
       "source": "Stadler Rail Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:36:31.156Z",
+      "crawledAt": "2026-07-29T22:56:53.172Z",
       "addressLocality": "Altenrhein",
       "postalCode": "9423",
       "addressRegion": "SG",
@@ -2239,7 +2239,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:52:06.539Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -2251,7 +2250,8 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-4108dc53384a",
@@ -2284,7 +2284,7 @@
       "url": "https://careers.stadlerrail.com/job/Frauenfeld-Teamleitung-Innenausbau-TG-T-8500/1341874055/",
       "source": "Stadler Rail Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:36:30.580Z",
+      "crawledAt": "2026-07-29T22:56:52.683Z",
       "addressLocality": "Frauenfeld",
       "postalCode": "8500",
       "addressRegion": "Thurgau",
@@ -2356,7 +2356,7 @@
       "url": "https://careers.stadlerrail.com/job/Altenrhein-Mitarbeiterin-Zollabwicklung-SG-S-9423/1354641055/",
       "source": "Stadler Rail Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:36:30.021Z",
+      "crawledAt": "2026-07-29T22:56:52.208Z",
       "addressLocality": "Altenrhein",
       "postalCode": "9423",
       "addressRegion": "SG",
@@ -2432,7 +2432,7 @@
       "url": "https://careers.stadlerrail.com/job/Bussnang-ICT-Support-Engineer-TG-T-9565/1341887455/",
       "source": "Stadler Rail Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:36:29.448Z",
+      "crawledAt": "2026-07-29T22:56:51.725Z",
       "addressLocality": "Bussnang",
       "postalCode": "9565",
       "addressRegion": "Thurgau",
@@ -2462,7 +2462,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:52:04.800Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -2474,7 +2473,8 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-f7bf65fb1aa4",
@@ -2507,7 +2507,7 @@
       "url": "https://careers.stadlerrail.com/job/St_-Margrethen-Lehrstelle-als-Konstrukteurin-EFZ-2027-SG-S-9430/1359833155/",
       "source": "Stadler Rail Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:36:28.886Z",
+      "crawledAt": "2026-07-29T22:56:51.236Z",
       "addressLocality": "St. Margrethen",
       "postalCode": "9430",
       "addressRegion": "SG",
@@ -2541,7 +2541,6 @@
         ]
       },
       "firstSeenAt": "2026-07-08T22:25:15.881Z",
-      "needsRetranslation": true,
       "salaryMin": 48000,
       "salaryMax": 73000,
       "baseSalary": {
@@ -2553,7 +2552,8 @@
           "maxValue": 73000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-08f2a3f57dfc",
@@ -2586,7 +2586,7 @@
       "url": "https://careers.stadlerrail.com/job/St_-Margrethen-Lehrstelle-als-Kauffrau-Kaufmann-EFZ-2027-SG-S-9430/1359837255/",
       "source": "Stadler Rail Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:36:28.340Z",
+      "crawledAt": "2026-07-29T22:56:50.762Z",
       "addressLocality": "St. Margrethen",
       "postalCode": "9430",
       "addressRegion": "SG",
@@ -2620,7 +2620,6 @@
         ]
       },
       "firstSeenAt": "2026-07-08T22:25:16.482Z",
-      "needsRetranslation": true,
       "salaryMin": 48000,
       "salaryMax": 73000,
       "baseSalary": {
@@ -2632,7 +2631,8 @@
           "maxValue": 73000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-6361a2ac3e20",
@@ -2665,7 +2665,7 @@
       "url": "https://careers.stadlerrail.com/job/St_-Margrethen-Testingenieurin-mit-Fokus-Akustik-SG-S-9430/1359838555/",
       "source": "Stadler Rail Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:36:27.776Z",
+      "crawledAt": "2026-07-29T22:56:50.275Z",
       "addressLocality": "St. Margrethen",
       "postalCode": "9430",
       "addressRegion": "SG",
@@ -2683,7 +2683,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-07-08T22:25:17.086Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -2695,7 +2694,8 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-c10bfd7e451f",
@@ -2728,7 +2728,7 @@
       "url": "https://careers.stadlerrail.com/job/St_-Margrethen-Lehrstelle-als-Informatikerin-EFZ-2027-SG-S-9430/1359845555/",
       "source": "Stadler Rail Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:36:27.207Z",
+      "crawledAt": "2026-07-29T22:56:49.776Z",
       "addressLocality": "St. Margrethen",
       "postalCode": "9430",
       "addressRegion": "SG",
@@ -2762,7 +2762,6 @@
         ]
       },
       "firstSeenAt": "2026-07-08T22:25:17.674Z",
-      "needsRetranslation": true,
       "salaryMin": 48000,
       "salaryMax": 73000,
       "baseSalary": {
@@ -2774,7 +2773,8 @@
           "maxValue": 73000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-18829dfb1044",
@@ -2807,7 +2807,7 @@
       "url": "https://careers.stadlerrail.com/job/Bussnang-Berufsbildnerin-Konstruktion-TG-T-9565/1354871955/",
       "source": "Stadler Rail Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:36:26.629Z",
+      "crawledAt": "2026-07-29T22:56:49.288Z",
       "addressLocality": "Bussnang",
       "postalCode": "9565",
       "addressRegion": "Thurgau",
@@ -2879,7 +2879,7 @@
       "url": "https://careers.stadlerrail.com/job/Bussnang-Mitarbeiterin-Produktionsplanung-TG-T-9565/1354871355/",
       "source": "Stadler Rail Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:36:26.062Z",
+      "crawledAt": "2026-07-29T22:56:48.807Z",
       "addressLocality": "Bussnang",
       "postalCode": "9565",
       "addressRegion": "Thurgau",
@@ -2951,7 +2951,7 @@
       "url": "https://careers.stadlerrail.com/job/Bussnang-Projektleiterin-f%C3%BCr-Spezialfahrzeuge-im-italienischen-Markt-TG-T-9565/1354843155/",
       "source": "Stadler Rail Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:36:25.486Z",
+      "crawledAt": "2026-07-29T22:56:48.316Z",
       "addressLocality": "Bussnang",
       "postalCode": "9565",
       "addressRegion": "Thurgau",
@@ -3025,7 +3025,7 @@
       "url": "https://careers.stadlerrail.com/job/Bussnang-HR-Business-Partner-Region-Mid-TG-T-9565/1348766255/",
       "source": "Stadler Rail Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:36:24.915Z",
+      "crawledAt": "2026-07-29T22:56:47.834Z",
       "addressLocality": "Bussnang",
       "postalCode": "9565",
       "addressRegion": "Thurgau",
@@ -3056,7 +3056,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:51:59.048Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -3068,7 +3067,8 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-4b285db0e2fd",
@@ -3101,7 +3101,7 @@
       "url": "https://careers.stadlerrail.com/job/Frauenfeld-Zulassungsmanager-Fahrzeugmodernisierung-TG-T-8500/1337425355/",
       "source": "Stadler Rail Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:36:24.367Z",
+      "crawledAt": "2026-07-29T22:56:47.349Z",
       "addressLocality": "Frauenfeld",
       "postalCode": "8500",
       "addressRegion": "Thurgau",
@@ -3134,7 +3134,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:51:57.895Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -3146,7 +3145,8 @@
           "maxValue": 120000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-3dcac4e17cb8",
@@ -3179,7 +3179,7 @@
       "url": "https://careers.stadlerrail.com/job/Bussnang-Mechanikerin-TG-T-9565/1327669255/",
       "source": "Stadler Rail Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:36:23.801Z",
+      "crawledAt": "2026-07-29T22:56:46.855Z",
       "addressLocality": "Bussnang",
       "postalCode": "9565",
       "addressRegion": "Thurgau",
@@ -3252,7 +3252,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:51:55.613Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -3264,7 +3263,8 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-5aafbb4909e4",
@@ -3297,7 +3297,7 @@
       "url": "https://careers.stadlerrail.com/job/Bussnang-Projektleiterin-Auftragsabwicklung-Spezialfahrzeuge-TG-T-9565/1354803955/",
       "source": "Stadler Rail Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:36:23.237Z",
+      "crawledAt": "2026-07-29T22:56:46.367Z",
       "addressLocality": "Bussnang",
       "postalCode": "9565",
       "addressRegion": "Thurgau",
@@ -3371,7 +3371,7 @@
       "url": "https://careers.stadlerrail.com/job/Bussnang-Projektleiterin-Intercompany-TG-T-9565/1354816055/",
       "source": "Stadler Rail Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:36:22.677Z",
+      "crawledAt": "2026-07-29T22:56:45.865Z",
       "addressLocality": "Bussnang",
       "postalCode": "9565",
       "addressRegion": "Thurgau",
@@ -3445,7 +3445,7 @@
       "url": "https://careers.stadlerrail.com/job/Frauenfeld-Technischer-Projektleiterin-TG-T-8500/1359947655/",
       "source": "Stadler Rail Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:36:22.118Z",
+      "crawledAt": "2026-07-29T22:56:45.380Z",
       "addressLocality": "Frauenfeld",
       "postalCode": "8500",
       "addressRegion": "Thurgau",
@@ -3523,7 +3523,7 @@
       "url": "https://careers.stadlerrail.com/job/St_-Margrethen-Lehrstelle-als-Produktionsmechanikerin-EFZ-2027-SG-S-9430/1359920655/",
       "source": "Stadler Rail Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:36:21.551Z",
+      "crawledAt": "2026-07-29T22:56:44.884Z",
       "addressLocality": "St. Margrethen",
       "postalCode": "9430",
       "addressRegion": "SG",
@@ -3557,7 +3557,6 @@
         ]
       },
       "firstSeenAt": "2026-07-09T12:25:54.234Z",
-      "needsRetranslation": true,
       "salaryMin": 48000,
       "salaryMax": 73000,
       "baseSalary": {
@@ -3569,7 +3568,8 @@
           "maxValue": 73000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-8e877077d971",
@@ -3602,7 +3602,7 @@
       "url": "https://careers.stadlerrail.com/job/St_-Margrethen-Lehrstelle-als-Logistikerin-EFZ-2027-SG-S-9430/1359914155/",
       "source": "Stadler Rail Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:36:20.981Z",
+      "crawledAt": "2026-07-29T22:56:44.413Z",
       "addressLocality": "St. Margrethen",
       "postalCode": "9430",
       "addressRegion": "SG",
@@ -3636,7 +3636,6 @@
         ]
       },
       "firstSeenAt": "2026-07-09T12:25:53.648Z",
-      "needsRetranslation": true,
       "salaryMin": 48000,
       "salaryMax": 73000,
       "baseSalary": {
@@ -3648,7 +3647,8 @@
           "maxValue": 73000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-aa8cbd9c121d",
@@ -3681,7 +3681,7 @@
       "url": "https://careers.stadlerrail.com/job/St_-Margrethen-Lehrstelle-als-Automatikerin-EFZ-2027-SG-S-9430/1359904255/",
       "source": "Stadler Rail Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:36:20.408Z",
+      "crawledAt": "2026-07-29T22:56:43.931Z",
       "addressLocality": "St. Margrethen",
       "postalCode": "9430",
       "addressRegion": "SG",
@@ -3715,7 +3715,6 @@
         ]
       },
       "firstSeenAt": "2026-07-09T12:25:53.061Z",
-      "needsRetranslation": true,
       "salaryMin": 48000,
       "salaryMax": 73000,
       "baseSalary": {
@@ -3727,7 +3726,8 @@
           "maxValue": 73000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-69924a63632f",
@@ -3760,7 +3760,7 @@
       "url": "https://careers.stadlerrail.com/job/St_-Margrethen-Lehrstelle-als-Automatikmonteurin-EFZ-2027-SG-S-9430/1359899055/",
       "source": "Stadler Rail Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:36:19.845Z",
+      "crawledAt": "2026-07-29T22:56:43.439Z",
       "addressLocality": "St. Margrethen",
       "postalCode": "9430",
       "addressRegion": "SG",
@@ -3794,7 +3794,6 @@
         ]
       },
       "firstSeenAt": "2026-07-09T12:25:52.467Z",
-      "needsRetranslation": true,
       "salaryMin": 48000,
       "salaryMax": 73000,
       "baseSalary": {
@@ -3806,7 +3805,8 @@
           "maxValue": 73000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-20af97d79486",
@@ -3839,7 +3839,7 @@
       "url": "https://careers.stadlerrail.com/job/St_-Margrethen-Safety-Managerin-f%C3%BCr-Veri%EF%AC%81cation-&-Validation-SG-S-9430/1337468155/",
       "source": "Stadler Rail Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:36:19.278Z",
+      "crawledAt": "2026-07-29T22:56:42.939Z",
       "addressLocality": "St. Margrethen",
       "postalCode": "9430",
       "addressRegion": "SG",
@@ -3911,7 +3911,7 @@
       "url": "https://careers.stadlerrail.com/job/Frauenfeld-Systems-Engineer-Elektro-TG-T-8500/1330990355/",
       "source": "Stadler Rail Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:36:18.709Z",
+      "crawledAt": "2026-07-29T22:56:42.438Z",
       "addressLocality": "Frauenfeld",
       "postalCode": "8500",
       "addressRegion": "Thurgau",
@@ -3939,7 +3939,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:51:51.564Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -3951,7 +3950,8 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-87002d739d12",
@@ -3984,7 +3984,7 @@
       "url": "https://careers.stadlerrail.com/job/Bussnang-SAP-Inhouse-Consultant-Logistik-TG-T-9565/1348826755/",
       "source": "Stadler Rail Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:36:18.154Z",
+      "crawledAt": "2026-07-29T22:56:41.964Z",
       "addressLocality": "Bussnang",
       "postalCode": "9565",
       "addressRegion": "Thurgau",
@@ -4025,7 +4025,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:51:52.151Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -4037,7 +4036,8 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-ad270e23e431",
@@ -4070,7 +4070,7 @@
       "url": "https://careers.stadlerrail.com/job/St_-Margrethen-Arbeits-&-Organisationspsychologin-SG-S-9430/1360043755/",
       "source": "Stadler Rail Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:36:17.589Z",
+      "crawledAt": "2026-07-29T22:56:41.487Z",
       "addressLocality": "St. Margrethen",
       "postalCode": "9430",
       "addressRegion": "SG",
@@ -4104,7 +4104,6 @@
         ]
       },
       "firstSeenAt": "2026-07-10T10:23:53.154Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -4116,7 +4115,8 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-056855bbdb19",
@@ -4149,7 +4149,7 @@
       "url": "https://careers.stadlerrail.com/job/Bussnang-Konstrukteurin-Produktionsengineering-TG-T-9565/1360026455/",
       "source": "Stadler Rail Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:36:17.021Z",
+      "crawledAt": "2026-07-29T22:56:40.989Z",
       "addressLocality": "Bussnang",
       "postalCode": "9565",
       "addressRegion": "Thurgau",
@@ -4227,7 +4227,7 @@
       "url": "https://careers.stadlerrail.com/job/Frauenfeld-Lead-System-Elektro-Engineer-TG-T-8500/1349046755/",
       "source": "Stadler Rail Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:36:16.464Z",
+      "crawledAt": "2026-07-29T22:56:40.502Z",
       "addressLocality": "Frauenfeld",
       "postalCode": "8500",
       "addressRegion": "Thurgau",
@@ -4255,7 +4255,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:53:37.139Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -4267,7 +4266,8 @@
           "maxValue": 120000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-08c6c912614a",
@@ -4300,7 +4300,7 @@
       "url": "https://careers.stadlerrail.com/job/Frauenfeld-Teamleiterin-Zulassung-Fahrzeug-Modernisierung-TG-T-8500/1345529455/",
       "source": "Stadler Rail Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:36:15.898Z",
+      "crawledAt": "2026-07-29T22:56:40.008Z",
       "addressLocality": "Frauenfeld",
       "postalCode": "8500",
       "addressRegion": "Thurgau",
@@ -4328,7 +4328,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:53:34.845Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -4340,7 +4339,8 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-3ae52049b79c",
@@ -4373,7 +4373,7 @@
       "url": "https://careers.stadlerrail.com/job/St_-Margrethen-Cost-Engineer-SG-S-9430/1355074155/",
       "source": "Stadler Rail Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:36:15.343Z",
+      "crawledAt": "2026-07-29T22:56:39.520Z",
       "addressLocality": "St. Margrethen",
       "postalCode": "9430",
       "addressRegion": "SG",
@@ -4408,7 +4408,6 @@
         ]
       },
       "firstSeenAt": "2026-06-11T13:39:34.568Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -4420,7 +4419,8 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-0400746755d5",
@@ -4453,7 +4453,7 @@
       "url": "https://careers.stadlerrail.com/job/Frauenfeld-Projektleiter-Garantie-und-Nacharbeit-TG-T-8500/1355154455/",
       "source": "Stadler Rail Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:36:14.780Z",
+      "crawledAt": "2026-07-29T22:56:39.008Z",
       "addressLocality": "Frauenfeld",
       "postalCode": "8500",
       "addressRegion": "Thurgau",
@@ -4485,7 +4485,6 @@
         ]
       },
       "firstSeenAt": "2026-06-11T23:31:39.510Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -4497,7 +4496,8 @@
           "maxValue": 120000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-b23a24c7075f",
@@ -4530,7 +4530,7 @@
       "url": "https://careers.stadlerrail.com/job/St_-Margrethen-Teilprojektleiterin-Betriebseinf%C3%BChrung-80-100-SG-S-9430/1355168355/",
       "source": "Stadler Rail Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:36:14.200Z",
+      "crawledAt": "2026-07-29T22:56:38.522Z",
       "addressLocality": "St. Margrethen",
       "postalCode": "9430",
       "addressRegion": "SG",
@@ -4564,7 +4564,6 @@
         ]
       },
       "firstSeenAt": "2026-06-11T23:31:38.960Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -4576,7 +4575,8 @@
           "maxValue": 120000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-d7608ccc7cf7",
@@ -4609,7 +4609,7 @@
       "url": "https://careers.stadlerrail.com/job/Frauenfeld-Technischer-Projektleiterin-ETCS-TG-T-8500/1331089955/",
       "source": "Stadler Rail Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:36:13.613Z",
+      "crawledAt": "2026-07-29T22:56:38.042Z",
       "addressLocality": "Frauenfeld",
       "postalCode": "8500",
       "addressRegion": "Thurgau",
@@ -4681,7 +4681,7 @@
       "url": "https://careers.stadlerrail.com/job/Bussnang-Schnupperstelle-Bussnang-TG-T-9565/1328894055/",
       "source": "Stadler Rail Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:36:13.065Z",
+      "crawledAt": "2026-07-29T22:56:37.559Z",
       "addressLocality": "Bussnang",
       "postalCode": "9565",
       "addressRegion": "Thurgau",
@@ -4709,7 +4709,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:53:35.997Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -4721,7 +4720,8 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-c0e262743a9a",
@@ -4754,7 +4754,7 @@
       "url": "https://careers.stadlerrail.com/job/Bussnang-Sales-Manager-Senior-Sales-Manager-TG-T-9565/1342189955/",
       "source": "Stadler Rail Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:36:12.473Z",
+      "crawledAt": "2026-07-29T22:56:37.078Z",
       "addressLocality": "Bussnang",
       "postalCode": "9565",
       "addressRegion": "Thurgau",
@@ -4782,7 +4782,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:53:30.234Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -4794,7 +4793,8 @@
           "maxValue": 120000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-f7a1491a0bba",
@@ -4827,7 +4827,7 @@
       "url": "https://careers.stadlerrail.com/job/Bussnang-Lehrstelle-Polymechanikerin-EFZ-TG-T-9565/1331217855/",
       "source": "Stadler Rail Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:36:11.916Z",
+      "crawledAt": "2026-07-29T22:56:36.595Z",
       "addressLocality": "Bussnang",
       "postalCode": "9565",
       "addressRegion": "Thurgau",
@@ -4857,7 +4857,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:53:32.536Z",
-      "needsRetranslation": true,
       "salaryMin": 48000,
       "salaryMax": 73000,
       "baseSalary": {
@@ -4869,7 +4868,8 @@
           "maxValue": 73000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-61d84f561ebf",
@@ -4902,7 +4902,7 @@
       "url": "https://careers.stadlerrail.com/job/Bussnang-Lehrstelle-Automatikerin-EFZ-TG-T-9565/1331217255/",
       "source": "Stadler Rail Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:36:11.347Z",
+      "crawledAt": "2026-07-29T22:56:36.094Z",
       "addressLocality": "Bussnang",
       "postalCode": "9565",
       "addressRegion": "Thurgau",
@@ -4957,7 +4957,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:53:30.817Z",
-      "needsRetranslation": true,
       "salaryMin": 48000,
       "salaryMax": 73000,
       "baseSalary": {
@@ -4969,7 +4968,8 @@
           "maxValue": 73000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-110e94231742",
@@ -5002,7 +5002,7 @@
       "url": "https://careers.stadlerrail.com/job/Bussnang-Lehrstelle-Automatikmonteurin-EFZ-TG-T-9565/1331216755/",
       "source": "Stadler Rail Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:36:10.773Z",
+      "crawledAt": "2026-07-29T22:56:35.587Z",
       "addressLocality": "Bussnang",
       "postalCode": "9565",
       "addressRegion": "Thurgau",
@@ -5032,7 +5032,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:53:33.116Z",
-      "needsRetranslation": true,
       "salaryMin": 48000,
       "salaryMax": 73000,
       "baseSalary": {
@@ -5044,7 +5043,8 @@
           "maxValue": 73000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-87ed84d1c807",
@@ -5077,7 +5077,7 @@
       "url": "https://careers.stadlerrail.com/job/Bussnang-Lehrstelle-Produktionsmechanikerin-EFZ-TG-T-9565/1331217755/",
       "source": "Stadler Rail Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:36:10.205Z",
+      "crawledAt": "2026-07-29T22:56:35.108Z",
       "addressLocality": "Bussnang",
       "postalCode": "9565",
       "addressRegion": "Thurgau",
@@ -5136,7 +5136,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:53:31.968Z",
-      "needsRetranslation": true,
       "salaryMin": 48000,
       "salaryMax": 73000,
       "baseSalary": {
@@ -5148,7 +5147,8 @@
           "maxValue": 73000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-14f28e0a3b45",
@@ -5181,7 +5181,7 @@
       "url": "https://careers.stadlerrail.com/job/Bussnang-Elektro-Systemingenieurin-TG-T-9565/1349166255/",
       "source": "Stadler Rail Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:36:09.649Z",
+      "crawledAt": "2026-07-29T22:56:34.615Z",
       "addressLocality": "Bussnang",
       "postalCode": "9565",
       "addressRegion": "Thurgau",
@@ -5209,7 +5209,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:53:33.693Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -5221,7 +5220,8 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-68fab4616d19",
@@ -5254,7 +5254,7 @@
       "url": "https://careers.stadlerrail.com/job/Bussnang-Lehrstelle-Anlagen-Apparatebauerin-EFZ-TG-T-9565/1331217355/",
       "source": "Stadler Rail Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:36:09.081Z",
+      "crawledAt": "2026-07-29T22:56:34.137Z",
       "addressLocality": "Bussnang",
       "postalCode": "9565",
       "addressRegion": "Thurgau",
@@ -5284,7 +5284,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:53:31.389Z",
-      "needsRetranslation": true,
       "salaryMin": 48000,
       "salaryMax": 73000,
       "baseSalary": {
@@ -5296,7 +5295,8 @@
           "maxValue": 73000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-218506254d81",
@@ -5329,7 +5329,7 @@
       "url": "https://careers.stadlerrail.com/job/Frauenfeld-Safety-Manager-f%C3%BCr-Fahrzeugmodernisierung-TG-T-8500/1345856155/",
       "source": "Stadler Rail Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:36:08.504Z",
+      "crawledAt": "2026-07-29T22:56:33.645Z",
       "addressLocality": "Frauenfeld",
       "postalCode": "8500",
       "addressRegion": "Thurgau",
@@ -5357,7 +5357,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:53:27.341Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -5369,7 +5368,8 @@
           "maxValue": 120000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-8bfaffbff787",
@@ -5402,7 +5402,7 @@
       "url": "https://careers.stadlerrail.com/job/Frauenfeld-Projektdisponentin-TG-T-8500/1349315555/",
       "source": "Stadler Rail Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:36:07.957Z",
+      "crawledAt": "2026-07-29T22:56:33.172Z",
       "addressLocality": "Frauenfeld",
       "postalCode": "8500",
       "addressRegion": "Thurgau",
@@ -5474,7 +5474,7 @@
       "url": "https://careers.stadlerrail.com/job/Frauenfeld-Inbetriebsetzungstechnikerin-Typentest-TG-T-8500/1345853855/",
       "source": "Stadler Rail Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:36:07.370Z",
+      "crawledAt": "2026-07-29T22:56:32.665Z",
       "addressLocality": "Frauenfeld",
       "postalCode": "8500",
       "addressRegion": "Thurgau",
@@ -5530,7 +5530,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:53:27.909Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -5542,7 +5541,8 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-863b0b3a55cd",
@@ -5575,7 +5575,7 @@
       "url": "https://careers.stadlerrail.com/job/Bussnang-Getriebepr%C3%BCferin-Adh%C3%A4sionsbahnen-TG-T-9565/1349422855/",
       "source": "Stadler Rail Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:36:06.798Z",
+      "crawledAt": "2026-07-29T22:56:32.183Z",
       "addressLocality": "Bussnang",
       "postalCode": "9565",
       "addressRegion": "Thurgau",
@@ -5629,7 +5629,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:53:25.019Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -5641,7 +5640,8 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-a5ddc3c4b5b1",
@@ -5674,7 +5674,7 @@
       "url": "https://careers.stadlerrail.com/job/St_-Margrethen-ICT-Support-Engineer-SG-S-9430/1346021655/",
       "source": "Stadler Rail Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:36:06.232Z",
+      "crawledAt": "2026-07-29T22:56:31.680Z",
       "addressLocality": "St. Margrethen",
       "postalCode": "9430",
       "addressRegion": "SG",
@@ -5727,7 +5727,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:53:24.438Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -5739,7 +5738,8 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-6327c1d99931",
@@ -5772,7 +5772,7 @@
       "url": "https://careers.stadlerrail.com/job/Biel-Sachbearbeiterin-Vertrieb-BE-B-2504/1345949555/",
       "source": "Stadler Rail Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:36:05.669Z",
+      "crawledAt": "2026-07-29T22:56:31.205Z",
       "addressLocality": "Biel",
       "postalCode": "2504",
       "addressRegion": "BE",
@@ -5825,7 +5825,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:53:23.841Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -5837,7 +5836,8 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-4f69114da1cf",
@@ -5870,7 +5870,7 @@
       "url": "https://careers.stadlerrail.com/job/Biel-Anlagebedienerin-Schweissroboter-BE-B-2504/1360392855/",
       "source": "Stadler Rail Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:36:05.120Z",
+      "crawledAt": "2026-07-29T22:56:30.712Z",
       "addressLocality": "Biel",
       "postalCode": "2504",
       "addressRegion": "BE",
@@ -5910,7 +5910,6 @@
         "contenitore-di-installazione-in-robot-di-saldatura-stadler-rail-biel"
       ],
       "firstSeenAt": "2026-07-14T22:07:46.856Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -5922,7 +5921,8 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-7ba70ab6188a",
@@ -5955,7 +5955,7 @@
       "url": "https://careers.stadlerrail.com/job/Bussnang-PAM-Platform-Engineer-TG-T-9565/1352529955/",
       "source": "Stadler Rail Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:36:04.562Z",
+      "crawledAt": "2026-07-29T22:56:30.218Z",
       "addressLocality": "Bussnang",
       "postalCode": "9565",
       "addressRegion": "Thurgau",
@@ -5983,7 +5983,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:53:21.519Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -5995,7 +5994,8 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-08dfd9c92f96",
@@ -6028,7 +6028,7 @@
       "url": "https://careers.stadlerrail.com/job/Bussnang-IAM-Platform-Developer-TG-T-9565/1352530055/",
       "source": "Stadler Rail Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:36:03.982Z",
+      "crawledAt": "2026-07-29T22:56:29.721Z",
       "addressLocality": "Bussnang",
       "postalCode": "9565",
       "addressRegion": "Thurgau",
@@ -6087,7 +6087,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:53:22.094Z",
-      "needsRetranslation": true,
       "salaryMin": 60000,
       "salaryMax": 102000,
       "baseSalary": {
@@ -6099,7 +6098,8 @@
           "maxValue": 102000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-b0df4492e916",
@@ -6132,7 +6132,7 @@
       "url": "https://careers.stadlerrail.com/job/Bussnang-Projektleiterin-Engineering-TG-T-9565/1349521155/",
       "source": "Stadler Rail Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:36:03.434Z",
+      "crawledAt": "2026-07-29T22:56:29.232Z",
       "addressLocality": "Bussnang",
       "postalCode": "9565",
       "addressRegion": "Thurgau",
@@ -6206,7 +6206,7 @@
       "url": "https://careers.stadlerrail.com/job/Bussnang-Technischer-Projektleiterin-Mitglied-des-Kaders-TG-T-9565/1355422255/",
       "source": "Stadler Rail Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:36:02.863Z",
+      "crawledAt": "2026-07-29T22:56:28.741Z",
       "addressLocality": "Bussnang",
       "postalCode": "9565",
       "addressRegion": "Thurgau",
@@ -6240,7 +6240,6 @@
         ]
       },
       "firstSeenAt": "2026-06-15T15:26:48.378Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -6252,7 +6251,8 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-78f21c5be872",
@@ -6285,7 +6285,7 @@
       "url": "https://careers.stadlerrail.com/job/Wallisellen-System-Engineer-CBTC-ZH-Z-8304/1360493555/",
       "source": "Stadler Rail Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-29T22:36:02.296Z",
+      "crawledAt": "2026-07-29T22:56:28.261Z",
       "addressLocality": "Wallisellen",
       "postalCode": "8304",
       "addressRegion": "ZH",
@@ -6355,7 +6355,7 @@
       "url": "https://careers.stadlerrail.com/job/Wallisellen-System-Engineer-CBTC-ZH-Z-8304/1360493455/",
       "source": "Stadler Rail Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:36:01.727Z",
+      "crawledAt": "2026-07-29T22:56:27.784Z",
       "addressLocality": "Wallisellen",
       "postalCode": "8304",
       "addressRegion": "ZH",
@@ -6409,7 +6409,6 @@
         ]
       },
       "firstSeenAt": "2026-07-15T11:32:23.026Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -6421,7 +6420,8 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-2860c54c2488",
@@ -6454,7 +6454,7 @@
       "url": "https://careers.stadlerrail.com/job/Bussnang-Softwareentwickler-f%C3%BCr-Diagnose-und-Visualisierungsysteme-TG-T-9565/1360510455/",
       "source": "Stadler Rail Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:36:01.159Z",
+      "crawledAt": "2026-07-29T22:56:27.295Z",
       "addressLocality": "Bussnang",
       "postalCode": "9565",
       "addressRegion": "Thurgau",
@@ -6530,7 +6530,7 @@
       "url": "https://careers.stadlerrail.com/job/Altenrhein-Teamleiterin-Innenausbau-SG-S-9423/1355618955/",
       "source": "Stadler Rail Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:36:00.594Z",
+      "crawledAt": "2026-07-29T22:56:26.807Z",
       "addressLocality": "Altenrhein",
       "postalCode": "9423",
       "addressRegion": "SG",
@@ -6564,7 +6564,6 @@
         ]
       },
       "firstSeenAt": "2026-06-16T14:34:47.274Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -6576,7 +6575,8 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-be468e9199d9",
@@ -6609,7 +6609,7 @@
       "url": "https://careers.stadlerrail.com/job/Bussnang-Verkaufsprojektleiterin-Bid-Manager-TG-T-9565/1342727555/",
       "source": "Stadler Rail Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:36:00.021Z",
+      "crawledAt": "2026-07-29T22:56:26.316Z",
       "addressLocality": "Bussnang",
       "postalCode": "9565",
       "addressRegion": "Thurgau",
@@ -6678,7 +6678,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:53:17.494Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -6690,7 +6689,8 @@
           "maxValue": 120000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-b24a03e733b0",
@@ -6723,7 +6723,7 @@
       "url": "https://careers.stadlerrail.com/job/Bussnang-Lehrstelle-Logistikerin-EFZ-2026-TG-T-9565/1331453255/",
       "source": "Stadler Rail Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:35:59.463Z",
+      "crawledAt": "2026-07-29T22:56:25.825Z",
       "addressLocality": "Bussnang",
       "postalCode": "9565",
       "addressRegion": "Thurgau",
@@ -6784,7 +6784,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:53:18.071Z",
-      "needsRetranslation": true,
       "salaryMin": 48000,
       "salaryMax": 73000,
       "baseSalary": {
@@ -6796,7 +6795,8 @@
           "maxValue": 73000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-3f3da12b2415",
@@ -6829,7 +6829,7 @@
       "url": "https://careers.stadlerrail.com/job/Frauenfeld-Technischer-Sachbearbeiterin-AVOR-TG-T-8500/1360617655/",
       "source": "Stadler Rail Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:35:58.896Z",
+      "crawledAt": "2026-07-29T22:56:25.345Z",
       "addressLocality": "Frauenfeld",
       "postalCode": "8500",
       "addressRegion": "Thurgau",
@@ -6863,7 +6863,6 @@
         ]
       },
       "firstSeenAt": "2026-07-16T22:40:14.253Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -6875,7 +6874,8 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-4f3539620e8a",
@@ -6908,7 +6908,7 @@
       "url": "https://careers.stadlerrail.com/job/Altenrhein-Mitarbeiterin-Transportadministration-SG-S-9423/1360578955/",
       "source": "Stadler Rail Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:35:58.334Z",
+      "crawledAt": "2026-07-29T22:56:24.868Z",
       "addressLocality": "Altenrhein",
       "postalCode": "9423",
       "addressRegion": "SG",
@@ -6942,7 +6942,6 @@
         ]
       },
       "firstSeenAt": "2026-07-16T11:12:24.618Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -6954,7 +6953,8 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-0a5c1c08b17c",
@@ -6987,7 +6987,7 @@
       "url": "https://careers.stadlerrail.com/job/Frauenfeld-Project-Manager-Depot-&-Infrastructure-TG-T-8500/1360620655/",
       "source": "Stadler Rail Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:35:57.761Z",
+      "crawledAt": "2026-07-29T22:56:24.371Z",
       "addressLocality": "Frauenfeld",
       "postalCode": "8500",
       "addressRegion": "Thurgau",
@@ -7005,7 +7005,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-07-16T22:40:13.754Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -7017,7 +7016,8 @@
           "maxValue": 120000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-a37843c55dcf",
@@ -7050,7 +7050,7 @@
       "url": "https://careers.stadlerrail.com/job/Wallisellen-DOORS-Configuration-Engineer-ZH-Z-8304/1349624755/",
       "source": "Stadler Rail Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-29T22:35:57.190Z",
+      "crawledAt": "2026-07-29T22:56:23.899Z",
       "addressLocality": "Wallisellen",
       "postalCode": "8304",
       "addressRegion": "ZH",
@@ -7103,7 +7103,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:53:14.059Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -7115,7 +7114,8 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-38dada227e6c",
@@ -7148,7 +7148,7 @@
       "url": "https://careers.stadlerrail.com/job/Frauenfeld-Lead-Systems-Engineer-ETCS-TG-T-8500/1338243055/",
       "source": "Stadler Rail Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:35:56.630Z",
+      "crawledAt": "2026-07-29T22:56:23.422Z",
       "addressLocality": "Frauenfeld",
       "postalCode": "8500",
       "addressRegion": "Thurgau",
@@ -7198,7 +7198,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:53:12.904Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -7210,7 +7209,8 @@
           "maxValue": 120000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-4aa1fccd8842",
@@ -7243,7 +7243,7 @@
       "url": "https://careers.stadlerrail.com/job/Bussnang-ICT-Systems-Engineer-Microsoft-Teams-TG-T-9565/1352660355/",
       "source": "Stadler Rail Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:35:56.066Z",
+      "crawledAt": "2026-07-29T22:56:22.929Z",
       "addressLocality": "Bussnang",
       "postalCode": "9565",
       "addressRegion": "Thurgau",
@@ -7304,7 +7304,6 @@
         "ingegnere-cloud-m365-collaborazione-stadler-rail-bussnang"
       ],
       "firstSeenAt": "2026-06-10T07:53:16.910Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -7316,7 +7315,8 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-f7823e24b14f",
@@ -7349,7 +7349,7 @@
       "url": "https://careers.stadlerrail.com/job/Bussnang-Cloud-Engineer-M365-Office-Apps-&-Copilot-TG-T-9565/1352660555/",
       "source": "Stadler Rail Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:35:55.505Z",
+      "crawledAt": "2026-07-29T22:56:22.448Z",
       "addressLocality": "Bussnang",
       "postalCode": "9565",
       "addressRegion": "Thurgau",
@@ -7403,7 +7403,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:53:16.346Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -7415,7 +7414,8 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-9abdbb7de8cf",
@@ -7448,7 +7448,7 @@
       "url": "https://careers.stadlerrail.com/job/Winterthur-Polymechanikerin-CNC-Fr%C3%A4sen-ZH-Z-8404/1353801355/",
       "source": "Stadler Rail Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:35:54.946Z",
+      "crawledAt": "2026-07-29T22:56:21.965Z",
       "addressLocality": "Winterthur",
       "postalCode": "8404",
       "addressRegion": "ZH",
@@ -7476,7 +7476,6 @@
         ]
       },
       "firstSeenAt": "2026-07-16T11:13:55.248Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -7488,7 +7487,8 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-d8c44e4aefd7",
@@ -7521,7 +7521,7 @@
       "url": "https://careers.stadlerrail.com/job/Bussnang-Teilprojektleiterin-Elektro-TG-T-9565/1355862555/",
       "source": "Stadler Rail Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:35:54.398Z",
+      "crawledAt": "2026-07-29T22:56:21.476Z",
       "addressLocality": "Bussnang",
       "postalCode": "9565",
       "addressRegion": "Thurgau",
@@ -7555,7 +7555,6 @@
         ]
       },
       "firstSeenAt": "2026-06-18T23:39:03.412Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -7567,7 +7566,8 @@
           "maxValue": 120000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-0228f0399c75",
@@ -7600,7 +7600,7 @@
       "url": "https://careers.stadlerrail.com/job/Bussnang-PLM-Implementer-TG-T-9565/1352806055/",
       "source": "Stadler Rail Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:35:53.827Z",
+      "crawledAt": "2026-07-29T22:56:20.987Z",
       "addressLocality": "Bussnang",
       "postalCode": "9565",
       "addressRegion": "Thurgau",
@@ -7631,7 +7631,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:53:11.738Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -7643,7 +7642,8 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-8e4446781d4a",
@@ -7676,7 +7676,7 @@
       "url": "https://careers.stadlerrail.com/job/Altenrhein-Einstiegsprogramm-Von-der-Inbetriebsetzung-ins-Engineering-SG-S-9423/1327548255/",
       "source": "Stadler Rail Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:35:53.267Z",
+      "crawledAt": "2026-07-29T22:56:20.514Z",
       "addressLocality": "Altenrhein",
       "postalCode": "9423",
       "addressRegion": "SG",
@@ -7734,7 +7734,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:53:10.034Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -7746,7 +7745,8 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-92c482a57849",
@@ -7779,7 +7779,7 @@
       "url": "https://careers.stadlerrail.com/job/Wallisellen-Testing-&-Commissioning-Engineer-ZH-Z-8304/1349950855/",
       "source": "Stadler Rail Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:35:52.695Z",
+      "crawledAt": "2026-07-29T22:56:20.034Z",
       "addressLocality": "Wallisellen",
       "postalCode": "8304",
       "addressRegion": "ZH",
@@ -7810,7 +7810,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T13:01:52.676Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -7822,7 +7821,8 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-1c70f2c73470",
@@ -7855,7 +7855,7 @@
       "url": "https://careers.stadlerrail.com/job/Wallisellen-Testing-&-Commissioning-Engineer-ZH-Z-8304/1349950955/",
       "source": "Stadler Rail Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-29T22:35:52.126Z",
+      "crawledAt": "2026-07-29T22:56:19.541Z",
       "addressLocality": "Wallisellen",
       "postalCode": "8304",
       "addressRegion": "ZH",
@@ -7883,7 +7883,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:53:08.867Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -7895,7 +7894,8 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-cc7b998f1c46",
@@ -7928,7 +7928,7 @@
       "url": "https://careers.stadlerrail.com/job/Wallisellen-Testing-&-Commissioning-Engineer-ZH-Z-8304/1349951055/",
       "source": "Stadler Rail Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:35:51.549Z",
+      "crawledAt": "2026-07-29T22:56:19.056Z",
       "addressLocality": "Wallisellen",
       "postalCode": "8304",
       "addressRegion": "ZH",
@@ -7999,7 +7999,6 @@
         "testing-commissioning-engineer-stadler-rail-wallisellen"
       ],
       "firstSeenAt": "2026-06-10T07:53:09.447Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -8011,7 +8010,8 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-63e178e6db95",
@@ -8044,7 +8044,7 @@
       "url": "https://careers.stadlerrail.com/job/Frauenfeld-Polymechanikerin-CNC-Drehen-TG-T-8500/1355994155/",
       "source": "Stadler Rail Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:35:50.969Z",
+      "crawledAt": "2026-07-29T22:56:18.560Z",
       "addressLocality": "Frauenfeld",
       "postalCode": "8500",
       "addressRegion": "Thurgau",
@@ -8126,7 +8126,7 @@
       "url": "https://careers.stadlerrail.com/job/Bussnang-PLM-Supporter-TG-T-9565/1349915655/",
       "source": "Stadler Rail Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:35:50.409Z",
+      "crawledAt": "2026-07-29T22:56:18.069Z",
       "addressLocality": "Bussnang",
       "postalCode": "9565",
       "addressRegion": "Thurgau",
@@ -8158,7 +8158,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:53:07.142Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -8170,7 +8169,8 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-26ae25ccea97",
@@ -8203,7 +8203,7 @@
       "url": "https://careers.stadlerrail.com/job/Bussnang-PLM-System-Administrator-TG-T-9565/1349915755/",
       "source": "Stadler Rail Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:35:49.841Z",
+      "crawledAt": "2026-07-29T22:56:17.592Z",
       "addressLocality": "Bussnang",
       "postalCode": "9565",
       "addressRegion": "Thurgau",
@@ -8231,7 +8231,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:53:07.715Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -8243,7 +8242,8 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-a7985f0a88e5",
@@ -8276,7 +8276,7 @@
       "url": "https://careers.stadlerrail.com/job/St_-Margrethen-Mechanikerin-international-SG-S-9430/1327192855/",
       "source": "Stadler Rail Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:35:49.270Z",
+      "crawledAt": "2026-07-29T22:56:17.115Z",
       "addressLocality": "St. Margrethen",
       "postalCode": "9430",
       "addressRegion": "SG",
@@ -8348,7 +8348,7 @@
       "url": "https://careers.stadlerrail.com/job/Bussnang-Safety-Manager-TG-T-9565/1356045655/",
       "source": "Stadler Rail Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:35:48.697Z",
+      "crawledAt": "2026-07-29T22:56:16.621Z",
       "addressLocality": "Bussnang",
       "postalCode": "9565",
       "addressRegion": "Thurgau",
@@ -8379,7 +8379,6 @@
         ]
       },
       "firstSeenAt": "2026-06-20T11:55:32.127Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -8391,7 +8390,8 @@
           "maxValue": 120000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-e6b14f9359c1",
@@ -8424,7 +8424,7 @@
       "url": "https://careers.stadlerrail.com/job/Bussnang-Teilbereichsleiterin-Beschaffung%2C-Mitglied-des-Kaders-TG-T-9565/1356046155/",
       "source": "Stadler Rail Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:35:48.128Z",
+      "crawledAt": "2026-07-29T22:56:16.134Z",
       "addressLocality": "Bussnang",
       "postalCode": "9565",
       "addressRegion": "Thurgau",
@@ -8458,7 +8458,6 @@
         ]
       },
       "firstSeenAt": "2026-06-20T11:55:31.526Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -8470,7 +8469,8 @@
           "maxValue": 120000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-bec8f75299b3",
@@ -8503,7 +8503,7 @@
       "url": "https://careers.stadlerrail.com/job/Bussnang-Senior-Consultant-Legal%2C-Compliance%2C-Generalsekretariat-TG-T-9565/1350087355/",
       "source": "Stadler Rail Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:35:47.554Z",
+      "crawledAt": "2026-07-29T22:56:15.656Z",
       "addressLocality": "Bussnang",
       "postalCode": "9565",
       "addressRegion": "Thurgau",
@@ -8531,7 +8531,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:53:03.680Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -8543,7 +8542,8 @@
           "maxValue": 120000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-815aca2487af",
@@ -8576,7 +8576,7 @@
       "url": "https://careers.stadlerrail.com/job/Bussnang-Vertriebsassistentin-TG-T-9565/1346654855/",
       "source": "Stadler Rail Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:35:46.989Z",
+      "crawledAt": "2026-07-29T22:56:15.161Z",
       "addressLocality": "Bussnang",
       "postalCode": "9565",
       "addressRegion": "Thurgau",
@@ -8648,7 +8648,7 @@
       "url": "https://careers.stadlerrail.com/job/Frauenfeld-Technischer-Projektleiterin-LifeCycle-Management-TG-T-8500/1361646955/",
       "source": "Stadler Rail Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:35:46.417Z",
+      "crawledAt": "2026-07-29T22:56:14.657Z",
       "addressLocality": "Frauenfeld",
       "postalCode": "8500",
       "addressRegion": "Thurgau",
@@ -8720,7 +8720,7 @@
       "url": "https://careers.stadlerrail.com/job/Bussnang-Senior-Projektleiterin-Strategie-und-Business-Development-TG-T-9565/1361646055/",
       "source": "Stadler Rail Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:35:45.871Z",
+      "crawledAt": "2026-07-29T22:56:14.168Z",
       "addressLocality": "Bussnang",
       "postalCode": "9565",
       "addressRegion": "Thurgau",
@@ -8793,7 +8793,7 @@
       "url": "https://careers.stadlerrail.com/job/Bussnang-SAP-Produktion-Consultant-TG-T-9565/1361661855/",
       "source": "Stadler Rail Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:35:45.303Z",
+      "crawledAt": "2026-07-29T22:56:13.677Z",
       "addressLocality": "Bussnang",
       "postalCode": "9565",
       "addressRegion": "Thurgau",
@@ -8821,7 +8821,6 @@
         ]
       },
       "firstSeenAt": "2026-07-20T22:24:13.310Z",
-      "needsRetranslation": true,
       "salaryMin": 60000,
       "salaryMax": 102000,
       "baseSalary": {
@@ -8833,7 +8832,8 @@
           "maxValue": 102000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-0bf926817b48",
@@ -8866,7 +8866,7 @@
       "url": "https://careers.stadlerrail.com/job/St_-Margrethen-Directory-Service-Engineer-SG-S-9430/1356096955/",
       "source": "Stadler Rail Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-29T22:35:44.737Z",
+      "crawledAt": "2026-07-29T22:56:13.185Z",
       "addressLocality": "St. Margrethen",
       "postalCode": "9430",
       "addressRegion": "SG",
@@ -8944,7 +8944,7 @@
       "url": "https://careers.stadlerrail.com/job/Bussnang-Migration-Specialist-SAP-TG-T-9565/1356098055/",
       "source": "Stadler Rail Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:35:44.164Z",
+      "crawledAt": "2026-07-29T22:56:12.698Z",
       "addressLocality": "Bussnang",
       "postalCode": "9565",
       "addressRegion": "Thurgau",
@@ -8975,7 +8975,6 @@
         ]
       },
       "firstSeenAt": "2026-06-21T22:49:03.910Z",
-      "needsRetranslation": true,
       "salaryMin": 60000,
       "salaryMax": 102000,
       "baseSalary": {
@@ -8987,7 +8986,8 @@
           "maxValue": 102000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-2c037eaad7ff",
@@ -9020,7 +9020,7 @@
       "url": "https://careers.stadlerrail.com/job/Bussnang-Standortleiter-Inbetriebsetzung-LuzernZ%C3%BCrich-%28Projekt-EVO-Seetal%29-TG-T-9565/1343279555/",
       "source": "Stadler Rail Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:35:43.616Z",
+      "crawledAt": "2026-07-29T22:56:12.189Z",
       "addressLocality": "Bussnang",
       "postalCode": "9565",
       "addressRegion": "Thurgau",
@@ -9092,7 +9092,7 @@
       "url": "https://careers.stadlerrail.com/job/Wallisellen-Sachverst%C3%A4ndigerGutachter-Sicherungsanlagen-ZH-Z-8304/1350230555/",
       "source": "Stadler Rail Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:35:43.046Z",
+      "crawledAt": "2026-07-29T22:56:11.702Z",
       "addressLocality": "Wallisellen",
       "postalCode": "8304",
       "addressRegion": "ZH",
@@ -9164,7 +9164,7 @@
       "url": "https://careers.stadlerrail.com/job/Wallisellen-Expert-en-installation-de-s%C3%A9curit%C3%A9-ferroviaire-%28mfd%29-ZH-Z-8304/1350230455/",
       "source": "Stadler Rail Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-29T22:35:42.474Z",
+      "crawledAt": "2026-07-29T22:56:11.223Z",
       "addressLocality": "Wallisellen",
       "postalCode": "8304",
       "addressRegion": "ZH",
@@ -9198,7 +9198,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:53:01.951Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -9210,7 +9209,8 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-55984bd0f56e",
@@ -9243,7 +9243,7 @@
       "url": "https://careers.stadlerrail.com/job/St_-Margrethen-Systemingenieurin-T%C3%BCrsysteme-SG-S-9430/1361765955/",
       "source": "Stadler Rail Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:35:41.895Z",
+      "crawledAt": "2026-07-29T22:56:10.729Z",
       "addressLocality": "St. Margrethen",
       "postalCode": "9430",
       "addressRegion": "SG",
@@ -9321,7 +9321,7 @@
       "url": "https://careers.stadlerrail.com/job/Winterthur-Senior-HR-Business-Partnerin-Teamleiterin-ZH-Z-8404/1361695855/",
       "source": "Stadler Rail Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:35:41.332Z",
+      "crawledAt": "2026-07-29T22:56:10.242Z",
       "addressLocality": "Winterthur",
       "postalCode": "8404",
       "addressRegion": "ZH",
@@ -9357,7 +9357,6 @@
         ]
       },
       "firstSeenAt": "2026-07-21T11:24:45.295Z",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -9369,7 +9368,8 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-46a5813ca2ad",
@@ -9402,7 +9402,7 @@
       "url": "https://careers.stadlerrail.com/job/Bussnang-%C3%84nderungselektrikerin-Fertigstellung-TG-T-9565/1361684355/",
       "source": "Stadler Rail Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:35:40.766Z",
+      "crawledAt": "2026-07-29T22:56:09.759Z",
       "addressLocality": "Bussnang",
       "postalCode": "9565",
       "addressRegion": "Thurgau",
@@ -9486,7 +9486,7 @@
       "url": "https://careers.stadlerrail.com/job/Wallisellen-Sales-&-Project-Assistant-ZH-Z-8304/1361760755/",
       "source": "Stadler Rail Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-29T22:35:40.181Z",
+      "crawledAt": "2026-07-29T22:56:09.281Z",
       "addressLocality": "Wallisellen",
       "postalCode": "8304",
       "addressRegion": "ZH",
@@ -9504,7 +9504,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-07-21T22:49:11.920Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -9516,7 +9515,8 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-5e6c95f98023",
@@ -9549,7 +9549,7 @@
       "url": "https://careers.stadlerrail.com/job/St_-Margrethen-Kommerzieller-Teilprojektleiter-SG-S-9430/1356177555/",
       "source": "Stadler Rail Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:35:39.613Z",
+      "crawledAt": "2026-07-29T22:56:08.800Z",
       "addressLocality": "St. Margrethen",
       "postalCode": "9430",
       "addressRegion": "SG",
@@ -9629,7 +9629,7 @@
       "url": "https://careers.stadlerrail.com/job/St_-Margrethen-Teamleiterin-Elektrisches-Engineering-SG-S-9430/1346927455/",
       "source": "Stadler Rail Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:35:39.042Z",
+      "crawledAt": "2026-07-29T22:56:08.311Z",
       "addressLocality": "St. Margrethen",
       "postalCode": "9430",
       "addressRegion": "SG",
@@ -9701,7 +9701,7 @@
       "url": "https://careers.stadlerrail.com/job/Bussnang-Systemingenieurin-Brems-und-Pneumatiksysteme-f%C3%BCr-Spezialfahrzeuge-TG-T-9565/1356137455/",
       "source": "Stadler Rail Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:35:38.490Z",
+      "crawledAt": "2026-07-29T22:56:07.817Z",
       "addressLocality": "Bussnang",
       "postalCode": "9565",
       "addressRegion": "Thurgau",
@@ -9777,7 +9777,7 @@
       "url": "https://careers.stadlerrail.com/job/Bussnang-AI-Solution-Designer-TG-T-9565/1361809355/",
       "source": "Stadler Rail Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:35:37.925Z",
+      "crawledAt": "2026-07-29T22:56:07.342Z",
       "addressLocality": "Bussnang",
       "postalCode": "9565",
       "addressRegion": "Thurgau",
@@ -9795,7 +9795,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-07-22T12:13:05.931Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -9807,7 +9806,8 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-089c6bb48167",
@@ -9840,7 +9840,7 @@
       "url": "https://careers.stadlerrail.com/job/Bussnang-AI-DevOps-Engineer-TG-T-9565/1361810855/",
       "source": "Stadler Rail Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:35:37.360Z",
+      "crawledAt": "2026-07-29T22:56:06.866Z",
       "addressLocality": "Bussnang",
       "postalCode": "9565",
       "addressRegion": "Thurgau",
@@ -9868,7 +9868,6 @@
         ]
       },
       "firstSeenAt": "2026-07-22T12:13:05.293Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -9880,7 +9879,8 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-fed0960d5beb",
@@ -9913,7 +9913,7 @@
       "url": "https://careers.stadlerrail.com/job/Bussnang-AI-Use-Case-Portfolio-Manager-TG-T-9565/1361810355/",
       "source": "Stadler Rail Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:35:36.810Z",
+      "crawledAt": "2026-07-29T22:56:06.370Z",
       "addressLocality": "Bussnang",
       "postalCode": "9565",
       "addressRegion": "Thurgau",
@@ -9941,7 +9941,6 @@
         ]
       },
       "firstSeenAt": "2026-07-22T12:13:04.673Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -9953,7 +9952,8 @@
           "maxValue": 120000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-6de49652998d",
@@ -9986,7 +9986,7 @@
       "url": "https://careers.stadlerrail.com/job/Bussnang-Teamleader-Cyber-Security-TG-T-9565/1356366455/",
       "source": "Stadler Rail Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:35:36.252Z",
+      "crawledAt": "2026-07-29T22:56:05.875Z",
       "addressLocality": "Bussnang",
       "postalCode": "9565",
       "addressRegion": "Thurgau",
@@ -10004,7 +10004,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-06-23T23:11:28.052Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -10016,7 +10015,8 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-8aa4f06b29fb",
@@ -10049,7 +10049,7 @@
       "url": "https://careers.stadlerrail.com/job/Bussnang-Lackiererin-TG-T-9565/1329093255/",
       "source": "Stadler Rail Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:35:35.684Z",
+      "crawledAt": "2026-07-29T22:56:05.383Z",
       "addressLocality": "Bussnang",
       "postalCode": "9565",
       "addressRegion": "Thurgau",
@@ -10095,7 +10095,6 @@
         ]
       },
       "firstSeenAt": "2026-06-22T15:07:01.325Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -10107,7 +10106,8 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-e05df9660d3f",
@@ -10140,7 +10140,7 @@
       "url": "https://careers.stadlerrail.com/job/Bussnang-Projektleiter-Dokumentation-TG-T-9565/1338833155/",
       "source": "Stadler Rail Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:35:35.118Z",
+      "crawledAt": "2026-07-29T22:56:04.897Z",
       "addressLocality": "Bussnang",
       "postalCode": "9565",
       "addressRegion": "Thurgau",
@@ -10198,7 +10198,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:52:58.477Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -10210,7 +10209,8 @@
           "maxValue": 120000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-f2d5ab040b13",
@@ -10243,7 +10243,7 @@
       "url": "https://careers.stadlerrail.com/job/Frauenfeld-Abteilungsleiterin-Auftragsabwicklung-3R-TG-T-8500/1361897055/",
       "source": "Stadler Rail Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:35:34.565Z",
+      "crawledAt": "2026-07-29T22:56:04.421Z",
       "addressLocality": "Frauenfeld",
       "postalCode": "8500",
       "addressRegion": "Thurgau",
@@ -10321,7 +10321,7 @@
       "url": "https://careers.stadlerrail.com/job/St_-Margrethen-Contract-Manager-SG-S-9430/1350458955/",
       "source": "Stadler Rail Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:35:33.986Z",
+      "crawledAt": "2026-07-29T22:56:03.919Z",
       "addressLocality": "St. Margrethen",
       "postalCode": "9430",
       "addressRegion": "SG",
@@ -10372,7 +10372,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:52:57.316Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -10384,7 +10383,8 @@
           "maxValue": 120000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-bada7c0957e7",
@@ -10417,7 +10417,7 @@
       "url": "https://careers.stadlerrail.com/job/Bussnang-SAP-HR-IT-Consultant-TG-T-9565/1350347955/",
       "source": "Stadler Rail Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:35:33.432Z",
+      "crawledAt": "2026-07-29T22:56:03.442Z",
       "addressLocality": "Bussnang",
       "postalCode": "9565",
       "addressRegion": "Thurgau",
@@ -10474,7 +10474,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:52:56.168Z",
-      "needsRetranslation": true,
       "salaryMin": 60000,
       "salaryMax": 102000,
       "baseSalary": {
@@ -10486,7 +10485,8 @@
           "maxValue": 102000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-091f48a6f820",
@@ -10519,7 +10519,7 @@
       "url": "https://careers.stadlerrail.com/job/St_-Margrethen-Elektro-Systemingenieurin-SG-S-9430/1356459955/",
       "source": "Stadler Rail Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:35:32.883Z",
+      "crawledAt": "2026-07-29T22:56:02.966Z",
       "addressLocality": "St. Margrethen",
       "postalCode": "9430",
       "addressRegion": "SG",
@@ -10553,7 +10553,6 @@
         ]
       },
       "firstSeenAt": "2026-06-24T22:59:57.144Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -10565,7 +10564,8 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-d89b8abb0ef9",
@@ -10598,7 +10598,7 @@
       "url": "https://careers.stadlerrail.com/job/Olten-Team-Lead-E-IXL-Fundamentals-SO-S-4600/1356565255/",
       "source": "Stadler Rail Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:35:32.317Z",
+      "crawledAt": "2026-07-29T22:56:02.478Z",
       "addressLocality": "Olten",
       "postalCode": "4600",
       "addressRegion": "SO",
@@ -10626,7 +10626,6 @@
         ]
       },
       "firstSeenAt": "2026-06-25T12:13:52.564Z",
-      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "baseSalary": {
@@ -10638,7 +10637,8 @@
           "maxValue": 143000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-69866940a7f6",
@@ -10671,7 +10671,7 @@
       "url": "https://careers.stadlerrail.com/job/Bussnang-Product-Manager-TG-T-9565/1353528555/",
       "source": "Stadler Rail Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-29T22:35:31.753Z",
+      "crawledAt": "2026-07-29T22:56:01.990Z",
       "addressLocality": "Bussnang",
       "postalCode": "9565",
       "addressRegion": "Thurgau",
@@ -10743,7 +10743,7 @@
       "url": "https://careers.stadlerrail.com/job/Wallisellen-RAM-Safety-Engineer-ZH-Z-8304/1353536355/",
       "source": "Stadler Rail Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-29T22:35:31.172Z",
+      "crawledAt": "2026-07-29T22:56:01.510Z",
       "addressLocality": "Wallisellen",
       "postalCode": "8304",
       "addressRegion": "ZH",
@@ -10815,7 +10815,7 @@
       "url": "https://careers.stadlerrail.com/job/Frauenfeld-Project-Manager-Battery-Maintenance-Engineering-TG-T-8500/1343986555/",
       "source": "Stadler Rail Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-29T22:35:30.612Z",
+      "crawledAt": "2026-07-29T22:56:01.010Z",
       "addressLocality": "Frauenfeld",
       "postalCode": "8500",
       "addressRegion": "Thurgau",
@@ -10849,7 +10849,6 @@
         ]
       },
       "firstSeenAt": "2026-06-24T12:29:03.726Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -10861,7 +10860,8 @@
           "maxValue": 120000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-aff09a77345d",
@@ -10894,7 +10894,7 @@
       "url": "https://careers.stadlerrail.com/job/Wallisellen-Projekteink%C3%A4uferin-ZH-Z-8304/1356647655/",
       "source": "Stadler Rail Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:35:30.040Z",
+      "crawledAt": "2026-07-29T22:56:00.502Z",
       "addressLocality": "Wallisellen",
       "postalCode": "8304",
       "addressRegion": "ZH",
@@ -10976,7 +10976,7 @@
       "url": "https://careers.stadlerrail.com/job/Bussnang-Klebepraktikerin-TG-T-9565/1356654155/",
       "source": "Stadler Rail Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:35:29.471Z",
+      "crawledAt": "2026-07-29T22:55:59.986Z",
       "addressLocality": "Bussnang",
       "postalCode": "9565",
       "addressRegion": "Thurgau",
@@ -11012,7 +11012,6 @@
         ]
       },
       "firstSeenAt": "2026-06-26T12:11:16.094Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -11024,7 +11023,8 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-783c45a85614",
@@ -11057,7 +11057,7 @@
       "url": "https://careers.stadlerrail.com/job/Bussnang-Aluminiumschweisserin-TG-T-9565/1329068955/",
       "source": "Stadler Rail Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:35:28.910Z",
+      "crawledAt": "2026-07-29T22:55:59.508Z",
       "addressLocality": "Bussnang",
       "postalCode": "9565",
       "addressRegion": "Thurgau",
@@ -11092,7 +11092,6 @@
         ]
       },
       "firstSeenAt": "2026-07-24T22:13:56.574Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -11104,7 +11103,8 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-0bc8d6d9d7c4",
@@ -11137,7 +11137,7 @@
       "url": "https://careers.stadlerrail.com/job/Olten-Werkstudentin-SO-S-4600/1343733355/",
       "source": "Stadler Rail Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:35:28.344Z",
+      "crawledAt": "2026-07-29T22:55:59.026Z",
       "addressLocality": "Olten",
       "postalCode": "4600",
       "addressRegion": "SO",
@@ -11165,7 +11165,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:52:49.262Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -11177,7 +11176,8 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-59e9c2c910f3",
@@ -11210,7 +11210,7 @@
       "url": "https://careers.stadlerrail.com/job/Olten-Software-Engineer-Core-SO-S-4600/1330081455/",
       "source": "Stadler Rail Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:35:27.784Z",
+      "crawledAt": "2026-07-29T22:55:58.536Z",
       "addressLocality": "Olten",
       "postalCode": "4600",
       "addressRegion": "SO",
@@ -11240,7 +11240,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:52:47.552Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -11252,7 +11251,8 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-f52e58b4a090",
@@ -11285,7 +11285,7 @@
       "url": "https://careers.stadlerrail.com/job/St_-Margrethen-Safety-Managerin-SG-S-9430/1330022855/",
       "source": "Stadler Rail Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:35:27.216Z",
+      "crawledAt": "2026-07-29T22:55:58.038Z",
       "addressLocality": "St. Margrethen",
       "postalCode": "9430",
       "addressRegion": "SG",
@@ -11313,7 +11313,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:52:48.695Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -11325,7 +11324,8 @@
           "maxValue": 120000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-319c4860bf51",
@@ -11358,7 +11358,7 @@
       "url": "https://careers.stadlerrail.com/job/Frauenfeld-Maintenance-Engineer-Traction-Power-Supply-TG-T-8500/1343813255/",
       "source": "Stadler Rail Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:35:26.652Z",
+      "crawledAt": "2026-07-29T22:55:57.559Z",
       "addressLocality": "Frauenfeld",
       "postalCode": "8500",
       "addressRegion": "Thurgau",
@@ -11386,7 +11386,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:52:49.842Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -11398,7 +11397,8 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-d2ebb1469740",
@@ -11431,7 +11431,7 @@
       "url": "https://careers.stadlerrail.com/job/St_-Margrethen-Automatikerin-Inbetriebsetzungstechnikerin-SG-S-9430/1327192355/",
       "source": "Stadler Rail Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:35:26.098Z",
+      "crawledAt": "2026-07-29T22:55:57.074Z",
       "addressLocality": "St. Margrethen",
       "postalCode": "9430",
       "addressRegion": "SG",
@@ -11467,7 +11467,6 @@
         ]
       },
       "firstSeenAt": "2026-06-26T12:13:02.451Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -11479,7 +11478,8 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-8fdc5907e284",
@@ -11512,7 +11512,7 @@
       "url": "https://careers.stadlerrail.com/job/Bussnang-Einstiegsprogramm-%C3%9Cber-die-Inbetriebsetzung-ins-Engineering-TG-T-9565/1326972455/",
       "source": "Stadler Rail Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:35:25.550Z",
+      "crawledAt": "2026-07-29T22:55:56.599Z",
       "addressLocality": "Bussnang",
       "postalCode": "9565",
       "addressRegion": "Thurgau",
@@ -11584,7 +11584,7 @@
       "url": "https://careers.stadlerrail.com/job/Bussnang-Initiativbewerbung-f%C3%BCr-Studierende-TG-T-9565/1347754655/",
       "source": "Stadler Rail Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:35:24.985Z",
+      "crawledAt": "2026-07-29T22:55:56.111Z",
       "addressLocality": "Bussnang",
       "postalCode": "9565",
       "addressRegion": "Thurgau",
@@ -11656,7 +11656,7 @@
       "url": "https://careers.stadlerrail.com/job/St_-Margrethen-Schnupperstelle-Bussnang-1-SG-S-9430/1326993755/",
       "source": "Stadler Rail Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:35:24.416Z",
+      "crawledAt": "2026-07-29T22:55:55.613Z",
       "addressLocality": "St. Margrethen",
       "postalCode": "9430",
       "addressRegion": "SG",
@@ -11728,7 +11728,7 @@
       "url": "https://careers.stadlerrail.com/job/St_-Margrethen-Schnupperstelle-St_-Margrethen-SG-S-9430/1326993655/",
       "source": "Stadler Rail Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:35:23.850Z",
+      "crawledAt": "2026-07-29T22:55:55.129Z",
       "addressLocality": "St. Margrethen",
       "postalCode": "9430",
       "addressRegion": "SG",
@@ -11800,7 +11800,7 @@
       "url": "https://careers.stadlerrail.com/job/Altenrhein-ProjektleiterTeamleiter-Inbetriebsetzung-SG-S-9423/1347716755/",
       "source": "Stadler Rail Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:35:23.280Z",
+      "crawledAt": "2026-07-29T22:55:54.642Z",
       "addressLocality": "Altenrhein",
       "postalCode": "9423",
       "addressRegion": "SG",
@@ -11828,7 +11828,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:52:37.752Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -11840,7 +11839,8 @@
           "maxValue": 120000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-e56e2edc9c05",
@@ -11873,7 +11873,7 @@
       "url": "https://careers.stadlerrail.com/job/Bussnang-Teilprojektleiterin-Betriebseinf%C3%BChrung-TG-T-9565/1353923355/",
       "source": "Stadler Rail Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:35:22.712Z",
+      "crawledAt": "2026-07-29T22:55:54.140Z",
       "addressLocality": "Bussnang",
       "postalCode": "9565",
       "addressRegion": "Thurgau",
@@ -11907,7 +11907,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:52:41.768Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -11919,7 +11918,8 @@
           "maxValue": 120000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-d627079f0aa1",
@@ -11952,7 +11952,7 @@
       "url": "https://careers.stadlerrail.com/job/Bussnang-ICT-Systemingenieurin-TG-T-9565/1362350955/",
       "source": "Stadler Rail Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:35:22.125Z",
+      "crawledAt": "2026-07-29T22:55:53.630Z",
       "addressLocality": "Bussnang",
       "postalCode": "9565",
       "addressRegion": "Thurgau",
@@ -11986,7 +11986,6 @@
         ]
       },
       "firstSeenAt": "2026-07-28T22:14:25.907Z",
-      "needsRetranslation": true,
       "salaryMin": 60000,
       "salaryMax": 102000,
       "baseSalary": {
@@ -11998,7 +11997,8 @@
           "maxValue": 102000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-e17d920832c9",
@@ -12031,7 +12031,7 @@
       "url": "https://careers.stadlerrail.com/job/St_-Margrethen-Field-Engineer-Inbetriebsetzung-&-Flottenbetreuung-SG-S-9430/1362326555/",
       "source": "Stadler Rail Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:35:21.560Z",
+      "crawledAt": "2026-07-29T22:55:53.136Z",
       "addressLocality": "St. Margrethen",
       "postalCode": "9430",
       "addressRegion": "SG",
@@ -12062,7 +12062,6 @@
         ]
       },
       "firstSeenAt": "2026-07-28T12:13:39.645Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -12074,7 +12073,8 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-f0482dfcfe45",
@@ -12107,7 +12107,7 @@
       "url": "https://careers.stadlerrail.com/job/Bussnang-Prozessspezialistin-Engineering-TG-T-9565/1353937855/",
       "source": "Stadler Rail Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:35:20.990Z",
+      "crawledAt": "2026-07-29T22:55:52.641Z",
       "addressLocality": "Bussnang",
       "postalCode": "9565",
       "addressRegion": "Thurgau",
@@ -12143,7 +12143,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:52:36.016Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -12155,7 +12154,8 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-4c6241829016",
@@ -12188,7 +12188,7 @@
       "url": "https://careers.stadlerrail.com/job/Biel-Vorarbeiterin-Schmelzbetrieb-BE-B-2504/1344233955/",
       "source": "Stadler Rail Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:35:20.422Z",
+      "crawledAt": "2026-07-29T22:55:52.145Z",
       "addressLocality": "Biel",
       "postalCode": "2504",
       "addressRegion": "BE",
@@ -12260,7 +12260,7 @@
       "url": "https://careers.stadlerrail.com/job/Bussnang-Contract-Manager-Procurement-TG-T-9565/1353938155/",
       "source": "Stadler Rail Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:35:19.858Z",
+      "crawledAt": "2026-07-29T22:55:51.650Z",
       "addressLocality": "Bussnang",
       "postalCode": "9565",
       "addressRegion": "Thurgau",
@@ -12288,7 +12288,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:52:36.596Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -12300,7 +12299,8 @@
           "maxValue": 120000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-45ccbad0485f",
@@ -12333,7 +12333,7 @@
       "url": "https://careers.stadlerrail.com/job/St_-Margrethen-Inbetriebsetzungstechnikerin-Typentest-SG-S-9430/1332477755/",
       "source": "Stadler Rail Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:35:19.304Z",
+      "crawledAt": "2026-07-29T22:55:51.170Z",
       "addressLocality": "St. Margrethen",
       "postalCode": "9430",
       "addressRegion": "SG",
@@ -12407,7 +12407,7 @@
       "url": "https://careers.stadlerrail.com/job/Bussnang-Supplier-Manager-TG-T-9565/1353938055/",
       "source": "Stadler Rail Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:35:18.685Z",
+      "crawledAt": "2026-07-29T22:55:50.667Z",
       "addressLocality": "Bussnang",
       "postalCode": "9565",
       "addressRegion": "Thurgau",
@@ -12451,7 +12451,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:52:37.178Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -12463,7 +12462,8 @@
           "maxValue": 120000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-3490b34b42e0",
@@ -12496,7 +12496,7 @@
       "url": "https://careers.stadlerrail.com/job/Bussnang-Cloud-Engineer-Azure-TG-T-9565/1344275755/",
       "source": "Stadler Rail Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:35:18.107Z",
+      "crawledAt": "2026-07-29T22:55:50.187Z",
       "addressLocality": "Bussnang",
       "postalCode": "9565",
       "addressRegion": "Thurgau",
@@ -12524,7 +12524,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:52:34.259Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -12536,7 +12535,8 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-84b7d0d372be",
@@ -12569,7 +12569,7 @@
       "url": "https://careers.stadlerrail.com/job/St_-Margrethen-Clound-&-Virtualization-Engineer-SG-S-9430/1340650855/",
       "source": "Stadler Rail Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-29T22:35:17.537Z",
+      "crawledAt": "2026-07-29T22:55:49.709Z",
       "addressLocality": "St. Margrethen",
       "postalCode": "9430",
       "addressRegion": "SG",
@@ -12643,7 +12643,7 @@
       "url": "https://careers.stadlerrail.com/job/St_-Margrethen-Technischer-Projektleiterin-SG-S-9430/1340612555/",
       "source": "Stadler Rail Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:35:16.966Z",
+      "crawledAt": "2026-07-29T22:55:49.232Z",
       "addressLocality": "St. Margrethen",
       "postalCode": "9430",
       "addressRegion": "SG",
@@ -12675,7 +12675,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:52:33.124Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -12687,7 +12686,8 @@
           "maxValue": 120000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-28299c08a7a2",
@@ -12720,7 +12720,7 @@
       "url": "https://careers.stadlerrail.com/job/St_-Margrethen-Werbetechnikerin-SG-S-9430/1340730055/",
       "source": "Stadler Rail Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:35:16.401Z",
+      "crawledAt": "2026-07-29T22:55:48.738Z",
       "addressLocality": "St. Margrethen",
       "postalCode": "9430",
       "addressRegion": "SG",
@@ -12792,7 +12792,7 @@
       "url": "https://careers.stadlerrail.com/job/Wallisellen-Abteilungsleiterin-RAMS-ZH-Z-8304/1358921455/",
       "source": "Stadler Rail Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-29T22:35:15.835Z",
+      "crawledAt": "2026-07-29T22:55:48.245Z",
       "addressLocality": "Wallisellen",
       "postalCode": "8304",
       "addressRegion": "ZH",
@@ -12810,7 +12810,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-06-30T12:22:42.205Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -12822,7 +12821,8 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-443d5c41d46e",
@@ -12855,7 +12855,7 @@
       "url": "https://careers.stadlerrail.com/job/Olten-System-Test-Engineer-SO-S-4600/1358956455/",
       "source": "Stadler Rail Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:35:15.265Z",
+      "crawledAt": "2026-07-29T22:55:47.696Z",
       "addressLocality": "Olten",
       "postalCode": "4600",
       "addressRegion": "SO",
@@ -12886,7 +12886,6 @@
         ]
       },
       "firstSeenAt": "2026-06-30T23:29:48.086Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -12898,7 +12897,8 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-9557b53ce91f",
@@ -12931,7 +12931,7 @@
       "url": "https://careers.stadlerrail.com/job/Bussnang-Elektroingenieurin-TG-T-9565/1358867655/",
       "source": "Stadler Rail Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:35:14.694Z",
+      "crawledAt": "2026-07-29T22:55:47.215Z",
       "addressLocality": "Bussnang",
       "postalCode": "9565",
       "addressRegion": "Thurgau",
@@ -13050,7 +13050,7 @@
       "url": "https://careers.stadlerrail.com/job/Bussnang-Senior-Anforderungs-&-Nachweismanager-TG-T-9565/1354073855/",
       "source": "Stadler Rail Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:35:14.120Z",
+      "crawledAt": "2026-07-29T22:55:46.725Z",
       "addressLocality": "Bussnang",
       "postalCode": "9565",
       "addressRegion": "Thurgau",
@@ -13087,7 +13087,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:52:30.233Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -13099,7 +13098,8 @@
           "maxValue": 120000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-17769963d701",
@@ -13132,7 +13132,7 @@
       "url": "https://careers.stadlerrail.com/job/Wallisellen-Abteilungsleiterin-RAMS-ZH-Z-8304/1358921355/",
       "source": "Stadler Rail Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:35:13.558Z",
+      "crawledAt": "2026-07-29T22:55:46.237Z",
       "addressLocality": "Wallisellen",
       "postalCode": "8304",
       "addressRegion": "ZH",
