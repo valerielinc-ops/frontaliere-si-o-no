@@ -23,7 +23,8 @@ import { isNewsletterExcluded } from './lib/emailSuppression.js';
 import { resolveWelcomeContext } from './lib/welcomeSegment.js';
 import { buildWelcomeEmail } from './lib/welcomeEmailTemplate.js';
 import { buildLifecycleEmailHeaders } from './lib/lifecycleEmailHeaders.js';
-import { makeOneClickUnsubscribeUrl, makePreferencesUrl } from './lib/newsletterUrls.js';
+import { makeOneClickUnsubscribeUrl, makePreferencesUrl, wrapAuthenticatedHrefs } from './lib/newsletterUrls.js';
+import { shouldSkipSubscriber } from './jobAlertBackfillCore.js';
 import { inferInterest, resolveDripSegment } from './lib/newsletterSegments.js';
 
 const FROM_EMAIL = 'Frontaliere Ticino <newsletter@frontaliereticino.ch>';
@@ -61,6 +62,44 @@ function toDate(value) {
 // Sentinel error used to abort the idempotency-claim transaction when a
 // concurrent caller already won the claim — never leaks past this module.
 class WelcomeAlreadySentError extends Error {}
+
+/**
+ * Whether the subscriber already receives job alerts, or is about to.
+ *
+ * Ground truth is an active doc under job_alert_subscribers/{email}/alerts.
+ * That doc is written by the backfillJobAlertOnNewsletterSignup Firestore
+ * trigger, which races this send, so an absent doc is not proof of absence —
+ * fall back to `shouldSkipSubscriber`, the very predicate the trigger uses to
+ * decide. Sharing the predicate is what stops the email and the trigger from
+ * disagreeing. Never throws: on any read error, claim nothing (false), because
+ * promising alerts that do not exist is worse than offering to create ones that
+ * already do.
+ *
+ * @param {FirebaseFirestore.Firestore} db
+ * @param {string} email normalized
+ * @param {Record<string, unknown>} data subscriber doc data
+ * @returns {Promise<boolean>}
+ */
+async function hasOrWillHaveJobAlert(db, email, data) {
+  try {
+    const snap = await db.collection('job_alert_subscribers').doc(email).collection('alerts').get();
+    if (snap && !snap.empty) {
+      const anyActive = snap.docs.some((d) => (d.data() || {}).active !== false);
+      if (anyActive) return true;
+      // Every alert explicitly deactivated = the user opted out. Respect that
+      // and do not re-offer, but do not claim they are receiving alerts either.
+      return false;
+    }
+  } catch (err) {
+    console.warn('[newsletterWelcomeEmail] job alert lookup failed:', err?.message || err);
+    return false;
+  }
+  try {
+    return shouldSkipSubscriber(email, data) === null;
+  } catch {
+    return false;
+  }
+}
 
 /** Carries the skip reason out of the idempotency transaction. */
 class WelcomeNotEligibleError extends Error {
@@ -204,14 +243,34 @@ export async function sendNewsletterWelcomeEmail({ email, locale, db: injectedDb
   const ctx = resolveWelcomeContext(data);
   const resolvedLocale = locale || data.preferred_locale || data.signup_locale || data.locale || 'it';
 
+  // Job alerts are created automatically by the backfillJobAlertOnNewsletterSignup
+  // Firestore trigger, so by the time this email lands most subscribers already
+  // have one. Telling them to "create a job alert" would ask for something already
+  // done. Prefer the alert doc as ground truth; when the trigger has not fired yet
+  // (it races this send) fall back to the SAME predicate the trigger uses, so the
+  // two can't disagree.
+  const jobAlertActive = await hasOrWillHaveJobAlert(db, normalizedEmail, data);
+
   const unsubscribeUrl = makeOneClickUnsubscribeUrl(normalizedEmail, { secret: newsletterSecret });
   const preferencesUrl = makePreferencesUrl(normalizedEmail, resolvedLocale, { secret: newsletterSecret });
 
-  const { subject, html } = buildWelcomeEmail({
+  const built = buildWelcomeEmail({
     ...ctx,
     locale: resolvedLocale,
+    jobAlertActive,
     unsubscribeUrl,
     preferencesUrl,
+  });
+  const { subject } = built;
+  // Autologin on every internal link: the recipient lands already signed in, so
+  // "refine your alerts" or "back to the job" is one click, not a login wall.
+  // The unsubscribe/preferences URLs carry their own HMAC token and are left
+  // alone by shouldWrapAuthenticatedHref's asset/host rules only insofar as they
+  // are on-site — wrapping them is harmless (extra ne/ac params) and keeps a
+  // single rule for the whole body.
+  const html = wrapAuthenticatedHrefs(built.html, normalizedEmail, {
+    secret: newsletterSecret,
+    utmCampaign: `welcome_${ctx.segment}`,
   });
 
   const campaignId = `welcome_${ctx.segment}`;

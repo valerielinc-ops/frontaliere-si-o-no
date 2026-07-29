@@ -105,4 +105,20 @@ describe('route-slugs anti-drift guard (#4315)', () => {
       expect(PREFERENCES_SLUG[locale]).toBe(SLUG_TABLES[locale].newsletterPreferences);
     }
   });
+
+  // Same forced-copy situation for the consulting route: the welcome email
+  // promotes the paid 1:1 consultation, so functions/src/lib/newsletterUrlPaths.js
+  // carries the per-locale path. router.ts builds it as `${prefix}/${table.consulting}`,
+  // so the map entry must equal that, trailing-slash aside.
+  it('functions/src/lib/newsletterUrlPaths.js consulting paths stay in sync with SLUG_TABLES.*.consulting', async () => {
+    const { LOCALE_PATH_MAP } = await import('../functions/src/lib/newsletterUrlPaths.js');
+    const variants = LOCALE_PATH_MAP['/consulenza'];
+    expect(variants).toBeTruthy();
+    for (const locale of ['it', 'en', 'de', 'fr'] as const) {
+      const expected = locale === 'it'
+        ? `/${SLUG_TABLES.it.consulting}`
+        : `/${locale}/${SLUG_TABLES[locale].consulting}`;
+      expect(variants[locale]).toBe(expected);
+    }
+  });
 });
