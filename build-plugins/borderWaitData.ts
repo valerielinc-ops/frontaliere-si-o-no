@@ -62,7 +62,76 @@ export type BorderCrossingSlug =
   | 'biegno-indemini'
   | 'dumenza-cassinone'
   | 'camedo'
-  | 'piaggio-valmara';
+  | 'piaggio-valmara'
+  // Germania (issue #4889, corridor 1 of N — DE fully wired, AT/LI/FR
+  // still pending; see the checklist above BorderCrossingRegion).
+  | 'basel-weil-am-rhein-hiltalingerstrasse'
+  | 'basel-weil-am-rhein-autostrada-a2-a5'
+  | 'basel-weil-am-rhein-freiburgerstrasse'
+  | 'riehen-weil-am-rhein'
+  | 'riehen-lorrach-stetten'
+  | 'inzlingen-riehen'
+  | 'grenzach-wyhlen-riehen'
+  | 'rheinfelden-rheinfelden-ag-autostrada-a861-a3'
+  | 'rheinfelden-rheinfelden-ag-alte-rheinbrucke'
+  | 'bad-sackingen-stein-ag'
+  | 'laufenburg-laufenburg-ag'
+  | 'waldshut-tiengen-koblenz-ag'
+  | 'kussaberg-bad-zurzach-ag'
+  | 'hohentengen-am-hochrhein-kaiserstuhl-ag'
+  | 'hohentengen-am-hochrhein-wasterkingen'
+  | 'klettgau-wil-zh'
+  | 'dettighofen-wil-zh'
+  | 'dettighofen-rafz'
+  | 'lottstetten-rafz-landstrasse'
+  | 'lottstetten-rafz-schaffhausener-strasse'
+  | 'lottstetten-nack'
+  | 'jestetten-rheinau'
+  | 'jestetten-laufen-uhwiesen-dorfstrasse'
+  | 'jestetten-laufen-uhwiesen-grenzstrasse'
+  | 'jestetten-neuhausen-am-rheinfall-zollstrasse'
+  | 'jestetten-wilchingen'
+  | 'klettgau-trasadingen'
+  | 'stuhlingen-schleitheim'
+  | 'blumberg-beggingen'
+  | 'blumberg-bargen-sh-autostrasse-h4'
+  | 'tengen-thayngen-l188'
+  | 'gottmadingen-thayngen-ebringerstrasse'
+  | 'gottmadingen-thayngen-autostrada-a81-a4'
+  | 'dorflingen-gottmadingen-randegg'
+  | 'ramsen-moskau-rielasingen-worblingen'
+  | 'ohningen-stein-am-rhein'
+  | 'gailingen-am-hochrhein-dorflingen'
+  | 'lottstetten-rudlingen'
+  | 'jestetten-neuhausen-am-rheinfall-buchweg'
+  | 'klettgau-wilchingen'
+  | 'eggingen-hallau'
+  | 'stuhlingen-hallau'
+  | 'blumberg-bargen-sh-alte-bargener-strasse'
+  | 'bargen-sh-tengen'
+  | 'merishausen-tengen'
+  | 'opfertshofen-tengen'
+  | 'tengen-thayngen-wiechserstrasse'
+  | 'hilzingen-thayngen-schlattergasse'
+  | 'hilzingen-thayngen-barzheimer-strasse'
+  | 'dorflingen-gailingen-am-hochrhein-hinterdorf'
+  | 'busingen-am-hochrhein-dorflingen-l202'
+  | 'busingen-am-hochrhein-dorflingen-busingerstrasse'
+  | 'busingen-am-hochrhein-dorflingen-siedlerstrasse'
+  | 'busingen-am-hochrhein-schaffhausen-gennersbrunnerstrasse'
+  | 'busingen-am-hochrhein-schaffhausen-stemmer'
+  | 'busingen-am-hochrhein-schaffhausen-felsgasse'
+  | 'busingen-am-hochrhein-schaffhausen-vogelingasschen'
+  | 'busingen-am-hochrhein-schaffhausen-rheinhaldenstrasse'
+  | 'gailingen-am-hochrhein-ramsen-sh'
+  | 'gottmadingen-buch-sh'
+  | 'gottmadingen-buch-blindenhausen-sh'
+  | 'gottmadingen-ramsen-hofenacker'
+  | 'rielasingen-worblingen-ramsen-hofenacker'
+  | 'diessenhofen-gailingen-am-hochrhein'
+  | 'konstanz-tagerwilen-gottlieber-strasse'
+  | 'konstanz-tagerwilen-autostrada-b33n-a7'
+  | 'konstanz-kreuzlingen';
 
 /**
  * Closed union of crossing "regional hub" groupings — currently one per
@@ -77,6 +146,10 @@ export type BorderCrossingSlug =
  *     France/Germany/Austria/Liechtenstein region), add a member to this
  *     union — e.g. 'grigioni-valposchiavo' or 'geneve-annemasse'.
  *  2. Add the region's display label to BORDER_REGION_DISPLAY (below).
+ *  2b. Add the region's foreign country to REGION_TO_COUNTRY (below) —
+ *      exhaustive on purpose, drives country-specific copy in
+ *      `borderWaitPagesPlugin.ts` (extend the 'IT' | 'DE' union first if
+ *      the new region's country isn't already covered).
  *  3. Add the region to BORDER_WAIT_REGIONS (below) — only if new.
  *  4. Add the crossing's slug to BorderCrossingSlug (below this block) —
  *     must equal `slugifyCrossingName(crossing.name)` from
@@ -104,12 +177,20 @@ export type BorderCrossingSlug =
  * refactor; a future agent adding real VS coverage needs to walk this same
  * checklist for it, not assume it's already wired somewhere.
  */
-export type BorderCrossingRegion = 'ticino-como' | 'ticino-varese' | 'ticino-verbano';
+export type BorderCrossingRegion =
+  | 'ticino-como'
+  | 'ticino-varese'
+  | 'ticino-verbano'
+  | 'basilea-germania'
+  | 'argovia-germania'
+  | 'zurigo-germania'
+  | 'sciaffusa-germania'
+  | 'turgovia-germania';
 
 export const BORDER_WAIT_LOCALES: readonly BorderWaitLocale[] = ['it', 'en', 'de', 'fr'] as const;
 
 /**
- * Full crossing registry (26) — must match ALL_BORDER_CROSSING_IDS in
+ * Full crossing registry (93) — must match ALL_BORDER_CROSSING_IDS in
  * router.ts. New crossing → append its slug here too (see "Adding a new
  * crossing" checklist above BorderCrossingRegion, step 5).
  */
@@ -140,6 +221,78 @@ export const BORDER_WAIT_CROSSINGS: readonly BorderCrossingSlug[] = [
   'dumenza-cassinone',
   'camedo',
   'piaggio-valmara',
+  // Germania — BS (7)
+  'basel-weil-am-rhein-hiltalingerstrasse',
+  'basel-weil-am-rhein-autostrada-a2-a5',
+  'basel-weil-am-rhein-freiburgerstrasse',
+  'riehen-weil-am-rhein',
+  'riehen-lorrach-stetten',
+  'inzlingen-riehen',
+  'grenzach-wyhlen-riehen',
+  // Germania — AG (7)
+  'rheinfelden-rheinfelden-ag-autostrada-a861-a3',
+  'rheinfelden-rheinfelden-ag-alte-rheinbrucke',
+  'bad-sackingen-stein-ag',
+  'laufenburg-laufenburg-ag',
+  'waldshut-tiengen-koblenz-ag',
+  'kussaberg-bad-zurzach-ag',
+  'hohentengen-am-hochrhein-kaiserstuhl-ag',
+  // Germania — ZH (10)
+  'hohentengen-am-hochrhein-wasterkingen',
+  'klettgau-wil-zh',
+  'dettighofen-wil-zh',
+  'dettighofen-rafz',
+  'lottstetten-rafz-landstrasse',
+  'lottstetten-rafz-schaffhausener-strasse',
+  'lottstetten-nack',
+  'jestetten-rheinau',
+  'jestetten-laufen-uhwiesen-dorfstrasse',
+  'jestetten-laufen-uhwiesen-grenzstrasse',
+  // Germania — SH (39)
+  'jestetten-neuhausen-am-rheinfall-zollstrasse',
+  'jestetten-wilchingen',
+  'klettgau-trasadingen',
+  'stuhlingen-schleitheim',
+  'blumberg-beggingen',
+  'blumberg-bargen-sh-autostrasse-h4',
+  'tengen-thayngen-l188',
+  'gottmadingen-thayngen-ebringerstrasse',
+  'gottmadingen-thayngen-autostrada-a81-a4',
+  'dorflingen-gottmadingen-randegg',
+  'ramsen-moskau-rielasingen-worblingen',
+  'ohningen-stein-am-rhein',
+  'gailingen-am-hochrhein-dorflingen',
+  'lottstetten-rudlingen',
+  'jestetten-neuhausen-am-rheinfall-buchweg',
+  'klettgau-wilchingen',
+  'eggingen-hallau',
+  'stuhlingen-hallau',
+  'blumberg-bargen-sh-alte-bargener-strasse',
+  'bargen-sh-tengen',
+  'merishausen-tengen',
+  'opfertshofen-tengen',
+  'tengen-thayngen-wiechserstrasse',
+  'hilzingen-thayngen-schlattergasse',
+  'hilzingen-thayngen-barzheimer-strasse',
+  'dorflingen-gailingen-am-hochrhein-hinterdorf',
+  'busingen-am-hochrhein-dorflingen-l202',
+  'busingen-am-hochrhein-dorflingen-busingerstrasse',
+  'busingen-am-hochrhein-dorflingen-siedlerstrasse',
+  'busingen-am-hochrhein-schaffhausen-gennersbrunnerstrasse',
+  'busingen-am-hochrhein-schaffhausen-stemmer',
+  'busingen-am-hochrhein-schaffhausen-felsgasse',
+  'busingen-am-hochrhein-schaffhausen-vogelingasschen',
+  'busingen-am-hochrhein-schaffhausen-rheinhaldenstrasse',
+  'gailingen-am-hochrhein-ramsen-sh',
+  'gottmadingen-buch-sh',
+  'gottmadingen-buch-blindenhausen-sh',
+  'gottmadingen-ramsen-hofenacker',
+  'rielasingen-worblingen-ramsen-hofenacker',
+  // Germania — TG (4)
+  'diessenhofen-gailingen-am-hochrhein',
+  'konstanz-tagerwilen-gottlieber-strasse',
+  'konstanz-tagerwilen-autostrada-b33n-a7',
+  'konstanz-kreuzlingen',
 ] as const;
 
 /** Top-5 crossings eligible for monthly archive pages (highest GSC demand). */
@@ -182,6 +335,73 @@ export const BORDER_CROSSING_DISPLAY: Record<BorderCrossingSlug, string> = {
   'dumenza-cassinone': 'Dumenza Cassinone',
   camedo: 'Camedo (Re-Centovalli)',
   'piaggio-valmara': 'Piaggio Valmara (Cannobio-Brissago)',
+  'basel-weil-am-rhein-hiltalingerstrasse': 'Basel – Weil am Rhein, Hiltalingerstrasse',
+  'basel-weil-am-rhein-autostrada-a2-a5': 'Basel – Weil am Rhein, Autostrada A2/A5',
+  'basel-weil-am-rhein-freiburgerstrasse': 'Basel – Weil am Rhein, Freiburgerstrasse',
+  'riehen-weil-am-rhein': 'Riehen – Weil am Rhein',
+  'riehen-lorrach-stetten': 'Riehen – Lörrach-Stetten',
+  'inzlingen-riehen': 'Inzlingen – Riehen',
+  'grenzach-wyhlen-riehen': 'Grenzach-Wyhlen – Riehen',
+  'rheinfelden-rheinfelden-ag-autostrada-a861-a3': 'Rheinfelden (Baden) – Rheinfelden AG, Autostrada A861/A3',
+  'rheinfelden-rheinfelden-ag-alte-rheinbrucke': 'Rheinfelden (Baden) – Rheinfelden AG, Alte Rheinbrücke',
+  'bad-sackingen-stein-ag': 'Bad Säckingen – Stein AG',
+  'laufenburg-laufenburg-ag': 'Laufenburg (Baden) – Laufenburg AG',
+  'waldshut-tiengen-koblenz-ag': 'Waldshut-Tiengen – Koblenz AG',
+  'kussaberg-bad-zurzach-ag': 'Küssaberg – Bad Zurzach AG',
+  'hohentengen-am-hochrhein-kaiserstuhl-ag': 'Hohentengen am Hochrhein – Kaiserstuhl AG',
+  'hohentengen-am-hochrhein-wasterkingen': 'Hohentengen am Hochrhein – Wasterkingen',
+  'klettgau-wil-zh': 'Klettgau – Wil ZH',
+  'dettighofen-wil-zh': 'Dettighofen – Wil ZH',
+  'dettighofen-rafz': 'Dettighofen – Rafz',
+  'lottstetten-rafz-landstrasse': 'Lottstetten – Rafz, Landstrasse',
+  'lottstetten-rafz-schaffhausener-strasse': 'Lottstetten – Rafz, Schaffhausener Strasse',
+  'lottstetten-nack': 'Lottstetten – Nack',
+  'jestetten-rheinau': 'Jestetten – Rheinau',
+  'jestetten-laufen-uhwiesen-dorfstrasse': 'Jestetten – Laufen-Uhwiesen, Dorfstrasse',
+  'jestetten-laufen-uhwiesen-grenzstrasse': 'Jestetten – Laufen-Uhwiesen, Grenzstrasse',
+  'jestetten-neuhausen-am-rheinfall-zollstrasse': 'Jestetten – Neuhausen am Rheinfall, Zollstrasse',
+  'jestetten-wilchingen': 'Jestetten – Wilchingen',
+  'klettgau-trasadingen': 'Klettgau – Trasadingen',
+  'stuhlingen-schleitheim': 'Stühlingen – Schleitheim',
+  'blumberg-beggingen': 'Blumberg – Beggingen',
+  'blumberg-bargen-sh-autostrasse-h4': 'Blumberg – Bargen SH, Autostrasse H4',
+  'tengen-thayngen-l188': 'Tengen – Thayngen, L188',
+  'gottmadingen-thayngen-ebringerstrasse': 'Gottmadingen – Thayngen, Ebringerstrasse',
+  'gottmadingen-thayngen-autostrada-a81-a4': 'Gottmadingen – Thayngen, Autostrada A81/A4',
+  'dorflingen-gottmadingen-randegg': 'Dörflingen – Gottmadingen-Randegg',
+  'ramsen-moskau-rielasingen-worblingen': 'Ramsen-Moskau – Rielasingen-Worblingen',
+  'ohningen-stein-am-rhein': 'Öhningen – Stein am Rhein',
+  'gailingen-am-hochrhein-dorflingen': 'Gailingen am Hochrhein – Dörflingen',
+  'lottstetten-rudlingen': 'Lottstetten – Rüdlingen',
+  'jestetten-neuhausen-am-rheinfall-buchweg': 'Jestetten – Neuhausen am Rheinfall, Buchweg',
+  'klettgau-wilchingen': 'Klettgau – Wilchingen',
+  'eggingen-hallau': 'Eggingen – Hallau',
+  'stuhlingen-hallau': 'Stühlingen – Hallau',
+  'blumberg-bargen-sh-alte-bargener-strasse': 'Blumberg – Bargen SH, Alte Bargener Strasse',
+  'bargen-sh-tengen': 'Bargen SH – Tengen',
+  'merishausen-tengen': 'Merishausen – Tengen',
+  'opfertshofen-tengen': 'Opfertshofen – Tengen',
+  'tengen-thayngen-wiechserstrasse': 'Tengen – Thayngen, Wiechserstrasse',
+  'hilzingen-thayngen-schlattergasse': 'Hilzingen – Thayngen, Schlattergasse',
+  'hilzingen-thayngen-barzheimer-strasse': 'Hilzingen – Thayngen, Barzheimer Strasse',
+  'dorflingen-gailingen-am-hochrhein-hinterdorf': 'Dörflingen – Gailingen am Hochrhein, Hinterdorf',
+  'busingen-am-hochrhein-dorflingen-l202': 'Büsingen am Hochrhein – Dörflingen, L202',
+  'busingen-am-hochrhein-dorflingen-busingerstrasse': 'Büsingen am Hochrhein – Dörflingen, Büsingerstrasse',
+  'busingen-am-hochrhein-dorflingen-siedlerstrasse': 'Büsingen am Hochrhein – Dörflingen, Siedlerstrasse',
+  'busingen-am-hochrhein-schaffhausen-gennersbrunnerstrasse': 'Büsingen am Hochrhein – Schaffhausen, Gennersbrunnerstrasse',
+  'busingen-am-hochrhein-schaffhausen-stemmer': 'Büsingen am Hochrhein – Schaffhausen-Stemmer',
+  'busingen-am-hochrhein-schaffhausen-felsgasse': 'Büsingen am Hochrhein – Schaffhausen, Felsgasse',
+  'busingen-am-hochrhein-schaffhausen-vogelingasschen': 'Büsingen am Hochrhein – Schaffhausen, Vögelingässchen',
+  'busingen-am-hochrhein-schaffhausen-rheinhaldenstrasse': 'Büsingen am Hochrhein – Schaffhausen, Rheinhaldenstrasse',
+  'gailingen-am-hochrhein-ramsen-sh': 'Gailingen am Hochrhein – Ramsen SH',
+  'gottmadingen-buch-sh': 'Gottmadingen – Buch SH',
+  'gottmadingen-buch-blindenhausen-sh': 'Gottmadingen – Buch-Blindenhausen SH',
+  'gottmadingen-ramsen-hofenacker': 'Gottmadingen – Ramsen-Hofenacker',
+  'rielasingen-worblingen-ramsen-hofenacker': 'Rielasingen-Worblingen – Ramsen-Hofenacker',
+  'diessenhofen-gailingen-am-hochrhein': 'Diessenhofen – Gailingen am Hochrhein',
+  'konstanz-tagerwilen-gottlieber-strasse': 'Konstanz – Tägerwilen, Gottlieber Strasse',
+  'konstanz-tagerwilen-autostrada-b33n-a7': 'Konstanz – Tägerwilen, Autostrada B33n/A7',
+  'konstanz-kreuzlingen': 'Konstanz – Kreuzlingen',
 };
 
 /**
@@ -218,14 +438,87 @@ export const CROSSING_TO_REGION: Record<BorderCrossingSlug, BorderCrossingRegion
   'dumenza-cassinone': 'ticino-varese',
   camedo: 'ticino-verbano',
   'piaggio-valmara': 'ticino-verbano',
+  'basel-weil-am-rhein-hiltalingerstrasse': 'basilea-germania',
+  'basel-weil-am-rhein-autostrada-a2-a5': 'basilea-germania',
+  'basel-weil-am-rhein-freiburgerstrasse': 'basilea-germania',
+  'riehen-weil-am-rhein': 'basilea-germania',
+  'riehen-lorrach-stetten': 'basilea-germania',
+  'inzlingen-riehen': 'basilea-germania',
+  'grenzach-wyhlen-riehen': 'basilea-germania',
+  'rheinfelden-rheinfelden-ag-autostrada-a861-a3': 'argovia-germania',
+  'rheinfelden-rheinfelden-ag-alte-rheinbrucke': 'argovia-germania',
+  'bad-sackingen-stein-ag': 'argovia-germania',
+  'laufenburg-laufenburg-ag': 'argovia-germania',
+  'waldshut-tiengen-koblenz-ag': 'argovia-germania',
+  'kussaberg-bad-zurzach-ag': 'argovia-germania',
+  'hohentengen-am-hochrhein-kaiserstuhl-ag': 'argovia-germania',
+  'hohentengen-am-hochrhein-wasterkingen': 'zurigo-germania',
+  'klettgau-wil-zh': 'zurigo-germania',
+  'dettighofen-wil-zh': 'zurigo-germania',
+  'dettighofen-rafz': 'zurigo-germania',
+  'lottstetten-rafz-landstrasse': 'zurigo-germania',
+  'lottstetten-rafz-schaffhausener-strasse': 'zurigo-germania',
+  'lottstetten-nack': 'zurigo-germania',
+  'jestetten-rheinau': 'zurigo-germania',
+  'jestetten-laufen-uhwiesen-dorfstrasse': 'zurigo-germania',
+  'jestetten-laufen-uhwiesen-grenzstrasse': 'zurigo-germania',
+  'jestetten-neuhausen-am-rheinfall-zollstrasse': 'sciaffusa-germania',
+  'jestetten-wilchingen': 'sciaffusa-germania',
+  'klettgau-trasadingen': 'sciaffusa-germania',
+  'stuhlingen-schleitheim': 'sciaffusa-germania',
+  'blumberg-beggingen': 'sciaffusa-germania',
+  'blumberg-bargen-sh-autostrasse-h4': 'sciaffusa-germania',
+  'tengen-thayngen-l188': 'sciaffusa-germania',
+  'gottmadingen-thayngen-ebringerstrasse': 'sciaffusa-germania',
+  'gottmadingen-thayngen-autostrada-a81-a4': 'sciaffusa-germania',
+  'dorflingen-gottmadingen-randegg': 'sciaffusa-germania',
+  'ramsen-moskau-rielasingen-worblingen': 'sciaffusa-germania',
+  'ohningen-stein-am-rhein': 'sciaffusa-germania',
+  'gailingen-am-hochrhein-dorflingen': 'sciaffusa-germania',
+  'lottstetten-rudlingen': 'sciaffusa-germania',
+  'jestetten-neuhausen-am-rheinfall-buchweg': 'sciaffusa-germania',
+  'klettgau-wilchingen': 'sciaffusa-germania',
+  'eggingen-hallau': 'sciaffusa-germania',
+  'stuhlingen-hallau': 'sciaffusa-germania',
+  'blumberg-bargen-sh-alte-bargener-strasse': 'sciaffusa-germania',
+  'bargen-sh-tengen': 'sciaffusa-germania',
+  'merishausen-tengen': 'sciaffusa-germania',
+  'opfertshofen-tengen': 'sciaffusa-germania',
+  'tengen-thayngen-wiechserstrasse': 'sciaffusa-germania',
+  'hilzingen-thayngen-schlattergasse': 'sciaffusa-germania',
+  'hilzingen-thayngen-barzheimer-strasse': 'sciaffusa-germania',
+  'dorflingen-gailingen-am-hochrhein-hinterdorf': 'sciaffusa-germania',
+  'busingen-am-hochrhein-dorflingen-l202': 'sciaffusa-germania',
+  'busingen-am-hochrhein-dorflingen-busingerstrasse': 'sciaffusa-germania',
+  'busingen-am-hochrhein-dorflingen-siedlerstrasse': 'sciaffusa-germania',
+  'busingen-am-hochrhein-schaffhausen-gennersbrunnerstrasse': 'sciaffusa-germania',
+  'busingen-am-hochrhein-schaffhausen-stemmer': 'sciaffusa-germania',
+  'busingen-am-hochrhein-schaffhausen-felsgasse': 'sciaffusa-germania',
+  'busingen-am-hochrhein-schaffhausen-vogelingasschen': 'sciaffusa-germania',
+  'busingen-am-hochrhein-schaffhausen-rheinhaldenstrasse': 'sciaffusa-germania',
+  'gailingen-am-hochrhein-ramsen-sh': 'sciaffusa-germania',
+  'gottmadingen-buch-sh': 'sciaffusa-germania',
+  'gottmadingen-buch-blindenhausen-sh': 'sciaffusa-germania',
+  'gottmadingen-ramsen-hofenacker': 'sciaffusa-germania',
+  'rielasingen-worblingen-ramsen-hofenacker': 'sciaffusa-germania',
+  'diessenhofen-gailingen-am-hochrhein': 'turgovia-germania',
+  'konstanz-tagerwilen-gottlieber-strasse': 'turgovia-germania',
+  'konstanz-tagerwilen-autostrada-b33n-a7': 'turgovia-germania',
+  'konstanz-kreuzlingen': 'turgovia-germania',
 };
 
 /**
  * Closest fuel-daily zone for each crossing (used by related-links helper).
- * New crossing → add its nearest zone here; extend the union first if none
- * of the existing 3 fits (checklist above BorderCrossingRegion, step 8).
+ * `Partial` because fuel-daily is a Ticino-only feature — non-Ticino
+ * crossings (e.g. the Germania corridor) have no "nearest Ticino zone" and
+ * are deliberately left absent rather than fabricating one; the
+ * related-links helper falls back to nationwide links when absent (see
+ * `clustersForBorderWait` in build-plugins/shared/relatedLinks.ts). New
+ * Ticino crossing → add its nearest zone here; extend the union first if
+ * none of the existing 3 fits (checklist above BorderCrossingRegion, step
+ * 8).
  */
-export const CROSSING_TO_FUEL_ZONE: Record<BorderCrossingSlug, 'chiasso' | 'mendrisio' | 'lugano'> = {
+export const CROSSING_TO_FUEL_ZONE: Partial<Record<BorderCrossingSlug, 'chiasso' | 'mendrisio' | 'lugano'>> = {
   'chiasso-centro': 'chiasso',
   'chiasso-brogeda': 'chiasso',
   'chiasso-strada': 'chiasso',
@@ -255,13 +548,16 @@ export const CROSSING_TO_FUEL_ZONE: Record<BorderCrossingSlug, 'chiasso' | 'mend
 };
 
 /**
- * Closest weekly-employers city slug for each crossing. New crossing → add
- * its nearest city here; extend the union first if none of the existing
- * values fits (checklist above BorderCrossingRegion, step 9).
+ * Closest weekly-employers city slug for each crossing. `Partial` for the
+ * same reason as CROSSING_TO_FUEL_ZONE above — weekly-employers (and,
+ * transitively, cost-of-living/job-market-snapshot which are derived from
+ * this map in relatedLinks.ts) is Ticino-only; non-Ticino crossings are
+ * left absent. New Ticino crossing → add its nearest city here; extend the
+ * union first if none of the existing values fits (checklist above
+ * BorderCrossingRegion, step 9).
  */
-export const CROSSING_TO_WEEKLY_CITY: Record<
-  BorderCrossingSlug,
-  'chiasso' | 'mendrisio' | 'lugano'
+export const CROSSING_TO_WEEKLY_CITY: Partial<
+  Record<BorderCrossingSlug, 'chiasso' | 'mendrisio' | 'lugano'>
 > = {
   'chiasso-centro': 'chiasso',
   'chiasso-brogeda': 'chiasso',
@@ -321,7 +617,16 @@ export const BORDER_WAIT_TODAY_SLUG: Record<BorderWaitLocale, string> = {
  * locales. New region → append it here too (checklist above
  * BorderCrossingRegion, step 3).
  */
-export const BORDER_WAIT_REGIONS: readonly BorderCrossingRegion[] = ['ticino-como', 'ticino-varese', 'ticino-verbano'] as const;
+export const BORDER_WAIT_REGIONS: readonly BorderCrossingRegion[] = [
+  'ticino-como',
+  'ticino-varese',
+  'ticino-verbano',
+  'basilea-germania',
+  'argovia-germania',
+  'zurigo-germania',
+  'sciaffusa-germania',
+  'turgovia-germania',
+] as const;
 
 /**
  * Region display labels. New region → add its label here (checklist above
@@ -331,7 +636,45 @@ export const BORDER_REGION_DISPLAY: Record<BorderCrossingRegion, string> = {
   'ticino-como': 'Ticino — Como',
   'ticino-varese': 'Ticino — Varese',
   'ticino-verbano': 'Ticino — Verbano',
+  'basilea-germania': 'Basilea — Germania',
+  'argovia-germania': 'Argovia — Germania',
+  'zurigo-germania': 'Zurigo — Germania',
+  'sciaffusa-germania': 'Sciaffusa — Germania',
+  'turgovia-germania': 'Turgovia — Germania',
 };
+
+/**
+ * Which foreign country each region's crossings lead into. Several page
+ * templates (see `borderWaitPagesPlugin.ts`'s `paragraph()` copy and the
+ * `direction` computation) contain country-specific facts (customs
+ * authority nationality, "returning to X after work" phrasing, CH↔X
+ * direction labels) that must not be hardcoded to Italy once non-Italy
+ * corridors exist. New region → add its country here too (checklist above
+ * BorderCrossingRegion, step 2b) — kept an exhaustive Record on purpose so
+ * a forgotten entry is a compile error, not a silently-wrong page.
+ */
+export const REGION_TO_COUNTRY: Record<BorderCrossingRegion, 'IT' | 'DE'> = {
+  'ticino-como': 'IT',
+  'ticino-varese': 'IT',
+  'ticino-verbano': 'IT',
+  'basilea-germania': 'DE',
+  'argovia-germania': 'DE',
+  'zurigo-germania': 'DE',
+  'sciaffusa-germania': 'DE',
+  'turgovia-germania': 'DE',
+};
+
+/**
+ * True for the 26 Ticino–Italy crossings, false for the 67 Germany-corridor
+ * ones. Single source of truth for "is this crossing in scope for
+ * Ticino-only content" (evergreen ranking article, monthly archive pages,
+ * etc.) — derived from CROSSING_TO_REGION + REGION_TO_COUNTRY instead of a
+ * second hand-maintained list, so a new non-Italy corridor is excluded
+ * automatically instead of silently leaking into Ticino-scoped copy.
+ */
+export function isTicinoCrossing(crossing: BorderCrossingSlug): boolean {
+  return REGION_TO_COUNTRY[CROSSING_TO_REGION[crossing]] === 'IT';
+}
 
 // ── Path builders ─────────────────────────────────────────────────
 
@@ -381,7 +724,7 @@ export function buildArchivePath(
  * services/router.ts so unknown `/traffico-dogane/...` URLs resolve to a known
  * route (guida/border sub-tab) instead of falling through to 404.
  *
- * Count: 4 locales × (1 root + 3 regional + 26 crossings) = 120 canonical paths.
+ * Count: 4 locales × (1 root + 8 regional + 93 crossings) = 408 canonical paths.
  */
 export const BORDER_WAIT_ROUTES: readonly string[] = (() => {
   const out: string[] = [];

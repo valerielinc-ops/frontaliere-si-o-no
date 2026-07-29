@@ -231,6 +231,45 @@ describe('generateRelatedLinksStructured (3-cluster)', () => {
     }
   });
 
+  it('border_wait sibling section for a Germany-corridor crossing lists other Germany-corridor crossings, not Ticino ones (#4952 regression)', () => {
+    // basel-weil-am-rhein-hiltalingerstrasse is region 'basilea-germania'
+    // (build-plugins/borderWaitData.ts). Before the #4952 fix,
+    // pickSiblingCrossings() only ever drew from TOP_5_CROSSINGS (5
+    // Ticino-Italy slugs), so every one of the 67 Germany-corridor
+    // crossings rendered Ticino siblings instead of nearby German ones.
+    const { sections } = generateRelatedLinksStructured('it', 'border_wait', {
+      borderCrossing: 'basel-weil-am-rhein-hiltalingerstrasse',
+    });
+    const sibling = sections.find((s) => s.kind === 'sibling')!;
+    expect(sibling.links.length).toBeGreaterThan(0);
+    for (const l of sibling.links) {
+      expect(l.href).not.toContain('/chiasso-brogeda/');
+      expect(l.href).not.toContain('/chiasso-centro/');
+      expect(l.href).not.toContain('/gaggiolo/');
+      expect(l.href).not.toContain('/oria-gandria/');
+      expect(l.href).not.toContain('/ponte-tresa/');
+    }
+  });
+
+  it('border_wait sibling section for a small Germany-corridor region (Turgovia, 4 crossings) falls back to another German region, never Ticino (#4952 regression)', () => {
+    // turgovia-germania has only 4 members, so the same-region pool (3
+    // others) is smaller than the requested sibling count (4) — the
+    // fallback tier must reach for another German region, not the 26
+    // Ticino slugs that sort first in BORDER_WAIT_CROSSINGS.
+    const { sections } = generateRelatedLinksStructured('it', 'border_wait', {
+      borderCrossing: 'konstanz-kreuzlingen',
+    });
+    const sibling = sections.find((s) => s.kind === 'sibling')!;
+    expect(sibling.links.length).toBeGreaterThan(0);
+    for (const l of sibling.links) {
+      expect(l.href).not.toContain('/chiasso-brogeda/');
+      expect(l.href).not.toContain('/chiasso-centro/');
+      expect(l.href).not.toContain('/gaggiolo/');
+      expect(l.href).not.toContain('/oria-gandria/');
+      expect(l.href).not.toContain('/ponte-tresa/');
+    }
+  });
+
   it('weekly_employers sibling section lists other cities (not regional Ticino)', () => {
     const { sections } = generateRelatedLinksStructured('it', 'weekly_employers', {
       city: 'lugano',

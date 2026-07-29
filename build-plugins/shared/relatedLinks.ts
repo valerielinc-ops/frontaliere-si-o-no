@@ -87,7 +87,9 @@ import {
   CROSSING_TO_REGION,
   CROSSING_TO_FUEL_ZONE,
   CROSSING_TO_WEEKLY_CITY,
+  BORDER_WAIT_CROSSINGS,
   TOP_5_CROSSINGS,
+  REGION_TO_COUNTRY,
   type BorderCrossingSlug,
   type BorderWaitLocale,
 } from '../borderWaitData';
@@ -630,23 +632,48 @@ function crossingForCityOrZone(cityOrZone: string | undefined): BorderCrossingSl
   return 'chiasso-brogeda';
 }
 
-/** Pick sibling crossings (same region preferred). */
+/**
+ * Pick sibling crossings (same region preferred, then same country).
+ *
+ * Ticino crossings keep sourcing exclusively from `TOP_5_CROSSINGS` — the
+ * historical, byte-for-byte-live behavior for the 26 original (already
+ * indexed) pages must not change. Non-Ticino crossings (e.g. the German
+ * corridor) have no representation in `TOP_5_CROSSINGS` at all, so they
+ * derive siblings from the full `BORDER_WAIT_CROSSINGS` registry instead —
+ * otherwise every non-Ticino page would link back to unrelated Ticino-Italy
+ * crossings hundreds of km away.
+ *
+ * Small non-Ticino regions (e.g. Turgovia, 4 crossings) can exhaust their
+ * same-region pool before reaching `count`. The fallback tier is same
+ * COUNTRY first (another German region), not just "everything else" —
+ * `BORDER_WAIT_CROSSINGS` lists the 26 Ticino slugs before any German one,
+ * so a naive single fallback bucket would surface a Ticino crossing as the
+ * 4th sibling on a Turgovia page, reintroducing the exact cross-corridor
+ * link bug this function exists to prevent (#4952).
+ */
 function pickSiblingCrossings(
   current: BorderCrossingSlug,
   count: number,
 ): BorderCrossingSlug[] {
   const currentRegion = CROSSING_TO_REGION[current];
+  const currentCountry = REGION_TO_COUNTRY[currentRegion];
+  const pool: readonly BorderCrossingSlug[] =
+    currentCountry === 'IT' ? TOP_5_CROSSINGS : BORDER_WAIT_CROSSINGS;
   const sameRegion: BorderCrossingSlug[] = [];
-  for (const c of TOP_5_CROSSINGS) {
+  const sameCountryOtherRegion: BorderCrossingSlug[] = [];
+  const rest: BorderCrossingSlug[] = [];
+  for (const c of pool) {
     if (c === current) continue;
-    if (CROSSING_TO_REGION[c] === currentRegion) sameRegion.push(c);
+    const region = CROSSING_TO_REGION[c];
+    if (region === currentRegion) {
+      sameRegion.push(c);
+    } else if (REGION_TO_COUNTRY[region] === currentCountry) {
+      sameCountryOtherRegion.push(c);
+    } else {
+      rest.push(c);
+    }
   }
-  const otherRegion: BorderCrossingSlug[] = [];
-  for (const c of TOP_5_CROSSINGS) {
-    if (c === current) continue;
-    if (CROSSING_TO_REGION[c] !== currentRegion) otherRegion.push(c);
-  }
-  return [...sameRegion, ...otherRegion].slice(0, count);
+  return [...sameRegion, ...sameCountryOtherRegion, ...rest].slice(0, count);
 }
 
 /** Pick N sibling cities for F5 hub. */
@@ -1095,28 +1122,42 @@ function clustersForBorderWait(
 
   // Cross-category: fuel (nearest zone) + weekly employers (nearest city) +
   // cost-of-living (AE-4 nearest city) + job-market hub + frontier guide.
+  // Those 4 clusters (fuel/weekly/cost-of-living/job-market) are Ticino-only
+  // features (CROSSING_TO_FUEL_ZONE / CROSSING_TO_WEEKLY_CITY are `Partial`
+  // — undefined for non-Ticino crossings, e.g. the DE/AT/LI/FR corridors).
+  // Fabricating a "nearest Ticino zone/city" for a Basel or Vaduz crossing
+  // would be dishonest content, so those crossings fall back to the
+  // nationwide-applicable frontier guide + salary benchmarks hub instead.
   const fuelZone = CROSSING_TO_FUEL_ZONE[currentCrossing];
-  const weeklyCity = CROSSING_TO_WEEKLY_CITY[currentCrossing] as WeeklyEmployersCity;
-  const colCity = mapWeeklyCityToColCity(weeklyCity);
-  const cross: RelatedLink[] = [
-    {
+  const weeklyCity = CROSSING_TO_WEEKLY_CITY[currentCrossing];
+  const cross: RelatedLink[] = [];
+  if (fuelZone) {
+    cross.push({
       href: buildFuelTodayPath(locale as FuelDailyLocale, 'diesel', fuelZone),
       title: copy.fuelToday(fuelLabel(locale, 'diesel'), zoneLabel(fuelZone)),
-    },
-    {
-      href: buildCurrentWeekPath(locale as WeeklyEmployersLocale, weeklyCity),
-      title: copy.weeklyEmployers(cityDisplay(weeklyCity, locale)),
-    },
-    {
-      href: buildCostOfLivingLandingPath(locale as ColLocale, colCity),
-      title: copy.costOfLivingCity(COL_CITY_DISPLAY[colCity][locale as ColLocale]),
-    },
-    {
-      href: buildJobMarketHubPath(locale as JobMarketSnapshotLocale),
-      title: copy.jobMarketSnapshot,
-    },
-    { href: FRONTIER_GUIDE_PATH[locale], title: copy.frontierGuide },
-  ];
+    });
+  }
+  if (weeklyCity) {
+    const colCity = mapWeeklyCityToColCity(weeklyCity);
+    cross.push(
+      {
+        href: buildCurrentWeekPath(locale as WeeklyEmployersLocale, weeklyCity),
+        title: copy.weeklyEmployers(cityDisplay(weeklyCity, locale)),
+      },
+      {
+        href: buildCostOfLivingLandingPath(locale as ColLocale, colCity),
+        title: copy.costOfLivingCity(COL_CITY_DISPLAY[colCity][locale as ColLocale]),
+      },
+      {
+        href: buildJobMarketHubPath(locale as JobMarketSnapshotLocale),
+        title: copy.jobMarketSnapshot,
+      },
+    );
+  }
+  cross.push({ href: FRONTIER_GUIDE_PATH[locale], title: copy.frontierGuide });
+  if (!fuelZone && !weeklyCity) {
+    cross.push({ href: SALARY_HUB_PATH[locale], title: copy.salaryBenchmarks });
+  }
 
   return { sibling, hubs, cross, siblingHeadingKey: 'siblingCrossings' };
 }
@@ -1446,12 +1487,21 @@ function legacyFlatLinks(
     case 'border_wait': {
       const crossing = context.borderCrossing ?? 'chiasso-brogeda';
       const fuelZone = CROSSING_TO_FUEL_ZONE[crossing];
-      const nearCity = CROSSING_TO_WEEKLY_CITY[crossing] as WeeklyEmployersCity;
+      const nearCity = CROSSING_TO_WEEKLY_CITY[crossing];
+      const siblings = pickSiblingCrossings(crossing, 2);
+      // fuel/weekly are Ticino-only (Partial maps, undefined elsewhere —
+      // e.g. DE/AT/LI/FR corridors); fall back to the frontier guide +
+      // a 3rd sibling crossing instead of fabricating a nearest Ticino
+      // zone/city for a non-Ticino crossing.
       return [
-        { href: buildFuelTodayPath(fuelDailyLocale, 'diesel', fuelZone), title: copy.fuelToday(fuelLabel(locale, 'diesel'), zoneLabel(fuelZone)) },
-        { href: buildCurrentWeekPath(weeklyLocale, nearCity), title: copy.weeklyEmployers(cityDisplay(nearCity, locale)) },
-        { href: buildBorderOggiPath(borderLocale, pickSiblingCrossings(crossing, 1)[0]), title: copy.borderWaitCrossing(BORDER_CROSSING_DISPLAY[pickSiblingCrossings(crossing, 1)[0]]) },
-        { href: buildBorderOggiPath(borderLocale, pickSiblingCrossings(crossing, 2)[1]), title: copy.borderWaitCrossing(BORDER_CROSSING_DISPLAY[pickSiblingCrossings(crossing, 2)[1]]) },
+        ...(fuelZone
+          ? [{ href: buildFuelTodayPath(fuelDailyLocale, 'diesel', fuelZone), title: copy.fuelToday(fuelLabel(locale, 'diesel'), zoneLabel(fuelZone)) }]
+          : []),
+        ...(nearCity
+          ? [{ href: buildCurrentWeekPath(weeklyLocale, nearCity), title: copy.weeklyEmployers(cityDisplay(nearCity, locale)) }]
+          : [{ href: SALARY_HUB_PATH[locale], title: copy.salaryBenchmarks }]),
+        { href: buildBorderOggiPath(borderLocale, siblings[0]), title: copy.borderWaitCrossing(BORDER_CROSSING_DISPLAY[siblings[0]]) },
+        { href: buildBorderOggiPath(borderLocale, siblings[1]), title: copy.borderWaitCrossing(BORDER_CROSSING_DISPLAY[siblings[1]]) },
         { href: FRONTIER_GUIDE_PATH[locale], title: copy.frontierGuide },
       ];
     }

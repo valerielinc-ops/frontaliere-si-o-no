@@ -33,6 +33,7 @@ import { isFrenchBorderMunicipalityPath } from './frenchBorderMunicipalityData';
 import { isGermanBorderMunicipalityPath } from './germanBorderMunicipalityData';
 import { isLiechtensteinBorderMunicipalityPath } from './liechtensteinBorderMunicipalityData';
 import { isAustrianBorderMunicipalityPath } from './austrianBorderMunicipalityData';
+import { isBorderWaitPath } from './borderWaitData';
 
 type SupportedLocale = CantonLocale;
 
@@ -543,6 +544,26 @@ export function resolveSearchConsoleCompatTarget(
  // isHealthFacilityPath checks a module-load-precomputed Set (PATH_INDEX),
  // so this stays O(1) per call inside the 150k+-path compat loop.
  if (isHealthFacilityPath(path)) {
+ return {
+ canonicalPath: ensureTrailingSlash(path),
+ kind: 'legacy',
+ locale,
+ };
+ }
+
+ // Border-wait pages (borderWaitPagesPlugin.ts, issue #4889): every root
+ // hub, regional hub and per-crossing "today" page enumerated in
+ // build-plugins/borderWaitData.ts emits, on EVERY build, either a full
+ // indexable page (word count ≥ floor) or a noindex,follow below-floor
+ // bridge — always at the SAME canonical path. So a URL matching this
+ // family's exact enumerated shape always has a live target at the SAME
+ // path today, even if GSC's Coverage export captured it as 404 from
+ // before the page existed / was below floor on an earlier build (e.g. any
+ // of the 116 crossings that had live wait data but no page before this
+ // corridor rollout). isBorderWaitPath checks a module-load-precomputed
+ // Set (BORDER_WAIT_ROUTE_SET), so this stays O(1) per call inside the
+ // 150k+-path compat loop.
+ if (isBorderWaitPath(path)) {
  return {
  canonicalPath: ensureTrailingSlash(path),
  kind: 'legacy',
