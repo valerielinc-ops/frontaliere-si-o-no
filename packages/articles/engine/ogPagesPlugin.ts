@@ -17,6 +17,28 @@ import { isFaqQuestionHeading } from './shared/faqQuestionPrefixes';
 import { boostDescriptionForCtr } from './shared/ctrBoostDescription';
 import { ARTICLE_SECTION_DESCRIPTORS, extractBlogEntryPositions, blogKeyToArticleId } from './shared/articleSectionDescriptors';
 
+/**
+ * Empty SPA mount point, mirroring build-plugins/htmlTemplate.ts `rootShell`.
+ *
+ * Deliberately re-stated here instead of imported: this package is being split
+ * into its own repo (#4959), so its renderers must not reach back into
+ * build-plugins. It is also loaded inside the post-walk worker thread, where
+ * every extra edge in the import graph is a resolution risk.
+ *
+ * The article body is emitted as a `<main class="seo-static-content">` SIBLING of
+ * this shell rather than inside `#root`. Inside `#root` React destroys it on mount,
+ * so a bundle that fails to render leaves a blank page — which is exactly what
+ * happened when the out-of-band registry stranded the SPA (#4959). Outside it, the
+ * shard stays in the DOM and App.tsx's existing pre-paint toggle hides it once the
+ * SPA owns the view, the same contract every other static SEO page already uses
+ * (see /articoli-frontaliere/tutti/ in build-plugins/seoHubsPlugin.ts).
+ */
+function articleRootShell(hasSpaBundle: boolean): string {
+  return hasSpaBundle
+    ? '<div id="root"><div class="ft-hdr-reserve" aria-hidden="true"></div></div>'
+    : '<div id="root"></div>';
+}
+
 export interface RenderedArticleEntry {
  articleId: string;
  /** Locale -> path relative to distDir for the directory `index.html` (e.g. `articoli-frontaliere/<slug>/index.html`). */
@@ -1223,7 +1245,7 @@ ${headTags}
  ${OFFERWALL_FC_SNIPPET}
  </head>
  <body class="bg-surface-alt text-heading overflow-x-hidden">
- <div id="root"><main id="main-content"><article class="ft-blog-article"><h1>${esc(differentiateH1FromTitle(localizedTitle, htmlPageTitle, articleLocale))}</h1><p class="article-byline s-L_lk4l">Di ${en.authorSlug && en.authorName ? `<a href="/autori/${en.authorSlug}/" rel="author">${esc(en.authorName)}</a>` : esc(en.authorName || 'Redazione Frontaliere Ticino')} · ${buildDateByline(en.datePub || en.dateMod || todayIso, en.dateMod || en.datePub || todayIso, locale)}</p><p>${esc(localizedDesc)}</p>${articleBodyHtml}${visibleFaqHtml}${buildRelatedArticlesHtml(en.articleId, articleCategoryById[en.articleId] || '', locale)}<nav><a href="/">Simulatore Fiscale</a> | <a href="/compara-servizi/">Confronta Servizi</a> | <a href="/tasse-e-pensione/">Tasse e Pensione</a> | <a href="/guida-frontaliere/">Guida Frontaliere</a> | <a href="/domande-frequenti-frontalieri/">FAQ</a> | <a href="/glossario-frontaliere/">Glossario</a> | <a href="/${SECTION.indexSlug.it}/">Articoli</a></nav></article></main></div>
+ ${articleRootShell(true)}<main class="seo-static-content"><article class="ft-blog-article"><h1>${esc(differentiateH1FromTitle(localizedTitle, htmlPageTitle, articleLocale))}</h1><p class="article-byline s-L_lk4l">Di ${en.authorSlug && en.authorName ? `<a href="/autori/${en.authorSlug}/" rel="author">${esc(en.authorName)}</a>` : esc(en.authorName || 'Redazione Frontaliere Ticino')} · ${buildDateByline(en.datePub || en.dateMod || todayIso, en.dateMod || en.datePub || todayIso, locale)}</p><p>${esc(localizedDesc)}</p>${articleBodyHtml}${visibleFaqHtml}${buildRelatedArticlesHtml(en.articleId, articleCategoryById[en.articleId] || '', locale)}<nav><a href="/">Simulatore Fiscale</a> | <a href="/compara-servizi/">Confronta Servizi</a> | <a href="/tasse-e-pensione/">Tasse e Pensione</a> | <a href="/guida-frontaliere/">Guida Frontaliere</a> | <a href="/domande-frequenti-frontalieri/">FAQ</a> | <a href="/glossario-frontaliere/">Glossario</a> | <a href="/${SECTION.indexSlug.it}/">Articoli</a></nav></article></main>
  <script type="module" crossorigin fetchpriority="high" src="/assets/${entryJs}"></script>
  </body>
 </html>`;
@@ -1246,7 +1268,7 @@ ${headTags}
  ${OFFERWALL_FC_SNIPPET}
  </head>
  <body>
- <div id="root"><main id="main-content"><article class="ft-blog-article"><h1>${esc(differentiateH1FromTitle(localizedTitle, htmlPageTitle, articleLocale))}</h1><p>${esc(localizedDesc)}</p><nav><a href="/">Simulatore Fiscale</a> | <a href="/compara-servizi/">Confronta Servizi</a> | <a href="/tasse-e-pensione/">Tasse e Pensione</a> | <a href="/guida-frontaliere/">Guida Frontaliere</a> | <a href="/domande-frequenti-frontalieri/">FAQ</a> | <a href="/glossario-frontaliere/">Glossario</a> | <a href="/${SECTION.indexSlug.it}/">Articoli</a></nav></article></main></div>
+ ${articleRootShell(false)}<main class="seo-static-content"><article class="ft-blog-article"><h1>${esc(differentiateH1FromTitle(localizedTitle, htmlPageTitle, articleLocale))}</h1><p>${esc(localizedDesc)}</p><nav><a href="/">Simulatore Fiscale</a> | <a href="/compara-servizi/">Confronta Servizi</a> | <a href="/tasse-e-pensione/">Tasse e Pensione</a> | <a href="/guida-frontaliere/">Guida Frontaliere</a> | <a href="/domande-frequenti-frontalieri/">FAQ</a> | <a href="/glossario-frontaliere/">Glossario</a> | <a href="/${SECTION.indexSlug.it}/">Articoli</a></nav></article></main>
  </body>
 </html>`;
  };
