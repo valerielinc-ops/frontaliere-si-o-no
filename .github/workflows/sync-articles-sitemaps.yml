@@ -93,8 +93,12 @@ jobs:
           # in a dropped commit and the site kept serving the stale ones. The
           # failure is silent in the way that matters: the publisher is green,
           # the API is correct, and only the site is behind.
-          # --regenerate-cmd re-pulls after each rebase so the retry publishes
-          # what the API says *now* rather than replaying a stale snapshot.
+          # --regenerate-cmd re-pulls when a rebase CONFLICTS, so the retry
+          # publishes what the API says then rather than replaying a snapshot
+          # that lost. A clean rebase reapplies the commit as-is and never runs
+          # it — which is correct, there is nothing to redo.
+          # Attempt count left at the helper's default (40): its own header
+          # records 25 being exhausted on this repo (#4557), and this job races
+          # the same writers.
           bash scripts/lib/git-push-with-retry.sh \
-            --max-attempts 8 \
             --regenerate-cmd "node scripts/pull-articles-api.mjs && git add -- ${FILES[*]}"
