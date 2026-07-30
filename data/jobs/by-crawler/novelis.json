@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "novelis-c7cf8d2f877c",
-      "slug": "electricien-automaticien-novelis-ch",
+      "slug": "elettricista-automatico-novelis-sierre",
       "slugByLocale": {
         "fr": "electricien-automaticien-novelis-ch",
-        "it": "electricien-automaticien-novelis-ch",
-        "en": "electricien-automaticien-novelis-ch",
-        "de": "electricien-automaticien-novelis-ch"
+        "it": "elettricista-automatico-novelis-sierre",
+        "en": "electrician-automatician-novelis-sierre",
+        "de": "elektriker-automatiker-novelis-sierre"
       },
       "company": "Novelis",
       "companyKey": "novelis",
@@ -69,19 +69,27 @@
         "it": [
           "elettricista-automatico-novelis-sierre",
           "electrician-automatician-novelis-sierre",
-          "elektriker-automatiker-novelis-sierre"
+          "elektriker-automatiker-novelis-sierre",
+          "electrician-automatician-novelis-sierre",
+          "elektriker-automatiker-novelis-sierre",
+          "electricien-automaticien-novelis-ch"
         ],
         "en": [
-          "electrician-automatician-novelis-sierre"
+          "electrician-automatician-novelis-sierre",
+          "electricien-automaticien-novelis-ch"
         ],
         "de": [
-          "elektriker-automatiker-novelis-sierre"
+          "elektriker-automatiker-novelis-sierre",
+          "electricien-automaticien-novelis-ch"
         ]
       },
       "previousSlugs": [
         "elettricista-automatico-novelis-sierre",
         "electrician-automatician-novelis-sierre",
-        "elektriker-automatiker-novelis-sierre"
+        "elektriker-automatiker-novelis-sierre",
+        "electrician-automatician-novelis-sierre",
+        "elektriker-automatiker-novelis-sierre",
+        "electricien-automaticien-novelis-ch"
       ]
     },
     {
@@ -133,13 +141,11 @@
       "sourceLang": "en",
       "crawledAt": "2026-07-30T11:18:11.525Z",
       "previousSlugs": [
-        "plant-hr-manager-f-m-d-novelis-ch",
-        "plant-risorse-umane-manager-f-m-d-novelis-sierre"
+        "plant-hr-manager-f-m-d-novelis-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "plant-hr-manager-f-m-d-novelis-ch",
-          "plant-risorse-umane-manager-f-m-d-novelis-sierre"
+          "plant-hr-manager-f-m-d-novelis-ch"
         ],
         "de": [
           "plant-hr-manager-f-m-d-novelis-ch"
@@ -217,8 +223,7 @@
         "intern-visual-communication-novelis-sierre",
         "interne-visuelle-kommunikation-novelis-sierre",
         "stagiaire-communication-visuelle-novelis-ch",
-        "stagiaire-novelis-ch",
-        "allenatore-novelis-sierre"
+        "stagiaire-novelis-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -228,8 +233,7 @@
           "intern-visual-communication-novelis-sierre",
           "interne-visuelle-kommunikation-novelis-sierre",
           "stagiaire-communication-visuelle-novelis-ch",
-          "stagiaire-novelis-ch",
-          "allenatore-novelis-sierre"
+          "stagiaire-novelis-ch"
         ],
         "en": [
           "stagiaire-novelis-ch"
@@ -301,13 +305,11 @@
       "sourceLang": "en",
       "crawledAt": "2026-07-30T11:18:10.089Z",
       "previousSlugs": [
-        "internship-m-f-d-human-resources-60-80-novelis-ch",
-        "internship-m-f-d-risorse-umane-60-80-novelis-kusnacht"
+        "internship-m-f-d-human-resources-60-80-novelis-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "internship-m-f-d-human-resources-60-80-novelis-ch",
-          "internship-m-f-d-risorse-umane-60-80-novelis-kusnacht"
+          "internship-m-f-d-human-resources-60-80-novelis-ch"
         ],
         "de": [
           "internship-m-f-d-human-resources-60-80-novelis-ch"
@@ -383,15 +385,13 @@
         "manager-m-f-d-finanza-digital-transformation-business-projects-novelis-kusnacht",
         "manager-m-f-d-finanzen-digital-transformation-business-projects-novelis-kusnacht",
         "gestionnaire-m-f-d-finances-transformation-numerique-et-projets-operationnels-novelis-kusnacht",
-        "finance-lead-m-f-d-digital-transformation-business-projects-novelis-ch",
-        "finanza-lead-m-f-d-digital-transformation-business-projects-novelis-kusnacht"
+        "finance-lead-m-f-d-digital-transformation-business-projects-novelis-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "manager-m-f-d-finance-digital-transformation-business-projects-novelis-ch",
           "manager-m-f-d-finanza-digital-transformation-business-projects-novelis-kusnacht",
-          "finance-lead-m-f-d-digital-transformation-business-projects-novelis-ch",
-          "finanza-lead-m-f-d-digital-transformation-business-projects-novelis-kusnacht"
+          "finance-lead-m-f-d-digital-transformation-business-projects-novelis-ch"
         ],
         "en": [
           "manager-m-f-d-finance-digital-transformation-business-projects-novelis-ch"
@@ -470,15 +470,13 @@
       "previousSlugs": [
         "intern-visual-communication-novelis-sierre",
         "interne-visuelle-kommunikation-novelis-sierre",
-        "stagiaire-communication-visuelle-novelis-ch",
-        "intern-comunicazione-visiva-novelis-sierre"
+        "stagiaire-communication-visuelle-novelis-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "intern-visual-communication-novelis-sierre",
           "interne-visuelle-kommunikation-novelis-sierre",
-          "stagiaire-communication-visuelle-novelis-ch",
-          "intern-comunicazione-visiva-novelis-sierre"
+          "stagiaire-communication-visuelle-novelis-ch"
         ],
         "en": [
           "stagiaire-communication-visuelle-novelis-ch"
@@ -550,13 +548,11 @@
       "sourceLang": "fr",
       "crawledAt": "2026-07-30T11:18:07.548Z",
       "previousSlugs": [
-        "mecanicien-de-maintenance-novelis-ch",
-        "ingegnere-di-manutenzione-novelis-sierre"
+        "mecanicien-de-maintenance-novelis-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mecanicien-de-maintenance-novelis-ch",
-          "ingegnere-di-manutenzione-novelis-sierre"
+          "mecanicien-de-maintenance-novelis-ch"
         ],
         "en": [
           "mecanicien-de-maintenance-novelis-ch"
@@ -628,13 +624,11 @@
       "sourceLang": "en",
       "crawledAt": "2026-07-30T11:18:06.651Z",
       "previousSlugs": [
-        "it-solutions-lead-m-w-d-novelis-ch",
-        "soluzioni-it-piombo-m-w-d-novelis-ticino"
+        "it-solutions-lead-m-w-d-novelis-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "it-solutions-lead-m-w-d-novelis-ch",
-          "soluzioni-it-piombo-m-w-d-novelis-ticino"
+          "it-solutions-lead-m-w-d-novelis-ch"
         ],
         "fr": [
           "it-solutions-lead-m-w-d-novelis-ch"
@@ -703,13 +697,11 @@
       "sourceLang": "en",
       "crawledAt": "2026-07-30T11:18:05.490Z",
       "previousSlugs": [
-        "senior-global-event-specialist-m-f-d-novelis-ch",
-        "senior-global-event-specialista-m-f-d-novelis-kusnacht-de-bw-stuttgart"
+        "senior-global-event-specialist-m-f-d-novelis-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-global-event-specialist-m-f-d-novelis-ch",
-          "senior-global-event-specialista-m-f-d-novelis-kusnacht-de-bw-stuttgart"
+          "senior-global-event-specialist-m-f-d-novelis-ch"
         ],
         "de": [
           "senior-global-event-specialist-m-f-d-novelis-ch"

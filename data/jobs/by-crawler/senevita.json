@@ -8,8 +8,8 @@
       "slugByLocale": {
         "de": "lehrstelle-fachfrau-mann-gesundheit-efz-multengut-senevita-be-muri-b-bern",
         "it": "apprendistato-fachfrau-mann-gesundheit-cfc-multengut-senevita-be-muri-b-bern",
-        "en": "lehrstelle-fachfrau-mann-gesundheit-efz-multengut-senevita-be-muri-b-bern",
-        "fr": "lehrstelle-fachfrau-mann-gesundheit-efz-multengut-senevita-be-muri-b-bern"
+        "en": "apprenticeship-specialist-health-efz-multengut-senevita-be-muri-b",
+        "fr": "specialiste-de-l-apprentissage-sante-efz-multengut-senevita-be-muri-b"
       },
       "company": "Senevita",
       "companyKey": "senevita",
@@ -55,6 +55,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "lehrstelle-fachfrau-mann-gesundheit-efz-multengut-senevita-be-muri-b-bern"
+        ],
+        "en": [
+          "lehrstelle-fachfrau-mann-gesundheit-efz-multengut-senevita-be-muri-b-bern"
+        ],
+        "fr": [
           "lehrstelle-fachfrau-mann-gesundheit-efz-multengut-senevita-be-muri-b-bern"
         ]
       },
@@ -129,7 +135,7 @@
           "lehrstelle-fachfrau-mann-gesundheit-efz-senevita-seengen-ag",
           "lehrstelle-fachfrau-mann-gesundheit-efz-senevita-munsingen-be",
           "lehrstelle-fachfrau-mann-gesundheit-efz-senevita-be-ittigen",
-          "lehrstelle-fachfrau-mann-gesundheit-efz-senevita-ittigen-be",
+          "lehrstelle-fachfrau-mann-gesundheit-efz-senevita-be-munsingen",
           "lehrstelle-fachfrau-mann-gesundheit-efz-senevita-be-munsingen"
         ],
         "it": [
@@ -141,7 +147,7 @@
           "lehrstelle-fachfrau-mann-gesundheit-efz-senevita-munsingen-be",
           "apprendistato-fachfrau-mann-gesundheit-cfc-senevita-munsingen-be",
           "lehrstelle-fachfrau-mann-gesundheit-efz-senevita-be-ittigen",
-          "apprendistato-fachfrau-mann-gesundheit-cfc-senevita-ittigen-be",
+          "lehrstelle-fachfrau-mann-gesundheit-efz-senevita-be-munsingen",
           "lehrstelle-fachfrau-mann-gesundheit-efz-senevita-be-munsingen"
         ],
         "en": [
@@ -168,7 +174,7 @@
         "apprenticeship-professional-health-efz-senevita-munsingen-be",
         "apprentissage-sante-professionnelle-efz-senevita-munsingen-be",
         "lehrstelle-fachfrau-mann-gesundheit-efz-senevita-be-ittigen",
-        "apprendistato-fachfrau-mann-gesundheit-cfc-senevita-ittigen-be",
+        "lehrstelle-fachfrau-mann-gesundheit-efz-senevita-be-munsingen",
         "lehrstelle-fachfrau-mann-gesundheit-efz-senevita-be-munsingen"
       ],
       "firstSeenAt": "2026-07-18T22:33:06.132Z",
@@ -236,13 +242,11 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "lehrstelle-fachfrau-mann-gesundheit-efz-senevita-ag-seengen",
-          "lehrstelle-fachfrau-mann-gesundheit-efz-senevita-seengen-ag"
+          "lehrstelle-fachfrau-mann-gesundheit-efz-senevita-ag-seengen"
         ],
         "it": [
           "lehrstelle-fachfrau-mann-gesundheit-efz-senevita-seengen-ag",
-          "lehrstelle-fachfrau-mann-gesundheit-efz-senevita-ag-seengen",
-          "apprendistato-fachfrau-mann-gesundheit-cfc-senevita-seengen-ag"
+          "lehrstelle-fachfrau-mann-gesundheit-efz-senevita-ag-seengen"
         ],
         "en": [
           "lehrstelle-fachfrau-mann-gesundheit-efz-senevita-seengen-ag"
@@ -253,8 +257,7 @@
       },
       "previousSlugs": [
         "lehrstelle-fachfrau-mann-gesundheit-efz-senevita-seengen-ag",
-        "lehrstelle-fachfrau-mann-gesundheit-efz-senevita-ag-seengen",
-        "apprendistato-fachfrau-mann-gesundheit-cfc-senevita-seengen-ag"
+        "lehrstelle-fachfrau-mann-gesundheit-efz-senevita-ag-seengen"
       ],
       "firstSeenAt": "2026-07-17T22:02:25.150Z",
       "salaryMin": 58000,
@@ -323,8 +326,7 @@
         "de": [
           "lehrstelle-fachfrau-mann-gesundheit-efz-senevita-seengen-ag",
           "lehrstelle-fachfrau-mann-gesundheit-efz-senevita-ittigen-be",
-          "lehrstelle-fachfrau-mann-gesundheit-efz-senevita-be-munsingen",
-          "lehrstelle-fachfrau-mann-gesundheit-efz-senevita-munsingen-be"
+          "lehrstelle-fachfrau-mann-gesundheit-efz-senevita-be-munsingen"
         ],
         "it": [
           "lehrstelle-fachfrau-mann-gesundheit-efz-senevita-munsingen-be",
@@ -334,8 +336,7 @@
           "lehrstelle-fachfrau-mann-gesundheit-efz-senevita-seengen-ag",
           "apprentissage-sante-professionnelle-efz-senevita-seengen-ag",
           "apprendistato-fachfrau-mann-gesundheit-cfc-senevita-ittigen-be",
-          "lehrstelle-fachfrau-mann-gesundheit-efz-senevita-be-munsingen",
-          "apprendistato-fachfrau-mann-gesundheit-cfc-senevita-munsingen-be"
+          "lehrstelle-fachfrau-mann-gesundheit-efz-senevita-be-munsingen"
         ],
         "en": [
           "lehrstelle-fachfrau-mann-gesundheit-efz-senevita-munsingen-be",
@@ -360,8 +361,7 @@
         "apprendistato-fachfrau-mann-gesundheit-cfc-senevita-ittigen-be",
         "apprenticeship-professional-health-efz-senevita-ittigen-be",
         "apprentissage-sante-professionnelle-efz-senevita-ittigen-be",
-        "lehrstelle-fachfrau-mann-gesundheit-efz-senevita-be-munsingen",
-        "apprendistato-fachfrau-mann-gesundheit-cfc-senevita-munsingen-be"
+        "lehrstelle-fachfrau-mann-gesundheit-efz-senevita-be-munsingen"
       ],
       "firstSeenAt": "2026-07-09T12:19:40.223Z",
       "salaryMin": 66000,
@@ -428,13 +428,11 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "lehrstelle-assistent-in-gesundheit-soziales-eba-senevita-ag-seengen",
-          "lehrstelle-assistent-in-gesundheit-soziales-eba-senevita-seengen-ag"
+          "lehrstelle-assistent-in-gesundheit-soziales-eba-senevita-ag-seengen"
         ],
         "it": [
           "lehrstelle-assistent-in-gesundheit-soziales-eba-senevita-seengen-ag",
-          "lehrstelle-assistent-in-gesundheit-soziales-eba-senevita-ag-seengen",
-          "apprendistato-assistent-in-gesundheit-soziales-afp-senevita-seengen-ag"
+          "lehrstelle-assistent-in-gesundheit-soziales-eba-senevita-ag-seengen"
         ],
         "en": [
           "lehrstelle-assistent-in-gesundheit-soziales-eba-senevita-seengen-ag"
@@ -445,8 +443,7 @@
       },
       "previousSlugs": [
         "lehrstelle-assistent-in-gesundheit-soziales-eba-senevita-seengen-ag",
-        "lehrstelle-assistent-in-gesundheit-soziales-eba-senevita-ag-seengen",
-        "apprendistato-assistent-in-gesundheit-soziales-afp-senevita-seengen-ag"
+        "lehrstelle-assistent-in-gesundheit-soziales-eba-senevita-ag-seengen"
       ],
       "firstSeenAt": "2026-07-27T12:44:52.162Z",
       "salaryMin": 58000,
@@ -513,13 +510,11 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "lehrstelle-assistent-in-gesundheit-und-soziales-eba-senevita-ag-hagglingen",
-          "lehrstelle-assistent-in-gesundheit-und-soziales-eba-senevita-hagglingen-ag"
+          "lehrstelle-assistent-in-gesundheit-und-soziales-eba-senevita-ag-hagglingen"
         ],
         "it": [
           "lehrstelle-assistent-in-gesundheit-und-soziales-eba-senevita-hagglingen-ag",
-          "lehrstelle-assistent-in-gesundheit-und-soziales-eba-senevita-ag-hagglingen",
-          "apprendistato-assistent-in-gesundheit-e-soziales-afp-senevita-hagglingen-ag"
+          "lehrstelle-assistent-in-gesundheit-und-soziales-eba-senevita-ag-hagglingen"
         ],
         "en": [
           "lehrstelle-assistent-in-gesundheit-und-soziales-eba-senevita-hagglingen-ag"
@@ -530,8 +525,7 @@
       },
       "previousSlugs": [
         "lehrstelle-assistent-in-gesundheit-und-soziales-eba-senevita-hagglingen-ag",
-        "lehrstelle-assistent-in-gesundheit-und-soziales-eba-senevita-ag-hagglingen",
-        "apprendistato-assistent-in-gesundheit-e-soziales-afp-senevita-hagglingen-ag"
+        "lehrstelle-assistent-in-gesundheit-und-soziales-eba-senevita-ag-hagglingen"
       ],
       "firstSeenAt": "2026-07-08T22:23:51.050Z",
       "salaryMin": 58000,
@@ -599,8 +593,7 @@
       "previousSlugsByLocale": {
         "de": [
           "lehrstelle-assistent-in-gesundheit-und-soziales-eba-senevita-hagglingen-ag",
-          "lehrstelle-assistent-in-gesundheit-und-soziales-eba-senevita-be-ittigen",
-          "lehrstelle-assistent-in-gesundheit-und-soziales-eba-senevita-ittigen-be"
+          "lehrstelle-assistent-in-gesundheit-und-soziales-eba-senevita-be-ittigen"
         ],
         "it": [
           "lehrstelle-assistent-in-gesundheit-und-soziales-eba-senevita-ittigen-be",
@@ -608,8 +601,7 @@
           "assistant-in-health-and-social-affairs-eba-senevita-hagglingen-ag",
           "lehrstelle-assistent-in-gesundheit-und-soziales-eba-senevita-hagglingen-ag",
           "assistant-en-sante-et-affaires-sociales-eba-senevita-hagglingen-ag",
-          "lehrstelle-assistent-in-gesundheit-und-soziales-eba-senevita-be-ittigen",
-          "apprendistato-assistent-in-gesundheit-e-soziales-afp-senevita-ittigen-be"
+          "lehrstelle-assistent-in-gesundheit-und-soziales-eba-senevita-be-ittigen"
         ],
         "en": [
           "lehrstelle-assistent-in-gesundheit-und-soziales-eba-senevita-ittigen-be",
@@ -626,8 +618,7 @@
         "assistant-in-health-and-social-affairs-eba-senevita-hagglingen-ag",
         "lehrstelle-assistent-in-gesundheit-und-soziales-eba-senevita-hagglingen-ag",
         "assistant-en-sante-et-affaires-sociales-eba-senevita-hagglingen-ag",
-        "lehrstelle-assistent-in-gesundheit-und-soziales-eba-senevita-be-ittigen",
-        "apprendistato-assistent-in-gesundheit-e-soziales-afp-senevita-ittigen-be"
+        "lehrstelle-assistent-in-gesundheit-und-soziales-eba-senevita-be-ittigen"
       ],
       "firstSeenAt": "2026-06-15T15:34:49.591Z",
       "salaryMin": 66000,
@@ -694,13 +685,11 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "lehrstelle-assistent-in-gesundheit-soziales-eba-senevita-be-munsingen",
-          "lehrstelle-assistent-in-gesundheit-soziales-eba-senevita-munsingen-be"
+          "lehrstelle-assistent-in-gesundheit-soziales-eba-senevita-be-munsingen"
         ],
         "it": [
           "lehrstelle-assistent-in-gesundheit-soziales-eba-senevita-munsingen-be",
-          "lehrstelle-assistent-in-gesundheit-soziales-eba-senevita-be-munsingen",
-          "apprendistato-assistent-in-gesundheit-soziales-afp-senevita-munsingen-be"
+          "lehrstelle-assistent-in-gesundheit-soziales-eba-senevita-be-munsingen"
         ],
         "en": [
           "lehrstelle-assistent-in-gesundheit-soziales-eba-senevita-munsingen-be"
@@ -711,8 +700,7 @@
       },
       "previousSlugs": [
         "lehrstelle-assistent-in-gesundheit-soziales-eba-senevita-munsingen-be",
-        "lehrstelle-assistent-in-gesundheit-soziales-eba-senevita-be-munsingen",
-        "apprendistato-assistent-in-gesundheit-soziales-afp-senevita-munsingen-be"
+        "lehrstelle-assistent-in-gesundheit-soziales-eba-senevita-be-munsingen"
       ],
       "firstSeenAt": "2026-06-23T12:38:02.233Z",
       "salaryMin": 66000,
@@ -801,19 +789,16 @@
       },
       "previousSlugsByLocale": {
         "de": [
-          "lehrstelle-assistent-gesundheit-und-soziales-eba-senevita-be-lenk",
-          "lehrstelle-assistent-gesundheit-und-soziales-eba-senevita-lenk-be"
+          "lehrstelle-assistent-gesundheit-und-soziales-eba-senevita-be-lenk"
         ],
         "it": [
           "lehrstelle-assistent-gesundheit-und-soziales-eba-senevita-lenk-be",
-          "lehrstelle-assistent-gesundheit-und-soziales-eba-senevita-be-lenk",
-          "apprendistato-assistente-alla-salute-e-al-sociale-eba-senevita-lenk-be"
+          "lehrstelle-assistent-gesundheit-und-soziales-eba-senevita-be-lenk"
         ]
       },
       "previousSlugs": [
         "lehrstelle-assistent-gesundheit-und-soziales-eba-senevita-lenk-be",
-        "lehrstelle-assistent-gesundheit-und-soziales-eba-senevita-be-lenk",
-        "apprendistato-assistente-alla-salute-e-al-sociale-eba-senevita-lenk-be"
+        "lehrstelle-assistent-gesundheit-und-soziales-eba-senevita-be-lenk"
       ],
       "firstSeenAt": "2026-05-19T12:21:34.668Z",
       "salaryMin": 66000,
@@ -881,8 +866,7 @@
       "previousSlugsByLocale": {
         "de": [
           "lehrstelle-fachmann-frau-betriebsunterhalt-efz-senevita-wohlen-ag",
-          "lehrstelle-als-fachmann-frau-hotellerie-hauswirtschaft-senevita-ag-wohlen",
-          "lehrstelle-als-fachmann-frau-hotellerie-hauswirtschaft-senevita-wohlen-ag"
+          "lehrstelle-als-fachmann-frau-hotellerie-hauswirtschaft-senevita-ag-wohlen"
         ],
         "it": [
           "lehrstelle-als-fachmann-frau-hotellerie-hauswirtschaft-senevita-wohlen-ag",
@@ -890,8 +874,7 @@
           "apprenticeship-professional-female-maintenance-efz-senevita-wohlen-ag",
           "lehrstelle-fachmann-frau-betriebsunterhalt-efz-senevita-wohlen-ag",
           "apprentissage-professional-female-maintenance-efz-senevita-wohlen-ag",
-          "lehrstelle-als-fachmann-frau-hotellerie-hauswirtschaft-senevita-ag-wohlen",
-          "apprendistato-come-fachmann-frau-hotellerie-hauswirtschaft-senevita-wohlen-ag"
+          "lehrstelle-als-fachmann-frau-hotellerie-hauswirtschaft-senevita-ag-wohlen"
         ],
         "en": [
           "apprenticeship-professional-female-maintenance-efz-senevita-wohlen-ag",
@@ -911,8 +894,7 @@
         "lehrstelle-fachmann-frau-betriebsunterhalt-efz-senevita-wohlen-ag",
         "apprentissage-professional-female-maintenance-efz-senevita-wohlen-ag",
         "apprenticeship-as-an-expert-woman-hotel-industry-senevita-wohlen-ag",
-        "lehrstelle-als-fachmann-frau-hotellerie-hauswirtschaft-senevita-ag-wohlen",
-        "apprendistato-come-fachmann-frau-hotellerie-hauswirtschaft-senevita-wohlen-ag"
+        "lehrstelle-als-fachmann-frau-hotellerie-hauswirtschaft-senevita-ag-wohlen"
       ],
       "firstSeenAt": "2026-06-16T23:43:25.541Z",
       "salaryMin": 52000,
@@ -930,12 +912,12 @@
     },
     {
       "id": "senevita-d4ffe8ba1fea",
-      "slug": "koch-kochin-80-senevita-be-muri-b-bern",
+      "slug": "cuocere-cancellare-80-senevita-be-muri-b",
       "slugByLocale": {
         "de": "koch-kochin-80-senevita-be-muri-b-bern",
-        "it": "koch-kochin-80-senevita-be-muri-b-bern",
-        "en": "koch-kochin-80-senevita-be-muri-b-bern",
-        "fr": "koch-kochin-80-senevita-be-muri-b-bern"
+        "it": "cuocere-cancellare-80-senevita-be-muri-b",
+        "en": "cook-culinary-80-senevita-be-muri-b",
+        "fr": "cuisson-culinaire-80-senevita-be-muri-b"
       },
       "company": "Senevita",
       "companyKey": "senevita",
@@ -991,7 +973,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-30T11:30:14.913Z"
+      "firstSeenAt": "2026-07-30T11:30:14.913Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "koch-kochin-80-senevita-be-muri-b-bern"
+        ],
+        "en": [
+          "koch-kochin-80-senevita-be-muri-b-bern"
+        ],
+        "fr": [
+          "koch-kochin-80-senevita-be-muri-b-bern"
+        ]
+      },
+      "previousSlugs": [
+        "koch-kochin-80-senevita-be-muri-b-bern"
+      ]
     },
     {
       "id": "senevita-bed119a5de53",
@@ -1044,14 +1040,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "inhouse-spitex-fachverantwortung-80-100-w-m-senevita-regensdorf-zh",
-        "inhouse-spitex-stellvertretende-fachverantwortung-60-80-w-m-schwerpunkt-fruhdienst",
-        "inhouse-spitex-responsabilita-professionale-80-100-f-m-senevita-regensdorf-zh"
+        "inhouse-spitex-stellvertretende-fachverantwortung-60-80-w-m-schwerpunkt-fruhdienst"
       ],
       "previousSlugsByLocale": {
         "it": [
           "inhouse-spitex-fachverantwortung-80-100-w-m-senevita-regensdorf-zh",
-          "inhouse-spitex-stellvertretende-fachverantwortung-60-80-w-m-schwerpunkt-fruhdienst",
-          "inhouse-spitex-responsabilita-professionale-80-100-f-m-senevita-regensdorf-zh"
+          "inhouse-spitex-stellvertretende-fachverantwortung-60-80-w-m-schwerpunkt-fruhdienst"
         ],
         "en": [
           "inhouse-spitex-fachverantwortung-80-100-w-m-senevita-regensdorf-zh"
@@ -1128,21 +1122,17 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "infirmiere-er-hes-en-soins-a-domicile-senevita-senevita-casa-vaud",
-        "krankenschwester-in-home-care-senevita-senevita-casa-vaud",
-        "infermiera-nella-cura-della-casa-senevita-senevita-casa-vaud",
         "infirmiere-er-hes-en-soins-a-domicile-senevita-casa-vaud"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "infirmiere-er-hes-en-soins-a-domicile-senevita-senevita-casa-vaud",
-          "infermiera-nella-cura-della-casa-senevita-senevita-casa-vaud"
+          "infirmiere-er-hes-en-soins-a-domicile-senevita-senevita-casa-vaud"
         ],
         "en": [
           "infirmiere-er-hes-en-soins-a-domicile-senevita-senevita-casa-vaud"
         ],
         "de": [
           "infirmiere-er-hes-en-soins-a-domicile-senevita-senevita-casa-vaud",
-          "krankenschwester-in-home-care-senevita-senevita-casa-vaud",
           "infirmiere-er-hes-en-soins-a-domicile-senevita-casa-vaud"
         ]
       },
@@ -1210,13 +1200,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "infirmier-ere-referent-e-a-80-100-senevita-fribourg",
-        "infermiera-di-riferimento-80-100-senevita-fribourg"
+        "infirmier-ere-referent-e-a-80-100-senevita-fribourg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "infirmier-ere-referent-e-a-80-100-senevita-fribourg",
-          "infermiera-di-riferimento-80-100-senevita-fribourg"
+          "infirmier-ere-referent-e-a-80-100-senevita-fribourg"
         ],
         "en": [
           "infirmier-ere-referent-e-a-80-100-senevita-fribourg"
@@ -1290,13 +1278,11 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "it": [
-          "infermiera-e-dipl-50-100-regione-luganese-senevita-ti-lugano",
-          "infermiera-e-dipl-50-100-regione-luganese-senevita-lugano-ti"
+          "infermiera-e-dipl-50-100-regione-luganese-senevita-ti-lugano"
         ]
       },
       "previousSlugs": [
-        "infermiera-e-dipl-50-100-regione-luganese-senevita-ti-lugano",
-        "infermiera-e-dipl-50-100-regione-luganese-senevita-lugano-ti"
+        "infermiera-e-dipl-50-100-regione-luganese-senevita-ti-lugano"
       ],
       "firstSeenAt": "2026-06-11T13:28:46.238Z",
       "salaryMin": 49500,
@@ -1363,13 +1349,11 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "geschaftsfuhrer-in-80-100-senevita-be-lenk",
-          "geschaftsfuhrer-in-80-100-senevita-lenk-be"
+          "geschaftsfuhrer-in-80-100-senevita-be-lenk"
         ],
         "it": [
           "geschaftsfuhrer-in-80-100-senevita-lenk-be",
-          "geschaftsfuhrer-in-80-100-senevita-be-lenk",
-          "amministratore-delegato-in-80-100-senevita-lenk-be"
+          "geschaftsfuhrer-in-80-100-senevita-be-lenk"
         ],
         "en": [
           "geschaftsfuhrer-in-80-100-senevita-lenk-be"
@@ -1380,8 +1364,7 @@
       },
       "previousSlugs": [
         "geschaftsfuhrer-in-80-100-senevita-lenk-be",
-        "geschaftsfuhrer-in-80-100-senevita-be-lenk",
-        "amministratore-delegato-in-80-100-senevita-lenk-be"
+        "geschaftsfuhrer-in-80-100-senevita-be-lenk"
       ],
       "firstSeenAt": "2026-07-22T22:30:08.778Z",
       "salaryMin": 94500,
@@ -1448,13 +1431,11 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "geschaftsfuhrer-in-100-senevita-bs-basel",
-          "geschaftsfuhrer-in-100-senevita-basel-bs"
+          "geschaftsfuhrer-in-100-senevita-bs-basel"
         ],
         "it": [
           "geschaftsfuhrer-in-100-senevita-basel-bs",
-          "geschaftsfuhrer-in-100-senevita-bs-basel",
-          "amministratore-delegato-al-100-senevita-basel-bs"
+          "geschaftsfuhrer-in-100-senevita-bs-basel"
         ],
         "en": [
           "geschaftsfuhrer-in-100-senevita-basel-bs"
@@ -1465,8 +1446,7 @@
       },
       "previousSlugs": [
         "geschaftsfuhrer-in-100-senevita-basel-bs",
-        "geschaftsfuhrer-in-100-senevita-bs-basel",
-        "amministratore-delegato-al-100-senevita-basel-bs"
+        "geschaftsfuhrer-in-100-senevita-bs-basel"
       ],
       "firstSeenAt": "2026-07-28T22:15:03.789Z",
       "salaryMin": 85500,
@@ -1534,8 +1514,7 @@
       "previousSlugsByLocale": {
         "de": [
           "leiter-in-bildung-80-100-m-w-d-senevita-muri-be",
-          "facility-manager-in-100-senevita-be-muri-b-bern",
-          "facility-manager-in-100-senevita-muri-be"
+          "facility-manager-in-100-senevita-be-muri-b-bern"
         ],
         "it": [
           "facility-manager-in-100-senevita-muri-be",
@@ -1543,8 +1522,7 @@
           "leiter-in-bildung-80-100-m-w-d-senevita-muri-be",
           "head-of-education-80-100-m-f-d-senevita-muri-be",
           "chef-de-l-education-80-100-m-f-d-senevita-muri-be",
-          "facility-manager-in-100-senevita-be-muri-b-bern",
-          "responsabile-della-struttura-al-100-senevita-muri-be"
+          "facility-manager-in-100-senevita-be-muri-b-bern"
         ],
         "en": [
           "head-of-education-80-100-m-f-d-senevita-muri-be"
@@ -1560,8 +1538,7 @@
         "leiter-in-bildung-80-100-m-w-d-senevita-muri-be",
         "head-of-education-80-100-m-f-d-senevita-muri-be",
         "chef-de-l-education-80-100-m-f-d-senevita-muri-be",
-        "facility-manager-in-100-senevita-be-muri-b-bern",
-        "responsabile-della-struttura-al-100-senevita-muri-be"
+        "facility-manager-in-100-senevita-be-muri-b-bern"
       ],
       "firstSeenAt": "2026-06-30T12:50:49.965Z",
       "salaryMin": 94500,
@@ -1628,13 +1605,11 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "fachverantwortliche-r-60-100-senevita-be-zollikofen",
-          "fachverantwortliche-r-60-100-senevita-zollikofen-be"
+          "fachverantwortliche-r-60-100-senevita-be-zollikofen"
         ],
         "it": [
           "fachverantwortliche-r-60-100-senevita-zollikofen-be",
-          "fachverantwortliche-r-60-100-senevita-be-zollikofen",
-          "responsabile-professionale-60-100-senevita-zollikofen-be"
+          "fachverantwortliche-r-60-100-senevita-be-zollikofen"
         ],
         "en": [
           "fachverantwortliche-r-60-100-senevita-zollikofen-be"
@@ -1645,8 +1620,7 @@
       },
       "previousSlugs": [
         "fachverantwortliche-r-60-100-senevita-zollikofen-be",
-        "fachverantwortliche-r-60-100-senevita-be-zollikofen",
-        "responsabile-professionale-60-100-senevita-zollikofen-be"
+        "fachverantwortliche-r-60-100-senevita-be-zollikofen"
       ],
       "firstSeenAt": "2026-07-29T11:41:32.045Z",
       "salaryMin": 94500,
@@ -1713,13 +1687,11 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "fachperson-gesundheit-efz-im-stunden-oder-monatslohn-40-100-region-zug-spitex-senevita-zg",
-          "fachperson-gesundheit-efz-im-stunden-oder-monatslohn-40-100-region-zug-spitex-senevita-zug"
+          "fachperson-gesundheit-efz-im-stunden-oder-monatslohn-40-100-region-zug-spitex-senevita-zg"
         ],
         "it": [
           "fachperson-gesundheit-efz-im-stunden-oder-monatslohn-40-100-region-zug-spitex-senevita-zug",
-          "fachperson-gesundheit-efz-im-stunden-oder-monatslohn-40-100-region-zug-spitex-senevita-zg",
-          "fachperson-gesundheit-cfc-im-stunden-o-monatslohn-40-100-region-zug-spitex-senevita-zug-zg"
+          "fachperson-gesundheit-efz-im-stunden-oder-monatslohn-40-100-region-zug-spitex-senevita-zg"
         ],
         "en": [
           "fachperson-gesundheit-efz-im-stunden-oder-monatslohn-40-100-region-zug-spitex-senevita-zug"
@@ -1730,8 +1702,7 @@
       },
       "previousSlugs": [
         "fachperson-gesundheit-efz-im-stunden-oder-monatslohn-40-100-region-zug-spitex-senevita-zug",
-        "fachperson-gesundheit-efz-im-stunden-oder-monatslohn-40-100-region-zug-spitex-senevita-zg",
-        "fachperson-gesundheit-cfc-im-stunden-o-monatslohn-40-100-region-zug-spitex-senevita-zug-zg"
+        "fachperson-gesundheit-efz-im-stunden-oder-monatslohn-40-100-region-zug-spitex-senevita-zg"
       ],
       "firstSeenAt": "2026-05-29T13:52:02.592Z",
       "salaryMin": 69500,
@@ -1798,14 +1769,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "fachperson-gesundheit-efz-im-stunden-oder-monatslohn-40-100-region-agerital-senevita-zug",
-        "fachperson-gesundheit-efz-im-stunden-oder-monatslohn-40-100-region-agerital-und-menzingen",
-        "fachperson-gesundheit-cfc-im-stunden-o-monatslohn-40-100-region-agerital-senevita-zug-zg"
+        "fachperson-gesundheit-efz-im-stunden-oder-monatslohn-40-100-region-agerital-und-menzingen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fachperson-gesundheit-efz-im-stunden-oder-monatslohn-40-100-region-agerital-senevita-zug",
-          "fachperson-gesundheit-efz-im-stunden-oder-monatslohn-40-100-region-agerital-und-menzingen",
-          "fachperson-gesundheit-cfc-im-stunden-o-monatslohn-40-100-region-agerital-senevita-zug-zg"
+          "fachperson-gesundheit-efz-im-stunden-oder-monatslohn-40-100-region-agerital-und-menzingen"
         ],
         "en": [
           "fachperson-gesundheit-efz-im-stunden-oder-monatslohn-40-100-region-agerital-senevita-zug"
@@ -1881,13 +1850,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "fachperson-gesundheit-efz-im-stunden-oder-monatslohn-40-100-region-ausserschwyz-senevita",
-        "fachperson-gesundheit-cfc-im-stunden-o-monatslohn-40-100-region-ausserschwyz-senevita-schwyz-sz"
+        "fachperson-gesundheit-efz-im-stunden-oder-monatslohn-40-100-region-ausserschwyz-senevita"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachperson-gesundheit-efz-im-stunden-oder-monatslohn-40-100-region-ausserschwyz-senevita",
-          "fachperson-gesundheit-cfc-im-stunden-o-monatslohn-40-100-region-ausserschwyz-senevita-schwyz-sz"
+          "fachperson-gesundheit-efz-im-stunden-oder-monatslohn-40-100-region-ausserschwyz-senevita"
         ],
         "en": [
           "fachperson-gesundheit-efz-im-stunden-oder-monatslohn-40-100-region-ausserschwyz-senevita"
@@ -1961,13 +1928,11 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "fachperson-gesundheit-efz-fur-die-nachtwache-100-senevita-ag-spreitenbach",
-          "fachperson-gesundheit-efz-fur-die-nachtwache-100-senevita-spreitenbach-ag"
+          "fachperson-gesundheit-efz-fur-die-nachtwache-100-senevita-ag-spreitenbach"
         ],
         "it": [
           "fachperson-gesundheit-efz-fur-die-nachtwache-100-senevita-spreitenbach-ag",
-          "fachperson-gesundheit-efz-fur-die-nachtwache-100-senevita-ag-spreitenbach",
-          "fachperson-gesundheit-cfc-per-la-nachtwache-100-senevita-spreitenbach-ag"
+          "fachperson-gesundheit-efz-fur-die-nachtwache-100-senevita-ag-spreitenbach"
         ],
         "en": [
           "fachperson-gesundheit-efz-fur-die-nachtwache-100-senevita-spreitenbach-ag"
@@ -1978,8 +1943,7 @@
       },
       "previousSlugs": [
         "fachperson-gesundheit-efz-fur-die-nachtwache-100-senevita-spreitenbach-ag",
-        "fachperson-gesundheit-efz-fur-die-nachtwache-100-senevita-ag-spreitenbach",
-        "fachperson-gesundheit-cfc-per-la-nachtwache-100-senevita-spreitenbach-ag"
+        "fachperson-gesundheit-efz-fur-die-nachtwache-100-senevita-ag-spreitenbach"
       ],
       "firstSeenAt": "2026-07-17T11:35:25.880Z",
       "salaryMin": 62000,
@@ -2047,17 +2011,14 @@
       "firstSeenAt": "2026-07-02T22:34:32.458Z",
       "previousSlugsByLocale": {
         "it": [
-          "fachperson-gesundheit-efz-fasrk-altenpfleger-in-mit-anerkennung-50-100-senevita-bs-basel",
-          "fachperson-gesundheit-efz-fasrk-altenpfleger-in-mit-anerkennung-50-100-senevita-basel-bs"
+          "fachperson-gesundheit-efz-fasrk-altenpfleger-in-mit-anerkennung-50-100-senevita-bs-basel"
         ],
         "de": [
-          "fachperson-gesundheit-efz-fasrk-altenpfleger-in-mit-anerkennung-50-100-senevita-bs-basel",
-          "fachperson-gesundheit-efz-fasrk-altenpfleger-in-mit-anerkennung-50-100-senevita-basel-bs"
+          "fachperson-gesundheit-efz-fasrk-altenpfleger-in-mit-anerkennung-50-100-senevita-bs-basel"
         ]
       },
       "previousSlugs": [
-        "fachperson-gesundheit-efz-fasrk-altenpfleger-in-mit-anerkennung-50-100-senevita-bs-basel",
-        "fachperson-gesundheit-efz-fasrk-altenpfleger-in-mit-anerkennung-50-100-senevita-basel-bs"
+        "fachperson-gesundheit-efz-fasrk-altenpfleger-in-mit-anerkennung-50-100-senevita-bs-basel"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -2123,13 +2084,11 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "fachperson-gesundheit-efz-70-senevita-ag-spreitenbach",
-          "fachperson-gesundheit-efz-70-senevita-spreitenbach-ag"
+          "fachperson-gesundheit-efz-70-senevita-ag-spreitenbach"
         ],
         "it": [
           "fachperson-gesundheit-efz-70-senevita-spreitenbach-ag",
-          "fachperson-gesundheit-efz-70-senevita-ag-spreitenbach",
-          "fachperson-gesundheit-cfc-70-senevita-spreitenbach-ag"
+          "fachperson-gesundheit-efz-70-senevita-ag-spreitenbach"
         ],
         "en": [
           "fachperson-gesundheit-efz-70-senevita-spreitenbach-ag"
@@ -2140,8 +2099,7 @@
       },
       "previousSlugs": [
         "fachperson-gesundheit-efz-70-senevita-spreitenbach-ag",
-        "fachperson-gesundheit-efz-70-senevita-ag-spreitenbach",
-        "fachperson-gesundheit-cfc-70-senevita-spreitenbach-ag"
+        "fachperson-gesundheit-efz-70-senevita-ag-spreitenbach"
       ],
       "firstSeenAt": "2026-06-23T12:37:54.029Z",
       "salaryMin": 45200,
@@ -2234,21 +2192,18 @@
       },
       "previousSlugsByLocale": {
         "de": [
-          "fachperson-gesundheit-efz-40-100-senevita-be-muri-b-bern",
-          "fachperson-gesundheit-efz-40-80-senevita-muri-be"
+          "fachperson-gesundheit-efz-40-100-senevita-be-muri-b-bern"
         ],
         "it": [
           "fachperson-gesundheit-efz-40-80-senevita-muri-be",
           "fachperson-gesundheit-efz-40-100-senevita-muri-be",
-          "fachperson-gesundheit-efz-40-100-senevita-be-muri-b-bern",
-          "specialista-della-salute-cfc-40-80-senevita-muri-be"
+          "fachperson-gesundheit-efz-40-100-senevita-be-muri-b-bern"
         ]
       },
       "previousSlugs": [
         "fachperson-gesundheit-efz-40-80-senevita-muri-be",
         "fachperson-gesundheit-efz-40-100-senevita-muri-be",
-        "fachperson-gesundheit-efz-40-100-senevita-be-muri-b-bern",
-        "specialista-della-salute-cfc-40-80-senevita-muri-be"
+        "fachperson-gesundheit-efz-40-100-senevita-be-muri-b-bern"
       ],
       "firstSeenAt": "2026-05-19T12:21:26.740Z",
       "salaryMin": 73000,
@@ -2314,13 +2269,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "fachperson-gesundheit-efz-krankenpflegerin-fa-srk-altenpflege-med-praxisassistentin-mit",
-        "fachperson-gesundheit-cfc-krankenpflegerin-fa-srk-altenpflege-med-praxisassistentin-con-pflegehelferausbildung-im"
+        "fachperson-gesundheit-efz-krankenpflegerin-fa-srk-altenpflege-med-praxisassistentin-mit"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachperson-gesundheit-efz-krankenpflegerin-fa-srk-altenpflege-med-praxisassistentin-mit",
-          "fachperson-gesundheit-cfc-krankenpflegerin-fa-srk-altenpflege-med-praxisassistentin-con-pflegehelferausbildung-im"
+          "fachperson-gesundheit-efz-krankenpflegerin-fa-srk-altenpflege-med-praxisassistentin-mit"
         ]
       },
       "firstSeenAt": "2026-07-27T12:44:41.534Z",
@@ -2388,13 +2341,11 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "fachperson-gesundheit-40-100-senevita-zh-winterthur",
-          "fachperson-gesundheit-40-100-senevita-winterthur-zh"
+          "fachperson-gesundheit-40-100-senevita-zh-winterthur"
         ],
         "it": [
           "fachperson-gesundheit-40-100-senevita-winterthur-zh",
-          "fachperson-gesundheit-40-100-senevita-zh-winterthur",
-          "salute-professionale-40-100-senevita-winterthur-zh"
+          "fachperson-gesundheit-40-100-senevita-zh-winterthur"
         ],
         "en": [
           "fachperson-gesundheit-40-100-senevita-winterthur-zh"
@@ -2405,8 +2356,7 @@
       },
       "previousSlugs": [
         "fachperson-gesundheit-40-100-senevita-winterthur-zh",
-        "fachperson-gesundheit-40-100-senevita-zh-winterthur",
-        "salute-professionale-40-100-senevita-winterthur-zh"
+        "fachperson-gesundheit-40-100-senevita-zh-winterthur"
       ],
       "firstSeenAt": "2026-07-16T11:23:44.232Z",
       "salaryMin": 79000,
@@ -2496,13 +2446,11 @@
         ]
       },
       "previousSlugs": [
-        "fachperson-gesundheit-senevita-casa-solothurn-und-olten-senevita-casa-solothurn",
-        "specialista-della-salute-senevita-casa-solothurn-und-olten-senevita-casa-solothurn"
+        "fachperson-gesundheit-senevita-casa-solothurn-und-olten-senevita-casa-solothurn"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachperson-gesundheit-senevita-casa-solothurn-und-olten-senevita-casa-solothurn",
-          "specialista-della-salute-senevita-casa-solothurn-und-olten-senevita-casa-solothurn"
+          "fachperson-gesundheit-senevita-casa-solothurn-und-olten-senevita-casa-solothurn"
         ]
       },
       "firstSeenAt": "2026-05-19T12:21:25.586Z",
@@ -2592,19 +2540,16 @@
       },
       "previousSlugsByLocale": {
         "de": [
-          "fachperson-aktivierung-demenzabteilung-80-100-senevita-be-zollikofen",
-          "fachperson-aktivierung-demenzabteilung-80-100-senevita-zollikofen-be"
+          "fachperson-aktivierung-demenzabteilung-80-100-senevita-be-zollikofen"
         ],
         "it": [
           "fachperson-aktivierung-demenzabteilung-80-100-senevita-zollikofen-be",
-          "fachperson-aktivierung-demenzabteilung-80-100-senevita-be-zollikofen",
-          "specialista-attivazione-dipartimento-demenza-80-100-senevita-zollikofen-be"
+          "fachperson-aktivierung-demenzabteilung-80-100-senevita-be-zollikofen"
         ]
       },
       "previousSlugs": [
         "fachperson-aktivierung-demenzabteilung-80-100-senevita-zollikofen-be",
-        "fachperson-aktivierung-demenzabteilung-80-100-senevita-be-zollikofen",
-        "specialista-attivazione-dipartimento-demenza-80-100-senevita-zollikofen-be"
+        "fachperson-aktivierung-demenzabteilung-80-100-senevita-be-zollikofen"
       ],
       "firstSeenAt": "2026-05-19T12:21:24.720Z",
       "salaryMin": 68500,
@@ -2671,13 +2616,11 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "fachperson-aktivierung-80-100-senevita-be-burgdorf",
-          "fachperson-aktivierung-80-100-senevita-burgdorf-be"
+          "fachperson-aktivierung-80-100-senevita-be-burgdorf"
         ],
         "it": [
           "fachperson-aktivierung-80-100-senevita-burgdorf-be",
-          "fachperson-aktivierung-80-100-senevita-be-burgdorf",
-          "attivazione-professionale-80-100-senevita-burgdorf-be"
+          "fachperson-aktivierung-80-100-senevita-be-burgdorf"
         ],
         "en": [
           "fachperson-aktivierung-80-100-senevita-burgdorf-be"
@@ -2688,8 +2631,7 @@
       },
       "previousSlugs": [
         "fachperson-aktivierung-80-100-senevita-burgdorf-be",
-        "fachperson-aktivierung-80-100-senevita-be-burgdorf",
-        "attivazione-professionale-80-100-senevita-burgdorf-be"
+        "fachperson-aktivierung-80-100-senevita-be-burgdorf"
       ],
       "firstSeenAt": "2026-07-23T22:27:23.237Z",
       "salaryMin": 68500,
@@ -2757,13 +2699,11 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "fachperson-aktivierung-m-w-80-senevita-so-olten",
-          "fachperson-aktivierung-m-w-80-senevita-olten-so"
+          "fachperson-aktivierung-m-w-80-senevita-so-olten"
         ],
         "it": [
           "fachperson-aktivierung-m-w-80-senevita-olten-so",
-          "fachperson-aktivierung-m-w-80-senevita-so-olten",
-          "attivazione-professionale-m-f-80-senevita-olten-so"
+          "fachperson-aktivierung-m-w-80-senevita-so-olten"
         ],
         "en": [
           "fachperson-aktivierung-m-w-80-senevita-olten-so",
@@ -2776,8 +2716,7 @@
       "previousSlugs": [
         "fachperson-aktivierung-m-w-80-senevita-olten-so",
         "professional-activation-m-f-80-senevita-olten-so",
-        "fachperson-aktivierung-m-w-80-senevita-so-olten",
-        "attivazione-professionale-m-f-80-senevita-olten-so"
+        "fachperson-aktivierung-m-w-80-senevita-so-olten"
       ],
       "firstSeenAt": "2026-07-20T12:45:24.796Z",
       "salaryMin": 54800,
@@ -2864,8 +2803,7 @@
       "previousSlugsByLocale": {
         "de": [
           "fachfrau-mann-gesundheit-bis-70-monatslohn-oder-stundenlohn-senevita-casa-luzern-senevita",
-          "fachfrau-mann-gesundheit-im-monatslohn-oder-stundenlohn-spitex-senevita-ag-wohlen",
-          "fachfrau-mann-gesundheit-im-monatslohn-oder-stundenlohn-spitex-senevita-wohlen"
+          "fachfrau-mann-gesundheit-im-monatslohn-oder-stundenlohn-spitex-senevita-ag-wohlen"
         ],
         "it": [
           "fachfrau-mann-gesundheit-im-monatslohn-oder-stundenlohn-spitex-senevita-wohlen",
@@ -2873,8 +2811,7 @@
           "professional-health-up-to-70-monthly-wage-or-hourly-wage-senevita-casa-luzern-senevita-casa-unterwalden",
           "fachfrau-mann-gesundheit-bis-70-monatslohn-oder-stundenlohn-senevita-casa-luzern-senevita",
           "sante-professionnelle-jusqu-a-70-salaire-mensuel-ou-horaire-senevita-casa-luzern-senevita-casa-unterwalden",
-          "fachfrau-mann-gesundheit-im-monatslohn-oder-stundenlohn-spitex-senevita-ag-wohlen",
-          "specialista-salute-a-stipendio-mensile-o-orario-spitex-senevita-wohlen"
+          "fachfrau-mann-gesundheit-im-monatslohn-oder-stundenlohn-spitex-senevita-ag-wohlen"
         ],
         "en": [
           "professional-health-up-to-70-monthly-wage-or-hourly-wage-senevita-casa-luzern-senevita-casa-unterwalden"
@@ -2889,8 +2826,7 @@
         "professional-health-up-to-70-monthly-wage-or-hourly-wage-senevita-casa-luzern-senevita-casa-unterwalden",
         "fachfrau-mann-gesundheit-bis-70-monatslohn-oder-stundenlohn-senevita-casa-luzern-senevita",
         "sante-professionnelle-jusqu-a-70-salaire-mensuel-ou-horaire-senevita-casa-luzern-senevita-casa-unterwalden",
-        "fachfrau-mann-gesundheit-im-monatslohn-oder-stundenlohn-spitex-senevita-ag-wohlen",
-        "specialista-salute-a-stipendio-mensile-o-orario-spitex-senevita-wohlen"
+        "fachfrau-mann-gesundheit-im-monatslohn-oder-stundenlohn-spitex-senevita-ag-wohlen"
       ],
       "firstSeenAt": "2026-05-19T12:21:23.224Z",
       "salaryMin": 62000,
@@ -3060,8 +2996,7 @@
       "previousSlugsByLocale": {
         "de": [
           "fachfrau-fachmann-gesundheit-efz-40-80-senevita-bern-be",
-          "fachfrau-mann-gesundheit-efz-berufsbildner-in-80-100-senevita-be-bern",
-          "fachfrau-mann-gesundheit-efz-70-100-senevita-bern-be"
+          "fachfrau-mann-gesundheit-efz-berufsbildner-in-80-100-senevita-be-bern"
         ],
         "it": [
           "fachfrau-mann-gesundheit-efz-70-100-senevita-bern-be",
@@ -3070,8 +3005,7 @@
           "fachfrau-fachmann-gesundheit-efz-40-80-senevita-bern-be",
           "specialiste-en-sante-efz-40-80-senevita-bern-be",
           "fachfrau-mann-gesundheit-efz-berufsbildner-in-80-100-senevita-bern-be",
-          "fachfrau-mann-gesundheit-efz-berufsbildner-in-80-100-senevita-be-bern",
-          "specialista-di-salute-efz-70-100-senevita-bern-be"
+          "fachfrau-mann-gesundheit-efz-berufsbildner-in-80-100-senevita-be-bern"
         ],
         "en": [
           "healthcare-professional-efz-40-80-senevita-bern-be"
@@ -3087,8 +3021,7 @@
         "fachfrau-fachmann-gesundheit-efz-40-80-senevita-bern-be",
         "specialiste-en-sante-efz-40-80-senevita-bern-be",
         "fachfrau-mann-gesundheit-efz-berufsbildner-in-80-100-senevita-bern-be",
-        "fachfrau-mann-gesundheit-efz-berufsbildner-in-80-100-senevita-be-bern",
-        "specialista-di-salute-efz-70-100-senevita-bern-be"
+        "fachfrau-mann-gesundheit-efz-berufsbildner-in-80-100-senevita-be-bern"
       ],
       "firstSeenAt": "2026-05-19T12:21:22.798Z",
       "salaryMin": 73000,
@@ -3154,13 +3087,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "fachfrau-mann-gesundheit-efz-oder-dipl-pflegefachperson-hf-inhouse-spitex-50-80-senevita",
-        "fachfrau-mann-gesundheit-cfc-o-dipl-pflegefachperson-hf-inhouse-spitex-50-80-senevita-bern-be"
+        "fachfrau-mann-gesundheit-efz-oder-dipl-pflegefachperson-hf-inhouse-spitex-50-80-senevita"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachfrau-mann-gesundheit-efz-oder-dipl-pflegefachperson-hf-inhouse-spitex-50-80-senevita",
-          "fachfrau-mann-gesundheit-cfc-o-dipl-pflegefachperson-hf-inhouse-spitex-50-80-senevita-bern-be"
+          "fachfrau-mann-gesundheit-efz-oder-dipl-pflegefachperson-hf-inhouse-spitex-50-80-senevita"
         ],
         "en": [
           "fachfrau-mann-gesundheit-efz-oder-dipl-pflegefachperson-hf-inhouse-spitex-50-80-senevita"
@@ -3235,8 +3166,7 @@
       "previousSlugsByLocale": {
         "de": [
           "lehrstelle-als-fachfrau-mann-gesundheit-fage-senevita-zurich-zh",
-          "fachfrau-mann-gesundheit-efz-80-100-senevita-zh-zurich",
-          "fachfrau-mann-gesundheit-efz-80-100-senevita-zurich-zh"
+          "fachfrau-mann-gesundheit-efz-80-100-senevita-zh-zurich"
         ],
         "it": [
           "fachfrau-mann-gesundheit-efz-80-100-senevita-zurich-zh",
@@ -3244,8 +3174,7 @@
           "apprenticeship-as-a-specialist-in-health-fage-senevita-zurich-zh",
           "lehrstelle-als-fachfrau-mann-gesundheit-fage-senevita-zurich-zh",
           "apprentissage-en-tant-que-specialiste-de-la-sante-fage-senevita-zurich-zh",
-          "fachfrau-mann-gesundheit-efz-80-100-senevita-zh-zurich",
-          "fachfrau-mann-gesundheit-cfc-80-100-senevita-zurich-zh"
+          "fachfrau-mann-gesundheit-efz-80-100-senevita-zh-zurich"
         ],
         "en": [
           "apprenticeship-as-a-specialist-in-health-fage-senevita-zurich-zh",
@@ -3262,8 +3191,7 @@
         "apprenticeship-as-a-specialist-in-health-fage-senevita-zurich-zh",
         "lehrstelle-als-fachfrau-mann-gesundheit-fage-senevita-zurich-zh",
         "apprentissage-en-tant-que-specialiste-de-la-sante-fage-senevita-zurich-zh",
-        "fachfrau-mann-gesundheit-efz-80-100-senevita-zh-zurich",
-        "fachfrau-mann-gesundheit-cfc-80-100-senevita-zurich-zh"
+        "fachfrau-mann-gesundheit-efz-80-100-senevita-zh-zurich"
       ],
       "firstSeenAt": "2026-07-21T12:10:57.627Z",
       "salaryMin": 79000,
@@ -3330,13 +3258,11 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "fachfrau-mann-gesundheit-efz-60-100-senevita-zh-herrliberg",
-          "fachfrau-mann-gesundheit-efz-60-100-senevita-herrliberg-zh"
+          "fachfrau-mann-gesundheit-efz-60-100-senevita-zh-herrliberg"
         ],
         "it": [
           "fachfrau-mann-gesundheit-efz-60-100-senevita-herrliberg-zh",
-          "fachfrau-mann-gesundheit-efz-60-100-senevita-zh-herrliberg",
-          "fachfrau-mann-gesundheit-cfc-60-100-senevita-herrliberg-zh"
+          "fachfrau-mann-gesundheit-efz-60-100-senevita-zh-herrliberg"
         ],
         "en": [
           "fachfrau-mann-gesundheit-efz-60-100-senevita-herrliberg-zh"
@@ -3347,8 +3273,7 @@
       },
       "previousSlugs": [
         "fachfrau-mann-gesundheit-efz-60-100-senevita-herrliberg-zh",
-        "fachfrau-mann-gesundheit-efz-60-100-senevita-zh-herrliberg",
-        "fachfrau-mann-gesundheit-cfc-60-100-senevita-herrliberg-zh"
+        "fachfrau-mann-gesundheit-efz-60-100-senevita-zh-herrliberg"
       ],
       "firstSeenAt": "2026-07-23T22:27:18.272Z",
       "salaryMin": 79000,
@@ -3415,14 +3340,12 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "fachfrau-mann-gesundheit-60-100-senevita-be-munsingen",
-          "fachfrau-mann-gesundheit-50-100-senevita-munsingen-be"
+          "fachfrau-mann-gesundheit-60-100-senevita-be-munsingen"
         ],
         "it": [
           "fachfrau-mann-gesundheit-50-100-senevita-munsingen-be",
           "fachfrau-mann-gesundheit-60-100-senevita-munsingen-be",
-          "fachfrau-mann-gesundheit-60-100-senevita-be-munsingen",
-          "professionista-sanitario-50-100-senevita-munsingen-be"
+          "fachfrau-mann-gesundheit-60-100-senevita-be-munsingen"
         ],
         "en": [
           "fachfrau-mann-gesundheit-50-100-senevita-munsingen-be"
@@ -3434,8 +3357,7 @@
       "previousSlugs": [
         "fachfrau-mann-gesundheit-50-100-senevita-munsingen-be",
         "fachfrau-mann-gesundheit-60-100-senevita-munsingen-be",
-        "fachfrau-mann-gesundheit-60-100-senevita-be-munsingen",
-        "professionista-sanitario-50-100-senevita-munsingen-be"
+        "fachfrau-mann-gesundheit-60-100-senevita-be-munsingen"
       ],
       "firstSeenAt": "2026-07-02T12:18:07.396Z",
       "salaryMin": 73000,
@@ -3521,19 +3443,16 @@
       },
       "previousSlugsByLocale": {
         "de": [
-          "fachfrau-mann-gesundheit-40-80-senevita-be-interlaken",
-          "fachfrau-mann-gesundheit-40-80-senevita-interlaken-be"
+          "fachfrau-mann-gesundheit-40-80-senevita-be-interlaken"
         ],
         "it": [
           "fachfrau-mann-gesundheit-40-80-senevita-interlaken-be",
-          "fachfrau-mann-gesundheit-40-80-senevita-be-interlaken",
-          "specialista-della-salute-40-80-senevita-interlaken-be"
+          "fachfrau-mann-gesundheit-40-80-senevita-be-interlaken"
         ]
       },
       "previousSlugs": [
         "fachfrau-mann-gesundheit-40-80-senevita-interlaken-be",
-        "fachfrau-mann-gesundheit-40-80-senevita-be-interlaken",
-        "specialista-della-salute-40-80-senevita-interlaken-be"
+        "fachfrau-mann-gesundheit-40-80-senevita-be-interlaken"
       ],
       "firstSeenAt": "2026-05-19T12:21:21.294Z",
       "salaryMin": 58400,
@@ -3601,8 +3520,7 @@
       "previousSlugsByLocale": {
         "de": [
           "fachfrau-mann-gesundheit-50-100-senevita-munsingen-be",
-          "fachfrau-mann-gesundheit-40-100-senevita-sg-abtwil",
-          "fachfrau-mann-gesundheit-40-100-senevita-abtwil"
+          "fachfrau-mann-gesundheit-40-100-senevita-sg-abtwil"
         ],
         "it": [
           "fachfrau-mann-gesundheit-40-100-senevita-abtwil",
@@ -3610,8 +3528,7 @@
           "professional-health-50-100-senevita-munsingen-be",
           "fachfrau-mann-gesundheit-50-100-senevita-munsingen-be",
           "sante-professionnelle-50-100-senevita-munsingen-be",
-          "fachfrau-mann-gesundheit-40-100-senevita-sg-abtwil",
-          "salute-professionale-40-100-senevita-abtwil"
+          "fachfrau-mann-gesundheit-40-100-senevita-sg-abtwil"
         ],
         "en": [
           "fachfrau-mann-gesundheit-40-100-senevita-abtwil",
@@ -3628,8 +3545,7 @@
         "professional-health-50-100-senevita-munsingen-be",
         "fachfrau-mann-gesundheit-50-100-senevita-munsingen-be",
         "sante-professionnelle-50-100-senevita-munsingen-be",
-        "fachfrau-mann-gesundheit-40-100-senevita-sg-abtwil",
-        "salute-professionale-40-100-senevita-abtwil"
+        "fachfrau-mann-gesundheit-40-100-senevita-sg-abtwil"
       ],
       "firstSeenAt": "2026-06-23T23:03:03.976Z",
       "salaryMin": 64500,
@@ -3697,13 +3613,11 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "fachfrau-mann-gesundheit-100-senevita-ag-seengen",
-          "fachfrau-mann-gesundheit-100-senevita-seengen-ag"
+          "fachfrau-mann-gesundheit-100-senevita-ag-seengen"
         ],
         "it": [
           "fachfrau-mann-gesundheit-100-senevita-seengen-ag",
-          "fachfrau-mann-gesundheit-100-senevita-ag-seengen",
-          "salute-professionale-100-senevita-seengen-ag"
+          "fachfrau-mann-gesundheit-100-senevita-ag-seengen"
         ],
         "en": [
           "fachfrau-mann-gesundheit-100-senevita-seengen-ag"
@@ -3714,8 +3628,7 @@
       },
       "previousSlugs": [
         "fachfrau-mann-gesundheit-100-senevita-seengen-ag",
-        "fachfrau-mann-gesundheit-100-senevita-ag-seengen",
-        "salute-professionale-100-senevita-seengen-ag"
+        "fachfrau-mann-gesundheit-100-senevita-ag-seengen"
       ],
       "firstSeenAt": "2026-06-17T14:10:46.461Z",
       "salaryMin": 64500,
@@ -3786,21 +3699,18 @@
       },
       "previousSlugsByLocale": {
         "de": [
-          "fachfrau-fachmann-gesundheit-efz-30-50-im-stundenlohn-auf-abruf-pool-senevita-zh-buchs",
-          "fachfrau-fachmann-gesundheit-efz-30-50-im-stundenlohn-auf-abruf-pool-senevita-buchs-zh"
+          "fachfrau-fachmann-gesundheit-efz-30-50-im-stundenlohn-auf-abruf-pool-senevita-zh-buchs"
         ],
         "it": [
           "fachfrau-fachmann-gesundheit-efz-30-50-im-stundenlohn-auf-abruf-pool-senevita-buchs-zh",
           "fachfrau-fachmann-gesundheit-cfc-30-50-im-stundenlohn-auf-abruf-pool-senevita-buchs-zh",
-          "fachfrau-fachmann-gesundheit-efz-30-50-im-stundenlohn-auf-abruf-pool-senevita-zh-buchs",
-          "specialista-della-salute-as-efz-30-50-a-ore-a-chiamata-pool-senevita-buchs-zh"
+          "fachfrau-fachmann-gesundheit-efz-30-50-im-stundenlohn-auf-abruf-pool-senevita-zh-buchs"
         ]
       },
       "previousSlugs": [
         "fachfrau-fachmann-gesundheit-efz-30-50-im-stundenlohn-auf-abruf-pool-senevita-buchs-zh",
         "fachfrau-fachmann-gesundheit-cfc-30-50-im-stundenlohn-auf-abruf-pool-senevita-buchs-zh",
-        "fachfrau-fachmann-gesundheit-efz-30-50-im-stundenlohn-auf-abruf-pool-senevita-zh-buchs",
-        "specialista-della-salute-as-efz-30-50-a-ore-a-chiamata-pool-senevita-buchs-zh"
+        "fachfrau-fachmann-gesundheit-efz-30-50-im-stundenlohn-auf-abruf-pool-senevita-zh-buchs"
       ],
       "firstSeenAt": "2026-05-19T12:21:20.001Z",
       "salaryMin": 39500,
@@ -3890,19 +3800,16 @@
       },
       "previousSlugsByLocale": {
         "de": [
-          "fachfrau-fachmann-gesundheit-40-60-senevita-be-thun",
-          "fachfrau-fachmann-gesundheit-40-60-senevita-thun-be"
+          "fachfrau-fachmann-gesundheit-40-60-senevita-be-thun"
         ],
         "it": [
           "fachfrau-fachmann-gesundheit-40-60-senevita-thun-be",
-          "fachfrau-fachmann-gesundheit-40-60-senevita-be-thun",
-          "specialista-della-salute-40-60-senevita-thun-be"
+          "fachfrau-fachmann-gesundheit-40-60-senevita-be-thun"
         ]
       },
       "previousSlugs": [
         "fachfrau-fachmann-gesundheit-40-60-senevita-thun-be",
-        "fachfrau-fachmann-gesundheit-40-60-senevita-be-thun",
-        "specialista-della-salute-40-60-senevita-thun-be"
+        "fachfrau-fachmann-gesundheit-40-60-senevita-be-thun"
       ],
       "firstSeenAt": "2026-05-19T12:21:19.378Z",
       "salaryMin": 43800,
@@ -3970,17 +3877,14 @@
       "firstSeenAt": "2026-07-14T11:02:43.544Z",
       "previousSlugsByLocale": {
         "it": [
-          "fachfrau-fachmann-gesundheit-60-100-senevita-bs-basel",
-          "fachfrau-fachmann-gesundheit-60-100-senevita-basel-bs"
+          "fachfrau-fachmann-gesundheit-60-100-senevita-bs-basel"
         ],
         "de": [
-          "fachfrau-fachmann-gesundheit-60-100-senevita-bs-basel",
-          "fachfrau-fachmann-gesundheit-60-100-senevita-basel-bs"
+          "fachfrau-fachmann-gesundheit-60-100-senevita-bs-basel"
         ]
       },
       "previousSlugs": [
-        "fachfrau-fachmann-gesundheit-60-100-senevita-bs-basel",
-        "fachfrau-fachmann-gesundheit-60-100-senevita-basel-bs"
+        "fachfrau-fachmann-gesundheit-60-100-senevita-bs-basel"
       ],
       "salaryMin": 64500,
       "salaryMax": 110000,
@@ -4048,7 +3952,6 @@
       "previousSlugs": [
         "fachfrau-mann-hauswirtschaft-80-100-senevita-wohlen-ag",
         "fachfrau-mann-hauswirtschaft-80-100-senevita-ag-wohlen",
-        "specialista-in-economia-domestica-80-100-senevita-wohlen-ag",
         "professionale-pulizia-80-senevita-zurich-zh",
         "professional-housekeeping-80-senevita-zurich-zh",
         "fachfrau-mann-hauswirtschaft-80-senevita-zurich-zh",
@@ -4074,7 +3977,6 @@
         "it": [
           "fachfrau-mann-hauswirtschaft-80-100-senevita-wohlen-ag",
           "fachfrau-mann-hauswirtschaft-80-100-senevita-ag-wohlen",
-          "specialista-in-economia-domestica-80-100-senevita-wohlen-ag",
           "professionale-pulizia-80-senevita-zurich-zh",
           "professional-housekeeping-80-senevita-zurich-zh",
           "fachfrau-mann-hauswirtschaft-80-senevita-zurich-zh",
@@ -4106,7 +4008,6 @@
         ],
         "de": [
           "fachfrau-mann-hauswirtschaft-80-100-senevita-ag-wohlen",
-          "fachfrau-mann-hauswirtschaft-80-100-senevita-wohlen-ag",
           "fachfrau-mann-hauswirtschaft-80-senevita-zurich-zh",
           "fachfrau-mann-hauswirtschaft-80-senevita-zurich-zh",
           "fachfrau-mann-hauswirtschaft-80-senevita-zurich-zh",
@@ -4179,13 +4080,11 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "fachfrau-mann-gesundheit-efz-50-100-im-tagesdienst-senevita-zh-dietikon",
-          "fachfrau-mann-gesundheit-efz-50-100-im-tagesdienst-senevita-dietikon-zh"
+          "fachfrau-mann-gesundheit-efz-50-100-im-tagesdienst-senevita-zh-dietikon"
         ],
         "it": [
           "fachfrau-mann-gesundheit-efz-50-100-im-tagesdienst-senevita-dietikon-zh",
-          "fachfrau-mann-gesundheit-efz-50-100-im-tagesdienst-senevita-zh-dietikon",
-          "fachfrau-mann-gesundheit-cfc-50-100-im-tagesdienst-senevita-dietikon-zh"
+          "fachfrau-mann-gesundheit-efz-50-100-im-tagesdienst-senevita-zh-dietikon"
         ],
         "en": [
           "fachfrau-mann-gesundheit-efz-50-100-im-tagesdienst-senevita-dietikon-zh"
@@ -4196,8 +4095,7 @@
       },
       "previousSlugs": [
         "fachfrau-mann-gesundheit-efz-50-100-im-tagesdienst-senevita-dietikon-zh",
-        "fachfrau-mann-gesundheit-efz-50-100-im-tagesdienst-senevita-zh-dietikon",
-        "fachfrau-mann-gesundheit-cfc-50-100-im-tagesdienst-senevita-dietikon-zh"
+        "fachfrau-mann-gesundheit-efz-50-100-im-tagesdienst-senevita-zh-dietikon"
       ],
       "firstSeenAt": "2026-06-11T23:25:49.590Z",
       "salaryMin": 79000,
@@ -4297,8 +4195,7 @@
           "lehrstelle-fachfrau-mann-gesundheit-efz-senevita-ittigen-be",
           "lehrstelle-fachfrau-mann-gesundheit-efz-senevita-seengen-ag",
           "fachfrau-mann-gesundheit-efz-senevita-herrliberg-zh",
-          "fachfrau-mann-gesundheit-efz-60-100-senevita-zh-erlenbach",
-          "fachfrau-mann-gesundheit-efz-60-100-senevita-erlenbach-zh"
+          "fachfrau-mann-gesundheit-efz-60-100-senevita-zh-erlenbach"
         ],
         "it": [
           "fachfrau-mann-gesundheit-efz-60-100-senevita-erlenbach-zh",
@@ -4315,8 +4212,7 @@
           "professional-health-efz-senevita-herrliberg-zh",
           "fachfrau-mann-gesundheit-efz-senevita-herrliberg-zh",
           "sante-professionnelle-efz-senevita-herrliberg-zh",
-          "fachfrau-mann-gesundheit-efz-60-100-senevita-zh-erlenbach",
-          "specialista-della-salute-efz-60-100-senevita-erlenbach-zh"
+          "fachfrau-mann-gesundheit-efz-60-100-senevita-zh-erlenbach"
         ],
         "en": [
           "apprenticeship-professional-health-efz-senevita-ittigen-be",
@@ -4348,8 +4244,7 @@
         "professional-health-efz-senevita-herrliberg-zh",
         "fachfrau-mann-gesundheit-efz-senevita-herrliberg-zh",
         "sante-professionnelle-efz-senevita-herrliberg-zh",
-        "fachfrau-mann-gesundheit-efz-60-100-senevita-zh-erlenbach",
-        "specialista-della-salute-efz-60-100-senevita-erlenbach-zh"
+        "fachfrau-mann-gesundheit-efz-60-100-senevita-zh-erlenbach"
       ],
       "firstSeenAt": "2026-05-19T12:21:17.512Z",
       "salaryMin": 79000,
@@ -4416,13 +4311,11 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "fachfrau-mann-gesundheit-efz-40-80-senevita-fr-murten",
-          "fachfrau-mann-gesundheit-efz-40-80-senevita-murten-fr"
+          "fachfrau-mann-gesundheit-efz-40-80-senevita-fr-murten"
         ],
         "it": [
           "fachfrau-mann-gesundheit-efz-40-80-senevita-murten-fr",
-          "fachfrau-mann-gesundheit-efz-40-80-senevita-fr-murten",
-          "fachfrau-mann-gesundheit-cfc-40-80-senevita-murten-fr"
+          "fachfrau-mann-gesundheit-efz-40-80-senevita-fr-murten"
         ],
         "en": [
           "fachfrau-mann-gesundheit-efz-40-80-senevita-murten-fr"
@@ -4433,8 +4326,7 @@
       },
       "previousSlugs": [
         "fachfrau-mann-gesundheit-efz-40-80-senevita-murten-fr",
-        "fachfrau-mann-gesundheit-efz-40-80-senevita-fr-murten",
-        "fachfrau-mann-gesundheit-cfc-40-80-senevita-murten-fr"
+        "fachfrau-mann-gesundheit-efz-40-80-senevita-fr-murten"
       ],
       "firstSeenAt": "2026-07-01T12:58:12.812Z",
       "salaryMin": 58400,
@@ -4502,8 +4394,7 @@
       "previousSlugsByLocale": {
         "de": [
           "dipl-pflegefachfrau-mann-fachfrau-mann-gesundheit-efz-im-nachtdienst-60-80-senevita-bern",
-          "fachfrau-mann-gesundheit-efz-40-70-senevita-be-bern",
-          "fachfrau-mann-gesundheit-efz-40-70-senevita-bern-be"
+          "fachfrau-mann-gesundheit-efz-40-70-senevita-be-bern"
         ],
         "it": [
           "fachfrau-mann-gesundheit-efz-40-70-senevita-bern-be",
@@ -4511,8 +4402,7 @@
           "dipl-nursing-professional-specialist-health-efz-on-night-duty-60-80-senevita-bern-be",
           "dipl-pflegefachfrau-mann-fachfrau-mann-gesundheit-efz-im-nachtdienst-60-80-senevita-bern",
           "dipl-professionnels-des-soins-infirmiers-sante-specialisee-efz-en-service-de-nuit-60-80-senevita-bern-be",
-          "fachfrau-mann-gesundheit-efz-40-70-senevita-be-bern",
-          "fachfrau-mann-gesundheit-cfc-40-70-senevita-bern-be"
+          "fachfrau-mann-gesundheit-efz-40-70-senevita-be-bern"
         ],
         "en": [
           "fachfrau-mann-gesundheit-efz-40-70-senevita-bern-be",
@@ -4529,8 +4419,7 @@
         "dipl-nursing-professional-specialist-health-efz-on-night-duty-60-80-senevita-bern-be",
         "dipl-pflegefachfrau-mann-fachfrau-mann-gesundheit-efz-im-nachtdienst-60-80-senevita-bern",
         "dipl-professionnels-des-soins-infirmiers-sante-specialisee-efz-en-service-de-nuit-60-80-senevita-bern-be",
-        "fachfrau-mann-gesundheit-efz-40-70-senevita-be-bern",
-        "fachfrau-mann-gesundheit-cfc-40-70-senevita-bern-be"
+        "fachfrau-mann-gesundheit-efz-40-70-senevita-be-bern"
       ],
       "firstSeenAt": "2026-07-16T11:23:32.795Z",
       "salaryMin": 51100,
@@ -4624,19 +4513,16 @@
       },
       "previousSlugsByLocale": {
         "de": [
-          "fachfrau-mann-gesundheit-demenzabteilung-60-100-senevita-be-zollikofen",
-          "fachfrau-mann-gesundheit-demenzabteilung-60-100-senevita-zollikofen-be"
+          "fachfrau-mann-gesundheit-demenzabteilung-60-100-senevita-be-zollikofen"
         ],
         "it": [
           "fachfrau-mann-gesundheit-demenzabteilung-60-100-senevita-zollikofen-be",
-          "fachfrau-mann-gesundheit-demenzabteilung-60-100-senevita-be-zollikofen",
-          "specialista-della-salute-reparto-demenza-60-100-senevita-zollikofen-be"
+          "fachfrau-mann-gesundheit-demenzabteilung-60-100-senevita-be-zollikofen"
         ]
       },
       "previousSlugs": [
         "fachfrau-mann-gesundheit-demenzabteilung-60-100-senevita-zollikofen-be",
-        "fachfrau-mann-gesundheit-demenzabteilung-60-100-senevita-be-zollikofen",
-        "specialista-della-salute-reparto-demenza-60-100-senevita-zollikofen-be"
+        "fachfrau-mann-gesundheit-demenzabteilung-60-100-senevita-be-zollikofen"
       ],
       "firstSeenAt": "2026-05-19T12:21:16.638Z",
       "salaryMin": 73000,
@@ -4703,13 +4589,11 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "fachfrau-mann-gesundheit-60-100-senevita-zh-regensdorf",
-          "fachfrau-mann-gesundheit-60-100-senevita-regensdorf-zh"
+          "fachfrau-mann-gesundheit-60-100-senevita-zh-regensdorf"
         ],
         "it": [
           "fachfrau-mann-gesundheit-60-100-senevita-regensdorf-zh",
-          "fachfrau-mann-gesundheit-60-100-senevita-zh-regensdorf",
-          "salute-professionale-60-100-senevita-regensdorf-zh"
+          "fachfrau-mann-gesundheit-60-100-senevita-zh-regensdorf"
         ],
         "en": [
           "fachfrau-mann-gesundheit-60-100-senevita-regensdorf-zh"
@@ -4720,8 +4604,7 @@
       },
       "previousSlugs": [
         "fachfrau-mann-gesundheit-60-100-senevita-regensdorf-zh",
-        "fachfrau-mann-gesundheit-60-100-senevita-zh-regensdorf",
-        "salute-professionale-60-100-senevita-regensdorf-zh"
+        "fachfrau-mann-gesundheit-60-100-senevita-zh-regensdorf"
       ],
       "firstSeenAt": "2026-07-15T22:18:26.645Z",
       "salaryMin": 79000,
@@ -4810,19 +4693,16 @@
       },
       "previousSlugsByLocale": {
         "de": [
-          "fachfrau-mann-gesundheit-50-100-senevita-be-zollikofen",
-          "fachfrau-mann-gesundheit-50-100-senevita-zollikofen-be"
+          "fachfrau-mann-gesundheit-50-100-senevita-be-zollikofen"
         ],
         "it": [
           "fachfrau-mann-gesundheit-50-100-senevita-zollikofen-be",
-          "fachfrau-mann-gesundheit-50-100-senevita-be-zollikofen",
-          "specialista-della-salute-50-100-senevita-zollikofen-be"
+          "fachfrau-mann-gesundheit-50-100-senevita-be-zollikofen"
         ]
       },
       "previousSlugs": [
         "fachfrau-mann-gesundheit-50-100-senevita-zollikofen-be",
-        "fachfrau-mann-gesundheit-50-100-senevita-be-zollikofen",
-        "specialista-della-salute-50-100-senevita-zollikofen-be"
+        "fachfrau-mann-gesundheit-50-100-senevita-be-zollikofen"
       ],
       "firstSeenAt": "2026-05-19T12:21:15.560Z",
       "salaryMin": 73000,
@@ -4889,13 +4769,11 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "fachfrau-mann-gesundheit-berufsbildner-in-80-100-senevita-be-zollikofen",
-          "fachfrau-mann-gesundheit-berufsbildner-in-80-100-senevita-zollikofen-be"
+          "fachfrau-mann-gesundheit-berufsbildner-in-80-100-senevita-be-zollikofen"
         ],
         "it": [
           "fachfrau-mann-gesundheit-berufsbildner-in-80-100-senevita-zollikofen-be",
-          "fachfrau-mann-gesundheit-berufsbildner-in-80-100-senevita-be-zollikofen",
-          "salute-specialistica-formazione-professionale-in-80-100-senevita-zollikofen-be"
+          "fachfrau-mann-gesundheit-berufsbildner-in-80-100-senevita-be-zollikofen"
         ],
         "en": [
           "fachfrau-mann-gesundheit-berufsbildner-in-80-100-senevita-zollikofen-be"
@@ -4906,8 +4784,7 @@
       },
       "previousSlugs": [
         "fachfrau-mann-gesundheit-berufsbildner-in-80-100-senevita-zollikofen-be",
-        "fachfrau-mann-gesundheit-berufsbildner-in-80-100-senevita-be-zollikofen",
-        "salute-specialistica-formazione-professionale-in-80-100-senevita-zollikofen-be"
+        "fachfrau-mann-gesundheit-berufsbildner-in-80-100-senevita-be-zollikofen"
       ],
       "firstSeenAt": "2026-07-01T23:20:47.369Z",
       "salaryMin": 73000,
@@ -4998,21 +4875,18 @@
       },
       "previousSlugsByLocale": {
         "de": [
-          "fachfrau-fachmann-gesundheit-fage-efz-50-100-nur-spatdienst-senevita-be-burgdorf",
-          "fachfrau-fachmann-gesundheit-fage-efz-80-100-nur-spatdienst-senevita-burgdorf-be"
+          "fachfrau-fachmann-gesundheit-fage-efz-50-100-nur-spatdienst-senevita-be-burgdorf"
         ],
         "it": [
           "fachfrau-fachmann-gesundheit-fage-efz-80-100-nur-spatdienst-senevita-burgdorf-be",
           "fachfrau-fachmann-gesundheit-fage-efz-50-100-nur-spatdienst-senevita-burgdorf-be",
-          "fachfrau-fachmann-gesundheit-fage-efz-50-100-nur-spatdienst-senevita-be-burgdorf",
-          "specialista-della-salute-fage-efz-80-100-solo-turno-serale-senevita-burgdorf-be"
+          "fachfrau-fachmann-gesundheit-fage-efz-50-100-nur-spatdienst-senevita-be-burgdorf"
         ]
       },
       "previousSlugs": [
         "fachfrau-fachmann-gesundheit-fage-efz-80-100-nur-spatdienst-senevita-burgdorf-be",
         "fachfrau-fachmann-gesundheit-fage-efz-50-100-nur-spatdienst-senevita-burgdorf-be",
-        "fachfrau-fachmann-gesundheit-fage-efz-50-100-nur-spatdienst-senevita-be-burgdorf",
-        "specialista-della-salute-fage-efz-80-100-solo-turno-serale-senevita-burgdorf-be"
+        "fachfrau-fachmann-gesundheit-fage-efz-50-100-nur-spatdienst-senevita-be-burgdorf"
       ],
       "firstSeenAt": "2026-05-19T12:21:14.055Z",
       "salaryMin": 68500,
@@ -5079,13 +4953,11 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "fachfrau-mann-gesundheit-efz-50-senevita-be-bern",
-          "fachfrau-mann-gesundheit-efz-50-senevita-bern-be"
+          "fachfrau-mann-gesundheit-efz-50-senevita-be-bern"
         ],
         "it": [
           "fachfrau-mann-gesundheit-efz-50-senevita-bern-be",
-          "fachfrau-mann-gesundheit-efz-50-senevita-be-bern",
-          "fachfrau-mann-gesundheit-cfc-50-senevita-bern-be"
+          "fachfrau-mann-gesundheit-efz-50-senevita-be-bern"
         ],
         "en": [
           "fachfrau-mann-gesundheit-efz-50-senevita-bern-be"
@@ -5096,8 +4968,7 @@
       },
       "previousSlugs": [
         "fachfrau-mann-gesundheit-efz-50-senevita-bern-be",
-        "fachfrau-mann-gesundheit-efz-50-senevita-be-bern",
-        "fachfrau-mann-gesundheit-cfc-50-senevita-bern-be"
+        "fachfrau-mann-gesundheit-efz-50-senevita-be-bern"
       ],
       "firstSeenAt": "2026-07-16T11:23:28.996Z",
       "salaryMin": 36500,
@@ -5164,13 +5035,11 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "fachfrau-gesundheit-im-festanstellung-60-80-senevita-be-biel",
-          "fachfrau-gesundheit-im-festanstellung-60-80-senevita-biel-be"
+          "fachfrau-gesundheit-im-festanstellung-60-80-senevita-be-biel"
         ],
         "it": [
           "fachfrau-gesundheit-im-festanstellung-60-80-senevita-biel-be",
-          "fachfrau-gesundheit-im-festanstellung-60-80-senevita-be-biel",
-          "professionista-della-salute-nell-occupazione-permanente-60-80-senevita-biel-be"
+          "fachfrau-gesundheit-im-festanstellung-60-80-senevita-be-biel"
         ],
         "en": [
           "fachfrau-gesundheit-im-festanstellung-60-80-senevita-biel-be"
@@ -5181,8 +5050,7 @@
       },
       "previousSlugs": [
         "fachfrau-gesundheit-im-festanstellung-60-80-senevita-biel-be",
-        "fachfrau-gesundheit-im-festanstellung-60-80-senevita-be-biel",
-        "professionista-della-salute-nell-occupazione-permanente-60-80-senevita-biel-be"
+        "fachfrau-gesundheit-im-festanstellung-60-80-senevita-be-biel"
       ],
       "firstSeenAt": "2026-07-07T22:19:29.069Z",
       "salaryMin": 58400,
@@ -5249,13 +5117,11 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "fachfrau-aktivierung-senevita-bl-pratteln",
-          "fachfrau-aktivierung-senevita-pratteln-bl"
+          "fachfrau-aktivierung-senevita-bl-pratteln"
         ],
         "it": [
           "fachfrau-aktivierung-senevita-pratteln-bl",
-          "fachfrau-aktivierung-senevita-bl-pratteln",
-          "attivazione-professionale-senevita-pratteln-bl"
+          "fachfrau-aktivierung-senevita-bl-pratteln"
         ],
         "en": [
           "fachfrau-aktivierung-senevita-pratteln-bl"
@@ -5266,8 +5132,7 @@
       },
       "previousSlugs": [
         "fachfrau-aktivierung-senevita-pratteln-bl",
-        "fachfrau-aktivierung-senevita-bl-pratteln",
-        "attivazione-professionale-senevita-pratteln-bl"
+        "fachfrau-aktivierung-senevita-bl-pratteln"
       ],
       "firstSeenAt": "2026-06-24T12:19:09.184Z",
       "salaryMin": 62000,
@@ -5337,8 +5202,7 @@
           "specialista-della-salute-efz-100-senevita-burgdorf-be",
           "healthcare-specialist-efz-100-senevita-burgdorf-be",
           "specialiste-en-sante-efz-100-senevita-burgdorf-be",
-          "fachfrau-fachmann-gesundheit-efz-100-senevita-be-burgdorf",
-          "fachfrau-fachmann-gesundheit-efz-100-senevita-burgdorf-be"
+          "fachfrau-fachmann-gesundheit-efz-100-senevita-be-burgdorf"
         ],
         "en": [
           "healthcare-specialist-efz-100-senevita-burgdorf-be"
@@ -5347,16 +5211,14 @@
           "specialiste-en-sante-efz-100-senevita-burgdorf-be"
         ],
         "de": [
-          "fachfrau-fachmann-gesundheit-efz-100-senevita-be-burgdorf",
-          "fachfrau-fachmann-gesundheit-efz-100-senevita-burgdorf-be"
+          "fachfrau-fachmann-gesundheit-efz-100-senevita-be-burgdorf"
         ]
       },
       "previousSlugs": [
         "specialista-della-salute-efz-100-senevita-burgdorf-be",
         "healthcare-specialist-efz-100-senevita-burgdorf-be",
         "specialiste-en-sante-efz-100-senevita-burgdorf-be",
-        "fachfrau-fachmann-gesundheit-efz-100-senevita-be-burgdorf",
-        "fachfrau-fachmann-gesundheit-efz-100-senevita-burgdorf-be"
+        "fachfrau-fachmann-gesundheit-efz-100-senevita-be-burgdorf"
       ],
       "firstSeenAt": "2026-07-23T22:27:05.915Z",
       "salaryMin": 73000,
@@ -5422,13 +5284,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "fachfrau-fachmann-gesundheit-fage-60-80-region-zurich-stadt-see-oberland-unterland",
-        "salute-professionale-fage-60-80-regione-zurich-city-see-oberland-unterland-senevita-casa-zurich-stadt-see-senevita-casa"
+        "fachfrau-fachmann-gesundheit-fage-60-80-region-zurich-stadt-see-oberland-unterland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachfrau-fachmann-gesundheit-fage-60-80-region-zurich-stadt-see-oberland-unterland",
-          "salute-professionale-fage-60-80-regione-zurich-city-see-oberland-unterland-senevita-casa-zurich-stadt-see-senevita-casa"
+          "fachfrau-fachmann-gesundheit-fage-60-80-region-zurich-stadt-see-oberland-unterland"
         ],
         "en": [
           "fachfrau-fachmann-gesundheit-fage-60-80-region-zurich-stadt-see-oberland-unterland"
@@ -5502,13 +5362,11 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "fachangestellte-r-gesundheit-80-100-senevita-zh-affoltern-am-albis",
-          "fachangestellte-r-gesundheit-80-100-senevita-affoltern-am-albis-zh"
+          "fachangestellte-r-gesundheit-80-100-senevita-zh-affoltern-am-albis"
         ],
         "it": [
           "fachangestellte-r-gesundheit-80-100-senevita-affoltern-am-albis-zh",
-          "fachangestellte-r-gesundheit-80-100-senevita-zh-affoltern-am-albis",
-          "specialista-della-salute-80-100-senevita-affoltern-am-albis-zh"
+          "fachangestellte-r-gesundheit-80-100-senevita-zh-affoltern-am-albis"
         ],
         "en": [
           "fachangestellte-r-gesundheit-80-100-senevita-affoltern-am-albis-zh"
@@ -5519,8 +5377,7 @@
       },
       "previousSlugs": [
         "fachangestellte-r-gesundheit-80-100-senevita-affoltern-am-albis-zh",
-        "fachangestellte-r-gesundheit-80-100-senevita-zh-affoltern-am-albis",
-        "specialista-della-salute-80-100-senevita-affoltern-am-albis-zh"
+        "fachangestellte-r-gesundheit-80-100-senevita-zh-affoltern-am-albis"
       ],
       "firstSeenAt": "2026-06-01T16:03:56.776Z",
       "salaryMin": 79000,
@@ -5615,19 +5472,16 @@
       },
       "previousSlugsByLocale": {
         "de": [
-          "fabe-demenzabteilung-80-100-senevita-be-zollikofen",
-          "fabe-demenzabteilung-80-100-senevita-zollikofen-be"
+          "fabe-demenzabteilung-80-100-senevita-be-zollikofen"
         ],
         "it": [
           "fabe-demenzabteilung-80-100-senevita-zollikofen-be",
-          "fabe-demenzabteilung-80-100-senevita-be-zollikofen",
-          "specialista-di-cura-per-la-demenza-all-80-100-senevita-zollikofen-be"
+          "fabe-demenzabteilung-80-100-senevita-be-zollikofen"
         ]
       },
       "previousSlugs": [
         "fabe-demenzabteilung-80-100-senevita-zollikofen-be",
-        "fabe-demenzabteilung-80-100-senevita-be-zollikofen",
-        "specialista-di-cura-per-la-demenza-all-80-100-senevita-zollikofen-be"
+        "fabe-demenzabteilung-80-100-senevita-be-zollikofen"
       ],
       "firstSeenAt": "2026-05-19T12:21:10.535Z",
       "salaryMin": 68500,
@@ -5694,13 +5548,11 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "diplomierte-fachperson-oder-fachperson-gesundheit-60-100-senevita-ag-hagglingen",
-          "diplomierte-fachperson-oder-fachperson-gesundheit-60-100-senevita-hagglingen-ag"
+          "diplomierte-fachperson-oder-fachperson-gesundheit-60-100-senevita-ag-hagglingen"
         ],
         "it": [
           "diplomierte-fachperson-oder-fachperson-gesundheit-60-100-senevita-hagglingen-ag",
-          "diplomierte-fachperson-oder-fachperson-gesundheit-60-100-senevita-ag-hagglingen",
-          "diplomierte-fachperson-o-fachperson-gesundheit-60-100-senevita-hagglingen-ag"
+          "diplomierte-fachperson-oder-fachperson-gesundheit-60-100-senevita-ag-hagglingen"
         ],
         "en": [
           "diplomierte-fachperson-oder-fachperson-gesundheit-60-100-senevita-hagglingen-ag"
@@ -5711,8 +5563,7 @@
       },
       "previousSlugs": [
         "diplomierte-fachperson-oder-fachperson-gesundheit-60-100-senevita-hagglingen-ag",
-        "diplomierte-fachperson-oder-fachperson-gesundheit-60-100-senevita-ag-hagglingen",
-        "diplomierte-fachperson-o-fachperson-gesundheit-60-100-senevita-hagglingen-ag"
+        "diplomierte-fachperson-oder-fachperson-gesundheit-60-100-senevita-ag-hagglingen"
       ],
       "firstSeenAt": "2026-05-21T13:13:40.830Z",
       "salaryMin": 64500,
@@ -5778,13 +5629,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "dipl-pflegefachperson-oder-fachperson-gesundheit-80-100-mit-der-zusatzfunktion",
-        "dipl-pflegefachperson-o-fachperson-gesundheit-80-100-con-der-zusatzfunktion-berufsbildner-in-senevita-zurich-zh"
+        "dipl-pflegefachperson-oder-fachperson-gesundheit-80-100-mit-der-zusatzfunktion"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-oder-fachperson-gesundheit-80-100-mit-der-zusatzfunktion",
-          "dipl-pflegefachperson-o-fachperson-gesundheit-80-100-con-der-zusatzfunktion-berufsbildner-in-senevita-zurich-zh"
+          "dipl-pflegefachperson-oder-fachperson-gesundheit-80-100-mit-der-zusatzfunktion"
         ],
         "en": [
           "dipl-pflegefachperson-oder-fachperson-gesundheit-80-100-mit-der-zusatzfunktion"
@@ -5859,8 +5708,7 @@
       "previousSlugsByLocale": {
         "de": [
           "dipl-pflegefachperson-nachtdienst-40-100-senevita-basel-bs",
-          "dipl-pflegefachperson-im-nachtdienst-80-100-senevita-zh-zurich",
-          "dipl-pflegefachperson-im-nachtdienst-80-100-senevita-zurich-zh"
+          "dipl-pflegefachperson-im-nachtdienst-80-100-senevita-zh-zurich"
         ],
         "it": [
           "dipl-pflegefachperson-im-nachtdienst-80-100-senevita-zurich-zh",
@@ -5876,8 +5724,7 @@
           "diploma-in-nursing-night-shift-50-60-senevita-olten-so",
           "dipl-pflegefachperson-nachtdienst-50-60-senevita-olten-so",
           "diplome-en-soins-infirmiers-de-nuit-50-60-senevita-olten-so",
-          "dipl-pflegefachperson-im-nachtdienst-80-100-senevita-zh-zurich",
-          "dipl-infermiere-di-servizio-notturno-80-100-senevita-zurich-zh"
+          "dipl-pflegefachperson-im-nachtdienst-80-100-senevita-zh-zurich"
         ],
         "en": [
           "dipl-pflegefachperson-im-nachtdienst-80-100-senevita-zurich-zh",
@@ -5902,8 +5749,7 @@
         "diploma-in-nursing-night-shift-50-60-senevita-olten-so",
         "dipl-pflegefachperson-nachtdienst-50-60-senevita-olten-so",
         "diplome-en-soins-infirmiers-de-nuit-50-60-senevita-olten-so",
-        "dipl-pflegefachperson-im-nachtdienst-80-100-senevita-zh-zurich",
-        "dipl-infermiere-di-servizio-notturno-80-100-senevita-zurich-zh"
+        "dipl-pflegefachperson-im-nachtdienst-80-100-senevita-zh-zurich"
       ],
       "firstSeenAt": "2026-07-21T12:10:41.505Z",
       "salaryMin": 73500,
@@ -5970,13 +5816,11 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "dipl-pflegefachperson-im-monats-oder-stundenlohn-50-100-senevita-zg-zug",
-          "dipl-pflegefachperson-im-monats-oder-stundenlohn-50-100-senevita-zug-zg"
+          "dipl-pflegefachperson-im-monats-oder-stundenlohn-50-100-senevita-zg-zug"
         ],
         "it": [
           "dipl-pflegefachperson-im-monats-oder-stundenlohn-50-100-senevita-zug-zg",
-          "dipl-pflegefachperson-im-monats-oder-stundenlohn-50-100-senevita-zg-zug",
-          "dipl-pflegefachperson-im-monats-o-stundenlohn-50-100-senevita-zug-zg"
+          "dipl-pflegefachperson-im-monats-oder-stundenlohn-50-100-senevita-zg-zug"
         ],
         "en": [
           "dipl-pflegefachperson-im-monats-oder-stundenlohn-50-100-senevita-zug-zg"
@@ -5987,8 +5831,7 @@
       },
       "previousSlugs": [
         "dipl-pflegefachperson-im-monats-oder-stundenlohn-50-100-senevita-zug-zg",
-        "dipl-pflegefachperson-im-monats-oder-stundenlohn-50-100-senevita-zg-zug",
-        "dipl-pflegefachperson-im-monats-o-stundenlohn-50-100-senevita-zug-zg"
+        "dipl-pflegefachperson-im-monats-oder-stundenlohn-50-100-senevita-zg-zug"
       ],
       "firstSeenAt": "2026-06-10T23:26:16.963Z",
       "salaryMin": 69500,
@@ -6058,8 +5901,7 @@
         "dipl-pflegefachperson-im-monats-o-stundenlohn-50-100-region-agerital-senevita-zug-zg",
         "dipl-nurse-in-monthly-or-hourly-wage-50-100-region-agerital-senevita-zug-zg",
         "dipl-pflegefachperson-im-monats-oder-stundenlohn-50-100-region-agerital-senevita-zug-zg",
-        "dipl-infirmiere-en-salaire-mensuel-ou-horaire-50-100-region-agerital-senevita-zug-zg",
-        "dipl-pflegefachperson-im-monats-o-stundenlohn-20-100-region-agerital-e-menzingen-senevita-zug-zg"
+        "dipl-infirmiere-en-salaire-mensuel-ou-horaire-50-100-region-agerital-senevita-zug-zg"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -6067,8 +5909,7 @@
           "dipl-pflegefachperson-im-monats-o-stundenlohn-50-100-region-agerital-senevita-zug-zg",
           "dipl-nurse-in-monthly-or-hourly-wage-50-100-region-agerital-senevita-zug-zg",
           "dipl-pflegefachperson-im-monats-oder-stundenlohn-50-100-region-agerital-senevita-zug-zg",
-          "dipl-infirmiere-en-salaire-mensuel-ou-horaire-50-100-region-agerital-senevita-zug-zg",
-          "dipl-pflegefachperson-im-monats-o-stundenlohn-20-100-region-agerital-e-menzingen-senevita-zug-zg"
+          "dipl-infirmiere-en-salaire-mensuel-ou-horaire-50-100-region-agerital-senevita-zug-zg"
         ],
         "en": [
           "dipl-pflegefachperson-im-monats-oder-stundenlohn-20-100-region-agerital-und-menzingen",
@@ -6148,13 +5989,11 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "dipl-pflegefachperson-hf-fh-wohnbereichsleitung-100-senevita-zh-dietikon",
-          "dipl-pflegefachperson-hf-fh-wohnbereichsleitung-100-senevita-dietikon-zh"
+          "dipl-pflegefachperson-hf-fh-wohnbereichsleitung-100-senevita-zh-dietikon"
         ],
         "it": [
           "dipl-pflegefachperson-hf-fh-wohnbereichsleitung-100-senevita-dietikon-zh",
-          "dipl-pflegefachperson-hf-fh-wohnbereichsleitung-100-senevita-zh-dietikon",
-          "dipl-specialista-hf-fh-gestione-area-residenziale-100-senevita-dietikon-zh"
+          "dipl-pflegefachperson-hf-fh-wohnbereichsleitung-100-senevita-zh-dietikon"
         ],
         "en": [
           "dipl-pflegefachperson-hf-fh-wohnbereichsleitung-100-senevita-dietikon-zh"
@@ -6165,8 +6004,7 @@
       },
       "previousSlugs": [
         "dipl-pflegefachperson-hf-fh-wohnbereichsleitung-100-senevita-dietikon-zh",
-        "dipl-pflegefachperson-hf-fh-wohnbereichsleitung-100-senevita-zh-dietikon",
-        "dipl-specialista-hf-fh-gestione-area-residenziale-100-senevita-dietikon-zh"
+        "dipl-pflegefachperson-hf-fh-wohnbereichsleitung-100-senevita-zh-dietikon"
       ],
       "firstSeenAt": "2026-07-27T22:11:53.968Z",
       "salaryMin": 101500,
@@ -6233,13 +6071,11 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "dipl-pflegefachperson-hf-fh-gruppenleitung-nachtdienst-100-senevita-zh-dietikon",
-          "dipl-pflegefachperson-hf-fh-gruppenleitung-nachtdienst-100-senevita-dietikon-zh"
+          "dipl-pflegefachperson-hf-fh-gruppenleitung-nachtdienst-100-senevita-zh-dietikon"
         ],
         "it": [
           "dipl-pflegefachperson-hf-fh-gruppenleitung-nachtdienst-100-senevita-dietikon-zh",
-          "dipl-pflegefachperson-hf-fh-gruppenleitung-nachtdienst-100-senevita-zh-dietikon",
-          "dipl-hf-fh-gestione-gruppo-servizio-notte-100-senevita-dietikon-zh"
+          "dipl-pflegefachperson-hf-fh-gruppenleitung-nachtdienst-100-senevita-zh-dietikon"
         ],
         "en": [
           "dipl-pflegefachperson-hf-fh-gruppenleitung-nachtdienst-100-senevita-dietikon-zh"
@@ -6250,8 +6086,7 @@
       },
       "previousSlugs": [
         "dipl-pflegefachperson-hf-fh-gruppenleitung-nachtdienst-100-senevita-dietikon-zh",
-        "dipl-pflegefachperson-hf-fh-gruppenleitung-nachtdienst-100-senevita-zh-dietikon",
-        "dipl-hf-fh-gestione-gruppo-servizio-notte-100-senevita-dietikon-zh"
+        "dipl-pflegefachperson-hf-fh-gruppenleitung-nachtdienst-100-senevita-zh-dietikon"
       ],
       "firstSeenAt": "2026-06-09T23:06:27.567Z",
       "salaryMin": 101500,
@@ -6318,13 +6153,11 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "dipl-pflegefachperson-hf-fh-dni-ii-akp-psykp-50-100-tagesdienst-senevita-bs-basel",
-          "dipl-pflegefachperson-hf-fh-dni-ii-akp-psykp-50-100-tagesdienst-senevita-basel-bs"
+          "dipl-pflegefachperson-hf-fh-dni-ii-akp-psykp-50-100-tagesdienst-senevita-bs-basel"
         ],
         "it": [
           "dipl-pflegefachperson-hf-fh-dni-ii-akp-psykp-50-100-tagesdienst-senevita-basel-bs",
-          "dipl-pflegefachperson-hf-fh-dni-ii-akp-psykp-50-100-tagesdienst-senevita-bs-basel",
-          "infermiera-hf-fh-dni-ii-akp-psykp-50-100-servizio-giornaliero-senevita-basel-bs"
+          "dipl-pflegefachperson-hf-fh-dni-ii-akp-psykp-50-100-tagesdienst-senevita-bs-basel"
         ],
         "en": [
           "dipl-pflegefachperson-hf-fh-dni-ii-akp-psykp-50-100-tagesdienst-senevita-basel-bs"
@@ -6335,8 +6168,7 @@
       },
       "previousSlugs": [
         "dipl-pflegefachperson-hf-fh-dni-ii-akp-psykp-50-100-tagesdienst-senevita-basel-bs",
-        "dipl-pflegefachperson-hf-fh-dni-ii-akp-psykp-50-100-tagesdienst-senevita-bs-basel",
-        "infermiera-hf-fh-dni-ii-akp-psykp-50-100-servizio-giornaliero-senevita-basel-bs"
+        "dipl-pflegefachperson-hf-fh-dni-ii-akp-psykp-50-100-tagesdienst-senevita-bs-basel"
       ],
       "firstSeenAt": "2026-07-02T22:34:13.790Z",
       "salaryMin": 62000,
@@ -6404,17 +6236,14 @@
       "firstSeenAt": "2026-07-27T22:11:51.984Z",
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-hf-fh-mit-sveb-ausbildunsnachweis-senevita-zh-dietikon",
-          "dipl-pflegefachperson-hf-fh-mit-sveb-ausbildunsnachweis-senevita-dietikon-zh"
+          "dipl-pflegefachperson-hf-fh-mit-sveb-ausbildunsnachweis-senevita-zh-dietikon"
         ],
         "de": [
-          "dipl-pflegefachperson-hf-fh-mit-sveb-ausbildunsnachweis-senevita-zh-dietikon",
-          "dipl-pflegefachperson-hf-fh-mit-sveb-ausbildunsnachweis-senevita-dietikon-zh"
+          "dipl-pflegefachperson-hf-fh-mit-sveb-ausbildunsnachweis-senevita-zh-dietikon"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachperson-hf-fh-mit-sveb-ausbildunsnachweis-senevita-zh-dietikon",
-        "dipl-pflegefachperson-hf-fh-mit-sveb-ausbildunsnachweis-senevita-dietikon-zh"
+        "dipl-pflegefachperson-hf-fh-mit-sveb-ausbildunsnachweis-senevita-zh-dietikon"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -6480,13 +6309,11 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "dipl-pflegefachperson-hf-fh-60-100-senevita-zh-affoltern-am-albis",
-          "dipl-pflegefachperson-hf-fh-60-100-senevita-affoltern-am-albis-zh"
+          "dipl-pflegefachperson-hf-fh-60-100-senevita-zh-affoltern-am-albis"
         ],
         "it": [
           "dipl-pflegefachperson-hf-fh-60-100-senevita-affoltern-am-albis-zh",
-          "dipl-pflegefachperson-hf-fh-60-100-senevita-zh-affoltern-am-albis",
-          "specialista-infermieristico-qualificato-hf-fh-60-100-senevita-affoltern-am-albis-zh"
+          "dipl-pflegefachperson-hf-fh-60-100-senevita-zh-affoltern-am-albis"
         ],
         "en": [
           "dipl-pflegefachperson-hf-fh-60-100-senevita-affoltern-am-albis-zh"
@@ -6497,8 +6324,7 @@
       },
       "previousSlugs": [
         "dipl-pflegefachperson-hf-fh-60-100-senevita-affoltern-am-albis-zh",
-        "dipl-pflegefachperson-hf-fh-60-100-senevita-zh-affoltern-am-albis",
-        "specialista-infermieristico-qualificato-hf-fh-60-100-senevita-affoltern-am-albis-zh"
+        "dipl-pflegefachperson-hf-fh-60-100-senevita-zh-affoltern-am-albis"
       ],
       "firstSeenAt": "2026-06-01T16:03:52.491Z",
       "salaryMin": 73500,
@@ -6583,13 +6409,11 @@
       },
       "previousSlugsByLocale": {
         "de": [
-          "dipl-pflegefachperson-hf-dn2-dn1-senevita-tg-islikon",
-          "dipl-pflegefachperson-hf-dn2-dn1-senevita-islikon-tg"
+          "dipl-pflegefachperson-hf-dn2-dn1-senevita-tg-islikon"
         ],
         "it": [
           "dipl-pflegefachperson-hf-dn2-dn1-senevita-islikon-tg",
-          "dipl-pflegefachperson-hf-dn2-dn1-senevita-tg-islikon",
-          "diplomato-di-assistenza-infermieristica-hf-dn2-dn1-senevita-islikon-tg"
+          "dipl-pflegefachperson-hf-dn2-dn1-senevita-tg-islikon"
         ],
         "en": [
           "dipl-pflegefachperson-hf-dn2-dn1-senevita-islikon-tg"
@@ -6597,8 +6421,7 @@
       },
       "previousSlugs": [
         "dipl-pflegefachperson-hf-dn2-dn1-senevita-islikon-tg",
-        "dipl-pflegefachperson-hf-dn2-dn1-senevita-tg-islikon",
-        "diplomato-di-assistenza-infermieristica-hf-dn2-dn1-senevita-islikon-tg"
+        "dipl-pflegefachperson-hf-dn2-dn1-senevita-tg-islikon"
       ],
       "firstSeenAt": "2026-05-19T12:21:06.751Z",
       "salaryMin": 57500,
@@ -6665,13 +6488,11 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "dipl-pflegefachperson-hf-oder-fh-60-100-senevita-zh-zurich",
-          "dipl-pflegefachperson-hf-oder-fh-60-100-senevita-zurich-zh"
+          "dipl-pflegefachperson-hf-oder-fh-60-100-senevita-zh-zurich"
         ],
         "it": [
           "dipl-pflegefachperson-hf-oder-fh-60-100-senevita-zurich-zh",
-          "dipl-pflegefachperson-hf-oder-fh-60-100-senevita-zh-zurich",
-          "dipl-pflegefachperson-hf-o-fh-60-100-senevita-zurich-zh"
+          "dipl-pflegefachperson-hf-oder-fh-60-100-senevita-zh-zurich"
         ],
         "en": [
           "dipl-pflegefachperson-hf-oder-fh-60-100-senevita-zurich-zh"
@@ -6682,8 +6503,7 @@
       },
       "previousSlugs": [
         "dipl-pflegefachperson-hf-oder-fh-60-100-senevita-zurich-zh",
-        "dipl-pflegefachperson-hf-oder-fh-60-100-senevita-zh-zurich",
-        "dipl-pflegefachperson-hf-o-fh-60-100-senevita-zurich-zh"
+        "dipl-pflegefachperson-hf-oder-fh-60-100-senevita-zh-zurich"
       ],
       "firstSeenAt": "2026-07-06T15:44:52.774Z",
       "salaryMin": 73500,
@@ -6774,13 +6594,11 @@
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachperson-hf-mit-fallfuhrung-30-60-stunden-oder-monatslohn-senevita-casa",
-        "diplomato-a-della-cura-infermieristica-hf-con-gestione-dei-casi-30-60-stipendio-orario-o-mensile-senevita-casa-solothurn"
+        "dipl-pflegefachperson-hf-mit-fallfuhrung-30-60-stunden-oder-monatslohn-senevita-casa"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-hf-mit-fallfuhrung-30-60-stunden-oder-monatslohn-senevita-casa",
-          "diplomato-a-della-cura-infermieristica-hf-con-gestione-dei-casi-30-60-stipendio-orario-o-mensile-senevita-casa-solothurn"
+          "dipl-pflegefachperson-hf-mit-fallfuhrung-30-60-stunden-oder-monatslohn-senevita-casa"
         ]
       },
       "firstSeenAt": "2026-05-19T12:21:06.218Z",
@@ -6851,8 +6669,7 @@
         "infermiere-qualificato-hf-fino-all-80-senevita-casa-luzern-senevita-casa-unterwalden",
         "dipl-care-professional-hf-up-to-80-senevita-casa-luzern-senevita-casa-unterwalden",
         "dipl-pflegefachperson-hf-bis-80-senevita-casa-luzern-senevita-casa-unterwalden",
-        "dipl-soins-professionnels-hf-jusqu-a-80-senevita-casa-luzern-senevita-casa-unterwalden",
-        "infermiere-hf-qualificato-fino-al-100-senevita-casa-luzern-senevita-casa-unterwalden"
+        "dipl-soins-professionnels-hf-jusqu-a-80-senevita-casa-luzern-senevita-casa-unterwalden"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -6860,8 +6677,7 @@
           "infermiere-qualificato-hf-fino-all-80-senevita-casa-luzern-senevita-casa-unterwalden",
           "dipl-care-professional-hf-up-to-80-senevita-casa-luzern-senevita-casa-unterwalden",
           "dipl-pflegefachperson-hf-bis-80-senevita-casa-luzern-senevita-casa-unterwalden",
-          "dipl-soins-professionnels-hf-jusqu-a-80-senevita-casa-luzern-senevita-casa-unterwalden",
-          "infermiere-hf-qualificato-fino-al-100-senevita-casa-luzern-senevita-casa-unterwalden"
+          "dipl-soins-professionnels-hf-jusqu-a-80-senevita-casa-luzern-senevita-casa-unterwalden"
         ],
         "en": [
           "dipl-pflegefachperson-hf-bis-100-senevita-casa-luzern-senevita-casa-unterwalden",
@@ -6967,14 +6783,12 @@
       "previousSlugsByLocale": {
         "de": [
           "dipl-pflegefachperson-hf-80-100-mit-zusatzfunktion-berufsbildung-senevita-lindenbaum",
-          "dipl-pflegefachperson-hf-80-100-mit-zusatzfunktion-berufsbildung-senevita-ag-spreitenbach",
-          "dipl-pflegefachperson-hf-80-100-mit-zusatzfunktion-berufsbildung-senevita-spreitenbach-ag"
+          "dipl-pflegefachperson-hf-80-100-mit-zusatzfunktion-berufsbildung-senevita-ag-spreitenbach"
         ],
         "it": [
           "dipl-pflegefachperson-hf-80-100-mit-zusatzfunktion-berufsbildung-senevita-spreitenbach-ag",
           "dipl-pflegefachperson-hf-80-100-mit-zusatzfunktion-berufsbildung-senevita-lindenbaum",
-          "dipl-pflegefachperson-hf-80-100-mit-zusatzfunktion-berufsbildung-senevita-ag-spreitenbach",
-          "diplomato-a-della-cura-hf-80-100-con-funzione-aggiuntiva-formazione-professionale-senevita-spreitenbach-ag"
+          "dipl-pflegefachperson-hf-80-100-mit-zusatzfunktion-berufsbildung-senevita-ag-spreitenbach"
         ],
         "en": [
           "dipl-pflegefachperson-hf-80-100-mit-zusatzfunktion-berufsbildung-senevita-spreitenbach-ag"
@@ -6983,8 +6797,7 @@
       "previousSlugs": [
         "dipl-pflegefachperson-hf-80-100-mit-zusatzfunktion-berufsbildung-senevita-spreitenbach-ag",
         "dipl-pflegefachperson-hf-80-100-mit-zusatzfunktion-berufsbildung-senevita-lindenbaum",
-        "dipl-pflegefachperson-hf-80-100-mit-zusatzfunktion-berufsbildung-senevita-ag-spreitenbach",
-        "diplomato-a-della-cura-hf-80-100-con-funzione-aggiuntiva-formazione-professionale-senevita-spreitenbach-ag"
+        "dipl-pflegefachperson-hf-80-100-mit-zusatzfunktion-berufsbildung-senevita-ag-spreitenbach"
       ],
       "firstSeenAt": "2026-05-19T12:21:05.785Z",
       "salaryMin": 62000,
@@ -7051,13 +6864,11 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "dipl-pflegefachperson-hf-50-100-im-nachtdienst-senevita-zh-dietikon",
-          "dipl-pflegefachperson-hf-50-100-im-nachtdienst-senevita-dietikon-zh"
+          "dipl-pflegefachperson-hf-50-100-im-nachtdienst-senevita-zh-dietikon"
         ],
         "it": [
           "dipl-pflegefachperson-hf-50-100-im-nachtdienst-senevita-dietikon-zh",
-          "dipl-pflegefachperson-hf-50-100-im-nachtdienst-senevita-zh-dietikon",
-          "dipl-professionista-hf-50-100-in-servizio-notturno-senevita-dietikon-zh"
+          "dipl-pflegefachperson-hf-50-100-im-nachtdienst-senevita-zh-dietikon"
         ],
         "en": [
           "dipl-pflegefachperson-hf-50-100-im-nachtdienst-senevita-dietikon-zh"
@@ -7068,8 +6879,7 @@
       },
       "previousSlugs": [
         "dipl-pflegefachperson-hf-50-100-im-nachtdienst-senevita-dietikon-zh",
-        "dipl-pflegefachperson-hf-50-100-im-nachtdienst-senevita-zh-dietikon",
-        "dipl-professionista-hf-50-100-in-servizio-notturno-senevita-dietikon-zh"
+        "dipl-pflegefachperson-hf-50-100-im-nachtdienst-senevita-zh-dietikon"
       ],
       "firstSeenAt": "2026-07-06T15:44:50.361Z",
       "salaryMin": 73500,
@@ -7155,13 +6965,11 @@
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachperson-hf-fh-40-100-optional-mit-zusatzfunktion-rai-hc-verantwortliche-r",
-        "diplomato-a-della-cura-hf-fh-40-100-opzionale-con-funzione-aggiuntiva-responsabile-a-rai-hc-senevita-muri-be"
+        "dipl-pflegefachperson-hf-fh-40-100-optional-mit-zusatzfunktion-rai-hc-verantwortliche-r"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-hf-fh-40-100-optional-mit-zusatzfunktion-rai-hc-verantwortliche-r",
-          "diplomato-a-della-cura-hf-fh-40-100-opzionale-con-funzione-aggiuntiva-responsabile-a-rai-hc-senevita-muri-be"
+          "dipl-pflegefachperson-hf-fh-40-100-optional-mit-zusatzfunktion-rai-hc-verantwortliche-r"
         ]
       },
       "firstSeenAt": "2026-05-19T12:21:04.895Z",
@@ -7229,15 +7037,13 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "dipl-pflegefachperson-60-100-senevita-zh-herrliberg",
-          "dipl-pflegefachperson-60-100-senevita-herrliberg-zh"
+          "dipl-pflegefachperson-60-100-senevita-zh-herrliberg"
         ],
         "it": [
           "dipl-care-professional-60-100-senevita-herrliberg-zh",
           "dipl-professionnel-de-soins-60-a-100-senevita-herrliberg-zh",
           "dipl-pflegefachperson-60-100-senevita-herrliberg-zh",
-          "dipl-pflegefachperson-60-100-senevita-zh-herrliberg",
-          "dipl-professionista-del-lavoro-60-100-senevita-herrliberg-zh"
+          "dipl-pflegefachperson-60-100-senevita-zh-herrliberg"
         ],
         "en": [
           "dipl-pflegefachperson-60-100-senevita-herrliberg-zh"
@@ -7250,8 +7056,7 @@
         "dipl-care-professional-60-100-senevita-herrliberg-zh",
         "dipl-professionnel-de-soins-60-a-100-senevita-herrliberg-zh",
         "dipl-pflegefachperson-60-100-senevita-herrliberg-zh",
-        "dipl-pflegefachperson-60-100-senevita-zh-herrliberg",
-        "dipl-professionista-del-lavoro-60-100-senevita-herrliberg-zh"
+        "dipl-pflegefachperson-60-100-senevita-zh-herrliberg"
       ],
       "firstSeenAt": "2026-07-23T22:26:52.083Z",
       "salaryMin": 73500,
@@ -7318,13 +7123,11 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "dipl-pflegefachperson-50-100-senevita-be-munsingen",
-          "dipl-pflegefachperson-50-100-senevita-munsingen-be"
+          "dipl-pflegefachperson-50-100-senevita-be-munsingen"
         ],
         "it": [
           "dipl-pflegefachperson-50-100-senevita-munsingen-be",
-          "dipl-pflegefachperson-50-100-senevita-be-munsingen",
-          "infermiere-qualificato-50-100-senevita-munsingen-be"
+          "dipl-pflegefachperson-50-100-senevita-be-munsingen"
         ],
         "en": [
           "dipl-pflegefachperson-50-100-senevita-munsingen-be"
@@ -7335,8 +7138,7 @@
       },
       "previousSlugs": [
         "dipl-pflegefachperson-50-100-senevita-munsingen-be",
-        "dipl-pflegefachperson-50-100-senevita-be-munsingen",
-        "infermiere-qualificato-50-100-senevita-munsingen-be"
+        "dipl-pflegefachperson-50-100-senevita-be-munsingen"
       ],
       "firstSeenAt": "2026-07-02T12:17:47.859Z",
       "salaryMin": 68500,
@@ -7403,13 +7205,11 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "dipl-pflegefachperson-40-100-senevita-sg-abtwil",
-          "dipl-pflegefachperson-40-100-senevita-abtwil"
+          "dipl-pflegefachperson-40-100-senevita-sg-abtwil"
         ],
         "it": [
           "dipl-pflegefachperson-40-100-senevita-abtwil",
-          "dipl-pflegefachperson-40-100-senevita-sg-abtwil",
-          "dipl-professionista-di-cura-40-100-senevita-abtwil"
+          "dipl-pflegefachperson-40-100-senevita-sg-abtwil"
         ],
         "en": [
           "dipl-pflegefachperson-40-100-senevita-abtwil"
@@ -7420,8 +7220,7 @@
       },
       "previousSlugs": [
         "dipl-pflegefachperson-40-100-senevita-abtwil",
-        "dipl-pflegefachperson-40-100-senevita-sg-abtwil",
-        "dipl-professionista-di-cura-40-100-senevita-abtwil"
+        "dipl-pflegefachperson-40-100-senevita-sg-abtwil"
       ],
       "firstSeenAt": "2026-06-29T14:12:08.927Z",
       "salaryMin": 62000,
@@ -7511,14 +7310,12 @@
       "previousSlugsByLocale": {
         "de": [
           "dipl-pflegefachperson-falb-dn-1-oder-hf-80-100-senevita-lindenbaum",
-          "dipl-pflegefachperson-falb-dn-1-oder-hf-80-100-senevita-ag-spreitenbach",
-          "dipl-pflegefachperson-falb-dn-1-oder-hf-80-100-senevita-spreitenbach-ag"
+          "dipl-pflegefachperson-falb-dn-1-oder-hf-80-100-senevita-ag-spreitenbach"
         ],
         "it": [
           "dipl-pflegefachperson-falb-dn-1-oder-hf-80-100-senevita-spreitenbach-ag",
           "dipl-pflegefachperson-falb-dn-1-oder-hf-80-100-senevita-lindenbaum",
-          "dipl-pflegefachperson-falb-dn-1-oder-hf-80-100-senevita-ag-spreitenbach",
-          "dipl-infermiere-a-falb-dn-1-o-hf-80-100-senevita-spreitenbach-ag"
+          "dipl-pflegefachperson-falb-dn-1-oder-hf-80-100-senevita-ag-spreitenbach"
         ],
         "en": [
           "dipl-pflegefachperson-falb-dn-1-oder-hf-80-100-senevita-spreitenbach-ag"
@@ -7527,8 +7324,7 @@
       "previousSlugs": [
         "dipl-pflegefachperson-falb-dn-1-oder-hf-80-100-senevita-spreitenbach-ag",
         "dipl-pflegefachperson-falb-dn-1-oder-hf-80-100-senevita-lindenbaum",
-        "dipl-pflegefachperson-falb-dn-1-oder-hf-80-100-senevita-ag-spreitenbach",
-        "dipl-infermiere-a-falb-dn-1-o-hf-80-100-senevita-spreitenbach-ag"
+        "dipl-pflegefachperson-falb-dn-1-oder-hf-80-100-senevita-ag-spreitenbach"
       ],
       "firstSeenAt": "2026-05-19T12:21:02.783Z",
       "salaryMin": 62000,
@@ -7619,19 +7415,16 @@
       },
       "previousSlugsByLocale": {
         "de": [
-          "dipl-pflegefachfrau-mann-demenzabteilung-60-100-senevita-be-zollikofen",
-          "dipl-pflegefachfrau-mann-demenzabteilung-60-100-senevita-zollikofen-be"
+          "dipl-pflegefachfrau-mann-demenzabteilung-60-100-senevita-be-zollikofen"
         ],
         "it": [
           "dipl-pflegefachfrau-mann-demenzabteilung-60-100-senevita-zollikofen-be",
-          "dipl-pflegefachfrau-mann-demenzabteilung-60-100-senevita-be-zollikofen",
-          "dipl-infermiere-a-di-reparto-demenza-60-100-senevita-zollikofen-be"
+          "dipl-pflegefachfrau-mann-demenzabteilung-60-100-senevita-be-zollikofen"
         ]
       },
       "previousSlugs": [
         "dipl-pflegefachfrau-mann-demenzabteilung-60-100-senevita-zollikofen-be",
-        "dipl-pflegefachfrau-mann-demenzabteilung-60-100-senevita-be-zollikofen",
-        "dipl-infermiere-a-di-reparto-demenza-60-100-senevita-zollikofen-be"
+        "dipl-pflegefachfrau-mann-demenzabteilung-60-100-senevita-be-zollikofen"
       ],
       "firstSeenAt": "2026-05-19T12:21:02.354Z",
       "salaryMin": 68500,
@@ -7698,13 +7491,11 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "dipl-pflegefachfrau-mann-mit-fallfuhrung-50-100-senevita-zg-zug",
-          "dipl-pflegefachfrau-mann-mit-fallfuhrung-50-100-senevita-zug-zg"
+          "dipl-pflegefachfrau-mann-mit-fallfuhrung-50-100-senevita-zg-zug"
         ],
         "it": [
           "dipl-pflegefachfrau-mann-mit-fallfuhrung-50-100-senevita-zug-zg",
-          "dipl-pflegefachfrau-mann-mit-fallfuhrung-50-100-senevita-zg-zug",
-          "dipl-pflegefachfrau-mann-con-fallfuhrung-50-100-senevita-zug-zg"
+          "dipl-pflegefachfrau-mann-mit-fallfuhrung-50-100-senevita-zg-zug"
         ],
         "en": [
           "dipl-pflegefachfrau-mann-mit-fallfuhrung-50-100-senevita-zug-zg"
@@ -7715,8 +7506,7 @@
       },
       "previousSlugs": [
         "dipl-pflegefachfrau-mann-mit-fallfuhrung-50-100-senevita-zug-zg",
-        "dipl-pflegefachfrau-mann-mit-fallfuhrung-50-100-senevita-zg-zug",
-        "dipl-pflegefachfrau-mann-con-fallfuhrung-50-100-senevita-zug-zg"
+        "dipl-pflegefachfrau-mann-mit-fallfuhrung-50-100-senevita-zg-zug"
       ],
       "firstSeenAt": "2026-07-21T12:10:30.258Z",
       "salaryMin": 69500,
@@ -7783,13 +7573,11 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "dipl-pflegefachfrau-mann-mit-fallfuhrung-40-100-senevita-be-biel",
-          "dipl-pflegefachfrau-mann-mit-fallfuhrung-40-100-senevita-biel-be"
+          "dipl-pflegefachfrau-mann-mit-fallfuhrung-40-100-senevita-be-biel"
         ],
         "it": [
           "dipl-pflegefachfrau-mann-mit-fallfuhrung-40-100-senevita-biel-be",
-          "dipl-pflegefachfrau-mann-mit-fallfuhrung-40-100-senevita-be-biel",
-          "dipl-pflegefachfrau-mann-con-fallfuhrung-40-100-senevita-biel-be"
+          "dipl-pflegefachfrau-mann-mit-fallfuhrung-40-100-senevita-be-biel"
         ],
         "en": [
           "dipl-pflegefachfrau-mann-mit-fallfuhrung-40-100-senevita-biel-be"
@@ -7800,8 +7588,7 @@
       },
       "previousSlugs": [
         "dipl-pflegefachfrau-mann-mit-fallfuhrung-40-100-senevita-biel-be",
-        "dipl-pflegefachfrau-mann-mit-fallfuhrung-40-100-senevita-be-biel",
-        "dipl-pflegefachfrau-mann-con-fallfuhrung-40-100-senevita-biel-be"
+        "dipl-pflegefachfrau-mann-mit-fallfuhrung-40-100-senevita-be-biel"
       ],
       "firstSeenAt": "2026-06-29T14:12:06.118Z",
       "salaryMin": 68500,
@@ -7868,13 +7655,11 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "dipl-pflegefachfrau-mann-inkl-berufsbildung-80-100-senevita-zh-zurich",
-          "dipl-pflegefachfrau-mann-inkl-berufsbildung-80-100-senevita-zurich-zh"
+          "dipl-pflegefachfrau-mann-inkl-berufsbildung-80-100-senevita-zh-zurich"
         ],
         "it": [
           "dipl-pflegefachfrau-mann-inkl-berufsbildung-80-100-senevita-zurich-zh",
-          "dipl-pflegefachfrau-mann-inkl-berufsbildung-80-100-senevita-zh-zurich",
-          "dipl-infermieristica-professionale-incl-formazione-professionale-80-100-senevita-zurich-zh"
+          "dipl-pflegefachfrau-mann-inkl-berufsbildung-80-100-senevita-zh-zurich"
         ],
         "en": [
           "dipl-pflegefachfrau-mann-inkl-berufsbildung-80-100-senevita-zurich-zh"
@@ -7885,8 +7670,7 @@
       },
       "previousSlugs": [
         "dipl-pflegefachfrau-mann-inkl-berufsbildung-80-100-senevita-zurich-zh",
-        "dipl-pflegefachfrau-mann-inkl-berufsbildung-80-100-senevita-zh-zurich",
-        "dipl-infermieristica-professionale-incl-formazione-professionale-80-100-senevita-zurich-zh"
+        "dipl-pflegefachfrau-mann-inkl-berufsbildung-80-100-senevita-zh-zurich"
       ],
       "firstSeenAt": "2026-07-01T23:20:30.224Z",
       "salaryMin": 73500,
@@ -7952,13 +7736,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "dipl-pflegefachfrau-mann-hf-mit-rai-hc-verantwortung-50-100-auch-halbe-einsatztage-moglich",
-        "dipl-pflegefachfrau-mann-hf-con-rai-hc-verantwortung-50-100-auch-halbe-einsatztage-moglich-senevita-munsingen-be"
+        "dipl-pflegefachfrau-mann-hf-mit-rai-hc-verantwortung-50-100-auch-halbe-einsatztage-moglich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachfrau-mann-hf-mit-rai-hc-verantwortung-50-100-auch-halbe-einsatztage-moglich",
-          "dipl-pflegefachfrau-mann-hf-con-rai-hc-verantwortung-50-100-auch-halbe-einsatztage-moglich-senevita-munsingen-be"
+          "dipl-pflegefachfrau-mann-hf-mit-rai-hc-verantwortung-50-100-auch-halbe-einsatztage-moglich"
         ],
         "en": [
           "dipl-pflegefachfrau-mann-hf-mit-rai-hc-verantwortung-50-100-auch-halbe-einsatztage-moglich"
@@ -8032,13 +7814,11 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "dipl-pflegefachfrau-mann-hf-fh-mit-spitexerfahrung-100-senevita-be-burgdorf",
-          "dipl-pflegefachfrau-mann-hf-fh-mit-spitexerfahrung-100-senevita-burgdorf-be"
+          "dipl-pflegefachfrau-mann-hf-fh-mit-spitexerfahrung-100-senevita-be-burgdorf"
         ],
         "it": [
           "dipl-pflegefachfrau-mann-hf-fh-mit-spitexerfahrung-100-senevita-burgdorf-be",
-          "dipl-pflegefachfrau-mann-hf-fh-mit-spitexerfahrung-100-senevita-be-burgdorf",
-          "dipl-pflegefachfrau-mann-hf-fh-con-spitexerfahrung-100-senevita-burgdorf-be"
+          "dipl-pflegefachfrau-mann-hf-fh-mit-spitexerfahrung-100-senevita-be-burgdorf"
         ],
         "en": [
           "dipl-pflegefachfrau-mann-hf-fh-mit-spitexerfahrung-100-senevita-burgdorf-be"
@@ -8049,8 +7829,7 @@
       },
       "previousSlugs": [
         "dipl-pflegefachfrau-mann-hf-fh-mit-spitexerfahrung-100-senevita-burgdorf-be",
-        "dipl-pflegefachfrau-mann-hf-fh-mit-spitexerfahrung-100-senevita-be-burgdorf",
-        "dipl-pflegefachfrau-mann-hf-fh-con-spitexerfahrung-100-senevita-burgdorf-be"
+        "dipl-pflegefachfrau-mann-hf-fh-mit-spitexerfahrung-100-senevita-be-burgdorf"
       ],
       "firstSeenAt": "2026-05-21T13:13:27.736Z",
       "salaryMin": 68500,
@@ -8134,8 +7913,7 @@
         "de": [
           "dipl-pflegefachfrau-mann-hf-fh-40-80-senevita-murten-fr",
           "dipl-pflegefachfrau-mann-hf-fh-80-85-senevita-murten-fr",
-          "dipl-pflegefachfrau-mann-hf-fh-70-100-senevita-be-burgdorf",
-          "dipl-pflegefachfrau-mann-hf-fh-70-100-senevita-burgdorf-be"
+          "dipl-pflegefachfrau-mann-hf-fh-70-100-senevita-be-burgdorf"
         ],
         "it": [
           "dipl-pflegefachfrau-mann-hf-fh-70-100-senevita-burgdorf-be",
@@ -8145,8 +7923,7 @@
           "dipl-professionnels-des-soins-infirmiers-hf-fh-40-80-senevita-murten-fr",
           "dipl-infermieristica-professionale-hf-fh-80-85-senevita-murten-fr",
           "infermiere-certificato-hf-fh-80-85-senevita-murten-fr",
-          "dipl-pflegefachfrau-mann-hf-fh-70-100-senevita-be-burgdorf",
-          "dipl-infermieristica-professionale-hf-fh-70-100-senevita-burgdorf-be"
+          "dipl-pflegefachfrau-mann-hf-fh-70-100-senevita-be-burgdorf"
         ],
         "en": [
           "dipl-nursing-professional-hf-fh-40-80-senevita-murten-fr",
@@ -8168,8 +7945,7 @@
         "dipl-nursing-professional-hf-fh-80-85-senevita-murten-fr",
         "dipl-pflegefachfrau-mann-hf-fh-80-85-senevita-murten-fr",
         "dipl-professionnels-des-soins-infirmiers-hf-fh-80-85-senevita-murten-fr",
-        "dipl-pflegefachfrau-mann-hf-fh-70-100-senevita-be-burgdorf",
-        "dipl-infermieristica-professionale-hf-fh-70-100-senevita-burgdorf-be"
+        "dipl-pflegefachfrau-mann-hf-fh-70-100-senevita-be-burgdorf"
       ],
       "firstSeenAt": "2026-05-19T12:20:59.555Z",
       "salaryMin": 68500,
@@ -8236,13 +8012,11 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "dipl-pflegefachfrau-mann-hf-fh-40-80-senevita-fr-murten",
-          "dipl-pflegefachfrau-mann-hf-fh-40-80-senevita-murten-fr"
+          "dipl-pflegefachfrau-mann-hf-fh-40-80-senevita-fr-murten"
         ],
         "it": [
           "dipl-pflegefachfrau-mann-hf-fh-40-80-senevita-murten-fr",
-          "dipl-pflegefachfrau-mann-hf-fh-40-80-senevita-fr-murten",
-          "dipl-infermieristica-professionale-hf-fh-40-80-senevita-murten-fr"
+          "dipl-pflegefachfrau-mann-hf-fh-40-80-senevita-fr-murten"
         ],
         "en": [
           "dipl-pflegefachfrau-mann-hf-fh-40-80-senevita-murten-fr"
@@ -8253,8 +8027,7 @@
       },
       "previousSlugs": [
         "dipl-pflegefachfrau-mann-hf-fh-40-80-senevita-murten-fr",
-        "dipl-pflegefachfrau-mann-hf-fh-40-80-senevita-fr-murten",
-        "dipl-infermieristica-professionale-hf-fh-40-80-senevita-murten-fr"
+        "dipl-pflegefachfrau-mann-hf-fh-40-80-senevita-fr-murten"
       ],
       "firstSeenAt": "2026-07-27T12:44:08.035Z",
       "salaryMin": 54800,
@@ -8349,19 +8122,16 @@
       },
       "previousSlugsByLocale": {
         "de": [
-          "dipl-pflegefachfrau-mann-60-100-senevita-be-bern",
-          "dipl-pflegefachfrau-mann-60-100-senevita-bern-be"
+          "dipl-pflegefachfrau-mann-60-100-senevita-be-bern"
         ],
         "it": [
           "dipl-pflegefachfrau-mann-60-100-senevita-bern-be",
-          "dipl-pflegefachfrau-mann-60-100-senevita-be-bern",
-          "dipl-infermieristica-professionale-60-100-senevita-bern-be"
+          "dipl-pflegefachfrau-mann-60-100-senevita-be-bern"
         ]
       },
       "previousSlugs": [
         "dipl-pflegefachfrau-mann-60-100-senevita-bern-be",
-        "dipl-pflegefachfrau-mann-60-100-senevita-be-bern",
-        "dipl-infermieristica-professionale-60-100-senevita-bern-be"
+        "dipl-pflegefachfrau-mann-60-100-senevita-be-bern"
       ],
       "firstSeenAt": "2026-05-19T12:20:58.682Z",
       "salaryMin": 68500,
@@ -8451,19 +8221,16 @@
       },
       "previousSlugsByLocale": {
         "de": [
-          "dipl-pflegefachfrau-mann-50-100-senevita-be-zollikofen",
-          "dipl-pflegefachfrau-mann-50-100-senevita-zollikofen-be"
+          "dipl-pflegefachfrau-mann-50-100-senevita-be-zollikofen"
         ],
         "it": [
           "dipl-pflegefachfrau-mann-50-100-senevita-zollikofen-be",
-          "dipl-pflegefachfrau-mann-50-100-senevita-be-zollikofen",
-          "dipl-infermieristica-professionale-50-100-senevita-zollikofen-be"
+          "dipl-pflegefachfrau-mann-50-100-senevita-be-zollikofen"
         ]
       },
       "previousSlugs": [
         "dipl-pflegefachfrau-mann-50-100-senevita-zollikofen-be",
-        "dipl-pflegefachfrau-mann-50-100-senevita-be-zollikofen",
-        "dipl-infermieristica-professionale-50-100-senevita-zollikofen-be"
+        "dipl-pflegefachfrau-mann-50-100-senevita-be-zollikofen"
       ],
       "firstSeenAt": "2026-05-19T12:20:58.259Z",
       "salaryMin": 68500,
@@ -8550,13 +8317,11 @@
         ]
       },
       "previousSlugs": [
-        "auxiliaires-de-sante-crs-et-assc-senevita-casa-wallis-senevita-casa-freiburg-senevita-casa",
-        "ausiliari-sanitari-crs-e-assc-senevita-casa-wallis-senevita-casa-freiburg-senevita-casa-vaud-geneve"
+        "auxiliaires-de-sante-crs-et-assc-senevita-casa-wallis-senevita-casa-freiburg-senevita-casa"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "auxiliaires-de-sante-crs-et-assc-senevita-casa-wallis-senevita-casa-freiburg-senevita-casa",
-          "ausiliari-sanitari-crs-e-assc-senevita-casa-wallis-senevita-casa-freiburg-senevita-casa-vaud-geneve"
+          "auxiliaires-de-sante-crs-et-assc-senevita-casa-wallis-senevita-casa-freiburg-senevita-casa"
         ]
       },
       "firstSeenAt": "2026-05-19T12:20:54.947Z",
@@ -8647,13 +8412,11 @@
       },
       "previousSlugsByLocale": {
         "de": [
-          "ausbildung-zur-dipl-pflegefachperson-hf-senevita-tg-arbon",
-          "ausbildung-zur-dipl-pflegefachperson-hf-senevita-arbon-tg"
+          "ausbildung-zur-dipl-pflegefachperson-hf-senevita-tg-arbon"
         ],
         "it": [
           "ausbildung-zur-dipl-pflegefachperson-hf-senevita-arbon-tg",
-          "ausbildung-zur-dipl-pflegefachperson-hf-senevita-tg-arbon",
-          "formazione-per-diplomato-a-in-assistenza-infermieristica-hf-senevita-arbon-tg"
+          "ausbildung-zur-dipl-pflegefachperson-hf-senevita-tg-arbon"
         ],
         "en": [
           "ausbildung-zur-dipl-pflegefachperson-hf-senevita-arbon-tg"
@@ -8661,8 +8424,7 @@
       },
       "previousSlugs": [
         "ausbildung-zur-dipl-pflegefachperson-hf-senevita-arbon-tg",
-        "ausbildung-zur-dipl-pflegefachperson-hf-senevita-tg-arbon",
-        "formazione-per-diplomato-a-in-assistenza-infermieristica-hf-senevita-arbon-tg"
+        "ausbildung-zur-dipl-pflegefachperson-hf-senevita-tg-arbon"
       ],
       "firstSeenAt": "2026-05-19T12:20:54.521Z",
       "salaryMin": 57500,
@@ -8729,13 +8491,11 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "assistent-in-gesundheit-eba-oder-pflegehelfer-in-srk-60-100-senevita-zh-affoltern-am-albis",
-          "assistent-in-gesundheit-eba-oder-pflegehelfer-in-srk-60-100-senevita-affoltern-am-albis-zh"
+          "assistent-in-gesundheit-eba-oder-pflegehelfer-in-srk-60-100-senevita-zh-affoltern-am-albis"
         ],
         "it": [
           "assistent-in-gesundheit-eba-oder-pflegehelfer-in-srk-60-100-senevita-affoltern-am-albis-zh",
-          "assistent-in-gesundheit-eba-oder-pflegehelfer-in-srk-60-100-senevita-zh-affoltern-am-albis",
-          "assistent-in-gesundheit-afp-o-pflegehelfer-in-srk-60-100-senevita-affoltern-am-albis-zh"
+          "assistent-in-gesundheit-eba-oder-pflegehelfer-in-srk-60-100-senevita-zh-affoltern-am-albis"
         ],
         "en": [
           "assistent-in-gesundheit-eba-oder-pflegehelfer-in-srk-60-100-senevita-affoltern-am-albis-zh"
@@ -8746,8 +8506,7 @@
       },
       "previousSlugs": [
         "assistent-in-gesundheit-eba-oder-pflegehelfer-in-srk-60-100-senevita-affoltern-am-albis-zh",
-        "assistent-in-gesundheit-eba-oder-pflegehelfer-in-srk-60-100-senevita-zh-affoltern-am-albis",
-        "assistent-in-gesundheit-afp-o-pflegehelfer-in-srk-60-100-senevita-affoltern-am-albis-zh"
+        "assistent-in-gesundheit-eba-oder-pflegehelfer-in-srk-60-100-senevita-zh-affoltern-am-albis"
       ],
       "firstSeenAt": "2026-07-03T12:12:50.161Z",
       "salaryMin": 73500,
@@ -8815,8 +8574,7 @@
       "previousSlugsByLocale": {
         "de": [
           "assistent-in-gesundheit-soziales-pflegehelfer-in-50-100-senevita-studen-be",
-          "assistent-in-gesundheit-soziales-pflegehelfer-in-srk-40-100-senevita-be-munsingen",
-          "assistent-in-gesundheit-soziales-pflegehelfer-in-srk-50-100-senevita-munsingen-be"
+          "assistent-in-gesundheit-soziales-pflegehelfer-in-srk-40-100-senevita-be-munsingen"
         ],
         "it": [
           "assistent-in-gesundheit-soziales-pflegehelfer-in-srk-50-100-senevita-munsingen-be",
@@ -8827,8 +8585,7 @@
           "assistant-in-health-social-affairs-nursing-assistant-in-50-100-senevita-studen-be",
           "assistent-in-gesundheit-soziales-pflegehelfer-in-50-100-senevita-studen-be",
           "assistant-en-sante-et-affaires-sociales-assistant-infirmier-en-50-100-senevita-studen-be",
-          "assistent-in-gesundheit-soziales-pflegehelfer-in-srk-40-100-senevita-be-munsingen",
-          "assistente-sanita-e-affari-sociali-assistente-infermieristico-src-50-100-senevita-munsingen-be"
+          "assistent-in-gesundheit-soziales-pflegehelfer-in-srk-40-100-senevita-be-munsingen"
         ],
         "en": [
           "assistent-in-gesundheit-soziales-pflegehelfer-in-srk-50-100-senevita-munsingen-be",
@@ -8849,8 +8606,7 @@
         "assistant-in-health-social-affairs-nursing-assistant-in-50-100-senevita-studen-be",
         "assistent-in-gesundheit-soziales-pflegehelfer-in-50-100-senevita-studen-be",
         "assistant-en-sante-et-affaires-sociales-assistant-infirmier-en-50-100-senevita-studen-be",
-        "assistent-in-gesundheit-soziales-pflegehelfer-in-srk-40-100-senevita-be-munsingen",
-        "assistente-sanita-e-affari-sociali-assistente-infermieristico-src-50-100-senevita-munsingen-be"
+        "assistent-in-gesundheit-soziales-pflegehelfer-in-srk-40-100-senevita-be-munsingen"
       ],
       "firstSeenAt": "2026-07-02T12:17:35.412Z",
       "salaryMin": 68500,
@@ -8917,13 +8673,11 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "application-manager-in-bc-80-100-senevita-be-muri-b-bern",
-          "application-manager-in-bc-80-100-senevita-muri-be"
+          "application-manager-in-bc-80-100-senevita-be-muri-b-bern"
         ],
         "it": [
           "application-manager-in-bc-80-100-senevita-muri-be",
-          "application-manager-in-bc-80-100-senevita-be-muri-b-bern",
-          "gestione-delle-applicazioni-in-bc-80-100-senevita-muri-be"
+          "application-manager-in-bc-80-100-senevita-be-muri-b-bern"
         ],
         "fr": [
           "application-manager-in-bc-80-100-senevita-muri-be"
@@ -8931,8 +8685,7 @@
       },
       "previousSlugs": [
         "application-manager-in-bc-80-100-senevita-muri-be",
-        "application-manager-in-bc-80-100-senevita-be-muri-b-bern",
-        "gestione-delle-applicazioni-in-bc-80-100-senevita-muri-be"
+        "application-manager-in-bc-80-100-senevita-be-muri-b-bern"
       ],
       "firstSeenAt": "2026-07-16T22:28:15.135Z",
       "salaryMin": 94500,
@@ -8999,14 +8752,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "adjoint-e-a-la-direction-des-soins-au-taux-de-80-100-bilingue-francais-allemand-senevita",
-        "adjoint-e-a-la-direction-des-soins-au-taux-de-80-100-bilingue-francais-allemand-senevita-fribourg",
-        "assistente-alla-direzione-della-cura-all-80-100-bilingue-francese-tedesco-senevita-fribourg"
+        "adjoint-e-a-la-direction-des-soins-au-taux-de-80-100-bilingue-francais-allemand-senevita-fribourg"
       ],
       "previousSlugsByLocale": {
         "it": [
           "adjoint-e-a-la-direction-des-soins-au-taux-de-80-100-bilingue-francais-allemand-senevita",
-          "adjoint-e-a-la-direction-des-soins-au-taux-de-80-100-bilingue-francais-allemand-senevita-fribourg",
-          "assistente-alla-direzione-della-cura-all-80-100-bilingue-francese-tedesco-senevita-fribourg"
+          "adjoint-e-a-la-direction-des-soins-au-taux-de-80-100-bilingue-francais-allemand-senevita-fribourg"
         ],
         "en": [
           "adjoint-e-a-la-direction-des-soins-au-taux-de-80-100-bilingue-francais-allemand-senevita"
