@@ -9138,6 +9138,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.sede-legale-datore-frontalieri.title': 'Grenzgänger: Es zählt, wo Sie arbeiten, nicht der Firmensitz',
     'blog.article.sede-legale-datore-frontalieri.excerpt': 'Das Finanzamt stellt klar: Das Steuersystem der Grenzgänger hängt vom Ort der physischen Leistung ab, nicht von der Adresse des Arbeitgebers.',
     'blog.article.sede-legale-datore-frontalieri.imageAlt': 'Straße in Mendrisio, Kanton Tessin',
+    'blog.article.franco-svizzero-tornano-le-pressioni-al-rialzo.title': 'Schweizer Franken: Kommt der Aufwärtsdruck zurück?',
+    'blog.article.franco-svizzero-tornano-le-pressioni-al-rialzo.excerpt': 'Der EUR/CHF-Wechselkurs hat seit Ende Mai über 2 Prozent zugelegt und seit Januar erstmals wieder über 0,93 Franken gestiegen.',
+    'blog.article.franco-svizzero-tornano-le-pressioni-al-rialzo.imageAlt': 'Devisenmarkt in Lugano',
 };
 
 export default blogMetaDe;
