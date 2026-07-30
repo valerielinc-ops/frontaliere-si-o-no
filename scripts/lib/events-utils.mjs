@@ -559,11 +559,14 @@ export function resolveComuneNationwide({ venue, title, region }, cantonHint) {
 }
 
 // ── Italian frontier comuni geo-matching ──────────────────────
-// haversineKm now lives in ./haversine.mjs, a leaf with no imports. Re-exported
-// here so the existing importers keep working unchanged; import it from the
-// leaf directly when you only need the distance and not this module's
-// canton-slug dependency (issue #4974 item 3).
-export { haversineKm } from './haversine.mjs';
+// haversineKm now lives in ./haversine.mjs, a leaf with no imports. Imported
+// AND re-exported, not `export ... from`: this module calls it itself, and a
+// bare re-export forwards the name without binding it in local scope, so the
+// internal callers would hit a ReferenceError. Import it from the leaf directly
+// when you only need the distance and not this module's canton-slug dependency
+// (issue #4974 item 3).
+import { haversineKm } from './haversine.mjs';
+export { haversineKm };
 
 /**
  * Italian border comuni (data/municipalities.ts, 518 comuni across 11
