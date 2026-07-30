@@ -90,3 +90,59 @@ describe('seo-pages article ItemList stays at the emission cap (#4974)', () => {
     expect(next).not.toContain('un-articolo-nuovo');
   });
 });
+
+/**
+ * A rename is not a new article.
+ *
+ * `upsertArticleListItem` falls back to `appendArticleListItem` when it cannot
+ * find the entry it was asked to rename — correct before the cap, when "not
+ * found" really did mean "not there". Past the cap the entry is simply not
+ * stored, so that fallback would treat every rename of one of the culled
+ * articles as a fresh publication and bump `numberOfItems` for it. Once per
+ * rename, permanently, with nothing to correct it.
+ *
+ * The module's own docblock names `upsertArticleListItem` as "the rename-safe
+ * entry point: any future slug-rename/migration tooling MUST use it", so this
+ * would have gone off the first time such a tool was wired up.
+ */
+describe('renaming a culled article does not inflate numberOfItems (#4974)', () => {
+  const read = () =>
+    fs.readFileSync(path.join(ROOT, 'services', 'seo', 'seo-pages.ts'), 'utf-8');
+  const countOf = (s: string) =>
+    Number(s.match(/"name": "Articoli Frontaliere",\s*"numberOfItems": (\d+)/)?.[1]);
+
+  it('leaves the source untouched when the renamed entry is past the cap', async () => {
+    const { upsertArticleListItem } = await import('../scripts/lib/seo-pages-article-list.mjs');
+    const src = read();
+
+    const next = upsertArticleListItem(src, {
+      name: 'Titolo rinominato',
+      url: '${BASE_URL}/articoli-frontaliere/slug-nuovo',
+      // An article well past position 100 — culled from the stored list.
+      renameFromUrl: '${BASE_URL}/articoli-frontaliere/un-articolo-molto-vecchio',
+    });
+
+    expect(countOf(next), 'a rename must not count as a new article').toBe(countOf(src));
+    expect(next).toBe(src);
+  });
+
+  it('still renames in place when the entry is within the cap', async () => {
+    const { upsertArticleListItem } = await import('../scripts/lib/seo-pages-article-list.mjs');
+    const src = read();
+    const block = locateItemListBlock(src)!;
+    const firstUrl = src
+      .slice(block.blockStart, block.blockEnd)
+      .match(/"url": `([^`]+)`/)?.[1];
+    expect(firstUrl, 'no ListItem url found to rename').toBeTruthy();
+
+    const next = upsertArticleListItem(src, {
+      name: 'Titolo rinominato',
+      url: '${BASE_URL}/articoli-frontaliere/slug-rinominato',
+      renameFromUrl: firstUrl!,
+    });
+
+    expect(countOf(next), 'an in-place rename must not move the count').toBe(countOf(src));
+    expect(next).toContain('slug-rinominato');
+    expect(next).not.toContain(firstUrl!);
+  });
+});

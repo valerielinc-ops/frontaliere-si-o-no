@@ -210,6 +210,20 @@ export function upsertArticleListItem(pagesSrc, { name, url, renameFromUrl }) {
     }
     // Old entry not found (or block not located) — fall through to append
     // so the rename is never silently dropped.
+    //
+    // Except when the list is at the cap: past ARTICLE_ITEM_LIST_CAP the entry
+    // simply is not stored any more, so "not found" no longer means "new". The
+    // append path would then bump `numberOfItems` for what is a RENAME of an
+    // article the collection already counts — permanently inflating the header,
+    // once per rename, with nothing to correct it. A rename does not change how
+    // many articles exist, so leave the source untouched and say so.
+    const capBlock = locateItemListBlock(pagesSrc);
+    if (capBlock) {
+      const listedNow = (
+        pagesSrc.slice(capBlock.blockStart, capBlock.blockEnd).match(/\{ "@type": "ListItem"/g) ?? []
+      ).length;
+      if (listedNow >= ARTICLE_ITEM_LIST_CAP) return pagesSrc;
+    }
   }
   return appendArticleListItem(pagesSrc, { name, url });
 }
