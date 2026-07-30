@@ -1,0 +1,99 @@
+name: Mirror article corpus to the articles repo
+
+# Transitional, and deliberately one-way.
+#
+# The corpus now has a home of its own (nanakokyobashi-rgb/frontaliere-articles),
+# which republishes it as JSON + sitemaps that this site consumes. But articles
+# are still CREATED here, by scripts/create-article.mjs, so without this mirror the
+# published surface silently freezes at whatever snapshot was pushed when the repo
+# was extracted — and a stale API is worse than no API, because consumers cannot
+# tell the difference.
+#
+# This closes that gap while `generate-article.yml` still lives in this repo.
+# When the generator moves (#4959), articles will be created in the articles repo
+# directly and this workflow is deleted, not rewired: mirroring is the symptom of
+# the split being unfinished, not part of the target architecture.
+#
+# One-way on purpose: this repo is the writer, the articles repo is the reader.
+# Nothing here ever pulls, so there is no direction in which the two can diverge
+# into a conflict.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'packages/articles/**'
+  workflow_dispatch:
+
+# Serialised, never cancelled: two mirrors racing would interleave force-pushes
+# over the same tree.
+concurrency:
+  group: mirror-articles-corpus
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  mirror:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 1
+
+      - name: Push packages/articles to the articles repo
+        env:
+          PAT: ${{ secrets.ARTICLES_REPO_PAT }}
+        run: |
+          set -euo pipefail
+          if [ -z "${PAT:-}" ]; then
+            echo "::error::ARTICLES_REPO_PAT is not set — cannot mirror"
+            exit 1
+          fi
+
+          work=$(mktemp -d)
+          git clone --depth 1 \
+            "https://x-access-token:${PAT}@github.com/nanakokyobashi-rgb/frontaliere-articles.git" \
+            "$work"
+
+          # Replace the tracked corpus wholesale, but keep the files the articles
+          # repo owns and this repo does not know about (its build script, its
+          # workflows, its README). Only paths that came from packages/articles are
+          # candidates for deletion.
+          for d in content engine; do
+            rm -rf "${work:?}/$d"
+          done
+          cp -R packages/articles/content "$work/content"
+          cp -R packages/articles/engine "$work/engine"
+          for f in index.ts articleSections.ts package.json; do
+            [ -f "packages/articles/$f" ] && cp "packages/articles/$f" "$work/$f"
+          done
+
+          cd "$work"
+          git config user.name "Valerie Linc"
+          git config user.email "valerielinc@gmail.com"
+          git add -A
+
+          if git diff --cached --quiet; then
+            echo "corpus already in sync — nothing to mirror"
+            exit 0
+          fi
+
+          # Guard: the corpus only ever grows in normal operation. A mirror that
+          # would delete a large share of it means something upstream is wrong
+          # (a bad checkout, a partial clone), and a force-push would destroy the
+          # published surface.
+          deleted=$(git diff --cached --diff-filter=D --name-only | wc -l)
+          total=$(git ls-files | wc -l)
+          echo "mirroring: $total files tracked, $deleted deletion(s)"
+          if [ "$deleted" -gt 200 ]; then
+            echo "::error::mirror would delete $deleted files — refusing, investigate upstream"
+            exit 1
+          fi
+
+          git commit -q \
+            -m "Mirror packages/articles from frontaliere-si-o-no@${GITHUB_SHA:0:8}" \
+            -m "Automated one-way mirror while the generator still runs in the site repo (issue 4959). Publishing of the JSON + sitemap surface is triggered by this push."
+          git push origin HEAD:main
+          echo "mirrored ${GITHUB_SHA:0:8} — the articles repo will republish its data surface"
