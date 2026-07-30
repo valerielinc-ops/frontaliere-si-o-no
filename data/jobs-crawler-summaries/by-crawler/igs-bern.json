@@ -1,16 +1,16 @@
 {
   "key": "igs-bern",
   "label": "Interessengemeinschaft Sozialpsychiatrie Bern",
-  "generatedAt": "2026-07-29T22:37:46.379Z",
+  "generatedAt": "2026-07-30T11:43:06.159Z",
   "total": 1,
   "newCount": 0,
   "updatedCount": 1,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 3588,
-  "avgDurationMs": 3588,
+  "durationMs": 2905,
+  "avgDurationMs": 2905,
   "durationHistory": [
-    3588
+    2905
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -27,7 +27,7 @@
       "url": "https://www.publicjobs.ch/jobs/behinderung-beeintr%C3%A4chtigung-agogik/~job160824?ext",
       "source": "Interessengemeinschaft Sozialpsychiatrie Bern Dedicated Parser (PastaHR / publicjobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:37:43.724Z",
+      "crawledAt": "2026-07-30T11:43:04.173Z",
       "addressLocality": "Bern",
       "postalCode": "3000",
       "addressCountry": "CH",
@@ -51,49 +51,6 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "id": "igs-bern-f53e647688d0",
-      "slug": "assistente-professionale-per-assistenza-fabe-assistenza-sanitaria-fage-efz-50-80-interessengemeinschaft",
-      "company": "Interessengemeinschaft Sozialpsychiatrie Bern",
-      "companyKey": "igs-bern",
-      "companyDomain": "igsbern.ch",
-      "title": "Fachfrau/Fachmann Betreuung (FaBe) / Gesundheit (FaGe) EFZ (50% - 70%)",
-      "location": "Moosseedorf",
-      "canton": "BE",
-      "url": "https://www.publicjobs.ch/jobs/behinderung-beeintr%C3%A4chtigung-agogik/~job153622?ext",
-      "source": "Interessengemeinschaft Sozialpsychiatrie Bern Dedicated Parser (PastaHR / publicjobs.ch)",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-28T11:31:47.034Z",
-      "addressLocality": "Moosseedorf",
-      "postalCode": "3000",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Sanità / Ospedali",
-      "contract": "part-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-20",
-      "applyUrl": "https://www.publicjobs.ch/jobs/behinderung-beeintr%C3%A4chtigung-agogik/~job153622?ext",
-      "pensumMin": 50,
-      "pensumMax": 50,
-      "pensum": "50%",
-      "firstSeenAt": "2026-05-19T21:18:42.995Z",
-      "salaryMin": 54800,
-      "salaryMax": 83200,
-      "addressRegion": "BE",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 90,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 22
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }
