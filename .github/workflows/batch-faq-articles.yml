@@ -127,14 +127,23 @@ jobs:
       - name: Count modified files
         id: count
         run: |
-          MODIFIED=$(git diff --name-only -- 'services/locales/blog-body/' | wc -l | tr -d ' ')
+          # Resolve through the symlink first: `git diff` on the historical path
+          # reports nothing for edits written through it, so this gate would read
+          # 0 on every run and the commit step below would never fire.
+          BODY_PATH=$(node scripts/lib/git-add-resolved.mjs --print-only 'services/locales/blog-body/')
+          MODIFIED=$(git diff --name-only -- "$BODY_PATH" | wc -l | tr -d ' ')
           echo "modified_count=$MODIFIED" >> "$GITHUB_OUTPUT"
           echo "📊 Modified blog body files: $MODIFIED"
 
       - name: Commit and push changes
         if: steps.count.outputs.modified_count != '0'
         run: |
-          git add services/locales/blog-body/
+          # git-add-resolved: services/locales/blog-body is a symlink into
+          # packages/articles/content. `git add` on the symlink itself exits 0
+          # having staged nothing — the symlink's blob is unchanged, and the
+          # edited files live at the real path — so every refreshed FAQ body
+          # would be dropped from the commit without any error.
+          node scripts/lib/git-add-resolved.mjs services/locales/blog-body/
           git add -f data/batch-faq-progress.json 2>/dev/null || true
 
           if git diff --cached --quiet; then
