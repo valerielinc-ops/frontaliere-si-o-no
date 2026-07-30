@@ -224,8 +224,11 @@ function parseLocalizedField(fs, path, rootDir, localesDir, metaFileName, field)
   const re = new RegExp(`'blog\\.article\\.([^']+)\\.${field}':\\s*'((?:[^'\\\\]|\\\\.)*)'`, 'g');
   let match;
   while ((match = re.exec(src)) !== null) {
-    // Unescape \\' → ' so values render correctly in RSS XML
-    out.set(match[1], match[2].replace(/\\'/g, "'"));
+    // The shared helper, not a lone `\\'` replace: the writer also escapes
+    // backslashes and newlines, so a partial unescape leaves literal `\\n` in
+    // 16 excerpts. This is the field that WINS over article.excerpt in
+    // renderFeed, so it is the primary path, not the fallback.
+    out.set(match[1], unescapeQuoted(match[2], "'"));
   }
   return out;
 }
@@ -248,7 +251,13 @@ function parseBlogBodies(fs, path, rootDir, localesDir, bodyDir, locale) {
     while ((m = rx.exec(src)) !== null) {
       const [, id, part, text] = m;
       if (!articleParts.has(id)) articleParts.set(id, new Map());
-      articleParts.get(id).set(part, text);
+      // Unescape here, not at render: this text goes straight into
+      // <content:encoded>, and it is the one parsed field that actually
+      // reaches the served bytes — the title/description paths are masked by
+      // the locale-meta lookup winning in renderFeed, this one is not.
+      // Both quote styles appear in the corpus (backtick and single), and
+      // escapeForSingleQuoteTS escapes the same way for either.
+      articleParts.get(id).set(part, unescapeQuoted(text, "'"));
     }
 
     for (const [id, parts] of articleParts) {
