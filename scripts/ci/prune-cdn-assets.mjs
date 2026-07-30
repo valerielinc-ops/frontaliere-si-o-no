@@ -110,6 +110,54 @@ function git(dir, args, extraEnv = {}) {
   });
 }
 
+/** Node twin of _SHARD_CRED_HELPER in scripts/lib/shard-git-helpers.sh — the
+ * token is read from the environment inside the helper, so it never reaches
+ * argv, the remote URL or git's error output. */
+const CRED_HELPER =
+  '!f() { test "$1" = get && printf "username=x-access-token\\npassword=%s\\n" "$SHARD_PUSH_TOKEN"; }; f';
+
+/**
+ * Force-push `main` to the CDN repo. The deploy key is a single point of
+ * failure — read-only, revoked or (for shard repos) a secret shadowed by the
+ * `shard-secrets-overflow` environment all look the same to git — so a refused
+ * push is retried over HTTPS with a PAT, exactly like shard_pat_push does for
+ * the section/locale/article shards (incident 2026-07-30, uri-it stale 3 days).
+ * Throws the ORIGINAL error when no token is available or the fallback fails
+ * too: this must never look like a successful prune.
+ */
+function pushCdnMain(repoDir, sshEnv) {
+  try {
+    execFileSync('git', ['-C', repoDir, 'push', '-f', CDN_REPO_SSH, 'main'],
+      { env: { ...process.env, ...sshEnv }, stdio: ['ignore', 'pipe', 'pipe'] });
+    return;
+  } catch (err) {
+    const token = process.env.SHARD_PUSH_PAT || process.env.GITHUB_PAT;
+    if (!token) {
+      console.warn('[janitor] deploy-key push failed and no SHARD_PUSH_PAT/GITHUB_PAT to fall back to');
+      throw err;
+    }
+    const httpsUrl = CDN_REPO_SSH.replace(/^git@github\.com:/, 'https://github.com/');
+    console.log(`::add-mask::${token}`);
+    console.warn('[janitor] deploy-key push refused — retrying over HTTPS with a PAT');
+    try {
+      execFileSync('git', [
+        '-C', repoDir,
+        '-c', 'credential.helper=',
+        '-c', `credential.helper=${CRED_HELPER}`,
+        'push', '-f', httpsUrl, 'main',
+      ], {
+        env: { ...process.env, SHARD_PUSH_TOKEN: token },
+        stdio: ['ignore', 'pipe', 'pipe'],
+      });
+      console.warn(
+        '[janitor] ⚠️  pushed via the PAT fallback — CDN_DEPLOY_KEY is broken (read-only or revoked). Fix the key.',
+      );
+    } catch {
+      throw err;
+    }
+  }
+}
+
 /**
  * Defense-in-depth anti-clobber guard. The CDN `main` is force-pushed by
  * deploy.yml as a PARENTLESS single commit (fresh `git init`), so we CANNOT rely
@@ -259,8 +307,7 @@ async function main() {
         'commit', '-m', `chore(cdn-janitor): update age registry (no prune, ${reason})`,
       ]);
       assertFreshRemote(clonedTip, sshEnv);
-      execFileSync('git', ['-C', repoDir, 'push', '-f', CDN_REPO_SSH, 'main'],
-        { env: { ...process.env, ...sshEnv }, stdio: ['ignore', 'pipe', 'pipe'] });
+      pushCdnMain(repoDir, sshEnv);
       console.log(`[janitor] persisted age registry update (no prune, ${reason})`);
     };
 
@@ -318,8 +365,7 @@ async function main() {
     ]);
 
     assertFreshRemote(clonedTip, sshEnv);
-    execFileSync('git', ['-C', repoDir, 'push', '-f', CDN_REPO_SSH, 'main'],
-      { env: { ...process.env, ...sshEnv }, stdio: ['ignore', 'pipe', 'pipe'] });
+    pushCdnMain(repoDir, sshEnv);
 
     console.log(`[janitor] ✅ CDN updated — pruned ${toPrune.length} file(s), registered ${newCount} new`);
     if (toPrune.length > 0) {

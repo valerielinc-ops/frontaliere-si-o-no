@@ -45,6 +45,16 @@ concurrency:
 jobs:
   compact:
     runs-on: ubuntu-latest
+    # Le deploy key di uri/vaud/vallese NON stanno a livello repo (cap 100
+    # secret/repo raggiunto) ma nell'environment `shard-secrets-overflow`, e un
+    # job che non lo dichiara le legge come stringa VUOTA → push-article-shard
+    # stampa "no SHARD_<X>_DEPLOY_KEY secret — skipping" e la compaction di
+    # quegli shard non è MAI girata, in silenzio, lasciando crescere il loro
+    # `.git`. Stessa famiglia dell'incidente 2026-07-30 (`docs/AGENTS-HISTORY.md`
+    # → `## shard-key-secret-shadowing`): un secret invisibile che degrada senza
+    # errore. `deploy.yml`/`fast-publish-article.yml`/`rerender-article-corpus.yml`
+    # lo dichiarano già.
+    environment: shard-secrets-overflow
     timeout-minutes: 360
     steps:
       - name: Checkout

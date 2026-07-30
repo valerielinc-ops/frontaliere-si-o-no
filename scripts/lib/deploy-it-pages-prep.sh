@@ -70,6 +70,11 @@
 # ─────────────────────────────────────────────────────────────────────────────
 set -uo pipefail
 
+# shard_push_with_retry (+ its auth classifier and PAT fallback) — shared with
+# push-section-shard.sh / push-locale-shard.sh, used by the CDN assets push
+# below instead of a second copy of the retry loop (AGENTS.md #6).
+source "$(dirname "${BASH_SOURCE[0]}")/shard-git-helpers.sh"
+
 RUNNER_TEMP="${RUNNER_TEMP:-/tmp}"
 
 # Export a key=value INTO THE CURRENT PROCESS (so later sections of THIS script
@@ -513,16 +518,16 @@ step_push_cdn() {
   # Force-push a single fresh commit → CDN repo history never accumulates.
   # Content is additive (prior assets/ merged above), so the force-push no
   # longer clobbers in-flight entry hashes — it just flattens history.
-  _push_delay=5; _push_ok=0
-  for _try in 1 2 3; do
-    if git push -f git@github.com:valerielinc-ops/frontaliere-cdn.git main; then
-      _push_ok=1; break
-    fi
-    if [ "$_try" -lt 3 ]; then
-      echo "::warning::CDN push attempt $_try/3 failed — retrying in ${_push_delay}s"
-      sleep "$_push_delay"; _push_delay=$(( _push_delay * 2 ))
-    fi
-  done
+  # Was a hand-rolled copy of shard_push_with_retry's 3-attempts-with-backoff
+  # loop. Routed through the shared helper instead (AGENTS.md #6) so this push
+  # also gets the auth-failure classifier and the PAT fallback: a read-only or
+  # revoked CDN_DEPLOY_KEY used to mean "offload skipped, og/data stay in dist"
+  # on every deploy, the same silent-degradation shape as the uri-it shard
+  # incident of 2026-07-30.
+  _push_ok=0
+  if shard_push_with_retry "$stage" "git@github.com:valerielinc-ops/frontaliere-cdn.git" main "CDN"; then
+    _push_ok=1
+  fi
   if [ "$_push_ok" = 1 ]; then
     export_env CDN_BASE "https://cdn.frontaliereticino.ch"
     echo "✅ pushed assets to frontaliere-cdn"

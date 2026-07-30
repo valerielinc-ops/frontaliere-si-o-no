@@ -271,6 +271,58 @@ jobs:
             --label automation \
             --workflow "GH_PAT Expiry Monitor"
 
+      # Secondo presidio credenziali, stessa famiglia del PAT-down: una deploy
+      # key di shard definita a DUE livelli (repo-level + environment
+      # `shard-secrets-overflow`) fa vincere sempre quella dell'environment, per
+      # precedenza GitHub. Chi ripara la key sbagliata crede di aver risolto e
+      # il push continua a fallire — incidente 2026-07-30, `uri-it` fermo 3
+      # giorni con la remediation del 28 lug resa inerte dallo shadowing e il
+      # deploy verde. Serve il PAT (leggere i NOMI dei secret e' API admin-only,
+      # `GITHUB_TOKEN` non basta); i valori non vengono mai letti.
+      - name: Check shard deploy-key secret shadowing (dedup, zero-Claude)
+        continue-on-error: true
+        env:
+          # $GITHUB_PAT arriva dal $GITHUB_ENV dello step "Load RC secrets"
+          # (stessa convenzione dello step patcheck qui sopra: nessun mapping
+          # esplicito, il PAT vive solo in Remote Config).
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          rc=0
+          OUT="$(node scripts/ci/check-shard-secret-shadowing.mjs --strict 2>&1)" || rc=$?
+          printf '%s\n' "$OUT"
+          if [ "$rc" -eq 0 ]; then
+            echo "✅ nessuno shadowing di deploy key shard."
+            exit 0
+          fi
+          DESCRIPTION="$(printf '%s\n' \
+            "## 🔴 Deploy key di shard definita a due livelli (shadowing)" \
+            "" \
+            '```' \
+            "$OUT" \
+            '```' \
+            "" \
+            "### Perche' e' bloccante" \
+            "GitHub risolve \`secrets.X\` con precedenza **environment > repository**." \
+            "Il job \`build-locale\` di \`deploy.yml\` dichiara \`environment: shard-secrets-overflow\`," \
+            "quindi per ogni nome presente ai due livelli la CI legge **solo** la copia" \
+            "dell'environment: rigenerare la key e salvarla a livello repo e' un **no-op" \
+            "silenzioso**. E' esattamente come \`uri-it\` e' rimasto fermo 3 giorni con il" \
+            "deploy verde (run 30522223432)." \
+            "" \
+            "### Azione" \
+            "1. Tieni UNA sola copia del secret: quella nell'environment \`shard-secrets-overflow\`." \
+            "2. Aggiorna quella copia con il valore della key che ha davvero write sul repo shard." \
+            "3. Cancella la copia repo-level (libera anche uno slot sul cap di 100 secret/repo)." \
+            "" \
+            "_Filed automatically by the GH_PAT Expiry Monitor workflow._")"
+          node scripts/lib/github-issue-creator.mjs \
+            --title "Shard deploy-key secret shadowed by the shard-secrets-overflow environment" \
+            --description "$DESCRIPTION" \
+            --priority 2 \
+            --label automation \
+            --workflow "GH_PAT Expiry Monitor"
+
       # Watcher-del-watcher: il monitor e' l'unico presidio del PAT-down, ma se
       # CRASHA per un bug proprio (es. pipeline EXPIRY sotto pipefail, rotto
       # in silenzio 2026-06-01->06-12) nessuno se ne accorge e tutta la
