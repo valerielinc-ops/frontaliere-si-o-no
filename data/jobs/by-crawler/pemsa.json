@@ -495,9 +495,9 @@
       },
       "slugByLocale": {
         "it": "responsabile-di-progetto-nel-settore-elettrico-e-richiesto-il-diploma-federale-di-esperto-pemsa-lausanne",
-        "en": "responsabile-di-progetto-nel-settore-elettrico-e-richiesto-il-diploma-federale-di-esperto-pemsa-lausanne",
-        "de": "responsabile-di-progetto-nel-settore-elettrico-e-richiesto-il-diploma-federale-di-esperto-pemsa-lausanne",
-        "fr": "responsabile-di-progetto-nel-settore-elettrico-e-richiesto-il-diploma-federale-di-esperto-pemsa-lausanne"
+        "en": "project-manager-in-the-electrical-sector-federal-expert-diploma-required-pemsa-lausanne",
+        "de": "projektleiter-im-elektrobereich-eidgenossisches-experten-diplom-erforderlich-pemsa-lausanne",
+        "fr": "chef-de-projet-dans-le-secteur-electrique-diplome-federal-d-expert-requis-pemsa-lausanne"
       },
       "id": "pemsa-b5c506039f6c",
       "salaryMin": 83500,
@@ -552,9 +552,9 @@
       },
       "slugByLocale": {
         "it": "lattoniere-afc-pemsa-lausanne",
-        "en": "lattoniere-afc-pemsa-lausanne",
-        "de": "lattoniere-afc-pemsa-lausanne",
-        "fr": "lattoniere-afc-pemsa-lausanne"
+        "en": "sheet-metal-worker-afc-pemsa-lausanne",
+        "de": "spengler-afc-pemsa-lausanne",
+        "fr": "ferblantier-afc-pemsa-lausanne"
       },
       "id": "pemsa-8f4992ebf88e",
       "salaryMin": 60500,
@@ -723,9 +723,9 @@
       },
       "slugByLocale": {
         "it": "installatore-elettricista-afc-riparazioni-assistenza-post-vendita-pemsa-lausanne",
-        "en": "installatore-elettricista-afc-riparazioni-assistenza-post-vendita-pemsa-lausanne",
-        "de": "installatore-elettricista-afc-riparazioni-assistenza-post-vendita-pemsa-lausanne",
-        "fr": "installatore-elettricista-afc-riparazioni-assistenza-post-vendita-pemsa-lausanne"
+        "en": "electrician-installer-afc-repairs-after-sales-service-pemsa-lausanne",
+        "de": "elektroinstallateur-afc-reparaturen-kundendienst-pemsa-lausanne",
+        "fr": "installateur-electricien-afc-reparations-service-apres-vente-pemsa-lausanne"
       },
       "id": "pemsa-69c0b659bdfc",
       "salaryMin": 60500,
@@ -780,9 +780,9 @@
       },
       "slugByLocale": {
         "it": "tecnico-elettromeccanico-polivalente-macchine-agricole-e-macchine-per-la-cura-del-verde-pemsa-lausanne",
-        "en": "tecnico-elettromeccanico-polivalente-macchine-agricole-e-macchine-per-la-cura-del-verde-pemsa-lausanne",
-        "de": "tecnico-elettromeccanico-polivalente-macchine-agricole-e-macchine-per-la-cura-del-verde-pemsa-lausanne",
-        "fr": "tecnico-elettromeccanico-polivalente-macchine-agricole-e-macchine-per-la-cura-del-verde-pemsa-lausanne"
+        "en": "versatile-electromechanical-technician-agricultural-and-green-care-machinery-pemsa-lausanne",
+        "de": "vielseitiger-elektromechaniker-landmaschinen-und-grunpflegegerate-pemsa-lausanne",
+        "fr": "technicien-electromecanique-polyvalent-machines-agricoles-et-equipements-de-jardinage-pemsa-lausanne"
       },
       "id": "pemsa-9fff7c18c197",
       "salaryMin": 60500,
@@ -837,9 +837,9 @@
       },
       "slugByLocale": {
         "it": "responsabile-di-squadra-infrastrutture-industriali-linee-elettriche-ferroviarie-pemsa-lausanne",
-        "en": "responsabile-di-squadra-infrastrutture-industriali-linee-elettriche-ferroviarie-pemsa-lausanne",
-        "de": "responsabile-di-squadra-infrastrutture-industriali-linee-elettriche-ferroviarie-pemsa-lausanne",
-        "fr": "responsabile-di-squadra-infrastrutture-industriali-linee-elettriche-ferroviarie-pemsa-lausanne"
+        "en": "team-leader-industrial-infrastructure-railway-electrical-lines-pemsa-lausanne",
+        "de": "teamleiter-industrieinfrastruktur-eisenbahn-elektroleitungen-pemsa-lausanne",
+        "fr": "chef-d-equipe-infrastructures-industrielles-lignes-electriques-ferroviaires-pemsa-lausanne"
       },
       "id": "pemsa-a6ecbb753c7b",
       "salaryMin": 83500,
@@ -11016,17 +11016,20 @@
           "wall-and-form-former-pemsa-fribourg",
           "carpenter-and-formwork-setter-pemsa-fribourg",
           "wall-a-and-b-pemsa-fribourg",
+          "wall-a-and-b-pemsa-fribourg",
           "wall-a-and-b-pemsa-fribourg"
         ],
         "de": [
           "wand-und-form-ex-pemsa-fribourg",
           "holzbauer-und-formschalungsarbeiter-pemsa-fribourg",
           "wand-a-und-b-pemsa-fribourg",
+          "wand-a-und-b-pemsa-fribourg",
           "wand-a-und-b-pemsa-fribourg"
         ],
         "fr": [
           "mur-et-forme-ancien-pemsa-fribourg",
           "charpentier-et-poseur-de-formes-pemsa-fribourg",
+          "mur-a-et-b-pemsa-fribourg",
           "mur-a-et-b-pemsa-fribourg",
           "mur-a-et-b-pemsa-fribourg"
         ],
@@ -11047,6 +11050,13 @@
         "carpenter-and-formwork-setter-pemsa-fribourg",
         "holzbauer-und-formschalungsarbeiter-pemsa-fribourg",
         "charpentier-et-poseur-de-formes-pemsa-fribourg",
+        "muratore-a-e-b-pemsa-fribourg",
+        "wall-a-and-b-pemsa-fribourg",
+        "wand-a-und-b-pemsa-fribourg",
+        "mur-a-et-b-pemsa-fribourg",
+        "bricklayer-a-and-b-pemsa-fribourg",
+        "maurer-a-und-b-pemsa-fribourg",
+        "macon-a-et-b-pemsa-fribourg",
         "muratore-a-e-b-pemsa-fribourg",
         "wall-a-and-b-pemsa-fribourg",
         "wand-a-und-b-pemsa-fribourg",

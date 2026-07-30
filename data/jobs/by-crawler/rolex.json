@@ -7206,7 +7206,6 @@
         ]
       },
       "firstSeenAt": "2026-06-22T15:09:02.823Z",
-      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "baseSalary": {
@@ -7218,7 +7217,8 @@
           "maxValue": 143000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "rolex-083eb2c287cc",
