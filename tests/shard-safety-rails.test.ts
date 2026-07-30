@@ -91,11 +91,28 @@ describe('scripts/lib/shard-git-helpers.sh — shape', () => {
     expect(script).toMatch(/\[\[\s+"\$val"\s+=~\s+\^\[0-9\]\+\$\s+\]\]\s+\|\|\s+val=0/);
   });
 
-  it('retries push up to 3 times before returning failure', () => {
+  it('retries push up to 3 times, then hands the last resort to the PAT fallback', () => {
     const idx = script.indexOf('shard_push_with_retry()');
     expect(idx).toBeGreaterThan(-1);
     const fnBody = script.slice(idx, script.indexOf('\n}', idx));
     expect(fnBody).toMatch(/for try in 1 2 3/);
-    expect(fnBody).toMatch(/return 1/);
+    // The retry loop no longer returns 1 itself: shard_pat_push is the tail
+    // call, so ITS status is the failure status (incident 2026-07-30 — a
+    // refused deploy key made every SSH retry pointless).
+    expect(fnBody).toMatch(/shard_pat_push\s+"\$dir"\s+"\$repo"\s+"\$refspec"/);
+    expect(fnBody).toMatch(/shard_push_error_is_auth\s+"\$out"/);
+  });
+
+  it('never lets the PAT reach the remote URL or argv (credential helper only)', () => {
+    // A token in the URL leaks into git's own error messages, which get echoed
+    // into the Actions log verbatim.
+    expect(script).not.toMatch(/https:\/\/[^\s"']*\$\{?SHARD_PUSH_TOKEN/);
+    expect(script).not.toMatch(/https:\/\/x-access-token:/);
+    expect(script).toMatch(/credential\.helper=\$_SHARD_CRED_HELPER/);
+    expect(script).toMatch(/::add-mask::\$SHARD_PUSH_TOKEN/);
+  });
+
+  it('scrubs the token from the fallback push transcript', () => {
+    expect(script).toMatch(/sed\s+"s\|\$SHARD_PUSH_TOKEN\|\*\*\*\|g"/);
   });
 });

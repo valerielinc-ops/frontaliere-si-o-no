@@ -72,6 +72,9 @@
 # ─────────────────────────────────────────────────────────────────────────────
 set -uo pipefail
 
+# shard_pat_push — the shared token-push fallback for a refused deploy key.
+source "$(dirname "${BASH_SOURCE[0]}")/shard-git-helpers.sh"
+
 if [ "$#" -lt 4 ]; then
   echo "Usage: push-article-shard-incremental.sh <section> <locale> <scratch_dist_dir> <relpath1> [relpath2 ...]" >&2
   exit 1
@@ -134,6 +137,9 @@ stage="$RUNNER_TEMP/article-shard-$section-$loc"
 trap 'rm -rf "$stage" 2>/dev/null || true; rm -f "$keyfile" 2>/dev/null || true' EXIT
 
 permanent_fail=0
+# Set by _attempt once it has a commit to push; read by the PAT fallback after
+# the retry loop. Declared here because `set -u` is on.
+last_commit=''
 
 _attempt() {
   rm -rf "$stage"
@@ -202,6 +208,9 @@ _attempt() {
 
   local commit
   commit="$(git -C "$stage" commit-tree "$new_tree" -p HEAD -m "$section-$loc article fast-push (${GITHUB_SHA:-local}) — +$new_count new, ${#relpaths[@]} path(s) touched")" || return 1
+  # Published for the PAT fallback below: it re-pushes THIS commit, so it must
+  # outlive the function scope.
+  last_commit="$commit"
 
   # Never `push -f`: a non-fast-forward here means someone else (the periodic
   # full deploy's push-section-shard.sh, or another fast-path publish) pushed
@@ -225,9 +234,20 @@ for try in 1 2 3; do
   fi
 done
 
+if [ "$ok" != 1 ] && [ "$permanent_fail" != 1 ] && [ -n "$last_commit" ]; then
+  # Last resort, same contract as shard_push_with_retry's: a deploy key that is
+  # read-only/revoked/shadowed refuses every attempt identically, and an article
+  # that misses the fast path waits for the next full deploy. force=0 — a
+  # non-fast-forward here still has to FAIL (a concurrent full deploy moved the
+  # tip; the tree must be rebuilt on it, never overwritten).
+  if shard_pat_push "$stage" "$SHARD_REPO" "$last_commit":main "$section-$loc article shard" 0; then
+    ok=1
+  fi
+fi
+
 if [ "$ok" != 1 ]; then
   if [ "$permanent_fail" != 1 ]; then
-    echo "::error::$section-$loc article shard push failed after 3 attempts" >&2
+    echo "::error::$section-$loc article shard push failed after 3 attempts (+ PAT fallback)" >&2
   fi
   exit 1
 fi

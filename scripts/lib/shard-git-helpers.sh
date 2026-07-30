@@ -47,23 +47,145 @@ shard_orphan_init() {
   git -C "$dir" checkout -q -b main
 }
 
+# Credential helper used by shard_pat_push. The token is read from
+# $SHARD_PUSH_TOKEN *inside* the helper, so it never lands in the remote URL
+# (git echoes URLs back in its own error messages), never in argv (`ps` is
+# world-readable on a runner) and never in a `set -x` trace of the push.
+_SHARD_CRED_HELPER='!f() { test "$1" = get && printf "username=x-access-token\npassword=%s\n" "$SHARD_PUSH_TOKEN"; }; f'
+
+# shard_https_push_url <shard_repo>
+# Maps a GitHub SSH remote to its HTTPS equivalent (git@github.com:o/r.git →
+# https://github.com/o/r.git; the ssh:// spelling too). An https:// remote is
+# passed through unchanged. Anything else (local path, other host) returns 1:
+# a GitHub token push only makes sense against github.com.
+shard_https_push_url() {
+  local repo="$1"
+  case "$repo" in
+    git@github.com:*)       printf 'https://github.com/%s' "${repo#git@github.com:}" ;;
+    ssh://git@github.com/*) printf 'https://github.com/%s' "${repo#ssh://git@github.com/}" ;;
+    https://github.com/*)   printf '%s' "$repo" ;;
+    *) return 1 ;;
+  esac
+}
+
+# shard_push_error_is_auth <logfile>
+# True when <logfile> holds a git-push failure that authentication/authorization
+# caused — i.e. one that is NOT transient and that retrying the SAME credential
+# can never fix. Incident 2026-07-30 (run 30522223432): `uri-it` burned 3
+# retries + the orphan-flatten self-heal (6 pushes, 15s of sleeps) against
+# "ERROR: Permission to nanakokyobashi-rgb/frontaliere-uri-it.git denied to
+# deploy key" on EVERY deploy for 3 days. Retrying a read-only/wrong deploy key
+# is pure waste; the useful move is to switch credential (shard_pat_push).
+# Deliberately does NOT match git's generic "Please make sure you have the
+# correct access rights and the repository exists." tail: git prints it for a
+# plain unreachable/nonexistent remote too, so matching it would misclassify a
+# transient outage as an auth failure and skip the retries that DO help there.
+shard_push_error_is_auth() {
+  grep -qEi 'denied to (deploy key|user)|permission denied \(publickey\)|permission to .+ denied|repository not found|403 forbidden' "$1"
+}
+
+# shard_pat_push <push_dir> <shard_repo> <refspec> [label] [force]
+# Last-resort force-push over HTTPS authenticated with a PAT
+# ($SHARD_PUSH_PAT, else $GITHUB_PAT — the latter is hydrated from Firebase
+# Remote Config by scripts/load-rc-env.mjs in every deploy job). Exists because
+# a per-shard deploy key is a single point of failure with no operational
+# safety net: there are 90+ of them, each one revocable/read-only/rotatable
+# independently, and each one lives in a secret that can be silently shadowed
+# (repo-level vs `shard-secrets-overflow` environment — see
+# scripts/ci/check-shard-secret-shadowing.mjs). The PAT is account-wide and has
+# write on every shard repo (both owners), so it recovers ALL of those failure
+# modes without touching a single secret. Returns 0 on success, 1 otherwise.
+# [force] defaults to 1 (force-push, what every full-replace shard push does).
+# Pass 0 from a caller whose whole concurrency model depends on a non-fast-
+# forward being an ERROR rather than something to overwrite — that is
+# push-article-shard-incremental.sh, where a rejected push means a concurrent
+# full deploy moved the tip and the content has to be rebuilt on the new base.
+shard_pat_push() {
+  local dir="$1" repo="$2" refspec="$3" label="${4:-shard}" force="${5:-1}"
+  # A plain string, not an array: `"${arr[@]}"` on an EMPTY array aborts under
+  # `set -u` in bash 3.2 (still the default /bin/bash on macOS, where the test
+  # suite runs). Unquoted expansion of a fixed, space-free flag is safe here.
+  local url out rc force_flag=''
+  if [ "$force" = 1 ]; then force_flag='-f'; fi
+  SHARD_PUSH_TOKEN="${SHARD_PUSH_PAT:-${GITHUB_PAT:-}}"
+  if [ -z "$SHARD_PUSH_TOKEN" ]; then
+    echo "::warning::$label: no SHARD_PUSH_PAT/GITHUB_PAT in the environment — cannot fall back to an HTTPS token push"
+    return 1
+  fi
+  if ! url="$(shard_https_push_url "$repo")"; then
+    echo "::warning::$label: cannot derive an HTTPS URL from '$repo' — skipping the token-push fallback"
+    return 1
+  fi
+  # Belt and braces: the RC-loaded PAT is NOT a GH Actions secret, so it is not
+  # masked automatically. Register it, then scrub it from this push's output.
+  echo "::add-mask::$SHARD_PUSH_TOKEN"
+  export SHARD_PUSH_TOKEN
+  echo "$label: retrying over HTTPS with a PAT (deploy-key push did not succeed)"
+  out="$(mktemp)"
+  # stderr (where git writes the whole push transcript) is captured for
+  # scrubbing, then re-emitted on stderr — NOT folded into stdout, so this
+  # function does not change which stream a caller reads the transcript from.
+  # `|| rc=$?` for the same errexit reason as in shard_push_with_retry: this
+  # runs under `set -e` whenever the caller chain is bare.
+  rc=0
+  # shellcheck disable=SC2086  # deliberate: empty $force_flag must vanish
+  git -C "$dir" -c credential.helper= -c "credential.helper=$_SHARD_CRED_HELPER" \
+    push $force_flag "$url" "$refspec" 2>"$out" || rc=$?
+  sed "s|$SHARD_PUSH_TOKEN|***|g" "$out" >&2
+  rm -f "$out"
+  unset SHARD_PUSH_TOKEN
+  if [ "$rc" -eq 0 ]; then
+    echo "::warning::$label: pushed via the PAT fallback — the deploy key for this shard is broken (never registered on the repo, read-only, revoked, or a shadowed secret). Fix the key; the fallback is a safety net, not the intended path."
+    return 0
+  fi
+  echo "::warning::$label: PAT fallback push also failed (rc=$rc)"
+  return 1
+}
+
 # shard_push_with_retry <push_dir> <shard_repo> <refspec> [label]
 # Force-pushes <refspec> from <push_dir> to <shard_repo>, retrying up to 3
-# attempts with exponential backoff (5s, 10s). Returns 0 on success, 1 if all
-# attempts fail. [label] is cosmetic only (prefixes the ::warning:: lines).
+# attempts with exponential backoff (5s, 10s — $SHARD_PUSH_RETRY_DELAY seeds
+# the first delay). An auth-class failure short-circuits the remaining SSH
+# retries (see shard_push_error_is_auth). Either way the last resort is
+# shard_pat_push. Returns 0 on success, 1 if every credential failed.
+# [label] is cosmetic only (prefixes the ::warning:: lines).
 shard_push_with_retry() {
   local dir="$1" repo="$2" refspec="$3" label="${4:-shard}"
-  local delay=5 try
+  local delay="${SHARD_PUSH_RETRY_DELAY:-5}" try out rc
+  out="$(mktemp)"
   for try in 1 2 3; do
-    if git -C "$dir" push -f "$repo" "$refspec"; then
+    # Capture stderr to classify the failure, then put it back on stderr — see
+    # the same note in shard_pat_push about not moving it to stdout.
+    #
+    # `|| rc=$?` is not decorative. The previous shape was `if git push; then`,
+    # where the condition context suspended errexit for the push. A BARE failing
+    # command does not get that, so under `set -e` it would abort the caller's
+    # subshell on attempt 1 — no retries, no fallback, no return value to
+    # inspect. Today every caller happens to be safe (the pushers call this from
+    # an `if`; compact-article-shard-history.sh calls it bare but from a
+    # `( set -e … ) || rc=$?` subshell, and a subshell inside an AND-OR list has
+    # errexit suppressed throughout). That safety is one refactor away from
+    # gone — dropping compact's `|| rc=$?` would give it push-section-shard.sh's
+    # bare-subshell shape, where errexit IS live. The OR list makes this
+    # call-context independent instead of accidentally fine.
+    rc=0
+    git -C "$dir" push -f "$repo" "$refspec" 2>"$out" || rc=$?
+    cat "$out" >&2
+    if [ "$rc" -eq 0 ]; then
+      rm -f "$out"
       return 0
+    fi
+    if shard_push_error_is_auth "$out"; then
+      echo "::warning::$label: deploy-key auth failure (not transient) — skipping the remaining SSH retries and falling back to a token push"
+      break
     fi
     if [ "$try" -lt 3 ]; then
       echo "::warning::$label push attempt $try/3 failed — retrying in ${delay}s"
       sleep "$delay"; delay=$(( delay * 2 ))
     fi
   done
-  return 1
+  rm -f "$out"
+  shard_pat_push "$dir" "$repo" "$refspec" "$label"
 }
 
 # shard_orphan_flatten_and_push <stage_dir> <shard_repo> <commit_message> [label]
