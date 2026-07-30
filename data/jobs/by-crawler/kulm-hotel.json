@@ -421,26 +421,6 @@
       "requirementsByLocale": {},
       "department": "Kulm Hotel",
       "pensum": "100%",
-      "previousSlugsByLocale": {
-        "fr": [
-          "agent-de-reservation-m-w-d-kulm-hotel-st-moritz-st-moritz-fc52eb",
-          "reservations-agent-m-w-d-kulm-hotel-st-moritz"
-        ],
-        "it": [
-          "reservations-agent-m-w-d-kulm-hotel-st-moritz",
-          "prenotazione-agente-m-w-d-kulm-hotel-st-moritz-st-moritz"
-        ],
-        "de": [
-          "reservations-agent-m-w-d-kulm-hotel-st-moritz"
-        ]
-      },
-      "previousSlugs": [
-        "reservations-agent-m-w-d-kulm-hotel-st-moritz",
-        "agent-de-reservation-m-w-d-kulm-hotel-st-moritz-st-moritz-fc52eb",
-        "prenotazione-agente-m-w-d-kulm-hotel-st-moritz-st-moritz"
-      ],
-      "firstSeenAt": "2026-07-29T11:39:14.690Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -452,7 +432,29 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-07-29T11:39:14.690Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "reservations-agent-m-w-d-kulm-hotel-st-moritz",
+          "prenotazione-agente-m-w-d-kulm-hotel-st-moritz-st-moritz",
+          "agente-di-prenotazione-m-w-d-kulm-hotel-st-moritz-st-moritz"
+        ],
+        "de": [
+          "reservations-agent-m-w-d-kulm-hotel-st-moritz"
+        ],
+        "fr": [
+          "agent-de-reservation-m-w-d-kulm-hotel-st-moritz-st-moritz-fc52eb",
+          "reservations-agent-m-w-d-kulm-hotel-st-moritz"
+        ]
+      },
+      "previousSlugs": [
+        "reservations-agent-m-w-d-kulm-hotel-st-moritz",
+        "agent-de-reservation-m-w-d-kulm-hotel-st-moritz-st-moritz-fc52eb",
+        "prenotazione-agente-m-w-d-kulm-hotel-st-moritz-st-moritz",
+        "agente-di-prenotazione-m-w-d-kulm-hotel-st-moritz-st-moritz"
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "kulm-hotel-a65316790942",

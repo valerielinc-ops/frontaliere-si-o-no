@@ -544,7 +544,8 @@
         ],
         "de": [
           "dipl-pflegefachfrau-pflegefachmann-hf-fh-mit-ndk-uberwachungspflege-ksa-ch-9zut0b",
-          "dipl-pflegefachfrau-pflegefachmann-hf-fh-mit-ndk-uberwachungspflege-ksa-ch"
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-mit-ndk-uberwachungspflege-ksa-ch",
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-mit-ndk-uberwachungspflege-ksa-ch-9zut0b"
         ]
       },
       "firstSeenAt": "2026-07-10T12:11:07.793Z",
@@ -2440,7 +2441,7 @@
       "descriptionByLocale": {
         "it": "Descrizione\n\nGiornata di pratica - Uno sguardo dietro le quinte delle cure di emergenza e di terapia intensiva Pediatria — Ospedale cantonale di Aarau (KSA), Aarau",
         "en": "Description Day of Practice - A glimpse behind the scenes of emergency and intensive care Pediatrics — Kantonsspital Aarau (KSA), Aarau",
-        "de": "Praxistag - Ein Blick hinter die Kulissen der Notfall- und Intensivpflege Pädiatrie — Kantonsspital Aarau (KSA), Aarau",
+        "de": "## Beschreibung\n\nPraxistag - Ein Blick hinter die Kulissen der Notfall- und Intensivpflege Pädiatrie — Kantonsspital Aarau (KSA), Aarau",
         "fr": "Description Jour de pratique - Un aperçu dans les coulisses de la pédiatrie en cas d'urgence et de soins intensifs — Kantonsspital Aarau (KSA), Aarau"
       },
       "location": "Aarau",
@@ -2488,8 +2489,7 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "ksa-9691c322b197",
@@ -2498,7 +2498,7 @@
         "it": "ausbildungsunabhangig-medizin-kantonsspital-aarau-ksa-aarau",
         "en": "care-internship-independent-of-training-medicine-kantonsspital-aarau-ksa-aarau",
         "de": "pflegepraktikum-ausbildungsunabhangig-medizin-ksa-ch",
-        "fr": "stage-de-soins-independant-de-la-formation-medecine-kantonsspital-aarau-ksa-aarau"
+        "fr": "pflegepraktikum-ausbildungsunabhangig-medizin-ksa-ch"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -2512,8 +2512,10 @@
       },
       "description": "Pflegepraktikum ausbildungsunabhängig (Medizin) — Kantonsspital Aarau (KSA), Aarau",
       "descriptionByLocale": {
-        "de": "Pflegepraktikum ausbildungsunabhängig (Medizin) — Kantonsspital Aarau (KSA), Aarau",
-        "fr": "Pflegepraktikum ausbildungsunabhängig (Medizin) — Kantonsspital Aarau (KSA), Aarau"
+        "de": "Die in den Erwägungsgründen 215 bis 316 genannten Maßnahmen sind in den Erwägungsgründen 215 bis 316 der vorläufigen Verordnung aufgeführt.",
+        "fr": "Pflegepraktikum ausbildungsunabhängig (Medizin) — Kantonsspital Aarau (KSA), Aarau",
+        "it": "Stage di cura indipendente dalla formazione (Medicina) — Kantonsspital Aarau (KSA), Aarau",
+        "en": "Pflegepraktikum aus bldungsunabhängig (Medizin) — Kantonspital Aarau (KSA), Aarau"
       },
       "location": "Aarau",
       "canton": "AG",
@@ -2540,7 +2542,8 @@
       "department": "Kantonsspital Aarau AG",
       "previousSlugs": [
         "pflegepraktikum-ausbildungsunabhangig-medizin-ksa-ch",
-        "ausbildungsunabhangig-medizin-kantonsspital-aarau-ksa-aarau"
+        "ausbildungsunabhangig-medizin-kantonsspital-aarau-ksa-aarau",
+        "stage-de-soins-independant-de-la-formation-medecine-kantonsspital-aarau-ksa-aarau"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2548,14 +2551,13 @@
           "ausbildungsunabhangig-medizin-kantonsspital-aarau-ksa-aarau"
         ],
         "fr": [
-          "pflegepraktikum-ausbildungsunabhangig-medizin-ksa-ch"
+          "stage-de-soins-independant-de-la-formation-medecine-kantonsspital-aarau-ksa-aarau"
         ]
       },
       "localeMismatchSuppressed": true,
       "localeMismatchSuppressedLen": 82,
-      "retranslationAttempts": 20,
+      "retranslationAttempts": 21,
       "firstSeenAt": "2026-07-10T12:11:07.794Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -3411,13 +3413,10 @@
         "medical-secretary-kantonsspital-aarau-ksa-aarau-04205c",
         "arztsekretar-in-ksa-ch-2",
         "arztsekretar-in-ksa-ch-9ztkeb",
-        "l-europa-kantonsspital-aarau-ksa-aarau-b8231e"
+        "l-europa-kantonsspital-aarau-ksa-aarau-b8231e",
+        "arztsekretar-in-ksa-ch-9ztkeb"
       ],
       "previousSlugsByLocale": {
-        "de": [
-          "arztsekretar-in-ksa-ch-9ztkeb",
-          "arztsekretar-in-ksa-ch"
-        ],
         "it": [
           "arztsekretar-in-ksa-ch",
           "l-europa-kantonsspital-aarau-ksa-aarau-04205c",
@@ -3428,6 +3427,11 @@
         ],
         "fr": [
           "arztsekretar-in-ksa-ch-2"
+        ],
+        "de": [
+          "arztsekretar-in-ksa-ch-9ztkeb",
+          "arztsekretar-in-ksa-ch",
+          "arztsekretar-in-ksa-ch-9ztkeb"
         ]
       },
       "firstSeenAt": "2026-07-10T12:11:07.791Z",
@@ -3921,19 +3925,21 @@
         "arztsekretar-in-ksa-ch",
         "arztsekretar-in-ksa-ch-3",
         "arztsekretar-in-ksa-ch-9ztl1f",
-        "l-europa-kantonsspital-aarau-ksa-aarau-04205c"
+        "l-europa-kantonsspital-aarau-ksa-aarau-04205c",
+        "arztsekretar-in-ksa-ch-9ztl1f"
       ],
       "previousSlugsByLocale": {
-        "de": [
-          "arztsekretar-in-ksa-ch-9ztl1f",
-          "arztsekretar-in-ksa-ch"
-        ],
         "it": [
           "arztsekretar-in-ksa-ch",
           "l-europa-kantonsspital-aarau-ksa-aarau-04205c"
         ],
         "fr": [
           "arztsekretar-in-ksa-ch-3"
+        ],
+        "de": [
+          "arztsekretar-in-ksa-ch-9ztl1f",
+          "arztsekretar-in-ksa-ch",
+          "arztsekretar-in-ksa-ch-9ztl1f"
         ]
       },
       "firstSeenAt": "2026-07-10T12:11:07.792Z",
@@ -6768,14 +6774,10 @@
         "dottore-occhio-di-fisico-clinico-kantonsspital-aarau-ksa-aarau",
         "arztsekretar-in-ksa-ch-9ztke6",
         "l-europa-kantonsspital-aarau-ksa-aarau",
-        "secretaire-medical-kantonsspital-aarau-ksa-aarau"
+        "secretaire-medical-kantonsspital-aarau-ksa-aarau",
+        "arztsekretar-in-ksa-ch-9ztke6"
       ],
       "previousSlugsByLocale": {
-        "de": [
-          "arztsekretarin-arztsekretar-augenklinik-ksa-ch",
-          "arztsekretar-in-ksa-ch-9ztke6",
-          "arztsekretar-in-ksa-ch"
-        ],
         "it": [
           "arztsekretar-in-ksa-ch",
           "sottosegretario-medico-clinica-medica-kantonsspital-aarau-ksa-aarau",
@@ -6787,6 +6789,12 @@
         ],
         "en": [
           "doctor-s-secretary-physician-s-eye-clinic-kantonsspital-aarau-ksa-aarau"
+        ],
+        "de": [
+          "arztsekretarin-arztsekretar-augenklinik-ksa-ch",
+          "arztsekretar-in-ksa-ch-9ztke6",
+          "arztsekretar-in-ksa-ch",
+          "arztsekretar-in-ksa-ch-9ztke6"
         ],
         "fr": [
           "secretaire-medical-clinique-des-yeux-kantonsspital-aarau-ksa-aarau",
