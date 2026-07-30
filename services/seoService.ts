@@ -5011,6 +5011,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-beko-cassinetta-preoccupazione-sindacati': { name: 'Beko Cassinetta, sindacati preoccupati', path: '/articoli-frontaliere/beko-cassinetta-preoccupazione-sindacati', parent: 'blog' },
     'blog-cern-progetto-19-miliardi': { name: 'CERN', path: '/articoli-svizzera/cern-progetto-19-miliardi/', parent: 'blog' },
     'blog-sede-legale-datore-frontalieri': { name: 'Sede legale datore', path: '/articoli-frontaliere/sede-legale-datore-frontalieri', parent: 'blog' },
+    'blog-frontalieri-it-svizzera-sede-datore-2026': { name: 'Frontalieri Italia-Svizzera', path: '/articoli-svizzera/frontalieri-it-svizzera-sede-datore-2026/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

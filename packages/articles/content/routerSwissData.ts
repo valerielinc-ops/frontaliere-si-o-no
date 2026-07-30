@@ -593,6 +593,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'contributo-sanita-vecchi-frontalieri': { it: 'contributo-sanita-vecchi-frontalieri', en: 'healthcare-contribution-old-frontalieri', de: 'gesundheitsbeitrag-alte-grenzganger', fr: 'contribution-sante-anciens-frontaliers' },
  'fondi-frontalieri-varesotto-14-milioni': { it: 'fondi-frontalieri-varesotto-14-milioni', en: 'cross-border-funds-varesotto-14-million-euros', de: 'grenzgaenger-fonds-varesotto-14-millionen-euro', fr: 'fonds-frontaliers-varesotto-14-millions-euros' },
  'cern-progetto-19-miliardi': { it: 'cern-progetto-19-miliardi', en: 'cern-19-billion-project', de: 'cern-19-milliarden-projekt', fr: 'cern-projet-19-milliards' },
+ 'frontalieri-it-svizzera-sede-datore-2026': { it: 'frontalieri-it-svizzera-sede-datore-2026', en: 'frontalieri-it-svizzera-sede-datore', de: 'frontalierer-it-schweiz-sitzgeber', fr: 'frontaliers-it-suisse-siegeur' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

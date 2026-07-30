@@ -1702,6 +1702,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.cern-progetto-19-miliardi.title': 'CERN : survivra-t-il au monde fragmenté ?',
     'blog.article.cern-progetto-19-miliardi.excerpt': 'Le CERN s\'apprête à écrire un nouveau chapitre de son histoire avec le projet Future Circular Collider (FCC), mais le financement reste un défi',
     'blog.article.cern-progetto-19-miliardi.imageAlt': 'Le CERN à Genève, centre de recherche sur les particules élémentaires',
+    'blog.article.frontalieri-it-svizzera-sede-datore-2026.title': 'Travail et siège : le fisc clarifie les règles',
+    'blog.article.frontalieri-it-svizzera-sede-datore-2026.excerpt': 'La Suisse applique un prélèvement à la source réduit à 80 % de l\'impôt ordinaire. La surveillance du travail intelligent est régie par la limite maximale de 25 % du temps de travail total.',
+    'blog.article.frontalieri-it-svizzera-sede-datore-2026.imageAlt': 'Frontaliers en Suisse travaillant en Italie et résidant en Suisse',
 };
 
 export default blogMetaChFr;

@@ -1702,6 +1702,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.cern-progetto-19-miliardi.title': 'CERN: sopravviverà al mondo frammentato?',
     'blog.article.cern-progetto-19-miliardi.excerpt': 'Il CERN si appresta a scrivere un nuovo capitolo della sua storia con il progetto Future Circular Collider (FCC), ma il finanziamento resta una sfida',
     'blog.article.cern-progetto-19-miliardi.imageAlt': 'Il CERN di Ginevra, centro di ricerche sulle particelle elementari',
+    'blog.article.frontalieri-it-svizzera-sede-datore-2026.title': 'Lavoro e sede: il Fisco chiarisce le regole',
+    'blog.article.frontalieri-it-svizzera-sede-datore-2026.excerpt': 'La Svizzera applica un prelievo alla fonte ridotto al 80% dell\'imposta ordinaria. Il monitoraggio dello smart working è regolato dal limite massimo del 25% dell\'orario di lavoro complessivo.',
+    'blog.article.frontalieri-it-svizzera-sede-datore-2026.imageAlt': 'Frontalieri in Svizzera che lavorano in Italia e risiedono in Svizzera',
 };
 
 export default blogMetaChIt;
