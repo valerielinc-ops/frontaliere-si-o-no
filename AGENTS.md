@@ -141,4 +141,4 @@ CI test gate: `npm ci`, `node scripts/assemble-jobs-dataset.mjs --stats`, `node 
 
 ## Reference Docs
 
-CI/CD `docs/CI-CD-PIPELINE.md` · Article learning loop `docs/ARTICLE-LEARNING-LOOP.md` · SEO rules `docs/SEO-RULES.md` · SEO gates `docs/SEO-GATES.md` · SEO features `docs/SEO-FEATURES.md` · Crawlers `docs/CRAWLERS.md` · Cathedral plan `docs/CATHEDRAL-IMPLEMENTATION-PLAN.md` · Rollback `docs/CATHEDRAL-ROLLBACK.md` · Design `docs/DESIGN-CONTEXT.md` · Local dev `docs/LOCAL-DEV.md` · GitNexus `docs/GITNEXUS.md` · Agent-rule incident history `docs/AGENTS-HISTORY.md`
+CI/CD `docs/CI-CD-PIPELINE.md` · Article learning loop `docs/ARTICLE-LEARNING-LOOP.md` · SEO rules `docs/SEO-RULES.md` · SEO gates `docs/SEO-GATES.md` · SEO features `docs/SEO-FEATURES.md` · Crawlers `docs/CRAWLERS.md` · Cathedral plan `docs/CATHEDRAL-IMPLEMENTATION-PLAN.md` · Rollback `docs/CATHEDRAL-ROLLBACK.md` · Design `docs/DESIGN-CONTEXT.md` · Local dev `docs/LOCAL-DEV.md` · Cloud sessions (web/mobile) `docs/CLOUD-SESSIONS.md` · GitNexus `docs/GITNEXUS.md` · Agent-rule incident history `docs/AGENTS-HISTORY.md`
