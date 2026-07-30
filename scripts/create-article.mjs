@@ -8570,39 +8570,22 @@ function buildSectionSitemapUrls(data) {
 }
 
 function modifySitemap(data) {
-  const file = SECTION.sitemapFile;
-  let src = read(file);
-  const today = new Date().toISOString().slice(0, 10);
-
-  const imagePath = data._generatedImagePath
-    ? data._generatedImagePath.replace(/^\//, '')
-    : `images/places/${data.image}`;
-  const imageCaption = sanitizePlainText(data.imageAlt?.it || data.seo.headline || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
-  const imageTitle = sanitizePlainText(data.seo.headline || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
-  const { itLoc, alternates } = buildSectionSitemapUrls(data);
-
-  const entry = `  <url>
-    <loc>${itLoc}</loc>
-${alternates}
-    <image:image>
-      <image:loc>${BASE_URL}/${imagePath}</image:loc>
-      <image:title>${imageTitle}</image:title>
-      <image:caption>${imageCaption}</image:caption>
-    </image:image>
-    <lastmod>${today}</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>`;
-
-  // Insert before </urlset>
-  src = src.replace(
-    /(\n)<\/urlset>/,
-    `$1${entry}\n\n</urlset>`
-  );
-
-  write(file, src);
-  console.error(`  ✅ ${file}`);
-  updateSitemapIndexLastmod(SECTION.sitemapUrl);
+  // No-op since the article corpus moved to its own repository.
+  //
+  // sitemap-blog.xml / sitemap-blog-ch.xml are now produced by
+  // nanakokyobashi-rgb/frontaliere-articles, which regenerates them from the
+  // corpus it owns, and pulled into public/ by scripts/pull-articles-api.mjs.
+  // Appending here as well would give the file two producers, and the last
+  // writer would win — the pull would either clobber this entry or be refused
+  // by its own shrink guard.
+  //
+  // Freshness is not lost: the publisher dispatches `articles-published` to this
+  // repo as soon as it has republished, so sync-articles-sitemaps runs on the
+  // push rather than waiting for its twice-daily schedule.
+  //
+  // sitemap-news.xml is NOT affected — it is a Google News surface with its own
+  // whitelist gate, still owned here, and modifySitemapNews below still writes it.
+  void data;
 }
 
 function modifySitemapNews(data) {
@@ -8697,7 +8680,6 @@ function gitAddAll(data) {
     // seo-pages.ts ItemList ("Articoli Frontaliere") is frontaliere-only.
     ...(SECTION.updateRouterUnion ? ['services/seo/seo-pages.ts'] : []),
     'services/seoService.ts',
-    SECTION.sitemapFile,
     'public/sitemap-news.xml',
     'public/sitemap.xml',
   ];
