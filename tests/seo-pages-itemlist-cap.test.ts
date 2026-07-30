@@ -145,4 +145,25 @@ describe('renaming a culled article does not inflate numberOfItems (#4974)', () 
     expect(next).toContain('slug-rinominato');
     expect(next).not.toContain(firstUrl!);
   });
+
+  it('at the cap, a renameFromUrl that never existed is a no-op (documented trade-off)', async () => {
+    // Pins the edge the cap introduces, rather than leaving it implicit. Below
+    // the cap "not found" means "new" and the item is appended; at the cap it
+    // means "culled" and nothing is counted. A caller passing renameFromUrl for
+    // a slug that never existed violates the parameter's contract — publishing
+    // a new article goes through appendArticleListItem — but the behaviour
+    // should be pinned so the next rename tool meets it as documentation, not
+    // as a surprise.
+    const { upsertArticleListItem } = await import('../scripts/lib/seo-pages-article-list.mjs');
+    const src = read();
+
+    const next = upsertArticleListItem(src, {
+      name: 'Articolo mai esistito',
+      url: '${BASE_URL}/articoli-frontaliere/mai-esistito',
+      renameFromUrl: '${BASE_URL}/articoli-frontaliere/questo-slug-non-e-mai-esistito',
+    });
+
+    expect(next).toBe(src);
+    expect(countOf(next)).toBe(countOf(src));
+  });
 });

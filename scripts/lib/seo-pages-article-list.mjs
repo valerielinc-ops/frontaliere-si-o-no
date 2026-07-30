@@ -170,7 +170,18 @@ export function appendArticleListItem(pagesSrc, { name, url }) {
 }
 
 /**
- * Rename-safe insert-or-replace. If a ListItem whose url === renameFromUrl
+ * Rename-safe insert-or-replace.
+ *
+ * NOTE (since the list is capped, #4974): the "never silently dropped"
+ * guarantee below holds unconditionally only BELOW the cap. At the cap, a
+ * `renameFromUrl` that matches nothing is treated as a rename of a culled
+ * entry — the source is returned unchanged and nothing is counted. That is
+ * right for the case it exists to serve (renaming one of the thousands of
+ * articles no longer listed) and wrong for a caller that passes
+ * `renameFromUrl` for a slug that never existed, which is a contract
+ * violation: `renameFromUrl` means "rename THIS existing article". Publishing
+ * a genuinely new article goes through appendArticleListItem, as
+ * create-article.mjs does. If a ListItem whose url === renameFromUrl
  * exists (searched only within the "Articoli Frontaliere" ItemList block —
  * see locateItemListBlock), REPLACE it in place — same position, same
  * trailing comma (or lack thereof) read directly off the matched entry,
