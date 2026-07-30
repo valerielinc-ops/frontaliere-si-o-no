@@ -604,7 +604,7 @@
       "slugByLocale": {
         "it": "responsabile-marketing-globale-al-100-medartis-basel",
         "en": "global-marketing-manager-100-medartis-basel",
-        "de": "global-marketing-manager-100-medartis-basel",
+        "de": "globaler-marketingmanager-100-medartis-basel",
         "fr": "gestionnaire-de-marketing-mondial-100-medartis-basel"
       },
       "company": "Medartis",
@@ -647,12 +647,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
+        "de": [
+          "globale-marketingmanager-100-medartis-basel",
+          "global-marketing-manager-100-medartis-basel"
+        ],
         "it": [
           "global-marketing-manager-100-medartis-basel",
           "responsabile-marketing-globale-al-100-medartis-basel"
-        ],
-        "de": [
-          "globale-marketingmanager-100-medartis-basel"
         ]
       },
       "previousSlugs": [
