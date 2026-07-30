@@ -1,16 +1,16 @@
 {
   "key": "croix-rouge-fribourgeoise",
   "label": "Croix-Rouge fribourgeoise",
-  "generatedAt": "2026-07-29T22:17:11.554Z",
-  "total": 2,
+  "generatedAt": "2026-07-30T11:18:31.742Z",
+  "total": 1,
   "newCount": 0,
   "updatedCount": 1,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 3204,
-  "avgDurationMs": 3204,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 3079,
+  "avgDurationMs": 3079,
   "durationHistory": [
-    3204
+    3079
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -26,7 +26,7 @@
       "url": "https://company.jobcloud.ch/fr/jobs/502b52ba-d781-416d-a177-27ac2a10c989",
       "source": "Croix-Rouge fribourgeoise Dedicated Parser (JobCloud Company Page)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:17:08.738Z",
+      "crawledAt": "2026-07-30T11:18:29.492Z",
       "hiringOrganization": {
         "name": "Croix-Rouge fribourgeoise"
       },
@@ -60,8 +60,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "croix-rouge-fribourgeoise-5aa01fedb997",
       "slug": "capo-del-supporto-domiciliare-membro-del-consiglio-esecutivo-croix-rouge-fribourgeoise-fribourg",
@@ -110,5 +109,6 @@
         "completeness": 25
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
