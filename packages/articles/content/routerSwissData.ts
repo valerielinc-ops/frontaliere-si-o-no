@@ -592,6 +592,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'petrolio-in-cambio-di-miliardi': { it: 'petrolio-in-cambio-di-miliardi', en: 'petroleum-in-exchange-for-millions', de: 'ol-in-tausch-fur-milliarden', fr: 'petrole-en-contrepartie-de-milliards' },
  'contributo-sanita-vecchi-frontalieri': { it: 'contributo-sanita-vecchi-frontalieri', en: 'healthcare-contribution-old-frontalieri', de: 'gesundheitsbeitrag-alte-grenzganger', fr: 'contribution-sante-anciens-frontaliers' },
  'fondi-frontalieri-varesotto-14-milioni': { it: 'fondi-frontalieri-varesotto-14-milioni', en: 'cross-border-funds-varesotto-14-million-euros', de: 'grenzgaenger-fonds-varesotto-14-millionen-euro', fr: 'fonds-frontaliers-varesotto-14-millions-euros' },
+ 'cern-progetto-19-miliardi': { it: 'cern-progetto-19-miliardi', en: 'cern-19-billion-project', de: 'cern-19-milliarden-projekt', fr: 'cern-projet-19-milliards' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

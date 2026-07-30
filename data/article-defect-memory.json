@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-07-30T05:27:31.246Z",
+  "updatedAt": "2026-07-30T05:55:17.094Z",
   "entities": {
     "AASTI": {
       "status": "suspect",
@@ -4757,11 +4757,11 @@
       "statusSource": "auto",
       "statusAt": "2026-07-29T06:26:58.011Z",
       "firstSeen": "2026-07-29T06:26:58.011Z",
-      "lastSeen": "2026-07-30T05:27:31.246Z",
-      "seen": 22,
+      "lastSeen": "2026-07-30T05:55:17.094Z",
+      "seen": 28,
       "unsupportedSightings": 0,
       "unsupportedRuns": [],
-      "supportedSightings": 4,
+      "supportedSightings": 10,
       "names": [
         "Autorità**: Ufficio federale della dogana e della sicurezza dei confini",
         "Ufficio Federale della Dogana e della Sicurezza dei Confini",
@@ -4770,9 +4770,44 @@
       "recentKeys": [],
       "evidence": [
         {
-          "at": "2026-07-30T05:27:31.246Z",
-          "runId": "30515057849",
-          "articleId": "unknown",
+          "at": "2026-07-30T05:55:17.094Z",
+          "runId": "30516936817",
+          "articleId": "cern-progetto-19-miliardi",
+          "support": "present",
+          "name": "Ufficio federale della dogana e della sicurezza dei confini"
+        },
+        {
+          "at": "2026-07-30T05:55:17.094Z",
+          "runId": "30516936817",
+          "articleId": "cern-progetto-19-miliardi",
+          "support": "present",
+          "name": "Ufficio federale della dogana e della sicurezza dei confini"
+        },
+        {
+          "at": "2026-07-30T05:55:17.094Z",
+          "runId": "30516936817",
+          "articleId": "cern-progetto-19-miliardi",
+          "support": "present",
+          "name": "Ufficio federale della dogana e della sicurezza dei confini"
+        },
+        {
+          "at": "2026-07-30T05:55:17.094Z",
+          "runId": "30516936817",
+          "articleId": "cern-progetto-19-miliardi",
+          "support": "present",
+          "name": "Ufficio federale della dogana e della sicurezza dei confini"
+        },
+        {
+          "at": "2026-07-30T05:55:17.094Z",
+          "runId": "30516936817",
+          "articleId": "cern-progetto-19-miliardi",
+          "support": "present",
+          "name": "Ufficio federale della dogana e della sicurezza dei confini"
+        },
+        {
+          "at": "2026-07-30T05:55:17.094Z",
+          "runId": "30516936817",
+          "articleId": "cern-progetto-19-miliardi",
           "support": "present",
           "name": "Ufficio federale della dogana e della sicurezza dei confini"
         },
@@ -4788,41 +4823,6 @@
           "runId": "30515057849",
           "articleId": "unknown",
           "support": "present",
-          "name": "Ufficio federale della dogana e della sicurezza dei confini"
-        },
-        {
-          "at": "2026-07-30T05:27:31.246Z",
-          "runId": "30515057849",
-          "articleId": "unknown",
-          "support": "present",
-          "name": "Ufficio federale della dogana e della sicurezza dei confini"
-        },
-        {
-          "at": "2026-07-29T06:26:58.011Z",
-          "runId": "corpus-scan",
-          "articleId": "usa-critica-svizzera-bio-duopolio",
-          "support": "unknown",
-          "name": "Ufficio federale della dogana e della sicurezza dei confini"
-        },
-        {
-          "at": "2026-07-29T06:26:58.011Z",
-          "runId": "corpus-scan",
-          "articleId": "sicurezza-confine-ticino-brogeda",
-          "support": "unknown",
-          "name": "Ufficio federale della dogana e della sicurezza dei confini"
-        },
-        {
-          "at": "2026-07-29T06:26:58.011Z",
-          "runId": "corpus-scan",
-          "articleId": "multe-vignetta-chiasso-pasqua-2026",
-          "support": "unknown",
-          "name": "Ufficio federale della dogana e della sicurezza dei confini"
-        },
-        {
-          "at": "2026-07-29T06:26:58.011Z",
-          "runId": "corpus-scan",
-          "articleId": "multe-vignetta-chiasso-2024",
-          "support": "unknown",
           "name": "Ufficio federale della dogana e della sicurezza dei confini"
         }
       ]

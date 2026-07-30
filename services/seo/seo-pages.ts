@@ -4759,7 +4759,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 3627,
+ "numberOfItems": 3628,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026/` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024/` },
@@ -8387,7 +8387,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 3624, "name": "Sanità e vecchi frontalieri: il contributo per ...", "url": `${BASE_URL}/articoli-frontaliere/contributo-sanita-vecchi-frontalieri` },
           { "@type": "ListItem", "position": 3625, "name": "Trasferirsi a Porto Ceresio da frontaliere: pro...", "url": `${BASE_URL}/articoli-frontaliere/trasferirsi-porto-ceresio-frontaliere` },
           { "@type": "ListItem", "position": 3626, "name": "14 milioni ai territori di confine: fondi per f...", "url": `${BASE_URL}/articoli-frontaliere/fondi-frontalieri-varesotto-14-milioni` },
-          { "@type": "ListItem", "position": 3627, "name": "Beko Cassinetta, dal tavolo in Provincia emerge...", "url": `${BASE_URL}/articoli-frontaliere/beko-cassinetta-preoccupazione-sindacati` }
+          { "@type": "ListItem", "position": 3627, "name": "Beko Cassinetta, dal tavolo in Provincia emerge...", "url": `${BASE_URL}/articoli-frontaliere/beko-cassinetta-preoccupazione-sindacati` },
+          { "@type": "ListItem", "position": 3628, "name": "CERN: sopravviverà al mondo frammentato?", "url": `${BASE_URL}/articoli-frontaliere/cern-progetto-19-miliardi` }
  ]
  },
  {
