@@ -1,6 +1,6 @@
 {
   "crawlerKey": "anybotics",
-  "assembledAt": "2026-07-29T22:16:13.326Z",
+  "assembledAt": "2026-07-30T11:17:49.115Z",
   "jobs": [
     {
       "id": "anybotics-74337a3d76ea",
@@ -8,7 +8,7 @@
       "slugByLocale": {
         "it": "architettura-del-sistema-vp-anybotics-zurich-switzerland",
         "en": "vp-system-architecture-anybotics-ch",
-        "de": "vp-systemarchitektur-anybotics-zurich-switzerland",
+        "de": "vp-system-architecture-anybotics-zurich-switzerland",
         "fr": "vp-architecture-du-systeme-anybotics-zurich-switzerland"
       },
       "company": "ANYbotics",
@@ -18,7 +18,7 @@
       "titleByLocale": {
         "it": "Architettura del sistema VP",
         "en": "VP System Architecture",
-        "de": "VP Systemarchitektur",
+        "de": "VP System Architecture",
         "fr": "VP Architecture du système"
       },
       "description": "ANYbotics is a fast-growing tech company dedicated to shaping the future of mobile robotics across multiple industries. Join our highly talented and motivated team of more than 200 people and work on cutting-edge robot technology.\n\nThe Opportunity\n\nAs VP of System Architecture, you will define the architectural direction for the next generation of ANYbotics robot platforms. You will shape how a shared modular foundation supports multiple robot variants, operational design domains, and future business models.\n\nThis is a senior, cross-functional role spanning the full technology spectrum, from AI and autonomy through hardware, software, mechatronics, functional safety, system integration, and factory industrialization. You will help determine how our robots evolve from strong individual products into a scalable family of platforms, balancing reuse, flexibility, performance, manufacturability, and long-term maintainability.\n\nThis role is not just about technical design. It is also about setting direction, driving alignment across teams, and helping the organisation make strong architectural decisions as we scale.\n\nMarket & Our Technology\n\nANYbotics is pioneering autonomous robotic platforms for industrial inspection and operations in challenging environments. From explosion-proof systems in oil and gas to agile robotic platforms for utilities and other industrial settings, our technology is built for environments where safety, reliability, and uptime are critical.\n\nSystem Architecture is central to how we scale. The challenge is not only to build great robots, but to create the modular architecture, interfaces, and platform strategy that allow multiple variants to be derived from a shared core. This includes anticipating future customer needs, new domains, certification requirements, and external integrations such as fleet management, predictive maintenance, and digital twins.\n\nWith the right architecture in place, ANYbotics can move faster, reuse more effectively, and expand into new markets without rebuilding from scratch each time.\n\nAbout us\n\nANYbotics is a leading robotics company specialising in advanced autonomous systems. With a successful Series B financing round closed and strong momentum in the market, we are entering an important phase of growth and international expansion.\n\nOur mission is to transform industrial inspection and operations through world-class robotics. We combine deep robotics expertise with real customer deployments in demanding industrial environments. This is an opportunity to join at a stage where the technology is proven, the ambition is high, and the architectural decisions made now will have a major impact on the company’s future.\n\nYour Contributions\n\n•\n Define and govern the reference system architecture across hardware and software domains focusing on modules interfaces\n\n•\n Build a modular platform strategy that enables multiple robot variants and operational domains to be derived from a shared architectural foundation\n\n•\n Drive architectural decisions on interfaces, middleware, data models, integration patterns, and the software backbone that supports future platform scaling\n\n•\n Define how reuse, configuration, and hardware-specific adaptation are handled so new variants can be developed without unnecessary redesign\n\n•\n Lead platform-level trade-offs across performance, agility, endurance, safety, manufacturability, and cost\n\n•\n Embed diagnostics, functional safety, cybersecurity, over-the-air updates, and certification requirements into the architecture from the outset\n\n•\n Partner with senior engineering leaders across software and hardware domains, and through the system engineering community to align on direction, influence execution, and translate long-term architecture into practical delivery\n\nYour Profile\n\n•\n MSc in Systems Engineering, Electronics, Robotics, Computer Science, or a related field\n\n•\n Significant experience in system architecture and modularity leadership within robotics, autonomous systems, medical devices, automotive, aerospace, or other complex mechatronic environments\n\n•\n Proven track record of architecting and evolving complex platforms rather than one-off systems\n\n•\n Experience defining modular architectures and enabling reuse across multiple product variants\n\n•\n Strong understanding of hardware and software co-design principles across sensors, actuators, compute, control systems, middleware, and power management\n\n•\n Good understanding of autonomy-related systems such as perception, localisation, navigation, motion planning, or fleet-level coordination\n\n•\n Experience with real-time systems, platform middleware, and system integration (V model) in complex industrial or safety-relevant environments\n\n•\n Ability to translate customer needs, business direction, and technical constraints into clear architectural decisions\n\n•\n Experience balancing performance, safety, manufacturability, scalability, and product maturity in real-world systems\n\n•\n Proven ability to influence across teams, drive alignment, and lead change without relying solely on formal authority\n\n•\n Strong communication and influence skills, sound judgement, and the ability to simplify complex architectural questions for a broad technical audience\n\n•\n Proven ability to translate company strategy and mid- to long-term technology vision into a clear, executable roadmap, along with effective governance to drive its execution.\n\nBonus Points\n\n•\n Experience with safety-critical or regulated robotic systems\n\n•\n Familiarity with Ex certification or related industrial safety constraints\n\n•\n Experience with large-scale simulation environments, digital twins, or platform-level validation frameworks\n\n•\n Track record of reducing time to market through platform reuse and stronger architectural discipline\n\n•\n Experience embedding certification and safety pathways into architectural frameworks\n\n•\n Experience supporting products that scale across multiple variants, deployment environments, or different operational design domains\n\nWe offer you a very exciting and dynamic work environment, the opportunity to become part of a fast-growing company and an ambitious team that is on a mission to change the industrial inspection market, a chance to leverage your experience and bring in your own ideas, a fair market salary, an attractive employee stock ownership plan, and a job in the city of Zurich.\n\nAgency Policy: We are not currently partnering with external search firms or recruitment agencies. Any profiles or resumes submitted to ANYbotics employees without a prior written agreement will be considered public disclosure and the property of ANYbotics, involving no liability or fee for subsequent hiring.",
@@ -33,7 +33,7 @@
       "url": "https://jobs.lever.co/anybotics/456ebeb5-37c3-4531-8bdf-ead40406eb49",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-29T22:16:09.822Z",
+      "crawledAt": "2026-07-30T11:17:46.079Z",
       "addressLocality": "Zurich, Switzerland",
       "addressCountry": "CH",
       "country": "CH",
@@ -50,13 +50,17 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "vp-system-architecture-anybotics-ch",
+        "vp-systemarchitektur-anybotics-zurich-switzerland",
+        "architettura-del-sistema-vp-anybotics-zurich-switzerland",
         "vp-system-architecture-anybotics-zurich-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "vp-system-architecture-anybotics-ch"
+          "vp-system-architecture-anybotics-ch",
+          "architettura-del-sistema-vp-anybotics-zurich-switzerland"
         ],
         "de": [
+          "vp-systemarchitektur-anybotics-zurich-switzerland",
           "vp-system-architecture-anybotics-zurich-switzerland"
         ],
         "fr": [
@@ -64,6 +68,7 @@
         ]
       },
       "firstSeenAt": "2026-07-03T21:18:39.699Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -109,7 +114,7 @@
       "url": "https://jobs.lever.co/anybotics/32d2b35b-b255-416c-9ad7-ce2462cc89f0",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-29T22:16:09.520Z",
+      "crawledAt": "2026-07-30T11:17:45.777Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -125,11 +130,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "verification-testing-engineer-anybotics-ch"
+        "verification-testing-engineer-anybotics-ch",
+        "verification-testing-ingegnere-anybotics-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verification-testing-engineer-anybotics-ch"
+          "verification-testing-engineer-anybotics-ch",
+          "verification-testing-ingegnere-anybotics-zurich"
         ],
         "de": [
           "verification-testing-engineer-anybotics-ch"
@@ -184,7 +191,7 @@
       "url": "https://jobs.lever.co/anybotics/7e305a48-4628-4a6a-b054-0367b6f6e586",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-29T22:16:09.218Z",
+      "crawledAt": "2026-07-30T11:17:45.476Z",
       "addressLocality": "Zurich, Switzerland",
       "addressCountry": "CH",
       "country": "CH",
@@ -205,13 +212,15 @@
         "elektrotechnik-praktikum-anybotics-zurich",
         "genie-electrique-stage-anybotics-zurich",
         "software-engineering-internship-anybotics-ch",
-        "software-engineering-internship-ai-platform-anybotics-ch"
+        "software-engineering-internship-ai-platform-anybotics-ch",
+        "interno-di-ingegneria-del-software-anybotics-zurich-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
           "ingegneria-elettrica-stage-anybotics-zurich",
           "software-engineering-internship-anybotics-ch",
-          "software-engineering-internship-ai-platform-anybotics-ch"
+          "software-engineering-internship-ai-platform-anybotics-ch",
+          "interno-di-ingegneria-del-software-anybotics-zurich-switzerland"
         ],
         "en": [
           "electrical-engineering-internship-anybotics-ch"
@@ -226,6 +235,7 @@
         ]
       },
       "firstSeenAt": "2026-07-28T11:50:16.522Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -271,7 +281,7 @@
       "url": "https://jobs.lever.co/anybotics/63f0c6db-0a1f-4a4a-87dd-9a43c9c2bdd2",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-29T22:16:08.916Z",
+      "crawledAt": "2026-07-30T11:17:45.174Z",
       "addressLocality": "Zurich, Switzerland",
       "addressCountry": "CH",
       "country": "CH",
@@ -287,11 +297,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-reinforcement-learning-engineer-anybotics-ch"
+        "senior-reinforcement-learning-engineer-anybotics-ch",
+        "senior-reinforcement-learning-ingegnere-anybotics-zurich-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-reinforcement-learning-engineer-anybotics-ch"
+          "senior-reinforcement-learning-engineer-anybotics-ch",
+          "senior-reinforcement-learning-ingegnere-anybotics-zurich-switzerland"
         ],
         "de": [
           "senior-reinforcement-learning-engineer-anybotics-ch"
@@ -346,7 +358,7 @@
       "url": "https://jobs.lever.co/anybotics/16980988-bb5a-44f8-b688-ef7053de2899",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-29T22:16:08.614Z",
+      "crawledAt": "2026-07-30T11:17:44.873Z",
       "addressLocality": "Zurich, Switzerland",
       "addressCountry": "CH",
       "country": "CH",
@@ -362,14 +374,17 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-product-quality-engineer-anybotics-ch"
+        "senior-product-quality-engineer-anybotics-ch",
+        "senior-product-quality-ingegnere-anybotics-zurich-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-product-quality-engineer-anybotics-ch"
+          "senior-product-quality-engineer-anybotics-ch",
+          "senior-product-quality-ingegnere-anybotics-zurich-switzerland"
         ]
       },
       "firstSeenAt": "2026-07-06T12:59:44.319Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -415,7 +430,7 @@
       "url": "https://jobs.lever.co/anybotics/8ba02712-b54a-4447-a73e-6384563feda1",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-29T22:16:08.311Z",
+      "crawledAt": "2026-07-30T11:17:44.571Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -431,11 +446,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-procurement-specialist-anybotics-ch"
+        "senior-procurement-specialist-anybotics-ch",
+        "senior-procurement-specialista-anybotics-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-procurement-specialist-anybotics-ch"
+          "senior-procurement-specialist-anybotics-ch",
+          "senior-procurement-specialista-anybotics-zurich"
         ],
         "de": [
           "senior-procurement-specialist-anybotics-ch"
@@ -478,10 +495,10 @@
         "de": "Senior Manager Produktstruktur & Systeme (PLM/MES)",
         "fr": "Gestionnaire principal Structure et systèmes de produits (PLM/MES)"
       },
-      "description": "ANYbotics is a fast-growing tech company dedicated to shaping the future of mobile robotics across multiple industries. Join our highly talented and motivated team of more than 200 people and work on cutting-edge robot technology.\n\nThe Opportunity\n\nAs the Senior Manager of Product Structure, PLM & MES, you are the architect of the digital backbone that connects our robotic innovations to real-world production. In this high-impact leadership role, you will strategically own the implementation and evolution of our Product Lifecycle Management (PLM) and Manufacturing Execution (MES) systems and processes to scale with a rapidly growing product and manufacturing organization (\"Digital Thread\").\nYou will govern the product architecture for our complex mechatronic systems, ensuring that our Engineering BOM (EBOM), Manufacturing BOM (MBOM), and Service BOM (SBOM) are perfectly synchronized.\nThis is not just a systems role — it’s a business transformation mandate. You will define and execute the PLM and MES roadmap in collaboration with executive stakeholders, ensuring alignment between engineering, operations, product, and after-sales service functions. You’ll help us build an integrated, enterprise-grade ecosystem that accelerates product development, enables traceability, and scales product data excellence.\n\nThe Market & Our Technology\n\nANYbotics transforms industrial plants in the energy, process, and utility sector by introducing robotics to a wide range of novel applications that so far were beyond reach. Our customers are large asset operators and industrial service providers pioneering the use of robotics technology for inspection and maintenance. Our mobile robot ANYmal uses legs for extreme mobility in complex environments, camera- and LIDAR-based sensing for full autonomy and obstacle avoidance, and AI for high-quality and consistent inspection results. We develop numerous customized hardware systems, including the entire robotic platform, actuators, sensors, inspection payloads, charging systems, and all related ANYbotics mechanical hardware.\n\nYour Impact\n\n• Product Structure & Configuration Governance\n\n• BOM Mastery: Define and govern multi-level BOM structures for complex robotic systems, ensuring alignment across Engineering, Manufacturing, and Service.\n\n• Modular Architecture: Support platform-based development by managing product configurations, variants, and component reuse strategies.\n\n• Data Standards: Enforce rigorous part-numbering schemes, revision control, and BOM rules to maintain 100% data integrity.\n\n• PLM System Ownership & Digital Thread\n\n• Platform Management: Own the strategic roadmap, implementation and functional administration of the PLM environment (e.g., Windchill, Teamcenter, CIM Database).\n\n• System Integration: Manage the technical \"Digital Thread\" between CAD → PLM → ERP → MES, ensuring real-time synchronization of product and manufacturing data.\n\n• Release Management: Oversee the lifecycle states, access controls, and workflows for all product releases and configuration baselines.\n\n• MES & Manufacturing Data Integration\n\n• Production Execution: Ensure the flawless transfer of product structures from PLM to the MES for production execution.\n\n• Process Definition: Collaborate with Manufacturing Engineering to define production routings, assembly sequences, and digital work instructions in the MES.\n\n• Traceability: Maintain \"As-Built\" traceability, ensuring consistency between MES production data and ERP production orders.\n\n• Engineering Change (ECM) & Continuous Improvement\n\n• Change Governance: Lead the Engineering Change Request (ECR) and Order (ECO) processes, ensuring controlled propagation of changes across all systems.\n\n• Optimization: Drive continuous improvement in workflows to reduce NPI (New Product Introduction) cycle times and improve manufacturing scalability.\n\n• Audit & Compliance: Conduct regular product data audits and implement corrective actions to ensure \"Single Source of Truth\" reliability.\n\nYour Profile\n\n• Master’s degree in Systems Engineering, Mechanical Engineering, Industrial Engineering\n\n•\n 7+ years of experience in Configuration, PLM and MES system management, administration and implem entation, ideally in hardware or complex mechatronic product environments\n\n•\n Proven track record leading cross-functional PLM projects with enterprise impact — from roadmap design to hands-on delivery\n\n•\n Strong technical knowledge of PLM architectures (e.g., Teamcenter, Windchill, Arena, CIM Database), MES systems (e.g. Tulip, Opcenter) and their integration with ERP, CAD, and quality systems\n\n•\n Deep understanding of business processes spanning engineering, manufacturing, supply chain, and service\n\n•\n Highly effective communicator with the ability to engage and influence at all levels, including senior leadership and management\n\n•\n Demonstrated mentoring, training, or enablement of teams in system adoption and process maturity Fluency in English required; German is a strong plus\n\nBonus Points\n\n• Prior experience in scaling PLM environments in a high-growth startup or SME\n\n•\n Familiarity with quality management systems and industry regulations, e.g. ATEX directives\n\n•\n Experience in AI-enabled or robotics-based product companies\n\nWe offer you a very exciting and dynamic work environment, the opportunity to become part of a fast-growing company and an ambitious team that is on a mission to change the industrial inspection market, a chance to leverage your experience and bring in your own ideas, a fair market salary, an attractive employee stock ownership plan, and a job in the city of Zurich.\n\nAgency Policy: We are not currently partnering with external search firms or recruitment agencies. Any profiles or resumes submitted to ANYbotics employees without a prior written agreement will be considered public disclosure and the property of ANYbotics, involving no liability or fee for subsequent hiring.",
+      "description": "ANYbotics is a fast-growing tech company dedicated to shaping the future of mobile robotics across multiple industries. Join our highly talented and motivated team of more than 200 people and work on cutting-edge robot technology.\n\nThe Opportunity\n\nAs the Senior Manager of Product Structure, PLM & MES, you are the architect of the digital backbone that connects our robotic innovations to real-world production. In this high-impact leadership role, you will strategically own the implementation and evolution of our Product Lifecycle Management (PLM) and Manufacturing Execution (MES) systems and processes to scale with a rapidly growing product and manufacturing organization (\"Digital Thread\").\nYou will govern the product architecture for our complex mechatronic systems, ensuring that our Engineering BOM (EBOM), Manufacturing BOM (MBOM), and Service BOM (SBOM) are perfectly synchronized.\nThis is not just a systems role — it’s a business transformation mandate. You will define and execute the PLM and MES roadmap in collaboration with executive stakeholders, ensuring alignment between engineering, operations, product, and after-sales service functions. You’ll help us build an integrated, enterprise-grade ecosystem that accelerates product development, enables traceability, and scales product data excellence.\n\nThe Market & Our Technology\n\nANYbotics transforms industrial plants in the energy, process, and utility sector by introducing robotics to a wide range of novel applications that so far were beyond reach. Our customers are large asset operators and industrial service providers pioneering the use of robotics technology for inspection and maintenance. Our mobile robot ANYmal uses legs for extreme mobility in complex environments, camera- and LIDAR-based sensing for full autonomy and obstacle avoidance, and AI for high-quality and consistent inspection results. We develop numerous customized hardware systems, including the entire robotic platform, actuators, sensors, inspection payloads, charging systems, and all related ANYbotics mechanical hardware.\n\nYour Impact\n\n• Product Structure & Configuration Governance\n\n• BOM Mastery: Define and govern multi-level BOM structures for complex robotic systems, ensuring alignment across Engineering, Manufacturing, and Service.\n\n• Modular Architecture: Support platform-based development by managing product configurations, variants, and component reuse strategies.\n\n• Data Standards: Enforce rigorous part-numbering schemes, revision control, and BOM rules to maintain 100% data integrity.\n\n• PLM System Ownership & Digital Thread\n\n• Platform Management: Own the strategic roadmap, implementation and functional administration of the PLM environment (e.g., Windchill, Teamcenter, CIM Database).\n\n• System Integration: Manage the technical \"Digital Thread\" between CAD → PLM → ERP → MES, ensuring real-time synchronization of product and manufacturing data.\n\n• Release Management: Oversee the lifecycle states, access controls, and workflows for all product releases and configuration baselines.\n\n• MES & Manufacturing Data Integration\n\n• Production Execution: Ensure the flawless transfer of product structures from PLM to the MES for production execution.\n\n• Process Definition: Collaborate with Manufacturing Engineering to define production routings, assembly sequences, and digital work instructions in the MES.\n\n• Traceability: Maintain \"As-Built\" traceability, ensuring consistency between MES production data and ERP production orders.\n\n• Engineering Change (ECM) & Continuous Improvement\n\n• Change Governance: Lead the Engineering Change Request (ECR) and Order (ECO) processes, ensuring controlled propagation of changes across all systems.\n\n• Optimization: Drive continuous improvement in workflows to reduce NPI (New Product Introduction) cycle times and improve manufacturing scalability.\n\n• Audit & Compliance: Conduct regular product data audits and implement corrective actions to ensure \"Single Source of Truth\" reliability.\n\nYour Profile\n\n• Master’s degree in Systems Engineering, Mechanical Engineering, Industrial Engineering\n\n•\n 7+ years of experience in Configuration, PLM and MES system management, administration and implementation, ideally in hardware or complex mechatronic product environments\n\n•\n Proven track record leading cross-functional PLM projects with enterprise impact — from roadmap design to hands-on delivery\n\n•\n Strong technical knowledge of PLM architectures (e.g., Teamcenter, Windchill, Arena, CIM Database), MES systems (e.g. Tulip, Opcenter) and their integration with ERP, CAD, and quality systems\n\n•\n Deep understanding of business processes spanning engineering, manufacturing, supply chain, and service\n\n•\n Highly effective communicator with the ability to engage and influence at all levels, including senior leadership and management\n\n•\n Demonstrated mentoring, training, or enablement of teams in system adoption and process maturity Fluency in English required; German is a strong plus\n\nBonus Points\n\n• Prior experience in scaling PLM environments in a high-growth startup or SME\n\n•\n Familiarity with quality management systems and industry regulations, e.g. ATEX directives\n\n•\n Experience in AI-enabled or robotics-based product companies\n\nWe offer you a very exciting and dynamic work environment, the opportunity to become part of a fast-growing company and an ambitious team that is on a mission to change the industrial inspection market, a chance to leverage your experience and bring in your own ideas, a fair market salary, an attractive employee stock ownership plan, and a job in the city of Zurich.\n\nAgency Policy: We are not currently partnering with external search firms or recruitment agencies. Any profiles or resumes submitted to ANYbotics employees without a prior written agreement will be considered public disclosure and the property of ANYbotics, involving no liability or fee for subsequent hiring.",
       "descriptionByLocale": {
         "it": "ANYbotics è una società tecnologica in rapida crescita dedicata a modellare il futuro della robotica mobile in più settori. Unisciti al nostro team altamente talentuoso e motivato di oltre 200 persone e lavorare sulla tecnologia robot all'avanguardia. L'opportunità Come Senior Manager di Product Structure, PLM & MES, sei l'architetto della spina dorsale digitale che collega le nostre innovazioni robotiche alla produzione del mondo reale. In questo ruolo di leadership ad alto impatto, possederai strategicamente l'implementazione e l'evoluzione dei nostri sistemi e processi di Product Lifecycle Management (PLM) e Manufacturing Execution (MES) per scalare con un'organizzazione di produzione e di prodotto in rapida crescita (\"Digital Thread\"). Potrai governare l'architettura dei prodotti per i nostri complessi sistemi meccatronici, assicurando che i nostri BOM Engineering (EBOM), Manufacturing BOM (MBOM), e Service BOM (SBOM) siano perfettamente sincronizzati. Questo non è solo un ruolo di sistemi — è un mandato di trasformazione aziendale. Definirai ed eseguirai la roadmap PLM e MES in collaborazione con gli stakeholder esecutivi, garantendo l'allineamento tra le funzioni di ingegneria, operazioni, prodotto e servizio post-vendita. Ci aiuterà a costruire un ecosistema integrato di livello enterprise che accelera lo sviluppo dei prodotti, consente la tracciabilità e scala l'eccellenza dei dati dei prodotti. Il mercato e la nostra tecnologia ANYbotics trasforma gli impianti industriali nel settore dell'energia, del processo e dell'utilità introducendo la robotica a una vasta gamma di applicazioni innovative che finora erano al di là della portata. I nostri clienti sono grandi operatori di asset e fornitori di servizi industriali pionieristico l'uso della tecnologia robotica per l'ispezione e la manutenzione. Il nostro robot mobile ANYmal utilizza le gambe per una mobilità estrema in ambienti complessi, sensori basati su telecamere e LIDAR per una piena autonomia e un'elusione agli ostacoli, e AI per risultati di ispezione di alta qualità e coerente. Sviluppiamo numerosi sistemi hardware personalizzati, tra cui l'intera piattaforma robotica, attuatori, sensori, carichi di ispezione, sistemi di ricarica e tutti i relativi hardware meccanico ANYbotics. Il tuo impatto\n• Struttura del prodotto & Configurazione Governance\n• BOM Mastery: Definire e governare strutture BOM a più livelli per sistemi robotizzati complessi, garantendo l'allineamento tra Ingegneria, Produzione e Servizio.\n• Architettura modulare: Supporta lo sviluppo basato sulla piattaforma gestendo configurazioni, varianti e strategie di riutilizzo dei componenti.\n• Data Standards: Fornire rigorosi schemi di numerazione, controllo della revisione e regole BOM per mantenere l'integrità dei dati al 100%.\n• Proprietà del sistema PLM & filo digitale\n• Gestione della piattaforma: Possedere la roadmap strategica, l'implementazione e l'amministrazione funzionale dell'ambiente PLM (ad esempio, Windchill, Teamcenter, CIM Database).\n• Integrazione del sistema: Gestisci il \"Dettaglio digitale\" tecnico tra CAD → PLM → ERP → MES, garantendo la sincronizzazione in tempo reale dei dati di prodotto e di produzione.\n• Gestione del rilascio: supervisionare gli stati del ciclo di vita, i controlli di accesso e i flussi di lavoro per tutte le versioni del prodotto e le basi di configurazione.\n• MES & Manufacturing Integrazione dei dati\n• Esecuzione di produzione: Assicurare il trasferimento impeccabile delle strutture di prodotto da PLM al MES per l'esecuzione di produzione.\n• Definizione di processo: Collabora con Manufacturing Engineering per definire routing di produzione, sequenze di montaggio e istruzioni di lavoro digitali nel MES.\n• Tracciabilità: Mantenere tracciabilità \"As-Built\", garantendo coerenza tra i dati di produzione MES e gli ordini di produzione ERP.\n• Cambiamento di ingegneria (ECM) e miglioramento continuo\n• Change Governance: Guidare i processi di richiesta di modifiche ingegneristiche (ECR) e ordini (ECO), assicurando la propagazione controllata dei cambiamenti in tutti i sistemi.\n• Ottimizzazione: Miglioramento continuo dei flussi di lavoro per ridurre i tempi di ciclo NPI (Nuova introduzione del prodotto) e migliorare la scalabilità produttiva.\n• Audit & Compliance: Condurre controlli regolari dei dati del prodotto e implementare azioni correttive per garantire l'affidabilità \"Single Source of Truth\". Il tuo profilo\n• Laurea Magistrale in Ingegneria dei Sistemi, Ingegneria Meccanica, Ingegneria Industriale\n• 7+ anni di esperienza nella gestione del sistema Configuration, PLM e MES, amministrazione e implem entation, idealmente in ambienti hardware o di prodotti meccatronici complessi\n• Prove traccia record leader progetti PLM interfunzionali con impatto aziendale — dal design roadmap alla consegna hands-on\n• Forte conoscenza tecnica delle architetture PLM (ad esempio, Teamcenter, Windchill, Arena, CIM Database), sistemi MES (ad esempio Tulip, Opcenter) e la loro integrazione con sistemi ERP, CAD e di qualità\n• Profonda comprensione dei processi aziendali che spaziano dall'ingegneria, dalla produzione, dalla supply chain e dal servizio\n• comunicatore altamente efficace con la capacità di coinvolgere e influenzare a tutti i livelli, tra cui leadership senior e gestione\n• mentoring dimostrata, formazione o abilitazione dei team nell'adozione del sistema e nella maturazione dei processi Punti bonus\n• Esperienza prioritaria nella scalazione degli ambienti PLM in una startup ad alta crescita o PMI\n• Familiarità con sistemi di gestione della qualità e regolamenti del settore, ad esempio direttive ATEX\n• Esperienza nelle aziende di prodotti basate su tecnologie informatiche o robotiche Vi offriamo un ambiente di lavoro molto emozionante e dinamico, l'opportunità di entrare a far parte di una società in rapida crescita e di un team ambizioso che è in missione di cambiare il mercato dell'ispezione industriale, la possibilità di sfruttare la vostra esperienza e portare le vostre idee, un salario di mercato equo, un attraente piano di azionariato dei dipendenti e un lavoro nella città di Zurigo. Politica dell'Agenzia: Attualmente non stiamo collaborando con aziende di ricerca esterne o agenzie di reclutamento. Qualsiasi profilo o curriculum inviato ai dipendenti di ANYbotics senza un preventivo accordo scritto sarà considerato la divulgazione pubblica e la proprietà di ANYbotics, che non comporta alcuna responsabilità o tassa per il successivo assunzione.",
-        "en": "ANYbotics is a fast-growing tech company dedicated to shaping the future of mobile robotics across multiple industries. Join our highly talented and motivated team of more than 200 people and work on cutting-edge robot technology.\n\nThe Opportunity\n\nAs the Senior Manager of Product Structure, PLM & MES, you are the architect of the digital backbone that connects our robotic innovations to real-world production. In this high-impact leadership role, you will strategically own the implementation and evolution of our Product Lifecycle Management (PLM) and Manufacturing Execution (MES) systems and processes to scale with a rapidly growing product and manufacturing organization (\"Digital Thread\").\nYou will govern the product architecture for our complex mechatronic systems, ensuring that our Engineering BOM (EBOM), Manufacturing BOM (MBOM), and Service BOM (SBOM) are perfectly synchronized.\nThis is not just a systems role — it’s a business transformation mandate. You will define and execute the PLM and MES roadmap in collaboration with executive stakeholders, ensuring alignment between engineering, operations, product, and after-sales service functions. You’ll help us build an integrated, enterprise-grade ecosystem that accelerates product development, enables traceability, and scales product data excellence.\n\nThe Market & Our Technology\n\nANYbotics transforms industrial plants in the energy, process, and utility sector by introducing robotics to a wide range of novel applications that so far were beyond reach. Our customers are large asset operators and industrial service providers pioneering the use of robotics technology for inspection and maintenance. Our mobile robot ANYmal uses legs for extreme mobility in complex environments, camera- and LIDAR-based sensing for full autonomy and obstacle avoidance, and AI for high-quality and consistent inspection results. We develop numerous customized hardware systems, including the entire robotic platform, actuators, sensors, inspection payloads, charging systems, and all related ANYbotics mechanical hardware.\n\nYour Impact\n\n• Product Structure & Configuration Governance\n\n• BOM Mastery: Define and govern multi-level BOM structures for complex robotic systems, ensuring alignment across Engineering, Manufacturing, and Service.\n\n• Modular Architecture: Support platform-based development by managing product configurations, variants, and component reuse strategies.\n\n• Data Standards: Enforce rigorous part-numbering schemes, revision control, and BOM rules to maintain 100% data integrity.\n\n• PLM System Ownership & Digital Thread\n\n• Platform Management: Own the strategic roadmap, implementation and functional administration of the PLM environment (e.g., Windchill, Teamcenter, CIM Database).\n\n• System Integration: Manage the technical \"Digital Thread\" between CAD → PLM → ERP → MES, ensuring real-time synchronization of product and manufacturing data.\n\n• Release Management: Oversee the lifecycle states, access controls, and workflows for all product releases and configuration baselines.\n\n• MES & Manufacturing Data Integration\n\n• Production Execution: Ensure the flawless transfer of product structures from PLM to the MES for production execution.\n\n• Process Definition: Collaborate with Manufacturing Engineering to define production routings, assembly sequences, and digital work instructions in the MES.\n\n• Traceability: Maintain \"As-Built\" traceability, ensuring consistency between MES production data and ERP production orders.\n\n• Engineering Change (ECM) & Continuous Improvement\n\n• Change Governance: Lead the Engineering Change Request (ECR) and Order (ECO) processes, ensuring controlled propagation of changes across all systems.\n\n• Optimization: Drive continuous improvement in workflows to reduce NPI (New Product Introduction) cycle times and improve manufacturing scalability.\n\n• Audit & Compliance: Conduct regular product data audits and implement corrective actions to ensure \"Single Source of Truth\" reliability.\n\nYour Profile\n\n• Master’s degree in Systems Engineering, Mechanical Engineering, Industrial Engineering\n\n•\n7+ years of experience in Configuration, PLM and MES system management, administration and implem entation, ideally in hardware or complex mechatronic product environments\n\n•\nProven track record leading cross-functional PLM projects with enterprise impact — from roadmap design to hands-on delivery\n\n•\nStrong technical knowledge of PLM architectures (e.g., Teamcenter, Windchill, Arena, CIM Database), MES systems (e.g. Tulip, Opcenter) and their integration with ERP, CAD, and quality systems\n\n•\nDeep understanding of business processes spanning engineering, manufacturing, supply chain, and service\n\n•\nHighly effective communicator with the ability to engage and influence at all levels, including senior leadership and management\n\n•\nDemonstrated mentoring, training, or enablement of teams in system adoption and process maturity Fluency in English required; German is a strong plus\n\nBonus Points\n\n• Prior experience in scaling PLM environments in a high-growth startup or SME\n\n•\nFamiliarity with quality management systems and industry regulations, e.g. ATEX directives\n\n•\nExperience in AI-enabled or robotics-based product companies\n\nWe offer you a very exciting and dynamic work environment, the opportunity to become part of a fast-growing company and an ambitious team that is on a mission to change the industrial inspection market, a chance to leverage your experience and bring in your own ideas, a fair market salary, an attractive employee stock ownership plan, and a job in the city of Zurich.\n\nAgency Policy: We are not currently partnering with external search firms or recruitment agencies. Any profiles or resumes submitted to ANYbotics employees without a prior written agreement will be considered public disclosure and the property of ANYbotics, involving no liability or fee for subsequent hiring.",
+        "en": "ANYbotics is a fast-growing tech company dedicated to shaping the future of mobile robotics across multiple industries. Join our highly talented and motivated team of more than 200 people and work on cutting-edge robot technology.\n\nThe Opportunity\n\nAs the Senior Manager of Product Structure, PLM & MES, you are the architect of the digital backbone that connects our robotic innovations to real-world production. In this high-impact leadership role, you will strategically own the implementation and evolution of our Product Lifecycle Management (PLM) and Manufacturing Execution (MES) systems and processes to scale with a rapidly growing product and manufacturing organization (\"Digital Thread\").\nYou will govern the product architecture for our complex mechatronic systems, ensuring that our Engineering BOM (EBOM), Manufacturing BOM (MBOM), and Service BOM (SBOM) are perfectly synchronized.\nThis is not just a systems role — it’s a business transformation mandate. You will define and execute the PLM and MES roadmap in collaboration with executive stakeholders, ensuring alignment between engineering, operations, product, and after-sales service functions. You’ll help us build an integrated, enterprise-grade ecosystem that accelerates product development, enables traceability, and scales product data excellence.\n\nThe Market & Our Technology\n\nANYbotics transforms industrial plants in the energy, process, and utility sector by introducing robotics to a wide range of novel applications that so far were beyond reach. Our customers are large asset operators and industrial service providers pioneering the use of robotics technology for inspection and maintenance. Our mobile robot ANYmal uses legs for extreme mobility in complex environments, camera- and LIDAR-based sensing for full autonomy and obstacle avoidance, and AI for high-quality and consistent inspection results. We develop numerous customized hardware systems, including the entire robotic platform, actuators, sensors, inspection payloads, charging systems, and all related ANYbotics mechanical hardware.\n\nYour Impact\n\n• Product Structure & Configuration Governance\n\n• BOM Mastery: Define and govern multi-level BOM structures for complex robotic systems, ensuring alignment across Engineering, Manufacturing, and Service.\n\n• Modular Architecture: Support platform-based development by managing product configurations, variants, and component reuse strategies.\n\n• Data Standards: Enforce rigorous part-numbering schemes, revision control, and BOM rules to maintain 100% data integrity.\n\n• PLM System Ownership & Digital Thread\n\n• Platform Management: Own the strategic roadmap, implementation and functional administration of the PLM environment (e.g., Windchill, Teamcenter, CIM Database).\n\n• System Integration: Manage the technical \"Digital Thread\" between CAD → PLM → ERP → MES, ensuring real-time synchronization of product and manufacturing data.\n\n• Release Management: Oversee the lifecycle states, access controls, and workflows for all product releases and configuration baselines.\n\n• MES & Manufacturing Data Integration\n\n• Production Execution: Ensure the flawless transfer of product structures from PLM to the MES for production execution.\n\n• Process Definition: Collaborate with Manufacturing Engineering to define production routings, assembly sequences, and digital work instructions in the MES.\n\n• Traceability: Maintain \"As-Built\" traceability, ensuring consistency between MES production data and ERP production orders.\n\n• Engineering Change (ECM) & Continuous Improvement\n\n• Change Governance: Lead the Engineering Change Request (ECR) and Order (ECO) processes, ensuring controlled propagation of changes across all systems.\n\n• Optimization: Drive continuous improvement in workflows to reduce NPI (New Product Introduction) cycle times and improve manufacturing scalability.\n\n• Audit & Compliance: Conduct regular product data audits and implement corrective actions to ensure \"Single Source of Truth\" reliability.\n\nYour Profile\n\n• Master’s degree in Systems Engineering, Mechanical Engineering, Industrial Engineering\n\n•\n7+ years of experience in Configuration, PLM and MES system management, administration and implementation, ideally in hardware or complex mechatronic product environments\n\n•\nProven track record leading cross-functional PLM projects with enterprise impact — from roadmap design to hands-on delivery\n\n•\nStrong technical knowledge of PLM architectures (e.g., Teamcenter, Windchill, Arena, CIM Database), MES systems (e.g. Tulip, Opcenter) and their integration with ERP, CAD, and quality systems\n\n•\nDeep understanding of business processes spanning engineering, manufacturing, supply chain, and service\n\n•\nHighly effective communicator with the ability to engage and influence at all levels, including senior leadership and management\n\n•\nDemonstrated mentoring, training, or enablement of teams in system adoption and process maturity Fluency in English required; German is a strong plus\n\nBonus Points\n\n• Prior experience in scaling PLM environments in a high-growth startup or SME\n\n•\nFamiliarity with quality management systems and industry regulations, e.g. ATEX directives\n\n•\nExperience in AI-enabled or robotics-based product companies\n\nWe offer you a very exciting and dynamic work environment, the opportunity to become part of a fast-growing company and an ambitious team that is on a mission to change the industrial inspection market, a chance to leverage your experience and bring in your own ideas, a fair market salary, an attractive employee stock ownership plan, and a job in the city of Zurich.\n\nAgency Policy: We are not currently partnering with external search firms or recruitment agencies. Any profiles or resumes submitted to ANYbotics employees without a prior written agreement will be considered public disclosure and the property of ANYbotics, involving no liability or fee for subsequent hiring.",
         "de": "ANYbotics ist ein schnell wachsendes Technologieunternehmen, das sich der Gestaltung der Zukunft der mobilen Robotik in verschiedenen Branchen verschrieben hat. Schließen Sie sich unserem hochtalentierten und motivierten Team von mehr als 200 Mitarbeitern an und arbeiten Sie an modernster Robotertechnologie. Die Chance Als Senior Manager Product Structure, PLM & MES sind Sie der Architekt des digitalen Rückgrats, das unsere Roboterinnovationen mit der realen Produktion verbindet. In dieser einflussreichen Führungsrolle werden Sie die Implementierung und Weiterentwicklung unserer Systeme und Prozesse für Produktlebenszyklusmanagement (PLM) und Fertigungsausführung (MES) strategisch übernehmen, um sie mit einer schnell wachsenden Produkt- und Fertigungsorganisation (\"Digital Thread\") zu skalieren. Sie steuern die Produktarchitektur unserer komplexen mechatronischen Systeme und stellen sicher, dass unsere Engineering BOM (EBOM), Manufacturing BOM (MBOM) und Service BOM (SBOM) perfekt synchronisiert sind. Dies ist nicht nur eine systemrolle - es ist ein geschäftstransformationsmandat. Sie definieren und führen die PLM- und MES-Roadmap in Zusammenarbeit mit Executive Stakeholdern aus, um eine Abstimmung zwischen Engineering-, Operations-, Produkt- und After-Sales-Servicefunktionen sicherzustellen. Sie helfen uns beim Aufbau eines integrierten, unternehmensweiten Ökosystems, das die Produktentwicklung beschleunigt, die Rückverfolgbarkeit ermöglicht und die Exzellenz von Produktdaten skaliert. Der Markt & unsere Technologie ANYbotics transformiert Industrieanlagen im Energie-, Prozess- und Versorgungssektor durch die Einführung der Robotik in ein breites Spektrum neuartiger Anwendungen, die bisher unerreichbar waren. Unsere Kunden sind große Anlagenbetreiber und Industriedienstleister, die den Einsatz von Robotiktechnologie für Inspektion und Wartung Pionierarbeit leisten. Unser mobiler Roboter ANYmal nutzt Beine für extreme Mobilität in komplexen Umgebungen, Kamera- und LIDAR-basierte Sensorik für vollständige Autonomie und Hindernisvermeidung sowie KI für qualitativ hochwertige und konsistente Inspektionsergebnisse. Wir entwickeln zahlreiche maßgeschneiderte Hardwaresysteme, darunter die gesamte Roboterplattform, Aktoren, Sensoren, Inspektionsnutzlasten, Ladesysteme und alle damit verbundenen mechanischen ANYbotics-Hardware. Ihre Wirkung\n• Produktstruktur & Configuration Governance\n• BOM Mastery: Definieren und verwalten Sie mehrstufige BOM-Strukturen für komplexe Robotersysteme und gewährleisten Sie die Ausrichtung auf Engineering, Fertigung und Service.\n• Modulare Architektur: Unterstützung der plattformbasierten Entwicklung durch die Verwaltung von Produktkonfigurationen, Varianten und Wiederverwendungsstrategien für Komponenten.\n• Datenstandards: Erzwingen Sie strenge Teilenummerierungsschemata, Revisionskontrolle und Stücklistenregeln, um eine 100%ige Datenintegrität zu gewährleisten.\n• PLM System Ownership & Digital Thread\n• Plattformmanagement: Eigene strategische Roadmap, Implementierung und funktionale Administration der PLM-Umgebung (z.B. Windchill, Teamcenter, CIM-Datenbank).\n• Systemintegration: Verwalten Sie den technischen \"Digital Thread\" zwischen CAD → PLM → ERP → MES und gewährleisten Sie eine Echtzeit-Synchronisation von Produkt- und Fertigungsdaten.\n• Release Management: Überwachen Sie die Lifecycle-Zustände, Zugriffskontrollen und Workflows für alle Produkt-Releases und Konfigurations-Baselines.\n• MES & Manufacturing Data Integration\n• Produktionsausführung: Gewährleistung der einwandfreien Übertragung von Produktstrukturen von PLM auf das MES zur Produktionsausführung.\n• Prozessdefinition: Arbeiten Sie mit Manufacturing Engineering zusammen, um Produktionsrouten, Montagesequenzen und digitale Arbeitsanweisungen im MES zu definieren.\n• Rückverfolgbarkeit: Pflegen Sie die Rückverfolgbarkeit \"As-Built\" und gewährleisten Sie die Konsistenz zwischen MES-Produktionsdaten und ERP-Produktionsaufträgen.\n• Engineering Change (ECM) & Continuous Improvement\n• Change Governance: Führen Sie die Prozesse Engineering Change Request (ECR) und Order (ECO) und gewährleisten Sie eine kontrollierte Ausbreitung von Änderungen in allen Systemen.\n• Optimierung: Steigern Sie die kontinuierliche Verbesserung von Workflows, um die Zykluszeiten von NPI (New Product Introduction) zu reduzieren und die Skalierbarkeit der Fertigung zu verbessern.\n• Audit & Compliance: Führen Sie regelmäßige Produktdatenaudits durch und implementieren Sie Korrekturmaßnahmen, um die Zuverlässigkeit von \"Single Source of Truth\" zu gewährleisten. Ihr Profil\n• Master in Systems Engineering, Maschinenbau, Industrial Engineering\n• 7+ Jahre Erfahrung in Konfiguration, PLM- und MES-Systemmanagement, -administration und -implementierung, idealerweise in Hardware- oder komplexen mechatronischen Produktumgebungen\n• Bewährte Erfolgsbilanz führender funktionsübergreifender PLM-Projekte mit Auswirkungen auf Unternehmen – vom Roadmap-Design bis zur praktischen Bereitstellung\n• Starkes technisches Wissen über PLM-Architekturen (z. B. Teamcenter, Windchill, Arena, CIM-Datenbank), MES-Systeme (z. B. Tulip, Opcenter) und deren Integration in ERP-, CAD- und Qualitätssysteme\n• Tiefes Verständnis von Geschäftsprozessen, die Engineering, Fertigung, Supply Chain und Service umfassen\n• Hocheffektiver Kommunikator mit der Fähigkeit, sich auf allen Ebenen zu engagieren und zu beeinflussen, einschließlich Führungskräften und Management\n• Demonstriertes Mentoring, Training oder Enablement von Teams in Systemadoption und Prozessreife Fließend Englisch erforderlich; Deutsch ist ein starkes Plus Bonuspunkte\n• Vorherige Erfahrung in der Skalierung von PLM-Umgebungen in einem wachstumsstarken Startup oder KMU\n• Vertrautheit mit Qualitätsmanagementsystemen und Branchenvorschriften, z.B. ATEX-Richtlinien\n• Erfahrung in KI-fähigen oder Robotik-basierten Produktunternehmen Wir bieten Ihnen ein sehr spannendes und dynamisches Arbeitsumfeld, die Möglichkeit, Teil eines schnell wachsenden Unternehmens zu werden, und ein ambitioniertes Team, das den Markt für Industrieinspektionen verändern möchte, eine Chance, Ihre Erfahrungen zu nutzen und eigene Ideen einzubringen, ein faires Marktgehalt, einen attraktiven Mitarbeiteraktienplan und einen Job in der Stadt Zürich. Agenturpolitik: Wir arbeiten derzeit nicht mit externen Suchfirmen oder Rekrutierungsagenturen zusammen. Alle Profile oder Lebensläufe, die an ANYbotics-Mitarbeiter ohne vorherige schriftliche Vereinbarung eingereicht werden, gelten als öffentliche Offenlegung und als Eigentum von ANYbotics, ohne Haftung oder Gebühr für die spätere Einstellung.",
         "fr": "Anybotics est une société technologique en croissance rapide dédiée à façonner l'avenir de la robotique mobile dans plusieurs industries. Rejoignez notre équipe hautement talentueuse et motivée de plus de 200 personnes et travaillez sur la technologie robot de pointe. L'opportunité En tant que Senior Manager of Product Structure, PLM & MES, vous êtes l'architecte de l'épine dorsale numérique qui relie nos innovations robotiques à la production réelle. Dans ce rôle de leadership à impact élevé, vous serez stratégiquement propriétaire de la mise en œuvre et de l'évolution de nos systèmes et processus de gestion du cycle de vie des produits (MPL) et d'exécution des manufactures (MES) à l'échelle avec une organisation de production et de production en croissance rapide (« Fil numérique »). Vous régirez l'architecture des produits de nos systèmes mécatroniques complexes, en veillant à ce que nos systèmes d'ingénierie BOM (EBOM), Manufacturing BOM (MBOM) et Service BOM (SBOM) soient parfaitement synchronisés. Ce n'est pas seulement un rôle de système, c'est un mandat de transformation des activités. Vous définirez et exécuterez la feuille de route PLM et MES en collaboration avec les intervenants exécutifs, assurant l'alignement entre les fonctions d'ingénierie, d'exploitation, de produit et de service après-vente. Vous allez nous aider à construire un écosystème intégré de qualité entreprise qui accélère le développement des produits, permet la traçabilité et évalue l'excellence des données sur les produits. Le marché et notre technologie Anybotics transforme des installations industrielles dans le secteur de l'énergie, des procédés et des services publics en introduisant la robotique dans un large éventail d'applications nouvelles qui étaient jusqu'à présent hors de portée. Nos clients sont de grands opérateurs d'actifs et fournisseurs de services industriels pionniers dans l'utilisation de la technologie robotique pour l'inspection et l'entretien. Notre robot mobile Anymal utilise des jambes pour une mobilité extrême dans des environnements complexes, la détection à base de caméra et de LIDAR pour une autonomie totale et l'évitement des obstacles, et l'IA pour des résultats d'inspection de haute qualité et cohérents. Nous développons de nombreux systèmes matériels personnalisés, dont l'ensemble de la plate-forme robotique, des actionneurs, des capteurs, des charges d'inspection, des systèmes de recharge et tout le matériel mécanique connexe. Votre impact\n• Structure des produits et gouvernance de la configuration\n• Maîtrise BOM : Définir et gouverner les structures BOM à plusieurs niveaux pour des systèmes robotiques complexes, en assurant l'alignement entre l'ingénierie, la fabrication et le service.\n• Architecture modulaire: Soutien au développement basé sur la plate-forme en gérant les configurations de produits, les variantes et les stratégies de réutilisation des composants.\n• Normes de données : Appliquer des systèmes rigoureux de numérotation partielle, de contrôle de révision et de règles BOM pour maintenir l'intégrité des données à 100 %.\n• Propriété du système PLM et fil numérique\n• Gestion de la plateforme : Posséder la feuille de route stratégique, la mise en œuvre et l'administration fonctionnelle de l'environnement PLM (p. ex. Windchill, Teamcenter, CIM Database).\n• Intégration du système : Gérez le \"fil numérique\" technique entre CAO → PLM → ERP → MES, assurant la synchronisation en temps réel des données de produit et de fabrication.\n• Gestion des versions : Surveillez les états du cycle de vie, les contrôles d'accès et les workflows pour toutes les versions de produits et les bases de configuration.\n• MES & Intégration des données de fabrication\n• Exécution de la production: Assurer le transfert parfait des structures de produits de PLM au MES pour l'exécution de la production.\n• Définition du procédé : Collaborer avec l'ingénierie manufacturière pour définir les itinéraires de production, les séquences d'assemblage et les instructions de travail numériques dans le MES.\n• Traçabilité: Maintenir la traçabilité «As-Built», en assurant la cohérence entre les données de production MES et les commandes de production ERP.\n• Changements techniques et amélioration continue\n• Gouvernance du changement : Diriger les processus de demande de changement technique (REC) et d'ordonnance (ECO), en assurant la propagation contrôlée des changements dans tous les systèmes.\n• Optimisation : Diriger l'amélioration continue des flux de travail pour réduire les temps de cycle des NPI (New Product Introduction) et améliorer l'évolutivité de la fabrication.\n• Vérification et conformité : Effectuer des vérifications régulières des données sur les produits et mettre en oeuvre des mesures correctives pour assurer la fiabilité de la « Source unique de vérité ». Votre profil\n• Maîtrise en génie des systèmes, génie mécanique, génie industriel\n• 7 ans et plus d'expérience en Configuration, PLM et MES gestion système, administration et implem tation, idéalement dans les environnements matériels ou complexes de produits mécatroniques\n• Expérience éprouvée en matière de projets de PLM transfonctionnels ayant un impact sur l'entreprise — de la conception de la feuille de route à la prestation pratique\n• Forte connaissance technique des architectures PLM (p. ex. Teamcenter, Windchill, Arena, CIM Database), des systèmes MES (p. ex. Tulip, Opcenter) et de leur intégration aux systèmes ERP, CAO et qualité\n• Compréhension approfondie des processus opérationnels couvrant l'ingénierie, la fabrication, la chaîne d'approvisionnement et le service\n• Un communicateur très efficace, capable de s'engager et d'influencer à tous les niveaux, y compris la haute direction et la direction\n• Le mentorat, la formation ou l'habilitation d'équipes dans l'adoption du système et la maturité du processus Points bonus\n• Expérience antérieure dans l'échelle des environnements PLM dans une startup ou une PME à forte croissance\n• Connaissance des systèmes de gestion de la qualité et des réglementations industrielles, par exemple les directives ATEX\n• Expérience dans les entreprises de produits à base d'IA ou de robotique Nous vous offrons un environnement de travail très excitant et dynamique, l'opportunité de faire partie d'une entreprise en croissance rapide et d'une équipe ambitieuse qui est en mission de changer le marché de l'inspection industrielle, une chance de tirer parti de votre expérience et d'apporter vos propres idées, un salaire équitable du marché, un plan attrayant d'actionnariat salarié, et un emploi dans la ville de Zurich. Politique de l'Agence : Nous ne sommes pas en partenariat avec des entreprises de recherche externes ou des agences de recrutement. Tous les profils ou curriculum vitae soumis à des employés d'Anybotics sans accord écrit préalable seront considérés comme une divulgation publique et la propriété d'Anybotics, ce qui n'implique aucune responsabilité ni aucun droit pour l'embauche ultérieure."
       },
@@ -490,7 +507,7 @@
       "url": "https://jobs.lever.co/anybotics/e893a06a-66ad-4068-a95b-3d26fa2e52a1",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-29T22:16:08.009Z",
+      "crawledAt": "2026-07-30T11:17:44.268Z",
       "addressLocality": "Zurich, Switzerland",
       "addressCountry": "CH",
       "country": "CH",
@@ -506,11 +523,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-manager-product-structure-systems-plm-mes-anybotics-ch"
+        "senior-manager-product-structure-systems-plm-mes-anybotics-ch",
+        "senior-manager-struttura-e-sistemi-dei-prodotti-plm-mes-anybotics-zurich-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-manager-product-structure-systems-plm-mes-anybotics-ch"
+          "senior-manager-product-structure-systems-plm-mes-anybotics-ch",
+          "senior-manager-struttura-e-sistemi-dei-prodotti-plm-mes-anybotics-zurich-switzerland"
         ],
         "de": [
           "senior-manager-product-structure-systems-plm-mes-anybotics-ch"
@@ -520,6 +539,7 @@
         ]
       },
       "firstSeenAt": "2026-07-03T21:18:39.094Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -565,7 +585,7 @@
       "url": "https://jobs.lever.co/anybotics/fd173f45-9f01-40b2-b46a-aca5133f6861",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-29T22:16:07.707Z",
+      "crawledAt": "2026-07-30T11:17:43.966Z",
       "addressLocality": "Zurich, Switzerland",
       "addressCountry": "CH",
       "country": "CH",
@@ -581,11 +601,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-electronics-engineer-anybotics-ch"
+        "senior-electronics-engineer-anybotics-ch",
+        "senior-electronics-ingegnere-anybotics-zurich-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-electronics-engineer-anybotics-ch"
+          "senior-electronics-engineer-anybotics-ch",
+          "senior-electronics-ingegnere-anybotics-zurich-switzerland"
         ],
         "de": [
           "senior-electronics-engineer-anybotics-ch"
@@ -640,7 +662,7 @@
       "url": "https://jobs.lever.co/anybotics/9755ae0f-f740-40bc-bc13-be52c505748b",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-29T22:16:07.405Z",
+      "crawledAt": "2026-07-30T11:17:43.665Z",
       "addressLocality": "Zurich, Switzerland",
       "addressCountry": "CH",
       "country": "CH",
@@ -656,14 +678,17 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "robotics-lab-technician-intern-anybotics-ch"
+        "robotics-lab-technician-intern-anybotics-ch",
+        "robotics-lab-technician-tirocinante-anybotics-zurich-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "robotics-lab-technician-intern-anybotics-ch"
+          "robotics-lab-technician-intern-anybotics-ch",
+          "robotics-lab-technician-tirocinante-anybotics-zurich-switzerland"
         ]
       },
       "firstSeenAt": "2026-07-14T22:46:20.867Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -709,7 +734,7 @@
       "url": "https://jobs.lever.co/anybotics/f13a84f8-23ff-489f-ad1a-aa56a8c7eb6d",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-29T22:16:07.103Z",
+      "crawledAt": "2026-07-30T11:17:43.363Z",
       "addressLocality": "Zurich, Switzerland",
       "addressCountry": "CH",
       "country": "CH",
@@ -725,11 +750,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "production-technician-ii-robotics-anybotics-ch"
+        "production-technician-ii-robotics-anybotics-ch",
+        "tecnologia-di-produzione-ii-robotics-anybotics-zurich-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "production-technician-ii-robotics-anybotics-ch"
+          "production-technician-ii-robotics-anybotics-ch",
+          "tecnologia-di-produzione-ii-robotics-anybotics-zurich-switzerland"
         ],
         "de": [
           "production-technician-ii-robotics-anybotics-ch"
@@ -784,7 +811,7 @@
       "url": "https://jobs.lever.co/anybotics/74b68707-86aa-4efc-9efb-94ca5ad82698",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-29T22:16:06.799Z",
+      "crawledAt": "2026-07-30T11:17:43.060Z",
       "addressLocality": "Zurich, Switzerland",
       "addressCountry": "CH",
       "country": "CH",
@@ -800,11 +827,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "product-data-management-internship-anybotics-ch"
+        "product-data-management-internship-anybotics-ch",
+        "gestione-dei-dati-del-prodotto-anybotics-zurich-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "product-data-management-internship-anybotics-ch"
+          "product-data-management-internship-anybotics-ch",
+          "gestione-dei-dati-del-prodotto-anybotics-zurich-switzerland"
         ],
         "de": [
           "product-data-management-internship-anybotics-ch"
@@ -859,7 +888,7 @@
       "url": "https://jobs.lever.co/anybotics/53462ccd-2b76-4cd5-b8c5-32c329e3c05d",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-29T22:16:06.497Z",
+      "crawledAt": "2026-07-30T11:17:42.758Z",
       "addressLocality": "Zurich, Switzerland",
       "addressCountry": "CH",
       "country": "CH",
@@ -875,11 +904,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "pcb-layout-designer-ecad-engineer-anybotics-ch"
+        "pcb-layout-designer-ecad-engineer-anybotics-ch",
+        "pcb-layout-designer-ecad-ingegnere-anybotics-zurich-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "pcb-layout-designer-ecad-engineer-anybotics-ch"
+          "pcb-layout-designer-ecad-engineer-anybotics-ch",
+          "pcb-layout-designer-ecad-ingegnere-anybotics-zurich-switzerland"
         ],
         "de": [
           "pcb-layout-designer-ecad-engineer-anybotics-ch"
@@ -934,7 +965,7 @@
       "url": "https://jobs.lever.co/anybotics/41220f43-53f8-4336-94a1-eaed97c34784",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-29T22:16:06.191Z",
+      "crawledAt": "2026-07-30T11:17:42.456Z",
       "addressLocality": "Zurich, Switzerland",
       "addressCountry": "CH",
       "country": "CH",
@@ -951,11 +982,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "manufacturing-engineer-anybotics-ch",
-        "manufacturing-engineer-anybotics-zurich-switzerland"
+        "manufacturing-engineer-anybotics-zurich-switzerland",
+        "manufacturing-ingegnere-anybotics-zurich-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "manufacturing-engineer-anybotics-ch"
+          "manufacturing-engineer-anybotics-ch",
+          "manufacturing-ingegnere-anybotics-zurich-switzerland"
         ],
         "en": [
           "manufacturing-engineer-anybotics-zurich-switzerland"
@@ -1013,7 +1046,7 @@
       "url": "https://jobs.lever.co/anybotics/b8d4bf79-20ea-44b0-84e2-cd644dc8e58a",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-29T22:16:05.884Z",
+      "crawledAt": "2026-07-30T11:17:42.150Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1029,11 +1062,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "industrialization-electronics-test-engineer-anybotics-ch"
+        "industrialization-electronics-test-engineer-anybotics-ch",
+        "industrialization-electronics-test-ingegnere-anybotics-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "industrialization-electronics-test-engineer-anybotics-ch"
+          "industrialization-electronics-test-engineer-anybotics-ch",
+          "industrialization-electronics-test-ingegnere-anybotics-zurich"
         ],
         "de": [
           "industrialization-electronics-test-engineer-anybotics-ch"
