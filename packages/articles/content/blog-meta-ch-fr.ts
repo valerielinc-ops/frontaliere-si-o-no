@@ -1705,6 +1705,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.frontalieri-it-svizzera-sede-datore-2026.title': 'Travail et siège : le fisc clarifie les règles',
     'blog.article.frontalieri-it-svizzera-sede-datore-2026.excerpt': 'La Suisse applique un prélèvement à la source réduit à 80 % de l\'impôt ordinaire. La surveillance du travail intelligent est régie par la limite maximale de 25 % du temps de travail total.',
     'blog.article.frontalieri-it-svizzera-sede-datore-2026.imageAlt': 'Frontaliers en Suisse travaillant en Italie et résidant en Suisse',
+    'blog.article.ferrovia-record-viaggiatori-secondo-trimestre.title': 'Plus Ferroviaire : nouveau record de voyageurs au deuxième trimestre',
+    'blog.article.ferrovia-record-viaggiatori-secondo-trimestre.excerpt': 'Le transport ferroviaire de voyageurs en Suisse continue de battre des records : au deuxième trimestre de l\'année, il a atteint 6,3 milliards de passagers-kilomètres.',
+    'blog.article.ferrovia-record-viaggiatori-secondo-trimestre.imageAlt': 'une scène de Lugano avec une gare ferroviaire dans la zone historique',
 };
 
 export default blogMetaChFr;

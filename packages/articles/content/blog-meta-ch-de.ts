@@ -1705,6 +1705,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.frontalieri-it-svizzera-sede-datore-2026.title': 'Arbeit und Sitz: Das Finanzamt klärt die Regeln',
     'blog.article.frontalieri-it-svizzera-sede-datore-2026.excerpt': 'Die Schweiz erhebt eine Quellensteuer, die auf 80% der ordentlichen Steuer reduziert ist. Die Überwachung des Smart Workings wird durch die Obergrenze von 25% der Gesamtarbeitszeit geregelt.',
     'blog.article.frontalieri-it-svizzera-sede-datore-2026.imageAlt': 'Frontalieri in der Schweiz, die in Italien arbeiten und in der Schweiz wohnen',
+    'blog.article.ferrovia-record-viaggiatori-secondo-trimestre.title': 'Mehr Bahn: Neuer Fahrgastrekord im 2. Quartal',
+    'blog.article.ferrovia-record-viaggiatori-secondo-trimestre.excerpt': 'Der Schienenpersonenverkehr in der Schweiz ist weiterhin rekordverdächtig: Im zweiten Quartal des Jahres wurden 6,3 Milliarden Personenkilometer erreicht.',
+    'blog.article.ferrovia-record-viaggiatori-secondo-trimestre.imageAlt': 'eine Szene von Lugano mit einer Bahnhof in der historischen Gegend',
 };
 
 export default blogMetaChDe;
