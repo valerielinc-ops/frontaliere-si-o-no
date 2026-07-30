@@ -559,16 +559,11 @@ export function resolveComuneNationwide({ venue, title, region }, cantonHint) {
 }
 
 // ── Italian frontier comuni geo-matching ──────────────────────
-/** Great-circle distance in km between two lat/lng points (haversine). */
-export function haversineKm(lat1, lng1, lat2, lng2) {
-  const R = 6371;
-  const dLat = ((lat2 - lat1) * Math.PI) / 180;
-  const dLng = ((lng2 - lng1) * Math.PI) / 180;
-  const a =
-    Math.sin(dLat / 2) ** 2 +
-    Math.cos((lat1 * Math.PI) / 180) * Math.cos((lat2 * Math.PI) / 180) * Math.sin(dLng / 2) ** 2;
-  return 2 * R * Math.asin(Math.sqrt(a));
-}
+// haversineKm now lives in ./haversine.mjs, a leaf with no imports. Re-exported
+// here so the existing importers keep working unchanged; import it from the
+// leaf directly when you only need the distance and not this module's
+// canton-slug dependency (issue #4974 item 3).
+export { haversineKm } from './haversine.mjs';
 
 /**
  * Italian border comuni (data/municipalities.ts, 518 comuni across 11

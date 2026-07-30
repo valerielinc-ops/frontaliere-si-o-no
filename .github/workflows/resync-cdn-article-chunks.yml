@@ -71,6 +71,15 @@ jobs:
       - name: Load secrets from Remote Config (R2 + CF)
         run: node scripts/load-rc-env.mjs
 
+      # --ticker-only, always. Without it this step republishes the standalone
+      # ESM article chunks, which is the exact failure #4968 diagnosed and
+      # removed: data/blog-articles-data.ts is imported both statically and
+      # dynamically, so Rollup emits a generated namespace export and rewrites
+      # the dynamic site to `.then(m => m.blogArticlesData)`. A standalone
+      # esbuild bundle carries only `ARTICLES`, the consumer does not find what
+      # it expects, and every article page sits on a loading skeleton.
+      # fast-publish-article.yml was already reduced to --ticker-only; this
+      # workflow was the last live path back to the broken shape.
       - name: Publish article chunks
         run: |
-          npx -y tsx@4 scripts/publish-article-chunks.mjs ${{ inputs.dry_run && '--dry-run' || '' }}
+          npx -y tsx@4 scripts/publish-article-chunks.mjs --ticker-only ${{ inputs.dry_run && '--dry-run' || '' }}
