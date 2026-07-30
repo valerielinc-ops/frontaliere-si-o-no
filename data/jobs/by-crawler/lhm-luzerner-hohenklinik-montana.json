@@ -91,8 +91,7 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "lhm-luzerner-hohenklinik-montana-2cf0692f3f32",
@@ -185,8 +184,7 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "lhm-luzerner-hohenklinik-montana-9541cabb9fa2",
@@ -348,7 +346,7 @@
       "companyDomain": "lhm.ch",
       "title": "Pflegefachfrau/ Pflegefachmann HF/FH",
       "titleByLocale": {
-        "it": "Pflegefachfrau/ Pflegefachmann HF/FH",
+        "it": "Infermieristica professionale HF/FH",
         "en": "Registered Nurse HF/FH",
         "de": "Pflegefachfrau/ Pflegefachmann HF/FH",
         "fr": "Infirmier/Infirmière HF/FH"
@@ -392,13 +390,40 @@
       "previousSlugs": [
         "pflegefachfrau-pflegefachmann-hf-fh-lhm-luzerner-hohenklinik-montana-crans-montana",
         "infermieristica-professionale-hf-fh-luzerner-hohenklinik-montana-crans-montana",
-        "pflegefachfrau-pflegefachmann-hf-fh-luzerner-hohenklinik-montana-crans-montana"
+        "pflegefachfrau-pflegefachmann-hf-fh-luzerner-hohenklinik-montana-crans-montana",
+        "formazione-come-infermiere-a-diplomatico-a-hf-luzerner-hohenklinik-montana-crans-montana",
+        "apprenticeship-as-registered-nurse-hf-luzerner-hohenklinik-montana-crans-montana",
+        "ausbildung-zur-diplomierten-pflegefachfrau-hf-zum-diplomierten-pflegefachmann-hf-luzerner-hohenklinik-montana-crans",
+        "formation-d-infirmier-infirmiere-diplome-hf-luzerner-hohenklinik-montana-crans-montana",
+        "ausbildung-zur-diplomierten-pflegefachfrau-hf-zum-diplomierten-pflegefachmann-hf-lhm",
+        "formazione-per-lo-specialista-qualificato-hf-per-lo-specialista-qualificato-in-allattamento-hf-luzerner-hohenklinik",
+        "training-for-the-qualified-nursing-specialist-hf-for-the-qualified-nursing-specialist-hf-luzerner-hohenklinik-montana",
+        "formation-pour-le-specialiste-infirmier-qualifie-hf-pour-le-specialiste-infirmier-qualifie-hf-luzerner-hohenklinik",
+        "training-for-the-qualified-nursing-specialist-hf-for-the-qualified-nursing-specialist-hf-luzerner-hohenklinik-montana-crans-montana"
       ],
       "previousSlugsByLocale": {
         "it": [
           "pflegefachfrau-pflegefachmann-hf-fh-lhm-luzerner-hohenklinik-montana-crans-montana",
           "infermieristica-professionale-hf-fh-luzerner-hohenklinik-montana-crans-montana",
-          "pflegefachfrau-pflegefachmann-hf-fh-luzerner-hohenklinik-montana-crans-montana"
+          "pflegefachfrau-pflegefachmann-hf-fh-luzerner-hohenklinik-montana-crans-montana",
+          "formazione-come-infermiere-a-diplomatico-a-hf-luzerner-hohenklinik-montana-crans-montana",
+          "apprenticeship-as-registered-nurse-hf-luzerner-hohenklinik-montana-crans-montana",
+          "ausbildung-zur-diplomierten-pflegefachfrau-hf-zum-diplomierten-pflegefachmann-hf-luzerner-hohenklinik-montana-crans",
+          "formation-d-infirmier-infirmiere-diplome-hf-luzerner-hohenklinik-montana-crans-montana",
+          "ausbildung-zur-diplomierten-pflegefachfrau-hf-zum-diplomierten-pflegefachmann-hf-lhm",
+          "formazione-per-lo-specialista-qualificato-hf-per-lo-specialista-qualificato-in-allattamento-hf-luzerner-hohenklinik",
+          "training-for-the-qualified-nursing-specialist-hf-for-the-qualified-nursing-specialist-hf-luzerner-hohenklinik-montana",
+          "formation-pour-le-specialiste-infirmier-qualifie-hf-pour-le-specialiste-infirmier-qualifie-hf-luzerner-hohenklinik",
+          "training-for-the-qualified-nursing-specialist-hf-for-the-qualified-nursing-specialist-hf-luzerner-hohenklinik-montana-crans-montana"
+        ],
+        "en": [
+          "apprenticeship-as-registered-nurse-hf-luzerner-hohenklinik-montana-crans-montana"
+        ],
+        "de": [
+          "ausbildung-zur-diplomierten-pflegefachfrau-hf-zum-diplomierten-pflegefachmann-hf-luzerner-hohenklinik-montana-crans"
+        ],
+        "fr": [
+          "formation-d-infirmier-infirmiere-diplome-hf-luzerner-hohenklinik-montana-crans-montana"
         ]
       },
       "firstSeenAt": "2026-05-19T13:47:25.338Z",
@@ -413,8 +438,7 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "lhm-luzerner-hohenklinik-montana-997b6621e435",
@@ -431,7 +455,7 @@
       "title": "Ergotherapeut/in",
       "titleByLocale": {
         "it": "terapeuta del lavoro",
-        "en": "Ergotherapeut/in",
+        "en": "Occupational therapist",
         "de": "Ergotherapeut/in",
         "fr": "ergothérapeute"
       },
@@ -496,8 +520,7 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     }
   ]
 }

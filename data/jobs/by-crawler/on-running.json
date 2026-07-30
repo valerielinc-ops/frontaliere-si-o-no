@@ -73,7 +73,6 @@
         ]
       },
       "firstSeenAt": "2026-07-27T22:10:40.102Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -152,7 +151,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:36:27.201Z",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -231,7 +229,6 @@
         ]
       },
       "firstSeenAt": "2026-07-27T22:10:40.099Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -556,7 +553,6 @@
         ]
       },
       "firstSeenAt": "2026-07-27T22:10:40.093Z",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -652,8 +648,7 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "on-running-43bbdaee8afe",
@@ -726,7 +721,6 @@
         ]
       },
       "firstSeenAt": "2026-07-27T22:10:40.087Z",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -906,8 +900,7 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "on-running-99e20a1fa954",
@@ -1052,7 +1045,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:36:27.189Z",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -1299,7 +1291,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:36:27.188Z",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -1395,8 +1386,7 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "on-running-62ee8968178d",
@@ -1469,7 +1459,6 @@
         ]
       },
       "firstSeenAt": "2026-07-27T22:10:40.075Z",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -1584,14 +1573,14 @@
         "en": "Senior Lead, People Analytics",
         "it": "Senior Lead, People Analytics",
         "de": "Senior Lead, People Analytics",
-        "fr": "Senior Lead, People Analytics"
+        "fr": "Chef de file, Analyse des personnes"
       },
       "description": "In short:\n\nAs the Senior Lead, People Analytics, you will be the architect of our new People Analytics platform and a strategic partner for our global people agenda. Reporting to the Head of People Analytics and as part of the People Analytics team, you will empower the organisation with data-driven insights, build the data pipelines and platform the whole team runs on, push our statistical and predictive modeling further, and champion the next frontier of AI and agentic automation to unlock human potential at On.\n\nYour Mission:\n\n• Own the data engineering backbone of our People Analytics Platform: pipelines, data modeling, and orchestration, so the rest of the team's dashboards and analyses sit on governed, reliable data.\n\n• Build and maintain the semantic/metric layer as the single source of truth, ensuring definitions are consistent across every dashboard and report.\n\n• Support the build-out of our AI and agentic layer: from an internal AI co-pilot to embedding LLM-assisted workflows into the HR team's day-to-day analysis and reporting.\n\n• Partner closely with our data scientist to strengthen our statistical and predictive modeling bench applying regression, clustering, and causal inference techniques to separate correlation from real impact.\n\n• Develop and deliver insightful dashboards, reports, and analyses on the full employee lifecycle and key HR metrics, including headcount, talent acquisition, employee engagement, and attrition.\n\n• Act as a technical subject matter expert for People Analytics, providing guidance and support to HR and business leaders. Collaborate with stakeholders to translate business requirements into technical solutions and high-impact analytical projects.\n\n• Ensure Data Governance and integrity across all our HR systems.\n\n• Storytelling & Influence: Develop and deliver compelling, data-driven stories and presentations that effectively communicate insights and recommendations.\n\nYour Story:\n\n• You bring 7+ years of experience in People Analytics or a related data science field, with a deep understanding of HR data and metrics.\n\n• You have strong data engineering skills: building and maintaining pipelines, data models, and a governed semantic layer using tools such as Snowflake, Databricks, One Model, or BigQuery.\n\n• You have strong technical skills in R, Python, SQL, and Excel for data analysis and modeling, plus a modern BI tool (Looker, Power BI, or similar).\n\n• You possess a strong, hands-on understanding of statistical analysis and modeling techniques (regression, clustering) and ideally causal inference methods that go beyond correlation.\n\n• Prior familiarity with HRIS platforms (e.g., Workday, SAP HR, SuccessFactors, Oracle HCM) and their reporting modules (e.g. Prism,...) is a strong plus, though not a strict requirement.\n\n• You are genuinely energized by AI: comfortable or willing to learn building agentic workflows and AI-assisted tooling, not just prompting for one-off answers.\n\n• You have excellent communication and stakeholder management skills, with the ability to translate complex data into clear and actionable insights.\n\nYour Team:\n\nYou'll join a small, high-caliber People Analytics team at On. You'll build and maintain the platform the team's Data Science and HRIS expertise runs on. You won't be receiving a playbook, you'll be helping write it, so an entrepreneurial spirit is key. Working closely with world-class HR leadership and business stakeholders to build a cutting-edge analytics capability.",
       "descriptionByLocale": {
         "en": "In short:\n\nAs the Senior Lead, People Analytics, you will be the architect of our new People Analytics platform and a strategic partner for our global people agenda. Reporting to the Head of People Analytics and as part of the People Analytics team, you will empower the organisation with data-driven insights, build the data pipelines and platform the whole team runs on, push our statistical and predictive modeling further, and champion the next frontier of AI and agentic automation to unlock human potential at On.\n\nYour Mission:\n\n• Own the data engineering backbone of our People Analytics Platform: pipelines, data modeling, and orchestration, so the rest of the team's dashboards and analyses sit on governed, reliable data.\n\n• Build and maintain the semantic/metric layer as the single source of truth, ensuring definitions are consistent across every dashboard and report.\n\n• Support the build-out of our AI and agentic layer: from an internal AI co-pilot to embedding LLM-assisted workflows into the HR team's day-to-day analysis and reporting.\n\n• Partner closely with our data scientist to strengthen our statistical and predictive modeling bench applying regression, clustering, and causal inference techniques to separate correlation from real impact.\n\n• Develop and deliver insightful dashboards, reports, and analyses on the full employee lifecycle and key HR metrics, including headcount, talent acquisition, employee engagement, and attrition.\n\n• Act as a technical subject matter expert for People Analytics, providing guidance and support to HR and business leaders. Collaborate with stakeholders to translate business requirements into technical solutions and high-impact analytical projects.\n\n• Ensure Data Governance and integrity across all our HR systems.\n\n• Storytelling & Influence: Develop and deliver compelling, data-driven stories and presentations that effectively communicate insights and recommendations.\n\nYour Story:\n\n• You bring 7+ years of experience in People Analytics or a related data science field, with a deep understanding of HR data and metrics.\n\n• You have strong data engineering skills: building and maintaining pipelines, data models, and a governed semantic layer using tools such as Snowflake, Databricks, One Model, or BigQuery.\n\n• You have strong technical skills in R, Python, SQL, and Excel for data analysis and modeling, plus a modern BI tool (Looker, Power BI, or similar).\n\n• You possess a strong, hands-on understanding of statistical analysis and modeling techniques (regression, clustering) and ideally causal inference methods that go beyond correlation.\n\n• Prior familiarity with HRIS platforms (e.g., Workday, SAP HR, SuccessFactors, Oracle HCM) and their reporting modules (e.g. Prism,...) is a strong plus, though not a strict requirement.\n\n• You are genuinely energized by AI: comfortable or willing to learn building agentic workflows and AI-assisted tooling, not just prompting for one-off answers.\n\n• You have excellent communication and stakeholder management skills, with the ability to translate complex data into clear and actionable insights.\n\nYour Team:\n\nYou'll join a small, high-caliber People Analytics team at On. You'll build and maintain the platform the team's Data Science and HRIS expertise runs on. You won't be receiving a playbook, you'll be helping write it, so an entrepreneurial spirit is key. Working closely with world-class HR leadership and business stakeholders to build a cutting-edge analytics capability.",
-        "it": "In short:\n\nAs the Senior Lead, People Analytics, you will be the architect of our new People Analytics platform and a strategic partner for our global people agenda. Reporting to the Head of People Analytics and as part of the People Analytics team, you will empower the organisation with data-driven insights, build the data pipelines and platform the whole team runs on, push our statistical and predictive modeling further, and champion the next frontier of AI and agentic automation to unlock human potential at On.\n\nYour Mission:\n\n• Own the data engineering backbone of our People Analytics Platform: pipelines, data modeling, and orchestration, so the rest of the team's dashboards and analyses sit on governed, reliable data.\n\n• Build and maintain the semantic/metric layer as the single source of truth, ensuring definitions are consistent across every dashboard and report.\n\n• Support the build-out of our AI and agentic layer: from an internal AI co-pilot to embedding LLM-assisted workflows into the HR team's day-to-day analysis and reporting.\n\n• Partner closely with our data scientist to strengthen our statistical and predictive modeling bench applying regression, clustering, and causal inference techniques to separate correlation from real impact.\n\n• Develop and deliver insightful dashboards, reports, and analyses on the full employee lifecycle and key HR metrics, including headcount, talent acquisition, employee engagement, and attrition.\n\n• Act as a technical subject matter expert for People Analytics, providing guidance and support to HR and business leaders. Collaborate with stakeholders to translate business requirements into technical solutions and high-impact analytical projects.\n\n• Ensure Data Governance and integrity across all our HR systems.\n\n• Storytelling & Influence: Develop and deliver compelling, data-driven stories and presentations that effectively communicate insights and recommendations.\n\nYour Story:\n\n• You bring 7+ years of experience in People Analytics or a related data science field, with a deep understanding of HR data and metrics.\n\n• You have strong data engineering skills: building and maintaining pipelines, data models, and a governed semantic layer using tools such as Snowflake, Databricks, One Model, or BigQuery.\n\n• You have strong technical skills in R, Python, SQL, and Excel for data analysis and modeling, plus a modern BI tool (Looker, Power BI, or similar).\n\n• You possess a strong, hands-on understanding of statistical analysis and modeling techniques (regression, clustering) and ideally causal inference methods that go beyond correlation.\n\n• Prior familiarity with HRIS platforms (e.g., Workday, SAP HR, SuccessFactors, Oracle HCM) and their reporting modules (e.g. Prism,...) is a strong plus, though not a strict requirement.\n\n• You are genuinely energized by AI: comfortable or willing to learn building agentic workflows and AI-assisted tooling, not just prompting for one-off answers.\n\n• You have excellent communication and stakeholder management skills, with the ability to translate complex data into clear and actionable insights.\n\nYour Team:\n\nYou'll join a small, high-caliber People Analytics team at On. You'll build and maintain the platform the team's Data Science and HRIS expertise runs on. You won't be receiving a playbook, you'll be helping write it, so an entrepreneurial spirit is key. Working closely with world-class HR leadership and business stakeholders to build a cutting-edge analytics capability.",
-        "de": "In short:\n\nAs the Senior Lead, People Analytics, you will be the architect of our new People Analytics platform and a strategic partner for our global people agenda. Reporting to the Head of People Analytics and as part of the People Analytics team, you will empower the organisation with data-driven insights, build the data pipelines and platform the whole team runs on, push our statistical and predictive modeling further, and champion the next frontier of AI and agentic automation to unlock human potential at On.\n\nYour Mission:\n\n• Own the data engineering backbone of our People Analytics Platform: pipelines, data modeling, and orchestration, so the rest of the team's dashboards and analyses sit on governed, reliable data.\n\n• Build and maintain the semantic/metric layer as the single source of truth, ensuring definitions are consistent across every dashboard and report.\n\n• Support the build-out of our AI and agentic layer: from an internal AI co-pilot to embedding LLM-assisted workflows into the HR team's day-to-day analysis and reporting.\n\n• Partner closely with our data scientist to strengthen our statistical and predictive modeling bench applying regression, clustering, and causal inference techniques to separate correlation from real impact.\n\n• Develop and deliver insightful dashboards, reports, and analyses on the full employee lifecycle and key HR metrics, including headcount, talent acquisition, employee engagement, and attrition.\n\n• Act as a technical subject matter expert for People Analytics, providing guidance and support to HR and business leaders. Collaborate with stakeholders to translate business requirements into technical solutions and high-impact analytical projects.\n\n• Ensure Data Governance and integrity across all our HR systems.\n\n• Storytelling & Influence: Develop and deliver compelling, data-driven stories and presentations that effectively communicate insights and recommendations.\n\nYour Story:\n\n• You bring 7+ years of experience in People Analytics or a related data science field, with a deep understanding of HR data and metrics.\n\n• You have strong data engineering skills: building and maintaining pipelines, data models, and a governed semantic layer using tools such as Snowflake, Databricks, One Model, or BigQuery.\n\n• You have strong technical skills in R, Python, SQL, and Excel for data analysis and modeling, plus a modern BI tool (Looker, Power BI, or similar).\n\n• You possess a strong, hands-on understanding of statistical analysis and modeling techniques (regression, clustering) and ideally causal inference methods that go beyond correlation.\n\n• Prior familiarity with HRIS platforms (e.g., Workday, SAP HR, SuccessFactors, Oracle HCM) and their reporting modules (e.g. Prism,...) is a strong plus, though not a strict requirement.\n\n• You are genuinely energized by AI: comfortable or willing to learn building agentic workflows and AI-assisted tooling, not just prompting for one-off answers.\n\n• You have excellent communication and stakeholder management skills, with the ability to translate complex data into clear and actionable insights.\n\nYour Team:\n\nYou'll join a small, high-caliber People Analytics team at On. You'll build and maintain the platform the team's Data Science and HRIS expertise runs on. You won't be receiving a playbook, you'll be helping write it, so an entrepreneurial spirit is key. Working closely with world-class HR leadership and business stakeholders to build a cutting-edge analytics capability.",
-        "fr": "In short:\n\nAs the Senior Lead, People Analytics, you will be the architect of our new People Analytics platform and a strategic partner for our global people agenda. Reporting to the Head of People Analytics and as part of the People Analytics team, you will empower the organisation with data-driven insights, build the data pipelines and platform the whole team runs on, push our statistical and predictive modeling further, and champion the next frontier of AI and agentic automation to unlock human potential at On.\n\nYour Mission:\n\n• Own the data engineering backbone of our People Analytics Platform: pipelines, data modeling, and orchestration, so the rest of the team's dashboards and analyses sit on governed, reliable data.\n\n• Build and maintain the semantic/metric layer as the single source of truth, ensuring definitions are consistent across every dashboard and report.\n\n• Support the build-out of our AI and agentic layer: from an internal AI co-pilot to embedding LLM-assisted workflows into the HR team's day-to-day analysis and reporting.\n\n• Partner closely with our data scientist to strengthen our statistical and predictive modeling bench applying regression, clustering, and causal inference techniques to separate correlation from real impact.\n\n• Develop and deliver insightful dashboards, reports, and analyses on the full employee lifecycle and key HR metrics, including headcount, talent acquisition, employee engagement, and attrition.\n\n• Act as a technical subject matter expert for People Analytics, providing guidance and support to HR and business leaders. Collaborate with stakeholders to translate business requirements into technical solutions and high-impact analytical projects.\n\n• Ensure Data Governance and integrity across all our HR systems.\n\n• Storytelling & Influence: Develop and deliver compelling, data-driven stories and presentations that effectively communicate insights and recommendations.\n\nYour Story:\n\n• You bring 7+ years of experience in People Analytics or a related data science field, with a deep understanding of HR data and metrics.\n\n• You have strong data engineering skills: building and maintaining pipelines, data models, and a governed semantic layer using tools such as Snowflake, Databricks, One Model, or BigQuery.\n\n• You have strong technical skills in R, Python, SQL, and Excel for data analysis and modeling, plus a modern BI tool (Looker, Power BI, or similar).\n\n• You possess a strong, hands-on understanding of statistical analysis and modeling techniques (regression, clustering) and ideally causal inference methods that go beyond correlation.\n\n• Prior familiarity with HRIS platforms (e.g., Workday, SAP HR, SuccessFactors, Oracle HCM) and their reporting modules (e.g. Prism,...) is a strong plus, though not a strict requirement.\n\n• You are genuinely energized by AI: comfortable or willing to learn building agentic workflows and AI-assisted tooling, not just prompting for one-off answers.\n\n• You have excellent communication and stakeholder management skills, with the ability to translate complex data into clear and actionable insights.\n\nYour Team:\n\nYou'll join a small, high-caliber People Analytics team at On. You'll build and maintain the platform the team's Data Science and HRIS expertise runs on. You won't be receiving a playbook, you'll be helping write it, so an entrepreneurial spirit is key. Working closely with world-class HR leadership and business stakeholders to build a cutting-edge analytics capability."
+        "it": "In breve:\n\nCome Senior Lead, People Analytics, sarai l'architetto della nostra nuova piattaforma People Analytics e un partner strategico per la nostra agenda globale. Segnalando al capo di People Analytics e nell'ambito del team di People Analytics, autorizzerai l'organizzazione con approfondimenti basati sui dati, costruirai le pipeline di dati e la piattaforma su cui l'intero team corre, spingi ulteriormente la nostra modellazione statistica e predittiva e campioni la prossima frontiera dell'IA e dell'automazione agentica per sbloccare il potenziale umano a On.\n\nLa vostra missione:\n\n• Possedere la spina dorsale dell'ingegneria dei dati della nostra piattaforma People Analytics: pipeline, modellazione dei dati e orchestrazione, così il resto delle dashboard e delle analisi del team siedono su dati regolati e affidabili.\n\n• Costruire e mantenere lo strato semantico / metrico come unica fonte di verità, assicurando le definizioni sono coerenti in ogni cruscotto e rapporto.\n\n• Sostenere l'accumulo del nostro livello AI e agentic: da un co-pilota AI interno a incorporare flussi di lavoro assistiti da LLM nell'analisi e nella segnalazione quotidiana del team HR.\n\n• Collaborare a stretto contatto con il nostro scienziato di dati per rafforzare la nostra panca di modellazione statistica e predittiva applicando le tecniche di regressione, clustering e inferenza causale per separare la correlazione da impatto reale.\n\n• Sviluppare e fornire dashboard, report e analisi approfondite sul ciclo di vita completo dei dipendenti e le metriche chiave delle risorse umane, tra cui headcount, acquisizione di talenti, coinvolgimento dei dipendenti e attrito.\n\n• Agire come esperto di materia tecnica per People Analytics, fornendo guida e supporto alle risorse umane e ai leader aziendali. Collabora con gli stakeholder per tradurre i requisiti aziendali in soluzioni tecniche e progetti analitici ad alto impatto.\n\n• Assicurare la governance e l'integrità dei dati in tutti i nostri sistemi HR.\n\n• Storytelling & Influence: Sviluppare e fornire storie e presentazioni accattivanti e orientate ai dati che comunicano efficacemente intuizioni e raccomandazioni.\n\nLa tua storia:\n\n• Porti 7+ anni di esperienza in People Analytics o in un campo relativo alla scienza dei dati, con una profonda comprensione dei dati e delle metriche delle risorse umane.\n\n• Hai forti capacità di ingegneria dei dati: costruzione e mantenimento di tubazioni, modelli di dati e uno strato semantico governato utilizzando strumenti come Snowflake, Databricks, One Model, o BigQuery.\n\n• Hai forti competenze tecniche in R, Python, SQL e Excel per l'analisi e la modellazione dei dati, oltre a un moderno strumento BI (Looker, Power BI, o simili).\n\n• Possiedi una forte comprensione pratica dell'analisi statistica e delle tecniche di modellazione (regressione, raggruppamento) e metodi idealmente di inferenza causale che vanno oltre la correlazione.\n\n• La prima familiarità con le piattaforme HRIS (ad esempio, Workday, SAP HR, SuccessFactors, Oracle HCM) e i loro moduli di reporting (ad esempio Prism,...) è un vantaggio forte, anche se non un requisito rigoroso.\n\n• Sei veramente eccitato da AI: comodo o disposto ad imparare i flussi di lavoro agentici di costruzione e gli strumenti assistiti da AI, non solo richiedendo risposte one-off.\n\n• Hai eccellenti capacità di comunicazione e gestione degli stakeholder, con la capacità di tradurre dati complessi in insight chiari e attuabili.\n\nIl vostro team:\n\nTi unirai a un team di People Analytics di piccole dimensioni. Costruirai e manterrai la piattaforma su cui si basa l'esperienza Data Science e HRIS del team. Non riceverai un playbook, ti aiuterai a scriverlo, quindi uno spirito imprenditoriale è fondamentale. Lavorare a stretto contatto con la leadership HR di livello mondiale e gli stakeholder aziendali per costruire una capacità di analisi all'avanguardia.",
+        "de": "Kurzum:\n\nAls Senior Lead, People Analytics, werden Sie der Architekt unserer neuen People Analytics-Plattform und ein strategischer Partner für unsere globale Mitarbeiteragenda sein. Berichterstattung an den Head of People Analytics und als Teil des People Analytics-Teams werden Sie das Unternehmen mit datengesteuerten Erkenntnissen befähigen, die Datenpipelines und die Plattform aufbauen, auf der das gesamte Team läuft, unsere statistische und prädiktive Modellierung weiter vorantreiben und sich für die nächste Grenze der KI und Agentenautomatisierung einsetzen, um menschliches Potenzial bei On freizusetzen.\n\nIhre Mission:\n\n• Besitzen Sie das Data Engineering-Backbone unserer People Analytics-Plattform: Pipelines, Datenmodellierung und Orchestrierung, so dass der Rest der Dashboards und Analysen des Teams auf verwalteten, zuverlässigen Daten basiert.\n\n• Erstellen und pflegen Sie die semantische / metrische Schicht als einzige Quelle der Wahrheit, um sicherzustellen, dass die Definitionen in jedem Dashboard und Bericht konsistent sind.\n\n• Unterstützen Sie den Aufbau unserer KI- und Agentenschicht: von einem internen KI-Copiloten bis hin zur Einbettung von LLM-gestützten Workflows in die tägliche Analyse und Berichterstattung des HR-Teams.\n\n• Enge Zusammenarbeit mit unserem Data Scientist, um unsere statistische und prädiktive Modellierungsbank mit Regressions-, Clustering- und Kausalinferenztechniken zu stärken, um die Korrelation von den realen Auswirkungen zu trennen.\n\n• Entwickeln und liefern Sie aufschlussreiche Dashboards, Berichte und Analysen zum gesamten Mitarbeiterlebenszyklus und zu wichtigen HR-Metriken, einschließlich Mitarbeiterzahl, Talentakquisition, Mitarbeiterbindung und Abnutzung.\n\n• Handeln Sie als technischer Fachexperte für People Analytics und bieten Sie HR- und Unternehmensleitern Beratung und Unterstützung. Arbeiten Sie mit Stakeholdern zusammen, um Geschäftsanforderungen in technische Lösungen und wirkungsvolle analytische Projekte umzusetzen.\n\n• Sicherstellen von Data Governance und Integrität in allen unseren HR-Systemen.\n\n• Storytelling & Influence: Entwickeln und liefern Sie überzeugende, datengesteuerte Geschichten und Präsentationen, die Erkenntnisse und Empfehlungen effektiv vermitteln.\n\nDeine Geschichte:\n\n• Sie bringen mehr als 7 Jahre Erfahrung in People Analytics oder einem verwandten Data Science-Bereich mit, mit einem tiefen Verständnis von HR-Daten und Metriken.\n\n• Sie verfügen über fundierte Data-Engineering-Fähigkeiten: Aufbau und Wartung von Pipelines, Datenmodellen und einer verwalteten semantischen Ebene mit Tools wie Snowflake, Databricks, One Model oder BigQuery.\n\n• Sie verfügen über fundierte technische Kenntnisse in R, Python, SQL und Excel für die Datenanalyse und -modellierung sowie über ein modernes BI-Tool (Looker, Power BI oder ähnliches).\n\n• Sie besitzen ein starkes, praktisches Verständnis der statistischen Analyse und Modellierungstechniken (Regression, Clustering) und idealerweise kausale Inferenzmethoden, die über die Korrelation hinausgehen.\n\n• Die vorherige Vertrautheit mit HRIS-Plattformen (z. B. Workday, SAP HR, SuccessFactors, Oracle HCM) und ihren Berichtsmodulen (z. B. Prism, ...) ist ein starkes Plus, wenn auch keine strenge Anforderung.\n\n• Sie werden von AI wirklich mit Energie versorgt: bequem oder bereit, den Aufbau agentischer Workflows und KI-gestützter Tools zu lernen, nicht nur für einmalige Antworten.\n\n• Sie verfügen über ausgezeichnete Kommunikations- und Stakeholder-Management-Fähigkeiten und können komplexe Daten in klare und umsetzbare Erkenntnisse übersetzen.\n\nIhr Team:\n\nSie werden einem kleinen, hochkarätigen People Analytics-Team bei On beitreten. Sie bauen und pflegen die Plattform, auf der das Data Science- und HRIS-Know-how des Teams läuft. Sie werden kein Spielbuch erhalten, Sie werden helfen, es zu schreiben, also ist ein Unternehmergeist der Schlüssel. Enge Zusammenarbeit mit erstklassigen HR-Führungskräften und Geschäftsinteressenvertretern, um eine hochmoderne Analysefähigkeit aufzubauen.",
+        "fr": "Bref:\n\nEn tant que responsable principal, People Analytics, vous serez l'architecte de notre nouvelle plateforme People Analytics et un partenaire stratégique pour notre agenda mondial des personnes. Relevant du responsable de People Analytics et dans le cadre de l'équipe de People Analytics, vous donnerez à l'organisation des informations basées sur les données, créerez les pipelines de données et la plate-forme sur laquelle l'ensemble de l'équipe fonctionne, pousserez davantage notre modélisation statistique et prédictive, et défendrez la prochaine frontière de l'IA et de l'automatisation des agents pour libérer le potentiel humain chez On.\n\nVotre mission :\n\n• Posséder l'épine dorsale de l'ingénierie des données de notre plateforme People Analytics : pipelines, modélisation de données et orchestration, de sorte que le reste des tableaux de bord et analyses de l'équipe s'assoient sur des données contrôlées et fiables.\n\n• Construire et maintenir la couche sémantique/métrique comme source unique de vérité, en veillant à ce que les définitions soient cohérentes dans chaque tableau de bord et rapport.\n\n• Soutenir la mise en place de notre couche d'IA et d'agents : d'un copilote interne d'IA à l'intégration des workflows assistés par LLM dans l'analyse quotidienne et les rapports de l'équipe RH.\n\n• Collaborez étroitement avec notre spécialiste des données pour renforcer notre banc de modélisation statistique et prédictive en appliquant des techniques de régression, de regroupement et d'inférence causale pour séparer la corrélation de l'impact réel.\n\n• Élaborer et fournir des tableaux de bord, des rapports et des analyses éclairés sur le cycle de vie complet des employés et les principales mesures des RH, y compris le dénombrement, l'acquisition de talents, l'engagement des employés et l'attrition.\n\n• Agir en tant qu'expert technique pour l'analyse des personnes, en fournissant des conseils et un soutien aux RH et aux chefs d'entreprise. Collaborer avec les intervenants pour traduire les exigences opérationnelles en solutions techniques et en projets d'analyse à impact élevé.\n\n• Assurer la gouvernance et l'intégrité des données dans tous nos systèmes de RH.\n\n• Storytelling & Influence: Concevoir et fournir des histoires et des présentations convaincantes et axées sur les données qui communiquent efficacement des idées et des recommandations.\n\nVotre histoire :\n\n• Vous apportez 7+ ans d'expérience dans l'analyse des personnes ou un domaine connexe de la science des données, avec une compréhension profonde des données et des paramètres RH.\n\n• Vous avez de solides compétences en ingénierie des données : construire et maintenir des pipelines, des modèles de données et une couche sémantique gouvernée à l'aide d'outils tels que Snowflake, Databricks, One Model ou BigQuery.\n\n• Vous avez de solides compétences techniques en R, Python, SQL et Excel pour l'analyse de données et la modélisation, ainsi qu'un outil BI moderne (Looker, Power BI, ou similaire).\n\n• Vous possédez une solide compréhension pratique des techniques d'analyse statistique et de modélisation (régression, regroupement) et idéalement des méthodes d'inférence causale qui vont au-delà de la corrélation.\n\n• La connaissance préalable des plates-formes HRIS (p. ex. Workday, SAP HR, SuccessFactors, Oracle HCM) et de leurs modules de rapport (p. ex. Prism,...) est un plus fort, mais pas une exigence stricte.\n\n• Vous êtes vraiment sous l'impulsion de l'IA : confortable ou prêt à apprendre à construire des workflows d'agents et des outils assistés par l'IA, pas seulement pour obtenir des réponses ponctuelles.\n\n• Vous avez d'excellentes compétences en communication et en gestion des intervenants, avec la capacité de traduire des données complexes en idées claires et exploitables.\n\nVotre équipe :\n\nVous rejoindrez une petite équipe de People Analytics de haut calibre à On. Vous allez construire et maintenir la plate-forme sur laquelle s'appuie l'expertise Data Science et HRIS de l'équipe. Vous ne recevrez pas de playbook, vous aiderez à l'écrire, donc un esprit d'entreprise est la clé. Travailler en étroite collaboration avec les dirigeants des RH et les intervenants commerciaux de calibre mondial pour créer une capacité d'analyse de pointe."
       },
       "location": "Zürich",
       "canton": "ZH",
@@ -1623,7 +1612,6 @@
         "canton": "ZH",
         "location": "Zürich"
       },
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -1787,7 +1775,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:36:27.184Z",
-      "needsRetranslation": true,
       "salaryMin": 114500,
       "salaryMax": 203000,
       "baseSalary": {
@@ -1934,7 +1921,6 @@
         "location": "Zürich"
       },
       "firstSeenAt": "2026-07-27T22:10:40.069Z",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -2016,7 +2002,6 @@
         ]
       },
       "firstSeenAt": "2026-07-09T22:39:08.726Z",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -2101,7 +2086,6 @@
         ]
       },
       "firstSeenAt": "2026-07-27T22:10:40.066Z",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -2170,7 +2154,6 @@
         "location": "Zürich"
       },
       "firstSeenAt": "2026-07-04T11:36:27.180Z",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -2249,7 +2232,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:36:27.182Z",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -2318,7 +2300,6 @@
         "location": "Zürich"
       },
       "firstSeenAt": "2026-07-27T22:10:40.060Z",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -2397,7 +2378,6 @@
         ]
       },
       "firstSeenAt": "2026-07-27T22:10:40.058Z",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -2476,7 +2456,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:36:27.178Z",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -2555,7 +2534,6 @@
         ]
       },
       "firstSeenAt": "2026-07-13T12:20:12.988Z",
-      "needsRetranslation": true,
       "salaryMin": 121500,
       "salaryMax": 206500,
       "baseSalary": {
@@ -2637,7 +2615,6 @@
         ]
       },
       "firstSeenAt": "2026-07-10T22:05:50.668Z",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -2716,7 +2693,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:36:27.177Z",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -2801,7 +2777,6 @@
         ]
       },
       "firstSeenAt": "2026-07-27T22:10:40.052Z",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -2880,7 +2855,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:36:27.174Z",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -2959,7 +2933,6 @@
         ]
       },
       "firstSeenAt": "2026-07-28T11:30:09.800Z",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -3112,7 +3085,6 @@
         "location": "Zürich"
       },
       "firstSeenAt": "2026-07-09T22:39:08.716Z",
-      "needsRetranslation": true,
       "salaryMin": 114500,
       "salaryMax": 203000,
       "baseSalary": {
@@ -3181,7 +3153,6 @@
         "location": "Zürich"
       },
       "firstSeenAt": "2026-07-27T22:10:40.048Z",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -3262,7 +3233,6 @@
         ]
       },
       "firstSeenAt": "2026-07-09T22:39:08.697Z",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -3331,7 +3301,6 @@
         "location": "Zürich"
       },
       "firstSeenAt": "2026-07-27T22:10:40.044Z",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -3421,7 +3390,6 @@
         ]
       },
       "firstSeenAt": "2026-07-27T22:10:40.041Z",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -3506,7 +3474,6 @@
         ]
       },
       "firstSeenAt": "2026-07-27T22:10:40.039Z",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -3585,7 +3552,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:36:27.171Z",
-      "needsRetranslation": true,
       "salaryMin": 114500,
       "salaryMax": 203000,
       "baseSalary": {
@@ -3664,7 +3630,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:36:27.169Z",
-      "needsRetranslation": true,
       "salaryMin": 114500,
       "salaryMax": 203000,
       "baseSalary": {
@@ -3897,7 +3862,6 @@
         "location": "Zürich"
       },
       "firstSeenAt": "2026-07-27T22:10:40.025Z",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -4230,7 +4194,6 @@
         ]
       },
       "firstSeenAt": "2026-07-09T22:39:08.703Z",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -4315,7 +4278,6 @@
         ]
       },
       "firstSeenAt": "2026-07-27T22:10:40.015Z",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -4400,7 +4362,6 @@
         ]
       },
       "firstSeenAt": "2026-07-27T22:10:40.014Z",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -4469,7 +4430,6 @@
         "location": "Zürich"
       },
       "firstSeenAt": "2026-07-27T22:10:40.012Z",
-      "needsRetranslation": true,
       "salaryMin": 114500,
       "salaryMax": 203000,
       "baseSalary": {
@@ -4554,7 +4514,6 @@
         ]
       },
       "firstSeenAt": "2026-07-27T22:10:40.011Z",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -4720,7 +4679,6 @@
         ]
       },
       "firstSeenAt": "2026-07-27T22:10:40.006Z",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -4805,7 +4763,6 @@
         ]
       },
       "firstSeenAt": "2026-07-15T22:04:22.958Z",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -4890,7 +4847,6 @@
         ]
       },
       "firstSeenAt": "2026-07-27T22:10:39.998Z",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -4969,7 +4925,6 @@
         ]
       },
       "firstSeenAt": "2026-07-27T22:10:39.994Z",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -5054,7 +5009,6 @@
         ]
       },
       "firstSeenAt": "2026-07-09T22:39:08.701Z",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -5123,7 +5077,6 @@
         "location": "Zürich"
       },
       "firstSeenAt": "2026-07-21T11:48:07.032Z",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -5202,7 +5155,6 @@
         ]
       },
       "firstSeenAt": "2026-07-16T11:42:24.262Z",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -5365,7 +5317,6 @@
         ]
       },
       "firstSeenAt": "2026-07-27T22:10:39.967Z",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -5534,7 +5485,6 @@
         ]
       },
       "firstSeenAt": "2026-07-27T22:10:39.957Z",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -5619,7 +5569,6 @@
         ]
       },
       "firstSeenAt": "2026-07-27T22:10:39.948Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -5704,7 +5653,6 @@
         ]
       },
       "firstSeenAt": "2026-07-27T22:10:39.944Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -6064,9 +6012,9 @@
       "description": "In short:\n\nWe are looking for an experienced internal comms expert, skilled at telling stories through innovative mediums as we drive the next chapter of strategic communication at On.\n\nReporting to the Global Head of Internal Communications, the Head of Internal Content & Channels will lead the editorial strategy to reach our internal audience. This hands-on role will drive production of creative content across company-wide events, announcements, presentations, and other strategic moments. They will also lead complex innovation workstreams to build and improve the channels we use to communicate.\n\nThis role will be highly embedded in On’s unique and entrepreneurial culture; collaborating with multiple teams and leaders to optimize information flow and bring great messages to life.\n\nYour mission:\n\n• Leading the creative arm of the Internal Comms team – including concept development, editorial planning, narrative, and production.\n\n• Partnering closely with internal creative teams and external vendors to produce premium video and multimedia content.\n\n• Writing messages, speeches, and presentations for global audiences on key topics related to our strategy and culture.\n\n• Driving innovation strategy for company-wide channels; scoping new formats and driving them forward from proposal to adoption.\n\nYour story:\n\nIn addition to a specific passion for internal communication and culture, we hope you’ll also bring:\n\n• 10+ years of experience working in creative and multi-disciplinary roles across Communications, Marketing, Journalism, or a related field.\n\n• Excellent writing skills. No matter the subject, you are able to easily identify a story and bring it to life in a clear and compelling way – through talking points, slides, videos, and other mediums.\n\n• Thought leadership. You bring big ideas - and the strategic acumen to actually make them happen. You are skilled at translating your vision into words; bringing peers and stakeholders on board.\n\n• Creativity. You bring expertise in at least one relevant audiovisual format (video, audio, graphic design, animation), and you find energy in a brainstorming session.\n\n• Technical savvy. You are well-versed in tying measurement to an editorial strategy, and you regularly use agentic AI to enhance your creative workflows. You’re able to learn systems easily, identify gaps, and problem solve accordingly. Experience using Workvivo, Slack and G-Suite apps is a plus.\n\n• Collaborative mindset. You enjoy leading large, cross-functional projects and tackling ambiguity with your strong organization skills. You’re an active participant in company culture and good at networking to build bridges across the business.\n\n• Tons of motivation. You are a self-starter; always picking up new skills and happy to operate in the weeds.\n\n• Industry knowledge. You regularly follow media trends and apply them to your work to engage employees of all backgrounds.\n\n• English fluency. Additional languages are a plus.\n\nMeet the team:\n\nThis role sits within Internal Communications – a team focused on driving connection and clarity across our global team at On. We’re big thinkers and change-makers, constantly looking for new ways to inform and inspire. If you’re passionate about impacting culture and applying your creativity in various areas of the business, you’ll be in great company.",
       "descriptionByLocale": {
         "en": "In short:\n\nWe are looking for an experienced internal comms expert, skilled at telling stories through innovative mediums as we drive the next chapter of strategic communication at On.\n\nReporting to the Global Head of Internal Communications, the Head of Internal Content & Channels will lead the editorial strategy to reach our internal audience. This hands-on role will drive production of creative content across company-wide events, announcements, presentations, and other strategic moments. They will also lead complex innovation workstreams to build and improve the channels we use to communicate.\n\nThis role will be highly embedded in On’s unique and entrepreneurial culture; collaborating with multiple teams and leaders to optimize information flow and bring great messages to life.\n\nYour mission:\n\n• Leading the creative arm of the Internal Comms team – including concept development, editorial planning, narrative, and production.\n\n• Partnering closely with internal creative teams and external vendors to produce premium video and multimedia content.\n\n• Writing messages, speeches, and presentations for global audiences on key topics related to our strategy and culture.\n\n• Driving innovation strategy for company-wide channels; scoping new formats and driving them forward from proposal to adoption.\n\nYour story:\n\nIn addition to a specific passion for internal communication and culture, we hope you’ll also bring:\n\n• 10+ years of experience working in creative and multi-disciplinary roles across Communications, Marketing, Journalism, or a related field.\n\n• Excellent writing skills. No matter the subject, you are able to easily identify a story and bring it to life in a clear and compelling way – through talking points, slides, videos, and other mediums.\n\n• Thought leadership. You bring big ideas - and the strategic acumen to actually make them happen. You are skilled at translating your vision into words; bringing peers and stakeholders on board.\n\n• Creativity. You bring expertise in at least one relevant audiovisual format (video, audio, graphic design, animation), and you find energy in a brainstorming session.\n\n• Technical savvy. You are well-versed in tying measurement to an editorial strategy, and you regularly use agentic AI to enhance your creative workflows. You’re able to learn systems easily, identify gaps, and problem solve accordingly. Experience using Workvivo, Slack and G-Suite apps is a plus.\n\n• Collaborative mindset. You enjoy leading large, cross-functional projects and tackling ambiguity with your strong organization skills. You’re an active participant in company culture and good at networking to build bridges across the business.\n\n• Tons of motivation. You are a self-starter; always picking up new skills and happy to operate in the weeds.\n\n• Industry knowledge. You regularly follow media trends and apply them to your work to engage employees of all backgrounds.\n\n• English fluency. Additional languages are a plus.\n\nMeet the team:\n\nThis role sits within Internal Communications – a team focused on driving connection and clarity across our global team at On. We’re big thinkers and change-makers, constantly looking for new ways to inform and inspire. If you’re passionate about impacting culture and applying your creativity in various areas of the business, you’ll be in great company.",
-        "it": "In short:\n\nWe are looking for an experienced internal comms expert, skilled at telling stories through innovative mediums as we drive the next chapter of strategic communication at On.\n\nReporting to the Global Head of Internal Communications, the Head of Internal Content & Channels will lead the editorial strategy to reach our internal audience. This hands-on role will drive production of creative content across company-wide events, announcements, presentations, and other strategic moments. They will also lead complex innovation workstreams to build and improve the channels we use to communicate.\n\nThis role will be highly embedded in On’s unique and entrepreneurial culture; collaborating with multiple teams and leaders to optimize information flow and bring great messages to life.\n\nYour mission:\n\n• Leading the creative arm of the Internal Comms team – including concept development, editorial planning, narrative, and production.\n\n• Partnering closely with internal creative teams and external vendors to produce premium video and multimedia content.\n\n• Writing messages, speeches, and presentations for global audiences on key topics related to our strategy and culture.\n\n• Driving innovation strategy for company-wide channels; scoping new formats and driving them forward from proposal to adoption.\n\nYour story:\n\nIn addition to a specific passion for internal communication and culture, we hope you’ll also bring:\n\n• 10+ years of experience working in creative and multi-disciplinary roles across Communications, Marketing, Journalism, or a related field.\n\n• Excellent writing skills. No matter the subject, you are able to easily identify a story and bring it to life in a clear and compelling way – through talking points, slides, videos, and other mediums.\n\n• Thought leadership. You bring big ideas - and the strategic acumen to actually make them happen. You are skilled at translating your vision into words; bringing peers and stakeholders on board.\n\n• Creativity. You bring expertise in at least one relevant audiovisual format (video, audio, graphic design, animation), and you find energy in a brainstorming session.\n\n• Technical savvy. You are well-versed in tying measurement to an editorial strategy, and you regularly use agentic AI to enhance your creative workflows. You’re able to learn systems easily, identify gaps, and problem solve accordingly. Experience using Workvivo, Slack and G-Suite apps is a plus.\n\n• Collaborative mindset. You enjoy leading large, cross-functional projects and tackling ambiguity with your strong organization skills. You’re an active participant in company culture and good at networking to build bridges across the business.\n\n• Tons of motivation. You are a self-starter; always picking up new skills and happy to operate in the weeds.\n\n• Industry knowledge. You regularly follow media trends and apply them to your work to engage employees of all backgrounds.\n\n• English fluency. Additional languages are a plus.\n\nMeet the team:\n\nThis role sits within Internal Communications – a team focused on driving connection and clarity across our global team at On. We’re big thinkers and change-makers, constantly looking for new ways to inform and inspire. If you’re passionate about impacting culture and applying your creativity in various areas of the business, you’ll be in great company.",
-        "de": "In short:\n\nWe are looking for an experienced internal comms expert, skilled at telling stories through innovative mediums as we drive the next chapter of strategic communication at On.\n\nReporting to the Global Head of Internal Communications, the Head of Internal Content & Channels will lead the editorial strategy to reach our internal audience. This hands-on role will drive production of creative content across company-wide events, announcements, presentations, and other strategic moments. They will also lead complex innovation workstreams to build and improve the channels we use to communicate.\n\nThis role will be highly embedded in On’s unique and entrepreneurial culture; collaborating with multiple teams and leaders to optimize information flow and bring great messages to life.\n\nYour mission:\n\n• Leading the creative arm of the Internal Comms team – including concept development, editorial planning, narrative, and production.\n\n• Partnering closely with internal creative teams and external vendors to produce premium video and multimedia content.\n\n• Writing messages, speeches, and presentations for global audiences on key topics related to our strategy and culture.\n\n• Driving innovation strategy for company-wide channels; scoping new formats and driving them forward from proposal to adoption.\n\nYour story:\n\nIn addition to a specific passion for internal communication and culture, we hope you’ll also bring:\n\n• 10+ years of experience working in creative and multi-disciplinary roles across Communications, Marketing, Journalism, or a related field.\n\n• Excellent writing skills. No matter the subject, you are able to easily identify a story and bring it to life in a clear and compelling way – through talking points, slides, videos, and other mediums.\n\n• Thought leadership. You bring big ideas - and the strategic acumen to actually make them happen. You are skilled at translating your vision into words; bringing peers and stakeholders on board.\n\n• Creativity. You bring expertise in at least one relevant audiovisual format (video, audio, graphic design, animation), and you find energy in a brainstorming session.\n\n• Technical savvy. You are well-versed in tying measurement to an editorial strategy, and you regularly use agentic AI to enhance your creative workflows. You’re able to learn systems easily, identify gaps, and problem solve accordingly. Experience using Workvivo, Slack and G-Suite apps is a plus.\n\n• Collaborative mindset. You enjoy leading large, cross-functional projects and tackling ambiguity with your strong organization skills. You’re an active participant in company culture and good at networking to build bridges across the business.\n\n• Tons of motivation. You are a self-starter; always picking up new skills and happy to operate in the weeds.\n\n• Industry knowledge. You regularly follow media trends and apply them to your work to engage employees of all backgrounds.\n\n• English fluency. Additional languages are a plus.\n\nMeet the team:\n\nThis role sits within Internal Communications – a team focused on driving connection and clarity across our global team at On. We’re big thinkers and change-makers, constantly looking for new ways to inform and inspire. If you’re passionate about impacting culture and applying your creativity in various areas of the business, you’ll be in great company.",
-        "fr": "In short:\n\nWe are looking for an experienced internal comms expert, skilled at telling stories through innovative mediums as we drive the next chapter of strategic communication at On.\n\nReporting to the Global Head of Internal Communications, the Head of Internal Content & Channels will lead the editorial strategy to reach our internal audience. This hands-on role will drive production of creative content across company-wide events, announcements, presentations, and other strategic moments. They will also lead complex innovation workstreams to build and improve the channels we use to communicate.\n\nThis role will be highly embedded in On’s unique and entrepreneurial culture; collaborating with multiple teams and leaders to optimize information flow and bring great messages to life.\n\nYour mission:\n\n• Leading the creative arm of the Internal Comms team – including concept development, editorial planning, narrative, and production.\n\n• Partnering closely with internal creative teams and external vendors to produce premium video and multimedia content.\n\n• Writing messages, speeches, and presentations for global audiences on key topics related to our strategy and culture.\n\n• Driving innovation strategy for company-wide channels; scoping new formats and driving them forward from proposal to adoption.\n\nYour story:\n\nIn addition to a specific passion for internal communication and culture, we hope you’ll also bring:\n\n• 10+ years of experience working in creative and multi-disciplinary roles across Communications, Marketing, Journalism, or a related field.\n\n• Excellent writing skills. No matter the subject, you are able to easily identify a story and bring it to life in a clear and compelling way – through talking points, slides, videos, and other mediums.\n\n• Thought leadership. You bring big ideas - and the strategic acumen to actually make them happen. You are skilled at translating your vision into words; bringing peers and stakeholders on board.\n\n• Creativity. You bring expertise in at least one relevant audiovisual format (video, audio, graphic design, animation), and you find energy in a brainstorming session.\n\n• Technical savvy. You are well-versed in tying measurement to an editorial strategy, and you regularly use agentic AI to enhance your creative workflows. You’re able to learn systems easily, identify gaps, and problem solve accordingly. Experience using Workvivo, Slack and G-Suite apps is a plus.\n\n• Collaborative mindset. You enjoy leading large, cross-functional projects and tackling ambiguity with your strong organization skills. You’re an active participant in company culture and good at networking to build bridges across the business.\n\n• Tons of motivation. You are a self-starter; always picking up new skills and happy to operate in the weeds.\n\n• Industry knowledge. You regularly follow media trends and apply them to your work to engage employees of all backgrounds.\n\n• English fluency. Additional languages are a plus.\n\nMeet the team:\n\nThis role sits within Internal Communications – a team focused on driving connection and clarity across our global team at On. We’re big thinkers and change-makers, constantly looking for new ways to inform and inspire. If you’re passionate about impacting culture and applying your creativity in various areas of the business, you’ll be in great company."
+        "it": "In breve:\n\nSiamo alla ricerca di un esperto esperto di comunicazioni interne, esperto nel raccontare storie attraverso mezzi innovativi mentre guidiamo il prossimo capitolo della comunicazione strategica a On.\n\nSegnalando al Global Head of Internal Communications, il Head of Internal Content & Canal porterà la strategia editoriale per raggiungere il nostro pubblico interno. Questo ruolo pratico guiderà la produzione di contenuti creativi attraverso eventi, annunci, presentazioni e altri momenti strategici. Condurranno anche complessi flussi di lavoro di innovazione per costruire e migliorare i canali che utilizziamo per comunicare.\n\nQuesto ruolo sarà fortemente incorporato nella cultura unica e imprenditoriale di On; collaborare con più team e leader per ottimizzare il flusso di informazioni e portare alla vita grandi messaggi.\n\nLa vostra missione:\n\n• Conducendo il braccio creativo del team Internal Comms – tra cui lo sviluppo del concetto, la pianificazione editoriale, la narrazione e la produzione.\n\n• Collaborare a stretto contatto con team creativi interni e fornitori esterni per produrre contenuti video premium e multimediali.\n\n• Scrivere messaggi, discorsi e presentazioni per il pubblico globale su argomenti chiave relativi alla nostra strategia e cultura.\n\n• Guidare la strategia di innovazione per i canali aziendali; ritagliare nuovi formati e spingerli avanti dalla proposta all'adozione.\n\nLa tua storia:\n\nOltre ad una specifica passione per la comunicazione interna e la cultura, speriamo che porti anche:\n\n• 10+ anni di esperienza che lavorano in ruoli creativi e multidisciplinari in Comunicazione, Marketing, Giornalismo, o in un campo correlato.\n\n• Eccellente capacità di scrittura. Non importa il soggetto, si è in grado di identificare facilmente una storia e portarla in un modo chiaro e convincente – attraverso punti di conversazione, diapositive, video e altri mezzi.\n\n• Ho pensato alla leadership. Porti grandi idee - e l'acume strategico per farli realmente accadere. Sei abile nel tradurre la tua visione in parole; portare colleghi e stakeholder a bordo.\n\n• Creatività. Porti competenze in almeno un formato audiovisivo rilevante (video, audio, grafica, animazione), e trovi energia in una sessione di brainstorming.\n\n• Un esperto tecnico. Siete ben diversificati nel legare la misura ad una strategia editoriale, e si utilizza regolarmente agentic AI per migliorare i flussi di lavoro creativi. Sei in grado di imparare i sistemi facilmente, identificare le lacune e risolvere i problemi di conseguenza. Esperienza utilizzando Workvivo, Slack e G-Suite applicazioni è un plus.\n\n• La mentalità collaborativa. Vi piace progetti di grandi dimensioni, interfunzionali e affrontare l'ambiguità con le vostre forti capacità organizzative. Sei un partecipante attivo nella cultura aziendale e buon in rete per costruire ponti attraverso il business.\n\n• Tonnellate di motivazione. Sei un auto-starter; sempre raccogliendo nuove abilità e felice di operare nelle erbacce.\n\n• Conoscenza del settore. Segui regolarmente le tendenze dei media e applicale al tuo lavoro per coinvolgere i dipendenti di tutti i background.\n\n• Fluente inglese. Le lingue aggiuntive sono un plus.\n\nIncontra la squadra:\n\nQuesto ruolo si trova all'interno delle comunicazioni interne – un team focalizzato sulla connessione di guida e la chiarezza attraverso il nostro team globale in On. Siamo grandi pensatori e produttori di cambiamento, costantemente alla ricerca di nuovi modi per informare e ispirare. Se siete appassionati di impatto culturale e di applicazione della vostra creatività in vari settori del business, sarete in grande azienda.",
+        "de": "Kurzum:\n\nWir suchen einen erfahrenen internen Kommunikationsexperten, der in der Lage ist, Geschichten durch innovative Medien zu erzählen, während wir das nächste Kapitel der strategischen Kommunikation bei On vorantreiben.\n\nBerichterstattung an den Global Head of Internal Communications, wird der Head of Internal Content & Channels die redaktionelle Strategie leiten, um unser internes Publikum zu erreichen. Diese praktische Rolle wird die Produktion kreativer Inhalte bei unternehmensweiten Veranstaltungen, Ankündigungen, Präsentationen und anderen strategischen Momenten vorantreiben. Sie werden auch komplexe Innovations-Workstreams leiten, um die Kanäle, über die wir kommunizieren, aufzubauen und zu verbessern.\n\nDiese Rolle wird stark in die einzigartige und unternehmerische Kultur von On eingebettet sein: die Zusammenarbeit mit mehreren Teams und Führungskräften, um den Informationsfluss zu optimieren und großartige Botschaften zum Leben zu erwecken.\n\nIhre Mission:\n\n• Leitung des kreativen Arms des Internal Comms-Teams – einschließlich Konzeptentwicklung, redaktioneller Planung, Erzählung und Produktion.\n\n• Enge Zusammenarbeit mit internen Kreativteams und externen Anbietern, um Premium-Video- und Multimedia-Inhalte zu produzieren.\n\n• Schreiben von Botschaften, Reden und Präsentationen für ein globales Publikum zu Schlüsselthemen unserer Strategie und Kultur.\n\n• Innovationsstrategie für unternehmensweite Kanäle vorantreiben, neue Formate abstecken und von der Einreichung bis zur Annahme vorantreiben.\n\nIhre Geschichte:\n\nNeben einer besonderen Leidenschaft für interne Kommunikation und Kultur hoffen wir, dass Sie auch Folgendes mitbringen:\n\n• 10+ Jahre Erfahrung in kreativen und multidisziplinären Rollen in Kommunikation, Marketing, Journalismus oder einem verwandten Bereich.\n\n• Hervorragende Schreibfähigkeiten. Unabhängig vom Thema können Sie eine Geschichte leicht identifizieren und auf klare und überzeugende Weise zum Leben erwecken - durch Gesprächspunkte, Folien, Videos und andere Medien.\n\n• Denken Sie an Führung. Sie bringen große Ideen mit - und den strategischen Scharfsinn, um sie tatsächlich umzusetzen. Sie sind in der Lage, Ihre Vision in Worte zu übersetzen; bringen Peers und Stakeholder an Bord.\n\n• Kreativität. Sie bringen Fachwissen in mindestens einem relevanten audiovisuellen Format (Video, Audio, Grafikdesign, Animation) mit und finden Energie in einer Brainstorming-Sitzung.\n\n• Technisch versiert. Sie sind versiert darin, Messungen an eine redaktionelle Strategie zu binden, und Sie verwenden regelmäßig Agentic AI, um Ihre kreativen Workflows zu verbessern. Sie sind in der Lage, Systeme leicht zu erlernen, Lücken zu erkennen und das Problem entsprechend zu lösen. Erfahrung mit workvivo, slack und g suite apps ist ein plus.\n\n• Collaborative Mindset. Sie genießen es, große, funktionsübergreifende Projekte zu leiten und Mehrdeutigkeiten mit Ihren starken Organisationsfähigkeiten anzugehen. Sie sind ein aktiver Teilnehmer an der Unternehmenskultur und gut im Networking, um Brücken im gesamten Unternehmen zu bauen.\n\n• Tonnenweise Motivation. Sie sind ein Selbststarter; immer neue Fähigkeiten und glücklich, im Unkraut zu operieren.\n\n• Branchenwissen. Sie verfolgen regelmäßig Medientrends und wenden sie auf Ihre Arbeit an, um Mitarbeiter aller Hintergründe zu engagieren.\n\n• Englisch fließend. Zusätzliche Sprachen sind ein Plus.\n\nTreffen Sie das Team:\n\nDiese Rolle liegt in der internen Kommunikation – einem Team, das sich darauf konzentriert, die Verbindung und Klarheit in unserem globalen Team bei On voranzutreiben. Wir sind große Denker und Change-Maker, ständig auf der Suche nach neuen Wegen, um zu informieren und zu inspirieren. Wenn Sie leidenschaftlich daran interessiert sind, die Kultur zu beeinflussen und Ihre Kreativität in verschiedenen Geschäftsbereichen anzuwenden, sind Sie in großartiger Gesellschaft.",
+        "fr": "Bref:\n\nNous sommes à la recherche d'un expert en communications internes expérimenté, capable de raconter des histoires par des moyens novateurs alors que nous conduisons le prochain chapitre de la communication stratégique à On.\n\nRelevant du responsable mondial des communications internes, le responsable du contenu interne et des canaux dirigera la stratégie éditoriale pour atteindre notre audience interne. Ce rôle pratique stimulera la production de contenu créatif à travers les événements, annonces, présentations et autres moments stratégiques de l'entreprise. Ils dirigeront également des filières d'innovation complexes pour construire et améliorer les canaux que nous utilisons pour communiquer.\n\nCe rôle sera fortement ancré dans la culture unique et entrepreneuriale d'Ons, en collaboration avec plusieurs équipes et leaders pour optimiser la circulation de l'information et donner vie à de grands messages.\n\nVotre mission :\n\n• Diriger le bras créatif de l'équipe des communications internes – y compris le développement de concepts, la planification éditoriale, la narrative et la production.\n\n• Collaborer étroitement avec des équipes de création internes et des fournisseurs externes pour produire des contenus vidéo et multimédia de qualité supérieure.\n\n• Écrire des messages, des discours et des présentations à l'intention du public mondial sur des sujets clés liés à notre stratégie et à notre culture.\n\n• Mettre en œuvre une stratégie d'innovation pour l'ensemble des canaux de l'entreprise; définir de nouveaux formats et les faire passer de la proposition à l'adoption.\n\nVotre histoire :\n\nEn plus d'une passion spécifique pour la communication interne et la culture, nous espérons que vous apporterez également:\n\n• 10 ans et plus d'expérience dans des rôles créatifs et multidisciplinaires à travers les communications, le marketing, le journalisme ou un domaine connexe.\n\n• Excellentes compétences d'écriture. Peu importe le sujet, vous êtes en mesure d'identifier facilement une histoire et de la mettre en vie d'une manière claire et convaincante – par des points de discussion, des diapositives, des vidéos et d'autres supports.\n\n• Le leadership de la pensée. Vous apportez de grandes idées - et le sens stratégique pour les faire réellement arriver. Vous êtes habile à traduire votre vision en mots; amener des pairs et des intervenants à bord.\n\n• Créativité. Vous apportez une expertise dans au moins un format audiovisuel pertinent (vidéo, audio, graphisme, animation), et vous trouvez l'énergie dans une séance de brainstorming.\n\n• Savvy technique. Vous êtes bien placé pour lier la mesure à une stratégie éditoriale, et vous utilisez régulièrement l'IA agentique pour améliorer vos flux de travail créatifs. Vous êtes capable d'apprendre les systèmes facilement, d'identifier les lacunes et de résoudre le problème en conséquence. Expérience avec les applications Workvivo, Slack et G-Suite est un plus.\n\n• Un état d'esprit collaboratif. Vous aimez diriger de grands projets interfonctionnels et vous attaquer à l'ambiguïté avec vos solides compétences organisationnelles. Vous êtes un participant actif dans la culture d'entreprise et bon au réseautage pour construire des ponts à travers l'entreprise.\n\n• Des tonnes de motivation. Vous êtes un auto-démarrage; toujours prendre de nouvelles compétences et heureux d'opérer dans les mauvaises herbes.\n\n• Connaissance de l'industrie. Vous suivez régulièrement les tendances des médias et les appliquez à votre travail pour engager des employés de tous les horizons.\n\n• La maîtrise de l'anglais. Les langues supplémentaires sont un plus.\n\nVoici l'équipe :\n\nCe rôle fait partie des Communications internes – une équipe axée sur la communication et la clarté au sein de notre équipe mondiale à On. Nous sommes de grands penseurs et de changements, constamment à la recherche de nouvelles façons d'informer et d'inspirer. Si vous êtes passionné par l'impact de la culture et l'application de votre créativité dans différents domaines de l'entreprise, vous serez en grande entreprise."
       },
       "location": "Zürich",
       "canton": "ZH",
@@ -6098,7 +6046,6 @@
         "canton": "ZH",
         "location": "Zürich"
       },
-      "needsRetranslation": true,
       "salaryMin": 114500,
       "salaryMax": 203000,
       "baseSalary": {
@@ -6458,16 +6405,16 @@
       "title": "EVP Content & Communications Lead",
       "titleByLocale": {
         "en": "EVP Content & Communications Lead",
-        "it": "EVP Content & Communications Lead",
+        "it": "Contenuti e comunicazioni EVP Piombo",
         "de": "EVP Content & Communications Lead",
-        "fr": "EVP Content & Communications Lead"
+        "fr": "Responsable du contenu et des communications du VPE"
       },
       "description": "In Short:\n\nOur HR team is expanding with the growth of On and we are looking for a colleague to join us in this journey as a Lead - EVP communication. We are looking for someone who has a passion for storytelling and has successfully driven the creation and execution of global and regional employer brand strategies to attract exceptional talent globally. At On, culture is everyone’s business and the responsibility to communicate the culture and who we are as an employer is distributed on many teams in HR.\n\nYour Mission:\n\nAs a EVP content & communications, you will play a pivotal role in shaping how the world perceives On as an employer. Your mission is to translate On’s unique culture, spirit, and Employee Value Proposition (EVP) into engaging content and digital experiences that connect with and attract exceptional talent globally, supporting our organizational growth and performance.\n\n- You will design, execute, and scale On’s global employer branding initiatives across primary digital channels, including LinkedIn, YouTube, the Careers page and more.\n\n-You will write, and curate engaging written and visual content that highlights On's unique workplace culture, team member stories, and technical innovations\n\n-You will manage relations with internal and external agencies for content production and execution.\n\n- You will maintain and optimize On's global digital footprint as an employer, ensuring consistent branding while supporting local relevance across different offices.\n\n- You will lead cross-team collaboration to showcase authentic internal stories.\n\n- You will champion the Employee Value Proposition (EVP) across different teams, educating internal partners on how to act as brand ambassadors.\n\n- You will act as the custodian of On's employer brand, ensuring all internal and external-facing talent materials are aligned with On's core spirit and visual identity.\n\n- You will analyze market trends, competitor employer branding landscapes, and candidate feedback to constantly iterate on talent attraction touchpoints and tools.\n\nYour Story:\n\n- You have about 4-6 years of expertise in employer branding, communications, or recruitment marketing, with a strong ability to translate organizational culture into an authentic Employee Value Proposition.\n\n- You have a proven track record of producing and curating highly engaging written, visual, and multimedia content.\n\n- You have experience scaling global and regional brand initiatives across primary digital channels (LinkedIn, YouTube, careers pages) and driving organic reach and application conversion.\n\n- You have strong analytical skills to evaluate market trends, candidate feedback, and campaign metrics to continuously iterate and improve talent attraction.\n\n- You are a collaborative partner used to working cross-functionally with Talent Acquisition, DE&I, Sustainability, and Brand teams.\n\n- You are highly organized and capable of delivering polished, on-brand content campaigns from concept to launch while meeting deadlines.\n\n- You can switch easily between being a strategic thinker, and hands-on execution.\n\n- You are used to working in a frequently changing, fast-paced environment.\n\n- You are fluent in English.\n\nYour Team:\n\nBeing part of the HR team at On means collaborating to align employer branding initiatives with overall talent development, culture, and team member experience. You will work closely with recruitment marketing in Talent Acquisition, D&I, Internal Comms, the Brand team (to mention a few) to co-create impact-driven storytelling campaigns that truthfully highlight On's culture and business from an employer branding lens.",
       "descriptionByLocale": {
         "en": "In Short:\n\nOur HR team is expanding with the growth of On and we are looking for a colleague to join us in this journey as a Lead - EVP communication. We are looking for someone who has a passion for storytelling and has successfully driven the creation and execution of global and regional employer brand strategies to attract exceptional talent globally. At On, culture is everyone’s business and the responsibility to communicate the culture and who we are as an employer is distributed on many teams in HR.\n\nYour Mission:\n\nAs a EVP content & communications, you will play a pivotal role in shaping how the world perceives On as an employer. Your mission is to translate On’s unique culture, spirit, and Employee Value Proposition (EVP) into engaging content and digital experiences that connect with and attract exceptional talent globally, supporting our organizational growth and performance.\n\n- You will design, execute, and scale On’s global employer branding initiatives across primary digital channels, including LinkedIn, YouTube, the Careers page and more.\n\n-You will write, and curate engaging written and visual content that highlights On's unique workplace culture, team member stories, and technical innovations\n\n-You will manage relations with internal and external agencies for content production and execution.\n\n- You will maintain and optimize On's global digital footprint as an employer, ensuring consistent branding while supporting local relevance across different offices.\n\n- You will lead cross-team collaboration to showcase authentic internal stories.\n\n- You will champion the Employee Value Proposition (EVP) across different teams, educating internal partners on how to act as brand ambassadors.\n\n- You will act as the custodian of On's employer brand, ensuring all internal and external-facing talent materials are aligned with On's core spirit and visual identity.\n\n- You will analyze market trends, competitor employer branding landscapes, and candidate feedback to constantly iterate on talent attraction touchpoints and tools.\n\nYour Story:\n\n- You have about 4-6 years of expertise in employer branding, communications, or recruitment marketing, with a strong ability to translate organizational culture into an authentic Employee Value Proposition.\n\n- You have a proven track record of producing and curating highly engaging written, visual, and multimedia content.\n\n- You have experience scaling global and regional brand initiatives across primary digital channels (LinkedIn, YouTube, careers pages) and driving organic reach and application conversion.\n\n- You have strong analytical skills to evaluate market trends, candidate feedback, and campaign metrics to continuously iterate and improve talent attraction.\n\n- You are a collaborative partner used to working cross-functionally with Talent Acquisition, DE&I, Sustainability, and Brand teams.\n\n- You are highly organized and capable of delivering polished, on-brand content campaigns from concept to launch while meeting deadlines.\n\n- You can switch easily between being a strategic thinker, and hands-on execution.\n\n- You are used to working in a frequently changing, fast-paced environment.\n\n- You are fluent in English.\n\nYour Team:\n\nBeing part of the HR team at On means collaborating to align employer branding initiatives with overall talent development, culture, and team member experience. You will work closely with recruitment marketing in Talent Acquisition, D&I, Internal Comms, the Brand team (to mention a few) to co-create impact-driven storytelling campaigns that truthfully highlight On's culture and business from an employer branding lens.",
-        "it": "In Short:\n\nOur HR team is expanding with the growth of On and we are looking for a colleague to join us in this journey as a Lead - EVP communication. We are looking for someone who has a passion for storytelling and has successfully driven the creation and execution of global and regional employer brand strategies to attract exceptional talent globally. At On, culture is everyone’s business and the responsibility to communicate the culture and who we are as an employer is distributed on many teams in HR.\n\nYour Mission:\n\nAs a EVP content & communications, you will play a pivotal role in shaping how the world perceives On as an employer. Your mission is to translate On’s unique culture, spirit, and Employee Value Proposition (EVP) into engaging content and digital experiences that connect with and attract exceptional talent globally, supporting our organizational growth and performance.\n\n- You will design, execute, and scale On’s global employer branding initiatives across primary digital channels, including LinkedIn, YouTube, the Careers page and more.\n\n-You will write, and curate engaging written and visual content that highlights On's unique workplace culture, team member stories, and technical innovations\n\n-You will manage relations with internal and external agencies for content production and execution.\n\n- You will maintain and optimize On's global digital footprint as an employer, ensuring consistent branding while supporting local relevance across different offices.\n\n- You will lead cross-team collaboration to showcase authentic internal stories.\n\n- You will champion the Employee Value Proposition (EVP) across different teams, educating internal partners on how to act as brand ambassadors.\n\n- You will act as the custodian of On's employer brand, ensuring all internal and external-facing talent materials are aligned with On's core spirit and visual identity.\n\n- You will analyze market trends, competitor employer branding landscapes, and candidate feedback to constantly iterate on talent attraction touchpoints and tools.\n\nYour Story:\n\n- You have about 4-6 years of expertise in employer branding, communications, or recruitment marketing, with a strong ability to translate organizational culture into an authentic Employee Value Proposition.\n\n- You have a proven track record of producing and curating highly engaging written, visual, and multimedia content.\n\n- You have experience scaling global and regional brand initiatives across primary digital channels (LinkedIn, YouTube, careers pages) and driving organic reach and application conversion.\n\n- You have strong analytical skills to evaluate market trends, candidate feedback, and campaign metrics to continuously iterate and improve talent attraction.\n\n- You are a collaborative partner used to working cross-functionally with Talent Acquisition, DE&I, Sustainability, and Brand teams.\n\n- You are highly organized and capable of delivering polished, on-brand content campaigns from concept to launch while meeting deadlines.\n\n- You can switch easily between being a strategic thinker, and hands-on execution.\n\n- You are used to working in a frequently changing, fast-paced environment.\n\n- You are fluent in English.\n\nYour Team:\n\nBeing part of the HR team at On means collaborating to align employer branding initiatives with overall talent development, culture, and team member experience. You will work closely with recruitment marketing in Talent Acquisition, D&I, Internal Comms, the Brand team (to mention a few) to co-create impact-driven storytelling campaigns that truthfully highlight On's culture and business from an employer branding lens.",
-        "de": "In Short:\n\nOur HR team is expanding with the growth of On and we are looking for a colleague to join us in this journey as a Lead - EVP communication. We are looking for someone who has a passion for storytelling and has successfully driven the creation and execution of global and regional employer brand strategies to attract exceptional talent globally. At On, culture is everyone’s business and the responsibility to communicate the culture and who we are as an employer is distributed on many teams in HR.\n\nYour Mission:\n\nAs a EVP content & communications, you will play a pivotal role in shaping how the world perceives On as an employer. Your mission is to translate On’s unique culture, spirit, and Employee Value Proposition (EVP) into engaging content and digital experiences that connect with and attract exceptional talent globally, supporting our organizational growth and performance.\n\n- You will design, execute, and scale On’s global employer branding initiatives across primary digital channels, including LinkedIn, YouTube, the Careers page and more.\n\n-You will write, and curate engaging written and visual content that highlights On's unique workplace culture, team member stories, and technical innovations\n\n-You will manage relations with internal and external agencies for content production and execution.\n\n- You will maintain and optimize On's global digital footprint as an employer, ensuring consistent branding while supporting local relevance across different offices.\n\n- You will lead cross-team collaboration to showcase authentic internal stories.\n\n- You will champion the Employee Value Proposition (EVP) across different teams, educating internal partners on how to act as brand ambassadors.\n\n- You will act as the custodian of On's employer brand, ensuring all internal and external-facing talent materials are aligned with On's core spirit and visual identity.\n\n- You will analyze market trends, competitor employer branding landscapes, and candidate feedback to constantly iterate on talent attraction touchpoints and tools.\n\nYour Story:\n\n- You have about 4-6 years of expertise in employer branding, communications, or recruitment marketing, with a strong ability to translate organizational culture into an authentic Employee Value Proposition.\n\n- You have a proven track record of producing and curating highly engaging written, visual, and multimedia content.\n\n- You have experience scaling global and regional brand initiatives across primary digital channels (LinkedIn, YouTube, careers pages) and driving organic reach and application conversion.\n\n- You have strong analytical skills to evaluate market trends, candidate feedback, and campaign metrics to continuously iterate and improve talent attraction.\n\n- You are a collaborative partner used to working cross-functionally with Talent Acquisition, DE&I, Sustainability, and Brand teams.\n\n- You are highly organized and capable of delivering polished, on-brand content campaigns from concept to launch while meeting deadlines.\n\n- You can switch easily between being a strategic thinker, and hands-on execution.\n\n- You are used to working in a frequently changing, fast-paced environment.\n\n- You are fluent in English.\n\nYour Team:\n\nBeing part of the HR team at On means collaborating to align employer branding initiatives with overall talent development, culture, and team member experience. You will work closely with recruitment marketing in Talent Acquisition, D&I, Internal Comms, the Brand team (to mention a few) to co-create impact-driven storytelling campaigns that truthfully highlight On's culture and business from an employer branding lens.",
-        "fr": "In Short:\n\nOur HR team is expanding with the growth of On and we are looking for a colleague to join us in this journey as a Lead - EVP communication. We are looking for someone who has a passion for storytelling and has successfully driven the creation and execution of global and regional employer brand strategies to attract exceptional talent globally. At On, culture is everyone’s business and the responsibility to communicate the culture and who we are as an employer is distributed on many teams in HR.\n\nYour Mission:\n\nAs a EVP content & communications, you will play a pivotal role in shaping how the world perceives On as an employer. Your mission is to translate On’s unique culture, spirit, and Employee Value Proposition (EVP) into engaging content and digital experiences that connect with and attract exceptional talent globally, supporting our organizational growth and performance.\n\n- You will design, execute, and scale On’s global employer branding initiatives across primary digital channels, including LinkedIn, YouTube, the Careers page and more.\n\n-You will write, and curate engaging written and visual content that highlights On's unique workplace culture, team member stories, and technical innovations\n\n-You will manage relations with internal and external agencies for content production and execution.\n\n- You will maintain and optimize On's global digital footprint as an employer, ensuring consistent branding while supporting local relevance across different offices.\n\n- You will lead cross-team collaboration to showcase authentic internal stories.\n\n- You will champion the Employee Value Proposition (EVP) across different teams, educating internal partners on how to act as brand ambassadors.\n\n- You will act as the custodian of On's employer brand, ensuring all internal and external-facing talent materials are aligned with On's core spirit and visual identity.\n\n- You will analyze market trends, competitor employer branding landscapes, and candidate feedback to constantly iterate on talent attraction touchpoints and tools.\n\nYour Story:\n\n- You have about 4-6 years of expertise in employer branding, communications, or recruitment marketing, with a strong ability to translate organizational culture into an authentic Employee Value Proposition.\n\n- You have a proven track record of producing and curating highly engaging written, visual, and multimedia content.\n\n- You have experience scaling global and regional brand initiatives across primary digital channels (LinkedIn, YouTube, careers pages) and driving organic reach and application conversion.\n\n- You have strong analytical skills to evaluate market trends, candidate feedback, and campaign metrics to continuously iterate and improve talent attraction.\n\n- You are a collaborative partner used to working cross-functionally with Talent Acquisition, DE&I, Sustainability, and Brand teams.\n\n- You are highly organized and capable of delivering polished, on-brand content campaigns from concept to launch while meeting deadlines.\n\n- You can switch easily between being a strategic thinker, and hands-on execution.\n\n- You are used to working in a frequently changing, fast-paced environment.\n\n- You are fluent in English.\n\nYour Team:\n\nBeing part of the HR team at On means collaborating to align employer branding initiatives with overall talent development, culture, and team member experience. You will work closely with recruitment marketing in Talent Acquisition, D&I, Internal Comms, the Brand team (to mention a few) to co-create impact-driven storytelling campaigns that truthfully highlight On's culture and business from an employer branding lens."
+        "it": "In breve:\n\nIl nostro team HR si sta espandendo con la crescita di On e stiamo cercando un collega per unirsi a noi in questo viaggio come una comunicazione Lead - EVP. Siamo alla ricerca di qualcuno che ha una passione per la narrazione e ha guidato con successo la creazione e l'esecuzione di strategie globali e regionali del marchio datore di lavoro per attrarre talenti eccezionali a livello globale. In On, la cultura è il business di tutti e la responsabilità di comunicare la cultura e che siamo come datore di lavoro è distribuito su molte squadre in HR.\n\nLa vostra missione:\n\nCome contenuto e comunicazioni EVP, si svolgerà un ruolo fondamentale nella definizione di come il mondo percepisce Su come un datore di lavoro. La vostra missione è quella di tradurre la cultura, lo spirito e la proposta di valore dei dipendenti (EVP) in contenuti coinvolgenti e esperienze digitali che si connettono e attraggono talento eccezionale a livello globale, sostenendo la nostra crescita organizzativa e le prestazioni.\n\n- Potrai progettare, eseguire e scalare le iniziative di marca del datore di lavoro globale attraverso i principali canali digitali, tra cui LinkedIn, YouTube, la pagina Carriere e altro ancora.\n\n- Scriverai e curerai coinvolgendo contenuti scritti e visivi che evidenziano La cultura del posto di lavoro unica, le storie dei membri del team e le innovazioni tecniche\n\n- Potrai gestire le relazioni con le agenzie interne ed esterne per la produzione e l'esecuzione dei contenuti.\n\n- Manterrete e ottimizzare l'impronta digitale globale di On come datore di lavoro, garantendo un branding coerente, supportando la rilevanza locale in diversi uffici.\n\n- Condurrai la collaborazione tra le due squadre per mostrare storie interne autentici.\n\n- Campionerai la Proposition Employee Value (EVP) in diverse squadre, educando partner interni su come agire come ambasciatori di marca.\n\n- Agirai come custode del marchio del datore di lavoro di On, assicurando che tutti i materiali di talento interni ed esterni siano allineati con lo spirito e l'identità visiva di On.\n\n- Analizzerai le tendenze del mercato, i paesaggi di marca del datore di lavoro concorrente, e il feedback dei candidati per iterare costantemente su punti di attrazione del talento e strumenti.\n\nLa tua storia:\n\n- Hai circa 4-6 anni di esperienza nel branding del datore di lavoro, nelle comunicazioni o nel marketing di reclutamento, con una forte capacità di tradurre la cultura organizzativa in un'autentica Proposizione del Valore del Dipendente.\n\n- Hai una comprovata traccia di produzione e cura di contenuti scritti, visivi e multimediali altamente coinvolgenti.\n\n- Hai esperienza di scalare le iniziative di marca globali e regionali attraverso i canali digitali primari (LinkedIn, YouTube, pagine di carriera) e di raggiungere organico e conversione delle applicazioni.\n\n- Hai forti capacità analitiche per valutare le tendenze del mercato, il feedback dei candidati e le metriche della campagna per iterare e migliorare continuamente l'attrazione del talento.\n\n- Sei un partner collaborativo utilizzato per lavorare in modo trasversale con i team Talent Acquisition, DE&I, Sustainability e Brand.\n\n- Siete altamente organizzati e in grado di fornire campagne di contenuti lucido e on-brand dal concept al lancio durante le scadenze di riunione.\n\n- È possibile passare facilmente tra essere un pensatore strategico, e l'esecuzione hands-on.\n\n- Siete abituati a lavorare in un ambiente spesso in rapida evoluzione.\n\n- Sei fluente in inglese.\n\nIl vostro team:\n\nEssere parte del team HR di On significa collaborare per allineare le iniziative di marca del datore di lavoro con lo sviluppo globale del talento, la cultura e l'esperienza del membro del team. Potrai lavorare a stretto contatto con il marketing di reclutamento in Talent Acquisition, D&I, Internal Comms, il team di Brand (per citarne alcuni) per creare campagne di storytelling basate sull'impatto che evidenziano sinceramente La cultura e gli affari di un datore di lavoro lente di marca.",
+        "de": "Kurzum:\n\nUnser HR-Team wächst mit dem Wachstum von On und wir suchen einen Kollegen, der uns auf dieser Reise als Lead - EVP-Kommunikation begleitet. Wir suchen jemanden, der eine Leidenschaft für Storytelling hat und die Entwicklung und Umsetzung globaler und regionaler Arbeitgebermarkenstrategien erfolgreich vorangetrieben hat, um weltweit außergewöhnliche Talente anzuziehen. Bei On ist Kultur jedermanns Sache und die Verantwortung, die Kultur zu kommunizieren und wer wir als Arbeitgeber sind, ist auf viele Teams im HR verteilt.\n\nIhre Mission:\n\nAls EVP Content & Communications spielen Sie eine zentrale Rolle bei der Gestaltung, wie die Welt On als Arbeitgeber wahrnimmt. Ihre Mission ist es, Ons einzigartige Kultur, Geist und Employee Value Proposition (EVP) in ansprechende Inhalte und digitale Erlebnisse zu übersetzen, die sich mit außergewöhnlichen Talenten weltweit verbinden und sie anziehen und unser organisatorisches Wachstum und unsere Leistung unterstützen.\n\n- Sie entwerfen, führen und skalieren die globalen Arbeitgeber-Branding-Initiativen von On über primäre digitale Kanäle, einschließlich LinkedIn, YouTube, der Karriereseite und mehr.\n\n-Sie schreiben und kuratieren ansprechende schriftliche und visuelle Inhalte, die hervorgehoben werden On's einzigartige Arbeitsplatzkultur, Teammitgliedergeschichten und technische Innovationen\n\nSie werden die Beziehungen zu internen und externen Agenturen für die Produktion und Ausführung von Inhalten verwalten.\n\n- Sie erhalten und optimieren den globalen digitalen Fußabdruck von On als Arbeitgeber, sorgen für ein konsistentes Branding und unterstützen gleichzeitig die lokale Relevanz in verschiedenen Büros.\n\n- Sie werden die teamübergreifende Zusammenarbeit leiten, um authentische interne Geschichten zu präsentieren.\n\n- Sie werden sich für die Employee Value Proposition (EVP) in verschiedenen Teams einsetzen und interne Partner darüber informieren, wie sie als Markenbotschafter agieren können.\n\n- Sie werden als Hüter der Arbeitgebermarke von On fungieren und sicherstellen, dass alle internen und externen Talentmaterialien auf den Kerngeist und die visuelle Identität von On abgestimmt sind.\n\n- Sie analysieren Markttrends, Arbeitgeber-Branding-Landschaften von Wettbewerbern und Kandidatenfeedback, um ständig Touchpoints und Tools für Talentattraktionen zu erstellen.\n\nDeine Geschichte:\n\n- Sie haben etwa 4-6 Jahre Erfahrung in Arbeitgeber-Branding, Kommunikation oder Rekrutierungsmarketing, mit einer starken Fähigkeit, Organisationskultur in eine authentische Employee Value Proposition zu übersetzen.\n\n- Sie haben eine nachgewiesene Erfolgsbilanz bei der Herstellung und Kuratierung von hoch ansprechenden schriftlichen, visuellen und multimedialen Inhalten.\n\n- Sie haben Erfahrung darin, globale und regionale Markeninitiativen über primäre digitale Kanäle (LinkedIn, YouTube, Karriereseiten) zu skalieren und die organische Reichweite und Anwendungskonvertierung voranzutreiben.\n\n- Sie verfügen über starke analytische Fähigkeiten, um Markttrends, Kandidatenfeedback und Kampagnenmetriken zu bewerten, um die Attraktivität von Talenten kontinuierlich zu iterieren und zu verbessern.\n\n- Sie sind ein Kooperationspartner, der es gewohnt ist, funktionsübergreifend mit Talent Acquisition, DE&I, Sustainability und Brand Teams zu arbeiten.\n\n- Sie sind hoch organisiert und in der Lage, polierte On-Brand-Content-Kampagnen vom Konzept bis zum Start zu liefern, während Sie die Fristen einhalten.\n\n- Sie können leicht zwischen einem strategischen Denker und einer praktischen Ausführung wechseln.\n\n- Sie sind es gewohnt, in einer sich häufig verändernden, schnelllebigen Umgebung zu arbeiten.\n\n- Sie sprechen fließend Englisch.\n\nIhr Team:\n\nTeil des HR-Teams bei On zu sein bedeutet, zusammenzuarbeiten, um Arbeitgeber-Branding-Initiativen mit der allgemeinen Talententwicklung, Kultur und Erfahrung der Teammitglieder in Einklang zu bringen. Sie werden eng mit Rekrutierungsmarketing in Talent Acquisition, D & I, Internal Comms und dem Brand-Team zusammenarbeiten (um nur einige zu nennen), um wirkungsorientierte Storytelling-Kampagnen zu erstellen, die wahrheitsgetreu hervorgehoben werden. On's Kultur und Geschäft von einem Arbeitgeber Branding Linse.",
+        "fr": "En bref :\n\nNotre équipe RH s'élargit avec la croissance de On et nous cherchons un collègue pour nous rejoindre dans ce voyage en tant que responsable - communication EVP. Nous sommes à la recherche de quelqu'un qui a une passion pour la narration et qui a réussi à créer et à exécuter des stratégies d'entreprise mondiales et régionales pour attirer des talents exceptionnels à l'échelle mondiale. Chez On, la culture est l'affaire de tous et la responsabilité de communiquer la culture et qui nous sommes en tant qu'employeur est répartie sur de nombreuses équipes en RH.\n\nVotre mission :\n\nEn tant que contenu EVP et communications, vous jouerez un rôle central dans la façon dont le monde perçoit On comme un employeur. Votre mission est de traduire la culture, l'esprit et la proposition de valeur des employés (PVE) uniques en un contenu et des expériences numériques qui relient et attirent des talents exceptionnels à l'échelle mondiale, soutenant notre croissance organisationnelle et notre performance.\n\n- Vous concevrez, exécuterez et élargirez les initiatives de marque globale de l'employeur sur les canaux numériques primaires, y compris LinkedIn, YouTube, la page Carrières et plus encore.\n\n-Vous allez écrire, et curate engageant le contenu écrit et visuel qui met en évidence Une culture de travail unique, des histoires de membres d'équipe et des innovations techniques\n\n-Vous gérerez les relations avec les agences internes et externes pour la production et l'exécution de contenus.\n\n- Vous conserverez et optimiserez l'empreinte numérique globale d'On en tant qu'employeur, en assurant une image de marque cohérente tout en soutenant la pertinence locale dans différents bureaux.\n\n- Vous dirigerez la collaboration entre les équipes pour présenter des histoires internes authentiques.\n\n- Vous ferez la promotion de la proposition de valeur des employés (PVE) au sein de différentes équipes, éduquant les partenaires internes sur la façon d'agir en tant qu'ambassadeurs de marque.\n\n- Vous agirez en tant que gardien de la marque employeur d'On, en veillant à ce que tous les matériaux de talent internes et externes soient alignés sur l'esprit de base et l'identité visuelle d'On.\n\n- Vous analyserez les tendances du marché, les paysages d'image de marque de l'employeur concurrent et les commentaires des candidats afin d'aller constamment sur les points de contact et les outils d'attraction des talents.\n\nVotre histoire :\n\n- Vous disposez d'environ 4-6 ans d'expertise en marque, communication ou marketing de recrutement de l'employeur, avec une forte capacité de traduire la culture organisationnelle en une authentique proposition de valeur de l'employé.\n\n- Vous avez une expérience éprouvée de production et de traitement de contenus écrits, visuels et multimédias très attrayants.\n\n- Vous avez l'expérience de l'échelle des initiatives de marque mondiale et régionale à travers les canaux numériques primaires (LinkedIn, YouTube, pages de carrières) et de conduire la portée organique et la conversion des applications.\n\n- Vous avez de solides compétences analytiques pour évaluer les tendances du marché, les commentaires des candidats et les mesures de campagne afin d' itérer et d'améliorer continuellement l'attrait des talents.\n\n- Vous êtes un partenaire collaboratif habitué à travailler en collaboration avec des équipes d'acquisition de talents, de DE et I, de durabilité et de marque.\n\n- Vous êtes très organisé et capable de livrer des campagnes de contenu sur la marque, du concept au lancement tout en respectant les délais.\n\n- Vous pouvez facilement changer entre être un penseur stratégique, et l'exécution pratique.\n\n- Vous êtes habitués à travailler dans un environnement en évolution rapide.\n\n- Vous parlez couramment l'anglais.\n\nVotre équipe :\n\nFaire partie de l'équipe des RH à On signifie collaborer pour aligner les initiatives de promotion de l'image de marque de l'employeur sur l'expérience globale en matière de développement des talents, de culture et de membres de l'équipe. Vous travaillerez en étroite collaboration avec le marketing du recrutement dans Talent Acquisition, D&I, Internal Coms, l'équipe de la marque (pour en mentionner quelques-uns) pour co-créer des campagnes de narration axées sur l'impact qui mettent en évidence La culture et les affaires d'une lentille de marque employeur."
       },
       "location": "Zürich",
       "canton": "ZH",
@@ -6499,7 +6446,6 @@
         "canton": "ZH",
         "location": "Zürich"
       },
-      "needsRetranslation": true,
       "salaryMin": 114500,
       "salaryMax": 203000,
       "baseSalary": {
@@ -6585,7 +6531,6 @@
         ]
       },
       "firstSeenAt": "2026-07-27T22:10:39.874Z",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -6664,7 +6609,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:36:27.134Z",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -6768,7 +6712,7 @@
       "companyDomain": "on-running.com",
       "title": "Chief of Staff - Retail Strategy",
       "titleByLocale": {
-        "it": "Chief of Staff - Retail Strategy",
+        "it": "Capo di Stato Maggiore - Strategia al dettaglio",
         "en": "Chief of Staff - Retail Strategy",
         "de": "Stabschef - Einzelhandelsstrategie",
         "fr": "Chef de cabinet - Stratégie de vente au détail"
@@ -6825,7 +6769,6 @@
         ]
       },
       "firstSeenAt": "2026-07-27T22:10:39.827Z",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -7080,8 +7023,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "on-running-0b32ecb97440",
