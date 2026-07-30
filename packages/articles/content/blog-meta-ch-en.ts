@@ -1711,6 +1711,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.trasporto-record-svizzero-2026.title': 'Running Swiss Railways: Passengers and Freight Grow Again',
     'blog.article.trasporto-record-svizzero-2026.excerpt': 'Passenger rail transport in Switzerland reached a new record in the second quarter, with an increase of 5.2% compared to the same period of the previous year.',
     'blog.article.trasporto-record-svizzero-2026.imageAlt': 'A scene of train travel in Switzerland',
+    'blog.article.di-piu-barometro-kof-oltre-alle-attese-segnali-positivi-per-leconomia.title': 'More KOF Barometer in addition to expectations, positive signals for the economy',
+    'blog.article.di-piu-barometro-kof-oltre-alle-attese-segnali-positivi-per-leconomia.excerpt': 'The KOF Barometer rose in July beyond expectations, reaching 103.5 points. Positive signs for the Swiss economy.',
+    'blog.article.di-piu-barometro-kof-oltre-alle-attese-segnali-positivi-per-leconomia.imageAlt': 'Barometro KOF: an economic indicator that anticipates the evolution of the Swiss economy.',
 };
 
 export default blogMetaChEn;

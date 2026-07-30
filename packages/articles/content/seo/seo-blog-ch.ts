@@ -22130,6 +22130,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-di-piu-barometro-kof-oltre-alle-attese-segnali-positivi-per-leconomia': {
+    title: 'Di più Barometro KOF oltre alle attese, segnali positivi per l\'economia',
+    description: 'Il Barometro KOF è salito in luglio oltre le attese, raggiungendo 103,5 punti. Segnali positivi per l\'economia svizzera. Dati aggiornati 2026 per frontalieri in',
+    keywords: 'frontalieri, ticino, svizzera, italia, barometro, oltre, alle, attese',
+    ogTitle: 'Di più Barometro KOF oltre alle attese, segnali positivi per l\'economia',
+    ogDescription: 'Il Barometro KOF è salito in luglio oltre le attese, raggiungendo 103,5 punti. Segnali positivi per l\'economia svizzera.',
+    canonicalPath: '/articoli-svizzera/di-piu-barometro-kof-oltre-alle-attese-segnali-positivi-per-leconomia/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Di più Barometro KOF oltre alle attese, segnali positivi per l'economia",
+      "description": "Il Barometro KOF è salito in luglio oltre le attese, raggiungendo 103,5 punti. Segnali positivi per l'economia svizzera. Dati aggiornati 2026 per frontalieri in",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/di-piu-barometro-kof-oltre-alle-attese-segnali-positivi-per-leconomia.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Barometro KOF: un indicatore economico che anticipa l'evoluzione dell'economia svizzera."
+      },
+      "datePublished": "2026-07-30T19:43:30+00:00",
+      "dateModified": "2026-07-30T19:43:30+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/di-piu-barometro-kof-oltre-alle-attese-segnali-positivi-per-leconomia/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
