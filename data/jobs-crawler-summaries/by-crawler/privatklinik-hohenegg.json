@@ -1,16 +1,16 @@
 {
   "key": "privatklinik-hohenegg",
   "label": "Privatklinik Hohenegg",
-  "generatedAt": "2026-07-29T22:03:44.792Z",
+  "generatedAt": "2026-07-30T11:15:31.583Z",
   "total": 2,
   "newCount": 0,
   "updatedCount": 2,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 6362,
-  "avgDurationMs": 6362,
+  "durationMs": 6009,
+  "avgDurationMs": 6009,
   "durationHistory": [
-    6362
+    6009
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -27,7 +27,7 @@
       "url": "https://apply.refline.ch/640332/0063/pub/2/index.html",
       "source": "Privatklinik Hohenegg Dedicated Parser (Refline 640332)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:03:40.147Z",
+      "crawledAt": "2026-07-30T11:15:26.921Z",
       "addressLocality": "Meilen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -67,7 +67,7 @@
       "url": "https://apply.refline.ch/640332/0047/pub/13/index.html",
       "source": "Privatklinik Hohenegg Dedicated Parser (Refline 640332)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:03:39.630Z",
+      "crawledAt": "2026-07-30T11:15:26.454Z",
       "addressLocality": "Meilen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -95,50 +95,6 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "id": "privatklinik-hohenegg-c0079b840575",
-      "slug": "dipl-lavoratore-sociale-in-fh-40-60-privatklinik-hohenegg-meilen",
-      "company": "Privatklinik Hohenegg",
-      "companyKey": "privatklinik-hohenegg",
-      "companyDomain": "hohenegg.ch",
-      "title": "Dipl. Sozialarbeiter/-in FH 40-60%",
-      "needsRetranslation": false,
-      "location": "Meilen",
-      "canton": "ZH",
-      "url": "https://apply.refline.ch/640332/0065/pub/4/index.html",
-      "source": "Privatklinik Hohenegg Dedicated Parser (Refline 640332)",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-28T11:27:16.476Z",
-      "addressLocality": "Meilen",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8706",
-      "category": "Sanità / Ospedali",
-      "contract": "part-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-03",
-      "applyUrl": "https://apply.refline.ch/640332/0065/pub/4/index.html",
-      "pensumMin": 40,
-      "pensumMax": 40,
-      "pensum": "40%",
-      "firstSeenAt": "2026-07-03T23:11:37.489Z",
-      "salaryMin": 44100,
-      "salaryMax": 66900,
-      "crawlerMissStreak": 2,
-      "_qualityScore": 90,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 22
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }
