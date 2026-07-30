@@ -1,19 +1,21 @@
 {
   "key": "bps-suisse",
   "label": "BPS Suisse",
-  "generatedAt": "2026-07-30T11:21:45.420Z",
+  "generatedAt": "2026-07-30T22:09:05.532Z",
   "total": 3,
   "newCount": 0,
-  "updatedCount": 3,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 6596,
-  "avgDurationMs": 6596,
+  "unchangedCount": 3,
+  "durationMs": 5893,
+  "avgDurationMs": 5893,
   "durationHistory": [
-    6596
+    5893
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "bps-suisse-ca3147dfc767",
       "title": "Compliance Officer",
@@ -37,7 +39,7 @@
       "currency": "CHF",
       "postedDate": "2026-07-30",
       "source": "bps-suisse-careers-crawler",
-      "crawledAt": "2026-07-30T11:21:40.541Z",
+      "crawledAt": "2026-07-30T22:09:01.249Z",
       "_targetScope": {
         "canton": "TI",
         "location": "Lugano"
@@ -77,7 +79,7 @@
       "currency": "CHF",
       "postedDate": "2026-07-30",
       "source": "bps-suisse-careers-crawler",
-      "crawledAt": "2026-07-30T11:21:41.759Z",
+      "crawledAt": "2026-07-30T22:09:02.079Z",
       "_targetScope": {
         "canton": "TI",
         "location": "Lugano"
@@ -117,7 +119,7 @@
       "currency": "CHF",
       "postedDate": "2026-07-30",
       "source": "bps-suisse-careers-crawler",
-      "crawledAt": "2026-07-30T11:21:42.318Z",
+      "crawledAt": "2026-07-30T22:09:02.451Z",
       "_targetScope": {
         "canton": "TI",
         "location": "Lugano"
@@ -134,7 +136,5 @@
         "completeness": 25
       }
     }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": []
+  ]
 }
