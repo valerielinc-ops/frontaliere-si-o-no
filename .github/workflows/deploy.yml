@@ -591,6 +591,10 @@ jobs:
           SHARD_ARTICOLISVIZZERA_FR_DEPLOY_KEY: ${{ secrets.SHARD_ARTICOLISVIZZERA_FR_DEPLOY_KEY }}
           GITHUB_SHA: ${{ github.sha }}
           GITHUB_RUN_ID: ${{ github.run_id }}
+          # Consumed by scripts/ci/report-shard-push-failure.mjs (gh CLI) when a
+          # shard push stays unpublished. The job already grants `issues: write`.
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
           # Issue #4881 Fase 5 — see ogPagesPlugin.ts's closeBundle docblock
           # for the full contract. When true, this run's build never
           # emitted this section into dist/, so a full-replace push here
@@ -618,6 +622,9 @@ jobs:
           # at a time instead of scaling with the full 27-section list.
           MAX_PARALLEL=4
           fail=0
+          # Declared up front: `set -u` is on, and "${#failed[@]}" on an
+          # never-assigned array is an unbound-variable abort, not an empty count.
+          failed=()
           pids=(); names=()
           for section in $(jq -r 'keys[] | select(startswith("_")|not)' scripts/lib/section-shard-slugs.json); do
             # #4881 Fase 5: build no longer emits this section when its
@@ -635,14 +642,22 @@ jobs:
             pids+=("$!"); names+=("$section")
             if [ "${#pids[@]}" -ge "$MAX_PARALLEL" ]; then
               for idx in "${!pids[@]}"; do
-                wait "${pids[$idx]}" || { echo "::warning::${names[$idx]}-it shard push step failed — continuing to the next section"; fail=1; }
+                wait "${pids[$idx]}" || { echo "::warning::${names[$idx]}-it shard push step failed — continuing to the next section"; fail=1; failed+=("${names[$idx]}"); }
               done
               pids=(); names=()
             fi
           done
           for idx in "${!pids[@]}"; do
-            wait "${pids[$idx]}" || { echo "::warning::${names[$idx]}-it shard push step failed — continuing to the next section"; fail=1; }
+            wait "${pids[$idx]}" || { echo "::warning::${names[$idx]}-it shard push step failed — continuing to the next section"; fail=1; failed+=("${names[$idx]}"); }
           done
+          # A tolerated failure must still be VISIBLE: file/refresh one deduped
+          # issue naming the shards that stayed unpublished (incident
+          # 2026-07-30 — uri-it failed on every deploy for 3 days behind a
+          # ::warning:: inside a green run).
+          if [ "${#failed[@]}" -gt 0 ]; then
+            node scripts/ci/report-shard-push-failure.mjs \
+              --locale it --shards "$(IFS=,; echo "${failed[*]}")" || true
+          fi
           exit "$fail"
 
       # Same-run tar artifact for post-deploy-validate-dist's section rehydrate
@@ -1208,6 +1223,10 @@ jobs:
           SHARD_ARTICOLISVIZZERA_FR_DEPLOY_KEY: ${{ secrets.SHARD_ARTICOLISVIZZERA_FR_DEPLOY_KEY }}
           GITHUB_SHA: ${{ github.sha }}
           GITHUB_RUN_ID: ${{ github.run_id }}
+          # Consumed by scripts/ci/report-shard-push-failure.mjs (gh CLI) when a
+          # shard push stays unpublished. The job already grants `issues: write`.
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
           # Issue #4881 Fase 5 — see ogPagesPlugin.ts's closeBundle docblock
           # and the IT-leg push step above for the full contract.
           ARTICOLIFRONTALIERE_BUILD_EMIT_SKIP: ${{ vars.ARTICOLIFRONTALIERE_BUILD_EMIT_SKIP }}
@@ -1230,6 +1249,9 @@ jobs:
           # 27-section list.
           MAX_PARALLEL=4
           fail=0
+          # Declared up front: `set -u` is on, and "${#failed[@]}" on an
+          # never-assigned array is an unbound-variable abort, not an empty count.
+          failed=()
           pids=(); names=()
           for section in $(jq -r 'keys[] | select(startswith("_")|not)' scripts/lib/section-shard-slugs.json); do
             # #4881 Fase 5: same exclusion as the IT-leg push step above —
@@ -1244,14 +1266,19 @@ jobs:
             pids+=("$!"); names+=("$section")
             if [ "${#pids[@]}" -ge "$MAX_PARALLEL" ]; then
               for idx in "${!pids[@]}"; do
-                wait "${pids[$idx]}" || { echo "::warning::${names[$idx]}-${{ matrix.locale }} shard push step failed — continuing to the next section"; fail=1; }
+                wait "${pids[$idx]}" || { echo "::warning::${names[$idx]}-${{ matrix.locale }} shard push step failed — continuing to the next section"; fail=1; failed+=("${names[$idx]}"); }
               done
               pids=(); names=()
             fi
           done
           for idx in "${!pids[@]}"; do
-            wait "${pids[$idx]}" || { echo "::warning::${names[$idx]}-${{ matrix.locale }} shard push step failed — continuing to the next section"; fail=1; }
+            wait "${pids[$idx]}" || { echo "::warning::${names[$idx]}-${{ matrix.locale }} shard push step failed — continuing to the next section"; fail=1; failed+=("${names[$idx]}"); }
           done
+          # Same visibility contract as the IT leg above — see that comment.
+          if [ "${#failed[@]}" -gt 0 ]; then
+            node scripts/ci/report-shard-push-failure.mjs \
+              --locale "${{ matrix.locale }}" --shards "$(IFS=,; echo "${failed[*]}")" || true
+          fi
           exit "$fail"
 
       # Same-run tar artifact for post-deploy-validate-dist's section rehydrate
