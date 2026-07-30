@@ -38,16 +38,44 @@ export const RSS_LOCALES = ['it', 'en', 'de', 'fr'];
 export const RSS_MAX_ITEMS = 50;
 
 /**
+ * Every frontaliere SEO chunk, including the one new articles are written to.
+ *
+ * This was `['seo-blog.ts', 'seo-blog-2.ts']`, on the reasoning that the feed
+ * "only needs the freshest chunks". That stopped being true the moment
+ * create-article started appending to `seo-blog-5.ts` (its `SECTION.seoFile`):
+ * the two chunks the feed read stopped receiving articles, and since they are
+ * the sole source of the item list, the feed froze.
+ *
+ * Measured when found: `seo-blog.ts` ends 2026-05-03 and `seo-blog-2.ts`
+ * 2026-03-15, while `seo-blog-5.ts` held 1617 entries ending that same day. The
+ * live rss.xml's newest item was dated 3 May — nearly three months of daily
+ * publishing invisible to every subscriber and aggregator, with nothing failing
+ * anywhere, because a feed that stops updating still serves 200.
+ *
+ * Reading all of them costs nothing at the output: items are sorted by
+ * publication date and cut to RSS_MAX_ITEMS, so the feed keeps the same size —
+ * it just contains the articles that exist.
+ */
+const FRONTALIERE_SEO_CHUNKS = [
+  'seo-blog.ts',
+  'seo-blog-2.ts',
+  'seo-blog-3.ts',
+  'seo-blog-4.ts',
+  'seo-blog-5.ts',
+  'seo-blog-6.ts',
+  'seo-blog-7.ts',
+];
+
+/**
  * Section table. `slugFile`/`bodyDir`/`metaPrefix`/`indexSlug` come from
- * ARTICLE_SECTION_CORE (the canonical tuple); `seoFiles` is deliberately
- * NARROWER than the full seo-blog chunk list other consumers use — the feed
- * only needs the freshest chunks, capped at RSS_MAX_ITEMS below — so it stays
- * local to this table rather than joining the shared tuple.
+ * ARTICLE_SECTION_CORE (the canonical tuple); `seoFiles` stays local to this
+ * table rather than joining the shared tuple, since no other consumer needs
+ * exactly this list.
  */
 export const RSS_SECTIONS = [
   {
     id: 'frontaliere',
-    seoFiles: ['seo-blog.ts', 'seo-blog-2.ts'],
+    seoFiles: FRONTALIERE_SEO_CHUNKS,
     slugFile: ARTICLE_SECTION_CORE.frontaliere.slugDataFile,
     metaFile: (locale) => `${ARTICLE_SECTION_CORE.frontaliere.metaPrefix}-${locale}.ts`,
     bodyDir: ARTICLE_SECTION_CORE.frontaliere.bodyDir,
@@ -120,8 +148,13 @@ function parseSeoBlogs(fs, path, rootDir, seoDir, seoFiles) {
       const end = i + 1 < entryPositions.length ? entryPositions[i + 1].start : start + 4000;
       const block = src.slice(start, Math.min(end, start + 4000));
 
-      const headline = block.match(/"headline":\s*"([^"]+)"/)?.[1];
-      const description = block.match(/"description":\s*"([^"]+)"/)?.[1];
+      // `(?:[^"\\]|\\.)*`, not `[^"]+`: create-article escapes literal quotes in
+      // these values (`.replace(/"/g, '\\"')`), and the naive class stops at the
+      // backslash-quote, truncating the headline to whatever preceded it — e.g.
+      // `Laghi lombardi, inizio estate tragico: \"`. Same pattern already used
+      // for the single-quoted fields below.
+      const headline = block.match(/"headline":\s*"((?:[^"\\]|\\.)*)"/)?.[1];
+      const description = block.match(/"description":\s*"((?:[^"\\]|\\.)*)"/)?.[1];
       const datePublished = block.match(/"datePublished":\s*"([^"]+)"/)?.[1];
       const dateModified = block.match(/"dateModified":\s*"([^"]+)"/)?.[1];
       const articleSection = block.match(/"articleSection":\s*"([^"]+)"/)?.[1];
