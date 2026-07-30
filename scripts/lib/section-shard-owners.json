@@ -2,5 +2,7 @@
   "_comment": "Section shard repos default to owner valerielinc-ops (see push-section-shard.sh). Sections listed here override the GitHub owner the shard repo/CNAME/deploy-key live under. Added 2026-07-27: uri/vaud/vallese moved to nanakokyobashi-rgb because their valerielinc-ops Pages https_certificate got permanently stuck in bad_authz (Let's Encrypt rate-limit hypothesis, see docs/AGENTS-HISTORY.md) and remove/re-add + 20min-wait remediation did not clear it. Deploy keys + SHARD_<SECTION>_<LOCALE>_DEPLOY_KEY secrets were regenerated for the new repos; DNS CNAME for origin-<section>-<loc>.frontaliereticino.ch retargeted from valerielinc-ops.github.io to nanakokyobashi-rgb.github.io. GUARD (incident 2026-07-28, PR #4861 reverted): do NOT infer a section/locale owner by probing whether valerielinc-ops/frontaliere-<section>-<loc> responds — after a repo transfer GitHub keeps the old path alive as a redirect, so the API, git clone and git ls-remote all still succeed under the OLD owner. The only reliable check is the canonical name: gh api repos/<owner>/<repo> --jq .full_name (or .owner.login). A stale DNS CNAME is not evidence either: Pages routes by Host header, so origin-<section>-<loc> keeps serving even when its CNAME still targets the previous <user>.github.io. This file is the single source of truth for owners — every locale of a listed section shares the same owner, there is no per-locale mixed state.",
   "uri": "nanakokyobashi-rgb",
   "vaud": "nanakokyobashi-rgb",
-  "vallese": "nanakokyobashi-rgb"
+  "vallese": "nanakokyobashi-rgb",
+  "articolifrontaliere": "nanakokyobashi-rgb",
+  "articolisvizzera": "nanakokyobashi-rgb"
 }
