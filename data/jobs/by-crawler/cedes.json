@@ -1,6 +1,6 @@
 {
   "crawlerKey": "cedes",
-  "assembledAt": "2026-07-29T22:06:10.919Z",
+  "assembledAt": "2026-07-30T11:17:37.528Z",
   "jobs": [
     {
       "id": "cedes-35a5cf0843f1",
@@ -43,7 +43,7 @@
       "url": "https://www.cedes.com/en/career/jobs/software-test-engineer-80-100-1/",
       "source": "CEDES Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-29T22:06:07.953Z",
+      "crawledAt": "2026-07-30T11:17:34.929Z",
       "firstSeenAt": "2026-07-15T22:20:19.070Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -101,7 +101,7 @@
       "url": "https://www.cedes.com/en/career/jobs/packaging-line-worker-100-1/",
       "source": "CEDES Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-29T22:06:07.547Z",
+      "crawledAt": "2026-07-30T11:17:34.450Z",
       "previousSlugs": [
         "packaging-line-worker-100-cedes-landquart",
         "linea-di-confezionamento-worker-100-cedes-ag-landquart"
@@ -175,7 +175,7 @@
       "url": "https://www.cedes.com/en/career/jobs/unsolicited-applications/",
       "source": "CEDES Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-29T22:06:07.145Z",
+      "crawledAt": "2026-07-30T11:17:33.978Z",
       "previousSlugs": [
         "unsolicited-applications-cedes-ag-landquart",
         "unsolicited-applications-cedes-landquart",
@@ -197,6 +197,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:12:14.899Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
