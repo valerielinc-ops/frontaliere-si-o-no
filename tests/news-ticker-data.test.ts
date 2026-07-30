@@ -72,6 +72,42 @@ describe('newsTickerDataPlugin generator', () => {
   });
 });
 
+describe('news-ticker payload is computable outside the site (issue #4974 item 2)', () => {
+  // The articles repository publishes this payload from the corpus it owns. It
+  // has no site shell to read `hubLocales` from and no `services/locales` tree —
+  // the corpus sits under `content/`. Both are now call-time inputs, so the same
+  // function serves both callers. This asserts the publisher's exact call shape
+  // produces the site's exact payload; if it ever stops doing so, the ticker on
+  // the live homepage and the published one have silently diverged.
+  const PACKAGE_ROOT = np.resolve(ROOT, 'packages', 'articles');
+
+  it('matches the site payload when given the package layout and explicit locales', () => {
+    const sitePayload = computeTickerArticles(fs, np, ROOT);
+    const publisherPayload = computeTickerArticles(fs, np, PACKAGE_ROOT, undefined, {
+      hubLocales: ['it', 'en', 'de', 'fr'],
+      metaDir: 'content',
+      slugDataFile: 'content/routerBlogData.ts',
+    });
+
+    expect(publisherPayload).toHaveLength(5);
+    expect(publisherPayload).toEqual(sitePayload);
+  });
+
+  it('honours a narrowed locale list without touching the site shell', () => {
+    const payload = computeTickerArticles(fs, np, PACKAGE_ROOT, undefined, {
+      hubLocales: ['it'],
+      metaDir: 'content',
+      slugDataFile: 'content/routerBlogData.ts',
+    });
+    expect(payload).toHaveLength(5);
+    for (const art of payload) {
+      expect(Object.keys(art.title)).toEqual(['it']);
+      expect(art.title.it).toBeTruthy();
+      expect(art.title.it).not.toBe(`blog.article.${art.id}.title`);
+    }
+  });
+});
+
 describe('news-ticker payload wiring (silent-regression guards)', () => {
   it('vite.config.ts registers newsTickerDataPlugin', () => {
     const cfg = readFileSync(np.resolve(ROOT, 'vite.config.ts'), 'utf-8');

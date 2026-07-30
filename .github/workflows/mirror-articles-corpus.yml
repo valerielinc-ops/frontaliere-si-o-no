@@ -23,6 +23,21 @@ on:
     branches: [main]
     paths:
       - 'packages/articles/**'
+  # Safety net, and in practice the load-bearing trigger. The `push` event above
+  # does NOT fire for the commits that actually matter: every workflow that
+  # writes the corpus (generate-article, crawl-events, batch-faq-articles,
+  # generate-border-wait-ranking, rerender-article-corpus, fast-publish) pushes
+  # with the default GITHUB_TOKEN, and GitHub's anti-recursion rule means a
+  # GITHUB_TOKEN push never triggers another workflow. Without this schedule the
+  # mirror only ever ran when someone dispatched it by hand — which is exactly
+  # the "API silently freezes at the extraction snapshot" failure this workflow
+  # exists to prevent, and it had already happened: between the first mirror and
+  # this change, corpus commits landed on main and none of them reached the
+  # articles repo. generate-article.yml also dispatches this workflow directly
+  # (with a PAT) so a new article does not wait for the next slot.
+  schedule:
+    # Every two hours, offset off the hour to stay clear of the deploy cron.
+    - cron: '41 */2 * * *'
   workflow_dispatch:
 
 # Serialised, never cancelled: two mirrors racing would interleave force-pushes
