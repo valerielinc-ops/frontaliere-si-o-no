@@ -1,6 +1,6 @@
 {
   "crawlerKey": "air-zermatt",
-  "assembledAt": "2026-07-30T11:32:36.642Z",
+  "assembledAt": "2026-07-30T22:14:26.534Z",
   "jobs": [
     {
       "id": "air-zermatt-dfbbe85d1afb",
@@ -46,7 +46,7 @@
       "applyUrl": "https://www.air-zermatt.ch/de/service/offene-stellen/stipendium-atc-amp-swiss-sherpa-foundation-442",
       "source": "Air Zermatt Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-30T11:32:34.963Z",
+      "crawledAt": "2026-07-30T22:14:24.796Z",
       "previousSlugs": [
         "stipendium-atc-swiss-sherpa-foundation-raron-air-zermatt",
         "borsa-di-studio-atc-swiss-sherpa-foundation-air-zermatt-ag-raron"
@@ -119,7 +119,7 @@
       "applyUrl": "https://www.air-zermatt.ch/de/service/offene-stellen/transport-oder-rettungssanitaeterin-100--571",
       "source": "Air Zermatt Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-30T11:32:34.714Z",
+      "crawledAt": "2026-07-30T22:14:24.318Z",
       "previousSlugs": [
         "transport-oder-rettungssanitater-in-100-raron-air-zermatt"
       ],
@@ -135,6 +135,7 @@
         ]
       },
       "firstSeenAt": "2026-07-02T10:30:28.260Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "currency": "CHF",
