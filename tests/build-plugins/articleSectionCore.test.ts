@@ -116,13 +116,14 @@ describe('ARTICLE_SECTION_CORE (canonical article-section registry)', () => {
         ).toContain(`ARTICLE_SECTION_CORE.${id}.${field}`);
       }
     }
-    // The values themselves are pinned above (ARTICLE_SECTION_CORE test). A
-    // real, manually-run `npx tsx scripts/generate-rss-feeds.mjs` regenerated
-    // all 10 public/rss*.xml files against these edits with `git status`
-    // reporting zero diff — i.e. byte-identical output — confirmed
-    // separately from this test (see the PR/task equivalence evidence),
-    // since re-running the full generator here on every `npm test` would
-    // rewrite tracked files as a side effect of a unit test.
+    // The values themselves are pinned above (ARTICLE_SECTION_CORE test).
+    // Equivalence was confirmed separately when this logic moved: the module
+    // regenerated all 10 public/rss*.xml with `git status` reporting zero diff,
+    // and the articles repo's publisher — calling this same module with its own
+    // layout — produced those ten files byte-identical (`cmp`) to the site's.
+    // Not re-run here: the feeds are now pulled from the published API
+    // (scripts/pull-articles-api.mjs), and a unit test must not rewrite tracked
+    // files as a side effect.
   });
 
   it('scripts/schedule-fb-articles-daily.mjs SECTIONS carries the core fields unchanged', async () => {
