@@ -5016,6 +5016,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-besano-da-frontaliere-pro-e-contro': { name: 'Besano Frontaliere', path: '/articoli-frontaliere/besano-da-frontaliere-pro-e-contro', parent: 'blog' },
     'blog-ferrovia-record-viaggiatori-secondo-trimestre': { name: 'Ferrovia', path: '/articoli-svizzera/ferrovia-record-viaggiatori-secondo-trimestre/', parent: 'blog' },
     'blog-caso-karimova-multa-di-3-milioni': { name: 'Caso Karimova', path: '/articoli-frontaliere/caso-karimova-multa-di-3-milioni', parent: 'blog' },
+    'blog-trasporto-record-svizzero-2026': { name: 'Trasporto ferroviario in Svizzera', path: '/articoli-svizzera/trasporto-record-svizzero-2026/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

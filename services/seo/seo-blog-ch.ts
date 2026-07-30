@@ -22091,6 +22091,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-trasporto-record-svizzero-2026': {
+    title: 'Ferrovie svizzere in corsa: passeggeri e merci tornano a crescere',
+    description: 'Il trasporto ferroviario passeggeri in Svizzera ha raggiunto un nuovo record nel secondo trimestre. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, ferrovie, svizzere, corsa, passeggeri',
+    ogTitle: 'Ferrovie svizzere in corsa: passeggeri e merci tornano a crescere',
+    ogDescription: 'Il trasporto ferroviario passeggeri in Svizzera ha raggiunto un nuovo record nel secondo trimestre.',
+    canonicalPath: '/articoli-svizzera/trasporto-record-svizzero-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Ferrovie svizzere in corsa: passeggeri e merci tornano a crescere",
+      "description": "Il trasporto ferroviario passeggeri in Svizzera ha raggiunto un nuovo record nel secondo trimestre. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/trasporto-record-svizzero-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una scena di viaggio in treno in Svizzera"
+      },
+      "datePublished": "2026-07-30T10:37:44+00:00",
+      "dateModified": "2026-07-30T10:37:44+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/trasporto-record-svizzero-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
