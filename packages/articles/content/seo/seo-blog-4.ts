@@ -93,7 +93,7 @@ const BLOG_SEO_METADATA_4: Record<string, SEOMetadata> = {
  },
 
  'blog-com-aziende-lavoro-como': {
- title: 'Provincia di Como: 4 aziende e 2 | Frontaliere Ticino',
+ title: 'Provincia di Como: 4 aziende e 2 agenzie cercano lavoratori',
  description: 'Quattro aziende e due agenzie di Como cercano nuovi lavoratori. Scopri come candidarti e le scadenze, con dettagli su normative e procedure. Dati aggiornati',
  keywords: 'frontalieri, ticino, svizzera, italia, provincia, como, aziende, agenzie',
  ogTitle: 'Opportunità di lavoro in Como: aziende e agenzie cercano',
@@ -183,7 +183,7 @@ const BLOG_SEO_METADATA_4: Record<string, SEOMetadata> = {
  title: 'La Centovallina torna a circolare tra Camedo e Domodossola',
  description: 'Dal 19 marzo 2026, la tratta ferroviaria tra Camedo e Domodossola sarà riaperta e il servizio internazionale riprenderà normalmente. Dati aggiornati 2026 per',
  keywords: 'frontalieri, ticino, svizzera, italia, centovallina, torna, circolare, camedo',
- ogTitle: 'La Centovallina torna a circolare tra Camedo e Domodossola',
+ ogTitle: 'La Centovallina torna a circolare',
  ogDescription: 'Riapertura della Centovallina tra Camedo e Domodossola dal 19 marzo 2026',
  canonicalPath: '/articoli-frontaliere/centovallina-riapertura-treni/',
  structuredData: {
@@ -238,7 +238,7 @@ const BLOG_SEO_METADATA_4: Record<string, SEOMetadata> = {
  },
 
  'blog-spazi-verdi-in-citta-rilassamento': {
- title: 'Spazi verdi in città: un\'ancora di salvezza per il nostro',
+ title: 'Spazi verdi in città: un\'ancora di salvezza',
  description: 'La presenza di spazi verdi nelle aree urbane può aiutare a ridurre lo stress e migliorare la qualità della vita. Scopri come. Dati aggiornati 2026 per',
  keywords: 'frontalieri, ticino, svizzera, italia, spazi, verdi, città, ancora',
  ogTitle: 'Spazi verdi in città: un\'ancora di salvezza per il nostro',
@@ -1025,7 +1025,7 @@ const BLOG_SEO_METADATA_4: Record<string, SEOMetadata> = {
  title: 'Nomine alla SIMS annullate: il Consiglio di Stato si arrende',
  description: 'Il Tribunale amministrativo ha dichiarato illegittime le nomine dei direttori della SIMS. Il Consiglio di Stato ha deciso di non ricorrere al Tribunale federale',
  keywords: 'frontalieri, ticino, svizzera, italia, nomine, alla, sims, annullate',
- ogTitle: 'Nomine alla SIMS annullate: il Consiglio di Stato si arrende',
+ ogTitle: 'Nomine alla SIMS annullate: il Consiglio di Stato si arre',
  ogDescription: 'Il Tribunale amministrativo ha dichiarato illegittime le nomine dei direttori della SIMS. Il Consiglio di Stato ha deciso di non ricorrere al Tribunale federale',
  canonicalPath: '/articoli-frontaliere/nomine-annullate-sims-tram/',
  structuredData: {
@@ -1428,7 +1428,7 @@ const BLOG_SEO_METADATA_4: Record<string, SEOMetadata> = {
  },
 
  'blog-porrentruy-piscina-comunale-divieto': {
- title: 'Porrentruy potrà vietare l\'accesso alla piscina comunale ai',
+ title: 'Porrentruy potrà vietare l\'accesso alla piscina comunale',
  description: 'Il Consiglio comunale di Porrentruy ha approvato una modifica legale per autorizzare il Municipio a imporre restrizioni all\'accesso della piscina all\'aperto.',
  keywords: 'frontalieri, ticino, svizzera, italia, porrentruy, potrà, vietare, accesso',
  ogTitle: 'Porrentruy potrà vietare l\'accesso alla piscina comunale ai non residenti',
@@ -1486,10 +1486,10 @@ const BLOG_SEO_METADATA_4: Record<string, SEOMetadata> = {
  },
 
  'blog-ampliamento-parco-eolico-san-gottardo': {
- title: 'San Gottardo, verso l\'ampliamento del parco eolico: ecco',
+ title: 'San Gottardo, verso l\'ampliamento del parco eolico',
  description: 'Il parco eolico di San Gottardo potrebbe ampliarsi: ecco cosa significa per la regione del Ticino. Dati aggiornati 2026 per frontalieri in Ticino.',
  keywords: 'frontalieri, ticino, svizzera, italia, gottardo, verso, ampliamento, parco',
- ogTitle: 'San Gottardo, verso l\'ampliamento del parco eolico: ecco',
+ ogTitle: 'San Gottardo, verso l\'ampliamento del parco eolico',
  ogDescription: 'Il parco eolico di San Gottardo potrebbe ampliarsi: ecco cosa significa per la regione del Ticino.',
  canonicalPath: '/articoli-frontaliere/ampliamento-parco-eolico-san-gottardo/',
  structuredData: {
@@ -2023,7 +2023,7 @@ const BLOG_SEO_METADATA_4: Record<string, SEOMetadata> = {
  title: 'Divieto di smartphone nelle scuole del Ticino: nuove misure',
  description: 'A partire dal 30 marzo, il Ticino estende il divieto di smartphone a tutte le scuole dell\'obbligo per tutelare la salute dei giovani. Dati aggiornati 2026 per',
  keywords: 'frontalieri, ticino, svizzera, italia, divieto, smartphone, nelle, scuole',
- ogTitle: 'Divieto di smartphone nelle scuole del Ticino: nuove misure',
+ ogTitle: 'Divieto di smartphone nelle scuole del Ticino: nuove misu',
  ogDescription: 'A partire dal 30 marzo, il Ticino estende il divieto di smartphone a tutte le scuole dell\'obbligo per tutelare la salute dei giovani.',
  canonicalPath: '/articoli-frontaliere/divieto-smartphone-scuola-ticino/',
  structuredData: {
@@ -2342,7 +2342,7 @@ const BLOG_SEO_METADATA_4: Record<string, SEOMetadata> = {
  title: 'Quanto costerà l’aumento dell’IVA per le famiglie in Ticino',
  description: 'Un aumento dell’IVA al 9,6% graverebbe tra 300 e 1’400 franchi annui per le famiglie ticinesi, con impatti differenziati per reddito e composizione.',
  keywords: 'frontalieri, ticino, svizzera, italia, quanto, costerà, aumento, dell',
- ogTitle: 'Quanto costerà l’aumento dell’IVA per le famiglie in Ticino',
+ ogTitle: 'Quanto costerà l’aumento dell’IVA per le famiglie in Tici',
  ogDescription: 'Un aumento dell’IVA al 9,6% graverebbe tra 300 e 1’400 franchi annui per le famiglie ticinesi, con impatti differenziati per reddito e composizione.',
  canonicalPath: '/articoli-frontaliere/aumento-iva-costo-ticino-2026/',
  structuredData: {
@@ -3382,7 +3382,7 @@ const BLOG_SEO_METADATA_4: Record<string, SEOMetadata> = {
  },
 
  'blog-limite-popolazione-10-milioni-ticino': {
- title: 'Limitare la popolazione in Ticino a 10 | Frontaliere Ticino',
+ title: 'Limitare la popolazione in Ticino a 10 milioni: sfide',
  description: 'L\'iniziativa dell\'UDC mira a fissare un tetto di 10 milioni di abitanti in Svizzera entro il 2050, con ripercussioni dirette sul Canton Ticino e sui frontalieri',
  keywords: 'frontalieri, ticino, svizzera, italia, limitare, popolazione, milioni, sfide',
  ogTitle: 'Limitare la popolazione in Ticino a 10 milioni: sfide e o',
@@ -4313,7 +4313,7 @@ const BLOG_SEO_METADATA_4: Record<string, SEOMetadata> = {
  title: 'Tramonto a Cadenazzo: morto il vigilante travolto da un\'auto',
  description: 'Un incidente stradale a Cadenazzo ha causato la morte di un vigilante. Dati aggiornati 2026 per frontalieri in Ticino.',
  keywords: 'frontalieri, ticino, svizzera, italia, tramonto, cadenazzo, morto, vigilante',
- ogTitle: 'Tramonto a Cadenazzo: morto il vigilante travolto da un\'auto',
+ ogTitle: 'Tramonto a Cadenazzo: morto il vigilante',
  ogDescription: 'Un incidente stradale a Cadenazzo ha causato la morte di un vigilante',
  canonicalPath: '/articoli-frontaliere/tramonto-a-cadenazzo/',
  structuredData: {
@@ -5304,10 +5304,10 @@ const BLOG_SEO_METADATA_4: Record<string, SEOMetadata> = {
  },
 
  'blog-stop-agli-artigiani-per-caso': {
- title: 'Stop agli \'artigiani per caso\' in Lombardia: multe fino',
+ title: 'Stop agli \'artigiani per caso\' in Lombardia: multe',
  description: 'La Lombardia introduce nuove regole per gli artigiani: stop agli \'artigiani per caso\' e multe severe per chi utilizza impropriamente il termine \'artigianale\'.',
  keywords: 'frontalieri, ticino, svizzera, italia, stop, agli, artigiani, caso',
- ogTitle: 'Stop agli \'artigiani per caso\' in Lombardia: multe fino',
+ ogTitle: 'Stop agli \'artigiani per caso\' in Lombardia',
  ogDescription: 'La Lombardia introduce nuove regole per gli artigiani: stop agli \'artigiani per caso\' e multe severe per chi utilizza impropriamente il termine \'artigianale\'.',
  canonicalPath: '/articoli-frontaliere/stop-agli-artigiani-per-caso/',
  structuredData: {

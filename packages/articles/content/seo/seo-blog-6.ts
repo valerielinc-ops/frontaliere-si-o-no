@@ -819,7 +819,7 @@ const BLOG_SEO_METADATA_6: Record<string, SEOMetadata> = {
   },
 
   'blog-giovani-scomparsi-7-cantoni': {
-    title: 'In sette cantoni stanno scomparendo i giovani, anche',
+    title: 'In sette cantoni stanno scomparendo i giovani',
     description: 'Dal 2024, in sette cantoni, tra cui il Ticino, si registra un calo della popolazione under 65. Impatti su economia, previdenza e servizi pubblici.',
     keywords: 'frontalieri, ticino, svizzera, italia, sette, cantoni, stanno, scomparendo',
     ogTitle: 'Giovani in calo in 7 cantoni svizzeri: il caso Ticino',
@@ -2163,7 +2163,7 @@ const BLOG_SEO_METADATA_6: Record<string, SEOMetadata> = {
   },
 
   'blog-g-bewilligung-leitfaden-grenzgaenger-2026': {
-    title: 'Permesso G 2026: guida completa frontalieri | Frontaliere',
+    title: 'Permesso G 2026: guida completa per frontalieri',
     description: 'Guida operativa al Permesso G 2026: requisiti, richiesta, rinnovo, costi, rientro settimanale, telelavoro 25% e 45 giorni, imposta alla fonte in Ticino.',
     keywords: 'permesso g, frontalieri, ticino, 2026, rientro settimanale, 25 telelavoro, 45 giorni, imposta alla fonte, guida permesso g, permesso g vs permesso b',
     ogTitle: 'Permesso G 2026: la guida definitiva per frontalieri',
@@ -2193,7 +2193,7 @@ const BLOG_SEO_METADATA_6: Record<string, SEOMetadata> = {
   },
 
   'blog-quellensteuer-schweiz-2026-hub': {
-    title: 'Imposta alla fonte Svizzera 2026: confronto cantoni | Frontaliere',
+    title: 'Imposta alla fonte Svizzera 2026: confronto tra cantoni',
     description: 'Imposta alla fonte in Svizzera nel 2026: tariffe A/B/C/H, confronto cantoni TI/GR/VS/BE/ZH, soglia NOV 120.000 CHF e deduzioni pilastro 3a per frontalieri.',
     keywords: 'imposta alla fonte svizzera, quellensteuer 2026, confronto cantoni, nov 120000, pilastro 3a frontalieri, imposta fonte ticino grigioni vallese berna zurigo',
     ogTitle: 'Imposta alla fonte Svizzera 2026: dove pagare meno',
@@ -3039,7 +3039,7 @@ const BLOG_SEO_METADATA_6: Record<string, SEOMetadata> = {
   },
 
   'blog-crans-montana-fatture-cure-italiani-2026': {
-    title: 'Crans-Montana: le fatture delle cure ai | Frontaliere Ticino',
+    title: 'Crans-Montana: le fatture delle cure ai pazienti italiani',
     description: 'L\'Italia ribadisce che non pagherà le fatture delle cure per i pazienti italiani ricoverati in Svizzera dopo il rogo di Crans-Montana. Dati aggiornati 2026 per',
     keywords: 'frontalieri, ticino, svizzera, italia, crans-montana, fatture, cure, pazienti',
     ogTitle: 'Crans-Montana: fatture cure italiani | Frontaliere Ticino',
@@ -3291,10 +3291,10 @@ const BLOG_SEO_METADATA_6: Record<string, SEOMetadata> = {
   },
 
   'blog-immigrazione-svizzera-60-anni-2026': {
-    title: 'Immigrazione in Svizzera: 60 anni di dibattito e 20',
+    title: 'Immigrazione in Svizzera: 60 anni di | Frontaliere Ticino',
     description: 'Scopri come l\'immigrazione ha plasmato la Svizzera in 60 anni e le implicazioni per i frontalieri che lavorano in Ticino. Dati aggiornati 2026 per frontalieri',
     keywords: 'frontalieri, ticino, svizzera, italia, immigrazione, anni, dibattito, iniziative',
-    ogTitle: 'Immigrazione in Svizzera: 60 anni di dibattito e 20',
+    ogTitle: 'Immigrazione in Svizzera: 60 anni di dibattito',
     ogDescription: 'Scopri come l\'immigrazione ha plasmato la Svizzera in 60 anni e le implicazioni per i frontalieri che lavorano in Ticino.',
     canonicalPath: '/articoli-frontaliere/immigrazione-svizzera-60-anni-2026/',
     structuredData: {
@@ -4831,7 +4831,7 @@ const BLOG_SEO_METADATA_6: Record<string, SEOMetadata> = {
   },
 
   'blog-lavoratori-pensionati-ticino-2026': {
-    title: 'Lavoratori over 65: raddoppiati in 20 | Frontaliere Ticino',
+    title: 'Lavoratori over 65: raddoppiati in 20 anni | Frontaliere Ticino',
     description: 'Nel 2025, 220\'000 persone continuano a lavorare dopo i 65 anni, più del doppio rispetto al 2005. Ecco cosa cambia per i frontalieri. Dati aggiornati 2026 per',
     keywords: 'frontalieri, ticino, svizzera, italia, lavoratori, over, raddoppiati, anni',
     ogTitle: 'Lavoratori over 65: raddoppiati in 20 anni | Frontaliere',
@@ -5979,7 +5979,7 @@ const BLOG_SEO_METADATA_6: Record<string, SEOMetadata> = {
   },
 
   'blog-osservatori-traffico-lago-como-2026': {
-    title: 'Osservatori del traffico attivi anche | Frontaliere Ticino',
+    title: 'Osservatori del traffico attivi anche il sabato',
     description: 'Dal 2 maggio 2026, gli osservatori del traffico saranno attivi anche il sabato sulla Statale Regina tra Colonno e Ossuccio. Dati aggiornati 2026 per frontalieri',
     keywords: 'frontalieri, ticino, svizzera, italia, osservatori, traffico, attivi, anche',
     ogTitle: 'Osservatori traffico Lago di Como | Frontaliere Ticino',
@@ -6850,7 +6850,7 @@ const BLOG_SEO_METADATA_6: Record<string, SEOMetadata> = {
     title: 'Notifiche frontalieri Ticino: -16% nel 2025, ma controlli',
     description: 'Diminuiscono le notifiche irregolari per i frontalieri in Ticino, ma le autorità avvertono: non si può abbassare la guardia. Ecco i dati 2025. Dati aggiornati',
     keywords: 'frontalieri, ticino, svizzera, italia, notifiche, 2025, controlli, diminuiscono',
-    ogTitle: 'Notifiche frontalieri Ticino: -16% nel 2025, ma controlli',
+    ogTitle: 'Notifiche frontalieri Ticino: -16% nel 2025',
     ogDescription: 'Diminuiscono le notifiche irregolari per i frontalieri in Ticino, ma le autorità avvertono: non si può abbassare la guardia. Ecco i dati 2025.',
     canonicalPath: '/articoli-frontaliere/notifiche-frontalieri-ticino-2026/',
     structuredData: {

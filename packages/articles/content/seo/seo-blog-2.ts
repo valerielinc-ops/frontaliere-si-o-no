@@ -993,7 +993,7 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
  },
 
  'blog-nestle-bonus-lombardia-welfare': {
- title: 'Nestlé Italia premia i dipendenti: fino | Frontaliere Ticino',
+ title: 'Nestlé Italia premia i dipendenti: fino a 2.900€ di bonus',
  description: 'Scopri come il colosso svizzero Nestlé premia i dipendenti in Italia con bonus fino a 2.900€ e un sistema welfare. Analisi per i frontalieri che lavorano in',
  keywords: 'frontalieri, ticino, svizzera, italia, nestlé, premia, dipendenti, fino',
  ogTitle: 'Nestlé Italia: bonus e welfare, cosa significa per i',
@@ -1837,7 +1837,7 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
  title: 'Nessun prelievo AVS sulle mance: una svolta per i lavoratori',
  description: 'Scopri come l\'esenzione delle mance dai contributi sociali impatta i lavoratori in Ticino. Dati aggiornati 2026 per frontalieri in Ticino.',
  keywords: 'frontalieri, ticino, svizzera, italia, nessun, prelievo, sulle, mance',
- ogTitle: 'Nessun prelievo AVS sulle mance: una svolta per i lavoratori',
+ ogTitle: 'Nessun prelievo AVS sulle mance',
  ogDescription: 'Il Consiglio degli Stati approva l\'esenzione delle mance dai contributi sociali, una buona notizia per i lavoratori.',
  canonicalPath: '/articoli-frontaliere/nessun-prelievo-avs-sulle-mance/',
  structuredData: {
@@ -2212,7 +2212,7 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
  },
 
  'blog-kuhne-nagel-tagli-posti-ticino-2026': {
- title: 'Kühne+Nagel: oltre 2.000 posti a rischio e impatto anche',
+ title: 'Kühne+Nagel: oltre 2.000 posti a rischio e impatto',
  description: 'Kühne+Nagel annuncia tagli massicci con oltre 2000 posti a rischio. Cosa significa per il mercato del lavoro e i frontalieri in Ticino nel 2026. Dati aggiornati',
  keywords: 'frontalieri, ticino, svizzera, italia, kühne, nagel, oltre, posti',
  ogTitle: 'Kühne+Nagel taglia oltre 2000 posti: impatto Ticino',
@@ -2592,7 +2592,7 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
  title: 'Frontalieri negli atenei ticinesi: il caso delle università',
  description: 'Il sistema universitario ticinese è in crisi. Un rapporto di minoranza minaccia l\'approvazione dei contratti con USI e SUPSI. Dati aggiornati 2026 per',
  keywords: 'frontalieri, ticino, svizzera, italia, negli, atenei, ticinesi, caso',
- ogTitle: 'Frontalieri negli atenei ticinesi: il caso delle università',
+ ogTitle: 'Frontalieri negli atenei ticinesi',
  ogDescription: 'Il sistema universitario ticinese è in crisi. Un rapporto di minoranza minaccia l\'approvazione dei contratti con USI e SUPSI.',
  canonicalPath: '/articoli-frontaliere/universita-ticino-frontalieri/',
  structuredData: {
@@ -3259,7 +3259,7 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
  title: 'Problemi in rotaia tra Bellinzona e Lugano: disagi',
  description: 'Ritardi e soppressioni dei treni tra Bellinzona e Lugano, cause e soluzioni per i pendolari. Dati aggiornati 2026 per frontalieri in Ticino.',
  keywords: 'frontalieri, ticino, svizzera, italia, problemi, rotaia, bellinzona, lugano',
- ogTitle: 'Problemi in rotaia tra Bellinzona e Lugano: disagi',
+ ogTitle: 'Problemi in rotaia tra Bellinzona e Lugano',
  ogDescription: 'Disagi per i pendolari a causa di ritardi e soppressioni dei treni tra Bellinzona e Lugano.',
  canonicalPath: '/articoli-frontaliere/problemi-rotaia-bellinzona-lugano/',
  structuredData: {
@@ -3288,7 +3288,7 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
  title: 'Ticino e frontalieri: successo per il carpooling aziendale',
  description: 'Il progetto MomòRide, lanciato a Balerna, Chiasso e Novazzano, ha già registrato 100 utenti iscritti in un mese. Dati aggiornati 2026 per frontalieri in Ticino.',
  keywords: 'frontalieri, ticino, svizzera, italia, successo, carpooling, aziendale, premi',
- ogTitle: 'Ticino e frontalieri: successo per il carpooling aziendale',
+ ogTitle: 'Ticino e frontalieri: successo per il carpooling aziendal',
  ogDescription: 'Il progetto MomòRide, lanciato a Balerna, Chiasso e Novazzano, ha già registrato 100 utenti iscritti in un mese.',
  canonicalPath: '/articoli-frontaliere/carpooling-aziendale-ticino/',
  structuredData: {

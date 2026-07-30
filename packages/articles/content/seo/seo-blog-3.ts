@@ -417,7 +417,7 @@ const BLOG_SEO_METADATA_3: Record<string, SEOMetadata> = {
  title: 'Firmata la nascita del Parco del Vedeggio: il futuro verde',
  description: 'Cinque comuni del Ticino siglano l\'intesa per un parco pubblico tra Agno, Bioggio, Manno, Muzzano e Vezia. Progetti e investimenti in vista. Dati aggiornati',
  keywords: 'frontalieri, ticino, svizzera, italia, firmata, nascita, parco, vedeggio',
- ogTitle: 'Firmata la nascita del Parco del Vedeggio: il futuro verde',
+ ogTitle: 'Firmata la nascita del Parco del Vedeggio: il futuro verd',
  ogDescription: 'Cinque comuni del Ticino siglano l\'intesa per un parco pubblico tra Agno, Bioggio, Manno, Muzzano e Vezia. Progetti e investimenti in vista.',
  canonicalPath: '/articoli-frontaliere/parco-vedeggio-comuni-firman/',
  structuredData: {
@@ -443,7 +443,7 @@ const BLOG_SEO_METADATA_3: Record<string, SEOMetadata> = {
  },
 
  'blog-stop-export-materiale-bellico': {
- title: 'Ticino sospende esportazioni di materiale bellico verso',
+ title: 'Ticino sospende esportazioni di materiale bellico',
  description: 'Il Consiglio federale svizzero decide di bloccare le esportazioni di armamenti verso gli Stati Uniti, in risposta alla crisi in Medio Oriente e alle recenti ten',
  keywords: 'frontalieri, ticino, svizzera, italia, sospende, esportazioni, materiale, bellico',
  ogTitle: 'Ticino sospende esportazioni di materiale bellico verso g',
@@ -1000,7 +1000,7 @@ const BLOG_SEO_METADATA_3: Record<string, SEOMetadata> = {
  title: 'Domeniche senza auto in Svizzera: il Ticino verso una nuova',
  description: 'Martine Docourt rilancia a livello federale le domeniche senza automobili dopo il no di Neuchâtel. Cosa significa per il Ticino e i frontalieri. Dati aggiornati',
  keywords: 'frontalieri, ticino, svizzera, italia, domeniche, senza, auto, verso',
- ogTitle: 'Domeniche senza auto in Svizzera: il Ticino verso una nuova',
+ ogTitle: 'Domeniche senza auto in Svizzera: il Ticino verso una nuo',
  ogDescription: 'Martine Docourt rilancia a livello federale le domeniche senza automobili dopo il no di Neuchâtel. Cosa significa per il Ticino e i frontalieri.',
  canonicalPath: '/articoli-frontaliere/domeniche-senza-auto-ticino-2026/',
  structuredData: {
@@ -1790,7 +1790,7 @@ const BLOG_SEO_METADATA_3: Record<string, SEOMetadata> = {
  title: 'Colpo di stiletto / "Eurospin" di Luino, occhio al cambio…',
  description: 'Tassi di cambio instabili e mercato finanziario in agitazione. Il "Eurospin" di Luino, un nuovo strumento per gestire i rischi del cambio. Dati aggiornati 2026',
  keywords: 'frontalieri, ticino, svizzera, italia, colpo, stiletto, eurospin, luino',
- ogTitle: 'Colpo di stiletto / "Eurospin" di Luino, occhio al cambio…',
+ ogTitle: 'Colpo di stiletto / "Eurospin" di Luino, occhio al cambio',
  ogDescription: 'Tassi di cambio instabili e mercato finanziario in agitazione. Il "Eurospin" di Luino, un nuovo strumento per gestire i rischi del cambio.',
  canonicalPath: '/articoli-frontaliere/eurospin-luino-occhio-al-cambio/',
  structuredData: {

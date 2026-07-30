@@ -70,8 +70,31 @@ function truncateAtWordBoundary(text, maxLen) {
  * are excluded to avoid rewriting titles that are already fine.
  */
 const CONNECTIVES =
-  'per|con|di|da|in|su|tra|fra|e|ed|a|ad|il|la|lo|i|gli|le|un|una|uno|del|della|dei|degli|delle|al|alla|agli|alle|dal|dalla|nel|nella|sul|sulla|che|come|dove|non|ma|se|si|ha|hanno';
+  'per|con|di|da|in|su|tra|fra|e|ed|a|ad|ai|il|la|lo|i|gli|le|un|una|uno|del|della|dei|degli|delle|al|alla|agli|alle|dal|dalla|nel|nella|sul|sulla|che|come|dove|non|ma|se|si|ha|hanno|' +
+  // Second pass (review of the first): words that end a fragment just as badly
+  // as a preposition but are none of the above — "…comunale ai", "…multe fino",
+  // "…parco eolico: ecco", "…dibattito e 20". A bare number is the same case.
+  'fino|verso|ecco|anche|nostro|nostra|nostri|nostre|suo|sua|suoi|sue|questo|questa|questi|queste';
+
+// A bare trailing number is NOT a cut — "…si riprende nel 2026" is a complete
+// title, and treating digits as a connective threw those away. What IS a cut is
+// a connective followed by a number the phrase never finishes: "…dibattito e 20".
+const CONNECTIVE_NUMBER_TAIL = /\b(?:e|ed|di|a|ad|con|per|da|in|su|tra|fra)\s+\d+\s*$/i;
 const TRUNCATED_RX = new RegExp(`\\b(${CONNECTIVES})\\s*\\|\\s*Frontaliere Ticino\\s*$`, 'i');
+
+/**
+ * A second, distinct signature: the BRAND itself was cut, so the title ends in
+ * "| Frontaliere" or a bare "|" instead of "| Frontaliere Ticino". Invisible to
+ * TRUNCATED_RX, which requires the full brand before the connective — these
+ * were missed entirely by the first pass (2 titles, ~40 ogTitle).
+ */
+const CUT_BRAND_RX = /\|\s*(?:Frontaliere)?\s*$/;
+
+/** Any recognisable mid-phrase ending, whichever shape it takes. */
+const isCut = (s) => {
+  const core = String(s).replace(/\s*\|\s*Frontaliere(?:\s+Ticino)?\s*$/i, '');
+  return TRUNCATED_RX.test(s) || CUT_BRAND_RX.test(s) || CONNECTIVE_NUMBER_TAIL.test(core);
+};
 
 /**
  * Trailing connectives left by a word-boundary cut ("… il campetto di Como tra")
@@ -130,17 +153,32 @@ for (const file of fs.readdirSync(SEO_DIR).filter((f) => /^seo-blog.*\.ts$/.test
     scanned++;
 
     const currentTitle = unescapeSingle(titleM[1]);
-    if (!TRUNCATED_RX.test(currentTitle)) continue;
+    if (!isCut(currentTitle)) continue;
 
     // The entry key is `blog-<id>`; the meta chunk is keyed by the bare id.
-    const full = metaTitles.get(starts[k].id);
+    // Hub/landing entries (g-bewilligung-…, quellensteuer-…) have no article in
+    // the meta chunk at all, but their own ogTitle is a complete phrase — use it
+    // rather than leaving a "| Frontaliere" title in place for want of a source.
+    let full = metaTitles.get(starts[k].id);
+    if (!full) {
+      const og = block.match(/ogTitle:\s*'((?:[^'\\]|\\.)*)'/);
+      const candidateOg = og ? unescapeSingle(og[1]).trim() : '';
+      if (candidateOg && !isCut(candidateOg)) full = candidateOg;
+    }
     if (!full) {
       skipped++;
       continue;
     }
 
     // Only act when the editorial title actually carries more than the title tag.
-    const currentCore = currentTitle.replace(/\s*\|\s*Frontaliere Ticino\s*$/i, '').trim();
+    // Strip the brand in whatever state it is in — including the cut forms
+    // ("| Frontaliere", a bare "|"). Matching only the full brand left the
+    // fragment inside `currentCore`, which then measured LONGER than the real
+    // title and made the entry look unimprovable.
+    const currentCore = currentTitle
+      .replace(/\s*\|\s*Frontaliere(?:\s+Ticino)?\s*$/i, '')
+      .replace(/\s*\|\s*$/, '')
+      .trim();
     if (full.length <= currentCore.length) {
       skipped++;
       continue;
@@ -154,7 +192,7 @@ for (const file of fs.readdirSync(SEO_DIR).filter((f) => /^seo-blog.*\.ts$/.test
 
     // A rebuild that is itself cut mid-phrase, or that recovers nothing, is not
     // an improvement — leave the entry alone rather than churn it.
-    if (TRUNCATED_RX.test(newTitle) || newTitle.length <= currentCore.length) {
+    if (isCut(newTitle) || newTitle.length <= currentCore.length) {
       skipped++;
       continue;
     }
@@ -165,11 +203,14 @@ for (const file of fs.readdirSync(SEO_DIR).filter((f) => /^seo-blog.*\.ts$/.test
     const ogM = newBlock.match(/ogTitle:\s*'((?:[^'\\]|\\.)*)'/);
     if (ogM) {
       const og = unescapeSingle(ogM[1]);
-      if (full.startsWith(og) && full.length > og.length) {
-        const newOg = dropDanglingConnective(truncateAtWordBoundary(full, 60));
-        if (newOg.length > og.length) {
-          newBlock = newBlock.replace(ogM[0], `ogTitle: '${escapeSingle(newOg)}'`);
-        }
+      const newOg = dropDanglingConnective(truncateAtWordBoundary(full, 60));
+      // Length alone is the wrong test, and the first pass proved it: an
+      // ogTitle that was already a COMPLETE phrase ("…60 anni di dibattito")
+      // got replaced by a longer but truncated one ("…dibattito e 20"). Only
+      // rewrite when the current value is itself cut, and only for something
+      // that is not.
+      if (full.startsWith(og) && newOg.length > og.length && isCut(og) && !isCut(newOg)) {
+        newBlock = newBlock.replace(ogM[0], `ogTitle: '${escapeSingle(newOg)}'`);
       }
     }
 
