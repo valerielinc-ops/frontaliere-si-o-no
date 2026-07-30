@@ -14,7 +14,9 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-expect-error — plain JS Worker module, no type declarations.
-import worker from '../infra/cloudflare-worker/locale-router.js';
+import worker, { EDGE_PUSHED_FILES } from '../infra/cloudflare-worker/locale-router.js';
+import { readFileSync } from 'node:fs';
+import path from 'node:path';
 
 const APEX = 'https://frontaliereticino.ch';
 const ctx = { waitUntil: () => {} } as unknown as ExecutionContext;
@@ -101,6 +103,72 @@ describe('locale-router pushable-origin edge files (#4881)', () => {
 
     expect(res.status).toBe(200);
     expect(await res.text()).toBe('origin-served-on-5xx');
+  });
+});
+
+/**
+ * /sitemap-blog.xml (#4974). Registered for CORRECTNESS, not freshness: the
+ * apex passthrough origin was serving this file stripped of all 15225 hreflang
+ * alternates while the committed copy had them, and its already-registered
+ * sibling /sitemap-blog-ch.xml was byte-identical live. Whatever drops them
+ * lives downstream of what this repo commits; the edge origin bypasses it.
+ *
+ * Both files must therefore stay registered — dropping either one from the
+ * table silently returns that sitemap to the origin that mangles it, with no
+ * failing build and no error anywhere. Only the index would notice.
+ */
+describe('locale-router serves the frontaliere article sitemap from the edge origin (#4974)', () => {
+  it('serves the R2 copy when the R2 fetch is a 200', async () => {
+    mockFetch({
+      edgeStatus: 200,
+      edgeBody: '<urlset><url><xhtml:link rel="alternate" /></url></urlset>',
+      originStatus: 200,
+      originBody: 'origin-copy-without-alternates',
+    });
+
+    const res = await worker.fetch(new Request(`${APEX}/sitemap-blog.xml`), {}, ctx);
+
+    expect(res.status).toBe(200);
+    expect(await res.text()).toContain('xhtml:link');
+    expect(res.headers.get('Content-Type')).toBe('application/xml; charset=utf-8');
+  });
+
+  it('falls open to the origin passthrough when the R2 object is missing (404)', async () => {
+    mockFetch({ edgeStatus: 404, originStatus: 200, originBody: 'origin-served' });
+
+    const res = await worker.fetch(new Request(`${APEX}/sitemap-blog.xml`), {}, ctx);
+
+    expect(res.status).toBe(200);
+    expect(await res.text()).toBe('origin-served');
+  });
+
+  it('keeps EVERY apex sitemap registered, each with a wrangler route', () => {
+    // All four measured to lose their alternates on the passthrough origin
+    // (blog 15230→0, glossario 210→0, news 50→0) or already proven correct here
+    // (-ch, byte-identical live). Dropping any one of them silently returns
+    // that sitemap to the origin that strips them.
+    for (const pathname of [
+      '/sitemap-blog.xml',
+      '/sitemap-blog-ch.xml',
+      '/sitemap-glossario.xml',
+      '/sitemap-news.xml',
+    ]) {
+      expect(
+        EDGE_PUSHED_FILES[pathname],
+        `${pathname} must stay in EDGE_PUSHED_FILES — without it the file falls back ` +
+          `to the apex origin, which serves it without hreflang alternates`,
+      ).toBeTruthy();
+
+      const toml = readFileSync(
+        path.resolve(__dirname, '..', 'infra', 'cloudflare-worker', 'wrangler.toml'),
+        'utf-8',
+      );
+      expect(
+        toml,
+        `${pathname} is registered in EDGE_PUSHED_FILES but has no wrangler route — ` +
+          `the Worker would never see the request`,
+      ).toContain(`frontaliereticino.ch${pathname}"`);
+    }
   });
 });
 
