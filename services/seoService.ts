@@ -5015,6 +5015,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-franco-svizzero-tornano-le-pressioni-al-rialzo': { name: 'Franco svizzero', path: '/articoli-frontaliere/franco-svizzero-tornano-le-pressioni-al-rialzo', parent: 'blog' },
     'blog-besano-da-frontaliere-pro-e-contro': { name: 'Besano Frontaliere', path: '/articoli-frontaliere/besano-da-frontaliere-pro-e-contro', parent: 'blog' },
     'blog-ferrovia-record-viaggiatori-secondo-trimestre': { name: 'Ferrovia', path: '/articoli-svizzera/ferrovia-record-viaggiatori-secondo-trimestre/', parent: 'blog' },
+    'blog-caso-karimova-multa-di-3-milioni': { name: 'Caso Karimova', path: '/articoli-frontaliere/caso-karimova-multa-di-3-milioni', parent: 'blog' },
  };
 
  const info = sectionNames[section];

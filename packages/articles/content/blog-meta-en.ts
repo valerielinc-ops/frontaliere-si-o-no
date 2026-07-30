@@ -9145,6 +9145,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.besano-da-frontaliere-pro-e-contro.title': 'Living in Besano as a border worker: a guide for pros and cons',
     'blog.article.besano-da-frontaliere-pro-e-contro.excerpt': 'Practical analysis on travel times, taxation with the new agreement, advantages and disadvantages of choosing Besano for those who work in Ticino.',
     'blog.article.besano-da-frontaliere-pro-e-contro.imageAlt': 'View of Besano overlooking the border area toward Switzerland',
+    'blog.article.caso-karimova-multa-di-3-milioni.title': 'Lombard Odier sentenced to CHF 3 million',
+    'blog.article.caso-karimova-multa-di-3-milioni.excerpt': 'The Federal Criminal Court has sentenced the Geneva-based private bank Lombard Odier to a fine of 3 million francs in the Karimova case.',
+    'blog.article.caso-karimova-multa-di-3-milioni.imageAlt': 'A bank in Lugano with the Monte San Salvatore in the background',
 };
 
 export default blogMetaEn;

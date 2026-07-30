@@ -27453,6 +27453,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'caso-karimova-multa-di-3-milioni',
+ category: 'fiscale',
+ date: '2026-07-30T10:23:52.236Z',
+ image: '/images/blog/caso-karimova-multa-di-3-milioni.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
