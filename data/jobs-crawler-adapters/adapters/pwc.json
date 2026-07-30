@@ -11,8 +11,20 @@
     "https://ohws.prospective.ch/public/v1/medium/1000311/jobs?lang=en&offset=0&limit=500"
   ],
   "notes": "Dedicated PwC Switzerland crawler. Uses Prospective.ch API (medium 1000311). Full job data in API response, no detail page fetching needed. Crawls ALL jobs; canton filter in frontend handles geographic filtering.",
-  "updatedAt": "2026-07-29T22:15:32.040Z",
+  "updatedAt": "2026-07-30T11:28:09.373Z",
   "seedMetaByUrl": {
+    "https://jobs.pwc.ch/job-vacancies/associate-karriereeinstieg-steuerberatung/5087c5ba-d24a-4498-83b3-49c41cd557bd": {
+      "location": "Luzern",
+      "canton": "LU",
+      "company": "PwC Switzerland",
+      "postedDate": "2026-07-30"
+    },
+    "https://jobs.pwc.ch/job-vacancies/senior-manager-enterprise-ai-solutions-fde-innovation/a5c92c58-5b4a-4f88-a001-e272c114f229": {
+      "location": "Zurich",
+      "canton": "ZH",
+      "company": "PwC Switzerland",
+      "postedDate": "2026-07-29"
+    },
     "https://jobs.pwc.ch/job-vacancies/senior-manager-quality-management/34b6355d-9546-4f52-987b-bb904ae758d8": {
       "location": "Zürich",
       "canton": "ZH",
@@ -96,12 +108,6 @@
       "canton": "ZH",
       "company": "PwC Switzerland",
       "postedDate": "2026-07-02"
-    },
-    "https://jobs.pwc.ch/job-vacancies/senior-manager-enterprise-ai-solutions-fde-innovation/27fa7c7f-868d-433e-9672-45b96265c7cd": {
-      "location": "Zurich",
-      "canton": "ZH",
-      "company": "PwC Switzerland",
-      "postedDate": "2026-07-01"
     },
     "https://jobs.pwc.ch/job-vacancies/manager-corporate-tax/2d76ba02-4a29-47fe-baaa-47c275b020b5": {
       "location": "Zug",
@@ -270,12 +276,6 @@
       "canton": "ZH",
       "company": "PwC Switzerland",
       "postedDate": "2026-05-21"
-    },
-    "https://jobs.pwc.ch/job-vacancies/associate-karriereeinstieg-steuerberatung/f7b3795a-df9f-42d9-8aaa-9768c841cf85": {
-      "location": "Zug",
-      "canton": "ZG",
-      "company": "PwC Switzerland",
-      "postedDate": "2026-05-15"
     },
     "https://jobs.pwc.ch/job-vacancies/sachbearbeiter-rechnungswesen-mit-fokus-fuer-eingeschraenkte-revisionen/6ce31ba8-b693-4cf2-a9ea-c2c4835aef87": {
       "location": "Zug",
