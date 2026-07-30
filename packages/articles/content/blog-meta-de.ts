@@ -9144,6 +9144,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.besano-da-frontaliere-pro-e-contro.title': 'Leben in Besano als Grenzgänger: Leitfaden für Vor- und Nachteile',
     'blog.article.besano-da-frontaliere-pro-e-contro.excerpt': 'Praktische Analyse der Reisezeiten, Steuern mit dem neuen Abkommen, Vor- und Nachteile der Wahl von Besano für diejenigen, die im Tessin arbeiten.',
     'blog.article.besano-da-frontaliere-pro-e-contro.imageAlt': 'Ansicht von Besano mit Blick auf die Grenzregion in Richtung Schweiz',
+    'blog.article.caso-karimova-multa-di-3-milioni.title': 'Lombard Odier zu 3 Millionen Franken verurteilt',
+    'blog.article.caso-karimova-multa-di-3-milioni.excerpt': 'Das Bundesstrafgericht hat die Genfer Privatbank Lombard Odier im Fall Karimova zu einer Geldstrafe von 3 Millionen Franken verurteilt.',
+    'blog.article.caso-karimova-multa-di-3-milioni.imageAlt': 'Eine Bank in Lugano mit dem Monte San Salvatore im Hintergrund',
 };
 
 export default blogMetaDe;
