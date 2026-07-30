@@ -1702,6 +1702,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.cern-progetto-19-miliardi.title': 'CERN: Wird es die fragmentierte Welt überleben?',
     'blog.article.cern-progetto-19-miliardi.excerpt': 'Das CERN bereitet sich darauf vor, mit dem Projekt Future Circular Collider (FCC) ein neues Kapitel seiner Geschichte zu schreiben, aber die Finanzierung bleibt eine Herausforderung',
     'blog.article.cern-progetto-19-miliardi.imageAlt': 'Das CERN in Genf, Zentrum für Forschung an elementaren Teilchen',
+    'blog.article.frontalieri-it-svizzera-sede-datore-2026.title': 'Arbeit und Sitz: Das Finanzamt klärt die Regeln',
+    'blog.article.frontalieri-it-svizzera-sede-datore-2026.excerpt': 'Die Schweiz erhebt eine Quellensteuer, die auf 80% der ordentlichen Steuer reduziert ist. Die Überwachung des Smart Workings wird durch die Obergrenze von 25% der Gesamtarbeitszeit geregelt.',
+    'blog.article.frontalieri-it-svizzera-sede-datore-2026.imageAlt': 'Frontalieri in der Schweiz, die in Italien arbeiten und in der Schweiz wohnen',
 };
 
 export default blogMetaChDe;

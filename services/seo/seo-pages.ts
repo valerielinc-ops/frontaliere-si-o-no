@@ -4759,7 +4759,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 3629,
+ "numberOfItems": 3630,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026/` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024/` },
@@ -8389,7 +8389,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 3626, "name": "14 milioni ai territori di confine: fondi per f...", "url": `${BASE_URL}/articoli-frontaliere/fondi-frontalieri-varesotto-14-milioni` },
           { "@type": "ListItem", "position": 3627, "name": "Beko Cassinetta, dal tavolo in Provincia emerge...", "url": `${BASE_URL}/articoli-frontaliere/beko-cassinetta-preoccupazione-sindacati` },
           { "@type": "ListItem", "position": 3628, "name": "CERN: sopravviverà al mondo frammentato?", "url": `${BASE_URL}/articoli-frontaliere/cern-progetto-19-miliardi` },
-          { "@type": "ListItem", "position": 3629, "name": "Frontalieri: conta dove lavori, non la sede azi...", "url": `${BASE_URL}/articoli-frontaliere/sede-legale-datore-frontalieri` }
+          { "@type": "ListItem", "position": 3629, "name": "Frontalieri: conta dove lavori, non la sede azi...", "url": `${BASE_URL}/articoli-frontaliere/sede-legale-datore-frontalieri` },
+          { "@type": "ListItem", "position": 3630, "name": "Lavoro e sede: il Fisco chiarisce le regole", "url": `${BASE_URL}/articoli-frontaliere/frontalieri-it-svizzera-sede-datore-2026` }
  ]
  },
  {
