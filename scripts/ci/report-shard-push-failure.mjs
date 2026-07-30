@@ -42,7 +42,10 @@ export function buildFailureIssue({ locale, shards, runUrl }) {
       '',
       list,
       '',
-      runUrl ? `Run: ${runUrl}` : '',
+      // null, not '': the filter below drops only the absent run line. Dropping
+      // every empty string would strip the blank lines markdown needs, and the
+      // bullet list would swallow the paragraph after it.
+      runUrl ? `Run: ${runUrl}` : null,
       '',
       '### Conseguenza',
       'Il sottoalbero resta in `dist/` (nessun 404), ma lo shard continua a servire',
@@ -64,7 +67,7 @@ export function buildFailureIssue({ locale, shards, runUrl }) {
       '',
       '_Filed automatically by deploy.yml (section shard push step)._',
     ]
-      .filter((l) => l !== '')
+      .filter((l) => l !== null)
       .join('\n'),
   };
 }

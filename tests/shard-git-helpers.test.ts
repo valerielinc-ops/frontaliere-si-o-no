@@ -292,6 +292,34 @@ describe('shard-git-helpers.sh (runtime, temp git fixtures)', () => {
       expect(out).toContain('RC=1');
     }, 25_000);
 
+    it('still retries and reaches the fallback when called BARE under an active set -e', () => {
+      // The retry loop's push is a bare command whose status is read with $?,
+      // not an `if` condition, so errexit would abort the caller's subshell on
+      // attempt 1 if the push were not in an OR list — zero retries, no
+      // fallback, no return value. No caller is exposed today (the pushers use
+      // `if`; compact-article-shard-history.sh's `( set -e … ) || rc=$?`
+      // suppresses errexit throughout the subshell), which is exactly why this
+      // needs pinning: the shape is one refactor away from live.
+      const stage = stageWithCommit('errexit-stage');
+      // errexit ACTIVE around the bare call — push-section-shard.sh's subshell
+      // shape, the one where it is not suppressed.
+      // NOTE the `;` — a subshell placed inside an AND-OR list (`( … ) || x`)
+      // has errexit suppressed throughout, so that spelling would assert
+      // nothing. Standalone subshell + `$?` afterwards keeps errexit live.
+      const out = execSync(
+        `env -u GITHUB_PAT -u SHARD_PUSH_PAT bash -c 'source "${HELPERS}"; ` +
+          `( set -e; SHARD_PUSH_RETRY_DELAY=0 shard_push_with_retry "${stage}" "/nonexistent/repo.git" main errexit-label ); ` +
+          `echo "RC=$?"' 2>/dev/null`,
+        { encoding: 'utf8', stdio: ['pipe', 'pipe', 'pipe'], timeout: 20_000 },
+      );
+      // Every retry must have run before the failure propagated — the bug this
+      // pins is the FIRST push aborting the subshell with zero retries.
+      expect(out).toMatch(/push attempt 1\/3 failed/);
+      expect(out).toMatch(/push attempt 2\/3 failed/);
+      expect(out).toMatch(/no SHARD_PUSH_PAT\/GITHUB_PAT/); // fallback still reached
+      expect(out).toContain('RC=1');
+    }, 25_000);
+
     it('declines the fallback (instead of guessing) when the remote is not a github.com URL', () => {
       const bare = rejectingRemote(
         'nonhub-reject-remote',

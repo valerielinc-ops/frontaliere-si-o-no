@@ -125,10 +125,12 @@ shard_pat_push() {
   # stderr (where git writes the whole push transcript) is captured for
   # scrubbing, then re-emitted on stderr — NOT folded into stdout, so this
   # function does not change which stream a caller reads the transcript from.
+  # `|| rc=$?` for the same errexit reason as in shard_push_with_retry: this
+  # runs under `set -e` whenever the caller chain is bare.
+  rc=0
   # shellcheck disable=SC2086  # deliberate: empty $force_flag must vanish
   git -C "$dir" -c credential.helper= -c "credential.helper=$_SHARD_CRED_HELPER" \
-    push $force_flag "$url" "$refspec" 2>"$out"
-  rc=$?
+    push $force_flag "$url" "$refspec" 2>"$out" || rc=$?
   sed "s|$SHARD_PUSH_TOKEN|***|g" "$out" >&2
   rm -f "$out"
   unset SHARD_PUSH_TOKEN
@@ -154,8 +156,20 @@ shard_push_with_retry() {
   for try in 1 2 3; do
     # Capture stderr to classify the failure, then put it back on stderr — see
     # the same note in shard_pat_push about not moving it to stdout.
-    git -C "$dir" push -f "$repo" "$refspec" 2>"$out"
-    rc=$?
+    #
+    # `|| rc=$?` is not decorative. The previous shape was `if git push; then`,
+    # where the condition context suspended errexit for the push. A BARE failing
+    # command does not get that, so under `set -e` it would abort the caller's
+    # subshell on attempt 1 — no retries, no fallback, no return value to
+    # inspect. Today every caller happens to be safe (the pushers call this from
+    # an `if`; compact-article-shard-history.sh calls it bare but from a
+    # `( set -e … ) || rc=$?` subshell, and a subshell inside an AND-OR list has
+    # errexit suppressed throughout). That safety is one refactor away from
+    # gone — dropping compact's `|| rc=$?` would give it push-section-shard.sh's
+    # bare-subshell shape, where errexit IS live. The OR list makes this
+    # call-context independent instead of accidentally fine.
+    rc=0
+    git -C "$dir" push -f "$repo" "$refspec" 2>"$out" || rc=$?
     cat "$out" >&2
     if [ "$rc" -eq 0 ]; then
       rm -f "$out"
