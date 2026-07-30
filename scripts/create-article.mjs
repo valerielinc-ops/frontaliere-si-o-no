@@ -6124,6 +6124,37 @@ function validate(data, opts = {}) {
     throw err;
   }
 
+  // The prompt shows the id field as `"id": "kebab-case-3-5-words-max-40-chars"`,
+  // and models sometimes echo that placeholder instead of replacing it — either
+  // verbatim, or with the `kebab-case-` prefix glued onto a real slug. Four of
+  // them reached production as permanent public URLs before this guard existed:
+  //   /articoli-frontaliere/kebab-case-3-5-words-max-40-chars/
+  //   /articoli-frontaliere/kebab-case-turismo-ticino/
+  //   /articoli-frontaliere/kebab-case-ticino-nubifragio-grigioni/
+  //   /articoli-frontaliere/kebab-case-rossi-bruxelles-ticino/
+  // The articles themselves are fine — correct titles, real content — so the
+  // damage is confined to the URL, which is exactly the part that cannot be
+  // fixed later without a redirect and a ranking reset.
+  //
+  // Stripped rather than rejected: the leak is in the id only, and the title is
+  // right there to derive a clean one from. Failing the whole generation would
+  // throw away a good article over a prefix.
+  const PROMPT_ID_LEAK_RX = /^kebab[-_]?case[-_]?/i;
+  if (data.id && PROMPT_ID_LEAK_RX.test(data.id)) {
+    const stripped = data.id.replace(PROMPT_ID_LEAK_RX, '');
+    // The verbatim placeholder leaves nothing usable behind ("3-5-words-max-40-chars"),
+    // so prefer the title whenever the remainder looks like the schema hint.
+    const looksLikeHint = !stripped || /^\d+-\d+-words|max-\d+-chars/i.test(stripped);
+    const recovered = looksLikeHint ? slugifySlugPart(itContent.title) : stripped;
+    if (!recovered) {
+      const err = new Error(`id contiene il placeholder del prompt ("${data.id}") e non è ricostruibile dal titolo "${itContent.title}"`);
+      err.qualityReject = true;
+      throw err;
+    }
+    console.error(`⚠️  id conteneva il placeholder del prompt ("${data.id}") — corretto in "${recovered}"`);
+    data.id = recovered;
+  }
+
   // Synthesize id from the Italian title if the model omitted it.
   if (!data.id) {
     const generatedId = slugifySlugPart(itContent.title);
@@ -6327,7 +6358,17 @@ function validate(data, opts = {}) {
         .replace(/[^a-z0-9-]/g, '-')
         .replace(/-+/g, '-')
         .replace(/^-|-$/g, '')
+        // Same prompt-placeholder leak the id is guarded against above: the
+        // schema shown to the model spells the id as
+        // "kebab-case-3-5-words-max-40-chars", and a model that echoes it into
+        // the id tends to echo it here too. The IT slug is safe by construction
+        // (assigned from the already-cleaned id); these three are not.
+        .replace(/^kebab-case-/, '')
         .slice(0, 80);
+      // Fall back to the IT slug rather than ship an empty one: an empty slug
+      // routes to the section hub, silently making the article unreachable at
+      // its own URL.
+      if (!data.slugs[locale]) data.slugs[locale] = data.slugs.it;
       if (data.slugs[locale] !== original) {
         console.warn(`  ⚠️  Slug ${locale} sanitizzato: "${original}" → "${data.slugs[locale]}"`);
       }
