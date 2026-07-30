@@ -1,6 +1,6 @@
 {
   "crawlerKey": "spital-thusis",
-  "assembledAt": "2026-07-30T10:55:24.256Z",
+  "assembledAt": "2026-07-30T11:34:22.689Z",
   "jobs": [
     {
       "id": "spital-thusis-f0cec9bc194e",
@@ -33,7 +33,7 @@
       "url": "https://www.spitalthusis.ch/karriere-jobs/offene-stellen/Radiologiefachperson-Pensum-flexibel-/",
       "source": "Spital Thusis Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T11:52:11.809Z",
+      "crawledAt": "2026-07-30T11:34:19.526Z",
       "addressLocality": "Thusis",
       "postalCode": "7430",
       "streetAddress": "Alte Strasse 31",
@@ -84,6 +84,7 @@
         ]
       },
       "firstSeenAt": "2026-07-08T22:24:34.057Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -129,7 +130,7 @@
       "url": "https://www.spitalthusis.ch/karriere-jobs/offene-stellen/Assistenzaerztin-arzt-Chirurgie-80-100-/",
       "source": "Spital Thusis Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T11:52:09.619Z",
+      "crawledAt": "2026-07-30T11:34:18.799Z",
       "addressLocality": "Thusis",
       "postalCode": "7430",
       "streetAddress": "Alte Strasse 31",
@@ -177,6 +178,7 @@
         ]
       },
       "firstSeenAt": "2026-07-08T22:24:32.297Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -190,6 +192,85 @@
         }
       },
       "addressRegion": "GR"
+    },
+    {
+      "id": "spital-thusis-019d27091b06",
+      "slug": "assistenzarztin-arzt-innere-medizin-100-spital-thusis-ch",
+      "slugByLocale": {
+        "de": "assistenzarztin-arzt-innere-medizin-100-spital-thusis-ch",
+        "it": "assistenzarztin-arzt-innere-medizin-100-spital-thusis-ch",
+        "en": "assistenzarztin-arzt-innere-medizin-100-spital-thusis-ch",
+        "fr": "assistenzarztin-arzt-innere-medizin-100-spital-thusis-ch"
+      },
+      "company": "Spital Thusis",
+      "companyKey": "spital-thusis",
+      "companyDomain": "spitalthusis.ch",
+      "title": "Assistenzärztin/-arzt Innere Medizin 100%",
+      "titleByLocale": {
+        "de": "Assistenzärztin/-arzt Innere Medizin 100%",
+        "it": "Assistenzärztin/-arzt Innere Medizin 100%",
+        "en": "Assistenzärztin/-arzt Innere Medizin 100%",
+        "fr": "Assistenzärztin/-arzt Innere Medizin 100%"
+      },
+      "description": "Anforderungen: •\nCH- / D- / A- oder sonstige EU-Staatsexamen mit MEBEKO-Anerkennung\n\n• Teamfähigkeit und Flexibilität\n\n• einsatzfreudige, freundliche und kollegiale Persönlichkeit\n\n• sehr gute Deutschkenntnisse, mind. C1 Niveau | Wir bieten: dir:\n\n• eine interessante, anspruchsvolle und selbstständige Arbeit in unserem Regionalspital\n\n• ein breites, klinisches Betätigungsfeld in einem modernen Kompetenzzentrum\n\n• eine umfangreiche und breit aufgestellte Betreuung sowie Versorgung von stationären, ambulanten, prä- und postoperativen Patientinnen und Patienten inkl. einer umfangreichen Tätigkeit auf der interdisziplinär ausgerichteten Notfallstation\n\n• Zusammenarbeit mit diversen Spezialisten (externe Konsiliarärzte und intern Fachbereich Kardiologie, Gastroenterologie, Pneumologie)\n\n• Mitarbeit im interdisziplinären Team\n\n• Möglichkeit zur wissenschaftlichen Tätigkeit und Dissertation\n\n• Anrechnung Innere Medizin 1 Jahr (C Klinik)\n\n• attraktive und zeitgemässe Anstellungsbedingungen mit mind. 25 Tagen Ferien pro Jahr, eigenem Fortbildungsbudget für Assistenzärzte, gute Sozialleistungen\n\n• eine spannende Tätigkeit mit hohem Freizeitwert in der wunderschönen Bergregion Graubündens - genau dort, wo andere Ferien verbringen!\n\nFühlst du dich angesprochen und möchtest Teil unseres Assistenten-Teams werden? Dann bewirb dich bei uns! Wir freuen uns darauf, dich kennenzulernen.\n\nWeitere",
+      "descriptionByLocale": {
+        "de": "Anforderungen: •\nCH- / D- / A- oder sonstige EU-Staatsexamen mit MEBEKO-Anerkennung\n\n• Teamfähigkeit und Flexibilität\n\n• einsatzfreudige, freundliche und kollegiale Persönlichkeit\n\n• sehr gute Deutschkenntnisse, mind. C1 Niveau | Wir bieten: dir:\n\n• eine interessante, anspruchsvolle und selbstständige Arbeit in unserem Regionalspital\n\n• ein breites, klinisches Betätigungsfeld in einem modernen Kompetenzzentrum\n\n• eine umfangreiche und breit aufgestellte Betreuung sowie Versorgung von stationären, ambulanten, prä- und postoperativen Patientinnen und Patienten inkl. einer umfangreichen Tätigkeit auf der interdisziplinär ausgerichteten Notfallstation\n\n• Zusammenarbeit mit diversen Spezialisten (externe Konsiliarärzte und intern Fachbereich Kardiologie, Gastroenterologie, Pneumologie)\n\n• Mitarbeit im interdisziplinären Team\n\n• Möglichkeit zur wissenschaftlichen Tätigkeit und Dissertation\n\n• Anrechnung Innere Medizin 1 Jahr (C Klinik)\n\n• attraktive und zeitgemässe Anstellungsbedingungen mit mind. 25 Tagen Ferien pro Jahr, eigenem Fortbildungsbudget für Assistenzärzte, gute Sozialleistungen\n\n• eine spannende Tätigkeit mit hohem Freizeitwert in der wunderschönen Bergregion Graubündens - genau dort, wo andere Ferien verbringen!\n\nFühlst du dich angesprochen und möchtest Teil unseres Assistenten-Teams werden? Dann bewirb dich bei uns! Wir freuen uns darauf, dich kennenzulernen.\n\nWeitere",
+        "it": "Anforderungen: •\nCH- / D- / A- oder sonstige EU-Staatsexamen mit MEBEKO-Anerkennung\n\n• Teamfähigkeit und Flexibilität\n\n• einsatzfreudige, freundliche und kollegiale Persönlichkeit\n\n• sehr gute Deutschkenntnisse, mind. C1 Niveau | Wir bieten: dir:\n\n• eine interessante, anspruchsvolle und selbstständige Arbeit in unserem Regionalspital\n\n• ein breites, klinisches Betätigungsfeld in einem modernen Kompetenzzentrum\n\n• eine umfangreiche und breit aufgestellte Betreuung sowie Versorgung von stationären, ambulanten, prä- und postoperativen Patientinnen und Patienten inkl. einer umfangreichen Tätigkeit auf der interdisziplinär ausgerichteten Notfallstation\n\n• Zusammenarbeit mit diversen Spezialisten (externe Konsiliarärzte und intern Fachbereich Kardiologie, Gastroenterologie, Pneumologie)\n\n• Mitarbeit im interdisziplinären Team\n\n• Möglichkeit zur wissenschaftlichen Tätigkeit und Dissertation\n\n• Anrechnung Innere Medizin 1 Jahr (C Klinik)\n\n• attraktive und zeitgemässe Anstellungsbedingungen mit mind. 25 Tagen Ferien pro Jahr, eigenem Fortbildungsbudget für Assistenzärzte, gute Sozialleistungen\n\n• eine spannende Tätigkeit mit hohem Freizeitwert in der wunderschönen Bergregion Graubündens - genau dort, wo andere Ferien verbringen!\n\nFühlst du dich angesprochen und möchtest Teil unseres Assistenten-Teams werden? Dann bewirb dich bei uns! Wir freuen uns darauf, dich kennenzulernen.\n\nWeitere",
+        "en": "Anforderungen: •\nCH- / D- / A- oder sonstige EU-Staatsexamen mit MEBEKO-Anerkennung\n\n• Teamfähigkeit und Flexibilität\n\n• einsatzfreudige, freundliche und kollegiale Persönlichkeit\n\n• sehr gute Deutschkenntnisse, mind. C1 Niveau | Wir bieten: dir:\n\n• eine interessante, anspruchsvolle und selbstständige Arbeit in unserem Regionalspital\n\n• ein breites, klinisches Betätigungsfeld in einem modernen Kompetenzzentrum\n\n• eine umfangreiche und breit aufgestellte Betreuung sowie Versorgung von stationären, ambulanten, prä- und postoperativen Patientinnen und Patienten inkl. einer umfangreichen Tätigkeit auf der interdisziplinär ausgerichteten Notfallstation\n\n• Zusammenarbeit mit diversen Spezialisten (externe Konsiliarärzte und intern Fachbereich Kardiologie, Gastroenterologie, Pneumologie)\n\n• Mitarbeit im interdisziplinären Team\n\n• Möglichkeit zur wissenschaftlichen Tätigkeit und Dissertation\n\n• Anrechnung Innere Medizin 1 Jahr (C Klinik)\n\n• attraktive und zeitgemässe Anstellungsbedingungen mit mind. 25 Tagen Ferien pro Jahr, eigenem Fortbildungsbudget für Assistenzärzte, gute Sozialleistungen\n\n• eine spannende Tätigkeit mit hohem Freizeitwert in der wunderschönen Bergregion Graubündens - genau dort, wo andere Ferien verbringen!\n\nFühlst du dich angesprochen und möchtest Teil unseres Assistenten-Teams werden? Dann bewirb dich bei uns! Wir freuen uns darauf, dich kennenzulernen.\n\nWeitere",
+        "fr": "Anforderungen: •\nCH- / D- / A- oder sonstige EU-Staatsexamen mit MEBEKO-Anerkennung\n\n• Teamfähigkeit und Flexibilität\n\n• einsatzfreudige, freundliche und kollegiale Persönlichkeit\n\n• sehr gute Deutschkenntnisse, mind. C1 Niveau | Wir bieten: dir:\n\n• eine interessante, anspruchsvolle und selbstständige Arbeit in unserem Regionalspital\n\n• ein breites, klinisches Betätigungsfeld in einem modernen Kompetenzzentrum\n\n• eine umfangreiche und breit aufgestellte Betreuung sowie Versorgung von stationären, ambulanten, prä- und postoperativen Patientinnen und Patienten inkl. einer umfangreichen Tätigkeit auf der interdisziplinär ausgerichteten Notfallstation\n\n• Zusammenarbeit mit diversen Spezialisten (externe Konsiliarärzte und intern Fachbereich Kardiologie, Gastroenterologie, Pneumologie)\n\n• Mitarbeit im interdisziplinären Team\n\n• Möglichkeit zur wissenschaftlichen Tätigkeit und Dissertation\n\n• Anrechnung Innere Medizin 1 Jahr (C Klinik)\n\n• attraktive und zeitgemässe Anstellungsbedingungen mit mind. 25 Tagen Ferien pro Jahr, eigenem Fortbildungsbudget für Assistenzärzte, gute Sozialleistungen\n\n• eine spannende Tätigkeit mit hohem Freizeitwert in der wunderschönen Bergregion Graubündens - genau dort, wo andere Ferien verbringen!\n\nFühlst du dich angesprochen und möchtest Teil unseres Assistenten-Teams werden? Dann bewirb dich bei uns! Wir freuen uns darauf, dich kennenzulernen.\n\nWeitere"
+      },
+      "location": "Thusis",
+      "canton": "GR",
+      "url": "https://www.spitalthusis.ch/karriere-jobs/offene-stellen/Assistenzaerztin-arzt-Innere-Medizin-100-/",
+      "source": "Spital Thusis Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-07-30T11:34:18.081Z",
+      "addressLocality": "Thusis",
+      "postalCode": "7430",
+      "streetAddress": "Alte Strasse 31",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Medicina",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Assistenza",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-30",
+      "applyUrl": "https://www.spitalthusis.ch/karriere-jobs/offene-stellen/Assistenzaerztin-arzt-Innere-Medizin-100-/",
+      "requirements": [
+        "CH- / D- / A- oder sonstige EU-Staatsexamen mit MEBEKO-Anerkennung",
+        "Teamfähigkeit und Flexibilität",
+        "einsatzfreudige, freundliche und kollegiale Persönlichkeit",
+        "sehr gute Deutschkenntnisse, mind. C1 Niveau"
+      ],
+      "requirementsByLocale": {
+        "de": [
+          "CH- / D- / A- oder sonstige EU-Staatsexamen mit MEBEKO-Anerkennung",
+          "Teamfähigkeit und Flexibilität",
+          "einsatzfreudige, freundliche und kollegiale Persönlichkeit",
+          "sehr gute Deutschkenntnisse, mind. C1 Niveau"
+        ]
+      },
+      "pensumMin": 100,
+      "pensumMax": 100,
+      "pensum": "100%",
+      "needsRetranslation": true,
+      "salaryMin": 57500,
+      "salaryMax": 87000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 57500,
+          "maxValue": 87000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "GR",
+      "firstSeenAt": "2026-07-30T11:34:18.081Z"
     },
     {
       "id": "spital-thusis-fd3a5d1d0d6d",
@@ -222,7 +303,7 @@
       "url": "https://www.spitalthusis.ch/karriere-jobs/offene-stellen/Fachperson-Gesundheit-SPITEX-50-70-/",
       "source": "Spital Thusis Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T11:52:08.786Z",
+      "crawledAt": "2026-07-30T11:34:17.429Z",
       "addressLocality": "Thusis",
       "postalCode": "7430",
       "streetAddress": "Alte Strasse 31",
@@ -273,6 +354,7 @@
         ]
       },
       "firstSeenAt": "2026-07-08T22:24:31.549Z",
+      "needsRetranslation": true,
       "salaryMin": 40300,
       "salaryMax": 60900,
       "baseSalary": {
@@ -318,7 +400,7 @@
       "url": "https://www.spitalthusis.ch/karriere-jobs/offene-stellen/Ausbildungsplatz-als-Pflegefachperson-HF-100-/",
       "source": "Spital Thusis Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T11:52:08.103Z",
+      "crawledAt": "2026-07-30T11:34:16.788Z",
       "addressLocality": "Thusis",
       "postalCode": "7430",
       "streetAddress": "Alte Strasse 31",
@@ -363,6 +445,7 @@
         ]
       },
       "firstSeenAt": "2026-07-08T22:24:30.244Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -408,7 +491,7 @@
       "url": "https://www.spitalthusis.ch/karriere-jobs/offene-stellen/Fachperson-Gesundheit-80-90-/",
       "source": "Spital Thusis Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T11:52:07.397Z",
+      "crawledAt": "2026-07-30T11:34:16.120Z",
       "addressLocality": "Thusis",
       "postalCode": "7430",
       "streetAddress": "Alte Strasse 31",
@@ -455,6 +538,7 @@
         ]
       },
       "firstSeenAt": "2026-07-08T22:24:29.583Z",
+      "needsRetranslation": true,
       "salaryMin": 51800,
       "salaryMax": 78300,
       "baseSalary": {
@@ -497,7 +581,7 @@
       "url": "https://www.spitalthusis.ch/karriere-jobs/offene-stellen/Dipl-Pflegefachperson-HF-80-100-/",
       "source": "Spital Thusis Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T11:52:06.692Z",
+      "crawledAt": "2026-07-30T11:34:15.496Z",
       "addressLocality": "Thusis",
       "postalCode": "7430",
       "streetAddress": "Alte Strasse 31",
@@ -574,7 +658,7 @@
       "url": "https://www.spitalthusis.ch/karriere-jobs/offene-stellen/Lehrstelle-als-Fachperson-Hotellerie-Hauswirtschaft-EFZ/",
       "source": "Spital Thusis Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T11:52:06.005Z",
+      "crawledAt": "2026-07-30T11:34:14.843Z",
       "addressLocality": "Thusis",
       "postalCode": "7430",
       "streetAddress": "Alte Strasse 31",
@@ -624,6 +708,7 @@
         ]
       },
       "firstSeenAt": "2026-07-08T22:24:28.312Z",
+      "needsRetranslation": true,
       "salaryMin": 48000,
       "salaryMax": 73000,
       "baseSalary": {
@@ -669,7 +754,7 @@
       "url": "https://www.spitalthusis.ch/karriere-jobs/offene-stellen/Lehrstelle-Kauffrau-Kaufmann-EFZ/",
       "source": "Spital Thusis Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T11:52:05.319Z",
+      "crawledAt": "2026-07-30T11:34:14.206Z",
       "addressLocality": "Thusis",
       "postalCode": "7430",
       "streetAddress": "Alte Strasse 31",
@@ -717,6 +802,7 @@
         ]
       },
       "firstSeenAt": "2026-07-08T22:24:27.679Z",
+      "needsRetranslation": true,
       "salaryMin": 48000,
       "salaryMax": 73000,
       "baseSalary": {
@@ -762,7 +848,7 @@
       "url": "https://www.spitalthusis.ch/karriere-jobs/offene-stellen/Lehrstelle-Fachperson-Gesundheit-EFZ-Spitex-Viamala/",
       "source": "Spital Thusis Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T11:52:04.642Z",
+      "crawledAt": "2026-07-30T11:34:13.582Z",
       "addressLocality": "Thusis",
       "postalCode": "7430",
       "streetAddress": "Alte Strasse 31",
@@ -819,6 +905,7 @@
         ]
       },
       "firstSeenAt": "2026-07-08T22:24:27.047Z",
+      "needsRetranslation": true,
       "salaryMin": 48000,
       "salaryMax": 73000,
       "baseSalary": {
@@ -864,7 +951,7 @@
       "url": "https://www.spitalthusis.ch/karriere-jobs/offene-stellen/Lehrstelle-Fachperson-Gesundheit-EFZ-Spital-Thusis/",
       "source": "Spital Thusis Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T11:52:03.935Z",
+      "crawledAt": "2026-07-30T11:34:12.950Z",
       "addressLocality": "Thusis",
       "postalCode": "7430",
       "streetAddress": "Alte Strasse 31",
@@ -921,6 +1008,7 @@
         ]
       },
       "firstSeenAt": "2026-07-08T22:24:26.401Z",
+      "needsRetranslation": true,
       "salaryMin": 48000,
       "salaryMax": 73000,
       "baseSalary": {
@@ -966,7 +1054,7 @@
       "url": "https://www.spitalthusis.ch/karriere-jobs/offene-stellen/Ausbildung-Transportsanitaeter-in-FA-2027/",
       "source": "Spital Thusis Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T11:52:03.230Z",
+      "crawledAt": "2026-07-30T11:34:12.325Z",
       "addressLocality": "Thusis",
       "postalCode": "7430",
       "streetAddress": "Alte Strasse 31",
@@ -1011,6 +1099,7 @@
         ]
       },
       "firstSeenAt": "2026-07-08T22:24:25.716Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -1056,7 +1145,7 @@
       "url": "https://www.spitalthusis.ch/karriere-jobs/offene-stellen/Dipl-Pflegefachperson-HF-FH-mit-Weiterbildung-in-onkologischer-Pflege-20-/",
       "source": "Spital Thusis Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T11:52:02.543Z",
+      "crawledAt": "2026-07-30T11:34:11.618Z",
       "addressLocality": "Thusis",
       "postalCode": "7430",
       "streetAddress": "Alte Strasse 31",
@@ -1077,6 +1166,7 @@
       "pensumMax": 20,
       "pensum": "20%",
       "firstSeenAt": "2026-07-08T22:24:25.043Z",
+      "needsRetranslation": true,
       "salaryMin": 11500,
       "salaryMax": 17400,
       "baseSalary": {
@@ -1122,7 +1212,7 @@
       "url": "https://www.spitalthusis.ch/karriere-jobs/offene-stellen/Dipl-Pflegefachperson-HF-SPITEX-40-80-/",
       "source": "Spital Thusis Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T11:52:01.842Z",
+      "crawledAt": "2026-07-30T11:34:10.895Z",
       "addressLocality": "Thusis",
       "postalCode": "7430",
       "streetAddress": "Alte Strasse 31",
@@ -1198,7 +1288,7 @@
       "url": "https://www.spitalthusis.ch/karriere-jobs/offene-stellen/Dipl-Pflegefachperson-HF-FH-50-100-Notfall-Tagesklinik/",
       "source": "Spital Thusis Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T11:52:01.129Z",
+      "crawledAt": "2026-07-30T11:34:10.254Z",
       "addressLocality": "Thusis",
       "postalCode": "7430",
       "streetAddress": "Alte Strasse 31",
@@ -1280,7 +1370,7 @@
       "url": "https://www.spitalthusis.ch/karriere-jobs/offene-stellen/Dipl-Fachperson-Operationstechnik-HF-40-60-/",
       "source": "Spital Thusis Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T11:52:00.419Z",
+      "crawledAt": "2026-07-30T11:34:09.529Z",
       "addressLocality": "Thusis",
       "postalCode": "7430",
       "streetAddress": "Alte Strasse 31",
@@ -1327,6 +1417,7 @@
         ]
       },
       "firstSeenAt": "2026-07-08T22:24:23.012Z",
+      "needsRetranslation": true,
       "salaryMin": 34500,
       "salaryMax": 52200,
       "baseSalary": {
@@ -1372,7 +1463,7 @@
       "url": "https://www.spitalthusis.ch/karriere-jobs/offene-stellen/Dipl-Pflegefachperson-mit-Zusatzaufgabe-Berufsbildner-in-SPITEX-60-100-/",
       "source": "Spital Thusis Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T11:51:59.649Z",
+      "crawledAt": "2026-07-30T11:34:08.844Z",
       "addressLocality": "Thusis",
       "postalCode": "7430",
       "streetAddress": "Alte Strasse 31",
@@ -1398,6 +1489,7 @@
         "dipl-infirmiere-ayant-une-tache-supplementaire-formateur-professionnel-en-60-a-100-spital-thusis-thusis"
       ],
       "firstSeenAt": "2026-07-13T12:20:54.567Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
