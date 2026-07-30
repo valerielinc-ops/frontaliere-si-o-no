@@ -1,6 +1,6 @@
 {
   "crawlerKey": "jysk",
-  "assembledAt": "2026-07-29T22:25:33.400Z",
+  "assembledAt": "2026-07-30T11:43:14.987Z",
   "jobs": [
     {
       "id": "company-iimgsh",
@@ -20,7 +20,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "jysk",
       "companyDomain": "jysk.ch",
-      "crawledAt": "2026-07-29T22:25:31.675Z",
+      "crawledAt": "2026-07-30T11:43:13.197Z",
       "firstSeenAt": "2026-07-25T22:04:56.660Z",
       "titleByLocale": {
         "it": "40% nel ramo Emmenbrücke",
@@ -94,7 +94,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "jysk",
       "companyDomain": "jysk.ch",
-      "crawledAt": "2026-07-29T22:25:31.675Z",
+      "crawledAt": "2026-07-30T11:43:13.197Z",
       "firstSeenAt": "2026-07-24T22:15:10.135Z",
       "titleByLocale": {
         "it": "Venditore (a) 40% nel ramo Sirnach",
@@ -168,7 +168,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "jysk",
       "companyDomain": "jysk.ch",
-      "crawledAt": "2026-07-29T22:25:31.675Z",
+      "crawledAt": "2026-07-30T11:43:13.197Z",
       "firstSeenAt": "2026-07-24T22:15:10.135Z",
       "titleByLocale": {
         "it": "50% nel ramo Wetzikon",
@@ -242,7 +242,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "jysk",
       "companyDomain": "jysk.ch",
-      "crawledAt": "2026-07-29T22:25:31.675Z",
+      "crawledAt": "2026-07-30T11:43:13.197Z",
       "firstSeenAt": "2026-07-23T22:23:30.372Z",
       "titleByLocale": {
         "it": "Branch manager (a) 100% nel ramo Langenthal",
@@ -316,7 +316,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "jysk",
       "companyDomain": "jysk.ch",
-      "crawledAt": "2026-07-29T22:25:31.675Z",
+      "crawledAt": "2026-07-30T11:43:13.197Z",
       "firstSeenAt": "2026-07-22T12:11:45.231Z",
       "titleByLocale": {
         "it": "Verkaufsleiter/in Apprendista 100% per la Region Basel",
@@ -382,7 +382,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "jysk",
       "companyDomain": "jysk.ch",
-      "crawledAt": "2026-07-29T22:25:31.675Z",
+      "crawledAt": "2026-07-30T11:43:13.197Z",
       "firstSeenAt": "2026-07-22T22:27:45.850Z",
       "slugByLocale": {
         "it": "venditore-in-a-50-nel-ramo-dietlikon-jysk-dietlikon",
@@ -466,7 +466,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "jysk",
       "companyDomain": "jysk.ch",
-      "crawledAt": "2026-07-29T22:25:31.675Z",
+      "crawledAt": "2026-07-30T11:43:13.197Z",
       "firstSeenAt": "2026-07-29T11:58:46.774Z",
       "titleByLocale": {
         "it": "Venditore (a) 40% Venerdì e sabato nella filiale Winterthur Rosenberg",
@@ -540,7 +540,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "jysk",
       "companyDomain": "jysk.ch",
-      "crawledAt": "2026-07-29T22:25:31.675Z",
+      "crawledAt": "2026-07-30T11:43:13.197Z",
       "firstSeenAt": "2026-07-21T12:01:16.336Z",
       "slugByLocale": {
         "it": "store-manager-apprendista-a-80-100-per-la-region-cham-jysk-cham-ry2rtq",
@@ -550,7 +550,7 @@
       },
       "titleByLocale": {
         "it": "Store Manager Apprendista (a) 80-100% per la Region Cham",
-        "en": "Store Manager Trainee (a) 80-100% for the Cham region",
+        "en": "Store Manager Trainee (a) 80-100% für die Region Cham",
         "de": "Store Manager Auszubildender (a) 80-100% für die Region Cham",
         "fr": "Store Manager Apprenti (a) 80-100% für die Region Cham"
       },
@@ -578,7 +578,8 @@
       "country": "CH",
       "addressRegion": "ZG",
       "salaryMin": 58500,
-      "salaryMax": 89000
+      "salaryMax": 89000,
+      "needsRetranslation": true
     },
     {
       "id": "company-tjlda6",
@@ -598,11 +599,11 @@
       "source": "Company Careers Crawler",
       "companyKey": "jysk",
       "companyDomain": "jysk.ch",
-      "crawledAt": "2026-07-29T22:25:31.675Z",
+      "crawledAt": "2026-07-30T11:43:13.197Z",
       "firstSeenAt": "2026-07-21T12:01:16.336Z",
       "titleByLocale": {
         "it": "Store Manager Apprendista (a) 80-100% per la Region Zürich/Thalwil",
-        "en": "Store Manager Trainee (a) 80-100% for the Zurich/Thalwil region",
+        "en": "Store Manager Trainee (a) 80-100% für die Region Zürich/Thalwil",
         "de": "Store Manager Auszubildender (a) 80-100% für die Region Zürich/Thalwil",
         "fr": "Store Manager Apprenti (a) 80-100% für die Region Zürich/Thalwil"
       },
@@ -667,7 +668,8 @@
       "country": "CH",
       "addressRegion": "ZH",
       "salaryMin": 62000,
-      "salaryMax": 94000
+      "salaryMax": 94000,
+      "needsRetranslation": true
     },
     {
       "id": "company-dyd3i9",
@@ -687,7 +689,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "jysk",
       "companyDomain": "jysk.ch",
-      "crawledAt": "2026-07-29T22:25:31.675Z",
+      "crawledAt": "2026-07-30T11:43:13.197Z",
       "firstSeenAt": "2026-07-17T23:17:00.102Z",
       "slugByLocale": {
         "it": "store-manager-apprendista-a-80-100-per-la-region-baden-jysk-baden-dyd3i9",
@@ -697,7 +699,7 @@
       },
       "titleByLocale": {
         "it": "Store Manager Apprendista (a) 80-100% per la Region Baden",
-        "en": "Store Manager Trainee (a) 80-100% for the Baden region",
+        "en": "Store Manager Trainee (a) 80-100% für die Region Baden",
         "de": "Store Manager Auszubildender (a) 80-100% für die Region Baden",
         "fr": "Store Manager Apprenti (a) 80-100% für die Region Baden"
       },
@@ -725,7 +727,8 @@
       "country": "CH",
       "addressRegion": "AG",
       "salaryMin": 52000,
-      "salaryMax": 78500
+      "salaryMax": 78500,
+      "needsRetranslation": true
     },
     {
       "id": "company-lp3vb0",
@@ -745,7 +748,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "jysk",
       "companyDomain": "jysk.ch",
-      "crawledAt": "2026-07-29T22:25:31.675Z",
+      "crawledAt": "2026-07-30T11:43:13.197Z",
       "firstSeenAt": "2026-07-17T23:17:00.102Z",
       "slugByLocale": {
         "it": "store-manager-apprendista-a-80-100-per-la-region-netstal-jysk-glarus-lp3vb0",
@@ -811,7 +814,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "jysk",
       "companyDomain": "jysk.ch",
-      "crawledAt": "2026-07-29T22:25:31.675Z",
+      "crawledAt": "2026-07-30T11:43:13.197Z",
       "firstSeenAt": "2026-07-16T22:34:19.079Z",
       "titleByLocale": {
         "it": "Venditore (a) 20% nel ramo Amriswil",
@@ -885,7 +888,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "jysk",
       "companyDomain": "jysk.ch",
-      "crawledAt": "2026-07-29T22:25:31.675Z",
+      "crawledAt": "2026-07-30T11:43:13.197Z",
       "firstSeenAt": "2026-07-14T22:12:14.000Z",
       "titleByLocale": {
         "it": "Venditore/in (a) 20% nel ramo Kreuzlingen",
@@ -959,7 +962,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "jysk",
       "companyDomain": "jysk.ch",
-      "crawledAt": "2026-07-29T22:25:31.675Z",
+      "crawledAt": "2026-07-30T11:43:13.197Z",
       "firstSeenAt": "2026-07-14T22:12:14.000Z",
       "titleByLocale": {
         "it": "Venditore (a) 40% nel ramo Kreuzlingen",
@@ -1033,7 +1036,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "jysk",
       "companyDomain": "jysk.ch",
-      "crawledAt": "2026-07-29T22:25:31.675Z",
+      "crawledAt": "2026-07-30T11:43:13.197Z",
       "firstSeenAt": "2026-07-14T22:12:14.000Z",
       "titleByLocale": {
         "it": "Venditore/in (a) 60% nel ramo Kreuzlingen",
@@ -1107,7 +1110,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "jysk",
       "companyDomain": "jysk.ch",
-      "crawledAt": "2026-07-29T22:25:31.675Z",
+      "crawledAt": "2026-07-30T11:43:13.197Z",
       "firstSeenAt": "2026-07-14T22:12:14.000Z",
       "titleByLocale": {
         "it": "Verkäufer/in con Lagerverantwortung (a) 80% in der Filiale Kreuzlingen",
@@ -1180,7 +1183,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "jysk",
       "companyDomain": "jysk.ch",
-      "crawledAt": "2026-07-29T22:25:31.675Z",
+      "crawledAt": "2026-07-30T11:43:13.197Z",
       "firstSeenAt": "2026-07-27T13:07:27.109Z",
       "previousSlugs": [
         "verkaufer-in-a-20-in-der-filiale-regensdorf-jysk-regensdorf-q2jxur",
@@ -1267,7 +1270,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "jysk",
       "companyDomain": "jysk.ch",
-      "crawledAt": "2026-07-29T22:25:31.675Z",
+      "crawledAt": "2026-07-30T11:43:13.197Z",
       "firstSeenAt": "2026-07-27T13:07:27.109Z",
       "previousSlugs": [
         "verkaufer-in-a-40-in-der-filiale-regensdorf-jysk-regensdorf-se8dut",
@@ -1354,7 +1357,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "jysk",
       "companyDomain": "jysk.ch",
-      "crawledAt": "2026-07-29T22:25:31.675Z",
+      "crawledAt": "2026-07-30T11:43:13.197Z",
       "firstSeenAt": "2026-07-13T12:42:08.172Z",
       "slugByLocale": {
         "it": "verkaufer-in-con-lagerverantwortung-80-in-der-filiale-bachenbulach-jysk-bachenbulach-0sg8r2",
@@ -1423,7 +1426,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "jysk",
       "companyDomain": "jysk.ch",
-      "crawledAt": "2026-07-29T22:25:31.675Z",
+      "crawledAt": "2026-07-30T11:43:13.197Z",
       "firstSeenAt": "2026-07-10T12:19:52.077Z",
       "titleByLocale": {
         "it": "Venditore (a) 60% nel ramo Stans",
@@ -1497,7 +1500,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "jysk",
       "companyDomain": "jysk.ch",
-      "crawledAt": "2026-07-29T22:25:31.675Z",
+      "crawledAt": "2026-07-30T11:43:13.197Z",
       "firstSeenAt": "2026-07-10T12:19:52.077Z",
       "slugByLocale": {
         "it": "venditore-in-a-80-nella-filiale-di-basilea-jysk-pratteln",
@@ -1569,7 +1572,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "jysk",
       "companyDomain": "jysk.ch",
-      "crawledAt": "2026-07-29T22:25:31.675Z",
+      "crawledAt": "2026-07-30T11:43:13.197Z",
       "firstSeenAt": "2026-07-10T12:19:52.077Z",
       "titleByLocale": {
         "it": "Verkäufer/in con Lagerarbeit (a) 20-50% in der Filiale Heimberg",
@@ -1642,7 +1645,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "jysk",
       "companyDomain": "jysk.ch",
-      "crawledAt": "2026-07-29T22:25:31.675Z",
+      "crawledAt": "2026-07-30T11:43:13.197Z",
       "firstSeenAt": "2026-07-07T22:29:39.204Z",
       "titleByLocale": {
         "it": "Verkäufer/in con Lagerverantwortung (a) 80-100% in der Filiale Seewen-Schwyz",
@@ -1715,7 +1718,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "jysk",
       "companyDomain": "jysk.ch",
-      "crawledAt": "2026-07-29T22:25:31.675Z",
+      "crawledAt": "2026-07-30T11:43:13.197Z",
       "firstSeenAt": "2026-07-06T22:30:32.370Z",
       "titleByLocale": {
         "it": "Venditore (a) 40-60% nel ramo Schattdorf",
@@ -1791,7 +1794,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "jysk",
       "companyDomain": "jysk.ch",
-      "crawledAt": "2026-07-29T22:25:31.675Z",
+      "crawledAt": "2026-07-30T11:43:13.197Z",
       "firstSeenAt": "2026-07-06T22:30:32.370Z",
       "slugByLocale": {
         "it": "venditore-a-40-60-nel-ramo-netstal-jysk-glarus-nord",
@@ -1871,7 +1874,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "jysk",
       "companyDomain": "jysk.ch",
-      "crawledAt": "2026-07-29T22:25:31.675Z",
+      "crawledAt": "2026-07-30T11:43:13.197Z",
       "firstSeenAt": "2026-07-06T22:30:32.370Z",
       "slugByLocale": {
         "it": "venditore-in-a-40-nella-filiale-di-basilea-jysk-zwingen",
@@ -1951,7 +1954,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "jysk",
       "companyDomain": "jysk.ch",
-      "crawledAt": "2026-07-29T22:25:31.675Z",
+      "crawledAt": "2026-07-30T11:43:13.197Z",
       "firstSeenAt": "2026-07-06T22:30:32.370Z",
       "slugByLocale": {
         "it": "venditore-a-20-nella-filiale-di-schattdorf-jysk-schattdorf",
@@ -2031,7 +2034,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "jysk",
       "companyDomain": "jysk.ch",
-      "crawledAt": "2026-07-29T22:25:31.675Z",
+      "crawledAt": "2026-07-30T11:43:13.197Z",
       "firstSeenAt": "2026-07-06T22:30:32.370Z",
       "slugByLocale": {
         "it": "apprendista-impiegato-a-del-commercio-al-dettaglio-cfc-a-in-der-filiale-schattdorf-jysk-schattdorf-qrsmyr",
