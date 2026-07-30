@@ -1,34 +1,33 @@
 {
   "key": "spital-zollikerberg",
   "label": "Spital Zollikerberg",
-  "generatedAt": "2026-07-29T22:03:30.917Z",
-  "total": 7,
+  "generatedAt": "2026-07-30T11:14:23.318Z",
+  "total": 6,
   "newCount": 0,
-  "updatedCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 42733,
-  "avgDurationMs": 42733,
+  "unchangedCount": 0,
+  "durationMs": 34996,
+  "avgDurationMs": 34996,
   "durationHistory": [
-    42733
+    34996
   ],
   "newJobs": [],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "updatedJobs": [
     {
-      "id": "spital-zollikerberg-c4b20e521e4e",
-      "slug": "medizinische-praxisassistentin-medizinischer-praxisassistent-mpa-im-medizinischen",
+      "id": "spital-zollikerberg-befd15f752f4",
+      "slug": "fachexpertin-fachexperte-pflege-spital-zollikerberg-zollikerberg",
       "company": "Spital Zollikerberg",
       "companyKey": "spital-zollikerberg",
       "companyDomain": "spitalzollikerberg.ch",
-      "title": "Medizinische Praxisassistentin / Medizinischer Praxisassistent (MPA) im medizinischen Ambulatorium Pflege Support und Administration",
+      "title": "Fachexpertin / Fachexperte Pflege",
+      "needsRetranslation": false,
       "location": "Zollikerberg",
       "canton": "ZH",
-      "url": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=5e059cd1-d6d4-4df3-88a3-1ff479d1cf09,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
+      "url": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=22d8121f-3819-41ca-8df6-b6874d8147ef,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "source": "Spital Zollikerberg Dedicated Parser (Next.js SSR listing + PI-ASP Playwright detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-28T22:05:53.441Z",
+      "crawledAt": "2026-07-30T11:14:19.862Z",
       "addressLocality": "Zollikerberg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -37,23 +36,22 @@
       "category": "Sanità / Ospedali",
       "contract": "full-time",
       "employmentType": "OTHER",
-      "experienceLevel": "junior",
+      "experienceLevel": "mid",
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
       "postedDate": "2026-06-15",
-      "applyUrl": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=5e059cd1-d6d4-4df3-88a3-1ff479d1cf09,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
+      "applyUrl": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=22d8121f-3819-41ca-8df6-b6874d8147ef,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "firstSeenAt": "2026-05-19T12:20:47.142Z",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
-      "crawlerMissStreak": 2,
-      "_qualityScore": 90,
+      "_qualityScore": 83,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 25,
-        "completeness": 22
+        "translation": 23,
+        "completeness": 17
       }
     }
-  ]
+  ],
+  "removedJobs": [],
+  "unchangedJobs": []
 }
