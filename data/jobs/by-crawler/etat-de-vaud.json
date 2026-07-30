@@ -1,6 +1,6 @@
 {
   "crawlerKey": "etat-de-vaud",
-  "assembledAt": "2026-07-30T11:26:33.579Z",
+  "assembledAt": "2026-07-30T22:16:11.133Z",
   "jobs": [
     {
       "id": "etat-de-vaud-5515",
@@ -33,7 +33,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5515",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-30T11:26:30.501Z",
+      "crawledAt": "2026-07-30T22:16:07.896Z",
       "addressLocality": "Morges",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -84,15 +84,18 @@
       },
       "previousSlugs": [
         "adjoint-e-au-directeur-dagri-responsable-strategie-economie-rurale-etat-de-vaud-morges",
-        "adjoint-e-au-directeur-dagri-responsable-strategie-economie-rurale-etat-de-vaud-administration-cantonale-vaudoise-morges"
+        "adjoint-e-au-directeur-dagri-responsable-strategie-economie-rurale-etat-de-vaud-administration-cantonale-vaudoise-morges",
+        "assistente-al-direttore-dagri-responsabile-strategia-economia-rurale-etat-de-vaud-administration-cantonale-vaudoise"
       ],
       "previousSlugsByLocale": {
         "it": [
           "adjoint-e-au-directeur-dagri-responsable-strategie-economie-rurale-etat-de-vaud-morges",
-          "adjoint-e-au-directeur-dagri-responsable-strategie-economie-rurale-etat-de-vaud-administration-cantonale-vaudoise-morges"
+          "adjoint-e-au-directeur-dagri-responsable-strategie-economie-rurale-etat-de-vaud-administration-cantonale-vaudoise-morges",
+          "assistente-al-direttore-dagri-responsabile-strategia-economia-rurale-etat-de-vaud-administration-cantonale-vaudoise"
         ]
       },
       "firstSeenAt": "2026-07-05T11:43:19.624Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -137,7 +140,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5495",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-30T11:26:30.089Z",
+      "crawledAt": "2026-07-30T22:16:07.483Z",
       "addressLocality": "Aigle",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -181,14 +184,17 @@
         ]
       },
       "previousSlugs": [
-        "responsable-d-equipe-profil-psychologue-post-obligatoire-etat-de-vaud-aigle"
+        "responsable-d-equipe-profil-psychologue-post-obligatoire-etat-de-vaud-aigle",
+        "responsabile-di-squadra-profilo-psicologo-post-obbligatorio-etat-de-vaud-administration-cantonale-vaudoise-aigle"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "responsable-d-equipe-profil-psychologue-post-obligatoire-etat-de-vaud-aigle"
+          "responsable-d-equipe-profil-psychologue-post-obligatoire-etat-de-vaud-aigle",
+          "responsabile-di-squadra-profilo-psicologo-post-obbligatorio-etat-de-vaud-administration-cantonale-vaudoise-aigle"
         ]
       },
       "firstSeenAt": "2026-07-05T11:43:18.795Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -233,7 +239,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5564",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-30T11:26:29.653Z",
+      "crawledAt": "2026-07-30T22:16:07.052Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -280,14 +286,17 @@
         ]
       },
       "previousSlugs": [
-        "assistant-e-rh-etat-de-vaud-lausanne"
+        "assistant-e-rh-etat-de-vaud-lausanne",
+        "assistente-rh-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistant-e-rh-etat-de-vaud-lausanne"
+          "assistant-e-rh-etat-de-vaud-lausanne",
+          "assistente-rh-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
         ]
       },
       "firstSeenAt": "2026-07-05T11:43:15.788Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -332,7 +341,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5591",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-30T11:26:29.246Z",
+      "crawledAt": "2026-07-30T22:16:06.645Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -351,11 +360,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "directeur-trice-de-l-etablissement-vaudois-d-accueil-des-migrants-evam-etat-de-vaud"
+        "directeur-trice-de-l-etablissement-vaudois-d-accueil-des-migrants-evam-etat-de-vaud",
+        "direttore-dell-ente-di-accoglienza-migrante-vaudiano-evam-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "directeur-trice-de-l-etablissement-vaudois-d-accueil-des-migrants-evam-etat-de-vaud"
+          "directeur-trice-de-l-etablissement-vaudois-d-accueil-des-migrants-evam-etat-de-vaud",
+          "direttore-dell-ente-di-accoglienza-migrante-vaudiano-evam-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
         ],
         "en": [
           "directeur-trice-de-l-etablissement-vaudois-d-accueil-des-migrants-evam-etat-de-vaud"
@@ -409,7 +420,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5606",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-30T11:26:28.830Z",
+      "crawledAt": "2026-07-30T22:16:06.233Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -428,11 +439,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "responsable-de-laboratoire-igv-etat-de-vaud-lausanne"
+        "responsable-de-laboratoire-igv-etat-de-vaud-lausanne",
+        "responsabile-laboratorio-igv-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "responsable-de-laboratoire-igv-etat-de-vaud-lausanne"
+          "responsable-de-laboratoire-igv-etat-de-vaud-lausanne",
+          "responsabile-laboratorio-igv-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
         ],
         "en": [
           "responsable-de-laboratoire-igv-etat-de-vaud-lausanne"
@@ -471,7 +484,7 @@
       "titleByLocale": {
         "it": "Analista finanziario",
         "en": "Financial analyst",
-        "de": "Finanzanalyst",
+        "de": "Analyste financier·ère",
         "fr": "Analyste financier·ère"
       },
       "description": "En tant qu'analyste financier·ère au sein de la division de la Gestion financière opérationnelle (GFO) du SAGEFI, vous jouez un rôle clé dans le pilotage financier de l'administration. À ce titre, vous êtes responsable de la coordination et du suivi du processus d'élaboration budgétaire ainsi que des prévisions financières de plusieurs départements. Grâce à votre expertise, vous contribuez à garantir la qualité des analyses financières et accompagnez les directions dans leurs prises de décision. Vous participez également à l'élaboration des positions du service sur les dossiers à enjeux financiers soumis au Conseil d'État. En tant qu'interlocuteur·trice reconnu-e, vous représentez le SAGEFI au sein de groupes de travail et de projets, notamment dans le cadre des évolutions du système d'information financier SIF-SAP. Vous travaillez sous la supervision du chef de la division GFO et collaborez avec les unités financières départementales ainsi que les responsables financiers des services. Ce contrat à durée déterminée constitue une opportunité de rejoindre un service occupant une position central dans la gestion des finances du canton. À moyen terme, des opportunités de recrutement en CDI pourraient se présenter.\n\n• Piloter la procédure budgétaire des départements et services dont l'Analyste a la responsabilité.\n• Coordonner en collaboration avec les Responsables financiers départementaux le suivi administratif et l'élaboration du budget des départements et services.\n• Analyser les écarts des versions de budget déposées par rapport aux objectifs budgétaires, préparer la synthèse à l'attention du Conseil d'Etat et proposer des pistes d’amélioration budgétaire.\n• Analyser et consolider les données des suivis mensuels et trimestriels pour établir les prévisions annuelles des départements et services.\n• Analyser les dossiers avec implications financières dans le cadre de l'exécution du budget de fonctionnement (crédits supplémentaires, reports de crédits) et rédiger des propositions de prise de position du SAGEFI (déterminations).\n• Analyser les dossiers en lien avec des projets d'investissement (Exposé des motifs et projet de décret - EMPD) ou de nouvelle loi (Exposé des motifs et projet de loi - EMPL) et rédiger des propositions de prise de position du SAGEFI (déterminations).\n• Participer à l’élaboration de tableaux ou de planches de présentation pour les propositions au Conseil d’Etat (PCE) ou les EMPD/L rédigés par la division et la conférence de presse du projet de budget.\n• Analyser des problématiques en lien avec des projets d'investissement (EMPD) et projets de loi (EMPL) ainsi que proposer des solutions dans le cadre de groupe de travail.\n• Mener des projets en lien avec les objectifs de la division, notamment dans le cadre du développement du système d’information financier SIF-SAP Pour de plus amples informations, veuillez consulter le cahier des charges en cliquant ici ou contacter Monsieur Yannick Sapin, Chef de la division gestion financière opérationnelle au 021 316 25 37.\n\n• Titulaire d’un·e Master/Licence en sciences économiques ou diplôme HES ou Brevet fédéral de spécialiste en finance et comptabilité\n• Diplôme fédéral d’expert-e en finance et controlling ou équivalent souhaité\n• Expérience de 8 ans en tant qu'analyste financier-ère au sein du secteur public, fiduciaire, moyenne ou grande entreprise\n• Expérience pratique dans le domaine du processus budgétaire et reporting\n• Capacité à conduire plusieurs missions en même temps et à résoudre des problématiques sensibles et complexes.\n• Excellentes facultés de rédaction\n• Maitrise des applications informatiques courantes (notamment MS Office) et expérience dans l’utilisation de SAP souhaité.\n• Résistance au stress, très bonne gestion du temps et des priorités.\n• Respect des normes et des procédures et sens des responsabilités et éthiques du service public développés.\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch.",
@@ -486,7 +499,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5593",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-30T11:26:28.413Z",
+      "crawledAt": "2026-07-30T22:16:05.821Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -506,11 +519,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "analyste-financier-ere-etat-de-vaud-lausanne",
-        "finanzanalyst-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
+        "finanzanalyst-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+        "analista-finanziario-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "analyste-financier-ere-etat-de-vaud-lausanne"
+          "analyste-financier-ere-etat-de-vaud-lausanne",
+          "analista-finanziario-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
         ],
         "en": [
           "analyste-financier-ere-etat-de-vaud-lausanne"
@@ -521,6 +536,7 @@
         ]
       },
       "firstSeenAt": "2026-07-05T11:43:20.864Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -565,7 +581,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5588",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-30T11:26:27.992Z",
+      "crawledAt": "2026-07-30T22:16:05.401Z",
       "addressLocality": "Crassier",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -584,11 +600,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "logopediste-en-milieu-scolaire-etat-de-vaud-crassier"
+        "logopediste-en-milieu-scolaire-etat-de-vaud-crassier",
+        "logopedista-della-scuola-etat-de-vaud-administration-cantonale-vaudoise-crassier"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "logopediste-en-milieu-scolaire-etat-de-vaud-crassier"
+          "logopediste-en-milieu-scolaire-etat-de-vaud-crassier",
+          "logopedista-della-scuola-etat-de-vaud-administration-cantonale-vaudoise-crassier"
         ],
         "en": [
           "logopediste-en-milieu-scolaire-etat-de-vaud-crassier"
@@ -642,7 +660,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5641",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-30T11:26:27.576Z",
+      "crawledAt": "2026-07-30T22:16:04.957Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -661,11 +679,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "directeur-trice-des-ressources-humaines-etat-de-vaud-lausanne"
+        "directeur-trice-des-ressources-humaines-etat-de-vaud-lausanne",
+        "direttore-delle-risorse-umane-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "directeur-trice-des-ressources-humaines-etat-de-vaud-lausanne"
+          "directeur-trice-des-ressources-humaines-etat-de-vaud-lausanne",
+          "direttore-delle-risorse-umane-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
         ],
         "en": [
           "directeur-trice-des-ressources-humaines-etat-de-vaud-lausanne"
@@ -719,7 +739,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5635",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-30T11:26:27.142Z",
+      "crawledAt": "2026-07-30T22:16:04.537Z",
       "addressLocality": "Morges",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -738,11 +758,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "responsable-de-l-inspectorat-phytosanitaire-du-controle-de-la-production-primaire-vegetale"
+        "responsable-de-l-inspectorat-phytosanitaire-du-controle-de-la-production-primaire-vegetale",
+        "capo-dell-ispettorato-fitosanitario-plant-primary-production-control-etat-de-vaud-administration-cantonale-vaudoise"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "responsable-de-l-inspectorat-phytosanitaire-du-controle-de-la-production-primaire-vegetale"
+          "responsable-de-l-inspectorat-phytosanitaire-du-controle-de-la-production-primaire-vegetale",
+          "capo-dell-ispettorato-fitosanitario-plant-primary-production-control-etat-de-vaud-administration-cantonale-vaudoise"
         ],
         "en": [
           "responsable-de-l-inspectorat-phytosanitaire-du-controle-de-la-production-primaire-vegetale"
@@ -796,7 +818,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5629",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-30T11:26:26.730Z",
+      "crawledAt": "2026-07-30T22:16:04.113Z",
       "addressLocality": "Morges",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -815,11 +837,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "administrateur-trice-d-ecole-etat-de-vaud-morges"
+        "administrateur-trice-d-ecole-etat-de-vaud-morges",
+        "amministratore-di-scuola-etat-de-vaud-administration-cantonale-vaudoise-morges"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "administrateur-trice-d-ecole-etat-de-vaud-morges"
+          "administrateur-trice-d-ecole-etat-de-vaud-morges",
+          "amministratore-di-scuola-etat-de-vaud-administration-cantonale-vaudoise-morges"
         ],
         "en": [
           "administrateur-trice-d-ecole-etat-de-vaud-morges"
@@ -829,6 +853,7 @@
         ]
       },
       "firstSeenAt": "2026-07-05T11:43:25.866Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -873,7 +898,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5571",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-30T11:26:26.315Z",
+      "crawledAt": "2026-07-30T22:16:03.695Z",
       "addressLocality": "Moudon",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -892,11 +917,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "logopediste-en-milieu-scolaire-etat-de-vaud-moudon"
+        "logopediste-en-milieu-scolaire-etat-de-vaud-moudon",
+        "logopedista-della-scuola-etat-de-vaud-administration-cantonale-vaudoise-moudon"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "logopediste-en-milieu-scolaire-etat-de-vaud-moudon"
+          "logopediste-en-milieu-scolaire-etat-de-vaud-moudon",
+          "logopedista-della-scuola-etat-de-vaud-administration-cantonale-vaudoise-moudon"
         ],
         "en": [
           "logopediste-en-milieu-scolaire-etat-de-vaud-moudon"
@@ -950,7 +977,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5643",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-30T11:26:25.874Z",
+      "crawledAt": "2026-07-30T22:16:03.282Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -969,11 +996,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "ingenieur-e-de-securite-cfst-expert-e-de-la-securite-au-travail-et-de-la-protection-de-la"
+        "ingenieur-e-de-securite-cfst-expert-e-de-la-securite-au-travail-et-de-la-protection-de-la",
+        "ingegnere-di-sicurezza-cfst-esperto-di-sicurezza-sul-lavoro-e-protezione-della-salute-etat-de-vaud-administration"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ingenieur-e-de-securite-cfst-expert-e-de-la-securite-au-travail-et-de-la-protection-de-la"
+          "ingenieur-e-de-securite-cfst-expert-e-de-la-securite-au-travail-et-de-la-protection-de-la",
+          "ingegnere-di-sicurezza-cfst-esperto-di-sicurezza-sul-lavoro-e-protezione-della-salute-etat-de-vaud-administration"
         ],
         "en": [
           "ingenieur-e-de-securite-cfst-expert-e-de-la-securite-au-travail-et-de-la-protection-de-la"
@@ -1027,7 +1056,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5642",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-30T11:26:25.395Z",
+      "crawledAt": "2026-07-30T22:16:02.869Z",
       "addressLocality": "Morges",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1046,11 +1075,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "coordinateur-trice-des-collaborateur-trice-s-administratif-ve-s-etat-de-vaud-morges"
+        "coordinateur-trice-des-collaborateur-trice-s-administratif-ve-s-etat-de-vaud-morges",
+        "coordinatore-del-personale-amministrativo-etat-de-vaud-administration-cantonale-vaudoise-morges"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "coordinateur-trice-des-collaborateur-trice-s-administratif-ve-s-etat-de-vaud-morges"
+          "coordinateur-trice-des-collaborateur-trice-s-administratif-ve-s-etat-de-vaud-morges",
+          "coordinatore-del-personale-amministrativo-etat-de-vaud-administration-cantonale-vaudoise-morges"
         ],
         "en": [
           "coordinateur-trice-des-collaborateur-trice-s-administratif-ve-s-etat-de-vaud-morges"
@@ -1104,7 +1135,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5639",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-30T11:26:24.972Z",
+      "crawledAt": "2026-07-30T22:16:02.452Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1123,11 +1154,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "coordinateur-trice-des-collaborateur-trice-s-administratif-ve-s-etat-de-vaud-payerne"
+        "coordinateur-trice-des-collaborateur-trice-s-administratif-ve-s-etat-de-vaud-payerne",
+        "coordinatore-del-personale-amministrativo-etat-de-vaud-administration-cantonale-vaudoise-payerne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "coordinateur-trice-des-collaborateur-trice-s-administratif-ve-s-etat-de-vaud-payerne"
+          "coordinateur-trice-des-collaborateur-trice-s-administratif-ve-s-etat-de-vaud-payerne",
+          "coordinatore-del-personale-amministrativo-etat-de-vaud-administration-cantonale-vaudoise-payerne"
         ],
         "en": [
           "coordinateur-trice-des-collaborateur-trice-s-administratif-ve-s-etat-de-vaud-payerne"
@@ -1181,7 +1214,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5536",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-30T11:26:24.536Z",
+      "crawledAt": "2026-07-30T22:16:02.025Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1200,11 +1233,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "technicien-ne-specialiste-chauffage-etat-de-vaud-lausanne"
+        "technicien-ne-specialiste-chauffage-etat-de-vaud-lausanne",
+        "riscaldamento-tecnico-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "technicien-ne-specialiste-chauffage-etat-de-vaud-lausanne"
+          "technicien-ne-specialiste-chauffage-etat-de-vaud-lausanne",
+          "riscaldamento-tecnico-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
         ],
         "en": [
           "technicien-ne-specialiste-chauffage-etat-de-vaud-lausanne"
@@ -1241,7 +1276,7 @@
       "companyDomain": "vd.ch",
       "title": "Chef·fe de projet architecte",
       "titleByLocale": {
-        "it": "Leader del progetto architettonico",
+        "it": "Chef·fe de projet architecte",
         "en": "Architectural Project Leader",
         "de": "Architektonischer Projektleiter",
         "fr": "Chef·fe de projet architecte"
@@ -1258,7 +1293,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5529",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-30T11:26:23.974Z",
+      "crawledAt": "2026-07-30T22:16:01.613Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1295,6 +1330,7 @@
         ]
       },
       "firstSeenAt": "2026-07-05T11:43:14.929Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -1339,7 +1375,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5652",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-30T11:26:23.561Z",
+      "crawledAt": "2026-07-30T22:16:01.202Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1358,11 +1394,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "medecin-pediatre-referent-e-de-l-unite-de-promotion-de-la-sante-et-prevention-en-milieu"
+        "medecin-pediatre-referent-e-de-l-unite-de-promotion-de-la-sante-et-prevention-en-milieu",
+        "medico-pediatrico-dell-unita-di-promozione-della-salute-e-prevenzione-della-scuola-etat-de-vaud-administration-cantonale"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "medecin-pediatre-referent-e-de-l-unite-de-promotion-de-la-sante-et-prevention-en-milieu"
+          "medecin-pediatre-referent-e-de-l-unite-de-promotion-de-la-sante-et-prevention-en-milieu",
+          "medico-pediatrico-dell-unita-di-promozione-della-salute-e-prevenzione-della-scuola-etat-de-vaud-administration-cantonale"
         ],
         "en": [
           "medecin-pediatre-referent-e-de-l-unite-de-promotion-de-la-sante-et-prevention-en-milieu"
@@ -1400,7 +1438,7 @@
       "title": "Chef·fe de mandat d'audit",
       "titleByLocale": {
         "it": "Capo di Audit Mandate",
-        "en": "Head of Audit Mandate",
+        "en": "Chef·fe de mandat d'audit",
         "de": "Leiter des Prüfungsauftrags",
         "fr": "Chef·fe de mandat d'audit"
       },
@@ -1416,7 +1454,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5613",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-30T11:26:23.139Z",
+      "crawledAt": "2026-07-30T22:16:00.756Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1435,11 +1473,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "chef-fe-de-mandat-d-audit-etat-de-vaud-lausanne"
+        "chef-fe-de-mandat-d-audit-etat-de-vaud-lausanne",
+        "capo-di-audit-mandate-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "chef-fe-de-mandat-d-audit-etat-de-vaud-lausanne"
+          "chef-fe-de-mandat-d-audit-etat-de-vaud-lausanne",
+          "capo-di-audit-mandate-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
         ],
         "en": [
           "chef-fe-de-mandat-d-audit-etat-de-vaud-lausanne"
@@ -1449,6 +1489,7 @@
         ]
       },
       "firstSeenAt": "2026-07-05T11:43:25.035Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -1493,7 +1534,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5663",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-30T11:26:22.724Z",
+      "crawledAt": "2026-07-30T22:16:00.344Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1512,11 +1553,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "educateur-trice-de-l-enfance-etat-de-vaud-lausanne"
+        "educateur-trice-de-l-enfance-etat-de-vaud-lausanne",
+        "educatori-di-bambini-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "educateur-trice-de-l-enfance-etat-de-vaud-lausanne"
+          "educateur-trice-de-l-enfance-etat-de-vaud-lausanne",
+          "educatori-di-bambini-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
         ],
         "en": [
           "educateur-trice-de-l-enfance-etat-de-vaud-lausanne"
@@ -1526,6 +1569,7 @@
         ]
       },
       "firstSeenAt": "2026-07-05T11:43:25.035Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -1570,7 +1614,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5656",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-30T11:26:22.305Z",
+      "crawledAt": "2026-07-30T22:15:59.931Z",
       "addressLocality": "Renens VD",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1589,11 +1633,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "specialiste-rh-etat-de-vaud-renens-vd"
+        "specialiste-rh-etat-de-vaud-renens-vd",
+        "specialista-hr-etat-de-vaud-administration-cantonale-vaudoise-renens-vd"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "specialiste-rh-etat-de-vaud-renens-vd"
+          "specialiste-rh-etat-de-vaud-renens-vd",
+          "specialista-hr-etat-de-vaud-administration-cantonale-vaudoise-renens-vd"
         ],
         "en": [
           "specialiste-rh-etat-de-vaud-renens-vd"
@@ -1647,7 +1693,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5674",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-30T11:26:21.897Z",
+      "crawledAt": "2026-07-30T22:15:59.515Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1666,11 +1712,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "juriste-commission-des-plaintes-etat-de-vaud-lausanne"
+        "juriste-commission-des-plaintes-etat-de-vaud-lausanne",
+        "commissione-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "juriste-commission-des-plaintes-etat-de-vaud-lausanne"
+          "juriste-commission-des-plaintes-etat-de-vaud-lausanne",
+          "commissione-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
         ],
         "en": [
           "juriste-commission-des-plaintes-etat-de-vaud-lausanne"
@@ -1724,7 +1772,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5673",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-30T11:26:21.482Z",
+      "crawledAt": "2026-07-30T22:15:59.098Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1743,11 +1791,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "teleconseiller-ere-etat-de-vaud-lausanne"
+        "teleconseiller-ere-etat-de-vaud-lausanne",
+        "teleconsulente-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "teleconseiller-ere-etat-de-vaud-lausanne"
+          "teleconseiller-ere-etat-de-vaud-lausanne",
+          "teleconsulente-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
         ],
         "en": [
           "teleconseiller-ere-etat-de-vaud-lausanne"
@@ -1757,6 +1807,7 @@
         ]
       },
       "firstSeenAt": "2026-07-05T11:43:25.035Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -1801,7 +1852,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5671",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-30T11:26:21.074Z",
+      "crawledAt": "2026-07-30T22:15:58.686Z",
       "addressLocality": "Morges",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1820,11 +1871,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "curateur-trice-professionnel-le-etat-de-vaud-morges"
+        "curateur-trice-professionnel-le-etat-de-vaud-morges",
+        "curatore-professionista-etat-de-vaud-administration-cantonale-vaudoise-morges"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "curateur-trice-professionnel-le-etat-de-vaud-morges"
+          "curateur-trice-professionnel-le-etat-de-vaud-morges",
+          "curatore-professionista-etat-de-vaud-administration-cantonale-vaudoise-morges"
         ],
         "en": [
           "curateur-trice-professionnel-le-etat-de-vaud-morges"
@@ -1878,7 +1931,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5649",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-30T11:26:20.662Z",
+      "crawledAt": "2026-07-30T22:15:58.262Z",
       "addressLocality": "Nyon",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1897,11 +1950,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "huissier-ere-aspirant-e-huissier-ere-d-un-office-des-poursuites-et-faillites-etat-de-vaud"
+        "huissier-ere-aspirant-e-huissier-ere-d-un-office-des-poursuites-et-faillites-etat-de-vaud",
+        "ufficio-per-le-prosecuzioni-e-la-bancarotta-etat-de-vaud-administration-cantonale-vaudoise-nyon"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "huissier-ere-aspirant-e-huissier-ere-d-un-office-des-poursuites-et-faillites-etat-de-vaud"
+          "huissier-ere-aspirant-e-huissier-ere-d-un-office-des-poursuites-et-faillites-etat-de-vaud",
+          "ufficio-per-le-prosecuzioni-e-la-bancarotta-etat-de-vaud-administration-cantonale-vaudoise-nyon"
         ],
         "en": [
           "huissier-ere-aspirant-e-huissier-ere-d-un-office-des-poursuites-et-faillites-etat-de-vaud"
@@ -1955,7 +2010,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5637",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-30T11:26:20.235Z",
+      "crawledAt": "2026-07-30T22:15:57.848Z",
       "addressLocality": "Epalinges",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1974,11 +2029,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "inspecteur-trice-specialise-e-dans-le-secteur-industriel-etat-de-vaud-epalinges"
+        "inspecteur-trice-specialise-e-dans-le-secteur-industriel-etat-de-vaud-epalinges",
+        "ispettore-industriale-etat-de-vaud-administration-cantonale-vaudoise-epalinges"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "inspecteur-trice-specialise-e-dans-le-secteur-industriel-etat-de-vaud-epalinges"
+          "inspecteur-trice-specialise-e-dans-le-secteur-industriel-etat-de-vaud-epalinges",
+          "ispettore-industriale-etat-de-vaud-administration-cantonale-vaudoise-epalinges"
         ],
         "en": [
           "inspecteur-trice-specialise-e-dans-le-secteur-industriel-etat-de-vaud-epalinges"
@@ -1988,6 +2045,7 @@
         ]
       },
       "firstSeenAt": "2026-07-05T11:43:25.035Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -2016,7 +2074,7 @@
       "title": "Chef·fe projet - Revitalisation biotopes d'importance nationale",
       "titleByLocale": {
         "it": "Leader del progetto - Rivitalizzazione dei biotopi di importanza nazionale",
-        "en": "Project leader - Revitalization of biotopes of national importance",
+        "en": "Chef·fe projet - Revitalisation biotopes d'importance nationale",
         "de": "Projektleiter - Revitalisierung von Biotopen von nationaler Bedeutung",
         "fr": "Chef·fe projet - Revitalisation biotopes d'importance nationale"
       },
@@ -2032,7 +2090,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5684",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-30T11:26:19.815Z",
+      "crawledAt": "2026-07-30T22:15:57.431Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2051,11 +2109,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "chef-fe-projet-revitalisation-biotopes-d-importance-nationale-etat-de-vaud-lausanne"
+        "chef-fe-projet-revitalisation-biotopes-d-importance-nationale-etat-de-vaud-lausanne",
+        "leader-del-progetto-rivitalizzazione-dei-biotopi-di-importanza-nazionale-etat-de-vaud-administration-cantonale-vaudoise"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "chef-fe-projet-revitalisation-biotopes-d-importance-nationale-etat-de-vaud-lausanne"
+          "chef-fe-projet-revitalisation-biotopes-d-importance-nationale-etat-de-vaud-lausanne",
+          "leader-del-progetto-rivitalizzazione-dei-biotopi-di-importanza-nazionale-etat-de-vaud-administration-cantonale-vaudoise"
         ],
         "en": [
           "chef-fe-projet-revitalisation-biotopes-d-importance-nationale-etat-de-vaud-lausanne"
@@ -2065,6 +2125,7 @@
         ]
       },
       "firstSeenAt": "2026-07-05T11:43:22.967Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -2109,7 +2170,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5680",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-30T11:26:19.389Z",
+      "crawledAt": "2026-07-30T22:15:57.021Z",
       "addressLocality": "Chavannes-Renens",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2128,11 +2189,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "secretaire-d-unite-etat-de-vaud-chavannes-renens"
+        "secretaire-d-unite-etat-de-vaud-chavannes-renens",
+        "segretario-dell-unita-etat-de-vaud-administration-cantonale-vaudoise-chavannes-renens"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "secretaire-d-unite-etat-de-vaud-chavannes-renens"
+          "secretaire-d-unite-etat-de-vaud-chavannes-renens",
+          "segretario-dell-unita-etat-de-vaud-administration-cantonale-vaudoise-chavannes-renens"
         ],
         "en": [
           "secretaire-d-unite-etat-de-vaud-chavannes-renens"
@@ -2177,16 +2240,16 @@
       "description": "En votre qualité d’infirmier·ère cantonal·e, vous occuperez une fonction stratégique au sein de la Direction générale de la santé. Votre mission sera de piloter le développement des professions de soins et de santé, d’accompagner les évolutions du système de santé et de contribuer aux décisions stratégiques au niveau cantonal. Membre du comité de direction, vous participerez activement à la définition et à la mise en œuvre des orientations de la politique de santé publique du canton.\n\n• Participer au pilotage stratégique de la Direction générale de la santé en tant que membre du Comité de direction\n• Définir et conduire la stratégie du Pôle des professions de soins et de santé, en veillant à son développement et à son adaptation aux enjeux actuels et futurs\n• Assurer le management de l’équipe ainsi que la gestion des ressources humaines, financières et organisationnelles du pôle\n• Piloter des dossiers stratégiques, conduire des expertises et mener des missions spécifiques confiées par la Direction générale de la santé\n• Développer et entretenir des partenariats solides avec les acteurs institutionnels, les professionnels de santé, les établissements de soins, les associations professionnelles et les autorités compétentes\n• Représenter la Direction générale de la santé dans votre domaine d'expertise auprès des partenaires internes et externes Pour de plus amples informations, veuillez consulter le cahier des charges en cliquant ici ou contacter par courriel Madame Nadine Farescour-Chindéko à nadine.farescour-chindeko@vd.ch .\n\n• Vous êtes un·e professionnel·le des soins reconnu·e pour votre vision stratégique, votre leadership et votre capacité à fédérer des partenaires autour d'objectifs communs\n• Titulaire d’un Master dans un domaine en lien avec la fonction (management des institutions de santé, sciences politiques, administration publique, économie de la santé) ou d’un doctorat dans le domaine des soins\n• Formation complémentaire dans le domaine de la santé\n• Formation complémentaire en management\n• Minimum 10 ans d’expérience de pilotage avec management d’équipe et d’aide à la décision au niveau stratégique\n• Expérience de négociations multipartenaires et avec des associations faitières dans le domaine sanitaire de 5 ans minimum\n• Excellente connaissance du système de santé suisse/vaudois et des enjeux liés aux professions de soins\n• Sens affirmé des responsabilités, de la négociation et de la conduite du changement\n• Excellentes capacités d'analyse stratégique et politique, de synthèse et de communication\n• Très bonnes capacités à représenter la profession auprès des autorités, des partenaires institutionnels, du monde académique, des médias, etc.\n• Sens élevé des responsabilités et éthique du service public\n• Très bonne culture scientifique et capacité à promouvoir des politiques publiques fondées sur des données probantes Afin de disposer de tous les éléments nécessaires à l’analyse de votre dossier, nous vous remercions de bien vouloir nous transmettre, en complément de votre CV, une lettre de motivation ainsi que vos certificats de travail et diplômes.\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch.",
       "descriptionByLocale": {
         "it": "Descrizione\n\nIn qualità di infermiere cantonale occuperai una posizione strategica all’interno della Direzione generale della sanità. La vostra missione sarà gestire lo sviluppo delle professioni sanitarie e assistenziali, sostenere lo sviluppo del sistema sanitario e contribuire alle decisioni strategiche a livello cantonale. In qualità di membro del comitato direttivo parteciperete attivamente alla definizione e all'attuazione degli indirizzi della politica sanitaria pubblica cantonale.\n\nMissioni\n\n- Partecipare alla gestione strategica della Direzione Generale della Sanità come membro del Comitato di Gestione\n- Definire e guidare la strategia del Distretto delle Professioni Assistenziali e Sanitarie, garantendone lo sviluppo e l'adattamento alle sfide attuali e future\n- Assicurare la gestione del team nonché la gestione delle risorse umane, finanziarie e organizzative della divisione\n- Gestire dossier strategici, condurre perizie e svolgere missioni specifiche affidate dalla Direzione Generale della Sanità\n- Sviluppare e mantenere solide partnership con attori istituzionali, operatori sanitari, istituti di cura, associazioni professionali e autorità competenti\n- Rappresentare la Direzione Generale della Sanità nella propria area di competenza nei confronti di partner interni ed esterni\n\nProfilo ricercato\n\n- Sei un professionista sanitario riconosciuto per la tua visione strategica, la tua leadership e la tua capacità di unire i partner attorno a obiettivi comuni\n- Titolare di una laurea magistrale in un ambito attinente alla funzione (management delle istituzioni sanitarie, scienze politiche, pubblica amministrazione, economia sanitaria) o di un dottorato in ambito assistenziale\n- Formazione aggiuntiva in ambito sanitario\n- Formazione aggiuntiva in materia di gestione\n- Minimo 10 anni di esperienza pilota nella gestione del team e nel supporto decisionale a livello strategico\n- Esperienza in trattative multipartner e con associazioni ombrello in ambito sanitario di almeno 5 anni\n- Ottima conoscenza del sistema sanitario svizzero/vaud e delle problematiche legate alle professioni sanitarie\n- Forte senso di responsabilità, negoziazione e gestione del cambiamento\n- Eccellenti capacità di analisi strategica e politica, di sintesi e di comunicazione\n- Ottima capacità di rappresentare la professione presso le autorità, i partner istituzionali, il mondo accademico, i media, ecc.\n- Elevato senso di responsabilità ed etica del servizio pubblico\n- Ottima cultura scientifica e capacità di promuovere politiche pubbliche basate sull'evidenza\n\nCosa offriamo\n\n- Posizione nell'amministrazione cantonale di Vaud (Stato di Vaud), Svizzera\n- Candidatura online sul portale ufficiale del lavoro offerte-emploi.vd.ch\n\nContatto\n\nPer ulteriori informazioni consultare il capitolato d'oneri cliccando qui oppure contattare la Sig.ra Nadine Farescour-Chindeko tramite e-mail all'indirizzo nadine.farescour-chindeko@vd.ch.",
-        "en": "Description\n\nAs a cantonal nurse, you will be in a strategic position within the Directorate-General for Health. Your mission will be to pilot the development of the health and care professions, to accompany the evolution of the health system and to contribute to the strategic decisions at cantonal level. Member of the management committee, you will be actively involved in the definition and implementation of the canton's public health policy guidelines.\n\nMission\n\n- Participate in the strategic direction of the Health Branch as a member of the Executive Committee - Define and lead the strategy of the Health and Care Professionals Branch, ensuring its development and adaptation to current and future challenges - Manage the team and manage the human, financial and organizational resources of the Branch - Manage strategic issues, conduct expertise and carry out specific tasks entrusted by the Health Branch - Develop and maintain strong partnerships with\n\ninstitutional actors, health professionals, healthcare institutions, professional associations and competent authorities - Represent the Directorate General of Health in your area of expertise to internal and external partners\n\nProfile sought\n\n- You are a professional care professional recognized for your strategic vision, leadership and ability to unite partners around common objectives - holds a Master's degree in a field related to the function (management of health institutions, political sciences, public administration, health economics) or a PhD in the field of care - supplementary training in the field of health - supplementary training in management - minimum 10 years d, piloting experience with management of, team and d, decision support at the strategic level -\n\nExperience in multi-partner negotiations and with associations working in the health field of at least 5 years - Excellent knowledge of the Swiss/Vaudian health system and of the issues related to the care professions - Strong sense of responsibility, negotiation and change management - Excellent capacities for strategic and political analysis, synthesis and communication - Very good ability to represent the profession with authorities, institutional partners, academia, the media, etc.\n\n- High sense of responsibility and ethics in the public service - Very good scientific culture and ability to promote evidence-based public policies\n\nWhat we offer\n\n- Post office within the Cantonal Administration of Vaud (State of Vaud), Switzerland - Online application on the official career portal offers-emploi.vd.ch\n\nContact\n\nFor further information, please consult the specifications by clicking here or contact by email Nadine Farescour-Chindéko at nadine.",
+        "en": "Description\n\nAs a cantonal nurse, you will be in a strategic position within the Directorate-General for Health. Your mission will be to pilot the development of the health and care professions, to accompany the evolution of the health system and to contribute to the strategic decisions at cantonal level. Member of the management committee, you will be actively involved in the definition and implementation of the canton's public health policy guidelines.\n\nMission\n\n- Participate in the strategic direction of the Health Branch as a member of the Executive Committee - Define and lead the strategy of the Health and Care Professionals Branch, ensuring its development and adaptation to current and future challenges - Manage the team and manage the human, financial and organizational resources of the Branch - Manage strategic issues, conduct expertise and carry out specific tasks entrusted by the Health Branch - Develop and maintain strong partnerships with\n\ninstitutional actors, health professionals, healthcare institutions, professional associations and competent authorities - Represent the Directorate General of Health in your area of expertise to internal and external partners\n\nProfile sought\n\n- You are a professional care professional recognized for your strategic vision, leadership and ability to unite partners around common objectives - holds a Master's degree in a field related to the",
         "de": "Beschreibung\n\nAls kantonale Krankenpflegerin nehmen Sie eine strategische Position innerhalb der Generaldirektion Gesundheit ein. Ihre Aufgabe wird es sein, die Entwicklung der Pflege- und Gesundheitsberufe zu steuern, Entwicklungen im Gesundheitssystem zu unterstützen und an strategischen Entscheidungen auf kantonaler Ebene mitzuwirken. Als Mitglied des Lenkungsausschusses wirken Sie aktiv an der Festlegung und Umsetzung der Stossrichtungen der kantonalen Gesundheitspolitik mit.\n\nMissionen\n\n- Beteiligen Sie sich als Mitglied des Verwaltungsausschusses an der strategischen Leitung der Generaldirektion Gesundheit\n- Definieren und leiten Sie die Strategie des Pflege- und Gesundheitsberufe-Clusters und stellen Sie sicher, dass er sich an aktuelle und zukünftige Herausforderungen anpasst\n- Sicherstellung der Führung des Teams sowie der Verwaltung der personellen, finanziellen und organisatorischen Ressourcen der Abteilung\n- Verwaltung strategischer Akten, Durchführung von Gutachten und Durchführung spezifischer Aufgaben, die von der Generaldirektion Gesundheit übertragen werden\n- Aufbau und Pflege solider Partnerschaften mit institutionellen Akteuren, Gesundheitsfachkräften, Pflegeeinrichtungen, Berufsverbänden und zuständigen Behörden\n- Vertretung der Generaldirektion Gesundheit in Ihrem Fachgebiet gegenüber internen und externen Partnern\n\nProfil gesucht\n\n- Sie sind ein Gesundheitsexperte, der für Ihre strategische Vision, Ihre Führungsqualitäten und Ihre Fähigkeit, Partner für gemeinsame Ziele zu vereinen, bekannt ist\n- Inhaber eines Masterabschlusses in einem funktionsbezogenen Bereich (Management von Gesundheitseinrichtungen, Politikwissenschaft, öffentliche Verwaltung, Gesundheitsökonomie) oder einer Promotion im Bereich Pflege\n- Zusatzausbildung im Gesundheitsbereich\n- Zusatzausbildung im Management\n- Mindestens 10 Jahre Piloterfahrung mit Teammanagement und Entscheidungsunterstützung auf strategischer Ebene\n- Erfahrung in Multipartnerverhandlungen und mit Dachverbänden im Gesundheitsbereich von mindestens 5 Jahren\n- Hervorragende Kenntnisse des schweizerisch-waadtländischen Gesundheitssystems und der mit den Gesundheitsberufen verbundenen Themen\n- Ausgeprägtes Verantwortungsbewusstsein, Verhandlungs- und Veränderungsmanagement\n- Ausgezeichnete strategische und politische Analyse-, Synthese- und Kommunikationsfähigkeiten\n- Sehr gute Fähigkeit, den Beruf gegenüber Behörden, institutionellen Partnern, der akademischen Welt, den Medien usw. zu vertreten.\n- Hohes Verantwortungsbewusstsein und Ethik im öffentlichen Dienst\n- Sehr gute wissenschaftliche Kultur und Fähigkeit, öffentliche Politik auf der Grundlage von Fakten voranzutreiben\n\nWas wir bieten\n\n- Position innerhalb der Waadtländer Kantonsverwaltung (Staat Waadt), Schweiz\n- Online-Bewerbung auf dem offiziellen Karriereportal Offers-emploi.vd.ch\n\nKontakt\n\nFür weitere Informationen konsultieren Sie bitte die Spezifikationen, indem Sie hier klicken, oder kontaktieren Sie Frau Nadine Farescour-Chindéko per E-Mail unter nadine.farescour-chindeko@vd.ch.",
-        "fr": "Description\n\nEn votre qualité d’infirmier·ère cantonal·e, vous occuperez une fonction stratégique au sein de la Direction générale de la santé. Votre mission sera de piloter le développement des professions de soins et de santé, d’accompagner les évolutions du système de santé et de contribuer aux décisions stratégiques au niveau cantonal. Membre du comité de direction, vous participerez activement à la définition et à la mise en œuvre des orientations de la politique de santé publique du canton.\n\nMissions\n\n- Participer au pilotage stratégique de la Direction générale de la santé en tant que membre du Comité de direction\n- Définir et conduire la stratégie du Pôle des professions de soins et de santé, en veillant à son développement et à son adaptation aux enjeux actuels et futurs\n- Assurer le management de l’équipe ainsi que la gestion des ressources humaines, financières et organisationnelles du pôle\n- Piloter des dossiers stratégiques, conduire des expertises et mener des missions spécifiques confiées par la Direction générale de la santé\n- Développer et entretenir des partenariats solides avec les acteurs institutionnels, les professionnels de santé, les établissements de soins, les associations professionnelles et les autorités compétentes\n- Représenter la Direction générale de la santé dans votre domaine d'expertise auprès des partenaires internes et externes\n\nProfil recherché\n\n- Vous êtes un·e professionnel·le des soins reconnu·e pour votre vision stratégique, votre leadership et votre capacité à fédérer des partenaires autour d'objectifs communs\n- Titulaire d’un Master dans un domaine en lien avec la fonction (management des institutions de santé, sciences politiques, administration publique, économie de la santé) ou d’un doctorat dans le domaine des soins\n- Formation complémentaire dans le domaine de la santé\n- Formation complémentaire en management\n- Minimum 10 ans d’expérience de pilotage avec management d’équipe et d’aide à la décision au niveau stratégique\n- Expérience de négociations multipartenaires et avec des associations faitières dans le domaine sanitaire de 5 ans minimum\n- Excellente connaissance du système de santé suisse/vaudois et des enjeux liés aux professions de soins\n- Sens affirmé des responsabilités, de la négociation et de la conduite du changement\n- Excellentes capacités d'analyse stratégique et politique, de synthèse et de communication\n- Très bonnes capacités à représenter la profession auprès des autorités, des partenaires institutionnels, du monde académique, des médias, etc.\n- Sens élevé des responsabilités et éthique du service public\n- Très bonne culture scientifique et capacité à promouvoir des politiques publiques fondées sur des données probantes\n\nCe que nous offrons\n\n- Poste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse\n- Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch\n\nContact\n\nPour de plus amples informations, veuillez consulter le cahier des charges en cliquant ici ou contacter par courriel Madame Nadine Farescour-Chindéko à nadine.farescour-chindeko@vd.ch."
+        "fr": "En votre qualité d’infirmier·ère cantonal·e, vous occuperez une fonction stratégique au sein de la Direction générale de la santé. Votre mission sera de piloter le développement des professions de soins et de santé, d’accompagner les évolutions du système de santé et de contribuer aux décisions stratégiques au niveau cantonal. Membre du comité de direction, vous participerez activement à la définition et à la mise en œuvre des orientations de la politique de santé publique du canton.\n\n• Participer au pilotage stratégique de la Direction générale de la santé en tant que membre du Comité de direction\n• Définir et conduire la stratégie du Pôle des professions de soins et de santé, en veillant à son développement et à son adaptation aux enjeux actuels et futurs\n• Assurer le management de l’équipe ainsi que la gestion des ressources humaines, financières et organisationnelles du pôle\n• Piloter des dossiers stratégiques, conduire des expertises et mener des missions spécifiques confiées par la Direction générale de la santé\n• Développer et entretenir des partenariats solides avec les acteurs institutionnels, les professionnels de santé, les établissements de soins, les associations professionnelles et les autorités compétentes\n• Représenter la Direction générale de la santé dans votre domaine d'expertise auprès des partenaires internes et externes Pour de plus amples informations, veuillez consulter le cahier des charges en cliquant ici ou contacter par courriel Madame Nadine Farescour-Chindéko à nadine.farescour-chindeko@vd.ch .\n\n• Vous êtes un·e professionnel·le des soins reconnu·e pour votre vision stratégique, votre leadership et votre capacité à fédérer des partenaires autour d'objectifs communs\n• Titulaire d’un Master dans un domaine en lien avec la fonction (management des institutions de santé, sciences politiques, administration publique, économie de la santé) ou d’un doctorat dans le domaine des soins\n• Formation complémentaire dans le domaine de la santé\n• Formation complémentaire en management\n• Minimum 10 ans d’expérience de pilotage avec management d’équipe et d’aide à la décision au niveau stratégique\n• Expérience de négociations multipartenaires et avec des associations faitières dans le domaine sanitaire de 5 ans minimum\n• Excellente connaissance du système de santé suisse/vaudois et des enjeux liés aux professions de soins\n• Sens affirmé des responsabilités, de la négociation et de la conduite du changement\n• Excellentes capacités d'analyse stratégique et politique, de synthèse et de communication\n• Très bonnes capacités à représenter la profession auprès des autorités, des partenaires institutionnels, du monde académique, des médias, etc.\n• Sens élevé des responsabilités et éthique du service public\n• Très bonne culture scientifique et capacité à promouvoir des politiques publiques fondées sur des données probantes Afin de disposer de tous les éléments nécessaires à l’analyse de votre dossier, nous vous remercions de bien vouloir nous transmettre, en complément de votre CV, une lettre de motivation ainsi que vos certificats de travail et diplômes.\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch."
       },
       "location": "Lausanne",
       "canton": "VD",
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5676",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-30T11:26:18.954Z",
+      "crawledAt": "2026-07-30T22:15:56.613Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2205,11 +2268,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "infirmier-ere-cantonal-e-etat-de-vaud-lausanne"
+        "infirmier-ere-cantonal-e-etat-de-vaud-lausanne",
+        "infermiere-cantonali-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "infirmier-ere-cantonal-e-etat-de-vaud-lausanne"
+          "infirmier-ere-cantonal-e-etat-de-vaud-lausanne",
+          "infermiere-cantonali-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
         ],
         "en": [
           "infirmier-ere-cantonal-e-etat-de-vaud-lausanne"
@@ -2263,7 +2328,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5677",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-30T11:26:18.536Z",
+      "crawledAt": "2026-07-30T22:15:56.202Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2282,11 +2347,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "assistant-e-bureautique-et-applications-etat-de-vaud-lausanne"
+        "assistant-e-bureautique-et-applications-etat-de-vaud-lausanne",
+        "assistente-e-applicazioni-dell-ufficio-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistant-e-bureautique-et-applications-etat-de-vaud-lausanne"
+          "assistant-e-bureautique-et-applications-etat-de-vaud-lausanne",
+          "assistente-e-applicazioni-dell-ufficio-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
         ],
         "en": [
           "assistant-e-bureautique-et-applications-etat-de-vaud-lausanne"
@@ -2296,6 +2363,7 @@
         ]
       },
       "firstSeenAt": "2026-07-05T11:43:22.967Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -2340,7 +2408,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5672",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-30T11:26:18.102Z",
+      "crawledAt": "2026-07-30T22:15:55.794Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2359,11 +2427,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "repondant-e-applications-sirh-et-bureautique-etat-de-vaud-lausanne"
+        "repondant-e-applications-sirh-et-bureautique-etat-de-vaud-lausanne",
+        "risposta-alle-applicazioni-hris-e-automazione-degli-uffici-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "repondant-e-applications-sirh-et-bureautique-etat-de-vaud-lausanne"
+          "repondant-e-applications-sirh-et-bureautique-etat-de-vaud-lausanne",
+          "risposta-alle-applicazioni-hris-e-automazione-degli-uffici-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
         ],
         "en": [
           "repondant-e-applications-sirh-et-bureautique-etat-de-vaud-lausanne"
@@ -2417,7 +2487,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5662",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-30T11:26:17.685Z",
+      "crawledAt": "2026-07-30T22:15:55.382Z",
       "addressLocality": "Prilly",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2436,11 +2506,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "conseiller-ere-en-personnel-etat-de-vaud-prilly"
+        "conseiller-ere-en-personnel-etat-de-vaud-prilly",
+        "consigliere-etat-de-vaud-administration-cantonale-vaudoise-prilly"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "conseiller-ere-en-personnel-etat-de-vaud-prilly"
+          "conseiller-ere-en-personnel-etat-de-vaud-prilly",
+          "consigliere-etat-de-vaud-administration-cantonale-vaudoise-prilly"
         ],
         "en": [
           "conseiller-ere-en-personnel-etat-de-vaud-prilly"
@@ -2494,7 +2566,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5660",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-30T11:26:17.266Z",
+      "crawledAt": "2026-07-30T22:15:54.949Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2514,12 +2586,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "gestionnaire-de-dossiers-specialises-en-droits-politiques-etat-de-vaud-lausanne",
-        "gestionnaire-de-dossiers-specialises-en-droits-politiques-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
+        "gestionnaire-de-dossiers-specialises-en-droits-politiques-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+        "responsabile-dei-diritti-politici-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
           "gestionnaire-de-dossiers-specialises-en-droits-politiques-etat-de-vaud-lausanne",
-          "gestionnaire-de-dossiers-specialises-en-droits-politiques-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
+          "gestionnaire-de-dossiers-specialises-en-droits-politiques-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+          "responsabile-dei-diritti-politici-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
         ],
         "en": [
           "gestionnaire-de-dossiers-specialises-en-droits-politiques-etat-de-vaud-lausanne"
@@ -2573,7 +2647,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5685",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-30T11:26:16.848Z",
+      "crawledAt": "2026-07-30T22:15:54.538Z",
       "addressLocality": "Orbe",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2592,11 +2666,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "collaborateur-trice-d-exploitation-agricole-etat-de-vaud-orbe"
+        "collaborateur-trice-d-exploitation-agricole-etat-de-vaud-orbe",
+        "lavoratore-agricolo-etat-de-vaud-administration-cantonale-vaudoise-orbe"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "collaborateur-trice-d-exploitation-agricole-etat-de-vaud-orbe"
+          "collaborateur-trice-d-exploitation-agricole-etat-de-vaud-orbe",
+          "lavoratore-agricolo-etat-de-vaud-administration-cantonale-vaudoise-orbe"
         ],
         "en": [
           "collaborateur-trice-d-exploitation-agricole-etat-de-vaud-orbe"
@@ -2650,7 +2726,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5668",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-30T11:26:16.402Z",
+      "crawledAt": "2026-07-30T22:15:54.101Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2669,11 +2745,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "bibliothecaires-documentalistes-assistant-e-s-au-sein-du-service-accueil-et-pret-du-site"
+        "bibliothecaires-documentalistes-assistant-e-s-au-sein-du-service-accueil-et-pret-du-site",
+        "assistente-bibliotecario-documentalista-nel-dipartimento-di-benvenuto-e-loan-del-sito-unitheque-etat-de-vaud"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "bibliothecaires-documentalistes-assistant-e-s-au-sein-du-service-accueil-et-pret-du-site"
+          "bibliothecaires-documentalistes-assistant-e-s-au-sein-du-service-accueil-et-pret-du-site",
+          "assistente-bibliotecario-documentalista-nel-dipartimento-di-benvenuto-e-loan-del-sito-unitheque-etat-de-vaud"
         ],
         "en": [
           "bibliothecaires-documentalistes-assistant-e-s-au-sein-du-service-accueil-et-pret-du-site"
@@ -2683,6 +2761,7 @@
         ]
       },
       "firstSeenAt": "2026-07-05T11:43:20.041Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -2727,7 +2806,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5666",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-30T11:26:15.751Z",
+      "crawledAt": "2026-07-30T22:15:53.688Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2746,11 +2825,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "agent-e-de-police-judiciaire-specialise-e-dans-le-domaine-juridique-etat-de-vaud-lausanne"
+        "agent-e-de-police-judiciaire-specialise-e-dans-le-domaine-juridique-etat-de-vaud-lausanne",
+        "agente-di-polizia-giudiziario-specializzato-nel-campo-legale-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "agent-e-de-police-judiciaire-specialise-e-dans-le-domaine-juridique-etat-de-vaud-lausanne"
+          "agent-e-de-police-judiciaire-specialise-e-dans-le-domaine-juridique-etat-de-vaud-lausanne",
+          "agente-di-polizia-giudiziario-specializzato-nel-campo-legale-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
         ],
         "en": [
           "agent-e-de-police-judiciaire-specialise-e-dans-le-domaine-juridique-etat-de-vaud-lausanne"
@@ -2760,6 +2841,7 @@
         ]
       },
       "firstSeenAt": "2026-07-05T11:43:20.041Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -2804,7 +2886,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5665",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-30T11:26:15.332Z",
+      "crawledAt": "2026-07-30T22:15:53.274Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2823,11 +2905,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "agent-e-de-police-judiciaire-specialise-e-dans-le-domaine-comptable-et-de-l-audit"
+        "agent-e-de-police-judiciaire-specialise-e-dans-le-domaine-comptable-et-de-l-audit",
+        "agente-di-polizia-giudiziario-specializzato-in-contabilita-e-controllo-finanziario-etat-de-vaud-administration-cantonale"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "agent-e-de-police-judiciaire-specialise-e-dans-le-domaine-comptable-et-de-l-audit"
+          "agent-e-de-police-judiciaire-specialise-e-dans-le-domaine-comptable-et-de-l-audit",
+          "agente-di-polizia-giudiziario-specializzato-in-contabilita-e-controllo-finanziario-etat-de-vaud-administration-cantonale"
         ],
         "en": [
           "agent-e-de-police-judiciaire-specialise-e-dans-le-domaine-comptable-et-de-l-audit"
@@ -2837,6 +2921,7 @@
         ]
       },
       "firstSeenAt": "2026-07-05T11:43:20.041Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -2881,7 +2966,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5646",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-30T11:26:14.920Z",
+      "crawledAt": "2026-07-30T22:15:52.861Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2901,12 +2986,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "gestionnaire-de-dossiers-specialises-domaine-judiciaire-etat-de-vaud-lausanne",
-        "gestionnaire-de-dossiers-specialises-domaine-judiciaire-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
+        "gestionnaire-de-dossiers-specialises-domaine-judiciaire-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+        "specialist-case-manager-giudizio-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
           "gestionnaire-de-dossiers-specialises-domaine-judiciaire-etat-de-vaud-lausanne",
-          "gestionnaire-de-dossiers-specialises-domaine-judiciaire-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
+          "gestionnaire-de-dossiers-specialises-domaine-judiciaire-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+          "specialist-case-manager-giudizio-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
         ],
         "en": [
           "gestionnaire-de-dossiers-specialises-domaine-judiciaire-etat-de-vaud-lausanne"
@@ -2916,6 +3003,7 @@
         ]
       },
       "firstSeenAt": "2026-07-05T11:43:20.041Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -2960,7 +3048,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5638",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-30T11:26:14.511Z",
+      "crawledAt": "2026-07-30T22:15:52.439Z",
       "addressLocality": "Orbe",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2979,11 +3067,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "responsable-d-atelier-tournant-agricole-h-f-etat-de-vaud-orbe"
+        "responsable-d-atelier-tournant-agricole-h-f-etat-de-vaud-orbe",
+        "responsabile-del-laboratorio-di-rotazione-agricola-h-f-etat-de-vaud-administration-cantonale-vaudoise-orbe"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "responsable-d-atelier-tournant-agricole-h-f-etat-de-vaud-orbe"
+          "responsable-d-atelier-tournant-agricole-h-f-etat-de-vaud-orbe",
+          "responsabile-del-laboratorio-di-rotazione-agricola-h-f-etat-de-vaud-administration-cantonale-vaudoise-orbe"
         ],
         "en": [
           "responsable-d-atelier-tournant-agricole-h-f-etat-de-vaud-orbe"
@@ -3037,7 +3127,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5612",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-30T11:26:13.857Z",
+      "crawledAt": "2026-07-30T22:15:51.986Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -3056,11 +3146,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "curateur-trice-professionnel-le-etat-de-vaud-lausanne"
+        "curateur-trice-professionnel-le-etat-de-vaud-lausanne",
+        "curatore-professionista-etat-de-vaud-administration-cantonale-vaudoise-lausanne-cca071"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "curateur-trice-professionnel-le-etat-de-vaud-lausanne"
+          "curateur-trice-professionnel-le-etat-de-vaud-lausanne",
+          "curatore-professionista-etat-de-vaud-administration-cantonale-vaudoise-lausanne-cca071"
         ],
         "en": [
           "curateur-trice-professionnel-le-etat-de-vaud-lausanne"
@@ -3114,7 +3206,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5686",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-30T11:26:13.446Z",
+      "crawledAt": "2026-07-30T22:15:51.561Z",
       "addressLocality": "Ollon VD",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -3133,11 +3225,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "forestier-ere-bucheron-ne-region-est-etat-de-vaud-ollon-vd"
+        "forestier-ere-bucheron-ne-region-est-etat-de-vaud-ollon-vd",
+        "forester-forester-regione-del-legno-east-etat-de-vaud-administration-cantonale-vaudoise-ollon-vd"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "forestier-ere-bucheron-ne-region-est-etat-de-vaud-ollon-vd"
+          "forestier-ere-bucheron-ne-region-est-etat-de-vaud-ollon-vd",
+          "forester-forester-regione-del-legno-east-etat-de-vaud-administration-cantonale-vaudoise-ollon-vd"
         ],
         "en": [
           "forestier-ere-bucheron-ne-region-est-etat-de-vaud-ollon-vd"
@@ -3191,7 +3285,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5683",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-30T11:26:13.021Z",
+      "crawledAt": "2026-07-30T22:15:51.139Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -3210,11 +3304,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "bibliothecaire-documentaliste-assistant-e-sur-les-sites-de-gymnase-etat-de-vaud-lausanne"
+        "bibliothecaire-documentaliste-assistant-e-sur-les-sites-de-gymnase-etat-de-vaud-lausanne",
+        "assistente-bibliotecario-documentista-presso-i-siti-di-ginnasio-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "bibliothecaire-documentaliste-assistant-e-sur-les-sites-de-gymnase-etat-de-vaud-lausanne"
+          "bibliothecaire-documentaliste-assistant-e-sur-les-sites-de-gymnase-etat-de-vaud-lausanne",
+          "assistente-bibliotecario-documentista-presso-i-siti-di-ginnasio-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
         ],
         "en": [
           "bibliothecaire-documentaliste-assistant-e-sur-les-sites-de-gymnase-etat-de-vaud-lausanne"
@@ -3235,7 +3331,8 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "etat-de-vaud-5675",
@@ -3268,7 +3365,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5675",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-30T11:26:12.613Z",
+      "crawledAt": "2026-07-30T22:15:50.711Z",
       "addressLocality": "Renens VD",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -3288,12 +3385,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "gestionnaire-de-dossiers-specialises-domaine-judiciaire-etat-de-vaud-renens-vd",
-        "gestionnaire-de-dossiers-specialises-domaine-judiciaire-etat-de-vaud-administration-cantonale-vaudoise-renens-vd"
+        "gestionnaire-de-dossiers-specialises-domaine-judiciaire-etat-de-vaud-administration-cantonale-vaudoise-renens-vd",
+        "specialist-case-manager-giudizio-etat-de-vaud-administration-cantonale-vaudoise-renens-vd"
       ],
       "previousSlugsByLocale": {
         "it": [
           "gestionnaire-de-dossiers-specialises-domaine-judiciaire-etat-de-vaud-renens-vd",
-          "gestionnaire-de-dossiers-specialises-domaine-judiciaire-etat-de-vaud-administration-cantonale-vaudoise-renens-vd"
+          "gestionnaire-de-dossiers-specialises-domaine-judiciaire-etat-de-vaud-administration-cantonale-vaudoise-renens-vd",
+          "specialist-case-manager-giudizio-etat-de-vaud-administration-cantonale-vaudoise-renens-vd"
         ],
         "en": [
           "gestionnaire-de-dossiers-specialises-domaine-judiciaire-etat-de-vaud-renens-vd"
@@ -3303,6 +3402,7 @@
         ]
       },
       "firstSeenAt": "2026-07-05T11:43:20.864Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -3347,7 +3447,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5667",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-30T11:26:12.194Z",
+      "crawledAt": "2026-07-30T22:15:50.285Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -3366,11 +3466,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "gestionnaires-de-dossiers-specialises-etat-de-vaud-lausanne"
+        "gestionnaires-de-dossiers-specialises-etat-de-vaud-lausanne",
+        "file-manager-specializzati-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "gestionnaires-de-dossiers-specialises-etat-de-vaud-lausanne"
+          "gestionnaires-de-dossiers-specialises-etat-de-vaud-lausanne",
+          "file-manager-specializzati-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
         ],
         "en": [
           "gestionnaires-de-dossiers-specialises-etat-de-vaud-lausanne"
@@ -3380,6 +3482,7 @@
         ]
       },
       "firstSeenAt": "2026-07-05T11:43:20.864Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -3397,34 +3500,34 @@
       "id": "etat-de-vaud-5679",
       "slug": "specialist-file-manager-settore-giudiziario-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
       "slugByLocale": {
-        "fr": "gestionnaire-de-dossiers-specialises-domaine-judiciaire-etat-de-vaud-lausanne",
         "it": "specialist-file-manager-settore-giudiziario-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
         "en": "specialist-file-manager-judicial-field-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
-        "de": "specialist-file-manager-justizbereich-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
+        "de": "specialist-file-manager-justizbereich-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+        "fr": "gestionnaire-de-dossiers-specialises-domaine-judiciaire-etat-de-vaud-lausanne"
       },
       "company": "État de Vaud (Administration cantonale vaudoise)",
       "companyKey": "etat-de-vaud",
       "companyDomain": "vd.ch",
       "title": "Gestionnaire de dossiers spécialisés - domaine judiciaire",
       "titleByLocale": {
-        "fr": "Gestionnaire de dossiers spécialisés - domaine judiciaire",
         "it": "Specialist File Manager - settore giudiziario",
         "en": "Specialist File Manager - judicial field",
-        "de": "Specialist File Manager - Justizbereich"
+        "de": "Specialist File Manager - Justizbereich",
+        "fr": "Gestionnaire de dossiers spécialisés - domaine judiciaire"
       },
       "description": "Le domaine judiciaire vous intéresse ? Effectuer des tâches administratives variées et essentielles au bon fonctionnement de la justice vous motive ? Vous souhaitez évoluer dans un environnement de travail stimulant ? Rejoignez-nous ! Rattachés à l’Ordre judiciaire vaudois, les quatre tribunaux d’arrondissement du canton statuent en première instance dans de nombreuses causes relevant du droit pénal et du droit civil au sens large. Ils comprennent chacun plusieurs chambres (pénale, familiale, pécuniaire, etc.). Afin de compléter l’équipe en place, Le Tribunal d’arrondissement de Lausanne, qui emploie près de 100 magistrat·e·s et collaborateur·trice·s, recherche un·e gestionnaire de dossiers spécialisés .\n\n• Assurer en toute autonomie la gestion et le suivi des dossiers du greffe de la famille, en maîtrisant les procédures et les processus métiers relatifs au domaine.\n• Analyser et traiter les différentes étapes de la procédure en lien avec la tenue des dossiers, en vérifiant que toutes les pièces sont réunies et conformes.\n• Collaborer à la tenue et à la planification des audiences, des auditions et des consultations en déterminant le degré d'urgence.\n• Gérer la prise en charge, l'acheminement et l'expédition de correspondances diverses en fixant les priorités selon les échéances et les délais légaux.\n• Rédiger certaines décisions sous la signature du juge ou toute autre personne habilitée à le faire.\n• Assurer le service au guichet et au téléphone en renseignant les justiciables, avocats et services partenaires sur les procédures, les délais et les documentations utiles. Vous trouverez de plus amples informations dans le cahier des charges, en cliquant ici . Vous avez des questions ? Mme Caroline Schulz, Première greffière, se tient volontiers à votre disposition au 021 316 69 00\n\n• CFC d'employé·e de commerce, ou tout titre jugé équivalent\n• Pratique professionnelle de 2 ans dans l'administration judiciaire, en étude d'avocat ou de notaire.\n• Sens du service public et résistance au stress\n• Bonnes capacités rédactionnelles et excellente orthographe, travail autonome sous la responsabilité du responsable hiérarchique\n• Connaissance des outils informatiques usuels, rapidité, rigueur, précision et discrétion. Dans le cadre de la procédure de recrutement, les candidat · e · s seront amené · e · s à présenter un extrait du registre des poursuites et un casier judiciaire de moins de 3 mois. Un engagement dans la classe salariale inférieure est possible si la durée de l’expérience en lien avec l’administration judiciaire, en étude d'avocat ou de notaire est insuffisante au moment de l’engagement.\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch.",
       "descriptionByLocale": {
-        "fr": "Le domaine judiciaire vous intéresse ? Effectuer des tâches administratives variées et essentielles au bon fonctionnement de la justice vous motive ? Vous souhaitez évoluer dans un environnement de travail stimulant ? Rejoignez-nous ! Rattachés à l’Ordre judiciaire vaudois, les quatre tribunaux d’arrondissement du canton statuent en première instance dans de nombreuses causes relevant du droit pénal et du droit civil au sens large. Ils comprennent chacun plusieurs chambres (pénale, familiale, pécuniaire, etc.). Afin de compléter l’équipe en place, Le Tribunal d’arrondissement de Lausanne, qui emploie près de 100 magistrat·e·s et collaborateur·trice·s, recherche un·e gestionnaire de dossiers spécialisés .\n\n• Assurer en toute autonomie la gestion et le suivi des dossiers du greffe de la famille, en maîtrisant les procédures et les processus métiers relatifs au domaine.\n• Analyser et traiter les différentes étapes de la procédure en lien avec la tenue des dossiers, en vérifiant que toutes les pièces sont réunies et conformes.\n• Collaborer à la tenue et à la planification des audiences, des auditions et des consultations en déterminant le degré d'urgence.\n• Gérer la prise en charge, l'acheminement et l'expédition de correspondances diverses en fixant les priorités selon les échéances et les délais légaux.\n• Rédiger certaines décisions sous la signature du juge ou toute autre personne habilitée à le faire.\n• Assurer le service au guichet et au téléphone en renseignant les justiciables, avocats et services partenaires sur les procédures, les délais et les documentations utiles. Vous trouverez de plus amples informations dans le cahier des charges, en cliquant ici . Vous avez des questions ? Mme Caroline Schulz, Première greffière, se tient volontiers à votre disposition au 021 316 69 00\n\n• CFC d'employé·e de commerce, ou tout titre jugé équivalent\n• Pratique professionnelle de 2 ans dans l'administration judiciaire, en étude d'avocat ou de notaire.\n• Sens du service public et résistance au stress\n• Bonnes capacités rédactionnelles et excellente orthographe, travail autonome sous la responsabilité du responsable hiérarchique\n• Connaissance des outils informatiques usuels, rapidité, rigueur, précision et discrétion. Dans le cadre de la procédure de recrutement, les candidat · e · s seront amené · e · s à présenter un extrait du registre des poursuites et un casier judiciaire de moins de 3 mois. Un engagement dans la classe salariale inférieure est possible si la durée de l’expérience en lien avec l’administration judiciaire, en étude d'avocat ou de notaire est insuffisante au moment de l’engagement.\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch.",
         "it": "Sei interessato al campo giudiziario? Fare vari compiti amministrativi essenziali per il corretto funzionamento della giustizia vi motiva? Vuoi evolverti in un ambiente di lavoro stimolante? Unisciti a noi! Allegati al Vaudois Judicial Order, i quattro tribunali distrettuali della regola del cantone in prima istanza in molti casi ai sensi del diritto penale e del diritto civile. Ciascuno di essi comprende diverse camere (penal, famiglia, pecuniario, ecc.). Al fine di integrare il team esistente, il tribunale distrettuale di Losanna, che impiega quasi 100 magistrati e collaboratori, sta cercando un responsabile del caso specializzato.\n\n• Gestire e monitorare in modo indipendente i file del registro di famiglia controllando i processi aziendali e le procedure nel campo.\n• Analizzare e elaborare le varie fasi del processo in relazione alla conservazione dei record, verificando che tutte le esposizioni siano assemblate e conformi.\n• Collaborare nella conduzione e nella pianificazione di udienze, udienze e consultazioni determinando il grado di urgenza.\n• Gestire il trattamento, il routing e la spedizione di varie corrispondenze impostando le priorità secondo le scadenze e le scadenze legali.\n• Progetto di decisioni a norma della firma del giudice o di qualsiasi altra persona autorizzata a farlo.\n• Servizio al bancone e al telefono, fornendo informazioni a controversie, avvocati e servizi partner su procedure, scadenze e documentazione pertinenti. Maggiori informazioni si trovano nelle specifiche cliccando qui . Hai delle domande? Caroline Schulz, First Clerk, è felice di essere disponibile al 021 316 69 00\n\n• CFC del dipendente commerciale o qualsiasi equivalente\n• Pratica professionale di 2 anni nell'amministrazione giudiziaria, studiare avvocato o notaio.\n• Servizio pubblico e resistenza allo stress\n• Buone competenze editoriali e eccellente ortografia, auto-occupazione sotto la responsabilità del direttore di linea\n• Conoscenza di strumenti informatici comuni, velocità, rigore, accuratezza e discrezione. Nell'ambito del processo di reclutamento, i candidati saranno tenuti a presentare un estratto dal registro per l'accusa e un registro penale di meno di 3 mesi. Una nomina alla classe salariale inferiore è possibile se la durata dell'esperienza in relazione all'amministrazione giudiziaria, in studi legali o notarili è insufficiente al momento della nomina.\n\nPosizione nell'Amministrazione cantonale di Vaud (Stato di Vaud), Svizzera. Applicazione online sul portale di carriera ufficiale offre-emploi.vd.ch.",
         "en": "Are you interested in the judicial field? Doing various administrative tasks essential to the proper functioning of justice motivates you? You want to evolve in a stimulating work environment? Join us! Attached to the Vaudois Judicial Order, the four district courts of the canton rule at first instance in many cases under criminal law and civil law in the broad sense. They each include several rooms (penal, family, pecuniary, etc.). In order to complement the existing team, the District Court of Lausanne, which employs nearly 100 magistrates and collaborators, is seeking a specialist case manager.\n\n• Independently manage and monitor family registry files by mastering business processes and procedures in the field.\n• Analyze and process the various steps of the process in relation to record keeping, verifying that all exhibits are assembled and compliant.\n• Collaborate in the conduct and planning of hearings, hearings and consultations by determining the degree of urgency.\n• Manage the handling, routing and dispatch of various correspondence by setting priorities according to legal deadlines and deadlines.\n• Draft certain decisions under the signature of the judge or any other person authorized to do so.\n• Service at the counter and on the telephone by providing information to litigants, lawyers and partner services on relevant procedures, deadlines and documentation. More information can be found in the specifications by clicking here . Do you have any questions? Caroline Schulz, First Clerk, is happy to be available at 021 316 69 00\n\n• Commercial employee's CFC or any equivalent\n• Professional practice of 2 years in the judicial administration, studying lawyer or notary.\n• Public service and stress resistance\n• Good editorial skills and excellent spelling, self-employment under the responsibility of the line manager\n• Knowledge of common computer tools, speed, rigour, accuracy and discretion. As part of the recruitment process, applicants will be required to submit an extract from the prosecution register and a criminal record of less than 3 months. An appointment to the lower salary class is possible if the duration of the experience in connection with the judicial administration, in legal studies or notary is insufficient at the time of the appointment.\n\nPosition in the Cantonal Administration of Vaud (State of Vaud), Switzerland. Online application on the official career portal offers-emploi.vd.ch.",
-        "de": "Sie interessieren sich für den juristischen Bereich? Verschiedene Verwaltungsaufgaben, die für das ordnungsgemäße Funktionieren der Justiz unerlässlich sind, motivieren Sie? Sie möchten sich in einem anregenden Arbeitsumfeld weiterentwickeln? Begleiten Sie uns! Angefügt an die Waadtländer Gerichtsordnung regieren die vier Landgerichte des Kantons in erster Instanz in vielen Fällen strafrechtlich und zivilrechtlich im weiteren Sinne. Sie umfassen jeweils mehrere Räume (Strafen, Familie, Geld, etc.). Um das bestehende Team zu ergänzen, sucht das Landgericht Lausanne, das fast 100 Richter und Mitarbeiter beschäftigt, einen spezialisierten Fallmanager.\n\n• Verwalten und überwachen Sie Familienregisterdateien unabhängig, indem Sie Geschäftsprozesse und -verfahren vor Ort beherrschen.\n• Analysieren und verarbeiten Sie die verschiedenen Schritte des Prozesses in Bezug auf die Aufzeichnung und überprüfen Sie, ob alle Exponate zusammengebaut und konform sind.\n• Zusammenarbeit bei der Durchführung und Planung von Anhörungen, Anhörungen und Konsultationen durch Festlegung der Dringlichkeit.\n• Verwalten Sie die Abwicklung, Weiterleitung und den Versand verschiedener Korrespondenz, indem Sie Prioritäten gemäß den gesetzlichen Fristen und Fristen festlegen.\n• Entwurf bestimmter Entscheidungen unter der Unterschrift des Richters oder einer anderen hierzu befugten Person.\n• Service am Schalter und am Telefon durch die Bereitstellung von Informationen für Rechtsanwälte, Anwälte und Partnerdienste über relevante Verfahren, Fristen und Dokumentation. Weitere Informationen finden Sie in den Spezifikationen, indem Sie hier klicken. Haben Sie Fragen? Caroline Schulz, First Clerk, freut sich, unter 021 316 69 00 verfügbar zu sein\n\n• Gewerbliche Mitarbeiter CFC oder ein gleichwertiges\n• Berufspraxis von 2 Jahren in der Justizverwaltung, Studium Rechtsanwalt oder Notar.\n• Öffentlicher Dienst und Stressresistenz\n• Gute redaktionelle Fähigkeiten und ausgezeichnete Rechtschreibung, Selbstständigkeit unter der Verantwortung des Vorgesetzten\n• Kenntnis der gängigen Computer-Tools, Geschwindigkeit, Strenge, Genauigkeit und Diskretion. Im Rahmen des Rekrutierungsprozesses müssen die Antragsteller einen Auszug aus dem Staatsanwaltschaftsregister und ein Strafregister von weniger als 3 Monaten einreichen. Ein Termin in die untere Gehaltsklasse ist möglich, wenn die Dauer der Erfahrung im Zusammenhang mit der Justizverwaltung, im juristischen Studium oder Notar zum Zeitpunkt der Ernennung nicht ausreicht.\n\nFunktion in der kantonalen Verwaltung Waadt (Staat Waadt), Schweiz. Online-Bewerbung auf dem offiziellen Karriereportal offers-emploi.vd.ch."
+        "de": "Sie interessieren sich für den juristischen Bereich? Verschiedene Verwaltungsaufgaben, die für das ordnungsgemäße Funktionieren der Justiz unerlässlich sind, motivieren Sie? Sie möchten sich in einem anregenden Arbeitsumfeld weiterentwickeln? Begleiten Sie uns! Angefügt an die Waadtländer Gerichtsordnung regieren die vier Landgerichte des Kantons in erster Instanz in vielen Fällen strafrechtlich und zivilrechtlich im weiteren Sinne. Sie umfassen jeweils mehrere Räume (Strafen, Familie, Geld, etc.). Um das bestehende Team zu ergänzen, sucht das Landgericht Lausanne, das fast 100 Richter und Mitarbeiter beschäftigt, einen spezialisierten Fallmanager.\n\n• Verwalten und überwachen Sie Familienregisterdateien unabhängig, indem Sie Geschäftsprozesse und -verfahren vor Ort beherrschen.\n• Analysieren und verarbeiten Sie die verschiedenen Schritte des Prozesses in Bezug auf die Aufzeichnung und überprüfen Sie, ob alle Exponate zusammengebaut und konform sind.\n• Zusammenarbeit bei der Durchführung und Planung von Anhörungen, Anhörungen und Konsultationen durch Festlegung der Dringlichkeit.\n• Verwalten Sie die Abwicklung, Weiterleitung und den Versand verschiedener Korrespondenz, indem Sie Prioritäten gemäß den gesetzlichen Fristen und Fristen festlegen.\n• Entwurf bestimmter Entscheidungen unter der Unterschrift des Richters oder einer anderen hierzu befugten Person.\n• Service am Schalter und am Telefon durch die Bereitstellung von Informationen für Rechtsanwälte, Anwälte und Partnerdienste über relevante Verfahren, Fristen und Dokumentation. Weitere Informationen finden Sie in den Spezifikationen, indem Sie hier klicken. Haben Sie Fragen? Caroline Schulz, First Clerk, freut sich, unter 021 316 69 00 verfügbar zu sein\n\n• Gewerbliche Mitarbeiter CFC oder ein gleichwertiges\n• Berufspraxis von 2 Jahren in der Justizverwaltung, Studium Rechtsanwalt oder Notar.\n• Öffentlicher Dienst und Stressresistenz\n• Gute redaktionelle Fähigkeiten und ausgezeichnete Rechtschreibung, Selbstständigkeit unter der Verantwortung des Vorgesetzten\n• Kenntnis der gängigen Computer-Tools, Geschwindigkeit, Strenge, Genauigkeit und Diskretion. Im Rahmen des Rekrutierungsprozesses müssen die Antragsteller einen Auszug aus dem Staatsanwaltschaftsregister und ein Strafregister von weniger als 3 Monaten einreichen. Ein Termin in die untere Gehaltsklasse ist möglich, wenn die Dauer der Erfahrung im Zusammenhang mit der Justizverwaltung, im juristischen Studium oder Notar zum Zeitpunkt der Ernennung nicht ausreicht.\n\nFunktion in der kantonalen Verwaltung Waadt (Staat Waadt), Schweiz. Online-Bewerbung auf dem offiziellen Karriereportal offers-emploi.vd.ch.",
+        "fr": "Le domaine judiciaire vous intéresse ? Effectuer des tâches administratives variées et essentielles au bon fonctionnement de la justice vous motive ? Vous souhaitez évoluer dans un environnement de travail stimulant ? Rejoignez-nous ! Rattachés à l’Ordre judiciaire vaudois, les quatre tribunaux d’arrondissement du canton statuent en première instance dans de nombreuses causes relevant du droit pénal et du droit civil au sens large. Ils comprennent chacun plusieurs chambres (pénale, familiale, pécuniaire, etc.). Afin de compléter l’équipe en place, Le Tribunal d’arrondissement de Lausanne, qui emploie près de 100 magistrat·e·s et collaborateur·trice·s, recherche un·e gestionnaire de dossiers spécialisés .\n\n• Assurer en toute autonomie la gestion et le suivi des dossiers du greffe de la famille, en maîtrisant les procédures et les processus métiers relatifs au domaine.\n• Analyser et traiter les différentes étapes de la procédure en lien avec la tenue des dossiers, en vérifiant que toutes les pièces sont réunies et conformes.\n• Collaborer à la tenue et à la planification des audiences, des auditions et des consultations en déterminant le degré d'urgence.\n• Gérer la prise en charge, l'acheminement et l'expédition de correspondances diverses en fixant les priorités selon les échéances et les délais légaux.\n• Rédiger certaines décisions sous la signature du juge ou toute autre personne habilitée à le faire.\n• Assurer le service au guichet et au téléphone en renseignant les justiciables, avocats et services partenaires sur les procédures, les délais et les documentations utiles. Vous trouverez de plus amples informations dans le cahier des charges, en cliquant ici . Vous avez des questions ? Mme Caroline Schulz, Première greffière, se tient volontiers à votre disposition au 021 316 69 00\n\n• CFC d'employé·e de commerce, ou tout titre jugé équivalent\n• Pratique professionnelle de 2 ans dans l'administration judiciaire, en étude d'avocat ou de notaire.\n• Sens du service public et résistance au stress\n• Bonnes capacités rédactionnelles et excellente orthographe, travail autonome sous la responsabilité du responsable hiérarchique\n• Connaissance des outils informatiques usuels, rapidité, rigueur, précision et discrétion. Dans le cadre de la procédure de recrutement, les candidat · e · s seront amené · e · s à présenter un extrait du registre des poursuites et un casier judiciaire de moins de 3 mois. Un engagement dans la classe salariale inférieure est possible si la durée de l’expérience en lien avec l’administration judiciaire, en étude d'avocat ou de notaire est insuffisante au moment de l’engagement.\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch."
       },
       "location": "Lausanne",
       "canton": "VD",
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5679",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-30T11:26:11.738Z",
+      "crawledAt": "2026-07-30T22:15:49.865Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -3441,13 +3544,17 @@
       "postedDate": "2026-06-08",
       "applyUrl": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5679",
       "requirements": [],
-      "requirementsByLocale": {
-        "fr": []
-      },
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "gestionnaire-de-dossiers-specialises-domaine-judiciaire-etat-de-vaud-lausanne",
+        "gestionnaire-de-dossiers-specialises-domaine-judiciaire-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+        "specialist-file-manager-settore-giudiziario-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "gestionnaire-de-dossiers-specialises-domaine-judiciaire-etat-de-vaud-lausanne",
-          "gestionnaire-de-dossiers-specialises-domaine-judiciaire-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
+          "gestionnaire-de-dossiers-specialises-domaine-judiciaire-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+          "specialist-file-manager-settore-giudiziario-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
         ],
         "en": [
           "gestionnaire-de-dossiers-specialises-domaine-judiciaire-etat-de-vaud-lausanne"
@@ -3456,56 +3563,53 @@
           "gestionnaire-de-dossiers-specialises-domaine-judiciaire-etat-de-vaud-lausanne"
         ]
       },
-      "previousSlugs": [
-        "gestionnaire-de-dossiers-specialises-domaine-judiciaire-etat-de-vaud-lausanne",
-        "gestionnaire-de-dossiers-specialises-domaine-judiciaire-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
-      ],
-      "salaryMin": 60500,
-      "salaryMax": 91500,
+      "firstSeenAt": "2026-07-05T11:43:20.864Z",
+      "needsRetranslation": true,
+      "salaryMin": 83500,
+      "salaryMax": 126500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 60500,
-          "maxValue": 91500,
+          "minValue": 83500,
+          "maxValue": 126500,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-07-05T11:43:20.864Z"
+      }
     },
     {
       "id": "etat-de-vaud-5670",
       "slug": "ufficio-della-bancarotta-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
       "slugByLocale": {
-        "fr": "huissier-ere-chef-fe-d-un-office-des-faillites-etat-de-vaud-lausanne",
         "it": "ufficio-della-bancarotta-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
         "en": "office-of-bankruptcy-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
-        "de": "buro-des-konkurses-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
+        "de": "buro-des-konkurses-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+        "fr": "huissier-ere-chef-fe-d-un-office-des-faillites-etat-de-vaud-lausanne"
       },
       "company": "État de Vaud (Administration cantonale vaudoise)",
       "companyKey": "etat-de-vaud",
       "companyDomain": "vd.ch",
       "title": "Huissier·ère chef·fe d’un Office des faillites",
       "titleByLocale": {
-        "fr": "Huissier·ère chef·fe d’un Office des faillites",
         "it": "Ufficio della bancarotta",
         "en": "Office of Bankruptcy",
-        "de": "Büro des Konkurses"
+        "de": "Büro des Konkurses",
+        "fr": "Huissier·ère chef·fe d’un Office des faillites"
       },
       "description": "Vous êtes titulaire du certificat de formation générale à l’exécution forcée ? La conduite d’un secteur et la gestion de dossiers complexes, notamment en réalisant des opérations extérieures en contact direct avec les usager·ère·s vous motive ? Vous souhaitez évoluer dans un environnement de travail stimulant ? Rejoignez-nous ! Rattachés à l’Ordre judiciaire vaudois, les quatre offices des faillites du canton ont pour principale mission d’administrer et d’assurer la liquidation par voie de faillite. Afin de compléter l’équipe en place, l’Office des faillites de l’arrondissement de Lausanne , qui emploie près de 20 collaborateur·trice·s recherche un·e un·e huissier·ère chef·fe d’un office des faillites.\n\n• Diriger un secteur d'exécution forcée et contribuer à la formation continue des collaborateur·trice·s et des apprenti·e·s.\n• Assurer l’assistance et l’appui technique auprès des huissier·ière·s pour les dossiers et cas complexes.\n• Prendre les mesures conservatoires et déterminer les masses active et passive.\n• Procéder aux réalisations et à la distribution des derniers.\n• Rédiger les procès-verbaux destinés aux parties à la procédure.\n• Gérer les dossiers immobiliers. Vous trouverez de plus amples informations dans le cahier des charges, en cliquant ici. Vous avez des questions ? M. Pascal Scheidegger, Préposé aux faillites, se tient volontiers à votre disposition au 021 316 65 10.\n\n• CFC d'employé·e de commerce.\n• Certificat de formation générale à l'exécution forcée.\n• Expérience professionnelle de 6 ans dans le domaine de la poursuite ou de la faillite.\n• Formation en gestion d'équipe ou engagement à l’obtenir.\n• Aptitude à la gestion de conflits, assertivité.\n• Sens du service public, très bonne résistance au stress.\n• Bonne organisation, esprit d'initiative, rapidité, précision.\n• Maîtrise de l'orthographe et aisance avec les outils informatiques courants.\n• Permis de conduire et mise à disposition du véhicule privé souhaité. De nombreuses possibilités d’évolution professionnelle et de formation continue existent au sein des Office des poursuites et des faillites. Dans le cadre de la procédure de recrutement, les candidat-e-s seront amené-e-s à présenter un extrait du registre des poursuites et du casier judiciaire de moins de 3 mois.\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch.",
       "descriptionByLocale": {
-        "fr": "Vous êtes titulaire du certificat de formation générale à l’exécution forcée ? La conduite d’un secteur et la gestion de dossiers complexes, notamment en réalisant des opérations extérieures en contact direct avec les usager·ère·s vous motive ? Vous souhaitez évoluer dans un environnement de travail stimulant ? Rejoignez-nous ! Rattachés à l’Ordre judiciaire vaudois, les quatre offices des faillites du canton ont pour principale mission d’administrer et d’assurer la liquidation par voie de faillite. Afin de compléter l’équipe en place, l’Office des faillites de l’arrondissement de Lausanne , qui emploie près de 20 collaborateur·trice·s recherche un·e un·e huissier·ère chef·fe d’un office des faillites.\n\n• Diriger un secteur d'exécution forcée et contribuer à la formation continue des collaborateur·trice·s et des apprenti·e·s.\n• Assurer l’assistance et l’appui technique auprès des huissier·ière·s pour les dossiers et cas complexes.\n• Prendre les mesures conservatoires et déterminer les masses active et passive.\n• Procéder aux réalisations et à la distribution des derniers.\n• Rédiger les procès-verbaux destinés aux parties à la procédure.\n• Gérer les dossiers immobiliers. Vous trouverez de plus amples informations dans le cahier des charges, en cliquant ici. Vous avez des questions ? M. Pascal Scheidegger, Préposé aux faillites, se tient volontiers à votre disposition au 021 316 65 10.\n\n• CFC d'employé·e de commerce.\n• Certificat de formation générale à l'exécution forcée.\n• Expérience professionnelle de 6 ans dans le domaine de la poursuite ou de la faillite.\n• Formation en gestion d'équipe ou engagement à l’obtenir.\n• Aptitude à la gestion de conflits, assertivité.\n• Sens du service public, très bonne résistance au stress.\n• Bonne organisation, esprit d'initiative, rapidité, précision.\n• Maîtrise de l'orthographe et aisance avec les outils informatiques courants.\n• Permis de conduire et mise à disposition du véhicule privé souhaité. De nombreuses possibilités d’évolution professionnelle et de formation continue existent au sein des Office des poursuites et des faillites. Dans le cadre de la procédure de recrutement, les candidat-e-s seront amené-e-s à présenter un extrait du registre des poursuites et du casier judiciaire de moins de 3 mois.\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch.",
         "it": "Ha il certificato di addestramento generale in esecuzione forzata? La conduzione di un settore e la gestione di file complessi, in particolare effettuando operazioni esterne a diretto contatto con gli utenti, vi motiva? Vuoi evolverti in un ambiente di lavoro stimolante? Unisciti a noi! Allegati all'Ordine giudiziario Vaudois, i quattro uffici di bancarotta del cantone hanno il compito principale di amministrare e garantire la liquidazione per fallimento. Al fine di completare la squadra esistente, l'ufficio di bancarotta del distretto di Losanna, che impiega quasi 20 dipendenti, sta cercando un senior bailiff di un ufficio di bancarotta.\n\n• Dirigere un settore di esecuzione forzata e contribuire alla formazione continua dei dipendenti e degli apprendisti.\n• Fornire assistenza tecnica e supporto ai licenziatari per casi e casi complessi.\n• Prendere misure precauzionali e determinare masse attive e passive.\n• Fai i risultati finali e la distribuzione.\n• Scrivere minuti alle parti al procedimento.\n• Gestisci i file immobiliari. Maggiori informazioni si trovano nelle specifiche cliccando qui. Hai delle domande? Il signor Pascal Scheidegger, ufficiale della bancarotta, è lieto di essere a vostra disposizione al 021 316 65 10.\n\n• Dipendente commerciale CFC.\n• Certificato di formazione generale in esecuzione forzata.\n• Sei anni di esperienza professionale nell'accusa o fallimento.\n• Team management formazione o impegno.\n• Capacità di gestire conflitti, assertività.\n• Servizio pubblico senso, molto buona resistenza allo stress.\n• Buona organizzazione, iniziativa, velocità, precisione.\n• Mastering ortografia e facilità con strumenti di computer comuni.\n• Patente di guida e disponibilità del veicolo privato desiderato. Ci sono molte opportunità per lo sviluppo professionale e la formazione continua all'interno dell'Ufficio per l'esecuzione e la corruzione. Nell'ambito del processo di reclutamento, i candidati saranno tenuti a presentare un estratto dal registro per l'accusa e dal registro penale per meno di 3 mesi.\n\nPosizione nell'Amministrazione cantonale di Vaud (Stato di Vaud), Svizzera. Applicazione online sul portale di carriera ufficiale offre-emploi.vd.ch.",
         "en": "Do you hold the certificate of general training in forced execution? The conduct of a sector and the management of complex files, in particular by carrying out external operations in direct contact with users, motivates you? You want to evolve in a stimulating work environment? Join us! Attached to the Vaudois Judicial Order, the canton's four bankruptcy offices have the main task of administering and ensuring liquidation by bankruptcy. In order to complete the existing team, the Office of Bankruptcy of the district of Lausanne, which employs nearly 20 employees, is seeking a senior bailiff of a bankruptcy office.\n\n• Direct a sector of forced execution and contribute to the continuing training of employees and apprentices.\n• Provide technical assistance and support to bailiffs for complex cases and cases.\n• Take precautionary measures and determine active and passive masses.\n• Make the final achievements and distribution.\n• Write minutes to the parties to the proceedings.\n• Manage real estate files. More information can be found in the specifications by clicking here. Do you have any questions? Mr Pascal Scheidegger, Bankruptcy Officer, is happy to be at your disposal at 021 316 65 10.\n\n• Commercial employee CFC.\n• Certificate of general training in forced execution.\n• Six-year professional experience in prosecution or bankruptcy.\n• Team management training or commitment.\n• Ability to manage conflicts, assertivity.\n• Public service sense, very good stress resistance.\n• Good organization, initiative, speed, precision.\n• Mastering spelling and ease with common computer tools.\n• Driving licence and availability of the desired private vehicle. There are many opportunities for professional development and continuing training within the Prosecution and Bankruptcy Office. As part of the recruitment process, candidates will be required to submit an extract from the prosecution register and criminal record for less than 3 months.\n\nPosition in the Cantonal Administration of Vaud (State of Vaud), Switzerland. Online application on the official career portal offers-emploi.vd.ch.",
-        "de": "Besitzen Sie die Bescheinigung über die allgemeine Ausbildung in Zwangsvollstreckung? Das Verhalten eines Sektors und die Verwaltung komplexer Dateien, insbesondere durch externe Operationen im direkten Kontakt mit den Nutzern, motiviert Sie? Sie möchten sich in einem anregenden Arbeitsumfeld weiterentwickeln? Begleiten Sie uns! Angebunden an die Waadtländer Gerichtsordnung haben die vier Konkursämter des Kantons die Hauptaufgabe, die Liquidation durch Konkurs zu verwalten und sicherzustellen. Um das bestehende Team zu vervollständigen, sucht das Büro für Konkurs des Landkreises Lausanne, das fast 20 Mitarbeiter beschäftigt, einen leitenden Gerichtsvollzieher einer Insolvenzbehörde.\n\n• Führen Sie einen Bereich der Zwangsvollstreckung und tragen Sie zur Weiterbildung von Arbeitnehmern und Auszubildenden bei.\n• Bieten Sie technische Hilfe und Unterstützung für Gerichtsvollzieher für komplexe Fälle und Fälle.\n• Vorsichtsmaßnahmen ergreifen und aktive und passive Massen bestimmen.\n• Machen Sie die endgültigen Erfolge und Verteilung.\n• Schreiben Sie den Verfahrensbeteiligten ein Protokoll.\n• Verwalten Sie Immobiliendateien. Weitere Informationen finden Sie in den Spezifikationen, indem Sie hier klicken. Haben Sie Fragen? Herr Pascal Scheidegger, Bankruptcy Officer, steht Ihnen gerne unter 021 316 65 10 zur Verfügung.\n\n• Kommerzielle Angestellte CFC.\n• Bescheinigung über die allgemeine Ausbildung in Zwangsvollstreckung.\n• Sechsjährige Berufserfahrung in Strafverfolgung oder Konkurs.\n• Team Management Training oder Engagement.\n• Fähigkeit, Konflikte zu bewältigen, Durchsetzungsvermögen.\n• Öffentlicher Dienst Sinn, sehr gute Stressresistenz.\n• Gute Organisation, Initiative, Geschwindigkeit, Präzision.\n• Mastering Rechtschreibung und Leichtigkeit mit gängigen Computer-Tools.\n• Führerschein und Verfügbarkeit des gewünschten Privatfahrzeugs. Es gibt viele Möglichkeiten für die berufliche Weiterentwicklung und Weiterbildung innerhalb der Staatsanwaltschaft und Konkursbehörde. Im Rahmen des Rekrutierungsprozesses müssen die Kandidaten einen Auszug aus dem Staatsanwaltschaftsregister und dem Strafregister für weniger als 3 Monate einreichen.\n\nFunktion in der kantonalen Verwaltung Waadt (Staat Waadt), Schweiz. Online-Bewerbung auf dem offiziellen Karriereportal offers-emploi.vd.ch."
+        "de": "Besitzen Sie die Bescheinigung über die allgemeine Ausbildung in Zwangsvollstreckung? Das Verhalten eines Sektors und die Verwaltung komplexer Dateien, insbesondere durch externe Operationen im direkten Kontakt mit den Nutzern, motiviert Sie? Sie möchten sich in einem anregenden Arbeitsumfeld weiterentwickeln? Begleiten Sie uns! Angebunden an die Waadtländer Gerichtsordnung haben die vier Konkursämter des Kantons die Hauptaufgabe, die Liquidation durch Konkurs zu verwalten und sicherzustellen. Um das bestehende Team zu vervollständigen, sucht das Büro für Konkurs des Landkreises Lausanne, das fast 20 Mitarbeiter beschäftigt, einen leitenden Gerichtsvollzieher einer Insolvenzbehörde.\n\n• Führen Sie einen Bereich der Zwangsvollstreckung und tragen Sie zur Weiterbildung von Arbeitnehmern und Auszubildenden bei.\n• Bieten Sie technische Hilfe und Unterstützung für Gerichtsvollzieher für komplexe Fälle und Fälle.\n• Vorsichtsmaßnahmen ergreifen und aktive und passive Massen bestimmen.\n• Machen Sie die endgültigen Erfolge und Verteilung.\n• Schreiben Sie den Verfahrensbeteiligten ein Protokoll.\n• Verwalten Sie Immobiliendateien. Weitere Informationen finden Sie in den Spezifikationen, indem Sie hier klicken. Haben Sie Fragen? Herr Pascal Scheidegger, Bankruptcy Officer, steht Ihnen gerne unter 021 316 65 10 zur Verfügung.\n\n• Kommerzielle Angestellte CFC.\n• Bescheinigung über die allgemeine Ausbildung in Zwangsvollstreckung.\n• Sechsjährige Berufserfahrung in Strafverfolgung oder Konkurs.\n• Team Management Training oder Engagement.\n• Fähigkeit, Konflikte zu bewältigen, Durchsetzungsvermögen.\n• Öffentlicher Dienst Sinn, sehr gute Stressresistenz.\n• Gute Organisation, Initiative, Geschwindigkeit, Präzision.\n• Mastering Rechtschreibung und Leichtigkeit mit gängigen Computer-Tools.\n• Führerschein und Verfügbarkeit des gewünschten Privatfahrzeugs. Es gibt viele Möglichkeiten für die berufliche Weiterentwicklung und Weiterbildung innerhalb der Staatsanwaltschaft und Konkursbehörde. Im Rahmen des Rekrutierungsprozesses müssen die Kandidaten einen Auszug aus dem Staatsanwaltschaftsregister und dem Strafregister für weniger als 3 Monate einreichen.\n\nFunktion in der kantonalen Verwaltung Waadt (Staat Waadt), Schweiz. Online-Bewerbung auf dem offiziellen Karriereportal offers-emploi.vd.ch.",
+        "fr": "Vous êtes titulaire du certificat de formation générale à l’exécution forcée ? La conduite d’un secteur et la gestion de dossiers complexes, notamment en réalisant des opérations extérieures en contact direct avec les usager·ère·s vous motive ? Vous souhaitez évoluer dans un environnement de travail stimulant ? Rejoignez-nous ! Rattachés à l’Ordre judiciaire vaudois, les quatre offices des faillites du canton ont pour principale mission d’administrer et d’assurer la liquidation par voie de faillite. Afin de compléter l’équipe en place, l’Office des faillites de l’arrondissement de Lausanne , qui emploie près de 20 collaborateur·trice·s recherche un·e un·e huissier·ère chef·fe d’un office des faillites.\n\n• Diriger un secteur d'exécution forcée et contribuer à la formation continue des collaborateur·trice·s et des apprenti·e·s.\n• Assurer l’assistance et l’appui technique auprès des huissier·ière·s pour les dossiers et cas complexes.\n• Prendre les mesures conservatoires et déterminer les masses active et passive.\n• Procéder aux réalisations et à la distribution des derniers.\n• Rédiger les procès-verbaux destinés aux parties à la procédure.\n• Gérer les dossiers immobiliers. Vous trouverez de plus amples informations dans le cahier des charges, en cliquant ici. Vous avez des questions ? M. Pascal Scheidegger, Préposé aux faillites, se tient volontiers à votre disposition au 021 316 65 10.\n\n• CFC d'employé·e de commerce.\n• Certificat de formation générale à l'exécution forcée.\n• Expérience professionnelle de 6 ans dans le domaine de la poursuite ou de la faillite.\n• Formation en gestion d'équipe ou engagement à l’obtenir.\n• Aptitude à la gestion de conflits, assertivité.\n• Sens du service public, très bonne résistance au stress.\n• Bonne organisation, esprit d'initiative, rapidité, précision.\n• Maîtrise de l'orthographe et aisance avec les outils informatiques courants.\n• Permis de conduire et mise à disposition du véhicule privé souhaité. De nombreuses possibilités d’évolution professionnelle et de formation continue existent au sein des Office des poursuites et des faillites. Dans le cadre de la procédure de recrutement, les candidat-e-s seront amené-e-s à présenter un extrait du registre des poursuites et du casier judiciaire de moins de 3 mois.\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch."
       },
       "location": "Lausanne",
       "canton": "VD",
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5670",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-30T11:26:10.989Z",
+      "crawledAt": "2026-07-30T22:15:49.445Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -3522,101 +3626,25 @@
       "postedDate": "2026-06-08",
       "applyUrl": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5670",
       "requirements": [],
-      "requirementsByLocale": {
-        "fr": []
-      },
-      "salaryMin": 60500,
-      "salaryMax": 91500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 60500,
-          "maxValue": 91500,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-07-05T11:43:20.864Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "huissier-ere-chef-fe-d-un-office-des-faillites-etat-de-vaud-lausanne"
-        ],
-        "en": [
-          "huissier-ere-chef-fe-d-un-office-des-faillites-etat-de-vaud-lausanne"
-        ],
-        "de": [
-          "huissier-ere-chef-fe-d-un-office-des-faillites-etat-de-vaud-lausanne"
-        ]
-      },
-      "previousSlugs": [
-        "huissier-ere-chef-fe-d-un-office-des-faillites-etat-de-vaud-lausanne"
-      ]
-    },
-    {
-      "id": "etat-de-vaud-5590",
-      "slug": "segretario-esecutivo-etat-de-vaud-administration-cantonale-vaudoise-renens-vd",
-      "slugByLocale": {
-        "it": "segretario-esecutivo-etat-de-vaud-administration-cantonale-vaudoise-renens-vd",
-        "en": "executive-secretary-etat-de-vaud-administration-cantonale-vaudoise-renens-vd",
-        "de": "exekutivsekretar-etat-de-vaud-administration-cantonale-vaudoise-renens-vd",
-        "fr": "secretaire-de-direction-etat-de-vaud-renens-vd"
-      },
-      "company": "État de Vaud (Administration cantonale vaudoise)",
-      "companyKey": "etat-de-vaud",
-      "companyDomain": "vd.ch",
-      "title": "Secrétaire de direction",
-      "titleByLocale": {
-        "it": "Segretario Esecutivo",
-        "en": "Executive Secretary",
-        "de": "Exekutivsekretär",
-        "fr": "Secrétaire de direction"
-      },
-      "description": "La Direction générale de l’enfance et de la jeunesse (DGEJ) recherche son·sa nouveau·lle secrétaire de direction afin de compléter son équipe au sein de la Direction et de garantir le bon fonctionnement du secrétariat central du service.\n\n• Assurer le fonctionnement du secrétariat de la Direction en gérant les courriers, les courriels et les agendas selon les priorités et en garantissant le lien administratif avec l’ensemble du service ;\n• Gérer le suivi administratif et la coordination de dossiers du service selon les instructions reçues par la Direction, notamment les situations urgentes, la préparation des dossiers à son attention et les aspects logistiques liés aux archives ;\n• Conduire et coordonner l’équipe du secrétariat central du service en favorisant une dynamique d’équipe et une collaboration sereine et efficace ;\n• Coordonner et soutenir l'équipe du secrétariat central dans la dématérialisation des documents entrants et sortants du service via le système d'information. Pour de plus amples informations, veuillez consulter le cahier des charges en cliquant ici ou contacter Madame Laureline Gross, Adjointe à la Responsable RH, au 021 316 10 74.\n\n• CFC employé·e de commerce ou titre jugé équivalent ;\n• Formation d'assistant·e de Direction ou brevet fédéral, souhaité ;\n• Formation complémentaire en management et gestion d'équipe, un atout ;\n• Expérience professionnelle de 5 ans en qualité de secrétaire de direction ou dans la gestion de dossiers complexes ;\n• Maîtrise de soi et gestion du stress ;\n• Bonne organisation et gestion des priorités ;\n• Capacité à gérer des conflits au sein d’une équipe ;\n• Excellente orthographe et aisance rédactionnelle ;\n• Maîtrise avancée des outils bureautiques Office ; La communication des éventuels antécédents judiciaires est requise pour ce poste.\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch.",
-      "descriptionByLocale": {
-        "it": "La Direzione Generale per i Bambini e i Giovani (DGEJ) sta cercando il suo nuovo Segretario Esecutivo per completare il suo team all'interno della Direzione e garantire il corretto funzionamento del segretariato centrale del Servizio.\n• Assicurare il funzionamento del segretariato della Direzione gestendo mail, e-mail e calendari in base alle priorità e garantendo il collegamento amministrativo con l'intero servizio;\n• Gestire il follow-up amministrativo e il coordinamento dei file di servizio secondo le istruzioni ricevute dalla Direzione, comprese le situazioni di emergenza, la preparazione dei record per la sua attenzione e gli aspetti logistici relativi agli archivi;\n• Condurre e coordinare il team del segretariato centrale del servizio promuovendo dinamiche di squadra e collaborazione sicura ed efficace;\n• Coordinare e sostenere il team della Segreteria Centrale nella smaterializzazione dei documenti in entrata e in uscita tramite il Sistema Informativo. Per ulteriori informazioni, si prega di consultare i termini di riferimento cliccando qui o contattare la signora Laureline Gross, vice capo delle risorse umane, al 021 316 10 74.\n• CFC utilizzati per scopi commerciali o equivalenti;\n• Formazione del Direttore federale o dell'Assistente del brevetto, desiderato;\n• Formazione aggiuntiva nella gestione e nella gestione del team, un asset;\n• esperienza professionale di 5 anni come segretario esecutivo o gestione di file complessi;\n• Autocontrollo e gestione dello stress;\n• Buona organizzazione e gestione delle priorità;\n• Capacità di gestire i conflitti all'interno di una squadra;\n• Eccellente praticità di scrittura e scrittura;\n• Gestione avanzata degli strumenti di automazione dell'ufficio; La divulgazione di qualsiasi storia criminale è necessaria per questa posizione. Posizione nell'Amministrazione cantonale di Vaud (Stato di Vaud), Svizzera. Applicazione online sul portale di carriera ufficiale offre-emploi.vd.ch.",
-        "en": "The Directorate-General for Children and Youth (DGEJ) is looking for her new Executive Secretary in order to complete her team within the Directorate and ensure the proper functioning of the central secretariat of the Service.\n• Ensure the functioning of the Directorate's secretariat by managing mails, e-mails and calendars according to priorities and ensuring the administrative link with the entire service;\n• Manage administrative follow-up and coordination of service files according to instructions received by the Directorate, including emergency situations, preparation of records for its attention and logistical aspects related to archives;\n• Conducting and coordinating the team of the central secretariat of the service by fostering team dynamics and safe and effective collaboration;\n• Coordinate and support the Central Secretariat team in dematerializing incoming and outgoing documents via the Information System. For further information, please consult the terms of reference by clicking here or contact Ms Laureline Gross, Deputy Head of HR, at 021 316 10 74.\n• CFCs used for trade or equivalent purposes;\n• Training of Federal Director or Patent Assistant, desired;\n• Additional training in team management and management, an asset;\n• 5-year professional experience as executive secretary or managing complex files;\n• Self-control and stress management;\n• Good organization and management of priorities;\n• Ability to manage conflicts within a team;\n• Excellent spelling and writing convenience;\n• Advanced management of Office automation tools; Disclosure of any criminal history is required for this position. Position in the Cantonal Administration of Vaud (State of Vaud), Switzerland. Online application on the official career portal offers-emploi.vd.ch.",
-        "de": "Die Generaldirektion Kinder und Jugend (DGEJ) sucht ihren neuen Exekutivsekretär, um ihr Team innerhalb der Direktion zu vervollständigen und das ordnungsgemäße Funktionieren des zentralen Sekretariats des Dienstes zu gewährleisten.\n• Gewährleistung der Funktionsweise des Sekretariats der Direktion durch die Verwaltung von Postsendungen, E-Mails und Kalendern nach Prioritäten und Gewährleistung der administrativen Verbindung mit dem gesamten Dienst;\n• Verwaltung der administrativen Folgemaßnahmen und Koordinierung der Akten der Dienststellen gemäß den Anweisungen, die die Direktion erhält, einschließlich Notsituationen, Erstellung von Aufzeichnungen für ihre Aufmerksamkeit und logistische Aspekte im Zusammenhang mit Archiven;\n• Durchführung und Koordination des Teams des zentralen Sekretariats des Dienstes durch Förderung der Teamdynamik und einer sicheren und effektiven Zusammenarbeit;\n• Koordination und Unterstützung des Teams des Zentralsekretariats bei der Dematerialisierung eingehender und ausgehender Dokumente über das Informationssystem. Für weitere Informationen konsultieren Sie bitte das Mandat, indem Sie hier klicken, oder kontaktieren Sie Frau Laureline Gross, stellvertretende Leiterin des Personals, unter 021 316 10 74.\n• FCKW für den Handel oder gleichwertige Zwecke;\n• Ausbildung des Bundesdirektors oder Patentassistenten, gewünscht;\n• Zusätzliche Ausbildung in Teammanagement und Management, ein Asset;\n• 5-jährige Berufserfahrung als Executive Secretary oder Verwaltung komplexer Dateien;\n• Selbstkontrolle und Stressmanagement;\n• Gute Organisation und Verwaltung von Prioritäten;\n• Fähigkeit, Konflikte innerhalb eines Teams zu bewältigen;\n• Hervorragende Schreib- und Schreibkomfort;\n• Fortgeschrittene Verwaltung von Office-Automatisierungstools; Die Offenlegung von Vorstrafen ist für diese Position erforderlich. Funktion in der kantonalen Verwaltung Waadt (Staat Waadt), Schweiz. Online-Bewerbung auf dem offiziellen Karriereportal offers-emploi.vd.ch.",
-        "fr": "La Direction générale de l’enfance et de la jeunesse (DGEJ) recherche son·sa nouveau·lle secrétaire de direction afin de compléter son équipe au sein de la Direction et de garantir le bon fonctionnement du secrétariat central du service.\n\n• Assurer le fonctionnement du secrétariat de la Direction en gérant les courriers, les courriels et les agendas selon les priorités et en garantissant le lien administratif avec l’ensemble du service ;\n• Gérer le suivi administratif et la coordination de dossiers du service selon les instructions reçues par la Direction, notamment les situations urgentes, la préparation des dossiers à son attention et les aspects logistiques liés aux archives ;\n• Conduire et coordonner l’équipe du secrétariat central du service en favorisant une dynamique d’équipe et une collaboration sereine et efficace ;\n• Coordonner et soutenir l'équipe du secrétariat central dans la dématérialisation des documents entrants et sortants du service via le système d'information. Pour de plus amples informations, veuillez consulter le cahier des charges en cliquant ici ou contacter Madame Laureline Gross, Adjointe à la Responsable RH, au 021 316 10 74.\n\n• CFC employé·e de commerce ou titre jugé équivalent ;\n• Formation d'assistant·e de Direction ou brevet fédéral, souhaité ;\n• Formation complémentaire en management et gestion d'équipe, un atout ;\n• Expérience professionnelle de 5 ans en qualité de secrétaire de direction ou dans la gestion de dossiers complexes ;\n• Maîtrise de soi et gestion du stress ;\n• Bonne organisation et gestion des priorités ;\n• Capacité à gérer des conflits au sein d’une équipe ;\n• Excellente orthographe et aisance rédactionnelle ;\n• Maîtrise avancée des outils bureautiques Office ; La communication des éventuels antécédents judiciaires est requise pour ce poste.\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch."
-      },
-      "location": "Renens VD",
-      "canton": "VD",
-      "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5590",
-      "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-07-29T11:55:11.676Z",
-      "addressLocality": "Renens VD",
-      "addressRegion": "VD",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1020",
-      "streetAddress": "Place du Château 1",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Administration publique / Service public",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-08",
-      "applyUrl": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5590",
-      "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "secretaire-de-direction-etat-de-vaud-renens-vd"
+        "huissier-ere-chef-fe-d-un-office-des-faillites-etat-de-vaud-lausanne",
+        "ufficio-della-bancarotta-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "secretaire-de-direction-etat-de-vaud-renens-vd"
+          "huissier-ere-chef-fe-d-un-office-des-faillites-etat-de-vaud-lausanne",
+          "ufficio-della-bancarotta-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
         ],
         "en": [
-          "secretaire-de-direction-etat-de-vaud-renens-vd"
+          "huissier-ere-chef-fe-d-un-office-des-faillites-etat-de-vaud-lausanne"
         ],
         "de": [
-          "secretaire-de-direction-etat-de-vaud-renens-vd"
+          "huissier-ere-chef-fe-d-un-office-des-faillites-etat-de-vaud-lausanne"
         ]
       },
       "firstSeenAt": "2026-07-05T11:43:20.864Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -3628,8 +3656,7 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      },
-      "crawlerMissStreak": 2
+      }
     }
   ]
 }
