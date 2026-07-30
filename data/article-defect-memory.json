@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-07-30T06:17:16.281Z",
+  "updatedAt": "2026-07-30T09:41:16.713Z",
   "entities": {
     "AASTI": {
       "status": "suspect",
@@ -594,12 +594,13 @@
       "statusSource": "auto",
       "statusAt": "2026-07-29T06:26:58.011Z",
       "firstSeen": "2026-07-29T06:26:58.011Z",
-      "lastSeen": "2026-07-30T06:17:16.281Z",
-      "seen": 18,
+      "lastSeen": "2026-07-30T09:41:16.713Z",
+      "seen": 25,
       "unsupportedSightings": 0,
       "unsupportedRuns": [],
-      "supportedSightings": 6,
+      "supportedSightings": 13,
       "names": [
+        "Agenzia delle Entrate, il MEF, l'Ufficio Federale di Statistica",
         "Ufficio federale di Statistica",
         "Amministrazione federale delle contribuzioni o dall'Ufficio federale di statistica",
         "Ufficio Federale di Statistica",
@@ -608,60 +609,60 @@
       "recentKeys": [],
       "evidence": [
         {
+          "at": "2026-07-30T09:41:16.713Z",
+          "runId": "30528247715",
+          "articleId": "besano-da-frontaliere-pro-e-contro",
+          "support": "present",
+          "name": "Ufficio Federale di Statistica"
+        },
+        {
+          "at": "2026-07-30T09:41:16.713Z",
+          "runId": "30528247715",
+          "articleId": "besano-da-frontaliere-pro-e-contro",
+          "support": "present",
+          "name": "Ufficio Federale di Statistica"
+        },
+        {
+          "at": "2026-07-30T09:41:16.713Z",
+          "runId": "30528247715",
+          "articleId": "besano-da-frontaliere-pro-e-contro",
+          "support": "present",
+          "name": "Ufficio Federale di Statistica"
+        },
+        {
+          "at": "2026-07-30T09:41:16.713Z",
+          "runId": "30528247715",
+          "articleId": "besano-da-frontaliere-pro-e-contro",
+          "support": "present",
+          "name": "Ufficio Federale di Statistica"
+        },
+        {
+          "at": "2026-07-30T09:41:16.713Z",
+          "runId": "30528247715",
+          "articleId": "besano-da-frontaliere-pro-e-contro",
+          "support": "present",
+          "name": "Ufficio Federale di Statistica"
+        },
+        {
+          "at": "2026-07-30T09:41:16.713Z",
+          "runId": "30528247715",
+          "articleId": "besano-da-frontaliere-pro-e-contro",
+          "support": "present",
+          "name": "Ufficio Federale di Statistica"
+        },
+        {
+          "at": "2026-07-30T09:41:16.713Z",
+          "runId": "30528247715",
+          "articleId": "besano-da-frontaliere-pro-e-contro",
+          "support": "present",
+          "name": "Agenzia delle Entrate, il MEF, l'Ufficio Federale di Statistica"
+        },
+        {
           "at": "2026-07-30T06:17:16.281Z",
           "runId": "30518031304",
           "articleId": "sede-legale-datore-frontalieri",
           "support": "present",
           "name": "Ufficio federale di Statistica"
-        },
-        {
-          "at": "2026-07-30T06:17:16.281Z",
-          "runId": "30518031304",
-          "articleId": "sede-legale-datore-frontalieri",
-          "support": "present",
-          "name": "Ufficio federale di Statistica"
-        },
-        {
-          "at": "2026-07-30T02:34:01.828Z",
-          "runId": "30507128922",
-          "articleId": "trasferirsi-porto-ceresio-frontaliere",
-          "support": "present",
-          "name": "Ufficio Federale di Statistica"
-        },
-        {
-          "at": "2026-07-29T19:17:27.320Z",
-          "runId": "30480929135",
-          "articleId": "lavoro-part-time-svizzera-diritti",
-          "support": "present",
-          "name": "Amministrazione federale delle contribuzioni o dall'Ufficio federale di statistica"
-        },
-        {
-          "at": "2026-07-29T19:17:27.320Z",
-          "runId": "30480929135",
-          "articleId": "lavoro-part-time-svizzera-diritti",
-          "support": "present",
-          "name": "Ufficio Federale di Statistica"
-        },
-        {
-          "at": "2026-07-29T19:17:27.320Z",
-          "runId": "30480929135",
-          "articleId": "lavoro-part-time-svizzera-diritti",
-          "support": "present",
-          "name": "Ufficio Federale di Statistica"
-        },
-        {
-          "at": "2026-07-29T06:26:58.011Z",
-          "runId": "corpus-scan",
-          "articleId": "salario-medio-svizzera-professione",
-          "support": "unknown",
-          "name": "Ufficio Federale di Statistica"
-        },
-        {
-          "at": "2026-07-29T06:26:58.011Z",
-          "runId": "corpus-scan",
-          "articleId": "mappa-frontalieri-lombardi-ticino",
-          "support": "unknown",
-          "name": "Ufficio federale di statistica"
         }
       ]
     },
@@ -3745,16 +3746,24 @@
       "statusSource": "auto",
       "statusAt": "2026-07-29T06:26:58.011Z",
       "firstSeen": "2026-07-29T06:26:58.011Z",
-      "lastSeen": "2026-07-29T06:26:58.011Z",
-      "seen": 1,
+      "lastSeen": "2026-07-30T09:41:16.713Z",
+      "seen": 2,
       "unsupportedSightings": 0,
       "unsupportedRuns": [],
-      "supportedSightings": 0,
+      "supportedSightings": 1,
       "names": [
+        "Agenzia delle Entrate e del Ministero dell'Economia e delle Finanze",
         "Agenzia delle Entrate e il Ministero dell'Economia e delle Finanze"
       ],
       "recentKeys": [],
       "evidence": [
+        {
+          "at": "2026-07-30T09:41:16.713Z",
+          "runId": "30528247715",
+          "articleId": "besano-da-frontaliere-pro-e-contro",
+          "support": "present",
+          "name": "Agenzia delle Entrate e del Ministero dell'Economia e delle Finanze"
+        },
         {
           "at": "2026-07-29T06:26:58.011Z",
           "runId": "corpus-scan",
@@ -4087,20 +4096,27 @@
       "statusSource": "auto",
       "statusAt": "2026-07-29T06:26:58.011Z",
       "firstSeen": "2026-07-29T06:26:58.011Z",
-      "lastSeen": "2026-07-30T03:50:18.183Z",
-      "seen": 80,
+      "lastSeen": "2026-07-30T09:41:16.713Z",
+      "seen": 81,
       "unsupportedSightings": 0,
       "unsupportedRuns": [],
-      "supportedSightings": 1,
+      "supportedSightings": 2,
       "names": [
+        "Segreteria di Stato dell'Economia",
         "Dipartimento federale delle finanze",
         "Segreteria di Stato dell'economia",
         "Ufficio federale per la statistica",
-        "Ufficio federale delle imprese",
-        "Segreteria di Stato dell’economia"
+        "Ufficio federale delle imprese"
       ],
       "recentKeys": [],
       "evidence": [
+        {
+          "at": "2026-07-30T09:41:16.713Z",
+          "runId": "30528247715",
+          "articleId": "besano-da-frontaliere-pro-e-contro",
+          "support": "present",
+          "name": "Segreteria di Stato dell'Economia"
+        },
         {
           "at": "2026-07-30T03:50:18.183Z",
           "runId": "30509507553",
@@ -4147,13 +4163,6 @@
           "at": "2026-07-29T06:26:58.011Z",
           "runId": "corpus-scan",
           "articleId": "svizzera-dazi-usa-lavoro-forzato",
-          "support": "unknown",
-          "name": "Segreteria di Stato dell'economia"
-        },
-        {
-          "at": "2026-07-29T06:26:58.011Z",
-          "runId": "corpus-scan",
-          "articleId": "ritmi-insostenibili-logistica-dpd",
           "support": "unknown",
           "name": "Segreteria di Stato dell'economia"
         }
@@ -5116,17 +5125,31 @@
       "statusSource": "auto",
       "statusAt": "2026-07-29T06:26:58.011Z",
       "firstSeen": "2026-07-29T06:26:58.011Z",
-      "lastSeen": "2026-07-29T06:26:58.011Z",
-      "seen": 22,
+      "lastSeen": "2026-07-30T09:41:16.713Z",
+      "seen": 24,
       "unsupportedSightings": 0,
       "unsupportedRuns": [],
-      "supportedSightings": 0,
+      "supportedSightings": 2,
       "names": [
         "Ufficio Federale delle Assicurazioni Sociali",
         "Ufficio federale delle assicurazioni sociali"
       ],
       "recentKeys": [],
       "evidence": [
+        {
+          "at": "2026-07-30T09:41:16.713Z",
+          "runId": "30528247715",
+          "articleId": "besano-da-frontaliere-pro-e-contro",
+          "support": "present",
+          "name": "Ufficio Federale delle Assicurazioni Sociali"
+        },
+        {
+          "at": "2026-07-30T09:41:16.713Z",
+          "runId": "30528247715",
+          "articleId": "besano-da-frontaliere-pro-e-contro",
+          "support": "present",
+          "name": "Ufficio Federale delle Assicurazioni Sociali"
+        },
         {
           "at": "2026-07-29T06:26:58.011Z",
           "runId": "corpus-scan",
@@ -5166,20 +5189,6 @@
           "at": "2026-07-29T06:26:58.011Z",
           "runId": "corpus-scan",
           "articleId": "avs-ai-prospettive-finanziarie",
-          "support": "unknown",
-          "name": "Ufficio federale delle assicurazioni sociali"
-        },
-        {
-          "at": "2026-07-29T06:26:58.011Z",
-          "runId": "corpus-scan",
-          "articleId": "aumento-rendite-ai-avs-difficolta",
-          "support": "unknown",
-          "name": "Ufficio federale delle assicurazioni sociali"
-        },
-        {
-          "at": "2026-07-29T06:26:58.011Z",
-          "runId": "corpus-scan",
-          "articleId": "ai-crescono-le-persone-reintegrate-nel-mondo-del-lavoro",
           "support": "unknown",
           "name": "Ufficio federale delle assicurazioni sociali"
         }
@@ -6462,11 +6471,11 @@
       "statusSource": "auto",
       "statusAt": "2026-07-29T06:26:58.011Z",
       "firstSeen": "2026-07-29T06:26:58.011Z",
-      "lastSeen": "2026-07-29T23:23:44.157Z",
-      "seen": 23,
+      "lastSeen": "2026-07-30T09:41:16.713Z",
+      "seen": 25,
       "unsupportedSightings": 0,
       "unsupportedRuns": [],
-      "supportedSightings": 10,
+      "supportedSightings": 12,
       "names": [
         "Ufficio Regionale di Collocamento",
         "Uffici Regionali di Collocamento",
@@ -6476,9 +6485,16 @@
       "recentKeys": [],
       "evidence": [
         {
-          "at": "2026-07-29T23:23:44.157Z",
-          "runId": "30497755528",
-          "articleId": "caro-carburanti-svizzera-indagine-comco",
+          "at": "2026-07-30T09:41:16.713Z",
+          "runId": "30528247715",
+          "articleId": "besano-da-frontaliere-pro-e-contro",
+          "support": "present",
+          "name": "Uffici regionali di collocamento"
+        },
+        {
+          "at": "2026-07-30T09:41:16.713Z",
+          "runId": "30528247715",
+          "articleId": "besano-da-frontaliere-pro-e-contro",
           "support": "present",
           "name": "Uffici regionali di collocamento"
         },
@@ -6490,9 +6506,9 @@
           "name": "Uffici regionali di collocamento"
         },
         {
-          "at": "2026-07-29T19:58:12.549Z",
-          "runId": "30483804455",
-          "articleId": "vivere-porto-ceresio-lavoro-ticino",
+          "at": "2026-07-29T23:23:44.157Z",
+          "runId": "30497755528",
+          "articleId": "caro-carburanti-svizzera-indagine-comco",
           "support": "present",
           "name": "Uffici regionali di collocamento"
         },
@@ -6518,16 +6534,9 @@
           "name": "Uffici regionali di collocamento"
         },
         {
-          "at": "2026-07-29T19:17:27.320Z",
-          "runId": "30480929135",
-          "articleId": "lavoro-part-time-svizzera-diritti",
-          "support": "present",
-          "name": "Ufficio Regionale di Collocamento"
-        },
-        {
-          "at": "2026-07-29T19:17:27.320Z",
-          "runId": "30480929135",
-          "articleId": "lavoro-part-time-svizzera-diritti",
+          "at": "2026-07-29T19:58:12.549Z",
+          "runId": "30483804455",
+          "articleId": "vivere-porto-ceresio-lavoro-ticino",
           "support": "present",
           "name": "Uffici regionali di collocamento"
         }

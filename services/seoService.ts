@@ -5013,6 +5013,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-sede-legale-datore-frontalieri': { name: 'Sede legale datore', path: '/articoli-frontaliere/sede-legale-datore-frontalieri', parent: 'blog' },
     'blog-frontalieri-it-svizzera-sede-datore-2026': { name: 'Frontalieri Italia-Svizzera', path: '/articoli-svizzera/frontalieri-it-svizzera-sede-datore-2026/', parent: 'blog' },
     'blog-franco-svizzero-tornano-le-pressioni-al-rialzo': { name: 'Franco svizzero', path: '/articoli-frontaliere/franco-svizzero-tornano-le-pressioni-al-rialzo', parent: 'blog' },
+    'blog-besano-da-frontaliere-pro-e-contro': { name: 'Besano Frontaliere', path: '/articoli-frontaliere/besano-da-frontaliere-pro-e-contro', parent: 'blog' },
  };
 
  const info = sectionNames[section];

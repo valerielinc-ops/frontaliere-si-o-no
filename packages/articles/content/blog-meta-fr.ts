@@ -9144,6 +9144,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.franco-svizzero-tornano-le-pressioni-al-rialzo.title': 'Franc suisse : les pressions à la hausse reviennent-elles ?',
     'blog.article.franco-svizzero-tornano-le-pressioni-al-rialzo.excerpt': 'Le taux de change EUR/CHF a gagné plus de 2% depuis fin mai, dépassant 0,93 franc pour la première fois depuis janvier.',
     'blog.article.franco-svizzero-tornano-le-pressioni-al-rialzo.imageAlt': 'Marché des changes à Lugano',
+    'blog.article.besano-da-frontaliere-pro-e-contro.title': 'Vivre à Besano en tant que frontalier : guide pour et contre',
+    'blog.article.besano-da-frontaliere-pro-e-contro.excerpt': 'Analyse pratique sur les temps de déplacement, la fiscalité avec le nouvel accord, les avantages et les inconvénients de choisir Besano pour ceux qui travaillent au Tessin.',
+    'blog.article.besano-da-frontaliere-pro-e-contro.imageAlt': 'Vue de Besano surplombant la zone frontalière vers la Suisse',
 };
 
 export default blogMetaFr;
