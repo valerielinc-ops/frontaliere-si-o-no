@@ -9150,6 +9150,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.lavori-di-asfaltatura-sulla-sp23-lomazzo-bizzarone.title': 'Arbeiten SP23 Lomazzo-Bizzarone: Einbahnstraße abwechselnd vom 3. bis 7. August',
     'blog.article.lavori-di-asfaltatura-sulla-sp23-lomazzo-bizzarone.excerpt': 'Der Verkehr entlang der SP23 Lomazzo-Bizzarone wird durch eine abwechselnde Einbahnstraße geregelt, um Asphaltierungsarbeiten zu ermöglichen.',
     'blog.article.lavori-di-asfaltatura-sulla-sp23-lomazzo-bizzarone.imageAlt': 'Straßenbauarbeiten auf der SP23 Lomazzo-Bizzarone',
+    'blog.article.pasticcio-dati-tasse-vecchi-frontalieri.title': 'Datenchaos und alte Grenzsteuern: Klarheit ist gefragt',
+    'blog.article.pasticcio-dati-tasse-vecchi-frontalieri.excerpt': 'Die Übergangsregelung 2024-2033 für Grenzgänger vor dem 17.07.2023 schafft Verwirrung: Befreiung € 7.500 vs. Selbstbehalt € 10.000 für neue, Quellensteuer nur in der Schweiz, Steuergutschrift Italien im EG-Rahmen.',
+    'blog.article.pasticcio-dati-tasse-vecchi-frontalieri.imageAlt': 'Blick auf den Luganersee mit Grenzgängern am Übergang Gandria bei Sonnenaufgang',
 };
 
 export default blogMetaDe;

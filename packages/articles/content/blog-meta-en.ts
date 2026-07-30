@@ -9151,6 +9151,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.lavori-di-asfaltatura-sulla-sp23-lomazzo-bizzarone.title': 'Works SP23 Lomazzo-Bizzarone: one-way alternating from 3 to 7 August',
     'blog.article.lavori-di-asfaltatura-sulla-sp23-lomazzo-bizzarone.excerpt': 'The circulation along the SP23 Lomazzo-Bizzarone will be regulated by an alternating single direction to allow asphalt work.',
     'blog.article.lavori-di-asfaltatura-sulla-sp23-lomazzo-bizzarone.imageAlt': 'Road works on the SP23 Lomazzo-Bizzarone',
+    'blog.article.pasticcio-dati-tasse-vecchi-frontalieri.title': 'Data jumble and old border taxes: clarity needed',
+    'blog.article.pasticcio-dati-tasse-vecchi-frontalieri.excerpt': 'The transitional regime 2024-2033 for frontier workers prior to 17/7/2023 creates confusion: exemption €7,500 vs deductible €10,000 for new ones, tax at source only in Switzerland, tax credit Italy in the EC framework.',
+    'blog.article.pasticcio-dati-tasse-vecchi-frontalieri.imageAlt': 'Lake Lugano view with cross-border commuters at Gandria border crossing at dawn',
 };
 
 export default blogMetaEn;

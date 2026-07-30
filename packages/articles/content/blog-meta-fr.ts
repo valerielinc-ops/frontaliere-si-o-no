@@ -9153,6 +9153,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.lavori-di-asfaltatura-sulla-sp23-lomazzo-bizzarone.title': 'Travaux SP23 Lomazzo-Bizzarone : sens unique alterné du 3 au 7 août',
     'blog.article.lavori-di-asfaltatura-sulla-sp23-lomazzo-bizzarone.excerpt': 'La circulation le long de la SP23 Lomazzo-Bizzarone sera régulée par un sens alternatif unique pour permettre les interventions d\'asphaltage.',
     'blog.article.lavori-di-asfaltatura-sulla-sp23-lomazzo-bizzarone.imageAlt': 'Travaux de construction de la SP23 Lomazzo-Bizzarone',
+    'blog.article.pasticcio-dati-tasse-vecchi-frontalieri.title': 'Gâchis de données et anciennes taxes frontalières : il faut de la clarté',
+    'blog.article.pasticcio-dati-tasse-vecchi-frontalieri.excerpt': 'Le régime transitoire 2024-2033 pour les frontaliers antérieurs au 17/7/2023 crée la confusion : exonération 7 500 € vs franchise 10 000 € pour les nouveaux, impôt à la source uniquement en Suisse, crédit d\'impôt Italie dans le cadre CE.',
+    'blog.article.pasticcio-dati-tasse-vecchi-frontalieri.imageAlt': 'Vue sur le lac de Lugano avec frontaliers au passage de Gandria à l\'aube',
 };
 
 export default blogMetaFr;
