@@ -127,6 +127,24 @@ function resolveSlugFile(path, slugFile, slugDir) {
 // ── Parsers ───────────────────────────────────────────────────────────
 
 /** Parse seo-blog*.ts chunks for per-article SEO metadata. */
+/**
+ * Undo the escaping create-article applies when it writes a value into a
+ * quoted TS/JSON literal. Matching the escape in the regex keeps the value from
+ * being truncated; this is what turns the matched text back into what the
+ * article actually says, so `dell\'Italia` reads `dell'Italia`.
+ *
+ * @param {string | undefined} value
+ * @param {'"' | "'"} quote
+ * @returns {string | undefined}
+ */
+function unescapeQuoted(value, quote) {
+  if (value === undefined) return undefined;
+  return value.split('\\\\').join('\u0000')
+    .split(`\\${quote}`).join(quote)
+    .split('\\n').join('\n')
+    .split('\u0000').join('\\');
+}
+
 function parseSeoBlogs(fs, path, rootDir, seoDir, seoFiles) {
   const articles = new Map(); // articleId → metadata
 
@@ -151,14 +169,19 @@ function parseSeoBlogs(fs, path, rootDir, seoDir, seoFiles) {
       // `(?:[^"\\]|\\.)*`, not `[^"]+`: create-article escapes literal quotes in
       // these values (`.replace(/"/g, '\\"')`), and the naive class stops at the
       // backslash-quote, truncating the headline to whatever preceded it — e.g.
-      // `Laghi lombardi, inizio estate tragico: \"`. Same pattern already used
-      // for the single-quoted fields below.
-      const headline = block.match(/"headline":\s*"((?:[^"\\]|\\.)*)"/)?.[1];
-      const description = block.match(/"description":\s*"((?:[^"\\]|\\.)*)"/)?.[1];
+      // `Laghi lombardi, inizio estate tragico: \"`. Matching the escape is only
+      // half of it: what the file holds is the ESCAPED form, so the backslash
+      // has to come back out before the value is used as text, exactly as
+      // parseLocalizedField does for its own fields.
+      const headline = unescapeQuoted(block.match(/"headline":\s*"((?:[^"\\]|\\.)*)"/)?.[1], '"');
+      const description = unescapeQuoted(block.match(/"description":\s*"((?:[^"\\]|\\.)*)"/)?.[1], '"');
       const datePublished = block.match(/"datePublished":\s*"([^"]+)"/)?.[1];
       const dateModified = block.match(/"dateModified":\s*"([^"]+)"/)?.[1];
       const articleSection = block.match(/"articleSection":\s*"([^"]+)"/)?.[1];
-      const ogDescription = block.match(/ogDescription:\s*'([^']+)'/)?.[1];
+      // Same treatment, single-quoted. This one is the worse offender of the
+      // two: apostrophes are far commoner than double quotes in Italian, so the
+      // naive class truncated 1065 of 2986 entries — a third of the corpus.
+      const ogDescription = unescapeQuoted(block.match(/ogDescription:\s*'((?:[^'\\]|\\.)*)'/)?.[1], "'");
 
       if (!headline || !datePublished) continue;
 

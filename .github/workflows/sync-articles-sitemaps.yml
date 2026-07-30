@@ -86,4 +86,15 @@ jobs:
           git config user.email "valerielinc@gmail.com"
           git add -- "${FILES[@]}"
           git commit -q -m "🗺️ Sync article sitemaps, feeds and ticker from the articles API"
-          git push
+
+          # Rebase-retry, not a bare push. This job races every other workflow
+          # that writes to main — and it lost: a plain `git push` was rejected
+          # with "fetch first" minutes after a publish, so the fresh feeds sat
+          # in a dropped commit and the site kept serving the stale ones. The
+          # failure is silent in the way that matters: the publisher is green,
+          # the API is correct, and only the site is behind.
+          # --regenerate-cmd re-pulls after each rebase so the retry publishes
+          # what the API says *now* rather than replaying a stale snapshot.
+          bash scripts/lib/git-push-with-retry.sh \
+            --max-attempts 8 \
+            --regenerate-cmd "node scripts/pull-articles-api.mjs && git add -- ${FILES[*]}"
