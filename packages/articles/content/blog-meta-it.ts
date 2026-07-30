@@ -9152,6 +9152,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.lavori-di-asfaltatura-sulla-sp23-lomazzo-bizzarone.title': 'Lavori SP23 Lomazzo-Bizzarone: senso unico alternato dal 3 al 7 agosto',
     'blog.article.lavori-di-asfaltatura-sulla-sp23-lomazzo-bizzarone.excerpt': 'La circolazione lungo la SP23 Lomazzo-Bizzarone sarà regolata da un senso unico alternato per consentire gli interventi di asfaltatura.',
     'blog.article.lavori-di-asfaltatura-sulla-sp23-lomazzo-bizzarone.imageAlt': 'Lavori di asfaltatura sulla SP23 Lomazzo-Bizzarone',
+    'blog.article.pasticcio-dati-tasse-vecchi-frontalieri.title': 'Pasticcio dati e tasse vecchi frontalieri: serve chiarezza',
+    'blog.article.pasticcio-dati-tasse-vecchi-frontalieri.excerpt': 'Il regime transitorio 2024-2033 per i frontalieri antecedenti al 17/7/2023 crea confusione: esenzione €7.500 vs franchigia €10.000 per i nuovi, imposta alla fonte solo in Svizzera, credito d\'imposta Italia nel quadro CE.',
+    'blog.article.pasticcio-dati-tasse-vecchi-frontalieri.imageAlt': 'Vista sul lago di Lugano con frontalieri al valico di Gandria all\'alba',
 };
 
 export default blogMetaIt;
