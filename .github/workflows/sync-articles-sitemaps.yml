@@ -1,0 +1,66 @@
+name: Sync article sitemaps from the articles API
+
+# The article sitemaps are produced by the repository that owns the corpus
+# (nanakokyobashi-rgb/frontaliere-articles) and consumed here. This workflow is
+# the consumption: it pulls the published files into public/ and commits them
+# when they actually changed.
+#
+# repository_dispatch is the primary trigger, and it is the right shape: the
+# publisher knows when it has published, so the push is the event. The schedule
+# is only a safety net for a dispatch that never arrives (token rotated, API
+# outage) — it is not the mechanism.
+#
+# scripts/pull-articles-api.mjs refuses rather than degrades: it validates the
+# manifest and both sitemaps, gates on hreflang alternate counts as well as url
+# counts, and exits non-zero having written nothing if anything looks wrong. So a
+# bad publish leaves the committed copy serving instead of overwriting it.
+
+on:
+  repository_dispatch:
+    types: [articles-published]
+  schedule:
+    # Twice a day, offset off the hour to stay clear of the deploy cron.
+    - cron: '23 5,17 * * *'
+  workflow_dispatch:
+
+concurrency:
+  group: sync-articles-sitemaps
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+
+      - name: Pull published sitemaps
+        run: node scripts/pull-articles-api.mjs
+
+      - name: Commit if changed
+        run: |
+          set -euo pipefail
+          if git diff --quiet -- public/sitemap-blog.xml public/sitemap-blog-ch.xml; then
+            echo "sitemaps already current — nothing to commit"
+            exit 0
+          fi
+
+          # Report what moved, so the run log carries the numbers a human would
+          # otherwise have to reconstruct from a 40k-line diff.
+          for f in public/sitemap-blog.xml public/sitemap-blog-ch.xml; do
+            new_urls=$(grep -c '<url>' "$f" || true)
+            new_alts=$(grep -c 'xhtml:link' "$f" || true)
+            echo "$f: $new_urls urls, $new_alts alternates"
+          done
+
+          git config user.name "Valerie Linc"
+          git config user.email "valerielinc@gmail.com"
+          git add public/sitemap-blog.xml public/sitemap-blog-ch.xml
+          git commit -q -m "🗺️ Sync article sitemaps from the articles API"
+          git push
