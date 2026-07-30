@@ -57674,6 +57674,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-lavori-di-asfaltatura-sulla-sp23-lomazzo-bizzarone': {
+    title: 'Lavori SP23 Lomazzo-Bizzarone: senso unico alternato dal 3 al 7 agosto',
+    description: 'La circolazione lungo la SP23 Lomazzo-Bizzarone sarà regolata da un senso unico alternato per consentire gli interventi di asfaltatura. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, lavori, sp23, lomazzo-bizzarone, senso',
+    ogTitle: 'Lavori di asfaltatura sulla SP23 Lomazzo-Bizzarone: senso unico alternato dal 3 al 7 agosto',
+    ogDescription: 'La circolazione lungo la SP23 Lomazzo-Bizzarone sarà regolata da un senso unico alternato per consentire gli interventi di asfaltatura.',
+    canonicalPath: '/articoli-frontaliere/lavori-di-asfaltatura-sulla-sp23-lomazzo-bizzarone',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Lavori SP23 Lomazzo-Bizzarone: senso unico alternato dal 3 al 7 agosto",
+      "description": "La circolazione lungo la SP23 Lomazzo-Bizzarone sarà regolata da un senso unico alternato per consentire gli interventi di asfaltatura. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/lavori-di-asfaltatura-sulla-sp23-lomazzo-bizzarone.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lavori di asfaltatura sulla SP23 Lomazzo-Bizzarone"
+      },
+      "datePublished": "2026-07-30T14:32:40+00:00",
+      "dateModified": "2026-07-30T14:32:40+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/lavori-di-asfaltatura-sulla-sp23-lomazzo-bizzarone/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

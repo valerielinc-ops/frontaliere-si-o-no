@@ -27462,6 +27462,15 @@ const RAW_ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'lavori-di-asfaltatura-sulla-sp23-lomazzo-bizzarone',
+ category: 'pratico',
+ date: '2026-07-30T14:32:40.862Z',
+ image: '/images/blog/lavori-di-asfaltatura-sulla-sp23-lomazzo-bizzarone.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

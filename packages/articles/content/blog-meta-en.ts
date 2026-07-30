@@ -9148,6 +9148,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.caso-karimova-multa-di-3-milioni.title': 'Lombard Odier sentenced to CHF 3 million',
     'blog.article.caso-karimova-multa-di-3-milioni.excerpt': 'The Federal Criminal Court has sentenced the Geneva-based private bank Lombard Odier to a fine of 3 million francs in the Karimova case.',
     'blog.article.caso-karimova-multa-di-3-milioni.imageAlt': 'A bank in Lugano with the Monte San Salvatore in the background',
+    'blog.article.lavori-di-asfaltatura-sulla-sp23-lomazzo-bizzarone.title': 'Works SP23 Lomazzo-Bizzarone: one-way alternating from 3 to 7 August',
+    'blog.article.lavori-di-asfaltatura-sulla-sp23-lomazzo-bizzarone.excerpt': 'The circulation along the SP23 Lomazzo-Bizzarone will be regulated by an alternating single direction to allow asphalt work.',
+    'blog.article.lavori-di-asfaltatura-sulla-sp23-lomazzo-bizzarone.imageAlt': 'Road works on the SP23 Lomazzo-Bizzarone',
 };
 
 export default blogMetaEn;

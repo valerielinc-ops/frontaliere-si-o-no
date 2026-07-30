@@ -9149,6 +9149,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.caso-karimova-multa-di-3-milioni.title': 'Lombard Odier condannata a 3 milioni di franchi',
     'blog.article.caso-karimova-multa-di-3-milioni.excerpt': 'Il Tribunale penale federale ha condannato la banca privata ginevrina Lombard Odier a una multa di 3 milioni di franchi nel caso Karimova.',
     'blog.article.caso-karimova-multa-di-3-milioni.imageAlt': 'Una banca a Lugano con il monte San Salvatore sullo sfondo',
+    'blog.article.lavori-di-asfaltatura-sulla-sp23-lomazzo-bizzarone.title': 'Lavori SP23 Lomazzo-Bizzarone: senso unico alternato dal 3 al 7 agosto',
+    'blog.article.lavori-di-asfaltatura-sulla-sp23-lomazzo-bizzarone.excerpt': 'La circolazione lungo la SP23 Lomazzo-Bizzarone sarà regolata da un senso unico alternato per consentire gli interventi di asfaltatura.',
+    'blog.article.lavori-di-asfaltatura-sulla-sp23-lomazzo-bizzarone.imageAlt': 'Lavori di asfaltatura sulla SP23 Lomazzo-Bizzarone',
 };
 
 export default blogMetaIt;

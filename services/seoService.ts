@@ -5017,6 +5017,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-ferrovia-record-viaggiatori-secondo-trimestre': { name: 'Ferrovia', path: '/articoli-svizzera/ferrovia-record-viaggiatori-secondo-trimestre/', parent: 'blog' },
     'blog-caso-karimova-multa-di-3-milioni': { name: 'Caso Karimova', path: '/articoli-frontaliere/caso-karimova-multa-di-3-milioni', parent: 'blog' },
     'blog-trasporto-record-svizzero-2026': { name: 'Trasporto ferroviario in Svizzera', path: '/articoli-svizzera/trasporto-record-svizzero-2026/', parent: 'blog' },
+    'blog-lavori-di-asfaltatura-sulla-sp23-lomazzo-bizzarone': { name: 'Lavori di asfaltatura sulla SP23', path: '/articoli-frontaliere/lavori-di-asfaltatura-sulla-sp23-lomazzo-bizzarone', parent: 'blog' },
  };
 
  const info = sectionNames[section];
