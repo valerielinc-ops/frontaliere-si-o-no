@@ -133,7 +133,7 @@ shard_pat_push() {
   rm -f "$out"
   unset SHARD_PUSH_TOKEN
   if [ "$rc" -eq 0 ]; then
-    echo "::warning::$label: pushed via the PAT fallback — the deploy key for this shard is broken (read-only, revoked, or a shadowed secret). Fix the key; the fallback is a safety net, not the intended path."
+    echo "::warning::$label: pushed via the PAT fallback — the deploy key for this shard is broken (never registered on the repo, read-only, revoked, or a shadowed secret). Fix the key; the fallback is a safety net, not the intended path."
     return 0
   fi
   echo "::warning::$label: PAT fallback push also failed (rc=$rc)"
