@@ -109,6 +109,12 @@ interface StaticOverlayHubChrome {
  readonly hubKey: HubKey;
  readonly activeSubTab: string;
 }
+// Bare article-section indexes, both families, all four locales. Hoisted to module
+// scope because two call sites now test them (the page scaffold below and the
+// static-first body shape) and a literal copied twice is a drift waiting to happen.
+const ARTICLES_INDEX_RX = /\/(articoli-frontaliere|frontier-articles|grenzgaenger-artikel|articles-frontalier)\/?$/;
+const SVIZZERA_ARTICLES_INDEX_RX = /\/(articoli-svizzera|swiss-articles|schweiz-artikel|articles-suisse)\/?$/;
+
 const STATIC_OVERLAY_HUB_CHROME: Record<string, StaticOverlayHubChrome> = {
  '/guida-frontaliere/lamal-frontalieri/': { hubKey: 'confronti', activeSubTab: 'health' },
  '/guida-frontaliere/tassa-salute-frontalieri/': { hubKey: 'confronti', activeSubTab: 'health' },
@@ -2666,12 +2672,12 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  : '';
  const isHomePage = canonicalPath === '/';
  const isJobsIndex = /\/(cerca-lavoro-ticino|find-jobs-ticino|jobs-im-tessin|trouver-emploi-tessin)\/?$/.test(canonicalPath);
- const isArticlesIndex = /\/(articoli-frontaliere|frontier-articles|grenzgaenger-artikel|articles-frontalier)\/?$/.test(canonicalPath);
+ const isArticlesIndex = ARTICLES_INDEX_RX.test(canonicalPath);
  // Svizzera (Switzerland-wide) article section bare index — separate branch
  // (own copy + own /tutti/ archive base) so the bare index links its hub and
  // becomes a depth-1 → tutti (2) → article (3) crawl path, mirroring the
  // frontaliere index. Locale slugs from ARTICLE_SECTIONS.svizzera.indexSlug.
- const isSvizzeraArticlesIndex = /\/(articoli-svizzera|swiss-articles|schweiz-artikel|articles-suisse)\/?$/.test(canonicalPath);
+ const isSvizzeraArticlesIndex = SVIZZERA_ARTICLES_INDEX_RX.test(canonicalPath);
  const isCalcStipendioIndex =
    /^\/(calcola-stipendio|calculate-salary|gehalt-berechnen|calculer-salaire)\/?$/.test(canonicalPath) ||
    /^\/(en|de|fr)\/(calcola-stipendio|calculate-salary|gehalt-berechnen|calculer-salaire)\/?$/.test(canonicalPath);
@@ -4748,6 +4754,19 @@ ${hrefTags}
  // too (these editorial / hub landings previously rendered NO rails). Shared
  // markup via railGutters() keeps the grid drift-proof vs htmlTemplate.ts.
  const { open: railGridOpen, close: railGridClose } = railGutters(true);
+ // The bare article indexes emit their body as a SIBLING of #root, not inside it.
+ // Inside #root React destroys the server-rendered content on mount, so a bundle
+ // that fails to render leaves a blank page — which is what users got when the
+ // out-of-band registry stranded the SPA (#4959). Outside it the shard survives in
+ // the DOM and App.tsx's existing pre-paint toggle hides it once the SPA owns the
+ // view, the same contract /articoli-frontaliere/tutti/ already uses
+ // (build-plugins/seoHubsPlugin.ts). Wrapped in the same rail gutters as the
+ // hubChrome branch: those are the #rail-left-root / #rail-right-root portal
+ // targets App.tsx mounts <ArticleRailAdStack> into, so emitting the main without
+ // them would silently drop an ad surface (tests/build-plugins/handrolled-emitters-
+ // rail-gutters.test.ts locks this in).
+ const isBareArticleIndex =
+   ARTICLES_INDEX_RX.test(canonicalPath) || SVIZZERA_ARTICLES_INDEX_RX.test(canonicalPath);
  const bodySection = hubChromeSplit
  ? `${rootShell(hasSpaBundle)}
 ${hubChromeSplit.subnavHtml}
@@ -4756,7 +4775,12 @@ ${railGridOpen}
 ${hubChromeSplit.bodyHtml}
  </main>${railGridClose}
  <div id="footer-root"></div>`
- : `<div id="root"><main id="main-content">${rootHtml}</main></div>
+ : isBareArticleIndex
+   ? `${rootShell(hasSpaBundle)}
+ ${railGridOpen}
+ <main class="seo-static-content">${rootHtml}</main>${railGridClose}
+ <div id="footer-root"></div>`
+   : `<div id="root"><main id="main-content">${rootHtml}</main></div>
  <div id="footer-root"></div>`;
 
  return `<!DOCTYPE html>
