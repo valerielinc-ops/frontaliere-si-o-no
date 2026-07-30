@@ -5095,6 +5095,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'cern-progetto-19-miliardi',
+    category: 'novita',
+    date: '2026-07-30T05:55:12.949Z',
+    image: '/images/blog/cern-progetto-19-miliardi.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

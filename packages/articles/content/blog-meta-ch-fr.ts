@@ -1699,6 +1699,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.fondi-frontalieri-varesotto-14-milioni.title': '14 millions pour le Varesotto : fonds pour les frontaliers',
     'blog.article.fondi-frontalieri-varesotto-14-milioni.excerpt': 'Plus de 14 millions d\'euros destinés aux communes frontalières italiennes. Restaurants et nouvelle fiscalité pour les frontaliers de Varesotto : ce qui change.',
     'blog.article.fondi-frontalieri-varesotto-14-milioni.imageAlt': 'Vue aérienne du lac de Lugano à la frontière italo-suisse avec Luino au premier plan',
+    'blog.article.cern-progetto-19-miliardi.title': 'CERN : survivra-t-il au monde fragmenté ?',
+    'blog.article.cern-progetto-19-miliardi.excerpt': 'Le CERN s\'apprête à écrire un nouveau chapitre de son histoire avec le projet Future Circular Collider (FCC), mais le financement reste un défi',
+    'blog.article.cern-progetto-19-miliardi.imageAlt': 'Le CERN à Genève, centre de recherche sur les particules élémentaires',
 };
 
 export default blogMetaChFr;

@@ -21974,6 +21974,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-cern-progetto-19-miliardi': {
+    title: 'CERN: sopravviverà al mondo frammentato? | Frontaliere Ticino',
+    description: 'Il CERN si appresta a scrivere un nuovo capitolo della sua storia con il progetto Future Circular Collider (FCC), ma il finanziamento resta una sfida.',
+    keywords: 'frontalieri, ticino, svizzera, italia, cern, sopravviverà, mondo, frammentato',
+    ogTitle: 'Il progetto da 19 miliardi di dollari del CERN può sopravvivere a un mondo sempre più frammentato?',
+    ogDescription: 'Il CERN si appresta a scrivere un nuovo capitolo della sua storia con il progetto Future Circular Collider (FCC), ma il finanziamento resta una sfida.',
+    canonicalPath: '/articoli-svizzera/cern-progetto-19-miliardi/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "CERN: sopravviverà al mondo frammentato?",
+      "description": "Il CERN si appresta a scrivere un nuovo capitolo della sua storia con il progetto Future Circular Collider (FCC), ma il finanziamento resta una sfida.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/cern-progetto-19-miliardi.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Il CERN di Ginevra, centro di ricerche sulle particelle elementari"
+      },
+      "datePublished": "2026-07-30T05:55:12+00:00",
+      "dateModified": "2026-07-30T05:55:12+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/cern-progetto-19-miliardi/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

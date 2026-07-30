@@ -1699,6 +1699,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.fondi-frontalieri-varesotto-14-milioni.title': '14 million to border territories: funds for border workers in Varese',
     'blog.article.fondi-frontalieri-varesotto-14-milioni.excerpt': 'Over 14 million euros earmarked for Italian border municipalities. Refunds and new taxation for border workers in Varese: what changes.',
     'blog.article.fondi-frontalieri-varesotto-14-milioni.imageAlt': 'Aerial view of Lake Lugano at the Italian-Swiss border with Luino in foreground',
+    'blog.article.cern-progetto-19-miliardi.title': 'CERN: Will it survive the fragmented world?',
+    'blog.article.cern-progetto-19-miliardi.excerpt': 'CERN is preparing to write a new chapter in its history with the Future Circular Collider (FCC) project, but funding remains a challenge',
+    'blog.article.cern-progetto-19-miliardi.imageAlt': 'The CERN in Geneva, centre for research on elementary particles',
 };
 
 export default blogMetaChEn;
