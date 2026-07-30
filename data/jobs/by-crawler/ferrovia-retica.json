@@ -1,7 +1,56 @@
 {
   "crawlerKey": "ferrovia-retica",
-  "assembledAt": "2026-07-29T22:05:23.266Z",
+  "assembledAt": "2026-07-30T11:17:14.596Z",
   "jobs": [
+    {
+      "title": "Anlage-/Apparatebauer/in",
+      "company": "Ferrovia Retica (RhB)",
+      "companyKey": "ferrovia-retica",
+      "url": "https://www.rhb.ch/it/job/anlage-apparatebauer-in_2026-2239/",
+      "location": "Bernina",
+      "canton": "GR",
+      "country": "CH",
+      "postalCode": "7000",
+      "streetAddress": "Bahnhofstrasse 25, 7001 Chur",
+      "employmentType": "FULL_TIME",
+      "category": "engineering",
+      "description": "In questo ruolo di grande responsabilità, ti occuperai di garantire la disponibilità della nostra infrastruttura in una delle regioni più suggestive della Svizzera. Sarai direttamente responsabile del funzionamento senza interruzioni dei nostri sistemi di sicurezza ferroviaria.\n\nCosa puoi fare\n• Mitarbeit bei Reparatur- und Instandhaltungsarbeiten an den Bernina Trieb- und Anhängefahrzeugen\n\n• Umsetzung von Schweissarbeiten für Reparaturen oder Technische Änderungen an Schienenfahrzeugen\n\n• Unterstützung der Teamkollegen bei mechanischen Tätigkeiten\n Ecco perché sei la persona giusta\n• Abgeschlossene Berufslehre als Anlagen- / Apparatebauer oder Mechaniker mit einer Weiterbildung in Metallbau\n\n• Bereitschaft sich schweisstechnisch weiterzubilden und entsprechende Zulassungsprüfungen zu absolvieren.\n\n• Gute Deutschkenntnisse\n\n• Bereitschaft für Einsätze im Tourendienst und im Pikettdienst\n Cosa ti offriamo\n• 2. Klasse Generalabonnement\n\n• Vergünstigungen auf Freifahrscheine im Ausland\n\n• Bezahltes Mobiltelefon und -Abo zur geschäftlichen und privaten Nutzung\n\n• Attraktive Sozialnebenleistungen sowie Pensionskasse mit sehr guten Leistungen\n\n• Zusätzlicher Kauf von Ferien\n\n• Möglichkeit zu internen und externen Weiterbildungen mit finanzieller Unterstützung",
+      "postedDate": "2026-07-30",
+      "source": "company-website",
+      "sourceLang": "it",
+      "slug": "anlage-apparatebauer-in-ferrovia-retica-rhb-bernina",
+      "slugByLocale": {
+        "it": "anlage-apparatebauer-in-ferrovia-retica-rhb-bernina",
+        "en": "anlage-apparatebauer-in-ferrovia-retica-rhb-bernina",
+        "de": "anlage-apparatebauer-in-ferrovia-retica-rhb-bernina",
+        "fr": "anlage-apparatebauer-in-ferrovia-retica-rhb-bernina"
+      },
+      "titleByLocale": {
+        "it": "Anlage-/Apparatebauer/in",
+        "fr": "Anlage-/Apparatebauer/in"
+      },
+      "percentage": "",
+      "crawledAt": "",
+      "descriptionByLocale": {},
+      "needsRetranslation": true,
+      "addressLocality": "Bernina",
+      "addressCountry": "CH",
+      "addressRegion": "GR",
+      "salaryMin": 67000,
+      "salaryMax": 102000,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 67000,
+          "maxValue": 102000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-07-30T11:17:14.595Z"
+    },
     {
       "title": "Wagenreiniger/in (100%)",
       "company": "Ferrovia Retica (RhB)",
@@ -15,7 +64,7 @@
       "employmentType": "FULL_TIME",
       "category": "technology",
       "description": "Ti piace dare una mano e hai occhio per i dettagli? Come addetto/a alla pulizia dei vagoni presso la RhB, ti occuperai di far brillare i nostri treni, affinché i nostri passeggeri si sentano a proprio agio fin dal primo momento. Il tuo impegno rafforza la buona reputazione della RhB.\n\nCosa puoi fare\n• Mitarbeit bei der Grundreinigung der Fahrzeuge im Tagesdienst\n\n• Zeitweise Mithilfe bei der Wochenreinigung der Fahrzeuge im Schichtdienst\n Ecco perché sei la persona giusta\n• Abgeschlossene Berufsausbildung\n\n• Zuverlässige und selbstständige Ausführung der zugeteilten Reinigungsaufgaben\n\n• Freude an der Mitarbeit in einem Team\n\n• Bereitschaft zur Schichtarbeit\n\n• Deutschkenntnisse (Verstehen von Wort und Schrift)\n Cosa ti offriamo\n• 2. Klasse Generalabonnement\n\n• Vergünstigungen auf Freifahrscheine im Ausland\n\n• Bezahltes Mobiltelefon und -Abo zur geschäftlichen und privaten Nutzung\n\n• Attraktive Sozialnebenleistungen sowie Pensionskasse mit sehr guten Leistungen\n\n• Zusätzlicher Kauf von Ferien\n\n• Möglichkeit zu internen und externen Weiterbildungen mit finanzieller Unterstützung",
-      "postedDate": "2026-07-29",
+      "postedDate": "2026-07-30",
       "source": "company-website",
       "sourceLang": "it",
       "slug": "wagenreiniger-in-100-ferrovia-retica-rhb-chur",
@@ -55,7 +104,8 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-27T12:33:06.231Z"
+      "firstSeenAt": "2026-07-27T12:33:06.231Z",
+      "needsRetranslation": true
     },
     {
       "title": "Praktikant/in Mobility Science (praxisintegriertes Studium ZHAW, 100%)",
@@ -70,7 +120,7 @@
       "employmentType": "FULL_TIME",
       "category": "engineering",
       "description": "Cerchi un'esperienza stimolante presso un datore di lavoro versatile e desideri mettere in pratica le tue conoscenze? La RhB offre interessanti tirocini e, su richiesta, sostiene anche tesi di laurea con riferimento alla pratica. È la tua occasione per unire la teoria alla realtà e ottenere una panoramica dello sviluppo continuo della RhB.\n\nCosa puoi fare\n• Mitarbeit in der Unternehmensentwicklung und im Innovationsmanagement der RhB\n\n• Mitarbeit in der Verkehrs- und Angebotsplanung unter Berücksichtigung marktorientierter und wirtschaftlicher Zielsetzungen (Erstellen von Angebotskonzepten, Durchführen von Marktuntersuchungen, Begleitung von Rollmaterialbeschaffungen und Behandeln von strategischen Fahrplanfragen)\n\n• Mitarbeit und Koordination in bereichsübergreifenden, strategischen Projekten, insbesondere im Bereich Betrieb und Technik sowie bei grösseren Infrastruktur-Ausbauprojekten\n Ecco perché sei la persona giusta\n• Aufnahmebedingung für das Praxisintegrierte Bachelorstudium \"Mobility Science\" der ZHAW Winterthur erfüllt und Motivation diesen Studiengang erfolgreich innerhalb der vorgesehenen 4 Jahre zu absolvieren\n\n• Grosses Interesse im Verkehrswesen\n\n• Sehr gute EDV-Kenntnisse\n\n• Gute Deutschkenntnisse\n Cosa ti offriamo\n• 2. Klasse Generalabonnement\n\n• Bezahltes Mobiltelefon und -Abo zur geschäftlichen und privaten Nutzung\n\n• Einblicke in div. Fach- und Geschäftsbereiche\n\n• Zahlreiche Vergünstigungen für Mitarbeitende im ganzen Kanton Graubünden\n\n• 5 Wochen Ferien\n\n• Der Arbeitsort befindet sich im Zentrum von Chur\n\nUlteriori informazioni Das Praktikum wird im Zusammenarbeit mit dem Studiengang Mobility Science der ZHAW angeboten (Studienstart 09/2026). Die RhB bietet das Vollzeitmodell 2 an. dh. das Praktikum wird im 3. Studienjahr (Sommer 2028-Sommer 2029) bei der RhB absolviert. Weitere Infos zum Studiengang und dem praxisintegriertem Studium unter: https://www.zhaw.ch/de/engineering/studium/bachelorstudium/mobility-science/",
-      "postedDate": "2026-07-29",
+      "postedDate": "2026-07-30",
       "source": "company-website",
       "sourceLang": "it",
       "slug": "praktikant-in-mobility-science-praxisintegriertes-studium-zhaw-100-ferrovia-retica-rhb-chur",
@@ -110,7 +160,8 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-22T11:53:48.436Z"
+      "firstSeenAt": "2026-07-22T11:53:48.436Z",
+      "needsRetranslation": true
     },
     {
       "title": "Projektleiter/in Tiefbau (50-100%)",
@@ -125,7 +176,7 @@
       "employmentType": "PART_TIME",
       "category": "technology",
       "description": "Ti piace pensare al futuro e contribuire a plasmare il nostro domani? Da noi potrai pianificare e gestire processi e progetti rilevanti per i nostri prossimi passi.\n\nCosa puoi fare\n• Du koordinierst die Tiefbauarbeiten im gesamten RhB-Netz und sorgst für einen reibungslosen Ablauf der Bauprojekte\n\n• Du planst, steuerst und überwachst Tiefbauprojekte selbstständig\n\n• Übernahme der Bauleitung unter Einhaltung von Kosten-, Termin- und Qualitätsvorgaben\n\n• Durchführung von Baustellenkontrollen sowie Koordination der beteiligten Unternehmen\n\n• Du arbeitest eng mit internen Fachstellen, externen Partnern, Drittunternehmen und Behörden zusammen\n\n• Zentrale Ansprechperson für sämtliche projektbezogenen Fragestellungen im Bereich Tiefbau\n Ecco perché sei la persona giusta\n• Du verfügst über eine abgeschlossene Ausbildung als Bauführer/in oder eine gleichwertige Qualifikation\n\n• Mehrjährige Erfahrung im Tiefbau sowie bestenfalls Kenntnisse im Belagsbau, in der Wasserversorgung und in der Abwasserentsorgung\n\n• Idealerweise hast du Erfahrung in der Koordination von Bautätigkeiten und Freude daran, Verantwortung zu übernehmen\n\n• Du kommunizierst gerne mit unterschiedlichen Anspruchsgruppen und pflegst eine partnerschaftliche Zusammenarbeit\n\n• Eine hohe Selbstständigkeit sowie eine strukturierte und zuverlässige Arbeitsweise ist für dich selbstverständlich\n\n• Italienischkenntnisse für Einsätze im Raum Engadin/Puschlav sind ein Plus\n Cosa ti offriamo\n• 2. Klasse Generalabonnement\n\n• Freifahrscheine und Vergünstigungen auf Bahnfahrten im Ausland\n\n• Bezahltes Mobiltelefon und -Abo zur geschäftlichen und privaten Nutzung\n\n• Flexible Teilzeitmodelle\n\n• Attraktive Sozialnebenleistungen und Pensionskasse mit sehr guten Leistungen\n\n• Zusätzlicher Kauf von Ferien\n\n• Möglichkeit zur internen und externen Weiterbildung mit finanzieller Unterstützung durch die RhB",
-      "postedDate": "2026-07-29",
+      "postedDate": "2026-07-30",
       "source": "company-website",
       "sourceLang": "it",
       "slug": "projektleiter-in-tiefbau-50-100-ferrovia-retica-rhb-chur",
@@ -165,7 +216,8 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-22T11:53:48.436Z"
+      "firstSeenAt": "2026-07-22T11:53:48.436Z",
+      "needsRetranslation": true
     },
     {
       "title": "Leiter/in Bündner Güterbahn (80-100%)",
@@ -180,7 +232,7 @@
       "employmentType": "FULL_TIME",
       "category": "technology",
       "description": "Insieme al tuo team garantisci che oggi e in futuro circa 580'000 tonnellate di merci raggiungano ogni anno le loro destinazioni nelle regioni in modo sicuro, sostenibile e affidabile. Contribuisci così in modo fondamentale a un approvvigionamento efficiente e sostenibile dei territori e permetti di evitare ogni anno circa 75'000 viaggi di camion sulle strade. In questa funzione partecipi attivamente alla costruzione del futuro della RhB, restando al contempo a stretto contatto con i clienti e con l'esercizio operativo.\n\nCosa puoi fare\n• Du bist das Gesicht der Bündner Güterbahn gegenüber Kunden und Partnern.\n\n• Du verantwortest Produktmanagement, Pricing, Vertrieb, Kundenbetreuung, Angebot und Ergebnis der Sparte Güterverkehr.\n\n• Du führst das Team der Bündner Güterbahn mit den zwei Teams Transportmanagement und Produkt & Markt.\n\n• Du treibst die langfristig nachhaltige Entwicklung des Güterverkehrs und die dazu nötigen Projekte und Initiativen voran.\n\n• Du engagiert dich als Mitglied des Führungsteam Produktion in übergreifenden Führungs- und Entwicklungsthemen der RhB.\n Ecco perché sei la persona giusta\n• Du bist eine kommunikative, offene, gewinnende Persönlichkeit.\n\n• Du hast Führungs- und Branchenerfahrung (Güterverkehr / Transport).\n\n• Du verfügst über eine Aus-/Weiterbildung in Betriebswirtschaft, Produktmanagement/Sales und/oder Logistik-/Supply Chain-Management.\n\n• Du zeichnest dich aus durch Lösungsorientierung und vernetztes Denken und Handeln\n Cosa ti offriamo\n• 1. Klasse Generalabonnement\n\n• Freifahrscheine und Vergünstigungen auf Bahnfahrten im Ausland\n\n• Bezahltes Mobiltelefon und -Abo zur geschäftlichen und privaten Nutzung\n\n• Vertrauensarbeitszeit und flexible Teilzeitmodelle\n\n• Attraktive Sozialnebenleistungen und Pensionskasse mit sehr guten Leistungen\n\n• Zusätzlicher Kauf von Ferien\n\n• Möglichkeit zu internen und externen Weiterbildung mit finanzieller Unterstützung",
-      "postedDate": "2026-07-29",
+      "postedDate": "2026-07-30",
       "source": "company-website",
       "sourceLang": "it",
       "slug": "leiter-in-bundner-guterbahn-80-100-ferrovia-retica-rhb-chur",
@@ -220,7 +272,8 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-20T12:06:43.575Z"
+      "firstSeenAt": "2026-07-20T12:06:43.575Z",
+      "needsRetranslation": true
     },
     {
       "title": "Gleismonteur/in (80-100%)",
@@ -235,7 +288,7 @@
       "employmentType": "FULL_TIME",
       "category": "engineering",
       "description": "Ti piace lavorare all’aperto, vuoi dare una mano e ti piace lavorare in squadra? Come addetto/a alla manutenzione dei binari presso la RhB ti occuperai della manutenzione della nostra rete ferroviaria – immersi nella natura grigionese, con tecnologie moderne e un vero spirito di squadra.\n\nCosa puoi fare\n• Mitarbeit im Gleisunterhalt und Gleisbau (Um- und Neubauten)\n\n• Unterhaltsarbeiten im Gleisumfeld und an Kunstbauten sowie Böschungspflege, Forstarbeiten, etc.\n\n• Schneeräumungsarbeiten / Winterdienst\n\n• Sicherheitsfunktionen, Streckenbegehungen und Zustandskontrollen\n\n• Ausbildung und Einsatz als Führer von Triebfahrzeugen (Kat. B100)\n Ecco perché sei la persona giusta\n• Handwerklicher Berufsabschluss (EFZ)\n\n• Freude an körperlicher Arbeit im Freien\n\n• Bereitschaft für Nachteinsätze und Pikettdienst\n\n• Führerausweis Kat. B\n\n• Gute Deutschkenntnisse\n\n• Muttersprache Rätoromanisch oder gute mündliche Kenntnisse sind von Vorteil\n\nCosa ti offriamo\n• 2. Klasse Generalabonnement\n\n• Freifahrscheine und Vergünstigungen auf Bahnfahrten im Ausland\n\n• Bezahltes Mobiltelefon und -Abo zur geschäftlichen und privaten Nutzung\n\n• Flexible Teilzeitmodelle\n\n• Attraktive Sozialnebenleistungen und Pensionskasse mit sehr guten Leistungen\n\n• Zusätzlicher Kauf von Ferien\n\n• Möglichkeit zur internen und externen Weiterbildung mit finanzieller Unterstützung durch die RhB",
-      "postedDate": "2026-07-29",
+      "postedDate": "2026-07-30",
       "source": "company-website",
       "sourceLang": "it",
       "slug": "gleismonteur-in-80-100-ferrovia-retica-rhb-chur",
@@ -287,7 +340,8 @@
       "previousSlugs": [
         "track-maintenance-worker-80-100-ferrovia-retica-rhb-chur",
         "ouvrier-ere-de-voie-80-100-ferrovia-retica-rhb-chur"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Gesamtverantwortliche/r Kundeninformation (60-100%)",
@@ -302,7 +356,7 @@
       "employmentType": "PART_TIME",
       "category": "technology",
       "description": "Nel nuovo settore Informazione alla clientela assumi un ruolo dirigenziale centrale con ampio margine di manovra. In qualità di Responsabile Informazione alla clientela, sei responsabile di un'informazione orientata ai clienti su tutti i canali. Guidi il tuo team, sviluppi ulteriormente standard e processi e garantisci che i nostri clienti ricevano informazioni tempestive, chiare e affidabili in ogni situazione operativa.\n\nCosa puoi fare\n• Gesamtverantwortung für eine einheitliche, verständliche und qualitativ hochwertige Kundeninformation im Regel- und Ereignisfall über alle Kanäle hinweg\n\n• Definition der strategischen Ausrichtung der Kundeninformation sowie Sicherstellung der Umsetzung des Zielbilds Kundeninformation sicher und Gewährleistung der konsequenten Anwendung des Branchenstandards Kundeninformation Schweiz im gesamten Unternehmen\n\n• Verantwortung für die übergeordnete Steuerung und Weiterentwicklung der Systemarchitektur, Datenflüsse und Schnittstellen\n\n• Festlegung von verbindlichen Standards, Richtlinien sowie klaren Prozessen und Verantwortlichkeiten inklusive Sicherstellen deren unternehmensweite Umsetzung und Einhaltung sowie Überwachung der Informationsqualität (Pünktlichkeit, Konsistenz, Verständlichkeit)\n\n• Steuerung der Zusammenarbeit/Koordination mit internen und externen Partnern (TU-übergreifend)\n\n• Personelle Führung und Förderung der Mitarbeitenden im Bereich Kundeninformation\n Ecco perché sei la persona giusta\n• Höhere Ausbildung (HF/FH/Uni) in Betriebswirtschaft, Vertrieb/Marketing, Kommunikation oder Verkehr/Tourismus mit betriebswirtschaftlicher Weiterbildung\n\n• Mehrjährige Berufserfahrung in operativen (öV‑) Betriebsprozessen und/oder Kundeninformation/Kundenservice oder Kundenmanagement\n\n• Personelle und/oder fachliche Führungserfahrung sowie Erfahrung in Veränderungs- und Verbesserungsprozessen (KVP)\n\n• Ausgeprägte Kommunikationsfähig und - Durchsetzungsfähigkeiten mit hoher Kundenorientierung sowie Fähigkeit, komplexe Sachverhalte adressatengerecht, präzise und verständlich zu vermitteln\n\n• Analytische und entscheidungsstarke Persönlichkeit mit ausgeprägtem systemischem Denken, hoher Belastbarkeit und sicherem Handeln in dynamischen oder kritischen Situationen\n Cosa ti offriamo\n• 2. Klasse Generalabonnement\n\n• Freifahrscheine und Vergünstigungen auf Bahnfahrten im Ausland\n\n• Bezahltes Mobiltelefon und -Abo zur geschäftlichen und privaten Nutzung\n\n• Flexible Teilzeitmodelle\n\n• Attraktive Sozialnebenleistungen und Pensionskasse mit sehr guten Leistungen\n\n• Zusätzlicher Kauf von Ferien\n\n• Möglichkeit zur internen und externen Weiterbildung mit finanzieller Unterstützung durch die RhB\n Ulteriori informazioni Bei allfälligen Fragen steht dir Roland Ackermann ab 3. August gerne persönlich zur Verfügung. Der Selektionsprozess startet ab 3. August 2026. Bis dahin bitten wir dich um Geduld und wünschen während dessen sonnige Sommertage.\n\nDass du mit uns etwas bewegen willst, ist für uns die grösste Motivation. Darum verzichten wir bei dieser Stelle auf ein Motivationsschreiben. Falls du uns deine Motivation dennoch mitteilen möchtest, hast du in unserem Bewerbungstool nach wie vor die Möglichkeit dazu.",
-      "postedDate": "2026-07-29",
+      "postedDate": "2026-07-30",
       "source": "company-website",
       "sourceLang": "it",
       "slug": "gesamtverantwortliche-r-kundeninformation-60-100-ferrovia-retica-rhb-chur",
@@ -342,7 +396,8 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-15T11:01:29.565Z"
+      "firstSeenAt": "2026-07-15T11:01:29.565Z",
+      "needsRetranslation": true
     },
     {
       "title": "Leiter/in Rechnungswesen Infrastruktur (80-100%)",
@@ -357,7 +412,7 @@
       "employmentType": "FULL_TIME",
       "category": "engineering",
       "description": "Cosa puoi fare\n• In dieser Führungsfunktion verantwortest du die finanzielle Steuerung von Projekten sowie Aufgaben im Rechnungswesen des Geschäftsbereichs Infrastruktur.\n\n• Du übernimmst die fachliche und personelle Leitung eines Teams mit rund fünf Mitarbeitenden.\n\n• Mit deinem Team stellst du die korrekte Planung, Überwachung und Berichterstattung in den Bereichen Unterhalt und Investitionen sicher.\n\n• Zudem wirkst du aktiv in strategischen und fachlichen Gremien mit.\n Ecco perché sei la persona giusta\n• Du bringst eine höhere Ausbildung im Finanz- und Rechnungswesen (z. B. eidg. FA im Finanz- und Rechnungswesen) plus mehrjährige Berufserfahrung im Finanzbereich mit, idealerweise Baubranche mit Projektbezug.\n\n• Idealerweise hast du bereits Führungserfahrung gesammelt.\n\n• Sehr gute SAP-Anwender-Kenntnisse (insbesondere PS, FI/CO) erleichtern dir den Einstieg in diese Rolle.\n\n• Du bist eine teamorientierte, verantwortungsbewusste und durchsetzungsfreudige Persönlichkeit mit Sinn für Humor.\n\n• Eine strukturierte Arbeitsweise sowie analytische und strategische Fähigkeiten runden dein Profil ab.\n\nCosa ti offriamo\n• 2. Klasse Generalabonnement\n\n• Vergünstigungen auf Freifahrscheine im Ausland\n\n• Bezahltes Mobiltelefon und -Abo zur geschäftlichen und privaten Nutzung\n\n• attraktive Sozialnebenleistungen und Pensionskasse mit sehr guten Leistungen\n\n• Zusätzlicher Kauf von Ferien\n\n• Möglichkeit zur internen und externen Weiterbildung mit finanzieller Unterstützung",
-      "postedDate": "2026-07-29",
+      "postedDate": "2026-07-30",
       "source": "company-website",
       "sourceLang": "it",
       "slug": "leiter-in-rechnungswesen-infrastruktur-80-100-ferrovia-retica-rhb-chur",
@@ -397,7 +452,8 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-15T11:01:29.565Z"
+      "firstSeenAt": "2026-07-15T11:01:29.565Z",
+      "needsRetranslation": true
     },
     {
       "title": "Senior Projektleiter/in Bauherrenvertretung (70-100%)",
@@ -412,7 +468,7 @@
       "employmentType": "PART_TIME",
       "category": "engineering",
       "description": "Ti piace pensare al futuro e contribuire a plasmare il nostro domani? Da noi potrai pianificare e gestire processi e progetti rilevanti per i nostri prossimi passi.\n\nCosa puoi fare\n• Eigenverantwortliche Projektleitung sowie aktives Steuern und Kontrollieren von Terminen, Kosten und Gebäudequalitäten komplexer Bauvorhaben für das Transportunternehmen (Unterhaltswerkstätten und Betriebsliegenschaften) sowie für dessen Mandate (RhB Immobilien AG, Pensionskasse RhB)\n\n• Übernahme vielfältiger Aufgaben im Projektmanagement von Neu- und Umbauprojekten\n\n• Sicherstellung einer wirksamen Zusammenarbeit mit Planern, Unternehmern, Fachberatern, Betreibern und Nutzer im Interesser der Bauherrschaft\n\n• Durchführung von Vergabeverfahren sowie Sicherstellung eines wirksamen projektbezogenen Qualitätsmanagements und Controllings\n\n• Unterstützung beim Ausbau der Bauherrenvertretungsleistungen\n Ecco perché sei la persona giusta\n• Abgeschlossenes Studium oder Weiterbildung in der Fachrichtung Bauingenieurwesen, Architektur, Bau- und Projektleitung oder vergleichbare Qualifikation\n\n• Mind. 5 Jahre Berufserfahrung als Projektleiter/in / Bauherrenvertreter/in mit Referenzen im Bereich öffentliche Hand, Verkehr und Industrie sowie fundierten Kenntnissen der Schweizer Baunormen und Richtlinien\n\n• Reisebereitschaft im Kanton von 1-2 Arbeitstagen pro Woche\n\n• Freude am eigenverantwortlichen Arbeiten und die Motivation, sich weiterentwickeln zu wollen\n\n• Ausgeprägtes analytisches und vernetztes Denken, kombiniert mit einer gesunden Dosis an Pragmatismus in der Lösungsfindung sowie “hands-on” Mentalität\n Cosa ti offriamo\n• 2. Klasse Generalabonnement\n\n• Freifahrscheine und Vergünstigungen auf Bahnfahrten im Ausland\n\n• Bezahltes Mobiltelefon und -Abo zur geschäftlichen und privaten Nutzung\n\n• Flexible Teilzeitmodelle\n\n• Attraktive Sozialnebenleistungen und Pensionskasse mit sehr guten Leistungen\n\n• Zusätzlicher Kauf von Ferien\n\n• Möglichkeit zur internen und externen Weiterbildung mit finanzieller Unterstützung durch die RhB",
-      "postedDate": "2026-07-29",
+      "postedDate": "2026-07-30",
       "source": "company-website",
       "sourceLang": "it",
       "slug": "senior-projektleiter-in-bauherrenvertretung-70-100-ferrovia-retica-rhb-chur",
@@ -432,9 +488,9 @@
       "crawledAt": "",
       "descriptionByLocale": {
         "it": "Ti piace pensare al futuro e contribuire a plasmare il nostro domani? Da noi potrai pianificare e gestire processi e progetti rilevanti per i nostri prossimi passi.\n\nCosa puoi fare\n• Gestione autonoma del progetto, nonché controllo attivo e controllo di scadenze, costi e qualità degli edifici di progetti di costruzione complessi per l'impresa di trasporto (officine di manutenzione e immobili aziendali) e per i suoi mandati (RhB Immobilien AG, Pensionskasse RhB)\n\n• Assunzione di molteplici compiti nella gestione di progetti di nuove costruzioni e ristrutturazioni\n\n• Garantire una collaborazione efficace con progettisti, imprenditori, consulenti specializzati, operatori e utenti nell'interesse del cliente\n\n• Esecuzione di procedure di aggiudicazione e garanzia di un'efficace gestione e controllo della qualità del progetto\n\n• Supporto per l'espansione dei servizi di rappresentanza dei committenti\nEcco perché è la persona giusta\n• Laurea o specializzazione in ingegneria civile, architettura, costruzione e gestione di progetti o qualifica comparabile\n\n• Almeno 5 anni di esperienza professionale come capo progetto/ rappresentante del committente con referenze nel settore pubblico, dei trasporti e dell'industria, nonché una conoscenza approfondita delle norme e delle direttive edilizie svizzere\n\n• Disponibilità a viaggiare nel cantone di 1-2 giorni lavorativi a settimana\n\n• Il piacere di lavorare in modo indipendente e la motivazione a voler crescere\n\n• Marcato",
-        "en": "Ti piace pensare al futuro e contribuire a plasmare il nostro domani? Da noi pot-rai pianificare e gestire of the processi e progetti rilevanti per i nostri prosss of the passi.\n\nCosa puoi · • Self-managed project management, active taxing and controlling of dates, costs and building quality of complex construction projects for the transport company (maintenance workshops and operating properties) and for its mandates (RhB Immobilien AG, Pensionskasse RhB)\n\n• Take over of various tasks in project management of new and reconstruction projects\n\n• Ensuring effective cooperation with planners, entrepreneurs, consultants, operators and users in the interests of the building owner\n\n• Implementation of procurement procedures and ensuring effective project-related quality management and controlling\n\n• Support for the development of the client representation services Ecco perché sei la persona giusta • Completed studies or further education in the field of civil engineering, architecture, construction and project management or comparable qualifications\n\n• Minimum 5 years of professional experience as project manager / client representative with references in the field of public sector, transport and industry as well as sound knowledge of Swiss building standards and guidelines\n\n• ready to travel in the canton of 1-2 working days per week\n\n• Enjoying self-responsible work and the motivation to develop\n\n• Extensive analytical and networked thinking combined with a healthy dose of pragmatism in solution finding and,hands-on, mentality Cosa ti offriamo • 2nd class general subscription\n\n• Free tickets and discounts on rail trips abroad\n\n• Paid mobile phone and subscription for business and private use\n\n• Flexible part-time models\n\n• Attractive social benefits and pension fund with very good benefits\n\n• Additional purchase of holidays\n\n• possibility of internal and external training with financial support from the RhB",
+        "en": "Ti piace pensare al futuro e contribuire a plasmare il nostro domani? Da noi pot-rai pianificare e gestire of the processi e progetti rilevanti per i nostri prosss of the passi.\n\nCosa puoi ·\n• Self-managed project management, active taxing and controlling of dates, costs and building quality of complex construction projects for the transport company (maintenance workshops and operating properties) and for its mandates (RhB Immobilien AG, Pensionskasse RhB)\n\n• Take over of various tasks in project management of new and reconstruction projects\n\n• Ensuring effective cooperation with planners, entrepreneurs, consultants, operators and users in the interests of the building owner\n\n• Implementation of procurement procedures and ensuring effective project-related quality management and controlling\n\n• Support for the development of the client representation services Ecco perché sei la persona giusta\n• Completed studies or further education in the field of civil engineering, architecture, construction and project management or comparable qualifications\n\n• Minimum 5 years of professional experience as project manager / client representative with references in the field of public sector, transport and industry as well as sound knowledge of Swiss building standards and guidelines\n\n• ready to travel in the canton of 1-2 working days per week\n\n• Enjoying self-responsible work and the motivation to develop\n\n• Extensive analytical and networked thinking combined with a healthy dose of pragmatism in solution finding and,hands-on, mentality Cosa ti offriamo\n• 2nd class general subscription\n\n• Free tickets and discounts on rail trips abroad\n\n• Paid mobile phone and subscription for business and private use\n\n• Flexible part-time models\n\n• Attractive social benefits and pension fund with very good benefits\n\n• Additional purchase of holidays\n\n• possibility of internal and external training with financial support from the RhB",
         "de": "Ti piace pensare al futuro e contribuire a plasmare il nostro domani? Da noi potrai pianificare e gestire processi e progetti rilevanti per i nostri prossimi passi.\n\nCosa puoi fare\n• Eigenverantwortliche Projektleitung sowie aktives Steuern und Kontrollieren von Terminen, Kosten und Gebäudequalitäten komplexer Bauvorhaben für das Transportunternehmen (Unterhaltswerkstätten und Betriebsliegenschaften) sowie für dessen Mandate (RhB Immobilien AG, Pensionskasse RhB)\n\n• Übernahme vielfältiger Aufgaben im Projektmanagement von Neu- und Umbauprojekten\n\n• Sicherstellung einer wirksamen Zusammenarbeit mit Planern, Unternehmern, Fachberatern, Betreibern und Nutzer im Interesser der Bauherrschaft\n\n• Durchführung von Vergabeverfahren sowie Sicherstellung eines wirksamen projektbezogenen Qualitätsmanagements und Controllings\n\n• Unterstützung beim Ausbau der Bauherrenvertretungsleistungen\nEcco perché sei la persona giusta\n• Abgeschlossenes Studium oder Weiterbildung in der Fachrichtung Bauingenieurwesen, Architektur, Bau- und Projektleitung oder vergleichbare Qualifikation\n\n• Mind. 5 Jahre Berufserfahrung als Projektleiter/in / Bauherrenvertreter/in mit Referenzen im Bereich öffentliche Hand, Verkehr und Industrie sowie fundierten Kenntnissen der Schweizer Baunormen und Richtlinien\n\n• Reisebereitschaft im Kanton von 1-2 Arbeitstagen pro Woche\n\n• Freude am eigenverantwortlichen Arbeiten und die Motivation, sich weiterentwickeln zu wollen\n\n• Ausgeprägtes analytisches und vernetztes Denken, kombiniert mit einer gesunden Dosis an Pragmatismus in der Lösungsfindung sowie “hands-on” Mentalität\nCosa ti offriamo\n• 2. Klasse Generalabonnement\n\n• Freifahrscheine und Vergünstigungen auf Bahnfahrten im Ausland\n\n• Bezahltes Mobiltelefon und -Abo zur geschäftlichen und privaten Nutzung\n\n• Flexible Teilzeitmodelle\n\n• Attraktive Sozialnebenleistungen und Pensionskasse mit sehr guten Leistungen\n\n• Zusätzlicher Kauf von Ferien\n\n• Möglichkeit zur internen und externen Weiterbildung mit finanzieller Unterstützung durch die RhB",
-        "fr": "Ti piace pensare al futuro e contribure a plasmare il ontro domani? Da noi pot-rai pianificare e gestire des processi e progetti rilevanti per i ontri pross of the passi.\n\nCosa puoi · • Gestion de projet autogérée, imposition active et contrôle des dates, des coûts et de la qualité de construction des projets de construction complexes pour la société de transport (ateliers d'entretien et propriétés d'exploitation) et pour ses mandats (RhB Immobilien AG, Pensionskasse RhB)\n\n• Prise en charge de diverses tâches de gestion de projets de nouveaux projets et de reconstruction\n\n• Assurer une coopération efficace avec les planificateurs, les entrepreneurs, les consultants, les opérateurs et les utilisateurs dans l'intérêt du propriétaire du bâtiment\n\n• Mise en œuvre des procédures d'achat et gestion et contrôle efficaces de la qualité des projets\n\n• Soutien au développement des services de représentation des clients Ecco perché sei la persona giusta • Études terminées ou études complémentaires dans le domaine du génie civil, de l'architecture, de la construction et de la gestion de projets ou qualifications comparables\n\n• Au moins 5 ans d'expérience professionnelle en tant que gestionnaire de projet / représentant client avec des références dans le secteur public, les transports et l'industrie ainsi que la connaissance solide des normes et des lignes directrices suisses en matière de construction\n\n• prêt à voyager dans le canton de 1-2 jours ouvrables par semaine\n\n• Profitez d'un travail auto-réponsible et de la motivation au développement\n\n• Une réflexion analytique et en réseau étendue combinée à une bonne dose de pragmatisme dans la recherche de solutions et, main-d'oeuvre, la mentalité Cosa ti offriamo • 2ème abonnement général\n\n• Billets gratuits et réductions sur les voyages ferroviaires à l'étranger\n\n• Téléphone mobile payant et abonnement pour les entreprises et les particuliers\n\n• Modèles flexibles à temps partiel\n\n• Prestations sociales et fonds de pension attrayantes avec de très bonnes prestations\n\n• Achat de vacances supplémentaires\n\n• possibilité de formation interne et externe avec le soutien financier du RHB"
+        "fr": "Ti piace pensare al futuro e contribure a plasmare il ontro domani? Da noi pot-rai pianificare e gestire des processi e progetti rilevanti per i ontri pross of the passi.\n\nCosa puoi ·\n• Gestion de projet autogérée, imposition active et contrôle des dates, des coûts et de la qualité de construction des projets de construction complexes pour la société de transport (ateliers d'entretien et propriétés d'exploitation) et pour ses mandats (RhB Immobilien AG, Pensionskasse RhB)\n\n• Prise en charge de diverses tâches de gestion de projets de nouveaux projets et de reconstruction\n\n• Assurer une coopération efficace avec les planificateurs, les entrepreneurs, les consultants, les opérateurs et les utilisateurs dans l'intérêt du propriétaire du bâtiment\n\n• Mise en œuvre des procédures d'achat et gestion et contrôle efficaces de la qualité des projets\n\n• Soutien au développement des services de représentation des clients Ecco perché sei la persona giusta\n• Études terminées ou études complémentaires dans le domaine du génie civil, de l'architecture, de la construction et de la gestion de projets ou qualifications comparables\n\n• Au moins 5 ans d'expérience professionnelle en tant que gestionnaire de projet / représentant client avec des références dans le secteur public, les transports et l'industrie ainsi que la connaissance solide des normes et des lignes directrices suisses en matière de construction\n\n• prêt à voyager dans le canton de 1-2 jours ouvrables par semaine\n\n• Profitez d'un travail auto-réponsible et de la motivation au développement\n\n• Une réflexion analytique et en réseau étendue combinée à une bonne dose de pragmatisme dans la recherche de solutions et, main-d'oeuvre, la mentalité Cosa ti offriamo\n• 2ème abonnement général\n\n• Billets gratuits et réductions sur les voyages ferroviaires à l'étranger\n\n• Téléphone mobile payant et abonnement pour les entreprises et les particuliers\n\n• Modèles flexibles à temps partiel\n\n• Prestations sociales et fonds de pension attrayantes avec de très bonnes prestations\n\n• Achat de vacances supplémentaires\n\n• possibilité de formation interne et externe avec le soutien financier du RHB"
       },
       "addressLocality": "Chur",
       "addressCountry": "CH",
@@ -455,7 +511,8 @@
       "firstSeenAt": "2026-07-10T10:45:42.296Z",
       "retranslationAttempts": 24,
       "localeMismatchSuppressed": true,
-      "localeMismatchSuppressedLen": 2031
+      "localeMismatchSuppressedLen": 2031,
+      "needsRetranslation": true
     },
     {
       "title": "Kurzfristplaner/in (50-100%)",
@@ -470,7 +527,7 @@
       "employmentType": "PART_TIME",
       "category": "technology",
       "description": "Ogni giorno migliaia di persone e merci raggiungono la loro destinazione in sicurezza grazie a chi sa mantenere una visione d'insieme, riconoscere rapidamente le correlazioni e stabilire le giuste priorità anche nelle situazioni più complesse. In questo ruolo dinamico coordini processi operativi, analizzi situazioni attuali e prendi decisioni che influenzano direttamente l'esercizio ferroviario. Collaborando con diversi settori specialistici contribuisci a garantire un servizio affidabile per la clientela della Ferrovia retica, oggi e in futuro.\n\nCosa puoi fare\n• Du stellst eine kundenorientierte und reibungslose Einsatzplanung von Personal- und Fahrzeugressourcen im Tagesgeschäft sicher\n\n• Du triffst eigenständig fundierte Entscheidungen und kommunizierst klar, lösungsorientiert und transparent\n\n• Du koordinierst betriebliche Abweichungen kurzfristig mit den Bahnhöfen und erstellst die Tagesplanung inklusive Rangieraufträgen\n\n• Im Ereignisfall disponierst du Personal, Rollmaterial sowie Trassen- und Netzressourcen situativ und leitest rasch die notwendigen Massnahmen ein\n\n• Du gewährleistest einen lückenlosen Informationsfluss mit internen Schnittstellen\n Ecco perché sei la persona giusta\n• Grundausbildung im kaufmännischen oder betrieblichen Bereich, idealerweise im Transportwesen oder öffentlichen Verkehr\n\n• Analytisches und vernetztes Denken sowie Fähigkeit, komplexe Problemstellungen selbständig zu lösen\n\n• Prozessdenken sowie kontinuierliche Optimierung von Abläufen\n\n• Kommunikationsstärke, Vermittlungsfähigkeit sowie Teamfähigkeit und Belastbarkeit\n\n• Flexibilität und Bereitschaft für unregelmässige Arbeitszeiten im Schichtbetrieb\n Cosa ti offriamo\n• 2. Klasse Generalabonnement\n\n• Freifahrscheine und Vergünstigungen auf Bahnfahrten im Ausland\n\n• Bezahltes Mobiltelefon und -Abo zur geschäftlichen und privaten Nutzung\n\n• Flexible Teilzeitmodelle\n\n• Attraktive Sozialnebenleistungen und Pensionskasse mit sehr guten Leistungen\n\n• Zusätzlicher Kauf von Ferien\n\n• Möglichkeit zur internen und externen Weiterbildung mit finanzieller Unterstützung durch die RhB\n Ulteriori informazioni Dass du mit uns etwas bewegen willst, ist für uns die grösste Motivation. Darum verzichten wir bei dieser Stelle auf ein Motivationsschreiben. Falls du uns deine Motivation dennoch mitteilen möchtest, hast du in unserem Bewerbungstool nach wie vor die Möglichkeit dazu.",
-      "postedDate": "2026-07-29",
+      "postedDate": "2026-07-30",
       "source": "company-website",
       "sourceLang": "it",
       "slug": "kurzfristplaner-in-50-100-ferrovia-retica-rhb-chur",
@@ -519,74 +576,6 @@
       "previousSlugs": [
         "short-term-planner-50-100-ferrovia-retica-rhb-chur"
       ]
-    },
-    {
-      "title": "Teamleiter/in Elektrowerkstatt (80-100%)",
-      "company": "Ferrovia Retica (RhB)",
-      "companyKey": "ferrovia-retica",
-      "url": "https://www.rhb.ch/it/job/teamleiter-in-elektrowerkstatt-80-100_2026-2229/",
-      "location": "Chur",
-      "canton": "GR",
-      "country": "CH",
-      "postalCode": "7000",
-      "streetAddress": "Bahnhofstrasse 25, 7001 Chur",
-      "employmentType": "FULL_TIME",
-      "category": "engineering",
-      "description": "Desideri contribuire allo sviluppo dei veicoli ferroviari del futuro e mettere ogni giorno in pratica le tue competenze tecniche? In questa funzione variegata partecipi a progetti di trasformazione e ammodernamento della flotta e supporti l'analisi e la risoluzione dei guasti tecnici. In collaborazione con diversi settori specialistici contribuisci a realizzare i progetti in modo efficiente e a garantire l'affidabilità dei nostri veicoli. Ti assumi responsabilità, porti le tue idee e partecipi attivamente allo sviluppo della flotta RhB del futuro.\n\nCosa puoi fare\n• Fachliche Führung eines Teams bei Umbauten und Refits an Schienenfahrzeugen\n\n• Praktische Mitarbeit in Projekten sowie aktive Unterstützung bei der Störungssuche an Schienenfahrzeugen und Komponenten\n\n• Mitarbeit bei der Erstellung von neuen Prüfprotokollen\n\n• Zuständig für die Einsatzplanung des zugeteilten Teams und Koordination mit anderen Fachbereichen (Innenausbau/Engineering/AVOR)\n\n• Unterstützung der Leitung Elektrowerkstatt bei diversen administrativen Tätigkeiten (z.B. Beschaffung Elektro-Installationsmaterial, Organisation externer Reparaturaufträge)\n Ecco perché sei la persona giusta\n• Abgeschlossene Ausbildung als Automatiker/in EFZ oder Elektromonteur/in EFZ mit Weiterbildung Automatikfachmann/-fachfrau oder gleichwertige Qualifikation\n\n• Erfahrung im Bereich Messtechnik wünschenswert\n\n• Selbständige, engagierte Arbeitsweise\n\n• Flexible, belastbare und teamorientierte Persönlichkeit\n Cosa ti offriamo Eigenverantwortliche Leitung von Projekten zur Sicherstellung der Fahrzeuginstandhaltung und Erneuerung der Flotte. Grosser Spielraum, sich in einem dynamischen Umfeld zu beweisen und die Möglichkeit, erste Erfahrungen in der fachlichen Führung eines Teams zu sammeln.\n\nZudem unsere Benefits:\n\n• 2. Klasse Generalabonnement\n\n• Vergünstigungen auf Freifahrscheine im Ausland\n\n• Bezahltes Mobiltelefon und -Abo zur geschäftlichen und privaten Nutzung\n\n• Attraktive Sozialnebenleistungen sowie Pensionskasse mit sehr guten Leistungen\n\n• Zusätzlicher Kauf von Ferien\n\n• Möglichkeit zu internen und externen Weiterbildungen mit finanzieller Unterstützung",
-      "postedDate": "2026-07-29",
-      "source": "company-website",
-      "sourceLang": "it",
-      "slug": "team-leader-in-officina-elettrica-80-100-ferrovia-retica-rhb-chur",
-      "slugByLocale": {
-        "it": "team-leader-in-officina-elettrica-80-100-ferrovia-retica-rhb-chur",
-        "en": "team-leader-in-electrical-workshop-80-100-ferrovia-retica-rhb-chur",
-        "de": "teamleiter-in-elektrowerkstatt-80-100-ferrovia-retica-rhb-chur",
-        "fr": "chef-d-equipe-atelier-electrique-80-100-ferrovia-retica-rhb-chur"
-      },
-      "titleByLocale": {
-        "it": "Teamleiter/in Elektrowerkstatt (80-100%)",
-        "de": "Teamleiter/in Elektrowerkstatt (80-100%)",
-        "fr": "Teamleiter/à Elektrowerkstatt (80-100%)"
-      },
-      "percentage": "80-100%",
-      "crawledAt": "",
-      "previousSlugsByLocale": {
-        "it": [
-          "teamleiter-in-elektrowerkstatt-80-100-ferrovia-retica-rhb-chur"
-        ],
-        "en": [
-          "teamleiter-in-elektrowerkstatt-80-100-ferrovia-retica-rhb-chur"
-        ],
-        "fr": [
-          "teamleiter-in-elektrowerkstatt-80-100-ferrovia-retica-rhb-chur"
-        ]
-      },
-      "previousSlugs": [
-        "teamleiter-in-elektrowerkstatt-80-100-ferrovia-retica-rhb-chur"
-      ],
-      "descriptionByLocale": {
-        "en": "Do you want to contribute to the development of future rail vehicles and put your technical skills into practice every day? In this variegated function you participate in fleet transformation and modernization projects and support the analysis and resolution of technical faults. In collaboration with different specialist sectors, you can help you make projects efficiently and ensure the reliability of our vehicles. Take responsibility, bring your ideas and actively participate in the development of the RhB fleet of the future.\n\nWhat you can do\n• Fachliche Führung eines Teams bei Umbauten und Refits an Schienfahrzeugen\n\n• Praktische Mitarbeit in Projekten sowie aktive Unterstützung bei der Störungssuche an Schienfahrzeugen und Komponenten\n\n• Mitarbeit bei der Erstellung von der Prüfprotokollen\n\n• Zuständig für die Einsatzplanung des zugeteilten Teams und Koordination mit anderen Fachbereichen (Innenausbau/Engineering/AVOR)\n\n• Unterstützung der Leitung Elektrowerkstatt bei diversin administrativen Tätigkeiten (z.B. Beschaffung Elektro-Installationsmaterial, Organisation externer Reparaturaufträge)\n That's why you're the right person\n• Abgeschlossene Ausbildung als Automatiker/in EFZ oder Elektromonteur/in EFZ mit Weiterbildung Automatikfachmann/-fachfrau oder gleichwertige Qualifikation\n\n• Erfahrung im Bereich Mestechnik wünschenswert\n\n• Selbständige, engagierte Arbeitsweise\n\n• Flexible, belastbare und teamorientierte Persönlichkeit\n What we offer you Eigenverantwortliche Leitung von Projekten zur Sicherstellung der Fahrzeuginstandhaltung und Erneuerung der Flotte. Grosser Spielraum, sich in einem dynamischen Umfeld zu beweisen und die Möglichkeit, erste Erfahrungen in der fachlichen Führung eines Teams zu sammeln.\n\nZudem unsere Benefits:\n\n• 2. Klasse Generalabonnement\n\n• Vergünstigungen auf Freifahrscheine im Ausland\n\n• Bezahltes Mobiltelefon und -Abo zur geschäftlichen und privatin Nutzung\n\n• Attraktive Sozialnebenleistungen sowie Pensionskasse mit sehr guten Leistungen\n\n• Zusätzlicher Kauf von Ferien\n\n• Möglichkeit zu internan und externen Weiterbildungen mit finanzieller Unterstützung",
-        "de": "Möchten Sie zur Entwicklung zukünftiger Schienenfahrzeuge beitragen und Ihre technischen Fähigkeiten täglich in die Praxis umsetzen? In dieser vielfältigen Funktion beteiligen Sie sich an Flottentransformations- und Modernisierungsprojekten und unterstützen die Analyse und Behebung technischer Störungen. In Zusammenarbeit mit verschiedenen Fachbereichen können Sie Ihnen helfen, Projekte effizient zu gestalten und die Zuverlässigkeit unserer Fahrzeuge zu gewährleisten. Übernehmen Sie Verantwortung, bringen Sie Ihre Ideen ein und beteiligen Sie sich aktiv an der Entwicklung der RhB-Flotte der Zukunft.\n\nWas Sie tun können\n• Fachliche Führung eines Teams bei Umbauten und Refits an Schienfahrzeugen\n\n• Praktische Mitarbeit in Projekten und aktive Unterstützung bei der Störungssuche an Schienfahrzeugen und Komponenten\n\n• Mitarbeit bei der Erstellung von der Prüfprotokolle\n\n• Zuständige für die Einsatzplanung des zugeteilten Teams und Koordinierung mit anderen Fachgebieten (Innenausbau/Engineering/AVOR)\n\n• Unterstützung der Leitung Elektrowerkstatt bei diversin administrativen Tätigkeiten (z.B. Beschaffung Elektro-Installationsmaterial, Organisation externer Reparaturaufträge)\n Deshalb bist du die richtige Person\n• Abgeschlossene Ausbildung als Automatiker/in EFZ oder Elektromonteur/in EFZ mit Ausbildung Automatikfachmann/-fachfrau oder gleichwertige Qualifikation\n\n• Erfahrung im Bereich Mestechnik wünschenswert\n\n• Selbständige, engagierte Arbeit\n\n• Flexible, belastbare und teamorientierte Persönlichkeit\n Was wir Ihnen Eigenverantwortliche Leitung von Projekten zur Sicherstellung der Fahrzeuginstandhaltung und Erneuerung der Flotte anbieten. Grosser Spielraum, sich in einem dynamischen Umfeld zu beweisen und die Möglichkeit, erste Erfahrungen in der fachlichen Führung eines Teams zu sammeln.\n\nZudem unsere Vorteile:\n\n• 2. Klasse Generalabonnement\n\n• Vergünstigungen auf Freifahrscheine im Ausland\n\n• Bezahltes Mobiltelefon und Abo zur geschäftlichen und privatin Nutzung\n\n• Attraktive Sozialnebenleistungen sowie Pensionskasse mit sehr guten Leistungen\n\n• Zusätzlicher Kauf von Ferien\n\n• Möglichkeit zu internan und externe Weiterbildungen mit finanzieller Unterstützung",
-        "fr": "Voulez-vous contribuer au développement de futurs véhicules ferroviaires et mettre vos compétences techniques en pratique chaque jour? Dans cette fonction variée, vous participez à des projets de transformation et de modernisation de la flotte et soutenez l'analyse et la résolution des défauts techniques. En collaboration avec différents secteurs spécialisés, vous pouvez vous aider à réaliser des projets avec efficacité et assurer la fiabilité de nos véhicules. Prenez la responsabilité, apportez vos idées et participez activement au développement de la flotte RHB du futur.\n\nCe que vous pouvez faire\n• Fachliche Führung eines Équipes bei Umbauten und Refits an Schienfahrzeugen\n\n• Praktische Mitarbeit in Projekten sowie aktive Unterstützung bei der Störungssuche an Schienfahrzeugen und Komposenten\n\n• Mitarbeit bei der Erstellung von der Prüfprotokollen\n\n• Zuständig für die Einsatzplanung des zugeteilten Teams und Koordination mit anderen Fachbereichen (Innenausbau/Engineering/AVOR)\n\n• Unterstützung der Leitung Elektrowerkstatt bei diversin administrativen Tätigkeiten (z.B. Beschaffung Elektro-Installationsmatériaux, Organisation externe Reparaturaufträge)\n C'est pourquoi tu es la bonne personne.\n• Abgeschlossène Ausbildung als Automatiker/in EFZ oder Elektromonteur/in EFZ mit Weiterbildung Automatikfachmann/-fachfrau oder gleichwertige Qualifikation\n\n• Erfahrung im Bereich Mestechnik wünschenswert\n\n• Selbständige, engagierte Arbeitsweise\n\n• Flexible, belastbare und teamorientierte Persönlichkeit\n Ce que nous vous offrons Eigenverantwortliche Leitung von Projekten zur Sicherstellung der Fahrzeuginstandhaltung und Erneuerung der Flotte. Grosser Spielraum, sich in einem dynamischen Umfeld zu beweisen und die Möglichkeit, erste Erfahrungen in der fachlichen Führung eines Teams zu sammeln.\n\nZudem unsere Prestations :\n\n• 2. Klasse Generalabonnement\n\n• Vergünstigungen auf Freifahrscheine im Ausland\n\n• Bezahltes Mobiltelefon und -Abo zur geschäftlichen und privatif Nutzung\n\n• Attraktive Sozialnebenleistungen sowie Pensionskasse mit sehr guten Leistungen\n\n• Zusätzlicher Kauf von Ferien\n\n• Möglichkeit zu internan und externen Weiterbildungen mit finanzieller Unterstützung"
-      },
-      "needsRetranslation": true,
-      "addressLocality": "Chur",
-      "addressCountry": "CH",
-      "addressRegion": "GR",
-      "salaryMin": 67000,
-      "salaryMax": 102000,
-      "currency": "CHF",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 67000,
-          "maxValue": 102000,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-07-29T22:05:23.265Z"
     }
   ]
 }
