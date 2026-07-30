@@ -11,8 +11,14 @@
     "https://www.pemsa.ch/it/le-nostre-offerte-di-lavoro/"
   ],
   "notes": "Dedicated PEMSA crawler. National listing (all cantons). Detail pages have JSON-LD JobPosting with full location data; canton inferred per-job from the city. Construction/trades staffing agency.",
-  "updatedAt": "2026-07-30T11:22:36.108Z",
+  "updatedAt": "2026-07-30T22:17:01.174Z",
   "seedMetaByUrl": {
+    "https://www.pemsa.ch/it/job/lattoniere-copritetto-m-f-2685338/": {
+      "location": "Plan les Ouates",
+      "canton": "GE",
+      "company": "PEMSA",
+      "postedDate": "2026-07-30"
+    },
     "https://www.pemsa.ch/it/job/muratore-casseriere-e-carpentiere-2685317/": {
       "location": "Vaulruz",
       "canton": "FR",
@@ -889,51 +895,9 @@
       "company": "PEMSA",
       "postedDate": "2026-07-16"
     },
-    "https://www.pemsa.ch/it/job/meccanico-prototipista-attrezzista-m-f-2683439/": {
-      "location": "Biel/Bienne",
-      "canton": "BE",
-      "company": "PEMSA",
-      "postedDate": "2026-07-15"
-    },
-    "https://www.pemsa.ch/it/job/meccanico-di-produzione-cnc-operatore-regolatore-m-f-2683436/": {
-      "location": "Biel/Bienne",
-      "canton": "BE",
-      "company": "PEMSA",
-      "postedDate": "2026-07-15"
-    },
-    "https://www.pemsa.ch/it/job/installatore-elettricista-afc-m-f-2683433/": {
-      "location": "Biel/Bienne",
-      "canton": "BE",
-      "company": "PEMSA",
-      "postedDate": "2026-07-15"
-    },
-    "https://www.pemsa.ch/it/job/tecnico-specializzato-in-vetri-per-autoveicoli-m-f-2683430/": {
-      "location": "Biel/Bienne",
-      "canton": "BE",
-      "company": "PEMSA",
-      "postedDate": "2026-07-15"
-    },
-    "https://www.pemsa.ch/it/job/autista-corriere-turni-notturni-m-f-2683409/": {
-      "location": "Niederbipp",
-      "canton": "BE",
-      "company": "PEMSA",
-      "postedDate": "2026-07-15"
-    },
     "https://www.pemsa.ch/it/job/tettoio-2683332/": {
       "location": "Fribourg",
       "canton": "FR",
-      "company": "PEMSA",
-      "postedDate": "2026-07-15"
-    },
-    "https://www.pemsa.ch/it/job/idraulico-2683322/": {
-      "location": "Mezzovico",
-      "canton": "TI",
-      "company": "PEMSA",
-      "postedDate": "2026-07-15"
-    },
-    "https://www.pemsa.ch/it/job/installatore-idraulico-2683319/": {
-      "location": "Lugano",
-      "canton": "TI",
       "company": "PEMSA",
       "postedDate": "2026-07-15"
     },
@@ -1087,35 +1051,11 @@
       "company": "PEMSA",
       "postedDate": "2026-07-08"
     },
-    "https://www.pemsa.ch/it/job/cofra-hussor-2682141/": {
-      "location": "Fribourg",
-      "canton": "FR",
-      "company": "PEMSA",
-      "postedDate": "2026-07-07"
-    },
-    "https://www.pemsa.ch/it/job/muratore-e-formatore-di-casseforme-2682137/": {
-      "location": "Fribourg",
-      "canton": "FR",
-      "company": "PEMSA",
-      "postedDate": "2026-07-07"
-    },
     "https://www.pemsa.ch/it/job/installatore-impianti-sprinkler-2682122/": {
       "location": "Lugano",
       "canton": "TI",
       "company": "PEMSA",
       "postedDate": "2026-07-07"
-    },
-    "https://www.pemsa.ch/it/job/operatore-esperto-di-rullo-compattatore-conducente-di-rullo-compattatore-2681958/": {
-      "location": "Fribourg",
-      "canton": "FR",
-      "company": "PEMSA",
-      "postedDate": "2026-07-06"
-    },
-    "https://www.pemsa.ch/it/job/montatore-automaticista-afc-2681950/": {
-      "location": "Fribourg",
-      "canton": "FR",
-      "company": "PEMSA",
-      "postedDate": "2026-07-06"
     },
     "https://www.pemsa.ch/it/job/idraulico-impianti-sanitari-2681927/": {
       "location": "Melide",
@@ -1290,12 +1230,6 @@
       "canton": "TI",
       "company": "PEMSA",
       "postedDate": "2026-06-19"
-    },
-    "https://www.pemsa.ch/it/job/cartongessista-gessatore-2679001/": {
-      "location": "Bellinzona",
-      "canton": "TI",
-      "company": "PEMSA",
-      "postedDate": "2026-06-15"
     },
     "https://www.pemsa.ch/it/job/idraulico-installatore-impianti-riscaldamento-sanitari-2678338/": {
       "location": "Mendrisio",
