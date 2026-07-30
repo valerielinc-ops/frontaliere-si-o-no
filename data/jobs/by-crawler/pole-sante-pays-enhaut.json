@@ -81,8 +81,7 @@
         "apprentice-cfc-operations-agent-pole-sante-pays-d-enhaut-chateau-d-oex",
         "auszubildende-r-cfc-betriebstechniker-in-pole-sante-pays-d-enhaut-chateau-d-oex",
         "apprenti-e-agent-e-d-exploitation-cfc-pole-sante-pays-enhaut-chateau-d-oex",
-        "auxiliaire-de-sante-pole-sante-pays-d-enhaut-chateau-d-oex",
-        "medico-assistente-pole-sante-pays-d-enhaut-chateau-d-oex"
+        "auxiliaire-de-sante-pole-sante-pays-d-enhaut-chateau-d-oex"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -95,8 +94,7 @@
           "apprentice-cfc-operations-agent-pole-sante-pays-d-enhaut-chateau-d-oex",
           "auszubildende-r-cfc-betriebstechniker-in-pole-sante-pays-d-enhaut-chateau-d-oex",
           "apprenti-e-agent-e-d-exploitation-cfc-pole-sante-pays-enhaut-chateau-d-oex",
-          "auxiliaire-de-sante-pole-sante-pays-d-enhaut-chateau-d-oex",
-          "medico-assistente-pole-sante-pays-d-enhaut-chateau-d-oex"
+          "auxiliaire-de-sante-pole-sante-pays-d-enhaut-chateau-d-oex"
         ],
         "en": [
           "medecin-assistant-pole-sante-pays-enhaut-chateau-d-oex",
@@ -125,12 +123,12 @@
     },
     {
       "id": "pole-sante-pays-enhaut-7c4043f73d9f",
-      "slug": "auxiliaire-de-sante-polyvalent-e-taux-d-activite-de-70-de-suite-ou-a-convenir-pole-sante-pays-d-enhaut-chateau-d-oex",
+      "slug": "tasso-di-attivita-70-immediatamente-o-da-concordare-pole-sante-pays-d-enhaut-chateau-d-oex",
       "slugByLocale": {
         "fr": "auxiliaire-de-sante-polyvalent-e-taux-d-activite-de-70-de-suite-ou-a-convenir-pole-sante",
-        "it": "auxiliaire-de-sante-polyvalent-e-taux-d-activite-de-70-de-suite-ou-a-convenir-pole-sante-pays-d-enhaut-chateau-d-oex",
-        "en": "auxiliaire-de-sante-polyvalent-e-taux-d-activite-de-70-de-suite-ou-a-convenir-pole-sante",
-        "de": "auxiliaire-de-sante-polyvalent-e-taux-d-activite-de-70-de-suite-ou-a-convenir-pole-sante"
+        "it": "tasso-di-attivita-70-immediatamente-o-da-concordare-pole-sante-pays-d-enhaut-chateau-d-oex",
+        "en": "multi-purpose-health-assistant-activity-rate-70-immediately-or-to-be-agreed-pole-sante-pays-d-enhaut-chateau-d-oex",
+        "de": "mehrzweck-gesundheitsassistent-aktivitatsrate-70-sofort-oder-zu-vereinbaren-pole-sante-pays-d-enhaut-chateau-d-oex"
       },
       "company": "Pôle Santé Pays-d'Enhaut",
       "companyKey": "pole-sante-pays-enhaut",
@@ -175,11 +173,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "auxiliaire-de-sante-polyvalent-e-taux-d-activite-de-70-de-suite-ou-a-convenir-pole-sante",
+          "auxiliaire-de-sante-polyvalent-e-taux-d-activite-de-70-de-suite-ou-a-convenir-pole-sante-pays-d-enhaut-chateau-d-oex"
+        ],
+        "en": [
+          "auxiliaire-de-sante-polyvalent-e-taux-d-activite-de-70-de-suite-ou-a-convenir-pole-sante"
+        ],
+        "de": [
           "auxiliaire-de-sante-polyvalent-e-taux-d-activite-de-70-de-suite-ou-a-convenir-pole-sante"
         ]
       },
       "previousSlugs": [
-        "auxiliaire-de-sante-polyvalent-e-taux-d-activite-de-70-de-suite-ou-a-convenir-pole-sante"
+        "auxiliaire-de-sante-polyvalent-e-taux-d-activite-de-70-de-suite-ou-a-convenir-pole-sante",
+        "auxiliaire-de-sante-polyvalent-e-taux-d-activite-de-70-de-suite-ou-a-convenir-pole-sante-pays-d-enhaut-chateau-d-oex"
       ],
       "salaryMin": 42400,
       "salaryMax": 64000,
@@ -244,13 +250,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "assistant-e-en-soins-et-sante-communautaire-assc-pole-sante-pays-enhaut-chateau-d-oex",
-        "assistente-per-la-salute-e-la-cura-della-comunita-chs-pole-sante-pays-d-enhaut-chateau-d-oex"
+        "assistant-e-en-soins-et-sante-communautaire-assc-pole-sante-pays-enhaut-chateau-d-oex"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistant-e-en-soins-et-sante-communautaire-assc-pole-sante-pays-enhaut-chateau-d-oex",
-          "assistente-per-la-salute-e-la-cura-della-comunita-chs-pole-sante-pays-d-enhaut-chateau-d-oex"
+          "assistant-e-en-soins-et-sante-communautaire-assc-pole-sante-pays-enhaut-chateau-d-oex"
         ],
         "en": [
           "assistant-e-en-soins-et-sante-communautaire-assc-pole-sante-pays-enhaut-chateau-d-oex"

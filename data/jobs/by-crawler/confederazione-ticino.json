@@ -39,7 +39,7 @@
       },
       "slugByLocale": {
         "it": "esperienza-informatica-confederazione-svizzera-zollikofen-suisse",
-        "en": "erlebnistag-informatik-confederazione-svizzera-zollikofen-suisse",
+        "en": "computer-science-experience-confederazione-svizzera-zollikofen-suisse",
         "de": "erlebnistag-informatik-confederazione-zollikofen-suisse",
         "fr": "experience-en-informatique-confederazione-svizzera-zollikofen-suisse"
       },
@@ -60,7 +60,6 @@
       "firstSeenAt": "2026-07-27T22:14:21.387Z",
       "previousSlugsByLocale": {
         "en": [
-          "computer-science-experience-confederazione-svizzera-zollikofen-suisse",
           "erlebnistag-informatik-confederazione-zollikofen-suisse",
           "erlebnistag-informatik-confederazione-svizzera-zollikofen-suisse"
         ],
@@ -73,7 +72,6 @@
       },
       "previousSlugs": [
         "erlebnistag-informatik-confederazione-zollikofen-suisse",
-        "computer-science-experience-confederazione-svizzera-zollikofen-suisse",
         "erlebnistag-informatik-confederazione-svizzera-zollikofen-suisse"
       ]
     },
@@ -115,12 +113,18 @@
       "slugByLocale": {
         "de": "logistikfachmann-frau-stv-chef-in-lager-confederazione-gundlischwand",
         "it": "logistikfachmann-frau-stv-chef-in-magazzino-confederazione-svizzera-gundlischwand",
-        "en": "logistikfachmann-frau-stv-chef-in-lager-confederazione-gundlischwand",
-        "fr": "logistikfachmann-frau-stv-chef-in-lager-confederazione-gundlischwand"
+        "en": "logistics-specialist-stv-head-in-camp-confederazione-svizzera-gundlischwand",
+        "fr": "specialiste-de-la-logistique-stv-tete-dans-le-camp-confederazione-svizzera-gundlischwand"
       },
       "id": "confederazione-ticino-1db151bc4039",
       "previousSlugsByLocale": {
         "it": [
+          "logistikfachmann-frau-stv-chef-in-lager-confederazione-gundlischwand"
+        ],
+        "en": [
+          "logistikfachmann-frau-stv-chef-in-lager-confederazione-gundlischwand"
+        ],
+        "fr": [
           "logistikfachmann-frau-stv-chef-in-lager-confederazione-gundlischwand"
         ]
       },
@@ -180,12 +184,18 @@
       "slugByLocale": {
         "de": "finanzverantwortliche-r-direktion-fur-volkerrecht-confederazione-bern",
         "it": "finanzverantwortliche-r-direktion-per-volkerrecht-confederazione-svizzera-bern",
-        "en": "finanzverantwortliche-r-direktion-fur-volkerrecht-confederazione-bern",
-        "fr": "finanzverantwortliche-r-direktion-fur-volkerrecht-confederazione-bern"
+        "en": "financial-director-director-for-international-law-confederazione-svizzera-bern",
+        "fr": "directeur-financier-directeur-du-droit-international-confederazione-svizzera-bern"
       },
       "id": "confederazione-ticino-2f3085a941dd",
       "previousSlugsByLocale": {
         "it": [
+          "finanzverantwortliche-r-direktion-fur-volkerrecht-confederazione-bern"
+        ],
+        "en": [
+          "finanzverantwortliche-r-direktion-fur-volkerrecht-confederazione-bern"
+        ],
+        "fr": [
           "finanzverantwortliche-r-direktion-fur-volkerrecht-confederazione-bern"
         ]
       },
@@ -385,12 +395,18 @@
       "slugByLocale": {
         "de": "leiter-in-krisenmanagement-confederazione-bern",
         "it": "responsabile-krisenmanagement-confederazione-svizzera-bern",
-        "en": "leiter-in-krisenmanagement-confederazione-bern",
-        "fr": "leiter-in-krisenmanagement-confederazione-bern"
+        "en": "head-of-crisis-management-confederazione-svizzera-bern",
+        "fr": "chef-de-la-gestion-des-crises-confederazione-svizzera-bern"
       },
       "id": "confederazione-ticino-30b3d77eb896",
       "previousSlugsByLocale": {
         "it": [
+          "leiter-in-krisenmanagement-confederazione-bern"
+        ],
+        "en": [
+          "leiter-in-krisenmanagement-confederazione-bern"
+        ],
+        "fr": [
           "leiter-in-krisenmanagement-confederazione-bern"
         ]
       },
@@ -414,7 +430,7 @@
     },
     {
       "title": "SRE-Applikations-Entwickler/-in Expert (1255, 1261, 1262)",
-      "slug": "sre-applikations-entwickler-in-expert-1255-1261-1262-confederazione-zollikofen",
+      "slug": "sviluppatore-di-applicazioni-sre-in-esperto-1255-1261-1262-confederazione-svizzera-zollikofen",
       "url": "https://jobs.admin.ch/posti-vacanti/sre-applikations-entwickler-in-expert-1255-1261-1262/4f18a53d-313d-422c-ac96-f9fe064c87e7",
       "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=19427",
       "company": "Confederazione Svizzera",
@@ -449,7 +465,7 @@
       },
       "slugByLocale": {
         "de": "sre-applikations-entwickler-in-expert-1255-1261-1262-confederazione-zollikofen",
-        "it": "sre-applikations-entwickler-in-expert-1255-1261-1262-confederazione-zollikofen",
+        "it": "sviluppatore-di-applicazioni-sre-in-esperto-1255-1261-1262-confederazione-svizzera-zollikofen",
         "en": "sre-applikations-entwickler-in-expert-1255-1261-1262-confederazione-zollikofen",
         "fr": "sre-applikations-entwickler-in-expert-1255-1261-1262-confederazione-zollikofen"
       },
@@ -467,11 +483,19 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-30T11:19:04.525Z"
+      "firstSeenAt": "2026-07-30T11:19:04.525Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sre-applikations-entwickler-in-expert-1255-1261-1262-confederazione-zollikofen"
+        ]
+      },
+      "previousSlugs": [
+        "sre-applikations-entwickler-in-expert-1255-1261-1262-confederazione-zollikofen"
+      ]
     },
     {
       "title": "ICT-System-Spezialist/-in Professional (1318)",
-      "slug": "ict-system-spezialist-in-professional-1318-confederazione-zollikofen",
+      "slug": "specialista-del-sistema-ict-in-professionista-1318-confederazione-svizzera-zollikofen",
       "url": "https://jobs.admin.ch/posti-vacanti/ict-system-spezialist-in-professional-1318/93de99de-f121-4640-801b-5b1a4fb89c5e",
       "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=19822",
       "company": "Confederazione Svizzera",
@@ -506,9 +530,9 @@
       },
       "slugByLocale": {
         "de": "ict-system-spezialist-in-professional-1318-confederazione-zollikofen",
-        "it": "ict-system-spezialist-in-professional-1318-confederazione-zollikofen",
+        "it": "specialista-del-sistema-ict-in-professionista-1318-confederazione-svizzera-zollikofen",
         "en": "ict-system-spezialist-in-professional-1318-confederazione-zollikofen",
-        "fr": "ict-system-spezialist-in-professional-1318-confederazione-zollikofen"
+        "fr": "specialiste-des-systemes-tic-professionnel-1318-confederazione-svizzera-zollikofen"
       },
       "id": "confederazione-ticino-3766cade75a2",
       "salaryMin": 73000,
@@ -524,7 +548,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-30T11:19:04.525Z"
+      "firstSeenAt": "2026-07-30T11:19:04.525Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "ict-system-spezialist-in-professional-1318-confederazione-zollikofen"
+        ],
+        "fr": [
+          "ict-system-spezialist-in-professional-1318-confederazione-zollikofen"
+        ]
+      },
+      "previousSlugs": [
+        "ict-system-spezialist-in-professional-1318-confederazione-zollikofen"
+      ]
     },
     {
       "title": "ICT-Service-Manager/-in Senior (1319)",
@@ -565,7 +600,7 @@
         "de": "ict-service-manager-in-senior-1319-confederazione-bern",
         "it": "ict-service-manager-in-senior-1319-confederazione-bern",
         "en": "ict-service-manager-in-senior-1319-confederazione-bern",
-        "fr": "ict-service-manager-in-senior-1319-confederazione-bern"
+        "fr": "gestionnaire-de-services-tic-aine-1319-confederazione-svizzera-bern"
       },
       "id": "confederazione-ticino-bc7c100efba2",
       "salaryMin": 113000,
@@ -692,12 +727,18 @@
       "slugByLocale": {
         "de": "ict-architekt-in-senior-plattformen-daten-und-ki-confederazione-bern",
         "it": "ict-architekt-in-senior-plattformen-daten-e-ki-confederazione-svizzera-bern",
-        "en": "ict-architekt-in-senior-plattformen-daten-und-ki-confederazione-bern",
-        "fr": "ict-architekt-in-senior-plattformen-daten-und-ki-confederazione-bern"
+        "en": "ict-architect-in-senior-platforms-data-and-ai-confederazione-svizzera-bern",
+        "fr": "ict-architect-dans-les-plateformes-seniors-les-donnees-et-l-ia-confederazione-svizzera-bern"
       },
       "id": "confederazione-ticino-62519bdfb116",
       "previousSlugsByLocale": {
         "it": [
+          "ict-architekt-in-senior-plattformen-daten-und-ki-confederazione-bern"
+        ],
+        "en": [
+          "ict-architekt-in-senior-plattformen-daten-und-ki-confederazione-bern"
+        ],
+        "fr": [
           "ict-architekt-in-senior-plattformen-daten-und-ki-confederazione-bern"
         ]
       },
@@ -721,7 +762,7 @@
     },
     {
       "title": "Sekretär/-in Fachbereich Rechtsetzungsbegleitung",
-      "slug": "sekretar-in-fachbereich-rechtsetzungsbegleitung-confederazione-bern",
+      "slug": "segretario-dipartimento-del-monitoraggio-legislativo-confederazione-svizzera-bern",
       "url": "https://jobs.admin.ch/posti-vacanti/sekretaer-in-fachbereich-rechtsetzungsbegleitung/2c3b3aac-3889-419e-b463-0a80dd71da60",
       "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=19880",
       "company": "Confederazione Svizzera",
@@ -756,9 +797,9 @@
       },
       "slugByLocale": {
         "de": "sekretar-in-fachbereich-rechtsetzungsbegleitung-confederazione-bern",
-        "it": "sekretar-in-fachbereich-rechtsetzungsbegleitung-confederazione-bern",
-        "en": "sekretar-in-fachbereich-rechtsetzungsbegleitung-confederazione-bern",
-        "fr": "sekretar-in-fachbereich-rechtsetzungsbegleitung-confederazione-bern"
+        "it": "segretario-dipartimento-del-monitoraggio-legislativo-confederazione-svizzera-bern",
+        "en": "secretary-in-department-of-legislative-monitoring-confederazione-svizzera-bern",
+        "fr": "secretaire-du-departement-de-la-surveillance-legislative-confederazione-svizzera-bern"
       },
       "id": "confederazione-ticino-571edca3761e",
       "salaryMin": 78500,
@@ -774,11 +815,25 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-30T11:19:04.525Z"
+      "firstSeenAt": "2026-07-30T11:19:04.525Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sekretar-in-fachbereich-rechtsetzungsbegleitung-confederazione-bern"
+        ],
+        "en": [
+          "sekretar-in-fachbereich-rechtsetzungsbegleitung-confederazione-bern"
+        ],
+        "fr": [
+          "sekretar-in-fachbereich-rechtsetzungsbegleitung-confederazione-bern"
+        ]
+      },
+      "previousSlugs": [
+        "sekretar-in-fachbereich-rechtsetzungsbegleitung-confederazione-bern"
+      ]
     },
     {
       "title": "ICT- System-Spezialist/-in Professional (1210)",
-      "slug": "ict-system-spezialist-in-professional-1210-confederazione-bern",
+      "slug": "specialista-del-sistema-ict-in-professionista-1210-confederazione-svizzera-bern",
       "url": "https://jobs.admin.ch/posti-vacanti/ict-system-spezialist-in-professional-1210/8ce70ec0-dd81-4de3-be92-35b8e14a2c5e",
       "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=19281",
       "company": "Confederazione Svizzera",
@@ -813,9 +868,9 @@
       },
       "slugByLocale": {
         "de": "ict-system-spezialist-in-professional-1210-confederazione-bern",
-        "it": "ict-system-spezialist-in-professional-1210-confederazione-bern",
+        "it": "specialista-del-sistema-ict-in-professionista-1210-confederazione-svizzera-bern",
         "en": "ict-system-spezialist-in-professional-1210-confederazione-bern",
-        "fr": "ict-system-spezialist-in-professional-1210-confederazione-bern"
+        "fr": "specialiste-des-systemes-tic-professionnel-1210-confederazione-svizzera-bern"
       },
       "id": "confederazione-ticino-98de75a68bcb",
       "salaryMin": 73000,
@@ -831,7 +886,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-30T11:19:04.525Z"
+      "firstSeenAt": "2026-07-30T11:19:04.525Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "ict-system-spezialist-in-professional-1210-confederazione-bern"
+        ],
+        "fr": [
+          "ict-system-spezialist-in-professional-1210-confederazione-bern"
+        ]
+      },
+      "previousSlugs": [
+        "ict-system-spezialist-in-professional-1210-confederazione-bern"
+      ]
     },
     {
       "title": "Fachspezialist/-in Land- und Rechtserwerb",
@@ -871,12 +937,18 @@
       "slugByLocale": {
         "de": "fachspezialist-in-land-und-rechtserwerb-confederazione-zofingen-schweiz",
         "it": "fachspezialist-in-land-e-rechtserwerb-confederazione-svizzera-zofingen-schweiz",
-        "en": "fachspezialist-in-land-und-rechtserwerb-confederazione-zofingen-schweiz",
-        "fr": "fachspezialist-in-land-und-rechtserwerb-confederazione-zofingen-schweiz"
+        "en": "specialist-in-land-and-legal-acquisition-confederazione-svizzera-zofingen-schweiz",
+        "fr": "specialiste-sur-terre-et-acquisition-legale-confederazione-svizzera-zofingen-schweiz"
       },
       "id": "confederazione-ticino-42ebb50a79a4",
       "previousSlugsByLocale": {
         "it": [
+          "fachspezialist-in-land-und-rechtserwerb-confederazione-zofingen-schweiz"
+        ],
+        "en": [
+          "fachspezialist-in-land-und-rechtserwerb-confederazione-zofingen-schweiz"
+        ],
+        "fr": [
           "fachspezialist-in-land-und-rechtserwerb-confederazione-zofingen-schweiz"
         ]
       },
@@ -900,7 +972,7 @@
     },
     {
       "title": "Hochschulpraktikant/in Politische Geschäfte & Internationales",
-      "slug": "hochschulpraktikant-in-politische-geschafte-internationales-confederazione-ittigen",
+      "slug": "stage-universitario-in-affari-politici-international-confederazione-svizzera-ittigen",
       "url": "https://jobs.admin.ch/posti-vacanti/hochschulpraktikant-in-politische-geschaefte-internationales/e27062da-5ef8-43c3-a783-e0326124a23e",
       "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=19900",
       "company": "Confederazione Svizzera",
@@ -935,9 +1007,9 @@
       },
       "slugByLocale": {
         "de": "hochschulpraktikant-in-politische-geschafte-internationales-confederazione-ittigen",
-        "it": "hochschulpraktikant-in-politische-geschafte-internationales-confederazione-ittigen",
-        "en": "hochschulpraktikant-in-politische-geschafte-internationales-confederazione-ittigen",
-        "fr": "hochschulpraktikant-in-politische-geschafte-internationales-confederazione-ittigen"
+        "it": "stage-universitario-in-affari-politici-international-confederazione-svizzera-ittigen",
+        "en": "university-intern-in-political-business-international-confederazione-svizzera-ittigen",
+        "fr": "stage-universitaire-en-affaires-politiques-international-confederazione-svizzera-ittigen"
       },
       "id": "confederazione-ticino-f9b7dc10d196",
       "salaryMin": 68500,
@@ -953,11 +1025,25 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-30T11:19:04.525Z"
+      "firstSeenAt": "2026-07-30T11:19:04.525Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "hochschulpraktikant-in-politische-geschafte-internationales-confederazione-ittigen"
+        ],
+        "en": [
+          "hochschulpraktikant-in-politische-geschafte-internationales-confederazione-ittigen"
+        ],
+        "fr": [
+          "hochschulpraktikant-in-politische-geschafte-internationales-confederazione-ittigen"
+        ]
+      },
+      "previousSlugs": [
+        "hochschulpraktikant-in-politische-geschafte-internationales-confederazione-ittigen"
+      ]
     },
     {
       "title": "Projektleiter/-in unbemanntes Luftfahrzeug / Drohne",
-      "slug": "projektleiter-in-unbemanntes-luftfahrzeug-drohne-confederazione-svizzera-emmen-oder-bern",
+      "slug": "project-manager-veicolo-aereo-senza-pilota-drone-confederazione-svizzera-emmen-oder-bern",
       "url": "https://jobs.admin.ch/posti-vacanti/projektleiter-in-unbemanntes-luftfahrzeug-drohne/afbf568b-2c82-42e9-8c84-ccd26b207f90",
       "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=19881",
       "company": "Confederazione Svizzera",
@@ -992,18 +1078,26 @@
       },
       "slugByLocale": {
         "de": "projektleiter-in-unbemanntes-luftfahrzeug-drohne-confederazione-emmen-oder-bern",
-        "it": "projektleiter-in-unbemanntes-luftfahrzeug-drohne-confederazione-svizzera-emmen-oder-bern",
-        "en": "projektleiter-in-unbemanntes-luftfahrzeug-drohne-confederazione-emmen-oder-bern",
-        "fr": "projektleiter-in-unbemanntes-luftfahrzeug-drohne-confederazione-emmen-oder-bern"
+        "it": "project-manager-veicolo-aereo-senza-pilota-drone-confederazione-svizzera-emmen-oder-bern",
+        "en": "project-manager-unmanned-aerial-vehicle-drone-confederazione-svizzera-emmen-oder-bern",
+        "fr": "gestionnaire-de-projet-vehicule-aerien-sans-pilote-drone-confederazione-svizzera-emmen-oder-bern"
       },
       "id": "confederazione-ticino-d4e83577408c",
       "previousSlugsByLocale": {
         "it": [
+          "projektleiter-in-unbemanntes-luftfahrzeug-drohne-confederazione-emmen-oder-bern",
+          "projektleiter-in-unbemanntes-luftfahrzeug-drohne-confederazione-svizzera-emmen-oder-bern"
+        ],
+        "en": [
+          "projektleiter-in-unbemanntes-luftfahrzeug-drohne-confederazione-emmen-oder-bern"
+        ],
+        "fr": [
           "projektleiter-in-unbemanntes-luftfahrzeug-drohne-confederazione-emmen-oder-bern"
         ]
       },
       "previousSlugs": [
-        "projektleiter-in-unbemanntes-luftfahrzeug-drohne-confederazione-emmen-oder-bern"
+        "projektleiter-in-unbemanntes-luftfahrzeug-drohne-confederazione-emmen-oder-bern",
+        "projektleiter-in-unbemanntes-luftfahrzeug-drohne-confederazione-svizzera-emmen-oder-bern"
       ],
       "salaryMin": 77000,
       "salaryMax": 116500,
@@ -1022,7 +1116,7 @@
     },
     {
       "title": "PKI Operations Security Officer",
-      "slug": "pki-operations-security-officer-confederazione-bern",
+      "slug": "agente-di-sicurezza-delle-operazioni-pki-confederazione-svizzera-bern",
       "url": "https://jobs.admin.ch/posti-vacanti/pki-operations-security-officer/f6939168-3d19-4d81-8e51-479825430765",
       "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=19891",
       "company": "Confederazione Svizzera",
@@ -1057,9 +1151,9 @@
       },
       "slugByLocale": {
         "de": "pki-operations-security-officer-confederazione-bern",
-        "it": "pki-operations-security-officer-confederazione-bern",
+        "it": "agente-di-sicurezza-delle-operazioni-pki-confederazione-svizzera-bern",
         "en": "pki-operations-security-officer-confederazione-bern",
-        "fr": "pki-operations-security-officer-confederazione-bern"
+        "fr": "agent-de-securite-des-operations-de-l-icp-confederazione-svizzera-bern"
       },
       "id": "confederazione-ticino-647c1fbb4909",
       "salaryMin": 77000,
@@ -1075,7 +1169,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-30T11:19:04.525Z"
+      "firstSeenAt": "2026-07-30T11:19:04.525Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "pki-operations-security-officer-confederazione-bern"
+        ],
+        "fr": [
+          "pki-operations-security-officer-confederazione-bern"
+        ]
+      },
+      "previousSlugs": [
+        "pki-operations-security-officer-confederazione-bern"
+      ]
     },
     {
       "title": "ICT-System-Ingenieur/-in Senior Container Plattform",
@@ -2678,7 +2783,7 @@
     },
     {
       "title": "Finanzspezialist/-in",
-      "slug": "finanzspezialist-in-confederazione-svizzera-bern",
+      "slug": "specialista-finanziario-confederazione-svizzera-bern",
       "url": "https://jobs.admin.ch/posti-vacanti/finanzspezialist-in/6e5eb695-0108-46f9-b378-cc3580c661df",
       "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=19879",
       "company": "Confederazione Svizzera",
@@ -2712,7 +2817,7 @@
         "fr": "• Comptabilité financière axée sur les créanciers, les débiteurs et la comptabilité générale\n\n• États financiers, rapprochement des comptes et données générales conformément aux exigences du budget fédéral et de l'administration comptable\n\n• Audit financier et comptabilité des contrats et commandes\n\n• Coopération dans le domaine du financement et du contrôle\n\n• Administration Finances et contrôle\n\n• Formation au CV avec formation/expérience en comptabilité\n\n• Bonne connaissance de SAP et Microsoft 365\n\n• Pensée analytique et conceptuelle; orientée vers les objectifs et les résultats et résiliente\n\n• Méthodes de travail axées sur l ' équipe, axées sur les services et précises\n\n• Bonne connaissance des deux langues officielles"
       },
       "slugByLocale": {
-        "it": "finanzspezialist-in-confederazione-svizzera-bern",
+        "it": "specialista-finanziario-confederazione-svizzera-bern",
         "en": "financial-specialist-confederazione-svizzera-bern",
         "de": "finanzspezialist-in-confederazione-bern",
         "fr": "specialiste-financier-confederazione-svizzera-bern"
@@ -2721,7 +2826,6 @@
       "previousSlugsByLocale": {
         "it": [
           "finanzspezialist-in-confederazione-bern",
-          "specialista-finanziario-confederazione-svizzera-bern",
           "finanzspezialist-in-confederazione-svizzera-bern"
         ],
         "en": [
@@ -2733,7 +2837,6 @@
       },
       "previousSlugs": [
         "finanzspezialist-in-confederazione-bern",
-        "specialista-finanziario-confederazione-svizzera-bern",
         "finanzspezialist-in-confederazione-svizzera-bern"
       ],
       "salaryMin": 68500,
@@ -3103,7 +3206,7 @@
     },
     {
       "title": "Serviceverantwortliche/-r dept. Anwendungen",
-      "slug": "serviceverantwortliche-r-dept-anwendungen-confederazione-bern",
+      "slug": "service-manager-r-dept-applicazioni-confederazione-svizzera-bern",
       "url": "https://jobs.admin.ch/posti-vacanti/serviceverantwortliche-r-dept-anwendungen/c85b1aee-ddb0-412f-bd8d-36bb9d7678c4",
       "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=19780",
       "company": "Confederazione Svizzera",
@@ -3138,9 +3241,9 @@
       },
       "slugByLocale": {
         "de": "serviceverantwortliche-r-dept-anwendungen-confederazione-bern",
-        "it": "serviceverantwortliche-r-dept-anwendungen-confederazione-bern",
-        "en": "serviceverantwortliche-r-dept-anwendungen-confederazione-bern",
-        "fr": "serviceverantwortliche-r-dept-anwendungen-confederazione-bern"
+        "it": "service-manager-r-dept-applicazioni-confederazione-svizzera-bern",
+        "en": "service-manager-r-dept-applications-confederazione-svizzera-bern",
+        "fr": "gestionnaire-de-services-dep-demandes-confederazione-svizzera-bern"
       },
       "id": "confederazione-ticino-b1bbe7214eff",
       "salaryMin": 68500,
@@ -3156,7 +3259,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-30T11:19:04.525Z"
+      "firstSeenAt": "2026-07-30T11:19:04.525Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "serviceverantwortliche-r-dept-anwendungen-confederazione-bern"
+        ],
+        "en": [
+          "serviceverantwortliche-r-dept-anwendungen-confederazione-bern"
+        ],
+        "fr": [
+          "serviceverantwortliche-r-dept-anwendungen-confederazione-bern"
+        ]
+      },
+      "previousSlugs": [
+        "serviceverantwortliche-r-dept-anwendungen-confederazione-bern"
+      ]
     },
     {
       "title": "Senior Projektleiter/-in",
@@ -3483,7 +3600,7 @@
         "it": "stage-universitario-in-dipartimento-di-affari-internazionali-80-confederazione-svizzera-bern",
         "en": "university-intern-in-department-of-international-affairs-80-confederazione-svizzera-bern",
         "de": "hochschulpraktikant-in-abteilung-internationales-80-confederazione-bern",
-        "fr": "hochschulpraktikant-in-abteilung-internationales-80-confederazione-svizzera-bern"
+        "fr": "stage-universitaire-departement-des-affaires-internationales-80-confederazione-svizzera-bern"
       },
       "id": "confederazione-ticino-9cc5daec3e5a",
       "salaryMin": 54800,
@@ -3502,7 +3619,6 @@
       "firstSeenAt": "2026-07-27T12:35:15.503Z",
       "previousSlugsByLocale": {
         "fr": [
-          "stage-universitaire-departement-des-affaires-internationales-80-confederazione-svizzera-bern",
           "hochschulpraktikant-in-abteilung-internationales-80-confederazione-bern",
           "hochschulpraktikant-in-abteilung-internationales-80-confederazione-svizzera-bern"
         ],
@@ -3515,7 +3631,6 @@
       },
       "previousSlugs": [
         "hochschulpraktikant-in-abteilung-internationales-80-confederazione-bern",
-        "stage-universitaire-departement-des-affaires-internationales-80-confederazione-svizzera-bern",
         "hochschulpraktikant-in-abteilung-internationales-80-confederazione-svizzera-bern"
       ]
     },
@@ -5012,7 +5127,7 @@
     },
     {
       "title": "Jurist/-in (1311)",
-      "slug": "jurist-in-1311-confederazione-svizzera-zollikofen",
+      "slug": "avvocato-1311-confederazione-svizzera-zollikofen",
       "url": "https://jobs.admin.ch/posti-vacanti/jurist-in-1311/17c88672-fc22-4bfe-9783-f1aa2e10dea4",
       "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=19613",
       "company": "Confederazione Svizzera",
@@ -5046,7 +5161,7 @@
         "fr": "• Conseils juridiques et soutien aux projets de numérisation axés sur la protection des données, la conformité, la sécurité et les contrats\n\n• Documents juridiques et avis\n\n• Créer des contrats mettant l'accent sur la protection des données et la loi sur les licences (open source et private)\n\n• Aider et conseiller dans la planification et la création de concepts ainsi que la gestion des affaires\n\n• Maintenir les contacts et les échanges professionnels avec les parties prenantes à l'intérieur et à l'extérieur\n\n• diplôme universitaire de maîtrise de droit avec plusieurs années d'expérience professionnelle dans les domaines mentionnés;\n\n• Une forte affinité pour les nouvelles technologies et la numérisation; Flair pour la collaboration interdisciplinaire et agile; de bonnes connaissances des utilisateurs des TIC sont nécessaires\n\n• Très bonne connaissance de la protection des données et du droit des contrats (y compris du droit des licences)\n\n• Compréhension rapide et capacité à se familiariser continuellement avec de nouveaux domaines juridiques et thématiques\n\n• Personnalité intègre et résiliente avec des compétences de haute performance, une assurance et la capacité de communiquer avec les différentes parties prenantes dans un environnement hétérogène\n\n• Bonne connaissance active de deux langues officielles ainsi que de l'anglais"
       },
       "slugByLocale": {
-        "it": "jurist-in-1311-confederazione-svizzera-zollikofen",
+        "it": "avvocato-1311-confederazione-svizzera-zollikofen",
         "en": "lawyer-1311-confederazione-svizzera-zollikofen",
         "de": "jurist-in-1311-confederazione-zollikofen",
         "fr": "avocat-1311-confederazione-svizzera-zollikofen"
@@ -5069,7 +5184,6 @@
       "previousSlugsByLocale": {
         "it": [
           "jurist-in-1311-confederazione-zollikofen",
-          "avvocato-1311-confederazione-svizzera-zollikofen",
           "jurist-in-1311-confederazione-svizzera-zollikofen"
         ],
         "en": [
@@ -5081,7 +5195,6 @@
       },
       "previousSlugs": [
         "jurist-in-1311-confederazione-zollikofen",
-        "avvocato-1311-confederazione-svizzera-zollikofen",
         "jurist-in-1311-confederazione-svizzera-zollikofen"
       ]
     },
@@ -6021,8 +6134,8 @@
       "slugByLocale": {
         "de": "gerichtsschreiber-in-abt-v-mit-hauptsprache-deutsch-confederazione-st-gallen",
         "it": "gerichtsschreiber-in-abt-v-mit-hauptsprache-deutsch-confederazione-st-gallen",
-        "en": "gerichtsschreiber-in-abt-v-mit-hauptsprache-deutsch-confederazione-st-gallen",
-        "fr": "gerichtsschreiber-in-abt-v-mit-hauptsprache-deutsch-confederazione-st-gallen"
+        "en": "court-clerk-in-abt-v-with-main-language-german-confederazione-svizzera-st-gallen",
+        "fr": "greffier-in-abt-v-avec-langue-principale-allemand-confederazione-svizzera-st-gallen"
       },
       "id": "confederazione-ticino-c5eefc7614db",
       "salaryMin": 60000,
@@ -7269,7 +7382,7 @@
       "slugByLocale": {
         "de": "hochschulpraktikant-in-hr-confederazione-svizzera-ittigen",
         "it": "hochschulpraktikant-in-risorse-umane-confederazione-svizzera-ittigen",
-        "en": "hochschulpraktikant-in-hr-confederazione-svizzera-ittigen",
+        "en": "university-intern-in-hr-confederazione-svizzera-ittigen",
         "fr": "hochschulpraktikant-in-ressources-humaines-confederazione-svizzera-ittigen"
       },
       "id": "confederazione-ticino-b85a51fb54ce",
@@ -7279,10 +7392,14 @@
         ],
         "de": [
           "hochschulpraktikant-in-hr-confederazione-ittigen"
+        ],
+        "en": [
+          "hochschulpraktikant-in-hr-confederazione-svizzera-ittigen"
         ]
       },
       "previousSlugs": [
-        "hochschulpraktikant-in-hr-confederazione-ittigen"
+        "hochschulpraktikant-in-hr-confederazione-ittigen",
+        "hochschulpraktikant-in-hr-confederazione-svizzera-ittigen"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -7666,9 +7783,9 @@
       },
       "slugByLocale": {
         "de": "inspektor-in-confederazione-svizzera-bern",
-        "it": "inspektor-in-confederazione-svizzera-bern",
-        "en": "inspektor-in-confederazione-svizzera-bern",
-        "fr": "inspektor-in-confederazione-svizzera-bern"
+        "it": "ispettore-ispettore-confederazione-svizzera-bern",
+        "en": "inspector-inspector-confederazione-svizzera-bern",
+        "fr": "inspecteur-inspecteur-confederazione-svizzera-bern"
       },
       "id": "confederazione-ticino-8e9163bb3235",
       "previousSlugsByLocale": {
@@ -7768,7 +7885,7 @@
     },
     {
       "title": "Wirtschaftsinformatiker/-in Junior",
-      "slug": "wirtschaftsinformatiker-in-junior-confederazione-bern",
+      "slug": "specialista-di-informatica-aziendale-junior-confederazione-svizzera-bern",
       "url": "https://jobs.admin.ch/posti-vacanti/wirtschaftsinformatiker-in-junior/80b3d962-e67c-4841-b25c-fc9a4686cfab",
       "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=19722",
       "company": "Confederazione Svizzera",
@@ -7803,9 +7920,9 @@
       },
       "slugByLocale": {
         "de": "wirtschaftsinformatiker-in-junior-confederazione-bern",
-        "it": "wirtschaftsinformatiker-in-junior-confederazione-bern",
-        "en": "wirtschaftsinformatiker-in-junior-confederazione-bern",
-        "fr": "wirtschaftsinformatiker-in-junior-confederazione-bern"
+        "it": "specialista-di-informatica-aziendale-junior-confederazione-svizzera-bern",
+        "en": "business-informatics-specialist-junior-confederazione-svizzera-bern",
+        "fr": "specialiste-de-l-informatique-des-entreprises-junior-confederazione-svizzera-bern"
       },
       "id": "confederazione-ticino-9d52916f76cd",
       "salaryMin": 57500,
@@ -7821,7 +7938,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-30T11:19:04.525Z"
+      "firstSeenAt": "2026-07-30T11:19:04.525Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "wirtschaftsinformatiker-in-junior-confederazione-bern"
+        ],
+        "en": [
+          "wirtschaftsinformatiker-in-junior-confederazione-bern"
+        ],
+        "fr": [
+          "wirtschaftsinformatiker-in-junior-confederazione-bern"
+        ]
+      },
+      "previousSlugs": [
+        "wirtschaftsinformatiker-in-junior-confederazione-bern"
+      ]
     },
     {
       "title": "ICT-Test-Ingenieur/-in Senior (1250 & 1251)",
@@ -8843,11 +8974,14 @@
         "de": "entreprise-architect-confederazione-bern",
         "it": "entreprise-architetto-confederazione-svizzera-bern",
         "en": "enterprise-architect-confederazione-svizzera-bern",
-        "fr": "entreprise-architect-confederazione-bern"
+        "fr": "architecte-d-entreprise-confederazione-svizzera-bern"
       },
       "id": "confederazione-ticino-ffe971bf68c9",
       "previousSlugsByLocale": {
         "it": [
+          "entreprise-architect-confederazione-bern"
+        ],
+        "fr": [
           "entreprise-architect-confederazione-bern"
         ]
       },
@@ -9365,17 +9499,24 @@
       "slugByLocale": {
         "de": "mitarbeiter-in-unterhaltsreinigung-arbeitseinsatz-morgens-confederazione-bern",
         "it": "collaboratore-trice-in-unterhaltsreinigung-arbeitseinsatz-morgens-confederazione-svizzera-bern",
-        "en": "mitarbeiter-in-unterhaltsreinigung-arbeitseinsatz-morgens-confederazione-svizzera-bern",
-        "fr": "mitarbeiter-in-unterhaltsreinigung-arbeitseinsatz-morgens-confederazione-svizzera-bern"
+        "en": "employee-in-maintenance-cleaning-work-assignment-in-the-morning-confederazione-svizzera-bern",
+        "fr": "employe-en-nettoyage-d-entretien-travail-le-matin-confederazione-svizzera-bern"
       },
       "id": "confederazione-ticino-0ed8c75627c3",
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-unterhaltsreinigung-arbeitseinsatz-morgens-confederazione-bern"
+        ],
+        "en": [
+          "mitarbeiter-in-unterhaltsreinigung-arbeitseinsatz-morgens-confederazione-svizzera-bern"
+        ],
+        "fr": [
+          "mitarbeiter-in-unterhaltsreinigung-arbeitseinsatz-morgens-confederazione-svizzera-bern"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-unterhaltsreinigung-arbeitseinsatz-morgens-confederazione-bern"
+        "mitarbeiter-in-unterhaltsreinigung-arbeitseinsatz-morgens-confederazione-bern",
+        "mitarbeiter-in-unterhaltsreinigung-arbeitseinsatz-morgens-confederazione-svizzera-bern"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -10200,17 +10341,24 @@
       "slugByLocale": {
         "de": "mitarbeiter-in-gebaudebetrieb-confederazione-payerne",
         "it": "collaboratore-trice-in-gebaudebetrieb-confederazione-svizzera-payerne",
-        "en": "mitarbeiter-in-gebaudebetrieb-confederazione-svizzera-payerne",
-        "fr": "mitarbeiter-in-gebaudebetrieb-confederazione-svizzera-payerne"
+        "en": "employees-in-buildings-confederazione-svizzera-payerne",
+        "fr": "employes-dans-les-batiments-confederazione-svizzera-payerne"
       },
       "id": "confederazione-ticino-6e8c7200b43e",
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-gebaudebetrieb-confederazione-payerne"
+        ],
+        "en": [
+          "mitarbeiter-in-gebaudebetrieb-confederazione-svizzera-payerne"
+        ],
+        "fr": [
+          "mitarbeiter-in-gebaudebetrieb-confederazione-svizzera-payerne"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-gebaudebetrieb-confederazione-payerne"
+        "mitarbeiter-in-gebaudebetrieb-confederazione-payerne",
+        "mitarbeiter-in-gebaudebetrieb-confederazione-svizzera-payerne"
       ],
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -10264,9 +10412,9 @@
       },
       "slugByLocale": {
         "de": "technische-r-objektbetreuer-in-confederazione-bern",
-        "it": "gebaudebetreiber-in-confederazione-svizzera-bern",
-        "en": "gebaudebetreiber-in-confederazione-svizzera-bern",
-        "fr": "gebaudebetreiber-in-confederazione-svizzera-bern"
+        "it": "tecnico-r-gestione-oggetti-in-confederazione-svizzera-bern",
+        "en": "technical-r-object-manager-in-confederazione-svizzera-bern",
+        "fr": "gestionnaire-d-objets-confederazione-svizzera-bern"
       },
       "id": "confederazione-ticino-2246f5b53cdc",
       "previousSlugsByLocale": {
@@ -10334,7 +10482,7 @@
         "en": "project-buyer-man-confederazione-svizzera-bern",
         "de": "projektkaufrau-mann-confederazione-bern",
         "fr": "acquereur-homme-du-projet-confederazione-svizzera-bern",
-        "it": "acquirente-uomo-del-progetto-confederazione-svizzera-bern"
+        "it": "projektkaufrau-mann-confederazione-svizzera-bern"
       },
       "id": "confederazione-ticino-95728d0c2593",
       "previousSlugsByLocale": {
@@ -10536,17 +10684,24 @@
       "slugByLocale": {
         "de": "hochschulpraktikant-in-wirtschafts-und-geldpolitik-confederazione-bern",
         "it": "hochschulpraktikant-in-wirtschafts-e-geldpolitik-confederazione-svizzera-bern",
-        "en": "hochschulpraktikant-in-wirtschafts-und-geldpolitik-confederazione-svizzera-bern",
-        "fr": "hochschulpraktikant-in-wirtschafts-und-geldpolitik-confederazione-svizzera-bern"
+        "en": "university-practitioner-in-economic-and-monetary-policy-confederazione-svizzera-bern",
+        "fr": "pratique-universitaire-en-politique-economique-et-monetaire-confederazione-svizzera-bern"
       },
       "id": "confederazione-ticino-c50eb25ddc61",
       "previousSlugsByLocale": {
         "it": [
           "hochschulpraktikant-in-wirtschafts-und-geldpolitik-confederazione-bern"
+        ],
+        "en": [
+          "hochschulpraktikant-in-wirtschafts-und-geldpolitik-confederazione-svizzera-bern"
+        ],
+        "fr": [
+          "hochschulpraktikant-in-wirtschafts-und-geldpolitik-confederazione-svizzera-bern"
         ]
       },
       "previousSlugs": [
-        "hochschulpraktikant-in-wirtschafts-und-geldpolitik-confederazione-bern"
+        "hochschulpraktikant-in-wirtschafts-und-geldpolitik-confederazione-bern",
+        "hochschulpraktikant-in-wirtschafts-und-geldpolitik-confederazione-svizzera-bern"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -13283,9 +13438,9 @@
       },
       "slugByLocale": {
         "de": "lehrmeister-in-berufsbildner-in-automobilberufe-confederazione-thun",
-        "it": "lehrmeister-in-berufsbildner-in-automobilberufe-confederazione-svizzera-thun",
-        "en": "lehrmeister-in-berufsbildner-in-automobilberufe-confederazione-svizzera-thun",
-        "fr": "lehrmeister-in-berufsbildner-in-automobilberufe-confederazione-svizzera-thun"
+        "it": "insegnante-in-professionale-in-professioni-automobilistiche-confederazione-svizzera-thun",
+        "en": "teacher-in-vocational-trainer-in-automotive-professions-confederazione-svizzera-thun",
+        "fr": "enseignant-formateur-professionnel-dans-les-professions-automobiles-confederazione-svizzera-thun"
       },
       "id": "confederazione-ticino-689ed302192b",
       "previousSlugsByLocale": {
@@ -13544,16 +13699,18 @@
         "en": "project-manager-confederazione-svizzera-bern",
         "de": "projektleiter-in-bauherrschaft-confederazione-bern",
         "fr": "gestionnaire-de-projet-confederazione-svizzera-bern",
-        "it": "project-manager-in-building-management-confederazione-svizzera-bern"
+        "it": "projektleiter-in-bauherrschaft-confederazione-svizzera-bern"
       },
       "id": "confederazione-ticino-d7f073447844",
       "previousSlugsByLocale": {
         "it": [
-          "projektleiter-in-bauherrschaft-confederazione-bern"
+          "projektleiter-in-bauherrschaft-confederazione-bern",
+          "project-manager-in-building-management-confederazione-svizzera-bern"
         ]
       },
       "previousSlugs": [
-        "projektleiter-in-bauherrschaft-confederazione-bern"
+        "projektleiter-in-bauherrschaft-confederazione-bern",
+        "project-manager-in-building-management-confederazione-svizzera-bern"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -14088,7 +14245,7 @@
         "it": "stage-universitario-in-progetti-confederazione-svizzera-kaserne-payerne",
         "en": "university-intern-in-projects-confederazione-svizzera-kaserne-payerne",
         "de": "hochschulpraktikant-in-projekte-confederazione-kaserne-payerne",
-        "fr": "hochschulpraktikant-in-projekte-confederazione-svizzera-kaserne-payerne"
+        "fr": "pratique-universitaire-dans-les-projets-confederazione-svizzera-kaserne-payerne"
       },
       "id": "confederazione-ticino-f19e6503a088",
       "salaryMin": 60500,
@@ -14108,7 +14265,6 @@
       "previousSlugsByLocale": {
         "fr": [
           "projets-de-stagiaires-universitaires-confederazione-svizzera-kaserne-payerne",
-          "pratique-universitaire-dans-les-projets-confederazione-svizzera-kaserne-payerne",
           "hochschulpraktikant-in-projekte-confederazione-kaserne-payerne",
           "hochschulpraktikant-in-projekte-confederazione-svizzera-kaserne-payerne"
         ],
@@ -14122,7 +14278,6 @@
       "previousSlugs": [
         "projets-de-stagiaires-universitaires-confederazione-svizzera-kaserne-payerne",
         "hochschulpraktikant-in-projekte-confederazione-kaserne-payerne",
-        "pratique-universitaire-dans-les-projets-confederazione-svizzera-kaserne-payerne",
         "hochschulpraktikant-in-projekte-confederazione-svizzera-kaserne-payerne"
       ]
     },
@@ -16249,7 +16404,7 @@
         "en": "senior-project-manager-in-digital-management-medical-confederazione-svizzera-ittigen",
         "de": "senior-projektleiter-in-digitales-management-sanitat-confederazione-ittigen",
         "fr": "gestionnaire-de-projet-principal-en-gestion-numerique-confederazione-svizzera-ittigen",
-        "it": "senior-project-manager-in-digital-management-medical-confederazione-svizzera-ittigen"
+        "it": "senior-projektleiter-in-digitales-management-sanitat-confederazione-svizzera-ittigen"
       },
       "id": "confederazione-ticino-64d8e3dffbfd",
       "previousSlugsByLocale": {
@@ -17444,7 +17599,7 @@
         "it": "specialista-in-finanza-amministrazione-acqua-confederazione-svizzera-zollikofen",
         "en": "specialist-in-finance-administration-water-confederazione-svizzera-zollikofen",
         "de": "spezialist-in-finanzen-administration-wasser-confederazione-zollikofen",
-        "fr": "spezialist-in-finanzen-administration-wasser-confederazione-svizzera-zollikofen"
+        "fr": "specialiste-en-finances-administration-de-l-eau-confederazione-svizzera-zollikofen"
       },
       "id": "confederazione-ticino-2378dcee2df5",
       "salaryMin": 68500,
@@ -17463,7 +17618,6 @@
       "firstSeenAt": "2026-07-23T11:40:03.136Z",
       "previousSlugsByLocale": {
         "fr": [
-          "specialiste-en-finances-administration-de-l-eau-confederazione-svizzera-zollikofen",
           "spezialist-in-finanzen-administration-wasser-confederazione-zollikofen",
           "spezialist-in-finanzen-administration-wasser-confederazione-svizzera-zollikofen"
         ],
@@ -17476,7 +17630,6 @@
       },
       "previousSlugs": [
         "spezialist-in-finanzen-administration-wasser-confederazione-zollikofen",
-        "specialiste-en-finances-administration-de-l-eau-confederazione-svizzera-zollikofen",
         "spezialist-in-finanzen-administration-wasser-confederazione-svizzera-zollikofen"
       ]
     },
@@ -17841,7 +17994,7 @@
     },
     {
       "title": "Statistische Produktion - Spezialist/-in Erhebung & Diffusion",
-      "slug": "statistische-produktion-spezialist-in-erhebung-diffusion-confederazione-svizzera-neuchatel-suisse",
+      "slug": "produzione-statistica-specialista-in-sondaggio-e-diffusione-confederazione-svizzera-neuchatel-suisse",
       "url": "https://jobs.admin.ch/posti-vacanti/statistische-produktion-spezialist-in-erhebung-diffusion/4284f990-c03b-4077-b9d0-10b97c5bed22",
       "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=19833",
       "company": "Confederazione Svizzera",
@@ -17875,7 +18028,7 @@
         "fr": "• Planification et réalisation de diverses enquêtes culturelles et médiatiques\n\n• Mettre en place, tester et exécuter des questionnaires (p. ex. enquête en ligne), obtenir des données secondaires auprès d'organismes internes et externes\n\n• Données de contrôle (exhaustivité et cohérence) et tests corrects de plausibilité du programme\n\n• Maintenir les contacts avec les fournisseurs de données, demander aux entités qui répondent\n\n• Contrôler et coordonner les processus de diffusion, créer des éléments de diffusion, gérer et contrôler les traductions\n\n• Réponse aux demandes des clients\n\n• Formation au niveau de maturité et formation continue en sciences sociales ou en statistiques\n\n• Plusieurs années d'expérience professionnelle dans le domaine des statistiques et des enquêtes et, si possible, dans le secteur culturel et/ou médiatique\n\n• Très bonnes compétences informatiques, en particulier dans le domaine de la gestion des données et de la programmation\n\n• Très bonne connaissance d'une langue officielle et connaissance active d'une seconde langue officielle, anglais bénéfique\n\n• Méthodes de travail structurées, indépendantes et précises, sens de l'organisation, résilience"
       },
       "slugByLocale": {
-        "it": "statistische-produktion-spezialist-in-erhebung-diffusion-confederazione-svizzera-neuchatel-suisse",
+        "it": "produzione-statistica-specialista-in-sondaggio-e-diffusione-confederazione-svizzera-neuchatel-suisse",
         "en": "statistical-production-specialist-in-survey-diffusion-confederazione-svizzera-neuchatel-suisse",
         "de": "statistische-produktion-spezialist-in-erhebung-diffusion-confederazione-neuchatel-suisse",
         "fr": "production-statistique-specialiste-des-enquetes-et-de-la-diffusion-confederazione-svizzera-neuchatel-suisse"
@@ -17898,7 +18051,6 @@
       "previousSlugsByLocale": {
         "it": [
           "statistische-produktion-spezialist-in-erhebung-diffusion-confederazione-neuchatel-suisse",
-          "produzione-statistica-specialista-in-sondaggio-e-diffusione-confederazione-svizzera-neuchatel-suisse",
           "statistische-produktion-spezialist-in-erhebung-diffusion-confederazione-svizzera-neuchatel-suisse"
         ],
         "en": [
@@ -17910,7 +18062,6 @@
       },
       "previousSlugs": [
         "statistische-produktion-spezialist-in-erhebung-diffusion-confederazione-neuchatel-suisse",
-        "produzione-statistica-specialista-in-sondaggio-e-diffusione-confederazione-svizzera-neuchatel-suisse",
         "statistische-produktion-spezialist-in-erhebung-diffusion-confederazione-svizzera-neuchatel-suisse"
       ]
     },
@@ -19105,7 +19256,7 @@
         "it": "investitore-federale-coordinamento-confederazione-svizzera-bern",
         "en": "federal-investigator-in-coordination-confederazione-svizzera-bern",
         "de": "bundesermittler-in-koordination-confederazione-bern",
-        "fr": "bundesermittler-in-koordination-confederazione-svizzera-bern"
+        "fr": "enqueteur-coordonnateur-federal-confederazione-svizzera-bern"
       },
       "id": "confederazione-ticino-fd74db8500ac",
       "salaryMin": 68500,
@@ -19125,7 +19276,6 @@
       "previousSlugsByLocale": {
         "fr": [
           "enqueteur-federal-coordonnateur-confederazione-svizzera-bern",
-          "enqueteur-coordonnateur-federal-confederazione-svizzera-bern",
           "bundesermittler-in-koordination-confederazione-bern",
           "bundesermittler-in-koordination-confederazione-svizzera-bern"
         ],
@@ -19139,7 +19289,6 @@
       "previousSlugs": [
         "enqueteur-federal-coordonnateur-confederazione-svizzera-bern",
         "bundesermittler-in-koordination-confederazione-bern",
-        "enqueteur-coordonnateur-federal-confederazione-svizzera-bern",
         "bundesermittler-in-koordination-confederazione-svizzera-bern"
       ]
     },
@@ -19497,7 +19646,7 @@
     },
     {
       "title": "Jurist/in ESRG",
-      "slug": "jurist-in-esrg-confederazione-svizzera-bern",
+      "slug": "avvocato-esrg-confederazione-svizzera-bern",
       "url": "https://jobs.admin.ch/posti-vacanti/jurist-in-esrg/eb460f75-846f-4b4b-84e5-382855a0566c",
       "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=19824",
       "company": "Confederazione Svizzera",
@@ -19531,7 +19680,7 @@
         "fr": "• Examen des investissements des investisseurs étrangers en Suisse sur la base de questions juridiques, économiques et de politique de sécurité\n\n• Création de bases de décision pour la hiérarchie incl. Préparation des motions au Conseil fédéral\n\n• Fournir des informations juridiques sur la portée de l'IPG\n\n• Représentation de la Suisse dans les négociations bilatérales ou multilatérales sur les audits des investissements\n\n• Poursuite du développement du GIP, par exemple dans le cadre des processus législatifs parlementaires\n\n• Jusqu'à l'entrée en vigueur de la loi, les processus de coopération avec d'autres bureaux fédéraux et avec les missions suisses à l'étranger doivent être revus, les contacts avec les associations professionnelles et les lignes directrices pour les parties prenantes doivent être préparés.\n\n• Diplôme universitaire de droit\n\n• De préférence avec un brevet suisse ou une expérience des procédures administratives\n\n• Spécialisation de préférence en droit commercial et en droit commercial, en particulier en matière de fusions-acquisitions et de droit de la concurrence ou autre expérience des investissements transnationaux\n\n• Personnalité engagée, responsable et résiliente avec de solides compétences analytiques ainsi que des performances élevées et un travail d'équipe solide\n\n• Hautes compétences sociales et orientation vers les parties prenantes\n\n• Très bonne connaissance active de deux langues officielles ainsi que de l'anglais en parole et en écriture et connaissance passive de la troisième langue officielle"
       },
       "slugByLocale": {
-        "it": "jurist-in-esrg-confederazione-svizzera-bern",
+        "it": "avvocato-esrg-confederazione-svizzera-bern",
         "en": "esrg-lawyer-confederazione-svizzera-bern",
         "de": "jurist-in-esrg-confederazione-bern",
         "fr": "avocat-esrg-confederazione-svizzera-bern"
@@ -19554,7 +19703,6 @@
       "previousSlugsByLocale": {
         "it": [
           "jurist-in-esrg-confederazione-bern",
-          "avvocato-esrg-confederazione-svizzera-bern",
           "jurist-in-esrg-confederazione-svizzera-bern"
         ],
         "en": [
@@ -19566,13 +19714,12 @@
       },
       "previousSlugs": [
         "jurist-in-esrg-confederazione-bern",
-        "avvocato-esrg-confederazione-svizzera-bern",
         "jurist-in-esrg-confederazione-svizzera-bern"
       ]
     },
     {
       "title": "Juristin/Jurist Infrastruktur",
-      "slug": "juristin-jurist-infrastruktur-confederazione-svizzera-ittigen",
+      "slug": "avvocato-infrastruttura-giurista-confederazione-svizzera-ittigen",
       "url": "https://jobs.admin.ch/posti-vacanti/juristin-jurist-infrastruktur/1849780b-7567-48a9-9bcb-feef66441ead",
       "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=19812",
       "company": "Confederazione Svizzera",
@@ -19606,7 +19753,7 @@
         "fr": "• conduire des procédures et accorder des autorisations de planification (permis de construction), des permis d'exploitation et des concessions pour les chemins de fer et principalement les installations à câbles;\n\n• Fournir des informations techniques aux entreprises ferroviaires, aux autorités locales et cantonales et aux services internes\n\n• Participation ou direction de groupes de travail internes et interministériels\n\n• Élaboration de décrets juridiques\n\n• Modifier les dossiers en français et si possible dans une autre langue nationale (allemand ou italien)\n\n• Diplôme universitaire en droit (maîtrise ou licence), idéalement avocat brevet\n\n• Expérience professionnelle en matière de justice, d ' administration ou de défense, de préférence en droit public (droit procédural/droit de l ' environnement)\n\n• Compréhension rapide et méthodes de travail indépendantes\n\n• Appréciation de la coopération interdisciplinaire, intérêt pour les questions techniques et environnementales\n\n• Excellente capacité éditoriale et de communication dans au moins une langue officielle, bonne connaissance active d'au moins une seconde langue officielle et, si possible, connaissance passive d'une troisième langue officielle"
       },
       "slugByLocale": {
-        "it": "juristin-jurist-infrastruktur-confederazione-svizzera-ittigen",
+        "it": "avvocato-infrastruttura-giurista-confederazione-svizzera-ittigen",
         "en": "lawyer-jurist-infrastructure-confederazione-svizzera-ittigen",
         "de": "juristin-jurist-infrastruktur-confederazione-ittigen",
         "fr": "infrastructure-juridique-confederazione-svizzera-ittigen"
@@ -19630,7 +19777,6 @@
         "it": [
           "avvocato-avvocato-infrastrutture-confederazione-svizzera-ittigen",
           "juristin-jurist-infrastruktur-confederazione-ittigen",
-          "avvocato-infrastruttura-giurista-confederazione-svizzera-ittigen",
           "juristin-jurist-infrastruktur-confederazione-svizzera-ittigen"
         ],
         "en": [
@@ -19643,7 +19789,6 @@
       "previousSlugs": [
         "avvocato-avvocato-infrastrutture-confederazione-svizzera-ittigen",
         "juristin-jurist-infrastruktur-confederazione-ittigen",
-        "avvocato-infrastruttura-giurista-confederazione-svizzera-ittigen",
         "juristin-jurist-infrastruktur-confederazione-svizzera-ittigen"
       ]
     },

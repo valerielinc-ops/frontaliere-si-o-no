@@ -186,9 +186,9 @@
       },
       "slugByLocale": {
         "it": "consulente-3a-piani-di-risparmio-senza-esperienza-formazione-gratuita-convit-via-al-mulino-22a-6814-cadempino",
-        "en": "financial-strategy-fixed-bonus-convit-holding-gmbh-via-al-mulino-22a-6814-cadempino",
-        "de": "finanzstrategie-fest-bonus-convit-holding-gmbh-via-al-mulino-22a-6814-cadempino",
-        "fr": "strategia-finanziaria-fisso-bonus-convit-holding-gmbh-via-al-mulino-22a-6814-cadempino"
+        "en": "3rd-consultant-savings-plans-no-experience-free-training-convit-holding-gmbh-via-al-mulino-22a-6814-cadempino",
+        "de": "3rd-consultant-sparplane-keine-erfahrung-kostenloses-training-convit-holding-gmbh-via-al-mulino-22a-6814-cadempino",
+        "fr": "3eme-consultant-plans-d-economie-aucune-experience-formation-gratuite-convit-holding-gmbh-via-al-mulino-22a-6814"
       },
       "salaryMin": 85500,
       "salaryMax": 150000,
@@ -209,16 +209,14 @@
       "previousSlugsByLocale": {
         "fr": [
           "strategie-financiere-fixe-bonus-convit-holding-gmbh-via-al-mulino-22a-6814-cadempino",
-          "3eme-consultant-plans-d-economie-aucune-experience-formation-gratuite-convit-holding-gmbh-via-al-mulino-22a-6814",
           "strategia-finanziaria-fisso-bonus-convit-holding-gmbh-via-al-mulino-22a-6814-cadempino"
         ],
         "en": [
-          "3rd-consultant-savings-plans-no-experience-free-training-convit-holding-gmbh-via-al-mulino-22a-6814-cadempino",
           "financial-strategy-fixed-bonus-convit-holding-gmbh-via-al-mulino-22a-6814-cadempino"
         ],
         "de": [
           "finanzstrategie-fixed-bonus-convit-holding-gmbh-via-al-mulino-22a-6814-cadempino",
-          "3rd-consultant-sparplane-keine-erfahrung-kostenloses-training-convit-holding-gmbh-via-al-mulino-22a-6814-cadempino"
+          "finanzstrategie-fest-bonus-convit-holding-gmbh-via-al-mulino-22a-6814-cadempino"
         ],
         "it": [
           "strategia-finanziaria-fisso-bonus-convit-via-al-mulino-22a-6814-cadempino"
@@ -228,11 +226,9 @@
         "strategie-financiere-fixe-bonus-convit-holding-gmbh-via-al-mulino-22a-6814-cadempino",
         "finanzstrategie-fixed-bonus-convit-holding-gmbh-via-al-mulino-22a-6814-cadempino",
         "strategia-finanziaria-fisso-bonus-convit-via-al-mulino-22a-6814-cadempino",
-        "3rd-consultant-savings-plans-no-experience-free-training-convit-holding-gmbh-via-al-mulino-22a-6814-cadempino",
-        "3rd-consultant-sparplane-keine-erfahrung-kostenloses-training-convit-holding-gmbh-via-al-mulino-22a-6814-cadempino",
-        "3eme-consultant-plans-d-economie-aucune-experience-formation-gratuite-convit-holding-gmbh-via-al-mulino-22a-6814",
         "strategia-finanziaria-fisso-bonus-convit-holding-gmbh-via-al-mulino-22a-6814-cadempino",
-        "financial-strategy-fixed-bonus-convit-holding-gmbh-via-al-mulino-22a-6814-cadempino"
+        "financial-strategy-fixed-bonus-convit-holding-gmbh-via-al-mulino-22a-6814-cadempino",
+        "finanzstrategie-fest-bonus-convit-holding-gmbh-via-al-mulino-22a-6814-cadempino"
       ]
     },
     {
@@ -1076,7 +1072,7 @@
       "slugByLocale": {
         "it": "consulenza-investimenti-previdenza-entrata-laterale-benvenuti-tempo-indeterminato-convit-via-al-mulino-22a-6814-cadempino",
         "en": "investment-pension-consultancy-welcome-side-entry-open-ended-convit-holding-gmbh-via-al-mulino-22a-6814-cadempino",
-        "de": "investment-pensionsberatung-spatanmeldung-willkommen-unbestimmt-convit-holding-gmbh-via-al-mulino-22a-6814-cadempino",
+        "de": "anlageberatung-pension-willkommensseite-eingang-auf-unbestimmte-zeit-convit-holding-gmbh-via-al-mulino-22a-6814",
         "fr": "conseil-en-investissement-pension-entree-laterale-bienvenue-duree-indeterminee-convit-holding-gmbh-via-al-mulino-22a"
       },
       "salaryMin": 59000,
@@ -1097,7 +1093,6 @@
       "firstSeenAt": "2026-05-17T10:01:25.841Z",
       "previousSlugs": [
         "consulenza-investimenti-previdenza-entrata-laterale-tempo-indeterminato-convit-holding-gmbh-bellinzona",
-        "anlageberatung-pension-willkommensseite-eingang-auf-unbestimmte-zeit-convit-holding-gmbh-via-al-mulino-22a-6814",
         "investment-pensionsberatung-spatanmeldung-willkommen-unbestimmt-convit-holding-gmbh-via-al-mulino-22a-6814-cadempino"
       ],
       "previousSlugsByLocale": {
@@ -1105,7 +1100,6 @@
           "consulenza-investimenti-previdenza-entrata-laterale-tempo-indeterminato-convit-holding-gmbh-bellinzona"
         ],
         "de": [
-          "anlageberatung-pension-willkommensseite-eingang-auf-unbestimmte-zeit-convit-holding-gmbh-via-al-mulino-22a-6814",
           "investment-pensionsberatung-spatanmeldung-willkommen-unbestimmt-convit-holding-gmbh-via-al-mulino-22a-6814-cadempino"
         ]
       }
@@ -4376,7 +4370,7 @@
       "slugByLocale": {
         "it": "consulenza-investimenti-previdenza-entrata-laterale-tempo-indeterminato-convit-bellinzona",
         "en": "investment-pension-consultancy-lateral-entry-open-ended-convit-holding-gmbh-bellinzona",
-        "de": "investitionsberatung-sozialversicherung-seiteneingang-unbestimmte-zeit-convit-holding-gmbh-bellinzona",
+        "de": "anlage-vorsorgeberatung-nebeneintritt-unbefristet-convit-holding-gmbh-bellinzona",
         "fr": "conseil-investissement-prevoyance-entree-laterale-duree-indeterminee-convit-holding-gmbh-bellinzona"
       },
       "salaryMin": 59000,
@@ -4397,12 +4391,10 @@
       "firstSeenAt": "2026-06-03T13:19:58.411Z",
       "previousSlugsByLocale": {
         "de": [
-          "anlage-vorsorgeberatung-nebeneintritt-unbefristet-convit-holding-gmbh-bellinzona",
           "investitionsberatung-sozialversicherung-seiteneingang-unbestimmte-zeit-convit-holding-gmbh-bellinzona"
         ]
       },
       "previousSlugs": [
-        "anlage-vorsorgeberatung-nebeneintritt-unbefristet-convit-holding-gmbh-bellinzona",
         "investitionsberatung-sozialversicherung-seiteneingang-unbestimmte-zeit-convit-holding-gmbh-bellinzona"
       ]
     },
@@ -4563,7 +4555,7 @@
       "slugByLocale": {
         "it": "consulente-privati-finanza-entrata-laterale-convit-cresciano",
         "en": "lateral-entry-finance-private-consultant-convit-holding-gmbh-cresciano",
-        "de": "berater-privater-finanz-seiteneingang-convit-holding-gmbh-cresciano",
+        "de": "privatberater-finanzen-nebeneingang-convit-holding-gmbh-cresciano",
         "fr": "conseiller-financier-prive-entree-laterale-convit-holding-gmbh-cresciano"
       },
       "salaryMin": 85500,
@@ -4584,12 +4576,10 @@
       "firstSeenAt": "2026-06-03T13:19:58.411Z",
       "previousSlugsByLocale": {
         "de": [
-          "privatberater-finanzen-nebeneingang-convit-holding-gmbh-cresciano",
           "berater-privater-finanz-seiteneingang-convit-holding-gmbh-cresciano"
         ]
       },
       "previousSlugs": [
-        "privatberater-finanzen-nebeneingang-convit-holding-gmbh-cresciano",
         "berater-privater-finanz-seiteneingang-convit-holding-gmbh-cresciano"
       ]
     },
