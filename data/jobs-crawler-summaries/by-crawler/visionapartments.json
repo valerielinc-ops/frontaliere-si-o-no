@@ -1,16 +1,16 @@
 {
   "key": "visionapartments",
   "label": "VISIONAPARTMENTS",
-  "generatedAt": "2026-07-30T11:14:13.325Z",
-  "total": 2,
+  "generatedAt": "2026-07-30T22:08:00.306Z",
+  "total": 1,
   "newCount": 0,
   "updatedCount": 1,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 2897,
-  "avgDurationMs": 2897,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 3362,
+  "avgDurationMs": 3362,
   "durationHistory": [
-    2897
+    3362
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -27,7 +27,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/a240d532-01d6-4266-99bd-0ee907cc60d4/",
       "source": "VISIONAPARTMENTS Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-30T11:14:10.749Z",
+      "crawledAt": "2026-07-30T22:07:57.459Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -53,8 +53,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "visionapartments-eb20d3d20fc7",
       "slug": "group-head-of-real-estate-development-maintenance-100-vision-management-services-gmbh-zurich",
@@ -95,5 +94,6 @@
         "completeness": 25
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
