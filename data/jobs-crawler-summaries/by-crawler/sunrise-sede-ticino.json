@@ -1,16 +1,16 @@
 {
   "key": "sunrise-sede-ticino",
   "label": "Sunrise Communications AG",
-  "generatedAt": "2026-07-30T11:17:29.415Z",
+  "generatedAt": "2026-07-30T22:13:10.310Z",
   "total": 25,
   "newCount": 7,
   "updatedCount": 11,
   "removedCount": 14,
   "unchangedCount": 0,
-  "durationMs": 12069,
-  "avgDurationMs": 12069,
+  "durationMs": 13820,
+  "avgDurationMs": 13820,
   "durationHistory": [
-    12069
+    13820
   ],
   "newJobs": [
     {
@@ -138,37 +138,6 @@
       }
     },
     {
-      "title": "Sales Agent Bachenbülach 60-100%",
-      "slug": "sales-agent-bachenbulach-60-100-sunrise-bachenbulach",
-      "url": "https://careers.sunrise.ch/it/it/job/REQ_30036821/sales-agent-bachenbulach-60-100",
-      "applyUrl": "https://sunrise.wd3.myworkdayjobs.com/Sunrise/job/Bachenblach/Sales-Agent-Bachenblach-60-100-_REQ_30036821-1/apply",
-      "company": "Sunrise Communications AG",
-      "companyKey": "sunrise-sede-ticino",
-      "companyDomain": "sunrise.ch",
-      "location": "Bachenbülach",
-      "addressLocality": "Bachenbülach",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "postalCode": "8184",
-      "canton": "ZH",
-      "country": "CH",
-      "category": "sales",
-      "sector": "Tecnologia & IT",
-      "source": "sunrise-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-07-30",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "validThrough": "",
-      "_qualityScore": 74,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 10,
-        "completeness": 17
-      }
-    },
-    {
       "title": "Sales Agent Ebikon Mall of Switzerland 80%",
       "slug": "sales-agent-ebikon-mall-of-switzerland-80-sunrise-ebikon",
       "url": "https://careers.sunrise.ch/it/it/job/REQ_30036809/sales-agent-ebikon-mall-of-switzerland-80",
@@ -219,6 +188,37 @@
       "source": "sunrise-dedicated-crawler",
       "sourceLang": "de",
       "postedDate": "2026-07-29",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "",
+      "_qualityScore": 74,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 10,
+        "completeness": 17
+      }
+    },
+    {
+      "title": "Sales Agent Bachenbülach 60-100%",
+      "slug": "sales-agent-bachenbulach-60-100-sunrise-bachenbulach",
+      "url": "https://careers.sunrise.ch/it/it/job/REQ_30036821/sales-agent-bachenbulach-60-100",
+      "applyUrl": "https://sunrise.wd3.myworkdayjobs.com/Sunrise/job/Bachenblach/Sales-Agent-Bachenblach-60-100-_REQ_30036821-1/apply",
+      "company": "Sunrise Communications AG",
+      "companyKey": "sunrise-sede-ticino",
+      "companyDomain": "sunrise.ch",
+      "location": "Bachenbülach",
+      "addressLocality": "Bachenbülach",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "postalCode": "8184",
+      "canton": "ZH",
+      "country": "CH",
+      "category": "sales",
+      "sector": "Tecnologia & IT",
+      "source": "sunrise-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-07-30",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -339,7 +339,7 @@
       "currency": "CHF",
       "firstSeenAt": "2026-06-11T13:38:57.481Z",
       "needsRetranslation": true,
-      "retranslationAttempts": 0,
+      "retranslationAttempts": 1,
       "_qualityScore": 89,
       "_qualityBreakdown": {
         "cleanliness": 20,
