@@ -22169,6 +22169,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-tassa-salute-frontalieri-svizzera': {
+    title: 'Tremate i bilanci dei comuni: la tassa sulla salute per i vecchi frontalieri',
+    description: 'La tassa sulla salute introdotta dal Parlamento italiano nella legge di bilancio 2024 rappresenta un\'imposta e, se applicata dalle Regioni, violerebbe gli',
+    keywords: 'frontalieri, ticino, svizzera, italia, tremate, bilanci, comuni, tassa',
+    ogTitle: 'La tassa sulla salute per i vecchi frontalieri fa tremare i bilanci dei comuni di confine',
+    ogDescription: 'La tassa sulla salute introdotta dal Parlamento italiano nella legge di bilancio 2024 rappresenta un\'imposta e, se applicata dalle Regioni, violerebbe gli',
+    canonicalPath: '/articoli-svizzera/tassa-salute-frontalieri-svizzera/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Tremate i bilanci dei comuni: la tassa sulla salute per i vecchi frontalieri",
+      "description": "La tassa sulla salute introdotta dal Parlamento italiano nella legge di bilancio 2024 rappresenta un'imposta e, se applicata dalle Regioni, violerebbe gli",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/tassa-salute-frontalieri-svizzera.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista di Lugano con il lago e le montagne"
+      },
+      "datePublished": "2026-07-30T21:09:32+00:00",
+      "dateModified": "2026-07-30T21:09:32+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/tassa-salute-frontalieri-svizzera/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

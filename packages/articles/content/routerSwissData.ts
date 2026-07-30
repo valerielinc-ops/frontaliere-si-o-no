@@ -597,6 +597,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'ferrovia-record-viaggiatori-secondo-trimestre': { it: 'ferrovia-record-viaggiatori-secondo-trimestre', en: 'record-railway-passengers-second-quarter', de: 'rekord-bahn-verkehr-zweites-quartal', fr: 'record-trafic-ferroviaire-second-trimestre' },
  'trasporto-record-svizzero-2026': { it: 'trasporto-record-svizzero-2026', en: 'swiss-transport-record-2026', de: 'schweizer-verkehr-rekord-2026', fr: 'record-de-transport-suisse-2026' },
  'di-piu-barometro-kof-oltre-alle-attese-segnali-positivi-per-leconomia': { it: 'di-piu-barometro-kof-oltre-alle-attese-segnali-positivi-per-leconomia', en: 'more-than-barometer-kof-above-expected-signs-positive-for-the-economy', de: 'mehr-als-barometer-kof-ueber-erwartete-zeichen-positiv-fuer-die-wirtschaft', fr: 'plus-de-barometro-kof-au-dela-des-attentes-signes-positifs-pour-leconomie' },
+ 'tassa-salute-frontalieri-svizzera': { it: 'tassa-salute-frontalieri-svizzera', en: 'health-insurance-switzerland', de: 'gesundheitsversicherung-schweiz', fr: 'assurance-maladie-suisse' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

@@ -1714,6 +1714,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.di-piu-barometro-kof-oltre-alle-attese-segnali-positivi-per-leconomia.title': 'Plus de Baromètre KOF en plus des attentes, des signaux positifs pour l\'économie',
     'blog.article.di-piu-barometro-kof-oltre-alle-attese-segnali-positivi-per-leconomia.excerpt': 'Le Baromètre KOF a grimpé en juillet au-delà des attentes, atteignant 103,5 points. Des signaux positifs pour l\'économie suisse.',
     'blog.article.di-piu-barometro-kof-oltre-alle-attese-segnali-positivi-per-leconomia.imageAlt': 'Barometro KOF: un indicateur économique qui anticipe l\'évolution de l\'économie suisse.',
+    'blog.article.tassa-salute-frontalieri-svizzera.title': 'Tremblez les bilans des communes : la taxe santé pour les vieux frontaliers',
+    'blog.article.tassa-salute-frontalieri-svizzera.excerpt': 'La taxe sur la santé introduite par le Parlement italien dans la loi de finances 2024 représente un impôt et, si elle est appliquée par les Régions, violerait les accords internationaux',
+    'blog.article.tassa-salute-frontalieri-svizzera.imageAlt': 'Vue de Lugano avec le lac et les montagnes',
 };
 
 export default blogMetaChFr;

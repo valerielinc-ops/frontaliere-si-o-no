@@ -1714,6 +1714,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.di-piu-barometro-kof-oltre-alle-attese-segnali-positivi-per-leconomia.title': 'Mehr KOF-Barometer jenseits der Erwartungen, positive Signale für die Wirtschaft',
     'blog.article.di-piu-barometro-kof-oltre-alle-attese-segnali-positivi-per-leconomia.excerpt': 'Das KOF-Barometer stieg im Juli über die Erwartungen hinaus und erreichte 103,5 Punkte. Positive Signale für die Schweizer Wirtschaft.',
     'blog.article.di-piu-barometro-kof-oltre-alle-attese-segnali-positivi-per-leconomia.imageAlt': 'Barometro KOF: ein wirtschaftlicher Indikator, der die Entwicklung der Schweizer Wirtschaft vorhersagt.',
+    'blog.article.tassa-salute-frontalieri-svizzera.title': 'Tremate i bilanci: la tassa sulla salute per i vecchi frontalieri',
+    'blog.article.tassa-salute-frontalieri-svizzera.excerpt': 'Die vom italienischen Parlament im Haushaltsgesetz 2024 eingeführte Gesundheitssteuer stellt eine Steuer dar und würde, wenn sie von den Regionen erhoben würde, gegen internationale Abkommen verstoßen',
+    'blog.article.tassa-salute-frontalieri-svizzera.imageAlt': 'Lugano mit See und Bergen',
 };
 
 export default blogMetaChDe;
