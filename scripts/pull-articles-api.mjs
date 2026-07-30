@@ -78,13 +78,53 @@ const fail = (msg) => {
   process.exit(1);
 };
 
+const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+
+/**
+ * Fetch one artifact, retrying transient failures.
+ *
+ * Not defensive padding: observed on 2026-07-30, when a sync landed mid-publish
+ * and Pages answered `sitemap-blog-ch.xml` with a 503 while the surface was
+ * being replaced. The script did the right thing — refused, wrote nothing — but
+ * the run failed for a condition that resolves itself in seconds, and the next
+ * scheduled run was the only recovery.
+ *
+ * That was three fetches. This now pulls fourteen, so the odds of clipping a
+ * publish window rise with it. Only 5xx/429 and network errors are retried; a
+ * 404 is a real absence and fails immediately, as it should.
+ */
 async function get(name) {
   const url = `${API_BASE}/${name}`;
-  const res = await fetch(url, { redirect: 'follow' });
-  if (!res.ok) throw new Error(`${url} → HTTP ${res.status}`);
-  const body = await res.text();
-  if (body.length === 0) throw new Error(`${url} → empty body`);
-  return body;
+  const attempts = 4;
+  let lastErr;
+
+  for (let i = 1; i <= attempts; i++) {
+    try {
+      const res = await fetch(url, { redirect: 'follow' });
+      if (!res.ok) {
+        const retryable = res.status >= 500 || res.status === 429;
+        const err = new Error(`${url} → HTTP ${res.status}`);
+        if (!retryable) throw err;
+        lastErr = err;
+      } else {
+        const body = await res.text();
+        if (body.length > 0) return body;
+        // An empty 200 during a publish swap is the same transient class.
+        lastErr = new Error(`${url} → empty body`);
+      }
+    } catch (err) {
+      // fetch() itself rejects on DNS/TLS/socket errors — retryable too.
+      if (err instanceof Error && /HTTP (4\d\d)/.test(err.message)) throw err;
+      lastErr = err;
+    }
+
+    if (i < attempts) {
+      const waitMs = 1000 * 2 ** (i - 1); // 1s, 2s, 4s
+      log(`${name}: ${lastErr.message} — retry ${i}/${attempts - 1} in ${waitMs}ms`);
+      await sleep(waitMs);
+    }
+  }
+  throw lastErr;
 }
 
 const countUrls = (xml) => (xml.match(/<url>/g) ?? []).length;
