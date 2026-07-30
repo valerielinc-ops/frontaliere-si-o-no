@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-07-30T03:50:18.183Z",
+  "updatedAt": "2026-07-30T05:27:31.246Z",
   "entities": {
     "AASTI": {
       "status": "suspect",
@@ -4757,11 +4757,11 @@
       "statusSource": "auto",
       "statusAt": "2026-07-29T06:26:58.011Z",
       "firstSeen": "2026-07-29T06:26:58.011Z",
-      "lastSeen": "2026-07-29T06:26:58.011Z",
-      "seen": 18,
+      "lastSeen": "2026-07-30T05:27:31.246Z",
+      "seen": 22,
       "unsupportedSightings": 0,
       "unsupportedRuns": [],
-      "supportedSightings": 0,
+      "supportedSightings": 4,
       "names": [
         "Autorità**: Ufficio federale della dogana e della sicurezza dei confini",
         "Ufficio Federale della Dogana e della Sicurezza dei Confini",
@@ -4769,6 +4769,34 @@
       ],
       "recentKeys": [],
       "evidence": [
+        {
+          "at": "2026-07-30T05:27:31.246Z",
+          "runId": "30515057849",
+          "articleId": "unknown",
+          "support": "present",
+          "name": "Ufficio federale della dogana e della sicurezza dei confini"
+        },
+        {
+          "at": "2026-07-30T05:27:31.246Z",
+          "runId": "30515057849",
+          "articleId": "unknown",
+          "support": "present",
+          "name": "Ufficio federale della dogana e della sicurezza dei confini"
+        },
+        {
+          "at": "2026-07-30T05:27:31.246Z",
+          "runId": "30515057849",
+          "articleId": "unknown",
+          "support": "present",
+          "name": "Ufficio federale della dogana e della sicurezza dei confini"
+        },
+        {
+          "at": "2026-07-30T05:27:31.246Z",
+          "runId": "30515057849",
+          "articleId": "unknown",
+          "support": "present",
+          "name": "Ufficio federale della dogana e della sicurezza dei confini"
+        },
         {
           "at": "2026-07-29T06:26:58.011Z",
           "runId": "corpus-scan",
@@ -4794,34 +4822,6 @@
           "at": "2026-07-29T06:26:58.011Z",
           "runId": "corpus-scan",
           "articleId": "multe-vignetta-chiasso-2024",
-          "support": "unknown",
-          "name": "Ufficio federale della dogana e della sicurezza dei confini"
-        },
-        {
-          "at": "2026-07-29T06:26:58.011Z",
-          "runId": "corpus-scan",
-          "articleId": "multa-vignetta-pasqua-chiasso-2024",
-          "support": "unknown",
-          "name": "Ufficio federale della dogana e della sicurezza dei confini"
-        },
-        {
-          "at": "2026-07-29T06:26:58.011Z",
-          "runId": "corpus-scan",
-          "articleId": "g7-evian-controlli-frontiere-ticino",
-          "support": "unknown",
-          "name": "Ufficio federale della dogana e della sicurezza dei confini"
-        },
-        {
-          "at": "2026-07-29T06:26:58.011Z",
-          "runId": "corpus-scan",
-          "articleId": "furti-biciclette-mendrisiotto-2026",
-          "support": "unknown",
-          "name": "Ufficio federale della dogana e della sicurezza dei confini"
-        },
-        {
-          "at": "2026-07-29T06:26:58.011Z",
-          "runId": "corpus-scan",
-          "articleId": "droga-al-confine-ticino-2025",
           "support": "unknown",
           "name": "Ufficio federale della dogana e della sicurezza dei confini"
         }
