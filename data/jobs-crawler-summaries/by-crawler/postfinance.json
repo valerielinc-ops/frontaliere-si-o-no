@@ -1,18 +1,57 @@
 {
   "key": "postfinance",
   "label": "PostFinance",
-  "generatedAt": "2026-07-30T11:17:34.521Z",
+  "generatedAt": "2026-07-30T22:11:33.280Z",
   "total": 11,
-  "newCount": 0,
-  "updatedCount": 11,
-  "removedCount": 0,
+  "newCount": 1,
+  "updatedCount": 10,
+  "removedCount": 1,
   "unchangedCount": 0,
-  "durationMs": 37963,
-  "avgDurationMs": 37963,
+  "durationMs": 32127,
+  "avgDurationMs": 32127,
   "durationHistory": [
-    37963
+    32127
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "url": "https://jobs.postfinance.ch/job/Senior-Product-Owner-PostFinance-App-%28wmd%29/74286-de_DE",
+      "applyUrl": "https://jobs.postfinance.ch/job/Senior-Product-Owner-PostFinance-App-%28wmd%29/74286-de_DE",
+      "title": "Senior Product Owner PostFinance App (w/m/d)",
+      "company": "PostFinance",
+      "companyKey": "postfinance",
+      "location": "Bern",
+      "canton": "BE",
+      "country": "CH",
+      "slug": "senior-product-owner-postfinance-app-w-m-d-postfinance",
+      "sourceLang": "de",
+      "department": [
+        "Informatik und Digital Services"
+      ],
+      "category": [
+        "Informatik und Digital Services"
+      ],
+      "datePosted": "30.07.26",
+      "validThrough": "31.08.26",
+      "source": "postfinance-careers-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "",
+      "sector": "Finanza",
+      "workload": "80-100%",
+      "needsRetranslation": true,
+      "_targetScope": {
+        "canton": "BE",
+        "location": "Bern"
+      },
+      "crawledAt": "",
+      "_qualityScore": 60,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 6,
+        "completeness": 9
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "url": "https://jobs.postfinance.ch/job/Kundenbetreuerin-Customer-Center/74190-de_DE",
@@ -413,7 +452,9 @@
         "translation": 25,
         "completeness": 9
       }
-    },
+    }
+  ],
+  "removedJobs": [
     {
       "url": "https://jobs.postfinance.ch/job/DevOps-Software-Engineer%C2%A0Specs-Driven-Development-%28wmd%29/74128-de_DE",
       "applyUrl": "https://jobs.postfinance.ch/job/DevOps-Software-Engineer%C2%A0Specs-Driven-Development-%28wmd%29/74128-de_DE",
@@ -461,6 +502,5 @@
       }
     }
   ],
-  "removedJobs": [],
   "unchangedJobs": []
 }
