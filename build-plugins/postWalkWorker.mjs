@@ -34,7 +34,12 @@ if (!parentPort) {
 }
 
 const { transformFlatRedirect } = await import('./flatHtmlRedirectPlugin.ts');
-const { injectContextualLinks } = await import('./blogContextualLinksPlugin.ts');
+// Leaf module: no runtime imports, so plain Node ESM inside this worker thread can
+// resolve it. Importing the plugin instead pulled in the site-shell bootstrap graph
+// and forced POST_WALK_WORKERS=1 (#4959 §4).
+const { injectContextualLinksWith } = await import(
+  '../packages/articles/engine/shared/contextualLinkInjector.ts'
+);
 const { transformHreflang } = await import('./hreflangPostprocessPlugin.ts');
 // Per-phase profiler — bucketed into the same SerializedBuckets shape the
 // coordinator merges via ingestBuckets() before printing the unified
@@ -52,6 +57,7 @@ const {
   trimmedBase,
   existingHtmlPaths,
   blogIndexEntries,
+  contextualLinkDefaults,
   assignedFiles,
 } = workerData;
 
@@ -182,7 +188,7 @@ async function processFile(filePath) {
     const locale = blogIndexHtmlByPath.get(filePath);
     if (locale !== undefined) {
       const __tBlog = profileStart();
-      const result = injectContextualLinks(html, locale);
+      const result = injectContextualLinksWith(html, locale, contextualLinkDefaults);
       profileRecord('blog-inject', __tBlog);
       if (result.injected.length > 0 && result.html !== html) {
         html = result.html;
