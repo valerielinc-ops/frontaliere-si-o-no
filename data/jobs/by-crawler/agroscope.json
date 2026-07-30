@@ -1,6 +1,6 @@
 {
   "crawlerKey": "agroscope",
-  "assembledAt": "2026-07-29T11:43:28.113Z",
+  "assembledAt": "2026-07-30T11:22:29.468Z",
   "jobs": [
     {
       "title": "Jurist/in",
@@ -100,7 +100,7 @@
         "it": "Risorse Umane Business Partner/-in",
         "en": "HR Business Partner/in",
         "de": "Personalwesen Business Partner/-in",
-        "fr": "Partenaire opérationnel des RH/in"
+        "fr": "HR Business Partner/-in"
       },
       "descriptionByLocale": {
         "it": "• Consulenza dei supervisori su tutte le questioni relative al ciclo di vita dei dipendenti\n\n• Sostegno ai supervisori nel bilancio del personale\n\n• Sostegno a progetti di ristrutturazione e trasformazione, nonché partecipazione attiva alle riunioni di gestione\n\n• Responsabilità per l'attuazione dei processi HR in conformità alle norme e ai regolamenti applicabili\n\n• Partecipazione attiva all'ulteriore sviluppo dei processi HR all'interno di progetti e gruppi di lavoro\n\n• Studi completi in Risorse Umane e Business Administration (FH/University) con Federal FA in HR\n\n• Diversi anni di esperienza nella consulenza HR e nel supporto ai processi di sviluppo e cambiamento organizzativi\n\n• Personalità indipendente, orientata al team con forte comunicazione e forza di negoziazione\n\n• Stile di lavoro orientato alle prestazioni e alle soluzioni, combinato con agilità, struttura, resilienza e elevata resilienza\n\n• Competenze di MS Office molto buone; la conoscenza di SAP è un vantaggio\n\n• Molto buona conoscenza di due lingue ufficiali e inglese in parola e scrittura",
@@ -112,7 +112,7 @@
         "it": "hr-business-partner-in-agroscope-posieux",
         "en": "hr-business-partner-in-agroscope-posieux",
         "de": "hr-business-partner-in-agroscope-posieux",
-        "fr": "partenaire-operationnel-des-rh-in-agroscope-posieux-schweiz"
+        "fr": "hr-business-partner-in-agroscope-posieux"
       },
       "id": "agroscope-b6a259a1b939",
       "salaryMin": 68500,
@@ -128,7 +128,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-29T11:41:11.171Z"
+      "firstSeenAt": "2026-07-29T11:41:11.171Z",
+      "previousSlugsByLocale": {
+        "fr": [
+          "partenaire-operationnel-des-rh-in-agroscope-posieux-schweiz"
+        ]
+      },
+      "previousSlugs": [
+        "partenaire-operationnel-des-rh-in-agroscope-posieux-schweiz"
+      ]
     },
     {
       "title": "Landwirtschaftliche/r Fachmitarbeiter/in Obstbau",
@@ -172,6 +180,20 @@
         "fr": "personnel-agricole-specialiste-de-la-culture-fruitiere-confederazione-svizzera-8820-wadenswil"
       },
       "id": "agroscope-794c8f0414d1",
+      "salaryMin": 73500,
+      "salaryMax": 111500,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 73500,
+          "maxValue": 111500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-07-29T11:41:11.171Z",
       "previousSlugsByLocale": {
         "it": [
           "landwirtschaftliche-r-fachmitarbeiter-in-obstbau-agroscope-wadenswil"
@@ -188,17 +210,81 @@
       },
       "previousSlugs": [
         "landwirtschaftliche-r-fachmitarbeiter-in-obstbau-agroscope-wadenswil"
+      ]
+    },
+    {
+      "title": "Leiter/-in Versuchsstation Gemüsebau (wissenschaftlich-technische/-r Mitarbeiter/-in)",
+      "slug": "responsabile-versuchsstation-gemusebau-wissenschaftlich-technische-r-collaboratore-trice-in-confederazione-svizzera-ins",
+      "url": "https://jobs.admin.ch/posti-vacanti/leiter-in-versuchsstation-gemuesebau-wissenschaftlich-technische-r-mitarbeiter-in/16ee205f-c342-41e3-9a74-a3dd2eeb6b3b",
+      "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=19512",
+      "company": "Agroscope",
+      "companyKey": "agroscope",
+      "companyDomain": "admin.ch",
+      "location": "Ins, Schweiz",
+      "addressLocality": "Ins",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "canton": "BE",
+      "country": "CH",
+      "category": "science",
+      "sector": "Pubblica amministrazione",
+      "source": "agroscope-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-07-01",
+      "validThrough": "2026-08-26",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "description": "• Leiten der Versuchsstation in fachlicher, personeller, organisatorischer und administrativer Sicht\n\n• Agieren an der Schnittstelle zwischen gemüsebaulicher Praxis, Beratung und praxisorientierter Forschung\n\n• Planen, Umsetzen und Auswerten der gemeinsam mit den Partnern definierten gemüsebaulichen Versuche im Freiland in enger Abstimmung mit Forschenden von Agroscope und involvierten Praxisbetrieben\n\n• Erheben von Versuchsparametern, Aufarbeiten und statistisches Auswerten der Versuchsdaten\n\n• Verfassen praxisorientierter wissenschaftlicher Artikel, Halten von Präsentationen vor Fachpublikum, Repräsentieren der Versuchsstation gegenüber der Öffentlichkeit\n\n• Hochschul- oder Fachhochschulabschuss BSc/MSc in Agronomie oder vergleichbarer Ausbildung\n\n• Praktische Erfahrung im Gemüse- oder produzierenden Gartenbau, Führungserfahrung von Vorteil\n\n• Hohe Selbständigkeit und Flexibilität, gutes Durchsetzungsvermögen\n\n• Organisationstalent und sehr gute Kommunikationsfähigkeit\n\n• Gute Kenntnisse zweier Amtssprachen und des Englischen",
+      "titleByLocale": {
+        "it": "Responsabile Versuchsstation Gemüsebau (wissenschaftlich-technische/-r Collaboratore/trice/-in)",
+        "en": "Head of Vegetable Engineering Experimental Station (scientific-technical/-r employee)",
+        "de": "Leiter/-in Versuchsstation Gemüsebau (wissenschaftlich-technische/-r Mitarbeiter/-in)",
+        "fr": "Chef de la station expérimentale de génie végétal (employé scientifique-technique/-r)"
+      },
+      "descriptionByLocale": {
+        "it": "• Gestione della stazione sperimentale da un punto di vista professionale, personale, organizzativo e amministrativo\n\n• Agire nell'interfaccia tra pratica vegetale, consulenza e ricerca orientata alla pratica\n\n• Pianificazione, implementazione e valutazione dei test di costruzione vegetale nel settore definito insieme ai partner in stretto coordinamento con i ricercatori di Agroscope e le aziende di pratica coinvolte\n\n• Raccolta dei parametri di prova, elaborazione e valutazione statistica dei dati di prova\n\n• Scrivere articoli scientifici orientati alla pratica, dando presentazioni a un pubblico specializzato, che rappresenta la stazione sperimentale al pubblico\n\n• BSc/MSc in Agronomia o istruzione equivalente\n\n• Esperienza pratica in orticoltura o produzione, esperienza di leadership di vantaggio\n\n• Alta indipendenza e flessibilità, buona assertività\n\n• talento organizzativo e ottime capacità di comunicazione\n\n• Buona conoscenza di due lingue ufficiali e inglese",
+        "en": "• Management of the experimental station from a professional, personnel, organisational and administrative point of view\n\n• Acting at the interface between vegetable practice, consulting and practice-oriented research\n\n• Planning, implementation and evaluation of the vegetable construction tests in the field defined together with the partners in close coordination with researchers from Agroscope and involved practice companies\n\n• Collection of test parameters, processing and statistical evaluation of the test data\n\n• Writing practice-oriented scientific articles, giving presentations to a specialist audience, representing the experimental station to the public\n\n• BSc/MSc in Agronomy or equivalent education\n\n• Practical experience in vegetable or producing horticulture, leadership experience of advantage\n\n• High independence and flexibility, good assertiveness\n\n• Organizational talent and very good communication skills\n\n• Good knowledge of two official languages and English",
+        "de": "• Leiten der Versuchsstation in fachlicher, personeller, organisatorischer und administrativer Sicht\n\n• Agieren an der Schnittstelle zwischen gemüsebaulicher Praxis, Beratung und praxisorientierter Forschung\n\n• Planen, Umsetzen und Auswerten der gemeinsam mit den Partnern definierten gemüsebaulichen Versuche im Freiland in enger Abstimmung mit Forschenden von Agroscope und involvierten Praxisbetrieben\n\n• Erheben von Versuchsparametern, Aufarbeiten und statistisches Auswerten der Versuchsdaten\n\n• Verfassen praxisorientierter wissenschaftlicher Artikel, Halten von Präsentationen vor Fachpublikum, Repräsentieren der Versuchsstation gegenüber der Öffentlichkeit\n\n• Hochschul- oder Fachhochschulabschuss BSc/MSc in Agronomie oder vergleichbarer Ausbildung\n\n• Praktische Erfahrung im Gemüse- oder produzierenden Gartenbau, Führungserfahrung von Vorteil\n\n• Hohe Selbständigkeit und Flexibilität, gutes Durchsetzungsvermögen\n\n• Organisationstalent und sehr gute Kommunikationsfähigkeit\n\n• Gute Kenntnisse zweier Amtssprachen und des Englischen",
+        "fr": "• Gestion de la station expérimentale d'un point de vue professionnel, personnel, organisationnel et administratif\n\n• Agir à l'interface entre la pratique des légumes, la consultation et la recherche axée sur la pratique\n\n• Planification, mise en œuvre et évaluation des essais de construction de légumes dans le domaine défini avec les partenaires en étroite coordination avec les chercheurs d'Agroscope et les entreprises de pratique impliquées\n\n• Collecte des paramètres d'essai, traitement et évaluation statistique des données d'essai\n\n• Rédaction d'articles scientifiques axés sur la pratique, présentation à un public spécialisé, représentant la station expérimentale au public\n\n• BSc/MSc en agronomie ou enseignement équivalent\n\n• Expérience pratique en matière de légumes ou de production d'horticulture, expérience de leadership d'avantage\n\n• Haute indépendance et flexibilité, bonne assurance\n\n• Compétences organisationnelles et excellentes compétences en communication\n\n• Bonne connaissance de deux langues officielles et de l'anglais"
+      },
+      "slugByLocale": {
+        "it": "responsabile-versuchsstation-gemusebau-wissenschaftlich-technische-r-collaboratore-trice-in-agroscope-ins",
+        "en": "head-of-vegetable-engineering-experimental-station-scientific-technical-r-employee-confederazione-svizzera-ins",
+        "de": "leiter-in-versuchsstation-gemusebau-wissenschaftlich-technische-r-mitarbeiter-in-confederazione-ins",
+        "fr": "chef-de-la-station-experimentale-de-genie-vegetal-employe-scientifique-technique-r-confederazione-svizzera-ins"
+      },
+      "id": "agroscope-93b4d74bb39f",
+      "previousSlugsByLocale": {
+        "it": [
+          "leiter-in-versuchsstation-gemusebau-wissenschaftlich-technische-r-mitarbeiter-in-agroscope-ins",
+          "responsabile-versuchsstation-gemusebau-wissenschaftlich-technische-r-collaboratore-trice-in-confederazione-svizzera-ins",
+          "responsabile-versuchsstation-gemusebau-wissenschaftlich-technische-r-collaboratore-trice-in-agroscope-ins"
+        ],
+        "en": [
+          "leiter-in-versuchsstation-gemusebau-wissenschaftlich-technische-r-mitarbeiter-in-agroscope-ins"
+        ],
+        "de": [
+          "leiter-in-versuchsstation-gemusebau-wissenschaftlich-technische-r-mitarbeiter-in-agroscope-ins"
+        ],
+        "fr": [
+          "leiter-in-versuchsstation-gemusebau-wissenschaftlich-technische-r-mitarbeiter-in-agroscope-ins"
+        ]
+      },
+      "previousSlugs": [
+        "leiter-in-versuchsstation-gemusebau-wissenschaftlich-technische-r-mitarbeiter-in-agroscope-ins",
+        "responsabile-versuchsstation-gemusebau-wissenschaftlich-technische-r-collaboratore-trice-in-confederazione-svizzera-ins",
+        "responsabile-versuchsstation-gemusebau-wissenschaftlich-technische-r-collaboratore-trice-in-agroscope-ins"
       ],
-      "salaryMin": 73500,
-      "salaryMax": 111500,
+      "salaryMin": 94500,
+      "salaryMax": 143000,
       "currency": "CHF",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
+          "minValue": 94500,
+          "maxValue": 143000,
           "unitText": "YEAR"
         }
       },
@@ -236,11 +322,11 @@
       "descriptionByLocale": {
         "it": "• Coltivare e curare alberi da frutto come mela, pera, ciliegia e gesso\n\n• Alberi di taglio e formatura\n\n• Monitorare lo stato di salute degli alberi, combattere malattie fungine e parassiti\n\n• Esecuzione di vari lavori con trattori e macchine\n\n• Installare la protezione meteo e le reti insetti\n\n• Vendemmia, smistamento e conservazione di frutta\n\n• Divertimento al lavoro all'aperto e interesse per la natura\n\n• Buone condizioni fisiche\n\n• Lavoro di squadra\n\n• Osservazione\n\n• Competenze tecniche e competenze\n\n• Conoscenza di due lingue ufficiali",
         "en": "• Cultivate and care for fruit trees such as apple, pear, cherry and plaster trees\n\n• Cutting and Forming Trees\n\n• Monitor the health status of trees, combat fungal diseases and pests\n\n• Performing various work with tractors and machines\n\n• Install weather protection and insect nets\n\n• Harvesting, sorting and storing fruit\n\n• Fun at work outdoors and interest in nature\n\n• Good physical condition\n\n• Teamwork\n\n• Observation\n\n• Technical understanding and skill\n\n• Knowledge of two official languages",
-        "de": "• Obstbäume wie Apfel-, Birnen-, Kirsch- und Zwetschgenbäume anbauen und pflegen\n\n• Bäume schneiden und formieren\n\n• Den Gesundheitszustand der Bäume überwachen, Pilzkrankheiten und Schädlinge bekämpfen\n\n• Verschiedene Arbeiten mit Traktoren und Maschinen ausführen\n\n• Witterungsschutz und Insektennetze montieren\n\n• Obst ernten, sortieren und einlagern\n\n• Spass an der Arbeit im Freien und interesse an der Natur\n\n• Gute körperliche Verfassung\n\n• Teamfähigkeit\n\n• Beobachtungsgabe\n\n• Technisches Verständnis und handwerkliches Geschick\n\n• Kenntnisse zweier Amtssprachen",
+        "de": "• Obstbäume wie Apfel-, Birnen-, Kirsch- und Zwetschgenbäume anbauen und pflegen\n\n• Bäume schneiden und formieren\n\n• Den Gesundheitszustand der Bäume überwachen, Pilzkrankheiten und Schädlinge bekämpfen\n\n• Verschiedene Arbeiten mit Traktoren und Maschinen ausführen\n\n• Witterungsschutz und Insektennetze montieren\n\n• Obst ernten, sortieren und einlagern\n\n• Spass an der Arbeit im Freien und interesse an der Natur\n\n• Gute körperliche Verfassung\n\n• Teamfähigkeit\n\n• Beobachtungsgabe\n\n• Technisches Verständnis und handwerkliches Geschick\n\n• Kenntnisse zweier Amtssprachen",
         "fr": "• Culturer et soigner les arbres fruitiers comme les pommiers, les poires, les cerises et les plâtriers\n\n• Arbres de coupe et de formation\n\n• Surveiller l'état de santé des arbres, combattre les maladies fongiques et les parasites\n\n• Effectuer divers travaux avec des tracteurs et des machines\n\n• Installer une protection contre les intempéries et des moustiquaires\n\n• Récolte, tri et stockage des fruits\n\n• Amusement au travail en plein air et intérêt pour la nature\n\n• Bonne condition physique\n\n• Travail d'équipe\n\n• Observation\n\n• Connaissance et compétence techniques\n\n• Connaissance des deux langues officielles"
       },
       "slugByLocale": {
-        "it": "apprendista-obstfachmann-frau-cfc-confederazione-svizzera-wadenswil",
+        "it": "apprendista-obstfachmann-frau-cfc-agroscope-wadenswil",
         "en": "apprentice-fruit-specialist-woman-efz-confederazione-svizzera-8820-wadenswil",
         "de": "lernende-r-obstfachmann-frau-efz-confederazione-wadenswil",
         "fr": "apprentis-specialiste-des-fruits-femme-efz-confederazione-svizzera-8820-wadenswil"
@@ -281,78 +367,75 @@
       "firstSeenAt": "2026-07-29T11:41:11.171Z"
     },
     {
-      "title": "Leiter/-in Versuchsstation Gemüsebau (wissenschaftlich-technische/-r Mitarbeiter/-in)",
-      "slug": "responsabile-versuchsstation-gemusebau-wissenschaftlich-technische-r-collaboratore-trice-in-confederazione-svizzera-ins",
-      "url": "https://jobs.admin.ch/posti-vacanti/leiter-in-versuchsstation-gemuesebau-wissenschaftlich-technische-r-mitarbeiter-in/16ee205f-c342-41e3-9a74-a3dd2eeb6b3b",
-      "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=19512",
+      "title": "Leiter/-in der Forschungsgruppe Sozioökonomie",
+      "slug": "responsabile-der-forschungsgruppe-soziookonomie-agroscope-ettenhausen-geplant-arbeitort-mittelfristig-1725-posieux-fr",
+      "url": "https://jobs.admin.ch/posti-vacanti/leiter-in-der-forschungsgruppe-soziooekonomie/51853958-ee8c-4095-ac44-7c59f1cc5160",
+      "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=13220",
       "company": "Agroscope",
       "companyKey": "agroscope",
       "companyDomain": "admin.ch",
-      "location": "Ins, Schweiz",
-      "addressLocality": "Ins",
-      "addressRegion": "BE",
+      "location": "Ticino",
+      "addressLocality": "Ticino",
+      "addressRegion": "AI",
       "addressCountry": "CH",
-      "canton": "BE",
+      "canton": "AI",
       "country": "CH",
       "category": "science",
       "sector": "Pubblica amministrazione",
       "source": "agroscope-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-07-01",
-      "validThrough": "2026-08-26",
+      "postedDate": "2024-12-17",
+      "validThrough": "2034-12-15",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "description": "• Leiten der Versuchsstation in fachlicher, personeller, organisatorischer und administrativer Sicht\n\n• Agieren an der Schnittstelle zwischen gemüsebaulicher Praxis, Beratung und praxisorientierter Forschung\n\n• Planen, Umsetzen und Auswerten der gemeinsam mit den Partnern definierten gemüsebaulichen Versuche im Freiland in enger Abstimmung mit Forschenden von Agroscope und involvierten Praxisbetrieben\n\n• Erheben von Versuchsparametern, Aufarbeiten und statistisches Auswerten der Versuchsdaten\n\n• Verfassen praxisorientierter wissenschaftlicher Artikel, Halten von Präsentationen vor Fachpublikum, Repräsentieren der Versuchsstation gegenüber der Öffentlichkeit\n\n• Hochschul- oder Fachhochschulabschuss BSc/MSc in Agronomie oder vergleichbarer Ausbildung\n\n• Praktische Erfahrung im Gemüse- oder produzierenden Gartenbau, Führungserfahrung von Vorteil\n\n• Hohe Selbständigkeit und Flexibilität, gutes Durchsetzungsvermögen\n\n• Organisationstalent und sehr gute Kommunikationsfähigkeit\n\n• Gute Kenntnisse zweier Amtssprachen und des Englischen",
+      "description": "• Aufbau einer starken Reputation und strategische Weiterentwicklung der Forschungsgruppe in den Themenfeldern soziale Nachhaltigkeit, Arbeit sowie sozioökonomische Aspekte der Digitalisierung im Agri-Food-Sektor\n\n• Fachliche, personelle und finanzielle Leitung der Gruppe gemäss der Strategie von Agroscope und dem Forschungsbereich Nachhaltigkeitsbewertung und Agrarmanagement\n\n• Kontinuierliche Weiterentwicklung der eigenen Forschung sowie des fachlichen und methodischen Portfolios der Forschungsgruppe\n\n• Publikation der Forschungsergebnisse in internationalen wissenschaftlichen Zeitschriften sowie der landwirtschaftlichen Fachpresse\n\n• Aufbau und Pflege von nationalen und internationalen Netzwerken im Forschungsfeld der Gruppe\n\n• Erarbeitung und Publikation von wissenschaftlichen Grundlagen zuhanden des Bundesamtes für Landwirtschaft\n\n• Doktorat in der Agrarökonomie, ländlichen Soziologie oder verwandten Forschungsbereichen mit engem Bezug zum Forschungsfeld der Gruppe\n\n• Ausgewiesene Expertise in qualitativen und quantitativen Methoden der empirischen Sozialforschung\n\n• wissenschaftlicher Leistungsausweis im Forschungsfeld der Gruppe und Erfahrung in der Drittmittelakquise\n\n• Gute Führungsqualitäten: Leadership, Führungs- und Management-Kompetenzen (Menschen begeistern, zielorientiert arbeiten, Prozesse leiten)\n\n• Gute Kenntnisse zweier Amtssprachen und des Englischen",
       "titleByLocale": {
-        "it": "Responsabile Versuchsstation Gemüsebau (wissenschaftlich-technische/-r Collaboratore/trice/-in)",
-        "en": "Head of Vegetable Engineering Experimental Station (scientific-technical/-r employee)",
-        "de": "Leiter/-in Versuchsstation Gemüsebau (wissenschaftlich-technische/-r Mitarbeiter/-in)",
-        "fr": "Chef de la station expérimentale de génie végétal (employé scientifique-technique/-r)"
+        "it": "Responsabile der Forschungsgruppe Sozioökonomie",
+        "en": "Head of the research group Socioeconomics",
+        "de": "Leiter/-in der Forschungsgruppe Sozioökonomie",
+        "fr": "Chef du groupe de recherche Socioéconomie"
       },
       "descriptionByLocale": {
-        "it": "• Gestione della stazione sperimentale da un punto di vista professionale, personale, organizzativo e amministrativo\n\n• Agire nell'interfaccia tra pratica vegetale, consulenza e ricerca orientata alla pratica\n\n• Pianificazione, implementazione e valutazione dei test di costruzione vegetale nel settore definito insieme ai partner in stretto coordinamento con i ricercatori di Agroscope e le aziende di pratica coinvolte\n\n• Raccolta dei parametri di prova, elaborazione e valutazione statistica dei dati di prova\n\n• Scrivere articoli scientifici orientati alla pratica, dando presentazioni a un pubblico specializzato, che rappresenta la stazione sperimentale al pubblico\n\n• BSc/MSc in Agronomia o istruzione equivalente\n\n• Esperienza pratica in orticoltura o produzione, esperienza di leadership di vantaggio\n\n• Alta indipendenza e flessibilità, buona assertività\n\n• talento organizzativo e ottime capacità di comunicazione\n\n• Buona conoscenza di due lingue ufficiali e inglese",
-        "en": "• Management of the experimental station from a professional, personnel, organisational and administrative point of view\n\n• Acting at the interface between vegetable practice, consulting and practice-oriented research\n\n• Planning, implementation and evaluation of the vegetable construction tests in the field defined together with the partners in close coordination with researchers from Agroscope and involved practice companies\n\n• Collection of test parameters, processing and statistical evaluation of the test data\n\n• Writing practice-oriented scientific articles, giving presentations to a specialist audience, representing the experimental station to the public\n\n• BSc/MSc in Agronomy or equivalent education\n\n• Practical experience in vegetable or producing horticulture, leadership experience of advantage\n\n• High independence and flexibility, good assertiveness\n\n• Organizational talent and very good communication skills\n\n• Good knowledge of two official languages and English",
-        "de": "• Leiten der Versuchsstation in fachlicher, personeller, organisatorischer und administrativer Sicht\n\n• Agieren an der Schnittstelle zwischen gemüsebaulicher Praxis, Beratung und praxisorientierter Forschung\n\n• Planen, Umsetzen und Auswerten der gemeinsam mit den Partnern definierten gemüsebaulichen Versuche im Freiland in enger Abstimmung mit Forschenden von Agroscope und involvierten Praxisbetrieben\n\n• Erheben von Versuchsparametern, Aufarbeiten und statistisches Auswerten der Versuchsdaten\n\n• Verfassen praxisorientierter wissenschaftlicher Artikel, Halten von Präsentationen vor Fachpublikum, Repräsentieren der Versuchsstation gegenüber der Öffentlichkeit\n\n• Hochschul- oder Fachhochschulabschuss BSc/MSc in Agronomie oder vergleichbarer Ausbildung\n\n• Praktische Erfahrung im Gemüse- oder produzierenden Gartenbau, Führungserfahrung von Vorteil\n\n• Hohe Selbständigkeit und Flexibilität, gutes Durchsetzungsvermögen\n\n• Organisationstalent und sehr gute Kommunikationsfähigkeit\n\n• Gute Kenntnisse zweier Amtssprachen und des Englischen",
-        "fr": "• Gestion de la station expérimentale d'un point de vue professionnel, personnel, organisationnel et administratif\n\n• Agir à l'interface entre la pratique des légumes, la consultation et la recherche axée sur la pratique\n\n• Planification, mise en œuvre et évaluation des essais de construction de légumes dans le domaine défini avec les partenaires en étroite coordination avec les chercheurs d'Agroscope et les entreprises de pratique impliquées\n\n• Collecte des paramètres d'essai, traitement et évaluation statistique des données d'essai\n\n• Rédaction d'articles scientifiques axés sur la pratique, présentation à un public spécialisé, représentant la station expérimentale au public\n\n• BSc/MSc en agronomie ou enseignement équivalent\n\n• Expérience pratique en matière de légumes ou de production d'horticulture, expérience de leadership d'avantage\n\n• Haute indépendance et flexibilité, bonne assurance\n\n• Compétences organisationnelles et excellentes compétences en communication\n\n• Bonne connaissance de deux langues officielles et de l'anglais"
+        "it": "• Costruire una forte reputazione e sviluppo strategico del gruppo di ricerca nei settori della sostenibilità sociale, del lavoro e degli aspetti socio-economici della digitalizzazione nel settore agroalimentare\n\n• Gestione professionale, umana e finanziaria del Gruppo in conformità con la strategia di Agroscope e l'area di ricerca Valutazione della sostenibilità e gestione agricola\n\n• Sviluppo continuo della propria ricerca e del portafoglio tecnico e metodologico del gruppo di ricerca\n\n• Pubblicazione dei risultati della ricerca in riviste scientifiche internazionali e nella stampa agricola\n\n• Istituzione e manutenzione di reti nazionali e internazionali nel settore della ricerca del gruppo\n\n• Sviluppo e pubblicazione di fondazioni scientifiche per l'Ufficio federale dell'agricoltura\n\n• Dottorato in economia agricola, sociologia rurale o aree di ricerca correlate strettamente legate al settore della ricerca del gruppo\n\n• Competenza comprovata nei metodi qualitativi e quantitativi di ricerca sociale empirica\n\n• track record scientifico nel campo della ricerca del gruppo e l'esperienza nell'acquisizione di fondi di terze parti\n\n• Buone capacità di leadership: leadership, leadership e competenze di gestione (persone entusiastiche, lavoro orientato agli obiettivi, gestione dei processi)\n\n• Buona conoscenza di due lingue ufficiali e inglese",
+        "en": "• Building a strong reputation and strategic development of the research group in the fields of social sustainability, work and socio-economic aspects of digitalization in the agri-food sector\n\n• Professional, human and financial management of the Group in accordance with the strategy of Agroscope and the research area Sustainability Assessment and Agricultural Management\n\n• Continuous development of the own research as well as the technical and methodological portfolio of the research group\n\n• Publication of research results in international scientific journals and the agricultural press\n\n• Establishment and maintenance of national and international networks in the research field of the group\n\n• Development and publication of scientific foundations for the Federal Office for Agriculture\n\n• Doctorate in agricultural economics, rural sociology or related research areas closely related to the research field of the group\n\n• Proven expertise in qualitative and quantitative methods of empirical social research\n\n• scientific track record in the research field of the group and experience in third-party funding acquisition\n\n• Good leadership skills: leadership, leadership and management skills (enthusiastic people, goal-oriented work, process management)\n\n• Good knowledge of two official languages and English",
+        "de": "• Aufbau einer starken Reputation und strategische Weiterentwicklung der Forschungsgruppe in den Themenfeldern soziale Nachhaltigkeit, Arbeit sowie sozioökonomische Aspekte der Digitalisierung im Agri-Food-Sektor\n\n• Fachliche, personelle und finanzielle Leitung der Gruppe gemäss der Strategie von Agroscope und dem Forschungsbereich Nachhaltigkeitsbewertung und Agrarmanagement\n\n• Kontinuierliche Weiterentwicklung der eigenen Forschung sowie des fachlichen und methodischen Portfolios der Forschungsgruppe\n\n• Publikation der Forschungsergebnisse in internationalen wissenschaftlichen Zeitschriften sowie der landwirtschaftlichen Fachpresse\n\n• Aufbau und Pflege von nationalen und internationalen Netzwerken im Forschungsfeld der Gruppe\n\n• Erarbeitung und Publikation von wissenschaftlichen Grundlagen zuhanden des Bundesamtes für Landwirtschaft\n\n• Doktorat in der Agrarökonomie, ländlichen Soziologie oder verwandten Forschungsbereichen mit engem Bezug zum Forschungsfeld der Gruppe\n\n• Ausgewiesene Expertise in qualitativen und quantitativen Methoden der empirischen Sozialforschung\n\n• wissenschaftlicher Leistungsausweis im Forschungsfeld der Gruppe und Erfahrung in der Drittmittelakquise\n\n• Gute Führungsqualitäten: Leadership, Führungs- und Management-Kompetenzen (Menschen begeistern, zielorientiert arbeiten, Prozesse leiten)\n\n• Gute Kenntnisse zweier Amtssprachen und des Englischen",
+        "fr": "• Renforcer la réputation et le développement stratégique du groupe de recherche dans les domaines de la durabilité sociale, du travail et des aspects socio-économiques de la numérisation dans le secteur agroalimentaire\n\n• Gestion professionnelle, humaine et financière du Groupe conformément à la stratégie d'Agroscope et au domaine de recherche Évaluation de la durabilité et gestion agricole\n\n• Développement continu de la propre recherche ainsi que du portefeuille technique et méthodologique du groupe de recherche\n\n• Publication des résultats de la recherche dans les revues scientifiques internationales et la presse agricole\n\n• Création et entretien de réseaux nationaux et internationaux dans le domaine de la recherche du groupe\n\n• Développement et publication de fondations scientifiques pour l'Office fédéral de l'agriculture\n\n• Doctorat en économie agricole, sociologie rurale ou domaines de recherche connexes étroitement liés au domaine de recherche du groupe\n\n• Expertise éprouvée en méthodes qualitatives et quantitatives de recherche sociale empirique\n\n• bilan scientifique dans le domaine de la recherche du groupe et expérience dans l'acquisition de financement par des tiers\n\n• Bonnes compétences en leadership : leadership, leadership et compétences en gestion (personnes enthousiastes, travail axé sur les objectifs, gestion des processus)\n\n• Bonne connaissance de deux langues officielles et de l'anglais"
       },
       "slugByLocale": {
-        "it": "responsabile-versuchsstation-gemusebau-wissenschaftlich-technische-r-collaboratore-trice-in-confederazione-svizzera-ins",
-        "en": "head-of-vegetable-engineering-experimental-station-scientific-technical-r-employee-confederazione-svizzera-ins",
-        "de": "leiter-in-versuchsstation-gemusebau-wissenschaftlich-technische-r-mitarbeiter-in-confederazione-ins",
-        "fr": "chef-de-la-station-experimentale-de-genie-vegetal-employe-scientifique-technique-r-confederazione-svizzera-ins"
+        "it": "responsabile-der-forschungsgruppe-soziookonomie-agroscope-ettenhausen-geplant-arbeitort-mittelfristig-1725-posieux-fr",
+        "en": "head-of-the-research-group-socioeconomics-agroscope-ticino",
+        "de": "leiter-in-der-forschungsgruppe-soziookonomie-agroscope-ettenhausen-geplant-arbeitort-mittelfristig-1725-posieux-fr",
+        "fr": "chef-du-groupe-de-recherche-socioeconomie-agroscope-ticino"
       },
-      "id": "agroscope-93b4d74bb39f",
+      "id": "agroscope-98c56e96df62",
       "previousSlugsByLocale": {
         "it": [
-          "leiter-in-versuchsstation-gemusebau-wissenschaftlich-technische-r-mitarbeiter-in-agroscope-ins",
-          "responsabile-versuchsstation-gemusebau-wissenschaftlich-technische-r-collaboratore-trice-in-confederazione-svizzera-ins",
-          "responsabile-versuchsstation-gemusebau-wissenschaftlich-technische-r-collaboratore-trice-in-agroscope-ins"
+          "leiter-in-der-forschungsgruppe-soziookonomie-agroscope-ettenhausen-geplant-arbeitort-mittelfristig-1725-posieux-fr",
+          "responsabile-der-forschungsgruppe-soziookonomie-agroscope-ticino",
+          "responsabile-der-forschungsgruppe-soziookonomie-agroscope-ettenhausen-geplant-arbeitort-mittelfristig-1725-posieux-fr"
         ],
         "en": [
-          "leiter-in-versuchsstation-gemusebau-wissenschaftlich-technische-r-mitarbeiter-in-agroscope-ins"
-        ],
-        "de": [
-          "leiter-in-versuchsstation-gemusebau-wissenschaftlich-technische-r-mitarbeiter-in-agroscope-ins"
+          "leiter-in-der-forschungsgruppe-soziookonomie-agroscope-ettenhausen-geplant-arbeitort-mittelfristig-1725-posieux-fr"
         ],
         "fr": [
-          "leiter-in-versuchsstation-gemusebau-wissenschaftlich-technische-r-mitarbeiter-in-agroscope-ins"
+          "leiter-in-der-forschungsgruppe-soziookonomie-agroscope-ettenhausen-geplant-arbeitort-mittelfristig-1725-posieux-fr"
         ]
       },
       "previousSlugs": [
-        "leiter-in-versuchsstation-gemusebau-wissenschaftlich-technische-r-mitarbeiter-in-agroscope-ins",
-        "responsabile-versuchsstation-gemusebau-wissenschaftlich-technische-r-collaboratore-trice-in-confederazione-svizzera-ins",
-        "responsabile-versuchsstation-gemusebau-wissenschaftlich-technische-r-collaboratore-trice-in-agroscope-ins"
+        "leiter-in-der-forschungsgruppe-soziookonomie-agroscope-ettenhausen-geplant-arbeitort-mittelfristig-1725-posieux-fr",
+        "responsabile-der-forschungsgruppe-soziookonomie-agroscope-ticino",
+        "responsabile-der-forschungsgruppe-soziookonomie-agroscope-ettenhausen-geplant-arbeitort-mittelfristig-1725-posieux-fr"
       ],
-      "salaryMin": 94500,
-      "salaryMax": 143000,
+      "salaryMin": 89500,
+      "salaryMax": 136000,
       "currency": "CHF",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 94500,
-          "maxValue": 143000,
+          "minValue": 89500,
+          "maxValue": 136000,
           "unitText": "YEAR"
         }
       },
@@ -400,6 +483,20 @@
         "fr": "personnel-scientifique-confederazione-svizzera-6210-sursee"
       },
       "id": "agroscope-394139b44527",
+      "salaryMin": 69500,
+      "salaryMax": 106000,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 69500,
+          "maxValue": 106000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-07-29T11:41:11.171Z",
       "previousSlugsByLocale": {
         "it": [
           "wissenschaftliche-r-mitarbeiter-in-agroscope-sursee"
@@ -416,94 +513,7 @@
       },
       "previousSlugs": [
         "wissenschaftliche-r-mitarbeiter-in-agroscope-sursee"
-      ],
-      "salaryMin": 69500,
-      "salaryMax": 106000,
-      "currency": "CHF",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 69500,
-          "maxValue": 106000,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-07-29T11:41:11.171Z"
-    },
-    {
-      "title": "Leiter/-in der Forschungsgruppe Sozioökonomie",
-      "slug": "responsabile-der-forschungsgruppe-soziookonomie-agroscope-ticino",
-      "url": "https://jobs.admin.ch/posti-vacanti/leiter-in-der-forschungsgruppe-soziooekonomie/51853958-ee8c-4095-ac44-7c59f1cc5160",
-      "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=13220",
-      "company": "Agroscope",
-      "companyKey": "agroscope",
-      "companyDomain": "admin.ch",
-      "location": "Ticino",
-      "addressLocality": "Ticino",
-      "addressRegion": "AI",
-      "addressCountry": "CH",
-      "canton": "AI",
-      "country": "CH",
-      "category": "science",
-      "sector": "Pubblica amministrazione",
-      "source": "agroscope-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2024-12-17",
-      "validThrough": "2034-12-15",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "description": "• Aufbau einer starken Reputation und strategische Weiterentwicklung der Forschungsgruppe in den Themenfeldern soziale Nachhaltigkeit, Arbeit sowie sozioökonomische Aspekte der Digitalisierung im Agri-Food-Sektor\n\n• Fachliche, personelle und finanzielle Leitung der Gruppe gemäss der Strategie von Agroscope und dem Forschungsbereich Nachhaltigkeitsbewertung und Agrarmanagement\n\n• Kontinuierliche Weiterentwicklung der eigenen Forschung sowie des fachlichen und methodischen Portfolios der Forschungsgruppe\n\n• Publikation der Forschungsergebnisse in internationalen wissenschaftlichen Zeitschriften sowie der landwirtschaftlichen Fachpresse\n\n• Aufbau und Pflege von nationalen und internationalen Netzwerken im Forschungsfeld der Gruppe\n\n• Erarbeitung und Publikation von wissenschaftlichen Grundlagen zuhanden des Bundesamtes für Landwirtschaft\n\n• Doktorat in der Agrarökonomie, ländlichen Soziologie oder verwandten Forschungsbereichen mit engem Bezug zum Forschungsfeld der Gruppe\n\n• Ausgewiesene Expertise in qualitativen und quantitativen Methoden der empirischen Sozialforschung\n\n• wissenschaftlicher Leistungsausweis im Forschungsfeld der Gruppe und Erfahrung in der Drittmittelakquise\n\n• Gute Führungsqualitäten: Leadership, Führungs- und Management-Kompetenzen (Menschen begeistern, zielorientiert arbeiten, Prozesse leiten)\n\n• Gute Kenntnisse zweier Amtssprachen und des Englischen",
-      "titleByLocale": {
-        "it": "Responsabile der Forschungsgruppe Sozioökonomie",
-        "en": "Head of the research group Socioeconomics",
-        "de": "Leiter/-in der Forschungsgruppe Sozioökonomie",
-        "fr": "Chef du groupe de recherche Socioéconomie"
-      },
-      "descriptionByLocale": {
-        "it": "• Costruire una forte reputazione e sviluppo strategico del gruppo di ricerca nei settori della sostenibilità sociale, del lavoro e degli aspetti socio-economici della digitalizzazione nel settore agroalimentare\n\n• Gestione professionale, umana e finanziaria del Gruppo in conformità con la strategia di Agroscope e l'area di ricerca Valutazione della sostenibilità e gestione agricola\n\n• Sviluppo continuo della propria ricerca e del portafoglio tecnico e metodologico del gruppo di ricerca\n\n• Pubblicazione dei risultati della ricerca in riviste scientifiche internazionali e nella stampa agricola\n\n• Istituzione e manutenzione di reti nazionali e internazionali nel settore della ricerca del gruppo\n\n• Sviluppo e pubblicazione di fondazioni scientifiche per l'Ufficio federale dell'agricoltura\n\n• Dottorato in economia agricola, sociologia rurale o aree di ricerca correlate strettamente legate al settore della ricerca del gruppo\n\n• Competenza comprovata nei metodi qualitativi e quantitativi di ricerca sociale empirica\n\n• track record scientifico nel campo della ricerca del gruppo e l'esperienza nell'acquisizione di fondi di terze parti\n\n• Buone capacità di leadership: leadership, leadership e competenze di gestione (persone entusiastiche, lavoro orientato agli obiettivi, gestione dei processi)\n\n• Buona conoscenza di due lingue ufficiali e inglese",
-        "en": "• Building a strong reputation and strategic development of the research group in the fields of social sustainability, work and socio-economic aspects of digitalization in the agri-food sector\n\n• Professional, human and financial management of the Group in accordance with the strategy of Agroscope and the research area Sustainability Assessment and Agricultural Management\n\n• Continuous development of the own research as well as the technical and methodological portfolio of the research group\n\n• Publication of research results in international scientific journals and the agricultural press\n\n• Establishment and maintenance of national and international networks in the research field of the group\n\n• Development and publication of scientific foundations for the Federal Office for Agriculture\n\n• Doctorate in agricultural economics, rural sociology or related research areas closely related to the research field of the group\n\n• Proven expertise in qualitative and quantitative methods of empirical social research\n\n• scientific track record in the research field of the group and experience in third-party funding acquisition\n\n• Good leadership skills: leadership, leadership and management skills (enthusiastic people, goal-oriented work, process management)\n\n• Good knowledge of two official languages and English",
-        "de": "• Aufbau einer starken Reputation und strategische Weiterentwicklung der Forschungsgruppe in den Themenfeldern soziale Nachhaltigkeit, Arbeit sowie sozioökonomische Aspekte der Digitalisierung im Agri-Food-Sektor\n\n• Fachliche, personelle und finanzielle Leitung der Gruppe gemäss der Strategie von Agroscope und dem Forschungsbereich Nachhaltigkeitsbewertung und Agrarmanagement\n\n• Kontinuierliche Weiterentwicklung der eigenen Forschung sowie des fachlichen und methodischen Portfolios der Forschungsgruppe\n\n• Publikation der Forschungsergebnisse in internationalen wissenschaftlichen Zeitschriften sowie der landwirtschaftlichen Fachpresse\n\n• Aufbau und Pflege von nationalen und internationalen Netzwerken im Forschungsfeld der Gruppe\n\n• Erarbeitung und Publikation von wissenschaftlichen Grundlagen zuhanden des Bundesamtes für Landwirtschaft\n\n• Doktorat in der Agrarökonomie, ländlichen Soziologie oder verwandten Forschungsbereichen mit engem Bezug zum Forschungsfeld der Gruppe\n\n• Ausgewiesene Expertise in qualitativen und quantitativen Methoden der empirischen Sozialforschung\n\n• wissenschaftlicher Leistungsausweis im Forschungsfeld der Gruppe und Erfahrung in der Drittmittelakquise\n\n• Gute Führungsqualitäten: Leadership, Führungs- und Management-Kompetenzen (Menschen begeistern, zielorientiert arbeiten, Prozesse leiten)\n\n• Gute Kenntnisse zweier Amtssprachen und des Englischen",
-        "fr": "• Renforcer la réputation et le développement stratégique du groupe de recherche dans les domaines de la durabilité sociale, du travail et des aspects socio-économiques de la numérisation dans le secteur agroalimentaire\n\n• Gestion professionnelle, humaine et financière du Groupe conformément à la stratégie d'Agroscope et au domaine de recherche Évaluation de la durabilité et gestion agricole\n\n• Développement continu de la propre recherche ainsi que du portefeuille technique et méthodologique du groupe de recherche\n\n• Publication des résultats de la recherche dans les revues scientifiques internationales et la presse agricole\n\n• Création et entretien de réseaux nationaux et internationaux dans le domaine de la recherche du groupe\n\n• Développement et publication de fondations scientifiques pour l'Office fédéral de l'agriculture\n\n• Doctorat en économie agricole, sociologie rurale ou domaines de recherche connexes étroitement liés au domaine de recherche du groupe\n\n• Expertise éprouvée en méthodes qualitatives et quantitatives de recherche sociale empirique\n\n• bilan scientifique dans le domaine de la recherche du groupe et expérience dans l'acquisition de financement par des tiers\n\n• Bonnes compétences en leadership : leadership, leadership et compétences en gestion (personnes enthousiastes, travail axé sur les objectifs, gestion des processus)\n\n• Bonne connaissance de deux langues officielles et de l'anglais"
-      },
-      "slugByLocale": {
-        "it": "responsabile-der-forschungsgruppe-soziookonomie-agroscope-ticino",
-        "en": "head-of-the-research-group-socioeconomics-agroscope-ticino",
-        "de": "leiter-in-der-forschungsgruppe-soziookonomie-agroscope-ettenhausen-geplant-arbeitort-mittelfristig-1725-posieux-fr",
-        "fr": "chef-du-groupe-de-recherche-socioeconomie-agroscope-ticino"
-      },
-      "id": "agroscope-98c56e96df62",
-      "previousSlugsByLocale": {
-        "it": [
-          "leiter-in-der-forschungsgruppe-soziookonomie-agroscope-ettenhausen-geplant-arbeitort-mittelfristig-1725-posieux-fr",
-          "responsabile-der-forschungsgruppe-soziookonomie-agroscope-ettenhausen-geplant-arbeitort-mittelfristig-1725-posieux-fr"
-        ],
-        "en": [
-          "leiter-in-der-forschungsgruppe-soziookonomie-agroscope-ettenhausen-geplant-arbeitort-mittelfristig-1725-posieux-fr"
-        ],
-        "fr": [
-          "leiter-in-der-forschungsgruppe-soziookonomie-agroscope-ettenhausen-geplant-arbeitort-mittelfristig-1725-posieux-fr"
-        ]
-      },
-      "previousSlugs": [
-        "leiter-in-der-forschungsgruppe-soziookonomie-agroscope-ettenhausen-geplant-arbeitort-mittelfristig-1725-posieux-fr",
-        "responsabile-der-forschungsgruppe-soziookonomie-agroscope-ettenhausen-geplant-arbeitort-mittelfristig-1725-posieux-fr"
-      ],
-      "salaryMin": 89500,
-      "salaryMax": 136000,
-      "currency": "CHF",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 89500,
-          "maxValue": 136000,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-07-29T11:41:11.171Z"
+      ]
     },
     {
       "title": "Forschungsgruppenleiter/-in Extension Gemüsebau",
@@ -537,7 +547,7 @@
       "descriptionByLocale": {
         "it": "• Gestione professionale e amministrativa del Gruppo di Ricerca Vegetale (organizzazione, finanza, risorse umane) e responsabilità complessiva per l'allineamento delle attività secondo le esigenze pratiche e l'eccellenza scientifica del Gruppo\n\n• responsabilità generale e contatto centrale per le domande e la ricerca pratica nella coltivazione di ortaggi all'aperto all'Agroscope; costituzione e gestione di team di progetto interdisciplinari con rappresentanti delle aree Agroscope interessate e partner esterni\n\n• Responsabilità per l'acquisizione di progetti e fondi di terze parti da programmi di finanziamento competitivi, industria e altri donatori\n\n• Responsabilità per lo scambio di conoscenze con la pratica vegetale e con la consulenza, per ulteriori relazioni pubbliche e per la preparazione di specifici pareri pratici di esperti vegetali, in particolare per quanto riguarda la protezione delle piante\n\n• Rappresentanza dell'Agroscope in comitati e organizzazioni nazionali e internazionali per il networking e l'ampliamento di competenze pratiche per le verdure\n\n• Dottorato in scienze agricole con un focus sulla coltivazione/orticoltura delle piante (o formazione comparabile) così come la comprovata esperienza di ricerca in questi settori, idealmente su progetti pratici multi-attività\n\n• Esperienza nella pratica vegetale o produzione simile\n\n• Ampia rete professionale nel campo della produzione vegetale e vegetale e conoscenza approfondita delle condizioni quadro della produzione vegetale svizzera\n\n• Forte capacità di leadership, forte spirito di squadra e capacità di comunicazione convincenti\n\n• Molto buona conoscenza di due lingue ufficiali e inglese in parola e scrittura",
         "en": "• Professional and administrative management of the Extension Vegetable Research Group (organisation, finance, human resources) and overall responsibility for aligning activities according to the practical needs and scientific excellence of the Group\n\n• overall responsibility and central contact for questions and practical research in outdoor vegetable cultivation at Agroscope; Establishment and management of interdisciplinary project teams with representatives of the affected Agroscope areas and external partners\n\n• Responsibility for the acquisition of projects and third-party funds from competitive funding programmes, industry and other donors\n\n• Responsibility for the exchange of knowledge with vegetable practice and advice, for further public relations and for the preparation of specific practical vegetable expert opinions, in particular with regard to plant protection\n\n• Representation of Agroscope in national and international committees and organizations for the purpose of networking and expanding practical vegetable expertise\n\n• Doctorate in agricultural sciences with a focus on plant cultivation/horticulture (or comparable training) as well as proven research experience in these areas, ideally on practical multi-activity projects\n\n• Experience in vegetable practice or similar production\n\n• Extensive professional network in the field of plant and vegetable production as well as in-depth knowledge of the framework conditions of Swiss plant production\n\n• Strong leadership skills, strong team spirit and convincing communication skills\n\n• Very good knowledge of two official languages and English in word and writing",
-        "de": "• Fachliche und administrative Leitung der Forschungsgruppe Extension Gemüsebau (Organisation, Finanzen, Personal) sowie Gesamtverantwortung für die Ausrichtung der Tätigkeiten nach den Praxisbedürfnissen  und wissenschaftliche Exzellenz der Gruppe\n\n• Gesamtverantwortung und zentrale Ansprechperson für Fragen und praxisnahe Forschung im Freilandgemüsebau bei Agroscope; Aufbau und Leitung interdisziplinärer Projektteams mit Vertretenden der betroffenen Agroscope-Bereiche und externen Partnern\n\n• Verantwortung für die Akquisition von Projekten und Drittmitteln aus kompetitiven Förderprogrammen, der Industrie und weiteren Geldgebern\n\n• Verantwortung für den Wissensaustausch mit der gemüsebaulichen Praxis und Beratung, für weitere Öffentlichkeitsarbeit sowie für das Erstellen spezifischer praxisnaher gemüsebaulicher Gutachten, insbesondere bezüglich Pflanzenschutz\n\n• Vertretung von Agroscope in nationalen und internationalen Gremien und Organisationen zwecks Netzwerkbildung und Ausbau praxisnaher gemüsebaulicher Expertise\n\n• Doktorat in Agrarwissenschaften mit Schwerpunkt Pflanzenbau/Hortikultur (oder vergleichbare Ausbildung) sowie ausgewiesene Forschungserfahrung in diesen Bereichen, idealerweise auf praxisnahen Multiakteur-Projekten\n\n• Erfahrung in der gemüsebaulichen Praxis oder ähnlichen Produktionszweigen\n\n• Weitreichendes berufliches Netzwerk im Bereich der Pflanzen- und Gemüseproduktion sowie fundierte Kenntnisse der Rahmenbedingungen der Schweizer Pflanzenproduktion\n\n• Ausgeprägte Führungskompetenz, ausgeprägter Teamgeist und überzeugende Kommunikationsfähigkeit\n\n• Sehr gute Kenntnisse zweier Amtssprachen und Englisch in Wort und Schrift",
+        "de": "• Fachliche und administrative Leitung der Forschungsgruppe Extension Gemüsebau (Organisation, Finanzen, Personal) sowie Gesamtverantwortung für die Ausrichtung der Tätigkeiten nach den Praxisbedürfnissen und wissenschaftliche Exzellenz der Gruppe\n\n• Gesamtverantwortung und zentrale Ansprechperson für Fragen und praxisnahe Forschung im Freilandgemüsebau bei Agroscope; Aufbau und Leitung interdisziplinärer Projektteams mit Vertretenden der betroffenen Agroscope-Bereiche und externen Partnern\n\n• Verantwortung für die Akquisition von Projekten und Drittmitteln aus kompetitiven Förderprogrammen, der Industrie und weiteren Geldgebern\n\n• Verantwortung für den Wissensaustausch mit der gemüsebaulichen Praxis und Beratung, für weitere Öffentlichkeitsarbeit sowie für das Erstellen spezifischer praxisnaher gemüsebaulicher Gutachten, insbesondere bezüglich Pflanzenschutz\n\n• Vertretung von Agroscope in nationalen und internationalen Gremien und Organisationen zwecks Netzwerkbildung und Ausbau praxisnaher gemüsebaulicher Expertise\n\n• Doktorat in Agrarwissenschaften mit Schwerpunkt Pflanzenbau/Hortikultur (oder vergleichbare Ausbildung) sowie ausgewiesene Forschungserfahrung in diesen Bereichen, idealerweise auf praxisnahen Multiakteur-Projekten\n\n• Erfahrung in der gemüsebaulichen Praxis oder ähnlichen Produktionszweigen\n\n• Weitreichendes berufliches Netzwerk im Bereich der Pflanzen- und Gemüseproduktion sowie fundierte Kenntnisse der Rahmenbedingungen der Schweizer Pflanzenproduktion\n\n• Ausgeprägte Führungskompetenz, ausgeprägter Teamgeist und überzeugende Kommunikationsfähigkeit\n\n• Sehr gute Kenntnisse zweier Amtssprachen und Englisch in Wort und Schrift",
         "fr": "• Gestion professionnelle et administrative du groupe Extension Vegetable Research (organisation, finances, ressources humaines) et responsabilité globale d'aligner les activités sur les besoins pratiques et l'excellence scientifique du groupe\n\n• la responsabilité globale et le contact central pour les questions et la recherche pratique dans la culture de légumes en plein air à Agroscope;\n\n• Responsabilité de l'acquisition de projets et de fonds de tiers auprès de programmes de financement concurrentiels, de l'industrie et d'autres donateurs\n\n• Responsabilité de l'échange de connaissances avec les pratiques et conseils en matière de légumes, de la poursuite des relations publiques et de l'élaboration d'avis spécifiques d'experts en matière de légumes, en particulier en ce qui concerne la protection des végétaux\n\n• Représentation d'Agroscope dans les comités et organisations nationaux et internationaux aux fins de la mise en réseau et de l'élargissement des compétences pratiques en matière de légumes\n\n• Doctorat en sciences agricoles avec un accent sur la culture végétale/horticulture (ou formation comparable) ainsi que expérience de recherche éprouvée dans ces domaines, idéalement sur des projets pratiques multi-activités\n\n• Expérience de la pratique des légumes ou de la production similaire\n\n• Un vaste réseau professionnel dans le domaine de la production végétale et végétale ainsi qu'une connaissance approfondie des conditions-cadres de la production végétale suisse\n\n• Fortes compétences en leadership, esprit d'équipe et compétences en communication convaincantes\n\n• Très bonne connaissance de deux langues officielles et de l'anglais en paroles et en écriture"
       },
       "slugByLocale": {
@@ -547,6 +557,20 @@
         "fr": "chef-du-groupe-de-recherche-dans-extension-legumes-confederazione-svizzera-8046-zurich"
       },
       "id": "agroscope-0640f782cf21",
+      "salaryMin": 73500,
+      "salaryMax": 111500,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 73500,
+          "maxValue": 111500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-07-29T11:41:11.171Z",
       "previousSlugsByLocale": {
         "it": [
           "forschungsgruppenleiter-in-extension-gemusebau-agroscope-zurich"
@@ -563,21 +587,7 @@
       },
       "previousSlugs": [
         "forschungsgruppenleiter-in-extension-gemusebau-agroscope-zurich"
-      ],
-      "salaryMin": 73500,
-      "salaryMax": 111500,
-      "currency": "CHF",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-07-29T11:41:11.171Z"
+      ]
     },
     {
       "title": "Hochschulpraktikum «Information & Dokumentation»",
@@ -621,6 +631,20 @@
         "fr": "stage-universitaire-informations-et-documentation-confederazione-svizzera-zurich"
       },
       "id": "agroscope-ca41b08695b2",
+      "salaryMin": 73500,
+      "salaryMax": 111500,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 73500,
+          "maxValue": 111500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-07-29T11:41:11.171Z",
       "previousSlugsByLocale": {
         "it": [
           "hochschulpraktikum-information-dokumentation-agroscope-zurich"
@@ -637,21 +661,7 @@
       },
       "previousSlugs": [
         "hochschulpraktikum-information-dokumentation-agroscope-zurich"
-      ],
-      "salaryMin": 73500,
-      "salaryMax": 111500,
-      "currency": "CHF",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-07-29T11:41:11.171Z"
+      ]
     }
   ]
 }
