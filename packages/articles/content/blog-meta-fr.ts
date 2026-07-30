@@ -9135,6 +9135,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.trasferirsi-porto-ceresio-frontaliere.title': 'Déménager à Porto Ceresio en tant que frontalier : avantages et inconvénients',
     'blog.article.trasferirsi-porto-ceresio-frontaliere.excerpt': 'Analyse pratique pour ceux qui vivent à Porto Ceresio et travaillent au Tessin : fiscalité, accord 2024, contributions, LAMal et restauration.',
     'blog.article.trasferirsi-porto-ceresio-frontaliere.imageAlt': 'Vue sur le lac de Lugano depuis Porto Ceresio à l\'aube',
+    'blog.article.beko-cassinetta-preoccupazione-sindacati.title': 'Beko Cassinetta, de la table de la province émerge une vive préoccupation',
+    'blog.article.beko-cassinetta-preoccupazione-sindacati.excerpt': 'Les syndicats des métallurgistes s\'inquiètent du non-respect des engagements',
+    'blog.article.beko-cassinetta-preoccupazione-sindacati.imageAlt': 'Un poste frontière entre l\'Italie et la Suisse',
 };
 
 export default blogMetaFr;
