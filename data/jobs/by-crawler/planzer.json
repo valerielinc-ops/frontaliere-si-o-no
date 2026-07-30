@@ -57,14 +57,12 @@
         "parcel-deliverers-in-hourly-wage-m-f-d-planzer-st-gallen",
         "paketzusteller-im-stundenlohn-m-w-d-planzer-st-gallen",
         "livraisons-par-colis-en-salaire-horaire-m-f-d-planzer-st-gallen",
-        "paketzusteller-m-w-d-planzer-st-gallen",
-        "consegna-dei-pacchi-m-f-d-planzer-st-gallen"
+        "paketzusteller-m-w-d-planzer-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "liberatori-di-pacchi-nel-salario-orario-m-f-d-planzer-st-gallen",
-          "paketzusteller-m-w-d-planzer-st-gallen",
-          "consegna-dei-pacchi-m-f-d-planzer-st-gallen"
+          "paketzusteller-m-w-d-planzer-st-gallen"
         ],
         "en": [
           "parcel-deliverers-in-hourly-wage-m-f-d-planzer-st-gallen",
@@ -151,8 +149,7 @@
         "cambiamento-giornaliero-della-busta-dei-dipendenti-m-f-d-planzer-kallnach",
         "employee-envelope-day-shift-m-f-d-planzer-kallnach",
         "mitarbeiter-umschlag-tagschicht-m-w-d-planzer-kallnach",
-        "poste-de-jour-de-l-enveloppe-des-employes-m-f-d-planzer-kallnach",
-        "collaboratore-trice-umschlag-m-w-d-planzer-kallnach"
+        "poste-de-jour-de-l-enveloppe-des-employes-m-f-d-planzer-kallnach"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -163,8 +160,7 @@
           "cambiamento-giornaliero-della-busta-dei-dipendenti-m-f-d-planzer-kallnach",
           "employee-envelope-day-shift-m-f-d-planzer-kallnach",
           "mitarbeiter-umschlag-tagschicht-m-w-d-planzer-kallnach",
-          "poste-de-jour-de-l-enveloppe-des-employes-m-f-d-planzer-kallnach",
-          "collaboratore-trice-umschlag-m-w-d-planzer-kallnach"
+          "poste-de-jour-de-l-enveloppe-des-employes-m-f-d-planzer-kallnach"
         ],
         "en": [
           "mitarbeiter-umschlag-m-w-d-planzer-kallnach"
@@ -303,13 +299,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "logistiker-efz-m-w-d-planzer-seewen",
-        "logistiker-cfc-m-w-d-planzer-seewen"
+        "logistiker-efz-m-w-d-planzer-seewen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "logistiker-efz-m-w-d-planzer-seewen",
-          "logistiker-cfc-m-w-d-planzer-seewen"
+          "logistiker-efz-m-w-d-planzer-seewen"
         ],
         "en": [
           "logistiker-efz-m-w-d-planzer-seewen"
@@ -394,8 +388,7 @@
         "parcel-delivery-m-f-d-planzer-schmerikon",
         "paketzusteller-m-w-d-planzer-schmerikon",
         "livraison-de-colis-m-f-d-planzer-schmerikon",
-        "disponent-stuckgut-m-w-d-planzer-schmerikon",
-        "distribuzione-del-carico-generale-m-f-d-planzer-schmerikon"
+        "disponent-stuckgut-m-w-d-planzer-schmerikon"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -410,8 +403,7 @@
           "parcel-delivery-m-f-d-planzer-schmerikon",
           "paketzusteller-m-w-d-planzer-schmerikon",
           "livraison-de-colis-m-f-d-planzer-schmerikon",
-          "disponent-stuckgut-m-w-d-planzer-schmerikon",
-          "distribuzione-del-carico-generale-m-f-d-planzer-schmerikon"
+          "disponent-stuckgut-m-w-d-planzer-schmerikon"
         ],
         "en": [
           "disponent-stuckgut-m-w-d-planzer-schmerikon"
@@ -516,12 +508,12 @@
     },
     {
       "id": "planzer-4cd5069e4455",
-      "slug": "sachbearbeiter-disposition-stv-sachbearbeiter-schadenmanagement-m-w-d-planzer-spreitenbach",
+      "slug": "disposizione-del-personale-gestione-dei-reclami-m-f-d-planzer-spreitenbach",
       "slugByLocale": {
         "de": "sachbearbeiter-disposition-stv-sachbearbeiter-schadenmanagement-m-w-d-planzer-spreitenbach",
-        "it": "sachbearbeiter-disposition-stv-sachbearbeiter-schadenmanagement-m-w-d-planzer-spreitenbach",
-        "en": "sachbearbeiter-disposition-stv-sachbearbeiter-schadenmanagement-m-w-d-planzer-spreitenbach",
-        "fr": "sachbearbeiter-disposition-stv-sachbearbeiter-schadenmanagement-m-w-d-planzer-spreitenbach"
+        "it": "disposizione-del-personale-gestione-dei-reclami-m-f-d-planzer-spreitenbach",
+        "en": "personnel-disposition-stv-claims-management-m-f-d-planzer-spreitenbach",
+        "fr": "traitement-des-demandes-de-remboursement-m-f-d-planzer-spreitenbach"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -578,7 +570,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-29T22:03:42.003Z"
+      "firstSeenAt": "2026-07-29T22:03:42.003Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiter-disposition-stv-sachbearbeiter-schadenmanagement-m-w-d-planzer-spreitenbach"
+        ],
+        "en": [
+          "sachbearbeiter-disposition-stv-sachbearbeiter-schadenmanagement-m-w-d-planzer-spreitenbach"
+        ],
+        "fr": [
+          "sachbearbeiter-disposition-stv-sachbearbeiter-schadenmanagement-m-w-d-planzer-spreitenbach"
+        ]
+      },
+      "previousSlugs": [
+        "sachbearbeiter-disposition-stv-sachbearbeiter-schadenmanagement-m-w-d-planzer-spreitenbach"
+      ]
     },
     {
       "id": "planzer-b8522521dc2a",
@@ -631,13 +637,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "paketzusteller-m-w-d-planzer-winterthur",
-        "consegna-dei-pacchi-m-f-d-planzer-winterthur"
+        "paketzusteller-m-w-d-planzer-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "paketzusteller-m-w-d-planzer-winterthur",
-          "consegna-dei-pacchi-m-f-d-planzer-winterthur"
+          "paketzusteller-m-w-d-planzer-winterthur"
         ],
         "en": [
           "paketzusteller-m-w-d-planzer-winterthur"
@@ -666,8 +670,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-logistik-m-w-d-planzer-harkingen",
         "it": "addetto-a-alla-logistica-m-w-d-planzer-harkingen",
-        "en": "mitarbeiter-logistik-m-w-d-planzer-harkingen",
-        "fr": "mitarbeiter-logistik-m-w-d-planzer-harkingen"
+        "en": "employee-logistics-m-f-d-planzer-harkingen",
+        "fr": "logistique-des-employes-m-f-d-planzer-harkingen"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -715,6 +719,12 @@
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-logistik-m-w-d-planzer-harkingen"
+        ],
+        "en": [
+          "mitarbeiter-logistik-m-w-d-planzer-harkingen"
+        ],
+        "fr": [
+          "mitarbeiter-logistik-m-w-d-planzer-harkingen"
         ]
       },
       "previousSlugs": [
@@ -740,8 +750,8 @@
       "slugByLocale": {
         "de": "logistiker-eba-m-w-d-planzer-kolliken",
         "it": "logistiker-afp-m-w-d-planzer-kolliken",
-        "en": "logistiker-eba-m-w-d-planzer-kolliken",
-        "fr": "logistiker-eba-m-w-d-planzer-kolliken"
+        "en": "logistician-eba-m-f-d-planzer-kolliken",
+        "fr": "logisticien-eba-m-f-d-planzer-kolliken"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -788,6 +798,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "logistiker-eba-m-w-d-planzer-kolliken"
+        ],
+        "en": [
+          "logistiker-eba-m-w-d-planzer-kolliken"
+        ],
+        "fr": [
           "logistiker-eba-m-w-d-planzer-kolliken"
         ]
       },
@@ -865,8 +881,7 @@
         "employee-picking-pacovis-m-f-d-planzer-villmergen",
         "mitarbeiter-kommissionierung-pacovis-m-w-d-planzer-villmergen",
         "pacovis-m-f-d-planzer-villmergen",
-        "mitarbeiter-kommissionierung-m-w-d-planzer-villmergen",
-        "collaboratore-trice-kommissionierung-mo-di-tag-m-w-d-planzer-villmergen"
+        "mitarbeiter-kommissionierung-m-w-d-planzer-villmergen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -875,8 +890,7 @@
           "employee-picking-pacovis-m-f-d-planzer-villmergen",
           "mitarbeiter-kommissionierung-pacovis-m-w-d-planzer-villmergen",
           "pacovis-m-f-d-planzer-villmergen",
-          "mitarbeiter-kommissionierung-m-w-d-planzer-villmergen",
-          "collaboratore-trice-kommissionierung-mo-di-tag-m-w-d-planzer-villmergen"
+          "mitarbeiter-kommissionierung-m-w-d-planzer-villmergen"
         ],
         "en": [
           "employee-picking-pacovis-m-f-d-planzer-villmergen",
@@ -912,7 +926,7 @@
       "slugByLocale": {
         "it": "contenitore-di-stoccaggio-m-f-d-planzer-grand-lancy",
         "en": "storage-store-parcel-m-f-d-planzer-grand-lancy",
-        "de": "magasinier-depot-colis-m-w-d-planzer-grand-lancy",
+        "de": "speicherpaket-m-w-d-planzer-grand-lancy",
         "fr": "magasinier-depot-colis-m-f-d-planzer-grand-lancy"
       },
       "company": "Planzer",
@@ -966,8 +980,6 @@
         "chauffeur-colis-cat-b-m-f-d-planzer-grand-lancy",
         "kategorie-b-m-w-d-planzer-grand-lancy",
         "chauffeur-colis-cat-b-m-w-d-planzer-grand-lancy",
-        "speicherpaket-m-w-d-planzer-grand-lancy",
-        "contenitore-di-stoccaggio-m-f-d-planzer-grand-lancy",
         "magasinier-depot-colis-m-w-d-planzer-grand-lancy"
       ],
       "previousSlugsByLocale": {
@@ -980,8 +992,7 @@
           "cat-b-m-f-d-planzer-grand-lancy",
           "chauffeur-colis-cat-b-m-f-d-planzer-grand-lancy",
           "kategorie-b-m-w-d-planzer-grand-lancy",
-          "chauffeur-colis-cat-b-m-w-d-planzer-grand-lancy",
-          "contenitore-di-stoccaggio-m-f-d-planzer-grand-lancy"
+          "chauffeur-colis-cat-b-m-w-d-planzer-grand-lancy"
         ],
         "en": [
           "magasinier-depot-colis-m-f-d-planzer-grand-lancy",
@@ -990,7 +1001,6 @@
         "de": [
           "magasinier-depot-colis-m-f-d-planzer-grand-lancy",
           "kleinpaketmanager-m-w-d-planzer-grand-lancy",
-          "speicherpaket-m-w-d-planzer-grand-lancy",
           "magasinier-depot-colis-m-w-d-planzer-grand-lancy"
         ],
         "fr": [
@@ -1064,13 +1074,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "sachbearbeiter-disposition-paket-m-w-d-planzer-winterthur",
-        "pacchetto-di-deposito-m-f-d-planzer-winterthur"
+        "sachbearbeiter-disposition-paket-m-w-d-planzer-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sachbearbeiter-disposition-paket-m-w-d-planzer-winterthur",
-          "pacchetto-di-deposito-m-f-d-planzer-winterthur"
+          "sachbearbeiter-disposition-paket-m-w-d-planzer-winterthur"
         ],
         "en": [
           "sachbearbeiter-disposition-paket-m-w-d-planzer-winterthur"

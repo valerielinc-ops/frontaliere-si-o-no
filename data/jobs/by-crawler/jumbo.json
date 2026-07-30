@@ -10371,10 +10371,10 @@
       "id": "jumbo-9a67badd-c5a",
       "slug": "consulente-vendite-in-garden-jumbo-kriens",
       "slugByLocale": {
-        "it": "consulente-vendite-in-garden-jumbo-kriens",
-        "en": "sales-advisor-in-garden-jumbo-kriens",
         "de": "verkaufsberater-in-garden-jumbo-kriens",
-        "fr": "conseiller-commercial-a-garden-jumbo-kriens"
+        "it": "consulente-vendite-in-garden-jumbo-division-der-coop-genossenschaft-kriens",
+        "en": "sales-advisor-in-garden-jumbo-division-der-coop-genossenschaft-kriens",
+        "fr": "conseiller-commercial-a-garden-jumbo-division-der-coop-genossenschaft-kriens"
       },
       "company": "JUMBO",
       "companyKey": "jumbo",
@@ -10430,24 +10430,6 @@
           "• Immer ein freundliches Lächeln – das ist dein Geheimnis zum Erfolg."
         ]
       },
-      "previousSlugs": [
-        "verkaufsberater-in-garden-jumbo-kriens",
-        "consulente-vendite-in-garden-jumbo-kriens"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "verkaufsberater-in-garden-jumbo-kriens",
-          "consulente-vendite-in-garden-jumbo-kriens"
-        ],
-        "en": [
-          "verkaufsberater-in-garden-jumbo-kriens"
-        ],
-        "fr": [
-          "verkaufsberater-in-garden-jumbo-kriens"
-        ]
-      },
-      "firstSeenAt": "2026-07-29T11:48:01.840Z",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -10459,7 +10441,29 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-07-29T11:48:01.840Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufsberater-in-garden-jumbo-kriens",
+          "consulente-vendite-in-garden-jumbo-kriens"
+        ],
+        "en": [
+          "verkaufsberater-in-garden-jumbo-kriens",
+          "sales-advisor-in-garden-jumbo-kriens"
+        ],
+        "fr": [
+          "verkaufsberater-in-garden-jumbo-kriens",
+          "conseiller-commercial-a-garden-jumbo-kriens"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufsberater-in-garden-jumbo-kriens",
+        "consulente-vendite-in-garden-jumbo-kriens",
+        "sales-advisor-in-garden-jumbo-kriens",
+        "conseiller-commercial-a-garden-jumbo-kriens"
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "jumbo-c2a01cb5-fbf",

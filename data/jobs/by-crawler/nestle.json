@@ -1712,12 +1712,12 @@
     },
     {
       "id": "nestle-1417104433",
-      "slug": "account-manager-office-nespresso-nestle-ch",
+      "slug": "responsabile-ufficio-clienti-nespresso-nestle-la-tour-de-peilz-ch-1-more",
       "slugByLocale": {
-        "it": "account-manager-office-nespresso-nestle-ch",
+        "fr": "account-manager-office-nespresso-nestle-ch",
+        "it": "responsabile-ufficio-clienti-nespresso-nestle-la-tour-de-peilz-ch-1-more",
         "en": "account-manager-office-nespresso-nestle-ch",
-        "de": "account-manager-office-nespresso-nestle-ch",
-        "fr": "account-manager-office-nespresso-nestle-ch"
+        "de": "kontomanager-buro-nespresso-nestle-la-tour-de-peilz-ch-1-more"
       },
       "company": "Nestlé",
       "companyKey": "nestle",
@@ -1769,7 +1769,18 @@
         }
       },
       "addressRegion": "VD",
-      "firstSeenAt": "2026-07-29T11:44:42.700Z"
+      "firstSeenAt": "2026-07-29T11:44:42.700Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "account-manager-office-nespresso-nestle-ch"
+        ],
+        "de": [
+          "account-manager-office-nespresso-nestle-ch"
+        ]
+      },
+      "previousSlugs": [
+        "account-manager-office-nespresso-nestle-ch"
+      ]
     },
     {
       "id": "nestle-1414739633",

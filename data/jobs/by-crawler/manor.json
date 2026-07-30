@@ -331,9 +331,9 @@
       "slug": "manor-mitarbeiter-in-logistik-100-mohlin-mitarbeiterin-logistik-100",
       "slugByLocale": {
         "it": "manor-mitarbeiter-in-logistik-100-mohlin-mitarbeiterin-logistik-100",
-        "en": "manor-mitarbeiter-in-logistik-100-mohlin-mitarbeiterin-logistik-100",
+        "en": "logistics-employee-100-manor-ag-mohlin-mitarbeiterin-logistik-100",
         "de": "manor-mitarbeiter-in-logistik-100-mohlin-mitarbeiterin-logistik-100",
-        "fr": "manor-mitarbeiter-in-logistik-100-mohlin-mitarbeiterin-logistik-100"
+        "fr": "collaborateur-rice-logistique-100-manor-ag-mohlin-mitarbeiterin-logistik-100"
       },
       "titleByLocale": {
         "it": "Collaboratore/tricein logistica 100%",
@@ -2277,7 +2277,6 @@
       "id": "manor-db2c3bdf35e4",
       "previousSlugs": [
         "manor-assistent-in-restaurant-100-baden-assistentin-restaurant-100",
-        "restaurant-adjoint-100-manor-ag-baden-assistentin-restaurant-100",
         "ristorante-aggiunto-100-manor-ag-baden-assistentin-restaurant-100",
         "assistent-in-restaurant-100-manor-ag-baden-assistentin-restaurant-100"
       ],
@@ -2291,13 +2290,11 @@
         ],
         "fr": [
           "manor-assistent-in-restaurant-100-baden-assistentin-restaurant-100",
-          "restaurant-adjoint-100-manor-ag-baden-assistentin-restaurant-100",
           "assistent-in-restaurant-100-manor-ag-baden-assistentin-restaurant-100"
         ]
       },
       "firstSeenAt": "2026-07-21T12:42:21.972Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 74000,
       "salaryMax": 113500,
       "currency": "CHF",
@@ -2314,7 +2311,8 @@
       "addressLocality": "Baden Assistentin Restaurant 100",
       "addressRegion": "AG",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "title": "Mitarbeiter*in Logistik 100%",
@@ -3551,18 +3549,15 @@
       "sourceLang": "it",
       "id": "manor-284fddb8b1f7",
       "previousSlugs": [
-        "cook-100-manor-ag-basel-kochkochin-100",
         "koch-kochin-100-manor-ag-basel-kochkochin-100"
       ],
       "previousSlugsByLocale": {
         "en": [
-          "cook-100-manor-ag-basel-kochkochin-100",
           "koch-kochin-100-manor-ag-basel-kochkochin-100"
         ]
       },
       "firstSeenAt": "2026-07-20T13:02:14.490Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 67500,
       "salaryMax": 84500,
       "currency": "CHF",
@@ -3579,7 +3574,8 @@
       "addressLocality": "Basel KochKöchin 100",
       "addressRegion": "BS",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "title": "Mitarbeiter*in Verkauf Herrenkonfektion 40%",
@@ -3799,12 +3795,10 @@
       "sourceLang": "it",
       "id": "manor-2a11cda83371",
       "previousSlugs": [
-        "merchandising-mitarbeiter-in-100-manor-ag-fribourg-collaborateurtrice-merchandising-100",
         "merchandising-assistent-in-100-manor-ag-fribourg-collaborateurtrice-merchandising-100"
       ],
       "previousSlugsByLocale": {
         "de": [
-          "merchandising-mitarbeiter-in-100-manor-ag-fribourg-collaborateurtrice-merchandising-100",
           "merchandising-assistent-in-100-manor-ag-fribourg-collaborateurtrice-merchandising-100"
         ]
       },
@@ -9187,7 +9181,6 @@
       "id": "manor-7ff438e43184",
       "previousSlugs": [
         "manor-sommelier-ere-100-biel-sommelierere-100",
-        "schlaf-alter-100-manor-ag-biel-sommelierere-100",
         "sonno-eta-100-manor-ag-biel-sommelierere-100",
         "sommelier-ere-100-manor-ag-biel-sommelierere-100"
       ],
@@ -9197,13 +9190,11 @@
           "sonno-eta-100-manor-ag-biel-sommelierere-100"
         ],
         "de": [
-          "schlaf-alter-100-manor-ag-biel-sommelierere-100",
           "sommelier-ere-100-manor-ag-biel-sommelierere-100"
         ]
       },
       "firstSeenAt": "2026-07-07T12:11:24.549Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 77500,
       "salaryMax": 118500,
       "currency": "CHF",
@@ -9220,7 +9211,8 @@
       "addressLocality": "Biel Sommelierère 100",
       "addressRegion": "BE",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "title": "Sommelier/in (Weinfachhändler/in) 100%",
