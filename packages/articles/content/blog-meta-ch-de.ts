@@ -1711,6 +1711,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.trasporto-record-svizzero-2026.title': 'Schweizer Bahnen im Rennen: Fahrgäste und Güter wachsen wieder',
     'blog.article.trasporto-record-svizzero-2026.excerpt': 'Der Schienenpersonenverkehr in der Schweiz erreichte im zweiten Quartal mit einem Plus von 5,2% gegenüber dem Vorjahreszeitraum einen neuen Höchststand.',
     'blog.article.trasporto-record-svizzero-2026.imageAlt': 'Ein Szenario von Zugfahrt in der Schweiz',
+    'blog.article.di-piu-barometro-kof-oltre-alle-attese-segnali-positivi-per-leconomia.title': 'Mehr KOF-Barometer jenseits der Erwartungen, positive Signale für die Wirtschaft',
+    'blog.article.di-piu-barometro-kof-oltre-alle-attese-segnali-positivi-per-leconomia.excerpt': 'Das KOF-Barometer stieg im Juli über die Erwartungen hinaus und erreichte 103,5 Punkte. Positive Signale für die Schweizer Wirtschaft.',
+    'blog.article.di-piu-barometro-kof-oltre-alle-attese-segnali-positivi-per-leconomia.imageAlt': 'Barometro KOF: ein wirtschaftlicher Indikator, der die Entwicklung der Schweizer Wirtschaft vorhersagt.',
 };
 
 export default blogMetaChDe;

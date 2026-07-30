@@ -1711,6 +1711,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.trasporto-record-svizzero-2026.title': 'Ferrovie svizzere in corsa: passeggeri e merci tornano a crescere',
     'blog.article.trasporto-record-svizzero-2026.excerpt': 'Il trasporto ferroviario passeggeri in Svizzera ha raggiunto un nuovo record nel secondo trimestre, con un aumento del 5,2% rispetto allo stesso periodo dell\'anno precedente.',
     'blog.article.trasporto-record-svizzero-2026.imageAlt': 'Una scena di viaggio in treno in Svizzera',
+    'blog.article.di-piu-barometro-kof-oltre-alle-attese-segnali-positivi-per-leconomia.title': 'Di più Barometro KOF oltre alle attese, segnali positivi per l\'economia',
+    'blog.article.di-piu-barometro-kof-oltre-alle-attese-segnali-positivi-per-leconomia.excerpt': 'Il Barometro KOF è salito in luglio oltre le attese, raggiungendo 103,5 punti. Segnali positivi per l\'economia svizzera.',
+    'blog.article.di-piu-barometro-kof-oltre-alle-attese-segnali-positivi-per-leconomia.imageAlt': 'Barometro KOF: un indicatore economico che anticipa l\'evoluzione dell\'economia svizzera.',
 };
 
 export default blogMetaChIt;
