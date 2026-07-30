@@ -255,3 +255,41 @@ describe('packages/articles/engine/rssFeeds', () => {
     expect((it.match(/<item>/g) ?? []).length).toBe(RSS_MAX_ITEMS);
   });
 });
+
+/**
+ * The feed must read the chunk new articles are actually written to.
+ *
+ * `seoFiles` was `['seo-blog.ts', 'seo-blog-2.ts']`, on the reasoning that the
+ * feed "only needs the freshest chunks". That stopped being true when
+ * create-article started appending to `seo-blog-5.ts` (its `SECTION.seoFile`):
+ * the two chunks the feed read stopped receiving articles, and since they are
+ * the sole source of the item list, the feed froze. Measured when found: the
+ * live rss.xml's newest item was 3 May while the corpus published daily into
+ * July — three months invisible to subscribers, and nothing failed, because a
+ * feed that stops updating still serves 200.
+ *
+ * So the guard is not "read these files" but "read wherever the generator
+ * writes", checked against the generator's own configuration.
+ */
+describe('RSS reads the chunk create-article writes to (#4974)', () => {
+  it('covers the section seoFile create-article appends new articles to', () => {
+    const createArticle = fs.readFileSync(
+      path.resolve(__dirname, '..', 'scripts', 'create-article.mjs'),
+      'utf-8',
+    );
+    const written = [...createArticle.matchAll(/seoFile:\s*'services\/seo\/([^']+)'/g)].map(
+      (m) => m[1],
+    );
+    expect(written.length, 'no seoFile found in create-article.mjs').toBeGreaterThan(0);
+
+    for (const section of RSS_SECTIONS) {
+      const covered = written.filter((f) => section.seoFiles.includes(f));
+      expect(
+        covered.length,
+        `section '${section.id}' reads ${JSON.stringify(section.seoFiles)} but new articles ` +
+          `go to one of ${JSON.stringify(written)} — a feed that does not read the chunk ` +
+          `being written to silently stops updating`,
+      ).toBeGreaterThan(0);
+    }
+  });
+});
