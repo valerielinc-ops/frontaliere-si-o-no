@@ -1,6 +1,6 @@
 {
   "crawlerKey": "stadler-rail",
-  "assembledAt": "2026-07-29T22:57:17.063Z",
+  "assembledAt": "2026-07-30T10:56:56.572Z",
   "jobs": [
     {
       "id": "stadler-rail-0bf8f26981af",
@@ -6791,101 +6791,6 @@
           "@type": "QuantitativeValue",
           "minValue": 79000,
           "maxValue": 120000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "stadler-rail-a37843c55dcf",
-      "slug": "ingegnere-di-configurazione-per-doors-stadler-rail-wallisellen",
-      "slugByLocale": {
-        "it": "ingegnere-di-configurazione-per-doors-stadler-rail-wallisellen",
-        "en": "doors-configuration-engineer-stadler-rail-ch",
-        "de": "konfigurationsingenieur-fur-doors-stadler-rail-wallisellen",
-        "fr": "ingenieur-de-configuration-pour-doors-stadler-rail-wallisellen"
-      },
-      "company": "Stadler Rail",
-      "companyKey": "stadler-rail",
-      "companyDomain": "stadlerrail.com",
-      "title": "DOORS Configuration Engineer",
-      "titleByLocale": {
-        "it": "Ingegnere di Configurazione per DOORS",
-        "en": "DOORS Configuration Engineer",
-        "de": "Konfigurationsingenieur für DOORS",
-        "fr": "Ingénieur de configuration pour DOORS"
-      },
-      "description": "PROFILE\n\n• Strong knowledge of Configuration Management in railway signalling or a comparable safety‑critical industry.\n\n• Minimum of 5 years’ experience in Configuration Management using IBM Engineering Requirements Management DOORS Next Generation (DNG) on the Jazz platform.\n\n• Experience with software-based products following the V‑lifecycle development model.\n\n• Familiarity with version control systems such as Git, SVN, or similar tools.\n\n• Strong communication skills and ability to collaborate effectively with diverse teams.\n\n• Analytical mindset with strong problem‑solving capabilities and attention to detail.\n\n• High sense of responsibility, meeting deadlines reliably and working independently when required.\n\n• Team-oriented, proactive, and able to work harmoniously in a collaborative environment.\n\nTASKS\n\n• Improve and optimize configuration management processes and administer the IBM Engineering Lifecycle Management (ELM) toolchain (ERM, ETM, EWM).\n\n• Configure and maintain ELM projects, including permissions, configurations, and Global Configuration (GC).\n\n• Design and implement improvements to enhance scalability, performance, usability, and support the long-term evolution of the ELM environment.\n\n• Act as the primary point of contact for ELM-related issues, including troubleshooting and coordination with 2nd/3rd level support and IBM support.\n\n• Support development teams by providing best practices, guidance, and training on effective use of ELM tools.",
-      "descriptionByLocale": {
-        "it": "PROFILO\n• Buona conoscenza della Gestione della Configurazione in ambito ferroviario o in un settore analogo con elevate esigenze di sicurezza.\n• Minimo 5 anni di esperienza nella Gestione della Configurazione utilizzando IBM Engineering Requirements Management DOORS Next Generation (DNG) sul piattaforma Jazz.\n• Esperienza con prodotti software che seguono il modello di sviluppo V-lifecycle.\n• Familiarità con sistemi di controllo delle versioni come Git, SVN o strumenti simili.\n• Buone abilità di comunicazione e capacità di collaborare efficacemente con team diversi.\n• Mindset analitico con capacità di risoluzione dei problemi e attenzione ai dettagli.\n• Alta sensibilità di responsabilità, rispetto dei tempi di consegna e capacità di lavorare indipendentemente quando richiesto.\n• Orientamento di squadra, proattivo e in grado di lavorare armoniosamente in un ambiente collaborativo. TASKS\n• Migliorare e ottimizzare i processi di gestione della configurazione e amministrare la catena di strumenti IBM Engineering Lifecycle Management (ELM) (ERM, ETM, EWM).\n• Configurare e mantenere i progetti ELM, compresi i permessi, le configurazioni e la Configurazione Globale (GC).\n• Progettare e implementare miglioramenti per migliorare la scalabilità, le prestazioni, l'usabilità e supportare l'evoluzione a lungo termine dell'ambiente ELM.\n• Agire come punto di contatto principale per le questioni relative all'ELM, compreso il debug e la coordinazione con il supporto di secondo e terzo livello e il supporto IBM.\n• Supportare i team di sviluppo fornendo le migliori pratiche, la guida e la formazione sull'uso efficace degli strumenti ELM.",
-        "en": "PROFILE\n\n• Strong knowledge of Configuration Management in railway signalling or a comparable safety‑critical industry.\n\n• Minimum of 5 years’ experience in Configuration Management using IBM Engineering Requirements Management DOORS Next Generation (DNG) on the Jazz platform.\n\n• Experience with software-based products following the V‑lifecycle development model.\n\n• Familiarity with version control systems such as Git, SVN, or similar tools.\n\n• Strong communication skills and ability to collaborate effectively with diverse teams.\n\n• Analytical mindset with strong problem‑solving capabilities and attention to detail.\n\n• High sense of responsibility, meeting deadlines reliably and working independently when required.\n\n• Team-oriented, proactive, and able to work harmoniously in a collaborative environment.\n\nTASKS\n\n• Improve and optimize configuration management processes and administer the IBM Engineering Lifecycle Management (ELM) toolchain (ERM, ETM, EWM).\n\n• Configure and maintain ELM projects, including permissions, configurations, and Global Configuration (GC).\n\n• Design and implement improvements to enhance scalability, performance, usability, and support the long-term evolution of the ELM environment.\n\n• Act as the primary point of contact for ELM-related issues, including troubleshooting and coordination with 2nd/3rd level support and IBM support.\n\n• Support development teams by providing best practices, guidance, and training on effective use of ELM tools.",
-        "de": "PROFIL\n• Starkes Wissen über Konfigurationsmanagement in der Eisenbahn oder einem vergleichbaren sicherheitskritischen Bereich.\n• Mindestens 5 Jahre Erfahrung im Konfigurationsmanagement mit IBM Engineering Requirements Management DOORS Next Generation (DNG) auf der Jazz-Plattform.\n• Erfahrung mit softwarebasierten Produkten, die dem V-Lebenszyklus-Entwicklungsmodell folgen.\n• Vertrautheit mit Versionskontrollsystemen wie Git, SVN oder ähnlichen Tools.\n• Starke Kommunikationsfähigkeiten und die Fähigkeit, effektiv mit verschiedenen Teams zusammenzuarbeiten.\n• Analytischer Ansatz mit starken Problemlösungsfähigkeiten und Aufmerksamkeit auf Details.\n• Hohe Verantwortungsbereitschaft, Termine pünktlich einhalten und unabhängig arbeiten, wenn erforderlich.\n• Teamorientiert, proaktiv und in der Lage, harmonisch in einem kollaborativen Umfeld zu arbeiten. TASKS\n• Verbessern und optimieren Sie die Konfigurationsmanagementprozesse und verwalten Sie die IBM-Engineering-Lifecycle-Management-(ELM)-Toolkette (ERM, ETM, EWM).\n• Konfigurieren und pflegen Sie ELM-Projekte, einschließlich Berechtigungen, Konfigurationen und Global Configuration (GC).\n• Entwickeln und implementieren Sie Verbesserungen, um Skalierbarkeit, Leistung, Benutzerfreundlichkeit und die langfristige Evolution des ELM-Umfelds zu unterstützen.\n• Handeln Sie als primärer Ansprechpartner für ELM-bezogene Probleme, einschließlich Fehlersuche und Koordination mit 2. und 3. Level-Support und IBM-Support.\n• Unterstützen Sie Entwicklerteams, indem Sie beste Praktiken, Leitfäden und Schulungen zur effektiven Verwendung von ELM-Tools bereitstellen.",
-        "fr": "PROFIL\n• Bonnes connaissances en gestion de la configuration dans le domaine ferroviaire ou dans un secteur similaire à haut risque.\n• Au moins 5 ans d'expérience en gestion de la configuration en utilisant IBM Engineering Requirements Management DOORS Next Generation (DNG) sur la plateforme Jazz.\n• Expérience avec des produits logiciels suivant le modèle de développement V-lifecycle.\n• Familiarité avec les systèmes de contrôle de version tels que Git, SVN ou outils similaires.\n• Bonnes compétences en communication et capacité à collaborer efficacement avec des équipes diverses.\n• Approche analytique avec des capacités de résolution de problèmes et attention aux détails.\n• Haute sensibilité à la responsabilité, respect des délais et capacité à travailler de manière indépendante lorsqu'il est nécessaire.\n• Orienté équipe, proactif et capable de travailler harmonieusement dans un environnement collaboratif. TÂCHES\n• Améliorer et optimiser les processus de gestion de la configuration et gérer la chaîne d'outils IBM Engineering Lifecycle Management (ELM) (ERM, ETM, EWM).\n• Configurer et maintenir les projets ELM, y compris les autorisations, les configurations et la configuration globale (GC).\n• Concevoir et mettre en œuvre des améliorations pour améliorer la scalabilité, les performances, l'usabilité et soutenir l'évolution à long terme de l'environnement ELM.\n• Agir comme point de contact principal pour les problèmes liés à ELM, y compris la débogage et la coordination avec le support de niveau 2 et 3 et le support IBM.\n• Soutenir les équipes de développement en fournissant les meilleures pratiques, les guides et les formations sur l'utilisation efficace des outils ELM."
-      },
-      "location": "Wallisellen",
-      "canton": "ZH",
-      "url": "https://careers.stadlerrail.com/job/Wallisellen-DOORS-Configuration-Engineer-ZH-Z-8304/1349624755/",
-      "source": "Stadler Rail Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-07-29T22:56:23.899Z",
-      "addressLocality": "Wallisellen",
-      "postalCode": "8304",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Ingegneria",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Rail vehicle manufacturing",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-19",
-      "applyUrl": "https://careers.stadlerrail.com/job/Wallisellen-DOORS-Configuration-Engineer-ZH-Z-8304/1349624755/",
-      "requirements": [],
-      "requirementsByLocale": {
-        "it": [
-          "Esperienza con prodotti software che seguono il modello di sviluppo V-lifecycle",
-          "Familiarità con sistemi di controllo delle versioni come Git, SVN o strumenti simili",
-          "Buone abilità di comunicazione e capacità di collaborare efficacemente con team diversi",
-          "Mindset analitico con capacità di risoluzione dei problemi e attenzione ai dettagli",
-          "Orientamento di squadra, proattivo e in grado di lavorare armoniosamente in un ambiente collaborativo"
-        ],
-        "de": [
-          "Kenntnisse über Konfigurationsmanagement in der Eisenbahn oder einem vergleichbaren sicherheitskritischen Bereich",
-          "Erfahrung mit softwarebasierten Produkten, die dem V-Lebenszyklus-Entwicklungsmodell folgen",
-          "Vertrautheit mit Versionskontrollsystemen wie Git, SVN oder ähnlichen Tools",
-          "Starke Kommunikationsfähigkeiten und die Fähigkeit, effektiv mit verschiedenen Teams zusammenzuarbeiten",
-          "Analytischer Ansatz mit starken Problemlösungsfähigkeiten und Aufmerksamkeit auf Details",
-          "Hohe Verantwortungsbereitschaft, Termine pünktlich einhalten und unabhängig arbeiten, wenn erforderlich",
-          "Teamorientiert, proaktiv und in der Lage, harmonisch in einem kollaborativen Umfeld zu arbeiten"
-        ],
-        "fr": [
-          "Connaissances en gestion de la configuration dans le domaine ferroviaire ou dans un secteur similaire à haut risque",
-          "Expérience avec des produits logiciels suivant le modèle de développement V-lifecycle",
-          "Familiarité avec les systèmes de contrôle de version tels que Git, SVN ou outils similaires",
-          "Bonnes compétences en communication et capacité à collaborer efficacement avec des équipes diverses",
-          "Approche analytique avec des capacités de résolution de problèmes et attention aux détails",
-          "Orienté équipe, proactif et capable de travailler harmonieusement dans un environnement collaboratif"
-        ]
-      },
-      "previousSlugs": [
-        "doors-configuration-engineer-stadler-rail-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "doors-configuration-engineer-stadler-rail-ch"
-        ]
-      },
-      "firstSeenAt": "2026-06-10T07:53:14.059Z",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
           "unitText": "YEAR"
         }
       }

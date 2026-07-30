@@ -1,6 +1,6 @@
 {
   "crawlerKey": "viva-luzern",
-  "assembledAt": "2026-07-29T22:05:23.295Z",
+  "assembledAt": "2026-07-30T11:05:08.105Z",
   "jobs": [
     {
       "id": "viva-luzern-5b65d7a19c0c",
@@ -82,97 +82,6 @@
         ]
       },
       "firstSeenAt": "2026-05-19T18:25:39.380Z",
-      "salaryMin": 69500,
-      "salaryMax": 106000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 69500,
-          "maxValue": 106000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "viva-luzern-b6a96be3e56c",
-      "slug": "addetto-a-alla-ristorazione-viva-luzern-luzern",
-      "slugByLocale": {
-        "it": "addetto-a-alla-ristorazione-viva-luzern-luzern",
-        "en": "restaurant-staff-viva-luzern-luzern",
-        "de": "mitarbeiter-in-restauration-viva-luzern-luzern",
-        "fr": "employe-e-de-restauration-viva-luzern-luzern"
-      },
-      "company": "Viva Luzern",
-      "companyKey": "viva-luzern",
-      "companyDomain": "viva-luzern.ch",
-      "title": "Mitarbeiter/in Restauration",
-      "titleByLocale": {
-        "it": "Addetto/a alla ristorazione",
-        "en": "Restaurant Staff",
-        "de": "Mitarbeiter/in Restauration",
-        "fr": "Employé(e) de restauration"
-      },
-      "description": "Aufgaben:\n• Einen bedürfnisorientierten, professionellen Service für die Bewohnenden bei allen Mahlzeiten\n\n• Service Vor- und Nachbereitungsarbeiten\n\n• Mitarbeit bei besonderen Anlässen (z. B. Bankette und Feierlichkeiten)\n\n• Reinigungsarbeiten im Bereich Restaurant unter Einhaltung der Hygienestandards\n\nAnforderungen:\n• Ausbildung als Restaurationsfachperson EFZ, Restaurantangestellte/r EBA oder langjährige Berufserfahrung\n\n• Selbständige Arbeitsweise und die Fähigkeit den Überblick zu behalten\n\n• Ausgeprägte Dienstleistungsorientierung und Freude im Umgang mit älteren Menschen, Gästen und Mitarbeitenden\n\n• Gute mündliche Deutschkenntnisse\n\n• Bereitschaft, Dienste mit Zimmerstunde zu übernehmen, aber dafür um spätestens 19.30 Uhr Feierabend\n\nWir bieten:\n• Grosszügige Beteiligung an externen Aus- und Weiterbildungen\n\n• Umfangreiches internes Weiterbildungsangebot\n\n• Individuelle Beratung bei der Laufbahnplanung",
-      "descriptionByLocale": {
-        "it": "Job Description Roles - Provide professional and resident-oriented meal service - Pre-service and post-service preparation and cleaning - Collaborate in special events (e.g., banquets and celebrations) - Clean restaurant areas while maintaining hygiene standards\n• Requirements - Training as a restaurant activities specialist EFZ, restaurant assistant EBA, or extensive industry experience - Independent work and ability to keep calm under pressure - Strong service orientation and enjoyment working with seniors, guests, and colleagues - Good German language skills - Availability to cover shifts with an end time no later than 19:30 What We Offer - Generous participation in external training courses - Wide range of internal training opportunities - Individual career planning advice",
-        "en": "Job Description Duties - Provide professional and resident-oriented meal service - Prepare and clean before and after service - Collaborate on special events (e.g., banquets and celebrations) - Clean restaurant areas while maintaining hygiene standards\n• Requirements - Training as a restaurant activities specialist EFZ, restaurant assistant EBA, or extensive industry experience - Ability to work independently and maintain composure - Strong service orientation and enjoyment working with seniors, guests, and colleagues - Good German language skills - Availability to cover shifts with an end time no later than 19:30 What We Offer - Generous participation in external training courses - Wide range of internal training opportunities - Individual career planning advice",
-        "de": "Aufgaben:\n• Einen bedürfnisorientierten, professionellen Service für die Bewohnenden bei allen Mahlzeiten\n\n• Service Vor- und Nachbereitungsarbeiten\n\n• Mitarbeit bei besonderen Anlässen (z. B. Bankette und Feierlichkeiten)\n\n• Reinigungsarbeiten im Bereich Restaurant unter Einhaltung der Hygienestandards\n\nAnforderungen:\n• Ausbildung als Restaurationsfachperson EFZ, Restaurantangestellte/r EBA oder langjährige Berufserfahrung\n\n• Selbständige Arbeitsweise und die Fähigkeit den Überblick zu behalten\n\n• Ausgeprägte Dienstleistungsorientierung und Freude im Umgang mit älteren Menschen, Gästen und Mitarbeitenden\n\n• Gute mündliche Deutschkenntnisse\n\n• Bereitschaft, Dienste mit Zimmerstunde zu übernehmen, aber dafür um spätestens 19.30 Uhr Feierabend\n\nWir bieten:\n• Grosszügige Beteiligung an externen Aus- und Weiterbildungen\n\n• Umfangreiches internes Weiterbildungsangebot\n\n• Individuelle Beratung bei der Laufbahnplanung",
-        "fr": "Postes - Offrir un service professionnel et adapté aux besoins des résidents lors des repas - Préparation et nettoyage avant et après le service - Collaboration aux événements spéciaux (par exemple, banquets et célébrations) - Nettoyage des zones du restaurant en respectant les normes d'hygiène\n• Exigences - Formation de spécialiste en activités de restauration EFZ, assistant en restauration EBA ou longue expérience dans le domaine - Travail autonome et capacité à maintenir le contrôle de la situation - Fort sens du service et plaisir de travailler avec les aînés, les invités et les collègues - Bonne maîtrise du allemand - Disponibilité pour couvrir des quarts de travail avec une fin de service maximale à 19h30 Ce que nous offrons - Participation généreuse à des formations externes - Large offre de formation interne - Conseils individuels pour la planification de carrière"
-      },
-      "location": "Luzern",
-      "canton": "LU",
-      "url": "https://jobs.vivaluzern.ch/offene-stellen/mitarbeiter-in-restauration/1629039c-e4a1-41ff-951a-15a7df775952",
-      "source": "Viva Luzern Dedicated Parser (Prospective medium 1002590)",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:05:18.492Z",
-      "addressLocality": "Luzern",
-      "addressRegion": "LU",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "6006",
-      "streetAddress": "Interessiert?",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-11",
-      "applyUrl": "https://jobs.vivaluzern.ch/offene-stellen/mitarbeiter-in-restauration/1629039c-e4a1-41ff-951a-15a7df775952",
-      "requirements": [],
-      "requirementsByLocale": {
-        "it": [
-          "Lavoro autonomo e capacità di mantenere il controllo della situazione",
-          "Forte orientamento al servizio e piacere nel lavorare con gli anziani, gli ospiti e i colleghi",
-          "Buone capacità linguistiche tedesche",
-          "Disponibilità a coprire turni con orario di fine servizio non oltre le 19:30"
-        ],
-        "en": [
-          "Training as a restaurant activities specialist EFZ, restaurant assistant EBA, or extensive industry experience",
-          "Independent work and ability to maintain control of the situation",
-          "Strong service orientation and enjoyment of working with the elderly, guests, and colleagues",
-          "Good German language skills",
-          "Availability to cover shifts with an end time no later than 19:30"
-        ],
-        "fr": [
-          "Travail autonome et capacité à maintenir le contrôle de la situation",
-          "Fort sens du service et plaisir de travailler avec les personnes âgées, les invités et les collègues",
-          "Bonnes compétences linguistiques en allemand",
-          "Disponibilité pour couvrir des quarts de travail avec une heure de fin de service non dépassant 19h30"
-        ]
-      },
-      "previousSlugs": [
-        "mitarbeiter-in-restauration-viva-luzern-luzern"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "mitarbeiter-in-restauration-viva-luzern-luzern"
-        ]
-      },
-      "firstSeenAt": "2026-05-19T18:25:39.351Z",
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -421,84 +330,6 @@
         ]
       },
       "firstSeenAt": "2026-06-16T14:51:25.698Z",
-      "salaryMin": 69500,
-      "salaryMax": 106000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 69500,
-          "maxValue": 106000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "viva-luzern-0ec9d885e43c",
-      "slug": "rai-experte-in-o-fachspezialist-in-interrai-ltcf-viva-luzern",
-      "slugByLocale": {
-        "it": "rai-experte-in-o-fachspezialist-in-interrai-ltcf-viva-luzern",
-        "en": "rai-expert-or-specialist-in-interrai-ltcf-viva-luzern-luzern",
-        "de": "rai-experte-in-oder-fachspezialist-in-interrai-ltcf-viva-luzern-luzern",
-        "fr": "expert-rai-ou-specialiste-en-interrai-ltcf-viva-luzern-luzern"
-      },
-      "company": "Viva Luzern",
-      "companyKey": "viva-luzern",
-      "companyDomain": "viva-luzern.ch",
-      "title": "RAI-Experte/-in oder Fachspezialist/-in interRAI LTCF",
-      "titleByLocale": {
-        "it": "RAI Esperto o Specialista interRAI LTCF",
-        "en": "RAI expert or specialist in interRAI LTCF",
-        "de": "RAI-Experte/-in oder Fachspezialist/-in interRAI LTCF",
-        "fr": "Expert RAI ou spécialiste en interRAI LTCF"
-      },
-      "description": "Aufgaben:\n• Du wirkst aktiv mit bei der Umsetzung der interRAI LTCF-Pflegebedarfsermittlung – inklusive Schulung, Anleitung, Überwachung und Controlling.\n\n• Du arbeitest im Team der Fachstelle RAI. Gemeinsam seid ihr zuständig für die Pflegebedarfsermittlung bei Viva Luzern.\n\n• Du erkennst Schulungsbedarf bei Mitarbeitenden und leitest gezielte Massnahmen zur Kompetenzentwicklung ein.\n\n• Du coachst die RAI-Supervisorinnen und -Supervisoren auf den Wohnbereichen und stärkst ihre fachliche Sicherheit.\n\n• Du übernimmst interne Controlling-Aufgaben im Zusammenhang mit interRAI LTCF und stellst die Qualität der Daten sicher.\n\n• Du kodierst interRAI LTCF-Assessments kompetent und zuverlässig.\n\n• Du bist Ansprechperson für Mitarbeitende, Bewohnende, Angehörige und Krankenversicherer bei Fragen rund um interRAI LTCF.\n\nAnforderungen:\n• Abgeschlossene Ausbildung als RAI-Expertin / RAI-Experte interRAI LTCF\n\n• Fundierte Erfahrung mit dem interRAI LTCF-Einstufungssystem sowie eine sehr hohe Kompetenz in der Kodierung von RAI-Assessments\n\n• Sehr gute Kenntnisse in MS Office, RAIsoft und Pflegedokumentationssysteme sind zwingend erforderlich\n\n• Ausgeprägte Sozialkompetenz sowie die Fähigkeit, Mitarbeitende zu coachen, motivieren und fachlich zu begleiten\n\n• Freude an der interdisziplinären Zusammenarbeit und an der Kooperation mit verschiedenen Pflegeteams\n\n• Idealerweise verfügst du über eine Ausbildung in der Erwachsenenbildung oder über praktische Erfahrung in der Planung und Durchführung von Schulungen für Gruppen\n\nWir bieten:\n• Grosszügige Beteiligung an externen Aus- und Weiterbildungen\n\n• Umfangreiches internes Weiterbildungsangebot\n\n• Individuelle Beratung bei der Laufbahnplanung",
-      "descriptionByLocale": {
-        "it": "Descrizione - Sei attivamente coinvolto nell'attuazione della valutazione delle esigenze di manutenzione di interRAI LTCF – tra cui formazione, guida, monitoraggio e controllo. - No. Lavori nel team dell'ufficio specializzato RAI. Insieme siete responsabili della valutazione delle esigenze di cura a Viva Lucerne. - No. Riconosce la necessità di formazione tra i dipendenti e avvia misure mirate per lo sviluppo delle competenze. - No. Lei allena i supervisori della RAI nelle zone di vita e rafforza la loro sicurezza professionale. - No. L'utente assume compiti di controllo interno in relazione all'interRAI LTCF e garantisce la qualità dei dati. - No. Voi codificate le valutazioni interRAI LTCF in modo competente e affidabile. - No. Sei la persona di contatto per dipendenti, residenti, parenti e assicuratori di salute con domande su interRAI LTCF.\n• Requisiti - Formazione completa come esperto RAI / esperto RAI interRAI LTCF - Esperienza approfondita con il sistema di classificazione interRAI LTCF e un livello molto elevato di competenza nella codifica delle valutazioni RAI - Conoscenza molto buona in MS Office, RAIsoft e sistemi di documentazione di allattamento è obbligatorio - Forte competenza sociale e la capacità di coach, motivare e accompagnare i dipendenti - Piacere nella cooperazione interdisciplinare e",
-        "en": "Descrizione - You are actively involved in the implementation of interRAI LTCF maintenance needs assessment – including training, guidance, monitoring and controlling. - You work in the team of the specialist office RAI. Together you are responsible for the assessment of care needs at Viva Lucerne. - You recognize the need for training among employees and initiate targeted measures for skills development. - You coach the RAI supervisors in the living areas and strengthen their professional safety. - You take on internal controlling tasks in connection with interRAI LTCF and ensure the quality of the data. - You code interRAI LTCF assessments competently and reliably. - You are the contact person for employees, residents, relatives and health insurers with questions about interRAI LTCF.\n• Requirements - Completed training as a RAI expert / RAI expert interRAI LTCF - In-depth experience with the interRAI LTCF classification system as well as a very high level of competence in the coding of RAI assessments - Very good knowledge in MS Office, RAIsoft and nursing documentation systems is mandatory - Strong social competence as well as the ability to coach, motivate and accompany employees - Pleasure in the interdisciplinary cooperation and cooperation with various nursing teams - Ideally, you have training in adult education or practical experience in the planning and implementation of training for groups\n• Cosa offriamo - Generous participation in external training and further education - Extensive internal advice in career planning",
-        "de": "Aufgaben:\n• Du wirkst aktiv mit bei der Umsetzung der interRAI LTCF-Pflegebedarfsermittlung – inklusive Schulung, Anleitung, Überwachung und Controlling.\n\n• Du arbeitest im Team der Fachstelle RAI. Gemeinsam seid ihr zuständig für die Pflegebedarfsermittlung bei Viva Luzern.\n\n• Du erkennst Schulungsbedarf bei Mitarbeitenden und leitest gezielte Massnahmen zur Kompetenzentwicklung ein.\n\n• Du coachst die RAI-Supervisorinnen und -Supervisoren auf den Wohnbereichen und stärkst ihre fachliche Sicherheit.\n\n• Du übernimmst interne Controlling-Aufgaben im Zusammenhang mit interRAI LTCF und stellst die Qualität der Daten sicher.\n\n• Du kodierst interRAI LTCF-Assessments kompetent und zuverlässig.\n\n• Du bist Ansprechperson für Mitarbeitende, Bewohnende, Angehörige und Krankenversicherer bei Fragen rund um interRAI LTCF.\n\nAnforderungen:\n• Abgeschlossene Ausbildung als RAI-Expertin / RAI-Experte interRAI LTCF\n\n• Fundierte Erfahrung mit dem interRAI LTCF-Einstufungssystem sowie eine sehr hohe Kompetenz in der Kodierung von RAI-Assessments\n\n• Sehr gute Kenntnisse in MS Office, RAIsoft und Pflegedokumentationssysteme sind zwingend erforderlich\n\n• Ausgeprägte Sozialkompetenz sowie die Fähigkeit, Mitarbeitende zu coachen, motivieren und fachlich zu begleiten\n\n• Freude an der interdisziplinären Zusammenarbeit und an der Kooperation mit verschiedenen Pflegeteams\n\n• Idealerweise verfügst du über eine Ausbildung in der Erwachsenenbildung oder über praktische Erfahrung in der Planung und Durchführung von Schulungen für Gruppen\n\nWir bieten:\n• Grosszügige Beteiligung an externen Aus- und Weiterbildungen\n\n• Umfangreiches internes Weiterbildungsangebot\n\n• Individuelle Beratung bei der Laufbahnplanung",
-        "fr": "Descrizione - Vous participez activement à la mise en œuvre de l'évaluation des besoins de maintenance interRAI LTCF – y compris la formation, l'orientation, le suivi et le contrôle. - Oui. Vous travaillez dans l'équipe du bureau spécialisé RAI. Ensemble, vous êtes responsable de l'évaluation des besoins de soins chez Viva Lucerne. - Oui. Vous reconnaissez le besoin de formation des employés et vous lancez des mesures ciblées pour le perfectionnement des compétences. - Oui. Vous entraînez les superviseurs RAI dans les zones de vie et renforcez leur sécurité professionnelle. - Oui. Vous assumez des tâches de contrôle interne en lien avec interRAI LTCF et assurez la qualité des données. - Oui. Vous codez les évaluations interRAI LTCF avec compétence et fiabilité. - Oui. Vous êtes la personne-ressource pour les employés, les résidents, les proches et les assureurs-maladie avec des questions sur interRAI LTCF.\n• Exigences - Formation complète en tant qu'expert RAI / expert RAI interRAI LTCF - Expérience approfondie avec le système de classification interRAI LTCF ainsi qu'un très haut niveau de compétence dans le codage des évaluations RAI - Très bonne connaissance en MS Office, RAIsoft et les systèmes de documentation en soins infirmiers est obligatoire - Forte compétence sociale ainsi que la capacité de coacher, de motiver et d'accompagner les employés - Plaisir dans la coopération interdisciplinaire et la coopération avec diverses équipes de soins infirmiers - Idéalement, vous avez une formation en éducation des adultes ou une expérience pratique dans la planification et la mise en oeuvre de la formation pour les groupes\n• Cosa offriamo - Participation généreuse à la formation externe et à la formation continue - Conseils internes approfondis en planification de carrière"
-      },
-      "needsRetranslation": false,
-      "location": "Luzern",
-      "canton": "LU",
-      "url": "https://jobs.vivaluzern.ch/offene-stellen/rai-experte-in-oder-fachspezialist-in-interrai-ltcf/6bff9ead-12e3-42eb-8c73-d5361c85dd3f",
-      "source": "Viva Luzern Dedicated Parser (Prospective medium 1002590)",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:05:18.487Z",
-      "addressLocality": "Luzern",
-      "addressRegion": "LU",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "6003",
-      "streetAddress": "Interessiert?",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-16",
-      "applyUrl": "https://jobs.vivaluzern.ch/offene-stellen/rai-experte-in-oder-fachspezialist-in-interrai-ltcf/6bff9ead-12e3-42eb-8c73-d5361c85dd3f",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "rai-experte-in-oder-fachspezialist-in-interrai-ltcf-viva-luzern-luzern"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "rai-experte-in-oder-fachspezialist-in-interrai-ltcf-viva-luzern-luzern"
-        ],
-        "en": [
-          "rai-experte-in-oder-fachspezialist-in-interrai-ltcf-viva-luzern-luzern"
-        ],
-        "fr": [
-          "rai-experte-in-oder-fachspezialist-in-interrai-ltcf-viva-luzern-luzern"
-        ]
-      },
-      "firstSeenAt": "2026-06-16T14:51:25.687Z",
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
