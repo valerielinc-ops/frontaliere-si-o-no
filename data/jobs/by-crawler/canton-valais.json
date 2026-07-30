@@ -1,6 +1,6 @@
 {
   "crawlerKey": "canton-valais",
-  "assembledAt": "2026-07-30T11:37:22.148Z",
+  "assembledAt": "2026-07-30T22:25:38.579Z",
   "jobs": [
     {
       "id": "canton-valais-d211d1370c6f",
@@ -33,7 +33,7 @@
       "url": "https://otb.apps.vs.ch/svc/api/joboffersdocument/20183?language=fr",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-30T11:37:18.630Z",
+      "crawledAt": "2026-07-30T22:25:35.464Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -51,11 +51,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "un-e-procureur-e-80-100-canton-valais-ch"
+        "un-e-procureur-e-80-100-canton-valais-ch",
+        "un-procuratore-80-100-canton-du-valais-sion"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "un-e-procureur-e-80-100-canton-valais-ch"
+          "un-e-procureur-e-80-100-canton-valais-ch",
+          "un-procuratore-80-100-canton-du-valais-sion"
         ],
         "en": [
           "un-e-procureur-e-80-100-canton-valais-ch"
@@ -65,6 +67,7 @@
         ]
       },
       "firstSeenAt": "2026-07-16T23:06:29.842Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -109,7 +112,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=113381&publication=2629",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-30T11:37:18.076Z",
+      "crawledAt": "2026-07-30T22:25:34.756Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -127,11 +130,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "un-ou-une-specialiste-en-fiscalite-sap-80-100-duree-determinee-de-5-ans-canton-valais-ch"
+        "un-ou-une-specialiste-en-fiscalite-sap-80-100-duree-determinee-de-5-ans-canton-valais-ch",
+        "uno-o-uno-specialista-fiscale-sap-80-100-durata-fissa-di-5-anni-canton-du-valais-sion"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "un-ou-une-specialiste-en-fiscalite-sap-80-100-duree-determinee-de-5-ans-canton-valais-ch"
+          "un-ou-une-specialiste-en-fiscalite-sap-80-100-duree-determinee-de-5-ans-canton-valais-ch",
+          "uno-o-uno-specialista-fiscale-sap-80-100-durata-fissa-di-5-anni-canton-du-valais-sion"
         ],
         "en": [
           "un-ou-une-specialiste-en-fiscalite-sap-80-100-duree-determinee-de-5-ans-canton-valais-ch"
@@ -185,7 +190,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=112048&publication=2629",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-30T11:37:17.479Z",
+      "crawledAt": "2026-07-30T22:25:33.970Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -211,7 +216,8 @@
         "ein-oder-ein-anwalt-80-canton-du-valais-sion",
         "un-ou-une-juriste-80-canton-valais-ch",
         "legal-advisor-80-canton-du-valais-sion",
-        "jurist-80-canton-du-valais-sion"
+        "jurist-80-canton-du-valais-sion",
+        "uno-o-uno-avvocato-30-canton-du-valais-sion"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -222,7 +228,8 @@
           "ein-oder-ein-anwalt-80-canton-du-valais-sion",
           "un-ou-une-juriste-80-canton-valais-ch",
           "legal-advisor-80-canton-du-valais-sion",
-          "jurist-80-canton-du-valais-sion"
+          "jurist-80-canton-du-valais-sion",
+          "uno-o-uno-avvocato-30-canton-du-valais-sion"
         ],
         "en": [
           "un-ou-une-juriste-30-canton-valais-ch",
@@ -238,6 +245,7 @@
         ]
       },
       "firstSeenAt": "2026-07-16T23:06:28.038Z",
+      "needsRetranslation": true,
       "salaryMin": 18200,
       "salaryMax": 27500,
       "baseSalary": {
@@ -282,7 +290,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=107976&publication=2629",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-30T11:37:16.906Z",
+      "crawledAt": "2026-07-30T22:25:33.258Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -300,11 +308,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "un-agent-ou-une-agente-en-information-documentaire-50-canton-valais-ch"
+        "un-agent-ou-une-agente-en-information-documentaire-50-canton-valais-ch",
+        "un-responsabile-dell-informazione-documentaria-50-canton-du-valais-sion"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "un-agent-ou-une-agente-en-information-documentaire-50-canton-valais-ch"
+          "un-agent-ou-une-agente-en-information-documentaire-50-canton-valais-ch",
+          "un-responsabile-dell-informazione-documentaria-50-canton-du-valais-sion"
         ],
         "en": [
           "un-agent-ou-une-agente-en-information-documentaire-50-canton-valais-ch"
@@ -358,7 +368,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=110385&publication=2629",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-30T11:37:16.317Z",
+      "crawledAt": "2026-07-30T22:25:32.509Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -376,11 +386,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "2-taxateurs-ou-taxatrices-80-100-duree-determinee-de-5-ans-canton-valais-ch"
+        "2-taxateurs-ou-taxatrices-80-100-duree-determinee-de-5-ans-canton-valais-ch",
+        "2-tassatori-80-100-durata-fissa-di-5-anni-canton-du-valais-sion"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "2-taxateurs-ou-taxatrices-80-100-duree-determinee-de-5-ans-canton-valais-ch"
+          "2-taxateurs-ou-taxatrices-80-100-duree-determinee-de-5-ans-canton-valais-ch",
+          "2-tassatori-80-100-durata-fissa-di-5-anni-canton-du-valais-sion"
         ],
         "en": [
           "2-taxateurs-ou-taxatrices-80-100-duree-determinee-de-5-ans-canton-valais-ch"
@@ -434,7 +446,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=107177&publication=2629",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-30T11:37:15.758Z",
+      "crawledAt": "2026-07-30T22:25:31.788Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -452,11 +464,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "un-ou-une-juriste-80-engagement-de-duree-determinee-jusqu-au-31-decembre-2026-canton"
+        "un-ou-une-juriste-80-engagement-de-duree-determinee-jusqu-au-31-decembre-2026-canton",
+        "uno-o-un-avvocato-80-appuntamento-fisso-fino-al-31-dicembre-2026-canton-du-valais-sion"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "un-ou-une-juriste-80-engagement-de-duree-determinee-jusqu-au-31-decembre-2026-canton"
+          "un-ou-une-juriste-80-engagement-de-duree-determinee-jusqu-au-31-decembre-2026-canton",
+          "uno-o-un-avvocato-80-appuntamento-fisso-fino-al-31-dicembre-2026-canton-du-valais-sion"
         ],
         "en": [
           "un-ou-une-juriste-80-engagement-de-duree-determinee-jusqu-au-31-decembre-2026-canton"
@@ -510,7 +524,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=112454&publication=2630",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-30T11:37:15.178Z",
+      "crawledAt": "2026-07-30T22:25:31.064Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -528,11 +542,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "un-ou-une-stagiaire-pour-une-annee-100-canton-valais-ch"
+        "un-ou-une-stagiaire-pour-une-annee-100-canton-valais-ch",
+        "uno-o-uno-stage-per-un-anno-100-canton-du-valais-sion"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "un-ou-une-stagiaire-pour-une-annee-100-canton-valais-ch"
+          "un-ou-une-stagiaire-pour-une-annee-100-canton-valais-ch",
+          "uno-o-uno-stage-per-un-anno-100-canton-du-valais-sion"
         ],
         "en": [
           "un-ou-une-stagiaire-pour-une-annee-100-canton-valais-ch"
@@ -586,7 +602,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=101159&publication=2630",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-30T11:37:14.627Z",
+      "crawledAt": "2026-07-30T22:25:30.396Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -605,12 +621,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "un-adjoint-et-remplacant-ou-une-adjointe-et-remplacante-de-la-cheffe-de-service-80-100",
-        "un-adjoint-et-remplacant-ou-une-adjointe-et-remplacante-de-la-cheffe-de-service-80-100-canton-du-valais-sion"
+        "un-adjoint-et-remplacant-ou-une-adjointe-et-remplacante-de-la-cheffe-de-service-80-100-canton-du-valais-sion",
+        "un-vice-e-supplente-o-un-vice-e-capo-di-reparto-alternativo-80-100-canton-du-valais-sion"
       ],
       "previousSlugsByLocale": {
         "it": [
           "un-adjoint-et-remplacant-ou-une-adjointe-et-remplacante-de-la-cheffe-de-service-80-100",
-          "un-adjoint-et-remplacant-ou-une-adjointe-et-remplacante-de-la-cheffe-de-service-80-100-canton-du-valais-sion"
+          "un-adjoint-et-remplacant-ou-une-adjointe-et-remplacante-de-la-cheffe-de-service-80-100-canton-du-valais-sion",
+          "un-vice-e-supplente-o-un-vice-e-capo-di-reparto-alternativo-80-100-canton-du-valais-sion"
         ],
         "en": [
           "un-adjoint-et-remplacant-ou-une-adjointe-et-remplacante-de-la-cheffe-de-service-80-100"
@@ -664,7 +682,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=111893&publication=2630",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-30T11:37:14.044Z",
+      "crawledAt": "2026-07-30T22:25:29.696Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -682,11 +700,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "un-ingenieur-ou-une-ingenieure-en-ameliorations-structurelles-60-canton-valais-ch"
+        "un-ingenieur-ou-une-ingenieure-en-ameliorations-structurelles-60-canton-valais-ch",
+        "un-ingegnere-dei-miglioramenti-strutturali-60-canton-du-valais-sion"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "un-ingenieur-ou-une-ingenieure-en-ameliorations-structurelles-60-canton-valais-ch"
+          "un-ingenieur-ou-une-ingenieure-en-ameliorations-structurelles-60-canton-valais-ch",
+          "un-ingegnere-dei-miglioramenti-strutturali-60-canton-du-valais-sion"
         ],
         "en": [
           "un-ingenieur-ou-une-ingenieure-en-ameliorations-structurelles-60-canton-valais-ch"
@@ -711,9 +731,9 @@
     },
     {
       "id": "canton-valais-87bc3c1d93ee",
-      "slug": "avvocato-80-canton-du-valais-sion",
+      "slug": "jurist-in-80-canton-du-valais-sion",
       "slugByLocale": {
-        "it": "avvocato-80-canton-du-valais-sion",
+        "it": "jurist-in-80-canton-du-valais-sion",
         "en": "lawyer-80-canton-du-valais-sion",
         "de": "jurist-in-80-canton-valais-ch",
         "fr": "avocat-80-canton-du-valais-sion"
@@ -723,7 +743,7 @@
       "companyDomain": "vs.ch",
       "title": "Jurist/in (80%)",
       "titleByLocale": {
-        "it": "Avvocato (80%)",
+        "it": "Jurist/in (80%)",
         "en": "Lawyer (80%)",
         "de": "Jurist/in (80%)",
         "fr": "Avocat (80 %)"
@@ -740,7 +760,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=101419&publication=2630",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-30T11:37:13.462Z",
+      "crawledAt": "2026-07-30T22:25:28.977Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -763,6 +783,7 @@
         "deployment-planner-100-canton-du-valais-sion",
         "einsatzdisponent-in-100-canton-valais-ch",
         "planificateur-de-deploiement-100-canton-du-valais-sion",
+        "avvocato-80-canton-du-valais-sion",
         "jurist-in-80-canton-du-valais-sion"
       ],
       "previousSlugsByLocale": {
@@ -772,6 +793,7 @@
           "deployment-planner-100-canton-du-valais-sion",
           "einsatzdisponent-in-100-canton-valais-ch",
           "planificateur-de-deploiement-100-canton-du-valais-sion",
+          "avvocato-80-canton-du-valais-sion",
           "jurist-in-80-canton-du-valais-sion"
         ],
         "en": [
@@ -787,6 +809,7 @@
         ]
       },
       "firstSeenAt": "2026-07-23T22:26:39.629Z",
+      "needsRetranslation": true,
       "salaryMin": 48400,
       "salaryMax": 73200,
       "baseSalary": {
@@ -831,7 +854,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=108497&publication=2630",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-30T11:37:12.841Z",
+      "crawledAt": "2026-07-30T22:25:28.245Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -850,11 +873,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "un-ou-une-comptable-60-canton-valais-ch",
-        "un-ou-une-comptable-60-canton-du-valais-sion"
+        "un-ou-une-comptable-60-canton-du-valais-sion",
+        "un-ragioniere-60-canton-du-valais-sion"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "un-ou-une-comptable-60-canton-valais-ch"
+          "un-ou-une-comptable-60-canton-valais-ch",
+          "un-ragioniere-60-canton-du-valais-sion"
         ],
         "en": [
           "un-ou-une-comptable-60-canton-valais-ch"
@@ -867,6 +892,7 @@
         ]
       },
       "firstSeenAt": "2026-07-23T22:26:38.929Z",
+      "needsRetranslation": true,
       "salaryMin": 36300,
       "salaryMax": 54900,
       "baseSalary": {
@@ -879,6 +905,720 @@
           "unitText": "YEAR"
         }
       }
+    },
+    {
+      "id": "canton-valais-a47be7a72ece",
+      "slug": "un-ou-une-secretaire-80-100-canton-valais-ch",
+      "slugByLocale": {
+        "fr": "un-ou-une-secretaire-80-100-canton-valais-ch",
+        "it": "un-ou-une-secretaire-80-100-canton-valais-ch",
+        "en": "un-ou-une-secretaire-80-100-canton-valais-ch",
+        "de": "un-ou-une-secretaire-80-100-canton-valais-ch"
+      },
+      "company": "Canton du Valais",
+      "companyKey": "canton-valais",
+      "companyDomain": "vs.ch",
+      "title": "Un ou une secrétaire (80-100%)",
+      "titleByLocale": {
+        "fr": "Un ou une secrétaire (80-100%)",
+        "it": "Un ou une secrétaire (80-100%)",
+        "en": "Un ou une secrétaire (80-100%)",
+        "de": "Un ou une secrétaire (80-100%)"
+      },
+      "description": "Un ou une secrétaire (80-100%) auprès du team administratif du Service cantonal des contributions, à Sion\n\nVos tâches:\n• Vous tenez à jour le registre des contribuables en collaboration avec les administrations communales Vous collaborez aux tâches liées aux demandes de de remises d’impôts\n• Vous taxez les contribuables domiciliés à l’étranger, propriétaires de résidences en Valais Vous gérez les délais et les sommations pour le dépôt des déclarations fiscales\n• Vous effectuez des travaux de scannage Vous traitez le courrier entrant et sortant\n• Vous participez à l’accueil téléphonique / Call Center Vous participez à divers travaux au sein du service Vous coopérez à diverses autres tâches administratives\n\nVotre profil:\n• Maturité professionnelle économie, diplôme d’une école supérieure de commerce, CFC d’employé de commerce ou formation jugée équivalente Maîtrise des outils informatiques Sens de l'organisation, capacité à travailler de façon indépendante et en équipe Résistance au stress et à l'imprévu Polyvalence et flexibilité Langue maternelle française, avec de bonnes connaissances de l’allemand\n\nEntrée en fonction:\nDe suite ou à convenir\n\nInformations:\nRenseignements sur le poste : Service cantonal des contributions, Mme Véronique Rieder (027 606 00 76) Postulation en ligne souhaitée : www.vs.ch/jobs ou envoi des offres : Service des ressources humaines, Place St-Théodule 15, 1951 Sion Délai de postulation : 14 août 2026 / Numéro de référence : 100644",
+      "descriptionByLocale": {
+        "fr": "Un ou une secrétaire (80-100%) auprès du team administratif du Service cantonal des contributions, à Sion\n\nVos tâches:\n• Vous tenez à jour le registre des contribuables en collaboration avec les administrations communales Vous collaborez aux tâches liées aux demandes de de remises d’impôts\n• Vous taxez les contribuables domiciliés à l’étranger, propriétaires de résidences en Valais Vous gérez les délais et les sommations pour le dépôt des déclarations fiscales\n• Vous effectuez des travaux de scannage Vous traitez le courrier entrant et sortant\n• Vous participez à l’accueil téléphonique / Call Center Vous participez à divers travaux au sein du service Vous coopérez à diverses autres tâches administratives\n\nVotre profil:\n• Maturité professionnelle économie, diplôme d’une école supérieure de commerce, CFC d’employé de commerce ou formation jugée équivalente Maîtrise des outils informatiques Sens de l'organisation, capacité à travailler de façon indépendante et en équipe Résistance au stress et à l'imprévu Polyvalence et flexibilité Langue maternelle française, avec de bonnes connaissances de l’allemand\n\nEntrée en fonction:\nDe suite ou à convenir\n\nInformations:\nRenseignements sur le poste : Service cantonal des contributions, Mme Véronique Rieder (027 606 00 76) Postulation en ligne souhaitée : www.vs.ch/jobs ou envoi des offres : Service des ressources humaines, Place St-Théodule 15, 1951 Sion Délai de postulation : 14 août 2026 / Numéro de référence : 100644",
+        "it": "Un ou une secrétaire (80-100%) auprès du team administratif du Service cantonal des contributions, à Sion\n\nVos tâches:\n• Vous tenez à jour le registre des contribuables en collaboration avec les administrations communales Vous collaborez aux tâches liées aux demandes de de remises d’impôts\n• Vous taxez les contribuables domiciliés à l’étranger, propriétaires de résidences en Valais Vous gérez les délais et les sommations pour le dépôt des déclarations fiscales\n• Vous effectuez des travaux de scannage Vous traitez le courrier entrant et sortant\n• Vous participez à l’accueil téléphonique / Call Center Vous participez à divers travaux au sein du service Vous coopérez à diverses autres tâches administratives\n\nVotre profil:\n• Maturité professionnelle économie, diplôme d’une école supérieure de commerce, CFC d’employé de commerce ou formation jugée équivalente Maîtrise des outils informatiques Sens de l'organisation, capacité à travailler de façon indépendante et en équipe Résistance au stress et à l'imprévu Polyvalence et flexibilité Langue maternelle française, avec de bonnes connaissances de l’allemand\n\nEntrée en fonction:\nDe suite ou à convenir\n\nInformations:\nRenseignements sur le poste : Service cantonal des contributions, Mme Véronique Rieder (027 606 00 76) Postulation en ligne souhaitée : www.vs.ch/jobs ou envoi des offres : Service des ressources humaines, Place St-Théodule 15, 1951 Sion Délai de postulation : 14 août 2026 / Numéro de référence : 100644",
+        "en": "Un ou une secrétaire (80-100%) auprès du team administratif du Service cantonal des contributions, à Sion\n\nVos tâches:\n• Vous tenez à jour le registre des contribuables en collaboration avec les administrations communales Vous collaborez aux tâches liées aux demandes de de remises d’impôts\n• Vous taxez les contribuables domiciliés à l’étranger, propriétaires de résidences en Valais Vous gérez les délais et les sommations pour le dépôt des déclarations fiscales\n• Vous effectuez des travaux de scannage Vous traitez le courrier entrant et sortant\n• Vous participez à l’accueil téléphonique / Call Center Vous participez à divers travaux au sein du service Vous coopérez à diverses autres tâches administratives\n\nVotre profil:\n• Maturité professionnelle économie, diplôme d’une école supérieure de commerce, CFC d’employé de commerce ou formation jugée équivalente Maîtrise des outils informatiques Sens de l'organisation, capacité à travailler de façon indépendante et en équipe Résistance au stress et à l'imprévu Polyvalence et flexibilité Langue maternelle française, avec de bonnes connaissances de l’allemand\n\nEntrée en fonction:\nDe suite ou à convenir\n\nInformations:\nRenseignements sur le poste : Service cantonal des contributions, Mme Véronique Rieder (027 606 00 76) Postulation en ligne souhaitée : www.vs.ch/jobs ou envoi des offres : Service des ressources humaines, Place St-Théodule 15, 1951 Sion Délai de postulation : 14 août 2026 / Numéro de référence : 100644",
+        "de": "Un ou une secrétaire (80-100%) auprès du team administratif du Service cantonal des contributions, à Sion\n\nVos tâches:\n• Vous tenez à jour le registre des contribuables en collaboration avec les administrations communales Vous collaborez aux tâches liées aux demandes de de remises d’impôts\n• Vous taxez les contribuables domiciliés à l’étranger, propriétaires de résidences en Valais Vous gérez les délais et les sommations pour le dépôt des déclarations fiscales\n• Vous effectuez des travaux de scannage Vous traitez le courrier entrant et sortant\n• Vous participez à l’accueil téléphonique / Call Center Vous participez à divers travaux au sein du service Vous coopérez à diverses autres tâches administratives\n\nVotre profil:\n• Maturité professionnelle économie, diplôme d’une école supérieure de commerce, CFC d’employé de commerce ou formation jugée équivalente Maîtrise des outils informatiques Sens de l'organisation, capacité à travailler de façon indépendante et en équipe Résistance au stress et à l'imprévu Polyvalence et flexibilité Langue maternelle française, avec de bonnes connaissances de l’allemand\n\nEntrée en fonction:\nDe suite ou à convenir\n\nInformations:\nRenseignements sur le poste : Service cantonal des contributions, Mme Véronique Rieder (027 606 00 76) Postulation en ligne souhaitée : www.vs.ch/jobs ou envoi des offres : Service des ressources humaines, Place St-Théodule 15, 1951 Sion Délai de postulation : 14 août 2026 / Numéro de référence : 100644"
+      },
+      "location": "Sion",
+      "canton": "VS",
+      "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=100644&publication=2631",
+      "source": "Canton du Valais Dedicated Parser",
+      "sourceLang": "fr",
+      "crawledAt": "2026-07-30T22:25:27.536Z",
+      "addressLocality": "Sion",
+      "addressRegion": "VS",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1950",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Administration publique / Service public",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-30",
+      "applyUrl": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=100644&publication=2631",
+      "requirements": [],
+      "requirementsByLocale": {
+        "fr": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 60500,
+          "maxValue": 91500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-07-30T22:25:27.536Z"
+    },
+    {
+      "id": "canton-valais-fa03d6746f90",
+      "slug": "un-ingenieur-ou-une-ingenieure-en-informatique-80-100-canton-valais-ch",
+      "slugByLocale": {
+        "fr": "un-ingenieur-ou-une-ingenieure-en-informatique-80-100-canton-valais-ch",
+        "it": "un-ingenieur-ou-une-ingenieure-en-informatique-80-100-canton-valais-ch",
+        "en": "un-ingenieur-ou-une-ingenieure-en-informatique-80-100-canton-valais-ch",
+        "de": "un-ingenieur-ou-une-ingenieure-en-informatique-80-100-canton-valais-ch"
+      },
+      "company": "Canton du Valais",
+      "companyKey": "canton-valais",
+      "companyDomain": "vs.ch",
+      "title": "Un ingénieur ou une ingénieure en informatique (80-100%)",
+      "titleByLocale": {
+        "fr": "Un ingénieur ou une ingénieure en informatique (80-100%)",
+        "it": "Un ingénieur ou une ingénieure en informatique (80-100%)",
+        "en": "Un ingénieur ou une ingénieure en informatique (80-100%)",
+        "de": "Un ingénieur ou une ingénieure en informatique (80-100%)"
+      },
+      "description": "Un ingénieur ou une ingénieure en informatique (80-100%) auprès de la section informatique de la Police cantonale, à Sion La section informatique de la Police cantonale est un acteur clé de la transformation des solutions informatiques du corps de police. Comme membre de la section, vous jouerez un rôle clé dans la maintenance et l'amélioration du parc informatique, contribuant au bon fonctionnement de nos services et à la sécurité de la population valaisanne.\n\nVos tâches:\n• Vous participez à l'analyse des besoins et à leur modélisation selon les techniques standards de l'entreprise Vous concevez des solutions informatiques fiables et pérennes dans un soucis d'optimisation et de qualité Vous gérez des projets de mise en œuvre et de suivi d’applications clefs de la Police cantonale Vous gérez également des projets d’intégration de solutions mise à disposition par l’organisme Technique et Informatique Policières Suisse (TIP) Vous assurez la documentation et la maintenance des développements réalisés et des solutions déployées Vous appliquez et suivez les normes et standards de développement et d’intégration de l’entreprise Vous aidez à l’estimation des efforts de développement et d’intégration Vous assurez le service de piquet et le service support au profit de la Police cantonale\n\nVotre profil:\n• Formation universitaire ou HES en informatique niveau Bachelor ou équivalent Plusieurs années de pratique dans la gestion, le développement et l’intégration de systèmes Une expérience professionnelle avérée dans le domaine des plateformes LowCode serait un atout Expérience éprouvée dans la gestion de projets de développement et d’intégration\n• Solides compétences en gestion multitâche et réel enthousiasme pour évoluer dans un environnement aux domaines d'activité variés Aisance dans la communication Adaptation au service de piquet et à des horaires de travail flexibles inhérents à la fonction Langue maternelle française ou allemande, avec de très bonnes connaissances de la seconde langue officielle\n\nEntrée en fonction:\nDe suite ou à convenir\n\nInformations:\nRenseignements sur le poste : Police cantonale, M. Josy Penon, Chef de la section informatique (027 606 59 46) Postulation en ligne souhaitée : www.vs.ch/jobs ou envoi des offres avec extraits du casier judiciaire et du registre des poursuites : Service des ressources humaines, Place St-Théodule 15, 1951 Sion Délai de postulation : 14 août 2026 / Numéro de référence : 102464",
+      "descriptionByLocale": {
+        "fr": "Un ingénieur ou une ingénieure en informatique (80-100%) auprès de la section informatique de la Police cantonale, à Sion La section informatique de la Police cantonale est un acteur clé de la transformation des solutions informatiques du corps de police. Comme membre de la section, vous jouerez un rôle clé dans la maintenance et l'amélioration du parc informatique, contribuant au bon fonctionnement de nos services et à la sécurité de la population valaisanne.\n\nVos tâches:\n• Vous participez à l'analyse des besoins et à leur modélisation selon les techniques standards de l'entreprise Vous concevez des solutions informatiques fiables et pérennes dans un soucis d'optimisation et de qualité Vous gérez des projets de mise en œuvre et de suivi d’applications clefs de la Police cantonale Vous gérez également des projets d’intégration de solutions mise à disposition par l’organisme Technique et Informatique Policières Suisse (TIP) Vous assurez la documentation et la maintenance des développements réalisés et des solutions déployées Vous appliquez et suivez les normes et standards de développement et d’intégration de l’entreprise Vous aidez à l’estimation des efforts de développement et d’intégration Vous assurez le service de piquet et le service support au profit de la Police cantonale\n\nVotre profil:\n• Formation universitaire ou HES en informatique niveau Bachelor ou équivalent Plusieurs années de pratique dans la gestion, le développement et l’intégration de systèmes Une expérience professionnelle avérée dans le domaine des plateformes LowCode serait un atout Expérience éprouvée dans la gestion de projets de développement et d’intégration\n• Solides compétences en gestion multitâche et réel enthousiasme pour évoluer dans un environnement aux domaines d'activité variés Aisance dans la communication Adaptation au service de piquet et à des horaires de travail flexibles inhérents à la fonction Langue maternelle française ou allemande, avec de très bonnes connaissances de la seconde langue officielle\n\nEntrée en fonction:\nDe suite ou à convenir\n\nInformations:\nRenseignements sur le poste : Police cantonale, M. Josy Penon, Chef de la section informatique (027 606 59 46) Postulation en ligne souhaitée : www.vs.ch/jobs ou envoi des offres avec extraits du casier judiciaire et du registre des poursuites : Service des ressources humaines, Place St-Théodule 15, 1951 Sion Délai de postulation : 14 août 2026 / Numéro de référence : 102464",
+        "it": "Un ingénieur ou une ingénieure en informatique (80-100%) auprès de la section informatique de la Police cantonale, à Sion La section informatique de la Police cantonale est un acteur clé de la transformation des solutions informatiques du corps de police. Comme membre de la section, vous jouerez un rôle clé dans la maintenance et l'amélioration du parc informatique, contribuant au bon fonctionnement de nos services et à la sécurité de la population valaisanne.\n\nVos tâches:\n• Vous participez à l'analyse des besoins et à leur modélisation selon les techniques standards de l'entreprise Vous concevez des solutions informatiques fiables et pérennes dans un soucis d'optimisation et de qualité Vous gérez des projets de mise en œuvre et de suivi d’applications clefs de la Police cantonale Vous gérez également des projets d’intégration de solutions mise à disposition par l’organisme Technique et Informatique Policières Suisse (TIP) Vous assurez la documentation et la maintenance des développements réalisés et des solutions déployées Vous appliquez et suivez les normes et standards de développement et d’intégration de l’entreprise Vous aidez à l’estimation des efforts de développement et d’intégration Vous assurez le service de piquet et le service support au profit de la Police cantonale\n\nVotre profil:\n• Formation universitaire ou HES en informatique niveau Bachelor ou équivalent Plusieurs années de pratique dans la gestion, le développement et l’intégration de systèmes Une expérience professionnelle avérée dans le domaine des plateformes LowCode serait un atout Expérience éprouvée dans la gestion de projets de développement et d’intégration\n• Solides compétences en gestion multitâche et réel enthousiasme pour évoluer dans un environnement aux domaines d'activité variés Aisance dans la communication Adaptation au service de piquet et à des horaires de travail flexibles inhérents à la fonction Langue maternelle française ou allemande, avec de très bonnes connaissances de la seconde langue officielle\n\nEntrée en fonction:\nDe suite ou à convenir\n\nInformations:\nRenseignements sur le poste : Police cantonale, M. Josy Penon, Chef de la section informatique (027 606 59 46) Postulation en ligne souhaitée : www.vs.ch/jobs ou envoi des offres avec extraits du casier judiciaire et du registre des poursuites : Service des ressources humaines, Place St-Théodule 15, 1951 Sion Délai de postulation : 14 août 2026 / Numéro de référence : 102464",
+        "en": "Un ingénieur ou une ingénieure en informatique (80-100%) auprès de la section informatique de la Police cantonale, à Sion La section informatique de la Police cantonale est un acteur clé de la transformation des solutions informatiques du corps de police. Comme membre de la section, vous jouerez un rôle clé dans la maintenance et l'amélioration du parc informatique, contribuant au bon fonctionnement de nos services et à la sécurité de la population valaisanne.\n\nVos tâches:\n• Vous participez à l'analyse des besoins et à leur modélisation selon les techniques standards de l'entreprise Vous concevez des solutions informatiques fiables et pérennes dans un soucis d'optimisation et de qualité Vous gérez des projets de mise en œuvre et de suivi d’applications clefs de la Police cantonale Vous gérez également des projets d’intégration de solutions mise à disposition par l’organisme Technique et Informatique Policières Suisse (TIP) Vous assurez la documentation et la maintenance des développements réalisés et des solutions déployées Vous appliquez et suivez les normes et standards de développement et d’intégration de l’entreprise Vous aidez à l’estimation des efforts de développement et d’intégration Vous assurez le service de piquet et le service support au profit de la Police cantonale\n\nVotre profil:\n• Formation universitaire ou HES en informatique niveau Bachelor ou équivalent Plusieurs années de pratique dans la gestion, le développement et l’intégration de systèmes Une expérience professionnelle avérée dans le domaine des plateformes LowCode serait un atout Expérience éprouvée dans la gestion de projets de développement et d’intégration\n• Solides compétences en gestion multitâche et réel enthousiasme pour évoluer dans un environnement aux domaines d'activité variés Aisance dans la communication Adaptation au service de piquet et à des horaires de travail flexibles inhérents à la fonction Langue maternelle française ou allemande, avec de très bonnes connaissances de la seconde langue officielle\n\nEntrée en fonction:\nDe suite ou à convenir\n\nInformations:\nRenseignements sur le poste : Police cantonale, M. Josy Penon, Chef de la section informatique (027 606 59 46) Postulation en ligne souhaitée : www.vs.ch/jobs ou envoi des offres avec extraits du casier judiciaire et du registre des poursuites : Service des ressources humaines, Place St-Théodule 15, 1951 Sion Délai de postulation : 14 août 2026 / Numéro de référence : 102464",
+        "de": "Un ingénieur ou une ingénieure en informatique (80-100%) auprès de la section informatique de la Police cantonale, à Sion La section informatique de la Police cantonale est un acteur clé de la transformation des solutions informatiques du corps de police. Comme membre de la section, vous jouerez un rôle clé dans la maintenance et l'amélioration du parc informatique, contribuant au bon fonctionnement de nos services et à la sécurité de la population valaisanne.\n\nVos tâches:\n• Vous participez à l'analyse des besoins et à leur modélisation selon les techniques standards de l'entreprise Vous concevez des solutions informatiques fiables et pérennes dans un soucis d'optimisation et de qualité Vous gérez des projets de mise en œuvre et de suivi d’applications clefs de la Police cantonale Vous gérez également des projets d’intégration de solutions mise à disposition par l’organisme Technique et Informatique Policières Suisse (TIP) Vous assurez la documentation et la maintenance des développements réalisés et des solutions déployées Vous appliquez et suivez les normes et standards de développement et d’intégration de l’entreprise Vous aidez à l’estimation des efforts de développement et d’intégration Vous assurez le service de piquet et le service support au profit de la Police cantonale\n\nVotre profil:\n• Formation universitaire ou HES en informatique niveau Bachelor ou équivalent Plusieurs années de pratique dans la gestion, le développement et l’intégration de systèmes Une expérience professionnelle avérée dans le domaine des plateformes LowCode serait un atout Expérience éprouvée dans la gestion de projets de développement et d’intégration\n• Solides compétences en gestion multitâche et réel enthousiasme pour évoluer dans un environnement aux domaines d'activité variés Aisance dans la communication Adaptation au service de piquet et à des horaires de travail flexibles inhérents à la fonction Langue maternelle française ou allemande, avec de très bonnes connaissances de la seconde langue officielle\n\nEntrée en fonction:\nDe suite ou à convenir\n\nInformations:\nRenseignements sur le poste : Police cantonale, M. Josy Penon, Chef de la section informatique (027 606 59 46) Postulation en ligne souhaitée : www.vs.ch/jobs ou envoi des offres avec extraits du casier judiciaire et du registre des poursuites : Service des ressources humaines, Place St-Théodule 15, 1951 Sion Délai de postulation : 14 août 2026 / Numéro de référence : 102464"
+      },
+      "location": "Sion",
+      "canton": "VS",
+      "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=102464&publication=2631",
+      "source": "Canton du Valais Dedicated Parser",
+      "sourceLang": "fr",
+      "crawledAt": "2026-07-30T22:25:26.792Z",
+      "addressLocality": "Sion",
+      "addressRegion": "VS",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1950",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Administration publique / Service public",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-30",
+      "applyUrl": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=102464&publication=2631",
+      "requirements": [],
+      "requirementsByLocale": {
+        "fr": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 60500,
+          "maxValue": 91500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-07-30T22:25:26.792Z"
+    },
+    {
+      "id": "canton-valais-06d105721328",
+      "slug": "1-ausbildungsplatz-come-gartner-in-cfc-specializzazione-pflanzenproduktion-canton-du-valais-visp",
+      "slugByLocale": {
+        "de": "1-ausbildungsplatz-als-gartner-in-efz-fachrichtung-pflanzenproduktion-canton-valais-ch",
+        "it": "1-ausbildungsplatz-come-gartner-in-cfc-specializzazione-pflanzenproduktion-canton-du-valais-visp",
+        "en": "1-ausbildungsplatz-als-gartner-in-efz-fachrichtung-pflanzenproduktion-canton-valais-ch",
+        "fr": "1-ausbildungsplatz-als-gartner-in-efz-fachrichtung-pflanzenproduktion-canton-valais-ch"
+      },
+      "company": "Canton du Valais",
+      "companyKey": "canton-valais",
+      "companyDomain": "vs.ch",
+      "title": "1 Ausbildungsplatz als Gärtner/in EFZ (Fachrichtung Pflanzenproduktion)",
+      "titleByLocale": {
+        "de": "1 Ausbildungsplatz als Gärtner/in EFZ (Fachrichtung Pflanzenproduktion)",
+        "it": "1 Ausbildungsplatz come Gärtner/in CFC (specializzazione Pflanzenproduktion)",
+        "en": "1 Ausbildungsplatz als Gärtner/in EFZ (Fachrichtung Pflanzenproduktion)",
+        "fr": "1 Ausbildungsplatz als Gärtner/in EFZ (Fachrichtung Pflanzenproduktion)"
+      },
+      "description": "Starte deine Karriere mit einer Ausbildung beim Staat Wallis! Wir suchen motivierte junge Talente, die ihre Zukunft gemeinsam mit uns gestalten möchten. Als angehende/r Gärtner/in EFZ (Fachrichtung Pflanzenproduktion) der Dienststelle für Landwirtschaft im Landwirtschaftszentrum, Visp beim Staat Wallis hast du die Chance, an der Seite von erfahrenen Fachleuten zu arbeiten, neue Technologien zu erlernen und deine Fähigkeiten in einem anregenden Umfeld zu entwickeln. Hast du:\n\n• o Deine obligatorische Schulzeit erfolgreich abgeschlossen?\n• o Geschick, dich mündlich und schriftlich auf Deutsch auszudrücken?\n• o Interesse an Pflanzen und an der Arbeit im Freien?\n• o Praktisches Verständnis und handwerkliches Geschick?\n• o Lust zu lernen und in eine spannende Ausbildung zu investieren? Dann komm zu uns! Wir bieten dir eine bereichernde Berufserfahrung und eine erstklassige Betreuung. Stellenantritt Sommer 2027. Was dir sicher gefällt:\n• o Zum Wohle der Walliser Bevölkerung arbeiten\n• o Eine praxisnahe und abwechslungsreiche Ausbildung\n• o Persönliche und fachliche Entwicklungsmöglichkeiten\n• o Möglichkeiten im Rahmen des Programms SKA (Sport, Kunst und Ausbildung) Bewirb dich jetzt online unter: Stellenbörse Staat Wallis und füge deiner Bewerbung das obligatorische Bewerbungsformular bei, das du unter Offene Ausbildungsplätze Staat Wallis findest. Julian Walker, Berufsbildner der Gärtner/innen, steht dir für alle weiteren Fragen gerne zur Verfügung: Julian.WALKER@admin.vs.ch / 027 606 79 21 Wir freuen uns auf deine Bewerbungsunterlagen bis zum 28. August 2026 Referenznummer: 100633 Bewirb dich jetzt und starte deine Karriere beim Staat Wallis!",
+      "descriptionByLocale": {
+        "de": "Starte deine Karriere mit einer Ausbildung beim Staat Wallis! Wir suchen motivierte junge Talente, die ihre Zukunft gemeinsam mit uns gestalten möchten. Als angehende/r Gärtner/in EFZ (Fachrichtung Pflanzenproduktion) der Dienststelle für Landwirtschaft im Landwirtschaftszentrum, Visp beim Staat Wallis hast du die Chance, an der Seite von erfahrenen Fachleuten zu arbeiten, neue Technologien zu erlernen und deine Fähigkeiten in einem anregenden Umfeld zu entwickeln. Hast du:\n\n• o Deine obligatorische Schulzeit erfolgreich abgeschlossen?\n• o Geschick, dich mündlich und schriftlich auf Deutsch auszudrücken?\n• o Interesse an Pflanzen und an der Arbeit im Freien?\n• o Praktisches Verständnis und handwerkliches Geschick?\n• o Lust zu lernen und in eine spannende Ausbildung zu investieren? Dann komm zu uns! Wir bieten dir eine bereichernde Berufserfahrung und eine erstklassige Betreuung. Stellenantritt Sommer 2027. Was dir sicher gefällt:\n• o Zum Wohle der Walliser Bevölkerung arbeiten\n• o Eine praxisnahe und abwechslungsreiche Ausbildung\n• o Persönliche und fachliche Entwicklungsmöglichkeiten\n• o Möglichkeiten im Rahmen des Programms SKA (Sport, Kunst und Ausbildung) Bewirb dich jetzt online unter: Stellenbörse Staat Wallis und füge deiner Bewerbung das obligatorische Bewerbungsformular bei, das du unter Offene Ausbildungsplätze Staat Wallis findest. Julian Walker, Berufsbildner der Gärtner/innen, steht dir für alle weiteren Fragen gerne zur Verfügung: Julian.WALKER@admin.vs.ch / 027 606 79 21 Wir freuen uns auf deine Bewerbungsunterlagen bis zum 28. August 2026 Referenznummer: 100633 Bewirb dich jetzt und starte deine Karriere beim Staat Wallis!",
+        "it": "Starte deine Karriere mit einer Ausbildung beim Staat Wallis! Wir suchen motivierte junge Talente, die ihre Zukunft gemeinsam mit uns gestalten möchten. Als angehende/r Gärtner/in EFZ (Fachrichtung Pflanzenproduktion) der Dienststelle für Landwirtschaft im Landwirtschaftszentrum, Visp beim Staat Wallis hast du die Chance, an der Seite von erfahrenen Fachleuten zu arbeiten, neue Technologien zu erlernen und deine Fähigkeiten in einem anregenden Umfeld zu entwickeln. Hast du:\n\n• o Deine obligatorische Schulzeit erfolgreich abgeschlossen?\n• o Geschick, dich mündlich und schriftlich auf Deutsch auszudrücken?\n• o Interesse an Pflanzen und an der Arbeit im Freien?\n• o Praktisches Verständnis und handwerkliches Geschick?\n• o Lust zu lernen und in eine spannende Ausbildung zu investieren? Dann komm zu uns! Wir bieten dir eine bereichernde Berufserfahrung und eine erstklassige Betreuung. Stellenantritt Sommer 2027. Was dir sicher gefällt:\n• o Zum Wohle der Walliser Bevölkerung arbeiten\n• o Eine praxisnahe und abwechslungsreiche Ausbildung\n• o Persönliche und fachliche Entwicklungsmöglichkeiten\n• o Möglichkeiten im Rahmen des Programms SKA (Sport, Kunst und Ausbildung) Bewirb dich jetzt online unter: Stellenbörse Staat Wallis und füge deiner Bewerbung das obligatorische Bewerbungsformular bei, das du unter Offene Ausbildungsplätze Staat Wallis findest. Julian Walker, Berufsbildner der Gärtner/innen, steht dir für alle weiteren Fragen gerne zur Verfügung: Julian.WALKER@admin.vs.ch / 027 606 79 21 Wir freuen uns auf deine Bewerbungsunterlagen bis zum 28. August 2026 Referenznummer: 100633 Bewirb dich jetzt und starte deine Karriere beim Staat Wallis!",
+        "en": "Starte deine Karriere mit einer Ausbildung beim Staat Wallis! Wir suchen motivierte junge Talente, die ihre Zukunft gemeinsam mit uns gestalten möchten. Als angehende/r Gärtner/in EFZ (Fachrichtung Pflanzenproduktion) der Dienststelle für Landwirtschaft im Landwirtschaftszentrum, Visp beim Staat Wallis hast du die Chance, an der Seite von erfahrenen Fachleuten zu arbeiten, neue Technologien zu erlernen und deine Fähigkeiten in einem anregenden Umfeld zu entwickeln. Hast du:\n\n• o Deine obligatorische Schulzeit erfolgreich abgeschlossen?\n• o Geschick, dich mündlich und schriftlich auf Deutsch auszudrücken?\n• o Interesse an Pflanzen und an der Arbeit im Freien?\n• o Praktisches Verständnis und handwerkliches Geschick?\n• o Lust zu lernen und in eine spannende Ausbildung zu investieren? Dann komm zu uns! Wir bieten dir eine bereichernde Berufserfahrung und eine erstklassige Betreuung. Stellenantritt Sommer 2027. Was dir sicher gefällt:\n• o Zum Wohle der Walliser Bevölkerung arbeiten\n• o Eine praxisnahe und abwechslungsreiche Ausbildung\n• o Persönliche und fachliche Entwicklungsmöglichkeiten\n• o Möglichkeiten im Rahmen des Programms SKA (Sport, Kunst und Ausbildung) Bewirb dich jetzt online unter: Stellenbörse Staat Wallis und füge deiner Bewerbung das obligatorische Bewerbungsformular bei, das du unter Offene Ausbildungsplätze Staat Wallis findest. Julian Walker, Berufsbildner der Gärtner/innen, steht dir für alle weiteren Fragen gerne zur Verfügung: Julian.WALKER@admin.vs.ch / 027 606 79 21 Wir freuen uns auf deine Bewerbungsunterlagen bis zum 28. August 2026 Referenznummer: 100633 Bewirb dich jetzt und starte deine Karriere beim Staat Wallis!",
+        "fr": "Starte deine Karriere mit einer Ausbildung beim Staat Wallis! Wir suchen motivierte junge Talente, die ihre Zukunft gemeinsam mit uns gestalten möchten. Als angehende/r Gärtner/in EFZ (Fachrichtung Pflanzenproduktion) der Dienststelle für Landwirtschaft im Landwirtschaftszentrum, Visp beim Staat Wallis hast du die Chance, an der Seite von erfahrenen Fachleuten zu arbeiten, neue Technologien zu erlernen und deine Fähigkeiten in einem anregenden Umfeld zu entwickeln. Hast du:\n\n• o Deine obligatorische Schulzeit erfolgreich abgeschlossen?\n• o Geschick, dich mündlich und schriftlich auf Deutsch auszudrücken?\n• o Interesse an Pflanzen und an der Arbeit im Freien?\n• o Praktisches Verständnis und handwerkliches Geschick?\n• o Lust zu lernen und in eine spannende Ausbildung zu investieren? Dann komm zu uns! Wir bieten dir eine bereichernde Berufserfahrung und eine erstklassige Betreuung. Stellenantritt Sommer 2027. Was dir sicher gefällt:\n• o Zum Wohle der Walliser Bevölkerung arbeiten\n• o Eine praxisnahe und abwechslungsreiche Ausbildung\n• o Persönliche und fachliche Entwicklungsmöglichkeiten\n• o Möglichkeiten im Rahmen des Programms SKA (Sport, Kunst und Ausbildung) Bewirb dich jetzt online unter: Stellenbörse Staat Wallis und füge deiner Bewerbung das obligatorische Bewerbungsformular bei, das du unter Offene Ausbildungsplätze Staat Wallis findest. Julian Walker, Berufsbildner der Gärtner/innen, steht dir für alle weiteren Fragen gerne zur Verfügung: Julian.WALKER@admin.vs.ch / 027 606 79 21 Wir freuen uns auf deine Bewerbungsunterlagen bis zum 28. August 2026 Referenznummer: 100633 Bewirb dich jetzt und starte deine Karriere beim Staat Wallis!"
+      },
+      "location": "Visp",
+      "canton": "VS",
+      "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=100633&publication=2631",
+      "source": "Canton du Valais Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-07-30T22:25:25.998Z",
+      "addressLocality": "Visp",
+      "addressRegion": "VS",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1950",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Administration publique / Service public",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-30",
+      "applyUrl": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=100633&publication=2631",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "1-ausbildungsplatz-als-gartner-in-efz-fachrichtung-pflanzenproduktion-canton-valais-ch"
+        ]
+      },
+      "previousSlugs": [
+        "1-ausbildungsplatz-als-gartner-in-efz-fachrichtung-pflanzenproduktion-canton-valais-ch"
+      ],
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 60500,
+          "maxValue": 91500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-07-30T22:25:25.998Z"
+    },
+    {
+      "id": "canton-valais-5694304e4a9c",
+      "slug": "1-ausbildungsplatz-come-koch-kochin-cfc-canton-du-valais-brig",
+      "slugByLocale": {
+        "de": "1-ausbildungsplatz-als-koch-kochin-efz-canton-valais-ch",
+        "it": "1-ausbildungsplatz-come-koch-kochin-cfc-canton-du-valais-brig",
+        "en": "1-ausbildungsplatz-als-koch-kochin-efz-canton-valais-ch",
+        "fr": "1-ausbildungsplatz-als-koch-kochin-efz-canton-valais-ch"
+      },
+      "company": "Canton du Valais",
+      "companyKey": "canton-valais",
+      "companyDomain": "vs.ch",
+      "title": "1 Ausbildungsplatz als Koch/Köchin EFZ",
+      "titleByLocale": {
+        "de": "1 Ausbildungsplatz als Koch/Köchin EFZ",
+        "it": "1 Ausbildungsplatz come Koch/Köchin CFC",
+        "en": "1 Ausbildungsplatz als Koch/Köchin EFZ",
+        "fr": "1 Ausbildungsplatz als Koch/Köchin EFZ"
+      },
+      "description": "Starte deine Karriere mit einer Ausbildung beim Staat Wallis! Wir suchen motivierte junge Talente, die ihre Zukunft gemeinsam mit uns gestalten möchten. Als angehende/r Koch/Köchin EFZ der Dienststelle für Sozialwesen im Foyer St. Ursula, Brig beim Staat Wallis hast du die Chance, an der Seite von erfahrenen Fachleuten zu arbeiten, neue Technologien zu erlernen und deine Fähigkeiten in einem anregenden Umfeld zu entwickeln. Hast du:\n\n• o Deine obligatorische Schulzeit erfolgreich abgeschlossen?\n• o Geschick, dich mündlich und schriftlich auf Deutsch auszudrücken?\n• o Ein neugieriger, kreativer und dynamischer Geist?\n• o Freude in einem multikulturellen Umfeld zu arbeiten?\n• o Lust zu lernen und in eine spannende Ausbildung zu investieren? Dann komm zu uns! Wir bieten dir eine bereichernde Berufserfahrung und eine erstklassige Betreuung. Stellenantritt Sommer 2027. Du wirst unter anderem lernen, wie man:\n• o Gerichte entsprechend den Jahreszeiten und mit den auf dem regionalen Markt\n• verfügbaren Produkten zubereitet\n• o Gesund kochen lernt gemäss dem Label «Fourchette verte»\n• o Auf Hygiene und Ordnung in Zusammenhang mit Lebensmittel achtet\n• o Mengenkalkulation, Einkauf, Bestellwesen und Menüplanung macht Was dir sicher gefällt:\n• o Zum Wohle der Walliser Bevölkerung arbeiten\n• o Eine praxisnahe und abwechslungsreiche Ausbildung\n• o Persönliche und fachliche Entwicklungsmöglichkeiten\n• o Möglichkeiten im Rahmen des Programms SKA (Sport, Kunst und Ausbildung) Bewirb dich jetzt online unter: Stellenbörse Staat Wallis und füge deiner Bewerbung das obligatorische Bewerbungsformular bei, das du unter Offene Ausbildungsplätze Staat Wallis findest. Beat Messerli, Atelierleiter für den Bereich Küche & Berufsbildner der Köche EFZ, steht dir für alle weiteren Fragen gerne zur Verfügung: beat.messerli@admin.vs.ch / 076 585 38 43 Wir freuen uns auf deine Bewerbungsunterlagen bis zum 28. August 2026 Referenznummer: 108663 Bewirb dich jetzt und starte deine Karriere beim Staat Wallis!",
+      "descriptionByLocale": {
+        "de": "Starte deine Karriere mit einer Ausbildung beim Staat Wallis! Wir suchen motivierte junge Talente, die ihre Zukunft gemeinsam mit uns gestalten möchten. Als angehende/r Koch/Köchin EFZ der Dienststelle für Sozialwesen im Foyer St. Ursula, Brig beim Staat Wallis hast du die Chance, an der Seite von erfahrenen Fachleuten zu arbeiten, neue Technologien zu erlernen und deine Fähigkeiten in einem anregenden Umfeld zu entwickeln. Hast du:\n\n• o Deine obligatorische Schulzeit erfolgreich abgeschlossen?\n• o Geschick, dich mündlich und schriftlich auf Deutsch auszudrücken?\n• o Ein neugieriger, kreativer und dynamischer Geist?\n• o Freude in einem multikulturellen Umfeld zu arbeiten?\n• o Lust zu lernen und in eine spannende Ausbildung zu investieren? Dann komm zu uns! Wir bieten dir eine bereichernde Berufserfahrung und eine erstklassige Betreuung. Stellenantritt Sommer 2027. Du wirst unter anderem lernen, wie man:\n• o Gerichte entsprechend den Jahreszeiten und mit den auf dem regionalen Markt\n• verfügbaren Produkten zubereitet\n• o Gesund kochen lernt gemäss dem Label «Fourchette verte»\n• o Auf Hygiene und Ordnung in Zusammenhang mit Lebensmittel achtet\n• o Mengenkalkulation, Einkauf, Bestellwesen und Menüplanung macht Was dir sicher gefällt:\n• o Zum Wohle der Walliser Bevölkerung arbeiten\n• o Eine praxisnahe und abwechslungsreiche Ausbildung\n• o Persönliche und fachliche Entwicklungsmöglichkeiten\n• o Möglichkeiten im Rahmen des Programms SKA (Sport, Kunst und Ausbildung) Bewirb dich jetzt online unter: Stellenbörse Staat Wallis und füge deiner Bewerbung das obligatorische Bewerbungsformular bei, das du unter Offene Ausbildungsplätze Staat Wallis findest. Beat Messerli, Atelierleiter für den Bereich Küche & Berufsbildner der Köche EFZ, steht dir für alle weiteren Fragen gerne zur Verfügung: beat.messerli@admin.vs.ch / 076 585 38 43 Wir freuen uns auf deine Bewerbungsunterlagen bis zum 28. August 2026 Referenznummer: 108663 Bewirb dich jetzt und starte deine Karriere beim Staat Wallis!",
+        "it": "Starte deine Karriere mit einer Ausbildung beim Staat Wallis! Wir suchen motivierte junge Talente, die ihre Zukunft gemeinsam mit uns gestalten möchten. Als angehende/r Koch/Köchin EFZ der Dienststelle für Sozialwesen im Foyer St. Ursula, Brig beim Staat Wallis hast du die Chance, an der Seite von erfahrenen Fachleuten zu arbeiten, neue Technologien zu erlernen und deine Fähigkeiten in einem anregenden Umfeld zu entwickeln. Hast du:\n\n• o Deine obligatorische Schulzeit erfolgreich abgeschlossen?\n• o Geschick, dich mündlich und schriftlich auf Deutsch auszudrücken?\n• o Ein neugieriger, kreativer und dynamischer Geist?\n• o Freude in einem multikulturellen Umfeld zu arbeiten?\n• o Lust zu lernen und in eine spannende Ausbildung zu investieren? Dann komm zu uns! Wir bieten dir eine bereichernde Berufserfahrung und eine erstklassige Betreuung. Stellenantritt Sommer 2027. Du wirst unter anderem lernen, wie man:\n• o Gerichte entsprechend den Jahreszeiten und mit den auf dem regionalen Markt\n• verfügbaren Produkten zubereitet\n• o Gesund kochen lernt gemäss dem Label «Fourchette verte»\n• o Auf Hygiene und Ordnung in Zusammenhang mit Lebensmittel achtet\n• o Mengenkalkulation, Einkauf, Bestellwesen und Menüplanung macht Was dir sicher gefällt:\n• o Zum Wohle der Walliser Bevölkerung arbeiten\n• o Eine praxisnahe und abwechslungsreiche Ausbildung\n• o Persönliche und fachliche Entwicklungsmöglichkeiten\n• o Möglichkeiten im Rahmen des Programms SKA (Sport, Kunst und Ausbildung) Bewirb dich jetzt online unter: Stellenbörse Staat Wallis und füge deiner Bewerbung das obligatorische Bewerbungsformular bei, das du unter Offene Ausbildungsplätze Staat Wallis findest. Beat Messerli, Atelierleiter für den Bereich Küche & Berufsbildner der Köche EFZ, steht dir für alle weiteren Fragen gerne zur Verfügung: beat.messerli@admin.vs.ch / 076 585 38 43 Wir freuen uns auf deine Bewerbungsunterlagen bis zum 28. August 2026 Referenznummer: 108663 Bewirb dich jetzt und starte deine Karriere beim Staat Wallis!",
+        "en": "Starte deine Karriere mit einer Ausbildung beim Staat Wallis! Wir suchen motivierte junge Talente, die ihre Zukunft gemeinsam mit uns gestalten möchten. Als angehende/r Koch/Köchin EFZ der Dienststelle für Sozialwesen im Foyer St. Ursula, Brig beim Staat Wallis hast du die Chance, an der Seite von erfahrenen Fachleuten zu arbeiten, neue Technologien zu erlernen und deine Fähigkeiten in einem anregenden Umfeld zu entwickeln. Hast du:\n\n• o Deine obligatorische Schulzeit erfolgreich abgeschlossen?\n• o Geschick, dich mündlich und schriftlich auf Deutsch auszudrücken?\n• o Ein neugieriger, kreativer und dynamischer Geist?\n• o Freude in einem multikulturellen Umfeld zu arbeiten?\n• o Lust zu lernen und in eine spannende Ausbildung zu investieren? Dann komm zu uns! Wir bieten dir eine bereichernde Berufserfahrung und eine erstklassige Betreuung. Stellenantritt Sommer 2027. Du wirst unter anderem lernen, wie man:\n• o Gerichte entsprechend den Jahreszeiten und mit den auf dem regionalen Markt\n• verfügbaren Produkten zubereitet\n• o Gesund kochen lernt gemäss dem Label «Fourchette verte»\n• o Auf Hygiene und Ordnung in Zusammenhang mit Lebensmittel achtet\n• o Mengenkalkulation, Einkauf, Bestellwesen und Menüplanung macht Was dir sicher gefällt:\n• o Zum Wohle der Walliser Bevölkerung arbeiten\n• o Eine praxisnahe und abwechslungsreiche Ausbildung\n• o Persönliche und fachliche Entwicklungsmöglichkeiten\n• o Möglichkeiten im Rahmen des Programms SKA (Sport, Kunst und Ausbildung) Bewirb dich jetzt online unter: Stellenbörse Staat Wallis und füge deiner Bewerbung das obligatorische Bewerbungsformular bei, das du unter Offene Ausbildungsplätze Staat Wallis findest. Beat Messerli, Atelierleiter für den Bereich Küche & Berufsbildner der Köche EFZ, steht dir für alle weiteren Fragen gerne zur Verfügung: beat.messerli@admin.vs.ch / 076 585 38 43 Wir freuen uns auf deine Bewerbungsunterlagen bis zum 28. August 2026 Referenznummer: 108663 Bewirb dich jetzt und starte deine Karriere beim Staat Wallis!",
+        "fr": "Starte deine Karriere mit einer Ausbildung beim Staat Wallis! Wir suchen motivierte junge Talente, die ihre Zukunft gemeinsam mit uns gestalten möchten. Als angehende/r Koch/Köchin EFZ der Dienststelle für Sozialwesen im Foyer St. Ursula, Brig beim Staat Wallis hast du die Chance, an der Seite von erfahrenen Fachleuten zu arbeiten, neue Technologien zu erlernen und deine Fähigkeiten in einem anregenden Umfeld zu entwickeln. Hast du:\n\n• o Deine obligatorische Schulzeit erfolgreich abgeschlossen?\n• o Geschick, dich mündlich und schriftlich auf Deutsch auszudrücken?\n• o Ein neugieriger, kreativer und dynamischer Geist?\n• o Freude in einem multikulturellen Umfeld zu arbeiten?\n• o Lust zu lernen und in eine spannende Ausbildung zu investieren? Dann komm zu uns! Wir bieten dir eine bereichernde Berufserfahrung und eine erstklassige Betreuung. Stellenantritt Sommer 2027. Du wirst unter anderem lernen, wie man:\n• o Gerichte entsprechend den Jahreszeiten und mit den auf dem regionalen Markt\n• verfügbaren Produkten zubereitet\n• o Gesund kochen lernt gemäss dem Label «Fourchette verte»\n• o Auf Hygiene und Ordnung in Zusammenhang mit Lebensmittel achtet\n• o Mengenkalkulation, Einkauf, Bestellwesen und Menüplanung macht Was dir sicher gefällt:\n• o Zum Wohle der Walliser Bevölkerung arbeiten\n• o Eine praxisnahe und abwechslungsreiche Ausbildung\n• o Persönliche und fachliche Entwicklungsmöglichkeiten\n• o Möglichkeiten im Rahmen des Programms SKA (Sport, Kunst und Ausbildung) Bewirb dich jetzt online unter: Stellenbörse Staat Wallis und füge deiner Bewerbung das obligatorische Bewerbungsformular bei, das du unter Offene Ausbildungsplätze Staat Wallis findest. Beat Messerli, Atelierleiter für den Bereich Küche & Berufsbildner der Köche EFZ, steht dir für alle weiteren Fragen gerne zur Verfügung: beat.messerli@admin.vs.ch / 076 585 38 43 Wir freuen uns auf deine Bewerbungsunterlagen bis zum 28. August 2026 Referenznummer: 108663 Bewirb dich jetzt und starte deine Karriere beim Staat Wallis!"
+      },
+      "location": "Brig",
+      "canton": "VS",
+      "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=108663&publication=2631",
+      "source": "Canton du Valais Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-07-30T22:25:25.136Z",
+      "addressLocality": "Brig",
+      "addressRegion": "VS",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1950",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Administration publique / Service public",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-30",
+      "applyUrl": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=108663&publication=2631",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "1-ausbildungsplatz-als-koch-kochin-efz-canton-valais-ch"
+        ]
+      },
+      "previousSlugs": [
+        "1-ausbildungsplatz-als-koch-kochin-efz-canton-valais-ch"
+      ],
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 60500,
+          "maxValue": 91500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-07-30T22:25:25.136Z"
+    },
+    {
+      "id": "canton-valais-189db96bd51a",
+      "slug": "3-ausbildungsplatze-come-landwirt-in-cfc-canton-du-valais-visp",
+      "slugByLocale": {
+        "de": "3-ausbildungsplatze-als-landwirt-in-efz-canton-valais-ch",
+        "it": "3-ausbildungsplatze-come-landwirt-in-cfc-canton-du-valais-visp",
+        "en": "3-ausbildungsplatze-als-landwirt-in-efz-canton-valais-ch",
+        "fr": "3-ausbildungsplatze-als-landwirt-in-efz-canton-valais-ch"
+      },
+      "company": "Canton du Valais",
+      "companyKey": "canton-valais",
+      "companyDomain": "vs.ch",
+      "title": "3 Ausbildungsplätze als Landwirt/in EFZ",
+      "titleByLocale": {
+        "de": "3 Ausbildungsplätze als Landwirt/in EFZ",
+        "it": "3 Ausbildungsplätze come Landwirt/in CFC",
+        "en": "3 Ausbildungsplätze als Landwirt/in EFZ",
+        "fr": "3 Ausbildungsplätze als Landwirt/in EFZ"
+      },
+      "description": "Starte deine Karriere mit einer Ausbildung beim Staat Wallis! Wir suchen motivierte junge Talente, die ihre Zukunft gemeinsam mit uns gestalten möchten. Als angehende/r Landwirt/in EFZ der Dienststelle für Landwirtschaft im Landwirtschaftszentrum, Visp beim Staat Wallis hast du die Chance, an der Seite von erfahrenen Fachleuten zu arbeiten, neue Technologien zu erlernen und deine Fähigkeiten in einem anregenden Umfeld zu entwickeln. Hast du:\n\n• o Deine obligatorische Schulzeit erfolgreich abgeschlossen?\n• o Geschick, dich mündlich und schriftlich auf Deutsch auszudrücken?\n• o Freude an Tieren und Natur?\n• o Den Führerschein für landwirtschaftliche Maschinen?\n• o Lust zu lernen und in eine spannende Ausbildung zu investieren? Dann komm zu uns! Wir bieten dir eine bereichernde Berufserfahrung und eine erstklassige Betreuung. Stellenantritt Sommer 2027. Was dir sicher gefällt:\n• o Zum Wohle der Walliser Bevölkerung arbeiten\n• o Eine praxisnahe und abwechslungsreiche Ausbildung\n• o Persönliche und fachliche Entwicklungsmöglichkeiten\n• o Möglichkeiten im Rahmen des Programms SKA (Sport, Kunst und Ausbildung) Bewirb dich jetzt online unter: Stellenbörse Staat Wallis und füge deiner Bewerbung das obligatorische Bewerbungsformular bei, das du unter Offene Ausbildungsplätze Staat Wallis findest. Astrid Schmid, Berufsbildnerin der Landwirte, steht dir für alle weiteren Fragen gerne zur Verfügung: Astrid.SCHMID@admin.vs.ch / 027 606 79 25 Wir freuen uns auf deine Bewerbungsunterlagen bis zum 28. August 2026 Referenznummer: 108924 Bewirb dich jetzt und starte deine Karriere beim Staat Wallis!",
+      "descriptionByLocale": {
+        "de": "Starte deine Karriere mit einer Ausbildung beim Staat Wallis! Wir suchen motivierte junge Talente, die ihre Zukunft gemeinsam mit uns gestalten möchten. Als angehende/r Landwirt/in EFZ der Dienststelle für Landwirtschaft im Landwirtschaftszentrum, Visp beim Staat Wallis hast du die Chance, an der Seite von erfahrenen Fachleuten zu arbeiten, neue Technologien zu erlernen und deine Fähigkeiten in einem anregenden Umfeld zu entwickeln. Hast du:\n\n• o Deine obligatorische Schulzeit erfolgreich abgeschlossen?\n• o Geschick, dich mündlich und schriftlich auf Deutsch auszudrücken?\n• o Freude an Tieren und Natur?\n• o Den Führerschein für landwirtschaftliche Maschinen?\n• o Lust zu lernen und in eine spannende Ausbildung zu investieren? Dann komm zu uns! Wir bieten dir eine bereichernde Berufserfahrung und eine erstklassige Betreuung. Stellenantritt Sommer 2027. Was dir sicher gefällt:\n• o Zum Wohle der Walliser Bevölkerung arbeiten\n• o Eine praxisnahe und abwechslungsreiche Ausbildung\n• o Persönliche und fachliche Entwicklungsmöglichkeiten\n• o Möglichkeiten im Rahmen des Programms SKA (Sport, Kunst und Ausbildung) Bewirb dich jetzt online unter: Stellenbörse Staat Wallis und füge deiner Bewerbung das obligatorische Bewerbungsformular bei, das du unter Offene Ausbildungsplätze Staat Wallis findest. Astrid Schmid, Berufsbildnerin der Landwirte, steht dir für alle weiteren Fragen gerne zur Verfügung: Astrid.SCHMID@admin.vs.ch / 027 606 79 25 Wir freuen uns auf deine Bewerbungsunterlagen bis zum 28. August 2026 Referenznummer: 108924 Bewirb dich jetzt und starte deine Karriere beim Staat Wallis!",
+        "it": "Starte deine Karriere mit einer Ausbildung beim Staat Wallis! Wir suchen motivierte junge Talente, die ihre Zukunft gemeinsam mit uns gestalten möchten. Als angehende/r Landwirt/in EFZ der Dienststelle für Landwirtschaft im Landwirtschaftszentrum, Visp beim Staat Wallis hast du die Chance, an der Seite von erfahrenen Fachleuten zu arbeiten, neue Technologien zu erlernen und deine Fähigkeiten in einem anregenden Umfeld zu entwickeln. Hast du:\n\n• o Deine obligatorische Schulzeit erfolgreich abgeschlossen?\n• o Geschick, dich mündlich und schriftlich auf Deutsch auszudrücken?\n• o Freude an Tieren und Natur?\n• o Den Führerschein für landwirtschaftliche Maschinen?\n• o Lust zu lernen und in eine spannende Ausbildung zu investieren? Dann komm zu uns! Wir bieten dir eine bereichernde Berufserfahrung und eine erstklassige Betreuung. Stellenantritt Sommer 2027. Was dir sicher gefällt:\n• o Zum Wohle der Walliser Bevölkerung arbeiten\n• o Eine praxisnahe und abwechslungsreiche Ausbildung\n• o Persönliche und fachliche Entwicklungsmöglichkeiten\n• o Möglichkeiten im Rahmen des Programms SKA (Sport, Kunst und Ausbildung) Bewirb dich jetzt online unter: Stellenbörse Staat Wallis und füge deiner Bewerbung das obligatorische Bewerbungsformular bei, das du unter Offene Ausbildungsplätze Staat Wallis findest. Astrid Schmid, Berufsbildnerin der Landwirte, steht dir für alle weiteren Fragen gerne zur Verfügung: Astrid.SCHMID@admin.vs.ch / 027 606 79 25 Wir freuen uns auf deine Bewerbungsunterlagen bis zum 28. August 2026 Referenznummer: 108924 Bewirb dich jetzt und starte deine Karriere beim Staat Wallis!",
+        "en": "Starte deine Karriere mit einer Ausbildung beim Staat Wallis! Wir suchen motivierte junge Talente, die ihre Zukunft gemeinsam mit uns gestalten möchten. Als angehende/r Landwirt/in EFZ der Dienststelle für Landwirtschaft im Landwirtschaftszentrum, Visp beim Staat Wallis hast du die Chance, an der Seite von erfahrenen Fachleuten zu arbeiten, neue Technologien zu erlernen und deine Fähigkeiten in einem anregenden Umfeld zu entwickeln. Hast du:\n\n• o Deine obligatorische Schulzeit erfolgreich abgeschlossen?\n• o Geschick, dich mündlich und schriftlich auf Deutsch auszudrücken?\n• o Freude an Tieren und Natur?\n• o Den Führerschein für landwirtschaftliche Maschinen?\n• o Lust zu lernen und in eine spannende Ausbildung zu investieren? Dann komm zu uns! Wir bieten dir eine bereichernde Berufserfahrung und eine erstklassige Betreuung. Stellenantritt Sommer 2027. Was dir sicher gefällt:\n• o Zum Wohle der Walliser Bevölkerung arbeiten\n• o Eine praxisnahe und abwechslungsreiche Ausbildung\n• o Persönliche und fachliche Entwicklungsmöglichkeiten\n• o Möglichkeiten im Rahmen des Programms SKA (Sport, Kunst und Ausbildung) Bewirb dich jetzt online unter: Stellenbörse Staat Wallis und füge deiner Bewerbung das obligatorische Bewerbungsformular bei, das du unter Offene Ausbildungsplätze Staat Wallis findest. Astrid Schmid, Berufsbildnerin der Landwirte, steht dir für alle weiteren Fragen gerne zur Verfügung: Astrid.SCHMID@admin.vs.ch / 027 606 79 25 Wir freuen uns auf deine Bewerbungsunterlagen bis zum 28. August 2026 Referenznummer: 108924 Bewirb dich jetzt und starte deine Karriere beim Staat Wallis!",
+        "fr": "Starte deine Karriere mit einer Ausbildung beim Staat Wallis! Wir suchen motivierte junge Talente, die ihre Zukunft gemeinsam mit uns gestalten möchten. Als angehende/r Landwirt/in EFZ der Dienststelle für Landwirtschaft im Landwirtschaftszentrum, Visp beim Staat Wallis hast du die Chance, an der Seite von erfahrenen Fachleuten zu arbeiten, neue Technologien zu erlernen und deine Fähigkeiten in einem anregenden Umfeld zu entwickeln. Hast du:\n\n• o Deine obligatorische Schulzeit erfolgreich abgeschlossen?\n• o Geschick, dich mündlich und schriftlich auf Deutsch auszudrücken?\n• o Freude an Tieren und Natur?\n• o Den Führerschein für landwirtschaftliche Maschinen?\n• o Lust zu lernen und in eine spannende Ausbildung zu investieren? Dann komm zu uns! Wir bieten dir eine bereichernde Berufserfahrung und eine erstklassige Betreuung. Stellenantritt Sommer 2027. Was dir sicher gefällt:\n• o Zum Wohle der Walliser Bevölkerung arbeiten\n• o Eine praxisnahe und abwechslungsreiche Ausbildung\n• o Persönliche und fachliche Entwicklungsmöglichkeiten\n• o Möglichkeiten im Rahmen des Programms SKA (Sport, Kunst und Ausbildung) Bewirb dich jetzt online unter: Stellenbörse Staat Wallis und füge deiner Bewerbung das obligatorische Bewerbungsformular bei, das du unter Offene Ausbildungsplätze Staat Wallis findest. Astrid Schmid, Berufsbildnerin der Landwirte, steht dir für alle weiteren Fragen gerne zur Verfügung: Astrid.SCHMID@admin.vs.ch / 027 606 79 25 Wir freuen uns auf deine Bewerbungsunterlagen bis zum 28. August 2026 Referenznummer: 108924 Bewirb dich jetzt und starte deine Karriere beim Staat Wallis!"
+      },
+      "location": "Visp",
+      "canton": "VS",
+      "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=108924&publication=2631",
+      "source": "Canton du Valais Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-07-30T22:25:23.943Z",
+      "addressLocality": "Visp",
+      "addressRegion": "VS",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1950",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Administration publique / Service public",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-30",
+      "applyUrl": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=108924&publication=2631",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "3-ausbildungsplatze-als-landwirt-in-efz-canton-valais-ch"
+        ]
+      },
+      "previousSlugs": [
+        "3-ausbildungsplatze-als-landwirt-in-efz-canton-valais-ch"
+      ],
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 60500,
+          "maxValue": 91500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-07-30T22:25:23.943Z"
+    },
+    {
+      "id": "canton-valais-f74341ed5d8f",
+      "slug": "1-ausbildungsplatz-come-fachfrau-fachmann-information-dokumentation-cfc-canton-du-valais-brig",
+      "slugByLocale": {
+        "de": "1-ausbildungsplatz-als-fachfrau-fachmann-information-dokumentation-efz-canton-valais-ch",
+        "it": "1-ausbildungsplatz-come-fachfrau-fachmann-information-dokumentation-cfc-canton-du-valais-brig",
+        "en": "1-ausbildungsplatz-als-fachfrau-fachmann-information-dokumentation-efz-canton-valais-ch",
+        "fr": "1-ausbildungsplatz-als-fachfrau-fachmann-information-dokumentation-efz-canton-valais-ch"
+      },
+      "company": "Canton du Valais",
+      "companyKey": "canton-valais",
+      "companyDomain": "vs.ch",
+      "title": "1 Ausbildungsplatz als Fachfrau/Fachmann Information & Dokumentation EFZ",
+      "titleByLocale": {
+        "de": "1 Ausbildungsplatz als Fachfrau/Fachmann Information & Dokumentation EFZ",
+        "it": "1 Ausbildungsplatz come Fachfrau/Fachmann Information & Dokumentation CFC",
+        "en": "1 Ausbildungsplatz als Fachfrau/Fachmann Information & Dokumentation EFZ",
+        "fr": "1 Ausbildungsplatz als Fachfrau/Fachmann Information & Dokumentation EFZ"
+      },
+      "description": "Starte deine Karriere mit einer Ausbildung beim Staat Wallis! Wir suchen motivierte junge Talente, die ihre Zukunft gemeinsam mit uns gestalten möchten. Als angehende/r\n\n• Fachfrau/Fachmann Information & Dokumentation EFZ der Dienststelle für Kultur in der Mediathek Wallis, Brig beim Staat Wallis hast du die Chance, an der Seite von erfahrenen Fachleuten zu arbeiten, neue Technologien zu erlernen und deine Fähigkeiten in einem anregenden Umfeld zu entwickeln. Hast du:\n• o Deine obligatorische Schulzeit erfolgreich abgeschlossen?\n• o Geschick, dich mündlich und schriftlich auf Deutsch auszudrücken?\n• o Grundkenntnisse in der zweiten Kantonssprache (Französisch)?\n• o Interesse an Informationstechnologien und elektronischen Medien?\n• o Freude an Kundenkontakt?\n• o Lust zu lernen und in eine spannende Ausbildung zu investieren? Dann komm zu uns! Wir bieten dir eine bereichernde Berufserfahrung und eine erstklassige Betreuung. Stellenantritt Sommer 2027. Was dir sicher gefällt:\n• o Zum Wohle der Walliser Bevölkerung arbeiten\n• o Eine praxisnahe und abwechslungsreiche Ausbildung\n• o Persönliche und fachliche Entwicklungsmöglichkeiten\n• o Möglichkeiten im Rahmen des Programms SKA (Sport, Kunst und Ausbildung) Bewirb dich jetzt online unter: Stellenbörse Staat Wallis und füge deiner Bewerbung das obligatorische Bewerbungsformular bei, das du unter Offene Ausbildungsplätze Staat Wallis findest. Daniela Furrer, Berufsbildnerin der Fachleute Information & Dokumentation, steht dir für alle weiteren Fragen gerne zur Verfügung: daniela.furrer@admin.vs.ch / 027 607 15 03 Wir freuen uns auf deine Bewerbungsunterlagen bis zum 28. August 2026 Referenznummer: 106652 Bewirb dich jetzt und starte deine Karriere beim Staat Wallis!",
+      "descriptionByLocale": {
+        "de": "Starte deine Karriere mit einer Ausbildung beim Staat Wallis! Wir suchen motivierte junge Talente, die ihre Zukunft gemeinsam mit uns gestalten möchten. Als angehende/r\n\n• Fachfrau/Fachmann Information & Dokumentation EFZ der Dienststelle für Kultur in der Mediathek Wallis, Brig beim Staat Wallis hast du die Chance, an der Seite von erfahrenen Fachleuten zu arbeiten, neue Technologien zu erlernen und deine Fähigkeiten in einem anregenden Umfeld zu entwickeln. Hast du:\n• o Deine obligatorische Schulzeit erfolgreich abgeschlossen?\n• o Geschick, dich mündlich und schriftlich auf Deutsch auszudrücken?\n• o Grundkenntnisse in der zweiten Kantonssprache (Französisch)?\n• o Interesse an Informationstechnologien und elektronischen Medien?\n• o Freude an Kundenkontakt?\n• o Lust zu lernen und in eine spannende Ausbildung zu investieren? Dann komm zu uns! Wir bieten dir eine bereichernde Berufserfahrung und eine erstklassige Betreuung. Stellenantritt Sommer 2027. Was dir sicher gefällt:\n• o Zum Wohle der Walliser Bevölkerung arbeiten\n• o Eine praxisnahe und abwechslungsreiche Ausbildung\n• o Persönliche und fachliche Entwicklungsmöglichkeiten\n• o Möglichkeiten im Rahmen des Programms SKA (Sport, Kunst und Ausbildung) Bewirb dich jetzt online unter: Stellenbörse Staat Wallis und füge deiner Bewerbung das obligatorische Bewerbungsformular bei, das du unter Offene Ausbildungsplätze Staat Wallis findest. Daniela Furrer, Berufsbildnerin der Fachleute Information & Dokumentation, steht dir für alle weiteren Fragen gerne zur Verfügung: daniela.furrer@admin.vs.ch / 027 607 15 03 Wir freuen uns auf deine Bewerbungsunterlagen bis zum 28. August 2026 Referenznummer: 106652 Bewirb dich jetzt und starte deine Karriere beim Staat Wallis!",
+        "it": "Starte deine Karriere mit einer Ausbildung beim Staat Wallis! Wir suchen motivierte junge Talente, die ihre Zukunft gemeinsam mit uns gestalten möchten. Als angehende/r\n\n• Fachfrau/Fachmann Information & Dokumentation EFZ der Dienststelle für Kultur in der Mediathek Wallis, Brig beim Staat Wallis hast du die Chance, an der Seite von erfahrenen Fachleuten zu arbeiten, neue Technologien zu erlernen und deine Fähigkeiten in einem anregenden Umfeld zu entwickeln. Hast du:\n• o Deine obligatorische Schulzeit erfolgreich abgeschlossen?\n• o Geschick, dich mündlich und schriftlich auf Deutsch auszudrücken?\n• o Grundkenntnisse in der zweiten Kantonssprache (Französisch)?\n• o Interesse an Informationstechnologien und elektronischen Medien?\n• o Freude an Kundenkontakt?\n• o Lust zu lernen und in eine spannende Ausbildung zu investieren? Dann komm zu uns! Wir bieten dir eine bereichernde Berufserfahrung und eine erstklassige Betreuung. Stellenantritt Sommer 2027. Was dir sicher gefällt:\n• o Zum Wohle der Walliser Bevölkerung arbeiten\n• o Eine praxisnahe und abwechslungsreiche Ausbildung\n• o Persönliche und fachliche Entwicklungsmöglichkeiten\n• o Möglichkeiten im Rahmen des Programms SKA (Sport, Kunst und Ausbildung) Bewirb dich jetzt online unter: Stellenbörse Staat Wallis und füge deiner Bewerbung das obligatorische Bewerbungsformular bei, das du unter Offene Ausbildungsplätze Staat Wallis findest. Daniela Furrer, Berufsbildnerin der Fachleute Information & Dokumentation, steht dir für alle weiteren Fragen gerne zur Verfügung: daniela.furrer@admin.vs.ch / 027 607 15 03 Wir freuen uns auf deine Bewerbungsunterlagen bis zum 28. August 2026 Referenznummer: 106652 Bewirb dich jetzt und starte deine Karriere beim Staat Wallis!",
+        "en": "Starte deine Karriere mit einer Ausbildung beim Staat Wallis! Wir suchen motivierte junge Talente, die ihre Zukunft gemeinsam mit uns gestalten möchten. Als angehende/r\n\n• Fachfrau/Fachmann Information & Dokumentation EFZ der Dienststelle für Kultur in der Mediathek Wallis, Brig beim Staat Wallis hast du die Chance, an der Seite von erfahrenen Fachleuten zu arbeiten, neue Technologien zu erlernen und deine Fähigkeiten in einem anregenden Umfeld zu entwickeln. Hast du:\n• o Deine obligatorische Schulzeit erfolgreich abgeschlossen?\n• o Geschick, dich mündlich und schriftlich auf Deutsch auszudrücken?\n• o Grundkenntnisse in der zweiten Kantonssprache (Französisch)?\n• o Interesse an Informationstechnologien und elektronischen Medien?\n• o Freude an Kundenkontakt?\n• o Lust zu lernen und in eine spannende Ausbildung zu investieren? Dann komm zu uns! Wir bieten dir eine bereichernde Berufserfahrung und eine erstklassige Betreuung. Stellenantritt Sommer 2027. Was dir sicher gefällt:\n• o Zum Wohle der Walliser Bevölkerung arbeiten\n• o Eine praxisnahe und abwechslungsreiche Ausbildung\n• o Persönliche und fachliche Entwicklungsmöglichkeiten\n• o Möglichkeiten im Rahmen des Programms SKA (Sport, Kunst und Ausbildung) Bewirb dich jetzt online unter: Stellenbörse Staat Wallis und füge deiner Bewerbung das obligatorische Bewerbungsformular bei, das du unter Offene Ausbildungsplätze Staat Wallis findest. Daniela Furrer, Berufsbildnerin der Fachleute Information & Dokumentation, steht dir für alle weiteren Fragen gerne zur Verfügung: daniela.furrer@admin.vs.ch / 027 607 15 03 Wir freuen uns auf deine Bewerbungsunterlagen bis zum 28. August 2026 Referenznummer: 106652 Bewirb dich jetzt und starte deine Karriere beim Staat Wallis!",
+        "fr": "Starte deine Karriere mit einer Ausbildung beim Staat Wallis! Wir suchen motivierte junge Talente, die ihre Zukunft gemeinsam mit uns gestalten möchten. Als angehende/r\n\n• Fachfrau/Fachmann Information & Dokumentation EFZ der Dienststelle für Kultur in der Mediathek Wallis, Brig beim Staat Wallis hast du die Chance, an der Seite von erfahrenen Fachleuten zu arbeiten, neue Technologien zu erlernen und deine Fähigkeiten in einem anregenden Umfeld zu entwickeln. Hast du:\n• o Deine obligatorische Schulzeit erfolgreich abgeschlossen?\n• o Geschick, dich mündlich und schriftlich auf Deutsch auszudrücken?\n• o Grundkenntnisse in der zweiten Kantonssprache (Französisch)?\n• o Interesse an Informationstechnologien und elektronischen Medien?\n• o Freude an Kundenkontakt?\n• o Lust zu lernen und in eine spannende Ausbildung zu investieren? Dann komm zu uns! Wir bieten dir eine bereichernde Berufserfahrung und eine erstklassige Betreuung. Stellenantritt Sommer 2027. Was dir sicher gefällt:\n• o Zum Wohle der Walliser Bevölkerung arbeiten\n• o Eine praxisnahe und abwechslungsreiche Ausbildung\n• o Persönliche und fachliche Entwicklungsmöglichkeiten\n• o Möglichkeiten im Rahmen des Programms SKA (Sport, Kunst und Ausbildung) Bewirb dich jetzt online unter: Stellenbörse Staat Wallis und füge deiner Bewerbung das obligatorische Bewerbungsformular bei, das du unter Offene Ausbildungsplätze Staat Wallis findest. Daniela Furrer, Berufsbildnerin der Fachleute Information & Dokumentation, steht dir für alle weiteren Fragen gerne zur Verfügung: daniela.furrer@admin.vs.ch / 027 607 15 03 Wir freuen uns auf deine Bewerbungsunterlagen bis zum 28. August 2026 Referenznummer: 106652 Bewirb dich jetzt und starte deine Karriere beim Staat Wallis!"
+      },
+      "location": "Brig",
+      "canton": "VS",
+      "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=106652&publication=2631",
+      "source": "Canton du Valais Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-07-30T22:25:23.105Z",
+      "addressLocality": "Brig",
+      "addressRegion": "VS",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1950",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Administration publique / Service public",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-30",
+      "applyUrl": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=106652&publication=2631",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "1-ausbildungsplatz-als-fachfrau-fachmann-information-dokumentation-efz-canton-valais-ch"
+        ]
+      },
+      "previousSlugs": [
+        "1-ausbildungsplatz-als-fachfrau-fachmann-information-dokumentation-efz-canton-valais-ch"
+      ],
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 60500,
+          "maxValue": 91500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-07-30T22:25:23.105Z"
+    },
+    {
+      "id": "canton-valais-cf4fc6e894ac",
+      "slug": "3-ausbildungsplatze-come-fachfrau-fachmann-betriebsunterhalt-cfc-canton-du-valais-brig",
+      "slugByLocale": {
+        "de": "3-ausbildungsplatze-als-fachfrau-fachmann-betriebsunterhalt-efz-canton-valais-ch",
+        "it": "3-ausbildungsplatze-come-fachfrau-fachmann-betriebsunterhalt-cfc-canton-du-valais-brig",
+        "en": "3-ausbildungsplatze-als-fachfrau-fachmann-betriebsunterhalt-efz-canton-valais-ch",
+        "fr": "3-ausbildungsplatze-als-fachfrau-fachmann-betriebsunterhalt-efz-canton-valais-ch"
+      },
+      "company": "Canton du Valais",
+      "companyKey": "canton-valais",
+      "companyDomain": "vs.ch",
+      "title": "3 Ausbildungsplätze als Fachfrau/Fachmann Betriebsunterhalt EFZ",
+      "titleByLocale": {
+        "de": "3 Ausbildungsplätze als Fachfrau/Fachmann Betriebsunterhalt EFZ",
+        "it": "3 Ausbildungsplätze come Fachfrau/Fachmann Betriebsunterhalt CFC",
+        "en": "3 Ausbildungsplätze als Fachfrau/Fachmann Betriebsunterhalt EFZ",
+        "fr": "3 Ausbildungsplätze als Fachfrau/Fachmann Betriebsunterhalt EFZ"
+      },
+      "description": "Starte deine Karriere mit einer Ausbildung beim Staat Wallis! Wir suchen motivierte junge Talente, die ihre Zukunft gemeinsam mit uns gestalten möchten. Als angehende/r Fachfrau/Fachmann Betriebsunterhalt EFZ der Dienststelle für Immobilien und Bauliches Erbe im Kollegium Spiritus Sanctus, Brig oder in der Berufsfachschule Oberwallis (BFO) Brig oder in der Berufsfachschule Oberwallis (BFO) Visp, beim Staat Wallis hast du die Chance, an der Seite von erfahrenen Fachleuten zu arbeiten, neue Technologien zu erlernen und deine Fähigkeiten in einem anregenden Umfeld zu entwickeln. Hast du:\n\n• o Deine obligatorische Schulzeit erfolgreich abgeschlossen?\n• o Geschick, dich mündlich und schriftlich auf Deutsch auszudrücken?\n• o Praktisch-technisches Verständnis und handwerkliches Geschick?\n• o Eine rasche Auffassungsgabe sowie eine sorgfältige und exakte Arbeitsweise?\n• o Lust zu lernen und in eine spannende Ausbildung zu investieren? Dann komm zu uns! Wir bieten dir eine bereichernde Berufserfahrung und eine erstklassige Betreuung. Stellenantritt Sommer 2027. Was dir sicher gefällt:\n• o Zum Wohle der Walliser Bevölkerung arbeiten\n• o Eine praxisnahe und abwechslungsreiche Ausbildung\n• o Persönliche und fachliche Entwicklungsmöglichkeiten\n• o Möglichkeiten im Rahmen des Programms SKA (Sport, Kunst und Ausbildung) Bewirb dich jetzt online unter: Stellenbörse Staat Wallis und füge deiner Bewerbung das obligatorische Bewerbungsformular bei, das du unter Offene Ausbildungsplätze Staat Wallis findest. Herr Jonathan Beney, Leiter der Hausmeisterei in der Dienststelle für Immobilien und Bauliches Erbe, steht dir für alle weiteren Fragen gerne zur Verfügung: jonathan.beney@admin.vs.ch / 027 606 38 41 Wir freuen uns auf deine Bewerbungsunterlagen bis zum 28. August 2026 Referenznummer: 113332 Bewirb dich jetzt und starte deine Karriere beim Staat Wallis!",
+      "descriptionByLocale": {
+        "de": "Starte deine Karriere mit einer Ausbildung beim Staat Wallis! Wir suchen motivierte junge Talente, die ihre Zukunft gemeinsam mit uns gestalten möchten. Als angehende/r Fachfrau/Fachmann Betriebsunterhalt EFZ der Dienststelle für Immobilien und Bauliches Erbe im Kollegium Spiritus Sanctus, Brig oder in der Berufsfachschule Oberwallis (BFO) Brig oder in der Berufsfachschule Oberwallis (BFO) Visp, beim Staat Wallis hast du die Chance, an der Seite von erfahrenen Fachleuten zu arbeiten, neue Technologien zu erlernen und deine Fähigkeiten in einem anregenden Umfeld zu entwickeln. Hast du:\n\n• o Deine obligatorische Schulzeit erfolgreich abgeschlossen?\n• o Geschick, dich mündlich und schriftlich auf Deutsch auszudrücken?\n• o Praktisch-technisches Verständnis und handwerkliches Geschick?\n• o Eine rasche Auffassungsgabe sowie eine sorgfältige und exakte Arbeitsweise?\n• o Lust zu lernen und in eine spannende Ausbildung zu investieren? Dann komm zu uns! Wir bieten dir eine bereichernde Berufserfahrung und eine erstklassige Betreuung. Stellenantritt Sommer 2027. Was dir sicher gefällt:\n• o Zum Wohle der Walliser Bevölkerung arbeiten\n• o Eine praxisnahe und abwechslungsreiche Ausbildung\n• o Persönliche und fachliche Entwicklungsmöglichkeiten\n• o Möglichkeiten im Rahmen des Programms SKA (Sport, Kunst und Ausbildung) Bewirb dich jetzt online unter: Stellenbörse Staat Wallis und füge deiner Bewerbung das obligatorische Bewerbungsformular bei, das du unter Offene Ausbildungsplätze Staat Wallis findest. Herr Jonathan Beney, Leiter der Hausmeisterei in der Dienststelle für Immobilien und Bauliches Erbe, steht dir für alle weiteren Fragen gerne zur Verfügung: jonathan.beney@admin.vs.ch / 027 606 38 41 Wir freuen uns auf deine Bewerbungsunterlagen bis zum 28. August 2026 Referenznummer: 113332 Bewirb dich jetzt und starte deine Karriere beim Staat Wallis!",
+        "it": "Starte deine Karriere mit einer Ausbildung beim Staat Wallis! Wir suchen motivierte junge Talente, die ihre Zukunft gemeinsam mit uns gestalten möchten. Als angehende/r Fachfrau/Fachmann Betriebsunterhalt EFZ der Dienststelle für Immobilien und Bauliches Erbe im Kollegium Spiritus Sanctus, Brig oder in der Berufsfachschule Oberwallis (BFO) Brig oder in der Berufsfachschule Oberwallis (BFO) Visp, beim Staat Wallis hast du die Chance, an der Seite von erfahrenen Fachleuten zu arbeiten, neue Technologien zu erlernen und deine Fähigkeiten in einem anregenden Umfeld zu entwickeln. Hast du:\n\n• o Deine obligatorische Schulzeit erfolgreich abgeschlossen?\n• o Geschick, dich mündlich und schriftlich auf Deutsch auszudrücken?\n• o Praktisch-technisches Verständnis und handwerkliches Geschick?\n• o Eine rasche Auffassungsgabe sowie eine sorgfältige und exakte Arbeitsweise?\n• o Lust zu lernen und in eine spannende Ausbildung zu investieren? Dann komm zu uns! Wir bieten dir eine bereichernde Berufserfahrung und eine erstklassige Betreuung. Stellenantritt Sommer 2027. Was dir sicher gefällt:\n• o Zum Wohle der Walliser Bevölkerung arbeiten\n• o Eine praxisnahe und abwechslungsreiche Ausbildung\n• o Persönliche und fachliche Entwicklungsmöglichkeiten\n• o Möglichkeiten im Rahmen des Programms SKA (Sport, Kunst und Ausbildung) Bewirb dich jetzt online unter: Stellenbörse Staat Wallis und füge deiner Bewerbung das obligatorische Bewerbungsformular bei, das du unter Offene Ausbildungsplätze Staat Wallis findest. Herr Jonathan Beney, Leiter der Hausmeisterei in der Dienststelle für Immobilien und Bauliches Erbe, steht dir für alle weiteren Fragen gerne zur Verfügung: jonathan.beney@admin.vs.ch / 027 606 38 41 Wir freuen uns auf deine Bewerbungsunterlagen bis zum 28. August 2026 Referenznummer: 113332 Bewirb dich jetzt und starte deine Karriere beim Staat Wallis!",
+        "en": "Starte deine Karriere mit einer Ausbildung beim Staat Wallis! Wir suchen motivierte junge Talente, die ihre Zukunft gemeinsam mit uns gestalten möchten. Als angehende/r Fachfrau/Fachmann Betriebsunterhalt EFZ der Dienststelle für Immobilien und Bauliches Erbe im Kollegium Spiritus Sanctus, Brig oder in der Berufsfachschule Oberwallis (BFO) Brig oder in der Berufsfachschule Oberwallis (BFO) Visp, beim Staat Wallis hast du die Chance, an der Seite von erfahrenen Fachleuten zu arbeiten, neue Technologien zu erlernen und deine Fähigkeiten in einem anregenden Umfeld zu entwickeln. Hast du:\n\n• o Deine obligatorische Schulzeit erfolgreich abgeschlossen?\n• o Geschick, dich mündlich und schriftlich auf Deutsch auszudrücken?\n• o Praktisch-technisches Verständnis und handwerkliches Geschick?\n• o Eine rasche Auffassungsgabe sowie eine sorgfältige und exakte Arbeitsweise?\n• o Lust zu lernen und in eine spannende Ausbildung zu investieren? Dann komm zu uns! Wir bieten dir eine bereichernde Berufserfahrung und eine erstklassige Betreuung. Stellenantritt Sommer 2027. Was dir sicher gefällt:\n• o Zum Wohle der Walliser Bevölkerung arbeiten\n• o Eine praxisnahe und abwechslungsreiche Ausbildung\n• o Persönliche und fachliche Entwicklungsmöglichkeiten\n• o Möglichkeiten im Rahmen des Programms SKA (Sport, Kunst und Ausbildung) Bewirb dich jetzt online unter: Stellenbörse Staat Wallis und füge deiner Bewerbung das obligatorische Bewerbungsformular bei, das du unter Offene Ausbildungsplätze Staat Wallis findest. Herr Jonathan Beney, Leiter der Hausmeisterei in der Dienststelle für Immobilien und Bauliches Erbe, steht dir für alle weiteren Fragen gerne zur Verfügung: jonathan.beney@admin.vs.ch / 027 606 38 41 Wir freuen uns auf deine Bewerbungsunterlagen bis zum 28. August 2026 Referenznummer: 113332 Bewirb dich jetzt und starte deine Karriere beim Staat Wallis!",
+        "fr": "Starte deine Karriere mit einer Ausbildung beim Staat Wallis! Wir suchen motivierte junge Talente, die ihre Zukunft gemeinsam mit uns gestalten möchten. Als angehende/r Fachfrau/Fachmann Betriebsunterhalt EFZ der Dienststelle für Immobilien und Bauliches Erbe im Kollegium Spiritus Sanctus, Brig oder in der Berufsfachschule Oberwallis (BFO) Brig oder in der Berufsfachschule Oberwallis (BFO) Visp, beim Staat Wallis hast du die Chance, an der Seite von erfahrenen Fachleuten zu arbeiten, neue Technologien zu erlernen und deine Fähigkeiten in einem anregenden Umfeld zu entwickeln. Hast du:\n\n• o Deine obligatorische Schulzeit erfolgreich abgeschlossen?\n• o Geschick, dich mündlich und schriftlich auf Deutsch auszudrücken?\n• o Praktisch-technisches Verständnis und handwerkliches Geschick?\n• o Eine rasche Auffassungsgabe sowie eine sorgfältige und exakte Arbeitsweise?\n• o Lust zu lernen und in eine spannende Ausbildung zu investieren? Dann komm zu uns! Wir bieten dir eine bereichernde Berufserfahrung und eine erstklassige Betreuung. Stellenantritt Sommer 2027. Was dir sicher gefällt:\n• o Zum Wohle der Walliser Bevölkerung arbeiten\n• o Eine praxisnahe und abwechslungsreiche Ausbildung\n• o Persönliche und fachliche Entwicklungsmöglichkeiten\n• o Möglichkeiten im Rahmen des Programms SKA (Sport, Kunst und Ausbildung) Bewirb dich jetzt online unter: Stellenbörse Staat Wallis und füge deiner Bewerbung das obligatorische Bewerbungsformular bei, das du unter Offene Ausbildungsplätze Staat Wallis findest. Herr Jonathan Beney, Leiter der Hausmeisterei in der Dienststelle für Immobilien und Bauliches Erbe, steht dir für alle weiteren Fragen gerne zur Verfügung: jonathan.beney@admin.vs.ch / 027 606 38 41 Wir freuen uns auf deine Bewerbungsunterlagen bis zum 28. August 2026 Referenznummer: 113332 Bewirb dich jetzt und starte deine Karriere beim Staat Wallis!"
+      },
+      "location": "Brig",
+      "canton": "VS",
+      "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=113332&publication=2631",
+      "source": "Canton du Valais Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-07-30T22:25:22.266Z",
+      "addressLocality": "Brig",
+      "addressRegion": "VS",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1950",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Administration publique / Service public",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-30",
+      "applyUrl": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=113332&publication=2631",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "3-ausbildungsplatze-als-fachfrau-fachmann-betriebsunterhalt-efz-canton-valais-ch"
+        ]
+      },
+      "previousSlugs": [
+        "3-ausbildungsplatze-als-fachfrau-fachmann-betriebsunterhalt-efz-canton-valais-ch"
+      ],
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 60500,
+          "maxValue": 91500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-07-30T22:25:22.266Z"
+    },
+    {
+      "id": "canton-valais-982014fff1cf",
+      "slug": "5-ausbildungsplatze-come-kauffrau-kaufmann-cfc-canton-du-valais-brig",
+      "slugByLocale": {
+        "de": "5-ausbildungsplatze-als-kauffrau-kaufmann-efz-canton-valais-ch",
+        "it": "5-ausbildungsplatze-come-kauffrau-kaufmann-cfc-canton-du-valais-brig",
+        "en": "5-ausbildungsplatze-als-kauffrau-kaufmann-efz-canton-valais-ch",
+        "fr": "5-ausbildungsplatze-als-kauffrau-kaufmann-efz-canton-valais-ch"
+      },
+      "company": "Canton du Valais",
+      "companyKey": "canton-valais",
+      "companyDomain": "vs.ch",
+      "title": "5 Ausbildungsplätze als Kauffrau/Kaufmann EFZ",
+      "titleByLocale": {
+        "de": "5 Ausbildungsplätze als Kauffrau/Kaufmann EFZ",
+        "it": "5 Ausbildungsplätze come Kauffrau/Kaufmann CFC",
+        "en": "5 Ausbildungsplätze als Kauffrau/Kaufmann EFZ",
+        "fr": "5 Ausbildungsplätze als Kauffrau/Kaufmann EFZ"
+      },
+      "description": "Starte deine Karriere mit einer Ausbildung beim Staat Wallis! Wir suchen motivierte junge Talente, die ihre Zukunft gemeinsam mit uns gestalten möchten. Als angehende/r Kauffrau/Kaufmann EFZ beim Staat Wallis hast du die Chance, an der Seite von erfahrenen Fachleuten zu arbeiten, neue Technologien zu erlernen und deine Fähigkeiten in einem anregenden Umfeld zu entwickeln. Hast du:\n\n• o Deine obligatorische Schulzeit erfolgreich abgeschlossen?\n• o Interesse an administrativen Aufgaben?\n• o Freude an der mündlichen und schriftlichen Kommunikation auf Deutsch und\n• Französisch?\n• o Eine rasche Auffassungsgabe sowie eine sorgfältige und exakte Arbeitsweise?\n• o Lust zu lernen und in eine spannende Ausbildung zu investieren? Dann komm zu uns! Wir bieten dir eine bereichernde Berufserfahrung und eine erstklassige Betreuung. Stellenantritt Sommer 2027. Was dir sicher gefällt:\n• o Zum Wohle der Walliser Bevölkerung arbeiten\n• o Eine praxisnahe und abwechslungsreiche Ausbildung\n• o Persönliche und fachliche Entwicklungsmöglichkeiten\n• o Möglichkeiten im Rahmen des Programms SKA (Sport, Kunst und Ausbildung) 📄 Entdecke hier die verschiedenen Kurzbeschreibungen der Ausbildungsplätze für Kaufleute EFZ: Kurzbeschreibungen Kaufleute - DE - - vs.ch 📩 Bewirb dich jetzt online über die Stellenbörse des Staats Wallis. Vergiss nicht, deiner Bewerbung folgende obligatorischen Unterlagen beizulegen:\n• o das Bewerbungsformular (Offene Ausbildungsplätze Staat\n• Wallis > Inhalt des Bewerbungsdossiers);\n• o den Multicheck® Wirtschaft und Administration (Shop - gateway.one). Wir freuen uns auf deine Bewerbungsunterlagen bis zum 28. August 2026 Referenznummer: 108351 Bewirb dich jetzt und starte deine Karriere beim Staat Wallis!",
+      "descriptionByLocale": {
+        "de": "Starte deine Karriere mit einer Ausbildung beim Staat Wallis! Wir suchen motivierte junge Talente, die ihre Zukunft gemeinsam mit uns gestalten möchten. Als angehende/r Kauffrau/Kaufmann EFZ beim Staat Wallis hast du die Chance, an der Seite von erfahrenen Fachleuten zu arbeiten, neue Technologien zu erlernen und deine Fähigkeiten in einem anregenden Umfeld zu entwickeln. Hast du:\n\n• o Deine obligatorische Schulzeit erfolgreich abgeschlossen?\n• o Interesse an administrativen Aufgaben?\n• o Freude an der mündlichen und schriftlichen Kommunikation auf Deutsch und\n• Französisch?\n• o Eine rasche Auffassungsgabe sowie eine sorgfältige und exakte Arbeitsweise?\n• o Lust zu lernen und in eine spannende Ausbildung zu investieren? Dann komm zu uns! Wir bieten dir eine bereichernde Berufserfahrung und eine erstklassige Betreuung. Stellenantritt Sommer 2027. Was dir sicher gefällt:\n• o Zum Wohle der Walliser Bevölkerung arbeiten\n• o Eine praxisnahe und abwechslungsreiche Ausbildung\n• o Persönliche und fachliche Entwicklungsmöglichkeiten\n• o Möglichkeiten im Rahmen des Programms SKA (Sport, Kunst und Ausbildung) 📄 Entdecke hier die verschiedenen Kurzbeschreibungen der Ausbildungsplätze für Kaufleute EFZ: Kurzbeschreibungen Kaufleute - DE - - vs.ch 📩 Bewirb dich jetzt online über die Stellenbörse des Staats Wallis. Vergiss nicht, deiner Bewerbung folgende obligatorischen Unterlagen beizulegen:\n• o das Bewerbungsformular (Offene Ausbildungsplätze Staat\n• Wallis > Inhalt des Bewerbungsdossiers);\n• o den Multicheck® Wirtschaft und Administration (Shop - gateway.one). Wir freuen uns auf deine Bewerbungsunterlagen bis zum 28. August 2026 Referenznummer: 108351 Bewirb dich jetzt und starte deine Karriere beim Staat Wallis!",
+        "it": "Starte deine Karriere mit einer Ausbildung beim Staat Wallis! Wir suchen motivierte junge Talente, die ihre Zukunft gemeinsam mit uns gestalten möchten. Als angehende/r Kauffrau/Kaufmann EFZ beim Staat Wallis hast du die Chance, an der Seite von erfahrenen Fachleuten zu arbeiten, neue Technologien zu erlernen und deine Fähigkeiten in einem anregenden Umfeld zu entwickeln. Hast du:\n\n• o Deine obligatorische Schulzeit erfolgreich abgeschlossen?\n• o Interesse an administrativen Aufgaben?\n• o Freude an der mündlichen und schriftlichen Kommunikation auf Deutsch und\n• Französisch?\n• o Eine rasche Auffassungsgabe sowie eine sorgfältige und exakte Arbeitsweise?\n• o Lust zu lernen und in eine spannende Ausbildung zu investieren? Dann komm zu uns! Wir bieten dir eine bereichernde Berufserfahrung und eine erstklassige Betreuung. Stellenantritt Sommer 2027. Was dir sicher gefällt:\n• o Zum Wohle der Walliser Bevölkerung arbeiten\n• o Eine praxisnahe und abwechslungsreiche Ausbildung\n• o Persönliche und fachliche Entwicklungsmöglichkeiten\n• o Möglichkeiten im Rahmen des Programms SKA (Sport, Kunst und Ausbildung) 📄 Entdecke hier die verschiedenen Kurzbeschreibungen der Ausbildungsplätze für Kaufleute EFZ: Kurzbeschreibungen Kaufleute - DE - - vs.ch 📩 Bewirb dich jetzt online über die Stellenbörse des Staats Wallis. Vergiss nicht, deiner Bewerbung folgende obligatorischen Unterlagen beizulegen:\n• o das Bewerbungsformular (Offene Ausbildungsplätze Staat\n• Wallis > Inhalt des Bewerbungsdossiers);\n• o den Multicheck® Wirtschaft und Administration (Shop - gateway.one). Wir freuen uns auf deine Bewerbungsunterlagen bis zum 28. August 2026 Referenznummer: 108351 Bewirb dich jetzt und starte deine Karriere beim Staat Wallis!",
+        "en": "Starte deine Karriere mit einer Ausbildung beim Staat Wallis! Wir suchen motivierte junge Talente, die ihre Zukunft gemeinsam mit uns gestalten möchten. Als angehende/r Kauffrau/Kaufmann EFZ beim Staat Wallis hast du die Chance, an der Seite von erfahrenen Fachleuten zu arbeiten, neue Technologien zu erlernen und deine Fähigkeiten in einem anregenden Umfeld zu entwickeln. Hast du:\n\n• o Deine obligatorische Schulzeit erfolgreich abgeschlossen?\n• o Interesse an administrativen Aufgaben?\n• o Freude an der mündlichen und schriftlichen Kommunikation auf Deutsch und\n• Französisch?\n• o Eine rasche Auffassungsgabe sowie eine sorgfältige und exakte Arbeitsweise?\n• o Lust zu lernen und in eine spannende Ausbildung zu investieren? Dann komm zu uns! Wir bieten dir eine bereichernde Berufserfahrung und eine erstklassige Betreuung. Stellenantritt Sommer 2027. Was dir sicher gefällt:\n• o Zum Wohle der Walliser Bevölkerung arbeiten\n• o Eine praxisnahe und abwechslungsreiche Ausbildung\n• o Persönliche und fachliche Entwicklungsmöglichkeiten\n• o Möglichkeiten im Rahmen des Programms SKA (Sport, Kunst und Ausbildung) 📄 Entdecke hier die verschiedenen Kurzbeschreibungen der Ausbildungsplätze für Kaufleute EFZ: Kurzbeschreibungen Kaufleute - DE - - vs.ch 📩 Bewirb dich jetzt online über die Stellenbörse des Staats Wallis. Vergiss nicht, deiner Bewerbung folgende obligatorischen Unterlagen beizulegen:\n• o das Bewerbungsformular (Offene Ausbildungsplätze Staat\n• Wallis > Inhalt des Bewerbungsdossiers);\n• o den Multicheck® Wirtschaft und Administration (Shop - gateway.one). Wir freuen uns auf deine Bewerbungsunterlagen bis zum 28. August 2026 Referenznummer: 108351 Bewirb dich jetzt und starte deine Karriere beim Staat Wallis!",
+        "fr": "Starte deine Karriere mit einer Ausbildung beim Staat Wallis! Wir suchen motivierte junge Talente, die ihre Zukunft gemeinsam mit uns gestalten möchten. Als angehende/r Kauffrau/Kaufmann EFZ beim Staat Wallis hast du die Chance, an der Seite von erfahrenen Fachleuten zu arbeiten, neue Technologien zu erlernen und deine Fähigkeiten in einem anregenden Umfeld zu entwickeln. Hast du:\n\n• o Deine obligatorische Schulzeit erfolgreich abgeschlossen?\n• o Interesse an administrativen Aufgaben?\n• o Freude an der mündlichen und schriftlichen Kommunikation auf Deutsch und\n• Französisch?\n• o Eine rasche Auffassungsgabe sowie eine sorgfältige und exakte Arbeitsweise?\n• o Lust zu lernen und in eine spannende Ausbildung zu investieren? Dann komm zu uns! Wir bieten dir eine bereichernde Berufserfahrung und eine erstklassige Betreuung. Stellenantritt Sommer 2027. Was dir sicher gefällt:\n• o Zum Wohle der Walliser Bevölkerung arbeiten\n• o Eine praxisnahe und abwechslungsreiche Ausbildung\n• o Persönliche und fachliche Entwicklungsmöglichkeiten\n• o Möglichkeiten im Rahmen des Programms SKA (Sport, Kunst und Ausbildung) 📄 Entdecke hier die verschiedenen Kurzbeschreibungen der Ausbildungsplätze für Kaufleute EFZ: Kurzbeschreibungen Kaufleute - DE - - vs.ch 📩 Bewirb dich jetzt online über die Stellenbörse des Staats Wallis. Vergiss nicht, deiner Bewerbung folgende obligatorischen Unterlagen beizulegen:\n• o das Bewerbungsformular (Offene Ausbildungsplätze Staat\n• Wallis > Inhalt des Bewerbungsdossiers);\n• o den Multicheck® Wirtschaft und Administration (Shop - gateway.one). Wir freuen uns auf deine Bewerbungsunterlagen bis zum 28. August 2026 Referenznummer: 108351 Bewirb dich jetzt und starte deine Karriere beim Staat Wallis!"
+      },
+      "location": "Brig",
+      "canton": "VS",
+      "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=108351&publication=2631",
+      "source": "Canton du Valais Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-07-30T22:25:21.380Z",
+      "addressLocality": "Brig",
+      "addressRegion": "VS",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1950",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Administration publique / Service public",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-30",
+      "applyUrl": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=108351&publication=2631",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "5-ausbildungsplatze-als-kauffrau-kaufmann-efz-canton-valais-ch"
+        ]
+      },
+      "previousSlugs": [
+        "5-ausbildungsplatze-als-kauffrau-kaufmann-efz-canton-valais-ch"
+      ],
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 60500,
+          "maxValue": 91500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-07-30T22:25:21.380Z"
+    },
+    {
+      "id": "canton-valais-db24dbdb9100",
+      "slug": "3-praktikumsplatze-come-bm-w-praktikant-in-canton-du-valais-brig",
+      "slugByLocale": {
+        "de": "3-praktikumsplatze-als-bm-w-praktikant-in-canton-valais-ch",
+        "it": "3-praktikumsplatze-come-bm-w-praktikant-in-canton-du-valais-brig",
+        "en": "3-praktikumsplatze-als-bm-w-praktikant-in-canton-valais-ch",
+        "fr": "3-praktikumsplatze-als-bm-w-praktikant-in-canton-valais-ch"
+      },
+      "company": "Canton du Valais",
+      "companyKey": "canton-valais",
+      "companyDomain": "vs.ch",
+      "title": "3 Praktikumsplätze als BM-W Praktikant/in",
+      "titleByLocale": {
+        "de": "3 Praktikumsplätze als BM-W Praktikant/in",
+        "it": "3 Praktikumsplätze come BM-W Praktikant/in",
+        "en": "3 Praktikumsplätze als BM-W Praktikant/in",
+        "fr": "3 Praktikumsplätze als BM-W Praktikant/in"
+      },
+      "description": "Starte deine Karriere mit einem BM-W-Praktikum beim Staat Wallis! Wir suchen motivierte junge Talente, die ihre Zukunft gemeinsam mit uns gestalten möchten. Als angehende/r BM-W-Praktikant/in beim Staat Wallis hast du die Chance, an der Seite von erfahrenen Fachleuten zu arbeiten, neue Technologien zu erlernen und deine Fähigkeiten in einem anregenden Umfeld zu entwickeln. Hast du:\n\n• o Deine Handelsmittelschule erfolgreich abgeschlossen?\n• o Lust, dein Wissen in der Praxis anzuwenden und weiterzuentwickeln?\n• o Interesse an administrativen Aufgaben?\n• o Freude an der mündlichen und schriftlichen Kommunikation auf Deutsch und\n• Französisch?\n• o Eine rasche Auffassungsgabe sowie eine sorgfältige und exakte Arbeitsweise? Dann komm zu uns! Wir bieten dir eine bereichernde Berufserfahrung und eine erstklassige Betreuung. Stellenantritt Sommer 2027. Was dir sicher gefällt:\n• o Zum Wohle der Walliser Bevölkerung arbeiten\n• o Eine praxisnahe und abwechslungsreiche Ausbildung\n• o Persönliche und fachliche Entwicklungsmöglichkeiten\n• o Möglichkeiten im Rahmen des Programms SKA (Sport, Kunst und Ausbildung) 📄 Entdecke hier die verschiedenen Kurzbeschreibungen der BM-W Praktikumsplätze: Kurzbeschreibungen BM-W Praktikanten DE - - vs.ch 📩 Bewirb dich jetzt online über die Stellenbörse des Staats Wallis. Vergiss nicht, deiner Bewerbung das obligatorische Bewerbungsformular beizulegen. Dieses findest du unter Offene BM-W Praktikumsplätze Staat Wallis > Inhalt des Bewerbungsdossiers. Wir freuen uns auf deine Bewerbungsunterlagen bis zum 28. August 2026 Referenznummer: 108395 Bewirb dich jetzt und starte deine Karriere beim Staat Wallis!",
+      "descriptionByLocale": {
+        "de": "Starte deine Karriere mit einem BM-W-Praktikum beim Staat Wallis! Wir suchen motivierte junge Talente, die ihre Zukunft gemeinsam mit uns gestalten möchten. Als angehende/r BM-W-Praktikant/in beim Staat Wallis hast du die Chance, an der Seite von erfahrenen Fachleuten zu arbeiten, neue Technologien zu erlernen und deine Fähigkeiten in einem anregenden Umfeld zu entwickeln. Hast du:\n\n• o Deine Handelsmittelschule erfolgreich abgeschlossen?\n• o Lust, dein Wissen in der Praxis anzuwenden und weiterzuentwickeln?\n• o Interesse an administrativen Aufgaben?\n• o Freude an der mündlichen und schriftlichen Kommunikation auf Deutsch und\n• Französisch?\n• o Eine rasche Auffassungsgabe sowie eine sorgfältige und exakte Arbeitsweise? Dann komm zu uns! Wir bieten dir eine bereichernde Berufserfahrung und eine erstklassige Betreuung. Stellenantritt Sommer 2027. Was dir sicher gefällt:\n• o Zum Wohle der Walliser Bevölkerung arbeiten\n• o Eine praxisnahe und abwechslungsreiche Ausbildung\n• o Persönliche und fachliche Entwicklungsmöglichkeiten\n• o Möglichkeiten im Rahmen des Programms SKA (Sport, Kunst und Ausbildung) 📄 Entdecke hier die verschiedenen Kurzbeschreibungen der BM-W Praktikumsplätze: Kurzbeschreibungen BM-W Praktikanten DE - - vs.ch 📩 Bewirb dich jetzt online über die Stellenbörse des Staats Wallis. Vergiss nicht, deiner Bewerbung das obligatorische Bewerbungsformular beizulegen. Dieses findest du unter Offene BM-W Praktikumsplätze Staat Wallis > Inhalt des Bewerbungsdossiers. Wir freuen uns auf deine Bewerbungsunterlagen bis zum 28. August 2026 Referenznummer: 108395 Bewirb dich jetzt und starte deine Karriere beim Staat Wallis!",
+        "it": "Starte deine Karriere mit einem BM-W-Praktikum beim Staat Wallis! Wir suchen motivierte junge Talente, die ihre Zukunft gemeinsam mit uns gestalten möchten. Als angehende/r BM-W-Praktikant/in beim Staat Wallis hast du die Chance, an der Seite von erfahrenen Fachleuten zu arbeiten, neue Technologien zu erlernen und deine Fähigkeiten in einem anregenden Umfeld zu entwickeln. Hast du:\n\n• o Deine Handelsmittelschule erfolgreich abgeschlossen?\n• o Lust, dein Wissen in der Praxis anzuwenden und weiterzuentwickeln?\n• o Interesse an administrativen Aufgaben?\n• o Freude an der mündlichen und schriftlichen Kommunikation auf Deutsch und\n• Französisch?\n• o Eine rasche Auffassungsgabe sowie eine sorgfältige und exakte Arbeitsweise? Dann komm zu uns! Wir bieten dir eine bereichernde Berufserfahrung und eine erstklassige Betreuung. Stellenantritt Sommer 2027. Was dir sicher gefällt:\n• o Zum Wohle der Walliser Bevölkerung arbeiten\n• o Eine praxisnahe und abwechslungsreiche Ausbildung\n• o Persönliche und fachliche Entwicklungsmöglichkeiten\n• o Möglichkeiten im Rahmen des Programms SKA (Sport, Kunst und Ausbildung) 📄 Entdecke hier die verschiedenen Kurzbeschreibungen der BM-W Praktikumsplätze: Kurzbeschreibungen BM-W Praktikanten DE - - vs.ch 📩 Bewirb dich jetzt online über die Stellenbörse des Staats Wallis. Vergiss nicht, deiner Bewerbung das obligatorische Bewerbungsformular beizulegen. Dieses findest du unter Offene BM-W Praktikumsplätze Staat Wallis > Inhalt des Bewerbungsdossiers. Wir freuen uns auf deine Bewerbungsunterlagen bis zum 28. August 2026 Referenznummer: 108395 Bewirb dich jetzt und starte deine Karriere beim Staat Wallis!",
+        "en": "Starte deine Karriere mit einem BM-W-Praktikum beim Staat Wallis! Wir suchen motivierte junge Talente, die ihre Zukunft gemeinsam mit uns gestalten möchten. Als angehende/r BM-W-Praktikant/in beim Staat Wallis hast du die Chance, an der Seite von erfahrenen Fachleuten zu arbeiten, neue Technologien zu erlernen und deine Fähigkeiten in einem anregenden Umfeld zu entwickeln. Hast du:\n\n• o Deine Handelsmittelschule erfolgreich abgeschlossen?\n• o Lust, dein Wissen in der Praxis anzuwenden und weiterzuentwickeln?\n• o Interesse an administrativen Aufgaben?\n• o Freude an der mündlichen und schriftlichen Kommunikation auf Deutsch und\n• Französisch?\n• o Eine rasche Auffassungsgabe sowie eine sorgfältige und exakte Arbeitsweise? Dann komm zu uns! Wir bieten dir eine bereichernde Berufserfahrung und eine erstklassige Betreuung. Stellenantritt Sommer 2027. Was dir sicher gefällt:\n• o Zum Wohle der Walliser Bevölkerung arbeiten\n• o Eine praxisnahe und abwechslungsreiche Ausbildung\n• o Persönliche und fachliche Entwicklungsmöglichkeiten\n• o Möglichkeiten im Rahmen des Programms SKA (Sport, Kunst und Ausbildung) 📄 Entdecke hier die verschiedenen Kurzbeschreibungen der BM-W Praktikumsplätze: Kurzbeschreibungen BM-W Praktikanten DE - - vs.ch 📩 Bewirb dich jetzt online über die Stellenbörse des Staats Wallis. Vergiss nicht, deiner Bewerbung das obligatorische Bewerbungsformular beizulegen. Dieses findest du unter Offene BM-W Praktikumsplätze Staat Wallis > Inhalt des Bewerbungsdossiers. Wir freuen uns auf deine Bewerbungsunterlagen bis zum 28. August 2026 Referenznummer: 108395 Bewirb dich jetzt und starte deine Karriere beim Staat Wallis!",
+        "fr": "Starte deine Karriere mit einem BM-W-Praktikum beim Staat Wallis! Wir suchen motivierte junge Talente, die ihre Zukunft gemeinsam mit uns gestalten möchten. Als angehende/r BM-W-Praktikant/in beim Staat Wallis hast du die Chance, an der Seite von erfahrenen Fachleuten zu arbeiten, neue Technologien zu erlernen und deine Fähigkeiten in einem anregenden Umfeld zu entwickeln. Hast du:\n\n• o Deine Handelsmittelschule erfolgreich abgeschlossen?\n• o Lust, dein Wissen in der Praxis anzuwenden und weiterzuentwickeln?\n• o Interesse an administrativen Aufgaben?\n• o Freude an der mündlichen und schriftlichen Kommunikation auf Deutsch und\n• Französisch?\n• o Eine rasche Auffassungsgabe sowie eine sorgfältige und exakte Arbeitsweise? Dann komm zu uns! Wir bieten dir eine bereichernde Berufserfahrung und eine erstklassige Betreuung. Stellenantritt Sommer 2027. Was dir sicher gefällt:\n• o Zum Wohle der Walliser Bevölkerung arbeiten\n• o Eine praxisnahe und abwechslungsreiche Ausbildung\n• o Persönliche und fachliche Entwicklungsmöglichkeiten\n• o Möglichkeiten im Rahmen des Programms SKA (Sport, Kunst und Ausbildung) 📄 Entdecke hier die verschiedenen Kurzbeschreibungen der BM-W Praktikumsplätze: Kurzbeschreibungen BM-W Praktikanten DE - - vs.ch 📩 Bewirb dich jetzt online über die Stellenbörse des Staats Wallis. Vergiss nicht, deiner Bewerbung das obligatorische Bewerbungsformular beizulegen. Dieses findest du unter Offene BM-W Praktikumsplätze Staat Wallis > Inhalt des Bewerbungsdossiers. Wir freuen uns auf deine Bewerbungsunterlagen bis zum 28. August 2026 Referenznummer: 108395 Bewirb dich jetzt und starte deine Karriere beim Staat Wallis!"
+      },
+      "location": "Brig",
+      "canton": "VS",
+      "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=108395&publication=2631",
+      "source": "Canton du Valais Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-07-30T22:25:15.410Z",
+      "addressLocality": "Brig",
+      "addressRegion": "VS",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1950",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "intern",
+      "sector": "Administration publique / Service public",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-30",
+      "applyUrl": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=108395&publication=2631",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "3-praktikumsplatze-als-bm-w-praktikant-in-canton-valais-ch"
+        ]
+      },
+      "previousSlugs": [
+        "3-praktikumsplatze-als-bm-w-praktikant-in-canton-valais-ch"
+      ],
+      "salaryMin": 51000,
+      "salaryMax": 77500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 51000,
+          "maxValue": 77500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-07-30T22:25:15.410Z"
+    },
+    {
+      "id": "canton-valais-8daf64117a96",
+      "slug": "1-ausbildungsplatz-come-informatiker-in-cfc-specializzazione-plattformentwicklung-canton-du-valais-brig",
+      "slugByLocale": {
+        "de": "1-ausbildungsplatz-als-informatiker-in-efz-fachrichtung-plattformentwicklung-canton-valais",
+        "it": "1-ausbildungsplatz-come-informatiker-in-cfc-specializzazione-plattformentwicklung-canton-du-valais-brig",
+        "en": "1-ausbildungsplatz-als-informatiker-in-efz-fachrichtung-plattformentwicklung-canton-valais",
+        "fr": "1-ausbildungsplatz-als-informatiker-in-efz-fachrichtung-plattformentwicklung-canton-valais"
+      },
+      "company": "Canton du Valais",
+      "companyKey": "canton-valais",
+      "companyDomain": "vs.ch",
+      "title": "1 Ausbildungsplatz als Informatiker/in EFZ (Fachrichtung Plattformentwicklung)",
+      "titleByLocale": {
+        "de": "1 Ausbildungsplatz als Informatiker/in EFZ (Fachrichtung Plattformentwicklung)",
+        "it": "1 Ausbildungsplatz come Informatiker/in CFC (specializzazione Plattformentwicklung)",
+        "en": "1 Ausbildungsplatz als Informatiker/in EFZ (Fachrichtung Plattformentwicklung)",
+        "fr": "1 Ausbildungsplatz als Informatiker/in EFZ (Fachrichtung Plattformentwicklung)"
+      },
+      "description": "Starte deine Karriere mit einer Ausbildung beim Staat Wallis! Wir suchen motivierte junge Talente, die ihre Zukunft gemeinsam mit uns gestalten möchten. Als angehende/r\n\n• Informatiker/in EFZ (Fachrichtung Plattformentwicklung) der Dienststelle für Berufsbildung an den Berufsfachschulen Oberwallis, Brig & Visp beim Staat Wallis hast du die Chance, an der Seite von erfahrenen Fachleuten zu arbeiten, neue Technologien zu erlernen und deine Fähigkeiten in einem anregenden Umfeld zu entwickeln. Hast du:\n• o Deine obligatorische Schulzeit erfolgreich abgeschlossen?\n• o Geschick, dich mündlich und schriftlich auf Deutsch und Englisch auszudrücken?\n• o Logisch-abstraktes Denk- und Vorstellungsvermögen?\n• o Eine rasche Auffassungsgabe sowie eine sorgfältige und exakte Arbeitsweise?\n• o Lust zu lernen und in eine spannende Ausbildung zu investieren? Dann komm zu uns! Wir bieten dir eine bereichernde Berufserfahrung und eine erstklassige Betreuung. Stellenantritt Sommer 2027. Was dir sicher gefällt:\n• o Zum Wohle der Walliser Bevölkerung arbeiten\n• o Eine praxisnahe und abwechslungsreiche Ausbildung\n• o Persönliche und fachliche Entwicklungsmöglichkeiten\n• o Möglichkeiten im Rahmen des Programms SKA (Sport, Kunst und Ausbildung) Bewirb dich jetzt online unter: Stellenbörse Staat Wallis und füge deiner Bewerbung das obligatorische Bewerbungsformular bei, das du unter Offene Ausbildungsplätze Staat Wallis findest. Detlef Kuonen, Berufsbildner der Informatiker/innen, steht dir für alle weiteren Fragen gerne zur Verfügung: detlef.kuonen@edu.vs.ch / 027 606 08 00 Wir freuen uns auf deine Bewerbungsunterlagen bis zum 28. August 2026 Referenznummer: 108712 Bewirb dich jetzt und starte deine Karriere beim Staat Wallis!",
+      "descriptionByLocale": {
+        "de": "Starte deine Karriere mit einer Ausbildung beim Staat Wallis! Wir suchen motivierte junge Talente, die ihre Zukunft gemeinsam mit uns gestalten möchten. Als angehende/r\n\n• Informatiker/in EFZ (Fachrichtung Plattformentwicklung) der Dienststelle für Berufsbildung an den Berufsfachschulen Oberwallis, Brig & Visp beim Staat Wallis hast du die Chance, an der Seite von erfahrenen Fachleuten zu arbeiten, neue Technologien zu erlernen und deine Fähigkeiten in einem anregenden Umfeld zu entwickeln. Hast du:\n• o Deine obligatorische Schulzeit erfolgreich abgeschlossen?\n• o Geschick, dich mündlich und schriftlich auf Deutsch und Englisch auszudrücken?\n• o Logisch-abstraktes Denk- und Vorstellungsvermögen?\n• o Eine rasche Auffassungsgabe sowie eine sorgfältige und exakte Arbeitsweise?\n• o Lust zu lernen und in eine spannende Ausbildung zu investieren? Dann komm zu uns! Wir bieten dir eine bereichernde Berufserfahrung und eine erstklassige Betreuung. Stellenantritt Sommer 2027. Was dir sicher gefällt:\n• o Zum Wohle der Walliser Bevölkerung arbeiten\n• o Eine praxisnahe und abwechslungsreiche Ausbildung\n• o Persönliche und fachliche Entwicklungsmöglichkeiten\n• o Möglichkeiten im Rahmen des Programms SKA (Sport, Kunst und Ausbildung) Bewirb dich jetzt online unter: Stellenbörse Staat Wallis und füge deiner Bewerbung das obligatorische Bewerbungsformular bei, das du unter Offene Ausbildungsplätze Staat Wallis findest. Detlef Kuonen, Berufsbildner der Informatiker/innen, steht dir für alle weiteren Fragen gerne zur Verfügung: detlef.kuonen@edu.vs.ch / 027 606 08 00 Wir freuen uns auf deine Bewerbungsunterlagen bis zum 28. August 2026 Referenznummer: 108712 Bewirb dich jetzt und starte deine Karriere beim Staat Wallis!",
+        "it": "Starte deine Karriere mit einer Ausbildung beim Staat Wallis! Wir suchen motivierte junge Talente, die ihre Zukunft gemeinsam mit uns gestalten möchten. Als angehende/r\n\n• Informatiker/in EFZ (Fachrichtung Plattformentwicklung) der Dienststelle für Berufsbildung an den Berufsfachschulen Oberwallis, Brig & Visp beim Staat Wallis hast du die Chance, an der Seite von erfahrenen Fachleuten zu arbeiten, neue Technologien zu erlernen und deine Fähigkeiten in einem anregenden Umfeld zu entwickeln. Hast du:\n• o Deine obligatorische Schulzeit erfolgreich abgeschlossen?\n• o Geschick, dich mündlich und schriftlich auf Deutsch und Englisch auszudrücken?\n• o Logisch-abstraktes Denk- und Vorstellungsvermögen?\n• o Eine rasche Auffassungsgabe sowie eine sorgfältige und exakte Arbeitsweise?\n• o Lust zu lernen und in eine spannende Ausbildung zu investieren? Dann komm zu uns! Wir bieten dir eine bereichernde Berufserfahrung und eine erstklassige Betreuung. Stellenantritt Sommer 2027. Was dir sicher gefällt:\n• o Zum Wohle der Walliser Bevölkerung arbeiten\n• o Eine praxisnahe und abwechslungsreiche Ausbildung\n• o Persönliche und fachliche Entwicklungsmöglichkeiten\n• o Möglichkeiten im Rahmen des Programms SKA (Sport, Kunst und Ausbildung) Bewirb dich jetzt online unter: Stellenbörse Staat Wallis und füge deiner Bewerbung das obligatorische Bewerbungsformular bei, das du unter Offene Ausbildungsplätze Staat Wallis findest. Detlef Kuonen, Berufsbildner der Informatiker/innen, steht dir für alle weiteren Fragen gerne zur Verfügung: detlef.kuonen@edu.vs.ch / 027 606 08 00 Wir freuen uns auf deine Bewerbungsunterlagen bis zum 28. August 2026 Referenznummer: 108712 Bewirb dich jetzt und starte deine Karriere beim Staat Wallis!",
+        "en": "Starte deine Karriere mit einer Ausbildung beim Staat Wallis! Wir suchen motivierte junge Talente, die ihre Zukunft gemeinsam mit uns gestalten möchten. Als angehende/r\n\n• Informatiker/in EFZ (Fachrichtung Plattformentwicklung) der Dienststelle für Berufsbildung an den Berufsfachschulen Oberwallis, Brig & Visp beim Staat Wallis hast du die Chance, an der Seite von erfahrenen Fachleuten zu arbeiten, neue Technologien zu erlernen und deine Fähigkeiten in einem anregenden Umfeld zu entwickeln. Hast du:\n• o Deine obligatorische Schulzeit erfolgreich abgeschlossen?\n• o Geschick, dich mündlich und schriftlich auf Deutsch und Englisch auszudrücken?\n• o Logisch-abstraktes Denk- und Vorstellungsvermögen?\n• o Eine rasche Auffassungsgabe sowie eine sorgfältige und exakte Arbeitsweise?\n• o Lust zu lernen und in eine spannende Ausbildung zu investieren? Dann komm zu uns! Wir bieten dir eine bereichernde Berufserfahrung und eine erstklassige Betreuung. Stellenantritt Sommer 2027. Was dir sicher gefällt:\n• o Zum Wohle der Walliser Bevölkerung arbeiten\n• o Eine praxisnahe und abwechslungsreiche Ausbildung\n• o Persönliche und fachliche Entwicklungsmöglichkeiten\n• o Möglichkeiten im Rahmen des Programms SKA (Sport, Kunst und Ausbildung) Bewirb dich jetzt online unter: Stellenbörse Staat Wallis und füge deiner Bewerbung das obligatorische Bewerbungsformular bei, das du unter Offene Ausbildungsplätze Staat Wallis findest. Detlef Kuonen, Berufsbildner der Informatiker/innen, steht dir für alle weiteren Fragen gerne zur Verfügung: detlef.kuonen@edu.vs.ch / 027 606 08 00 Wir freuen uns auf deine Bewerbungsunterlagen bis zum 28. August 2026 Referenznummer: 108712 Bewirb dich jetzt und starte deine Karriere beim Staat Wallis!",
+        "fr": "Starte deine Karriere mit einer Ausbildung beim Staat Wallis! Wir suchen motivierte junge Talente, die ihre Zukunft gemeinsam mit uns gestalten möchten. Als angehende/r\n\n• Informatiker/in EFZ (Fachrichtung Plattformentwicklung) der Dienststelle für Berufsbildung an den Berufsfachschulen Oberwallis, Brig & Visp beim Staat Wallis hast du die Chance, an der Seite von erfahrenen Fachleuten zu arbeiten, neue Technologien zu erlernen und deine Fähigkeiten in einem anregenden Umfeld zu entwickeln. Hast du:\n• o Deine obligatorische Schulzeit erfolgreich abgeschlossen?\n• o Geschick, dich mündlich und schriftlich auf Deutsch und Englisch auszudrücken?\n• o Logisch-abstraktes Denk- und Vorstellungsvermögen?\n• o Eine rasche Auffassungsgabe sowie eine sorgfältige und exakte Arbeitsweise?\n• o Lust zu lernen und in eine spannende Ausbildung zu investieren? Dann komm zu uns! Wir bieten dir eine bereichernde Berufserfahrung und eine erstklassige Betreuung. Stellenantritt Sommer 2027. Was dir sicher gefällt:\n• o Zum Wohle der Walliser Bevölkerung arbeiten\n• o Eine praxisnahe und abwechslungsreiche Ausbildung\n• o Persönliche und fachliche Entwicklungsmöglichkeiten\n• o Möglichkeiten im Rahmen des Programms SKA (Sport, Kunst und Ausbildung) Bewirb dich jetzt online unter: Stellenbörse Staat Wallis und füge deiner Bewerbung das obligatorische Bewerbungsformular bei, das du unter Offene Ausbildungsplätze Staat Wallis findest. Detlef Kuonen, Berufsbildner der Informatiker/innen, steht dir für alle weiteren Fragen gerne zur Verfügung: detlef.kuonen@edu.vs.ch / 027 606 08 00 Wir freuen uns auf deine Bewerbungsunterlagen bis zum 28. August 2026 Referenznummer: 108712 Bewirb dich jetzt und starte deine Karriere beim Staat Wallis!"
+      },
+      "location": "Brig",
+      "canton": "VS",
+      "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=108712&publication=2631",
+      "source": "Canton du Valais Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-07-30T22:25:09.625Z",
+      "addressLocality": "Brig",
+      "addressRegion": "VS",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1950",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Administration publique / Service public",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-30",
+      "applyUrl": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=108712&publication=2631",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "1-ausbildungsplatz-als-informatiker-in-efz-fachrichtung-plattformentwicklung-canton-valais"
+        ]
+      },
+      "previousSlugs": [
+        "1-ausbildungsplatz-als-informatiker-in-efz-fachrichtung-plattformentwicklung-canton-valais"
+      ],
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 60500,
+          "maxValue": 91500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-07-30T22:25:09.625Z"
     }
   ]
 }
