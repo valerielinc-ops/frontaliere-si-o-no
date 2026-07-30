@@ -6124,6 +6124,37 @@ function validate(data, opts = {}) {
     throw err;
   }
 
+  // The prompt shows the id field as `"id": "kebab-case-3-5-words-max-40-chars"`,
+  // and models sometimes echo that placeholder instead of replacing it — either
+  // verbatim, or with the `kebab-case-` prefix glued onto a real slug. Four of
+  // them reached production as permanent public URLs before this guard existed:
+  //   /articoli-frontaliere/kebab-case-3-5-words-max-40-chars/
+  //   /articoli-frontaliere/kebab-case-turismo-ticino/
+  //   /articoli-frontaliere/kebab-case-ticino-nubifragio-grigioni/
+  //   /articoli-frontaliere/kebab-case-rossi-bruxelles-ticino/
+  // The articles themselves are fine — correct titles, real content — so the
+  // damage is confined to the URL, which is exactly the part that cannot be
+  // fixed later without a redirect and a ranking reset.
+  //
+  // Stripped rather than rejected: the leak is in the id only, and the title is
+  // right there to derive a clean one from. Failing the whole generation would
+  // throw away a good article over a prefix.
+  const PROMPT_ID_LEAK_RX = /^kebab[-_]?case[-_]?/i;
+  if (data.id && PROMPT_ID_LEAK_RX.test(data.id)) {
+    const stripped = data.id.replace(PROMPT_ID_LEAK_RX, '');
+    // The verbatim placeholder leaves nothing usable behind ("3-5-words-max-40-chars"),
+    // so prefer the title whenever the remainder looks like the schema hint.
+    const looksLikeHint = !stripped || /^\d+-\d+-words|max-\d+-chars/i.test(stripped);
+    const recovered = looksLikeHint ? slugifySlugPart(itContent.title) : stripped;
+    if (!recovered) {
+      const err = new Error(`id contiene il placeholder del prompt ("${data.id}") e non è ricostruibile dal titolo "${itContent.title}"`);
+      err.qualityReject = true;
+      throw err;
+    }
+    console.error(`⚠️  id conteneva il placeholder del prompt ("${data.id}") — corretto in "${recovered}"`);
+    data.id = recovered;
+  }
+
   // Synthesize id from the Italian title if the model omitted it.
   if (!data.id) {
     const generatedId = slugifySlugPart(itContent.title);
@@ -6159,8 +6190,16 @@ function validate(data, opts = {}) {
   // Synthesize seo from content.it if the model omitted it (common with smaller fallback models)
   if (!data.seo) {
     const it = data.content.it || data.content;
-    const title = (it.title || data.id).slice(0, 57);
-    const desc = (it.excerpt || it.title || '').slice(0, 160);
+    // truncateAtWordBoundary, not slice: a hard character cut lands mid-word and
+    // ships a title tag that stops in the middle of the sentence — "Incidente
+    // mortale a Porlezza: muore un | Frontaliere Ticino", "Educatori in
+    // Germania: stipendi fino a | Frontaliere Ticino". 443 of the 4552 titles in
+    // the corpus (9.7%) are cut that way, all of them from this branch, and the
+    // cut usually falls exactly on the informative part. The helper is already
+    // used four lines below for the description and for breadcrumbName — this
+    // call site just never got it.
+    const title = truncateAtWordBoundary(String(it.title || data.id), 57);
+    const desc = truncateAtWordBoundary(String(it.excerpt || it.title || ''), 160);
     console.error(`⚠️  Campo "seo" mancante — generato automaticamente da content.it`);
     data.seo = {
       title: `${title} | Frontaliere Ticino`,
@@ -6327,7 +6366,17 @@ function validate(data, opts = {}) {
         .replace(/[^a-z0-9-]/g, '-')
         .replace(/-+/g, '-')
         .replace(/^-|-$/g, '')
+        // Same prompt-placeholder leak the id is guarded against above: the
+        // schema shown to the model spells the id as
+        // "kebab-case-3-5-words-max-40-chars", and a model that echoes it into
+        // the id tends to echo it here too. The IT slug is safe by construction
+        // (assigned from the already-cleaned id); these three are not.
+        .replace(/^kebab-case-/, '')
         .slice(0, 80);
+      // Fall back to the IT slug rather than ship an empty one: an empty slug
+      // routes to the section hub, silently making the article unreachable at
+      // its own URL.
+      if (!data.slugs[locale]) data.slugs[locale] = data.slugs.it;
       if (data.slugs[locale] !== original) {
         console.warn(`  ⚠️  Slug ${locale} sanitizzato: "${original}" → "${data.slugs[locale]}"`);
       }
@@ -8384,19 +8433,24 @@ function modifySeoService(data) {
   write(blogSeoFile, blogSrc);
   console.error(`  ✅ ${blogSeoFile}`);
 
-  // 2. Breadcrumb entry → services/seoService.ts (shared registry — `blog-{id}`
-  // keys, parent 'blog'; path uses the active section's IT hub slug).
-  const svcFile = 'services/seoService.ts';
-  let svcSrc = read(svcFile);
-
-  const breadcrumb = `    'blog-${data.id}': { name: '${escapeForSingleQuoteTS(data.seo.breadcrumbName)}', path: '${itHubPath}', parent: 'blog' },`;
-  const bcRe = /('blog-[a-z0-9-]+':.*?parent: 'blog' \},)\s*\n(\s*\};)/;
-  if (!bcRe.test(svcSrc)) {
-    throw new Error(`Cannot find last breadcrumb blog entry in ${svcFile}`);
-  }
-  svcSrc = replaceCaptureSafe(svcSrc, bcRe, (_m, g1, g2) => `${g1}\n${breadcrumb}\n${g2}`);
-  write(svcFile, svcSrc);
-  console.error(`  ✅ ${svcFile}`);
+  // 2. Breadcrumb entry → REMOVED (issue #4974 item 3).
+  //
+  // This used to append `'blog-{id}': { name, path, parent: 'blog' }` to
+  // `sectionNames` in services/seoService.ts. Those entries were never read:
+  // `buildBreadcrumbs` returns early for `route.activeTab === 'blog'`, building
+  // the crumb from the localized title and `buildPath(route)`, and
+  // `sectionNames` is declared after that return. `getSectionKey` only ever
+  // builds a `blog-<id>` key inside `case 'blog':`, for both sections, so the
+  // early return always wins.
+  //
+  // 3593 of them had accumulated — 530 KB of the 1153 KB seoService chunk
+  // served to clients, untree-shakable because `sectionNames` is a local const
+  // in a live function. Removed wholesale; tests/seo-blog-breadcrumb-entries-dead.ts
+  // keeps them from growing back.
+  //
+  // It also unblocks this script: appending here was one of only two reasons it
+  // had to write outside the corpus, which is what kept the generator pinned to
+  // this repository.
 
   // 3. ItemList in services/seo/seo-pages.ts — insert the new article via the
   // shared, comma-safe helper (scripts/lib/seo-pages-article-list.mjs).
@@ -8679,7 +8733,9 @@ function gitAddAll(data) {
     SECTION.seoFile,
     // seo-pages.ts ItemList ("Articoli Frontaliere") is frontaliere-only.
     ...(SECTION.updateRouterUnion ? ['services/seo/seo-pages.ts'] : []),
-    'services/seoService.ts',
+    // services/seoService.ts is NOT staged any more (issue #4974 item 3): this
+    // script no longer writes it — the per-article breadcrumb entries it used
+    // to append were unreachable. See modifySeoService above.
     'public/sitemap-news.xml',
     'public/sitemap.xml',
   ];
