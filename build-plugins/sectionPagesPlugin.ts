@@ -61,7 +61,11 @@ import {
 } from './shared/seoContentTokens';
 import { ARTICLES } from '../data/blog-articles-data';
 import { BLOG_SLUGS } from '../services/routerBlogData';
-import type { BlogArticleId } from '../services/router';
+// From the corpus package, not the router: the union is corpus data (#4992),
+// and the router only re-exports it. Importing it here from the router made a
+// build plugin depend on the site's routing module for a type that has nothing
+// to do with routing.
+import type { BlogArticleId } from '../services/blogArticleIds';
 import { imageObjectLd } from '../services/seo/imageObjectLd';
 import { inlineScriptJson } from './shared/inlineJsonScript';
 import {
