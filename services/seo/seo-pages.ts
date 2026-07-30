@@ -4759,7 +4759,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 3635,
+ "numberOfItems": 3636,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026/` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024/` },
@@ -8395,7 +8395,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 3632, "name": "Vivere a Besano da frontaliere: guida a pro e c...", "url": `${BASE_URL}/articoli-frontaliere/besano-da-frontaliere-pro-e-contro` },
           { "@type": "ListItem", "position": 3633, "name": "Di più Ferrovia: nuovo record di viaggiatori ne...", "url": `${BASE_URL}/articoli-frontaliere/ferrovia-record-viaggiatori-secondo-trimestre` },
           { "@type": "ListItem", "position": 3634, "name": "Lombard Odier condannata a 3 milioni di franchi", "url": `${BASE_URL}/articoli-frontaliere/caso-karimova-multa-di-3-milioni` },
-          { "@type": "ListItem", "position": 3635, "name": "Ferrovie svizzere in corsa: passeggeri e merci ...", "url": `${BASE_URL}/articoli-frontaliere/trasporto-record-svizzero-2026` }
+          { "@type": "ListItem", "position": 3635, "name": "Ferrovie svizzere in corsa: passeggeri e merci ...", "url": `${BASE_URL}/articoli-frontaliere/trasporto-record-svizzero-2026` },
+          { "@type": "ListItem", "position": 3636, "name": "Lavori SP23 Lomazzo-Bizzarone: senso unico alte...", "url": `${BASE_URL}/articoli-frontaliere/lavori-di-asfaltatura-sulla-sp23-lomazzo-bizzarone` }
  ]
  },
  {
