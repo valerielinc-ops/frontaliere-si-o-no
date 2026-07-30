@@ -56,7 +56,11 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add public/data/border-wait-ranking.json \
+          # git-add-resolved: services/locales/blog-body is a symlink into
+          # packages/articles/content, and `git add` on a path THROUGH it aborts
+          # with "pathspec is beyond a symbolic link" — under `set -e` that would
+          # take the ranking JSON down with it.
+          node scripts/lib/git-add-resolved.mjs public/data/border-wait-ranking.json \
             services/locales/blog-body/it/classifica-dogane-ticino.ts \
             services/locales/blog-body/en/classifica-dogane-ticino.ts \
             services/locales/blog-body/de/classifica-dogane-ticino.ts \
@@ -68,7 +72,7 @@ jobs:
           fi
           git commit -m "🛂 Weekly border-wait ranking digest refresh"
           bash scripts/lib/git-push-with-retry.sh \
-            --regenerate-cmd "npx tsx scripts/generate-border-wait-ranking-article.mjs && git add public/data/border-wait-ranking.json services/locales/blog-body/it/classifica-dogane-ticino.ts services/locales/blog-body/en/classifica-dogane-ticino.ts services/locales/blog-body/de/classifica-dogane-ticino.ts services/locales/blog-body/fr/classifica-dogane-ticino.ts"
+            --regenerate-cmd "npx tsx scripts/generate-border-wait-ranking-article.mjs && node scripts/lib/git-add-resolved.mjs public/data/border-wait-ranking.json services/locales/blog-body/it/classifica-dogane-ticino.ts services/locales/blog-body/en/classifica-dogane-ticino.ts services/locales/blog-body/de/classifica-dogane-ticino.ts services/locales/blog-body/fr/classifica-dogane-ticino.ts"
           echo "has_changes=true" >> "$GITHUB_OUTPUT"
 
       - name: Trigger deploy workflow

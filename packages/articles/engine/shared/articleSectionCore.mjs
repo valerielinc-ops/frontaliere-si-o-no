@@ -8,7 +8,8 @@
  *   - `build-plugins/shared/articleSectionDescriptors.ts` (`ARTICLE_SECTION_DESCRIPTORS`)
  *   - `scripts/create-article.mjs` (`ARTICLE_SECTION_CONFIGS`)
  *   - `build-plugins/staticPagesPlugin.ts` (local `ogSections`)
- *   - `scripts/generate-rss-feeds.mjs` (`SECTIONS`)
+ *   - `packages/articles/engine/rssFeeds.mjs` (`RSS_SECTIONS`, was
+ *     `scripts/generate-rss-feeds.mjs` before #4974 item 2)
  *   - `scripts/schedule-fb-articles-daily.mjs` (`SECTIONS`)
  * plus the localized hub-slug alternation in `scripts/lib/articleSections.mjs`
  * (`BLOG_SECTION_RX`). Each independently-maintained copy is exactly the drift
@@ -24,7 +25,7 @@
  *     a plain `.mjs` work the same as any other `build-plugins/shared/*`
  *     module (see `cantonResolvers.mjs`, `viteAssetHashRx.mjs`);
  *   - raw-`node` CI scripts with no TS loader (`create-article.mjs`,
- *     `generate-rss-feeds.mjs`, `schedule-fb-articles-daily.mjs`,
+ *     `rssFeeds.mjs`, `schedule-fb-articles-daily.mjs`,
  *     `scripts/lib/articleSections.mjs`).
  * Same shim-free pattern as `cantonResolvers.mjs` / `viteAssetHashRx.mjs`:
  * pure data, no `fs`/JSON import inside this file, so it has zero runtime

@@ -10396,7 +10396,9 @@ async function generateAndValidateArticle(url, sourceContext = null) {
   // Step 4a.2: Regenerate RSS feeds (includes the new article)
   try {
     const { execSync } = await import('child_process');
-    execSync('node scripts/generate-rss-feeds.mjs', { cwd: PROJECT_ROOT, stdio: 'inherit' });
+    // tsx, not node: the generator imports the article registries (TypeScript
+    // modules with extensionless relative specifiers) to resolve item images.
+    execSync('npx -y tsx@4 scripts/generate-rss-feeds.mjs', { cwd: PROJECT_ROOT, stdio: 'inherit' });
   } catch (e) {
     console.error(`⚠️  RSS feed generation failed (non-blocking): ${e.message}`);
   }
@@ -10615,7 +10617,8 @@ export async function registerArticleFiles(data, opts = {}) {
   if (!opts.skipNews) modifySitemapNews(data);
   validateStructuredData(data);
   if (!opts.skipRss) {
-    execSync('node scripts/generate-rss-feeds.mjs', { stdio: 'inherit', cwd: PROJECT_ROOT });
+    // tsx, not node — see the sibling call site above (registry import).
+    execSync('npx -y tsx@4 scripts/generate-rss-feeds.mjs', { stdio: 'inherit', cwd: PROJECT_ROOT });
   }
   const publishedUrls = buildArticlePublishedUrls(data);
   return { slugs, publishedUrls };

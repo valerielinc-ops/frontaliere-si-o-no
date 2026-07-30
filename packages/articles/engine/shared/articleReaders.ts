@@ -32,6 +32,12 @@ import type { ArticleLocale as HubLocale } from '../siteShell';
  * the canonical `BlogArticleId` key (matches `BLOG_SLUGS` keys in
  * `routerBlogData.ts`) — NOT the URL slug. Use {@link readBlogUrlSlugs}
  * to get the locale-specific URL slug for hub anchor construction.
+ *
+ * `metaDir` is the directory holding the meta chunks, repo-relative. It
+ * defaults to the site layout (`services/locales`, where the symlinks into
+ * this package's `content/` live) so every existing caller is unchanged. The
+ * articles repository publishes from the corpus directly and passes its own
+ * (`content`) — same reader, no second copy of the parse regex to drift.
  */
 export function readArticleSlugs(
   fs: typeof fsT,
@@ -39,8 +45,9 @@ export function readArticleSlugs(
   rootDir: string,
   locale: HubLocale,
   metaPrefix = 'blog-meta',
+  metaDir = 'services/locales',
 ): Array<{ slug: string; title: string }> {
-  const file = np.resolve(rootDir, 'services/locales', `${metaPrefix}-${locale}.ts`);
+  const file = np.resolve(rootDir, metaDir, `${metaPrefix}-${locale}.ts`);
   const out: Array<{ slug: string; title: string }> = [];
   try {
     if (!fs.existsSync(file)) return out;

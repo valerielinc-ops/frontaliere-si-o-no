@@ -168,7 +168,14 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-          git add data/events.json \
+          # git-add-resolved, not plain `git add`: the article-corpus paths below
+          # are symlinks into packages/articles/content/. A path through the
+          # symlinked blog-body DIRECTORY aborts with "pathspec is beyond a
+          # symbolic link" (taking the events data down with it under `set -e`),
+          # and a path that IS a file symlink (seo-blog-5.ts, blog-articles-data.ts)
+          # stages nothing at all while still exiting 0 — which would silently
+          # drop the dateModified/updatedAt bumps this job just wrote.
+          node scripts/lib/git-add-resolved.mjs data/events.json \
             data/events/by-source/tio-agenda.json \
             data/events/by-source/guidle.json \
             data/events/by-source/myswitzerland.json \

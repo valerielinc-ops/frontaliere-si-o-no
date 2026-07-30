@@ -703,6 +703,28 @@ jobs:
           bash scripts/lib/trigger-workflow.sh "fast-publish-article.yml" "$INPUTS_JSON" \
           || true
 
+      # ── Mirror the corpus to the articles repo ────────────────────────
+      # Same anti-recursion reason as the two dispatches above: the commit was
+      # pushed with the default GITHUB_TOKEN, so mirror-articles-corpus.yml's
+      # `on: push` never fires for it. Without this the mirror only ran when a
+      # human dispatched it, the articles repo stayed on whatever snapshot it
+      # was extracted at, and the published surface it serves — sitemaps, the
+      # RSS feeds and the news-ticker payload (issue 4974 item 2) — silently
+      # aged out. A stale API is worse than no API, because a consumer cannot
+      # tell the difference.
+      #
+      # Best-effort: the mirror also runs on a two-hourly schedule, so a failed
+      # dispatch costs latency, never the update. Deliberately NOT gated on
+      # verify_article: any corpus write in this run is worth mirroring.
+      - name: Trigger corpus mirror
+        id: trigger_mirror
+        if: steps.commit.outputs.committed == 'true'
+        run: |
+          TRIGGER_REF="main" \
+          TRIGGER_EXPECTED_SHA="$(git rev-parse HEAD)" \
+          bash scripts/lib/trigger-workflow.sh "mirror-articles-corpus.yml" '{}' \
+          || true
+
       # ── Notify Google Indexing API ─────────────────────────────────────
       # REMOVED (issue #4837 stream C): this step used to ping Google right
       # after dispatching deploy.yml on the assumption "deploy takes ~2-3

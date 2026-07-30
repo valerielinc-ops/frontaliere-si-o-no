@@ -45,6 +45,32 @@ export interface GeneratedTickerArticle {
 }
 
 /**
+ * Where the corpus this payload is computed from lives, relative to `rootDir`,
+ * plus the locales to emit.
+ *
+ * Every field is optional and defaults to the SITE layout, so the in-repo
+ * build callers are unchanged. The articles repository — which owns the corpus
+ * and publishes `news-ticker-live.json` from it — passes its own layout
+ * (`content/`) and its own locale list.
+ *
+ * `hubLocales` is the reason this object exists at all. It used to be read
+ * from `getSiteShell()` at call time, which made this function unusable
+ * outside the site: the shell is bootstrapped by the consuming repo, not by
+ * this package. That is the same coupling class fixed for the post-walk worker
+ * in #4971, and it is fixed the same way — the value is passed in, not
+ * fetched from ambient state. When omitted, the shell is consulted exactly as
+ * before, so nothing in the site build changes.
+ */
+export interface TickerSourceLayout {
+  /** Locales to emit. Default: `getSiteShell().hubLocales` (site behaviour). */
+  hubLocales?: readonly HubLocale[];
+  /** Directory holding `blog-meta-{locale}.ts`. Default: `services/locales`. */
+  metaDir?: string;
+  /** Module exporting `BLOG_SLUGS`. Default: `services/routerBlogData.ts`. */
+  slugDataFile?: string;
+}
+
+/**
  * Compute the slim ticker payload. Pure given (fs, np, rootDir) — exported
  * separately so vitest can gate generation correctness without a Vite build.
  *
@@ -54,16 +80,22 @@ export interface GeneratedTickerArticle {
  * the FRESH esbuild-rebuilt registry here so the out-of-band CDN ticker
  * payload reflects an article that was fast-published after this file's own
  * `ARTICLES` import was last built — without re-running a full build.
+ *
+ * `layout` (issue #4974 item 2) lets the articles repository call this with
+ * its own on-disk layout and locale list. Omitted everywhere in the site.
  */
 export function computeTickerArticles(
   fs: typeof import('node:fs'),
   np: typeof import('node:path'),
   rootDir: string,
   articlesOverride?: readonly Article[],
+  layout?: TickerSourceLayout,
 ): GeneratedTickerArticle[] {
   // Same selection logic the runtime NewsFeed used: stable sort by date
   // desc over ARTICLES order, top 5. Keep byte-identical semantics.
-  const { hubLocales: HUB_LOCALES } = getSiteShell();
+  // The shell is only consulted when the caller did not supply the locales —
+  // reading it unconditionally is what made this unusable outside the site.
+  const HUB_LOCALES = layout?.hubLocales ?? getSiteShell().hubLocales;
   const latest = [...(articlesOverride ?? ARTICLES)]
     .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
     .slice(0, TICKER_COUNT);
@@ -71,12 +103,19 @@ export function computeTickerArticles(
   const titlesByLocale = new Map<HubLocale, Map<string, string>>();
   for (const locale of HUB_LOCALES) {
     const map = new Map<string, string>();
-    for (const { slug, title } of readArticleSlugs(fs, np, rootDir, locale)) {
+    for (const { slug, title } of readArticleSlugs(
+      fs,
+      np,
+      rootDir,
+      locale,
+      'blog-meta',
+      layout?.metaDir,
+    )) {
       map.set(slug, title);
     }
     titlesByLocale.set(locale, map);
   }
-  const urlSlugs = readBlogUrlSlugs(fs, np, rootDir);
+  const urlSlugs = readBlogUrlSlugs(fs, np, rootDir, layout?.slugDataFile);
 
   return latest.map((a) => {
     const title = {} as Record<HubLocale, string>;
