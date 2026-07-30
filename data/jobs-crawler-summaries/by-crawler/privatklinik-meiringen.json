@@ -1,18 +1,19 @@
 {
   "key": "privatklinik-meiringen",
   "label": "Privatklinik Meiringen",
-  "generatedAt": "2026-07-29T22:25:15.362Z",
-  "total": 13,
-  "newCount": 1,
-  "updatedCount": 11,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 8760,
-  "avgDurationMs": 8760,
+  "generatedAt": "2026-07-30T11:23:11.727Z",
+  "total": 12,
+  "newCount": 0,
+  "updatedCount": 12,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 10204,
+  "avgDurationMs": 10204,
   "durationHistory": [
-    8760
+    10204
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "privatklinik-meiringen-05d98f244cb1",
       "slug": "dipl-pflegefachperson-hf-fh-vorwiegend-nachtdienst-zentrum-des-alpes-prive-60-100",
@@ -20,13 +21,13 @@
       "companyKey": "privatklinik-meiringen",
       "companyDomain": "privatklinik-meiringen.ch",
       "title": "Dipl. Pflegefachperson HF/FH, vorwiegend Nachtdienst | Zentrum «Des Alpes Privé» / 60% - 100%",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Meiringen",
       "canton": "BE",
       "url": "https://my.jobalino.ch/job/93216b18db5fd33fb182b185509b1d31/dipl-pflegefachperson-hf-fh-vorwiegend-nachtdienst-zentrum-des-alpes-prive",
       "source": "Privatklinik Meiringen Dedicated Parser (Jobalino)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:25:07.818Z",
+      "crawledAt": "2026-07-30T11:23:02.886Z",
       "addressLocality": "Meiringen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -44,16 +45,15 @@
       "externalId": "93216b18db5fd33fb182b185509b1d31",
       "contractDuration": "permanent",
       "department": "Pflege- und Betreuungsberufe",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-07-29T22:25:07.818Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "privatklinik-meiringen-39442bea478a",
       "slug": "dipl-pflegefachperson-hf-fh-vorwiegend-im-nachtdienst-schwerpunkt-akutaufnahme-offen-e-geschutzt-80-100-privatklinik-meiringen",
@@ -67,7 +67,7 @@
       "url": "https://my.jobalino.ch/job/dafa113a80264a41153d356dae4d1be2/dipl-pflegefachperson-hf-fh-vorwiegend-im-nachtdienst-schwerpunkt-akutaufnahme-offen-und-geschuetzt",
       "source": "Privatklinik Meiringen Dedicated Parser (Jobalino)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:25:08.223Z",
+      "crawledAt": "2026-07-30T11:23:03.367Z",
       "addressLocality": "Meiringen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -107,7 +107,7 @@
       "url": "https://my.jobalino.ch/job/66a8e55e5d588/diverse-berufe-spontanbewerbung",
       "source": "Privatklinik Meiringen Dedicated Parser (Jobalino)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:25:09.012Z",
+      "crawledAt": "2026-07-30T11:23:04.277Z",
       "addressLocality": "Meiringen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -147,7 +147,7 @@
       "url": "https://my.jobalino.ch/job/3af45a295054705430d0b0a7c91b1b13/assistenzpsychologin-assistenzpsychologe-oder-stationspsychologin-stationspsychologe",
       "source": "Privatklinik Meiringen Dedicated Parser (Jobalino)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:25:09.500Z",
+      "crawledAt": "2026-07-30T11:23:04.895Z",
       "addressLocality": "Meiringen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -187,7 +187,7 @@
       "url": "https://my.jobalino.ch/job/a46b9961d9c3b8d26214482138381941/stv-zentrumsleiter-in-pflege",
       "source": "Privatklinik Meiringen Dedicated Parser (Jobalino)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:25:08.620Z",
+      "crawledAt": "2026-07-30T11:23:03.821Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -227,7 +227,7 @@
       "url": "https://my.jobalino.ch/job/86210ca400ffbe80d0e35c01ce0c2d88/dipl-pflegefachperson-hf-fh-mit-der-zusatzfunktion-fachverantwortliche-r",
       "source": "Privatklinik Meiringen Dedicated Parser (Jobalino)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:25:10.471Z",
+      "crawledAt": "2026-07-30T11:23:06.119Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -267,7 +267,7 @@
       "url": "https://my.jobalino.ch/job/7c690d2087c39a6ed79450a64dba089b/physiotherapeut-in-hf-fh-bsc-msc",
       "source": "Privatklinik Meiringen Dedicated Parser (Jobalino)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:25:10.959Z",
+      "crawledAt": "2026-07-30T11:23:06.729Z",
       "addressLocality": "Meiringen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -307,7 +307,7 @@
       "url": "https://my.jobalino.ch/job/82afc20e94a039596241e20d88de6349/sommer-2027-lehrstelle-kauffrau-efz-kaufmann-efz-branche-gesundheit",
       "source": "Privatklinik Meiringen Dedicated Parser (Jobalino)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:25:12.234Z",
+      "crawledAt": "2026-07-30T11:23:08.103Z",
       "addressLocality": "Meiringen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -346,7 +346,7 @@
       "url": "https://my.jobalino.ch/job/1d991810344cccb46bd66587de7fb38a/sommer-2027-lehrstelle-fachfrau-gesundheit-efz-fachmann-gesundheit-efz-versorgungsbereich-psychiatrie",
       "source": "Privatklinik Meiringen Dedicated Parser (Jobalino)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:25:12.725Z",
+      "crawledAt": "2026-07-30T11:23:08.562Z",
       "addressLocality": "Meiringen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -385,7 +385,7 @@
       "url": "https://my.jobalino.ch/job/453571095a143d4e14101543b66c1a32/praxismodul-wahlpflicht-oder-zusatzmodul-b-fuer-studierende-bachelor-of-science-in-pflege",
       "source": "Privatklinik Meiringen Dedicated Parser (Jobalino)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:25:11.350Z",
+      "crawledAt": "2026-07-30T11:23:07.185Z",
       "addressLocality": "Meiringen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -424,7 +424,7 @@
       "url": "https://my.jobalino.ch/job/035950189120e31370e457a0629fb201/studium-pflege-hf-jaehrlich-im-maerz-und-september",
       "source": "Privatklinik Meiringen Dedicated Parser (Jobalino)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:25:11.742Z",
+      "crawledAt": "2026-07-30T11:23:07.640Z",
       "addressLocality": "Meiringen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -464,7 +464,7 @@
       "url": "https://my.jobalino.ch/job/9791b7322d221f506716e491e148c9f5/dipl-pflegefachperson-hf-fuer-pflegepool-tiefprozentige-teilzeitpensen-moeglich",
       "source": "Privatklinik Meiringen Dedicated Parser (Jobalino)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:25:09.985Z",
+      "crawledAt": "2026-07-30T11:23:05.509Z",
       "addressLocality": "Meiringen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -491,8 +491,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "privatklinik-meiringen-8e11ce928bf3",
       "slug": "stage-estivo-2026-apprendista-cuoco-a-efz-100-michel-gruppe-ag-meiringen",
@@ -535,5 +534,6 @@
         "completeness": 22
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
