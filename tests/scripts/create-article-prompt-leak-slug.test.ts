@@ -72,3 +72,53 @@ describe('article slugs never carry the prompt placeholder (#4974)', () => {
     ).toEqual([]);
   });
 });
+
+/**
+ * SEO titles must not be cut mid-word.
+ *
+ * When the model omits the `seo` block — common with the smaller fallback
+ * models — create-article.mjs synthesizes it from `content.it`. That branch
+ * used a hard `.slice(0, 57)`, which lands wherever character 57 happens to
+ * fall: "Incidente mortale a Porlezza: muore un | Frontaliere Ticino",
+ * "Educatori in Germania: stipendi fino a | Frontaliere Ticino". 443 of the
+ * 4552 titles in the corpus (9.7%) are cut that way, and the cut usually
+ * removes exactly the part that would earn the click.
+ *
+ * `truncateAtWordBoundary` was already in the same file, used for the
+ * description and the breadcrumb name four lines below. This call site simply
+ * never got it.
+ */
+describe('SEO titles are truncated at word boundaries (#4974)', () => {
+  it('the synthesized-seo branch uses truncateAtWordBoundary, not a hard slice', () => {
+    const branch = createArticle.slice(
+      createArticle.indexOf('Synthesize seo from content.it'),
+      createArticle.indexOf('Synthesize seo from content.it') + 1600,
+    );
+    expect(branch, 'the synthesized seo branch is gone or moved').toContain('data.seo = {');
+    expect(
+      branch,
+      'the synthesized title/description are back to a hard slice — they will ' +
+        'ship title tags cut mid-word again',
+    ).not.toMatch(/\.slice\(0,\s*(57|160)\)/);
+    expect(branch).toMatch(/truncateAtWordBoundary\(String\(it\.title/);
+    expect(branch).toMatch(/truncateAtWordBoundary\(String\(it\.excerpt/);
+  });
+
+  it('truncateAtWordBoundary really stops at a word boundary', async () => {
+    // Exercised through the real helper rather than re-implemented here.
+    const src = createArticle.slice(createArticle.indexOf('function truncateAtWordBoundary'));
+    const body = src.slice(0, src.indexOf('\n}\n') + 3);
+    const fn = new Function(`${body}; return truncateAtWordBoundary;`)() as (
+      t: string,
+      n: number,
+    ) => string;
+
+    const long = 'Incidente mortale a Porlezza: muore un giovane motociclista di Como';
+    const cut = fn(long, 57);
+    expect(cut.length).toBeLessThanOrEqual(57);
+    // The whole point: no dangling partial word, and no trailing separator.
+    expect(long.startsWith(cut)).toBe(true);
+    expect(cut).not.toMatch(/[,:;.\-–—\s]$/);
+    expect(long[cut.length] === ' ' || cut.length === long.length).toBe(true);
+  });
+});

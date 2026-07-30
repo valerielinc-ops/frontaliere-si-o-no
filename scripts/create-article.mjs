@@ -6190,8 +6190,16 @@ function validate(data, opts = {}) {
   // Synthesize seo from content.it if the model omitted it (common with smaller fallback models)
   if (!data.seo) {
     const it = data.content.it || data.content;
-    const title = (it.title || data.id).slice(0, 57);
-    const desc = (it.excerpt || it.title || '').slice(0, 160);
+    // truncateAtWordBoundary, not slice: a hard character cut lands mid-word and
+    // ships a title tag that stops in the middle of the sentence — "Incidente
+    // mortale a Porlezza: muore un | Frontaliere Ticino", "Educatori in
+    // Germania: stipendi fino a | Frontaliere Ticino". 443 of the 4552 titles in
+    // the corpus (9.7%) are cut that way, all of them from this branch, and the
+    // cut usually falls exactly on the informative part. The helper is already
+    // used four lines below for the description and for breadcrumbName — this
+    // call site just never got it.
+    const title = truncateAtWordBoundary(String(it.title || data.id), 57);
+    const desc = truncateAtWordBoundary(String(it.excerpt || it.title || ''), 160);
     console.error(`⚠️  Campo "seo" mancante — generato automaticamente da content.it`);
     data.seo = {
       title: `${title} | Frontaliere Ticino`,
