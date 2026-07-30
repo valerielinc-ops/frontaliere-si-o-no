@@ -10,9 +10,7 @@
     "jsonld"
   ],
   "seedUrls": [
-    "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-kundenbegleiter-in-fuer-frequenzerfassung/32133b84-99c1-4f19-990a-1272dff176b9",
-    "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-lokfuehrer-in-personenverkehr/4b4b2150-7bd2-482f-87fa-67f2caa741d5",
-    "https://jobs.sbb.ch/v2/offene-stellen/macchinista-in-riconversione-professionale/e2dd46b4-e83f-4f9f-95d8-99497a205e34",
+    "https://jobs.sbb.ch/v2/offene-stellen/elektroinstallateur-in-efz/666a464a-2aac-4c6d-935a-a3f0cea4383e",
     "https://jobs.sbb.ch/v2/offene-stellen/technicienne-qualifiee-maintenance/049e8e36-b350-4282-b07a-99b67f108fd4",
     "https://jobs.sbb.ch/v2/offene-stellen/people-leader-it-sourcing-m-w-d/ccd986d7-e1a9-48ec-a06c-a55e86243358",
     "https://jobs.sbb.ch/v2/offene-stellen/fachtechniker-in-instandhaltung/d17f5730-4b67-4f77-b994-9fe6d6da1095",
@@ -138,7 +136,6 @@
     "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-lokfuehrer-in-personenverkehr-03-2027/23f571c2-4c91-4f72-aca1-6e99263e13e9",
     "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-lokfuehrer-in-personenverkehr-03-2027/40c52ee8-c98e-4ccc-9bb3-ee20f4758239",
     "https://jobs.sbb.ch/v2/offene-stellen/chefmonteur-in-fahrleitung/849e9868-857b-4a00-ba41-36d11a055fef",
-    "https://jobs.sbb.ch/v2/offene-stellen/elektroinstallateur-in-efz/aa73c1ec-80f4-4498-92c5-1f44ab60c268",
     "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-lokfuehrer-in-bauzug-mit-handwerklicher-erfahrung/b5a8750c-c9f5-4b32-b724-70afb312ce36",
     "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-sicherheitswaerter-in-sicherheitschef/ed58eb66-2df5-4a0b-845c-aae5d6da439f",
     "https://jobs.sbb.ch/v2/offene-stellen/polizist-in-transportpolizei/a2ef93f0-4915-44c1-81df-7359d62d676e",
@@ -165,5 +162,5 @@
     "https://jobs.sbb.ch/v2/offene-stellen/rangierspezialist-in-ai40/2f5499bd-119f-4f07-9d22-09a22c8a9e82"
   ],
   "notes": "SBB dedicated seeds from company.sbb.ch AEM JSON API + login.org apprenticeship listing (partner SBB CFF FFS, canton Ticino).",
-  "updatedAt": "2026-07-30T11:31:44.947Z"
+  "updatedAt": "2026-07-30T22:16:16.981Z"
 }
