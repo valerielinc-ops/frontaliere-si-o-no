@@ -8110,7 +8110,11 @@ function modifyRouterTs(data) {
 
 /** frontaliere-only: append the new id to the BlogArticleId union in router.ts. */
 function modifyRouterUnion(data) {
-  const routerFile = 'services/router.ts';
+  // The union lives in the corpus package now, not in the router (#4974 item
+  // 3): it is appended on every publish, so it is corpus data, and writing it
+  // here meant every run of the generator also wrote into the site. The router
+  // re-exports it, so nothing downstream changed.
+  const routerFile = 'packages/articles/content/blogArticleIds.ts';
   let routerSrc = read(routerFile);
 
   // Append to the LAST _BlogIdN alias before its terminating semicolon. We
@@ -8118,7 +8122,7 @@ function modifyRouterUnion(data) {
   // drift: TS2590 splits may reorder, hand-edits may append to either list.
   const lastAliasMatch = routerSrc.match(/type (_BlogId\d+)\s*=\s*([^;]+);/g);
   if (!lastAliasMatch || lastAliasMatch.length === 0) {
-    throw new Error('modifyRouterUnion: could not find any _BlogIdN alias in router.ts');
+    throw new Error(`modifyRouterUnion: could not find any _BlogIdN alias in ${routerFile}`);
   }
   const lastAlias = lastAliasMatch[lastAliasMatch.length - 1];
   const aliasIds = lastAlias.match(/'([^']+)'/g)?.map(s => s.slice(1, -1)) || [];
@@ -8719,7 +8723,7 @@ function gitAddAll(data) {
   // breadcrumb) + sitemap-news.xml + sitemap.xml are staged for both. router.ts
   // is staged only when the section maintains the BlogArticleId union.
   const files = [
-    ...(SECTION.updateRouterUnion ? ['services/router.ts'] : []),
+    ...(SECTION.updateRouterUnion ? ['packages/articles/content/blogArticleIds.ts'] : []),
     SECTION.slugDataFile,
     SECTION.registryFile,
     `services/locales/${SECTION.metaPrefix}-it.ts`,
