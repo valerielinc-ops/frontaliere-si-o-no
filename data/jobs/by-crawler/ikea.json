@@ -61,7 +61,6 @@
         ]
       },
       "firstSeenAt": "2026-07-03T22:23:34.003Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -220,7 +219,6 @@
         ]
       },
       "firstSeenAt": "2026-07-03T22:23:34.008Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -293,7 +291,6 @@
         ]
       },
       "firstSeenAt": "2026-07-09T22:27:11.613Z",
-      "needsRetranslation": true,
       "salaryMin": 28800,
       "salaryMax": 43500,
       "baseSalary": {
@@ -382,7 +379,6 @@
         ]
       },
       "firstSeenAt": "2026-07-03T22:23:34.001Z",
-      "needsRetranslation": true,
       "salaryMin": 23000,
       "salaryMax": 34800,
       "baseSalary": {
@@ -472,8 +468,7 @@
           "maxValue": 75200,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "ikea-b10cdf655ecb",
@@ -534,7 +529,6 @@
         ]
       },
       "firstSeenAt": "2026-07-13T22:13:32.661Z",
-      "needsRetranslation": true,
       "salaryMin": 29400,
       "salaryMax": 44600,
       "baseSalary": {
@@ -613,7 +607,6 @@
         ]
       },
       "firstSeenAt": "2026-07-07T22:18:13.980Z",
-      "needsRetranslation": true,
       "salaryMin": 44100,
       "salaryMax": 66900,
       "baseSalary": {
@@ -706,7 +699,6 @@
         ]
       },
       "firstSeenAt": "2026-07-13T22:13:32.658Z",
-      "needsRetranslation": true,
       "salaryMin": 14700,
       "salaryMax": 22300,
       "baseSalary": {
@@ -807,7 +799,6 @@
         ]
       },
       "firstSeenAt": "2026-07-13T22:13:32.659Z",
-      "needsRetranslation": true,
       "salaryMin": 37200,
       "salaryMax": 56400,
       "baseSalary": {
@@ -927,7 +918,7 @@
       "id": "ikea-7a66eddf61cd",
       "slug": "collaborateur-trice-cuisine-ikea-40-ikea-aubonne",
       "slugByLocale": {
-        "it": "collaborateur-trice-cuisine-ikea-40-ikea-aubonne",
+        "it": "contributatore-da-cucina-ikea-40-ikea-aubonne-vaud-switzerland",
         "en": "cuisine-ikea-40-team-member-ikea-aubonne",
         "de": "ikea-kuchenmitarbeiter-40-ikea-aubonne",
         "fr": "collaborateur-trice-cuisine-ikea-40-ikea-ch"
@@ -937,7 +928,7 @@
       "companyDomain": "ikea.ch",
       "title": "Collaborateur*trice Cuisine IKEA 40%",
       "titleByLocale": {
-        "it": "Collaborateur*trice Cuisine IKEA 40%",
+        "it": "IKEA Cucina Collaboratore 40%",
         "en": "IKEA Kitchen Collaborator 40%",
         "de": "IKEA Küchenmitarbeiter 40%",
         "fr": "Collaborateur*trice Cuisine IKEA 40%"
@@ -979,10 +970,8 @@
         "mitarbeiter-in-restaurant-kuche-ikea-20-ikea-vernier-geneve-switzerland",
         "collaborateur-trice-restaurant-cuisine-ikea-20-ikea-ch",
         "ikea-cuisine-collaborateur-40-ikea-aubonne",
-        "contributatore-da-cucina-ikea-40-ikea-aubonne-vaud-switzerland",
         "koch-kellnerin-ikea-40-ikea-aubonne",
-        "collaborateur-trice-cuisine-ikea-40-ikea-aubonne",
-        "ikea-kuchenmitarbeiter-40-ikea-aubonne"
+        "collaborateur-trice-cuisine-ikea-40-ikea-aubonne"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -993,19 +982,16 @@
           "mitarbeiter-in-restaurant-kuche-ikea-20-ikea-vernier-geneve-switzerland",
           "collaborateur-trice-restaurant-cuisine-ikea-20-ikea-ch",
           "ikea-cuisine-collaborateur-40-ikea-aubonne",
-          "contributatore-da-cucina-ikea-40-ikea-aubonne-vaud-switzerland",
           "collaborateur-trice-cuisine-ikea-40-ikea-aubonne"
         ],
         "de": [
-          "koch-kellnerin-ikea-40-ikea-aubonne",
-          "ikea-kuchenmitarbeiter-40-ikea-aubonne"
+          "koch-kellnerin-ikea-40-ikea-aubonne"
         ],
         "fr": [
           "ikea-cuisine-collaborateur-40-ikea-aubonne"
         ]
       },
       "firstSeenAt": "2026-07-14T22:23:31.696Z",
-      "needsRetranslation": true,
       "salaryMin": 24200,
       "salaryMax": 36600,
       "baseSalary": {
@@ -1156,7 +1142,6 @@
         ]
       },
       "firstSeenAt": "2026-07-14T22:23:31.695Z",
-      "needsRetranslation": true,
       "salaryMin": 29400,
       "salaryMax": 44600,
       "baseSalary": {
@@ -1307,7 +1292,6 @@
         ]
       },
       "firstSeenAt": "2026-07-20T12:07:43.910Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -1456,7 +1440,6 @@
         ]
       },
       "firstSeenAt": "2026-07-21T22:32:54.405Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -1954,7 +1937,6 @@
         ]
       },
       "firstSeenAt": "2026-07-16T22:20:01.884Z",
-      "needsRetranslation": true,
       "salaryMin": 31000,
       "salaryMax": 47000,
       "baseSalary": {
@@ -2033,7 +2015,6 @@
         ]
       },
       "firstSeenAt": "2026-07-10T22:15:51.547Z",
-      "needsRetranslation": true,
       "salaryMin": 11500,
       "salaryMax": 17400,
       "baseSalary": {
@@ -2112,7 +2093,6 @@
         ]
       },
       "firstSeenAt": "2026-07-24T22:07:27.082Z",
-      "needsRetranslation": true,
       "salaryMin": 58800,
       "salaryMax": 89200,
       "baseSalary": {
@@ -2374,7 +2354,6 @@
         ]
       },
       "firstSeenAt": "2026-07-14T22:23:31.679Z",
-      "needsRetranslation": true,
       "salaryMin": 57200,
       "salaryMax": 101200,
       "baseSalary": {
@@ -2457,7 +2436,6 @@
         ]
       },
       "firstSeenAt": "2026-07-06T22:20:16.453Z",
-      "needsRetranslation": true,
       "salaryMin": 24800,
       "salaryMax": 37600,
       "baseSalary": {
@@ -2541,8 +2519,7 @@
           "maxValue": 60900,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "ikea-4f802ec90931",
@@ -2617,7 +2594,6 @@
         ]
       },
       "firstSeenAt": "2026-07-29T22:04:31.744Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -2696,7 +2672,6 @@
         ]
       },
       "firstSeenAt": "2026-07-29T22:04:31.743Z",
-      "needsRetranslation": true,
       "salaryMin": 44100,
       "salaryMax": 66900,
       "baseSalary": {
