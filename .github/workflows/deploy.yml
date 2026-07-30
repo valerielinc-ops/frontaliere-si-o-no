@@ -297,16 +297,12 @@ jobs:
       # SEQUENTIAL_PROFILE is forced on (always sequential on the GH runner).
       BUILD_PROFILE: '1'
       ASSET_CDN: 'https://cdn.frontaliereticino.ch'
-      POST_WALK_WORKERS: '1'  # hotfix #4881: worker threads cannot load the post-walk
-        # module graph since the Fase 6 colocation. `new Worker(..., {execArgv:
-        # ['--import','tsx']})` does NOT activate tsx inside the worker (verified
-        # by direct repro), so the worker resolves with plain Node ESM. That was
-        # fine while blogContextualLinksPlugin was self-contained; it now
-        # re-exports from packages/articles and pulls a 48-module graph with
-        # extensionless specifiers and attribute-less JSON imports, neither of
-        # which plain Node resolves — ERR_MODULE_NOT_FOUND on every deploy since
-        # 06:08 UTC. Single-threaded runs in the Vite process, where resolution
-        # works. Re-enable once the worker's import graph is slimmed back down.
+      # Restored to 2 (#4959 §4): the post-walk worker no longer imports the
+      # site-shell graph. injectContextualLinks moved to a leaf module with
+      # type-only imports, so plain Node ESM inside the worker resolves it —
+      # verified directly: the leaf loads, the old plugin path still fails with
+      # ERR_MODULE_NOT_FOUND on siteShell.
+      POST_WALK_WORKERS: '2'
       SEQUENTIAL_PROFILE: '1'
       JOBS_SEO_PROFILE_PHASES: '1'
       WEEKLY_EMPLOYERS_PROFILE: ''
