@@ -65,9 +65,13 @@ function truncateAtWordBoundary(text, maxLen) {
 
 /**
  * Titles cut mid-sentence end on a connective immediately before the brand.
- * Kept deliberately conservative: "…paga di più | …" and "…nell'era AI | …" are
- * complete sentences that merely end on a short word, so `piu`/`ai` and friends
- * are excluded to avoid rewriting titles that are already fine.
+ *
+ * Deliberately over-inclusive rather than precise: `ai` IS in the list, so
+ * "…nell'era AI | …" is flagged even though it is a complete sentence. That
+ * costs nothing — such an entry is then rejected by the "is the editorial title
+ * actually longer?" check below and left untouched — whereas leaving `ai` out
+ * would miss the real "…comunale ai" cut. Flagging is cheap; rewriting a good
+ * title is not, and the length check is what actually protects against it.
  */
 const CONNECTIVES =
   'per|con|di|da|in|su|tra|fra|e|ed|a|ad|ai|il|la|lo|i|gli|le|un|una|uno|del|della|dei|degli|delle|al|alla|agli|alle|dal|dalla|nel|nella|sul|sulla|che|come|dove|non|ma|se|si|ha|hanno|' +
@@ -156,15 +160,12 @@ for (const file of fs.readdirSync(SEO_DIR).filter((f) => /^seo-blog.*\.ts$/.test
     if (!isCut(currentTitle)) continue;
 
     // The entry key is `blog-<id>`; the meta chunk is keyed by the bare id.
-    // Hub/landing entries (g-bewilligung-…, quellensteuer-…) have no article in
-    // the meta chunk at all, but their own ogTitle is a complete phrase — use it
-    // rather than leaving a "| Frontaliere" title in place for want of a source.
-    let full = metaTitles.get(starts[k].id);
-    if (!full) {
-      const og = block.match(/ogTitle:\s*'((?:[^'\\]|\\.)*)'/);
-      const candidateOg = og ? unescapeSingle(og[1]).trim() : '';
-      if (candidateOg && !isCut(candidateOg)) full = candidateOg;
-    }
+    // Every article in the corpus has one — verified across all 8 seo-blog
+    // files: zero blocks resolve to a missing meta title. An earlier version
+    // carried an ogTitle fallback for supposed hub/landing entries without a
+    // meta title; those turned out to have one too, so the branch was
+    // unreachable by construction and is gone.
+    const full = metaTitles.get(starts[k].id);
     if (!full) {
       skipped++;
       continue;
