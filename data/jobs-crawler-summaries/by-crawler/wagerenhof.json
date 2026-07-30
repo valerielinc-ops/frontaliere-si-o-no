@@ -1,18 +1,55 @@
 {
   "key": "wagerenhof",
   "label": "Stiftung Wagerenhof",
-  "generatedAt": "2026-07-29T22:11:12.301Z",
-  "total": 5,
-  "newCount": 0,
-  "updatedCount": 5,
+  "generatedAt": "2026-07-30T11:31:56.093Z",
+  "total": 6,
+  "newCount": 1,
+  "updatedCount": 4,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 10088,
-  "avgDurationMs": 10088,
+  "unchangedCount": 1,
+  "durationMs": 14408,
+  "avgDurationMs": 14408,
   "durationHistory": [
-    10088
+    14408
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "id": "wagerenhof-960e85b55337",
+      "slug": "sozialpadagogin-sozialpadagoge-als-teamleitung-fur-den-standort-steg-im-tosstal-80-100",
+      "company": "Stiftung Wagerenhof",
+      "companyKey": "wagerenhof",
+      "companyDomain": "wagerenhof.ch",
+      "title": "Sozialpädagogin/ Sozialpädagoge als Teamleitung für den Standort Steg im Tösstal (80 – 100%)",
+      "needsRetranslation": true,
+      "location": "Bauma",
+      "canton": "ZH",
+      "url": "https://www.wagerenhof.ch/wagerenhof/arbeiten-beim-wagerenhof/offene-stellen/vacancy-details?reference=2026-511&cHash=f2e20edb1dd6f065f8c6e62248937788",
+      "source": "Wagerenhof Dedicated Parser (TYPO3 HTML)",
+      "sourceLang": "de",
+      "crawledAt": "2026-07-30T11:31:46.430Z",
+      "addressLocality": "Bauma",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8494",
+      "category": "IT",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "intern",
+      "sector": "Sociale / Educazione",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-30",
+      "applyUrl": "https://www.wagerenhof.ch/wagerenhof/arbeiten-beim-wagerenhof/offene-stellen/vacancy-details?reference=2026-511&cHash=f2e20edb1dd6f065f8c6e62248937788",
+      "_qualityScore": 64,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 4,
+        "completeness": 17
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "id": "wagerenhof-a1e5d1b96407",
@@ -27,7 +64,7 @@
       "url": "https://www.wagerenhof.ch/wagerenhof/arbeiten-beim-wagerenhof/offene-stellen/vacancy-details?reference=2026-533&cHash=0edbad732dccc5185e9d3ba6e3dee156",
       "source": "Wagerenhof Dedicated Parser (TYPO3 HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:11:04.545Z",
+      "crawledAt": "2026-07-30T11:31:48.016Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -64,7 +101,7 @@
       "url": "https://www.wagerenhof.ch/wagerenhof/arbeiten-beim-wagerenhof/offene-stellen/vacancy-details?reference=2025-481&cHash=ab6ec5d181bc2200b9091dacde2898b9",
       "source": "Wagerenhof Dedicated Parser (TYPO3 HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:11:05.399Z",
+      "crawledAt": "2026-07-30T11:31:49.651Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -101,7 +138,7 @@
       "url": "https://www.wagerenhof.ch/wagerenhof/arbeiten-beim-wagerenhof/offene-stellen/vacancy-details?reference=2026-536&cHash=322704e990587b9fa1cceb748f0b757e",
       "source": "Wagerenhof Dedicated Parser (TYPO3 HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:11:06.241Z",
+      "crawledAt": "2026-07-30T11:31:51.387Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -138,7 +175,7 @@
       "url": "https://www.wagerenhof.ch/wagerenhof/arbeiten-beim-wagerenhof/offene-stellen/vacancy-details?reference=2025-475&cHash=40e6ccb30e842a2031a538bcc2895efb",
       "source": "Wagerenhof Dedicated Parser (TYPO3 HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:11:07.068Z",
+      "crawledAt": "2026-07-30T11:31:53.084Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -161,10 +198,13 @@
         "translation": 25,
         "completeness": 17
       }
-    },
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "wagerenhof-e7f5db8e8578",
-      "slug": "studierende-r-aktivierung-hf-ateliers-100-wagerenhof-uster",
+      "slug": "studenti-r-attivazione-hf-ateliers-100-stiftung-wagerenhof-uster",
       "company": "Stiftung Wagerenhof",
       "companyKey": "wagerenhof",
       "companyDomain": "wagerenhof.ch",
@@ -191,15 +231,16 @@
       "postedDate": "2026-07-20",
       "applyUrl": "https://www.wagerenhof.ch/wagerenhof/arbeiten-beim-wagerenhof/offene-stellen/vacancy-details?reference=2025-457&cHash=d61123f8b229adec9543be50a30fc3f1",
       "firstSeenAt": "2026-07-20T12:40:34.904Z",
-      "_qualityScore": 85,
+      "salaryMin": 79000,
+      "salaryMax": 134500,
+      "crawlerMissStreak": 1,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 17
+        "completeness": 22
       }
     }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": []
+  ]
 }
