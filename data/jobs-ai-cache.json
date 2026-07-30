@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "savedAt": "2026-07-30T22:30:07.670Z",
+  "savedAt": "2026-07-30T22:18:00.310Z",
   "entries": [
     {
       "key": "d75719e12bc559369b74abd12b1a133042ef5e67255856876010887a99333ff9",
@@ -257302,16 +257302,16 @@
     },
     {
       "key": "76366065bd5fec23e2b349c80459e129e519cda3497832cadb4a90fec7d35366",
-      "touchedAt": 1785362666133,
+      "touchedAt": 1785449409099,
       "value": {
         "isJob": true,
         "confidence": 0.9,
-        "reason": "The page contains a concrete role title (KUNSTSTOFFTECHNOLOGE / EINRICHTER/IN GRÜNLINGFERTIGUNG), responsibilities/requirements, and application context, which suggests that it is a real single job detail page."
+        "reason": "The page contains a concrete role title, responsibilities/requirements, and application context, which are typical characteristics of a real single job detail page."
       }
     },
     {
       "key": "9e3f298b0f5174548093dc1ccbcc33858f356f00408f76fe04aaa94cbfd3b23c",
-      "touchedAt": 1785362666533,
+      "touchedAt": 1785449409626,
       "value": {
         "isJob": true,
         "confidence": 0.9,
@@ -261606,7 +261606,7 @@
     },
     {
       "key": "3a073111fc9edba9a19b71f8c8f601168191e76efbd4f302784a648bd2a15e63",
-      "touchedAt": 1785410374403,
+      "touchedAt": 1785449696109,
       "value": {
         "isJob": true,
         "confidence": 0.9,
@@ -261615,7 +261615,7 @@
     },
     {
       "key": "ee18f554336749e0ca40605e1dc5544578d00006c09009c2da04d6e887d1647d",
-      "touchedAt": 1785410375297,
+      "touchedAt": 1785449694124,
       "value": {
         "isJob": true,
         "confidence": 0.9,
@@ -261633,7 +261633,7 @@
     },
     {
       "key": "309db1664381fa0d7d5211afced7e0841397266b08c4b7c072a4179d0bd502f3",
-      "touchedAt": 1785410376060,
+      "touchedAt": 1785449694475,
       "value": {
         "isJob": true,
         "confidence": 0.9,
@@ -270901,6 +270901,348 @@
         "isJob": true,
         "confidence": 0.9,
         "reason": "The page contains a concrete role title, responsibilities/requirements, and application context, indicating a real single job detail page."
+      }
+    },
+    {
+      "key": "f1f18c8fcad74fa16d55dec674b53868858cc83ab95dc2f3913a99b818d6326b",
+      "touchedAt": 1785449685367,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title, responsibilities/requirements, and application context, which are typical characteristics of a real single job detail page."
+      }
+    },
+    {
+      "key": "76a57a1dbce7ef8f3663e43cd376c6ddd156ab6ff1b37805fce444665eaebfa5",
+      "touchedAt": 1785449685678,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title, responsibilities/requirements, and application context, which meets the criteria for a REAL SINGLE JOB DETAIL page."
+      }
+    },
+    {
+      "key": "78562a275f9affaad66fc427adb3890d77b790ba69ec37ef79170536c0083218",
+      "touchedAt": 1785449686727,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title, responsibilities/requirements, and application context, which suggests that it is a real single job detail page."
+      }
+    },
+    {
+      "key": "741a52b8793b58ba7b7b2832253ed2b9d6fafe6aab730c9c71830725194bee3c",
+      "touchedAt": 1785449687487,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title (SWATCH Assistant Store Manager/in), responsibilities/requirements, and application context, which meets the criteria for a real single job detail page."
+      }
+    },
+    {
+      "key": "bb31bea0e00da73a250016b8cbd289fcd639ab06c4596cca2db32014b6ce00d7",
+      "touchedAt": 1785449688412,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title, responsibilities, and requirements, as well as an application context, indicating that it is a real single job detail page."
+      }
+    },
+    {
+      "key": "3a5f77ac97732f2b720265b96b5ff77c3f4790928a1e2b8f96135091b67c9b16",
+      "touchedAt": 1785449688569,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title (BREGUET BLANCPAIN Verkaufsberater), responsibilities/requirements, and application context, indicating a real single job detail page."
+      }
+    },
+    {
+      "key": "1a28260bda188a7acb6f892054d38ddef2d4fce9b960f9eb5f57c6231369f1d6",
+      "touchedAt": 1785449689152,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title, responsibilities/requirements, and application context, which are typical characteristics of a real single job detail page."
+      }
+    },
+    {
+      "key": "ad081a4a2d2373d2bfa33b55b35fe69fbbf7781d63167bf21b920c43d7c5bd99",
+      "touchedAt": 1785449689273,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title, responsibilities/requirements, and application context, which are typical characteristics of a real single job detail page."
+      }
+    },
+    {
+      "key": "77bd6f0787f1d6a1a002590fd5bb0756fdafce37e2ab4ababe70ede1e275f9b1",
+      "touchedAt": 1785449689993,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title, responsibilities/requirements, and application context, which meets the criteria for a real single job detail page."
+      }
+    },
+    {
+      "key": "96435d13332ac91ff90fc978f3431aead0edc6c94a0faa6b5aa053e8d84829ad",
+      "touchedAt": 1785449690372,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title, responsibilities/requirements, and application context, which are typical characteristics of a real single job detail page."
+      }
+    },
+    {
+      "key": "411d522eb787acfdcc4eec242c7e79287218403f1b9721b1e5425f14d3b3b6d1",
+      "touchedAt": 1785449690711,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title, responsibilities/requirements, and application context, which are the key characteristics of a real single job detail page."
+      }
+    },
+    {
+      "key": "8ec0f4ac02eea21e681651d400e1b276832c511238553e6d4e77b36a2a6a1b89",
+      "touchedAt": 1785449691496,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title, responsibilities, and requirements, as well as an application context, indicating that it is a real single job detail page."
+      }
+    },
+    {
+      "key": "f6cb1e4612035455561b7d46f8ab856dc1ffd09f45c0c2f38ea015ebedde466c",
+      "touchedAt": 1785449692006,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title 'APPRENTISSAGE EMPLOYÉ·E DE COMMERCE CFC', responsibilities/requirements, and application context, indicating a real single job detail page."
+      }
+    },
+    {
+      "key": "b67aac58e9acf34ee099258ce003a369acfbe2398af51e5bb6a9f3953779c396",
+      "touchedAt": 1785449692427,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title 'SWATCH Store Verkaufsberater/in in Teilzeit', responsibilities/requirements, and application context, indicating a real single job detail page."
+      }
+    },
+    {
+      "key": "cb59ae886576d27498242ad6a99a0bedbf246a0a54e265285752ee8c04c90099",
+      "touchedAt": 1785449692610,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title, responsibilities/requirements, and application context, which meets the criteria for a real single job detail page."
+      }
+    },
+    {
+      "key": "dbebbefb5c22e3ed420af6aa4a4d60a7141e90aeef67edafd8dac140e8516305",
+      "touchedAt": 1785449693182,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title, responsibilities, and application context, indicating a real single job detail page."
+      }
+    },
+    {
+      "key": "63a6b73b06bbc526ee78af0890fb28681306b18e862b5f127ffd5a6e53726ab2",
+      "touchedAt": 1785449693832,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title, detailed job responsibilities, and application context, indicating a real single job detail page."
+      }
+    },
+    {
+      "key": "b8b1d026996d87357e92c541442c05cce3cc82174c39f483f3d888d624cf2cdb",
+      "touchedAt": 1785449693903,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title (APPRENTISSAGE HORLOGERÈRE CFC), responsibilities/requirements, and application context, which suggests that it is a real single job detail page."
+      }
+    },
+    {
+      "key": "a341035a50901144c5f7378cfbc106a596fb7182aad33e22d313be0562f659a9",
+      "touchedAt": 1785449694984,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title ('Responsable Adjoint de boutique'), responsibilities/requirements, and application context, which suggests that it is a real single job detail page."
+      }
+    },
+    {
+      "key": "fd7bdcb1c3cff8ab2ec31e108ed6f8e6c663eada03c84cea1e22d5d21ea1268b",
+      "touchedAt": 1785449695139,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title (European Patent Attorney), responsibilities/requirements, and application context, which suggests it is a real single job detail page."
+      }
+    },
+    {
+      "key": "657a0c5071ae205d5dd41f893b591b06690bff0417592123b931ab261e2df91c",
+      "touchedAt": 1785449695836,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title 'Chemie- und Pharmapraktiker', detailed responsibilities and requirements, and an application context, indicating a real single job detail page."
+      }
+    },
+    {
+      "key": "f50679792edc17571d554c36921f8dc930a3586cc95457516effe5901b72106d",
+      "touchedAt": 1785449695979,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title 'SWATCH Store Verkaufsberater/in in Teilzeit', responsibilities/requirements, and application context, including a job description, required skills, and benefits. The page also includes a contact person and a contact form, which suggests that it is a real job detail page rather than a generic careers listing or news page."
+      }
+    },
+    {
+      "key": "5af80c2806112996845d0f41f281f640a40989b6ef2c9244520527ea794d9885",
+      "touchedAt": 1785449696902,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title, responsibilities/requirements, and application context, which meets the criteria for a real single job detail page."
+      }
+    },
+    {
+      "key": "d6d16339b77e14eaf047aaece99339b744ab0ca2906051b9e6d6600efb42e657",
+      "touchedAt": 1785449697260,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title, responsibilities/requirements, and application context, which are typical characteristics of a real single job detail page."
+      }
+    },
+    {
+      "key": "c375f049cecb6c21308f6aaa319587eb5517a12cfde25e092a7bd1ea6d23907d",
+      "touchedAt": 1785449698092,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title, responsibilities/requirements, and application context, which are typical characteristics of a real single job detail page."
+      }
+    },
+    {
+      "key": "d42e59de7a826479f4b87286141be2aa78032407e84a123b6b0f001127f2b1c5",
+      "touchedAt": 1785449698320,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title, responsibilities/requirements, and application context, which are typical characteristics of a real single job detail page."
+      }
+    },
+    {
+      "key": "5ea43dad503b17fd804f47a3a35c13c4d0bbeda155568f87a9e1b41c4afecff4",
+      "touchedAt": 1785449699001,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title, responsibilities/requirements, and application context, which are typical characteristics of a real single job detail page."
+      }
+    },
+    {
+      "key": "e36463f1b118422d6e09534d91ff4f1228c5db65c53144c78f2343f190d89acd",
+      "touchedAt": 1785449699435,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title 'Vendeur H/F - CDI 21H - Swatch - Nantes (44)', responsibilities/requirements, and application context, which meets the rules for a REAL SINGLE JOB DETAIL page."
+      }
+    },
+    {
+      "key": "3851dd8c1cb26c4c49c384645c68f718e54ff3911f643c7815fddcbba1a39e39",
+      "touchedAt": 1785449700204,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title (Marketing Manager), responsibilities/requirements, and application context, which meets the criteria for a real single job detail page."
+      }
+    },
+    {
+      "key": "15ea1508a11197e2dc8e70b56edb44afa77def0554666bb5fb0e30a93b691e9d",
+      "touchedAt": 1785449700955,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title, responsibilities/requirements, and application context, which are typical characteristics of a real single job detail page."
+      }
+    },
+    {
+      "key": "d4e3763a4a15ebd6081ec4c83cca06590b39923240af025d688bcca794de3740",
+      "touchedAt": 1785449706798,
+      "value": {
+        "isJob": true,
+        "confidence": 0.95,
+        "reason": "The page contains a concrete role title (KUNSTSTOFFTECHNOLOGE / EINRICHTER/IN GRÜNLINGFERTIGUNG), responsibilities and requirements for the job, as well as application context."
+      }
+    },
+    {
+      "key": "53af3ed954344fd201b70ac9ad7e85a9771648cb22417a7300db98731c90e345",
+      "touchedAt": 1785449708620,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title, responsibilities/requirements, and application context, which are typical characteristics of a real single job detail page."
+      }
+    },
+    {
+      "key": "b4b188077525244fa96a136be26a1f6af381f81be5c25c76eb60457f42b50309",
+      "touchedAt": 1785449712389,
+      "value": {
+        "isJob": true,
+        "confidence": 0.95,
+        "reason": "The page contains a concrete role title (POLYMECHANIKER/IN IM BEREICH EROSION), responsibilities and requirements, as well as application context, indicating a real single job detail page."
+      }
+    },
+    {
+      "key": "29f9d9ee05177291cd74a593bee449d6ea214c5092cc5b10ff69d5eadff7d336",
+      "touchedAt": 1785449762076,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title, responsibilities/requirements, and application context, which meets the criteria for a real single job detail page."
+      }
+    },
+    {
+      "key": "17032bd4639f868f89dc71bd9b5d6c240da6399dabdcb531272708eced5391a6",
+      "touchedAt": 1785449854895,
+      "value": {
+        "isJob": true,
+        "confidence": 0.95,
+        "reason": "The page contains a concrete role title (APPRENTISSAGE LOGISTICIEN·NE CFC), responsibilities (Réceptionnez la marchandise, Vérifiez les documents de livraison, etc.), requirements (Scolarité obligatoire achevée, Compétences requises), and application context (Postuler pour ce poste)."
+      }
+    },
+    {
+      "key": "2b584c1d0efafca86b750d677cedf47c68a9e60074a4161f28cab40983027a7f",
+      "touchedAt": 1785449865824,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title, responsibilities/requirements, and application context, which meets the criteria for a real single job detail page."
+      }
+    },
+    {
+      "key": "279b8a308d4f66f744e3043b21c65eb5078e3278a1fbe44cc341eb46a97ab7ad",
+      "touchedAt": 1785449868723,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title, responsibilities/requirements, and application context, indicating a real single job detail page."
+      }
+    },
+    {
+      "key": "2a26f1d778f8342b79692771e5948fe638bce7a64c7ad0a7ed36a990cad2c7e2",
+      "touchedAt": 1785449869600,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title 'SWATCH Assistant Store Manager/in in Vollzeit', responsibilities/requirements, and application context, including a job description, expected skills, and benefits. The page also includes a contact person, address, and a call to action to apply for the position."
       }
     }
   ]
