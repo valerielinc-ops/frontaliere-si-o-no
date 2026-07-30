@@ -451,7 +451,25 @@ export async function resilientImport<T>(
 ): Promise<T> {
   const attempt = async (): Promise<T> => {
     const mod = await factory();
-    if (validate && !validate(mod)) {
+    // A resolved-but-nullish module is always a broken chunk: Rollup rewrites
+    // `import('@/data/x')` to `import('./x.js').then(m => m.<namespace>)` when the
+    // module is also statically imported, so a chunk published out-of-band without
+    // that generated namespace export resolves to `undefined` rather than failing
+    // to fetch (#4881 — the article registry, which stranded every article page on
+    // its loading skeleton).
+    // `validate` runs against untrusted module shape, so a mismatch must never
+    // escape as a raw TypeError: that bypasses `isChunkLoadError` below and skips
+    // the whole recovery path, surfacing to callers whose `.catch()` then swallows
+    // it silently. Treat a throwing guard exactly like a `false` one.
+    let valid = mod != null;
+    if (valid && validate) {
+      try {
+        valid = validate(mod);
+      } catch {
+        valid = false;
+      }
+    }
+    if (!valid) {
       // Resolved, but missing expected exports — SPA-fallback HTML served for a
       // purged chunk. Surface it as a chunk-load error so the recovery path runs.
       const stale = new Error(

@@ -294,6 +294,12 @@ async function uploadViaScript(localFile, cdnKey, cacheControl) {
 
 async function main() {
   const dryRun = process.argv.includes('--dry-run');
+  // #4959: the ESM registry/companion chunks are Rollup-shaped build artifacts and
+  // must not be published outside the full build (see the fast-publish workflow for
+  // the failure they caused). The news-ticker payload is plain JSON on a stable,
+  // hand-authored contract, so it stays safe to refresh per article — that split is
+  // what --ticker-only expresses.
+  const tickerOnly = process.argv.includes('--ticker-only');
   const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'publish-article-chunks-'));
   const uploadedKeys = [];
   let blogArticles = null;
@@ -301,6 +307,7 @@ async function main() {
   // Companions FIRST — see COMPANION_CHUNKS' comment for why the order is the
   // fix, not an optimisation.
   for (const companion of COMPANION_CHUNKS) {
+    if (tickerOnly) break;
     const outFile = path.join(tmpDir, path.basename(companion.cdnKey));
     try {
       await buildRegistryChunk(ROOT_DIR, companion.source, outFile);
@@ -320,6 +327,7 @@ async function main() {
   }
 
   for (const registry of REGISTRIES) {
+    if (tickerOnly && registry.exportName !== 'ARTICLES') continue;
     const outFile = path.join(tmpDir, path.basename(registry.cdnKey));
     try {
       console.log(`[publish-article-chunks] rebuilding ${registry.source} -> ${outFile}`);
@@ -328,8 +336,8 @@ async function main() {
       console.log(`[publish-article-chunks] ${registry.exportName}: ${value.length} entries`);
       if (registry.exportName === 'ARTICLES') blogArticles = value;
 
-      if (dryRun) {
-        console.log(`[publish-article-chunks] --dry-run: skipping upload of ${registry.cdnKey}`);
+      if (dryRun || tickerOnly) {
+        console.log(`[publish-article-chunks] ${tickerOnly ? '--ticker-only' : '--dry-run'}: skipping upload of ${registry.cdnKey}`);
         continue;
       }
 
