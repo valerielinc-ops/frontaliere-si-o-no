@@ -1123,6 +1123,47 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  }
  console.log(`[static-pages] Loaded ${ogPagesPaths.size} ogPagesPlugin-owned paths (${totalLocaleVariants} locale variants, ${ogSections.length} sections)`);
 
+    /* ── 0ter. Bare article indexes, when the section is served from its shard ──
+     *
+     * `/articoli-frontaliere/` and `/articoli-svizzera/` (plus their EN/DE/FR
+     * slugs) are routed to the section shard by the Worker
+     * (infra/cloudflare-worker/locale-router.js). The copy this plugin emits is
+     * therefore never served: measured on the live site, the bytes returned for
+     * the index are the shard's, differing only by the analytics beacon
+     * Cloudflare injects in transit.
+     *
+     * It is not a fallback either. serveShard() catches an unreachable origin
+     * and answers from the stale cache, or 503 — it never reaches for this
+     * copy. So emitting it is pure build cost on a build that already runs for
+     * hours.
+     *
+     * Gated on the SAME switch the article pages already use (ogPagesPlugin,
+     * seoHubsPlugin) rather than a new one: with the flag off nothing changes,
+     * and a deploy that skips the articles skips their index too instead of
+     * leaving one orphaned behind.
+     */
+    let skippedIndexes = 0;
+    for (const sec of ARTICLE_SECTION_DESCRIPTORS) {
+      const isSvizzera = sec.seoFiles.some((f) => f.includes('-ch'));
+      const skip = isSvizzera
+        ? process.env.ARTICOLISVIZZERA_BUILD_EMIT_SKIP === 'true'
+        : process.env.ARTICOLIFRONTALIERE_BUILD_EMIT_SKIP === 'true';
+      if (!skip) continue;
+      ogPagesPaths.add(`/${sec.indexSlug.it}`);
+      skippedIndexes++;
+      for (const loc of ['en', 'de', 'fr'] as const) {
+        const bs = sec.indexSlug[loc];
+        if (bs) {
+          ogPagesPaths.add(`/${loc}/${bs}`);
+          skippedIndexes++;
+        }
+      }
+    }
+    if (skippedIndexes > 0) {
+      console.log(`[static-pages] ${skippedIndexes} bare article index paths skipped — served from shard`);
+    }
+
+
  /* ── 0bis. Total IT article count → article archive page count ──
   * Used by the section-index editorial block to render a deep-link
   * navigator covering every paginated archive page (page-1..page-N) so
