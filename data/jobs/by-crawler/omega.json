@@ -1,6 +1,6 @@
 {
   "crawlerKey": "omega",
-  "assembledAt": "2026-07-29T22:47:46.646Z",
+  "assembledAt": "2026-07-30T11:53:28.241Z",
   "jobs": [
     {
       "id": "omega-32494",
@@ -33,7 +33,7 @@
       "url": "https://www.swatchgroup.com/fr/job/32494",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-29T22:47:43.933Z",
+      "crawledAt": "2026-07-30T11:53:25.260Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -69,12 +69,14 @@
       },
       "previousSlugs": [
         "cuisinier-h-f-temporaire-omega-biel-bienne",
-        "cuisinier-m-w-d-temporaire-omega-sa-biel-bienne"
+        "cuisinier-m-w-d-temporaire-omega-sa-biel-bienne",
+        "kitchen-h-f-temporario-omega-sa-biel-bienne"
       ],
       "previousSlugsByLocale": {
         "it": [
           "cuisinier-h-f-temporaire-omega-biel-bienne",
-          "cuisinier-m-w-d-temporaire-omega-sa-biel-bienne"
+          "cuisinier-m-w-d-temporaire-omega-sa-biel-bienne",
+          "kitchen-h-f-temporario-omega-sa-biel-bienne"
         ],
         "en": [
           "cuisinier-h-f-temporaire-omega-biel-bienne"
@@ -84,6 +86,7 @@
         ]
       },
       "firstSeenAt": "2026-07-10T13:31:47.089Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -102,7 +105,7 @@
       "slug": "designato-h-f-omega-sa-biel-bienne",
       "slugByLocale": {
         "it": "designato-h-f-omega-sa-biel-bienne",
-        "en": "designate-h-f-omega-sa-biel-bienne",
+        "en": "designer-m-w-d-omega-sa-biel-bienne",
         "de": "bezeichnung-h-f-omega-sa-biel-bienne",
         "fr": "designer-h-f-omega-biel-bienne"
       },
@@ -112,7 +115,7 @@
       "title": "DESIGNER (H/F)",
       "titleByLocale": {
         "it": "DESIGNATO (H/F)",
-        "en": "DESIGNATE (H/F)",
+        "en": "DESIGNER (H/F)",
         "de": "BEZEICHNUNG (H/F)",
         "fr": "DESIGNER (H/F)"
       },
@@ -128,7 +131,7 @@
       "url": "https://www.swatchgroup.com/fr/job/32497",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-29T22:47:22.400Z",
+      "crawledAt": "2026-07-30T11:53:03.830Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -173,6 +176,8 @@
         "spare-parts-stock-employee-h-f-omega-biel-bienne",
         "employed-stock-parts-h-f-omega-sa-biel-bienne",
         "arbeitsparteien-h-f-omega-sa-biel-bienne",
+        "designate-h-f-omega-sa-biel-bienne",
+        "designato-h-f-omega-sa-biel-bienne",
         "designer-m-w-d-omega-sa-biel-bienne"
       ],
       "previousSlugsByLocale": {
@@ -180,12 +185,14 @@
           "designer-h-f-omega-biel-bienne",
           "spare-parts-stock-employee-h-f-omega-biel-bienne",
           "employed-stock-parts-h-f-omega-sa-biel-bienne",
-          "arbeitsparteien-h-f-omega-sa-biel-bienne"
+          "arbeitsparteien-h-f-omega-sa-biel-bienne",
+          "designato-h-f-omega-sa-biel-bienne"
         ],
         "en": [
           "designer-h-f-omega-biel-bienne",
           "designer-h-f-omega-sa-biel-bienne",
           "employed-stock-parts-h-f-omega-sa-biel-bienne",
+          "designate-h-f-omega-sa-biel-bienne",
           "designer-m-w-d-omega-sa-biel-bienne"
         ],
         "de": [
@@ -197,6 +204,7 @@
         ]
       },
       "firstSeenAt": "2026-07-10T13:31:25.778Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -241,7 +249,7 @@
       "url": "https://www.swatchgroup.com/en/job/32500",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-29T22:47:00.934Z",
+      "crawledAt": "2026-07-30T11:52:42.360Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -307,6 +315,7 @@
         ]
       },
       "firstSeenAt": "2026-07-10T13:31:04.444Z",
+      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "baseSalary": {
@@ -351,7 +360,7 @@
       "url": "https://www.swatchgroup.com/en/job/32560",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-29T22:46:38.393Z",
+      "crawledAt": "2026-07-30T11:52:20.935Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -383,17 +392,20 @@
         ]
       },
       "previousSlugs": [
-        "international-sales-trainer-m-w-omega-biel-bienne"
+        "international-sales-trainer-m-w-omega-biel-bienne",
+        "trainer-internazionale-m-w-omega-sa-biel-bienne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "international-sales-trainer-m-w-omega-biel-bienne"
+          "international-sales-trainer-m-w-omega-biel-bienne",
+          "trainer-internazionale-m-w-omega-sa-biel-bienne"
         ],
         "de": [
           "international-sales-trainer-m-w-omega-biel-bienne"
         ]
       },
       "firstSeenAt": "2026-07-17T11:53:15.053Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -406,6 +418,80 @@
           "unitText": "YEAR"
         }
       }
+    },
+    {
+      "id": "omega-32611",
+      "slug": "customer-care-advisor-omega-biel-bienne",
+      "slugByLocale": {
+        "fr": "customer-care-advisor-omega-biel-bienne",
+        "it": "customer-care-advisor-omega-biel-bienne",
+        "en": "customer-care-advisor-omega-biel-bienne",
+        "de": "customer-care-advisor-omega-biel-bienne"
+      },
+      "company": "OMEGA SA",
+      "companyKey": "omega",
+      "companyDomain": "omegawatches.com",
+      "title": "Customer Care Advisor",
+      "titleByLocale": {
+        "fr": "Customer Care Conseiller",
+        "en": "Customer Care Advisor",
+        "it": "Customer Care Consulente",
+        "de": "Customer Care Berater"
+      },
+      "description": "## Introduction de la société\nOMEGA est une prestigieuse marque horlogère mondialement connue pour ses exigences de qualité, précision et innovation depuis plus de 170 ans. Nos montres comptent parmi les plus belles au monde et se caractérisent par leur technologie de pointe et leur style intemporel.\n\nAu cours de notre longue histoire, nous avons battu des records de précision, redéfini le chronométrage sportif et maintenu notre position à la pointe de la Haute Horlogerie.\n\nEn tant que marque internationale, nous sommes toujours intéressés à rencontrer de futurs collègues souhaitant contribuer au travail de nos équipes sur presque chaque continent à l'aide de leurs talents, ambitions et inspirations.\n\n## Description du poste\nVous délivrez un service à la hauteur des standards d’une grande maison horlogère, en assurant la gestion des interactions avec nos clients finaux locaux et internationaux, via l’ensemble de nos canaux (e-mail, téléphone, live chat, réseaux sociaux).\n\nVous analysez avec précision les attentes de vos interlocuteurs tout au long du parcours client, avant, pendant et après l’achat, et apportez des réponses personnalisées, pertinentes et cohérentes avec l’image de la marque. Vous contribuez activement au renforcement du lien avec les clients, tout en soutenant nos partenaires commerciaux. Vous participez également aux initiatives du département Customer Care, notamment dans les domaines du CRM, du contenu, des communications et des projets d’amélioration continue.\n\n## Profil\nAu bénéfice d’une expérience confirmée dans la relation client, vous disposez d’excellentes compétences rédactionnelles en français, allemand et anglais, tant sur le plan orthographique que stylistique (l’italien constitue un atout).\n\nDoté d’un sens aigu du service, vous faites preuve de rigueur, de diplomatie et d’un haut niveau d’exigence professionnelle. Vous savez incarner les codes et les valeurs d’une marque de luxe dans chacune de vos interactions. Organisé et fiable, vous appréciez le travail en équipe tout en faisant preuve d’autonomie. Vous abordez les situations avec discernement, flexibilité et un esprit résolument orienté solutions et satisfaction client.\n\n## Langues\nFR / ALL / ANG",
+      "descriptionByLocale": {
+        "fr": "## Introduction de la société\nOMEGA est une prestigieuse marque horlogère mondialement connue pour ses exigences de qualité, précision et innovation depuis plus de 170 ans. Nos montres comptent parmi les plus belles au monde et se caractérisent par leur technologie de pointe et leur style intemporel.\n\nAu cours de notre longue histoire, nous avons battu des records de précision, redéfini le chronométrage sportif et maintenu notre position à la pointe de la Haute Horlogerie.\n\nEn tant que marque internationale, nous sommes toujours intéressés à rencontrer de futurs collègues souhaitant contribuer au travail de nos équipes sur presque chaque continent à l'aide de leurs talents, ambitions et inspirations.\n\n## Description du poste\nVous délivrez un service à la hauteur des standards d’une grande maison horlogère, en assurant la gestion des interactions avec nos clients finaux locaux et internationaux, via l’ensemble de nos canaux (e-mail, téléphone, live chat, réseaux sociaux).\n\nVous analysez avec précision les attentes de vos interlocuteurs tout au long du parcours client, avant, pendant et après l’achat, et apportez des réponses personnalisées, pertinentes et cohérentes avec l’image de la marque. Vous contribuez activement au renforcement du lien avec les clients, tout en soutenant nos partenaires commerciaux. Vous participez également aux initiatives du département Customer Care, notamment dans les domaines du CRM, du contenu, des communications et des projets d’amélioration continue.\n\n## Profil\nAu bénéfice d’une expérience confirmée dans la relation client, vous disposez d’excellentes compétences rédactionnelles en français, allemand et anglais, tant sur le plan orthographique que stylistique (l’italien constitue un atout).\n\nDoté d’un sens aigu du service, vous faites preuve de rigueur, de diplomatie et d’un haut niveau d’exigence professionnelle. Vous savez incarner les codes et les valeurs d’une marque de luxe dans chacune de vos interactions. Organisé et fiable, vous appréciez le travail en équipe tout en faisant preuve d’autonomie. Vous abordez les situations avec discernement, flexibilité et un esprit résolument orienté solutions et satisfaction client.\n\n## Langues\nFR / ALL / ANG",
+        "it": "## Introduction de la société\nOMEGA est une prestigieuse marque horlogère mondialement connue pour ses exigences de qualité, précision et innovation depuis plus de 170 ans. Nos montres comptent parmi les plus belles au monde et se caractérisent par leur technologie de pointe et leur style intemporel.\n\nAu cours de notre longue histoire, nous avons battu des records de précision, redéfini le chronométrage sportif et maintenu notre position à la pointe de la Haute Horlogerie.\n\nEn tant que marque internationale, nous sommes toujours intéressés à rencontrer de futurs collègues souhaitant contribuer au travail de nos équipes sur presque chaque continent à l'aide de leurs talents, ambitions et inspirations.\n\n## Description du poste\nVous délivrez un service à la hauteur des standards d’une grande maison horlogère, en assurant la gestion des interactions avec nos clients finaux locaux et internationaux, via l’ensemble de nos canaux (e-mail, téléphone, live chat, réseaux sociaux).\n\nVous analysez avec précision les attentes de vos interlocuteurs tout au long du parcours client, avant, pendant et après l’achat, et apportez des réponses personnalisées, pertinentes et cohérentes avec l’image de la marque. Vous contribuez activement au renforcement du lien avec les clients, tout en soutenant nos partenaires commerciaux. Vous participez également aux initiatives du département Customer Care, notamment dans les domaines du CRM, du contenu, des communications et des projets d’amélioration continue.\n\n## Profil\nAu bénéfice d’une expérience confirmée dans la relation client, vous disposez d’excellentes compétences rédactionnelles en français, allemand et anglais, tant sur le plan orthographique que stylistique (l’italien constitue un atout).\n\nDoté d’un sens aigu du service, vous faites preuve de rigueur, de diplomatie et d’un haut niveau d’exigence professionnelle. Vous savez incarner les codes et les valeurs d’une marque de luxe dans chacune de vos interactions. Organisé et fiable, vous appréciez le travail en équipe tout en faisant preuve d’autonomie. Vous abordez les situations avec discernement, flexibilité et un esprit résolument orienté solutions et satisfaction client.\n\n## Langues\nFR / ALL / ANG",
+        "en": "## Introduction de la société\nOMEGA est une prestigieuse marque horlogère mondialement connue pour ses exigences de qualité, précision et innovation depuis plus de 170 ans. Nos montres comptent parmi les plus belles au monde et se caractérisent par leur technologie de pointe et leur style intemporel.\n\nAu cours de notre longue histoire, nous avons battu des records de précision, redéfini le chronométrage sportif et maintenu notre position à la pointe de la Haute Horlogerie.\n\nEn tant que marque internationale, nous sommes toujours intéressés à rencontrer de futurs collègues souhaitant contribuer au travail de nos équipes sur presque chaque continent à l'aide de leurs talents, ambitions et inspirations.\n\n## Description du poste\nVous délivrez un service à la hauteur des standards d’une grande maison horlogère, en assurant la gestion des interactions avec nos clients finaux locaux et internationaux, via l’ensemble de nos canaux (e-mail, téléphone, live chat, réseaux sociaux).\n\nVous analysez avec précision les attentes de vos interlocuteurs tout au long du parcours client, avant, pendant et après l’achat, et apportez des réponses personnalisées, pertinentes et cohérentes avec l’image de la marque. Vous contribuez activement au renforcement du lien avec les clients, tout en soutenant nos partenaires commerciaux. Vous participez également aux initiatives du département Customer Care, notamment dans les domaines du CRM, du contenu, des communications et des projets d’amélioration continue.\n\n## Profil\nAu bénéfice d’une expérience confirmée dans la relation client, vous disposez d’excellentes compétences rédactionnelles en français, allemand et anglais, tant sur le plan orthographique que stylistique (l’italien constitue un atout).\n\nDoté d’un sens aigu du service, vous faites preuve de rigueur, de diplomatie et d’un haut niveau d’exigence professionnelle. Vous savez incarner les codes et les valeurs d’une marque de luxe dans chacune de vos interactions. Organisé et fiable, vous appréciez le travail en équipe tout en faisant preuve d’autonomie. Vous abordez les situations avec discernement, flexibilité et un esprit résolument orienté solutions et satisfaction client.\n\n## Langues\nFR / ALL / ANG",
+        "de": "## Introduction de la société\nOMEGA est une prestigieuse marque horlogère mondialement connue pour ses exigences de qualité, précision et innovation depuis plus de 170 ans. Nos montres comptent parmi les plus belles au monde et se caractérisent par leur technologie de pointe et leur style intemporel.\n\nAu cours de notre longue histoire, nous avons battu des records de précision, redéfini le chronométrage sportif et maintenu notre position à la pointe de la Haute Horlogerie.\n\nEn tant que marque internationale, nous sommes toujours intéressés à rencontrer de futurs collègues souhaitant contribuer au travail de nos équipes sur presque chaque continent à l'aide de leurs talents, ambitions et inspirations.\n\n## Description du poste\nVous délivrez un service à la hauteur des standards d’une grande maison horlogère, en assurant la gestion des interactions avec nos clients finaux locaux et internationaux, via l’ensemble de nos canaux (e-mail, téléphone, live chat, réseaux sociaux).\n\nVous analysez avec précision les attentes de vos interlocuteurs tout au long du parcours client, avant, pendant et après l’achat, et apportez des réponses personnalisées, pertinentes et cohérentes avec l’image de la marque. Vous contribuez activement au renforcement du lien avec les clients, tout en soutenant nos partenaires commerciaux. Vous participez également aux initiatives du département Customer Care, notamment dans les domaines du CRM, du contenu, des communications et des projets d’amélioration continue.\n\n## Profil\nAu bénéfice d’une expérience confirmée dans la relation client, vous disposez d’excellentes compétences rédactionnelles en français, allemand et anglais, tant sur le plan orthographique que stylistique (l’italien constitue un atout).\n\nDoté d’un sens aigu du service, vous faites preuve de rigueur, de diplomatie et d’un haut niveau d’exigence professionnelle. Vous savez incarner les codes et les valeurs d’une marque de luxe dans chacune de vos interactions. Organisé et fiable, vous appréciez le travail en équipe tout en faisant preuve d’autonomie. Vous abordez les situations avec discernement, flexibilité et un esprit résolument orienté solutions et satisfaction client.\n\n## Langues\nFR / ALL / ANG"
+      },
+      "location": "Biel/Bienne",
+      "canton": "BE",
+      "url": "https://www.swatchgroup.com/fr/job/32611",
+      "source": "OMEGA SA Dedicated Parser",
+      "sourceLang": "fr",
+      "crawledAt": "2026-07-30T11:51:59.660Z",
+      "addressLocality": "Biel/Bienne",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "2502",
+      "streetAddress": "Rue Jakob-Stämpfli - Jakob-Stämpfli-Strasse 96",
+      "category": "Servizio Clienti",
+      "contract": "permanent",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Orologeria di lusso",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-30",
+      "applyUrl": "https://apply5.lumessetalentlink.com/apply-app/pages/application-form?jobId=PQVFK026203F3VBQB8NLO79O6-269789&langCode=fr_FR&source=swatchgroup.com",
+      "requirements": [
+        "Au bénéfice d’une expérience confirmée dans la relation client, vous disposez d’excellentes compétences rédactionnelles en français, allemand et anglais, tant sur le plan orthographique que stylistique (l’italien constitue un atout).",
+        "Doté d’un sens aigu du service, vous faites preuve de rigueur, de diplomatie et d’un haut niveau d’exigence professionnelle. Vous savez incarner les codes et les valeurs d’une marque de luxe dans chacune de vos interactions. Organisé et fiable, vous appréciez le travail en équipe tout en faisant preuve d’autonomie. Vous abordez les situations avec discernement, flexibilité et un esprit résolument orienté solutions et satisfaction client.",
+        "FR / ALL / ANG"
+      ],
+      "requirementsByLocale": {
+        "fr": [
+          "Au bénéfice d’une expérience confirmée dans la relation client, vous disposez d’excellentes compétences rédactionnelles en français, allemand et anglais, tant sur le plan orthographique que stylistique (l’italien constitue un atout).",
+          "Doté d’un sens aigu du service, vous faites preuve de rigueur, de diplomatie et d’un haut niveau d’exigence professionnelle. Vous savez incarner les codes et les valeurs d’une marque de luxe dans chacune de vos interactions. Organisé et fiable, vous appréciez le travail en équipe tout en faisant preuve d’autonomie. Vous abordez les situations avec discernement, flexibilité et un esprit résolument orienté solutions et satisfaction client.",
+          "FR / ALL / ANG"
+        ]
+      },
+      "needsRetranslation": true,
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68500,
+          "maxValue": 104000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-07-30T11:51:59.660Z"
     },
     {
       "id": "omega-32650",
@@ -438,7 +524,7 @@
       "url": "https://www.swatchgroup.com/fr/job/32650",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-29T22:46:17.010Z",
+      "crawledAt": "2026-07-30T11:51:38.240Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -480,12 +566,14 @@
       },
       "previousSlugs": [
         "apprentissage-horloger-ere-cfc-omega-biel-bienne",
-        "apprentissage-horloger-ere-cfc-omega-sa-biel-bienne"
+        "apprentissage-horloger-ere-cfc-omega-sa-biel-bienne",
+        "avvertenza-omega-sa-biel-bienne"
       ],
       "previousSlugsByLocale": {
         "it": [
           "apprentissage-horloger-ere-cfc-omega-biel-bienne",
-          "apprentissage-horloger-ere-cfc-omega-sa-biel-bienne"
+          "apprentissage-horloger-ere-cfc-omega-sa-biel-bienne",
+          "avvertenza-omega-sa-biel-bienne"
         ],
         "en": [
           "apprentissage-horloger-ere-cfc-omega-biel-bienne"
@@ -495,6 +583,7 @@
         ]
       },
       "firstSeenAt": "2026-07-28T11:53:31.231Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -539,7 +628,7 @@
       "url": "https://www.swatchgroup.com/fr/job/32651",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-29T22:45:55.634Z",
+      "crawledAt": "2026-07-30T11:51:16.067Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -581,12 +670,14 @@
       },
       "previousSlugs": [
         "apprentissage-horloger-ere-de-production-cfc-omega-biel-bienne",
-        "apprentissage-horloger-ere-de-production-cfc-omega-sa-biel-bienne"
+        "apprentissage-horloger-ere-de-production-cfc-omega-sa-biel-bienne",
+        "avvertenza-dell-ira-della-produzione-di-cfc-omega-sa-biel-bienne"
       ],
       "previousSlugsByLocale": {
         "it": [
           "apprentissage-horloger-ere-de-production-cfc-omega-biel-bienne",
-          "apprentissage-horloger-ere-de-production-cfc-omega-sa-biel-bienne"
+          "apprentissage-horloger-ere-de-production-cfc-omega-sa-biel-bienne",
+          "avvertenza-dell-ira-della-produzione-di-cfc-omega-sa-biel-bienne"
         ],
         "en": [
           "apprentissage-horloger-ere-de-production-cfc-omega-biel-bienne"
@@ -596,6 +687,7 @@
         ]
       },
       "firstSeenAt": "2026-07-28T11:53:10.043Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -640,7 +732,7 @@
       "url": "https://www.swatchgroup.com/fr/job/32654",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-29T22:45:34.346Z",
+      "crawledAt": "2026-07-30T11:50:54.253Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -673,12 +765,14 @@
       },
       "previousSlugs": [
         "apprentissage-employe-e-de-commerce-cfc-omega-biel-bienne",
-        "apprentissage-employe-e-de-commerce-cfc-omega-sa-biel-bienne"
+        "apprentissage-employe-e-de-commerce-cfc-omega-sa-biel-bienne",
+        "avviso-occupato-del-trade-swc-omega-sa-biel-bienne"
       ],
       "previousSlugsByLocale": {
         "it": [
           "apprentissage-employe-e-de-commerce-cfc-omega-biel-bienne",
-          "apprentissage-employe-e-de-commerce-cfc-omega-sa-biel-bienne"
+          "apprentissage-employe-e-de-commerce-cfc-omega-sa-biel-bienne",
+          "avviso-occupato-del-trade-swc-omega-sa-biel-bienne"
         ],
         "en": [
           "apprentissage-employe-e-de-commerce-cfc-omega-biel-bienne"
@@ -688,6 +782,7 @@
         ]
       },
       "firstSeenAt": "2026-07-28T11:52:48.559Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -732,7 +827,7 @@
       "url": "https://www.swatchgroup.com/fr/job/32653",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-29T22:45:12.926Z",
+      "crawledAt": "2026-07-30T11:50:32.658Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -772,12 +867,14 @@
       },
       "previousSlugs": [
         "apprentissage-operateur-rice-en-horlogerie-afp-omega-biel-bienne",
-        "apprentissage-operateur-rice-en-horlogerie-afp-omega-sa-biel-bienne"
+        "apprentissage-operateur-rice-en-horlogerie-afp-omega-sa-biel-bienne",
+        "attenzione-operazione-omega-sa-biel-bienne"
       ],
       "previousSlugsByLocale": {
         "it": [
           "apprentissage-operateur-rice-en-horlogerie-afp-omega-biel-bienne",
-          "apprentissage-operateur-rice-en-horlogerie-afp-omega-sa-biel-bienne"
+          "apprentissage-operateur-rice-en-horlogerie-afp-omega-sa-biel-bienne",
+          "attenzione-operazione-omega-sa-biel-bienne"
         ],
         "en": [
           "apprentissage-operateur-rice-en-horlogerie-afp-omega-biel-bienne"
@@ -787,6 +884,7 @@
         ]
       },
       "firstSeenAt": "2026-07-28T11:52:27.421Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -831,7 +929,7 @@
       "url": "https://www.swatchgroup.com/de/job/32652",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:44:51.323Z",
+      "crawledAt": "2026-07-30T11:50:10.644Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -872,11 +970,13 @@
         ]
       },
       "previousSlugs": [
-        "lehrstelle-als-urhmacher-in-efz-omega-biel-bienne"
+        "lehrstelle-als-urhmacher-in-efz-omega-biel-bienne",
+        "apprendistato-come-urhmacher-in-cfc-omega-sa-biel-bienne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-urhmacher-in-efz-omega-biel-bienne"
+          "lehrstelle-als-urhmacher-in-efz-omega-biel-bienne",
+          "apprendistato-come-urhmacher-in-cfc-omega-sa-biel-bienne"
         ],
         "en": [
           "lehrstelle-als-urhmacher-in-efz-omega-biel-bienne"
@@ -886,6 +986,7 @@
         ]
       },
       "firstSeenAt": "2026-07-28T11:52:06.121Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -930,7 +1031,7 @@
       "url": "https://www.swatchgroup.com/fr/job/32655",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-29T22:44:29.946Z",
+      "crawledAt": "2026-07-30T11:49:49.234Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -970,18 +1071,21 @@
       },
       "previousSlugs": [
         "apprentissage-logisticien-ne-cfc-omega-biel-bienne",
-        "apprentissage-logisticien-ne-cfc-omega-sa-biel-bienne"
+        "apprentissage-logisticien-ne-cfc-omega-sa-biel-bienne",
+        "logistician-learning-cfc-omega-sa-biel-bienne"
       ],
       "previousSlugsByLocale": {
         "it": [
           "apprentissage-logisticien-ne-cfc-omega-biel-bienne",
-          "apprentissage-logisticien-ne-cfc-omega-sa-biel-bienne"
+          "apprentissage-logisticien-ne-cfc-omega-sa-biel-bienne",
+          "logistician-learning-cfc-omega-sa-biel-bienne"
         ],
         "de": [
           "apprentissage-logisticien-ne-cfc-omega-biel-bienne"
         ]
       },
       "firstSeenAt": "2026-07-28T11:51:44.701Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -1026,7 +1130,7 @@
       "url": "https://www.swatchgroup.com/de/job/32658",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:44:08.709Z",
+      "crawledAt": "2026-07-30T11:49:27.256Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1067,17 +1171,20 @@
         ]
       },
       "previousSlugs": [
-        "lehrstelle-als-urhmacher-in-produktion-efz-omega-biel-bienne"
+        "lehrstelle-als-urhmacher-in-produktion-efz-omega-biel-bienne",
+        "apprendistato-come-urhmacher-in-produktion-cfc-omega-sa-biel-bienne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-urhmacher-in-produktion-efz-omega-biel-bienne"
+          "lehrstelle-als-urhmacher-in-produktion-efz-omega-biel-bienne",
+          "apprendistato-come-urhmacher-in-produktion-cfc-omega-sa-biel-bienne"
         ],
         "en": [
           "lehrstelle-als-urhmacher-in-produktion-efz-omega-biel-bienne"
         ]
       },
       "firstSeenAt": "2026-07-28T11:51:23.564Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
