@@ -18,9 +18,49 @@
  * machinery unchanged (see create-article.mjs Fase 2).
  */
 import { PROFESSION_TAXONOMY } from './profession-taxonomy.mjs';
+// These two are the article generator's last tie to site data, and the reason
+// four site datasets sit in its transitive closure (#4974 item 3). They are
+// site core — 20+ and 25+ consumers respectively — so they cannot move to the
+// articles repo, and duplicating them would drift.
+//
+// The way out is that only the RESULT needs to travel: buildComuneEvergreenTopics
+// prefers public/evergreen-comune-topics.json when it is present, and never
+// touches these. The imports stay for the fallback path, and to keep this repo's
+// own callers working; they come out when the generator actually moves, at which
+// point the published file is the only source.
 import { MUNICIPALITIES } from '../../data/municipalities.ts';
 import { borderCrossings } from '../../data/borderCrossings.ts';
-import { haversineKm } from './events-utils.mjs';
+import fs from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+
+const PUBLISHED_TOPICS = path.resolve(
+  path.dirname(fileURLToPath(import.meta.url)),
+  '../../public/evergreen-comune-topics.json',
+);
+
+/**
+ * The precomputed topics, if they have been published. Returns null when the
+ * file is absent or unusable, so the caller falls back to computing them.
+ * @returns {Array<{keyword: string, angle: string}> | null}
+ */
+function readPublishedComuneTopics() {
+  try {
+    if (!fs.existsSync(PUBLISHED_TOPICS)) return null;
+    const parsed = JSON.parse(fs.readFileSync(PUBLISHED_TOPICS, 'utf-8'));
+    const topics = parsed?.topics;
+    // A short list means the file is truncated or the datasets collapsed;
+    // computing is better than publishing a silently narrowed pool.
+    if (!Array.isArray(topics) || topics.length < 100) return null;
+    return topics;
+  } catch {
+    return null;
+  }
+}
+// From the leaf, not events-utils: this is the only thing needed from there,
+// and going through the big module would pull data/canton-url-slugs.json into
+// the article generator's transitive closure for no reason (#4974 item 3).
+import { haversineKm } from './haversine.mjs';
 
 /** "Pittore / imbianchino" → "pittore"; "Operatore socio sanitario (OSS)" → "operatore socio sanitario". */
 function cleanProfessionLabel(label) {
@@ -122,7 +162,15 @@ export function resolveComuneCanton(m) {
 // if the cap ever grows or the closer comuni get exhausted upstream.
 const COMUNE_CAP_PER_CANTON = { Ticino: 40, Grigioni: 25, Vallese: 20 };
 
-export function buildComuneEvergreenTopics(municipalities = MUNICIPALITIES) {
+export function buildComuneEvergreenTopics(municipalities) {
+  // Published file first, and only when the caller did not pass its own data —
+  // an explicit argument means someone is testing a specific dataset and must
+  // get an answer derived from it, not a cached one.
+  if (municipalities === undefined) {
+    const published = readPublishedComuneTopics();
+    if (published) return published;
+    municipalities = MUNICIPALITIES;
+  }
   const byCanton = new Map();
   for (const m of municipalities) {
     const canton = resolveComuneCanton(m);

@@ -1,0 +1,686 @@
+{
+  "generatedFrom": "data/municipalities.ts",
+  "count": 170,
+  "topics": [
+    {
+      "keyword": "vivere a Lavena Ponte Tresa e lavorare in Ticino da frontaliere",
+      "angle": "Pendolarismo Lavena Ponte Tresa-Ticino per frontalieri: collegamenti, tempi di percorrenza, costo della vita, zone consigliate."
+    },
+    {
+      "keyword": "trasferirsi a Lavena Ponte Tresa da frontaliere pro e contro",
+      "angle": "Vivere a Lavena Ponte Tresa lavorando in Ticino da frontaliere: vantaggi, svantaggi, tempi di spostamento, cosa considerare prima di trasferirsi."
+    },
+    {
+      "keyword": "vivere a Trasquera e lavorare in Ticino da frontaliere",
+      "angle": "Pendolarismo Trasquera-Ticino per frontalieri: collegamenti, tempi di percorrenza, costo della vita, zone consigliate."
+    },
+    {
+      "keyword": "trasferirsi a Trasquera da frontaliere pro e contro",
+      "angle": "Vivere a Trasquera lavorando in Ticino da frontaliere: vantaggi, svantaggi, tempi di spostamento, cosa considerare prima di trasferirsi."
+    },
+    {
+      "keyword": "vivere a Bizzarone e lavorare in Ticino da frontaliere",
+      "angle": "Pendolarismo Bizzarone-Ticino per frontalieri: collegamenti, tempi di percorrenza, costo della vita, zone consigliate."
+    },
+    {
+      "keyword": "trasferirsi a Bizzarone da frontaliere pro e contro",
+      "angle": "Vivere a Bizzarone lavorando in Ticino da frontaliere: vantaggi, svantaggi, tempi di spostamento, cosa considerare prima di trasferirsi."
+    },
+    {
+      "keyword": "vivere a Claino con Osteno e lavorare in Ticino da frontaliere",
+      "angle": "Pendolarismo Claino con Osteno-Ticino per frontalieri: collegamenti, tempi di percorrenza, costo della vita, zone consigliate."
+    },
+    {
+      "keyword": "trasferirsi a Claino con Osteno da frontaliere pro e contro",
+      "angle": "Vivere a Claino con Osteno lavorando in Ticino da frontaliere: vantaggi, svantaggi, tempi di spostamento, cosa considerare prima di trasferirsi."
+    },
+    {
+      "keyword": "vivere a Valsolda e lavorare in Ticino da frontaliere",
+      "angle": "Pendolarismo Valsolda-Ticino per frontalieri: collegamenti, tempi di percorrenza, costo della vita, zone consigliate."
+    },
+    {
+      "keyword": "trasferirsi a Valsolda da frontaliere pro e contro",
+      "angle": "Vivere a Valsolda lavorando in Ticino da frontaliere: vantaggi, svantaggi, tempi di spostamento, cosa considerare prima di trasferirsi."
+    },
+    {
+      "keyword": "vivere a Brusimpiano e lavorare in Ticino da frontaliere",
+      "angle": "Pendolarismo Brusimpiano-Ticino per frontalieri: collegamenti, tempi di percorrenza, costo della vita, zone consigliate."
+    },
+    {
+      "keyword": "trasferirsi a Brusimpiano da frontaliere pro e contro",
+      "angle": "Vivere a Brusimpiano lavorando in Ticino da frontaliere: vantaggi, svantaggi, tempi di spostamento, cosa considerare prima di trasferirsi."
+    },
+    {
+      "keyword": "vivere a Clivio e lavorare in Ticino da frontaliere",
+      "angle": "Pendolarismo Clivio-Ticino per frontalieri: collegamenti, tempi di percorrenza, costo della vita, zone consigliate."
+    },
+    {
+      "keyword": "trasferirsi a Clivio da frontaliere pro e contro",
+      "angle": "Vivere a Clivio lavorando in Ticino da frontaliere: vantaggi, svantaggi, tempi di spostamento, cosa considerare prima di trasferirsi."
+    },
+    {
+      "keyword": "vivere a Luino e lavorare in Ticino da frontaliere",
+      "angle": "Pendolarismo Luino-Ticino per frontalieri: collegamenti, tempi di percorrenza, costo della vita, zone consigliate."
+    },
+    {
+      "keyword": "trasferirsi a Luino da frontaliere pro e contro",
+      "angle": "Vivere a Luino lavorando in Ticino da frontaliere: vantaggi, svantaggi, tempi di spostamento, cosa considerare prima di trasferirsi."
+    },
+    {
+      "keyword": "vivere a Maccagno con Pino e Veddasca e lavorare in Ticino da frontaliere",
+      "angle": "Pendolarismo Maccagno con Pino e Veddasca-Ticino per frontalieri: collegamenti, tempi di percorrenza, costo della vita, zone consigliate."
+    },
+    {
+      "keyword": "trasferirsi a Maccagno con Pino e Veddasca da frontaliere pro e contro",
+      "angle": "Vivere a Maccagno con Pino e Veddasca lavorando in Ticino da frontaliere: vantaggi, svantaggi, tempi di spostamento, cosa considerare prima di trasferirsi."
+    },
+    {
+      "keyword": "vivere a Porto Ceresio e lavorare in Ticino da frontaliere",
+      "angle": "Pendolarismo Porto Ceresio-Ticino per frontalieri: collegamenti, tempi di percorrenza, costo della vita, zone consigliate."
+    },
+    {
+      "keyword": "trasferirsi a Porto Ceresio da frontaliere pro e contro",
+      "angle": "Vivere a Porto Ceresio lavorando in Ticino da frontaliere: vantaggi, svantaggi, tempi di spostamento, cosa considerare prima di trasferirsi."
+    },
+    {
+      "keyword": "vivere a Saltrio e lavorare in Ticino da frontaliere",
+      "angle": "Pendolarismo Saltrio-Ticino per frontalieri: collegamenti, tempi di percorrenza, costo della vita, zone consigliate."
+    },
+    {
+      "keyword": "trasferirsi a Saltrio da frontaliere pro e contro",
+      "angle": "Vivere a Saltrio lavorando in Ticino da frontaliere: vantaggi, svantaggi, tempi di spostamento, cosa considerare prima di trasferirsi."
+    },
+    {
+      "keyword": "vivere a Cannobio e lavorare in Ticino da frontaliere",
+      "angle": "Pendolarismo Cannobio-Ticino per frontalieri: collegamenti, tempi di percorrenza, costo della vita, zone consigliate."
+    },
+    {
+      "keyword": "trasferirsi a Cannobio da frontaliere pro e contro",
+      "angle": "Vivere a Cannobio lavorando in Ticino da frontaliere: vantaggi, svantaggi, tempi di spostamento, cosa considerare prima di trasferirsi."
+    },
+    {
+      "keyword": "vivere a Varzo e lavorare in Ticino da frontaliere",
+      "angle": "Pendolarismo Varzo-Ticino per frontalieri: collegamenti, tempi di percorrenza, costo della vita, zone consigliate."
+    },
+    {
+      "keyword": "trasferirsi a Varzo da frontaliere pro e contro",
+      "angle": "Vivere a Varzo lavorando in Ticino da frontaliere: vantaggi, svantaggi, tempi di spostamento, cosa considerare prima di trasferirsi."
+    },
+    {
+      "keyword": "vivere a Maslianico e lavorare in Ticino da frontaliere",
+      "angle": "Pendolarismo Maslianico-Ticino per frontalieri: collegamenti, tempi di percorrenza, costo della vita, zone consigliate."
+    },
+    {
+      "keyword": "trasferirsi a Maslianico da frontaliere pro e contro",
+      "angle": "Vivere a Maslianico lavorando in Ticino da frontaliere: vantaggi, svantaggi, tempi di spostamento, cosa considerare prima di trasferirsi."
+    },
+    {
+      "keyword": "vivere a Porlezza e lavorare in Ticino da frontaliere",
+      "angle": "Pendolarismo Porlezza-Ticino per frontalieri: collegamenti, tempi di percorrenza, costo della vita, zone consigliate."
+    },
+    {
+      "keyword": "trasferirsi a Porlezza da frontaliere pro e contro",
+      "angle": "Vivere a Porlezza lavorando in Ticino da frontaliere: vantaggi, svantaggi, tempi di spostamento, cosa considerare prima di trasferirsi."
+    },
+    {
+      "keyword": "vivere a Ronago e lavorare in Ticino da frontaliere",
+      "angle": "Pendolarismo Ronago-Ticino per frontalieri: collegamenti, tempi di percorrenza, costo della vita, zone consigliate."
+    },
+    {
+      "keyword": "trasferirsi a Ronago da frontaliere pro e contro",
+      "angle": "Vivere a Ronago lavorando in Ticino da frontaliere: vantaggi, svantaggi, tempi di spostamento, cosa considerare prima di trasferirsi."
+    },
+    {
+      "keyword": "vivere a Valmorea e lavorare in Ticino da frontaliere",
+      "angle": "Pendolarismo Valmorea-Ticino per frontalieri: collegamenti, tempi di percorrenza, costo della vita, zone consigliate."
+    },
+    {
+      "keyword": "trasferirsi a Valmorea da frontaliere pro e contro",
+      "angle": "Vivere a Valmorea lavorando in Ticino da frontaliere: vantaggi, svantaggi, tempi di spostamento, cosa considerare prima di trasferirsi."
+    },
+    {
+      "keyword": "vivere a Besano e lavorare in Ticino da frontaliere",
+      "angle": "Pendolarismo Besano-Ticino per frontalieri: collegamenti, tempi di percorrenza, costo della vita, zone consigliate."
+    },
+    {
+      "keyword": "trasferirsi a Besano da frontaliere pro e contro",
+      "angle": "Vivere a Besano lavorando in Ticino da frontaliere: vantaggi, svantaggi, tempi di spostamento, cosa considerare prima di trasferirsi."
+    },
+    {
+      "keyword": "vivere a Cadegliano-Viconago e lavorare in Ticino da frontaliere",
+      "angle": "Pendolarismo Cadegliano-Viconago-Ticino per frontalieri: collegamenti, tempi di percorrenza, costo della vita, zone consigliate."
+    },
+    {
+      "keyword": "trasferirsi a Cadegliano-Viconago da frontaliere pro e contro",
+      "angle": "Vivere a Cadegliano-Viconago lavorando in Ticino da frontaliere: vantaggi, svantaggi, tempi di spostamento, cosa considerare prima di trasferirsi."
+    },
+    {
+      "keyword": "vivere a Germignaga e lavorare in Ticino da frontaliere",
+      "angle": "Pendolarismo Germignaga-Ticino per frontalieri: collegamenti, tempi di percorrenza, costo della vita, zone consigliate."
+    },
+    {
+      "keyword": "trasferirsi a Germignaga da frontaliere pro e contro",
+      "angle": "Vivere a Germignaga lavorando in Ticino da frontaliere: vantaggi, svantaggi, tempi di spostamento, cosa considerare prima di trasferirsi."
+    },
+    {
+      "keyword": "vivere a Marchirolo e lavorare in Ticino da frontaliere",
+      "angle": "Pendolarismo Marchirolo-Ticino per frontalieri: collegamenti, tempi di percorrenza, costo della vita, zone consigliate."
+    },
+    {
+      "keyword": "trasferirsi a Marchirolo da frontaliere pro e contro",
+      "angle": "Vivere a Marchirolo lavorando in Ticino da frontaliere: vantaggi, svantaggi, tempi di spostamento, cosa considerare prima di trasferirsi."
+    },
+    {
+      "keyword": "vivere a Tronzano Lago Maggiore e lavorare in Ticino da frontaliere",
+      "angle": "Pendolarismo Tronzano Lago Maggiore-Ticino per frontalieri: collegamenti, tempi di percorrenza, costo della vita, zone consigliate."
+    },
+    {
+      "keyword": "trasferirsi a Tronzano Lago Maggiore da frontaliere pro e contro",
+      "angle": "Vivere a Tronzano Lago Maggiore lavorando in Ticino da frontaliere: vantaggi, svantaggi, tempi di spostamento, cosa considerare prima di trasferirsi."
+    },
+    {
+      "keyword": "vivere a Viggiù e lavorare in Ticino da frontaliere",
+      "angle": "Pendolarismo Viggiù-Ticino per frontalieri: collegamenti, tempi di percorrenza, costo della vita, zone consigliate."
+    },
+    {
+      "keyword": "trasferirsi a Viggiù da frontaliere pro e contro",
+      "angle": "Vivere a Viggiù lavorando in Ticino da frontaliere: vantaggi, svantaggi, tempi di spostamento, cosa considerare prima di trasferirsi."
+    },
+    {
+      "keyword": "vivere a Crevoladossola e lavorare in Ticino da frontaliere",
+      "angle": "Pendolarismo Crevoladossola-Ticino per frontalieri: collegamenti, tempi di percorrenza, costo della vita, zone consigliate."
+    },
+    {
+      "keyword": "trasferirsi a Crevoladossola da frontaliere pro e contro",
+      "angle": "Vivere a Crevoladossola lavorando in Ticino da frontaliere: vantaggi, svantaggi, tempi di spostamento, cosa considerare prima di trasferirsi."
+    },
+    {
+      "keyword": "vivere a Como e lavorare in Ticino da frontaliere",
+      "angle": "Pendolarismo Como-Ticino per frontalieri: collegamenti, tempi di percorrenza, costo della vita, zone consigliate."
+    },
+    {
+      "keyword": "trasferirsi a Como da frontaliere pro e contro",
+      "angle": "Vivere a Como lavorando in Ticino da frontaliere: vantaggi, svantaggi, tempi di spostamento, cosa considerare prima di trasferirsi."
+    },
+    {
+      "keyword": "vivere a Rodero e lavorare in Ticino da frontaliere",
+      "angle": "Pendolarismo Rodero-Ticino per frontalieri: collegamenti, tempi di percorrenza, costo della vita, zone consigliate."
+    },
+    {
+      "keyword": "trasferirsi a Rodero da frontaliere pro e contro",
+      "angle": "Vivere a Rodero lavorando in Ticino da frontaliere: vantaggi, svantaggi, tempi di spostamento, cosa considerare prima di trasferirsi."
+    },
+    {
+      "keyword": "vivere a Uggiate-Trevano e lavorare in Ticino da frontaliere",
+      "angle": "Pendolarismo Uggiate-Trevano-Ticino per frontalieri: collegamenti, tempi di percorrenza, costo della vita, zone consigliate."
+    },
+    {
+      "keyword": "trasferirsi a Uggiate-Trevano da frontaliere pro e contro",
+      "angle": "Vivere a Uggiate-Trevano lavorando in Ticino da frontaliere: vantaggi, svantaggi, tempi di spostamento, cosa considerare prima di trasferirsi."
+    },
+    {
+      "keyword": "vivere a Agra e lavorare in Ticino da frontaliere",
+      "angle": "Pendolarismo Agra-Ticino per frontalieri: collegamenti, tempi di percorrenza, costo della vita, zone consigliate."
+    },
+    {
+      "keyword": "trasferirsi a Agra da frontaliere pro e contro",
+      "angle": "Vivere a Agra lavorando in Ticino da frontaliere: vantaggi, svantaggi, tempi di spostamento, cosa considerare prima di trasferirsi."
+    },
+    {
+      "keyword": "vivere a Cantello e lavorare in Ticino da frontaliere",
+      "angle": "Pendolarismo Cantello-Ticino per frontalieri: collegamenti, tempi di percorrenza, costo della vita, zone consigliate."
+    },
+    {
+      "keyword": "trasferirsi a Cantello da frontaliere pro e contro",
+      "angle": "Vivere a Cantello lavorando in Ticino da frontaliere: vantaggi, svantaggi, tempi di spostamento, cosa considerare prima di trasferirsi."
+    },
+    {
+      "keyword": "vivere a Cugliate-Fabiasco e lavorare in Ticino da frontaliere",
+      "angle": "Pendolarismo Cugliate-Fabiasco-Ticino per frontalieri: collegamenti, tempi di percorrenza, costo della vita, zone consigliate."
+    },
+    {
+      "keyword": "trasferirsi a Cugliate-Fabiasco da frontaliere pro e contro",
+      "angle": "Vivere a Cugliate-Fabiasco lavorando in Ticino da frontaliere: vantaggi, svantaggi, tempi di spostamento, cosa considerare prima di trasferirsi."
+    },
+    {
+      "keyword": "vivere a Dumenza e lavorare in Ticino da frontaliere",
+      "angle": "Pendolarismo Dumenza-Ticino per frontalieri: collegamenti, tempi di percorrenza, costo della vita, zone consigliate."
+    },
+    {
+      "keyword": "trasferirsi a Dumenza da frontaliere pro e contro",
+      "angle": "Vivere a Dumenza lavorando in Ticino da frontaliere: vantaggi, svantaggi, tempi di spostamento, cosa considerare prima di trasferirsi."
+    },
+    {
+      "keyword": "vivere a Marzio e lavorare in Ticino da frontaliere",
+      "angle": "Pendolarismo Marzio-Ticino per frontalieri: collegamenti, tempi di percorrenza, costo della vita, zone consigliate."
+    },
+    {
+      "keyword": "trasferirsi a Marzio da frontaliere pro e contro",
+      "angle": "Vivere a Marzio lavorando in Ticino da frontaliere: vantaggi, svantaggi, tempi di spostamento, cosa considerare prima di trasferirsi."
+    },
+    {
+      "keyword": "vivere a Cannero Riviera e lavorare in Ticino da frontaliere",
+      "angle": "Pendolarismo Cannero Riviera-Ticino per frontalieri: collegamenti, tempi di percorrenza, costo della vita, zone consigliate."
+    },
+    {
+      "keyword": "trasferirsi a Cannero Riviera da frontaliere pro e contro",
+      "angle": "Vivere a Cannero Riviera lavorando in Ticino da frontaliere: vantaggi, svantaggi, tempi di spostamento, cosa considerare prima di trasferirsi."
+    },
+    {
+      "keyword": "vivere a Domodossola e lavorare in Ticino da frontaliere",
+      "angle": "Pendolarismo Domodossola-Ticino per frontalieri: collegamenti, tempi di percorrenza, costo della vita, zone consigliate."
+    },
+    {
+      "keyword": "trasferirsi a Domodossola da frontaliere pro e contro",
+      "angle": "Vivere a Domodossola lavorando in Ticino da frontaliere: vantaggi, svantaggi, tempi di spostamento, cosa considerare prima di trasferirsi."
+    },
+    {
+      "keyword": "vivere a Alta Valle Intelvi e lavorare in Ticino da frontaliere",
+      "angle": "Pendolarismo Alta Valle Intelvi-Ticino per frontalieri: collegamenti, tempi di percorrenza, costo della vita, zone consigliate."
+    },
+    {
+      "keyword": "trasferirsi a Alta Valle Intelvi da frontaliere pro e contro",
+      "angle": "Vivere a Alta Valle Intelvi lavorando in Ticino da frontaliere: vantaggi, svantaggi, tempi di spostamento, cosa considerare prima di trasferirsi."
+    },
+    {
+      "keyword": "vivere a Cernobbio e lavorare in Ticino da frontaliere",
+      "angle": "Pendolarismo Cernobbio-Ticino per frontalieri: collegamenti, tempi di percorrenza, costo della vita, zone consigliate."
+    },
+    {
+      "keyword": "trasferirsi a Cernobbio da frontaliere pro e contro",
+      "angle": "Vivere a Cernobbio lavorando in Ticino da frontaliere: vantaggi, svantaggi, tempi di spostamento, cosa considerare prima di trasferirsi."
+    },
+    {
+      "keyword": "vivere a Colverde e lavorare in Ticino da frontaliere",
+      "angle": "Pendolarismo Colverde-Ticino per frontalieri: collegamenti, tempi di percorrenza, costo della vita, zone consigliate."
+    },
+    {
+      "keyword": "trasferirsi a Colverde da frontaliere pro e contro",
+      "angle": "Vivere a Colverde lavorando in Ticino da frontaliere: vantaggi, svantaggi, tempi di spostamento, cosa considerare prima di trasferirsi."
+    },
+    {
+      "keyword": "vivere a Domaso e lavorare in Ticino da frontaliere",
+      "angle": "Pendolarismo Domaso-Ticino per frontalieri: collegamenti, tempi di percorrenza, costo della vita, zone consigliate."
+    },
+    {
+      "keyword": "trasferirsi a Domaso da frontaliere pro e contro",
+      "angle": "Vivere a Domaso lavorando in Ticino da frontaliere: vantaggi, svantaggi, tempi di spostamento, cosa considerare prima di trasferirsi."
+    },
+    {
+      "keyword": "vivere a Bisuschio e lavorare in Ticino da frontaliere",
+      "angle": "Pendolarismo Bisuschio-Ticino per frontalieri: collegamenti, tempi di percorrenza, costo della vita, zone consigliate."
+    },
+    {
+      "keyword": "trasferirsi a Bisuschio da frontaliere pro e contro",
+      "angle": "Vivere a Bisuschio lavorando in Ticino da frontaliere: vantaggi, svantaggi, tempi di spostamento, cosa considerare prima di trasferirsi."
+    },
+    {
+      "keyword": "vivere a Montegrino Valtravaglia e lavorare in Ticino da frontaliere",
+      "angle": "Pendolarismo Montegrino Valtravaglia-Ticino per frontalieri: collegamenti, tempi di percorrenza, costo della vita, zone consigliate."
+    },
+    {
+      "keyword": "trasferirsi a Montegrino Valtravaglia da frontaliere pro e contro",
+      "angle": "Vivere a Montegrino Valtravaglia lavorando in Ticino da frontaliere: vantaggi, svantaggi, tempi di spostamento, cosa considerare prima di trasferirsi."
+    },
+    {
+      "keyword": "vivere a Livigno e lavorare in Grigioni da frontaliere",
+      "angle": "Pendolarismo Livigno-Grigioni per frontalieri: collegamenti, tempi di percorrenza, costo della vita, zone consigliate."
+    },
+    {
+      "keyword": "trasferirsi a Livigno da frontaliere pro e contro",
+      "angle": "Vivere a Livigno lavorando in Grigioni da frontaliere: vantaggi, svantaggi, tempi di spostamento, cosa considerare prima di trasferirsi."
+    },
+    {
+      "keyword": "vivere a Madesimo e lavorare in Grigioni da frontaliere",
+      "angle": "Pendolarismo Madesimo-Grigioni per frontalieri: collegamenti, tempi di percorrenza, costo della vita, zone consigliate."
+    },
+    {
+      "keyword": "trasferirsi a Madesimo da frontaliere pro e contro",
+      "angle": "Vivere a Madesimo lavorando in Grigioni da frontaliere: vantaggi, svantaggi, tempi di spostamento, cosa considerare prima di trasferirsi."
+    },
+    {
+      "keyword": "vivere a Piuro e lavorare in Grigioni da frontaliere",
+      "angle": "Pendolarismo Piuro-Grigioni per frontalieri: collegamenti, tempi di percorrenza, costo della vita, zone consigliate."
+    },
+    {
+      "keyword": "trasferirsi a Piuro da frontaliere pro e contro",
+      "angle": "Vivere a Piuro lavorando in Grigioni da frontaliere: vantaggi, svantaggi, tempi di spostamento, cosa considerare prima di trasferirsi."
+    },
+    {
+      "keyword": "vivere a Tirano e lavorare in Grigioni da frontaliere",
+      "angle": "Pendolarismo Tirano-Grigioni per frontalieri: collegamenti, tempi di percorrenza, costo della vita, zone consigliate."
+    },
+    {
+      "keyword": "trasferirsi a Tirano da frontaliere pro e contro",
+      "angle": "Vivere a Tirano lavorando in Grigioni da frontaliere: vantaggi, svantaggi, tempi di spostamento, cosa considerare prima di trasferirsi."
+    },
+    {
+      "keyword": "vivere a Villa di Chiavenna e lavorare in Grigioni da frontaliere",
+      "angle": "Pendolarismo Villa di Chiavenna-Grigioni per frontalieri: collegamenti, tempi di percorrenza, costo della vita, zone consigliate."
+    },
+    {
+      "keyword": "trasferirsi a Villa di Chiavenna da frontaliere pro e contro",
+      "angle": "Vivere a Villa di Chiavenna lavorando in Grigioni da frontaliere: vantaggi, svantaggi, tempi di spostamento, cosa considerare prima di trasferirsi."
+    },
+    {
+      "keyword": "vivere a Campodolcino e lavorare in Grigioni da frontaliere",
+      "angle": "Pendolarismo Campodolcino-Grigioni per frontalieri: collegamenti, tempi di percorrenza, costo della vita, zone consigliate."
+    },
+    {
+      "keyword": "trasferirsi a Campodolcino da frontaliere pro e contro",
+      "angle": "Vivere a Campodolcino lavorando in Grigioni da frontaliere: vantaggi, svantaggi, tempi di spostamento, cosa considerare prima di trasferirsi."
+    },
+    {
+      "keyword": "vivere a Chiavenna e lavorare in Grigioni da frontaliere",
+      "angle": "Pendolarismo Chiavenna-Grigioni per frontalieri: collegamenti, tempi di percorrenza, costo della vita, zone consigliate."
+    },
+    {
+      "keyword": "trasferirsi a Chiavenna da frontaliere pro e contro",
+      "angle": "Vivere a Chiavenna lavorando in Grigioni da frontaliere: vantaggi, svantaggi, tempi di spostamento, cosa considerare prima di trasferirsi."
+    },
+    {
+      "keyword": "vivere a Valdidentro e lavorare in Grigioni da frontaliere",
+      "angle": "Pendolarismo Valdidentro-Grigioni per frontalieri: collegamenti, tempi di percorrenza, costo della vita, zone consigliate."
+    },
+    {
+      "keyword": "trasferirsi a Valdidentro da frontaliere pro e contro",
+      "angle": "Vivere a Valdidentro lavorando in Grigioni da frontaliere: vantaggi, svantaggi, tempi di spostamento, cosa considerare prima di trasferirsi."
+    },
+    {
+      "keyword": "vivere a Bormio e lavorare in Grigioni da frontaliere",
+      "angle": "Pendolarismo Bormio-Grigioni per frontalieri: collegamenti, tempi di percorrenza, costo della vita, zone consigliate."
+    },
+    {
+      "keyword": "trasferirsi a Bormio da frontaliere pro e contro",
+      "angle": "Vivere a Bormio lavorando in Grigioni da frontaliere: vantaggi, svantaggi, tempi di spostamento, cosa considerare prima di trasferirsi."
+    },
+    {
+      "keyword": "vivere a Valfurva e lavorare in Grigioni da frontaliere",
+      "angle": "Pendolarismo Valfurva-Grigioni per frontalieri: collegamenti, tempi di percorrenza, costo della vita, zone consigliate."
+    },
+    {
+      "keyword": "trasferirsi a Valfurva da frontaliere pro e contro",
+      "angle": "Vivere a Valfurva lavorando in Grigioni da frontaliere: vantaggi, svantaggi, tempi di spostamento, cosa considerare prima di trasferirsi."
+    },
+    {
+      "keyword": "vivere a Novate Mezzola e lavorare in Grigioni da frontaliere",
+      "angle": "Pendolarismo Novate Mezzola-Grigioni per frontalieri: collegamenti, tempi di percorrenza, costo della vita, zone consigliate."
+    },
+    {
+      "keyword": "trasferirsi a Novate Mezzola da frontaliere pro e contro",
+      "angle": "Vivere a Novate Mezzola lavorando in Grigioni da frontaliere: vantaggi, svantaggi, tempi di spostamento, cosa considerare prima di trasferirsi."
+    },
+    {
+      "keyword": "vivere a Bianzone e lavorare in Grigioni da frontaliere",
+      "angle": "Pendolarismo Bianzone-Grigioni per frontalieri: collegamenti, tempi di percorrenza, costo della vita, zone consigliate."
+    },
+    {
+      "keyword": "trasferirsi a Bianzone da frontaliere pro e contro",
+      "angle": "Vivere a Bianzone lavorando in Grigioni da frontaliere: vantaggi, svantaggi, tempi di spostamento, cosa considerare prima di trasferirsi."
+    },
+    {
+      "keyword": "vivere a Villa di Tirano e lavorare in Grigioni da frontaliere",
+      "angle": "Pendolarismo Villa di Tirano-Grigioni per frontalieri: collegamenti, tempi di percorrenza, costo della vita, zone consigliate."
+    },
+    {
+      "keyword": "trasferirsi a Villa di Tirano da frontaliere pro e contro",
+      "angle": "Vivere a Villa di Tirano lavorando in Grigioni da frontaliere: vantaggi, svantaggi, tempi di spostamento, cosa considerare prima di trasferirsi."
+    },
+    {
+      "keyword": "vivere a Colico e lavorare in Grigioni da frontaliere",
+      "angle": "Pendolarismo Colico-Grigioni per frontalieri: collegamenti, tempi di percorrenza, costo della vita, zone consigliate."
+    },
+    {
+      "keyword": "trasferirsi a Colico da frontaliere pro e contro",
+      "angle": "Vivere a Colico lavorando in Grigioni da frontaliere: vantaggi, svantaggi, tempi di spostamento, cosa considerare prima di trasferirsi."
+    },
+    {
+      "keyword": "vivere a Sondalo e lavorare in Grigioni da frontaliere",
+      "angle": "Pendolarismo Sondalo-Grigioni per frontalieri: collegamenti, tempi di percorrenza, costo della vita, zone consigliate."
+    },
+    {
+      "keyword": "trasferirsi a Sondalo da frontaliere pro e contro",
+      "angle": "Vivere a Sondalo lavorando in Grigioni da frontaliere: vantaggi, svantaggi, tempi di spostamento, cosa considerare prima di trasferirsi."
+    },
+    {
+      "keyword": "vivere a Stelvio e lavorare in Grigioni da frontaliere",
+      "angle": "Pendolarismo Stelvio-Grigioni per frontalieri: collegamenti, tempi di percorrenza, costo della vita, zone consigliate."
+    },
+    {
+      "keyword": "trasferirsi a Stelvio da frontaliere pro e contro",
+      "angle": "Vivere a Stelvio lavorando in Grigioni da frontaliere: vantaggi, svantaggi, tempi di spostamento, cosa considerare prima di trasferirsi."
+    },
+    {
+      "keyword": "vivere a Bellano e lavorare in Grigioni da frontaliere",
+      "angle": "Pendolarismo Bellano-Grigioni per frontalieri: collegamenti, tempi di percorrenza, costo della vita, zone consigliate."
+    },
+    {
+      "keyword": "trasferirsi a Bellano da frontaliere pro e contro",
+      "angle": "Vivere a Bellano lavorando in Grigioni da frontaliere: vantaggi, svantaggi, tempi di spostamento, cosa considerare prima di trasferirsi."
+    },
+    {
+      "keyword": "vivere a Sernio e lavorare in Grigioni da frontaliere",
+      "angle": "Pendolarismo Sernio-Grigioni per frontalieri: collegamenti, tempi di percorrenza, costo della vita, zone consigliate."
+    },
+    {
+      "keyword": "trasferirsi a Sernio da frontaliere pro e contro",
+      "angle": "Vivere a Sernio lavorando in Grigioni da frontaliere: vantaggi, svantaggi, tempi di spostamento, cosa considerare prima di trasferirsi."
+    },
+    {
+      "keyword": "vivere a Teglio e lavorare in Grigioni da frontaliere",
+      "angle": "Pendolarismo Teglio-Grigioni per frontalieri: collegamenti, tempi di percorrenza, costo della vita, zone consigliate."
+    },
+    {
+      "keyword": "trasferirsi a Teglio da frontaliere pro e contro",
+      "angle": "Vivere a Teglio lavorando in Grigioni da frontaliere: vantaggi, svantaggi, tempi di spostamento, cosa considerare prima di trasferirsi."
+    },
+    {
+      "keyword": "vivere a Chiuro e lavorare in Grigioni da frontaliere",
+      "angle": "Pendolarismo Chiuro-Grigioni per frontalieri: collegamenti, tempi di percorrenza, costo della vita, zone consigliate."
+    },
+    {
+      "keyword": "trasferirsi a Chiuro da frontaliere pro e contro",
+      "angle": "Vivere a Chiuro lavorando in Grigioni da frontaliere: vantaggi, svantaggi, tempi di spostamento, cosa considerare prima di trasferirsi."
+    },
+    {
+      "keyword": "vivere a Ponte in Valtellina e lavorare in Grigioni da frontaliere",
+      "angle": "Pendolarismo Ponte in Valtellina-Grigioni per frontalieri: collegamenti, tempi di percorrenza, costo della vita, zone consigliate."
+    },
+    {
+      "keyword": "trasferirsi a Ponte in Valtellina da frontaliere pro e contro",
+      "angle": "Vivere a Ponte in Valtellina lavorando in Grigioni da frontaliere: vantaggi, svantaggi, tempi di spostamento, cosa considerare prima di trasferirsi."
+    },
+    {
+      "keyword": "vivere a Aprica e lavorare in Grigioni da frontaliere",
+      "angle": "Pendolarismo Aprica-Grigioni per frontalieri: collegamenti, tempi di percorrenza, costo della vita, zone consigliate."
+    },
+    {
+      "keyword": "trasferirsi a Aprica da frontaliere pro e contro",
+      "angle": "Vivere a Aprica lavorando in Grigioni da frontaliere: vantaggi, svantaggi, tempi di spostamento, cosa considerare prima di trasferirsi."
+    },
+    {
+      "keyword": "vivere a Lovero e lavorare in Grigioni da frontaliere",
+      "angle": "Pendolarismo Lovero-Grigioni per frontalieri: collegamenti, tempi di percorrenza, costo della vita, zone consigliate."
+    },
+    {
+      "keyword": "trasferirsi a Lovero da frontaliere pro e contro",
+      "angle": "Vivere a Lovero lavorando in Grigioni da frontaliere: vantaggi, svantaggi, tempi di spostamento, cosa considerare prima di trasferirsi."
+    },
+    {
+      "keyword": "vivere a Morbegno e lavorare in Grigioni da frontaliere",
+      "angle": "Pendolarismo Morbegno-Grigioni per frontalieri: collegamenti, tempi di percorrenza, costo della vita, zone consigliate."
+    },
+    {
+      "keyword": "trasferirsi a Morbegno da frontaliere pro e contro",
+      "angle": "Vivere a Morbegno lavorando in Grigioni da frontaliere: vantaggi, svantaggi, tempi di spostamento, cosa considerare prima di trasferirsi."
+    },
+    {
+      "keyword": "vivere a Varenna e lavorare in Grigioni da frontaliere",
+      "angle": "Pendolarismo Varenna-Grigioni per frontalieri: collegamenti, tempi di percorrenza, costo della vita, zone consigliate."
+    },
+    {
+      "keyword": "trasferirsi a Varenna da frontaliere pro e contro",
+      "angle": "Vivere a Varenna lavorando in Grigioni da frontaliere: vantaggi, svantaggi, tempi di spostamento, cosa considerare prima di trasferirsi."
+    },
+    {
+      "keyword": "vivere a Saint-Rhémy-En-Bosses e lavorare in Vallese da frontaliere",
+      "angle": "Pendolarismo Saint-Rhémy-En-Bosses-Vallese per frontalieri: collegamenti, tempi di percorrenza, costo della vita, zone consigliate."
+    },
+    {
+      "keyword": "trasferirsi a Saint-Rhémy-En-Bosses da frontaliere pro e contro",
+      "angle": "Vivere a Saint-Rhémy-En-Bosses lavorando in Vallese da frontaliere: vantaggi, svantaggi, tempi di spostamento, cosa considerare prima di trasferirsi."
+    },
+    {
+      "keyword": "vivere a Saint-Oyen e lavorare in Vallese da frontaliere",
+      "angle": "Pendolarismo Saint-Oyen-Vallese per frontalieri: collegamenti, tempi di percorrenza, costo della vita, zone consigliate."
+    },
+    {
+      "keyword": "trasferirsi a Saint-Oyen da frontaliere pro e contro",
+      "angle": "Vivere a Saint-Oyen lavorando in Vallese da frontaliere: vantaggi, svantaggi, tempi di spostamento, cosa considerare prima di trasferirsi."
+    },
+    {
+      "keyword": "vivere a Etroubles e lavorare in Vallese da frontaliere",
+      "angle": "Pendolarismo Etroubles-Vallese per frontalieri: collegamenti, tempi di percorrenza, costo della vita, zone consigliate."
+    },
+    {
+      "keyword": "trasferirsi a Etroubles da frontaliere pro e contro",
+      "angle": "Vivere a Etroubles lavorando in Vallese da frontaliere: vantaggi, svantaggi, tempi di spostamento, cosa considerare prima di trasferirsi."
+    },
+    {
+      "keyword": "vivere a La Thuile e lavorare in Vallese da frontaliere",
+      "angle": "Pendolarismo La Thuile-Vallese per frontalieri: collegamenti, tempi di percorrenza, costo della vita, zone consigliate."
+    },
+    {
+      "keyword": "trasferirsi a La Thuile da frontaliere pro e contro",
+      "angle": "Vivere a La Thuile lavorando in Vallese da frontaliere: vantaggi, svantaggi, tempi di spostamento, cosa considerare prima di trasferirsi."
+    },
+    {
+      "keyword": "vivere a Allein e lavorare in Vallese da frontaliere",
+      "angle": "Pendolarismo Allein-Vallese per frontalieri: collegamenti, tempi di percorrenza, costo della vita, zone consigliate."
+    },
+    {
+      "keyword": "trasferirsi a Allein da frontaliere pro e contro",
+      "angle": "Vivere a Allein lavorando in Vallese da frontaliere: vantaggi, svantaggi, tempi di spostamento, cosa considerare prima di trasferirsi."
+    },
+    {
+      "keyword": "vivere a Ollomont e lavorare in Vallese da frontaliere",
+      "angle": "Pendolarismo Ollomont-Vallese per frontalieri: collegamenti, tempi di percorrenza, costo della vita, zone consigliate."
+    },
+    {
+      "keyword": "trasferirsi a Ollomont da frontaliere pro e contro",
+      "angle": "Vivere a Ollomont lavorando in Vallese da frontaliere: vantaggi, svantaggi, tempi di spostamento, cosa considerare prima di trasferirsi."
+    },
+    {
+      "keyword": "vivere a Doues e lavorare in Vallese da frontaliere",
+      "angle": "Pendolarismo Doues-Vallese per frontalieri: collegamenti, tempi di percorrenza, costo della vita, zone consigliate."
+    },
+    {
+      "keyword": "trasferirsi a Doues da frontaliere pro e contro",
+      "angle": "Vivere a Doues lavorando in Vallese da frontaliere: vantaggi, svantaggi, tempi di spostamento, cosa considerare prima di trasferirsi."
+    },
+    {
+      "keyword": "vivere a Pré-Saint-Didier e lavorare in Vallese da frontaliere",
+      "angle": "Pendolarismo Pré-Saint-Didier-Vallese per frontalieri: collegamenti, tempi di percorrenza, costo della vita, zone consigliate."
+    },
+    {
+      "keyword": "trasferirsi a Pré-Saint-Didier da frontaliere pro e contro",
+      "angle": "Vivere a Pré-Saint-Didier lavorando in Vallese da frontaliere: vantaggi, svantaggi, tempi di spostamento, cosa considerare prima di trasferirsi."
+    },
+    {
+      "keyword": "vivere a Valpelline e lavorare in Vallese da frontaliere",
+      "angle": "Pendolarismo Valpelline-Vallese per frontalieri: collegamenti, tempi di percorrenza, costo della vita, zone consigliate."
+    },
+    {
+      "keyword": "trasferirsi a Valpelline da frontaliere pro e contro",
+      "angle": "Vivere a Valpelline lavorando in Vallese da frontaliere: vantaggi, svantaggi, tempi di spostamento, cosa considerare prima di trasferirsi."
+    },
+    {
+      "keyword": "vivere a Courmayeur e lavorare in Vallese da frontaliere",
+      "angle": "Pendolarismo Courmayeur-Vallese per frontalieri: collegamenti, tempi di percorrenza, costo della vita, zone consigliate."
+    },
+    {
+      "keyword": "trasferirsi a Courmayeur da frontaliere pro e contro",
+      "angle": "Vivere a Courmayeur lavorando in Vallese da frontaliere: vantaggi, svantaggi, tempi di spostamento, cosa considerare prima di trasferirsi."
+    },
+    {
+      "keyword": "vivere a Gignod e lavorare in Vallese da frontaliere",
+      "angle": "Pendolarismo Gignod-Vallese per frontalieri: collegamenti, tempi di percorrenza, costo della vita, zone consigliate."
+    },
+    {
+      "keyword": "trasferirsi a Gignod da frontaliere pro e contro",
+      "angle": "Vivere a Gignod lavorando in Vallese da frontaliere: vantaggi, svantaggi, tempi di spostamento, cosa considerare prima di trasferirsi."
+    },
+    {
+      "keyword": "vivere a Roisan e lavorare in Vallese da frontaliere",
+      "angle": "Pendolarismo Roisan-Vallese per frontalieri: collegamenti, tempi di percorrenza, costo della vita, zone consigliate."
+    },
+    {
+      "keyword": "trasferirsi a Roisan da frontaliere pro e contro",
+      "angle": "Vivere a Roisan lavorando in Vallese da frontaliere: vantaggi, svantaggi, tempi di spostamento, cosa considerare prima di trasferirsi."
+    },
+    {
+      "keyword": "vivere a Morgex e lavorare in Vallese da frontaliere",
+      "angle": "Pendolarismo Morgex-Vallese per frontalieri: collegamenti, tempi di percorrenza, costo della vita, zone consigliate."
+    },
+    {
+      "keyword": "trasferirsi a Morgex da frontaliere pro e contro",
+      "angle": "Vivere a Morgex lavorando in Vallese da frontaliere: vantaggi, svantaggi, tempi di spostamento, cosa considerare prima di trasferirsi."
+    },
+    {
+      "keyword": "vivere a La Salle e lavorare in Vallese da frontaliere",
+      "angle": "Pendolarismo La Salle-Vallese per frontalieri: collegamenti, tempi di percorrenza, costo della vita, zone consigliate."
+    },
+    {
+      "keyword": "trasferirsi a La Salle da frontaliere pro e contro",
+      "angle": "Vivere a La Salle lavorando in Vallese da frontaliere: vantaggi, svantaggi, tempi di spostamento, cosa considerare prima di trasferirsi."
+    },
+    {
+      "keyword": "vivere a Oyace e lavorare in Vallese da frontaliere",
+      "angle": "Pendolarismo Oyace-Vallese per frontalieri: collegamenti, tempi di percorrenza, costo della vita, zone consigliate."
+    },
+    {
+      "keyword": "trasferirsi a Oyace da frontaliere pro e contro",
+      "angle": "Vivere a Oyace lavorando in Vallese da frontaliere: vantaggi, svantaggi, tempi di spostamento, cosa considerare prima di trasferirsi."
+    },
+    {
+      "keyword": "vivere a Saint-Nicolas e lavorare in Vallese da frontaliere",
+      "angle": "Pendolarismo Saint-Nicolas-Vallese per frontalieri: collegamenti, tempi di percorrenza, costo della vita, zone consigliate."
+    },
+    {
+      "keyword": "trasferirsi a Saint-Nicolas da frontaliere pro e contro",
+      "angle": "Vivere a Saint-Nicolas lavorando in Vallese da frontaliere: vantaggi, svantaggi, tempi di spostamento, cosa considerare prima di trasferirsi."
+    },
+    {
+      "keyword": "vivere a Avise e lavorare in Vallese da frontaliere",
+      "angle": "Pendolarismo Avise-Vallese per frontalieri: collegamenti, tempi di percorrenza, costo della vita, zone consigliate."
+    },
+    {
+      "keyword": "trasferirsi a Avise da frontaliere pro e contro",
+      "angle": "Vivere a Avise lavorando in Vallese da frontaliere: vantaggi, svantaggi, tempi di spostamento, cosa considerare prima di trasferirsi."
+    },
+    {
+      "keyword": "vivere a Saint-Pierre e lavorare in Vallese da frontaliere",
+      "angle": "Pendolarismo Saint-Pierre-Vallese per frontalieri: collegamenti, tempi di percorrenza, costo della vita, zone consigliate."
+    },
+    {
+      "keyword": "trasferirsi a Saint-Pierre da frontaliere pro e contro",
+      "angle": "Vivere a Saint-Pierre lavorando in Vallese da frontaliere: vantaggi, svantaggi, tempi di spostamento, cosa considerare prima di trasferirsi."
+    },
+    {
+      "keyword": "vivere a Sarre e lavorare in Vallese da frontaliere",
+      "angle": "Pendolarismo Sarre-Vallese per frontalieri: collegamenti, tempi di percorrenza, costo della vita, zone consigliate."
+    },
+    {
+      "keyword": "trasferirsi a Sarre da frontaliere pro e contro",
+      "angle": "Vivere a Sarre lavorando in Vallese da frontaliere: vantaggi, svantaggi, tempi di spostamento, cosa considerare prima di trasferirsi."
+    },
+    {
+      "keyword": "vivere a Aosta e lavorare in Vallese da frontaliere",
+      "angle": "Pendolarismo Aosta-Vallese per frontalieri: collegamenti, tempi di percorrenza, costo della vita, zone consigliate."
+    },
+    {
+      "keyword": "trasferirsi a Aosta da frontaliere pro e contro",
+      "angle": "Vivere a Aosta lavorando in Vallese da frontaliere: vantaggi, svantaggi, tempi di spostamento, cosa considerare prima di trasferirsi."
+    }
+  ]
+}
