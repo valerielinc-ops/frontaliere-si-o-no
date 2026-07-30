@@ -1,5 +1,91 @@
 [
   {
+    "slug": "devops-ingegnere-stadler-rail-bussnang",
+    "title": "DevOps Engineer",
+    "titleByLocale": {
+      "de": "DevOps Ingenieur",
+      "en": "DevOps Engineer",
+      "it": "DevOps Ingegnere",
+      "fr": "DevOps Ingénieur"
+    },
+    "company": "Stadler Rail",
+    "companyKey": "stadler-rail",
+    "location": "Bussnang",
+    "addressLocality": "Bussnang",
+    "descriptionByLocale": {
+      "de": "PROFIL\n\n• Abgeschlossenes Studium im Bereich Informatik, speziell System Integration oder eine vergleichbare Qualifikation\n\n• Erfahrung mit ERP/EAM Systemen und deren Anbindung an Hexagon EAM oder SAP\n\n• Erfahrung mit Integrationsumgebungen wie z.B. SAP Integration Suite und/oder Databridge Pro\n\n• Nachweisliche Erfahrung in der Gestaltung von Benutzeroberflächen\n\n• Deutsch- und Englischkenntnisse auf professionellem Niveau\n\nAUFGABEN\n\n• Entwicklung und Implementierung von Schnittstellenlösungen\n\n• Überwachung und Analyse von Daten, die über Schnittstellen ausgetauscht werden\n\n• Erstellung von Interface-Schemas\n\n• Durchführung von Tests und Optimierungen der Schnittstellen\n\n• Aktualisierung und Anpassung an die neuesten Marktanforderungen im Bereich IT-Infrastruktur\n\n• Beratung des Teams in Bezug auf Interface-Design und -Entwicklung\n\n• Arbeit mit relationalen Datenbanken",
+      "it": "PROFESSIONALE\n\n• Laurea completa in informatica, in particolare l'integrazione del sistema o una qualifica comparabile\n\n• Esperienza con sistemi ERP/EAM e connessione con Hexagon EAM o SAP\n\n• Esperienza con ambienti di integrazione come SAP Integration Suite e/o Databridge Pro\n\n• Esperienza dimostrata nella progettazione delle interfacce utente\n\n• competenze in tedesco e inglese a livello professionale\n\nTASKS\n\n• Sviluppo e implementazione di soluzioni di interfaccia\n\n• Monitoraggio e analisi dei dati scambiati tramite interfacce\n\n• Creazione di schemi di interfaccia\n\n• Attuazione dei test e ottimizzazione delle interfacce\n\n• Aggiornamento e adattamento alle più recenti esigenze del mercato delle infrastrutture IT\n\n• Consigli per il team sulla progettazione e lo sviluppo dell'interfaccia\n\n• Lavorare con database relazionali",
+      "en": "PROFILE\n\n• Completed degree in computer science, especially system integration or a comparable qualification\n\n• Experience with ERP/EAM systems and their connection to Hexagon EAM or SAP\n\n• Experience with integration environments such as SAP Integration Suite and/or Databridge Pro\n\n• Demonstrated experience in the design of user interfaces\n\n• German and English skills at a professional level\n\nTASKS\n\n• Development and implementation of interface solutions\n\n• Monitoring and analysis of data exchanged through interfaces\n\n• Creation of interface schemes\n\n• Implementation of tests and optimization of interfaces\n\n• Updating and adapting to the latest IT infrastructure market requirements\n\n• Advising the team on interface design and development\n\n• Working with relational databases",
+      "fr": "PROFIL\n\n• Diplôme d'informatique, en particulier l'intégration du système ou une qualification comparable\n\n• Expérience des systèmes ERP/EAM et de leur connexion à Hexagon EAM ou SAP\n\n• Expérience des environnements d'intégration tels que SAP Integration Suite et/ou Databridge Pro\n\n• Expérience démontrée dans la conception des interfaces utilisateur\n\n• Compétences en allemand et en anglais au niveau professionnel\n\nTÂCHES\n\n• Développement et mise en œuvre de solutions d'interface\n\n• Suivi et analyse des données échangées par des interfaces\n\n• Création de systèmes d'interface\n\n• Mise en œuvre des tests et optimisation des interfaces\n\n• Mise à jour et adaptation aux dernières exigences du marché des infrastructures informatiques\n\n• Conseiller l'équipe sur la conception et le développement des interfaces\n\n• Travailler avec les bases de données relationnelles"
+    },
+    "slugByLocale": {
+      "de": "devops-engineer-stadler-rail-ch",
+      "it": "devops-ingegnere-stadler-rail-bussnang",
+      "en": "devops-engineer-stadler-rail-ch",
+      "fr": "devops-engineer-stadler-rail-ch"
+    },
+    "sector": "Rail vehicle manufacturing",
+    "expiredAt": "2026-07-30T22:27:42.576Z",
+    "previousSlugs": [
+      "devops-engineer-stadler-rail-ch"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "devops-engineer-stadler-rail-ch"
+      ]
+    },
+    "postalCode": "9565",
+    "salaryMin": 57500,
+    "salaryMax": 87000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR"
+  },
+  {
+    "slug": "ingegnere-delle-operazioni-di-sicurezza-stadler-rail-bussnang",
+    "title": "Security Operations Engineer",
+    "titleByLocale": {
+      "it": "Ingegnere delle Operazioni di Sicurezza",
+      "en": "Security Operations Engineer",
+      "de": "Security Operations Ingenieur",
+      "fr": "Ingénieur des opérations de sécurité"
+    },
+    "company": "Stadler Rail",
+    "companyKey": "stadler-rail",
+    "location": "Bussnang",
+    "addressLocality": "Bussnang",
+    "descriptionByLocale": {
+      "it": "PROFIL\n• Oltre 3-5 anni in operazioni di sicurezza, sicurezza degli endpoint e gestione delle vulnerabilità.\n• Ottima conoscenza del portafoglio di sicurezza di Microsoft Defender e della sicurezza cloud nativa di Azure.\n• Familiarità con i benchmark CIS, CVSS, MITRE ATT&CK, NIST; lo scripting (PowerShell/KQL) è un vantaggio.\n• Conoscenza completa dei sistemi operativi Microsoft e Linux, che consente un'efficace sicurezza degli endpoint, monitoraggio e risposta agli incidenti, compreso il rafforzamento.\n• Certificazioni come SC-200, AZ-500 sono un vantaggio.\n• Giocatore di squadra analitico, strutturato e comunicativo AUFGABEN\n• Sviluppa e mantieni integrazioni tra Microsoft Defender XDR, Microsoft Sentinel, Microsoft Entra e altre piattaforme di sicurezza.\n• Costruisci e ottimizza la logica di rilevamento, comprese query KQL, regole di analisi, liste di controllo e cartelle di lavoro.\n• Progettare e gestire pipeline di dati per l'acquisizione, l'arricchimento, la normalizzazione e le integrazioni di connettori di terze parti.\n• Sviluppare playbook di automazione e SOAR utilizzando le app per la logica per semplificare i processi di risposta, arricchimento e flusso di lavoro.\n• Creare e gestire strumenti interni utilizzando PowerShell, Python, API Microsoft Graph e API Defender.\n• Monitorare e ottimizzare l'integrità della piattaforma, garantendo la qualità dei dati, l'affidabilità del connettore e le prestazioni di acquisizione.\n• Implementare la gestione del ciclo di vita dell'ingegneria di rilevamento (ottimizzazione, convalida, controllo delle versioni, monitoraggio).\n• Collaborare con team interfunzionali (SOC, cloud, infrastruttura) e fornire documentazione, standard e abilitazione",
+      "en": "PROFIL\n\n• 3–5+ years in Security Operations, Endpoint Security, and Vulnerability Management.\n\n• Strong knowledge of Microsoft Defender’s Security Portfolio’s and Cloud Native Azure Security.\n\n• Familiar with CIS benchmark, CVSS, MITRE ATT&CK, NIST; scripting (PowerShell/KQL) is a plus.\n\n• Comprehensive knowledge of Microsoft and Linux operating systems, enabling effective endpoint security, monitoring, and incident response including hardening\n\n• Certifications like SC-200, AZ-500 are an advantage.\n\n• Analytical, structured, and communicative team player\n\nAUFGABEN\n\n• Develop and maintain integrations across Microsoft Defender XDR, Microsoft Sentinel, Microsoft Entra, and other security platforms.\n\n• Build and optimize detection logic including KQL queries, analytics rules, watchlists, and workbooks.\n\n• Engineer and manage data pipelines for log ingestion, enrichment, normalization, and third‑party connector integrations.\n\n• Develop automation and SOAR playbooks using Logic Apps to streamline response, enrichment, and workflow processes.\n\n• Create and maintain internal tooling using PowerShell, Python, Microsoft Graph API, and Defender APIs.\n\n• Monitor and optimize platform health, ensuring data quality, connector reliability, and ingestion performance.\n\n• Implement detection engineering lifecycle management (tuning, validation, versioning, monitoring).\n\n• Collaborate with cross‑functional teams (SOC, Cloud, Infrastructure) and provide documentation, standards, and enablement",
+      "de": "PROFIL\n• 3–5+ Jahre in den Bereichen Sicherheitsbetrieb, Endpunktsicherheit und Schwachstellenmanagement.\n• Umfangreiche Kenntnisse des Sicherheitsportfolios von Microsoft Defender und Cloud Native Azure Security.\n• Vertraut mit CIS-Benchmark, CVSS, MITRE ATT&CK, NIST; Scripting (PowerShell/KQL) ist von Vorteil.\n• Umfassende Kenntnisse der Microsoft- und Linux-Betriebssysteme, die eine effektive Endpunktsicherheit, Überwachung und Reaktion auf Vorfälle einschließlich Härtung ermöglichen.\n• Zertifizierungen wie SC-200, AZ-500 sind von Vorteil.\n• Analytischer, strukturierter und kommunikativer Teamplayer AUFGABEN\n• Integrationen für Microsoft Defender XDR, Microsoft Sentinel, Microsoft Entra und andere Sicherheitsplattformen entwickeln und pflegen.\n• Erstellen und optimieren Sie Erkennungslogik, einschließlich KQL-Abfragen, Analyseregeln, Beobachtungslisten und Arbeitsmappen.\n• Entwickeln und verwalten Sie Datenpipelines für die Protokollaufnahme, Anreicherung, Normalisierung und Connector-Integration von Drittanbietern.\n• Entwickeln Sie Automatisierungs- und SOAR-Playbooks mit Logic Apps, um Antwort-, Anreicherungs- und Workflow-Prozesse zu optimieren.\n• Erstellen und pflegen Sie interne Tools mit PowerShell, Python, Microsoft Graph API und Defender APIs.\n• Überwachen und optimieren Sie den Zustand der Plattform und stellen Sie Datenqualität, Konnektorzuverlässigkeit und Aufnahmeleistung sicher.\n• Implementieren Sie das Lifecycle-Management der Erkennungstechnik (Optimierung, Validierung, Versionierung, Überwachung).\n• Arbeiten Sie mit funktionsübergreifenden Teams (SOC, Cloud, Infrastruktur) zusammen und stellen Sie Dokumentation, Standards und Aktivierung bereit",
+      "fr": "PROFIL\n• 3-5 ans et plus en Opérations de Sécurité, Sécurité Findpoint et Gestion de la Vulnérabilité.\n• Forte connaissance du portefeuille de sécurité Microsoft Defender et Cloud Native Azure Security.\n• Familiariser avec CIS benchmark, CVSS, MITRE ATT&CK, NIST; scripting (PowerShell/KQL) est un plus.\n• Une connaissance complète des systèmes d'exploitation Microsoft et Linux, permettant une sécurité, une surveillance et une réponse incidente efficaces, y compris le durcissement\n• Des certifications comme SC-200, AZ-500 sont un avantage.\n• Joueur d'équipe analytique, structuré et communicatif AUFGABEN\n• Développer et maintenir des intégrations dans Microsoft Defender XDR, Microsoft Sentinel, Microsoft Entra et d'autres plateformes de sécurité.\n• Construisez et optimisez la logique de détection, y compris les requêtes KQL, les règles analytiques, les listes de surveillance et les cahiers de travail.\n• Ingénieur et gestion des pipelines de données pour l'ingestion de logs, l'enrichissement, la normalisation et les intégrations de connecteurs tiers.\n• Développer l'automatisation et les playbooks SOAR en utilisant Logic Apps pour rationaliser les processus de réponse, d'enrichissement et de flux de travail.\n• Créez et maintenez l'outil interne à l'aide de PowerShell, Python, API Microsoft Graph et API Defender.\n• Surveiller et optimiser la santé de la plateforme, en assurant la qualité des données, la fiabilité des connecteurs et les performances d'ingestion.\n• Mettre en œuvre la gestion du cycle de vie de l'ingénierie de détection (tuning, validation, versioning, monitoring).\n• Collaborer avec des équipes interfonctionnelles (SOC, Cloud, Infrastructure) et fournir la documentation, les normes et l'habilitation"
+    },
+    "slugByLocale": {
+      "it": "ingegnere-delle-operazioni-di-sicurezza-stadler-rail-bussnang",
+      "en": "security-operations-engineer-stadler-rail-ch",
+      "de": "security-operations-ingenieur-stadler-rail-bussnang",
+      "fr": "ingenieur-des-operations-de-securite-stadler-rail-bussnang"
+    },
+    "sector": "Rail vehicle manufacturing",
+    "expiredAt": "2026-07-30T22:27:42.576Z",
+    "previousSlugs": [
+      "security-operations-engineer-stadler-rail-ch",
+      "sicherheitsoperationsingenieur-stadler-rail-bussnang"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "security-operations-engineer-stadler-rail-ch"
+      ],
+      "de": [
+        "sicherheitsoperationsingenieur-stadler-rail-bussnang"
+      ]
+    },
+    "postalCode": "9565",
+    "salaryMin": 57500,
+    "salaryMax": 87000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR"
+  },
+  {
     "slug": "gestore-di-categoria-trazione-stadler-rail-frauenfeld",
     "title": "Strategische:r Einkäufer:in Traktionssysteme",
     "titleByLocale": {
