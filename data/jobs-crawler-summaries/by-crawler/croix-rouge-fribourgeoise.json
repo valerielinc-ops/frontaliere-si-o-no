@@ -1,16 +1,16 @@
 {
   "key": "croix-rouge-fribourgeoise",
   "label": "Croix-Rouge fribourgeoise",
-  "generatedAt": "2026-07-30T11:18:31.742Z",
+  "generatedAt": "2026-07-30T22:11:36.925Z",
   "total": 1,
   "newCount": 0,
   "updatedCount": 1,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 3079,
-  "avgDurationMs": 3079,
+  "durationMs": 2810,
+  "avgDurationMs": 2810,
   "durationHistory": [
-    3079
+    2810
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -26,7 +26,7 @@
       "url": "https://company.jobcloud.ch/fr/jobs/502b52ba-d781-416d-a177-27ac2a10c989",
       "source": "Croix-Rouge fribourgeoise Dedicated Parser (JobCloud Company Page)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-30T11:18:29.492Z",
+      "crawledAt": "2026-07-30T22:11:34.527Z",
       "hiringOrganization": {
         "name": "Croix-Rouge fribourgeoise"
       },
@@ -60,55 +60,6 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "id": "croix-rouge-fribourgeoise-5aa01fedb997",
-      "slug": "capo-del-supporto-domiciliare-membro-del-consiglio-esecutivo-croix-rouge-fribourgeoise-fribourg",
-      "company": "Croix-Rouge fribourgeoise",
-      "companyKey": "croix-rouge-fribourgeoise",
-      "companyDomain": "croix-rouge-fr.ch",
-      "title": "Responsable du service Soutien à domicile (Membre de la direction)",
-      "location": "Fribourg",
-      "canton": "FR",
-      "url": "https://company.jobcloud.ch/fr/jobs/962b0a39-e87f-4de4-a068-58083fcebac5",
-      "source": "Croix-Rouge fribourgeoise Dedicated Parser (JobCloud Company Page)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-07-28T11:54:06.658Z",
-      "hiringOrganization": {
-        "name": "Croix-Rouge fribourgeoise"
-      },
-      "addressLocality": "Fribourg",
-      "addressRegion": "FR",
-      "streetAddress": "Rue G.-Techtermann 2",
-      "postalCode": "1700",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Amministrazione",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
-      "sector": "Sociale / Socio-sanitario",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-29",
-      "applyUrl": "https://www.jobup.ch/fr/application/create/962b0a39-e87f-4de4-a068-58083fcebac5?utm_source=relationship&utm_medium=referral&utm_campaign=wb%3Ajobup%7Ctg%3Ab2c%7Ccn%3Ach%7Clg%3A%7Cmg%3Ajob-application%2Cnonbrand%2Cjob%7Ccd%3Akombi",
-      "department": "",
-      "_targetScope": {
-        "canton": "FR",
-        "location": "Fribourg"
-      },
-      "firstSeenAt": "2026-07-04T10:49:18.819Z",
-      "salaryMin": 94500,
-      "salaryMax": 143000,
-      "crawlerMissStreak": 2,
-      "_qualityScore": 95,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 25
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }
