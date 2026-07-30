@@ -1,18 +1,53 @@
 {
   "key": "lidl-svizzera",
   "label": "Lidl",
-  "generatedAt": "2026-07-29T22:15:24.722Z",
-  "total": 380,
-  "newCount": 0,
+  "generatedAt": "2026-07-30T11:28:54.087Z",
+  "total": 381,
+  "newCount": 1,
   "updatedCount": 62,
   "removedCount": 0,
   "unchangedCount": 318,
-  "durationMs": 736725,
-  "avgDurationMs": 736725,
+  "durationMs": 856965,
+  "avgDurationMs": 856965,
   "durationHistory": [
-    736725
+    856965
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "id": "company-m2uold",
+      "slug": "ch-tuttofare-vendita-m-w-d-20-40-1-lidl-svizzera-lugano",
+      "company": "Lidl Svizzera",
+      "title": "CH_ Tuttofare vendita (m/f/d) 20-40% 1 1 1",
+      "location": "Lugano",
+      "canton": "TI",
+      "category": "sales",
+      "contract": "part-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-30",
+      "url": "https://team.lidl.ch/it/jobs/ch-tuttofare-vendita-m-f-d-20-40-1-1-1-lugano-720968",
+      "source": "Company Careers Crawler",
+      "_targetScope": {
+        "type": "adapter_seed_meta",
+        "location": "Lugano",
+        "canton": "TI"
+      },
+      "companyKey": "lidl-svizzera",
+      "companyDomain": "lidl.ch",
+      "crawledAt": "2026-07-30T11:28:43.045Z",
+      "firstSeenAt": "2026-07-30T11:28:43.045Z",
+      "needsRetranslation": true,
+      "country": "CH",
+      "sourceLang": "it",
+      "_qualityScore": 79,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 25,
+        "translation": 15,
+        "completeness": 14
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "id": "company-rvoh8q",
@@ -43,6 +78,8 @@
       "addressRegion": "GR",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
+      "salaryMin": 54800,
+      "salaryMax": 84000,
       "needsRetranslation": true,
       "_qualityScore": 92,
       "_qualityBreakdown": {
