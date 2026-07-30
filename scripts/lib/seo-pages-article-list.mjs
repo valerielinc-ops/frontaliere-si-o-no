@@ -63,6 +63,21 @@ export function escapeJsonString(s) {
 export const NUMBER_OF_ITEMS_RE = /("name": "Articoli Frontaliere",\s*"numberOfItems": )(\d+)/;
 
 /**
+ * How many ListItem entries this list keeps. Mirrors `ITEM_LIST_CAP` in
+ * build-plugins/staticPagesPlugin.ts, which truncates the emitted JSON-LD to
+ * the same number — so anything stored past this point is parsed, bundled and
+ * shipped to clients, then thrown away at render time.
+ *
+ * The list had reached 3619 entries, 649 KB of seo-pages.ts and ~630 KB of the
+ * 1.13 MB `assets/seo-pages.js` chunk, all of it for items no page ever shows.
+ *
+ * `numberOfItems` is NOT capped: it states how large the collection is, not how
+ * many entries are listed, and the emission cap already depends on that
+ * distinction ("keep numberOfItems accurate (reflects total list size)").
+ */
+export const ARTICLE_ITEM_LIST_CAP = 100;
+
+/**
  * Locate the "Articoli Frontaliere" `itemListElement` array within the full
  * seo-pages.ts source, so every regex match below can be bounded to it
  * instead of scanning the whole file. Returns `{ blockStart, blockEnd }` —
@@ -122,6 +137,23 @@ export function appendArticleListItem(pagesSrc, { name, url }) {
   const blockSrc = pagesSrc.slice(block.blockStart, block.blockEnd);
   const lastItemMatch = blockSrc.match(LAST_ITEM_RE);
   if (!lastItemMatch) return null;
+
+  // At the cap, bump the count and stop there. staticPagesPlugin truncates the
+  // emitted JSON-LD to ARTICLE_ITEM_LIST_CAP entries, so an appended item past
+  // that point never reaches a page — it only grows the file and the client
+  // chunk. `numberOfItems` still moves, because it reports the size of the
+  // collection rather than the length of the list.
+  //
+  // Counted from the HEADER here, not from the last item's `position` the way
+  // the uncapped path below does. Once the list is capped the two stop being
+  // the same number — the last listed position is 100 while the collection is
+  // in the thousands — so deriving from the position would walk the header
+  // backwards to 101 on the next publish and keep it there.
+  const listed = (blockSrc.match(/\{ "@type": "ListItem"/g) ?? []).length;
+  if (listed >= ARTICLE_ITEM_LIST_CAP) {
+    const declared = parseInt(pagesSrc.match(NUMBER_OF_ITEMS_RE)[2], 10);
+    return pagesSrc.replace(NUMBER_OF_ITEMS_RE, `$1${declared + 1}`);
+  }
 
   const newCount = parseInt(lastItemMatch[1], 10) + 1;
   const newListItem = `          { "@type": "ListItem", "position": ${newCount}, "name": "${escapeJsonString(name)}", "url": \`${url}\` }`;
