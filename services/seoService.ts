@@ -5007,6 +5007,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-caro-carburanti-svizzera-indagine-comco': { name: 'Carburanti', path: '/articoli-frontaliere/caro-carburanti-svizzera-indagine-comco', parent: 'blog' },
     'blog-contributo-sanita-vecchi-frontalieri': { name: 'Fiscale Sanità', path: '/articoli-svizzera/contributo-sanita-vecchi-frontalieri/', parent: 'blog' },
     'blog-trasferirsi-porto-ceresio-frontaliere': { name: 'Porto Ceresio frontaliere', path: '/articoli-frontaliere/trasferirsi-porto-ceresio-frontaliere', parent: 'blog' },
+    'blog-fondi-frontalieri-varesotto-14-milioni': { name: 'Fondi frontalieri Varesotto', path: '/articoli-svizzera/fondi-frontalieri-varesotto-14-milioni/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

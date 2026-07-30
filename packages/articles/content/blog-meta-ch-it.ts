@@ -1696,6 +1696,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.contributo-sanita-vecchi-frontalieri.title': 'Sanità e vecchi frontalieri: il contributo per il personale',
     'blog.article.contributo-sanita-vecchi-frontalieri.excerpt': 'Regione Lombardia intende finanziare l\'aumento del 20% per medici e infermieri tramite contributi mensili per i vecchi frontalieri.',
     'blog.article.contributo-sanita-vecchi-frontalieri.imageAlt': 'Corridoio di una struttura sanitaria svizzera moderna',
+    'blog.article.fondi-frontalieri-varesotto-14-milioni.title': '14 milioni ai territori di confine: fondi per frontalieri nel Varesotto',
+    'blog.article.fondi-frontalieri-varesotto-14-milioni.excerpt': 'Oltre 14 milioni di euro destinati ai comuni di frontiera italiani. Ristorni e nuova fiscalità per i frontalieri del Varesotto: cosa cambia.',
+    'blog.article.fondi-frontalieri-varesotto-14-milioni.imageAlt': 'Vista aerea del Lago di Lugano al confine italo-svizzero con Luino in primo piano',
 };
 
 export default blogMetaChIt;

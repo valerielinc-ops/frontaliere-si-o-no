@@ -1696,6 +1696,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.contributo-sanita-vecchi-frontalieri.title': 'Santé et anciens frontaliers : la contribution pour le personnel',
     'blog.article.contributo-sanita-vecchi-frontalieri.excerpt': 'Région Lombardie entend financer l\'augmentation de 20 % pour les médecins et les infirmières par des cotisations mensuelles pour les anciens frontaliers.',
     'blog.article.contributo-sanita-vecchi-frontalieri.imageAlt': 'Couloir d\'un établissement de santé suisse moderne',
+    'blog.article.fondi-frontalieri-varesotto-14-milioni.title': '14 millions pour le Varesotto : fonds pour les frontaliers',
+    'blog.article.fondi-frontalieri-varesotto-14-milioni.excerpt': 'Plus de 14 millions d\'euros destinés aux communes frontalières italiennes. Restaurants et nouvelle fiscalité pour les frontaliers de Varesotto : ce qui change.',
+    'blog.article.fondi-frontalieri-varesotto-14-milioni.imageAlt': 'Vue aérienne du lac de Lugano à la frontière italo-suisse avec Luino au premier plan',
 };
 
 export default blogMetaChFr;
