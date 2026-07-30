@@ -1,6 +1,6 @@
 {
   "crawlerKey": "rado",
-  "assembledAt": "2026-07-29T22:07:59.643Z",
+  "assembledAt": "2026-07-30T11:20:05.654Z",
   "jobs": [
     {
       "id": "company-7ubgq6",
@@ -22,7 +22,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "rado",
       "companyDomain": "swatchgroup.com",
-      "crawledAt": "2026-07-29T11:43:41.235Z",
+      "crawledAt": "2026-07-30T11:20:00.565Z",
       "firstSeenAt": "2026-07-24T11:14:03.673Z",
       "titleByLocale": {
         "de": "Uhrmacher:in Produktion Lehrstelle 2027",
@@ -87,7 +87,7 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "country": "CH",
-      "crawlerMissStreak": 1
+      "needsRetranslation": true
     },
     {
       "id": "company-7ubgpk",
@@ -176,7 +176,8 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "country": "CH",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2,
+      "needsRetranslation": true
     },
     {
       "id": "company-7ubgpi",
@@ -265,7 +266,8 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "country": "CH",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2,
+      "needsRetranslation": true
     }
   ]
 }
