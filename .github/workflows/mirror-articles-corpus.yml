@@ -61,6 +61,16 @@ jobs:
           # repo owns and this repo does not know about (its build script, its
           # workflows, its README). Only paths that came from packages/articles are
           # candidates for deletion.
+          # Files the articles repo owns under content/ must survive the wipe.
+          # swiss-article-canonical-overrides.json lives THERE, not in this repo's
+          # packages/articles/content, and the publisher cannot build a correct
+          # sitemap without it: the first mirror run deleted it and broke
+          # publishing outright. Preserve it until it is moved into the package
+          # here too, at which point the mirror carries it naturally.
+          keep=$(mktemp -d)
+          for f in swiss-article-canonical-overrides.json; do
+            [ -f "$work/content/$f" ] && cp "$work/content/$f" "$keep/$f"
+          done
           for d in content engine; do
             rm -rf "${work:?}/$d"
           done
@@ -68,6 +78,9 @@ jobs:
           cp -R packages/articles/engine "$work/engine"
           for f in index.ts articleSections.ts package.json; do
             [ -f "packages/articles/$f" ] && cp "packages/articles/$f" "$work/$f"
+          done
+          for f in swiss-article-canonical-overrides.json; do
+            [ -f "$keep/$f" ] && cp "$keep/$f" "$work/content/$f"
           done
 
           cd "$work"
