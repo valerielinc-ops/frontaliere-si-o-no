@@ -16,6 +16,7 @@
 import fs from 'node:fs';
 import { readFileSync } from 'node:fs';
 import np from 'node:path';
+import os from 'node:os';
 
 import { describe, expect, it } from 'vitest';
 
@@ -58,17 +59,58 @@ describe('newsTickerDataPlugin generator', () => {
     }
   });
 
-  it('emits a syntactically valid module whose payload round-trips as JSON', () => {
-    const src = generateNewsTickerModule(fs, np, ROOT);
+  /** Parse the payload back out of the emitted module source. */
+  const payloadOf = (src: string) => {
     expect(src).toContain('export const TICKER_ARTICLES');
     const m = src.match(/TICKER_ARTICLES: TickerArticle\[\] = (\[.*\]);/s);
     expect(m).toBeTruthy();
-    const parsed = JSON.parse(m![1]);
+    return JSON.parse(m![1]);
+  };
+
+  it('emits a syntactically valid module whose payload round-trips as JSON', () => {
+    const parsed = payloadOf(generateNewsTickerModule(fs, np, ROOT));
     expect(parsed).toHaveLength(5);
     expect(parsed[0]).toHaveProperty('id');
     expect(parsed[0]).toHaveProperty('date');
     expect(parsed[0].title).toHaveProperty('it');
     expect(parsed[0].slug).toHaveProperty('fr');
+  });
+
+  it('emits the published payload when public/news-ticker-live.json is present', () => {
+    // Since #4974 item 2 the published file is committed, so this is the path
+    // the real build takes. Pinned explicitly: without it the assertion above
+    // could be satisfied by either source and nobody would notice which.
+    const published = JSON.parse(
+      fs.readFileSync(np.resolve(ROOT, 'public', 'news-ticker-live.json'), 'utf-8'),
+    );
+    const parsed = payloadOf(generateNewsTickerModule(fs, np, ROOT));
+    expect(parsed.map((a: { id: string }) => a.id)).toEqual(
+      published.articles.map((a: { id: string }) => a.id),
+    );
+  });
+
+  it('falls back to the in-tree corpus when the published payload is absent', () => {
+    // The committed file makes the fallback unreachable from ROOT, so this
+    // builds a root where it does not exist: `public/` is symlinked in (the
+    // readers need the rest of it), everything else points back at the repo.
+    // Without this, the fallback branch ships untested — which is exactly the
+    // branch that keeps `npm run dev` working in a checkout that never pulled.
+    const scratch = fs.mkdtempSync(np.join(os.tmpdir(), 'ticker-fallback-'));
+    for (const entry of fs.readdirSync(ROOT)) {
+      if (entry === 'public') continue;
+      try {
+        fs.symlinkSync(np.join(ROOT, entry), np.join(scratch, entry));
+      } catch {
+        /* unreadable entries are irrelevant to the readers */
+      }
+    }
+    fs.mkdirSync(np.join(scratch, 'public'));
+    expect(fs.existsSync(np.join(scratch, 'public', 'news-ticker-live.json'))).toBe(false);
+
+    const parsed = payloadOf(generateNewsTickerModule(fs, np, scratch));
+    expect(parsed).toHaveLength(5);
+    // Computed, not read: matches what computeTickerArticles produces directly.
+    expect(parsed).toEqual(computeTickerArticles(fs, np, ROOT));
   });
 });
 

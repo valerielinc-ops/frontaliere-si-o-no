@@ -10393,15 +10393,17 @@ async function generateAndValidateArticle(url, sourceContext = null) {
   modifySitemap(data);
   modifySitemapNews(data);
 
-  // Step 4a.2: Regenerate RSS feeds (includes the new article)
-  try {
-    const { execSync } = await import('child_process');
-    // tsx, not node: the generator imports the article registries (TypeScript
-    // modules with extensionless relative specifiers) to resolve item images.
-    execSync('npx -y tsx@4 scripts/generate-rss-feeds.mjs', { cwd: PROJECT_ROOT, stdio: 'inherit' });
-  } catch (e) {
-    console.error(`⚠️  RSS feed generation failed (non-blocking): ${e.message}`);
-  }
+  // Step 4a.2: RSS feeds — NOT regenerated here any more (issue #4974 item 2).
+  //
+  // Same move the sitemaps made in #4976, for the same reason: the feeds are
+  // derived from the corpus, the corpus repo publishes them
+  // (packages/articles/engine/rssFeeds.mjs, the module this script used to run
+  // in-tree), and scripts/pull-articles-api.mjs pulls them. Two producers
+  // writing the same ten files meant the last writer won.
+  //
+  // Latency is covered: the mirror dispatch at the end of generate-article.yml
+  // pushes the corpus, the publisher republishes, and its repository_dispatch
+  // wakes sync-articles-sitemaps — no waiting for a scheduled slot.
 
   // Step 4b: Validate structured data (simulates ogPagesPlugin extraction)
   console.error('\n🔍 Validazione dati strutturati:');
@@ -10616,10 +10618,9 @@ export async function registerArticleFiles(data, opts = {}) {
   modifySitemap(data);
   if (!opts.skipNews) modifySitemapNews(data);
   validateStructuredData(data);
-  if (!opts.skipRss) {
-    // tsx, not node — see the sibling call site above (registry import).
-    execSync('npx -y tsx@4 scripts/generate-rss-feeds.mjs', { stdio: 'inherit', cwd: PROJECT_ROOT });
-  }
+  // RSS regeneration removed with #4974 item 2 — see the sibling call site
+  // above. `opts.skipRss` is kept accepted-and-ignored so existing callers
+  // passing it keep working; there is simply nothing left to skip.
   const publishedUrls = buildArticlePublishedUrls(data);
   return { slugs, publishedUrls };
 }
