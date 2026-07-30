@@ -1,18 +1,19 @@
 {
   "key": "rieter",
   "label": "Rieter",
-  "generatedAt": "2026-07-29T22:04:14.467Z",
+  "generatedAt": "2026-07-30T11:16:19.678Z",
   "total": 4,
-  "newCount": 1,
+  "newCount": 0,
   "updatedCount": 3,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 8572,
-  "avgDurationMs": 8572,
+  "unchangedCount": 1,
+  "durationMs": 6522,
+  "avgDurationMs": 6522,
   "durationHistory": [
-    8572
+    6522
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "rieter-20bd4e1bf11f",
       "slug": "senior-system-engineer-rieter-winterthur",
@@ -25,7 +26,7 @@
       "url": "https://live.solique.ch/rieter/en/jobs/Senior-System-Engineer--4046390",
       "source": "Rieter Dedicated Parser (Solique)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-29T22:04:10.914Z",
+      "crawledAt": "2026-07-30T11:16:15.700Z",
       "addressLocality": "Winterthur",
       "addressRegion": "Zürich",
       "streetAddress": "Klosterstrasse 20",
@@ -42,16 +43,15 @@
       "applyUrl": "https://live.solique.ch/rieter/en/jobs/Senior-System-Engineer--4046390",
       "jobReqId": "2601091448fb",
       "employerBrand": "Rieter AG",
-      "_qualityScore": 69,
+      "firstSeenAt": "2026-07-29T22:04:10.914Z",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "rieter-b2c063694e2b",
       "slug": "application-engineer-technology-preparation-rieter-winterthur",
@@ -64,7 +64,7 @@
       "url": "https://live.solique.ch/rieter/en/jobs/Application-Engineer-Technology-Preparation--4042993",
       "source": "Rieter Dedicated Parser (Solique)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-29T22:04:08.731Z",
+      "crawledAt": "2026-07-30T11:16:14.410Z",
       "addressLocality": "Winterthur",
       "addressRegion": "Zürich",
       "streetAddress": "Klosterstrasse 20",
@@ -91,44 +91,6 @@
       }
     },
     {
-      "id": "rieter-5b337f8f395b",
-      "slug": "product-manager-automation-rieter-winterthur",
-      "company": "Rieter",
-      "companyKey": "rieter",
-      "companyDomain": "rieter.com",
-      "title": "Product Manager Automation",
-      "location": "Winterthur",
-      "canton": "ZH",
-      "url": "https://live.solique.ch/rieter/en/jobs/Product-Manager-Automation--4029805",
-      "source": "Rieter Dedicated Parser (Solique)",
-      "sourceLang": "en",
-      "crawledAt": "2026-07-29T22:04:09.422Z",
-      "addressLocality": "Winterthur",
-      "addressRegion": "Zürich",
-      "streetAddress": "Klosterstrasse 20",
-      "postalCode": "8406",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "finance",
-      "contract": "part-time",
-      "employmentType": "PART_TIME",
-      "sector": "Industria / Macchinari Tessili",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-04",
-      "applyUrl": "https://live.solique.ch/rieter/en/jobs/Product-Manager-Automation--4029805",
-      "jobReqId": "2603120909hr",
-      "employerBrand": "Rieter AG",
-      "firstSeenAt": "2026-07-04T12:31:13.420Z",
-      "_qualityScore": 85,
-      "_qualityBreakdown": {
-        "cleanliness": 20,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 20
-      }
-    },
-    {
       "id": "rieter-5cbc6f09de36",
       "slug": "sachbearbeiter-in-export-e-sales-administration-80-100-rieter-pfaffikon",
       "company": "Rieter",
@@ -140,7 +102,7 @@
       "url": "https://live.solique.ch/rieter/en/jobs/Sachbearbeiterin-Export-und-Sales-Administration-80-100---4031767",
       "source": "Rieter Dedicated Parser (Solique)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:04:10.118Z",
+      "crawledAt": "2026-07-30T11:16:15.046Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "Zürich",
       "streetAddress": "Obermattstrasse 65",
@@ -168,5 +130,47 @@
     }
   ],
   "removedJobs": [],
-  "unchangedJobs": []
+  "unchangedJobs": [
+    {
+      "id": "rieter-5b337f8f395b",
+      "slug": "automazione-di-product-manager-rieter-winterthur",
+      "company": "Rieter",
+      "companyKey": "rieter",
+      "companyDomain": "rieter.com",
+      "title": "Product Manager Automation",
+      "location": "Winterthur",
+      "canton": "ZH",
+      "url": "https://live.solique.ch/rieter/en/jobs/Product-Manager-Automation--4029805",
+      "source": "Rieter Dedicated Parser (Solique)",
+      "sourceLang": "en",
+      "crawledAt": "2026-07-29T22:04:09.422Z",
+      "addressLocality": "Winterthur",
+      "addressRegion": "Zürich",
+      "streetAddress": "Klosterstrasse 20",
+      "postalCode": "8406",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "finance",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "sector": "Industria / Macchinari Tessili",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-04",
+      "applyUrl": "https://live.solique.ch/rieter/en/jobs/Product-Manager-Automation--4029805",
+      "jobReqId": "2603120909hr",
+      "employerBrand": "Rieter AG",
+      "firstSeenAt": "2026-07-04T12:31:13.420Z",
+      "salaryMin": 189000,
+      "salaryMax": 331500,
+      "crawlerMissStreak": 1,
+      "_qualityScore": 95,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 25,
+        "completeness": 25
+      }
+    }
+  ]
 }
