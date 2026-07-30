@@ -1705,6 +1705,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.frontalieri-it-svizzera-sede-datore-2026.title': 'Lavoro e sede: il Fisco chiarisce le regole',
     'blog.article.frontalieri-it-svizzera-sede-datore-2026.excerpt': 'La Svizzera applica un prelievo alla fonte ridotto al 80% dell\'imposta ordinaria. Il monitoraggio dello smart working è regolato dal limite massimo del 25% dell\'orario di lavoro complessivo.',
     'blog.article.frontalieri-it-svizzera-sede-datore-2026.imageAlt': 'Frontalieri in Svizzera che lavorano in Italia e risiedono in Svizzera',
+    'blog.article.ferrovia-record-viaggiatori-secondo-trimestre.title': 'Di più Ferrovia: nuovo record di viaggiatori nel secondo trimestre',
+    'blog.article.ferrovia-record-viaggiatori-secondo-trimestre.excerpt': 'Il trasporto ferroviario di viaggiatori in Svizzera continua a macinare record: nel secondo trimestre dell\'anno si è raggiunta quota 6,3 miliardi di passeggeri-chilometro.',
+    'blog.article.ferrovia-record-viaggiatori-secondo-trimestre.imageAlt': 'una scena di Lugano con una stazione ferroviaria nella zona storica',
 };
 
 export default blogMetaChIt;

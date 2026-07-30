@@ -1705,6 +1705,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.frontalieri-it-svizzera-sede-datore-2026.title': 'Work and location: the Tax Office clarifies the rules',
     'blog.article.frontalieri-it-svizzera-sede-datore-2026.excerpt': 'Switzerland applies a source levy reduced to 80% of the ordinary tax. The monitoring of smart working is regulated by the maximum limit of 25% of total working hours.',
     'blog.article.frontalieri-it-svizzera-sede-datore-2026.imageAlt': 'Frontalieri in Switzerland working in Italy and residing in Switzerland',
+    'blog.article.ferrovia-record-viaggiatori-secondo-trimestre.title': 'More Rail: New Traveller Record in Q2',
+    'blog.article.ferrovia-record-viaggiatori-secondo-trimestre.excerpt': 'Passenger rail transport in Switzerland continues to break records: 6.3 billion passenger-kilometres were reached in the second quarter of the year.',
+    'blog.article.ferrovia-record-viaggiatori-secondo-trimestre.imageAlt': 'a scene of Lugano with a railway station in the historic area',
 };
 
 export default blogMetaChEn;
