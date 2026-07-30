@@ -1003,7 +1003,11 @@ function getRelatedJobsForArticle(articleId: string, jobs: JobPreview[], locale:
 
 // FRO-328: ARTICLES data extracted to data/blog-articles-data.ts for code-splitting.
 // Re-export for consumers that need sync access (e.g. tests, other lazy components).
-export { ARTICLES } from '@/data/blog-articles-data';
+// Imported (not just re-exported) so the mount effect below can read the registry
+// synchronously — see the comment there for why it no longer loads it over the network.
+import { ARTICLES } from '@/data/blog-articles-data';
+
+export { ARTICLES };
 
 // FRO-314: Dynamic import — blog-articles-data (122KB) is loaded asynchronously
 // so it doesn't block the BlogArticles chunk parse/execute time on mobile.
@@ -1188,20 +1192,29 @@ function BlogArticles({
  const [mobileArticleLimit, setMobileArticleLimit] = useState(ARTICLES_PER_PAGE);
 
  // FRO-314: Load blog meta translations AND articles data in parallel on mount.
- // Dynamic import of blog-articles-data (122KB) so it doesn't block component parse time.
  // preloadBlogData in the same gate: blogReady implies BLOG_SLUGS present, so
  // every article href below is canonical by construction (the slug map no
  // longer preloads unconditionally at App mount — #3528/#3532).
  useEffect(() => {
- // FRO-314 / #4176: wrap the non-hashed data-chunk import() in resilientImport
- // so a transient CDN deploy-window failure ("Failed to fetch dynamically
- // imported module: .../blog-articles-data.js") self-heals (cache-bust +
- // budgeted reload) instead of surfacing to the user and the error monitor.
- // The validate guard also covers the mode-2 stale case (SPA-fallback HTML
- // served HTTP 200 for a purged chunk → module resolves but export missing).
- const articlesPromise = section === 'svizzera'
+ // The frontaliere registry is READ FROM THE STATIC IMPORT above, not fetched.
+ // It used to be loaded through a second, dynamic import() of the very same module,
+ // which bought nothing: the `export { ARTICLES }` re-export above already makes it
+ // an unconditional static dependency of this chunk, so it is in memory before this
+ // component can parse. What it did buy was a failure mode. Because the module was
+ // imported BOTH ways, Rollup emitted the chunk with an extra generated namespace
+ // export and rewrote the dynamic site to `.then(m => m.blogArticlesData)`. A registry
+ // published out-of-band (#4881 Fase 3-bis) carried only `ARTICLES`, so that pick
+ // resolved to `undefined` and the guard threw a TypeError straight past the
+ // chunk-load recovery path — where the `.catch()` below swallowed it, stranding every
+ // article page on this component's loading skeleton with a silent console (#4959).
+ // Reading the static binding removes the network hop, and with it that whole class
+ // of build-shape skew between the app bundle and an independently published corpus.
+ // Svizzera has no static importer (dynamic-only — verified in the shipped chunk), so
+ // it keeps resilientImport: a real fetch failure there still self-heals via
+ // cache-bust + budgeted reload.
+ const articlesPromise: Promise<Article[]> = section === 'svizzera'
  ? resilientImport(() => import('@/data/swiss-articles-data'), m => Array.isArray(m.SWISS_ARTICLES)).then(m => m.SWISS_ARTICLES)
- : resilientImport(() => import('@/data/blog-articles-data'), m => Array.isArray(m.ARTICLES)).then(m => m.ARTICLES);
+ : Promise.resolve(ARTICLES);
  Promise.all([
  loadBlogMeta(section),
  // Swallow slug-map failure: degrade to id-fallback hrefs (pre-#3532
