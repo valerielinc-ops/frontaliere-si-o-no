@@ -11398,5 +11398,119 @@
         "pending": 2
       }
     ]
+  },
+  {
+    "timestamp": "2026-07-30T12:53:09.329Z",
+    "label": "before",
+    "total": 24900,
+    "needsRetranslation": 1406,
+    "suppressed": 36,
+    "incomplete": 115,
+    "complete": 24785,
+    "missingByLocale": {
+      "it": 65,
+      "en": 38,
+      "de": 51,
+      "fr": 57
+    },
+    "topPending": [
+      {
+        "company": "Swiss Medical Network",
+        "pending": 37
+      },
+      {
+        "company": "Sunrise Communications AG",
+        "pending": 23
+      },
+      {
+        "company": "CSD ENGINEERS",
+        "pending": 12
+      },
+      {
+        "company": "IKEA",
+        "pending": 6
+      },
+      {
+        "company": "Mikron Group",
+        "pending": 4
+      },
+      {
+        "company": "Bürgenstock Hotels AG",
+        "pending": 3
+      },
+      {
+        "company": "Kantonsspital Uri",
+        "pending": 3
+      },
+      {
+        "company": "Kantonsspital Aarau (KSA)",
+        "pending": 3
+      },
+      {
+        "company": "Sulzer",
+        "pending": 3
+      },
+      {
+        "company": "Manor AG",
+        "pending": 2
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-30T14:12:56.632Z",
+    "label": "after",
+    "total": 24900,
+    "needsRetranslation": 633,
+    "suppressed": 37,
+    "incomplete": 107,
+    "complete": 24793,
+    "missingByLocale": {
+      "it": 64,
+      "en": 37,
+      "de": 51,
+      "fr": 57
+    },
+    "topPending": [
+      {
+        "company": "Swiss Medical Network",
+        "pending": 37
+      },
+      {
+        "company": "Sunrise Communications AG",
+        "pending": 23
+      },
+      {
+        "company": "CSD ENGINEERS",
+        "pending": 12
+      },
+      {
+        "company": "IKEA",
+        "pending": 6
+      },
+      {
+        "company": "Mikron Group",
+        "pending": 4
+      },
+      {
+        "company": "Bürgenstock Hotels AG",
+        "pending": 3
+      },
+      {
+        "company": "Kantonsspital Uri",
+        "pending": 3
+      },
+      {
+        "company": "Kantonsspital Aarau (KSA)",
+        "pending": 3
+      },
+      {
+        "company": "Spital Schwyz",
+        "pending": 2
+      },
+      {
+        "company": "Sulzer",
+        "pending": 2
+      }
+    ]
   }
 ]
