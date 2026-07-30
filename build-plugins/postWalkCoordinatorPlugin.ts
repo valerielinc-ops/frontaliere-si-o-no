@@ -60,9 +60,11 @@ import type { Plugin } from 'vite';
 
 import {
   injectContextualLinks,
+  contextualLinkDefaults,
   listBlogArticleHtmlFiles,
   readBlogIndexSlugs,
   type BlogArticleHtmlFile,
+  type ContextualLinkDefaults,
 } from './blogContextualLinksPlugin';
 import type { BlogLinkLocale } from './blogContextualLinksData';
 import { transformFlatRedirect } from './flatHtmlRedirectPlugin';
@@ -324,6 +326,7 @@ async function runInWorker(
     trimmedBase: string;
     existingHtmlPaths: readonly string[];
     blogIndexEntries: ReadonlyArray<readonly [string, BlogLinkLocale]>;
+    contextualLinkDefaults: ContextualLinkDefaults;
     assignedFiles: readonly string[];
   },
 ): Promise<WorkerResult> {
@@ -462,6 +465,7 @@ export function postWalkCoordinatorPlugin(
                       trimmedBase,
                       existingHtmlPaths: allHtmlPaths,
                       blogIndexEntries,
+                      contextualLinkDefaults: contextualLinkDefaults(),
                       assignedFiles,
                     }),
                   ),
