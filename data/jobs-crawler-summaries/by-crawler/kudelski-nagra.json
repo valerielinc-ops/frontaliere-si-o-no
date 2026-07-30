@@ -1,16 +1,16 @@
 {
   "key": "kudelski-nagra",
   "label": "Kudelski NAGRA",
-  "generatedAt": "2026-07-29T22:11:19.087Z",
+  "generatedAt": "2026-07-30T11:24:50.208Z",
   "total": 1,
   "newCount": 0,
   "updatedCount": 1,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 4530,
-  "avgDurationMs": 4530,
+  "durationMs": 4902,
+  "avgDurationMs": 4902,
   "durationHistory": [
-    4530
+    4902
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -26,7 +26,7 @@
       "url": "https://careers.nagra.com/?page=advertisement_display&id=15596",
       "source": "Kudelski NAGRA Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-07-29T22:11:16.538Z",
+      "crawledAt": "2026-07-30T11:24:46.820Z",
       "addressLocality": "Switzerland",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -51,46 +51,6 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "id": "kudelski-nagra-027fe8cc43fc",
-      "slug": "security-operations-engineer-kudelski-nagra-ch",
-      "company": "Kudelski NAGRA",
-      "companyKey": "kudelski-nagra",
-      "companyDomain": "nagra.com",
-      "title": "Security Operations Engineer",
-      "location": "Switzerland",
-      "canton": "TI",
-      "url": "https://careers.nagra.com/?page=advertisement_display&id=15633",
-      "source": "Kudelski NAGRA Dedicated Parser",
-      "sourceLang": "it",
-      "crawledAt": "2026-07-28T11:27:04.685Z",
-      "addressLocality": "Switzerland",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "6900",
-      "category": "Ingegneria",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Sicurezza digitale / Media technology",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-01-07",
-      "applyUrl": "https://careers.nagra.com/?page=advertisement_display&id=15633",
-      "firstSeenAt": "2026-07-09T12:12:34.365Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "crawlerMissStreak": 2,
-      "_qualityScore": 75,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 3,
-        "translation": 25,
-        "completeness": 22
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }
