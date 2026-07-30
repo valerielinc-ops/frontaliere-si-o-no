@@ -38,7 +38,7 @@ export const RSS_LOCALES = ['it', 'en', 'de', 'fr'];
 export const RSS_MAX_ITEMS = 50;
 
 /**
- * Every frontaliere SEO chunk, the one new articles land in included.
+ * Every frontaliere SEO chunk, including the one new articles are written to.
  *
  * This was `['seo-blog.ts', 'seo-blog-2.ts']`, on the reasoning that the feed
  * "only needs the freshest chunks". That stopped being true the moment
@@ -148,8 +148,13 @@ function parseSeoBlogs(fs, path, rootDir, seoDir, seoFiles) {
       const end = i + 1 < entryPositions.length ? entryPositions[i + 1].start : start + 4000;
       const block = src.slice(start, Math.min(end, start + 4000));
 
-      const headline = block.match(/"headline":\s*"([^"]+)"/)?.[1];
-      const description = block.match(/"description":\s*"([^"]+)"/)?.[1];
+      // `(?:[^"\\]|\\.)*`, not `[^"]+`: create-article escapes literal quotes in
+      // these values (`.replace(/"/g, '\\"')`), and the naive class stops at the
+      // backslash-quote, truncating the headline to whatever preceded it — e.g.
+      // `Laghi lombardi, inizio estate tragico: \"`. Same pattern already used
+      // for the single-quoted fields below.
+      const headline = block.match(/"headline":\s*"((?:[^"\\]|\\.)*)"/)?.[1];
+      const description = block.match(/"description":\s*"((?:[^"\\]|\\.)*)"/)?.[1];
       const datePublished = block.match(/"datePublished":\s*"([^"]+)"/)?.[1];
       const dateModified = block.match(/"dateModified":\s*"([^"]+)"/)?.[1];
       const articleSection = block.match(/"articleSection":\s*"([^"]+)"/)?.[1];
