@@ -1,6 +1,6 @@
 {
   "crawlerKey": "mistral-ai",
-  "assembledAt": "2026-07-29T22:32:09.177Z",
+  "assembledAt": "2026-07-30T11:36:26.337Z",
   "jobs": [
     {
       "id": "mistral-ai-f6ecdeb0c60d",
@@ -33,7 +33,7 @@
       "url": "https://jobs.ashbyhq.com/mistral.ai/8c71b069-0eda-40d1-8cb1-4094fd9c81de",
       "source": "Mistral AI Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-29T22:32:05.825Z",
+      "crawledAt": "2026-07-30T11:36:23.408Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -118,7 +118,7 @@
       "url": "https://jobs.ashbyhq.com/mistral.ai/51f36c7f-b51f-4f88-ad1d-60d3cd013115",
       "source": "Mistral AI Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-29T22:32:05.820Z",
+      "crawledAt": "2026-07-30T11:36:23.406Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -162,7 +162,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "needsRetranslation": true
     },
     {
       "id": "mistral-ai-4e88609166a7",
@@ -195,7 +196,7 @@
       "url": "https://jobs.ashbyhq.com/mistral.ai/0e578cff-741d-4870-9c2c-aac85f9de266",
       "source": "Mistral AI Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-29T22:32:05.818Z",
+      "crawledAt": "2026-07-30T11:36:23.404Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -272,7 +273,7 @@
       "url": "https://jobs.ashbyhq.com/mistral.ai/865fced4-d279-4073-848d-f078c0053155",
       "source": "Mistral AI Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-29T22:32:05.813Z",
+      "crawledAt": "2026-07-30T11:36:23.403Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -306,6 +307,7 @@
         ]
       },
       "firstSeenAt": "2026-07-14T22:36:36.714Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -351,7 +353,7 @@
       "url": "https://jobs.ashbyhq.com/mistral.ai/556595b2-d78b-486e-a3b2-14ad533f8caa",
       "source": "Mistral AI Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-29T22:32:05.807Z",
+      "crawledAt": "2026-07-30T11:36:23.400Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -428,7 +430,7 @@
       "url": "https://jobs.ashbyhq.com/mistral.ai/e91d8785-a4a1-4fc5-b214-21d285005cd0",
       "source": "Mistral AI Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-29T22:32:05.794Z",
+      "crawledAt": "2026-07-30T11:36:23.395Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
