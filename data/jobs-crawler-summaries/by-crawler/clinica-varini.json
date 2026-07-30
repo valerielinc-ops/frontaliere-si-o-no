@@ -1,16 +1,16 @@
 {
   "key": "clinica-varini",
   "label": "Clinica Varini",
-  "generatedAt": "2026-07-29T22:07:01.267Z",
+  "generatedAt": "2026-07-30T11:19:44.453Z",
   "total": 2,
   "newCount": 0,
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 8274,
-  "avgDurationMs": 8274,
+  "durationMs": 8765,
+  "avgDurationMs": 8765,
   "durationHistory": [
-    8274
+    8765
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -28,7 +28,7 @@
       "applyUrl": "https://clinicavarini.ch/notizie/",
       "source": "Clinica Varini Dedicated Parser (WordPress HTML + PDF)",
       "sourceLang": "it",
-      "crawledAt": "2026-07-29T22:06:58.442Z",
+      "crawledAt": "2026-07-30T11:19:41.440Z",
       "addressLocality": "Orselina",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -36,17 +36,17 @@
       "postalCode": "6644",
       "category": "Sanità / Ospedali",
       "contract": "full-time",
-      "employmentType": "OTHER",
+      "employmentType": "FULL_TIME",
       "experienceLevel": "senior",
       "sector": "Sanità / Clinica privata",
       "currency": "CHF",
       "featured": false,
       "postedDate": "2026-05-21",
       "firstSeenAt": "2026-05-21T11:31:18.518Z",
-      "_qualityScore": 87,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 20,
+        "richness": 18,
         "translation": 25,
         "completeness": 17
       }
@@ -65,7 +65,7 @@
       "applyUrl": "https://clinicavarini.ch/notizie/",
       "source": "Clinica Varini Dedicated Parser (WordPress HTML + PDF)",
       "sourceLang": "it",
-      "crawledAt": "2026-07-29T22:06:57.844Z",
+      "crawledAt": "2026-07-30T11:19:39.528Z",
       "addressLocality": "Orselina",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -73,17 +73,17 @@
       "postalCode": "6644",
       "category": "Sanità / Ospedali",
       "contract": "full-time",
-      "employmentType": "OTHER",
+      "employmentType": "FULL_TIME",
       "experienceLevel": "mid",
       "sector": "Sanità / Clinica privata",
       "currency": "CHF",
       "featured": false,
       "postedDate": "2026-05-20",
       "firstSeenAt": "2026-05-20T05:41:08.122Z",
-      "_qualityScore": 87,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 20,
+        "richness": 18,
         "translation": 25,
         "completeness": 17
       }
