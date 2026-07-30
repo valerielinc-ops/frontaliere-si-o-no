@@ -5086,6 +5086,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'fondi-frontalieri-varesotto-14-milioni',
+    category: 'fiscale',
+    date: '2026-07-30T02:48:53.767Z',
+    image: '/images/blog/fondi-frontalieri-varesotto-14-milioni.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

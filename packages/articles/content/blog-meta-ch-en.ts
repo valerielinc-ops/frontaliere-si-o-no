@@ -1696,6 +1696,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.contributo-sanita-vecchi-frontalieri.title': 'Healthcare and old border workers: the contribution for the staff',
     'blog.article.contributo-sanita-vecchi-frontalieri.excerpt': 'Lombardy Region intends to finance the 20% increase for doctors and nurses through monthly contributions for old border workers.',
     'blog.article.contributo-sanita-vecchi-frontalieri.imageAlt': 'Corridor of a modern Swiss healthcare facility',
+    'blog.article.fondi-frontalieri-varesotto-14-milioni.title': '14 million to border territories: funds for border workers in Varese',
+    'blog.article.fondi-frontalieri-varesotto-14-milioni.excerpt': 'Over 14 million euros earmarked for Italian border municipalities. Refunds and new taxation for border workers in Varese: what changes.',
+    'blog.article.fondi-frontalieri-varesotto-14-milioni.imageAlt': 'Aerial view of Lake Lugano at the Italian-Swiss border with Luino in foreground',
 };
 
 export default blogMetaChEn;

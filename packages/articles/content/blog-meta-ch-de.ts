@@ -1696,6 +1696,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.contributo-sanita-vecchi-frontalieri.title': 'Gesundheit und alte Grenzgänger: der Personalbeitrag',
     'blog.article.contributo-sanita-vecchi-frontalieri.excerpt': 'Die Region Lombardei beabsichtigt, die Erhöhung von 20% für Ärzte und Krankenschwestern durch monatliche Beiträge für alte Grenzgänger zu finanzieren.',
     'blog.article.contributo-sanita-vecchi-frontalieri.imageAlt': 'Flur einer modernen Schweizer Gesundheitseinrichtung',
+    'blog.article.fondi-frontalieri-varesotto-14-milioni.title': '14 Millionen an die Grenzgebiete: Mittel für Grenzgänger in Varese',
+    'blog.article.fondi-frontalieri-varesotto-14-milioni.excerpt': 'Mehr als 14 Millionen Euro für die italienischen Grenzgemeinden. Restaurants und neue Besteuerung für die Grenzgänger des Varesotto: Was sich ändert.',
+    'blog.article.fondi-frontalieri-varesotto-14-milioni.imageAlt': 'Luftaufnahme des Luganersees an der italienisch-schweizerischen Grenze mit Luino im Vordergrund',
 };
 
 export default blogMetaChDe;

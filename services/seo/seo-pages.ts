@@ -4759,7 +4759,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 3625,
+ "numberOfItems": 3626,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026/` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024/` },
@@ -8385,7 +8385,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 3622, "name": "Petrolio in cambio di miliardi: il potere nasco...", "url": `${BASE_URL}/articoli-frontaliere/petrolio-in-cambio-di-miliardi` },
           { "@type": "ListItem", "position": 3623, "name": "Commissione della concorrenza indaga sul caro c...", "url": `${BASE_URL}/articoli-frontaliere/caro-carburanti-svizzera-indagine-comco` },
           { "@type": "ListItem", "position": 3624, "name": "Sanità e vecchi frontalieri: il contributo per ...", "url": `${BASE_URL}/articoli-frontaliere/contributo-sanita-vecchi-frontalieri` },
-          { "@type": "ListItem", "position": 3625, "name": "Trasferirsi a Porto Ceresio da frontaliere: pro...", "url": `${BASE_URL}/articoli-frontaliere/trasferirsi-porto-ceresio-frontaliere` }
+          { "@type": "ListItem", "position": 3625, "name": "Trasferirsi a Porto Ceresio da frontaliere: pro...", "url": `${BASE_URL}/articoli-frontaliere/trasferirsi-porto-ceresio-frontaliere` },
+          { "@type": "ListItem", "position": 3626, "name": "14 milioni ai territori di confine: fondi per f...", "url": `${BASE_URL}/articoli-frontaliere/fondi-frontalieri-varesotto-14-milioni` }
  ]
  },
  {
