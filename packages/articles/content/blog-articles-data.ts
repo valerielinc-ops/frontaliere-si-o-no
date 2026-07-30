@@ -27435,6 +27435,15 @@ const RAW_ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'franco-svizzero-tornano-le-pressioni-al-rialzo',
+ category: 'novita',
+ date: '2026-07-30T07:03:02.090Z',
+ image: '/images/blog/franco-svizzero-tornano-le-pressioni-al-rialzo.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

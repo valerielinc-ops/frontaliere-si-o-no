@@ -9139,6 +9139,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.sede-legale-datore-frontalieri.title': 'Frontier workers: it matters where you work, not the company headquarters',
     'blog.article.sede-legale-datore-frontalieri.excerpt': 'The Revenue Agency clarifies: the tax regime of frontier workers depends on the place of the physical service, not on the employer\'s address.',
     'blog.article.sede-legale-datore-frontalieri.imageAlt': 'Street in Mendrisio, Canton Ticino',
+    'blog.article.franco-svizzero-tornano-le-pressioni-al-rialzo.title': 'Swiss Franc: Is Upward Pressure Returning?',
+    'blog.article.franco-svizzero-tornano-le-pressioni-al-rialzo.excerpt': 'The Eur/Chf exchange rate has gained more than 2% since the end of May, rising above 0.93 francs for the first time since January.',
+    'blog.article.franco-svizzero-tornano-le-pressioni-al-rialzo.imageAlt': 'Foreign exchange market in Lugano',
 };
 
 export default blogMetaEn;

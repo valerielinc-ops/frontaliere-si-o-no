@@ -9141,6 +9141,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.sede-legale-datore-frontalieri.title': 'Frontaliers : comptez où vous travaillez, pas le siège de l\'entreprise',
     'blog.article.sede-legale-datore-frontalieri.excerpt': 'L\'Agence du revenu précise : le régime fiscal des frontaliers dépend du lieu de la prestation physique, et non de l\'adresse de l\'employeur.',
     'blog.article.sede-legale-datore-frontalieri.imageAlt': 'Rue à Mendrisio, Canton du Tessin',
+    'blog.article.franco-svizzero-tornano-le-pressioni-al-rialzo.title': 'Franc suisse : les pressions à la hausse reviennent-elles ?',
+    'blog.article.franco-svizzero-tornano-le-pressioni-al-rialzo.excerpt': 'Le taux de change EUR/CHF a gagné plus de 2% depuis fin mai, dépassant 0,93 franc pour la première fois depuis janvier.',
+    'blog.article.franco-svizzero-tornano-le-pressioni-al-rialzo.imageAlt': 'Marché des changes à Lugano',
 };
 
 export default blogMetaFr;

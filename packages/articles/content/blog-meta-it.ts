@@ -9140,6 +9140,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.sede-legale-datore-frontalieri.title': 'Frontalieri: conta dove lavori, non la sede aziendale',
     'blog.article.sede-legale-datore-frontalieri.excerpt': 'L\'Agenzia delle Entrate chiarisce: il regime fiscale dei frontalieri dipende dal luogo della prestazione fisica, non dall\'indirizzo del datore di lavoro.',
     'blog.article.sede-legale-datore-frontalieri.imageAlt': 'Strada di Mendrisio in Canton Ticino',
+    'blog.article.franco-svizzero-tornano-le-pressioni-al-rialzo.title': 'Franco svizzero: tornano le pressioni al rialzo?',
+    'blog.article.franco-svizzero-tornano-le-pressioni-al-rialzo.excerpt': 'Il cambio Eur/Chf ha guadagnato oltre il 2% da fine maggio, spingendosi sopra quota 0,93 franchi per la prima volta da gennaio.',
+    'blog.article.franco-svizzero-tornano-le-pressioni-al-rialzo.imageAlt': 'Mercato di cambio a Lugano',
 };
 
 export default blogMetaIt;
