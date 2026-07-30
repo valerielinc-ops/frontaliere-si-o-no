@@ -753,7 +753,43 @@ async function recoverCantonDriftOrphan(url, locale) {
 // listed. The next full deploy refreshes them on its normal cadence, same
 // as before this table existed.
 export const EDGE_PUSHED_FILES = {
+  // Registered for CORRECTNESS, not just freshness (issue #4974). Measured on
+  // the live site: the committed public/sitemap-blog.xml carries 3046 <url> and
+  // 15230 <xhtml:link> hreflang alternates, while the copy served from the apex
+  // passthrough origin had the same url count and ZERO alternates — the
+  // <image:image>, <lastmod>, <changefreq> and <priority> blocks all survived,
+  // only the alternates were gone. Verified against the exact commit the last
+  // successful deploy built (6c1ed313): 15225 alternates in the source, none in
+  // what was served. Its sibling /sitemap-blog-ch.xml, already registered here,
+  // is byte-identical live to its committed copy — same generator, same shape,
+  // different serving path. Whatever drops them lives downstream of the file
+  // this repo commits, and the edge origin bypasses it entirely.
+  //
+  // 15225 hreflang alternates missing from the index is not a freshness
+  // nuisance: it is every article's locale variants going unlinked.
+  //
+  // It is not one file, either — measured live against that same commit, every
+  // sitemap on the apex passthrough loses them, and the one already served from
+  // here does not:
+  //
+  //   sitemap-blog.xml       15230 committed → 0 live
+  //   sitemap-glossario.xml    210 committed → 0 live
+  //   sitemap-news.xml          50 committed → 0 live
+  //   sitemap-blog-ch.xml     2825 committed → 2825 live   (already edge-served)
+  //
+  // So all three move, not just the one that started the investigation.
+  // sitemap-news.xml is the Google News surface, and sitemap-glossario.xml is a
+  // 42-url hub — small files, but the alternates are the whole point of having
+  // four locales.
+  //
+  // NOT included: sitemap-pages.xml, which loses SOME (1480 → 190) rather than
+  // all of them. A partial loss is a different signature and plausibly the
+  // reciprocity sanitizer doing its job, so lumping it in here would be
+  // guessing. It is called out in the PR body as still open.
+  '/sitemap-blog.xml': { cdnKey: '/edge/sitemap-blog.xml', contentType: 'application/xml; charset=utf-8' },
   '/sitemap-blog-ch.xml': { cdnKey: '/edge/sitemap-blog-ch.xml', contentType: 'application/xml; charset=utf-8' },
+  '/sitemap-glossario.xml': { cdnKey: '/edge/sitemap-glossario.xml', contentType: 'application/xml; charset=utf-8' },
+  '/sitemap-news.xml': { cdnKey: '/edge/sitemap-news.xml', contentType: 'application/xml; charset=utf-8' },
   '/llms.txt': { cdnKey: '/edge/llms.txt', contentType: 'text/plain; charset=utf-8', source: 'generated' },
   '/llms-full.txt': { cdnKey: '/edge/llms-full.txt', contentType: 'text/plain; charset=utf-8', source: 'generated' },
   '/.well-known/llms.txt': {
