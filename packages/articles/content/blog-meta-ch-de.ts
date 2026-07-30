@@ -1708,6 +1708,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.ferrovia-record-viaggiatori-secondo-trimestre.title': 'Mehr Bahn: Neuer Fahrgastrekord im 2. Quartal',
     'blog.article.ferrovia-record-viaggiatori-secondo-trimestre.excerpt': 'Der Schienenpersonenverkehr in der Schweiz ist weiterhin rekordverdächtig: Im zweiten Quartal des Jahres wurden 6,3 Milliarden Personenkilometer erreicht.',
     'blog.article.ferrovia-record-viaggiatori-secondo-trimestre.imageAlt': 'eine Szene von Lugano mit einer Bahnhof in der historischen Gegend',
+    'blog.article.trasporto-record-svizzero-2026.title': 'Schweizer Bahnen im Rennen: Fahrgäste und Güter wachsen wieder',
+    'blog.article.trasporto-record-svizzero-2026.excerpt': 'Der Schienenpersonenverkehr in der Schweiz erreichte im zweiten Quartal mit einem Plus von 5,2% gegenüber dem Vorjahreszeitraum einen neuen Höchststand.',
+    'blog.article.trasporto-record-svizzero-2026.imageAlt': 'Ein Szenario von Zugfahrt in der Schweiz',
 };
 
 export default blogMetaChDe;

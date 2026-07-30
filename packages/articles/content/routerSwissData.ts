@@ -595,6 +595,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'cern-progetto-19-miliardi': { it: 'cern-progetto-19-miliardi', en: 'cern-19-billion-project', de: 'cern-19-milliarden-projekt', fr: 'cern-projet-19-milliards' },
  'frontalieri-it-svizzera-sede-datore-2026': { it: 'frontalieri-it-svizzera-sede-datore-2026', en: 'frontalieri-it-svizzera-sede-datore', de: 'frontalierer-it-schweiz-sitzgeber', fr: 'frontaliers-it-suisse-siegeur' },
  'ferrovia-record-viaggiatori-secondo-trimestre': { it: 'ferrovia-record-viaggiatori-secondo-trimestre', en: 'record-railway-passengers-second-quarter', de: 'rekord-bahn-verkehr-zweites-quartal', fr: 'record-trafic-ferroviaire-second-trimestre' },
+ 'trasporto-record-svizzero-2026': { it: 'trasporto-record-svizzero-2026', en: 'swiss-transport-record-2026', de: 'schweizer-verkehr-rekord-2026', fr: 'record-de-transport-suisse-2026' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

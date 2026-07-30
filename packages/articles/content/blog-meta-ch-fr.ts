@@ -1708,6 +1708,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.ferrovia-record-viaggiatori-secondo-trimestre.title': 'Plus Ferroviaire : nouveau record de voyageurs au deuxième trimestre',
     'blog.article.ferrovia-record-viaggiatori-secondo-trimestre.excerpt': 'Le transport ferroviaire de voyageurs en Suisse continue de battre des records : au deuxième trimestre de l\'année, il a atteint 6,3 milliards de passagers-kilomètres.',
     'blog.article.ferrovia-record-viaggiatori-secondo-trimestre.imageAlt': 'une scène de Lugano avec une gare ferroviaire dans la zone historique',
+    'blog.article.trasporto-record-svizzero-2026.title': 'Chemins de fer suisses en course : passagers et fret repartent à la hausse',
+    'blog.article.trasporto-record-svizzero-2026.excerpt': 'Le transport ferroviaire de voyageurs en Suisse a atteint un nouveau record au deuxième trimestre, avec une augmentation de 5,2% par rapport à la même période de l\'année précédente.',
+    'blog.article.trasporto-record-svizzero-2026.imageAlt': 'Une scène de voyage en train en Suisse',
 };
 
 export default blogMetaChFr;

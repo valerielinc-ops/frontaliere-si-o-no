@@ -1708,6 +1708,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.ferrovia-record-viaggiatori-secondo-trimestre.title': 'More Rail: New Traveller Record in Q2',
     'blog.article.ferrovia-record-viaggiatori-secondo-trimestre.excerpt': 'Passenger rail transport in Switzerland continues to break records: 6.3 billion passenger-kilometres were reached in the second quarter of the year.',
     'blog.article.ferrovia-record-viaggiatori-secondo-trimestre.imageAlt': 'a scene of Lugano with a railway station in the historic area',
+    'blog.article.trasporto-record-svizzero-2026.title': 'Running Swiss Railways: Passengers and Freight Grow Again',
+    'blog.article.trasporto-record-svizzero-2026.excerpt': 'Passenger rail transport in Switzerland reached a new record in the second quarter, with an increase of 5.2% compared to the same period of the previous year.',
+    'blog.article.trasporto-record-svizzero-2026.imageAlt': 'A scene of train travel in Switzerland',
 };
 
 export default blogMetaChEn;
