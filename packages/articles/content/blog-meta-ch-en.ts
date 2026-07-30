@@ -1717,6 +1717,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.tassa-salute-frontalieri-svizzera.title': 'Tremble the budgets of the municipalities: the health tax for old border workers',
     'blog.article.tassa-salute-frontalieri-svizzera.excerpt': 'The health tax introduced by the Italian Parliament in the budget law 2024 represents a tax and, if applied by the Regions, would violate international agreements',
     'blog.article.tassa-salute-frontalieri-svizzera.imageAlt': 'View of Lugano with the lake and mountains',
+    'blog.article.clariant-vittoria-amilione.title': 'Clariant wins on ethylene, stock soars (+16%)',
+    'blog.article.clariant-vittoria-amilione.excerpt': 'Clariant wins ethylene lawsuit, flies in stock market (+16%)',
+    'blog.article.clariant-vittoria-amilione.imageAlt': 'Clariant vittoria in una causa su etilene, vola in borsa (+16%)',
 };
 
 export default blogMetaChEn;
