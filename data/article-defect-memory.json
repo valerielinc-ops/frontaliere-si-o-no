@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-07-30T02:34:01.828Z",
+  "updatedAt": "2026-07-30T03:50:18.183Z",
   "entities": {
     "AASTI": {
       "status": "suspect",
@@ -4086,20 +4086,27 @@
       "statusSource": "auto",
       "statusAt": "2026-07-29T06:26:58.011Z",
       "firstSeen": "2026-07-29T06:26:58.011Z",
-      "lastSeen": "2026-07-29T06:26:58.011Z",
-      "seen": 79,
+      "lastSeen": "2026-07-30T03:50:18.183Z",
+      "seen": 80,
       "unsupportedSightings": 0,
       "unsupportedRuns": [],
-      "supportedSightings": 0,
+      "supportedSightings": 1,
       "names": [
+        "Dipartimento federale delle finanze",
         "Segreteria di Stato dell'economia",
         "Ufficio federale per la statistica",
         "Ufficio federale delle imprese",
-        "Segreteria di Stato dell’economia",
-        "Dipartimento federale dei trasporti e delle comunicazioni"
+        "Segreteria di Stato dell’economia"
       ],
       "recentKeys": [],
       "evidence": [
+        {
+          "at": "2026-07-30T03:50:18.183Z",
+          "runId": "30509507553",
+          "articleId": "unknown",
+          "support": "present",
+          "name": "Dipartimento federale delle finanze"
+        },
         {
           "at": "2026-07-29T06:26:58.011Z",
           "runId": "corpus-scan",
@@ -4146,13 +4153,6 @@
           "at": "2026-07-29T06:26:58.011Z",
           "runId": "corpus-scan",
           "articleId": "ritmi-insostenibili-logistica-dpd",
-          "support": "unknown",
-          "name": "Segreteria di Stato dell'economia"
-        },
-        {
-          "at": "2026-07-29T06:26:58.011Z",
-          "runId": "corpus-scan",
-          "articleId": "quanto-guadagna-un-polimeccanico-frontaliere-in-ticino",
           "support": "unknown",
           "name": "Segreteria di Stato dell'economia"
         }
@@ -4258,20 +4258,27 @@
       "statusSource": "auto",
       "statusAt": "2026-07-29T06:26:58.011Z",
       "firstSeen": "2026-07-29T06:26:58.011Z",
-      "lastSeen": "2026-07-29T19:17:27.320Z",
-      "seen": 14,
+      "lastSeen": "2026-07-30T03:50:18.183Z",
+      "seen": 15,
       "unsupportedSightings": 0,
       "unsupportedRuns": [],
-      "supportedSightings": 3,
+      "supportedSightings": 4,
       "names": [
+        "Ufficio della migrazione del Canton Ticino",
         "Ufficio federale delle migrazioni",
         "Segreteria di Stato della migrazione",
         "Segreteria di Stato della Migrazione",
-        "Ufficio federale per le migrazioni",
-        "Ufficio federale degli stranieri e delle migrazioni"
+        "Ufficio federale per le migrazioni"
       ],
       "recentKeys": [],
       "evidence": [
+        {
+          "at": "2026-07-30T03:50:18.183Z",
+          "runId": "30509507553",
+          "articleId": "unknown",
+          "support": "present",
+          "name": "Ufficio della migrazione del Canton Ticino"
+        },
         {
           "at": "2026-07-29T19:17:27.320Z",
           "runId": "30480929135",
@@ -4318,13 +4325,6 @@
           "at": "2026-07-29T06:26:58.011Z",
           "runId": "corpus-scan",
           "articleId": "ucraini-in-ticino-aiuti-incognite",
-          "support": "unknown",
-          "name": "Segreteria di Stato della migrazione"
-        },
-        {
-          "at": "2026-07-29T06:26:58.011Z",
-          "runId": "corpus-scan",
-          "articleId": "ucraini-in-svizzera-permesso-s-b-timori-dei-cantoni",
           "support": "unknown",
           "name": "Segreteria di Stato della migrazione"
         }
