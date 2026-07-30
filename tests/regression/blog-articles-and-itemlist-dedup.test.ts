@@ -39,7 +39,7 @@
 import { describe, expect, it } from 'vitest';
 import * as fs from 'fs';
 import * as path from 'path';
-import { locateItemListBlock } from '../../scripts/lib/seo-pages-article-list.mjs';
+import { locateItemListBlock, ARTICLE_ITEM_LIST_CAP } from '../../scripts/lib/seo-pages-article-list.mjs';
 
 const ROOT = path.resolve(__dirname, '../..');
 
@@ -128,7 +128,11 @@ describe('seo-pages.ts — "Articoli Frontaliere" ItemList has no duplicate URLs
       urls.push(m[1]);
     }
 
-    expect(urls.length, 'sanity check: expected to find a substantial number of ListItem urls').toBeGreaterThan(100);
+    // The list is capped at ARTICLE_ITEM_LIST_CAP entries (#4974) — the same
+    // number staticPagesPlugin emits — so this is an equality, not a floor.
+    expect(urls.length, 'sanity check: expected the ItemList to be at its cap').toBe(
+      ARTICLE_ITEM_LIST_CAP,
+    );
 
     const seen = new Map<string, number>();
     for (const url of urls) {
@@ -156,7 +160,9 @@ describe('seo-pages.ts — "Articoli Frontaliere" ItemList position/numberOfItem
     const source = fs.readFileSync(filePath, 'utf-8');
     const { entries } = extractArticoliFrontaliereListItems(source);
 
-    expect(entries.length, 'sanity check: expected a substantial number of ListItem entries').toBeGreaterThan(1000);
+    expect(entries.length, 'sanity check: expected the ItemList to be at its cap').toBe(
+      ARTICLE_ITEM_LIST_CAP,
+    );
 
     const seen = new Map<number, number>();
     for (const e of entries) {
@@ -176,12 +182,33 @@ describe('seo-pages.ts — "Articoli Frontaliere" ItemList position/numberOfItem
     ).toEqual(expected);
   });
 
-  it('"numberOfItems" equals the true ListItem entry count', () => {
+  /**
+   * `numberOfItems` used to have to equal the entry count. Since #4974 the list
+   * is capped at ARTICLE_ITEM_LIST_CAP — the same number staticPagesPlugin
+   * emits — while `numberOfItems` keeps reporting the size of the whole
+   * collection. That is not a weakening: it is the shape the LIVE page has
+   * always served (measured on /articoli-frontaliere/: `numberOfItems` 3619
+   * with 100 `itemListElement`), because the emitter truncated the array
+   * without touching the header. The source now simply stores what it serves.
+   *
+   * The check is correspondingly stricter, not looser: the entry count must be
+   * EXACTLY the cap (not merely ≤ it, which a truncation bug would also
+   * satisfy), and the header must still exceed it — a header that fell to the
+   * cap would mean the append path stopped counting the collection.
+   */
+  it('"numberOfItems" reports the whole collection while the list stays at the cap', () => {
     const filePath = path.join(ROOT, 'services/seo/seo-pages.ts');
     const source = fs.readFileSync(filePath, 'utf-8');
     const { entries, numberOfItems } = extractArticoliFrontaliereListItems(source);
 
-    expect(numberOfItems).toBe(entries.length);
+    expect(entries.length, 'the stored list must sit exactly at the emission cap').toBe(
+      ARTICLE_ITEM_LIST_CAP,
+    );
+    expect(
+      numberOfItems,
+      'numberOfItems must still count the whole collection — if it fell to the cap, ' +
+        'appendArticleListItem stopped tracking published articles',
+    ).toBeGreaterThan(ARTICLE_ITEM_LIST_CAP);
   });
 
   it('no ListItem "name" is a corrupted escaped-JSON fragment', () => {
