@@ -199,20 +199,22 @@ for (const file of fs.readdirSync(SEO_DIR).filter((f) => /^seo-blog.*\.ts$/.test
 
     let newBlock = block.replace(titleM[0], `title: '${escapeSingle(newTitle)}'`);
 
-    // ogTitle carries the same cut when it was synthesized from the same string.
-    const ogM = newBlock.match(/ogTitle:\s*'((?:[^'\\]|\\.)*)'/);
-    if (ogM) {
-      const og = unescapeSingle(ogM[1]);
-      const newOg = dropDanglingConnective(truncateAtWordBoundary(full, 60));
-      // Length alone is the wrong test, and the first pass proved it: an
-      // ogTitle that was already a COMPLETE phrase ("…60 anni di dibattito")
-      // got replaced by a longer but truncated one ("…dibattito e 20"). Only
-      // rewrite when the current value is itself cut, and only for something
-      // that is not.
-      if (full.startsWith(og) && newOg.length > og.length && isCut(og) && !isCut(newOg)) {
-        newBlock = newBlock.replace(ogM[0], `ogTitle: '${escapeSingle(newOg)}'`);
-      }
-    }
+    // ogTitle is deliberately NOT touched here.
+    //
+    // It carries the same class of damage, but a DIFFERENT signature: the old
+    // generator never appended the brand to it, so its cut is a bare `.slice()`
+    // at an arbitrary character ("…carpooling aziendal") with none of the
+    // markers this script detects — pipe, trailing connective, connective+number.
+    // Every guard written against those markers therefore misjudges it: a loose
+    // one lengthens ogTitle values that were already complete sentences, and a
+    // strict one refuses to fix the ones that are plainly mutilated. Both were
+    // tried on this branch; the second regressed 23 entries the first had fixed.
+    //
+    // A correct ogTitle repair needs its own detector (compare against the full
+    // editorial title rather than look for a cut marker) and its own traversal —
+    // this loop only opens a block when the TITLE is cut, so ~75 entries whose
+    // title is fine and whose ogTitle is not are unreachable from here by
+    // construction. That is a separate change, declared in the PR body.
 
     if (newBlock === block) {
       skipped++;
