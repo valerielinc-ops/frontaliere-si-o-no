@@ -9131,6 +9131,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.caro-carburanti-svizzera-indagine-comco.title': 'Commissione della concorrenza indaga sul caro carburanti in Ticino',
     'blog.article.caro-carburanti-svizzera-indagine-comco.excerpt': 'Il consigliere Benoît Gaillard solleva il sospetto di intese sui prezzi della benzina dopo l’arrivo di Etzelpark a Bellinzona.',
     'blog.article.caro-carburanti-svizzera-indagine-comco.imageAlt': 'Stazione di servizio a Bellinzona con pompe di benzina e segnaletica dei prezzi',
+    'blog.article.trasferirsi-porto-ceresio-frontaliere.title': 'Trasferirsi a Porto Ceresio da frontaliere: pro e contro',
+    'blog.article.trasferirsi-porto-ceresio-frontaliere.excerpt': 'Analisi pratica per chi vive a Porto Ceresio e lavora in Ticino: tassazione, accordo 2024, contributi, LAMal e ristorni.',
+    'blog.article.trasferirsi-porto-ceresio-frontaliere.imageAlt': 'Vista sul Lago di Lugano da Porto Ceresio all\'alba',
 };
 
 export default blogMetaIt;

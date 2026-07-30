@@ -5006,6 +5006,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-petrolio-in-cambio-di-miliardi': { name: 'Petrolio in cambio di miliardi', path: '/articoli-svizzera/petrolio-in-cambio-di-miliardi/', parent: 'blog' },
     'blog-caro-carburanti-svizzera-indagine-comco': { name: 'Carburanti', path: '/articoli-frontaliere/caro-carburanti-svizzera-indagine-comco', parent: 'blog' },
     'blog-contributo-sanita-vecchi-frontalieri': { name: 'Fiscale Sanità', path: '/articoli-svizzera/contributo-sanita-vecchi-frontalieri/', parent: 'blog' },
+    'blog-trasferirsi-porto-ceresio-frontaliere': { name: 'Porto Ceresio frontaliere', path: '/articoli-frontaliere/trasferirsi-porto-ceresio-frontaliere', parent: 'blog' },
  };
 
  const info = sectionNames[section];
