@@ -767,8 +767,29 @@ export const EDGE_PUSHED_FILES = {
   //
   // 15225 hreflang alternates missing from the index is not a freshness
   // nuisance: it is every article's locale variants going unlinked.
+  //
+  // It is not one file, either — measured live against that same commit, every
+  // sitemap on the apex passthrough loses them, and the one already served from
+  // here does not:
+  //
+  //   sitemap-blog.xml       15230 committed → 0 live
+  //   sitemap-glossario.xml    210 committed → 0 live
+  //   sitemap-news.xml          50 committed → 0 live
+  //   sitemap-blog-ch.xml     2825 committed → 2825 live   (already edge-served)
+  //
+  // So all three move, not just the one that started the investigation.
+  // sitemap-news.xml is the Google News surface, and sitemap-glossario.xml is a
+  // 42-url hub — small files, but the alternates are the whole point of having
+  // four locales.
+  //
+  // NOT included: sitemap-pages.xml, which loses SOME (1480 → 190) rather than
+  // all of them. A partial loss is a different signature and plausibly the
+  // reciprocity sanitizer doing its job, so lumping it in here would be
+  // guessing. It is called out in the PR body as still open.
   '/sitemap-blog.xml': { cdnKey: '/edge/sitemap-blog.xml', contentType: 'application/xml; charset=utf-8' },
   '/sitemap-blog-ch.xml': { cdnKey: '/edge/sitemap-blog-ch.xml', contentType: 'application/xml; charset=utf-8' },
+  '/sitemap-glossario.xml': { cdnKey: '/edge/sitemap-glossario.xml', contentType: 'application/xml; charset=utf-8' },
+  '/sitemap-news.xml': { cdnKey: '/edge/sitemap-news.xml', contentType: 'application/xml; charset=utf-8' },
   '/llms.txt': { cdnKey: '/edge/llms.txt', contentType: 'text/plain; charset=utf-8', source: 'generated' },
   '/llms-full.txt': { cdnKey: '/edge/llms-full.txt', contentType: 'text/plain; charset=utf-8', source: 'generated' },
   '/.well-known/llms.txt': {

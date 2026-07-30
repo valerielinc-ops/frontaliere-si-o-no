@@ -142,8 +142,17 @@ describe('locale-router serves the frontaliere article sitemap from the edge ori
     expect(await res.text()).toBe('origin-served');
   });
 
-  it('keeps BOTH article sitemaps registered, each with a wrangler route', () => {
-    for (const pathname of ['/sitemap-blog.xml', '/sitemap-blog-ch.xml']) {
+  it('keeps EVERY apex sitemap registered, each with a wrangler route', () => {
+    // All four measured to lose their alternates on the passthrough origin
+    // (blog 15230→0, glossario 210→0, news 50→0) or already proven correct here
+    // (-ch, byte-identical live). Dropping any one of them silently returns
+    // that sitemap to the origin that strips them.
+    for (const pathname of [
+      '/sitemap-blog.xml',
+      '/sitemap-blog-ch.xml',
+      '/sitemap-glossario.xml',
+      '/sitemap-news.xml',
+    ]) {
       expect(
         EDGE_PUSHED_FILES[pathname],
         `${pathname} must stay in EDGE_PUSHED_FILES — without it the file falls back ` +
