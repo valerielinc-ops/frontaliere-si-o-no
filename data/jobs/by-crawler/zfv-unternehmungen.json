@@ -1,6 +1,6 @@
 {
   "crawlerKey": "zfv-unternehmungen",
-  "assembledAt": "2026-07-30T11:28:58.702Z",
+  "assembledAt": "2026-07-30T11:10:36.846Z",
   "jobs": [
     {
       "id": "zfv-unternehmungen-74d19ea56c29",
@@ -754,7 +754,6 @@
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
       "crawledAt": "2026-07-30T11:28:49.769Z",
-      "needsRetranslation": true,
       "addressLocality": "Basel",
       "postalCode": "4052",
       "streetAddress": "St. Alban-Anlage 26",
@@ -773,18 +772,26 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "buffet-mitarbeiter-in-40-zfv-unternehmungen-basel",
-        "buffet-collaboratore-trice-40-zfv-unternehmungen-basel"
+        "buffet-collaboratore-trice-40-zfv-unternehmungen-basel",
+        "dipendente-a-buffet-30-zfv-unternehmungen-basel",
+        "buffet-employee-30-zfv-unternehmungen-basel",
+        "buffet-mitarbeiterin-30-zfv-unternehmungen-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
           "buffet-mitarbeiter-in-40-zfv-unternehmungen-basel",
-          "buffet-collaboratore-trice-40-zfv-unternehmungen-basel"
+          "buffet-collaboratore-trice-40-zfv-unternehmungen-basel",
+          "dipendente-a-buffet-30-zfv-unternehmungen-basel",
+          "buffet-employee-30-zfv-unternehmungen-basel",
+          "buffet-mitarbeiterin-30-zfv-unternehmungen-basel"
         ],
         "en": [
-          "buffet-mitarbeiter-in-40-zfv-unternehmungen-basel"
+          "buffet-mitarbeiter-in-40-zfv-unternehmungen-basel",
+          "buffet-employee-30-zfv-unternehmungen-basel"
         ],
         "fr": [
-          "buffet-mitarbeiter-in-40-zfv-unternehmungen-basel"
+          "buffet-mitarbeiter-in-40-zfv-unternehmungen-basel",
+          "buffet-mitarbeiterin-30-zfv-unternehmungen-basel"
         ]
       },
       "firstSeenAt": "2026-07-07T12:11:54.134Z",
@@ -799,7 +806,8 @@
           "maxValue": 37600,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "zfv-unternehmungen-c01291da2239",

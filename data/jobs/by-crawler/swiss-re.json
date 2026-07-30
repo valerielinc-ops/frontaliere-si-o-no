@@ -1,6 +1,6 @@
 {
   "crawlerKey": "swiss-re",
-  "assembledAt": "2026-07-30T11:27:01.924Z",
+  "assembledAt": "2026-07-30T10:59:03.586Z",
   "jobs": [
     {
       "id": "swiss-re-eb683c9f7002",
@@ -1320,22 +1320,34 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "analytical-business-coordinator-with-english-and-other-european-language-swiss-re-ch",
-        "analytical-business-coordinatore-with-english-and-other-european-language-swiss-re-bratislava-sk"
+        "analytical-business-coordinatore-with-english-and-other-european-language-swiss-re-bratislava-sk",
+        "business-coordinatore-with-english-and-other-european-language-swiss-re-bratislava-sk",
+        "business-coordinator-with-english-and-other-european-language-swiss-re-ch",
+        "business-koordinator-with-english-and-other-european-language-swiss-re-bratislava-sk",
+        "business-coordinateur-with-english-and-other-european-language-swiss-re-bratislava-sk"
       ],
       "previousSlugsByLocale": {
         "it": [
           "analytical-business-coordinator-with-english-and-other-european-language-swiss-re-ch",
-          "analytical-business-coordinatore-with-english-and-other-european-language-swiss-re-bratislava-sk"
+          "analytical-business-coordinatore-with-english-and-other-european-language-swiss-re-bratislava-sk",
+          "business-coordinatore-with-english-and-other-european-language-swiss-re-bratislava-sk",
+          "business-coordinator-with-english-and-other-european-language-swiss-re-ch",
+          "business-koordinator-with-english-and-other-european-language-swiss-re-bratislava-sk",
+          "business-coordinateur-with-english-and-other-european-language-swiss-re-bratislava-sk"
         ],
         "de": [
-          "analytical-business-coordinator-with-english-and-other-european-language-swiss-re-ch"
+          "analytical-business-coordinator-with-english-and-other-european-language-swiss-re-ch",
+          "business-koordinator-with-english-and-other-european-language-swiss-re-bratislava-sk"
         ],
         "fr": [
-          "analytical-business-coordinator-with-english-and-other-european-language-swiss-re-ch"
+          "analytical-business-coordinator-with-english-and-other-european-language-swiss-re-ch",
+          "business-coordinateur-with-english-and-other-european-language-swiss-re-bratislava-sk"
+        ],
+        "en": [
+          "business-coordinator-with-english-and-other-european-language-swiss-re-ch"
         ]
       },
       "firstSeenAt": "2026-07-08T11:23:06.937Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -1348,7 +1360,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "needsRetranslation": true
     },
     {
       "id": "swiss-re-f942366bea67",

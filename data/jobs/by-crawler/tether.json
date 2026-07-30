@@ -1,6 +1,6 @@
 {
   "crawlerKey": "tether",
-  "assembledAt": "2026-07-30T11:15:30.092Z",
+  "assembledAt": "2026-07-30T10:59:38.305Z",
   "jobs": [
     {
       "id": "tether-f90910adcedb",
@@ -322,16 +322,34 @@
       },
       "previousSlugs": [
         "ai-filmmaker-100-remote-tether-ch",
-        "ai-filmmaker-100-remoto-tether-operations-berne"
+        "ai-filmmaker-100-remoto-tether-operations-berne",
+        "ai-filmmaker-100-a-distanza-in-tutto-il-mondo-tether-operations-buenos-aires",
+        "ai-filmmaker-100-remote-worldwide-tether-ch",
+        "ai-filmemacher-100-remote-worldwide-tether-operations-buenos-aires",
+        "ia-cineaste-100-distant-dans-le-monde-tether-operations-buenos-aires",
+        "ai-ricerca-ingegnere-reinforcement-learning-100-remote-worldwide-tether-operations-roma"
       ],
       "previousSlugsByLocale": {
         "it": [
           "ai-filmmaker-100-remote-tether-ch",
-          "ai-filmmaker-100-remoto-tether-operations-berne"
+          "ai-filmmaker-100-remoto-tether-operations-berne",
+          "ai-filmmaker-100-a-distanza-in-tutto-il-mondo-tether-operations-buenos-aires",
+          "ai-filmmaker-100-remote-worldwide-tether-ch",
+          "ai-filmemacher-100-remote-worldwide-tether-operations-buenos-aires",
+          "ia-cineaste-100-distant-dans-le-monde-tether-operations-buenos-aires",
+          "ai-ricerca-ingegnere-reinforcement-learning-100-remote-worldwide-tether-operations-roma"
+        ],
+        "en": [
+          "ai-filmmaker-100-remote-worldwide-tether-ch"
+        ],
+        "de": [
+          "ai-filmemacher-100-remote-worldwide-tether-operations-buenos-aires"
+        ],
+        "fr": [
+          "ia-cineaste-100-distant-dans-le-monde-tether-operations-buenos-aires"
         ]
       },
       "firstSeenAt": "2026-04-13T22:32:40.218Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -343,7 +361,8 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "tether-3da2967cff43",

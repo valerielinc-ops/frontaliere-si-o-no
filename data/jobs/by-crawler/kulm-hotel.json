@@ -1,6 +1,6 @@
 {
   "crawlerKey": "kulm-hotel",
-  "assembledAt": "2026-07-30T11:29:47.718Z",
+  "assembledAt": "2026-07-30T10:28:19.470Z",
   "jobs": [
     {
       "id": "kulm-hotel-6d5358fd2a15",
@@ -922,22 +922,37 @@
         "spa-therapeut-m-w-d-kulm-hotel-st-moritz-pontresina",
         "therapeute-spa-m-f-x-kulm-hotel-st-moritz-pontresina",
         "terapia-spa-m-w-d-kulm-hotel-st-moritz-pontresina",
-        "supervisore-di-pulizia-m-w-d-kulm-hotel-st-moritz-pontresina"
+        "supervisore-di-pulizia-m-w-d-kulm-hotel-st-moritz-pontresina",
+        "housekeeping-direttore-m-w-d-kulm-hotel-st-moritz-st",
+        "housekeeping-director-m-w-d-kulm-hotel-st-moritz",
+        "housekeeping-direktor-m-w-d-kulm-hotel-st-moritz-st",
+        "directeur-du-menage-m-w-d-kulm-hotel-st-moritz-st-moritz",
+        "directeur-du-menage-m-m-j-kulm-hotel-st-moritz-st-moritz"
       ],
       "previousSlugsByLocale": {
         "it": [
           "housekeeping-supervisor-m-w-d-kulm-hotel-st-moritz",
-          "supervisore-di-pulizia-m-w-d-kulm-hotel-st-moritz-pontresina"
+          "supervisore-di-pulizia-m-w-d-kulm-hotel-st-moritz-pontresina",
+          "housekeeping-direttore-m-w-d-kulm-hotel-st-moritz-st",
+          "housekeeping-director-m-w-d-kulm-hotel-st-moritz",
+          "housekeeping-direktor-m-w-d-kulm-hotel-st-moritz-st",
+          "directeur-du-menage-m-w-d-kulm-hotel-st-moritz-st-moritz",
+          "directeur-du-menage-m-m-j-kulm-hotel-st-moritz-st-moritz"
         ],
         "de": [
-          "housekeeping-supervisor-m-w-d-kulm-hotel-st-moritz"
+          "housekeeping-supervisor-m-w-d-kulm-hotel-st-moritz",
+          "housekeeping-direktor-m-w-d-kulm-hotel-st-moritz-st"
         ],
         "fr": [
-          "housekeeping-supervisor-m-w-d-kulm-hotel-st-moritz"
+          "housekeeping-supervisor-m-w-d-kulm-hotel-st-moritz",
+          "directeur-du-menage-m-w-d-kulm-hotel-st-moritz-st-moritz",
+          "directeur-du-menage-m-m-j-kulm-hotel-st-moritz-st-moritz"
+        ],
+        "en": [
+          "housekeeping-director-m-w-d-kulm-hotel-st-moritz"
         ]
       },
       "firstSeenAt": "2026-06-05T22:23:49.839Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -949,7 +964,8 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "kulm-hotel-fe14f6cf94b1",
