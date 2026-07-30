@@ -1,56 +1,18 @@
 {
   "key": "fincons-group",
   "label": "Fincons Group",
-  "generatedAt": "2026-07-29T22:16:51.670Z",
+  "generatedAt": "2026-07-30T11:18:24.594Z",
   "total": 3,
-  "newCount": 1,
+  "newCount": 0,
   "updatedCount": 2,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 1343,
-  "avgDurationMs": 1343,
+  "unchangedCount": 1,
+  "durationMs": 1212,
+  "avgDurationMs": 1212,
   "durationHistory": [
-    1343
+    1212
   ],
-  "newJobs": [
-    {
-      "title": "Accounts Payable & Accounting Specialist",
-      "slug": "accounts-payable-accounting-specialist-fincons-group-lugano-ticino-switzerland",
-      "url": "https://fincons.applytojob.com/apply/MuAijinxCZ/Accounts-Payable-Accounting-Specialist",
-      "applyUrl": "https://fincons.applytojob.com/apply/MuAijinxCZ/Accounts-Payable-Accounting-Specialist",
-      "company": "Fincons Group",
-      "companyKey": "fincons-group",
-      "companyDomain": "finconsgroup.com",
-      "location": "Lugano",
-      "addressLocality": "Lugano",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "postalCode": "6900",
-      "canton": "TI",
-      "country": "CH",
-      "category": "tech",
-      "sector": "Tecnologia & IT",
-      "source": "fincons-dedicated-crawler",
-      "sourceLang": "en",
-      "postedDate": "2026-07-29",
-      "validThrough": "2026-10-27",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "metadata": {
-        "experienceRequirements": "Entry Level",
-        "uniqueJobCode": "job_20260729132125_MXNDQEMZFNMJKAXO",
-        "listingLocation": "Lugano, Ticino, Switzerland",
-        "listingDepartment": "Lugano"
-      },
-      "_qualityScore": 70,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 4,
-        "completeness": 17
-      }
-    }
-  ],
+  "newJobs": [],
   "updatedJobs": [
     {
       "title": "Corporate PMO / Business Operations Expert",
@@ -139,5 +101,48 @@
     }
   ],
   "removedJobs": [],
-  "unchangedJobs": []
+  "unchangedJobs": [
+    {
+      "title": "Accounts Payable & Accounting Specialist",
+      "slug": "accounts-payable-accounting-specialist-fincons-group-lugano-ticino-switzerland",
+      "url": "https://fincons.applytojob.com/apply/MuAijinxCZ/Accounts-Payable-Accounting-Specialist",
+      "applyUrl": "https://fincons.applytojob.com/apply/MuAijinxCZ/Accounts-Payable-Accounting-Specialist",
+      "company": "Fincons Group",
+      "companyKey": "fincons-group",
+      "companyDomain": "finconsgroup.com",
+      "location": "Lugano",
+      "addressLocality": "Lugano",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "postalCode": "6900",
+      "canton": "TI",
+      "country": "CH",
+      "category": "tech",
+      "sector": "Tecnologia & IT",
+      "source": "fincons-dedicated-crawler",
+      "sourceLang": "en",
+      "postedDate": "2026-07-29",
+      "validThrough": "2026-10-27",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "metadata": {
+        "experienceRequirements": "Entry Level",
+        "uniqueJobCode": "job_20260729132125_MXNDQEMZFNMJKAXO",
+        "listingLocation": "Lugano, Ticino, Switzerland",
+        "listingDepartment": "Lugano"
+      },
+      "id": "fincons-group-a17f3f2c7643",
+      "salaryMin": 51500,
+      "salaryMax": 88000,
+      "currency": "CHF",
+      "firstSeenAt": "2026-07-29T22:16:51.668Z",
+      "_qualityScore": 96,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 25,
+        "completeness": 22
+      }
+    }
+  ]
 }
