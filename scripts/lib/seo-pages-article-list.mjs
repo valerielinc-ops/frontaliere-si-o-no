@@ -63,6 +63,21 @@ export function escapeJsonString(s) {
 export const NUMBER_OF_ITEMS_RE = /("name": "Articoli Frontaliere",\s*"numberOfItems": )(\d+)/;
 
 /**
+ * How many ListItem entries this list keeps. Mirrors `ITEM_LIST_CAP` in
+ * build-plugins/staticPagesPlugin.ts, which truncates the emitted JSON-LD to
+ * the same number — so anything stored past this point is parsed, bundled and
+ * shipped to clients, then thrown away at render time.
+ *
+ * The list had reached 3619 entries, 649 KB of seo-pages.ts and ~630 KB of the
+ * 1.13 MB `assets/seo-pages.js` chunk, all of it for items no page ever shows.
+ *
+ * `numberOfItems` is NOT capped: it states how large the collection is, not how
+ * many entries are listed, and the emission cap already depends on that
+ * distinction ("keep numberOfItems accurate (reflects total list size)").
+ */
+export const ARTICLE_ITEM_LIST_CAP = 100;
+
+/**
  * Locate the "Articoli Frontaliere" `itemListElement` array within the full
  * seo-pages.ts source, so every regex match below can be bounded to it
  * instead of scanning the whole file. Returns `{ blockStart, blockEnd }` —
@@ -123,6 +138,23 @@ export function appendArticleListItem(pagesSrc, { name, url }) {
   const lastItemMatch = blockSrc.match(LAST_ITEM_RE);
   if (!lastItemMatch) return null;
 
+  // At the cap, bump the count and stop there. staticPagesPlugin truncates the
+  // emitted JSON-LD to ARTICLE_ITEM_LIST_CAP entries, so an appended item past
+  // that point never reaches a page — it only grows the file and the client
+  // chunk. `numberOfItems` still moves, because it reports the size of the
+  // collection rather than the length of the list.
+  //
+  // Counted from the HEADER here, not from the last item's `position` the way
+  // the uncapped path below does. Once the list is capped the two stop being
+  // the same number — the last listed position is 100 while the collection is
+  // in the thousands — so deriving from the position would walk the header
+  // backwards to 101 on the next publish and keep it there.
+  const listed = (blockSrc.match(/\{ "@type": "ListItem"/g) ?? []).length;
+  if (listed >= ARTICLE_ITEM_LIST_CAP) {
+    const declared = parseInt(pagesSrc.match(NUMBER_OF_ITEMS_RE)[2], 10);
+    return pagesSrc.replace(NUMBER_OF_ITEMS_RE, `$1${declared + 1}`);
+  }
+
   const newCount = parseInt(lastItemMatch[1], 10) + 1;
   const newListItem = `          { "@type": "ListItem", "position": ${newCount}, "name": "${escapeJsonString(name)}", "url": \`${url}\` }`;
   // Replacer FUNCTION, not a template string — `name` is an AI-generated
@@ -138,7 +170,18 @@ export function appendArticleListItem(pagesSrc, { name, url }) {
 }
 
 /**
- * Rename-safe insert-or-replace. If a ListItem whose url === renameFromUrl
+ * Rename-safe insert-or-replace.
+ *
+ * NOTE (since the list is capped, #4974): the "never silently dropped"
+ * guarantee below holds unconditionally only BELOW the cap. At the cap, a
+ * `renameFromUrl` that matches nothing is treated as a rename of a culled
+ * entry — the source is returned unchanged and nothing is counted. That is
+ * right for the case it exists to serve (renaming one of the thousands of
+ * articles no longer listed) and wrong for a caller that passes
+ * `renameFromUrl` for a slug that never existed, which is a contract
+ * violation: `renameFromUrl` means "rename THIS existing article". Publishing
+ * a genuinely new article goes through appendArticleListItem, as
+ * create-article.mjs does. If a ListItem whose url === renameFromUrl
  * exists (searched only within the "Articoli Frontaliere" ItemList block —
  * see locateItemListBlock), REPLACE it in place — same position, same
  * trailing comma (or lack thereof) read directly off the matched entry,
@@ -178,6 +221,20 @@ export function upsertArticleListItem(pagesSrc, { name, url, renameFromUrl }) {
     }
     // Old entry not found (or block not located) — fall through to append
     // so the rename is never silently dropped.
+    //
+    // Except when the list is at the cap: past ARTICLE_ITEM_LIST_CAP the entry
+    // simply is not stored any more, so "not found" no longer means "new". The
+    // append path would then bump `numberOfItems` for what is a RENAME of an
+    // article the collection already counts — permanently inflating the header,
+    // once per rename, with nothing to correct it. A rename does not change how
+    // many articles exist, so leave the source untouched and say so.
+    const capBlock = locateItemListBlock(pagesSrc);
+    if (capBlock) {
+      const listedNow = (
+        pagesSrc.slice(capBlock.blockStart, capBlock.blockEnd).match(/\{ "@type": "ListItem"/g) ?? []
+      ).length;
+      if (listedNow >= ARTICLE_ITEM_LIST_CAP) return pagesSrc;
+    }
   }
   return appendArticleListItem(pagesSrc, { name, url });
 }
