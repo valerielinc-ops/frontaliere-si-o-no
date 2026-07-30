@@ -5140,6 +5140,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'tassa-salute-frontalieri-svizzera',
+    category: 'fiscale',
+    date: '2026-07-30T21:09:32.703Z',
+    image: '/images/blog/tassa-salute-frontalieri-svizzera.webp',
+    hasCalculator: true,
+    authorSlug: 'laura-bianchi',
+    authorName: 'Laura Bianchi',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
