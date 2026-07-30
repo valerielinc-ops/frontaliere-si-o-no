@@ -1,6 +1,6 @@
 {
   "crawlerKey": "bls",
-  "assembledAt": "2026-07-30T11:15:43.887Z",
+  "assembledAt": "2026-07-30T22:20:12.888Z",
   "jobs": [
     {
       "id": "bls-5c03d3b84468",
@@ -33,7 +33,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/gleisbauer-in/e1d4abf3-9ab0-4d59-90ae-5f02770201b0",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-30T11:15:40.758Z",
+      "crawledAt": "2026-07-30T22:20:00.775Z",
       "addressLocality": "Hasle bei Burgdorf",
       "addressCountry": "CH",
       "country": "CH",
@@ -84,6 +84,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T22:46:35.340Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -129,7 +130,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/leiter-in-immobilienentwicklung/877f2218-456f-42eb-949f-8c7acbeb3544",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-30T11:15:39.959Z",
+      "crawledAt": "2026-07-30T22:19:59.737Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -176,6 +177,7 @@
         ]
       },
       "firstSeenAt": "2026-06-16T12:57:20.047Z",
+      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "baseSalary": {
@@ -185,99 +187,6 @@
           "@type": "QuantitativeValue",
           "minValue": 94500,
           "maxValue": 143000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "BE"
-    },
-    {
-      "id": "bls-9c530606b638",
-      "slug": "fachperson-beschriftung-e-grafik-bls-ag-bonigen",
-      "slugByLocale": {
-        "it": "fachperson-beschriftung-e-grafik-bls-ag-bonigen",
-        "en": "specialist-labelling-and-graphics-bls-ag-bonigen",
-        "de": "fachperson-beschriftung-und-grafik-bls-ch",
-        "fr": "etiquetage-specialise-et-graphiques-bls-ag-bonigen"
-      },
-      "company": "BLS AG",
-      "companyKey": "bls",
-      "companyDomain": "bls.ch",
-      "title": "Fachperson Beschriftung und Grafik",
-      "titleByLocale": {
-        "it": "Fachperson Beschriftung e Grafik",
-        "en": "Specialist Labelling and Graphics",
-        "de": "Fachperson Beschriftung und Grafik",
-        "fr": "Étiquetage spécialisé et graphiques"
-      },
-      "description": "Der Schriftzug der S-Bahnfahrzeuge strahlt mit der Abendsonne um die Wette. Das ist dein Verdienst! Bei der letzten Fahrzeugrevision haben deine Kollegen die mechanischen und elektrischen Teile aufgefrischt, während du dich um die fachgerechte Neubeschriftung gekümmert hast. So funktioniert das Fahrzeug nicht nur zuverlässig, sondern erscheint auch in sympathisch neuem Glanz.\n\nDas wartet auf dich:\n\n• Foliendrucke, Schriften und Piktogramme am modernen Plotter entstehen lassen\n\n• Folien millimetergenau auf BLS- und Dritt-Fahrzeugen applizieren – dein präzises Handwerk fährt durchs ganze Netz\n\n• Kreativität ausleben im modern eingerichteten Schriften-Atelier – hier bekommen deine Ideen Raum und Wirkung\n\n• Im direkten Austausch mit internen und externen Kundinnen smarte Ideen zu sichtbaren Lösungen machen\n\n• Den Bereich Beschriftung formen und mit innovativen Ideen neue Einsatzfelder auf die Schiene bringen\n\nDas bringst du mit:\n\n• Abgeschlossene Ausbildung in Werbetechnik, Polygrafie, Schriftenmalerei, Grafik oder gleichwertigem Beruf\n\n• Sicherer Umgang mit gängigen Grafikprogrammen und Technik für präzises Arbeiten\n\n• Mehrjährige Erfahrung in Werbetechnik, Beschriftung oder Folienverarbeitung\n\n• Ausgeprägte Kundenorientierung und Freude am direkten Austausch\n\n• Eigenständigkeit, hohe Gewissenhaftigkeit und Offenheit für Einsätze in anderen Werkstattbereichen\n\nÜber die BLS\n\nMit fast 4000 Mitarbeitenden ist die BLS das zweitgrösste Bahnunternehmen der Schweiz. Mehr noch: Wir sind auch eine Schifffahrtsgesellschaft, eine Immobilienfirma, eine internationale Güterbahn, ein Busunternehmen und transportieren Autos sicher durch den Lötschberg und den Simplon. Was uns dabei verbindet? Der Stolz auf das, was wir jeden Tag tun. Mobilität hat für uns viele Facetten. Und viele spannende Jobs.",
-      "descriptionByLocale": {
-        "it": "La scritta dei veicoli S-Bahn si irradia con il sole serale per la scommessa. Questo è il vostro merito! Durante l'ultima revisione del veicolo, i vostri colleghi hanno rinfrescato le parti meccaniche ed elettriche mentre si è preso cura della rietichettatura professionale. Così, il veicolo non solo funziona in modo affidabile, ma appare anche in una lucentezza simpaticamente nuova. Ti aspetta:\n• Crea stampe, font e pittogrammi sulla trama moderna\n• Applicare le diapositive millimetro-accurate su BLS e veicoli di terze parti – il vostro mestiere preciso viaggia attraverso l'intera rete\n• Vivere creatività nello studio di scrittura modernamente arredato – qui le vostre idee ottenere spazio e impatto\n• In scambio diretto con clienti interni ed esterni, trasformare idee intelligenti in soluzioni visibili\n• Definire il campo di etichettatura e portare nuovi campi di applicazione a binario con idee innovative Questo è ciò che portate con voi:\n• Formazione completa in tecnologia pubblicitaria, poligrafia, scrittura, grafica o professione equivalente\n• Gestione sicura dei programmi grafici e della tecnologia comuni per un lavoro preciso\n• Diversi anni di esperienza nella tecnologia pubblicitaria, iscrizione o lavorazione di film\n• Forte orientamento del cliente e godimento dello scambio diretto\n• Indipendenza, un alto grado di coscienza e apertura al lavoro in altre aree di laboratorio Informazioni sulla BLS Con quasi 4.000 dipendenti, BLS è la seconda più grande compagnia ferroviaria in Svizzera. Inoltre, siamo anche una compagnia di navigazione, un'azienda immobiliare, una ferrovia di trasporto internazionale, una compagnia di autobus e auto di trasporto in sicurezza attraverso il Lötschberg e il Simplon. Cosa ci collega? Forte di quello che facciamo ogni giorno. La mobilità ha molte sfaccettature per noi. E molti lavori interessanti.",
-        "en": "The lettering of the S-Bahn vehicles radiates with the evening sun for the bet. That is your merit! During the last vehicle revision, your colleagues refreshed the mechanical and electrical parts while you took care of the professional relabeling. Thus, the vehicle not only works reliably, but also appears in a sympathetically new shine. This is waiting for you:\n• Create foil prints, fonts and pictograms on the modern plotter\n• Apply slides millimeter-accurate on BLS and third-party vehicles – your precise craft travels through the entire network\n• Living out creativity in the modernly furnished writing studio – here your ideas get space and impact\n• In direct exchange with internal and external customers, turn smart ideas into visible solutions\n• Shaping the field of labeling and bringing new fields of application to rail with innovative ideas This is what you bring with you:\n• Completed training in advertising technology, polygraphy, writing, graphics or equivalent profession\n• Safe handling of common graphics programs and technology for precise work\n• Several years of experience in advertising technology, inscription or film processing\n• Strong customer orientation and enjoyment of direct exchange\n• Independence, a high degree of conscientiousness and openness to work in other workshop areas About the BLS With almost 4,000 employees, BLS is the second largest railway company in Switzerland. Moreover, we are also a shipping company, a real estate company, an international freight railway, a bus company and transport cars safely through the Lötschberg and the Simplon. What connects us? Proud of what we do every day. Mobility has many facets for us. And lots of exciting jobs.",
-        "de": "Der Schriftzug der S-Bahnfahrzeuge strahlt mit der Abendsonne um die Wette. Das ist dein Verdienst! Bei der letzten Fahrzeugrevision haben deine Kollegen die mechanischen und elektrischen Teile aufgefrischt, während du dich um die fachgerechte Neubeschriftung gekümmert hast. So funktioniert das Fahrzeug nicht nur zuverlässig, sondern erscheint auch in sympathisch neuem Glanz.\n\nDas wartet auf dich:\n\n• Foliendrucke, Schriften und Piktogramme am modernen Plotter entstehen lassen\n\n• Folien millimetergenau auf BLS- und Dritt-Fahrzeugen applizieren – dein präzises Handwerk fährt durchs ganze Netz\n\n• Kreativität ausleben im modern eingerichteten Schriften-Atelier – hier bekommen deine Ideen Raum und Wirkung\n\n• Im direkten Austausch mit internen und externen Kundinnen smarte Ideen zu sichtbaren Lösungen machen\n\n• Den Bereich Beschriftung formen und mit innovativen Ideen neue Einsatzfelder auf die Schiene bringen\n\nDas bringst du mit:\n\n• Abgeschlossene Ausbildung in Werbetechnik, Polygrafie, Schriftenmalerei, Grafik oder gleichwertigem Beruf\n\n• Sicherer Umgang mit gängigen Grafikprogrammen und Technik für präzises Arbeiten\n\n• Mehrjährige Erfahrung in Werbetechnik, Beschriftung oder Folienverarbeitung\n\n• Ausgeprägte Kundenorientierung und Freude am direkten Austausch\n\n• Eigenständigkeit, hohe Gewissenhaftigkeit und Offenheit für Einsätze in anderen Werkstattbereichen\n\nÜber die BLS\n\nMit fast 4000 Mitarbeitenden ist die BLS das zweitgrösste Bahnunternehmen der Schweiz. Mehr noch: Wir sind auch eine Schifffahrtsgesellschaft, eine Immobilienfirma, eine internationale Güterbahn, ein Busunternehmen und transportieren Autos sicher durch den Lötschberg und den Simplon. Was uns dabei verbindet? Der Stolz auf das, was wir jeden Tag tun. Mobilität hat für uns viele Facetten. Und viele spannende Jobs.",
-        "fr": "Le lettrage des véhicules S-Bahn rayonne avec le soleil du soir pour le pari. C'est votre mérite ! Lors de la dernière révision du véhicule, vos collègues ont rafraîchi les pièces mécaniques et électriques pendant que vous avez pris soin du reétiquetage professionnel. Ainsi, le véhicule non seulement fonctionne de manière fiable, mais apparaît également dans une brillance sympathiquement nouvelle. Ceci vous attend :\n• Créez des impressions de feuilles, des polices et des pictogrammes sur le traceur moderne\n• Appliquer des glissières au millimètre précis sur les véhicules BLS et les véhicules tiers – votre embarcation précise traverse tout le réseau\n• Vivre la créativité dans le studio d'écriture moderne – ici vos idées ont de l'espace et de l'impact\n• En échange direct avec les clients internes et externes, transformer les idées intelligentes en solutions visibles\n• Façonner le domaine de l'étiquetage et apporter de nouveaux domaines d'application au rail avec des idées innovantes C'est ce que vous apportez avec vous :\n• Formation complète en technologie publicitaire, polygraphie, écriture, graphisme ou profession équivalente\n• Gestion sûre des programmes graphiques communs et de la technologie pour un travail précis\n• Plusieurs années d'expérience en technologie publicitaire, inscription ou traitement de films\n• Orientation client forte et jouissance de l'échange direct\n• Indépendance, grande conscience et ouverture au travail dans d'autres domaines À propos du BLS Avec près de 4 000 employés, BLS est la deuxième compagnie ferroviaire en Suisse. En outre, nous sommes également une compagnie maritime, une société immobilière, un chemin de fer international de fret, une compagnie d'autobus et de transport de voitures en toute sécurité à travers le Lötschberg et le Simplon. Qu'est-ce qui nous relie ? Fier de ce qu'on fait tous les jours. La mobilité a de nombreuses facettes pour nous. Et beaucoup d'emplois passionnants."
-      },
-      "location": "Bönigen",
-      "canton": "BE",
-      "url": "https://jobs.bls.ch/offene-stellen/fachperson-beschriftung-und-grafik/b2005728-e8ef-4493-9545-57ddfb0dcb8a",
-      "source": "BLS AG Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-30T11:15:39.255Z",
-      "addressLocality": "Bönigen",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3806",
-      "category": "Altro",
-      "contract": "part-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Trasporti / Ferrovia",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-30",
-      "validThrough": "2026-07-30",
-      "pensum": "80-100%",
-      "salary": "95247",
-      "applyUrl": "https://jobs.bls.ch/apply/ats/b2005728-e8ef-4493-9545-57ddfb0dcb8a",
-      "requirements": [
-        "Abgeschlossene Ausbildung in Werbetechnik, Polygrafie, Schriftenmalerei, Grafik oder gleichwertigem Beruf",
-        "Sicherer Umgang mit gängigen Grafikprogrammen und Technik für präzises Arbeiten",
-        "Mehrjährige Erfahrung in Werbetechnik, Beschriftung oder Folienverarbeitung",
-        "Ausgeprägte Kundenorientierung und Freude am direkten Austausch",
-        "Eigenständigkeit, hohe Gewissenhaftigkeit und Offenheit für Einsätze in anderen Werkstattbereichen"
-      ],
-      "requirementsByLocale": {
-        "de": [
-          "Abgeschlossene Ausbildung in Werbetechnik, Polygrafie, Schriftenmalerei, Grafik oder gleichwertigem Beruf",
-          "Sicherer Umgang mit gängigen Grafikprogrammen und Technik für präzises Arbeiten",
-          "Mehrjährige Erfahrung in Werbetechnik, Beschriftung oder Folienverarbeitung",
-          "Ausgeprägte Kundenorientierung und Freude am direkten Austausch",
-          "Eigenständigkeit, hohe Gewissenhaftigkeit und Offenheit für Einsätze in anderen Werkstattbereichen"
-        ]
-      },
-      "previousSlugs": [
-        "fachperson-beschriftung-und-grafik-bls-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "fachperson-beschriftung-und-grafik-bls-ch"
-        ],
-        "en": [
-          "fachperson-beschriftung-und-grafik-bls-ch"
-        ],
-        "fr": [
-          "fachperson-beschriftung-und-grafik-bls-ch"
-        ]
-      },
-      "firstSeenAt": "2026-07-01T11:16:16.079Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
           "unitText": "YEAR"
         }
       },
@@ -314,7 +223,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/junior-betriebsplaner-in-bus/a564855b-b74c-48e0-994f-4865aa551b52",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-30T11:15:38.581Z",
+      "crawledAt": "2026-07-30T22:19:58.301Z",
       "addressLocality": "Burgdorf",
       "addressCountry": "CH",
       "country": "CH",
@@ -361,6 +270,7 @@
         ]
       },
       "firstSeenAt": "2026-07-13T13:12:39.014Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -406,7 +316,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/teamleiter-in-tunneltechnik-loetschberg-basistunnel-lbt/87090c34-c9fd-4541-a605-c35c2780277d",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-30T11:15:37.848Z",
+      "crawledAt": "2026-07-30T22:19:57.442Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -453,6 +363,7 @@
         ]
       },
       "firstSeenAt": "2026-07-20T12:20:28.123Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -498,7 +409,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/junior-produktemanager-in-autoverlad/05b45652-0fb7-46c8-ae2b-861a6f8737b2",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-30T11:15:36.931Z",
+      "crawledAt": "2026-07-30T22:19:56.584Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -551,6 +462,7 @@
         ]
       },
       "firstSeenAt": "2026-07-20T12:20:22.725Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -596,7 +508,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/kaeltesystemtechniker-in-lueftung-und-klima/2a7b3bed-4367-4ac7-b091-f2a5cbb4e352",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-30T11:15:36.181Z",
+      "crawledAt": "2026-07-30T22:19:55.734Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -653,6 +565,7 @@
         ]
       },
       "firstSeenAt": "2026-07-19T11:47:54.009Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -698,7 +611,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/baufuehrer-in-bahnbau/adcb2459-2080-47bc-964b-82d7764e2de5",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-30T11:15:35.355Z",
+      "crawledAt": "2026-07-30T22:19:54.896Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -749,6 +662,7 @@
         ]
       },
       "firstSeenAt": "2026-07-21T11:35:29.865Z",
+      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "baseSalary": {
@@ -794,7 +708,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/automechatroniker-in-lastwagenmechaniker-in-automatiker-in/dd034dae-6852-48aa-9341-ddcb2703eeda",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-30T11:15:34.621Z",
+      "crawledAt": "2026-07-30T22:19:54.046Z",
       "addressLocality": "Givisiez",
       "addressCountry": "CH",
       "country": "CH",
@@ -854,6 +768,7 @@
         ]
       },
       "firstSeenAt": "2026-07-21T22:12:15.491Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -899,7 +814,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/instandhalter-in-schienenfahrzeuge/66a57cf3-3129-460e-9433-b7cc2d9f708d",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-30T11:15:33.651Z",
+      "crawledAt": "2026-07-30T22:19:53.186Z",
       "addressLocality": "Givisiez",
       "addressCountry": "CH",
       "country": "CH",
@@ -953,6 +868,7 @@
         ]
       },
       "firstSeenAt": "2026-07-21T22:12:14.673Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -982,7 +898,7 @@
       "title": "Applikations-Manager:in IAM",
       "titleByLocale": {
         "it": "Gestione delle applicazioni: in IAM",
-        "en": "Application Manager: in IAM",
+        "en": "Applikations-Manager:in IAM",
         "de": "Applikations-Manager:in IAM",
         "fr": "Gestionnaire d'applications: dans IAM"
       },
@@ -998,7 +914,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/applikations-manager-in-iam/fd2c2f22-9bec-4fb3-8d6c-80fb0d3db40d",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-30T11:15:32.958Z",
+      "crawledAt": "2026-07-30T22:19:52.470Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1045,6 +961,7 @@
         ]
       },
       "firstSeenAt": "2026-07-27T12:37:59.826Z",
+      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "baseSalary": {
@@ -1074,7 +991,7 @@
       "title": "Senior SAP Applikations-Manager:in BW",
       "titleByLocale": {
         "it": "Senior SAP Application Manager: in BW",
-        "en": "Senior SAP Application Manager: in BW",
+        "en": "Senior SAP Applikations-Manager:in BW",
         "de": "Senior SAP Applikations-Manager:in BW",
         "fr": "Gestionnaire principal des applications SAP : en BW"
       },
@@ -1090,7 +1007,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/senior-sap-applikations-manager-in-bw/0e392cd3-6e6f-4eca-8557-b7661f67095c",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-30T11:15:32.140Z",
+      "crawledAt": "2026-07-30T22:19:51.609Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1134,6 +1051,7 @@
         ]
       },
       "firstSeenAt": "2026-07-27T22:13:31.784Z",
+      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "baseSalary": {
@@ -1179,7 +1097,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/produktionsplaner-in-regelplanung/d8365f87-cb27-47ca-ae73-85c1bcc1d1ea",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-30T11:15:31.399Z",
+      "crawledAt": "2026-07-30T22:19:50.766Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1193,7 +1111,7 @@
       "currency": "CHF",
       "featured": false,
       "postedDate": "2026-07-27",
-      "validThrough": "2026-08-26",
+      "validThrough": "2026-08-27",
       "pensum": "60-100%",
       "salary": "118241",
       "applyUrl": "https://jobs.bls.ch/apply/ats/d8365f87-cb27-47ca-ae73-85c1bcc1d1ea",
@@ -1231,6 +1149,7 @@
         ]
       },
       "firstSeenAt": "2026-07-29T11:38:10.034Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -1276,7 +1195,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/elektroinstallateur-in-monteur-in-signaltechnik/f9f80fc2-eb10-485c-99b6-121e4f34f898",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-30T11:15:30.652Z",
+      "crawledAt": "2026-07-30T22:19:49.791Z",
       "addressLocality": "Hasle bei Burgdorf",
       "addressCountry": "CH",
       "country": "CH",
@@ -1289,7 +1208,7 @@
       "currency": "CHF",
       "featured": false,
       "postedDate": "2026-07-29",
-      "validThrough": "2026-08-27",
+      "validThrough": "2026-08-28",
       "pensum": "80-100%",
       "salary": "90860",
       "applyUrl": "https://jobs.bls.ch/apply/ats/f9f80fc2-eb10-485c-99b6-121e4f34f898",
@@ -1328,6 +1247,7 @@
         ]
       },
       "firstSeenAt": "2026-07-29T11:38:08.799Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -1341,6 +1261,164 @@
         }
       },
       "addressRegion": "BE"
+    },
+    {
+      "id": "bls-8103eb3a6666",
+      "slug": "tecnico-di-preparazione-dei-treni-pdt-bls-ch",
+      "slugByLocale": {
+        "it": "tecnico-di-preparazione-dei-treni-pdt-bls-ch",
+        "en": "tecnico-di-preparazione-dei-treni-pdt-bls-ch",
+        "de": "tecnico-di-preparazione-dei-treni-pdt-bls-ch",
+        "fr": "tecnico-di-preparazione-dei-treni-pdt-bls-ch"
+      },
+      "company": "BLS AG",
+      "companyKey": "bls",
+      "companyDomain": "bls.ch",
+      "title": "Tecnico di preparazione dei treni (PDT)",
+      "titleByLocale": {
+        "it": "Tecnico di preparazione dei treni (PDT)",
+        "en": "Technician di preparazione dei treni (PDT)",
+        "de": "Techniker di preparazione dei treni (PDT)",
+        "fr": "Technicien di preparazione dei treni (PDT)"
+      },
+      "description": "Senza di te nessun treno può partire. Come membro dell'affiatato team di BLS Cargo Italia, ti assicuri che tutto funzioni alla perfezione. Il trasporto ferroviario ti appassiona e in un batter d'occhio fai in modo che i nostri treni possano circolare. Grazie a te, migliaia di tonnellate di merci possono attraversare le Alpi in tutta sicurezza.\n\nIl tuo lavoro:\n\n• Formazione del treno: rilevamento dei dati caratteristici e preparazione dei documenti scorta treno\n\n• Verifica tecnica dei veicoli e del carico.\n\n• Verifica dell'idoneità alla circolazione.\n\n• Garantire il rispetto degli standard di sicurezza.\n\n• Attività di manovra ferroviaria: Unione e distacco dei veicoli ferroviari.\n\n• Composizione e scomposizione dei convogli.\n\n• Supporto alle operazioni necessarie per la preparazione del treno.\n\nLe tue competenze:\n\n• Abilitazione PDT completo : Tecnico di preparazione treni e comprovata esperienza pregressa nel ruolo di PDT Italia\n\n• Buone conoscenze informatiche\n\n• Diploma di scuola superiore\n\n• Ottima conoscenza della lingua italiana\n\n• Anche se non obbligatorie, costituiranno titolo preferenziale il possesso di abilitazioni ferroviarie di TKC / ZV Svizzera\n\n• La conoscenza delle lingue inglese e tedesco\n\nChi siamo\n\nNon possiamo spostare le montagne, è chiaro. Ma non importa. Perché, come alpinisti esperti nel trasporto merci su rotaia, vediamo le montagne come una sfida, non come un ostacolo. Trasportiamo merci di tonnellate dal Mare del Nord, attraverso le Alpi, fino al Mediterraneo, e questa è un'impresa complessa. La affrontiamo in squadra con i nostri circa 450 collaboratori in Svizzera, Belgio, Germania e Italia. I nostri clienti sono internazionali, le nostre radici locali. Proprio per questo lavorare per BLS Cargo è particolarmente stimolante.",
+      "descriptionByLocale": {
+        "it": "Senza di te nessun treno può partire. Come membro dell'affiatato team di BLS Cargo Italia, ti assicuri che tutto funzioni alla perfezione. Il trasporto ferroviario ti appassiona e in un batter d'occhio fai in modo che i nostri treni possano circolare. Grazie a te, migliaia di tonnellate di merci possono attraversare le Alpi in tutta sicurezza.\n\nIl tuo lavoro:\n\n• Formazione del treno: rilevamento dei dati caratteristici e preparazione dei documenti scorta treno\n\n• Verifica tecnica dei veicoli e del carico.\n\n• Verifica dell'idoneità alla circolazione.\n\n• Garantire il rispetto degli standard di sicurezza.\n\n• Attività di manovra ferroviaria: Unione e distacco dei veicoli ferroviari.\n\n• Composizione e scomposizione dei convogli.\n\n• Supporto alle operazioni necessarie per la preparazione del treno.\n\nLe tue competenze:\n\n• Abilitazione PDT completo : Tecnico di preparazione treni e comprovata esperienza pregressa nel ruolo di PDT Italia\n\n• Buone conoscenze informatiche\n\n• Diploma di scuola superiore\n\n• Ottima conoscenza della lingua italiana\n\n• Anche se non obbligatorie, costituiranno titolo preferenziale il possesso di abilitazioni ferroviarie di TKC / ZV Svizzera\n\n• La conoscenza delle lingue inglese e tedesco\n\nChi siamo\n\nNon possiamo spostare le montagne, è chiaro. Ma non importa. Perché, come alpinisti esperti nel trasporto merci su rotaia, vediamo le montagne come una sfida, non come un ostacolo. Trasportiamo merci di tonnellate dal Mare del Nord, attraverso le Alpi, fino al Mediterraneo, e questa è un'impresa complessa. La affrontiamo in squadra con i nostri circa 450 collaboratori in Svizzera, Belgio, Germania e Italia. I nostri clienti sono internazionali, le nostre radici locali. Proprio per questo lavorare per BLS Cargo è particolarmente stimolante.",
+        "en": "Senza di te nessun treno può partire. Come membro dell'affiatato team di BLS Cargo Italia, ti assicuri che tutto funzioni alla perfezione. Il trasporto ferroviario ti appassiona e in un batter d'occhio fai in modo che i nostri treni possano circolare. Grazie a te, migliaia di tonnellate di merci possono attraversare le Alpi in tutta sicurezza.\n\nIl tuo lavoro:\n\n• Formazione del treno: rilevamento dei dati caratteristici e preparazione dei documenti scorta treno\n\n• Verifica tecnica dei veicoli e del carico.\n\n• Verifica dell'idoneità alla circolazione.\n\n• Garantire il rispetto degli standard di sicurezza.\n\n• Attività di manovra ferroviaria: Unione e distacco dei veicoli ferroviari.\n\n• Composizione e scomposizione dei convogli.\n\n• Supporto alle operazioni necessarie per la preparazione del treno.\n\nLe tue competenze:\n\n• Abilitazione PDT completo : Tecnico di preparazione treni e comprovata esperienza pregressa nel ruolo di PDT Italia\n\n• Buone conoscenze informatiche\n\n• Diploma di scuola superiore\n\n• Ottima conoscenza della lingua italiana\n\n• Anche se non obbligatorie, costituiranno titolo preferenziale il possesso di abilitazioni ferroviarie di TKC / ZV Svizzera\n\n• La conoscenza delle lingue inglese e tedesco\n\nChi siamo\n\nNon possiamo spostare le montagne, è chiaro. Ma non importa. Perché, come alpinisti esperti nel trasporto merci su rotaia, vediamo le montagne come una sfida, non come un ostacolo. Trasportiamo merci di tonnellate dal Mare del Nord, attraverso le Alpi, fino al Mediterraneo, e questa è un'impresa complessa. La affrontiamo in squadra con i nostri circa 450 collaboratori in Svizzera, Belgio, Germania e Italia. I nostri clienti sono internazionali, le nostre radici locali. Proprio per questo lavorare per BLS Cargo è particolarmente stimolante.",
+        "de": "Senza di te nessun treno può partire. Come membro dell'affiatato team di BLS Cargo Italia, ti assicuri che tutto funzioni alla perfezione. Il trasporto ferroviario ti appassiona e in un batter d'occhio fai in modo che i nostri treni possano circolare. Grazie a te, migliaia di tonnellate di merci possono attraversare le Alpi in tutta sicurezza.\n\nIl tuo lavoro:\n\n• Formazione del treno: rilevamento dei dati caratteristici e preparazione dei documenti scorta treno\n\n• Verifica tecnica dei veicoli e del carico.\n\n• Verifica dell'idoneità alla circolazione.\n\n• Garantire il rispetto degli standard di sicurezza.\n\n• Attività di manovra ferroviaria: Unione e distacco dei veicoli ferroviari.\n\n• Composizione e scomposizione dei convogli.\n\n• Supporto alle operazioni necessarie per la preparazione del treno.\n\nLe tue competenze:\n\n• Abilitazione PDT completo : Tecnico di preparazione treni e comprovata esperienza pregressa nel ruolo di PDT Italia\n\n• Buone conoscenze informatiche\n\n• Diploma di scuola superiore\n\n• Ottima conoscenza della lingua italiana\n\n• Anche se non obbligatorie, costituiranno titolo preferenziale il possesso di abilitazioni ferroviarie di TKC / ZV Svizzera\n\n• La conoscenza delle lingue inglese e tedesco\n\nChi siamo\n\nNon possiamo spostare le montagne, è chiaro. Ma non importa. Perché, come alpinisti esperti nel trasporto merci su rotaia, vediamo le montagne come una sfida, non come un ostacolo. Trasportiamo merci di tonnellate dal Mare del Nord, attraverso le Alpi, fino al Mediterraneo, e questa è un'impresa complessa. La affrontiamo in squadra con i nostri circa 450 collaboratori in Svizzera, Belgio, Germania e Italia. I nostri clienti sono internazionali, le nostre radici locali. Proprio per questo lavorare per BLS Cargo è particolarmente stimolante.",
+        "fr": "Senza di te nessun treno può partire. Come membro dell'affiatato team di BLS Cargo Italia, ti assicuri che tutto funzioni alla perfezione. Il trasporto ferroviario ti appassiona e in un batter d'occhio fai in modo che i nostri treni possano circolare. Grazie a te, migliaia di tonnellate di merci possono attraversare le Alpi in tutta sicurezza.\n\nIl tuo lavoro:\n\n• Formazione del treno: rilevamento dei dati caratteristici e preparazione dei documenti scorta treno\n\n• Verifica tecnica dei veicoli e del carico.\n\n• Verifica dell'idoneità alla circolazione.\n\n• Garantire il rispetto degli standard di sicurezza.\n\n• Attività di manovra ferroviaria: Unione e distacco dei veicoli ferroviari.\n\n• Composizione e scomposizione dei convogli.\n\n• Supporto alle operazioni necessarie per la preparazione del treno.\n\nLe tue competenze:\n\n• Abilitazione PDT completo : Tecnico di preparazione treni e comprovata esperienza pregressa nel ruolo di PDT Italia\n\n• Buone conoscenze informatiche\n\n• Diploma di scuola superiore\n\n• Ottima conoscenza della lingua italiana\n\n• Anche se non obbligatorie, costituiranno titolo preferenziale il possesso di abilitazioni ferroviarie di TKC / ZV Svizzera\n\n• La conoscenza delle lingue inglese e tedesco\n\nChi siamo\n\nNon possiamo spostare le montagne, è chiaro. Ma non importa. Perché, come alpinisti esperti nel trasporto merci su rotaia, vediamo le montagne come una sfida, non come un ostacolo. Trasportiamo merci di tonnellate dal Mare del Nord, attraverso le Alpi, fino al Mediterraneo, e questa è un'impresa complessa. La affrontiamo in squadra con i nostri circa 450 collaboratori in Svizzera, Belgio, Germania e Italia. I nostri clienti sono internazionali, le nostre radici locali. Proprio per questo lavorare per BLS Cargo è particolarmente stimolante."
+      },
+      "location": "Beura-cardezza",
+      "canton": "",
+      "url": "https://jobs.bls.ch/offene-stellen/tecnico-di-preparazione-dei-treni-pdt/ae78f81d-0c6c-446a-877f-5dfbc60c8096",
+      "source": "BLS AG Dedicated Parser",
+      "sourceLang": "it",
+      "crawledAt": "2026-07-30T22:19:48.942Z",
+      "addressLocality": "Beura-cardezza",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "28851",
+      "category": "Tecnica",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Trasporti / Ferrovia",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-30",
+      "validThrough": "2026-08-29",
+      "pensum": "80-100%",
+      "applyUrl": "https://jobs.bls.ch/apply/ats/ae78f81d-0c6c-446a-877f-5dfbc60c8096",
+      "requirements": [
+        "Abilitazione PDT completo : Tecnico di preparazione treni e comprovata esperienza pregressa nel ruolo di PDT Italia",
+        "Buone conoscenze informatiche",
+        "Diploma di scuola superiore",
+        "Ottima conoscenza della lingua italiana",
+        "Anche se non obbligatorie, costituiranno titolo preferenziale il possesso di abilitazioni ferroviarie di TKC / ZV Svizzera",
+        "La conoscenza delle lingue inglese e tedesco"
+      ],
+      "requirementsByLocale": {
+        "it": [
+          "Abilitazione PDT completo : Tecnico di preparazione treni e comprovata esperienza pregressa nel ruolo di PDT Italia",
+          "Buone conoscenze informatiche",
+          "Diploma di scuola superiore",
+          "Ottima conoscenza della lingua italiana",
+          "Anche se non obbligatorie, costituiranno titolo preferenziale il possesso di abilitazioni ferroviarie di TKC / ZV Svizzera",
+          "La conoscenza delle lingue inglese e tedesco"
+        ]
+      },
+      "needsRetranslation": true,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-07-30T22:19:48.942Z"
+    },
+    {
+      "id": "bls-c2a23f604cc3",
+      "slug": "operatrice-operatore-di-sala-operativa-bls-ch",
+      "slugByLocale": {
+        "it": "operatrice-operatore-di-sala-operativa-bls-ch",
+        "en": "operatrice-operatore-di-sala-operativa-bls-ch",
+        "de": "operatrice-operatore-di-sala-operativa-bls-ch",
+        "fr": "operatrice-operatore-di-sala-operativa-bls-ch"
+      },
+      "company": "BLS AG",
+      "companyKey": "bls",
+      "companyDomain": "bls.ch",
+      "title": "Operatrice/Operatore di Sala Operativa",
+      "titleByLocale": {
+        "it": "Operatrice/Operatore di Sala Operativa",
+        "en": "Operatrice/Operatore di Sala Operativa",
+        "de": "Operatrice/Operatore di Sala Operativa",
+        "fr": "Operatrice/Operatore di Sala Operativa"
+      },
+      "description": "Senza di te nessun treno può partire. Come membro dell'affiatato team di BLS Cargo Italia, ti assicuri che tutto funzioni alla perfezione. Il trasporto ferroviario ti appassiona e in un batter d'occhio fai in modo che i nostri treni possano circolare. Grazie a te, migliaia di tonnellate di merci possono attraversare le Alpi in tutta sicurezza.\n\nIl tuo lavoro:\n\n• Inserire e monitorare i dati attraverso software dedicati, assicurando la regolare partenza e l'andamento dei treni\n\n• Interfacciarti con le altre imprese ferroviarie e i terminal per una gestione ottimale del traffico ferroviario\n\n• Gestire situazioni di emergenza e di stress e risolvere problematiche in tempo reale garantendo il corretto svolgimento dell'esercizio\n\n• Gestione delle risorse mirata alla copertura del traffico ferroviario\n\nLe tue competenze:\n\n• Ottima conoscenza della lingua italiana, almeno C1\n\n• Buona conoscenza della lingua tedesca e/o inglese, almeno B2\n\n• Buone conoscenze informatiche\n\n• Diploma di scuola superiore\n\n• Anche se non obbligatorie, costituiranno titolo preferenziale una comprovata esperienza pregressa nel ruolo e il possesso di abilitazioni ferroviarie di TKC / ZV Svizzera o PDT Italia\n\nChi siamo\n\nNon possiamo spostare le montagne, è chiaro. Ma non importa. Perché, come alpinisti esperti nel trasporto merci su rotaia, vediamo le montagne come una sfida, non come un ostacolo. Trasportiamo merci di tonnellate dal Mare del Nord, attraverso le Alpi, fino al Mediterraneo, e questa è un'impresa complessa. La affrontiamo in squadra con i nostri circa 450 collaboratori in Svizzera, Belgio, Germania e Italia. I nostri clienti sono internazionali, le nostre radici locali. Proprio per questo lavorare per BLS Cargo è particolarmente stimolante.",
+      "descriptionByLocale": {
+        "it": "Senza di te nessun treno può partire. Come membro dell'affiatato team di BLS Cargo Italia, ti assicuri che tutto funzioni alla perfezione. Il trasporto ferroviario ti appassiona e in un batter d'occhio fai in modo che i nostri treni possano circolare. Grazie a te, migliaia di tonnellate di merci possono attraversare le Alpi in tutta sicurezza.\n\nIl tuo lavoro:\n\n• Inserire e monitorare i dati attraverso software dedicati, assicurando la regolare partenza e l'andamento dei treni\n\n• Interfacciarti con le altre imprese ferroviarie e i terminal per una gestione ottimale del traffico ferroviario\n\n• Gestire situazioni di emergenza e di stress e risolvere problematiche in tempo reale garantendo il corretto svolgimento dell'esercizio\n\n• Gestione delle risorse mirata alla copertura del traffico ferroviario\n\nLe tue competenze:\n\n• Ottima conoscenza della lingua italiana, almeno C1\n\n• Buona conoscenza della lingua tedesca e/o inglese, almeno B2\n\n• Buone conoscenze informatiche\n\n• Diploma di scuola superiore\n\n• Anche se non obbligatorie, costituiranno titolo preferenziale una comprovata esperienza pregressa nel ruolo e il possesso di abilitazioni ferroviarie di TKC / ZV Svizzera o PDT Italia\n\nChi siamo\n\nNon possiamo spostare le montagne, è chiaro. Ma non importa. Perché, come alpinisti esperti nel trasporto merci su rotaia, vediamo le montagne come una sfida, non come un ostacolo. Trasportiamo merci di tonnellate dal Mare del Nord, attraverso le Alpi, fino al Mediterraneo, e questa è un'impresa complessa. La affrontiamo in squadra con i nostri circa 450 collaboratori in Svizzera, Belgio, Germania e Italia. I nostri clienti sono internazionali, le nostre radici locali. Proprio per questo lavorare per BLS Cargo è particolarmente stimolante.",
+        "en": "Senza di te nessun treno può partire. Come membro dell'affiatato team di BLS Cargo Italia, ti assicuri che tutto funzioni alla perfezione. Il trasporto ferroviario ti appassiona e in un batter d'occhio fai in modo che i nostri treni possano circolare. Grazie a te, migliaia di tonnellate di merci possono attraversare le Alpi in tutta sicurezza.\n\nIl tuo lavoro:\n\n• Inserire e monitorare i dati attraverso software dedicati, assicurando la regolare partenza e l'andamento dei treni\n\n• Interfacciarti con le altre imprese ferroviarie e i terminal per una gestione ottimale del traffico ferroviario\n\n• Gestire situazioni di emergenza e di stress e risolvere problematiche in tempo reale garantendo il corretto svolgimento dell'esercizio\n\n• Gestione delle risorse mirata alla copertura del traffico ferroviario\n\nLe tue competenze:\n\n• Ottima conoscenza della lingua italiana, almeno C1\n\n• Buona conoscenza della lingua tedesca e/o inglese, almeno B2\n\n• Buone conoscenze informatiche\n\n• Diploma di scuola superiore\n\n• Anche se non obbligatorie, costituiranno titolo preferenziale una comprovata esperienza pregressa nel ruolo e il possesso di abilitazioni ferroviarie di TKC / ZV Svizzera o PDT Italia\n\nChi siamo\n\nNon possiamo spostare le montagne, è chiaro. Ma non importa. Perché, come alpinisti esperti nel trasporto merci su rotaia, vediamo le montagne come una sfida, non come un ostacolo. Trasportiamo merci di tonnellate dal Mare del Nord, attraverso le Alpi, fino al Mediterraneo, e questa è un'impresa complessa. La affrontiamo in squadra con i nostri circa 450 collaboratori in Svizzera, Belgio, Germania e Italia. I nostri clienti sono internazionali, le nostre radici locali. Proprio per questo lavorare per BLS Cargo è particolarmente stimolante.",
+        "de": "Senza di te nessun treno può partire. Come membro dell'affiatato team di BLS Cargo Italia, ti assicuri che tutto funzioni alla perfezione. Il trasporto ferroviario ti appassiona e in un batter d'occhio fai in modo che i nostri treni possano circolare. Grazie a te, migliaia di tonnellate di merci possono attraversare le Alpi in tutta sicurezza.\n\nIl tuo lavoro:\n\n• Inserire e monitorare i dati attraverso software dedicati, assicurando la regolare partenza e l'andamento dei treni\n\n• Interfacciarti con le altre imprese ferroviarie e i terminal per una gestione ottimale del traffico ferroviario\n\n• Gestire situazioni di emergenza e di stress e risolvere problematiche in tempo reale garantendo il corretto svolgimento dell'esercizio\n\n• Gestione delle risorse mirata alla copertura del traffico ferroviario\n\nLe tue competenze:\n\n• Ottima conoscenza della lingua italiana, almeno C1\n\n• Buona conoscenza della lingua tedesca e/o inglese, almeno B2\n\n• Buone conoscenze informatiche\n\n• Diploma di scuola superiore\n\n• Anche se non obbligatorie, costituiranno titolo preferenziale una comprovata esperienza pregressa nel ruolo e il possesso di abilitazioni ferroviarie di TKC / ZV Svizzera o PDT Italia\n\nChi siamo\n\nNon possiamo spostare le montagne, è chiaro. Ma non importa. Perché, come alpinisti esperti nel trasporto merci su rotaia, vediamo le montagne come una sfida, non come un ostacolo. Trasportiamo merci di tonnellate dal Mare del Nord, attraverso le Alpi, fino al Mediterraneo, e questa è un'impresa complessa. La affrontiamo in squadra con i nostri circa 450 collaboratori in Svizzera, Belgio, Germania e Italia. I nostri clienti sono internazionali, le nostre radici locali. Proprio per questo lavorare per BLS Cargo è particolarmente stimolante.",
+        "fr": "Senza di te nessun treno può partire. Come membro dell'affiatato team di BLS Cargo Italia, ti assicuri che tutto funzioni alla perfezione. Il trasporto ferroviario ti appassiona e in un batter d'occhio fai in modo che i nostri treni possano circolare. Grazie a te, migliaia di tonnellate di merci possono attraversare le Alpi in tutta sicurezza.\n\nIl tuo lavoro:\n\n• Inserire e monitorare i dati attraverso software dedicati, assicurando la regolare partenza e l'andamento dei treni\n\n• Interfacciarti con le altre imprese ferroviarie e i terminal per una gestione ottimale del traffico ferroviario\n\n• Gestire situazioni di emergenza e di stress e risolvere problematiche in tempo reale garantendo il corretto svolgimento dell'esercizio\n\n• Gestione delle risorse mirata alla copertura del traffico ferroviario\n\nLe tue competenze:\n\n• Ottima conoscenza della lingua italiana, almeno C1\n\n• Buona conoscenza della lingua tedesca e/o inglese, almeno B2\n\n• Buone conoscenze informatiche\n\n• Diploma di scuola superiore\n\n• Anche se non obbligatorie, costituiranno titolo preferenziale una comprovata esperienza pregressa nel ruolo e il possesso di abilitazioni ferroviarie di TKC / ZV Svizzera o PDT Italia\n\nChi siamo\n\nNon possiamo spostare le montagne, è chiaro. Ma non importa. Perché, come alpinisti esperti nel trasporto merci su rotaia, vediamo le montagne come una sfida, non come un ostacolo. Trasportiamo merci di tonnellate dal Mare del Nord, attraverso le Alpi, fino al Mediterraneo, e questa è un'impresa complessa. La affrontiamo in squadra con i nostri circa 450 collaboratori in Svizzera, Belgio, Germania e Italia. I nostri clienti sono internazionali, le nostre radici locali. Proprio per questo lavorare per BLS Cargo è particolarmente stimolante."
+      },
+      "location": "Beura-cardezza",
+      "canton": "",
+      "url": "https://jobs.bls.ch/offene-stellen/operatrice-operatore-di-sala-operativa/b6563f4f-7ab2-4d50-b20b-fa3a8dec7dfe",
+      "source": "BLS AG Dedicated Parser",
+      "sourceLang": "it",
+      "crawledAt": "2026-07-30T22:19:48.191Z",
+      "addressLocality": "Beura-cardezza",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "28851",
+      "category": "Produzione",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Trasporti / Ferrovia",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-30",
+      "validThrough": "2026-08-29",
+      "pensum": "80-100%",
+      "applyUrl": "https://jobs.bls.ch/apply/ats/b6563f4f-7ab2-4d50-b20b-fa3a8dec7dfe",
+      "requirements": [
+        "Ottima conoscenza della lingua italiana, almeno C1",
+        "Buona conoscenza della lingua tedesca e/o inglese, almeno B2",
+        "Buone conoscenze informatiche",
+        "Diploma di scuola superiore",
+        "Anche se non obbligatorie, costituiranno titolo preferenziale una comprovata esperienza pregressa nel ruolo e il possesso di abilitazioni ferroviarie di TKC / ZV Svizzera o PDT Italia"
+      ],
+      "requirementsByLocale": {
+        "it": [
+          "Ottima conoscenza della lingua italiana, almeno C1",
+          "Buona conoscenza della lingua tedesca e/o inglese, almeno B2",
+          "Buone conoscenze informatiche",
+          "Diploma di scuola superiore",
+          "Anche se non obbligatorie, costituiranno titolo preferenziale una comprovata esperienza pregressa nel ruolo e il possesso di abilitazioni ferroviarie di TKC / ZV Svizzera o PDT Italia"
+        ]
+      },
+      "needsRetranslation": true,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-07-30T22:19:48.191Z"
     }
   ]
 }
