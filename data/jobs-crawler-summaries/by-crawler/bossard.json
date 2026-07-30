@@ -1,16 +1,16 @@
 {
   "key": "bossard",
   "label": "Bossard Group",
-  "generatedAt": "2026-07-30T11:25:28.769Z",
-  "total": 8,
+  "generatedAt": "2026-07-30T22:12:11.912Z",
+  "total": 7,
   "newCount": 0,
   "updatedCount": 7,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 8172,
-  "avgDurationMs": 8172,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 10597,
+  "avgDurationMs": 10597,
   "durationHistory": [
-    8172
+    10597
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -27,7 +27,7 @@
       "url": "https://bossard.wd103.myworkdayjobs.com/en/BossardJobs/job/Zug/Logistikmitarbeiter-in-Bereich-Warenbereitstellung-Export-100---all-genders----Bossard-AG_",
       "source": "Bossard Group Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-30T11:25:23.463Z",
+      "crawledAt": "2026-07-30T22:12:05.242Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "streetAddress": "Steinhauserstrasse 70",
@@ -66,7 +66,7 @@
       "url": "https://bossard.wd103.myworkdayjobs.com/en/BossardJobs/job/Zug/Sachbearbeiter-in-Smart-Factory-Logistics-80-100---all-genders----Bossard-AG_",
       "source": "Bossard Group Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-30T11:25:21.945Z",
+      "crawledAt": "2026-07-30T22:12:02.916Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "streetAddress": "Steinhauserstrasse 70",
@@ -105,7 +105,7 @@
       "url": "https://bossard.wd103.myworkdayjobs.com/en/BossardJobs/job/Zug/Account-Manager-Inside-Sales---Bossard-AG_-1",
       "source": "Bossard Group Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-30T11:25:24.155Z",
+      "crawledAt": "2026-07-30T22:12:06.013Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "streetAddress": "Steinhauserstrasse 70",
@@ -144,7 +144,7 @@
       "url": "https://bossard.wd103.myworkdayjobs.com/en/BossardJobs/job/Zug/Einkufer-in-80---100----all-genders----Bossard-Group_",
       "source": "Bossard Group Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-30T11:25:24.954Z",
+      "crawledAt": "2026-07-30T22:12:07.079Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "streetAddress": "Steinhauserstrasse 70",
@@ -183,7 +183,7 @@
       "url": "https://bossard.wd103.myworkdayjobs.com/en/BossardJobs/job/Zug/Einkufer-in-80----all-genders----Bossard-Group_",
       "source": "Bossard Group Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-30T11:25:25.722Z",
+      "crawledAt": "2026-07-30T22:12:07.924Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "streetAddress": "Steinhauserstrasse 70",
@@ -222,7 +222,7 @@
       "url": "https://bossard.wd103.myworkdayjobs.com/en/BossardJobs/job/Zug/Customer-Service-Specialist-80--100---all-genders----Bossard-Group_",
       "source": "Bossard Group Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-30T11:25:22.675Z",
+      "crawledAt": "2026-07-30T22:12:04.007Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "streetAddress": "Steinhauserstrasse 70",
@@ -261,7 +261,7 @@
       "url": "https://bossard.wd103.myworkdayjobs.com/en/BossardJobs/job/Zug/Quality-Control-Specialist-100------im-akkreditierten-Umfeld-nach-ISO-IEC-17025--all-genders-_",
       "source": "Bossard Group Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-30T11:25:26.526Z",
+      "crawledAt": "2026-07-30T22:12:08.845Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "streetAddress": "Steinhauserstrasse 70",
@@ -288,8 +288,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "bossard-64f146844784",
       "slug": "collaboratore-trice-auftragsbearbeitung-100-all-genders-bossard-ag-bossard-group-zug",
@@ -331,5 +330,6 @@
         "completeness": 25
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
