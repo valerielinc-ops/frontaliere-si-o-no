@@ -1,6 +1,6 @@
 {
   "crawlerKey": "hes-so-valais",
-  "assembledAt": "2026-07-30T11:20:53.229Z",
+  "assembledAt": "2026-07-30T10:16:51.762Z",
   "jobs": [
     {
       "url": "https://www.hevs.ch/fr/recruitee/postdoctoral-researcher-in-ai-ml-driven-lc-ms-for-biopharmaceutical-characterization-80-214900",
@@ -134,23 +134,40 @@
       "id": "hes-so-valais-5ce465232fa3",
       "previousSlugs": [
         "collaboratrice-ou-collaborateur-economique-60-hes-so-valais",
-        "collaboratore-o-collaboratore-economico-60-hes-so-valais-wallis-sion"
+        "collaboratore-o-collaboratore-economico-60-hes-so-valais-wallis-sion",
+        "collaboratore-o-collaboratore-tecnico-capo-o-capo-hes-so-valais-wallis-sion",
+        "collaborator-or-technical-collaborator-chief-or-chief-hes-so-valais-wallis-sion",
+        "mitarbeiter-oder-technischer-mitarbeiter-chef-oder-chef-hes-so-valais-wallis-sion",
+        "collaboratrice-ou-collaborateur-technique-cheffe-ou-chef-de-hes-so-valais",
+        "collaboratore-tecnico-capo-di-hes-so-valais-wallis-sion",
+        "collaboratrice-ou-collaborateur-technique-cheffe-ou-chef-de-hes-so-valais-wallis-sion"
       ],
       "previousSlugsByLocale": {
         "it": [
           "collaboratrice-ou-collaborateur-economique-60-hes-so-valais",
-          "collaboratore-o-collaboratore-economico-60-hes-so-valais-wallis-sion"
+          "collaboratore-o-collaboratore-economico-60-hes-so-valais-wallis-sion",
+          "collaboratore-o-collaboratore-tecnico-capo-o-capo-hes-so-valais-wallis-sion",
+          "collaborator-or-technical-collaborator-chief-or-chief-hes-so-valais-wallis-sion",
+          "mitarbeiter-oder-technischer-mitarbeiter-chef-oder-chef-hes-so-valais-wallis-sion",
+          "collaboratrice-ou-collaborateur-technique-cheffe-ou-chef-de-hes-so-valais",
+          "collaboratore-tecnico-capo-di-hes-so-valais-wallis-sion",
+          "collaboratrice-ou-collaborateur-technique-cheffe-ou-chef-de-hes-so-valais-wallis-sion"
         ],
         "en": [
-          "collaboratrice-ou-collaborateur-economique-60-hes-so-valais"
+          "collaboratrice-ou-collaborateur-economique-60-hes-so-valais",
+          "collaborator-or-technical-collaborator-chief-or-chief-hes-so-valais-wallis-sion"
         ],
         "de": [
-          "collaboratrice-ou-collaborateur-economique-60-hes-so-valais"
+          "collaboratrice-ou-collaborateur-economique-60-hes-so-valais",
+          "mitarbeiter-oder-technischer-mitarbeiter-chef-oder-chef-hes-so-valais-wallis-sion"
+        ],
+        "fr": [
+          "collaboratrice-ou-collaborateur-technique-cheffe-ou-chef-de-hes-so-valais",
+          "collaboratrice-ou-collaborateur-technique-cheffe-ou-chef-de-hes-so-valais-wallis-sion"
         ]
       },
       "firstSeenAt": "2026-07-14T12:12:51.282Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 36300,
       "salaryMax": 54900,
       "currency": "CHF",
@@ -166,7 +183,8 @@
       },
       "addressLocality": "Sion",
       "addressCountry": "CH",
-      "addressRegion": "VS"
+      "addressRegion": "VS",
+      "needsRetranslation": true
     },
     {
       "url": "https://www.hevs.ch/fr/recruitee/maitre-denseignement-hes-pour-la-branche-histoire-de-lart-contemporain-214847",

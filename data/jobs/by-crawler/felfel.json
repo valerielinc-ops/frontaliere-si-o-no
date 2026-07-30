@@ -1,6 +1,6 @@
 {
   "crawlerKey": "felfel",
-  "assembledAt": "2026-07-30T11:14:30.780Z",
+  "assembledAt": "2026-07-30T10:10:12.059Z",
   "jobs": [
     {
       "id": "felfel-23dd23f14b99",
@@ -612,20 +612,29 @@
       "previousSlugs": [
         "account-manager-felfel-zurich",
         "gestionnaire-de-compte-felfel-zurich",
-        "gestione-account-felfel-zurich"
+        "gestione-account-felfel-zurich",
+        "gestione-delle-entrate-felfel-zurich",
+        "internship-revenue-management-felfel-zurich",
+        "gestion-des-recettes-des-stages-felfel-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "account-manager-felfel-zurich",
-          "gestione-account-felfel-zurich"
+          "gestione-account-felfel-zurich",
+          "gestione-delle-entrate-felfel-zurich",
+          "internship-revenue-management-felfel-zurich",
+          "gestion-des-recettes-des-stages-felfel-zurich"
         ],
         "fr": [
           "account-manager-felfel-zurich",
-          "gestionnaire-de-compte-felfel-zurich"
+          "gestionnaire-de-compte-felfel-zurich",
+          "gestion-des-recettes-des-stages-felfel-zurich"
+        ],
+        "de": [
+          "internship-revenue-management-felfel-zurich"
         ]
       },
       "firstSeenAt": "2026-07-05T10:51:07.062Z",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -637,7 +646,8 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "felfel-bd8839fd58db",
