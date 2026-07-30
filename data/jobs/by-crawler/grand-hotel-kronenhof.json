@@ -41,7 +41,7 @@
       "slugByLocale": {
         "it": "allrounder-spuler-m-w-d-kulm-hotel-st-moritz-st-moritz-707",
         "en": "allrounder-spuler-m-w-d-kulm-hotel-st-moritz-st-moritz-707",
-        "de": "allrounder-spuler-m-w-d-kulm-hotel-st-moritz-st-moritz",
+        "de": "allrounder-wuhler-m-w-d-kulm-hotel-st-moritz-st-moritz",
         "fr": "tout-terrain-spuler-m-w-d-kulm-hotel-st-moritz-st-moritz"
       },
       "crawledAt": "2026-07-29T22:11:42.600Z",
@@ -61,12 +61,10 @@
       },
       "firstSeenAt": "2026-07-28T11:31:08.801Z",
       "previousSlugs": [
-        "allrounder-wuhler-m-w-d-kulm-hotel-st-moritz-st-moritz",
         "allrounder-spuler-m-w-d-kulm-hotel-st-moritz-st-moritz"
       ],
       "previousSlugsByLocale": {
         "de": [
-          "allrounder-wuhler-m-w-d-kulm-hotel-st-moritz-st-moritz",
           "allrounder-spuler-m-w-d-kulm-hotel-st-moritz-st-moritz"
         ]
       }
@@ -1703,7 +1701,7 @@
       "slugByLocale": {
         "it": "ufficio-dipendente-steward-m-w-d-grand-hotel-kronenhof-pontresina",
         "en": "office-employee-steward-m-w-d-grand-hotel-kronenhof-pontresina-713",
-        "de": "office-employee-steward-m-w-d-grand-hotel-kronenhof-pontresina",
+        "de": "buroangestellter-steward-m-w-d-grand-hotel-kronenhof-pontresina",
         "fr": "employe-de-bureau-delegue-m-m-j-grand-hotel-kronenhof-pontresina"
       },
       "crawledAt": "2026-07-29T22:11:42.607Z",
@@ -1729,8 +1727,8 @@
           "office-employee-steward-m-w-d-grand-hotel-kronenhof-pontresina-713"
         ],
         "de": [
-          "buroangestellter-steward-m-w-d-grand-hotel-kronenhof-pontresina",
-          "office-employee-steward-m-w-d-grand-hotel-kronenhof-pontresina-713"
+          "office-employee-steward-m-w-d-grand-hotel-kronenhof-pontresina-713",
+          "office-employee-steward-m-w-d-grand-hotel-kronenhof-pontresina"
         ],
         "fr": [
           "office-employee-steward-m-w-d-grand-hotel-kronenhof-pontresina-713"
@@ -1738,7 +1736,7 @@
       },
       "previousSlugs": [
         "office-employee-steward-m-w-d-grand-hotel-kronenhof-pontresina-713",
-        "buroangestellter-steward-m-w-d-grand-hotel-kronenhof-pontresina"
+        "office-employee-steward-m-w-d-grand-hotel-kronenhof-pontresina"
       ]
     },
     {
@@ -1781,7 +1779,7 @@
         "it": "reservations-agent-m-w-d-kulm-hotel-st-moritz-st-moritz-712",
         "en": "reservations-agent-m-w-d-kulm-hotel-st-moritz-st-moritz-712",
         "de": "reservations-agent-m-w-d-kulm-hotel-st-moritz-st-moritz-712",
-        "fr": "reservations-agent-m-w-d-kulm-hotel-st-moritz-st-moritz"
+        "fr": "agent-de-reservation-m-w-d-kulm-hotel-st-moritz-st-moritz"
       },
       "crawledAt": "2026-07-29T22:11:42.607Z",
       "id": "grand-hotel-kronenhof-ccc2d047990d",
@@ -1808,13 +1806,12 @@
           "reservations-agent-m-w-d-kulm-hotel-st-moritz-st-moritz-ymxh9e"
         ],
         "fr": [
-          "agent-de-reservation-m-w-d-kulm-hotel-st-moritz-st-moritz"
+          "reservations-agent-m-w-d-kulm-hotel-st-moritz-st-moritz"
         ]
       },
       "previousSlugs": [
         "reservations-agent-m-w-d-kulm-hotel-st-moritz-st-moritz-ymxh9e",
-        "reservations-agent-m-w-d-kulm-hotel-st-moritz-st-moritz",
-        "agent-de-reservation-m-w-d-kulm-hotel-st-moritz-st-moritz"
+        "reservations-agent-m-w-d-kulm-hotel-st-moritz-st-moritz"
       ]
     },
     {
@@ -1928,7 +1925,7 @@
       "slugByLocale": {
         "it": "master-della-sauna-m-p-d-kulm-hotel-st-moritz-st-moritz",
         "en": "sauna-master-m-w-d-kulm-hotel-st-moritz-st-moritz-691",
-        "de": "sauna-master-m-w-d-kulm-hotel-st-moritz-ymxh1o",
+        "de": "saunamaster-m-w-d-kulm-hotel-st-moritz-st-moritz",
         "fr": "maitre-sauna-m-m-j-kulm-hotel-st-moritz-st-moritz"
       },
       "crawledAt": "2026-07-29T22:11:42.607Z",
@@ -1951,14 +1948,12 @@
         "sauna-master-m-w-d-kulm-hotel-st-moritz-st-moritz",
         "sauna-master-m-w-d-kulm-hotel-st-moritz-ymxh1o",
         "sauna-master-m-w-d-kulm-hotel-st-moritz-st-moritz-691",
-        "saunamaster-m-w-d-kulm-hotel-st-moritz-st-moritz",
         "sauna-master-m-w-d-kulm-hotel-st-moritz"
       ],
       "previousSlugsByLocale": {
         "de": [
           "sauna-master-m-w-d-kulm-hotel-st-moritz-st-moritz",
           "sauna-master-m-w-d-kulm-hotel-st-moritz-ymxh1o",
-          "saunamaster-m-w-d-kulm-hotel-st-moritz-st-moritz",
           "sauna-master-m-w-d-kulm-hotel-st-moritz"
         ],
         "it": [
