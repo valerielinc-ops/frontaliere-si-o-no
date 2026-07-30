@@ -582,7 +582,32 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-29T22:11:56.505Z"
+      "firstSeenAt": "2026-07-29T22:11:56.505Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sheet-metal-worker-pemsa-locarno",
+          "sheet-metal-worker-pemsa-lugano",
+          "spengler-pemsa-lugano",
+          "ferblantier-pemsa-lugano",
+          "lattoniere-pemsa-lugano"
+        ],
+        "en": [
+          "sheet-metal-worker-pemsa-lugano"
+        ],
+        "de": [
+          "spengler-pemsa-lugano"
+        ],
+        "fr": [
+          "ferblantier-pemsa-lugano"
+        ]
+      },
+      "previousSlugs": [
+        "sheet-metal-worker-pemsa-locarno",
+        "sheet-metal-worker-pemsa-lugano",
+        "spengler-pemsa-lugano",
+        "ferblantier-pemsa-lugano",
+        "lattoniere-pemsa-lugano"
+      ]
     },
     {
       "title": "Installatore di impianti idraulici AFC",
@@ -1273,7 +1298,7 @@
       "titleByLocale": {
         "it": "Carpentiere",
         "en": "Carpenter",
-        "de": "Carpentiere",
+        "de": "Schreiner",
         "fr": "Charpentier"
       },
       "descriptionByLocale": {
@@ -1285,7 +1310,7 @@
       "slugByLocale": {
         "it": "carpentiere-pemsa-chiasso",
         "en": "carpenter-pemsa-chiasso",
-        "de": "carpentiere-pemsa-chiasso",
+        "de": "schreiner-pemsa-chiasso",
         "fr": "charpentier-pemsa-chiasso"
       },
       "id": "pemsa-3cb3dd5cd585",
@@ -1305,23 +1330,15 @@
       "firstSeenAt": "2026-07-28T11:34:28.416Z",
       "previousSlugsByLocale": {
         "en": [
-          "carpenters-pemsa-chiasso",
-          "carpenter-pemsa-chiasso"
+          "carpenters-pemsa-chiasso"
         ],
         "fr": [
-          "charpentiers-pemsa-chiasso",
-          "charpentier-pemsa-chiasso"
-        ],
-        "de": [
-          "schreiner-pemsa-chiasso"
+          "charpentiers-pemsa-chiasso"
         ]
       },
       "previousSlugs": [
         "carpenters-pemsa-chiasso",
-        "schreiner-pemsa-chiasso",
-        "charpentiers-pemsa-chiasso",
-        "carpenter-pemsa-chiasso",
-        "charpentier-pemsa-chiasso"
+        "charpentiers-pemsa-chiasso"
       ],
       "needsRetranslation": true
     },
@@ -4711,7 +4728,7 @@
         "it": "IDRAULICO impianti riscaldamento",
         "en": "Plumber – Heating Systems",
         "de": "Installateur – Heizungsanlagen",
-        "fr": "IDRAULICO impianti riscaldamento"
+        "fr": "Systèmes de chauffage"
       },
       "descriptionByLocale": {
         "it": "Vuoi la libertà di un lavoro temporaneo e la sicurezza di uno permanente? Da 30 anni, assistiamo centinaia di aziende nei settori tecnici dell'edilizia, delle costruzioni e dell'industria in tutta la Svizzera, offrendo loro i migliori talenti. Non ti mentiremo, ma siamo esigenti. Quindi, se sei una persona motivata ed entusiasta, si unisciti al clan per la posizione di IDRAULICO impianti riscaldamento\n\n## Missione :\n• Autonomia nella posa di riscaldamento a pavimento a 360°\n• Supporto intallazione centrali termiche e pompe di calore\n• Esperienza della posa in generale di impianti di riscaldamento\n\n## Profilo :\n• Comprovata esperienza nel settore\n• Possesso di AFC o CFP costituirà titolo preferenziale\n• Persona automunita\n• Residenza da un raggio di massimo 30 km dal luogo d’incarico",
@@ -4723,7 +4740,7 @@
         "it": "idraulico-impianti-riscaldamento-pemsa-lugano",
         "en": "heating-systems-pemsa-lugano",
         "de": "installateur-heizungsanlagen-pemsa-lugano",
-        "fr": "idraulico-impianti-riscaldamento-pemsa-lugano"
+        "fr": "systemes-de-chauffage-pemsa-lugano"
       },
       "id": "pemsa-8975bec84b2e",
       "salaryMin": 49500,
@@ -4758,8 +4775,7 @@
           "heizsysteme-pemsa-lugano"
         ],
         "fr": [
-          "plombier-systemes-de-chauffage-pemsa-lugano",
-          "systemes-de-chauffage-pemsa-lugano"
+          "plombier-systemes-de-chauffage-pemsa-lugano"
         ]
       },
       "previousSlugs": [
@@ -4770,8 +4786,7 @@
         "heizungsinstallateur-pemsa-lugano",
         "idraulico-implant-heating-pemsa-lugano",
         "klempner-heizungssysteme-pemsa-lugano",
-        "heizsysteme-pemsa-lugano",
-        "systemes-de-chauffage-pemsa-lugano"
+        "heizsysteme-pemsa-lugano"
       ],
       "needsRetranslation": true
     },
@@ -6231,7 +6246,7 @@
       "titleByLocale": {
         "it": "Aiuto carpentiere",
         "en": "Assistant Carpenter",
-        "de": "Aiuto carpentiere",
+        "de": "Schreinereibeihilfe",
         "fr": "Aide charpentier"
       },
       "descriptionByLocale": {
@@ -6243,7 +6258,7 @@
       "slugByLocale": {
         "it": "aiuto-carpentiere-pemsa-fribourg",
         "en": "assistant-carpenter-pemsa-fribourg",
-        "de": "aiuto-carpentiere-pemsa-fribourg",
+        "de": "schreinereibeihilfe-pemsa-fribourg",
         "fr": "aide-charpentier-pemsa-fribourg"
       },
       "id": "pemsa-bd4769fd2d78",
@@ -6269,11 +6284,7 @@
         "fr": [
           "aide-carpentiere-pemsa-fribourg",
           "aide-maitre-charpentier-pemsa-fribourg",
-          "aides-a-la-menuiserie-pemsa-fribourg",
-          "aide-charpentier-pemsa-fribourg"
-        ],
-        "de": [
-          "schreinereibeihilfe-pemsa-fribourg"
+          "aides-a-la-menuiserie-pemsa-fribourg"
         ]
       },
       "previousSlugs": [
@@ -6281,9 +6292,7 @@
         "carpenter-s-assistant-pemsa-fribourg",
         "aide-maitre-charpentier-pemsa-fribourg",
         "carpentry-aid-pemsa-fribourg",
-        "schreinereibeihilfe-pemsa-fribourg",
-        "aides-a-la-menuiserie-pemsa-fribourg",
-        "aide-charpentier-pemsa-fribourg"
+        "aides-a-la-menuiserie-pemsa-fribourg"
       ],
       "needsRetranslation": true
     },
@@ -8291,7 +8300,7 @@
       "titleByLocale": {
         "it": "Giardiniere",
         "en": "Gardener",
-        "de": "Giardiniere",
+        "de": "Gärten",
         "fr": "Jardinier"
       },
       "descriptionByLocale": {
@@ -8303,7 +8312,7 @@
       "slugByLocale": {
         "it": "giardiniere-pemsa-bellinzona",
         "en": "gardener-pemsa-bellinzona",
-        "de": "giardiniere-pemsa-bellinzona",
+        "de": "garten-pemsa-bellinzona",
         "fr": "jardinier-pemsa-bellinzona"
       },
       "id": "pemsa-a3d5fffae318",
@@ -8323,23 +8332,15 @@
       "firstSeenAt": "2026-07-16T22:13:35.977Z",
       "previousSlugsByLocale": {
         "en": [
-          "gardens-pemsa-bellinzona",
-          "gardener-pemsa-bellinzona"
+          "gardens-pemsa-bellinzona"
         ],
         "fr": [
-          "jardins-pemsa-bellinzona",
-          "jardinier-pemsa-bellinzona"
-        ],
-        "de": [
-          "garten-pemsa-bellinzona"
+          "jardins-pemsa-bellinzona"
         ]
       },
       "previousSlugs": [
         "gardens-pemsa-bellinzona",
-        "garten-pemsa-bellinzona",
-        "jardins-pemsa-bellinzona",
-        "gardener-pemsa-bellinzona",
-        "jardinier-pemsa-bellinzona"
+        "jardins-pemsa-bellinzona"
       ],
       "needsRetranslation": true
     },
@@ -8723,8 +8724,7 @@
       },
       "previousSlugs": [
         "cnc-production-mechanic-operator-regulator-m-f-pemsa-biel-bienne"
-      ],
-      "needsRetranslation": true
+      ]
     },
     {
       "title": "Installatore elettricista AFC (M/F)",
@@ -9475,7 +9475,7 @@
       "slugByLocale": {
         "it": "installatore-di-quadri-elettrici-pemsa-estavayer-le-lac",
         "en": "installer-of-electric-paintings-pemsa-estavayer-le-lac",
-        "de": "elektrischer-panelinstallateur-pemsa-estavayer-le-lac",
+        "de": "installateur-von-elektrischen-gemalden-pemsa-estavayer-le-lac",
         "fr": "installateur-de-peintures-electriques-pemsa-estavayer-le-lac"
       },
       "id": "pemsa-c12b4ba3b3ab",
@@ -10092,7 +10092,7 @@
         "it": "Idraulico impianti Riscaldamento",
         "en": "Heating Systems Plumber",
         "de": "Heizungsinstallateur",
-        "fr": "Idraulico impianti Riscaldamento"
+        "fr": "Installations hydrauliques Chauffage"
       },
       "descriptionByLocale": {
         "it": "Pemsa è leader svizzero nel settore del collocamento specializzato nei campi della costruzione, del genio civile, dell’elettricità, della tecnica degli edifici e dell’industria. Con una profonda comprensione delle esigenze tecniche e normative del mercato svizzero, Pemsa si distingue per la capacità di connettere talenti qualificati con aziende di punta, valorizzando le competenze specifiche di ogni candidato. La nostra expertise consolidata ci consente di proporre soluzioni di reclutamento su misura, garantendo un abbinamento ottimale tra profilo professionale e contesto aziendale. Affidarsi a Pemsa significa scegliere un partner competente, impegnato a supportare la crescita professionale e il successo duraturo sia dei candidati sia delle imprese clienti.\n\n## Missione:\n• Installazione professionale di impianti di riscaldamento a pavimento, garantendo efficienza e conformità alle normative svizzere in vigore.\n• Assistenza tecnica durante l’installazione e la messa in funzione di centrali termiche, collaborando strettamente con i team di ingegneria e manutenzione.\n• Documentazione dettagliata dei lavori svolti, rispettando le procedure aziendali e le richieste di qualità Pemsa.\n\n## Profilo:\n• Esperienza minima di 4 anni comprovata in Svizzera nell’installazione di impianti di riscaldamento a pavimento e supporto nell’installazione di centrali termiche.\n• Residenza situata entro un raggio massimo di 30 km dal luogo di lavoro, per garantire tempestività e flessibilità operativa.\n• Ottima padronanza della lingua italiana, madrelingua indispensabile per una comunicazione efficace all’interno del team e con i clienti.\n• Possesso di patente di guida svizzera valida, requisito fondamentale per gli spostamenti frequenti tra cantieri e sedi aziendali.\n• Profonda conoscenza tecnica e normativa nel settore della tecnica del riscaldamento, con capacità di leggere e interpretare planimetrie e schemi tecnici.\n• Capacità di lavorare in modo autonomo e organizzato, dimostrando responsabilità e precisione nell’esecuzione dei compiti assegnati.\n• Flessibilità e attitudine positiva al lavoro di squadra, adattandosi alle esigenze dinamiche dei cantieri in Svizzera.\n\n## Ton interlocuteur/trice :\nIn qualità di consulente senior di Pemsa, ti accompagnerò in tutte le fasi del processo di selezione, offrendo un supporto personalizzato e professionale per valorizzare al meglio il tuo profilo tecnico. La nostra esperienza approfondita nel settore e la conoscenza del mercato del lavoro in Svizzera ci permettono di valorizzare le tue competenze e garantirti opportunità in linea con le tue aspettative. La nostra attenzione alla soddisfazione del candidato è al centro del nostro approccio di Employee Advocacy, promuovendo un ambiente di lavoro sostenibile e gratificante.\nNous ne répondrons qu’aux candidatures dont le profil correspond au descriptif demandé.",
@@ -10103,8 +10103,8 @@
       "slugByLocale": {
         "it": "idraulico-impianti-riscaldamento-pemsa-sigirino",
         "en": "hydraulic-plants-heating-pemsa-sigirino",
-        "de": "heizungsinstallateur-pemsa-sigirino",
-        "fr": "idraulico-impianti-riscaldamento-pemsa-sigirino"
+        "de": "hydraulische-anlagen-heizung-pemsa-sigirino",
+        "fr": "installations-hydrauliques-chauffage-pemsa-sigirino"
       },
       "id": "pemsa-d2e141039089",
       "salaryMin": 49500,
@@ -10125,18 +10125,12 @@
         "de": [
           "heizungsanlagen-techniker-pemsa-sigirino",
           "heizungsanlageninstallateur-pemsa-sigirino",
-          "hydraulische-anlagen-heizung-pemsa-sigirino",
           "heizungsinstallateur-pemsa-sigirino"
-        ],
-        "fr": [
-          "installations-hydrauliques-chauffage-pemsa-sigirino"
         ]
       },
       "previousSlugs": [
         "heizungsanlagen-techniker-pemsa-sigirino",
         "heizungsanlageninstallateur-pemsa-sigirino",
-        "hydraulische-anlagen-heizung-pemsa-sigirino",
-        "installations-hydrauliques-chauffage-pemsa-sigirino",
         "heizungsinstallateur-pemsa-sigirino"
       ],
       "needsRetranslation": true
@@ -10975,8 +10969,7 @@
         }
       },
       "postalCode": "1700",
-      "firstSeenAt": "2026-07-07T12:06:02.036Z",
-      "needsRetranslation": true
+      "firstSeenAt": "2026-07-07T12:06:02.036Z"
     },
     {
       "title": "Muratore e formatore di casseforme",
@@ -11420,7 +11413,7 @@
       "slugByLocale": {
         "it": "idraulico-pemsa-sigirino",
         "en": "hydraulic-pemsa-sigirino",
-        "de": "hydraulisch-pemsa-sigirino",
+        "de": "hydraulik-pemsa-sigirino",
         "fr": "hydraulique-pemsa-sigirino"
       },
       "id": "pemsa-83eb01c945e2",
@@ -12036,7 +12029,7 @@
       "titleByLocale": {
         "it": "Idraulico AFC / AEP (m/f/d)",
         "en": "Plumber AFC / AEP (m/f/d)",
-        "de": "Idraulico AFC / AEP (m/f/d)",
+        "de": "Hydraulische AFC/AEP (m/w/d)",
         "fr": "Plombier AFC / AEP (h/f/d)"
       },
       "descriptionByLocale": {
@@ -12277,7 +12270,7 @@
       "titleByLocale": {
         "it": "Carpentiere AFC / AEP (m/f/d)",
         "en": "Carpenter AFC / AEP (m/f/d)",
-        "de": "Carpentiere AFC / AEP (m/f/d)",
+        "de": "AFC/AEP Schreiner (m/w/d)",
         "fr": "Charpentier AFC / AEP (h/f/d)"
       },
       "descriptionByLocale": {
@@ -12479,9 +12472,9 @@
       },
       "slugByLocale": {
         "it": "stuccatore-cfc-afp-m-f-d-pemsa-basel",
-        "en": "tiler-efz-eba-m-f-d-pemsa-basel",
+        "en": "stuccatore-efz-eba-m-f-d-pemsa-basel",
         "de": "stuccatore-efz-eba-m-f-d-pemsa-basel",
-        "fr": "plaquiste-efz-eba-h-f-d-pemsa-basel"
+        "fr": "stuccatore-efz-eba-m-f-d-pemsa-basel"
       },
       "id": "pemsa-5254869b4e2e",
       "salaryMin": 62000,
@@ -13034,7 +13027,7 @@
         "it": "Idraulico impianti antincendio sprinkler",
         "en": "Fire Sprinkler Systems Plumber",
         "de": "Installateur für Brandschutzsprinkleranlagen",
-        "fr": "Idraulico impianti antincendio sprinkler"
+        "fr": "Systèmes d'arrosage hydraulique"
       },
       "descriptionByLocale": {
         "it": "Pemsa è un’agenzia di placement leader in Svizzera, specializzata nei settori della costruzione, del genio civile, dell’elettricità, della tecnica dell’edificio e dell’industria. La nostra missione è fornire professionisti altamente qualificati che contribuiscano ai successi e alla crescita sostenibile dei nostri clienti. Grazie a una profonda conoscenza del mercato del lavoro svizzero e a un network esteso, Pemsa si distingue per l’accuratezza nella selezione e la qualità dei profili proposti, valorizzando sempre la collaborazione e lo sviluppo dei talenti.\n\nMissione:\n• Installazione completa di impianti antincendio sprinkler secondo normative svizzere vigenti.\n• Collaborazione con il team tecnico per l’installazione corretta degli impianti\n\nProfilo:\n• Esperienza minima di 5 anni in Svizzera nel montaggio di impianti antincendio sprinkler, garantendo una conoscenza approfondita delle normative e procedure locali.\n• Residenza entro 25 km dal luogo di lavoro per assicurare tempestività e presenza costante in cantiere.\n• Ottima padronanza della lingua italiana a livello madrelingua, per una comunicazione efficace con il team e i clienti.\n• Patente di guida valida in Svizzera , indispensabile per gli spostamenti tra cantieri.\n• Capacità comprovata di gestire autonomamente il montaggio a 360° di impianti sprinkler antincendio, dalla fase di preparazione fino al collaudo e consegna finale.\n• Affidabilità, precisione e orientamento al dettaglio, caratteristiche fondamentali per operare nel rispetto degli standard di sicurezza svizzeri.\n\nTon interlocuteur/trice :\nPer questa posizione, sarai seguito/a da un consulente dedicato di Pemsa, che ti accompagnerà e supporterà durante tutto il processo di inserimento e sviluppo professionale. Offriamo un ambiente dinamico e motivante, in cui il tuo expertise tecnico sarà valorizzato e potrai crescere con progetti di avanguardia nel settore antincendio. Lavorare con Pemsa significa accedere a una rete di clienti affidabili e investire nel tuo sviluppo professionale tramite formazione continua e aggiornamenti specifici del settore.\nNous ne répondrons qu’aux candidatures dont le profil correspond au descriptif demandé.",
@@ -13046,7 +13039,7 @@
         "it": "idraulico-impianti-antincendio-sprinkler-pemsa-lugano",
         "en": "plumbing-fire-sprinkler-systems-pemsa-lugano",
         "de": "installateur-fur-brandschutzsprinkleranlagen-pemsa-lugano",
-        "fr": "idraulico-impianti-antincendio-sprinkler-pemsa-lugano"
+        "fr": "systemes-d-arrosage-hydraulique-pemsa-lugano"
       },
       "id": "pemsa-91c10c4e8343",
       "salaryMin": 49500,
@@ -13074,9 +13067,6 @@
           "sprinkleranlagenmonteur-pemsa-lugano",
           "feuerloschanlagen-installateur-pemsa-lugano",
           "hydraulische-berieselungsanlagen-pemsa-lugano"
-        ],
-        "fr": [
-          "systemes-d-arrosage-hydraulique-pemsa-lugano"
         ]
       },
       "previousSlugs": [
@@ -13086,8 +13076,7 @@
         "sprinkler-feuerschutzsystem-installateur-pemsa-lugano",
         "sprinkleranlagenmonteur-pemsa-lugano",
         "feuerloschanlagen-installateur-pemsa-lugano",
-        "hydraulische-berieselungsanlagen-pemsa-lugano",
-        "systemes-d-arrosage-hydraulique-pemsa-lugano"
+        "hydraulische-berieselungsanlagen-pemsa-lugano"
       ],
       "needsRetranslation": true
     },
@@ -13586,9 +13575,9 @@
       "description": "Vuoi la libertà del lavoro temporaneo e la sicurezza di un impiego a tempo indeterminato? Da 30 anni affianchiamo centinaia di aziende nei settori tecnici dell’edilizia, delle costruzioni e dell’industria in tutta la Svizzera, proponendo loro i migliori talenti. Non ti nascondiamo però che siamo esigenti. Quindi, se sei una persona motivata ed estremamente entusiasta, unisciti al nostro team per la posizione di Muratore, casseriere e carpentiere\n\n## Il tuo incarico:\n• Realizzazione di casseforme verticali e orizzontali.\n• Installazione delle casseforme DOKA Xlife.\n• Casseforme per solai tradizionali.\n• Rispetto dei progetti, delle norme di sicurezza e delle scadenze di cantiere.\n\n## E ora parliamo di te?\n• Molto autonomo e con una solida esperienza nel settore delle casseforme.\n• Ottima padronanza delle casseforme DOKA Xlife .\n• Ottima conoscenza delle solai tradizionali (travi H20 e pannelli da 27 mm).\n• Comprovata esperienza in cantieri in Svizzera.\n• Persona scrupolosa, affidabile e in grado di lavorare in modo autonomo.\n\n## Il tuo referente:\nIl tuo referente per questa posizione è Laetitia. Saprà accompagnarti, consigliarti e rispondere a tutte le tue domande relative alla posizione.\nQuesta posizione non corrisponde esattamente a ciò che stai cercando, ma i nostri valori ti interessano? Non esitare a inviarci la tua candidatura spontanea!\nRisponderemo solo alle candidature il cui profilo corrisponde alla descrizione richiesta.",
       "titleByLocale": {
         "it": "Muratore, casseriere e carpentiere",
-        "en": "Muratore, casseriere e carpentiere",
-        "de": "Muratore, casseriere e carpentiere",
-        "fr": "Muratore, casseriere e carpentiere"
+        "en": "Mason, cashier and carpenter",
+        "de": "Freimaurer, Kassierer und Schreiner",
+        "fr": "Mason, caissier et charpentier"
       },
       "descriptionByLocale": {
         "it": "Vuoi la libertà del lavoro temporaneo e la sicurezza di un impiego a tempo indeterminato? Da 30 anni affianchiamo centinaia di aziende nei settori tecnici dell’edilizia, delle costruzioni e dell’industria in tutta la Svizzera, proponendo loro i migliori talenti. Non ti nascondiamo però che siamo esigenti. Quindi, se sei una persona motivata ed estremamente entusiasta, unisciti al nostro team per la posizione di Muratore, casseriere e carpentiere\n\n## Il tuo incarico:\n• Realizzazione di casseforme verticali e orizzontali.\n• Installazione delle casseforme DOKA Xlife.\n• Casseforme per solai tradizionali.\n• Rispetto dei progetti, delle norme di sicurezza e delle scadenze di cantiere.\n\n## E ora parliamo di te?\n• Molto autonomo e con una solida esperienza nel settore delle casseforme.\n• Ottima padronanza delle casseforme DOKA Xlife .\n• Ottima conoscenza delle solai tradizionali (travi H20 e pannelli da 27 mm).\n• Comprovata esperienza in cantieri in Svizzera.\n• Persona scrupolosa, affidabile e in grado di lavorare in modo autonomo.\n\n## Il tuo referente:\nIl tuo referente per questa posizione è Laetitia. Saprà accompagnarti, consigliarti e rispondere a tutte le tue domande relative alla posizione.\nQuesta posizione non corrisponde esattamente a ciò che stai cercando, ma i nostri valori ti interessano? Non esitare a inviarci la tua candidatura spontanea!\nRisponderemo solo alle candidature il cui profilo corrisponde alla descrizione richiesta.",
@@ -13644,9 +13633,9 @@
       "description": "Vuoi la libertà del lavoro temporaneo e la sicurezza di un impiego a tempo indeterminato? Da 30 anni affianchiamo centinaia di aziende nei settori tecnici dell’edilizia, delle costruzioni e dell’industria in tutta la Svizzera, proponendo loro i migliori talenti. Non ti nascondiamo però che siamo esigenti. Quindi, se sei una persona motivata ed estremamente entusiasta, unisciti al nostro team per la posizione di Muratore – Ingegneria civile\n\n## Il tuo incarico:\n• Lavori di movimento terra e preparazione del terreno\n• Realizzazione di fondazioni (placche, solette, ecc.)\n• Costruzione di muri in calcestruzzo / cemento armato\n• Cassaforma e armatura\n• Posa di condotte e pozzetti\n• Lavori di drenaggio\n• Finiture e messa a norma\n\n## E ora parliamo di te?\n• Formazione o esperienza comprovata nel settore dell’edilizia civile\n• Buona forma fisica e spirito di squadra\n• Autonomia, rigore e senso di responsabilità\n• Conoscenza delle norme di sicurezza vigenti\n• Patente di guida\n\n## Il tuo referente:\nIl tuo referente per questa posizione è Laetitia. Saprà accompagnarti, consigliarti e rispondere a tutte le tue domande relative alla posizione.\nQuesta posizione non corrisponde esattamente a ciò che stai cercando, ma i nostri valori ti interessano? Non esitare a inviarci la tua candidatura spontanea!\nRisponderemo solo alle candidature il cui profilo corrisponde alla descrizione richiesta.",
       "titleByLocale": {
         "it": "Muratore – Ingegneria civile",
-        "en": "Muratore – Ingegneria civile",
-        "de": "Muratore – Ingegneria civile",
-        "fr": "Muratore – Ingegneria civile"
+        "en": "Muratore – Civil Engineering",
+        "de": "Muratore – Bauingenieurwesen",
+        "fr": "Muratore – Génie civil"
       },
       "descriptionByLocale": {
         "it": "Vuoi la libertà del lavoro temporaneo e la sicurezza di un impiego a tempo indeterminato? Da 30 anni affianchiamo centinaia di aziende nei settori tecnici dell’edilizia, delle costruzioni e dell’industria in tutta la Svizzera, proponendo loro i migliori talenti. Non ti nascondiamo però che siamo esigenti. Quindi, se sei una persona motivata ed estremamente entusiasta, unisciti al nostro team per la posizione di Muratore – Ingegneria civile\n\n## Il tuo incarico:\n• Lavori di movimento terra e preparazione del terreno\n• Realizzazione di fondazioni (placche, solette, ecc.)\n• Costruzione di muri in calcestruzzo / cemento armato\n• Cassaforma e armatura\n• Posa di condotte e pozzetti\n• Lavori di drenaggio\n• Finiture e messa a norma\n\n## E ora parliamo di te?\n• Formazione o esperienza comprovata nel settore dell’edilizia civile\n• Buona forma fisica e spirito di squadra\n• Autonomia, rigore e senso di responsabilità\n• Conoscenza delle norme di sicurezza vigenti\n• Patente di guida\n\n## Il tuo referente:\nIl tuo referente per questa posizione è Laetitia. Saprà accompagnarti, consigliarti e rispondere a tutte le tue domande relative alla posizione.\nQuesta posizione non corrisponde esattamente a ciò che stai cercando, ma i nostri valori ti interessano? Non esitare a inviarci la tua candidatura spontanea!\nRisponderemo solo alle candidature il cui profilo corrisponde alla descrizione richiesta.",
@@ -13675,7 +13664,28 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-30T11:22:37.420Z"
+      "firstSeenAt": "2026-07-30T11:22:37.420Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "muratore-civil-engineering-pemsa-fribourg",
+          "muratore-bauingenieurwesen-pemsa-fribourg",
+          "muratore-genie-civil-pemsa-fribourg"
+        ],
+        "en": [
+          "muratore-civil-engineering-pemsa-fribourg"
+        ],
+        "de": [
+          "muratore-bauingenieurwesen-pemsa-fribourg"
+        ],
+        "fr": [
+          "muratore-genie-civil-pemsa-fribourg"
+        ]
+      },
+      "previousSlugs": [
+        "muratore-civil-engineering-pemsa-fribourg",
+        "muratore-bauingenieurwesen-pemsa-fribourg",
+        "muratore-genie-civil-pemsa-fribourg"
+      ]
     },
     {
       "title": "Responsabile di squadra – Infrastrutture industriali / Linee elettriche ferroviarie",
@@ -13760,9 +13770,9 @@
       "description": "Vuoi la libertà del lavoro temporaneo e la sicurezza di un impiego a tempo indeterminato? Da 30 anni affianchiamo centinaia di aziende nei settori tecnici dell’edilizia, delle costruzioni e dell’industria in tutta la Svizzera, proponendo loro i migliori talenti. Non ti nascondiamo però che siamo esigenti. Quindi, se sei una persona motivata ed estremamente entusiasta, unisciti al nostro team per la posizione di Installatore elettricista AFC\n\n## Il tuo incarico:\n• Eseguire i collegamenti elettrici in cantieri di nuova costruzione e di ristrutturazione;\n• Effettuare modifiche e adeguamenti ai quadri elettrici;\n• Intervenire sugli impianti relativi alle pompe di calore (PAC);\n• Realizzare gli impianti CA dei sistemi fotovoltaici;\n• Partecipare alla messa in servizio degli impianti;\n• Fornire supporto puntuale sulla parte in corrente continua (DC) degli impianti fotovoltaici;\n• Lavorare in modo autonomo, collaborando al contempo efficacemente con le squadre sul campo.\n\n## E ora parliamo di te?\n• In possesso di un AFC (Attestato federale di capacità) come installatore elettricista o di una formazione ritenuta equivalente\n• Patente di guida indispensabile\n• Comprovata esperienza in collegamenti elettrici, quadri elettrici, nelle pompe di calore e negli impianti fotovoltaici in Svizzera\n• Persona autonoma, organizzata e attenta alla qualità del lavoro svolto\n• Buon spirito di squadra, senso di responsabilità e atteggiamento proattivo\n\n## Il tuo referente:\nIl tuo referente per questa posizione è Laetitia. Saprà accompagnarti, consigliarti e rispondere a tutte le tue domande relative alla posizione.\nQuesta posizione non corrisponde esattamente a ciò che stai cercando, ma i nostri valori ti interessano? Non esitare a inviarci la tua candidatura spontanea!\nRisponderemo solo alle candidature il cui profilo corrisponde alla descrizione richiesta.",
       "titleByLocale": {
         "it": "Installatore elettricista AFC",
-        "en": "Installatore elettricista AFC",
-        "de": "Installatore elettricista AFC",
-        "fr": "Installatore elettricista AFC"
+        "en": "AFC Electrical Installer",
+        "de": "AFC Elektroinstallateur",
+        "fr": "AFC Installateur électrique"
       },
       "descriptionByLocale": {
         "it": "Vuoi la libertà del lavoro temporaneo e la sicurezza di un impiego a tempo indeterminato? Da 30 anni affianchiamo centinaia di aziende nei settori tecnici dell’edilizia, delle costruzioni e dell’industria in tutta la Svizzera, proponendo loro i migliori talenti. Non ti nascondiamo però che siamo esigenti. Quindi, se sei una persona motivata ed estremamente entusiasta, unisciti al nostro team per la posizione di Installatore elettricista AFC\n\n## Il tuo incarico:\n• Eseguire i collegamenti elettrici in cantieri di nuova costruzione e di ristrutturazione;\n• Effettuare modifiche e adeguamenti ai quadri elettrici;\n• Intervenire sugli impianti relativi alle pompe di calore (PAC);\n• Realizzare gli impianti CA dei sistemi fotovoltaici;\n• Partecipare alla messa in servizio degli impianti;\n• Fornire supporto puntuale sulla parte in corrente continua (DC) degli impianti fotovoltaici;\n• Lavorare in modo autonomo, collaborando al contempo efficacemente con le squadre sul campo.\n\n## E ora parliamo di te?\n• In possesso di un AFC (Attestato federale di capacità) come installatore elettricista o di una formazione ritenuta equivalente\n• Patente di guida indispensabile\n• Comprovata esperienza in collegamenti elettrici, quadri elettrici, nelle pompe di calore e negli impianti fotovoltaici in Svizzera\n• Persona autonoma, organizzata e attenta alla qualità del lavoro svolto\n• Buon spirito di squadra, senso di responsabilità e atteggiamento proattivo\n\n## Il tuo referente:\nIl tuo referente per questa posizione è Laetitia. Saprà accompagnarti, consigliarti e rispondere a tutte le tue domande relative alla posizione.\nQuesta posizione non corrisponde esattamente a ciò che stai cercando, ma i nostri valori ti interessano? Non esitare a inviarci la tua candidatura spontanea!\nRisponderemo solo alle candidature il cui profilo corrisponde alla descrizione richiesta.",
@@ -13818,9 +13828,9 @@
       "description": "Vuoi la libertà del lavoro temporaneo e la sicurezza di un impiego a tempo indeterminato? Da 30 anni affianchiamo centinaia di aziende nei settori tecnici dell’edilizia, delle costruzioni e dell’industria in tutta la Svizzera, proponendo loro i migliori talenti. Non ti nascondiamo però che siamo esigenti. Quindi, se sei una persona motivata ed estremamente entusiasta, entra a far parte del nostro team per la posizione di Installatore elettricista AFC\n\n## La tua missione:\n• Realizzare impianti elettrici in edifici residenziali, commerciali e industriali\n• Leggere e interpretare progetti e schemi elettrici\n• Installare e collegare le apparecchiature (quadri elettrici, prese, apparecchi di illuminazione, ecc.)\n• Eseguire lavori di manutenzione e riparazione\n• Garantire la conformità degli impianti alle norme vigenti\n• Rispettare le norme di sicurezza nei cantieri\n\n## E ora parliamo di te?\n• Un Attestato federale di capacità (AFC) come installatore elettricista .\n• Un’esperienza professionale di almeno 3 anni .\n• Padronanza degli strumenti e delle tecnologie relative al settore elettrico.\n• Patente di guida.\n• Autonomo, ma apprezza anche il lavoro di squadra.\n• Rigoroso e preciso nel tuo lavoro.\n• Versatile e capace di adattarti a diverse situazioni.\n• Attento al rispetto delle norme di sicurezza e di qualità.\n\n## Il tuo referente:\nIl tuo referente per questa posizione è Laetitia. Saprà accompagnarti, consigliarti e rispondere a tutte le tue domande relative alla posizione.\nQuesta posizione non corrisponde esattamente a ciò che stai cercando, ma i nostri valori ti interessano? Non esitare a inviarci la tua candidatura spontanea!\nRisponderemo solo alle candidature il cui profilo corrisponde alla descrizione richiesta.",
       "titleByLocale": {
         "it": "Installatore elettricista AFC",
-        "en": "Installatore elettricista AFC",
-        "de": "Installatore elettricista AFC",
-        "fr": "Installatore elettricista AFC"
+        "en": "AFC Electrical Installer",
+        "de": "AFC Elektroinstallateur",
+        "fr": "AFC Installateur électrique"
       },
       "descriptionByLocale": {
         "it": "Vuoi la libertà del lavoro temporaneo e la sicurezza di un impiego a tempo indeterminato? Da 30 anni affianchiamo centinaia di aziende nei settori tecnici dell’edilizia, delle costruzioni e dell’industria in tutta la Svizzera, proponendo loro i migliori talenti. Non ti nascondiamo però che siamo esigenti. Quindi, se sei una persona motivata ed estremamente entusiasta, entra a far parte del nostro team per la posizione di Installatore elettricista AFC\n\n## La tua missione:\n• Realizzare impianti elettrici in edifici residenziali, commerciali e industriali\n• Leggere e interpretare progetti e schemi elettrici\n• Installare e collegare le apparecchiature (quadri elettrici, prese, apparecchi di illuminazione, ecc.)\n• Eseguire lavori di manutenzione e riparazione\n• Garantire la conformità degli impianti alle norme vigenti\n• Rispettare le norme di sicurezza nei cantieri\n\n## E ora parliamo di te?\n• Un Attestato federale di capacità (AFC) come installatore elettricista .\n• Un’esperienza professionale di almeno 3 anni .\n• Padronanza degli strumenti e delle tecnologie relative al settore elettrico.\n• Patente di guida.\n• Autonomo, ma apprezza anche il lavoro di squadra.\n• Rigoroso e preciso nel tuo lavoro.\n• Versatile e capace di adattarti a diverse situazioni.\n• Attento al rispetto delle norme di sicurezza e di qualità.\n\n## Il tuo referente:\nIl tuo referente per questa posizione è Laetitia. Saprà accompagnarti, consigliarti e rispondere a tutte le tue domande relative alla posizione.\nQuesta posizione non corrisponde esattamente a ciò che stai cercando, ma i nostri valori ti interessano? Non esitare a inviarci la tua candidatura spontanea!\nRisponderemo solo alle candidature il cui profilo corrisponde alla descrizione richiesta.",
@@ -13876,9 +13886,9 @@
       "description": "Vuoi la libertà del lavoro temporaneo e la sicurezza di un impiego a tempo indeterminato? Da 30 anni affianchiamo centinaia di aziende nei settori tecnici dell’edilizia, delle costruzioni e dell’industria in tutta la Svizzera, proponendo loro i migliori talenti. Non ti nascondiamo però che siamo esigenti. Quindi, se sei una persona motivata ed estremamente entusiasta, unisciti al nostro team per la posizione di Elettricista esperto\n\n## Il tuo incarico:\n• Analizzare e comprendere gli schemi elettrici, i disegni tecnici e la documentazione correlata.\n• Eseguire l’installazione, il cablaggio e la messa in servizio di apparecchiature elettriche (quadri elettrici, prese, impianti di illuminazione, impianti industriali, ecc.).\n• Individuare i guasti, effettuare le diagnosi e garantire gli interventi di riparazione e la manutenzione degli impianti esistenti.\n• Applicare rigorosamente le norme elettriche svizzere (SEV/NIBT) e le direttive di sicurezza in vigore.\n• Verificare la conformità e garantire la qualità degli impianti realizzati.\n• Provvedere alla manutenzione, al corretto utilizzo e alla gestione del materiale e degli strumenti messi a disposizione.\n\n## E ora parliamo di te?\n• Formazione come elettricista con diploma riconosciuto in Svizzera o equivalente.\n• Esperienza comprovata nel settore elettrico (minimo 3-5 anni) in Svizzera.\n• Padronanza nella lettura di progetti e schemi elettrici.\n• Autonomia, rigore e senso di responsabilità.\n• Patente di guida valida per gli spostamenti tra i diversi cantieri.\n\n## Il tuo referente:\nIl tuo referente per questa posizione è Laetitia. Saprà accompagnarti, consigliarti e rispondere a tutte le tue domande relative alla posizione.\nQuesta posizione non corrisponde esattamente a ciò che stai cercando, ma i nostri valori ti interessano? Non esitare a inviarci la tua candidatura spontanea!\nRisponderemo solo alle candidature il cui profilo corrisponde alla descrizione richiesta.",
       "titleByLocale": {
         "it": "Elettricista esperto",
-        "en": "Elettricista esperto",
-        "de": "Elettricista esperto",
-        "fr": "Elettricista esperto"
+        "en": "Expert electrician",
+        "de": "Elektriker",
+        "fr": "Électricien expert"
       },
       "descriptionByLocale": {
         "it": "Vuoi la libertà del lavoro temporaneo e la sicurezza di un impiego a tempo indeterminato? Da 30 anni affianchiamo centinaia di aziende nei settori tecnici dell’edilizia, delle costruzioni e dell’industria in tutta la Svizzera, proponendo loro i migliori talenti. Non ti nascondiamo però che siamo esigenti. Quindi, se sei una persona motivata ed estremamente entusiasta, unisciti al nostro team per la posizione di Elettricista esperto\n\n## Il tuo incarico:\n• Analizzare e comprendere gli schemi elettrici, i disegni tecnici e la documentazione correlata.\n• Eseguire l’installazione, il cablaggio e la messa in servizio di apparecchiature elettriche (quadri elettrici, prese, impianti di illuminazione, impianti industriali, ecc.).\n• Individuare i guasti, effettuare le diagnosi e garantire gli interventi di riparazione e la manutenzione degli impianti esistenti.\n• Applicare rigorosamente le norme elettriche svizzere (SEV/NIBT) e le direttive di sicurezza in vigore.\n• Verificare la conformità e garantire la qualità degli impianti realizzati.\n• Provvedere alla manutenzione, al corretto utilizzo e alla gestione del materiale e degli strumenti messi a disposizione.\n\n## E ora parliamo di te?\n• Formazione come elettricista con diploma riconosciuto in Svizzera o equivalente.\n• Esperienza comprovata nel settore elettrico (minimo 3-5 anni) in Svizzera.\n• Padronanza nella lettura di progetti e schemi elettrici.\n• Autonomia, rigore e senso di responsabilità.\n• Patente di guida valida per gli spostamenti tra i diversi cantieri.\n\n## Il tuo referente:\nIl tuo referente per questa posizione è Laetitia. Saprà accompagnarti, consigliarti e rispondere a tutte le tue domande relative alla posizione.\nQuesta posizione non corrisponde esattamente a ciò che stai cercando, ma i nostri valori ti interessano? Non esitare a inviarci la tua candidatura spontanea!\nRisponderemo solo alle candidature il cui profilo corrisponde alla descrizione richiesta.",
@@ -13934,9 +13944,9 @@
       "description": "Vuoi la libertà del lavoro temporaneo e la sicurezza di un impiego a tempo indeterminato? Da 30 anni affianchiamo centinaia di aziende nei settori tecnici dell’edilizia, delle costruzioni e dell’industria in tutta la Svizzera, proponendo loro i migliori talenti. Non ti nascondiamo però che siamo esigenti. Quindi, se sei una persona motivata ed estremamente entusiasta, unisciti al nostro team per la posizione di Muratore AFC\n\n## Il tuo incarico:\n• Lettura dei progetti e preparazione del cantiere\n• Lavori di muratura tradizionale (mattoni, calcestruzzo, casseri)\n• Realizzazione di muri, solai e strutture\n• Lavori di ristrutturazione e trasformazione\n• Rispetto delle norme di sicurezza e di qualità\n\n## E ora parliamo un po’ di te?\n• In possesso di un Attestato federale di qualifica (CFC) come muratore\n• Comprovata esperienza nel settore (un vantaggio)\n• Buona forma fisica\n• Spirito di squadra e autonomia\n• Patente di guida\n\n## Il tuo referente:\nIl tuo referente per questa posizione è Laetitia. Saprà accompagnarti, consigliarti e rispondere a tutte le tue domande relative alla posizione.\nQuesta posizione non corrisponde esattamente a ciò che stai cercando, ma i nostri valori ti interessano? Non esitare a inviarci la tua candidatura spontanea!\nRisponderemo solo alle candidature il cui profilo corrisponde alla descrizione richiesta.",
       "titleByLocale": {
         "it": "Muratore AFC",
-        "en": "Muratore AFC",
-        "de": "Muratore AFC",
-        "fr": "Muratore AFC"
+        "en": "AFC Wall",
+        "de": "AFC-Wand",
+        "fr": "Mur AFC"
       },
       "descriptionByLocale": {
         "it": "Vuoi la libertà del lavoro temporaneo e la sicurezza di un impiego a tempo indeterminato? Da 30 anni affianchiamo centinaia di aziende nei settori tecnici dell’edilizia, delle costruzioni e dell’industria in tutta la Svizzera, proponendo loro i migliori talenti. Non ti nascondiamo però che siamo esigenti. Quindi, se sei una persona motivata ed estremamente entusiasta, unisciti al nostro team per la posizione di Muratore AFC\n\n## Il tuo incarico:\n• Lettura dei progetti e preparazione del cantiere\n• Lavori di muratura tradizionale (mattoni, calcestruzzo, casseri)\n• Realizzazione di muri, solai e strutture\n• Lavori di ristrutturazione e trasformazione\n• Rispetto delle norme di sicurezza e di qualità\n\n## E ora parliamo un po’ di te?\n• In possesso di un Attestato federale di qualifica (CFC) come muratore\n• Comprovata esperienza nel settore (un vantaggio)\n• Buona forma fisica\n• Spirito di squadra e autonomia\n• Patente di guida\n\n## Il tuo referente:\nIl tuo referente per questa posizione è Laetitia. Saprà accompagnarti, consigliarti e rispondere a tutte le tue domande relative alla posizione.\nQuesta posizione non corrisponde esattamente a ciò che stai cercando, ma i nostri valori ti interessano? Non esitare a inviarci la tua candidatura spontanea!\nRisponderemo solo alle candidature il cui profilo corrisponde alla descrizione richiesta.",
@@ -13992,9 +14002,9 @@
       "description": "Vuoi la libertà del lavoro temporaneo e la sicurezza di un impiego a tempo indeterminato? Da 30 anni affianchiamo centinaia di aziende nei settori tecnici dell’edilizia, delle costruzioni e dell’industria in tutta la Svizzera, proponendo loro i migliori talenti. Non ti nascondiamo però che siamo esigenti. Quindi, se sei una persona motivata ed estremamente entusiasta, unisciti al nostro team per la posizione di Architetto (M/F/D)\n\n## Il tuo incarico:\n• Sviluppare progetti architettonici dalla fase di anteprogetto fino alla realizzazione.\n• Elaborare i fascicoli per la messa in consultazione pubblica e i progetti esecutivi.\n• Coordinare i diversi soggetti coinvolti nel progetto (committenti, ingegneri, autorità, imprese).\n• Garantire il monitoraggio tecnico, amministrativo e finanziario dei progetti.\n• Garantire il rispetto delle scadenze, dei costi e degli standard di qualità.\n• Partecipare alle riunioni di coordinamento e ai sopralluoghi in cantiere.\n• Contribuire al miglioramento continuo dei metodi e dei processi interni\n\n## E ora parliamo di te?\n• Laurea in architettura presso una HES, un EPF o formazione ritenuta equivalente.\n• Almeno 5 anni di esperienza professionale presso uno studio di architettura in Svizzera.\n• Ottima conoscenza delle norme, dei regolamenti e delle prassi edilizie svizzere.\n• Padronanza dei software di progettazione e disegno quali Revit, ArchiCAD o AutoCAD.\n• Capacità di lavorare in modo autonomo e di gestire più progetti contemporaneamente.\n• Spirito di squadra, senso di responsabilità ed eccellenti capacità relazionali.\n• Ottima padronanza del francese sia scritto che parlato.\n\n## Vantaggio significativo\n• Comprovata esperienza nella direzione dei lavori e nel monitoraggio dei cantieri.\n• Esperienza nella gestione di progetti o nel coordinamento di team.\n• Conoscenze BIM\n\n## Il tuo referente:\nIl tuo referente per questa posizione è Matthieu. Con oltre 15 anni di esperienza nel settore del reclutamento, saprà accompagnarti, consigliarti e rispondere a tutte le tue domande relative alla posizione.\nQuesta posizione non corrisponde esattamente a ciò che stai cercando, ma i nostri valori ti interessano? Non esitare a inviarci la tua candidatura spontanea!\nRisponderemo solo alle candidature il cui profilo corrisponde alla descrizione richiesta.",
       "titleByLocale": {
         "it": "Architetto (M/F/D)",
-        "en": "Architetto (M/F/D)",
-        "de": "Architetto (M/F/D)",
-        "fr": "Architetto (M/F/D)"
+        "en": "Architect (M/F/D)",
+        "de": "Architekt (M/F/D)",
+        "fr": "Architecte (M/F/D)"
       },
       "descriptionByLocale": {
         "it": "Vuoi la libertà del lavoro temporaneo e la sicurezza di un impiego a tempo indeterminato? Da 30 anni affianchiamo centinaia di aziende nei settori tecnici dell’edilizia, delle costruzioni e dell’industria in tutta la Svizzera, proponendo loro i migliori talenti. Non ti nascondiamo però che siamo esigenti. Quindi, se sei una persona motivata ed estremamente entusiasta, unisciti al nostro team per la posizione di Architetto (M/F/D)\n\n## Il tuo incarico:\n• Sviluppare progetti architettonici dalla fase di anteprogetto fino alla realizzazione.\n• Elaborare i fascicoli per la messa in consultazione pubblica e i progetti esecutivi.\n• Coordinare i diversi soggetti coinvolti nel progetto (committenti, ingegneri, autorità, imprese).\n• Garantire il monitoraggio tecnico, amministrativo e finanziario dei progetti.\n• Garantire il rispetto delle scadenze, dei costi e degli standard di qualità.\n• Partecipare alle riunioni di coordinamento e ai sopralluoghi in cantiere.\n• Contribuire al miglioramento continuo dei metodi e dei processi interni\n\n## E ora parliamo di te?\n• Laurea in architettura presso una HES, un EPF o formazione ritenuta equivalente.\n• Almeno 5 anni di esperienza professionale presso uno studio di architettura in Svizzera.\n• Ottima conoscenza delle norme, dei regolamenti e delle prassi edilizie svizzere.\n• Padronanza dei software di progettazione e disegno quali Revit, ArchiCAD o AutoCAD.\n• Capacità di lavorare in modo autonomo e di gestire più progetti contemporaneamente.\n• Spirito di squadra, senso di responsabilità ed eccellenti capacità relazionali.\n• Ottima padronanza del francese sia scritto che parlato.\n\n## Vantaggio significativo\n• Comprovata esperienza nella direzione dei lavori e nel monitoraggio dei cantieri.\n• Esperienza nella gestione di progetti o nel coordinamento di team.\n• Conoscenze BIM\n\n## Il tuo referente:\nIl tuo referente per questa posizione è Matthieu. Con oltre 15 anni di esperienza nel settore del reclutamento, saprà accompagnarti, consigliarti e rispondere a tutte le tue domande relative alla posizione.\nQuesta posizione non corrisponde esattamente a ciò che stai cercando, ma i nostri valori ti interessano? Non esitare a inviarci la tua candidatura spontanea!\nRisponderemo solo alle candidature il cui profilo corrisponde alla descrizione richiesta.",
@@ -14050,9 +14060,9 @@
       "description": "Vuoi la libertà del lavoro temporaneo e la sicurezza di un impiego a tempo indeterminato? Da 30 anni affianchiamo centinaia di aziende nei settori tecnici dell’edilizia, delle costruzioni e dell’industria in tutta la Svizzera, proponendo loro i migliori talenti. Non ti nascondiamo però che siamo esigenti. Quindi, se sei una persona motivata ed estremamente entusiasta, unisciti al nostro team per la posizione di Disegnatore-Progettista BIM (M/F/D)\n\n## Il tuo incarico:\n• Realizzare i disegni tecnici e la documentazione esecutiva.\n• Progettare e sviluppare modelli digitali BIM.\n• Partecipare agli studi tecnici nei settori CVCS e/o Elettricità.\n• Garantire il coordinamento BIM con i diversi soggetti coinvolti nel progetto.\n• Elaborare i disegni generali, di dettaglio e di sintesi.\n• Verificare la conformità dei progetti alle norme e ai requisiti tecnici svizzeri.\n• Collaborare strettamente con gli ingegneri, i responsabili di progetto e i partner esterni.\n• Partecipare alle riunioni di coordinamento e al monitoraggio dei progetti\n\n## E ora parliamo di te?\n• Formazione come progettista, disegnatore tecnico, disegnatore edile o titolo ritenuto equivalente.\n• Almeno 5 anni di esperienza presso uno studio di ingegneria o un ufficio tecnico in Svizzera.\n• Comprovata esperienza nei settori CVCS e/o elettricità.\n• Ottima padronanza degli strumenti BIM e di modellazione.\n• Buona conoscenza di Revit MEP, AutoCAD, Nova, Plancal o software equivalenti.\n• Buona comprensione delle norme e delle prassi edilizie svizzere.\n• Persona autonoma, rigorosa e orientata alle soluzioni.\n• Capacità di lavorare in team e di coordinare progetti multidisciplinari.\n• Ottima padronanza del francese, sia scritto che parlato.\n\n## Il tuo referente:\nIl tuo referente per questa posizione è Matthieu. Con oltre 15 anni di esperienza nel settore del reclutamento, saprà accompagnarti, consigliarti e rispondere a tutte le tue domande relative alla posizione.\nQuesta posizione non corrisponde esattamente a ciò che stai cercando, ma i nostri valori ti interessano? Non esitare a inviarci la tua candidatura spontanea!\nRisponderemo solo alle candidature il cui profilo corrisponde alla descrizione richiesta.",
       "titleByLocale": {
         "it": "Disegnatore-Progettista BIM (M/F/D)",
-        "en": "Disegnatore-Progettista BIM (M/F/D)",
-        "de": "Disegnatore-Progettista BIM (M/F/D)",
-        "fr": "Disegnatore-Progettista BIM (M/F/D)"
+        "en": "Drawer-designer BIM (M/F/D)",
+        "de": "Zeichner-Designer-BIM (M/F/D)",
+        "fr": "Dessinateur BIM (M/F/D)"
       },
       "descriptionByLocale": {
         "it": "Vuoi la libertà del lavoro temporaneo e la sicurezza di un impiego a tempo indeterminato? Da 30 anni affianchiamo centinaia di aziende nei settori tecnici dell’edilizia, delle costruzioni e dell’industria in tutta la Svizzera, proponendo loro i migliori talenti. Non ti nascondiamo però che siamo esigenti. Quindi, se sei una persona motivata ed estremamente entusiasta, unisciti al nostro team per la posizione di Disegnatore-Progettista BIM (M/F/D)\n\n## Il tuo incarico:\n• Realizzare i disegni tecnici e la documentazione esecutiva.\n• Progettare e sviluppare modelli digitali BIM.\n• Partecipare agli studi tecnici nei settori CVCS e/o Elettricità.\n• Garantire il coordinamento BIM con i diversi soggetti coinvolti nel progetto.\n• Elaborare i disegni generali, di dettaglio e di sintesi.\n• Verificare la conformità dei progetti alle norme e ai requisiti tecnici svizzeri.\n• Collaborare strettamente con gli ingegneri, i responsabili di progetto e i partner esterni.\n• Partecipare alle riunioni di coordinamento e al monitoraggio dei progetti\n\n## E ora parliamo di te?\n• Formazione come progettista, disegnatore tecnico, disegnatore edile o titolo ritenuto equivalente.\n• Almeno 5 anni di esperienza presso uno studio di ingegneria o un ufficio tecnico in Svizzera.\n• Comprovata esperienza nei settori CVCS e/o elettricità.\n• Ottima padronanza degli strumenti BIM e di modellazione.\n• Buona conoscenza di Revit MEP, AutoCAD, Nova, Plancal o software equivalenti.\n• Buona comprensione delle norme e delle prassi edilizie svizzere.\n• Persona autonoma, rigorosa e orientata alle soluzioni.\n• Capacità di lavorare in team e di coordinare progetti multidisciplinari.\n• Ottima padronanza del francese, sia scritto che parlato.\n\n## Il tuo referente:\nIl tuo referente per questa posizione è Matthieu. Con oltre 15 anni di esperienza nel settore del reclutamento, saprà accompagnarti, consigliarti e rispondere a tutte le tue domande relative alla posizione.\nQuesta posizione non corrisponde esattamente a ciò che stai cercando, ma i nostri valori ti interessano? Non esitare a inviarci la tua candidatura spontanea!\nRisponderemo solo alle candidature il cui profilo corrisponde alla descrizione richiesta.",
@@ -14138,7 +14148,9 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-30T11:22:37.420Z"
+      "firstSeenAt": "2026-07-30T11:22:37.420Z",
+      "needsRetranslation": true,
+      "retranslationAttempts": 0
     },
     {
       "title": "Progettista di ingegneria civile (M/F/D)",
@@ -14165,9 +14177,9 @@
       "description": "Vuoi la libertà del lavoro temporaneo e la sicurezza di un impiego a tempo indeterminato? Da 30 anni affianchiamo centinaia di aziende nei settori tecnici dell’edilizia, delle costruzioni e dell’industria in tutta la Svizzera, proponendo loro i migliori talenti. Non ti nascondiamo però che siamo esigenti. Quindi, se sei una persona motivata ed estremamente entusiasta, unisciti al nostro team per la posizione di Progettista di ingegneria civile (M/F/D)\n\n## Il tuo incarico:\n• Elaborare i piani di anteprogetto, progetto e realizzazione.\n• Realizzare i disegni tecnici relativi alle infrastrutture, alle opere di ingegneria civile o alle strutture.\n• Partecipare alla modellazione 2D e 3D dei progetti.\n• Collaborare strettamente con gli ingegneri e i responsabili di progetto.\n• Garantire il coordinamento grafico e tecnico dei fascicoli.\n• Preparare i documenti tecnici destinati alle gare d’appalto e alla fase esecutiva.\n• Effettuare gli aggiornamenti e le modifiche ai progetti in base all’evoluzione dei lavori.\n• Garantire il rispetto delle norme e degli standard di disegno in vigore.\n• Partecipare agli scambi con i diversi soggetti coinvolti nel progetto.\n\n## E ora parliamo di te?\n• Attestato federale di capacità (AFC) come disegnatore edile o formazione ritenuta equivalente.\n• Almeno 5 anni di esperienza presso uno studio di ingegneria in Svizzera.\n• Comprovata esperienza nell’elaborazione di progetti di infrastrutture, opere di ingegneria civile o strutture.\n• Buona conoscenza delle norme e delle prassi edilizie svizzere.\n• Padronanza dei software di disegno quali AutoCAD, Civil 3D, Messerli o equivalenti.\n• Capacità di lavorare in modo autonomo, collaborando al contempo efficacemente con i team di progetto.\n• Attenzione ai dettagli, rigore e senso dell’organizzazione.\n• Ottime capacità relazionali e spirito di squadra.\n• Ottima padronanza del francese sia scritto che parlato\n\n## Il tuo referente:\nIl tuo referente per questa posizione è Matthieu. Con oltre 15 anni di esperienza nel settore del reclutamento, saprà accompagnarti, consigliarti e rispondere a tutte le tue domande relative alla posizione.\nQuesta posizione non corrisponde esattamente a ciò che stai cercando, ma i nostri valori ti interessano? Non esitare a inviarci la tua candidatura spontanea!\nRisponderemo solo alle candidature il cui profilo corrisponda alla descrizione richiesta.",
       "titleByLocale": {
         "it": "Progettista di ingegneria civile (M/F/D)",
-        "en": "Progettista di ingegneria civile (M/F/D)",
-        "de": "Progettista di ingegneria civile (M/F/D)",
-        "fr": "Progettista di ingegneria civile (M/F/D)"
+        "en": "Civil Engineering Planner (M/F/D)",
+        "de": "Tiefbauplaner (M/F/D)",
+        "fr": "Planificateur de génie civil (M/F/D)"
       },
       "descriptionByLocale": {
         "it": "Vuoi la libertà del lavoro temporaneo e la sicurezza di un impiego a tempo indeterminato? Da 30 anni affianchiamo centinaia di aziende nei settori tecnici dell’edilizia, delle costruzioni e dell’industria in tutta la Svizzera, proponendo loro i migliori talenti. Non ti nascondiamo però che siamo esigenti. Quindi, se sei una persona motivata ed estremamente entusiasta, unisciti al nostro team per la posizione di Progettista di ingegneria civile (M/F/D)\n\n## Il tuo incarico:\n• Elaborare i piani di anteprogetto, progetto e realizzazione.\n• Realizzare i disegni tecnici relativi alle infrastrutture, alle opere di ingegneria civile o alle strutture.\n• Partecipare alla modellazione 2D e 3D dei progetti.\n• Collaborare strettamente con gli ingegneri e i responsabili di progetto.\n• Garantire il coordinamento grafico e tecnico dei fascicoli.\n• Preparare i documenti tecnici destinati alle gare d’appalto e alla fase esecutiva.\n• Effettuare gli aggiornamenti e le modifiche ai progetti in base all’evoluzione dei lavori.\n• Garantire il rispetto delle norme e degli standard di disegno in vigore.\n• Partecipare agli scambi con i diversi soggetti coinvolti nel progetto.\n\n## E ora parliamo di te?\n• Attestato federale di capacità (AFC) come disegnatore edile o formazione ritenuta equivalente.\n• Almeno 5 anni di esperienza presso uno studio di ingegneria in Svizzera.\n• Comprovata esperienza nell’elaborazione di progetti di infrastrutture, opere di ingegneria civile o strutture.\n• Buona conoscenza delle norme e delle prassi edilizie svizzere.\n• Padronanza dei software di disegno quali AutoCAD, Civil 3D, Messerli o equivalenti.\n• Capacità di lavorare in modo autonomo, collaborando al contempo efficacemente con i team di progetto.\n• Attenzione ai dettagli, rigore e senso dell’organizzazione.\n• Ottime capacità relazionali e spirito di squadra.\n• Ottima padronanza del francese sia scritto che parlato\n\n## Il tuo referente:\nIl tuo referente per questa posizione è Matthieu. Con oltre 15 anni di esperienza nel settore del reclutamento, saprà accompagnarti, consigliarti e rispondere a tutte le tue domande relative alla posizione.\nQuesta posizione non corrisponde esattamente a ciò che stai cercando, ma i nostri valori ti interessano? Non esitare a inviarci la tua candidatura spontanea!\nRisponderemo solo alle candidature il cui profilo corrisponda alla descrizione richiesta.",
@@ -14253,7 +14265,9 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-30T11:22:37.420Z"
+      "firstSeenAt": "2026-07-30T11:22:37.420Z",
+      "needsRetranslation": true,
+      "retranslationAttempts": 0
     },
     {
       "title": "Falegname/a ebanista di laboratorio",
@@ -14280,9 +14294,9 @@
       "description": "Vuoi la libertà del lavoro temporaneo e la sicurezza di un impiego a tempo indeterminato? Da 30 anni affianchiamo centinaia di aziende nei settori tecnici dell’edilizia, delle costruzioni e dell’industria in tutta la Svizzera, proponendo loro i migliori talenti. Non ti nascondiamo però che siamo esigenti. Quindi, se sei una persona motivata ed estremamente entusiasta, unisciti al nostro team per la posizione di Falegname/a ebanista di laboratorio\n\n## Il tuo incarico:\n• Realizzazione di mobili e allestimenti su misura\n• Lettura dei progetti e rilevamento delle misure\n• Lavorazione del legno massello, pannelli e impiallacciature\n• Utilizzo di macchinari da officina tradizionali e digitali\n• Assemblaggio, montaggio e finiture di qualità\n• Rispetto delle scadenze e dei requisiti di produzione\n\n## E ora parliamo di te?\n• Formazione in falegnameria/ebanisteria\n• Preferibile esperienza in officina\n• Attenzione ai dettagli e cura del lavoro ben fatto\n• Autonomia, rigore e spirito di squadra\n• Passione per il legno e l’artigianato di qualità\n\n## Il tuo referente:\nIl tuo referente per questa posizione è Tasleem. Sarà in grado di accompagnarti, consigliarti e rispondere a tutte le tue domande relative alla posizione.\nQuesta posizione non corrisponde esattamente a ciò che stai cercando, ma i nostri valori ti interessano? Non esitare a inviarci la tua candidatura spontanea!\nRisponderemo solo alle candidature il cui profilo corrisponde alla descrizione richiesta.",
       "titleByLocale": {
         "it": "Falegname/a ebanista di laboratorio",
-        "en": "Falegname/a ebanista di laboratorio",
-        "de": "Falegname/a ebanista di laboratorio",
-        "fr": "Falegname/a ebanista di laboratorio"
+        "en": "Laboratory carpenter/a ebanist",
+        "de": "Labor Zimmermann/ein Ebanist",
+        "fr": "Charpentier de laboratoire/ébaniste"
       },
       "descriptionByLocale": {
         "it": "Vuoi la libertà del lavoro temporaneo e la sicurezza di un impiego a tempo indeterminato? Da 30 anni affianchiamo centinaia di aziende nei settori tecnici dell’edilizia, delle costruzioni e dell’industria in tutta la Svizzera, proponendo loro i migliori talenti. Non ti nascondiamo però che siamo esigenti. Quindi, se sei una persona motivata ed estremamente entusiasta, unisciti al nostro team per la posizione di Falegname/a ebanista di laboratorio\n\n## Il tuo incarico:\n• Realizzazione di mobili e allestimenti su misura\n• Lettura dei progetti e rilevamento delle misure\n• Lavorazione del legno massello, pannelli e impiallacciature\n• Utilizzo di macchinari da officina tradizionali e digitali\n• Assemblaggio, montaggio e finiture di qualità\n• Rispetto delle scadenze e dei requisiti di produzione\n\n## E ora parliamo di te?\n• Formazione in falegnameria/ebanisteria\n• Preferibile esperienza in officina\n• Attenzione ai dettagli e cura del lavoro ben fatto\n• Autonomia, rigore e spirito di squadra\n• Passione per il legno e l’artigianato di qualità\n\n## Il tuo referente:\nIl tuo referente per questa posizione è Tasleem. Sarà in grado di accompagnarti, consigliarti e rispondere a tutte le tue domande relative alla posizione.\nQuesta posizione non corrisponde esattamente a ciò che stai cercando, ma i nostri valori ti interessano? Non esitare a inviarci la tua candidatura spontanea!\nRisponderemo solo alle candidature il cui profilo corrisponde alla descrizione richiesta.",
@@ -14338,9 +14352,9 @@
       "description": "Vuoi la libertà del lavoro temporaneo e la sicurezza di un impiego a tempo indeterminato? Da 30 anni affianchiamo centinaia di aziende nei settori tecnici dell’edilizia, delle costruzioni e dell’industria in tutta la Svizzera, proponendo loro i migliori talenti. Non ti nascondiamo però che siamo esigenti. Quindi, se sei una persona motivata ed estremamente entusiasta, unisciti al nostro team per la posizione di Falegname/a installatore/trice\n\n## Il tuo incarico:\n• Posa di infissi e arredi su misura\n• Installazione di cucine, cabine armadio, mobili e elementi d’arredo\n• Lettura dei progetti e rilevamento delle misure in cantiere\n• Adeguamenti e rifiniture presso i clienti\n• Lavoro pulito e accurato nel rispetto delle scadenze\n\n## E ora parliamo di te?\n• È richiesta esperienza nella posa di infissi e nell’allestimento di interni\n• Buona padronanza degli strumenti di posa\n• Attenzione ai dettagli e cura per un lavoro ben fatto\n• Autonomia, rigore e buone capacità relazionali con i clienti\n\n## Il tuo referente:\nIl tuo referente per questa posizione è Tasleem. Sarà in grado di accompagnarti, consigliarti e rispondere a tutte le tue domande relative alla posizione.\nQuesta posizione non corrisponde esattamente a ciò che stai cercando, ma i nostri valori ti interessano? Non esitare a inviarci la tua candidatura spontanea!\nRisponderemo solo alle candidature il cui profilo corrisponde alla descrizione richiesta.",
       "titleByLocale": {
         "it": "Falegname/a installatore/trice",
-        "en": "Falegname/a installatore/trice",
-        "de": "Falegname/a installatore/trice",
-        "fr": "Falegname/a installatore/trice"
+        "en": "Carpenter/installer",
+        "de": "Zimmermann/Installation",
+        "fr": "Charpentier/installateur"
       },
       "descriptionByLocale": {
         "it": "Vuoi la libertà del lavoro temporaneo e la sicurezza di un impiego a tempo indeterminato? Da 30 anni affianchiamo centinaia di aziende nei settori tecnici dell’edilizia, delle costruzioni e dell’industria in tutta la Svizzera, proponendo loro i migliori talenti. Non ti nascondiamo però che siamo esigenti. Quindi, se sei una persona motivata ed estremamente entusiasta, unisciti al nostro team per la posizione di Falegname/a installatore/trice\n\n## Il tuo incarico:\n• Posa di infissi e arredi su misura\n• Installazione di cucine, cabine armadio, mobili e elementi d’arredo\n• Lettura dei progetti e rilevamento delle misure in cantiere\n• Adeguamenti e rifiniture presso i clienti\n• Lavoro pulito e accurato nel rispetto delle scadenze\n\n## E ora parliamo di te?\n• È richiesta esperienza nella posa di infissi e nell’allestimento di interni\n• Buona padronanza degli strumenti di posa\n• Attenzione ai dettagli e cura per un lavoro ben fatto\n• Autonomia, rigore e buone capacità relazionali con i clienti\n\n## Il tuo referente:\nIl tuo referente per questa posizione è Tasleem. Sarà in grado di accompagnarti, consigliarti e rispondere a tutte le tue domande relative alla posizione.\nQuesta posizione non corrisponde esattamente a ciò che stai cercando, ma i nostri valori ti interessano? Non esitare a inviarci la tua candidatura spontanea!\nRisponderemo solo alle candidature il cui profilo corrisponde alla descrizione richiesta.",

@@ -153,8 +153,7 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "schindler-fad00c711f39",
@@ -319,7 +318,6 @@
         ]
       },
       "firstSeenAt": "2026-07-28T11:27:46.274Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -466,7 +464,6 @@
         ]
       },
       "firstSeenAt": "2026-07-02T12:05:21.302Z",
-      "needsRetranslation": true,
       "salaryMin": 48000,
       "salaryMax": 73000,
       "baseSalary": {
@@ -539,7 +536,6 @@
         ]
       },
       "firstSeenAt": "2026-07-16T22:43:26.122Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -614,7 +610,6 @@
         ]
       },
       "firstSeenAt": "2026-06-30T23:17:15.011Z",
-      "needsRetranslation": true,
       "salaryMin": 58500,
       "salaryMax": 89000,
       "baseSalary": {
@@ -687,7 +682,6 @@
         ]
       },
       "firstSeenAt": "2026-06-30T23:17:15.855Z",
-      "needsRetranslation": true,
       "salaryMin": 58500,
       "salaryMax": 89000,
       "baseSalary": {
@@ -774,8 +768,7 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "schindler-1399c7ecb418",
@@ -984,7 +977,6 @@
         ]
       },
       "firstSeenAt": "2026-07-10T22:17:35.545Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -1057,7 +1049,6 @@
         ]
       },
       "firstSeenAt": "2026-06-30T23:17:10.627Z",
-      "needsRetranslation": true,
       "salaryMin": 48000,
       "salaryMax": 73000,
       "baseSalary": {
@@ -1130,7 +1121,6 @@
         ]
       },
       "firstSeenAt": "2026-07-07T22:15:41.105Z",
-      "needsRetranslation": true,
       "salaryMin": 48000,
       "salaryMax": 73000,
       "baseSalary": {
@@ -1209,7 +1199,6 @@
         ]
       },
       "firstSeenAt": "2026-07-21T11:22:44.794Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -1285,7 +1274,6 @@
         ]
       },
       "firstSeenAt": "2026-07-17T22:19:25.684Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -1348,7 +1336,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-07-21T11:22:11.412Z",
-      "needsRetranslation": true,
       "salaryMin": 96000,
       "salaryMax": 146000,
       "baseSalary": {
@@ -1501,7 +1488,6 @@
         ]
       },
       "firstSeenAt": "2026-07-29T22:04:13.866Z",
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "baseSalary": {
@@ -1574,7 +1560,6 @@
         ]
       },
       "firstSeenAt": "2026-05-19T12:33:43.279Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -1670,7 +1655,6 @@
         ]
       },
       "firstSeenAt": "2026-05-19T12:33:38.786Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -1832,7 +1816,6 @@
         ]
       },
       "firstSeenAt": "2026-05-27T13:46:29.633Z",
-      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "baseSalary": {
@@ -1895,7 +1878,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-07-16T11:24:30.837Z",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -1972,7 +1954,6 @@
         ]
       },
       "firstSeenAt": "2026-05-19T12:34:25.077Z",
-      "needsRetranslation": true,
       "salaryMin": 96000,
       "salaryMax": 146000,
       "baseSalary": {
@@ -2050,7 +2031,6 @@
         ]
       },
       "firstSeenAt": "2026-07-28T22:09:06.544Z",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -2129,7 +2109,6 @@
         ]
       },
       "firstSeenAt": "2026-07-07T22:16:02.327Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -2159,15 +2138,15 @@
       "titleByLocale": {
         "de": "Manager für Cookie-Einwilligungen",
         "it": "Manager per Cookie-Einwilligungen",
-        "en": "Manager für Cookie-Einwilligungen",
-        "fr": "Manager für Cookie-Einwilligungen"
+        "en": "Manager for cookie consents",
+        "fr": "Gestionnaire pour les consentements de cookies"
       },
       "description": "Mobilität | seit 1874 | weltweit im Einsatz\n\nDie Schindler Berufsbildung bildet schweizweit über 300 Lernende aus – du bist somit nie allein. Unser gesamtes Team setzt sich täglich für dich ein, damit du am Ende deiner Lehrzeit eine top ausgebildete Fachkraft bist.\n\nLehrstelle als Konstrukteur*in EFZ für 2027 in Ebikon",
       "descriptionByLocale": {
         "de": "Mobilität | seit 1874 | weltweit im Einsatz\n\nDie Schindler Berufsbildung bildet schweizweit über 300 Lernende aus – du bist somit nie allein. Unser gesamtes Team setzt sich täglich für dich ein, damit du am Ende deiner Lehrzeit eine top ausgebildete Fachkraft bist.\n\nLehrstelle als Konstrukteur*in EFZ für 2027 in Ebikon",
-        "it": "Mobilität | seit 1874 | weltweit im Einsatz\n\nDie Schindler Berufsbildung bildet schweizweit über 300 Lernende aus – du bist somit nie allein. Unser gesamtes Team setzt sich täglich für dich ein, damit du am Ende deiner Lehrzeit eine top ausgebildete Fachkraft bist.\n\nLehrstelle als Konstrukteur*in EFZ für 2027 in Ebikon",
-        "en": "Mobilität | seit 1874 | weltweit im Einsatz\n\nDie Schindler Berufsbildung bildet schweizweit über 300 Lernende aus – du bist somit nie allein. Unser gesamtes Team setzt sich täglich für dich ein, damit du am Ende deiner Lehrzeit eine top ausgebildete Fachkraft bist.\n\nLehrstelle als Konstrukteur*in EFZ für 2027 in Ebikon",
-        "fr": "Mobilität | seit 1874 | weltweit im Einsatz\n\nDie Schindler Berufsbildung bildet schweizweit über 300 Lernende aus – du bist somit nie allein. Unser gesamtes Team setzt sich täglich für dich ein, damit du am Ende deiner Lehrzeit eine top ausgebildete Fachkraft bist.\n\nLehrstelle als Konstrukteur*in EFZ für 2027 in Ebikon"
+        "it": "Mobility | dal 1874 | in tutto il mondo in uso\n\nLa formazione professionale di Schindler allena più di 300 studenti in tutta la Svizzera, quindi non sei mai sola. Tutto il nostro team si impegna ogni giorno per voi in modo da essere un professionista altamente qualificato alla fine del vostro apprendistato.\n\nApprendistato come costruttore per 2027 in Ebikon",
+        "en": "Mobility | since 1874 | worldwide in use\n\nSchindler Vocational Training trains more than 300 learners throughout Switzerland – so you are never alone. Our entire team is committed to you every day so that you are a highly qualified professional at the end of your apprenticeship.\n\nApprenticeship as constructor for 2027 in Ebikon",
+        "fr": "Mobilité à travers le monde depuis 1874\n\nSchindler Formation professionnelle forme plus de 300 apprenants en Suisse – vous n'êtes donc jamais seul. Toute notre équipe s'engage pour vous tous les jours afin que vous soyez un professionnel hautement qualifié à la fin de votre apprentissage.\n\nApprentissage comme constructeur pour 2027 à Ebikon"
       },
       "location": "Ebikon",
       "canton": "LU",
@@ -2195,7 +2174,26 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "manager-fur-cookie-einwilligungen-schindler-ebikon"
+          "manager-fur-cookie-einwilligungen-schindler-ebikon-10",
+          "manager-per-cookie-einwilligungen-schindler-ebikon-bvd24w",
+          "manager-per-cookie-einwilligungen-schindler-ebikon-qbido7",
+          "manager-per-cookie-einwilligungen-schindler-ebikon-qckpmk",
+          "manager-per-cookie-einwilligungen-schindler-ebikon-r4si95",
+          "manager-per-cookie-einwilligungen-schindler-ebikon-5q2l5c",
+          "manager-per-cookie-einwilligungen-schindler-ebikon-r4tp9f",
+          "manager-per-cookie-einwilligungen-schindler-ebikon-r4uc8y",
+          "manager-per-cookie-einwilligungen-schindler-ebikon-r4uf7q",
+          "manager-per-cookie-einwilligungen-schindler-ebikon-r4vs5k",
+          "manager-per-cookie-einwilligungen-schindler-ebikon-bw0jgk",
+          "manager-per-cookie-einwilligungen-schindler-ebikon-bwkxk2",
+          "gestionnaire-pour-les-consentements-de-cookies-schindler-ebikon",
+          "manager-per-cookie-einwilligungen-schindler-ebikon-5mq2k5",
+          "manager-per-cookie-einwilligungen-schindler-ebikon-r4uyhs",
+          "manager-per-cookie-einwilligungen-schindler-ebikon-634kz6",
+          "manager-fur-cookie-einwilligungen-schindler-ebikon-2",
+          "manager-fur-cookie-einwilligungen-schindler-ebikon-3",
+          "manager-fur-cookie-einwilligungen-schindler-ebikon-4",
+          "manager-fur-cookie-einwilligungen-schindler-ebikon-5"
         ],
         "fr": [
           "gestionnaire-pour-les-consentements-de-cookies-schindler-ebikon-8fd086"
@@ -2203,9 +2201,33 @@
       },
       "previousSlugs": [
         "manager-fur-cookie-einwilligungen-schindler-ebikon",
-        "gestionnaire-pour-les-consentements-de-cookies-schindler-ebikon-8fd086"
+        "gestionnaire-pour-les-consentements-de-cookies-schindler-ebikon-8fd086",
+        "manager-per-cookie-einwilligungen-schindler-ebikon-634kz6",
+        "manager-fur-cookie-einwilligungen-schindler-ebikon-2",
+        "manager-fur-cookie-einwilligungen-schindler-ebikon-3",
+        "manager-fur-cookie-einwilligungen-schindler-ebikon-4",
+        "manager-fur-cookie-einwilligungen-schindler-ebikon-5",
+        "manager-fur-cookie-einwilligungen-schindler-ebikon-6",
+        "manager-fur-cookie-einwilligungen-schindler-ebikon-7",
+        "manager-fur-cookie-einwilligungen-schindler-ebikon-8",
+        "manager-per-cookie-einwilligungen-schindler-ebikon-5otxjs",
+        "manager-fur-cookie-einwilligungen-schindler-ebikon-9",
+        "manager-fur-cookie-einwilligungen-schindler-ebikon-10",
+        "manager-per-cookie-einwilligungen-schindler-ebikon-bvd24w",
+        "manager-per-cookie-einwilligungen-schindler-ebikon-qbido7",
+        "manager-per-cookie-einwilligungen-schindler-ebikon-qckpmk",
+        "manager-per-cookie-einwilligungen-schindler-ebikon-r4si95",
+        "manager-per-cookie-einwilligungen-schindler-ebikon-5q2l5c",
+        "manager-per-cookie-einwilligungen-schindler-ebikon-r4tp9f",
+        "manager-per-cookie-einwilligungen-schindler-ebikon-r4uc8y",
+        "manager-per-cookie-einwilligungen-schindler-ebikon-r4uf7q",
+        "manager-per-cookie-einwilligungen-schindler-ebikon-r4vs5k",
+        "manager-per-cookie-einwilligungen-schindler-ebikon-bw0jgk",
+        "manager-per-cookie-einwilligungen-schindler-ebikon-bwkxk2",
+        "gestionnaire-pour-les-consentements-de-cookies-schindler-ebikon",
+        "manager-per-cookie-einwilligungen-schindler-ebikon-5mq2k5",
+        "manager-per-cookie-einwilligungen-schindler-ebikon-r4uyhs"
       ],
-      "needsRetranslation": true,
       "salaryMin": 96000,
       "salaryMax": 146000,
       "baseSalary": {
@@ -2432,7 +2454,6 @@
         ]
       },
       "firstSeenAt": "2026-07-23T22:07:31.318Z",
-      "needsRetranslation": true,
       "salaryMin": 27800,
       "salaryMax": 42400,
       "baseSalary": {
@@ -2505,7 +2526,6 @@
         ]
       },
       "firstSeenAt": "2026-06-17T14:00:37.760Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -2736,7 +2756,6 @@
         ]
       },
       "firstSeenAt": "2026-05-19T12:34:25.810Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -2809,7 +2828,6 @@
         ]
       },
       "firstSeenAt": "2026-07-06T14:57:49.799Z",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -2882,7 +2900,6 @@
         ]
       },
       "firstSeenAt": "2026-07-03T23:07:08.421Z",
-      "needsRetranslation": true,
       "salaryMin": 96000,
       "salaryMax": 146000,
       "baseSalary": {
@@ -3048,7 +3065,6 @@
         ]
       },
       "firstSeenAt": "2026-07-29T11:36:45.065Z",
-      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -3078,15 +3094,15 @@
       "titleByLocale": {
         "de": "Manager für Cookie-Einwilligungen",
         "it": "Manager per Cookie-Einwilligungen",
-        "en": "Manager für Cookie-Einwilligungen",
-        "fr": "Manager für Cookie-Einwilligungen"
+        "en": "Manager for cookie consents",
+        "fr": "Gestionnaire pour les consentements de cookies"
       },
       "description": "Mobilität | seit 1874 | weltweit im Einsatz\n\nDie Schindler Berufsbildung bildet schweizweit über 300 Lernende aus – du bist somit nie allein. Unser gesamtes Team setzt sich täglich für dich ein, damit du am Ende deiner Lehrzeit eine top ausgebildete Fachkraft bist.\n\nLehrstelle als Anlagen- und Apparatebauer*in EFZ mit Schwerpunkt Liftmontage für 2027 in Zürich",
       "descriptionByLocale": {
         "de": "Mobilität | seit 1874 | weltweit im Einsatz\n\nDie Schindler Berufsbildung bildet schweizweit über 300 Lernende aus – du bist somit nie allein. Unser gesamtes Team setzt sich täglich für dich ein, damit du am Ende deiner Lehrzeit eine top ausgebildete Fachkraft bist.\n\nLehrstelle als Anlagen- und Apparatebauer*in EFZ mit Schwerpunkt Liftmontage für 2027 in Zürich",
-        "it": "Mobilität | seit 1874 | weltweit im Einsatz\n\nDie Schindler Berufsbildung bildet schweizweit über 300 Lernende aus – du bist somit nie allein. Unser gesamtes Team setzt sich täglich für dich ein, damit du am Ende deiner Lehrzeit eine top ausgebildete Fachkraft bist.\n\nLehrstelle als Anlagen- und Apparatebauer*in EFZ mit Schwerpunkt Liftmontage für 2027 in Zürich",
-        "en": "Mobilität | seit 1874 | weltweit im Einsatz\n\nDie Schindler Berufsbildung bildet schweizweit über 300 Lernende aus – du bist somit nie allein. Unser gesamtes Team setzt sich täglich für dich ein, damit du am Ende deiner Lehrzeit eine top ausgebildete Fachkraft bist.\n\nLehrstelle als Anlagen- und Apparatebauer*in EFZ mit Schwerpunkt Liftmontage für 2027 in Zürich",
-        "fr": "Mobilität | seit 1874 | weltweit im Einsatz\n\nDie Schindler Berufsbildung bildet schweizweit über 300 Lernende aus – du bist somit nie allein. Unser gesamtes Team setzt sich täglich für dich ein, damit du am Ende deiner Lehrzeit eine top ausgebildete Fachkraft bist.\n\nLehrstelle als Anlagen- und Apparatebauer*in EFZ mit Schwerpunkt Liftmontage für 2027 in Zürich"
+        "it": "Mobility | dal 1874 | in tutto il mondo in uso\n\nLa formazione professionale di Schindler allena più di 300 studenti in tutta la Svizzera, quindi non sei mai sola. Tutto il nostro team si impegna ogni giorno per voi in modo da essere un professionista altamente qualificato alla fine del vostro apprendistato.\n\nApprendistato come produttore di impianti e apparati* in EFZ con focus sull'assemblaggio degli ascensori per il 2027 a Zurigo",
+        "en": "Mobility | since 1874 | worldwide in use\n\nSchindler Vocational Training trains more than 300 learners throughout Switzerland – so you are never alone. Our entire team is committed to you every day so that you are a highly qualified professional at the end of your apprenticeship.\n\nApprenticeship as plant and apparatus manufacturer* in EFZ with focus on lift assembly for 2027 in Zurich",
+        "fr": "Mobilité à travers le monde depuis 1874\n\nSchindler Formation professionnelle forme plus de 300 apprenants en Suisse – vous n'êtes donc jamais seul. Toute notre équipe s'engage pour vous tous les jours afin que vous soyez un professionnel hautement qualifié à la fin de votre apprentissage.\n\nApprentissage en tant que fabricant d'installations et d'appareils* à EFZ avec accent sur l'assemblage de levage pour 2027 à Zurich"
       },
       "location": "Zürich",
       "canton": "ZH",
@@ -3114,7 +3130,10 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "manager-fur-cookie-einwilligungen-schindler-zurich"
+          "manager-fur-cookie-einwilligungen-schindler-zurich",
+          "manager-per-cookie-einwilligungen-schindler-zurich-krmqlr",
+          "manager-per-cookie-einwilligungen-schindler-zurich-keecwn",
+          "manager-per-cookie-einwilligungen-schindler-zurich-keuwca"
         ],
         "fr": [
           "gestionnaire-pour-les-consentements-de-cookies-schindler-zurich"
@@ -3122,9 +3141,11 @@
       },
       "previousSlugs": [
         "manager-fur-cookie-einwilligungen-schindler-zurich",
-        "gestionnaire-pour-les-consentements-de-cookies-schindler-zurich"
+        "gestionnaire-pour-les-consentements-de-cookies-schindler-zurich",
+        "manager-per-cookie-einwilligungen-schindler-zurich-krmqlr",
+        "manager-per-cookie-einwilligungen-schindler-zurich-keecwn",
+        "manager-per-cookie-einwilligungen-schindler-zurich-keuwca"
       ],
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -3198,7 +3219,6 @@
         ]
       },
       "firstSeenAt": "2026-06-30T23:16:54.539Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -3283,7 +3303,6 @@
         ]
       },
       "firstSeenAt": "2026-07-10T22:17:24.800Z",
-      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -3356,7 +3375,6 @@
         ]
       },
       "firstSeenAt": "2026-06-30T23:16:49.552Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -3521,7 +3539,6 @@
         ]
       },
       "firstSeenAt": "2026-07-07T22:15:22.938Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -3691,7 +3708,6 @@
         ]
       },
       "firstSeenAt": "2026-05-30T12:19:03.250Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -3792,7 +3808,6 @@
         ]
       },
       "firstSeenAt": "2026-05-19T12:33:29.285Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -3866,8 +3881,7 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "schindler-9d728cddb571",
@@ -4018,7 +4032,6 @@
         ]
       },
       "firstSeenAt": "2026-05-19T12:33:35.929Z",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -4097,7 +4110,6 @@
         ]
       },
       "firstSeenAt": "2026-07-15T22:01:56.085Z",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -4300,7 +4312,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-07-17T22:19:31.338Z",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -4377,7 +4388,6 @@
         ]
       },
       "firstSeenAt": "2026-05-19T12:33:42.530Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -4456,7 +4466,6 @@
         ]
       },
       "firstSeenAt": "2026-05-19T12:34:17.660Z",
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "baseSalary": {
@@ -4539,7 +4548,6 @@
         ]
       },
       "firstSeenAt": "2026-07-07T22:15:10.022Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -4610,7 +4618,6 @@
         ]
       },
       "firstSeenAt": "2026-07-07T22:15:06.115Z",
-      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -4640,15 +4647,15 @@
       "titleByLocale": {
         "de": "Manager für Cookie-Einwilligungen",
         "it": "Manager per Cookie-Einwilligungen",
-        "en": "Manager für Cookie-Einwilligungen",
-        "fr": "Manager für Cookie-Einwilligungen"
+        "en": "Manager for cookie consents",
+        "fr": "Gestionnaire pour les consentements de cookies"
       },
       "description": "Mobilität | seit 1874 | weltweit im Einsatz\n\nDie Schindler Berufsbildung bildet schweizweit über 300 Lernende aus – du bist somit nie allein. Unser gesamtes Team setzt sich täglich für dich ein, damit du am Ende deiner Lehrzeit eine top ausgebildete Fachkraft bist.\n\nLehrstelle als Polymechaniker*in EFZ mit Schwerpunkt Liftmontage für 2027 in Bern",
       "descriptionByLocale": {
         "de": "Mobilität | seit 1874 | weltweit im Einsatz\n\nDie Schindler Berufsbildung bildet schweizweit über 300 Lernende aus – du bist somit nie allein. Unser gesamtes Team setzt sich täglich für dich ein, damit du am Ende deiner Lehrzeit eine top ausgebildete Fachkraft bist.\n\nLehrstelle als Polymechaniker*in EFZ mit Schwerpunkt Liftmontage für 2027 in Bern",
-        "it": "Mobilität | seit 1874 | weltweit im Einsatz\n\nDie Schindler Berufsbildung bildet schweizweit über 300 Lernende aus – du bist somit nie allein. Unser gesamtes Team setzt sich täglich für dich ein, damit du am Ende deiner Lehrzeit eine top ausgebildete Fachkraft bist.\n\nLehrstelle als Polymechaniker*in EFZ mit Schwerpunkt Liftmontage für 2027 in Bern",
-        "en": "Mobilität | seit 1874 | weltweit im Einsatz\n\nDie Schindler Berufsbildung bildet schweizweit über 300 Lernende aus – du bist somit nie allein. Unser gesamtes Team setzt sich täglich für dich ein, damit du am Ende deiner Lehrzeit eine top ausgebildete Fachkraft bist.\n\nLehrstelle als Polymechaniker*in EFZ mit Schwerpunkt Liftmontage für 2027 in Bern",
-        "fr": "Mobilität | seit 1874 | weltweit im Einsatz\n\nDie Schindler Berufsbildung bildet schweizweit über 300 Lernende aus – du bist somit nie allein. Unser gesamtes Team setzt sich täglich für dich ein, damit du am Ende deiner Lehrzeit eine top ausgebildete Fachkraft bist.\n\nLehrstelle als Polymechaniker*in EFZ mit Schwerpunkt Liftmontage für 2027 in Bern"
+        "it": "Mobility | dal 1874 | in tutto il mondo in uso\n\nLa formazione professionale di Schindler allena più di 300 studenti in tutta la Svizzera, quindi non sei mai sola. Tutto il nostro team si impegna ogni giorno per voi in modo da essere un professionista altamente qualificato alla fine del vostro apprendistato.\n\nApprendistato come EFZ polimeccanico con un focus sull'assemblaggio degli ascensori per il 2027 a Berna",
+        "en": "Mobility | since 1874 | worldwide in use\n\nSchindler Vocational Training trains more than 300 learners throughout Switzerland – so you are never alone. Our entire team is committed to you every day so that you are a highly qualified professional at the end of your apprenticeship.\n\nApprenticeship as a polymechanic EFZ with a focus on lift assembly for 2027 in Bern",
+        "fr": "Mobilité à travers le monde depuis 1874\n\nSchindler Formation professionnelle forme plus de 300 apprenants en Suisse – vous n'êtes donc jamais seul. Toute notre équipe s'engage pour vous tous les jours afin que vous soyez un professionnel hautement qualifié à la fin de votre apprentissage.\n\nApprentissage en tant qu'EFZ polymécanique avec un accent sur le montage de levage pour 2027 à Berne"
       },
       "location": "Bern",
       "canton": "BE",
@@ -4676,7 +4683,10 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "manager-fur-cookie-einwilligungen-schindler-bern"
+          "manager-fur-cookie-einwilligungen-schindler-bern",
+          "manager-per-cookie-einwilligungen-schindler-bern-qbggpm",
+          "manager-per-cookie-einwilligungen-schindler-bern-qckslc",
+          "manager-per-cookie-einwilligungen-schindler-bern-qbfy69"
         ],
         "fr": [
           "gestionnaire-pour-les-consentements-de-cookies-schindler-bern"
@@ -4684,9 +4694,11 @@
       },
       "previousSlugs": [
         "manager-fur-cookie-einwilligungen-schindler-bern",
-        "gestionnaire-pour-les-consentements-de-cookies-schindler-bern"
+        "gestionnaire-pour-les-consentements-de-cookies-schindler-bern",
+        "manager-per-cookie-einwilligungen-schindler-bern-qbggpm",
+        "manager-per-cookie-einwilligungen-schindler-bern-qckslc",
+        "manager-per-cookie-einwilligungen-schindler-bern-qbfy69"
       ],
-      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "baseSalary": {
@@ -4717,15 +4729,15 @@
       "titleByLocale": {
         "de": "Manager für Cookie-Einwilligungen",
         "it": "Manager per Cookie-Einwilligungen",
-        "en": "Manager für Cookie-Einwilligungen",
-        "fr": "Manager für Cookie-Einwilligungen"
+        "en": "Manager for cookie consents",
+        "fr": "Gestionnaire pour les consentements de cookies"
       },
       "description": "Mobilität | seit 1874 | weltweit im Einsatz\n\nDie Schindler Berufsbildung bildet schweizweit über 300 Lernende aus – du bist somit nie allein. Unser gesamtes Team setzt sich täglich für dich ein, damit du am Ende deiner Lehrzeit eine top ausgebildete Fachkraft bist.\n\nLehrstelle als Polymechaniker*in EFZ mit Schwerpunkt Liftmontage für 2027 in Basel",
       "descriptionByLocale": {
         "de": "Mobilität | seit 1874 | weltweit im Einsatz\n\nDie Schindler Berufsbildung bildet schweizweit über 300 Lernende aus – du bist somit nie allein. Unser gesamtes Team setzt sich täglich für dich ein, damit du am Ende deiner Lehrzeit eine top ausgebildete Fachkraft bist.\n\nLehrstelle als Polymechaniker*in EFZ mit Schwerpunkt Liftmontage für 2027 in Basel",
-        "it": "Mobilität | seit 1874 | weltweit im Einsatz\n\nDie Schindler Berufsbildung bildet schweizweit über 300 Lernende aus – du bist somit nie allein. Unser gesamtes Team setzt sich täglich für dich ein, damit du am Ende deiner Lehrzeit eine top ausgebildete Fachkraft bist.\n\nLehrstelle als Polymechaniker*in EFZ mit Schwerpunkt Liftmontage für 2027 in Basel",
-        "en": "Mobilität | seit 1874 | weltweit im Einsatz\n\nDie Schindler Berufsbildung bildet schweizweit über 300 Lernende aus – du bist somit nie allein. Unser gesamtes Team setzt sich täglich für dich ein, damit du am Ende deiner Lehrzeit eine top ausgebildete Fachkraft bist.\n\nLehrstelle als Polymechaniker*in EFZ mit Schwerpunkt Liftmontage für 2027 in Basel",
-        "fr": "Mobilität | seit 1874 | weltweit im Einsatz\n\nDie Schindler Berufsbildung bildet schweizweit über 300 Lernende aus – du bist somit nie allein. Unser gesamtes Team setzt sich täglich für dich ein, damit du am Ende deiner Lehrzeit eine top ausgebildete Fachkraft bist.\n\nLehrstelle als Polymechaniker*in EFZ mit Schwerpunkt Liftmontage für 2027 in Basel"
+        "it": "Mobility | dal 1874 | in tutto il mondo in uso\n\nLa formazione professionale di Schindler allena più di 300 studenti in tutta la Svizzera, quindi non sei mai sola. Tutto il nostro team si impegna ogni giorno per voi in modo da essere un professionista altamente qualificato alla fine del vostro apprendistato.\n\nApprendistato come EFZ polimeccanico con un focus sull'assemblaggio degli ascensori per il 2027 a Basilea",
+        "en": "Mobility | since 1874 | worldwide in use\n\nSchindler Vocational Training trains more than 300 learners throughout Switzerland – so you are never alone. Our entire team is committed to you every day so that you are a highly qualified professional at the end of your apprenticeship.\n\nApprenticeship as a polymechanic EFZ with a focus on lift assembly for 2027 in Basel",
+        "fr": "Mobilité à travers le monde depuis 1874\n\nSchindler Formation professionnelle forme plus de 300 apprenants en Suisse – vous n'êtes donc jamais seul. Toute notre équipe s'engage pour vous tous les jours afin que vous soyez un professionnel hautement qualifié à la fin de votre apprentissage.\n\nApprentissage en tant qu'EFZ polymécanique avec un accent sur le montage de levage pour 2027 à Bâle"
       },
       "location": "Basel",
       "canton": "BS",
@@ -4753,7 +4765,26 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "manager-fur-cookie-einwilligungen-schindler-basel"
+          "gestione-delle-autorizzazioni-dei-cookie-schindler-bern",
+          "manager-per-cookie-einwilligungen-schindler-st-gallen-kezgyg",
+          "manager-fur-cookie-einwilligungen-schindler-st-gallen-2",
+          "manager-fur-cookie-einwilligungen-schindler-basel-2",
+          "manager-per-cookie-einwilligungen-schindler-ebikon-i5c82e",
+          "manager-per-cookie-einwilligungen-schindler-ebikon-i5b1st",
+          "manager-for-cookie-consents-schindler-basel",
+          "manager-fur-cookie-einwilligungen-schindler-ebikon",
+          "manager-per-cookie-einwilligungen-schindler-ebikon-r4vs5k",
+          "manager-fur-cookie-einwilligungen-schindler-ebikon-6",
+          "manager-fur-cookie-einwilligungen-schindler-ebikon-11",
+          "manager-per-cookie-einwilligungen-schindler-ebikon",
+          "manager-fur-cookie-einwilligungen-schindler-ebikon-7",
+          "manager-per-cookie-einwilligungen-schindler-bern-qckslc",
+          "manager-fur-cookie-einwilligungen-schindler-ebikon-8",
+          "manager-per-cookie-einwilligungen-schindler-ebikon-r4uyhs",
+          "manager-fur-cookie-einwilligungen-schindler-ebikon-9",
+          "manager-fur-cookie-einwilligungen-schindler-ebikon-10",
+          "manager-per-cookie-einwilligungen-schindler-ebikon-634kz6",
+          "manager-fur-cookie-einwilligungen-schindler-st-gallen"
         ],
         "fr": [
           "gestionnaire-pour-les-consentements-de-cookies-schindler-basel"
@@ -4761,9 +4792,81 @@
       },
       "previousSlugs": [
         "manager-fur-cookie-einwilligungen-schindler-basel",
-        "gestionnaire-pour-les-consentements-de-cookies-schindler-basel"
+        "gestionnaire-pour-les-consentements-de-cookies-schindler-basel",
+        "gestione-delle-autorizzazioni-dei-cookie-schindler-bern",
+        "manager-per-cookie-einwilligungen-schindler-st-gallen-kezgyg",
+        "manager-fur-cookie-einwilligungen-schindler-st-gallen-2",
+        "manager-fur-cookie-einwilligungen-schindler-basel-2",
+        "manager-per-cookie-einwilligungen-schindler-ebikon-i5c82e",
+        "manager-per-cookie-einwilligungen-schindler-ebikon-i5b1st",
+        "manager-for-cookie-consents-schindler-basel",
+        "manager-fur-cookie-einwilligungen-schindler-ebikon",
+        "manager-per-cookie-einwilligungen-schindler-ebikon-r4vs5k",
+        "manager-fur-cookie-einwilligungen-schindler-ebikon-6",
+        "manager-fur-cookie-einwilligungen-schindler-ebikon-11",
+        "manager-per-cookie-einwilligungen-schindler-ebikon",
+        "manager-fur-cookie-einwilligungen-schindler-ebikon-7",
+        "manager-per-cookie-einwilligungen-schindler-bern-qckslc",
+        "manager-fur-cookie-einwilligungen-schindler-ebikon-8",
+        "manager-per-cookie-einwilligungen-schindler-ebikon-r4uyhs",
+        "manager-fur-cookie-einwilligungen-schindler-ebikon-9",
+        "manager-fur-cookie-einwilligungen-schindler-ebikon-10",
+        "manager-per-cookie-einwilligungen-schindler-ebikon-634kz6",
+        "manager-fur-cookie-einwilligungen-schindler-st-gallen",
+        "manager-per-cookie-einwilligungen-schindler-basel-qcm1tp",
+        "manager-per-cookie-einwilligungen-schindler-basel-8f2wpd",
+        "manager-per-cookie-einwilligungen-schindler-st-gallen",
+        "manager-fur-cookie-einwilligungen-schindler-zurich",
+        "manager-per-cookie-einwilligungen-schindler-zurich-krmqlr",
+        "manager-per-cookie-einwilligungen-schindler-zurich",
+        "manager-fur-cookie-einwilligungen-schindler-winterthur",
+        "manager-per-cookie-einwilligungen-schindler-winterthur-kewari",
+        "gestionnaire-pour-les-consentements-de-cookies-schindler-winterthur",
+        "manager-per-cookie-einwilligungen-schindler-winterthur",
+        "gestionnaire-pour-les-consentements-de-cookies-schindler-zurich",
+        "manager-per-cookie-einwilligungen-schindler-ebikon-bwkxk2",
+        "gestionnaire-pour-les-consentements-de-cookies-schindler-ebikon",
+        "manager-fur-cookie-einwilligungen-schindler-oberentfelden",
+        "manager-per-cookie-einwilligungen-schindler-oberentfelden-m85jp1",
+        "gestionnaire-pour-les-consentements-de-cookies-schindler-oberentfelden",
+        "manager-per-cookie-einwilligungen-schindler-oberentfelden",
+        "manager-per-cookie-einwilligungen-schindler-oberentfelden-8crea4",
+        "manager-fur-cookie-einwilligungen-schindler-bussigny",
+        "manager-per-cookie-einwilligungen-schindler-ebikon-i5ay3c",
+        "manager-per-cookie-einwilligungen-schindler-basel-8f2yxg",
+        "manager-per-cookie-einwilligungen-schindler-oberentfelden-2",
+        "cookie-consent-manager-schindler-basel",
+        "manager-per-cookie-einwilligungen-schindler-zurich-keuwca",
+        "manager-per-cookie-einwilligungen-schindler-ebikon-r4uf7q",
+        "manager-per-cookie-einwilligungen-schindler-ebikon-r4si95",
+        "manager-fur-cookie-einwilligungen-schindler-ebikon-3",
+        "manager-fur-cookie-einwilligungen-schindler-ebikon-4",
+        "manager-per-cookie-einwilligungen-schindler-ebikon-r4tp9f",
+        "manager-fur-cookie-einwilligungen-schindler-ebikon-5",
+        "manager-per-cookie-einwilligungen-schindler-ebikon-r4uc8y",
+        "manager-per-cookie-einwilligungen-schindler-ebikon-qckpmk",
+        "manager-per-cookie-einwilligungen-schindler-basel-qcm41s",
+        "manager-per-cookie-einwilligungen-schindler-ebikon-qbido7",
+        "gestionnaire-pour-les-consentements-de-cookies-schindler-bern",
+        "manager-per-cookie-einwilligungen-schindler-bern-qbggpm",
+        "manager-per-cookie-einwilligungen-schindler-oberentfelden-m7nive",
+        "manager-per-cookie-einwilligungen-schindler-bussigny",
+        "manager-per-cookie-einwilligungen-schindler-bern-nycz98",
+        "manager-per-cookie-einwilligungen-schindler-bern-8f3fzf",
+        "manager-per-cookie-einwilligungen-schindler-bern-2",
+        "manager-for-cookie-permissions-schindler-st-gallen",
+        "manager-per-cookie-einwilligungen-schindler-ebikon-bw0jgk",
+        "manager-per-cookie-einwilligungen-schindler-ebikon-bvd24w",
+        "manager-per-cookie-einwilligungen-schindler-st-gallen-oi7jl7",
+        "manager-for-cookie-consents-schindler-ebikon",
+        "gestionnaire-pour-les-consentements-de-cookies-schindler-ebikon-8fd086",
+        "manager-fur-cookie-einwilligungen-schindler-bern",
+        "manager-per-cookie-einwilligungen-schindler-bern",
+        "manager-fur-cookie-einwilligungen-schindler-bern-2",
+        "manager-fur-cookie-einwilligungen-schindler-ebikon-2",
+        "manager-fur-cookie-einwilligungen-schindler-bern-3",
+        "gestione-delle-autorizzazioni-dei-cookie-schindler-bussigny"
       ],
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "baseSalary": {
@@ -4837,7 +4940,6 @@
         ]
       },
       "firstSeenAt": "2026-07-01T12:43:39.515Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -4984,14 +5086,16 @@
         "cookie-consent-manager-schindler-sion",
         "cookie-einwilligungsmanager-schindler-sion",
         "gestionnaire-de-consentements-pour-les-cookies-schindler-bussigny",
-        "cookie-consent-manager-schindler-bussigny-qcnbsr"
+        "cookie-consent-manager-schindler-bussigny-qcnbsr",
+        "cookie-consent-manager-schindler-bussigny"
       ],
       "previousSlugsByLocale": {
         "it": [
           "gestionnaire-de-consentements-pour-les-cookies-schindler-bussigny"
         ],
         "en": [
-          "cookie-consent-manager-schindler-bussigny-qcnbsr"
+          "cookie-consent-manager-schindler-bussigny-qcnbsr",
+          "cookie-consent-manager-schindler-bussigny"
         ],
         "de": [
           "gestionnaire-de-consentements-pour-les-cookies-schindler-bussigny"
@@ -5081,7 +5185,6 @@
         ]
       },
       "firstSeenAt": "2026-05-19T12:34:14.691Z",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -5154,7 +5257,6 @@
         ]
       },
       "firstSeenAt": "2026-07-07T22:15:50.192Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -5299,7 +5401,6 @@
         ]
       },
       "firstSeenAt": "2026-05-30T12:18:21.218Z",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -5518,7 +5619,6 @@
         ]
       },
       "firstSeenAt": "2026-05-19T12:34:28.777Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -5595,7 +5695,6 @@
         ]
       },
       "firstSeenAt": "2026-05-19T12:34:28.033Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -5680,7 +5779,6 @@
         ]
       },
       "firstSeenAt": "2026-05-19T12:34:04.959Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -5831,7 +5929,6 @@
         ]
       },
       "firstSeenAt": "2026-06-16T14:09:38.189Z",
-      "needsRetranslation": true,
       "salaryMin": 58000,
       "salaryMax": 102800,
       "baseSalary": {
@@ -5894,7 +5991,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-06-24T12:22:40.555Z",
-      "needsRetranslation": true,
       "salaryMin": 96000,
       "salaryMax": 146000,
       "baseSalary": {
@@ -5970,7 +6066,6 @@
         ]
       },
       "firstSeenAt": "2026-07-17T22:18:25.358Z",
-      "needsRetranslation": true,
       "salaryMin": 44700,
       "salaryMax": 76200,
       "baseSalary": {
@@ -6123,7 +6218,6 @@
         ]
       },
       "firstSeenAt": "2026-07-17T22:18:28.542Z",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -6264,7 +6358,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-07-10T22:16:31.314Z",
-      "needsRetranslation": true,
       "salaryMin": 96000,
       "salaryMax": 146000,
       "baseSalary": {
@@ -6347,8 +6440,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "schindler-b4caf6b404b5",
@@ -6431,8 +6523,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true
+      "crawlerMissStreak": 2
     }
   ]
 }
