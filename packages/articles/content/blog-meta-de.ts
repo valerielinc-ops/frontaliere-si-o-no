@@ -9141,6 +9141,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.franco-svizzero-tornano-le-pressioni-al-rialzo.title': 'Schweizer Franken: Kommt der Aufwärtsdruck zurück?',
     'blog.article.franco-svizzero-tornano-le-pressioni-al-rialzo.excerpt': 'Der EUR/CHF-Wechselkurs hat seit Ende Mai über 2 Prozent zugelegt und seit Januar erstmals wieder über 0,93 Franken gestiegen.',
     'blog.article.franco-svizzero-tornano-le-pressioni-al-rialzo.imageAlt': 'Devisenmarkt in Lugano',
+    'blog.article.besano-da-frontaliere-pro-e-contro.title': 'Leben in Besano als Grenzgänger: Leitfaden für Vor- und Nachteile',
+    'blog.article.besano-da-frontaliere-pro-e-contro.excerpt': 'Praktische Analyse der Reisezeiten, Steuern mit dem neuen Abkommen, Vor- und Nachteile der Wahl von Besano für diejenigen, die im Tessin arbeiten.',
+    'blog.article.besano-da-frontaliere-pro-e-contro.imageAlt': 'Ansicht von Besano mit Blick auf die Grenzregion in Richtung Schweiz',
 };
 
 export default blogMetaDe;

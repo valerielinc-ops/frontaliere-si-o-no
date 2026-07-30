@@ -9142,6 +9142,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.franco-svizzero-tornano-le-pressioni-al-rialzo.title': 'Swiss Franc: Is Upward Pressure Returning?',
     'blog.article.franco-svizzero-tornano-le-pressioni-al-rialzo.excerpt': 'The Eur/Chf exchange rate has gained more than 2% since the end of May, rising above 0.93 francs for the first time since January.',
     'blog.article.franco-svizzero-tornano-le-pressioni-al-rialzo.imageAlt': 'Foreign exchange market in Lugano',
+    'blog.article.besano-da-frontaliere-pro-e-contro.title': 'Living in Besano as a border worker: a guide for pros and cons',
+    'blog.article.besano-da-frontaliere-pro-e-contro.excerpt': 'Practical analysis on travel times, taxation with the new agreement, advantages and disadvantages of choosing Besano for those who work in Ticino.',
+    'blog.article.besano-da-frontaliere-pro-e-contro.imageAlt': 'View of Besano overlooking the border area toward Switzerland',
 };
 
 export default blogMetaEn;
