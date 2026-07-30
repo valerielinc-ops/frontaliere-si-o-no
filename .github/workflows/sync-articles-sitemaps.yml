@@ -1,9 +1,14 @@
-name: Sync article sitemaps from the articles API
+name: Sync article sitemaps, feeds and ticker from the articles API
 
-# The article sitemaps are produced by the repository that owns the corpus
+# The article data surface is produced by the repository that owns the corpus
 # (nanakokyobashi-rgb/frontaliere-articles) and consumed here. This workflow is
 # the consumption: it pulls the published files into public/ and commits them
 # when they actually changed.
+#
+# Thirteen files since #4974 item 2 — the two sitemaps, the ten RSS feeds and
+# the news-ticker payload. The filename still says "sitemaps" because renaming
+# it would orphan this workflow's run history for no functional gain; the
+# publisher's repository_dispatch keys on the event type, not on this name.
 #
 # repository_dispatch is the primary trigger, and it is the right shape: the
 # publisher knows when it has published, so the push is the event. The schedule
@@ -11,9 +16,10 @@ name: Sync article sitemaps from the articles API
 # outage) — it is not the mechanism.
 #
 # scripts/pull-articles-api.mjs refuses rather than degrades: it validates the
-# manifest and both sitemaps, gates on hreflang alternate counts as well as url
-# counts, and exits non-zero having written nothing if anything looks wrong. So a
-# bad publish leaves the committed copy serving instead of overwriting it.
+# manifest, both sitemaps (gating on hreflang alternate counts as well as url
+# counts), every feed's item count, and every locale title/slug in the ticker
+# payload — then exits non-zero having written nothing if anything looks wrong.
+# So a bad publish leaves the committed copy serving instead of overwriting it.
 
 on:
   repository_dispatch:
@@ -46,8 +52,22 @@ jobs:
       - name: Commit if changed
         run: |
           set -euo pipefail
-          if git diff --quiet -- public/sitemap-blog.xml public/sitemap-blog-ch.xml; then
-            echo "sitemaps already current — nothing to commit"
+          # Every artifact the pull writes: the two sitemaps, the ten RSS feeds
+          # and the news-ticker payload (issue #4974 item 2). Listing them here
+          # rather than `git add public/` keeps the commit scoped to what this
+          # workflow owns — public/ carries plenty this job must never touch.
+          FILES=(
+            public/sitemap-blog.xml
+            public/sitemap-blog-ch.xml
+            public/rss.xml public/rss-it.xml public/rss-en.xml public/rss-de.xml public/rss-fr.xml
+            public/rss-svizzera.xml public/rss-svizzera-it.xml public/rss-svizzera-en.xml
+            public/rss-svizzera-de.xml public/rss-svizzera-fr.xml
+            public/news-ticker-live.json
+          )
+
+          if git diff --quiet -- "${FILES[@]}" && git diff --quiet --cached -- "${FILES[@]}" \
+             && [ -z "$(git ls-files --others --exclude-standard -- "${FILES[@]}")" ]; then
+            echo "published artifacts already current — nothing to commit"
             exit 0
           fi
 
@@ -58,9 +78,12 @@ jobs:
             new_alts=$(grep -c 'xhtml:link' "$f" || true)
             echo "$f: $new_urls urls, $new_alts alternates"
           done
+          for f in public/rss.xml public/rss-svizzera.xml; do
+            echo "$f: $(grep -c '<item>' "$f" || true) items"
+          done
 
           git config user.name "Valerie Linc"
           git config user.email "valerielinc@gmail.com"
-          git add public/sitemap-blog.xml public/sitemap-blog-ch.xml
-          git commit -q -m "🗺️ Sync article sitemaps from the articles API"
+          git add -- "${FILES[@]}"
+          git commit -q -m "🗺️ Sync article sitemaps, feeds and ticker from the articles API"
           git push

@@ -45,6 +45,30 @@ const CHECK_ONLY = process.argv.includes('--check');
 /** Sitemaps this site serves verbatim from the articles repo. */
 const SITEMAPS = ['sitemap-blog.xml', 'sitemap-blog-ch.xml'];
 
+/**
+ * RSS feeds, served verbatim like the sitemaps (issue #4974 item 2). Ten files:
+ * two sections x four locales, plus each section's main feed, which is a byte
+ * copy of its Italian one.
+ */
+const FEEDS = [
+  'rss.xml',
+  'rss-it.xml',
+  'rss-en.xml',
+  'rss-de.xml',
+  'rss-fr.xml',
+  'rss-svizzera.xml',
+  'rss-svizzera-it.xml',
+  'rss-svizzera-en.xml',
+  'rss-svizzera-de.xml',
+  'rss-svizzera-fr.xml',
+];
+
+/** Slim homepage-ticker payload; the build plugin reads it from public/. */
+const TICKER = 'news-ticker-live.json';
+
+/** Items below which a feed is treated as broken rather than merely short. */
+const MIN_FEED_ITEMS = 10;
+
 /** Article count below which the published surface is treated as broken. */
 const MIN_ARTICLES = 100;
 
@@ -54,13 +78,53 @@ const fail = (msg) => {
   process.exit(1);
 };
 
+const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+
+/**
+ * Fetch one artifact, retrying transient failures.
+ *
+ * Not defensive padding: observed on 2026-07-30, when a sync landed mid-publish
+ * and Pages answered `sitemap-blog-ch.xml` with a 503 while the surface was
+ * being replaced. The script did the right thing — refused, wrote nothing — but
+ * the run failed for a condition that resolves itself in seconds, and the next
+ * scheduled run was the only recovery.
+ *
+ * That was three fetches. This now pulls fourteen, so the odds of clipping a
+ * publish window rise with it. Only 5xx/429 and network errors are retried; a
+ * 404 is a real absence and fails immediately, as it should.
+ */
 async function get(name) {
   const url = `${API_BASE}/${name}`;
-  const res = await fetch(url, { redirect: 'follow' });
-  if (!res.ok) throw new Error(`${url} → HTTP ${res.status}`);
-  const body = await res.text();
-  if (body.length === 0) throw new Error(`${url} → empty body`);
-  return body;
+  const attempts = 4;
+  let lastErr;
+
+  for (let i = 1; i <= attempts; i++) {
+    try {
+      const res = await fetch(url, { redirect: 'follow' });
+      if (!res.ok) {
+        const retryable = res.status >= 500 || res.status === 429;
+        const err = new Error(`${url} → HTTP ${res.status}`);
+        if (!retryable) throw err;
+        lastErr = err;
+      } else {
+        const body = await res.text();
+        if (body.length > 0) return body;
+        // An empty 200 during a publish swap is the same transient class.
+        lastErr = new Error(`${url} → empty body`);
+      }
+    } catch (err) {
+      // fetch() itself rejects on DNS/TLS/socket errors — retryable too.
+      if (err instanceof Error && /HTTP (4\d\d)/.test(err.message)) throw err;
+      lastErr = err;
+    }
+
+    if (i < attempts) {
+      const waitMs = 1000 * 2 ** (i - 1); // 1s, 2s, 4s
+      log(`${name}: ${lastErr.message} — retry ${i}/${attempts - 1} in ${waitMs}ms`);
+      await sleep(waitMs);
+    }
+  }
+  throw lastErr;
 }
 
 const countUrls = (xml) => (xml.match(/<url>/g) ?? []).length;
@@ -115,6 +179,82 @@ for (const name of SITEMAPS) {
     log(`${name}: ${urls} urls, ${alts} alternates (new)`);
   }
   staged.set(dest, xml);
+}
+
+// ── RSS feeds ────────────────────────────────────────────────────────
+//
+// Same posture as the sitemaps: validate everything before writing anything,
+// and refuse rather than degrade. A feed is a subscription surface — replacing
+// a good one with an empty or truncated one drops the channel for every reader
+// at once, and unlike a page nobody looks at a feed to notice.
+const countItems = (xml) => (xml.match(/<item>/g) ?? []).length;
+
+for (const name of FEEDS) {
+  let xml;
+  try {
+    xml = await get(name);
+  } catch (err) {
+    fail(`${name} unavailable: ${err.message}`);
+  }
+
+  const items = countItems(xml);
+  if (items < MIN_FEED_ITEMS) {
+    fail(`${name} has ${items} items (min ${MIN_FEED_ITEMS}) — refusing`);
+  }
+
+  const dest = path.join(PUBLIC_DIR, name);
+  if (fs.existsSync(dest)) {
+    const curItems = countItems(fs.readFileSync(dest, 'utf-8'));
+    // The feeds are capped at 50 newest, so the count is stable in normal
+    // operation; a drop means the publisher lost entries, not that the corpus
+    // shrank.
+    if (items < curItems) {
+      fail(`${name} would shrink from ${curItems} to ${items} items — refusing`);
+    }
+  }
+  log(`${name}: ${items} items`);
+  staged.set(dest, xml);
+}
+
+// ── News-ticker payload ──────────────────────────────────────────────
+//
+// The homepage ticker renders from this. `newsTickerDataPlugin` reads the
+// committed copy at build time, so a malformed one ships straight to the
+// homepage — hence the shape check here rather than a bare write. A raw i18n
+// key as a title is the specific way this fails silently: it renders as
+// `blog.article.<id>.title` to a real visitor.
+{
+  let raw;
+  try {
+    raw = await get(TICKER);
+  } catch (err) {
+    fail(`${TICKER} unavailable: ${err.message}`);
+  }
+
+  let payload;
+  try {
+    payload = JSON.parse(raw);
+  } catch (err) {
+    fail(`${TICKER} is not valid JSON: ${err.message}`);
+  }
+
+  const articles = payload?.articles;
+  if (!Array.isArray(articles) || articles.length === 0) {
+    fail(`${TICKER} carries no articles — refusing`);
+  }
+  for (const art of articles) {
+    if (!art?.id) fail(`${TICKER} has an article with no id — refusing`);
+    for (const loc of ['it', 'en', 'de', 'fr']) {
+      const title = art.title?.[loc];
+      if (!title) fail(`${TICKER}: '${art.id}' has no ${loc} title — refusing`);
+      if (title === `blog.article.${art.id}.title`) {
+        fail(`${TICKER}: '${art.id}' ${loc} title is the raw i18n key — refusing`);
+      }
+      if (!art.slug?.[loc]) fail(`${TICKER}: '${art.id}' has no ${loc} slug — refusing`);
+    }
+  }
+  log(`${TICKER}: ${articles.length} articles`);
+  staged.set(path.join(PUBLIC_DIR, TICKER), raw);
 }
 
 if (CHECK_ONLY) {
