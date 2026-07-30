@@ -1,21 +1,22 @@
 {
   "key": "lidl-svizzera",
   "label": "Lidl",
-  "generatedAt": "2026-07-30T11:28:54.087Z",
-  "total": 381,
-  "newCount": 1,
-  "updatedCount": 62,
+  "generatedAt": "2026-07-30T22:20:15.193Z",
+  "total": 380,
+  "newCount": 0,
+  "updatedCount": 63,
   "removedCount": 0,
-  "unchangedCount": 318,
-  "durationMs": 856965,
-  "avgDurationMs": 856965,
+  "unchangedCount": 317,
+  "durationMs": 717763,
+  "avgDurationMs": 717763,
   "durationHistory": [
-    856965
+    717763
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "company-m2uold",
-      "slug": "ch-tuttofare-vendita-m-w-d-20-40-1-lidl-svizzera-lugano",
+      "slug": "ch-tuttofare-vendita-m-w-d-20-40-1-lidl-svizzera-lugano-m2uold",
       "company": "Lidl Svizzera",
       "title": "CH_ Tuttofare vendita (m/f/d) 20-40% 1 1 1",
       "location": "Lugano",
@@ -34,21 +35,23 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-07-30T11:28:43.045Z",
+      "crawledAt": "2026-07-30T22:20:07.490Z",
       "firstSeenAt": "2026-07-30T11:28:43.045Z",
-      "needsRetranslation": true,
       "country": "CH",
       "sourceLang": "it",
-      "_qualityScore": 79,
+      "addressLocality": "Lugano",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 15,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 19
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "company-rvoh8q",
       "slug": "ch-venditore-venditrice-con-responsabilita-del-turno-m-w-d-60-80-lidl-svizzera-st-moritz-rvoh8q",
@@ -70,7 +73,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-07-29T22:15:16.793Z",
+      "crawledAt": "2026-07-30T22:20:07.490Z",
       "firstSeenAt": "2026-07-29T11:43:30.548Z",
       "country": "CH",
       "sourceLang": "it",
@@ -78,8 +81,6 @@
       "addressRegion": "GR",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "salaryMin": 54800,
-      "salaryMax": 84000,
       "needsRetranslation": true,
       "_qualityScore": 92,
       "_qualityBreakdown": {
@@ -1214,47 +1215,6 @@
       "country": "CH",
       "sourceLang": "de",
       "addressLocality": "Horw",
-      "addressRegion": "LU",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "postalCode": "6003",
-      "salaryMin": 27800,
-      "salaryMax": 42400,
-      "needsRetranslation": true,
-      "_qualityScore": 92,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 23,
-        "completeness": 22
-      }
-    },
-    {
-      "id": "company-5wahyo",
-      "slug": "allrounder-vendita-m-w-d-20-40-lidl-svizzera-kriens-5wahyo",
-      "company": "Lidl Svizzera",
-      "title": "Allrounder Verkauf (m/w/d) 20-40% — Kriens",
-      "location": "Kriens",
-      "canton": "LU",
-      "category": "admin",
-      "contract": "part-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-22",
-      "url": "https://team.lidl.ch/de/jobs/allrounder-verkauf-m-w-d-20-40-kriens-695036",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Kriens",
-        "canton": "LU"
-      },
-      "companyKey": "lidl-svizzera",
-      "companyDomain": "lidl.ch",
-      "crawledAt": "2026-07-27T12:31:53.616Z",
-      "firstSeenAt": "2026-07-06T22:40:50.002Z",
-      "country": "CH",
-      "sourceLang": "de",
-      "addressLocality": "Kriens",
       "addressRegion": "LU",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
