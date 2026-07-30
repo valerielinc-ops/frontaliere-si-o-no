@@ -1,18 +1,57 @@
 {
   "key": "klinik-susenberg",
   "label": "Klinik Susenberg",
-  "generatedAt": "2026-07-29T22:47:35.784Z",
-  "total": 4,
-  "newCount": 0,
-  "updatedCount": 3,
+  "generatedAt": "2026-07-30T11:38:34.205Z",
+  "total": 5,
+  "newCount": 1,
+  "updatedCount": 2,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 4239,
-  "avgDurationMs": 4239,
+  "unchangedCount": 2,
+  "durationMs": 5445,
+  "avgDurationMs": 5445,
   "durationHistory": [
-    4239
+    5445
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "id": "klinik-susenberg-25a246e88366",
+      "slug": "operative-leitung-verwaltung-services-klinik-susenberg-zurich",
+      "company": "Klinik Susenberg",
+      "companyKey": "klinik-susenberg",
+      "companyDomain": "susenbergklinik.ch",
+      "title": "Operative Leitung Verwaltung & Services",
+      "needsRetranslation": true,
+      "location": "Zürich",
+      "canton": "ZH",
+      "url": "https://www.susenbergklinik.ch/fileadmin/user_upload/Stellen/10-Operative-Leitung-Verwaltung-Services-2026-07-29.pdf",
+      "source": "Klinik Susenberg Dedicated Parser (TYPO3 PDF listing)",
+      "sourceLang": "de",
+      "crawledAt": "2026-07-30T11:38:30.383Z",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8044",
+      "streetAddress": "Schreberweg 9",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-30",
+      "applyUrl": "https://www.susenbergklinik.ch/jobs/offene-stellen",
+      "department": "Verwaltung & Services",
+      "_qualityScore": 67,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 4,
+        "completeness": 20
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "id": "klinik-susenberg-7c109892a3c6",
@@ -27,7 +66,7 @@
       "url": "https://www.susenbergklinik.ch/fileadmin/user_upload/Stellen/15-dipl._Pflegefachperson_HF-FH_PC_u._Stv._LPF_August_2026-07-02-.pdf",
       "source": "Klinik Susenberg Dedicated Parser (TYPO3 PDF listing)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:47:32.994Z",
+      "crawledAt": "2026-07-30T11:38:31.144Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -66,7 +105,7 @@
       "url": "https://www.susenbergklinik.ch/fileadmin/user_upload/Stellen/16-FAGE-BB-80-100-per_sofort_2026-07-02-.pdf",
       "source": "Klinik Susenberg Dedicated Parser (TYPO3 PDF listing)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:47:33.415Z",
+      "crawledAt": "2026-07-30T11:38:31.288Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -91,7 +130,10 @@
         "translation": 25,
         "completeness": 20
       }
-    },
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "klinik-susenberg-975cee346ca0",
       "slug": "dipl-pflegefachperson-hf-fh-con-zusatzfunktion-come-berufsbildner-in-klinik-susenberg-zurich",
@@ -99,7 +141,6 @@
       "companyKey": "klinik-susenberg",
       "companyDomain": "susenbergklinik.ch",
       "title": "dipl. Pflegefachperson HF/FH mit Zusatzfunktion als Berufsbildner/-in",
-      "needsRetranslation": true,
       "location": "Zürich",
       "canton": "ZH",
       "url": "https://www.susenbergklinik.ch/fileadmin/user_upload/Stellen/13-dipl._Pflegefachperson-HF-FH_BB-per_sofort_2026-07-02.pdf",
@@ -123,17 +164,17 @@
       "applyUrl": "https://www.susenbergklinik.ch/jobs/offene-stellen",
       "department": "Pflege",
       "firstSeenAt": "2026-07-02T22:24:52.229Z",
-      "_qualityScore": 88,
+      "salaryMin": 73500,
+      "salaryMax": 111500,
+      "crawlerMissStreak": 1,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 25
       }
-    }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": [
+    },
     {
       "id": "klinik-susenberg-3fe420d40510",
       "slug": "med-assistente-di-pratica-mpa-80-klinik-susenberg-zurich",
@@ -166,7 +207,7 @@
       "firstSeenAt": "2026-07-01T12:08:40.045Z",
       "salaryMin": 58800,
       "salaryMax": 89200,
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
