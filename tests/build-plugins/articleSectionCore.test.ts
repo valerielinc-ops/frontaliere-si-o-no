@@ -95,27 +95,29 @@ describe('ARTICLE_SECTION_CORE (canonical article-section registry)', () => {
     }
   });
 
-  it('scripts/generate-rss-feeds.mjs SECTIONS carries the core fields unchanged', () => {
-    // NOT a dynamic import: this script's `main()` runs unconditionally at
-    // module top level (no `import.meta.url === entrypoint` guard, unlike
-    // create-article.mjs / schedule-fb-articles-daily.mjs) and both writes
-    // real files under `public/` and calls `process.exit()` on the
-    // no-articles-found path — importing it here would execute the full RSS
-    // regeneration (and could kill the test runner) as a side effect of
-    // reading a config array. Verified statically instead: the source must
-    // read every overlapping field from ARTICLE_SECTION_CORE, not a literal.
-    const source = readFileSync(path.resolve(rootDir, 'scripts/generate-rss-feeds.mjs'), 'utf-8');
-    expect(source).toMatch(/from ['"]\.\.\/build-plugins\/shared\/articleSectionCore\.mjs['"]/);
+  it('packages/articles/engine/rssFeeds.mjs RSS_SECTIONS carries the core fields unchanged', () => {
+    // Statically, not by import: the module is cheap to import, but reading the
+    // source is what actually pins the requirement — the table must READ the
+    // shared tuple rather than restate the values, and only the source shows
+    // that. (Before #4974 item 2 this logic lived in
+    // `scripts/generate-rss-feeds.mjs`, which additionally could not be
+    // imported at all: its `main()` ran at module top level, wrote real files
+    // under `public/`, and called `process.exit()`.)
+    const source = readFileSync(
+      path.resolve(rootDir, 'packages/articles/engine/rssFeeds.mjs'),
+      'utf-8',
+    );
+    expect(source).toMatch(/from ['"]\.\/shared\/articleSectionCore\.mjs['"]/);
     for (const id of ['frontaliere', 'svizzera'] as const) {
       for (const field of ['slugDataFile', 'metaPrefix', 'bodyDir', 'indexSlug'] as const) {
         expect(
           source,
-          `generate-rss-feeds.mjs must reference ARTICLE_SECTION_CORE.${id}.${field}`,
+          `rssFeeds.mjs must reference ARTICLE_SECTION_CORE.${id}.${field}`,
         ).toContain(`ARTICLE_SECTION_CORE.${id}.${field}`);
       }
     }
     // The values themselves are pinned above (ARTICLE_SECTION_CORE test). A
-    // real, manually-run `node scripts/generate-rss-feeds.mjs` regenerated
+    // real, manually-run `npx tsx scripts/generate-rss-feeds.mjs` regenerated
     // all 10 public/rss*.xml files against these edits with `git status`
     // reporting zero diff — i.e. byte-identical output — confirmed
     // separately from this test (see the PR/task equivalence evidence),
