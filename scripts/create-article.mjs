@@ -8384,19 +8384,24 @@ function modifySeoService(data) {
   write(blogSeoFile, blogSrc);
   console.error(`  ✅ ${blogSeoFile}`);
 
-  // 2. Breadcrumb entry → services/seoService.ts (shared registry — `blog-{id}`
-  // keys, parent 'blog'; path uses the active section's IT hub slug).
-  const svcFile = 'services/seoService.ts';
-  let svcSrc = read(svcFile);
-
-  const breadcrumb = `    'blog-${data.id}': { name: '${escapeForSingleQuoteTS(data.seo.breadcrumbName)}', path: '${itHubPath}', parent: 'blog' },`;
-  const bcRe = /('blog-[a-z0-9-]+':.*?parent: 'blog' \},)\s*\n(\s*\};)/;
-  if (!bcRe.test(svcSrc)) {
-    throw new Error(`Cannot find last breadcrumb blog entry in ${svcFile}`);
-  }
-  svcSrc = replaceCaptureSafe(svcSrc, bcRe, (_m, g1, g2) => `${g1}\n${breadcrumb}\n${g2}`);
-  write(svcFile, svcSrc);
-  console.error(`  ✅ ${svcFile}`);
+  // 2. Breadcrumb entry → REMOVED (issue #4974 item 3).
+  //
+  // This used to append `'blog-{id}': { name, path, parent: 'blog' }` to
+  // `sectionNames` in services/seoService.ts. Those entries were never read:
+  // `buildBreadcrumbs` returns early for `route.activeTab === 'blog'`, building
+  // the crumb from the localized title and `buildPath(route)`, and
+  // `sectionNames` is declared after that return. `getSectionKey` only ever
+  // builds a `blog-<id>` key inside `case 'blog':`, for both sections, so the
+  // early return always wins.
+  //
+  // 3593 of them had accumulated — 530 KB of the 1153 KB seoService chunk
+  // served to clients, untree-shakable because `sectionNames` is a local const
+  // in a live function. Removed wholesale; tests/seo-blog-breadcrumb-entries-dead.ts
+  // keeps them from growing back.
+  //
+  // It also unblocks this script: appending here was one of only two reasons it
+  // had to write outside the corpus, which is what kept the generator pinned to
+  // this repository.
 
   // 3. ItemList in services/seo/seo-pages.ts — insert the new article via the
   // shared, comma-safe helper (scripts/lib/seo-pages-article-list.mjs).
@@ -8679,7 +8684,9 @@ function gitAddAll(data) {
     SECTION.seoFile,
     // seo-pages.ts ItemList ("Articoli Frontaliere") is frontaliere-only.
     ...(SECTION.updateRouterUnion ? ['services/seo/seo-pages.ts'] : []),
-    'services/seoService.ts',
+    // services/seoService.ts is NOT staged any more (issue #4974 item 3): this
+    // script no longer writes it — the per-article breadcrumb entries it used
+    // to append were unreachable. See modifySeoService above.
     'public/sitemap-news.xml',
     'public/sitemap.xml',
   ];
