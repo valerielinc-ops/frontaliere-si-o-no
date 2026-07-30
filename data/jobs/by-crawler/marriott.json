@@ -2165,12 +2165,12 @@
     },
     {
       "id": "marriott-ef0acd2fefd4",
-      "slug": "ebc-sales-manager-marriott-geneva",
+      "slug": "responsabile-vendite-ebc-marriott-international-geneva",
       "slugByLocale": {
-        "it": "ebc-sales-manager-marriott-geneva",
+        "fr": "ebc-sales-manager-marriott-geneva",
+        "it": "responsabile-vendite-ebc-marriott-international-geneva",
         "en": "ebc-sales-manager-marriott-geneva",
-        "de": "ebc-sales-manager-marriott-geneva",
-        "fr": "ebc-sales-manager-marriott-geneva"
+        "de": "ebc-vertriebsleiter-marriott-international-geneva"
       },
       "company": "Marriott International",
       "companyKey": "marriott",
@@ -2233,7 +2233,18 @@
         }
       },
       "addressRegion": "GE",
-      "firstSeenAt": "2026-07-29T22:38:15.927Z"
+      "firstSeenAt": "2026-07-29T22:38:15.927Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "ebc-sales-manager-marriott-geneva"
+        ],
+        "de": [
+          "ebc-sales-manager-marriott-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "ebc-sales-manager-marriott-geneva"
+      ]
     },
     {
       "id": "marriott-57bf2f4554b4",
