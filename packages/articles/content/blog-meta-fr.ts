@@ -9138,6 +9138,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.beko-cassinetta-preoccupazione-sindacati.title': 'Beko Cassinetta, de la table de la province émerge une vive préoccupation',
     'blog.article.beko-cassinetta-preoccupazione-sindacati.excerpt': 'Les syndicats des métallurgistes s\'inquiètent du non-respect des engagements',
     'blog.article.beko-cassinetta-preoccupazione-sindacati.imageAlt': 'Un poste frontière entre l\'Italie et la Suisse',
+    'blog.article.sede-legale-datore-frontalieri.title': 'Frontaliers : comptez où vous travaillez, pas le siège de l\'entreprise',
+    'blog.article.sede-legale-datore-frontalieri.excerpt': 'L\'Agence du revenu précise : le régime fiscal des frontaliers dépend du lieu de la prestation physique, et non de l\'adresse de l\'employeur.',
+    'blog.article.sede-legale-datore-frontalieri.imageAlt': 'Rue à Mendrisio, Canton du Tessin',
 };
 
 export default blogMetaFr;

@@ -9135,6 +9135,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.beko-cassinetta-preoccupazione-sindacati.title': 'Beko Cassinetta, vom Tisch in der Provinz kommt große Besorgnis auf',
     'blog.article.beko-cassinetta-preoccupazione-sindacati.excerpt': 'Die Metallgewerkschaften sind besorgt über die Nichteinhaltung der Verpflichtungen',
     'blog.article.beko-cassinetta-preoccupazione-sindacati.imageAlt': 'Ein Grenzübergang zwischen Italien und der Schweiz',
+    'blog.article.sede-legale-datore-frontalieri.title': 'Grenzgänger: Es zählt, wo Sie arbeiten, nicht der Firmensitz',
+    'blog.article.sede-legale-datore-frontalieri.excerpt': 'Das Finanzamt stellt klar: Das Steuersystem der Grenzgänger hängt vom Ort der physischen Leistung ab, nicht von der Adresse des Arbeitgebers.',
+    'blog.article.sede-legale-datore-frontalieri.imageAlt': 'Straße in Mendrisio, Kanton Tessin',
 };
 
 export default blogMetaDe;

@@ -9136,6 +9136,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.beko-cassinetta-preoccupazione-sindacati.title': 'Beko Cassinetta, strong concern emerges from the table in the Province',
     'blog.article.beko-cassinetta-preoccupazione-sindacati.excerpt': 'Metalworkers\' unions are concerned about non-compliance with commitments',
     'blog.article.beko-cassinetta-preoccupazione-sindacati.imageAlt': 'A border crossing between Italy and Switzerland',
+    'blog.article.sede-legale-datore-frontalieri.title': 'Frontier workers: it matters where you work, not the company headquarters',
+    'blog.article.sede-legale-datore-frontalieri.excerpt': 'The Revenue Agency clarifies: the tax regime of frontier workers depends on the place of the physical service, not on the employer\'s address.',
+    'blog.article.sede-legale-datore-frontalieri.imageAlt': 'Street in Mendrisio, Canton Ticino',
 };
 
 export default blogMetaEn;

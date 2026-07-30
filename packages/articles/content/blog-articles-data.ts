@@ -27426,6 +27426,15 @@ const RAW_ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'sede-legale-datore-frontalieri',
+ category: 'fiscale',
+ date: '2026-07-30T06:17:09.629Z',
+ image: '/images/blog/sede-legale-datore-frontalieri.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

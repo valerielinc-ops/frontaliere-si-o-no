@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-07-30T05:55:17.094Z",
+  "updatedAt": "2026-07-30T06:17:16.281Z",
   "entities": {
     "AASTI": {
       "status": "suspect",
@@ -594,18 +594,33 @@
       "statusSource": "auto",
       "statusAt": "2026-07-29T06:26:58.011Z",
       "firstSeen": "2026-07-29T06:26:58.011Z",
-      "lastSeen": "2026-07-30T02:34:01.828Z",
-      "seen": 16,
+      "lastSeen": "2026-07-30T06:17:16.281Z",
+      "seen": 18,
       "unsupportedSightings": 0,
       "unsupportedRuns": [],
-      "supportedSightings": 4,
+      "supportedSightings": 6,
       "names": [
+        "Ufficio federale di Statistica",
         "Amministrazione federale delle contribuzioni o dall'Ufficio federale di statistica",
         "Ufficio Federale di Statistica",
         "Ufficio federale di statistica"
       ],
       "recentKeys": [],
       "evidence": [
+        {
+          "at": "2026-07-30T06:17:16.281Z",
+          "runId": "30518031304",
+          "articleId": "sede-legale-datore-frontalieri",
+          "support": "present",
+          "name": "Ufficio federale di Statistica"
+        },
+        {
+          "at": "2026-07-30T06:17:16.281Z",
+          "runId": "30518031304",
+          "articleId": "sede-legale-datore-frontalieri",
+          "support": "present",
+          "name": "Ufficio federale di Statistica"
+        },
         {
           "at": "2026-07-30T02:34:01.828Z",
           "runId": "30507128922",
@@ -645,20 +660,6 @@
           "at": "2026-07-29T06:26:58.011Z",
           "runId": "corpus-scan",
           "articleId": "mappa-frontalieri-lombardi-ticino",
-          "support": "unknown",
-          "name": "Ufficio federale di statistica"
-        },
-        {
-          "at": "2026-07-29T06:26:58.011Z",
-          "runId": "corpus-scan",
-          "articleId": "iscrizione-scuola-figli-frontalieri",
-          "support": "unknown",
-          "name": "Ufficio Federale di Statistica"
-        },
-        {
-          "at": "2026-07-29T06:26:58.011Z",
-          "runId": "corpus-scan",
-          "articleId": "frontalieri-ticino-tendenze-occupazionali",
           "support": "unknown",
           "name": "Ufficio federale di statistica"
         }

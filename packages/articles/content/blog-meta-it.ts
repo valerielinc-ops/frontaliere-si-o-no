@@ -9137,6 +9137,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.beko-cassinetta-preoccupazione-sindacati.title': 'Beko Cassinetta, dal tavolo in Provincia emerge forte preoccupazione',
     'blog.article.beko-cassinetta-preoccupazione-sindacati.excerpt': 'I sindacati dei metalmeccanici sono preoccupati per il mancato rispetto degli impegni',
     'blog.article.beko-cassinetta-preoccupazione-sindacati.imageAlt': 'Un frontaliere in attesa davanti a un valico di confine tra Italia e Svizzera',
+    'blog.article.sede-legale-datore-frontalieri.title': 'Frontalieri: conta dove lavori, non la sede aziendale',
+    'blog.article.sede-legale-datore-frontalieri.excerpt': 'L\'Agenzia delle Entrate chiarisce: il regime fiscale dei frontalieri dipende dal luogo della prestazione fisica, non dall\'indirizzo del datore di lavoro.',
+    'blog.article.sede-legale-datore-frontalieri.imageAlt': 'Strada di Mendrisio in Canton Ticino',
 };
 
 export default blogMetaIt;
