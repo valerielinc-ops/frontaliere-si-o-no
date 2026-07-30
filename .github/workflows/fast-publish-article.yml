@@ -223,25 +223,30 @@ jobs:
         if: steps.render.outcome == 'success'
         run: node scripts/wait-for-live-article-shards.mjs /tmp/fast-publish/summary.json
 
-      # Ordering (post-merge review #4908): BOTH publish steps below run only
-      # once the shard is CONFIRMED live. They advertise the article's URL —
-      # the sitemap/RSS to crawlers, the data chunks to the in-app list and
-      # search — so running them before the page exists reintroduces exactly
-      # the bug the verify gate above was added to kill (see its comment).
-      # Best-effort as before: a failure here just means those paths keep
-      # serving their previous copy until a later run or the next full deploy.
-      # Issue #4881 Fase 3-bis — publishes the client-side data chunks
-      # (blog-articles-data.js / swiss-articles-data.js) plus a slim
-      # news-ticker payload OUTSIDE the full build, so the in-app article
-      # list, in-app search AND the homepage news ticker see this article
-      # without waiting for deploy.yml. Same best-effort posture as the CDN
-      # image upload step above: NEVER blocks the publish (see
-      # scripts/publish-article-chunks.mjs header comment for the full
-      # chunk-stability + CDN cache-freshness analysis).
-      - name: Publish client-side article data chunks
+      # Deliberately NOT publishing the client-side data chunks here (#4881 Fase
+      # 3-bis, reverted). The page shards rendered above are self-contained static
+      # HTML and need nothing from this job. The registry does not: the app imports
+      # data/blog-articles-data.ts both statically and dynamically, so Rollup emits
+      # the chunk with a generated namespace export and rewrites the dynamic site to
+      # `.then(m => m.blogArticlesData)`. A standalone esbuild build of the same
+      # source carries only `ARTICLES`, so that pick resolved to `undefined` and every
+      # article page sat on its loading skeleton until the next full deploy overwrote
+      # the chunk — silently, because the resulting TypeError bypassed the chunk-load
+      # recovery path (#4959).
+      #
+      # Re-enabling out-of-band registry publishing requires a stable, hand-authored
+      # export contract that a separately built package can satisfy — not a chunk
+      # whose shape is a Rollup implementation detail. Until then the full deploy
+      # publishes the complete, internally consistent client asset graph atomically.
+      #
+      # The news-ticker payload is a different kind of artifact and keeps shipping here:
+      # plain JSON on a stable, hand-authored contract, so no build-shape skew is
+      # possible. --ticker-only builds the registry in a temp dir purely to compute it
+      # and uploads nothing else.
+      - name: Publish news-ticker payload
         if: steps.verify.outcome == 'success'
         continue-on-error: true
-        run: npx -y tsx@4 scripts/publish-article-chunks.mjs
+        run: npx -y tsx@4 scripts/publish-article-chunks.mjs --ticker-only
 
       # Issue #4881 Fase 3 (pushable-origin edge files). Independent of the
       # per-article render above: public/sitemap-blog-ch.xml was already

@@ -36,10 +36,21 @@ describe('BlogArticles — data chunk import is stale-deploy resilient (#4176)',
     );
   });
 
-  it('wraps the blog-articles-data import() in resilientImport with an export guard', () => {
+  // #4959 supersedes the original #4176 shape for THIS file only. BlogArticles
+  // re-exports ARTICLES, so the registry is an unconditional STATIC dependency of
+  // its chunk — it is in memory before the component parses and there was never a
+  // network load to be resilient about. Importing it dynamically as well is what
+  // made Rollup emit the chunk with a generated namespace export and rewrite the
+  // dynamic site to `.then(m => m.blogArticlesData)`; a registry published
+  // out-of-band carried only `ARTICLES`, that pick resolved to `undefined`, and
+  // every article page sat on its loading skeleton. #4176's actual guarantee — no
+  // bare, unwrapped import() of the chunk — is unchanged and still asserted below.
+  it('reads the frontaliere registry from the static import, not over the network', () => {
     expect(SOURCE).toMatch(
-      /resilientImport\(\s*\(\)\s*=>\s*import\(['"]@\/data\/blog-articles-data['"]\)\s*,\s*[^)]*ARTICLES/,
+      /import\s*\{\s*ARTICLES\s*\}\s*from\s*['"]@\/data\/blog-articles-data['"]/,
     );
+    expect(SOURCE).toMatch(/articlesPromise[^=]*=[\s\S]{0,400}?Promise\.resolve\(ARTICLES\)/);
+    expect(SOURCE).not.toMatch(/import\(['"]@\/data\/blog-articles-data['"]\)/);
   });
 
   it('wraps the swiss-articles-data import() in resilientImport with an export guard', () => {
