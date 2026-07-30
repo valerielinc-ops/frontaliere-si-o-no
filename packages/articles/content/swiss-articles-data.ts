@@ -5149,6 +5149,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'laura-bianchi',
     authorName: 'Laura Bianchi',
    },
+   {
+    id: 'clariant-vittoria-amilione',
+    category: 'pratico',
+    date: '2026-07-30T23:50:08.514Z',
+    image: '/images/blog/clariant-vittoria-amilione.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

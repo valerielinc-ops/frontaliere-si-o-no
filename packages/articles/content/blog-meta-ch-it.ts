@@ -1717,6 +1717,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.tassa-salute-frontalieri-svizzera.title': 'Tremate i bilanci dei comuni: la tassa sulla salute per i vecchi frontalieri',
     'blog.article.tassa-salute-frontalieri-svizzera.excerpt': 'La tassa sulla salute introdotta dal Parlamento italiano nella legge di bilancio 2024 rappresenta un\'imposta e, se applicata dalle Regioni, violerebbe gli accordi internazionali',
     'blog.article.tassa-salute-frontalieri-svizzera.imageAlt': 'Vista di Lugano con il lago e le montagne',
+    'blog.article.clariant-vittoria-amilione.title': 'Di più Clariant: vittoria in una causa su etilene, vola in borsa (+16%)',
+    'blog.article.clariant-vittoria-amilione.excerpt': 'Clariant vittoria in una causa su etilene, vola in borsa (+16%)',
+    'blog.article.clariant-vittoria-amilione.imageAlt': 'Clariant vittoria in una causa su etilene, vola in borsa (+16%)',
 };
 
 export default blogMetaChIt;
