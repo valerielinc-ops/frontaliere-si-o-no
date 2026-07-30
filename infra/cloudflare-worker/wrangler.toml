@@ -165,6 +165,12 @@ routes = [
   # pushed path is a one-line addition here + one object-literal entry in
   # EDGE_PUSHED_FILES, no other code change.
   { pattern = "frontaliereticino.ch/sitemap-blog-ch.xml", zone_name = "frontaliereticino.ch" },
+  # Its frontaliere sibling, registered for CORRECTNESS rather than freshness
+  # (issue #4974): the apex passthrough origin was serving this file stripped of
+  # all 15225 hreflang alternates, while the committed copy — and the copy this
+  # very route serves for -ch, byte-identical live — has them. Same no-wildcard
+  # rationale as above.
+  { pattern = "frontaliereticino.ch/sitemap-blog.xml", zone_name = "frontaliereticino.ch" },
   # Pushable-origin edge files, rollout step 2 (issue #4881 residual — llms.txt
   # family, see locale-router.js EDGE_PUSHED_FILES). Same no-wildcard rationale
   # as /sitemap-blog-ch.xml above: AI crawlers (GPTBot, ClaudeBot, PerplexityBot,
