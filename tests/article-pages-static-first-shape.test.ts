@@ -38,7 +38,14 @@ describe('article pages emit a static-first body (#4959)', () => {
     const source = read('build-plugins/staticPagesPlugin.ts');
     expect(source).toContain('isBareArticleIndex');
     expect(source).toMatch(
-      /isBareArticleIndex[\s\S]{0,200}?<main class="seo-static-content">\$\{rootHtml\}<\/main>/,
+      /isBareArticleIndex[\s\S]{0,400}?<main class="seo-static-content">\$\{rootHtml\}<\/main>/,
+    );
+    // The main must stay inside the side-rail gutters: those are the
+    // #rail-left-root / #rail-right-root portal targets App.tsx mounts
+    // <ArticleRailAdStack> into. Emitting it bare would silently drop an ad
+    // surface (see tests/build-plugins/handrolled-emitters-rail-gutters.test.ts).
+    expect(source).toMatch(
+      /\$\{railGridOpen\}\s*\n\s*<main class="seo-static-content">\$\{rootHtml\}<\/main>\$\{railGridClose\}/,
     );
   });
 

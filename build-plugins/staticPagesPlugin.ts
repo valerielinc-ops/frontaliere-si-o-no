@@ -4760,8 +4760,11 @@ ${hrefTags}
  // out-of-band registry stranded the SPA (#4959). Outside it the shard survives in
  // the DOM and App.tsx's existing pre-paint toggle hides it once the SPA owns the
  // view, the same contract /articoli-frontaliere/tutti/ already uses
- // (build-plugins/seoHubsPlugin.ts). No rail grid here: App.tsx excludes the blog
- // tab from side rails, so gutters would reserve empty columns.
+ // (build-plugins/seoHubsPlugin.ts). Wrapped in the same rail gutters as the
+ // hubChrome branch: those are the #rail-left-root / #rail-right-root portal
+ // targets App.tsx mounts <ArticleRailAdStack> into, so emitting the main without
+ // them would silently drop an ad surface (tests/build-plugins/handrolled-emitters-
+ // rail-gutters.test.ts locks this in).
  const isBareArticleIndex =
    ARTICLES_INDEX_RX.test(canonicalPath) || SVIZZERA_ARTICLES_INDEX_RX.test(canonicalPath);
  const bodySection = hubChromeSplit
@@ -4774,7 +4777,8 @@ ${hubChromeSplit.bodyHtml}
  <div id="footer-root"></div>`
  : isBareArticleIndex
    ? `${rootShell(hasSpaBundle)}
- <main class="seo-static-content">${rootHtml}</main>
+ ${railGridOpen}
+ <main class="seo-static-content">${rootHtml}</main>${railGridClose}
  <div id="footer-root"></div>`
    : `<div id="root"><main id="main-content">${rootHtml}</main></div>
  <div id="footer-root"></div>`;
