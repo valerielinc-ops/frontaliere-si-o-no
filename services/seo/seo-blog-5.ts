@@ -57440,6 +57440,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-trasferirsi-porto-ceresio-frontaliere': {
+    title: 'Trasferirsi a Porto Ceresio da frontaliere: pro e contro',
+    description: 'Guida pratica per frontalieri: tassazione, nuovo accordo 2024, contributi AVS/LPP, LAMal, ristorni Porto Ceresio. Calcola il tuo netto. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, trasferirsi, porto, ceresio, contro',
+    ogTitle: 'Trasferirsi a Porto Ceresio da frontaliere: pro e contro',
+    ogDescription: 'Tassazione, contributi, assicurazione malattia, ristorni: cosa valutare prima di spostare la residenza a Porto Ceresio lavorando in Ticino.',
+    canonicalPath: '/articoli-frontaliere/trasferirsi-porto-ceresio-frontaliere',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Trasferirsi a Porto Ceresio da frontaliere: pro e contro",
+      "description": "Guida pratica per frontalieri: tassazione, nuovo accordo 2024, contributi AVS/LPP, LAMal, ristorni Porto Ceresio. Calcola il tuo netto. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/trasferirsi-porto-ceresio-frontaliere.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista sul Lago di Lugano da Porto Ceresio all'alba"
+      },
+      "datePublished": "2026-07-30T02:33:54+00:00",
+      "dateModified": "2026-07-30T02:33:54+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/trasferirsi-porto-ceresio-frontaliere/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

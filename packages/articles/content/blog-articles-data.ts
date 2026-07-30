@@ -27408,6 +27408,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'trasferirsi-porto-ceresio-frontaliere',
+ category: 'pratico',
+ date: '2026-07-30T02:33:54.609Z',
+ image: '/images/blog/trasferirsi-porto-ceresio-frontaliere.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-07-29T23:23:44.157Z",
+  "updatedAt": "2026-07-30T02:34:01.828Z",
   "entities": {
     "AASTI": {
       "status": "suspect",
@@ -594,11 +594,11 @@
       "statusSource": "auto",
       "statusAt": "2026-07-29T06:26:58.011Z",
       "firstSeen": "2026-07-29T06:26:58.011Z",
-      "lastSeen": "2026-07-29T19:17:27.320Z",
-      "seen": 15,
+      "lastSeen": "2026-07-30T02:34:01.828Z",
+      "seen": 16,
       "unsupportedSightings": 0,
       "unsupportedRuns": [],
-      "supportedSightings": 3,
+      "supportedSightings": 4,
       "names": [
         "Amministrazione federale delle contribuzioni o dall'Ufficio federale di statistica",
         "Ufficio Federale di Statistica",
@@ -606,6 +606,13 @@
       ],
       "recentKeys": [],
       "evidence": [
+        {
+          "at": "2026-07-30T02:34:01.828Z",
+          "runId": "30507128922",
+          "articleId": "trasferirsi-porto-ceresio-frontaliere",
+          "support": "present",
+          "name": "Ufficio Federale di Statistica"
+        },
         {
           "at": "2026-07-29T19:17:27.320Z",
           "runId": "30480929135",
@@ -654,13 +661,6 @@
           "articleId": "frontalieri-ticino-tendenze-occupazionali",
           "support": "unknown",
           "name": "Ufficio federale di statistica"
-        },
-        {
-          "at": "2026-07-29T06:26:58.011Z",
-          "runId": "corpus-scan",
-          "articleId": "frontaliere-veterinario-ticino-requisiti",
-          "support": "unknown",
-          "name": "Ufficio Federale di Statistica"
         }
       ]
     },

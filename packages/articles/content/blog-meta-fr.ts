@@ -9132,6 +9132,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.caro-carburanti-svizzera-indagine-comco.title': 'Commission de la concurrence enquête sur le cher carburant au Tessin',
     'blog.article.caro-carburanti-svizzera-indagine-comco.excerpt': 'Le conseiller Benoît Gaillard soupçonne des ententes sur les prix de l\'essence après l’arrivée d\'Etzelpark à Bellinzone.',
     'blog.article.caro-carburanti-svizzera-indagine-comco.imageAlt': 'Station-service à Bellinzona avec pompes à essence et affichage des prix',
+    'blog.article.trasferirsi-porto-ceresio-frontaliere.title': 'Déménager à Porto Ceresio en tant que frontalier : avantages et inconvénients',
+    'blog.article.trasferirsi-porto-ceresio-frontaliere.excerpt': 'Analyse pratique pour ceux qui vivent à Porto Ceresio et travaillent au Tessin : fiscalité, accord 2024, contributions, LAMal et restauration.',
+    'blog.article.trasferirsi-porto-ceresio-frontaliere.imageAlt': 'Vue sur le lac de Lugano depuis Porto Ceresio à l\'aube',
 };
 
 export default blogMetaFr;

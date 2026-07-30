@@ -9130,6 +9130,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.caro-carburanti-svizzera-indagine-comco.title': 'Competition Commission investigates expensive fuels in Ticino',
     'blog.article.caro-carburanti-svizzera-indagine-comco.excerpt': 'Councillor Benoît Gaillard raises suspicion of understandings on gasoline prices after Etzelpark\'s arrival in Bellinzona.',
     'blog.article.caro-carburanti-svizzera-indagine-comco.imageAlt': 'Fuel station in Bellinzona showing pumps and price signs',
+    'blog.article.trasferirsi-porto-ceresio-frontaliere.title': 'Moving to Porto Ceresio by border crossing: pros and cons',
+    'blog.article.trasferirsi-porto-ceresio-frontaliere.excerpt': 'Practical analysis for those who live in Porto Ceresio and work in Ticino: taxation, 2024 agreement, contributions, LAMal and refunds.',
+    'blog.article.trasferirsi-porto-ceresio-frontaliere.imageAlt': 'Lake Lugano view from Porto Ceresio at sunrise',
 };
 
 export default blogMetaEn;
