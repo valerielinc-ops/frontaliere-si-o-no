@@ -9133,6 +9133,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.trasferirsi-porto-ceresio-frontaliere.title': 'Moving to Porto Ceresio by border crossing: pros and cons',
     'blog.article.trasferirsi-porto-ceresio-frontaliere.excerpt': 'Practical analysis for those who live in Porto Ceresio and work in Ticino: taxation, 2024 agreement, contributions, LAMal and refunds.',
     'blog.article.trasferirsi-porto-ceresio-frontaliere.imageAlt': 'Lake Lugano view from Porto Ceresio at sunrise',
+    'blog.article.beko-cassinetta-preoccupazione-sindacati.title': 'Beko Cassinetta, strong concern emerges from the table in the Province',
+    'blog.article.beko-cassinetta-preoccupazione-sindacati.excerpt': 'Metalworkers\' unions are concerned about non-compliance with commitments',
+    'blog.article.beko-cassinetta-preoccupazione-sindacati.imageAlt': 'A border crossing between Italy and Switzerland',
 };
 
 export default blogMetaEn;

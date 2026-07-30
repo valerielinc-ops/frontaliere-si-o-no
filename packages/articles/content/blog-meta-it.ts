@@ -9134,6 +9134,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.trasferirsi-porto-ceresio-frontaliere.title': 'Trasferirsi a Porto Ceresio da frontaliere: pro e contro',
     'blog.article.trasferirsi-porto-ceresio-frontaliere.excerpt': 'Analisi pratica per chi vive a Porto Ceresio e lavora in Ticino: tassazione, accordo 2024, contributi, LAMal e ristorni.',
     'blog.article.trasferirsi-porto-ceresio-frontaliere.imageAlt': 'Vista sul Lago di Lugano da Porto Ceresio all\'alba',
+    'blog.article.beko-cassinetta-preoccupazione-sindacati.title': 'Beko Cassinetta, dal tavolo in Provincia emerge forte preoccupazione',
+    'blog.article.beko-cassinetta-preoccupazione-sindacati.excerpt': 'I sindacati dei metalmeccanici sono preoccupati per il mancato rispetto degli impegni',
+    'blog.article.beko-cassinetta-preoccupazione-sindacati.imageAlt': 'Un frontaliere in attesa davanti a un valico di confine tra Italia e Svizzera',
 };
 
 export default blogMetaIt;

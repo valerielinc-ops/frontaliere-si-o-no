@@ -9132,6 +9132,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.trasferirsi-porto-ceresio-frontaliere.title': 'Umzug nach Porto Ceresio als Grenzgänger: Vor- und Nachteile',
     'blog.article.trasferirsi-porto-ceresio-frontaliere.excerpt': 'Praktische Analyse für diejenigen, die in Porto Ceresio leben und im Tessin arbeiten: Besteuerung, Vereinbarung 2024, Beiträge, KVG und Rückerstattungen.',
     'blog.article.trasferirsi-porto-ceresio-frontaliere.imageAlt': 'Blick auf den Luganersee von Porto Ceresio bei Sonnenaufgang',
+    'blog.article.beko-cassinetta-preoccupazione-sindacati.title': 'Beko Cassinetta, vom Tisch in der Provinz kommt große Besorgnis auf',
+    'blog.article.beko-cassinetta-preoccupazione-sindacati.excerpt': 'Die Metallgewerkschaften sind besorgt über die Nichteinhaltung der Verpflichtungen',
+    'blog.article.beko-cassinetta-preoccupazione-sindacati.imageAlt': 'Ein Grenzübergang zwischen Italien und der Schweiz',
 };
 
 export default blogMetaDe;

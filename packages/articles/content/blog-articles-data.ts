@@ -27417,6 +27417,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'beko-cassinetta-preoccupazione-sindacati',
+ category: 'fiscale',
+ date: '2026-07-30T04:08:55.588Z',
+ image: '/images/blog/beko-cassinetta-preoccupazione-sindacati.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
