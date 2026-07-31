@@ -1726,6 +1726,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.bns-utile-semestre-2026.title': 'SNB: Gewinn von 25 Milliarden im ersten Halbjahr 2026',
     'blog.article.bns-utile-semestre-2026.excerpt': 'Die Schweizerische Nationalbank schliesst das erste Halbjahr 2026 mit einem Gewinn von 25,2 Milliarden Franken ab, angetrieben von Aktienmärkten und Fremdwährungen.',
     'blog.article.bns-utile-semestre-2026.imageAlt': 'Hauptsitz der Schweizerischen Nationalbank in Bern mit Bundesflagge',
+    'blog.article.medacta-crescita-ricavi-pietro.title': 'Medacta wächst weiter, Umsatzsteigerung in den ersten sechs Monaten',
+    'blog.article.medacta-crescita-ricavi-pietro.excerpt': 'Der Konzern mit Sitz in Castel San Pietro (TI) erzielte im ersten Halbjahr 2025 einen Umsatz von 368 Millionen Euro, ein Plus von 7% gegenüber dem Vorjahreszeitraum.',
+    'blog.article.medacta-crescita-ricavi-pietro.imageAlt': 'Bild einer Schweizer Stadt mit einem Hochhaus',
 };
 
 export default blogMetaChDe;

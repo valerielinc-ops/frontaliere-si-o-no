@@ -1726,6 +1726,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.bns-utile-semestre-2026.title': 'BNS : bénéfice de 25 milliards au premier semestre 2026',
     'blog.article.bns-utile-semestre-2026.excerpt': 'La Banque nationale suisse clôture la première moitié de 2026 avec un bénéfice de 25,2 milliards de francs, tiré par les marchés actions et les devises étrangères.',
     'blog.article.bns-utile-semestre-2026.imageAlt': 'Siège de la Banque nationale suisse à Berne avec drapeau fédéral',
+    'blog.article.medacta-crescita-ricavi-pietro.title': 'Medacta en croissance, résultats positifs au premier semestre',
+    'blog.article.medacta-crescita-ricavi-pietro.excerpt': 'Le groupe basé à Castel San Pietro (TI) a réalisé un chiffre d\'affaires de 368 millions d\'euros au premier semestre 2025, soit une augmentation de 7 % par rapport à la même période de l\'année précédente.',
+    'blog.article.medacta-crescita-ricavi-pietro.imageAlt': 'Image d\'une ville suisse avec un gratte-ciel',
 };
 
 export default blogMetaChFr;
