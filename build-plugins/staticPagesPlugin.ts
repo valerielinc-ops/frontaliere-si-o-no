@@ -1061,6 +1061,10 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  indexSlugs: { en: sec.indexSlug.en, de: sec.indexSlug.de, fr: sec.indexSlug.fr },
  }));
  const ogPagesPaths = new Set<string>();
+ // Real article count per section, from the canonical paths collected below.
+ // Used to derive the blog ItemList's numberOfItems at emit time, so
+ // create-article no longer has to maintain it by hand (#4974 item 3).
+ const sectionArticleCounts: Record<string, number> = {};
  let totalLocaleVariants = 0;
  for (const sec of ogSections) {
  try {
@@ -1087,6 +1091,7 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  ogPagesPaths.add(p);
  sectionItPaths.push(p);
  }
+ sectionArticleCounts[sec.seoFiles.some((f) => f.includes('-ch')) ? 'svizzera' : 'frontaliere'] = sectionItPaths.length;
  // Also derive EN/DE/FR locale paths for the same articles so we can skip
  // them deterministically without racing on fs.existsSync. Parse the
  // section's slug registry (BLOG_SLUGS / SWISS_SLUGS) — the same source
@@ -2047,7 +2052,23 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  // ~100 items for ItemList signal; truncate to that and keep
  // `numberOfItems` accurate (reflects total list size).
  const ITEM_LIST_CAP = 100;
+ // On an article index, numberOfItems is derived from the corpus instead of
+ // being trusted from source. create-article maintained it by hand — one of
+ // the writes keeping the generator tied to this repo (#4974 item 3) — and it
+ // had drifted: the committed value read 3640 while the corpus held 3047.
+ // Deriving it removes the need for that write and corrects the number at once.
+ // Scoped to the two index paths, because seo-pages.ts carries 16 ItemLists and
+ // only these two describe the article collections.
+ const _idxCp = (cp || '').replace(/\/+$/, '');
+ const _derivedCount = _idxCp === '/articoli-frontaliere'
+ ? sectionArticleCounts.frontaliere
+ : _idxCp === '/articoli-svizzera'
+ ? sectionArticleCounts.svizzera
+ : undefined;
  const capItemList = (item: Record<string, unknown>): Record<string, unknown> => {
+ if (_derivedCount !== undefined && item?.['@type'] === 'ItemList' && typeof item.numberOfItems === 'number') {
+ item = { ...item, numberOfItems: _derivedCount };
+ }
  if (item?.['@type'] === 'ItemList' && Array.isArray(item.itemListElement) && item.itemListElement.length > ITEM_LIST_CAP) {
  return { ...item, itemListElement: (item.itemListElement as unknown[]).slice(0, ITEM_LIST_CAP) };
  }
