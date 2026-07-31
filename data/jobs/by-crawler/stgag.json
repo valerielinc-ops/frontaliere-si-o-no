@@ -748,9 +748,9 @@
       "id": "stgag-880312113489",
       "slug": "addestramento-direttoratore-spital-thurgau-stgag-munsterlingen",
       "slugByLocale": {
+        "de": "praktikant-in-direktionsstab-stgag-ch-r134nc",
         "it": "addestramento-direttoratore-spital-thurgau-stgag-munsterlingen",
         "en": "trainee-directorate-staff-spital-thurgau-stgag-munsterlingen",
-        "de": "praktikant-in-direktionsstab-stgag-ch",
         "fr": "stagiaire-direction-spital-thurgau-stgag-munsterlingen"
       },
       "company": "Spital Thurgau (STGAG)",
@@ -770,7 +770,6 @@
         "de": "Per 1. September 2026 oder nach Vereinbarung bieten wir für Studierende als erste Erfahrung im Berufsleben oder als Übergang in eine weiterführende Ausbildung ein spannendes und abwechslungsreiches Praktikum für 12 Monate im Stab der Spitaldirektion der Kantonsspitäler Frauenfeld und Münsterlingen als Praktikant/-in Direktionsstab 60-100% Bei uns erwartet Sie eine interessante und vielseitige Tätigkeit in einem speditiven, multiprofessionellen Team. Der Arbeitsort kann je nach Interessent/-in am Kantonsspital Frauenfeld oder am Kantonsspital Münsterlingen sein. Sie übernehmen Unterstützung des Direktionsstabs bei vielseitigen administrativen Tätigkeiten\n\nMitarbeit im Projektmanagement\n\nMitarbeit im Qualitätsmanagement\n\nMitwirkung bei fach- und standortübergreifenden Themen aus dem Themenfeld des Direktionsstabs\n\nSie studieren (Gesundheits-)Ökonomie, Gesundheits- oder Pflegemanagement, Public Health oder verwandte Fachgebiete\n\nSie interessieren sich für die Themen Qualitätsmanagement und Projektmanagement im Spitalumfeld\n\nSie sind ein/e Teamplayer/in mit hoher Sozialkompetenz\n\nSie haben eine schnelle Auffassungsgabe\n\n• Bereich: Administration\n• Art: Teilzeit, Vollzeit möglich\n• Befristung: Befristet",
         "fr": "Au 1er septembre 2026 ou sur rendez-vous, nous offrons aux étudiants un stage passionnant et varié pendant 12 mois en tant que stagiaire à la direction hospitalière des hôpitaux cantonaux Frauenfeld et Münsterlingen en tant que stagiaire 60-100 %. Selon l'intéressé, le lieu de travail peut être l'hôpital cantonal de Frauenfeld ou l'hôpital cantonal de Münsterlingen. Ils fournissent un soutien à l'équipe de gestion pour un large éventail d'activités administratives\n\nCoopération en matière de gestion de projets\n\nCoopération en matière de gestion de la qualité\n\nParticipation à des thèmes interdisciplinaires et intersectoriels dans le domaine du personnel de direction\n\nVous étudiez l'économie (santé), la gestion de la santé ou des soins, la santé publique ou des domaines d'expertise connexes\n\nVous êtes intéressé par la gestion de la qualité et de projet dans l'environnement hospitalier\n\nVous êtes un joueur d'équipe avec des compétences sociales élevées\n\nIls comprennent vite.\n\n• Domaine: Administration\n• Type: Temps partiel, temps plein possible\n• Délai: Temporaire"
       },
-      "needsRetranslation": false,
       "location": "Münsterlingen",
       "canton": "TG",
       "url": "https://rekrutierung.stgag.ch/Vacancies/3733/Description/1",
@@ -793,6 +792,19 @@
       "applyUrl": "https://rekrutierung.stgag.ch/Vacancies/3733/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {},
+      "salaryMin": 48000,
+      "salaryMax": 73000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 48000,
+          "maxValue": 73000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-07-30T11:17:41.091Z",
       "previousSlugsByLocale": {
         "de": [
           "praktikant-in-direktionsstab-stgag-munsterlingen",
@@ -817,19 +829,7 @@
         "praktikant-in-direktionsstab-stgag-ch",
         "addestramento-direttoratore-spital-thurgau-stgag-munsterlingen"
       ],
-      "firstSeenAt": "2026-07-30T11:17:41.091Z",
-      "salaryMin": 48000,
-      "salaryMax": 73000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 48000,
-          "maxValue": 73000,
-          "unitText": "YEAR"
-        }
-      }
+      "needsRetranslation": false
     },
     {
       "id": "stgag-9b02366de808",

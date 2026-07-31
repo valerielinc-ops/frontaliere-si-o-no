@@ -180,12 +180,14 @@
       "id": "manor-3ff4dd0c6d9d",
       "previousSlugs": [
         "manor-collaborateur-trice-caisse-60-sion-collaborateurtrice-caisse-60",
-        "collaboratore-caisse-60-manor-ag-sion-collaborateurtrice-caisse-60"
+        "collaboratore-caisse-60-manor-ag-sion-collaborateurtrice-caisse-60",
+        "collaborateur-trice-caisse-60-manor-ag-sion-collaborateurtrice-caisse-60"
       ],
       "previousSlugsByLocale": {
         "it": [
           "manor-collaborateur-trice-caisse-60-sion-collaborateurtrice-caisse-60",
-          "collaboratore-caisse-60-manor-ag-sion-collaborateurtrice-caisse-60"
+          "collaboratore-caisse-60-manor-ag-sion-collaborateurtrice-caisse-60",
+          "collaborateur-trice-caisse-60-manor-ag-sion-collaborateurtrice-caisse-60"
         ],
         "en": [
           "manor-collaborateur-trice-caisse-60-sion-collaborateurtrice-caisse-60"
@@ -196,7 +198,6 @@
       },
       "firstSeenAt": "2026-07-29T11:47:02.974Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 43200,
       "salaryMax": 66600,
       "currency": "CHF",
@@ -213,7 +214,8 @@
       "addressLocality": "Sion Collaborateurtrice caisse 60",
       "addressRegion": "VS",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "title": "Collaborateur/trice caisse (Outlet) 50%",
@@ -392,7 +394,7 @@
       "description": "Mitarbeiter*in Logistik (Montagsaushilfe eManor) 20% presso Manor, con sede a Hochdorf Mitarbeiterin Logistik (Montagsaushilfe, Canton Lucerna, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
       "descriptionIt": "Mitarbeiter*in Logistik (Montagsaushilfe eManor) 20% presso Manor, con sede a Hochdorf Mitarbeiterin Logistik (Montagsaushilfe, Canton Lucerna, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
       "descriptionByLocale": {
-        "it": "Mitarbeiter*in Logistik (Montagsaushilfe eManor) 20% presso Manor, con sede a Hochdorf Mitarbeiterin Logistik (Montagsaushilfe, Canton Lucerna, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
+        "it": "Descrizione\nMitarbeiter*in Logistik (Montagsaushilfe eManor) 20% presso Manor, con sede a Hochdorf\n\nMitarbeiterin Logistik (Montagsaushilfe, Canton Lucerna, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
         "en": "Description Mitarbeiter*in Logistic (Montagsaus Ilffe eManor) 20% at Manor, based in Hochdorf Mitarbeiterin Logistick (Montagsaus Ilffe, Canton Lucerne, Switzerland. Manor is one of the leading chains of Swiss department stores, with a wide range of products including fashion, beauty, home, grocery and Manor restaurants. This location offers the opportunity to work in a dynamic and customer-oriented environment.",
         "de": "BeschreibungHendin*in Logistik (Montagsaus Ilffe eManor) 20% im Herrenhaus mit Sitz in HochdorfHendin Logistik (Montagsaus Ilffe, Kanton Luzern, Schweiz. Das Herrenhaus ist eine der führenden Ketten Schweizer Kaufhäuser mit einer breiten Palette von Produkten, darunter Mode, Schönheit, Wohnen, Lebensmittel- und Manorrestaurants. Dieser Standort bietet die Möglichkeit, in einem dynamischen und kundenorientierten Umfeld zu arbeiten.",
         "fr": "Description Mitarbeiter*in Logistic (Montagsaus Ilffe eManor) 20% at Manor, based in Hochdorf Mitarbeiterin Logistick (Montagsaus Ilffe, Canton Lucerne, Suisse. Manor est l'une des principales chaînes de grands magasins suisses, avec une large gamme de produits, y compris la mode, la beauté, la maison, l'épicerie et les restaurants Manor."
@@ -407,14 +409,13 @@
         "fr": "assistant-e-logistique-support-lundi-emanor-20-manor-ag-hochdorf-mitarbeiterin-logistik-montagsaushilfe"
       },
       "titleByLocale": {
-        "it": "Collaboratore/trice*in Logistik (Montagsaushilfe eManor) 20%",
-        "en": "Mitarbeiter*in Logistik (Montagsaushilfe eManor) 20%",
+        "it": "Collaboratore/tricein logistica (aiuto lunedì eManor) 20%",
         "de": "Mitarbeiter*in Logistik (Montagsaushilfe eManor) 20%",
-        "fr": "Mitarbeiter*in Logistik (Montagsaushilfe eManor) 20%"
+        "en": "Logistics Assistant (Monday Support eManor) 20%",
+        "fr": "Assistant(e) Logistique (Support Lundi eManor) 20%"
       },
       "sourceLang": "it",
       "id": "manor-ae10fcc1dedc",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-28T12:07:44.810Z",
       "crawledAt": "",
       "salaryMin": 13900,
@@ -447,7 +448,7 @@
       "description": "Mitarbeiter*in Logistik 20% presso Manor, con sede a Hochdorf Mitarbeiterin Logistik 20, Canton Lucerna, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
       "descriptionIt": "Mitarbeiter*in Logistik 20% presso Manor, con sede a Hochdorf Mitarbeiterin Logistik 20, Canton Lucerna, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
       "descriptionByLocale": {
-        "it": "Mitarbeiter*in Logistik 20% presso Manor, con sede a Hochdorf Mitarbeiterin Logistik 20, Canton Lucerna, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
+        "it": "Descrizione\n\nMitarbeiter*in Logistik 20% presso Manor, con sede a Hochdorf Mitarbeiterin Logistik 20, Canton Lucerna, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
         "en": "Description Mitarbeiter*in Logistic 20% at Manor, based in Hochdorf Mitarbeiterin Logistic 20, Canton Lucerne, Switzerland. Manor is one of the leading chains of Swiss department stores, with a wide range of products including fashion, beauty, home, food and restaurant Manora. This location offers the opportunity to work in a dynamic and customer-oriented environment.",
         "de": "BeschreibungHendin*in Logistik 20% im Manor, mit Sitz in HochdorfHendin Logistik 20, Kanton Luzern, Schweiz. Manor ist eine der führenden Ketten Schweizer Kaufhäuser mit einer breiten Palette von Produkten wie Mode, Schönheit, Zuhause, Essen und Restaurant Manora. Dieser Standort bietet die Möglichkeit, in einem dynamischen und kundenorientierten Umfeld zu arbeiten.",
         "fr": "Description Mitarbeiter*in Logistic 20% chez Manor, basé à Hochdorf Mitarbeiterin Logistic 20, Canton Lucerne, Suisse. Manor est l'une des principales chaînes de grands magasins suisses, avec une large gamme de produits dont la mode, la beauté, la maison, la nourriture et le restaurant Manora. Cet emplacement offre la possibilité de travailler dans un environnement dynamique et orienté client."
@@ -462,10 +463,10 @@
         "fr": "mitarbeiter-in-logistik-20-manor-ag-hochdorf-mitarbeiterin-logistik-20"
       },
       "titleByLocale": {
-        "it": "Collaboratore/trice*in Logistik 20%",
-        "en": "Mitarbeiter*in Logistik 20%",
+        "it": "Collaboratore/tricein logistica 20%",
         "de": "Mitarbeiter*in Logistik 20%",
-        "fr": "Mitarbeiter*in Logistik 20%"
+        "en": "Logistics Employee 20%",
+        "fr": "Employé(e) Logistique 20%"
       },
       "sourceLang": "it",
       "id": "manor-d77d0ab78a76",
@@ -484,7 +485,6 @@
           "mitarbeiter-in-logistik-20-manor-ag-hochdorf-mitarbeiterin-logistik-20"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-28T12:07:44.810Z",
       "crawledAt": "",
       "salaryMin": 13900,
