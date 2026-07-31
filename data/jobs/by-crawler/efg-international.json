@@ -1,6 +1,6 @@
 {
   "crawlerKey": "efg-international",
-  "assembledAt": "2026-07-31T11:35:39.861Z",
+  "assembledAt": "2026-07-31T22:10:13.340Z",
   "jobs": [
     {
       "id": "efg-6336",
@@ -196,7 +196,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-31T11:35:36.624Z",
+      "crawledAt": "2026-07-31T22:10:05.633Z",
       "slugByLocale": {
         "it": "governance-risk-oversight-manager-legal-compliance-efg-geneve",
         "en": "governance-risk-oversight-manager-legal-compliance-efg-geneve",
@@ -222,7 +222,8 @@
       "employmentType": "FULL_TIME",
       "postalCode": "1204",
       "country": "CH",
-      "firstSeenAt": "2026-06-25T22:13:58.906Z"
+      "firstSeenAt": "2026-06-25T22:13:58.906Z",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6326",
@@ -361,7 +362,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-31T11:35:36.622Z",
+      "crawledAt": "2026-07-31T22:10:05.631Z",
       "slugByLocale": {
         "it": "cash-reconciliation-specialista-efg-international-ag-geneve",
         "en": "cash-reconciliation-specialist-efg-geneve",
@@ -414,7 +415,8 @@
         "back-office-cash-reconciliation-specialist-efg-geneve",
         "back-office-cash-reconciliation-spezialist-efg-international-ag-geneve",
         "back-office-cash-reconciliation-specialiste-efg-international-ag-geneve"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "efg-6219",
@@ -465,7 +467,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-31T11:35:36.620Z",
+      "crawledAt": "2026-07-31T22:10:05.629Z",
       "slugByLocale": {
         "it": "data-ops-ingegnere-efg-international-ag-geneve",
         "en": "data-ops-engineer-efg-geneve",
@@ -508,7 +510,8 @@
         "data-ops-engineer-efg-geneve",
         "ingenieur-des-operations-de-donnees-efg-international-ag-geneve"
       ],
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6210",
@@ -531,7 +534,7 @@
       "companyDomain": "efginternational.com",
       "titleByLocale": {
         "en": "General Services Employee",
-        "de": "Mitarbeiter für allgemeine Dienstleistungen",
+        "de": "General Services Employee",
         "it": "Servizi generali Dipendenti",
         "fr": "Services généraux Employé"
       },
@@ -559,11 +562,11 @@
           }
         }
       },
-      "crawledAt": "2026-07-31T11:35:36.618Z",
+      "crawledAt": "2026-07-31T22:10:05.627Z",
       "slugByLocale": {
         "it": "servizi-generali-dipendenti-efg-international-ag-geneve",
         "en": "general-services-employee-efg-geneve",
-        "de": "mitarbeiter-fur-allgemeine-dienstleistungen-efg-international-ag-geneve",
+        "de": "general-services-employee-efg-international-ag-geneve",
         "fr": "services-generaux-employe-efg-international-ag-geneve"
       },
       "addressLocality": "Geneve",
@@ -596,14 +599,17 @@
         ],
         "de": [
           "general-services-employee-efg-geneve",
+          "mitarbeiter-fur-allgemeine-dienstleistungen-efg-international-ag-geneve",
           "general-services-employee-efg-international-ag-geneve"
         ]
       },
       "previousSlugs": [
         "general-services-employee-efg-geneve",
         "g-id-1-impiegata-servizi-generali-g-g-id-2-g-efg-international-ag-geneve",
+        "mitarbeiter-fur-allgemeine-dienstleistungen-efg-international-ag-geneve",
         "general-services-employee-efg-international-ag-geneve"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "efg-6175",
@@ -729,7 +735,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-31T11:35:36.615Z",
+      "crawledAt": "2026-07-31T22:10:05.624Z",
       "slugByLocale": {
         "it": "specialista-supporto-pb-medio-oriente-ch-efg-international-ag-geneve",
         "en": "pb-support-specialist-middle-east-ch-efg-geneve",
@@ -774,7 +780,8 @@
         "pb-support-specialista-middle-east-ch-efg-international-ag-geneve",
         "pb-support-specialist-middle-east-ch-efg-international-ag-geneve"
       ],
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6163",
@@ -927,7 +934,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-31T11:35:36.612Z",
+      "crawledAt": "2026-07-31T22:10:05.622Z",
       "slugByLocale": {
         "it": "learning-development-specialista-efg-international-ag-lugano-n932z9",
         "en": "learning-development-specialist-efg-international-ag-lugano-n932z9",
@@ -1135,7 +1142,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-31T11:35:36.609Z",
+      "crawledAt": "2026-07-31T22:10:05.619Z",
       "slugByLocale": {
         "it": "responsabile-pubblicita-media-e-marketing-strategico-efg-international-ag-zurich",
         "en": "advertising-media-and-strategic-marketing-manager-efg-zurich",
@@ -1171,7 +1178,8 @@
       },
       "previousSlugs": [
         "advertising-media-and-strategic-marketing-manager-efg-zurich"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "efg-6137",
@@ -1325,7 +1333,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-31T11:35:36.607Z",
+      "crawledAt": "2026-07-31T22:10:05.618Z",
       "slugByLocale": {
         "it": "international-payroll-specialista-efg-international-ag-lugano-n9331q",
         "en": "international-payroll-specialist-efg-international-ag-lugano-n9331q",
@@ -1460,7 +1468,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-31T11:35:36.605Z",
+      "crawledAt": "2026-07-31T22:10:05.615Z",
       "slugByLocale": {
         "it": "responsabile-del-servizio-dati-it-efg-international-ag-geneve",
         "en": "it-data-service-manager-efg-geneve",
@@ -1642,7 +1650,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-31T11:35:36.603Z",
+      "crawledAt": "2026-07-31T22:10:05.613Z",
       "slugByLocale": {
         "it": "client-services-officer-geneva-talent-pool-efg-geneve",
         "en": "client-services-officer-geneva-talent-pool-efg-geneve",
@@ -1680,7 +1688,8 @@
         "cybersecurity-internal-penetration-tester-efg-geneve",
         "tester-di-penetrazione-interna-della-sicurezza-informatica-efg-international-ag-geneve"
       ],
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6064",
@@ -1731,7 +1740,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-31T11:35:36.601Z",
+      "crawledAt": "2026-07-31T22:10:05.611Z",
       "slugByLocale": {
         "it": "tester-di-penetrazione-interna-della-sicurezza-informatica-efg-international-ag-geneve",
         "en": "cybersecurity-internal-penetration-tester-efg-geneve",
@@ -1775,7 +1784,8 @@
         "client-services-officer-geneva-talent-pool-efg-international-ag-geneve",
         "client-services-officer-geneva-talent-pool-efg-geneve"
       ],
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6046",
@@ -1826,7 +1836,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-31T11:35:36.598Z",
+      "crawledAt": "2026-07-31T22:10:05.609Z",
       "slugByLocale": {
         "it": "senior-private-markets-product-specialista-efg-international-ag-zurich",
         "en": "senior-private-markets-product-specialist-efg-zurich",
@@ -1869,101 +1879,8 @@
         "senior-private-markets-product-specialist-efg-zurich",
         "specialiste-principal-des-produits-des-marches-prives-efg-international-ag-zurich"
       ],
-      "country": "CH"
-    },
-    {
-      "id": "efg-6040",
-      "slug": "gruppo-di-supporto-per-rete-e-proxy-efg-international-ag-geneve",
-      "company": "EFG International AG",
-      "title": "Network & Proxy Support Team Lead",
-      "location": "Geneve",
-      "canton": "GE",
-      "category": "tech",
-      "contract": "permanent",
-      "currency": "CHF",
-      "description": "General Information\n\n- Department: Information Technology – Infrastructure\n\n- Work Time Percentage: 100%\n\n- Location: Geneva\n\nOur Company\n\nEFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice.\n\nOur Purpose and Mission\n\nEmpowering entrepreneurial minds to create value – today and for the future.\n\nJob Description\n\nRole and Team\n\nWithin the Information Technology Department, you will join a team of 12 engineers based in Geneva and collaborate with IT colleagues in more than 30 countries. Under the supervision of the IT Infrastructure Support Manager, you will lead a team of three network engineers.\n\nYou will combine people management with hands-on engineering, ensuring that EFG’s business-critical systems remain secure, resilient, and always connected in a demanding private banking environment.\n\nMain Responsibilities\n\n1. Leadership & Management\n\n- Lead, coach and develop a team of three network engineers, fostering a culture of accountability, collaboration and continuous improvement.\n\n- Combine team leadership with hands-on technical work on complex incidents and projects.\n\n- Oversee day-to-day network and proxy operations, including incident, problem and change management.\n\n- Plan and coordinate network and proxy upgrades, migrations and lifecycle activities in alignment with business and security requirements.\n\n- Manage escalations, ensuring timely resolution of major incidents and clear communication with stakeholders.\n\n- Manage and review third-party providers and vendor contracts, ensuring service quality, cost effectiveness and adherence to SLAs.\n\n- Ensure compliance with internal policies as well as regulatory, security and audit requirements relevant to network and security infrastructure.\n\n2. Proxy / Secure Web Gateway (Zscaler)\n\n- Collaborate closely with security teams to define, implement and maintain security policies, including URL filtering, cloud application and file filtering, DLP and access control.\n\n- Configure, operate and maintain Zscaler solutions (ZIA, ZPA) and related components such as SIPA, cloud firewall, PAC files, NSS, ZCC...\n\n- Manage corporate devices using Zscaler Client Connector (ZCC), ensuring secure and reliable connectivity.\n\n- Troubleshoot and resolve Zscaler-related issues by analysing logs, performing traces and applying appropriate corrective actions.\n\n- Analyse network packet traces (PCAP), Fiddler logs and HTTP/HTTPS headers to identify and resolve complex connectivity and performance issues.\n\n- Proactively suggest and implement improvements to network and proxy performance, capacity, scalability and security posture.\n\n3. Network Engineering & Operations\n\n- Provide 2nd and 3rd level technical support for network and related services.\n\n- Configure, install and maintain network devices and services (e.g. routers, switches, firewalls, load balancers, VPN, QoS).\n\n- Support and maintain network connectivity for financial market data feeds and other latency-sensitive services.\n\n- Implement and maintain a continuous improvement process by defining, documenting and enforcing network and proxy standards, procedures and best practices.\n\n- Interface with external suppliers and partners (integrators, telecom providers, market data vendors, etc.) to design, implement and support network solutions.\n\n- Participate in 24x7 on-call / on-duty rotation (piquet) to support critical infrastructure.\n\n- Monitor network and proxy performance, ensuring system availability, reliability and security.\n\n- Monitor system resource utilisation, trends and capacity, and plan upgrades or optimisations accordingly.\n\nSkills and Experience\n\nBackground\n\n- 6–10 years of experience in networking in complex, international environments.\n\n- Strong knowledge of enterprise networking architecture and network security.\n\n- Professional experience with Cisco technologies and Cisco ACI; financial services experience is a plus.\n\nTechnical Skills\n\n- Expert in LAN/WAN/MAN implementation and troubleshooting.\n\n- Strong experience with firewalls (Fortinet and/or Check Point), VPN, IPSec and GRE tunnels.\n\n- Proven expertise with Zscaler ZIA/ZPA and ZCC on corporate devices.\n\n- Solid understanding of network and cloud connectivity design.\n\n- Ability to analyse network traces (PCAP), Fiddler logs and HTTP/HTTPS headers.\n\n- Knowledge of Python or another scripting language for automation; Zscaler certification is a plus.\n\nSoft Skills & Languages\n\n- Strong communication skills; able to work effectively with technical and non-technical stakeholders.\n\n- Experience managing third-party providers and internal support teams.\n\n- Rigorous, autonomous, proactive and service-oriented, with strong documentation skills.\n\n- Fluent in French and English, written and spoken.\n\nOur Values\n\n- Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement.\n\n- Hands-on: Being proactive to rapidly deliver high-quality results.\n\n- Passionate: Being committed and striving for excellence.\n\n- Solution-driven: Focusing on client outcomes and treating clients fairly with a risk-aware mindset.\n\n- Partnership-oriented: Promoting collaboration and teamwork; working together with an entrepreneurial spirit.\n\nApplication\n\n- Please ensure you attach a cover letter to your CV when submitting your application.\n\n- Should you wish to apply for this position, please use the designated application link.",
-      "requirements": [],
-      "featured": false,
-      "postedDate": "2026-04-08",
-      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6040",
-      "source": "Oracle HCM API",
-      "sourceLang": "en",
-      "companyKey": "efg-international",
-      "companyDomain": "efginternational.com",
-      "titleByLocale": {
-        "en": "Network & Proxy Support Team Lead",
-        "it": "Gruppo di supporto per rete e proxy",
-        "de": "Network & Proxy Support Teamleiter",
-        "fr": "Network & Proxy Support Chef d'équipe"
-      },
-      "descriptionByLocale": {
-        "en": "General Information\n- Department: Information Technology – Infrastructure\n- Work Time Percentage: 100%\n- Location: Geneva\n\nOur Company\n\nEFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice.\n\nOur Purpose and Mission\n\nEmpowering entrepreneurial minds to create value – today and for the future.\n\nJob Description\n\nRole and Team\n\nWithin the Information Technology Department, you will join a team of 12 engineers based in Geneva and collaborate with IT colleagues in more than 30 countries. Under the supervision of the IT Infrastructure Support Manager, you will lead a team of three network engineers.\n\nYou will combine people management with hands-on engineering, ensuring that EFG’s business-critical systems remain secure, resilient, and always connected in a demanding private banking environment.\n\nMain Responsibilities\n\n1. Leadership & Management\n- Lead, coach and develop a team of three network engineers, fostering a culture of accountability, collaboration and continuous improvement.\n- Combine team leadership with hands-on technical work on complex incidents and projects.\n- Oversee day-to-day network and proxy operations, including incident, problem and change management.\n- Plan and coordinate network and proxy upgrades, migrations and lifecycle activities in alignment with business and security requirements.\n- Manage escalations, ensuring timely resolution of major incidents and clear communication with stakeholders.\n- Manage and review third-party providers and vendor contracts, ensuring service quality, cost effectiveness and adherence to SLAs.\n- Ensure compliance with internal policies as well as regulatory, security and audit requirements relevant to network and security infrastructure.\n\n2. Proxy / Secure Web Gateway (Zscaler)\n- Collaborate closely with security teams to define, implement and maintain security policies, including URL filtering, cloud application and file filtering, DLP and access control.\n- Configure, operate and maintain Zscaler solutions (ZIA, ZPA) and related components such as SIPA, cloud firewall, PAC files, NSS, ZCC...\n- Manage corporate devices using Zscaler Client Connector (ZCC), ensuring secure and reliable connectivity.\n- Troubleshoot and resolve Zscaler-related issues by analysing logs, performing traces and applying appropriate corrective actions.\n- Analyse network packet traces (PCAP), Fiddler logs and HTTP/HTTPS headers to identify and resolve complex connectivity and performance issues.\n- Proactively suggest and implement improvements to network and proxy performance, capacity, scalability and security posture.\n\n3. Network Engineering & Operations\n- Provide 2nd and 3rd level technical support for network and related services.\n- Configure, install and maintain network devices and services (e.g. routers, switches, firewalls, load balancers, VPN, QoS).\n- Support and maintain network connectivity for financial market data feeds and other latency-sensitive services.\n- Implement and maintain a continuous improvement process by defining, documenting and enforcing network and proxy standards, procedures and best practices.\n- Interface with external suppliers and partners (integrators, telecom providers, market data vendors, etc.) to design, implement and support network solutions.\n- Participate in 24x7 on-call / on-duty rotation (piquet) to support critical infrastructure.\n- Monitor network and proxy performance, ensuring system availability, reliability and security.\n- Monitor system resource utilisation, trends and capacity, and plan upgrades or optimisations accordingly.\n\nSkills and Experience\n\nBackground\n\n- 6–10 years of experience in networking in complex, international environments.\n- Strong knowledge of enterprise networking architecture and network security.\n- Professional experience with Cisco technologies and Cisco ACI; financial services experience is a plus.\n\nTechnical Skills\n- Expert in LAN/WAN/MAN implementation and troubleshooting.\n- Strong experience with firewalls (Fortinet and/or Check Point), VPN, IPSec and GRE tunnels.\n- Proven expertise with Zscaler ZIA/ZPA and ZCC on corporate devices.\n- Solid understanding of network and cloud connectivity design.\n- Ability to analyse network traces (PCAP), Fiddler logs and HTTP/HTTPS headers.\n- Knowledge of Python or another scripting language for automation; Zscaler certification is a plus.\n\nSoft Skills & Languages\n- Strong communication skills; able to work effectively with technical and non-technical stakeholders.\n- Experience managing third-party providers and internal support teams.\n- Rigorous, autonomous, proactive and service-oriented, with strong documentation skills.\n- Fluent in French and English, written and spoken.\n\nOur Values\n- Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement.\n- Hands-on: Being proactive to rapidly deliver high-quality results.\n- Passionate: Being committed and striving for excellence.\n- Solution-driven: Focusing on client outcomes and treating clients fairly with a risk-aware mindset.\n- Partnership-oriented: Promoting collaboration and teamwork; working together with an entrepreneurial spirit.\n\nApplication\n- Please ensure you attach a cover letter to your CV when submitting your application.\n- Should you wish to apply for this position, please use the designated application link.",
-        "it": "Informazioni generali\n- Dipartimento: Information Technology – Infrastructure\n- Tempo di lavoro Percentuale: 100%\n- Posizione: Ginevra\n\nLa nostra azienda\n\nEFG International è un gruppo bancario privato globale, che offre servizi di private banking e asset management. Serviamo clienti in oltre 40 sedi in tutto il mondo. EFG International offre un ambiente di lavoro stimolante e dinamico e si sforza di essere un datore di lavoro di scelta.\n\nIl nostro scopo e missione\n\nIncoraggiare le menti imprenditoriali a creare valore – oggi e per il futuro.\n\nDescrizione del lavoro\n\nRuolo e Team\n\nAll'interno del Dipartimento Informatica, si unirà a un team di 12 ingegneri con sede a Ginevra e collaborare con i colleghi IT in più di 30 paesi. Sotto la supervisione di IT Infrastructure Support Manager, guiderai un team di tre ingegneri di rete.\n\nCombinate la gestione delle persone con l'ingegneria pratica, assicurando che i sistemi business-critical di EFG rimangano sicuri, resilienti e sempre connessi in un ambiente di private banking esigente.\n\nPrincipali responsabilità\n\n1. Leadership & Management\n- Lead, coach e sviluppare un team di tre ingegneri di rete, promuovendo una cultura di responsabilità, collaborazione e miglioramento continuo.\n- Combina la leadership del team con il lavoro tecnico pratico su incidenti complessi e progetti.\n- Controllare le operazioni quotidiane di rete e proxy, tra cui la gestione di incidenti, problemi e cambiamenti.\n- Pianificare e coordinare gli aggiornamenti di rete e proxy, le migrazioni e le attività del ciclo di vita in linea con i requisiti di business e sicurezza.\n- Gestire le escalation, garantire una risoluzione tempestiva dei principali incidenti e una comunicazione chiara con gli stakeholder.\n- Gestione e revisione di fornitori di terze parti e contratti di fornitori, garantendo qualità del servizio, efficacia dei costi e adesione a SLAs.\n- Assicurare la conformità alle politiche interne e ai requisiti normativi, di sicurezza e di audit relativi alle infrastrutture di rete e di sicurezza.\n\n2. Proxy / Secure Web Gateway (Zscaler)\n- Collabora a stretto contatto con i team di sicurezza per definire, implementare e mantenere le politiche di sicurezza, tra cui il filtraggio URL, l'applicazione cloud e il filtraggio dei file, DLP e il controllo degli accessi.\n- Configurare, utilizzare e mantenere le soluzioni Zscaler (ZIA, ZPA) e componenti correlati come SIPA, cloud firewall, file PAC, NSS, ZCC...\n- Gestire i dispositivi aziendali utilizzando Zscaler Client Connector (ZCC), garantendo una connettività sicura e affidabile.\n- Risoluzione dei problemi e risoluzione dei problemi relativi a Zscaler tramite l'analisi dei registri, l'esecuzione delle tracce e l'applicazione di azioni correttive appropriate.\n- Analizzare le tracce dei pacchetti di rete (PCAP), i registri Fiddler e le intestazioni HTTP/HTTPS per identificare e risolvere problemi di connettività e prestazioni complessi.\n- Proattivamente suggeriscono e implementano miglioramenti alle prestazioni di rete e proxy, capacità, scalabilità e postura di sicurezza.\n\n3. Ingegneria della rete e operazioni\n- Fornire supporto tecnico di secondo e terzo livello per la rete e i servizi correlati.\n- Configurare, installare e mantenere dispositivi e servizi di rete (ad esempio router, switch, firewall, bilanciatori di carico, VPN, QoS).\n- Supporto e mantenimento della connettività di rete per i feed di dati del mercato finanziario e altri servizi sensibili alla latenza.\n- Implementare e mantenere un processo di miglioramento continuo definendo, documentando e rafforzando gli standard di rete e proxy, le procedure e le migliori pratiche.\n- Interfaccia con fornitori esterni e partner (integratori, fornitori di telecomunicazioni, fornitori di dati di mercato, ecc.) per progettare, implementare e supportare soluzioni di rete.\n- Partecipare a 24x7 on-call / on-duty rotazione (piquet) per sostenere l'infrastruttura critica.\n- Monitorare le prestazioni di rete e proxy, assicurando la disponibilità del sistema, l'affidabilità e la sicurezza.\n- Monitorare l'utilizzo delle risorse di sistema, le tendenze e la capacità, e pianificare aggiornamenti o ottimizzazioni di conseguenza.\n\nCompetenze ed Esperienza\n\nContesto\n\n- 6-10 anni di esperienza nel networking in ambienti complessi e internazionali.\n- Forte conoscenza dell'architettura di rete aziendale e della sicurezza di rete.\n- Esperienza professionale con tecnologie Cisco e Cisco ACI; l'esperienza dei servizi finanziari è un vantaggio.\n\nCompetenze tecniche\n- Esperto in implementazione LAN/WAN/MAN e risoluzione dei problemi.\n- Forte esperienza con i firewall (Fortinet e/o Check Point), VPN, IPSec e tunnel GRE.\n- Provata esperienza con Zscaler ZIA/ZPA e ZCC sui dispositivi aziendali.\n- Solida comprensione della rete e del design della connettività cloud.\n- Possibilità di analizzare le tracce di rete (PCAP), i log Fiddler e le intestazioni HTTP/HTTPS.\n- Conoscenza di Python o un altro linguaggio di scrittura per l'automazione; la certificazione Zscaler è un plus.\n\nSoft Skills & Languages\n- Forte capacità di comunicazione; in grado di lavorare efficacemente con gli stakeholder tecnici e non tecnici.\n- Esperienza di gestione di fornitori di terze parti e team di supporto interno.\n- Rigoroso, autonomo, proattivo e orientato al servizio, con forti capacità di documentazione.\n- Fluente in francese e inglese, scritto e parlato.\n\nI nostri valori\n- Responsabilità: Prendere la proprietà per i compiti e le sfide, nonché cercare un miglioramento continuo.\n- Hands-on: essere proattivi per fornire rapidamente risultati di alta qualità.\n- Passionato: Impegnarsi e lottare per l'eccellenza.\n- Soluzione-driven: Focusing sui risultati del cliente e il trattamento dei clienti abbastanza con una mentalità di rischio-consapevole.\n- Partnership-oriented: promuovere la collaborazione e il lavoro di squadra; lavorare insieme con uno spirito imprenditoriale.\n\nApplicazione\n- Si prega di assicurarsi di allegare una lettera di copertura al CV durante la presentazione della domanda.\n- In caso di richiesta per questa posizione, utilizzare il link di richiesta designato.",
-        "de": "Allgemeine Informationen\n- Abteilung: Informationstechnologie – Infrastruktur\n- Arbeitszeit: 100%\n- Standort: Genf\n\nUnsere Firma\n\nEFG International ist eine globale Privatbankengruppe, die private Bank- und Vermögensverwaltungsdienstleistungen anbietet. Wir bedienen Kunden in über 40 Standorten weltweit. EFG International bietet ein stimulierendes und dynamisches Arbeitsumfeld und ist bestrebt, Arbeitgeber der Wahl zu sein.\n\nUnsere Aufgabe und Mission\n\nUnternehmergeist zu stärken, um Mehrwert zu schaffen – heute und für die Zukunft.\n\nJob Description\n\nRolle und Team\n\nInnerhalb der Abteilung Informationstechnologie werden Sie sich an einem Team von 12 Ingenieuren mit Sitz in Genf beteiligen und in über 30 Ländern mit IT-Kollegen zusammenarbeiten. Unter der Aufsicht des IT-Infrastruktur-Unterstützungsmanagers führen Sie ein Team von drei Netzwerkingenieuren.\n\nSie kombinieren das Personalmanagement mit der Hand-on-Engineering, um sicherzustellen, dass die geschäftskritischen Systeme der EFG sicher, widerstandsfähig und immer in einem anspruchsvollen privaten Bankenumfeld verbunden bleiben.\n\nHauptverantwortlichkeiten\n\n1. Führung und Management\n- Führen, Coach und entwickeln Sie ein Team von drei Netzwerk-Ingenieuren und fördern eine Kultur der Rechenschaftspflicht, Zusammenarbeit und kontinuierliche Verbesserung.\n- Kombinieren Sie Teamführung mit praktischen technischen Arbeiten an komplexen Vorfällen und Projekten.\n- Beaufsichtigen Sie tägliche Netzwerk- und Proxy-Operationen, einschließlich Vorfall, Problem- und Änderungsmanagement.\n- Planen und koordinieren Sie Netzwerk- und Proxy-Upgrades, Migrations- und Lebenszyklusaktivitäten in Abstimmung mit den Geschäfts- und Sicherheitsanforderungen.\n- Eskalationen verwalten, eine rechtzeitige Lösung großer Vorfälle und eine klare Kommunikation mit den Interessenvertretern gewährleisten.\n- Verwalten und überprüfen Drittanbieter und Lieferantenverträge, Gewährleistung der Servicequalität, Kostenwirksamkeit und Einhaltung von SLAs.\n- Gewährleistung der Einhaltung interner Richtlinien sowie regulatorischer, sicherheits- und sicherheitsrelevanter Anforderungen für die Netz- und Sicherheitsinfrastruktur.\n\n2. Proxy / Secure Web Gateway (Zscaler)\n- Mit Sicherheitsteams eng zusammenarbeiten, um Sicherheitsrichtlinien zu definieren, umzusetzen und zu pflegen, einschließlich URL-Filterung, Cloud-Anwendung und Dateifilterung, DLP und Zugriffskontrolle.\n- Konfigurieren, bedienen und pflegen Zscaler-Lösungen (ZIA, ZPA) und verwandte Komponenten wie SIPA, Cloud Firewall, PAC-Dateien, NSS, ZCC...\n- Verwalten Sie Unternehmensgeräte mit Zscaler Client Connector (ZCC), um eine sichere und zuverlässige Vernetzung zu gewährleisten.\n- Fehlerbehebung und Lösung von Zscaler-bezogenen Problemen durch die Analyse von Protokollen, die Durchführung von Spuren und die Anwendung geeigneter Korrekturmaßnahmen.\n- Analyse von Netzwerkpaket-Tracks (PCAP), Fiddler-Logs und HTTP/HTTPS-Headern, um komplexe Konnektivitäts- und Leistungsprobleme zu identifizieren und zu lösen.\n- Proaktiv vorschlagen und implementieren Verbesserungen der Netzwerk- und Proxyleistung, Kapazität, Skalierbarkeit und Sicherheitshaltung.\n\n3. Network Engineering & Operations\n- Bereitstellung technischer Unterstützung für Netzwerk- und verbundene Dienstleistungen auf der 2. und 3. Ebene.\n- Konfigurieren, installieren und pflegen Netzwerkgeräte und -dienste (z.B. Router, Switche, Firewalls, Load Balancer, VPN, QoS).\n- Unterstützung und Aufrechterhaltung der Netzwerkverbindung für Finanzmarktdatenfeeds und andere latenzempfindliche Dienste.\n- Umsetzung und Aufrechterhaltung eines kontinuierlichen Verbesserungsprozesses durch Definition, Dokumentation und Durchsetzung von Netzwerk- und Proxystandards, Verfahren und Best Practices.\n- Schnittstelle zu externen Anbietern und Partnern (Integratoren, Telekommunikationsanbietern, Marktdatenanbietern usw.), um Netzwerklösungen zu entwickeln, umzusetzen und zu unterstützen.\n- Nehmen Sie an 24x7 on-call / on-duty Rotation (Piquet) teil, um kritische Infrastruktur zu unterstützen.\n- Überwachen Sie die Netzwerk- und Proxyleistung und gewährleisten Sie die Systemverfügbarkeit, Zuverlässigkeit und Sicherheit.\n- Überwachen Sie die Ressourcennutzung, Trends und Kapazitäten des Systems und planen Sie Upgrades oder Optimierungen entsprechend.\n\nFähigkeiten und Erfahrungen\n\nHintergrund\n\n- 6–10 Jahre Erfahrung in der Vernetzung in komplexen, internationalen Umgebungen.\n- Starkes Wissen über Unternehmensnetzwerkarchitektur und Netzwerksicherheit.\n- Berufserfahrung mit Cisco-Technologien und Cisco ACI; Finanzdienstleistungen Erfahrung ist ein Plus.\n\nTechnische Fähigkeiten\n- Experte für LAN/WAN/MAN Implementierung und Fehlersuche.\n- Starke Erfahrung mit Firewalls (Fortinet und/oder Check Point), VPN, IPSec und GRE Tunnels.\n- Bewährtes Know-how mit Zscaler ZIA/ZPA und ZCC auf Unternehmensgeräten.\n- Solides Verständnis von Netzwerk- und Cloud-Konnektivitätsdesign.\n- Fähigkeit, Netzwerkspuren (PCAP), Fiddler-Logs und HTTP/HTTPS-Header zu analysieren.\n- Kenntnis von Python oder einer anderen Skriptsprache für die Automatisierung; Zscaler Zertifizierung ist ein Plus.\n\nSoft Skills & Sprachen\n- Starke Kommunikationsfähigkeiten; in der Lage, effektiv mit technischen und nicht technischen Akteuren zu arbeiten.\n- Erleben Sie die Verwaltung von Drittanbietern und internen Support-Teams.\n- Rigorous, autonom, proaktiv und serviceorientiert, mit starken Dokumentationsfähigkeiten.\n- Flöten in Französisch und Englisch, geschrieben und gesprochen.\n\nUnsere Werte\n- Rechenschaftspflicht: Eigentum an Aufgaben und Herausforderungen zu nehmen, sowie kontinuierliche Verbesserung zu suchen.\n- Hands-on: Als proaktiv, schnell qualitativ hochwertige Ergebnisse zu liefern.\n- Leidenschaftlich: Sein Engagement und Streben nach Exzellenz.\n- Lösungsgetrieben: Konzentrieren Sie sich auf Client-Ergebnisse und Behandlung von Kunden ziemlich mit einem risikobewussten Mindset.\n- Partnerschaftsorientiert: Förderung von Zusammenarbeit und Teamarbeit; Zusammenarbeit mit Unternehmergeist.\n\nAnwendung\n- Bitte stellen Sie sicher, dass Sie bei der Einreichung Ihrer Bewerbung einen Brief an Ihren Lebenslauf richten.\n- Wenn Sie sich für diese Position bewerben möchten, nutzen Sie bitte den angegebenen Anwendungslink.",
-        "fr": "Informations générales\n- Département: Technologie de l'information – Infrastructure\n- Temps de travail Pourcentage: 100%\n- Lieu: Genève Notre société EFG International est un groupe bancaire privé mondial qui offre des services de banque privée et de gestion d'actifs. Nous servons des clients dans plus de 40 endroits dans le monde. EFG International offre un environnement de travail stimulant et dynamique et s'efforce d'être un employeur de choix. Notre but et notre mission Donner aux esprits entrepreneurs les moyens de créer de la valeur – aujourd'hui et pour l'avenir. Description de l'emploi Rôle et équipe Au sein du Département des technologies de l'information, vous rejoindrez une équipe de 12 ingénieurs basés à Genève et collaborerez avec des collègues en TI dans plus de 30 pays. Sous la supervision du gestionnaire du soutien à l'infrastructure informatique, vous dirigerez une équipe de trois ingénieurs du réseau. Vous combinerez la gestion des personnes et l'ingénierie pratique, en veillant à ce que les systèmes critiques d'EFG restent sécurisés, résistants et toujours connectés dans un environnement bancaire privé exigeant. 1. Leadership et gestion\n- Diriger, encadrer et développer une équipe de trois ingénieurs de réseau, favorisant une culture de responsabilisation, de collaboration et d'amélioration continue.\n- Combiner le leadership d'équipe et le travail technique pratique sur des incidents et des projets complexes.\n- Surveiller les opérations quotidiennes de réseau et de procuration, y compris la gestion des incidents, des problèmes et du changement.\n- Planifier et coordonner les mises à niveau, les migrations et les activités liées au cycle de vie des réseaux et des mandataires conformément aux exigences des entreprises et de la sécurité.\n- Gérer les escalades, assurer la résolution rapide des incidents majeurs et une communication claire avec les parties prenantes.\n- Gérer et examiner les fournisseurs tiers et les contrats de fournisseurs, en assurant la qualité du service, la rentabilité et le respect des ALS.\n- Veiller au respect des politiques internes ainsi que des exigences réglementaires, de sécurité et de vérification applicables aux réseaux et aux infrastructures de sécurité. 2. Poxy / Secure Web Gateway (Zscaler)\n- Collaborer étroitement avec les équipes de sécurité pour définir, mettre en œuvre et maintenir les politiques de sécurité, y compris le filtrage d'URL, application cloud et filtrage de fichiers, DLP et contrôle d'accès.\n- Configurer, exploiter et entretenir les solutions Zscaler (ZIA, ZPA) et les composants connexes tels que SIPA, pare-feu cloud, fichiers PAC, NSS, ZCC...\n- Gérer les périphériques d'entreprise en utilisant Zscaler Client Connector (ZCC), assurant une connectivité sécurisée et fiable.\n- Dépanner et résoudre les problèmes liés au Zscaler en analysant les journaux, en effectuant des traces et en appliquant des mesures correctives appropriées.\n- Analyser les traces de paquets réseau (PCAP), les journaux Fiddler et les en-têtes HTTP/HTTPS pour identifier et résoudre des problèmes complexes de connectivité et de performance.\n- Proposer et mettre en œuvre des améliorations proactives aux performances, aux capacités, à l'évolutivité et à la posture de sécurité des réseaux et des mandataires. 3. Génie et opérations du réseau\n- Fournir un soutien technique de deuxième et troisième niveaux pour les services de réseau et les services connexes.\n- Configurer, installer et entretenir des périphériques et services réseau (par exemple routeurs, commutateurs, pare-feu, balanceurs de charge, VPN, QoS).\n- Soutenir et maintenir la connectivité réseau pour les flux de données des marchés financiers et d'autres services sensibles à la latence.\n- Mettre en oeuvre et maintenir un processus d'amélioration continue en définissant, documentant et appliquant les normes, procédures et pratiques exemplaires en matière de réseaux et de procurations.\n- Interface avec des fournisseurs et partenaires externes (intégrateurs, fournisseurs de télécommunications, fournisseurs de données du marché, etc.) pour concevoir, mettre en œuvre et soutenir des solutions réseau.\n- Participer à la rotation 24x7 sur appel/en service (piquet) pour soutenir les infrastructures essentielles.\n- Surveiller les performances du réseau et du mandataire, en assurant la disponibilité, la fiabilité et la sécurité du système.\n- Surveiller l'utilisation des ressources du système, les tendances et les capacités, et planifier les mises à niveau ou les optimisations en conséquence. Compétences et expérience Contexte - 6-10 ans d'expérience en réseautage dans des environnements complexes et internationaux.\n- Forte connaissance de l'architecture de réseau d'entreprise et de la sécurité des réseaux.\n- Expérience professionnelle avec les technologies Cisco et Cisco ACI; l'expérience des services financiers est un atout. Compétences techniques\n- Expert en implémentation et dépannage LAN/WAN/MAN.\n- Forte expérience avec les pare-feu (Fortinet et/ou Check Point), VPN, IPSec et les tunnels GRE.\n- Expertise éprouvée avec Zscaler ZIA/ZPA et ZCC sur les appareils d'entreprise.\n- Une bonne compréhension de la conception de la connectivité réseau et cloud.\n- Possibilité d'analyser les traces réseau (PCAP), les journaux Fiddler et les en-têtes HTTP/HTTPS.\n- Connaissance de Python ou d'un autre langage de script pour l'automatisation ; la certification Zscaler est un plus. Compétences et langues douces\n- Compétences solides en communication; capacité de travailler efficacement avec les intervenants techniques et non techniques.\n- Expérience en gestion de fournisseurs tiers et d'équipes de soutien internes.\n- Rigieuse, autonome, proactive et axée sur le service, avec de solides compétences en documentation.\n- Fluent en français et anglais, écrit et parlé. Nos valeurs\n- Responsabilisation : Prendre en main les tâches et les défis, et chercher une amélioration continue.\n- Hands-on: être proactif pour obtenir rapidement des résultats de haute qualité.\n- Passionné : être engagé et viser l'excellence.\n- La solution est axée sur les résultats des clients et le traitement équitable des clients avec un état d'esprit conscient des risques.\n- Objectif partenariat : promouvoir la collaboration et le travail d'équipe; travailler ensemble dans un esprit d'entreprise. Demande\n- Veuillez joindre une lettre d'accompagnement à votre CV au moment de soumettre votre demande.\n- Oui. Si vous désirez postuler à ce poste, veuillez utiliser le lien de demande désigné."
-      },
-      "requirementsByLocale": {},
-      "canonicalContent": {
-        "byLocale": {
-          "en": {
-            "summary": [
-              "<p><span><strong>General Information</strong></span></p><ul style=\"list-style-type:disc;\"><li style=\"tab-stops:list 36.0pt;\"><span><strong>Department:</strong> Information Technology – Infrastructure</span></li><li style=\"tab-stops:list 36.0pt;\"><span><strong>Work Time Percentage:</strong> 100%</span></li><li style=\"tab-stops:list 36.0pt;\"><span><strong>Location:</strong> Geneva</span></li></ul><p><span><strong>Our Company</strong></span></p><p><span>EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice.</span></p><p><span>EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation.</span></p><p><span><strong>Our Purpose and Mission</strong></span></p><p><span><strong>Empowering entrepreneurial minds to create value – today and for the future.</strong></span></p><p><span>We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value.</span></p><p><span><strong>Job Description</strong></span></p><p><span><strong>Role and Team</strong></span></p><p><span>Within the Information Technology Department, you will join a team of 12 engineers based in Geneva and collaborate with IT colleagues in more than 30 countries. Under the supervision of the IT Infrastructure Support Manager, you will lead a team of three network engineers.</span></p><p><span>You will combine people management with hands-on engineering, ensuring that EFG’s business-critical systems remain secure, resilient, and always connected in a demanding private banking environment.</span></p><p><span><strong>Main Responsibilities</strong></span></p><p><span><strong>1. Leadership & Management</strong></span></p><ul style=\"list-style-type:disc;\"><li style=\"tab-stops:list 36.0pt;\"><span>Lead, coach and develop a team of three network engineers, fostering a culture of accountability, collaboration and continuous improvement.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Combine team leadership with hands-on technical work on complex incidents and projects.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Oversee day-to-day network and proxy operations, including incident, problem and change management.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Plan and coordinate network and proxy upgrades, migrations and lifecycle activities in alignment with business and security requirements.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Manage escalations, ensuring timely resolution of major incidents and clear communication with stakeholders.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Manage and review third-party providers and vendor contracts, ensuring service quality, cost effectiveness and adherence to SLAs.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Ensure compliance with internal policies as well as regulatory, security and audit requirements relevant to network and security infrastructure.</span></li></ul><p><span><strong>2. Proxy / Secure Web Gateway (Zscaler)</strong></span></p><ul style=\"list-style-type:disc;\"><li style=\"tab-stops:list 36.0pt;\"><span>Collaborate closely with security teams to define, implement and maintain security policies, including URL filtering, cloud application and file filtering, DLP and access control.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Configure, operate and maintain Zscaler solutions (ZIA, ZPA) and related components such as SIPA, cloud firewall, PAC files, NSS, ZCC...</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Manage corporate devices using Zscaler Client Connector (ZCC), ensuring secure and reliable connectivity.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Troubleshoot and resolve Zscaler-related issues by analysing logs, performing traces and applying appropriate corrective actions.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Analyse network packet traces (PCAP), Fiddler logs and HTTP/HTTPS headers to identify and resolve complex connectivity and performance issues.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Proactively suggest and implement improvements to network and proxy performance, capacity, scalability and security posture.</span></li></ul><p><span><strong>3. Network Engineering & Operations</strong></span></p><ul style=\"list-style-type:disc;\"><li style=\"tab-stops:list 36.0pt;\"><span>Provide 2nd and 3rd level technical support for network and related services.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Configure, install and maintain network devices and services (e.g. routers, switches, firewalls, load balancers, VPN, QoS).</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Support and maintain network connectivity for financial market data feeds and other latency-sensitive services.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Implement and maintain a continuous improvement process by defining, documenting and enforcing network and proxy standards, procedures and best practices.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Interface with external suppliers and partners (integrators, telecom providers, market data vendors, etc.) to design, implement and support network solutions.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Participate in 24x7 on-call / on-duty rotation (piquet) to support critical infrastructure.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Monitor network and proxy performance, ensuring system availability, reliability and security.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Monitor system resource utilisation, trends and capacity, and plan upgrades or optimisations accordingly.</span></li></ul><p><span><strong>Skills and Experience</strong></span></p><p><span><strong>Background</strong></span></p><ul style=\"list-style-type:disc;\"><li style=\"tab-stops:list 36.0pt;\"><span>6–10 years of experience in networking in complex, international environments.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Strong knowledge of enterprise networking architecture and network security.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Professional experience with Cisco technologies and Cisco ACI; financial services experience is a plus.</span></li></ul><p><span><strong>Technical Skills</strong></span></p><ul style=\"list-style-type:disc;\"><li style=\"tab-stops:list 36.0pt;\"><span>Expert in LAN/WAN/MAN implementation and troubleshooting.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Strong experience with firewalls (Fortinet and/or Check Point), VPN, IPSec and GRE tunnels.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Proven expertise with Zscaler ZIA/ZPA and ZCC on corporate devices.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Solid understanding of network and cloud connectivity design.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Ability to analyse network traces (PCAP), Fiddler logs and HTTP/HTTPS headers.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Knowledge of Python or another scripting language for automation; Zscaler certification is a plus.</span></li></ul><p><span><strong>Soft Skills & Languages</strong></span></p><ul style=\"list-style-type:disc;\"><li style=\"tab-stops:list 36.0pt;\"><span>Strong communication skills; able to work effectively with technical and non-technical stakeholders.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Experience managing third-party providers and internal support teams.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Rigorous, autonomous, proactive and service-oriented, with strong documentation skills.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Fluent in French and English, written and spoken.</span></li></ul><p><span><strong>Our Values</strong></span></p><ul style=\"list-style-type:disc;\"><li style=\"tab-stops:list 36.0pt;\"><span><strong>Accountability:</strong> Taking ownership for tasks and challenges, as well as seeking continuous improvement.</span></li><li style=\"tab-stops:list 36.0pt;\"><span><strong>Hands-on:</strong> Being proactive to rapidly deliver high-quality results.</span></li><li style=\"tab-stops:list 36.0pt;\"><span><strong>Passionate:</strong> Being committed and striving for excellence.</span></li><li style=\"tab-stops:list 36.0pt;\"><span><strong>Solution-driven:</strong> Focusing on client outcomes and treating clients fairly with a risk-aware mindset.</span></li><li style=\"tab-stops:list 36.0pt;\"><span><strong>Partnership-oriented:</strong> Promoting collaboration and teamwork; working together with an entrepreneurial spirit.</span></li></ul><p><span><strong>Application</strong></span></p><ol><li style=\"tab-stops:list 36.0pt;\"><span>Please ensure you attach a cover letter to your CV when submitting your application.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Should you wish to apply for this position, please use the designated application link.</span></li></ol><p> </p>"
-            ],
-            "responsibilities": [],
-            "requirements": [],
-            "benefits": [],
-            "process": [],
-            "highlights": [],
-            "keywords": [],
-            "sections": [],
-            "readingMinutes": 5
-          }
-        }
-      },
-      "crawledAt": "2026-07-31T11:35:36.597Z",
-      "slugByLocale": {
-        "it": "gruppo-di-supporto-per-rete-e-proxy-efg-international-ag-geneve",
-        "en": "network-proxy-support-team-lead-efg-geneve",
-        "de": "network-proxy-support-teamleiter-efg-international-ag-geneve",
-        "fr": "network-proxy-support-chef-d-equipe-efg-international-ag-geneve"
-      },
-      "addressLocality": "Geneve",
-      "addressCountry": "CH",
-      "datePosted": "2026-04-08",
-      "salaryMin": 79500,
-      "salaryMax": 135000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 79500,
-          "maxValue": 135000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "",
-      "postalCode": "1204",
-      "addressRegion": "GE",
-      "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-05-10T21:30:00.890Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "network-proxy-support-team-lead-efg-geneve",
-          "network-proxy-support-capo-team-efg-international-ag-geneve"
-        ],
-        "de": [
-          "network-proxy-support-team-lead-efg-geneve"
-        ],
-        "fr": [
-          "network-proxy-support-team-lead-efg-geneve"
-        ]
-      },
-      "previousSlugs": [
-        "network-proxy-support-team-lead-efg-geneve",
-        "network-proxy-support-capo-team-efg-international-ag-geneve"
-      ],
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-5984",
@@ -1986,7 +1903,7 @@
       "companyDomain": "efginternational.com",
       "titleByLocale": {
         "en": "Switchboard operator",
-        "it": "Operatore di commutazione",
+        "it": "Switchboard operator",
         "de": "Schaltstelle-Operator",
         "fr": "Opérateur de central"
       },
@@ -2014,11 +1931,11 @@
           }
         }
       },
-      "crawledAt": "2026-07-31T11:35:36.594Z",
+      "crawledAt": "2026-07-31T22:10:05.608Z",
       "slugByLocale": {
-        "it": "operatore-di-commutazione-efg-international-ag-lugano",
+        "it": "switchboard-operator-efg-international-ag-lugano",
         "en": "switchboard-operator-efg-lugano",
-        "de": "schaltnetzbetreiber-efg-international-ag-lugano",
+        "de": "schaltstelle-operator-efg-international-ag-lugano",
         "fr": "switchboard-operateur-efg-international-ag-lugano"
       },
       "addressLocality": "Lugano",
@@ -2044,17 +1961,22 @@
       "firstSeenAt": "2026-07-10T10:26:15.024Z",
       "previousSlugsByLocale": {
         "it": [
-          "switchboard-operator-efg-lugano"
+          "switchboard-operator-efg-lugano",
+          "operatore-di-commutazione-efg-international-ag-lugano"
         ],
         "de": [
           "switchboard-operator-efg-lugano",
+          "schaltnetzbetreiber-efg-international-ag-lugano",
           "schaltstelle-operator-efg-international-ag-lugano"
         ]
       },
       "previousSlugs": [
         "switchboard-operator-efg-lugano",
+        "operatore-di-commutazione-efg-international-ag-lugano",
+        "schaltnetzbetreiber-efg-international-ag-lugano",
         "schaltstelle-operator-efg-international-ag-lugano"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "efg-5969",
@@ -2205,7 +2127,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-31T11:35:36.592Z",
+      "crawledAt": "2026-07-31T22:10:05.606Z",
       "slugByLocale": {
         "it": "it-trading-treasury-solutions-specialista-efg-international-ag-lugano-n93k12",
         "en": "it-trading-treasury-solutions-specialist-efg-international-ag-lugano-n93k12",
@@ -2422,7 +2344,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-31T11:35:36.582Z",
+      "crawledAt": "2026-07-31T22:10:05.597Z",
       "slugByLocale": {
         "it": "responsabile-della-fondazione-efg-international-ag-zurich",
         "en": "foundation-manager-efg-international-ag-lugano-n93k14",
@@ -2482,7 +2404,8 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:36:50.620Z",
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-5892",
@@ -2533,7 +2456,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-31T11:35:36.580Z",
+      "crawledAt": "2026-07-31T22:10:05.596Z",
       "slugByLocale": {
         "it": "data-ingegnere-efg-international-ag-geneve",
         "en": "data-engineer-efg-geneve",
@@ -2603,7 +2526,7 @@
       "companyDomain": "efginternational.com",
       "titleByLocale": {
         "en": "Group Financial Controller",
-        "fr": "Contrôleur financier du groupe",
+        "fr": "Group Financial Controller",
         "it": "Gruppo Controllore finanziario",
         "de": "Konzern Finanzverantwortlicher"
       },
@@ -2737,7 +2660,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-31T11:35:36.577Z",
+      "crawledAt": "2026-07-31T22:10:05.593Z",
       "slugByLocale": {
         "it": "gruppo-controllore-finanziario-efg-international-ag-geneve",
         "en": "group-financial-controller-efg-geneve",
@@ -2775,7 +2698,8 @@
       "previousSlugs": [
         "group-financial-controller-efg-geneve"
       ],
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6384",
@@ -2910,7 +2834,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-31T11:35:36.574Z",
+      "crawledAt": "2026-07-31T22:10:05.591Z",
       "slugByLocale": {
         "it": "business-risk-manager-pb-coo-brm-temp-efg-zurich",
         "en": "business-risk-manager-pb-coo-brm-temp-efg-zurich",
@@ -2935,7 +2859,8 @@
       "addressRegion": "ZH",
       "employmentType": "FULL_TIME",
       "country": "CH",
-      "firstSeenAt": "2026-07-20T22:01:00.554Z"
+      "firstSeenAt": "2026-07-20T22:01:00.554Z",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6327",
@@ -3080,7 +3005,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-31T11:35:36.572Z",
+      "crawledAt": "2026-07-31T22:10:05.588Z",
       "slugByLocale": {
         "it": "ricevitore-efg-international-ag-zurich",
         "en": "receptionist-efg-international-ag-zurich",
@@ -3119,7 +3044,8 @@
       },
       "previousSlugs": [
         "receptionist-efg-zurich"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "efg-6317",
@@ -3244,7 +3170,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-31T11:35:36.569Z",
+      "crawledAt": "2026-07-31T22:10:05.584Z",
       "slugByLocale": {
         "it": "iam-support-specialista-efg-international-ag-geneve",
         "en": "iam-support-specialist-efg-geneve",
@@ -3283,7 +3209,8 @@
       },
       "previousSlugs": [
         "iam-support-specialist-efg-geneve"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "efg-6039",
@@ -3334,7 +3261,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-31T11:35:36.549Z",
+      "crawledAt": "2026-07-31T22:10:05.564Z",
       "slugByLocale": {
         "it": "sviluppatore-epm-onestream-analista-dati-business-efg-international-ag-lugano",
         "en": "epm-onestream-developer-business-data-analyst-efg-lugano",
@@ -3372,7 +3299,103 @@
         "epm-onestream-developer-business-data-analyst-efg-lugano"
       ],
       "firstSeenAt": "2026-04-13T10:28:21.934Z",
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
+    },
+    {
+      "id": "efg-6040",
+      "slug": "gruppo-di-supporto-per-rete-e-proxy-efg-international-ag-geneve",
+      "company": "EFG International AG",
+      "title": "Network & Proxy Support Team Lead",
+      "location": "Geneve",
+      "canton": "GE",
+      "category": "tech",
+      "contract": "permanent",
+      "currency": "CHF",
+      "description": "General Information\n\n- Department: Information Technology – Infrastructure\n\n- Work Time Percentage: 100%\n\n- Location: Geneva\n\nOur Company\n\nEFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice.\n\nOur Purpose and Mission\n\nEmpowering entrepreneurial minds to create value – today and for the future.\n\nJob Description\n\nRole and Team\n\nWithin the Information Technology Department, you will join a team of 12 engineers based in Geneva and collaborate with IT colleagues in more than 30 countries. Under the supervision of the IT Infrastructure Support Manager, you will lead a team of three network engineers.\n\nYou will combine people management with hands-on engineering, ensuring that EFG’s business-critical systems remain secure, resilient, and always connected in a demanding private banking environment.\n\nMain Responsibilities\n\n1. Leadership & Management\n\n- Lead, coach and develop a team of three network engineers, fostering a culture of accountability, collaboration and continuous improvement.\n\n- Combine team leadership with hands-on technical work on complex incidents and projects.\n\n- Oversee day-to-day network and proxy operations, including incident, problem and change management.\n\n- Plan and coordinate network and proxy upgrades, migrations and lifecycle activities in alignment with business and security requirements.\n\n- Manage escalations, ensuring timely resolution of major incidents and clear communication with stakeholders.\n\n- Manage and review third-party providers and vendor contracts, ensuring service quality, cost effectiveness and adherence to SLAs.\n\n- Ensure compliance with internal policies as well as regulatory, security and audit requirements relevant to network and security infrastructure.\n\n2. Proxy / Secure Web Gateway (Zscaler)\n\n- Collaborate closely with security teams to define, implement and maintain security policies, including URL filtering, cloud application and file filtering, DLP and access control.\n\n- Configure, operate and maintain Zscaler solutions (ZIA, ZPA) and related components such as SIPA, cloud firewall, PAC files, NSS, ZCC...\n\n- Manage corporate devices using Zscaler Client Connector (ZCC), ensuring secure and reliable connectivity.\n\n- Troubleshoot and resolve Zscaler-related issues by analysing logs, performing traces and applying appropriate corrective actions.\n\n- Analyse network packet traces (PCAP), Fiddler logs and HTTP/HTTPS headers to identify and resolve complex connectivity and performance issues.\n\n- Proactively suggest and implement improvements to network and proxy performance, capacity, scalability and security posture.\n\n3. Network Engineering & Operations\n\n- Provide 2nd and 3rd level technical support for network and related services.\n\n- Configure, install and maintain network devices and services (e.g. routers, switches, firewalls, load balancers, VPN, QoS).\n\n- Support and maintain network connectivity for financial market data feeds and other latency-sensitive services.\n\n- Implement and maintain a continuous improvement process by defining, documenting and enforcing network and proxy standards, procedures and best practices.\n\n- Interface with external suppliers and partners (integrators, telecom providers, market data vendors, etc.) to design, implement and support network solutions.\n\n- Participate in 24x7 on-call / on-duty rotation (piquet) to support critical infrastructure.\n\n- Monitor network and proxy performance, ensuring system availability, reliability and security.\n\n- Monitor system resource utilisation, trends and capacity, and plan upgrades or optimisations accordingly.\n\nSkills and Experience\n\nBackground\n\n- 6–10 years of experience in networking in complex, international environments.\n\n- Strong knowledge of enterprise networking architecture and network security.\n\n- Professional experience with Cisco technologies and Cisco ACI; financial services experience is a plus.\n\nTechnical Skills\n\n- Expert in LAN/WAN/MAN implementation and troubleshooting.\n\n- Strong experience with firewalls (Fortinet and/or Check Point), VPN, IPSec and GRE tunnels.\n\n- Proven expertise with Zscaler ZIA/ZPA and ZCC on corporate devices.\n\n- Solid understanding of network and cloud connectivity design.\n\n- Ability to analyse network traces (PCAP), Fiddler logs and HTTP/HTTPS headers.\n\n- Knowledge of Python or another scripting language for automation; Zscaler certification is a plus.\n\nSoft Skills & Languages\n\n- Strong communication skills; able to work effectively with technical and non-technical stakeholders.\n\n- Experience managing third-party providers and internal support teams.\n\n- Rigorous, autonomous, proactive and service-oriented, with strong documentation skills.\n\n- Fluent in French and English, written and spoken.\n\nOur Values\n\n- Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement.\n\n- Hands-on: Being proactive to rapidly deliver high-quality results.\n\n- Passionate: Being committed and striving for excellence.\n\n- Solution-driven: Focusing on client outcomes and treating clients fairly with a risk-aware mindset.\n\n- Partnership-oriented: Promoting collaboration and teamwork; working together with an entrepreneurial spirit.\n\nApplication\n\n- Please ensure you attach a cover letter to your CV when submitting your application.\n\n- Should you wish to apply for this position, please use the designated application link.",
+      "requirements": [],
+      "featured": false,
+      "postedDate": "2026-04-08",
+      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6040",
+      "source": "Oracle HCM API",
+      "sourceLang": "en",
+      "companyKey": "efg-international",
+      "companyDomain": "efginternational.com",
+      "titleByLocale": {
+        "en": "Network & Proxy Support Team Lead",
+        "it": "Gruppo di supporto per rete e proxy",
+        "de": "Network & Proxy Support Teamleiter",
+        "fr": "Network & Proxy Support Chef d'équipe"
+      },
+      "descriptionByLocale": {
+        "en": "General Information\n- Department: Information Technology – Infrastructure\n- Work Time Percentage: 100%\n- Location: Geneva\n\nOur Company\n\nEFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice.\n\nOur Purpose and Mission\n\nEmpowering entrepreneurial minds to create value – today and for the future.\n\nJob Description\n\nRole and Team\n\nWithin the Information Technology Department, you will join a team of 12 engineers based in Geneva and collaborate with IT colleagues in more than 30 countries. Under the supervision of the IT Infrastructure Support Manager, you will lead a team of three network engineers.\n\nYou will combine people management with hands-on engineering, ensuring that EFG’s business-critical systems remain secure, resilient, and always connected in a demanding private banking environment.\n\nMain Responsibilities\n\n1. Leadership & Management\n- Lead, coach and develop a team of three network engineers, fostering a culture of accountability, collaboration and continuous improvement.\n- Combine team leadership with hands-on technical work on complex incidents and projects.\n- Oversee day-to-day network and proxy operations, including incident, problem and change management.\n- Plan and coordinate network and proxy upgrades, migrations and lifecycle activities in alignment with business and security requirements.\n- Manage escalations, ensuring timely resolution of major incidents and clear communication with stakeholders.\n- Manage and review third-party providers and vendor contracts, ensuring service quality, cost effectiveness and adherence to SLAs.\n- Ensure compliance with internal policies as well as regulatory, security and audit requirements relevant to network and security infrastructure.\n\n2. Proxy / Secure Web Gateway (Zscaler)\n- Collaborate closely with security teams to define, implement and maintain security policies, including URL filtering, cloud application and file filtering, DLP and access control.\n- Configure, operate and maintain Zscaler solutions (ZIA, ZPA) and related components such as SIPA, cloud firewall, PAC files, NSS, ZCC...\n- Manage corporate devices using Zscaler Client Connector (ZCC), ensuring secure and reliable connectivity.\n- Troubleshoot and resolve Zscaler-related issues by analysing logs, performing traces and applying appropriate corrective actions.\n- Analyse network packet traces (PCAP), Fiddler logs and HTTP/HTTPS headers to identify and resolve complex connectivity and performance issues.\n- Proactively suggest and implement improvements to network and proxy performance, capacity, scalability and security posture.\n\n3. Network Engineering & Operations\n- Provide 2nd and 3rd level technical support for network and related services.\n- Configure, install and maintain network devices and services (e.g. routers, switches, firewalls, load balancers, VPN, QoS).\n- Support and maintain network connectivity for financial market data feeds and other latency-sensitive services.\n- Implement and maintain a continuous improvement process by defining, documenting and enforcing network and proxy standards, procedures and best practices.\n- Interface with external suppliers and partners (integrators, telecom providers, market data vendors, etc.) to design, implement and support network solutions.\n- Participate in 24x7 on-call / on-duty rotation (piquet) to support critical infrastructure.\n- Monitor network and proxy performance, ensuring system availability, reliability and security.\n- Monitor system resource utilisation, trends and capacity, and plan upgrades or optimisations accordingly.\n\nSkills and Experience\n\nBackground\n\n- 6–10 years of experience in networking in complex, international environments.\n- Strong knowledge of enterprise networking architecture and network security.\n- Professional experience with Cisco technologies and Cisco ACI; financial services experience is a plus.\n\nTechnical Skills\n- Expert in LAN/WAN/MAN implementation and troubleshooting.\n- Strong experience with firewalls (Fortinet and/or Check Point), VPN, IPSec and GRE tunnels.\n- Proven expertise with Zscaler ZIA/ZPA and ZCC on corporate devices.\n- Solid understanding of network and cloud connectivity design.\n- Ability to analyse network traces (PCAP), Fiddler logs and HTTP/HTTPS headers.\n- Knowledge of Python or another scripting language for automation; Zscaler certification is a plus.\n\nSoft Skills & Languages\n- Strong communication skills; able to work effectively with technical and non-technical stakeholders.\n- Experience managing third-party providers and internal support teams.\n- Rigorous, autonomous, proactive and service-oriented, with strong documentation skills.\n- Fluent in French and English, written and spoken.\n\nOur Values\n- Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement.\n- Hands-on: Being proactive to rapidly deliver high-quality results.\n- Passionate: Being committed and striving for excellence.\n- Solution-driven: Focusing on client outcomes and treating clients fairly with a risk-aware mindset.\n- Partnership-oriented: Promoting collaboration and teamwork; working together with an entrepreneurial spirit.\n\nApplication\n- Please ensure you attach a cover letter to your CV when submitting your application.\n- Should you wish to apply for this position, please use the designated application link.",
+        "it": "Informazioni generali\n- Dipartimento: Information Technology – Infrastructure\n- Tempo di lavoro Percentuale: 100%\n- Posizione: Ginevra\n\nLa nostra azienda\n\nEFG International è un gruppo bancario privato globale, che offre servizi di private banking e asset management. Serviamo clienti in oltre 40 sedi in tutto il mondo. EFG International offre un ambiente di lavoro stimolante e dinamico e si sforza di essere un datore di lavoro di scelta.\n\nIl nostro scopo e missione\n\nIncoraggiare le menti imprenditoriali a creare valore – oggi e per il futuro.\n\nDescrizione del lavoro\n\nRuolo e Team\n\nAll'interno del Dipartimento Informatica, si unirà a un team di 12 ingegneri con sede a Ginevra e collaborare con i colleghi IT in più di 30 paesi. Sotto la supervisione di IT Infrastructure Support Manager, guiderai un team di tre ingegneri di rete.\n\nCombinate la gestione delle persone con l'ingegneria pratica, assicurando che i sistemi business-critical di EFG rimangano sicuri, resilienti e sempre connessi in un ambiente di private banking esigente.\n\nPrincipali responsabilità\n\n1. Leadership & Management\n- Lead, coach e sviluppare un team di tre ingegneri di rete, promuovendo una cultura di responsabilità, collaborazione e miglioramento continuo.\n- Combina la leadership del team con il lavoro tecnico pratico su incidenti complessi e progetti.\n- Controllare le operazioni quotidiane di rete e proxy, tra cui la gestione di incidenti, problemi e cambiamenti.\n- Pianificare e coordinare gli aggiornamenti di rete e proxy, le migrazioni e le attività del ciclo di vita in linea con i requisiti di business e sicurezza.\n- Gestire le escalation, garantire una risoluzione tempestiva dei principali incidenti e una comunicazione chiara con gli stakeholder.\n- Gestione e revisione di fornitori di terze parti e contratti di fornitori, garantendo qualità del servizio, efficacia dei costi e adesione a SLAs.\n- Assicurare la conformità alle politiche interne e ai requisiti normativi, di sicurezza e di audit relativi alle infrastrutture di rete e di sicurezza.\n\n2. Proxy / Secure Web Gateway (Zscaler)\n- Collabora a stretto contatto con i team di sicurezza per definire, implementare e mantenere le politiche di sicurezza, tra cui il filtraggio URL, l'applicazione cloud e il filtraggio dei file, DLP e il controllo degli accessi.\n- Configurare, utilizzare e mantenere le soluzioni Zscaler (ZIA, ZPA) e componenti correlati come SIPA, cloud firewall, file PAC, NSS, ZCC...\n- Gestire i dispositivi aziendali utilizzando Zscaler Client Connector (ZCC), garantendo una connettività sicura e affidabile.\n- Risoluzione dei problemi e risoluzione dei problemi relativi a Zscaler tramite l'analisi dei registri, l'esecuzione delle tracce e l'applicazione di azioni correttive appropriate.\n- Analizzare le tracce dei pacchetti di rete (PCAP), i registri Fiddler e le intestazioni HTTP/HTTPS per identificare e risolvere problemi di connettività e prestazioni complessi.\n- Proattivamente suggeriscono e implementano miglioramenti alle prestazioni di rete e proxy, capacità, scalabilità e postura di sicurezza.\n\n3. Ingegneria della rete e operazioni\n- Fornire supporto tecnico di secondo e terzo livello per la rete e i servizi correlati.\n- Configurare, installare e mantenere dispositivi e servizi di rete (ad esempio router, switch, firewall, bilanciatori di carico, VPN, QoS).\n- Supporto e mantenimento della connettività di rete per i feed di dati del mercato finanziario e altri servizi sensibili alla latenza.\n- Implementare e mantenere un processo di miglioramento continuo definendo, documentando e rafforzando gli standard di rete e proxy, le procedure e le migliori pratiche.\n- Interfaccia con fornitori esterni e partner (integratori, fornitori di telecomunicazioni, fornitori di dati di mercato, ecc.) per progettare, implementare e supportare soluzioni di rete.\n- Partecipare a 24x7 on-call / on-duty rotazione (piquet) per sostenere l'infrastruttura critica.\n- Monitorare le prestazioni di rete e proxy, assicurando la disponibilità del sistema, l'affidabilità e la sicurezza.\n- Monitorare l'utilizzo delle risorse di sistema, le tendenze e la capacità, e pianificare aggiornamenti o ottimizzazioni di conseguenza.\n\nCompetenze ed Esperienza\n\nContesto\n\n- 6-10 anni di esperienza nel networking in ambienti complessi e internazionali.\n- Forte conoscenza dell'architettura di rete aziendale e della sicurezza di rete.\n- Esperienza professionale con tecnologie Cisco e Cisco ACI; l'esperienza dei servizi finanziari è un vantaggio.\n\nCompetenze tecniche\n- Esperto in implementazione LAN/WAN/MAN e risoluzione dei problemi.\n- Forte esperienza con i firewall (Fortinet e/o Check Point), VPN, IPSec e tunnel GRE.\n- Provata esperienza con Zscaler ZIA/ZPA e ZCC sui dispositivi aziendali.\n- Solida comprensione della rete e del design della connettività cloud.\n- Possibilità di analizzare le tracce di rete (PCAP), i log Fiddler e le intestazioni HTTP/HTTPS.\n- Conoscenza di Python o un altro linguaggio di scrittura per l'automazione; la certificazione Zscaler è un plus.\n\nSoft Skills & Languages\n- Forte capacità di comunicazione; in grado di lavorare efficacemente con gli stakeholder tecnici e non tecnici.\n- Esperienza di gestione di fornitori di terze parti e team di supporto interno.\n- Rigoroso, autonomo, proattivo e orientato al servizio, con forti capacità di documentazione.\n- Fluente in francese e inglese, scritto e parlato.\n\nI nostri valori\n- Responsabilità: Prendere la proprietà per i compiti e le sfide, nonché cercare un miglioramento continuo.\n- Hands-on: essere proattivi per fornire rapidamente risultati di alta qualità.\n- Passionato: Impegnarsi e lottare per l'eccellenza.\n- Soluzione-driven: Focusing sui risultati del cliente e il trattamento dei clienti abbastanza con una mentalità di rischio-consapevole.\n- Partnership-oriented: promuovere la collaborazione e il lavoro di squadra; lavorare insieme con uno spirito imprenditoriale.\n\nApplicazione\n- Si prega di assicurarsi di allegare una lettera di copertura al CV durante la presentazione della domanda.\n- In caso di richiesta per questa posizione, utilizzare il link di richiesta designato.",
+        "de": "Allgemeine Informationen\n- Abteilung: Informationstechnologie – Infrastruktur\n- Arbeitszeit: 100%\n- Standort: Genf\n\nUnsere Firma\n\nEFG International ist eine globale Privatbankengruppe, die private Bank- und Vermögensverwaltungsdienstleistungen anbietet. Wir bedienen Kunden in über 40 Standorten weltweit. EFG International bietet ein stimulierendes und dynamisches Arbeitsumfeld und ist bestrebt, Arbeitgeber der Wahl zu sein.\n\nUnsere Aufgabe und Mission\n\nUnternehmergeist zu stärken, um Mehrwert zu schaffen – heute und für die Zukunft.\n\nJob Description\n\nRolle und Team\n\nInnerhalb der Abteilung Informationstechnologie werden Sie sich an einem Team von 12 Ingenieuren mit Sitz in Genf beteiligen und in über 30 Ländern mit IT-Kollegen zusammenarbeiten. Unter der Aufsicht des IT-Infrastruktur-Unterstützungsmanagers führen Sie ein Team von drei Netzwerkingenieuren.\n\nSie kombinieren das Personalmanagement mit der Hand-on-Engineering, um sicherzustellen, dass die geschäftskritischen Systeme der EFG sicher, widerstandsfähig und immer in einem anspruchsvollen privaten Bankenumfeld verbunden bleiben.\n\nHauptverantwortlichkeiten\n\n1. Führung und Management\n- Führen, Coach und entwickeln Sie ein Team von drei Netzwerk-Ingenieuren und fördern eine Kultur der Rechenschaftspflicht, Zusammenarbeit und kontinuierliche Verbesserung.\n- Kombinieren Sie Teamführung mit praktischen technischen Arbeiten an komplexen Vorfällen und Projekten.\n- Beaufsichtigen Sie tägliche Netzwerk- und Proxy-Operationen, einschließlich Vorfall, Problem- und Änderungsmanagement.\n- Planen und koordinieren Sie Netzwerk- und Proxy-Upgrades, Migrations- und Lebenszyklusaktivitäten in Abstimmung mit den Geschäfts- und Sicherheitsanforderungen.\n- Eskalationen verwalten, eine rechtzeitige Lösung großer Vorfälle und eine klare Kommunikation mit den Interessenvertretern gewährleisten.\n- Verwalten und überprüfen Drittanbieter und Lieferantenverträge, Gewährleistung der Servicequalität, Kostenwirksamkeit und Einhaltung von SLAs.\n- Gewährleistung der Einhaltung interner Richtlinien sowie regulatorischer, sicherheits- und sicherheitsrelevanter Anforderungen für die Netz- und Sicherheitsinfrastruktur.\n\n2. Proxy / Secure Web Gateway (Zscaler)\n- Mit Sicherheitsteams eng zusammenarbeiten, um Sicherheitsrichtlinien zu definieren, umzusetzen und zu pflegen, einschließlich URL-Filterung, Cloud-Anwendung und Dateifilterung, DLP und Zugriffskontrolle.\n- Konfigurieren, bedienen und pflegen Zscaler-Lösungen (ZIA, ZPA) und verwandte Komponenten wie SIPA, Cloud Firewall, PAC-Dateien, NSS, ZCC...\n- Verwalten Sie Unternehmensgeräte mit Zscaler Client Connector (ZCC), um eine sichere und zuverlässige Vernetzung zu gewährleisten.\n- Fehlerbehebung und Lösung von Zscaler-bezogenen Problemen durch die Analyse von Protokollen, die Durchführung von Spuren und die Anwendung geeigneter Korrekturmaßnahmen.\n- Analyse von Netzwerkpaket-Tracks (PCAP), Fiddler-Logs und HTTP/HTTPS-Headern, um komplexe Konnektivitäts- und Leistungsprobleme zu identifizieren und zu lösen.\n- Proaktiv vorschlagen und implementieren Verbesserungen der Netzwerk- und Proxyleistung, Kapazität, Skalierbarkeit und Sicherheitshaltung.\n\n3. Network Engineering & Operations\n- Bereitstellung technischer Unterstützung für Netzwerk- und verbundene Dienstleistungen auf der 2. und 3. Ebene.\n- Konfigurieren, installieren und pflegen Netzwerkgeräte und -dienste (z.B. Router, Switche, Firewalls, Load Balancer, VPN, QoS).\n- Unterstützung und Aufrechterhaltung der Netzwerkverbindung für Finanzmarktdatenfeeds und andere latenzempfindliche Dienste.\n- Umsetzung und Aufrechterhaltung eines kontinuierlichen Verbesserungsprozesses durch Definition, Dokumentation und Durchsetzung von Netzwerk- und Proxystandards, Verfahren und Best Practices.\n- Schnittstelle zu externen Anbietern und Partnern (Integratoren, Telekommunikationsanbietern, Marktdatenanbietern usw.), um Netzwerklösungen zu entwickeln, umzusetzen und zu unterstützen.\n- Nehmen Sie an 24x7 on-call / on-duty Rotation (Piquet) teil, um kritische Infrastruktur zu unterstützen.\n- Überwachen Sie die Netzwerk- und Proxyleistung und gewährleisten Sie die Systemverfügbarkeit, Zuverlässigkeit und Sicherheit.\n- Überwachen Sie die Ressourcennutzung, Trends und Kapazitäten des Systems und planen Sie Upgrades oder Optimierungen entsprechend.\n\nFähigkeiten und Erfahrungen\n\nHintergrund\n\n- 6–10 Jahre Erfahrung in der Vernetzung in komplexen, internationalen Umgebungen.\n- Starkes Wissen über Unternehmensnetzwerkarchitektur und Netzwerksicherheit.\n- Berufserfahrung mit Cisco-Technologien und Cisco ACI; Finanzdienstleistungen Erfahrung ist ein Plus.\n\nTechnische Fähigkeiten\n- Experte für LAN/WAN/MAN Implementierung und Fehlersuche.\n- Starke Erfahrung mit Firewalls (Fortinet und/oder Check Point), VPN, IPSec und GRE Tunnels.\n- Bewährtes Know-how mit Zscaler ZIA/ZPA und ZCC auf Unternehmensgeräten.\n- Solides Verständnis von Netzwerk- und Cloud-Konnektivitätsdesign.\n- Fähigkeit, Netzwerkspuren (PCAP), Fiddler-Logs und HTTP/HTTPS-Header zu analysieren.\n- Kenntnis von Python oder einer anderen Skriptsprache für die Automatisierung; Zscaler Zertifizierung ist ein Plus.\n\nSoft Skills & Sprachen\n- Starke Kommunikationsfähigkeiten; in der Lage, effektiv mit technischen und nicht technischen Akteuren zu arbeiten.\n- Erleben Sie die Verwaltung von Drittanbietern und internen Support-Teams.\n- Rigorous, autonom, proaktiv und serviceorientiert, mit starken Dokumentationsfähigkeiten.\n- Flöten in Französisch und Englisch, geschrieben und gesprochen.\n\nUnsere Werte\n- Rechenschaftspflicht: Eigentum an Aufgaben und Herausforderungen zu nehmen, sowie kontinuierliche Verbesserung zu suchen.\n- Hands-on: Als proaktiv, schnell qualitativ hochwertige Ergebnisse zu liefern.\n- Leidenschaftlich: Sein Engagement und Streben nach Exzellenz.\n- Lösungsgetrieben: Konzentrieren Sie sich auf Client-Ergebnisse und Behandlung von Kunden ziemlich mit einem risikobewussten Mindset.\n- Partnerschaftsorientiert: Förderung von Zusammenarbeit und Teamarbeit; Zusammenarbeit mit Unternehmergeist.\n\nAnwendung\n- Bitte stellen Sie sicher, dass Sie bei der Einreichung Ihrer Bewerbung einen Brief an Ihren Lebenslauf richten.\n- Wenn Sie sich für diese Position bewerben möchten, nutzen Sie bitte den angegebenen Anwendungslink.",
+        "fr": "Informations générales\n- Département: Technologie de l'information – Infrastructure\n- Temps de travail Pourcentage: 100%\n- Lieu: Genève Notre société EFG International est un groupe bancaire privé mondial qui offre des services de banque privée et de gestion d'actifs. Nous servons des clients dans plus de 40 endroits dans le monde. EFG International offre un environnement de travail stimulant et dynamique et s'efforce d'être un employeur de choix. Notre but et notre mission Donner aux esprits entrepreneurs les moyens de créer de la valeur – aujourd'hui et pour l'avenir. Description de l'emploi Rôle et équipe Au sein du Département des technologies de l'information, vous rejoindrez une équipe de 12 ingénieurs basés à Genève et collaborerez avec des collègues en TI dans plus de 30 pays. Sous la supervision du gestionnaire du soutien à l'infrastructure informatique, vous dirigerez une équipe de trois ingénieurs du réseau. Vous combinerez la gestion des personnes et l'ingénierie pratique, en veillant à ce que les systèmes critiques d'EFG restent sécurisés, résistants et toujours connectés dans un environnement bancaire privé exigeant. 1. Leadership et gestion\n- Diriger, encadrer et développer une équipe de trois ingénieurs de réseau, favorisant une culture de responsabilisation, de collaboration et d'amélioration continue.\n- Combiner le leadership d'équipe et le travail technique pratique sur des incidents et des projets complexes.\n- Surveiller les opérations quotidiennes de réseau et de procuration, y compris la gestion des incidents, des problèmes et du changement.\n- Planifier et coordonner les mises à niveau, les migrations et les activités liées au cycle de vie des réseaux et des mandataires conformément aux exigences des entreprises et de la sécurité.\n- Gérer les escalades, assurer la résolution rapide des incidents majeurs et une communication claire avec les parties prenantes.\n- Gérer et examiner les fournisseurs tiers et les contrats de fournisseurs, en assurant la qualité du service, la rentabilité et le respect des ALS.\n- Veiller au respect des politiques internes ainsi que des exigences réglementaires, de sécurité et de vérification applicables aux réseaux et aux infrastructures de sécurité. 2. Poxy / Secure Web Gateway (Zscaler)\n- Collaborer étroitement avec les équipes de sécurité pour définir, mettre en œuvre et maintenir les politiques de sécurité, y compris le filtrage d'URL, application cloud et filtrage de fichiers, DLP et contrôle d'accès.\n- Configurer, exploiter et entretenir les solutions Zscaler (ZIA, ZPA) et les composants connexes tels que SIPA, pare-feu cloud, fichiers PAC, NSS, ZCC...\n- Gérer les périphériques d'entreprise en utilisant Zscaler Client Connector (ZCC), assurant une connectivité sécurisée et fiable.\n- Dépanner et résoudre les problèmes liés au Zscaler en analysant les journaux, en effectuant des traces et en appliquant des mesures correctives appropriées.\n- Analyser les traces de paquets réseau (PCAP), les journaux Fiddler et les en-têtes HTTP/HTTPS pour identifier et résoudre des problèmes complexes de connectivité et de performance.\n- Proposer et mettre en œuvre des améliorations proactives aux performances, aux capacités, à l'évolutivité et à la posture de sécurité des réseaux et des mandataires. 3. Génie et opérations du réseau\n- Fournir un soutien technique de deuxième et troisième niveaux pour les services de réseau et les services connexes.\n- Configurer, installer et entretenir des périphériques et services réseau (par exemple routeurs, commutateurs, pare-feu, balanceurs de charge, VPN, QoS).\n- Soutenir et maintenir la connectivité réseau pour les flux de données des marchés financiers et d'autres services sensibles à la latence.\n- Mettre en oeuvre et maintenir un processus d'amélioration continue en définissant, documentant et appliquant les normes, procédures et pratiques exemplaires en matière de réseaux et de procurations.\n- Interface avec des fournisseurs et partenaires externes (intégrateurs, fournisseurs de télécommunications, fournisseurs de données du marché, etc.) pour concevoir, mettre en œuvre et soutenir des solutions réseau.\n- Participer à la rotation 24x7 sur appel/en service (piquet) pour soutenir les infrastructures essentielles.\n- Surveiller les performances du réseau et du mandataire, en assurant la disponibilité, la fiabilité et la sécurité du système.\n- Surveiller l'utilisation des ressources du système, les tendances et les capacités, et planifier les mises à niveau ou les optimisations en conséquence. Compétences et expérience Contexte - 6-10 ans d'expérience en réseautage dans des environnements complexes et internationaux.\n- Forte connaissance de l'architecture de réseau d'entreprise et de la sécurité des réseaux.\n- Expérience professionnelle avec les technologies Cisco et Cisco ACI; l'expérience des services financiers est un atout. Compétences techniques\n- Expert en implémentation et dépannage LAN/WAN/MAN.\n- Forte expérience avec les pare-feu (Fortinet et/ou Check Point), VPN, IPSec et les tunnels GRE.\n- Expertise éprouvée avec Zscaler ZIA/ZPA et ZCC sur les appareils d'entreprise.\n- Une bonne compréhension de la conception de la connectivité réseau et cloud.\n- Possibilité d'analyser les traces réseau (PCAP), les journaux Fiddler et les en-têtes HTTP/HTTPS.\n- Connaissance de Python ou d'un autre langage de script pour l'automatisation ; la certification Zscaler est un plus. Compétences et langues douces\n- Compétences solides en communication; capacité de travailler efficacement avec les intervenants techniques et non techniques.\n- Expérience en gestion de fournisseurs tiers et d'équipes de soutien internes.\n- Rigieuse, autonome, proactive et axée sur le service, avec de solides compétences en documentation.\n- Fluent en français et anglais, écrit et parlé. Nos valeurs\n- Responsabilisation : Prendre en main les tâches et les défis, et chercher une amélioration continue.\n- Hands-on: être proactif pour obtenir rapidement des résultats de haute qualité.\n- Passionné : être engagé et viser l'excellence.\n- La solution est axée sur les résultats des clients et le traitement équitable des clients avec un état d'esprit conscient des risques.\n- Objectif partenariat : promouvoir la collaboration et le travail d'équipe; travailler ensemble dans un esprit d'entreprise. Demande\n- Veuillez joindre une lettre d'accompagnement à votre CV au moment de soumettre votre demande.\n- Oui. Si vous désirez postuler à ce poste, veuillez utiliser le lien de demande désigné."
+      },
+      "requirementsByLocale": {},
+      "canonicalContent": {
+        "byLocale": {
+          "en": {
+            "summary": [
+              "<p><span><strong>General Information</strong></span></p><ul style=\"list-style-type:disc;\"><li style=\"tab-stops:list 36.0pt;\"><span><strong>Department:</strong> Information Technology – Infrastructure</span></li><li style=\"tab-stops:list 36.0pt;\"><span><strong>Work Time Percentage:</strong> 100%</span></li><li style=\"tab-stops:list 36.0pt;\"><span><strong>Location:</strong> Geneva</span></li></ul><p><span><strong>Our Company</strong></span></p><p><span>EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice.</span></p><p><span>EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation.</span></p><p><span><strong>Our Purpose and Mission</strong></span></p><p><span><strong>Empowering entrepreneurial minds to create value – today and for the future.</strong></span></p><p><span>We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value.</span></p><p><span><strong>Job Description</strong></span></p><p><span><strong>Role and Team</strong></span></p><p><span>Within the Information Technology Department, you will join a team of 12 engineers based in Geneva and collaborate with IT colleagues in more than 30 countries. Under the supervision of the IT Infrastructure Support Manager, you will lead a team of three network engineers.</span></p><p><span>You will combine people management with hands-on engineering, ensuring that EFG’s business-critical systems remain secure, resilient, and always connected in a demanding private banking environment.</span></p><p><span><strong>Main Responsibilities</strong></span></p><p><span><strong>1. Leadership & Management</strong></span></p><ul style=\"list-style-type:disc;\"><li style=\"tab-stops:list 36.0pt;\"><span>Lead, coach and develop a team of three network engineers, fostering a culture of accountability, collaboration and continuous improvement.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Combine team leadership with hands-on technical work on complex incidents and projects.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Oversee day-to-day network and proxy operations, including incident, problem and change management.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Plan and coordinate network and proxy upgrades, migrations and lifecycle activities in alignment with business and security requirements.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Manage escalations, ensuring timely resolution of major incidents and clear communication with stakeholders.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Manage and review third-party providers and vendor contracts, ensuring service quality, cost effectiveness and adherence to SLAs.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Ensure compliance with internal policies as well as regulatory, security and audit requirements relevant to network and security infrastructure.</span></li></ul><p><span><strong>2. Proxy / Secure Web Gateway (Zscaler)</strong></span></p><ul style=\"list-style-type:disc;\"><li style=\"tab-stops:list 36.0pt;\"><span>Collaborate closely with security teams to define, implement and maintain security policies, including URL filtering, cloud application and file filtering, DLP and access control.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Configure, operate and maintain Zscaler solutions (ZIA, ZPA) and related components such as SIPA, cloud firewall, PAC files, NSS, ZCC...</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Manage corporate devices using Zscaler Client Connector (ZCC), ensuring secure and reliable connectivity.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Troubleshoot and resolve Zscaler-related issues by analysing logs, performing traces and applying appropriate corrective actions.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Analyse network packet traces (PCAP), Fiddler logs and HTTP/HTTPS headers to identify and resolve complex connectivity and performance issues.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Proactively suggest and implement improvements to network and proxy performance, capacity, scalability and security posture.</span></li></ul><p><span><strong>3. Network Engineering & Operations</strong></span></p><ul style=\"list-style-type:disc;\"><li style=\"tab-stops:list 36.0pt;\"><span>Provide 2nd and 3rd level technical support for network and related services.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Configure, install and maintain network devices and services (e.g. routers, switches, firewalls, load balancers, VPN, QoS).</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Support and maintain network connectivity for financial market data feeds and other latency-sensitive services.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Implement and maintain a continuous improvement process by defining, documenting and enforcing network and proxy standards, procedures and best practices.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Interface with external suppliers and partners (integrators, telecom providers, market data vendors, etc.) to design, implement and support network solutions.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Participate in 24x7 on-call / on-duty rotation (piquet) to support critical infrastructure.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Monitor network and proxy performance, ensuring system availability, reliability and security.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Monitor system resource utilisation, trends and capacity, and plan upgrades or optimisations accordingly.</span></li></ul><p><span><strong>Skills and Experience</strong></span></p><p><span><strong>Background</strong></span></p><ul style=\"list-style-type:disc;\"><li style=\"tab-stops:list 36.0pt;\"><span>6–10 years of experience in networking in complex, international environments.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Strong knowledge of enterprise networking architecture and network security.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Professional experience with Cisco technologies and Cisco ACI; financial services experience is a plus.</span></li></ul><p><span><strong>Technical Skills</strong></span></p><ul style=\"list-style-type:disc;\"><li style=\"tab-stops:list 36.0pt;\"><span>Expert in LAN/WAN/MAN implementation and troubleshooting.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Strong experience with firewalls (Fortinet and/or Check Point), VPN, IPSec and GRE tunnels.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Proven expertise with Zscaler ZIA/ZPA and ZCC on corporate devices.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Solid understanding of network and cloud connectivity design.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Ability to analyse network traces (PCAP), Fiddler logs and HTTP/HTTPS headers.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Knowledge of Python or another scripting language for automation; Zscaler certification is a plus.</span></li></ul><p><span><strong>Soft Skills & Languages</strong></span></p><ul style=\"list-style-type:disc;\"><li style=\"tab-stops:list 36.0pt;\"><span>Strong communication skills; able to work effectively with technical and non-technical stakeholders.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Experience managing third-party providers and internal support teams.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Rigorous, autonomous, proactive and service-oriented, with strong documentation skills.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Fluent in French and English, written and spoken.</span></li></ul><p><span><strong>Our Values</strong></span></p><ul style=\"list-style-type:disc;\"><li style=\"tab-stops:list 36.0pt;\"><span><strong>Accountability:</strong> Taking ownership for tasks and challenges, as well as seeking continuous improvement.</span></li><li style=\"tab-stops:list 36.0pt;\"><span><strong>Hands-on:</strong> Being proactive to rapidly deliver high-quality results.</span></li><li style=\"tab-stops:list 36.0pt;\"><span><strong>Passionate:</strong> Being committed and striving for excellence.</span></li><li style=\"tab-stops:list 36.0pt;\"><span><strong>Solution-driven:</strong> Focusing on client outcomes and treating clients fairly with a risk-aware mindset.</span></li><li style=\"tab-stops:list 36.0pt;\"><span><strong>Partnership-oriented:</strong> Promoting collaboration and teamwork; working together with an entrepreneurial spirit.</span></li></ul><p><span><strong>Application</strong></span></p><ol><li style=\"tab-stops:list 36.0pt;\"><span>Please ensure you attach a cover letter to your CV when submitting your application.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Should you wish to apply for this position, please use the designated application link.</span></li></ol><p> </p>"
+            ],
+            "responsibilities": [],
+            "requirements": [],
+            "benefits": [],
+            "process": [],
+            "highlights": [],
+            "keywords": [],
+            "sections": [],
+            "readingMinutes": 5
+          }
+        }
+      },
+      "crawledAt": "2026-07-31T11:35:36.597Z",
+      "slugByLocale": {
+        "it": "gruppo-di-supporto-per-rete-e-proxy-efg-international-ag-geneve",
+        "en": "network-proxy-support-team-lead-efg-geneve",
+        "de": "network-proxy-support-teamleiter-efg-international-ag-geneve",
+        "fr": "network-proxy-support-chef-d-equipe-efg-international-ag-geneve"
+      },
+      "addressLocality": "Geneve",
+      "addressCountry": "CH",
+      "datePosted": "2026-04-08",
+      "salaryMin": 79500,
+      "salaryMax": 135000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 79500,
+          "maxValue": 135000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "",
+      "postalCode": "1204",
+      "addressRegion": "GE",
+      "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-05-10T21:30:00.890Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "network-proxy-support-team-lead-efg-geneve",
+          "network-proxy-support-capo-team-efg-international-ag-geneve"
+        ],
+        "de": [
+          "network-proxy-support-team-lead-efg-geneve"
+        ],
+        "fr": [
+          "network-proxy-support-team-lead-efg-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "network-proxy-support-team-lead-efg-geneve",
+        "network-proxy-support-capo-team-efg-international-ag-geneve"
+      ],
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6334",
@@ -3537,7 +3560,8 @@
       },
       "previousSlugs": [
         "senior-compliance-officer-onboarding-periodic-reviews-efg-geneve"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "efg-6266",
@@ -3789,7 +3813,8 @@
         "cis-specialist-onboarding-periodic-reviews-compliance-officer-efg-geneve",
         "cis-specialist-onboarding-recensioni-periodiche-compliance-officer-efg-international-ag-geneve"
       ],
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6203",
@@ -3811,7 +3836,7 @@
       "companyDomain": "efginternational.com",
       "titleByLocale": {
         "en": "EFG Graduate Programme 2026 - Corporate Functions - Human Resources - Lugano",
-        "fr": "EFG Programme d'études supérieures 2026 - Fonctions corporatives - Ressources humaines - Lugano",
+        "fr": "EFG Graduate Programme 2026 - Corporate Functions - Human Resources - Lugano",
         "it": "Programma di Laurea EFG 2026 - Funzioni Corporate - Risorse Umane - Lugano",
         "de": "EFG Graduate Programme 2026 - Corporate Functions - Personalwesen - Lugano"
       },
@@ -3896,7 +3921,8 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:36:50.620Z",
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6177",
@@ -4156,7 +4182,8 @@
         "pb-support-specialist-americas-geneva-efg-geneve",
         "pb-specialist-americas-ginevra-efg-international-ag-geneve"
       ],
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-5799",
@@ -4339,7 +4366,8 @@
       "previousSlugs": [
         "business-analyst-legal-compliance-efg-geneve"
       ],
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-5869",
@@ -4568,7 +4596,8 @@
         "bi-solution-specialiste-efg-international-ag-geneve",
         "bi-solution-specialista-efg-international-ag-geneve"
       ],
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6280",
@@ -4660,7 +4689,8 @@
       "previousSlugs": [
         "regulatory-reporting-analyst-efg-geneve"
       ],
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6212",
@@ -4850,208 +4880,8 @@
         "finance-data-analytics-power-bi-internship-efg-geneve",
         "finanza-analisi-dei-dati-e-internamento-bi-potenza-efg-international-ag-geneve"
       ],
-      "country": "CH"
-    },
-    {
-      "id": "efg-6151",
-      "slug": "responsabile-senior-della-trasformazione-strategica-efg-international-ag-geneve",
-      "company": "EFG International AG",
-      "title": "Senior Strategic Transformation Manager",
-      "location": "Geneve",
-      "canton": "GE",
-      "category": "finance",
-      "contract": "permanent",
-      "currency": "CHF",
-      "description": "## Main responsibilities\n\nEnterprise & Strategic Transformation\n\n- Drive bank-wide transformation initiatives aligned with the long-term strategy of EFG\n\n- Translate strategic priorities (growth, efficiency, client experience) into concrete transformation roadmaps.\n\n- Support Executive Committee members in strategy execution and transformation governance.\n\n- Prepare decision material for senior management and Board-level discussions\n\nOperating Model & Process Excellence\n\n- Design and implement target operating models adapted to a relationship-driven private banking environment.\n\n- Support optimization of front-to-back processes across:\n-  Client Relationship Management and Client Advisory\n\n-  Investment Services and Portfolio Management\n\n-  Operations and Middle Office\n\n- Lead cost-efficiency and productivity initiatives while preserving service quality and client experience\n\nDigital & Data Transformation\n\n- Lead business-driven digital initiatives including:\n-  CRM and client lifecycle management\n\n-  Advisory and portfolio management tools\n\n-  Process automation (workflow digitization, RPA, AI use cases)\n\n- Act as bridge between business, IT, and data teams to ensure adoption and value realization.\n\n- Promote data-driven management through dashboards, KPIs, and management information.\n\nRegulatory & Risk-Driven Change\n\n- Manage transformation initiatives related to FINMA regulation, AML/KYC, suitability, cross-border rules.\n\n- Ensure regulatory changes are embedded pragmatically into business processes.\n\n- Work closely with Compliance, Risk, Legal, and Internal Audit.\n\nChange Management & Stakeholder Engagement\n\n- Act as an internal change leader and sparring partner for senior executives and department heads.\n\n- Drive change management: communication, training, and adoption across the organization.\n\n- Manage resistance to change in a traditional private banking culture.\n\nProgram & Delivery Management\n\n- Own end-to-end delivery of transformation initiatives:\n-  Governance, milestones, KPIs, and benefits realization\n\n-  Budget and resource management\n\n-  Risk, dependency, and issue management\n\n- Coordinate internal teams and selectively manage external consultants and vendors.\n\n## Skills and experience\n\n- Pure Private Banking Expertise, with hands-on understanding of:\n- Relationship-based private banking business model\n\n- Investment products and services\n\n- UHNW/HNW client expectations\n\n- Strong sensitivity to confidentiality, risk culture, and reputational consideration\n\n- Transformation & Execution\n- Enterprise and functional transformation\n\n- Operating model design\n\n- Business case development and benefits tracking\n\n- Program and portfolio management\n\n- Digital & Analytical Skills\n- Ability to translate technology into business value\n\n- CRM platforms, Front office / Investment applications and private banking core systems\n\n- Process automation and digitalisation / AI in banking\n\n- Data analytics and performance management\n\n- Leadership & Personal Skills\n- Executive-level communication and presentation skills\n\n- Strong influencing skills without formal authority\n\n- Structured problem-solving and analytical rigor\n\n- High discretion, resilience, and ownership mindset\n\n- Strong cultural fit with Swiss private banking values\n\n- Experience & Background\n- Background / profile : Chief of Staff, Internal transformation, COO Office, or strategy roles within private banks and/or top-tier strategy/management consulting\n\n- 10–15 years of professional experience\n\n- Proven track record delivering in-house transformation initiatives\n\n- Strong exposure to Swiss private banking market and regulatory environment\n\n- International experience considered an asset\n\n- Education\n- MBA from a leading business school\n\n- Master’s degree in Business, Finance, Economics, Engineering, or equivalent\n\n- Languages\n- Fluent English (mandatory)\n\n- French and/or German (strongly preferred)\n\n## Our Values\n\n- Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement\n\n- Hands-on: Being proactive to rapidly deliver high-quality results\n\n- Passionate: Being committed and striving for excellence\n\n- Solution-driven: Focusing on client outcomes and treating clients fairly with a risk-aware mindset\n\n- Partnership-oriented: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.",
-      "requirements": [
-        "Pure Private Banking Expertise, with hands-on understanding of:<ul><li>Relationship-based private banking business model",
-        "Investment products and services",
-        "UHNW/HNW client expectations",
-        "Strong sensitivity to confidentiality, risk culture, and reputational consideration<br>",
-        "Transformation & Execution<ul><li>Enterprise and functional transformation",
-        "Operating model design",
-        "Business case development and benefits tracking",
-        "Program and portfolio management",
-        "Digital & Analytical Skills<ul><li>Ability to translate technology into business value",
-        "CRM platforms, Front office / Investment applications and private banking core systems",
-        "Process automation and digitalisation / AI in banking",
-        "Data analytics and performance management",
-        "Leadership & Personal Skills<ul><li>Executive-level communication and presentation skills",
-        "Strong influencing skills without formal authority",
-        "Structured problem-solving and analytical rigor",
-        "High discretion, resilience, and ownership mindset"
-      ],
-      "featured": false,
-      "postedDate": "2026-05-15",
-      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6151",
-      "source": "Oracle HCM API",
-      "sourceLang": "en",
-      "companyKey": "efg-international",
-      "companyDomain": "efginternational.com",
-      "titleByLocale": {
-        "en": "Senior Strategic Transformation Manager",
-        "it": "Responsabile senior della trasformazione strategica",
-        "de": "Senior Strategische Transformation Manager",
-        "fr": "Gestionnaire principal de la transformation stratégique"
-      },
-      "descriptionByLocale": {
-        "en": "## Main responsibilities\n\nEnterprise & Strategic Transformation\n\n- Drive bank-wide transformation initiatives aligned with the long-term strategy of EFG\n\n- Translate strategic priorities (growth, efficiency, client experience) into concrete transformation roadmaps.\n\n- Support Executive Committee members in strategy execution and transformation governance.\n\n- Prepare decision material for senior management and Board-level discussions\n\nOperating Model & Process Excellence\n\n- Design and implement target operating models adapted to a relationship-driven private banking environment.\n\n- Support optimization of front-to-back processes across:\n-  Client Relationship Management and Client Advisory\n\n-  Investment Services and Portfolio Management\n\n-  Operations and Middle Office\n\n- Lead cost-efficiency and productivity initiatives while preserving service quality and client experience\n\nDigital & Data Transformation\n\n- Lead business-driven digital initiatives including:\n-  CRM and client lifecycle management\n\n-  Advisory and portfolio management tools\n\n-  Process automation (workflow digitization, RPA, AI use cases)\n\n- Act as bridge between business, IT, and data teams to ensure adoption and value realization.\n\n- Promote data-driven management through dashboards, KPIs, and management information.\n\nRegulatory & Risk-Driven Change\n\n- Manage transformation initiatives related to FINMA regulation, AML/KYC, suitability, cross-border rules.\n\n- Ensure regulatory changes are embedded pragmatically into business processes.\n\n- Work closely with Compliance, Risk, Legal, and Internal Audit.\n\nChange Management & Stakeholder Engagement\n\n- Act as an internal change leader and sparring partner for senior executives and department heads.\n\n- Drive change management: communication, training, and adoption across the organization.\n\n- Manage resistance to change in a traditional private banking culture.\n\nProgram & Delivery Management\n\n- Own end-to-end delivery of transformation initiatives:\n-  Governance, milestones, KPIs, and benefits realization\n\n-  Budget and resource management\n\n-  Risk, dependency, and issue management\n\n- Coordinate internal teams and selectively manage external consultants and vendors.\n\n## Skills and experience\n\n- Pure Private Banking Expertise, with hands-on understanding of:\n- Relationship-based private banking business model\n\n- Investment products and services\n\n- UHNW/HNW client expectations\n\n- Strong sensitivity to confidentiality, risk culture, and reputational consideration\n\n- Transformation & Execution\n- Enterprise and functional transformation\n\n- Operating model design\n\n- Business case development and benefits tracking\n\n- Program and portfolio management\n\n- Digital & Analytical Skills\n- Ability to translate technology into business value\n\n- CRM platforms, Front office / Investment applications and private banking core systems\n\n- Process automation and digitalisation / AI in banking\n\n- Data analytics and performance management\n\n- Leadership & Personal Skills\n- Executive-level communication and presentation skills\n\n- Strong influencing skills without formal authority\n\n- Structured problem-solving and analytical rigor\n\n- High discretion, resilience, and ownership mindset\n\n- Strong cultural fit with Swiss private banking values\n\n- Experience & Background\n- Background / profile : Chief of Staff, Internal transformation, COO Office, or strategy roles within private banks and/or top-tier strategy/management consulting\n\n- 10–15 years of professional experience\n\n- Proven track record delivering in-house transformation initiatives\n\n- Strong exposure to Swiss private banking market and regulatory environment\n\n- International experience considered an asset\n\n- Education\n- MBA from a leading business school\n\n- Master’s degree in Business, Finance, Economics, Engineering, or equivalent\n\n- Languages\n- Fluent English (mandatory)\n\n- French and/or German (strongly preferred)\n\n## Our Values\n\n- Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement\n\n- Hands-on: Being proactive to rapidly deliver high-quality results\n\n- Passionate: Being committed and striving for excellence\n\n- Solution-driven: Focusing on client outcomes and treating clients fairly with a risk-aware mindset\n\n- Partnership-oriented: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.",
-        "it": "Principali responsabilità\n\nImpresa e trasformazione strategica\n- Guidare iniziative di trasformazione bancarie allineate con la strategia a lungo termine di EFG\n- Tradurre priorità strategiche (crescita, efficienza, esperienza cliente) in roadmap di trasformazione concreta.\n- Sostenere i membri del Comitato Esecutivo nell'esecuzione della strategia e nella governance della trasformazione.\n- Preparare materiale decisionale per la gestione senior e discussioni a livello di Consiglio\n\nModello operativo & Eccellenza di processo\n- Progettare e implementare modelli operativi mirati adattati a un ambiente di private banking legato.\n- Supporto ottimizzazione dei processi front-to-back attraverso:\n- Gestione delle relazioni cliente e Consulenza clienti\n- Servizi di investimento e Gestione Portfolio\n- Operazioni e Ufficio Centrale\n- Guidare le iniziative di efficienza e produttività dei costi, preservando al contempo la qualità dei servizi e l'esperienza dei clienti\n\nTrasformazione digitale e dati\n- Lead business-driven iniziative digitali tra cui:\n- CRM e gestione del ciclo di vita del cliente\n- Strumenti di gestione del portafoglio e di consulenza\n- Automazione del processo (di digitalizzazione del flusso di lavoro, RPA, casi di utilizzo AI)\n- Agire come ponte tra business, IT e team di dati per garantire l'adozione e la realizzazione del valore.\n- Promuovere la gestione dei dati attraverso dashboard, KPI e informazioni di gestione.\n\nRegolazione & Risk-Driven Change\n- Gestire iniziative di trasformazione relative alla regolamentazione FINMA, AML/KYC, idoneità, regole transfrontaliere.\n- Assicurarsi che i cambiamenti normativi siano incorporati pragmaticamente nei processi aziendali.\n- Lavorare a stretto contatto con Compliance, Rischio, Legale e Internal Audit.\n\nGestione delle modifiche & Stakeholder Engagement\n- Agire come leader di cambiamento interno e partner di sparring per dirigenti senior e capi di reparto.\n- Gestione del cambiamento di unità: comunicazione, formazione e adozione in tutta l'organizzazione.\n- Gestire la resistenza al cambiamento in una cultura bancaria privata tradizionale.\n\nGestione del programma e della consegna\n- Consegna immediata di iniziative di trasformazione:\n- Governance, pietre miliari, KPI e realizzazione dei benefici\n- Gestione del bilancio e delle risorse\n- Rischio, dipendenza e gestione dei problemi\n- Coordinare i team interni e gestire selettivamente consulenti e fornitori esterni.\n\nCompetenze ed esperienza\n- Pure Private Banking Expertise, con la comprensione pratica di:\n- Modello di business private banking basato sulle relazioni\n- Prodotti e servizi di investimento\n- UHNW/HNW aspettative dei clienti\n- Forte sensibilità alla riservatezza, alla cultura del rischio e alla considerazione reputazionale\n- Trasformazione e esecuzione\n- Impresa e trasformazione funzionale\n- Progettazione del modello operativo\n- Sviluppo dei casi aziendali e monitoraggio dei benefici\n- Gestione del programma e del portafoglio\n- Abilità digitali e analitiche\n- Capacità di tradurre la tecnologia in valore aziendale\n- Piattaforme CRM, applicazioni front office / Investimenti e sistemi core bancari privati\n- Automazione dei processi e digitalizzazione / AI nel settore bancario\n- Analisi dei dati e gestione delle prestazioni\n- Leadership e competenze personali\n- Capacità di comunicazione e presentazione a livello esecutivo\n- Forte influenzabilità senza autorità formale\n- Rigor strutturato di problem solving e analitico\n- Elevata discrezione, resilienza e mentalità di proprietà\n- Forte vestibilità culturale con valori bancari privati svizzeri\n- Esperienza e sfondo\n- Sfondo / profilo: Capo di Stato Maggiore, Trasformazione interna, Ufficio COO, o ruoli strategici all'interno di banche private e/o di massima strategia/consulenza di gestione\n\n- 10-15 anni di esperienza professionale\n- Provato track record con iniziative di trasformazione interna\n- Forte esposizione al mercato bancario privato svizzero e all'ambiente normativo\n- Esperienza internazionale considerata un bene\n- Istruzione\n- MBA da una scuola di business leader\n- Master in Business, Finanza, Economia, Ingegneria o equivalente\n- Lingue\n- Inglese fluente (obbligatorio)\n- Francese e/o tedesco (fortemente preferito)\n\nI nostri valori\n- Responsabilità: Prendere la proprietà per i compiti e le sfide, nonché cercare un miglioramento continuo\n- Hands-on: essere proattivi per fornire rapidamente risultati di alta qualità\n- Passionato: Impegnarsi e lottare per l'eccellenza\n- Soluzione-driven: Concentrarsi sui risultati del cliente e trattare i clienti in modo corretto con una mentalità di rischio-consapevole\n- Partnership-oriented: promuovere la collaborazione e il lavoro di squadra. Lavorare insieme a uno spirito imprenditoriale.",
-        "de": "Hauptverantwortlichkeiten Enterprise & Strategic Transformation\n- Führen Sie bankweite Transformationsinitiativen aus, die mit der langfristigen Strategie von EFG\n- Übersetzen Sie strategische Prioritäten (Wachstum, Effizienz, Kundenerfahrung) in konkrete Transformations-Roadmaps.\n- Unterstützung der Mitglieder des Exekutivkomitees bei der Umsetzung der Strategie und der Governance der Transformation.\n- Bereiten Sie Entscheidungsmaterial für Senior-Management- und Board-Level-Diskussionen vor Operating Model & Process Excellence\n- Gestalten und implementieren Sie Ziel-Betriebsmodelle, die an ein verhältnisorientiertes Private-Banking-Umfeld angepasst sind.\n- Optimierung von Vor-zu-Back-Prozessen über:\n- Client Relationship Management und Client Advisory\n- Investment Services and Portfolio Management\n- Operations and Middle Office\n- Führen Sie Kosteneffizienz- und Produktivitätsinitiativen während der Wartung von Service-Qualität und Kundenerfahrung Digital & Data Transformation\n- Führen Sie unternehmensgetriebene digitale Initiativen einschließlich:\n- CRM und Customer Lifecycle Management\n- Beratungs- und Portfolio-Management-Tools\n- Prozessautomatisierung (Workflow Digitalisierung, RPA, AI Use Cases)\n- Datengesteuertes Management durch Dashboards, KPIs und Managementinformationen fördern. Regulatory & Risk-Driven Change\n- Management-Transformationsinitiativen im Zusammenhang mit FINMA-Verordnung, AML/KYC, Eignung, grenzüberschreitende Regeln.\n- Stellen Sie sicher, dass regulatorische Änderungen pragmatisch in Geschäftsprozesse eingebettet werden.\n- Arbeiten Sie eng mit Compliance, Risk, Legal und Interne Audit. Change Management & Stakeholder Engagement\n- Act als internes Change Leader und Sparring Partner für Führungskräfte und Abteilungsleiter.\n- Steuerung der Änderung: Kommunikation, Schulung und Adoption in der gesamten Organisation.\n- Verwalten Sie Widerstand gegen Veränderungen in einer traditionellen privaten Bankkultur. Program & Delivery Management\n- Eigene End-to-End-Lieferung von Transformationsinitiativen:\n- Governance, Meilensteine, KPIs und Vorteile Realisierung\n- Budget- und Ressourcenmanagement\n- Risiko, Abhängigkeit und Emissionsmanagement\n- Koordinierte interne Teams und leiten selektiv externe Berater und Anbieter. Kompetenz und Erfahrung\n- Pure Private Banking Expertise, mit praktischem Verständnis von:\n- Relationship-based Private Banking Business Model\n- Investment Produkte und Dienstleistungen\n- UHNW/HNW-Client-Erwartungen\n- Starke Sensibilität für Vertraulichkeit, Risikokultur und Reputation Zusammenarbeit mit einem Unternehmergeist.",
-        "fr": "Principales responsabilités Enterprise & Strategic Transformation\n- Diriger les initiatives de transformation à l'échelle de la banque alignées sur la stratégie à long terme de l'EFG\n- Traduire les priorités stratégiques (croissance, efficacité, expérience client) en feuilles de route de transformation concrètes.\n- Soutenir les membres du Comité exécutif dans l'exécution de la stratégie et la gouvernance de la transformation.\n- Préparer des documents décisionnels pour les cadres supérieurs et les discussions au niveau du conseil d'administration Modèle opérationnel et excellence des processus\n- Concevoir et mettre en oeuvre des modèles opérationnels cibles adaptés à un environnement bancaire privé axé sur les relations.\n- Soutenir l'optimisation des processus de pointe dans les domaines suivants :\n- Gestion des relations avec la clientèle et conseils à la clientèle\n- Services d'investissement et gestion de portefeuille\n- Opérations et bureau intermédiaire\n- Principales initiatives en matière de rentabilité et de productivité tout en préservant la qualité du service et l'expérience client Transformation numérique et des données\n- Principales initiatives numériques axées sur l'entreprise, y compris :\n- Gestion du cycle de vie de la clientèle\n- Outils de conseil et de gestion de portefeuille\n- Automatisation des processus (numérisation des flux de travail, APR, cas d'utilisation de l'IA)\n- Agir comme un pont entre les équipes d'affaires, de TI et de données pour assurer l'adoption et la valorisation.\n- Promouvoir la gestion axée sur les données au moyen de tableaux de bord, d'IPK et d'information de gestion. Changement réglementaire et axé sur le risque\n- Gérer les initiatives de transformation liées à la réglementation FINMA, AML/KYC, la pertinence, les règles transfrontalières.\n- Veiller à ce que les changements réglementaires soient intégrés de façon pragmatique dans les processus opérationnels.\n- Travailler en étroite collaboration avec la conformité, le risque, la vérification juridique et interne. Gestion du changement et engagement des intervenants\n- Agir à titre de chef de file du changement interne et de partenaire principal pour les cadres supérieurs et les chefs de département.\n- Favoriser la gestion du changement : communication, formation et adoption dans l'ensemble de l'organisation.\n- Gérer la résistance au changement dans une culture bancaire privée traditionnelle. Gestion des programmes et de l'exécution\n- Exécution de bout en bout des initiatives de transformation :\n- Gouvernance, jalons, ICR et réalisation des avantages\n- Gestion du budget et des ressources\n- Gestion des risques, de la dépendance et des enjeux\n- Coordonner les équipes internes et gérer sélectivement les consultants et les fournisseurs externes. Compétences et expérience\n- Pure Private Banking Expertise, avec une compréhension pratique de:\n- Modèle d'entreprise de banque privée basé sur les relations\n- Produits et services d'investissement\n- Attentes des clients de l'UHNW/HNW\n- Forte sensibilité à la confidentialité, à la culture des risques et à la considération de la réputation\n- Transformation et exécution\n- Transformation d'entreprise et transformation fonctionnelle\n- Conception de modèle d'exploitation\n- Développement de cas d'affaires et suivi des avantages\n- Gestion de programmes et de portefeuilles\n- Compétences numériques et analytiques\n- Capacité de traduire la technologie en valeur opérationnelle\n- Plates-formes CRM, Front office / Applications d'investissement et systèmes de base de banque privée\n- Automatisation et numérisation des processus\n- IA dans le secteur bancaire\n- Analyse des données et gestion des performances\n- Leadership et compétences personnelles\n- Compétences de communication et de présentation\n- Fortes compétences d'influence sans autorité formelle\n- Résolution de problèmes structurés et rigueur analytique\n- Grande discrétion, résilience et esprit de propriété\n- Forte adéquation culturelle avec les valeurs de la banque privée suisse\n- Expérience et contexte\n- Forte exposition aux clients de la transformation interne, au bureau de l'entreprise ou aux rôles stratégiques au sein Travailler ensemble avec un esprit d'entreprise."
-      },
-      "requirementsByLocale": {
-        "en": [
-          "Pure Private Banking Expertise, with hands-on understanding of:<ul><li>Relationship-based private banking business model",
-          "Investment products and services",
-          "UHNW/HNW client expectations",
-          "Strong sensitivity to confidentiality, risk culture, and reputational consideration<br>",
-          "Transformation & Execution<ul><li>Enterprise and functional transformation",
-          "Operating model design",
-          "Business case development and benefits tracking",
-          "Program and portfolio management",
-          "Digital & Analytical Skills<ul><li>Ability to translate technology into business value",
-          "CRM platforms, Front office / Investment applications and private banking core systems",
-          "Process automation and digitalisation / AI in banking",
-          "Data analytics and performance management",
-          "Leadership & Personal Skills<ul><li>Executive-level communication and presentation skills",
-          "Strong influencing skills without formal authority",
-          "Structured problem-solving and analytical rigor",
-          "High discretion, resilience, and ownership mindset"
-        ]
-      },
-      "canonicalContent": {
-        "byLocale": {
-          "en": {
-            "summary": [
-              "<i>Enterprise & Strategic Transformation</i>"
-            ],
-            "responsibilities": [
-              "Drive bank-wide transformation initiatives aligned with the long-term strategy of EFG",
-              "Translate strategic priorities (growth, efficiency, client experience) into concrete transformation roadmaps.",
-              "Support Executive Committee members in strategy execution and transformation governance.",
-              "Prepare decision material for senior management and Board-level discussions",
-              "Design and implement target operating models adapted to a relationship-driven private banking environment.",
-              "Support optimization of front-to-back processes across:<ul><li> Client Relationship Management and Client Advisory",
-              "Investment Services and Portfolio Management",
-              "Operations and Middle Office",
-              "Lead cost-efficiency and productivity initiatives while preserving service quality and client experience",
-              "Lead business-driven digital initiatives including:<ul><li> CRM and client lifecycle management",
-              "Advisory and portfolio management tools",
-              "Process automation (workflow digitization, RPA, AI use cases)",
-              "Act as bridge between business, IT, and data teams to ensure adoption and value realization.",
-              "Promote data-driven management through dashboards, KPIs, and management information.",
-              "Manage transformation initiatives related to FINMA regulation, AML/KYC, suitability, cross-border rules.",
-              "Ensure regulatory changes are embedded pragmatically into business processes."
-            ],
-            "requirements": [
-              "Pure Private Banking Expertise, with hands-on understanding of:<ul><li>Relationship-based private banking business model",
-              "Investment products and services",
-              "UHNW/HNW client expectations",
-              "Strong sensitivity to confidentiality, risk culture, and reputational consideration<br>",
-              "Transformation & Execution<ul><li>Enterprise and functional transformation",
-              "Operating model design",
-              "Business case development and benefits tracking",
-              "Program and portfolio management",
-              "Digital & Analytical Skills<ul><li>Ability to translate technology into business value",
-              "CRM platforms, Front office / Investment applications and private banking core systems",
-              "Process automation and digitalisation / AI in banking",
-              "Data analytics and performance management",
-              "Leadership & Personal Skills<ul><li>Executive-level communication and presentation skills",
-              "Strong influencing skills without formal authority",
-              "Structured problem-solving and analytical rigor",
-              "High discretion, resilience, and ownership mindset"
-            ],
-            "benefits": [
-              "Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement",
-              "Hands-on: Being proactive to rapidly deliver high-quality results",
-              "Passionate: Being committed and striving for excellence",
-              "Solution-driven: Focusing on client outcomes and treating clients fairly with a risk-aware mindset",
-              "Partnership-oriented: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.<br>"
-            ],
-            "process": [],
-            "highlights": [
-              "Drive bank-wide transformation initiatives aligned with the long-term strategy of EFG",
-              "Translate strategic priorities (growth, efficiency, client experience) into concrete transformation roadmaps.",
-              "Support Executive Committee members in strategy execution and transformation governance.",
-              "Pure Private Banking Expertise, with hands-on understanding of:<ul><li>Relationship-based private banking business model",
-              "Investment products and services",
-              "UHNW/HNW client expectations",
-              "Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement",
-              "Hands-on: Being proactive to rapidly deliver high-quality results"
-            ],
-            "keywords": [
-              "Pure Private Banking Expertise",
-              "Investment products and services",
-              "UHNW/HNW client expectations",
-              "Strong sensitivity to confidentiality",
-              "Transformation & Execution<ul><li>Enterprise and functional transformation",
-              "Drive bank-wide transformation initiatives aligned with the long-term strategy of EFG",
-              "Translate strategic priorities (growth",
-              "Support Executive Committee members in strategy execution and transformation governance.",
-              "Prepare decision material for senior management and Board-level discussions"
-            ],
-            "sections": [
-              {
-                "id": "company",
-                "heading": "Our Company",
-                "paragraphs": [
-                  "<br>EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice. <br>EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation.",
-                  "<br><strong>Our Purpose and Mission</strong>",
-                  "<br>Empowering entrepreneurial minds to create value – today and for the future.",
-                  "We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value.",
-                  "<br><strong>Job Description</strong>",
-                  "We are looking to onboard a manager with 10–15 years of experience within private banking and wealth management institutions. The objective is for them to join the Transformation Office as a Senior member and to drive strategic, operational, and digital transformation initiatives tailored to the specific culture, risk profile, and client-centric model EFG. MBA-qualified would be a plus, with strong execution capabilities and deep understanding of front-to-back private banking operations."
-                ],
-                "bullets": []
-              }
-            ],
-            "readingMinutes": 4
-          }
-        }
-      },
-      "crawledAt": "2026-06-01T14:24:17.994Z",
-      "slugByLocale": {
-        "it": "responsabile-senior-della-trasformazione-strategica-efg-international-ag-geneve",
-        "en": "senior-strategic-transformation-manager-efg-geneve",
-        "de": "senior-strategische-transformation-manager-efg-international-ag-geneve",
-        "fr": "gestionnaire-principal-de-la-transformation-strategique-efg-international-ag-geneve"
-      },
-      "addressLocality": "Geneve",
-      "addressCountry": "CH",
-      "datePosted": "2026-05-15",
-      "salaryMin": 142000,
-      "salaryMax": 249500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 142000,
-          "maxValue": 249500,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "",
-      "postalCode": "1204",
-      "addressRegion": "GE",
-      "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-05-15T21:42:14.752Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "senior-strategic-transformation-manager-efg-geneve"
-        ],
-        "fr": [
-          "senior-strategic-transformation-manager-efg-geneve"
-        ],
-        "de": [
-          "senior-strategic-transformation-manager-efg-geneve"
-        ]
-      },
-      "previousSlugs": [
-        "senior-strategic-transformation-manager-efg-geneve"
-      ],
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     }
   ]
 }

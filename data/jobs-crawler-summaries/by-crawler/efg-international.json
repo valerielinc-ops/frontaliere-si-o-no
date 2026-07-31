@@ -1,16 +1,16 @@
 {
   "key": "efg-international",
   "label": "EFG",
-  "generatedAt": "2026-07-31T11:35:39.867Z",
+  "generatedAt": "2026-07-31T22:10:10.049Z",
   "total": 34,
   "newCount": 0,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 33,
-  "durationMs": 19271,
-  "avgDurationMs": 19271,
+  "durationMs": 21506,
+  "avgDurationMs": 21506,
   "durationHistory": [
-    19271
+    21506
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -48,7 +48,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-31T11:35:36.594Z",
+      "crawledAt": "2026-07-31T22:10:05.608Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "datePosted": "2026-07-10",
@@ -217,7 +217,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-31T11:35:36.624Z",
+      "crawledAt": "2026-07-31T22:10:05.633Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-06-25",
@@ -337,7 +337,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-31T11:35:36.622Z",
+      "crawledAt": "2026-07-31T22:10:05.631Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-07-02",
@@ -391,7 +391,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-31T11:35:36.620Z",
+      "crawledAt": "2026-07-31T22:10:05.629Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-05-20",
@@ -446,7 +446,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-31T11:35:36.618Z",
+      "crawledAt": "2026-07-31T22:10:05.627Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-06-03",
@@ -575,7 +575,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-31T11:35:36.615Z",
+      "crawledAt": "2026-07-31T22:10:05.624Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-04-01",
@@ -676,7 +676,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-31T11:35:36.612Z",
+      "crawledAt": "2026-07-31T22:10:05.622Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "sourceLang": "en",
@@ -796,7 +796,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-31T11:35:36.609Z",
+      "crawledAt": "2026-07-31T22:10:05.619Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "datePosted": "2026-07-08",
@@ -912,7 +912,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-31T11:35:36.607Z",
+      "crawledAt": "2026-07-31T22:10:05.618Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "sourceLang": "en",
@@ -967,7 +967,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-31T11:35:36.605Z",
+      "crawledAt": "2026-07-31T22:10:05.615Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-05-28",
@@ -1091,7 +1091,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-31T11:35:36.603Z",
+      "crawledAt": "2026-07-31T22:10:05.613Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-01-19",
@@ -1146,7 +1146,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-31T11:35:36.601Z",
+      "crawledAt": "2026-07-31T22:10:05.611Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-04-07",
@@ -1201,7 +1201,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-31T11:35:36.598Z",
+      "crawledAt": "2026-07-31T22:10:05.609Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "datePosted": "2026-04-21",
@@ -1212,61 +1212,6 @@
       "addressRegion": "ZH",
       "employmentType": "FULL_TIME",
       "firstSeenAt": "2026-05-10T21:30:00.892Z",
-      "country": "CH",
-      "needsRetranslation": true,
-      "_qualityScore": 96,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 25,
-        "completeness": 22
-      }
-    },
-    {
-      "id": "efg-6040",
-      "slug": "gruppo-di-supporto-per-rete-e-proxy-efg-international-ag-geneve",
-      "company": "EFG International AG",
-      "title": "Network & Proxy Support Team Lead",
-      "location": "Geneve",
-      "canton": "GE",
-      "category": "tech",
-      "contract": "permanent",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-08",
-      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6040",
-      "source": "Oracle HCM API",
-      "sourceLang": "en",
-      "companyKey": "efg-international",
-      "companyDomain": "efginternational.com",
-      "canonicalContent": {
-        "byLocale": {
-          "en": {
-            "summary": [
-              "<p><span><strong>General Information</strong></span></p><ul style=\"list-style-type:disc;\"><li style=\"tab-stops:list 36.0pt;\"><span><strong>Department:</strong> Information Technology – Infrastructure</span></li><li style=\"tab-stops:list 36.0pt;\"><span><strong>Work Time Percentage:</strong> 100%</span></li><li style=\"tab-stops:list 36.0pt;\"><span><strong>Location:</strong> Geneva</span></li></ul><p><span><strong>Our Company</strong></span></p><p><span>EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice.</span></p><p><span>EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation.</span></p><p><span><strong>Our Purpose and Mission</strong></span></p><p><span><strong>Empowering entrepreneurial minds to create value – today and for the future.</strong></span></p><p><span>We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value.</span></p><p><span><strong>Job Description</strong></span></p><p><span><strong>Role and Team</strong></span></p><p><span>Within the Information Technology Department, you will join a team of 12 engineers based in Geneva and collaborate with IT colleagues in more than 30 countries. Under the supervision of the IT Infrastructure Support Manager, you will lead a team of three network engineers.</span></p><p><span>You will combine people management with hands-on engineering, ensuring that EFG’s business-critical systems remain secure, resilient, and always connected in a demanding private banking environment.</span></p><p><span><strong>Main Responsibilities</strong></span></p><p><span><strong>1. Leadership & Management</strong></span></p><ul style=\"list-style-type:disc;\"><li style=\"tab-stops:list 36.0pt;\"><span>Lead, coach and develop a team of three network engineers, fostering a culture of accountability, collaboration and continuous improvement.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Combine team leadership with hands-on technical work on complex incidents and projects.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Oversee day-to-day network and proxy operations, including incident, problem and change management.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Plan and coordinate network and proxy upgrades, migrations and lifecycle activities in alignment with business and security requirements.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Manage escalations, ensuring timely resolution of major incidents and clear communication with stakeholders.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Manage and review third-party providers and vendor contracts, ensuring service quality, cost effectiveness and adherence to SLAs.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Ensure compliance with internal policies as well as regulatory, security and audit requirements relevant to network and security infrastructure.</span></li></ul><p><span><strong>2. Proxy / Secure Web Gateway (Zscaler)</strong></span></p><ul style=\"list-style-type:disc;\"><li style=\"tab-stops:list 36.0pt;\"><span>Collaborate closely with security teams to define, implement and maintain security policies, including URL filtering, cloud application and file filtering, DLP and access control.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Configure, operate and maintain Zscaler solutions (ZIA, ZPA) and related components such as SIPA, cloud firewall, PAC files, NSS, ZCC...</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Manage corporate devices using Zscaler Client Connector (ZCC), ensuring secure and reliable connectivity.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Troubleshoot and resolve Zscaler-related issues by analysing logs, performing traces and applying appropriate corrective actions.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Analyse network packet traces (PCAP), Fiddler logs and HTTP/HTTPS headers to identify and resolve complex connectivity and performance issues.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Proactively suggest and implement improvements to network and proxy performance, capacity, scalability and security posture.</span></li></ul><p><span><strong>3. Network Engineering & Operations</strong></span></p><ul style=\"list-style-type:disc;\"><li style=\"tab-stops:list 36.0pt;\"><span>Provide 2nd and 3rd level technical support for network and related services.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Configure, install and maintain network devices and services (e.g. routers, switches, firewalls, load balancers, VPN, QoS).</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Support and maintain network connectivity for financial market data feeds and other latency-sensitive services.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Implement and maintain a continuous improvement process by defining, documenting and enforcing network and proxy standards, procedures and best practices.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Interface with external suppliers and partners (integrators, telecom providers, market data vendors, etc.) to design, implement and support network solutions.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Participate in 24x7 on-call / on-duty rotation (piquet) to support critical infrastructure.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Monitor network and proxy performance, ensuring system availability, reliability and security.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Monitor system resource utilisation, trends and capacity, and plan upgrades or optimisations accordingly.</span></li></ul><p><span><strong>Skills and Experience</strong></span></p><p><span><strong>Background</strong></span></p><ul style=\"list-style-type:disc;\"><li style=\"tab-stops:list 36.0pt;\"><span>6–10 years of experience in networking in complex, international environments.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Strong knowledge of enterprise networking architecture and network security.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Professional experience with Cisco technologies and Cisco ACI; financial services experience is a plus.</span></li></ul><p><span><strong>Technical Skills</strong></span></p><ul style=\"list-style-type:disc;\"><li style=\"tab-stops:list 36.0pt;\"><span>Expert in LAN/WAN/MAN implementation and troubleshooting.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Strong experience with firewalls (Fortinet and/or Check Point), VPN, IPSec and GRE tunnels.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Proven expertise with Zscaler ZIA/ZPA and ZCC on corporate devices.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Solid understanding of network and cloud connectivity design.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Ability to analyse network traces (PCAP), Fiddler logs and HTTP/HTTPS headers.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Knowledge of Python or another scripting language for automation; Zscaler certification is a plus.</span></li></ul><p><span><strong>Soft Skills & Languages</strong></span></p><ul style=\"list-style-type:disc;\"><li style=\"tab-stops:list 36.0pt;\"><span>Strong communication skills; able to work effectively with technical and non-technical stakeholders.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Experience managing third-party providers and internal support teams.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Rigorous, autonomous, proactive and service-oriented, with strong documentation skills.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Fluent in French and English, written and spoken.</span></li></ul><p><span><strong>Our Values</strong></span></p><ul style=\"list-style-type:disc;\"><li style=\"tab-stops:list 36.0pt;\"><span><strong>Accountability:</strong> Taking ownership for tasks and challenges, as well as seeking continuous improvement.</span></li><li style=\"tab-stops:list 36.0pt;\"><span><strong>Hands-on:</strong> Being proactive to rapidly deliver high-quality results.</span></li><li style=\"tab-stops:list 36.0pt;\"><span><strong>Passionate:</strong> Being committed and striving for excellence.</span></li><li style=\"tab-stops:list 36.0pt;\"><span><strong>Solution-driven:</strong> Focusing on client outcomes and treating clients fairly with a risk-aware mindset.</span></li><li style=\"tab-stops:list 36.0pt;\"><span><strong>Partnership-oriented:</strong> Promoting collaboration and teamwork; working together with an entrepreneurial spirit.</span></li></ul><p><span><strong>Application</strong></span></p><ol><li style=\"tab-stops:list 36.0pt;\"><span>Please ensure you attach a cover letter to your CV when submitting your application.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Should you wish to apply for this position, please use the designated application link.</span></li></ol><p> </p>"
-            ],
-            "responsibilities": [],
-            "requirements": [],
-            "benefits": [],
-            "process": [],
-            "highlights": [],
-            "keywords": [],
-            "sections": [],
-            "readingMinutes": 5
-          }
-        }
-      },
-      "crawledAt": "2026-07-31T11:35:36.597Z",
-      "addressLocality": "Geneve",
-      "addressCountry": "CH",
-      "datePosted": "2026-04-08",
-      "salaryMin": 79500,
-      "salaryMax": 135000,
-      "streetAddress": "",
-      "postalCode": "1204",
-      "addressRegion": "GE",
-      "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-05-10T21:30:00.890Z",
       "country": "CH",
       "needsRetranslation": true,
       "_qualityScore": 96,
@@ -1367,7 +1312,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-31T11:35:36.592Z",
+      "crawledAt": "2026-07-31T22:10:05.606Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "sourceLang": "en",
@@ -1495,7 +1440,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-31T11:35:36.582Z",
+      "crawledAt": "2026-07-31T22:10:05.597Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "sourceLang": "en",
@@ -1551,7 +1496,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-31T11:35:36.580Z",
+      "crawledAt": "2026-07-31T22:10:05.596Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-06-24",
@@ -1698,7 +1643,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-31T11:35:36.577Z",
+      "crawledAt": "2026-07-31T22:10:05.593Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-02-11",
@@ -1819,7 +1764,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-31T11:35:36.574Z",
+      "crawledAt": "2026-07-31T22:10:05.591Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "datePosted": "2026-07-20",
@@ -1940,7 +1885,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-31T11:35:36.572Z",
+      "crawledAt": "2026-07-31T22:10:05.588Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "datePosted": "2026-07-21",
@@ -2047,7 +1992,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-31T11:35:36.569Z",
+      "crawledAt": "2026-07-31T22:10:05.584Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-07-23",
@@ -2100,7 +2045,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-31T11:35:36.549Z",
+      "crawledAt": "2026-07-31T22:10:05.564Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "datePosted": "2026-04-08",
@@ -2118,6 +2063,60 @@
         "richness": 22,
         "translation": 25,
         "completeness": 25
+      }
+    },
+    {
+      "id": "efg-6040",
+      "slug": "gruppo-di-supporto-per-rete-e-proxy-efg-international-ag-geneve",
+      "company": "EFG International AG",
+      "title": "Network & Proxy Support Team Lead",
+      "location": "Geneve",
+      "canton": "GE",
+      "category": "tech",
+      "contract": "permanent",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-04-08",
+      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6040",
+      "source": "Oracle HCM API",
+      "sourceLang": "en",
+      "companyKey": "efg-international",
+      "companyDomain": "efginternational.com",
+      "canonicalContent": {
+        "byLocale": {
+          "en": {
+            "summary": [
+              "<p><span><strong>General Information</strong></span></p><ul style=\"list-style-type:disc;\"><li style=\"tab-stops:list 36.0pt;\"><span><strong>Department:</strong> Information Technology – Infrastructure</span></li><li style=\"tab-stops:list 36.0pt;\"><span><strong>Work Time Percentage:</strong> 100%</span></li><li style=\"tab-stops:list 36.0pt;\"><span><strong>Location:</strong> Geneva</span></li></ul><p><span><strong>Our Company</strong></span></p><p><span>EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice.</span></p><p><span>EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation.</span></p><p><span><strong>Our Purpose and Mission</strong></span></p><p><span><strong>Empowering entrepreneurial minds to create value – today and for the future.</strong></span></p><p><span>We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value.</span></p><p><span><strong>Job Description</strong></span></p><p><span><strong>Role and Team</strong></span></p><p><span>Within the Information Technology Department, you will join a team of 12 engineers based in Geneva and collaborate with IT colleagues in more than 30 countries. Under the supervision of the IT Infrastructure Support Manager, you will lead a team of three network engineers.</span></p><p><span>You will combine people management with hands-on engineering, ensuring that EFG’s business-critical systems remain secure, resilient, and always connected in a demanding private banking environment.</span></p><p><span><strong>Main Responsibilities</strong></span></p><p><span><strong>1. Leadership & Management</strong></span></p><ul style=\"list-style-type:disc;\"><li style=\"tab-stops:list 36.0pt;\"><span>Lead, coach and develop a team of three network engineers, fostering a culture of accountability, collaboration and continuous improvement.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Combine team leadership with hands-on technical work on complex incidents and projects.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Oversee day-to-day network and proxy operations, including incident, problem and change management.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Plan and coordinate network and proxy upgrades, migrations and lifecycle activities in alignment with business and security requirements.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Manage escalations, ensuring timely resolution of major incidents and clear communication with stakeholders.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Manage and review third-party providers and vendor contracts, ensuring service quality, cost effectiveness and adherence to SLAs.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Ensure compliance with internal policies as well as regulatory, security and audit requirements relevant to network and security infrastructure.</span></li></ul><p><span><strong>2. Proxy / Secure Web Gateway (Zscaler)</strong></span></p><ul style=\"list-style-type:disc;\"><li style=\"tab-stops:list 36.0pt;\"><span>Collaborate closely with security teams to define, implement and maintain security policies, including URL filtering, cloud application and file filtering, DLP and access control.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Configure, operate and maintain Zscaler solutions (ZIA, ZPA) and related components such as SIPA, cloud firewall, PAC files, NSS, ZCC...</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Manage corporate devices using Zscaler Client Connector (ZCC), ensuring secure and reliable connectivity.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Troubleshoot and resolve Zscaler-related issues by analysing logs, performing traces and applying appropriate corrective actions.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Analyse network packet traces (PCAP), Fiddler logs and HTTP/HTTPS headers to identify and resolve complex connectivity and performance issues.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Proactively suggest and implement improvements to network and proxy performance, capacity, scalability and security posture.</span></li></ul><p><span><strong>3. Network Engineering & Operations</strong></span></p><ul style=\"list-style-type:disc;\"><li style=\"tab-stops:list 36.0pt;\"><span>Provide 2nd and 3rd level technical support for network and related services.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Configure, install and maintain network devices and services (e.g. routers, switches, firewalls, load balancers, VPN, QoS).</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Support and maintain network connectivity for financial market data feeds and other latency-sensitive services.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Implement and maintain a continuous improvement process by defining, documenting and enforcing network and proxy standards, procedures and best practices.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Interface with external suppliers and partners (integrators, telecom providers, market data vendors, etc.) to design, implement and support network solutions.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Participate in 24x7 on-call / on-duty rotation (piquet) to support critical infrastructure.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Monitor network and proxy performance, ensuring system availability, reliability and security.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Monitor system resource utilisation, trends and capacity, and plan upgrades or optimisations accordingly.</span></li></ul><p><span><strong>Skills and Experience</strong></span></p><p><span><strong>Background</strong></span></p><ul style=\"list-style-type:disc;\"><li style=\"tab-stops:list 36.0pt;\"><span>6–10 years of experience in networking in complex, international environments.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Strong knowledge of enterprise networking architecture and network security.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Professional experience with Cisco technologies and Cisco ACI; financial services experience is a plus.</span></li></ul><p><span><strong>Technical Skills</strong></span></p><ul style=\"list-style-type:disc;\"><li style=\"tab-stops:list 36.0pt;\"><span>Expert in LAN/WAN/MAN implementation and troubleshooting.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Strong experience with firewalls (Fortinet and/or Check Point), VPN, IPSec and GRE tunnels.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Proven expertise with Zscaler ZIA/ZPA and ZCC on corporate devices.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Solid understanding of network and cloud connectivity design.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Ability to analyse network traces (PCAP), Fiddler logs and HTTP/HTTPS headers.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Knowledge of Python or another scripting language for automation; Zscaler certification is a plus.</span></li></ul><p><span><strong>Soft Skills & Languages</strong></span></p><ul style=\"list-style-type:disc;\"><li style=\"tab-stops:list 36.0pt;\"><span>Strong communication skills; able to work effectively with technical and non-technical stakeholders.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Experience managing third-party providers and internal support teams.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Rigorous, autonomous, proactive and service-oriented, with strong documentation skills.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Fluent in French and English, written and spoken.</span></li></ul><p><span><strong>Our Values</strong></span></p><ul style=\"list-style-type:disc;\"><li style=\"tab-stops:list 36.0pt;\"><span><strong>Accountability:</strong> Taking ownership for tasks and challenges, as well as seeking continuous improvement.</span></li><li style=\"tab-stops:list 36.0pt;\"><span><strong>Hands-on:</strong> Being proactive to rapidly deliver high-quality results.</span></li><li style=\"tab-stops:list 36.0pt;\"><span><strong>Passionate:</strong> Being committed and striving for excellence.</span></li><li style=\"tab-stops:list 36.0pt;\"><span><strong>Solution-driven:</strong> Focusing on client outcomes and treating clients fairly with a risk-aware mindset.</span></li><li style=\"tab-stops:list 36.0pt;\"><span><strong>Partnership-oriented:</strong> Promoting collaboration and teamwork; working together with an entrepreneurial spirit.</span></li></ul><p><span><strong>Application</strong></span></p><ol><li style=\"tab-stops:list 36.0pt;\"><span>Please ensure you attach a cover letter to your CV when submitting your application.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Should you wish to apply for this position, please use the designated application link.</span></li></ol><p> </p>"
+            ],
+            "responsibilities": [],
+            "requirements": [],
+            "benefits": [],
+            "process": [],
+            "highlights": [],
+            "keywords": [],
+            "sections": [],
+            "readingMinutes": 5
+          }
+        }
+      },
+      "crawledAt": "2026-07-31T11:35:36.597Z",
+      "addressLocality": "Geneve",
+      "addressCountry": "CH",
+      "datePosted": "2026-04-08",
+      "salaryMin": 79500,
+      "salaryMax": 135000,
+      "streetAddress": "",
+      "postalCode": "1204",
+      "addressRegion": "GE",
+      "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-05-10T21:30:00.890Z",
+      "country": "CH",
+      "_qualityScore": 96,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 25,
+        "completeness": 22
       }
     },
     {
