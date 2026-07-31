@@ -1,7 +1,71 @@
 {
   "crawlerKey": "ermenegildo-zegna-logistica",
-  "assembledAt": "2026-07-31T10:26:10.513Z",
+  "assembledAt": "2026-07-31T11:54:47.258Z",
   "jobs": [
+    {
+      "url": "https://careers.zegnagroup.com/jobs/job-details?JobID=272160171&Team=231361271",
+      "applyUrl": "https://careers.zegnagroup.com/jobs/job-details?JobID=272160171&Team=231361271",
+      "title": "Back Office Intern - Ufficio Modelli",
+      "company": "Ermenegildo Zegna Group",
+      "companyKey": "ermenegildo-zegna-logistica",
+      "location": "Mendrisio",
+      "canton": "TI",
+      "country": "CH",
+      "description": "Posizione aperta presso Ermenegildo Zegna Group. Ruolo: Back Office Intern - Ufficio Modelli. Sede: Mendrisio, Svizzera.",
+      "descriptionByLocale": {
+        "en": "Posizione aperta presso Ermenegildo Zegna Group. Ruolo: Back Office Intern - Ufficio Modelli. Sede: Mendrisio, Svizzera.",
+        "it": "Posizione aperta presso Ermenegildo Zegna Group. Ruolo: Back Office Intern - Ufficio Modelli. Sede: Mendrisio, Svizzera.",
+        "de": "Posizione aperta presso Ermenegildo Zegna Group. Ruolo: Back Office Intern - Ufficio Modelli. Sede: Mendrisio, Svizzera.",
+        "fr": "Posizione aperta presso Ermenegildo Zegna Group. Ruolo: Back Office Intern - Ufficio Modelli. Sede: Mendrisio, Svizzera."
+      },
+      "titleByLocale": {
+        "en": "Back Office Intern - Ufficio Modelli",
+        "it": "Back Office Tirocinante - Ufficio Modelli",
+        "de": "Back Office Praktikant - Ufficio Modelli",
+        "fr": "Back Office Stagiaire - Ufficio Modelli"
+      },
+      "slug": "back-office-intern-ufficio-modelli-zegna",
+      "slugByLocale": {
+        "en": "back-office-intern-ufficio-modelli-zegna",
+        "it": "back-office-intern-ufficio-modelli-zegna",
+        "de": "back-office-intern-ufficio-modelli-zegna",
+        "fr": "back-office-intern-ufficio-modelli-zegna"
+      },
+      "department": "Product Development, Manufacturing, End-to end Supply Chain/Manufacturing",
+      "category": "Product Development, Manufacturing, End-to end Supply Chain/Manufacturing",
+      "datePosted": "2026-07-31",
+      "source": "zegna-careers-crawler",
+      "employmentType": "INTERN",
+      "experienceLevel": "",
+      "sector": "Lusso & Moda",
+      "brand": "Zegna",
+      "contractType": "Internship",
+      "_targetScope": {
+        "canton": "TI",
+        "location": "Mendrisio"
+      },
+      "sourceLang": "it",
+      "crawledAt": "",
+      "needsRetranslation": true,
+      "id": "ermenegildo-zegna-logistica-877a68c644c3",
+      "salaryMin": 41600,
+      "salaryMax": 63000,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 41600,
+          "maxValue": 63000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressLocality": "Mendrisio",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "firstSeenAt": "2026-07-31T11:54:47.257Z"
+    },
     {
       "url": "https://careers.zegnagroup.com/jobs/job-details?JobID=270362936&Team=231361275",
       "applyUrl": "https://careers.zegnagroup.com/jobs/job-details?JobID=270362936&Team=231361275",
@@ -79,7 +143,8 @@
       },
       "previousSlugs": [
         "junior-brand-control-pricing-specialist-zegna"
-      ]
+      ],
+      "needsRetranslation": true
     }
   ]
 }
