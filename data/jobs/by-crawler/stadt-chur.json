@@ -1,6 +1,6 @@
 {
   "crawlerKey": "stadt-chur",
-  "assembledAt": "2026-07-31T12:08:01.081Z",
+  "assembledAt": "2026-07-31T22:26:52.674Z",
   "jobs": [
     {
       "title": "Leitende/r Mechaniker/in und Stv. Bereichsleiter/in Werkstatt und Flottenmanagement",
@@ -44,7 +44,7 @@
         "de": "leitende-r-mechaniker-in-und-stv-bereichsleiter-in-werkstatt-und-flottenmanagement-stadt-chur-1704",
         "fr": "mecanicien-chef-et-directeur-de-division-stv-dans-l-atelier-et-la-gestion-de-la-flotte-stadt-chur-chur"
       },
-      "crawledAt": "2026-07-31T11:59:06.801Z",
+      "crawledAt": "2026-07-31T22:20:11.972Z",
       "id": "stadt-chur-74fdc42733da",
       "salaryMin": 67000,
       "salaryMax": 102000,
@@ -73,7 +73,8 @@
       },
       "previousSlugs": [
         "leitende-r-mechaniker-in-und-stv-bereichsleiter-in-werkstatt-und-flottenmanagement-stadt-chur-1704"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Vorarbeiter/in Betrieblicher Unterhalt mit Stellvertre-tungsfunktion Bereichsleiter (100%)",
@@ -117,7 +118,7 @@
         "de": "vorarbeiter-in-betrieblicher-unterhalt-mit-stellvertre-tungsfunktion-bereichsleiter-100-stadt-chur-1702",
         "fr": "maintenance-des-contremaitres-dans-l-entreprise-avec-gestionnaire-de-poste-100-stadt-chur-chur"
       },
-      "crawledAt": "2026-07-31T12:00:13.561Z",
+      "crawledAt": "2026-07-31T22:21:18.729Z",
       "id": "stadt-chur-00c100636c42",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -132,7 +133,8 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-28T11:49:42.646Z"
+      "firstSeenAt": "2026-07-28T11:49:42.646Z",
+      "needsRetranslation": true
     },
     {
       "title": "Treffmitarbeit Queerer Jugendtreff",
@@ -176,7 +178,7 @@
         "de": "treffmitarbeit-queerer-jugendtreff-stadt-chur-1700",
         "fr": "rencontre-avec-queerer-jugendtreff-stadt-chur-chur"
       },
-      "crawledAt": "2026-07-31T12:01:20.322Z",
+      "crawledAt": "2026-07-31T22:22:25.487Z",
       "id": "stadt-chur-c06cc9091d80",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -249,7 +251,7 @@
         "de": "treffleitung-queerer-jugendtreff-stadt-chur-1701",
         "fr": "guidee-par-queerer-jugendtreff-stadt-chur-chur"
       },
-      "crawledAt": "2026-07-31T12:02:27.083Z",
+      "crawledAt": "2026-07-31T22:23:32.247Z",
       "id": "stadt-chur-f6ae3a02a7e5",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -322,7 +324,7 @@
         "de": "zivilstandsbeamtin-zivilstandsbeamter-stadt-chur-1699",
         "fr": "specialiste-de-l-etat-civil-stadt-chur-chur"
       },
-      "crawledAt": "2026-07-31T12:03:33.844Z",
+      "crawledAt": "2026-07-31T22:24:39.004Z",
       "id": "stadt-chur-8181a7de3772",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -353,80 +355,8 @@
       "previousSlugs": [
         "civil-status-officer-stadt-chur-chur",
         "zivilstandsbeamtin-zivilstandsbeamter-stadt-chur-1699"
-      ]
-    },
-    {
-      "title": "Stadtgeometer/-in und Verantwortliche/-r Landerwerb (80%)",
-      "slug": "stadtgeometer-in-e-verantwortliche-r-landerwerb-80-stadt-chur",
-      "url": "https://jobs.chur.ch/Stadtgeometer-in-und-Verantwortliche-r-Landerwerb-80-de-j1679.html",
-      "applyUrl": "https://jobs.chur.ch/Stadtgeometer-in-und-Verantwortliche-r-Landerwerb-80-de-j1679.html",
-      "company": "Stadt Chur",
-      "companyKey": "stadt-chur",
-      "companyDomain": "chur.ch",
-      "location": "Chur",
-      "addressLocality": "Chur",
-      "addressRegion": "Graubünden",
-      "addressCountry": "CH",
-      "canton": "GR",
-      "country": "CH",
-      "category": "public-administration",
-      "sector": "Pubblica Amministrazione",
-      "department": "",
-      "source": "stadt-chur-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-07-12",
-      "validThrough": "",
-      "employmentType": "part_time",
-      "contractType": "permanent",
-      "description": "Chur ist mit 41'000 Einwohner/innen das urbane Zentrum Graubündens. Als attraktive und vielseitige Stadt sorgt sie mit ihren 1'400 Mitarbeitenden für kundenorientierte und moderne Dienstleistungen.   Die Abteilung Geoinformatik ist die zentrale Anlaufstelle für Geodaten...",
-      "titleByLocale": {
-        "it": "Stadtgeometer/-in e Verantwortliche/-r Landerwerb (80%)",
-        "en": "Urban Geometer and Responsible Land Acquisition (80%)",
-        "de": "Stadtgeometer/-in und Verantwortliche/-r Landerwerb (80%)",
-        "fr": "Géomètre urbain et acquisition responsable de terres (80 %)"
-      },
-      "descriptionByLocale": {
-        "it": "Con 41.000 abitanti, Chur è il centro urbano di Grigioni. Come città attraente e versatile, fornisce servizi moderni e orientati al cliente con i suoi 1.400 dipendenti. Il Dipartimento di Geoinformatica è il punto centrale di contatto per i geodati...",
-        "en": "With 41,000 inhabitants, Chur is the urban center of Graubünden. As an attractive and versatile city, it provides customer-oriented and modern services with its 1,400 employees. The Department of Geoinformatics is the central point of contact for geodata...",
-        "de": "Chur ist mit 41'000 Einwohner/innen das urbane Zentrum Graubündens. Als attraktive und vielseitige Stadt sorgt sie mit ihren 1'400 Mitarbeitenden für kundenorientierte und moderne Dienstleistungen. Die Abteilung Geoinformatik ist die zentrale Anlaufstelle für Geodaten...",
-        "fr": "Avec 41 000 habitants, Chur est le centre urbain des Grisons. En tant que ville attrayante et polyvalente, elle offre des services axés sur le client et modernes avec ses 1 400 employés. Le Département de la Géoinformatique est le point de contact central pour les géodonnées..."
-      },
-      "slugByLocale": {
-        "it": "stadtgeometer-in-e-verantwortliche-r-landerwerb-80-stadt-chur",
-        "en": "urban-geometer-and-responsible-land-acquisition-80-stadt-chur-chur",
-        "de": "stadtgeometer-in-und-verantwortliche-r-landerwerb-80-stadt-chur-1679",
-        "fr": "geometre-urbain-et-acquisition-responsable-de-terres-80-stadt-chur-chur"
-      },
-      "crawledAt": "2026-07-31T12:04:40.604Z",
-      "id": "stadt-chur-b0fbf56b6b57",
-      "salaryMin": 46000,
-      "salaryMax": 69600,
-      "currency": "CHF",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 46000,
-          "maxValue": 69600,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-07-12T22:33:26.911Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "stadtgeometer-in-und-verantwortliche-r-landerwerb-80-stadt-chur-1679"
-        ],
-        "en": [
-          "stadtgeometer-in-und-verantwortliche-r-landerwerb-80-stadt-chur-1679"
-        ],
-        "fr": [
-          "stadtgeometer-in-und-verantwortliche-r-landerwerb-80-stadt-chur-1679"
-        ]
-      },
-      "previousSlugs": [
-        "stadtgeometer-in-und-verantwortliche-r-landerwerb-80-stadt-chur-1679"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Badmeister/in Saison (100%)",
@@ -470,7 +400,7 @@
         "de": "badmeister-in-saison-100-stadt-chur-1695",
         "fr": "badmaster-en-saison-100-stadt-chur-chur"
       },
-      "crawledAt": "2026-07-31T12:05:47.366Z",
+      "crawledAt": "2026-07-31T22:25:45.762Z",
       "id": "stadt-chur-8abd0783429f",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -499,83 +429,6 @@
       },
       "previousSlugs": [
         "badmeister-in-saison-100-stadt-chur-1695"
-      ]
-    },
-    {
-      "title": "Sargträger/in",
-      "slug": "coffin-portatore-stadt-chur-chur",
-      "url": "https://jobs.chur.ch/Sargtraegerin-de-j1669.html",
-      "applyUrl": "https://jobs.chur.ch/Sargtraegerin-de-j1669.html",
-      "company": "Stadt Chur",
-      "companyKey": "stadt-chur",
-      "companyDomain": "chur.ch",
-      "location": "Chur",
-      "addressLocality": "Chur",
-      "addressRegion": "Graubünden",
-      "addressCountry": "CH",
-      "canton": "GR",
-      "country": "CH",
-      "category": "public-administration",
-      "sector": "Pubblica Amministrazione",
-      "department": "",
-      "source": "stadt-chur-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-07-12",
-      "validThrough": "",
-      "employmentType": "full_time",
-      "contractType": "permanent",
-      "description": "Chur ist mit 41'000 Einwohner/innen das urbane Zentrum Graubündens. Als attraktive und vielseitige Stadt sorgt sie mit ihren 1'400 Mitarbeitenden für kundenorientierte und moderne Dienstleistungen.   Die Abteilung Stadtgärtnerei ist innerhalb der Dienststelle Grün und W...",
-      "titleByLocale": {
-        "it": "Coffin portatore",
-        "en": "Coffin bearer",
-        "de": "Sargträger/in",
-        "fr": "Porte cercueil"
-      },
-      "descriptionByLocale": {
-        "it": "Con 41.000 abitanti, Chur è il centro urbano di Grigioni. Come città attraente e versatile, fornisce servizi moderni e orientati al cliente con i suoi 1.400 dipendenti. Il dipartimento di giardinaggio urbano si trova all'interno del...",
-        "en": "With 41,000 inhabitants, Chur is the urban center of Graubünden. As an attractive and versatile city, it provides customer-oriented and modern services with its 1,400 employees. The urban gardening department is located within the Green and W...",
-        "de": "Chur ist mit 41'000 Einwohner/innen das urbane Zentrum Graubündens. Als attraktive und vielseitige Stadt sorgt sie mit ihren 1'400 Mitarbeitenden für kundenorientierte und moderne Dienstleistungen. Die Abteilung Stadtgärtnerei ist innerhalb der Dienststelle Grün und W...",
-        "fr": "Avec 41 000 habitants, Chur est le centre urbain des Grisons. En tant que ville attrayante et polyvalente, elle offre des services axés sur le client et modernes avec ses 1 400 employés. Le département du jardinage urbain est situé dans le..."
-      },
-      "slugByLocale": {
-        "it": "coffin-portatore-stadt-chur-chur",
-        "en": "coffin-bearer-stadt-chur-chur",
-        "de": "sargtrager-in-stadt-chur-chur",
-        "fr": "porte-cercueil-stadt-chur-chur"
-      },
-      "crawledAt": "2026-07-31T12:06:54.127Z",
-      "id": "stadt-chur-4309d92c4ac7",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
-      "currency": "CHF",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-07-12T22:39:00.701Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "coffin-carrier-in-stadt-chur-chur",
-          "sargtrager-in-stadt-chur-1669"
-        ],
-        "fr": [
-          "transporteur-in-de-cercueil-stadt-chur-chur",
-          "sargtrager-in-stadt-chur-1669"
-        ],
-        "en": [
-          "sargtrager-in-stadt-chur-1669"
-        ]
-      },
-      "previousSlugs": [
-        "coffin-carrier-in-stadt-chur-chur",
-        "transporteur-in-de-cercueil-stadt-chur-chur",
-        "sargtrager-in-stadt-chur-1669"
       ]
     },
     {
@@ -620,7 +473,7 @@
         "de": "polizeiaspirantinnen-und-polizeiaspiranten-stadt-chur-1446",
         "fr": "aspirants-policiers-et-aspirants-policiers-stadt-chur-chur"
       },
-      "crawledAt": "2026-07-31T12:08:00.889Z",
+      "crawledAt": "2026-07-31T22:26:52.520Z",
       "id": "stadt-chur-b4ceea7ca5ef",
       "salaryMin": 57500,
       "salaryMax": 87000,
