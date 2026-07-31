@@ -1,32 +1,31 @@
 {
   "key": "engel-voelkers",
   "label": "Engel & Völkers",
-  "generatedAt": "2026-07-31T12:01:34.737Z",
+  "generatedAt": "2026-07-31T22:23:30.478Z",
   "total": 10,
-  "newCount": 0,
-  "updatedCount": 10,
-  "removedCount": 0,
+  "newCount": 1,
+  "updatedCount": 9,
+  "removedCount": 1,
   "unchangedCount": 0,
-  "durationMs": 19970,
-  "avgDurationMs": 19970,
+  "durationMs": 21678,
+  "avgDurationMs": 21678,
   "durationHistory": [
-    19970
+    21678
   ],
-  "newJobs": [],
-  "updatedJobs": [
+  "newJobs": [
     {
-      "title": "Büroleiter/in (100%)",
-      "slug": "buroleiter-in-100-engel-voelkers-gstaad",
-      "url": "https://www.engelvoelkers.com/ch/it/azienda/carriera/offerte-di-lavoro/8404a96b-99fb-4b03-9d13-f0e96f860e37",
-      "applyUrl": "https://www.engelvoelkers.com/ch/it/azienda/carriera/offerte-di-lavoro/8404a96b-99fb-4b03-9d13-f0e96f860e37",
-      "company": "E&V Gstaad Properties One AG",
+      "title": "Senior Immobilienmakler/in 100%",
+      "slug": "senior-immobilienmakler-in-100-engel-voelkers-frauenfeld",
+      "url": "https://www.engelvoelkers.com/ch/it/azienda/carriera/offerte-di-lavoro/6ba042d5-48e7-4b1e-8ffb-8f8af89a0981",
+      "applyUrl": "https://www.engelvoelkers.com/ch/it/azienda/carriera/offerte-di-lavoro/6ba042d5-48e7-4b1e-8ffb-8f8af89a0981",
+      "company": "buutiq Immobilien AG",
       "companyKey": "engel-voelkers",
       "companyDomain": "engelvoelkers.com",
-      "location": "Gstaad",
-      "addressLocality": "Gstaad",
-      "addressRegion": "BE",
+      "location": "Frauenfeld",
+      "addressLocality": "Frauenfeld",
+      "addressRegion": "TG",
       "addressCountry": "CH",
-      "canton": "BE",
+      "canton": "TG",
       "country": "CH",
       "category": "sales",
       "sector": "Immobiliare",
@@ -36,20 +35,16 @@
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
-      "id": "engel-voelkers-d61d32a0f2bc",
-      "salaryMin": 77500,
-      "salaryMax": 118500,
-      "currency": "CHF",
-      "postalCode": "3001",
-      "firstSeenAt": "2026-07-01T22:11:53.107Z",
-      "_qualityScore": 90,
+      "_qualityScore": 73,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 25,
-        "completeness": 22
+        "translation": 16,
+        "completeness": 14
       }
-    },
+    }
+  ],
+  "updatedJobs": [
     {
       "title": "Trainee (m/w/d)",
       "slug": "trainee-m-w-d-engel-voelkers-zermatt",
@@ -373,6 +368,43 @@
       }
     }
   ],
-  "removedJobs": [],
+  "removedJobs": [
+    {
+      "title": "Büroleiter/in (100%)",
+      "slug": "responsabile-ufficio-100-e-v-gstaad-properties-one-ag-gstaad",
+      "url": "https://www.engelvoelkers.com/ch/it/azienda/carriera/offerte-di-lavoro/8404a96b-99fb-4b03-9d13-f0e96f860e37",
+      "applyUrl": "https://www.engelvoelkers.com/ch/it/azienda/carriera/offerte-di-lavoro/8404a96b-99fb-4b03-9d13-f0e96f860e37",
+      "company": "E&V Gstaad Properties One AG",
+      "companyKey": "engel-voelkers",
+      "companyDomain": "engelvoelkers.com",
+      "location": "Gstaad",
+      "addressLocality": "Gstaad",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "canton": "BE",
+      "country": "CH",
+      "category": "sales",
+      "sector": "Immobiliare",
+      "source": "engelvoelkers-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-07-01",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "",
+      "id": "engel-voelkers-d61d32a0f2bc",
+      "salaryMin": 77500,
+      "salaryMax": 118500,
+      "currency": "CHF",
+      "postalCode": "3001",
+      "firstSeenAt": "2026-07-01T22:11:53.107Z",
+      "_qualityScore": 90,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 22
+      }
+    }
+  ],
   "unchangedJobs": []
 }
