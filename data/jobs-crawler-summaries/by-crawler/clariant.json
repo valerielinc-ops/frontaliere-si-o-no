@@ -1,18 +1,55 @@
 {
   "key": "clariant",
   "label": "Clariant",
-  "generatedAt": "2026-07-31T11:39:04.778Z",
-  "total": 1,
-  "newCount": 0,
+  "generatedAt": "2026-07-31T22:16:36.320Z",
+  "total": 2,
+  "newCount": 1,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 4872,
-  "avgDurationMs": 4872,
+  "durationMs": 6390,
+  "avgDurationMs": 6390,
   "durationHistory": [
-    4872
+    6390
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "id": "clariant-74dc35ebdfa6",
+      "slug": "senior-manager-tax-tax-governance-clariant-pratteln",
+      "company": "Clariant",
+      "companyKey": "clariant",
+      "companyDomain": "clariant.com",
+      "title": "(Senior) Manager Tax & Tax Governance",
+      "location": "Pratteln",
+      "canton": "BL",
+      "url": "https://careers.clariant.com/job/Pratteln-%28Senior%29-Manager-Tax-&-Tax-Governance/1421384933/",
+      "source": "Clariant Dedicated Parser (SuccessFactors Jobs2Web)",
+      "sourceLang": "en",
+      "crawledAt": "2026-07-31T22:16:31.933Z",
+      "addressLocality": "Pratteln",
+      "addressRegion": "Basel-Landschaft",
+      "streetAddress": "Rothausstrasse 61",
+      "postalCode": "4132",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "finance",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "sector": "Chimica Speciale",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-31",
+      "applyUrl": "https://careers.clariant.com/job/Pratteln-%28Senior%29-Manager-Tax-&-Tax-Governance/1421384933/",
+      "jobReqId": "41654",
+      "_qualityScore": 69,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 4,
+        "completeness": 20
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "id": "clariant-8907364e581e",
@@ -26,7 +63,7 @@
       "url": "https://careers.clariant.com/job/Pratteln-Finance-Specialist-%28MFD%29/1417218033/",
       "source": "Clariant Dedicated Parser (SuccessFactors Jobs2Web)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-31T11:39:01.701Z",
+      "crawledAt": "2026-07-31T22:16:32.670Z",
       "addressLocality": "Pratteln",
       "addressRegion": "Basel-Landschaft",
       "streetAddress": "Rothausstrasse 61",
