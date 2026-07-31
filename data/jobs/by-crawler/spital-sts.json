@@ -1,6 +1,6 @@
 {
   "crawlerKey": "spital-sts",
-  "assembledAt": "2026-07-31T11:38:52.968Z",
+  "assembledAt": "2026-07-31T22:08:49.608Z",
   "jobs": [
     {
       "id": "spital-sts-7b7001db5502",
@@ -34,7 +34,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/9d7c5690-b2bb-45ab-bc45-892b3e7ab107/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-31T11:38:49.712Z",
+      "crawledAt": "2026-07-31T22:08:46.297Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -52,11 +52,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "dipl-pflegefachperson-hf-fh-flex-personal-pflege-spital-sts-thun"
+        "dipl-pflegefachperson-hf-fh-flex-personal-pflege-spital-sts-thun",
+        "dipl-specialista-hf-fh-flex-personal-care-spital-sts-thun"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-hf-fh-flex-personal-pflege-spital-sts-thun"
+          "dipl-pflegefachperson-hf-fh-flex-personal-pflege-spital-sts-thun",
+          "dipl-specialista-hf-fh-flex-personal-care-spital-sts-thun"
         ]
       },
       "firstSeenAt": "2026-07-28T22:11:56.707Z",
@@ -99,12 +101,13 @@
         "de": "Ein Job mit Aussichten in einmaliger Natur und Bergregion. Bei den Psychiatrischen Diensten erwartet Sie nebst einer vielseitigen Tätigkeit im interdisziplinären Umfeld auch die Möglichkeit zusätzliche Ferientage zu wählen. Sie suchen eine sinnvolle Arbeit? Dann sind Sie hier richtig.\n\nSie arbeiten eigenverantwortlich therapeutisch und vernetzt in einem multiprofessionellen Team. Zu Ihren Aufgaben gehören Abklärungen und Behandlungen bei Patient:innen aus dem gesamten Spektrum. Sie übernehmen das Berichtswesen u.a. zuhanden von Versicherern. Ergänzend beraten Sie die Betroffenen und ihre Angehörigen und vernetzen sich mit den anderen Anbietern in der Region. Sie schätzen die enge interprofessionelle Zusammenarbeit für sowohl einheimisches als auch internationales Klientel in einer wunderschönen und sonnigen Bergregion.\n\nEintritt per sofort oder nach Vereinbarung.\n\nDas wartet auf Sie\n\n• Patientenzentrierte und interdisziplinäre Zusammenarbeit über alle Bereiche\n\n• Breiter Handlungsspielraum in einer freundlichen Arbeitsatmosphäre\n\n• Konstruktive Arbeitsatmosphäre\n\n• Gute Aus-, Fort- und Weiterbildungsmöglichkeiten\n\n• Frei wählbares Ferienmodell\n\n• Freizeit- und Naturerlebnisse in nächster Umgebung\n\nSo werden Sie Teil unseres Teams\n\n• Fortgeschrittene Weiterbildung zum Fachtitel Psychiatrie und Psychotherapie, bei guter Passung weitere Karriereschritte möglich\n\n• Hohe Sozialkompetenz und Belastbarkeit\n\n• Freude am Umgang mit Patient:innen\n\n• Interesse an einer engen Zusammenarbeit mit den verschiedenen Institutionen des Sozial- und Gesundheitswesens\n\n• Mehrsprachigkeit von Vorteil",
         "fr": "Un travail avec des perspectives dans la nature unique et la région de montagne. Dans les services psychiatriques, en plus d'une activité polyvalente dans un environnement interdisciplinaire, vous avez également la possibilité de choisir des jours de vacances supplémentaires. Vous cherchez un travail significatif ? Alors vous êtes là.\n\nIls travaillent de façon indépendante et en réseau dans une équipe multiprofessionnelle. Ses tâches comprennent des clarifications et des traitements pour les patients : les initiés de tout le spectre. Ils prennent en charge la déclaration, entre autres, au profit des assureurs. De plus, vous conseillez les personnes touchées, leurs proches et leur réseau avec les autres fournisseurs de la région. Ils apprécient l'étroite coopération interprofessionnelle pour les clients locaux et internationaux dans une belle région de montagne ensoleillée.\n\nAdmission immédiate ou par arrangement.\n\nÇa vous attend.\n\n• Coopération centrée sur le patient et interdisciplinaire dans tous les domaines\n\n• Grandes possibilités d'action dans une atmosphère de travail amicale\n\n• Ambiance de travail constructive\n\n• Bonnes possibilités de formation, d'éducation et de formation\n\n• Modèle de vacances librement sélectionnable\n\n• Loisirs et expériences nature dans les environs immédiats\n\nDevenez membre de notre équipe\n\n• Formation continue avancée pour le titre de spécialiste Psychiatrie et psychothérapie, avec une bonne adéquation des étapes de carrière possible\n\n• Hautes compétences sociales et résilience\n\n• Joy de traiter avec les patients: à l'intérieur\n\n• Intérêt pour une coopération étroite avec les différentes institutions sociales et sanitaires\n\n• Le multilinguisme est bénéfique"
       },
+      "needsRetranslation": true,
       "location": "Zweisimmen",
       "canton": "BE",
       "url": "https://ohws.prospective.ch/public/v1/redirect/92b6b8f4-f853-4391-87cb-c4902774cb5f/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-31T11:38:48.867Z",
+      "crawledAt": "2026-07-31T22:08:45.673Z",
       "addressLocality": "Zweisimmen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -122,11 +125,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "fortgeschrittene-r-assistenzarzt-assistenzarztin-psychiatrie-spital-sts-zweisimmen"
+        "fortgeschrittene-r-assistenzarzt-assistenzarztin-psychiatrie-spital-sts-zweisimmen",
+        "avanzato-r-assistente-medico-assistente-psichiatria-spital-sts-zweisimmen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fortgeschrittene-r-assistenzarzt-assistenzarztin-psychiatrie-spital-sts-zweisimmen"
+          "fortgeschrittene-r-assistenzarzt-assistenzarztin-psychiatrie-spital-sts-zweisimmen",
+          "avanzato-r-assistente-medico-assistente-psichiatria-spital-sts-zweisimmen"
         ],
         "en": [
           "fortgeschrittene-r-assistenzarzt-assistenzarztin-psychiatrie-spital-sts-zweisimmen"
@@ -175,12 +180,13 @@
         "de": "Ein Job mit Aussichten: Im Spital Thun erwarten dich nebst der topmodernen Infrastruktur und einer vielseitigen Tätigkeit im familiären Umfeld auch die Möglichkeit zur flexiblen Freizeitgestaltung in der umliegenden Natur- und Seeregion. Du suchst sinnvoll, aber auch fair? Dann bist du hier richtig.\n\nZu deinen Hauptaufgaben gehören die Durchführung und die Organisation der Sprechstunden, Sprechstundenvorbereitung, die Bedienung des Telefons, Vereinbarung von Terminen, Schreiben von Berichten ab Diktafon, Assistenz bei den Infiltrationen sowie gelegentlich Blutentnahmen und Fadenentfernungen.\n\nEintritt per 01.11.2026 oder nach Vereinbarung\n\nDas wartet auf dich\n\n• Lebhafter Praxisbetrieb\n\n• Arbeit an der Front mit Patient:innenkontakt\n\n• Kollegialer Umgang im Ärzte-/MPA-Team\n\n• Eine interessante und spannende Tätigkeit an wechselnden Arbeitsplätzen\n\n• Selbständiges Arbeiten in einem motivierten, jungen Team\n\n• Flexibel wählbares Ferien- und Pensionskassenmodell\n\nSo wirst du Teil unseres Teams\n\n• Abgeschlossene Ausbildung als Medizinische:r Praxisassistent:in oder vergleichbare Ausbildung\n\n• Erfahrung in der Orthopädie von Vorteil\n\n• Stilsichere Deutschkenntnisse in Wort und Schrift\n\n• Organisationstalent mit guten PC-Kenntnissen\n\n• Sorgfältige und speditive Arbeitsweise",
         "fr": "Un emploi avec des perspectives : En plus de l'infrastructure de pointe et d'une activité polyvalente dans l'environnement familial, l'hôpital de Thun vous offre également la possibilité de loisirs flexibles dans la région naturelle et lacustre environnante. Avez-vous l'air significatif, mais aussi juste? Alors vous êtes là.\n\nVos tâches principales comprennent la tenue et l'organisation des heures de consultation, la préparation des heures de consultation, le fonctionnement du téléphone, les rendez-vous, la rédaction de rapports de Diktafon, l'aide aux infiltrations, et les prélèvements de sang et les enlèvements occasionnels de fils.\n\nEntrée au 01.11.2026 ou par arrangement\n\nÇa vous attend.\n\n• Pratique vivante\n\n• Travail sur le front avec le patient: contact interne\n\n• Approche collégiale dans l'équipe médicale/MPA\n\n• Une activité intéressante et passionnante dans les milieux de travail en évolution\n\n• Travailler de façon indépendante dans une jeune équipe motivée\n\n• Modèle flexible de caisse de vacances et de retraite\n\nDevenez membre de notre équipe\n\n• Achevé la formation en tant qu'assistant de pratique médicale: en formation ou formation comparable\n\n• L'expérience en orthopédie est bénéfique\n\n• Style-confident connaissance de l'allemand dans les mots et l'écriture\n\n• Le talent organisationnel avec de bonnes connaissances PC\n\n• Méthodes de travail prudentes et avancées"
       },
+      "needsRetranslation": true,
       "location": "Thun",
       "canton": "BE",
       "url": "https://ohws.prospective.ch/public/v1/redirect/2da73495-02a6-4a71-b701-54aeb342a2aa/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-31T11:38:48.027Z",
+      "crawledAt": "2026-07-31T22:08:44.849Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -206,7 +212,8 @@
         "med-assistente-pratica-in-urologia-spital-sts-thun",
         "medical-practice-assistant-urology-spital-sts-thun",
         "med-praxisassistent-in-urologie-spital-sts-thun",
-        "assistant-medical-en-urologie-spital-sts-thun"
+        "assistant-medical-en-urologie-spital-sts-thun",
+        "med-assistente-pratica-in-chirurgia-spinale-spital-sts-thun"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -218,7 +225,8 @@
           "med-assistente-pratica-in-urologia-spital-sts-thun",
           "medical-practice-assistant-urology-spital-sts-thun",
           "med-praxisassistent-in-urologie-spital-sts-thun",
-          "assistant-medical-en-urologie-spital-sts-thun"
+          "assistant-medical-en-urologie-spital-sts-thun",
+          "med-assistente-pratica-in-chirurgia-spinale-spital-sts-thun"
         ],
         "en": [
           "med-praxisassistent-in-wirbelsaulenchirurgie-spital-sts-thun",
@@ -278,7 +286,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/01086ffd-7b84-466f-ae86-6a320e273ccf/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-31T11:38:47.280Z",
+      "crawledAt": "2026-07-31T22:08:44.229Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -296,11 +304,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "fachfrau-mann-gesundheit-notfallzentrum-spital-sts-thun"
+        "fachfrau-mann-gesundheit-notfallzentrum-spital-sts-thun",
+        "centro-di-emergenza-sanitaria-professionale-spital-sts-thun"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachfrau-mann-gesundheit-notfallzentrum-spital-sts-thun"
+          "fachfrau-mann-gesundheit-notfallzentrum-spital-sts-thun",
+          "centro-di-emergenza-sanitaria-professionale-spital-sts-thun"
         ],
         "en": [
           "fachfrau-mann-gesundheit-notfallzentrum-spital-sts-thun"
@@ -355,7 +365,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/205f7aed-85d3-4fce-a3ad-c786a6947cce/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-31T11:38:46.487Z",
+      "crawledAt": "2026-07-31T22:08:43.630Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -381,7 +391,8 @@
         "dipl-nursing-specialist-surgery-spital-sts-thun",
         "dipl-pflegefachfrau-mann-chirurgie-spital-sts-thun",
         "dipl-chirurgie-specialisee-en-soins-infirmiers-spital-sts-thun",
-        "dipl-pflegefachfrau-mann-psychiatrie-tagesklinik-spital-sts-thun"
+        "dipl-pflegefachfrau-mann-psychiatrie-tagesklinik-spital-sts-thun",
+        "dipl-infermieristica-specialista-clinica-giorno-psichiatria-spital-sts-thun"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -393,7 +404,8 @@
           "dipl-nursing-specialist-surgery-spital-sts-thun",
           "dipl-pflegefachfrau-mann-chirurgie-spital-sts-thun",
           "dipl-chirurgie-specialisee-en-soins-infirmiers-spital-sts-thun",
-          "dipl-pflegefachfrau-mann-psychiatrie-tagesklinik-spital-sts-thun"
+          "dipl-pflegefachfrau-mann-psychiatrie-tagesklinik-spital-sts-thun",
+          "dipl-infermieristica-specialista-clinica-giorno-psichiatria-spital-sts-thun"
         ],
         "en": [
           "dipl-nursing-professional-gastroenterology-spital-sts-thun",
@@ -423,9 +435,9 @@
     },
     {
       "id": "spital-sts-ae25f9397091",
-      "slug": "specialista-di-radiologia-specialista-di-radiologia-hf-spital-sts-zweisimmen",
+      "slug": "radiologiefachfrau-radiologiefachmann-hf-spital-sts-zweisimmen",
       "slugByLocale": {
-        "it": "specialista-di-radiologia-specialista-di-radiologia-hf-spital-sts-zweisimmen",
+        "it": "radiologiefachfrau-radiologiefachmann-hf-spital-sts-zweisimmen",
         "en": "radiology-specialist-radiology-specialist-hf-spital-sts-zweisimmen",
         "de": "radiologiefachfrau-radiologiefachmann-hf-spital-sts-zweisimmen",
         "fr": "specialiste-en-radiologie-specialiste-en-radiologie-hf-spital-sts-zweisimmen"
@@ -435,7 +447,7 @@
       "companyDomain": "spitalstsag.ch",
       "title": "Radiologiefachfrau / Radiologiefachmann HF",
       "titleByLocale": {
-        "it": "Specialista di radiologia / Specialista di radiologia HF",
+        "it": "Radiologiefachfrau / Radiologiefachmann HF",
         "en": "Radiology specialist / Radiology specialist HF",
         "de": "Radiologiefachfrau / Radiologiefachmann HF",
         "fr": "Spécialiste en radiologie / Spécialiste en radiologie HF"
@@ -447,12 +459,13 @@
         "de": "Ein Job mit Aussichten: Im Spital Zweisimmen erwartet dich nebst einer vielseitigen Tätigkeit im familiären Umfeld auch die Möglichkeit zur flexiblen Freizeitgestaltung in der umliegenden Natur- und Bergregion. Du suchst sinnvoll, aber auch fair? Dann bist du hier richtig.\n\nDu magst eine selbständige und sehr verantwortungsvolle Arbeitsweise mit digitalem Röntgen und 80-Zeilen CT-Scanner ? Dir liegt eine umfassende und einfühlsame Versorgung von Patienten am Herzen ? Deine organisatorischen Fähigkeiten möchtest Du für eine gute Terminplanung und Patientenadministration einbringen ? Du bist offen für die Nutzung verschiedener, standortübergreifender Softwarelösungen ? Du hast Freude an einem kleinen Team ? CHECK ?\n\nDann sprich mit uns! Wir möchten dir gerne unsere schöne Abteilung zeigen und natürlich erklären, wie wir unsere Arbeitszeiten auf Früh-, Spät- und Pikettdienste in der Woche und am Wochenende verteilen. Wir freuen uns auf dich!\n\nEintritt per sofort oder nach Vereinbarung\n\nDas wartet auf dich\n\n• Kleines, familiäres und motiviertes Team\n\n• Gute Einführung\n\n• Abwechslungsreiches Aufgabengebiet\n\n• Fachliche und persönliche Weiterentwicklung\n\n• Wählbares Ferien- und Pensionskassenmodell\n\nSo wirst du Teil unseres Teams\n\n• Radiologiefachfrau / Radiologiefachmann (mit SRK-Anerkennung)\n\n• Teamorientierte, flexible und hilfsbereite Persönlichkeit\n\n• Bereitschaft Pikettdienste zu leisten\n\n• Sehr gute Deutschkenntnisse in Wort und Schrift, weitere Sprachkenntnisse von Vorteil",
         "fr": "Un emploi avec des perspectives: En plus d'un travail polyvalent dans l'environnement familial, l'Hôpital Zweisimmen vous offre également la possibilité de loisirs flexibles dans la nature environnante et la région de montagne. Êtes-vous à la recherche de sens, mais aussi juste? Alors vous êtes là.\n\nVous aimez une façon indépendante et très responsable de travailler avec les rayons X numériques et 80 lignes de scanner CT ? Êtes-vous préoccupé par les soins complets et sensibles pour les patients? Voulez-vous contribuer à une bonne organisation et à une bonne administration du patient? Êtes-vous ouvert à l'utilisation de différentes solutions logicielles de localisation croisée? Vous aimez une petite équipe ? Vérifie ?\n\nAlors parle-nous ! Nous aimerions vous montrer notre magnifique département et bien sûr expliquer comment nous distribuons nos heures de travail sur les services tôt, tard et piquet dans la semaine et le week-end. Nous avons hâte de vous voir!\n\nEntrée immédiate ou par accord\n\nÇa vous attend.\n\n• Petite équipe, familiale et motivée\n\n• Bonne introduction\n\n• Tâches variées\n\n• Développement professionnel et personnel\n\n• Modèle de caisse de vacances et de retraite sélectionnable\n\nDevenez membre de notre équipe\n\n• Spécialiste de radiologie (avec reconnaissance SRK)\n\n• Personnalité orientée vers l'équipe, souple et utile\n\n• Volonté de fournir des services de piquetage\n\n• Très bonne connaissance de l'allemand en mots et en écriture, d'autres compétences linguistiques sont avantageuses"
       },
+      "needsRetranslation": true,
       "location": "Zweisimmen",
       "canton": "BE",
       "url": "https://ohws.prospective.ch/public/v1/redirect/de8683f2-389a-4677-a8c5-b7e9ea7b3230/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-31T11:38:45.713Z",
+      "crawledAt": "2026-07-31T22:08:43.035Z",
       "addressLocality": "Zweisimmen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -474,6 +487,7 @@
         "dipl-radiology-specialist-radiology-specialist-hf-spital-sts-thun",
         "dipl-radiologiefachfrau-radiologiefachmann-hf-spital-sts-thun",
         "dipl-specialiste-en-radiologie-specialiste-en-radiologie-hf-spital-sts-thun",
+        "specialista-di-radiologia-specialista-di-radiologia-hf-spital-sts-zweisimmen",
         "radiologiefachfrau-radiologiefachmann-hf-spital-sts-zweisimmen"
       ],
       "previousSlugsByLocale": {
@@ -482,6 +496,7 @@
           "dipl-radiology-specialist-radiology-specialist-hf-spital-sts-thun",
           "dipl-radiologiefachfrau-radiologiefachmann-hf-spital-sts-thun",
           "dipl-specialiste-en-radiologie-specialiste-en-radiologie-hf-spital-sts-thun",
+          "specialista-di-radiologia-specialista-di-radiologia-hf-spital-sts-zweisimmen",
           "radiologiefachfrau-radiologiefachmann-hf-spital-sts-zweisimmen"
         ],
         "en": [
@@ -536,12 +551,13 @@
         "de": "Ein Job mit Aussichten: Im Spital Thun erwarten Sie nebst der topmodernen Infrastruktur und einer vielseitigen Tätigkeit im familiären Umfeld auch die Möglichkeit zur flexiblen Freizeitgestaltung in der umliegenden Natur- und Seeregion. Sie suchen Sinnhaftigkeit, aber auch Fairness? Dann sind Sie hier richtig.\n\nSie sind der Profi bei Schreibarbeiten ab Diktat von ambulanten und OP-Berichten und kennen sich mit der Bearbeitung von Versicherungsanfragen aus. Sie arbeiten gerne im Team, suchen eine neue Herausforderung in einem abwechslungsreichen Büroumfeld und finden an strukturierten Arbeitsprozessen Gefallen?\nDann sind Sie bei uns an der richtigen Adresse.\n\nEintritt per sofort oder nach Vereinbarung.\n\nDas wartet auf Sie\n\n• Flexible Arbeitszeiten mit Homeoffice-Möglichkeiten nach Absprache\n\n• Abwechslungsreiche administrative Aufgaben mit Erweiterungsmöglichkeiten\n\n• Kollegiales und wertschätzendes Arbeitsklima\n\n• Flexible Urlaubsplanung mit der Option auf zusätzliche Ferientage\n\n• Sehr gute Sozialleistungen\n\nSo werden Sie Teil unseres Teams\n\n• Abgeschlossene Ausbildung als Medizinische:r Sekretär:in\n\n• Einige Jahre Berufserfahrung in einer ähnlichen Funktion, idealerweise in der Orthopädie\n\n• Fundierte PC-Anwenderkenntnisse\n\n• Gute Kenntnisse der medizinischen Terminologie sowie der deutschen Rechtschreibung",
         "fr": "Un travail avec des perspectives: En plus de l'infrastructure de pointe et d'une activité polyvalente dans l'environnement familial, l'hôpital de Thun vous offre également la possibilité de loisirs flexibles dans la région naturelle et lacustre environnante. Cherchez-vous le sens, mais aussi l'équité? Alors vous êtes là.\n\nVous êtes le professionnel dans la rédaction des papiers dictés par les rapports ambulatoires et chirurgicaux et sont familiers avec le traitement des demandes d'assurance. Vous aimez travailler en équipe, chercher un nouveau défi dans un environnement de travail varié et profiter de processus de travail structurés?\nAlors vous êtes à la bonne adresse avec nous.\n\nAdmission immédiate ou par arrangement.\n\nÇa vous attend.\n\n• Heures de travail flexibles avec des options de bureau à domicile par arrangement\n\n• Tâches administratives variées avec possibilités d'expansion\n\n• Climat de travail collégial et apprécié\n\n• Planification de vacances flexible avec possibilité de vacances supplémentaires\n\n• Très bons avantages sociaux\n\nDevenez membre de notre équipe\n\n• Achevé la formation comme médecin:r Secrétaire:in\n\n• Quelques années d'expérience professionnelle dans une fonction similaire, idéalement en orthopédie\n\n• Connaissances de l'utilisateur du PC\n\n• Bonne connaissance de la terminologie médicale et de l'orthographe allemande"
       },
+      "needsRetranslation": true,
       "location": "Thun",
       "canton": "BE",
       "url": "https://ohws.prospective.ch/public/v1/redirect/c735b6c9-bb78-44c9-a6b5-cf337dfb9268/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-31T11:38:44.817Z",
+      "crawledAt": "2026-07-31T22:08:42.386Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -598,12 +614,13 @@
         "de": "Ein Job mit Aussichten: Im Spital Thun erwarten dich nebst der topmodernen Infrastruktur und einer vielseitigen Tätigkeit im familiären Umfeld auch die Möglichkeit zur flexiblen Freizeitgestaltung in der umliegenden Natur- und Seeregion. Du suchst sinnvoll, aber auch fair? Dann bist du hier richtig.\n\nGemeinsam im Team koordinierst und disponierst du die geplanten und notfallmässigen Patienteneintritte der chirurgischen und medizinischen Klinik und stellst den interdisziplinären Informationsfluss sicher. In enger Zusammenarbeit mit der Leitung Pflegedienst, dem Notfall, mit der OPS Dispo und mit den Stationen sorgst du für eine optimale Nutzung der Bettenkapazitäten.\n\nEintritt per 1. Oktober 2026 oder nach Vereinbarung\n\nDas wartet auf dich\n\n• Spannende und anspruchsvolle Stelle mit engem interdisziplinären Austausch\n\n• Tagesbetrieb mit geregelten Arbeitszeiten\n\n• Gute Aus-, Fort- und Weiterbildungsmöglichkeiten\n\n• Wählbares Ferien- und Pensionskassenmodell\n\nSo wirst du Teil unseres Teams\n\n• Medizinisches Fachwissen und vorzugsweise Berufserfahrung im Pflege/ -Spitalbereich\n\n• Hohe Kundenorientierung\n\n• Sehr gute kommunikative Fähigkeiten, hohe Sozialkompetenz\n\n• Vernetztes Denken und Koordinieren\n\n• Gute PC-Anwenderkenntnisse in verschiedenen Tools\n\n• Hohe Belastbarkeit und ruhiges Handeln",
         "fr": "Un travail avec des perspectives: En plus de l'infrastructure de pointe et d'une activité polyvalente dans l'environnement familial, l'hôpital de Thun vous offre également la possibilité de loisirs flexibles dans la région naturelle et lacustre environnante. Êtes-vous à la recherche de sens, mais aussi juste? Alors vous êtes là.\n\nEnsemble au sein de l'équipe, vous coordonnez et planifiez les admissions prévues et urgentes des patients de la clinique chirurgicale et médicale et vous assurez la circulation interdisciplinaire de l'information. En étroite collaboration avec la gestion du service de soins infirmiers, l'urgence, l'OPS Dispo et les stations, vous assurez une utilisation optimale des capacités du lit.\n\nEntrée au 1er octobre 2026 ou par arrangement\n\nÇa vous attend.\n\n• Position passionnante et stimulante avec un échange interdisciplinaire étroit\n\n• Opérations quotidiennes avec horaires de travail réglementés\n\n• Bonnes possibilités de formation, d'éducation et de formation\n\n• Modèle de caisse de vacances et de retraite sélectionnable\n\nDevenez membre de notre équipe\n\n• Expertise médicale et de préférence expérience professionnelle dans le secteur des soins infirmiers et hospitaliers\n\n• Orientation client élevée\n\n• Très bonnes compétences en communication, compétences sociales élevées\n\n• Réflexion et coordination en réseau\n\n• Bonne connaissance utilisateur PC dans divers outils\n\n• Haute résilience et action calme"
       },
+      "needsRetranslation": true,
       "location": "Thun",
       "canton": "BE",
       "url": "https://ohws.prospective.ch/public/v1/redirect/f78efc2b-e431-4ba4-93af-da57baae1552/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-31T11:38:44.081Z",
+      "crawledAt": "2026-07-31T22:08:41.520Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -623,13 +640,15 @@
       "previousSlugs": [
         "bed-dispatch-in-spital-sts-thun",
         "expedition-du-lit-en-spital-sts-thun",
-        "bettendisponent-in-spital-sts-thun"
+        "bettendisponent-in-spital-sts-thun",
+        "spedizione-del-letto-in-spital-sts-thun"
       ],
       "previousSlugsByLocale": {
         "it": [
           "bed-dispatch-in-spital-sts-thun",
           "expedition-du-lit-en-spital-sts-thun",
-          "bettendisponent-in-spital-sts-thun"
+          "bettendisponent-in-spital-sts-thun",
+          "spedizione-del-letto-in-spital-sts-thun"
         ],
         "en": [
           "bettendisponent-in-spital-sts-thun"
@@ -684,7 +703,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/4833763b-5802-496b-b347-b665d08a2efe/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-31T11:38:42.997Z",
+      "crawledAt": "2026-07-31T22:08:40.411Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -702,11 +721,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "nds-hf-intensivpflege-2027-2029-spital-sts-thun"
+        "nds-hf-intensivpflege-2027-2029-spital-sts-thun",
+        "nds-hf-cura-intensiva-2027-2029-spital-sts-thun"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "nds-hf-intensivpflege-2027-2029-spital-sts-thun"
+          "nds-hf-intensivpflege-2027-2029-spital-sts-thun",
+          "nds-hf-cura-intensiva-2027-2029-spital-sts-thun"
         ],
         "en": [
           "nds-hf-intensivpflege-2027-2029-spital-sts-thun"
@@ -761,7 +782,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/3d5168e5-f274-4305-9009-bbbd126b8833/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-31T11:38:42.222Z",
+      "crawledAt": "2026-07-31T22:08:39.798Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -783,7 +804,8 @@
         "specialist-health-efz-for-early-and-late-service-medicine-spital-sts-thun",
         "fachfrau-fachmann-gesundheit-efz-fur-fruh-und-spatdienst-medizin-spital-sts-thun",
         "specialiste-de-la-sante-efz-pour-la-medecine-precoce-et-tardive-spital-sts-thun",
-        "fachfrau-fachmann-gesundheit-spital-sts-thun"
+        "fachfrau-fachmann-gesundheit-spital-sts-thun",
+        "salute-professionale-spital-sts-thun"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -791,7 +813,8 @@
           "specialist-health-efz-for-early-and-late-service-medicine-spital-sts-thun",
           "fachfrau-fachmann-gesundheit-efz-fur-fruh-und-spatdienst-medizin-spital-sts-thun",
           "specialiste-de-la-sante-efz-pour-la-medecine-precoce-et-tardive-spital-sts-thun",
-          "fachfrau-fachmann-gesundheit-spital-sts-thun"
+          "fachfrau-fachmann-gesundheit-spital-sts-thun",
+          "salute-professionale-spital-sts-thun"
         ],
         "en": [
           "specialist-health-efz-for-early-and-late-service-medicine-spital-sts-thun",
