@@ -1,6 +1,6 @@
 {
   "crawlerKey": "corner-banca",
-  "assembledAt": "2026-07-31T11:40:18.224Z",
+  "assembledAt": "2026-07-31T22:11:50.844Z",
   "jobs": [
     {
       "id": "corner-banca-f803e5cc9fe2",
@@ -55,7 +55,7 @@
       "url": "https://jobs.corner.ch/o/unsolicited-application-apprenticeship",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "it",
-      "crawledAt": "2026-07-31T11:40:15.517Z",
+      "crawledAt": "2026-07-31T22:11:46.385Z",
       "previousSlugs": [
         "initiativbewerbung-lehre-corner-banca-switzerland"
       ],
@@ -65,6 +65,7 @@
         ]
       },
       "firstSeenAt": "2026-07-08T22:13:15.988Z",
+      "needsRetranslation": true,
       "salaryMin": 59500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -140,8 +141,9 @@
       "url": "https://jobs.corner.ch/o/risk-manager-asset-liability-management-alm-and-liquidity-risk",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-31T11:40:15.516Z",
+      "crawledAt": "2026-07-31T22:11:46.384Z",
       "firstSeenAt": "2026-07-08T22:13:15.985Z",
+      "needsRetranslation": true,
       "salaryMin": 142000,
       "salaryMax": 249500,
       "baseSalary": {
@@ -225,8 +227,9 @@
       "url": "https://jobs.corner.ch/o/customer-advisor-100-team-lugano",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-31T11:40:15.516Z",
+      "crawledAt": "2026-07-31T22:11:46.384Z",
       "firstSeenAt": "2026-07-08T22:13:15.987Z",
+      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 90500,
       "baseSalary": {
@@ -261,7 +264,7 @@
       "titleByLocale": {
         "it": "Employe Collection Team Zürich",
         "en": "Employee Collection Team Zürich",
-        "de": "Mitarbeitersammlung Team Zürich",
+        "de": "Employee Collection Team Zürich",
         "fr": "Équipe de recouvrement des employés Zürich"
       },
       "description": "We are looking for a motivated and customer-oriented professional to join our team in a dynamic and growing environment. The ideal candidate is eager to develop their skills in client relationship management and credit recovery, combining strong communication abilities with empathy and a solution-driven approach. This role offers the opportunity to work closely with clients, negotiate sustainable payment solutions, and contribute to maintaining positive and professional relationships even in sensitive situations.\n\nKey Responsibilities:\n\n• Phone contact with clients for credit management and debt recovery\n\n• Active listening to clients’ situations and identification of sustainable payment solutions\n\n• Negotiation of repayment plans and monitoring of agreed arrangements\n\n• Management and updating of cases in internal systems\n\n• Collaboration with the team to monitor open positions\n\n• Maintaining a professional and empathetic approach even in sensitive situations\n\n• Commercial training (commercial apprenticeship or equivalent qualification)\n\n• Native German and good knowledge of English\n\n• Excellent communication skills and strong customer listening abilities\n\n• Aptitude for managing customer relationships over the phone\n\n• Empathy, mediation skills, and solution-oriented mindset\n\n• Attention to detail and organizational skills\n\n• Team spirit and reliability\n\nIdeal profile\n\n• Young, motivated person eager to grow professionally\n\n• Ability to remain calm and professional even in difficult conversations\n\n• Team-oriented attitude and collaborative mindset",
@@ -317,7 +320,7 @@
       "url": "https://jobs.corner.ch/o/employee-collection-team-zurich",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-31T11:40:15.515Z",
+      "crawledAt": "2026-07-31T22:11:46.383Z",
       "previousSlugs": [
         "customer-consulente-100-team-zurich-corner-banca-wallisellen",
         "customer-consulente-60-team-zurich-corner-banca-wallisellen",
@@ -334,6 +337,7 @@
         ]
       },
       "firstSeenAt": "2026-07-08T22:13:15.985Z",
+      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 127500,
       "baseSalary": {
@@ -416,8 +420,9 @@
       "url": "https://jobs.corner.ch/o/it-auditor",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-31T11:40:15.514Z",
+      "crawledAt": "2026-07-31T22:11:46.383Z",
       "firstSeenAt": "2026-07-08T22:13:15.983Z",
+      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000,
       "baseSalary": {
@@ -443,7 +448,7 @@
         "it": "collezione-dei-dipendenti-corner-banca-wallisellen",
         "en": "employee-front-office-collection-corner-banca-wallisellen",
         "de": "employee-front-office-collection-corner-banca-wallisellen",
-        "fr": "collecte-aupres-des-employes-corner-banca-wallisellen"
+        "fr": "employee-front-office-collection-corner-banca-wallisellen"
       },
       "company": "Cornèr Banca",
       "companyKey": "corner-banca",
@@ -453,7 +458,7 @@
         "it": "Collezione dei dipendenti",
         "en": "Employee Front Office Collection",
         "de": "Mitarbeiter Front Office Collection",
-        "fr": "Collecte auprès des employés"
+        "fr": "Employee Front Office Collection"
       },
       "description": "As part of our growing operations in Zurich, we are seeking a dedicated and customer-focused professional to join our Front Office Team in the Dunning & Collection area. This role offers the opportunity to contribute to effective credit management while ensuring high-quality customer interactions.\n\nKey Responsibilities:\n\n• Phone-based client communication for credit management and debt collection\n\n• Negotiation of repayment plans and monitoring of agreed arrangements\n\n• Coordination with external debt collection partners and management of assigned mandates\n\n• Application of active listening in client interactions, combined with analytical evaluation of information to identify and propose appropriate solutions\n\n• Provide administrative and back-office support\n\n• Close collaboration with internal teams\n\n• Commercial apprenticeship (KV) or equivalent diploma\n\n• 1–2 years of professional experience, preferably in receivables management (dunning and debt collection) or financial services\n\n• Languages: German / Swiss German (written and spoken) and French (written and spoken) are mandatory; Italian is an advantage; additional languages are welcomed\n\n• Experience in roles requiring regular customer interaction by phone (inbound and outbound communication)\n\n• Excellent communication and negotiation skills, combined with active listening, empathy, and a pragmatic, solution-oriented approach\n\n• Proficiency in MS Office\n\n• Strong team orientation, with the ability to collaborate effectively in a dynamic environment",
       "descriptionByLocale": {
@@ -497,19 +502,24 @@
       "url": "https://jobs.corner.ch/o/employee-front-office-collection",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-31T11:40:15.514Z",
+      "crawledAt": "2026-07-31T22:11:46.383Z",
       "previousSlugs": [
-        "employee-front-office-collection-corner-banca-wallisellen"
+        "employee-front-office-collection-corner-banca-wallisellen",
+        "collecte-aupres-des-employes-corner-banca-wallisellen",
+        "collezione-dei-dipendenti-corner-banca-wallisellen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "employee-front-office-collection-corner-banca-wallisellen"
+          "employee-front-office-collection-corner-banca-wallisellen",
+          "collezione-dei-dipendenti-corner-banca-wallisellen"
         ],
         "fr": [
+          "collecte-aupres-des-employes-corner-banca-wallisellen",
           "employee-front-office-collection-corner-banca-wallisellen"
         ]
       },
       "firstSeenAt": "2026-07-08T22:13:15.984Z",
+      "needsRetranslation": true,
       "salaryMin": 113000,
       "salaryMax": 198500,
       "baseSalary": {
@@ -588,19 +598,22 @@
       "url": "https://jobs.corner.ch/o/legal-collection-case-manager",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-31T11:40:15.513Z",
+      "crawledAt": "2026-07-31T22:11:46.382Z",
       "previousSlugs": [
-        "legal-collection-case-manager-corner-banca-wallisellen"
+        "legal-collection-case-manager-corner-banca-wallisellen",
+        "responsabile-del-caso-di-raccolta-legale-corner-banca-wallisellen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "legal-collection-case-manager-corner-banca-wallisellen"
+          "legal-collection-case-manager-corner-banca-wallisellen",
+          "responsabile-del-caso-di-raccolta-legale-corner-banca-wallisellen"
         ],
         "de": [
           "legal-collection-case-manager-corner-banca-wallisellen"
         ]
       },
       "firstSeenAt": "2026-07-08T22:13:15.982Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -614,113 +627,6 @@
         }
       },
       "addressRegion": "ZH",
-      "employmentType": "FULL_TIME",
-      "country": "CH"
-    },
-    {
-      "id": "corner-banca-115c1c6e6274",
-      "slug": "responsabile-customer-analytics-corner-banca-lugano",
-      "slugByLocale": {
-        "it": "responsabile-customer-analytics-corner-banca-lugano",
-        "en": "customer-analytics-officer-corner-banca-lugano",
-        "de": "customer-analytics-officer-corner-banca-wallisellen",
-        "fr": "specialiste-de-l-analyse-des-clients-corner-banca-wallisellen"
-      },
-      "company": "Cornèr Banca",
-      "companyKey": "corner-banca",
-      "companyDomain": "corner.ch",
-      "title": "Customer Analytics Officer",
-      "titleByLocale": {
-        "it": "Responsabile Customer Analytics",
-        "en": "Customer Analytics Officer",
-        "de": "Customer Analytics Officer",
-        "fr": "Spécialiste de l ' analyse des clients"
-      },
-      "description": "We are looking for an experienced and detail-oriented professional to join our team within a dynamic banking environment.\n\nKey Responsibilities\n\n• Work closely together with marketing and digital transformation specialists to understand their needs in terms of data to operate and steer their marketing strategies.\n\n• Develop customer behavioral profiling based on demographic, product usage and and multi-channel touchpoints data (from digital to call center).\n\n• Utilize machine learning, statistical modeling and feature engineering techniques to develop powerful response predictive models that anticipate customer responses and behaviors.\n\n• Develop robust scheduled data feeding procedures by extracting data from multiple data sources, perform data preparation and apply ML models.\n\n• Develop Business Intelligence dashboards to track customer portfolio KPIs, digital adoption and marketing initiatives performance\n\n• Become the data steward of reference for customers and touchpoint data. Collaborate with Information Management specialists to ensure data integrity and effective data modeling.\n\n• Bachelor’s or Master’s degree in Data Analytics, Statistics, Computer Science or a related field.\n\n• Very strong background in data analysis, including multivariate statistical methods and forecasting models.\n\n• 2+ years of experience in Data Analytics, in the financial Industry is an advantage.\n\n• Excellent skills in working with relational databases; proven advanced SQL knowledge, with BigQuery is an advantage.\n\n• Excellent knowledge of the programming language Python and the related libraries for scientific computing (in particular pandas, numpy and scikit-learn)\n\n• Advanced knowledge of MS Excel\n\n• Knowledge of a modern BI tool like MS Power BI is an advantage.\n\n• Knowledge of the IBM SPSS data analytics software or similar is an advantage.\n\n• Analytical and solution oriented mindset, excellent problem solving abilities\n\n• Self-motivated and proactive personality\n\n• Outstanding communication skills. Fluent in Italian & English, German an advantage\n\n• Workplace: Lugano / Zurich",
-      "descriptionByLocale": {
-        "it": "Siamo alla ricerca di un professionista esperto e orientato al dettaglio per unirsi al nostro team in un ambiente bancario dinamico. Principali responsabilità\n• Lavorare a stretto contatto con specialisti di marketing e trasformazione digitale per comprendere le loro esigenze in termini di dati per operare e guidare le loro strategie di marketing.\n• Sviluppare la profilazione comportamentale del cliente in base ai dati demografici, di utilizzo del prodotto e di touchpoint multicanale (dal digitale al call center).\n• Utilizzare l'apprendimento automatico, la modellazione statistica e le tecniche di ingegneria caratteristica per sviluppare modelli predittivi di risposta potenti che anticipano le risposte dei clienti e i comportamenti.\n• Sviluppare procedure di alimentazione dati programmate robuste estraendo i dati da più fonti di dati, eseguire la preparazione dei dati e applicare modelli ML.\n• Sviluppa dashboard di Business Intelligence per monitorare le prestazioni del portafoglio clienti KPI, adozione digitale e iniziative di marketing\n• Diventa il responsabile dei dati di riferimento per i clienti e i dati touchpoint. Collabora con gli specialisti della Gestione delle informazioni per garantire l'integrità dei dati e la modellazione efficace dei dati.\n• Laurea o Master in Data Analytics, Statistica, Informatica o un campo correlato.\n• Sfondo molto forte nell'analisi dei dati, inclusi metodi statistici multivariati e modelli di previsione.\n• 2+ anni di esperienza in Data Analytics, nel settore finanziario è un vantaggio.\n• Competenze eccellenti nel lavorare con database relazionali; comprovata conoscenza SQL avanzata, con BigQuery è un vantaggio.\n• Ottima conoscenza del linguaggio di programmazione Python e delle relative librerie per il calcolo scientifico (in particolare panda, numpy e scikit-learn)\n• Conoscenza avanzata di MS Excel\n• La conoscenza di uno strumento BI moderno come MS Power BI è un vantaggio.\n• La conoscenza del software di analisi dati IBM SPSS o simile è un vantaggio.\n• mentalità analitica e orientata alla soluzione, eccellenti capacità di problem solving\n• Personalità automotivata e proattiva\n• Competenze di comunicazione eccezionali. Potenza in italiano, inglese e tedesco richiesto.\n• Luogo di lavoro: Lugano/Zurich",
-        "en": "We are looking for an experienced and detail-oriented professional to join our team within a dynamic banking environment.\n\nKey Responsibilities\n\n• Work closely together with marketing and digital transformation specialists to understand their needs in terms of data to operate and steer their marketing strategies.\n\n• Develop customer behavioral profiling based on demographic, product usage and and multi-channel touchpoints data (from digital to call center).\n\n• Utilize machine learning, statistical modeling and feature engineering techniques to develop powerful response predictive models that anticipate customer responses and behaviors.\n\n• Develop robust scheduled data feeding procedures by extracting data from multiple data sources, perform data preparation and apply ML models.\n\n• Develop Business Intelligence dashboards to track customer portfolio KPIs, digital adoption and marketing initiatives performance\n\n• Become the data steward of reference for customers and touchpoint data. Collaborate with Information Management specialists to ensure data integrity and effective data modeling.\n\n• Bachelor’s or Master’s degree in Data Analytics, Statistics, Computer Science or a related field.\n\n• Very strong background in data analysis, including multivariate statistical methods and forecasting models.\n\n• 2+ years of experience in Data Analytics, in the financial Industry is an advantage.\n\n• Excellent skills in working with relational databases; proven advanced SQL knowledge, with BigQuery is an advantage.\n\n• Excellent knowledge of the programming language Python and the related libraries for scientific computing (in particular pandas, numpy and scikit-learn)\n\n• Advanced knowledge of MS Excel\n\n• Knowledge of a modern BI tool like MS Power BI is an advantage.\n\n• Knowledge of the IBM SPSS data analytics software or similar is an advantage.\n\n• Analytical and solution oriented mindset, excellent problem solving abilities\n\n• Self-motivated and proactive personality\n\n• Outstanding communication skills. Fluent in Italian & English, German an advantage\n\n• Workplace: Lugano / Zurich",
-        "de": "Wir suchen einen erfahrenen und detailorientierten Fachmann, der sich unserem Team in einem dynamischen Banking-Umfeld anschließt. Hauptzuständigkeiten\n• Arbeiten Sie eng mit Spezialisten für Marketing und digitale Transformation zusammen, um ihre Bedürfnisse in Bezug auf Daten zu verstehen und ihre Marketingstrategien zu steuern.\n• Entwicklung von Kundenverhaltensprofilen basierend auf demografischen Daten, Produktnutzung und Multi-Channel-Touchpoints (von digital bis Call Center).\n• Verwenden Sie maschinelles Lernen, statistische Modellierung und Feature-Engineering-Techniken, um leistungsstarke Antwort-prädiktive Modelle zu entwickeln, die Kundenreaktionen und -verhalten antizipieren.\n• Entwickeln Sie robuste geplante Dateneingabeverfahren, indem Sie Daten aus mehreren Datenquellen extrahieren, Datenvorbereitung durchführen und ML-Modelle anwenden.\n• Entwickeln Sie Business Intelligence-Dashboards, um die Leistung von Kundenportfolio-KPIs, digitaler Adoption und Marketinginitiativen zu verfolgen\n• Werden Sie zum Data Steward of Reference für Kunden und Touchpoint-Daten. Arbeiten Sie mit Spezialisten für Informationsmanagement zusammen, um die Datenintegrität und eine effektive Datenmodellierung sicherzustellen.\n• Bachelor- oder Master-Abschluss in Data Analytics, Statistik, Informatik oder einem verwandten Bereich.\n• Sehr starker Hintergrund in der Datenanalyse, einschließlich multivariater statistischer Methoden und Prognosemodelle.\n• 2+ Jahre Erfahrung in Data Analytics, in der Finanzindustrie ist ein Vorteil.\n• Hervorragende Fähigkeiten in der Arbeit mit relationalen Datenbanken; bewährte fortgeschrittene SQL-Kenntnisse, mit BigQuery ist ein Vorteil.\n• Ausgezeichnete Kenntnisse der Programmiersprache Python und der zugehörigen Bibliotheken für wissenschaftliche Computer (insbesondere Pandas, Numpy und Scikit-Learning)\n• Fortgeschrittene Kenntnisse von MS Excel\n• Die Kenntnis eines modernen BI-Tools wie MS Power BI ist von Vorteil.\n• Kenntnisse der IBM SPSS Data Analytics Software oder ähnliches sind von Vorteil.\n• Analytische und lösungsorientierte Denkweise, ausgezeichnete Problemlösungsfähigkeiten\n• Selbstmotivierte und proaktive Persönlichkeit\n• Hervorragende Kommunikationsfähigkeiten. Fließend in Italienisch, Englisch und Deutsch erforderlich.\n• Arbeitsplatz: Lugano/Zürich",
-        "fr": "Nous recherchons un professionnel expérimenté et axé sur les détails pour rejoindre notre équipe dans un environnement bancaire dynamique. Principales responsabilités\n• Collaborer étroitement avec les spécialistes du marketing et de la transformation numérique pour comprendre leurs besoins en matière de données afin d'opérer et d'orienter leurs stratégies de marketing.\n• Développer un profil comportemental du client basé sur des données démographiques, d'utilisation de produits et de points tactiles multicanaux (du numérique au centre d'appels).\n• Utiliser l'apprentissage automatique, la modélisation statistique et les techniques d'ingénierie pour développer des modèles prédictifs de réponse puissants qui anticipent les réactions et les comportements des clients.\n• Élaborer de solides procédures d'alimentation des données planifiées en extrayant les données de plusieurs sources de données, en préparant les données et en appliquant des modèles ML.\n• Élaborer des tableaux de bord de Business Intelligence pour suivre la performance des ICR du portefeuille client, des initiatives d'adoption et de marketing numériques\n• Devenez le responsable des données de référence pour les clients et les données touchpoint. Collaborer avec des spécialistes de la gestion de l'information pour assurer l'intégrité des données et la modélisation efficace des données.\n• Baccalauréat ou maîtrise en analyse de données, statistiques, informatique ou un domaine connexe.\n• Très solide expérience dans l'analyse des données, y compris les méthodes statistiques et les modèles de prévision multivariés.\n• 2+ ans d'expérience en Data Analytics, dans l'industrie financière est un avantage.\n• Excellentes compétences dans le travail avec les bases de données relationnelles ; la connaissance avancée de SQL, avec BigQuery est un avantage.\n• Excellente connaissance du langage de programmation Python et des bibliothèques connexes pour l'informatique scientifique (en particulier pandas, numpy et scikit-learn)\n• Connaissances avancées de MS Excel\n• La connaissance d'un outil BI moderne comme MS Power BI est un avantage.\n• La connaissance du logiciel d'analyse de données IBM SPSS est un avantage.\n• L'état d'esprit analytique et de solution, excellentes capacités de résolution de problèmes\n• Personnalité automotivée et proactive\n• Compétences exceptionnelles en communication. Connaissance de l'italien, de l'anglais et de l'allemand requis.\n• Lieu de travail: Lugano/Zurich"
-      },
-      "requirements": [
-        "Bachelor’s or Master’s degree in Data Analytics, Statistics, Computer Science or a related field.",
-        "Very strong background in data analysis, including multivariate statistical methods and forecasting models.",
-        "2+ years of experience in Data Analytics, in the financial Industry is an advantage.",
-        "Excellent skills in working with relational databases; proven advanced SQL knowledge, with BigQuery is an advantage.",
-        "Excellent knowledge of the programming language Python and the related libraries for scientific computing (in particular pandas, numpy and scikit-learn)",
-        "Advanced knowledge of MS Excel",
-        "Knowledge of a modern BI tool like MS Power BI is an advantage.",
-        "Knowledge of the IBM SPSS data analytics software or similar is an advantage.",
-        "Analytical and solution oriented mindset, excellent problem solving abilities",
-        "Self-motivated and proactive personality",
-        "Outstanding communication skills. Fluent in Italian & English, German an advantage",
-        "Workplace: Lugano / Zurich"
-      ],
-      "requirementsByLocale": {
-        "it": [
-          "Bachelor’s or Master’s degree in Data Analytics, Statistics, Computer Science or a related field.",
-          "Very strong background in data analysis, including multivariate statistical methods and forecasting models.",
-          "2+ years of experience in Data Analytics, in the financial Industry is an advantage.",
-          "Excellent skills in working with relational databases; proven advanced SQL knowledge, with BigQuery is an advantage.",
-          "Advanced knowledge of MS Excel",
-          "Knowledge of a modern BI tool like MS Power BI is an advantage.",
-          "Knowledge of the IBM SPSS data analytics software or similar is an advantage.",
-          "Analytical and solution oriented mindset, excellent problem solving abilities"
-        ],
-        "en": [
-          "Bachelor’s or Master’s degree in Data Analytics, Statistics, Computer Science or a related field.",
-          "Very strong background in data analysis, including multivariate statistical methods and forecasting models.",
-          "2+ years of experience in Data Analytics, in the financial Industry is an advantage.",
-          "Excellent skills in working with relational databases; proven advanced SQL knowledge, with BigQuery is an advantage.",
-          "Advanced knowledge of MS Excel",
-          "Knowledge of a modern BI tool like MS Power BI is an advantage.",
-          "Knowledge of the IBM SPSS data analytics software or similar is an advantage.",
-          "Analytical and solution oriented mindset, excellent problem solving abilities"
-        ]
-      },
-      "location": "Lugano",
-      "canton": "TI",
-      "addressLocality": "Lugano",
-      "addressCountry": "CH",
-      "category": "finance",
-      "contract": "full-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-02",
-      "url": "https://jobs.corner.ch/o/customer-analytics-officer",
-      "source": "Corner Dedicated Parser (Recruitee API)",
-      "sourceLang": "en",
-      "crawledAt": "2026-07-31T11:40:15.511Z",
-      "previousSlugs": [
-        "customer-analytics-officer-corner-banca-lugano",
-        "customer-analytics-officer-corner-banca-wallisellen"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "customer-analytics-officer-corner-banca-lugano",
-          "customer-analytics-officer-corner-banca-wallisellen"
-        ],
-        "en": [
-          "customer-analytics-officer-corner-banca-wallisellen"
-        ]
-      },
-      "firstSeenAt": "2026-07-08T22:13:15.980Z",
-      "salaryMin": 142000,
-      "salaryMax": 249500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 142000,
-          "maxValue": 249500,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Via Canova 16",
-      "postalCode": "6901",
-      "addressRegion": "TI",
       "employmentType": "FULL_TIME",
       "country": "CH"
     },
@@ -800,13 +706,15 @@
       "url": "https://jobs.corner.ch/o/marketing-project-manager",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-31T11:40:15.510Z",
+      "crawledAt": "2026-07-31T22:11:46.381Z",
       "previousSlugs": [
-        "marketing-project-manager-corner-banca-lugano"
+        "marketing-project-manager-corner-banca-lugano",
+        "responsabile-del-progetto-di-marketing-corner-banca-lugano"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "marketing-project-manager-corner-banca-lugano"
+          "marketing-project-manager-corner-banca-lugano",
+          "responsabile-del-progetto-di-marketing-corner-banca-lugano"
         ],
         "de": [
           "marketing-project-manager-corner-banca-lugano"
@@ -816,6 +724,7 @@
         ]
       },
       "firstSeenAt": "2026-07-08T22:13:15.977Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -825,6 +734,116 @@
           "@type": "QuantitativeValue",
           "minValue": 68000,
           "maxValue": 103000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Via Canova 16",
+      "postalCode": "6901",
+      "addressRegion": "TI",
+      "employmentType": "FULL_TIME",
+      "country": "CH"
+    },
+    {
+      "id": "corner-banca-115c1c6e6274",
+      "slug": "responsabile-customer-analytics-corner-banca-lugano",
+      "slugByLocale": {
+        "it": "responsabile-customer-analytics-corner-banca-lugano",
+        "en": "customer-analytics-officer-corner-banca-lugano",
+        "de": "customer-analytics-officer-corner-banca-wallisellen",
+        "fr": "specialiste-de-l-analyse-des-clients-corner-banca-wallisellen"
+      },
+      "company": "Cornèr Banca",
+      "companyKey": "corner-banca",
+      "companyDomain": "corner.ch",
+      "title": "Customer Analytics Officer",
+      "titleByLocale": {
+        "it": "Responsabile Customer Analytics",
+        "en": "Customer Analytics Officer",
+        "de": "Customer Analytics Officer",
+        "fr": "Spécialiste de l ' analyse des clients"
+      },
+      "description": "We are looking for an experienced and detail-oriented professional to join our team within a dynamic banking environment.\n\nKey Responsibilities\n\n• Work closely together with marketing and digital transformation specialists to understand their needs in terms of data to operate and steer their marketing strategies.\n\n• Develop customer behavioral profiling based on demographic, product usage and and multi-channel touchpoints data (from digital to call center).\n\n• Utilize machine learning, statistical modeling and feature engineering techniques to develop powerful response predictive models that anticipate customer responses and behaviors.\n\n• Develop robust scheduled data feeding procedures by extracting data from multiple data sources, perform data preparation and apply ML models.\n\n• Develop Business Intelligence dashboards to track customer portfolio KPIs, digital adoption and marketing initiatives performance\n\n• Become the data steward of reference for customers and touchpoint data. Collaborate with Information Management specialists to ensure data integrity and effective data modeling.\n\n• Bachelor’s or Master’s degree in Data Analytics, Statistics, Computer Science or a related field.\n\n• Very strong background in data analysis, including multivariate statistical methods and forecasting models.\n\n• 2+ years of experience in Data Analytics, in the financial Industry is an advantage.\n\n• Excellent skills in working with relational databases; proven advanced SQL knowledge, with BigQuery is an advantage.\n\n• Excellent knowledge of the programming language Python and the related libraries for scientific computing (in particular pandas, numpy and scikit-learn)\n\n• Advanced knowledge of MS Excel\n\n• Knowledge of a modern BI tool like MS Power BI is an advantage.\n\n• Knowledge of the IBM SPSS data analytics software or similar is an advantage.\n\n• Analytical and solution oriented mindset, excellent problem solving abilities\n\n• Self-motivated and proactive personality\n\n• Outstanding communication skills. Fluent in Italian & English, German an advantage\n\n• Workplace: Lugano / Zurich",
+      "descriptionByLocale": {
+        "it": "Siamo alla ricerca di un professionista esperto e orientato al dettaglio per unirsi al nostro team in un ambiente bancario dinamico. Principali responsabilità\n• Lavorare a stretto contatto con specialisti di marketing e trasformazione digitale per comprendere le loro esigenze in termini di dati per operare e guidare le loro strategie di marketing.\n• Sviluppare la profilazione comportamentale del cliente in base ai dati demografici, di utilizzo del prodotto e di touchpoint multicanale (dal digitale al call center).\n• Utilizzare l'apprendimento automatico, la modellazione statistica e le tecniche di ingegneria caratteristica per sviluppare modelli predittivi di risposta potenti che anticipano le risposte dei clienti e i comportamenti.\n• Sviluppare procedure di alimentazione dati programmate robuste estraendo i dati da più fonti di dati, eseguire la preparazione dei dati e applicare modelli ML.\n• Sviluppa dashboard di Business Intelligence per monitorare le prestazioni del portafoglio clienti KPI, adozione digitale e iniziative di marketing\n• Diventa il responsabile dei dati di riferimento per i clienti e i dati touchpoint. Collabora con gli specialisti della Gestione delle informazioni per garantire l'integrità dei dati e la modellazione efficace dei dati.\n• Laurea o Master in Data Analytics, Statistica, Informatica o un campo correlato.\n• Sfondo molto forte nell'analisi dei dati, inclusi metodi statistici multivariati e modelli di previsione.\n• 2+ anni di esperienza in Data Analytics, nel settore finanziario è un vantaggio.\n• Competenze eccellenti nel lavorare con database relazionali; comprovata conoscenza SQL avanzata, con BigQuery è un vantaggio.\n• Ottima conoscenza del linguaggio di programmazione Python e delle relative librerie per il calcolo scientifico (in particolare panda, numpy e scikit-learn)\n• Conoscenza avanzata di MS Excel\n• La conoscenza di uno strumento BI moderno come MS Power BI è un vantaggio.\n• La conoscenza del software di analisi dati IBM SPSS o simile è un vantaggio.\n• mentalità analitica e orientata alla soluzione, eccellenti capacità di problem solving\n• Personalità automotivata e proattiva\n• Competenze di comunicazione eccezionali. Potenza in italiano, inglese e tedesco richiesto.\n• Luogo di lavoro: Lugano/Zurich",
+        "en": "We are looking for an experienced and detail-oriented professional to join our team within a dynamic banking environment.\n\nKey Responsibilities\n\n• Work closely together with marketing and digital transformation specialists to understand their needs in terms of data to operate and steer their marketing strategies.\n\n• Develop customer behavioral profiling based on demographic, product usage and and multi-channel touchpoints data (from digital to call center).\n\n• Utilize machine learning, statistical modeling and feature engineering techniques to develop powerful response predictive models that anticipate customer responses and behaviors.\n\n• Develop robust scheduled data feeding procedures by extracting data from multiple data sources, perform data preparation and apply ML models.\n\n• Develop Business Intelligence dashboards to track customer portfolio KPIs, digital adoption and marketing initiatives performance\n\n• Become the data steward of reference for customers and touchpoint data. Collaborate with Information Management specialists to ensure data integrity and effective data modeling.\n\n• Bachelor’s or Master’s degree in Data Analytics, Statistics, Computer Science or a related field.\n\n• Very strong background in data analysis, including multivariate statistical methods and forecasting models.\n\n• 2+ years of experience in Data Analytics, in the financial Industry is an advantage.\n\n• Excellent skills in working with relational databases; proven advanced SQL knowledge, with BigQuery is an advantage.\n\n• Excellent knowledge of the programming language Python and the related libraries for scientific computing (in particular pandas, numpy and scikit-learn)\n\n• Advanced knowledge of MS Excel\n\n• Knowledge of a modern BI tool like MS Power BI is an advantage.\n\n• Knowledge of the IBM SPSS data analytics software or similar is an advantage.\n\n• Analytical and solution oriented mindset, excellent problem solving abilities\n\n• Self-motivated and proactive personality\n\n• Outstanding communication skills. Fluent in Italian & English, German an advantage\n\n• Workplace: Lugano / Zurich",
+        "de": "Wir suchen einen erfahrenen und detailorientierten Fachmann, der sich unserem Team in einem dynamischen Banking-Umfeld anschließt. Hauptzuständigkeiten\n• Arbeiten Sie eng mit Spezialisten für Marketing und digitale Transformation zusammen, um ihre Bedürfnisse in Bezug auf Daten zu verstehen und ihre Marketingstrategien zu steuern.\n• Entwicklung von Kundenverhaltensprofilen basierend auf demografischen Daten, Produktnutzung und Multi-Channel-Touchpoints (von digital bis Call Center).\n• Verwenden Sie maschinelles Lernen, statistische Modellierung und Feature-Engineering-Techniken, um leistungsstarke Antwort-prädiktive Modelle zu entwickeln, die Kundenreaktionen und -verhalten antizipieren.\n• Entwickeln Sie robuste geplante Dateneingabeverfahren, indem Sie Daten aus mehreren Datenquellen extrahieren, Datenvorbereitung durchführen und ML-Modelle anwenden.\n• Entwickeln Sie Business Intelligence-Dashboards, um die Leistung von Kundenportfolio-KPIs, digitaler Adoption und Marketinginitiativen zu verfolgen\n• Werden Sie zum Data Steward of Reference für Kunden und Touchpoint-Daten. Arbeiten Sie mit Spezialisten für Informationsmanagement zusammen, um die Datenintegrität und eine effektive Datenmodellierung sicherzustellen.\n• Bachelor- oder Master-Abschluss in Data Analytics, Statistik, Informatik oder einem verwandten Bereich.\n• Sehr starker Hintergrund in der Datenanalyse, einschließlich multivariater statistischer Methoden und Prognosemodelle.\n• 2+ Jahre Erfahrung in Data Analytics, in der Finanzindustrie ist ein Vorteil.\n• Hervorragende Fähigkeiten in der Arbeit mit relationalen Datenbanken; bewährte fortgeschrittene SQL-Kenntnisse, mit BigQuery ist ein Vorteil.\n• Ausgezeichnete Kenntnisse der Programmiersprache Python und der zugehörigen Bibliotheken für wissenschaftliche Computer (insbesondere Pandas, Numpy und Scikit-Learning)\n• Fortgeschrittene Kenntnisse von MS Excel\n• Die Kenntnis eines modernen BI-Tools wie MS Power BI ist von Vorteil.\n• Kenntnisse der IBM SPSS Data Analytics Software oder ähnliches sind von Vorteil.\n• Analytische und lösungsorientierte Denkweise, ausgezeichnete Problemlösungsfähigkeiten\n• Selbstmotivierte und proaktive Persönlichkeit\n• Hervorragende Kommunikationsfähigkeiten. Fließend in Italienisch, Englisch und Deutsch erforderlich.\n• Arbeitsplatz: Lugano/Zürich",
+        "fr": "Nous recherchons un professionnel expérimenté et axé sur les détails pour rejoindre notre équipe dans un environnement bancaire dynamique. Principales responsabilités\n• Collaborer étroitement avec les spécialistes du marketing et de la transformation numérique pour comprendre leurs besoins en matière de données afin d'opérer et d'orienter leurs stratégies de marketing.\n• Développer un profil comportemental du client basé sur des données démographiques, d'utilisation de produits et de points tactiles multicanaux (du numérique au centre d'appels).\n• Utiliser l'apprentissage automatique, la modélisation statistique et les techniques d'ingénierie pour développer des modèles prédictifs de réponse puissants qui anticipent les réactions et les comportements des clients.\n• Élaborer de solides procédures d'alimentation des données planifiées en extrayant les données de plusieurs sources de données, en préparant les données et en appliquant des modèles ML.\n• Élaborer des tableaux de bord de Business Intelligence pour suivre la performance des ICR du portefeuille client, des initiatives d'adoption et de marketing numériques\n• Devenez le responsable des données de référence pour les clients et les données touchpoint. Collaborer avec des spécialistes de la gestion de l'information pour assurer l'intégrité des données et la modélisation efficace des données.\n• Baccalauréat ou maîtrise en analyse de données, statistiques, informatique ou un domaine connexe.\n• Très solide expérience dans l'analyse des données, y compris les méthodes statistiques et les modèles de prévision multivariés.\n• 2+ ans d'expérience en Data Analytics, dans l'industrie financière est un avantage.\n• Excellentes compétences dans le travail avec les bases de données relationnelles ; la connaissance avancée de SQL, avec BigQuery est un avantage.\n• Excellente connaissance du langage de programmation Python et des bibliothèques connexes pour l'informatique scientifique (en particulier pandas, numpy et scikit-learn)\n• Connaissances avancées de MS Excel\n• La connaissance d'un outil BI moderne comme MS Power BI est un avantage.\n• La connaissance du logiciel d'analyse de données IBM SPSS est un avantage.\n• L'état d'esprit analytique et de solution, excellentes capacités de résolution de problèmes\n• Personnalité automotivée et proactive\n• Compétences exceptionnelles en communication. Connaissance de l'italien, de l'anglais et de l'allemand requis.\n• Lieu de travail: Lugano/Zurich"
+      },
+      "requirements": [
+        "Bachelor’s or Master’s degree in Data Analytics, Statistics, Computer Science or a related field.",
+        "Very strong background in data analysis, including multivariate statistical methods and forecasting models.",
+        "2+ years of experience in Data Analytics, in the financial Industry is an advantage.",
+        "Excellent skills in working with relational databases; proven advanced SQL knowledge, with BigQuery is an advantage.",
+        "Excellent knowledge of the programming language Python and the related libraries for scientific computing (in particular pandas, numpy and scikit-learn)",
+        "Advanced knowledge of MS Excel",
+        "Knowledge of a modern BI tool like MS Power BI is an advantage.",
+        "Knowledge of the IBM SPSS data analytics software or similar is an advantage.",
+        "Analytical and solution oriented mindset, excellent problem solving abilities",
+        "Self-motivated and proactive personality",
+        "Outstanding communication skills. Fluent in Italian & English, German an advantage",
+        "Workplace: Lugano / Zurich"
+      ],
+      "requirementsByLocale": {
+        "it": [
+          "Bachelor’s or Master’s degree in Data Analytics, Statistics, Computer Science or a related field.",
+          "Very strong background in data analysis, including multivariate statistical methods and forecasting models.",
+          "2+ years of experience in Data Analytics, in the financial Industry is an advantage.",
+          "Excellent skills in working with relational databases; proven advanced SQL knowledge, with BigQuery is an advantage.",
+          "Advanced knowledge of MS Excel",
+          "Knowledge of a modern BI tool like MS Power BI is an advantage.",
+          "Knowledge of the IBM SPSS data analytics software or similar is an advantage.",
+          "Analytical and solution oriented mindset, excellent problem solving abilities"
+        ],
+        "en": [
+          "Bachelor’s or Master’s degree in Data Analytics, Statistics, Computer Science or a related field.",
+          "Very strong background in data analysis, including multivariate statistical methods and forecasting models.",
+          "2+ years of experience in Data Analytics, in the financial Industry is an advantage.",
+          "Excellent skills in working with relational databases; proven advanced SQL knowledge, with BigQuery is an advantage.",
+          "Advanced knowledge of MS Excel",
+          "Knowledge of a modern BI tool like MS Power BI is an advantage.",
+          "Knowledge of the IBM SPSS data analytics software or similar is an advantage.",
+          "Analytical and solution oriented mindset, excellent problem solving abilities"
+        ]
+      },
+      "location": "Lugano",
+      "canton": "TI",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "category": "finance",
+      "contract": "full-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-02",
+      "url": "https://jobs.corner.ch/o/customer-analytics-officer",
+      "source": "Corner Dedicated Parser (Recruitee API)",
+      "sourceLang": "en",
+      "crawledAt": "2026-07-31T22:11:46.381Z",
+      "previousSlugs": [
+        "customer-analytics-officer-corner-banca-lugano",
+        "customer-analytics-officer-corner-banca-wallisellen",
+        "responsabile-customer-analytics-corner-banca-lugano"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "customer-analytics-officer-corner-banca-lugano",
+          "customer-analytics-officer-corner-banca-wallisellen",
+          "responsabile-customer-analytics-corner-banca-lugano"
+        ],
+        "en": [
+          "customer-analytics-officer-corner-banca-wallisellen"
+        ]
+      },
+      "firstSeenAt": "2026-07-08T22:13:15.980Z",
+      "needsRetranslation": true,
+      "salaryMin": 142000,
+      "salaryMax": 249500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 142000,
+          "maxValue": 249500,
           "unitText": "YEAR"
         }
       },
@@ -898,8 +917,9 @@
       "url": "https://jobs.corner.ch/o/information-security-specialist",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-31T11:40:15.506Z",
+      "crawledAt": "2026-07-31T22:11:46.379Z",
       "firstSeenAt": "2026-07-08T22:13:15.975Z",
+      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 150000,
       "baseSalary": {
@@ -982,8 +1002,9 @@
       "url": "https://jobs.corner.ch/o/senior-security-grc-governance-risk-compliance-banking",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-31T11:40:15.504Z",
+      "crawledAt": "2026-07-31T22:11:46.378Z",
       "firstSeenAt": "2026-07-08T22:13:15.973Z",
+      "needsRetranslation": true,
       "salaryMin": 142000,
       "salaryMax": 249500,
       "baseSalary": {
@@ -1063,13 +1084,15 @@
       "url": "https://jobs.corner.ch/o/employee-backoffice",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-31T11:40:15.500Z",
+      "crawledAt": "2026-07-31T22:11:46.375Z",
       "previousSlugs": [
-        "employee-backoffice-corner-banca-lugano"
+        "employee-backoffice-corner-banca-lugano",
+        "posto-di-lavoro-corner-banca-lugano"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "employee-backoffice-corner-banca-lugano"
+          "employee-backoffice-corner-banca-lugano",
+          "posto-di-lavoro-corner-banca-lugano"
         ],
         "de": [
           "employee-backoffice-corner-banca-lugano"
@@ -1079,6 +1102,7 @@
         ]
       },
       "firstSeenAt": "2026-07-24T11:15:53.869Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1147,19 +1171,22 @@
       "url": "https://jobs.corner.ch/o/sales-solutions-ecash-employee",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-31T11:40:15.499Z",
+      "crawledAt": "2026-07-31T22:11:46.374Z",
       "previousSlugs": [
-        "sales-e-solutions-ecash-employee-corner-banca-lugano"
+        "sales-e-solutions-ecash-employee-corner-banca-lugano",
+        "vendite-solutions-ecash-dipendente-corner-banca-lugano"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sales-e-solutions-ecash-employee-corner-banca-lugano"
+          "sales-e-solutions-ecash-employee-corner-banca-lugano",
+          "vendite-solutions-ecash-dipendente-corner-banca-lugano"
         ],
         "fr": [
           "sales-e-solutions-ecash-employee-corner-banca-lugano"
         ]
       },
       "firstSeenAt": "2026-07-08T22:13:15.971Z",
+      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 90500,
       "baseSalary": {
@@ -1185,7 +1212,7 @@
         "it": "gestione-delle-controversie-dei-lavoratori-corner-banca-wallisellen",
         "en": "employee-consumer-dispute-management-corner-banca-wallisellen",
         "de": "employee-consumer-dispute-management-corner-banca-wallisellen",
-        "fr": "gestion-des-litiges-avec-les-consommateurs-corner-banca-wallisellen"
+        "fr": "employee-consumer-dispute-management-corner-banca-wallisellen"
       },
       "company": "Cornèr Banca",
       "companyKey": "corner-banca",
@@ -1195,7 +1222,7 @@
         "it": "Gestione delle controversie dei lavoratori",
         "en": "Employee Consumer Dispute Management",
         "de": "Mitarbeiter Consumer Dispute Management",
-        "fr": "Gestion des litiges avec les consommateurs"
+        "fr": "Employee Consumer Dispute Management"
       },
       "description": "We are looking for a customer-focused and detail-oriented Customer Disputes & Fraud Specialist to join our team. In this role, you will play a key part in protecting our customers and ensuring the efficient handling of credit card disputes and fraud cases in a dynamic financial services environment.\n\n• Receiving and handling customer complaints and credit card fraud cases, including initial assessment and prioritization.\n\n• Processing dispute claims and fraud-related cases.\n\n• Performing chargebacks in accordance with the regulations of the card schemes (VISA, Mastercard, Diners Club) and internal company policies.\n\n• Advising cardholders on disputes, card misuse, and preventive security measures.\n\n• Providing customer support by phone and in writing in German, French, English, and Italian.\n\n• Carrying out various administrative tasks.\n\n• Experience in credit cards, chargebacks, fraud management, or customer service is an advantage.\n\n• Excellent language skills in German, French, English, and Italian (both spoken and written).\n\n• Analytical, structured, accurate, and reliable working style.\n\n• Strong customer orientation and excellent communication skills.\n\n• Ability to work under pressure and enjoy working in a dynamic environment.\n\nWhat do we offer?\n\nFlexibility in working from home and the management of working hours in order to guarantee a healthy work-life balance\n\nNumerous benefits and incentives\n\nWell-being, motivational and team-building activities",
       "descriptionByLocale": {
@@ -1239,19 +1266,24 @@
       "url": "https://jobs.corner.ch/o/employee-consumer-dispute-management",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-31T11:40:15.498Z",
+      "crawledAt": "2026-07-31T22:11:46.373Z",
       "previousSlugs": [
-        "employee-consumer-dispute-management-corner-banca-wallisellen"
+        "employee-consumer-dispute-management-corner-banca-wallisellen",
+        "gestion-des-litiges-avec-les-consommateurs-corner-banca-wallisellen",
+        "gestione-delle-controversie-dei-lavoratori-corner-banca-wallisellen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "employee-consumer-dispute-management-corner-banca-wallisellen"
+          "employee-consumer-dispute-management-corner-banca-wallisellen",
+          "gestione-delle-controversie-dei-lavoratori-corner-banca-wallisellen"
         ],
         "fr": [
+          "gestion-des-litiges-avec-les-consommateurs-corner-banca-wallisellen",
           "employee-consumer-dispute-management-corner-banca-wallisellen"
         ]
       },
       "firstSeenAt": "2026-07-08T22:13:15.968Z",
+      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 127500,
       "baseSalary": {
@@ -1336,19 +1368,22 @@
       "url": "https://jobs.corner.ch/o/fi-administration-business-support",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-31T11:40:15.496Z",
+      "crawledAt": "2026-07-31T22:11:46.372Z",
       "previousSlugs": [
-        "fi-administration-e-business-support-corner-banca-lugano"
+        "fi-administration-e-business-support-corner-banca-lugano",
+        "amministrazione-fi-e-supporto-commerciale-corner-banca-lugano"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fi-administration-e-business-support-corner-banca-lugano"
+          "fi-administration-e-business-support-corner-banca-lugano",
+          "amministrazione-fi-e-supporto-commerciale-corner-banca-lugano"
         ],
         "fr": [
           "fi-administration-e-business-support-corner-banca-lugano"
         ]
       },
       "firstSeenAt": "2026-07-08T22:13:15.970Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1429,8 +1464,9 @@
       "url": "https://jobs.corner.ch/o/employee-underwriting-e-cash-3",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-31T11:40:15.494Z",
+      "crawledAt": "2026-07-31T22:11:46.371Z",
       "firstSeenAt": "2026-07-24T11:15:53.859Z",
+      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 90500,
       "baseSalary": {
