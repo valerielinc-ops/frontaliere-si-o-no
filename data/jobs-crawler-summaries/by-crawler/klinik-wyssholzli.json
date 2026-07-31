@@ -1,18 +1,54 @@
 {
   "key": "klinik-wyssholzli",
   "label": "Klinik Wysshölzli",
-  "generatedAt": "2026-07-30T22:08:12.806Z",
-  "total": 9,
-  "newCount": 0,
+  "generatedAt": "2026-07-31T11:36:25.180Z",
+  "total": 10,
+  "newCount": 1,
   "updatedCount": 9,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 4449,
-  "avgDurationMs": 4449,
+  "durationMs": 6459,
+  "avgDurationMs": 6459,
   "durationHistory": [
-    4449
+    6459
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "title": "Psychologin Psychotherapeutin 11.2026–60% 70 07/2026",
+      "slug": "psychologin-psychotherapeutin-11-2026-60-70-07-2026-klinik-wyssholzli",
+      "url": "https://www.wysshoelzli.ch/uploads/Stelleninserate/Psychologin_Psychotherapeutin_11.2026_60-70-_07_2026.pdf",
+      "applyUrl": "https://www.wysshoelzli.ch/jobs-karriere",
+      "company": "Klinik Wysshölzli",
+      "companyKey": "klinik-wyssholzli",
+      "companyDomain": "wysshoelzli.ch",
+      "location": "Herzogenbuchsee",
+      "addressLocality": "Herzogenbuchsee",
+      "addressRegion": "BE",
+      "postalCode": "3360",
+      "addressCountry": "CH",
+      "canton": "BE",
+      "country": "CH",
+      "category": "health",
+      "sector": "Psychiatrie und Psychotherapie",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "source": "klinik-wyssholzli-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-07-31",
+      "validThrough": "",
+      "needsRetranslation": true,
+      "_meta": {
+        "sourceFilename": "Psychologin_Psychotherapeutin_11.2026_60-70-_07_2026.pdf"
+      },
+      "_qualityScore": 64,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 4,
+        "completeness": 17
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "title": "Chefpsychologin 06/2026",
