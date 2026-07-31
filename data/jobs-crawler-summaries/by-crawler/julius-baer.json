@@ -1,18 +1,86 @@
 {
   "key": "julius-baer",
   "label": "Julius Baer",
-  "generatedAt": "2026-07-30T22:10:00.293Z",
+  "generatedAt": "2026-07-31T11:37:22.801Z",
   "total": 87,
-  "newCount": 2,
+  "newCount": 4,
   "updatedCount": 83,
-  "removedCount": 0,
-  "unchangedCount": 2,
-  "durationMs": 45444,
-  "avgDurationMs": 45444,
+  "removedCount": 2,
+  "unchangedCount": 0,
+  "durationMs": 56130,
+  "avgDurationMs": 56130,
   "durationHistory": [
-    45444
+    56130
   ],
   "newJobs": [
+    {
+      "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Assistant-Relationship-Manager-Intermediaries-100---f-m-d-_r-19366-2",
+      "applyUrl": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Assistant-Relationship-Manager-Intermediaries-100---f-m-d-_r-19366-2",
+      "title": "Assistant Relationship Manager Intermediaries 100% (f/m/d)",
+      "company": "Julius Baer",
+      "companyKey": "julius-baer",
+      "location": "Zurich",
+      "canton": "ZH",
+      "country": "CH",
+      "addressLocality": "Zurich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "postalCode": "",
+      "streetAddress": "",
+      "slug": "assistant-relationship-manager-intermediaries-100-f-m-d-julius-baer",
+      "category": "wealth-management",
+      "datePosted": "2026-07-31",
+      "source": "julius-baer-workday-crawler",
+      "employmentType": "FULL_TIME",
+      "sourceLang": "en",
+      "experienceLevel": "SENIOR",
+      "sector": "Banking / Wealth Management",
+      "_targetScope": {
+        "canton": "ZH",
+        "location": "Zurich"
+      },
+      "_qualityScore": 58,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 6,
+        "completeness": 9
+      }
+    },
+    {
+      "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Private-Banking-Compliance-Officer-Region-Americas---Iberia-80----100---f-m-d-_r-18693-2",
+      "applyUrl": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Private-Banking-Compliance-Officer-Region-Americas---Iberia-80----100---f-m-d-_r-18693-2",
+      "title": "Private Banking Compliance Officer Region Americas & Iberia 80% - 100% (f/m/d)",
+      "company": "Julius Baer",
+      "companyKey": "julius-baer",
+      "location": "Zurich",
+      "canton": "ZH",
+      "country": "CH",
+      "addressLocality": "Zurich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "postalCode": "",
+      "streetAddress": "",
+      "slug": "private-banking-compliance-officer-region-americas-iberia-80-100-f-m-d-julius-baer",
+      "category": "risk",
+      "datePosted": "2026-07-31",
+      "source": "julius-baer-workday-crawler",
+      "employmentType": "FULL_TIME",
+      "sourceLang": "en",
+      "experienceLevel": "MID",
+      "sector": "Banking / Wealth Management",
+      "_targetScope": {
+        "canton": "ZH",
+        "location": "Zurich"
+      },
+      "_qualityScore": 58,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 6,
+        "completeness": 9
+      }
+    },
     {
       "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/System-Engineer---Infrastructure-Automation-100-_r-17832-1",
       "applyUrl": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/System-Engineer---Infrastructure-Automation-100-_r-17832-1",
@@ -1138,8 +1206,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Account-Manager-Private-Banking---Market-Italy-Zurich_r-19045-2",
       "applyUrl": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Account-Manager-Private-Banking---Market-Italy-Zurich_r-19045-2",
@@ -1218,5 +1285,6 @@
         "completeness": 14
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
