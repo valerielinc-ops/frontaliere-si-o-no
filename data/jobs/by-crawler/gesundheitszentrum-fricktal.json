@@ -1,6 +1,6 @@
 {
   "crawlerKey": "gesundheitszentrum-fricktal",
-  "assembledAt": "2026-07-31T11:42:13.818Z",
+  "assembledAt": "2026-07-31T22:21:48.187Z",
   "jobs": [
     {
       "id": "gesundheitszentrum-fricktal-3e6a7623f8bc",
@@ -34,7 +34,7 @@
       "url": "https://recruitingapp-2924.umantis.com/Vacancies/2318/Description/1",
       "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-31T11:42:02.177Z",
+      "crawledAt": "2026-07-31T22:21:43.727Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -52,11 +52,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "fachperson-gesundheit-anasthesie-80-100-m-w-d-gesundheitszentrum-fricktal-rheinfelden"
+        "fachperson-gesundheit-anasthesie-80-100-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
+        "anestesia-sanitaria-specializzata-80-100-m-f-d-gesundheitszentrum-fricktal-rheinfelden"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachperson-gesundheit-anasthesie-80-100-m-w-d-gesundheitszentrum-fricktal-rheinfelden"
+          "fachperson-gesundheit-anasthesie-80-100-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
+          "anestesia-sanitaria-specializzata-80-100-m-f-d-gesundheitszentrum-fricktal-rheinfelden"
         ],
         "en": [
           "fachperson-gesundheit-anasthesie-80-100-m-w-d-gesundheitszentrum-fricktal-rheinfelden"
@@ -94,7 +96,7 @@
       "title": "Ambulanzfahrer IVR Ersthelfer Stufe 3 (m/w/d)",
       "titleByLocale": {
         "it": "Driver di ambulanza IVR primo livello di risposta 3 (m/f/d)",
-        "en": "Ambulance driver IVR first responder level 3 (m/f/d)",
+        "en": "Ambulanzfahrer IVR Ersthelfer Stufe 3 (m/w/d)",
         "de": "Ambulanzfahrer IVR Ersthelfer Stufe 3 (m/w/d)",
         "fr": "Niveau 3 du premier répondeur IVR (m/f/d)"
       },
@@ -105,12 +107,13 @@
         "de": "Gesundheitszentrum Fricktal AG | online seit : 17.07.2026 Arbeitsort : Rettungsdienst Eiken\n• Wenn jede Minute zählt, sind Sie zur Stelle. Mit Ihrem Engagement, Ihrer Ruhe und Ihrem Fachwissen sorgen Sie dafür, dass Menschen in herausfordernden Situationen sicher begleitet werden. Werden Sie Teil unseres Teams als Ambulanzfahrer IVR Ersthelfer Stufe 3 (m/w/d).\n\n• Du bist für die Verlegung von Patient:innen in stabilem Gesundheitszustand verantwortlich\n\n• Art: Vollzeit\n• Befristung: Unbefristet",
         "fr": "Centre de santé Fricktal AG en ligne depuis : 16.07.2026 Lieu de travail : Service d'urgence Eiken\n• Si chaque minute compte, vous êtes là. Avec votre engagement, votre calme et votre expertise, vous veillez à ce que les gens soient accompagnés en toute sécurité dans des situations difficiles. Faites partie de notre équipe en tant que conducteur d'ambulance IVR premier répondeur niveau 3 (m/f/d).\n\n• Vous êtes responsable du transfert des patients: à l'intérieur en santé stable\n\n• Type: Temps plein\n• Terme temporaire : perpétuel"
       },
+      "needsRetranslation": true,
       "location": "Rheinfelden",
       "canton": "AG",
       "url": "https://recruitingapp-2924.umantis.com/Vacancies/2337/Description/1",
       "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-31T11:42:01.136Z",
+      "crawledAt": "2026-07-31T22:21:42.750Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -128,11 +131,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "ambulanzfahrer-ivr-ersthelfer-stufe-3-m-w-d-gesundheitszentrum-fricktal-rheinfelden"
+        "ambulanzfahrer-ivr-ersthelfer-stufe-3-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
+        "driver-di-ambulanza-ivr-primo-livello-di-risposta-3-m-f-d-gesundheitszentrum-fricktal-rheinfelden"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ambulanzfahrer-ivr-ersthelfer-stufe-3-m-w-d-gesundheitszentrum-fricktal-rheinfelden"
+          "ambulanzfahrer-ivr-ersthelfer-stufe-3-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
+          "driver-di-ambulanza-ivr-primo-livello-di-risposta-3-m-f-d-gesundheitszentrum-fricktal-rheinfelden"
         ],
         "en": [
           "ambulanzfahrer-ivr-ersthelfer-stufe-3-m-w-d-gesundheitszentrum-fricktal-rheinfelden"
@@ -159,9 +164,9 @@
       "id": "gesundheitszentrum-fricktal-b4ff5a2fa873",
       "slug": "facharzt-m-w-d-gynakologie-e-geburtshilfe-gesundheitszentrum-fricktal-rheinfelden",
       "slugByLocale": {
-        "de": "facharzt-m-w-d-gynakologie-und-geburtshilfe-gesundheitszentrum-fricktal-rheinfelden",
         "it": "facharzt-m-w-d-gynakologie-e-geburtshilfe-gesundheitszentrum-fricktal-rheinfelden",
         "en": "specialist-m-f-d-gynecology-and-obstetrics-gesundheitszentrum-fricktal-rheinfelden",
+        "de": "facharzt-m-w-d-gynakologie-und-geburtshilfe-gesundheitszentrum-fricktal-rheinfelden",
         "fr": "specialiste-m-f-d-gynecologie-et-obstetrique-gesundheitszentrum-fricktal-rheinfelden"
       },
       "company": "Gesundheitszentrum Fricktal",
@@ -169,24 +174,25 @@
       "companyDomain": "gzf.ch",
       "title": "Facharzt (m/w/d) Gynäkologie und Geburtshilfe",
       "titleByLocale": {
-        "de": "Facharzt (m/w/d) Gynäkologie und Geburtshilfe",
         "it": "Facharzt (m/w/d) Gynäkologie e Geburtshilfe",
         "en": "Specialist (m/f/d) Gynecology and Obstetrics",
+        "de": "Facharzt (m/w/d) Gynäkologie und Geburtshilfe",
         "fr": "Spécialiste (m/f/d) Gynécologie et obstétrique"
       },
       "description": "Gesundheitszentrum Fricktal AG | online seit : 17.07.2026 Arbeitsort : GZF Laufenburg\n• Die Klinik für Gynäkologie und Geburtshilfe des Gesundheitszentrums Fricktal begleitet Frauen in allen Lebensphasen mit einer umfassenden und persönlichen Betreuung. Zur Verstärkung unseres kollegialen Teams in der gynäkologischen Praxis am Standort Laufenburg suchen wir eine Fachärztin / einen Facharzt Gynäkologie und Geburtshilfe.\n\n• Du führst selbstständig gynäkologische Sprechstunden an unserem Standort in Laufenburg durch\n\n• Art: Teilzeit\n• Befristung: Unbefristet",
       "descriptionByLocale": {
-        "de": "Gesundheitszentrum Fricktal AG | online seit : 17.07.2026 Arbeitsort : GZF Laufenburg\n• Die Klinik für Gynäkologie und Geburtshilfe des Gesundheitszentrums Fricktal begleitet Frauen in allen Lebensphasen mit einer umfassenden und persönlichen Betreuung. Zur Verstärkung unseres kollegialen Teams in der gynäkologischen Praxis am Standort Laufenburg suchen wir eine Fachärztin / einen Facharzt Gynäkologie und Geburtshilfe.\n\n• Du führst selbstständig gynäkologische Sprechstunden an unserem Standort in Laufenburg durch\n\n• Art: Teilzeit\n• Befristung: Unbefristet",
         "it": "Centro sanitario Fricktal AG | online dal: 17.07.2026 Luogo di lavoro : GZF Laufenburg\n• La Clinica per Ginecologia e Ostetricia del Fricktal Health Center accompagna le donne in tutte le fasi della vita con cura completa e personale. Per rafforzare il nostro team collegiale nella pratica ginecologica di Laufenburg, stiamo cercando uno specialista in ginecologia e ostetricia.\n\n• Potrai condurre autonomamente ore di consultazione ginecologica nella nostra posizione a Laufenburg\n\n• Tipo: part-time\n• Termine temporaneo: perpetuo",
         "en": "Health Centre Fricktal AG | online since : 17.07.2026 Place of work : GZF Laufenburg\n• The Clinic for Gynecology and Obstetrics of the Fricktal Health Center accompanies women in all phases of life with comprehensive and personal care. To strengthen our collegial team in gynecological practice at Laufenburg, we are looking for a specialist in gynecology and obstetrics.\n\n• You will independently conduct gynecological consultation hours at our location in Laufenburg\n\n• Type: part-time\n• Temporary term: perpetual",
+        "de": "Gesundheitszentrum Fricktal AG | online seit : 17.07.2026 Arbeitsort : GZF Laufenburg\n• Die Klinik für Gynäkologie und Geburtshilfe des Gesundheitszentrums Fricktal begleitet Frauen in allen Lebensphasen mit einer umfassenden und persönlichen Betreuung. Zur Verstärkung unseres kollegialen Teams in der gynäkologischen Praxis am Standort Laufenburg suchen wir eine Fachärztin / einen Facharzt Gynäkologie und Geburtshilfe.\n\n• Du führst selbstständig gynäkologische Sprechstunden an unserem Standort in Laufenburg durch\n\n• Art: Teilzeit\n• Befristung: Unbefristet",
         "fr": "Centre de santé Fricktal AG en ligne depuis : 17.07.2026 Lieu de travail : GZF Laufenburg\n• La clinique de gynécologie et d'obstétrique du Fricktal Health Center accompagne les femmes dans toutes les phases de la vie avec des soins complets et personnels. Pour renforcer notre équipe collégiale en pratique gynécologique à Laufenburg, nous recherchons un spécialiste en gynécologie et en obstétrique.\n\n• Vous effectuerez indépendamment des heures de consultation gynécologique à notre emplacement à Laufenburg\n\n• Type: temps partiel\n• Terme temporaire : perpétuel"
       },
+      "needsRetranslation": true,
       "location": "Rheinfelden",
       "canton": "AG",
       "url": "https://recruitingapp-2924.umantis.com/Vacancies/2331/Description/1",
       "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-31T11:42:00.098Z",
+      "crawledAt": "2026-07-31T22:21:41.768Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -202,9 +208,14 @@
       "postedDate": "2026-07-31",
       "applyUrl": "https://recruitingapp-2924.umantis.com/Vacancies/2331/Application/CheckLogin/1",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "facharzt-m-w-d-gynakologie-und-geburtshilfe-gesundheitszentrum-fricktal-rheinfelden",
+        "facharzt-m-w-d-gynakologie-e-geburtshilfe-gesundheitszentrum-fricktal-rheinfelden-89u9ux",
+        "specialist-m-f-d-gynecology-and-obstetrics-gesundheitszentrum-fricktal-rheinfelden",
+        "specialiste-m-f-d-gynecologie-et-obstetrique-gesundheitszentrum-fricktal-rheinfelden",
+        "facharzt-m-w-d-gynakologie-e-geburtshilfe-gesundheitszentrum-fricktal-rheinfelden-89u9wj"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "facharzt-m-w-d-gynakologie-und-geburtshilfe-gesundheitszentrum-fricktal-rheinfelden",
@@ -214,21 +225,15 @@
           "facharzt-m-w-d-gynakologie-e-geburtshilfe-gesundheitszentrum-fricktal-rheinfelden-89u9wj"
         ],
         "en": [
-          "specialist-m-f-d-gynecology-and-obstetrics-gesundheitszentrum-fricktal-rheinfelden",
-          "facharzt-m-w-d-gynakologie-und-geburtshilfe-gesundheitszentrum-fricktal-rheinfelden"
+          "facharzt-m-w-d-gynakologie-und-geburtshilfe-gesundheitszentrum-fricktal-rheinfelden",
+          "specialist-m-f-d-gynecology-and-obstetrics-gesundheitszentrum-fricktal-rheinfelden"
         ],
         "fr": [
-          "specialiste-m-f-d-gynecologie-et-obstetrique-gesundheitszentrum-fricktal-rheinfelden",
-          "facharzt-m-w-d-gynakologie-und-geburtshilfe-gesundheitszentrum-fricktal-rheinfelden"
+          "facharzt-m-w-d-gynakologie-und-geburtshilfe-gesundheitszentrum-fricktal-rheinfelden",
+          "specialiste-m-f-d-gynecologie-et-obstetrique-gesundheitszentrum-fricktal-rheinfelden"
         ]
       },
-      "previousSlugs": [
-        "facharzt-m-w-d-gynakologie-und-geburtshilfe-gesundheitszentrum-fricktal-rheinfelden",
-        "facharzt-m-w-d-gynakologie-e-geburtshilfe-gesundheitszentrum-fricktal-rheinfelden-89u9ux",
-        "specialist-m-f-d-gynecology-and-obstetrics-gesundheitszentrum-fricktal-rheinfelden",
-        "specialiste-m-f-d-gynecologie-et-obstetrique-gesundheitszentrum-fricktal-rheinfelden",
-        "facharzt-m-w-d-gynakologie-e-geburtshilfe-gesundheitszentrum-fricktal-rheinfelden-89u9wj"
-      ],
+      "firstSeenAt": "2026-07-31T11:42:00.098Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -240,8 +245,7 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-07-31T11:42:00.098Z"
+      }
     },
     {
       "id": "gesundheitszentrum-fricktal-89dffe058d8a",
@@ -269,12 +273,13 @@
         "de": "Sie sind erfahren in der Schulterchirurgie und möchten einen Fachbereich aktiv mitgestalten? ​Bei uns am GZF übernehmen Sie eine verantwortungsvolle Funktion mit der Perspektive, die Schulterchirurgie in den nächsten ein bis eineinhalb Jahren weiter auszubauen und zusätzliche Führungsverantwortung zu übernehmen.\n\n• Art: Vollzeit\n• Befristung: Unbefristet",
         "fr": "Avez-vous de l'expérience en chirurgie des épaules et souhaitez-vous façonner activement un domaine spécialisé? Avec nous au GZF, vous assumerez un rôle responsable dans la perspective d'étendre la chirurgie de l'épaule au cours des prochaines années à un an et demi et d'assumer une responsabilité de gestion supplémentaire.\n\n• Type: Temps plein\n• Terme temporaire : perpétuel"
       },
+      "needsRetranslation": true,
       "location": "Rheinfelden",
       "canton": "AG",
       "url": "https://recruitingapp-2924.umantis.com/Vacancies/2247/Description/1",
       "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-31T11:41:59.054Z",
+      "crawledAt": "2026-07-31T22:21:40.815Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -292,11 +297,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "oberarztin-oberarzt-m-w-d-orthopadie-und-traumatologie-gesundheitszentrum-fricktal"
+        "oberarztin-oberarzt-m-w-d-orthopadie-und-traumatologie-gesundheitszentrum-fricktal",
+        "oberarztin-oberarzt-m-w-d-orthopala-e-traumatologie-gesundheitszentrum-fricktal-rheinfelden"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "oberarztin-oberarzt-m-w-d-orthopadie-und-traumatologie-gesundheitszentrum-fricktal"
+          "oberarztin-oberarzt-m-w-d-orthopadie-und-traumatologie-gesundheitszentrum-fricktal",
+          "oberarztin-oberarzt-m-w-d-orthopala-e-traumatologie-gesundheitszentrum-fricktal-rheinfelden"
         ],
         "en": [
           "oberarztin-oberarzt-m-w-d-orthopadie-und-traumatologie-gesundheitszentrum-fricktal"
@@ -345,12 +352,13 @@
         "de": "Starte deine Zukunft mit einer abwechslungsreichen kaufmännischen Lehre im Gesundheitszentrum Fricktal und sammle wertvolle Praxiserfahrung in einem modernen, dynamischen Arbeitsumfeld.\n\n• Art: Vollzeit\n• Befristung: Befristet",
         "fr": "Commencez votre avenir par un apprentissage commercial varié au Fricktal Health Center et profitez d'une expérience pratique précieuse dans un environnement de travail moderne et dynamique.\n\n• Type: Temps plein\n• Délai: Temporaire"
       },
+      "needsRetranslation": true,
       "location": "Rheinfelden",
       "canton": "AG",
       "url": "https://recruitingapp-2924.umantis.com/Vacancies/2338/Description/1",
       "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-31T11:41:58.001Z",
+      "crawledAt": "2026-07-31T22:21:39.839Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -407,12 +415,13 @@
         "de": "Du suchst eine abwechslungsreiche Aufgabe in der Akutgeriatrie? Bei uns übernimmst du Verantwortung, arbeitest auf Augenhöhe im Team und trägst aktiv zu einer hochwertigen Patientenversorgung bei.\n\n• Art: Teilzeit\n• Befristung: Unbefristet",
         "fr": "Vous cherchez un emploi varié en médecine aiguë ? Avec nous, vous assumez la responsabilité, travaillez au niveau des yeux dans l'équipe et contribuez activement à des soins de qualité pour les patients.\n\n• Type: temps partiel\n• Terme temporaire : perpétuel"
       },
+      "needsRetranslation": true,
       "location": "Rheinfelden",
       "canton": "AG",
       "url": "https://recruitingapp-2924.umantis.com/Vacancies/2310/Description/1",
       "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-31T11:41:57.322Z",
+      "crawledAt": "2026-07-31T22:21:39.187Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -441,7 +450,8 @@
         "infermiere-diplomata-hf-u-m-d-gesundheitszentrum-fricktal-rheinfelden",
         "dipl-pflegefachperson-hf-w-m-d-gesundheitszentrum-fricktal-rheinfelden",
         "diplome-en-soins-infirmiers-hf-h-f-x-gesundheitszentrum-fricktal-rheinfelden",
-        "dipl-nurse-hf-m-f-d-gesundheitszentrum-fricktal-rheinfelden"
+        "dipl-nurse-hf-m-f-d-gesundheitszentrum-fricktal-rheinfelden",
+        "infermiera-hf-m-f-gesundheitszentrum-fricktal-rheinfelden"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -456,7 +466,8 @@
           "infermiere-diplomata-hf-u-m-d-gesundheitszentrum-fricktal-rheinfelden",
           "dipl-pflegefachperson-hf-w-m-d-gesundheitszentrum-fricktal-rheinfelden",
           "diplome-en-soins-infirmiers-hf-h-f-x-gesundheitszentrum-fricktal-rheinfelden",
-          "dipl-nurse-hf-m-f-d-gesundheitszentrum-fricktal-rheinfelden"
+          "dipl-nurse-hf-m-f-d-gesundheitszentrum-fricktal-rheinfelden",
+          "infermiera-hf-m-f-gesundheitszentrum-fricktal-rheinfelden"
         ],
         "en": [
           "dipl-pflegefachperson-hf-m-w-gesundheitszentrum-fricktal-rheinfelden",
@@ -510,12 +521,13 @@
         "de": "Dipl. Pflegefachperson (w/m/d) bei Gesundheitszentrum Fricktal AG in Rheinfelden (4310, AG), Schweiz.\n\n• Bereich: LF Station 1. OG Bau 84\n• Art: Teilzeit\n• Befristung: Unbefristet\n• Standort: Rheinfelden (AG)\n• Bewerbung über das Umantis-Karriereportal von Gesundheitszentrum Fricktal",
         "fr": "Spécialiste des soins infirmiers (f/m/d) chez Gesundheitszentrum Fricktal AG à Rheinfelden (4310, AG), Suisse.\n\n• Secteur : LF Station 1. OG Construction 84\n• Type: Temps partiel\n• Terme temporaire : illimité\n• Lieu: Rheinfelden (AG)\n• Application via le portail de carrière Umantis de Gesundheitszentrum Fricktal"
       },
+      "needsRetranslation": true,
       "location": "Rheinfelden",
       "canton": "AG",
       "url": "https://recruitingapp-2924.umantis.com/Vacancies/2073/Description/1",
       "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-31T11:41:56.261Z",
+      "crawledAt": "2026-07-31T22:21:38.209Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -533,11 +545,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "dipl-pflegefachperson-w-m-d-gesundheitszentrum-fricktal-rheinfelden"
+        "dipl-pflegefachperson-w-m-d-gesundheitszentrum-fricktal-rheinfelden",
+        "infermiera-f-m-d-gesundheitszentrum-fricktal-rheinfelden"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-w-m-d-gesundheitszentrum-fricktal-rheinfelden"
+          "dipl-pflegefachperson-w-m-d-gesundheitszentrum-fricktal-rheinfelden",
+          "infermiera-f-m-d-gesundheitszentrum-fricktal-rheinfelden"
         ],
         "en": [
           "dipl-pflegefachperson-w-m-d-gesundheitszentrum-fricktal-rheinfelden"
@@ -592,7 +606,7 @@
       "url": "https://recruitingapp-2924.umantis.com/Vacancies/2341/Description/1",
       "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-31T11:41:55.370Z",
+      "crawledAt": "2026-07-31T22:21:37.360Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -610,11 +624,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "dipl-pflegefachperson-imc-notfall-w-m-d-gesundheitszentrum-fricktal-rheinfelden"
+        "dipl-pflegefachperson-imc-notfall-w-m-d-gesundheitszentrum-fricktal-rheinfelden",
+        "imc-emergenza-w-m-d-gesundheitszentrum-fricktal-rheinfelden"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-imc-notfall-w-m-d-gesundheitszentrum-fricktal-rheinfelden"
+          "dipl-pflegefachperson-imc-notfall-w-m-d-gesundheitszentrum-fricktal-rheinfelden",
+          "imc-emergenza-w-m-d-gesundheitszentrum-fricktal-rheinfelden"
         ],
         "en": [
           "dipl-pflegefachperson-imc-notfall-w-m-d-gesundheitszentrum-fricktal-rheinfelden"
@@ -663,12 +679,13 @@
         "de": "Gesundheitszentrum Fricktal AG | online seit : 30.07.2026 Arbeitsort : GZF Rheinfelden\n• Behandelst du ambulante und stationäre Patient:innen mit dem Schwerpunkt Orthopädie, Medizin und Geriatrie mit Herz und Engagement? Bietest du den Bewohner:innen des Pflegeheims einfühlsame Unterstützung? Dann bist du bei uns genau richtig. Unser 11-köpfiges, vielseitig ausgebildetes Therapeutenteam freut sich auf deine Verstärkung für einen befristeten Einsatz bis zum 31. März 2027!\n\n• Du behandelst ambulante und stationäre Patient:innen aus verschiedenen Bereichen\n\n• Art: Teilzeit\n• Befristung: Befristet",
         "fr": "Centre de santé Fricktal AG en ligne depuis : 30.07.2026 Lieu de travail : GZF Rheinfelden\n• Traitez-vous les patients externes et hospitalisés avec un accent sur l'orthopédie, la médecine et la gériatrie avec le cœur et l'engagement? Offrez-vous un soutien sensible aux résidents de la maison de retraite? Alors vous avez raison avec nous. Notre équipe polyvalente de thérapeutes de 11 membres attend avec impatience votre renfort pour une affectation temporaire jusqu'à 31. Mars 2027 !\n\n• Vous traitez les patients externes: dans les différents domaines\n\n• Type: temps partiel\n• Délai: Temporaire"
       },
+      "needsRetranslation": true,
       "location": "Rheinfelden",
       "canton": "AG",
       "url": "https://recruitingapp-2924.umantis.com/Vacancies/2198/Description/1",
       "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-31T11:41:54.480Z",
+      "crawledAt": "2026-07-31T22:21:36.536Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -687,12 +704,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "physiotherapeut-in-w-m-d-befristet-gesundheitszentrum-fricktal-rheinfelden",
-        "physiotherapeut-in-m-w-d-befristet-gesundheitszentrum-fricktal-rheinfelden"
+        "physiotherapeut-in-m-w-d-befristet-gesundheitszentrum-fricktal-rheinfelden",
+        "fisioterapista-in-f-m-d-temporaneo-gesundheitszentrum-fricktal-rheinfelden"
       ],
       "previousSlugsByLocale": {
         "it": [
           "physiotherapeut-in-w-m-d-befristet-gesundheitszentrum-fricktal-rheinfelden",
-          "physiotherapeut-in-m-w-d-befristet-gesundheitszentrum-fricktal-rheinfelden"
+          "physiotherapeut-in-m-w-d-befristet-gesundheitszentrum-fricktal-rheinfelden",
+          "fisioterapista-in-f-m-d-temporaneo-gesundheitszentrum-fricktal-rheinfelden"
         ],
         "en": [
           "physiotherapeut-in-w-m-d-befristet-gesundheitszentrum-fricktal-rheinfelden"
@@ -719,9 +738,9 @@
       "id": "gesundheitszentrum-fricktal-b860758604e3",
       "slug": "medico-senior-m-f-d-gastroenterologia-gesundheitszentrum-fricktal-rheinfelden",
       "slugByLocale": {
-        "de": "leitender-arzt-m-w-d-gastroenterologie-gesundheitszentrum-fricktal-rheinfelden",
         "it": "medico-senior-m-f-d-gastroenterologia-gesundheitszentrum-fricktal-rheinfelden",
         "en": "senior-physician-m-f-d-gastroenterology-gesundheitszentrum-fricktal-rheinfelden",
+        "de": "leitender-arzt-m-w-d-gastroenterologie-gesundheitszentrum-fricktal-rheinfelden",
         "fr": "medecin-principal-m-f-d-gastroenterologie-gesundheitszentrum-fricktal-rheinfelden"
       },
       "company": "Gesundheitszentrum Fricktal",
@@ -729,24 +748,25 @@
       "companyDomain": "gzf.ch",
       "title": "Leitender Arzt (m/w/d) Gastroenterologie",
       "titleByLocale": {
-        "de": "Leitender Arzt (m/w/d) Gastroenterologie",
         "it": "Medico senior (m/f/d) Gastroenterologia",
         "en": "Senior physician (m/f/d) Gastroenterology",
+        "de": "Leitender Arzt (m/w/d) Gastroenterologie",
         "fr": "Médecin principal (m/f/d) Gastroentérologie"
       },
       "description": "Gesundheitszentrum Fricktal AG | online seit : 31.07.2026 Arbeitsort : IAVO Frick\n• Du stehst für exzellente Medizin und willst eine leitende Rolle in der gastroenterologischen Versorgung spielen? Dann präge gemeinsam mit unserem engagierten, interdisziplinären Team unsere Standorten in Rheinfelden, Laufenburg und Frick entscheidend mit. Dich erwartet ein vielseitiges Aufgabenspektrum, spannende fachliche Herausforderungen sowie ein Umfeld, das dir Gestaltungsspielraum und Entwicklungsmöglichkeiten bietet.\n\n• Du betreust und behandelst gemeinsam mit unseren Assistenzärzt:innen Patient:innen im Bereich der Gastroenterologie und arbeitest eng mit einem interdisziplinären Team aus Assistenz-, Ober- und leitenden Ärzt:innen sowie dem Chefarzt zusammen\n\n• Art: Vollzeit\n• Befristung: Unbefristet",
       "descriptionByLocale": {
-        "de": "Gesundheitszentrum Fricktal AG | online seit : 31.07.2026 Arbeitsort : IAVO Frick\n• Du stehst für exzellente Medizin und willst eine leitende Rolle in der gastroenterologischen Versorgung spielen? Dann präge gemeinsam mit unserem engagierten, interdisziplinären Team unsere Standorten in Rheinfelden, Laufenburg und Frick entscheidend mit. Dich erwartet ein vielseitiges Aufgabenspektrum, spannende fachliche Herausforderungen sowie ein Umfeld, das dir Gestaltungsspielraum und Entwicklungsmöglichkeiten bietet.\n\n• Du betreust und behandelst gemeinsam mit unseren Assistenzärzt:innen Patient:innen im Bereich der Gastroenterologie und arbeitest eng mit einem interdisziplinären Team aus Assistenz-, Ober- und leitenden Ärzt:innen sowie dem Chefarzt zusammen\n\n• Art: Vollzeit\n• Befristung: Unbefristet",
         "it": "Centro sanitario Fricktal AG | online dal 31.07.2026 Luogo di lavoro : IAVO Frick\n• Si sta per la medicina eccellente e vuole svolgere un ruolo di primo piano nella cura gastroenterologica? Insieme al nostro team interdisciplinare dedicato, svolgeremo un ruolo decisivo nella modellazione delle nostre sedi a Rheinfelden, Laufenburg e Frick. Puoi aspettarti una gamma versatile di compiti, sfide tecniche entusiasmanti e un ambiente che ti offre la possibilità di progettazione e sviluppo.\n\n• Lei supervisiona e cura insieme ai nostri medici assistenti:in pazienti:nel campo della gastroenterologia e lavora a stretto contatto con un team interdisciplinare di assistenti, medici senior e senior:in così come il medico principale\n\n• Tipo: Tempo pieno\n• Termine temporaneo: perpetuo",
         "en": "Health Centre Fricktal AG | online since : 31.07.2026 Place of work : IAVO Frick\n• You stand for excellent medicine and want to play a leading role in gastroenterological care? Together with our dedicated, interdisciplinary team, we will play a decisive role in shaping our locations in Rheinfelden, Laufenburg and Frick. You can expect a versatile range of tasks, exciting technical challenges and an environment that offers you scope for design and development opportunities.\n\n• You supervise and treat together with our assistant doctors:in patients:in the field of gastroenterology and work closely with an interdisciplinary team of assistant, senior and senior doctors:in as well as the chief physician\n\n• Type: Full-time\n• Temporary term: perpetual",
+        "de": "Gesundheitszentrum Fricktal AG | online seit : 31.07.2026 Arbeitsort : IAVO Frick\n• Du stehst für exzellente Medizin und willst eine leitende Rolle in der gastroenterologischen Versorgung spielen? Dann präge gemeinsam mit unserem engagierten, interdisziplinären Team unsere Standorten in Rheinfelden, Laufenburg und Frick entscheidend mit. Dich erwartet ein vielseitiges Aufgabenspektrum, spannende fachliche Herausforderungen sowie ein Umfeld, das dir Gestaltungsspielraum und Entwicklungsmöglichkeiten bietet.\n\n• Du betreust und behandelst gemeinsam mit unseren Assistenzärzt:innen Patient:innen im Bereich der Gastroenterologie und arbeitest eng mit einem interdisziplinären Team aus Assistenz-, Ober- und leitenden Ärzt:innen sowie dem Chefarzt zusammen\n\n• Art: Vollzeit\n• Befristung: Unbefristet",
         "fr": "Centre de santé Fricktal AG en ligne depuis : 31.07.2026 Lieu de travail : IAVO Frick\n• Vous êtes pour une excellente médecine et voulez jouer un rôle de premier plan dans les soins gastroentérologiques ? Avec notre équipe interdisciplinaire dévouée, nous jouerons un rôle décisif dans l'aménagement de nos sites à Rheinfelden, Laufenburg et Frick. Vous pouvez vous attendre à une gamme polyvalente de tâches, des défis techniques passionnants et un environnement qui vous offre des possibilités de conception et de développement.\n\n• Vous supervisez et traitez avec nos médecins adjoints: chez les patients:dans le domaine de la gastroentérologie et travaillez en étroite collaboration avec une équipe interdisciplinaire d'assistants, de médecins seniors et seniors: chez ainsi que le médecin en chef\n\n• Type: Temps plein\n• Terme temporaire : perpétuel"
       },
+      "needsRetranslation": false,
       "location": "Rheinfelden",
       "canton": "AG",
       "url": "https://recruitingapp-2924.umantis.com/Vacancies/2219/Description/1",
       "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-31T11:41:53.454Z",
+      "crawledAt": "2026-07-31T22:21:35.554Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -762,25 +782,15 @@
       "postedDate": "2026-07-31",
       "applyUrl": "https://recruitingapp-2924.umantis.com/Vacancies/2219/Application/CheckLogin/1",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
-      "salaryMin": 62000,
-      "salaryMax": 94000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 94000,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-07-31T11:41:53.454Z",
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "leitender-arzt-m-w-d-gastroenterologie-gesundheitszentrum-fricktal-rheinfelden",
+        "medico-senior-m-f-d-gastroenterologia-gesundheitszentrum-fricktal-rheinfelden"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "leitender-arzt-m-w-d-gastroenterologie-gesundheitszentrum-fricktal-rheinfelden"
+          "leitender-arzt-m-w-d-gastroenterologie-gesundheitszentrum-fricktal-rheinfelden",
+          "medico-senior-m-f-d-gastroenterologia-gesundheitszentrum-fricktal-rheinfelden"
         ],
         "en": [
           "leitender-arzt-m-w-d-gastroenterologie-gesundheitszentrum-fricktal-rheinfelden"
@@ -789,9 +799,19 @@
           "leitender-arzt-m-w-d-gastroenterologie-gesundheitszentrum-fricktal-rheinfelden"
         ]
       },
-      "previousSlugs": [
-        "leitender-arzt-m-w-d-gastroenterologie-gesundheitszentrum-fricktal-rheinfelden"
-      ]
+      "firstSeenAt": "2026-07-31T11:41:53.454Z",
+      "salaryMin": 85500,
+      "salaryMax": 129500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 85500,
+          "maxValue": 129500,
+          "unitText": "YEAR"
+        }
+      }
     }
   ]
 }
