@@ -1,6 +1,6 @@
 {
   "crawlerKey": "elettra-1938",
-  "assembledAt": "2026-07-30T22:29:14.299Z",
+  "assembledAt": "2026-07-31T12:09:46.302Z",
   "jobs": [
     {
       "id": "elettra-1938-3997a05e1bc1",
@@ -33,7 +33,7 @@
       "url": "https://inrecruiting.intervieweb.it/fiammcomponents/jobs/customer-quality-engineer-717575/it/",
       "source": "Elettra 1938 Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-07-30T22:29:12.310Z",
+      "crawledAt": "2026-07-31T12:09:43.899Z",
       "addressLocality": "Sede Stabio Svizzera",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -51,6 +51,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-07-14T11:22:37.214Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -63,69 +64,6 @@
           "unitText": "YEAR"
         }
       }
-    },
-    {
-      "id": "elettra-1938-cf83501f909d",
-      "slug": "manutentore-elettromeccanico-elettra-1938-ch",
-      "slugByLocale": {
-        "it": "manutentore-elettromeccanico-elettra-1938-ch",
-        "en": "electronic-maintenance-elettra-1938-stabio-svizzera",
-        "de": "elektronische-wartung-elettra-1938-stabio-svizzera",
-        "fr": "entretien-electronique-elettra-1938-stabio-svizzera"
-      },
-      "company": "Elettra 1938",
-      "companyKey": "elettra-1938",
-      "companyDomain": "elettra1938.ch",
-      "title": "Manutentore Elettromeccanico",
-      "titleByLocale": {
-        "it": "Manutentore Elettromeccanico",
-        "en": "Electronic maintenance",
-        "de": "Elektronische Wartung",
-        "fr": "Entretien électronique"
-      },
-      "description": "Per il potenziamento del nostro team presso la sede di Stabio, cerchiamo un Manutentore Elettromeccanico che si occuperà delle seguenti mansioni: Interventi di diagnosi e risoluzione guasti su impianti e componenti elettrici Manutenzione...",
-      "descriptionByLocale": {
-        "it": "Per il potenziamento del nostro team presso la sede di Stabio, cerchiamo un Manutentore Elettromeccanico che si occuperà delle seguenti mansioni: Interventi di diagnosi e risoluzione guasti su impianti e componenti elettrici Manutenzione...",
-        "en": "For the strengthening of our team at the Stabio headquarters, we look for an Electromechanical Keeper who will take care of the following tasks: Diagnosis and fault resolution on electrical installations and components Maintenance. .",
-        "de": "Für die Verstärkung unseres Teams in der Stabio-Zentrale suchen wir einen elektromechanischen Halter, der sich um folgende\n• Aufgaben kümmert: Diagnose und Fehlerbehebung bei Elektroinstallationen und Komponentenwartung.",
-        "fr": "Pour le renforcement de notre équipe au siège de Stabio, nous recherchons un gardien électromécanique qui s'occupera des tâches suivantes : Diagnostic et résolution de défaillance sur les installations et composants électriques Entretien. ."
-      },
-      "location": "Sede Stabio Svizzera",
-      "canton": "TI",
-      "url": "https://inrecruiting.intervieweb.it/fiammcomponents/jobs/manutentore-elettromeccanico-715887/it/",
-      "source": "Elettra 1938 Dedicated Parser",
-      "sourceLang": "it",
-      "crawledAt": "2026-07-29T22:39:50.390Z",
-      "addressLocality": "Sede Stabio Svizzera",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "6850",
-      "category": "Tecnica",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Impiantistica elettrica / Automazione",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-08",
-      "applyUrl": "https://inrecruiting.intervieweb.it/fiammcomponents/jobs/manutentore-elettromeccanico-715887/it/",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "firstSeenAt": "2026-07-08T22:06:24.656Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 2
     }
   ]
 }
