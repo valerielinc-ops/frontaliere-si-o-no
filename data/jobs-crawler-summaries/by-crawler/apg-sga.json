@@ -1,16 +1,16 @@
 {
   "key": "apg-sga",
   "label": "APG|SGA",
-  "generatedAt": "2026-07-31T12:15:02.097Z",
-  "total": 2,
+  "generatedAt": "2026-07-31T22:18:31.406Z",
+  "total": 1,
   "newCount": 0,
   "updatedCount": 1,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 4680,
-  "avgDurationMs": 4680,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 11093,
+  "avgDurationMs": 11093,
   "durationHistory": [
-    4680
+    11093
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -26,7 +26,7 @@
       "url": "https://jobs.apgsga.ch/publication/software-engineer-zuerich/fq77rwsz40tq2rk03aosn5kdlrimsc8r82avvqk4zlmb67ptcjlynfhsx0aw2lzt",
       "source": "APG|SGA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-31T12:15:00.029Z",
+      "crawledAt": "2026-07-31T22:18:28.499Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -51,8 +51,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "apg-sga-90b3b6b0fcec",
       "slug": "key-account-manager-nei-clienti-diretti-80-100-zurigo-apg-sga-zurich",
@@ -92,5 +91,6 @@
         "completeness": 22
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
