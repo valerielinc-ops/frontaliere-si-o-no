@@ -1,6 +1,6 @@
 {
   "crawlerKey": "ermenegildo-zegna-logistica",
-  "assembledAt": "2026-07-31T10:26:10.513Z",
+  "assembledAt": "2026-07-31T22:15:29.326Z",
   "jobs": [
     {
       "url": "https://careers.zegnagroup.com/jobs/job-details?JobID=272160171&Team=231361271",
@@ -13,23 +13,23 @@
       "country": "CH",
       "description": "Posizione aperta presso Ermenegildo Zegna Group. Ruolo: Back Office Intern - Ufficio Modelli. Sede: Mendrisio, Svizzera.",
       "descriptionByLocale": {
-        "en": "Open location at Ermenegildo Zegna Group. Role: Back Office Intern - Model Office. Location: Mendrisio, Switzerland.",
         "it": "Posizione aperta presso Ermenegildo Zegna Group. Ruolo: Back Office Intern - Ufficio Modelli. Sede: Mendrisio, Svizzera.",
+        "en": "Open location at Ermenegildo Zegna Group. Role: Back Office Intern - Model Office. Location: Mendrisio, Switzerland.",
         "de": "Offener Standort bei Ermenegildo Zegna Group. Rolle: Back Office Intern - Model Office. Standort: Mendrisio, Schweiz.",
         "fr": "Ouvrir l'emplacement au groupe Ermenegildo Zegna. Rôle : Stagiaire du back office - Model Office. Lieu: Mendrisio, Suisse."
       },
       "titleByLocale": {
-        "en": "Back Office Intern - Model Office",
         "it": "Back Office Tirocinante - Ufficio Modelli",
+        "en": "Back Office Intern - Ufficio Modelli",
         "de": "Back Office Praktikant - Ufficio Modelli",
         "fr": "Back Office Stagiaire - Ufficio Modelli"
       },
       "slug": "back-office-intern-ufficio-modelli-zegna",
       "slugByLocale": {
-        "en": "back-office-intern-ufficio-modelli-zegna",
         "it": "back-office-intern-ufficio-modelli-zegna",
-        "de": "back-office-intern-ufficio-modelli-zegna",
-        "fr": "back-office-intern-ufficio-modelli-zegna"
+        "en": "back-office-intern-ufficio-modelli-zegna",
+        "de": "back-office-praktikant-ufficio-modelli-ermenegildo-zegna-group-mendrisio",
+        "fr": "back-office-stagiaire-ufficio-modelli-ermenegildo-zegna-group-mendrisio"
       },
       "department": "Product Development, Manufacturing, End-to end Supply Chain/Manufacturing",
       "category": "Product Development, Manufacturing, End-to end Supply Chain/Manufacturing",
@@ -143,7 +143,8 @@
       },
       "previousSlugs": [
         "junior-brand-control-pricing-specialist-zegna"
-      ]
+      ],
+      "needsRetranslation": true
     }
   ]
 }
