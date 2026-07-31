@@ -1,6 +1,6 @@
 {
   "crawlerKey": "weisse-arena",
-  "assembledAt": "2026-07-31T11:38:18.079Z",
+  "assembledAt": "2026-07-31T22:08:19.304Z",
   "jobs": [
     {
       "id": "weisse-arena-5c5b05a18eeb",
@@ -33,7 +33,7 @@
       "url": "https://www.weissearena.com/jobs/details.html?jobId=4521&jobTitle=Servicemitarbeiter%3Ain",
       "source": "Weisse Arena Gruppe Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-31T11:38:13.143Z",
+      "crawledAt": "2026-07-31T22:08:15.184Z",
       "addressLocality": "Laax",
       "postalCode": "7031",
       "addressCountry": "CH",
@@ -62,12 +62,14 @@
         "servicemitarbeiter-in-im-fruhstuckservice-weisse-arena-ch",
         "addetto-al-servizio-di-colazione-weisse-arena-gruppe-laax",
         "breakfast-service-attendant-weisse-arena-gruppe-laax",
-        "employe-de-service-de-petit-dejeuner-weisse-arena-gruppe-laax"
+        "employe-de-service-de-petit-dejeuner-weisse-arena-gruppe-laax",
+        "dipendente-del-servizio-weisse-arena-gruppe-laax"
       ],
       "previousSlugsByLocale": {
         "it": [
           "servicemitarbeiter-in-weisse-arena-ch",
-          "servicemitarbeiter-in-weisse-arena-gruppe-laax"
+          "servicemitarbeiter-in-weisse-arena-gruppe-laax",
+          "dipendente-del-servizio-weisse-arena-gruppe-laax"
         ],
         "en": [
           "servicemitarbeiter-in-weisse-arena-gruppe-laax"
@@ -77,6 +79,7 @@
         ]
       },
       "firstSeenAt": "2026-06-16T14:41:43.956Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -96,7 +99,7 @@
       "slug": "assistente-cuoco-weisse-arena-gruppe-laax",
       "slugByLocale": {
         "it": "assistente-cuoco-weisse-arena-gruppe-laax",
-        "en": "auxiliary-cook-weisse-arena-gruppe-laax",
+        "en": "hilfskoch-hilfskochin-weisse-arena-gruppe-laax",
         "de": "hilfskoch-hilfskochin-weisse-arena-ch",
         "fr": "cuisiniere-auxiliaire-weisse-arena-gruppe-laax"
       },
@@ -106,7 +109,7 @@
       "title": "Hilfskoch/Hilfsköchin",
       "titleByLocale": {
         "it": "Assistente cuoco",
-        "en": "Auxiliary cook",
+        "en": "Hilfskoch/Hilfsköchin",
         "de": "Hilfskoch/Hilfsköchin",
         "fr": "Cuisinière auxiliaire"
       },
@@ -122,7 +125,7 @@
       "url": "https://www.weissearena.com/jobs/details.html?jobId=4519&jobTitle=Hilfskoch%2FHilfsk%C3%B6chin",
       "source": "Weisse Arena Gruppe Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-31T11:38:13.142Z",
+      "crawledAt": "2026-07-31T22:08:15.183Z",
       "addressLocality": "Laax",
       "postalCode": "7031",
       "addressCountry": "CH",
@@ -144,14 +147,18 @@
       "contractLabel": "Festanstellung",
       "previousSlugs": [
         "hilfskoch-hilfskochin-weisse-arena-ch",
+        "auxiliary-cook-weisse-arena-gruppe-laax",
+        "assistente-cuoco-weisse-arena-gruppe-laax",
         "hilfskoch-hilfskochin-weisse-arena-gruppe-laax"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "hilfskoch-hilfskochin-weisse-arena-ch"
+          "hilfskoch-hilfskochin-weisse-arena-ch",
+          "assistente-cuoco-weisse-arena-gruppe-laax"
         ],
         "en": [
           "hilfskoch-hilfskochin-weisse-arena-ch",
+          "auxiliary-cook-weisse-arena-gruppe-laax",
           "hilfskoch-hilfskochin-weisse-arena-gruppe-laax"
         ],
         "fr": [
@@ -159,6 +166,7 @@
         ]
       },
       "firstSeenAt": "2026-06-16T14:41:43.954Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -204,7 +212,7 @@
       "url": "https://www.weissearena.com/jobs/details.html?jobId=4518&jobTitle=Koch%2FK%C3%B6chin+mit+Feuer+und+Leidenschaft",
       "source": "Weisse Arena Gruppe Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-31T11:38:13.142Z",
+      "crawledAt": "2026-07-31T22:08:15.183Z",
       "addressLocality": "Laax",
       "postalCode": "7031",
       "addressCountry": "CH",
@@ -239,89 +247,7 @@
         ]
       },
       "firstSeenAt": "2026-06-16T14:41:43.955Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "GR"
-    },
-    {
-      "id": "weisse-arena-c801e73870c9",
-      "slug": "portatore-notturno-weisse-arena-gruppe-laax",
-      "slugByLocale": {
-        "it": "portatore-notturno-weisse-arena-gruppe-laax",
-        "en": "night-porter-in-weisse-arena-gruppe-laax",
-        "de": "nachtportier-in-weisse-arena-gruppe-laax",
-        "fr": "porteur-nocturne-in-weisse-arena-gruppe-laax"
-      },
-      "company": "Weisse Arena Gruppe",
-      "companyKey": "weisse-arena",
-      "companyDomain": "weissearena.com",
-      "title": "Nachtportier:in",
-      "titleByLocale": {
-        "it": "Portatore notturno",
-        "en": "Night porter:in",
-        "de": "Nachtportier:in",
-        "fr": "Porteur nocturne:in"
-      },
-      "description": "Die Weisse Arena Gruppe ist ein integriertes Dienstleistungsunternehmen im Bereich Tourismus und Freizeit mit Sitz in Laax. Wir sind Anbieter von alpinen Freizeiterlebnissen. Das Geschäftsmodell der Weissen Arena Gruppe, mit fünf 100-prozentigen Tochterunternehmen und zahlreichen Marken, ist einzigartig im Alpenraum. Zur Gruppe gehören eine Bergbahnunternehmung, Hotel und Gastronomiebetriebe, Sport und Rental Shops, eine Ski- und Snowboardschule bzw. Bikeschule sowie eine Verwaltungsgesellschaft. | Das 4-Sterne-Haus signinahotel erwartet unsere Gäste mit moderner Raumgestaltungin68 Doppelzimmern und Suiten. Sei es im italienischen Ristorante Camino, in der Camino Bar/Lounge oder im grosszügigen Wellnessbereich - es gibt viele Orte zu entdecken, an denen unsere Gäste die ausserordentliche Servicequalität spüren können. Im rocksresort 4* Serviced Apartment, Member of Designhotels und Responsible Hotels, wird alpiner Lebensstil modern interpretiert und mit Leidenschaft gelebt. Die über 250 Apartments bieten Wohnqualität auf höchstem Niveau. Das Riders Hotel mit seinen 56 Zimmern und Studios ein Ort, wo alle willkommen sind —kreativ, einzigartig und familiär. Die Zimmer greifen die moderne und zeitgenössische Gestaltung des Hotels auf und schaffen auf besondere Art ein Gleichgewicht zwischen Design und Natur. | Stell dir vor, du verstärkst unser Team im signinahotel/rocksresort an zwei Tagen in der Woche als Nachtportier:in mit viel Herz und Begeisterung für unsere Gäste und die Region. | Was du bewegst:\n• Check-in und Check-out von Individual- und Gruppengästen\n• Gästebetreuung, vorwiegend in Deutsch und in Englisch\n• Führen der eigenen Kasse, Geld- und Devisenwechsel\n• Reinigungsarbeiten im öffentlichen Bereich (Restaurant, Bar, etc.)\n• Durchführung der Tagesabschlüsse\n• Regelmässige Rundgänge im Hotel mit Sicherheitsgewährleistung\n• Mithilfe bei der Schneeräumung\n• Telefonservice sowie Ansprechpartner für unsere Gäste\n• Arbeitseinsatz Sonntags, Montags oder nach Absprache | Was dich ausmacht:\n• Du strahlst Herzlichkeit aus, hast Freude an deinem Beruf und arbeitest gerne im Team.\n• Deutsch und Englisch beherrschst du in Wort und Schrift.\n• Weitere Sprachen sowie Protel Hotelsystem Kenntnisse sind von Vorteil.\n• Du strahlst Herzlichkeit aus, hast Freude an deinem Beruf und arbeitest gerne im Team.\n• Du bist eine aufgestellte, freundliche und belastbare Persönlichkeit.\n• Du bist lösungsorientiert und verfügst über eine hohe Dienstleistungsbereitschaft.\n• Auf der Suche nach abwechslungsreicher Arbeit, liebst du die täglichen Herausforderungen. | Ein attraktiver Arbeitsplatz inmitten einer aussergewöhnlichen Bergwelt ist dir gewiss. Du wirst Teil eines dynamischen, aufgeweckten Teams und kannst die Weiterentwicklung unseres HR aktiv mitprägen. Bei uns findest du ein Umfeld, in dem Professionalität, Tempo, Pragmatismus und Menschlichkeit zusammengehören. Zudem profitierst du von attraktiven Mitarbeitervergünstigungen , wie freie Bergfahrten, Vergünstigungen in unseren Shops, Hotels und Gastronomiebetrieben sowie von weiteren Vorteilen für deine Familie. Starte dein berufliches Abenteuer bei der Weissen Arena Gruppe mit deiner vollständigen Online-Bewerbung. Wir freuen uns auf dich. | Weisse Arena Hospitality AG signinahotel/rocksresort Sandra Stilz www.signinahotel.com I www.weissearena.com I www.laax.com",
-      "descriptionByLocale": {
-        "it": "Il Weisse Arena Group è una società di servizi turistici e di svago integrata con sede a Laax. Siamo fornitori di esperienze per il tempo libero alpino. Il modello di business del Weissen Arena Group, con cinque filiali al 100% e numerosi marchi, è unico nella regione alpina. Il gruppo comprende una compagnia ferroviaria di montagna, società di hotel e catering, negozi di sport e noleggio, una scuola di sci e snowboard, rispettivamente. Scuola di bicicletta e una società di gestione. # La casa Signinahotel a 4 stelle aspetta i nostri ospiti con design moderno in68 camere doppie e suite. Che sia nel Ristorante Camino, nel Camino Bar/Lounge o nella spaziosa area benessere - ci sono molti luoghi da scoprire dove i nostri ospiti possono sentire l'eccezionale qualità del servizio. Nelle rocceresort 4* Serviced Apartment, Membro di Designhotels e Responsible Hotels, lo stile di vita alpino viene interpretato in modo moderno e vissuto con passione. Gli oltre 250 appartamenti offrono la qualità della vita al massimo livello. Il Riders Hotel con le sue 56 camere e monolocali è un luogo dove tutti sono benvenuti – creativo, unico e familiare. Le camere occupano il design moderno e contemporaneo dell'hotel e creano uno speciale equilibrio tra design e natura. # Immaginate di rafforzare il nostro team nel signinahotel/rocksresort due giorni alla settimana come portiere notturno: con molto cuore e entusiasmo per i nostri ospiti e la regione. Cosa si muove:\n• Check-in e check-out degli ospiti individuali e di gruppo\n• Cura degli ospiti, principalmente in tedesco e in inglese\n• Gestire il proprio registro di cassa, denaro e cambio valuta\n• Lavori di pulizia nell'area pubblica (ristorante, bar, ecc.)\n• Attuazione dei conti giornalieri\n• Tour regolari in hotel con garanzia di sicurezza\n• assistenza all'eliminazione della neve\n• Servizio telefonico e referente per i nostri ospiti\n• Incarico di lavoro domenica, lunedì o per accordo | Cosa ti rende:\n• Si irradia calore, godere la vostra professione e godere di lavorare in una squadra.\n• Si padrone tedesco e inglese in parola e scrittura.\n• Ulteriori lingue e le conoscenze del sistema alberghiero Protel sono vantaggiose.\n• Si irradia calore, godere la vostra professione e godere di lavorare in una squadra.\n• Sei una personalità consolidata, amichevole e resiliente.\n• Siete orientati alla soluzione e avete una grande disponibilità a fornire servizi.\n• Alla ricerca di un lavoro vario, amate le sfide quotidiane. # Un posto di lavoro attraente nel mezzo di un mondo di montagna straordinario è certo per voi. Diventerai parte di un team dinamico e luminoso e potrai plasmare attivamente l'ulteriore sviluppo della nostra HR. Con noi troverete un ambiente dove professionalità, velocità, pragmatismo e umanità vanno insieme. Inoltre, si beneficiano di interessanti vantaggi per i dipendenti, come gite in montagna gratuite, sconti nei nostri negozi, hotel e ristoranti e altri vantaggi per la vostra famiglia. Inizia la tua avventura professionale al Weissen Arena Group con la tua applicazione online completa. Non vediamo l'ora di vederti. | Weisse Arena Hospitality AG signinahotel/rocksresort Sandra Stilz www.signinahotel.com I www.weissearena.com I www.laax.com",
-        "en": "The Weisse Arena Group is an integrated tourism and leisure services company based in Laax. We are providers of alpine leisure experiences. The business model of the Weissen Arena Group, with five 100% subsidiaries and numerous brands, is unique in the Alpine region. The group includes a mountain railway company, hotel and catering companies, sports and rental shops, a ski and snowboarding school, respectively. Bike school and a management company. | The 4-star house signinahotel awaits our guests with modern room design in68 double rooms and suites. Be it in the Italian Ristorante Camino, in the Camino Bar/Lounge or in the spacious wellness area - there are many places to discover where our guests can feel the exceptional quality of service. In the rocksresort 4* Serviced Apartment, Member of Designhotels and Responsible Hotels, the Alpine lifestyle is interpreted modernly and lived with passion. The more than 250 apartments offer living quality at the highest level. The Riders Hotel with its 56 rooms and studios is a place where everyone is welcome – creative, unique and familiar. The rooms take up the modern and contemporary design of the hotel and create a special balance between design and nature. | Imagine strengthening our team in the signinahotel/rocksresort two days a week as a night porter: in with a lot of heart and enthusiasm for our guests and the region. What You Move:\n• Check-in and check-out of individual and group guests\n• Guest care, mainly in German and in English\n• Managing your own cash register, money and currency exchange\n• Cleaning work in the public area (restaurant, bar, etc.)\n• Implementation of daily accounts\n• Regular tours in the hotel with security guarantee\n• snow clearance assistance\n• Telephone service and contact person for our guests\n• Work assignment Sunday, Monday or by arrangement | What makes you:\n• You radiate warmth, enjoy your profession and enjoy working in a team.\n• You master German and English in word and writing.\n• Further languages as well as Protel hotel system knowledge are advantageous.\n• You radiate warmth, enjoy your profession and enjoy working in a team.\n• You are an established, friendly and resilient personality.\n• You are solution-oriented and have a high willingness to provide services.\n• Looking for varied work, you love the daily challenges. | An attractive workplace in the middle of an extraordinary mountain world is certain for you. You will become part of a dynamic, bright team and can actively shape the further development of our HR. With us you will find an environment where professionalism, speed, pragmatism and humanity go together. In addition, you benefit from attractive employee benefits, such as free mountain rides, discounts in our shops, hotels and restaurants as well as other benefits for your family. Start your professional adventure at the Weissen Arena Group with your complete online application. We look forward to seeing you. | Weisse Arena Hospitality AG signinahotel/rocksresort Sandra Stilz www.signinahotel.com I www.weissearena.com I www.laax.com",
-        "de": "Die Weisse Arena Gruppe ist ein integriertes Dienstleistungsunternehmen im Bereich Tourismus und Freizeit mit Sitz in Laax. Wir sind Anbieter von alpinen Freizeiterlebnissen. Das Geschäftsmodell der Weissen Arena Gruppe, mit fünf 100-prozentigen Tochterunternehmen und zahlreichen Marken, ist einzigartig im Alpenraum. Zur Gruppe gehören eine Bergbahnunternehmung, Hotel und Gastronomiebetriebe, Sport und Rental Shops, eine Ski- und Snowboardschule bzw. Bikeschule sowie eine Verwaltungsgesellschaft. | Das 4-Sterne-Haus signinahotel erwartet unsere Gäste mit moderner Raumgestaltungin68 Doppelzimmern und Suiten. Sei es im italienischen Ristorante Camino, in der Camino Bar/Lounge oder im grosszügigen Wellnessbereich - es gibt viele Orte zu entdecken, an denen unsere Gäste die ausserordentliche Servicequalität spüren können. Im rocksresort 4* Serviced Apartment, Member of Designhotels und Responsible Hotels, wird alpiner Lebensstil modern interpretiert und mit Leidenschaft gelebt. Die über 250 Apartments bieten Wohnqualität auf höchstem Niveau. Das Riders Hotel mit seinen 56 Zimmern und Studios ein Ort, wo alle willkommen sind —kreativ, einzigartig und familiär. Die Zimmer greifen die moderne und zeitgenössische Gestaltung des Hotels auf und schaffen auf besondere Art ein Gleichgewicht zwischen Design und Natur. | Stell dir vor, du verstärkst unser Team im signinahotel/rocksresort an zwei Tagen in der Woche als Nachtportier:in mit viel Herz und Begeisterung für unsere Gäste und die Region. | Was du bewegst:\n• Check-in und Check-out von Individual- und Gruppengästen\n• Gästebetreuung, vorwiegend in Deutsch und in Englisch\n• Führen der eigenen Kasse, Geld- und Devisenwechsel\n• Reinigungsarbeiten im öffentlichen Bereich (Restaurant, Bar, etc.)\n• Durchführung der Tagesabschlüsse\n• Regelmässige Rundgänge im Hotel mit Sicherheitsgewährleistung\n• Mithilfe bei der Schneeräumung\n• Telefonservice sowie Ansprechpartner für unsere Gäste\n• Arbeitseinsatz Sonntags, Montags oder nach Absprache | Was dich ausmacht:\n• Du strahlst Herzlichkeit aus, hast Freude an deinem Beruf und arbeitest gerne im Team.\n• Deutsch und Englisch beherrschst du in Wort und Schrift.\n• Weitere Sprachen sowie Protel Hotelsystem Kenntnisse sind von Vorteil.\n• Du strahlst Herzlichkeit aus, hast Freude an deinem Beruf und arbeitest gerne im Team.\n• Du bist eine aufgestellte, freundliche und belastbare Persönlichkeit.\n• Du bist lösungsorientiert und verfügst über eine hohe Dienstleistungsbereitschaft.\n• Auf der Suche nach abwechslungsreicher Arbeit, liebst du die täglichen Herausforderungen. | Ein attraktiver Arbeitsplatz inmitten einer aussergewöhnlichen Bergwelt ist dir gewiss. Du wirst Teil eines dynamischen, aufgeweckten Teams und kannst die Weiterentwicklung unseres HR aktiv mitprägen. Bei uns findest du ein Umfeld, in dem Professionalität, Tempo, Pragmatismus und Menschlichkeit zusammengehören. Zudem profitierst du von attraktiven Mitarbeitervergünstigungen , wie freie Bergfahrten, Vergünstigungen in unseren Shops, Hotels und Gastronomiebetrieben sowie von weiteren Vorteilen für deine Familie. Starte dein berufliches Abenteuer bei der Weissen Arena Gruppe mit deiner vollständigen Online-Bewerbung. Wir freuen uns auf dich. | Weisse Arena Hospitality AG signinahotel/rocksresort Sandra Stilz www.signinahotel.com I www.weissearena.com I www.laax.com",
-        "fr": "Le Groupe Weisse Arena est une société intégrée de services touristiques et de loisirs basée à Laax. Nous offrons des expériences de loisirs alpins. Le modèle commercial du Groupe Weissen Arena, avec cinq filiales à 100% et de nombreuses marques, est unique dans la région alpine. Le groupe comprend une compagnie de chemin de fer de montagne, des entreprises hôtelières et de restauration, des magasins de sport et de location, une école de ski et de snowboard, respectivement. École de vélo et société de gestion. Autres La maison signinahotel 4 étoiles attend nos clients avec la conception moderne des chambres dans 68 chambres doubles et suites. Que ce soit dans le Ristorante Camino italien, dans le Camino Bar/Lounge ou dans le grand espace bien-être - il ya de nombreux endroits à découvrir où nos clients peuvent sentir la qualité exceptionnelle du service. Dans le rocsresort 4* Serviced Apartment, membre de Designhotels et des hôtels responsables, le style de vie alpin est interprété de façon moderne et vécu avec passion. Les plus de 250 appartements offrent une qualité de vie au plus haut niveau. L'Hôtel Riders avec ses 56 chambres et studios est un endroit où tout le monde est le bienvenu – créatif, unique et familier. Les chambres adoptent le design moderne et contemporain de l'hôtel et créent un équilibre spécial entre design et nature. Autres Imaginez renforcer notre équipe dans le signinahotel/rocksresort deux jours par semaine comme portier de nuit : avec beaucoup de cœur et d'enthousiasme pour nos invités et la région. Ce que vous déplacez :\n• Enregistrement et départ des invités individuels et de groupe\n• Soins aux clients, principalement en allemand et en anglais\n• Gérer votre propre caisse enregistreuse, argent et change\n• Travaux de nettoyage dans la zone publique (restaurant, bar, etc.)\n• Exécution des comptes quotidiens\n• Visites régulières dans l'hôtel avec garantie de sécurité\n• assistance au déneigement\n• Service téléphonique et personne de contact pour nos clients\n• Travail effectué dimanche, lundi ou par arrangement\n• Vous rayonnez de chaleur, appréciez votre profession et aimez travailler en équipe.\n• Vous maîtrisez l'allemand et l'anglais en paroles et en écritures.\n• D'autres langues ainsi que la connaissance du système hôtelier Protel sont avantageuses.\n• Vous rayonnez de chaleur, appréciez votre profession et aimez travailler en équipe.\n• Vous êtes une personnalité établie, amicale et résistante.\n• Vous êtes orienté vers la solution et avez une forte volonté de fournir des services.\n• À la recherche d'un travail varié, vous aimez les défis quotidiens. Autres Un lieu de travail attrayant au milieu d'un monde montagneux extraordinaire est certain pour vous. Vous deviendrez membre d'une équipe dynamique et brillante et pourrez façonner activement le développement de notre RH. Avec nous vous trouverez un environnement où professionnalisme, vitesse, pragmatisme et humanité vont ensemble. De plus, vous bénéficiez d'avantages sociaux intéressants, tels que des randonnées en montagne gratuites, des réductions dans nos magasins, hôtels et restaurants ainsi que d'autres avantages pour votre famille. Commencez votre aventure professionnelle au sein du groupe Weissen Arena avec votre candidature en ligne complète. Nous avons hâte de vous voir. Weisse Arena Hospitality AG signinahotel/rocksresort Sandra Stilz www.signinahotel.com I www.weissearena.com I www.laax.com"
-      },
-      "location": "Laax",
-      "canton": "GR",
-      "url": "https://www.weissearena.com/jobs/details.html?jobId=4524&jobTitle=Nachtportier%3Ain",
-      "source": "Weisse Arena Gruppe Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-31T11:38:13.138Z",
-      "addressLocality": "Laax",
-      "postalCode": "7031",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Turismo",
-      "contract": "part-time",
-      "employmentType": "CONTRACTOR",
-      "experienceLevel": "mid",
-      "sector": "Turismo / Sport",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-21",
-      "applyUrl": "https://emea3.recruitmentplatform.com/apply-app/pages/application-form?jobId=PD6FK026203F3VBQBLO8NV79D-4524&langCode=de_DE",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "department": "signinahotel/rocksresort",
-      "jobNumber": "WAG02400",
-      "pensum": "40%",
-      "contractLabel": "Saisonanstellung",
-      "previousSlugsByLocale": {
-        "de": [
-          "nachtportier-in-weisse-arena-ch"
-        ],
-        "it": [
-          "nachtportier-in-weisse-arena-ch"
-        ],
-        "en": [
-          "nachtportier-in-weisse-arena-ch"
-        ],
-        "fr": [
-          "nachtportier-in-weisse-arena-ch"
-        ]
-      },
-      "previousSlugs": [
-        "nachtportier-in-weisse-arena-ch"
-      ],
-      "firstSeenAt": "2026-06-22T15:11:23.123Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -367,7 +293,7 @@
       "url": "https://www.weissearena.com/jobs/details.html?jobId=4522&jobTitle=HR+Generalist%3Ain",
       "source": "Weisse Arena Gruppe Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-31T11:38:13.138Z",
+      "crawledAt": "2026-07-31T22:08:15.179Z",
       "addressLocality": "Laax",
       "postalCode": "7031",
       "addressCountry": "CH",
@@ -388,17 +314,20 @@
       "pensum": "80 - 100%",
       "contractLabel": "Festanstellung",
       "previousSlugs": [
-        "hr-generalist-in-weisse-arena-ch"
+        "hr-generalist-in-weisse-arena-ch",
+        "risorse-umane-generalist-in-weisse-arena-gruppe-laax"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "hr-generalist-in-weisse-arena-ch"
+          "hr-generalist-in-weisse-arena-ch",
+          "risorse-umane-generalist-in-weisse-arena-gruppe-laax"
         ],
         "fr": [
           "hr-generalist-in-weisse-arena-ch"
         ]
       },
       "firstSeenAt": "2026-06-19T13:38:45.726Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -444,7 +373,7 @@
       "url": "https://www.weissearena.com/jobs/details.html?jobId=4527&jobTitle=K%C3%BCchenchef%3Ain+rocksresorts",
       "source": "Weisse Arena Gruppe Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-31T11:38:13.137Z",
+      "crawledAt": "2026-07-31T22:08:15.178Z",
       "addressLocality": "Laax",
       "postalCode": "7031",
       "addressCountry": "CH",
@@ -465,11 +394,13 @@
       "pensum": "100%",
       "contractLabel": "Festanstellung",
       "previousSlugs": [
-        "kuchenchef-in-rocksresorts-weisse-arena-ch"
+        "kuchenchef-in-rocksresorts-weisse-arena-ch",
+        "chef-in-scogliere-weisse-arena-gruppe-laax"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "kuchenchef-in-rocksresorts-weisse-arena-ch"
+          "kuchenchef-in-rocksresorts-weisse-arena-ch",
+          "chef-in-scogliere-weisse-arena-gruppe-laax"
         ],
         "en": [
           "kuchenchef-in-rocksresorts-weisse-arena-ch"
@@ -479,6 +410,94 @@
         ]
       },
       "firstSeenAt": "2026-07-14T10:55:48.730Z",
+      "salaryMin": 57500,
+      "salaryMax": 87000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 57500,
+          "maxValue": 87000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "GR"
+    },
+    {
+      "id": "weisse-arena-c801e73870c9",
+      "slug": "portatore-notturno-weisse-arena-gruppe-laax",
+      "slugByLocale": {
+        "it": "portatore-notturno-weisse-arena-gruppe-laax",
+        "en": "night-porter-in-weisse-arena-gruppe-laax",
+        "de": "nachtportier-in-weisse-arena-gruppe-laax",
+        "fr": "porteur-nocturne-in-weisse-arena-gruppe-laax"
+      },
+      "company": "Weisse Arena Gruppe",
+      "companyKey": "weisse-arena",
+      "companyDomain": "weissearena.com",
+      "title": "Nachtportier:in",
+      "titleByLocale": {
+        "it": "Portatore notturno",
+        "en": "Night porter:in",
+        "de": "Nachtportier:in",
+        "fr": "Porteur nocturne:in"
+      },
+      "description": "Die Weisse Arena Gruppe ist ein integriertes Dienstleistungsunternehmen im Bereich Tourismus und Freizeit mit Sitz in Laax. Wir sind Anbieter von alpinen Freizeiterlebnissen. Das Geschäftsmodell der Weissen Arena Gruppe, mit fünf 100-prozentigen Tochterunternehmen und zahlreichen Marken, ist einzigartig im Alpenraum. Zur Gruppe gehören eine Bergbahnunternehmung, Hotel und Gastronomiebetriebe, Sport und Rental Shops, eine Ski- und Snowboardschule bzw. Bikeschule sowie eine Verwaltungsgesellschaft. | Das 4-Sterne-Haus signinahotel erwartet unsere Gäste mit moderner Raumgestaltungin68 Doppelzimmern und Suiten. Sei es im italienischen Ristorante Camino, in der Camino Bar/Lounge oder im grosszügigen Wellnessbereich - es gibt viele Orte zu entdecken, an denen unsere Gäste die ausserordentliche Servicequalität spüren können. Im rocksresort 4* Serviced Apartment, Member of Designhotels und Responsible Hotels, wird alpiner Lebensstil modern interpretiert und mit Leidenschaft gelebt. Die über 250 Apartments bieten Wohnqualität auf höchstem Niveau. Das Riders Hotel mit seinen 56 Zimmern und Studios ein Ort, wo alle willkommen sind —kreativ, einzigartig und familiär. Die Zimmer greifen die moderne und zeitgenössische Gestaltung des Hotels auf und schaffen auf besondere Art ein Gleichgewicht zwischen Design und Natur. | Stell dir vor, du verstärkst unser Team im signinahotel/rocksresort an zwei Tagen in der Woche als Nachtportier:in mit viel Herz und Begeisterung für unsere Gäste und die Region. | Was du bewegst:\n• Check-in und Check-out von Individual- und Gruppengästen\n• Gästebetreuung, vorwiegend in Deutsch und in Englisch\n• Führen der eigenen Kasse, Geld- und Devisenwechsel\n• Reinigungsarbeiten im öffentlichen Bereich (Restaurant, Bar, etc.)\n• Durchführung der Tagesabschlüsse\n• Regelmässige Rundgänge im Hotel mit Sicherheitsgewährleistung\n• Mithilfe bei der Schneeräumung\n• Telefonservice sowie Ansprechpartner für unsere Gäste\n• Arbeitseinsatz Sonntags, Montags oder nach Absprache | Was dich ausmacht:\n• Du strahlst Herzlichkeit aus, hast Freude an deinem Beruf und arbeitest gerne im Team.\n• Deutsch und Englisch beherrschst du in Wort und Schrift.\n• Weitere Sprachen sowie Protel Hotelsystem Kenntnisse sind von Vorteil.\n• Du strahlst Herzlichkeit aus, hast Freude an deinem Beruf und arbeitest gerne im Team.\n• Du bist eine aufgestellte, freundliche und belastbare Persönlichkeit.\n• Du bist lösungsorientiert und verfügst über eine hohe Dienstleistungsbereitschaft.\n• Auf der Suche nach abwechslungsreicher Arbeit, liebst du die täglichen Herausforderungen. | Ein attraktiver Arbeitsplatz inmitten einer aussergewöhnlichen Bergwelt ist dir gewiss. Du wirst Teil eines dynamischen, aufgeweckten Teams und kannst die Weiterentwicklung unseres HR aktiv mitprägen. Bei uns findest du ein Umfeld, in dem Professionalität, Tempo, Pragmatismus und Menschlichkeit zusammengehören. Zudem profitierst du von attraktiven Mitarbeitervergünstigungen , wie freie Bergfahrten, Vergünstigungen in unseren Shops, Hotels und Gastronomiebetrieben sowie von weiteren Vorteilen für deine Familie. Starte dein berufliches Abenteuer bei der Weissen Arena Gruppe mit deiner vollständigen Online-Bewerbung. Wir freuen uns auf dich. | Weisse Arena Hospitality AG signinahotel/rocksresort Sandra Stilz www.signinahotel.com I www.weissearena.com I www.laax.com",
+      "descriptionByLocale": {
+        "it": "Il Weisse Arena Group è una società di servizi turistici e di svago integrata con sede a Laax. Siamo fornitori di esperienze per il tempo libero alpino. Il modello di business del Weissen Arena Group, con cinque filiali al 100% e numerosi marchi, è unico nella regione alpina. Il gruppo comprende una compagnia ferroviaria di montagna, società di hotel e catering, negozi di sport e noleggio, una scuola di sci e snowboard, rispettivamente. Scuola di bicicletta e una società di gestione. # La casa Signinahotel a 4 stelle aspetta i nostri ospiti con design moderno in68 camere doppie e suite. Che sia nel Ristorante Camino, nel Camino Bar/Lounge o nella spaziosa area benessere - ci sono molti luoghi da scoprire dove i nostri ospiti possono sentire l'eccezionale qualità del servizio. Nelle rocceresort 4* Serviced Apartment, Membro di Designhotels e Responsible Hotels, lo stile di vita alpino viene interpretato in modo moderno e vissuto con passione. Gli oltre 250 appartamenti offrono la qualità della vita al massimo livello. Il Riders Hotel con le sue 56 camere e monolocali è un luogo dove tutti sono benvenuti – creativo, unico e familiare. Le camere occupano il design moderno e contemporaneo dell'hotel e creano uno speciale equilibrio tra design e natura. # Immaginate di rafforzare il nostro team nel signinahotel/rocksresort due giorni alla settimana come portiere notturno: con molto cuore e entusiasmo per i nostri ospiti e la regione. Cosa si muove:\n• Check-in e check-out degli ospiti individuali e di gruppo\n• Cura degli ospiti, principalmente in tedesco e in inglese\n• Gestire il proprio registro di cassa, denaro e cambio valuta\n• Lavori di pulizia nell'area pubblica (ristorante, bar, ecc.)\n• Attuazione dei conti giornalieri\n• Tour regolari in hotel con garanzia di sicurezza\n• assistenza all'eliminazione della neve\n• Servizio telefonico e referente per i nostri ospiti\n• Incarico di lavoro domenica, lunedì o per accordo | Cosa ti rende:\n• Si irradia calore, godere la vostra professione e godere di lavorare in una squadra.\n• Si padrone tedesco e inglese in parola e scrittura.\n• Ulteriori lingue e le conoscenze del sistema alberghiero Protel sono vantaggiose.\n• Si irradia calore, godere la vostra professione e godere di lavorare in una squadra.\n• Sei una personalità consolidata, amichevole e resiliente.\n• Siete orientati alla soluzione e avete una grande disponibilità a fornire servizi.\n• Alla ricerca di un lavoro vario, amate le sfide quotidiane. # Un posto di lavoro attraente nel mezzo di un mondo di montagna straordinario è certo per voi. Diventerai parte di un team dinamico e luminoso e potrai plasmare attivamente l'ulteriore sviluppo della nostra HR. Con noi troverete un ambiente dove professionalità, velocità, pragmatismo e umanità vanno insieme. Inoltre, si beneficiano di interessanti vantaggi per i dipendenti, come gite in montagna gratuite, sconti nei nostri negozi, hotel e ristoranti e altri vantaggi per la vostra famiglia. Inizia la tua avventura professionale al Weissen Arena Group con la tua applicazione online completa. Non vediamo l'ora di vederti. | Weisse Arena Hospitality AG signinahotel/rocksresort Sandra Stilz www.signinahotel.com I www.weissearena.com I www.laax.com",
+        "en": "The Weisse Arena Group is an integrated tourism and leisure services company based in Laax. We are providers of alpine leisure experiences. The business model of the Weissen Arena Group, with five 100% subsidiaries and numerous brands, is unique in the Alpine region. The group includes a mountain railway company, hotel and catering companies, sports and rental shops, a ski and snowboarding school, respectively. Bike school and a management company. | The 4-star house signinahotel awaits our guests with modern room design in68 double rooms and suites. Be it in the Italian Ristorante Camino, in the Camino Bar/Lounge or in the spacious wellness area - there are many places to discover where our guests can feel the exceptional quality of service. In the rocksresort 4* Serviced Apartment, Member of Designhotels and Responsible Hotels, the Alpine lifestyle is interpreted modernly and lived with passion. The more than 250 apartments offer living quality at the highest level. The Riders Hotel with its 56 rooms and studios is a place where everyone is welcome – creative, unique and familiar. The rooms take up the modern and contemporary design of the hotel and create a special balance between design and nature. | Imagine strengthening our team in the signinahotel/rocksresort two days a week as a night porter: in with a lot of heart and enthusiasm for our guests and the region. What You Move:\n• Check-in and check-out of individual and group guests\n• Guest care, mainly in German and in English\n• Managing your own cash register, money and currency exchange\n• Cleaning work in the public area (restaurant, bar, etc.)\n• Implementation of daily accounts\n• Regular tours in the hotel with security guarantee\n• snow clearance assistance\n• Telephone service and contact person for our guests\n• Work assignment Sunday, Monday or by arrangement | What makes you:\n• You radiate warmth, enjoy your profession and enjoy working in a team.\n• You master German and English in word and writing.\n• Further languages as well as Protel hotel system knowledge are advantageous.\n• You radiate warmth, enjoy your profession and enjoy working in a team.\n• You are an established, friendly and resilient personality.\n• You are solution-oriented and have a high willingness to provide services.\n• Looking for varied work, you love the daily challenges. | An attractive workplace in the middle of an extraordinary mountain world is certain for you. You will become part of a dynamic, bright team and can actively shape the further development of our HR. With us you will find an environment where professionalism, speed, pragmatism and humanity go together. In addition, you benefit from attractive employee benefits, such as free mountain rides, discounts in our shops, hotels and restaurants as well as other benefits for your family. Start your professional adventure at the Weissen Arena Group with your complete online application. We look forward to seeing you. | Weisse Arena Hospitality AG signinahotel/rocksresort Sandra Stilz www.signinahotel.com I www.weissearena.com I www.laax.com",
+        "de": "Die Weisse Arena Gruppe ist ein integriertes Dienstleistungsunternehmen im Bereich Tourismus und Freizeit mit Sitz in Laax. Wir sind Anbieter von alpinen Freizeiterlebnissen. Das Geschäftsmodell der Weissen Arena Gruppe, mit fünf 100-prozentigen Tochterunternehmen und zahlreichen Marken, ist einzigartig im Alpenraum. Zur Gruppe gehören eine Bergbahnunternehmung, Hotel und Gastronomiebetriebe, Sport und Rental Shops, eine Ski- und Snowboardschule bzw. Bikeschule sowie eine Verwaltungsgesellschaft. | Das 4-Sterne-Haus signinahotel erwartet unsere Gäste mit moderner Raumgestaltungin68 Doppelzimmern und Suiten. Sei es im italienischen Ristorante Camino, in der Camino Bar/Lounge oder im grosszügigen Wellnessbereich - es gibt viele Orte zu entdecken, an denen unsere Gäste die ausserordentliche Servicequalität spüren können. Im rocksresort 4* Serviced Apartment, Member of Designhotels und Responsible Hotels, wird alpiner Lebensstil modern interpretiert und mit Leidenschaft gelebt. Die über 250 Apartments bieten Wohnqualität auf höchstem Niveau. Das Riders Hotel mit seinen 56 Zimmern und Studios ein Ort, wo alle willkommen sind —kreativ, einzigartig und familiär. Die Zimmer greifen die moderne und zeitgenössische Gestaltung des Hotels auf und schaffen auf besondere Art ein Gleichgewicht zwischen Design und Natur. | Stell dir vor, du verstärkst unser Team im signinahotel/rocksresort an zwei Tagen in der Woche als Nachtportier:in mit viel Herz und Begeisterung für unsere Gäste und die Region. | Was du bewegst:\n• Check-in und Check-out von Individual- und Gruppengästen\n• Gästebetreuung, vorwiegend in Deutsch und in Englisch\n• Führen der eigenen Kasse, Geld- und Devisenwechsel\n• Reinigungsarbeiten im öffentlichen Bereich (Restaurant, Bar, etc.)\n• Durchführung der Tagesabschlüsse\n• Regelmässige Rundgänge im Hotel mit Sicherheitsgewährleistung\n• Mithilfe bei der Schneeräumung\n• Telefonservice sowie Ansprechpartner für unsere Gäste\n• Arbeitseinsatz Sonntags, Montags oder nach Absprache | Was dich ausmacht:\n• Du strahlst Herzlichkeit aus, hast Freude an deinem Beruf und arbeitest gerne im Team.\n• Deutsch und Englisch beherrschst du in Wort und Schrift.\n• Weitere Sprachen sowie Protel Hotelsystem Kenntnisse sind von Vorteil.\n• Du strahlst Herzlichkeit aus, hast Freude an deinem Beruf und arbeitest gerne im Team.\n• Du bist eine aufgestellte, freundliche und belastbare Persönlichkeit.\n• Du bist lösungsorientiert und verfügst über eine hohe Dienstleistungsbereitschaft.\n• Auf der Suche nach abwechslungsreicher Arbeit, liebst du die täglichen Herausforderungen. | Ein attraktiver Arbeitsplatz inmitten einer aussergewöhnlichen Bergwelt ist dir gewiss. Du wirst Teil eines dynamischen, aufgeweckten Teams und kannst die Weiterentwicklung unseres HR aktiv mitprägen. Bei uns findest du ein Umfeld, in dem Professionalität, Tempo, Pragmatismus und Menschlichkeit zusammengehören. Zudem profitierst du von attraktiven Mitarbeitervergünstigungen , wie freie Bergfahrten, Vergünstigungen in unseren Shops, Hotels und Gastronomiebetrieben sowie von weiteren Vorteilen für deine Familie. Starte dein berufliches Abenteuer bei der Weissen Arena Gruppe mit deiner vollständigen Online-Bewerbung. Wir freuen uns auf dich. | Weisse Arena Hospitality AG signinahotel/rocksresort Sandra Stilz www.signinahotel.com I www.weissearena.com I www.laax.com",
+        "fr": "Le Groupe Weisse Arena est une société intégrée de services touristiques et de loisirs basée à Laax. Nous offrons des expériences de loisirs alpins. Le modèle commercial du Groupe Weissen Arena, avec cinq filiales à 100% et de nombreuses marques, est unique dans la région alpine. Le groupe comprend une compagnie de chemin de fer de montagne, des entreprises hôtelières et de restauration, des magasins de sport et de location, une école de ski et de snowboard, respectivement. École de vélo et société de gestion. Autres La maison signinahotel 4 étoiles attend nos clients avec la conception moderne des chambres dans 68 chambres doubles et suites. Que ce soit dans le Ristorante Camino italien, dans le Camino Bar/Lounge ou dans le grand espace bien-être - il ya de nombreux endroits à découvrir où nos clients peuvent sentir la qualité exceptionnelle du service. Dans le rocsresort 4* Serviced Apartment, membre de Designhotels et des hôtels responsables, le style de vie alpin est interprété de façon moderne et vécu avec passion. Les plus de 250 appartements offrent une qualité de vie au plus haut niveau. L'Hôtel Riders avec ses 56 chambres et studios est un endroit où tout le monde est le bienvenu – créatif, unique et familier. Les chambres adoptent le design moderne et contemporain de l'hôtel et créent un équilibre spécial entre design et nature. Autres Imaginez renforcer notre équipe dans le signinahotel/rocksresort deux jours par semaine comme portier de nuit : avec beaucoup de cœur et d'enthousiasme pour nos invités et la région. Ce que vous déplacez :\n• Enregistrement et départ des invités individuels et de groupe\n• Soins aux clients, principalement en allemand et en anglais\n• Gérer votre propre caisse enregistreuse, argent et change\n• Travaux de nettoyage dans la zone publique (restaurant, bar, etc.)\n• Exécution des comptes quotidiens\n• Visites régulières dans l'hôtel avec garantie de sécurité\n• assistance au déneigement\n• Service téléphonique et personne de contact pour nos clients\n• Travail effectué dimanche, lundi ou par arrangement\n• Vous rayonnez de chaleur, appréciez votre profession et aimez travailler en équipe.\n• Vous maîtrisez l'allemand et l'anglais en paroles et en écritures.\n• D'autres langues ainsi que la connaissance du système hôtelier Protel sont avantageuses.\n• Vous rayonnez de chaleur, appréciez votre profession et aimez travailler en équipe.\n• Vous êtes une personnalité établie, amicale et résistante.\n• Vous êtes orienté vers la solution et avez une forte volonté de fournir des services.\n• À la recherche d'un travail varié, vous aimez les défis quotidiens. Autres Un lieu de travail attrayant au milieu d'un monde montagneux extraordinaire est certain pour vous. Vous deviendrez membre d'une équipe dynamique et brillante et pourrez façonner activement le développement de notre RH. Avec nous vous trouverez un environnement où professionnalisme, vitesse, pragmatisme et humanité vont ensemble. De plus, vous bénéficiez d'avantages sociaux intéressants, tels que des randonnées en montagne gratuites, des réductions dans nos magasins, hôtels et restaurants ainsi que d'autres avantages pour votre famille. Commencez votre aventure professionnelle au sein du groupe Weissen Arena avec votre candidature en ligne complète. Nous avons hâte de vous voir. Weisse Arena Hospitality AG signinahotel/rocksresort Sandra Stilz www.signinahotel.com I www.weissearena.com I www.laax.com"
+      },
+      "location": "Laax",
+      "canton": "GR",
+      "url": "https://www.weissearena.com/jobs/details.html?jobId=4524&jobTitle=Nachtportier%3Ain",
+      "source": "Weisse Arena Gruppe Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-07-31T22:08:15.178Z",
+      "addressLocality": "Laax",
+      "postalCode": "7031",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Turismo",
+      "contract": "part-time",
+      "employmentType": "CONTRACTOR",
+      "experienceLevel": "mid",
+      "sector": "Turismo / Sport",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-21",
+      "applyUrl": "https://emea3.recruitmentplatform.com/apply-app/pages/application-form?jobId=PD6FK026203F3VBQBLO8NV79D-4524&langCode=de_DE",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "department": "signinahotel/rocksresort",
+      "jobNumber": "WAG02400",
+      "pensum": "40%",
+      "contractLabel": "Saisonanstellung",
+      "previousSlugsByLocale": {
+        "de": [
+          "nachtportier-in-weisse-arena-ch",
+          "nachtportier-in-weisse-arena-gruppe-laax"
+        ],
+        "it": [
+          "nachtportier-in-weisse-arena-ch",
+          "portatore-notturno-weisse-arena-gruppe-laax"
+        ],
+        "en": [
+          "nachtportier-in-weisse-arena-ch"
+        ],
+        "fr": [
+          "nachtportier-in-weisse-arena-ch"
+        ]
+      },
+      "previousSlugs": [
+        "nachtportier-in-weisse-arena-ch",
+        "nachtportier-in-weisse-arena-gruppe-laax",
+        "portatore-notturno-weisse-arena-gruppe-laax"
+      ],
+      "firstSeenAt": "2026-06-22T15:11:23.123Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -524,7 +543,7 @@
       "url": "https://www.weissearena.com/jobs/details.html?jobId=4530&jobTitle=Mitarbeiter%3Ain+Bahn%C3%BCberwachung",
       "source": "Weisse Arena Gruppe Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-31T11:38:13.136Z",
+      "crawledAt": "2026-07-31T22:08:15.177Z",
       "addressLocality": "Laax",
       "postalCode": "7031",
       "addressCountry": "CH",
@@ -548,14 +567,16 @@
         "mitarbeiter-in-bahnuberwachung-weisse-arena-ch",
         "collaboratore-trice-bahnuberwachung-weisse-arena-gruppe-laax-z3tj49",
         "associate-bahnuberwachung-weisse-arena-gruppe-laax",
-        "collaborateur-trice-bahnuberwachung-weisse-arena-gruppe-laax"
+        "collaborateur-trice-bahnuberwachung-weisse-arena-gruppe-laax",
+        "collaboratore-trice-bahnuberwachung-weisse-arena-gruppe-laax"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-bahnuberwachung-weisse-arena-ch",
           "collaboratore-trice-bahnuberwachung-weisse-arena-gruppe-laax-z3tj49",
           "associate-bahnuberwachung-weisse-arena-gruppe-laax",
-          "collaborateur-trice-bahnuberwachung-weisse-arena-gruppe-laax"
+          "collaborateur-trice-bahnuberwachung-weisse-arena-gruppe-laax",
+          "collaboratore-trice-bahnuberwachung-weisse-arena-gruppe-laax"
         ],
         "en": [
           "mitarbeiter-in-bahnuberwachung-weisse-arena-ch"
@@ -565,6 +586,7 @@
         ]
       },
       "firstSeenAt": "2026-07-16T22:06:42.752Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -594,7 +616,7 @@
       "title": "Squad Lead Marketing & Product-Communication",
       "titleByLocale": {
         "it": "Squad Lead Marketing & Comunicazione di prodotto",
-        "en": "Squad Lead Marketing & Product Communication",
+        "en": "Squad Lead Marketing & Product-Communication",
         "de": "Squad Lead Marketing & Product-Communication",
         "fr": "Commercialisation du plomb de l'équipe et communication des produits"
       },
@@ -610,7 +632,7 @@
       "url": "https://www.weissearena.com/jobs/details.html?jobId=4533&jobTitle=Squad+Lead+Marketing+%26+Product-Communication",
       "source": "Weisse Arena Gruppe Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-31T11:38:13.132Z",
+      "crawledAt": "2026-07-31T22:08:15.174Z",
       "addressLocality": "Laax",
       "postalCode": "7031",
       "addressCountry": "CH",
@@ -631,17 +653,20 @@
       "pensum": "80 - 100%",
       "contractLabel": "Festanstellung",
       "previousSlugs": [
-        "squad-lead-marketing-product-communication-weisse-arena-ch"
+        "squad-lead-marketing-product-communication-weisse-arena-ch",
+        "squad-lead-marketing-amp-comunicazione-di-prodotto-weisse-arena-gruppe-laax"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "squad-lead-marketing-product-communication-weisse-arena-ch"
+          "squad-lead-marketing-product-communication-weisse-arena-ch",
+          "squad-lead-marketing-amp-comunicazione-di-prodotto-weisse-arena-gruppe-laax"
         ],
         "fr": [
           "squad-lead-marketing-product-communication-weisse-arena-ch"
         ]
       },
       "firstSeenAt": "2026-07-24T11:11:09.086Z",
+      "needsRetranslation": true,
       "salaryMin": 87500,
       "salaryMax": 154500,
       "baseSalary": {
@@ -687,7 +712,7 @@
       "url": "https://www.weissearena.com/jobs/details.html?jobId=4534&jobTitle=R%C3%A9ceptionist%3Ain",
       "source": "Weisse Arena Gruppe Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-31T11:38:13.131Z",
+      "crawledAt": "2026-07-31T22:08:15.173Z",
       "addressLocality": "Laax",
       "postalCode": "7031",
       "addressCountry": "CH",
@@ -708,11 +733,13 @@
       "pensum": "100%",
       "contractLabel": "Saisonanstellung",
       "previousSlugs": [
-        "receptionist-in-weisse-arena-ch"
+        "receptionist-in-weisse-arena-ch",
+        "ricevitore-in-weisse-arena-gruppe-laax"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "receptionist-in-weisse-arena-ch"
+          "receptionist-in-weisse-arena-ch",
+          "ricevitore-in-weisse-arena-gruppe-laax"
         ],
         "en": [
           "receptionist-in-weisse-arena-ch"
@@ -722,6 +749,7 @@
         ]
       },
       "firstSeenAt": "2026-07-27T12:32:58.031Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -767,7 +795,7 @@
       "url": "https://www.weissearena.com/jobs/details.html?jobId=4535&jobTitle=Restaurantleiter%3Ain",
       "source": "Weisse Arena Gruppe Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-31T11:38:13.130Z",
+      "crawledAt": "2026-07-31T22:08:15.172Z",
       "addressLocality": "Laax",
       "postalCode": "7031",
       "addressCountry": "CH",
@@ -790,7 +818,8 @@
       "previousSlugsByLocale": {
         "it": [
           "restaurantleiter-in-weisse-arena-gruppe-laax",
-          "restaurantleiter-in-weisse-arena-ch"
+          "restaurantleiter-in-weisse-arena-ch",
+          "ristorante-manager-in-weisse-arena-gruppe-laax"
         ],
         "en": [
           "restaurantleiter-in-weisse-arena-gruppe-laax"
@@ -799,14 +828,17 @@
           "restaurantleiter-in-weisse-arena-gruppe-laax"
         ],
         "de": [
-          "restaurantleiter-in-weisse-arena-ch"
+          "restaurantleiter-in-weisse-arena-ch",
+          "restaurantleiter-in-weisse-arena-gruppe-laax"
         ]
       },
       "previousSlugs": [
         "restaurantleiter-in-weisse-arena-gruppe-laax",
-        "restaurantleiter-in-weisse-arena-ch"
+        "restaurantleiter-in-weisse-arena-ch",
+        "ristorante-manager-in-weisse-arena-gruppe-laax"
       ],
       "firstSeenAt": "2026-07-27T22:09:19.913Z",
+      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -852,7 +884,7 @@
       "url": "https://www.weissearena.com/jobs/details.html?jobId=4538&jobTitle=Guest+Experience+Host",
       "source": "Weisse Arena Gruppe Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-31T11:38:13.123Z",
+      "crawledAt": "2026-07-31T22:08:15.168Z",
       "addressLocality": "Laax",
       "postalCode": "7031",
       "addressCountry": "CH",
@@ -873,6 +905,7 @@
       "pensum": "100%",
       "contractLabel": "Saisonanstellung",
       "firstSeenAt": "2026-07-27T22:09:19.912Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
