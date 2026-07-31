@@ -142,7 +142,6 @@ import { detectBodyRepetition, dedupeRepeatedParagraphs, stripDuplicateTitleFrom
 import { loadEmbeddingStore, loadEmbeddingMeta } from './lib/scoring/embeddingMatcher.mjs';
 import { appendCatalogEntry } from './generate-journalist-image-catalog.mjs';
 import { ARTICLE_SECTION_CORE } from '../build-plugins/shared/articleSectionCore.mjs';
-import { appendArticleListItem } from './lib/seo-pages-article-list.mjs';
 import { buildStructuralEvergreenTopics } from './lib/evergreen-topic-generator.mjs';
 import { resolveGitAddPaths } from './lib/resolve-git-add-path.mjs';
 import { metaFieldRegex, unescapeTsValue } from './lib/meta-field-regex.mjs';
@@ -8456,33 +8455,23 @@ function modifySeoService(data) {
   // had to write outside the corpus, which is what kept the generator pinned to
   // this repository.
 
-  // 3. ItemList in services/seo/seo-pages.ts — insert the new article via the
-  // shared, comma-safe helper (scripts/lib/seo-pages-article-list.mjs).
-  // History: a foreign in-place rename edit once string-spliced this array
-  // directly and left a duplicate old-slug entry with a missing comma
-  // (`} {`) → esbuild parse failure → main-red inherited by every branch
-  // (issue #2834, hotfixed by PR #2833). appendArticleListItem always
-  // rebuilds the touched entry (and its trailing comma) from regex capture
-  // groups rather than a blind splice, so that class of corruption is
-  // structurally impossible here; any future rename tooling should reuse
-  // upsertArticleListItem from the same module instead of hand-rolling this.
-  const pagesFile = 'services/seo/seo-pages.ts';
-  const pagesSrc = read(pagesFile);
-
-  const headlineStr = String(data.seo.headline || '');
-  const shortTitle = headlineStr.length > 50
-    ? headlineStr.slice(0, 47) + '...'
-    : headlineStr;
-  const newPagesSrc = appendArticleListItem(pagesSrc, {
-    name: shortTitle,
-    url: `\${BASE_URL}/articoli-frontaliere/${data.slugs.it}`,
-  });
-  if (newPagesSrc) {
-    write(pagesFile, newPagesSrc);
-    console.error(`  ✅ ${pagesFile}`);
-  } else {
-    console.error('  ⚠️ Could not find ItemList in seo-pages.ts — left untouched');
-  }
+  // 3. services/seo/seo-pages.ts — nothing to do here any more.
+  //
+  // This used to append the new article to the blog ItemList. Two things made
+  // it redundant. The list is capped at 100 entries (#4983), so once it filled
+  // the append stopped adding anything and only bumped numberOfItems; and that
+  // counter is now derived from the corpus at emit time (#4997), which also
+  // fixed it having drifted to 3640 against 3047 real articles.
+  //
+  // Dropping it matters beyond the dead code: this was one of only two reasons
+  // the generator had to write outside the corpus at all, and it is what kept
+  // it pinned to this repository (#4974 item 3). The other, services/router.ts,
+  // went in #4992.
+  //
+  // scripts/lib/seo-pages-article-list.mjs stays: upsertArticleListItem is the
+  // comma-safe path any future rename tooling must use rather than splicing the
+  // array by hand — that mistake once produced `} {`, an esbuild parse failure,
+  // and a red main inherited by every branch (issue #2834, PR #2833).
 }
 
 /**
@@ -8735,8 +8724,6 @@ function gitAddAll(data) {
     `services/locales/${SECTION.bodyDir}/de/${data.id}.ts`,
     `services/locales/${SECTION.bodyDir}/fr/${data.id}.ts`,
     SECTION.seoFile,
-    // seo-pages.ts ItemList ("Articoli Frontaliere") is frontaliere-only.
-    ...(SECTION.updateRouterUnion ? ['services/seo/seo-pages.ts'] : []),
     // services/seoService.ts is NOT staged any more (issue #4974 item 3): this
     // script no longer writes it — the per-article breadcrumb entries it used
     // to append were unreachable. See modifySeoService above.
