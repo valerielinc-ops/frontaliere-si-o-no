@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-31T09:39:07.894Z",
+  "updatedAt": "2026-07-31T12:13:32.428Z",
   "perCrossing": {
     "anieres": {
       "waitTimeMinutes": 0,
@@ -207,7 +207,7 @@
       "totalCrossingMinutes": 0,
       "status": "green",
       "source": "webcam",
-      "lastUpdate": "2026-07-31T09:39:07.894Z"
+      "lastUpdate": "2026-07-31T12:13:32.428Z"
     },
     "campocologno-tirano": {
       "waitTimeMinutes": 0,
@@ -234,12 +234,12 @@
       "lastUpdate": "2026-07-26T17:01:22.821Z"
     },
     "chiasso-brogeda": {
-      "waitTimeMinutes": 0,
+      "waitTimeMinutes": 15,
       "approachMinutes": 0,
-      "totalCrossingMinutes": 0,
-      "status": "green",
+      "totalCrossingMinutes": 15,
+      "status": "red",
       "source": "webcam",
-      "lastUpdate": "2026-07-31T09:39:07.894Z"
+      "lastUpdate": "2026-07-31T12:13:32.428Z"
     },
     "chiasso-centro": {
       "waitTimeMinutes": 0,
@@ -247,7 +247,7 @@
       "totalCrossingMinutes": 0,
       "status": "green",
       "source": "webcam",
-      "lastUpdate": "2026-07-31T09:39:07.894Z"
+      "lastUpdate": "2026-07-31T12:13:32.428Z"
     },
     "chiasso-strada": {
       "waitTimeMinutes": 0,
@@ -255,7 +255,7 @@
       "totalCrossingMinutes": 0,
       "status": "green",
       "source": "webcam",
-      "lastUpdate": "2026-07-31T09:39:07.894Z"
+      "lastUpdate": "2026-07-31T12:13:32.428Z"
     },
     "clivio-ligornetto": {
       "waitTimeMinutes": 1,
@@ -399,7 +399,7 @@
       "totalCrossingMinutes": 8,
       "status": "yellow",
       "source": "webcam",
-      "lastUpdate": "2026-07-31T09:39:07.894Z"
+      "lastUpdate": "2026-07-31T12:13:32.428Z"
     },
     "gailingen-am-hochrhein-dorflingen": {
       "waitTimeMinutes": 0,
@@ -983,7 +983,7 @@
       "totalCrossingMinutes": 8,
       "status": "yellow",
       "source": "webcam",
-      "lastUpdate": "2026-07-31T09:39:07.894Z"
+      "lastUpdate": "2026-07-31T12:13:32.428Z"
     },
     "sauverny": {
       "waitTimeMinutes": 0,
