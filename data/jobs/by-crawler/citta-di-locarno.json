@@ -1,6 +1,6 @@
 {
   "crawlerKey": "citta-di-locarno",
-  "assembledAt": "2026-07-31T11:42:08.573Z",
+  "assembledAt": "2026-07-31T22:21:56.052Z",
   "jobs": [
     {
       "id": "citta-di-locarno-una-o-un-capo-servizio-iii-manutenzione-stabili-100-locarno",
@@ -48,7 +48,7 @@
       "applyUrl": "https://locarno.pi-asp.de/bewerber-web/?company=100-FIRMA-ID&tenant=&lang=I#position,id=7e203d4e-5e55-40dc-99c9-adbb71dc99f3,popup=y",
       "source": "Locarno Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-07-31T11:42:01.404Z",
+      "crawledAt": "2026-07-31T22:21:47.769Z",
       "firstSeenAt": "2026-07-09T22:41:46.298Z",
       "country": "CH",
       "salaryMin": 68000,
@@ -110,7 +110,7 @@
       "applyUrl": "https://locarno.pi-asp.de/bewerber-web/?company=100-FIRMA-ID&tenant=&lang=I#position,id=df511fb1-88eb-4086-9ffb-139c7595de86,popup=y",
       "source": "Locarno Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-07-31T11:42:02.871Z",
+      "crawledAt": "2026-07-31T22:21:49.342Z",
       "firstSeenAt": "2026-07-09T22:41:46.298Z",
       "country": "CH",
       "salaryMin": 49500,
@@ -172,7 +172,7 @@
       "applyUrl": "https://locarno.pi-asp.de/bewerber-web/?company=100-FIRMA-ID&tenant=&lang=I#position,id=64100680-b8ad-4e46-b6fe-512be9e7e35b,popup=y",
       "source": "Locarno Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-07-31T11:42:03.664Z",
+      "crawledAt": "2026-07-31T22:21:50.244Z",
       "firstSeenAt": "2026-07-09T22:41:46.298Z",
       "country": "CH",
       "salaryMin": 49500,
@@ -234,7 +234,7 @@
       "applyUrl": "https://locarno.pi-asp.de/bewerber-web/?company=100-FIRMA-ID&tenant=&lang=I#position,id=572572c1-56d0-4591-bf15-198d92322830,popup=y",
       "source": "Locarno Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-07-31T11:42:04.300Z",
+      "crawledAt": "2026-07-31T22:21:51.176Z",
       "firstSeenAt": "2026-07-09T22:41:46.298Z",
       "country": "CH",
       "salaryMin": 49500,
@@ -296,7 +296,7 @@
       "applyUrl": "https://locarno.pi-asp.de/bewerber-web/?company=100-FIRMA-ID&tenant=&lang=I#position,id=3adf992e-68b2-46a9-8c64-ba31e80f59c1,popup=y",
       "source": "Locarno Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-07-31T11:42:04.837Z",
+      "crawledAt": "2026-07-31T22:21:52.014Z",
       "firstSeenAt": "2026-07-09T22:41:46.298Z",
       "country": "CH",
       "salaryMin": 49500,
@@ -358,7 +358,7 @@
       "applyUrl": "https://locarno.pi-asp.de/bewerber-web/?company=100-FIRMA-ID&tenant=&lang=I#position,id=a73e14a3-6de8-4fc7-8c71-4ab0d74f7eb8,popup=y",
       "source": "Locarno Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-07-31T11:42:05.364Z",
+      "crawledAt": "2026-07-31T22:21:52.902Z",
       "firstSeenAt": "2026-07-09T22:41:46.298Z",
       "country": "CH",
       "salaryMin": 49500,
@@ -420,7 +420,7 @@
       "applyUrl": "https://locarno.pi-asp.de/bewerber-web/?company=100-FIRMA-ID&tenant=&lang=I#position,id=aff97447-2e8b-446e-8e50-22d3bbe2c9f1,popup=y",
       "source": "Locarno Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-07-31T11:42:05.866Z",
+      "crawledAt": "2026-07-31T22:21:53.604Z",
       "firstSeenAt": "2026-07-09T22:41:46.298Z",
       "country": "CH",
       "salaryMin": 13600,
@@ -507,7 +507,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     }
   ]
 }
