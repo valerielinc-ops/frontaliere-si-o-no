@@ -1,16 +1,16 @@
 {
   "key": "board-international",
   "label": "board",
-  "generatedAt": "2026-07-30T22:29:31.800Z",
-  "total": 11,
+  "generatedAt": "2026-07-31T12:10:34.259Z",
+  "total": 10,
   "newCount": 1,
-  "updatedCount": 7,
+  "updatedCount": 6,
   "removedCount": 0,
   "unchangedCount": 3,
-  "durationMs": 5026,
-  "avgDurationMs": 5026,
+  "durationMs": 2430,
+  "avgDurationMs": 2430,
   "durationHistory": [
-    5026
+    2430
   ],
   "newJobs": [
     {
@@ -45,43 +45,6 @@
     }
   ],
   "updatedJobs": [
-    {
-      "title": "Sr. Account Manager",
-      "slug": "sr-account-manager-board-international-zurich-zurich-switzerland",
-      "url": "https://boardinternationalsa.applytojob.com/apply/w3aLMOiBUK/Sr-Account-Manager",
-      "applyUrl": "https://boardinternationalsa.applytojob.com/apply/w3aLMOiBUK/Sr-Account-Manager",
-      "company": "Board International",
-      "companyKey": "board-international",
-      "companyDomain": "board.com",
-      "location": "Zürich, Zürich, Switzerland",
-      "addressLocality": "Zürich, Zürich, Switzerland",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "canton": "ZH",
-      "country": "CH",
-      "category": "tech",
-      "sector": "Tecnologia & IT",
-      "source": "board-dedicated-crawler",
-      "sourceLang": "en",
-      "postedDate": "2026-07-30",
-      "employmentType": "full time",
-      "contractType": "full-time",
-      "validThrough": "2026-07-30",
-      "id": "board-international-b7509e355f12",
-      "salaryMin": 79500,
-      "salaryMax": 135000,
-      "currency": "CHF",
-      "streetAddress": "",
-      "postalCode": "8001",
-      "firstSeenAt": "2026-05-17T09:46:35.164Z",
-      "_qualityScore": 92,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 23,
-        "completeness": 22
-      }
-    },
     {
       "title": "Associate AI Engineer (6-month contract)",
       "slug": "associate-ai-engineer-6-month-contract-board-international-chiasso-switzerland",
