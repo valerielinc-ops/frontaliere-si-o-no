@@ -1723,6 +1723,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.dsm-firmenich-cancella-1000-impieghi.title': 'DSM-Firmenich streicht 1000 Stellen, Kürzungen auch in der Schweiz',
     'blog.article.dsm-firmenich-cancella-1000-impieghi.excerpt': 'Der schweizerisch-niederländische Konzern kündigt eine umfassende Umstrukturierung mit dem Abbau von rund 1000 Arbeitsplätzen in 18-24 Monaten an, um die Kosten zu senken.',
     'blog.article.dsm-firmenich-cancella-1000-impieghi.imageAlt': 'Unternehmenszentrale in der Schweiz der DSM-Firmenich-Gruppe',
+    'blog.article.bns-utile-semestre-2026.title': 'SNB: Gewinn von 25 Milliarden im ersten Halbjahr 2026',
+    'blog.article.bns-utile-semestre-2026.excerpt': 'Die Schweizerische Nationalbank schliesst das erste Halbjahr 2026 mit einem Gewinn von 25,2 Milliarden Franken ab, angetrieben von Aktienmärkten und Fremdwährungen.',
+    'blog.article.bns-utile-semestre-2026.imageAlt': 'Hauptsitz der Schweizerischen Nationalbank in Bern mit Bundesflagge',
 };
 
 export default blogMetaChDe;
