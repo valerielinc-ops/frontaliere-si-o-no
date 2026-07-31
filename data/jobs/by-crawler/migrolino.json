@@ -364,7 +364,7 @@
       "id": "migrolino-f1a0c9b4325e",
       "slug": "rappresentante-vendite-migrolino-thun",
       "slugByLocale": {
-        "it": "rappresentante-vendite-migrolino-thun",
+        "it": "personale-di-vendita-migrolino-thun",
         "en": "sales-staff-migrolino-thun",
         "de": "verkaufsmitarbeiter-in-migrolino-thun",
         "fr": "personnel-de-vente-migrolino-thun"
@@ -538,7 +538,7 @@
       "id": "migrolino-721d10b711e9",
       "slug": "rappresentante-vendite-migrolino-fullinsdorf",
       "slugByLocale": {
-        "it": "rappresentante-vendite-migrolino-fullinsdorf",
+        "it": "personale-di-vendita-migrolino-fullinsdorf",
         "en": "sales-staff-migrolino-fullinsdorf",
         "de": "verkaufsmitarbeiter-in-migrolino-fullinsdorf",
         "fr": "personnel-de-vente-migrolino-fullinsdorf"
@@ -625,7 +625,7 @@
       "id": "migrolino-87d1f7981d02",
       "slug": "rappresentante-vendite-migrolino-kriens",
       "slugByLocale": {
-        "it": "rappresentante-vendite-migrolino-kriens",
+        "it": "personale-di-vendita-migrolino-kriens",
         "en": "sales-staff-migrolino-kriens",
         "de": "verkaufsmitarbeiter-in-migrolino-kriens",
         "fr": "personnel-de-vente-migrolino-kriens"
@@ -712,7 +712,7 @@
       "id": "migrolino-ca111ba1e49d",
       "slug": "rappresentante-vendite-migrolino-stans",
       "slugByLocale": {
-        "it": "rappresentante-vendite-migrolino-stans",
+        "it": "personale-di-vendita-migrolino-stans",
         "en": "sales-staff-migrolino-stans-704620",
         "de": "verkaufsmitarbeiter-in-migrolino-stans",
         "fr": "personnel-de-vente-migrolino-stans-704620"
@@ -799,7 +799,7 @@
       "id": "migrolino-31b2fdd0e1d8",
       "slug": "rappresentante-vendite-migrolino-bern",
       "slugByLocale": {
-        "it": "rappresentante-vendite-migrolino-bern",
+        "it": "personale-di-vendita-migrolino-bern",
         "en": "sales-staff-migrolino-bern",
         "de": "verkaufsmitarbeiter-in-migrolino-bern",
         "fr": "personnel-de-vente-migrolino-bern"
@@ -1435,14 +1435,30 @@
         "de": [
           "selbstandige-r-franchisepartner-in-in-sursee-lu-migrolino-sursee",
           "selbstandige-r-franchisepartner-in-fur-migrolino-shop-tankstelle-car-wash-in-sursee-lu",
-          "selbstandige-r-franchisepartner-in-sursee-lu-migrolino-sursee-jrdbj3"
+          "selbstandige-r-franchisepartner-in-sursee-lu-migrolino-sursee-jrdbj3",
+          "selbstandige-r-franchisepartner-in-emmen-lu-migrolino-emmen-e7j9c4"
         ],
         "it": [
           "selbstandige-r-franchisepartner-in-in-sursee-lu-migrolino-sursee",
           "selbstandige-r-franchisepartner-in-sursee-lu-migrolino-sursee",
           "socio-in-franchising-autonomo-a-sursee-lu-migrolino-sursee-jrdbj3",
           "selbstandige-r-franchisepartner-in-fur-migrolino-shop-tankstelle-car-wash-in-sursee-lu",
-          "partner-indipendente-di-franchising-in-sursee-lu-migrolino-sursee"
+          "partner-indipendente-di-franchising-in-sursee-lu-migrolino-sursee",
+          "partner-di-franchising-indipendente-in-emmen-lu-migrolino-emmen",
+          "selfemployed-franchise-partner-in-emmen-lu-migrolino-emmen",
+          "selbstandige-r-franchisepartner-in-emmen-lu-migrolino-emmen-e7j9c4",
+          "partenaire-franchise-independant-a-emmen-lu-migrolino-emmen-e7j9c4",
+          "selbstandige-r-franchisepartner-in-in-emmen-lu-migrolino-emmen",
+          "selbstandige-r-franchisepartner-in-emmen-lu-migrolino-emmen",
+          "socio-in-franchising-autonomo-a-emmen-lu-migrolino-emmen-e7j9c4",
+          "self-employed-franchise-partner-in-emmen-lu-migrolino-emmen-e7j9c4",
+          "socio-in-franchising-autonomo-a-emmen-lu-migrolino-emmen"
+        ],
+        "en": [
+          "selfemployed-franchise-partner-in-emmen-lu-migrolino-emmen"
+        ],
+        "fr": [
+          "partenaire-franchise-independant-a-emmen-lu-migrolino-emmen-e7j9c4"
         ]
       },
       "previousSlugs": [
@@ -1451,7 +1467,16 @@
         "socio-in-franchising-autonomo-a-sursee-lu-migrolino-sursee-jrdbj3",
         "selbstandige-r-franchisepartner-in-fur-migrolino-shop-tankstelle-car-wash-in-sursee-lu",
         "selbstandige-r-franchisepartner-in-sursee-lu-migrolino-sursee-jrdbj3",
-        "partner-indipendente-di-franchising-in-sursee-lu-migrolino-sursee"
+        "partner-indipendente-di-franchising-in-sursee-lu-migrolino-sursee",
+        "partner-di-franchising-indipendente-in-emmen-lu-migrolino-emmen",
+        "selfemployed-franchise-partner-in-emmen-lu-migrolino-emmen",
+        "selbstandige-r-franchisepartner-in-emmen-lu-migrolino-emmen-e7j9c4",
+        "partenaire-franchise-independant-a-emmen-lu-migrolino-emmen-e7j9c4",
+        "selbstandige-r-franchisepartner-in-in-emmen-lu-migrolino-emmen",
+        "selbstandige-r-franchisepartner-in-emmen-lu-migrolino-emmen",
+        "socio-in-franchising-autonomo-a-emmen-lu-migrolino-emmen-e7j9c4",
+        "self-employed-franchise-partner-in-emmen-lu-migrolino-emmen-e7j9c4",
+        "socio-in-franchising-autonomo-a-emmen-lu-migrolino-emmen"
       ],
       "firstSeenAt": "2026-07-04T11:29:09.083Z",
       "salaryMin": 107500,

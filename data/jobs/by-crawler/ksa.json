@@ -873,7 +873,7 @@
       "descriptionByLocale": {
         "it": "Oberärztin / Oberarzt Interdisziplinäres Notfallzentrum — Kantonsspital Aarau (KSA), Aarau",
         "en": "Oberärztin / Oberarzt Interdisziplinäres Notfallzentrum. Kantonsspital Aarau (KSA), Aarau",
-        "de": "Oberärztin / Oberarzt Interdisziplinäres Notfallzentrum — Kantonsspital Aarau (KSA), Aarau",
+        "de": "Oberärztin / Oberarzt Interdisziplinäres Notfallzentrum. Kantonsspital Aarau (KSA), Aarau",
         "fr": "Oberärztin / Oberarzt Interdisziplinäres Notfallzentrum. Kantonsspital Aarau (KSA), Aarau"
       },
       "location": "Aarau",
@@ -922,7 +922,8 @@
           "maxValue": 129500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "ksa-37758d07bf5b",
@@ -1937,7 +1938,8 @@
         ],
         "de": [
           "dipl-pflegefachfrau-pflegefachmann-hf-fh-mit-ndk-uberwachungspflege-ksa-ch-9zut0b",
-          "dipl-pflegefachfrau-pflegefachmann-hf-fh-mit-ndk-uberwachungspflege-ksa-ch"
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-mit-ndk-uberwachungspflege-ksa-ch",
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-mit-ndk-uberwachungspflege-ksa-ch-9zut0b"
         ]
       },
       "firstSeenAt": "2026-07-10T12:11:07.793Z",
@@ -6791,15 +6793,14 @@
           "study-nurse-studienkoordinator-in-ksa-ch",
           "study-nurse-studienkoordinator-in-kantonsspital-aarau-ksa-aarau"
         ],
-        "en": [
+        "fr": [
           "study-nurse-studienkoordinator-in-ksa-ch"
         ],
-        "fr": [
+        "en": [
           "study-nurse-studienkoordinator-in-ksa-ch"
         ]
       },
       "firstSeenAt": "2026-07-30T11:34:11.050Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -6811,7 +6812,8 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ksa-6bdd298cda92",
@@ -7963,7 +7965,6 @@
         ]
       },
       "firstSeenAt": "2026-07-10T12:11:07.791Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -7975,7 +7976,8 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ksa-865888c9f66b",

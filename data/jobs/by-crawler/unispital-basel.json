@@ -1,6 +1,6 @@
 {
   "crawlerKey": "unispital-basel",
-  "assembledAt": "2026-07-31T11:49:09.205Z",
+  "assembledAt": "2026-07-31T11:22:29.091Z",
   "jobs": [
     {
       "id": "unispital-basel-060d3af500a7",
@@ -2231,7 +2231,30 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "payroll-professionale-universitatsspital-basel-basel",
+          "professional-payroll-universitatsspital-basel-basel",
+          "fachfrau-fachmann-payroll-unispital-basel-ch",
+          "remuneration-professionnelle-universitatsspital-basel-basel"
+        ],
+        "en": [
+          "professional-payroll-universitatsspital-basel-basel"
+        ],
+        "de": [
+          "fachfrau-fachmann-payroll-unispital-basel-ch"
+        ],
+        "fr": [
+          "remuneration-professionnelle-universitatsspital-basel-basel"
+        ]
+      },
+      "previousSlugs": [
+        "payroll-professionale-universitatsspital-basel-basel",
+        "professional-payroll-universitatsspital-basel-basel",
+        "fachfrau-fachmann-payroll-unispital-basel-ch",
+        "remuneration-professionnelle-universitatsspital-basel-basel"
+      ]
     },
     {
       "id": "unispital-basel-503d1107174d",

@@ -1,6 +1,6 @@
 {
   "crawlerKey": "vz-vermoegenszentrum",
-  "assembledAt": "2026-07-31T11:57:51.221Z",
+  "assembledAt": "2026-07-31T11:31:04.768Z",
   "jobs": [
     {
       "id": "vz-vermoegenszentrum-065bec3e4970",
@@ -3991,16 +3991,6 @@
           "• Du hast eine Ausbildung oder ein Studium im Bereich Finance, Banking oder Wirtschaft abgeschlossen."
         ]
       },
-      "firstSeenAt": "2026-07-30T22:18:33.767Z",
-      "needsRetranslation": true,
-      "previousSlugsByLocale": {
-        "it": [
-          "dein-einstieg-ins-asset-management-junior-investment-solutions-manager-100-vz"
-        ]
-      },
-      "previousSlugs": [
-        "dein-einstieg-ins-asset-management-junior-investment-solutions-manager-100-vz"
-      ],
       "salaryMin": 58500,
       "salaryMax": 89000,
       "baseSalary": {
@@ -4012,7 +4002,29 @@
           "maxValue": 89000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-07-30T22:18:33.767Z",
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "dein-einstieg-ins-asset-management-junior-investment-solutions-manager-100-vz",
+          "responsabile-junior-delle-soluzioni-di-investimento-100-vz-vermogenszentrum-zug-zug",
+          "junior-investment-solutions-manager-100-vz-vermogenszentrum-zug",
+          "junior-investment-solutions-manager-100-vz-vermoegenszentrum-ch"
+        ],
+        "de": [
+          "junior-investment-solutions-manager-100-vz-vermoegenszentrum-ch"
+        ],
+        "fr": [
+          "junior-investment-solutions-manager-100-vz-vermogenszentrum-zug"
+        ]
+      },
+      "previousSlugs": [
+        "dein-einstieg-ins-asset-management-junior-investment-solutions-manager-100-vz",
+        "responsabile-junior-delle-soluzioni-di-investimento-100-vz-vermogenszentrum-zug-zug",
+        "junior-investment-solutions-manager-100-vz-vermogenszentrum-zug",
+        "junior-investment-solutions-manager-100-vz-vermoegenszentrum-ch"
+      ]
     },
     {
       "id": "vz-vermoegenszentrum-51f38c1d4bcc",

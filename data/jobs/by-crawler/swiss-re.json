@@ -1,6 +1,6 @@
 {
   "crawlerKey": "swiss-re",
-  "assembledAt": "2026-07-31T11:47:07.035Z",
+  "assembledAt": "2026-07-31T11:19:12.630Z",
   "jobs": [
     {
       "id": "swiss-re-eb683c9f7002",
@@ -20021,22 +20021,34 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "operations-insights-specialist-re-insurance-swiss-re-ch",
-        "operations-insights-specialista-re-insurance-swiss-re-fort-wayne-in-us"
+        "operations-insights-specialista-re-insurance-swiss-re-fort-wayne-in-us",
+        "senior-operations-insights-specialista-swiss-re-bangalore-in",
+        "senior-operations-insights-specialist-swiss-re-ch",
+        "senior-operations-insights-spezialist-swiss-re-bangalore-in",
+        "senior-operations-insights-specialiste-swiss-re-bangalore-in"
       ],
       "previousSlugsByLocale": {
         "it": [
           "operations-insights-specialist-re-insurance-swiss-re-ch",
-          "operations-insights-specialista-re-insurance-swiss-re-fort-wayne-in-us"
+          "operations-insights-specialista-re-insurance-swiss-re-fort-wayne-in-us",
+          "senior-operations-insights-specialista-swiss-re-bangalore-in",
+          "senior-operations-insights-specialist-swiss-re-ch",
+          "senior-operations-insights-spezialist-swiss-re-bangalore-in",
+          "senior-operations-insights-specialiste-swiss-re-bangalore-in"
         ],
         "de": [
-          "operations-insights-specialist-re-insurance-swiss-re-ch"
+          "operations-insights-specialist-re-insurance-swiss-re-ch",
+          "senior-operations-insights-spezialist-swiss-re-bangalore-in"
         ],
         "fr": [
-          "operations-insights-specialist-re-insurance-swiss-re-ch"
+          "operations-insights-specialist-re-insurance-swiss-re-ch",
+          "senior-operations-insights-specialiste-swiss-re-bangalore-in"
+        ],
+        "en": [
+          "senior-operations-insights-specialist-swiss-re-ch"
         ]
       },
       "firstSeenAt": "2026-07-28T22:10:27.425Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -20049,7 +20061,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "needsRetranslation": true
     },
     {
       "id": "swiss-re-68eb17b43f52",
