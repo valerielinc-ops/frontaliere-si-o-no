@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-07-31T08:09:28.658Z",
+  "updatedAt": "2026-07-31T11:16:58.021Z",
   "entities": {
     "AASTI": {
       "status": "suspect",
@@ -1859,18 +1859,29 @@
       "statusSource": "auto",
       "statusAt": "2026-07-29T06:26:58.011Z",
       "firstSeen": "2026-07-29T06:26:58.011Z",
-      "lastSeen": "2026-07-29T06:26:58.011Z",
-      "seen": 12,
-      "unsupportedSightings": 0,
-      "unsupportedRuns": [],
+      "lastSeen": "2026-07-31T11:16:58.021Z",
+      "seen": 13,
+      "unsupportedSightings": 1,
+      "unsupportedRuns": [
+        "30624352706"
+      ],
       "supportedSightings": 0,
       "names": [
         "Dipartimento federale di giustizia e polizia",
         "Ufficio federale della giustizia",
         "Dipartimento federale di giustizia e polizia svizzero"
       ],
-      "recentKeys": [],
+      "recentKeys": [
+        "30624352706:unknown"
+      ],
       "evidence": [
+        {
+          "at": "2026-07-31T11:16:58.021Z",
+          "runId": "30624352706",
+          "articleId": "unknown",
+          "support": "absent",
+          "name": "Dipartimento federale di giustizia e polizia"
+        },
         {
           "at": "2026-07-29T06:26:58.011Z",
           "runId": "corpus-scan",
@@ -1917,13 +1928,6 @@
           "at": "2026-07-29T06:26:58.011Z",
           "runId": "corpus-scan",
           "articleId": "primo-maggio-2026-ticino-sindacati-iniziativa-udc",
-          "support": "unknown",
-          "name": "Dipartimento federale di giustizia e polizia"
-        },
-        {
-          "at": "2026-07-29T06:26:58.011Z",
-          "runId": "corpus-scan",
-          "articleId": "nuove-misure-violenza-domestica-svizzera",
           "support": "unknown",
           "name": "Dipartimento federale di giustizia e polizia"
         }
@@ -6704,12 +6708,13 @@
       "statusSource": "auto",
       "statusAt": "2026-07-29T06:26:58.011Z",
       "firstSeen": "2026-07-29T06:26:58.011Z",
-      "lastSeen": "2026-07-29T06:26:58.011Z",
-      "seen": 6,
+      "lastSeen": "2026-07-31T11:16:58.021Z",
+      "seen": 7,
       "unsupportedSightings": 0,
       "unsupportedRuns": [],
-      "supportedSightings": 0,
+      "supportedSightings": 1,
       "names": [
+        "Ufficio cantonale delle statistiche",
         "Ufficio di statistica del Cantone",
         "Ufficio di statistica del Canton Ticino",
         "Ufficio cantonale di statistica",
@@ -6717,6 +6722,13 @@
       ],
       "recentKeys": [],
       "evidence": [
+        {
+          "at": "2026-07-31T11:16:58.021Z",
+          "runId": "30624352706",
+          "articleId": "unknown",
+          "support": "present",
+          "name": "Ufficio cantonale delle statistiche"
+        },
         {
           "at": "2026-07-29T06:26:58.011Z",
           "runId": "corpus-scan",
