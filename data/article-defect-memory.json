@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-07-31T01:30:30.927Z",
+  "updatedAt": "2026-07-31T03:35:39.206Z",
   "entities": {
     "AASTI": {
       "status": "suspect",
@@ -596,11 +596,11 @@
       "statusSource": "auto",
       "statusAt": "2026-07-29T06:26:58.011Z",
       "firstSeen": "2026-07-29T06:26:58.011Z",
-      "lastSeen": "2026-07-31T01:30:30.927Z",
-      "seen": 28,
+      "lastSeen": "2026-07-31T03:35:39.206Z",
+      "seen": 31,
       "unsupportedSightings": 0,
       "unsupportedRuns": [],
-      "supportedSightings": 16,
+      "supportedSightings": 19,
       "names": [
         "Agenzia delle Entrate, il MEF, l'Ufficio Federale di Statistica",
         "Ufficio federale di Statistica",
@@ -611,11 +611,25 @@
       "recentKeys": [],
       "evidence": [
         {
-          "at": "2026-07-31T01:30:30.927Z",
-          "runId": "30595579311",
-          "articleId": "vivere-varzo-lavorare-ticino",
+          "at": "2026-07-31T03:35:39.206Z",
+          "runId": "30600477281",
+          "articleId": "unknown",
           "support": "present",
-          "name": "Ufficio Federale di Statistica"
+          "name": "Ufficio federale di statistica"
+        },
+        {
+          "at": "2026-07-31T03:35:39.206Z",
+          "runId": "30600477281",
+          "articleId": "unknown",
+          "support": "present",
+          "name": "Ufficio federale di statistica"
+        },
+        {
+          "at": "2026-07-31T03:35:39.206Z",
+          "runId": "30600477281",
+          "articleId": "unknown",
+          "support": "present",
+          "name": "Ufficio federale di statistica"
         },
         {
           "at": "2026-07-31T01:30:30.927Z",
@@ -632,23 +646,9 @@
           "name": "Ufficio Federale di Statistica"
         },
         {
-          "at": "2026-07-30T09:41:16.713Z",
-          "runId": "30528247715",
-          "articleId": "besano-da-frontaliere-pro-e-contro",
-          "support": "present",
-          "name": "Ufficio Federale di Statistica"
-        },
-        {
-          "at": "2026-07-30T09:41:16.713Z",
-          "runId": "30528247715",
-          "articleId": "besano-da-frontaliere-pro-e-contro",
-          "support": "present",
-          "name": "Ufficio Federale di Statistica"
-        },
-        {
-          "at": "2026-07-30T09:41:16.713Z",
-          "runId": "30528247715",
-          "articleId": "besano-da-frontaliere-pro-e-contro",
+          "at": "2026-07-31T01:30:30.927Z",
+          "runId": "30595579311",
+          "articleId": "vivere-varzo-lavorare-ticino",
           "support": "present",
           "name": "Ufficio Federale di Statistica"
         },
@@ -6475,12 +6475,13 @@
       "statusSource": "auto",
       "statusAt": "2026-07-29T06:26:58.011Z",
       "firstSeen": "2026-07-29T06:26:58.011Z",
-      "lastSeen": "2026-07-30T09:41:16.713Z",
-      "seen": 25,
+      "lastSeen": "2026-07-31T03:35:39.206Z",
+      "seen": 26,
       "unsupportedSightings": 0,
       "unsupportedRuns": [],
-      "supportedSightings": 12,
+      "supportedSightings": 13,
       "names": [
+        "Ufficio Regionale della Disoccupazione",
         "Ufficio Regionale di Collocamento",
         "Uffici Regionali di Collocamento",
         "Ufficio regionale di collocamento",
@@ -6489,6 +6490,13 @@
       "recentKeys": [],
       "evidence": [
         {
+          "at": "2026-07-31T03:35:39.206Z",
+          "runId": "30600477281",
+          "articleId": "unknown",
+          "support": "present",
+          "name": "Ufficio Regionale della Disoccupazione"
+        },
+        {
           "at": "2026-07-30T09:41:16.713Z",
           "runId": "30528247715",
           "articleId": "besano-da-frontaliere-pro-e-contro",
@@ -6513,13 +6521,6 @@
           "at": "2026-07-29T23:23:44.157Z",
           "runId": "30497755528",
           "articleId": "caro-carburanti-svizzera-indagine-comco",
-          "support": "present",
-          "name": "Uffici regionali di collocamento"
-        },
-        {
-          "at": "2026-07-29T19:58:12.549Z",
-          "runId": "30483804455",
-          "articleId": "vivere-porto-ceresio-lavoro-ticino",
           "support": "present",
           "name": "Uffici regionali di collocamento"
         },
