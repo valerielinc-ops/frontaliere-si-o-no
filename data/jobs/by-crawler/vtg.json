@@ -279,8 +279,7 @@
       "employmentType": "FULL_TIME",
       "country": "CH",
       "salaryMin": 73000,
-      "salaryMax": 124500,
-      "needsRetranslation": true
+      "salaryMax": 124500
     },
     {
       "id": "company-qhd7qj",
@@ -781,15 +780,6 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "mechaniker-in-pilotenausrustung-swiss-armed-forces-vtg-bern",
-          "mechaniker-in-pilotenausrustung-confederazione-emmen",
-          "attrezzature-meccaniche-pilota-confederazione-svizzera-emmen",
-          "mechanic-pilot-equipment-confederazione-svizzera-emmen",
-          "materiel-mecanicien-pilote-confederazione-svizzera-emmen",
-          "attrezzature-meccaniche-pilota-swiss-armed-forces-vtg-bern",
-          "chef-de-groupe-mecanicien-des-armes-cornet-swiss-armed-forces-vtg-bern",
-          "gruppenfuhrer-in-waffenmechaniker-in-hornet-swiss-armed-forces-vtg-bern-go5lac",
-          "group-leader-weapons-mechanic-hornet-swiss-armed-forces-vtg-bern-go5lac",
           "chef-de-groupe-mecanicien-des-armes-cornet-swiss-armed-forces-vtg-bern-go5lac",
           "gruppenfuhrer-in-waffenmechaniker-in-hornet-swiss-armed-forces-vtg-bern",
           "gruppo-leader-armi-meccanico-hornet-confederazione-svizzera-emmen",
@@ -800,27 +790,42 @@
           "caposquadra-meccanico-aeronautico-hornet-swiss-armed-forces-vtg-bern",
           "meccanico-a-di-equipaggiamento-del-pilota-swiss-armed-forces-vtg-bern",
           "pilot-equipment-mechanic-swiss-armed-forces-vtg-bern",
-          "mecanicien-ne-d-equipement-de-pilote-swiss-armed-forces-vtg-bern"
+          "mecanicien-ne-d-equipement-de-pilote-swiss-armed-forces-vtg-bern",
+          "motorgeratemechaniker-in-hinwil-swiss-armed-forces-vtg-bern",
+          "motorgeratemechaniker-in-hinwil-confederazione-svizzera-hinwil",
+          "motorgeratemechaniker-in-hinwil-confederazione-hinwil",
+          "ingegnere-meccanico-in-hinwil-confederazione-svizzera-hinwil",
+          "engineer-mechanic-in-hinwil-confederazione-svizzera-hinwil",
+          "mecanicien-mecanicien-ingenieur-en-hinwil-confederazione-svizzera-hinwil",
+          "ingegnere-meccanico-in-bronschhofen-swiss-armed-forces-vtg-bern",
+          "motorgeratemechaniker-in-bronschhofen-swiss-armed-forces-vtg-bern",
+          "ingegnere-meccanico-in-hinwil-swiss-armed-forces-vtg-bern"
         ],
         "en": [
           "luftfahrzeugmechaniker-in-confederazione-svizzera-alpnach",
           "luftfahrzeugmechaniker-in-swiss-armed-forces-vtg-bern-jkcqym",
           "aircraft-mechanic-confederazione-svizzera-alpnach",
           "group-leader-aircraft-mechanic-in-hornet-swiss-armed-forces-vtg-bern",
-          "mechanic-pilot-equipment-swiss-armed-forces-vtg-bern"
+          "mechanic-pilot-equipment-swiss-armed-forces-vtg-bern",
+          "engineer-mechanic-in-bronschhofen-swiss-armed-forces-vtg-bern",
+          "engineer-mechanic-in-hinwil-swiss-armed-forces-vtg-bern"
         ],
         "de": [
           "luftfahrzeugmechaniker-in-confederazione-alpnach",
           "luftfahrzeugmechaniker-in-confederazione-svizzera-alpnach",
           "gruppenfuhrer-in-luftfahrzeugmechaniker-in-hornet-confederazione-emmen",
-          "mechaniker-in-pilotenausrustung-swiss-armed-forces-vtg-bern-vo8c3r"
+          "mechaniker-in-pilotenausrustung-swiss-armed-forces-vtg-bern-vo8c3r",
+          "motorgeratemechaniker-in-bronschhofen-swiss-armed-forces-vtg-bern-4qkyj9",
+          "motorgeratemechaniker-in-hinwil-swiss-armed-forces-vtg-bern-9n3div"
         ],
         "fr": [
           "luftfahrzeugmechaniker-in-confederazione-svizzera-alpnach",
           "luftfahrzeugmechaniker-in-swiss-armed-forces-vtg-bern-jkcqym",
           "mecanicien-aeronautique-confederazione-svizzera-alpnach",
           "chef-de-groupe-mecanicien-aeronautique-en-hornet-swiss-armed-forces-vtg-bern",
-          "materiel-mecanicien-pilote-swiss-armed-forces-vtg-bern"
+          "materiel-mecanicien-pilote-swiss-armed-forces-vtg-bern",
+          "ingenieur-mecanicien-in-bronschhofen-swiss-armed-forces-vtg-bern",
+          "mecanicien-mecanicien-ingenieur-en-hinwil-swiss-armed-forces-vtg-bern"
         ]
       },
       "previousSlugs": [
@@ -865,7 +870,22 @@
         "attrezzature-meccaniche-pilota-swiss-armed-forces-vtg-bern",
         "mechanic-pilot-equipment-swiss-armed-forces-vtg-bern",
         "mechaniker-in-pilotenausrustung-swiss-armed-forces-vtg-bern-vo8c3r",
-        "materiel-mecanicien-pilote-swiss-armed-forces-vtg-bern"
+        "materiel-mecanicien-pilote-swiss-armed-forces-vtg-bern",
+        "motorgeratemechaniker-in-hinwil-swiss-armed-forces-vtg-bern",
+        "motorgeratemechaniker-in-hinwil-confederazione-svizzera-hinwil",
+        "motorgeratemechaniker-in-hinwil-confederazione-hinwil",
+        "ingegnere-meccanico-in-hinwil-confederazione-svizzera-hinwil",
+        "engineer-mechanic-in-hinwil-confederazione-svizzera-hinwil",
+        "mecanicien-mecanicien-ingenieur-en-hinwil-confederazione-svizzera-hinwil",
+        "ingegnere-meccanico-in-bronschhofen-swiss-armed-forces-vtg-bern",
+        "motorgeratemechaniker-in-bronschhofen-swiss-armed-forces-vtg-bern",
+        "ingegnere-meccanico-in-hinwil-swiss-armed-forces-vtg-bern",
+        "engineer-mechanic-in-bronschhofen-swiss-armed-forces-vtg-bern",
+        "engineer-mechanic-in-hinwil-swiss-armed-forces-vtg-bern",
+        "motorgeratemechaniker-in-bronschhofen-swiss-armed-forces-vtg-bern-4qkyj9",
+        "motorgeratemechaniker-in-hinwil-swiss-armed-forces-vtg-bern-9n3div",
+        "ingenieur-mecanicien-in-bronschhofen-swiss-armed-forces-vtg-bern",
+        "mecanicien-mecanicien-ingenieur-en-hinwil-swiss-armed-forces-vtg-bern"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -1053,8 +1073,7 @@
       "employmentType": "FULL_TIME",
       "country": "CH",
       "salaryMin": 68500,
-      "salaryMax": 104000,
-      "needsRetranslation": true
+      "salaryMax": 104000
     },
     {
       "id": "company-v9n8z1",
@@ -1396,8 +1415,7 @@
       "postalCode": "3001",
       "country": "CH",
       "salaryMin": 68500,
-      "salaryMax": 104000,
-      "needsRetranslation": true
+      "salaryMax": 104000
     },
     {
       "id": "company-tofvru",
@@ -1764,8 +1782,7 @@
         "driver-transport-assistant-swiss-armed-forces-vtg-bern"
       ],
       "salaryMin": 85000,
-      "salaryMax": 119000,
-      "needsRetranslation": true
+      "salaryMax": 119000
     },
     {
       "id": "company-6okqpl",
@@ -1987,8 +2004,7 @@
         "staff-officers-hq-kfor-swiss-armed-forces-vtg-bern-o3sbqw"
       ],
       "salaryMin": 68500,
-      "salaryMax": 104000,
-      "needsRetranslation": true
+      "salaryMax": 104000
     },
     {
       "id": "company-p0hvci",
@@ -2141,8 +2157,7 @@
         "pionier-maurer-m-w-d-swiss-armed-forces-vtg-bern-szsnuw"
       ],
       "salaryMin": 68500,
-      "salaryMax": 104000,
-      "needsRetranslation": true
+      "salaryMax": 104000
     },
     {
       "id": "company-6iaf9o",
@@ -2228,8 +2243,7 @@
         "mannschaft-und-kader-aller-stufen-im-bereich-hoch-tiefbau-swiss-armed-forces-vtg-bern-6iaf9o"
       ],
       "salaryMin": 68500,
-      "salaryMax": 104000,
-      "needsRetranslation": true
+      "salaryMax": 104000
     },
     {
       "id": "company-4u21rw",
@@ -2345,8 +2359,7 @@
         "specialista-delle-infrastrutture-sanitaria-swiss-armed-forces-vtg-bern"
       ],
       "salaryMin": 68500,
-      "salaryMax": 104000,
-      "needsRetranslation": true
+      "salaryMax": 104000
     },
     {
       "id": "company-r2rk7v",
@@ -2450,8 +2463,7 @@
         "specialista-delle-infrastrutture-in-elettrici-potenza-swiss-armed-forces-vtg-bern"
       ],
       "salaryMin": 68500,
-      "salaryMax": 104000,
-      "needsRetranslation": true
+      "salaryMax": 104000
     },
     {
       "id": "company-ta786n",
@@ -2745,8 +2757,7 @@
         "observer-lmt-lot-m-w-d-swiss-armed-forces-vtg-bern-i476a6"
       ],
       "salaryMin": 68500,
-      "salaryMax": 104000,
-      "needsRetranslation": true
+      "salaryMax": 104000
     },
     {
       "id": "company-q6f59r",
