@@ -1,16 +1,16 @@
 {
   "key": "capri-holdings",
   "label": "Capri Holdings",
-  "generatedAt": "2026-07-31T11:37:47.917Z",
-  "total": 8,
+  "generatedAt": "2026-07-31T22:07:45.500Z",
+  "total": 7,
   "newCount": 0,
   "updatedCount": 7,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 18278,
-  "avgDurationMs": 18278,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 24450,
+  "avgDurationMs": 24450,
   "durationHistory": [
-    18278
+    24450
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -283,8 +283,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "url": "https://capri.wd1.myworkdayjobs.com/en-US/Michael_Kors/job/Graubnden/Sales-Associate-Part-Time-8H--Landquart_R_784292",
       "applyUrl": "https://capri.wd1.myworkdayjobs.com/en-US/Michael_Kors/job/Graubnden/Sales-Associate-Part-Time-8H--Landquart_R_784292",
@@ -327,5 +326,6 @@
         "completeness": 20
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
