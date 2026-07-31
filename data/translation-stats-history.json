@@ -1,119 +1,5 @@
 [
   {
-    "timestamp": "2026-07-11T22:14:30.255Z",
-    "label": "before",
-    "total": 24375,
-    "needsRetranslation": 2446,
-    "suppressed": 97,
-    "incomplete": 172,
-    "complete": 24203,
-    "missingByLocale": {
-      "it": 144,
-      "en": 127,
-      "de": 58,
-      "fr": 126
-    },
-    "topPending": [
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 79
-      },
-      {
-        "company": "Sunrise Communications AG",
-        "pending": 21
-      },
-      {
-        "company": "Kantonsspital Aarau (KSA)",
-        "pending": 13
-      },
-      {
-        "company": "CSD ENGINEERS",
-        "pending": 12
-      },
-      {
-        "company": "Swiss Medical Network",
-        "pending": 10
-      },
-      {
-        "company": "IKEA",
-        "pending": 5
-      },
-      {
-        "company": "Canton du Valais",
-        "pending": 4
-      },
-      {
-        "company": "Die Schweizerische Post",
-        "pending": 4
-      },
-      {
-        "company": "Kantonsspital Uri",
-        "pending": 3
-      },
-      {
-        "company": "Kantonsspital Baden (KSB)",
-        "pending": 3
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-07-11T23:45:14.319Z",
-    "label": "after",
-    "total": 24375,
-    "needsRetranslation": 2269,
-    "suppressed": 97,
-    "incomplete": 171,
-    "complete": 24204,
-    "missingByLocale": {
-      "it": 141,
-      "en": 125,
-      "de": 58,
-      "fr": 126
-    },
-    "topPending": [
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 78
-      },
-      {
-        "company": "Sunrise Communications AG",
-        "pending": 21
-      },
-      {
-        "company": "Kantonsspital Aarau (KSA)",
-        "pending": 13
-      },
-      {
-        "company": "CSD ENGINEERS",
-        "pending": 12
-      },
-      {
-        "company": "Swiss Medical Network",
-        "pending": 10
-      },
-      {
-        "company": "IKEA",
-        "pending": 5
-      },
-      {
-        "company": "Canton du Valais",
-        "pending": 4
-      },
-      {
-        "company": "Die Schweizerische Post",
-        "pending": 4
-      },
-      {
-        "company": "Kantonsspital Uri",
-        "pending": 3
-      },
-      {
-        "company": "Kantonsspital Baden (KSB)",
-        "pending": 3
-      }
-    ]
-  },
-  {
     "timestamp": "2026-07-12T05:48:49.214Z",
     "label": "before",
     "total": 24200,
@@ -11396,6 +11282,120 @@
       {
         "company": "Spital Schwyz",
         "pending": 2
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-31T06:55:23.154Z",
+    "label": "before",
+    "total": 25079,
+    "needsRetranslation": 10884,
+    "suppressed": 39,
+    "incomplete": 296,
+    "complete": 24783,
+    "missingByLocale": {
+      "it": 192,
+      "en": 108,
+      "de": 128,
+      "fr": 171
+    },
+    "topPending": [
+      {
+        "company": "Jaeger-LeCoultre",
+        "pending": 64
+      },
+      {
+        "company": "Swiss Medical Network",
+        "pending": 33
+      },
+      {
+        "company": "Roche",
+        "pending": 31
+      },
+      {
+        "company": "Sunrise Communications AG",
+        "pending": 25
+      },
+      {
+        "company": "Swiss Re",
+        "pending": 14
+      },
+      {
+        "company": "CSD ENGINEERS",
+        "pending": 12
+      },
+      {
+        "company": "USI – Università della Svizzera italiana",
+        "pending": 12
+      },
+      {
+        "company": "SUPSI / DTI",
+        "pending": 10
+      },
+      {
+        "company": "Spitex Regio Arth-Goldau",
+        "pending": 7
+      },
+      {
+        "company": "Sulzer",
+        "pending": 7
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-31T07:07:20.857Z",
+    "label": "after",
+    "total": 25079,
+    "needsRetranslation": 818,
+    "suppressed": 38,
+    "incomplete": 296,
+    "complete": 24783,
+    "missingByLocale": {
+      "it": 192,
+      "en": 108,
+      "de": 128,
+      "fr": 171
+    },
+    "topPending": [
+      {
+        "company": "Jaeger-LeCoultre",
+        "pending": 64
+      },
+      {
+        "company": "Swiss Medical Network",
+        "pending": 33
+      },
+      {
+        "company": "Roche",
+        "pending": 31
+      },
+      {
+        "company": "Sunrise Communications AG",
+        "pending": 25
+      },
+      {
+        "company": "Swiss Re",
+        "pending": 14
+      },
+      {
+        "company": "CSD ENGINEERS",
+        "pending": 12
+      },
+      {
+        "company": "USI – Università della Svizzera italiana",
+        "pending": 12
+      },
+      {
+        "company": "SUPSI / DTI",
+        "pending": 10
+      },
+      {
+        "company": "Spitex Regio Arth-Goldau",
+        "pending": 7
+      },
+      {
+        "company": "Sulzer",
+        "pending": 7
       }
     ]
   }
