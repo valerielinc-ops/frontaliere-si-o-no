@@ -1,18 +1,55 @@
 {
   "key": "forel-klinik",
   "label": "Forel Klinik",
-  "generatedAt": "2026-07-30T22:35:51.421Z",
-  "total": 1,
-  "newCount": 0,
+  "generatedAt": "2026-07-31T12:23:37.781Z",
+  "total": 2,
+  "newCount": 1,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 4028,
-  "avgDurationMs": 4028,
+  "durationMs": 3838,
+  "avgDurationMs": 3838,
   "durationHistory": [
-    4028
+    3838
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "id": "forel-klinik-66d3415e7a8e",
+      "slug": "applikationsmanager-in-m-w-d-forel-klinik-ellikon-an-der-thur",
+      "company": "Forel Klinik",
+      "companyKey": "forel-klinik",
+      "companyDomain": "forel-klinik.ch",
+      "title": "Applikationsmanager/-in (m/w/d)",
+      "needsRetranslation": true,
+      "location": "Ellikon an der Thur",
+      "canton": "ZH",
+      "url": "https://jobs.dualoo.com/portal/w1f713hy/ddebd3a5-dc3b-4638-b15a-a5f235d4d6d1/detail?lang=DE",
+      "source": "Forel Klinik Dedicated Parser (Dualoo)",
+      "sourceLang": "de",
+      "crawledAt": "2026-07-31T12:23:35.419Z",
+      "addressLocality": "Ellikon an der Thur",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8548",
+      "category": "IT",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-31",
+      "applyUrl": "https://jobs.dualoo.com/portal/w1f713hy/ddebd3a5-dc3b-4638-b15a-a5f235d4d6d1/detail?lang=DE",
+      "_qualityScore": 66,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 4,
+        "completeness": 17
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "id": "forel-klinik-22f23655cbe1",
@@ -27,7 +64,7 @@
       "url": "https://jobs.dualoo.com/portal/w1f713hy/514b0328-2330-45d7-9c56-24221f1e6bab/detail?lang=DE",
       "source": "Forel Klinik Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-30T22:35:48.379Z",
+      "crawledAt": "2026-07-31T12:23:34.911Z",
       "addressLocality": "Ellikon an der Thur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
