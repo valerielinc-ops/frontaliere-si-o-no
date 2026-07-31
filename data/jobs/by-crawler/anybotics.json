@@ -1,6 +1,6 @@
 {
   "crawlerKey": "anybotics",
-  "assembledAt": "2026-07-30T22:13:21.269Z",
+  "assembledAt": "2026-07-31T11:39:42.155Z",
   "jobs": [
     {
       "id": "anybotics-74337a3d76ea",
@@ -8,7 +8,7 @@
       "slugByLocale": {
         "it": "architettura-del-sistema-vp-anybotics-zurich-switzerland",
         "en": "vp-system-architecture-anybotics-ch",
-        "de": "vp-systemarchitektur-anybotics-zurich-switzerland",
+        "de": "vp-system-architecture-anybotics-zurich-switzerland",
         "fr": "vp-architecture-du-systeme-anybotics-zurich-switzerland"
       },
       "company": "ANYbotics",
@@ -18,7 +18,7 @@
       "titleByLocale": {
         "it": "Architettura del sistema VP",
         "en": "VP System Architecture",
-        "de": "VP Systemarchitektur",
+        "de": "VP System Architecture",
         "fr": "VP Architecture du système"
       },
       "description": "ANYbotics is a fast-growing tech company dedicated to shaping the future of mobile robotics across multiple industries. Join our highly talented and motivated team of more than 200 people and work on cutting-edge robot technology.\n\nThe Opportunity\n\nAs VP of System Architecture, you will define the architectural direction for the next generation of ANYbotics robot platforms. You will shape how a shared modular foundation supports multiple robot variants, operational design domains, and future business models.\n\nThis is a senior, cross-functional role spanning the full technology spectrum, from AI and autonomy through hardware, software, mechatronics, functional safety, system integration, and factory industrialization. You will help determine how our robots evolve from strong individual products into a scalable family of platforms, balancing reuse, flexibility, performance, manufacturability, and long-term maintainability.\n\nThis role is not just about technical design. It is also about setting direction, driving alignment across teams, and helping the organisation make strong architectural decisions as we scale.\n\nMarket & Our Technology\n\nANYbotics is pioneering autonomous robotic platforms for industrial inspection and operations in challenging environments. From explosion-proof systems in oil and gas to agile robotic platforms for utilities and other industrial settings, our technology is built for environments where safety, reliability, and uptime are critical.\n\nSystem Architecture is central to how we scale. The challenge is not only to build great robots, but to create the modular architecture, interfaces, and platform strategy that allow multiple variants to be derived from a shared core. This includes anticipating future customer needs, new domains, certification requirements, and external integrations such as fleet management, predictive maintenance, and digital twins.\n\nWith the right architecture in place, ANYbotics can move faster, reuse more effectively, and expand into new markets without rebuilding from scratch each time.\n\nAbout us\n\nANYbotics is a leading robotics company specialising in advanced autonomous systems. With a successful Series B financing round closed and strong momentum in the market, we are entering an important phase of growth and international expansion.\n\nOur mission is to transform industrial inspection and operations through world-class robotics. We combine deep robotics expertise with real customer deployments in demanding industrial environments. This is an opportunity to join at a stage where the technology is proven, the ambition is high, and the architectural decisions made now will have a major impact on the company’s future.\n\nYour Contributions\n\n•\n Define and govern the reference system architecture across hardware and software domains focusing on modules interfaces\n\n•\n Build a modular platform strategy that enables multiple robot variants and operational domains to be derived from a shared architectural foundation\n\n•\n Drive architectural decisions on interfaces, middleware, data models, integration patterns, and the software backbone that supports future platform scaling\n\n•\n Define how reuse, configuration, and hardware-specific adaptation are handled so new variants can be developed without unnecessary redesign\n\n•\n Lead platform-level trade-offs across performance, agility, endurance, safety, manufacturability, and cost\n\n•\n Embed diagnostics, functional safety, cybersecurity, over-the-air updates, and certification requirements into the architecture from the outset\n\n•\n Partner with senior engineering leaders across software and hardware domains, and through the system engineering community to align on direction, influence execution, and translate long-term architecture into practical delivery\n\nYour Profile\n\n•\n MSc in Systems Engineering, Electronics, Robotics, Computer Science, or a related field\n\n•\n Significant experience in system architecture and modularity leadership within robotics, autonomous systems, medical devices, automotive, aerospace, or other complex mechatronic environments\n\n•\n Proven track record of architecting and evolving complex platforms rather than one-off systems\n\n•\n Experience defining modular architectures and enabling reuse across multiple product variants\n\n•\n Strong understanding of hardware and software co-design principles across sensors, actuators, compute, control systems, middleware, and power management\n\n•\n Good understanding of autonomy-related systems such as perception, localisation, navigation, motion planning, or fleet-level coordination\n\n•\n Experience with real-time systems, platform middleware, and system integration (V model) in complex industrial or safety-relevant environments\n\n•\n Ability to translate customer needs, business direction, and technical constraints into clear architectural decisions\n\n•\n Experience balancing performance, safety, manufacturability, scalability, and product maturity in real-world systems\n\n•\n Proven ability to influence across teams, drive alignment, and lead change without relying solely on formal authority\n\n•\n Strong communication and influence skills, sound judgement, and the ability to simplify complex architectural questions for a broad technical audience\n\n•\n Proven ability to translate company strategy and mid- to long-term technology vision into a clear, executable roadmap, along with effective governance to drive its execution.\n\nBonus Points\n\n•\n Experience with safety-critical or regulated robotic systems\n\n•\n Familiarity with Ex certification or related industrial safety constraints\n\n•\n Experience with large-scale simulation environments, digital twins, or platform-level validation frameworks\n\n•\n Track record of reducing time to market through platform reuse and stronger architectural discipline\n\n•\n Experience embedding certification and safety pathways into architectural frameworks\n\n•\n Experience supporting products that scale across multiple variants, deployment environments, or different operational design domains\n\nWe offer you a very exciting and dynamic work environment, the opportunity to become part of a fast-growing company and an ambitious team that is on a mission to change the industrial inspection market, a chance to leverage your experience and bring in your own ideas, a fair market salary, an attractive employee stock ownership plan, and a job in the city of Zurich.\n\nAgency Policy: We are not currently partnering with external search firms or recruitment agencies. Any profiles or resumes submitted to ANYbotics employees without a prior written agreement will be considered public disclosure and the property of ANYbotics, involving no liability or fee for subsequent hiring.",
@@ -33,7 +33,7 @@
       "url": "https://jobs.lever.co/anybotics/456ebeb5-37c3-4531-8bdf-ead40406eb49",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-30T22:13:17.677Z",
+      "crawledAt": "2026-07-31T11:39:38.460Z",
       "addressLocality": "Zurich, Switzerland",
       "addressCountry": "CH",
       "country": "CH",
@@ -50,13 +50,17 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "vp-system-architecture-anybotics-ch",
+        "vp-systemarchitektur-anybotics-zurich-switzerland",
+        "architettura-del-sistema-vp-anybotics-zurich-switzerland",
         "vp-system-architecture-anybotics-zurich-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "vp-system-architecture-anybotics-ch"
+          "vp-system-architecture-anybotics-ch",
+          "architettura-del-sistema-vp-anybotics-zurich-switzerland"
         ],
         "de": [
+          "vp-systemarchitektur-anybotics-zurich-switzerland",
           "vp-system-architecture-anybotics-zurich-switzerland"
         ],
         "fr": [
@@ -64,6 +68,7 @@
         ]
       },
       "firstSeenAt": "2026-07-03T21:18:39.699Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -109,7 +114,7 @@
       "url": "https://jobs.lever.co/anybotics/32d2b35b-b255-416c-9ad7-ce2462cc89f0",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-30T22:13:17.375Z",
+      "crawledAt": "2026-07-31T11:39:38.157Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -125,11 +130,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "verification-testing-engineer-anybotics-ch"
+        "verification-testing-engineer-anybotics-ch",
+        "verification-testing-ingegnere-anybotics-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verification-testing-engineer-anybotics-ch"
+          "verification-testing-engineer-anybotics-ch",
+          "verification-testing-ingegnere-anybotics-zurich"
         ],
         "de": [
           "verification-testing-engineer-anybotics-ch"
@@ -184,7 +191,7 @@
       "url": "https://jobs.lever.co/anybotics/7e305a48-4628-4a6a-b054-0367b6f6e586",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-30T22:13:17.073Z",
+      "crawledAt": "2026-07-31T11:39:37.855Z",
       "addressLocality": "Zurich, Switzerland",
       "addressCountry": "CH",
       "country": "CH",
@@ -205,13 +212,15 @@
         "elektrotechnik-praktikum-anybotics-zurich",
         "genie-electrique-stage-anybotics-zurich",
         "software-engineering-internship-anybotics-ch",
-        "software-engineering-internship-ai-platform-anybotics-ch"
+        "software-engineering-internship-ai-platform-anybotics-ch",
+        "interno-di-ingegneria-del-software-anybotics-zurich-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
           "ingegneria-elettrica-stage-anybotics-zurich",
           "software-engineering-internship-anybotics-ch",
-          "software-engineering-internship-ai-platform-anybotics-ch"
+          "software-engineering-internship-ai-platform-anybotics-ch",
+          "interno-di-ingegneria-del-software-anybotics-zurich-switzerland"
         ],
         "en": [
           "electrical-engineering-internship-anybotics-ch"
@@ -226,6 +235,7 @@
         ]
       },
       "firstSeenAt": "2026-07-28T11:50:16.522Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -271,7 +281,7 @@
       "url": "https://jobs.lever.co/anybotics/63f0c6db-0a1f-4a4a-87dd-9a43c9c2bdd2",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-30T22:13:16.771Z",
+      "crawledAt": "2026-07-31T11:39:37.553Z",
       "addressLocality": "Zurich, Switzerland",
       "addressCountry": "CH",
       "country": "CH",
@@ -287,11 +297,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-reinforcement-learning-engineer-anybotics-ch"
+        "senior-reinforcement-learning-engineer-anybotics-ch",
+        "senior-reinforcement-learning-ingegnere-anybotics-zurich-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-reinforcement-learning-engineer-anybotics-ch"
+          "senior-reinforcement-learning-engineer-anybotics-ch",
+          "senior-reinforcement-learning-ingegnere-anybotics-zurich-switzerland"
         ],
         "de": [
           "senior-reinforcement-learning-engineer-anybotics-ch"
@@ -346,7 +358,7 @@
       "url": "https://jobs.lever.co/anybotics/16980988-bb5a-44f8-b688-ef7053de2899",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-30T22:13:16.469Z",
+      "crawledAt": "2026-07-31T11:39:37.251Z",
       "addressLocality": "Zurich, Switzerland",
       "addressCountry": "CH",
       "country": "CH",
@@ -362,14 +374,17 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-product-quality-engineer-anybotics-ch"
+        "senior-product-quality-engineer-anybotics-ch",
+        "senior-product-quality-ingegnere-anybotics-zurich-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-product-quality-engineer-anybotics-ch"
+          "senior-product-quality-engineer-anybotics-ch",
+          "senior-product-quality-ingegnere-anybotics-zurich-switzerland"
         ]
       },
       "firstSeenAt": "2026-07-06T12:59:44.319Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -415,7 +430,7 @@
       "url": "https://jobs.lever.co/anybotics/8ba02712-b54a-4447-a73e-6384563feda1",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-30T22:13:16.167Z",
+      "crawledAt": "2026-07-31T11:39:36.950Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -431,11 +446,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-procurement-specialist-anybotics-ch"
+        "senior-procurement-specialist-anybotics-ch",
+        "senior-procurement-specialista-anybotics-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-procurement-specialist-anybotics-ch"
+          "senior-procurement-specialist-anybotics-ch",
+          "senior-procurement-specialista-anybotics-zurich"
         ],
         "de": [
           "senior-procurement-specialist-anybotics-ch"
@@ -490,7 +507,7 @@
       "url": "https://jobs.lever.co/anybotics/e893a06a-66ad-4068-a95b-3d26fa2e52a1",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-30T22:13:15.865Z",
+      "crawledAt": "2026-07-31T11:39:36.648Z",
       "addressLocality": "Zurich, Switzerland",
       "addressCountry": "CH",
       "country": "CH",
@@ -506,11 +523,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-manager-product-structure-systems-plm-mes-anybotics-ch"
+        "senior-manager-product-structure-systems-plm-mes-anybotics-ch",
+        "senior-manager-struttura-e-sistemi-dei-prodotti-plm-mes-anybotics-zurich-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-manager-product-structure-systems-plm-mes-anybotics-ch"
+          "senior-manager-product-structure-systems-plm-mes-anybotics-ch",
+          "senior-manager-struttura-e-sistemi-dei-prodotti-plm-mes-anybotics-zurich-switzerland"
         ],
         "de": [
           "senior-manager-product-structure-systems-plm-mes-anybotics-ch"
@@ -520,6 +539,7 @@
         ]
       },
       "firstSeenAt": "2026-07-03T21:18:39.094Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -539,17 +559,17 @@
       "slug": "senior-electronics-ingegnere-anybotics-zurich-switzerland",
       "slugByLocale": {
         "it": "senior-electronics-ingegnere-anybotics-zurich-switzerland",
-        "en": "senior-electronics-engineer-anybotics-ch",
+        "en": "senior-electrical-engineer-anybotics-ch",
         "de": "senior-electronics-ingenieur-anybotics-zurich-switzerland",
         "fr": "senior-electronics-ingenieur-anybotics-zurich-switzerland"
       },
       "company": "ANYbotics",
       "companyKey": "anybotics",
       "companyDomain": "anybotics.com",
-      "title": "Senior Electronics Engineer",
+      "title": "Senior Electrical Engineer",
       "titleByLocale": {
         "it": "Senior Electronics Ingegnere",
-        "en": "Senior Electronics Engineer",
+        "en": "Senior Electrical Engineer",
         "de": "Senior Electronics Ingenieur",
         "fr": "Senior Electronics Ingénieur"
       },
@@ -565,7 +585,7 @@
       "url": "https://jobs.lever.co/anybotics/fd173f45-9f01-40b2-b46a-aca5133f6861",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-30T22:13:15.563Z",
+      "crawledAt": "2026-07-31T11:39:36.346Z",
       "addressLocality": "Zurich, Switzerland",
       "addressCountry": "CH",
       "country": "CH",
@@ -580,12 +600,14 @@
       "applyUrl": "https://jobs.lever.co/anybotics/fd173f45-9f01-40b2-b46a-aca5133f6861",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "senior-electronics-engineer-anybotics-ch"
-      ],
       "previousSlugsByLocale": {
-        "it": [
+        "en": [
           "senior-electronics-engineer-anybotics-ch"
+        ],
+        "it": [
+          "senior-electronics-engineer-anybotics-ch",
+          "senior-electrical-engineer-anybotics-ch",
+          "senior-electronics-ingegnere-anybotics-zurich-switzerland"
         ],
         "de": [
           "senior-electronics-engineer-anybotics-ch"
@@ -594,6 +616,11 @@
           "senior-electronics-engineer-anybotics-ch"
         ]
       },
+      "previousSlugs": [
+        "senior-electronics-engineer-anybotics-ch",
+        "senior-electrical-engineer-anybotics-ch",
+        "senior-electronics-ingegnere-anybotics-zurich-switzerland"
+      ],
       "firstSeenAt": "2026-07-21T22:23:36.678Z",
       "salaryMin": 101500,
       "salaryMax": 154000,
@@ -608,6 +635,70 @@
         }
       },
       "addressRegion": "ZH"
+    },
+    {
+      "id": "anybotics-5e1bff207f01",
+      "slug": "robotics-test-engineer-anybotics-ch",
+      "slugByLocale": {
+        "en": "robotics-test-engineer-anybotics-ch",
+        "it": "robotics-test-engineer-anybotics-ch",
+        "de": "robotics-test-engineer-anybotics-ch",
+        "fr": "robotics-test-engineer-anybotics-ch"
+      },
+      "company": "ANYbotics",
+      "companyKey": "anybotics",
+      "companyDomain": "anybotics.com",
+      "title": "Robotics Test Engineer",
+      "titleByLocale": {
+        "en": "Robotics Test Engineer",
+        "it": "Robotics Test Ingegnere",
+        "de": "Robotics Test Ingenieur",
+        "fr": "Robotics Test Ingénieur"
+      },
+      "description": "ANYbotics is a fast-growing tech company dedicated to shaping the future of mobile robotics across multiple industries. Join our highly talented and motivated team of more than 200 people and work on cutting-edge robot technology.\n\nThe Opportunity\n\nWe are looking for a Robotics Test Engineer to join our Motion Intelligence team. You will bring rigour and structure to how we test, verify and define the operational limits of our locomotion system, enabling the wider team to develop and release new capabilities with confidence.\n\nThis role is about closing the gap between “the tests pass” and “the robot works reliably in the field”. You will build trustworthy system-level test coverage across the locomotion, software and mechatronics stack, while helping define the Operational Design Domain that determines where and how our robots are validated to operate.\n\nWe value engineers who take a whole-system view, take pride in clean and maintainable code, and can bring clarity to ambiguous verification challenges. You should be excited to work hands-on with physical robots, translate real-world field behaviour into reproducible tests and simulation scenarios, and build test infrastructure that the team can rely on for years.\n\nAt ANYbotics, we develop tailored software solutions that enable our legged robots to execute inspection and maintenance tasks with precision and consistency. This role sits at the intersection of systems engineering, test automation and real-world robotics. You will work across the full lifecycle, from defining operational limits and authoring system-level tests through to release readiness, certification testing and production deployments in demanding industrial environments.\n\nThe Market & Our Technology\n ANYbotics transforms industrial plants in the energy, process, and utility sector by introducing robotics to a wide range of novel applications that so far were beyond reach. Our customers are large asset operators and industrial service providers pioneering the use of robotics technology for inspection and maintenance. Our mobile robot ANYmal uses legs for extreme mobility in complex environments, camera- and LIDAR-based sensing for full autonomy and obstacle avoidance, and AI for high-quality and consistent inspection results. We develop numerous customised hardware systems, including the entire robotic platform, actuators, sensors, inspection payloads, charging systems, and all related ANYbotics electrical hardware.\n\nYour Impact\n\n•\n Design, build and maintain system-level and integration tests for the Motion Intelligence stack, enabling reliable release, regression and certification testing\n\n•\n Write clean and maintainable test code, primarily in Python, and help evolve our system-test infrastructure, testbeds and internal testing facilities\n\n•\n Define and maintain the Operational Design Domain for locomotion, translating environments such as stairs, ramps, tight spaces, dust, snow and mud into reproducible laboratory and simulation scenarios\n\n•\n Own the field-to-lab-to-simulation loop by analysing locomotion failures, reproducing them internally and turning them into lasting regression coverage\n\n•\n Build test coverage across the software and mechatronic system, including drive behaviour, motion performance, middleware interfaces and new hardware or firmware configurations\n\n•\n Apply simulation and hardware-in-the-loop testing where they improve coverage, repeatability or development speed\n\n•\n Work closely with software, controls, hardware, systems and field engineering teams to raise the overall reliability and quality of the robot\n\nYour Profile\n\n•\n Degree in robotics, mechatronics, computer science, electrical engineering, mechanical engineering or a related field\n\n•\n 3+ years of hands-on experience with robotic or complex mechatronic systems across testing, integration, controls, development or field deployment\n\n•\n A systems-oriented mindset, with the ability to understand overall requirements and constraints while investigating problems in detail\n\n•\n Strong software fundamentals and proficiency in Python for test automation, data analysis and tooling, with working knowledge of C++\n\n•\n Experience working with Linux and ROS or ROS2, together with an understanding of middleware and interfaces within complex robotic systems\n\n•\n Experience designing, automating or maintaining system-level, integration or hardware-software tests\n\n•\n Experience using robotic simulation tools such as Gazebo or Isaac Sim to reproduce behaviour and build test scenarios\n\n•\n A structured, methodical and rigorous approach, with clear written and verbal communication skills in English\n\nBonus Points\n\n•\n Field or deployment experience with robotic systems operating outside controlled laboratory environments\n\n•\n Experience working in industrial, energy, process or other safety-critical environments\n\n•\n Experience defining operational design domains, system limits, requirements or safety cases\n\n•\n Experience with continuous integration, hardware-in-the-loop testing, test automation frameworks or test-management tools such as Testmo\n\n•\n Familiarity with motors, drives, actuators, EtherCAT, embedded firmware, motion control or mechatronic verification\n\n•\n A track record of turning field failures into reproducible laboratory tests or simulation scenarios\n\nWe offer you a very exciting and dynamic work environment, the opportunity to become part of a fast-growing company and an ambitious team that is on a mission to change the industrial inspection market, a chance to leverage your experience and bring in your own ideas, a fair market salary, an attractive employee stock ownership plan, and a job in the city of Zurich.\n\nAgency Policy: We are not currently partnering with external search firms or recruitment agencies. Any profiles or resumes submitted to ANYbotics employees without a prior written agreement will be considered public disclosure and the property of ANYbotics, involving no liability or fee for subsequent hiring.",
+      "descriptionByLocale": {
+        "en": "ANYbotics is a fast-growing tech company dedicated to shaping the future of mobile robotics across multiple industries. Join our highly talented and motivated team of more than 200 people and work on cutting-edge robot technology.\n\nThe Opportunity\n\nWe are looking for a Robotics Test Engineer to join our Motion Intelligence team. You will bring rigour and structure to how we test, verify and define the operational limits of our locomotion system, enabling the wider team to develop and release new capabilities with confidence.\n\nThis role is about closing the gap between “the tests pass” and “the robot works reliably in the field”. You will build trustworthy system-level test coverage across the locomotion, software and mechatronics stack, while helping define the Operational Design Domain that determines where and how our robots are validated to operate.\n\nWe value engineers who take a whole-system view, take pride in clean and maintainable code, and can bring clarity to ambiguous verification challenges. You should be excited to work hands-on with physical robots, translate real-world field behaviour into reproducible tests and simulation scenarios, and build test infrastructure that the team can rely on for years.\n\nAt ANYbotics, we develop tailored software solutions that enable our legged robots to execute inspection and maintenance tasks with precision and consistency. This role sits at the intersection of systems engineering, test automation and real-world robotics. You will work across the full lifecycle, from defining operational limits and authoring system-level tests through to release readiness, certification testing and production deployments in demanding industrial environments.\n\nThe Market & Our Technology\n ANYbotics transforms industrial plants in the energy, process, and utility sector by introducing robotics to a wide range of novel applications that so far were beyond reach. Our customers are large asset operators and industrial service providers pioneering the use of robotics technology for inspection and maintenance. Our mobile robot ANYmal uses legs for extreme mobility in complex environments, camera- and LIDAR-based sensing for full autonomy and obstacle avoidance, and AI for high-quality and consistent inspection results. We develop numerous customised hardware systems, including the entire robotic platform, actuators, sensors, inspection payloads, charging systems, and all related ANYbotics electrical hardware.\n\nYour Impact\n\n•\n Design, build and maintain system-level and integration tests for the Motion Intelligence stack, enabling reliable release, regression and certification testing\n\n•\n Write clean and maintainable test code, primarily in Python, and help evolve our system-test infrastructure, testbeds and internal testing facilities\n\n•\n Define and maintain the Operational Design Domain for locomotion, translating environments such as stairs, ramps, tight spaces, dust, snow and mud into reproducible laboratory and simulation scenarios\n\n•\n Own the field-to-lab-to-simulation loop by analysing locomotion failures, reproducing them internally and turning them into lasting regression coverage\n\n•\n Build test coverage across the software and mechatronic system, including drive behaviour, motion performance, middleware interfaces and new hardware or firmware configurations\n\n•\n Apply simulation and hardware-in-the-loop testing where they improve coverage, repeatability or development speed\n\n•\n Work closely with software, controls, hardware, systems and field engineering teams to raise the overall reliability and quality of the robot\n\nYour Profile\n\n•\n Degree in robotics, mechatronics, computer science, electrical engineering, mechanical engineering or a related field\n\n•\n 3+ years of hands-on experience with robotic or complex mechatronic systems across testing, integration, controls, development or field deployment\n\n•\n A systems-oriented mindset, with the ability to understand overall requirements and constraints while investigating problems in detail\n\n•\n Strong software fundamentals and proficiency in Python for test automation, data analysis and tooling, with working knowledge of C++\n\n•\n Experience working with Linux and ROS or ROS2, together with an understanding of middleware and interfaces within complex robotic systems\n\n•\n Experience designing, automating or maintaining system-level, integration or hardware-software tests\n\n•\n Experience using robotic simulation tools such as Gazebo or Isaac Sim to reproduce behaviour and build test scenarios\n\n•\n A structured, methodical and rigorous approach, with clear written and verbal communication skills in English\n\nBonus Points\n\n•\n Field or deployment experience with robotic systems operating outside controlled laboratory environments\n\n•\n Experience working in industrial, energy, process or other safety-critical environments\n\n•\n Experience defining operational design domains, system limits, requirements or safety cases\n\n•\n Experience with continuous integration, hardware-in-the-loop testing, test automation frameworks or test-management tools such as Testmo\n\n•\n Familiarity with motors, drives, actuators, EtherCAT, embedded firmware, motion control or mechatronic verification\n\n•\n A track record of turning field failures into reproducible laboratory tests or simulation scenarios\n\nWe offer you a very exciting and dynamic work environment, the opportunity to become part of a fast-growing company and an ambitious team that is on a mission to change the industrial inspection market, a chance to leverage your experience and bring in your own ideas, a fair market salary, an attractive employee stock ownership plan, and a job in the city of Zurich.\n\nAgency Policy: We are not currently partnering with external search firms or recruitment agencies. Any profiles or resumes submitted to ANYbotics employees without a prior written agreement will be considered public disclosure and the property of ANYbotics, involving no liability or fee for subsequent hiring.",
+        "it": "ANYbotics is a fast-growing tech company dedicated to shaping the future of mobile robotics across multiple industries. Join our highly talented and motivated team of more than 200 people and work on cutting-edge robot technology.\n\nThe Opportunity\n\nWe are looking for a Robotics Test Engineer to join our Motion Intelligence team. You will bring rigour and structure to how we test, verify and define the operational limits of our locomotion system, enabling the wider team to develop and release new capabilities with confidence.\n\nThis role is about closing the gap between “the tests pass” and “the robot works reliably in the field”. You will build trustworthy system-level test coverage across the locomotion, software and mechatronics stack, while helping define the Operational Design Domain that determines where and how our robots are validated to operate.\n\nWe value engineers who take a whole-system view, take pride in clean and maintainable code, and can bring clarity to ambiguous verification challenges. You should be excited to work hands-on with physical robots, translate real-world field behaviour into reproducible tests and simulation scenarios, and build test infrastructure that the team can rely on for years.\n\nAt ANYbotics, we develop tailored software solutions that enable our legged robots to execute inspection and maintenance tasks with precision and consistency. This role sits at the intersection of systems engineering, test automation and real-world robotics. You will work across the full lifecycle, from defining operational limits and authoring system-level tests through to release readiness, certification testing and production deployments in demanding industrial environments.\n\nThe Market & Our Technology\n ANYbotics transforms industrial plants in the energy, process, and utility sector by introducing robotics to a wide range of novel applications that so far were beyond reach. Our customers are large asset operators and industrial service providers pioneering the use of robotics technology for inspection and maintenance. Our mobile robot ANYmal uses legs for extreme mobility in complex environments, camera- and LIDAR-based sensing for full autonomy and obstacle avoidance, and AI for high-quality and consistent inspection results. We develop numerous customised hardware systems, including the entire robotic platform, actuators, sensors, inspection payloads, charging systems, and all related ANYbotics electrical hardware.\n\nYour Impact\n\n•\n Design, build and maintain system-level and integration tests for the Motion Intelligence stack, enabling reliable release, regression and certification testing\n\n•\n Write clean and maintainable test code, primarily in Python, and help evolve our system-test infrastructure, testbeds and internal testing facilities\n\n•\n Define and maintain the Operational Design Domain for locomotion, translating environments such as stairs, ramps, tight spaces, dust, snow and mud into reproducible laboratory and simulation scenarios\n\n•\n Own the field-to-lab-to-simulation loop by analysing locomotion failures, reproducing them internally and turning them into lasting regression coverage\n\n•\n Build test coverage across the software and mechatronic system, including drive behaviour, motion performance, middleware interfaces and new hardware or firmware configurations\n\n•\n Apply simulation and hardware-in-the-loop testing where they improve coverage, repeatability or development speed\n\n•\n Work closely with software, controls, hardware, systems and field engineering teams to raise the overall reliability and quality of the robot\n\nYour Profile\n\n•\n Degree in robotics, mechatronics, computer science, electrical engineering, mechanical engineering or a related field\n\n•\n 3+ years of hands-on experience with robotic or complex mechatronic systems across testing, integration, controls, development or field deployment\n\n•\n A systems-oriented mindset, with the ability to understand overall requirements and constraints while investigating problems in detail\n\n•\n Strong software fundamentals and proficiency in Python for test automation, data analysis and tooling, with working knowledge of C++\n\n•\n Experience working with Linux and ROS or ROS2, together with an understanding of middleware and interfaces within complex robotic systems\n\n•\n Experience designing, automating or maintaining system-level, integration or hardware-software tests\n\n•\n Experience using robotic simulation tools such as Gazebo or Isaac Sim to reproduce behaviour and build test scenarios\n\n•\n A structured, methodical and rigorous approach, with clear written and verbal communication skills in English\n\nBonus Points\n\n•\n Field or deployment experience with robotic systems operating outside controlled laboratory environments\n\n•\n Experience working in industrial, energy, process or other safety-critical environments\n\n•\n Experience defining operational design domains, system limits, requirements or safety cases\n\n•\n Experience with continuous integration, hardware-in-the-loop testing, test automation frameworks or test-management tools such as Testmo\n\n•\n Familiarity with motors, drives, actuators, EtherCAT, embedded firmware, motion control or mechatronic verification\n\n•\n A track record of turning field failures into reproducible laboratory tests or simulation scenarios\n\nWe offer you a very exciting and dynamic work environment, the opportunity to become part of a fast-growing company and an ambitious team that is on a mission to change the industrial inspection market, a chance to leverage your experience and bring in your own ideas, a fair market salary, an attractive employee stock ownership plan, and a job in the city of Zurich.\n\nAgency Policy: We are not currently partnering with external search firms or recruitment agencies. Any profiles or resumes submitted to ANYbotics employees without a prior written agreement will be considered public disclosure and the property of ANYbotics, involving no liability or fee for subsequent hiring.",
+        "de": "ANYbotics is a fast-growing tech company dedicated to shaping the future of mobile robotics across multiple industries. Join our highly talented and motivated team of more than 200 people and work on cutting-edge robot technology.\n\nThe Opportunity\n\nWe are looking for a Robotics Test Engineer to join our Motion Intelligence team. You will bring rigour and structure to how we test, verify and define the operational limits of our locomotion system, enabling the wider team to develop and release new capabilities with confidence.\n\nThis role is about closing the gap between “the tests pass” and “the robot works reliably in the field”. You will build trustworthy system-level test coverage across the locomotion, software and mechatronics stack, while helping define the Operational Design Domain that determines where and how our robots are validated to operate.\n\nWe value engineers who take a whole-system view, take pride in clean and maintainable code, and can bring clarity to ambiguous verification challenges. You should be excited to work hands-on with physical robots, translate real-world field behaviour into reproducible tests and simulation scenarios, and build test infrastructure that the team can rely on for years.\n\nAt ANYbotics, we develop tailored software solutions that enable our legged robots to execute inspection and maintenance tasks with precision and consistency. This role sits at the intersection of systems engineering, test automation and real-world robotics. You will work across the full lifecycle, from defining operational limits and authoring system-level tests through to release readiness, certification testing and production deployments in demanding industrial environments.\n\nThe Market & Our Technology\n ANYbotics transforms industrial plants in the energy, process, and utility sector by introducing robotics to a wide range of novel applications that so far were beyond reach. Our customers are large asset operators and industrial service providers pioneering the use of robotics technology for inspection and maintenance. Our mobile robot ANYmal uses legs for extreme mobility in complex environments, camera- and LIDAR-based sensing for full autonomy and obstacle avoidance, and AI for high-quality and consistent inspection results. We develop numerous customised hardware systems, including the entire robotic platform, actuators, sensors, inspection payloads, charging systems, and all related ANYbotics electrical hardware.\n\nYour Impact\n\n•\n Design, build and maintain system-level and integration tests for the Motion Intelligence stack, enabling reliable release, regression and certification testing\n\n•\n Write clean and maintainable test code, primarily in Python, and help evolve our system-test infrastructure, testbeds and internal testing facilities\n\n•\n Define and maintain the Operational Design Domain for locomotion, translating environments such as stairs, ramps, tight spaces, dust, snow and mud into reproducible laboratory and simulation scenarios\n\n•\n Own the field-to-lab-to-simulation loop by analysing locomotion failures, reproducing them internally and turning them into lasting regression coverage\n\n•\n Build test coverage across the software and mechatronic system, including drive behaviour, motion performance, middleware interfaces and new hardware or firmware configurations\n\n•\n Apply simulation and hardware-in-the-loop testing where they improve coverage, repeatability or development speed\n\n•\n Work closely with software, controls, hardware, systems and field engineering teams to raise the overall reliability and quality of the robot\n\nYour Profile\n\n•\n Degree in robotics, mechatronics, computer science, electrical engineering, mechanical engineering or a related field\n\n•\n 3+ years of hands-on experience with robotic or complex mechatronic systems across testing, integration, controls, development or field deployment\n\n•\n A systems-oriented mindset, with the ability to understand overall requirements and constraints while investigating problems in detail\n\n•\n Strong software fundamentals and proficiency in Python for test automation, data analysis and tooling, with working knowledge of C++\n\n•\n Experience working with Linux and ROS or ROS2, together with an understanding of middleware and interfaces within complex robotic systems\n\n•\n Experience designing, automating or maintaining system-level, integration or hardware-software tests\n\n•\n Experience using robotic simulation tools such as Gazebo or Isaac Sim to reproduce behaviour and build test scenarios\n\n•\n A structured, methodical and rigorous approach, with clear written and verbal communication skills in English\n\nBonus Points\n\n•\n Field or deployment experience with robotic systems operating outside controlled laboratory environments\n\n•\n Experience working in industrial, energy, process or other safety-critical environments\n\n•\n Experience defining operational design domains, system limits, requirements or safety cases\n\n•\n Experience with continuous integration, hardware-in-the-loop testing, test automation frameworks or test-management tools such as Testmo\n\n•\n Familiarity with motors, drives, actuators, EtherCAT, embedded firmware, motion control or mechatronic verification\n\n•\n A track record of turning field failures into reproducible laboratory tests or simulation scenarios\n\nWe offer you a very exciting and dynamic work environment, the opportunity to become part of a fast-growing company and an ambitious team that is on a mission to change the industrial inspection market, a chance to leverage your experience and bring in your own ideas, a fair market salary, an attractive employee stock ownership plan, and a job in the city of Zurich.\n\nAgency Policy: We are not currently partnering with external search firms or recruitment agencies. Any profiles or resumes submitted to ANYbotics employees without a prior written agreement will be considered public disclosure and the property of ANYbotics, involving no liability or fee for subsequent hiring.",
+        "fr": "ANYbotics is a fast-growing tech company dedicated to shaping the future of mobile robotics across multiple industries. Join our highly talented and motivated team of more than 200 people and work on cutting-edge robot technology.\n\nThe Opportunity\n\nWe are looking for a Robotics Test Engineer to join our Motion Intelligence team. You will bring rigour and structure to how we test, verify and define the operational limits of our locomotion system, enabling the wider team to develop and release new capabilities with confidence.\n\nThis role is about closing the gap between “the tests pass” and “the robot works reliably in the field”. You will build trustworthy system-level test coverage across the locomotion, software and mechatronics stack, while helping define the Operational Design Domain that determines where and how our robots are validated to operate.\n\nWe value engineers who take a whole-system view, take pride in clean and maintainable code, and can bring clarity to ambiguous verification challenges. You should be excited to work hands-on with physical robots, translate real-world field behaviour into reproducible tests and simulation scenarios, and build test infrastructure that the team can rely on for years.\n\nAt ANYbotics, we develop tailored software solutions that enable our legged robots to execute inspection and maintenance tasks with precision and consistency. This role sits at the intersection of systems engineering, test automation and real-world robotics. You will work across the full lifecycle, from defining operational limits and authoring system-level tests through to release readiness, certification testing and production deployments in demanding industrial environments.\n\nThe Market & Our Technology\n ANYbotics transforms industrial plants in the energy, process, and utility sector by introducing robotics to a wide range of novel applications that so far were beyond reach. Our customers are large asset operators and industrial service providers pioneering the use of robotics technology for inspection and maintenance. Our mobile robot ANYmal uses legs for extreme mobility in complex environments, camera- and LIDAR-based sensing for full autonomy and obstacle avoidance, and AI for high-quality and consistent inspection results. We develop numerous customised hardware systems, including the entire robotic platform, actuators, sensors, inspection payloads, charging systems, and all related ANYbotics electrical hardware.\n\nYour Impact\n\n•\n Design, build and maintain system-level and integration tests for the Motion Intelligence stack, enabling reliable release, regression and certification testing\n\n•\n Write clean and maintainable test code, primarily in Python, and help evolve our system-test infrastructure, testbeds and internal testing facilities\n\n•\n Define and maintain the Operational Design Domain for locomotion, translating environments such as stairs, ramps, tight spaces, dust, snow and mud into reproducible laboratory and simulation scenarios\n\n•\n Own the field-to-lab-to-simulation loop by analysing locomotion failures, reproducing them internally and turning them into lasting regression coverage\n\n•\n Build test coverage across the software and mechatronic system, including drive behaviour, motion performance, middleware interfaces and new hardware or firmware configurations\n\n•\n Apply simulation and hardware-in-the-loop testing where they improve coverage, repeatability or development speed\n\n•\n Work closely with software, controls, hardware, systems and field engineering teams to raise the overall reliability and quality of the robot\n\nYour Profile\n\n•\n Degree in robotics, mechatronics, computer science, electrical engineering, mechanical engineering or a related field\n\n•\n 3+ years of hands-on experience with robotic or complex mechatronic systems across testing, integration, controls, development or field deployment\n\n•\n A systems-oriented mindset, with the ability to understand overall requirements and constraints while investigating problems in detail\n\n•\n Strong software fundamentals and proficiency in Python for test automation, data analysis and tooling, with working knowledge of C++\n\n•\n Experience working with Linux and ROS or ROS2, together with an understanding of middleware and interfaces within complex robotic systems\n\n•\n Experience designing, automating or maintaining system-level, integration or hardware-software tests\n\n•\n Experience using robotic simulation tools such as Gazebo or Isaac Sim to reproduce behaviour and build test scenarios\n\n•\n A structured, methodical and rigorous approach, with clear written and verbal communication skills in English\n\nBonus Points\n\n•\n Field or deployment experience with robotic systems operating outside controlled laboratory environments\n\n•\n Experience working in industrial, energy, process or other safety-critical environments\n\n•\n Experience defining operational design domains, system limits, requirements or safety cases\n\n•\n Experience with continuous integration, hardware-in-the-loop testing, test automation frameworks or test-management tools such as Testmo\n\n•\n Familiarity with motors, drives, actuators, EtherCAT, embedded firmware, motion control or mechatronic verification\n\n•\n A track record of turning field failures into reproducible laboratory tests or simulation scenarios\n\nWe offer you a very exciting and dynamic work environment, the opportunity to become part of a fast-growing company and an ambitious team that is on a mission to change the industrial inspection market, a chance to leverage your experience and bring in your own ideas, a fair market salary, an attractive employee stock ownership plan, and a job in the city of Zurich.\n\nAgency Policy: We are not currently partnering with external search firms or recruitment agencies. Any profiles or resumes submitted to ANYbotics employees without a prior written agreement will be considered public disclosure and the property of ANYbotics, involving no liability or fee for subsequent hiring."
+      },
+      "location": "Zurich",
+      "canton": "ZH",
+      "url": "https://jobs.lever.co/anybotics/b73e0848-ce51-4d45-8e0d-8abe63698ff6",
+      "source": "ANYbotics Dedicated Parser",
+      "sourceLang": "en",
+      "crawledAt": "2026-07-31T11:39:36.044Z",
+      "addressLocality": "Zurich",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Ingegneria",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Robotica / Automazione",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-31",
+      "applyUrl": "https://jobs.lever.co/anybotics/b73e0848-ce51-4d45-8e0d-8abe63698ff6",
+      "requirements": [],
+      "requirementsByLocale": {
+        "en": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 73500,
+      "salaryMax": 111500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 73500,
+          "maxValue": 111500,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "ZH",
+      "firstSeenAt": "2026-07-31T11:39:36.044Z"
     },
     {
       "id": "anybotics-fa0e1c154d74",
@@ -640,7 +731,7 @@
       "url": "https://jobs.lever.co/anybotics/9755ae0f-f740-40bc-bc13-be52c505748b",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-30T22:13:15.261Z",
+      "crawledAt": "2026-07-31T11:39:35.741Z",
       "addressLocality": "Zurich, Switzerland",
       "addressCountry": "CH",
       "country": "CH",
@@ -656,14 +747,17 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "robotics-lab-technician-intern-anybotics-ch"
+        "robotics-lab-technician-intern-anybotics-ch",
+        "robotics-lab-technician-tirocinante-anybotics-zurich-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "robotics-lab-technician-intern-anybotics-ch"
+          "robotics-lab-technician-intern-anybotics-ch",
+          "robotics-lab-technician-tirocinante-anybotics-zurich-switzerland"
         ]
       },
       "firstSeenAt": "2026-07-14T22:46:20.867Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -709,7 +803,7 @@
       "url": "https://jobs.lever.co/anybotics/f13a84f8-23ff-489f-ad1a-aa56a8c7eb6d",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-30T22:13:14.959Z",
+      "crawledAt": "2026-07-31T11:39:35.438Z",
       "addressLocality": "Zurich, Switzerland",
       "addressCountry": "CH",
       "country": "CH",
@@ -725,11 +819,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "production-technician-ii-robotics-anybotics-ch"
+        "production-technician-ii-robotics-anybotics-ch",
+        "tecnologia-di-produzione-ii-robotics-anybotics-zurich-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "production-technician-ii-robotics-anybotics-ch"
+          "production-technician-ii-robotics-anybotics-ch",
+          "tecnologia-di-produzione-ii-robotics-anybotics-zurich-switzerland"
         ],
         "de": [
           "production-technician-ii-robotics-anybotics-ch"
@@ -784,7 +880,7 @@
       "url": "https://jobs.lever.co/anybotics/74b68707-86aa-4efc-9efb-94ca5ad82698",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-30T22:13:14.656Z",
+      "crawledAt": "2026-07-31T11:39:35.136Z",
       "addressLocality": "Zurich, Switzerland",
       "addressCountry": "CH",
       "country": "CH",
@@ -800,11 +896,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "product-data-management-internship-anybotics-ch"
+        "product-data-management-internship-anybotics-ch",
+        "gestione-dei-dati-del-prodotto-anybotics-zurich-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "product-data-management-internship-anybotics-ch"
+          "product-data-management-internship-anybotics-ch",
+          "gestione-dei-dati-del-prodotto-anybotics-zurich-switzerland"
         ],
         "de": [
           "product-data-management-internship-anybotics-ch"
@@ -859,7 +957,7 @@
       "url": "https://jobs.lever.co/anybotics/53462ccd-2b76-4cd5-b8c5-32c329e3c05d",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-30T22:13:14.354Z",
+      "crawledAt": "2026-07-31T11:39:34.834Z",
       "addressLocality": "Zurich, Switzerland",
       "addressCountry": "CH",
       "country": "CH",
@@ -875,11 +973,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "pcb-layout-designer-ecad-engineer-anybotics-ch"
+        "pcb-layout-designer-ecad-engineer-anybotics-ch",
+        "pcb-layout-designer-ecad-ingegnere-anybotics-zurich-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "pcb-layout-designer-ecad-engineer-anybotics-ch"
+          "pcb-layout-designer-ecad-engineer-anybotics-ch",
+          "pcb-layout-designer-ecad-ingegnere-anybotics-zurich-switzerland"
         ],
         "de": [
           "pcb-layout-designer-ecad-engineer-anybotics-ch"
@@ -934,7 +1034,7 @@
       "url": "https://jobs.lever.co/anybotics/41220f43-53f8-4336-94a1-eaed97c34784",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-30T22:13:14.052Z",
+      "crawledAt": "2026-07-31T11:39:34.531Z",
       "addressLocality": "Zurich, Switzerland",
       "addressCountry": "CH",
       "country": "CH",
@@ -951,11 +1051,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "manufacturing-engineer-anybotics-ch",
-        "manufacturing-engineer-anybotics-zurich-switzerland"
+        "manufacturing-engineer-anybotics-zurich-switzerland",
+        "manufacturing-ingegnere-anybotics-zurich-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "manufacturing-engineer-anybotics-ch"
+          "manufacturing-engineer-anybotics-ch",
+          "manufacturing-ingegnere-anybotics-zurich-switzerland"
         ],
         "en": [
           "manufacturing-engineer-anybotics-zurich-switzerland"
@@ -1013,7 +1115,7 @@
       "url": "https://jobs.lever.co/anybotics/b8d4bf79-20ea-44b0-84e2-cd644dc8e58a",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-30T22:13:13.747Z",
+      "crawledAt": "2026-07-31T11:39:34.226Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1029,11 +1131,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "industrialization-electronics-test-engineer-anybotics-ch"
+        "industrialization-electronics-test-engineer-anybotics-ch",
+        "industrialization-electronics-test-ingegnere-anybotics-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "industrialization-electronics-test-engineer-anybotics-ch"
+          "industrialization-electronics-test-engineer-anybotics-ch",
+          "industrialization-electronics-test-ingegnere-anybotics-zurich"
         ],
         "de": [
           "industrialization-electronics-test-engineer-anybotics-ch"
