@@ -1,6 +1,6 @@
 {
   "crawlerKey": "novelis",
-  "assembledAt": "2026-07-31T11:41:45.351Z",
+  "assembledAt": "2026-07-31T22:21:26.526Z",
   "jobs": [
     {
       "id": "novelis-c7cf8d2f877c",
@@ -49,7 +49,7 @@
       "applyUrl": "https://ch-external-novelis.icims.com/jobs/52223/electricien---automaticien/job?hub=13&in_iframe=1",
       "source": "Novelis Dedicated Parser (iCIMS)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-31T11:41:41.617Z",
+      "crawledAt": "2026-07-31T22:21:23.466Z",
       "previousSlugs": [
         "electrician-automatician-novelis-sierre",
         "elektriker-automatiker-novelis-sierre",
@@ -133,7 +133,7 @@
       "applyUrl": "https://ch-external-novelis.icims.com/jobs/52599/plant-hr-manager-%28f-m-d%29/job?hub=13&in_iframe=1",
       "source": "Novelis Dedicated Parser (iCIMS)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-31T11:41:40.821Z",
+      "crawledAt": "2026-07-31T22:21:22.844Z",
       "previousSlugs": [
         "plant-hr-manager-f-m-d-novelis-ch",
         "plant-risorse-umane-manager-f-m-d-novelis-sierre"
@@ -151,6 +151,7 @@
         ]
       },
       "firstSeenAt": "2026-07-08T11:23:11.600Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -211,7 +212,7 @@
       "applyUrl": "https://ch-external-novelis.icims.com/jobs/52694/stagiaire/job?hub=13&in_iframe=1",
       "source": "Novelis Dedicated Parser (iCIMS)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-31T11:41:39.996Z",
+      "crawledAt": "2026-07-31T22:21:22.185Z",
       "previousSlugs": [
         "trainee-novelis-sierre",
         "auszubildende-novelis-sierre",
@@ -301,7 +302,7 @@
       "applyUrl": "https://ch-external-novelis.icims.com/jobs/52695/internship-%28m-f-d%29-human-resources-%2860%25-80%26%29/job?hub=13&in_iframe=1",
       "source": "Novelis Dedicated Parser (iCIMS)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-31T11:41:39.190Z",
+      "crawledAt": "2026-07-31T22:21:21.615Z",
       "previousSlugs": [
         "internship-m-f-d-human-resources-60-80-novelis-ch",
         "internship-m-f-d-risorse-umane-60-80-novelis-kusnacht"
@@ -319,6 +320,7 @@
         ]
       },
       "firstSeenAt": "2026-07-08T11:23:10.202Z",
+      "needsRetranslation": true,
       "salaryMin": 44100,
       "salaryMax": 66900,
       "baseSalary": {
@@ -379,7 +381,7 @@
       "applyUrl": "https://ch-external-novelis.icims.com/jobs/52696/finance-lead-%28m-f-d%29-%e2%80%93-digital-transformation-%26-business-projects/job?hub=13&in_iframe=1",
       "source": "Novelis Dedicated Parser (iCIMS)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-31T11:41:38.325Z",
+      "crawledAt": "2026-07-31T22:21:21.019Z",
       "previousSlugs": [
         "manager-m-f-d-finance-digital-transformation-business-projects-novelis-ch",
         "manager-m-f-d-finanza-digital-transformation-business-projects-novelis-kusnacht",
@@ -408,6 +410,7 @@
         ]
       },
       "firstSeenAt": "2026-07-09T22:26:43.200Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -468,7 +471,7 @@
       "applyUrl": "https://ch-external-novelis.icims.com/jobs/52701/stagiaire-communication-visuelle/job?hub=13&in_iframe=1",
       "source": "Novelis Dedicated Parser (iCIMS)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-31T11:41:37.478Z",
+      "crawledAt": "2026-07-31T22:21:20.339Z",
       "previousSlugs": [
         "intern-visual-communication-novelis-sierre",
         "interne-visuelle-kommunikation-novelis-sierre",
@@ -490,6 +493,7 @@
         ]
       },
       "firstSeenAt": "2026-07-27T22:11:08.633Z",
+      "needsRetranslation": true,
       "salaryMin": 51000,
       "salaryMax": 77500,
       "baseSalary": {
@@ -550,7 +554,7 @@
       "applyUrl": "https://ch-external-novelis.icims.com/jobs/52764/m%c3%a9canicien-de-maintenance/job?hub=13&in_iframe=1",
       "source": "Novelis Dedicated Parser (iCIMS)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-31T11:41:36.646Z",
+      "crawledAt": "2026-07-31T22:21:19.655Z",
       "previousSlugs": [
         "mecanicien-de-maintenance-novelis-ch",
         "ingegnere-di-manutenzione-novelis-sierre"
@@ -628,7 +632,7 @@
       "applyUrl": "https://de-careers-novelis.icims.com/jobs/52802/it-solutions-lead-%28m-w-d%29/job?hub=13&in_iframe=1",
       "source": "Novelis Dedicated Parser (iCIMS)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-31T11:41:35.739Z",
+      "crawledAt": "2026-07-31T22:21:19.040Z",
       "previousSlugs": [
         "it-solutions-lead-m-w-d-novelis-ch",
         "soluzioni-it-piombo-m-w-d-novelis-ticino"
@@ -643,6 +647,7 @@
         ]
       },
       "firstSeenAt": "2026-07-23T11:46:56.934Z",
+      "needsRetranslation": true,
       "salaryMin": 121500,
       "salaryMax": 206500,
       "baseSalary": {
@@ -703,7 +708,7 @@
       "applyUrl": "https://ch-external-novelis.icims.com/jobs/52824/senior-global-event-specialist-%28m-f-d%29/job?hub=13&in_iframe=1",
       "source": "Novelis Dedicated Parser (iCIMS)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-31T11:41:34.771Z",
+      "crawledAt": "2026-07-31T22:21:17.761Z",
       "previousSlugs": [
         "senior-global-event-specialist-m-f-d-novelis-ch",
         "senior-global-event-specialista-m-f-d-novelis-kusnacht-de-bw-stuttgart"
