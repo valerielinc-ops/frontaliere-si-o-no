@@ -1,6 +1,6 @@
 {
   "crawlerKey": "hes-so-valais",
-  "assembledAt": "2026-07-30T22:17:14.000Z",
+  "assembledAt": "2026-07-31T10:33:28.369Z",
   "jobs": [
     {
       "url": "https://www.hevs.ch/fr/recruitee/postdoctoral-researcher-in-ai-ml-driven-lc-ms-for-biopharmaceutical-characterization-80-214900",
@@ -332,90 +332,6 @@
         ]
       },
       "firstSeenAt": "2026-07-09T12:27:01.949Z",
-      "crawledAt": "",
-      "salaryMin": 60500,
-      "salaryMax": 91500,
-      "currency": "CHF",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 60500,
-          "maxValue": 91500,
-          "unitText": "YEAR"
-        }
-      },
-      "addressLocality": "Sion",
-      "addressCountry": "CH",
-      "addressRegion": "VS"
-    },
-    {
-      "url": "https://www.hevs.ch/fr/recruitee/collaborateur-ou-collaboratrice-centre-pedagogique-prevention-seisme-cpps-50-***-mitarbeiterin-oder-mitarbeiter-fur-das-bildungszentrum-fur-erdbebenpravention-cpps-50-214815",
-      "applyUrl": "https://www.hevs.ch/fr/recruitee/collaborateur-ou-collaboratrice-centre-pedagogique-prevention-seisme-cpps-50-***-mitarbeiterin-oder-mitarbeiter-fur-das-bildungszentrum-fur-erdbebenpravention-cpps-50-214815",
-      "title": "Collaborateur ou collaboratrice Centre Pédagogique Prévention",
-      "company": "HES-SO Valais-Wallis",
-      "companyKey": "hes-so-valais",
-      "location": "Sion",
-      "postalCode": "1950",
-      "canton": "VS",
-      "country": "CH",
-      "description": "Afin de compléter son équipe de spécialistes, la Haute Ecole d’Ingénierie de la HES-SO Valais-Wallis met au concours, pour son institut Systèmes\n\nLa HES-SO Valais-Wallis est une haute école spécialisée bilingue (français-allemand) du canton du Valais, avec des campus à Sion, Sierre, Visp et Saint-Maurice. Elle forme plus de 2'800 étudiant·e·s dans les domaines de l'ingénierie, la gestion, la santé, le travail social et les arts.",
-      "descriptionByLocale": {
-        "it": "Al fine di completare il suo team di specialisti, l'Haute Ecole d'Ingénierie de la HES-SO Valais-Wallis sta contestando per il suo System Institute L'HES-SO Valais-Wallis è un bilingue specializzato al liceo (francese-tedesco) nel cantone del Vallese, con campus a Sion, Sierre, Visp e Saint-Maurice. Si allena oltre 2.800 studenti in ingegneria, gestione, salute, lavoro sociale e le arti.",
-        "en": "Open position at HES-SO Valais-Wallis in Sion. Position: Collaborateur ou collaboratrice Centre Pédagogique Prévention. HES-SO Valais-Wallis is a bilingual (French-German) university of applied sciences in Canton Valais, Switzerland, with campuses in Sion, Sierre, Visp and Saint-Maurice. It trains over 2,800 students in engineering, management, health, social work and the arts.",
-        "de": "Offene Stelle an der HES-SO Wallis in Sion. Position: Collaborateur ou collaboratrice Centre Pédagogique Prévention. Die HES-SO Wallis ist eine zweisprachige (Französisch-Deutsch) Fachhochschule im Kanton Wallis mit Standorten in Sitten, Siders, Visp und Saint-Maurice. Sie bildet über 2'800 Studierende in den Bereichen Ingenieurwesen, Management, Gesundheit, Soziale Arbeit und Kunst aus.",
-        "fr": "Afin de compléter son équipe de spécialistes, la Haute Ecole d’Ingénierie de la HES-SO Valais-Wallis met au concours, pour son institut Systèmes\n\nLa HES-SO Valais-Wallis est une haute école spécialisée bilingue (français-allemand) du canton du Valais, avec des campus à Sion, Sierre, Visp et Saint-Maurice. Elle forme plus de 2'800 étudiant·e·s dans les domaines de l'ingénierie, la gestion, la santé, le travail social et les arts."
-      },
-      "titleByLocale": {
-        "it": "Collaboratore o collaboratrice Centro Pedagogico Prevenzione",
-        "en": "Collaborator Pedagogical Centre Prevention",
-        "de": "Pädagogisches Zentrum Prävention",
-        "fr": "Collaborateur ou collaboratrice Centre Pédagogique Prévention"
-      },
-      "slug": "collaboratore-o-collaboratrice-centro-pedagogico-prevenzione-hes-so-valais-wallis-sion",
-      "slugByLocale": {
-        "it": "collaboratore-o-collaboratrice-centro-pedagogico-prevenzione-hes-so-valais-wallis-sion",
-        "en": "collaborator-pedagogical-centre-prevention-hes-so-valais-wallis-sion",
-        "de": "padagogisches-zentrum-pravention-hes-so-valais-wallis-sion",
-        "fr": "collaborateur-ou-collaboratrice-centre-pedagogique-prevention-hes-so-valais"
-      },
-      "category": "research-support",
-      "datePosted": "2026-06-30",
-      "source": "hes-so-valais-crawler",
-      "sourceLang": "fr",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "MID",
-      "sector": "Istruzione / Ricerca",
-      "_targetScope": {
-        "canton": "VS",
-        "location": "Sion"
-      },
-      "urlByLocale": {
-        "fr": "https://www.hevs.ch/fr/recruitee/collaborateur-ou-collaboratrice-centre-pedagogique-prevention-seisme-cpps-50-***-mitarbeiterin-oder-mitarbeiter-fur-das-bildungszentrum-fur-erdbebenpravention-cpps-50-214815",
-        "de": "https://www.hevs.ch/de/recruitee/collaborateur-ou-collaboratrice-centre-pedagogique-prevention-seisme-cpps-50-***-mitarbeiterin-oder-mitarbeiter-fur-das-bildungszentrum-fur-erdbebenpravention-cpps-50-214815",
-        "en": "https://www.hevs.ch/en/recruitee/collaborateur-ou-collaboratrice-centre-pedagogique-prevention-seisme-cpps-50-***-mitarbeiterin-oder-mitarbeiter-fur-das-bildungszentrum-fur-erdbebenpravention-cpps-50-214815"
-      },
-      "id": "hes-so-valais-08d472860fc9",
-      "previousSlugs": [
-        "collaborateur-ou-collaboratrice-centre-pedagogique-prevention-hes-so-valais",
-        "collaboratore-prevenzione-centro-pedagogico-hes-so-valais-wallis-sion",
-        "collaboratore-o-collaboratrice-centro-pedagogico-prevenzione-hes-so-valais-wallis-sion"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "collaborateur-ou-collaboratrice-centre-pedagogique-prevention-hes-so-valais",
-          "collaboratore-prevenzione-centro-pedagogico-hes-so-valais-wallis-sion",
-          "collaboratore-o-collaboratrice-centro-pedagogico-prevenzione-hes-so-valais-wallis-sion"
-        ],
-        "en": [
-          "collaborateur-ou-collaboratrice-centre-pedagogique-prevention-hes-so-valais"
-        ],
-        "de": [
-          "collaborateur-ou-collaboratrice-centre-pedagogique-prevention-hes-so-valais"
-        ]
-      },
-      "firstSeenAt": "2026-06-30T11:57:11.987Z",
       "crawledAt": "",
       "salaryMin": 60500,
       "salaryMax": 91500,

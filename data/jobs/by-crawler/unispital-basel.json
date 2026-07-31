@@ -1,6 +1,6 @@
 {
   "crawlerKey": "unispital-basel",
-  "assembledAt": "2026-07-30T22:16:49.313Z",
+  "assembledAt": "2026-07-31T11:22:29.091Z",
   "jobs": [
     {
       "id": "unispital-basel-060d3af500a7",
@@ -6425,82 +6425,6 @@
         ]
       },
       "firstSeenAt": "2026-07-16T11:29:56.674Z",
-      "salaryMin": 62000,
-      "salaryMax": 94000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 94000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "unispital-basel-93b012b156eb",
-      "slug": "payroll-professionale-universitatsspital-basel-basel",
-      "slugByLocale": {
-        "it": "payroll-professionale-universitatsspital-basel-basel",
-        "en": "professional-payroll-universitatsspital-basel-basel",
-        "de": "fachfrau-fachmann-payroll-unispital-basel-ch",
-        "fr": "remuneration-professionnelle-universitatsspital-basel-basel"
-      },
-      "company": "Universitätsspital Basel",
-      "companyKey": "unispital-basel",
-      "companyDomain": "unispital-basel.ch",
-      "title": "Fachfrau/Fachmann Payroll",
-      "titleByLocale": {
-        "it": "Payroll professionale",
-        "en": "Professional Payroll",
-        "de": "Fachfrau/Fachmann Payroll",
-        "fr": "Rémunération professionnelle"
-      },
-      "description": "Aufgaben:\n• Fach- und termingerechte Bearbeitung des monatlichen Lohnlaufs für alle Mitarbeitenden Ihres Betreuungsbereichs\n\n• Mutationen von lohnrelevanten Personaldaten sowie Sicherstellung des administrativen Ein-, Über- und Austrittsprozesses\n\n• Prüfen, Berechnen, Erfassen und Kontrollieren von lohnrelevanten Ereignissen wie Quellensteuer, Familienzulagen etc.\n\n• Bearbeiten von Unfall-, Krankheits-, IV- und EO-Fällen sowie Taggeldleistungen in SAP und UKA\n\n• Beraten von Mitarbeitenden und Führungskräften in Personalversicherungs- und Lohnfragen\n\n• Führen von Abklärungen mit Behörden, z.B. im Zusammenhang mit Bewilligungen, Zweistaatenfällen und Sozialversicherungen\n\n• Mitarbeit bei unseren anstehenden Digitalisierungsprojekten und Ausbau unserer Payroll-Dienstleistungen\n\nAnforderungen:\n• Eidgenössisches kaufmännisches Fähigkeitszeugnis, Studium oder fachspezifische Weiterbildung\n\n• Berufserfahrung in der Lohnadministration\n\n• Erfahrung im Umgang mit SAP HCM, Audittool und UKA erwünscht\n\n• Gute Kommunikationsfähigkeiten in Deutsch sind Voraussetzung, weitere Fremdsprachen von Vorteil\n\n• Genaue und zuverlässige Arbeitsweise sowie hohes Qualitätsbewusstsein und Dienstleistungsorientierung\n\n• Freude in einem grossen Team zu arbeiten und Flexibilität für Veränderungen\n\nWir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n\n• Unterstützung bei Umzug und Wohnungssuche\n\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n\n• Campus im Herzen Basels und im Dreiländereck\n\n• Umfassende Kinderbetreuungsmöglichkeiten\n\n• Kostenloses Sport- und Bewegungsprogramm",
-      "descriptionByLocale": {
-        "it": "Compiti:\n• Elaborazione tecnica e tempestiva del corrispettivo mensile per tutti i dipendenti nella tua area di supporto\n\n• Mutazioni dei dati del personale dipendente dal salario e garantire l'ingresso, il trasferimento e il processo di uscita amministrativi\n\n• Controllo, calcolo, registrazione e controllo degli eventi rilevanti per il salario, come la ritenuta alla fonte, le indennità familiari, ecc.\n\n• Elaborazione di casi di infortunio, malattia, IV ed EO nonché di indennità giornaliere in SAP e UKA\n\n• Consulenza dei dipendenti e dei dirigenti in materia di assicurazione del personale e questioni salariali\n\n• Condurre indagini con le autorità, ad esempio in relazione ai permessi, ai casi a due stati e alle assicurazioni sociali\n\n• Cooperazione nei prossimi progetti di digitalizzazione e espansione dei nostri servizi payroll\n\nRequisiti\n• Certificato commerciale federale di competenza, studio o formazione specifica del soggetto\n\n• Esperienza professionale nell'amministrazione salariale\n\n• Esperienza nel trattare con SAP HCM, Audittool e UKA desiderato\n\n• Le buone capacità di comunicazione in tedesco sono un prerequisito, altre lingue straniere sono un vantaggio\n\n• Metodi di lavoro precisi e affidabili, così come la consapevolezza e l'orientamento di servizio di alta qualità\n\n• Joy in un grande team e flessibilità per il cambiamento\n\nOffriamo:\n• Politica salariale attraente e benefici sociali eccellenti\n\n• Vantaggi per shopping, sport e tempo libero\n\n• Assistenza nel trasferimento e nella ricerca di alloggi\n\n• 25 giorni festivi plus 5 anche free flexitage\n\n• Sostegno all'ulteriore istruzione e alla pianificazione della carriera\n\n• Campus nel cuore di Basilea e l'angolo trinazionale\n\n• Servizi per l'infanzia completi\n\n• Programma gratuito di sport ed esercizio",
-        "en": "Tasks:\n• Technical and timely processing of the monthly wage run for all employees in your support area\n\n• Mutations of wage-relevant personnel data as well as ensuring the administrative entry, transfer and exit process\n\n• Checking, calculating, recording and controlling wage-relevant events such as withholding tax, family allowances, etc.\n\n• Processing of accident, illness, IV and EO cases as well as daily allowances in SAP and UKA\n\n• Advising employees and managers on personnel insurance and wage issues\n\n• Conducting investigations with authorities, e.g. in connection with permits, two-state cases and social insurance\n\n• Cooperation in our upcoming digitalization projects and expansion of our payroll services\n\nRequirements\n• Federal Commercial Certificate of Competence, Study or Subject-specific Further Education\n\n• Professional experience in wage administration\n\n• Experience in dealing with SAP HCM, Audittool and UKA desired\n\n• Good communication skills in German are a prerequisite, other foreign languages are an advantage\n\n• Accurate and reliable working methods as well as high quality awareness and service orientation\n\n• Joy in a large team and flexibility for change\n\nWe offer:\n• Attractive wage policy and excellent social benefits\n\n• Advantages for shopping, sports and leisure\n\n• Assistance in moving and finding accommodation\n\n• 25 holiday days plus 5 also free flexitage\n\n• Support for further education and career planning\n\n• Campus in the heart of Basel and the Trinational Corner\n\n• Comprehensive childcare facilities\n\n• Free Sports and Exercise Program",
-        "de": "Aufgaben:\n• Fach- und termingerechte Bearbeitung des monatlichen Lohnlaufs für alle Mitarbeitenden Ihres Betreuungsbereichs\n\n• Mutationen von lohnrelevanten Personaldaten sowie Sicherstellung des administrativen Ein-, Über- und Austrittsprozesses\n\n• Prüfen, Berechnen, Erfassen und Kontrollieren von lohnrelevanten Ereignissen wie Quellensteuer, Familienzulagen etc.\n\n• Bearbeiten von Unfall-, Krankheits-, IV- und EO-Fällen sowie Taggeldleistungen in SAP und UKA\n\n• Beraten von Mitarbeitenden und Führungskräften in Personalversicherungs- und Lohnfragen\n\n• Führen von Abklärungen mit Behörden, z.B. im Zusammenhang mit Bewilligungen, Zweistaatenfällen und Sozialversicherungen\n\n• Mitarbeit bei unseren anstehenden Digitalisierungsprojekten und Ausbau unserer Payroll-Dienstleistungen\n\nAnforderungen:\n• Eidgenössisches kaufmännisches Fähigkeitszeugnis, Studium oder fachspezifische Weiterbildung\n\n• Berufserfahrung in der Lohnadministration\n\n• Erfahrung im Umgang mit SAP HCM, Audittool und UKA erwünscht\n\n• Gute Kommunikationsfähigkeiten in Deutsch sind Voraussetzung, weitere Fremdsprachen von Vorteil\n\n• Genaue und zuverlässige Arbeitsweise sowie hohes Qualitätsbewusstsein und Dienstleistungsorientierung\n\n• Freude in einem grossen Team zu arbeiten und Flexibilität für Veränderungen\n\nWir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n\n• Unterstützung bei Umzug und Wohnungssuche\n\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n\n• Campus im Herzen Basels und im Dreiländereck\n\n• Umfassende Kinderbetreuungsmöglichkeiten\n\n• Kostenloses Sport- und Bewegungsprogramm",
-        "fr": "Tâches :\n• Traitement technique et en temps opportun de la répartition mensuelle des salaires pour tous les employés de votre secteur de soutien\n\n• Mutations des données relatives au personnel salarié et garantie du processus administratif d'entrée, de transfert et de sortie\n\n• Contrôle, calcul, enregistrement et contrôle des événements liés aux salaires tels que la retenue d'impôt, les allocations familiales, etc.\n\n• Traitement des cas d'accident, de maladie, de IV et d'OT ainsi que des indemnités journalières en SAP et UKA\n\n• Conseiller les employés et les gestionnaires sur les questions d'assurance du personnel et de salaire\n\n• Mener des enquêtes avec les autorités, par exemple en ce qui concerne les permis, les affaires de deux États et l'assurance sociale\n\n• Coopération dans nos prochains projets de numérisation et expansion de nos services de paye\n\nExigences\n• Certificat fédéral de compétence commerciale, d'études ou d'études supplémentaires spécifiques à un sujet\n\n• Expérience professionnelle en administration des salaires\n\n• Expérience dans le traitement de SAP HCM, Audittool et UKA souhaité\n\n• De bonnes compétences en communication en allemand sont une condition préalable, d'autres langues étrangères sont un avantage\n\n• Méthodes de travail précises et fiables, sensibilisation de haute qualité et orientation des services\n\n• Joy dans une grande équipe et flexibilité pour le changement\n\nNous offrons:\n• Une politique salariale attrayante et d'excellentes prestations sociales\n\n• Avantages pour le shopping, le sport et les loisirs\n\n• Aide au déménagement et à la recherche d ' un logement\n\n• 25 jours de vacances plus 5 flexitage gratuit\n\n• Appui à la formation continue et à la planification des carrières\n\n• Campus au cœur de Bâle et du Coin Trinational\n\n• Établissements complets de garde d ' enfants\n\n• Programme de sports et d'exercices gratuits"
-      },
-      "location": "Basel",
-      "canton": "BS",
-      "url": "https://job.unispital-basel.ch/offene-stellen/fachfrau-fachmann-payroll/9fddc3ca-db91-43f0-98e7-15d4acd0f122",
-      "source": "USB Dedicated Parser (Prospective API)",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-30T22:16:15.908Z",
-      "addressLocality": "Basel",
-      "addressRegion": "BS",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "4031",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-21",
-      "applyUrl": "https://career012.successfactors.eu/career?company=USB&career_ns=job_application&career_job_req_id=27572",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "fachfrau-fachmann-payroll-unispital-basel-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "fachfrau-fachmann-payroll-unispital-basel-ch"
-        ],
-        "en": [
-          "fachfrau-fachmann-payroll-unispital-basel-ch"
-        ],
-        "fr": [
-          "fachfrau-fachmann-payroll-unispital-basel-ch"
-        ]
-      },
-      "firstSeenAt": "2026-07-21T11:54:51.138Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
