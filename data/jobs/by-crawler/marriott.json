@@ -1841,12 +1841,12 @@
     },
     {
       "id": "marriott-3f90c1799736",
-      "slug": "event-support-expert-banquet-setup-marriott-zurich",
+      "slug": "esperto-di-supporto-per-eventi-setup-banquet-marriott-international-zurich",
       "slugByLocale": {
         "en": "event-support-expert-banquet-setup-marriott-zurich",
-        "it": "event-support-expert-banquet-setup-marriott-zurich",
+        "it": "esperto-di-supporto-per-eventi-setup-banquet-marriott-international-zurich",
         "de": "event-support-expert-banquet-setup-marriott-zurich",
-        "fr": "event-support-expert-banquet-setup-marriott-zurich"
+        "fr": "expert-en-soutien-a-l-evenement-configuration-de-bancet-marriott-international-zurich"
       },
       "company": "Marriott International",
       "companyKey": "marriott",
@@ -1911,7 +1911,18 @@
         }
       },
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-07-31T11:54:42.256Z"
+      "firstSeenAt": "2026-07-31T11:54:42.256Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "event-support-expert-banquet-setup-marriott-zurich"
+        ],
+        "fr": [
+          "event-support-expert-banquet-setup-marriott-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "event-support-expert-banquet-setup-marriott-zurich"
+      ]
     },
     {
       "id": "marriott-757f64a9abc8",

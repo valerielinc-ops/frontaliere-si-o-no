@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "wagerenhof-dec68effe0a8",
-      "slug": "lernende-kochin-lernender-koch-wagerenhof-uster",
+      "slug": "apprendista-kochin-apprendista-koch-stiftung-wagerenhof-uster",
       "slugByLocale": {
         "de": "lernende-kochin-lernender-koch-wagerenhof-uster",
-        "it": "lernende-kochin-lernender-koch-wagerenhof-uster",
-        "en": "lernende-kochin-lernender-koch-wagerenhof-uster",
-        "fr": "lernende-kochin-lernender-koch-wagerenhof-uster"
+        "it": "apprendista-kochin-apprendista-koch-stiftung-wagerenhof-uster",
+        "en": "apprentice-kochin-apprentice-koch-stiftung-wagerenhof-uster",
+        "fr": "apprenti-e-kochin-apprenti-e-koch-stiftung-wagerenhof-uster"
       },
       "company": "Stiftung Wagerenhof",
       "companyKey": "wagerenhof",
@@ -64,7 +64,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-31T11:48:28.828Z"
+      "firstSeenAt": "2026-07-31T11:48:28.828Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "lernende-kochin-lernender-koch-wagerenhof-uster"
+        ],
+        "en": [
+          "lernende-kochin-lernender-koch-wagerenhof-uster"
+        ],
+        "fr": [
+          "lernende-kochin-lernender-koch-wagerenhof-uster"
+        ]
+      },
+      "previousSlugs": [
+        "lernende-kochin-lernender-koch-wagerenhof-uster"
+      ]
     },
     {
       "id": "wagerenhof-4153d34d35f2",
@@ -216,12 +230,12 @@
     },
     {
       "id": "wagerenhof-9942c974229b",
-      "slug": "lernende-floristin-lernender-florist-wagerenhof-uster",
+      "slug": "apprendista-floristin-apprendista-florist-stiftung-wagerenhof-uster",
       "slugByLocale": {
         "de": "lernende-floristin-lernender-florist-wagerenhof-uster",
-        "it": "lernende-floristin-lernender-florist-wagerenhof-uster",
-        "en": "lernende-floristin-lernender-florist-wagerenhof-uster",
-        "fr": "lernende-floristin-lernender-florist-wagerenhof-uster"
+        "it": "apprendista-floristin-apprendista-florist-stiftung-wagerenhof-uster",
+        "en": "apprentice-floristin-apprentice-florist-stiftung-wagerenhof-uster",
+        "fr": "apprenti-e-floristin-apprenti-e-florist-stiftung-wagerenhof-uster"
       },
       "company": "Stiftung Wagerenhof",
       "companyKey": "wagerenhof",
@@ -276,7 +290,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-31T11:48:25.973Z"
+      "firstSeenAt": "2026-07-31T11:48:25.973Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "lernende-floristin-lernender-florist-wagerenhof-uster"
+        ],
+        "en": [
+          "lernende-floristin-lernender-florist-wagerenhof-uster"
+        ],
+        "fr": [
+          "lernende-floristin-lernender-florist-wagerenhof-uster"
+        ]
+      },
+      "previousSlugs": [
+        "lernende-floristin-lernender-florist-wagerenhof-uster"
+      ]
     },
     {
       "id": "wagerenhof-e82932a7b2fe",

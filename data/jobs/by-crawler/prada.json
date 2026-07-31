@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "prada-486ad2c4e076",
-      "slug": "prada-retail-support-m-f-d-prada-group-metzingen",
+      "slug": "supporto-al-dettaglio-prada-m-f-d-prada-group-metzingen",
       "slugByLocale": {
         "en": "prada-retail-support-m-f-d-prada-group-metzingen",
-        "it": "prada-retail-support-m-f-d-prada-group-metzingen",
+        "it": "supporto-al-dettaglio-prada-m-f-d-prada-group-metzingen",
         "de": "prada-retail-support-m-f-d-prada-group-metzingen",
-        "fr": "prada-retail-support-m-f-d-prada-group-metzingen"
+        "fr": "prada-soutien-au-commerce-de-detail-m-f-d-prada-group-metzingen"
       },
       "company": "Prada Group",
       "companyKey": "prada",
@@ -60,16 +60,27 @@
       },
       "country": "CH",
       "addressRegion": "TI",
-      "firstSeenAt": "2026-07-31T11:54:23.799Z"
+      "firstSeenAt": "2026-07-31T11:54:23.799Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "prada-retail-support-m-f-d-prada-group-metzingen"
+        ],
+        "fr": [
+          "prada-retail-support-m-f-d-prada-group-metzingen"
+        ]
+      },
+      "previousSlugs": [
+        "prada-retail-support-m-f-d-prada-group-metzingen"
+      ]
     },
     {
       "id": "prada-ef469ffe20a6",
-      "slug": "stock-assistant-prada-group-fidenza-stock-assistant",
+      "slug": "assistente-di-borsa-prada-group-fidenza-stock-assistant",
       "slugByLocale": {
         "en": "stock-assistant-prada-group-fidenza-stock-assistant",
-        "it": "stock-assistant-prada-group-fidenza-stock-assistant",
-        "de": "stock-assistant-prada-group-fidenza-stock-assistant",
-        "fr": "stock-assistant-prada-group-fidenza-stock-assistant"
+        "it": "assistente-di-borsa-prada-group-fidenza-stock-assistant",
+        "de": "stock-assistent-prada-group-fidenza-stock-assistant",
+        "fr": "assistant-aux-stocks-prada-group-fidenza-stock-assistant"
       },
       "company": "Prada Group",
       "companyKey": "prada",
@@ -120,7 +131,21 @@
       },
       "country": "CH",
       "addressRegion": "TI",
-      "firstSeenAt": "2026-07-31T11:54:22.940Z"
+      "firstSeenAt": "2026-07-31T11:54:22.940Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "stock-assistant-prada-group-fidenza-stock-assistant"
+        ],
+        "de": [
+          "stock-assistant-prada-group-fidenza-stock-assistant"
+        ],
+        "fr": [
+          "stock-assistant-prada-group-fidenza-stock-assistant"
+        ]
+      },
+      "previousSlugs": [
+        "stock-assistant-prada-group-fidenza-stock-assistant"
+      ]
     },
     {
       "id": "prada-3ce781ad83dc",
