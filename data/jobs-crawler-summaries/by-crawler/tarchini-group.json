@@ -1,18 +1,19 @@
 {
   "key": "tarchini-group",
   "label": "Tarchini Group",
-  "generatedAt": "2026-07-31T11:36:03.528Z",
+  "generatedAt": "2026-07-31T22:07:32.121Z",
   "total": 3,
-  "newCount": 1,
-  "updatedCount": 2,
-  "removedCount": 1,
+  "newCount": 0,
+  "updatedCount": 3,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 3935,
-  "avgDurationMs": 3935,
+  "durationMs": 4176,
+  "avgDurationMs": 4176,
   "durationHistory": [
-    3935
+    4176
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "title": "Technisch-kaufmännische Fachperson Projekt Swiss Energy Program",
       "slug": "technisch-kaufmannische-fachperson-projekt-swiss-energy-program-tarchini-group-manno",
@@ -35,16 +36,19 @@
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
-      "_qualityScore": 75,
+      "id": "tarchini-group-ffb6f3d5474b",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "currency": "CHF",
+      "firstSeenAt": "2026-07-31T11:36:03.527Z",
+      "_qualityScore": 89,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 16,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 19
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "title": "Junior Facility Manager",
       "slug": "junior-facility-manager-tarchini-group-mendrisio",
@@ -120,44 +124,6 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "title": "Responsabile commerciale progetto Swiss Energy Program",
-      "slug": "responsabile-commerciale-progetto-swiss-energy-program-tarchini-group-manno",
-      "url": "https://www.tarchinigroup.com/it/work/1540/responsabile-commerciale-progetto-swiss-energy-program",
-      "applyUrl": "mailto:info@tarchinigroup.com?subject=Responsabile%20commerciale%20progetto%20Swiss%20Energy%20Program",
-      "company": "Tarchini Group",
-      "companyKey": "tarchini-group",
-      "companyDomain": "tarchinigroup.com",
-      "location": "Manno",
-      "addressLocality": "Manno",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "management",
-      "sector": "Immobiliare",
-      "source": "tarchini-group-dedicated-crawler",
-      "sourceLang": "it",
-      "postedDate": "2026-06-16",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "validThrough": "",
-      "id": "tarchini-group-b99740d47f8f",
-      "salaryMin": 68000,
-      "salaryMax": 103000,
-      "currency": "CHF",
-      "streetAddress": "",
-      "postalCode": "6928",
-      "firstSeenAt": "2026-04-13T22:32:13.614Z",
-      "_qualityScore": 92,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 22
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }
