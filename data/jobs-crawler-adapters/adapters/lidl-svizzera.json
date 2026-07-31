@@ -155,6 +155,7 @@
     "https://team.lidl.ch/it/jobs/stv-filialleiter-stv-filialleiterin-m-w-d-80-100-zug-712359",
     "https://team.lidl.ch/it/jobs/stv-filialleiter-stv-filialleiterin-m-w-d-80-100-zurich-701239",
     "https://team.lidl.ch/it/jobs/stv-filialleiter-stv-filialleiterin-m-w-d-80-100-zurich-712451",
+    "https://team.lidl.ch/it/jobs/vekaufer-verkauferin-mit-schichtverantwortung-60-80-hagendorf-728817",
     "https://team.lidl.ch/it/jobs/vendeur-polyvalent-vendeuse-polyvalente-h-f-d-40-petit-lancy-705752",
     "https://team.lidl.ch/it/jobs/vendeur-vendeuse-h-f-d-20-payerne-726953",
     "https://team.lidl.ch/it/jobs/vendeur-vendeuse-h-f-d-40-1-sierre-707571",
@@ -163,7 +164,6 @@
     "https://team.lidl.ch/it/jobs/vendeur-vendeuse-h-f-d-40-matran-721192",
     "https://team.lidl.ch/it/jobs/vendeur-vendeuse-h-f-d-60-courgevaux-705947",
     "https://team.lidl.ch/it/jobs/vendeur-vendeuse-h-f-d-60-etoy-705929",
-    "https://team.lidl.ch/it/jobs/vendeur-vendeuse-h-f-d-60-morges-705931",
     "https://team.lidl.ch/it/jobs/vendeur-vendeuse-responsable-d-equipe-h-f-d-60-80-bulle-695660",
     "https://team.lidl.ch/it/jobs/vendeur-vendeuse-responsable-d-equipe-h-f-d-60-80-conthey-724853",
     "https://team.lidl.ch/it/jobs/vendeur-vendeuse-responsable-d-equipe-h-f-d-60-80-sierre-724858",
@@ -266,6 +266,7 @@
     "https://team.lidl.ch/it/jobs/verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-amriswil-716858",
     "https://team.lidl.ch/it/jobs/verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-arbon-716856",
     "https://team.lidl.ch/it/jobs/verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-baar-700477",
+    "https://team.lidl.ch/it/jobs/verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-bachenbulach-729198",
     "https://team.lidl.ch/it/jobs/verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-bern-677603",
     "https://team.lidl.ch/it/jobs/verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-cham-700475",
     "https://team.lidl.ch/it/jobs/verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-ebikon-711234",
@@ -301,7 +302,7 @@
     "https://team.lidl.ch/it/jobs/verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-80-reiden-714285"
   ],
   "notes": "Dedicated Lidl crawler seeds from team.lidl.ch LiCa search API (/it/api/v1/search), fetched UNFILTERED and paginated CH-wide (all 26 cantons); per-job canton inferred from the city signal.",
-  "updatedAt": "2026-07-30T22:08:26.540Z",
+  "updatedAt": "2026-07-31T11:36:09.560Z",
   "seedMetaByUrl": {
     "https://team.lidl.ch/it/jobs/verkaufer-verkauferin-m-w-d-40-60-1-schaffhausen-705269": {
       "location": "Schaffhausen",
@@ -691,6 +692,15 @@
       "contract": "Part-time"
     },
     "https://team.lidl.ch/it/jobs/allrounder-verkauf-m-w-d-40-60-bachenbulach-711243": {
+      "location": "Bachenbülach",
+      "addressLocality": "Bachenbülach",
+      "canton": "ZH",
+      "country": "CH",
+      "company": "Lidl Svizzera",
+      "companyDomain": "lidl.ch",
+      "contract": "Part-time"
+    },
+    "https://team.lidl.ch/it/jobs/verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-bachenbulach-729198": {
       "location": "Bachenbülach",
       "addressLocality": "Bachenbülach",
       "canton": "ZH",
@@ -1567,6 +1577,15 @@
       "location": "Wädenswil",
       "addressLocality": "Wädenswil",
       "canton": "ZH",
+      "country": "CH",
+      "company": "Lidl Svizzera",
+      "companyDomain": "lidl.ch",
+      "contract": "Part-time"
+    },
+    "https://team.lidl.ch/it/jobs/vekaufer-verkauferin-mit-schichtverantwortung-60-80-hagendorf-728817": {
+      "location": "Hägendorf",
+      "addressLocality": "Hägendorf",
+      "canton": "SO",
       "country": "CH",
       "company": "Lidl Svizzera",
       "companyDomain": "lidl.ch",
@@ -2763,15 +2782,6 @@
     "https://team.lidl.ch/it/jobs/gerant-adjoint-gerante-adjointe-h-f-d-80-100-lausanne-668614": {
       "location": "Lausanne",
       "addressLocality": "Lausanne",
-      "canton": "VD",
-      "country": "CH",
-      "company": "Lidl Svizzera",
-      "companyDomain": "lidl.ch",
-      "contract": "Part-time"
-    },
-    "https://team.lidl.ch/it/jobs/vendeur-vendeuse-h-f-d-60-morges-705931": {
-      "location": "Morges",
-      "addressLocality": "Morges",
       "canton": "VD",
       "country": "CH",
       "company": "Lidl Svizzera",
