@@ -22286,6 +22286,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-bns-utile-semestre-2026': {
+    title: 'BNS: utile di 25 miliardi nel primo semestre 2026',
+    description: 'La Banca Nazionale Svizzera segna un utile di 25,2 miliardi di franchi nel primo semestre 2026. Analisi dei guadagni su valute e perdite sull\'oro.',
+    keywords: 'frontalieri, ticino, svizzera, italia, utile, miliardi, primo, semestre',
+    ogTitle: 'BNS: utile di 25 miliardi nel primo semestre 2026',
+    ogDescription: 'Risultati semestrali record per la BNS: 25,2 miliardi di franchi di utile grazie ai mercati azionari e alle valute estere.',
+    canonicalPath: '/articoli-svizzera/bns-utile-semestre-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "BNS: utile di 25 miliardi nel primo semestre 2026",
+      "description": "La Banca Nazionale Svizzera segna un utile di 25,2 miliardi di franchi nel primo semestre 2026. Analisi dei guadagni su valute e perdite sull'oro.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/bns-utile-semestre-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Sede della Banca Nazionale Svizzera a Berna con bandiera federale"
+      },
+      "datePublished": "2026-07-31T07:46:37+00:00",
+      "dateModified": "2026-07-31T07:46:37+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/bns-utile-semestre-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

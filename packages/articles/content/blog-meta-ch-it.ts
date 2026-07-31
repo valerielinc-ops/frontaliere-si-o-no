@@ -1723,6 +1723,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.dsm-firmenich-cancella-1000-impieghi.title': 'DSM-Firmenich cancella 1000 impieghi, tagli anche in Svizzera',
     'blog.article.dsm-firmenich-cancella-1000-impieghi.excerpt': 'Il gruppo elvetico-olandese annuncia una vasta ristrutturazione con il taglio di circa 1000 posti di lavoro in 18-24 mesi per ridurre i costi.',
     'blog.article.dsm-firmenich-cancella-1000-impieghi.imageAlt': 'Sede aziendale in Svizzera del gruppo DSM-Firmenich',
+    'blog.article.bns-utile-semestre-2026.title': 'BNS: utile di 25 miliardi nel primo semestre 2026',
+    'blog.article.bns-utile-semestre-2026.excerpt': 'La Banca Nazionale Svizzera chiude la prima metà del 2026 con un utile di 25,2 miliardi di franchi, trainato dai mercati azionari e dalle valute estere.',
+    'blog.article.bns-utile-semestre-2026.imageAlt': 'Sede della Banca Nazionale Svizzera a Berna con bandiera federale',
 };
 
 export default blogMetaChIt;

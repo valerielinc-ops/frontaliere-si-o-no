@@ -1723,6 +1723,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.dsm-firmenich-cancella-1000-impieghi.title': 'DSM-Firmenich cancels 1000 jobs, cuts also in Switzerland',
     'blog.article.dsm-firmenich-cancella-1000-impieghi.excerpt': 'The Swiss-Dutch group announces an extensive restructuring with the cutting of about 1000 jobs in 18-24 months to reduce costs.',
     'blog.article.dsm-firmenich-cancella-1000-impieghi.imageAlt': 'Corporate headquarters in Switzerland of the DSM-Firmenich group',
+    'blog.article.bns-utile-semestre-2026.title': 'SNB: profit of 25 billion in the first half of 2026',
+    'blog.article.bns-utile-semestre-2026.excerpt': 'The Swiss National Bank closes the first half of 2026 with a profit of 25.2 billion francs, driven by stock markets and foreign currencies.',
+    'blog.article.bns-utile-semestre-2026.imageAlt': 'Swiss National Bank headquarters in Bern with federal flag',
 };
 
 export default blogMetaChEn;

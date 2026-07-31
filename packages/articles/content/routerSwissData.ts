@@ -600,6 +600,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'tassa-salute-frontalieri-svizzera': { it: 'tassa-salute-frontalieri-svizzera', en: 'health-insurance-switzerland', de: 'gesundheitsversicherung-schweiz', fr: 'assurance-maladie-suisse' },
  'clariant-vittoria-amilione': { it: 'clariant-vittoria-amilione', en: 'clariant-victory-one-billion', de: 'clariant-sieg-eins-milliard', fr: 'clariant-victoire-un-milliard' },
  'dsm-firmenich-cancella-1000-impieghi': { it: 'dsm-firmenich-cancella-1000-impieghi', en: 'dsm-firmenich-cuts-1000-jobs-switzerland', de: 'dsm-firmenich-streicht-1000-stellen-schweiz', fr: 'dsm-firmenich-supprime-1000-emplois-suisse' },
+ 'bns-utile-semestre-2026': { it: 'bns-utile-semestre-2026', en: 'snb-profit-first-half-2026-results', de: 'snb-gewinn-erstes-halbjahr-2026-ergebnisse', fr: 'bns-benefice-premier-semestre-2026-resultats' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
