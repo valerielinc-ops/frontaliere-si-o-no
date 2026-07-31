@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-07-31T11:16:58.021Z",
+  "updatedAt": "2026-07-31T13:57:33.014Z",
   "entities": {
     "AASTI": {
       "status": "suspect",
@@ -596,11 +596,11 @@
       "statusSource": "auto",
       "statusAt": "2026-07-29T06:26:58.011Z",
       "firstSeen": "2026-07-29T06:26:58.011Z",
-      "lastSeen": "2026-07-31T03:35:39.206Z",
-      "seen": 31,
+      "lastSeen": "2026-07-31T13:57:33.014Z",
+      "seen": 32,
       "unsupportedSightings": 0,
       "unsupportedRuns": [],
-      "supportedSightings": 19,
+      "supportedSightings": 20,
       "names": [
         "Agenzia delle Entrate, il MEF, l'Ufficio Federale di Statistica",
         "Ufficio federale di Statistica",
@@ -611,6 +611,13 @@
       "recentKeys": [],
       "evidence": [
         {
+          "at": "2026-07-31T13:57:33.014Z",
+          "runId": "30632468625",
+          "articleId": "unknown",
+          "support": "present",
+          "name": "Ufficio Federale di Statistica"
+        },
+        {
           "at": "2026-07-31T03:35:39.206Z",
           "runId": "30600477281",
           "articleId": "unknown",
@@ -649,13 +656,6 @@
           "at": "2026-07-31T01:30:30.927Z",
           "runId": "30595579311",
           "articleId": "vivere-varzo-lavorare-ticino",
-          "support": "present",
-          "name": "Ufficio Federale di Statistica"
-        },
-        {
-          "at": "2026-07-30T09:41:16.713Z",
-          "runId": "30528247715",
-          "articleId": "besano-da-frontaliere-pro-e-contro",
           "support": "present",
           "name": "Ufficio Federale di Statistica"
         },
