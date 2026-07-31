@@ -1,18 +1,21 @@
 {
   "key": "ermenegildo-zegna-logistica",
   "label": "Zegna",
-  "generatedAt": "2026-07-31T11:54:47.259Z",
+  "generatedAt": "2026-07-31T22:15:29.327Z",
   "total": 2,
-  "newCount": 1,
+  "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 6442,
-  "avgDurationMs": 6442,
+  "unchangedCount": 2,
+  "durationMs": 8143,
+  "avgDurationMs": 8143,
   "durationHistory": [
-    6442
+    8143
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "url": "https://careers.zegnagroup.com/jobs/job-details?JobID=272160171&Team=231361271",
       "applyUrl": "https://careers.zegnagroup.com/jobs/job-details?JobID=272160171&Team=231361271",
@@ -39,18 +42,22 @@
       "sourceLang": "it",
       "crawledAt": "",
       "needsRetranslation": true,
-      "_qualityScore": 39,
+      "id": "ermenegildo-zegna-logistica-877a68c644c3",
+      "salaryMin": 41600,
+      "salaryMax": 63000,
+      "currency": "CHF",
+      "addressLocality": "Mendrisio",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "firstSeenAt": "2026-07-31T11:54:47.257Z",
+      "_qualityScore": 67,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 3,
-        "translation": 2,
-        "completeness": 9
+        "translation": 25,
+        "completeness": 14
       }
-    }
-  ],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+    },
     {
       "url": "https://careers.zegnagroup.com/jobs/job-details?JobID=270362936&Team=231361275",
       "applyUrl": "https://careers.zegnagroup.com/jobs/job-details?JobID=270362936&Team=231361275",
