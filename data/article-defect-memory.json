@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-07-31T13:57:33.014Z",
+  "updatedAt": "2026-07-31T14:59:32.755Z",
   "entities": {
     "AASTI": {
       "status": "suspect",
@@ -172,15 +172,16 @@
       "statusSource": "auto",
       "statusAt": "2026-07-29T06:26:58.011Z",
       "firstSeen": "2026-07-29T06:26:58.011Z",
-      "lastSeen": "2026-07-31T08:09:28.658Z",
-      "seen": 39,
+      "lastSeen": "2026-07-31T14:59:32.755Z",
+      "seen": 41,
       "unsupportedSightings": 2,
       "unsupportedRuns": [
         "30595579311",
         "30489213850"
       ],
-      "supportedSightings": 18,
+      "supportedSightings": 20,
       "names": [
+        "Agenzia delle Entrate in Italia e dell’Amministrazione Federale delle Contribuzioni",
         "Amministrazione federale delle contribuzioni",
         "Amministrazione Federale delle Contribuzioni"
       ],
@@ -189,6 +190,20 @@
         "30489213850:unknown"
       ],
       "evidence": [
+        {
+          "at": "2026-07-31T14:59:32.755Z",
+          "runId": "30636711582",
+          "articleId": "unknown",
+          "support": "present",
+          "name": "Amministrazione Federale delle Contribuzioni"
+        },
+        {
+          "at": "2026-07-31T14:59:32.755Z",
+          "runId": "30636711582",
+          "articleId": "unknown",
+          "support": "present",
+          "name": "Agenzia delle Entrate in Italia e dell’Amministrazione Federale delle Contribuzioni"
+        },
         {
           "at": "2026-07-31T08:09:28.658Z",
           "runId": "30614026157",
@@ -228,20 +243,6 @@
           "at": "2026-07-31T01:30:30.927Z",
           "runId": "30595579311",
           "articleId": "vivere-varzo-lavorare-ticino",
-          "support": "absent",
-          "name": "Amministrazione federale delle contribuzioni"
-        },
-        {
-          "at": "2026-07-29T21:59:44.813Z",
-          "runId": "30492061769",
-          "articleId": "unknown",
-          "support": "present",
-          "name": "Amministrazione federale delle contribuzioni"
-        },
-        {
-          "at": "2026-07-29T21:16:04.477Z",
-          "runId": "30489213850",
-          "articleId": "unknown",
           "support": "absent",
           "name": "Amministrazione federale delle contribuzioni"
         }
@@ -596,20 +597,41 @@
       "statusSource": "auto",
       "statusAt": "2026-07-29T06:26:58.011Z",
       "firstSeen": "2026-07-29T06:26:58.011Z",
-      "lastSeen": "2026-07-31T13:57:33.014Z",
-      "seen": 32,
+      "lastSeen": "2026-07-31T14:59:32.755Z",
+      "seen": 35,
       "unsupportedSightings": 0,
       "unsupportedRuns": [],
-      "supportedSightings": 20,
+      "supportedSightings": 23,
       "names": [
+        "Ufficio Federale delle Statistiche",
         "Agenzia delle Entrate, il MEF, l'Ufficio Federale di Statistica",
         "Ufficio federale di Statistica",
         "Amministrazione federale delle contribuzioni o dall'Ufficio federale di statistica",
-        "Ufficio Federale di Statistica",
-        "Ufficio federale di statistica"
+        "Ufficio Federale di Statistica"
       ],
       "recentKeys": [],
       "evidence": [
+        {
+          "at": "2026-07-31T14:59:32.755Z",
+          "runId": "30636711582",
+          "articleId": "unknown",
+          "support": "present",
+          "name": "Ufficio Federale di Statistica"
+        },
+        {
+          "at": "2026-07-31T14:59:32.755Z",
+          "runId": "30636711582",
+          "articleId": "unknown",
+          "support": "present",
+          "name": "Ufficio Federale di Statistica"
+        },
+        {
+          "at": "2026-07-31T14:59:32.755Z",
+          "runId": "30636711582",
+          "articleId": "unknown",
+          "support": "present",
+          "name": "Ufficio Federale delle Statistiche"
+        },
         {
           "at": "2026-07-31T13:57:33.014Z",
           "runId": "30632468625",
@@ -642,27 +664,6 @@
           "at": "2026-07-31T01:30:30.927Z",
           "runId": "30595579311",
           "articleId": "vivere-varzo-lavorare-ticino",
-          "support": "present",
-          "name": "Ufficio Federale di Statistica"
-        },
-        {
-          "at": "2026-07-31T01:30:30.927Z",
-          "runId": "30595579311",
-          "articleId": "vivere-varzo-lavorare-ticino",
-          "support": "present",
-          "name": "Ufficio Federale di Statistica"
-        },
-        {
-          "at": "2026-07-31T01:30:30.927Z",
-          "runId": "30595579311",
-          "articleId": "vivere-varzo-lavorare-ticino",
-          "support": "present",
-          "name": "Ufficio Federale di Statistica"
-        },
-        {
-          "at": "2026-07-30T09:41:16.713Z",
-          "runId": "30528247715",
-          "articleId": "besano-da-frontaliere-pro-e-contro",
           "support": "present",
           "name": "Ufficio Federale di Statistica"
         }
