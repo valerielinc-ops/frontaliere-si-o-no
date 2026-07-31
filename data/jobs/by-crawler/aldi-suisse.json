@@ -1,6 +1,6 @@
 {
   "crawlerKey": "aldi-suisse",
-  "assembledAt": "2026-07-31T12:11:03.916Z",
+  "assembledAt": "2026-07-31T22:33:27.215Z",
   "jobs": [
     {
       "id": "aldi-suisse-9e420fe21829",
@@ -79,13 +79,15 @@
       "url": "https://www.jobs.aldi.ch/job/1389180133",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-31T12:10:57.950Z",
+      "crawledAt": "2026-07-31T22:33:19.546Z",
       "previousSlugs": [
-        "stellvertretender-filialleiter-m-w-d-aldi-suisse"
+        "stellvertretender-filialleiter-m-w-d-aldi-suisse",
+        "direttore-aggiunto-m-f-d-aldi-suisse-sempach-station"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "stellvertretender-filialleiter-m-w-d-aldi-suisse"
+          "stellvertretender-filialleiter-m-w-d-aldi-suisse",
+          "direttore-aggiunto-m-f-d-aldi-suisse-sempach-station"
         ],
         "en": [
           "stellvertretender-filialleiter-m-w-d-aldi-suisse"
@@ -95,6 +97,7 @@
         ]
       },
       "firstSeenAt": "2026-06-29T21:33:13.101Z",
+      "needsRetranslation": true,
       "salaryMin": 110500,
       "salaryMax": 169500,
       "baseSalary": {
@@ -184,7 +187,7 @@
       "url": "https://www.jobs.aldi.ch/job/1386919233",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-31T12:10:57.948Z",
+      "crawledAt": "2026-07-31T22:33:19.544Z",
       "previousSlugs": [
         "stellvertretender-filialleiter-m-w-d-aldi-suisse-2",
         "stellvertretender-filialleiter-m-w-d-aldi-suisse-ar9swf"
@@ -201,6 +204,7 @@
         ]
       },
       "firstSeenAt": "2026-06-30T10:51:19.769Z",
+      "needsRetranslation": true,
       "salaryMin": 103500,
       "salaryMax": 158500,
       "baseSalary": {
@@ -289,13 +293,15 @@
       "url": "https://www.jobs.aldi.ch/job/1397187033",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-31T12:10:56.660Z",
+      "crawledAt": "2026-07-31T22:33:18.350Z",
       "previousSlugs": [
-        "samstagsaushilfe-verkauf-m-w-d-aldi-suisse"
+        "samstagsaushilfe-verkauf-m-w-d-aldi-suisse",
+        "samstagsaushilfe-vendita-m-w-d-aldi-suisse-oberburg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "samstagsaushilfe-verkauf-m-w-d-aldi-suisse"
+          "samstagsaushilfe-verkauf-m-w-d-aldi-suisse",
+          "samstagsaushilfe-vendita-m-w-d-aldi-suisse-oberburg"
         ],
         "en": [
           "samstagsaushilfe-verkauf-m-w-d-aldi-suisse"
@@ -305,6 +311,7 @@
         ]
       },
       "firstSeenAt": "2026-06-30T10:51:18.342Z",
+      "needsRetranslation": true,
       "salaryMin": 77500,
       "salaryMax": 118500,
       "baseSalary": {
@@ -392,7 +399,7 @@
       "url": "https://www.jobs.aldi.ch/job/1401825833",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-31T12:10:55.199Z",
+      "crawledAt": "2026-07-31T22:33:18.345Z",
       "previousSlugs": [
         "mitarbeiter-verkauf-m-w-d-aldi-suisse",
         "addetto-a-alle-vendite-m-w-d-aldi-suisse-zurich-xk73dg",
@@ -403,7 +410,8 @@
         "mitarbeiter-verkauf-m-w-d-aldi-suisse-5",
         "addetto-a-alle-vendite-m-w-d-aldi-suisse-winterthur",
         "vendeur-se-m-w-d-aldi-suisse-winterthur",
-        "membro-vendita-m-w-d-aldi-suisse-winterthur"
+        "membro-vendita-m-w-d-aldi-suisse-winterthur",
+        "addetto-a-alle-vendite-m-w-d-aldi-suisse-aadorf"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -414,7 +422,8 @@
           "mitarbeiter-verkauf-m-w-d-aldi-suisse-5",
           "addetto-a-alle-vendite-m-w-d-aldi-suisse-winterthur",
           "vendeur-se-m-w-d-aldi-suisse-winterthur",
-          "membro-vendita-m-w-d-aldi-suisse-winterthur"
+          "membro-vendita-m-w-d-aldi-suisse-winterthur",
+          "addetto-a-alle-vendite-m-w-d-aldi-suisse-aadorf"
         ],
         "en": [
           "mitarbeiter-verkauf-m-w-d-aldi-suisse",
@@ -426,6 +435,7 @@
         ]
       },
       "firstSeenAt": "2026-07-10T13:29:28.434Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 105000,
       "baseSalary": {
@@ -439,6 +449,104 @@
         }
       },
       "country": "CH"
+    },
+    {
+      "id": "aldi-suisse-6c23a734b71e",
+      "slug": "mitarbeiter-verkauf-m-w-d-aldi-suisse",
+      "slugByLocale": {
+        "it": "mitarbeiter-verkauf-m-w-d-aldi-suisse",
+        "en": "mitarbeiter-verkauf-m-w-d-aldi-suisse",
+        "de": "mitarbeiter-verkauf-m-w-d-aldi-suisse",
+        "fr": "mitarbeiter-verkauf-m-w-d-aldi-suisse"
+      },
+      "company": "ALDI SUISSE",
+      "companyKey": "aldi-suisse",
+      "companyDomain": "aldi.ch",
+      "title": "Mitarbeiter Verkauf (m/w/d)",
+      "titleByLocale": {
+        "it": "Addetto/a alle vendite (m/w/d)",
+        "de": "Mitarbeiter Verkauf (m/w/d)",
+        "en": "Sales Associate (m/w/d)",
+        "fr": "Vendeur/se (m/w/d)"
+      },
+      "description": "Aufgaben\n• Warenbereitstellung\n\n• Kassieren\n\n• Brot backen in der Panetteria\n\n• Unterstützung der Kunden\n\n• Reinigung der Filiale\n\n• Mitarbeit bei anfallenden Arbeiten\nProfil\n• Berufserfahrung im Verkauf oder einem ähnlichen Umfeld\n\n• Idealerweise abgeschlossene Berufsausbildung im Detailhandel oder Lebensmittelbereich\n\n• Kundenorientiertes Verhalten und gepflegtes Auftreten\n\n• Hohe Motivation, Einsatzbereitschaft und Belastbarkeit\n\n• Flexibilität betreffend der Einsatzzeiten\n\n• Gute Deutschkenntnisse\nUnser Angebot\n• Abwechslungsreiche Aufgaben\n\n• Kurzweilige Arbeitstage\n\n• Arbeiten in einem überschaubaren und starken Team\n\n• Ein überdurchschnittlich gutes Salär und sehr gute Sozialleistungen\nArbeitsort​4416 Bubendorf, Kantonsstrasse 7​\nArbeitsbeginn​Ab sofort oder nach Vereinbarung​\nJetzt direkt auf die Stelle bewerben\nHinweis für Personaldienstleister:\nFür diese Stelle berücksichtigen wir ausschliesslich Direktbewerbungen.\nWir lehnen somit jegliche Verantwortung für unaufgefordert eingereichte Bewerbungen und deren AGB’s ab. Vielen Dank für das Verständnis.",
+      "descriptionByLocale": {
+        "it": "Aufgaben\n• Warenbereitstellung\n\n• Kassieren\n\n• Brot backen in der Panetteria\n\n• Unterstützung der Kunden\n\n• Reinigung der Filiale\n\n• Mitarbeit bei anfallenden Arbeiten\nProfil\n• Berufserfahrung im Verkauf oder einem ähnlichen Umfeld\n\n• Idealerweise abgeschlossene Berufsausbildung im Detailhandel oder Lebensmittelbereich\n\n• Kundenorientiertes Verhalten und gepflegtes Auftreten\n\n• Hohe Motivation, Einsatzbereitschaft und Belastbarkeit\n\n• Flexibilität betreffend der Einsatzzeiten\n\n• Gute Deutschkenntnisse\nUnser Angebot\n• Abwechslungsreiche Aufgaben\n\n• Kurzweilige Arbeitstage\n\n• Arbeiten in einem überschaubaren und starken Team\n\n• Ein überdurchschnittlich gutes Salär und sehr gute Sozialleistungen\nArbeitsort​4416 Bubendorf, Kantonsstrasse 7​\nArbeitsbeginn​Ab sofort oder nach Vereinbarung​\nJetzt direkt auf die Stelle bewerben\nHinweis für Personaldienstleister:\nFür diese Stelle berücksichtigen wir ausschliesslich Direktbewerbungen.\nWir lehnen somit jegliche Verantwortung für unaufgefordert eingereichte Bewerbungen und deren AGB’s ab. Vielen Dank für das Verständnis.",
+        "de": "Aufgaben\n• Warenbereitstellung\n\n• Kassieren\n\n• Brot backen in der Panetteria\n\n• Unterstützung der Kunden\n\n• Reinigung der Filiale\n\n• Mitarbeit bei anfallenden Arbeiten\nProfil\n• Berufserfahrung im Verkauf oder einem ähnlichen Umfeld\n\n• Idealerweise abgeschlossene Berufsausbildung im Detailhandel oder Lebensmittelbereich\n\n• Kundenorientiertes Verhalten und gepflegtes Auftreten\n\n• Hohe Motivation, Einsatzbereitschaft und Belastbarkeit\n\n• Flexibilität betreffend der Einsatzzeiten\n\n• Gute Deutschkenntnisse\nUnser Angebot\n• Abwechslungsreiche Aufgaben\n\n• Kurzweilige Arbeitstage\n\n• Arbeiten in einem überschaubaren und starken Team\n\n• Ein überdurchschnittlich gutes Salär und sehr gute Sozialleistungen\nArbeitsort​4416 Bubendorf, Kantonsstrasse 7​\nArbeitsbeginn​Ab sofort oder nach Vereinbarung​\nJetzt direkt auf die Stelle bewerben\nHinweis für Personaldienstleister:\nFür diese Stelle berücksichtigen wir ausschliesslich Direktbewerbungen.\nWir lehnen somit jegliche Verantwortung für unaufgefordert eingereichte Bewerbungen und deren AGB’s ab. Vielen Dank für das Verständnis.",
+        "en": "Aufgaben\n• Warenbereitstellung\n\n• Kassieren\n\n• Brot backen in der Panetteria\n\n• Unterstützung der Kunden\n\n• Reinigung der Filiale\n\n• Mitarbeit bei anfallenden Arbeiten\nProfil\n• Berufserfahrung im Verkauf oder einem ähnlichen Umfeld\n\n• Idealerweise abgeschlossene Berufsausbildung im Detailhandel oder Lebensmittelbereich\n\n• Kundenorientiertes Verhalten und gepflegtes Auftreten\n\n• Hohe Motivation, Einsatzbereitschaft und Belastbarkeit\n\n• Flexibilität betreffend der Einsatzzeiten\n\n• Gute Deutschkenntnisse\nUnser Angebot\n• Abwechslungsreiche Aufgaben\n\n• Kurzweilige Arbeitstage\n\n• Arbeiten in einem überschaubaren und starken Team\n\n• Ein überdurchschnittlich gutes Salär und sehr gute Sozialleistungen\nArbeitsort​4416 Bubendorf, Kantonsstrasse 7​\nArbeitsbeginn​Ab sofort oder nach Vereinbarung​\nJetzt direkt auf die Stelle bewerben\nHinweis für Personaldienstleister:\nFür diese Stelle berücksichtigen wir ausschliesslich Direktbewerbungen.\nWir lehnen somit jegliche Verantwortung für unaufgefordert eingereichte Bewerbungen und deren AGB’s ab. Vielen Dank für das Verständnis.",
+        "fr": "Aufgaben\n• Warenbereitstellung\n\n• Kassieren\n\n• Brot backen in der Panetteria\n\n• Unterstützung der Kunden\n\n• Reinigung der Filiale\n\n• Mitarbeit bei anfallenden Arbeiten\nProfil\n• Berufserfahrung im Verkauf oder einem ähnlichen Umfeld\n\n• Idealerweise abgeschlossene Berufsausbildung im Detailhandel oder Lebensmittelbereich\n\n• Kundenorientiertes Verhalten und gepflegtes Auftreten\n\n• Hohe Motivation, Einsatzbereitschaft und Belastbarkeit\n\n• Flexibilität betreffend der Einsatzzeiten\n\n• Gute Deutschkenntnisse\nUnser Angebot\n• Abwechslungsreiche Aufgaben\n\n• Kurzweilige Arbeitstage\n\n• Arbeiten in einem überschaubaren und starken Team\n\n• Ein überdurchschnittlich gutes Salär und sehr gute Sozialleistungen\nArbeitsort​4416 Bubendorf, Kantonsstrasse 7​\nArbeitsbeginn​Ab sofort oder nach Vereinbarung​\nJetzt direkt auf die Stelle bewerben\nHinweis für Personaldienstleister:\nFür diese Stelle berücksichtigen wir ausschliesslich Direktbewerbungen.\nWir lehnen somit jegliche Verantwortung für unaufgefordert eingereichte Bewerbungen und deren AGB’s ab. Vielen Dank für das Verständnis."
+      },
+      "requirements": [
+        "Warenbereitstellung",
+        "Kassieren",
+        "Brot backen in der Panetteria",
+        "Unterstützung der Kunden",
+        "Reinigung der Filiale",
+        "Mitarbeit bei anfallenden Arbeiten",
+        "Berufserfahrung im Verkauf oder einem ähnlichen Umfeld",
+        "Idealerweise abgeschlossene Berufsausbildung im Detailhandel oder Lebensmittelbereich",
+        "Kundenorientiertes Verhalten und gepflegtes Auftreten",
+        "Hohe Motivation, Einsatzbereitschaft und Belastbarkeit",
+        "Flexibilität betreffend der Einsatzzeiten",
+        "Gute Deutschkenntnisse",
+        "Abwechslungsreiche Aufgaben",
+        "Kurzweilige Arbeitstage",
+        "Arbeiten in einem überschaubaren und starken Team",
+        "Ein überdurchschnittlich gutes Salär und sehr gute Sozialleistungen"
+      ],
+      "requirementsByLocale": {
+        "it": [
+          "Warenbereitstellung",
+          "Kassieren",
+          "Brot backen in der Panetteria",
+          "Unterstützung der Kunden",
+          "Reinigung der Filiale",
+          "Mitarbeit bei anfallenden Arbeiten",
+          "Berufserfahrung im Verkauf oder einem ähnlichen Umfeld",
+          "Idealerweise abgeschlossene Berufsausbildung im Detailhandel oder Lebensmittelbereich",
+          "Kundenorientiertes Verhalten und gepflegtes Auftreten",
+          "Hohe Motivation, Einsatzbereitschaft und Belastbarkeit",
+          "Flexibilität betreffend der Einsatzzeiten",
+          "Gute Deutschkenntnisse",
+          "Abwechslungsreiche Aufgaben",
+          "Kurzweilige Arbeitstage",
+          "Arbeiten in einem überschaubaren und starken Team",
+          "Ein überdurchschnittlich gutes Salär und sehr gute Sozialleistungen"
+        ]
+      },
+      "location": "Bubendorf",
+      "postalCode": "4416",
+      "canton": "BL",
+      "addressLocality": "Bubendorf",
+      "addressRegion": "BL",
+      "addressCountry": "CH",
+      "streetAddress": "Kantonsstrasse 7",
+      "employmentType": "PART_TIME",
+      "category": "retail",
+      "contract": "full-time",
+      "workPercentage": "60%",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-31",
+      "url": "https://www.jobs.aldi.ch/job/1399205633",
+      "source": "ALDI Suisse Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-07-31T22:33:17.216Z",
+      "needsRetranslation": true,
+      "salaryMin": 74000,
+      "salaryMax": 113500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 74000,
+          "maxValue": 113500,
+          "unitText": "YEAR"
+        }
+      },
+      "country": "CH",
+      "firstSeenAt": "2026-07-31T22:33:17.216Z"
     },
     {
       "id": "aldi-suisse-642b1b1da8fb",
@@ -455,15 +563,15 @@
       "title": "Mitarbeiter Verkauf (m/w/d)",
       "titleByLocale": {
         "it": "Addetto/a alle vendite (m/w/d)",
-        "de": "Mitarbeiter Verkauf (m/w/d)",
         "en": "Sales Associate (m/w/d)",
+        "de": "Mitarbeiter Verkauf (m/w/d)",
         "fr": "Vendeur/se (m/w/d)"
       },
       "description": "Aufgaben\n• Warenbereitstellung\n\n• Kassieren\n\n• Brot backen in der Panetteria\n\n• Unterstützung der Kunden\n\n• Reinigung der Filiale\n\n• Mitarbeit bei anfallenden Arbeiten\nProfil\n• Berufserfahrung im Verkauf oder einem ähnlichen Umfeld\n\n• Idealerweise abgeschlossene Berufsausbildung im Detailhandel oder Lebensmittelbereich\n\n• Kundenorientiertes Verhalten und gepflegtes Auftreten\n\n• Hohe Motivation, Einsatzbereitschaft und Belastbarkeit\n\n• Flexibel einsatzbereit von Montag bis Samstag\n\n• Gute Deutschkenntnisse\nUnser Angebot\n• Abwechslungsreiche Aufgaben\n\n• Kurzweilige Arbeitstage\n\n• Arbeiten in einem überschaubaren und starken Team\n\n• Ein überdurchschnittlich gutes Salär und sehr gute Sozialleistungen\nArbeitsort​8038 Zürich, Albisstrasse 81​\nArbeitsbeginn​ab sofort​\nJetzt direkt auf die Stelle bewerben\nHinweis für Personaldienstleister\nFür diese Stelle berücksichtigen wir ausschliesslich Direktbewerbungen.\nWir lehnen somit jegliche Verantwortung für unaufgefordert eingereichte Bewerbungen und deren AGB’s ab. Vielen Dank für das Verständnis.",
       "descriptionByLocale": {
         "it": "Compiti\n• Rendere disponibili le merci\n\n• Cassiere\n\n• Pane da forno nella Panetteria\n\n• Supporto per i clienti\n\n• Servizi di pulizia del ramo\n\n• Collaborazione nel lavoro nascente\nProfilo\n• Esperienza professionale nelle vendite o in un ambiente simile\n\n• Formazione professionale completata idealmente nel commercio al dettaglio o nel settore alimentare\n\n• Comportamento orientato al cliente e aspetto ben curato\n\n• Alta motivazione, impegno e resilienza\n\n• Funzionamento flessibile dal lunedì al sabato\n\n• Buona conoscenza del tedesco\nLa nostra offerta\n• Attività varie\n\n• Giorni lavorativi temporanei\n\n• Lavorare in un team gestibile e forte\n\n• Uno stipendio superiore alla media e benefici sociali molto buoni\nUbicazione 8038 Zurigo, Albisstrasse 81\nInizio del lavoro immediatamente\nOra applicare direttamente al lavoro\nInformazioni per i fornitori di servizi del personale\nPer questa posizione, consideriamo solo applicazioni dirette.\nRifiutiamo pertanto ogni responsabilità per le applicazioni non richieste e i loro termini e condizioni. Grazie per la vostra comprensione.",
-        "de": "Aufgaben\n• Warenbereitstellung\n\n• Kassieren\n\n• Brot backen in der Panetteria\n\n• Unterstützung der Kunden\n\n• Reinigung der Filiale\n\n• Mitarbeit bei anfallenden Arbeiten\nProfil\n• Berufserfahrung im Verkauf oder einem ähnlichen Umfeld\n\n• Idealerweise abgeschlossene Berufsausbildung im Detailhandel oder Lebensmittelbereich\n\n• Kundenorientiertes Verhalten und gepflegtes Auftreten\n\n• Hohe Motivation, Einsatzbereitschaft und Belastbarkeit\n\n• Flexibel einsatzbereit von Montag bis Samstag\n\n• Gute Deutschkenntnisse\nUnser Angebot\n• Abwechslungsreiche Aufgaben\n\n• Kurzweilige Arbeitstage\n\n• Arbeiten in einem überschaubaren und starken Team\n\n• Ein überdurchschnittlich gutes Salär und sehr gute Sozialleistungen\nArbeitsort​8038 Zürich, Albisstrasse 81​\nArbeitsbeginn​ab sofort​\nJetzt direkt auf die Stelle bewerben\nHinweis für Personaldienstleister\nFür diese Stelle berücksichtigen wir ausschliesslich Direktbewerbungen.\nWir lehnen somit jegliche Verantwortung für unaufgefordert eingereichte Bewerbungen und deren AGB’s ab. Vielen Dank für das Verständnis.",
         "en": "Tasks\n• Making goods available\n\n• Cashiers\n\n• Baking bread in the Panetteria\n\n• Support for customers\n\n• Branch cleaning services\n\n• Collaboration in arising work\nProfile\n• Professional experience in sales or a similar environment\n\n• Ideally completed vocational training in the retail trade or food sector\n\n• Customer-oriented behavior and well-groomed appearance\n\n• High motivation, commitment and resilience\n\n• Flexibly operational from Monday to Saturday\n\n• Good knowledge of German\nOur offer\n• Varied tasks\n\n• Temporary working days\n\n• Working in a manageable and strong team\n\n• An above average salary and very good social benefits\nLocation 8038 Zurich, Albisstrasse 81\nStart of work immediately\nNow apply directly to the job\nInformation for personnel service providers\nFor this position, we only consider direct applications.\nWe therefore reject any responsibility for unsolicited applications and their terms and conditions. Thank you for your understanding.",
+        "de": "Aufgaben\n• Warenbereitstellung\n\n• Kassieren\n\n• Brot backen in der Panetteria\n\n• Unterstützung der Kunden\n\n• Reinigung der Filiale\n\n• Mitarbeit bei anfallenden Arbeiten\nProfil\n• Berufserfahrung im Verkauf oder einem ähnlichen Umfeld\n\n• Idealerweise abgeschlossene Berufsausbildung im Detailhandel oder Lebensmittelbereich\n\n• Kundenorientiertes Verhalten und gepflegtes Auftreten\n\n• Hohe Motivation, Einsatzbereitschaft und Belastbarkeit\n\n• Flexibel einsatzbereit von Montag bis Samstag\n\n• Gute Deutschkenntnisse\nUnser Angebot\n• Abwechslungsreiche Aufgaben\n\n• Kurzweilige Arbeitstage\n\n• Arbeiten in einem überschaubaren und starken Team\n\n• Ein überdurchschnittlich gutes Salär und sehr gute Sozialleistungen\nArbeitsort​8038 Zürich, Albisstrasse 81​\nArbeitsbeginn​ab sofort​\nJetzt direkt auf die Stelle bewerben\nHinweis für Personaldienstleister\nFür diese Stelle berücksichtigen wir ausschliesslich Direktbewerbungen.\nWir lehnen somit jegliche Verantwortung für unaufgefordert eingereichte Bewerbungen und deren AGB’s ab. Vielen Dank für das Verständnis.",
         "fr": "Tâche\n• Mise à disposition des biens\n\n• Trésoriers\n\n• Pain de cuisson dans la Panetteria\n\n• Soutien aux clients\n\n• Services de nettoyage des succursales\n\n• Collaboration dans les travaux en cours\nProfil\n• Expérience professionnelle dans les ventes ou dans un environnement similaire\n\n• Une formation professionnelle idéalement achevée dans le secteur du commerce de détail ou de l'alimentation\n\n• Comportement orienté client et apparence soignée\n\n• Haute motivation, engagement et résilience\n\n• Flexiblement opérationnel du lundi au samedi\n\n• Bonne connaissance de l'allemand\nNotre offre\n• Tâches variées\n\n• Jours de travail temporaires\n\n• Travailler dans une équipe gérable et forte\n\n• Un salaire supérieur à la moyenne et de très bonnes prestations sociales\nLieu 8038 Zurich, Albisstrasse 81\nDébut du travail immédiatement\nMaintenant postuler directement à l'emploi\nInformation des prestataires de services au personnel\nPour cette position, nous ne considérons que les demandes directes.\nNous rejetons donc toute responsabilité pour les demandes non sollicitées et leurs modalités. Merci de votre compréhension."
       },
       "requirements": [
@@ -493,15 +601,7 @@
           "Reinigung der Filiale",
           "Mitarbeit bei anfallenden Arbeiten",
           "Berufserfahrung im Verkauf oder einem ähnlichen Umfeld",
-          "Idealerweise abgeschlossene Berufsausbildung im Detailhandel oder Lebensmittelbereich",
-          "Kundenorientiertes Verhalten und gepflegtes Auftreten",
-          "Hohe Motivation, Einsatzbereitschaft und Belastbarkeit",
-          "Flexibel einsatzbereit von Montag bis Samstag",
-          "Gute Deutschkenntnisse",
-          "Abwechslungsreiche Aufgaben",
-          "Kurzweilige Arbeitstage",
-          "Arbeiten in einem überschaubaren und starken Team",
-          "Ein überdurchschnittlich gutes Salär und sehr gute Sozialleistungen"
+          "Idealerweise abgeschlossene Berufsausbildung im Detailhandel oder Lebensmittelbereich"
         ]
       },
       "location": "Zürich",
@@ -521,7 +621,27 @@
       "url": "https://www.jobs.aldi.ch/job/1400889033",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-31T12:10:55.197Z",
+      "crawledAt": "2026-07-31T22:33:17.216Z",
+      "previousSlugs": [
+        "mitarbeiter-verkauf-m-w-d-aldi-suisse",
+        "mitarbeiter-verkauf-m-w-d-aldi-suisse-2",
+        "addetto-a-alle-vendite-m-w-d-aldi-suisse-zurich"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "mitarbeiter-verkauf-m-w-d-aldi-suisse",
+          "mitarbeiter-verkauf-m-w-d-aldi-suisse-2",
+          "addetto-a-alle-vendite-m-w-d-aldi-suisse-zurich"
+        ],
+        "en": [
+          "mitarbeiter-verkauf-m-w-d-aldi-suisse"
+        ],
+        "fr": [
+          "mitarbeiter-verkauf-m-w-d-aldi-suisse"
+        ]
+      },
+      "firstSeenAt": "2026-07-31T12:10:55.197Z",
+      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 127500,
       "baseSalary": {
@@ -534,22 +654,7 @@
           "unitText": "YEAR"
         }
       },
-      "country": "CH",
-      "firstSeenAt": "2026-07-31T12:10:55.197Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "mitarbeiter-verkauf-m-w-d-aldi-suisse"
-        ],
-        "en": [
-          "mitarbeiter-verkauf-m-w-d-aldi-suisse"
-        ],
-        "fr": [
-          "mitarbeiter-verkauf-m-w-d-aldi-suisse"
-        ]
-      },
-      "previousSlugs": [
-        "mitarbeiter-verkauf-m-w-d-aldi-suisse"
-      ]
+      "country": "CH"
     },
     {
       "id": "aldi-suisse-82cd5a87eac1",
@@ -558,7 +663,7 @@
         "it": "addetto-a-alle-vendite-m-w-d-aldi-suisse-biberist",
         "en": "sales-associate-m-w-d-aldi-suisse-biberist",
         "de": "mitarbeiter-verkauf-m-w-d-aldi-suisse",
-        "fr": "vendeur-se-m-w-d-aldi-suisse-biberist"
+        "fr": "employe-de-vente-m-w-d-aldi-suisse-biberist"
       },
       "company": "ALDI SUISSE",
       "companyKey": "aldi-suisse",
@@ -624,26 +729,31 @@
       "url": "https://www.jobs.aldi.ch/job/1399109433",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-31T12:10:53.907Z",
+      "crawledAt": "2026-07-31T22:33:17.215Z",
       "previousSlugs": [
         "mitarbeiter-verkauf-m-w-d-aldi-suisse",
         "mitarbeiter-verkauf-m-w-d-aldi-suisse-13",
+        "vendeur-se-m-w-d-aldi-suisse-biberist",
+        "addetto-a-alle-vendite-m-w-d-aldi-suisse-biberist",
         "employe-de-vente-m-w-d-aldi-suisse-biberist"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-verkauf-m-w-d-aldi-suisse",
-          "mitarbeiter-verkauf-m-w-d-aldi-suisse-13"
+          "mitarbeiter-verkauf-m-w-d-aldi-suisse-13",
+          "addetto-a-alle-vendite-m-w-d-aldi-suisse-biberist"
         ],
         "en": [
           "mitarbeiter-verkauf-m-w-d-aldi-suisse"
         ],
         "fr": [
           "mitarbeiter-verkauf-m-w-d-aldi-suisse",
+          "vendeur-se-m-w-d-aldi-suisse-biberist",
           "employe-de-vente-m-w-d-aldi-suisse-biberist"
         ]
       },
       "firstSeenAt": "2026-07-07T08:26:34.605Z",
+      "needsRetranslation": true,
       "salaryMin": 77500,
       "salaryMax": 118500,
       "baseSalary": {
@@ -657,6 +767,98 @@
         }
       },
       "country": "CH"
+    },
+    {
+      "id": "aldi-suisse-391002a5fcbf",
+      "slug": "lernender-detailhandel-m-w-d-aldi-suisse",
+      "slugByLocale": {
+        "it": "lernender-detailhandel-m-w-d-aldi-suisse",
+        "en": "lernender-detailhandel-m-w-d-aldi-suisse",
+        "de": "lernender-detailhandel-m-w-d-aldi-suisse",
+        "fr": "lernender-detailhandel-m-w-d-aldi-suisse"
+      },
+      "company": "ALDI SUISSE",
+      "companyKey": "aldi-suisse",
+      "companyDomain": "aldi.ch",
+      "title": "Lernender Detailhandel (m/w/d)",
+      "titleByLocale": {
+        "it": "Apprendista commercio al dettaglio (m/w/d)",
+        "de": "Lernender Detailhandel (m/w/d)",
+        "en": "Retail Apprentice (m/w/d)",
+        "fr": "Apprenti/e commerce de détail (m/w/d)"
+      },
+      "description": "Aufgaben\n• Alle anfallenden Arbeiten in der Filiale\n\n• Verantwortungsvolles Kassieren\n\n• Warenpräsentation und –bereitstellung\n\n• Sammeln von Führungserfahrung ab dem 3. Lehrjahr\nProfil\n• Freude am Umgang mit Food & Non-Food Artikeln\n\n• Verlässlichkeit\n\n• Einsatzbereitschaft und Teamgeist\n\n• Kontaktfreude und freundliches Auftreten\nUnser Angebot\n• Eine hervorragende Ausbildung in einem wachsenden Unternehmen\n\n• Karriereaussichten bis zum Filialleiter\n\n• Ein überdurchschnittliches Salär inklusive Halbtaxabonnement\n\n• 6 Wochen Ferien\n\n• Und vor allem: Keine Langeweile - denn bei uns ist immer etwas los!\nArbeitsort7302 Landquart, Schulstrasse 82​\nArbeitsbeginn​01.08.2027​\nJetzt direkt auf die Stelle bewerben",
+      "descriptionByLocale": {
+        "it": "Aufgaben\n• Alle anfallenden Arbeiten in der Filiale\n\n• Verantwortungsvolles Kassieren\n\n• Warenpräsentation und –bereitstellung\n\n• Sammeln von Führungserfahrung ab dem 3. Lehrjahr\nProfil\n• Freude am Umgang mit Food & Non-Food Artikeln\n\n• Verlässlichkeit\n\n• Einsatzbereitschaft und Teamgeist\n\n• Kontaktfreude und freundliches Auftreten\nUnser Angebot\n• Eine hervorragende Ausbildung in einem wachsenden Unternehmen\n\n• Karriereaussichten bis zum Filialleiter\n\n• Ein überdurchschnittliches Salär inklusive Halbtaxabonnement\n\n• 6 Wochen Ferien\n\n• Und vor allem: Keine Langeweile - denn bei uns ist immer etwas los!\nArbeitsort7302 Landquart, Schulstrasse 82​\nArbeitsbeginn​01.08.2027​\nJetzt direkt auf die Stelle bewerben",
+        "de": "Aufgaben\n• Alle anfallenden Arbeiten in der Filiale\n\n• Verantwortungsvolles Kassieren\n\n• Warenpräsentation und –bereitstellung\n\n• Sammeln von Führungserfahrung ab dem 3. Lehrjahr\nProfil\n• Freude am Umgang mit Food & Non-Food Artikeln\n\n• Verlässlichkeit\n\n• Einsatzbereitschaft und Teamgeist\n\n• Kontaktfreude und freundliches Auftreten\nUnser Angebot\n• Eine hervorragende Ausbildung in einem wachsenden Unternehmen\n\n• Karriereaussichten bis zum Filialleiter\n\n• Ein überdurchschnittliches Salär inklusive Halbtaxabonnement\n\n• 6 Wochen Ferien\n\n• Und vor allem: Keine Langeweile - denn bei uns ist immer etwas los!\nArbeitsort7302 Landquart, Schulstrasse 82​\nArbeitsbeginn​01.08.2027​\nJetzt direkt auf die Stelle bewerben",
+        "en": "Aufgaben\n• Alle anfallenden Arbeiten in der Filiale\n\n• Verantwortungsvolles Kassieren\n\n• Warenpräsentation und –bereitstellung\n\n• Sammeln von Führungserfahrung ab dem 3. Lehrjahr\nProfil\n• Freude am Umgang mit Food & Non-Food Artikeln\n\n• Verlässlichkeit\n\n• Einsatzbereitschaft und Teamgeist\n\n• Kontaktfreude und freundliches Auftreten\nUnser Angebot\n• Eine hervorragende Ausbildung in einem wachsenden Unternehmen\n\n• Karriereaussichten bis zum Filialleiter\n\n• Ein überdurchschnittliches Salär inklusive Halbtaxabonnement\n\n• 6 Wochen Ferien\n\n• Und vor allem: Keine Langeweile - denn bei uns ist immer etwas los!\nArbeitsort7302 Landquart, Schulstrasse 82​\nArbeitsbeginn​01.08.2027​\nJetzt direkt auf die Stelle bewerben",
+        "fr": "Aufgaben\n• Alle anfallenden Arbeiten in der Filiale\n\n• Verantwortungsvolles Kassieren\n\n• Warenpräsentation und –bereitstellung\n\n• Sammeln von Führungserfahrung ab dem 3. Lehrjahr\nProfil\n• Freude am Umgang mit Food & Non-Food Artikeln\n\n• Verlässlichkeit\n\n• Einsatzbereitschaft und Teamgeist\n\n• Kontaktfreude und freundliches Auftreten\nUnser Angebot\n• Eine hervorragende Ausbildung in einem wachsenden Unternehmen\n\n• Karriereaussichten bis zum Filialleiter\n\n• Ein überdurchschnittliches Salär inklusive Halbtaxabonnement\n\n• 6 Wochen Ferien\n\n• Und vor allem: Keine Langeweile - denn bei uns ist immer etwas los!\nArbeitsort7302 Landquart, Schulstrasse 82​\nArbeitsbeginn​01.08.2027​\nJetzt direkt auf die Stelle bewerben"
+      },
+      "requirements": [
+        "Alle anfallenden Arbeiten in der Filiale",
+        "Verantwortungsvolles Kassieren",
+        "Warenpräsentation und –bereitstellung",
+        "Sammeln von Führungserfahrung ab dem 3. Lehrjahr",
+        "Freude am Umgang mit Food & Non-Food Artikeln",
+        "Verlässlichkeit",
+        "Einsatzbereitschaft und Teamgeist",
+        "Kontaktfreude und freundliches Auftreten",
+        "Eine hervorragende Ausbildung in einem wachsenden Unternehmen",
+        "Karriereaussichten bis zum Filialleiter",
+        "Ein überdurchschnittliches Salär inklusive Halbtaxabonnement",
+        "6 Wochen Ferien",
+        "Und vor allem: Keine Langeweile - denn bei uns ist immer etwas los!"
+      ],
+      "requirementsByLocale": {
+        "it": [
+          "Alle anfallenden Arbeiten in der Filiale",
+          "Verantwortungsvolles Kassieren",
+          "Warenpräsentation und –bereitstellung",
+          "Sammeln von Führungserfahrung ab dem 3. Lehrjahr",
+          "Freude am Umgang mit Food & Non-Food Artikeln",
+          "Verlässlichkeit",
+          "Einsatzbereitschaft und Teamgeist",
+          "Kontaktfreude und freundliches Auftreten",
+          "Eine hervorragende Ausbildung in einem wachsenden Unternehmen",
+          "Karriereaussichten bis zum Filialleiter",
+          "Ein überdurchschnittliches Salär inklusive Halbtaxabonnement",
+          "6 Wochen Ferien",
+          "Und vor allem: Keine Langeweile - denn bei uns ist immer etwas los!"
+        ]
+      },
+      "location": "Landquart",
+      "postalCode": "7302",
+      "canton": "GR",
+      "addressLocality": "Landquart",
+      "addressRegion": "GR",
+      "addressCountry": "CH",
+      "streetAddress": "Schulstrasse 82",
+      "employmentType": "FULL_TIME",
+      "category": "retail",
+      "contract": "full-time",
+      "workPercentage": "EFZ/EBA",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-31",
+      "url": "https://www.jobs.aldi.ch/job/1412308533",
+      "source": "ALDI Suisse Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-07-31T22:33:16.766Z",
+      "needsRetranslation": true,
+      "salaryMin": 54000,
+      "salaryMax": 82500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 54000,
+          "maxValue": 82500,
+          "unitText": "YEAR"
+        }
+      },
+      "country": "CH",
+      "firstSeenAt": "2026-07-31T22:33:16.766Z"
     },
     {
       "id": "aldi-suisse-822e1efb1759",
@@ -728,13 +930,17 @@
       "url": "https://www.jobs.aldi.ch/job/1410321233",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-31T12:10:52.531Z",
+      "crawledAt": "2026-07-31T22:33:12.926Z",
       "previousSlugs": [
-        "lernender-detailhandel-m-w-d-aldi-suisse"
+        "lernender-detailhandel-m-w-d-aldi-suisse",
+        "lernender-detailhandel-m-w-d-aldi-suisse-17",
+        "apprendista-commercio-al-dettaglio-m-w-d-aldi-suisse-wadenswil-au"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lernender-detailhandel-m-w-d-aldi-suisse"
+          "lernender-detailhandel-m-w-d-aldi-suisse",
+          "lernender-detailhandel-m-w-d-aldi-suisse-17",
+          "apprendista-commercio-al-dettaglio-m-w-d-aldi-suisse-wadenswil-au"
         ],
         "en": [
           "lernender-detailhandel-m-w-d-aldi-suisse"
@@ -744,6 +950,7 @@
         ]
       },
       "firstSeenAt": "2026-07-30T22:29:33.312Z",
+      "needsRetranslation": true,
       "salaryMin": 65500,
       "salaryMax": 100500,
       "baseSalary": {
@@ -773,16 +980,215 @@
       "title": "Lernender Detailhandel (m/w/d)",
       "titleByLocale": {
         "it": "Apprendista commercio al dettaglio (m/w/d)",
-        "de": "Lernender Detailhandel (m/w/d)",
         "en": "Retail Apprentice (m/w/d)",
+        "de": "Lernender Detailhandel (m/w/d)",
         "fr": "Apprenti/e commerce de détail (m/w/d)"
       },
       "description": "Aufgaben\n• Alle anfallenden Arbeiten in der Filiale\n\n• Verantwortungsvolles Kassieren\n\n• Warenpräsentation und –bereitstellung\n\n• Sammeln von Führungserfahrung ab dem 3. Lehrjahr\nProfil\n• Freude am Umgang mit Food & Non-Food Artikeln\n\n• Verlässlichkeit\n\n• Einsatzbereitschaft und Teamgeist\n\n• Kontaktfreude und freundliches Auftreten\nUnser Angebot\n• Eine hervorragende Ausbildung in einem wachsenden Unternehmen\n\n• Karriereaussichten bis zum Filialleiter\n\n• Ein überdurchschnittliches Salär inklusive Halbtaxabonnement\n\n• 6 Wochen Ferien\n\n• Und vor allem: Keine Langeweile - denn bei uns ist immer etwas los!\nArbeitsort4202 Duggingen, Liebmattstrasse 7​\nArbeitsbeginn​01.08.2027​\nJetzt direkt auf die Stelle bewerben",
       "descriptionByLocale": {
         "it": "Compiti\n• Tutto il lavoro nel ramo\n\n• Incassamento responsabile\n\n• Presentazione e fornitura di beni\n\n• Ottenere esperienza di leadership dal terzo anno di formazione\nProfilo\n• Gioia nel trattare con gli articoli alimentari e non alimentari\n\n• Affidabilità\n\n• Impegno e spirito di squadra\n\n• Contatto e aspetto amichevole\nLa nostra offerta\n• Una formazione eccellente in una società in crescita\n\n• Prospettive di carriera fino a branch manager\n\n• Uno stipendio superiore alla media, compreso l'abbonamento a mezza tassa\n\n• 6 settimane di vacanza\n\n• E soprattutto: nessuna noia - perché c'è sempre qualcosa che sta succedendo con noi!\nVenue4202 Duggingen, Liebmattstrasse 7\nInizio del lavoro 01.08.2027\nOra applicare direttamente al lavoro",
-        "de": "Aufgaben\n• Alle anfallenden Arbeiten in der Filiale\n\n• Verantwortungsvolles Kassieren\n\n• Warenpräsentation und –bereitstellung\n\n• Sammeln von Führungserfahrung ab dem 3. Lehrjahr\nProfil\n• Freude am Umgang mit Food & Non-Food Artikeln\n\n• Verlässlichkeit\n\n• Einsatzbereitschaft und Teamgeist\n\n• Kontaktfreude und freundliches Auftreten\nUnser Angebot\n• Eine hervorragende Ausbildung in einem wachsenden Unternehmen\n\n• Karriereaussichten bis zum Filialleiter\n\n• Ein überdurchschnittliches Salär inklusive Halbtaxabonnement\n\n• 6 Wochen Ferien\n\n• Und vor allem: Keine Langeweile - denn bei uns ist immer etwas los!\nArbeitsort4202 Duggingen, Liebmattstrasse 7​\nArbeitsbeginn​01.08.2027​\nJetzt direkt auf die Stelle bewerben",
         "en": "Tasks\n• All work in the branch\n\n• Responsible cashing\n\n• Presentation and provision of goods\n\n• Gaining leadership experience from the third year of training\nProfile\n• Joy in dealing with food & non-food articles\n\n• Reliability\n\n• Commitment and team spirit\n\n• Contact and friendly appearance\nOur offer\n• An excellent education in a growing company\n\n• Career prospects up to branch manager\n\n• An above-average salary including half tax subscription\n\n• 6 weeks holiday\n\n• And above all: No boredom - because there is always something going on with us!\nVenue4202 Duggingen, Liebmattstrasse 7\nStart of work 01.08.2027\nNow apply directly to the job",
+        "de": "Aufgaben\n• Alle anfallenden Arbeiten in der Filiale\n\n• Verantwortungsvolles Kassieren\n\n• Warenpräsentation und –bereitstellung\n\n• Sammeln von Führungserfahrung ab dem 3. Lehrjahr\nProfil\n• Freude am Umgang mit Food & Non-Food Artikeln\n\n• Verlässlichkeit\n\n• Einsatzbereitschaft und Teamgeist\n\n• Kontaktfreude und freundliches Auftreten\nUnser Angebot\n• Eine hervorragende Ausbildung in einem wachsenden Unternehmen\n\n• Karriereaussichten bis zum Filialleiter\n\n• Ein überdurchschnittliches Salär inklusive Halbtaxabonnement\n\n• 6 Wochen Ferien\n\n• Und vor allem: Keine Langeweile - denn bei uns ist immer etwas los!\nArbeitsort4202 Duggingen, Liebmattstrasse 7​\nArbeitsbeginn​01.08.2027​\nJetzt direkt auf die Stelle bewerben",
         "fr": "Tâche\n• Tous les travaux dans la branche\n\n• Encaissement responsable\n\n• Présentation et fourniture de biens\n\n• Acquérir une expérience de leadership dès la troisième année de formation\nProfil\n• La joie de traiter des articles alimentaires et non alimentaires\n\n• Fiabilité\n\n• Engagement et esprit d'équipe\n\n• Contact et apparence amicale\nNotre offre\n• Une excellente éducation dans une entreprise en croissance\n\n• Perspectives de carrière jusqu'au directeur de branche\n\n• Un salaire supérieur à la moyenne incluant la moitié de l'abonnement fiscal\n\n• 6 semaines de vacances\n\n• Et surtout : pas d'ennui - parce qu'il se passe toujours quelque chose avec nous !\nLieu4202 Duggingen, Liebmattstrasse 7\nDébut des travaux 01.08.2027\nMaintenant postuler directement à l'emploi"
+      },
+      "requirements": [
+        "Alle anfallenden Arbeiten in der Filiale",
+        "Verantwortungsvolles Kassieren",
+        "Warenpräsentation und –bereitstellung",
+        "Sammeln von Führungserfahrung ab dem 3. Lehrjahr",
+        "Freude am Umgang mit Food & Non-Food Artikeln",
+        "Verlässlichkeit",
+        "Einsatzbereitschaft und Teamgeist",
+        "Kontaktfreude und freundliches Auftreten",
+        "Eine hervorragende Ausbildung in einem wachsenden Unternehmen",
+        "Karriereaussichten bis zum Filialleiter",
+        "Ein überdurchschnittliches Salär inklusive Halbtaxabonnement",
+        "6 Wochen Ferien",
+        "Und vor allem: Keine Langeweile - denn bei uns ist immer etwas los!"
+      ],
+      "requirementsByLocale": {
+        "it": [
+          "Alle anfallenden Arbeiten in der Filiale",
+          "Verantwortungsvolles Kassieren",
+          "Warenpräsentation und –bereitstellung",
+          "Sammeln von Führungserfahrung ab dem 3. Lehrjahr",
+          "Freude am Umgang mit Food & Non-Food Artikeln",
+          "Verlässlichkeit",
+          "Einsatzbereitschaft und Teamgeist",
+          "Kontaktfreude und freundliches Auftreten"
+        ]
+      },
+      "location": "Duggingen",
+      "postalCode": "4202",
+      "canton": "BL",
+      "addressLocality": "Duggingen",
+      "addressRegion": "BL",
+      "addressCountry": "CH",
+      "streetAddress": "Liebmattstrasse 7",
+      "employmentType": "FULL_TIME",
+      "category": "retail",
+      "contract": "full-time",
+      "workPercentage": "EFZ/EBA",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-31",
+      "url": "https://www.jobs.aldi.ch/job/1410325833",
+      "source": "ALDI Suisse Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-07-31T22:33:12.923Z",
+      "previousSlugs": [
+        "lernender-detailhandel-m-w-d-aldi-suisse-2",
+        "lernender-detailhandel-m-w-d-aldi-suisse",
+        "lernender-detailhandel-m-w-d-aldi-suisse-18",
+        "apprendista-commercio-al-dettaglio-m-w-d-aldi-suisse-duggingen"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "lernender-detailhandel-m-w-d-aldi-suisse-2",
+          "lernender-detailhandel-m-w-d-aldi-suisse",
+          "lernender-detailhandel-m-w-d-aldi-suisse-18",
+          "apprendista-commercio-al-dettaglio-m-w-d-aldi-suisse-duggingen"
+        ],
+        "en": [
+          "lernender-detailhandel-m-w-d-aldi-suisse"
+        ],
+        "fr": [
+          "lernender-detailhandel-m-w-d-aldi-suisse"
+        ]
+      },
+      "firstSeenAt": "2026-07-31T12:10:52.526Z",
+      "needsRetranslation": true,
+      "salaryMin": 58500,
+      "salaryMax": 89500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 58500,
+          "maxValue": 89500,
+          "unitText": "YEAR"
+        }
+      },
+      "country": "CH"
+    },
+    {
+      "id": "aldi-suisse-b84f88e5d0a8",
+      "slug": "apprenti-e-du-commerce-de-detail-cfc-ou-afp-aldi-suisse",
+      "slugByLocale": {
+        "it": "apprenti-e-du-commerce-de-detail-cfc-ou-afp-aldi-suisse",
+        "en": "apprenti-e-du-commerce-de-detail-cfc-ou-afp-aldi-suisse",
+        "de": "apprenti-e-du-commerce-de-detail-cfc-ou-afp-aldi-suisse",
+        "fr": "apprenti-e-du-commerce-de-detail-cfc-ou-afp-aldi-suisse"
+      },
+      "company": "ALDI SUISSE",
+      "companyKey": "aldi-suisse",
+      "companyDomain": "aldi.ch",
+      "title": "Apprenti(e) du commerce de détail (CFC ou AFP)",
+      "titleByLocale": {
+        "it": "Apprenti(e) du commerce de détail (CFC ou AFP)",
+        "fr": "Apprenti(e) du commerce de détail (CFC ou AFP)",
+        "en": "Apprenti(e) du commerce de détail (CFC ou AFP)",
+        "de": "Apprenti(e) du commerce de détail (CFC ou AFP)"
+      },
+      "description": "Tâches\n• Réaliser des travaux de tous types dans la filiale\n\n• Encaisser de manière responsable\n\n• Assurer la présentation et la préparation des marchandises\n\n• Acquérir différentes expériences de direction dès la 3ème année d'apprentissage\nProfil\n• Tu aimes t'occuper des articles alimentaires et non-alimentaires\n\n• Tu es fiable\n\n• Tu es disponible et tu as l'esprit d'équipe\n\n• Tu es sociable et sympathique\nNotre Offre\n• Une excellente formation dans une entreprise en expansion\n\n• Des perspectives de carrière jusqu'au poste de gérant(e) de filiale\n\n• Un salaire au-dessus de la moyenne avec abonnement demi-tarif en plus\n\n• 6 semaines de vacances\n\n• Et surtout: jamais d'ennui, car chez nous, il y a toujours quelque chose à faire!\nLieu de travail1868 Collombey, Z.A. Entre deux Fossaux 8​\nL’entrée en fonction​01.08.2027​\nPostuler en ligneCandidature par WhatsApp\nTu souhaites faire partie de l'équipe ALDI? Pose ta candidature en toute simplicité via WhatsApp:\nLancer la candidature WhatsApp!\n\nCandidature en ligne\nPour savoir comment postuler directement en ligne et quelles sont les prochaines étapes, clique ici.",
+      "descriptionByLocale": {
+        "it": "Tâches\n• Réaliser des travaux de tous types dans la filiale\n\n• Encaisser de manière responsable\n\n• Assurer la présentation et la préparation des marchandises\n\n• Acquérir différentes expériences de direction dès la 3ème année d'apprentissage\nProfil\n• Tu aimes t'occuper des articles alimentaires et non-alimentaires\n\n• Tu es fiable\n\n• Tu es disponible et tu as l'esprit d'équipe\n\n• Tu es sociable et sympathique\nNotre Offre\n• Une excellente formation dans une entreprise en expansion\n\n• Des perspectives de carrière jusqu'au poste de gérant(e) de filiale\n\n• Un salaire au-dessus de la moyenne avec abonnement demi-tarif en plus\n\n• 6 semaines de vacances\n\n• Et surtout: jamais d'ennui, car chez nous, il y a toujours quelque chose à faire!\nLieu de travail1868 Collombey, Z.A. Entre deux Fossaux 8​\nL’entrée en fonction​01.08.2027​\nPostuler en ligneCandidature par WhatsApp\nTu souhaites faire partie de l'équipe ALDI? Pose ta candidature en toute simplicité via WhatsApp:\nLancer la candidature WhatsApp!\n\nCandidature en ligne\nPour savoir comment postuler directement en ligne et quelles sont les prochaines étapes, clique ici.",
+        "fr": "Tâches\n• Réaliser des travaux de tous types dans la filiale\n\n• Encaisser de manière responsable\n\n• Assurer la présentation et la préparation des marchandises\n\n• Acquérir différentes expériences de direction dès la 3ème année d'apprentissage\nProfil\n• Tu aimes t'occuper des articles alimentaires et non-alimentaires\n\n• Tu es fiable\n\n• Tu es disponible et tu as l'esprit d'équipe\n\n• Tu es sociable et sympathique\nNotre Offre\n• Une excellente formation dans une entreprise en expansion\n\n• Des perspectives de carrière jusqu'au poste de gérant(e) de filiale\n\n• Un salaire au-dessus de la moyenne avec abonnement demi-tarif en plus\n\n• 6 semaines de vacances\n\n• Et surtout: jamais d'ennui, car chez nous, il y a toujours quelque chose à faire!\nLieu de travail1868 Collombey, Z.A. Entre deux Fossaux 8​\nL’entrée en fonction​01.08.2027​\nPostuler en ligneCandidature par WhatsApp\nTu souhaites faire partie de l'équipe ALDI? Pose ta candidature en toute simplicité via WhatsApp:\nLancer la candidature WhatsApp!\n\nCandidature en ligne\nPour savoir comment postuler directement en ligne et quelles sont les prochaines étapes, clique ici.",
+        "en": "Tâches\n• Réaliser des travaux de tous types dans la filiale\n\n• Encaisser de manière responsable\n\n• Assurer la présentation et la préparation des marchandises\n\n• Acquérir différentes expériences de direction dès la 3ème année d'apprentissage\nProfil\n• Tu aimes t'occuper des articles alimentaires et non-alimentaires\n\n• Tu es fiable\n\n• Tu es disponible et tu as l'esprit d'équipe\n\n• Tu es sociable et sympathique\nNotre Offre\n• Une excellente formation dans une entreprise en expansion\n\n• Des perspectives de carrière jusqu'au poste de gérant(e) de filiale\n\n• Un salaire au-dessus de la moyenne avec abonnement demi-tarif en plus\n\n• 6 semaines de vacances\n\n• Et surtout: jamais d'ennui, car chez nous, il y a toujours quelque chose à faire!\nLieu de travail1868 Collombey, Z.A. Entre deux Fossaux 8​\nL’entrée en fonction​01.08.2027​\nPostuler en ligneCandidature par WhatsApp\nTu souhaites faire partie de l'équipe ALDI? Pose ta candidature en toute simplicité via WhatsApp:\nLancer la candidature WhatsApp!\n\nCandidature en ligne\nPour savoir comment postuler directement en ligne et quelles sont les prochaines étapes, clique ici.",
+        "de": "Tâches\n• Réaliser des travaux de tous types dans la filiale\n\n• Encaisser de manière responsable\n\n• Assurer la présentation et la préparation des marchandises\n\n• Acquérir différentes expériences de direction dès la 3ème année d'apprentissage\nProfil\n• Tu aimes t'occuper des articles alimentaires et non-alimentaires\n\n• Tu es fiable\n\n• Tu es disponible et tu as l'esprit d'équipe\n\n• Tu es sociable et sympathique\nNotre Offre\n• Une excellente formation dans une entreprise en expansion\n\n• Des perspectives de carrière jusqu'au poste de gérant(e) de filiale\n\n• Un salaire au-dessus de la moyenne avec abonnement demi-tarif en plus\n\n• 6 semaines de vacances\n\n• Et surtout: jamais d'ennui, car chez nous, il y a toujours quelque chose à faire!\nLieu de travail1868 Collombey, Z.A. Entre deux Fossaux 8​\nL’entrée en fonction​01.08.2027​\nPostuler en ligneCandidature par WhatsApp\nTu souhaites faire partie de l'équipe ALDI? Pose ta candidature en toute simplicité via WhatsApp:\nLancer la candidature WhatsApp!\n\nCandidature en ligne\nPour savoir comment postuler directement en ligne et quelles sont les prochaines étapes, clique ici."
+      },
+      "requirements": [
+        "Réaliser des travaux de tous types dans la filiale",
+        "Encaisser de manière responsable",
+        "Assurer la présentation et la préparation des marchandises",
+        "Acquérir différentes expériences de direction dès la 3ème année d'apprentissage",
+        "Tu aimes t'occuper des articles alimentaires et non-alimentaires",
+        "Tu es fiable",
+        "Tu es disponible et tu as l'esprit d'équipe",
+        "Tu es sociable et sympathique",
+        "Une excellente formation dans une entreprise en expansion",
+        "Des perspectives de carrière jusqu'au poste de gérant(e) de filiale",
+        "Un salaire au-dessus de la moyenne avec abonnement demi-tarif en plus",
+        "6 semaines de vacances",
+        "Et surtout: jamais d'ennui, car chez nous, il y a toujours quelque chose à faire!"
+      ],
+      "requirementsByLocale": {
+        "it": [
+          "Réaliser des travaux de tous types dans la filiale",
+          "Encaisser de manière responsable",
+          "Assurer la présentation et la préparation des marchandises",
+          "Acquérir différentes expériences de direction dès la 3ème année d'apprentissage",
+          "Tu aimes t'occuper des articles alimentaires et non-alimentaires",
+          "Tu es fiable",
+          "Tu es disponible et tu as l'esprit d'équipe",
+          "Tu es sociable et sympathique",
+          "Une excellente formation dans une entreprise en expansion",
+          "Des perspectives de carrière jusqu'au poste de gérant(e) de filiale",
+          "Un salaire au-dessus de la moyenne avec abonnement demi-tarif en plus",
+          "6 semaines de vacances",
+          "Et surtout: jamais d'ennui, car chez nous, il y a toujours quelque chose à faire!"
+        ]
+      },
+      "location": "Collombey",
+      "postalCode": "1868",
+      "canton": "VS",
+      "addressLocality": "Collombey",
+      "addressRegion": "VS",
+      "addressCountry": "CH",
+      "streetAddress": "Z.A. Entre deux Fossaux 8",
+      "employmentType": "FULL_TIME",
+      "category": "retail",
+      "contract": "full-time",
+      "workPercentage": "AFP/CFC",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-31",
+      "url": "https://www.jobs.aldi.ch/job/1421214233",
+      "source": "ALDI Suisse Dedicated Parser",
+      "sourceLang": "fr",
+      "crawledAt": "2026-07-31T22:33:08.571Z",
+      "needsRetranslation": true,
+      "salaryMin": 72000,
+      "salaryMax": 111000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 72000,
+          "maxValue": 111000,
+          "unitText": "YEAR"
+        }
+      },
+      "country": "CH",
+      "firstSeenAt": "2026-07-31T22:33:08.571Z"
+    },
+    {
+      "id": "aldi-suisse-209242d66fcb",
+      "slug": "apprenti-ventelernender-detailhandel-m-w-d-aldi-suisse",
+      "slugByLocale": {
+        "it": "apprenti-ventelernender-detailhandel-m-w-d-aldi-suisse",
+        "en": "apprenti-ventelernender-detailhandel-m-w-d-aldi-suisse",
+        "de": "apprenti-ventelernender-detailhandel-m-w-d-aldi-suisse",
+        "fr": "apprenti-ventelernender-detailhandel-m-w-d-aldi-suisse"
+      },
+      "company": "ALDI SUISSE",
+      "companyKey": "aldi-suisse",
+      "companyDomain": "aldi.ch",
+      "title": "Apprenti VenteLernender Detailhandel (m/w/d)",
+      "titleByLocale": {
+        "it": "Apprenti VenteLernender commercio al dettaglio (m/w/d)",
+        "de": "Apprenti VenteLernender Detailhandel (m/w/d)",
+        "en": "Apprenti VenteLernender Retail (m/w/d)",
+        "fr": "Apprenti VenteLernender commerce de détail (m/w/d)"
+      },
+      "description": "Aufgaben\n• Alle anfallenden Arbeiten in der Filiale\n\n• Verantwortungsvolles Kassieren\n\n• Warenpräsentation und –bereitstellung\n\n• Sammeln von Führungserfahrung ab dem 3. Lehrjahr\nProfil\n• Freude am Umgang mit Food & Non-Food Artikeln\n\n• Verlässlichkeit\n\n• Einsatzbereitschaft und Teamgeist\n\n• Kontaktfreude und freundliches Auftreten\nUnser Angebot\n• Eine hervorragende Ausbildung in einem wachsenden Unternehmen\n\n• Karriereaussichten bis zum Filialleiter\n\n• Ein überdurchschnittliches Salär inklusive Halbtaxabonnement\n\n• 6 Wochen Ferien\n\n• Und vor allem: Keine Langeweile - denn bei uns ist immer etwas los!\nArbeitsort3123 Belp, Viehweidstrasse 3​\nArbeitsbeginn​01.08.2027​\nJetzt online bewerbenDu möchtest Teil des ALDI-Teams werden? Bewirb dich ganz einfach über WhatsApp:\nWhatsApp Bewerbung starten!\n\nOnline bewerben\nWie du dich direkt online bewerben kannst und wie das weitere Vorgehen ist, findest du hier.",
+      "descriptionByLocale": {
+        "it": "Aufgaben\n• Alle anfallenden Arbeiten in der Filiale\n\n• Verantwortungsvolles Kassieren\n\n• Warenpräsentation und –bereitstellung\n\n• Sammeln von Führungserfahrung ab dem 3. Lehrjahr\nProfil\n• Freude am Umgang mit Food & Non-Food Artikeln\n\n• Verlässlichkeit\n\n• Einsatzbereitschaft und Teamgeist\n\n• Kontaktfreude und freundliches Auftreten\nUnser Angebot\n• Eine hervorragende Ausbildung in einem wachsenden Unternehmen\n\n• Karriereaussichten bis zum Filialleiter\n\n• Ein überdurchschnittliches Salär inklusive Halbtaxabonnement\n\n• 6 Wochen Ferien\n\n• Und vor allem: Keine Langeweile - denn bei uns ist immer etwas los!\nArbeitsort3123 Belp, Viehweidstrasse 3​\nArbeitsbeginn​01.08.2027​\nJetzt online bewerbenDu möchtest Teil des ALDI-Teams werden? Bewirb dich ganz einfach über WhatsApp:\nWhatsApp Bewerbung starten!\n\nOnline bewerben\nWie du dich direkt online bewerben kannst und wie das weitere Vorgehen ist, findest du hier.",
+        "de": "Aufgaben\n• Alle anfallenden Arbeiten in der Filiale\n\n• Verantwortungsvolles Kassieren\n\n• Warenpräsentation und –bereitstellung\n\n• Sammeln von Führungserfahrung ab dem 3. Lehrjahr\nProfil\n• Freude am Umgang mit Food & Non-Food Artikeln\n\n• Verlässlichkeit\n\n• Einsatzbereitschaft und Teamgeist\n\n• Kontaktfreude und freundliches Auftreten\nUnser Angebot\n• Eine hervorragende Ausbildung in einem wachsenden Unternehmen\n\n• Karriereaussichten bis zum Filialleiter\n\n• Ein überdurchschnittliches Salär inklusive Halbtaxabonnement\n\n• 6 Wochen Ferien\n\n• Und vor allem: Keine Langeweile - denn bei uns ist immer etwas los!\nArbeitsort3123 Belp, Viehweidstrasse 3​\nArbeitsbeginn​01.08.2027​\nJetzt online bewerbenDu möchtest Teil des ALDI-Teams werden? Bewirb dich ganz einfach über WhatsApp:\nWhatsApp Bewerbung starten!\n\nOnline bewerben\nWie du dich direkt online bewerben kannst und wie das weitere Vorgehen ist, findest du hier.",
+        "en": "Aufgaben\n• Alle anfallenden Arbeiten in der Filiale\n\n• Verantwortungsvolles Kassieren\n\n• Warenpräsentation und –bereitstellung\n\n• Sammeln von Führungserfahrung ab dem 3. Lehrjahr\nProfil\n• Freude am Umgang mit Food & Non-Food Artikeln\n\n• Verlässlichkeit\n\n• Einsatzbereitschaft und Teamgeist\n\n• Kontaktfreude und freundliches Auftreten\nUnser Angebot\n• Eine hervorragende Ausbildung in einem wachsenden Unternehmen\n\n• Karriereaussichten bis zum Filialleiter\n\n• Ein überdurchschnittliches Salär inklusive Halbtaxabonnement\n\n• 6 Wochen Ferien\n\n• Und vor allem: Keine Langeweile - denn bei uns ist immer etwas los!\nArbeitsort3123 Belp, Viehweidstrasse 3​\nArbeitsbeginn​01.08.2027​\nJetzt online bewerbenDu möchtest Teil des ALDI-Teams werden? Bewirb dich ganz einfach über WhatsApp:\nWhatsApp Bewerbung starten!\n\nOnline bewerben\nWie du dich direkt online bewerben kannst und wie das weitere Vorgehen ist, findest du hier.",
+        "fr": "Aufgaben\n• Alle anfallenden Arbeiten in der Filiale\n\n• Verantwortungsvolles Kassieren\n\n• Warenpräsentation und –bereitstellung\n\n• Sammeln von Führungserfahrung ab dem 3. Lehrjahr\nProfil\n• Freude am Umgang mit Food & Non-Food Artikeln\n\n• Verlässlichkeit\n\n• Einsatzbereitschaft und Teamgeist\n\n• Kontaktfreude und freundliches Auftreten\nUnser Angebot\n• Eine hervorragende Ausbildung in einem wachsenden Unternehmen\n\n• Karriereaussichten bis zum Filialleiter\n\n• Ein überdurchschnittliches Salär inklusive Halbtaxabonnement\n\n• 6 Wochen Ferien\n\n• Und vor allem: Keine Langeweile - denn bei uns ist immer etwas los!\nArbeitsort3123 Belp, Viehweidstrasse 3​\nArbeitsbeginn​01.08.2027​\nJetzt online bewerbenDu möchtest Teil des ALDI-Teams werden? Bewirb dich ganz einfach über WhatsApp:\nWhatsApp Bewerbung starten!\n\nOnline bewerben\nWie du dich direkt online bewerben kannst und wie das weitere Vorgehen ist, findest du hier."
       },
       "requirements": [
         "Alle anfallenden Arbeiten in der Filiale",
@@ -816,54 +1222,39 @@
           "Und vor allem: Keine Langeweile - denn bei uns ist immer etwas los!"
         ]
       },
-      "location": "Duggingen",
-      "postalCode": "4202",
-      "canton": "BL",
-      "addressLocality": "Duggingen",
-      "addressRegion": "BL",
+      "location": "Belp",
+      "postalCode": "3123",
+      "canton": "BE",
+      "addressLocality": "Belp",
+      "addressRegion": "BE",
       "addressCountry": "CH",
-      "streetAddress": "Liebmattstrasse 7",
+      "streetAddress": "Viehweidstrasse 3",
       "employmentType": "FULL_TIME",
       "category": "retail",
       "contract": "full-time",
-      "workPercentage": "EFZ/EBA",
+      "workPercentage": "EBA/EFZ",
       "currency": "CHF",
       "featured": false,
       "postedDate": "2026-07-31",
-      "url": "https://www.jobs.aldi.ch/job/1410325833",
+      "url": "https://www.jobs.aldi.ch/job/1421207733",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-31T12:10:52.526Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "lernender-detailhandel-m-w-d-aldi-suisse-2",
-          "lernender-detailhandel-m-w-d-aldi-suisse"
-        ],
-        "en": [
-          "lernender-detailhandel-m-w-d-aldi-suisse"
-        ],
-        "fr": [
-          "lernender-detailhandel-m-w-d-aldi-suisse"
-        ]
-      },
-      "previousSlugs": [
-        "lernender-detailhandel-m-w-d-aldi-suisse-2",
-        "lernender-detailhandel-m-w-d-aldi-suisse"
-      ],
-      "salaryMin": 58500,
-      "salaryMax": 89500,
+      "crawledAt": "2026-07-31T22:33:07.621Z",
+      "needsRetranslation": true,
+      "salaryMin": 77500,
+      "salaryMax": 118500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 58500,
-          "maxValue": 89500,
+          "minValue": 77500,
+          "maxValue": 118500,
           "unitText": "YEAR"
         }
       },
       "country": "CH",
-      "firstSeenAt": "2026-07-31T12:10:52.526Z"
+      "firstSeenAt": "2026-07-31T22:33:07.621Z"
     },
     {
       "id": "aldi-suisse-f88c24cdbdd7",
@@ -871,7 +1262,7 @@
       "slugByLocale": {
         "it": "addetto-a-alle-vendite-m-w-d-aldi-suisse-winterthur-b714a0",
         "en": "sales-associate-m-w-d-aldi-suisse-winterthur-b714a0",
-        "de": "mitarbeiter-verkauf-m-w-d-aldi-suisse-jqqp2b",
+        "de": "mitarbeiter-verkauf-m-w-d-aldi-suisse",
         "fr": "vendeur-se-m-w-d-aldi-suisse-winterthur-b714a0"
       },
       "company": "ALDI SUISSE",
@@ -940,13 +1331,15 @@
       "sourceLang": "de",
       "crawledAt": "2026-07-30T22:29:39.771Z",
       "previousSlugs": [
-        "mitarbeiter-verkauf-m-w-d-aldi-suisse"
+        "mitarbeiter-verkauf-m-w-d-aldi-suisse",
+        "mitarbeiter-verkauf-m-w-d-aldi-suisse-jqqp2b"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-verkauf-m-w-d-aldi-suisse"
         ],
         "de": [
+          "mitarbeiter-verkauf-m-w-d-aldi-suisse-jqqp2b",
           "mitarbeiter-verkauf-m-w-d-aldi-suisse"
         ]
       },
@@ -964,7 +1357,8 @@
         }
       },
       "country": "CH",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2,
+      "needsRetranslation": true
     },
     {
       "id": "aldi-suisse-507e9b557120",
@@ -972,8 +1366,8 @@
       "slugByLocale": {
         "it": "addetto-a-alle-vendite-m-w-d-aldi-suisse-meilen",
         "en": "sales-associate-m-w-d-aldi-suisse-meilen",
-        "de": "mitarbeiter-verkauf-m-w-d-aldi-suisse-hd00zn",
-        "fr": "vendeur-se-m-w-d-aldi-suisse-meilen"
+        "de": "mitarbeiter-verkauf-m-w-d-aldi-suisse",
+        "fr": "employe-de-vente-m-w-d-aldi-suisse-meilen"
       },
       "company": "ALDI SUISSE",
       "companyKey": "aldi-suisse",
@@ -1049,6 +1443,8 @@
         "mitarbeiter-verkauf-m-w-d-aldi-suisse-mvvtyd",
         "addetto-a-alle-vendite-m-w-d-aldi-suisse-winterthur-b714a0",
         "commercant-m-w-d-aldi-suisse-meilen",
+        "mitarbeiter-verkauf-m-w-d-aldi-suisse-hd00zn",
+        "vendeur-se-m-w-d-aldi-suisse-meilen",
         "employe-de-vente-m-w-d-aldi-suisse-meilen"
       ],
       "previousSlugsByLocale": {
@@ -1060,11 +1456,13 @@
           "mitarbeiter-verkauf-m-w-d-aldi-suisse"
         ],
         "de": [
+          "mitarbeiter-verkauf-m-w-d-aldi-suisse-hd00zn",
           "mitarbeiter-verkauf-m-w-d-aldi-suisse"
         ],
         "fr": [
           "mitarbeiter-verkauf-m-w-d-aldi-suisse",
           "commercant-m-w-d-aldi-suisse-meilen",
+          "vendeur-se-m-w-d-aldi-suisse-meilen",
           "employe-de-vente-m-w-d-aldi-suisse-meilen"
         ]
       },
@@ -1082,7 +1480,8 @@
         }
       },
       "country": "CH",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2,
+      "needsRetranslation": true
     },
     {
       "id": "aldi-suisse-7f000e98abd0",
@@ -1190,7 +1589,8 @@
         }
       },
       "country": "CH",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2,
+      "needsRetranslation": true
     }
   ]
 }
