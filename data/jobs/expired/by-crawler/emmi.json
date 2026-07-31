@@ -1,5 +1,55 @@
 [
   {
+    "slug": "venditore-in-emmi-bern-bern",
+    "title": "Verkäufer:in",
+    "titleByLocale": {
+      "it": "Venditore:in",
+      "en": "Seller:in",
+      "de": "Verkäufer:in",
+      "fr": "Vendeur: dans"
+    },
+    "company": "Emmi",
+    "companyKey": "emmi",
+    "location": "Bern, Bern",
+    "addressLocality": "Bern",
+    "descriptionByLocale": {
+      "it": "• Siete responsabili di consigliare e servire i clienti coop nel nostro humidor per formaggi 燎\n• Attuazione delle diverse attività di vendita  ad es. Degustazioni si prenderà volentieri\n• Sei responsabile per la cura del formaggio e per la preparazione (portione e imballaggio) dei prodotti\n• Assicurarsi che i nostri scaffali sono sempre riempiti e le merci sono presentati attraente\n• La qualità impeccabile della merce viene prima con noi - rispettando le normative igieniche e alimentari 識 si dà un contributo attivo\n• Hai completato la formazione nelle vendite (specialista del commercio di dettaglio) e l'esperienza iniziale nella vendita di cibo (ad esempio formaggio, panetteria, macelleria) 燎縷\n• Sei flessibile per lavorare in tempi diversi durante l'apertura del negozio\n• La tua personalità aperta e affidabile ti aiuta a svolgere sempre più compiti responsabili\n• Confidente conoscenza del tedesco e buona conoscenza del francese arrotondare il tuo profilo",
+      "en": "• You are responsible for advising and serving the coop customers in our cheese humidor 燎\n• Implementation of different sales activities  such as e.g. Degustations you will gladly take\n• You are responsible for the care of the cheese as well as for the preparation (portioning & packaging) of the products\n• You make sure that our shelves are always filled and the goods are presented attractively\n• The impeccable quality of the goods comes first with us - by complying with the hygiene and food regulations 識 you make an active contribution\n• You have completed training in sales (detail trade specialist) as well as initial experience in the sale of food (e.g. cheese, bakery, butchery) 燎縷\n• You are flexible to work at different times during the store opening\n• Your open-minded and reliable personality helps you to take on more and more responsible tasks\n• Confident knowledge of German and good knowledge of French round off your profile",
+      "de": "• Du bist verantwortlich für die Beratung und Bedienung der Coop-Kunden in unserem Käse-Humidor 燎\n\n• Durchführung von unterschiedlichen Verkaufsaktivitäten  wie bspw. Degustationen übernimmst du gerne\n\n• Du bist verantwortlich für die Pflege des Käsesortiments sowie für die Vorbereitung (Portionierung & Verpackung) der Produkte\n\n• Du stellst sicher, dass unsere Regale immer aufgefüllt sind und die Ware ansprechend präsentiert wird\n\n• Die einwandfreie Qualität  der Ware steht bei uns an erster Stelle - durch die Einhaltung der Hygiene- und Lebensmittelvorschriften 識 leistet du einen aktiven Beitrag\n\n• Du verfügst über eine abgeschlossene Ausbildung im Verkauf (Detailhandelsfachfrau/-mann) sowie erste Erfahrung im Verkauf von Lebensmitteln (e.g. Käse, Bäckerei, Metzgerei) 燎縷\n\n• Du bist flexibel, zu unterschiedlichen Zeiten während der Ladenöffnung zu arbeiten\n\n• Deine aufgeschlossene und zuverlässige Persönlichkeit hilft dir, immer mehr verantwortungsvolle Aufgaben zu übernehmen\n\n• Verhandlungssichere Deutschkenntnisse sowie gute Französischkenntnisse runden dein Profil ab",
+      "fr": "• Vous êtes responsable de conseiller et de servir les clients de la coopérative dans notre humidificateur de fromage\n• Mise en œuvre de différentes activités de vente, par exemple: Degustations que vous prendrez volontiers\n• Vous êtes responsable de l'entretien du fromage ainsi que de la préparation (portionnage & emballage) des produits\n• Vous assurez que nos étagères sont toujours remplies et les marchandises sont présentées de manière attrayante\n• La qualité impeccable de la marchandise vient d'abord avec nous - en respectant les règles d'hygiène et d'alimentation\n• Vous avez suivi une formation en vente (spécialiste du commerce de détail) ainsi qu'une expérience initiale dans la vente d'aliments (p. ex. fromage, boulangerie, boucherie)\n• Vous êtes flexible pour travailler à différents moments pendant l'ouverture du magasin\n• Votre personnalité ouverte et fiable vous aide à assumer des tâches de plus en plus responsables\n• Une connaissance fiable de l'allemand et une bonne connaissance du français complètent votre profil"
+    },
+    "slugByLocale": {
+      "it": "venditore-in-emmi-bern-bern",
+      "en": "seller-in-emmi-bern-bern",
+      "de": "verkaufer-in-emmi-ch",
+      "fr": "vendeur-dans-emmi-bern-bern"
+    },
+    "sector": "Food & Beverage (dairy)",
+    "expiredAt": "2026-07-31T22:19:27.085Z",
+    "previousSlugs": [
+      "verkaufer-in-emmi-ch",
+      "verkaufer-in-emmi-bern"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "verkaufer-in-emmi-ch",
+        "verkaufer-in-emmi-bern"
+      ],
+      "en": [
+        "verkaufer-in-emmi-bern"
+      ],
+      "fr": [
+        "verkaufer-in-emmi-bern"
+      ]
+    },
+    "postalCode": "3014",
+    "streetAddress": "Papiermühlestrasse 85",
+    "salaryMin": 68500,
+    "salaryMax": 104000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR"
+  },
+  {
     "slug": "piano-di-produzione-in-emmi-kirchberg-bern",
     "title": "Produktionsplaner:in",
     "titleByLocale": {
