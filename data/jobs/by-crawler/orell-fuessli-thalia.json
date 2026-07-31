@@ -1,6 +1,6 @@
 {
   "crawlerKey": "orell-fuessli-thalia",
-  "assembledAt": "2026-07-31T10:56:52.960Z",
+  "assembledAt": "2026-07-31T22:30:04.142Z",
   "jobs": [
     {
       "id": "orell-fuessli-thalia-c45c7d842e9b",
@@ -33,7 +33,7 @@
       "url": "https://karriere.orellfuessli.ch/de/offene-stellen/filialleitung-100",
       "source": "Orell Füssli Thalia Dedicated Parser (Drupal career site)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-30T22:27:05.934Z",
+      "crawledAt": "2026-07-31T22:30:01.783Z",
       "addressLocality": "Basel",
       "addressRegion": "Zürich",
       "streetAddress": "",
@@ -53,11 +53,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "filialleitung-100-a-orell-fuessli-thalia-basel"
+        "filialleitung-100-a-orell-fuessli-thalia-basel",
+        "direzione-della-filiale-al-100-a-orell-fussli-thalia-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "filialleitung-100-a-orell-fuessli-thalia-basel"
+          "filialleitung-100-a-orell-fuessli-thalia-basel",
+          "direzione-della-filiale-al-100-a-orell-fussli-thalia-basel"
         ],
         "en": [
           "filialleitung-100-a-orell-fuessli-thalia-basel"
@@ -94,7 +96,7 @@
       "companyDomain": "orellfuessli.ch",
       "title": "ICT Supporter*in / Systemadministrator*in 80-100% (a)",
       "titleByLocale": {
-        "it": "Supporto ICT*in / Amministratore di sistema*in 80-100% (a)",
+        "it": "ICT Supporter*in / Systemadministrator*in 80-100% (a)",
         "en": "ICT Supporter / System Administrator 80-100% (a)",
         "de": "ICT Supporter*in / Systemadministrator*in 80-100% (a)",
         "fr": "Support ICT / Administrateur système 80-100% (a)"
@@ -111,7 +113,7 @@
       "url": "https://karriere.orellfuessli.ch/de/offene-stellen/ict-supporterin-systemadministratorin-80-100",
       "source": "Orell Füssli Thalia Dedicated Parser (Drupal career site)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-30T22:27:05.934Z",
+      "crawledAt": "2026-07-31T22:30:01.783Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Dietzingerstrasse 3",
@@ -132,11 +134,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "ict-supporter-in-systemadministrator-in-80-100-a-orell-fuessli-thalia-zurich",
-        "ict-supporter-in-systemadministrator-in-80-100-a-orell-fussli-thalia-zurich"
+        "ict-supporter-in-systemadministrator-in-80-100-a-orell-fussli-thalia-zurich",
+        "sostenitore-ict-amministratore-di-sistema-80-100-a-orell-fussli-thalia-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ict-supporter-in-systemadministrator-in-80-100-a-orell-fuessli-thalia-zurich"
+          "ict-supporter-in-systemadministrator-in-80-100-a-orell-fuessli-thalia-zurich",
+          "sostenitore-ict-amministratore-di-sistema-80-100-a-orell-fussli-thalia-zurich"
         ],
         "en": [
           "ict-supporter-in-systemadministrator-in-80-100-a-orell-fuessli-thalia-zurich"
@@ -146,6 +150,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:26:42.546Z",
+      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 134500,
       "baseSalary": {
@@ -164,7 +169,7 @@
       "slug": "libraio-20-60-a-orell-fussli-thalia-wurenlos",
       "slugByLocale": {
         "it": "libraio-20-60-a-orell-fussli-thalia-wurenlos",
-        "en": "bookseller-in-20-60-a-orell-fussli-thalia-wurenlos",
+        "en": "buchhandler-in-20-60-a-orell-fussli-thalia-wurenlos",
         "de": "buchhandler-in-20-60-a-orell-fuessli-thalia-wurenlos",
         "fr": "librairie-en-20-60-a-orell-fussli-thalia-wurenlos"
       },
@@ -174,7 +179,7 @@
       "title": "Buchhändler*in 20-60% (a)",
       "titleByLocale": {
         "it": "Libreria* nel 20-60% (a)",
-        "en": "Bookseller*in 20-60% (a)",
+        "en": "Buchhändler*in 20-60% (a)",
         "de": "Buchhändler*in 20-60% (a)",
         "fr": "Librairie*en 20-60% (a)"
       },
@@ -190,7 +195,7 @@
       "url": "https://karriere.orellfuessli.ch/de/offene-stellen/buchhaendlerin-20-60",
       "source": "Orell Füssli Thalia Dedicated Parser (Drupal career site)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-30T22:27:05.933Z",
+      "crawledAt": "2026-07-31T22:30:01.782Z",
       "addressLocality": "Würenlos",
       "addressRegion": "Zürich",
       "streetAddress": "",
@@ -212,14 +217,18 @@
       "previousSlugs": [
         "buchhandler-in-20-60-a-orell-fuessli-thalia-wurenlos",
         "libraire-20-60-a-orell-fussli-thalia-wurenlos",
-        "buchhandler-in-20-60-a-orell-fussli-thalia-wurenlos"
+        "buchhandler-in-20-60-a-orell-fussli-thalia-wurenlos",
+        "bookseller-in-20-60-a-orell-fussli-thalia-wurenlos",
+        "libraio-20-60-a-orell-fussli-thalia-wurenlos"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "buchhandler-in-20-60-a-orell-fuessli-thalia-wurenlos"
+          "buchhandler-in-20-60-a-orell-fuessli-thalia-wurenlos",
+          "libraio-20-60-a-orell-fussli-thalia-wurenlos"
         ],
         "en": [
           "buchhandler-in-20-60-a-orell-fuessli-thalia-wurenlos",
+          "bookseller-in-20-60-a-orell-fussli-thalia-wurenlos",
           "buchhandler-in-20-60-a-orell-fussli-thalia-wurenlos"
         ],
         "fr": [
@@ -229,6 +238,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:26:42.545Z",
+      "needsRetranslation": true,
       "salaryMin": 37200,
       "salaryMax": 56400,
       "baseSalary": {
@@ -238,6 +248,99 @@
           "@type": "QuantitativeValue",
           "minValue": 37200,
           "maxValue": 56400,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "orell-fuessli-thalia-78d3c20abc58",
+      "slug": "collaboratore-trice-in-kundenservice-100-a-orell-fussli-thalia-zurich",
+      "slugByLocale": {
+        "it": "collaboratore-trice-in-kundenservice-100-a-orell-fussli-thalia-zurich",
+        "en": "customer-service-100-a-orell-fussli-thalia-zurich",
+        "de": "mitarbeiter-in-kundenservice-100-a-orell-fuessli-thalia-zurich",
+        "fr": "service-a-la-clientele-100-a-orell-fussli-thalia-zurich"
+      },
+      "company": "Orell Füssli Thalia",
+      "companyKey": "orell-fuessli-thalia",
+      "companyDomain": "orellfuessli.ch",
+      "title": "Mitarbeiter*in Kundenservice 100% (a)",
+      "titleByLocale": {
+        "it": "Addetto/a al servizio clienti 100% (a)",
+        "en": "Customer Service Representative 100% (a)",
+        "de": "Mitarbeiter*in Kundenservice 100% (a)",
+        "fr": "Employé·e service client 100% (a)"
+      },
+      "description": "Sehen Sie sich als Botschafter*in des Lesens?\nMit Ihrer Leidenschaft sind Sie bei uns genau richtig. Bei der Orell Füssli Thalia AG schaffen wir Räume für vielfältige Geschichten und Wissen, die unsere Gesellschaft inspirieren und bereichern. Ausserdem ist Orell Füssli ein Ort, an dem sich die Mitarbeitenden wohl fühlen, an dem man gerne und gut zusammenarbeitet sowie gemeinsam mehr erreicht.\nFür unseren Kundenservice an unserem Hauptsitz in Zürich Wiedikon suchen wir eine*n Mitarbeiter*in Kundenservice 80 - 100% (a)\nIhre Hauptaufgaben:\n\n• Beratung und Verkauf von Büchern und verwandten Produkten per Telefon, eMail und Chat\n\n• Telefonische Bestellannahme und Reservation der gewünschten Produkte für das gesamte Filialnetz\n\n• Bearbeitung von Reklamationen\n\n• Bibliografie und Auftragsabwicklung mit unserem Warenwirtschaftssystem\n\n• Supportdienstleistungen 1st Level bei Kundenanfragen im Zusammenhang mit eReading und eBooks\nIhr Profil:\n\n• Erfahrung im Buch- oder Detailhandel bzw. in einem Kundenservice-Center\n\n• Hohe Kundenorientierung und Belastbarkeit\n\n• Selbständigkeit sowie eine genaue und exakte Arbeitsweise\n\n• Gute Computer- und Systemkenntnisse (SAP von Vorteil), müheloser Umgang mit neuen Medien\n\n• Stilsicheres Deutsch in Wort und Schrift\nUnser Angebot:\n\n• Kollaborative und wertschätzende Unternehmenskultur\n\n• Zentraler Arbeitsort mit guter ÖV-Anbindung\n\n• Der aktuellen Lebenssituation angepasste Arbeitszeitmodelle\n\n• Grosszügige Ferienregelung und vielseitiges Rabattangebot\n\n• Individuelle Weiterbildungsmöglichkeiten\n\n• Filial- und bereichsübergreifende Entwicklungsoptionen\nDie Geschäftszeiten unseres Kundenservices sind von Montag bis Freitag (8 Uhr bis 17:30 Uhr).\nBewerben Sie sich noch heute für den schönsten Job der Welt. Wir freuen uns auf Ihre vollständige Bewerbung über unser Recruitingtool. Bei Fragen wenden Sie sich gerne an:",
+      "descriptionByLocale": {
+        "it": "Descrizione Ti vedi come un ambasciatore per la lettura? Con la tua passione, hai ragione con noi. Nell'Orell Füssli Thalia AG creiamo spazi per una vasta gamma di storie e conoscenze che ispirano e arricchiscono la nostra società. Orell Füssli è anche un luogo dove i dipendenti si sentono a proprio agio, dove amano lavorare insieme e ottenere di più insieme. Per il nostro servizio clienti presso la nostra sede a Zurigo Wiedikon, stiamo cercando un dipendente nel servizio clienti 80 - 100% (a)\n\nCompiti - Consulenza e vendita di libri e prodotti correlati per telefono, eMail e chat - Accettazione dell'ordine telefonico e garanzie dei prodotti desiderati per l'intera rete di filiali - Trattamento dei reclami - Bibliografia e elaborazione degli ordini con il nostro sistema di gestione delle merci - Servizi di supporto 1 ° livello per le richieste dei clienti in relazione con eReading ed eBooks\n\nRequisiti - Esperienza nel commercio di libri e al dettaglio o in un centro di assistenza clienti - Elevata orientamento e resilienza dei clienti - indipendenza e metodi di lavoro precisi e precisi - Buona conoscenza del computer e del sistema (SAP di vantaggio), facile gestione dei nuovi media - Elegante tedesco in parole e scrittura\n\nOffriamo - cultura aziendale di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di quelli di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di\n\nContattateci Il nostro servizio clienti è disponibile dal lunedì al venerdì (dalle 8 alle 17). Applicate per il lavoro più bello al mondo. Non vediamo l'ora di ricevere la vostra domanda completa tramite il nostro strumento di reclutamento. Se avete domande, si prega di contattare:",
+        "en": "Description Do you see yourself as an ambassador for reading? With your passion, you are right with us. At Orell Füssli Thalia AG, we create spaces for a wide variety of stories and knowledge that inspire and enrich our society. Orell Füssli is also a place where employees feel comfortable, where they like to work together and achieve more together. For our customer service at our headquarters in Zurich Wiedikon, we are looking for an employee in customer service 80 - 100% (a)\n\nTasks - Advice and sale of books and related products by telephone, eMail and chat - Telephone order acceptance and the warranties of the desired products for the entire branch network - Processing of complaints - Bibliography and order processing with our goods management system - Support services 1st level for customer inquiries in connection with eReading and eBooks\n\nRequirements - Experience in book and retail trade or in a customer service center - High customer orientation and resilience - independence and precise and precise working methods - Good computer and system knowledge (SAP of advantage), easy handling of new media - Stylish German in word and writing\n\nWe offer - Collaborative and appreciative corporate culture - Central workplace with good public transport connection - Working time models adapted to the current situation - Generous holiday arrangements and versatile discount offer - Individual training opportunities - Branch and cross-sectoral development options\n\nContact Our customer service hours are Monday to Friday (8am to 5pm). Apply for the most beautiful job in the world today. We look forward to receiving your complete application via our recruiting tool. If you have any questions, please contact:",
+        "de": "Sehen Sie sich als Botschafter*in des Lesens?\nMit Ihrer Leidenschaft sind Sie bei uns genau richtig. Bei der Orell Füssli Thalia AG schaffen wir Räume für vielfältige Geschichten und Wissen, die unsere Gesellschaft inspirieren und bereichern. Ausserdem ist Orell Füssli ein Ort, an dem sich die Mitarbeitenden wohl fühlen, an dem man gerne und gut zusammenarbeitet sowie gemeinsam mehr erreicht.\nFür unseren Kundenservice an unserem Hauptsitz in Zürich Wiedikon suchen wir eine*n Mitarbeiter*in Kundenservice 80 - 100% (a)\nIhre Hauptaufgaben:\n\n• Beratung und Verkauf von Büchern und verwandten Produkten per Telefon, eMail und Chat\n\n• Telefonische Bestellannahme und Reservation der gewünschten Produkte für das gesamte Filialnetz\n\n• Bearbeitung von Reklamationen\n\n• Bibliografie und Auftragsabwicklung mit unserem Warenwirtschaftssystem\n\n• Supportdienstleistungen 1st Level bei Kundenanfragen im Zusammenhang mit eReading und eBooks\nIhr Profil:\n\n• Erfahrung im Buch- oder Detailhandel bzw. in einem Kundenservice-Center\n\n• Hohe Kundenorientierung und Belastbarkeit\n\n• Selbständigkeit sowie eine genaue und exakte Arbeitsweise\n\n• Gute Computer- und Systemkenntnisse (SAP von Vorteil), müheloser Umgang mit neuen Medien\n\n• Stilsicheres Deutsch in Wort und Schrift\nUnser Angebot:\n\n• Kollaborative und wertschätzende Unternehmenskultur\n\n• Zentraler Arbeitsort mit guter ÖV-Anbindung\n\n• Der aktuellen Lebenssituation angepasste Arbeitszeitmodelle\n\n• Grosszügige Ferienregelung und vielseitiges Rabattangebot\n\n• Individuelle Weiterbildungsmöglichkeiten\n\n• Filial- und bereichsübergreifende Entwicklungsoptionen\nDie Geschäftszeiten unseres Kundenservices sind von Montag bis Freitag (8 Uhr bis 17:30 Uhr).\nBewerben Sie sich noch heute für den schönsten Job der Welt. Wir freuen uns auf Ihre vollständige Bewerbung über unser Recruitingtool. Bei Fragen wenden Sie sich gerne an:",
+        "fr": "Description Vous vous voyez comme un ambassadeur de lecture? Avec votre passion, vous avez raison avec nous. Chez Orell Füssli Thalia AG, nous créons des espaces pour une grande variété d'histoires et de connaissances qui inspirent et enrichissent notre société. Orell Füssli est également un endroit où les employés se sentent à l'aise, où ils aiment travailler ensemble et réaliser plus ensemble.\n\nTâches - Conseils et vente de livres et produits connexes par téléphone, eMail et chat - Acceptation de commande téléphonique et les garanties des produits souhaités pour l'ensemble du réseau de la succursale - Traitement des plaintes - Bibliographie et traitement de commande avec notre système de gestion des marchandises - Services de soutien 1er niveau pour les demandes de clients en lien avec eReading et eBooks\n\nExigences - Expérience dans le commerce du livre et du détail ou dans un centre de service à la clientèle - Orientation et résilience élevées du client - indépendance et méthodes de travail précises et précises - Bonne connaissance de l'informatique et du système (SAP d'avantage), facilité de traitement des nouveaux médias - Élégant allemand en paroles et en écriture\n\nNous offrons - Culture d'entreprise collaborative et appréciée - Milieu de travail central avec bon transport public - Modèles de temps de travail adaptés à la situation actuelle - Dispositions de vacances généreuses et offre de rabais polyvalente - Possibilités de formation individuelles - Options de développement intersectoriel et de branche\n\nContactez nos heures de service client du lundi au vendredi (8h à 17h). Postulez pour le plus beau emploi dans le monde aujourd'hui. Nous avons hâte de recevoir votre candidature complète via notre outil de recrutement."
+      },
+      "location": "Zürich",
+      "canton": "ZH",
+      "url": "https://karriere.orellfuessli.ch/de/offene-stellen/mitarbeiterin-kundenservice-100",
+      "source": "Orell Füssli Thalia Dedicated Parser (Drupal career site)",
+      "sourceLang": "de",
+      "crawledAt": "2026-07-31T22:30:01.779Z",
+      "addressLocality": "Zürich",
+      "addressRegion": "Zürich",
+      "streetAddress": "Dietzingerstrasse 3",
+      "postalCode": "8003",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Vendita",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Retail / Librerie e Cartoleria",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-11",
+      "applyUrl": "https://karriere.orellfuessli.ch/de/offene-stellen/mitarbeiterin-kundenservice-100",
+      "jobReqId": null,
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "mitarbeiter-in-kundenservice-100-a-orell-fuessli-thalia-zurich",
+        "collaboratore-trice-in-kundendienst-50-70-a-orell-fussli-thalia-zurich",
+        "customer-service-50-70-a-orell-fussli-thalia-zurich",
+        "mitarbeiter-in-kundendienst-50-70-a-orell-fuessli-thalia-zurich",
+        "service-a-la-clientele-50-70-a-orell-fussli-thalia-zurich",
+        "collaboratore-trice-in-kundenservice-100-a-orell-fussli-thalia-zurich"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "mitarbeiter-in-kundenservice-100-a-orell-fuessli-thalia-zurich",
+          "collaboratore-trice-in-kundendienst-50-70-a-orell-fussli-thalia-zurich",
+          "customer-service-50-70-a-orell-fussli-thalia-zurich",
+          "mitarbeiter-in-kundendienst-50-70-a-orell-fuessli-thalia-zurich",
+          "service-a-la-clientele-50-70-a-orell-fussli-thalia-zurich",
+          "collaboratore-trice-in-kundenservice-100-a-orell-fussli-thalia-zurich"
+        ],
+        "en": [
+          "mitarbeiter-in-kundenservice-100-a-orell-fuessli-thalia-zurich",
+          "customer-service-50-70-a-orell-fussli-thalia-zurich"
+        ],
+        "de": [
+          "mitarbeiter-in-kundendienst-50-70-a-orell-fuessli-thalia-zurich"
+        ],
+        "fr": [
+          "mitarbeiter-in-kundenservice-100-a-orell-fuessli-thalia-zurich",
+          "service-a-la-clientele-50-70-a-orell-fussli-thalia-zurich"
+        ]
+      },
+      "firstSeenAt": "2026-07-04T11:26:42.541Z",
+      "salaryMin": 73500,
+      "salaryMax": 111500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 73500,
+          "maxValue": 111500,
           "unitText": "YEAR"
         }
       }
@@ -273,7 +376,7 @@
       "url": "https://karriere.orellfuessli.ch/de/offene-stellen/stv-filialleitung-80-100",
       "source": "Orell Füssli Thalia Dedicated Parser (Drupal career site)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-30T22:27:05.931Z",
+      "crawledAt": "2026-07-31T22:30:01.779Z",
       "addressLocality": "Weinfelden",
       "addressRegion": "Zürich",
       "streetAddress": "",
@@ -293,11 +396,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "stv-filialleitung-80-100-a-orell-fuessli-thalia-weinfelden"
+        "stv-filialleitung-80-100-a-orell-fuessli-thalia-weinfelden",
+        "vice-direttore-di-filiale-80-100-a-orell-fussli-thalia-weinfelden"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "stv-filialleitung-80-100-a-orell-fuessli-thalia-weinfelden"
+          "stv-filialleitung-80-100-a-orell-fuessli-thalia-weinfelden",
+          "vice-direttore-di-filiale-80-100-a-orell-fussli-thalia-weinfelden"
         ],
         "en": [
           "stv-filialleitung-80-100-a-orell-fuessli-thalia-weinfelden"
@@ -335,7 +440,7 @@
       "title": "Buchhändler*in 90 - 100% (a)",
       "titleByLocale": {
         "it": "Libraio/a 90-100% (a)",
-        "en": "Bookseller*in 90 - 100% (a)",
+        "en": "Buchhändler*in 90 - 100% (a)",
         "de": "Buchhändler*in 90 - 100% (a)",
         "fr": "Libraire 90-100% (a)"
       },
@@ -351,7 +456,7 @@
       "url": "https://karriere.orellfuessli.ch/de/offene-stellen/buchhaendlerin-90-100",
       "source": "Orell Füssli Thalia Dedicated Parser (Drupal career site)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-30T22:27:05.930Z",
+      "crawledAt": "2026-07-31T22:30:01.778Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "Zürich",
       "streetAddress": "",
@@ -371,11 +476,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "buchhandler-in-90-100-a-orell-fuessli-thalia-st-gallen"
+        "buchhandler-in-90-100-a-orell-fuessli-thalia-st-gallen",
+        "libraio-90-100-a-orell-fussli-thalia-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "buchhandler-in-90-100-a-orell-fuessli-thalia-st-gallen"
+          "buchhandler-in-90-100-a-orell-fuessli-thalia-st-gallen",
+          "libraio-90-100-a-orell-fussli-thalia-st-gallen"
         ],
         "en": [
           "buchhandler-in-90-100-a-orell-fuessli-thalia-st-gallen"
@@ -385,6 +492,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:26:42.541Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -394,105 +502,6 @@
           "@type": "QuantitativeValue",
           "minValue": 57500,
           "maxValue": 87000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "orell-fuessli-thalia-78d3c20abc58",
-      "slug": "collaboratore-trice-in-kundenservice-100-a-orell-fussli-thalia-zurich",
-      "slugByLocale": {
-        "it": "collaboratore-trice-in-kundenservice-100-a-orell-fussli-thalia-zurich",
-        "en": "customer-service-100-a-orell-fussli-thalia-zurich",
-        "de": "mitarbeiter-in-kundenservice-100-a-orell-fuessli-thalia-zurich",
-        "fr": "service-a-la-clientele-100-a-orell-fussli-thalia-zurich"
-      },
-      "company": "Orell Füssli Thalia",
-      "companyKey": "orell-fuessli-thalia",
-      "companyDomain": "orellfuessli.ch",
-      "title": "Mitarbeiter*in Kundenservice 100% (a)",
-      "titleByLocale": {
-        "it": "Addetto/a al servizio clienti 100% (a)",
-        "en": "Customer Service Representative 100% (a)",
-        "de": "Mitarbeiter*in Kundenservice 100% (a)",
-        "fr": "Employé·e service client 100% (a)"
-      },
-      "description": "Sehen Sie sich als Botschafter*in des Lesens?\nMit Ihrer Leidenschaft sind Sie bei uns genau richtig. Bei der Orell Füssli Thalia AG schaffen wir Räume für vielfältige Geschichten und Wissen, die unsere Gesellschaft inspirieren und bereichern. Ausserdem ist Orell Füssli ein Ort, an dem sich die Mitarbeitenden wohl fühlen, an dem man gerne und gut zusammenarbeitet sowie gemeinsam mehr erreicht.\nFür unseren Kundenservice an unserem Hauptsitz in Zürich Wiedikon suchen wir eine*n Mitarbeiter*in Kundenservice 80 - 100% (a)\nIhre Hauptaufgaben:\n\n• Beratung und Verkauf von Büchern und verwandten Produkten per Telefon, eMail und Chat\n\n• Telefonische Bestellannahme und Reservation der gewünschten Produkte für das gesamte Filialnetz\n\n• Bearbeitung von Reklamationen\n\n• Bibliografie und Auftragsabwicklung mit unserem Warenwirtschaftssystem\n\n• Supportdienstleistungen 1st Level bei Kundenanfragen im Zusammenhang mit eReading und eBooks\nIhr Profil:\n\n• Erfahrung im Buch- oder Detailhandel bzw. in einem Kundenservice-Center\n\n• Hohe Kundenorientierung und Belastbarkeit\n\n• Selbständigkeit sowie eine genaue und exakte Arbeitsweise\n\n• Gute Computer- und Systemkenntnisse (SAP von Vorteil), müheloser Umgang mit neuen Medien\n\n• Stilsicheres Deutsch in Wort und Schrift\nUnser Angebot:\n\n• Kollaborative und wertschätzende Unternehmenskultur\n\n• Zentraler Arbeitsort mit guter ÖV-Anbindung\n\n• Der aktuellen Lebenssituation angepasste Arbeitszeitmodelle\n\n• Grosszügige Ferienregelung und vielseitiges Rabattangebot\n\n• Individuelle Weiterbildungsmöglichkeiten\n\n• Filial- und bereichsübergreifende Entwicklungsoptionen\nDie Geschäftszeiten unseres Kundenservices sind von Montag bis Freitag (8 Uhr bis 17:30 Uhr).\nBewerben Sie sich noch heute für den schönsten Job der Welt. Wir freuen uns auf Ihre vollständige Bewerbung über unser Recruitingtool. Bei Fragen wenden Sie sich gerne an:",
-      "descriptionByLocale": {
-        "it": "Descrizione Ti vedi come un ambasciatore per la lettura? Con la tua passione, hai ragione con noi. Nell'Orell Füssli Thalia AG creiamo spazi per una vasta gamma di storie e conoscenze che ispirano e arricchiscono la nostra società. Orell Füssli è anche un luogo dove i dipendenti si sentono a proprio agio, dove amano lavorare insieme e ottenere di più insieme. Per il nostro servizio clienti presso la nostra sede a Zurigo Wiedikon, stiamo cercando un dipendente nel servizio clienti 80 - 100% (a)\n\nCompiti - Consulenza e vendita di libri e prodotti correlati per telefono, eMail e chat - Accettazione dell'ordine telefonico e garanzie dei prodotti desiderati per l'intera rete di filiali - Trattamento dei reclami - Bibliografia e elaborazione degli ordini con il nostro sistema di gestione delle merci - Servizi di supporto 1 ° livello per le richieste dei clienti in relazione con eReading ed eBooks\n\nRequisiti - Esperienza nel commercio di libri e al dettaglio o in un centro di assistenza clienti - Elevata orientamento e resilienza dei clienti - indipendenza e metodi di lavoro precisi e precisi - Buona conoscenza del computer e del sistema (SAP di vantaggio), facile gestione dei nuovi media - Elegante tedesco in parole e scrittura\n\nOffriamo - cultura aziendale di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di quelli di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di tipo di\n\nContattateci Il nostro servizio clienti è disponibile dal lunedì al venerdì (dalle 8 alle 17). Applicate per il lavoro più bello al mondo. Non vediamo l'ora di ricevere la vostra domanda completa tramite il nostro strumento di reclutamento. Se avete domande, si prega di contattare:",
-        "en": "Description Do you see yourself as an ambassador for reading? With your passion, you are right with us. At Orell Füssli Thalia AG, we create spaces for a wide variety of stories and knowledge that inspire and enrich our society. Orell Füssli is also a place where employees feel comfortable, where they like to work together and achieve more together. For our customer service at our headquarters in Zurich Wiedikon, we are looking for an employee in customer service 80 - 100% (a)\n\nTasks - Advice and sale of books and related products by telephone, eMail and chat - Telephone order acceptance and the warranties of the desired products for the entire branch network - Processing of complaints - Bibliography and order processing with our goods management system - Support services 1st level for customer inquiries in connection with eReading and eBooks\n\nRequirements - Experience in book and retail trade or in a customer service center - High customer orientation and resilience - independence and precise and precise working methods - Good computer and system knowledge (SAP of advantage), easy handling of new media - Stylish German in word and writing\n\nWe offer - Collaborative and appreciative corporate culture - Central workplace with good public transport connection - Working time models adapted to the current situation - Generous holiday arrangements and versatile discount offer - Individual training opportunities - Branch and cross-sectoral development options\n\nContact Our customer service hours are Monday to Friday (8am to 5pm). Apply for the most beautiful job in the world today. We look forward to receiving your complete application via our recruiting tool. If you have any questions, please contact:",
-        "de": "Sehen Sie sich als Botschafter*in des Lesens?\nMit Ihrer Leidenschaft sind Sie bei uns genau richtig. Bei der Orell Füssli Thalia AG schaffen wir Räume für vielfältige Geschichten und Wissen, die unsere Gesellschaft inspirieren und bereichern. Ausserdem ist Orell Füssli ein Ort, an dem sich die Mitarbeitenden wohl fühlen, an dem man gerne und gut zusammenarbeitet sowie gemeinsam mehr erreicht.\nFür unseren Kundenservice an unserem Hauptsitz in Zürich Wiedikon suchen wir eine*n Mitarbeiter*in Kundenservice 80 - 100% (a)\nIhre Hauptaufgaben:\n\n• Beratung und Verkauf von Büchern und verwandten Produkten per Telefon, eMail und Chat\n\n• Telefonische Bestellannahme und Reservation der gewünschten Produkte für das gesamte Filialnetz\n\n• Bearbeitung von Reklamationen\n\n• Bibliografie und Auftragsabwicklung mit unserem Warenwirtschaftssystem\n\n• Supportdienstleistungen 1st Level bei Kundenanfragen im Zusammenhang mit eReading und eBooks\nIhr Profil:\n\n• Erfahrung im Buch- oder Detailhandel bzw. in einem Kundenservice-Center\n\n• Hohe Kundenorientierung und Belastbarkeit\n\n• Selbständigkeit sowie eine genaue und exakte Arbeitsweise\n\n• Gute Computer- und Systemkenntnisse (SAP von Vorteil), müheloser Umgang mit neuen Medien\n\n• Stilsicheres Deutsch in Wort und Schrift\nUnser Angebot:\n\n• Kollaborative und wertschätzende Unternehmenskultur\n\n• Zentraler Arbeitsort mit guter ÖV-Anbindung\n\n• Der aktuellen Lebenssituation angepasste Arbeitszeitmodelle\n\n• Grosszügige Ferienregelung und vielseitiges Rabattangebot\n\n• Individuelle Weiterbildungsmöglichkeiten\n\n• Filial- und bereichsübergreifende Entwicklungsoptionen\nDie Geschäftszeiten unseres Kundenservices sind von Montag bis Freitag (8 Uhr bis 17:30 Uhr).\nBewerben Sie sich noch heute für den schönsten Job der Welt. Wir freuen uns auf Ihre vollständige Bewerbung über unser Recruitingtool. Bei Fragen wenden Sie sich gerne an:",
-        "fr": "Description Vous vous voyez comme un ambassadeur de lecture? Avec votre passion, vous avez raison avec nous. Chez Orell Füssli Thalia AG, nous créons des espaces pour une grande variété d'histoires et de connaissances qui inspirent et enrichissent notre société. Orell Füssli est également un endroit où les employés se sentent à l'aise, où ils aiment travailler ensemble et réaliser plus ensemble.\n\nTâches - Conseils et vente de livres et produits connexes par téléphone, eMail et chat - Acceptation de commande téléphonique et les garanties des produits souhaités pour l'ensemble du réseau de la succursale - Traitement des plaintes - Bibliographie et traitement de commande avec notre système de gestion des marchandises - Services de soutien 1er niveau pour les demandes de clients en lien avec eReading et eBooks\n\nExigences - Expérience dans le commerce du livre et du détail ou dans un centre de service à la clientèle - Orientation et résilience élevées du client - indépendance et méthodes de travail précises et précises - Bonne connaissance de l'informatique et du système (SAP d'avantage), facilité de traitement des nouveaux médias - Élégant allemand en paroles et en écriture\n\nNous offrons - Culture d'entreprise collaborative et appréciée - Milieu de travail central avec bon transport public - Modèles de temps de travail adaptés à la situation actuelle - Dispositions de vacances généreuses et offre de rabais polyvalente - Possibilités de formation individuelles - Options de développement intersectoriel et de branche\n\nContactez nos heures de service client du lundi au vendredi (8h à 17h). Postulez pour le plus beau emploi dans le monde aujourd'hui. Nous avons hâte de recevoir votre candidature complète via notre outil de recrutement."
-      },
-      "location": "Zürich",
-      "canton": "ZH",
-      "url": "https://karriere.orellfuessli.ch/de/offene-stellen/mitarbeiterin-kundenservice-100",
-      "source": "Orell Füssli Thalia Dedicated Parser (Drupal career site)",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-30T22:27:05.930Z",
-      "addressLocality": "Zürich",
-      "addressRegion": "Zürich",
-      "streetAddress": "Dietzingerstrasse 3",
-      "postalCode": "8003",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Vendita",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Retail / Librerie e Cartoleria",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-11",
-      "applyUrl": "https://karriere.orellfuessli.ch/de/offene-stellen/mitarbeiterin-kundenservice-100",
-      "jobReqId": null,
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "mitarbeiter-in-kundenservice-100-a-orell-fuessli-thalia-zurich",
-        "collaboratore-trice-in-kundendienst-50-70-a-orell-fussli-thalia-zurich",
-        "customer-service-50-70-a-orell-fussli-thalia-zurich",
-        "mitarbeiter-in-kundendienst-50-70-a-orell-fuessli-thalia-zurich",
-        "service-a-la-clientele-50-70-a-orell-fussli-thalia-zurich",
-        "collaboratore-trice-in-kundendienst-50-70-a-orell-fussli-thalia-zurich",
-        "customer-service-50-70-a-orell-fussli-thalia-zurich",
-        "mitarbeiter-in-kundendienst-50-70-a-orell-fuessli-thalia-zurich",
-        "service-a-la-clientele-50-70-a-orell-fussli-thalia-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "mitarbeiter-in-kundenservice-100-a-orell-fuessli-thalia-zurich",
-          "collaboratore-trice-in-kundendienst-50-70-a-orell-fussli-thalia-zurich",
-          "customer-service-50-70-a-orell-fussli-thalia-zurich",
-          "mitarbeiter-in-kundendienst-50-70-a-orell-fuessli-thalia-zurich",
-          "service-a-la-clientele-50-70-a-orell-fussli-thalia-zurich",
-          "collaboratore-trice-in-kundendienst-50-70-a-orell-fussli-thalia-zurich",
-          "customer-service-50-70-a-orell-fussli-thalia-zurich",
-          "mitarbeiter-in-kundendienst-50-70-a-orell-fuessli-thalia-zurich",
-          "service-a-la-clientele-50-70-a-orell-fussli-thalia-zurich"
-        ],
-        "en": [
-          "mitarbeiter-in-kundenservice-100-a-orell-fuessli-thalia-zurich",
-          "customer-service-50-70-a-orell-fussli-thalia-zurich"
-        ],
-        "fr": [
-          "mitarbeiter-in-kundenservice-100-a-orell-fuessli-thalia-zurich",
-          "service-a-la-clientele-50-70-a-orell-fussli-thalia-zurich"
-        ],
-        "de": [
-          "mitarbeiter-in-kundendienst-50-70-a-orell-fuessli-thalia-zurich"
-        ]
-      },
-      "firstSeenAt": "2026-07-04T11:26:42.541Z",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
           "unitText": "YEAR"
         }
       }
@@ -528,7 +537,7 @@
       "url": "https://karriere.orellfuessli.ch/de/offene-stellen/detailhandelsfachfraumann-papeterie-40",
       "source": "Orell Füssli Thalia Dedicated Parser (Drupal career site)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-30T22:27:05.929Z",
+      "crawledAt": "2026-07-31T22:30:01.777Z",
       "addressLocality": "Bern",
       "addressRegion": "Zürich",
       "streetAddress": "",
@@ -549,12 +558,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "detailhandelsfachfrau-mann-papeterie-40-a-orell-fuessli-thalia-bern",
-        "detailhandelsfachfrau-mann-papeterie-40-a-orell-fussli-thalia-bern"
+        "detailhandelsfachfrau-mann-papeterie-40-a-orell-fussli-thalia-bern",
+        "specialista-al-dettaglio-uomo-papeterie-40-a-orell-fussli-thalia-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "detailhandelsfachfrau-mann-papeterie-40-a-orell-fuessli-thalia-bern",
-          "detailhandelsfachfrau-mann-papeterie-40-a-orell-fussli-thalia-bern"
+          "detailhandelsfachfrau-mann-papeterie-40-a-orell-fussli-thalia-bern",
+          "specialista-al-dettaglio-uomo-papeterie-40-a-orell-fussli-thalia-bern"
         ],
         "en": [
           "detailhandelsfachfrau-mann-papeterie-40-a-orell-fuessli-thalia-bern"
@@ -582,9 +593,9 @@
       "slug": "libraio-50-a-orell-fussli-thalia-st-gallen",
       "slugByLocale": {
         "it": "libraio-50-a-orell-fussli-thalia-st-gallen",
-        "en": "bookseller-50-a-orell-fussli-thalia-st-gallen",
+        "en": "buchhandler-in-50-a-orell-fussli-thalia-st-gallen",
         "de": "buchhandler-in-50-a-orell-fuessli-thalia-st-gallen",
-        "fr": "librairie-50-a-orell-fussli-thalia-st-gallen"
+        "fr": "libraire-50-orell-fussli-thalia-st-gallen"
       },
       "company": "Orell Füssli Thalia",
       "companyKey": "orell-fuessli-thalia",
@@ -592,7 +603,7 @@
       "title": "Buchhändler*in 50% (a)",
       "titleByLocale": {
         "it": "Libraio/a 50%",
-        "en": "Bookseller 50% (a)",
+        "en": "Buchhändler*in 50% (a)",
         "de": "Buchhändler*in 50% (a)",
         "fr": "Libraire 50%"
       },
@@ -608,7 +619,7 @@
       "url": "https://karriere.orellfuessli.ch/de/offene-stellen/buchhaendlerin-50-0",
       "source": "Orell Füssli Thalia Dedicated Parser (Drupal career site)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-30T22:27:05.928Z",
+      "crawledAt": "2026-07-31T22:30:01.776Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "Zürich",
       "streetAddress": "",
@@ -629,23 +640,30 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "buchhandler-in-50-a-orell-fuessli-thalia-st-gallen",
+        "bookseller-50-a-orell-fussli-thalia-st-gallen",
+        "librairie-50-a-orell-fussli-thalia-st-gallen",
+        "libraio-50-a-orell-fussli-thalia-st-gallen",
         "buchhandler-in-50-a-orell-fussli-thalia-st-gallen",
         "libraire-50-orell-fussli-thalia-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "buchhandler-in-50-a-orell-fuessli-thalia-st-gallen"
+          "buchhandler-in-50-a-orell-fuessli-thalia-st-gallen",
+          "libraio-50-a-orell-fussli-thalia-st-gallen"
         ],
         "en": [
           "buchhandler-in-50-a-orell-fuessli-thalia-st-gallen",
+          "bookseller-50-a-orell-fussli-thalia-st-gallen",
           "buchhandler-in-50-a-orell-fussli-thalia-st-gallen"
         ],
         "fr": [
           "buchhandler-in-50-a-orell-fuessli-thalia-st-gallen",
+          "librairie-50-a-orell-fussli-thalia-st-gallen",
           "libraire-50-orell-fussli-thalia-st-gallen"
         ]
       },
       "firstSeenAt": "2026-07-04T11:26:42.531Z",
+      "needsRetranslation": true,
       "salaryMin": 28800,
       "salaryMax": 43500,
       "baseSalary": {
@@ -690,7 +708,7 @@
       "url": "https://karriere.orellfuessli.ch/de/offene-stellen/filialleitung-80-100",
       "source": "Orell Füssli Thalia Dedicated Parser (Drupal career site)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-30T22:27:05.927Z",
+      "crawledAt": "2026-07-31T22:30:01.776Z",
       "addressLocality": "Rapperswil",
       "addressRegion": "Zürich",
       "streetAddress": "",
@@ -711,11 +729,13 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "filialleitung-80-100-a-orell-fuessli-thalia-rapperswil"
+          "filialleitung-80-100-a-orell-fuessli-thalia-rapperswil",
+          "filialleitung-80-100-a-orell-fuessli-thalia-uster"
         ],
         "it": [
           "filialleitung-80-100-a-orell-fuessli-thalia-uster",
-          "filialleitung-80-100-a-orell-fuessli-thalia-rapperswil"
+          "filialleitung-80-100-a-orell-fuessli-thalia-rapperswil",
+          "direzione-della-filiale-80-100-a-orell-fussli-thalia-uster"
         ],
         "en": [
           "filialleitung-80-100-a-orell-fuessli-thalia-uster"
@@ -726,7 +746,8 @@
       },
       "previousSlugs": [
         "filialleitung-80-100-a-orell-fuessli-thalia-uster",
-        "filialleitung-80-100-a-orell-fuessli-thalia-rapperswil"
+        "filialleitung-80-100-a-orell-fuessli-thalia-rapperswil",
+        "direzione-della-filiale-80-100-a-orell-fussli-thalia-uster"
       ],
       "firstSeenAt": "2026-07-04T11:26:42.543Z",
       "salaryMin": 79000,
@@ -773,7 +794,7 @@
       "url": "https://karriere.orellfuessli.ch/de/offene-stellen/stv-filialleitung-80",
       "source": "Orell Füssli Thalia Dedicated Parser (Drupal career site)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-30T22:27:05.926Z",
+      "crawledAt": "2026-07-31T22:30:01.775Z",
       "addressLocality": "Ebikon",
       "addressRegion": "Zürich",
       "streetAddress": "",
@@ -794,12 +815,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "stv-filialleitung-80-orell-fuessli-thalia-ebikon",
-        "stv-filialleitung-80-a-orell-fuessli-thalia-ebikon"
+        "stv-filialleitung-80-a-orell-fuessli-thalia-ebikon",
+        "gestione-del-ramo-stv-80-orell-fussli-thalia-ebikon"
       ],
       "previousSlugsByLocale": {
         "it": [
           "stv-filialleitung-80-orell-fuessli-thalia-ebikon",
-          "stv-filialleitung-80-a-orell-fuessli-thalia-ebikon"
+          "stv-filialleitung-80-a-orell-fuessli-thalia-ebikon",
+          "gestione-del-ramo-stv-80-orell-fussli-thalia-ebikon"
         ],
         "en": [
           "stv-filialleitung-80-orell-fuessli-thalia-ebikon"
@@ -837,7 +860,7 @@
       "title": "Category Manager*in 100% (a)",
       "titleByLocale": {
         "it": "Responsabile categoria 100% (a)",
-        "en": "Category Manager 100% (a)",
+        "en": "Category Manager*in 100% (a)",
         "de": "Category Manager*in 100% (a)",
         "fr": "Gestionnaire de catégorie 100 % (a)"
       },
@@ -853,7 +876,7 @@
       "url": "https://karriere.orellfuessli.ch/de/offene-stellen/category-managerin-100",
       "source": "Orell Füssli Thalia Dedicated Parser (Drupal career site)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-30T22:27:05.916Z",
+      "crawledAt": "2026-07-31T22:30:01.764Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Dietzingerstrasse 3",
@@ -873,17 +896,20 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "category-manager-in-100-a-orell-fuessli-thalia-zurich"
+        "category-manager-in-100-a-orell-fuessli-thalia-zurich",
+        "responsabile-categoria-100-a-orell-fussli-thalia-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "category-manager-in-100-a-orell-fuessli-thalia-zurich"
+          "category-manager-in-100-a-orell-fuessli-thalia-zurich",
+          "responsabile-categoria-100-a-orell-fussli-thalia-zurich"
         ],
         "fr": [
           "category-manager-in-100-a-orell-fuessli-thalia-zurich"
         ]
       },
       "firstSeenAt": "2026-07-17T11:43:11.360Z",
+      "needsRetranslation": true,
       "salaryMin": 117000,
       "salaryMax": 180000,
       "baseSalary": {
@@ -893,126 +919,6 @@
           "@type": "QuantitativeValue",
           "minValue": 117000,
           "maxValue": 180000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "orell-fuessli-thalia-e0f1382ad028",
-      "slug": "libreria-in-60-a-orell-fussli-thalia-zurich",
-      "slugByLocale": {
-        "it": "libreria-in-60-a-orell-fussli-thalia-zurich",
-        "en": "bookseller-in-60-a-orell-fussli-thalia-zurich",
-        "de": "buchhandler-in-60-a-orell-fuessli-thalia-zurich",
-        "fr": "librairie-en-60-a-orell-fussli-thalia-zurich"
-      },
-      "company": "Orell Füssli Thalia",
-      "companyKey": "orell-fuessli-thalia",
-      "companyDomain": "orellfuessli.ch",
-      "title": "Buchhändler*in 60% (a)",
-      "titleByLocale": {
-        "it": "Libreria*in 60% (a)",
-        "en": "Bookseller*in 60% (a)",
-        "de": "Buchhändler*in 60% (a)",
-        "fr": "Librairie en 60% (a)"
-      },
-      "description": "Sehen Sie sich als Botschafter*in des Lesens?\nMit Ihrer Leidenschaft sind Sie bei uns genau richtig. Bei der Orell Füssli Thalia AG schaffen wir Räume für vielfältige Geschichten und Wissen, die unsere Gesellschaft inspirieren und bereichern. Ausserdem ist Orell Füssli ein Ort, an dem sich die Mitarbeitenden wohl fühlen, an dem man gerne und gut zusammenarbeitet sowie gemeinsam mehr erreicht.\nFür unsere Filiale am Hauptbahnhof in Zürich suchen wir per 1. Oktober 2026 eine*n Buchhändler*in 60% (a)\nIhre Hauptaufgaben:\n\n• Lots*in in der Welt von Geschichten und Wissen\n\n• Kompetente und inspirierende Beratung unserer Kundschaft\n\n• Lagerbewirtschaftung und Bestellwesen (bestellen, remittieren, recherchieren)\n\n• Markt- und Trendbeobachtung\n\n• Mitarbeit an Abholfach und Kasse\n\n• Präsentation von Büchern und Non-Books\nIhr Profil:\n\n• Abgeschlossene Ausbildung als Buchhändler*in mit fundierter Berufserfahrung\n\n• Affinität zum Buch sowie zu den elektronischen Medien\n\n• Kunden- und verkaufsorientierte Persönlichkeit mit Erfahrung im Kundenkontakt\n\n• Interesse am aktuellen Zeitgeschehen\n\n• Stilsicheres Deutsch, zusätzlich gute Fremdsprachenkenntnisse in Englisch von Vorteil\nUnser Angebot:\n\n• Kollaborative und wertschätzende Unternehmenskultur\n\n• Zentraler Arbeitsort mit guten ÖV-Anbindungen\n\n• Der aktuellen Lebenssituation angepasste Arbeitszeitmodelle\n\n• Grosszügige Ferienregelung und vielseitiges Rabattangebot\n\n• Individuelle Weiterbildungsmöglichkeiten\n\n• Filial- und bereichsübergreifende Entwicklungsoptionen\n\nWochenend- und Feiertags-Arbeitseinsätze sind aufgrund der Öffnungszeiten an 365 Tagen im Jahr regelmässig vorgesehen.\n\nBewerben Sie sich noch heute für den schönsten Job der Welt. Wir freuen uns auf Ihre vollständige Bewerbung über unser Recruitingtool.",
-      "descriptionByLocale": {
-        "it": "Ti vedi come ambasciatore per la lettura?\nCon la tua passione, hai esattamente ragione con noi. A Orell Füssli Thalia AG, creiamo spazi per diverse storie e conoscenze che ispirano e arricchiscono la nostra società. Inoltre, Orell Füssli è un luogo dove i dipendenti si sentono a proprio agio, dove si divertono a lavorare bene insieme e raggiungere più insieme. Per la nostra filiale alla Stazione Centrale di Zurigo stiamo cercando un librerie 60% (a) a partire dal 1 ottobre 2026\nI loro compiti principali:\n\n• Un sacco di storie e conoscenze\n\n• Consulenza competente e stimolante ai nostri clienti\n\n• Gestione del magazzino e ordinazione (ordine, remit, ricerca)\n\n• Monitoraggio del mercato e della tendenza\n\n• Collaborazione con raccolta e cassa\n\n• Presentazione di libri e non libri\nIl tuo profilo:\n\n• Formazione completa come libreria con esperienza professionale\n\n• Affinità al libro e ai media elettronici\n\n• Personalità orientata al cliente e alle vendite con esperienza nel contatto con il cliente\n\n• Interessi negli affari attuali\n\n• Stylistic tedesco, inoltre buone competenze di lingua straniera in inglese sono vantaggiose\nLa nostra offerta:\n\n• Cultura aziendale collaborativa e apprezzativa\n\n• Posizione centrale con buoni collegamenti di trasporto pubblico\n\n• Modelli di tempo di lavoro adattati alla situazione di vita attuale\n\n• Programma di vacanza generoso e offerta di sconti varie\n\n• Possibilità di formazione individuale\n\n• Branch e opzioni di sviluppo trasversale\n\nGli incarichi di fine settimana e festivi sono regolarmente programmati 365 giorni all'anno a causa degli orari di apertura.\n\nApplicare oggi per il lavoro più bello del mondo. Attendiamo con ansia la vostra applicazione completa tramite il nostro strumento di reclutamento. Se avete domande, si prega di contattare:",
-        "en": "Do you see yourself as an ambassador for reading?\nWith your passion, you are exactly right with us. At Orell Füssli Thalia AG, we create spaces for diverse stories and knowledge that inspire and enrich our society. In addition, Orell Füssli is a place where employees feel comfortable, where they enjoy working well together and achieve more together. For our branch at Zurich Central Station we are looking for a bookseller 60% (a) as of 1 October 2026\nTheir main tasks:\n\n• Lots*in in the world of stories and knowledge\n\n• Competent and inspiring advice to our customers\n\n• Warehouse management and ordering (order, remit, research)\n\n• Market and trend monitoring\n\n• Collaboration with collection and cash register\n\n• Presentation of books and non-books\nYour profile:\n\n• Completed training as a bookseller with sound professional experience\n\n• Affinity to the book and electronic media\n\n• Customer- and sales-oriented personality with experience in customer contact\n\n• Interest in current affairs\n\n• Stylistic German, additionally good foreign language skills in English are advantageous\nOur offer:\n\n• Collaborative and appreciative corporate culture\n\n• Central location with good public transport connections\n\n• Working time models adapted to the current living situation\n\n• Generous holiday scheme and varied discount offer\n\n• Individual training opportunities\n\n• Branch and cross-divisional development options\n\nWeekend and public holiday assignments are regularly scheduled 365 days a year due to opening hours.\n\nApply today for the most beautiful job in the world. We look forward to your complete application via our recruiting tool. If you have any questions, please contact:",
-        "de": "Sehen Sie sich als Botschafter*in des Lesens?\nMit Ihrer Leidenschaft sind Sie bei uns genau richtig. Bei der Orell Füssli Thalia AG schaffen wir Räume für vielfältige Geschichten und Wissen, die unsere Gesellschaft inspirieren und bereichern. Ausserdem ist Orell Füssli ein Ort, an dem sich die Mitarbeitenden wohl fühlen, an dem man gerne und gut zusammenarbeitet sowie gemeinsam mehr erreicht.\nFür unsere Filiale am Hauptbahnhof in Zürich suchen wir per 1. Oktober 2026 eine*n Buchhändler*in 60% (a)\nIhre Hauptaufgaben:\n\n• Lots*in in der Welt von Geschichten und Wissen\n\n• Kompetente und inspirierende Beratung unserer Kundschaft\n\n• Lagerbewirtschaftung und Bestellwesen (bestellen, remittieren, recherchieren)\n\n• Markt- und Trendbeobachtung\n\n• Mitarbeit an Abholfach und Kasse\n\n• Präsentation von Büchern und Non-Books\nIhr Profil:\n\n• Abgeschlossene Ausbildung als Buchhändler*in mit fundierter Berufserfahrung\n\n• Affinität zum Buch sowie zu den elektronischen Medien\n\n• Kunden- und verkaufsorientierte Persönlichkeit mit Erfahrung im Kundenkontakt\n\n• Interesse am aktuellen Zeitgeschehen\n\n• Stilsicheres Deutsch, zusätzlich gute Fremdsprachenkenntnisse in Englisch von Vorteil\nUnser Angebot:\n\n• Kollaborative und wertschätzende Unternehmenskultur\n\n• Zentraler Arbeitsort mit guten ÖV-Anbindungen\n\n• Der aktuellen Lebenssituation angepasste Arbeitszeitmodelle\n\n• Grosszügige Ferienregelung und vielseitiges Rabattangebot\n\n• Individuelle Weiterbildungsmöglichkeiten\n\n• Filial- und bereichsübergreifende Entwicklungsoptionen\n\nWochenend- und Feiertags-Arbeitseinsätze sind aufgrund der Öffnungszeiten an 365 Tagen im Jahr regelmässig vorgesehen.\n\nBewerben Sie sich noch heute für den schönsten Job der Welt. Wir freuen uns auf Ihre vollständige Bewerbung über unser Recruitingtool.",
-        "fr": "Vous voyez-vous comme un ambassadeur pour lire ?\nAvec votre passion, vous avez raison avec nous. Chez Orell Füssli Thalia AG, nous créons des espaces pour diverses histoires et connaissances qui inspirent et enrichissent notre société. En outre, Orell Füssli est un endroit où les employés se sentent à l'aise, où ils aiment bien travailler ensemble et obtenir plus ensemble. Pour notre succursale de Zurich Central Station, nous recherchons un libraire 60% (a) au 1er octobre 2026\nLeurs principales tâches:\n\n• Beaucoup de choses dans le monde des histoires et des connaissances\n\n• Conseils compétents et inspirants à nos clients\n\n• Gestion et commande des entrepôts (commande, mission, recherche)\n\n• Surveillance des marchés et des tendances\n\n• Collaboration avec la collecte et la caisse enregistreuse\n\n• Présentation des livres et autres livres\nVotre profil:\n\n• Formation terminée en tant que libraire avec une solide expérience professionnelle\n\n• Affinité du livre et des médias électroniques\n\n• Personnalité orientée client et ventes avec expérience dans le contact client\n\n• Intérêt pour les affaires courantes\n\n• L'allemand styliste, en plus de bonnes compétences en langue étrangère en anglais sont avantageux\nNotre offre :\n\n• Culture d'entreprise collaborative et reconnaissante\n\n• Emplacement central avec bonnes liaisons de transport public\n\n• Modèles de temps de travail adaptés à la situation actuelle\n\n• Régime de vacances généreux et offre de réduction variée\n\n• Possibilités de formation individuelles\n\n• Options de développement interdivisions\n\nLes affectations de fin de semaine et de jours fériés sont régulièrement prévues 365 jours par an en raison des heures d'ouverture.\n\nPostulez aujourd'hui pour le plus beau travail au monde. Nous attendons avec impatience votre candidature complète via notre outil de recrutement. Si vous avez des questions, veuillez contacter:"
-      },
-      "location": "Zürich",
-      "canton": "ZH",
-      "url": "https://karriere.orellfuessli.ch/de/offene-stellen/buchhaendlerin-60",
-      "source": "Orell Füssli Thalia Dedicated Parser (Drupal career site)",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-30T22:27:05.914Z",
-      "addressLocality": "Zürich",
-      "addressRegion": "Zürich",
-      "streetAddress": "Dietzingerstrasse 3",
-      "postalCode": "8003",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Vendita",
-      "contract": "part-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Retail / Librerie e Cartoleria",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-22",
-      "applyUrl": "https://karriere.orellfuessli.ch/de/offene-stellen/buchhaendlerin-60",
-      "jobReqId": null,
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "buchhandler-in-60-a-orell-fuessli-thalia-zurich",
-        "bookseller-60-a-orell-fussli-thalia-zurich",
-        "buchhandler-in-60-a-orell-fussli-thalia-zurich",
-        "capo-dipartimento-100-a-orell-fussli-thalia-zurich",
-        "head-of-department-100-a-orell-fussli-thalia-zurich",
-        "abteilungsleitung-100-a-orell-fuessli-thalia-zurich",
-        "chef-de-departement-100-a-orell-fussli-thalia-zurich",
-        "capo-reparto-100-a-orell-fussli-thalia-zurich",
-        "head-of-department-100-a-orell-fussli-thalia-zurich-3bf4f7",
-        "chef-de-departement-100-a-orell-fussli-thalia-zurich-3bf4f7",
-        "abteilungsleitung-100-a-orell-fuessli-thalia-zurich-7feknu",
-        "capo-dipartimento-100-a-orell-fussli-thalia-zurich",
-        "head-of-department-100-a-orell-fussli-thalia-zurich",
-        "abteilungsleitung-100-a-orell-fuessli-thalia-zurich",
-        "chef-de-departement-100-a-orell-fussli-thalia-zurich",
-        "capo-reparto-100-a-orell-fussli-thalia-zurich",
-        "head-of-department-100-a-orell-fussli-thalia-zurich-3bf4f7",
-        "chef-de-departement-100-a-orell-fussli-thalia-zurich-3bf4f7",
-        "abteilungsleitung-100-a-orell-fuessli-thalia-zurich-7feknu"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "buchhandler-in-60-a-orell-fuessli-thalia-zurich",
-          "capo-dipartimento-100-a-orell-fussli-thalia-zurich",
-          "head-of-department-100-a-orell-fussli-thalia-zurich",
-          "abteilungsleitung-100-a-orell-fuessli-thalia-zurich",
-          "chef-de-departement-100-a-orell-fussli-thalia-zurich",
-          "capo-reparto-100-a-orell-fussli-thalia-zurich",
-          "head-of-department-100-a-orell-fussli-thalia-zurich-3bf4f7",
-          "chef-de-departement-100-a-orell-fussli-thalia-zurich-3bf4f7",
-          "abteilungsleitung-100-a-orell-fuessli-thalia-zurich-7feknu",
-          "capo-dipartimento-100-a-orell-fussli-thalia-zurich",
-          "head-of-department-100-a-orell-fussli-thalia-zurich",
-          "abteilungsleitung-100-a-orell-fuessli-thalia-zurich",
-          "chef-de-departement-100-a-orell-fussli-thalia-zurich",
-          "capo-reparto-100-a-orell-fussli-thalia-zurich",
-          "head-of-department-100-a-orell-fussli-thalia-zurich-3bf4f7",
-          "chef-de-departement-100-a-orell-fussli-thalia-zurich-3bf4f7",
-          "abteilungsleitung-100-a-orell-fuessli-thalia-zurich-7feknu"
-        ],
-        "en": [
-          "buchhandler-in-60-a-orell-fuessli-thalia-zurich",
-          "bookseller-60-a-orell-fussli-thalia-zurich",
-          "buchhandler-in-60-a-orell-fussli-thalia-zurich",
-          "head-of-department-100-a-orell-fussli-thalia-zurich",
-          "head-of-department-100-a-orell-fussli-thalia-zurich"
-        ],
-        "fr": [
-          "buchhandler-in-60-a-orell-fuessli-thalia-zurich",
-          "chef-de-departement-100-a-orell-fussli-thalia-zurich"
-        ],
-        "de": [
-          "abteilungsleitung-100-a-orell-fuessli-thalia-zurich"
-        ]
-      },
-      "firstSeenAt": "2026-07-22T22:40:01.631Z",
-      "salaryMin": 44100,
-      "salaryMax": 66900,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 44100,
-          "maxValue": 66900,
           "unitText": "YEAR"
         }
       }
@@ -1048,7 +954,7 @@
       "url": "https://karriere.orellfuessli.ch/de/offene-stellen/verkaufsmitarbeiterin-buchhandel-20-40",
       "source": "Orell Füssli Thalia Dedicated Parser (Drupal career site)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-30T22:27:05.913Z",
+      "crawledAt": "2026-07-31T22:30:01.763Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Dietzingerstrasse 3",
@@ -1068,11 +974,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "verkaufsmitarbeiter-in-buchhandel-20-40-a-orell-fuessli-thalia-zurich"
+        "verkaufsmitarbeiter-in-buchhandel-20-40-a-orell-fuessli-thalia-zurich",
+        "dipendente-di-vendita-in-libreria-20-40-a-orell-fussli-thalia-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkaufsmitarbeiter-in-buchhandel-20-40-a-orell-fuessli-thalia-zurich"
+          "verkaufsmitarbeiter-in-buchhandel-20-40-a-orell-fuessli-thalia-zurich",
+          "dipendente-di-vendita-in-libreria-20-40-a-orell-fussli-thalia-zurich"
         ],
         "en": [
           "verkaufsmitarbeiter-in-buchhandel-20-40-a-orell-fuessli-thalia-zurich"
@@ -1096,6 +1004,114 @@
       }
     },
     {
+      "id": "orell-fuessli-thalia-e0f1382ad028",
+      "slug": "libreria-in-60-a-orell-fussli-thalia-zurich",
+      "slugByLocale": {
+        "it": "libreria-in-60-a-orell-fussli-thalia-zurich",
+        "en": "buchhandler-in-60-a-orell-fussli-thalia-zurich",
+        "de": "buchhandler-in-60-a-orell-fuessli-thalia-zurich",
+        "fr": "librairie-en-60-a-orell-fussli-thalia-zurich"
+      },
+      "company": "Orell Füssli Thalia",
+      "companyKey": "orell-fuessli-thalia",
+      "companyDomain": "orellfuessli.ch",
+      "title": "Buchhändler*in 60% (a)",
+      "titleByLocale": {
+        "it": "Libreria*in 60% (a)",
+        "en": "Buchhändler*in 60% (a)",
+        "de": "Buchhändler*in 60% (a)",
+        "fr": "Librairie en 60% (a)"
+      },
+      "description": "Sehen Sie sich als Botschafter*in des Lesens?\nMit Ihrer Leidenschaft sind Sie bei uns genau richtig. Bei der Orell Füssli Thalia AG schaffen wir Räume für vielfältige Geschichten und Wissen, die unsere Gesellschaft inspirieren und bereichern. Ausserdem ist Orell Füssli ein Ort, an dem sich die Mitarbeitenden wohl fühlen, an dem man gerne und gut zusammenarbeitet sowie gemeinsam mehr erreicht.\nFür unsere Filiale am Hauptbahnhof in Zürich suchen wir per 1. Oktober 2026 eine*n Buchhändler*in 60% (a)\nIhre Hauptaufgaben:\n\n• Lots*in in der Welt von Geschichten und Wissen\n\n• Kompetente und inspirierende Beratung unserer Kundschaft\n\n• Lagerbewirtschaftung und Bestellwesen (bestellen, remittieren, recherchieren)\n\n• Markt- und Trendbeobachtung\n\n• Mitarbeit an Abholfach und Kasse\n\n• Präsentation von Büchern und Non-Books\nIhr Profil:\n\n• Abgeschlossene Ausbildung als Buchhändler*in mit fundierter Berufserfahrung\n\n• Affinität zum Buch sowie zu den elektronischen Medien\n\n• Kunden- und verkaufsorientierte Persönlichkeit mit Erfahrung im Kundenkontakt\n\n• Interesse am aktuellen Zeitgeschehen\n\n• Stilsicheres Deutsch, zusätzlich gute Fremdsprachenkenntnisse in Englisch von Vorteil\nUnser Angebot:\n\n• Kollaborative und wertschätzende Unternehmenskultur\n\n• Zentraler Arbeitsort mit guten ÖV-Anbindungen\n\n• Der aktuellen Lebenssituation angepasste Arbeitszeitmodelle\n\n• Grosszügige Ferienregelung und vielseitiges Rabattangebot\n\n• Individuelle Weiterbildungsmöglichkeiten\n\n• Filial- und bereichsübergreifende Entwicklungsoptionen\n\nWochenend- und Feiertags-Arbeitseinsätze sind aufgrund der Öffnungszeiten an 365 Tagen im Jahr regelmässig vorgesehen.\n\nBewerben Sie sich noch heute für den schönsten Job der Welt. Wir freuen uns auf Ihre vollständige Bewerbung über unser Recruitingtool.",
+      "descriptionByLocale": {
+        "it": "Ti vedi come ambasciatore per la lettura?\nCon la tua passione, hai esattamente ragione con noi. A Orell Füssli Thalia AG, creiamo spazi per diverse storie e conoscenze che ispirano e arricchiscono la nostra società. Inoltre, Orell Füssli è un luogo dove i dipendenti si sentono a proprio agio, dove si divertono a lavorare bene insieme e raggiungere più insieme. Per la nostra filiale alla Stazione Centrale di Zurigo stiamo cercando un librerie 60% (a) a partire dal 1 ottobre 2026\nI loro compiti principali:\n\n• Un sacco di storie e conoscenze\n\n• Consulenza competente e stimolante ai nostri clienti\n\n• Gestione del magazzino e ordinazione (ordine, remit, ricerca)\n\n• Monitoraggio del mercato e della tendenza\n\n• Collaborazione con raccolta e cassa\n\n• Presentazione di libri e non libri\nIl tuo profilo:\n\n• Formazione completa come libreria con esperienza professionale\n\n• Affinità al libro e ai media elettronici\n\n• Personalità orientata al cliente e alle vendite con esperienza nel contatto con il cliente\n\n• Interessi negli affari attuali\n\n• Stylistic tedesco, inoltre buone competenze di lingua straniera in inglese sono vantaggiose\nLa nostra offerta:\n\n• Cultura aziendale collaborativa e apprezzativa\n\n• Posizione centrale con buoni collegamenti di trasporto pubblico\n\n• Modelli di tempo di lavoro adattati alla situazione di vita attuale\n\n• Programma di vacanza generoso e offerta di sconti varie\n\n• Possibilità di formazione individuale\n\n• Branch e opzioni di sviluppo trasversale\n\nGli incarichi di fine settimana e festivi sono regolarmente programmati 365 giorni all'anno a causa degli orari di apertura.\n\nApplicare oggi per il lavoro più bello del mondo. Attendiamo con ansia la vostra applicazione completa tramite il nostro strumento di reclutamento. Se avete domande, si prega di contattare:",
+        "en": "Do you see yourself as an ambassador for reading?\nWith your passion, you are exactly right with us. At Orell Füssli Thalia AG, we create spaces for diverse stories and knowledge that inspire and enrich our society. In addition, Orell Füssli is a place where employees feel comfortable, where they enjoy working well together and achieve more together. For our branch at Zurich Central Station we are looking for a bookseller 60% (a) as of 1 October 2026\nTheir main tasks:\n\n• Lots*in in the world of stories and knowledge\n\n• Competent and inspiring advice to our customers\n\n• Warehouse management and ordering (order, remit, research)\n\n• Market and trend monitoring\n\n• Collaboration with collection and cash register\n\n• Presentation of books and non-books\nYour profile:\n\n• Completed training as a bookseller with sound professional experience\n\n• Affinity to the book and electronic media\n\n• Customer- and sales-oriented personality with experience in customer contact\n\n• Interest in current affairs\n\n• Stylistic German, additionally good foreign language skills in English are advantageous\nOur offer:\n\n• Collaborative and appreciative corporate culture\n\n• Central location with good public transport connections\n\n• Working time models adapted to the current living situation\n\n• Generous holiday scheme and varied discount offer\n\n• Individual training opportunities\n\n• Branch and cross-divisional development options\n\nWeekend and public holiday assignments are regularly scheduled 365 days a year due to opening hours.\n\nApply today for the most beautiful job in the world. We look forward to your complete application via our recruiting tool. If you have any questions, please contact:",
+        "de": "Sehen Sie sich als Botschafter*in des Lesens?\nMit Ihrer Leidenschaft sind Sie bei uns genau richtig. Bei der Orell Füssli Thalia AG schaffen wir Räume für vielfältige Geschichten und Wissen, die unsere Gesellschaft inspirieren und bereichern. Ausserdem ist Orell Füssli ein Ort, an dem sich die Mitarbeitenden wohl fühlen, an dem man gerne und gut zusammenarbeitet sowie gemeinsam mehr erreicht.\nFür unsere Filiale am Hauptbahnhof in Zürich suchen wir per 1. Oktober 2026 eine*n Buchhändler*in 60% (a)\nIhre Hauptaufgaben:\n\n• Lots*in in der Welt von Geschichten und Wissen\n\n• Kompetente und inspirierende Beratung unserer Kundschaft\n\n• Lagerbewirtschaftung und Bestellwesen (bestellen, remittieren, recherchieren)\n\n• Markt- und Trendbeobachtung\n\n• Mitarbeit an Abholfach und Kasse\n\n• Präsentation von Büchern und Non-Books\nIhr Profil:\n\n• Abgeschlossene Ausbildung als Buchhändler*in mit fundierter Berufserfahrung\n\n• Affinität zum Buch sowie zu den elektronischen Medien\n\n• Kunden- und verkaufsorientierte Persönlichkeit mit Erfahrung im Kundenkontakt\n\n• Interesse am aktuellen Zeitgeschehen\n\n• Stilsicheres Deutsch, zusätzlich gute Fremdsprachenkenntnisse in Englisch von Vorteil\nUnser Angebot:\n\n• Kollaborative und wertschätzende Unternehmenskultur\n\n• Zentraler Arbeitsort mit guten ÖV-Anbindungen\n\n• Der aktuellen Lebenssituation angepasste Arbeitszeitmodelle\n\n• Grosszügige Ferienregelung und vielseitiges Rabattangebot\n\n• Individuelle Weiterbildungsmöglichkeiten\n\n• Filial- und bereichsübergreifende Entwicklungsoptionen\n\nWochenend- und Feiertags-Arbeitseinsätze sind aufgrund der Öffnungszeiten an 365 Tagen im Jahr regelmässig vorgesehen.\n\nBewerben Sie sich noch heute für den schönsten Job der Welt. Wir freuen uns auf Ihre vollständige Bewerbung über unser Recruitingtool.",
+        "fr": "Vous voyez-vous comme un ambassadeur pour lire ?\nAvec votre passion, vous avez raison avec nous. Chez Orell Füssli Thalia AG, nous créons des espaces pour diverses histoires et connaissances qui inspirent et enrichissent notre société. En outre, Orell Füssli est un endroit où les employés se sentent à l'aise, où ils aiment bien travailler ensemble et obtenir plus ensemble. Pour notre succursale de Zurich Central Station, nous recherchons un libraire 60% (a) au 1er octobre 2026\nLeurs principales tâches:\n\n• Beaucoup de choses dans le monde des histoires et des connaissances\n\n• Conseils compétents et inspirants à nos clients\n\n• Gestion et commande des entrepôts (commande, mission, recherche)\n\n• Surveillance des marchés et des tendances\n\n• Collaboration avec la collecte et la caisse enregistreuse\n\n• Présentation des livres et autres livres\nVotre profil:\n\n• Formation terminée en tant que libraire avec une solide expérience professionnelle\n\n• Affinité du livre et des médias électroniques\n\n• Personnalité orientée client et ventes avec expérience dans le contact client\n\n• Intérêt pour les affaires courantes\n\n• L'allemand styliste, en plus de bonnes compétences en langue étrangère en anglais sont avantageux\nNotre offre :\n\n• Culture d'entreprise collaborative et reconnaissante\n\n• Emplacement central avec bonnes liaisons de transport public\n\n• Modèles de temps de travail adaptés à la situation actuelle\n\n• Régime de vacances généreux et offre de réduction variée\n\n• Possibilités de formation individuelles\n\n• Options de développement interdivisions\n\nLes affectations de fin de semaine et de jours fériés sont régulièrement prévues 365 jours par an en raison des heures d'ouverture.\n\nPostulez aujourd'hui pour le plus beau travail au monde. Nous attendons avec impatience votre candidature complète via notre outil de recrutement. Si vous avez des questions, veuillez contacter:"
+      },
+      "location": "Zürich",
+      "canton": "ZH",
+      "url": "https://karriere.orellfuessli.ch/de/offene-stellen/buchhaendlerin-60",
+      "source": "Orell Füssli Thalia Dedicated Parser (Drupal career site)",
+      "sourceLang": "de",
+      "crawledAt": "2026-07-31T22:30:01.763Z",
+      "addressLocality": "Zürich",
+      "addressRegion": "Zürich",
+      "streetAddress": "Dietzingerstrasse 3",
+      "postalCode": "8003",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Vendita",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Retail / Librerie e Cartoleria",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-22",
+      "applyUrl": "https://karriere.orellfuessli.ch/de/offene-stellen/buchhaendlerin-60",
+      "jobReqId": null,
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "buchhandler-in-60-a-orell-fuessli-thalia-zurich",
+        "bookseller-60-a-orell-fussli-thalia-zurich",
+        "capo-dipartimento-100-a-orell-fussli-thalia-zurich",
+        "head-of-department-100-a-orell-fussli-thalia-zurich",
+        "abteilungsleitung-100-a-orell-fuessli-thalia-zurich",
+        "chef-de-departement-100-a-orell-fussli-thalia-zurich",
+        "capo-reparto-100-a-orell-fussli-thalia-zurich",
+        "head-of-department-100-a-orell-fussli-thalia-zurich-3bf4f7",
+        "chef-de-departement-100-a-orell-fussli-thalia-zurich-3bf4f7",
+        "abteilungsleitung-100-a-orell-fuessli-thalia-zurich-7feknu",
+        "bookseller-in-60-a-orell-fussli-thalia-zurich",
+        "libreria-in-60-a-orell-fussli-thalia-zurich",
+        "buchhandler-in-60-a-orell-fussli-thalia-zurich"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "buchhandler-in-60-a-orell-fuessli-thalia-zurich",
+          "capo-dipartimento-100-a-orell-fussli-thalia-zurich",
+          "head-of-department-100-a-orell-fussli-thalia-zurich",
+          "abteilungsleitung-100-a-orell-fuessli-thalia-zurich",
+          "chef-de-departement-100-a-orell-fussli-thalia-zurich",
+          "capo-reparto-100-a-orell-fussli-thalia-zurich",
+          "head-of-department-100-a-orell-fussli-thalia-zurich-3bf4f7",
+          "chef-de-departement-100-a-orell-fussli-thalia-zurich-3bf4f7",
+          "abteilungsleitung-100-a-orell-fuessli-thalia-zurich-7feknu",
+          "libreria-in-60-a-orell-fussli-thalia-zurich"
+        ],
+        "en": [
+          "buchhandler-in-60-a-orell-fuessli-thalia-zurich",
+          "bookseller-60-a-orell-fussli-thalia-zurich",
+          "head-of-department-100-a-orell-fussli-thalia-zurich",
+          "bookseller-in-60-a-orell-fussli-thalia-zurich",
+          "buchhandler-in-60-a-orell-fussli-thalia-zurich"
+        ],
+        "de": [
+          "abteilungsleitung-100-a-orell-fuessli-thalia-zurich"
+        ],
+        "fr": [
+          "buchhandler-in-60-a-orell-fuessli-thalia-zurich",
+          "chef-de-departement-100-a-orell-fussli-thalia-zurich"
+        ]
+      },
+      "firstSeenAt": "2026-07-22T22:40:01.631Z",
+      "needsRetranslation": true,
+      "salaryMin": 44100,
+      "salaryMax": 66900,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 44100,
+          "maxValue": 66900,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
       "id": "orell-fuessli-thalia-537e3940b3c4",
       "slug": "apprendista-r-buchhandel-cfc-orell-fussli-thalia-bern",
       "slugByLocale": {
@@ -1114,19 +1130,19 @@
         "de": "Lernende*r Buchhandel EFZ",
         "fr": "Apprenti/e*r Buchhandel EFZ"
       },
-      "description": "Die Heimat von Geschichten und Wissen\nDie Orell Füssli Thalia AG ist das grösste Schweizer Buchhandelsunternehmen mit Sitz in Zürich. Das Unternehmen beschäftigt rund 850 Mitarbeitende. Zur Orell Füssli Thalia AG gehören nebst den Orell Füssli-Buchhandlungen auch Stauffacher, Buchparadies, Barth Bücher und ZAP*, die Delivros Orell Füssli AG sowie der Online-Shop orellfuessli.ch.\nTeile deine Leidenschaft für Bücher\nDu liest für dein Leben gern? Du tauchst gerne ab in unglaubliche Bücherwelten? Und du liebst es, deine Leidenschaft für Bücher mit anderen Lesebegeisterten zu teilen? Dann bewirb dich jetzt für eine Lehrstelle als Buchhändler*in bei Orell Füssli. Denn wir lieben Bücher genauso wie du. Ausserdem ist Orell Füssli ein Ort, an dem sich die Mitarbeitenden wohl fühlen, an dem man gerne und gut zusammenarbeitet sowie gemeinsam mehr erreicht. Während deiner Ausbildung lernst du hier den Buchhandel von Grund auf kennen. Wir freuen uns, dich per 1. August 2027 in einer unserer Filiale der Region Bern / Zentralschweiz begrüssen zu dürfen.\nDeine Hauptaufgaben:\n\n• Kompetente Beratung der Kund*innen\n\n• Empfehlung von Büchern und Neuerscheinungen\n\n• Entgegennahme von Bestellungen und deren Abwicklung\n\n• Diverse Arbeiten am Computer und in unserem Warenwirtschaftssystem\n\n• Präsentation von Büchern und Non-Books\nDein Profil:\n\n• Guter Sekundarschulabschluss\n\n• Hohe Dienstleistungsorientierung, Kontaktfreudigkeit, Aufmerksamkeit und Neugier\n\n• Einwandfreie Deutschkenntnisse und Freude an Fremdsprachen\n\n• Leidenschaft für Bücher und fürs Lesen\n\n• Passion für Medien und das aktuelle Zeitgeschehen\nUnser Angebot:\n\n• Abwechslungsreiche Ausbildung in verschiedenen Abteilungen\n\n• Kollaborative und wertschätzende Unternehmenskultur\n\n• Grosszügige Ferienregelung\n\n• Vielseitiges Rabattangebot\n\n• Zentraler Arbeitsort mit guten ÖV-Anbindungen\n\nWir freuen uns sehr auf deine Online-Bewerbung. Bitte schicke uns diese inklusive Motivationsschreiben, Lebenslauf, vollständiger Schulzeugnisse und mit einem kurzen Text zu deinem Lieblingsbuch. Bis bald.",
+      "description": "Teile deine Leidenschaft für Bücher\nDu liest für dein Leben gern? Du tauchst gerne ab in unglaubliche Bücherwelten? Und du liebst es, deine Leidenschaft für Bücher mit anderen Lesebegeisterten zu teilen? Dann bewirb dich jetzt für eine Lehrstelle als Buchhändler*in bei Orell Füssli. Denn wir lieben Bücher genauso wie du. Ausserdem ist Orell Füssli ein Ort, an dem sich die Mitarbeitenden wohl fühlen, an dem man gerne und gut zusammenarbeitet sowie gemeinsam mehr erreicht. Während deiner Ausbildung lernst du hier den Buchhandel von Grund auf kennen.\nWir freuen uns, dich per 1. August 2027 in einer unserer Filialender Region Bern / Zentralschweiz begrüssen zu dürfen.\nDeine Hauptaufgaben:\n\n• Kompetente Beratung der Kund*innen\n\n• Empfehlung von Büchern und Neuerscheinungen\n\n• Entgegennahme von Bestellungen und deren Abwicklung\n\n• Diverse Arbeiten am Computer und in unserem Warenwirtschaftssystem\n\n• Präsentation von Büchern und Non-Books\nDein Profil:\n\n• Guter Sekundarschulabschluss\n\n• Hohe Dienstleistungsorientierung, Kontaktfreudigkeit, Aufmerksamkeit und Neugier\n\n• Einwandfreie Deutschkenntnisse und Freude an Fremdsprachen\n\n• Leidenschaft für Bücher und fürs Lesen\n\n• Passion für Medien und das aktuelle Zeitgeschehen\nUnser Angebot:\n\n• Abwechslungsreiche Ausbildung in verschiedenen Abteilungen\n\n• Kollaborative und wertschätzende Unternehmenskultur\n\n• Grosszügige Ferienregelung\n\n• Vielseitiges Rabattangebot\n\n• Zentraler Arbeitsort mit guten ÖV-Anbindungen\n\nWir freuen uns sehr auf deine Online-Bewerbung. Bitte schicke uns diese inklusive Motivationsschreiben, Lebenslauf, vollständiger Schulzeugnisse und mit einem kurzen Text zu deinem Lieblingsbuch. Bis bald.",
       "descriptionByLocale": {
-        "it": "La casa delle storie e della conoscenza\nOrell Füssli Thalia AG è la più grande società svizzera di commercio di libri con sede a Zurigo. L'azienda impiega circa 850 persone. Oltre alle librerie Orell Füssli, Orell Füssli AG comprende anche Stauffacher, Buchparadies, Barth Bücher e ZAP*, Delivros Orell Füssli AG e il negozio online orellfuessli.ch.\nCondividi la tua passione per i libri\nTi piace leggere per la tua vita? Ti piace immergerti in libri incredibili? E ami condividere la tua passione per i libri con altri appassionati di lettura? Poi si candida per un apprendistato come libreria presso Orell Füssli. Amiamo i libri quanto te. Inoltre, Orell Füssli è un luogo dove i dipendenti si sentono a proprio agio, dove si divertono a lavorare bene insieme e raggiungere più insieme. Durante il vostro addestramento, si arriva a conoscere il commercio del libro da terra. Non vediamo l'ora di accogliervi il 1o agosto 2027 in una delle nostre filiali nella regione di Berna / Svizzera Centrale.\nI vostri compiti principali:\n\n• Consulenza competente per i clienti\n\n• Raccomandazione di libri e nuove pubblicazioni\n\n• Ricevere ordini e gestirli\n\n• Vari lavori sul computer e nel nostro sistema di gestione delle merci\n\n• Presentazione di libri e non libri\nIl tuo profilo:\n\n• Buona istruzione secondaria\n\n• Alto orientamento al servizio, socievolezza, attenzione e curiosità\n\n• Ottima conoscenza del tedesco e del godimento delle lingue straniere\n\n• Appassionato di libri e lettura\n\n• Passione per i media e gli affari attuali\nLa nostra offerta:\n\n• Formazione variabile in diversi dipartimenti\n\n• Cultura aziendale collaborativa e apprezzativa\n\n• Schema di vacanza generoso\n\n• Versatile offerta di sconto\n\n• Posizione centrale con buoni collegamenti di trasporto pubblico\n\nAttendiamo con ansia la vostra applicazione online. Inviateci questa lettera di motivazione, CV, rapporti scolastici completi e un breve testo sul vostro libro preferito. A presto.",
-        "en": "The home of stories and knowledge\nOrell Füssli Thalia AG is the largest Swiss book trade company based in Zurich. The company employs around 850 people. In addition to the Orell Füssli bookstores, Orell Füssli AG also includes Stauffacher, Buchparadies, Barth Bücher and ZAP*, Delivros Orell Füssli AG and the online shop orellfuessli.ch.\nShare your passion for books\nDo you like reading for your life? Do you like to dive into incredible books? And you love sharing your passion for books with other reading enthusiasts? Then apply for an apprenticeship as a bookseller at Orell Füssli. We love books as much as you do. In addition, Orell Füssli is a place where employees feel comfortable, where they enjoy working well together and achieve more together. During your training, you get to know the book trade from the ground up. We look forward to welcoming you on 1 August 2027 in one of our branches in the Bern / Central Switzerland region.\nYour main tasks:\n\n• Competent advice to customers\n\n• Recommendation of books and new publications\n\n• Receiving orders and handling them\n\n• Various work on the computer and in our goods management system\n\n• Presentation of books and non-books\nYour profile:\n\n• Good secondary education\n\n• High service orientation, sociability, attention and curiosity\n\n• Excellent knowledge of German and enjoyment of foreign languages\n\n• Passionate about books and reading\n\n• Passion for media and current affairs\nOur offer:\n\n• Varied training in different departments\n\n• Collaborative and appreciative corporate culture\n\n• Generous holiday scheme\n\n• Versatile discount offer\n\n• Central location with good public transport connections\n\nWe look forward to your online application. Please send us this including motivation letter, CV, complete school reports and a short text about your favorite book. See you soon.",
-        "de": "Die Heimat von Geschichten und Wissen\nDie Orell Füssli Thalia AG ist das grösste Schweizer Buchhandelsunternehmen mit Sitz in Zürich. Das Unternehmen beschäftigt rund 850 Mitarbeitende. Zur Orell Füssli Thalia AG gehören nebst den Orell Füssli-Buchhandlungen auch Stauffacher, Buchparadies, Barth Bücher und ZAP*, die Delivros Orell Füssli AG sowie der Online-Shop orellfuessli.ch.\nTeile deine Leidenschaft für Bücher\nDu liest für dein Leben gern? Du tauchst gerne ab in unglaubliche Bücherwelten? Und du liebst es, deine Leidenschaft für Bücher mit anderen Lesebegeisterten zu teilen? Dann bewirb dich jetzt für eine Lehrstelle als Buchhändler*in bei Orell Füssli. Denn wir lieben Bücher genauso wie du. Ausserdem ist Orell Füssli ein Ort, an dem sich die Mitarbeitenden wohl fühlen, an dem man gerne und gut zusammenarbeitet sowie gemeinsam mehr erreicht. Während deiner Ausbildung lernst du hier den Buchhandel von Grund auf kennen. Wir freuen uns, dich per 1. August 2027 in einer unserer Filiale der Region Bern / Zentralschweiz begrüssen zu dürfen.\nDeine Hauptaufgaben:\n\n• Kompetente Beratung der Kund*innen\n\n• Empfehlung von Büchern und Neuerscheinungen\n\n• Entgegennahme von Bestellungen und deren Abwicklung\n\n• Diverse Arbeiten am Computer und in unserem Warenwirtschaftssystem\n\n• Präsentation von Büchern und Non-Books\nDein Profil:\n\n• Guter Sekundarschulabschluss\n\n• Hohe Dienstleistungsorientierung, Kontaktfreudigkeit, Aufmerksamkeit und Neugier\n\n• Einwandfreie Deutschkenntnisse und Freude an Fremdsprachen\n\n• Leidenschaft für Bücher und fürs Lesen\n\n• Passion für Medien und das aktuelle Zeitgeschehen\nUnser Angebot:\n\n• Abwechslungsreiche Ausbildung in verschiedenen Abteilungen\n\n• Kollaborative und wertschätzende Unternehmenskultur\n\n• Grosszügige Ferienregelung\n\n• Vielseitiges Rabattangebot\n\n• Zentraler Arbeitsort mit guten ÖV-Anbindungen\n\nWir freuen uns sehr auf deine Online-Bewerbung. Bitte schicke uns diese inklusive Motivationsschreiben, Lebenslauf, vollständiger Schulzeugnisse und mit einem kurzen Text zu deinem Lieblingsbuch. Bis bald.",
-        "fr": "La maison des histoires et des connaissances\nOrell Füssli Thalia AG est la plus grande société suisse d'édition basée à Zurich. L'entreprise emploie environ 850 personnes. Outre les librairies Orell Füssli, Orell Füssli AG comprend également Stauffacher, Buchparadies, Barth Bücher et ZAP*, Delivros Orell Füssli AG et la boutique en ligne orellfuessli.ch.\nPartagez votre passion pour les livres\nTu aimes lire pour ta vie ? Tu aimes plonger dans des livres incroyables ? Et vous aimez partager votre passion pour les livres avec d'autres passionnés de lecture ? Demandez ensuite un apprentissage comme libraire à Orell Füssli. Nous aimons les livres autant que vous. En outre, Orell Füssli est un endroit où les employés se sentent à l'aise, où ils aiment bien travailler ensemble et obtenir plus ensemble. Pendant votre entraînement, vous apprenez à connaître le métier du livre depuis le début. Nous sommes impatients de vous accueillir le 1er août 2027 dans l'une de nos succursales de la région Berne / Suisse centrale.\nVos principales tâches :\n\n• Conseils appropriés aux clients\n\n• Recommandation de livres et de nouvelles publications\n\n• Réception et traitement des commandes\n\n• Divers travaux sur l'ordinateur et dans notre système de gestion des biens\n\n• Présentation de livres et autres livres\nVotre profil:\n\n• Bonne éducation secondaire\n\n• Orientation, sociabilité, attention et curiosité\n\n• Excellente connaissance de l'allemand et de la jouissance des langues étrangères\n\n• Passionné de livres et de lecture\n\n• Passion pour les médias et les affaires courantes\nNotre offre :\n\n• Formation variée dans différents départements\n\n• Culture d'entreprise collaborative et appréciée\n\n• Régime de vacances généreux\n\n• Offre de réduction polyvalente\n\n• Emplacement central avec bonnes connexions de transport public\n\nNous attendons avec impatience votre candidature en ligne. Veuillez nous envoyer cette lettre de motivation, CV, rapports scolaires complets et un court texte sur votre livre préféré. A bientôt."
+        "de": "Teile deine Leidenschaft für Bücher\nDu liest für dein Leben gern? Du tauchst gerne ab in unglaubliche Bücherwelten? Und du liebst es, deine Leidenschaft für Bücher mit anderen Lesebegeisterten zu teilen? Dann bewirb dich jetzt für eine Lehrstelle als Buchhändler*in bei Orell Füssli. Denn wir lieben Bücher genauso wie du. Ausserdem ist Orell Füssli ein Ort, an dem sich die Mitarbeitenden wohl fühlen, an dem man gerne und gut zusammenarbeitet sowie gemeinsam mehr erreicht. Während deiner Ausbildung lernst du hier den Buchhandel von Grund auf kennen.\nWir freuen uns, dich per 1. August 2027 in einer unserer Filialender Region Bern / Zentralschweiz begrüssen zu dürfen.\nDeine Hauptaufgaben:\n\n• Kompetente Beratung der Kund*innen\n\n• Empfehlung von Büchern und Neuerscheinungen\n\n• Entgegennahme von Bestellungen und deren Abwicklung\n\n• Diverse Arbeiten am Computer und in unserem Warenwirtschaftssystem\n\n• Präsentation von Büchern und Non-Books\nDein Profil:\n\n• Guter Sekundarschulabschluss\n\n• Hohe Dienstleistungsorientierung, Kontaktfreudigkeit, Aufmerksamkeit und Neugier\n\n• Einwandfreie Deutschkenntnisse und Freude an Fremdsprachen\n\n• Leidenschaft für Bücher und fürs Lesen\n\n• Passion für Medien und das aktuelle Zeitgeschehen\nUnser Angebot:\n\n• Abwechslungsreiche Ausbildung in verschiedenen Abteilungen\n\n• Kollaborative und wertschätzende Unternehmenskultur\n\n• Grosszügige Ferienregelung\n\n• Vielseitiges Rabattangebot\n\n• Zentraler Arbeitsort mit guten ÖV-Anbindungen\n\nWir freuen uns sehr auf deine Online-Bewerbung. Bitte schicke uns diese inklusive Motivationsschreiben, Lebenslauf, vollständiger Schulzeugnisse und mit einem kurzen Text zu deinem Lieblingsbuch. Bis bald.",
+        "it": "Teile deine Leidenschaft für Bücher\nDu liest für dein Leben gern? Du tauchst gerne ab in unglaubliche Bücherwelten? Und du liebst es, deine Leidenschaft für Bücher mit anderen Lesebegeisterten zu teilen? Dann bewirb dich jetzt für eine Lehrstelle als Buchhändler*in bei Orell Füssli. Denn wir lieben Bücher genauso wie du. Ausserdem ist Orell Füssli ein Ort, an dem sich die Mitarbeitenden wohl fühlen, an dem man gerne und gut zusammenarbeitet sowie gemeinsam mehr erreicht. Während deiner Ausbildung lernst du hier den Buchhandel von Grund auf kennen.\nWir freuen uns, dich per 1. August 2027 in einer unserer Filialender Region Bern / Zentralschweiz begrüssen zu dürfen.\nDeine Hauptaufgaben:\n\n• Kompetente Beratung der Kund*innen\n\n• Empfehlung von Büchern und Neuerscheinungen\n\n• Entgegennahme von Bestellungen und deren Abwicklung\n\n• Diverse Arbeiten am Computer und in unserem Warenwirtschaftssystem\n\n• Präsentation von Büchern und Non-Books\nDein Profil:\n\n• Guter Sekundarschulabschluss\n\n• Hohe Dienstleistungsorientierung, Kontaktfreudigkeit, Aufmerksamkeit und Neugier\n\n• Einwandfreie Deutschkenntnisse und Freude an Fremdsprachen\n\n• Leidenschaft für Bücher und fürs Lesen\n\n• Passion für Medien und das aktuelle Zeitgeschehen\nUnser Angebot:\n\n• Abwechslungsreiche Ausbildung in verschiedenen Abteilungen\n\n• Kollaborative und wertschätzende Unternehmenskultur\n\n• Grosszügige Ferienregelung\n\n• Vielseitiges Rabattangebot\n\n• Zentraler Arbeitsort mit guten ÖV-Anbindungen\n\nWir freuen uns sehr auf deine Online-Bewerbung. Bitte schicke uns diese inklusive Motivationsschreiben, Lebenslauf, vollständiger Schulzeugnisse und mit einem kurzen Text zu deinem Lieblingsbuch. Bis bald.",
+        "en": "Teile deine Leidenschaft für Bücher\nDu liest für dein Leben gern? Du tauchst gerne ab in unglaubliche Bücherwelten? Und du liebst es, deine Leidenschaft für Bücher mit anderen Lesebegeisterten zu teilen? Dann bewirb dich jetzt für eine Lehrstelle als Buchhändler*in bei Orell Füssli. Denn wir lieben Bücher genauso wie du. Ausserdem ist Orell Füssli ein Ort, an dem sich die Mitarbeitenden wohl fühlen, an dem man gerne und gut zusammenarbeitet sowie gemeinsam mehr erreicht. Während deiner Ausbildung lernst du hier den Buchhandel von Grund auf kennen.\nWir freuen uns, dich per 1. August 2027 in einer unserer Filialender Region Bern / Zentralschweiz begrüssen zu dürfen.\nDeine Hauptaufgaben:\n\n• Kompetente Beratung der Kund*innen\n\n• Empfehlung von Büchern und Neuerscheinungen\n\n• Entgegennahme von Bestellungen und deren Abwicklung\n\n• Diverse Arbeiten am Computer und in unserem Warenwirtschaftssystem\n\n• Präsentation von Büchern und Non-Books\nDein Profil:\n\n• Guter Sekundarschulabschluss\n\n• Hohe Dienstleistungsorientierung, Kontaktfreudigkeit, Aufmerksamkeit und Neugier\n\n• Einwandfreie Deutschkenntnisse und Freude an Fremdsprachen\n\n• Leidenschaft für Bücher und fürs Lesen\n\n• Passion für Medien und das aktuelle Zeitgeschehen\nUnser Angebot:\n\n• Abwechslungsreiche Ausbildung in verschiedenen Abteilungen\n\n• Kollaborative und wertschätzende Unternehmenskultur\n\n• Grosszügige Ferienregelung\n\n• Vielseitiges Rabattangebot\n\n• Zentraler Arbeitsort mit guten ÖV-Anbindungen\n\nWir freuen uns sehr auf deine Online-Bewerbung. Bitte schicke uns diese inklusive Motivationsschreiben, Lebenslauf, vollständiger Schulzeugnisse und mit einem kurzen Text zu deinem Lieblingsbuch. Bis bald.",
+        "fr": "Teile deine Leidenschaft für Bücher\nDu liest für dein Leben gern? Du tauchst gerne ab in unglaubliche Bücherwelten? Und du liebst es, deine Leidenschaft für Bücher mit anderen Lesebegeisterten zu teilen? Dann bewirb dich jetzt für eine Lehrstelle als Buchhändler*in bei Orell Füssli. Denn wir lieben Bücher genauso wie du. Ausserdem ist Orell Füssli ein Ort, an dem sich die Mitarbeitenden wohl fühlen, an dem man gerne und gut zusammenarbeitet sowie gemeinsam mehr erreicht. Während deiner Ausbildung lernst du hier den Buchhandel von Grund auf kennen.\nWir freuen uns, dich per 1. August 2027 in einer unserer Filialender Region Bern / Zentralschweiz begrüssen zu dürfen.\nDeine Hauptaufgaben:\n\n• Kompetente Beratung der Kund*innen\n\n• Empfehlung von Büchern und Neuerscheinungen\n\n• Entgegennahme von Bestellungen und deren Abwicklung\n\n• Diverse Arbeiten am Computer und in unserem Warenwirtschaftssystem\n\n• Präsentation von Büchern und Non-Books\nDein Profil:\n\n• Guter Sekundarschulabschluss\n\n• Hohe Dienstleistungsorientierung, Kontaktfreudigkeit, Aufmerksamkeit und Neugier\n\n• Einwandfreie Deutschkenntnisse und Freude an Fremdsprachen\n\n• Leidenschaft für Bücher und fürs Lesen\n\n• Passion für Medien und das aktuelle Zeitgeschehen\nUnser Angebot:\n\n• Abwechslungsreiche Ausbildung in verschiedenen Abteilungen\n\n• Kollaborative und wertschätzende Unternehmenskultur\n\n• Grosszügige Ferienregelung\n\n• Vielseitiges Rabattangebot\n\n• Zentraler Arbeitsort mit guten ÖV-Anbindungen\n\nWir freuen uns sehr auf deine Online-Bewerbung. Bitte schicke uns diese inklusive Motivationsschreiben, Lebenslauf, vollständiger Schulzeugnisse und mit einem kurzen Text zu deinem Lieblingsbuch. Bis bald."
       },
       "location": "Bern",
       "canton": "BE",
       "url": "https://karriere.orellfuessli.ch/de/offene-stellen/lernender-buchhandel-efz",
       "source": "Orell Füssli Thalia Dedicated Parser (Drupal career site)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-30T22:27:05.912Z",
+      "crawledAt": "2026-07-31T22:30:01.762Z",
       "addressLocality": "Bern",
       "addressRegion": "Zürich",
       "streetAddress": "",
@@ -1146,11 +1162,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lernende-r-buchhandel-efz-orell-fuessli-thalia-bern"
+        "lernende-r-buchhandel-efz-orell-fuessli-thalia-bern",
+        "apprendista-r-buchhandel-cfc-orell-fussli-thalia-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lernende-r-buchhandel-efz-orell-fuessli-thalia-bern"
+          "lernende-r-buchhandel-efz-orell-fuessli-thalia-bern",
+          "apprendista-r-buchhandel-cfc-orell-fussli-thalia-bern"
         ],
         "en": [
           "lernende-r-buchhandel-efz-orell-fuessli-thalia-bern"
@@ -1160,6 +1178,7 @@
         ]
       },
       "firstSeenAt": "2026-07-28T22:36:20.409Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -1178,7 +1197,7 @@
       "slug": "libreria-in-30-40-a-orell-fussli-thalia-baden",
       "slugByLocale": {
         "it": "libreria-in-30-40-a-orell-fussli-thalia-baden",
-        "en": "bookseller-in-30-40-a-orell-fussli-thalia-baden",
+        "en": "buchhandler-in-30-40-a-orell-fussli-thalia-baden",
         "de": "buchhandler-in-30-40-a-orell-fuessli-thalia-baden",
         "fr": "librairie-en-30-40-a-orell-fussli-thalia-baden"
       },
@@ -1188,7 +1207,7 @@
       "title": "Buchhändler*in 30-40% (a)",
       "titleByLocale": {
         "it": "Libreria* in 30-40% (a)",
-        "en": "Bookseller*in 30-40% (a)",
+        "en": "Buchhändler*in 30-40% (a)",
         "de": "Buchhändler*in 30-40% (a)",
         "fr": "Librairie en 30-40% (a)"
       },
@@ -1204,7 +1223,7 @@
       "url": "https://karriere.orellfuessli.ch/de/offene-stellen/buchhaendlerin-30-40",
       "source": "Orell Füssli Thalia Dedicated Parser (Drupal career site)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-30T22:27:05.912Z",
+      "crawledAt": "2026-07-31T22:30:01.762Z",
       "addressLocality": "Baden",
       "addressRegion": "Zürich",
       "streetAddress": "",
@@ -1225,14 +1244,18 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "buchhandler-in-30-40-a-orell-fuessli-thalia-baden",
+        "bookseller-in-30-40-a-orell-fussli-thalia-baden",
+        "libreria-in-30-40-a-orell-fussli-thalia-baden",
         "buchhandler-in-30-40-a-orell-fussli-thalia-baden"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "buchhandler-in-30-40-a-orell-fuessli-thalia-baden"
+          "buchhandler-in-30-40-a-orell-fuessli-thalia-baden",
+          "libreria-in-30-40-a-orell-fussli-thalia-baden"
         ],
         "en": [
           "buchhandler-in-30-40-a-orell-fuessli-thalia-baden",
+          "bookseller-in-30-40-a-orell-fussli-thalia-baden",
           "buchhandler-in-30-40-a-orell-fussli-thalia-baden"
         ],
         "fr": [
@@ -1240,6 +1263,7 @@
         ]
       },
       "firstSeenAt": "2026-07-23T22:27:31.279Z",
+      "needsRetranslation": true,
       "salaryMin": 24800,
       "salaryMax": 37600,
       "baseSalary": {
@@ -1272,19 +1296,19 @@
         "de": "Lernende*r Buchhandel EFZ",
         "fr": "Apprenti/e*r Buchhandel EFZ"
       },
-      "description": "Die Heimat von Geschichten und Wissen\nDie Orell Füssli Thalia AG ist das grösste Schweizer Buchhandelsunternehmen mit Sitz in Zürich. Das Unternehmen beschäftigt rund 850 Mitarbeitende. Zur Orell Füssli Thalia AG gehören nebst den Orell Füssli-Buchhandlungen auch Stauffacher, Buchparadies, Barth Bücher und ZAP*, die Delivros Orell Füssli AG sowie der Online-Shop orellfuessli.ch.\nTeile deine Leidenschaft für Bücher\nDu liest für dein Leben gern? Du tauchst gerne ab in unglaubliche Bücherwelten? Und du liebst es, deine Leidenschaft für Bücher mit anderen Lesebegeisterten zu teilen? Dann bewirb dich jetzt für eine Lehrstelle als Buchhändler*in bei Orell Füssli. Denn wir lieben Bücher genauso wie du. Ausserdem ist Orell Füssli ein Ort, an dem sich die Mitarbeitenden wohl fühlen, an dem man gerne und gut zusammenarbeitet sowie gemeinsam mehr erreicht. Während deiner Ausbildung lernst du hier den Buchhandel von Grund auf kennen. Wir freuen uns, dich per 1. August 2027 in einer unserer Filiale der Region Zürich / Nordwestschweiz begrüssen zu dürfen.\nDeine Hauptaufgaben:\n\n• Kompetente Beratung der Kund*innen\n\n• Empfehlung von Büchern und Neuerscheinungen\n\n• Entgegennahme von Bestellungen und deren Abwicklung\n\n• Diverse Arbeiten am Computer und in unserem Warenwirtschaftssystem\n\n• Präsentation von Büchern und Non-Books\nDein Profil:\n\n• Guter Sekundarschulabschluss\n\n• Hohe Dienstleistungsorientierung, Kontaktfreudigkeit, Aufmerksamkeit und Neugier\n\n• Einwandfreie Deutschkenntnisse und Freude an Fremdsprachen\n\n• Leidenschaft für Bücher und fürs Lesen\n\n• Passion für Medien und das aktuelle Zeitgeschehen\nUnser Angebot:\n\n• Abwechslungsreiche Ausbildung in verschiedenen Abteilungen\n\n• Kollaborative und wertschätzende Unternehmenskultur\n\n• Grosszügige Ferienregelung\n\n• Vielseitiges Rabattangebot\n\n• Zentraler Arbeitsort mit guten ÖV-Anbindungen\n\nWir freuen uns sehr auf deine Online-Bewerbung. Bitte schicke uns diese inklusive Motivationsschreiben, Lebenslauf, vollständiger Schulzeugnisse und mit einem kurzen Text zu deinem Lieblingsbuch. Bis bald.",
+      "description": "Teile deine Leidenschaft für Bücher\nDu liest für dein Leben gern? Du tauchst gerne ab in unglaubliche Bücherwelten? Und du liebst es, deine Leidenschaft für Bücher mit anderen Lesebegeisterten zu teilen? Dann bewirb dich jetzt für eine Lehrstelle als Buchhändler*in bei Orell Füssli. Denn wir lieben Bücher genauso wie du. Ausserdem ist Orell Füssli ein Ort, an dem sich die Mitarbeitenden wohl fühlen, an dem man gerne und gut zusammenarbeitet sowie gemeinsam mehr erreicht. Während deiner Ausbildung lernst du hier den Buchhandel von Grund auf kennen.\nWir freuen uns, dich per 1. August 2027 in einer unserer Filialen der Region Zürich / Nordwestschweiz begrüssen zu dürfen.\nDeine Hauptaufgaben:\n\n• Kompetente Beratung der Kund*innen\n\n• Empfehlung von Büchern und Neuerscheinungen\n\n• Entgegennahme von Bestellungen und deren Abwicklung\n\n• Diverse Arbeiten am Computer und in unserem Warenwirtschaftssystem\n\n• Präsentation von Büchern und Non-Books\nDein Profil:\n\n• Guter Sekundarschulabschluss\n\n• Hohe Dienstleistungsorientierung, Kontaktfreudigkeit, Aufmerksamkeit und Neugier\n\n• Einwandfreie Deutschkenntnisse und Freude an Fremdsprachen\n\n• Leidenschaft für Bücher und fürs Lesen\n\n• Passion für Medien und das aktuelle Zeitgeschehen\nUnser Angebot:\n\n• Abwechslungsreiche Ausbildung in verschiedenen Abteilungen\n\n• Kollaborative und wertschätzende Unternehmenskultur\n\n• Grosszügige Ferienregelung\n\n• Vielseitiges Rabattangebot\n\n• Zentraler Arbeitsort mit guten ÖV-Anbindungen\n\nWir freuen uns sehr auf deine Online-Bewerbung. Bitte schicke uns diese inklusive Motivationsschreiben, Lebenslauf, vollständiger Schulzeugnisse und mit einem kurzen Text zu deinem Lieblingsbuch. Bis bald.",
       "descriptionByLocale": {
-        "it": "La casa delle storie e della conoscenza\nOrell Füssli Thalia AG è la più grande società svizzera di commercio di libri con sede a Zurigo. L'azienda impiega circa 850 persone. Oltre alle librerie Orell Füssli, Orell Füssli AG comprende anche Stauffacher, Buchparadies, Barth Bücher e ZAP*, Delivros Orell Füssli AG e il negozio online orellfuessli.ch.\nCondividi la tua passione per i libri\nTi piace leggere per la tua vita? Ti piace immergerti in libri incredibili? E ami condividere la tua passione per i libri con altri appassionati di lettura? Poi si candida per un apprendistato come libreria presso Orell Füssli. Amiamo i libri quanto te. Inoltre, Orell Füssli è un luogo dove i dipendenti si sentono a proprio agio, dove si divertono a lavorare bene insieme e raggiungere più insieme. Durante il vostro addestramento, si arriva a conoscere il commercio del libro da terra. Non vediamo l'ora di accogliervi il 1o agosto 2027 in una delle nostre filiali nella regione di Zurigo/Svizzera nord-occidentale.\nI vostri compiti principali:\n\n• Consulenza competente per i clienti\n\n• Raccomandazione di libri e nuove pubblicazioni\n\n• Ricevere ordini e gestirli\n\n• Vari lavori sul computer e nel nostro sistema di gestione delle merci\n\n• Presentazione di libri e non libri\nIl tuo profilo:\n\n• Buona istruzione secondaria\n\n• Alto orientamento al servizio, socievolezza, attenzione e curiosità\n\n• Ottima conoscenza del tedesco e del godimento delle lingue straniere\n\n• Appassionato di libri e lettura\n\n• Passione per i media e gli affari attuali\nLa nostra offerta:\n\n• Formazione variabile in diversi dipartimenti\n\n• Cultura aziendale collaborativa e apprezzativa\n\n• Schema di vacanza generoso\n\n• Versatile offerta di sconto\n\n• Posizione centrale con buoni collegamenti di trasporto pubblico\n\nAttendiamo con ansia la vostra applicazione online. Inviateci questa lettera di motivazione, CV, rapporti scolastici completi e un breve testo sul vostro libro preferito. A presto.",
-        "en": "The home of stories and knowledge\nOrell Füssli Thalia AG is the largest Swiss book trade company based in Zurich. The company employs around 850 people. In addition to the Orell Füssli bookstores, Orell Füssli AG also includes Stauffacher, Buchparadies, Barth Bücher and ZAP*, Delivros Orell Füssli AG and the online shop orellfuessli.ch.\nShare your passion for books\nDo you like reading for your life? Do you like to dive into incredible books? And you love sharing your passion for books with other reading enthusiasts? Then apply for an apprenticeship as a bookseller at Orell Füssli. We love books as much as you do. In addition, Orell Füssli is a place where employees feel comfortable, where they enjoy working well together and achieve more together. During your training, you get to know the book trade from the ground up. We look forward to welcoming you on 1 August 2027 in one of our branches in the Zurich / Northwest Switzerland region.\nYour main tasks:\n\n• Competent advice to customers\n\n• Recommendation of books and new publications\n\n• Receiving orders and handling them\n\n• Various work on the computer and in our goods management system\n\n• Presentation of books and non-books\nYour profile:\n\n• Good secondary education\n\n• High service orientation, sociability, attention and curiosity\n\n• Excellent knowledge of German and enjoyment of foreign languages\n\n• Passionate about books and reading\n\n• Passion for media and current affairs\nOur offer:\n\n• Varied training in different departments\n\n• Collaborative and appreciative corporate culture\n\n• Generous holiday scheme\n\n• Versatile discount offer\n\n• Central location with good public transport connections\n\nWe look forward to your online application. Please send us this including motivation letter, CV, complete school reports and a short text about your favorite book. See you soon.",
-        "de": "Die Heimat von Geschichten und Wissen\nDie Orell Füssli Thalia AG ist das grösste Schweizer Buchhandelsunternehmen mit Sitz in Zürich. Das Unternehmen beschäftigt rund 850 Mitarbeitende. Zur Orell Füssli Thalia AG gehören nebst den Orell Füssli-Buchhandlungen auch Stauffacher, Buchparadies, Barth Bücher und ZAP*, die Delivros Orell Füssli AG sowie der Online-Shop orellfuessli.ch.\nTeile deine Leidenschaft für Bücher\nDu liest für dein Leben gern? Du tauchst gerne ab in unglaubliche Bücherwelten? Und du liebst es, deine Leidenschaft für Bücher mit anderen Lesebegeisterten zu teilen? Dann bewirb dich jetzt für eine Lehrstelle als Buchhändler*in bei Orell Füssli. Denn wir lieben Bücher genauso wie du. Ausserdem ist Orell Füssli ein Ort, an dem sich die Mitarbeitenden wohl fühlen, an dem man gerne und gut zusammenarbeitet sowie gemeinsam mehr erreicht. Während deiner Ausbildung lernst du hier den Buchhandel von Grund auf kennen. Wir freuen uns, dich per 1. August 2027 in einer unserer Filiale der Region Zürich / Nordwestschweiz begrüssen zu dürfen.\nDeine Hauptaufgaben:\n\n• Kompetente Beratung der Kund*innen\n\n• Empfehlung von Büchern und Neuerscheinungen\n\n• Entgegennahme von Bestellungen und deren Abwicklung\n\n• Diverse Arbeiten am Computer und in unserem Warenwirtschaftssystem\n\n• Präsentation von Büchern und Non-Books\nDein Profil:\n\n• Guter Sekundarschulabschluss\n\n• Hohe Dienstleistungsorientierung, Kontaktfreudigkeit, Aufmerksamkeit und Neugier\n\n• Einwandfreie Deutschkenntnisse und Freude an Fremdsprachen\n\n• Leidenschaft für Bücher und fürs Lesen\n\n• Passion für Medien und das aktuelle Zeitgeschehen\nUnser Angebot:\n\n• Abwechslungsreiche Ausbildung in verschiedenen Abteilungen\n\n• Kollaborative und wertschätzende Unternehmenskultur\n\n• Grosszügige Ferienregelung\n\n• Vielseitiges Rabattangebot\n\n• Zentraler Arbeitsort mit guten ÖV-Anbindungen\n\nWir freuen uns sehr auf deine Online-Bewerbung. Bitte schicke uns diese inklusive Motivationsschreiben, Lebenslauf, vollständiger Schulzeugnisse und mit einem kurzen Text zu deinem Lieblingsbuch. Bis bald.",
-        "fr": "La maison des histoires et des connaissances\nOrell Füssli Thalia AG est la plus grande société suisse d'édition basée à Zurich. L'entreprise emploie environ 850 personnes. Outre les librairies Orell Füssli, Orell Füssli AG comprend également Stauffacher, Buchparadies, Barth Bücher et ZAP*, Delivros Orell Füssli AG et la boutique en ligne orellfuessli.ch.\nPartagez votre passion pour les livres\nTu aimes lire pour ta vie ? Tu aimes plonger dans des livres incroyables ? Et vous aimez partager votre passion pour les livres avec d'autres passionnés de lecture ? Demandez ensuite un apprentissage comme libraire à Orell Füssli. Nous aimons les livres autant que vous. En outre, Orell Füssli est un endroit où les employés se sentent à l'aise, où ils aiment bien travailler ensemble et obtenir plus ensemble. Pendant votre entraînement, vous apprenez à connaître le métier du livre depuis le début. Nous sommes impatients de vous accueillir le 1er août 2027 dans l'une de nos succursales de la région Zurich/Suisse du Nord-Ouest.\nVos principales tâches :\n\n• Conseils appropriés aux clients\n\n• Recommandation de livres et de nouvelles publications\n\n• Réception et traitement des commandes\n\n• Divers travaux sur l'ordinateur et dans notre système de gestion des biens\n\n• Présentation de livres et autres livres\nVotre profil:\n\n• Bonne éducation secondaire\n\n• Orientation, sociabilité, attention et curiosité\n\n• Excellente connaissance de l'allemand et de la jouissance des langues étrangères\n\n• Passionné de livres et de lecture\n\n• Passion pour les médias et les affaires courantes\nNotre offre :\n\n• Formation variée dans différents départements\n\n• Culture d'entreprise collaborative et appréciée\n\n• Régime de vacances généreux\n\n• Offre de réduction polyvalente\n\n• Emplacement central avec bonnes connexions de transport public\n\nNous attendons avec impatience votre candidature en ligne. Veuillez nous envoyer cette lettre de motivation, CV, rapports scolaires complets et un court texte sur votre livre préféré. A bientôt."
+        "de": "Teile deine Leidenschaft für Bücher\nDu liest für dein Leben gern? Du tauchst gerne ab in unglaubliche Bücherwelten? Und du liebst es, deine Leidenschaft für Bücher mit anderen Lesebegeisterten zu teilen? Dann bewirb dich jetzt für eine Lehrstelle als Buchhändler*in bei Orell Füssli. Denn wir lieben Bücher genauso wie du. Ausserdem ist Orell Füssli ein Ort, an dem sich die Mitarbeitenden wohl fühlen, an dem man gerne und gut zusammenarbeitet sowie gemeinsam mehr erreicht. Während deiner Ausbildung lernst du hier den Buchhandel von Grund auf kennen.\nWir freuen uns, dich per 1. August 2027 in einer unserer Filialen der Region Zürich / Nordwestschweiz begrüssen zu dürfen.\nDeine Hauptaufgaben:\n\n• Kompetente Beratung der Kund*innen\n\n• Empfehlung von Büchern und Neuerscheinungen\n\n• Entgegennahme von Bestellungen und deren Abwicklung\n\n• Diverse Arbeiten am Computer und in unserem Warenwirtschaftssystem\n\n• Präsentation von Büchern und Non-Books\nDein Profil:\n\n• Guter Sekundarschulabschluss\n\n• Hohe Dienstleistungsorientierung, Kontaktfreudigkeit, Aufmerksamkeit und Neugier\n\n• Einwandfreie Deutschkenntnisse und Freude an Fremdsprachen\n\n• Leidenschaft für Bücher und fürs Lesen\n\n• Passion für Medien und das aktuelle Zeitgeschehen\nUnser Angebot:\n\n• Abwechslungsreiche Ausbildung in verschiedenen Abteilungen\n\n• Kollaborative und wertschätzende Unternehmenskultur\n\n• Grosszügige Ferienregelung\n\n• Vielseitiges Rabattangebot\n\n• Zentraler Arbeitsort mit guten ÖV-Anbindungen\n\nWir freuen uns sehr auf deine Online-Bewerbung. Bitte schicke uns diese inklusive Motivationsschreiben, Lebenslauf, vollständiger Schulzeugnisse und mit einem kurzen Text zu deinem Lieblingsbuch. Bis bald.",
+        "it": "Teile deine Leidenschaft für Bücher\nDu liest für dein Leben gern? Du tauchst gerne ab in unglaubliche Bücherwelten? Und du liebst es, deine Leidenschaft für Bücher mit anderen Lesebegeisterten zu teilen? Dann bewirb dich jetzt für eine Lehrstelle als Buchhändler*in bei Orell Füssli. Denn wir lieben Bücher genauso wie du. Ausserdem ist Orell Füssli ein Ort, an dem sich die Mitarbeitenden wohl fühlen, an dem man gerne und gut zusammenarbeitet sowie gemeinsam mehr erreicht. Während deiner Ausbildung lernst du hier den Buchhandel von Grund auf kennen.\nWir freuen uns, dich per 1. August 2027 in einer unserer Filialen der Region Zürich / Nordwestschweiz begrüssen zu dürfen.\nDeine Hauptaufgaben:\n\n• Kompetente Beratung der Kund*innen\n\n• Empfehlung von Büchern und Neuerscheinungen\n\n• Entgegennahme von Bestellungen und deren Abwicklung\n\n• Diverse Arbeiten am Computer und in unserem Warenwirtschaftssystem\n\n• Präsentation von Büchern und Non-Books\nDein Profil:\n\n• Guter Sekundarschulabschluss\n\n• Hohe Dienstleistungsorientierung, Kontaktfreudigkeit, Aufmerksamkeit und Neugier\n\n• Einwandfreie Deutschkenntnisse und Freude an Fremdsprachen\n\n• Leidenschaft für Bücher und fürs Lesen\n\n• Passion für Medien und das aktuelle Zeitgeschehen\nUnser Angebot:\n\n• Abwechslungsreiche Ausbildung in verschiedenen Abteilungen\n\n• Kollaborative und wertschätzende Unternehmenskultur\n\n• Grosszügige Ferienregelung\n\n• Vielseitiges Rabattangebot\n\n• Zentraler Arbeitsort mit guten ÖV-Anbindungen\n\nWir freuen uns sehr auf deine Online-Bewerbung. Bitte schicke uns diese inklusive Motivationsschreiben, Lebenslauf, vollständiger Schulzeugnisse und mit einem kurzen Text zu deinem Lieblingsbuch. Bis bald.",
+        "en": "Teile deine Leidenschaft für Bücher\nDu liest für dein Leben gern? Du tauchst gerne ab in unglaubliche Bücherwelten? Und du liebst es, deine Leidenschaft für Bücher mit anderen Lesebegeisterten zu teilen? Dann bewirb dich jetzt für eine Lehrstelle als Buchhändler*in bei Orell Füssli. Denn wir lieben Bücher genauso wie du. Ausserdem ist Orell Füssli ein Ort, an dem sich die Mitarbeitenden wohl fühlen, an dem man gerne und gut zusammenarbeitet sowie gemeinsam mehr erreicht. Während deiner Ausbildung lernst du hier den Buchhandel von Grund auf kennen.\nWir freuen uns, dich per 1. August 2027 in einer unserer Filialen der Region Zürich / Nordwestschweiz begrüssen zu dürfen.\nDeine Hauptaufgaben:\n\n• Kompetente Beratung der Kund*innen\n\n• Empfehlung von Büchern und Neuerscheinungen\n\n• Entgegennahme von Bestellungen und deren Abwicklung\n\n• Diverse Arbeiten am Computer und in unserem Warenwirtschaftssystem\n\n• Präsentation von Büchern und Non-Books\nDein Profil:\n\n• Guter Sekundarschulabschluss\n\n• Hohe Dienstleistungsorientierung, Kontaktfreudigkeit, Aufmerksamkeit und Neugier\n\n• Einwandfreie Deutschkenntnisse und Freude an Fremdsprachen\n\n• Leidenschaft für Bücher und fürs Lesen\n\n• Passion für Medien und das aktuelle Zeitgeschehen\nUnser Angebot:\n\n• Abwechslungsreiche Ausbildung in verschiedenen Abteilungen\n\n• Kollaborative und wertschätzende Unternehmenskultur\n\n• Grosszügige Ferienregelung\n\n• Vielseitiges Rabattangebot\n\n• Zentraler Arbeitsort mit guten ÖV-Anbindungen\n\nWir freuen uns sehr auf deine Online-Bewerbung. Bitte schicke uns diese inklusive Motivationsschreiben, Lebenslauf, vollständiger Schulzeugnisse und mit einem kurzen Text zu deinem Lieblingsbuch. Bis bald.",
+        "fr": "Teile deine Leidenschaft für Bücher\nDu liest für dein Leben gern? Du tauchst gerne ab in unglaubliche Bücherwelten? Und du liebst es, deine Leidenschaft für Bücher mit anderen Lesebegeisterten zu teilen? Dann bewirb dich jetzt für eine Lehrstelle als Buchhändler*in bei Orell Füssli. Denn wir lieben Bücher genauso wie du. Ausserdem ist Orell Füssli ein Ort, an dem sich die Mitarbeitenden wohl fühlen, an dem man gerne und gut zusammenarbeitet sowie gemeinsam mehr erreicht. Während deiner Ausbildung lernst du hier den Buchhandel von Grund auf kennen.\nWir freuen uns, dich per 1. August 2027 in einer unserer Filialen der Region Zürich / Nordwestschweiz begrüssen zu dürfen.\nDeine Hauptaufgaben:\n\n• Kompetente Beratung der Kund*innen\n\n• Empfehlung von Büchern und Neuerscheinungen\n\n• Entgegennahme von Bestellungen und deren Abwicklung\n\n• Diverse Arbeiten am Computer und in unserem Warenwirtschaftssystem\n\n• Präsentation von Büchern und Non-Books\nDein Profil:\n\n• Guter Sekundarschulabschluss\n\n• Hohe Dienstleistungsorientierung, Kontaktfreudigkeit, Aufmerksamkeit und Neugier\n\n• Einwandfreie Deutschkenntnisse und Freude an Fremdsprachen\n\n• Leidenschaft für Bücher und fürs Lesen\n\n• Passion für Medien und das aktuelle Zeitgeschehen\nUnser Angebot:\n\n• Abwechslungsreiche Ausbildung in verschiedenen Abteilungen\n\n• Kollaborative und wertschätzende Unternehmenskultur\n\n• Grosszügige Ferienregelung\n\n• Vielseitiges Rabattangebot\n\n• Zentraler Arbeitsort mit guten ÖV-Anbindungen\n\nWir freuen uns sehr auf deine Online-Bewerbung. Bitte schicke uns diese inklusive Motivationsschreiben, Lebenslauf, vollständiger Schulzeugnisse und mit einem kurzen Text zu deinem Lieblingsbuch. Bis bald."
       },
       "location": "Zürich",
       "canton": "ZH",
       "url": "https://karriere.orellfuessli.ch/de/offene-stellen/lernender-buchhandel-efz-0",
       "source": "Orell Füssli Thalia Dedicated Parser (Drupal career site)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-30T22:27:05.911Z",
+      "crawledAt": "2026-07-31T22:30:01.761Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Dietzingerstrasse 3",
@@ -1304,11 +1328,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lernende-r-buchhandel-efz-orell-fuessli-thalia-zurich"
+        "lernende-r-buchhandel-efz-orell-fuessli-thalia-zurich",
+        "apprendista-r-buchhandel-cfc-orell-fussli-thalia-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lernende-r-buchhandel-efz-orell-fuessli-thalia-zurich"
+          "lernende-r-buchhandel-efz-orell-fuessli-thalia-zurich",
+          "apprendista-r-buchhandel-cfc-orell-fussli-thalia-zurich"
         ],
         "en": [
           "lernende-r-buchhandel-efz-orell-fuessli-thalia-zurich"
@@ -1318,6 +1344,7 @@
         ]
       },
       "firstSeenAt": "2026-07-28T22:36:20.408Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -1350,19 +1377,19 @@
         "de": "Lernende*r Buchhandel EFZ",
         "fr": "Apprenti/e*r Buchhandel EFZ"
       },
-      "description": "Die Heimat von Geschichten und Wissen\nDie Orell Füssli Thalia AG ist das grösste Schweizer Buchhandelsunternehmen mit Sitz in Zürich. Das Unternehmen beschäftigt rund 850 Mitarbeitende. Zur Orell Füssli Thalia AG gehören nebst den Orell Füssli-Buchhandlungen auch Stauffacher, Buchparadies, Barth Bücher und ZAP*, die Delivros Orell Füssli AG sowie der Online-Shop orellfuessli.ch.\nTeile deine Leidenschaft für Bücher\nDu liest für dein Leben gern? Du tauchst gerne ab in unglaubliche Bücherwelten? Und du liebst es, deine Leidenschaft für Bücher mit anderen Lesebegeisterten zu teilen? Dann bewirb dich jetzt für eine Lehrstelle als Buchhändler*in bei Orell Füssli. Denn wir lieben Bücher genauso wie du. Ausserdem ist Orell Füssli ein Ort, an dem sich die Mitarbeitenden wohl fühlen, an dem man gerne und gut zusammenarbeitet sowie gemeinsam mehr erreicht. Während deiner Ausbildung lernst du hier den Buchhandel von Grund auf kennen. Wir freuen uns, dich per 1. August 2027 in einer unserer Filiale der Region Winterthur / Ostschweiz begrüssen zu dürfen.\nDeine Hauptaufgaben:\n\n• Kompetente Beratung der Kund*innen\n\n• Empfehlung von Büchern und Neuerscheinungen\n\n• Entgegennahme von Bestellungen und deren Abwicklung\n\n• Diverse Arbeiten am Computer und in unserem Warenwirtschaftssystem\n\n• Präsentation von Büchern und Non-Books\nDein Profil:\n\n• Guter Sekundarschulabschluss\n\n• Hohe Dienstleistungsorientierung, Kontaktfreudigkeit, Aufmerksamkeit und Neugier\n\n• Einwandfreie Deutschkenntnisse und Freude an Fremdsprachen\n\n• Leidenschaft für Bücher und fürs Lesen\n\n• Passion für Medien und das aktuelle Zeitgeschehen\nUnser Angebot:\n\n• Abwechslungsreiche Ausbildung in verschiedenen Abteilungen\n\n• Kollaborative und wertschätzende Unternehmenskultur\n\n• Grosszügige Ferienregelung\n\n• Vielseitiges Rabattangebot\n\n• Zentraler Arbeitsort mit guten ÖV-Anbindungen\n\nWir freuen uns sehr auf deine Online-Bewerbung. Bitte schicke uns diese inklusive Motivationsschreiben, Lebenslauf, vollständiger Schulzeugnisse und mit einem kurzen Text zu deinem Lieblingsbuch. Bis bald.",
+      "description": "Teile deine Leidenschaft für Bücher\nDu liest für dein Leben gern? Du tauchst gerne ab in unglaubliche Bücherwelten? Und du liebst es, deine Leidenschaft für Bücher mit anderen Lesebegeisterten zu teilen? Dann bewirb dich jetzt für eine Lehrstelle als Buchhändler*in bei Orell Füssli. Denn wir lieben Bücher genauso wie du. Ausserdem ist Orell Füssli ein Ort, an dem sich die Mitarbeitenden wohl fühlen, an dem man gerne und gut zusammenarbeitet sowie gemeinsam mehr erreicht. Während deiner Ausbildung lernst du hier den Buchhandel von Grund auf kennen.\nWir freuen uns, dich per 1. August 2027 in einer unserer Filialen der Region Winterthur / Ostschweiz begrüssen zu dürfen.\nDeine Hauptaufgaben:\n\n• Kompetente Beratung der Kund*innen\n\n• Empfehlung von Büchern und Neuerscheinungen\n\n• Entgegennahme von Bestellungen und deren Abwicklung\n\n• Diverse Arbeiten am Computer und in unserem Warenwirtschaftssystem\n\n• Präsentation von Büchern und Non-Books\nDein Profil:\n\n• Guter Sekundarschulabschluss\n\n• Hohe Dienstleistungsorientierung, Kontaktfreudigkeit, Aufmerksamkeit und Neugier\n\n• Einwandfreie Deutschkenntnisse und Freude an Fremdsprachen\n\n• Leidenschaft für Bücher und fürs Lesen\n\n• Passion für Medien und das aktuelle Zeitgeschehen\nUnser Angebot:\n\n• Abwechslungsreiche Ausbildung in verschiedenen Abteilungen\n\n• Kollaborative und wertschätzende Unternehmenskultur\n\n• Grosszügige Ferienregelung\n\n• Vielseitiges Rabattangebot\n\n• Zentraler Arbeitsort mit guten ÖV-Anbindungen\n\nWir freuen uns sehr auf deine Online-Bewerbung. Bitte schicke uns diese inklusive Motivationsschreiben, Lebenslauf, vollständiger Schulzeugnisse und mit einem kurzen Text zu deinem Lieblingsbuch. Bis bald.",
       "descriptionByLocale": {
-        "it": "La casa delle storie e della conoscenza\nOrell Füssli Thalia AG è la più grande società svizzera di commercio di libri con sede a Zurigo. L'azienda impiega circa 850 persone. Oltre alle librerie Orell Füssli, Orell Füssli AG comprende anche Stauffacher, Buchparadies, Barth Bücher e ZAP*, Delivros Orell Füssli AG e il negozio online orellfuessli.ch.\nCondividi la tua passione per i libri\nTi piace leggere per la tua vita? Ti piace immergerti in libri incredibili? E ami condividere la tua passione per i libri con altri appassionati di lettura? Poi si candida per un apprendistato come libreria presso Orell Füssli. Amiamo i libri quanto te. Inoltre, Orell Füssli è un luogo dove i dipendenti si sentono a proprio agio, dove si divertono a lavorare bene insieme e raggiungere più insieme. Durante il vostro addestramento, si arriva a conoscere il commercio del libro da terra. Non vediamo l'ora di accogliervi il 1o agosto 2027 in una delle nostre filiali nella regione di Winterthur / Svizzera orientale.\nI vostri compiti principali:\n\n• Consulenza competente per i clienti\n\n• Raccomandazione di libri e nuove pubblicazioni\n\n• Ricevere ordini e gestirli\n\n• Vari lavori sul computer e nel nostro sistema di gestione delle merci\n\n• Presentazione di libri e non libri\nIl tuo profilo:\n\n• Buona istruzione secondaria\n\n• Alto orientamento al servizio, socievolezza, attenzione e curiosità\n\n• Ottima conoscenza del tedesco e del godimento delle lingue straniere\n\n• Appassionato di libri e lettura\n\n• Passione per i media e gli affari attuali\nLa nostra offerta:\n\n• Formazione variabile in diversi dipartimenti\n\n• Cultura aziendale collaborativa e apprezzativa\n\n• Schema di vacanza generoso\n\n• Versatile offerta di sconto\n\n• Posizione centrale con buoni collegamenti di trasporto pubblico\n\nAttendiamo con ansia la vostra applicazione online. Inviateci questa lettera di motivazione, CV, rapporti scolastici completi e un breve testo sul vostro libro preferito. A presto.",
-        "en": "The home of stories and knowledge\nOrell Füssli Thalia AG is the largest Swiss book trade company based in Zurich. The company employs around 850 people. In addition to the Orell Füssli bookstores, Orell Füssli AG also includes Stauffacher, Buchparadies, Barth Bücher and ZAP*, Delivros Orell Füssli AG and the online shop orellfuessli.ch.\nShare your passion for books\nDo you like reading for your life? Do you like to dive into incredible books? And you love sharing your passion for books with other reading enthusiasts? Then apply for an apprenticeship as a bookseller at Orell Füssli. We love books as much as you do. In addition, Orell Füssli is a place where employees feel comfortable, where they enjoy working well together and achieve more together. During your training, you get to know the book trade from the ground up. We look forward to welcoming you on 1 August 2027 in one of our branches in the Winterthur / Eastern Switzerland region.\nYour main tasks:\n\n• Competent advice to customers\n\n• Recommendation of books and new publications\n\n• Receiving orders and handling them\n\n• Various work on the computer and in our goods management system\n\n• Presentation of books and non-books\nYour profile:\n\n• Good secondary education\n\n• High service orientation, sociability, attention and curiosity\n\n• Excellent knowledge of German and enjoyment of foreign languages\n\n• Passionate about books and reading\n\n• Passion for media and current affairs\nOur offer:\n\n• Varied training in different departments\n\n• Collaborative and appreciative corporate culture\n\n• Generous holiday scheme\n\n• Versatile discount offer\n\n• Central location with good public transport connections\n\nWe look forward to your online application. Please send us this including motivation letter, CV, complete school reports and a short text about your favorite book. See you soon.",
-        "de": "Die Heimat von Geschichten und Wissen\nDie Orell Füssli Thalia AG ist das grösste Schweizer Buchhandelsunternehmen mit Sitz in Zürich. Das Unternehmen beschäftigt rund 850 Mitarbeitende. Zur Orell Füssli Thalia AG gehören nebst den Orell Füssli-Buchhandlungen auch Stauffacher, Buchparadies, Barth Bücher und ZAP*, die Delivros Orell Füssli AG sowie der Online-Shop orellfuessli.ch.\nTeile deine Leidenschaft für Bücher\nDu liest für dein Leben gern? Du tauchst gerne ab in unglaubliche Bücherwelten? Und du liebst es, deine Leidenschaft für Bücher mit anderen Lesebegeisterten zu teilen? Dann bewirb dich jetzt für eine Lehrstelle als Buchhändler*in bei Orell Füssli. Denn wir lieben Bücher genauso wie du. Ausserdem ist Orell Füssli ein Ort, an dem sich die Mitarbeitenden wohl fühlen, an dem man gerne und gut zusammenarbeitet sowie gemeinsam mehr erreicht. Während deiner Ausbildung lernst du hier den Buchhandel von Grund auf kennen. Wir freuen uns, dich per 1. August 2027 in einer unserer Filiale der Region Winterthur / Ostschweiz begrüssen zu dürfen.\nDeine Hauptaufgaben:\n\n• Kompetente Beratung der Kund*innen\n\n• Empfehlung von Büchern und Neuerscheinungen\n\n• Entgegennahme von Bestellungen und deren Abwicklung\n\n• Diverse Arbeiten am Computer und in unserem Warenwirtschaftssystem\n\n• Präsentation von Büchern und Non-Books\nDein Profil:\n\n• Guter Sekundarschulabschluss\n\n• Hohe Dienstleistungsorientierung, Kontaktfreudigkeit, Aufmerksamkeit und Neugier\n\n• Einwandfreie Deutschkenntnisse und Freude an Fremdsprachen\n\n• Leidenschaft für Bücher und fürs Lesen\n\n• Passion für Medien und das aktuelle Zeitgeschehen\nUnser Angebot:\n\n• Abwechslungsreiche Ausbildung in verschiedenen Abteilungen\n\n• Kollaborative und wertschätzende Unternehmenskultur\n\n• Grosszügige Ferienregelung\n\n• Vielseitiges Rabattangebot\n\n• Zentraler Arbeitsort mit guten ÖV-Anbindungen\n\nWir freuen uns sehr auf deine Online-Bewerbung. Bitte schicke uns diese inklusive Motivationsschreiben, Lebenslauf, vollständiger Schulzeugnisse und mit einem kurzen Text zu deinem Lieblingsbuch. Bis bald.",
-        "fr": "La maison des histoires et des connaissances\nOrell Füssli Thalia AG est la plus grande société suisse d'édition basée à Zurich. L'entreprise emploie environ 850 personnes. Outre les librairies Orell Füssli, Orell Füssli AG comprend également Stauffacher, Buchparadies, Barth Bücher et ZAP*, Delivros Orell Füssli AG et la boutique en ligne orellfuessli.ch.\nPartagez votre passion pour les livres\nTu aimes lire pour ta vie ? Tu aimes plonger dans des livres incroyables ? Et vous aimez partager votre passion pour les livres avec d'autres passionnés de lecture ? Demandez ensuite un apprentissage comme libraire à Orell Füssli. Nous aimons les livres autant que vous. En outre, Orell Füssli est un endroit où les employés se sentent à l'aise, où ils aiment bien travailler ensemble et obtenir plus ensemble. Pendant votre entraînement, vous apprenez à connaître le métier du livre depuis le début. Nous sommes impatients de vous accueillir le 1er août 2027 dans l'une de nos succursales de la région de Winterthur / Suisse orientale.\nVos principales tâches :\n\n• Conseils appropriés aux clients\n\n• Recommandation de livres et de nouvelles publications\n\n• Réception et traitement des commandes\n\n• Divers travaux sur l'ordinateur et dans notre système de gestion des biens\n\n• Présentation de livres et autres livres\nVotre profil:\n\n• Bonne éducation secondaire\n\n• Orientation, sociabilité, attention et curiosité\n\n• Excellente connaissance de l'allemand et de la jouissance des langues étrangères\n\n• Passionné de livres et de lecture\n\n• Passion pour les médias et les affaires courantes\nNotre offre :\n\n• Formation variée dans différents départements\n\n• Culture d'entreprise collaborative et appréciée\n\n• Régime de vacances généreux\n\n• Offre de réduction polyvalente\n\n• Emplacement central avec bonnes connexions de transport public\n\nNous attendons avec impatience votre candidature en ligne. Veuillez nous envoyer cette lettre de motivation, CV, rapports scolaires complets et un court texte sur votre livre préféré. A bientôt."
+        "de": "Teile deine Leidenschaft für Bücher\nDu liest für dein Leben gern? Du tauchst gerne ab in unglaubliche Bücherwelten? Und du liebst es, deine Leidenschaft für Bücher mit anderen Lesebegeisterten zu teilen? Dann bewirb dich jetzt für eine Lehrstelle als Buchhändler*in bei Orell Füssli. Denn wir lieben Bücher genauso wie du. Ausserdem ist Orell Füssli ein Ort, an dem sich die Mitarbeitenden wohl fühlen, an dem man gerne und gut zusammenarbeitet sowie gemeinsam mehr erreicht. Während deiner Ausbildung lernst du hier den Buchhandel von Grund auf kennen.\nWir freuen uns, dich per 1. August 2027 in einer unserer Filialen der Region Winterthur / Ostschweiz begrüssen zu dürfen.\nDeine Hauptaufgaben:\n\n• Kompetente Beratung der Kund*innen\n\n• Empfehlung von Büchern und Neuerscheinungen\n\n• Entgegennahme von Bestellungen und deren Abwicklung\n\n• Diverse Arbeiten am Computer und in unserem Warenwirtschaftssystem\n\n• Präsentation von Büchern und Non-Books\nDein Profil:\n\n• Guter Sekundarschulabschluss\n\n• Hohe Dienstleistungsorientierung, Kontaktfreudigkeit, Aufmerksamkeit und Neugier\n\n• Einwandfreie Deutschkenntnisse und Freude an Fremdsprachen\n\n• Leidenschaft für Bücher und fürs Lesen\n\n• Passion für Medien und das aktuelle Zeitgeschehen\nUnser Angebot:\n\n• Abwechslungsreiche Ausbildung in verschiedenen Abteilungen\n\n• Kollaborative und wertschätzende Unternehmenskultur\n\n• Grosszügige Ferienregelung\n\n• Vielseitiges Rabattangebot\n\n• Zentraler Arbeitsort mit guten ÖV-Anbindungen\n\nWir freuen uns sehr auf deine Online-Bewerbung. Bitte schicke uns diese inklusive Motivationsschreiben, Lebenslauf, vollständiger Schulzeugnisse und mit einem kurzen Text zu deinem Lieblingsbuch. Bis bald.",
+        "it": "Teile deine Leidenschaft für Bücher\nDu liest für dein Leben gern? Du tauchst gerne ab in unglaubliche Bücherwelten? Und du liebst es, deine Leidenschaft für Bücher mit anderen Lesebegeisterten zu teilen? Dann bewirb dich jetzt für eine Lehrstelle als Buchhändler*in bei Orell Füssli. Denn wir lieben Bücher genauso wie du. Ausserdem ist Orell Füssli ein Ort, an dem sich die Mitarbeitenden wohl fühlen, an dem man gerne und gut zusammenarbeitet sowie gemeinsam mehr erreicht. Während deiner Ausbildung lernst du hier den Buchhandel von Grund auf kennen.\nWir freuen uns, dich per 1. August 2027 in einer unserer Filialen der Region Winterthur / Ostschweiz begrüssen zu dürfen.\nDeine Hauptaufgaben:\n\n• Kompetente Beratung der Kund*innen\n\n• Empfehlung von Büchern und Neuerscheinungen\n\n• Entgegennahme von Bestellungen und deren Abwicklung\n\n• Diverse Arbeiten am Computer und in unserem Warenwirtschaftssystem\n\n• Präsentation von Büchern und Non-Books\nDein Profil:\n\n• Guter Sekundarschulabschluss\n\n• Hohe Dienstleistungsorientierung, Kontaktfreudigkeit, Aufmerksamkeit und Neugier\n\n• Einwandfreie Deutschkenntnisse und Freude an Fremdsprachen\n\n• Leidenschaft für Bücher und fürs Lesen\n\n• Passion für Medien und das aktuelle Zeitgeschehen\nUnser Angebot:\n\n• Abwechslungsreiche Ausbildung in verschiedenen Abteilungen\n\n• Kollaborative und wertschätzende Unternehmenskultur\n\n• Grosszügige Ferienregelung\n\n• Vielseitiges Rabattangebot\n\n• Zentraler Arbeitsort mit guten ÖV-Anbindungen\n\nWir freuen uns sehr auf deine Online-Bewerbung. Bitte schicke uns diese inklusive Motivationsschreiben, Lebenslauf, vollständiger Schulzeugnisse und mit einem kurzen Text zu deinem Lieblingsbuch. Bis bald.",
+        "en": "Teile deine Leidenschaft für Bücher\nDu liest für dein Leben gern? Du tauchst gerne ab in unglaubliche Bücherwelten? Und du liebst es, deine Leidenschaft für Bücher mit anderen Lesebegeisterten zu teilen? Dann bewirb dich jetzt für eine Lehrstelle als Buchhändler*in bei Orell Füssli. Denn wir lieben Bücher genauso wie du. Ausserdem ist Orell Füssli ein Ort, an dem sich die Mitarbeitenden wohl fühlen, an dem man gerne und gut zusammenarbeitet sowie gemeinsam mehr erreicht. Während deiner Ausbildung lernst du hier den Buchhandel von Grund auf kennen.\nWir freuen uns, dich per 1. August 2027 in einer unserer Filialen der Region Winterthur / Ostschweiz begrüssen zu dürfen.\nDeine Hauptaufgaben:\n\n• Kompetente Beratung der Kund*innen\n\n• Empfehlung von Büchern und Neuerscheinungen\n\n• Entgegennahme von Bestellungen und deren Abwicklung\n\n• Diverse Arbeiten am Computer und in unserem Warenwirtschaftssystem\n\n• Präsentation von Büchern und Non-Books\nDein Profil:\n\n• Guter Sekundarschulabschluss\n\n• Hohe Dienstleistungsorientierung, Kontaktfreudigkeit, Aufmerksamkeit und Neugier\n\n• Einwandfreie Deutschkenntnisse und Freude an Fremdsprachen\n\n• Leidenschaft für Bücher und fürs Lesen\n\n• Passion für Medien und das aktuelle Zeitgeschehen\nUnser Angebot:\n\n• Abwechslungsreiche Ausbildung in verschiedenen Abteilungen\n\n• Kollaborative und wertschätzende Unternehmenskultur\n\n• Grosszügige Ferienregelung\n\n• Vielseitiges Rabattangebot\n\n• Zentraler Arbeitsort mit guten ÖV-Anbindungen\n\nWir freuen uns sehr auf deine Online-Bewerbung. Bitte schicke uns diese inklusive Motivationsschreiben, Lebenslauf, vollständiger Schulzeugnisse und mit einem kurzen Text zu deinem Lieblingsbuch. Bis bald.",
+        "fr": "Teile deine Leidenschaft für Bücher\nDu liest für dein Leben gern? Du tauchst gerne ab in unglaubliche Bücherwelten? Und du liebst es, deine Leidenschaft für Bücher mit anderen Lesebegeisterten zu teilen? Dann bewirb dich jetzt für eine Lehrstelle als Buchhändler*in bei Orell Füssli. Denn wir lieben Bücher genauso wie du. Ausserdem ist Orell Füssli ein Ort, an dem sich die Mitarbeitenden wohl fühlen, an dem man gerne und gut zusammenarbeitet sowie gemeinsam mehr erreicht. Während deiner Ausbildung lernst du hier den Buchhandel von Grund auf kennen.\nWir freuen uns, dich per 1. August 2027 in einer unserer Filialen der Region Winterthur / Ostschweiz begrüssen zu dürfen.\nDeine Hauptaufgaben:\n\n• Kompetente Beratung der Kund*innen\n\n• Empfehlung von Büchern und Neuerscheinungen\n\n• Entgegennahme von Bestellungen und deren Abwicklung\n\n• Diverse Arbeiten am Computer und in unserem Warenwirtschaftssystem\n\n• Präsentation von Büchern und Non-Books\nDein Profil:\n\n• Guter Sekundarschulabschluss\n\n• Hohe Dienstleistungsorientierung, Kontaktfreudigkeit, Aufmerksamkeit und Neugier\n\n• Einwandfreie Deutschkenntnisse und Freude an Fremdsprachen\n\n• Leidenschaft für Bücher und fürs Lesen\n\n• Passion für Medien und das aktuelle Zeitgeschehen\nUnser Angebot:\n\n• Abwechslungsreiche Ausbildung in verschiedenen Abteilungen\n\n• Kollaborative und wertschätzende Unternehmenskultur\n\n• Grosszügige Ferienregelung\n\n• Vielseitiges Rabattangebot\n\n• Zentraler Arbeitsort mit guten ÖV-Anbindungen\n\nWir freuen uns sehr auf deine Online-Bewerbung. Bitte schicke uns diese inklusive Motivationsschreiben, Lebenslauf, vollständiger Schulzeugnisse und mit einem kurzen Text zu deinem Lieblingsbuch. Bis bald."
       },
       "location": "Winterthur",
       "canton": "ZH",
       "url": "https://karriere.orellfuessli.ch/de/offene-stellen/lernender-buchhandel-efz-1",
       "source": "Orell Füssli Thalia Dedicated Parser (Drupal career site)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-30T22:27:05.907Z",
+      "crawledAt": "2026-07-31T22:30:01.759Z",
       "addressLocality": "Winterthur",
       "addressRegion": "Zürich",
       "streetAddress": "",
@@ -1382,11 +1409,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lernende-r-buchhandel-efz-orell-fuessli-thalia-winterthur"
+        "lernende-r-buchhandel-efz-orell-fuessli-thalia-winterthur",
+        "apprendista-r-buchhandel-cfc-orell-fussli-thalia-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lernende-r-buchhandel-efz-orell-fuessli-thalia-winterthur"
+          "lernende-r-buchhandel-efz-orell-fuessli-thalia-winterthur",
+          "apprendista-r-buchhandel-cfc-orell-fussli-thalia-winterthur"
         ],
         "en": [
           "lernende-r-buchhandel-efz-orell-fuessli-thalia-winterthur"
@@ -1396,6 +1425,7 @@
         ]
       },
       "firstSeenAt": "2026-07-28T22:36:20.403Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -1408,6 +1438,73 @@
           "unitText": "YEAR"
         }
       }
+    },
+    {
+      "id": "orell-fuessli-thalia-5aff2c8207b1",
+      "slug": "buchhandler-in-80-100-a-orell-fuessli-thalia-bern",
+      "slugByLocale": {
+        "de": "buchhandler-in-80-100-a-orell-fuessli-thalia-bern",
+        "it": "buchhandler-in-80-100-a-orell-fuessli-thalia-bern",
+        "en": "buchhandler-in-80-100-a-orell-fuessli-thalia-bern",
+        "fr": "buchhandler-in-80-100-a-orell-fuessli-thalia-bern"
+      },
+      "company": "Orell Füssli Thalia",
+      "companyKey": "orell-fuessli-thalia",
+      "companyDomain": "orellfuessli.ch",
+      "title": "Buchhändler*in 80-100% (a)",
+      "titleByLocale": {
+        "de": "Buchhändler*in 80-100% (a)",
+        "en": "Buchhändler*in 80-100% (a)",
+        "it": "Buchhändler*in 80-100% (a)",
+        "fr": "Buchhändler*in 80-100% (a)"
+      },
+      "description": "Sehen Sie sich als Botschafter*in des Lesens?\nMit Ihrer Leidenschaft sind Sie bei uns genau richtig. Bei der Orell Füssli Thalia AG schaffen wir Räume für vielfältige Geschichten und Wissen, die unsere Gesellschaft inspirieren und bereichern. Ausserdem ist Orell Füssli ein Ort, an dem sich die Mitarbeitenden wohl fühlen, an dem man gerne und gut zusammenarbeitet sowie gemeinsam mehr erreicht.\n\nFür unsere Filiale an der Spitalgasse in Bern suchen wir eine*n Buchhändler*in 80-100% (a) für die Abteilung Kinderbuch & Backoffice .\nIhre Hauptaufgaben:\n\n• Lots*in in der Welt von Geschichten und Wissen\n\n• Kompetente und inspirierende Beratung unserer Kundschaft\n\n• Lagerbewirtschaftung und Bestellwesen (bestellen, remittieren, recherchieren)\n\n• Markt- und Trendbeobachtung\n\n• Präsentation von Büchern und Non-Books\n\n• Diverse Arbeiten im Backoffice\n\n• Mitarbeit an der Kasse und am Kundendienst\nIhr Profil:\n\n• Abgeschlossene Ausbildung als Buchhändler*in mit erster Berufserfahrung\n\n• Affinität zum Buch sowie zu den elektronischen Medien\n\n• Kunden- und verkaufsorientierte Persönlichkeit mit Erfahrung im Kundenkontakt\n\n• Interesse am aktuellen Zeitgeschehen\n\n• Stilsicheres Deutsch\nUnser Angebot:\n\n• Kollaborative und wertschätzende Unternehmenskultur\n\n• Zentraler Arbeitsort mit guter ÖV-Anbindung\n\n• Der aktuellen Lebenssituation angepasste Arbeitszeitmodelle\n\n• Grosszügige Ferienregelung und vielseitiges Rabattangebot\n\n• Individuelle Weiterbildungsmöglichkeiten; filial- und bereichsübergreifende Entwicklungsoptionen\n\nBewerben Sie sich noch heute für den schönsten Job der Welt. Wir freuen uns auf Ihre vollständige Bewerbung über unser Recruitingtool.",
+      "descriptionByLocale": {
+        "de": "Sehen Sie sich als Botschafter*in des Lesens?\nMit Ihrer Leidenschaft sind Sie bei uns genau richtig. Bei der Orell Füssli Thalia AG schaffen wir Räume für vielfältige Geschichten und Wissen, die unsere Gesellschaft inspirieren und bereichern. Ausserdem ist Orell Füssli ein Ort, an dem sich die Mitarbeitenden wohl fühlen, an dem man gerne und gut zusammenarbeitet sowie gemeinsam mehr erreicht.\n\nFür unsere Filiale an der Spitalgasse in Bern suchen wir eine*n Buchhändler*in 80-100% (a) für die Abteilung Kinderbuch & Backoffice .\nIhre Hauptaufgaben:\n\n• Lots*in in der Welt von Geschichten und Wissen\n\n• Kompetente und inspirierende Beratung unserer Kundschaft\n\n• Lagerbewirtschaftung und Bestellwesen (bestellen, remittieren, recherchieren)\n\n• Markt- und Trendbeobachtung\n\n• Präsentation von Büchern und Non-Books\n\n• Diverse Arbeiten im Backoffice\n\n• Mitarbeit an der Kasse und am Kundendienst\nIhr Profil:\n\n• Abgeschlossene Ausbildung als Buchhändler*in mit erster Berufserfahrung\n\n• Affinität zum Buch sowie zu den elektronischen Medien\n\n• Kunden- und verkaufsorientierte Persönlichkeit mit Erfahrung im Kundenkontakt\n\n• Interesse am aktuellen Zeitgeschehen\n\n• Stilsicheres Deutsch\nUnser Angebot:\n\n• Kollaborative und wertschätzende Unternehmenskultur\n\n• Zentraler Arbeitsort mit guter ÖV-Anbindung\n\n• Der aktuellen Lebenssituation angepasste Arbeitszeitmodelle\n\n• Grosszügige Ferienregelung und vielseitiges Rabattangebot\n\n• Individuelle Weiterbildungsmöglichkeiten; filial- und bereichsübergreifende Entwicklungsoptionen\n\nBewerben Sie sich noch heute für den schönsten Job der Welt. Wir freuen uns auf Ihre vollständige Bewerbung über unser Recruitingtool.",
+        "it": "Sehen Sie sich als Botschafter*in des Lesens?\nMit Ihrer Leidenschaft sind Sie bei uns genau richtig. Bei der Orell Füssli Thalia AG schaffen wir Räume für vielfältige Geschichten und Wissen, die unsere Gesellschaft inspirieren und bereichern. Ausserdem ist Orell Füssli ein Ort, an dem sich die Mitarbeitenden wohl fühlen, an dem man gerne und gut zusammenarbeitet sowie gemeinsam mehr erreicht.\n\nFür unsere Filiale an der Spitalgasse in Bern suchen wir eine*n Buchhändler*in 80-100% (a) für die Abteilung Kinderbuch & Backoffice .\nIhre Hauptaufgaben:\n\n• Lots*in in der Welt von Geschichten und Wissen\n\n• Kompetente und inspirierende Beratung unserer Kundschaft\n\n• Lagerbewirtschaftung und Bestellwesen (bestellen, remittieren, recherchieren)\n\n• Markt- und Trendbeobachtung\n\n• Präsentation von Büchern und Non-Books\n\n• Diverse Arbeiten im Backoffice\n\n• Mitarbeit an der Kasse und am Kundendienst\nIhr Profil:\n\n• Abgeschlossene Ausbildung als Buchhändler*in mit erster Berufserfahrung\n\n• Affinität zum Buch sowie zu den elektronischen Medien\n\n• Kunden- und verkaufsorientierte Persönlichkeit mit Erfahrung im Kundenkontakt\n\n• Interesse am aktuellen Zeitgeschehen\n\n• Stilsicheres Deutsch\nUnser Angebot:\n\n• Kollaborative und wertschätzende Unternehmenskultur\n\n• Zentraler Arbeitsort mit guter ÖV-Anbindung\n\n• Der aktuellen Lebenssituation angepasste Arbeitszeitmodelle\n\n• Grosszügige Ferienregelung und vielseitiges Rabattangebot\n\n• Individuelle Weiterbildungsmöglichkeiten; filial- und bereichsübergreifende Entwicklungsoptionen\n\nBewerben Sie sich noch heute für den schönsten Job der Welt. Wir freuen uns auf Ihre vollständige Bewerbung über unser Recruitingtool.",
+        "en": "Sehen Sie sich als Botschafter*in des Lesens?\nMit Ihrer Leidenschaft sind Sie bei uns genau richtig. Bei der Orell Füssli Thalia AG schaffen wir Räume für vielfältige Geschichten und Wissen, die unsere Gesellschaft inspirieren und bereichern. Ausserdem ist Orell Füssli ein Ort, an dem sich die Mitarbeitenden wohl fühlen, an dem man gerne und gut zusammenarbeitet sowie gemeinsam mehr erreicht.\n\nFür unsere Filiale an der Spitalgasse in Bern suchen wir eine*n Buchhändler*in 80-100% (a) für die Abteilung Kinderbuch & Backoffice .\nIhre Hauptaufgaben:\n\n• Lots*in in der Welt von Geschichten und Wissen\n\n• Kompetente und inspirierende Beratung unserer Kundschaft\n\n• Lagerbewirtschaftung und Bestellwesen (bestellen, remittieren, recherchieren)\n\n• Markt- und Trendbeobachtung\n\n• Präsentation von Büchern und Non-Books\n\n• Diverse Arbeiten im Backoffice\n\n• Mitarbeit an der Kasse und am Kundendienst\nIhr Profil:\n\n• Abgeschlossene Ausbildung als Buchhändler*in mit erster Berufserfahrung\n\n• Affinität zum Buch sowie zu den elektronischen Medien\n\n• Kunden- und verkaufsorientierte Persönlichkeit mit Erfahrung im Kundenkontakt\n\n• Interesse am aktuellen Zeitgeschehen\n\n• Stilsicheres Deutsch\nUnser Angebot:\n\n• Kollaborative und wertschätzende Unternehmenskultur\n\n• Zentraler Arbeitsort mit guter ÖV-Anbindung\n\n• Der aktuellen Lebenssituation angepasste Arbeitszeitmodelle\n\n• Grosszügige Ferienregelung und vielseitiges Rabattangebot\n\n• Individuelle Weiterbildungsmöglichkeiten; filial- und bereichsübergreifende Entwicklungsoptionen\n\nBewerben Sie sich noch heute für den schönsten Job der Welt. Wir freuen uns auf Ihre vollständige Bewerbung über unser Recruitingtool.",
+        "fr": "Sehen Sie sich als Botschafter*in des Lesens?\nMit Ihrer Leidenschaft sind Sie bei uns genau richtig. Bei der Orell Füssli Thalia AG schaffen wir Räume für vielfältige Geschichten und Wissen, die unsere Gesellschaft inspirieren und bereichern. Ausserdem ist Orell Füssli ein Ort, an dem sich die Mitarbeitenden wohl fühlen, an dem man gerne und gut zusammenarbeitet sowie gemeinsam mehr erreicht.\n\nFür unsere Filiale an der Spitalgasse in Bern suchen wir eine*n Buchhändler*in 80-100% (a) für die Abteilung Kinderbuch & Backoffice .\nIhre Hauptaufgaben:\n\n• Lots*in in der Welt von Geschichten und Wissen\n\n• Kompetente und inspirierende Beratung unserer Kundschaft\n\n• Lagerbewirtschaftung und Bestellwesen (bestellen, remittieren, recherchieren)\n\n• Markt- und Trendbeobachtung\n\n• Präsentation von Büchern und Non-Books\n\n• Diverse Arbeiten im Backoffice\n\n• Mitarbeit an der Kasse und am Kundendienst\nIhr Profil:\n\n• Abgeschlossene Ausbildung als Buchhändler*in mit erster Berufserfahrung\n\n• Affinität zum Buch sowie zu den elektronischen Medien\n\n• Kunden- und verkaufsorientierte Persönlichkeit mit Erfahrung im Kundenkontakt\n\n• Interesse am aktuellen Zeitgeschehen\n\n• Stilsicheres Deutsch\nUnser Angebot:\n\n• Kollaborative und wertschätzende Unternehmenskultur\n\n• Zentraler Arbeitsort mit guter ÖV-Anbindung\n\n• Der aktuellen Lebenssituation angepasste Arbeitszeitmodelle\n\n• Grosszügige Ferienregelung und vielseitiges Rabattangebot\n\n• Individuelle Weiterbildungsmöglichkeiten; filial- und bereichsübergreifende Entwicklungsoptionen\n\nBewerben Sie sich noch heute für den schönsten Job der Welt. Wir freuen uns auf Ihre vollständige Bewerbung über unser Recruitingtool."
+      },
+      "location": "Bern",
+      "canton": "BE",
+      "url": "https://karriere.orellfuessli.ch/de/offene-stellen/buchhaendlerin-80-100",
+      "source": "Orell Füssli Thalia Dedicated Parser (Drupal career site)",
+      "sourceLang": "de",
+      "crawledAt": "2026-07-31T22:30:01.756Z",
+      "addressLocality": "Bern",
+      "addressRegion": "Zürich",
+      "streetAddress": "",
+      "postalCode": "",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Vendita",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Retail / Librerie e Cartoleria",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-31",
+      "applyUrl": "https://karriere.orellfuessli.ch/de/offene-stellen/buchhaendlerin-80-100",
+      "jobReqId": null,
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68500,
+          "maxValue": 104000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-07-31T22:30:01.756Z"
     },
     {
       "id": "orell-fuessli-thalia-28780e416ec0",
@@ -1518,7 +1615,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     }
   ]
 }
