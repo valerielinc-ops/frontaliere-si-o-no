@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-07-31T14:59:32.755Z",
+  "updatedAt": "2026-07-31T19:44:16.589Z",
   "entities": {
     "AASTI": {
       "status": "suspect",
@@ -172,15 +172,16 @@
       "statusSource": "auto",
       "statusAt": "2026-07-29T06:26:58.011Z",
       "firstSeen": "2026-07-29T06:26:58.011Z",
-      "lastSeen": "2026-07-31T14:59:32.755Z",
-      "seen": 41,
+      "lastSeen": "2026-07-31T19:44:16.589Z",
+      "seen": 42,
       "unsupportedSightings": 2,
       "unsupportedRuns": [
         "30595579311",
         "30489213850"
       ],
-      "supportedSightings": 20,
+      "supportedSightings": 21,
       "names": [
+        "Ufficio Federale delle Contribuzioni",
         "Agenzia delle Entrate in Italia e dell’Amministrazione Federale delle Contribuzioni",
         "Amministrazione federale delle contribuzioni",
         "Amministrazione Federale delle Contribuzioni"
@@ -190,6 +191,13 @@
         "30489213850:unknown"
       ],
       "evidence": [
+        {
+          "at": "2026-07-31T19:44:16.589Z",
+          "runId": "30656077764",
+          "articleId": "unknown",
+          "support": "present",
+          "name": "Ufficio Federale delle Contribuzioni"
+        },
         {
           "at": "2026-07-31T14:59:32.755Z",
           "runId": "30636711582",
@@ -237,13 +245,6 @@
           "runId": "30595579311",
           "articleId": "vivere-varzo-lavorare-ticino",
           "support": "present",
-          "name": "Amministrazione federale delle contribuzioni"
-        },
-        {
-          "at": "2026-07-31T01:30:30.927Z",
-          "runId": "30595579311",
-          "articleId": "vivere-varzo-lavorare-ticino",
-          "support": "absent",
           "name": "Amministrazione federale delle contribuzioni"
         }
       ]
@@ -597,11 +598,11 @@
       "statusSource": "auto",
       "statusAt": "2026-07-29T06:26:58.011Z",
       "firstSeen": "2026-07-29T06:26:58.011Z",
-      "lastSeen": "2026-07-31T14:59:32.755Z",
-      "seen": 35,
+      "lastSeen": "2026-07-31T19:44:16.589Z",
+      "seen": 37,
       "unsupportedSightings": 0,
       "unsupportedRuns": [],
-      "supportedSightings": 23,
+      "supportedSightings": 25,
       "names": [
         "Ufficio Federale delle Statistiche",
         "Agenzia delle Entrate, il MEF, l'Ufficio Federale di Statistica",
@@ -611,6 +612,20 @@
       ],
       "recentKeys": [],
       "evidence": [
+        {
+          "at": "2026-07-31T19:44:16.589Z",
+          "runId": "30656077764",
+          "articleId": "unknown",
+          "support": "present",
+          "name": "Ufficio Federale di Statistica"
+        },
+        {
+          "at": "2026-07-31T19:44:16.589Z",
+          "runId": "30656077764",
+          "articleId": "unknown",
+          "support": "present",
+          "name": "Ufficio Federale di Statistica"
+        },
         {
           "at": "2026-07-31T14:59:32.755Z",
           "runId": "30636711582",
@@ -652,20 +667,6 @@
           "articleId": "unknown",
           "support": "present",
           "name": "Ufficio federale di statistica"
-        },
-        {
-          "at": "2026-07-31T03:35:39.206Z",
-          "runId": "30600477281",
-          "articleId": "unknown",
-          "support": "present",
-          "name": "Ufficio federale di statistica"
-        },
-        {
-          "at": "2026-07-31T01:30:30.927Z",
-          "runId": "30595579311",
-          "articleId": "vivere-varzo-lavorare-ticino",
-          "support": "present",
-          "name": "Ufficio Federale di Statistica"
         }
       ]
     },
@@ -4279,20 +4280,27 @@
       "statusSource": "auto",
       "statusAt": "2026-07-29T06:26:58.011Z",
       "firstSeen": "2026-07-29T06:26:58.011Z",
-      "lastSeen": "2026-07-30T03:50:18.183Z",
-      "seen": 15,
+      "lastSeen": "2026-07-31T19:44:16.589Z",
+      "seen": 16,
       "unsupportedSightings": 0,
       "unsupportedRuns": [],
-      "supportedSightings": 4,
+      "supportedSightings": 5,
       "names": [
+        "Ufficio Cantonale della Migrazione",
         "Ufficio della migrazione del Canton Ticino",
         "Ufficio federale delle migrazioni",
         "Segreteria di Stato della migrazione",
-        "Segreteria di Stato della Migrazione",
-        "Ufficio federale per le migrazioni"
+        "Segreteria di Stato della Migrazione"
       ],
       "recentKeys": [],
       "evidence": [
+        {
+          "at": "2026-07-31T19:44:16.589Z",
+          "runId": "30656077764",
+          "articleId": "unknown",
+          "support": "present",
+          "name": "Ufficio Cantonale della Migrazione"
+        },
         {
           "at": "2026-07-30T03:50:18.183Z",
           "runId": "30509507553",
@@ -4339,13 +4347,6 @@
           "at": "2026-07-29T06:26:58.011Z",
           "runId": "corpus-scan",
           "articleId": "permessi-soggiorno-svizzera-b-c-l",
-          "support": "unknown",
-          "name": "Segreteria di Stato della migrazione"
-        },
-        {
-          "at": "2026-07-29T06:26:58.011Z",
-          "runId": "corpus-scan",
-          "articleId": "ucraini-in-ticino-aiuti-incognite",
           "support": "unknown",
           "name": "Segreteria di Stato della migrazione"
         }
@@ -4722,6 +4723,30 @@
           "articleId": "mozzarella-clandestina-2026-ricerca",
           "support": "unknown",
           "name": "Ufficio di Controllo e Sanità Veterinaria"
+        }
+      ]
+    },
+    "UCT": {
+      "status": "cleared",
+      "statusSource": "auto",
+      "statusAt": "2026-07-31T19:44:16.589Z",
+      "firstSeen": "2026-07-31T19:44:16.589Z",
+      "lastSeen": "2026-07-31T19:44:16.589Z",
+      "seen": 1,
+      "unsupportedSightings": 0,
+      "unsupportedRuns": [],
+      "supportedSightings": 1,
+      "names": [
+        "Ufficio Cantonale Ticino"
+      ],
+      "recentKeys": [],
+      "evidence": [
+        {
+          "at": "2026-07-31T19:44:16.589Z",
+          "runId": "30656077764",
+          "articleId": "unknown",
+          "support": "present",
+          "name": "Ufficio Cantonale Ticino"
         }
       ]
     },
@@ -6709,20 +6734,27 @@
       "statusSource": "auto",
       "statusAt": "2026-07-29T06:26:58.011Z",
       "firstSeen": "2026-07-29T06:26:58.011Z",
-      "lastSeen": "2026-07-31T11:16:58.021Z",
-      "seen": 7,
+      "lastSeen": "2026-07-31T19:44:16.589Z",
+      "seen": 8,
       "unsupportedSightings": 0,
       "unsupportedRuns": [],
-      "supportedSightings": 1,
+      "supportedSightings": 2,
       "names": [
+        "Ufficio Cantonale di Statistica",
         "Ufficio cantonale delle statistiche",
         "Ufficio di statistica del Cantone",
         "Ufficio di statistica del Canton Ticino",
-        "Ufficio cantonale di statistica",
-        "Ufficio Statistico del Cantone Ticino"
+        "Ufficio cantonale di statistica"
       ],
       "recentKeys": [],
       "evidence": [
+        {
+          "at": "2026-07-31T19:44:16.589Z",
+          "runId": "30656077764",
+          "articleId": "unknown",
+          "support": "present",
+          "name": "Ufficio Cantonale di Statistica"
+        },
         {
           "at": "2026-07-31T11:16:58.021Z",
           "runId": "30624352706",
