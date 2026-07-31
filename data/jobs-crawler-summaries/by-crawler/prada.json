@@ -1,21 +1,22 @@
 {
   "key": "prada",
   "label": "Prada Group",
-  "generatedAt": "2026-07-31T11:54:26.583Z",
+  "generatedAt": "2026-07-31T22:15:24.910Z",
   "total": 3,
-  "newCount": 2,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 7167,
-  "avgDurationMs": 7167,
+  "durationMs": 9840,
+  "avgDurationMs": 9840,
   "durationHistory": [
-    7167
+    9840
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "prada-ef469ffe20a6",
-      "slug": "stock-assistant-prada-group-fidenza-stock-assistant",
+      "slug": "assistente-di-borsa-prada-group-fidenza-stock-assistant",
       "company": "Prada Group",
       "companyKey": "prada",
       "companyDomain": "pradagroup.com",
@@ -33,12 +34,13 @@
       "url": "https://jobs.pradagroup.com/job/Fidenza-Stock-Assistant/1390412633/",
       "source": "Prada Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-31T11:54:22.940Z",
-      "_qualityScore": 61,
+      "crawledAt": "2026-07-31T22:15:20.405Z",
+      "firstSeenAt": "2026-07-31T11:54:22.940Z",
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -62,22 +64,22 @@
       "url": "https://jobs.pradagroup.com/job/Metzingen-PRADA-Retail-Support-%28mfd%29/1410903833/",
       "source": "Prada Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-31T11:54:23.799Z",
-      "_qualityScore": 61,
+      "crawledAt": "2026-07-31T22:15:21.667Z",
+      "firstSeenAt": "2026-07-31T11:54:23.799Z",
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [
     {
       "id": "prada-486ad2c4e076",
-      "slug": "prada-retail-support-m-f-d-prada-group-metzingen",
+      "slug": "supporto-al-dettaglio-prada-m-f-d-prada-group-metzingen",
       "company": "Prada Group",
       "companyKey": "prada",
       "companyDomain": "pradagroup.com",
@@ -95,23 +97,24 @@
       "url": "https://jobs.pradagroup.com/job/Metzingen-PRADA-Retail-Support-%28mfd%29/1410903833/",
       "source": "Prada Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-31T11:54:23.799Z",
+      "crawledAt": "2026-07-31T22:15:21.667Z",
+      "firstSeenAt": "2026-07-31T11:54:23.799Z",
       "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "country": "CH",
       "addressRegion": "TI",
-      "_qualityScore": 78,
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
+        "translation": 25,
         "completeness": 19
       }
     },
     {
       "id": "prada-ef469ffe20a6",
-      "slug": "stock-assistant-prada-group-fidenza-stock-assistant",
+      "slug": "assistente-di-borsa-prada-group-fidenza-stock-assistant",
       "company": "Prada Group",
       "companyKey": "prada",
       "companyDomain": "pradagroup.com",
@@ -129,17 +132,18 @@
       "url": "https://jobs.pradagroup.com/job/Fidenza-Stock-Assistant/1390412633/",
       "source": "Prada Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-31T11:54:22.940Z",
+      "crawledAt": "2026-07-31T22:15:20.405Z",
+      "firstSeenAt": "2026-07-31T11:54:22.940Z",
       "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "country": "CH",
       "addressRegion": "TI",
-      "_qualityScore": 81,
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 19,
+        "translation": 25,
         "completeness": 19
       }
     },
@@ -169,7 +173,7 @@
       "salaryMax": 103000,
       "country": "CH",
       "addressRegion": "TI",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "needsRetranslation": true,
       "_qualityScore": 85,
       "_qualityBreakdown": {
