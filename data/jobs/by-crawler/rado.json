@@ -1,6 +1,6 @@
 {
   "crawlerKey": "rado",
-  "assembledAt": "2026-07-31T11:41:28.454Z",
+  "assembledAt": "2026-07-31T22:13:37.899Z",
   "jobs": [
     {
       "id": "company-7ubgq6",
@@ -87,7 +87,8 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "country": "CH",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2,
+      "needsRetranslation": true
     }
   ]
 }
