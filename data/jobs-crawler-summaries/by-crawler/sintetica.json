@@ -1,18 +1,87 @@
 {
   "key": "sintetica",
   "label": "Sintetica SA",
-  "generatedAt": "2026-07-31T11:35:47.938Z",
-  "total": 8,
-  "newCount": 0,
-  "updatedCount": 8,
+  "generatedAt": "2026-07-31T22:06:47.137Z",
+  "total": 10,
+  "newCount": 2,
+  "updatedCount": 7,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 11043,
-  "avgDurationMs": 11043,
+  "unchangedCount": 1,
+  "durationMs": 10347,
+  "avgDurationMs": 10347,
   "durationHistory": [
-    11043
+    10347
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "url": "https://app.ncoreplat.com/jobposition/807315/senior-sap-project-manager-operation-fi-mendrisio-site-ticino-ch/sintetica",
+      "applyUrl": "https://app.ncoreplat.com/jobposition/807315/senior-sap-project-manager-operation-fi-mendrisio-site-ticino-ch/sintetica",
+      "title": "Senior SAP Project Manager Operation FI – Mendrisio site (Ticino)",
+      "company": "Sintetica SA",
+      "companyKey": "sintetica",
+      "location": "Mendrisio",
+      "canton": "TI",
+      "country": "CH",
+      "addressLocality": "Mendrisio",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "postalCode": "6850",
+      "streetAddress": "Via Penate 5",
+      "slug": "senior-sap-project-manager-operation-fi-mendrisio-site-ticino-sintetica",
+      "category": "general",
+      "datePosted": "2026-07-31",
+      "source": "sintetica-careers-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "SENIOR",
+      "sector": "Farmaceutica",
+      "_targetScope": {
+        "canton": "TI",
+        "location": "Mendrisio"
+      },
+      "sourceLang": "en",
+      "_qualityScore": 60,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 2,
+        "completeness": 15
+      }
+    },
+    {
+      "url": "https://app.ncoreplat.com/jobposition/807316/senior-sap-project-manager-operation-mm-mendrisio-site-ticino-ch/sintetica",
+      "applyUrl": "https://app.ncoreplat.com/jobposition/807316/senior-sap-project-manager-operation-mm-mendrisio-site-ticino-ch/sintetica",
+      "title": "Senior SAP Project Manager Operation MM – Mendrisio site (Ticino)",
+      "company": "Sintetica SA",
+      "companyKey": "sintetica",
+      "location": "Mendrisio",
+      "canton": "TI",
+      "country": "CH",
+      "addressLocality": "Mendrisio",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "postalCode": "6850",
+      "streetAddress": "Via Penate 5",
+      "slug": "senior-sap-project-manager-operation-mm-mendrisio-site-ticino-sintetica",
+      "category": "general",
+      "datePosted": "2026-07-31",
+      "source": "sintetica-careers-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "SENIOR",
+      "sector": "Farmaceutica",
+      "_targetScope": {
+        "canton": "TI",
+        "location": "Mendrisio"
+      },
+      "sourceLang": "en",
+      "_qualityScore": 60,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 2,
+        "completeness": 15
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "url": "https://app.ncoreplat.com/jobposition/804884/production-engineer-couvet-site-ch/sintetica",
@@ -159,42 +228,6 @@
       }
     },
     {
-      "url": "https://app.ncoreplat.com/jobposition/788177/pharmaceutical-development-laboratory-project-manager-formulation-expert-mendrisio-site-ticino-ch/sintetica",
-      "applyUrl": "https://app.ncoreplat.com/jobposition/788177/pharmaceutical-development-laboratory-project-manager-formulation-expert-mendrisio-site-ticino-ch/sintetica",
-      "title": "Pharmaceutical Development Laboratory Project Manager (Formulation expert) - Mendrisio site (Ticino)",
-      "company": "Sintetica SA",
-      "companyKey": "sintetica",
-      "location": "Mendrisio",
-      "canton": "TI",
-      "country": "CH",
-      "addressLocality": "Mendrisio",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "postalCode": "6850",
-      "streetAddress": "Via Penate 5",
-      "slug": "pharmaceutical-development-laboratory-project-manager-formulation-expert-mendrisio-site-ti",
-      "category": "science",
-      "datePosted": "2026-07-07",
-      "source": "sintetica-careers-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "SENIOR",
-      "sector": "Farmaceutica",
-      "_targetScope": {
-        "canton": "TI",
-        "location": "Mendrisio"
-      },
-      "sourceLang": "en",
-      "id": "sintetica-f40c8151f417",
-      "firstSeenAt": "2026-07-07T22:12:17.128Z",
-      "_qualityScore": 83,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 15
-      }
-    },
-    {
       "url": "https://app.ncoreplat.com/jobposition/778848/quality-control-microbiological-laboratory-technician-ch/sintetica",
       "applyUrl": "https://app.ncoreplat.com/jobposition/778848/quality-control-microbiological-laboratory-technician-ch/sintetica",
       "title": "Quality Control Microbiological Laboratory Technician - Mendrisio Site (Ticino)",
@@ -219,13 +252,13 @@
         "canton": "TI",
         "location": "Mendrisio"
       },
-      "sourceLang": "en",
+      "sourceLang": "it",
       "id": "sintetica-8218af8800e4",
       "firstSeenAt": "2026-07-07T22:12:17.128Z",
-      "_qualityScore": 83,
+      "_qualityScore": 75,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 18,
+        "richness": 10,
         "translation": 25,
         "completeness": 15
       }
@@ -258,10 +291,10 @@
       "sourceLang": "it",
       "id": "sintetica-2161482f648c",
       "firstSeenAt": "2026-07-07T22:12:17.128Z",
-      "_qualityScore": 75,
+      "_qualityScore": 83,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 10,
+        "richness": 18,
         "translation": 25,
         "completeness": 15
       }
@@ -305,6 +338,86 @@
   ],
   "removedJobs": [],
   "unchangedJobs": [
+    {
+      "url": "https://app.ncoreplat.com/jobposition/807315/senior-sap-project-manager-operation-fi-mendrisio-site-ticino-ch/sintetica",
+      "applyUrl": "https://app.ncoreplat.com/jobposition/807315/senior-sap-project-manager-operation-fi-mendrisio-site-ticino-ch/sintetica",
+      "title": "Senior SAP Project Manager Operation FI – Mendrisio site (Ticino)",
+      "company": "Sintetica SA",
+      "companyKey": "sintetica",
+      "location": "Mendrisio",
+      "canton": "TI",
+      "country": "CH",
+      "addressLocality": "Mendrisio",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "postalCode": "6850",
+      "streetAddress": "Via Penate 5",
+      "slug": "senior-sap-project-manager-operation-fi-mendrisio-site-ticino-sintetica",
+      "category": "general",
+      "datePosted": "2026-07-31",
+      "source": "sintetica-careers-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "SENIOR",
+      "sector": "Farmaceutica",
+      "_targetScope": {
+        "canton": "TI",
+        "location": "Mendrisio"
+      },
+      "sourceLang": "en",
+      "crawledAt": "",
+      "needsRetranslation": true,
+      "id": "sintetica-91bb6fca0bd5",
+      "salaryMin": 68000,
+      "salaryMax": 103000,
+      "currency": "CHF",
+      "_qualityScore": 79,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 16,
+        "completeness": 20
+      }
+    },
+    {
+      "url": "https://app.ncoreplat.com/jobposition/807316/senior-sap-project-manager-operation-mm-mendrisio-site-ticino-ch/sintetica",
+      "applyUrl": "https://app.ncoreplat.com/jobposition/807316/senior-sap-project-manager-operation-mm-mendrisio-site-ticino-ch/sintetica",
+      "title": "Senior SAP Project Manager Operation MM – Mendrisio site (Ticino)",
+      "company": "Sintetica SA",
+      "companyKey": "sintetica",
+      "location": "Mendrisio",
+      "canton": "TI",
+      "country": "CH",
+      "addressLocality": "Mendrisio",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "postalCode": "6850",
+      "streetAddress": "Via Penate 5",
+      "slug": "senior-sap-project-manager-operation-mm-mendrisio-site-ticino-sintetica",
+      "category": "general",
+      "datePosted": "2026-07-31",
+      "source": "sintetica-careers-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "SENIOR",
+      "sector": "Farmaceutica",
+      "_targetScope": {
+        "canton": "TI",
+        "location": "Mendrisio"
+      },
+      "sourceLang": "en",
+      "crawledAt": "",
+      "needsRetranslation": true,
+      "id": "sintetica-526ef64c1466",
+      "salaryMin": 68000,
+      "salaryMax": 103000,
+      "currency": "CHF",
+      "_qualityScore": 79,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 16,
+        "completeness": 20
+      }
+    },
     {
       "url": "https://app.ncoreplat.com/jobposition/804884/production-engineer-couvet-site-ch/sintetica",
       "applyUrl": "https://app.ncoreplat.com/jobposition/804884/production-engineer-couvet-site-ch/sintetica",
@@ -469,46 +582,6 @@
       }
     },
     {
-      "url": "https://app.ncoreplat.com/jobposition/788177/pharmaceutical-development-laboratory-project-manager-formulation-expert-mendrisio-site-ticino-ch/sintetica",
-      "applyUrl": "https://app.ncoreplat.com/jobposition/788177/pharmaceutical-development-laboratory-project-manager-formulation-expert-mendrisio-site-ticino-ch/sintetica",
-      "title": "Pharmaceutical Development Laboratory Project Manager (Formulation expert) - Mendrisio site (Ticino)",
-      "company": "Sintetica SA",
-      "companyKey": "sintetica",
-      "location": "Mendrisio",
-      "canton": "TI",
-      "country": "CH",
-      "addressLocality": "Mendrisio",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "postalCode": "6850",
-      "streetAddress": "Via Penate 5",
-      "slug": "pharmaceutical-development-laboratory-project-manager-formulation-expert-mendrisio-site-ti",
-      "category": "science",
-      "datePosted": "2026-07-07",
-      "source": "sintetica-careers-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "SENIOR",
-      "sector": "Farmaceutica",
-      "_targetScope": {
-        "canton": "TI",
-        "location": "Mendrisio"
-      },
-      "sourceLang": "en",
-      "id": "sintetica-f40c8151f417",
-      "firstSeenAt": "2026-07-07T22:12:17.128Z",
-      "crawledAt": "",
-      "salaryMin": 68000,
-      "salaryMax": 103000,
-      "currency": "CHF",
-      "_qualityScore": 88,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 20
-      }
-    },
-    {
       "url": "https://app.ncoreplat.com/jobposition/778848/quality-control-microbiological-laboratory-technician-ch/sintetica",
       "applyUrl": "https://app.ncoreplat.com/jobposition/778848/quality-control-microbiological-laboratory-technician-ch/sintetica",
       "title": "Quality Control Microbiological Laboratory Technician - Mendrisio Site (Ticino)",
@@ -533,7 +606,7 @@
         "canton": "TI",
         "location": "Mendrisio"
       },
-      "sourceLang": "en",
+      "sourceLang": "it",
       "id": "sintetica-8218af8800e4",
       "firstSeenAt": "2026-07-07T22:12:17.128Z",
       "crawledAt": "",
@@ -541,10 +614,10 @@
       "salaryMax": 75000,
       "currency": "CHF",
       "needsRetranslation": true,
-      "_qualityScore": 88,
+      "_qualityScore": 80,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 18,
+        "richness": 10,
         "translation": 25,
         "completeness": 20
       }
@@ -582,10 +655,10 @@
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
-      "_qualityScore": 80,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 10,
+        "richness": 18,
         "translation": 25,
         "completeness": 20
       }
@@ -626,6 +699,47 @@
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 10,
+        "translation": 25,
+        "completeness": 20
+      }
+    },
+    {
+      "url": "https://app.ncoreplat.com/jobposition/788177/pharmaceutical-development-laboratory-project-manager-formulation-expert-mendrisio-site-ticino-ch/sintetica",
+      "applyUrl": "https://app.ncoreplat.com/jobposition/788177/pharmaceutical-development-laboratory-project-manager-formulation-expert-mendrisio-site-ticino-ch/sintetica",
+      "title": "Pharmaceutical Development Laboratory Project Manager (Formulation expert) - Mendrisio site (Ticino)",
+      "company": "Sintetica SA",
+      "companyKey": "sintetica",
+      "location": "Mendrisio",
+      "canton": "TI",
+      "country": "CH",
+      "addressLocality": "Mendrisio",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "postalCode": "6850",
+      "streetAddress": "Via Penate 5",
+      "slug": "pharmaceutical-development-laboratory-project-manager-formulation-expert-mendrisio-site-ti",
+      "category": "science",
+      "datePosted": "2026-07-07",
+      "source": "sintetica-careers-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "SENIOR",
+      "sector": "Farmaceutica",
+      "_targetScope": {
+        "canton": "TI",
+        "location": "Mendrisio"
+      },
+      "sourceLang": "en",
+      "id": "sintetica-f40c8151f417",
+      "firstSeenAt": "2026-07-07T22:12:17.128Z",
+      "crawledAt": "",
+      "salaryMin": 68000,
+      "salaryMax": 103000,
+      "currency": "CHF",
+      "crawlerMissStreak": 1,
+      "_qualityScore": 88,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
         "translation": 25,
         "completeness": 20
       }
