@@ -57869,6 +57869,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-nuove-regole-telelavoro-frontalieri-italia-svizzera': {
+    title: 'Nuove regole per il telelavoro per i frontalieri tra Italia e Svizzera',
+    description: 'Le nuove regole disciplinano il telelavoro dei frontalieri tra Italia e Svizzera. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, nuove, regole, telelavoro, decorrere',
+    ogTitle: 'Nuove regole per il telelavoro per i frontalieri tra Italia e Svizzera',
+    ogDescription: 'Le nuove regole disciplinano il telelavoro dei frontalieri tra Italia e Svizzera.',
+    canonicalPath: '/articoli-frontaliere/nuove-regole-telelavoro-frontalieri-italia-svizzera',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Nuove regole per il telelavoro per i frontalieri tra Italia e Svizzera",
+      "description": "Le nuove regole disciplinano il telelavoro dei frontalieri tra Italia e Svizzera. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/nuove-regole-telelavoro-frontalieri-italia-svizzera.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un frontaliere in bicicletta sul confine italo-svizzero, con il Lago di Lugano sullo sfondo."
+      },
+      "datePublished": "2026-07-31T08:09:27+00:00",
+      "dateModified": "2026-07-31T08:09:27+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/nuove-regole-telelavoro-frontalieri-italia-svizzera/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

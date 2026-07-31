@@ -9165,6 +9165,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.tassa-salute-frontalieri-sertori-2026.title': 'Santé frontalière : 120 euros par mois pour les traitements médicaux',
     'blog.article.tassa-salute-frontalieri-sertori-2026.excerpt': 'La Lombardie applique la contribution de 3% à 6% : des fonds aux médecins de frontière pour freiner la fuite vers la Suisse.',
     'blog.article.tassa-salute-frontalieri-sertori-2026.imageAlt': 'Hôpital et zone frontalière entre l\'Italie et la Suisse près du Tessin',
+    'blog.article.nuove-regole-telelavoro-frontalieri-italia-svizzera.title': 'Nouvelles règles de télétravail pour les frontaliers entre l\'Italie et la Suisse',
+    'blog.article.nuove-regole-telelavoro-frontalieri-italia-svizzera.excerpt': 'À compter du lundi 9 février 2026, les nouvelles règles réglementent le télétravail des frontaliers entre l\'Italie et la Suisse.',
+    'blog.article.nuove-regole-telelavoro-frontalieri-italia-svizzera.imageAlt': 'Un frontalier en vélo sur la frontière italo-suisse, avec le Lac de Lugano en arrière-plan.',
 };
 
 export default blogMetaFr;
