@@ -11,7 +11,7 @@
     "https://ohws.prospective.ch/public/v1/medium/1000311/jobs?lang=en&offset=0&limit=500"
   ],
   "notes": "Dedicated PwC Switzerland crawler. Uses Prospective.ch API (medium 1000311). Full job data in API response, no detail page fetching needed. Crawls ALL jobs; canton filter in frontend handles geographic filtering.",
-  "updatedAt": "2026-07-31T11:51:55.488Z",
+  "updatedAt": "2026-07-31T22:12:12.955Z",
   "seedMetaByUrl": {
     "https://jobs.pwc.ch/job-vacancies/manager-audit-trade-industries-and-services/e3970582-d838-4290-b7fc-08baea00d35d": {
       "location": "Geneva",
@@ -241,12 +241,6 @@
       "company": "PwC Switzerland",
       "postedDate": "2026-06-03"
     },
-    "https://jobs.pwc.ch/job-vacancies/manager-international-tax-mergers-acquisitions-and-structuring-financial-services/177fe03f-e57e-440b-a32a-909432f18cf1": {
-      "location": "Zurich",
-      "canton": "ZH",
-      "company": "PwC Switzerland",
-      "postedDate": "2026-06-02"
-    },
     "https://jobs.pwc.ch/job-vacancies/assistant-manager-zukuenftige-r-mandatsleiter-in-eingeschraenkte-revisionen-kmuaudit/f8155961-a690-44d0-aa9f-99eab330dc8c": {
       "location": "Zug",
       "canton": "ZG",
@@ -288,18 +282,6 @@
       "canton": "ZG",
       "company": "PwC Switzerland",
       "postedDate": "2026-05-08"
-    },
-    "https://jobs.pwc.ch/job-vacancies/senior-associate-legal-regulatory-project-manager/3498c221-80c7-4bf4-8c4a-9a9b17ba049c": {
-      "location": "Zurich",
-      "canton": "ZH",
-      "company": "PwC Switzerland",
-      "postedDate": "2026-05-06"
-    },
-    "https://jobs.pwc.ch/job-vacancies/senior-associate-datenschutz-expert-in-ict-recht/a3fb0ff9-2ac2-4448-b4dc-2250c8e42f25": {
-      "location": "Zurich",
-      "canton": "ZH",
-      "company": "PwC Switzerland",
-      "postedDate": "2026-05-06"
     },
     "https://jobs.pwc.ch/job-vacancies/senior-associate-compliance-center-spezialist-in-steuerdeklarationen/9d4a1e81-0d9e-4566-b3dd-a0337fdce13a": {
       "location": "Zürich",
