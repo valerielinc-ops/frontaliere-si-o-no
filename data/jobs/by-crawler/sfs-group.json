@@ -1,6 +1,6 @@
 {
   "crawlerKey": "sfs-group",
-  "assembledAt": "2026-07-30T22:15:54.035Z",
+  "assembledAt": "2026-07-31T11:54:41.530Z",
   "jobs": [
     {
       "id": "sfs-group-d28e368a8b5c",
@@ -33,7 +33,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/techniker-in-wärmebehandlung-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-30T22:15:50.960Z",
+      "crawledAt": "2026-07-31T11:54:38.414Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -114,7 +114,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/teamleiter-in-qm-reklamationsmanagement-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-30T22:15:50.842Z",
+      "crawledAt": "2026-07-31T11:54:38.290Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -153,6 +153,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:18:33.392Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -197,7 +198,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/spécialiste-vente-interne-pour-(epi)-en-équipement-d'atelier-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-30T22:15:50.721Z",
+      "crawledAt": "2026-07-31T11:54:38.166Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "postalCode": "1000",
@@ -277,7 +278,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/senior-software-engineer-–-smart-factory-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-30T22:15:50.600Z",
+      "crawledAt": "2026-07-31T11:54:38.043Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -298,6 +299,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-07-04T12:18:33.038Z",
+      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -342,7 +344,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/senior-qualitätsmanager-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-30T22:15:50.478Z",
+      "crawledAt": "2026-07-31T11:54:37.920Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -379,6 +381,7 @@
         ]
       },
       "firstSeenAt": "2026-07-16T11:15:23.617Z",
+      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -423,7 +426,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/sap-modulbetreuung-pp-qm-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-30T22:15:50.357Z",
+      "crawledAt": "2026-07-31T11:54:37.793Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -460,6 +463,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:18:32.860Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -504,7 +508,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/sap-modulbetreuer-fi-co-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-30T22:15:50.235Z",
+      "crawledAt": "2026-07-31T11:54:37.670Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -541,6 +545,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:18:32.686Z",
+      "needsRetranslation": true,
       "salaryMin": 60000,
       "salaryMax": 102000,
       "baseSalary": {
@@ -553,6 +558,74 @@
           "unitText": "YEAR"
         }
       }
+    },
+    {
+      "id": "sfs-group-b5aa54b03664",
+      "slug": "project-manager-engineering-m-f-d-sfs-group-heerbrugg",
+      "slugByLocale": {
+        "de": "project-manager-engineering-m-f-d-sfs-group-heerbrugg",
+        "it": "project-manager-engineering-m-f-d-sfs-group-heerbrugg",
+        "en": "project-manager-engineering-m-f-d-sfs-group-heerbrugg",
+        "fr": "project-manager-engineering-m-f-d-sfs-group-heerbrugg"
+      },
+      "company": "SFS Group",
+      "companyKey": "sfs-group",
+      "companyDomain": "sfs.com",
+      "title": "Project Manager Engineering (m/f/d)",
+      "titleByLocale": {
+        "de": "Project Manager Engineering (m/f/d)",
+        "en": "Project Manager Engineering (m/f/d)",
+        "it": "Project Manager Engineering (m/f/d)",
+        "fr": "Project Manager Engineering (m/f/d)"
+      },
+      "description": "Du möchtest Fertigungsprozesse aktiv weiterentwickeln und innovative Technologien in die Produktion bringen? In dieser Rolle verbindest du Engineering, Produktion und Innovation und gestaltest die Zukunft unserer Aerospace Fasteners Produktion mit. Your Tasks:\n• Entwicklung und Industrialisierung neuer Produktionsprozesse\n• Einführung oder Erweiterungen neuer Anlagen und Fertigungstechnologien von der Evaluation bis Produktionsreife\n• Planung, Initiierung und Umsetzung von Prozessoptimierungen\n• Sicherstellung der Voraussetzungen für eine einwandfreie Fertigung im definierten Prozess\n• Durchführung von technischer und wirtschaftlicher Prozessbewertungen im Rahmen von Produkterweiterungen\n• Koordination interdisziplinärer Projektteams und internationaler Schnittstellen\n• Kontinuierliche Verbesserung von Qualität, Produktivität und Prozessen in der Aerospace Fastener Produktion Your profile:\n• Technische Grundausbildung mit Weiterbildung auf Stufe FH oder vergleichbare Qualifikation im Bereich Maschinebau, Produktionstechnik oder Systemtechnik\n• Know-how in der Industrialisierung und Optimierung von Produktionsprozessen\n• Erfahrung in der Einführung neuer Anlagen und Fertigungstechnologien bis zur Produktionsreife\n• Kenntnisse für technische und wirtschaftliche Prozessbewertungen\n• Analytische und lösungsorientierte Arbeitsweise mit hoher Eigenverantwortung\n• Begeisterung für Prozessoptimierung und innovative Technologien\n• Sehr gute Deutsch- und Englischkenntnisse in Wort und Schrift We offer:\n• Sechs Wochen Ferien & zusätzlicher Ferienkauf möglich\n• Jährliche Erfolgsbeteiligung\n• Eigene gesunde Pensionskasse mit individuellen Sparplänen\n• Interne Weiterbildungskurse & Unterstützung von externen Weiterbildungen\n• Raum für Eigenverantwortung und Initiative\n• Weitere Benefits: https://join.sfs.com/ch/de/benefits/",
+      "descriptionByLocale": {
+        "de": "Du möchtest Fertigungsprozesse aktiv weiterentwickeln und innovative Technologien in die Produktion bringen? In dieser Rolle verbindest du Engineering, Produktion und Innovation und gestaltest die Zukunft unserer Aerospace Fasteners Produktion mit. Your Tasks:\n• Entwicklung und Industrialisierung neuer Produktionsprozesse\n• Einführung oder Erweiterungen neuer Anlagen und Fertigungstechnologien von der Evaluation bis Produktionsreife\n• Planung, Initiierung und Umsetzung von Prozessoptimierungen\n• Sicherstellung der Voraussetzungen für eine einwandfreie Fertigung im definierten Prozess\n• Durchführung von technischer und wirtschaftlicher Prozessbewertungen im Rahmen von Produkterweiterungen\n• Koordination interdisziplinärer Projektteams und internationaler Schnittstellen\n• Kontinuierliche Verbesserung von Qualität, Produktivität und Prozessen in der Aerospace Fastener Produktion Your profile:\n• Technische Grundausbildung mit Weiterbildung auf Stufe FH oder vergleichbare Qualifikation im Bereich Maschinebau, Produktionstechnik oder Systemtechnik\n• Know-how in der Industrialisierung und Optimierung von Produktionsprozessen\n• Erfahrung in der Einführung neuer Anlagen und Fertigungstechnologien bis zur Produktionsreife\n• Kenntnisse für technische und wirtschaftliche Prozessbewertungen\n• Analytische und lösungsorientierte Arbeitsweise mit hoher Eigenverantwortung\n• Begeisterung für Prozessoptimierung und innovative Technologien\n• Sehr gute Deutsch- und Englischkenntnisse in Wort und Schrift We offer:\n• Sechs Wochen Ferien & zusätzlicher Ferienkauf möglich\n• Jährliche Erfolgsbeteiligung\n• Eigene gesunde Pensionskasse mit individuellen Sparplänen\n• Interne Weiterbildungskurse & Unterstützung von externen Weiterbildungen\n• Raum für Eigenverantwortung und Initiative\n• Weitere Benefits: https://join.sfs.com/ch/de/benefits/",
+        "it": "Du möchtest Fertigungsprozesse aktiv weiterentwickeln und innovative Technologien in die Produktion bringen? In dieser Rolle verbindest du Engineering, Produktion und Innovation und gestaltest die Zukunft unserer Aerospace Fasteners Produktion mit. Your Tasks:\n• Entwicklung und Industrialisierung neuer Produktionsprozesse\n• Einführung oder Erweiterungen neuer Anlagen und Fertigungstechnologien von der Evaluation bis Produktionsreife\n• Planung, Initiierung und Umsetzung von Prozessoptimierungen\n• Sicherstellung der Voraussetzungen für eine einwandfreie Fertigung im definierten Prozess\n• Durchführung von technischer und wirtschaftlicher Prozessbewertungen im Rahmen von Produkterweiterungen\n• Koordination interdisziplinärer Projektteams und internationaler Schnittstellen\n• Kontinuierliche Verbesserung von Qualität, Produktivität und Prozessen in der Aerospace Fastener Produktion Your profile:\n• Technische Grundausbildung mit Weiterbildung auf Stufe FH oder vergleichbare Qualifikation im Bereich Maschinebau, Produktionstechnik oder Systemtechnik\n• Know-how in der Industrialisierung und Optimierung von Produktionsprozessen\n• Erfahrung in der Einführung neuer Anlagen und Fertigungstechnologien bis zur Produktionsreife\n• Kenntnisse für technische und wirtschaftliche Prozessbewertungen\n• Analytische und lösungsorientierte Arbeitsweise mit hoher Eigenverantwortung\n• Begeisterung für Prozessoptimierung und innovative Technologien\n• Sehr gute Deutsch- und Englischkenntnisse in Wort und Schrift We offer:\n• Sechs Wochen Ferien & zusätzlicher Ferienkauf möglich\n• Jährliche Erfolgsbeteiligung\n• Eigene gesunde Pensionskasse mit individuellen Sparplänen\n• Interne Weiterbildungskurse & Unterstützung von externen Weiterbildungen\n• Raum für Eigenverantwortung und Initiative\n• Weitere Benefits: https://join.sfs.com/ch/de/benefits/",
+        "en": "Du möchtest Fertigungsprozesse aktiv weiterentwickeln und innovative Technologien in die Produktion bringen? In dieser Rolle verbindest du Engineering, Produktion und Innovation und gestaltest die Zukunft unserer Aerospace Fasteners Produktion mit. Your Tasks:\n• Entwicklung und Industrialisierung neuer Produktionsprozesse\n• Einführung oder Erweiterungen neuer Anlagen und Fertigungstechnologien von der Evaluation bis Produktionsreife\n• Planung, Initiierung und Umsetzung von Prozessoptimierungen\n• Sicherstellung der Voraussetzungen für eine einwandfreie Fertigung im definierten Prozess\n• Durchführung von technischer und wirtschaftlicher Prozessbewertungen im Rahmen von Produkterweiterungen\n• Koordination interdisziplinärer Projektteams und internationaler Schnittstellen\n• Kontinuierliche Verbesserung von Qualität, Produktivität und Prozessen in der Aerospace Fastener Produktion Your profile:\n• Technische Grundausbildung mit Weiterbildung auf Stufe FH oder vergleichbare Qualifikation im Bereich Maschinebau, Produktionstechnik oder Systemtechnik\n• Know-how in der Industrialisierung und Optimierung von Produktionsprozessen\n• Erfahrung in der Einführung neuer Anlagen und Fertigungstechnologien bis zur Produktionsreife\n• Kenntnisse für technische und wirtschaftliche Prozessbewertungen\n• Analytische und lösungsorientierte Arbeitsweise mit hoher Eigenverantwortung\n• Begeisterung für Prozessoptimierung und innovative Technologien\n• Sehr gute Deutsch- und Englischkenntnisse in Wort und Schrift We offer:\n• Sechs Wochen Ferien & zusätzlicher Ferienkauf möglich\n• Jährliche Erfolgsbeteiligung\n• Eigene gesunde Pensionskasse mit individuellen Sparplänen\n• Interne Weiterbildungskurse & Unterstützung von externen Weiterbildungen\n• Raum für Eigenverantwortung und Initiative\n• Weitere Benefits: https://join.sfs.com/ch/de/benefits/",
+        "fr": "Du möchtest Fertigungsprozesse aktiv weiterentwickeln und innovative Technologien in die Produktion bringen? In dieser Rolle verbindest du Engineering, Produktion und Innovation und gestaltest die Zukunft unserer Aerospace Fasteners Produktion mit. Your Tasks:\n• Entwicklung und Industrialisierung neuer Produktionsprozesse\n• Einführung oder Erweiterungen neuer Anlagen und Fertigungstechnologien von der Evaluation bis Produktionsreife\n• Planung, Initiierung und Umsetzung von Prozessoptimierungen\n• Sicherstellung der Voraussetzungen für eine einwandfreie Fertigung im definierten Prozess\n• Durchführung von technischer und wirtschaftlicher Prozessbewertungen im Rahmen von Produkterweiterungen\n• Koordination interdisziplinärer Projektteams und internationaler Schnittstellen\n• Kontinuierliche Verbesserung von Qualität, Produktivität und Prozessen in der Aerospace Fastener Produktion Your profile:\n• Technische Grundausbildung mit Weiterbildung auf Stufe FH oder vergleichbare Qualifikation im Bereich Maschinebau, Produktionstechnik oder Systemtechnik\n• Know-how in der Industrialisierung und Optimierung von Produktionsprozessen\n• Erfahrung in der Einführung neuer Anlagen und Fertigungstechnologien bis zur Produktionsreife\n• Kenntnisse für technische und wirtschaftliche Prozessbewertungen\n• Analytische und lösungsorientierte Arbeitsweise mit hoher Eigenverantwortung\n• Begeisterung für Prozessoptimierung und innovative Technologien\n• Sehr gute Deutsch- und Englischkenntnisse in Wort und Schrift We offer:\n• Sechs Wochen Ferien & zusätzlicher Ferienkauf möglich\n• Jährliche Erfolgsbeteiligung\n• Eigene gesunde Pensionskasse mit individuellen Sparplänen\n• Interne Weiterbildungskurse & Unterstützung von externen Weiterbildungen\n• Raum für Eigenverantwortung und Initiative\n• Weitere Benefits: https://join.sfs.com/ch/de/benefits/"
+      },
+      "location": "Heerbrugg",
+      "canton": "SG",
+      "url": "https://join.sfs.com/ch/en/vacancies/project-manager-engineering-(m-f-d).html",
+      "source": "SFS Group Dedicated Parser (Umantis/AEM)",
+      "sourceLang": "de",
+      "crawledAt": "2026-07-31T11:54:37.544Z",
+      "addressLocality": "Heerbrugg",
+      "addressRegion": "SG",
+      "streetAddress": "Rosenbergsaustrasse 8",
+      "postalCode": "9435",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Ingegneria",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Industria / Meccanica",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-31",
+      "applyUrl": "https://jobapplication.sfs.com/Vacancies/2978/Application/CheckLogin/1?lang=eng",
+      "jobReqId": "2978",
+      "legalEntity": "SFS Group Schweiz AG",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 79000,
+      "salaryMax": 120000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 79000,
+          "maxValue": 120000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-07-31T11:54:37.544Z"
     },
     {
       "id": "sfs-group-5dbce9df082c",
@@ -585,7 +658,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/produktentwickler-in-—-aerospace-blind-fastener-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-30T22:15:50.110Z",
+      "crawledAt": "2026-07-31T11:54:37.413Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -663,7 +736,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/polymechaniker-in-–-schleifen-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-30T22:15:49.990Z",
+      "crawledAt": "2026-07-31T11:54:37.287Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -700,6 +773,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:18:32.163Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -744,7 +818,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/polymechaniker-in-–-erosion-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-30T22:15:49.871Z",
+      "crawledAt": "2026-07-31T11:54:37.161Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -825,7 +899,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/logistiker-in-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-30T22:15:49.750Z",
+      "crawledAt": "2026-07-31T11:54:37.034Z",
       "addressLocality": "Rebstein",
       "addressRegion": "SG",
       "postalCode": "9000",
@@ -859,6 +933,7 @@
         ]
       },
       "firstSeenAt": "2026-07-29T11:54:54.123Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -903,7 +978,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/kunststofftechnologe-in-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-30T22:15:49.626Z",
+      "crawledAt": "2026-07-31T11:54:36.907Z",
       "addressLocality": "Hallau",
       "addressRegion": "SH",
       "postalCode": "8200",
@@ -939,6 +1014,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:18:31.814Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -983,7 +1059,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/group-finance-specialist-sap-fi-key-user-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-30T22:15:49.506Z",
+      "crawledAt": "2026-07-31T11:54:36.781Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -1061,7 +1137,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/automatiker-in-schichtmodell-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-30T22:15:49.381Z",
+      "crawledAt": "2026-07-31T11:54:36.654Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -1142,7 +1218,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/automatiker-in-instandhaltung-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-30T22:15:49.255Z",
+      "crawledAt": "2026-07-31T11:54:36.522Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -1183,6 +1259,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:18:31.117Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -1227,7 +1304,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/anwendungstechniker-in-rainscreen-vhf-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-30T22:15:49.133Z",
+      "crawledAt": "2026-07-31T11:54:36.393Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -1308,7 +1385,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/anwendungstechniker-in-hauraton-entwässerungssysteme-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-30T22:15:48.989Z",
+      "crawledAt": "2026-07-31T11:54:36.235Z",
       "addressLocality": "Buchs ZH",
       "addressRegion": "ZH",
       "postalCode": "9435",
@@ -1388,7 +1465,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/anlagenbediener-in-wärmebehandlung-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-30T22:15:48.864Z",
+      "crawledAt": "2026-07-31T11:54:36.105Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
