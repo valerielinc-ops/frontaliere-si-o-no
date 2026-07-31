@@ -1,6 +1,6 @@
 {
   "crawlerKey": "spital-nidwalden",
-  "assembledAt": "2026-07-30T22:24:10.227Z",
+  "assembledAt": "2026-07-31T22:26:06.267Z",
   "jobs": [
     {
       "id": "spital-nidwalden-d17c3f5c4a99",
@@ -34,7 +34,7 @@
       "url": "https://jobs.luks.ch/offene-stellen/3-mitarbeiter-innen-hauswirtschaft-zu-je/102588bb-0360-4897-bb00-9eed742efc74",
       "source": "Spital Nidwalden Dedicated Parser (Prospective medium 1003280)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-30T22:24:06.109Z",
+      "crawledAt": "2026-07-31T22:26:03.095Z",
       "addressLocality": "Stans",
       "addressRegion": "NW",
       "addressCountry": "CH",
@@ -117,12 +117,13 @@
         "de": "<p>Das Spital Nidwalden ist ein modernes Akutspital mit 90 Betten, rund 600 engagierten Mitarbeitenden und ist für die erweiterte Grundversorgung verantwortlich. Als Unternehmen der LUKS Gruppe sind wir Teil eines leistungsstarken Netzwerks, das zu den führenden Spitalgruppen der Schweiz gehört. Gemeinsam sorgen wir rund um die Uhr mit Leidenschaft und Engagement für eine koordinierte, digital vernetzte und für alle zugängliche Gesundheitsversorgung.<br/><br/>Wir suchen für unsere allgemeine Abteilung im 2. Stock per 1. August 2026 oder nach Vereinbarung eine/n</p>\n\nAufgaben:\n• Sie unterstützten die Patientinnen und Patienten bei Ihrem Aufenthalt bei uns im Haus und beraten versiert und evidenzbasiert\n\n• Ihr Engagement in der Begleitung und Unterstützung der Lernenden ist von grosser Bedeutung\n\n• Ihre aktive Beteiligung an Veränderungsprozessen und an der Teamentwicklung rundet Ihr Tätigkeitsfeld ab\n\nAnforderungen:\n• Sie verfügen über einen Abschluss als Fachfrau/mann Gesundheit EFZ\n\n• Sie behalten in herausfordernden Situationen stets den nötigen Überblick und einen kühlen Kopf\n\n• Sie begegnen Ihren Mitmenschen mit Wertschätzung und Einfühlungsvermögen\n\n• Sie besitzen bereits Kenntnisse in digitalen Klinikinformationssystemen und haben keine Berührungsängste im Umgang mit neuen Systemen\n\nWir bieten:\n• Sie erwartet eine vielseitige, anspruchsvolle und abwechslungsreiche Aufgabe mit grosser Selbständigkeit in einem motivierten und engagierten Team\n\n• Sie leisten einen wesentlichen und wertvollen Beitrag zur Zufriedenheit unseren Patientinnen und Patienten",
         "fr": "<p>Spital Nidwalden est un hôpital moderne de soins actifs avec 90 lits, environ 600 employés dévoués et est responsable des soins de base prolongés. En tant qu'entreprise du groupe LUKS, nous faisons partie d'un puissant réseau qui est l'un des principaux groupes hospitaliers en Suisse. Ensemble, nous fournissons 24 heures sur 24 avec passion et engagement pour des soins de santé coordonnés, connectés numériquement et accessibles pour tous. <br/><br/ > Nous cherchons notre département général au 2e étage au 1er étage. Août 2026 ou par accord a/n</p>\n\nTâches :\n• Vous aidez les patients pendant leur séjour chez nous et leur fournissez des conseils d'experts et fondés sur des preuves.\n\n• Votre engagement à accompagner et à soutenir les apprenants est d'une grande importance\n\n• Votre participation active aux processus de changement et au développement d'équipes complète votre domaine d'activité\n\nExigences\n• Vous avez un diplôme en santé spécialisée EFZ\n\n• Vous gardez toujours l'aperçu nécessaire et une tête cool dans des situations difficiles\n\n• Ils traitent leurs semblables avec reconnaissance et empathie.\n\n• Vous connaissez déjà les systèmes numériques d'information hospitalière et n'avez aucune crainte de contact avec de nouveaux systèmes\n\nNous offrons:\n• Elle s'attend à une tâche polyvalente, exigeante et variée avec une grande indépendance dans une équipe motivée et engagée.\n\n• Ils apportent une contribution importante et précieuse à la satisfaction de nos patients"
       },
+      "needsRetranslation": true,
       "location": "Stans",
       "canton": "NW",
       "url": "https://jobs.luks.ch/offene-stellen/fachfrau-mann-gesundheit-efz/cd84e609-7d40-41ff-a077-21b354f1f198",
       "source": "Spital Nidwalden Dedicated Parser (Prospective medium 1003280)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-30T22:24:06.105Z",
+      "crawledAt": "2026-07-31T22:26:03.092Z",
       "addressLocality": "Stans",
       "addressRegion": "NW",
       "addressCountry": "CH",
@@ -196,7 +197,7 @@
       "title": "Physiotherapeut/-in 80-100 %",
       "titleByLocale": {
         "it": "Fisioterapista/in 80-100 %",
-        "en": "Physiotherapist/-in 80-100 %",
+        "en": "Physiotherapeut/-in 80-100 %",
         "de": "Physiotherapeut/-in 80-100 %",
         "fr": "Physiothérapeute/-dans 80-100 %"
       },
@@ -270,7 +271,8 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2,
+      "needsRetranslation": true
     }
   ]
 }
