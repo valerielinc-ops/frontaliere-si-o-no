@@ -52,13 +52,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "bottier-ere-orthopediste-crr-suva-sion-sion",
-        "stivali-e-ortopedia-clinique-romande-de-readaptation-crr-suva-sion"
+        "bottier-ere-orthopediste-crr-suva-sion-sion"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "bottier-ere-orthopediste-crr-suva-sion-sion",
-          "stivali-e-ortopedia-clinique-romande-de-readaptation-crr-suva-sion"
+          "bottier-ere-orthopediste-crr-suva-sion-sion"
         ],
         "en": [
           "bottier-ere-orthopediste-crr-suva-sion-sion"
@@ -131,13 +129,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "assistant-e-qualite-et-processus-crr-suva-sion-sion",
-        "assistente-di-qualita-e-processo-clinique-romande-de-readaptation-crr-suva-sion"
+        "assistant-e-qualite-et-processus-crr-suva-sion-sion"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistant-e-qualite-et-processus-crr-suva-sion-sion",
-          "assistente-di-qualita-e-processo-clinique-romande-de-readaptation-crr-suva-sion"
+          "assistant-e-qualite-et-processus-crr-suva-sion-sion"
         ],
         "en": [
           "assistant-e-qualite-et-processus-crr-suva-sion-sion"
@@ -162,12 +158,12 @@
     },
     {
       "id": "crr-suva-sion-eac3a8b254f2",
-      "slug": "ingenieur-e-ict-senior-microsoft-cloud-plateformes-hybrides-crr-suva-sion-sion",
+      "slug": "senior-ict-engineer-microsoft-cloud-hybrid-platforms-clinique-romande-de-readaptation-crr-suva-sion",
       "slugByLocale": {
         "fr": "ingenieur-e-ict-senior-microsoft-cloud-plateformes-hybrides-crr-suva-sion-sion",
-        "it": "ingenieur-e-ict-senior-microsoft-cloud-plateformes-hybrides-crr-suva-sion-sion",
+        "it": "senior-ict-engineer-microsoft-cloud-hybrid-platforms-clinique-romande-de-readaptation-crr-suva-sion",
         "en": "ingenieur-e-ict-senior-microsoft-cloud-plateformes-hybrides-crr-suva-sion-sion",
-        "de": "ingenieur-e-ict-senior-microsoft-cloud-plateformes-hybrides-crr-suva-sion-sion"
+        "de": "senior-ict-engineer-microsoft-cloud-hybrid-plattformen-clinique-romande-de-readaptation-crr-suva-sion"
       },
       "company": "Clinique romande de réadaptation (CRR Suva)",
       "companyKey": "crr-suva-sion",
@@ -222,7 +218,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-30T22:22:15.064Z"
+      "firstSeenAt": "2026-07-30T22:22:15.064Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "ingenieur-e-ict-senior-microsoft-cloud-plateformes-hybrides-crr-suva-sion-sion"
+        ],
+        "de": [
+          "ingenieur-e-ict-senior-microsoft-cloud-plateformes-hybrides-crr-suva-sion-sion"
+        ]
+      },
+      "previousSlugs": [
+        "ingenieur-e-ict-senior-microsoft-cloud-plateformes-hybrides-crr-suva-sion-sion"
+      ]
     }
   ]
 }
