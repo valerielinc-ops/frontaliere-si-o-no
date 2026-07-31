@@ -2775,9 +2775,9 @@
       "id": "denner-f7b20348d333",
       "slug": "venditore-venditore-denner-sierre",
       "slugByLocale": {
-        "it": "venditore-venditore-denner-sierre",
-        "en": "seller-seller-denner-sierre",
-        "de": "verkaufer-verkaufer-denner-sierre",
+        "it": "venditore-venditore-denner-sa-sierre",
+        "en": "seller-seller-denner-sa-sierre",
+        "de": "verkaufer-verkaufer-denner-sa-sierre",
         "fr": "vendeur-vendeuse-denner-sierre"
       },
       "company": "Denner",
@@ -2843,17 +2843,20 @@
           "vendeur-vendeuse-denner"
         ],
         "en": [
-          "vendeur-vendeuse-denner"
+          "vendeur-vendeuse-denner",
+          "seller-seller-denner-sierre"
         ],
         "de": [
-          "vendeur-vendeuse-denner"
+          "vendeur-vendeuse-denner",
+          "verkaufer-verkaufer-denner-sierre"
         ]
       },
       "previousSlugs": [
         "vendeur-vendeuse-denner-2",
         "vendeur-vendeuse-denner-champlan",
-        "vendeur-vendeuse-denner-champlan",
-        "vendeur-vendeuse-denner"
+        "vendeur-vendeuse-denner",
+        "seller-seller-denner-sierre",
+        "verkaufer-verkaufer-denner-sierre"
       ],
       "salaryMin": 72000,
       "salaryMax": 111000,
