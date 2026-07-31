@@ -9156,6 +9156,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vivere-varzo-lavorare-ticino.title': 'Wohnen in Varzo und Arbeiten im Tessin als Grenzgänger',
     'blog.article.vivere-varzo-lavorare-ticino.excerpt': 'Praktischer Leitfaden für diejenigen, die Varzo als Wohnsitz im Tessin wählen: Steuern, neue Vereinbarung, Vorsorge und Einkommensverwaltung.',
     'blog.article.vivere-varzo-lavorare-ticino.imageAlt': 'Berglandschaft zwischen Italien und der Schweiz',
+    'blog.article.lavoro-temporaneo-aumento.title': 'Die Leiharbeit in der Schweiz nimmt wieder zu',
+    'blog.article.lavoro-temporaneo-aumento.excerpt': 'Die befristeten Arbeitsstunden stiegen im ersten Halbjahr um 1,5%, während die unbefristeten Arbeitsverträge um 19,4% zurückgingen.',
+    'blog.article.lavoro-temporaneo-aumento.imageAlt': 'Panoramablick auf den Lugano-See mit den Bergen des Tessins im Sonnenuntergang',
 };
 
 export default blogMetaDe;
