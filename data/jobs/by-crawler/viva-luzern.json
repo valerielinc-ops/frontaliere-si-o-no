@@ -1,6 +1,6 @@
 {
   "crawlerKey": "viva-luzern",
-  "assembledAt": "2026-07-30T22:10:29.292Z",
+  "assembledAt": "2026-07-31T11:38:01.124Z",
   "jobs": [
     {
       "id": "viva-luzern-5b65d7a19c0c",
@@ -28,12 +28,13 @@
         "de": "Aufgaben:\n• Mitarbeit für eine individuelle und ressourcenorientierte Betreuung und Pflege der Bewohnerinnen und Bewohner anhand des Pflegeprozesses\n\n• Ansprechperson für die Bewohnerinnen und Bewohner und deren Angehörige sein\n\n• Durchführen von medizinaltechnischen Verrichtungen gemäss Verordnung und auf Delegation der Fachpersonen HF\n\n• Planung und Organisation der eigenen und der Arbeit der zugewiesenen Mitarbeitenden\n\nAnforderungen:\n• Abgeschlossene Ausbildung als Fachfrau/-mann Gesundheit EFZ\n\n• Dienstleistungs- und Kundenorientierung\n\n• Freude an der Arbeit mit älteren Menschen und die Bereitschaft, dich spezifisch weiterzubilden\n\n• Lösungsorientierte und prozessbezogene Arbeitsweise\n\n• Belastbarkeit und Flexibilität\n\nWir bieten:\n• Grosszügige Beteiligung an externen Aus- und Weiterbildungen\n\n• Umfangreiches internes Weiterbildungsangebot\n\n• Individuelle Beratung bei der Laufbahnplanung",
         "fr": "Mansioni - Collaborare per un' assistenza e una cura individuale e orientata alle risorse dei residenti, seguendo il processo di cura - Essere il punto di riferimento per i residenti e i loro familiari - Eseguire procedure mediche e tecniche secondo le prescrizioni e su delega del personale specializzato HF - Pianificare e organizzare il proprio lavoro e quello dei collaboratori assegnati\n• Requisiti - Formazione completata come Fachfrau/-mann Gesundheit EFZ - Orientamento al servizio e al cliente - Piacere nel lavorare con persone anziane e disponibilità a formarsi specificamente - Approccio orientato alla soluzione e al processo - Resistenza e flessibilità\n• Cosa offriamo - Partecipazione generosa a corsi di formazione es - Ampia offta di formazione interna - Individuenza per Consulale la pifazianicione de carriera"
       },
+      "needsRetranslation": true,
       "location": "Luzern",
       "canton": "LU",
       "url": "https://jobs.vivaluzern.ch/offene-stellen/fachfrau-mann-gesundheit-oder-betreuung-efz/c09e6e2b-540c-4320-91c5-cb956ab6c7e5",
       "source": "Viva Luzern Dedicated Parser (Prospective medium 1002590)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-30T22:10:24.340Z",
+      "crawledAt": "2026-07-31T11:37:55.957Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -74,11 +75,13 @@
         ]
       },
       "previousSlugs": [
-        "fachfrau-mann-gesundheit-oder-betreuung-efz-viva-luzern-luzern"
+        "fachfrau-mann-gesundheit-oder-betreuung-efz-viva-luzern-luzern",
+        "operatore-socio-sanitario-viva-luzern-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachfrau-mann-gesundheit-oder-betreuung-efz-viva-luzern-luzern"
+          "fachfrau-mann-gesundheit-oder-betreuung-efz-viva-luzern-luzern",
+          "operatore-socio-sanitario-viva-luzern-luzern"
         ]
       },
       "firstSeenAt": "2026-05-19T18:25:39.380Z",
@@ -102,14 +105,14 @@
         "it": "pflegefachfrau-mann-hf-viva-luzern",
         "en": "certified-nursing-professional-viva-luzern-luzern",
         "de": "pflegefachfrau-mann-hf-viva-luzern-luzern",
-        "fr": "infirmier-infirmiere-diplome-e-es-viva-luzern-luzern"
+        "fr": "soins-infirmiers-professionnels-hf-viva-luzern"
       },
       "company": "Viva Luzern",
       "companyKey": "viva-luzern",
       "companyDomain": "viva-luzern.ch",
       "title": "Pflegefachfrau/-mann HF",
       "titleByLocale": {
-        "it": "Infermieristica professionale HF",
+        "it": "Pflegefachfrau/-mann HF",
         "en": "Nursing professional HF",
         "de": "Pflegefachfrau/-mann HF",
         "fr": "Soins infirmiers professionnels HF"
@@ -127,7 +130,7 @@
       "url": "https://jobs.vivaluzern.ch/offene-stellen/pflegefachfrau-mann-hf/cc1bce20-e58d-4ae3-9c1a-713f5237ccaa",
       "source": "Viva Luzern Dedicated Parser (Prospective medium 1002590)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-30T22:10:24.335Z",
+      "crawledAt": "2026-07-31T11:37:55.956Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -152,6 +155,7 @@
         "care-specialist-hf-palliative-care-viva-luzern-luzern",
         "pflegefachfrau-mann-hf-palliative-care-viva-luzern-luzern",
         "specialiste-des-soins-palliatifs-viva-luzern-luzern",
+        "infirmier-infirmiere-diplome-e-es-viva-luzern-luzern",
         "soins-infirmiers-professionnels-hf-viva-luzern"
       ],
       "previousSlugsByLocale": {
@@ -171,88 +175,11 @@
         ],
         "fr": [
           "specialiste-des-soins-palliatifs-viva-luzern-luzern",
+          "infirmier-infirmiere-diplome-e-es-viva-luzern-luzern",
           "soins-infirmiers-professionnels-hf-viva-luzern"
         ]
       },
       "firstSeenAt": "2026-07-06T15:43:44.088Z",
-      "salaryMin": 69500,
-      "salaryMax": 106000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 69500,
-          "maxValue": 106000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "viva-luzern-44758d48ba7e",
-      "slug": "stv-teamleiter-in-betreuung-e-pflege-viva-luzern",
-      "slugByLocale": {
-        "it": "stv-teamleiter-in-betreuung-e-pflege-viva-luzern",
-        "en": "deputy-team-leader-care-and-nursing-viva-luzern-luzern",
-        "de": "stv-teamleiter-in-betreuung-und-pflege-viva-luzern-luzern",
-        "fr": "chef-d-equipe-stv-en-soins-et-soins-viva-luzern-luzern"
-      },
-      "company": "Viva Luzern",
-      "companyKey": "viva-luzern",
-      "companyDomain": "viva-luzern.ch",
-      "title": "Stv. Teamleiter/in Betreuung und Pflege",
-      "titleByLocale": {
-        "it": "Vice Capo Squadra Assistenza e Infermieristica",
-        "en": "Deputy Team Leader Care and Nursing",
-        "de": "Stv. Teamleiter/in Betreuung und Pflege",
-        "fr": "Chef d'équipe Stv/en soins et soins"
-      },
-      "description": "Aufgaben:\n• Stellvertretung der Teamleitung in der personellen und fachlichen Führung eines Betreuungs- und Pflegeteams mit 40 Bewohnenden\n\n• Sicherstellung einer individuellen Betreuung und Pflege der Bewohnenden anhand des Pflegeprozesses und Zusammenarbeit mit ihren Angehörigen\n\n• Fachliche Begleitung und Befähigung der Mitarbeitenden in komplexen Situationen\n\n• Interprofessionelle Zusammenarbeit mit allen in der Betreuung und Pflege eingebundenen Stellen\n\n• Dokumentation und Interpretation der erbrachten pflegerischen Leistungen\n\n• Mitarbeit in der Ausbildung von Lernenden (FaGe EFZ, AGS EBA) und Studierenden HF in der Alltagspraxis\n\nAnforderungen:\n• Ausbildung als Pflegefachfrau/-mann HF oder äquivalent\n\n• Berufserfahrung in der Langzeitpflege oder Geriatrie\n\n• Die Fähigkeit, Motivation und Freude, den Schritt in eine Führungsrolle zu tun\n\n• Eine engagierte und kommunikative Persönlichkeit, die sich durch Fach- und Sozialkompetenz, Selbständigkeit sowie prozessorientierte Arbeitsweise auszeichnet\n\n• Vertrauen schenken, aufmerksam und beweglich sein sind für dich zentrale Werte\n\nWir bieten:\n• Grosszügige Beteiligung an externen Aus- und Weiterbildungen\n\n• Umfangreiches internes Weiterbildungsangebot\n\n• Individuelle Beratung bei der Laufbahnplanung",
-      "descriptionByLocale": {
-        "it": "Compiti:\n• Rappresentare il caposquadra nella gestione del personale e professionale di un'équipe assistenziale e infermieristica composta da 40 residenti\n• Garantire l'assistenza individuale e il sostegno ai residenti in base al processo di cura e alla collaborazione con i loro parenti\n• Supporto professionale e responsabilizzazione dei dipendenti in situazioni complesse\n• Collaborazione interprofessionale con tutti i dipartimenti coinvolti nell'assistenza e nell'assistenza infermieristica\n• Documentazione e interpretazione delle prestazioni infermieristiche erogate\n• Partecipazione alla formazione degli studenti (FaGe EFZ, AGS EBA) e degli studenti HF nella pratica quotidiana Requisiti:\n• Formazione come specialista infermieristico HF o equivalente\n• Esperienza lavorativa nell'assistenza a lungo termine o in geriatria\n• La capacità, la motivazione e la gioia di fare il passo verso un ruolo di leadership\n• Una personalità impegnata e comunicativa caratterizzata da capacità professionali e sociali, indipendenza e un modo di lavorare orientato al processo\n• Dare fiducia, essere attenti e agili sono valori fondamentali per te. Offriamo:\n• Partecipazione generosa alla formazione esterna e al perfezionamento\n• Ampia offerta di formazione interna\n• Consulenza individuale sulla pianificazione della carriera",
-        "en": "Descrizione - Deputy team management in the personnel and professional management of a care and nursing team with 40 residents - Ensuring individual support and care of the residents based on the care process and cooperation with their relatives - Professional support and qualification of the employees in complex situations - Interprofessional cooperation with all positions involved in the care and care - Documentation and interpretation of the nursing services provided - Cooperation in the training of learners (FaGe EFZ, AGS EBA) and students HF in everyday practice\n• Requisiti - Training as nursing specialist HF or equivalent - Professional experience in long-term care or geriatrics - The ability, motivation and pleasure to take the step into a leadership role - A committed and communicative personality, which is characterized by specialist and social competence, independence and process-oriented working methods - Giving confidence, attentiveness and mobility are central values for you\n• Cosa offriamo - Generous participation in external training and further education - Individual advice in career planning",
-        "de": "Aufgaben:\n• Stellvertretung der Teamleitung in der personellen und fachlichen Führung eines Betreuungs- und Pflegeteams mit 40 Bewohnenden\n\n• Sicherstellung einer individuellen Betreuung und Pflege der Bewohnenden anhand des Pflegeprozesses und Zusammenarbeit mit ihren Angehörigen\n\n• Fachliche Begleitung und Befähigung der Mitarbeitenden in komplexen Situationen\n\n• Interprofessionelle Zusammenarbeit mit allen in der Betreuung und Pflege eingebundenen Stellen\n\n• Dokumentation und Interpretation der erbrachten pflegerischen Leistungen\n\n• Mitarbeit in der Ausbildung von Lernenden (FaGe EFZ, AGS EBA) und Studierenden HF in der Alltagspraxis\n\nAnforderungen:\n• Ausbildung als Pflegefachfrau/-mann HF oder äquivalent\n\n• Berufserfahrung in der Langzeitpflege oder Geriatrie\n\n• Die Fähigkeit, Motivation und Freude, den Schritt in eine Führungsrolle zu tun\n\n• Eine engagierte und kommunikative Persönlichkeit, die sich durch Fach- und Sozialkompetenz, Selbständigkeit sowie prozessorientierte Arbeitsweise auszeichnet\n\n• Vertrauen schenken, aufmerksam und beweglich sein sind für dich zentrale Werte\n\nWir bieten:\n• Grosszügige Beteiligung an externen Aus- und Weiterbildungen\n\n• Umfangreiches internes Weiterbildungsangebot\n\n• Individuelle Beratung bei der Laufbahnplanung",
-        "fr": "Descrizione - Gestion d'équipe adjointe dans le personnel et la gestion professionnelle d'une équipe de soins et de soins infirmiers avec 40 résidents - Assurer le soutien et les soins individuels des résidents basés sur le processus de soins et la coopération avec leurs proches - Soutien et qualification professionnels des employés dans des situations complexes - Coopération interprofessionnelle avec tous les postes impliqués dans les soins et les soins - Documentation et interprétation des services infirmiers fournis - Coopération dans la formation des apprenants (FaGe EFZ, AGS EBA) et des étudiants HF dans la pratique quotidienne\n• Requisiti - Formation en tant que spécialiste des soins infirmiers HF ou équivalent - Expérience professionnelle en soins de longue durée ou en gériatrie - La capacité, la motivation et le plaisir de prendre le pas dans un rôle de leadership - Une personnalité engagée et communicative, qui se caractérise par des compétences spécialisées et sociales, l'indépendance et des méthodes de travail axées sur les processus - Donner confiance, attention et mobilité sont des valeurs centrales pour vous\n• Cosa offriamo - Participation généreuse à la formation externe et à la formation continue - Conseils individuels dans la planification de carrière"
-      },
-      "needsRetranslation": false,
-      "location": "Luzern",
-      "canton": "LU",
-      "url": "https://jobs.vivaluzern.ch/offene-stellen/stv-teamleiter-in-betreuung-und-pflege/ce7584af-db46-4488-9fd9-e5e1f2192316",
-      "source": "Viva Luzern Dedicated Parser (Prospective medium 1002590)",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-30T22:10:24.334Z",
-      "addressLocality": "Luzern",
-      "addressRegion": "LU",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "6006",
-      "streetAddress": "Interessiert?",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-16",
-      "applyUrl": "https://jobs.vivaluzern.ch/offene-stellen/stv-teamleiter-in-betreuung-und-pflege/ce7584af-db46-4488-9fd9-e5e1f2192316",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "stv-teamleiter-in-betreuung-und-pflege-viva-luzern-luzern"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "stv-teamleiter-in-betreuung-und-pflege-viva-luzern-luzern"
-        ],
-        "en": [
-          "stv-teamleiter-in-betreuung-und-pflege-viva-luzern-luzern"
-        ],
-        "fr": [
-          "stv-teamleiter-in-betreuung-und-pflege-viva-luzern-luzern"
-        ]
-      },
-      "firstSeenAt": "2026-06-16T14:51:25.702Z",
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -292,12 +219,13 @@
         "de": "Aufgaben:\n• Betreuung und Pflege der Bewohnenden gemäss Pflegeprozess\n\n• Punktuell Anleiten von neuen Pflegemitarbeitenden und Lernenden\n\n• Einfache präventive, diagnostische und therapeutische Massnahmen ausführen\n\n• Durchführen von delegierten Massnahmen in den Bereichen Gesundheitsförderung und Rehabilitationen gemäss Anordnung\n\n• Mitgestaltung des Alltags unter Berücksichtigung der individuellen Bedürfnisse der Bewohner/innen\n\nAnforderungen:\n• Ausbildung Assistent/-in Gesundheit und Soziales EBA oder Pflegehelfer/-in SRK\n\n• Freude an der Arbeit im Langzeitbereich\n\n• Gute Deutschkenntnisse in Wort und Schrift\n\n• Gepflegtes Erscheinungsbild und gute Umgangsformen\n\n• Wertschätzende Grundhaltung und ein ausgeprägtes Verständnis für ältere Menschen\n\nWir bieten:\n• Grosszügige Beteiligung an externen Aus- und Weiterbildungen\n\n• Umfangreiches internes Weiterbildungsangebot\n\n• Individuelle Beratung bei der Laufbahnplanung",
         "fr": "Descrizione - Soins et soins aux résidents selon le processus de prise en charge - Orientation sélective du personnel infirmier et des apprenants - Mesures préventives, diagnostiques et thérapeutiques simples à mettre en oeuvre - Exécution de mesures déléguées dans les domaines de la promotion de la santé et de la réadaptation selon les modalités - Participation à la vie quotidienne en tenant compte des besoins individuels des résidents\n• Requisiti - Assistante de formation / en santé et sociale EBA ou assistante de soins / en SRK - Joy de travailler dans le domaine à long terme - Bonnes compétences allemandes en paroles et en écriture - Bonne apparence et bonnes manières - Appréciation de l'attitude de base et compréhension prononcée pour les personnes âgées\n• Cosa offriamo - Participation généreuse à la formation externe et à la formation continue - Conseils individuels en planification de carrière"
       },
+      "needsRetranslation": true,
       "location": "Luzern",
       "canton": "LU",
       "url": "https://jobs.vivaluzern.ch/offene-stellen/assistent-in-gesundheit-und-soziales-oder-pflegehelfer-in-srk/f3addf97-defe-43c8-a9d0-85e9c3d28690",
       "source": "Viva Luzern Dedicated Parser (Prospective medium 1002590)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-30T22:10:24.333Z",
+      "crawledAt": "2026-07-31T11:37:55.951Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -344,6 +272,84 @@
       }
     },
     {
+      "id": "viva-luzern-44758d48ba7e",
+      "slug": "stv-teamleiter-in-betreuung-e-pflege-viva-luzern",
+      "slugByLocale": {
+        "it": "stv-teamleiter-in-betreuung-e-pflege-viva-luzern",
+        "en": "deputy-team-leader-care-and-nursing-viva-luzern-luzern",
+        "de": "stv-teamleiter-in-betreuung-und-pflege-viva-luzern-luzern",
+        "fr": "chef-d-equipe-stv-en-soins-et-soins-viva-luzern-luzern"
+      },
+      "company": "Viva Luzern",
+      "companyKey": "viva-luzern",
+      "companyDomain": "viva-luzern.ch",
+      "title": "Stv. Teamleiter/in Betreuung und Pflege",
+      "titleByLocale": {
+        "it": "Vice Capo Squadra Assistenza e Infermieristica",
+        "en": "Deputy Team Leader Care and Nursing",
+        "de": "Stv. Teamleiter/in Betreuung und Pflege",
+        "fr": "Chef d'équipe Stv/en soins et soins"
+      },
+      "description": "Aufgaben:\n• Stellvertretung der Teamleitung in der personellen und fachlichen Führung eines Betreuungs- und Pflegeteams mit 40 Bewohnenden\n\n• Sicherstellung einer individuellen Betreuung und Pflege der Bewohnenden anhand des Pflegeprozesses und Zusammenarbeit mit ihren Angehörigen\n\n• Fachliche Begleitung und Befähigung der Mitarbeitenden in komplexen Situationen\n\n• Interprofessionelle Zusammenarbeit mit allen in der Betreuung und Pflege eingebundenen Stellen\n\n• Dokumentation und Interpretation der erbrachten pflegerischen Leistungen\n\n• Mitarbeit in der Ausbildung von Lernenden (FaGe EFZ, AGS EBA) und Studierenden HF in der Alltagspraxis\n\nAnforderungen:\n• Ausbildung als Pflegefachfrau/-mann HF oder äquivalent\n\n• Berufserfahrung in der Langzeitpflege oder Geriatrie\n\n• Die Fähigkeit, Motivation und Freude, den Schritt in eine Führungsrolle zu tun\n\n• Eine engagierte und kommunikative Persönlichkeit, die sich durch Fach- und Sozialkompetenz, Selbständigkeit sowie prozessorientierte Arbeitsweise auszeichnet\n\n• Vertrauen schenken, aufmerksam und beweglich sein sind für dich zentrale Werte\n\nWir bieten:\n• Grosszügige Beteiligung an externen Aus- und Weiterbildungen\n\n• Umfangreiches internes Weiterbildungsangebot\n\n• Individuelle Beratung bei der Laufbahnplanung",
+      "descriptionByLocale": {
+        "it": "Compiti:\n• Rappresentare il caposquadra nella gestione del personale e professionale di un'équipe assistenziale e infermieristica composta da 40 residenti\n• Garantire l'assistenza individuale e il sostegno ai residenti in base al processo di cura e alla collaborazione con i loro parenti\n• Supporto professionale e responsabilizzazione dei dipendenti in situazioni complesse\n• Collaborazione interprofessionale con tutti i dipartimenti coinvolti nell'assistenza e nell'assistenza infermieristica\n• Documentazione e interpretazione delle prestazioni infermieristiche erogate\n• Partecipazione alla formazione degli studenti (FaGe EFZ, AGS EBA) e degli studenti HF nella pratica quotidiana Requisiti:\n• Formazione come specialista infermieristico HF o equivalente\n• Esperienza lavorativa nell'assistenza a lungo termine o in geriatria\n• La capacità, la motivazione e la gioia di fare il passo verso un ruolo di leadership\n• Una personalità impegnata e comunicativa caratterizzata da capacità professionali e sociali, indipendenza e un modo di lavorare orientato al processo\n• Dare fiducia, essere attenti e agili sono valori fondamentali per te. Offriamo:\n• Partecipazione generosa alla formazione esterna e al perfezionamento\n• Ampia offerta di formazione interna\n• Consulenza individuale sulla pianificazione della carriera",
+        "en": "Descrizione - Deputy team management in the personnel and professional management of a care and nursing team with 40 residents - Ensuring individual support and care of the residents based on the care process and cooperation with their relatives - Professional support and qualification of the employees in complex situations - Interprofessional cooperation with all positions involved in the care and care - Documentation and interpretation of the nursing services provided - Cooperation in the training of learners (FaGe EFZ, AGS EBA) and students HF in everyday practice\n• Requisiti - Training as nursing specialist HF or equivalent - Professional experience in long-term care or geriatrics - The ability, motivation and pleasure to take the step into a leadership role - A committed and communicative personality, which is characterized by specialist and social competence, independence and process-oriented working methods - Giving confidence, attentiveness and mobility are central values for you\n• Cosa offriamo - Generous participation in external training and further education - Individual advice in career planning",
+        "de": "Aufgaben:\n• Stellvertretung der Teamleitung in der personellen und fachlichen Führung eines Betreuungs- und Pflegeteams mit 40 Bewohnenden\n\n• Sicherstellung einer individuellen Betreuung und Pflege der Bewohnenden anhand des Pflegeprozesses und Zusammenarbeit mit ihren Angehörigen\n\n• Fachliche Begleitung und Befähigung der Mitarbeitenden in komplexen Situationen\n\n• Interprofessionelle Zusammenarbeit mit allen in der Betreuung und Pflege eingebundenen Stellen\n\n• Dokumentation und Interpretation der erbrachten pflegerischen Leistungen\n\n• Mitarbeit in der Ausbildung von Lernenden (FaGe EFZ, AGS EBA) und Studierenden HF in der Alltagspraxis\n\nAnforderungen:\n• Ausbildung als Pflegefachfrau/-mann HF oder äquivalent\n\n• Berufserfahrung in der Langzeitpflege oder Geriatrie\n\n• Die Fähigkeit, Motivation und Freude, den Schritt in eine Führungsrolle zu tun\n\n• Eine engagierte und kommunikative Persönlichkeit, die sich durch Fach- und Sozialkompetenz, Selbständigkeit sowie prozessorientierte Arbeitsweise auszeichnet\n\n• Vertrauen schenken, aufmerksam und beweglich sein sind für dich zentrale Werte\n\nWir bieten:\n• Grosszügige Beteiligung an externen Aus- und Weiterbildungen\n\n• Umfangreiches internes Weiterbildungsangebot\n\n• Individuelle Beratung bei der Laufbahnplanung",
+        "fr": "Descrizione - Gestion d'équipe adjointe dans le personnel et la gestion professionnelle d'une équipe de soins et de soins infirmiers avec 40 résidents - Assurer le soutien et les soins individuels des résidents basés sur le processus de soins et la coopération avec leurs proches - Soutien et qualification professionnels des employés dans des situations complexes - Coopération interprofessionnelle avec tous les postes impliqués dans les soins et les soins - Documentation et interprétation des services infirmiers fournis - Coopération dans la formation des apprenants (FaGe EFZ, AGS EBA) et des étudiants HF dans la pratique quotidienne\n• Requisiti - Formation en tant que spécialiste des soins infirmiers HF ou équivalent - Expérience professionnelle en soins de longue durée ou en gériatrie - La capacité, la motivation et le plaisir de prendre le pas dans un rôle de leadership - Une personnalité engagée et communicative, qui se caractérise par des compétences spécialisées et sociales, l'indépendance et des méthodes de travail axées sur les processus - Donner confiance, attention et mobilité sont des valeurs centrales pour vous\n• Cosa offriamo - Participation généreuse à la formation externe et à la formation continue - Conseils individuels dans la planification de carrière"
+      },
+      "needsRetranslation": false,
+      "location": "Luzern",
+      "canton": "LU",
+      "url": "https://jobs.vivaluzern.ch/offene-stellen/stv-teamleiter-in-betreuung-und-pflege/ce7584af-db46-4488-9fd9-e5e1f2192316",
+      "source": "Viva Luzern Dedicated Parser (Prospective medium 1002590)",
+      "sourceLang": "de",
+      "crawledAt": "2026-07-31T11:37:55.951Z",
+      "addressLocality": "Luzern",
+      "addressRegion": "LU",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "6006",
+      "streetAddress": "Interessiert?",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-16",
+      "applyUrl": "https://jobs.vivaluzern.ch/offene-stellen/stv-teamleiter-in-betreuung-und-pflege/ce7584af-db46-4488-9fd9-e5e1f2192316",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "stv-teamleiter-in-betreuung-und-pflege-viva-luzern-luzern"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "stv-teamleiter-in-betreuung-und-pflege-viva-luzern-luzern"
+        ],
+        "en": [
+          "stv-teamleiter-in-betreuung-und-pflege-viva-luzern-luzern"
+        ],
+        "fr": [
+          "stv-teamleiter-in-betreuung-und-pflege-viva-luzern-luzern"
+        ]
+      },
+      "firstSeenAt": "2026-06-16T14:51:25.702Z",
+      "salaryMin": 69500,
+      "salaryMax": 106000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 69500,
+          "maxValue": 106000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
       "id": "viva-luzern-3eea96611847",
       "slug": "collaboratore-trice-technik-unterhalt-viva-luzern",
       "slugByLocale": {
@@ -369,12 +375,13 @@
         "de": "Aufgaben:\n• Unterhalts- und Umgebungsarbeiten inkl. Pflanzenpflege, Reinigungsarbeiten und Winterdienst\n\n• Sicherstellung der Wartung und des Unterhalts der Infrastruktur und der Anlagen\n\n• Parkplatzmanagement, Materialtransporte und Entsorgungsmanagement\n\n• Erledigen von Reparaturaufträgen, Störungsmeldungen und wenn nötig Koordination mit externen Partnern\n\n• Instandstellungs- und Umzugsarbeiten, Bereitstellung der Räumlichkeiten für Anlässe\n\n• unterstützt die Bewirtschaftung der elektronischen und mechanischen Schliesssysteme\n\n• Leisten von Pikettdienst\n\nAnforderungen:\n• Abgeschlossene Berufsausbildung als Fachfrau/-mann Betriebsunterhalt EFZ, Sanitärinstallateur/in oder gleichwertige Ausbildung\n\n• Einige Jahre Berufserfahrung, Führerschein Kategorie B\n\n• Hohe Kunden- und Dienstleistungsbereitschaft\n\n• Hohe Eigenverantwortung, lösungsorientiertes und vernetztes Denken, zuverlässige und selbständige Arbeitsweise, Teamfähigkeit\n\n• Offenheit gegenüber Veränderungen und Lernfähigkeit\n\n• IT-Kenntnisse\n\nWir bieten:\n• Grosszügige Beteiligung an externen Aus- und Weiterbildungen\n\n• Umfangreiches internes Weiterbildungsangebot\n\n• Individuelle Beratung bei der Laufbahnplanung",
         "fr": "Mansioni - entretien et travaux environnementaux incl. Entretien, nettoyage et service d'hiver - assurer l'entretien et l'entretien de l'infrastructure et des installations - Gestion du stationnement, du transport des matériaux et de l'élimination - Achèvement des commandes de réparation, des rapports de défaillance et, si nécessaire, coordination avec les partenaires externes - Entretien et réinstallation des locaux - Appui à la gestion des systèmes de verrouillage électronique et mécanique - Fourniture de Pikettdienst\n• Requisiti - Achèvement de la formation professionnelle en tant qu'entreprise spécialisée d'entretien EFZ, d'installation sanitaire ou formation équivalente - Plusieurs années d'expérience professionnelle, catégorie de permis de conduire B - Haut niveau de responsabilité personnelle, pensée axée sur la solution et réseautée, méthodes de travail fiables et indépendantes, travail d'équipe - Ouverture au changement et à l'apprentissage - Participation généreuse à l'éducation et à la formation externes - Conseils individuels en planification de carrière Contatto"
       },
+      "needsRetranslation": true,
       "location": "Luzern",
       "canton": "LU",
       "url": "https://jobs.vivaluzern.ch/offene-stellen/mitarbeiter-in-technik-unterhalt/1fe5f55a-401f-458e-b2da-273c83e2ec77",
       "source": "Viva Luzern Dedicated Parser (Prospective medium 1002590)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-30T22:10:24.332Z",
+      "crawledAt": "2026-07-31T11:37:55.950Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -395,11 +402,13 @@
       "previousSlugs": [
         "mitarbeiter-in-technik-amp-unterhalt-viva-luzern-luzern",
         "employee-technology-maintenance-viva-luzern-luzern",
-        "technologie-et-maintenance-des-employes-viva-luzern-luzern"
+        "technologie-et-maintenance-des-employes-viva-luzern-luzern",
+        "collaboratore-trice-technik-unterhalt-viva-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-technik-amp-unterhalt-viva-luzern-luzern"
+          "mitarbeiter-in-technik-amp-unterhalt-viva-luzern-luzern",
+          "collaboratore-trice-technik-unterhalt-viva-luzern"
         ],
         "en": [
           "mitarbeiter-in-technik-amp-unterhalt-viva-luzern-luzern",
@@ -456,7 +465,7 @@
       "url": "https://jobs.vivaluzern.ch/offene-stellen/pflegefachfrau-mann-hf-keine-geteilten-dienste-im-bereich-pflege/5370ba7d-fad9-45a2-aa75-5af7fdd17642",
       "source": "Viva Luzern Dedicated Parser (Prospective medium 1002590)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-30T22:10:24.328Z",
+      "crawledAt": "2026-07-31T11:37:55.945Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -476,12 +485,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "pflegefachfrau-mann-hf-keine-geteilten-dienste-im-bereich-pflege-viva-luzern-luzern",
-        "pflegefachfrau-mann-hf-keine-geteilten-dienste-im-bereich-pflege-viva-luzern"
+        "pflegefachfrau-mann-hf-keine-geteilten-dienste-im-bereich-pflege-viva-luzern",
+        "infermieristica-professionale-hf-senza-servizi-di-assistenza-condivisa-viva-luzern-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "pflegefachfrau-mann-hf-keine-geteilten-dienste-im-bereich-pflege-viva-luzern-luzern",
-          "pflegefachfrau-mann-hf-keine-geteilten-dienste-im-bereich-pflege-viva-luzern"
+          "pflegefachfrau-mann-hf-keine-geteilten-dienste-im-bereich-pflege-viva-luzern",
+          "infermieristica-professionale-hf-senza-servizi-di-assistenza-condivisa-viva-luzern-luzern"
         ],
         "en": [
           "pflegefachfrau-mann-hf-keine-geteilten-dienste-im-bereich-pflege-viva-luzern-luzern"
@@ -491,83 +502,6 @@
         ]
       },
       "firstSeenAt": "2026-07-02T23:17:19.767Z",
-      "salaryMin": 69500,
-      "salaryMax": 106000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 69500,
-          "maxValue": 106000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "viva-luzern-78534e424536",
-      "slug": "assistent-in-gesundheit-e-soziales-o-pflegehelfer-in-srk-keine-geteilten-dienste-im-bereich-pflege-viva-luzern",
-      "slugByLocale": {
-        "it": "assistent-in-gesundheit-e-soziales-o-pflegehelfer-in-srk-keine-geteilten-dienste-im-bereich-pflege-viva-luzern",
-        "en": "assistant-in-health-and-social-affairs-or-nursing-assistant-in-srk-no-shared-care-services-viva-luzern-luzern",
-        "de": "assistent-in-gesundheit-und-soziales-oder-pflegehelfer-in-srk-keine-geteilten-dienste-im",
-        "fr": "assistant-dans-le-domaine-de-la-sante-et-des-affaires-sociales-ou-assistant-infirmier-dans-la-srk-pas-de-services-de"
-      },
-      "company": "Viva Luzern",
-      "companyKey": "viva-luzern",
-      "companyDomain": "viva-luzern.ch",
-      "title": "Assistent/-in Gesundheit und Soziales oder Pflegehelfer/-in SRK (keine geteilten Dienste im Bereich Pflege)",
-      "titleByLocale": {
-        "it": "Assistent/-in Gesundheit e Soziales o Pflegehelfer/-in SRK (keine geteilten Dienste im Bereich Pflege)",
-        "en": "Assistant/in Health and Social Affairs or nursing assistant/in SRK (no shared care services)",
-        "de": "Assistent/-in Gesundheit und Soziales oder Pflegehelfer/-in SRK (keine geteilten Dienste im Bereich Pflege)",
-        "fr": "Assistant/dans le domaine de la santé et des affaires sociales ou assistant infirmier/dans la SRK (pas de services de soins partagés)"
-      },
-      "description": "Aufgaben:\n• Betreuung und Pflege der Bewohnenden gemäss Pflegeprozess\n\n• Punktuell Anleiten von neuen Pflegemitarbeitenden und Lernenden\n\n• Einfache präventive, diagnostische und therapeutische Massnahmen ausführen\n\n• Durchführen von delegierten Massnahmen in den Bereichen Gesundheitsförderung und Rehabilitationen gemäss Anordnung\n\n• Mitgestaltung des Alltags unter Berücksichtigung der individuellen Bedürfnisse der Bewohner/innen\n\nAnforderungen:\n• Ausbildung Assistent/-in Gesundheit und Soziales EBA oder Pflegehelfer/-in SRK\n\n• Gutes Hörverständnis in Schweizerdeutsch sowie gute Deutschkenntnisse in Wort und Schrift\n\n• Freude an der Arbeit im Langzeitbereich\n\n• Gepflegtes Erscheinungsbild und gute Umgangsformen\n\n• Wertschätzende Grundhaltung und ein ausgeprägtes Verständnis für ältere Menschen\n\nWir bieten:\n• Grosszügige Beteiligung an externen Aus- und Weiterbildungen\n\n• Umfangreiches internes Weiterbildungsangebot\n\n• Individuelle Beratung bei der Laufbahnplanung",
-      "descriptionByLocale": {
-        "it": "Compiti:\n• Cura e cura dei residenti secondo il processo di cura\n• Guida specifica per nuovi infermieri e studenti\n• Implementare semplici misure preventive, diagnostiche e terapeutiche\n• Attuazione delle misure delegate nei settori della promozione della salute e della riabilitazione secondo l'ordine\n• Co-creazione della vita quotidiana tenendo conto delle esigenze individuali degli abitanti Requisiti\n• Assistente/in Salute e Sociale EBA o assistente/in SRK\n• Buona comprensione dell'ascolto in tedesco svizzero e buona conoscenza del tedesco nelle parole e nella scrittura\n• Divertimento del lavoro a lungo termine\n• Aspetto ben curato e buone maniere\n• Atteggiamento favorevole e una forte comprensione delle persone anziane Offriamo:\n• Partecipazione genetica all'istruzione e alla formazione esterna\n• Ampia offerta di formazione interna\n• Consigli di pianificazione della carriera individuale",
-        "en": "Tasks:\n• Care and care of residents according to the care process\n• Specific guidance for new nurses and learners\n• Implement simple preventive, diagnostic and therapeutic measures\n• Implementation of delegated measures in the areas of health promotion and rehabilitation according to order\n• Co-creation of everyday life taking into account the individual needs of the inhabitants Requirements\n• Training assistant/in Health and Social EBA or nursing assistant/in SRK\n• Good listening comprehension in Swiss German and good knowledge of German in words and writing\n• Enjoyment of working in the long term\n• Well-groomed appearance and good manners\n• Appreciative attitude and a strong understanding of older people We offer:\n• Generous participation in external education and training\n• Extensive internal training offer\n• Individual career planning advice",
-        "de": "Aufgaben:\n• Betreuung und Pflege der Bewohnenden gemäss Pflegeprozess\n\n• Punktuell Anleiten von neuen Pflegemitarbeitenden und Lernenden\n\n• Einfache präventive, diagnostische und therapeutische Massnahmen ausführen\n\n• Durchführen von delegierten Massnahmen in den Bereichen Gesundheitsförderung und Rehabilitationen gemäss Anordnung\n\n• Mitgestaltung des Alltags unter Berücksichtigung der individuellen Bedürfnisse der Bewohner/innen\n\nAnforderungen:\n• Ausbildung Assistent/-in Gesundheit und Soziales EBA oder Pflegehelfer/-in SRK\n\n• Gutes Hörverständnis in Schweizerdeutsch sowie gute Deutschkenntnisse in Wort und Schrift\n\n• Freude an der Arbeit im Langzeitbereich\n\n• Gepflegtes Erscheinungsbild und gute Umgangsformen\n\n• Wertschätzende Grundhaltung und ein ausgeprägtes Verständnis für ältere Menschen\n\nWir bieten:\n• Grosszügige Beteiligung an externen Aus- und Weiterbildungen\n\n• Umfangreiches internes Weiterbildungsangebot\n\n• Individuelle Beratung bei der Laufbahnplanung",
-        "fr": "Tâches :\n• Soins et soins aux résidents selon le processus de soins\n• Orientations spécifiques pour les nouveaux infirmiers et apprenants\n• Mettre en œuvre des mesures préventives, diagnostiques et thérapeutiques simples\n• Mise en œuvre des mesures déléguées dans les domaines de la promotion de la santé et de la réadaptation selon l ' ordre\n• Co-création de la vie quotidienne en tenant compte des besoins individuels des habitants Exigences\n• Assistante de formation/dans le domaine de la santé et de la sécurité sociale EBA ou assistante infirmière/en SRK\n• Bonne compréhension de l'écoute en allemand suisse et bonne connaissance de l'allemand en mots et en écriture\n• Appréciation du travail à long terme\n• Aspect soigné et bonnes manières\n• Appréciation et compréhension des personnes âgées Nous offrons:\n• Participation généreuse à l'éducation et à la formation externes\n• Une vaste offre de formation interne\n• Conseils individuels en matière de planification de carrière"
-      },
-      "location": "Luzern",
-      "canton": "LU",
-      "url": "https://jobs.vivaluzern.ch/offene-stellen/assistent-in-gesundheit-und-soziales-oder-pflegehelfer-in-srk-keine-geteilten-dienste-im-bereich-pflege/3d38778e-14ab-41a7-9b3d-ce2bddf702b2",
-      "source": "Viva Luzern Dedicated Parser (Prospective medium 1002590)",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-30T22:10:24.327Z",
-      "addressLocality": "Luzern",
-      "addressRegion": "LU",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "6015",
-      "streetAddress": "Interessiert?",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "junior",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-02",
-      "applyUrl": "https://jobs.vivaluzern.ch/offene-stellen/assistent-in-gesundheit-und-soziales-oder-pflegehelfer-in-srk-keine-geteilten-dienste-im-bereich-pflege/3d38778e-14ab-41a7-9b3d-ce2bddf702b2",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "assistent-in-gesundheit-und-soziales-oder-pflegehelfer-in-srk-keine-geteilten-dienste-im"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "assistent-in-gesundheit-und-soziales-oder-pflegehelfer-in-srk-keine-geteilten-dienste-im"
-        ],
-        "en": [
-          "assistent-in-gesundheit-und-soziales-oder-pflegehelfer-in-srk-keine-geteilten-dienste-im"
-        ],
-        "fr": [
-          "assistent-in-gesundheit-und-soziales-oder-pflegehelfer-in-srk-keine-geteilten-dienste-im"
-        ]
-      },
-      "firstSeenAt": "2026-07-02T23:17:19.765Z",
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -607,12 +541,13 @@
         "de": "Aufgaben:\n• Pflege und Betreuung der Bewohnenden sowie auch Betreuung der Angehörigen\n\n• Aufgaben in der Alltagsgestaltung von Bewohnenden sowie logistische, hauswirtschaftliche und administrative Tätigkeiten im Betreuungs- und Pflegebereich\n\n• Fachliche Begleitung, Beratung und Unterstützung von neuen Pflegemitarbeitenden und Lernenden\n\n• Planung und Organisation der eigenen Arbeit und die der zugewiesenen Mitarbeitenden\n\n• Dokumentation der Pflegeleistungen\n\n• Freude und Interesse am Umgang mit Menschen mit einer Demenzerkrankung\n\n• Möglichkeit Zusatzfunktion Berufsbildner\n\nAnforderungen:\n• Eidgenössisches Fähigkeitszeugnis als Fachfrau/-mann Gesundheit oder Betreuung\n\n• Berufserfahrung und Freude an der Arbeit im Langzeitbereich\n\n• Offene und positive Grundhaltung\n\n• Teamfähigkeit\n\n• Belastbarkeit und Flexibilität\n\n• Berufsbildnerkurs\n\nWir bieten:\n• Grosszügige Beteiligung an externen Aus- und Weiterbildungen\n\n• Umfangreiches internes Weiterbildungsangebot\n\n• Individuelle Beratung bei der Laufbahnplanung",
         "fr": "Tâches :\n• Soins et soins aux résidents et aux proches\n• Tâches dans la conception quotidienne des résidents ainsi que les activités logistiques, domestiques et administratives dans le secteur des soins et des soins\n• Soutien professionnel, conseils et soutien aux nouveaux infirmiers et apprenants\n• Planification et organisation de son propre travail et celui des employés affectés\n• Documentation des services de soins\n• La joie et l'intérêt pour les personnes atteintes de démence\n• Possibilité de rôle supplémentaire pour les formateurs professionnels Exigences\n• Certificat fédéral de compétence en matière de santé ou de soins\n• Expérience professionnelle et plaisir à travailler à long terme\n• Une attitude ouverte et positive\n• Travail d'équipe\n• Résilience et flexibilité\n• Cours de formation professionnelle Nous offrons:\n• Participation généreuse à l'éducation et à la formation externes\n• Une vaste offre de formation interne\n• Conseils individuels en matière de planification de carrière"
       },
+      "needsRetranslation": true,
       "location": "Luzern",
       "canton": "LU",
       "url": "https://jobs.vivaluzern.ch/offene-stellen/fachfrau-mann-gesundheit-efz-keine-geteilten-dienste-im-bereich-pflege/1f23ea8f-dc96-4500-87b5-d5e710d52714",
       "source": "Viva Luzern Dedicated Parser (Prospective medium 1002590)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-30T22:10:24.327Z",
+      "crawledAt": "2026-07-31T11:37:55.944Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -661,6 +596,84 @@
       }
     },
     {
+      "id": "viva-luzern-78534e424536",
+      "slug": "assistent-in-gesundheit-e-soziales-o-pflegehelfer-in-srk-keine-geteilten-dienste-im-bereich-pflege-viva-luzern",
+      "slugByLocale": {
+        "it": "assistent-in-gesundheit-e-soziales-o-pflegehelfer-in-srk-keine-geteilten-dienste-im-bereich-pflege-viva-luzern",
+        "en": "assistant-in-health-and-social-affairs-or-nursing-assistant-in-srk-no-shared-care-services-viva-luzern-luzern",
+        "de": "assistent-in-gesundheit-und-soziales-oder-pflegehelfer-in-srk-keine-geteilten-dienste-im",
+        "fr": "assistant-dans-le-domaine-de-la-sante-et-des-affaires-sociales-ou-assistant-infirmier-dans-la-srk-pas-de-services-de"
+      },
+      "company": "Viva Luzern",
+      "companyKey": "viva-luzern",
+      "companyDomain": "viva-luzern.ch",
+      "title": "Assistent/-in Gesundheit und Soziales oder Pflegehelfer/-in SRK (keine geteilten Dienste im Bereich Pflege)",
+      "titleByLocale": {
+        "it": "Assistent/-in Gesundheit e Soziales o Pflegehelfer/-in SRK (keine geteilten Dienste im Bereich Pflege)",
+        "en": "Assistant/in Health and Social Affairs or nursing assistant/in SRK (no shared care services)",
+        "de": "Assistent/-in Gesundheit und Soziales oder Pflegehelfer/-in SRK (keine geteilten Dienste im Bereich Pflege)",
+        "fr": "Assistant/dans le domaine de la santé et des affaires sociales ou assistant infirmier/dans la SRK (pas de services de soins partagés)"
+      },
+      "description": "Aufgaben:\n• Betreuung und Pflege der Bewohnenden gemäss Pflegeprozess\n\n• Punktuell Anleiten von neuen Pflegemitarbeitenden und Lernenden\n\n• Einfache präventive, diagnostische und therapeutische Massnahmen ausführen\n\n• Durchführen von delegierten Massnahmen in den Bereichen Gesundheitsförderung und Rehabilitationen gemäss Anordnung\n\n• Mitgestaltung des Alltags unter Berücksichtigung der individuellen Bedürfnisse der Bewohner/innen\n\nAnforderungen:\n• Ausbildung Assistent/-in Gesundheit und Soziales EBA oder Pflegehelfer/-in SRK\n\n• Gutes Hörverständnis in Schweizerdeutsch sowie gute Deutschkenntnisse in Wort und Schrift\n\n• Freude an der Arbeit im Langzeitbereich\n\n• Gepflegtes Erscheinungsbild und gute Umgangsformen\n\n• Wertschätzende Grundhaltung und ein ausgeprägtes Verständnis für ältere Menschen\n\nWir bieten:\n• Grosszügige Beteiligung an externen Aus- und Weiterbildungen\n\n• Umfangreiches internes Weiterbildungsangebot\n\n• Individuelle Beratung bei der Laufbahnplanung",
+      "descriptionByLocale": {
+        "it": "Compiti:\n• Cura e cura dei residenti secondo il processo di cura\n• Guida specifica per nuovi infermieri e studenti\n• Implementare semplici misure preventive, diagnostiche e terapeutiche\n• Attuazione delle misure delegate nei settori della promozione della salute e della riabilitazione secondo l'ordine\n• Co-creazione della vita quotidiana tenendo conto delle esigenze individuali degli abitanti Requisiti\n• Assistente/in Salute e Sociale EBA o assistente/in SRK\n• Buona comprensione dell'ascolto in tedesco svizzero e buona conoscenza del tedesco nelle parole e nella scrittura\n• Divertimento del lavoro a lungo termine\n• Aspetto ben curato e buone maniere\n• Atteggiamento favorevole e una forte comprensione delle persone anziane Offriamo:\n• Partecipazione genetica all'istruzione e alla formazione esterna\n• Ampia offerta di formazione interna\n• Consigli di pianificazione della carriera individuale",
+        "en": "Tasks:\n• Care and care of residents according to the care process\n• Specific guidance for new nurses and learners\n• Implement simple preventive, diagnostic and therapeutic measures\n• Implementation of delegated measures in the areas of health promotion and rehabilitation according to order\n• Co-creation of everyday life taking into account the individual needs of the inhabitants Requirements\n• Training assistant/in Health and Social EBA or nursing assistant/in SRK\n• Good listening comprehension in Swiss German and good knowledge of German in words and writing\n• Enjoyment of working in the long term\n• Well-groomed appearance and good manners\n• Appreciative attitude and a strong understanding of older people We offer:\n• Generous participation in external education and training\n• Extensive internal training offer\n• Individual career planning advice",
+        "de": "Aufgaben:\n• Betreuung und Pflege der Bewohnenden gemäss Pflegeprozess\n\n• Punktuell Anleiten von neuen Pflegemitarbeitenden und Lernenden\n\n• Einfache präventive, diagnostische und therapeutische Massnahmen ausführen\n\n• Durchführen von delegierten Massnahmen in den Bereichen Gesundheitsförderung und Rehabilitationen gemäss Anordnung\n\n• Mitgestaltung des Alltags unter Berücksichtigung der individuellen Bedürfnisse der Bewohner/innen\n\nAnforderungen:\n• Ausbildung Assistent/-in Gesundheit und Soziales EBA oder Pflegehelfer/-in SRK\n\n• Gutes Hörverständnis in Schweizerdeutsch sowie gute Deutschkenntnisse in Wort und Schrift\n\n• Freude an der Arbeit im Langzeitbereich\n\n• Gepflegtes Erscheinungsbild und gute Umgangsformen\n\n• Wertschätzende Grundhaltung und ein ausgeprägtes Verständnis für ältere Menschen\n\nWir bieten:\n• Grosszügige Beteiligung an externen Aus- und Weiterbildungen\n\n• Umfangreiches internes Weiterbildungsangebot\n\n• Individuelle Beratung bei der Laufbahnplanung",
+        "fr": "Tâches :\n• Soins et soins aux résidents selon le processus de soins\n• Orientations spécifiques pour les nouveaux infirmiers et apprenants\n• Mettre en œuvre des mesures préventives, diagnostiques et thérapeutiques simples\n• Mise en œuvre des mesures déléguées dans les domaines de la promotion de la santé et de la réadaptation selon l ' ordre\n• Co-création de la vie quotidienne en tenant compte des besoins individuels des habitants Exigences\n• Assistante de formation/dans le domaine de la santé et de la sécurité sociale EBA ou assistante infirmière/en SRK\n• Bonne compréhension de l'écoute en allemand suisse et bonne connaissance de l'allemand en mots et en écriture\n• Appréciation du travail à long terme\n• Aspect soigné et bonnes manières\n• Appréciation et compréhension des personnes âgées Nous offrons:\n• Participation généreuse à l'éducation et à la formation externes\n• Une vaste offre de formation interne\n• Conseils individuels en matière de planification de carrière"
+      },
+      "needsRetranslation": true,
+      "location": "Luzern",
+      "canton": "LU",
+      "url": "https://jobs.vivaluzern.ch/offene-stellen/assistent-in-gesundheit-und-soziales-oder-pflegehelfer-in-srk-keine-geteilten-dienste-im-bereich-pflege/3d38778e-14ab-41a7-9b3d-ce2bddf702b2",
+      "source": "Viva Luzern Dedicated Parser (Prospective medium 1002590)",
+      "sourceLang": "de",
+      "crawledAt": "2026-07-31T11:37:55.943Z",
+      "addressLocality": "Luzern",
+      "addressRegion": "LU",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "6015",
+      "streetAddress": "Interessiert?",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "junior",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-02",
+      "applyUrl": "https://jobs.vivaluzern.ch/offene-stellen/assistent-in-gesundheit-und-soziales-oder-pflegehelfer-in-srk-keine-geteilten-dienste-im-bereich-pflege/3d38778e-14ab-41a7-9b3d-ce2bddf702b2",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "assistent-in-gesundheit-und-soziales-oder-pflegehelfer-in-srk-keine-geteilten-dienste-im"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "assistent-in-gesundheit-und-soziales-oder-pflegehelfer-in-srk-keine-geteilten-dienste-im"
+        ],
+        "en": [
+          "assistent-in-gesundheit-und-soziales-oder-pflegehelfer-in-srk-keine-geteilten-dienste-im"
+        ],
+        "fr": [
+          "assistent-in-gesundheit-und-soziales-oder-pflegehelfer-in-srk-keine-geteilten-dienste-im"
+        ]
+      },
+      "firstSeenAt": "2026-07-02T23:17:19.765Z",
+      "salaryMin": 69500,
+      "salaryMax": 106000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 69500,
+          "maxValue": 106000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
       "id": "viva-luzern-3f5f7fca5d53",
       "slug": "responsabile-immobilien-e-facilitymanagement-viva-luzern",
       "slugByLocale": {
@@ -692,7 +705,7 @@
       "url": "https://jobs.vivaluzern.ch/offene-stellen/leiter-in-immobilien-und-facilitymanagement/a08f1127-5cc6-4081-bfc7-6b7932a61c7e",
       "source": "Viva Luzern Dedicated Parser (Prospective medium 1002590)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-30T22:10:24.326Z",
+      "crawledAt": "2026-07-31T11:37:55.942Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -711,11 +724,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "leiter-in-immobilien-und-facilitymanagement-viva-luzern-luzern"
+        "leiter-in-immobilien-und-facilitymanagement-viva-luzern-luzern",
+        "responsabile-immobilien-e-facilitymanagement-viva-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "leiter-in-immobilien-und-facilitymanagement-viva-luzern-luzern"
+          "leiter-in-immobilien-und-facilitymanagement-viva-luzern-luzern",
+          "responsabile-immobilien-e-facilitymanagement-viva-luzern"
         ],
         "en": [
           "leiter-in-immobilien-und-facilitymanagement-viva-luzern-luzern"
@@ -770,7 +785,7 @@
       "url": "https://jobs.vivaluzern.ch/offene-stellen/teamleitung-pflege/8d3057ef-09ff-4ea7-b167-ea7dd2f2e161",
       "source": "Viva Luzern Dedicated Parser (Prospective medium 1002590)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-30T22:10:24.324Z",
+      "crawledAt": "2026-07-31T11:37:55.941Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -789,11 +804,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "teamleitung-pflege-viva-luzern-luzern"
+        "teamleitung-pflege-viva-luzern-luzern",
+        "cura-della-leadership-del-team-viva-luzern-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "teamleitung-pflege-viva-luzern-luzern"
+          "teamleitung-pflege-viva-luzern-luzern",
+          "cura-della-leadership-del-team-viva-luzern-luzern"
         ],
         "en": [
           "teamleitung-pflege-viva-luzern-luzern"
@@ -848,7 +865,7 @@
       "url": "https://jobs.vivaluzern.ch/offene-stellen/leiter-in-betreuung-und-pflege/9d3d5159-f4ff-4494-8c79-9bde1352c36b",
       "source": "Viva Luzern Dedicated Parser (Prospective medium 1002590)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-30T22:10:24.323Z",
+      "crawledAt": "2026-07-31T11:37:55.940Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -867,11 +884,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "leiter-in-betreuung-und-pflege-viva-luzern-luzern"
+        "leiter-in-betreuung-und-pflege-viva-luzern-luzern",
+        "responsabile-betreuung-e-pflege-viva-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "leiter-in-betreuung-und-pflege-viva-luzern-luzern"
+          "leiter-in-betreuung-und-pflege-viva-luzern-luzern",
+          "responsabile-betreuung-e-pflege-viva-luzern"
         ],
         "en": [
           "leiter-in-betreuung-und-pflege-viva-luzern-luzern"
@@ -926,7 +945,7 @@
       "url": "https://jobs.vivaluzern.ch/offene-stellen/aufnahmeverantwortliche-r/d5aac5b3-84b2-4068-9bf0-3092cc04e0f3",
       "source": "Viva Luzern Dedicated Parser (Prospective medium 1002590)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-30T22:10:24.321Z",
+      "crawledAt": "2026-07-31T11:37:55.939Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -945,11 +964,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "aufnahmeverantwortliche-r-viva-luzern-luzern"
+        "aufnahmeverantwortliche-r-viva-luzern-luzern",
+        "ricevimento-responsabile-r-viva-luzern-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "aufnahmeverantwortliche-r-viva-luzern-luzern"
+          "aufnahmeverantwortliche-r-viva-luzern-luzern",
+          "ricevimento-responsabile-r-viva-luzern-luzern"
         ],
         "en": [
           "aufnahmeverantwortliche-r-viva-luzern-luzern"
@@ -998,12 +1019,13 @@
         "de": "Aufgaben:\n• Fachliche und personelle sowie organisatorische Führung eines Team\n\n• Verantwortung für die Förderung und Weiterentwicklung der Mitarbeitenden\n\n• Fachgerechte Pflege anhand des Pflegeprozesses sicherstellen\n\n• Professionelle Pflege und Betreuung der Bewohnenden sowie Angehörigen, Führung der elektronischen Pflegedokumentation, Leistungserfassung (CareCoach, RAI)\n\n• Interprofessionelle Zusammenarbeit mit allen in der Betreuung und Pflege eingebundenen Stellen\n\n• Mitverantwortlich für die Weiterentwicklung des Angebotes mit Fokus auf die Bedürfnisse der Bewohnenden\n\nAnforderungen:\n• Ausbildung als Pflegefachfrau /-mann HF/FH (DN II, AKP)\n\n• Berufs- und Führungserfahrung in der Langzeitpflege sowie fundierte Kenntnisse im Demenzbereich\n\n• Teamfähigkeit, Herzlichkeit, Belastbarkeit und Flexibilität\n\n• Weiterbildung im Führungsbereich oder die Bereitschaft, eine solche zu absolvieren\n\n• Gute Organisations- und Kommunikationsfähigkeit\n\n• Freude an der Führungsaufgabe und der täglichen Arbeit mit den Bewohnenden und Angehörigen\n\nWir bieten:\n• Grosszügige Beteiligung an externen Aus- und Weiterbildungen\n\n• Umfangreiches internes Weiterbildungsangebot\n\n• Individuelle Beratung bei der Laufbahnplanung",
         "fr": "Tâches :\n• Leadership professionnel, humain et organisationnel d'une équipe\n\n• Responsabilité de la promotion et du perfectionnement des employés\n\n• Assurer des soins professionnels basés sur le processus de soins\n\n• Soins professionnels et soins aux résidents et aux proches, gestion de la documentation de soins électroniques, enregistrement des performances (CareCoach, RAI)\n\n• Coopération interprofessionnelle avec tous les organismes impliqués dans les soins et le soutien\n\n• Co-responsable du développement de l'offre en mettant l'accent sur les besoins des résidents\n\nExigences\n• Formation d'infirmière /-mann HF/FH (DN II, AKP)\n\n• Expérience professionnelle et de gestion en soins de longue durée ainsi qu'une connaissance approfondie dans le domaine de la démence\n\n• Travail d'équipe, chaleur, résilience et flexibilité\n\n• formation à la gestion ou volonté d'entreprendre une telle formation\n\n• Bonnes compétences en matière d'organisation et de communication\n\n• Profitez de la tâche de gestion et du travail quotidien avec les résidents et les proches\n\nNous offrons:\n• Participation généreuse à l'éducation et à la formation externes\n\n• Une vaste offre de formation interne\n\n• Conseils individuels en matière de planification de carrière"
       },
+      "needsRetranslation": true,
       "location": "Luzern",
       "canton": "LU",
       "url": "https://jobs.vivaluzern.ch/offene-stellen/teamleiter-in-betreuung-und-pflege-fuer-die-demenz-wohngruppe/ee8b8ca5-2d50-412e-b489-b01ee0ae385c",
       "source": "Viva Luzern Dedicated Parser (Prospective medium 1002590)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-30T22:10:24.320Z",
+      "crawledAt": "2026-07-31T11:37:55.934Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1075,12 +1097,13 @@
         "de": "Aufgaben:\n• Sicherstellen einer fachgerechten Pflege und Betreuung für die Bewohnenden\n\n• Erkennen der individuellen Bedürfnisse der Bewohnenden und Mitarbeit beim Pflegeprozesses\n\n• Ansprechperson für die Bewohnerinnen und Bewohner und deren Angehörige sein\n\n• Dokumentation der erbrachten pflegerischen Leistungen\n\n• Durchführen von medizinaltechnischen Verrichtungen gemäss Verordnung und auf Delegation der Fachperson HF\n\n• Fachliche Begleitung, Unterstützung und Beratung von Studierenden und Lernenden\n\nAnforderungen:\n• Abgeschlossene Ausbildung als Fachfrau/-mann Gesundheit EFZ\n\n• Dienstleistungs- und Kundenorientierung\n\n• Erfahrung in der Langzeitpflege und die Bereitschaft, dich spezifisch weiterzubilden\n\n• Lösungsorientierte und prozessbezogene Arbeitsweise\n\n• Belastbarkeit und Flexibilität\n\nWir bieten:\n• Grosszügige Beteiligung an externen Aus- und Weiterbildungen\n\n• Umfangreiches internes Weiterbildungsangebot\n\n• Individuelle Beratung bei der Laufbahnplanung",
         "fr": "Tâches :\n• Assurer des soins appropriés aux résidents\n\n• Reconnaître les besoins individuels des résidents et participer au processus de prise en charge\n\n• Responsable des résidents et de leurs proches\n\n• Documentation des services infirmiers fournis\n\n• Effectuer des procédures médico-techniques conformément à la réglementation et à la délégation du spécialiste HF\n\n• Soutien professionnel, soutien et conseils aux étudiants et aux apprenants\n\nExigences\n• Formation complète en tant que spécialiste de la santé EFZ\n\n• Service et orientation client\n\n• Expérience des soins de longue durée et volonté de se développer\n\n• Méthodes de travail axées sur les solutions et les processus\n\n• Résilience et flexibilité\n\nNous offrons:\n• Participation généreuse à l'éducation et à la formation externes\n\n• Une vaste offre de formation interne\n\n• Conseils individuels en matière de planification de carrière"
       },
+      "needsRetranslation": true,
       "location": "Luzern",
       "canton": "LU",
       "url": "https://jobs.vivaluzern.ch/offene-stellen/fachfrau-mann-gesundheit-efz/80caaefe-ef67-4e2e-ab3f-d86c5255f603",
       "source": "Viva Luzern Dedicated Parser (Prospective medium 1002590)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-30T22:10:24.318Z",
+      "crawledAt": "2026-07-31T11:37:55.933Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1099,11 +1122,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "fachfrau-mann-gesundheit-efz-viva-luzern-luzern"
+        "fachfrau-mann-gesundheit-efz-viva-luzern-luzern",
+        "fachfrau-mann-gesundheit-cfc-viva-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachfrau-mann-gesundheit-efz-viva-luzern-luzern"
+          "fachfrau-mann-gesundheit-efz-viva-luzern-luzern",
+          "fachfrau-mann-gesundheit-cfc-viva-luzern"
         ],
         "en": [
           "fachfrau-mann-gesundheit-efz-viva-luzern-luzern"
@@ -1152,12 +1177,13 @@
         "de": "Aufgaben:\n• Professionelle Pflege und Betreuung der Bewohnerinnen und Bewohner in allen komplexen Situationen\n\n• Aufzeigen von Bewältigungsstrategien in Krisensituationen von Bewohnerinnen und Bewohnern\n\n• Interdisziplinäre Zusammenarbeit mit allen in der Betreuung und Pflege eingebundenen Stellen\n\n• Planung, Koordination, Begleitung und Unterstützung der Mitarbeitenden auf der Abteilung\n\n• Fachliche Begleitung, Unterstützung und Beratung von Studierenden und Lernenden\n\nAnforderungen:\n• Abgeschlossene Ausbildung als dipl. Pflegefachfrau/-mann HF (DN II, AKP) oder als Fachfrau/-mann Gesundheit\n\n• Einige Jahre Berufserfahrung in der Geriatrie- und Langzeitpflege oder Bereitschaft sich einzuarbeiten\n\n• Eine hohe Sozial- und Selbstkompetenz mit ausgeprägter Kommunikations- und Teamfähigkeit\n\nWir bieten:\n• Grosszügige Beteiligung an externen Aus- und Weiterbildungen\n\n• Umfangreiches internes Weiterbildungsangebot\n\n• Individuelle Beratung bei der Laufbahnplanung",
         "fr": "Tâches :\n• Soins professionnels et soins aux résidents dans toutes les situations complexes\n\n• Présentation des stratégies d'adaptation dans les situations de crise des résidents\n\n• Coopération interdisciplinaire avec tous les organismes impliqués dans les soins et le soutien\n\n• Planification, coordination, soutien et soutien des employés du Ministère\n\n• Soutien professionnel, soutien et conseils aux étudiants et aux apprenants\n\nExigences\n• Achevé la formation comme dipl. Spécialiste des soins infirmiers HF (DN II, AKP) ou spécialiste de la santé\n\n• Plusieurs années d'expérience professionnelle en gériatrie et soins de longue durée ou la volonté de s'impliquer\n\n• Un haut niveau de compétence sociale et d'auto-compétence avec une communication forte et des compétences d'équipe\n\nNous offrons:\n• Participation généreuse à l'éducation et à la formation externes\n\n• Une vaste offre de formation interne\n\n• Conseils individuels en matière de planification de carrière"
       },
+      "needsRetranslation": true,
       "location": "Luzern",
       "canton": "LU",
       "url": "https://jobs.vivaluzern.ch/offene-stellen/fachfrau-mann-gesundheit-efz-oder-pflegefachfrau-mann-hf-fuer-die-demenz-wohngruppe/ccbfa5c2-4beb-43d0-8b7f-f12e5f5c5fd5",
       "source": "Viva Luzern Dedicated Parser (Prospective medium 1002590)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-30T22:10:24.317Z",
+      "crawledAt": "2026-07-31T11:37:55.932Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1176,11 +1202,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "fachfrau-mann-gesundheit-efz-oder-pflegefachfrau-mann-hf-fur-die-demenz-wohngruppe-viva"
+        "fachfrau-mann-gesundheit-efz-oder-pflegefachfrau-mann-hf-fur-die-demenz-wohngruppe-viva",
+        "fachfrau-mann-gesundheit-cfc-o-pflegefachfrau-mann-hf-per-la-demenz-wohngruppe-viva-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachfrau-mann-gesundheit-efz-oder-pflegefachfrau-mann-hf-fur-die-demenz-wohngruppe-viva"
+          "fachfrau-mann-gesundheit-efz-oder-pflegefachfrau-mann-hf-fur-die-demenz-wohngruppe-viva",
+          "fachfrau-mann-gesundheit-cfc-o-pflegefachfrau-mann-hf-per-la-demenz-wohngruppe-viva-luzern"
         ],
         "en": [
           "fachfrau-mann-gesundheit-efz-oder-pflegefachfrau-mann-hf-fur-die-demenz-wohngruppe-viva"
@@ -1229,12 +1257,13 @@
         "de": "Aufgaben:\n• Stellvertretung der Co-Teamleitungen in der personellen und fachlichen Führung eines Betreuungs- und Pflegeteams mit 30 Bewohnenden\n\n• Professionelle, individuelle Betreuung und Pflege der Bewohnenden in allen komplexen Situationen anhand des Pflegeprozesses sowie Zusammenarbeit mit ihren Angehörigen.\n\n• Fachliche Begleitung und Befähigung der Mitarbeitenden in komplexen Situationen\n\n• Interprofessionelle Zusammenarbeit mit allen in der Betreuung und Pflege eingebundenen Stellen\n\n• Dokumentation und Interpretation der erbrachten pflegerischen Leistungen\n\n• Mitarbeit in der Ausbildung von Lernenden (FaGe EFZ, AGS EBA) und Studierenden HF in der Alltagspraxis\n\nAnforderungen:\n• Ausbildung als Pflegefachfrau/-mann HF oder gleichwertige Ausbildung\n\n• Berufserfahrung in der Langzeitpflege oder Geriatrie\n\n• Die Fähigkeit, Motivation und Freude, den Schritt in eine Führungsrolle zu tun\n\n• Eine engagierte und kommunikative Persönlichkeit, die sich durch Fach- und Sozialkompetenz, Selbständigkeit sowie prozessorientierte Arbeitsweise auszeichnet\n\n• Vertrauen schenken, aufmerksam und beweglich sein sind für dich zentrale Werte\n\nWir bieten:\n• Grosszügige Beteiligung an externen Aus- und Weiterbildungen\n\n• Umfangreiches internes Weiterbildungsangebot\n\n• Individuelle Beratung bei der Laufbahnplanung",
         "fr": "Tâches :\n• Adjoint des co-chefs d'équipe dans le personnel et la gestion professionnelle d'une équipe de soins et de soins avec 30 résidents\n\n• Prise en charge professionnelle, individuelle et individuelle des résidents dans toutes les situations complexes fondées sur le processus de prise en charge et la coopération avec leurs proches.\n\n• Soutien professionnel et qualification des employés dans des situations complexes\n\n• Coopération interprofessionnelle avec tous les organismes impliqués dans les soins et le soutien\n\n• Documentation et interprétation des services infirmiers fournis\n\n• Participation à la formation des apprenants (FaGe EFZ, AGS EBA) et des étudiants HF dans la pratique quotidienne\n\nExigences\n• Formation comme infirmière HF ou formation équivalente\n\n• Expérience professionnelle en soins de longue durée ou en gériatrie\n\n• La capacité, la motivation et la joie de faire le pas dans un rôle de leadership\n\n• Une personnalité engagée et communicative caractérisée par des compétences professionnelles et sociales, l'indépendance et des méthodes de travail axées sur le processus\n\n• Donner confiance, être attentif et agile sont des valeurs centrales pour vous\n\nNous offrons:\n• Participation généreuse à l'éducation et à la formation externes\n\n• Une vaste offre de formation interne\n\n• Conseils individuels en matière de planification de carrière"
       },
+      "needsRetranslation": true,
       "location": "Luzern",
       "canton": "LU",
       "url": "https://jobs.vivaluzern.ch/offene-stellen/stv-teamleiter-in-pflege/d0eb19da-bbd5-45a5-9e92-92799d88464a",
       "source": "Viva Luzern Dedicated Parser (Prospective medium 1002590)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-30T22:10:24.316Z",
+      "crawledAt": "2026-07-31T11:37:55.931Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1253,11 +1282,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "stv-teamleiter-in-pflege-viva-luzern-luzern"
+        "stv-teamleiter-in-pflege-viva-luzern-luzern",
+        "stv-team-leader-in-cura-viva-luzern-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "stv-teamleiter-in-pflege-viva-luzern-luzern"
+          "stv-teamleiter-in-pflege-viva-luzern-luzern",
+          "stv-team-leader-in-cura-viva-luzern-luzern"
         ],
         "en": [
           "stv-teamleiter-in-pflege-viva-luzern-luzern"
@@ -1306,12 +1337,13 @@
         "de": "Aufgaben:\n• Stellvertretung der Teamleitung in der personellen und fachlichen Führung\n\n• Mitwirkung in der Teamentwicklung für eine hochstehende und qualitative Betreuung und Pflege\n\n• Professionelle Pflege und Betreuung der Bewohnerinnen und Bewohner in allen komplexen Situationen\n\n• Beratung von Angehörigen sowie Aufzeigen von Bewältigungsstrategien in Krisensituationen\n\n• Interdisziplinäre Zusammenarbeit mit allen in der Betreuung und Pflege eingebundenen Stellen\n\n• Fix-Delegierte Führungsaufgaben in Absprache mit der Teamleitung\n\nAnforderungen:\n• Ausbildung als Pflegefachfrau/-mann HF oder äquivalent\n\n• Berufserfahrung in der Betreuung und Pflege\n\n• Fähigkeit, Motivation und Freude, den Schritt in eine Führungsrolle zu tun\n\n• Interesse an der Arbeit in der Palliativpflege und Bereitschaft, sich in der Palliative Care weiterzubilden\n\n• Hohe Sozial- und Selbstkompetenz mit ausgeprägter Kommunikations- und Teamfähigkeit\n\n• Offenheit, Belastbarkeit, eine gute Portion Humor und Zuversicht\n\nWir bieten:\n• Grosszügige Beteiligung an externen Aus- und Weiterbildungen\n\n• Umfangreiches internes Weiterbildungsangebot\n\n• Individuelle Beratung bei der Laufbahnplanung",
         "fr": "Tâches :\n• Chef d'équipe adjoint en leadership personnel et professionnel\n\n• Participation au développement d'équipes pour un soutien et des soins de qualité\n\n• Soins professionnels et soins aux résidents dans toutes les situations complexes\n\n• Conseils aux parents et présentation de stratégies d'adaptation en situation de crise\n\n• Coopération interdisciplinaire avec tous les organismes impliqués dans les soins et le soutien\n\n• Tâches de gestion déléguées en consultation avec la direction de l'équipe\n\nExigences\n• Formation comme infirmière HF ou équivalent\n\n• Expérience professionnelle en soins\n\n• Capacité, motivation et joie de faire le pas dans un rôle de leadership\n\n• Intérêt à travailler dans les soins palliatifs et volonté de poursuivre l'éducation dans les soins palliatifs\n\n• Haute compétence sociale et d'auto-compétence avec une communication forte et des compétences d'équipe\n\n• Ouverture, résilience, bonne dose d'humour et de confiance\n\nNous offrons:\n• Participation généreuse à l'éducation et à la formation externes\n\n• Une vaste offre de formation interne\n\n• Conseils individuels en matière de planification de carrière"
       },
+      "needsRetranslation": true,
       "location": "Luzern",
       "canton": "LU",
       "url": "https://jobs.vivaluzern.ch/offene-stellen/stv-teamleiter-in-betreuung-und-pflege-palliative-care/2f06d5f6-5062-42d3-a97d-d2c7af58b2e2",
       "source": "Viva Luzern Dedicated Parser (Prospective medium 1002590)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-30T22:10:24.315Z",
+      "crawledAt": "2026-07-31T11:37:55.930Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1383,12 +1415,13 @@
         "de": "Aufgaben:\n• Stellvertretung der Teamleitung in der personellen und fachlichen Führung eines Betreuungs- und Pflegeteams\n\n• Sicherstellung einer individuellen Betreuung und Pflege der Bewohnenden anhand des Pflegeprozesses und Zusammenarbeit mit ihren Angehörigen\n\n• Fachliche Begleitung und Befähigung der Mitarbeitenden in komplexen Situationen\n\n• Interprofessionelle Zusammenarbeit mit allen in der Betreuung und Pflege eingebundenen Stellen\n\n• Dokumentation und Interpretation der erbrachten pflegerischen Leistungen\n\n• Mitarbeit in der Ausbildung von Lernenden (FaGe EFZ, AGS EBA) und Studierenden HF in der Alltagspraxis\n\nAnforderungen:\n• Ausbildung als Pflegefachfrau/-mann HF oder äquivalent\n\n• Berufserfahrung in der Langzeitpflege oder Geriatrie\n\n• Die Fähigkeit, Motivation und Freude, den Schritt in eine Führungsrolle zu tun\n\n• Interesse an der Arbeit mit Bewohnenden mit Demenzerkrankung und Bereitschaft, sich in diesem spezialisierten Bereich weiterzubilden\n\n• Eine engagierte und kommunikative Persönlichkeit, die sich durch Fach- und Sozialkompetenz, Selbständigkeit sowie prozessorientierte Arbeitsweise auszeichnet\n\n• Vertrauen schenken, aufmerksam und beweglich sein sind für dich zentrale Werte\n\nWir bieten:\n• Grosszügige Beteiligung an externen Aus- und Weiterbildungen\n\n• Umfangreiches internes Weiterbildungsangebot\n\n• Individuelle Beratung bei der Laufbahnplanung",
         "fr": "Tâches :\n• Gestion de l'équipe adjointe dans le personnel et la gestion professionnelle d'une équipe de soins\n\n• Assurer la prise en charge individuelle des résidents par le processus de prise en charge et la coopération avec leurs proches\n\n• Soutien professionnel et qualification des employés dans des situations complexes\n\n• Coopération interprofessionnelle avec tous les organismes impliqués dans les soins et le soutien\n\n• Documentation et interprétation des services infirmiers fournis\n\n• Participation à la formation des apprenants (FaGe EFZ, AGS EBA) et des étudiants HF dans la pratique quotidienne\n\nExigences\n• Formation comme infirmière HF ou équivalent\n\n• Expérience professionnelle en soins de longue durée ou en gériatrie\n\n• La capacité, la motivation et la joie de faire le pas dans un rôle de leadership\n\n• Intérêt à travailler avec les résidents atteints de démence et volonté de poursuivre leurs études dans ce domaine spécialisé\n\n• Une personnalité engagée et communicative caractérisée par des compétences professionnelles et sociales, l'indépendance et des méthodes de travail axées sur le processus\n\n• Donner confiance, être attentif et agile sont des valeurs centrales pour vous\n\nNous offrons:\n• Participation généreuse à l'éducation et à la formation externes\n\n• Une vaste offre de formation interne\n\n• Conseils individuels en matière de planification de carrière"
       },
+      "needsRetranslation": true,
       "location": "Luzern",
       "canton": "LU",
       "url": "https://jobs.vivaluzern.ch/offene-stellen/stv-teamleiter-in-pflege-fuer-spezialisierte-demenz-wohngruppe/6821950f-bfe0-4bf1-a249-0a10871ab190",
       "source": "Viva Luzern Dedicated Parser (Prospective medium 1002590)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-30T22:10:24.314Z",
+      "crawledAt": "2026-07-31T11:37:55.928Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1460,12 +1493,13 @@
         "de": "Aufgaben:\n• Professionelle Pflege und Betreuung der Bewohnenden in Zusammenarbeit mit ihren Angehörigen\n\n• Bewältigungsstrategien in Krisensituationen von Bewohnenden sowie Angehörigen aufzeigen\n\n• Aktive Mitwirkung bei der interdisziplinären Zusammenarbeit mit allen in der Betreuung und Pflege eingebundenen Stellen\n\n• Sicherstellung, Mitentwicklung und Optimierung von Pflegeprozessen\n\n• Interprofessionelle Zusammenarbeit mit den geriatrischen Pflegeexpertinnen und –Experten und allen in der Betreuung und Pflege eingebundenen Stellen\n\n• Fachliche Unterstützung, Coaching und Beratung der Mitarbeitenden, Lernenden und Studierenden\n\nAnforderungen:\n• Ausbildung als Pflegefachfrau/-mann HF (DN II, AKP/PsyKP)\n\n• Berufs- und Führungserfahrung in der Langzeitpflege, vorzugsweise in der Gerontopsychiatrie\n\n• Ganzheitliches, vernetztes Denken\n\n• Herzlichkeit und Humor ist für dich selbstverständlich\n\nWir bieten:\n• Grosszügige Beteiligung an externen Aus- und Weiterbildungen\n\n• Umfangreiches internes Weiterbildungsangebot\n\n• Individuelle Beratung bei der Laufbahnplanung",
         "fr": "Tâches :\n• Soins professionnels et soins aux résidents en coopération avec leurs proches\n\n• Démontrer des stratégies d'adaptation dans les situations de crise des résidents et des proches\n\n• Participation active à la coopération interdisciplinaire avec tous les organismes impliqués dans les soins et le soutien\n\n• Assurer, co-développer et optimiser les processus de soins\n\n• Coopération interprofessionnelle avec les experts en soins gériatriques et tous les organismes concernés\n\n• Soutien professionnel, encadrement et conseils pour les employés, les apprenants et les étudiants\n\nExigences\n• Formation comme infirmière HF (DN II, AKP/PsyKP)\n\n• Expérience professionnelle et de gestion en soins de longue durée, de préférence en gérontopsychiatrie\n\n• Une pensée holistique et en réseau\n\n• La patience et l'humour sont une question bien sûr pour vous\n\nNous offrons:\n• Participation généreuse à l'éducation et à la formation externes\n\n• Une vaste offre de formation interne\n\n• Conseils individuels en matière de planification de carrière"
       },
+      "needsRetranslation": true,
       "location": "Luzern",
       "canton": "LU",
       "url": "https://jobs.vivaluzern.ch/offene-stellen/pflegefachfrau-mann-hf-fuer-wohnbereich-mit-teils-gerontopsychiatrischer-fachrichtung/b56e0936-9a9e-485d-8d35-cd286dd309a9",
       "source": "Viva Luzern Dedicated Parser (Prospective medium 1002590)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-30T22:10:24.311Z",
+      "crawledAt": "2026-07-31T11:37:55.923Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1484,11 +1518,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "pflegefachfrau-mann-hf-fur-wohnbereich-mit-teils-gerontopsychiatrischer-fachrichtung-viva"
+        "pflegefachfrau-mann-hf-fur-wohnbereich-mit-teils-gerontopsychiatrischer-fachrichtung-viva",
+        "pflegefachfrau-mann-hf-per-wohnbereich-con-teils-gerontopsychiatrischer-specializzazione-viva-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "pflegefachfrau-mann-hf-fur-wohnbereich-mit-teils-gerontopsychiatrischer-fachrichtung-viva"
+          "pflegefachfrau-mann-hf-fur-wohnbereich-mit-teils-gerontopsychiatrischer-fachrichtung-viva",
+          "pflegefachfrau-mann-hf-per-wohnbereich-con-teils-gerontopsychiatrischer-specializzazione-viva-luzern"
         ],
         "en": [
           "pflegefachfrau-mann-hf-fur-wohnbereich-mit-teils-gerontopsychiatrischer-fachrichtung-viva"
