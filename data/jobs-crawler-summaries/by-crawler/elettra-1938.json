@@ -1,16 +1,16 @@
 {
   "key": "elettra-1938",
   "label": "Elettra 1938",
-  "generatedAt": "2026-07-30T22:29:14.300Z",
-  "total": 2,
+  "generatedAt": "2026-07-31T12:09:46.302Z",
+  "total": 1,
   "newCount": 0,
   "updatedCount": 1,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 3774,
-  "avgDurationMs": 3774,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 4005,
+  "avgDurationMs": 4005,
   "durationHistory": [
-    3774
+    4005
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -26,7 +26,7 @@
       "url": "https://inrecruiting.intervieweb.it/fiammcomponents/jobs/customer-quality-engineer-717575/it/",
       "source": "Elettra 1938 Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-07-30T22:29:12.310Z",
+      "crawledAt": "2026-07-31T12:09:43.899Z",
       "addressLocality": "Sede Stabio Svizzera",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -51,8 +51,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "elettra-1938-cf83501f909d",
       "slug": "manutentore-elettromeccanico-elettra-1938-ch",
@@ -92,5 +91,6 @@
         "completeness": 22
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
