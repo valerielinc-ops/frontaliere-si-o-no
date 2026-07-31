@@ -9161,6 +9161,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.lavoro-temporaneo-aumento.title': 'Il lavoro temporaneo in Svizzera riprende a crescere',
     'blog.article.lavoro-temporaneo-aumento.excerpt': 'Le ore di lavoro temporaneo sono aumentate dell\'1,5% nel primo semestre, mentre i contratti a tempo indeterminato sono scesi del 19,4%.',
     'blog.article.lavoro-temporaneo-aumento.imageAlt': 'Vista panoramica del lago di Lugano con le montagne del Ticino al tramonto',
+    'blog.article.tassa-salute-frontalieri-sertori-2026.title': 'Sanità frontalieri: 120 euro al mese per gli stipendi medici',
+    'blog.article.tassa-salute-frontalieri-sertori-2026.excerpt': 'La Lombardia applica il contributo dal 3% al 6%: fondi ai medici di confine per frenare la fuga verso la Svizzera.',
+    'blog.article.tassa-salute-frontalieri-sertori-2026.imageAlt': 'Ospedale e confine tra Italia e Svizzera presso il Canton Ticino',
 };
 
 export default blogMetaIt;

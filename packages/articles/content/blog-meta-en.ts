@@ -9160,6 +9160,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.lavoro-temporaneo-aumento.title': 'Temporary work in Switzerland continues to grow',
     'blog.article.lavoro-temporaneo-aumento.excerpt': 'Temporary working hours increased by 1.5% in the first half, while permanent contracts fell by 19.4%.',
     'blog.article.lavoro-temporaneo-aumento.imageAlt': 'Panoramic view of Lake Lugano with Ticino mountains at sunset',
+    'blog.article.tassa-salute-frontalieri-sertori-2026.title': 'Border health: 120 euros per month for medical salaries',
+    'blog.article.tassa-salute-frontalieri-sertori-2026.excerpt': 'Lombardy applies the contribution from 3% to 6%: funds to border doctors to curb the flight to Switzerland.',
+    'blog.article.tassa-salute-frontalieri-sertori-2026.imageAlt': 'Hospital and border area between Italy and Switzerland near Ticino',
 };
 
 export default blogMetaEn;
