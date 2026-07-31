@@ -1,16 +1,16 @@
 {
   "key": "capri-holdings",
   "label": "Capri Holdings",
-  "generatedAt": "2026-07-30T22:08:33.681Z",
+  "generatedAt": "2026-07-31T11:37:47.917Z",
   "total": 8,
   "newCount": 0,
   "updatedCount": 7,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 16849,
-  "avgDurationMs": 16849,
+  "durationMs": 18278,
+  "avgDurationMs": 18278,
   "durationHistory": [
-    16849
+    18278
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -318,7 +318,7 @@
       "salaryMin": 68500,
       "salaryMax": 105000,
       "currency": "CHF",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
