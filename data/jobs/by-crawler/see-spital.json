@@ -1,13 +1,13 @@
 {
   "crawlerKey": "see-spital",
-  "assembledAt": "2026-07-30T22:32:57.427Z",
+  "assembledAt": "2026-07-31T12:21:50.212Z",
   "jobs": [
     {
       "id": "see-spital-5c7a070a875d",
       "slug": "assistente-pj-laureato-in-chirurgia-see-spital-horgen",
       "slugByLocale": {
         "it": "assistente-pj-laureato-in-chirurgia-see-spital-horgen",
-        "en": "sub-assistant-pj-graduate-surgery-see-spital-horgen",
+        "en": "pj-absolvent-in-chirurgies-see-spital-horgen",
         "de": "unterassistent-in-pj-absolvent-in-chirurgie-see-spital-ch",
         "fr": "sous-assistant-e-diplome-e-pj-en-chirurgie-see-spital-horgen"
       },
@@ -34,7 +34,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-07-30T22:32:54.941Z",
+      "crawledAt": "2026-07-31T12:21:46.419Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -55,13 +55,17 @@
       "previousSlugs": [
         "unterassistent-in-pj-absolvent-in-chirurgie-see-spital-ch",
         "pj-absolvens-in-chirurgie-see-spital-horgen",
+        "sub-assistant-pj-graduate-surgery-see-spital-horgen",
+        "assistente-pj-laureato-in-chirurgia-see-spital-horgen",
         "pj-absolvent-in-chirurgies-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "unterassistent-in-pj-absolvent-in-chirurgie-see-spital-ch"
+          "unterassistent-in-pj-absolvent-in-chirurgie-see-spital-ch",
+          "assistente-pj-laureato-in-chirurgia-see-spital-horgen"
         ],
         "en": [
+          "sub-assistant-pj-graduate-surgery-see-spital-horgen",
           "pj-absolvent-in-chirurgies-see-spital-horgen"
         ],
         "de": [
@@ -114,7 +118,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/391/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-30T22:32:53.848Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-07-31T12:21:45.346Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -142,11 +147,13 @@
       "pensum": "60%",
       "previousSlugs": [
         "dipl-pflegefachperson-hf-fur-den-pflegepool-max-60-see-spital-horgen",
-        "dipl-pflegefachperson-hf-fur-den-pflegepool-max-60-see-spital-ch"
+        "dipl-pflegefachperson-hf-fur-den-pflegepool-max-60-see-spital-ch",
+        "infermiere-diplomato-sss-per-il-pool-di-assistenza-max-60-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-hf-fur-den-pflegepool-max-60-see-spital-ch"
+          "dipl-pflegefachperson-hf-fur-den-pflegepool-max-60-see-spital-ch",
+          "infermiere-diplomato-sss-per-il-pool-di-assistenza-max-60-see-spital-horgen"
         ],
         "de": [
           "dipl-pflegefachperson-hf-fur-den-pflegepool-max-60-see-spital-horgen"
@@ -198,7 +205,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/794/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-30T22:32:52.746Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-07-31T12:21:44.273Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -220,11 +228,13 @@
       "pensumMax": 60,
       "pensum": "60%",
       "previousSlugs": [
-        "fachfrauen-manner-gesundheit-fur-den-pflegepool-max-60-see-spital-ch"
+        "fachfrauen-manner-gesundheit-fur-den-pflegepool-max-60-see-spital-ch",
+        "specialisti-salute-per-il-pool-di-assistenza-max-60-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachfrauen-manner-gesundheit-fur-den-pflegepool-max-60-see-spital-ch"
+          "fachfrauen-manner-gesundheit-fur-den-pflegepool-max-60-see-spital-ch",
+          "specialisti-salute-per-il-pool-di-assistenza-max-60-see-spital-horgen"
         ]
       },
       "firstSeenAt": "2026-05-26T14:56:07.176Z",
@@ -273,7 +283,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/688/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-30T22:32:51.670Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-07-31T12:21:43.144Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -321,11 +332,13 @@
         "assistente-di-cura-in-medicina-see-spital-horgen",
         "medical-care-assistant-see-spital-horgen",
         "pflegeassistent-in-medizin-see-spital-ch",
-        "assistant-de-soins-medicaux-see-spital-horgen"
+        "assistant-de-soins-medicaux-see-spital-horgen",
+        "assistente-assistente-di-medicina-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "unterassistent-in-pj-absolvent-in-medizin-see-spital-ch"
+          "unterassistent-in-pj-absolvent-in-medizin-see-spital-ch",
+          "assistente-assistente-di-medicina-see-spital-horgen"
         ]
       },
       "firstSeenAt": "2026-05-26T14:56:06.182Z",
@@ -374,7 +387,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/851/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-30T22:32:50.579Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-07-31T12:21:42.003Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -419,12 +433,14 @@
       "contractDuration": "permanent",
       "previousSlugs": [
         "dipl-pflegefachfrau-mann-hf-im-nachtdienst-see-spital-ch",
-        "dipl-pflegefachfrau-mann-hf-im-nachtdienst-tertianum-see-spital-ch"
+        "dipl-pflegefachfrau-mann-hf-im-nachtdienst-tertianum-see-spital-ch",
+        "dipl-infermiere-re-notturno-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-mann-hf-im-nachtdienst-see-spital-ch",
-          "dipl-pflegefachfrau-mann-hf-im-nachtdienst-tertianum-see-spital-ch"
+          "dipl-pflegefachfrau-mann-hf-im-nachtdienst-tertianum-see-spital-ch",
+          "dipl-infermiere-re-notturno-see-spital-horgen"
         ]
       },
       "firstSeenAt": "2026-05-26T14:56:05.177Z",
@@ -473,7 +489,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/285/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-30T22:32:49.452Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-07-31T12:21:40.882Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -514,11 +531,13 @@
       "department": "See-Spital",
       "contractDuration": "permanent",
       "previousSlugs": [
-        "dipl-fachfrau-mann-operationstechnik-hf-see-spital-ch"
+        "dipl-fachfrau-mann-operationstechnik-hf-see-spital-ch",
+        "specialista-in-tecnica-chirurgica-hf-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-fachfrau-mann-operationstechnik-hf-see-spital-ch"
+          "dipl-fachfrau-mann-operationstechnik-hf-see-spital-ch",
+          "specialista-in-tecnica-chirurgica-hf-see-spital-horgen"
         ]
       },
       "firstSeenAt": "2026-05-26T14:56:04.181Z",
@@ -567,7 +586,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/888/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-30T22:32:48.327Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-07-31T12:21:39.730Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -613,11 +633,13 @@
       "department": "See-Spital",
       "contractDuration": "temporary",
       "previousSlugs": [
-        "studierende-r-experte-anasthesiepflege-nds-hf-see-spital-ch"
+        "studierende-r-experte-anasthesiepflege-nds-hf-see-spital-ch",
+        "studente-esperto-anestesia-nds-hf-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "studierende-r-experte-anasthesiepflege-nds-hf-see-spital-ch"
+          "studierende-r-experte-anasthesiepflege-nds-hf-see-spital-ch",
+          "studente-esperto-anestesia-nds-hf-see-spital-horgen"
         ]
       },
       "firstSeenAt": "2026-05-26T14:56:03.180Z",
@@ -666,7 +688,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/696/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-30T22:32:47.235Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-07-31T12:21:38.662Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -717,11 +740,13 @@
       "contractDuration": "permanent",
       "previousSlugs": [
         "dipl-pflegefachperson-hf-chirurgie-see-spital-ch",
-        "dipl-pflegefachperson-hf-chirurgie-see-spital-horgen"
+        "dipl-pflegefachperson-hf-chirurgie-see-spital-horgen",
+        "dipl-persona-di-cura-hf-chirurgia-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-hf-chirurgie-see-spital-ch"
+          "dipl-pflegefachperson-hf-chirurgie-see-spital-ch",
+          "dipl-persona-di-cura-hf-chirurgia-see-spital-horgen"
         ],
         "en": [
           "dipl-pflegefachperson-hf-chirurgie-see-spital-horgen"
@@ -747,9 +772,9 @@
       "slug": "sanitario-di-emergenza-in-formazione-see-spital-horgen",
       "slugByLocale": {
         "it": "sanitario-di-emergenza-in-formazione-see-spital-horgen",
-        "en": "emergency-medical-technician-in-training-see-spital-horgen",
+        "en": "senior-physician-pediatric-rehabilitation-and-intervention-80-100-see-spital-horgen",
         "de": "rettungssanitater-in-in-ausbildung-see-spital-ch",
-        "fr": "technicien-en-soins-d-urgence-en-formation-see-spital-horgen"
+        "fr": "medecin-chef-reeducation-pediatrique-et-intervention-80-100-see-spital-horgen"
       },
       "company": "See-Spital",
       "companyKey": "see-spital",
@@ -773,7 +798,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/782/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-30T22:32:46.160Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-07-31T12:21:37.609Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -824,17 +850,23 @@
       "contractDuration": "temporary",
       "previousSlugs": [
         "rettungssanitater-in-in-ausbildung-see-spital-ch",
+        "emergency-medical-technician-in-training-see-spital-horgen",
+        "technicien-en-soins-d-urgence-en-formation-see-spital-horgen",
+        "sanitario-di-emergenza-in-formazione-see-spital-horgen",
         "senior-physician-pediatric-rehabilitation-and-intervention-80-100-see-spital-horgen",
         "medecin-chef-reeducation-pediatrique-et-intervention-80-100-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "rettungssanitater-in-in-ausbildung-see-spital-ch"
+          "rettungssanitater-in-in-ausbildung-see-spital-ch",
+          "sanitario-di-emergenza-in-formazione-see-spital-horgen"
         ],
         "en": [
+          "emergency-medical-technician-in-training-see-spital-horgen",
           "senior-physician-pediatric-rehabilitation-and-intervention-80-100-see-spital-horgen"
         ],
         "fr": [
+          "technicien-en-soins-d-urgence-en-formation-see-spital-horgen",
           "medecin-chef-reeducation-pediatrique-et-intervention-80-100-see-spital-horgen"
         ]
       },
@@ -884,7 +916,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1028/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-30T22:32:45.044Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-07-31T12:21:36.488Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -931,11 +964,13 @@
       "department": "See-Spital",
       "contractDuration": "temporary",
       "previousSlugs": [
-        "studierende-r-radiologiefachfrau-mann-hf-see-spital-ch"
+        "studierende-r-radiologiefachfrau-mann-hf-see-spital-ch",
+        "radiologo-a-formatore-a-hf-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "studierende-r-radiologiefachfrau-mann-hf-see-spital-ch"
+          "studierende-r-radiologiefachfrau-mann-hf-see-spital-ch",
+          "radiologo-a-formatore-a-hf-see-spital-horgen"
         ]
       },
       "firstSeenAt": "2026-05-26T14:55:59.812Z",
@@ -984,7 +1019,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1058/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-30T22:32:43.973Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-07-31T12:21:35.407Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -1026,12 +1062,14 @@
       "contractDuration": "permanent",
       "previousSlugs": [
         "stellvertretung-stationsleitung-akutgeriatrie-see-spital-ch",
-        "stellvertretung-stationsleitung-akutgeriatrie-tertianum-see-spital-ch"
+        "stellvertretung-stationsleitung-akutgeriatrie-tertianum-see-spital-ch",
+        "vice-direttore-di-sezione-di-geriatria-acuta-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "stellvertretung-stationsleitung-akutgeriatrie-see-spital-ch",
-          "stellvertretung-stationsleitung-akutgeriatrie-tertianum-see-spital-ch"
+          "stellvertretung-stationsleitung-akutgeriatrie-tertianum-see-spital-ch",
+          "vice-direttore-di-sezione-di-geriatria-acuta-see-spital-horgen"
         ]
       },
       "firstSeenAt": "2026-05-26T14:55:59.370Z",
@@ -1080,7 +1118,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/470/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-30T22:32:42.894Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-07-31T12:21:34.261Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -1130,11 +1169,13 @@
       "department": "See-Spital",
       "contractDuration": "temporary",
       "previousSlugs": [
-        "dipl-expert-in-anasthesiepflege-see-spital-ch"
+        "dipl-expert-in-anasthesiepflege-see-spital-ch",
+        "esperto-a-di-anestesia-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-expert-in-anasthesiepflege-see-spital-ch"
+          "dipl-expert-in-anasthesiepflege-see-spital-ch",
+          "esperto-a-di-anestesia-see-spital-horgen"
         ]
       },
       "firstSeenAt": "2026-05-26T14:55:58.768Z",
@@ -1183,7 +1224,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/972/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-30T22:32:41.823Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-07-31T12:21:33.141Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -1234,14 +1276,18 @@
       "contractDuration": "permanent",
       "previousSlugsByLocale": {
         "de": [
-          "dipl-pflegefachperson-hf-excellence-see-spital-ch"
+          "dipl-pflegefachperson-hf-excellence-see-spital-ch",
+          "dipl-pflegefachperson-hf-exzellenz-see-spital-horgen"
         ],
         "it": [
-          "dipl-pflegefachperson-hf-excellence-see-spital-ch"
+          "dipl-pflegefachperson-hf-excellence-see-spital-ch",
+          "dipl-persona-di-cura-hf-excellence-see-spital-horgen"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachperson-hf-excellence-see-spital-ch"
+        "dipl-pflegefachperson-hf-excellence-see-spital-ch",
+        "dipl-pflegefachperson-hf-exzellenz-see-spital-horgen",
+        "dipl-persona-di-cura-hf-excellence-see-spital-horgen"
       ],
       "firstSeenAt": "2026-05-26T14:55:58.325Z",
       "salaryMin": 73500,
@@ -1289,7 +1335,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/880/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-30T22:32:40.728Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-07-31T12:21:32.008Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -1339,12 +1386,14 @@
       "contractDuration": "permanent",
       "previousSlugs": [
         "dipl-pflegefachperson-hf-medizin-uberwiegend-fur-den-nachtdienst-im-wechsel-mit",
-        "dipl-pflegefachperson-hf-medizin-uberwiegend-per-den-nachtdienst-im-wechsel-con-tagdiensten-see-spital-horgen"
+        "dipl-pflegefachperson-hf-medizin-uberwiegend-per-den-nachtdienst-im-wechsel-con-tagdiensten-see-spital-horgen",
+        "dipl-persona-di-cura-hf-medicina-notturna-e-giornaliera-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachperson-hf-medizin-uberwiegend-fur-den-nachtdienst-im-wechsel-mit",
-          "dipl-pflegefachperson-hf-medizin-uberwiegend-per-den-nachtdienst-im-wechsel-con-tagdiensten-see-spital-horgen"
+          "dipl-pflegefachperson-hf-medizin-uberwiegend-per-den-nachtdienst-im-wechsel-con-tagdiensten-see-spital-horgen",
+          "dipl-persona-di-cura-hf-medicina-notturna-e-giornaliera-see-spital-horgen"
         ]
       },
       "firstSeenAt": "2026-05-26T14:55:57.723Z",
@@ -1393,7 +1442,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/717/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-30T22:32:39.623Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-07-31T12:21:30.852Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -1443,11 +1493,13 @@
       "department": "See-Spital",
       "contractDuration": "permanent",
       "previousSlugs": [
-        "dipl-pflegefachperson-hf-medizin-see-spital-ch"
+        "dipl-pflegefachperson-hf-medizin-see-spital-ch",
+        "specialista-infermieristico-qualificato-medicina-hf-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-hf-medizin-see-spital-ch"
+          "dipl-pflegefachperson-hf-medizin-see-spital-ch",
+          "specialista-infermieristico-qualificato-medicina-hf-see-spital-horgen"
         ],
         "en": [
           "dipl-pflegefachperson-hf-medizin-see-spital-ch"
@@ -1499,7 +1551,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1137/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-30T22:32:38.520Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-07-31T12:21:29.678Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -1539,12 +1592,14 @@
       "contractDuration": "permanent",
       "previousSlugs": [
         "sportarztin-arzt-see-spital-ch",
-        "sportarztin-arzt-policlinic-see-spital-ch"
+        "sportarztin-arzt-policlinic-see-spital-ch",
+        "medico-dello-sport-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "sportarztin-arzt-see-spital-ch",
-          "sportarztin-arzt-policlinic-see-spital-ch"
+          "sportarztin-arzt-policlinic-see-spital-ch",
+          "medico-dello-sport-see-spital-horgen"
         ]
       },
       "firstSeenAt": "2026-05-26T14:55:56.535Z",
@@ -1593,7 +1648,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1129/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-30T22:32:37.415Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-07-31T12:21:28.552Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -1637,12 +1693,14 @@
         "assistenzarzt-arztin-nephrologie-see-spital-ch",
         "medico-di-medicina-interna-nefrologia-see-spital-horgen",
         "assistant-physician-nephrology-see-spital-horgen",
-        "assistant-en-medecine-interne-nephrologie-see-spital-horgen"
+        "assistant-en-medecine-interne-nephrologie-see-spital-horgen",
+        "infermiere-a-specializzato-a-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "assistenzarzt-arztin-nephrologie-see-spital-ch",
-          "medico-di-medicina-interna-nefrologia-see-spital-horgen"
+          "medico-di-medicina-interna-nefrologia-see-spital-horgen",
+          "infermiere-a-specializzato-a-see-spital-horgen"
         ],
         "en": [
           "assistant-physician-nephrology-see-spital-horgen"
@@ -1700,7 +1758,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1032/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-30T22:32:36.298Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-07-31T12:21:27.403Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -1749,11 +1808,13 @@
       "department": "See-Spital",
       "contractDuration": "temporary",
       "previousSlugs": [
-        "studierende-r-operationstechnik-hf-see-spital-ch"
+        "studierende-r-operationstechnik-hf-see-spital-ch",
+        "studente-operatore-tecnico-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "studierende-r-operationstechnik-hf-see-spital-ch"
+          "studierende-r-operationstechnik-hf-see-spital-ch",
+          "studente-operatore-tecnico-see-spital-horgen"
         ]
       },
       "firstSeenAt": "2026-05-26T14:55:55.490Z",
@@ -1802,7 +1863,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1198/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-30T22:32:35.198Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-07-31T12:21:26.334Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -1851,12 +1913,14 @@
         "healthcare-professional-efz-medicine-see-spital-horgen",
         "fachfrau-mann-gesundheit-efz-medizin-see-spital-ch",
         "professionnel-de-sante-efz-medecine-see-spital-horgen",
-        "fachfrau-mann-gesundheit-cfc-medizin-see-spital-horgen"
+        "fachfrau-mann-gesundheit-cfc-medizin-see-spital-horgen",
+        "fachinfermiere-efz-excellence-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fachfrau-mann-gesundheit-efz-excellence-see-spital-ch",
-          "fachfrau-mann-gesundheit-cfc-excellence-see-spital-horgen"
+          "fachfrau-mann-gesundheit-cfc-excellence-see-spital-horgen",
+          "fachinfermiere-efz-excellence-see-spital-horgen"
         ]
       },
       "firstSeenAt": "2026-05-26T14:55:55.019Z",
@@ -1905,7 +1969,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/313/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-30T22:32:34.111Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-07-31T12:21:25.260Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -1953,11 +2018,13 @@
       "department": "See-Spital",
       "contractDuration": "permanent",
       "previousSlugs": [
-        "studierende-r-pflegefachfrau-mann-hf-see-spital-ch"
+        "studierende-r-pflegefachfrau-mann-hf-see-spital-ch",
+        "studente-studente-di-infermieristica-hf-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "studierende-r-pflegefachfrau-mann-hf-see-spital-ch"
+          "studierende-r-pflegefachfrau-mann-hf-see-spital-ch",
+          "studente-studente-di-infermieristica-hf-see-spital-horgen"
         ]
       },
       "firstSeenAt": "2026-05-26T14:55:53.834Z",
@@ -2006,7 +2073,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1240/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-30T22:32:32.980Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-07-31T12:21:24.128Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2053,11 +2121,13 @@
       "department": "See-Spital",
       "contractDuration": "permanent",
       "previousSlugs": [
-        "dipl-pflegefachperson-hf-interdisziplinar-see-spital-ch"
+        "dipl-pflegefachperson-hf-interdisziplinar-see-spital-ch",
+        "dipl-persona-di-cura-hf-interdisciplinare-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-hf-interdisziplinar-see-spital-ch"
+          "dipl-pflegefachperson-hf-interdisziplinar-see-spital-ch",
+          "dipl-persona-di-cura-hf-interdisciplinare-see-spital-horgen"
         ]
       },
       "firstSeenAt": "2026-05-26T14:55:51.108Z",
@@ -2106,7 +2176,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1248/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-30T22:32:31.874Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-07-31T12:21:22.980Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2154,14 +2225,18 @@
       "contractDuration": "permanent",
       "previousSlugsByLocale": {
         "de": [
-          "klinische-r-fachspezialist-in-physician-associate-see-spital-ch"
+          "klinische-r-fachspezialist-in-physician-associate-see-spital-ch",
+          "klinische-r-fachspezialist-in-arzt-associate-see-spital-horgen"
         ],
         "it": [
-          "klinische-r-fachspezialist-in-physician-associate-see-spital-ch"
+          "klinische-r-fachspezialist-in-physician-associate-see-spital-ch",
+          "fachspezialist-in-clinico-physician-associate-see-spital-horgen"
         ]
       },
       "previousSlugs": [
-        "klinische-r-fachspezialist-in-physician-associate-see-spital-ch"
+        "klinische-r-fachspezialist-in-physician-associate-see-spital-ch",
+        "klinische-r-fachspezialist-in-arzt-associate-see-spital-horgen",
+        "fachspezialist-in-clinico-physician-associate-see-spital-horgen"
       ],
       "firstSeenAt": "2026-05-26T14:55:49.412Z",
       "salaryMin": 73500,
@@ -2209,7 +2284,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1256/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-30T22:32:30.766Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-07-31T12:21:21.859Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2315,7 +2391,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-07-30T22:32:29.606Z",
+      "crawledAt": "2026-07-31T12:21:20.725Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2395,7 +2471,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1261/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-30T22:32:28.486Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-07-31T12:21:19.577Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2476,7 +2553,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-07-30T22:32:27.342Z",
+      "crawledAt": "2026-07-31T12:21:18.433Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2495,11 +2572,13 @@
       "department": "See-Spital",
       "contractDuration": "permanent",
       "previousSlugs": [
-        "arztsekretar-in-medizin-mit-schwerpunkt-gastroenterologie-see-spital-ch"
+        "arztsekretar-in-medizin-mit-schwerpunkt-gastroenterologie-see-spital-ch",
+        "segretario-del-dottore-in-medicina-con-focus-sulla-gastroenterologia-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "arztsekretar-in-medizin-mit-schwerpunkt-gastroenterologie-see-spital-ch"
+          "arztsekretar-in-medizin-mit-schwerpunkt-gastroenterologie-see-spital-ch",
+          "segretario-del-dottore-in-medicina-con-focus-sulla-gastroenterologia-see-spital-horgen"
         ],
         "en": [
           "arztsekretar-in-medizin-mit-schwerpunkt-gastroenterologie-see-spital-ch"
@@ -2554,7 +2633,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1269/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-30T22:32:26.236Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-07-31T12:21:17.293Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2575,7 +2655,8 @@
       "previousSlugsByLocale": {
         "de": [
           "assistent-in-aemp-see-spital-ch",
-          "praxisassistent-in-policlinic-see-spital-ch"
+          "praxisassistent-in-policlinic-see-spital-ch",
+          "praxisassistent-in-see-spital-ch"
         ],
         "it": [
           "praxisassistent-in-see-spital-ch",
@@ -2584,7 +2665,8 @@
           "assistant-in-aemp-see-spital-horgen",
           "assistent-in-aemp-see-spital-ch",
           "assistant-en-aemp-see-spital-horgen",
-          "praxisassistent-in-policlinic-see-spital-ch"
+          "praxisassistent-in-policlinic-see-spital-ch",
+          "assistente-pratico-see-spital-horgen"
         ],
         "en": [
           "praxisassistent-in-see-spital-horgen",
@@ -2606,7 +2688,8 @@
         "assistant-in-aemp-see-spital-horgen",
         "assistent-in-aemp-see-spital-ch",
         "assistant-en-aemp-see-spital-horgen",
-        "praxisassistent-in-policlinic-see-spital-ch"
+        "praxisassistent-in-policlinic-see-spital-ch",
+        "assistente-pratico-see-spital-horgen"
       ],
       "firstSeenAt": "2026-06-29T14:13:58.523Z",
       "salaryMin": 73500,
@@ -2635,18 +2718,18 @@
       "company": "See-Spital",
       "companyKey": "see-spital",
       "companyDomain": "see-spital.ch",
-      "title": "Med. Praxisassistent*in Onkologie",
+      "title": "Med. Praxisassistent*in / Arztsekretär*in Onkologie",
       "titleByLocale": {
         "it": "Med. Assistente di Pratica* in Oncologia",
         "en": "Med. Practice Assistant* in Oncology",
-        "de": "Med. Praxisassistent*in Onkologie",
+        "de": "Med. Praxisassistent*in / Arztsekretär*in Onkologie",
         "fr": "Assistant à la pratique* en oncologie"
       },
-      "description": "Ihr Aufgabengebiet:\n\n• Organisation und Koordination der Patient*innenpfade sowie der onkologischen Sprechstunden inklusive Terminplanung, Patient*innenbetreuung und Leistungserfassung\n• Administrative Tätigkeiten wie Korrespondenz mit Patient*innen, Hausärzt*innen und Versicherungen, Postfachmanagement und Dokumentenverwaltung sowie Unterstützung der Teamleitung\n• Durchführung von diagnostischen und therapeutischen Tätigkeiten wie Blutentnahmen, Impfungen, Injektionen sowie Vorbereitung und Assistenz bei Knochenmarkpunktionen\n• Organisation und Verarbeitung von Laboraufträgen inklusive Materialbewirtschaftung und Sicherstellung der Qualitätsstandards\n• Interdisziplinäre Zusammenarbeit mit internen und externen Fachpersonen sowie kontinuierliche Optimierung von Arbeitsabläufen und Prozessen\n• Selbstständige Übernahme administrativer und medizinischer Aufgaben im Praxisalltag\n\nIhr Profil:\n\n• Abgeschlossene Ausbildung als Med. Praxisassistent*in, mehrjährige Berufserfahrung von Vorteil\n• Stilsichere Deutschkenntnisse sowie gute Kenntnisse der medizinischen Terminologie\n• Effiziente, selbstständige und exakte Arbeitsweise\n• Ausgeprägte Organisations-, Kommunikations- und Teamfähigkeit sowie Flexibilität\n• Hohe Dienstleistungsorientierung sowie freundliches und professionelles Auftreten\n\nWas wir Ihnen bieten:\n\n• Eigenverantwortliches Arbeiten in einem motivierten und familiären Team, das sich gegenseitig unterstützt.\n• Ein Arbeitsort mit bester Anbindung an den öffentlichen Verkehr, sowie kostengünstige Personalparkplätze.\n• Moderne Infrastruktur und eine Arbeitsumgebung, in der Sie sich wohlfühlen können – Seeblick inklusive.\n• Vielfältige Benefits – von tollen Mitarbeitendenrabatten bis hin zu Weiterbildungsangeboten.\n• Ein angenehmes Arbeitsklima in einem attraktiven Standort nahe Zürich, der Ihnen sowohl beruflich als auch privat viel zu bieten hat. Physische Bewerbungen können nicht berücksichtigt oder retourniert werden.",
+      "description": "Ihr Aufgabengebiet:\n\n• Organisation und Koordination der onkologischen Sprechstunden inklusive Terminplanung, Patient*innenbetreuung und Leistungserfassung\n• Administrative Tätigkeiten wie Korrespondenz mit Patient*innen, Hausärzt*innen und Versicherungen, Postfachmanagement und Dokumentenverwaltung sowie Unterstützung der Teamleitung\n• Durchführung von diagnostischen und therapeutischen Tätigkeiten wie Blutentnahmen, Impfungen, Injektionen sowie Vorbereitung und Assistenz bei Knochenmarkpunktionen\n• Organisation und Verarbeitung von Laboraufträgen inklusive Materialbewirtschaftung und Sicherstellung der Qualitätsstandards\n• Interdisziplinäre Zusammenarbeit mit internen und externen Fachpersonen sowie kontinuierliche Optimierung von Arbeitsabläufen und Prozessen\n• Selbstständige Übernahme administrativer und medizinischer Aufgaben im Praxisalltag\n\nIhr Profil:\n\n• Abgeschlossene Ausbildung als Med. Praxisassistent*in EFZ oder FaGe EFZ oder Arztsekretär*in/Sprechstundenassistent*in mit Praxiserfahrung\n• Mehrjährige Berufserfahrung von Vorteil\n• Stilsichere Deutschkenntnisse sowie gute Kenntnisse der medizinischen Terminologie\n• Effiziente, selbstständige und exakte Arbeitsweise\n• Ausgeprägte Organisations-, Kommunikations- und Teamfähigkeit\n• Hohe Dienstleistungsorientierung sowie freundliches und professionelles Auftreten\n\nWas wir Ihnen bieten:\n\n• Eigenverantwortliches Arbeiten in einem motivierten und familiären Team, das sich gegenseitig unterstützt.\n• Ein Arbeitsort mit bester Anbindung an den öffentlichen Verkehr, sowie kostengünstige Personalparkplätze.\n• Moderne Infrastruktur und eine Arbeitsumgebung, in der Sie sich wohlfühlen können – Seeblick inklusive.\n• Vielfältige Benefits – von tollen Mitarbeitendenrabatten bis hin zu Weiterbildungsangeboten.\n• Ein angenehmes Arbeitsklima in einem attraktiven Standort nahe Zürich, der Ihnen sowohl beruflich als auch privat viel zu bieten hat. Physische Bewerbungen können nicht berücksichtigt oder retourniert werden.",
       "descriptionByLocale": {
         "it": "Le tue responsabilità:\n• Organizzazione e coordinamento delle vie del paziente e delle ore di consultazione oncologica, tra cui programmazione, cura del paziente e registrazione delle prestazioni\n• Attività amministrative come la corrispondenza con pazienti, medici di famiglia e assicurazioni, la gestione ufficio postale e la gestione dei documenti, nonché il supporto della gestione del team\n• Condurre attività diagnostiche e terapeutiche come campionamento del sangue, vaccinazioni, iniezioni e preparazione e assistenza nelle punture di midollo osseo\n• Organizzazione e elaborazione di ordini di laboratorio, compresa la gestione dei materiali e la garanzia di standard di qualità\n• Cooperazione interdisciplinare con specialisti interni ed esterni nonché ottimizzazione continua dei flussi di lavoro e dei processi\n• Assunzione indipendente di compiti amministrativi e medici nella pratica quotidiana Il tuo profilo:\n• Formazione completa come Med. Assistente pratico, diversi anni di esperienza professionale benefico\n• Conoscenza sicura del tedesco e buona conoscenza della terminologia medica\n• Metodi di lavoro efficienti, indipendenti ed esatti\n• Forte capacità organizzative, di comunicazione e di squadra, nonché flessibilità\n• Alto orientamento di servizio così come l'aspetto amichevole e professionale Cosa ti offriamo:\n• Lavoro auto-responsabile in un team motivato e familiare che si sostiene a vicenda.\n• Un luogo di lavoro con la migliore connessione ai trasporti pubblici, così come i posti di parcheggio del personale economicamente vantaggiosi.\n• Infrastrutture moderne e un ambiente di lavoro in cui si può sentire a casa – vista lago incluso.\n• Vantaggi diversi – da grandi sconti per i dipendenti a ulteriori offerte di istruzione.\n• Un ambiente di lavoro piacevole in una posizione attraente vicino a Zurigo, che ha molto da offrire sia professionalmente che privatamente. Le applicazioni fisiche non possono essere considerate o restituite.",
         "en": "Your responsibilities:\n• Organization and coordination of patient pathways as well as oncological consultation hours including scheduling, patient care and performance recording\n• Administrative activities such as correspondence with patients, family doctors and insurance, post office management and document management as well as support of team management\n• Conducting diagnostic and therapeutic activities such as blood sampling, vaccinations, injections and preparation and assistance in bone marrow punctures\n• Organisation and processing of laboratory orders, including material management and ensuring quality standards\n• Interdisciplinary cooperation with internal and external specialists as well as continuous optimization of workflows and processes\n• Independent assumption of administrative and medical tasks in everyday practice Your profile:\n• Completed education as a Med. Practical assistant, several years of professional experience beneficial\n• Confident knowledge of German as well as good knowledge of medical terminology\n• Efficient, independent and exact working methods\n• Strong organisational, communication and team skills as well as flexibility\n• High service orientation as well as friendly and professional appearance What we offer you:\n• Self-responsible work in a motivated and family team that supports each other.\n• A place of work with the best connection to public transport, as well as cost-effective staff parking spaces.\n• Modern infrastructure and a working environment in which you can feel at home – lake views included.\n• Diverse benefits – from great employee discounts to further education offers.\n• A pleasant working atmosphere in an attractive location near Zurich, which has a lot to offer you both professionally and privately. Physical applications cannot be considered or returned.",
-        "de": "Ihr Aufgabengebiet:\n\n• Organisation und Koordination der Patient*innenpfade sowie der onkologischen Sprechstunden inklusive Terminplanung, Patient*innenbetreuung und Leistungserfassung\n• Administrative Tätigkeiten wie Korrespondenz mit Patient*innen, Hausärzt*innen und Versicherungen, Postfachmanagement und Dokumentenverwaltung sowie Unterstützung der Teamleitung\n• Durchführung von diagnostischen und therapeutischen Tätigkeiten wie Blutentnahmen, Impfungen, Injektionen sowie Vorbereitung und Assistenz bei Knochenmarkpunktionen\n• Organisation und Verarbeitung von Laboraufträgen inklusive Materialbewirtschaftung und Sicherstellung der Qualitätsstandards\n• Interdisziplinäre Zusammenarbeit mit internen und externen Fachpersonen sowie kontinuierliche Optimierung von Arbeitsabläufen und Prozessen\n• Selbstständige Übernahme administrativer und medizinischer Aufgaben im Praxisalltag\n\nIhr Profil:\n\n• Abgeschlossene Ausbildung als Med. Praxisassistent*in, mehrjährige Berufserfahrung von Vorteil\n• Stilsichere Deutschkenntnisse sowie gute Kenntnisse der medizinischen Terminologie\n• Effiziente, selbstständige und exakte Arbeitsweise\n• Ausgeprägte Organisations-, Kommunikations- und Teamfähigkeit sowie Flexibilität\n• Hohe Dienstleistungsorientierung sowie freundliches und professionelles Auftreten\n\nWas wir Ihnen bieten:\n\n• Eigenverantwortliches Arbeiten in einem motivierten und familiären Team, das sich gegenseitig unterstützt.\n• Ein Arbeitsort mit bester Anbindung an den öffentlichen Verkehr, sowie kostengünstige Personalparkplätze.\n• Moderne Infrastruktur und eine Arbeitsumgebung, in der Sie sich wohlfühlen können – Seeblick inklusive.\n• Vielfältige Benefits – von tollen Mitarbeitendenrabatten bis hin zu Weiterbildungsangeboten.\n• Ein angenehmes Arbeitsklima in einem attraktiven Standort nahe Zürich, der Ihnen sowohl beruflich als auch privat viel zu bieten hat. Physische Bewerbungen können nicht berücksichtigt oder retourniert werden.",
+        "de": "Ihr Aufgabengebiet:\n\n• Organisation und Koordination der onkologischen Sprechstunden inklusive Terminplanung, Patient*innenbetreuung und Leistungserfassung\n• Administrative Tätigkeiten wie Korrespondenz mit Patient*innen, Hausärzt*innen und Versicherungen, Postfachmanagement und Dokumentenverwaltung sowie Unterstützung der Teamleitung\n• Durchführung von diagnostischen und therapeutischen Tätigkeiten wie Blutentnahmen, Impfungen, Injektionen sowie Vorbereitung und Assistenz bei Knochenmarkpunktionen\n• Organisation und Verarbeitung von Laboraufträgen inklusive Materialbewirtschaftung und Sicherstellung der Qualitätsstandards\n• Interdisziplinäre Zusammenarbeit mit internen und externen Fachpersonen sowie kontinuierliche Optimierung von Arbeitsabläufen und Prozessen\n• Selbstständige Übernahme administrativer und medizinischer Aufgaben im Praxisalltag\n\nIhr Profil:\n\n• Abgeschlossene Ausbildung als Med. Praxisassistent*in EFZ oder FaGe EFZ oder Arztsekretär*in/Sprechstundenassistent*in mit Praxiserfahrung\n• Mehrjährige Berufserfahrung von Vorteil\n• Stilsichere Deutschkenntnisse sowie gute Kenntnisse der medizinischen Terminologie\n• Effiziente, selbstständige und exakte Arbeitsweise\n• Ausgeprägte Organisations-, Kommunikations- und Teamfähigkeit\n• Hohe Dienstleistungsorientierung sowie freundliches und professionelles Auftreten\n\nWas wir Ihnen bieten:\n\n• Eigenverantwortliches Arbeiten in einem motivierten und familiären Team, das sich gegenseitig unterstützt.\n• Ein Arbeitsort mit bester Anbindung an den öffentlichen Verkehr, sowie kostengünstige Personalparkplätze.\n• Moderne Infrastruktur und eine Arbeitsumgebung, in der Sie sich wohlfühlen können – Seeblick inklusive.\n• Vielfältige Benefits – von tollen Mitarbeitendenrabatten bis hin zu Weiterbildungsangeboten.\n• Ein angenehmes Arbeitsklima in einem attraktiven Standort nahe Zürich, der Ihnen sowohl beruflich als auch privat viel zu bieten hat. Physische Bewerbungen können nicht berücksichtigt oder retourniert werden.",
         "fr": "Vos responsabilités :\n• Organisation et coordination des voies des patients ainsi que des heures de consultation oncologique, y compris l'horaire, les soins aux patients et l'enregistrement des performances\n• Activités administratives telles que la correspondance avec les patients, les médecins de famille et les assurances, la gestion des bureaux de poste et la gestion des documents, ainsi que l ' appui à la gestion d ' équipe\n• Mener des activités diagnostiques et thérapeutiques telles que l'échantillonnage sanguin, les vaccinations, les injections, la préparation et l'assistance dans les perforations médullaires\n• Organisation et traitement des commandes de laboratoire, y compris la gestion du matériel et la garantie des normes de qualité\n• Coopération interdisciplinaire avec des spécialistes internes et externes et optimisation continue des flux de travail et des processus\n• Prise en charge indépendante des tâches administratives et médicales dans la pratique quotidienne Votre profil:\n• Achevé l'éducation comme un Med. Assistant pratique, plusieurs années d'expérience professionnelle bénéfique\n• Connaissance de l'allemand et bonne connaissance de la terminologie médicale\n• Méthodes de travail efficaces, indépendantes et exactes\n• Forte capacité d'organisation, de communication et d'équipe ainsi que flexibilité\n• Orientation haut service ainsi que l'apparence amicale et professionnelle Ce que nous vous offrons:\n• Travail autonome dans une équipe motivée et familiale qui se soutient mutuellement.\n• Un lieu de travail avec la meilleure connexion aux transports en commun, ainsi que des places de stationnement du personnel rentable.\n• Infrastructure moderne et environnement de travail dans lequel vous pouvez vous sentir à la maison – vue sur le lac inclus.\n• Avantages divers – de grandes réductions pour les employés aux offres de formation continue.\n• Une atmosphère de travail agréable dans un endroit attrayant près de Zurich, qui a beaucoup à vous offrir à la fois professionnellement et en privé. Les applications physiques ne peuvent être envisagées ou retournées."
       },
       "location": "Horgen",
@@ -2654,7 +2737,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1265/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-30T22:32:25.124Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-07-31T12:21:16.156Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2673,11 +2757,15 @@
       "department": "See-Spital",
       "contractDuration": "temporary",
       "previousSlugs": [
-        "med-praxisassistent-in-onkologie-see-spital-ch"
+        "med-praxisassistent-in-onkologie-see-spital-ch",
+        "med-praxisassistent-in-arztsekretar-in-onkologie-see-spital-ch",
+        "med-assistente-di-pratica-in-oncologia-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "med-praxisassistent-in-onkologie-see-spital-ch"
+          "med-praxisassistent-in-onkologie-see-spital-ch",
+          "med-praxisassistent-in-arztsekretar-in-onkologie-see-spital-ch",
+          "med-assistente-di-pratica-in-oncologia-see-spital-horgen"
         ],
         "en": [
           "med-praxisassistent-in-onkologie-see-spital-ch"
@@ -2733,7 +2821,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-07-30T22:32:24.004Z",
+      "crawledAt": "2026-07-31T12:21:14.988Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2752,11 +2840,13 @@
       "department": "See-Spital",
       "contractDuration": "permanent",
       "previousSlugs": [
-        "dipl-pflegefachperson-hf-onkologie-see-spital-ch"
+        "dipl-pflegefachperson-hf-onkologie-see-spital-ch",
+        "dipl-cura-professionale-hf-oncologia-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-hf-onkologie-see-spital-ch"
+          "dipl-pflegefachperson-hf-onkologie-see-spital-ch",
+          "dipl-cura-professionale-hf-oncologia-see-spital-horgen"
         ],
         "en": [
           "dipl-pflegefachperson-hf-onkologie-see-spital-ch"
@@ -2812,7 +2902,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-07-30T22:32:22.891Z",
+      "crawledAt": "2026-07-31T12:21:13.876Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2831,11 +2921,13 @@
       "department": "See-Spital",
       "contractDuration": "permanent",
       "previousSlugs": [
-        "oberarztin-arzt-onkologie-see-spital-ch"
+        "oberarztin-arzt-onkologie-see-spital-ch",
+        "oncologia-del-medico-senior-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "oberarztin-arzt-onkologie-see-spital-ch"
+          "oberarztin-arzt-onkologie-see-spital-ch",
+          "oncologia-del-medico-senior-see-spital-horgen"
         ],
         "en": [
           "oberarztin-arzt-onkologie-see-spital-ch"
@@ -2890,7 +2982,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1274/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-30T22:32:21.782Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-07-31T12:21:12.749Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2913,7 +3006,8 @@
         "praxisassistent-in-see-spital-ch",
         "praxisassistent-in-see-spital-horgen",
         "praxisassistent-in-policlinic-see-spital-ch-2",
-        "praxisassistent-in-policlinic-see-spital-ch"
+        "praxisassistent-in-policlinic-see-spital-ch",
+        "assistente-pratico-see-spital-horgen-79c446"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2921,7 +3015,8 @@
           "praxisassistent-in-see-spital-ch",
           "praxisassistent-in-see-spital-horgen",
           "praxisassistent-in-policlinic-see-spital-ch-2",
-          "praxisassistent-in-policlinic-see-spital-ch"
+          "praxisassistent-in-policlinic-see-spital-ch",
+          "assistente-pratico-see-spital-horgen-79c446"
         ],
         "en": [
           "praxisassistent-in-see-spital-horgen"
@@ -2979,7 +3074,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1273/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-30T22:32:20.665Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-07-31T12:21:11.650Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2999,11 +3095,13 @@
       "contractDuration": "permanent",
       "previousSlugs": [
         "applikationsverantwortliche-r-klinisches-informationssystem-kis-see-spital-ch",
-        "applikationsverantwortliche-r-klinisches-informationssystem-kis-see-spital-horgen"
+        "applikationsverantwortliche-r-klinisches-informationssystem-kis-see-spital-horgen",
+        "responsabile-dell-applicazione-sistema-informativo-clinico-kis-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "applikationsverantwortliche-r-klinisches-informationssystem-kis-see-spital-ch"
+          "applikationsverantwortliche-r-klinisches-informationssystem-kis-see-spital-ch",
+          "responsabile-dell-applicazione-sistema-informativo-clinico-kis-see-spital-horgen"
         ],
         "en": [
           "applikationsverantwortliche-r-klinisches-informationssystem-kis-see-spital-ch",
@@ -3060,7 +3158,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-07-30T22:32:19.546Z",
+      "crawledAt": "2026-07-31T12:21:10.519Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -3079,11 +3177,13 @@
       "department": "See-Spital",
       "contractDuration": "permanent",
       "previousSlugs": [
-        "hebamme-bsc-see-spital-ch"
+        "hebamme-bsc-see-spital-ch",
+        "midwife-bsc-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "hebamme-bsc-see-spital-ch"
+          "hebamme-bsc-see-spital-ch",
+          "midwife-bsc-see-spital-horgen"
         ],
         "en": [
           "hebamme-bsc-see-spital-ch"
@@ -3106,110 +3206,6 @@
         }
       },
       "addressRegion": "ZH"
-    },
-    {
-      "id": "see-spital-0f749a0894fe",
-      "slug": "medico-direttore-pneumologia-see-spital-horgen",
-      "slugByLocale": {
-        "it": "medico-direttore-pneumologia-see-spital-horgen",
-        "en": "lead-physician-pneumology-see-spital-horgen",
-        "de": "leitende-r-arzt-arztin-pneumologie-see-spital-ch",
-        "fr": "medecin-chef-pneumologie-see-spital-horgen"
-      },
-      "company": "See-Spital",
-      "companyKey": "see-spital",
-      "companyDomain": "see-spital.ch",
-      "title": "Leitende*r Arzt*Ärztin Pneumologie",
-      "titleByLocale": {
-        "it": "Medico Direttore Pneumologia",
-        "en": "Lead Physician Pneumology",
-        "de": "Leitende*r Arzt*Ärztin Pneumologie",
-        "fr": "Médecin Chef Pneumologie"
-      },
-      "description": "Ihr Aufgabengebiet:\n\n• Selbstständige Durchführung ambulanter Sprechstunden am See-Spital – analog einer Facharztpraxis\n• Konsiliarische Mitbetreuung von stationären Patient*innen mit pneumologischen Krankheitsbildern\n• Teilnahme am internistischen Notfalldienst: Keine ganzen Wochenenddienste, klar planbare Tage pro Jahr, Pikettdienst unter der Woche ohne Präsenzpflicht\n• Enge interdisziplinäre Zusammenarbeit mit der Intensivstation und Onkologie\n• Mitarbeit im Schlafzentrum Zürichsee\n• Supervision und Weiterbildung unserer Assistenzärzt*innen\n• Möglichkeit zur Weiterentwicklung und zum Ausbau eigener Schwerpunkte (z. B. Schlafmedizin, Beatmungsmedizin, interventionelle Pneumologie etc.)\n\nIhr Profil:\n\n• Facharzttitel Pneumologie (mit Facharzttitel Innere Medizin)\n• Klinische Erfahrung im internistischen Notfall\n• Interesse an Vertiefung in Schlafmedizin oder interventioneller Pneumologie willkommen\n• Engagierte, teamorientierte Persönlichkeit mit hoher Sozialkompetenz\n• Freude an interdisziplinärer Zusammenarbeit und an der Ausbildung junger Kolleg*innen\n\nWas wir Ihnen bieten:\n\n• Leitende Funktion mit attraktiven Entwicklungsperspektiven – ideal für Oberärzt*innen, die den nächsten Karriereschritt gehen möchten.\n• Planbare Work-Life-Balance - keine Schichtdienste, Pikettdienste unter der Woche ohne Präsenzpflicht, klar strukturierte Wochenenddienste.\n• Ein Arbeitsort mit bester Anbindung an den öffentlichen Verkehr, sowie kostengünstige Personalparkplätze.\n• Moderne Infrastruktur und eine Arbeitsumgebung, in der Sie sich wohlfühlen können – Seeblick inklusive.\n• Vielfältige Benefits – von tollen Mitarbeitendenrabatten bis hin zu Weiterbildungsangeboten.\n• Ein angenehmes Arbeitsklima in einem attraktiven Standort nahe Zürich, der Ihnen sowohl beruflich als auch privat viel zu bieten hat. Physische Bewerbungen können nicht berücksichtigt oder retourniert werden.",
-      "descriptionByLocale": {
-        "it": "Mansioni - Conduzione autonoma delle visite ambulatoriali presso See-Spital, analoga a una pratica di specialista - Assistenza consiliaria ai pazienti ospedalizzati con patologie pneumologiche - Partecipazione al servizio di emergenza interna: nessun servizio di fine settimana completo, giorni ben pianificati all'anno, servizio di picchetto durante la settimana senza obbligo di presenza - Collaborazione interdisciplinare stretta con l'unità di terapia intensiva e l'oncologia - Partecipazione al centro di sonno del Lago di Zurigo - Supervisione e formazione degli assistenti medici - Possibilità di sviluppo e ampliamento delle proprie aree di specializzazione (ad esempio, medicina del sonno, medicina della ventilazione, pneumologia interventistica ecc.)\n• Requisiti - Titolo di specialista in pneumologia (con titolo di specialista in medicina interna) - Esperienza clinica nel servizio di emergenza interna - Interesse per approfondire la medicina del sonno o la pneumologia interventistica è ben accetto - Personalità impegnata, orientata al team con alta competenza sociale - Apprezzamento per la collaborazione interdisciplinare e per la formazione di giovani colleghi\n• Cosa offriamo - Funzione di leadership con prospettive di sviluppo attraenti – ideale per medici senior che desiderano fare il passo successivo nella loro carriera. - Bilanciamento tra lavoro e vita pianificabile - nessun servizio di turno, servizi di picchetto durante la settimana senza obbligo di presenza, servizi di fine settimana strutturati chiaramente. - Un luogo di lavoro con ottima connettività con i trasporti pubblici e parcheggi per il personale a costi contenuti. - Infrastruttura moderna e un ambiente di lavoro in cui sentirsi a proprio agio – incluso panorama sul lago. - Benefit variati – da sconti per i dipendenti alle offerte di formazione. - Un ambiente di lavoro piacevole in una località attraente vicino a Zurigo, che offre molto sia dal punto di vista professionale che personale. Le candidature fisiche non possono essere considerate o restituite.",
-        "en": "Responsibilities - Independent conduct of outpatient clinics at See-Spital – analogous to a specialist practice - Consultative care of inpatients with pneumological conditions - Participation in the internal emergency service: No full weekend duties, clearly planned days per year, on-call duty during the week without presence obligation - Close interdisciplinary cooperation with the intensive care unit and oncology - Participation in the Zurichsee Sleep Center - Supervision and training of our assistant physicians - Opportunity for further development and expansion of own specialties (e.g. sleep medicine, respiratory medicine, interventional pneumology etc.)\n• Requirements - Specialist title in pneumology (with specialist title in internal medicine) - Clinical experience in internal emergency - Interest in deepening sleep medicine or interventional pneumology welcome - Engaged, team-oriented personality with high social competence - Enjoyment of interdisciplinary cooperation and training of young colleagues What We Offer - Leading function with attractive development prospects – ideal for senior physicians who want to take the next career step. - Planned work-life balance - no shift duties, on-call duties during the week without presence obligation, clearly structured weekend duties. - A workplace with excellent public transport connections and cost-effective staff parking. - Modern infrastructure and a working environment where you can feel at home – including lake view. - Diverse benefits – from great employee discounts to training offers. - A pleasant working atmosphere in an attractive location near Zurich, which offers a lot both professionally and privately. Physical applications cannot be considered or returned.",
-        "de": "Ihr Aufgabengebiet:\n\n• Selbstständige Durchführung ambulanter Sprechstunden am See-Spital – analog einer Facharztpraxis\n• Konsiliarische Mitbetreuung von stationären Patient*innen mit pneumologischen Krankheitsbildern\n• Teilnahme am internistischen Notfalldienst: Keine ganzen Wochenenddienste, klar planbare Tage pro Jahr, Pikettdienst unter der Woche ohne Präsenzpflicht\n• Enge interdisziplinäre Zusammenarbeit mit der Intensivstation und Onkologie\n• Mitarbeit im Schlafzentrum Zürichsee\n• Supervision und Weiterbildung unserer Assistenzärzt*innen\n• Möglichkeit zur Weiterentwicklung und zum Ausbau eigener Schwerpunkte (z. B. Schlafmedizin, Beatmungsmedizin, interventionelle Pneumologie etc.)\n\nIhr Profil:\n\n• Facharzttitel Pneumologie (mit Facharzttitel Innere Medizin)\n• Klinische Erfahrung im internistischen Notfall\n• Interesse an Vertiefung in Schlafmedizin oder interventioneller Pneumologie willkommen\n• Engagierte, teamorientierte Persönlichkeit mit hoher Sozialkompetenz\n• Freude an interdisziplinärer Zusammenarbeit und an der Ausbildung junger Kolleg*innen\n\nWas wir Ihnen bieten:\n\n• Leitende Funktion mit attraktiven Entwicklungsperspektiven – ideal für Oberärzt*innen, die den nächsten Karriereschritt gehen möchten.\n• Planbare Work-Life-Balance - keine Schichtdienste, Pikettdienste unter der Woche ohne Präsenzpflicht, klar strukturierte Wochenenddienste.\n• Ein Arbeitsort mit bester Anbindung an den öffentlichen Verkehr, sowie kostengünstige Personalparkplätze.\n• Moderne Infrastruktur und eine Arbeitsumgebung, in der Sie sich wohlfühlen können – Seeblick inklusive.\n• Vielfältige Benefits – von tollen Mitarbeitendenrabatten bis hin zu Weiterbildungsangeboten.\n• Ein angenehmes Arbeitsklima in einem attraktiven Standort nahe Zürich, der Ihnen sowohl beruflich als auch privat viel zu bieten hat. Physische Bewerbungen können nicht berücksichtigt oder retourniert werden.",
-        "fr": "Responsabilités - Conduite autonome des consultations ambulatoires au See-Spital – analogue à une pratique spécialisée - Soins consultatifs des patients hospitalisés atteints de conditions pneumologiques - Participation au service d'urgence interne : pas de services de fin de semaine complets, jours clairement planifiés par an, service de garde pendant la semaine sans obligation de présence - Collaboration interdisciplinaire étroite avec l'unité de soins intensifs et l'oncologie - Participation au Centre de sommeil du Lac de Zurich - Supervision et formation de nos assistants médecins - Possibilité de développement et d'extension de ses propres spécialités (par exemple, médecine du sommeil, médecine respiratoire, pneumologie interventionnelle, etc.)\n• Exigences - Titre de spécialiste en pneumologie (avec titre de spécialiste en médecine interne) - Expérience clinique en urgence interne - Intérêt pour approfondir la médecine du sommeil ou la pneumologie interventionnelle est bienvenu - Personality engagée, orientée vers l'équipe avec une haute compétence sociale - Appreciation de la coopération interdisciplinaire et de la formation de jeunes collègues Ce que nous offrons - Fonction de direction avec des perspectives de développement attrayantes – idéale pour les médecins seniors qui souhaitent faire le prochain pas dans leur carrière. - Équilibre entre vie professionnelle et vie personnelle planifié - pas de services de garde, services de garde pendant la semaine sans obligation de présence, services de fin de semaine clairement structurés. - Un lieu de travail avec de bonnes connexions aux transports en commun et des places de parking pour le personnel à coût réduit. - Infrastructure moderne et un environnement de travail où vous vous sentirez à l'aise – y compris vue sur le lac. - Divers avantages – des réductions d'employés géniales aux offres de formation. - Un climat de travail agréable dans un emplacement attrayant près de Zurich, qui offre beaucoup à la fois professionnellement et personnellement. Les candidatures physiques ne peuvent pas être prises en compte ou retournées."
-      },
-      "location": "Horgen",
-      "canton": "ZH",
-      "url": "https://recruitingapp-2939.umantis.com/Vacancies/1144/Description/1",
-      "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-29T22:36:07.041Z",
-      "addressLocality": "Horgen",
-      "postalCode": "8810",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "senior",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-26",
-      "applyUrl": "https://recruitingapp-2939.umantis.com/Vacancies/1144/Application/CheckLogin/1",
-      "requirements": [],
-      "requirementsByLocale": {
-        "it": [
-          "Titolo di specialista in pneumologia (con titolo di specialista in medicina interna)",
-          "Esperienza clinica nel servizio di emergenza interna",
-          "Interesse per approfondire la medicina del sonno o la pneumologia interventistica è ben accetto",
-          "Personalità impegnata, orientata al team con alta competenza sociale",
-          "Apprezzamento per la collaborazione interdisciplinare e per la formazione di giovani colleghi",
-          "Conduzione autonoma delle visite ambulatoriali presso See-Spital",
-          "Assistenza consiliaria ai pazienti ospedalizzati",
-          "Partecipazione al servizio di emergenza interna"
-        ],
-        "en": [
-          "Specialist title in pneumology (with specialist title in internal medicine)",
-          "Clinical experience in internal emergency",
-          "Interest in deepening sleep medicine or interventional pneumology welcome",
-          "Engaged, team-oriented personality with high social competence",
-          "Enjoyment of interdisciplinary cooperation and training of young colleagues",
-          "Independent conduct of outpatient clinics at See-Spital",
-          "Consultative care of inpatients",
-          "Participation in the internal emergency service"
-        ],
-        "fr": [
-          "Titre de spécialiste en pneumologie (avec titre de spécialiste en médecine interne)",
-          "Expérience clinique en urgence interne",
-          "Intérêt pour approfondir la médecine du sommeil ou la pneumologie interventionnelle est bienvenu",
-          "Personality engagée, orientée vers l'équipe avec une haute compétence sociale",
-          "Appreciation de la coopération interdisciplinaire et de la formation de jeunes collègues",
-          "Conduite autonome des consultations ambulatoires au See-Spital",
-          "Soins consultatifs des patients hospitalisés",
-          "Participation au service d'urgence interne"
-        ]
-      },
-      "department": "See-Spital",
-      "contractDuration": "permanent",
-      "previousSlugs": [
-        "leitende-r-arzt-arztin-pneumologie-see-spital-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "leitende-r-arzt-arztin-pneumologie-see-spital-ch"
-        ]
-      },
-      "firstSeenAt": "2026-05-26T14:55:53.373Z",
-      "salaryMin": 101500,
-      "salaryMax": 154000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 101500,
-          "maxValue": 154000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "ZH",
-      "crawlerMissStreak": 2
     }
   ]
 }
