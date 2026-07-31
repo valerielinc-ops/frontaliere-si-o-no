@@ -1,6 +1,6 @@
 {
   "crawlerKey": "heineken-ch",
-  "assembledAt": "2026-07-31T11:49:49.541Z",
+  "assembledAt": "2026-07-31T22:23:39.674Z",
   "jobs": [
     {
       "id": "heineken-ch-3d1c80a02409",
@@ -48,7 +48,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=149552&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-31T11:49:47.348Z",
+      "crawledAt": "2026-07-31T22:23:37.444Z",
       "previousSlugs": [
         "elektroinstallateur-automatiker-chur-m-w-heineken-ch-chur",
         "installatore-trice-elettrico-a-automatiker-chur-m-w-d-heineken-switzerland-chur"
@@ -60,6 +60,7 @@
         ]
       },
       "firstSeenAt": "2026-07-09T22:38:49.171Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "currency": "CHF",
@@ -120,7 +121,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=153028&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-31T11:49:39.692Z",
+      "crawledAt": "2026-07-31T22:23:28.957Z",
       "previousSlugs": [
         "mitarbeiterin-brauereifuhrungen-10-auf-abruf-heineken-ch-luzern",
         "personale-in-birrerie-10-su-chiamata-heineken-switzerland-luzern"
@@ -198,7 +199,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=152911&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-31T11:49:31.951Z",
+      "crawledAt": "2026-07-31T22:23:21.368Z",
       "previousSlugs": [
         "logistiker-in-getrankelager-100-heineken-ch-luzern",
         "logistica-negozio-100-heineken-switzerland-luzern"
@@ -216,6 +217,7 @@
         ]
       },
       "firstSeenAt": "2026-05-13T11:12:50.193Z",
+      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "currency": "CHF",
@@ -276,7 +278,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=155984&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-31T11:49:23.938Z",
+      "crawledAt": "2026-07-31T22:23:13.504Z",
       "previousSlugs": [
         "truck-driver-heineken-ch-baltschieder",
         "autista-di-camion-heineken-switzerland-baltschieder"
@@ -354,7 +356,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=156187&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-31T11:49:15.703Z",
+      "crawledAt": "2026-07-31T22:23:05.540Z",
       "previousSlugs": [
         "chauffeur-kat-c-e-heineken-ch-luzern",
         "autista-cat-c-e-heineken-switzerland-luzern"
@@ -372,84 +374,6 @@
         ]
       },
       "firstSeenAt": "2026-05-13T11:12:28.078Z",
-      "salaryMin": 69500,
-      "salaryMax": 106000,
-      "currency": "CHF",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 69500,
-          "maxValue": 106000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "heineken-ch-2ab67e4f3e0a",
-      "jobReqId": "154093",
-      "slug": "team-leader-in-customer-service-center-vendite-80-100-heineken-switzerland-luzern",
-      "slugByLocale": {
-        "it": "team-leader-in-customer-service-center-vendite-80-100-heineken-switzerland-luzern",
-        "en": "team-leader-in-customer-service-center-sales-80-100-heineken-switzerland-luzern",
-        "de": "teamleiter-in-kundenservice-center-sales-80-100-heineken-ch-luzern",
-        "fr": "chef-d-equipe-dans-le-centre-de-service-a-la-clientele-ventes-80-100-heineken-switzerland-luzern"
-      },
-      "company": "Heineken Switzerland",
-      "companyKey": "heineken-ch",
-      "companyDomain": "theheinekencompany.com",
-      "title": "Teamleiter:in Kundenservice-Center Sales 80-100%",
-      "titleByLocale": {
-        "it": "Team Leader/in Customer Service Center Vendite 80-100 %",
-        "en": "Team Leader:in Customer Service Center Sales 80-100 %",
-        "de": "Teamleiter:in Kundenservice-Center Sales 80-100%",
-        "fr": "Chef d'équipe/dans le centre de service à la clientèle Ventes 80-100 %"
-      },
-      "description": "Für unsere Tochtergesellschaft Stardrinks AG suchen wir am Standort Luzern zur Verstärkung unseres Kundenservice-Centers eine engagierte und führungsstarke Persönlichkeit als Teamleiter:in Kundenservice-Center Sales. In dieser vielseitigen Rolle führst du ein Team im Kundenservice, das an zwei Standorten (Luzern & Winterthur) tätig ist, und stellst sicher, dass unsere Kund:innen jederzeit einen professionellen und lösungsorientierten Support erhalten. Gleichzeitig treibst du die Weiterentwicklung unserer digitalen Kundenkanäle (z.B. eB2B-Plattform / Eazle) aktiv voran und optimierst Prozesse kontinuierlich mit modernen Methoden. Deine \n• Aufgaben Fachliche und personelle Führung des Kundenservice-Center Sales Teams über zwei Standorte hinweg Sicherstellung einer hohen Erreichbarkeit und Servicequalität für unsere Kund:innen Planung, Steuerung und kontinuierliche Optimierung der täglichen Abläufe im Customer Service (über eB2B-Plattform/Eazle, E-Mail und Telefon) Unterstützung und Weiterentwicklung des Teams im operativen Tagesgeschäft unter Anwendung von TPM- und Lean-Six-Sigma-Methoden Koordination mit internen Schnittstellen wie Sales, IT und Shared Services Sicherstellen eines reibungslosen Supports für unsere digitalen Plattformen und Systeme (z.B. CRM, SAP, Webshop) Verantwortung für Kapazitätsplanung, Forecasts und Reporting im Kundenservice Mitarbeit oder Leitung von Projekten zur Digitalisierung und Weiterentwicklung unseres Kundenservices Das bringst du mit Mehrjährige Erfahrung im Kundenservice, Sales Support oder Contact Center – idealerweise mit Führungserfahrung Abgeschlossene Ausbildung sowie eine Weiterbildung im Bereich Führung, Betriebswirtschaft oder Projektmanagement von Vorteil Starke Kommunikations- und Organisationsfähigkeiten sowie Freude an der Arbeit mit Menschen Interesse an Prozessoptimierung, Digitalisierung und datenbasierten Entscheidungen Erfahrung mit CRM-, ERP- oder Contact-Center-Systemen von Vorteil Sehr gute Deutschkenntnisse sowie gute Französisch- und Englischkenntnisse \n• Das bieten wir dir",
-      "descriptionByLocale": {
-        "it": "Descrizione Per la nostra affiliata Stardrinks AG, stiamo cercando una personalità dedicata e potente come leader del team: nel Customer Service Center Sales del sito Lucerne per rafforzare il nostro centro assistenza clienti. In questo ruolo versatile, guiderai un team nel servizio clienti che lavora in due sedi (Luzern & Winterthur) e ti assicurerai che i nostri clienti ricevano assistenza professionale e orientata alla soluzione in qualsiasi momento. Allo stesso tempo, stai attivamente guidando l'ulteriore sviluppo dei nostri canali di clienti digitali (piattaforma eB2B / Eazle) e ottimizzando continuamente i processi utilizzando metodi moderni. Il tuo Mansioni - Leader professionale e personale del Customer Service Center Sales Team in due sedi - Garantire un'elevata accessibilità e qualità dei servizi per i nostri clienti: - Pianificazione, controllo e ottimizzazione continua dei processi quotidiani nel servizio clienti (via piattaforma eB2B/eazle, e-mail e telefono) - Supporto e ulteriore sviluppo del team nel business quotidiano operativo utilizzando i metodi TPM e Lean-Six-Sigma - Coordinamento con interfacce interne come vendite, IT e servizi condivisi - Garantire un supporto fluido per le nostre piattaforme e sistemi digitali (ad esempio CRM, SAP, Webshop) - Responsabilità per la pianificazione delle capacità, le previsioni e la segnalazione nel servizio clienti - cooperazione o gestione di progetti per la digitalizzazione e lo sviluppo del nostro servizio clienti\n• Requisiti - Esperienza pluriennale nel servizio clienti, supporto vendite o centro di contatto – idealmente con esperienza di leadership - Formazione completa e formazione ulteriore nel campo della gestione, della gestione aziendale o della gestione dei progetti - Forte comunicazione e capacità organizzative e gioia nel lavorare con le persone - Interessi nell'ottimizzazione dei processi, digitalizzazione e decisioni basate sui dati - Esperienza con sistemi CRM, ERP o Contact Center - Ottima conoscenza del tedesco e buona conoscenza del francese e dell'inglese Cosa",
-        "en": "Descrizione For our subsidiary Stardrinks AG, we are looking for a dedicated and powerful personality as a team leader:in Customer Service Center Sales at the Lucerne site to strengthen our customer service center. In this versatile role, you will lead a team in customer service that works at two locations (Luzern & Winterthur) and make sure that our customers receive professional and solution-oriented support at any time. At the same time, you are actively driving the further development of our digital customer channels (eB2B platform / Eazle) and continuously optimizing processes using modern methods. Your Mansioni - Professional and personal leadership of the Customer Service Center Sales Team across two locations - Ensuring high accessibility and service quality for our customers: - Planning, control and continuous optimization of the daily processes in the customer service (via eB2B platform/eazle, e-mail and telephone) - Support and further development of the team in operational daily business using TPM and Lean-Six-Sigma methods - Coordination with internal interfaces such as sales, IT and shared services - Ensure smooth support for our digital platforms and systems (e.g. CRM, SAP, Webshop) - Responsibility for capacity planning, forecasts and reporting in customer service - cooperation or management of projects for the digitization and further development of our customer service\n• Requisiti - Multiannual experience in customer service, sales support or contact center – ideally with leadership experience - Complete training and further training in the field of management, business management or project management - Strong communication and organizational skills and joy in working with people - Interest in process optimization, digitization and data-based decisions - Experience with CRM, ERP or Contact Center systems - Very good knowledge of German and good knowledge of French and English\n• Cosa offriamo",
-        "de": "Für unsere Tochtergesellschaft Stardrinks AG suchen wir am Standort Luzern zur Verstärkung unseres Kundenservice-Centers eine engagierte und führungsstarke Persönlichkeit als Teamleiter:in Kundenservice-Center Sales. In dieser vielseitigen Rolle führst du ein Team im Kundenservice, das an zwei Standorten (Luzern & Winterthur) tätig ist, und stellst sicher, dass unsere Kund:innen jederzeit einen professionellen und lösungsorientierten Support erhalten. Gleichzeitig treibst du die Weiterentwicklung unserer digitalen Kundenkanäle (z.B. eB2B-Plattform / Eazle) aktiv voran und optimierst Prozesse kontinuierlich mit modernen Methoden. Deine \n• Aufgaben Fachliche und personelle Führung des Kundenservice-Center Sales Teams über zwei Standorte hinweg Sicherstellung einer hohen Erreichbarkeit und Servicequalität für unsere Kund:innen Planung, Steuerung und kontinuierliche Optimierung der täglichen Abläufe im Customer Service (über eB2B-Plattform/Eazle, E-Mail und Telefon) Unterstützung und Weiterentwicklung des Teams im operativen Tagesgeschäft unter Anwendung von TPM- und Lean-Six-Sigma-Methoden Koordination mit internen Schnittstellen wie Sales, IT und Shared Services Sicherstellen eines reibungslosen Supports für unsere digitalen Plattformen und Systeme (z.B. CRM, SAP, Webshop) Verantwortung für Kapazitätsplanung, Forecasts und Reporting im Kundenservice Mitarbeit oder Leitung von Projekten zur Digitalisierung und Weiterentwicklung unseres Kundenservices Das bringst du mit Mehrjährige Erfahrung im Kundenservice, Sales Support oder Contact Center – idealerweise mit Führungserfahrung Abgeschlossene Ausbildung sowie eine Weiterbildung im Bereich Führung, Betriebswirtschaft oder Projektmanagement von Vorteil Starke Kommunikations- und Organisationsfähigkeiten sowie Freude an der Arbeit mit Menschen Interesse an Prozessoptimierung, Digitalisierung und datenbasierten Entscheidungen Erfahrung mit CRM-, ERP- oder Contact-Center-Systemen von Vorteil Sehr gute Deutschkenntnisse sowie gute Französisch- und Englischkenntnisse \n• Das bieten wir dir",
-        "fr": "Descrizione Pour notre filiale Stardrinks AG, nous recherchons une personnalité dévouée et puissante en tant que chef d'équipe : dans Customer Service Center Sales sur le site de Lucerne pour renforcer notre service clientèle. Dans ce rôle polyvalent, vous dirigerez une équipe de service à la clientèle qui travaille à deux endroits (Luzern et Winterthur) et vous assurerez que nos clients reçoivent un soutien professionnel et axé sur la solution à tout moment. En même temps, vous dirigez activement le développement de nos canaux clients numériques (plateforme eB2B / Eazle) et optimisez en permanence nos processus en utilisant des méthodes modernes. Votre Mansioni - Dirigeant professionnel et personnel de l'équipe de vente du Centre de service à la clientèle sur deux sites - Assurer une grande accessibilité et qualité de service à nos clients : - Planification, contrôle et optimisation continue des processus quotidiens dans le service client (via eB2B plate-forme/eazle, e-mail et téléphone) - Soutien et développement de l'équipe dans les activités opérationnelles quotidiennes utilisant les méthodes TPM et Lean-Six-Sigma - Coordination avec les interfaces internes telles que les ventes, les TI et les services partagés - Assurer un support en douceur pour nos plateformes et systèmes numériques (par exemple CRM, SAP, Webshop) - Responsabilité en matière de planification des capacités, de prévisions et de rapports en matière de service à la clientèle - coopération ou gestion de projets pour la numérisation et le développement de notre service à la clientèle\n• Requisiti - Expérience pluriannuelle en service à la clientèle, support commercial ou centre de contact – idéalement avec une expérience de leadership - Formation complète et perfectionnement dans le domaine de la gestion, de la gestion d'entreprise ou de la gestion de projets - Forte capacité de communication et d'organisation et joie de travailler avec les gens - Intérêt pour l'optimisation des processus, la numérisation et les décisions fondées sur les données - Expérience avec les systèmes CRM, ERP ou Contact Center - Très bonne connaissance de l'allemand et bonne connaissance du français et de l'anglais\n• Cosa offriamo"
-      },
-      "location": "Luzern",
-      "canton": "LU",
-      "addressLocality": "Luzern",
-      "addressRegion": "LU",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "7000",
-      "streetAddress": "Luzern, LU",
-      "category": "Logistica",
-      "sector": "Industria / Alimentare",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
-      "featured": false,
-      "postedDate": "2026-05-28",
-      "url": "https://careers.theheinekencompany.com/job/heineken-switzerland/switzerland/teamleiterin-kundenservice-center-sales-80-100?jobid=154093",
-      "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=154093&career_ns=job_application",
-      "source": "Heineken Switzerland Dedicated Parser (Playwright)",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-31T11:49:07.959Z",
-      "previousSlugs": [
-        "teamleiter-in-kundenservice-center-sales-80-100-heineken-ch-luzern",
-        "team-leader-in-customer-service-center-vendite-80-100-heineken-switzerland-luzern"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "teamleiter-in-kundenservice-center-sales-80-100-heineken-ch-luzern",
-          "team-leader-in-customer-service-center-vendite-80-100-heineken-switzerland-luzern"
-        ],
-        "en": [
-          "teamleiter-in-kundenservice-center-sales-80-100-heineken-ch-luzern"
-        ],
-        "fr": [
-          "teamleiter-in-kundenservice-center-sales-80-100-heineken-ch-luzern"
-        ]
-      },
-      "firstSeenAt": "2026-05-28T12:46:57.564Z",
       "salaryMin": 69500,
       "salaryMax": 106000,
       "currency": "CHF",
@@ -510,7 +434,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=158627&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-31T11:48:59.515Z",
+      "crawledAt": "2026-07-31T22:22:57.508Z",
       "previousSlugs": [
         "agent-customer-service-heineken-ch-luzern",
         "mitarbeiter-in-kundenservice-heineken-ch-luzern",
@@ -530,6 +454,7 @@
         ]
       },
       "firstSeenAt": "2026-05-28T12:46:50.069Z",
+      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "currency": "CHF",
@@ -590,7 +515,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=160678&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-31T11:48:51.211Z",
+      "crawledAt": "2026-07-31T22:22:49.520Z",
       "previousSlugs": [
         "agent-customer-support-heineken-ch-winterthur",
         "supporto-clienti-dell-agente-heineken-switzerland-winterthur"
@@ -605,6 +530,7 @@
         ]
       },
       "firstSeenAt": "2026-06-25T22:27:52.893Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "currency": "CHF",
@@ -665,7 +591,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=162220&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-31T11:48:44.510Z",
+      "crawledAt": "2026-07-31T22:22:42.184Z",
       "previousSlugs": [
         "logistics-key-account-specialist-80-100-heineken-ch-luzern",
         "logistica-key-account-specialista-80-100-heineken-switzerland-luzern"
@@ -680,6 +606,7 @@
         ]
       },
       "firstSeenAt": "2026-07-22T11:56:39.423Z",
+      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "currency": "CHF",
@@ -740,7 +667,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=162611&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-31T11:48:35.920Z",
+      "crawledAt": "2026-07-31T22:22:34.267Z",
       "previousSlugs": [
         "verkaufsberater-in-im-aussendienst-gastronomie-heineken-ch-luzern",
         "consulente-commerciale-nel-settore-gastronomia-heineken-switzerland-chur",
@@ -771,6 +698,7 @@
         ]
       },
       "firstSeenAt": "2026-07-28T22:34:47.887Z",
+      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "currency": "CHF",
@@ -784,6 +712,86 @@
           "unitText": "YEAR"
         }
       }
+    },
+    {
+      "id": "heineken-ch-2ab67e4f3e0a",
+      "jobReqId": "154093",
+      "slug": "team-leader-in-customer-service-center-vendite-80-100-heineken-switzerland-luzern",
+      "slugByLocale": {
+        "it": "team-leader-in-customer-service-center-vendite-80-100-heineken-switzerland-luzern",
+        "en": "team-leader-in-customer-service-center-sales-80-100-heineken-switzerland-luzern",
+        "de": "teamleiter-in-kundenservice-center-sales-80-100-heineken-ch-luzern",
+        "fr": "chef-d-equipe-dans-le-centre-de-service-a-la-clientele-ventes-80-100-heineken-switzerland-luzern"
+      },
+      "company": "Heineken Switzerland",
+      "companyKey": "heineken-ch",
+      "companyDomain": "theheinekencompany.com",
+      "title": "Teamleiter:in Kundenservice-Center Sales 80-100%",
+      "titleByLocale": {
+        "it": "Team Leader/in Customer Service Center Vendite 80-100 %",
+        "en": "Team Leader:in Customer Service Center Sales 80-100 %",
+        "de": "Teamleiter:in Kundenservice-Center Sales 80-100%",
+        "fr": "Chef d'équipe/dans le centre de service à la clientèle Ventes 80-100 %"
+      },
+      "description": "Für unsere Tochtergesellschaft Stardrinks AG suchen wir am Standort Luzern zur Verstärkung unseres Kundenservice-Centers eine engagierte und führungsstarke Persönlichkeit als Teamleiter:in Kundenservice-Center Sales. In dieser vielseitigen Rolle führst du ein Team im Kundenservice, das an zwei Standorten (Luzern & Winterthur) tätig ist, und stellst sicher, dass unsere Kund:innen jederzeit einen professionellen und lösungsorientierten Support erhalten. Gleichzeitig treibst du die Weiterentwicklung unserer digitalen Kundenkanäle (z.B. eB2B-Plattform / Eazle) aktiv voran und optimierst Prozesse kontinuierlich mit modernen Methoden. Deine\n• Aufgaben Fachliche und personelle Führung des Kundenservice-Center Sales Teams über zwei Standorte hinweg Sicherstellung einer hohen Erreichbarkeit und Servicequalität für unsere Kund:innen Planung, Steuerung und kontinuierliche Optimierung der täglichen Abläufe im Customer Service (über eB2B-Plattform/Eazle, E-Mail und Telefon) Unterstützung und Weiterentwicklung des Teams im operativen Tagesgeschäft unter Anwendung von TPM- und Lean-Six-Sigma-Methoden Koordination mit internen Schnittstellen wie Sales, IT und Shared Services Sicherstellen eines reibungslosen Supports für unsere digitalen Plattformen und Systeme (z.B. CRM, SAP, Webshop) Verantwortung für Kapazitätsplanung, Forecasts und Reporting im Kundenservice Mitarbeit oder Leitung von Projekten zur Digitalisierung und Weiterentwicklung unseres Kundenservices Das bringst du mit Mehrjährige Erfahrung im Kundenservice, Sales Support oder Contact Center – idealerweise mit Führungserfahrung Abgeschlossene Ausbildung sowie eine Weiterbildung im Bereich Führung, Betriebswirtschaft oder Projektmanagement von Vorteil Starke Kommunikations- und Organisationsfähigkeiten sowie Freude an der Arbeit mit Menschen Interesse an Prozessoptimierung, Digitalisierung und datenbasierten Entscheidungen Erfahrung mit CRM-, ERP- oder Contact-Center-Systemen von Vorteil Sehr gute Deutschkenntnisse sowie gute Französisch- und Englischkenntnisse\n• Das bieten wir dir",
+      "descriptionByLocale": {
+        "it": "Descrizione Per la nostra affiliata Stardrinks AG, stiamo cercando una personalità dedicata e potente come leader del team: nel Customer Service Center Sales del sito Lucerne per rafforzare il nostro centro assistenza clienti. In questo ruolo versatile, guiderai un team nel servizio clienti che lavora in due sedi (Luzern & Winterthur) e ti assicurerai che i nostri clienti ricevano assistenza professionale e orientata alla soluzione in qualsiasi momento. Allo stesso tempo, stai attivamente guidando l'ulteriore sviluppo dei nostri canali di clienti digitali (piattaforma eB2B / Eazle) e ottimizzando continuamente i processi utilizzando metodi moderni. Il tuo Mansioni - Leader professionale e personale del Customer Service Center Sales Team in due sedi - Garantire un'elevata accessibilità e qualità dei servizi per i nostri clienti: - Pianificazione, controllo e ottimizzazione continua dei processi quotidiani nel servizio clienti (via piattaforma eB2B/eazle, e-mail e telefono) - Supporto e ulteriore sviluppo del team nel business quotidiano operativo utilizzando i metodi TPM e Lean-Six-Sigma - Coordinamento con interfacce interne come vendite, IT e servizi condivisi - Garantire un supporto fluido per le nostre piattaforme e sistemi digitali (ad esempio CRM, SAP, Webshop) - Responsabilità per la pianificazione delle capacità, le previsioni e la segnalazione nel servizio clienti - cooperazione o gestione di progetti per la digitalizzazione e lo sviluppo del nostro servizio clienti\n• Requisiti - Esperienza pluriennale nel servizio clienti, supporto vendite o centro di contatto – idealmente con esperienza di leadership - Formazione completa e formazione ulteriore nel campo della gestione, della gestione aziendale o della gestione dei progetti - Forte comunicazione e capacità organizzative e gioia nel lavorare con le persone - Interessi nell'ottimizzazione dei processi, digitalizzazione e decisioni basate sui dati - Esperienza con sistemi CRM, ERP o Contact Center - Ottima conoscenza del tedesco e buona conoscenza del francese e dell'inglese Cosa",
+        "en": "Descrizione For our subsidiary Stardrinks AG, we are looking for a dedicated and powerful personality as a team leader:in Customer Service Center Sales at the Lucerne site to strengthen our customer service center. In this versatile role, you will lead a team in customer service that works at two locations (Luzern & Winterthur) and make sure that our customers receive professional and solution-oriented support at any time. At the same time, you are actively driving the further development of our digital customer channels (eB2B platform / Eazle) and continuously optimizing processes using modern methods. Your Mansioni - Professional and personal leadership of the Customer Service Center Sales Team across two locations - Ensuring high accessibility and service quality for our customers: - Planning, control and continuous optimization of the daily processes in the customer service (via eB2B platform/eazle, e-mail and telephone) - Support and further development of the team in operational daily business using TPM and Lean-Six-Sigma methods - Coordination with internal interfaces such as sales, IT and shared services - Ensure smooth support for our digital platforms and systems (e.g. CRM, SAP, Webshop) - Responsibility for capacity planning, forecasts and reporting in customer service - cooperation or management of projects for the digitization and further development of our customer service\n• Requisiti - Multiannual experience in customer service, sales support or contact center – ideally with leadership experience - Complete training and further training in the field of management, business management or project management - Strong communication and organizational skills and joy in working with people - Interest in process optimization, digitization and data-based decisions - Experience with CRM, ERP or Contact Center systems - Very good knowledge of German and good knowledge of French and English\n• Cosa offriamo",
+        "de": "Für unsere Tochtergesellschaft Stardrinks AG suchen wir am Standort Luzern zur Verstärkung unseres Kundenservice-Centers eine engagierte und führungsstarke Persönlichkeit als Teamleiter:in Kundenservice-Center Sales. In dieser vielseitigen Rolle führst du ein Team im Kundenservice, das an zwei Standorten (Luzern & Winterthur) tätig ist, und stellst sicher, dass unsere Kund:innen jederzeit einen professionellen und lösungsorientierten Support erhalten. Gleichzeitig treibst du die Weiterentwicklung unserer digitalen Kundenkanäle (z.B. eB2B-Plattform / Eazle) aktiv voran und optimierst Prozesse kontinuierlich mit modernen Methoden. Deine\n• Aufgaben Fachliche und personelle Führung des Kundenservice-Center Sales Teams über zwei Standorte hinweg Sicherstellung einer hohen Erreichbarkeit und Servicequalität für unsere Kund:innen Planung, Steuerung und kontinuierliche Optimierung der täglichen Abläufe im Customer Service (über eB2B-Plattform/Eazle, E-Mail und Telefon) Unterstützung und Weiterentwicklung des Teams im operativen Tagesgeschäft unter Anwendung von TPM- und Lean-Six-Sigma-Methoden Koordination mit internen Schnittstellen wie Sales, IT und Shared Services Sicherstellen eines reibungslosen Supports für unsere digitalen Plattformen und Systeme (z.B. CRM, SAP, Webshop) Verantwortung für Kapazitätsplanung, Forecasts und Reporting im Kundenservice Mitarbeit oder Leitung von Projekten zur Digitalisierung und Weiterentwicklung unseres Kundenservices Das bringst du mit Mehrjährige Erfahrung im Kundenservice, Sales Support oder Contact Center – idealerweise mit Führungserfahrung Abgeschlossene Ausbildung sowie eine Weiterbildung im Bereich Führung, Betriebswirtschaft oder Projektmanagement von Vorteil Starke Kommunikations- und Organisationsfähigkeiten sowie Freude an der Arbeit mit Menschen Interesse an Prozessoptimierung, Digitalisierung und datenbasierten Entscheidungen Erfahrung mit CRM-, ERP- oder Contact-Center-Systemen von Vorteil Sehr gute Deutschkenntnisse sowie gute Französisch- und Englischkenntnisse\n• Das bieten wir dir",
+        "fr": "Descrizione Pour notre filiale Stardrinks AG, nous recherchons une personnalité dévouée et puissante en tant que chef d'équipe : dans Customer Service Center Sales sur le site de Lucerne pour renforcer notre service clientèle. Dans ce rôle polyvalent, vous dirigerez une équipe de service à la clientèle qui travaille à deux endroits (Luzern et Winterthur) et vous assurerez que nos clients reçoivent un soutien professionnel et axé sur la solution à tout moment. En même temps, vous dirigez activement le développement de nos canaux clients numériques (plateforme eB2B / Eazle) et optimisez en permanence nos processus en utilisant des méthodes modernes. Votre Mansioni - Dirigeant professionnel et personnel de l'équipe de vente du Centre de service à la clientèle sur deux sites - Assurer une grande accessibilité et qualité de service à nos clients : - Planification, contrôle et optimisation continue des processus quotidiens dans le service client (via eB2B plate-forme/eazle, e-mail et téléphone) - Soutien et développement de l'équipe dans les activités opérationnelles quotidiennes utilisant les méthodes TPM et Lean-Six-Sigma - Coordination avec les interfaces internes telles que les ventes, les TI et les services partagés - Assurer un support en douceur pour nos plateformes et systèmes numériques (par exemple CRM, SAP, Webshop) - Responsabilité en matière de planification des capacités, de prévisions et de rapports en matière de service à la clientèle - coopération ou gestion de projets pour la numérisation et le développement de notre service à la clientèle\n• Requisiti - Expérience pluriannuelle en service à la clientèle, support commercial ou centre de contact – idéalement avec une expérience de leadership - Formation complète et perfectionnement dans le domaine de la gestion, de la gestion d'entreprise ou de la gestion de projets - Forte capacité de communication et d'organisation et joie de travailler avec les gens - Intérêt pour l'optimisation des processus, la numérisation et les décisions fondées sur les données - Expérience avec les systèmes CRM, ERP ou Contact Center - Très bonne connaissance de l'allemand et bonne connaissance du français et de l'anglais\n• Cosa offriamo"
+      },
+      "location": "Luzern",
+      "canton": "LU",
+      "addressLocality": "Luzern",
+      "addressRegion": "LU",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "7000",
+      "streetAddress": "Luzern, LU",
+      "category": "Logistica",
+      "sector": "Industria / Alimentare",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "featured": false,
+      "postedDate": "2026-05-28",
+      "url": "https://careers.theheinekencompany.com/job/heineken-switzerland/switzerland/teamleiterin-kundenservice-center-sales-80-100?jobid=154093",
+      "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=154093&career_ns=job_application",
+      "source": "Heineken Switzerland Dedicated Parser (Playwright)",
+      "sourceLang": "de",
+      "crawledAt": "2026-07-31T11:49:07.959Z",
+      "previousSlugs": [
+        "teamleiter-in-kundenservice-center-sales-80-100-heineken-ch-luzern",
+        "team-leader-in-customer-service-center-vendite-80-100-heineken-switzerland-luzern"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "teamleiter-in-kundenservice-center-sales-80-100-heineken-ch-luzern",
+          "team-leader-in-customer-service-center-vendite-80-100-heineken-switzerland-luzern"
+        ],
+        "en": [
+          "teamleiter-in-kundenservice-center-sales-80-100-heineken-ch-luzern"
+        ],
+        "fr": [
+          "teamleiter-in-kundenservice-center-sales-80-100-heineken-ch-luzern"
+        ]
+      },
+      "firstSeenAt": "2026-05-28T12:46:57.564Z",
+      "salaryMin": 69500,
+      "salaryMax": 106000,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 69500,
+          "maxValue": 106000,
+          "unitText": "YEAR"
+        }
+      },
+      "crawlerMissStreak": 1,
+      "needsRetranslation": true
     }
   ]
 }
