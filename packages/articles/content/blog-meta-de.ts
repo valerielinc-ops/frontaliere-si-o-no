@@ -9162,6 +9162,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.tassa-salute-frontalieri-sertori-2026.title': 'Grenzschutz: 120 Euro pro Monat für ärztliche Gehälter',
     'blog.article.tassa-salute-frontalieri-sertori-2026.excerpt': 'Die Lombardei wendet den Beitrag von 3% bis 6% an: Mittel für Grenzmediziner, um die Flucht in die Schweiz zu stoppen.',
     'blog.article.tassa-salute-frontalieri-sertori-2026.imageAlt': 'Spital und Grenzgebiet zwischen Italien und der Schweiz nahe Tessin',
+    'blog.article.nuove-regole-telelavoro-frontalieri-italia-svizzera.title': 'Neue Regeln für Telearbeit für Grenzgänger zwischen Italien und der Schweiz',
+    'blog.article.nuove-regole-telelavoro-frontalieri-italia-svizzera.excerpt': 'Ab Montag, 9. Februar 2026, regeln die neuen Regeln die Telearbeit von Grenzgängern zwischen Italien und der Schweiz.',
+    'blog.article.nuove-regole-telelavoro-frontalieri-italia-svizzera.imageAlt': 'Ein Frontalier in Fahrrad am italienisch-schweizerischen Grenzgebiet, mit dem Luganersee im Hintergrund.',
 };
 
 export default blogMetaDe;

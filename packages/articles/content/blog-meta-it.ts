@@ -9164,6 +9164,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.tassa-salute-frontalieri-sertori-2026.title': 'Sanità frontalieri: 120 euro al mese per gli stipendi medici',
     'blog.article.tassa-salute-frontalieri-sertori-2026.excerpt': 'La Lombardia applica il contributo dal 3% al 6%: fondi ai medici di confine per frenare la fuga verso la Svizzera.',
     'blog.article.tassa-salute-frontalieri-sertori-2026.imageAlt': 'Ospedale e confine tra Italia e Svizzera presso il Canton Ticino',
+    'blog.article.nuove-regole-telelavoro-frontalieri-italia-svizzera.title': 'Nuove regole per il telelavoro per i frontalieri tra Italia e Svizzera',
+    'blog.article.nuove-regole-telelavoro-frontalieri-italia-svizzera.excerpt': 'A decorrere da lunedì 9 febbraio 2026, le nuove regole disciplinano il telelavoro dei frontalieri tra Italia e Svizzera.',
+    'blog.article.nuove-regole-telelavoro-frontalieri-italia-svizzera.imageAlt': 'Un frontaliere in bicicletta sul confine italo-svizzero, con il Lago di Lugano sullo sfondo.',
 };
 
 export default blogMetaIt;

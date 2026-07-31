@@ -9163,6 +9163,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.tassa-salute-frontalieri-sertori-2026.title': 'Border health: 120 euros per month for medical salaries',
     'blog.article.tassa-salute-frontalieri-sertori-2026.excerpt': 'Lombardy applies the contribution from 3% to 6%: funds to border doctors to curb the flight to Switzerland.',
     'blog.article.tassa-salute-frontalieri-sertori-2026.imageAlt': 'Hospital and border area between Italy and Switzerland near Ticino',
+    'blog.article.nuove-regole-telelavoro-frontalieri-italia-svizzera.title': 'New rules for teleworking for border workers between Italy and Switzerland',
+    'blog.article.nuove-regole-telelavoro-frontalieri-italia-svizzera.excerpt': 'As of Monday, February 9, 2026, the new rules govern the teleworking of border workers between Italy and Switzerland.',
+    'blog.article.nuove-regole-telelavoro-frontalieri-italia-svizzera.imageAlt': 'A frontaliere in bike on the Italy-Switzerland border, with the Lake Lugano in the background.',
 };
 
 export default blogMetaEn;

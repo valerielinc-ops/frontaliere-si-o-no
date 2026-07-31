@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-07-31T05:33:16.868Z",
+  "updatedAt": "2026-07-31T08:09:28.658Z",
   "entities": {
     "AASTI": {
       "status": "suspect",
@@ -172,14 +172,14 @@
       "statusSource": "auto",
       "statusAt": "2026-07-29T06:26:58.011Z",
       "firstSeen": "2026-07-29T06:26:58.011Z",
-      "lastSeen": "2026-07-31T01:30:30.927Z",
-      "seen": 38,
+      "lastSeen": "2026-07-31T08:09:28.658Z",
+      "seen": 39,
       "unsupportedSightings": 2,
       "unsupportedRuns": [
         "30595579311",
         "30489213850"
       ],
-      "supportedSightings": 17,
+      "supportedSightings": 18,
       "names": [
         "Amministrazione federale delle contribuzioni",
         "Amministrazione Federale delle Contribuzioni"
@@ -189,6 +189,13 @@
         "30489213850:unknown"
       ],
       "evidence": [
+        {
+          "at": "2026-07-31T08:09:28.658Z",
+          "runId": "30614026157",
+          "articleId": "nuove-regole-telelavoro-frontalieri-italia-svizzera",
+          "support": "present",
+          "name": "Amministrazione Federale delle Contribuzioni"
+        },
         {
           "at": "2026-07-31T01:30:30.927Z",
           "runId": "30595579311",
@@ -237,13 +244,6 @@
           "articleId": "unknown",
           "support": "absent",
           "name": "Amministrazione federale delle contribuzioni"
-        },
-        {
-          "at": "2026-07-29T21:16:04.477Z",
-          "runId": "30489213850",
-          "articleId": "unknown",
-          "support": "absent",
-          "name": "Amministrazione Federale delle Contribuzioni"
         }
       ]
     },
