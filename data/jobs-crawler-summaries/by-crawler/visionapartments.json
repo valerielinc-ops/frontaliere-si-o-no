@@ -1,16 +1,16 @@
 {
   "key": "visionapartments",
   "label": "VISIONAPARTMENTS",
-  "generatedAt": "2026-07-30T22:08:00.306Z",
+  "generatedAt": "2026-07-31T11:36:09.665Z",
   "total": 1,
   "newCount": 0,
   "updatedCount": 1,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 3362,
-  "avgDurationMs": 3362,
+  "durationMs": 3553,
+  "avgDurationMs": 3553,
   "durationHistory": [
-    3362
+    3553
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -27,7 +27,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/a240d532-01d6-4266-99bd-0ee907cc60d4/",
       "source": "VISIONAPARTMENTS Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-30T22:07:57.459Z",
+      "crawledAt": "2026-07-31T11:36:06.628Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -53,47 +53,6 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "id": "visionapartments-eb20d3d20fc7",
-      "slug": "group-head-of-real-estate-development-maintenance-100-vision-management-services-gmbh-zurich",
-      "company": "Vision Management Services GmbH",
-      "companyKey": "visionapartments",
-      "companyDomain": "visionapartments.com",
-      "title": "GROUP HEAD OF REAL ESTATE DEVELOPMENT & MAINTENANCE - 100%",
-      "location": "Zürich",
-      "canton": "ZH",
-      "url": "https://www.jobs.ch/en/vacancies/detail/6216972a-b5d4-4577-aeb4-a2f2a2ea5dfb/",
-      "source": "VISIONAPARTMENTS Dedicated Parser (jobs.ch)",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-29T11:33:18.776Z",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8001",
-      "streetAddress": "Talstrasse 62",
-      "category": "Ingegneria",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
-      "sector": "Immobiliare / Ospitalità",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-29",
-      "applyUrl": "https://www.jobs.ch/en/vacancies/detail/6216972a-b5d4-4577-aeb4-a2f2a2ea5dfb/",
-      "firstSeenAt": "2026-07-04T12:35:58.875Z",
-      "salaryMin": 101500,
-      "salaryMax": 154000,
-      "crawlerMissStreak": 2,
-      "_qualityScore": 93,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 25
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }
