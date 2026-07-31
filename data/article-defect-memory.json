@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-07-30T09:41:16.713Z",
+  "updatedAt": "2026-07-31T01:30:30.927Z",
   "entities": {
     "AASTI": {
       "status": "suspect",
@@ -172,21 +172,58 @@
       "statusSource": "auto",
       "statusAt": "2026-07-29T06:26:58.011Z",
       "firstSeen": "2026-07-29T06:26:58.011Z",
-      "lastSeen": "2026-07-29T21:59:44.813Z",
-      "seen": 33,
-      "unsupportedSightings": 1,
+      "lastSeen": "2026-07-31T01:30:30.927Z",
+      "seen": 38,
+      "unsupportedSightings": 2,
       "unsupportedRuns": [
+        "30595579311",
         "30489213850"
       ],
-      "supportedSightings": 13,
+      "supportedSightings": 17,
       "names": [
         "Amministrazione federale delle contribuzioni",
         "Amministrazione Federale delle Contribuzioni"
       ],
       "recentKeys": [
+        "30595579311:vivere-varzo-lavorare-ticino",
         "30489213850:unknown"
       ],
       "evidence": [
+        {
+          "at": "2026-07-31T01:30:30.927Z",
+          "runId": "30595579311",
+          "articleId": "vivere-varzo-lavorare-ticino",
+          "support": "present",
+          "name": "Amministrazione Federale delle Contribuzioni"
+        },
+        {
+          "at": "2026-07-31T01:30:30.927Z",
+          "runId": "30595579311",
+          "articleId": "vivere-varzo-lavorare-ticino",
+          "support": "present",
+          "name": "Amministrazione federale delle contribuzioni"
+        },
+        {
+          "at": "2026-07-31T01:30:30.927Z",
+          "runId": "30595579311",
+          "articleId": "vivere-varzo-lavorare-ticino",
+          "support": "present",
+          "name": "Amministrazione federale delle contribuzioni"
+        },
+        {
+          "at": "2026-07-31T01:30:30.927Z",
+          "runId": "30595579311",
+          "articleId": "vivere-varzo-lavorare-ticino",
+          "support": "present",
+          "name": "Amministrazione federale delle contribuzioni"
+        },
+        {
+          "at": "2026-07-31T01:30:30.927Z",
+          "runId": "30595579311",
+          "articleId": "vivere-varzo-lavorare-ticino",
+          "support": "absent",
+          "name": "Amministrazione federale delle contribuzioni"
+        },
         {
           "at": "2026-07-29T21:59:44.813Z",
           "runId": "30492061769",
@@ -207,41 +244,6 @@
           "articleId": "unknown",
           "support": "absent",
           "name": "Amministrazione Federale delle Contribuzioni"
-        },
-        {
-          "at": "2026-07-29T19:58:12.549Z",
-          "runId": "30483804455",
-          "articleId": "vivere-porto-ceresio-lavoro-ticino",
-          "support": "present",
-          "name": "Amministrazione Federale delle Contribuzioni"
-        },
-        {
-          "at": "2026-07-29T19:58:12.549Z",
-          "runId": "30483804455",
-          "articleId": "vivere-porto-ceresio-lavoro-ticino",
-          "support": "present",
-          "name": "Amministrazione federale delle contribuzioni"
-        },
-        {
-          "at": "2026-07-29T19:58:12.549Z",
-          "runId": "30483804455",
-          "articleId": "vivere-porto-ceresio-lavoro-ticino",
-          "support": "present",
-          "name": "Amministrazione federale delle contribuzioni"
-        },
-        {
-          "at": "2026-07-29T19:58:12.549Z",
-          "runId": "30483804455",
-          "articleId": "vivere-porto-ceresio-lavoro-ticino",
-          "support": "present",
-          "name": "Amministrazione federale delle contribuzioni"
-        },
-        {
-          "at": "2026-07-29T19:58:12.549Z",
-          "runId": "30483804455",
-          "articleId": "vivere-porto-ceresio-lavoro-ticino",
-          "support": "present",
-          "name": "Amministrazione federale delle contribuzioni"
         }
       ]
     },
@@ -594,11 +596,11 @@
       "statusSource": "auto",
       "statusAt": "2026-07-29T06:26:58.011Z",
       "firstSeen": "2026-07-29T06:26:58.011Z",
-      "lastSeen": "2026-07-30T09:41:16.713Z",
-      "seen": 25,
+      "lastSeen": "2026-07-31T01:30:30.927Z",
+      "seen": 28,
       "unsupportedSightings": 0,
       "unsupportedRuns": [],
-      "supportedSightings": 13,
+      "supportedSightings": 16,
       "names": [
         "Agenzia delle Entrate, il MEF, l'Ufficio Federale di Statistica",
         "Ufficio federale di Statistica",
@@ -609,9 +611,23 @@
       "recentKeys": [],
       "evidence": [
         {
-          "at": "2026-07-30T09:41:16.713Z",
-          "runId": "30528247715",
-          "articleId": "besano-da-frontaliere-pro-e-contro",
+          "at": "2026-07-31T01:30:30.927Z",
+          "runId": "30595579311",
+          "articleId": "vivere-varzo-lavorare-ticino",
+          "support": "present",
+          "name": "Ufficio Federale di Statistica"
+        },
+        {
+          "at": "2026-07-31T01:30:30.927Z",
+          "runId": "30595579311",
+          "articleId": "vivere-varzo-lavorare-ticino",
+          "support": "present",
+          "name": "Ufficio Federale di Statistica"
+        },
+        {
+          "at": "2026-07-31T01:30:30.927Z",
+          "runId": "30595579311",
+          "articleId": "vivere-varzo-lavorare-ticino",
           "support": "present",
           "name": "Ufficio Federale di Statistica"
         },
@@ -649,20 +665,6 @@
           "articleId": "besano-da-frontaliere-pro-e-contro",
           "support": "present",
           "name": "Ufficio Federale di Statistica"
-        },
-        {
-          "at": "2026-07-30T09:41:16.713Z",
-          "runId": "30528247715",
-          "articleId": "besano-da-frontaliere-pro-e-contro",
-          "support": "present",
-          "name": "Agenzia delle Entrate, il MEF, l'Ufficio Federale di Statistica"
-        },
-        {
-          "at": "2026-07-30T06:17:16.281Z",
-          "runId": "30518031304",
-          "articleId": "sede-legale-datore-frontalieri",
-          "support": "present",
-          "name": "Ufficio federale di Statistica"
         }
       ]
     },
@@ -1673,10 +1675,11 @@
       "statusSource": "auto",
       "statusAt": "2026-07-29T06:26:58.011Z",
       "firstSeen": "2026-07-29T06:26:58.011Z",
-      "lastSeen": "2026-07-29T18:38:55.212Z",
-      "seen": 92,
-      "unsupportedSightings": 1,
+      "lastSeen": "2026-07-31T01:30:30.927Z",
+      "seen": 93,
+      "unsupportedSightings": 2,
       "unsupportedRuns": [
+        "30595579311",
         "30477280585"
       ],
       "supportedSightings": 0,
@@ -1688,9 +1691,17 @@
         "Dipartimento delle Finanze e dell’Economia"
       ],
       "recentKeys": [
+        "30595579311:vivere-varzo-lavorare-ticino",
         "30477280585:fondo-liberta-svizzera-multe"
       ],
       "evidence": [
+        {
+          "at": "2026-07-31T01:30:30.927Z",
+          "runId": "30595579311",
+          "articleId": "vivere-varzo-lavorare-ticino",
+          "support": "absent",
+          "name": "Dipartimento delle finanze e dell'economia"
+        },
         {
           "at": "2026-07-29T18:38:55.212Z",
           "runId": "30477280585",
@@ -1739,13 +1750,6 @@
           "articleId": "truffa-lavoro-svizzera-anticipo-2026",
           "support": "unknown",
           "name": "Dipartimento delle finanze e dell’economia"
-        },
-        {
-          "at": "2026-07-29T06:26:58.011Z",
-          "runId": "corpus-scan",
-          "articleId": "tristan-brenn-fischer-decisione",
-          "support": "unknown",
-          "name": "Dipartimento delle finanze e dell'economia"
         }
       ]
     },
@@ -5125,17 +5129,31 @@
       "statusSource": "auto",
       "statusAt": "2026-07-29T06:26:58.011Z",
       "firstSeen": "2026-07-29T06:26:58.011Z",
-      "lastSeen": "2026-07-30T09:41:16.713Z",
-      "seen": 24,
+      "lastSeen": "2026-07-31T01:30:30.927Z",
+      "seen": 26,
       "unsupportedSightings": 0,
       "unsupportedRuns": [],
-      "supportedSightings": 2,
+      "supportedSightings": 4,
       "names": [
         "Ufficio Federale delle Assicurazioni Sociali",
         "Ufficio federale delle assicurazioni sociali"
       ],
       "recentKeys": [],
       "evidence": [
+        {
+          "at": "2026-07-31T01:30:30.927Z",
+          "runId": "30595579311",
+          "articleId": "vivere-varzo-lavorare-ticino",
+          "support": "present",
+          "name": "Ufficio Federale delle Assicurazioni Sociali"
+        },
+        {
+          "at": "2026-07-31T01:30:30.927Z",
+          "runId": "30595579311",
+          "articleId": "vivere-varzo-lavorare-ticino",
+          "support": "present",
+          "name": "Ufficio Federale delle Assicurazioni Sociali"
+        },
         {
           "at": "2026-07-30T09:41:16.713Z",
           "runId": "30528247715",
@@ -5175,20 +5193,6 @@
           "at": "2026-07-29T06:26:58.011Z",
           "runId": "corpus-scan",
           "articleId": "frontaliere-pensionamento-anticipato-2026-oltre-20km",
-          "support": "unknown",
-          "name": "Ufficio federale delle assicurazioni sociali"
-        },
-        {
-          "at": "2026-07-29T06:26:58.011Z",
-          "runId": "corpus-scan",
-          "articleId": "frontaliere-magazziniere-logistica-ticino",
-          "support": "unknown",
-          "name": "Ufficio Federale delle Assicurazioni Sociali"
-        },
-        {
-          "at": "2026-07-29T06:26:58.011Z",
-          "runId": "corpus-scan",
-          "articleId": "avs-ai-prospettive-finanziarie",
           "support": "unknown",
           "name": "Ufficio federale delle assicurazioni sociali"
         }

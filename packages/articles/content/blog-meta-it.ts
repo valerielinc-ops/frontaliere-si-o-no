@@ -9155,6 +9155,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.pasticcio-dati-tasse-vecchi-frontalieri.title': 'Pasticcio dati e tasse vecchi frontalieri: serve chiarezza',
     'blog.article.pasticcio-dati-tasse-vecchi-frontalieri.excerpt': 'Il regime transitorio 2024-2033 per i frontalieri antecedenti al 17/7/2023 crea confusione: esenzione €7.500 vs franchigia €10.000 per i nuovi, imposta alla fonte solo in Svizzera, credito d\'imposta Italia nel quadro CE.',
     'blog.article.pasticcio-dati-tasse-vecchi-frontalieri.imageAlt': 'Vista sul lago di Lugano con frontalieri al valico di Gandria all\'alba',
+    'blog.article.vivere-varzo-lavorare-ticino.title': 'Vivere a Varzo e lavorare in Ticino da frontaliere',
+    'blog.article.vivere-varzo-lavorare-ticino.excerpt': 'Guida pratica per chi sceglie Varzo come residenza lavorando in Ticino: fisco, nuovo accordo, previdenza e gestione del reddito.',
+    'blog.article.vivere-varzo-lavorare-ticino.imageAlt': 'Panorama montano tra Italia e Svizzera',
 };
 
 export default blogMetaIt;
