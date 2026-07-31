@@ -2671,7 +2671,8 @@
         "collaborateur-trice-restaurant-cuisine-ikea-20-ikea-ch",
         "ikea-cuisine-collaborateur-40-ikea-aubonne",
         "contributatore-da-cucina-ikea-40-ikea-aubonne-vaud-switzerland",
-        "koch-kellnerin-ikea-40-ikea-aubonne"
+        "koch-kellnerin-ikea-40-ikea-aubonne",
+        "collaborateur-trice-cuisine-ikea-40-ikea-aubonne"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2682,17 +2683,17 @@
           "mitarbeiter-in-restaurant-kuche-ikea-20-ikea-vernier-geneve-switzerland",
           "collaborateur-trice-restaurant-cuisine-ikea-20-ikea-ch",
           "ikea-cuisine-collaborateur-40-ikea-aubonne",
-          "contributatore-da-cucina-ikea-40-ikea-aubonne-vaud-switzerland"
-        ],
-        "fr": [
-          "ikea-cuisine-collaborateur-40-ikea-aubonne"
+          "contributatore-da-cucina-ikea-40-ikea-aubonne-vaud-switzerland",
+          "collaborateur-trice-cuisine-ikea-40-ikea-aubonne"
         ],
         "de": [
           "koch-kellnerin-ikea-40-ikea-aubonne"
+        ],
+        "fr": [
+          "ikea-cuisine-collaborateur-40-ikea-aubonne"
         ]
       },
       "firstSeenAt": "2026-07-14T22:23:31.696Z",
-      "needsRetranslation": true,
       "salaryMin": 24200,
       "salaryMax": 36600,
       "baseSalary": {
@@ -2704,7 +2705,8 @@
           "maxValue": 36600,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ikea-321e7d4a21ac",

@@ -1,6 +1,6 @@
 {
   "crawlerKey": "jumbo",
-  "assembledAt": "2026-07-31T11:38:12.172Z",
+  "assembledAt": "2026-07-31T10:37:39.474Z",
   "jobs": [
     {
       "id": "jumbo-efb84078-92f",
@@ -9653,12 +9653,14 @@
         "verkaufsberater-in-gartenpflanzen-jumbo-hinwil",
         "sales-consultants-in-garden-plants-jumbo-hinwil",
         "consultants-en-vente-en-plantes-de-jardin-jumbo-hinwil",
-        "consulenti-di-vendita-in-piante-da-giardino-jumbo-hinwil"
+        "consulenti-di-vendita-in-piante-da-giardino-jumbo-hinwil",
+        "jardin-de-consultants-en-vente-jumbo-division-der-coop-genossenschaft-volketswil"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufsberater-in-gartenpflanzen-jumbo-hinwil",
-          "consulenti-di-vendita-in-piante-da-giardino-jumbo-hinwil"
+          "consulenti-di-vendita-in-piante-da-giardino-jumbo-hinwil",
+          "jardin-de-consultants-en-vente-jumbo-division-der-coop-genossenschaft-volketswil"
         ],
         "en": [
           "verkaufsberater-in-gartenpflanzen-jumbo-hinwil",
@@ -9673,7 +9675,6 @@
         ]
       },
       "firstSeenAt": "2026-07-30T11:16:54.225Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -9685,7 +9686,8 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "jumbo-cdfeca6d-701",
@@ -9857,27 +9859,46 @@
         "verkaufsberater-in-garden-jumbo-schattdorf",
         "sales-advisor-in-garden-jumbo-schattdorf-2d2a2c",
         "conseiller-commercial-a-garden-jumbo-schattdorf-2d2a2c",
-        "consulente-vendite-in-garden-jumbo-schattdorf-2d2a2c"
+        "consulente-vendite-in-garden-jumbo-schattdorf-2d2a2c",
+        "consulente-vendite-in-garden-jumbo-schattdorf",
+        "sales-advisor-in-garden-jumbo-schattdorf",
+        "conseiller-commercial-a-garden-jumbo-schattdorf",
+        "consulente-di-vendita-garden-jumbo-schattdorf",
+        "verkaufsberater-in-garden-jumbo-schattdorf-uri",
+        "consulente-commerciale-in-jumbo-schattdorf",
+        "verkaufsberater-in-jumbo-schattdorf",
+        "verkaufsberater-in-jumbo-schattdorf-uri-hetyhl",
+        "verkaufsberater-in-jumbo-schattdorf-uri"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufsberater-in-garden-jumbo-schattdorf",
-          "consulente-vendite-in-garden-jumbo-schattdorf-2d2a2c"
+          "consulente-vendite-in-garden-jumbo-schattdorf-2d2a2c",
+          "consulente-vendite-in-garden-jumbo-schattdorf",
+          "sales-advisor-in-garden-jumbo-schattdorf",
+          "conseiller-commercial-a-garden-jumbo-schattdorf",
+          "consulente-di-vendita-garden-jumbo-schattdorf",
+          "verkaufsberater-in-garden-jumbo-schattdorf-uri",
+          "consulente-commerciale-in-jumbo-schattdorf",
+          "verkaufsberater-in-jumbo-schattdorf",
+          "verkaufsberater-in-jumbo-schattdorf-uri-hetyhl",
+          "verkaufsberater-in-jumbo-schattdorf-uri"
         ],
         "en": [
           "verkaufsberater-in-garden-jumbo-schattdorf",
-          "sales-advisor-in-garden-jumbo-schattdorf-2d2a2c"
+          "sales-advisor-in-garden-jumbo-schattdorf-2d2a2c",
+          "sales-advisor-in-garden-jumbo-schattdorf"
         ],
         "fr": [
           "verkaufsberater-in-garden-jumbo-schattdorf",
-          "conseiller-commercial-a-garden-jumbo-schattdorf-2d2a2c"
+          "conseiller-commercial-a-garden-jumbo-schattdorf-2d2a2c",
+          "conseiller-commercial-a-garden-jumbo-schattdorf"
         ],
         "de": [
           "verkaufsberater-in-garden-jumbo-schattdorf"
         ]
       },
       "firstSeenAt": "2026-07-30T11:16:54.220Z",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -9889,7 +9910,8 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "jumbo-0950053e-493",
@@ -9958,27 +9980,34 @@
         "verkaufsberater-in-do-it-jumbo-schattdorf",
         "sales-consultant-in-do-it-jumbo-schattdorf-304fe2",
         "consultant-en-ventes-a-do-it-jumbo-schattdorf-304fe2",
-        "consulente-di-vendita-in-do-it-jumbo-schattdorf-304fe2"
+        "consulente-di-vendita-in-do-it-jumbo-schattdorf-304fe2",
+        "consulente-di-vendita-in-do-it-jumbo-schattdorf",
+        "sales-consultant-in-do-it-jumbo-schattdorf",
+        "consultant-en-ventes-a-do-it-jumbo-schattdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufsberater-in-do-it-jumbo-schattdorf",
-          "consulente-di-vendita-in-do-it-jumbo-schattdorf-304fe2"
+          "consulente-di-vendita-in-do-it-jumbo-schattdorf-304fe2",
+          "consulente-di-vendita-in-do-it-jumbo-schattdorf",
+          "sales-consultant-in-do-it-jumbo-schattdorf",
+          "consultant-en-ventes-a-do-it-jumbo-schattdorf"
         ],
         "en": [
           "verkaufsberater-in-do-it-jumbo-schattdorf",
-          "sales-consultant-in-do-it-jumbo-schattdorf-304fe2"
+          "sales-consultant-in-do-it-jumbo-schattdorf-304fe2",
+          "sales-consultant-in-do-it-jumbo-schattdorf"
         ],
         "fr": [
           "verkaufsberater-in-do-it-jumbo-schattdorf",
-          "consultant-en-ventes-a-do-it-jumbo-schattdorf-304fe2"
+          "consultant-en-ventes-a-do-it-jumbo-schattdorf-304fe2",
+          "consultant-en-ventes-a-do-it-jumbo-schattdorf"
         ],
         "de": [
           "verkaufsberater-in-do-it-jumbo-schattdorf"
         ]
       },
       "firstSeenAt": "2026-07-30T11:16:54.218Z",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -9990,7 +10019,8 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "jumbo-ee27b59d-8fb",

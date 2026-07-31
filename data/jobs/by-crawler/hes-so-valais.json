@@ -1,6 +1,6 @@
 {
   "crawlerKey": "hes-so-valais",
-  "assembledAt": "2026-07-31T11:44:40.566Z",
+  "assembledAt": "2026-07-31T10:33:28.369Z",
   "jobs": [
     {
       "url": "https://www.hevs.ch/fr/recruitee/un-charge-ou-une-chargee-de-communication-***-kommunikationsbeauftragte-oder-kommunikationsbeauftragter-214948",
@@ -207,7 +207,12 @@
         "collaboratrice-ou-collaborateur-technique-cheffe-ou-chef-de-hes-so-valais",
         "collaboratore-tecnico-capo-di-hes-so-valais-wallis-sion",
         "collaboratrice-ou-collaborateur-technique-cheffe-ou-chef-de-hes-so-valais-wallis-sion",
-        "collaboratore-o-collaboratore-economico-60-hes-so-valais-wallis-sion"
+        "collaboratore-o-collaboratore-economico-60-hes-so-valais-wallis-sion",
+        "collaboratore-o-collaboratrice-centro-pedagogico-prevenzione-hes-so-valais-wallis-sion",
+        "collaborator-pedagogical-centre-prevention-hes-so-valais-wallis-sion",
+        "padagogisches-zentrum-pravention-hes-so-valais-wallis-sion",
+        "collaborateur-ou-collaboratrice-centre-pedagogique-prevention-hes-so-valais",
+        "collaboratore-prevenzione-centro-pedagogico-hes-so-valais-wallis-sion"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -218,24 +223,31 @@
           "collaboratrice-ou-collaborateur-technique-cheffe-ou-chef-de-hes-so-valais",
           "collaboratore-tecnico-capo-di-hes-so-valais-wallis-sion",
           "collaboratrice-ou-collaborateur-technique-cheffe-ou-chef-de-hes-so-valais-wallis-sion",
-          "collaboratore-o-collaboratore-economico-60-hes-so-valais-wallis-sion"
+          "collaboratore-o-collaboratore-economico-60-hes-so-valais-wallis-sion",
+          "collaboratore-o-collaboratrice-centro-pedagogico-prevenzione-hes-so-valais-wallis-sion",
+          "collaborator-pedagogical-centre-prevention-hes-so-valais-wallis-sion",
+          "padagogisches-zentrum-pravention-hes-so-valais-wallis-sion",
+          "collaborateur-ou-collaboratrice-centre-pedagogique-prevention-hes-so-valais",
+          "collaboratore-prevenzione-centro-pedagogico-hes-so-valais-wallis-sion"
         ],
         "en": [
           "collaboratrice-ou-collaborateur-economique-60-hes-so-valais",
-          "collaborator-or-technical-collaborator-chief-or-chief-hes-so-valais-wallis-sion"
+          "collaborator-or-technical-collaborator-chief-or-chief-hes-so-valais-wallis-sion",
+          "collaborator-pedagogical-centre-prevention-hes-so-valais-wallis-sion"
         ],
         "de": [
           "collaboratrice-ou-collaborateur-economique-60-hes-so-valais",
-          "mitarbeiter-oder-technischer-mitarbeiter-chef-oder-chef-hes-so-valais-wallis-sion"
+          "mitarbeiter-oder-technischer-mitarbeiter-chef-oder-chef-hes-so-valais-wallis-sion",
+          "padagogisches-zentrum-pravention-hes-so-valais-wallis-sion"
         ],
         "fr": [
           "collaboratrice-ou-collaborateur-technique-cheffe-ou-chef-de-hes-so-valais",
-          "collaboratrice-ou-collaborateur-technique-cheffe-ou-chef-de-hes-so-valais-wallis-sion"
+          "collaboratrice-ou-collaborateur-technique-cheffe-ou-chef-de-hes-so-valais-wallis-sion",
+          "collaborateur-ou-collaboratrice-centre-pedagogique-prevention-hes-so-valais"
         ]
       },
       "firstSeenAt": "2026-07-14T12:12:51.282Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 36300,
       "salaryMax": 54900,
       "currency": "CHF",
@@ -251,7 +263,8 @@
       },
       "addressLocality": "Sion",
       "addressCountry": "CH",
-      "addressRegion": "VS"
+      "addressRegion": "VS",
+      "needsRetranslation": true
     },
     {
       "url": "https://www.hevs.ch/fr/recruitee/maitre-denseignement-hes-pour-la-branche-histoire-de-lart-contemporain-214847",
