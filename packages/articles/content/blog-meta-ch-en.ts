@@ -1726,6 +1726,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.bns-utile-semestre-2026.title': 'SNB: profit of 25 billion in the first half of 2026',
     'blog.article.bns-utile-semestre-2026.excerpt': 'The Swiss National Bank closes the first half of 2026 with a profit of 25.2 billion francs, driven by stock markets and foreign currencies.',
     'blog.article.bns-utile-semestre-2026.imageAlt': 'Swiss National Bank headquarters in Bern with federal flag',
+    'blog.article.medacta-crescita-ricavi-pietro.title': 'Medacta still growing, revenues increase in the first six months',
+    'blog.article.medacta-crescita-ricavi-pietro.excerpt': 'The group based in Castel San Pietro (TI) achieved a turnover of 368 million euros in the first half of 2025, an increase of 7% compared to the same period of the previous year.',
+    'blog.article.medacta-crescita-ricavi-pietro.imageAlt': 'Image of a Swiss city with a skyscraper',
 };
 
 export default blogMetaChEn;

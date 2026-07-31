@@ -1726,6 +1726,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.bns-utile-semestre-2026.title': 'BNS: utile di 25 miliardi nel primo semestre 2026',
     'blog.article.bns-utile-semestre-2026.excerpt': 'La Banca Nazionale Svizzera chiude la prima metà del 2026 con un utile di 25,2 miliardi di franchi, trainato dai mercati azionari e dalle valute estere.',
     'blog.article.bns-utile-semestre-2026.imageAlt': 'Sede della Banca Nazionale Svizzera a Berna con bandiera federale',
+    'blog.article.medacta-crescita-ricavi-pietro.title': 'Medacta ancora in crescita, aumentano i ricavi nei primi sei mesi',
+    'blog.article.medacta-crescita-ricavi-pietro.excerpt': 'Il gruppo con sede a Castel San Pietro (TI) ha realizzato un fatturato di 368 milioni di euro nel primo semestre del 2025, un aumento del 7% rispetto allo stesso periodo dell\'anno precedente.',
+    'blog.article.medacta-crescita-ricavi-pietro.imageAlt': 'Immagine di una città svizzera con un grattacielo',
 };
 
 export default blogMetaChIt;
