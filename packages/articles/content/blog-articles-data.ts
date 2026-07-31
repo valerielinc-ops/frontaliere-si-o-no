@@ -27498,6 +27498,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'tassa-salute-frontalieri-sertori-2026',
+ category: 'fiscale',
+ date: '2026-07-31T05:33:14.334Z',
+ image: '/images/blog/tassa-salute-frontalieri-sertori-2026.webp',
+ hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-07-31T03:35:39.206Z",
+  "updatedAt": "2026-07-31T05:33:16.868Z",
   "entities": {
     "AASTI": {
       "status": "suspect",
@@ -1675,26 +1675,35 @@
       "statusSource": "auto",
       "statusAt": "2026-07-29T06:26:58.011Z",
       "firstSeen": "2026-07-29T06:26:58.011Z",
-      "lastSeen": "2026-07-31T01:30:30.927Z",
-      "seen": 93,
-      "unsupportedSightings": 2,
+      "lastSeen": "2026-07-31T05:33:16.868Z",
+      "seen": 94,
+      "unsupportedSightings": 3,
       "unsupportedRuns": [
+        "30605809025",
         "30595579311",
         "30477280585"
       ],
       "supportedSightings": 0,
       "names": [
+        "Dipartimento delle Finanze e dell'Economia",
         "Dipartimento federale dell'economia",
         "Dipartimento delle finanze e dell’economia",
         "Dipartimento delle finanze e dell'economia",
-        "Dipartimento delle Finanze e dell'Economia del Canton Ticino",
-        "Dipartimento delle Finanze e dell’Economia"
+        "Dipartimento delle Finanze e dell'Economia del Canton Ticino"
       ],
       "recentKeys": [
+        "30605809025:tassa-salute-frontalieri-sertori-2026",
         "30595579311:vivere-varzo-lavorare-ticino",
         "30477280585:fondo-liberta-svizzera-multe"
       ],
       "evidence": [
+        {
+          "at": "2026-07-31T05:33:16.868Z",
+          "runId": "30605809025",
+          "articleId": "tassa-salute-frontalieri-sertori-2026",
+          "support": "absent",
+          "name": "Dipartimento delle Finanze e dell'Economia"
+        },
         {
           "at": "2026-07-31T01:30:30.927Z",
           "runId": "30595579311",
@@ -1741,13 +1750,6 @@
           "at": "2026-07-29T06:26:58.011Z",
           "runId": "corpus-scan",
           "articleId": "udc-finanze-ticino-aprile-2027",
-          "support": "unknown",
-          "name": "Dipartimento delle finanze e dell’economia"
-        },
-        {
-          "at": "2026-07-29T06:26:58.011Z",
-          "runId": "corpus-scan",
-          "articleId": "truffa-lavoro-svizzera-anticipo-2026",
           "support": "unknown",
           "name": "Dipartimento delle finanze e dell’economia"
         }

@@ -9159,6 +9159,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.lavoro-temporaneo-aumento.title': 'Die Leiharbeit in der Schweiz nimmt wieder zu',
     'blog.article.lavoro-temporaneo-aumento.excerpt': 'Die befristeten Arbeitsstunden stiegen im ersten Halbjahr um 1,5%, während die unbefristeten Arbeitsverträge um 19,4% zurückgingen.',
     'blog.article.lavoro-temporaneo-aumento.imageAlt': 'Panoramablick auf den Lugano-See mit den Bergen des Tessins im Sonnenuntergang',
+    'blog.article.tassa-salute-frontalieri-sertori-2026.title': 'Grenzschutz: 120 Euro pro Monat für ärztliche Gehälter',
+    'blog.article.tassa-salute-frontalieri-sertori-2026.excerpt': 'Die Lombardei wendet den Beitrag von 3% bis 6% an: Mittel für Grenzmediziner, um die Flucht in die Schweiz zu stoppen.',
+    'blog.article.tassa-salute-frontalieri-sertori-2026.imageAlt': 'Spital und Grenzgebiet zwischen Italien und der Schweiz nahe Tessin',
 };
 
 export default blogMetaDe;

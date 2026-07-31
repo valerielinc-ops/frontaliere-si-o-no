@@ -9162,6 +9162,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.lavoro-temporaneo-aumento.title': 'Le travail temporaire en Suisse recommence à croître',
     'blog.article.lavoro-temporaneo-aumento.excerpt': 'Les heures de travail intérimaire ont augmenté de 1,5 % au premier semestre, tandis que les contrats à durée indéterminée ont diminué de 19,4 %.',
     'blog.article.lavoro-temporaneo-aumento.imageAlt': 'Vue panoramique du lac de Lugano avec les montagnes du Tessin au coucher du soleil',
+    'blog.article.tassa-salute-frontalieri-sertori-2026.title': 'Santé frontalière : 120 euros par mois pour les traitements médicaux',
+    'blog.article.tassa-salute-frontalieri-sertori-2026.excerpt': 'La Lombardie applique la contribution de 3% à 6% : des fonds aux médecins de frontière pour freiner la fuite vers la Suisse.',
+    'blog.article.tassa-salute-frontalieri-sertori-2026.imageAlt': 'Hôpital et zone frontalière entre l\'Italie et la Suisse près du Tessin',
 };
 
 export default blogMetaFr;
