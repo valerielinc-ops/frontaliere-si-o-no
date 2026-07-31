@@ -1,21 +1,56 @@
 {
   "key": "bps-suisse",
   "label": "BPS Suisse",
-  "generatedAt": "2026-07-30T22:09:05.532Z",
-  "total": 3,
-  "newCount": 0,
-  "updatedCount": 0,
+  "generatedAt": "2026-07-31T11:46:35.186Z",
+  "total": 4,
+  "newCount": 1,
+  "updatedCount": 3,
   "removedCount": 0,
-  "unchangedCount": 3,
-  "durationMs": 5893,
-  "avgDurationMs": 5893,
+  "unchangedCount": 0,
+  "durationMs": 5542,
+  "avgDurationMs": 5542,
   "durationHistory": [
-    5893
+    5542
   ],
-  "newJobs": [],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "newJobs": [
+    {
+      "id": "bps-suisse-7e40eb648fab",
+      "title": "Consulente Alla Clientela Individuale",
+      "company": "BPS (Banca Popolare di Sondrio) SUISSE",
+      "companyKey": "bps-suisse",
+      "companyDomain": "bps-suisse.ch",
+      "url": "https://www.bps-suisse.ch/carriera-consulente_alla_clientela_individuale__100_.php",
+      "applyUrl": "https://www.bps-suisse.ch/carriera-consulente_alla_clientela_individuale__100_.php",
+      "location": "Lugano",
+      "canton": "TI",
+      "country": "CH",
+      "addressLocality": "Lugano",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "postalCode": "6900",
+      "streetAddress": "Via Giacomo Bentina 5",
+      "employmentType": "FULL_TIME",
+      "slug": "consulente-alla-clientela-individuale-bps-suisse-lugano",
+      "category": "finance",
+      "contract": "full-time",
+      "currency": "CHF",
+      "postedDate": "2026-07-31",
+      "source": "bps-suisse-careers-crawler",
+      "crawledAt": "2026-07-31T11:46:31.059Z",
+      "_targetScope": {
+        "canton": "TI",
+        "location": "Lugano"
+      },
+      "_qualityScore": 69,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 2,
+        "completeness": 20
+      }
+    }
+  ],
+  "updatedJobs": [
     {
       "id": "bps-suisse-ca3147dfc767",
       "title": "Compliance Officer",
@@ -37,9 +72,9 @@
       "category": "finance",
       "contract": "full-time",
       "currency": "CHF",
-      "postedDate": "2026-07-30",
+      "postedDate": "2026-07-31",
       "source": "bps-suisse-careers-crawler",
-      "crawledAt": "2026-07-30T22:09:01.249Z",
+      "crawledAt": "2026-07-31T11:46:32.168Z",
       "_targetScope": {
         "canton": "TI",
         "location": "Lugano"
@@ -77,9 +112,9 @@
       "category": "finance",
       "contract": "full-time",
       "currency": "CHF",
-      "postedDate": "2026-07-30",
+      "postedDate": "2026-07-31",
       "source": "bps-suisse-careers-crawler",
-      "crawledAt": "2026-07-30T22:09:02.079Z",
+      "crawledAt": "2026-07-31T11:46:32.574Z",
       "_targetScope": {
         "canton": "TI",
         "location": "Lugano"
@@ -117,9 +152,9 @@
       "category": "finance",
       "contract": "full-time",
       "currency": "CHF",
-      "postedDate": "2026-07-30",
+      "postedDate": "2026-07-31",
       "source": "bps-suisse-careers-crawler",
-      "crawledAt": "2026-07-30T22:09:02.451Z",
+      "crawledAt": "2026-07-31T11:46:32.946Z",
       "_targetScope": {
         "canton": "TI",
         "location": "Lugano"
@@ -136,5 +171,7 @@
         "completeness": 25
       }
     }
-  ]
+  ],
+  "removedJobs": [],
+  "unchangedJobs": []
 }
