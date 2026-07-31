@@ -12,7 +12,7 @@
     "https://careers.sunrise.ch/it/it/search-results"
   ],
   "notes": "Dedicated Sunrise crawler parses the Phenom search pages and keeps CH-wide jobs (all 26 cantons) from the Sunrise careers portal; per-job canton inferred from the clean city signal, foreign/unresolved postings dropped.",
-  "updatedAt": "2026-07-31T11:38:51.901Z",
+  "updatedAt": "2026-07-31T22:08:46.490Z",
   "seedMetaByUrl": {
     "https://careers.sunrise.ch/it/it/job/REQ_30036626/senior-dc-network-engineer-80-100": {
       "location": "Zurich",
@@ -38,15 +38,15 @@
       "company": "Sunrise Communications AG",
       "postedDate": "2026-07-27"
     },
-    "https://careers.sunrise.ch/it/it/job/REQ_30036752/sales-agent-reinach-ag-60-100": {
-      "location": "Reinach AG",
-      "canton": "AG",
-      "company": "Sunrise Communications AG",
-      "postedDate": "2026-07-27"
-    },
     "https://careers.sunrise.ch/it/it/job/REQ_30036753/sales-agent-mels-60-100": {
       "location": "Mels",
       "canton": "SG",
+      "company": "Sunrise Communications AG",
+      "postedDate": "2026-07-27"
+    },
+    "https://careers.sunrise.ch/it/it/job/REQ_30036752/sales-agent-reinach-ag-60-100": {
+      "location": "Reinach AG",
+      "canton": "AG",
       "company": "Sunrise Communications AG",
       "postedDate": "2026-07-27"
     },
@@ -121,6 +121,12 @@
       "canton": "ZH",
       "company": "Sunrise Communications AG",
       "postedDate": "2026-07-30"
+    },
+    "https://careers.sunrise.ch/it/it/job/REQ_30036777/intern-finance-limited-6-to-12-months-80-100": {
+      "location": "Zurich",
+      "canton": "ZH",
+      "company": "Sunrise Communications AG",
+      "postedDate": "2026-07-31"
     }
   }
 }
