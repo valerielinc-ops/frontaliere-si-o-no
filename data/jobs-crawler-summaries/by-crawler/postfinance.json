@@ -1,18 +1,19 @@
 {
   "key": "postfinance",
   "label": "PostFinance",
-  "generatedAt": "2026-07-30T22:11:33.280Z",
+  "generatedAt": "2026-07-31T11:44:08.777Z",
   "total": 11,
-  "newCount": 1,
-  "updatedCount": 10,
-  "removedCount": 1,
+  "newCount": 0,
+  "updatedCount": 11,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 32127,
-  "avgDurationMs": 32127,
+  "durationMs": 41925,
+  "avgDurationMs": 41925,
   "durationHistory": [
-    32127
+    41925
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "url": "https://jobs.postfinance.ch/job/Senior-Product-Owner-PostFinance-App-%28wmd%29/74286-de_DE",
       "applyUrl": "https://jobs.postfinance.ch/job/Senior-Product-Owner-PostFinance-App-%28wmd%29/74286-de_DE",
@@ -42,17 +43,17 @@
         "canton": "BE",
         "location": "Bern"
       },
+      "id": "postfinance-fa4d4e2d7d10",
+      "firstSeenAt": "2026-07-30T22:11:33.278Z",
       "crawledAt": "",
-      "_qualityScore": 60,
+      "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 6,
+        "translation": 25,
         "completeness": 9
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "url": "https://jobs.postfinance.ch/job/Kundenbetreuerin-Customer-Center/74190-de_DE",
       "applyUrl": "https://jobs.postfinance.ch/job/Kundenbetreuerin-Customer-Center/74190-de_DE",
@@ -454,53 +455,6 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "url": "https://jobs.postfinance.ch/job/DevOps-Software-Engineer%C2%A0Specs-Driven-Development-%28wmd%29/74128-de_DE",
-      "applyUrl": "https://jobs.postfinance.ch/job/DevOps-Software-Engineer%C2%A0Specs-Driven-Development-%28wmd%29/74128-de_DE",
-      "title": "DevOps Software Engineer Specs Driven Development (w/m/d)",
-      "company": "PostFinance",
-      "companyKey": "postfinance",
-      "location": "Bern",
-      "canton": "BE",
-      "country": "CH",
-      "slug": "devops-software-engineer-specs-driven-development-w-m-d-postfinance",
-      "sourceLang": "de",
-      "department": [
-        "Informatik und Digital Services"
-      ],
-      "category": [
-        "Informatik und Digital Services"
-      ],
-      "datePosted": "29.06.26",
-      "validThrough": "29.07.26",
-      "source": "postfinance-careers-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "",
-      "sector": "IT",
-      "workload": "80-100%",
-      "_targetScope": {
-        "canton": "BE",
-        "location": "Bern"
-      },
-      "id": "postfinance-66a5a01def13",
-      "firstSeenAt": "2026-07-27T22:10:24.138Z",
-      "crawledAt": "",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "currency": "CHF",
-      "addressLocality": "Bern",
-      "addressCountry": "CH",
-      "addressRegion": "BE",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 84,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 14
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }
