@@ -1,16 +1,16 @@
 {
   "key": "swisslog",
   "label": "Swisslog",
-  "generatedAt": "2026-07-30T22:10:23.055Z",
-  "total": 6,
+  "generatedAt": "2026-07-31T11:37:19.439Z",
+  "total": 5,
   "newCount": 0,
   "updatedCount": 5,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 5810,
-  "avgDurationMs": 5810,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 5151,
+  "avgDurationMs": 5151,
   "durationHistory": [
-    5810
+    5151
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -26,7 +26,7 @@
       "url": "https://www.swisslog.com/de-de/karriere/offene-stellen/working-student-quality-60-mwd-4396",
       "source": "Swisslog Dedicated Parser (custom Sitecore job API)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-30T22:10:20.427Z",
+      "crawledAt": "2026-07-31T11:37:16.589Z",
       "addressLocality": "Buchs",
       "addressRegion": "AG",
       "streetAddress": "Webereiweg 3",
@@ -64,7 +64,7 @@
       "url": "https://www.swisslog.com/de-de/karriere/offene-stellen/instandhaltungstechniker-mwd-4384",
       "source": "Swisslog Dedicated Parser (custom Sitecore job API)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-30T22:10:20.426Z",
+      "crawledAt": "2026-07-31T11:37:16.588Z",
       "addressLocality": "Buchs",
       "addressRegion": "AG",
       "streetAddress": "Webereiweg 3",
@@ -102,7 +102,7 @@
       "url": "https://www.swisslog.com/de-de/karriere/offene-stellen/controls-software-service-engineer-siemens-mwd-3751",
       "source": "Swisslog Dedicated Parser (custom Sitecore job API)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-30T22:10:20.428Z",
+      "crawledAt": "2026-07-31T11:37:16.590Z",
       "addressLocality": "Buchs",
       "addressRegion": "AG",
       "streetAddress": "Webereiweg 3",
@@ -140,7 +140,7 @@
       "url": "https://www.swisslog.com/de-de/karriere/offene-stellen/automatikerin-efz-4097",
       "source": "Swisslog Dedicated Parser (custom Sitecore job API)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-30T22:10:20.428Z",
+      "crawledAt": "2026-07-31T11:37:16.594Z",
       "addressLocality": "Buchs",
       "addressRegion": "AG",
       "streetAddress": "Webereiweg 3",
@@ -178,7 +178,7 @@
       "url": "https://www.swisslog.com/de-de/karriere/offene-stellen/servicetechnikerin-mechanik-mwd-4094",
       "source": "Swisslog Dedicated Parser (custom Sitecore job API)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-30T22:10:20.429Z",
+      "crawledAt": "2026-07-31T11:37:16.595Z",
       "addressLocality": "Buchs",
       "addressRegion": "AG",
       "streetAddress": "Webereiweg 3",
@@ -205,8 +205,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "swisslog-739556d60324",
       "slug": "qualita-degli-studenti-di-lavoro-m-f-d-swisslog-buchs-switzerland",
@@ -248,5 +247,6 @@
         "completeness": 25
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
