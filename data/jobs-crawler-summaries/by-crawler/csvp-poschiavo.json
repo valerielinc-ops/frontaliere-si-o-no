@@ -1,56 +1,19 @@
 {
   "key": "csvp-poschiavo",
   "label": "Centro Sanitario Valposchiavo (CSVP)",
-  "generatedAt": "2026-07-31T12:17:38.277Z",
+  "generatedAt": "2026-07-31T22:29:07.436Z",
   "total": 2,
   "newCount": 0,
-  "updatedCount": 2,
+  "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 5077,
-  "avgDurationMs": 5077,
+  "unchangedCount": 1,
+  "durationMs": 5465,
+  "avgDurationMs": 5465,
   "durationHistory": [
-    5077
+    5465
   ],
   "newJobs": [],
   "updatedJobs": [
-    {
-      "id": "csvp-poschiavo-43c120519434",
-      "slug": "ausiliario-servizi-alberghieri-csvp-poschiavo-poschiavo",
-      "company": "Centro Sanitario Valposchiavo (CSVP)",
-      "companyKey": "csvp-poschiavo",
-      "companyDomain": "csvp.ch",
-      "title": "Ausiliario servizi alberghieri",
-      "needsRetranslation": true,
-      "location": "Poschiavo",
-      "canton": "GR",
-      "url": "https://www.csvp.ch/it/lavora-con-noi/cerchiamo/917-ausiliario-servizi-alberghieri",
-      "source": "CSVP Dedicated Parser (Joomla HTML)",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-31T12:17:34.800Z",
-      "addressLocality": "Poschiavo",
-      "addressRegion": "GR",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "7742",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-14",
-      "applyUrl": "https://www.csvp.ch/it/lavora-con-noi/cerchiamo/917-ausiliario-servizi-alberghieri",
-      "firstSeenAt": "2026-07-14T12:34:46.683Z",
-      "_qualityScore": 76,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 14,
-        "completeness": 17
-      }
-    },
     {
       "id": "csvp-poschiavo-57fc66b5d6fd",
       "slug": "responsabile-del-servizio-tecnico-csvp-poschiavo-poschiavo",
@@ -64,7 +27,7 @@
       "url": "https://www.csvp.ch/it/lavora-con-noi/cerchiamo/916-responsabile-del-servizio-tecnico",
       "source": "CSVP Dedicated Parser (Joomla HTML)",
       "sourceLang": "it",
-      "crawledAt": "2026-07-31T12:17:36.079Z",
+      "crawledAt": "2026-07-31T22:29:04.320Z",
       "addressLocality": "Poschiavo",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -90,5 +53,45 @@
     }
   ],
   "removedJobs": [],
-  "unchangedJobs": []
+  "unchangedJobs": [
+    {
+      "id": "csvp-poschiavo-43c120519434",
+      "slug": "ausiliario-servizi-alberghieri-csvp-poschiavo-poschiavo",
+      "company": "Centro Sanitario Valposchiavo (CSVP)",
+      "companyKey": "csvp-poschiavo",
+      "companyDomain": "csvp.ch",
+      "title": "Ausiliario servizi alberghieri",
+      "location": "Poschiavo",
+      "canton": "GR",
+      "url": "https://www.csvp.ch/it/lavora-con-noi/cerchiamo/917-ausiliario-servizi-alberghieri",
+      "source": "CSVP Dedicated Parser (Joomla HTML)",
+      "sourceLang": "it",
+      "crawledAt": "2026-07-31T12:17:34.800Z",
+      "addressLocality": "Poschiavo",
+      "addressRegion": "GR",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "7742",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-14",
+      "applyUrl": "https://www.csvp.ch/it/lavora-con-noi/cerchiamo/917-ausiliario-servizi-alberghieri",
+      "firstSeenAt": "2026-07-14T12:34:46.683Z",
+      "salaryMin": 57500,
+      "salaryMax": 87000,
+      "crawlerMissStreak": 1,
+      "_qualityScore": 92,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 25,
+        "completeness": 22
+      }
+    }
+  ]
 }
