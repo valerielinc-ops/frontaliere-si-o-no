@@ -9158,6 +9158,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-varzo-lavorare-ticino.title': 'Vivere a Varzo e lavorare in Ticino da frontaliere',
     'blog.article.vivere-varzo-lavorare-ticino.excerpt': 'Guida pratica per chi sceglie Varzo come residenza lavorando in Ticino: fisco, nuovo accordo, previdenza e gestione del reddito.',
     'blog.article.vivere-varzo-lavorare-ticino.imageAlt': 'Panorama montano tra Italia e Svizzera',
+    'blog.article.lavoro-temporaneo-aumento.title': 'Il lavoro temporaneo in Svizzera riprende a crescere',
+    'blog.article.lavoro-temporaneo-aumento.excerpt': 'Le ore di lavoro temporaneo sono aumentate dell\'1,5% nel primo semestre, mentre i contratti a tempo indeterminato sono scesi del 19,4%.',
+    'blog.article.lavoro-temporaneo-aumento.imageAlt': 'Vista panoramica del lago di Lugano con le montagne del Ticino al tramonto',
 };
 
 export default blogMetaIt;

@@ -9159,6 +9159,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.vivere-varzo-lavorare-ticino.title': 'Vivre à Varzo et travailler au Tessin en tant que frontalier',
     'blog.article.vivere-varzo-lavorare-ticino.excerpt': 'Guide pratique pour ceux qui choisissent Varzo comme résidence en travaillant au Tessin : fiscalité, nouvel accord, prévoyance et gestion des revenus.',
     'blog.article.vivere-varzo-lavorare-ticino.imageAlt': 'Paysage de montagne entre l\'Italie et la Suisse',
+    'blog.article.lavoro-temporaneo-aumento.title': 'Le travail temporaire en Suisse recommence à croître',
+    'blog.article.lavoro-temporaneo-aumento.excerpt': 'Les heures de travail intérimaire ont augmenté de 1,5 % au premier semestre, tandis que les contrats à durée indéterminée ont diminué de 19,4 %.',
+    'blog.article.lavoro-temporaneo-aumento.imageAlt': 'Vue panoramique du lac de Lugano avec les montagnes du Tessin au coucher du soleil',
 };
 
 export default blogMetaFr;

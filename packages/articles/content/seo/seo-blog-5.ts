@@ -57791,6 +57791,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-lavoro-temporaneo-aumento': {
+    title: 'Il lavoro temporaneo in Svizzera riprende a crescere',
+    description: 'Le ore di lavoro temporaneo in Svizzera aumentano dell\'1,5% mentre i contratti a tempo indeterminato scendono del 19,4%. Scopri le implicazioni per i',
+    keywords: 'frontalieri, ticino, svizzera, italia, lavoro, temporaneo, riprende, crescere',
+    ogTitle: 'Lavoro temporaneo in Svizzera +1,5% nel primo semestre',
+    ogDescription: 'Aumento del lavoro temporaneo del 1,5% e calo dei contratti a tempo indeterminato del 19,4%: cosa significa per i frontaliere del Canton Ticino.',
+    canonicalPath: '/articoli-frontaliere/lavoro-temporaneo-aumento',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Il lavoro temporaneo in Svizzera riprende a crescere",
+      "description": "Le ore di lavoro temporaneo in Svizzera aumentano dell'1,5% mentre i contratti a tempo indeterminato scendono del 19,4%. Scopri le implicazioni per i",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/lavoro-temporaneo-aumento.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista panoramica del lago di Lugano con le montagne del Ticino al tramonto"
+      },
+      "datePublished": "2026-07-31T03:00:17+00:00",
+      "dateModified": "2026-07-31T03:00:17+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/lavoro-temporaneo-aumento/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

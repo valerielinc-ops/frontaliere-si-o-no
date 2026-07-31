@@ -9157,6 +9157,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-varzo-lavorare-ticino.title': 'Living in Varzo and working in Ticino as a border worker',
     'blog.article.vivere-varzo-lavorare-ticino.excerpt': 'Practical guide for those who choose Varzo as a residence while working in Ticino: tax, new agreement, social security and income management.',
     'blog.article.vivere-varzo-lavorare-ticino.imageAlt': 'Mountain landscape between Italy and Switzerland',
+    'blog.article.lavoro-temporaneo-aumento.title': 'Temporary work in Switzerland continues to grow',
+    'blog.article.lavoro-temporaneo-aumento.excerpt': 'Temporary working hours increased by 1.5% in the first half, while permanent contracts fell by 19.4%.',
+    'blog.article.lavoro-temporaneo-aumento.imageAlt': 'Panoramic view of Lake Lugano with Ticino mountains at sunset',
 };
 
 export default blogMetaEn;

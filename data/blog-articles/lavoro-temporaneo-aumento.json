@@ -1,0 +1,19 @@
+{
+  "id": "lavoro-temporaneo-aumento",
+  "slug": "lavoro-temporaneo-aumento",
+  "publishedAt": "2026-07-31T03:00:19.086Z",
+  "cluster": "lavoro",
+  "_pool": "proven",
+  "_pool_source": "tvsvizzera.it",
+  "_score_breakdown": {
+    "stage": "gsc",
+    "rawScore": 145.27493026666667,
+    "confidence": 1,
+    "finalScore": 145.27493026666667,
+    "matchedQuery": "offerte di lavoro ticino",
+    "score": 72.63746513333334,
+    "clusterDiversityBonus": 0.5,
+    "sourceQualityMultiplier": 1,
+    "cluster": "lavoro"
+  }
+}
