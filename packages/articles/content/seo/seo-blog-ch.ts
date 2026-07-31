@@ -22247,6 +22247,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-dsm-firmenich-cancella-1000-impieghi': {
+    title: 'DSM-Firmenich cancella 1000 impieghi, tagli anche in Svizzera',
+    description: 'Il gruppo DSM-Firmenich avvia una ristrutturazione globale con 1000 tagli di posti in 18-24 mesi. Coinvolta anche la Svizzera. Dati e dettagli. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, dsm-firmenich, cancella, 1000, impieghi',
+    ogTitle: 'DSM-Firmenich cancella 1000 impieghi, tagli anche in Svizzera',
+    ogDescription: 'Il gruppo elvetico-olandese taglia 1000 posti di lavoro nel quadro di una ristrutturazione globale per ridurre i costi.',
+    canonicalPath: '/articoli-svizzera/dsm-firmenich-cancella-1000-impieghi/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "DSM-Firmenich cancella 1000 impieghi, tagli anche in Svizzera",
+      "description": "Il gruppo DSM-Firmenich avvia una ristrutturazione globale con 1000 tagli di posti in 18-24 mesi. Coinvolta anche la Svizzera. Dati e dettagli. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/dsm-firmenich-cancella-1000-impieghi.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Sede aziendale in Svizzera del gruppo DSM-Firmenich"
+      },
+      "datePublished": "2026-07-31T01:08:30+00:00",
+      "dateModified": "2026-07-31T01:08:30+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/dsm-firmenich-cancella-1000-impieghi/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

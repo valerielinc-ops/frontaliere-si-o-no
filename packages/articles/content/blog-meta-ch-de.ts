@@ -1720,6 +1720,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.clariant-vittoria-amilione.title': 'Mehr Clariant: Sieg in Ethylen-Prozess, fliegt an die Börse (+16%)',
     'blog.article.clariant-vittoria-amilione.excerpt': 'Clariant gewinnt Klage auf Ethylen, fliegt an die Börse (+16%)',
     'blog.article.clariant-vittoria-amilione.imageAlt': 'Clariant vittoria in una causa su etilene, vola in borsa (+16%)',
+    'blog.article.dsm-firmenich-cancella-1000-impieghi.title': 'DSM-Firmenich streicht 1000 Stellen, Kürzungen auch in der Schweiz',
+    'blog.article.dsm-firmenich-cancella-1000-impieghi.excerpt': 'Der schweizerisch-niederländische Konzern kündigt eine umfassende Umstrukturierung mit dem Abbau von rund 1000 Arbeitsplätzen in 18-24 Monaten an, um die Kosten zu senken.',
+    'blog.article.dsm-firmenich-cancella-1000-impieghi.imageAlt': 'Unternehmenszentrale in der Schweiz der DSM-Firmenich-Gruppe',
 };
 
 export default blogMetaChDe;

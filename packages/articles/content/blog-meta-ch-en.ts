@@ -1720,6 +1720,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.clariant-vittoria-amilione.title': 'Clariant wins on ethylene, stock soars (+16%)',
     'blog.article.clariant-vittoria-amilione.excerpt': 'Clariant wins ethylene lawsuit, flies in stock market (+16%)',
     'blog.article.clariant-vittoria-amilione.imageAlt': 'Clariant vittoria in una causa su etilene, vola in borsa (+16%)',
+    'blog.article.dsm-firmenich-cancella-1000-impieghi.title': 'DSM-Firmenich cancels 1000 jobs, cuts also in Switzerland',
+    'blog.article.dsm-firmenich-cancella-1000-impieghi.excerpt': 'The Swiss-Dutch group announces an extensive restructuring with the cutting of about 1000 jobs in 18-24 months to reduce costs.',
+    'blog.article.dsm-firmenich-cancella-1000-impieghi.imageAlt': 'Corporate headquarters in Switzerland of the DSM-Firmenich group',
 };
 
 export default blogMetaChEn;

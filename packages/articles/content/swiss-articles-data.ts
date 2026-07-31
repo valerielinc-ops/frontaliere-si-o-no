@@ -5158,6 +5158,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'dsm-firmenich-cancella-1000-impieghi',
+    category: 'novita',
+    date: '2026-07-31T01:08:30.089Z',
+    image: '/images/blog/dsm-firmenich-cancella-1000-impieghi.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

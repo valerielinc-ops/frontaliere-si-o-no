@@ -1720,6 +1720,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.clariant-vittoria-amilione.title': 'Di più Clariant: vittoria in una causa su etilene, vola in borsa (+16%)',
     'blog.article.clariant-vittoria-amilione.excerpt': 'Clariant vittoria in una causa su etilene, vola in borsa (+16%)',
     'blog.article.clariant-vittoria-amilione.imageAlt': 'Clariant vittoria in una causa su etilene, vola in borsa (+16%)',
+    'blog.article.dsm-firmenich-cancella-1000-impieghi.title': 'DSM-Firmenich cancella 1000 impieghi, tagli anche in Svizzera',
+    'blog.article.dsm-firmenich-cancella-1000-impieghi.excerpt': 'Il gruppo elvetico-olandese annuncia una vasta ristrutturazione con il taglio di circa 1000 posti di lavoro in 18-24 mesi per ridurre i costi.',
+    'blog.article.dsm-firmenich-cancella-1000-impieghi.imageAlt': 'Sede aziendale in Svizzera del gruppo DSM-Firmenich',
 };
 
 export default blogMetaChIt;
