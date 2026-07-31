@@ -57752,6 +57752,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-vivere-varzo-lavorare-ticino': {
+    title: 'Vivere a Varzo e lavorare in Ticino da frontaliere',
+    description: 'Guida pratica per frontalieri che vivono a Varzo e lavorano in Ticino: fisco, nuovo accordo, imposta alla fonte e previdenza. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, vivere, varzo, lavorare, pratica',
+    ogTitle: 'Vivere a Varzo e lavorare in Ticino: guida per frontalieri',
+    ogDescription: 'Tutto sul pendolarismo Varzo-Ticino: fisco, accordi e gestione del reddito.',
+    canonicalPath: '/articoli-frontaliere/vivere-varzo-lavorare-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vivere a Varzo e lavorare in Ticino da frontaliere",
+      "description": "Guida pratica per frontalieri che vivono a Varzo e lavorano in Ticino: fisco, nuovo accordo, imposta alla fonte e previdenza. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/vivere-varzo-lavorare-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Panorama montano tra Italia e Svizzera"
+      },
+      "datePublished": "2026-07-31T01:30:28+00:00",
+      "dateModified": "2026-07-31T01:30:28+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vivere-varzo-lavorare-ticino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

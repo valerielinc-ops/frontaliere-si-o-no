@@ -9154,6 +9154,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.pasticcio-dati-tasse-vecchi-frontalieri.title': 'Data jumble and old border taxes: clarity needed',
     'blog.article.pasticcio-dati-tasse-vecchi-frontalieri.excerpt': 'The transitional regime 2024-2033 for frontier workers prior to 17/7/2023 creates confusion: exemption €7,500 vs deductible €10,000 for new ones, tax at source only in Switzerland, tax credit Italy in the EC framework.',
     'blog.article.pasticcio-dati-tasse-vecchi-frontalieri.imageAlt': 'Lake Lugano view with cross-border commuters at Gandria border crossing at dawn',
+    'blog.article.vivere-varzo-lavorare-ticino.title': 'Living in Varzo and working in Ticino as a border worker',
+    'blog.article.vivere-varzo-lavorare-ticino.excerpt': 'Practical guide for those who choose Varzo as a residence while working in Ticino: tax, new agreement, social security and income management.',
+    'blog.article.vivere-varzo-lavorare-ticino.imageAlt': 'Mountain landscape between Italy and Switzerland',
 };
 
 export default blogMetaEn;

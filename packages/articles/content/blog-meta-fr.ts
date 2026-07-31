@@ -9156,6 +9156,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.pasticcio-dati-tasse-vecchi-frontalieri.title': 'Gâchis de données et anciennes taxes frontalières : il faut de la clarté',
     'blog.article.pasticcio-dati-tasse-vecchi-frontalieri.excerpt': 'Le régime transitoire 2024-2033 pour les frontaliers antérieurs au 17/7/2023 crée la confusion : exonération 7 500 € vs franchise 10 000 € pour les nouveaux, impôt à la source uniquement en Suisse, crédit d\'impôt Italie dans le cadre CE.',
     'blog.article.pasticcio-dati-tasse-vecchi-frontalieri.imageAlt': 'Vue sur le lac de Lugano avec frontaliers au passage de Gandria à l\'aube',
+    'blog.article.vivere-varzo-lavorare-ticino.title': 'Vivre à Varzo et travailler au Tessin en tant que frontalier',
+    'blog.article.vivere-varzo-lavorare-ticino.excerpt': 'Guide pratique pour ceux qui choisissent Varzo comme résidence en travaillant au Tessin : fiscalité, nouvel accord, prévoyance et gestion des revenus.',
+    'blog.article.vivere-varzo-lavorare-ticino.imageAlt': 'Paysage de montagne entre l\'Italie et la Suisse',
 };
 
 export default blogMetaFr;
