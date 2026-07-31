@@ -1,6 +1,6 @@
 {
   "crawlerKey": "svar-spitalverbund-ar",
-  "assembledAt": "2026-07-30T22:10:28.233Z",
+  "assembledAt": "2026-07-31T11:37:24.701Z",
   "jobs": [
     {
       "id": "svar-spitalverbund-ar-d97b342b0f42",
@@ -34,7 +34,7 @@
       "url": "https://live.solique.ch/svar/job/details/4042802",
       "source": "Spitalverbund Appenzell Ausserrhoden (SVAR) Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-30T22:10:24.428Z",
+      "crawledAt": "2026-07-31T11:37:21.781Z",
       "addressLocality": "Herisau",
       "addressRegion": "AR",
       "addressCountry": "CH",
@@ -54,12 +54,14 @@
       "externalId": "4042802",
       "previousSlugs": [
         "akutstation-dipl-pflegefachperson-hf-fh-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
-        "akutstation-dipl-pflegefachperson-hf-fh-m-w-d-svar-spitalverbund-ar-herisau"
+        "akutstation-dipl-pflegefachperson-hf-fh-m-w-d-svar-spitalverbund-ar-herisau",
+        "stazione-acuta-dipl-infermiera-hf-fh-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
       ],
       "previousSlugsByLocale": {
         "it": [
           "akutstation-dipl-pflegefachperson-hf-fh-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
-          "akutstation-dipl-pflegefachperson-hf-fh-m-w-d-svar-spitalverbund-ar-herisau"
+          "akutstation-dipl-pflegefachperson-hf-fh-m-w-d-svar-spitalverbund-ar-herisau",
+          "stazione-acuta-dipl-infermiera-hf-fh-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
         ],
         "en": [
           "akutstation-dipl-pflegefachperson-hf-fh-m-w-d-svar-spitalverbund-ar-herisau"
@@ -114,7 +116,7 @@
       "url": "https://live.solique.ch/svar/job/details/4042806",
       "source": "Spitalverbund Appenzell Ausserrhoden (SVAR) Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-30T22:10:23.858Z",
+      "crawledAt": "2026-07-31T11:37:21.070Z",
       "addressLocality": "Herisau",
       "addressRegion": "AR",
       "addressCountry": "CH",
@@ -137,7 +139,8 @@
         "dependency-station-abhb-health-professional-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
         "poste-de-dependance-hbab-professionnel-de-la-sante-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
         "abhangigkeitsstation-abhb-fachperson-gesundheit-m-w-d-svar-spitalverbund-ar-herisau",
-        "abhangigkeitsstation-abhb-fachperson-gesundheit-m-w-d-keine-nachtdienste-wochenenddienste"
+        "abhangigkeitsstation-abhb-fachperson-gesundheit-m-w-d-keine-nachtdienste-wochenenddienste",
+        "dependency-station-abhb-professionista-della-salute-m-f-d-servizi-notturni-e-servizi-week-end-spitalverbund-appenzell"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -145,7 +148,8 @@
           "dependency-station-abhb-health-professional-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
           "poste-de-dependance-hbab-professionnel-de-la-sante-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
           "abhangigkeitsstation-abhb-fachperson-gesundheit-m-w-d-svar-spitalverbund-ar-herisau",
-          "abhangigkeitsstation-abhb-fachperson-gesundheit-m-w-d-keine-nachtdienste-wochenenddienste"
+          "abhangigkeitsstation-abhb-fachperson-gesundheit-m-w-d-keine-nachtdienste-wochenenddienste",
+          "dependency-station-abhb-professionista-della-salute-m-f-d-servizi-notturni-e-servizi-week-end-spitalverbund-appenzell"
         ],
         "en": [
           "dependency-station-abhb-health-professional-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
@@ -202,7 +206,7 @@
       "url": "https://live.solique.ch/svar/job/details/4041560",
       "source": "Spitalverbund Appenzell Ausserrhoden (SVAR) Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-30T22:10:23.302Z",
+      "crawledAt": "2026-07-31T11:37:20.324Z",
       "addressLocality": "Herisau",
       "addressRegion": "AR",
       "addressCountry": "CH",
@@ -221,11 +225,13 @@
       "requirementsByLocale": {},
       "externalId": "4041560",
       "previousSlugs": [
-        "teamleitung-intensivstation-m-w-d-svar-spitalverbund-ar-herisau"
+        "teamleitung-intensivstation-m-w-d-svar-spitalverbund-ar-herisau",
+        "gruppo-di-assistenza-intensiva-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "teamleitung-intensivstation-m-w-d-svar-spitalverbund-ar-herisau"
+          "teamleitung-intensivstation-m-w-d-svar-spitalverbund-ar-herisau",
+          "gruppo-di-assistenza-intensiva-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
         ],
         "en": [
           "teamleitung-intensivstation-m-w-d-svar-spitalverbund-ar-herisau"
@@ -274,12 +280,13 @@
         "de": "Ihre Aufgaben\n• Professionelle Pflege und Betreuung der Patienten aus verschiedenen Fachdisziplinen während der Nacht\n• Selbständige Umsetzung des Pflege- und Behandlungsprozesses in interdisziplinärer Zusammenarbeit\n• Sie orientieren sich dabei an den Pflege- und Behandlungskonzepten des Spitalverbundes und bringen Ihre Kompetenzen auch in die Entwicklung neuer Standards ein\n• Elektronische Dokumentation sowie Planung der Pflege\n\nIhr Profil\n• Sie sind eine Dipl. Pflegefachfrau, ein Dipl. Pflegefachmann oder Sie haben die Ausbildung zur Fachfrau Gesundheit EFZ, zum Fachmann Gesundheit EFZ erfolgreich absolviert\n• Erfahrung, den Pflegeprozess in unterschiedlichen Pflegesituationen anzuwenden\n• Flexibilität und Bereitschaft für den Einsatz auf verschiedenen Stationen im Springerpool\n• Freude, sich in einem Unternehmen weiterzuentwickeln, welches Lernen fördert und die gute Zusammenarbeit ein zentraler Aspekt für die Behandlung der Patientinnen und Patienten ist\n• Hohes Mass an Fach-, Sozial-, Selbst- und Methodenkompetenz zeichnet Sie aus\n• In einem interdisziplinären Kontext agieren Sie sicher und konstruktiv\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n\nZusätzlich profitieren Sie von\n\nEintritt: 24. Juni 2026",
         "fr": "Leurs tâches\n• Soins professionnels et soins de patients de différentes disciplines pendant la nuit\n• Mise en œuvre indépendante du processus de soins et de traitement dans le cadre de la coopération interdisciplinaire\n• Vous êtes orienté vers les concepts de soins et de traitement de l'association hospitalière et contribuez à l'élaboration de nouvelles normes.\n• Documentation électronique et planification des soins\n\nVotre profil\n• Vous êtes un diplome. Un professionnel des soins infirmiers. Vous avez suivi avec succès la formation de spécialiste de la santé EFZ, spécialiste de la santé EFZ\n• Expérience dans l'application du processus de soins dans différentes situations de soins\n• Flexibilité et disponibilité d'utilisation sur différentes stations du Springerpool\n• Le plaisir de se développer dans une entreprise qui favorise l'apprentissage et la bonne coopération est un aspect central du traitement des patients\n• Un haut degré de compétence technique, sociale, personnelle et méthodologique vous distingue\n• Dans un contexte interdisciplinaire, vous agissez de façon sûre et constructive\n• Très bonne connaissance de l'allemand en paroles et en écriture\n\nEn outre, vous bénéficiez\n\nEntrée : 24. juin 2026"
       },
+      "needsRetranslation": true,
       "location": "Herisau",
       "canton": "AR",
       "url": "https://live.solique.ch/svar/job/details/4041583",
       "source": "Spitalverbund Appenzell Ausserrhoden (SVAR) Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-30T22:10:22.741Z",
+      "crawledAt": "2026-07-31T11:37:19.705Z",
       "addressLocality": "Herisau",
       "addressRegion": "AR",
       "addressCountry": "CH",
@@ -298,11 +305,13 @@
       "requirementsByLocale": {},
       "externalId": "4041583",
       "previousSlugs": [
-        "pflegefachperson-hf-oder-fachangestellte-gesundheit-efz-als-dauernachtwache-fur"
+        "pflegefachperson-hf-oder-fachangestellte-gesundheit-efz-als-dauernachtwache-fur",
+        "pflegefachperson-hf-o-fachangestellte-gesundheit-cfc-come-dauernachtwache-per-springerpool-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "pflegefachperson-hf-oder-fachangestellte-gesundheit-efz-als-dauernachtwache-fur"
+          "pflegefachperson-hf-oder-fachangestellte-gesundheit-efz-als-dauernachtwache-fur",
+          "pflegefachperson-hf-o-fachangestellte-gesundheit-cfc-come-dauernachtwache-per-springerpool-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
         ],
         "en": [
           "pflegefachperson-hf-oder-fachangestellte-gesundheit-efz-als-dauernachtwache-fur"
@@ -357,7 +366,7 @@
       "url": "https://live.solique.ch/svar/job/details/4041579",
       "source": "Spitalverbund Appenzell Ausserrhoden (SVAR) Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-30T22:10:22.169Z",
+      "crawledAt": "2026-07-31T11:37:18.997Z",
       "addressLocality": "Herisau",
       "addressRegion": "AR",
       "addressCountry": "CH",
@@ -376,11 +385,13 @@
       "requirementsByLocale": {},
       "externalId": "4041579",
       "previousSlugs": [
-        "dipl-experte-in-nds-intensivpflege-m-w-d-svar-spitalverbund-ar-herisau"
+        "dipl-experte-in-nds-intensivpflege-m-w-d-svar-spitalverbund-ar-herisau",
+        "dipl-nds-intensive-care-expert-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-experte-in-nds-intensivpflege-m-w-d-svar-spitalverbund-ar-herisau"
+          "dipl-experte-in-nds-intensivpflege-m-w-d-svar-spitalverbund-ar-herisau",
+          "dipl-nds-intensive-care-expert-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
         ],
         "en": [
           "dipl-experte-in-nds-intensivpflege-m-w-d-svar-spitalverbund-ar-herisau"
@@ -418,7 +429,7 @@
       "title": "Dipl. Experte/Expertin Notfallpflege NDS mit Zusatzfunktion Berufsbildung (m/w/d)",
       "titleByLocale": {
         "it": "Dipl. Experte/Expertin Notfallpflege NDS con Zusatzfunktion Berufsbildung (m/w/d)",
-        "en": "Dipl. Expert Emergency Care NDS with additional function Vocational Training (m/f/d)",
+        "en": "Dipl. Experte/Expertin Notfallpflege NDS mit Zusatzfunktion Berufsbildung (m/w/d)",
         "de": "Dipl. Experte/Expertin Notfallpflege NDS mit Zusatzfunktion Berufsbildung (m/w/d)",
         "fr": "Dipl. Expert Emergency Care NDS avec fonction supplémentaire Formation professionnelle (m/f/d)"
       },
@@ -429,12 +440,13 @@
         "de": "Ihre Aufgaben\n• Sie sind mitverantwortlich für die Triage der Patienten in Bezug auf das Risikomanagement\n• Sie stellen selbständig und in Delegation des ärztlichen Dienstes die Erstbeurteilung, Aufnahme, Diagnostik, Therapie, sowie die Pflege und Betreuung der Notfallpatienten sicher für einfache sowie komplexe Aufnahme- und Betreuungssituationen\n• Aktive Mitarbeit in der Weiterentwicklung unserer interdisziplinären Notfallstation\n• Mitarbeit in Arbeitsgruppen zur Qualitätssicherung und –Förderung\n• Sie fungieren als Berufsbildner auf der Notfallstation und sind für die Ausbildung der Schüler und Studierenden zuständig\n\nIhr Profil\n• Abgeschlossene Ausbildung als Dipl. Experte Notfallpflege NDS, als Dipl. Expertin Notfallpflege NDS oder als Gesundheits- und Krankenpflegerin, als Gesundheits- und Krankenpfleger\n• Sie weisen alternativ die Fachausbildung in Intensiv- und Anästhesiepflege auf\n• Idealerweise bringen Sie bereits Erfahrung in der Berufsbildung mit, dies ist aber nicht zwingend\n• Sie sind eine flexible, aufgestellte und motivierte Persönlichkeit\n• Teamfähige und patientenorientierte Grundhaltung\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n\nZusätzlich profitieren Sie von\n\nEintritt: 24. Juni 2026",
         "fr": "Leurs tâches\n• Ils sont conjointement responsables du triage des patients en termes de gestion des risques\n• Ils assurent, indépendamment et en délégation du service médical, l'évaluation initiale, l'admission, le diagnostic, la thérapie, ainsi que les soins et soins des patients d'urgence pour des situations d'admission et de soins simples et complexes.\n• Participation active au développement de notre unité interdisciplinaire d'urgence\n• Coopération dans les groupes de travail sur l ' assurance et la promotion de la qualité\n• Ils agissent comme formateurs professionnels dans le service des urgences et sont responsables de la formation des étudiants.\n\nVotre profil\n• Formation terminée en tant que diplômé. Expert en soins d'urgence NDS, en tant que Dipl. Expert en soins d'urgence NDS ou en tant que santé et infirmière, en tant que santé et infirmière\n• Ils ont également une formation spécialisée en soins intensifs et anesthésie\n• Idéalement, vous avez déjà de l'expérience en formation professionnelle, mais ce n'est pas obligatoire.\n• Vous êtes une personnalité flexible, positionnée et motivée\n• Une attitude de base adaptée aux équipes et axée sur le patient\n• Très bonne connaissance de l'allemand en paroles et en écriture\n\nEn outre, vous bénéficiez\n\nEntrée : 24. juin 2026"
       },
+      "needsRetranslation": true,
       "location": "Herisau",
       "canton": "AR",
       "url": "https://live.solique.ch/svar/job/details/4041571",
       "source": "Spitalverbund Appenzell Ausserrhoden (SVAR) Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-30T22:10:21.608Z",
+      "crawledAt": "2026-07-31T11:37:18.380Z",
       "addressLocality": "Herisau",
       "addressRegion": "AR",
       "addressCountry": "CH",
@@ -489,7 +501,7 @@
       "title": "Dipl. Experte/Expertin Notfallpflege NDS (m/w/d)",
       "titleByLocale": {
         "it": "Dipl. Expert Emergency Care NDS (m/f/d)",
-        "en": "Dipl. Expert Emergency Care NDS (m/f/d)",
+        "en": "Dipl. Experte/Expertin Notfallpflege NDS (m/w/d)",
         "de": "Dipl. Experte/Expertin Notfallpflege NDS (m/w/d)",
         "fr": "Dipl. Expert Emergency Care NDS (m/f/d)"
       },
@@ -500,12 +512,13 @@
         "de": "Ihre Aufgaben\n• Sie sind mitverantwortlich für die Triage der Patienten in Bezug auf das Risikomanagement\n• Sie stellen selbständig und in Delegation des ärztlichen Dienstes die Erstbeurteilung, Aufnahme, Diagnostik, Therapie, sowie die Pflege und Betreuung der Notfallpatienten sicher für einfache sowie komplexe Aufnahme- und Betreuungssituationen\n• Aktive Mitarbeit in der Weiterentwicklung unserer interdisziplinären Notfallstation\n• Mitarbeit in Arbeitsgruppen zur Qualitätssicherung und –Förderung\n\nIhr Profil\n• Abgeschlossene Ausbildung als Dipl. Experte Notfallpflege NDS, als Dipl. Expertin Notfallpflege NDS oder als Gesundheits- und Krankenpflegerin, als Gesundheits- und Krankenpfleger\n• Alternativ bringen Sie die Fachweiterbildung Intensiv- und Notfallpflege mit\n• Flexible, aufgestellte und motivierte Persönlichkeit\n• Teamfähige und patientenorientierte Grundhaltung\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n\nZusätzlich profitieren Sie von\n\nEintritt: 24. Juni 2026",
         "fr": "Leurs tâches\n• Ils sont conjointement responsables du triage des patients en termes de gestion des risques\n• Ils assurent, indépendamment et en délégation du service médical, l'évaluation initiale, l'admission, le diagnostic, la thérapie, ainsi que les soins et soins des patients d'urgence pour des situations d'admission et de soins simples et complexes.\n• Participation active au développement de notre unité interdisciplinaire d'urgence\n• Coopération dans les groupes de travail sur l ' assurance et la promotion de la qualité\n\nVotre profil\n• Formation terminée en tant que diplômé. Expert en soins d'urgence NDS, en tant que Dipl. Expert en soins d'urgence NDS ou en tant que santé et infirmière, en tant que santé et infirmière\n• Alternativement, apportez la formation spécialisée intensive et les soins d'urgence avec vous\n• Personnalité flexible, positionnée et motivée\n• Une attitude de base adaptée aux équipes et axée sur le patient\n• Très bonne connaissance de l'allemand en paroles et en écriture\n\nEn outre, vous bénéficiez\n\nEntrée : 24. juin 2026"
       },
+      "needsRetranslation": true,
       "location": "Herisau",
       "canton": "AR",
       "url": "https://live.solique.ch/svar/job/details/4041564",
       "source": "Spitalverbund Appenzell Ausserrhoden (SVAR) Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-30T22:10:20.971Z",
+      "crawledAt": "2026-07-31T11:37:17.767Z",
       "addressLocality": "Herisau",
       "addressRegion": "AR",
       "addressCountry": "CH",
@@ -528,7 +541,8 @@
         "dipl-cura-di-anestesia-esperto-nds-hf-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
         "dipl-expert-anesthesia-care-nds-hf-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
         "dipl-expertin-experte-anasthesiepflege-nds-hf-m-w-d-svar-spitalverbund-ar-herisau",
-        "dipl-soins-anesthesiques-specialises-nds-hf-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
+        "dipl-soins-anesthesiques-specialises-nds-hf-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+        "dipl-expert-emergency-care-nds-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -536,7 +550,8 @@
           "dipl-cura-di-anestesia-esperto-nds-hf-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
           "dipl-expert-anesthesia-care-nds-hf-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
           "dipl-expertin-experte-anasthesiepflege-nds-hf-m-w-d-svar-spitalverbund-ar-herisau",
-          "dipl-soins-anesthesiques-specialises-nds-hf-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
+          "dipl-soins-anesthesiques-specialises-nds-hf-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+          "dipl-expert-emergency-care-nds-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
         ],
         "en": [
           "dipl-expert-anesthesia-care-nds-hf-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
@@ -595,7 +610,7 @@
       "url": "https://live.solique.ch/svar/job/details/4045152",
       "source": "Spitalverbund Appenzell Ausserrhoden (SVAR) Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-30T22:10:20.361Z",
+      "crawledAt": "2026-07-31T11:37:17.141Z",
       "addressLocality": "Herisau",
       "addressRegion": "AR",
       "addressCountry": "CH",
@@ -614,11 +629,13 @@
       "requirementsByLocale": {},
       "externalId": "4045152",
       "previousSlugs": [
-        "subakutstation-diplomierte-pflegefachperson-hf-fh-m-w-d-svar-spitalverbund-ar-herisau"
+        "subakutstation-diplomierte-pflegefachperson-hf-fh-m-w-d-svar-spitalverbund-ar-herisau",
+        "subacute-station-infermiera-qualificata-hf-fh-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "subakutstation-diplomierte-pflegefachperson-hf-fh-m-w-d-svar-spitalverbund-ar-herisau"
+          "subakutstation-diplomierte-pflegefachperson-hf-fh-m-w-d-svar-spitalverbund-ar-herisau",
+          "subacute-station-infermiera-qualificata-hf-fh-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
         ],
         "en": [
           "subakutstation-diplomierte-pflegefachperson-hf-fh-m-w-d-svar-spitalverbund-ar-herisau"
@@ -673,7 +690,7 @@
       "url": "https://live.solique.ch/svar/job/details/4035684",
       "source": "Spitalverbund Appenzell Ausserrhoden (SVAR) Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-30T22:10:19.768Z",
+      "crawledAt": "2026-07-31T11:37:16.509Z",
       "addressLocality": "Herisau",
       "addressRegion": "AR",
       "addressCountry": "CH",
@@ -699,7 +716,8 @@
         "appendino-in-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
         "application-manger-in-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
         "formulaire-de-demande-in-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
-        "klinikmanager-in-m-w-d-svar-spitalverbund-ar-herisau"
+        "klinikmanager-in-m-w-d-svar-spitalverbund-ar-herisau",
+        "responsabile-clinica-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -710,7 +728,8 @@
           "appendino-in-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
           "application-manger-in-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
           "formulaire-de-demande-in-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
-          "klinikmanager-in-m-w-d-svar-spitalverbund-ar-herisau"
+          "klinikmanager-in-m-w-d-svar-spitalverbund-ar-herisau",
+          "responsabile-clinica-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
         ],
         "en": [
           "application-delay-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
@@ -742,9 +761,9 @@
       "id": "svar-spitalverbund-ar-d9283a5d2924",
       "slug": "oberarztin-oberarzt-per-unsere-anasthesiologie-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
       "slugByLocale": {
-        "de": "oberarztin-oberarzt-fur-unsere-anasthesiologie-m-w-d-svar-spitalverbund-ar-herisau",
         "it": "oberarztin-oberarzt-per-unsere-anasthesiologie-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
         "en": "senior-physician-for-our-anesthesiology-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+        "de": "oberarztin-oberarzt-fur-unsere-anasthesiologie-m-w-d-svar-spitalverbund-ar-herisau",
         "fr": "medecin-principal-pour-notre-anesthesiologie-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
       },
       "company": "Spitalverbund Appenzell Ausserrhoden (SVAR)",
@@ -752,24 +771,25 @@
       "companyDomain": "svar.ch",
       "title": "Oberärztin / Oberarzt für unsere Anästhesiologie (m,w,d)",
       "titleByLocale": {
-        "de": "Oberärztin / Oberarzt für unsere Anästhesiologie (m,w,d)",
         "it": "Oberärztin / Oberarzt per unsere Anästhesiologie (m,w,d)",
         "en": "Senior physician for our anesthesiology (m,w,d)",
+        "de": "Oberärztin / Oberarzt für unsere Anästhesiologie (m,w,d)",
         "fr": "Médecin principal pour notre anesthésiologie (m,w,d)"
       },
       "description": "Attraktive Aufgaben\n• Persönliche Wirksamkeit in unserer Abteilung als Mensch und Ärztin/Arzt – Sie tragen dazu bei, dass unsere Patientinnen und Patienten bei uns jederzeit bestens aufgehoben sind\n• Sie sichern die Einhaltung unserer Standards und entwickeln diese gemeinsam mit uns weiter – mit Professionalität, Verantwortungsbewusstsein und Vorbildwirkung\n• Sie begleiten unsere Patientinnen und Patienten einfühlsam und kompetent während der gesamten perioperativen Phase\n• Sie tragen aktiv zur Weiterbildung unserer Kolleginnen, Kollegen und Pflegefachpersonen bei und bringen Ihre Expertise auch im interdisziplinären Umfeld sowie bei internen Fortbildungen ein\n\nDeshalb wollen wir Sie\n• Neugierde und anhaltende Freude an unserem Fachgebiet\n• Einen eidgenössischen oder in der Schweiz anerkannten Facharzttitel in Anästhesiologie\n• Mehrjährige Berufserfahrung auf Facharztniveau\n• Fundierte Kenntnisse in allen gängigen Allgemein- und Regionalanästhesieverfahren inklusive moderner Schmerztherapie\n• Bereitschaft zur persönlichen Entwicklung und zur Gestaltung der Klinik\n• Sehr gute Deutschkenntnisse in Wort und Schrift (Muttersprache oder mindestens Niveau C1)\n• Freude an interdisziplinärer Zusammenarbeit, Kommunikationsstärke und eine patientenzentrierte Haltung\n• Persönliche Flexibilität und Belastbarkeit\n\nZusätzlich profitieren Sie von\n\nEintritt: 01. Januar 2027",
       "descriptionByLocale": {
-        "de": "Attraktive Aufgaben\n• Persönliche Wirksamkeit in unserer Abteilung als Mensch und Ärztin/Arzt – Sie tragen dazu bei, dass unsere Patientinnen und Patienten bei uns jederzeit bestens aufgehoben sind\n• Sie sichern die Einhaltung unserer Standards und entwickeln diese gemeinsam mit uns weiter – mit Professionalität, Verantwortungsbewusstsein und Vorbildwirkung\n• Sie begleiten unsere Patientinnen und Patienten einfühlsam und kompetent während der gesamten perioperativen Phase\n• Sie tragen aktiv zur Weiterbildung unserer Kolleginnen, Kollegen und Pflegefachpersonen bei und bringen Ihre Expertise auch im interdisziplinären Umfeld sowie bei internen Fortbildungen ein\n\nDeshalb wollen wir Sie\n• Neugierde und anhaltende Freude an unserem Fachgebiet\n• Einen eidgenössischen oder in der Schweiz anerkannten Facharzttitel in Anästhesiologie\n• Mehrjährige Berufserfahrung auf Facharztniveau\n• Fundierte Kenntnisse in allen gängigen Allgemein- und Regionalanästhesieverfahren inklusive moderner Schmerztherapie\n• Bereitschaft zur persönlichen Entwicklung und zur Gestaltung der Klinik\n• Sehr gute Deutschkenntnisse in Wort und Schrift (Muttersprache oder mindestens Niveau C1)\n• Freude an interdisziplinärer Zusammenarbeit, Kommunikationsstärke und eine patientenzentrierte Haltung\n• Persönliche Flexibilität und Belastbarkeit\n\nZusätzlich profitieren Sie von\n\nEintritt: 01. Januar 2027",
         "it": "Attività interessanti\n• Efficienza personale nel nostro dipartimento come persona e medico – Aiutano a garantire che i nostri pazienti sono in buone mani in ogni momento.\n• Garantiscono il rispetto dei nostri standard e li sviluppano insieme a noi – con professionalità, senso di responsabilità e un effetto esemplare\n• Essi accompagnano i nostri pazienti in modo empatico e competente durante l'intera fase perioperativa\n• Contribuisci attivamente all'ulteriore formazione dei nostri colleghi e infermieri e contribuisci alla tua esperienza anche nell'ambiente interdisciplinare e nella formazione interna.\n\nEcco perché vogliamo\n• Curiosità e piacere duraturo nel nostro campo\n• Un titolo specialistico svizzero o svizzero riconosciuto in anestesiologia\n• Diversi anni di esperienza professionale a livello specialistico\n• Conoscenza approfondita di tutte le procedure anestesia generali e regionali comuni tra cui la terapia del dolore moderna\n• Prontezza per lo sviluppo personale e la progettazione della clinica\n• Conoscenza molto buona del tedesco nella parola e nella scrittura (lingua madre o almeno livello C1)\n• Gioia della collaborazione interdisciplinare, della forza di comunicazione e di un atteggiamento concentrato sul paziente\n• Flessibilità personale e resilienza\n\nInoltre, si beneficia di\n\nIngresso: 1 gennaio 2027",
         "en": "Attractive tasks\n• Personal effectiveness in our department as a person and doctor – They help ensure that our patients are in good hands at all times.\n• They ensure compliance with our standards and develop them together with us – with professionalism, a sense of responsibility and an exemplary effect\n• They accompany our patients empathetically and competently during the entire perioperative phase\n• You actively contribute to the further education of our colleagues and nurses and contribute your expertise also in the interdisciplinary environment as well as in internal training.\n\nThat is why we want to\n• Curiosity and lasting pleasure in our field\n• A Swiss or Swiss-recognised specialist title in anesthesiology\n• Several years of professional experience at specialist level\n• In-depth knowledge of all common general and regional anesthesia procedures including modern pain therapy\n• Readiness for personal development and design of the clinic\n• Very good knowledge of German in word and writing (native language or at least level C1)\n• Joy of interdisciplinary collaboration, communication strength and a patient-centered attitude\n• Personal flexibility and resilience\n\nIn addition, you benefit from\n\nEntrance: January 1, 2027",
+        "de": "Attraktive Aufgaben\n• Persönliche Wirksamkeit in unserer Abteilung als Mensch und Ärztin/Arzt – Sie tragen dazu bei, dass unsere Patientinnen und Patienten bei uns jederzeit bestens aufgehoben sind\n• Sie sichern die Einhaltung unserer Standards und entwickeln diese gemeinsam mit uns weiter – mit Professionalität, Verantwortungsbewusstsein und Vorbildwirkung\n• Sie begleiten unsere Patientinnen und Patienten einfühlsam und kompetent während der gesamten perioperativen Phase\n• Sie tragen aktiv zur Weiterbildung unserer Kolleginnen, Kollegen und Pflegefachpersonen bei und bringen Ihre Expertise auch im interdisziplinären Umfeld sowie bei internen Fortbildungen ein\n\nDeshalb wollen wir Sie\n• Neugierde und anhaltende Freude an unserem Fachgebiet\n• Einen eidgenössischen oder in der Schweiz anerkannten Facharzttitel in Anästhesiologie\n• Mehrjährige Berufserfahrung auf Facharztniveau\n• Fundierte Kenntnisse in allen gängigen Allgemein- und Regionalanästhesieverfahren inklusive moderner Schmerztherapie\n• Bereitschaft zur persönlichen Entwicklung und zur Gestaltung der Klinik\n• Sehr gute Deutschkenntnisse in Wort und Schrift (Muttersprache oder mindestens Niveau C1)\n• Freude an interdisziplinärer Zusammenarbeit, Kommunikationsstärke und eine patientenzentrierte Haltung\n• Persönliche Flexibilität und Belastbarkeit\n\nZusätzlich profitieren Sie von\n\nEintritt: 01. Januar 2027",
         "fr": "Tâches attrayantes\n• Efficacité personnelle dans notre service en tant que personne et médecin – Ils aident à s'assurer que nos patients sont entre de bonnes mains en tout temps.\n• Ils assurent le respect de nos normes et les développent avec nous – avec professionnalisme, un sens des responsabilités et un effet exemplaire\n• Ils accompagnent nos patients avec empathie et compétence pendant toute la phase périopératoire\n• Vous contribuez activement à la formation continue de nos collègues et infirmières et apportez également votre expertise dans l'environnement interdisciplinaire ainsi que dans la formation interne.\n\nC'est pourquoi nous voulons\n• Curiosité et plaisir durable dans notre domaine\n• Un titre de spécialiste suisse ou suisse reconnu en anesthésiologie\n• Plusieurs années d'expérience professionnelle au niveau des spécialistes\n• Connaissance approfondie de toutes les procédures d'anesthésie générale et régionale courantes, y compris la thérapie antidouleur moderne\n• Préparation au développement personnel et à la conception de la clinique\n• Très bonne connaissance de l'allemand dans la parole et l'écriture (langue maternelle ou au moins niveau C1)\n• Joy de collaboration interdisciplinaire, de force de communication et d'attitude centrée sur le patient\n• Flexibilité et résilience personnelles\n\nEn outre, vous bénéficiez\n\nEntrée : 1er janvier 2027"
       },
+      "needsRetranslation": true,
       "location": "Herisau",
       "canton": "AR",
       "url": "https://live.solique.ch/svar/job/details/4047067",
       "source": "Spitalverbund Appenzell Ausserrhoden (SVAR) Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-30T22:10:19.090Z",
+      "crawledAt": "2026-07-31T11:37:15.782Z",
       "addressLocality": "Herisau",
       "addressRegion": "AR",
       "addressCountry": "CH",
@@ -785,10 +805,11 @@
       "postedDate": "2026-07-30",
       "applyUrl": "https://live.solique.ch/svar/job/details/4047067",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "externalId": "4047067",
+      "previousSlugs": [
+        "oberarztin-oberarzt-fur-unsere-anasthesiologie-m-w-d-svar-spitalverbund-ar-herisau"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "oberarztin-oberarzt-fur-unsere-anasthesiologie-m-w-d-svar-spitalverbund-ar-herisau"
@@ -800,22 +821,19 @@
           "oberarztin-oberarzt-fur-unsere-anasthesiologie-m-w-d-svar-spitalverbund-ar-herisau"
         ]
       },
-      "previousSlugs": [
-        "oberarztin-oberarzt-fur-unsere-anasthesiologie-m-w-d-svar-spitalverbund-ar-herisau"
-      ],
-      "salaryMin": 65000,
-      "salaryMax": 98500,
+      "firstSeenAt": "2026-07-30T22:10:19.090Z",
+      "salaryMin": 89500,
+      "salaryMax": 136000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 65000,
-          "maxValue": 98500,
+          "minValue": 89500,
+          "maxValue": 136000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-07-30T22:10:19.090Z"
+      }
     },
     {
       "id": "svar-spitalverbund-ar-7725846b6e47",
@@ -831,7 +849,7 @@
       "companyDomain": "svar.ch",
       "title": "Gerontopsychiatrie: Dipl. Pflegefachfrau-/mann HF/FH (m/w/d)",
       "titleByLocale": {
-        "it": "Gerontopsichiatria: Dipl. Professionista medico HF/FH (m/f/d)",
+        "it": "Gerontopsychiatrie: Dipl. Pflegefachfrau-/mann HF/FH (m/w/d)",
         "en": "Gerontopsychiatry: Dipl. Medical professional HF/FH (m/f/d)",
         "de": "Gerontopsychiatrie: Dipl. Pflegefachfrau-/mann HF/FH (m/w/d)",
         "fr": "Gérontopsychiatrie: Dipl. Professionnels de la santé HF/FH (m/f/d)"
@@ -921,7 +939,8 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2,
+      "needsRetranslation": true
     }
   ]
 }
