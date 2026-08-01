@@ -1,16 +1,16 @@
 {
   "key": "engel-voelkers",
   "label": "Engel & Völkers",
-  "generatedAt": "2026-08-01T11:32:43.244Z",
+  "generatedAt": "2026-08-01T22:22:34.142Z",
   "total": 10,
   "newCount": 0,
   "updatedCount": 10,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 21511,
-  "avgDurationMs": 21511,
+  "durationMs": 21932,
+  "avgDurationMs": 21932,
   "durationHistory": [
-    21511
+    21932
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -359,16 +359,15 @@
       "contractType": "full-time",
       "validThrough": "",
       "id": "engel-voelkers-6bae9762160e",
-      "needsRetranslation": true,
       "salaryMin": 96000,
       "salaryMax": 147500,
       "currency": "CHF",
       "firstSeenAt": "2026-07-31T22:23:30.475Z",
-      "_qualityScore": 85,
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 23,
+        "translation": 25,
         "completeness": 19
       }
     }
