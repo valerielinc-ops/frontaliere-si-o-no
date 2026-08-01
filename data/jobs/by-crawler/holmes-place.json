@@ -16,7 +16,7 @@
       "companyDomain": "holmesplace.ch",
       "title": "sich bewerben",
       "titleByLocale": {
-        "de": "sich bewerben",
+        "de": "♪",
         "it": "sich bewerben",
         "en": "sich bewerben",
         "fr": "sich bewerben"
@@ -71,7 +71,6 @@
         "apply-now-holmes-place-oberrieden",
         "postuler-holmes-place-oberrieden"
       ],
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -84,7 +83,8 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-01T11:18:14.282Z"
+      "firstSeenAt": "2026-08-01T11:18:14.282Z",
+      "needsRetranslation": true
     }
   ]
 }

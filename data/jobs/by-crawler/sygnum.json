@@ -342,7 +342,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:43:00.177Z",
-      "needsRetranslation": true,
       "salaryMin": 121500,
       "salaryMax": 206500,
       "baseSalary": {
@@ -407,7 +406,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-07-07T22:25:21.081Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -571,7 +569,6 @@
         "amministratore-delegato-internship-strategia-e-gestione-esecutivo-sygnum-bank-zurich"
       ],
       "firstSeenAt": "2026-07-20T22:42:53.153Z",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -652,7 +649,6 @@
         ]
       },
       "firstSeenAt": "2026-07-08T22:12:21.793Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -963,8 +959,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     }
   ]
 }

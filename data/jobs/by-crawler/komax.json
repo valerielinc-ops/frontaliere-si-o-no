@@ -52,14 +52,7 @@
       "jobReqId": "1165185955",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "field-service-engineer-100-w-m-komax-ch",
-        "field-service-ingegnere-100-w-m-komax-dierikon-i3qouq",
-        "field-service-engineer-100-w-m-komax-ch-i3qouq",
-        "field-service-ingegnere-100-w-m-komax-dierikon-i3qplf",
-        "field-service-engineer-100-w-m-komax-ch-i3qplf",
-        "field-service-ingegnere-100-w-m-komax-dierikon"
-      ],
+      "firstSeenAt": "2026-07-31T12:13:05.192Z",
       "previousSlugsByLocale": {
         "it": [
           "field-service-engineer-100-w-m-komax-ch",
@@ -67,19 +60,34 @@
           "field-service-engineer-100-w-m-komax-ch-i3qouq",
           "field-service-ingegnere-100-w-m-komax-dierikon-i3qplf",
           "field-service-engineer-100-w-m-komax-ch-i3qplf",
-          "field-service-ingegnere-100-w-m-komax-dierikon"
-        ],
-        "en": [
-          "field-service-engineer-100-w-m-komax-ch-i3qouq"
+          "field-service-ingegnere-100-w-m-komax-dierikon",
+          "field-service-ingegnere-100-w-m-komax-dierikon-i3qouq",
+          "field-service-engineer-100-w-m-komax-ch-i3qouq",
+          "field-service-ingegnere-100-w-m-komax-dierikon-i3qplf",
+          "field-service-engineer-100-w-m-komax-ch-i3qplf"
         ],
         "de": [
           "field-service-engineer-100-w-m-komax-ch"
         ],
         "fr": [
           "field-service-engineer-100-w-m-komax-ch"
+        ],
+        "en": [
+          "field-service-engineer-100-w-m-komax-ch-i3qouq"
         ]
       },
-      "firstSeenAt": "2026-07-31T12:13:05.192Z",
+      "previousSlugs": [
+        "field-service-engineer-100-w-m-komax-ch",
+        "field-service-ingegnere-100-w-m-komax-dierikon-i3qouq",
+        "field-service-engineer-100-w-m-komax-ch-i3qouq",
+        "field-service-ingegnere-100-w-m-komax-dierikon-i3qplf",
+        "field-service-engineer-100-w-m-komax-ch-i3qplf",
+        "field-service-ingegnere-100-w-m-komax-dierikon",
+        "field-service-ingegnere-100-w-m-komax-dierikon-i3qouq",
+        "field-service-engineer-100-w-m-komax-ch-i3qouq",
+        "field-service-ingegnere-100-w-m-komax-dierikon-i3qplf",
+        "field-service-engineer-100-w-m-komax-ch-i3qplf"
+      ],
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -160,7 +168,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:37:16.826Z",
-      "needsRetranslation": true,
       "salaryMin": 58500,
       "salaryMax": 89000,
       "baseSalary": {
@@ -189,7 +196,7 @@
       "title": "Technical Sales Specialist 80-100% (m/w)",
       "titleByLocale": {
         "it": "Specialista Vendite Tecnico 80-100% (m/f)",
-        "en": "Technical Sales Specialist 80-100% (m/w)",
+        "en": "Technical Sales Specialist 80-100% (m/f)",
         "de": "Technical Sales Spezialist 80-100% (m/w)",
         "fr": "Spécialiste Commercial Technique 80-100% (m/f)"
       },
@@ -238,7 +245,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:37:16.827Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -324,7 +330,6 @@
         ]
       },
       "firstSeenAt": "2026-07-20T12:09:26.370Z",
-      "needsRetranslation": true,
       "salaryMin": 96000,
       "salaryMax": 146000,
       "baseSalary": {
@@ -405,7 +410,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:37:16.824Z",
-      "needsRetranslation": true,
       "salaryMin": 58500,
       "salaryMax": 89000,
       "baseSalary": {
@@ -499,7 +503,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:37:16.824Z",
-      "needsRetranslation": true,
       "salaryMin": 58500,
       "salaryMax": 89000,
       "baseSalary": {
@@ -660,7 +663,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:37:16.823Z",
-      "needsRetranslation": true,
       "salaryMin": 58500,
       "salaryMax": 89000,
       "baseSalary": {
@@ -736,7 +738,6 @@
         ]
       },
       "firstSeenAt": "2026-07-23T22:17:31.872Z",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -765,7 +766,7 @@
       "title": "HR Operations Specialist 60-100% (Mutterschaftsvertretung)",
       "titleByLocale": {
         "it": "Risorse Umane Operations Specialista 60-100% (Mutterschaftsvertretung)",
-        "en": "HR Operations Specialist 60-100% (Mutterschaftsvertretung)",
+        "en": "HR Operations Specialist 60-100% (Maternity Representation)",
         "de": "Personalwesen Operations Spezialist 60-100% (Mutterschaftsvertretung)",
         "fr": "Ressources Humaines Operations Spécialiste 60-100% (Mutterschaftsvertretung)"
       },
@@ -814,7 +815,6 @@
         ]
       },
       "firstSeenAt": "2026-07-22T12:26:00.719Z",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -895,7 +895,6 @@
         ]
       },
       "firstSeenAt": "2026-07-28T12:14:06.624Z",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
