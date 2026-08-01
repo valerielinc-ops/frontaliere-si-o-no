@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "savedAt": "2026-08-01T15:58:17.412Z",
+  "savedAt": "2026-08-01T22:05:57.602Z",
   "entries": [
     {
       "key": "d75719e12bc559369b74abd12b1a133042ef5e67255856876010887a99333ff9",
@@ -273122,51 +273122,6 @@
       }
     },
     {
-      "key": "99e16e9da0db52cdad6891e7ea46074904296f01dc54259c1a0dc84265f9fc89",
-      "touchedAt": 1785581503039,
-      "value": {
-        "isJob": true,
-        "confidence": 0.9,
-        "reason": "The page contains a concrete role title (Lehrstelle Polymechaniker(in) EFZ (4 Jahre)), responsibilities/requirements (herstellen zu können und Maschinen (konventionelle oder computergesteuerte) zu bedienen, um Serien von kleinen Teilen mit hoher Präzision herzustellen), and application context (Bewerbungsschreiben - Lebenslauf – Zeugnisse - Multicheck-Test (obligatorisch)) which indicates that it is a real single job detail page."
-      }
-    },
-    {
-      "key": "1cec2c5f9e003236f4bb0113ae6d64f4ea6ec0b6e93aadecabe4b4a5422c2a6b",
-      "touchedAt": 1785581503946,
-      "value": {
-        "isJob": true,
-        "confidence": 0.9,
-        "reason": "The page contains a concrete role title (Lehrstelle Produktionsmechaniker(in) EFZ (3 Jahre)), responsibilities/requirements, and application context, which suggests that it is a real single job detail page."
-      }
-    },
-    {
-      "key": "b9a0e58680cb3b5b50363290fd729c8fbf814bc8c5629edc9163f7297bf3d9aa",
-      "touchedAt": 1785581504118,
-      "value": {
-        "isJob": true,
-        "confidence": 0.9,
-        "reason": "The page contains a concrete role title (Lehrstelle Polymechaniker(in) EFZ (4 Jahre)), responsibilities/requirements, and application context, which suggests that it is a real single job detail page."
-      }
-    },
-    {
-      "key": "973f449cca9e7b3d14b165512e62f5a3c1f607b805d7954e698b2f1755989b48",
-      "touchedAt": 1785581504707,
-      "value": {
-        "isJob": true,
-        "confidence": 0.9,
-        "reason": "The page contains a concrete role title, responsibilities/requirements, and application context, which are typical characteristics of a real single job detail page."
-      }
-    },
-    {
-      "key": "7ee2c9949116f9ee99b29e898dc266c5326201913c5e1f0dfba3252fc1a98d6f",
-      "touchedAt": 1785581504946,
-      "value": {
-        "isJob": true,
-        "confidence": 0.9,
-        "reason": "The page contains a concrete role title (Lehrstelle Produktionsmechaniker(in) EFZ (3 Jahre)), responsibilities/requirements, and application context, indicating a real single job detail page."
-      }
-    },
-    {
       "key": "4630079b2415ed90e7cf955b32c42266bc3c6bbdbd3acc266b105446bf22c025",
       "touchedAt": 1785581505691,
       "value": {
@@ -273176,30 +273131,12 @@
       }
     },
     {
-      "key": "a32c9f1b9872ab4dc17cfaaeb6de422d9c8b3bf86d4bd841e9cacc7d7b2ec44a",
-      "touchedAt": 1785581506475,
-      "value": {
-        "isJob": true,
-        "confidence": 0.9,
-        "reason": "The page contains a concrete role title (Watchmaker), responsibilities/requirements, and application context, which meets the rules for a REAL SINGLE JOB DETAIL page."
-      }
-    },
-    {
       "key": "c54282d8a590707f1297ef6660b7d76f4efb7a02c7d15964b5c8d8b9fac36cd4",
       "touchedAt": 1785581506818,
       "value": {
         "isJob": true,
         "confidence": 0.9,
         "reason": "The page contains a concrete role title 'SWATCH Store Verkaufsberater/in in Teilzeit', responsibilities/requirements, and application context, indicating a real single job detail page."
-      }
-    },
-    {
-      "key": "60134eb6c6c84d444279e6bdade0372671487bd88500abeefa965120a1a768e5",
-      "touchedAt": 1785581507327,
-      "value": {
-        "isJob": true,
-        "confidence": 0.9,
-        "reason": "The page contains a concrete role title (Omega Watchmaker), responsibilities/requirements, and application context, including a job description, professional requirements, and benefits. It also has a clear call to action to apply for the job."
       }
     },
     {
@@ -273266,15 +273203,6 @@
       }
     },
     {
-      "key": "5df5c89436e3b23ecaa3847306c906eda0a3722afd8d20e168ff547580d63d2b",
-      "touchedAt": 1785581511019,
-      "value": {
-        "isJob": true,
-        "confidence": 0.9,
-        "reason": "The page contains a concrete role title (Senior Legal Counsel), responsibilities/requirements, and application context, indicating a real single job detail page."
-      }
-    },
-    {
       "key": "06c6b9e5bf54ba5cf7ac20e6ce8da3b873a772a9b92c514fcb54b59cc44fa70c",
       "touchedAt": 1785581511994,
       "value": {
@@ -273302,15 +273230,6 @@
       }
     },
     {
-      "key": "7ecff37a4c0841653d1185b6acaacd6acff06d9c5b494b821ea516d94d230f80",
-      "touchedAt": 1785581513752,
-      "value": {
-        "isJob": true,
-        "confidence": 0.9,
-        "reason": "The page contains a concrete role title (Senior Legal Counsel), responsibilities/requirements, and application context, indicating a real single job detail page."
-      }
-    },
-    {
       "key": "ed866c19795c8f6803552dfb9d138613ec717afeb2706b7a4a01ee4239eb0f7f",
       "touchedAt": 1785581513823,
       "value": {
@@ -273329,57 +273248,12 @@
       }
     },
     {
-      "key": "86ab107cdb15298204851fd500bc7c00018db1115d3aa2f0d288033db8ba5451",
-      "touchedAt": 1785581514566,
-      "value": {
-        "isJob": true,
-        "confidence": 0.9,
-        "reason": "The page contains a concrete role title (LEHRSTELLE ALS URHMACHER/IN EFZ), responsibilities/requirements, and application context, indicating a real single job detail page."
-      }
-    },
-    {
-      "key": "ee908b5200cd5e62aaece9a24655a512aad1dc909d620c67a9fed5aa1fc16299",
-      "touchedAt": 1785581514693,
-      "value": {
-        "isJob": true,
-        "confidence": 0.9,
-        "reason": "The page contains a concrete role title, responsibilities, and application context, including a job description, required skills, and contact information."
-      }
-    },
-    {
       "key": "b312b85f0bfb161a9b49a8d8ea252b8ff4206698b666d11c1741c6a80e6ac7f6",
       "touchedAt": 1785581515516,
       "value": {
         "isJob": true,
         "confidence": 0.9,
         "reason": "The page contains a concrete role title (APPRENTISSAGE OPÉRATEUR·RICE EN HORLOGERIE AFP), responsibilities/requirements, and application context, which suggests it is a real single job detail page."
-      }
-    },
-    {
-      "key": "dae15f6e2dad588548387b8854cc0d54aa27826d2ea671266d1cdc35b4530025",
-      "touchedAt": 1785581515730,
-      "value": {
-        "isJob": true,
-        "confidence": 0.9,
-        "reason": "The page contains a concrete role title (Store Manager 100% – Shop-in-Shop Manor Lausanne), responsibilities/requirements, and application context, which meets the criteria for a REAL SINGLE JOB DETAIL page."
-      }
-    },
-    {
-      "key": "9e0d4a33499c56a52ca590af2c02778ac91b0dca6b63783ed3752480c081fcb8",
-      "touchedAt": 1785581516503,
-      "value": {
-        "isJob": true,
-        "confidence": 0.9,
-        "reason": "The page contains a concrete role title 'APPRENTISSAGE EMPLOYÉ·E DE COMMERCE CFC', responsibilities/requirements, and application context, which suggests it is a real single job detail page."
-      }
-    },
-    {
-      "key": "94d00ebc7512070d837c6e42f0bb8406fa3861cdbac1166bbc6c8f1db942faf8",
-      "touchedAt": 1785581516556,
-      "value": {
-        "isJob": true,
-        "confidence": 0.9,
-        "reason": "The page contains a concrete role title, responsibilities/requirements, and application context, which suggests that it is a real single job detail page."
       }
     },
     {
@@ -276468,6 +276342,357 @@
       "key": "20853e8710a41d3943c1022021e943cccf5f0526d4b9c37990fe3f4b0f7caa96",
       "touchedAt": 1785599890419,
       "value": "Technical Writer"
+    },
+    {
+      "key": "716d8ca55c0bc7f0222baf4928716279ce889dc13fdfc868d6e9d13fc1baac8e",
+      "touchedAt": 1785621933084,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title 'SWATCH Store Verkaufsberater/in in Teilzeit', responsibilities/requirements, and application context, which suggests that it is a real single job detail page."
+      }
+    },
+    {
+      "key": "0a89b83985feb0c64eb60fc8eb9b069c4e49f2afcd00da8c3d3f2d10977ef770",
+      "touchedAt": 1785621934262,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title (BREGUET BLANCPAIN Verkaufsberater), responsibilities/requirements, and application context, indicating a real single job detail page."
+      }
+    },
+    {
+      "key": "8b9905f90eed9ee4d01ae6331ea0819c7329c67b24c2795bcd9d6cc9e765d1e8",
+      "touchedAt": 1785621935202,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title, responsibilities/requirements, and application context, which meets the criteria for a REAL SINGLE JOB DETAIL page."
+      }
+    },
+    {
+      "key": "b9a0e58680cb3b5b50363290fd729c8fbf814bc8c5629edc9163f7297bf3d9aa",
+      "touchedAt": 1785621935595,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title (Lehrstelle Polymechaniker(in) EFZ (4 Jahre)), responsibilities/requirements, and application context, which suggests that it is a real single job detail page."
+      }
+    },
+    {
+      "key": "7ee2c9949116f9ee99b29e898dc266c5326201913c5e1f0dfba3252fc1a98d6f",
+      "touchedAt": 1785621935782,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title (Lehrstelle Produktionsmechaniker(in) EFZ (3 Jahre)), responsibilities/requirements, and application context, indicating a real single job detail page."
+      }
+    },
+    {
+      "key": "8a83002d2c174d7f2fc2eccda224f436b3f978db90afc82bfe5bc0321386c66d",
+      "touchedAt": 1785621935837,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title (Sales Assistant), responsibilities/requirements, and application context, which suggests that it is a real single job detail page."
+      }
+    },
+    {
+      "key": "0331957ff215083da58965890f21e6bdc9e3597c06be16c9eb77bf8d3097fe49",
+      "touchedAt": 1785621936942,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title, responsibilities/requirements, and application context, which suggests that it is a real single job detail page."
+      }
+    },
+    {
+      "key": "3d2a80b1dfb1438ac9cc0be08e7758dc17be96fbce9d22dad7e3cbe3c5847262",
+      "touchedAt": 1785621936998,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title (Prestige Watchmaker), responsibilities/requirements, and application context, which meets the criteria for a REAL SINGLE JOB DETAIL page."
+      }
+    },
+    {
+      "key": "a32c9f1b9872ab4dc17cfaaeb6de422d9c8b3bf86d4bd841e9cacc7d7b2ec44a",
+      "touchedAt": 1785621937174,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title (Watchmaker), responsibilities/requirements, and application context, which meets the rules for a REAL SINGLE JOB DETAIL page."
+      }
+    },
+    {
+      "key": "60134eb6c6c84d444279e6bdade0372671487bd88500abeefa965120a1a768e5",
+      "touchedAt": 1785621937434,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title (Omega Watchmaker), responsibilities/requirements, and application context, including a job description, professional requirements, and benefits. It also has a clear call to action to apply for the job."
+      }
+    },
+    {
+      "key": "6b23629ff8584a2d5244ee246ba63757444faa0682d19942b86b640129b65298",
+      "touchedAt": 1785621937726,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title (SWATCH Assistant Store Manager/in), responsibilities/requirements, and application context, indicating a real single job detail page."
+      }
+    },
+    {
+      "key": "9fa85afe669f94d8a88138f94b4e4433ff0ff5f3a1873e3b8c2723274b34d441",
+      "touchedAt": 1785621938362,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title (Watchmaker), responsibilities/requirements, and application context, including a job description, professional requirements, and benefits. It also has a clear call to action to apply for the job."
+      }
+    },
+    {
+      "key": "219f288c375e1ee63f26cb9bef5936338fc078c9ebedb512c3f47ab7cb0cb3c0",
+      "touchedAt": 1785621939055,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title (BREGUET BLANCPAIN Verkaufsberater (w/m/d) in Teilzeit), responsibilities/requirements, and application context, indicating a real single job detail page."
+      }
+    },
+    {
+      "key": "a64c4d4807b6a265d279b97216f22ab697cb9cd19b854b4d521128c2aa98493f",
+      "touchedAt": 1785621939520,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title, responsibilities/requirements, and application context, including a job description, professional requirements, and benefits. It also has a clear call to action to apply for the job."
+      }
+    },
+    {
+      "key": "a157489bebffb2009787e3e7681d7ecf6f0d929d4a55d690342f63365857d399",
+      "touchedAt": 1785621940365,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title, responsibilities/requirements, and application context, which meets the criteria for a REAL SINGLE JOB DETAIL page."
+      }
+    },
+    {
+      "key": "06a3474c5647d38cee78714bb6c9b0dacc6be58415d138048b3e0a0453dd65b2",
+      "touchedAt": 1785621940725,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title (Conseiller de Vente Blancpain), responsibilities/requirements, and application context, which suggests that it is a real single job detail page."
+      }
+    },
+    {
+      "key": "1dba5802998060000adb708b7f2fbf93c9090528c17aac414404206b2daf31f5",
+      "touchedAt": 1785621941130,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title, responsibilities/requirements, and application context, which are typical characteristics of a real single job detail page."
+      }
+    },
+    {
+      "key": "dae15f6e2dad588548387b8854cc0d54aa27826d2ea671266d1cdc35b4530025",
+      "touchedAt": 1785621941214,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title (Store Manager 100% – Shop-in-Shop Manor Lausanne), responsibilities/requirements, and application context, which meets the criteria for a REAL SINGLE JOB DETAIL page."
+      }
+    },
+    {
+      "key": "5df5c89436e3b23ecaa3847306c906eda0a3722afd8d20e168ff547580d63d2b",
+      "touchedAt": 1785621941384,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title (Senior Legal Counsel), responsibilities/requirements, and application context, indicating a real single job detail page."
+      }
+    },
+    {
+      "key": "94d00ebc7512070d837c6e42f0bb8406fa3861cdbac1166bbc6c8f1db942faf8",
+      "touchedAt": 1785621941459,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title, responsibilities/requirements, and application context, which suggests that it is a real single job detail page."
+      }
+    },
+    {
+      "key": "99e16e9da0db52cdad6891e7ea46074904296f01dc54259c1a0dc84265f9fc89",
+      "touchedAt": 1785621941544,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title (Lehrstelle Polymechaniker(in) EFZ (4 Jahre)), responsibilities/requirements (herstellen zu können und Maschinen (konventionelle oder computergesteuerte) zu bedienen, um Serien von kleinen Teilen mit hoher Präzision herzustellen), and application context (Bewerbungsschreiben - Lebenslauf – Zeugnisse - Multicheck-Test (obligatorisch)) which indicates that it is a real single job detail page."
+      }
+    },
+    {
+      "key": "973f449cca9e7b3d14b165512e62f5a3c1f607b805d7954e698b2f1755989b48",
+      "touchedAt": 1785621941727,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title, responsibilities/requirements, and application context, which are typical characteristics of a real single job detail page."
+      }
+    },
+    {
+      "key": "7ecff37a4c0841653d1185b6acaacd6acff06d9c5b494b821ea516d94d230f80",
+      "touchedAt": 1785621941819,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title (Senior Legal Counsel), responsibilities/requirements, and application context, indicating a real single job detail page."
+      }
+    },
+    {
+      "key": "1cec2c5f9e003236f4bb0113ae6d64f4ea6ec0b6e93aadecabe4b4a5422c2a6b",
+      "touchedAt": 1785621941898,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title (Lehrstelle Produktionsmechaniker(in) EFZ (3 Jahre)), responsibilities/requirements, and application context, indicating a real single job detail page."
+      }
+    },
+    {
+      "key": "d2ab110fb6ebb198678e68e970928c88a16080830931b9d813b3db429306f672",
+      "touchedAt": 1785621941983,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title (Senior Team Leader), responsibilities/requirements, and application context, which suggests that it is a real single job detail page."
+      }
+    },
+    {
+      "key": "694145068860f5360ef757e45a474042bb08c1a9d19f0460977cd9d24107f94d",
+      "touchedAt": 1785621942086,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title (European Patent Attorney), responsibilities/requirements, and application context, indicating a real single job detail page."
+      }
+    },
+    {
+      "key": "ee908b5200cd5e62aaece9a24655a512aad1dc909d620c67a9fed5aa1fc16299",
+      "touchedAt": 1785621942176,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title, responsibilities, and application context, including a job description, required skills, and contact information."
+      }
+    },
+    {
+      "key": "c80987c2ad8c1a7f3a7359160815ff845eda3c38a4a5d58cac2ff9ff5e0c8077",
+      "touchedAt": 1785621942797,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title (Sales Assistant FT), responsibilities and requirements, and application context, which suggests that it is a real single job detail page."
+      }
+    },
+    {
+      "key": "def32a18bc7b77802df88d3c83b836d50832c0f5d03853b9897f2d219a791767",
+      "touchedAt": 1785621943941,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title 'Conseiller de vente (H/F)- Genève', responsibilities/requirements, and application context, indicating a real single job detail page."
+      }
+    },
+    {
+      "key": "91866e1cefe77eefa152404a50447bebc0fdd88bc3e015033ec694a00ea87bdf",
+      "touchedAt": 1785621944742,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title, responsibilities/requirements, and application context, which are typical characteristics of a real single job detail page."
+      }
+    },
+    {
+      "key": "7ef74116a7cae26ba3655386b8bcd6af9453fab8feaf4503a9ff98200f6f727a",
+      "touchedAt": 1785621946845,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title (APPRENTISSAGE LOGISTICIEN·NE CFC), responsibilities/requirements, and application context, which suggests it is a real single job detail page."
+      }
+    },
+    {
+      "key": "86ab107cdb15298204851fd500bc7c00018db1115d3aa2f0d288033db8ba5451",
+      "touchedAt": 1785621947011,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title (LEHRSTELLE ALS URHMACHER/IN EFZ), responsibilities/requirements, and application context, indicating a real single job detail page."
+      }
+    },
+    {
+      "key": "a10481ab3935e39a50e6433433a5200b40f49d0af999c25759f6fef19f184e2c",
+      "touchedAt": 1785621947967,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title 'APPRENTISSAGE OPÉRATEUR·RICE EN HORLOGERIE AFP', responsibilities/requirements, and application context, which suggests that it is a real single job detail page."
+      }
+    },
+    {
+      "key": "9e0d4a33499c56a52ca590af2c02778ac91b0dca6b63783ed3752480c081fcb8",
+      "touchedAt": 1785621948126,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title 'APPRENTISSAGE EMPLOYÉ·E DE COMMERCE CFC', responsibilities/requirements, and application context, which suggests it is a real single job detail page."
+      }
+    },
+    {
+      "key": "5aa6d6e20e8b8b859caef8cd463d918fc829a7faab52437db29cce35edf2b660",
+      "touchedAt": 1785621948962,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title 'Sales Assistant (all genders)', responsibilities/requirements, and application context, which meets the rules for a REAL SINGLE JOB DETAIL page."
+      }
+    },
+    {
+      "key": "109afff05aa8e2611defb16a9f016f65a180126c8ecc4c1193ba4250459c4f3c",
+      "touchedAt": 1785621950729,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title 'Sales Assistant (all genders)', responsibilities/requirements, and application context. It also includes details about the company, the role, and the benefits of working for the Swatch Group. The page is not a generic company career page, category listing, press/news, or about page, but rather a specific job detail page with a clear call-to-action to apply for the position."
+      }
+    },
+    {
+      "key": "d4400c82c7157735e49fc6cbb2374c4af27eed70af10778c7aab3bd5def20f00",
+      "touchedAt": 1785621951760,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title 'Verkaufsberater (all genders)', responsibilities/requirements, and application context, which suggests that it is a real single job detail page."
+      }
+    },
+    {
+      "key": "74ff6ff64cb73c376f24756ec190cee343bbb1abcf021ee3031a43bc2ccb171e",
+      "touchedAt": 1785621952691,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title 'Sales Assistant (all genders)', responsibilities/requirements, and application context, which meets the rules for a REAL SINGLE JOB DETAIL page."
+      }
+    },
+    {
+      "key": "ea523fcf592c796e1c959a9e9c7430eb2c6a4f99107f2ecc4957711739510c26",
+      "touchedAt": 1785621953936,
+      "value": {
+        "isJob": true,
+        "confidence": 0.8,
+        "reason": "The page contains a concrete role title, responsibilities/requirements, and application context, which suggests it is a real single job detail page."
+      }
     }
   ]
 }
