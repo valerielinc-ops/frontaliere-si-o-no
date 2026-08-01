@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-08-01T05:07:38.771Z",
+  "updatedAt": "2026-08-01T06:10:05.052Z",
   "entities": {
     "AASTI": {
       "status": "suspect",
@@ -172,25 +172,49 @@
       "statusSource": "auto",
       "statusAt": "2026-07-29T06:26:58.011Z",
       "firstSeen": "2026-07-29T06:26:58.011Z",
-      "lastSeen": "2026-08-01T05:07:38.771Z",
-      "seen": 43,
-      "unsupportedSightings": 2,
+      "lastSeen": "2026-08-01T06:10:05.052Z",
+      "seen": 46,
+      "unsupportedSightings": 3,
       "unsupportedRuns": [
+        "30685261901",
         "30595579311",
         "30489213850"
       ],
-      "supportedSightings": 21,
+      "supportedSightings": 23,
       "names": [
+        "Agenzia delle Entrate e l'Amministrazione Federale delle Contribuzioni",
+        "Ufficio Cantonale delle Contribuzioni",
+        "Agenzia federale delle contribuzioni",
         "Ufficio Federale delle Contribuzioni",
-        "Agenzia delle Entrate in Italia e dell’Amministrazione Federale delle Contribuzioni",
-        "Amministrazione federale delle contribuzioni",
-        "Amministrazione Federale delle Contribuzioni"
+        "Agenzia delle Entrate in Italia e dell’Amministrazione Federale delle Contribuzioni"
       ],
       "recentKeys": [
+        "30685261901:unknown",
         "30595579311:vivere-varzo-lavorare-ticino",
         "30489213850:unknown"
       ],
       "evidence": [
+        {
+          "at": "2026-08-01T06:10:05.052Z",
+          "runId": "30685261901",
+          "articleId": "unknown",
+          "support": "present",
+          "name": "Agenzia delle Entrate e l'Amministrazione Federale delle Contribuzioni"
+        },
+        {
+          "at": "2026-08-01T06:10:05.052Z",
+          "runId": "30685261901",
+          "articleId": "unknown",
+          "support": "present",
+          "name": "Ufficio Cantonale delle Contribuzioni"
+        },
+        {
+          "at": "2026-08-01T06:10:05.052Z",
+          "runId": "30685261901",
+          "articleId": "unknown",
+          "support": "absent",
+          "name": "Agenzia federale delle contribuzioni"
+        },
         {
           "at": "2026-08-01T05:07:38.771Z",
           "runId": "30684723546",
@@ -225,27 +249,6 @@
           "articleId": "nuove-regole-telelavoro-frontalieri-italia-svizzera",
           "support": "present",
           "name": "Amministrazione Federale delle Contribuzioni"
-        },
-        {
-          "at": "2026-07-31T01:30:30.927Z",
-          "runId": "30595579311",
-          "articleId": "vivere-varzo-lavorare-ticino",
-          "support": "present",
-          "name": "Amministrazione Federale delle Contribuzioni"
-        },
-        {
-          "at": "2026-07-31T01:30:30.927Z",
-          "runId": "30595579311",
-          "articleId": "vivere-varzo-lavorare-ticino",
-          "support": "present",
-          "name": "Amministrazione federale delle contribuzioni"
-        },
-        {
-          "at": "2026-07-31T01:30:30.927Z",
-          "runId": "30595579311",
-          "articleId": "vivere-varzo-lavorare-ticino",
-          "support": "present",
-          "name": "Amministrazione federale delle contribuzioni"
         }
       ]
     },
@@ -598,21 +601,53 @@
       "statusSource": "auto",
       "statusAt": "2026-07-29T06:26:58.011Z",
       "firstSeen": "2026-07-29T06:26:58.011Z",
-      "lastSeen": "2026-08-01T01:12:27.933Z",
-      "seen": 39,
-      "unsupportedSightings": 0,
-      "unsupportedRuns": [],
-      "supportedSightings": 27,
-      "names": [
-        "Ufficio Federale delle Statistiche",
-        "Agenzia delle Entrate, il MEF, l'Ufficio Federale di Statistica",
-        "Ufficio federale di Statistica",
-        "Amministrazione federale delle contribuzioni o dall'Ufficio federale di statistica",
-        "Ufficio Federale di Statistica"
+      "lastSeen": "2026-08-01T06:10:05.052Z",
+      "seen": 43,
+      "unsupportedSightings": 1,
+      "unsupportedRuns": [
+        "30685261901"
       ],
-      "recentKeys": [],
+      "supportedSightings": 30,
+      "names": [
+        "Ufficio Federale di Statistica",
+        "Agenzia delle Entrate, la MEF, l'Ufficio Federale di Statistica",
+        "Ufficio federale di statistica",
+        "Ufficio Federale delle Statistiche",
+        "Agenzia delle Entrate, il MEF, l'Ufficio Federale di Statistica"
+      ],
+      "recentKeys": [
+        "30685261901:unknown"
+      ],
       "evidence": [
         {
+          "at": "2026-08-01T06:10:05.052Z",
+          "runId": "30685261901",
+          "articleId": "unknown",
+          "support": "present",
+          "name": "Ufficio Federale di Statistica"
+        },
+        {
+          "at": "2026-08-01T06:10:05.052Z",
+          "runId": "30685261901",
+          "articleId": "unknown",
+          "support": "present",
+          "name": "Ufficio Federale di Statistica"
+        },
+        {
+          "at": "2026-08-01T06:10:05.052Z",
+          "runId": "30685261901",
+          "articleId": "unknown",
+          "support": "present",
+          "name": "Agenzia delle Entrate, la MEF, l'Ufficio Federale di Statistica"
+        },
+        {
+          "at": "2026-08-01T06:10:05.052Z",
+          "runId": "30685261901",
+          "articleId": "unknown",
+          "support": "absent",
+          "name": "Ufficio federale di statistica"
+        },
+        {
           "at": "2026-08-01T01:12:27.933Z",
           "runId": "30674952597",
           "articleId": "unknown",
@@ -636,34 +671,6 @@
         {
           "at": "2026-07-31T19:44:16.589Z",
           "runId": "30656077764",
-          "articleId": "unknown",
-          "support": "present",
-          "name": "Ufficio Federale di Statistica"
-        },
-        {
-          "at": "2026-07-31T14:59:32.755Z",
-          "runId": "30636711582",
-          "articleId": "unknown",
-          "support": "present",
-          "name": "Ufficio Federale di Statistica"
-        },
-        {
-          "at": "2026-07-31T14:59:32.755Z",
-          "runId": "30636711582",
-          "articleId": "unknown",
-          "support": "present",
-          "name": "Ufficio Federale di Statistica"
-        },
-        {
-          "at": "2026-07-31T14:59:32.755Z",
-          "runId": "30636711582",
-          "articleId": "unknown",
-          "support": "present",
-          "name": "Ufficio Federale delle Statistiche"
-        },
-        {
-          "at": "2026-07-31T13:57:33.014Z",
-          "runId": "30632468625",
           "articleId": "unknown",
           "support": "present",
           "name": "Ufficio Federale di Statistica"
@@ -4143,11 +4150,11 @@
       "statusSource": "auto",
       "statusAt": "2026-07-29T06:26:58.011Z",
       "firstSeen": "2026-07-29T06:26:58.011Z",
-      "lastSeen": "2026-08-01T04:50:30.314Z",
-      "seen": 84,
+      "lastSeen": "2026-08-01T06:10:05.052Z",
+      "seen": 87,
       "unsupportedSightings": 0,
       "unsupportedRuns": [],
-      "supportedSightings": 5,
+      "supportedSightings": 8,
       "names": [
         "Segreteria di Stato dell’economia",
         "Ufficio Cantonale del Ticino",
@@ -4157,6 +4164,27 @@
       ],
       "recentKeys": [],
       "evidence": [
+        {
+          "at": "2026-08-01T06:10:05.052Z",
+          "runId": "30685261901",
+          "articleId": "unknown",
+          "support": "present",
+          "name": "Segreteria di Stato dell’economia"
+        },
+        {
+          "at": "2026-08-01T06:10:05.052Z",
+          "runId": "30685261901",
+          "articleId": "unknown",
+          "support": "present",
+          "name": "Segreteria di Stato dell’economia"
+        },
+        {
+          "at": "2026-08-01T06:10:05.052Z",
+          "runId": "30685261901",
+          "articleId": "unknown",
+          "support": "present",
+          "name": "Segreteria di Stato dell’economia"
+        },
         {
           "at": "2026-08-01T04:50:30.314Z",
           "runId": "30684152993",
@@ -4191,27 +4219,6 @@
           "articleId": "unknown",
           "support": "present",
           "name": "Dipartimento federale delle finanze"
-        },
-        {
-          "at": "2026-07-29T06:26:58.011Z",
-          "runId": "corpus-scan",
-          "articleId": "ticinese-frontalieri",
-          "support": "unknown",
-          "name": "Segreteria di Stato dell'economia"
-        },
-        {
-          "at": "2026-07-29T06:26:58.011Z",
-          "runId": "corpus-scan",
-          "articleId": "terzo-pilastro-3a-vantaggi-canton-ginevra",
-          "support": "unknown",
-          "name": "Segreteria di Stato dell'economia"
-        },
-        {
-          "at": "2026-07-29T06:26:58.011Z",
-          "runId": "corpus-scan",
-          "articleId": "terzo-pilastro-3a-vantaggi-2026-canton-san-gallo",
-          "support": "unknown",
-          "name": "Segreteria di Stato dell'economia"
         }
       ]
     },
@@ -4416,16 +4423,38 @@
       "statusSource": "auto",
       "statusAt": "2026-07-29T08:23:04.319Z",
       "firstSeen": "2026-07-29T06:26:58.011Z",
-      "lastSeen": "2026-07-29T06:26:58.011Z",
-      "seen": 3,
+      "lastSeen": "2026-08-01T06:10:05.052Z",
+      "seen": 6,
       "unsupportedSightings": 0,
       "unsupportedRuns": [],
-      "supportedSightings": 0,
+      "supportedSightings": 3,
       "names": [
+        "Segreteria di Stato svizzera per le questioni finanziarie internazionali",
         "Segreteria di Stato per le questioni finanziarie internazionali"
       ],
       "recentKeys": [],
       "evidence": [
+        {
+          "at": "2026-08-01T06:10:05.052Z",
+          "runId": "30685261901",
+          "articleId": "unknown",
+          "support": "present",
+          "name": "Segreteria di Stato svizzera per le questioni finanziarie internazionali"
+        },
+        {
+          "at": "2026-08-01T06:10:05.052Z",
+          "runId": "30685261901",
+          "articleId": "unknown",
+          "support": "present",
+          "name": "Segreteria di Stato svizzera per le questioni finanziarie internazionali"
+        },
+        {
+          "at": "2026-08-01T06:10:05.052Z",
+          "runId": "30685261901",
+          "articleId": "unknown",
+          "support": "present",
+          "name": "Segreteria di Stato svizzera per le questioni finanziarie internazionali"
+        },
         {
           "at": "2026-07-29T06:26:58.011Z",
           "runId": "corpus-scan",
@@ -5973,20 +6002,34 @@
       "statusSource": "auto",
       "statusAt": "2026-07-29T06:26:58.011Z",
       "firstSeen": "2026-07-29T06:26:58.011Z",
-      "lastSeen": "2026-07-29T06:26:58.011Z",
-      "seen": 22,
+      "lastSeen": "2026-08-01T06:10:05.052Z",
+      "seen": 24,
       "unsupportedSightings": 0,
       "unsupportedRuns": [],
-      "supportedSightings": 0,
+      "supportedSightings": 2,
       "names": [
+        "Ufficio Cantonale di Stato",
+        "Ufficio federale per gli stranieri",
         "Ufficio federale della sicurezza alimentare e dei mangimi",
         "Ufficio federale della sicurezza sociale",
-        "Ufficio federale di sanità pubblica",
-        "Ufficio Federale della Sanità Pubblica",
-        "Ufficio federale della sanità pubblica"
+        "Ufficio federale di sanità pubblica"
       ],
       "recentKeys": [],
       "evidence": [
+        {
+          "at": "2026-08-01T06:10:05.052Z",
+          "runId": "30685261901",
+          "articleId": "unknown",
+          "support": "present",
+          "name": "Ufficio Cantonale di Stato"
+        },
+        {
+          "at": "2026-08-01T06:10:05.052Z",
+          "runId": "30685261901",
+          "articleId": "unknown",
+          "support": "present",
+          "name": "Ufficio federale per gli stranieri"
+        },
         {
           "at": "2026-07-29T06:26:58.011Z",
           "runId": "corpus-scan",
@@ -6028,20 +6071,6 @@
           "articleId": "vaiolo-delle-scimmie-ticino-2026",
           "support": "unknown",
           "name": "Ufficio federale della sanità pubblica"
-        },
-        {
-          "at": "2026-07-29T06:26:58.011Z",
-          "runId": "corpus-scan",
-          "articleId": "tuberkulose-caso-saint-maurice-2024",
-          "support": "unknown",
-          "name": "Ufficio federale della sanità pubblica"
-        },
-        {
-          "at": "2026-07-29T06:26:58.011Z",
-          "runId": "corpus-scan",
-          "articleId": "trippa-dogana-novazzano",
-          "support": "unknown",
-          "name": "Ufficio federale della sicurezza alimentare e dei mangimi"
         }
       ]
     },
@@ -6558,11 +6587,11 @@
       "statusSource": "auto",
       "statusAt": "2026-07-29T06:26:58.011Z",
       "firstSeen": "2026-07-29T06:26:58.011Z",
-      "lastSeen": "2026-07-31T03:35:39.206Z",
-      "seen": 26,
+      "lastSeen": "2026-08-01T06:10:05.052Z",
+      "seen": 27,
       "unsupportedSightings": 0,
       "unsupportedRuns": [],
-      "supportedSightings": 13,
+      "supportedSightings": 14,
       "names": [
         "Ufficio Regionale della Disoccupazione",
         "Ufficio Regionale di Collocamento",
@@ -6572,6 +6601,13 @@
       ],
       "recentKeys": [],
       "evidence": [
+        {
+          "at": "2026-08-01T06:10:05.052Z",
+          "runId": "30685261901",
+          "articleId": "unknown",
+          "support": "present",
+          "name": "Uffici regionali di collocamento"
+        },
         {
           "at": "2026-07-31T03:35:39.206Z",
           "runId": "30600477281",
@@ -6604,13 +6640,6 @@
           "at": "2026-07-29T23:23:44.157Z",
           "runId": "30497755528",
           "articleId": "caro-carburanti-svizzera-indagine-comco",
-          "support": "present",
-          "name": "Uffici regionali di collocamento"
-        },
-        {
-          "at": "2026-07-29T19:58:12.549Z",
-          "runId": "30483804455",
-          "articleId": "vivere-porto-ceresio-lavoro-ticino",
           "support": "present",
           "name": "Uffici regionali di collocamento"
         },
