@@ -1288,8 +1288,7 @@
         "en": [
           "chef-de-rang-brasserie-1519-long-term-w-verbier-marriott-verbier",
           "demi-chef-de-partie-winter-26-27-w-verbier-marriott-verbier-aqymwl",
-          "mixologist-winter-26-27-w-verbier-marriott-verbier",
-          "demi-chef-de-partie-winter-26-27-w-verbier-marriott-verbier"
+          "mixologist-winter-26-27-w-verbier-marriott-verbier"
         ],
         "de": [
           "demi-chef-de-partie-winter-26-27-w-verbier-marriott-verbier"
@@ -2112,7 +2111,7 @@
       "slugByLocale": {
         "it": "mezzo-capopartita-marriott-international-zurich",
         "en": "demi-chef-de-partie-marriott-zurich",
-        "de": "demi-chef-de-partie-marriott-zurich",
+        "de": "halbparteienchef-marriott-international-zurich",
         "fr": "demi-chef-de-partie-marriott-zurich"
       },
       "company": "Marriott International",
@@ -2174,6 +2173,9 @@
           "demi-chef-de-partie-marriott-zurich",
           "chef-de-sous-cuisine-marriott-international-zurich",
           "demi-chef-de-partie-marriott-international-zurich"
+        ],
+        "de": [
+          "demi-chef-de-partie-marriott-zurich"
         ]
       },
       "firstSeenAt": "2026-07-30T22:26:56.926Z",
@@ -2825,14 +2827,10 @@
       "previousSlugsByLocale": {
         "it": [
           "apprenti-intendance-w-verbier-marriott-verbier"
-        ],
-        "de": [
-          "lehrlingsabsicht-w-verbier-marriott-international-verbier"
         ]
       },
       "previousSlugs": [
-        "apprenti-intendance-w-verbier-marriott-verbier",
-        "lehrlingsabsicht-w-verbier-marriott-international-verbier"
+        "apprenti-intendance-w-verbier-marriott-verbier"
       ]
     },
     {

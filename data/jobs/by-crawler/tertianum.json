@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "tertianum-c154d9b4830a",
-      "slug": "restaurationsfachfrau-mann-tertianum-meilen",
+      "slug": "ristorazione-professionale-tertianum-meilen",
       "slugByLocale": {
         "de": "restaurationsfachfrau-mann-tertianum-meilen",
-        "it": "restaurationsfachfrau-mann-tertianum-meilen",
-        "en": "restaurationsfachfrau-mann-tertianum-meilen",
-        "fr": "restaurationsfachfrau-mann-tertianum-meilen"
+        "it": "ristorazione-professionale-tertianum-meilen",
+        "en": "restoration-professional-tertianum-meilen",
+        "fr": "professionnel-de-restauration-tertianum-meilen"
       },
       "company": "Tertianum",
       "companyKey": "tertianum",
@@ -64,7 +64,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-01T11:18:16.043Z"
+      "firstSeenAt": "2026-08-01T11:18:16.043Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "restaurationsfachfrau-mann-tertianum-meilen"
+        ],
+        "en": [
+          "restaurationsfachfrau-mann-tertianum-meilen"
+        ],
+        "fr": [
+          "restaurationsfachfrau-mann-tertianum-meilen"
+        ]
+      },
+      "previousSlugs": [
+        "restaurationsfachfrau-mann-tertianum-meilen"
+      ]
     },
     {
       "id": "tertianum-570005cad6c1",
@@ -1321,8 +1335,7 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-hauswirtschaft-springer-40-tertianum-basel",
-          "collaboratore-trice-hauswirtschaft-springer-40-tertianum-basel"
+          "mitarbeiter-in-hauswirtschaft-springer-40-tertianum-basel"
         ],
         "en": [
           "mitarbeiter-in-hauswirtschaft-springer-40-tertianum-basel"
@@ -1332,8 +1345,7 @@
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-hauswirtschaft-springer-40-tertianum-basel",
-        "collaboratore-trice-hauswirtschaft-springer-40-tertianum-basel"
+        "mitarbeiter-in-hauswirtschaft-springer-40-tertianum-basel"
       ],
       "salaryMin": 24800,
       "salaryMax": 37600,
@@ -6705,18 +6717,14 @@
       "firstSeenAt": "2026-07-31T22:25:29.876Z",
       "previousSlugs": [
         "kochin-koch-tertianum-thun",
-        "cook-tertianum-thun",
-        "cucina-tertianum-thun",
         "kochin-koch-tertianum-thun"
       ],
       "previousSlugsByLocale": {
         "it": [
           "kochin-koch-tertianum-thun",
-          "cucina-tertianum-thun",
           "kochin-koch-tertianum-thun"
         ],
         "en": [
-          "cook-tertianum-thun",
           "kochin-koch-tertianum-thun",
           "kochin-koch-tertianum-thun"
         ],

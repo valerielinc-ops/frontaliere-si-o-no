@@ -636,14 +636,12 @@
       "previousSlugs": [
         "mitarbeiter-verkauf-m-w-d-aldi-suisse",
         "mitarbeiter-verkauf-m-w-d-aldi-suisse-2",
-        "addetto-a-alle-vendite-m-w-d-aldi-suisse-bubendorf",
         "mitarbeiter-verkauf-m-w-d-aldi-suisse"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-verkauf-m-w-d-aldi-suisse",
           "mitarbeiter-verkauf-m-w-d-aldi-suisse-2",
-          "addetto-a-alle-vendite-m-w-d-aldi-suisse-bubendorf",
           "mitarbeiter-verkauf-m-w-d-aldi-suisse"
         ],
         "en": [
@@ -848,13 +846,11 @@
       "firstSeenAt": "2026-07-31T22:33:16.766Z",
       "previousSlugs": [
         "lernender-detailhandel-m-w-d-aldi-suisse",
-        "apprendista-commercio-al-dettaglio-m-w-d-aldi-suisse-landquart",
         "lernender-detailhandel-m-w-d-aldi-suisse"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lernender-detailhandel-m-w-d-aldi-suisse",
-          "apprendista-commercio-al-dettaglio-m-w-d-aldi-suisse-landquart",
           "lernender-detailhandel-m-w-d-aldi-suisse"
         ],
         "en": [
@@ -867,12 +863,12 @@
     },
     {
       "id": "aldi-suisse-22c81a039b15",
-      "slug": "lernender-detailhandel-m-w-d-aldi-suisse",
+      "slug": "apprendista-commercio-al-dettaglio-m-w-d-aldi-suisse-wetzikon",
       "slugByLocale": {
-        "it": "lernender-detailhandel-m-w-d-aldi-suisse",
-        "en": "lernender-detailhandel-m-w-d-aldi-suisse",
+        "it": "apprendista-commercio-al-dettaglio-m-w-d-aldi-suisse-wetzikon",
+        "en": "retail-apprentice-m-w-d-aldi-suisse-wetzikon",
         "de": "lernender-detailhandel-m-w-d-aldi-suisse",
-        "fr": "lernender-detailhandel-m-w-d-aldi-suisse"
+        "fr": "apprenti-e-commerce-de-detail-m-w-d-aldi-suisse-wetzikon"
       },
       "company": "ALDI SUISSE",
       "companyKey": "aldi-suisse",
@@ -943,11 +939,19 @@
       "crawledAt": "2026-08-01T11:18:54.893Z",
       "previousSlugsByLocale": {
         "it": [
-          "lernender-detailhandel-m-w-d-aldi-suisse-2"
+          "lernender-detailhandel-m-w-d-aldi-suisse-2",
+          "lernender-detailhandel-m-w-d-aldi-suisse"
+        ],
+        "en": [
+          "lernender-detailhandel-m-w-d-aldi-suisse"
+        ],
+        "fr": [
+          "lernender-detailhandel-m-w-d-aldi-suisse"
         ]
       },
       "previousSlugs": [
-        "lernender-detailhandel-m-w-d-aldi-suisse-2"
+        "lernender-detailhandel-m-w-d-aldi-suisse-2",
+        "lernender-detailhandel-m-w-d-aldi-suisse"
       ],
       "salaryMin": 65500,
       "salaryMax": 100500,
@@ -1260,13 +1264,11 @@
       "firstSeenAt": "2026-07-31T22:33:08.571Z",
       "previousSlugs": [
         "apprenti-e-du-commerce-de-detail-cfc-ou-afp-aldi-suisse",
-        "apprendistato-al-dettaglio-cfc-o-afp-aldi-suisse-collombey",
         "apprenti-e-du-commerce-de-detail-cfc-ou-afp-aldi-suisse"
       ],
       "previousSlugsByLocale": {
         "it": [
           "apprenti-e-du-commerce-de-detail-cfc-ou-afp-aldi-suisse",
-          "apprendistato-al-dettaglio-cfc-o-afp-aldi-suisse-collombey",
           "apprenti-e-du-commerce-de-detail-cfc-ou-afp-aldi-suisse"
         ],
         "en": [
@@ -1279,11 +1281,11 @@
     },
     {
       "id": "aldi-suisse-c91e6bbfea7e",
-      "slug": "apprenti-e-du-commerce-de-detail-cfc-ou-afp-aldi-suisse",
+      "slug": "apprendistato-al-dettaglio-cfc-o-afp-aldi-suisse-lausanne",
       "slugByLocale": {
-        "it": "apprenti-e-du-commerce-de-detail-cfc-ou-afp-aldi-suisse",
-        "en": "apprenti-e-du-commerce-de-detail-cfc-ou-afp-aldi-suisse",
-        "de": "apprenti-e-du-commerce-de-detail-cfc-ou-afp-aldi-suisse",
+        "it": "apprendistato-al-dettaglio-cfc-o-afp-aldi-suisse-lausanne",
+        "en": "retail-apprenticeship-cfc-or-afp-aldi-suisse-lausanne",
+        "de": "auszubildende-im-einzelhandel-cfc-oder-afp-aldi-suisse-lausanne",
         "fr": "apprenti-e-du-commerce-de-detail-cfc-ou-afp-aldi-suisse"
       },
       "company": "ALDI SUISSE",
@@ -1355,11 +1357,19 @@
       "crawledAt": "2026-08-01T11:18:34.017Z",
       "previousSlugsByLocale": {
         "it": [
-          "apprenti-e-du-commerce-de-detail-cfc-ou-afp-aldi-suisse-2"
+          "apprenti-e-du-commerce-de-detail-cfc-ou-afp-aldi-suisse-2",
+          "apprenti-e-du-commerce-de-detail-cfc-ou-afp-aldi-suisse"
+        ],
+        "en": [
+          "apprenti-e-du-commerce-de-detail-cfc-ou-afp-aldi-suisse"
+        ],
+        "de": [
+          "apprenti-e-du-commerce-de-detail-cfc-ou-afp-aldi-suisse"
         ]
       },
       "previousSlugs": [
-        "apprenti-e-du-commerce-de-detail-cfc-ou-afp-aldi-suisse-2"
+        "apprenti-e-du-commerce-de-detail-cfc-ou-afp-aldi-suisse-2",
+        "apprenti-e-du-commerce-de-detail-cfc-ou-afp-aldi-suisse"
       ],
       "salaryMin": 72000,
       "salaryMax": 111000,
@@ -1463,13 +1473,11 @@
       "firstSeenAt": "2026-07-31T22:33:07.621Z",
       "previousSlugs": [
         "apprenti-ventelernender-detailhandel-m-w-d-aldi-suisse",
-        "apprenti-ventelernender-commercio-al-dettaglio-m-w-d-aldi-suisse-belp",
         "apprenti-ventelernender-detailhandel-m-w-d-aldi-suisse"
       ],
       "previousSlugsByLocale": {
         "it": [
           "apprenti-ventelernender-detailhandel-m-w-d-aldi-suisse",
-          "apprenti-ventelernender-commercio-al-dettaglio-m-w-d-aldi-suisse-belp",
           "apprenti-ventelernender-detailhandel-m-w-d-aldi-suisse"
         ],
         "fr": [

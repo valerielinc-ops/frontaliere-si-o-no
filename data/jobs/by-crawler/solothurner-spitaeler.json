@@ -15367,8 +15367,8 @@
       "slugByLocale": {
         "de": "freiwillige-mitarbeiterin-freiwilliger-mitarbeiter-w-m-d-soh-ch",
         "it": "freiwillige-mitarbeiterin-freiwilliger-collaboratore-trice-m-w-d-solothurner-spitaler-soh-solothurn",
-        "en": "freiwillige-mitarbeiterin-freiwilliger-mitarbeiter-w-m-d-soh-ch",
-        "fr": "freiwillige-mitarbeiterin-freiwilliger-mitarbeiter-w-m-d-soh-ch"
+        "en": "volunteer-volunteer-f-m-d-solothurner-spitaler-soh-solothurn",
+        "fr": "volontaire-benevole-f-m-d-solothurner-spitaler-soh-solothurn"
       },
       "company": "Solothurner Spitäler (soH)",
       "companyKey": "solothurner-spitaeler",
@@ -15415,6 +15415,12 @@
       "workplace": "Psychiatrische Dienste",
       "previousSlugsByLocale": {
         "it": [
+          "freiwillige-mitarbeiterin-freiwilliger-mitarbeiter-w-m-d-soh-ch"
+        ],
+        "en": [
+          "freiwillige-mitarbeiterin-freiwilliger-mitarbeiter-w-m-d-soh-ch"
+        ],
+        "fr": [
           "freiwillige-mitarbeiterin-freiwilliger-mitarbeiter-w-m-d-soh-ch"
         ]
       },

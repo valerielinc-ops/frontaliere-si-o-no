@@ -7,9 +7,9 @@
       "slug": "kaufmann-frau-efz-lehrstart-2027-eisberg-ag-dallikon",
       "slugByLocale": {
         "it": "kaufmann-frau-efz-lehrstart-2027-eisberg-ag-dallikon",
-        "en": "kaufmann-frau-efz-lehrstart-2027-hilcona-dallikon",
+        "en": "commercial-apprentice-efz-2027-eisberg-ag-dallikon",
         "de": "kaufmann-frau-efz-lehrstart-2027-hilcona-dallikon",
-        "fr": "kaufmann-frau-efz-lehrstart-2027-hilcona-dallikon"
+        "fr": "apprentissage-employe-e-de-commerce-cfc-2027-eisberg-ag-dallikon"
       },
       "company": "Eisberg AG",
       "companyKey": "hilcona",
@@ -46,13 +46,17 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "kaufmann-frau-efz-lehrstart-2027-hilcona-dallikon",
-          "kaufmann-frau-efz-lehrstart-2027-eisberg-ag-dallikon"
+          "kaufmann-frau-efz-lehrstart-2027-hilcona-dallikon"
+        ],
+        "en": [
+          "kaufmann-frau-efz-lehrstart-2027-hilcona-dallikon"
+        ],
+        "fr": [
+          "kaufmann-frau-efz-lehrstart-2027-hilcona-dallikon"
         ]
       },
       "previousSlugs": [
-        "kaufmann-frau-efz-lehrstart-2027-hilcona-dallikon",
-        "kaufmann-frau-efz-lehrstart-2027-eisberg-ag-dallikon"
+        "kaufmann-frau-efz-lehrstart-2027-hilcona-dallikon"
       ],
       "salaryMin": 76000,
       "salaryMax": 102500,

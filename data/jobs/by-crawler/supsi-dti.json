@@ -307,9 +307,9 @@
       },
       "slugByLocale": {
         "it": "collaboratrice-amministrativa-collaboratore-amministrativo-servizio-carriera-esperienza-e-orientamento-supsi-dti-manno",
-        "en": "collaboratrice-amministrativa-collaboratore-amministrativo-servizio-carriera-esperienza-e-orientamento-supsi-dti-manno",
-        "de": "collaboratrice-amministrativa-collaboratore-amministrativo-servizio-carriera-esperienza-e-orientamento-supsi-dti-manno",
-        "fr": "collaboratrice-amministrativa-collaboratore-amministrativo-servizio-carriera-esperienza-e-orientamento-supsi-dti-manno"
+        "en": "administrative-collaborator-administrative-collaborator-career-service-experience-and-guidance-supsi-dti-manno",
+        "de": "administrative-collaborator-administrative-collaborator-karriere-service-erfahrung-und-anleitung-supsi-dti-manno",
+        "fr": "collaborateur-administratif-collaborateur-administratif-service-de-carriere-experience-et-orientation-supsi-dti-manno"
       },
       "requirementsByLocale": {
         "it": [
@@ -364,23 +364,7 @@
       "addressLocality": "Manno",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "previousSlugsByLocale": {
-        "en": [
-          "administrative-collaborator-administrative-collaborator-career-service-experience-and-guidance-supsi-dti-manno"
-        ],
-        "de": [
-          "administrative-collaborator-administrative-collaborator-karriere-service-erfahrung-und-anleitung-supsi-dti-manno"
-        ],
-        "fr": [
-          "collaborateur-administratif-collaborateur-administratif-service-de-carriere-experience-et-orientation-supsi-dti-manno"
-        ]
-      },
-      "previousSlugs": [
-        "administrative-collaborator-administrative-collaborator-career-service-experience-and-guidance-supsi-dti-manno",
-        "administrative-collaborator-administrative-collaborator-karriere-service-erfahrung-und-anleitung-supsi-dti-manno",
-        "collaborateur-administratif-collaborateur-administratif-service-de-carriere-experience-et-orientation-supsi-dti-manno"
-      ]
+      "employmentType": "FULL_TIME"
     },
     {
       "id": "company-l4ti3v",
@@ -429,9 +413,9 @@
       },
       "slugByLocale": {
         "it": "stagista-servizio-carriera-esperienza-e-orientamento-supsi-dti-manno",
-        "en": "stagista-servizio-carriera-esperienza-e-orientamento-supsi-dti-manno",
-        "de": "stagista-servizio-carriera-esperienza-e-orientamento-supsi-dti-manno",
-        "fr": "stagista-servizio-carriera-esperienza-e-orientamento-supsi-dti-manno"
+        "en": "stage-career-service-experience-and-guidance-supsi-dti-manno",
+        "de": "stage-career-service-erfahrung-und-anleitung-supsi-dti-manno",
+        "fr": "etape-service-professionnel-experience-et-orientation-supsi-dti-manno"
       },
       "requirementsByLocale": {
         "it": [
@@ -490,23 +474,7 @@
       "addressLocality": "Manno",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "previousSlugsByLocale": {
-        "en": [
-          "stage-career-service-experience-and-guidance-supsi-dti-manno"
-        ],
-        "de": [
-          "stage-career-service-erfahrung-und-anleitung-supsi-dti-manno"
-        ],
-        "fr": [
-          "etape-service-professionnel-experience-et-orientation-supsi-dti-manno"
-        ]
-      },
-      "previousSlugs": [
-        "stage-career-service-experience-and-guidance-supsi-dti-manno",
-        "stage-career-service-erfahrung-und-anleitung-supsi-dti-manno",
-        "etape-service-professionnel-experience-et-orientation-supsi-dti-manno"
-      ]
+      "employmentType": "FULL_TIME"
     },
     {
       "id": "company-7du0vy",
@@ -557,7 +525,7 @@
         "it": "assistente-con-bachelor-per-il-corso-di-laurea-in-ingegneria-civile-supsi-dti-mendrisio",
         "en": "assistant-with-bachelor-of-science-in-civil-engineering-supsi-dti-mendrisio",
         "de": "assistent-mit-bachelor-of-science-in-civil-engineering-supsi-dti-mendrisio",
-        "fr": "assistente-con-bachelor-per-il-corso-di-laurea-in-ingegneria-civile-supsi-dti-mendrisio"
+        "fr": "assistant-au-baccalaureat-en-genie-civil-supsi-dti-mendrisio"
       },
       "requirementsByLocale": {
         "it": [
@@ -629,15 +597,13 @@
           "assistente-con-bachelor-per-il-corso-di-laurea-in-ingegneria-civile-supsi-dti-dipartimento-ambiente-costruzioni-e-design-dacd"
         ],
         "fr": [
-          "assistente-con-bachelor-per-il-corso-di-laurea-in-ingegneria-civile-supsi-dti-dipartimento-ambiente-costruzioni-e-design-dacd",
-          "assistant-au-baccalaureat-en-genie-civil-supsi-dti-mendrisio"
+          "assistente-con-bachelor-per-il-corso-di-laurea-in-ingegneria-civile-supsi-dti-dipartimento-ambiente-costruzioni-e-design-dacd"
         ]
       },
       "previousSlugs": [
         "assistente-con-bachelor-o-master-per-il-corso-di-laurea-in-architettura-supsi-dti-mendrisio",
         "assistente-con-bachelor-o-master-per-il-corso-di-laurea-in-architettura-supsi-dti-mendrisio-1r5lvl",
-        "assistente-con-bachelor-per-il-corso-di-laurea-in-ingegneria-civile-supsi-dti-dipartimento-ambiente-costruzioni-e-design-dacd",
-        "assistant-au-baccalaureat-en-genie-civil-supsi-dti-mendrisio"
+        "assistente-con-bachelor-per-il-corso-di-laurea-in-ingegneria-civile-supsi-dti-dipartimento-ambiente-costruzioni-e-design-dacd"
       ]
     },
     {
@@ -1111,7 +1077,7 @@
         "it": "assistenti-bachelor-in-formazione-master-mse-in-mechanical-engineering-and-materials-supsi-dti-lugano-grado-d",
         "en": "bachelor-in-mse-training-in-mechanical-engineering-and-materials-supsi-dti-lugano-l4u54e",
         "de": "bachelor-in-mse-ausbildung-in-maschinenbau-und-materialien-supsi-dti-lugano",
-        "fr": "assistenti-bachelor-in-formazione-master-mse-in-mechanical-engineering-and-materials-supsi-dti-lugano"
+        "fr": "baccalaureat-en-ingenierie-mecanique-et-materiaux-supsi-dti-lugano"
       },
       "requirementsByLocale": {
         "it": [
@@ -1189,7 +1155,6 @@
         ],
         "fr": [
           "professeurs-assistants-licence-en-education-mse-master-en-genie-mecanique-et-materiaux-supsi-dti-lugano",
-          "baccalaureat-en-ingenierie-mecanique-et-materiaux-supsi-dti-lugano",
           "assistenti-bachelor-in-formazione-master-mse-in-mechanical-engineering-and-materials-supsi-dti-lugano"
         ]
       },
@@ -1199,8 +1164,7 @@
         "assistenzprofessoren-bachelor-in-padagogik-mse-master-in-maschinenbau-und-materialwesen-supsi-dti-lugano",
         "professeurs-assistants-licence-en-education-mse-master-en-genie-mecanique-et-materiaux-supsi-dti-lugano",
         "assistant-professors-bachelor-in-education-mse-master-in-mechanical-engineering-and-materials-supsi-dti-lugano",
-        "bachelor-in-mse-training-in-mechanical-engineering-and-materials-supsi-dti-lugano",
-        "baccalaureat-en-ingenierie-mecanique-et-materiaux-supsi-dti-lugano"
+        "bachelor-in-mse-training-in-mechanical-engineering-and-materials-supsi-dti-lugano"
       ]
     },
     {
@@ -1241,7 +1205,7 @@
         "it": "assistenti-bachelor-in-formazione-master-mse-in-computer-science-o-data-science-supsi-dti-lugano-grado-d",
         "en": "bachelor-in-education-master-mse-in-computer-science-or-data-science-supsi-dti-lugano-l4u549",
         "de": "bachelor-in-education-master-mse-in-informatik-oder-data-science-supsi-dti-lugano",
-        "fr": "assistenti-bachelor-in-formazione-master-mse-in-computer-science-o-data-science-supsi-dti-lugano"
+        "fr": "baccalaureat-en-education-maitrise-en-informatique-ou-sciences-des-donnees-supsi-dti-lugano"
       },
       "titleByLocale": {
         "it": "Assistenti Bachelor in formazione Master MSE in Computer Science o Data Science",
@@ -1335,7 +1299,6 @@
         "fr": [
           "assistants-de-licence-en-formation-master-en-mse-en-informatique-ou-en-data-science-supsi-dti-lugano",
           "assistant-bachelor-en-master-mse-en-informatique-ou-en-science-des-donnees-supsi-dti-lugano",
-          "baccalaureat-en-education-maitrise-en-informatique-ou-sciences-des-donnees-supsi-dti-lugano",
           "assistenti-bachelor-in-formazione-master-mse-in-computer-science-o-data-science-supsi-dti-lugano"
         ]
       },
@@ -1348,8 +1311,7 @@
         "bachelor-assistent-in-master-mse-in-informatik-oder-datenwissenschaft-supsi-dti-lugano",
         "assistants-de-licence-en-formation-master-en-mse-en-informatique-ou-en-data-science-supsi-dti-lugano",
         "assistant-bachelor-en-master-mse-en-informatique-ou-en-science-des-donnees-supsi-dti-lugano",
-        "bachelor-in-education-master-mse-in-computer-science-or-data-science-supsi-dti-lugano",
-        "baccalaureat-en-education-maitrise-en-informatique-ou-sciences-des-donnees-supsi-dti-lugano"
+        "bachelor-in-education-master-mse-in-computer-science-or-data-science-supsi-dti-lugano"
       ]
     },
     {

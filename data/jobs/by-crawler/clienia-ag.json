@@ -7869,13 +7869,11 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "it": [
-          "diplomierte-pflegefachperson-mit-schwerpunkt-altenpflege-10-100-clienia-ag-zurich",
-          "diplomierte-pflegefachperson-mit-schwerpunkt-altenpflege-10-100-clienia-ag-pfaffikon"
+          "diplomierte-pflegefachperson-mit-schwerpunkt-altenpflege-10-100-clienia-ag-zurich"
         ]
       },
       "previousSlugs": [
-        "diplomierte-pflegefachperson-mit-schwerpunkt-altenpflege-10-100-clienia-ag-zurich",
-        "diplomierte-pflegefachperson-mit-schwerpunkt-altenpflege-10-100-clienia-ag-pfaffikon"
+        "diplomierte-pflegefachperson-mit-schwerpunkt-altenpflege-10-100-clienia-ag-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -7953,17 +7951,17 @@
       },
       "firstSeenAt": "2026-07-31T22:27:26.700Z",
       "previousSlugs": [
-        "arztsekretarin-arztsekretar-80-100-clienia-ag-zurich",
-        "arztsekretarin-arztsekretar-80-100-clienia-ag-pfaffikon",
-        "segretario-medico-80-100-clienia-ag-pfaffikon-zh",
+        "medical-secretary-80-100-clienia-ag-pfaffikon",
+        "secretaire-medical-e-80-100-clienia-ag-pfaffikon",
         "medical-secretary-80-100-clienia-ag-pfaffikon",
         "secretaire-medical-e-80-100-clienia-ag-pfaffikon"
       ],
       "previousSlugsByLocale": {
         "it": [
           "arztsekretarin-arztsekretar-80-100-clienia-ag-zurich",
-          "segretario-medico-80-100-clienia-ag-pfaffikon-zh",
           "arztsekretarin-arztsekretar-80-100-clienia-ag-zurich",
+          "medical-secretary-80-100-clienia-ag-pfaffikon",
+          "secretaire-medical-e-80-100-clienia-ag-pfaffikon",
           "medical-secretary-80-100-clienia-ag-pfaffikon",
           "secretaire-medical-e-80-100-clienia-ag-pfaffikon"
         ],
@@ -8059,12 +8057,12 @@
     },
     {
       "id": "clienia-ag-90240dfa1f64",
-      "slug": "dipl-pflegefachperson-hf-fh-im-nachtdienst-m-w-d-45-clienia-ag-pfaffikon",
+      "slug": "dipl-cura-professionale-hf-fh-in-servizio-notturno-m-f-d-45-clienia-ag-pfaffikon-zh",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-hf-fh-im-nachtdienst-m-w-d-45-clienia-ag-zurich",
-        "it": "dipl-pflegefachperson-hf-fh-im-nachtdienst-m-w-d-45-clienia-ag-pfaffikon",
-        "en": "dipl-pflegefachperson-hf-fh-im-nachtdienst-m-w-d-45-clienia-ag-pfaffikon",
-        "fr": "dipl-pflegefachperson-hf-fh-im-nachtdienst-m-w-d-45-clienia-ag-pfaffikon"
+        "it": "dipl-cura-professionale-hf-fh-in-servizio-notturno-m-f-d-45-clienia-ag-pfaffikon-zh",
+        "en": "dipl-care-professional-hf-fh-on-night-duty-m-f-d-45-clienia-ag-pfaffikon-zh",
+        "fr": "dipl-professionnels-de-la-sante-en-service-de-nuit-m-f-j-45-clienia-ag-pfaffikon-zh"
       },
       "company": "Clienia AG",
       "companyKey": "clienia-ag",
@@ -8112,17 +8110,30 @@
           "dipl-pflegefachperson-hf-fh-im-nachtdienst-m-w-d-45-clienia-ag-zurich",
           "diplomata-infermiera-professionale-con-diploma-federale-higher-education-notturno-m-f-d-45-clienia-ag-pfaffikon-zh",
           "infirmier-diplome-hf-fh-de-nuit-m-f-d-45-clienia-ag-pfaffikon",
-          "infermiere-diplomata-hf-fh-nel-turno-di-notte-m-f-d-45-clienia-ag-pfaffikon"
+          "infermiere-diplomata-hf-fh-nel-turno-di-notte-m-f-d-45-clienia-ag-pfaffikon",
+          "diplomata-infermiera-professionale-con-diploma-federale-higher-education-notturno-m-f-d-45-clienia-ag-pfaffikon-zh",
+          "infirmier-diplome-hf-fh-de-nuit-m-f-d-45-clienia-ag-pfaffikon",
+          "infermiere-diplomata-hf-fh-nel-turno-di-notte-m-f-d-45-clienia-ag-pfaffikon",
+          "dipl-pflegefachperson-hf-fh-im-nachtdienst-m-w-d-45-clienia-ag-pfaffikon"
         ],
         "fr": [
-          "infirmier-diplome-hf-fh-de-nuit-m-f-d-45-clienia-ag-pfaffikon"
+          "infirmier-diplome-hf-fh-de-nuit-m-f-d-45-clienia-ag-pfaffikon",
+          "infirmier-diplome-hf-fh-de-nuit-m-f-d-45-clienia-ag-pfaffikon",
+          "dipl-pflegefachperson-hf-fh-im-nachtdienst-m-w-d-45-clienia-ag-pfaffikon"
+        ],
+        "en": [
+          "dipl-pflegefachperson-hf-fh-im-nachtdienst-m-w-d-45-clienia-ag-pfaffikon"
         ]
       },
       "previousSlugs": [
         "dipl-pflegefachperson-hf-fh-im-nachtdienst-m-w-d-45-clienia-ag-zurich",
         "diplomata-infermiera-professionale-con-diploma-federale-higher-education-notturno-m-f-d-45-clienia-ag-pfaffikon-zh",
         "infirmier-diplome-hf-fh-de-nuit-m-f-d-45-clienia-ag-pfaffikon",
-        "infermiere-diplomata-hf-fh-nel-turno-di-notte-m-f-d-45-clienia-ag-pfaffikon"
+        "infermiere-diplomata-hf-fh-nel-turno-di-notte-m-f-d-45-clienia-ag-pfaffikon",
+        "diplomata-infermiera-professionale-con-diploma-federale-higher-education-notturno-m-f-d-45-clienia-ag-pfaffikon-zh",
+        "infirmier-diplome-hf-fh-de-nuit-m-f-d-45-clienia-ag-pfaffikon",
+        "infermiere-diplomata-hf-fh-nel-turno-di-notte-m-f-d-45-clienia-ag-pfaffikon",
+        "dipl-pflegefachperson-hf-fh-im-nachtdienst-m-w-d-45-clienia-ag-pfaffikon"
       ],
       "salaryMin": 33100,
       "salaryMax": 50200,
