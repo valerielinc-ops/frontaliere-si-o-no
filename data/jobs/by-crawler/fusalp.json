@@ -1,6 +1,6 @@
 {
   "crawlerKey": "fusalp",
-  "assembledAt": "2026-08-01T10:58:34.333Z",
+  "assembledAt": "2026-08-01T22:20:20.860Z",
   "jobs": [
     {
       "id": "fusalp-8125631f6cfc",
@@ -33,7 +33,7 @@
       "url": "https://fusalp.welcomekit.co/jobs/sales-associate-80_zurich",
       "source": "Fusalp Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-01T10:58:22.870Z",
+      "crawledAt": "2026-08-01T22:20:07.407Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -50,6 +50,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-07-21T12:23:44.903Z",
+      "needsRetranslation": true,
       "salaryMin": 58800,
       "salaryMax": 89200,
       "baseSalary": {
