@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-08-01T11:35:11.508Z",
+  "updatedAt": "2026-08-01T16:15:40.032Z",
   "entities": {
     "AASTI": {
       "status": "suspect",
@@ -172,21 +172,21 @@
       "statusSource": "auto",
       "statusAt": "2026-07-29T06:26:58.011Z",
       "firstSeen": "2026-07-29T06:26:58.011Z",
-      "lastSeen": "2026-08-01T06:10:05.052Z",
-      "seen": 46,
+      "lastSeen": "2026-08-01T16:15:40.032Z",
+      "seen": 48,
       "unsupportedSightings": 3,
       "unsupportedRuns": [
         "30685261901",
         "30595579311",
         "30489213850"
       ],
-      "supportedSightings": 23,
+      "supportedSightings": 25,
       "names": [
+        "Amministrazione Federale delle Contribuzioni",
+        "Ufficio federale delle contribuzioni",
         "Agenzia delle Entrate e l'Amministrazione Federale delle Contribuzioni",
         "Ufficio Cantonale delle Contribuzioni",
-        "Agenzia federale delle contribuzioni",
-        "Ufficio Federale delle Contribuzioni",
-        "Agenzia delle Entrate in Italia e dell’Amministrazione Federale delle Contribuzioni"
+        "Agenzia federale delle contribuzioni"
       ],
       "recentKeys": [
         "30685261901:unknown",
@@ -194,6 +194,20 @@
         "30489213850:unknown"
       ],
       "evidence": [
+        {
+          "at": "2026-08-01T16:15:40.032Z",
+          "runId": "30705553845",
+          "articleId": "unknown",
+          "support": "present",
+          "name": "Amministrazione Federale delle Contribuzioni"
+        },
+        {
+          "at": "2026-08-01T16:15:40.032Z",
+          "runId": "30705553845",
+          "articleId": "unknown",
+          "support": "present",
+          "name": "Ufficio federale delle contribuzioni"
+        },
         {
           "at": "2026-08-01T06:10:05.052Z",
           "runId": "30685261901",
@@ -233,20 +247,6 @@
           "at": "2026-07-31T14:59:32.755Z",
           "runId": "30636711582",
           "articleId": "unknown",
-          "support": "present",
-          "name": "Amministrazione Federale delle Contribuzioni"
-        },
-        {
-          "at": "2026-07-31T14:59:32.755Z",
-          "runId": "30636711582",
-          "articleId": "unknown",
-          "support": "present",
-          "name": "Agenzia delle Entrate in Italia e dell’Amministrazione Federale delle Contribuzioni"
-        },
-        {
-          "at": "2026-07-31T08:09:28.658Z",
-          "runId": "30614026157",
-          "articleId": "nuove-regole-telelavoro-frontalieri-italia-svizzera",
           "support": "present",
           "name": "Amministrazione Federale delle Contribuzioni"
         }
@@ -4150,20 +4150,27 @@
       "statusSource": "auto",
       "statusAt": "2026-07-29T06:26:58.011Z",
       "firstSeen": "2026-07-29T06:26:58.011Z",
-      "lastSeen": "2026-08-01T09:04:17.930Z",
-      "seen": 88,
+      "lastSeen": "2026-08-01T16:15:40.032Z",
+      "seen": 89,
       "unsupportedSightings": 0,
       "unsupportedRuns": [],
-      "supportedSightings": 9,
+      "supportedSightings": 10,
       "names": [
+        "Ufficio federale delle dogane e della sicurezza",
         "Segreteria di Stato dell’economia",
         "Ufficio Cantonale del Ticino",
         "Segreteria di Stato dell'Economia",
-        "Dipartimento federale delle finanze",
-        "Segreteria di Stato dell'economia"
+        "Dipartimento federale delle finanze"
       ],
       "recentKeys": [],
       "evidence": [
+        {
+          "at": "2026-08-01T16:15:40.032Z",
+          "runId": "30705553845",
+          "articleId": "unknown",
+          "support": "present",
+          "name": "Ufficio federale delle dogane e della sicurezza"
+        },
         {
           "at": "2026-08-01T09:04:17.930Z",
           "runId": "30692537080",
@@ -4212,13 +4219,6 @@
           "articleId": "unknown",
           "support": "present",
           "name": "Ufficio Cantonale del Ticino"
-        },
-        {
-          "at": "2026-07-30T09:41:16.713Z",
-          "runId": "30528247715",
-          "articleId": "besano-da-frontaliere-pro-e-contro",
-          "support": "present",
-          "name": "Segreteria di Stato dell'Economia"
         }
       ]
     },
@@ -4322,20 +4322,27 @@
       "statusSource": "auto",
       "statusAt": "2026-07-29T06:26:58.011Z",
       "firstSeen": "2026-07-29T06:26:58.011Z",
-      "lastSeen": "2026-07-31T19:44:16.589Z",
-      "seen": 16,
+      "lastSeen": "2026-08-01T16:15:40.032Z",
+      "seen": 17,
       "unsupportedSightings": 0,
       "unsupportedRuns": [],
-      "supportedSightings": 5,
+      "supportedSightings": 6,
       "names": [
+        "Ufficio di registro dell'Ufficio di Stato per l'immigrazione",
         "Ufficio Cantonale della Migrazione",
         "Ufficio della migrazione del Canton Ticino",
         "Ufficio federale delle migrazioni",
-        "Segreteria di Stato della migrazione",
-        "Segreteria di Stato della Migrazione"
+        "Segreteria di Stato della migrazione"
       ],
       "recentKeys": [],
       "evidence": [
+        {
+          "at": "2026-08-01T16:15:40.032Z",
+          "runId": "30705553845",
+          "articleId": "unknown",
+          "support": "present",
+          "name": "Ufficio di registro dell'Ufficio di Stato per l'immigrazione"
+        },
         {
           "at": "2026-07-31T19:44:16.589Z",
           "runId": "30656077764",
@@ -4382,13 +4389,6 @@
           "at": "2026-07-29T06:26:58.011Z",
           "runId": "corpus-scan",
           "articleId": "sem-taglia-108-posti-lavoro-2027",
-          "support": "unknown",
-          "name": "Segreteria di Stato della migrazione"
-        },
-        {
-          "at": "2026-07-29T06:26:58.011Z",
-          "runId": "corpus-scan",
-          "articleId": "permessi-soggiorno-svizzera-b-c-l",
           "support": "unknown",
           "name": "Segreteria di Stato della migrazione"
         }
@@ -6822,20 +6822,27 @@
       "statusSource": "auto",
       "statusAt": "2026-07-29T06:26:58.011Z",
       "firstSeen": "2026-07-29T06:26:58.011Z",
-      "lastSeen": "2026-08-01T10:16:50.191Z",
-      "seen": 9,
+      "lastSeen": "2026-08-01T16:15:40.032Z",
+      "seen": 10,
       "unsupportedSightings": 0,
       "unsupportedRuns": [],
-      "supportedSightings": 3,
+      "supportedSightings": 4,
       "names": [
+        "Ufficio Cantonale della Popolazione",
         "Ufficio federale di statistica",
         "Ufficio Cantonale di Statistica",
         "Ufficio cantonale delle statistiche",
-        "Ufficio di statistica del Cantone",
-        "Ufficio di statistica del Canton Ticino"
+        "Ufficio di statistica del Cantone"
       ],
       "recentKeys": [],
       "evidence": [
+        {
+          "at": "2026-08-01T16:15:40.032Z",
+          "runId": "30705553845",
+          "articleId": "unknown",
+          "support": "present",
+          "name": "Ufficio Cantonale della Popolazione"
+        },
         {
           "at": "2026-08-01T10:16:50.191Z",
           "runId": "30694253023",
@@ -6884,13 +6891,6 @@
           "articleId": "divario-salariale-frontalieri-ticino-2026",
           "support": "unknown",
           "name": "Ufficio di statistica del Canton Ticino"
-        },
-        {
-          "at": "2026-07-29T06:26:58.011Z",
-          "runId": "corpus-scan",
-          "articleId": "divario-salari-ticino-frontalieri-2026",
-          "support": "unknown",
-          "name": "Ufficio cantonale di statistica"
         }
       ]
     },
