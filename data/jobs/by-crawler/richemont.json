@@ -4024,19 +4024,20 @@
       "jobReqId": "jr128887",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
       "previousSlugs": [
         "responsabile-d-atelier-panerai-neuchatel",
         "workshopleiter-panerai-neuchatel",
         "responsable-d-ateliers-richemont-neuchatel",
         "workshop-manager-panerai-neuchatel",
         "responsabile-del-workshop-panerai-neuchatel",
+        "responsable-d-ateliers-panerai-neuchatel",
         "responsable-d-ateliers-panerai-neuchatel"
       ],
       "previousSlugsByLocale": {
         "it": [
           "responsable-d-ateliers-richemont-neuchatel",
           "responsabile-del-workshop-panerai-neuchatel",
+          "responsable-d-ateliers-panerai-neuchatel",
           "responsable-d-ateliers-panerai-neuchatel"
         ],
         "en": [
@@ -4059,7 +4060,8 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "richemont-9a189d9aeb2d",
@@ -6934,11 +6936,11 @@
       "jobReqId": "jr130115",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
       "previousSlugs": [
         "procurement-category-manager-richemont-plan-les-ouates-2",
         "procurement-category-manager-richemont-plan-les-ouates",
         "responsabile-categoria-acquisti-piaget-plan-les-ouates",
+        "procurement-category-manager-piaget-plan-les-ouates",
         "procurement-category-manager-piaget-plan-les-ouates"
       ],
       "previousSlugsByLocale": {
@@ -6946,6 +6948,7 @@
           "procurement-category-manager-richemont-plan-les-ouates-2",
           "procurement-category-manager-richemont-plan-les-ouates",
           "responsabile-categoria-acquisti-piaget-plan-les-ouates",
+          "procurement-category-manager-piaget-plan-les-ouates",
           "procurement-category-manager-piaget-plan-les-ouates"
         ],
         "de": [
@@ -6964,7 +6967,8 @@
           "maxValue": 126500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "richemont-dce71842addb",
@@ -9009,11 +9013,11 @@
       "jobReqId": "jr130757",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "chef-de-produits-richemont-buttes",
           "capo-dei-prodotti-valfleurier-buttes",
+          "chef-de-produits-valfleurier-buttes",
           "chef-de-produits-valfleurier-buttes"
         ],
         "en": [
@@ -9028,6 +9032,7 @@
         "capo-dei-prodotti-valfleurier-buttes",
         "head-of-products-valfleurier-buttes",
         "kopf-der-produkte-valfleurier-buttes",
+        "chef-de-produits-valfleurier-buttes",
         "chef-de-produits-valfleurier-buttes"
       ],
       "firstSeenAt": "2026-06-30T23:17:28.793Z",
@@ -9042,7 +9047,8 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "richemont-ec0150d0272a",
@@ -10294,11 +10300,11 @@
       "jobReqId": "jr130947",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "polivalente-di-operateur-richemont-delemont",
-          "operatore-multivalente-richemont-delemont"
+          "operatore-multivalente-richemont-delemont",
+          "operateur-polyvalent-richemont-delemont"
         ],
         "en": [
           "multivalent-operator-richemont-delemont"
@@ -10311,7 +10317,8 @@
         "polivalente-di-operateur-richemont-delemont",
         "operatore-multivalente-richemont-delemont",
         "multivalent-operator-richemont-delemont",
-        "multiplikator-richemont-delemont"
+        "multiplikator-richemont-delemont",
+        "operateur-polyvalent-richemont-delemont"
       ],
       "firstSeenAt": "2026-07-03T23:30:36.680Z",
       "salaryMin": 60500,
@@ -10325,7 +10332,8 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "richemont-4168f8f08137",
@@ -12137,16 +12145,17 @@
       "jobReqId": "jr131290",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "general-accountant-internal-control-fixed-term-contract-richemont-meyrin",
-          "contabile-generale-e-controllo-interno-contratto-di-pagamento-cartier-meyrin"
+          "contabile-generale-e-controllo-interno-contratto-di-pagamento-cartier-meyrin",
+          "general-accountant-internal-control-fixed-term-contract-cartier-meyrin"
         ]
       },
       "previousSlugs": [
         "general-accountant-internal-control-fixed-term-contract-richemont-meyrin",
-        "contabile-generale-e-controllo-interno-contratto-di-pagamento-cartier-meyrin"
+        "contabile-generale-e-controllo-interno-contratto-di-pagamento-cartier-meyrin",
+        "general-accountant-internal-control-fixed-term-contract-cartier-meyrin"
       ],
       "firstSeenAt": "2026-07-13T22:08:58.330Z",
       "salaryMin": 60500,
@@ -12160,7 +12169,8 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "richemont-37fc83cbe135",
