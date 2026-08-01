@@ -1,16 +1,16 @@
 {
   "key": "pigna",
   "label": "Stiftung Pigna",
-  "generatedAt": "2026-08-01T11:20:28.962Z",
-  "total": 10,
+  "generatedAt": "2026-08-01T22:16:21.969Z",
+  "total": 9,
   "newCount": 0,
   "updatedCount": 9,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 9180,
-  "avgDurationMs": 9180,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 9230,
+  "avgDurationMs": 9230,
   "durationHistory": [
-    9180
+    9230
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -27,7 +27,7 @@
       "url": "https://app.reflinejobs.io/1531/0156/pub/467/index.html",
       "source": "Pigna Dedicated Parser (Refline 1531)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-01T11:20:22.288Z",
+      "crawledAt": "2026-08-01T22:16:15.100Z",
       "addressLocality": "Kloten",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -64,7 +64,7 @@
       "url": "https://app.reflinejobs.io/1531/0276/pub/466/index.html",
       "source": "Pigna Dedicated Parser (Refline 1531)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-01T11:20:25.562Z",
+      "crawledAt": "2026-08-01T22:16:18.348Z",
       "addressLocality": "Kloten",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -101,7 +101,7 @@
       "url": "https://app.reflinejobs.io/1531/0132/pub/459/index.html",
       "source": "Pigna Dedicated Parser (Refline 1531)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-01T11:20:21.058Z",
+      "crawledAt": "2026-08-01T22:16:13.872Z",
       "addressLocality": "Kloten",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -138,7 +138,7 @@
       "url": "https://app.reflinejobs.io/1531/0216/pub/448/index.html",
       "source": "Pigna Dedicated Parser (Refline 1531)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-01T11:20:22.839Z",
+      "crawledAt": "2026-08-01T22:16:15.647Z",
       "addressLocality": "Kloten",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -175,7 +175,7 @@
       "url": "https://app.reflinejobs.io/1531/0270/pub/462/index.html",
       "source": "Pigna Dedicated Parser (Refline 1531)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-01T11:20:25.017Z",
+      "crawledAt": "2026-08-01T22:16:17.819Z",
       "addressLocality": "Kloten",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -212,7 +212,7 @@
       "url": "https://app.reflinejobs.io/1531/0138/pub/456/index.html",
       "source": "Pigna Dedicated Parser (Refline 1531)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-01T11:20:21.664Z",
+      "crawledAt": "2026-08-01T22:16:14.469Z",
       "addressLocality": "Kloten",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -249,7 +249,7 @@
       "url": "https://app.reflinejobs.io/1531/0258/pub/450/index.html",
       "source": "Pigna Dedicated Parser (Refline 1531)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-01T11:20:23.394Z",
+      "crawledAt": "2026-08-01T22:16:16.179Z",
       "addressLocality": "Kloten",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -286,7 +286,7 @@
       "url": "https://app.reflinejobs.io/1531/0267/pub/445/index.html",
       "source": "Pigna Dedicated Parser (Refline 1531)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-01T11:20:24.480Z",
+      "crawledAt": "2026-08-01T22:16:17.265Z",
       "addressLocality": "Kloten",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -323,7 +323,7 @@
       "url": "https://app.reflinejobs.io/1531/0264/pub/437/index.html",
       "source": "Pigna Dedicated Parser (Refline 1531)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-01T11:20:23.940Z",
+      "crawledAt": "2026-08-01T22:16:16.731Z",
       "addressLocality": "Kloten",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -348,8 +348,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "pigna-9344f7023244",
       "slug": "praktikant-in-werkstatt-kloten-100-pigna-kloten",
@@ -389,5 +388,6 @@
         "completeness": 22
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
