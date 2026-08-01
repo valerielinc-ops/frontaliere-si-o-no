@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-08-01T16:50:58.177Z",
+  "updatedAt": "2026-08-01T17:51:51.486Z",
   "entities": {
     "AASTI": {
       "status": "suspect",
@@ -172,15 +172,15 @@
       "statusSource": "auto",
       "statusAt": "2026-07-29T06:26:58.011Z",
       "firstSeen": "2026-07-29T06:26:58.011Z",
-      "lastSeen": "2026-08-01T16:15:40.032Z",
-      "seen": 48,
+      "lastSeen": "2026-08-01T17:51:51.486Z",
+      "seen": 49,
       "unsupportedSightings": 3,
       "unsupportedRuns": [
         "30685261901",
         "30595579311",
         "30489213850"
       ],
-      "supportedSightings": 25,
+      "supportedSightings": 26,
       "names": [
         "Amministrazione Federale delle Contribuzioni",
         "Ufficio federale delle contribuzioni",
@@ -194,6 +194,13 @@
         "30489213850:unknown"
       ],
       "evidence": [
+        {
+          "at": "2026-08-01T17:51:51.486Z",
+          "runId": "30709065471",
+          "articleId": "unknown",
+          "support": "present",
+          "name": "Amministrazione Federale delle Contribuzioni"
+        },
         {
           "at": "2026-08-01T16:15:40.032Z",
           "runId": "30705553845",
@@ -242,13 +249,6 @@
           "articleId": "unknown",
           "support": "present",
           "name": "Ufficio Federale delle Contribuzioni"
-        },
-        {
-          "at": "2026-07-31T14:59:32.755Z",
-          "runId": "30636711582",
-          "articleId": "unknown",
-          "support": "present",
-          "name": "Amministrazione Federale delle Contribuzioni"
         }
       ]
     },
@@ -601,24 +601,31 @@
       "statusSource": "auto",
       "statusAt": "2026-07-29T06:26:58.011Z",
       "firstSeen": "2026-07-29T06:26:58.011Z",
-      "lastSeen": "2026-08-01T10:16:50.191Z",
-      "seen": 44,
+      "lastSeen": "2026-08-01T17:51:51.486Z",
+      "seen": 45,
       "unsupportedSightings": 1,
       "unsupportedRuns": [
         "30685261901"
       ],
-      "supportedSightings": 31,
+      "supportedSightings": 32,
       "names": [
+        "Agenzia delle Entrate, il MEF, e l'Ufficio Federale di Statistica",
         "Ufficio Federale di Statistica",
         "Agenzia delle Entrate, la MEF, l'Ufficio Federale di Statistica",
         "Ufficio federale di statistica",
-        "Ufficio Federale delle Statistiche",
-        "Agenzia delle Entrate, il MEF, l'Ufficio Federale di Statistica"
+        "Ufficio Federale delle Statistiche"
       ],
       "recentKeys": [
         "30685261901:unknown"
       ],
       "evidence": [
+        {
+          "at": "2026-08-01T17:51:51.486Z",
+          "runId": "30709065471",
+          "articleId": "unknown",
+          "support": "present",
+          "name": "Agenzia delle Entrate, il MEF, e l'Ufficio Federale di Statistica"
+        },
         {
           "at": "2026-08-01T10:16:50.191Z",
           "runId": "30694253023",
@@ -667,13 +674,6 @@
           "articleId": "unknown",
           "support": "present",
           "name": "Ufficio Federale delle Statistiche"
-        },
-        {
-          "at": "2026-07-31T19:44:16.589Z",
-          "runId": "30656077764",
-          "articleId": "unknown",
-          "support": "present",
-          "name": "Ufficio Federale di Statistica"
         }
       ]
     },
@@ -4322,20 +4322,27 @@
       "statusSource": "auto",
       "statusAt": "2026-07-29T06:26:58.011Z",
       "firstSeen": "2026-07-29T06:26:58.011Z",
-      "lastSeen": "2026-08-01T16:15:40.032Z",
-      "seen": 17,
+      "lastSeen": "2026-08-01T17:51:51.486Z",
+      "seen": 18,
       "unsupportedSightings": 0,
       "unsupportedRuns": [],
-      "supportedSightings": 6,
+      "supportedSightings": 7,
       "names": [
+        "Ufficio federale delle dogane e della sicurezza dei confini",
         "Ufficio di registro dell'Ufficio di Stato per l'immigrazione",
         "Ufficio Cantonale della Migrazione",
         "Ufficio della migrazione del Canton Ticino",
-        "Ufficio federale delle migrazioni",
-        "Segreteria di Stato della migrazione"
+        "Ufficio federale delle migrazioni"
       ],
       "recentKeys": [],
       "evidence": [
+        {
+          "at": "2026-08-01T17:51:51.486Z",
+          "runId": "30709065471",
+          "articleId": "unknown",
+          "support": "present",
+          "name": "Ufficio federale delle dogane e della sicurezza dei confini"
+        },
         {
           "at": "2026-08-01T16:15:40.032Z",
           "runId": "30705553845",
@@ -4384,13 +4391,6 @@
           "articleId": "ticinese-frontalieri",
           "support": "unknown",
           "name": "Ufficio federale delle migrazioni"
-        },
-        {
-          "at": "2026-07-29T06:26:58.011Z",
-          "runId": "corpus-scan",
-          "articleId": "sem-taglia-108-posti-lavoro-2027",
-          "support": "unknown",
-          "name": "Segreteria di Stato della migrazione"
         }
       ]
     },
