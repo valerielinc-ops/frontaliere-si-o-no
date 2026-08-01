@@ -1738,6 +1738,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.keller-sutter-stabilita-finanze-sane.title': 'Keller-Sutter: "Stabilität und solide Finanzen sind die Stärke der Schweiz"',
     'blog.article.keller-sutter-stabilita-finanze-sane.excerpt': 'Bundesrätin Karin Keller-Sutter betonte heute anlässlich des Nationalfeiertags in Kradolf-Schönenberg (Thurgau) Stabilität, solide Finanzen und Konsensbildung.',
     'blog.article.keller-sutter-stabilita-finanze-sane.imageAlt': 'Eine Schweizerische Bundesrätin spricht in einem Zelt vor einem Mehrzweckhalle in Lugano.',
+    'blog.article.cassis-duedingen.title': 'Mehr Cassis in Düdingen:',
+    'blog.article.cassis-duedingen.excerpt': 'Die Schweiz fällt nicht vom Himmel, sondern muss kultiviert werden',
+    'blog.article.cassis-duedingen.imageAlt': 'Gruppe von Menschen bei einem brunch in einem Bauernhof in Düdingen (FR)',
 };
 
 export default blogMetaChDe;

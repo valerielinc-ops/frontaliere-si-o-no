@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-08-01T16:15:40.032Z",
+  "updatedAt": "2026-08-01T16:50:58.177Z",
   "entities": {
     "AASTI": {
       "status": "suspect",
@@ -730,16 +730,44 @@
       "statusSource": "auto",
       "statusAt": "2026-07-29T14:56:18.665Z",
       "firstSeen": "2026-07-29T14:56:18.665Z",
-      "lastSeen": "2026-08-01T11:35:11.508Z",
-      "seen": 17,
+      "lastSeen": "2026-08-01T16:50:58.177Z",
+      "seen": 21,
       "unsupportedSightings": 0,
       "unsupportedRuns": [],
-      "supportedSightings": 17,
+      "supportedSightings": 21,
       "names": [
         "Commissione federale delle banche"
       ],
       "recentKeys": [],
       "evidence": [
+        {
+          "at": "2026-08-01T16:50:58.177Z",
+          "runId": "30708506247",
+          "articleId": "cassis-duedingen",
+          "support": "present",
+          "name": "Commissione federale delle banche"
+        },
+        {
+          "at": "2026-08-01T16:50:58.177Z",
+          "runId": "30708506247",
+          "articleId": "cassis-duedingen",
+          "support": "present",
+          "name": "Commissione federale delle banche"
+        },
+        {
+          "at": "2026-08-01T16:50:58.177Z",
+          "runId": "30708506247",
+          "articleId": "cassis-duedingen",
+          "support": "present",
+          "name": "Commissione federale delle banche"
+        },
+        {
+          "at": "2026-08-01T16:50:58.177Z",
+          "runId": "30708506247",
+          "articleId": "cassis-duedingen",
+          "support": "present",
+          "name": "Commissione federale delle banche"
+        },
         {
           "at": "2026-08-01T11:35:11.508Z",
           "runId": "30697370065",
@@ -764,34 +792,6 @@
         {
           "at": "2026-08-01T10:16:50.191Z",
           "runId": "30694253023",
-          "articleId": "unknown",
-          "support": "present",
-          "name": "Commissione federale delle banche"
-        },
-        {
-          "at": "2026-08-01T10:16:50.191Z",
-          "runId": "30694253023",
-          "articleId": "unknown",
-          "support": "present",
-          "name": "Commissione federale delle banche"
-        },
-        {
-          "at": "2026-08-01T09:40:18.223Z",
-          "runId": "30693054693",
-          "articleId": "unknown",
-          "support": "present",
-          "name": "Commissione federale delle banche"
-        },
-        {
-          "at": "2026-08-01T09:40:18.223Z",
-          "runId": "30693054693",
-          "articleId": "unknown",
-          "support": "present",
-          "name": "Commissione federale delle banche"
-        },
-        {
-          "at": "2026-08-01T09:40:18.223Z",
-          "runId": "30693054693",
           "articleId": "unknown",
           "support": "present",
           "name": "Commissione federale delle banche"
