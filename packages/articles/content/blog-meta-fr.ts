@@ -9186,6 +9186,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.riforma-ue-frontalieri-2026.title': 'Réforme de l’UE, coût pour la Suisse : un milliard',
     'blog.article.riforma-ue-frontalieri-2026.excerpt': 'La Suisse est susceptible de payer un prix élevé pour une réforme sociale approuvée par l’Union européenne.',
     'blog.article.riforma-ue-frontalieri-2026.imageAlt': 'La vue de Lugano sur le lac de Lugano',
+    'blog.article.frontalieri-perdono-lavoro-svizzera-paga-2026.title': 'La Suisse paie le prix de la crise',
+    'blog.article.frontalieri-perdono-lavoro-svizzera-paga-2026.excerpt': 'La Suisse se prépare à un possible séisme financier en raison de la réforme de la gestion des allocations chômage pour les navetteurs transfrontaliers.',
+    'blog.article.frontalieri-perdono-lavoro-svizzera-paga-2026.imageAlt': 'Une scène photoréaliste avec le lac de Lugano en premier plan, avec les montagnes tessinoises en arrière-plan. La lumière du coucher du soleil éclaire la surface de l\'eau.',
 };
 
 export default blogMetaFr;

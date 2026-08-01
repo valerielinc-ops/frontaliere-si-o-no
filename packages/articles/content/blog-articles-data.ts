@@ -27570,6 +27570,15 @@ const RAW_ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'frontalieri-perdono-lavoro-svizzera-paga-2026',
+ category: 'fiscale',
+ date: '2026-08-01T22:58:29.167Z',
+ image: '/images/blog/frontalieri-perdono-lavoro-svizzera-paga-2026.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
