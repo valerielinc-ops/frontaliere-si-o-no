@@ -9165,6 +9165,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.nuove-regole-telelavoro-frontalieri-italia-svizzera.title': 'Neue Regeln für Telearbeit für Grenzgänger zwischen Italien und der Schweiz',
     'blog.article.nuove-regole-telelavoro-frontalieri-italia-svizzera.excerpt': 'Ab Montag, 9. Februar 2026, regeln die neuen Regeln die Telearbeit von Grenzgängern zwischen Italien und der Schweiz.',
     'blog.article.nuove-regole-telelavoro-frontalieri-italia-svizzera.imageAlt': 'Ein Frontalier in Fahrrad am italienisch-schweizerischen Grenzgebiet, mit dem Luganersee im Hintergrund.',
+    'blog.article.casellario-da-berna-l-ok-per-studiare-un-accordo-per-lo-scambio-di-dati-con-l-italia.title': 'Strafregister, Bern genehmigt Datenabkommen mit Italien',
+    'blog.article.casellario-da-berna-l-ok-per-studiare-un-accordo-per-lo-scambio-di-dati-con-l-italia.excerpt': 'Die Schweiz hat grünes Licht für die Untersuchung einer Vereinbarung zum Datenaustausch mit Italien gegeben. Das Abkommen zielt darauf ab, das Management der Daten grenzüberschreitender Arbeitnehmer zu vereinfachen.',
+    'blog.article.casellario-da-berna-l-ok-per-studiare-un-accordo-per-lo-scambio-di-dati-con-l-italia.imageAlt': 'Ein Gruppe von Grenzgängern, die ein Abkommen für die Datenübermittlung mit Italien in einem Arbeitsumfeld in Lugano, Tessin, studieren.',
 };
 
 export default blogMetaDe;

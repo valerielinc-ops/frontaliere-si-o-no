@@ -9167,6 +9167,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.nuove-regole-telelavoro-frontalieri-italia-svizzera.title': 'Nuove regole per il telelavoro per i frontalieri tra Italia e Svizzera',
     'blog.article.nuove-regole-telelavoro-frontalieri-italia-svizzera.excerpt': 'A decorrere da lunedì 9 febbraio 2026, le nuove regole disciplinano il telelavoro dei frontalieri tra Italia e Svizzera.',
     'blog.article.nuove-regole-telelavoro-frontalieri-italia-svizzera.imageAlt': 'Un frontaliere in bicicletta sul confine italo-svizzero, con il Lago di Lugano sullo sfondo.',
+    'blog.article.casellario-da-berna-l-ok-per-studiare-un-accordo-per-lo-scambio-di-dati-con-l-italia.title': 'Casellario, Berna approva accordo dati con l\'Italia',
+    'blog.article.casellario-da-berna-l-ok-per-studiare-un-accordo-per-lo-scambio-di-dati-con-l-italia.excerpt': 'La Svizzera ha dato il via libera allo studio di un accordo per uno scambio di dati con l\'Italia. L\'accordo mira a semplificare la gestione dei dati dei frontalieri.',
+    'blog.article.casellario-da-berna-l-ok-per-studiare-un-accordo-per-lo-scambio-di-dati-con-l-italia.imageAlt': 'Un gruppo di frontalieri che studiano un accordo per uno scambio di dati con l\'Italia in un ambiente di lavoro in Lugano, Ticino.',
 };
 
 export default blogMetaIt;
