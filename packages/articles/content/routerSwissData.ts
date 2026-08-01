@@ -607,6 +607,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'keller-sutter-stabilita-finanze-sane': { it: 'keller-sutter-stabilita-finanze-sane', en: 'keller-sutter-stability-sane-finances', de: 'keller-sutter-stabilitat-gesunde-finanzen', fr: 'keller-sutter-stabilite-finances-saines' },
  'cassis-duedingen': { it: 'cassis-duedingen', en: 'cassis-duedingen', de: 'cassis-duedingen', fr: 'cassis-duedingen' },
  'redditi-estero-controlli-doppia-tassazione': { it: 'redditi-estero-controlli-doppia-tassazione', en: 'income-earned-abroad-controls-avoiding-double-taxation', de: 'einkommen-im-ausland-kontrollen-doppelbesteuerung-vermeiden', fr: 'revenus-gagnes-a-l-etranger-controles-eviter-double-imposition' },
+ 'svizzera-ceuta-melilla-controlli-frontiere': { it: 'svizzera-ceuta-melilla-controlli-frontiere', en: 'switzerland-ceuta-melilla-border-controls', de: 'schweiz-ceuta-melilla-grenzkontrollen', fr: 'suisse-ceuta-melilla-controles-frontieres' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

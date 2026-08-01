@@ -1744,6 +1744,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.redditi-estero-controlli-doppia-tassazione.title': 'Revenus étrangers, chèques en route : comment éviter la double imposition',
     'blog.article.redditi-estero-controlli-doppia-tassazione.excerpt': 'Nouvelles règles pour les navetteurs transfrontaliers : exemptions, exemptions et comment éviter la double imposition.',
     'blog.article.redditi-estero-controlli-doppia-tassazione.imageAlt': 'Un frontalier avec des documents fiscaux et une calculatrice',
+    'blog.article.svizzera-ceuta-melilla-controlli-frontiere.title': 'Après Ceuta et Melilla, contrôles aux frontières',
+    'blog.article.svizzera-ceuta-melilla-controlli-frontiere.excerpt': 'Des dizaines de milliers de migrants ont franchi la frontière vers l’espace Schengen. Cet épisode attise le débat politique, même en Suisse.',
+    'blog.article.svizzera-ceuta-melilla-controlli-frontiere.imageAlt': 'Vue panoramique du lac de Lugano avec les montagnes suisses en arrière-plan.',
 };
 
 export default blogMetaChFr;

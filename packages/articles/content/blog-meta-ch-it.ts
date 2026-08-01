@@ -1744,6 +1744,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.redditi-estero-controlli-doppia-tassazione.title': 'Redditi esteri, controlli in arrivo: come evitare doppia tassazione',
     'blog.article.redditi-estero-controlli-doppia-tassazione.excerpt': 'Nuove regole per i frontalieri: esenzioni, franchigie e come evitare la doppia imposizione fiscale.',
     'blog.article.redditi-estero-controlli-doppia-tassazione.imageAlt': 'Un frontaliere con documenti fiscali e calcolatrice',
+    'blog.article.svizzera-ceuta-melilla-controlli-frontiere.title': 'Dopo Ceuta e Melilla, controlli alle frontiere',
+    'blog.article.svizzera-ceuta-melilla-controlli-frontiere.excerpt': 'Decine di migliaia di migranti hanno attraversato il confine verso lo spazio Schengen. L\'episodio infiamma il dibattito politico, anche in Svizzera.',
+    'blog.article.svizzera-ceuta-melilla-controlli-frontiere.imageAlt': 'Vista panoramica del Lago di Lugano con le montagne svizzere sullo sfondo.',
 };
 
 export default blogMetaChIt;

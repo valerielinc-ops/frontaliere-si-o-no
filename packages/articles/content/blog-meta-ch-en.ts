@@ -1744,6 +1744,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.redditi-estero-controlli-doppia-tassazione.title': 'Foreign income, checks on the way: how to avoid double taxation',
     'blog.article.redditi-estero-controlli-doppia-tassazione.excerpt': 'New rules for frontier workers: exemptions, deductibles and how to avoid double taxation.',
     'blog.article.redditi-estero-controlli-doppia-tassazione.imageAlt': 'A cross-border worker with tax documents and a calculator',
+    'blog.article.svizzera-ceuta-melilla-controlli-frontiere.title': 'After Ceuta and Melilla, border controls',
+    'blog.article.svizzera-ceuta-melilla-controlli-frontiere.excerpt': 'Tens of thousands of migrants have crossed the border into the Schengen area. The episode inflames the political debate, even in Switzerland.',
+    'blog.article.svizzera-ceuta-melilla-controlli-frontiere.imageAlt': 'Panoramic view of Lake Lugano with the Swiss mountains in the background.',
 };
 
 export default blogMetaChEn;
