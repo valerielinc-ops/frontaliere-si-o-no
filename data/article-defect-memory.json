@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-08-01T00:10:38.143Z",
+  "updatedAt": "2026-08-01T01:12:27.933Z",
   "entities": {
     "AASTI": {
       "status": "suspect",
@@ -598,11 +598,11 @@
       "statusSource": "auto",
       "statusAt": "2026-07-29T06:26:58.011Z",
       "firstSeen": "2026-07-29T06:26:58.011Z",
-      "lastSeen": "2026-07-31T19:44:16.589Z",
-      "seen": 37,
+      "lastSeen": "2026-08-01T01:12:27.933Z",
+      "seen": 39,
       "unsupportedSightings": 0,
       "unsupportedRuns": [],
-      "supportedSightings": 25,
+      "supportedSightings": 27,
       "names": [
         "Ufficio Federale delle Statistiche",
         "Agenzia delle Entrate, il MEF, l'Ufficio Federale di Statistica",
@@ -612,6 +612,20 @@
       ],
       "recentKeys": [],
       "evidence": [
+        {
+          "at": "2026-08-01T01:12:27.933Z",
+          "runId": "30674952597",
+          "articleId": "unknown",
+          "support": "present",
+          "name": "Ufficio Federale di Statistica"
+        },
+        {
+          "at": "2026-08-01T01:12:27.933Z",
+          "runId": "30674952597",
+          "articleId": "unknown",
+          "support": "present",
+          "name": "Ufficio Federale delle Statistiche"
+        },
         {
           "at": "2026-07-31T19:44:16.589Z",
           "runId": "30656077764",
@@ -653,20 +667,6 @@
           "articleId": "unknown",
           "support": "present",
           "name": "Ufficio Federale di Statistica"
-        },
-        {
-          "at": "2026-07-31T03:35:39.206Z",
-          "runId": "30600477281",
-          "articleId": "unknown",
-          "support": "present",
-          "name": "Ufficio federale di statistica"
-        },
-        {
-          "at": "2026-07-31T03:35:39.206Z",
-          "runId": "30600477281",
-          "articleId": "unknown",
-          "support": "present",
-          "name": "Ufficio federale di statistica"
         }
       ]
     },
