@@ -9176,6 +9176,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.frontalieri-richiamati-lavoro-svizzera.title': '10mila frontalieri richiamati al lavoro in Svizzera: lunghe code al confine',
     'blog.article.frontalieri-richiamati-lavoro-svizzera.excerpt': 'Secondo la fonte, circa 10.000 frontalieri italiani sono stati richiamati al lavoro in Svizzera, con lunghe code al confine.',
     'blog.article.frontalieri-richiamati-lavoro-svizzera.imageAlt': 'Frontalieri in coda al valico di Brogeda, aprile 2020',
+    'blog.article.smartworking-prolungato-2023.title': 'Smartworking per frontalieri prolungato fino al 30 giugno 2023',
+    'blog.article.smartworking-prolungato-2023.excerpt': 'La medida è stata prorogata fino al 30 giugno 2023 per i frontalieri ticinesi',
+    'blog.article.smartworking-prolungato-2023.imageAlt': 'Frontalieri in Ticino durante la pandemia di COVID-19',
 };
 
 export default blogMetaIt;

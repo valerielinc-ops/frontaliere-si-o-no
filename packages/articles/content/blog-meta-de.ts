@@ -9174,6 +9174,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.frontalieri-richiamati-lavoro-svizzera.title': '10.000 Grenzpendler zurück zur Arbeit gerufen',
     'blog.article.frontalieri-richiamati-lavoro-svizzera.excerpt': 'Laut der Quelle wurden etwa 10.000 italienische Grenzpendler zurück zur Arbeit in die Schweiz gerufen, mit langen Warteschlangen an der Grenze.',
     'blog.article.frontalieri-richiamati-lavoro-svizzera.imageAlt': 'Frontalieri in der Schlange am Grenzübergang Brogeda, April 2020',
+    'blog.article.smartworking-prolungato-2023.title': 'Smartworking für Grenzpendler bis 30. Juni 2023',
+    'blog.article.smartworking-prolungato-2023.excerpt': 'Die Medida wurde bis zum 30. Juni 2023 für grenzüberschreitende Pendler aus Tessin verlängert',
+    'blog.article.smartworking-prolungato-2023.imageAlt': 'Frontaliers in Tessin während der COVID-19-Pandemie',
 };
 
 export default blogMetaDe;

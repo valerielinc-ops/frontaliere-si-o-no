@@ -9175,6 +9175,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.frontalieri-richiamati-lavoro-svizzera.title': '10,000 cross-border workers return to Switzerland: long queues',
     'blog.article.frontalieri-richiamati-lavoro-svizzera.excerpt': 'According to the source, about 10,000 Italian border workers have been called to work in Switzerland, with long queues at the border.',
     'blog.article.frontalieri-richiamati-lavoro-svizzera.imageAlt': 'Frontalieri in coda al valico di Brogeda, April 2020',
+    'blog.article.smartworking-prolungato-2023.title': 'Smartworking for cross-border commuters extended until 30 June 2023',
+    'blog.article.smartworking-prolungato-2023.excerpt': 'The medida has been extended until 30 June 2023 for Ticino cross-border commuters',
+    'blog.article.smartworking-prolungato-2023.imageAlt': 'Frontaliers in Ticino during the COVID-19 pandemic',
 };
 
 export default blogMetaEn;

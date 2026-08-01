@@ -27543,6 +27543,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'smartworking-prolungato-2023',
+ category: 'pratico',
+ date: '2026-08-01T13:37:48.715Z',
+ image: '/images/blog/smartworking-prolungato-2023.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
