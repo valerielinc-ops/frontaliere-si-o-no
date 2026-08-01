@@ -1,50 +1,18 @@
 {
   "key": "agie-charmilles",
   "label": "AGIE Charmilles",
-  "generatedAt": "2026-08-01T11:27:12.168Z",
+  "generatedAt": "2026-08-01T22:16:18.427Z",
   "total": 37,
-  "newCount": 1,
-  "updatedCount": 32,
+  "newCount": 0,
+  "updatedCount": 33,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 59524,
-  "avgDurationMs": 59524,
+  "durationMs": 61095,
+  "avgDurationMs": 61095,
   "durationHistory": [
-    59524
+    61095
   ],
-  "newJobs": [
-    {
-      "title": "Engineer Hard- und Software",
-      "slug": "engineer-hard-und-software-agie-charmilles-langnau-im-emmental",
-      "url": "https://www.find-your-future.ch/it/arbeiten-mem-branche/branche-unternehmen/jobdetails/agie-charmilles-sa-engineer-hard-und-software/",
-      "applyUrl": "https://tracking.jobchannel.ch/redirect/d835ccc05b961769721022e8970b1faffd567c5c726eec10edf1dc0d514fa11d5774c330353c24cbfb4c4cef452cf266655d28eb1d6b755d8f0a3a18a78fd5",
-      "company": "AGIE Charmilles SA",
-      "companyKey": "agie-charmilles",
-      "companyDomain": "gfms.com",
-      "location": "Langnau im Emmental",
-      "addressLocality": "Langnau im Emmental",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "canton": "BE",
-      "country": "CH",
-      "category": "engineering",
-      "sector": "Macchine utensili",
-      "source": "agie-charmilles-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-08-01",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "validThrough": "",
-      "workload": "100%",
-      "_qualityScore": 79,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 16,
-        "completeness": 14
-      }
-    }
-  ],
+  "newJobs": [],
   "updatedJobs": [
     {
       "title": "Diagnose Engineer 80-100%",
@@ -114,6 +82,42 @@
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
+        "translation": 25,
+        "completeness": 19
+      }
+    },
+    {
+      "title": "Engineer Hard- und Software",
+      "slug": "engineer-hard-und-software-agie-charmilles-langnau-im-emmental",
+      "url": "https://www.find-your-future.ch/it/arbeiten-mem-branche/branche-unternehmen/jobdetails/agie-charmilles-sa-engineer-hard-und-software/",
+      "applyUrl": "https://tracking.jobchannel.ch/redirect/d835ccc05b961769721022e8970b1faffd567c5c726eec10edf1dc0d514fa11d5774c330353c24cbfb4c4cef452cf266655d28eb1d6b755d8f0a3a18a78fd5",
+      "company": "AGIE Charmilles SA",
+      "companyKey": "agie-charmilles",
+      "companyDomain": "gfms.com",
+      "location": "Langnau im Emmental",
+      "addressLocality": "Langnau im Emmental",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "canton": "BE",
+      "country": "CH",
+      "category": "engineering",
+      "sector": "Macchine utensili",
+      "source": "agie-charmilles-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-08-01",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "",
+      "workload": "100%",
+      "id": "agie-charmilles-ecec5e219c32",
+      "salaryMin": 77000,
+      "salaryMax": 116500,
+      "currency": "CHF",
+      "firstSeenAt": "2026-08-01T11:27:12.163Z",
+      "_qualityScore": 93,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
         "translation": 25,
         "completeness": 19
       }
@@ -1109,44 +1113,6 @@
         "richness": 22,
         "translation": 25,
         "completeness": 19
-      }
-    },
-    {
-      "title": "HR Specialist 100%",
-      "slug": "hr-specialist-100-agie-charmilles-losone",
-      "url": "https://www.find-your-future.ch/it/arbeiten-mem-branche/branche-unternehmen/jobdetails/agie-charmilles-sa-hr-specialist-100/",
-      "applyUrl": "https://tracking.jobchannel.ch/redirect/0fe9dffe0d00a7b0e4ff21ede603e89a307b550269e88f4543a36b91b747fe2081467f3ddd8c969588536fe36db24689a87ad4b7f39f3189a556f5ce546e64",
-      "company": "AGIE Charmilles SA",
-      "companyKey": "agie-charmilles",
-      "companyDomain": "gfms.com",
-      "location": "Losone",
-      "addressLocality": "Losone",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "hr",
-      "sector": "Macchine utensili",
-      "source": "agie-charmilles-dedicated-crawler",
-      "sourceLang": "en",
-      "postedDate": "2026-08-01",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "validThrough": "",
-      "workload": "100%",
-      "id": "agie-charmilles-883420494448",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "currency": "CHF",
-      "streetAddress": "Via Goldau 7",
-      "postalCode": "6616",
-      "firstSeenAt": "2026-07-21T12:42:20.384Z",
-      "_qualityScore": 99,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 25,
-        "completeness": 25
       }
     }
   ],
