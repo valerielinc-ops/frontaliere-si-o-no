@@ -9180,6 +9180,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.seveso-lavori-sul-nodo-ferroviario.title': 'Halte für die S4-Züge in Seveso und Camnago vom 3. bis 23. August',
     'blog.article.seveso-lavori-sul-nodo-ferroviario.excerpt': 'Während der Bauarbeiten werden die Verbindungen durch Busse gewährleistet, die in der Nähe des Rathauses von Seveso und vom Bahnhof Camnago Lentate abfahren.',
     'blog.article.seveso-lavori-sul-nodo-ferroviario.imageAlt': 'Ein Zug nähert sich dem Bahnhof Seveso',
+    'blog.article.riforma-ue-frontalieri-2026.title': 'EU-Reform, Kosten für die Schweiz: eine Milliarde',
+    'blog.article.riforma-ue-frontalieri-2026.excerpt': 'Die Schweiz riskiert einen hohen Preis für eine von der EU beschlossene Sozialreform.',
+    'blog.article.riforma-ue-frontalieri-2026.imageAlt': 'Die Aussicht von Lugano auf den Luganersee',
 };
 
 export default blogMetaDe;

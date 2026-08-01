@@ -9181,6 +9181,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.seveso-lavori-sul-nodo-ferroviario.title': 'Stop to S4 trains in Seveso and Camnago from 3 to 23 August',
     'blog.article.seveso-lavori-sul-nodo-ferroviario.excerpt': 'During the period of the works, connections will be guaranteed by buses departing from the vicinity of the Town Hall of Seveso and from the Camnago Lentate station.',
     'blog.article.seveso-lavori-sul-nodo-ferroviario.imageAlt': 'A train approaching the Seveso railway node',
+    'blog.article.riforma-ue-frontalieri-2026.title': 'EU reform, cost for Switzerland: one billion',
+    'blog.article.riforma-ue-frontalieri-2026.excerpt': 'Switzerland is likely to pay a high price for a social reform approved by the European Union.',
+    'blog.article.riforma-ue-frontalieri-2026.imageAlt': 'The view of Lugano from Lake Lugano',
 };
 
 export default blogMetaEn;
