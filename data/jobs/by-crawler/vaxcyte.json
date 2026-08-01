@@ -72,7 +72,6 @@
         ]
       },
       "firstSeenAt": "2026-06-25T23:32:47.249Z",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -140,7 +139,6 @@
         "location": "Visp"
       },
       "firstSeenAt": "2026-07-09T12:13:14.086Z",
-      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -304,7 +302,6 @@
         ]
       },
       "firstSeenAt": "2026-06-30T23:25:58.849Z",
-      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -400,8 +397,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     }
   ]
 }
