@@ -9170,6 +9170,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.casellario-da-berna-l-ok-per-studiare-un-accordo-per-lo-scambio-di-dati-con-l-italia.title': 'Casellario, Berna approva accordo dati con l\'Italia',
     'blog.article.casellario-da-berna-l-ok-per-studiare-un-accordo-per-lo-scambio-di-dati-con-l-italia.excerpt': 'La Svizzera ha dato il via libera allo studio di un accordo per uno scambio di dati con l\'Italia. L\'accordo mira a semplificare la gestione dei dati dei frontalieri.',
     'blog.article.casellario-da-berna-l-ok-per-studiare-un-accordo-per-lo-scambio-di-dati-con-l-italia.imageAlt': 'Un gruppo di frontalieri che studiano un accordo per uno scambio di dati con l\'Italia in un ambiente di lavoro in Lugano, Ticino.',
+    'blog.article.organico-incompleto-congelate-le-hcap-women.title': 'Organico incompleto: ‘congelate’ le Hcap Women',
+    'blog.article.organico-incompleto-congelate-le-hcap-women.excerpt': 'L\'Ambrì Piotta comunica che la squadra delle biancoblù non sarà iscritta alle competizioni femminili della stagione 2026/27.',
+    'blog.article.organico-incompleto-congelate-le-hcap-women.imageAlt': 'Un gruppo di giocatrici dell\'Hcap Women in azione durante un\'amichevole.',
 };
 
 export default blogMetaIt;

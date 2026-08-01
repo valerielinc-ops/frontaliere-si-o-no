@@ -9169,6 +9169,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.casellario-da-berna-l-ok-per-studiare-un-accordo-per-lo-scambio-di-dati-con-l-italia.title': 'Criminal records, Bern approves data agreement with Italy',
     'blog.article.casellario-da-berna-l-ok-per-studiare-un-accordo-per-lo-scambio-di-dati-con-l-italia.excerpt': 'Switzerland has given the green light to the study of an agreement for an exchange of data with Italy. The agreement aims to simplify the management of cross-border workers\' data.',
     'blog.article.casellario-da-berna-l-ok-per-studiare-un-accordo-per-lo-scambio-di-dati-con-l-italia.imageAlt': 'A group of border workers studying an agreement for data exchange with Italy in a workplace in Lugano, Ticino.',
+    'blog.article.organico-incompleto-congelate-le-hcap-women.title': 'Incomplete staff: Hcap Women \'frozen\'',
+    'blog.article.organico-incompleto-congelate-le-hcap-women.excerpt': 'Ambrì Piotta announces that the blue and white team will not be registered for the women\'s competitions of the 2026/27 season.',
+    'blog.article.organico-incompleto-congelate-le-hcap-women.imageAlt': 'Hcap Women players in action during a friendly match.',
 };
 
 export default blogMetaEn;
