@@ -9180,6 +9180,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.smartworking-prolungato-2023.title': 'Smartworking prolungato per frontalieri fino al 30 giu 2023',
     'blog.article.smartworking-prolungato-2023.excerpt': 'La medida a été prolongée jusqu’au 30 juin 2023 pour les navetteurs transfrontaliers du Tessin',
     'blog.article.smartworking-prolungato-2023.imageAlt': 'Frontaliers en Suisse pendant la pandémie de COVID-19',
+    'blog.article.seveso-lavori-sul-nodo-ferroviario.title': 'Arrêts pour les trains S4 à Seveso et Camnago du 3 au 23 août',
+    'blog.article.seveso-lavori-sul-nodo-ferroviario.excerpt': 'Pendant la période des travaux, les correspondances seront garanties par des bus partant des environs de l’hôtel de ville de Seveso et de la gare Camnago Lentate.',
+    'blog.article.seveso-lavori-sul-nodo-ferroviario.imageAlt': 'Un train s\'approche du nœud ferroviaire de Seveso',
 };
 
 export default blogMetaFr;

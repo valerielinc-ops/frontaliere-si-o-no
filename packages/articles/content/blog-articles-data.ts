@@ -27552,6 +27552,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'seveso-lavori-sul-nodo-ferroviario',
+ category: 'pratico',
+ date: '2026-08-01T14:32:51.416Z',
+ image: '/images/blog/seveso-lavori-sul-nodo-ferroviario.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

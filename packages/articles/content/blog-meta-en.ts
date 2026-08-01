@@ -9178,6 +9178,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.smartworking-prolungato-2023.title': 'Smartworking for cross-border commuters extended until 30 June 2023',
     'blog.article.smartworking-prolungato-2023.excerpt': 'The medida has been extended until 30 June 2023 for Ticino cross-border commuters',
     'blog.article.smartworking-prolungato-2023.imageAlt': 'Frontaliers in Ticino during the COVID-19 pandemic',
+    'blog.article.seveso-lavori-sul-nodo-ferroviario.title': 'Stop to S4 trains in Seveso and Camnago from 3 to 23 August',
+    'blog.article.seveso-lavori-sul-nodo-ferroviario.excerpt': 'During the period of the works, connections will be guaranteed by buses departing from the vicinity of the Town Hall of Seveso and from the Camnago Lentate station.',
+    'blog.article.seveso-lavori-sul-nodo-ferroviario.imageAlt': 'A train approaching the Seveso railway node',
 };
 
 export default blogMetaEn;
