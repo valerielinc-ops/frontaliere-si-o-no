@@ -307,6 +307,8 @@
         "backer-in-konditor-in-confiseur-in-efz-coop-gossau",
         "backer-in-konditor-in-confiseur-in-efz-coop-gossau-6eudip"
       ],
+      "salaryMin": 99000,
+      "salaryMax": 174000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -321,9 +323,7 @@
       "addressRegion": "SG",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "country": "CH",
-      "salaryMin": 99000,
-      "salaryMax": 174000
+      "country": "CH"
     },
     {
       "id": "company-3mn7k0",
@@ -380,6 +380,8 @@
         "backer-in-konditor-in-confiseur-in-efz-coop-gossau-2",
         "backer-in-konditor-in-confiseur-in-efz-coop-gossau-3mn7k0"
       ],
+      "salaryMin": 99000,
+      "salaryMax": 174000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -394,9 +396,7 @@
       "addressRegion": "SG",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "country": "CH",
-      "salaryMin": 99000,
-      "salaryMax": 174000
+      "country": "CH"
     },
     {
       "id": "company-8nu961",
@@ -4394,10 +4394,6 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "assembly-assistent-in-for-home-delivery-of-household-appliances-fust-swiss-household-services-ag-lenzburg",
-          "montage-assistent-in-fur-die-heimlieferung-von-elektrohaushaltgeraten-fust-lenzburg-aargau-k9aj64",
-          "assemblage-assistant-pour-la-livraison-a-domicile-des-appareils-menagers-fust-swiss-household-services-ag-lenzburg",
-          "montage-assistent-in-per-la-heimlieferung-von-elektrohaushaltgeraten-fust-lenzburg-aargau-k9aj64",
           "home-delivery-technician-of-electrical-household-appliances-fust-swiss-household-services-ag-dubendorf",
           "home-delivery-technician-of-electrical-household-appliances-fust-swiss-household-services-ag-lenzburg",
           "assembly-assistant-for-home-delivery-of-electrical-household-appliances-fust-swiss-household-services-ag-lenzburg",
@@ -4409,7 +4405,11 @@
           "home-consegna-fitter-negli-elettrodomestici-fust-swiss-household-services-ag-lenzburg",
           "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-swiss-household-services-ag-lenzburg-mbsa43",
           "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-lenzburg-aargau-mbsa43",
-          "home-delivery-technician-for-electrical-appliances-fust-swiss-household-services-ag-lenzburg"
+          "home-delivery-technician-for-electrical-appliances-fust-swiss-household-services-ag-lenzburg",
+          "technicien-de-livraison-d-appareils-electromenagers-fust-swiss-household-services-ag-lenzburg",
+          "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-swiss-household-services-ag-lenzburg-ic0syv",
+          "technicien-de-livraison-a-domicile-pour-appareils-electromenagers-fust-swiss-household-services-ag-lenzburg",
+          "home-delivery-technician-for-household-appliances-fust-swiss-household-services-ag-lenzburg"
         ],
         "en": [
           "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-swiss-household-services-ag-lenzburg-aargau-n6qwpl",
@@ -10916,7 +10916,6 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufsberater-in-schreinerei-jumbo-division-der-coop-genossenschaft-heimberg-bern-opflt2",
           "consultant-en-ventes-en-menuiserie-jumbo-division-der-coop-genossenschaft-heimberg-18d34f",
           "sales-consultant-in-schreinerei-jumbo-division-der-coop-genossenschaft-heimberg-opflt2",
           "consultant-en-ventes-in-schreinerei-jumbo-division-der-coop-genossenschaft-heimberg-opflt2",
@@ -10935,7 +10934,8 @@
           "sales-consultant-carpentry-jumbo-division-der-coop-genossenschaft-heimberg-f1e1vl",
           "verkaufsberater-in-schreinerei-jumbo-division-der-coop-genossenschaft-heimberg-f1e1vl",
           "conseiller-de-vente-menuiserie-jumbo-division-der-coop-genossenschaft-heimberg-f1e1vl",
-          "consulente-di-vendita-in-falegnameria-jumbo-heimberg"
+          "consulente-di-vendita-in-falegnameria-jumbo-heimberg",
+          "sales-consultant-in-carpentry-jumbo-division-der-coop-genossenschaft-heimberg-18d34f"
         ],
         "en": [
           "verkaufsberater-in-schreinerei-jumbo-division-der-coop-genossenschaft-heimberg-bern-6i5h3n",
@@ -20243,7 +20243,6 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "cooker-m-w-d-coop-genossenschaft-aarau-x72egi",
           "cooker-w-m-d-coop-genossenschaft-aarau",
           "cuisinier-ere-w-m-d-coop-genossenschaft-aarau",
           "cuisinier-ere-m-w-d-coop-genossenschaft-aarau-x72egi",
@@ -20262,7 +20261,8 @@
           "chef-chef-w-m-d-coop-genossenschaft-aarau",
           "chef-m-w-d-coop-genossenschaft-aarau-x72egi",
           "cook-w-m-d-coop-genossenschaft-aarau",
-          "chef-m-f-d-coop-genossenschaft-aarau"
+          "chef-m-f-d-coop-genossenschaft-aarau",
+          "cook-f-m-d-coop-genossenschaft-aarau"
         ],
         "en": [
           "cook-m-w-d-coop-genossenschaft-aarau-x72egi",
@@ -26425,7 +26425,7 @@
       },
       "descriptionByLocale": {
         "de": "## Beschreibung\n\nMit den berufsbegleitenden Quereinsteigerprogrammen schaffst du neue Perspektiven für deine berufliche Karriere.",
-        "it": "Descrizione Con i programmi di avviamento incrociato che accompagnano la carriera, creerai nuove prospettive per la tua carriera.",
+        "it": "Descrizione\n\nCon i programmi di inserimento lavorativo, crei nuove prospettive per la tua carriera professionale.",
         "en": "Description With the career-accompanying cross-starter programs you create new perspectives for your career.",
         "fr": "Description Avec les programmes de démarrage croisés qui accompagnent votre carrière, vous créez de nouvelles perspectives pour votre carrière."
       },
