@@ -1,16 +1,16 @@
 {
   "key": "spital-nidwalden",
   "label": "Spital Nidwalden",
-  "generatedAt": "2026-07-31T22:26:06.269Z",
-  "total": 3,
+  "generatedAt": "2026-08-01T10:59:55.409Z",
+  "total": 2,
   "newCount": 0,
   "updatedCount": 2,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 5227,
-  "avgDurationMs": 5227,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 6296,
+  "avgDurationMs": 6296,
   "durationHistory": [
-    5227
+    6296
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -27,7 +27,7 @@
       "url": "https://jobs.luks.ch/offene-stellen/fachfrau-mann-gesundheit-efz/cd84e609-7d40-41ff-a077-21b354f1f198",
       "source": "Spital Nidwalden Dedicated Parser (Prospective medium 1003280)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-31T22:26:03.092Z",
+      "crawledAt": "2026-08-01T10:59:51.889Z",
       "addressLocality": "Stans",
       "addressRegion": "NW",
       "addressCountry": "CH",
@@ -65,7 +65,7 @@
       "url": "https://jobs.luks.ch/offene-stellen/3-mitarbeiter-innen-hauswirtschaft-zu-je/102588bb-0360-4897-bb00-9eed742efc74",
       "source": "Spital Nidwalden Dedicated Parser (Prospective medium 1003280)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-31T22:26:03.095Z",
+      "crawledAt": "2026-08-01T10:59:51.896Z",
       "addressLocality": "Stans",
       "addressRegion": "NW",
       "addressCountry": "CH",
@@ -91,8 +91,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "spital-nidwalden-3194b2c5a8dd",
       "slug": "fisioterapista-in-80-100-luzerner-kantonsspital-luks-stans",
@@ -133,5 +132,6 @@
         "completeness": 22
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
