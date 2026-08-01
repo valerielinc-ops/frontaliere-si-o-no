@@ -1450,16 +1450,14 @@
       "requirementsByLocale": {},
       "department": "Kantonsspital Aarau AG",
       "previousSlugs": [
-        "pflegepraktikum-ausbildungsunabhangig-medizin-ksa-ch",
-        "stage-de-soins-independant-de-la-formation-medecine-kantonsspital-aarau-ksa-aarau"
+        "pflegepraktikum-ausbildungsunabhangig-medizin-ksa-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "pflegepraktikum-ausbildungsunabhangig-medizin-ksa-ch"
         ],
         "fr": [
-          "pflegepraktikum-ausbildungsunabhangig-medizin-ksa-ch",
-          "stage-de-soins-independant-de-la-formation-medecine-kantonsspital-aarau-ksa-aarau"
+          "pflegepraktikum-ausbildungsunabhangig-medizin-ksa-ch"
         ]
       },
       "localeMismatchSuppressed": true,
@@ -3271,8 +3269,7 @@
         "logi-hyardfachfrau-hyardfachmann-kantonsspital-aarau-ksa-aarau-2767b3",
         "dipl-pflegefachfrau-pflegefachmann-ksa-ch-2-9zvgm1",
         "registered-nurse-nursing-professional-kantonsspital-aarau-ksa-aarau",
-        "dipl-pflegefachfrau-pflegefachmann-kantonsspital-aarau-ksa-aarau",
-        "dipl-pflegefachfrau-pflegefachmann-ksa-ch-2"
+        "dipl-pflegefachfrau-pflegefachmann-kantonsspital-aarau-ksa-aarau"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3288,8 +3285,7 @@
           "dipl-pflegefachfrau-pflegefachmann-kantonsspital-aarau-ksa-aarau"
         ],
         "fr": [
-          "dipl-pflegefachfrau-pflegefachmann-ksa-ch-2-9zvgm1",
-          "dipl-pflegefachfrau-pflegefachmann-ksa-ch-2"
+          "dipl-pflegefachfrau-pflegefachmann-ksa-ch-2-9zvgm1"
         ]
       },
       "firstSeenAt": "2026-07-10T12:11:07.793Z",
@@ -3541,8 +3537,8 @@
       "slugByLocale": {
         "de": "fachexpertin-fachexperte-pflege-ksa-ch",
         "it": "fachexpertin-fachexperte-pflege-ksa-ch-2",
-        "en": "fachexpertin-fachexperte-pflege-kantonsspital-aarau-ksa-aarau",
-        "fr": "fachexpertin-fachexperte-pflege-kantonsspital-aarau-ksa-aarau"
+        "en": "specialist-care-expert-kantonsspital-aarau-ksa-aarau-bebb8b",
+        "fr": "specialiste-soins-specialises-kantonsspital-aarau-ksa-aarau-bebb8b"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -3596,23 +3592,29 @@
           "specialiste-soins-specialises-kantonsspital-aarau-ksa-aarau-59e039"
         ],
         "en": [
-          "specialist-care-expert-kantonsspital-aarau-ksa-aarau-bebb8b",
-          "specialist-specialist-care-kantonsspital-aarau-ksa-aarau"
+          "specialist-specialist-care-kantonsspital-aarau-ksa-aarau",
+          "specialist-specialist-care-kantonsspital-aarau-ksa-aarau",
+          "fachexpertin-fachexperte-pflege-kantonsspital-aarau-ksa-aarau"
         ],
         "fr": [
-          "specialiste-soins-specialises-kantonsspital-aarau-ksa-aarau-bebb8b",
-          "expert-care-kantonsspital-aarau-ksa-aarau"
+          "expert-care-kantonsspital-aarau-ksa-aarau",
+          "expert-care-kantonsspital-aarau-ksa-aarau",
+          "fachexpertin-fachexperte-pflege-kantonsspital-aarau-ksa-aarau"
         ]
       },
       "previousSlugs": [
         "fachexpertin-fachexperte-pflege-ksa-ch",
-        "specialist-care-expert-kantonsspital-aarau-ksa-aarau-bebb8b",
-        "specialiste-soins-specialises-kantonsspital-aarau-ksa-aarau-bebb8b",
         "fachexpertin-fachexperte-pflege-ksa-ch-2-9ztkdf",
         "specialist-specialist-care-kantonsspital-aarau-ksa-aarau",
         "expert-care-kantonsspital-aarau-ksa-aarau",
         "fachexpertin-fachexperte-pflege-ksa-ch-2-9ztjpb",
-        "specialiste-soins-specialises-kantonsspital-aarau-ksa-aarau-59e039"
+        "specialiste-soins-specialises-kantonsspital-aarau-ksa-aarau-59e039",
+        "fachexpertin-fachexperte-pflege-ksa-ch-2-9ztkdf",
+        "specialist-specialist-care-kantonsspital-aarau-ksa-aarau",
+        "expert-care-kantonsspital-aarau-ksa-aarau",
+        "fachexpertin-fachexperte-pflege-ksa-ch-2-9ztjpb",
+        "specialiste-soins-specialises-kantonsspital-aarau-ksa-aarau-59e039",
+        "fachexpertin-fachexperte-pflege-kantonsspital-aarau-ksa-aarau"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -5002,7 +5004,7 @@
         "it": "med-assistente-pratico-kantonsspital-aarau-ksa-aarau",
         "en": "med-practical-assistant-kantonsspital-aarau-ksa-aarau",
         "de": "med-praxisassistent-in-ksa-ch",
-        "fr": "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau-9ztlty"
+        "fr": "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -5853,8 +5855,7 @@
         "dipl-pflegefachfrau-pflegefachmann-ksa-ch-5-9ztkas",
         "logi-hyardfachfrau-hyardfachmann-kantonsspital-aarau-ksa-aarau-4b0cb4",
         "registered-nurse-nursing-specialist-kantonsspital-aarau-ksa-aarau",
-        "dipl-pflegefachfrau-pflegefachmann-kantonsspital-aarau-ksa-aarau",
-        "dipl-pflegefachfrau-pflegefachmann-ksa-ch-5"
+        "dipl-pflegefachfrau-pflegefachmann-kantonsspital-aarau-ksa-aarau"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -5870,8 +5871,7 @@
           "dipl-pflegefachfrau-pflegefachmann-kantonsspital-aarau-ksa-aarau"
         ],
         "fr": [
-          "dipl-pflegefachfrau-pflegefachmann-ksa-ch-5-9ztkas",
-          "dipl-pflegefachfrau-pflegefachmann-ksa-ch-5"
+          "dipl-pflegefachfrau-pflegefachmann-ksa-ch-5-9ztkas"
         ]
       },
       "firstSeenAt": "2026-07-10T12:11:07.792Z",
@@ -6259,8 +6259,7 @@
         "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8-9zu4ig",
         "logi-hyardfachfrau-hyardfachmann-kantonsspital-aarau-ksa-aarau-755135",
         "registered-nurse-nursing-specialist-kantonsspital-aarau-ksa-aarau",
-        "dipl-pflegefachfrau-pflegefachmann-kantonsspital-aarau-ksa-aarau",
-        "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8"
+        "dipl-pflegefachfrau-pflegefachmann-kantonsspital-aarau-ksa-aarau"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -6277,8 +6276,7 @@
           "dipl-pflegefachfrau-pflegefachmann-kantonsspital-aarau-ksa-aarau"
         ],
         "fr": [
-          "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8-9zu4ig",
-          "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8"
+          "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8-9zu4ig"
         ]
       },
       "firstSeenAt": "2026-07-10T12:11:07.792Z",
@@ -6971,8 +6969,7 @@
         "dipl-pflegefachfrau-pflegefachmann-ksa-ch-9-9ztkax",
         "logi-hyardfachfrau-hyardfachmann-kantonsspital-aarau-ksa-aarau-64caf8",
         "registered-nurse-nursing-professional-kantonsspital-aarau-ksa-aarau",
-        "dipl-pflegefachfrau-pflegefachmann-kantonsspital-aarau-ksa-aarau",
-        "dipl-pflegefachfrau-pflegefachmann-ksa-ch-9"
+        "dipl-pflegefachfrau-pflegefachmann-kantonsspital-aarau-ksa-aarau"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -6988,8 +6985,7 @@
           "dipl-pflegefachfrau-pflegefachmann-kantonsspital-aarau-ksa-aarau"
         ],
         "fr": [
-          "dipl-pflegefachfrau-pflegefachmann-ksa-ch-9-9ztkax",
-          "dipl-pflegefachfrau-pflegefachmann-ksa-ch-9"
+          "dipl-pflegefachfrau-pflegefachmann-ksa-ch-9-9ztkax"
         ]
       },
       "firstSeenAt": "2026-07-10T12:11:07.792Z",
@@ -7060,8 +7056,7 @@
         "med-praxisassistent-in-ksa-ch-2",
         "assistente-medico-kantonsspital-aarau-ksa-aarau",
         "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau-uinkfe",
-        "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau-9ztjrt",
-        "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau"
+        "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau-9ztjrt"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -7071,8 +7066,7 @@
           "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau-uinkfe"
         ],
         "fr": [
-          "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau-9ztjrt",
-          "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau"
+          "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau-9ztjrt"
         ]
       },
       "firstSeenAt": "2026-07-10T12:11:07.792Z",

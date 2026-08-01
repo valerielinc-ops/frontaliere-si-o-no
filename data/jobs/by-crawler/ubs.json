@@ -4616,9 +4616,9 @@
       "slug": "2027-bem-ingresso-in-banca-dopo-la-maturita-ticino-settembre-ubs-ticino",
       "slugByLocale": {
         "it": "2027-bem-ingresso-in-banca-dopo-la-maturita-ticino-settembre-ubs-ticino",
-        "en": "2027-bem-ingresso-in-banca-dopo-la-maturita-ticino-settembre-ubs-ticino",
-        "de": "2027-bem-ingresso-in-banca-dopo-la-maturita-ticino-settembre-ubs-ticino",
-        "fr": "2027-bem-ingresso-in-banca-dopo-la-maturita-ticino-settembre-ubs-ticino"
+        "en": "2027-bem-bank-entry-after-maturity-ticino-september-ubs-ticino",
+        "de": "2027-bem-bankeintritt-nach-falligkeit-tessin-september-ubs-ticino",
+        "fr": "2027-bem-participation-bancaire-apres-echeance-tessin-septembre-ubs-ticino"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -4685,12 +4685,12 @@
     },
     {
       "id": "ubs-28959776b135",
-      "slug": "2027-bem-formation-bancaire-initiale-post-maturite-ge-septembre-ubs-suisse-romande",
+      "slug": "2027-bem-formazione-iniziale-post-maturity-banking-ge-settembre-ubs-suisse-romande",
       "slugByLocale": {
         "fr": "2027-bem-formation-bancaire-initiale-post-maturite-ge-septembre-ubs-suisse-romande",
-        "it": "2027-bem-formation-bancaire-initiale-post-maturite-ge-septembre-ubs-suisse-romande",
-        "en": "2027-bem-formation-bancaire-initiale-post-maturite-ge-septembre-ubs-suisse-romande",
-        "de": "2027-bem-formation-bancaire-initiale-post-maturite-ge-septembre-ubs-suisse-romande"
+        "it": "2027-bem-formazione-iniziale-post-maturity-banking-ge-settembre-ubs-suisse-romande",
+        "en": "2027-bem-initial-post-maturity-banking-training-ge-september-ubs-suisse-romande",
+        "de": "2027-bem-erstausbildung-nach-der-reife-ge-september-ubs-suisse-romande"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -4753,16 +4753,30 @@
         }
       },
       "addressRegion": "VD",
-      "firstSeenAt": "2026-08-01T10:47:00.188Z"
+      "firstSeenAt": "2026-08-01T10:47:00.188Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "2027-bem-formation-bancaire-initiale-post-maturite-ge-septembre-ubs-suisse-romande"
+        ],
+        "en": [
+          "2027-bem-formation-bancaire-initiale-post-maturite-ge-septembre-ubs-suisse-romande"
+        ],
+        "de": [
+          "2027-bem-formation-bancaire-initiale-post-maturite-ge-septembre-ubs-suisse-romande"
+        ]
+      },
+      "previousSlugs": [
+        "2027-bem-formation-bancaire-initiale-post-maturite-ge-septembre-ubs-suisse-romande"
+      ]
     },
     {
       "id": "ubs-b53ed8fadce1",
-      "slug": "2027-bem-bankeinstieg-nach-matura-be-september-ubs-mittelland",
+      "slug": "2027-bem-ingresso-bancario-a-matura-be-settembre-ubs-mittelland",
       "slugByLocale": {
         "de": "2027-bem-bankeinstieg-nach-matura-be-september-ubs-mittelland",
-        "it": "2027-bem-bankeinstieg-nach-matura-be-september-ubs-mittelland",
+        "it": "2027-bem-ingresso-bancario-a-matura-be-settembre-ubs-mittelland",
         "en": "2027-bem-bankeinstieg-nach-matura-be-september-ubs-mittelland",
-        "fr": "2027-bem-bankeinstieg-nach-matura-be-september-ubs-mittelland"
+        "fr": "2027-bem-entree-bancaire-a-matura-be-septembre-ubs-mittelland"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -4824,16 +4838,27 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-01T10:47:00.186Z"
+      "firstSeenAt": "2026-08-01T10:47:00.186Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "2027-bem-bankeinstieg-nach-matura-be-september-ubs-mittelland"
+        ],
+        "fr": [
+          "2027-bem-bankeinstieg-nach-matura-be-september-ubs-mittelland"
+        ]
+      },
+      "previousSlugs": [
+        "2027-bem-bankeinstieg-nach-matura-be-september-ubs-mittelland"
+      ]
     },
     {
       "id": "ubs-b58f060bb79a",
-      "slug": "2027-bem-formation-bancaire-initiale-post-maturite-vd-septembre-ubs-suisse-romande",
+      "slug": "2027-bem-formazione-iniziale-post-maturity-banking-vd-settembre-ubs-suisse-romande",
       "slugByLocale": {
         "fr": "2027-bem-formation-bancaire-initiale-post-maturite-vd-septembre-ubs-suisse-romande",
-        "it": "2027-bem-formation-bancaire-initiale-post-maturite-vd-septembre-ubs-suisse-romande",
-        "en": "2027-bem-formation-bancaire-initiale-post-maturite-vd-septembre-ubs-suisse-romande",
-        "de": "2027-bem-formation-bancaire-initiale-post-maturite-vd-septembre-ubs-suisse-romande"
+        "it": "2027-bem-formazione-iniziale-post-maturity-banking-vd-settembre-ubs-suisse-romande",
+        "en": "2027-bem-initial-post-maturity-banking-training-vd-september-ubs-suisse-romande",
+        "de": "2027-bem-erstausbildung-im-post-maturity-banking-vd-september-ubs-suisse-romande"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -4896,16 +4921,30 @@
         }
       },
       "addressRegion": "VD",
-      "firstSeenAt": "2026-08-01T10:47:00.184Z"
+      "firstSeenAt": "2026-08-01T10:47:00.184Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "2027-bem-formation-bancaire-initiale-post-maturite-vd-septembre-ubs-suisse-romande"
+        ],
+        "en": [
+          "2027-bem-formation-bancaire-initiale-post-maturite-vd-septembre-ubs-suisse-romande"
+        ],
+        "de": [
+          "2027-bem-formation-bancaire-initiale-post-maturite-vd-septembre-ubs-suisse-romande"
+        ]
+      },
+      "previousSlugs": [
+        "2027-bem-formation-bancaire-initiale-post-maturite-vd-septembre-ubs-suisse-romande"
+      ]
     },
     {
       "id": "ubs-d57d26670611",
-      "slug": "2027-bem-formation-bancaire-initiale-post-maturite-vs-septembre-ubs-valais",
+      "slug": "2027-bem-formazione-iniziale-post-maturity-banking-vs-settembre-ubs-valais",
       "slugByLocale": {
         "fr": "2027-bem-formation-bancaire-initiale-post-maturite-vs-septembre-ubs-valais",
-        "it": "2027-bem-formation-bancaire-initiale-post-maturite-vs-septembre-ubs-valais",
-        "en": "2027-bem-formation-bancaire-initiale-post-maturite-vs-septembre-ubs-valais",
-        "de": "2027-bem-formation-bancaire-initiale-post-maturite-vs-septembre-ubs-valais"
+        "it": "2027-bem-formazione-iniziale-post-maturity-banking-vs-settembre-ubs-valais",
+        "en": "2027-bem-initial-post-maturity-banking-training-vs-september-ubs-valais",
+        "de": "2027-bem-erstausbildung-nach-der-reife-vs-september-ubs-valais"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -4968,16 +5007,30 @@
         }
       },
       "addressRegion": "VS",
-      "firstSeenAt": "2026-08-01T10:47:00.184Z"
+      "firstSeenAt": "2026-08-01T10:47:00.184Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "2027-bem-formation-bancaire-initiale-post-maturite-vs-septembre-ubs-valais"
+        ],
+        "en": [
+          "2027-bem-formation-bancaire-initiale-post-maturite-vs-septembre-ubs-valais"
+        ],
+        "de": [
+          "2027-bem-formation-bancaire-initiale-post-maturite-vs-septembre-ubs-valais"
+        ]
+      },
+      "previousSlugs": [
+        "2027-bem-formation-bancaire-initiale-post-maturite-vs-septembre-ubs-valais"
+      ]
     },
     {
       "id": "ubs-d71f276b5789",
-      "slug": "2027-bem-formation-bancaire-initiale-post-maturite-fr-septembre-ubs-suisse-romande",
+      "slug": "2027-bem-formazione-iniziale-post-maturity-banking-en-settembre-ubs-suisse-romande",
       "slugByLocale": {
         "fr": "2027-bem-formation-bancaire-initiale-post-maturite-fr-septembre-ubs-suisse-romande",
-        "it": "2027-bem-formation-bancaire-initiale-post-maturite-fr-septembre-ubs-suisse-romande",
-        "en": "2027-bem-formation-bancaire-initiale-post-maturite-fr-septembre-ubs-suisse-romande",
-        "de": "2027-bem-formation-bancaire-initiale-post-maturite-fr-septembre-ubs-suisse-romande"
+        "it": "2027-bem-formazione-iniziale-post-maturity-banking-en-settembre-ubs-suisse-romande",
+        "en": "2027-bem-initial-post-maturity-banking-training-en-september-ubs-suisse-romande",
+        "de": "2027-bem-erstausbildung-nach-der-reife-en-september-ubs-suisse-romande"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -5040,16 +5093,30 @@
         }
       },
       "addressRegion": "VD",
-      "firstSeenAt": "2026-08-01T10:47:00.182Z"
+      "firstSeenAt": "2026-08-01T10:47:00.182Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "2027-bem-formation-bancaire-initiale-post-maturite-fr-septembre-ubs-suisse-romande"
+        ],
+        "en": [
+          "2027-bem-formation-bancaire-initiale-post-maturite-fr-septembre-ubs-suisse-romande"
+        ],
+        "de": [
+          "2027-bem-formation-bancaire-initiale-post-maturite-fr-septembre-ubs-suisse-romande"
+        ]
+      },
+      "previousSlugs": [
+        "2027-bem-formation-bancaire-initiale-post-maturite-fr-septembre-ubs-suisse-romande"
+      ]
     },
     {
       "id": "ubs-df4de6e34052",
-      "slug": "2027-bem-formation-bancaire-initiale-post-maturite-ne-septembre-ubs-suisse-romande",
+      "slug": "2027-bem-formazione-iniziale-post-maturity-banking-ne-settembre-ubs-suisse-romande",
       "slugByLocale": {
         "fr": "2027-bem-formation-bancaire-initiale-post-maturite-ne-septembre-ubs-suisse-romande",
-        "it": "2027-bem-formation-bancaire-initiale-post-maturite-ne-septembre-ubs-suisse-romande",
-        "en": "2027-bem-formation-bancaire-initiale-post-maturite-ne-septembre-ubs-suisse-romande",
-        "de": "2027-bem-formation-bancaire-initiale-post-maturite-ne-septembre-ubs-suisse-romande"
+        "it": "2027-bem-formazione-iniziale-post-maturity-banking-ne-settembre-ubs-suisse-romande",
+        "en": "2027-bem-initial-post-maturity-banking-training-ne-september-ubs-suisse-romande",
+        "de": "2027-bem-erstausbildung-im-bankwesen-nach-der-reife-ne-september-ubs-suisse-romande"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -5112,16 +5179,30 @@
         }
       },
       "addressRegion": "VD",
-      "firstSeenAt": "2026-08-01T10:47:00.180Z"
+      "firstSeenAt": "2026-08-01T10:47:00.180Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "2027-bem-formation-bancaire-initiale-post-maturite-ne-septembre-ubs-suisse-romande"
+        ],
+        "en": [
+          "2027-bem-formation-bancaire-initiale-post-maturite-ne-septembre-ubs-suisse-romande"
+        ],
+        "de": [
+          "2027-bem-formation-bancaire-initiale-post-maturite-ne-septembre-ubs-suisse-romande"
+        ]
+      },
+      "previousSlugs": [
+        "2027-bem-formation-bancaire-initiale-post-maturite-ne-septembre-ubs-suisse-romande"
+      ]
     },
     {
       "id": "ubs-dc349db91173",
-      "slug": "2027-bem-formation-bancaire-initiale-post-maturite-ju-septembre-ubs-suisse-romande",
+      "slug": "2027-bem-formazione-iniziale-post-maturity-banking-lu-settembre-ubs-suisse-romande",
       "slugByLocale": {
         "fr": "2027-bem-formation-bancaire-initiale-post-maturite-ju-septembre-ubs-suisse-romande",
-        "it": "2027-bem-formation-bancaire-initiale-post-maturite-ju-septembre-ubs-suisse-romande",
-        "en": "2027-bem-formation-bancaire-initiale-post-maturite-ju-septembre-ubs-suisse-romande",
-        "de": "2027-bem-formation-bancaire-initiale-post-maturite-ju-septembre-ubs-suisse-romande"
+        "it": "2027-bem-formazione-iniziale-post-maturity-banking-lu-settembre-ubs-suisse-romande",
+        "en": "2027-bem-initial-post-maturity-banking-training-ju-september-ubs-suisse-romande",
+        "de": "2027-bem-erstausbildung-nach-der-reife-ju-september-ubs-suisse-romande"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -5184,16 +5265,30 @@
         }
       },
       "addressRegion": "VD",
-      "firstSeenAt": "2026-08-01T10:47:00.178Z"
+      "firstSeenAt": "2026-08-01T10:47:00.178Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "2027-bem-formation-bancaire-initiale-post-maturite-ju-septembre-ubs-suisse-romande"
+        ],
+        "en": [
+          "2027-bem-formation-bancaire-initiale-post-maturite-ju-septembre-ubs-suisse-romande"
+        ],
+        "de": [
+          "2027-bem-formation-bancaire-initiale-post-maturite-ju-septembre-ubs-suisse-romande"
+        ]
+      },
+      "previousSlugs": [
+        "2027-bem-formation-bancaire-initiale-post-maturite-ju-septembre-ubs-suisse-romande"
+      ]
     },
     {
       "id": "ubs-44c5e6970bc2",
-      "slug": "2027-bem-bankeinstieg-nach-matura-wallis-september-ubs-valais",
+      "slug": "2027-bem-ingresso-bancario-a-matura-wallis-settembre-ubs-valais",
       "slugByLocale": {
         "de": "2027-bem-bankeinstieg-nach-matura-wallis-september-ubs-valais",
-        "it": "2027-bem-bankeinstieg-nach-matura-wallis-september-ubs-valais",
+        "it": "2027-bem-ingresso-bancario-a-matura-wallis-settembre-ubs-valais",
         "en": "2027-bem-bankeinstieg-nach-matura-wallis-september-ubs-valais",
-        "fr": "2027-bem-bankeinstieg-nach-matura-wallis-september-ubs-valais"
+        "fr": "2027-bem-entree-bancaire-a-matura-wallis-septembre-ubs-valais"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -5256,16 +5351,27 @@
         }
       },
       "addressRegion": "VS",
-      "firstSeenAt": "2026-08-01T10:47:00.175Z"
+      "firstSeenAt": "2026-08-01T10:47:00.175Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "2027-bem-bankeinstieg-nach-matura-wallis-september-ubs-valais"
+        ],
+        "fr": [
+          "2027-bem-bankeinstieg-nach-matura-wallis-september-ubs-valais"
+        ]
+      },
+      "previousSlugs": [
+        "2027-bem-bankeinstieg-nach-matura-wallis-september-ubs-valais"
+      ]
     },
     {
       "id": "ubs-9e5ee8add4b1",
-      "slug": "2027-bem-bankeinstieg-nach-matura-zh-september-ubs-zurich",
+      "slug": "2027-bem-ingresso-bancario-a-matura-zh-settembre-ubs-zurich",
       "slugByLocale": {
         "de": "2027-bem-bankeinstieg-nach-matura-zh-september-ubs-zurich",
-        "it": "2027-bem-bankeinstieg-nach-matura-zh-september-ubs-zurich",
+        "it": "2027-bem-ingresso-bancario-a-matura-zh-settembre-ubs-zurich",
         "en": "2027-bem-bankeinstieg-nach-matura-zh-september-ubs-zurich",
-        "fr": "2027-bem-bankeinstieg-nach-matura-zh-september-ubs-zurich"
+        "fr": "2027-bem-entree-bancaire-a-matura-zh-septembre-ubs-zurich"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -5328,16 +5434,27 @@
         }
       },
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-08-01T10:47:00.175Z"
+      "firstSeenAt": "2026-08-01T10:47:00.175Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "2027-bem-bankeinstieg-nach-matura-zh-september-ubs-zurich"
+        ],
+        "fr": [
+          "2027-bem-bankeinstieg-nach-matura-zh-september-ubs-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "2027-bem-bankeinstieg-nach-matura-zh-september-ubs-zurich"
+      ]
     },
     {
       "id": "ubs-e3557a6d404c",
-      "slug": "2027-bem-bankeinstieg-nach-matura-zs-september-ubs-zentralschweiz",
+      "slug": "2027-bem-ingresso-bancario-a-matura-zs-settembre-ubs-zentralschweiz",
       "slugByLocale": {
         "de": "2027-bem-bankeinstieg-nach-matura-zs-september-ubs-zentralschweiz",
-        "it": "2027-bem-bankeinstieg-nach-matura-zs-september-ubs-zentralschweiz",
+        "it": "2027-bem-ingresso-bancario-a-matura-zs-settembre-ubs-zentralschweiz",
         "en": "2027-bem-bankeinstieg-nach-matura-zs-september-ubs-zentralschweiz",
-        "fr": "2027-bem-bankeinstieg-nach-matura-zs-september-ubs-zentralschweiz"
+        "fr": "2027-bem-entree-bancaire-a-matura-zs-septembre-ubs-zentralschweiz"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -5399,16 +5516,27 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-01T10:47:00.174Z"
+      "firstSeenAt": "2026-08-01T10:47:00.174Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "2027-bem-bankeinstieg-nach-matura-zs-september-ubs-zentralschweiz"
+        ],
+        "fr": [
+          "2027-bem-bankeinstieg-nach-matura-zs-september-ubs-zentralschweiz"
+        ]
+      },
+      "previousSlugs": [
+        "2027-bem-bankeinstieg-nach-matura-zs-september-ubs-zentralschweiz"
+      ]
     },
     {
       "id": "ubs-a33cb7036587",
-      "slug": "2027-bem-bankeinstieg-nach-matura-os-september-ubs-ostschweiz",
+      "slug": "2027-bem-ingresso-bancario-a-matura-os-settembre-ubs-ostschweiz",
       "slugByLocale": {
         "de": "2027-bem-bankeinstieg-nach-matura-os-september-ubs-ostschweiz",
-        "it": "2027-bem-bankeinstieg-nach-matura-os-september-ubs-ostschweiz",
+        "it": "2027-bem-ingresso-bancario-a-matura-os-settembre-ubs-ostschweiz",
         "en": "2027-bem-bankeinstieg-nach-matura-os-september-ubs-ostschweiz",
-        "fr": "2027-bem-bankeinstieg-nach-matura-os-september-ubs-ostschweiz"
+        "fr": "2027-bem-entree-bancaire-a-matura-os-septembre-ubs-ostschweiz"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -5471,16 +5599,27 @@
         }
       },
       "addressRegion": "SG",
-      "firstSeenAt": "2026-08-01T10:47:00.171Z"
+      "firstSeenAt": "2026-08-01T10:47:00.171Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "2027-bem-bankeinstieg-nach-matura-os-september-ubs-ostschweiz"
+        ],
+        "fr": [
+          "2027-bem-bankeinstieg-nach-matura-os-september-ubs-ostschweiz"
+        ]
+      },
+      "previousSlugs": [
+        "2027-bem-bankeinstieg-nach-matura-os-september-ubs-ostschweiz"
+      ]
     },
     {
       "id": "ubs-f1b03fd453eb",
-      "slug": "2027-bem-bankeinstieg-nach-matura-gr-september-ubs-ostschweiz",
+      "slug": "2027-bem-ingresso-bancario-a-matura-gr-settembre-ubs-ostschweiz",
       "slugByLocale": {
         "de": "2027-bem-bankeinstieg-nach-matura-gr-september-ubs-ostschweiz",
-        "it": "2027-bem-bankeinstieg-nach-matura-gr-september-ubs-ostschweiz",
+        "it": "2027-bem-ingresso-bancario-a-matura-gr-settembre-ubs-ostschweiz",
         "en": "2027-bem-bankeinstieg-nach-matura-gr-september-ubs-ostschweiz",
-        "fr": "2027-bem-bankeinstieg-nach-matura-gr-september-ubs-ostschweiz"
+        "fr": "2027-bem-entree-bancaire-a-matura-gr-septembre-ubs-ostschweiz"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -5543,16 +5682,27 @@
         }
       },
       "addressRegion": "SG",
-      "firstSeenAt": "2026-08-01T10:47:00.168Z"
+      "firstSeenAt": "2026-08-01T10:47:00.168Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "2027-bem-bankeinstieg-nach-matura-gr-september-ubs-ostschweiz"
+        ],
+        "fr": [
+          "2027-bem-bankeinstieg-nach-matura-gr-september-ubs-ostschweiz"
+        ]
+      },
+      "previousSlugs": [
+        "2027-bem-bankeinstieg-nach-matura-gr-september-ubs-ostschweiz"
+      ]
     },
     {
       "id": "ubs-0b10b78cc54d",
-      "slug": "2027-bem-bankeinstieg-nach-matura-bs-september-ubs-nordschweiz",
+      "slug": "2027-bem-ingresso-bancario-a-matura-bs-settembre-ubs-nordschweiz",
       "slugByLocale": {
         "de": "2027-bem-bankeinstieg-nach-matura-bs-september-ubs-nordschweiz",
-        "it": "2027-bem-bankeinstieg-nach-matura-bs-september-ubs-nordschweiz",
+        "it": "2027-bem-ingresso-bancario-a-matura-bs-settembre-ubs-nordschweiz",
         "en": "2027-bem-bankeinstieg-nach-matura-bs-september-ubs-nordschweiz",
-        "fr": "2027-bem-bankeinstieg-nach-matura-bs-september-ubs-nordschweiz"
+        "fr": "2027-bem-entree-bancaire-a-matura-bs-septembre-ubs-nordschweiz"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -5614,16 +5764,27 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-01T10:47:00.165Z"
+      "firstSeenAt": "2026-08-01T10:47:00.165Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "2027-bem-bankeinstieg-nach-matura-bs-september-ubs-nordschweiz"
+        ],
+        "fr": [
+          "2027-bem-bankeinstieg-nach-matura-bs-september-ubs-nordschweiz"
+        ]
+      },
+      "previousSlugs": [
+        "2027-bem-bankeinstieg-nach-matura-bs-september-ubs-nordschweiz"
+      ]
     },
     {
       "id": "ubs-ea9cdbd29edd",
-      "slug": "2027-bem-bankeinstieg-nach-matura-fr-september-ubs-westschweiz",
+      "slug": "2027-bem-ingresso-bancario-a-matura-fr-settembre-ubs-westschweiz",
       "slugByLocale": {
         "de": "2027-bem-bankeinstieg-nach-matura-fr-september-ubs-westschweiz",
-        "it": "2027-bem-bankeinstieg-nach-matura-fr-september-ubs-westschweiz",
+        "it": "2027-bem-ingresso-bancario-a-matura-fr-settembre-ubs-westschweiz",
         "en": "2027-bem-bankeinstieg-nach-matura-fr-september-ubs-westschweiz",
-        "fr": "2027-bem-bankeinstieg-nach-matura-fr-september-ubs-westschweiz"
+        "fr": "2027-bem-entree-bancaire-a-matura-fr-septembre-ubs-westschweiz"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -5685,16 +5846,27 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-01T10:47:00.162Z"
+      "firstSeenAt": "2026-08-01T10:47:00.162Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "2027-bem-bankeinstieg-nach-matura-fr-september-ubs-westschweiz"
+        ],
+        "fr": [
+          "2027-bem-bankeinstieg-nach-matura-fr-september-ubs-westschweiz"
+        ]
+      },
+      "previousSlugs": [
+        "2027-bem-bankeinstieg-nach-matura-fr-september-ubs-westschweiz"
+      ]
     },
     {
       "id": "ubs-47a5adc4562d",
-      "slug": "2027-bem-bankeinstieg-nach-matura-ag-so-september-ubs-aargau-solothurn",
+      "slug": "2027-bem-entrata-bancaria-dopo-matura-ag-so-settembre-ubs-aargau-solothurn",
       "slugByLocale": {
         "de": "2027-bem-bankeinstieg-nach-matura-ag-so-september-ubs-aargau-solothurn",
-        "it": "2027-bem-bankeinstieg-nach-matura-ag-so-september-ubs-aargau-solothurn",
-        "en": "2027-bem-bankeinstieg-nach-matura-ag-so-september-ubs-aargau-solothurn",
-        "fr": "2027-bem-bankeinstieg-nach-matura-ag-so-september-ubs-aargau-solothurn"
+        "it": "2027-bem-entrata-bancaria-dopo-matura-ag-so-settembre-ubs-aargau-solothurn",
+        "en": "2027-bem-bank-entry-after-matura-ag-so-september-ubs-aargau-solothurn",
+        "fr": "2027-bem-entree-bancaire-apres-matura-ag-so-septembre-ubs-aargau-solothurn"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -5757,7 +5929,21 @@
         }
       },
       "addressRegion": "AG",
-      "firstSeenAt": "2026-08-01T10:47:00.162Z"
+      "firstSeenAt": "2026-08-01T10:47:00.162Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "2027-bem-bankeinstieg-nach-matura-ag-so-september-ubs-aargau-solothurn"
+        ],
+        "en": [
+          "2027-bem-bankeinstieg-nach-matura-ag-so-september-ubs-aargau-solothurn"
+        ],
+        "fr": [
+          "2027-bem-bankeinstieg-nach-matura-ag-so-september-ubs-aargau-solothurn"
+        ]
+      },
+      "previousSlugs": [
+        "2027-bem-bankeinstieg-nach-matura-ag-so-september-ubs-aargau-solothurn"
+      ]
     },
     {
       "id": "ubs-5ca623469c9f",

@@ -11944,10 +11944,7 @@
         ],
         "en": [
           "tendering-engineer-sulzer-winterthur",
-          "tendering-engineer-sulzer-ch-0egrl4",
-          "tendering-engineer-sulzer-ch",
-          "tendering-engineer-sulzer-ch",
-          "tendering-engineer-sulzer-ch"
+          "tendering-engineer-sulzer-ch-0egrl4"
         ],
         "de": [
           "tendering-engineer-sulzer-ch-2",
@@ -19911,7 +19908,7 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "en": [
-          "winder-sulzer-ch",
+          "winder-sulzer-ch-0ehbf2",
           "winder-sulzer-ch-0ehbf2"
         ],
         "it": [
@@ -22805,14 +22802,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "factored-buyer-sulzer-ch",
-        "factored-buyer-sulzer-leeds",
-        "compratore-fabbricato-sulzer-leeds"
+        "factored-buyer-sulzer-leeds"
       ],
       "previousSlugsByLocale": {
         "it": [
           "factored-buyer-sulzer-ch",
-          "factored-buyer-sulzer-leeds",
-          "compratore-fabbricato-sulzer-leeds"
+          "factored-buyer-sulzer-leeds"
         ],
         "fr": [
           "factored-buyer-sulzer-ch"
@@ -23794,13 +23789,11 @@
       "firstSeenAt": "2026-07-31T22:16:08.757Z",
       "previousSlugs": [
         "production-worker-packer-sulzer-ch",
-        "lavoratore-di-produzione-packer-sulzer-easley",
         "production-worker-packer-sulzer-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "production-worker-packer-sulzer-ch",
-          "lavoratore-di-produzione-packer-sulzer-easley",
           "production-worker-packer-sulzer-ch"
         ],
         "de": [
@@ -23873,13 +23866,11 @@
       "firstSeenAt": "2026-07-31T22:16:07.884Z",
       "previousSlugs": [
         "painter-2nd-shift-sulzer-ch",
-        "pittore-2o-turno-sulzer-easley",
         "painter-2nd-shift-sulzer-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "painter-2nd-shift-sulzer-ch",
-          "pittore-2o-turno-sulzer-easley",
           "painter-2nd-shift-sulzer-ch"
         ],
         "de": [
@@ -23952,13 +23943,11 @@
       "firstSeenAt": "2026-07-31T22:16:07.045Z",
       "previousSlugs": [
         "tendering-engineer-sulzer-ch",
-        "tendering-ingegnere-sulzer-navi-mumbai",
         "tendering-engineer-sulzer-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "tendering-engineer-sulzer-ch",
-          "tendering-ingegnere-sulzer-navi-mumbai",
           "tendering-engineer-sulzer-ch"
         ],
         "de": [
@@ -24106,13 +24095,11 @@
       "firstSeenAt": "2026-07-31T22:16:05.298Z",
       "previousSlugs": [
         "packaging-engineer-sulzer-ch",
-        "packaging-ingegnere-sulzer-navi-mumbai",
         "packaging-engineer-sulzer-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "packaging-engineer-sulzer-ch",
-          "packaging-ingegnere-sulzer-navi-mumbai",
           "packaging-engineer-sulzer-ch"
         ],
         "de": [
@@ -24186,11 +24173,11 @@
     },
     {
       "id": "sulzer-13b81865e873",
-      "slug": "mechanical-engineer-sr-sulzer-ch",
+      "slug": "mechanical-ingegnere-sr-sulzer-santa-ana",
       "slugByLocale": {
         "en": "mechanical-engineer-sr-sulzer-ch",
-        "it": "mechanical-engineer-sr-sulzer-ch",
-        "de": "mechanical-engineer-sr-sulzer-ch",
+        "it": "mechanical-ingegnere-sr-sulzer-santa-ana",
+        "de": "mechanical-ingenieur-sr-sulzer-santa-ana",
         "fr": "mechanical-engineer-sr-sulzer-ch"
       },
       "company": "Sulzer",
@@ -24245,7 +24232,18 @@
         }
       },
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-08-01T11:06:44.667Z"
+      "firstSeenAt": "2026-08-01T11:06:44.667Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "mechanical-engineer-sr-sulzer-ch"
+        ],
+        "de": [
+          "mechanical-engineer-sr-sulzer-ch"
+        ]
+      },
+      "previousSlugs": [
+        "mechanical-engineer-sr-sulzer-ch"
+      ]
     },
     {
       "id": "sulzer-d5e03b6feeae",

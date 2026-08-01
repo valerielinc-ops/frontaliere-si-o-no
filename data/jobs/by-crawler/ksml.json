@@ -8,8 +8,8 @@
       "slugByLocale": {
         "de": "wir-suchen-dich-betreuungsperson-fur-unsere-tagesschule-schule-zuzwil-zuzwil-39736",
         "it": "wir-suchen-dich-betreuungsperson-per-unsere-tagesschule-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-zuzwil",
-        "en": "wir-suchen-dich-betreuungsperson-fur-unsere-tagesschule-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-ka-39736",
-        "fr": "wir-suchen-dich-betreuungsperson-fur-unsere-tagesschule-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-ka-39736"
+        "en": "we-are-looking-for-you-caregiver-for-our-day-school-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-39736",
+        "fr": "nous-vous-recherchons-l-aidant-pour-notre-ecole-de-jour-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-39736"
       },
       "slugDisambiguator": "39736",
       "company": "KSML — Kantonaler Stellenmarkt für Lehrerinnen und Lehrer (Kanton Bern)",
@@ -57,10 +57,17 @@
       "previousSlugsByLocale": {
         "it": [
           "wir-suchen-dich-betreuungsperson-fur-unsere-tagesschule-schule-zuzwil-zuzwil-39736"
+        ],
+        "en": [
+          "wir-suchen-dich-betreuungsperson-fur-unsere-tagesschule-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-ka-39736"
+        ],
+        "fr": [
+          "wir-suchen-dich-betreuungsperson-fur-unsere-tagesschule-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-ka-39736"
         ]
       },
       "previousSlugs": [
-        "wir-suchen-dich-betreuungsperson-fur-unsere-tagesschule-schule-zuzwil-zuzwil-39736"
+        "wir-suchen-dich-betreuungsperson-fur-unsere-tagesschule-schule-zuzwil-zuzwil-39736",
+        "wir-suchen-dich-betreuungsperson-fur-unsere-tagesschule-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-ka-39736"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -840,8 +847,7 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "it": [
-          "stellvertretung-zwischen-den-sommer-und-herbstferien-6-lektionen-primarstufe-neuenegg-dorf-39946",
-          "stellvertretung-zwischen-den-sommer-e-herbstferien-6-lektionen-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-neuenegg"
+          "stellvertretung-zwischen-den-sommer-und-herbstferien-6-lektionen-primarstufe-neuenegg-dorf-39946"
         ],
         "en": [
           "stellvertretung-zwischen-den-sommer-und-herbstferien-6-lektionen-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-39946"
@@ -853,7 +859,6 @@
       "previousSlugs": [
         "stellvertretung-zwischen-den-sommer-und-herbstferien-6-lektionen-primarstufe-neuenegg-dorf-39946",
         "stellvertretung-zwischen-den-sommer-und-herbstferien-6-lektionen-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-39946",
-        "stellvertretung-zwischen-den-sommer-e-herbstferien-6-lektionen-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-neuenegg",
         "stellvertretung-zwischen-den-sommer-und-herbstferien-6-lektionen-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-39946"
       ],
       "salaryMin": 68500,

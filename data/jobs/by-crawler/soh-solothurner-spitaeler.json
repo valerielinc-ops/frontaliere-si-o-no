@@ -14342,14 +14342,12 @@
         "oberarztin-oberarzt-urologie-w-m-d-soh-solothurner-spitaeler-olten",
         "senior-physician-senior-physician-urology-f-m-d-solothurner-spitaler-ag-soh-olten",
         "medecin-ou-urologie-f-m-d-solothurner-spitaler-ag-soh-olten",
-        "medico-senior-urologia-medico-senior-f-m-d-solothurner-spitaler-ag-soh-olten",
-        "medico-senior-urologia-medico-senior-f-m-d-solothurner-spitaler-soh-solothurn"
+        "medico-senior-urologia-medico-senior-f-m-d-solothurner-spitaler-ag-soh-olten"
       ],
       "previousSlugsByLocale": {
         "it": [
           "oberarztin-oberarzt-urologie-w-m-d-soh-solothurner-spitaeler-olten",
-          "medico-senior-urologia-medico-senior-f-m-d-solothurner-spitaler-ag-soh-olten",
-          "medico-senior-urologia-medico-senior-f-m-d-solothurner-spitaler-soh-solothurn"
+          "medico-senior-urologia-medico-senior-f-m-d-solothurner-spitaler-ag-soh-olten"
         ],
         "en": [
           "oberarztin-oberarzt-urologie-w-m-d-soh-solothurner-spitaeler-olten",
@@ -14620,8 +14618,8 @@
       "slugByLocale": {
         "de": "freiwillige-mitarbeiterin-freiwilliger-mitarbeiter-w-m-d-soh-solothurner-spitaeler",
         "it": "freiwillige-mitarbeiterin-freiwilliger-collaboratore-trice-m-w-d-solothurner-spitaler-ag-soh-solothurn",
-        "en": "freiwillige-mitarbeiterin-freiwilliger-mitarbeiter-w-m-d-solothurner-spitaler-ag-soh-solothurn",
-        "fr": "freiwillige-mitarbeiterin-freiwilliger-mitarbeiter-w-m-d-solothurner-spitaler-ag-soh-solothurn"
+        "en": "volunteer-volunteer-f-m-d-solothurner-spitaler-ag-soh-solothurn",
+        "fr": "volontaire-benevole-f-m-d-solothurner-spitaler-ag-soh-solothurn"
       },
       "company": "Solothurner Spitäler AG (soH)",
       "companyKey": "soh-solothurner-spitaeler",
@@ -14667,10 +14665,17 @@
       "previousSlugsByLocale": {
         "it": [
           "freiwillige-mitarbeiterin-freiwilliger-mitarbeiter-w-m-d-soh-solothurner-spitaeler"
+        ],
+        "en": [
+          "freiwillige-mitarbeiterin-freiwilliger-mitarbeiter-w-m-d-solothurner-spitaler-ag-soh-solothurn"
+        ],
+        "fr": [
+          "freiwillige-mitarbeiterin-freiwilliger-mitarbeiter-w-m-d-solothurner-spitaler-ag-soh-solothurn"
         ]
       },
       "previousSlugs": [
-        "freiwillige-mitarbeiterin-freiwilliger-mitarbeiter-w-m-d-soh-solothurner-spitaeler"
+        "freiwillige-mitarbeiterin-freiwilliger-mitarbeiter-w-m-d-soh-solothurner-spitaeler",
+        "freiwillige-mitarbeiterin-freiwilliger-mitarbeiter-w-m-d-solothurner-spitaler-ag-soh-solothurn"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,

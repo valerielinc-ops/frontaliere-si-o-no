@@ -21558,8 +21558,8 @@
       "slugByLocale": {
         "de": "lehrstelle-kauffrau-mann-efz-d-a-privatversicherung-2027-swiss-re-ch",
         "it": "apprendistato-kauffrau-mann-cfc-d-a-privatversicherung-2027-swiss-re-zurich-ch",
-        "en": "lehrstelle-kauffrau-mann-efz-d-a-privatversicherung-2027-swiss-re-ch",
-        "fr": "lehrstelle-kauffrau-mann-efz-d-a-privatversicherung-2027-swiss-re-ch"
+        "en": "apprenticeship-businesswoman-mann-efz-d-a-private-insurance-2027-swiss-re-zurich-ch",
+        "fr": "apprentissage-businesswoman-mann-efz-d-a-assurance-privee-2027-swiss-re-zurich-ch"
       },
       "company": "Swiss Re",
       "companyKey": "swiss-re",
@@ -21603,6 +21603,12 @@
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-kauffrau-mann-efz-d-a-privatversicherung-2027-swiss-re-ch"
+        ],
+        "en": [
+          "lehrstelle-kauffrau-mann-efz-d-a-privatversicherung-2027-swiss-re-ch"
+        ],
+        "fr": [
+          "lehrstelle-kauffrau-mann-efz-d-a-privatversicherung-2027-swiss-re-ch"
         ]
       },
       "previousSlugs": [
@@ -21629,8 +21635,8 @@
       "slugByLocale": {
         "de": "lehrstelle-entwickler-in-digitales-business-efz-2027-swiss-re-ch",
         "it": "apprendistato-entwickler-in-digitales-business-cfc-2027-swiss-re-zurich-ch",
-        "en": "lehrstelle-entwickler-in-digitales-business-efz-2027-swiss-re-ch",
-        "fr": "lehrstelle-entwickler-in-digitales-business-efz-2027-swiss-re-ch"
+        "en": "apprenticeship-developer-in-digital-business-efz-2027-swiss-re-zurich-ch",
+        "fr": "developpeur-d-apprentissage-dans-les-affaires-numeriques-efz-2027-swiss-re-zurich-ch"
       },
       "company": "Swiss Re",
       "companyKey": "swiss-re",
@@ -21674,6 +21680,12 @@
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-entwickler-in-digitales-business-efz-2027-swiss-re-ch"
+        ],
+        "en": [
+          "lehrstelle-entwickler-in-digitales-business-efz-2027-swiss-re-ch"
+        ],
+        "fr": [
+          "lehrstelle-entwickler-in-digitales-business-efz-2027-swiss-re-ch"
         ]
       },
       "previousSlugs": [
@@ -21700,8 +21712,8 @@
       "slugByLocale": {
         "de": "lehrstelle-mediamatiker-in-efz-2027-swiss-re-ch",
         "it": "apprendistato-mediamatiker-in-cfc-2027-swiss-re-zurich-ch",
-        "en": "lehrstelle-mediamatiker-in-efz-2027-swiss-re-ch",
-        "fr": "lehrstelle-mediamatiker-in-efz-2027-swiss-re-ch"
+        "en": "teaching-position-mediamatist-in-efz-2027-swiss-re-zurich-ch",
+        "fr": "position-enseignante-mediamatiste-en-efz-2027-swiss-re-zurich-ch"
       },
       "company": "Swiss Re",
       "companyKey": "swiss-re",
@@ -21744,6 +21756,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "lehrstelle-mediamatiker-in-efz-2027-swiss-re-ch"
+        ],
+        "en": [
+          "lehrstelle-mediamatiker-in-efz-2027-swiss-re-ch"
+        ],
+        "fr": [
           "lehrstelle-mediamatiker-in-efz-2027-swiss-re-ch"
         ]
       },
@@ -22585,7 +22603,6 @@
         "it": [
           "cres-administrator-swiss-re-ch",
           "cres-administrator-swiss-re-london-gb",
-          "amministratore-cres-swiss-re-london-gb",
           "cres-administrator-swiss-re-london-gb"
         ],
         "fr": [
@@ -22595,7 +22612,6 @@
       "previousSlugs": [
         "cres-administrator-swiss-re-ch",
         "cres-administrator-swiss-re-london-gb",
-        "amministratore-cres-swiss-re-london-gb",
         "cres-administrator-swiss-re-london-gb"
       ],
       "salaryMin": 73500,
@@ -22958,7 +22974,6 @@
         "it": [
           "manager-underwriting-portfolio-management-swiss-re-ch",
           "manager-underwriting-portfolio-management-swiss-re-ch-2",
-          "manager-gestione-sottoscrittura-portfolio-swiss-re-london-gb-028cee",
           "manager-underwriting-portfolio-management-swiss-re-ch-2"
         ],
         "fr": [
@@ -22968,7 +22983,6 @@
       "previousSlugs": [
         "manager-underwriting-portfolio-management-swiss-re-ch",
         "manager-underwriting-portfolio-management-swiss-re-ch-2",
-        "manager-gestione-sottoscrittura-portfolio-swiss-re-london-gb-028cee",
         "manager-underwriting-portfolio-management-swiss-re-ch-2"
       ]
     },
