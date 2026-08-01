@@ -1,18 +1,19 @@
 {
   "key": "sintetica",
   "label": "Sintetica SA",
-  "generatedAt": "2026-07-31T22:06:47.137Z",
+  "generatedAt": "2026-08-01T10:47:09.116Z",
   "total": 10,
-  "newCount": 2,
-  "updatedCount": 7,
+  "newCount": 0,
+  "updatedCount": 9,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 10347,
-  "avgDurationMs": 10347,
+  "durationMs": 11399,
+  "avgDurationMs": 11399,
   "durationHistory": [
-    10347
+    11399
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "url": "https://app.ncoreplat.com/jobposition/807315/senior-sap-project-manager-operation-fi-mendrisio-site-ticino-ch/sintetica",
       "applyUrl": "https://app.ncoreplat.com/jobposition/807315/senior-sap-project-manager-operation-fi-mendrisio-site-ticino-ch/sintetica",
@@ -39,11 +40,13 @@
         "location": "Mendrisio"
       },
       "sourceLang": "en",
-      "_qualityScore": 60,
+      "id": "sintetica-91bb6fca0bd5",
+      "firstSeenAt": "2026-07-31T22:06:47.134Z",
+      "_qualityScore": 83,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 2,
+        "translation": 25,
         "completeness": 15
       }
     },
@@ -73,16 +76,16 @@
         "location": "Mendrisio"
       },
       "sourceLang": "en",
-      "_qualityScore": 60,
+      "id": "sintetica-526ef64c1466",
+      "firstSeenAt": "2026-07-31T22:06:47.134Z",
+      "_qualityScore": 83,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 2,
+        "translation": 25,
         "completeness": 15
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "url": "https://app.ncoreplat.com/jobposition/804884/production-engineer-couvet-site-ch/sintetica",
       "applyUrl": "https://app.ncoreplat.com/jobposition/804884/production-engineer-couvet-site-ch/sintetica",
@@ -291,10 +294,10 @@
       "sourceLang": "it",
       "id": "sintetica-2161482f648c",
       "firstSeenAt": "2026-07-07T22:12:17.128Z",
-      "_qualityScore": 83,
+      "_qualityScore": 75,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 18,
+        "richness": 10,
         "translation": 25,
         "completeness": 15
       }
@@ -352,7 +355,7 @@
       "addressCountry": "CH",
       "postalCode": "6850",
       "streetAddress": "Via Penate 5",
-      "slug": "senior-sap-project-manager-operation-fi-mendrisio-site-ticino-sintetica",
+      "slug": "senior-sap-project-manager-operazione-fi-sito-mendrisio-ticino-sintetica-sa-mendrisio",
       "category": "general",
       "datePosted": "2026-07-31",
       "source": "sintetica-careers-crawler",
@@ -364,17 +367,18 @@
         "location": "Mendrisio"
       },
       "sourceLang": "en",
+      "id": "sintetica-91bb6fca0bd5",
+      "firstSeenAt": "2026-07-31T22:06:47.134Z",
       "crawledAt": "",
       "needsRetranslation": true,
-      "id": "sintetica-91bb6fca0bd5",
       "salaryMin": 68000,
       "salaryMax": 103000,
       "currency": "CHF",
-      "_qualityScore": 79,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -392,7 +396,7 @@
       "addressCountry": "CH",
       "postalCode": "6850",
       "streetAddress": "Via Penate 5",
-      "slug": "senior-sap-project-manager-operation-mm-mendrisio-site-ticino-sintetica",
+      "slug": "senior-sap-project-manager-operazione-mm-sito-mendrisio-ticino-sintetica-sa-mendrisio",
       "category": "general",
       "datePosted": "2026-07-31",
       "source": "sintetica-careers-crawler",
@@ -404,17 +408,18 @@
         "location": "Mendrisio"
       },
       "sourceLang": "en",
+      "id": "sintetica-526ef64c1466",
+      "firstSeenAt": "2026-07-31T22:06:47.134Z",
       "crawledAt": "",
       "needsRetranslation": true,
-      "id": "sintetica-526ef64c1466",
       "salaryMin": 68000,
       "salaryMax": 103000,
       "currency": "CHF",
-      "_qualityScore": 79,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -655,10 +660,10 @@
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
-      "_qualityScore": 88,
+      "_qualityScore": 80,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 18,
+        "richness": 10,
         "translation": 25,
         "completeness": 20
       }
@@ -735,7 +740,7 @@
       "salaryMin": 68000,
       "salaryMax": 103000,
       "currency": "CHF",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
