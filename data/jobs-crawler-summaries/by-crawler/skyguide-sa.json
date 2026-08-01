@@ -1,18 +1,19 @@
 {
   "key": "skyguide-sa",
   "label": "Skyguide",
-  "generatedAt": "2026-07-31T22:16:07.129Z",
+  "generatedAt": "2026-08-01T10:51:11.313Z",
   "total": 11,
-  "newCount": 1,
-  "updatedCount": 10,
+  "newCount": 0,
+  "updatedCount": 11,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 7182,
-  "avgDurationMs": 7182,
+  "durationMs": 5270,
+  "avgDurationMs": 5270,
   "durationHistory": [
-    7182
+    5270
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "title": "Lernende*r Informatik EFZ (Plattformentwicklung)",
       "slug": "lernende-r-informatik-efz-plattformentwicklung-skyguide-dubendorf-ch",
@@ -35,16 +36,18 @@
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
-      "_qualityScore": 61,
+      "salaryMin": 73500,
+      "salaryMax": 111500,
+      "currency": "CHF",
+      "firstSeenAt": "2026-07-31T22:16:06.812Z",
+      "_qualityScore": 83,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
-        "completeness": 14
+        "translation": 21,
+        "completeness": 19
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "title": "Public Affairs & Government Relations Manager (100%)",
       "slug": "public-affairs-government-relations-manager-100-skyguide-wangen-b-dub-or-geneva-ch",
