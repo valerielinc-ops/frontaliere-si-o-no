@@ -1,6 +1,6 @@
 {
   "crawlerKey": "bcvs",
-  "assembledAt": "2026-07-31T22:07:30.889Z",
+  "assembledAt": "2026-08-01T10:47:53.313Z",
   "jobs": [
     {
       "id": "bcvs-eb1d10e603b7",
@@ -33,7 +33,7 @@
       "url": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/specialiste-tresorerie-devises-2540",
       "source": "Banque Cantonale du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-31T22:07:27.939Z",
+      "crawledAt": "2026-08-01T10:47:49.745Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -68,15 +68,20 @@
         "investment-specialist-bcvs-sion",
         "specialista-in-investimenti-banque-cantonale-du-valais-sion",
         "specialiste-en-investissement-banque-cantonale-du-valais-sion",
-        "specialiste-tresorerie-devises-bcvs-sion"
+        "specialiste-tresorerie-devises-bcvs-sion",
+        "specialiste-tresorerie-devises-banque-cantonale-du-valais-sion",
+        "tesore-specializzato-valuta-banque-cantonale-du-valais-sion"
       ],
       "firstSeenAt": "2026-05-06T21:27:36.448Z",
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "specialiste-tresorerie-devises-bcvs-sion"
+          "specialiste-tresorerie-devises-bcvs-sion",
+          "tesore-specializzato-valuta-banque-cantonale-du-valais-sion"
         ],
         "fr": [
-          "specialiste-tresorerie-devises-bcvs-sion"
+          "specialiste-tresorerie-devises-bcvs-sion",
+          "specialiste-tresorerie-devises-banque-cantonale-du-valais-sion"
         ],
         "en": [
           "specialiste-tresorerie-devises-bcvs-sion"
@@ -105,7 +110,7 @@
         "it": "personale-credito-back-office-banque-cantonale-du-valais-sion",
         "en": "personnel-credit-back-office-banque-cantonale-du-valais-sion",
         "de": "sachbearbeiter-in-kredit-backoffice-bcvs-sion",
-        "fr": "personnel-departement-crediteur-banque-cantonale-du-valais-sion"
+        "fr": "employe-de-bureau-de-pret-banque-cantonale-du-valais-sion"
       },
       "company": "Banque Cantonale du Valais",
       "companyKey": "bcvs",
@@ -129,7 +134,7 @@
       "url": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/sachbearbeiter-in-kredit-backoffice-2513",
       "source": "Banque Cantonale du Valais Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-31T22:07:27.348Z",
+      "crawledAt": "2026-08-01T10:47:49.161Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -149,18 +154,22 @@
       "previousSlugs": [
         "sachbearbeiter-in-kredit-backoffice-bcvs-sion",
         "sachbearbeiter-in-kredit-backoffice-banque-cantonale-du-valais-sion",
+        "personnel-departement-crediteur-banque-cantonale-du-valais-sion",
+        "personale-credito-back-office-banque-cantonale-du-valais-sion",
         "employe-de-bureau-de-pret-banque-cantonale-du-valais-sion"
       ],
       "previousSlugsByLocale": {
         "it": [
           "sachbearbeiter-in-kredit-backoffice-bcvs-sion",
-          "sachbearbeiter-in-kredit-backoffice-banque-cantonale-du-valais-sion"
+          "sachbearbeiter-in-kredit-backoffice-banque-cantonale-du-valais-sion",
+          "personale-credito-back-office-banque-cantonale-du-valais-sion"
         ],
         "en": [
           "sachbearbeiter-in-kredit-backoffice-banque-cantonale-du-valais-sion"
         ],
         "fr": [
           "sachbearbeiter-in-kredit-backoffice-banque-cantonale-du-valais-sion",
+          "personnel-departement-crediteur-banque-cantonale-du-valais-sion",
           "employe-de-bureau-de-pret-banque-cantonale-du-valais-sion"
         ]
       },
@@ -209,7 +218,7 @@
       "url": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/gestionnaire-fichier-central-2593",
       "source": "Banque Cantonale du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-31T22:07:26.890Z",
+      "crawledAt": "2026-08-01T10:47:48.573Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -237,12 +246,14 @@
       },
       "previousSlugs": [
         "gestionnaire-fichier-central-bcvs-sion",
-        "gestionnaire-fichier-central-banque-cantonale-du-valais-sion"
+        "gestionnaire-fichier-central-banque-cantonale-du-valais-sion",
+        "gestione-file-centrale-banque-cantonale-du-valais-sion"
       ],
       "previousSlugsByLocale": {
         "it": [
           "gestionnaire-fichier-central-bcvs-sion",
-          "gestionnaire-fichier-central-banque-cantonale-du-valais-sion"
+          "gestionnaire-fichier-central-banque-cantonale-du-valais-sion",
+          "gestione-file-centrale-banque-cantonale-du-valais-sion"
         ],
         "en": [
           "gestionnaire-fichier-central-bcvs-sion"
@@ -252,6 +263,7 @@
         ]
       },
       "firstSeenAt": "2026-06-26T10:53:41.259Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -296,7 +308,7 @@
       "url": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/conseiller-conseillere-bancaire-2596",
       "source": "Banque Cantonale du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-31T22:07:26.442Z",
+      "crawledAt": "2026-08-01T10:47:47.991Z",
       "addressLocality": "Sierre",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -327,11 +339,13 @@
         ]
       },
       "previousSlugs": [
-        "conseiller-conseillere-bancaire-bcvs-sierre"
+        "conseiller-conseillere-bancaire-bcvs-sierre",
+        "consulente-bancario-banque-cantonale-du-valais-sierre"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "conseiller-conseillere-bancaire-bcvs-sierre"
+          "conseiller-conseillere-bancaire-bcvs-sierre",
+          "consulente-bancario-banque-cantonale-du-valais-sierre"
         ],
         "en": [
           "conseiller-conseillere-bancaire-bcvs-sierre"
@@ -341,6 +355,7 @@
         ]
       },
       "firstSeenAt": "2026-07-01T11:12:48.710Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -385,7 +400,7 @@
       "url": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/conseiller-conseillere-clientele-des-entreprises-valais-central-2598",
       "source": "Banque Cantonale du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-31T22:07:25.995Z",
+      "crawledAt": "2026-08-01T10:47:47.542Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -417,11 +432,13 @@
         ]
       },
       "previousSlugs": [
-        "conseiller-conseillere-clientele-des-entreprises-valais-central-bcvs-sion"
+        "conseiller-conseillere-clientele-des-entreprises-valais-central-bcvs-sion",
+        "business-advisor-vallese-centrale-banque-cantonale-du-valais-sion"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "conseiller-conseillere-clientele-des-entreprises-valais-central-bcvs-sion"
+          "conseiller-conseillere-clientele-des-entreprises-valais-central-bcvs-sion",
+          "business-advisor-vallese-centrale-banque-cantonale-du-valais-sion"
         ],
         "en": [
           "conseiller-conseillere-clientele-des-entreprises-valais-central-bcvs-sion"
@@ -431,6 +448,7 @@
         ]
       },
       "firstSeenAt": "2026-07-07T12:01:18.698Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -475,7 +493,7 @@
       "url": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/sales-manager-2600",
       "source": "Banque Cantonale du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-31T22:07:25.546Z",
+      "crawledAt": "2026-08-01T10:47:46.955Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -509,17 +527,20 @@
         ]
       },
       "previousSlugs": [
-        "sales-manager-bcvs-sion"
+        "sales-manager-bcvs-sion",
+        "responsabile-vendite-banque-cantonale-du-valais-sion"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sales-manager-bcvs-sion"
+          "sales-manager-bcvs-sion",
+          "responsabile-vendite-banque-cantonale-du-valais-sion"
         ],
         "de": [
           "sales-manager-bcvs-sion"
         ]
       },
       "firstSeenAt": "2026-07-07T12:01:18.257Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -564,7 +585,7 @@
       "url": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/conseiller-ere-clientele-des-prives-individuelle-2605",
       "source": "Banque Cantonale du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-31T22:07:25.093Z",
+      "crawledAt": "2026-08-01T10:47:46.504Z",
       "addressLocality": "Monthey",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -597,11 +618,13 @@
         ]
       },
       "previousSlugs": [
-        "conseiller-ere-clientele-des-prives-individuelle-bcvs-monthey"
+        "conseiller-ere-clientele-des-prives-individuelle-bcvs-monthey",
+        "consulente-privato-cliente-individuale-banque-cantonale-du-valais-monthey"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "conseiller-ere-clientele-des-prives-individuelle-bcvs-monthey"
+          "conseiller-ere-clientele-des-prives-individuelle-bcvs-monthey",
+          "consulente-privato-cliente-individuale-banque-cantonale-du-valais-monthey"
         ],
         "en": [
           "conseiller-ere-clientele-des-prives-individuelle-bcvs-monthey"
@@ -611,6 +634,7 @@
         ]
       },
       "firstSeenAt": "2026-07-14T21:59:37.307Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -655,7 +679,7 @@
       "url": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/collaborateur-trice-clientele-des-prives-2620",
       "source": "Banque Cantonale du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-31T22:07:24.631Z",
+      "crawledAt": "2026-08-01T10:47:46.052Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -685,11 +709,13 @@
         ]
       },
       "previousSlugs": [
-        "collaborateur-trice-clientele-des-prives-bcvs-sion"
+        "collaborateur-trice-clientele-des-prives-bcvs-sion",
+        "collaboratore-privato-del-cliente-banque-cantonale-du-valais-sion"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "collaborateur-trice-clientele-des-prives-bcvs-sion"
+          "collaborateur-trice-clientele-des-prives-bcvs-sion",
+          "collaboratore-privato-del-cliente-banque-cantonale-du-valais-sion"
         ],
         "en": [
           "collaborateur-trice-clientele-des-prives-bcvs-sion"
@@ -699,6 +725,7 @@
         ]
       },
       "firstSeenAt": "2026-07-22T11:16:24.889Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -743,7 +770,7 @@
       "url": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/gestionnaire-prevoyance-individuelle-2622",
       "source": "Banque Cantonale du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-31T22:07:24.040Z",
+      "crawledAt": "2026-08-01T10:47:45.601Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -774,12 +801,14 @@
       },
       "previousSlugs": [
         "gestionnaire-prevoyance-individuelle-bcvs-sion",
-        "gestionnaire-prevoyance-individuelle-banque-cantonale-du-valais-sion"
+        "gestionnaire-prevoyance-individuelle-banque-cantonale-du-valais-sion",
+        "gestione-del-fornitore-individuale-banque-cantonale-du-valais-sion"
       ],
       "previousSlugsByLocale": {
         "it": [
           "gestionnaire-prevoyance-individuelle-bcvs-sion",
-          "gestionnaire-prevoyance-individuelle-banque-cantonale-du-valais-sion"
+          "gestionnaire-prevoyance-individuelle-banque-cantonale-du-valais-sion",
+          "gestione-del-fornitore-individuale-banque-cantonale-du-valais-sion"
         ],
         "en": [
           "gestionnaire-prevoyance-individuelle-bcvs-sion"
@@ -789,6 +818,7 @@
         ]
       },
       "firstSeenAt": "2026-07-22T11:16:24.476Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
