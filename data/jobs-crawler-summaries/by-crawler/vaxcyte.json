@@ -1,16 +1,16 @@
 {
   "key": "vaxcyte",
   "label": "Vaxcyte",
-  "generatedAt": "2026-07-31T22:07:10.506Z",
+  "generatedAt": "2026-08-01T10:48:01.792Z",
   "total": 5,
   "newCount": 0,
   "updatedCount": 4,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 6293,
-  "avgDurationMs": 6293,
+  "durationMs": 6604,
+  "avgDurationMs": 6604,
   "durationHistory": [
-    6293
+    6604
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -26,7 +26,7 @@
       "url": "https://boards.greenhouse.io/vaxcyte/jobs/5311536008?gh_jid=5311536008",
       "source": "Vaxcyte Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-31T22:07:05.143Z",
+      "crawledAt": "2026-08-01T10:47:56.090Z",
       "addressLocality": "Visp",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -67,7 +67,7 @@
       "url": "https://boards.greenhouse.io/vaxcyte/jobs/5284887008?gh_jid=5284887008",
       "source": "Vaxcyte Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-31T22:07:05.125Z",
+      "crawledAt": "2026-08-01T10:47:56.070Z",
       "addressLocality": "Visp",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -108,7 +108,7 @@
       "url": "https://boards.greenhouse.io/vaxcyte/jobs/5267677008?gh_jid=5267677008",
       "source": "Vaxcyte Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-31T22:07:05.181Z",
+      "crawledAt": "2026-08-01T10:47:56.130Z",
       "addressLocality": "Visp",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -149,7 +149,7 @@
       "url": "https://boards.greenhouse.io/vaxcyte/jobs/5263512008?gh_jid=5263512008",
       "source": "Vaxcyte Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-31T22:07:05.136Z",
+      "crawledAt": "2026-08-01T10:47:56.082Z",
       "addressLocality": "Visp",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -183,7 +183,7 @@
   "unchangedJobs": [
     {
       "id": "vaxcyte-27b9ca402283",
-      "slug": "specialista-di-assicurazione-di-qualita-iii-produzione-esterna-vaxcyte-visp",
+      "slug": "quality-assurance-specialista-iii-external-manufacturing-vaxcyte-visp",
       "company": "Vaxcyte",
       "companyKey": "vaxcyte",
       "companyDomain": "vaxcyte.com",
@@ -216,7 +216,7 @@
       "firstSeenAt": "2026-06-10T23:39:42.886Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 17,
