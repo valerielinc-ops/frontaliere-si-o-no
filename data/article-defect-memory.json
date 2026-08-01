@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-08-01T09:40:18.223Z",
+  "updatedAt": "2026-08-01T10:16:50.191Z",
   "entities": {
     "AASTI": {
       "status": "suspect",
@@ -601,13 +601,13 @@
       "statusSource": "auto",
       "statusAt": "2026-07-29T06:26:58.011Z",
       "firstSeen": "2026-07-29T06:26:58.011Z",
-      "lastSeen": "2026-08-01T06:10:05.052Z",
-      "seen": 43,
+      "lastSeen": "2026-08-01T10:16:50.191Z",
+      "seen": 44,
       "unsupportedSightings": 1,
       "unsupportedRuns": [
         "30685261901"
       ],
-      "supportedSightings": 30,
+      "supportedSightings": 31,
       "names": [
         "Ufficio Federale di Statistica",
         "Agenzia delle Entrate, la MEF, l'Ufficio Federale di Statistica",
@@ -619,6 +619,13 @@
         "30685261901:unknown"
       ],
       "evidence": [
+        {
+          "at": "2026-08-01T10:16:50.191Z",
+          "runId": "30694253023",
+          "articleId": "unknown",
+          "support": "present",
+          "name": "Ufficio Federale di Statistica"
+        },
         {
           "at": "2026-08-01T06:10:05.052Z",
           "runId": "30685261901",
@@ -660,13 +667,6 @@
           "articleId": "unknown",
           "support": "present",
           "name": "Ufficio Federale delle Statistiche"
-        },
-        {
-          "at": "2026-07-31T19:44:16.589Z",
-          "runId": "30656077764",
-          "articleId": "unknown",
-          "support": "present",
-          "name": "Ufficio Federale di Statistica"
         },
         {
           "at": "2026-07-31T19:44:16.589Z",
@@ -730,19 +730,40 @@
       "statusSource": "auto",
       "statusAt": "2026-07-29T14:56:18.665Z",
       "firstSeen": "2026-07-29T14:56:18.665Z",
-      "lastSeen": "2026-08-01T09:40:18.223Z",
-      "seen": 12,
+      "lastSeen": "2026-08-01T10:16:50.191Z",
+      "seen": 16,
       "unsupportedSightings": 0,
       "unsupportedRuns": [],
-      "supportedSightings": 12,
+      "supportedSightings": 16,
       "names": [
         "Commissione federale delle banche"
       ],
       "recentKeys": [],
       "evidence": [
         {
-          "at": "2026-08-01T09:40:18.223Z",
-          "runId": "30693054693",
+          "at": "2026-08-01T10:16:50.191Z",
+          "runId": "30694253023",
+          "articleId": "unknown",
+          "support": "present",
+          "name": "Commissione federale delle banche"
+        },
+        {
+          "at": "2026-08-01T10:16:50.191Z",
+          "runId": "30694253023",
+          "articleId": "unknown",
+          "support": "present",
+          "name": "Commissione federale delle banche"
+        },
+        {
+          "at": "2026-08-01T10:16:50.191Z",
+          "runId": "30694253023",
+          "articleId": "unknown",
+          "support": "present",
+          "name": "Commissione federale delle banche"
+        },
+        {
+          "at": "2026-08-01T10:16:50.191Z",
+          "runId": "30694253023",
           "articleId": "unknown",
           "support": "present",
           "name": "Commissione federale delle banche"
@@ -769,30 +790,9 @@
           "name": "Commissione federale delle banche"
         },
         {
-          "at": "2026-08-01T05:07:38.771Z",
-          "runId": "30684723546",
-          "articleId": "telelavoro-frontalieri-implicazioni-pratiche",
-          "support": "present",
-          "name": "Commissione federale delle banche"
-        },
-        {
-          "at": "2026-08-01T05:07:38.771Z",
-          "runId": "30684723546",
-          "articleId": "telelavoro-frontalieri-implicazioni-pratiche",
-          "support": "present",
-          "name": "Commissione federale delle banche"
-        },
-        {
-          "at": "2026-08-01T05:07:38.771Z",
-          "runId": "30684723546",
-          "articleId": "telelavoro-frontalieri-implicazioni-pratiche",
-          "support": "present",
-          "name": "Commissione federale delle banche"
-        },
-        {
-          "at": "2026-08-01T04:32:17.087Z",
-          "runId": "30683682399",
-          "articleId": "frontalieri-riapertura-attivita-edilizia",
+          "at": "2026-08-01T09:40:18.223Z",
+          "runId": "30693054693",
+          "articleId": "unknown",
           "support": "present",
           "name": "Commissione federale delle banche"
         }
@@ -6822,20 +6822,27 @@
       "statusSource": "auto",
       "statusAt": "2026-07-29T06:26:58.011Z",
       "firstSeen": "2026-07-29T06:26:58.011Z",
-      "lastSeen": "2026-07-31T19:44:16.589Z",
-      "seen": 8,
+      "lastSeen": "2026-08-01T10:16:50.191Z",
+      "seen": 9,
       "unsupportedSightings": 0,
       "unsupportedRuns": [],
-      "supportedSightings": 2,
+      "supportedSightings": 3,
       "names": [
+        "Ufficio federale di statistica",
         "Ufficio Cantonale di Statistica",
         "Ufficio cantonale delle statistiche",
         "Ufficio di statistica del Cantone",
-        "Ufficio di statistica del Canton Ticino",
-        "Ufficio cantonale di statistica"
+        "Ufficio di statistica del Canton Ticino"
       ],
       "recentKeys": [],
       "evidence": [
+        {
+          "at": "2026-08-01T10:16:50.191Z",
+          "runId": "30694253023",
+          "articleId": "unknown",
+          "support": "present",
+          "name": "Ufficio federale di statistica"
+        },
         {
           "at": "2026-07-31T19:44:16.589Z",
           "runId": "30656077764",
@@ -6884,13 +6891,6 @@
           "articleId": "divario-salari-ticino-frontalieri-2026",
           "support": "unknown",
           "name": "Ufficio cantonale di statistica"
-        },
-        {
-          "at": "2026-07-29T06:26:58.011Z",
-          "runId": "corpus-scan",
-          "articleId": "conciliabilita-vita-lavoro-bellinzona-2026",
-          "support": "unknown",
-          "name": "Ufficio Statistico del Cantone Ticino"
         }
       ]
     },
