@@ -606,6 +606,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'telelavoro-frontalieri-implicazioni-pratiche': { it: 'telelavoro-frontalieri-implicazioni-pratiche', en: 'telecommuting-for-frontaliers-practical-implications', de: 'telearbeit-fur-frontalierer-praktische-folgen', fr: 'teletravail-pour-frontalier-pratiques-implications' },
  'keller-sutter-stabilita-finanze-sane': { it: 'keller-sutter-stabilita-finanze-sane', en: 'keller-sutter-stability-sane-finances', de: 'keller-sutter-stabilitat-gesunde-finanzen', fr: 'keller-sutter-stabilite-finances-saines' },
  'cassis-duedingen': { it: 'cassis-duedingen', en: 'cassis-duedingen', de: 'cassis-duedingen', fr: 'cassis-duedingen' },
+ 'redditi-estero-controlli-doppia-tassazione': { it: 'redditi-estero-controlli-doppia-tassazione', en: 'income-earned-abroad-controls-avoiding-double-taxation', de: 'einkommen-im-ausland-kontrollen-doppelbesteuerung-vermeiden', fr: 'revenus-gagnes-a-l-etranger-controles-eviter-double-imposition' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

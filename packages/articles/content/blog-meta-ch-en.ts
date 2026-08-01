@@ -1741,6 +1741,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.cassis-duedingen.title': 'More cassis in düdingen:',
     'blog.article.cassis-duedingen.excerpt': 'Switzerland does not fall from the sky, but must be cultivated',
     'blog.article.cassis-duedingen.imageAlt': 'Group of people at a brunch in a farm in Düdingen (FR)',
+    'blog.article.redditi-estero-controlli-doppia-tassazione.title': 'Foreign income, checks on the way: how to avoid double taxation',
+    'blog.article.redditi-estero-controlli-doppia-tassazione.excerpt': 'New rules for frontier workers: exemptions, deductibles and how to avoid double taxation.',
+    'blog.article.redditi-estero-controlli-doppia-tassazione.imageAlt': 'A cross-border worker with tax documents and a calculator',
 };
 
 export default blogMetaChEn;

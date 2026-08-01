@@ -5221,6 +5221,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'redditi-estero-controlli-doppia-tassazione',
+    category: 'fiscale',
+    date: '2026-08-01T22:47:59.465Z',
+    image: '/images/blog/redditi-estero-controlli-doppia-tassazione.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
