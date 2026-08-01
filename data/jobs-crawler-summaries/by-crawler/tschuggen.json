@@ -1,18 +1,91 @@
 {
   "key": "tschuggen",
   "label": "Tschuggen Collection",
-  "generatedAt": "2026-07-31T22:18:31.710Z",
-  "total": 8,
-  "newCount": 0,
+  "generatedAt": "2026-08-01T10:55:47.966Z",
+  "total": 9,
+  "newCount": 2,
   "updatedCount": 7,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 11273,
-  "avgDurationMs": 11273,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 14199,
+  "avgDurationMs": 14199,
   "durationHistory": [
-    11273
+    14199
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "id": "tschuggen-ae2824a9a3e9",
+      "slug": "reservation-manager-m-w-d-in-unbefristeter-jahresanstellung-tschuggen-ch",
+      "company": "Tschuggen Collection",
+      "companyKey": "tschuggen",
+      "companyDomain": "tschuggencollection.ch",
+      "title": "Reservation Manager (m/w/d) in unbefristeter Jahresanstellung",
+      "location": "Arosa",
+      "canton": "GR",
+      "url": "https://recruitingapp-2904.umantis.com/Vacancies/1380/Description/1",
+      "source": "Tschuggen Collection Dedicated Parser (Umantis)",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-01T10:55:36.238Z",
+      "addressLocality": "Arosa",
+      "postalCode": "7050",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Ospitalità",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Ospitalità / Hotellerie",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-01",
+      "applyUrl": "https://recruitingapp-2904.umantis.com/Vacancies/1380/Description/1",
+      "department": "Rooms Division",
+      "hotelName": "Tschuggen Grand Hotel",
+      "_qualityScore": 64,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 4,
+        "completeness": 17
+      }
+    },
+    {
+      "id": "tschuggen-f0ec89305510",
+      "slug": "ski-butler-m-w-d-wintersaison-2026-2027-tschuggen-ch",
+      "company": "Tschuggen Collection",
+      "companyKey": "tschuggen",
+      "companyDomain": "tschuggencollection.ch",
+      "title": "Ski Butler (m/w/d) Wintersaison 2026/2027",
+      "location": "Arosa",
+      "canton": "GR",
+      "url": "https://recruitingapp-2904.umantis.com/Vacancies/1381/Description/1",
+      "source": "Tschuggen Collection Dedicated Parser (Umantis)",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-01T10:55:37.237Z",
+      "addressLocality": "Arosa",
+      "postalCode": "7050",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Ospitalità",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Ospitalità / Hotellerie",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-01",
+      "applyUrl": "https://recruitingapp-2904.umantis.com/Vacancies/1381/Description/1",
+      "department": "Loge",
+      "hotelName": "Tschuggen Grand Hotel",
+      "_qualityScore": 64,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 4,
+        "completeness": 17
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "id": "tschuggen-2cb375117405",
@@ -26,7 +99,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1331/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-31T22:18:28.343Z",
+      "crawledAt": "2026-08-01T10:55:44.285Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -63,7 +136,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1375/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-31T22:18:22.659Z",
+      "crawledAt": "2026-08-01T10:55:38.252Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -100,7 +173,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/840/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-31T22:18:23.444Z",
+      "crawledAt": "2026-08-01T10:55:39.244Z",
       "addressLocality": "Arosa",
       "postalCode": "7050",
       "addressCountry": "CH",
@@ -137,7 +210,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1373/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-31T22:18:24.459Z",
+      "crawledAt": "2026-08-01T10:55:40.270Z",
       "addressLocality": "Arosa",
       "postalCode": "7050",
       "addressCountry": "CH",
@@ -174,7 +247,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1374/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-31T22:18:25.486Z",
+      "crawledAt": "2026-08-01T10:55:41.286Z",
       "addressLocality": "Arosa",
       "postalCode": "7050",
       "addressCountry": "CH",
@@ -211,7 +284,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1367/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-31T22:18:26.536Z",
+      "crawledAt": "2026-08-01T10:55:42.291Z",
       "addressLocality": "Arosa",
       "postalCode": "7050",
       "addressCountry": "CH",
@@ -249,7 +322,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1346/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-31T22:18:27.555Z",
+      "crawledAt": "2026-08-01T10:55:43.273Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -275,8 +348,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "tschuggen-1b0e31f42889",
       "slug": "spa-receptionist-m-f-d-stagione-invernale-2025-2026-tschuggen-collection-arosa",
@@ -318,5 +390,6 @@
         "completeness": 22
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
