@@ -1,0 +1,40 @@
+{
+  "id": "smartworking-prolungato-2023",
+  "slug": "smartworking-prolungato-2023",
+  "publishedAt": "2026-08-01T13:37:50.509Z",
+  "cluster": "pensioni",
+  "_pool": "discovery",
+  "_pool_source": "news",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 4.407894877534021,
+    "confidence": 0.8,
+    "finalScore": 3.5263159020272172,
+    "topK": [
+      {
+        "slug": "cu-telelavoro-regole-frontalieri",
+        "cosine": 0.884939078323108
+      },
+      {
+        "slug": "telelavoro-frontalieri-nuove-regole",
+        "cosine": 0.8789195810796547
+      },
+      {
+        "slug": "frontalieri-telelavoro-2026",
+        "cosine": 0.8632246488300839
+      },
+      {
+        "slug": "nuove-regole-telelavoro-frontalieri-italia-svizzera",
+        "cosine": 0.862915760619773
+      },
+      {
+        "slug": "permessi-lavoro-digitale-ticino",
+        "cosine": 0.8623902509428185
+      }
+    ],
+    "score": 3.5263159020272172,
+    "clusterDiversityBonus": 1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "pensioni"
+  }
+}
