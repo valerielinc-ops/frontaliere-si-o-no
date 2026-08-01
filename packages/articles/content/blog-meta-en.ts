@@ -9184,6 +9184,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.riforma-ue-frontalieri-2026.title': 'EU reform, cost for Switzerland: one billion',
     'blog.article.riforma-ue-frontalieri-2026.excerpt': 'Switzerland is likely to pay a high price for a social reform approved by the European Union.',
     'blog.article.riforma-ue-frontalieri-2026.imageAlt': 'The view of Lugano from Lake Lugano',
+    'blog.article.frontalieri-perdono-lavoro-svizzera-paga-2026.title': 'Frontier workers in crisis: Switzerland pays the price of revolution',
+    'blog.article.frontalieri-perdono-lavoro-svizzera-paga-2026.excerpt': 'Switzerland is preparing for a possible financial earthquake due to the reform of the management of unemployment benefits for cross-border commuters.',
+    'blog.article.frontalieri-perdono-lavoro-svizzera-paga-2026.imageAlt': 'A realistic scene with Lake Lugano in the foreground, with the Ticino mountains in the background. The sunset light illuminates the surface of the water.',
 };
 
 export default blogMetaEn;

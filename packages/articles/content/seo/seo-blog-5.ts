@@ -58142,6 +58142,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-frontalieri-perdono-lavoro-svizzera-paga-2026': {
+    title: 'Frontalieri in crisi: la Svizzera paga il prezzo della rivoluzione',
+    description: 'La Svizzera si prepara a un possibile terremoto finanziario a causa della riforma della gestione dell\'indennità di disoccupazione per i frontalieri.',
+    keywords: 'frontalieri, ticino, svizzera, italia, crisi, paga, prezzo, rivoluzione',
+    ogTitle: 'I frontalieri perdono il lavoro, la Svizzera paga: la rivoluzione che può costare un miliardo alla Confederazione',
+    ogDescription: 'La Svizzera si prepara a un possibile terremoto finanziario a causa della riforma della gestione dell\'indennità di disoccupazione per i frontalieri.',
+    canonicalPath: '/articoli-frontaliere/frontalieri-perdono-lavoro-svizzera-paga-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Frontalieri in crisi: la Svizzera paga il prezzo della rivoluzione",
+      "description": "La Svizzera si prepara a un possibile terremoto finanziario a causa della riforma della gestione dell'indennità di disoccupazione per i frontalieri.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/frontalieri-perdono-lavoro-svizzera-paga-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una scena fotorealistica con il Lago di Lugano in primo piano, con le montagne ticinesi all'orizzonte. La luce del tramonto illumina la superficie dell'acqua."
+      },
+      "datePublished": "2026-08-01T22:58:29+00:00",
+      "dateModified": "2026-08-01T22:58:29+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/frontalieri-perdono-lavoro-svizzera-paga-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
