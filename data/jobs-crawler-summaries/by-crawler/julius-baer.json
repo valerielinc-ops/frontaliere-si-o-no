@@ -1,18 +1,52 @@
 {
   "key": "julius-baer",
   "label": "Julius Baer",
-  "generatedAt": "2026-07-31T22:08:41.736Z",
-  "total": 86,
-  "newCount": 2,
+  "generatedAt": "2026-08-01T10:48:23.526Z",
+  "total": 87,
+  "newCount": 3,
   "updatedCount": 81,
   "removedCount": 0,
   "unchangedCount": 3,
-  "durationMs": 41942,
-  "avgDurationMs": 41942,
+  "durationMs": 52549,
+  "avgDurationMs": 52549,
   "durationHistory": [
-    41942
+    52549
   ],
   "newJobs": [
+    {
+      "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Communication-Specialists-for-Region-WMS-80-100---f-m-d-_r-19126-2",
+      "applyUrl": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Communication-Specialists-for-Region-WMS-80-100---f-m-d-_r-19126-2",
+      "title": "Communication Specialists for Region WMS 80-100% (f/m/d)",
+      "company": "Julius Baer",
+      "companyKey": "julius-baer",
+      "location": "Zurich",
+      "canton": "ZH",
+      "country": "CH",
+      "addressLocality": "Zurich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "postalCode": "",
+      "streetAddress": "",
+      "slug": "communication-specialists-for-region-wms-80-100-f-m-d-julius-baer",
+      "category": "sales",
+      "datePosted": "2026-08-01",
+      "source": "julius-baer-workday-crawler",
+      "employmentType": "FULL_TIME",
+      "sourceLang": "en",
+      "experienceLevel": "MID",
+      "sector": "Banking / Wealth Management",
+      "_targetScope": {
+        "canton": "ZH",
+        "location": "Zurich"
+      },
+      "_qualityScore": 60,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 6,
+        "completeness": 9
+      }
+    },
     {
       "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Assistant-Relationship-Manager-Intermediaries-100---f-m-d-_r-19253-2",
       "applyUrl": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Assistant-Relationship-Manager-Intermediaries-100---f-m-d-_r-19253-2",
@@ -1170,7 +1204,7 @@
       "salaryMin": 83000,
       "salaryMax": 127500,
       "currency": "CHF",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1209,7 +1243,7 @@
       "salaryMin": 101500,
       "salaryMax": 154000,
       "currency": "CHF",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1248,7 +1282,7 @@
       "salaryMin": 101500,
       "salaryMax": 154000,
       "currency": "CHF",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 77,
       "_qualityBreakdown": {
         "cleanliness": 20,
