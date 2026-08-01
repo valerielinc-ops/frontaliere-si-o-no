@@ -81,13 +81,11 @@
       "sourceLang": "de",
       "crawledAt": "2026-07-31T22:33:19.546Z",
       "previousSlugs": [
-        "stellvertretender-filialleiter-m-w-d-aldi-suisse",
-        "direttore-aggiunto-m-f-d-aldi-suisse-sempach-station"
+        "stellvertretender-filialleiter-m-w-d-aldi-suisse"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "stellvertretender-filialleiter-m-w-d-aldi-suisse",
-          "direttore-aggiunto-m-f-d-aldi-suisse-sempach-station"
+          "stellvertretender-filialleiter-m-w-d-aldi-suisse"
         ],
         "en": [
           "stellvertretender-filialleiter-m-w-d-aldi-suisse"
@@ -293,13 +291,11 @@
       "sourceLang": "de",
       "crawledAt": "2026-07-31T22:33:18.350Z",
       "previousSlugs": [
-        "samstagsaushilfe-verkauf-m-w-d-aldi-suisse",
-        "samstagsaushilfe-vendita-m-w-d-aldi-suisse-oberburg"
+        "samstagsaushilfe-verkauf-m-w-d-aldi-suisse"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "samstagsaushilfe-verkauf-m-w-d-aldi-suisse",
-          "samstagsaushilfe-vendita-m-w-d-aldi-suisse-oberburg"
+          "samstagsaushilfe-verkauf-m-w-d-aldi-suisse"
         ],
         "en": [
           "samstagsaushilfe-verkauf-m-w-d-aldi-suisse"
@@ -407,8 +403,7 @@
         "mitarbeiter-verkauf-m-w-d-aldi-suisse-5",
         "addetto-a-alle-vendite-m-w-d-aldi-suisse-winterthur",
         "vendeur-se-m-w-d-aldi-suisse-winterthur",
-        "membro-vendita-m-w-d-aldi-suisse-winterthur",
-        "addetto-a-alle-vendite-m-w-d-aldi-suisse-aadorf"
+        "membro-vendita-m-w-d-aldi-suisse-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -419,8 +414,7 @@
           "mitarbeiter-verkauf-m-w-d-aldi-suisse-5",
           "addetto-a-alle-vendite-m-w-d-aldi-suisse-winterthur",
           "vendeur-se-m-w-d-aldi-suisse-winterthur",
-          "membro-vendita-m-w-d-aldi-suisse-winterthur",
-          "addetto-a-alle-vendite-m-w-d-aldi-suisse-aadorf"
+          "membro-vendita-m-w-d-aldi-suisse-winterthur"
         ],
         "en": [
           "mitarbeiter-verkauf-m-w-d-aldi-suisse",
@@ -448,12 +442,12 @@
     },
     {
       "id": "aldi-suisse-6c23a734b71e",
-      "slug": "mitarbeiter-verkauf-m-w-d-aldi-suisse",
+      "slug": "addetto-a-alle-vendite-m-w-d-aldi-suisse-bubendorf",
       "slugByLocale": {
-        "it": "mitarbeiter-verkauf-m-w-d-aldi-suisse",
-        "en": "mitarbeiter-verkauf-m-w-d-aldi-suisse",
+        "it": "addetto-a-alle-vendite-m-w-d-aldi-suisse-bubendorf",
+        "en": "sales-associate-m-w-d-aldi-suisse-bubendorf",
         "de": "mitarbeiter-verkauf-m-w-d-aldi-suisse",
-        "fr": "mitarbeiter-verkauf-m-w-d-aldi-suisse"
+        "fr": "vendeur-se-m-w-d-aldi-suisse-bubendorf"
       },
       "company": "ALDI SUISSE",
       "companyKey": "aldi-suisse",
@@ -541,7 +535,21 @@
         }
       },
       "country": "CH",
-      "firstSeenAt": "2026-07-31T22:33:17.216Z"
+      "firstSeenAt": "2026-07-31T22:33:17.216Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "mitarbeiter-verkauf-m-w-d-aldi-suisse"
+        ],
+        "en": [
+          "mitarbeiter-verkauf-m-w-d-aldi-suisse"
+        ],
+        "fr": [
+          "mitarbeiter-verkauf-m-w-d-aldi-suisse"
+        ]
+      },
+      "previousSlugs": [
+        "mitarbeiter-verkauf-m-w-d-aldi-suisse"
+      ]
     },
     {
       "id": "aldi-suisse-642b1b1da8fb",
@@ -619,14 +627,12 @@
       "crawledAt": "2026-07-31T22:33:17.216Z",
       "previousSlugs": [
         "mitarbeiter-verkauf-m-w-d-aldi-suisse",
-        "mitarbeiter-verkauf-m-w-d-aldi-suisse-2",
-        "addetto-a-alle-vendite-m-w-d-aldi-suisse-zurich"
+        "mitarbeiter-verkauf-m-w-d-aldi-suisse-2"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-verkauf-m-w-d-aldi-suisse",
-          "mitarbeiter-verkauf-m-w-d-aldi-suisse-2",
-          "addetto-a-alle-vendite-m-w-d-aldi-suisse-zurich"
+          "mitarbeiter-verkauf-m-w-d-aldi-suisse-2"
         ],
         "en": [
           "mitarbeiter-verkauf-m-w-d-aldi-suisse"
@@ -657,7 +663,7 @@
         "it": "addetto-a-alle-vendite-m-w-d-aldi-suisse-biberist",
         "en": "sales-associate-m-w-d-aldi-suisse-biberist",
         "de": "mitarbeiter-verkauf-m-w-d-aldi-suisse",
-        "fr": "employe-de-vente-m-w-d-aldi-suisse-biberist"
+        "fr": "vendeur-se-m-w-d-aldi-suisse-biberist"
       },
       "company": "ALDI SUISSE",
       "companyKey": "aldi-suisse",
@@ -727,22 +733,18 @@
       "previousSlugs": [
         "mitarbeiter-verkauf-m-w-d-aldi-suisse",
         "mitarbeiter-verkauf-m-w-d-aldi-suisse-13",
-        "vendeur-se-m-w-d-aldi-suisse-biberist",
-        "addetto-a-alle-vendite-m-w-d-aldi-suisse-biberist",
         "employe-de-vente-m-w-d-aldi-suisse-biberist"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-verkauf-m-w-d-aldi-suisse",
-          "mitarbeiter-verkauf-m-w-d-aldi-suisse-13",
-          "addetto-a-alle-vendite-m-w-d-aldi-suisse-biberist"
+          "mitarbeiter-verkauf-m-w-d-aldi-suisse-13"
         ],
         "en": [
           "mitarbeiter-verkauf-m-w-d-aldi-suisse"
         ],
         "fr": [
           "mitarbeiter-verkauf-m-w-d-aldi-suisse",
-          "vendeur-se-m-w-d-aldi-suisse-biberist",
           "employe-de-vente-m-w-d-aldi-suisse-biberist"
         ]
       },
@@ -763,12 +765,12 @@
     },
     {
       "id": "aldi-suisse-391002a5fcbf",
-      "slug": "lernender-detailhandel-m-w-d-aldi-suisse",
+      "slug": "apprendista-commercio-al-dettaglio-m-w-d-aldi-suisse-landquart",
       "slugByLocale": {
-        "it": "lernender-detailhandel-m-w-d-aldi-suisse",
-        "en": "lernender-detailhandel-m-w-d-aldi-suisse",
+        "it": "apprendista-commercio-al-dettaglio-m-w-d-aldi-suisse-landquart",
+        "en": "retail-apprentice-m-w-d-aldi-suisse-landquart",
         "de": "lernender-detailhandel-m-w-d-aldi-suisse",
-        "fr": "lernender-detailhandel-m-w-d-aldi-suisse"
+        "fr": "apprenti-e-commerce-de-detail-m-w-d-aldi-suisse-landquart"
       },
       "company": "ALDI SUISSE",
       "companyKey": "aldi-suisse",
@@ -850,7 +852,21 @@
         }
       },
       "country": "CH",
-      "firstSeenAt": "2026-07-31T22:33:16.766Z"
+      "firstSeenAt": "2026-07-31T22:33:16.766Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "lernender-detailhandel-m-w-d-aldi-suisse"
+        ],
+        "en": [
+          "lernender-detailhandel-m-w-d-aldi-suisse"
+        ],
+        "fr": [
+          "lernender-detailhandel-m-w-d-aldi-suisse"
+        ]
+      },
+      "previousSlugs": [
+        "lernender-detailhandel-m-w-d-aldi-suisse"
+      ]
     },
     {
       "id": "aldi-suisse-822e1efb1759",
@@ -925,14 +941,12 @@
       "crawledAt": "2026-07-31T22:33:12.926Z",
       "previousSlugs": [
         "lernender-detailhandel-m-w-d-aldi-suisse",
-        "lernender-detailhandel-m-w-d-aldi-suisse-17",
-        "apprendista-commercio-al-dettaglio-m-w-d-aldi-suisse-wadenswil-au"
+        "lernender-detailhandel-m-w-d-aldi-suisse-17"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lernender-detailhandel-m-w-d-aldi-suisse",
-          "lernender-detailhandel-m-w-d-aldi-suisse-17",
-          "apprendista-commercio-al-dettaglio-m-w-d-aldi-suisse-wadenswil-au"
+          "lernender-detailhandel-m-w-d-aldi-suisse-17"
         ],
         "en": [
           "lernender-detailhandel-m-w-d-aldi-suisse"
@@ -1030,15 +1044,13 @@
       "previousSlugs": [
         "lernender-detailhandel-m-w-d-aldi-suisse-2",
         "lernender-detailhandel-m-w-d-aldi-suisse",
-        "lernender-detailhandel-m-w-d-aldi-suisse-18",
-        "apprendista-commercio-al-dettaglio-m-w-d-aldi-suisse-duggingen"
+        "lernender-detailhandel-m-w-d-aldi-suisse-18"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lernender-detailhandel-m-w-d-aldi-suisse-2",
           "lernender-detailhandel-m-w-d-aldi-suisse",
-          "lernender-detailhandel-m-w-d-aldi-suisse-18",
-          "apprendista-commercio-al-dettaglio-m-w-d-aldi-suisse-duggingen"
+          "lernender-detailhandel-m-w-d-aldi-suisse-18"
         ],
         "en": [
           "lernender-detailhandel-m-w-d-aldi-suisse"
@@ -1064,11 +1076,11 @@
     },
     {
       "id": "aldi-suisse-b84f88e5d0a8",
-      "slug": "apprenti-e-du-commerce-de-detail-cfc-ou-afp-aldi-suisse",
+      "slug": "apprendistato-al-dettaglio-cfc-o-afp-aldi-suisse-collombey",
       "slugByLocale": {
-        "it": "apprenti-e-du-commerce-de-detail-cfc-ou-afp-aldi-suisse",
-        "en": "apprenti-e-du-commerce-de-detail-cfc-ou-afp-aldi-suisse",
-        "de": "apprenti-e-du-commerce-de-detail-cfc-ou-afp-aldi-suisse",
+        "it": "apprendistato-al-dettaglio-cfc-o-afp-aldi-suisse-collombey",
+        "en": "retail-apprenticeship-cfc-or-afp-aldi-suisse-collombey",
+        "de": "auszubildende-im-einzelhandel-cfc-oder-afp-aldi-suisse-collombey",
         "fr": "apprenti-e-du-commerce-de-detail-cfc-ou-afp-aldi-suisse"
       },
       "company": "ALDI SUISSE",
@@ -1151,16 +1163,30 @@
         }
       },
       "country": "CH",
-      "firstSeenAt": "2026-07-31T22:33:08.571Z"
+      "firstSeenAt": "2026-07-31T22:33:08.571Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "apprenti-e-du-commerce-de-detail-cfc-ou-afp-aldi-suisse"
+        ],
+        "en": [
+          "apprenti-e-du-commerce-de-detail-cfc-ou-afp-aldi-suisse"
+        ],
+        "de": [
+          "apprenti-e-du-commerce-de-detail-cfc-ou-afp-aldi-suisse"
+        ]
+      },
+      "previousSlugs": [
+        "apprenti-e-du-commerce-de-detail-cfc-ou-afp-aldi-suisse"
+      ]
     },
     {
       "id": "aldi-suisse-209242d66fcb",
-      "slug": "apprenti-ventelernender-detailhandel-m-w-d-aldi-suisse",
+      "slug": "apprenti-ventelernender-commercio-al-dettaglio-m-w-d-aldi-suisse-belp",
       "slugByLocale": {
-        "it": "apprenti-ventelernender-detailhandel-m-w-d-aldi-suisse",
+        "it": "apprenti-ventelernender-commercio-al-dettaglio-m-w-d-aldi-suisse-belp",
         "en": "apprenti-ventelernender-detailhandel-m-w-d-aldi-suisse",
         "de": "apprenti-ventelernender-detailhandel-m-w-d-aldi-suisse",
-        "fr": "apprenti-ventelernender-detailhandel-m-w-d-aldi-suisse"
+        "fr": "apprenti-ventelernender-commerce-de-detail-m-w-d-aldi-suisse-belp"
       },
       "company": "ALDI SUISSE",
       "companyKey": "aldi-suisse",
@@ -1242,7 +1268,18 @@
         }
       },
       "country": "CH",
-      "firstSeenAt": "2026-07-31T22:33:07.621Z"
+      "firstSeenAt": "2026-07-31T22:33:07.621Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "apprenti-ventelernender-detailhandel-m-w-d-aldi-suisse"
+        ],
+        "fr": [
+          "apprenti-ventelernender-detailhandel-m-w-d-aldi-suisse"
+        ]
+      },
+      "previousSlugs": [
+        "apprenti-ventelernender-detailhandel-m-w-d-aldi-suisse"
+      ]
     },
     {
       "id": "aldi-suisse-f88c24cdbdd7",
@@ -1327,8 +1364,7 @@
           "mitarbeiter-verkauf-m-w-d-aldi-suisse"
         ],
         "de": [
-          "mitarbeiter-verkauf-m-w-d-aldi-suisse-jqqp2b",
-          "mitarbeiter-verkauf-m-w-d-aldi-suisse"
+          "mitarbeiter-verkauf-m-w-d-aldi-suisse-jqqp2b"
         ]
       },
       "firstSeenAt": "2026-07-30T11:46:13.453Z",
@@ -1354,7 +1390,7 @@
         "it": "addetto-a-alle-vendite-m-w-d-aldi-suisse-meilen",
         "en": "sales-associate-m-w-d-aldi-suisse-meilen",
         "de": "mitarbeiter-verkauf-m-w-d-aldi-suisse",
-        "fr": "employe-de-vente-m-w-d-aldi-suisse-meilen"
+        "fr": "vendeur-se-m-w-d-aldi-suisse-meilen"
       },
       "company": "ALDI SUISSE",
       "companyKey": "aldi-suisse",
@@ -1431,7 +1467,6 @@
         "addetto-a-alle-vendite-m-w-d-aldi-suisse-winterthur-b714a0",
         "commercant-m-w-d-aldi-suisse-meilen",
         "mitarbeiter-verkauf-m-w-d-aldi-suisse-hd00zn",
-        "vendeur-se-m-w-d-aldi-suisse-meilen",
         "employe-de-vente-m-w-d-aldi-suisse-meilen"
       ],
       "previousSlugsByLocale": {
@@ -1443,13 +1478,11 @@
           "mitarbeiter-verkauf-m-w-d-aldi-suisse"
         ],
         "de": [
-          "mitarbeiter-verkauf-m-w-d-aldi-suisse-hd00zn",
-          "mitarbeiter-verkauf-m-w-d-aldi-suisse"
+          "mitarbeiter-verkauf-m-w-d-aldi-suisse-hd00zn"
         ],
         "fr": [
           "mitarbeiter-verkauf-m-w-d-aldi-suisse",
           "commercant-m-w-d-aldi-suisse-meilen",
-          "vendeur-se-m-w-d-aldi-suisse-meilen",
           "employe-de-vente-m-w-d-aldi-suisse-meilen"
         ]
       },

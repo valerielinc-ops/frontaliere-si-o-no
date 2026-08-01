@@ -52,13 +52,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "finance-specialist-m-f-d-clariant-pratteln",
-        "finanza-specialista-m-f-d-clariant-pratteln"
+        "finance-specialist-m-f-d-clariant-pratteln"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "finance-specialist-m-f-d-clariant-pratteln",
-          "finanza-specialista-m-f-d-clariant-pratteln"
+          "finance-specialist-m-f-d-clariant-pratteln"
         ],
         "de": [
           "finance-specialist-m-f-d-clariant-pratteln"
@@ -83,12 +81,12 @@
     },
     {
       "id": "clariant-74dc35ebdfa6",
-      "slug": "senior-manager-tax-tax-governance-clariant-pratteln",
+      "slug": "senior-gestione-delle-imposte-e-del-governo-fiscale-clariant-pratteln",
       "slugByLocale": {
         "en": "senior-manager-tax-tax-governance-clariant-pratteln",
-        "it": "senior-manager-tax-tax-governance-clariant-pratteln",
+        "it": "senior-gestione-delle-imposte-e-del-governo-fiscale-clariant-pratteln",
         "de": "senior-manager-tax-tax-governance-clariant-pratteln",
-        "fr": "senior-manager-tax-tax-governance-clariant-pratteln"
+        "fr": "aine-gestionnaire-fiscalite-et-gouvernance-fiscale-clariant-pratteln"
       },
       "company": "Clariant",
       "companyKey": "clariant",
@@ -144,7 +142,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-31T22:16:31.933Z"
+      "firstSeenAt": "2026-07-31T22:16:31.933Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-manager-tax-tax-governance-clariant-pratteln"
+        ],
+        "fr": [
+          "senior-manager-tax-tax-governance-clariant-pratteln"
+        ]
+      },
+      "previousSlugs": [
+        "senior-manager-tax-tax-governance-clariant-pratteln"
+      ]
     }
   ]
 }
