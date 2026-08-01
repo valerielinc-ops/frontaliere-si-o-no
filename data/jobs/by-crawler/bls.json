@@ -1,6 +1,6 @@
 {
   "crawlerKey": "bls",
-  "assembledAt": "2026-08-01T10:49:35.243Z",
+  "assembledAt": "2026-08-01T22:01:39.268Z",
   "jobs": [
     {
       "id": "bls-5c03d3b84468",
@@ -33,7 +33,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/gleisbauer-in/e1d4abf3-9ab0-4d59-90ae-5f02770201b0",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-01T10:49:31.367Z",
+      "crawledAt": "2026-08-01T22:01:34.888Z",
       "addressLocality": "Hasle bei Burgdorf",
       "addressCountry": "CH",
       "country": "CH",
@@ -68,11 +68,13 @@
         ]
       },
       "previousSlugs": [
-        "gleisbauer-in-bls-ch"
+        "gleisbauer-in-bls-ch",
+        "tracciatore-in-bls-ag-hasle-bei-burgdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "gleisbauer-in-bls-ch"
+          "gleisbauer-in-bls-ch",
+          "tracciatore-in-bls-ag-hasle-bei-burgdorf"
         ],
         "en": [
           "gleisbauer-in-bls-ch"
@@ -82,6 +84,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T22:46:35.340Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -127,7 +130,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/leiter-in-immobilienentwicklung/877f2218-456f-42eb-949f-8c7acbeb3544",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-01T10:49:30.511Z",
+      "crawledAt": "2026-08-01T22:01:34.041Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -164,14 +167,17 @@
         "responsabile-operations-bls-ag-bern",
         "head-in-operations-bls-ag-bern",
         "leiter-in-operations-bls-ch",
-        "chef-en-operations-bls-ag-bern"
+        "chef-en-operations-bls-ag-bern",
+        "responsabile-immobilienentwicklung-bls-ag-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "leiter-in-immobilienentwicklung-bls-ch"
+          "leiter-in-immobilienentwicklung-bls-ch",
+          "responsabile-immobilienentwicklung-bls-ag-bern"
         ]
       },
       "firstSeenAt": "2026-06-16T12:57:20.047Z",
+      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "baseSalary": {
@@ -217,7 +223,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/junior-betriebsplaner-in-bus/a564855b-b74c-48e0-994f-4865aa551b52",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-01T10:49:29.795Z",
+      "crawledAt": "2026-08-01T22:01:33.322Z",
       "addressLocality": "Burgdorf",
       "addressCountry": "CH",
       "country": "CH",
@@ -254,14 +260,17 @@
         ]
       },
       "previousSlugs": [
-        "junior-betriebsplaner-in-bus-bls-ch"
+        "junior-betriebsplaner-in-bus-bls-ch",
+        "junior-planner-in-autobus-bls-ag-burgdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "junior-betriebsplaner-in-bus-bls-ch"
+          "junior-betriebsplaner-in-bus-bls-ch",
+          "junior-planner-in-autobus-bls-ag-burgdorf"
         ]
       },
       "firstSeenAt": "2026-07-13T13:12:39.014Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -307,7 +316,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/teamleiter-in-tunneltechnik-loetschberg-basistunnel-lbt/87090c34-c9fd-4541-a605-c35c2780277d",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-01T10:49:28.907Z",
+      "crawledAt": "2026-08-01T22:01:32.433Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -341,17 +350,20 @@
         ]
       },
       "previousSlugs": [
-        "teamleiter-in-tunneltechnik-lotschberg-basistunnel-lbt-bls-ch"
+        "teamleiter-in-tunneltechnik-lotschberg-basistunnel-lbt-bls-ch",
+        "team-leader-in-tunneltechnik-lotschberg-base-tunnel-lbt-bls-ag-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "teamleiter-in-tunneltechnik-lotschberg-basistunnel-lbt-bls-ch"
+          "teamleiter-in-tunneltechnik-lotschberg-basistunnel-lbt-bls-ch",
+          "team-leader-in-tunneltechnik-lotschberg-base-tunnel-lbt-bls-ag-bern"
         ],
         "fr": [
           "teamleiter-in-tunneltechnik-lotschberg-basistunnel-lbt-bls-ch"
         ]
       },
       "firstSeenAt": "2026-07-20T12:20:28.123Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -397,7 +409,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/junior-produktemanager-in-autoverlad/05b45652-0fb7-46c8-ae2b-861a6f8737b2",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-01T10:49:28.061Z",
+      "crawledAt": "2026-08-01T22:01:31.566Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -434,11 +446,13 @@
         ]
       },
       "previousSlugs": [
-        "junior-produktemanager-in-autoverlad-bls-ch"
+        "junior-produktemanager-in-autoverlad-bls-ch",
+        "junior-product-manager-in-autoverlad-bls-ag-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "junior-produktemanager-in-autoverlad-bls-ch"
+          "junior-produktemanager-in-autoverlad-bls-ch",
+          "junior-product-manager-in-autoverlad-bls-ag-bern"
         ],
         "en": [
           "junior-produktemanager-in-autoverlad-bls-ch"
@@ -448,6 +462,7 @@
         ]
       },
       "firstSeenAt": "2026-07-20T12:20:22.725Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -493,7 +508,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/kaeltesystemtechniker-in-lueftung-und-klima/2a7b3bed-4367-4ac7-b091-f2a5cbb4e352",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-01T10:49:27.087Z",
+      "crawledAt": "2026-08-01T22:01:30.723Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -550,6 +565,7 @@
         ]
       },
       "firstSeenAt": "2026-07-19T11:47:54.009Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -595,7 +611,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/baufuehrer-in-bahnbau/adcb2459-2080-47bc-964b-82d7764e2de5",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-01T10:49:26.207Z",
+      "crawledAt": "2026-08-01T22:01:29.884Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -630,11 +646,13 @@
         ]
       },
       "previousSlugs": [
-        "baufuhrer-in-bahnbau-bls-ch"
+        "baufuhrer-in-bahnbau-bls-ch",
+        "responsabile-della-costruzione-nella-costruzione-ferroviaria-bls-ag-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "baufuhrer-in-bahnbau-bls-ch"
+          "baufuhrer-in-bahnbau-bls-ch",
+          "responsabile-della-costruzione-nella-costruzione-ferroviaria-bls-ag-bern"
         ],
         "en": [
           "baufuhrer-in-bahnbau-bls-ch"
@@ -644,6 +662,7 @@
         ]
       },
       "firstSeenAt": "2026-07-21T11:35:29.865Z",
+      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "baseSalary": {
@@ -689,7 +708,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/automechatroniker-in-lastwagenmechaniker-in-automatiker-in/dd034dae-6852-48aa-9341-ddcb2703eeda",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-01T10:49:25.343Z",
+      "crawledAt": "2026-08-01T22:01:29.038Z",
       "addressLocality": "Givisiez",
       "addressCountry": "CH",
       "country": "CH",
@@ -727,7 +746,8 @@
         "automechatronics-engineer-in-truck-mechanic-in-automatic-engineer-in-bls-ag-spiez",
         "ingenieur-automechatronics-in-mecanicien-de-camion-in-ingenieur-automatique-in-bls-ag-spiez",
         "automechatroniker-in-lastwagenmechaniker-in-automatiker-in-bls-ch-2",
-        "automechatroniker-in-lastwagenmechaniker-in-automatiker-in-bls-ch"
+        "automechatroniker-in-lastwagenmechaniker-in-automatiker-in-bls-ch",
+        "ingegnere-automeccanico-in-meccanico-del-camion-in-ingegnere-automatico-in-bls-ag-givisiez"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -737,7 +757,8 @@
           "automechatronics-engineer-in-truck-mechanic-in-automatic-engineer-in-bls-ag-spiez",
           "ingenieur-automechatronics-in-mecanicien-de-camion-in-ingenieur-automatique-in-bls-ag-spiez",
           "automechatroniker-in-lastwagenmechaniker-in-automatiker-in-bls-ch-2",
-          "automechatroniker-in-lastwagenmechaniker-in-automatiker-in-bls-ch"
+          "automechatroniker-in-lastwagenmechaniker-in-automatiker-in-bls-ch",
+          "ingegnere-automeccanico-in-meccanico-del-camion-in-ingegnere-automatico-in-bls-ag-givisiez"
         ],
         "en": [
           "automechatroniker-in-lastwagenmechaniker-in-automatiker-in-bls-ch"
@@ -747,6 +768,7 @@
         ]
       },
       "firstSeenAt": "2026-07-21T22:12:15.491Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -792,7 +814,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/instandhalter-in-schienenfahrzeuge/66a57cf3-3129-460e-9433-b7cc2d9f708d",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-01T10:49:24.467Z",
+      "crawledAt": "2026-08-01T22:01:28.190Z",
       "addressLocality": "Givisiez",
       "addressCountry": "CH",
       "country": "CH",
@@ -827,14 +849,16 @@
         "instandhalter-in-schienenfahrzeuge-bls-ch",
         "maintenance-company-in-rail-vehicles-bls-ag-givisiez",
         "societe-d-entretien-dans-les-vehicules-ferroviaires-bls-ag-givisiez",
-        "instandhalter-in-schienenfahrzeuge-bls-ag-givisiez"
+        "instandhalter-in-schienenfahrzeuge-bls-ag-givisiez",
+        "azienda-di-manutenzione-nei-veicoli-ferroviari-bls-ag-givisiez"
       ],
       "previousSlugsByLocale": {
         "it": [
           "instandhalter-in-schienenfahrzeuge-bls-ch",
           "maintenance-company-in-rail-vehicles-bls-ag-givisiez",
           "societe-d-entretien-dans-les-vehicules-ferroviaires-bls-ag-givisiez",
-          "instandhalter-in-schienenfahrzeuge-bls-ag-givisiez"
+          "instandhalter-in-schienenfahrzeuge-bls-ag-givisiez",
+          "azienda-di-manutenzione-nei-veicoli-ferroviari-bls-ag-givisiez"
         ],
         "en": [
           "instandhalter-in-schienenfahrzeuge-bls-ag-givisiez"
@@ -844,6 +868,7 @@
         ]
       },
       "firstSeenAt": "2026-07-21T22:12:14.673Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -873,7 +898,7 @@
       "title": "Applikations-Manager:in IAM",
       "titleByLocale": {
         "it": "Gestione delle applicazioni: in IAM",
-        "en": "Application Manager: in IAM",
+        "en": "Applikations-Manager:in IAM",
         "de": "Applikations-Manager:in IAM",
         "fr": "Gestionnaire d'applications: dans IAM"
       },
@@ -889,7 +914,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/applikations-manager-in-iam/fd2c2f22-9bec-4fb3-8d6c-80fb0d3db40d",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-01T10:49:23.661Z",
+      "crawledAt": "2026-08-01T22:01:27.452Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -923,17 +948,20 @@
         ]
       },
       "previousSlugs": [
-        "applikations-manager-in-iam-bls-ch"
+        "applikations-manager-in-iam-bls-ch",
+        "gestione-delle-applicazioni-in-iam-bls-ag-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "applikations-manager-in-iam-bls-ch"
+          "applikations-manager-in-iam-bls-ch",
+          "gestione-delle-applicazioni-in-iam-bls-ag-bern"
         ],
         "fr": [
           "applikations-manager-in-iam-bls-ch"
         ]
       },
       "firstSeenAt": "2026-07-27T12:37:59.826Z",
+      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "baseSalary": {
@@ -963,7 +991,7 @@
       "title": "Senior SAP Applikations-Manager:in BW",
       "titleByLocale": {
         "it": "Senior SAP Application Manager: in BW",
-        "en": "Senior SAP Application Manager: in BW",
+        "en": "Senior SAP Applikations-Manager:in BW",
         "de": "Senior SAP Applikations-Manager:in BW",
         "fr": "Gestionnaire principal des applications SAP : en BW"
       },
@@ -979,7 +1007,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/senior-sap-applikations-manager-in-bw/0e392cd3-6e6f-4eca-8557-b7661f67095c",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-01T10:49:22.647Z",
+      "crawledAt": "2026-08-01T22:01:26.605Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1012,15 +1040,18 @@
       },
       "previousSlugs": [
         "gestionnaire-principal-des-applications-sap-en-bw-bls-ag-bern",
-        "senior-sap-applikations-manager-in-bw-bls-ch"
+        "senior-sap-applikations-manager-in-bw-bls-ch",
+        "senior-sap-application-manager-in-bw-bls-ag-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "gestionnaire-principal-des-applications-sap-en-bw-bls-ag-bern",
-          "senior-sap-applikations-manager-in-bw-bls-ch"
+          "senior-sap-applikations-manager-in-bw-bls-ch",
+          "senior-sap-application-manager-in-bw-bls-ag-bern"
         ]
       },
       "firstSeenAt": "2026-07-27T22:13:31.784Z",
+      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "baseSalary": {
@@ -1066,7 +1097,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/produktionsplaner-in-regelplanung/d8365f87-cb27-47ca-ae73-85c1bcc1d1ea",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-01T10:49:21.788Z",
+      "crawledAt": "2026-08-01T22:01:25.758Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1101,12 +1132,14 @@
       },
       "previousSlugs": [
         "produktionsplaner-in-regelplanung-bls-ch",
-        "produktionsplaner-in-regelplanung-bls-ag-bern"
+        "produktionsplaner-in-regelplanung-bls-ag-bern",
+        "pianificatore-di-produzione-nella-pianificazione-di-regola-bls-ag-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "produktionsplaner-in-regelplanung-bls-ch",
-          "produktionsplaner-in-regelplanung-bls-ag-bern"
+          "produktionsplaner-in-regelplanung-bls-ag-bern",
+          "pianificatore-di-produzione-nella-pianificazione-di-regola-bls-ag-bern"
         ],
         "en": [
           "produktionsplaner-in-regelplanung-bls-ag-bern"
@@ -1116,6 +1149,7 @@
         ]
       },
       "firstSeenAt": "2026-07-29T11:38:10.034Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -1161,7 +1195,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/elektroinstallateur-in-monteur-in-signaltechnik/f9f80fc2-eb10-485c-99b6-121e4f34f898",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-01T10:49:20.898Z",
+      "crawledAt": "2026-08-01T22:01:24.868Z",
       "addressLocality": "Hasle bei Burgdorf",
       "addressCountry": "CH",
       "country": "CH",
@@ -1197,11 +1231,13 @@
         ]
       },
       "previousSlugs": [
-        "elektroinstallateur-in-monteur-in-signaltechnik-bls-ch"
+        "elektroinstallateur-in-monteur-in-signaltechnik-bls-ch",
+        "installatore-trice-elettrico-a-in-monteur-in-signaltechnik-bls-ag-hasle-bei-burgdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "elektroinstallateur-in-monteur-in-signaltechnik-bls-ch"
+          "elektroinstallateur-in-monteur-in-signaltechnik-bls-ch",
+          "installatore-trice-elettrico-a-in-monteur-in-signaltechnik-bls-ag-hasle-bei-burgdorf"
         ],
         "en": [
           "elektroinstallateur-in-monteur-in-signaltechnik-bls-ch"
@@ -1211,6 +1247,7 @@
         ]
       },
       "firstSeenAt": "2026-07-29T11:38:08.799Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -1256,7 +1293,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/tecnico-di-preparazione-dei-treni-pdt/ae78f81d-0c6c-446a-877f-5dfbc60c8096",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-08-01T10:49:19.816Z",
+      "crawledAt": "2026-08-01T22:01:24.029Z",
       "addressLocality": "Beura-cardezza",
       "addressCountry": "CH",
       "country": "CH",
@@ -1290,6 +1327,7 @@
         ]
       },
       "firstSeenAt": "2026-07-30T22:19:48.942Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1334,7 +1372,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/operatrice-operatore-di-sala-operativa/b6563f4f-7ab2-4d50-b20b-fa3a8dec7dfe",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-08-01T10:49:18.979Z",
+      "crawledAt": "2026-08-01T22:01:23.227Z",
       "addressLocality": "Beura-cardezza",
       "addressCountry": "CH",
       "country": "CH",
@@ -1366,6 +1404,7 @@
         ]
       },
       "firstSeenAt": "2026-07-30T22:19:48.191Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1383,9 +1422,9 @@
       "id": "bls-5f94e610a4cb",
       "slug": "responsabile-security-bahnproduktion-bls-ag-bern",
       "slugByLocale": {
-        "de": "leiter-in-security-bahnproduktion-bls-ch",
         "it": "responsabile-security-bahnproduktion-bls-ag-bern",
         "en": "head-in-security-railway-production-bls-ag-bern",
+        "de": "leiter-in-security-bahnproduktion-bls-ch",
         "fr": "chef-dans-la-production-ferroviaire-de-securite-bls-ag-bern"
       },
       "company": "BLS AG",
@@ -1393,16 +1432,16 @@
       "companyDomain": "bls.ch",
       "title": "Leiter:in Security Bahnproduktion",
       "titleByLocale": {
-        "de": "Leiter:in Security Bahnproduktion",
         "it": "Responsabile Security Bahnproduktion",
         "en": "Head: in Security Railway Production",
+        "de": "Leiter:in Security Bahnproduktion",
         "fr": "Chef: dans la production ferroviaire de sécurité"
       },
       "description": "Du übernimmst die Gesamtverantwortung für den Security-Bereich innerhalb der Bahnproduktion. Mit deinem Fachwissen in Sicherheitsstrategien, Vorfallanalyse und Rechtsgrundlagen stellst du sicher, dass unsere Kunden und Mitarbeiterinnen sicher und sorgenfrei unterwegs sein können. Und sollte trotzdem einmal etwas passieren, sorgst du gemeinsam mit Behörden und Partnern dafür, dass Fälle aufgeklärt werden können.\n\nDas wartet auf dich:\n\n• Fachliche und organisatorische Führung des Security-Teams für die Bahnproduktion\n\n• Entwicklung und Umsetzung von Sicherheitsstrategien, Konzepten und Standards\n\n• Analyse und Bearbeitung sicherheitsrelevanter Vorfälle inkl. Videoauswertungen\n\n• Vertretung der BLS in externen Gremien sowie vor Strafverfolgungsbehörden und Gerichten\n\n• Erstellung von Berichten, Strafanzeigen und rechtlicher Dokumentation für Behörden\n\nDas bringst du mit:\n\n• Kaufmännische Ausbildung ergänzt durch Weiterbildungen im Bereich Security\n\n• Fundierte Kenntnisse von StGB, BGST, PBG, EBG und der Videoüberwachungsverordnung\n\n• Mehrjährige Erfahrung in Security, Ermittlungen oder im behördlichen Umfeld, ideal mit Führungsverantwortung\n\n• Kommunikative Stärke in Deutsch, zusätzlich Französisch oder Italienisch von Vorteil\n\n• Bereitschaft zu flexiblen Einsätzen sowie einwandfreier Leumund\n\nDeine Vorteile – darauf kannst du dich freuen:\n\n• Erhalte ein GA 2. Klasse, ein GA 1. Klasse oder ein Halbtaxabo.\n\n• Arbeite dort, wo es für dich am besten passt. Egal ob im Homeoffice oder im Büro.\n\n• Teile deine Arbeitszeit frei ein. Wir fördern Teilzeitarbeit, Top- und Jobsharing\n\n• Es besteht die Möglichkeit, fünf bis zehn Ferientage pro Jahr zusätzlich zu kaufen\n\n• Finanzielle Unterstützung bei externen Weiterbildungen sowie ein spannendes internes Lern- und Kursangebot stehen dir zur Verfügung.\n\n• Mit saisonalen Events und Kursen unterstützen wir deine Gesundheit.\n\nÜber die BLS\n\nMit fast 4000 Mitarbeitenden ist die BLS das zweitgrösste Bahnunternehmen der Schweiz. Mehr noch: Wir sind auch eine Schifffahrtsgesellschaft, eine Immobilienfirma, eine internationale Güterbahn, ein Busunternehmen und transportieren Autos sicher durch den Lötschberg und den Simplon. Was uns dabei verbindet? Der Stolz auf das, was wir jeden Tag tun. Mobilität hat für uns viele Facetten. Und viele spannende Jobs.",
       "descriptionByLocale": {
-        "de": "Du übernimmst die Gesamtverantwortung für den Security-Bereich innerhalb der Bahnproduktion. Mit deinem Fachwissen in Sicherheitsstrategien, Vorfallanalyse und Rechtsgrundlagen stellst du sicher, dass unsere Kunden und Mitarbeiterinnen sicher und sorgenfrei unterwegs sein können. Und sollte trotzdem einmal etwas passieren, sorgst du gemeinsam mit Behörden und Partnern dafür, dass Fälle aufgeklärt werden können.\n\nDas wartet auf dich:\n\n• Fachliche und organisatorische Führung des Security-Teams für die Bahnproduktion\n\n• Entwicklung und Umsetzung von Sicherheitsstrategien, Konzepten und Standards\n\n• Analyse und Bearbeitung sicherheitsrelevanter Vorfälle inkl. Videoauswertungen\n\n• Vertretung der BLS in externen Gremien sowie vor Strafverfolgungsbehörden und Gerichten\n\n• Erstellung von Berichten, Strafanzeigen und rechtlicher Dokumentation für Behörden\n\nDas bringst du mit:\n\n• Kaufmännische Ausbildung ergänzt durch Weiterbildungen im Bereich Security\n\n• Fundierte Kenntnisse von StGB, BGST, PBG, EBG und der Videoüberwachungsverordnung\n\n• Mehrjährige Erfahrung in Security, Ermittlungen oder im behördlichen Umfeld, ideal mit Führungsverantwortung\n\n• Kommunikative Stärke in Deutsch, zusätzlich Französisch oder Italienisch von Vorteil\n\n• Bereitschaft zu flexiblen Einsätzen sowie einwandfreier Leumund\n\nDeine Vorteile – darauf kannst du dich freuen:\n\n• Erhalte ein GA 2. Klasse, ein GA 1. Klasse oder ein Halbtaxabo.\n\n• Arbeite dort, wo es für dich am besten passt. Egal ob im Homeoffice oder im Büro.\n\n• Teile deine Arbeitszeit frei ein. Wir fördern Teilzeitarbeit, Top- und Jobsharing\n\n• Es besteht die Möglichkeit, fünf bis zehn Ferientage pro Jahr zusätzlich zu kaufen\n\n• Finanzielle Unterstützung bei externen Weiterbildungen sowie ein spannendes internes Lern- und Kursangebot stehen dir zur Verfügung.\n\n• Mit saisonalen Events und Kursen unterstützen wir deine Gesundheit.\n\nÜber die BLS\n\nMit fast 4000 Mitarbeitenden ist die BLS das zweitgrösste Bahnunternehmen der Schweiz. Mehr noch: Wir sind auch eine Schifffahrtsgesellschaft, eine Immobilienfirma, eine internationale Güterbahn, ein Busunternehmen und transportieren Autos sicher durch den Lötschberg und den Simplon. Was uns dabei verbindet? Der Stolz auf das, was wir jeden Tag tun. Mobilität hat für uns viele Facetten. Und viele spannende Jobs.",
         "it": "Si assume la responsabilità generale per l'area di sicurezza all'interno della produzione ferroviaria. Con la vostra esperienza in strategie di sicurezza, analisi degli incidenti e basi legali, assicuratevi che i nostri clienti e dipendenti possano viaggiare in modo sicuro e senza preoccupazioni. E se dovesse succedere qualcosa, assicurarsi insieme alle autorità e ai partner che i casi possono essere chiariti.\n\nTi aspetta:\n\n• Leader professionale e organizzativo del team di sicurezza della produzione ferroviaria\n\n• Sviluppo e attuazione di strategie, concetti e standard di sicurezza\n\n• Analisi e elaborazione di incidenti rilevanti per la sicurezza, incl. Valutazioni video\n\n• Rappresentanza della BLS negli organi esterni e davanti alle autorità di polizia e ai tribunali\n\n• Preparazione di relazioni, denunce penali e documentazione legale per le autorità\n\nQuesto è ciò che portate con voi:\n\n• Istruzione commerciale integrata da un'ulteriore formazione nel settore della sicurezza\n\n• Conoscenza del suono di StGB, BGST, PBG, EBG e il regolamento di videosorveglianza\n\n• Diversi anni di esperienza nella sicurezza, nelle indagini o nell'ambiente amministrativo, ideale con responsabilità gestionale\n\n• Forza comunicativa in tedesco, anche francese o italiano benefico\n\n• Prontezza per missioni flessibili e reputazione impeccabile\n\nI vostri vantaggi – si può aspettare a:\n\n• Prendi una seconda classe GA, una prima classe GA. Abbonamento di classe o di mezza quota.\n\n• Lavora dove ti si addice meglio. Sia in ufficio o in ufficio.\n\n• Condividi il tuo tempo di lavoro liberamente. Promuoviamo il lavoro part-time, il top e la condivisione del lavoro\n\n• È possibile acquistare un ulteriore cinque a dieci giorni di vacanza all'anno\n\n• Sono a vostra disposizione un sostegno finanziario per l'ulteriore istruzione esterna e un'emozionante offerta di apprendimento interno e corsi.\n\n• Con eventi stagionali e corsi sosteniamo la vostra salute.\n\nInformazioni sulla BLS\n\nCon quasi 4.000 dipendenti, BLS è la seconda più grande compagnia ferroviaria in Svizzera. Inoltre, siamo anche una compagnia di navigazione, un'azienda immobiliare, una ferrovia di trasporto internazionale, una compagnia di autobus e auto di trasporto in sicurezza attraverso il Lötschberg e il Simplon. Cosa ci collega? Forte di quello che facciamo ogni giorno. La mobilità ha molte sfaccettature per noi. E molti lavori interessanti.",
         "en": "You assume overall responsibility for the security area within railway production. With your expertise in security strategies, incident analysis and legal bases, you ensure that our customers and employees can travel safely and without worry. And should something happen anyway, you ensure together with authorities and partners that cases can be clarified.\n\nThis is waiting for you:\n\n• Professional and organizational leadership of the railway production security team\n\n• Development and implementation of security strategies, concepts and standards\n\n• Analysis and processing of security-relevant incidents incl. Video evaluations\n\n• Representation of BLS in external bodies as well as before law enforcement authorities and courts\n\n• Preparation of reports, criminal complaints and legal documentation for authorities\n\nThis is what you bring with you:\n\n• Commercial education supplemented by further training in the field of security\n\n• Sound knowledge of StGB, BGST, PBG, EBG and the Video Surveillance Regulation\n\n• Several years of experience in security, investigations or in the administrative environment, ideal with management responsibility\n\n• Communicative strength in German, additionally French or Italian beneficial\n\n• Readiness for flexible missions and impeccable reputation\n\nYour advantages – you can look forward to:\n\n• Get a GA 2nd class, a GA 1st class. Class or a half-tax subscription.\n\n• Work where it suits you best. Whether in the home office or in the office.\n\n• Share your working time freely. We promote part-time work, top and job sharing\n\n• It is possible to buy an additional five to ten holiday days per year\n\n• Financial support for external further education as well as an exciting internal learning and course offer are at your disposal.\n\n• With seasonal events and courses we support your health.\n\nAbout the BLS\n\nWith almost 4,000 employees, BLS is the second largest railway company in Switzerland. Moreover, we are also a shipping company, a real estate company, an international freight railway, a bus company and transport cars safely through the Lötschberg and the Simplon. What connects us? Proud of what we do every day. Mobility has many facets for us. And lots of exciting jobs.",
+        "de": "Du übernimmst die Gesamtverantwortung für den Security-Bereich innerhalb der Bahnproduktion. Mit deinem Fachwissen in Sicherheitsstrategien, Vorfallanalyse und Rechtsgrundlagen stellst du sicher, dass unsere Kunden und Mitarbeiterinnen sicher und sorgenfrei unterwegs sein können. Und sollte trotzdem einmal etwas passieren, sorgst du gemeinsam mit Behörden und Partnern dafür, dass Fälle aufgeklärt werden können.\n\nDas wartet auf dich:\n\n• Fachliche und organisatorische Führung des Security-Teams für die Bahnproduktion\n\n• Entwicklung und Umsetzung von Sicherheitsstrategien, Konzepten und Standards\n\n• Analyse und Bearbeitung sicherheitsrelevanter Vorfälle inkl. Videoauswertungen\n\n• Vertretung der BLS in externen Gremien sowie vor Strafverfolgungsbehörden und Gerichten\n\n• Erstellung von Berichten, Strafanzeigen und rechtlicher Dokumentation für Behörden\n\nDas bringst du mit:\n\n• Kaufmännische Ausbildung ergänzt durch Weiterbildungen im Bereich Security\n\n• Fundierte Kenntnisse von StGB, BGST, PBG, EBG und der Videoüberwachungsverordnung\n\n• Mehrjährige Erfahrung in Security, Ermittlungen oder im behördlichen Umfeld, ideal mit Führungsverantwortung\n\n• Kommunikative Stärke in Deutsch, zusätzlich Französisch oder Italienisch von Vorteil\n\n• Bereitschaft zu flexiblen Einsätzen sowie einwandfreier Leumund\n\nDeine Vorteile – darauf kannst du dich freuen:\n\n• Erhalte ein GA 2. Klasse, ein GA 1. Klasse oder ein Halbtaxabo.\n\n• Arbeite dort, wo es für dich am besten passt. Egal ob im Homeoffice oder im Büro.\n\n• Teile deine Arbeitszeit frei ein. Wir fördern Teilzeitarbeit, Top- und Jobsharing\n\n• Es besteht die Möglichkeit, fünf bis zehn Ferientage pro Jahr zusätzlich zu kaufen\n\n• Finanzielle Unterstützung bei externen Weiterbildungen sowie ein spannendes internes Lern- und Kursangebot stehen dir zur Verfügung.\n\n• Mit saisonalen Events und Kursen unterstützen wir deine Gesundheit.\n\nÜber die BLS\n\nMit fast 4000 Mitarbeitenden ist die BLS das zweitgrösste Bahnunternehmen der Schweiz. Mehr noch: Wir sind auch eine Schifffahrtsgesellschaft, eine Immobilienfirma, eine internationale Güterbahn, ein Busunternehmen und transportieren Autos sicher durch den Lötschberg und den Simplon. Was uns dabei verbindet? Der Stolz auf das, was wir jeden Tag tun. Mobilität hat für uns viele Facetten. Und viele spannende Jobs.",
         "fr": "Vous assumez la responsabilité globale de la zone de sécurité dans la production ferroviaire. Grâce à votre expertise en matière de stratégies de sécurité, d'analyse d'incidents et de bases juridiques, vous veillez à ce que nos clients et employés puissent voyager en toute sécurité et sans crainte. Et si quelque chose se passe de toute façon, vous assurez, avec les autorités et les partenaires, que les cas peuvent être éclaircis.\n\nCeci vous attend :\n\n• Leadership professionnel et organisationnel de l'équipe de sécurité de la production ferroviaire\n\n• Élaboration et mise en œuvre de stratégies, concepts et normes de sécurité\n\n• Analyse et traitement des incidents liés à la sécurité, y compris Évaluations vidéo\n\n• Représentation du BLS dans les organes externes ainsi que devant les autorités chargées de l ' application des lois et les tribunaux\n\n• Établissement de rapports, de plaintes pénales et de documents juridiques à l ' intention des autorités\n\nC'est ce que vous apportez avec vous :\n\n• Formation commerciale complétée par une formation complémentaire dans le domaine de la sécurité\n\n• Bonne connaissance de StGB, BGST, PBG, EBG et du règlement sur la surveillance vidéo\n\n• Plusieurs années d'expérience dans la sécurité, les enquêtes ou l'environnement administratif, idéal avec responsabilité de gestion\n\n• Force de communication en allemand, en outre français ou italien bénéfique\n\n• Disponibilité pour des missions flexibles et une réputation impeccable\n\nVos avantages – vous pouvez vous attendre à:\n\n• Obtenez un GA 2ème classe, un GA 1ère classe. Classe ou demi-abonnement.\n\n• Travaillez là où ça vous convient le mieux. Que ce soit au bureau à domicile ou au bureau.\n\n• Partagez votre temps de travail librement. Nous encourageons le travail à temps partiel, le top et le partage de l'emploi\n\n• Il est possible d'acheter cinq à dix jours de vacances supplémentaires par an\n\n• Un soutien financier pour la formation continue externe ainsi qu'un apprentissage interne passionnant et une offre de cours sont à votre disposition.\n\n• Avec des événements saisonniers et des cours, nous soutenons votre santé.\n\nÀ propos du BLS\n\nAvec près de 4 000 employés, BLS est la deuxième compagnie ferroviaire en Suisse. En outre, nous sommes également une compagnie maritime, une société immobilière, un chemin de fer international de fret, une compagnie d'autobus et de transport de voitures en toute sécurité à travers le Lötschberg et le Simplon. Qu'est-ce qui nous relie ? Fier de ce qu'on fait tous les jours. La mobilité a de nombreuses facettes pour nous. Et beaucoup d'emplois passionnants."
       },
       "location": "Bern",
@@ -1410,7 +1449,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/leiter-in-security-bahnproduktion/cc7f35ab-c2f8-4a13-b3d3-3873fb67088e",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-01T10:49:18.239Z",
+      "crawledAt": "2026-08-01T22:01:22.456Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1444,9 +1483,14 @@
           "Bereitschaft zu flexiblen Einsätzen sowie einwandfreier Leumund"
         ]
       },
+      "previousSlugs": [
+        "leiter-in-security-bahnproduktion-bls-ch",
+        "responsabile-security-bahnproduktion-bls-ag-bern"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "leiter-in-security-bahnproduktion-bls-ch"
+          "leiter-in-security-bahnproduktion-bls-ch",
+          "responsabile-security-bahnproduktion-bls-ag-bern"
         ],
         "en": [
           "leiter-in-security-bahnproduktion-bls-ch"
@@ -1455,9 +1499,8 @@
           "leiter-in-security-bahnproduktion-bls-ch"
         ]
       },
-      "previousSlugs": [
-        "leiter-in-security-bahnproduktion-bls-ch"
-      ],
+      "firstSeenAt": "2026-08-01T10:49:18.239Z",
+      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "baseSalary": {
@@ -1470,8 +1513,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BE",
-      "firstSeenAt": "2026-08-01T10:49:18.239Z"
+      "addressRegion": "BE"
     }
   ]
 }
