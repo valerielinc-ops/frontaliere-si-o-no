@@ -1,6 +1,6 @@
 {
   "crawlerKey": "denner",
-  "assembledAt": "2026-08-01T10:50:37.960Z",
+  "assembledAt": "2026-08-01T22:05:47.904Z",
   "jobs": [
     {
       "id": "denner-548703246391",
@@ -64,14 +64,16 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin/5daa7a81-0258-4bf8-ba3d-e3942e381992",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-01T10:50:30.263Z",
+      "crawledAt": "2026-08-01T22:05:41.278Z",
       "previousSlugs": [
         "verkaufer-in-denner",
-        "verkaufer-in-denner-bern-bumpliz"
+        "verkaufer-in-denner-bern-bumpliz",
+        "venditore-denner-ag-bern-bumpliz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-denner"
+          "verkaufer-in-denner",
+          "venditore-denner-ag-bern-bumpliz"
         ],
         "en": [
           "verkaufer-in-denner-bern-bumpliz"
@@ -81,6 +83,7 @@
         ]
       },
       "firstSeenAt": "2026-07-27T12:39:45.955Z",
+      "needsRetranslation": true,
       "salaryMin": 77500,
       "salaryMax": 118500,
       "baseSalary": {
@@ -157,16 +160,18 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin/db29eec3-674a-4f95-bb2d-4ea266addc71",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-01T10:50:30.261Z",
+      "crawledAt": "2026-08-01T22:05:41.276Z",
       "previousSlugs": [
         "verkaufer-in-denner",
         "verkaufer-in-denner-rubigen",
-        "vendeur-denner-rubigen"
+        "vendeur-denner-rubigen",
+        "venditore-denner-ag-rubigen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-denner",
-          "vendeur-denner-rubigen"
+          "vendeur-denner-rubigen",
+          "venditore-denner-ag-rubigen"
         ],
         "en": [
           "verkaufer-in-denner-rubigen"
@@ -176,6 +181,7 @@
         ]
       },
       "firstSeenAt": "2026-07-27T12:39:45.215Z",
+      "needsRetranslation": true,
       "salaryMin": 77500,
       "salaryMax": 118500,
       "baseSalary": {
@@ -194,7 +200,7 @@
       "id": "denner-0cf4571e76d0",
       "slug": "stv-branch-manager-in-denner-zurich",
       "slugByLocale": {
-        "it": "vice-direttore-di-filiale-denner-ag-zurich",
+        "it": "stv-branch-manager-in-denner-zurich",
         "en": "deputy-branch-manager-denner-ag-zurich-6527ca",
         "de": "stv-filialleiter-in-denner-ag-zurich-gdn8qz",
         "fr": "directeur-adjoint-de-la-succursale-denner-ag-zurich-6527ca"
@@ -252,7 +258,7 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/stv-filialleiterin/055dc2ed-900f-49a7-91cd-d259678cd1db",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-01T10:50:30.027Z",
+      "crawledAt": "2026-08-01T22:05:40.522Z",
       "previousSlugs": [
         "stv-filialleiter-in-denner",
         "stv-filialleiter-in-denner-zurich",
@@ -267,7 +273,9 @@
         "stv-branch-manager-in-denner-monchaltorf",
         "stv-branch-manager-in-denner-wollerau",
         "stv-branch-manager-in-denner-schaffhausen",
-        "vice-direttore-di-negozio-denner-ag-zurich"
+        "vice-direttore-di-negozio-denner-ag-zurich",
+        "vice-direttore-di-filiale-denner-ag-zurich",
+        "stv-branch-manager-in-denner-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -284,7 +292,9 @@
           "stv-branch-manager-in-denner-monchaltorf",
           "stv-branch-manager-in-denner-wollerau",
           "stv-branch-manager-in-denner-schaffhausen",
-          "vice-direttore-di-negozio-denner-ag-zurich"
+          "vice-direttore-di-negozio-denner-ag-zurich",
+          "vice-direttore-di-filiale-denner-ag-zurich",
+          "stv-branch-manager-in-denner-zurich"
         ],
         "en": [
           "deputy-branch-manager-denner-ag-zurich"
@@ -297,6 +307,7 @@
         ]
       },
       "firstSeenAt": "2026-07-31T11:42:49.702Z",
+      "needsRetranslation": true,
       "salaryMin": 117000,
       "salaryMax": 180000,
       "baseSalary": {
@@ -373,16 +384,18 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin/717a2c6a-facd-4784-a3f9-5e4733abeb34",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-01T10:50:30.021Z",
+      "crawledAt": "2026-08-01T22:05:40.518Z",
       "previousSlugs": [
         "verkaufer-in-denner-2",
         "verkaufer-in-denner",
-        "verkaufer-in-denner-liebefeld"
+        "verkaufer-in-denner-liebefeld",
+        "venditore-denner-liebefeld"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-denner-2",
-          "verkaufer-in-denner"
+          "verkaufer-in-denner",
+          "venditore-denner-liebefeld"
         ],
         "en": [
           "verkaufer-in-denner-liebefeld"
@@ -392,6 +405,7 @@
         ]
       },
       "firstSeenAt": "2026-07-27T12:39:45.209Z",
+      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 90500,
       "baseSalary": {
@@ -471,7 +485,7 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/leiterin-produkt-management-nikotinprodukte/d6760fc0-6c77-4e39-90d9-6217d6f7b15d",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-01T10:50:30.004Z",
+      "crawledAt": "2026-08-01T22:05:40.499Z",
       "previousSlugs": [
         "leiter-in-produkt-management-nikotinprodukte-denner",
         "head-of-product-management-nicotine-products-denner-zurich",
@@ -496,6 +510,7 @@
         ]
       },
       "firstSeenAt": "2026-07-26T22:05:00.813Z",
+      "needsRetranslation": true,
       "salaryMin": 117000,
       "salaryMax": 180000,
       "baseSalary": {
@@ -572,7 +587,7 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/stv-filialleiterin/6bac0768-88e9-400d-ba4b-b40b2268dd36",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-01T10:50:29.655Z",
+      "crawledAt": "2026-08-01T22:05:39.750Z",
       "previousSlugs": [
         "stv-filialleiter-in-denner-81vwm4",
         "stv-filialleiter-in-denner-6",
@@ -608,6 +623,7 @@
         ]
       },
       "firstSeenAt": "2026-07-27T12:39:44.392Z",
+      "needsRetranslation": true,
       "salaryMin": 117000,
       "salaryMax": 180000,
       "baseSalary": {
@@ -684,20 +700,22 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin/50c7013b-146a-48d4-a38d-b33054f95caf",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-01T10:50:29.652Z",
+      "crawledAt": "2026-08-01T22:05:39.747Z",
       "previousSlugs": [
         "verkaufer-in-denner-3",
         "verkaufer-in-denner-oftringen",
         "verkaufer-in-denner",
         "seller-denner-oftringen",
         "vendeur-denner-oftringen",
-        "venditore-denner-oftringen"
+        "venditore-denner-oftringen",
+        "venditore-denner-ag-oftringen-79429a"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-denner-3",
           "verkaufer-in-denner",
-          "venditore-denner-oftringen"
+          "venditore-denner-oftringen",
+          "venditore-denner-ag-oftringen-79429a"
         ],
         "en": [
           "verkaufer-in-denner-oftringen",
@@ -712,6 +730,7 @@
         ]
       },
       "firstSeenAt": "2026-07-27T22:21:05.566Z",
+      "needsRetranslation": true,
       "salaryMin": 74000,
       "salaryMax": 113500,
       "baseSalary": {
@@ -788,14 +807,16 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin/0c618c05-8403-47eb-ba44-26238652ab64",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-01T10:50:29.650Z",
+      "crawledAt": "2026-08-01T22:05:39.743Z",
       "previousSlugs": [
         "verkaufer-in-denner",
-        "verkaufer-in-denner-oftringen"
+        "verkaufer-in-denner-oftringen",
+        "venditore-denner-ag-oftringen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-denner"
+          "verkaufer-in-denner",
+          "venditore-denner-ag-oftringen"
         ],
         "en": [
           "verkaufer-in-denner-oftringen"
@@ -805,6 +826,7 @@
         ]
       },
       "firstSeenAt": "2026-07-28T11:43:32.245Z",
+      "needsRetranslation": true,
       "salaryMin": 74000,
       "salaryMax": 113500,
       "baseSalary": {
@@ -881,7 +903,7 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin-im-stundenlohn/f3659cd0-2aad-4b8d-bbe6-3561fffb6ad1",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-01T10:50:29.129Z",
+      "crawledAt": "2026-08-01T22:05:38.919Z",
       "previousSlugs": [
         "verkaufer-in-im-stundenlohn-denner-2",
         "verkaufer-in-im-stundenlohn-denner-dgsjiy",
@@ -916,6 +938,7 @@
         ]
       },
       "firstSeenAt": "2026-07-27T12:39:43.613Z",
+      "needsRetranslation": true,
       "salaryMin": 77500,
       "salaryMax": 118500,
       "baseSalary": {
@@ -992,16 +1015,18 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin/90b48b03-d2d7-4c6d-8479-1444e51e7d9a",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-01T10:50:29.125Z",
+      "crawledAt": "2026-08-01T22:05:38.915Z",
       "previousSlugs": [
         "verkaufer-in-denner",
         "venditore-in-orario-denner-konolfingen",
-        "verkaufer-in-denner-konolfingen"
+        "verkaufer-in-denner-konolfingen",
+        "venditore-denner-ag-konolfingen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-denner",
-          "venditore-in-orario-denner-konolfingen"
+          "venditore-in-orario-denner-konolfingen",
+          "venditore-denner-ag-konolfingen"
         ],
         "en": [
           "verkaufer-in-denner-konolfingen"
@@ -1011,6 +1036,7 @@
         ]
       },
       "firstSeenAt": "2026-07-28T11:43:31.355Z",
+      "needsRetranslation": true,
       "salaryMin": 77500,
       "salaryMax": 118500,
       "baseSalary": {
@@ -1087,16 +1113,18 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin/12d7ddf0-2999-46a8-a4a1-7d6995578b9b",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-01T10:50:29.122Z",
+      "crawledAt": "2026-08-01T22:05:38.912Z",
       "previousSlugs": [
         "verkaufer-in-denner",
         "venditore-a-a-ore-denner-stein-ag",
-        "verkaufer-in-denner-stein-ag"
+        "verkaufer-in-denner-stein-ag",
+        "venditore-denner-ag-stein-ag"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-denner",
-          "venditore-a-a-ore-denner-stein-ag"
+          "venditore-a-a-ore-denner-stein-ag",
+          "venditore-denner-ag-stein-ag"
         ],
         "en": [
           "verkaufer-in-denner-stein-ag"
@@ -1106,6 +1134,7 @@
         ]
       },
       "firstSeenAt": "2026-07-28T11:43:31.350Z",
+      "needsRetranslation": true,
       "salaryMin": 74000,
       "salaryMax": 113500,
       "baseSalary": {
@@ -1181,20 +1210,23 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin-im-stundenlohn/37bcf87f-7429-4b37-9402-3425ecb60750",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-01T10:50:28.795Z",
+      "crawledAt": "2026-08-01T22:05:38.164Z",
       "previousSlugs": [
         "verkaufer-in-im-stundenlohn-denner",
         "verkaufer-in-im-stundenlohn-denner-allschwil",
-        "venditore-nel-salario-orario-denner-ag-breitenbach"
+        "venditore-nel-salario-orario-denner-ag-breitenbach",
+        "venditore-nel-salario-orario-denner-ag-allschwil"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-im-stundenlohn-denner",
           "verkaufer-in-im-stundenlohn-denner-allschwil",
-          "venditore-nel-salario-orario-denner-ag-breitenbach"
+          "venditore-nel-salario-orario-denner-ag-breitenbach",
+          "venditore-nel-salario-orario-denner-ag-allschwil"
         ]
       },
       "firstSeenAt": "2026-07-28T11:43:30.532Z",
+      "needsRetranslation": true,
       "salaryMin": 74000,
       "salaryMax": 113500,
       "baseSalary": {
@@ -1271,18 +1303,21 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin/5261d816-1eef-463d-b675-c82835436ca8",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-01T10:50:28.794Z",
+      "crawledAt": "2026-08-01T22:05:38.162Z",
       "previousSlugs": [
         "verkaufer-in-denner",
-        "verkaufer-in-denner-allschwil"
+        "verkaufer-in-denner-allschwil",
+        "venditore-denner-ag-allschwil"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-denner",
-          "verkaufer-in-denner-allschwil"
+          "verkaufer-in-denner-allschwil",
+          "venditore-denner-ag-allschwil"
         ]
       },
       "firstSeenAt": "2026-07-28T11:43:30.530Z",
+      "needsRetranslation": true,
       "salaryMin": 74000,
       "salaryMax": 113500,
       "baseSalary": {
@@ -1359,18 +1394,21 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin-im-stundenlohn/c8816b09-3bc0-4e5b-9ef1-bb882e287490",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-01T10:50:28.792Z",
+      "crawledAt": "2026-08-01T22:05:38.161Z",
       "previousSlugs": [
         "verkaufer-in-im-stundenlohn-denner",
-        "verkaufer-in-im-stundenlohn-denner-riehen"
+        "verkaufer-in-im-stundenlohn-denner-riehen",
+        "venditore-nel-salario-orario-denner-ag-riehen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-im-stundenlohn-denner",
-          "verkaufer-in-im-stundenlohn-denner-riehen"
+          "verkaufer-in-im-stundenlohn-denner-riehen",
+          "venditore-nel-salario-orario-denner-ag-riehen"
         ]
       },
       "firstSeenAt": "2026-07-28T11:43:30.525Z",
+      "needsRetranslation": true,
       "salaryMin": 74000,
       "salaryMax": 113500,
       "baseSalary": {
@@ -1446,13 +1484,15 @@
       "url": "https://jobs.migros.ch/fr/nos-entreprises/job/denner-sa/vendeur-vendeuse/641c3145-1873-4051-a13a-a459682f0e30",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-01T10:50:28.440Z",
+      "crawledAt": "2026-08-01T22:05:37.378Z",
       "previousSlugs": [
-        "vendeur-vendeuse-denner"
+        "vendeur-vendeuse-denner",
+        "venditore-venditore-denner-uvrier"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "vendeur-vendeuse-denner"
+          "vendeur-vendeuse-denner",
+          "venditore-venditore-denner-uvrier"
         ],
         "en": [
           "vendeur-vendeuse-denner"
@@ -1462,6 +1502,7 @@
         ]
       },
       "firstSeenAt": "2026-07-28T22:28:34.435Z",
+      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 90500,
       "baseSalary": {
@@ -1538,20 +1579,23 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin-im-stundenlohn/8d175da2-f926-4138-b6a3-8082ae8de766",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-01T10:50:28.434Z",
+      "crawledAt": "2026-08-01T22:05:37.361Z",
       "previousSlugs": [
         "verkaufer-in-im-stundenlohn-denner",
         "verkaufer-in-im-stundenlohn-denner-winterthur",
-        "verkaufer-in-im-stundenlohn-denner-8fo8dc"
+        "verkaufer-in-im-stundenlohn-denner-8fo8dc",
+        "venditore-nel-salario-orario-denner-ag-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-im-stundenlohn-denner",
           "verkaufer-in-im-stundenlohn-denner-winterthur",
-          "verkaufer-in-im-stundenlohn-denner-8fo8dc"
+          "verkaufer-in-im-stundenlohn-denner-8fo8dc",
+          "venditore-nel-salario-orario-denner-ag-winterthur"
         ]
       },
       "firstSeenAt": "2026-07-31T11:42:47.263Z",
+      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 127500,
       "baseSalary": {
@@ -1627,7 +1671,7 @@
       "url": "https://jobs.migros.ch/fr/nos-entreprises/job/denner-sa/vendeur-vendeuse/8d3cebe5-e690-48fb-8ac9-51f20e2e9b94",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-01T10:50:28.432Z",
+      "crawledAt": "2026-08-01T22:05:37.353Z",
       "previousSlugs": [
         "vendeur-vendeuse-denner-2",
         "vendeur-vendeuse-denner-champlan",
@@ -1635,14 +1679,16 @@
         "seller-seller-denner-sierre",
         "verkaufer-verkaufer-denner-sierre",
         "venditore-venditore-denner-sierre",
-        "vendeur-vendeuse-denner-sierre"
+        "vendeur-vendeuse-denner-sierre",
+        "venditore-venditore-denner-sa-sierre"
       ],
       "previousSlugsByLocale": {
         "it": [
           "vendeur-vendeuse-denner-2",
           "vendeur-vendeuse-denner-champlan",
           "vendeur-vendeuse-denner",
-          "venditore-venditore-denner-sierre"
+          "venditore-venditore-denner-sierre",
+          "venditore-venditore-denner-sa-sierre"
         ],
         "en": [
           "vendeur-vendeuse-denner",
@@ -1657,6 +1703,7 @@
         ]
       },
       "firstSeenAt": "2026-07-30T11:18:28.569Z",
+      "needsRetranslation": true,
       "salaryMin": 72000,
       "salaryMax": 111000,
       "baseSalary": {
@@ -1733,14 +1780,15 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/stv-filialleiterin/aeb7adf8-5cf5-410b-b846-6f65d662c4e3",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-01T10:50:27.993Z",
+      "crawledAt": "2026-08-01T22:05:36.558Z",
       "previousSlugs": [
         "stv-filialleiter-in-denner",
         "stv-filialleiter-in-denner-einsiedeln",
         "stv-filialleiter-in-denner-ag-einsiedeln",
         "stv-filialleiter-in-denner-ag-einsiedeln-jkrp0n",
         "vice-direttore-di-filiale-in-formazione-denner-ag-oensingen",
-        "vice-direttore-di-filiale-denner-basel"
+        "vice-direttore-di-filiale-denner-basel",
+        "vice-direttore-di-filiale-denner-ag-einsiedeln"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1749,7 +1797,8 @@
           "stv-filialleiter-in-denner-ag-einsiedeln",
           "stv-filialleiter-in-denner-ag-einsiedeln-jkrp0n",
           "vice-direttore-di-filiale-in-formazione-denner-ag-oensingen",
-          "vice-direttore-di-filiale-denner-basel"
+          "vice-direttore-di-filiale-denner-basel",
+          "vice-direttore-di-filiale-denner-ag-einsiedeln"
         ],
         "en": [
           "stv-filialleiter-in-denner-ag-einsiedeln-jkrp0n"
@@ -1759,6 +1808,7 @@
         ]
       },
       "firstSeenAt": "2026-07-31T11:42:47.255Z",
+      "needsRetranslation": true,
       "salaryMin": 110500,
       "salaryMax": 169500,
       "baseSalary": {
@@ -1836,20 +1886,23 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/logistikerin-filiale/ddcc8ae2-e427-4a9c-a341-dd44a06eec33",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-01T10:50:27.989Z",
+      "crawledAt": "2026-08-01T22:05:36.554Z",
       "previousSlugs": [
         "logistiker-in-filiale-denner",
-        "logistiker-in-filiale-denner-buchs-ag"
+        "logistiker-in-filiale-denner-buchs-ag",
+        "logisticista-in-branch-denner-ag-buchs-ag"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "logistiker-in-filiale-denner"
+          "logistiker-in-filiale-denner",
+          "logisticista-in-branch-denner-ag-buchs-ag"
         ],
         "fr": [
           "logistiker-in-filiale-denner-buchs-ag"
         ]
       },
       "firstSeenAt": "2026-07-31T11:42:46.735Z",
+      "needsRetranslation": true,
       "salaryMin": 74000,
       "salaryMax": 113500,
       "baseSalary": {
@@ -1927,14 +1980,16 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/bfe4d019-bdd4-4cb4-81bd-9ebdd905111b",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-01T10:50:27.987Z",
+      "crawledAt": "2026-08-01T22:05:36.552Z",
       "previousSlugs": [
         "assistent-in-filialleitung-denner",
-        "assistent-in-filialleitung-denner-buchs-ag"
+        "assistent-in-filialleitung-denner-buchs-ag",
+        "assistente-nella-gestione-delle-branche-denner-ag-buchs-ag"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistent-in-filialleitung-denner"
+          "assistent-in-filialleitung-denner",
+          "assistente-nella-gestione-delle-branche-denner-ag-buchs-ag"
         ],
         "en": [
           "assistent-in-filialleitung-denner-buchs-ag"
@@ -1944,6 +1999,7 @@
         ]
       },
       "firstSeenAt": "2026-07-31T11:42:46.732Z",
+      "needsRetranslation": true,
       "salaryMin": 74000,
       "salaryMax": 113500,
       "baseSalary": {
@@ -2021,14 +2077,16 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/87848795-a9f3-4ca5-b4e6-d0e29cbf4697",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-01T10:50:27.544Z",
+      "crawledAt": "2026-08-01T22:05:35.809Z",
       "previousSlugs": [
         "assistent-in-filialleitung-denner",
-        "assistent-in-filialleitung-denner-steinhausen"
+        "assistent-in-filialleitung-denner-steinhausen",
+        "assistente-nella-gestione-delle-branche-denner-ag-steinhausen-a8ab34"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistent-in-filialleitung-denner"
+          "assistent-in-filialleitung-denner",
+          "assistente-nella-gestione-delle-branche-denner-ag-steinhausen-a8ab34"
         ],
         "en": [
           "assistent-in-filialleitung-denner-steinhausen"
@@ -2038,6 +2096,7 @@
         ]
       },
       "firstSeenAt": "2026-07-31T11:42:46.729Z",
+      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 121500,
       "baseSalary": {
@@ -2114,16 +2173,19 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/stv-filialleiterin/08d53381-966b-4104-b61a-81a03b928bef",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-01T10:50:27.535Z",
+      "crawledAt": "2026-08-01T22:05:35.802Z",
       "previousSlugs": [
-        "stv-filialleiter-in-denner"
+        "stv-filialleiter-in-denner",
+        "stv-branch-manager-in-denner-ag-zug"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "stv-filialleiter-in-denner"
+          "stv-filialleiter-in-denner",
+          "stv-branch-manager-in-denner-ag-zug"
         ]
       },
       "firstSeenAt": "2026-07-31T11:42:46.134Z",
+      "needsRetranslation": true,
       "salaryMin": 110500,
       "salaryMax": 169500,
       "baseSalary": {
@@ -2200,16 +2262,18 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/filialleiterin/de4fc2ea-6b6f-42e6-b512-f02f21e55d5b",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-01T10:50:27.530Z",
+      "crawledAt": "2026-08-01T22:05:35.798Z",
       "previousSlugs": [
         "filialleiter-in-denner",
         "filialleiter-in-denner-sursee",
-        "filialleiter-in-denner-ag-nurensdorf"
+        "filialleiter-in-denner-ag-nurensdorf",
+        "responsabile-negozio-denner-ag-sursee"
       ],
       "previousSlugsByLocale": {
         "it": [
           "filialleiter-in-denner",
-          "filialleiter-in-denner-ag-nurensdorf"
+          "filialleiter-in-denner-ag-nurensdorf",
+          "responsabile-negozio-denner-ag-sursee"
         ],
         "en": [
           "filialleiter-in-denner-sursee"
@@ -2219,6 +2283,7 @@
         ]
       },
       "firstSeenAt": "2026-07-31T11:42:46.132Z",
+      "needsRetranslation": true,
       "salaryMin": 110500,
       "salaryMax": 169500,
       "baseSalary": {
@@ -2295,16 +2360,19 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/stv-filialleiterin/e1e3d641-0bf6-4e0e-95b7-162217adaa68",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-01T10:50:27.103Z",
+      "crawledAt": "2026-08-01T22:05:34.934Z",
       "previousSlugs": [
-        "stv-filialleiter-in-denner"
+        "stv-filialleiter-in-denner",
+        "stv-branch-manager-in-denner-ag-sursee"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "stv-filialleiter-in-denner"
+          "stv-filialleiter-in-denner",
+          "stv-branch-manager-in-denner-ag-sursee"
         ]
       },
       "firstSeenAt": "2026-07-31T11:42:46.130Z",
+      "needsRetranslation": true,
       "salaryMin": 110500,
       "salaryMax": 169500,
       "baseSalary": {
@@ -2382,13 +2450,15 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/f30f0d50-90f4-456c-9b84-d65fbfda11e2",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-01T10:50:27.099Z",
+      "crawledAt": "2026-08-01T22:05:34.932Z",
       "previousSlugs": [
-        "assistent-in-filialleitung-denner"
+        "assistent-in-filialleitung-denner",
+        "assistente-nella-gestione-delle-branche-denner-rotkreuz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistent-in-filialleitung-denner"
+          "assistent-in-filialleitung-denner",
+          "assistente-nella-gestione-delle-branche-denner-rotkreuz"
         ],
         "en": [
           "assistent-in-filialleitung-denner"
@@ -2398,6 +2468,7 @@
         ]
       },
       "firstSeenAt": "2026-07-31T11:42:45.646Z",
+      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 90500,
       "baseSalary": {
@@ -2474,16 +2545,19 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/stv-filialleiterin/30c18940-f988-48e8-96e4-a6d6870a27b0",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-01T10:50:27.088Z",
+      "crawledAt": "2026-08-01T22:05:34.925Z",
       "previousSlugs": [
-        "stv-filialleiter-in-denner"
+        "stv-filialleiter-in-denner",
+        "stv-branch-manager-in-denner-ag-menzingen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "stv-filialleiter-in-denner"
+          "stv-filialleiter-in-denner",
+          "stv-branch-manager-in-denner-ag-menzingen"
         ]
       },
       "firstSeenAt": "2026-07-31T11:42:45.640Z",
+      "needsRetranslation": true,
       "salaryMin": 110500,
       "salaryMax": 169500,
       "baseSalary": {
@@ -2560,16 +2634,19 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/stv-filialleiterin/e6c6435f-d7d9-423c-ad9e-01c021ddb98a",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-01T10:50:26.625Z",
+      "crawledAt": "2026-08-01T22:05:34.142Z",
       "previousSlugs": [
-        "stv-filialleiter-in-denner"
+        "stv-filialleiter-in-denner",
+        "stv-branch-manager-in-denner-ag-altdorf-ur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "stv-filialleiter-in-denner"
+          "stv-filialleiter-in-denner",
+          "stv-branch-manager-in-denner-ag-altdorf-ur"
         ]
       },
       "firstSeenAt": "2026-07-31T11:42:45.051Z",
+      "needsRetranslation": true,
       "salaryMin": 110500,
       "salaryMax": 169500,
       "baseSalary": {
@@ -2646,16 +2723,19 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/stv-filialleiterin/547eac3a-08a9-4d92-96b9-fc0f5e09d830",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-01T10:50:26.623Z",
+      "crawledAt": "2026-08-01T22:05:34.139Z",
       "previousSlugs": [
-        "stv-filialleiter-in-denner"
+        "stv-filialleiter-in-denner",
+        "stv-branch-manager-in-denner-ag-luzern-30c621"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "stv-filialleiter-in-denner"
+          "stv-filialleiter-in-denner",
+          "stv-branch-manager-in-denner-ag-luzern-30c621"
         ]
       },
       "firstSeenAt": "2026-07-31T11:42:45.040Z",
+      "needsRetranslation": true,
       "salaryMin": 110500,
       "salaryMax": 169500,
       "baseSalary": {
@@ -2734,14 +2814,16 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/strategischer-einkauferin-indirekte-beschaffung/a50c557b-1c97-444b-90d7-42b9d931cfea",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-01T10:50:26.186Z",
+      "crawledAt": "2026-08-01T22:05:33.381Z",
       "previousSlugs": [
         "strategische-r-einkaufer-in-indirekte-beschaffung-denner",
-        "strategische-r-einkaufer-in-indirekte-beschaffung-denner-zurich"
+        "strategische-r-einkaufer-in-indirekte-beschaffung-denner-zurich",
+        "acquirente-strategico-approvvigionamento-indiretto-denner-ag-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "strategische-r-einkaufer-in-indirekte-beschaffung-denner"
+          "strategische-r-einkaufer-in-indirekte-beschaffung-denner",
+          "acquirente-strategico-approvvigionamento-indiretto-denner-ag-zurich"
         ],
         "en": [
           "strategische-r-einkaufer-in-indirekte-beschaffung-denner-zurich"
@@ -2751,6 +2833,7 @@
         ]
       },
       "firstSeenAt": "2026-07-31T11:42:45.035Z",
+      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 127500,
       "baseSalary": {
@@ -2827,16 +2910,18 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-partner-betriebe/verkauferin/572358cc-623c-43f1-a003-2386f391d455",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-01T10:50:26.183Z",
+      "crawledAt": "2026-08-01T22:05:33.374Z",
       "previousSlugs": [
         "verkaufer-in-denner-2",
         "verkaufer-in-denner",
-        "verkaufer-in-denner-balsthal"
+        "verkaufer-in-denner-balsthal",
+        "venditore-denner-balsthal"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-denner-2",
-          "verkaufer-in-denner"
+          "verkaufer-in-denner",
+          "venditore-denner-balsthal"
         ],
         "en": [
           "verkaufer-in-denner-balsthal"
@@ -2846,6 +2931,7 @@
         ]
       },
       "firstSeenAt": "2026-07-31T22:09:41.075Z",
+      "needsRetranslation": true,
       "salaryMin": 77500,
       "salaryMax": 118500,
       "baseSalary": {
@@ -2917,19 +3003,21 @@
       "workPercentage": "",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-08-01T00:07:51+0200",
+      "postedDate": "2026-08-01T00:04:13+0200",
       "url": "https://jobs.migros.ch/fr/nos-entreprises/job/denner-sa/vendeur-vendeuse/2c3ecd8b-c757-4184-86f8-f7bc85eb7a7c",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-01T10:50:26.154Z",
+      "crawledAt": "2026-08-01T22:05:33.322Z",
       "previousSlugs": [
         "vendeur-vendeuse-denner-2",
-        "vendeur-vendeuse-denner"
+        "vendeur-vendeuse-denner",
+        "venditore-venditore-denner-vevey"
       ],
       "previousSlugsByLocale": {
         "it": [
           "vendeur-vendeuse-denner-2",
-          "vendeur-vendeuse-denner"
+          "vendeur-vendeuse-denner",
+          "venditore-venditore-denner-vevey"
         ],
         "en": [
           "vendeur-vendeuse-denner"
@@ -2939,6 +3027,7 @@
         ]
       },
       "firstSeenAt": "2026-07-31T22:09:40.957Z",
+      "needsRetranslation": true,
       "salaryMin": 72000,
       "salaryMax": 111000,
       "baseSalary": {
@@ -2952,100 +3041,6 @@
         }
       },
       "country": "CH"
-    },
-    {
-      "id": "denner-c7737a26c402",
-      "slug": "venditore-denner-ag-bern",
-      "slugByLocale": {
-        "it": "venditore-denner-ag-bern",
-        "en": "seller-denner-ag-bern",
-        "de": "verkaufer-in-denner-ag-bern",
-        "fr": "vendeur-denner-ag-bern"
-      },
-      "company": "Denner",
-      "companyKey": "denner",
-      "companyDomain": "denner.ch",
-      "title": "Verkäufer*in",
-      "titleByLocale": {
-        "it": "Venditore*",
-        "en": "Seller*",
-        "de": "Verkäufer*in",
-        "fr": "Vendeur*"
-      },
-      "description": "Frischprodukte, die ihren Namen verdienen. Regale gefüllt. Bestellungen rechtzeitig ausgelöst. Fläche sauber. Kasse stimmt. Kundinnen und Kunden zufrieden. Das ist unser Laden. Und bald auch deiner. Wechsle jetzt ins frische Siegerteam.\n\n## Mansioni\n- Kasse bedienen und abrechnen\n- Frischprodukte und natürlich alle anderen Waren annehmen, prüfen und in die Regale in deinem Laden füllen\n- Mindesthaltbarkeitsdaten bei den Produkten kontrollieren\n- Ordnung und Sauberkeit in der Filiale und im Lager sicherstellen\n- Vorgaben im Ladenlayout korrekt umsetzen\n\n## Requisiti\n- Idealerweise mehr als zwei Jahre Berufserfahrung: im Detailhandel (Lebensmittel)\n- Abgeschlossene Berufslehre (EBA): im Detailhandel (Lebensmittel) oder verwandter Berufsgattung wäre ideal\n- Bereit, schon auch mal jenseits von «nine to five» zu arbeiten – und die Freizeit zu geniessen, wenn andere arbeiten\n- Körperlich fit, manche Colis sind bis zu 10 Kilo schwer\n- Vertraut mit PC, Tablet und Smartphone - und mit anderen digitalen Helfern (z.B. für die Warenbewirtschaftung) freundest du dich schnell an\n- Gerne unter Menschen, eine gute Portion Herzlichkeit und eine positive Grundhaltung\n- Deutsch (gute Kenntnisse)\n\n## Cosa offriamo\n- Teil der Migros-Gruppe: Starke, im Detailhandel verankerte Marke unter dem Dach der Migros-Gruppe\n- Gesund arbeiten: Hohe Standards in Arbeitssicherheit, Ergonomie und Hygiene.\n- Mutterschaftsurlaub / Vaterschaftsurlaub: 5 Wochen länger Babypause (19 Wochen) für Mütter und das bei 100% Lohn. Väter geniessen den Nachwuchs 4 bezahlte Wochen.\n- Faire Löhne: 13 Monatslöhne und feste Lohnerhöhungen für alle statt Boni für wenige.\n- Handy-Abo: Die Qual der Wahl: Mit Galaxus Mobile, Wingo oder Sunrise bereits ab CHF 10.- so oder so richtig verbunden.\n- Migros Bank: Besser fahren bei Zinsen und Gebühren Ihrer Privat-, Anlage- oder Hypothekarkonti.\n- Mitarbeiterangebote: 10 Prozent auf den nächsten Grosseinkauf (zweimal pro Jahr).\n- Ferien: 6 Wochen Ferien für alle und bei Dienstjubiläen sogar noch weitere Tage dazu.\n- Freizeit- und Kulturangebote: Diverse Vergünstigungen bei Autovermietungen, Hotels, Events und vielen Bereichen mehr.\n\n## Contatto\n## Bewerbung & Kontakt Fabienne Contini Recruiter Verkauf Mittelland - LinkedIn ## Rekrutierungsprozess Vorselektion der Bewerbungen Eingegangene Bewerbungen prüfen wir laufend, erstellen eine Vorselektion und geben diese der Führungsperson zur Ansicht frei. Der Entscheid über das Weiterkommen oder Ausscheiden aus dem Rekrutierungsprozess wird per Telefon oder E-Mail kommuniziert. Dauer bis Rückmeldung: Bis zu drei Wochen Persönliches Video- oder Telefongespräch Bei einer grossen Anzahl an Bewerber*innen führen wir optional ein persönliches Telefon- oder Videogespräch durch. Das gibt uns die Möglichkeit, mehr Kandidatinnen und Kandidaten innert kurzer Zeit besser kennen zu lernen, um passende Personen für die nächste Runde einzuladen. Dauer bis Rückmeldung: Bis zu einer Woche Probearbeiten Ein Schnuppertag oder -halbtag gibt die Möglichkeit das zukünftige Arbeitsumfeld und die Teammitglieder besser kennenzulernen. Und umgekehrt gibt es uns eine Chance einzuschätzen, wie gut jemand in das Team passt. Dauer bis Rückmeldung: Bis zu drei Wochen Angebot & Vertragsausstellung Nach unserem mündlichen Stellenangebot werden die wichtigsten Vertragspunkte nochmals verifiziert. Nach Übereinkunft wird die Vertragserstellung in Auftrag gegeben und per Post versendet. Dauer bis Rückmeldung: Bis zu drei Wochen ## Hinweis für Personaldienstleister Für diese Stelle berücksichtigen wir ausschliesslich Direktbewerbungen.\n\n**Grado di occupazione:** 80%",
-      "descriptionByLocale": {
-        "it": "Prodotti freschi che meritano il loro nome. Scaffali pieni. Ordini attivati in tempo. Zona pulita. Il cassiere ha ragione. Clienti soddisfatti. Questo e' il nostro negozio. E presto anche il tuo. Ora passare alla nuova squadra vincente.\n\n## Mansioni\n- Deposito e contabilità\n- Accettare prodotti freschi e, naturalmente, tutte le altre merci, controllarli e riempirli sugli scaffali del tuo negozio\n- Controllare i dati di durata minima sui prodotti\n- Assicurare ordine e pulizia nel negozio e nel magazzino\n- Specifiche di esecuzione correttamente nel layout del negozio\n\n## Requisiti\n- Idealmente più di due anni di esperienza professionale: nel commercio al dettaglio (cibo)\n- Apprendistato professionale completo (EBA): nel commercio al dettaglio (cibo) o nella professione correlata sarebbe ideale\n- Pronti a lavorare oltre “da nove a cinque” – e godere del tempo libero quando altri lavorano\n- Fisicamente in forma, alcuni colis sono fino a 10 libbre pesanti\n- Familiare con PC, tablet e smartphone - e con altri helper digitali (ad esempio per la gestione delle merci) si fanno rapidamente amici\n- Come tra le persone, una buona porzione di calore e un atteggiamento positivo\n- Tedesco (buona conoscenza)\n\n## Cosa di Friamo\n- Parte del Gruppo Migros: Forte marchio ancorato nel commercio al dettaglio sotto l'ombrello del Gruppo Migros\n- Lavoro sano: elevati standard nella sicurezza del lavoro, nell'ergonomia e nell'igiene.\n- congedo di maternità / congedo di paternità: 5 settimane più lunga baby break (19 settimane) per le madri al 100% salario. I padri godono la prole 4 settimane pagate.\n- Sconti equi: 13 salari mensili e aumenti salariali fissi per tutti invece di bonus per pochi.\n- Abbonamento mobile: A scelta: Con Galaxus Mobile, Wingo o Sunrise già da CHF 10.- uno o l'altro realmente connessi.\n- Migros Bank: Meglio off con interessi e tasse sui vostri conti privati, di investimento o di ipoteca.\n- I dipendenti offrono: 10 per cento sul prossimo acquisto principale (due volte all'anno).\n- Vacanze: 6 settimane vacanze per tutti e ancora più giorni per gli anniversari di servizio.\n- Offerte per il tempo libero e culturale: Vari sconti per noleggio auto, hotel, eventi e molte altre aree.\n\n## Contatto\n## Applicazione & Contatto Fabienne Contini Recruiter Vendite Mittelland - LinkedIn ## Processo di reclutamento Rivediamo continuamente le applicazioni ricevute, creiamo una preselezione e le rilasciamo al gestore per la visualizzazione. La decisione sul progresso o il ritiro dal processo di reclutamento sarà comunicata telefonicamente o via e-mail. Durata fino al feedback: Fino a tre settimane Video personale o conversazione telefonica Conduciamo facoltativamente una conversazione telefonica personale o video per un gran numero di candidati. Questo ci dà l'opportunità di conoscere più candidati in breve tempo per invitare persone adatte per il prossimo round. Durata fino al feedback: fino a una settimana di test Un giorno di prova o mezza giornata offre la possibilità di conoscere meglio l'ambiente di lavoro futuro e i membri del team. E viceversa, ci dà la possibilità di valutare quanto bene qualcuno si inserisce nella squadra. Durata fino al feedback: fino a tre settimane offrono emissione di contratti Dopo la nostra offerta di lavoro orale, i punti di contratto più importanti sono verificati di nuovo. Dopo l'accordo, il contratto viene commissionato e inviato per posta. Durata fino al feedback: fino a tre settimane ## Nota per i fornitori di servizi del personale Per questa posizione consideriamo solo applicazioni dirette.\n\n**Grado di occupazione: ** 80 %",
-        "en": "Fresh products that deserve their name. Shelves filled. Orders triggered in time. Area clean. Cashier is right. Customers satisfied. This is our store. And soon yours too. Now switch to the fresh winning team.\n\n## Mansioni\n- Depository and accounting\n- Accept fresh produce and of course all other goods, check and fill them on the shelves in your store\n- Checking minimum durability data on products\n- Ensure order and cleanliness in the store and warehouse\n- Implement specifications correctly in the store layout\n\n## Requirements\n- Ideally more than two years of professional experience: in the retail trade (food)\n- Completed vocational apprenticeship (EBA): in the retail trade (food) or related profession would be ideal\n- Ready to work beyond “nine to five” – and enjoy free time when others work\n- Physically fit, some colis are up to 10 pounds heavy\n- Familiar with PC, tablet and smartphone - and with other digital helpers (e.g. for goods management) you quickly make friends\n- Like among people, a good portion of warmth and a positive attitude\n- German (good knowledge)\n\n## Cosa of Friamo\n- Part of the Migros Group: Strong brand anchored in the retail trade under the Migros Group umbrella\n- Healthy work: High standards in occupational safety, ergonomics and hygiene.\n- Maternity leave / paternity leave: 5 weeks longer baby break (19 weeks) for mothers at 100% wage. Fathers enjoy the offspring 4 paid weeks.\n- Fair wages: 13 monthly wages and fixed wage increases for all instead of bonuses for a few.\n- Mobile subscription: Spoiled for choice: With Galaxus Mobile, Wingo or Sunrise already from CHF 10.- one or the other really connected.\n- Migros Bank: Better off with interest and fees on your private, investment or mortgage accounts.\n- Employee offers: 10 percent on the next major purchase (twice a year).\n- Holidays: 6 weeks holidays for all and even more days for service anniversaries.\n- Leisure and cultural offers: Various discounts for car rentals, hotels, events and many more areas.\n\n## Contatto\n## Application & Contact Fabienne Contini Recruiter Sales Mittelland - LinkedIn ## Recruitment process Pre-selection of applications We continuously review applications received, create a pre-selection and release them to the manager for viewing. The decision on progress or withdrawal from the recruitment process will be communicated by telephone or email. Duration until feedback: Up to three weeks Personal video or telephone conversation We optionally conduct a personal telephone or video conversation for a large number of applicants. This gives us the opportunity to get to know more candidates within a short time in order to invite suitable people for the next round. Duration until feedback: up to one week of test work A trial day or half day gives the opportunity to get to know the future working environment and the team members better. And vice versa, it gives us a chance to assess how well someone fits into the team. Duration until feedback: Up to three weeks offer & contract issuance After our oral job offer, the most important contract points are verified again. After agreement, the contract is commissioned and sent by post. Duration until feedback: Up to three weeks ## Note for personnel service providers For this position we only consider direct applications.\n\n**Grado di occupazione:** 80 %",
-        "de": "Frischprodukte, die ihren Namen verdienen. Regale gefüllt. Bestellungen rechtzeitig ausgelöst. Fläche sauber. Kasse stimmt. Kundinnen und Kunden zufrieden. Das ist unser Laden. Und bald auch deiner. Wechsle jetzt ins frische Siegerteam.\n\n## Mansioni\n- Kasse bedienen und abrechnen\n- Frischprodukte und natürlich alle anderen Waren annehmen, prüfen und in die Regale in deinem Laden füllen\n- Mindesthaltbarkeitsdaten bei den Produkten kontrollieren\n- Ordnung und Sauberkeit in der Filiale und im Lager sicherstellen\n- Vorgaben im Ladenlayout korrekt umsetzen\n\n## Requisiti\n- Idealerweise mehr als zwei Jahre Berufserfahrung: im Detailhandel (Lebensmittel)\n- Abgeschlossene Berufslehre (EBA): im Detailhandel (Lebensmittel) oder verwandter Berufsgattung wäre ideal\n- Bereit, schon auch mal jenseits von «nine to five» zu arbeiten – und die Freizeit zu geniessen, wenn andere arbeiten\n- Körperlich fit, manche Colis sind bis zu 10 Kilo schwer\n- Vertraut mit PC, Tablet und Smartphone - und mit anderen digitalen Helfern (z.B. für die Warenbewirtschaftung) freundest du dich schnell an\n- Gerne unter Menschen, eine gute Portion Herzlichkeit und eine positive Grundhaltung\n- Deutsch (gute Kenntnisse)\n\n## Cosa offriamo\n- Teil der Migros-Gruppe: Starke, im Detailhandel verankerte Marke unter dem Dach der Migros-Gruppe\n- Gesund arbeiten: Hohe Standards in Arbeitssicherheit, Ergonomie und Hygiene.\n- Mutterschaftsurlaub / Vaterschaftsurlaub: 5 Wochen länger Babypause (19 Wochen) für Mütter und das bei 100% Lohn. Väter geniessen den Nachwuchs 4 bezahlte Wochen.\n- Faire Löhne: 13 Monatslöhne und feste Lohnerhöhungen für alle statt Boni für wenige.\n- Handy-Abo: Die Qual der Wahl: Mit Galaxus Mobile, Wingo oder Sunrise bereits ab CHF 10.- so oder so richtig verbunden.\n- Migros Bank: Besser fahren bei Zinsen und Gebühren Ihrer Privat-, Anlage- oder Hypothekarkonti.\n- Mitarbeiterangebote: 10 Prozent auf den nächsten Grosseinkauf (zweimal pro Jahr).\n- Ferien: 6 Wochen Ferien für alle und bei Dienstjubiläen sogar noch weitere Tage dazu.\n- Freizeit- und Kulturangebote: Diverse Vergünstigungen bei Autovermietungen, Hotels, Events und vielen Bereichen mehr.\n\n## Contatto\n## Bewerbung & Kontakt Fabienne Contini Recruiter Verkauf Mittelland - LinkedIn ## Rekrutierungsprozess Vorselektion der Bewerbungen Eingegangene Bewerbungen prüfen wir laufend, erstellen eine Vorselektion und geben diese der Führungsperson zur Ansicht frei. Der Entscheid über das Weiterkommen oder Ausscheiden aus dem Rekrutierungsprozess wird per Telefon oder E-Mail kommuniziert. Dauer bis Rückmeldung: Bis zu drei Wochen Persönliches Video- oder Telefongespräch Bei einer grossen Anzahl an Bewerber*innen führen wir optional ein persönliches Telefon- oder Videogespräch durch. Das gibt uns die Möglichkeit, mehr Kandidatinnen und Kandidaten innert kurzer Zeit besser kennen zu lernen, um passende Personen für die nächste Runde einzuladen. Dauer bis Rückmeldung: Bis zu einer Woche Probearbeiten Ein Schnuppertag oder -halbtag gibt die Möglichkeit das zukünftige Arbeitsumfeld und die Teammitglieder besser kennenzulernen. Und umgekehrt gibt es uns eine Chance einzuschätzen, wie gut jemand in das Team passt. Dauer bis Rückmeldung: Bis zu drei Wochen Angebot & Vertragsausstellung Nach unserem mündlichen Stellenangebot werden die wichtigsten Vertragspunkte nochmals verifiziert. Nach Übereinkunft wird die Vertragserstellung in Auftrag gegeben und per Post versendet. Dauer bis Rückmeldung: Bis zu drei Wochen ## Hinweis für Personaldienstleister Für diese Stelle berücksichtigen wir ausschliesslich Direktbewerbungen.\n\n**Grado di occupazione:** 80%",
-        "fr": "Des produits frais qui méritent leur nom. Des étagères remplies. Ordres déclenchés à temps. Zone propre. Caissier a raison. Les clients sont satisfaits. C'est notre magasin. Et bientôt le tien aussi. Maintenant, passez à la nouvelle équipe gagnante.\n\n## Mansioni\n- Dépôt et comptabilité\n- Acceptez les produits frais et bien sûr toutes les autres marchandises, vérifiez et remplissez-les sur les étagères de votre magasin\n- Vérification des données minimales de durabilité des produits\n- Assurer l'ordre et la propreté dans le magasin et l'entrepôt\n- Implémenter les spécifications correctement dans la disposition du magasin\n\n## Exigences\n- Idéalement plus de deux ans d'expérience professionnelle: dans le commerce de détail (alimentaire)\n- Apprentissage professionnel achevé (EBA): dans le commerce de détail (alimentaire) ou la profession connexe serait idéal\n- Prête à travailler au-delà de l'unité de travail – et profiter du temps libre lorsque les autres travaillent\n- Physiquement en forme, certains colis sont jusqu'à 10 livres lourds\n- Familiariser avec PC, tablette et smartphone - et avec d'autres aides numériques (par exemple pour la gestion des marchandises) vous vous faites rapidement des amis\n- Comme chez les gens, une bonne partie de la chaleur et une attitude positive\n- Allemand (bonne connaissance)\n\n## Cosa de Friamo\n- Partie du groupe Migros : Une marque forte ancrée dans le commerce de détail sous l'égide du groupe Migros\n- Travail sain : Des normes élevées en matière de sécurité, d'ergonomie et d'hygiène au travail.\n- Congé de maternité / congé de paternité: 5 semaines de congé de maternité (19 semaines) pour les mères à 100% de salaire. Les pères apprécient la progéniture 4 semaines rémunérées.\n- Salaire équitable: 13 salaires mensuels et augmentations de salaire fixes pour tous au lieu de primes pour quelques-uns.\n- Abonnement mobile: Spoiled au choix: Avec Galaxus Mobile, Wingo ou Sunrise déjà à partir de CHF 10.- l'un ou l'autre vraiment connecté.\n- Migros Bank : Mieux vaut payer les intérêts et les frais sur vos comptes privés, d'investissement ou hypothécaires.\n- Offre de l'employé: 10% sur le prochain achat majeur (deux fois par an).\n- Vacances: 6 semaines de vacances pour tous et encore plus de jours pour les anniversaires de service.\n- Loisirs et offres culturelles: Divers rabais pour la location de voitures, hôtels, événements et bien d'autres zones.\n\n## Contatto\n## Demande et contact Fabienne Contini Recruter Sales Mittelland - LinkedIn ## Processus de recrutement Sélection préalable des demandes Nous revoyons continuellement les demandes reçues, créons une présélection et les publions au gestionnaire pour consultation. La décision d'avancement ou de retrait du processus de recrutement sera communiquée par téléphone ou par courriel. Durée jusqu'à la rétroaction : Jusqu'à trois semaines Vidéo personnelle ou conversation téléphonique Nous effectuons en option une conversation téléphonique ou vidéo personnelle pour un grand nombre de candidats. Cela nous donne l'occasion d'apprendre à connaître plus de candidats en peu de temps afin d'inviter des personnes appropriées pour le prochain tour. Durée jusqu'à la rétroaction : jusqu'à une semaine de travail d'essai Une journée d'essai ou une demi-journée permet de mieux connaître l'environnement de travail futur et les membres de l'équipe. Et vice versa, cela nous donne une chance d'évaluer comment quelqu'un s'intègre bien dans l'équipe. Durée jusqu'à retour d'information : jusqu'à trois semaines d'offre et d'émission de contrat Après notre offre orale, les points contractuels les plus importants sont vérifiés à nouveau. Après accord, le contrat est commandé et envoyé par la poste. Durée jusqu'à la rétroaction : Jusqu'à trois semaines ## Note pour les fournisseurs de services au personnel Pour cette position, nous ne considérons que les demandes directes.\n\n**Grado di occupationazione:** 80 %"
-      },
-      "requirements": [
-        "Idealerweise mehr als zwei Jahre Berufserfahrung: im Detailhandel (Lebensmittel)",
-        "Abgeschlossene Berufslehre (EBA): im Detailhandel (Lebensmittel) oder verwandter Berufsgattung wäre ideal",
-        "Bereit, schon auch mal jenseits von «nine to five» zu arbeiten – und die Freizeit zu geniessen, wenn andere arbeiten",
-        "Körperlich fit, manche Colis sind bis zu 10 Kilo schwer",
-        "Vertraut mit PC, Tablet und Smartphone - und mit anderen digitalen Helfern (z.B. für die Warenbewirtschaftung) freundest du dich schnell an",
-        "Gerne unter Menschen, eine gute Portion Herzlichkeit und eine positive Grundhaltung",
-        "Deutsch (gute Kenntnisse)"
-      ],
-      "requirementsByLocale": {
-        "it": [
-          "Idealerweise mehr als zwei Jahre Berufserfahrung: im Detailhandel (Lebensmittel)",
-          "Abgeschlossene Berufslehre (EBA): im Detailhandel (Lebensmittel) oder verwandter Berufsgattung wäre ideal",
-          "Bereit, schon auch mal jenseits von «nine to five» zu arbeiten – und die Freizeit zu geniessen, wenn andere arbeiten",
-          "Körperlich fit, manche Colis sind bis zu 10 Kilo schwer",
-          "Gerne unter Menschen, eine gute Portion Herzlichkeit und eine positive Grundhaltung",
-          "Deutsch (gute Kenntnisse)"
-        ]
-      },
-      "location": "Bern",
-      "postalCode": "3018",
-      "canton": "BE",
-      "addressLocality": "Bern",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "streetAddress": "Denner Bern",
-      "employmentType": "FULL_TIME",
-      "category": "retail",
-      "contract": "full-time",
-      "workPercentage": "80%",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-27T05:14:34+0200",
-      "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin/65e20527-616f-485d-9313-c164d53093ad",
-      "source": "Denner/Migros Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-31T11:42:50.065Z",
-      "previousSlugs": [
-        "verkaufer-in-denner",
-        "verkaufer-in-denner-bern"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "verkaufer-in-denner"
-        ],
-        "en": [
-          "verkaufer-in-denner-bern"
-        ],
-        "fr": [
-          "verkaufer-in-denner-bern"
-        ]
-      },
-      "firstSeenAt": "2026-07-27T12:39:45.957Z",
-      "salaryMin": 77500,
-      "salaryMax": 118500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 77500,
-          "maxValue": 118500,
-          "unitText": "YEAR"
-        }
-      },
-      "country": "CH",
-      "crawlerMissStreak": 2
     }
   ]
 }
