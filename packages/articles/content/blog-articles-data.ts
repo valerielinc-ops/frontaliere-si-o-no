@@ -27525,6 +27525,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'organico-incompleto-congelate-le-hcap-women',
+ category: 'novita',
+ date: '2026-08-01T04:50:29.076Z',
+ image: '/images/blog/organico-incompleto-congelate-le-hcap-women.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

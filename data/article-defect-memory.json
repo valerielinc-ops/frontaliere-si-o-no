@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-08-01T04:32:17.087Z",
+  "updatedAt": "2026-08-01T04:50:30.314Z",
   "entities": {
     "AASTI": {
       "status": "suspect",
@@ -4122,20 +4122,34 @@
       "statusSource": "auto",
       "statusAt": "2026-07-29T06:26:58.011Z",
       "firstSeen": "2026-07-29T06:26:58.011Z",
-      "lastSeen": "2026-08-01T00:10:38.143Z",
-      "seen": 82,
+      "lastSeen": "2026-08-01T04:50:30.314Z",
+      "seen": 84,
       "unsupportedSightings": 0,
       "unsupportedRuns": [],
-      "supportedSightings": 3,
+      "supportedSightings": 5,
       "names": [
+        "Segreteria di Stato dell’economia",
         "Ufficio Cantonale del Ticino",
         "Segreteria di Stato dell'Economia",
         "Dipartimento federale delle finanze",
-        "Segreteria di Stato dell'economia",
-        "Ufficio federale per la statistica"
+        "Segreteria di Stato dell'economia"
       ],
       "recentKeys": [],
       "evidence": [
+        {
+          "at": "2026-08-01T04:50:30.314Z",
+          "runId": "30684152993",
+          "articleId": "organico-incompleto-congelate-le-hcap-women",
+          "support": "present",
+          "name": "Segreteria di Stato dell’economia"
+        },
+        {
+          "at": "2026-08-01T04:50:30.314Z",
+          "runId": "30684152993",
+          "articleId": "organico-incompleto-congelate-le-hcap-women",
+          "support": "present",
+          "name": "Segreteria di Stato dell’economia"
+        },
         {
           "at": "2026-08-01T00:10:38.143Z",
           "runId": "30672078586",
@@ -4175,20 +4189,6 @@
           "at": "2026-07-29T06:26:58.011Z",
           "runId": "corpus-scan",
           "articleId": "terzo-pilastro-3a-vantaggi-2026-canton-san-gallo",
-          "support": "unknown",
-          "name": "Segreteria di Stato dell'economia"
-        },
-        {
-          "at": "2026-07-29T06:26:58.011Z",
-          "runId": "corpus-scan",
-          "articleId": "svizzera-vacilla-mito-disoccupazione-frontalieri",
-          "support": "unknown",
-          "name": "Segreteria di Stato dell'economia"
-        },
-        {
-          "at": "2026-07-29T06:26:58.011Z",
-          "runId": "corpus-scan",
-          "articleId": "svizzera-disoccupazione-frontalieri-ue",
           "support": "unknown",
           "name": "Segreteria di Stato dell'economia"
         }

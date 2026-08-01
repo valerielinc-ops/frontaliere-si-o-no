@@ -1,0 +1,40 @@
+{
+  "id": "organico-incompleto-congelate-le-hcap-women",
+  "slug": "organico-incompleto-congelate-le-hcap-women",
+  "publishedAt": "2026-08-01T04:50:29.942Z",
+  "cluster": "generic",
+  "_pool": "proven",
+  "_pool_source": "media.laregione.ch",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 14.661303059612976,
+    "confidence": 0.8,
+    "finalScore": 11.729042447690382,
+    "topK": [
+      {
+        "slug": "licenziamento-nurnberg-rsi",
+        "cosine": 0.8624295917419398
+      },
+      {
+        "slug": "crans-montana-incendio-riciclaggio-2026",
+        "cosine": 0.8542128999334425
+      },
+      {
+        "slug": "ristorni-italia-sospesi",
+        "cosine": 0.8513154493071254
+      },
+      {
+        "slug": "sisa-contro-tagli-governo-2024",
+        "cosine": 0.8477155605603754
+      },
+      {
+        "slug": "svizzeri-scelgono-capitale-pensione",
+        "cosine": 0.847427408905555
+      }
+    ],
+    "score": 11.729042447690382,
+    "clusterDiversityBonus": 1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "generic"
+  }
+}
