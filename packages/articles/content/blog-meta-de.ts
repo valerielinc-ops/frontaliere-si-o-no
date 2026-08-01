@@ -9177,6 +9177,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.smartworking-prolungato-2023.title': 'Smartworking für Grenzpendler bis 30. Juni 2023',
     'blog.article.smartworking-prolungato-2023.excerpt': 'Die Medida wurde bis zum 30. Juni 2023 für grenzüberschreitende Pendler aus Tessin verlängert',
     'blog.article.smartworking-prolungato-2023.imageAlt': 'Frontaliers in Tessin während der COVID-19-Pandemie',
+    'blog.article.seveso-lavori-sul-nodo-ferroviario.title': 'Halte für die S4-Züge in Seveso und Camnago vom 3. bis 23. August',
+    'blog.article.seveso-lavori-sul-nodo-ferroviario.excerpt': 'Während der Bauarbeiten werden die Verbindungen durch Busse gewährleistet, die in der Nähe des Rathauses von Seveso und vom Bahnhof Camnago Lentate abfahren.',
+    'blog.article.seveso-lavori-sul-nodo-ferroviario.imageAlt': 'Ein Zug nähert sich dem Bahnhof Seveso',
 };
 
 export default blogMetaDe;
