@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-07-31T19:44:16.589Z",
+  "updatedAt": "2026-08-01T00:10:38.143Z",
   "entities": {
     "AASTI": {
       "status": "suspect",
@@ -4108,20 +4108,27 @@
       "statusSource": "auto",
       "statusAt": "2026-07-29T06:26:58.011Z",
       "firstSeen": "2026-07-29T06:26:58.011Z",
-      "lastSeen": "2026-07-30T09:41:16.713Z",
-      "seen": 81,
+      "lastSeen": "2026-08-01T00:10:38.143Z",
+      "seen": 82,
       "unsupportedSightings": 0,
       "unsupportedRuns": [],
-      "supportedSightings": 2,
+      "supportedSightings": 3,
       "names": [
+        "Ufficio Cantonale del Ticino",
         "Segreteria di Stato dell'Economia",
         "Dipartimento federale delle finanze",
         "Segreteria di Stato dell'economia",
-        "Ufficio federale per la statistica",
-        "Ufficio federale delle imprese"
+        "Ufficio federale per la statistica"
       ],
       "recentKeys": [],
       "evidence": [
+        {
+          "at": "2026-08-01T00:10:38.143Z",
+          "runId": "30672078586",
+          "articleId": "unknown",
+          "support": "present",
+          "name": "Ufficio Cantonale del Ticino"
+        },
         {
           "at": "2026-07-30T09:41:16.713Z",
           "runId": "30528247715",
@@ -4168,13 +4175,6 @@
           "at": "2026-07-29T06:26:58.011Z",
           "runId": "corpus-scan",
           "articleId": "svizzera-disoccupazione-frontalieri-ue",
-          "support": "unknown",
-          "name": "Segreteria di Stato dell'economia"
-        },
-        {
-          "at": "2026-07-29T06:26:58.011Z",
-          "runId": "corpus-scan",
-          "articleId": "svizzera-dazi-usa-lavoro-forzato",
           "support": "unknown",
           "name": "Segreteria di Stato dell'economia"
         }
@@ -4731,16 +4731,24 @@
       "statusSource": "auto",
       "statusAt": "2026-07-31T19:44:16.589Z",
       "firstSeen": "2026-07-31T19:44:16.589Z",
-      "lastSeen": "2026-07-31T19:44:16.589Z",
-      "seen": 1,
+      "lastSeen": "2026-08-01T00:10:38.143Z",
+      "seen": 2,
       "unsupportedSightings": 0,
       "unsupportedRuns": [],
-      "supportedSightings": 1,
+      "supportedSightings": 2,
       "names": [
+        "Ufficio Cantonale dei Trasporti",
         "Ufficio Cantonale Ticino"
       ],
       "recentKeys": [],
       "evidence": [
+        {
+          "at": "2026-08-01T00:10:38.143Z",
+          "runId": "30672078586",
+          "articleId": "unknown",
+          "support": "present",
+          "name": "Ufficio Cantonale dei Trasporti"
+        },
         {
           "at": "2026-07-31T19:44:16.589Z",
           "runId": "30656077764",
@@ -5235,17 +5243,25 @@
       "statusSource": "auto",
       "statusAt": "2026-07-29T06:26:58.011Z",
       "firstSeen": "2026-07-29T06:26:58.011Z",
-      "lastSeen": "2026-07-29T06:26:58.011Z",
-      "seen": 3,
+      "lastSeen": "2026-08-01T00:10:38.143Z",
+      "seen": 4,
       "unsupportedSightings": 0,
       "unsupportedRuns": [],
-      "supportedSightings": 0,
+      "supportedSightings": 1,
       "names": [
+        "Ufficio Cantonale delle Finanze",
         "Ufficio federale delle comunicazioni",
         "Ufficio federale della concorrenza"
       ],
       "recentKeys": [],
       "evidence": [
+        {
+          "at": "2026-08-01T00:10:38.143Z",
+          "runId": "30672078586",
+          "articleId": "unknown",
+          "support": "present",
+          "name": "Ufficio Cantonale delle Finanze"
+        },
         {
           "at": "2026-07-29T06:26:58.011Z",
           "runId": "corpus-scan",
