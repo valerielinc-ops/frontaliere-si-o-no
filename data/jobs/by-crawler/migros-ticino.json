@@ -1931,7 +1931,7 @@
         "it": "collaboratore-trice-in-food-genossenschaft-migros-aare-bremgarten-w3xi5v",
         "en": "employee-in-food-genossenschaft-migros-aare-bremgarten",
         "de": "mitarbeiter-in-food-genossenschaft-migros-aare-bremgarten-w3xi5v",
-        "fr": "employe-dans-l-alimentation-genossenschaft-migros-aare-bremgarten"
+        "fr": "employe-en-alimentation-genossenschaft-migros-aare-bremgarten"
       },
       "requirementsByLocale": {
         "it": [],
@@ -3569,8 +3569,8 @@
       },
       "slugByLocale": {
         "it": "electromecanicienne-m-w-d-societe-cooperative-migros-geneve-carouge-nc19xv",
-        "en": "electromechanicalian-f-h-d-societe-cooperative-migros-geneve-carouge",
-        "de": "elektromechaniker-f-h-d-societe-cooperative-migros-geneve-carouge",
+        "en": "electromecanician-f-h-d-societe-cooperative-migros-geneve-carouge",
+        "de": "elektromecanician-f-h-d-societe-cooperative-migros-geneve-carouge",
         "fr": "electromecanicienne-m-w-d-societe-cooperative-migros-geneve-carouge-nc19xv"
       },
       "requirementsByLocale": {
@@ -57268,6 +57268,10 @@
         "caissier-m-w-d-societe-cooperative-migros-vaud-renens",
         "cashier-h-f-d-societe-cooperative-migros-vaud-renens",
         "kassierer-h-f-d-societe-cooperative-migros-vaud-renens",
+        "caissier-m-w-d-societe-cooperative-migros-vaud-renens-lrvesg",
+        "caissier-m-w-d-societe-cooperative-migros-vaud-renens",
+        "cashier-h-f-d-societe-cooperative-migros-vaud-renens",
+        "kassierer-h-f-d-societe-cooperative-migros-vaud-renens",
         "caissier-m-w-d-societe-cooperative-migros-vaud-renens-lrvesg"
       ],
       "previousSlugsByLocale": {
@@ -57291,6 +57295,7 @@
           "fleuriste-m-w-d-societe-cooperative-migros-vaud-crissier",
           "caissier-m-w-d-societe-cooperative-migros-vaud-renens",
           "caissier-m-w-d-societe-cooperative-migros-vaud-renens",
+          "caissier-m-w-d-societe-cooperative-migros-vaud-renens",
           "caissier-m-w-d-societe-cooperative-migros-vaud-renens"
         ],
         "en": [
@@ -57300,6 +57305,7 @@
         "de": [
           "kassierer-h-f-d-societe-cooperative-migros-vaud-crissier",
           "kassierer-m-w-d-societe-cooperative-migros-vaud-epalinges",
+          "kassierer-h-f-d-societe-cooperative-migros-vaud-renens",
           "kassierer-h-f-d-societe-cooperative-migros-vaud-renens",
           "kassierer-h-f-d-societe-cooperative-migros-vaud-renens",
           "kassierer-h-f-d-societe-cooperative-migros-vaud-renens"
@@ -125159,7 +125165,7 @@
       "slug": "assistente-di-negozio-denner-ag-uster",
       "slugByLocale": {
         "it": "assistente-di-negozio-denner-ag-uster",
-        "en": "stv-branch-manager-in-denner-ag-uster-3e6yfc",
+        "en": "store-assistant-denner-ag-uster",
         "de": "stv-filialleiter-in-denner-basel",
         "fr": "assistant-de-magasin-denner-ag-uster"
       },

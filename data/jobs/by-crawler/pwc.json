@@ -722,7 +722,7 @@
       },
       "slugByLocale": {
         "it": "associate-senior-associate-assistenza-sanitaria-pwc-switzerland-bern",
-        "en": "associate-senior-associate-beratung-gesundheitswesen-pwc-switzerland-bern",
+        "en": "associate-senior-associate-health-care-counseling-pwc-switzerland-bern",
         "de": "associate-senior-associate-beratung-gesundheitswesen-pwc-bern",
         "fr": "associe-associe-principal-conseils-en-soins-de-sante-pwc-switzerland-bern"
       },
@@ -743,7 +743,6 @@
       "firstSeenAt": "2026-07-20T11:55:43.230Z",
       "previousSlugsByLocale": {
         "en": [
-          "associate-senior-associate-health-care-counseling-pwc-switzerland-bern",
           "associate-senior-associate-beratung-gesundheitswesen-pwc-bern"
         ],
         "it": [
@@ -754,7 +753,6 @@
         ]
       },
       "previousSlugs": [
-        "associate-senior-associate-health-care-counseling-pwc-switzerland-bern",
         "associate-senior-associate-beratung-gesundheitswesen-pwc-bern"
       ]
     },
@@ -5559,12 +5557,11 @@
         "it": "direttore-cloud-data-ai-cd-ai-generative-ai-pwc-switzerland-zurich",
         "en": "director-cloud-data-ai-cd-ai-generative-ai-pwc-zurich",
         "de": "direktor-cloud-data-ai-cd-ai-generative-ai-pwc-switzerland-zurich",
-        "fr": "director-cloud-data-ai-cd-ai-generative-ai-pwc-zurich"
+        "fr": "directeur-cloud-data-ai-cd-ai-ia-generique-pwc-switzerland-zurich"
       },
       "previousSlugs": [
         "director-cloud-data-ai-cd-ai-ai-generativa-pwc-switzerland-zurich",
         "director-cloud-data-ai-cd-ai-generative-ai-pwc-switzerland-zurich",
-        "directeur-cloud-data-ai-cd-ai-ia-generique-pwc-switzerland-zurich",
         "director-cloud-data-ai-cd-ai-generative-ai-pwc-zurich"
       ],
       "salaryMin": 100500,
@@ -5595,8 +5592,7 @@
         ],
         "fr": [
           "director-cloud-data-ai-cd-ai-ai-generativa-pwc-switzerland-zurich",
-          "director-cloud-data-ai-cd-ai-generative-ai-pwc-switzerland-zurich",
-          "directeur-cloud-data-ai-cd-ai-ia-generique-pwc-switzerland-zurich"
+          "director-cloud-data-ai-cd-ai-generative-ai-pwc-switzerland-zurich"
         ]
       },
       "firstSeenAt": "2026-04-13T22:16:12.621Z"
@@ -6216,7 +6212,7 @@
         "it": "gestione-dei-mercati-finanziari-pwc-switzerland-zurich",
         "en": "manager-capital-markets-pwc-switzerland-zurich",
         "de": "manager-capital-markets-pwc-zurich",
-        "fr": "gestionnaire-marches-des-capitaux-pwc-switzerland-zurich"
+        "fr": "manager-capital-markets-pwc-zurich"
       },
       "salaryMin": 72000,
       "salaryMax": 97000,
@@ -6236,7 +6232,6 @@
       "firstSeenAt": "2026-04-13T22:16:12.621Z",
       "previousSlugsByLocale": {
         "fr": [
-          "manager-capital-markets-pwc-zurich",
           "gestionnaire-marches-des-capitaux-pwc-switzerland-zurich"
         ],
         "it": [
