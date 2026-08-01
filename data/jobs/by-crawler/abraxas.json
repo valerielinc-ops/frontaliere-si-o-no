@@ -1,6 +1,6 @@
 {
   "crawlerKey": "abraxas",
-  "assembledAt": "2026-07-31T22:08:29.991Z",
+  "assembledAt": "2026-08-01T10:49:33.804Z",
   "jobs": [
     {
       "id": "abraxas-f90530a90f84",
@@ -17,7 +17,7 @@
       "title": "ServiceNow Engineer KI & Automation 80-100%",
       "titleByLocale": {
         "it": "ServiceNow Ingegnere KI & Automation 80-100%",
-        "en": "ServiceNow Engineer KI & Automation 80-100 %",
+        "en": "ServiceNow Engineer KI & Automation 80-100%",
         "de": "ServiceNow Ingenieur KI & Automation 80-100%",
         "fr": "ServiceNow Ingénieur KI & Automation 80-100%"
       },
@@ -33,7 +33,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/servicenow-engineer-ki-amp-automation-80-100-3223",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-31T22:08:26.090Z",
+      "crawledAt": "2026-08-01T10:49:30.800Z",
+      "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -56,11 +57,13 @@
       "pensumMax": 100,
       "pensum": "80 - 100%",
       "previousSlugs": [
-        "servicenow-engineer-ki-automation-80-100-abraxas-st-gallen"
+        "servicenow-engineer-ki-automation-80-100-abraxas-st-gallen",
+        "servicenow-ingegnere-ki-automation-80-100-abraxas-informatik-ag-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "servicenow-engineer-ki-automation-80-100-abraxas-st-gallen"
+          "servicenow-engineer-ki-automation-80-100-abraxas-st-gallen",
+          "servicenow-ingegnere-ki-automation-80-100-abraxas-informatik-ag-st-gallen"
         ],
         "fr": [
           "servicenow-engineer-ki-automation-80-100-abraxas-st-gallen"
@@ -95,7 +98,7 @@
       "title": "Senior Software-Engineer 80–100 %",
       "titleByLocale": {
         "it": "Senior Software-Ingegnere 80–100 %",
-        "en": "Senior Software Engineer 80-100%",
+        "en": "Senior Software-Engineer 80–100 %",
         "de": "Senior Software-Ingenieur 80–100 %",
         "fr": "Senior Software-Ingénieur 80–100 %"
       },
@@ -111,7 +114,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/senior-software-engineer-80-100-8049",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-31T22:08:25.603Z",
+      "crawledAt": "2026-08-01T10:49:30.312Z",
+      "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -134,11 +138,13 @@
       "pensumMax": 100,
       "pensum": "80 - 100%",
       "previousSlugs": [
-        "senior-software-engineer-80-100-abraxas-zurich-flughafen"
+        "senior-software-engineer-80-100-abraxas-zurich-flughafen",
+        "senior-software-ingegnere-80-100-abraxas-informatik-ag-zurich-flughafen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-software-engineer-80-100-abraxas-zurich-flughafen"
+          "senior-software-engineer-80-100-abraxas-zurich-flughafen",
+          "senior-software-ingegnere-80-100-abraxas-informatik-ag-zurich-flughafen"
         ],
         "fr": [
           "senior-software-engineer-80-100-abraxas-zurich-flughafen"
@@ -189,7 +195,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/security-architect-mit-schwerpunkt-ai-security-80-100-9038",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-31T22:08:25.118Z",
+      "crawledAt": "2026-08-01T10:49:29.824Z",
+      "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -212,11 +219,13 @@
       "pensumMax": 100,
       "pensum": "80 - 100%",
       "previousSlugs": [
-        "security-architect-mit-schwerpunkt-ai-security-80-100-abraxas-st-gallen"
+        "security-architect-mit-schwerpunkt-ai-security-80-100-abraxas-st-gallen",
+        "security-architetto-con-schwerpunkt-ai-security-80-100-abraxas-informatik-ag-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "security-architect-mit-schwerpunkt-ai-security-80-100-abraxas-st-gallen"
+          "security-architect-mit-schwerpunkt-ai-security-80-100-abraxas-st-gallen",
+          "security-architetto-con-schwerpunkt-ai-security-80-100-abraxas-informatik-ag-st-gallen"
         ],
         "en": [
           "security-architect-mit-schwerpunkt-ai-security-80-100-abraxas-st-gallen"
@@ -270,7 +279,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/projekt-management-officer-pmo-im-bereich-dgf-40-60-2400",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-31T22:08:24.559Z",
+      "crawledAt": "2026-08-01T10:49:29.336Z",
       "needsRetranslation": false,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
@@ -294,11 +303,13 @@
       "pensumMax": 60,
       "pensum": "40 - 60%",
       "previousSlugs": [
-        "projekt-management-officer-pmo-im-bereich-dgf-40-60-abraxas-st-gallen"
+        "projekt-management-officer-pmo-im-bereich-dgf-40-60-abraxas-st-gallen",
+        "responsabile-della-gestione-dei-progetti-pmo-in-dgf-40-60-abraxas-informatik-ag-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "projekt-management-officer-pmo-im-bereich-dgf-40-60-abraxas-st-gallen"
+          "projekt-management-officer-pmo-im-bereich-dgf-40-60-abraxas-st-gallen",
+          "responsabile-della-gestione-dei-progetti-pmo-in-dgf-40-60-abraxas-informatik-ag-st-gallen"
         ],
         "en": [
           "projekt-management-officer-pmo-im-bereich-dgf-40-60-abraxas-st-gallen"
@@ -352,7 +363,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/leiterin-solution-architektur-80-100-7399",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-31T22:08:24.074Z",
+      "crawledAt": "2026-08-01T10:49:28.848Z",
       "needsRetranslation": false,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
@@ -376,11 +387,13 @@
       "pensumMax": 100,
       "pensum": "80 - 100%",
       "previousSlugs": [
-        "leiter-in-solution-architektur-80-100-abraxas-st-gallen"
+        "leiter-in-solution-architektur-80-100-abraxas-st-gallen",
+        "responsabile-solution-architektur-80-100-abraxas-informatik-ag-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "leiter-in-solution-architektur-80-100-abraxas-st-gallen"
+          "leiter-in-solution-architektur-80-100-abraxas-st-gallen",
+          "responsabile-solution-architektur-80-100-abraxas-informatik-ag-st-gallen"
         ],
         "en": [
           "leiter-in-solution-architektur-80-100-abraxas-st-gallen"
@@ -407,9 +420,9 @@
       "id": "abraxas-6737244018ad",
       "slug": "apprendistato-come-informatiker-in-plattformentwicklung-abraxas-informatik-ag-zurich-flughafen",
       "slugByLocale": {
-        "de": "lehrstelle-als-informatiker-in-plattformentwicklung-abraxas-zurich-flughafen",
         "it": "apprendistato-come-informatiker-in-plattformentwicklung-abraxas-informatik-ag-zurich-flughafen",
         "en": "apprenticeship-as-computer-scientist-in-platform-development-abraxas-informatik-ag-zurich-flughafen",
+        "de": "lehrstelle-als-informatiker-in-plattformentwicklung-abraxas-zurich-flughafen",
         "fr": "apprentissage-en-informatique-in-developpement-de-la-plateforme-abraxas-informatik-ag-zurich-flughafen"
       },
       "company": "Abraxas Informatik AG",
@@ -417,16 +430,16 @@
       "companyDomain": "abraxas.ch",
       "title": "Lehrstelle als Informatiker:in - Plattformentwicklung",
       "titleByLocale": {
-        "de": "Lehrstelle als Informatiker:in - Plattformentwicklung",
         "it": "Apprendistato come Informatiker:in - Plattformentwicklung",
         "en": "Apprenticeship as computer scientist:in - Platform development",
+        "de": "Lehrstelle als Informatiker:in - Plattformentwicklung",
         "fr": "Apprentissage en informatique:in - Développement de la plateforme"
       },
       "description": "Du willst wissen, wie Server, Netzwerke und Cloud wirklich funktionieren? Als Informatiker:in Plattformentwicklung bei Abraxas sorgst du dafür, dass Systeme stabil laufen und moderne IT-Infrastrukturen entstehen. Entdecke in deiner Lehre bei uns, wie spannend die Welt hinter den Kulissen der IT ist.\nDeine Rolle\nAls Informatiker:in der Fachrichtung Plattformentwicklung bist du Spezialist:in für den Aufbau und Betrieb von IT-Infrastrukturen . Du installierst und konfigurierst Serversysteme, Netzwerke sowie Software und automatisierst Abläufe mit Skripten und Tools. Dabei arbeitest du in den Bereichen Planung, Installation, Betrieb und Wartung von Informatiksystemen und deren Anwendungen.\nDu kümmerst dich während der vier Lehrjahre um Hard- und Software – von einzelnen Geräten bis hin zu vernetzten Systemlandschaften. Dazu gehört auch das Erkennen, Analysieren und Beheben von Störungen. Zudem führst du Updates durch und koordinierst bei Bedarf Hardware-Reparaturen mit externen Partnern.\nDein Profil\n• Abgeschlossene Sekundarschule der höchsten Stufe mit guten Leistungen in den naturwissenschaftlichen / mathematischen Fächern und in Deutsch.\n• Sehr gutes logisch-abstraktes Denkvermögen\n• Sinn für theoretische Vorgänge und Abläufe\n• Freude an exakter Denk- und Arbeitsweise\n• Interesse am Lösen komplexer Aufgabenstellungen\n• Freude am Experimentieren\n• Geduld und Freude an der Arbeit mit Informatiksystemen\n• Permanente Leistungsbereitschaft\nBeachte bitte auch die schulischen Anforderungen, die für diese Lehre vorausgesetzt werden und lese dazu die Dokumente des BIZ .\nUnser Angebot\nBrauchst du zwischendurch Abstand vom Digitalen? Bei uns stehen dir jederzeit Stifte, Papier und beschreibbare Wände für kreative Ideen zur Verfügung. Zum Abschalten kannst du eine Runde um den Circle drehen oder in unserem Ruheraum entspannen. Freu dich ausserdem auf Benefits wie vergünstigtes Fitness-Training, die Möglichkeit zum Ferienkauf und einen jährlichen Ausflug für alle Lernenden.\nBei uns in der Lehre erwarten dich flexible Arbeitszeiten, 6 Wochen Ferien, finanzielle Unterstützung bei Schulmitteln und viele weitere Goodies. Während deiner Ausbildung wirst du von engagierten Praxisausbildner:innen begleitet und übernimmst bereits früh Verantwortung – denn unsere Lernenden sind ein wichtiger Teil des Teams.\nKlingt spannend? Dann bewerbe dich für die Lehrstelle als Informatiker:in EFZ in der Fachrichtung Plattformentwicklung mit Start im August 2027.\nSo bewirbst du dich:\nBewirb dich direkt über dieses Inserat. Nach der Prüfung deiner Unterlagen melden wir uns bei dir und teilen dir mit, ob und an welchem Datum wir dich zu einem Vorstellungsgespräch einladen können.\nDiese Unterlagen benötigen wir von dir:\n• Motivationsschreiben\n• Aktueller Lebenslauf mit Foto\n• Alle Oberstufenzeugnisse\n• Stellwerk / Multicheck (falls vorhanden)\nBitte beachte: Bewerbungen nehmen wir aus Sicherheitsgründen nur online über unsere Stellenausschreibungen entgegen.\nBei Fragen zum Bewerbungsprozess hilft dir unser Berufsbildner Bruno Bertelli gerne weiter.",
       "descriptionByLocale": {
-        "de": "Du willst wissen, wie Server, Netzwerke und Cloud wirklich funktionieren? Als Informatiker:in Plattformentwicklung bei Abraxas sorgst du dafür, dass Systeme stabil laufen und moderne IT-Infrastrukturen entstehen. Entdecke in deiner Lehre bei uns, wie spannend die Welt hinter den Kulissen der IT ist.\nDeine Rolle\nAls Informatiker:in der Fachrichtung Plattformentwicklung bist du Spezialist:in für den Aufbau und Betrieb von IT-Infrastrukturen . Du installierst und konfigurierst Serversysteme, Netzwerke sowie Software und automatisierst Abläufe mit Skripten und Tools. Dabei arbeitest du in den Bereichen Planung, Installation, Betrieb und Wartung von Informatiksystemen und deren Anwendungen.\nDu kümmerst dich während der vier Lehrjahre um Hard- und Software – von einzelnen Geräten bis hin zu vernetzten Systemlandschaften. Dazu gehört auch das Erkennen, Analysieren und Beheben von Störungen. Zudem führst du Updates durch und koordinierst bei Bedarf Hardware-Reparaturen mit externen Partnern.\nDein Profil\n• Abgeschlossene Sekundarschule der höchsten Stufe mit guten Leistungen in den naturwissenschaftlichen / mathematischen Fächern und in Deutsch.\n• Sehr gutes logisch-abstraktes Denkvermögen\n• Sinn für theoretische Vorgänge und Abläufe\n• Freude an exakter Denk- und Arbeitsweise\n• Interesse am Lösen komplexer Aufgabenstellungen\n• Freude am Experimentieren\n• Geduld und Freude an der Arbeit mit Informatiksystemen\n• Permanente Leistungsbereitschaft\nBeachte bitte auch die schulischen Anforderungen, die für diese Lehre vorausgesetzt werden und lese dazu die Dokumente des BIZ .\nUnser Angebot\nBrauchst du zwischendurch Abstand vom Digitalen? Bei uns stehen dir jederzeit Stifte, Papier und beschreibbare Wände für kreative Ideen zur Verfügung. Zum Abschalten kannst du eine Runde um den Circle drehen oder in unserem Ruheraum entspannen. Freu dich ausserdem auf Benefits wie vergünstigtes Fitness-Training, die Möglichkeit zum Ferienkauf und einen jährlichen Ausflug für alle Lernenden.\nBei uns in der Lehre erwarten dich flexible Arbeitszeiten, 6 Wochen Ferien, finanzielle Unterstützung bei Schulmitteln und viele weitere Goodies. Während deiner Ausbildung wirst du von engagierten Praxisausbildner:innen begleitet und übernimmst bereits früh Verantwortung – denn unsere Lernenden sind ein wichtiger Teil des Teams.\nKlingt spannend? Dann bewerbe dich für die Lehrstelle als Informatiker:in EFZ in der Fachrichtung Plattformentwicklung mit Start im August 2027.\nSo bewirbst du dich:\nBewirb dich direkt über dieses Inserat. Nach der Prüfung deiner Unterlagen melden wir uns bei dir und teilen dir mit, ob und an welchem Datum wir dich zu einem Vorstellungsgespräch einladen können.\nDiese Unterlagen benötigen wir von dir:\n• Motivationsschreiben\n• Aktueller Lebenslauf mit Foto\n• Alle Oberstufenzeugnisse\n• Stellwerk / Multicheck (falls vorhanden)\nBitte beachte: Bewerbungen nehmen wir aus Sicherheitsgründen nur online über unsere Stellenausschreibungen entgegen.\nBei Fragen zum Bewerbungsprozess hilft dir unser Berufsbildner Bruno Bertelli gerne weiter.",
         "it": "Vuoi sapere come funzionano davvero server, reti e cloud? In qualità di informatico: nello sviluppo della piattaforma ad Abraxas, si assicura che i sistemi gestiscano infrastrutture IT stabili e moderne. Nel tuo insegnamento con noi, scopri quanto sia emozionante il mondo dietro le quinte dell'IT.\nIl tuo ruolo\nCome informatico: nel campo dello sviluppo della piattaforma, sei uno specialista: nello sviluppo e nel funzionamento delle infrastrutture IT. Installa e configura sistemi server, reti e software e automatizza i processi con script e strumenti. Si lavora nei settori di pianificazione, installazione, funzionamento e manutenzione dei sistemi informatici e delle loro applicazioni.\nDurante i quattro anni di apprendistato, si prenderanno cura di hardware e software – dai singoli dispositivi ai paesaggi di sistema in rete. Questo include rilevare, analizzare e correggere disturbi. Si effettuano anche aggiornamenti e coordinate riparazioni hardware con partner esterni, se necessario.\nIl tuo profilo\n• Scuola secondaria di livello superiore con buone prestazioni in scienze / materie matematiche e in tedesco.\n• Molto buon pensiero logico-astratto\n• Senso di processi e processi teorici\n• Divertimento dei metodi di pensiero e di lavoro esatti\n• Interessi nella risoluzione di compiti complessi\n• La gioia della sperimentazione\n• Pazienza e gioia nel lavorare con i sistemi informatici\n• Preparazione permanente\nSi prega inoltre di notare i requisiti scolastici richiesti per questo insegnamento e leggere i documenti del BIS.\nLa nostra offerta\nHai bisogno di una distanza dal digitale? Con noi, penne, carta e pareti descrivibili sono sempre disponibili per idee creative. Per spegnere, è possibile girare il cerchio o rilassarsi nella nostra stanza di riposo. Si può anche aspettare a benefici come l'allenamento di fitness scontato, l'opportunità di acquistare una vacanza e un'escursione annuale per tutti gli studenti.\nCon noi nell'insegnamento, ci si può aspettare orari di lavoro flessibili, 6 settimane vacanze, supporto finanziario per i fondi scolastici e molte altre buoneies. Durante il vostro apprendistato, sarete accompagnati da formatori dedicati e vi assumete presto la responsabilità – perché i nostri studenti sono una parte importante della squadra.\nSembra eccitante? Poi si applica per l'apprendistato come scienziato informatico: in EFZ nel campo dello sviluppo della piattaforma a partire dall'agosto 2027.\nEcco come si applica:\nApplicare direttamente attraverso questo elenco. Dopo aver esaminato i tuoi documenti, ti contatteremo e ti faremo sapere se e in quale data possiamo invitarti ad un colloquio.\nAbbiamo bisogno di questi documenti da voi:\n• Lettera di motivazione\n• CV corrente con foto\n• Tutti i certificati di livello superiore\n• Interlocking / Multicheck (se disponibile)\nNota: Per motivi di sicurezza, accettiamo solo le applicazioni online tramite le nostre postazioni di lavoro.\nSe avete domande sul processo di applicazione, il nostro trainer Bruno Bertelli sarà lieto di aiutarvi.",
         "en": "Want to know how servers, networks and the cloud really work? As a computer scientist: in platform development at Abraxas, you ensure that systems run stable and modern IT infrastructures are created. In your teaching with us, discover how exciting the world behind the scenes of IT is.\nYour role\nAs a computer scientist: in the field of platform development, you are a specialist: in the development and operation of IT infrastructures. You install and configure server systems, networks and software and automate processes with scripts and tools. You work in the areas of planning, installation, operation and maintenance of computer systems and their applications.\nDuring the four apprenticeship years, you will take care of hardware and software – from individual devices to networked system landscapes. This includes detecting, analyzing and correcting disturbances. You also carry out updates and coordinate hardware repairs with external partners if necessary.\nYour profile\n• Highest level secondary school with good performance in science/mathematical subjects and in German.\n• Very good logical-abstract thinking\n• Sense of theoretical processes and processes\n• Enjoyment of exact thinking and working methods\n• Interest in solving complex tasks\n• The joy of experimentation\n• Patience and joy in working with computer systems\n• Permanent preparedness\nPlease also note the school requirements required for this teaching and read the documents of the BIS.\nOur offer\nDo you need a distance from the digital? With us, pens, paper and describable walls are always available for creative ideas. To switch off, you can turn around the circle or relax in our rest room. You can also look forward to benefits such as discounted fitness training, the opportunity to buy a holiday and an annual excursion for all learners.\nWith us in teaching, you can expect flexible working hours, 6 weeks holidays, financial support for school funds and many other goodies. During your apprenticeship, you will be accompanied by dedicated trainers and take on responsibility early on – because our learners are an important part of the team.\nSounds exciting? Then apply for the apprenticeship as a computer scientist: in EFZ in the field of platform development starting in August 2027.\nThis is how you apply:\nApply directly through this listing. After reviewing your documents, we will contact you and let you know if and on what date we can invite you to an interview.\nWe need these documents from you:\n• Letter of motivation\n• Current CV with photo\n• All upper-level certificates\n• Interlocking / Multicheck (if available)\nPlease note: For security reasons, we only accept applications online via our job postings.\nIf you have any questions about the application process, our trainer Bruno Bertelli will be happy to help you.",
+        "de": "Du willst wissen, wie Server, Netzwerke und Cloud wirklich funktionieren? Als Informatiker:in Plattformentwicklung bei Abraxas sorgst du dafür, dass Systeme stabil laufen und moderne IT-Infrastrukturen entstehen. Entdecke in deiner Lehre bei uns, wie spannend die Welt hinter den Kulissen der IT ist.\nDeine Rolle\nAls Informatiker:in der Fachrichtung Plattformentwicklung bist du Spezialist:in für den Aufbau und Betrieb von IT-Infrastrukturen . Du installierst und konfigurierst Serversysteme, Netzwerke sowie Software und automatisierst Abläufe mit Skripten und Tools. Dabei arbeitest du in den Bereichen Planung, Installation, Betrieb und Wartung von Informatiksystemen und deren Anwendungen.\nDu kümmerst dich während der vier Lehrjahre um Hard- und Software – von einzelnen Geräten bis hin zu vernetzten Systemlandschaften. Dazu gehört auch das Erkennen, Analysieren und Beheben von Störungen. Zudem führst du Updates durch und koordinierst bei Bedarf Hardware-Reparaturen mit externen Partnern.\nDein Profil\n• Abgeschlossene Sekundarschule der höchsten Stufe mit guten Leistungen in den naturwissenschaftlichen / mathematischen Fächern und in Deutsch.\n• Sehr gutes logisch-abstraktes Denkvermögen\n• Sinn für theoretische Vorgänge und Abläufe\n• Freude an exakter Denk- und Arbeitsweise\n• Interesse am Lösen komplexer Aufgabenstellungen\n• Freude am Experimentieren\n• Geduld und Freude an der Arbeit mit Informatiksystemen\n• Permanente Leistungsbereitschaft\nBeachte bitte auch die schulischen Anforderungen, die für diese Lehre vorausgesetzt werden und lese dazu die Dokumente des BIZ .\nUnser Angebot\nBrauchst du zwischendurch Abstand vom Digitalen? Bei uns stehen dir jederzeit Stifte, Papier und beschreibbare Wände für kreative Ideen zur Verfügung. Zum Abschalten kannst du eine Runde um den Circle drehen oder in unserem Ruheraum entspannen. Freu dich ausserdem auf Benefits wie vergünstigtes Fitness-Training, die Möglichkeit zum Ferienkauf und einen jährlichen Ausflug für alle Lernenden.\nBei uns in der Lehre erwarten dich flexible Arbeitszeiten, 6 Wochen Ferien, finanzielle Unterstützung bei Schulmitteln und viele weitere Goodies. Während deiner Ausbildung wirst du von engagierten Praxisausbildner:innen begleitet und übernimmst bereits früh Verantwortung – denn unsere Lernenden sind ein wichtiger Teil des Teams.\nKlingt spannend? Dann bewerbe dich für die Lehrstelle als Informatiker:in EFZ in der Fachrichtung Plattformentwicklung mit Start im August 2027.\nSo bewirbst du dich:\nBewirb dich direkt über dieses Inserat. Nach der Prüfung deiner Unterlagen melden wir uns bei dir und teilen dir mit, ob und an welchem Datum wir dich zu einem Vorstellungsgespräch einladen können.\nDiese Unterlagen benötigen wir von dir:\n• Motivationsschreiben\n• Aktueller Lebenslauf mit Foto\n• Alle Oberstufenzeugnisse\n• Stellwerk / Multicheck (falls vorhanden)\nBitte beachte: Bewerbungen nehmen wir aus Sicherheitsgründen nur online über unsere Stellenausschreibungen entgegen.\nBei Fragen zum Bewerbungsprozess hilft dir unser Berufsbildner Bruno Bertelli gerne weiter.",
         "fr": "Vous voulez savoir comment fonctionnent les serveurs, les réseaux et le cloud ? En tant qu'informaticien: dans le développement de plateforme à Abraxas, vous assurez que les systèmes fonctionnent des infrastructures informatiques stables et modernes sont créés. Dans votre enseignement avec nous, découvrez à quel point le monde en coulisse est passionnant.\nVotre rôle\nEn tant qu'informatologue: dans le domaine du développement de plateformes, vous êtes un spécialiste: dans le développement et le fonctionnement des infrastructures informatiques. Vous installez et configurez des systèmes de serveurs, des réseaux et des logiciels et automatisez les processus avec des scripts et des outils. Vous travaillez dans les domaines de la planification, de l'installation, de l'exploitation et de la maintenance des systèmes informatiques et de leurs applications.\nAu cours des quatre années d'apprentissage, vous vous occuperez du matériel et des logiciels – des appareils individuels aux paysages en réseau. Cela comprend la détection, l'analyse et la correction des perturbations. Vous effectuez également des mises à jour et coordonnez les réparations du matériel avec des partenaires externes si nécessaire.\nVotre profil\n• L'enseignement secondaire le plus élevé avec de bonnes performances en sciences/mathématiques et en allemand.\n• Très bonne pensée logique-abstract\n• Sens des processus théoriques\n• Appréciation de la pensée exacte et des méthodes de travail\n• Intérêt pour la résolution de tâches complexes\n• La joie de l'expérimentation\n• Patience et joie de travailler avec les systèmes informatiques\n• Préparation permanente\nVeuillez également noter les exigences scolaires requises pour cet enseignement et lire les documents de la BRI.\nNotre offre\nVous avez besoin d'une distance par rapport au numérique? Avec nous, des stylos, du papier et des murs déchiffrables sont toujours disponibles pour des idées créatives. Pour éteindre, vous pouvez tourner autour du cercle ou vous détendre dans notre salle de repos. Vous pouvez également compter sur des avantages tels que l'entraînement physique à prix réduit, la possibilité d'acheter des vacances et une excursion annuelle pour tous les apprenants.\nAvec nous dans l'enseignement, vous pouvez vous attendre à des horaires de travail flexibles, 6 semaines de vacances, un soutien financier pour les fonds scolaires et beaucoup d'autres goodies. Durant votre apprentissage, vous serez accompagné de formateurs dévoués et assumerez vos responsabilités dès le début, car nos apprenants sont une partie importante de l'équipe.\nÇa semble excitant ? Puis postulez à l'apprentissage en tant qu'informaticien: en EFZ dans le domaine du développement de plateforme à partir d'août 2027.\nVoici comment vous appliquez :\nAppliquer directement sur cette liste. Après avoir examiné vos documents, nous vous contacterons et vous ferons savoir si et à quelle date nous pouvons vous inviter à une entrevue.\nNous avons besoin de ces documents de votre part :\n• Lettre de motivation\n• CV actuel avec photo\n• Tous les certificats de niveau supérieur\n• Interlockage / Multivérification (si disponible)\nRemarque : Pour des raisons de sécurité, nous n'acceptons les candidatures en ligne que via nos offres d'emploi.\nSi vous avez des questions sur le processus de candidature, notre formateur Bruno Bertelli sera heureux de vous aider."
       },
       "location": "Zürich-Flughafen",
@@ -434,7 +447,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/lehrstelle-als-informatikerin-plattformentwicklung-2149",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-31T22:08:23.589Z",
+      "crawledAt": "2026-08-01T10:49:28.359Z",
+      "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -451,16 +465,19 @@
       "postedDate": "2026-07-31",
       "applyUrl": "https://apply.refline.ch/215876/2445/index.html?lang=de&cid=1",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "externalId": "215876-2445",
       "pensumMin": 100,
       "pensumMax": 100,
       "pensum": "100%",
+      "previousSlugs": [
+        "lehrstelle-als-informatiker-in-plattformentwicklung-abraxas-zurich-flughafen",
+        "apprendistato-come-informatiker-in-plattformentwicklung-abraxas-informatik-ag-zurich-flughafen"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-informatiker-in-plattformentwicklung-abraxas-zurich-flughafen"
+          "lehrstelle-als-informatiker-in-plattformentwicklung-abraxas-zurich-flughafen",
+          "apprendistato-come-informatiker-in-plattformentwicklung-abraxas-informatik-ag-zurich-flughafen"
         ],
         "en": [
           "lehrstelle-als-informatiker-in-plattformentwicklung-abraxas-zurich-flughafen"
@@ -469,9 +486,7 @@
           "lehrstelle-als-informatiker-in-plattformentwicklung-abraxas-zurich-flughafen"
         ]
       },
-      "previousSlugs": [
-        "lehrstelle-als-informatiker-in-plattformentwicklung-abraxas-zurich-flughafen"
-      ],
+      "firstSeenAt": "2026-07-31T22:08:23.589Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -483,16 +498,15 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-07-31T22:08:23.589Z"
+      }
     },
     {
       "id": "abraxas-15d94a78c738",
       "slug": "apprendistato-come-fachfrau-fachmann-kundendialog-cfc-abraxas-informatik-ag-zurich-flughafen",
       "slugByLocale": {
-        "de": "lehrstelle-als-fachfrau-fachmann-kundendialog-efz-abraxas-zurich-flughafen",
         "it": "apprendistato-come-fachfrau-fachmann-kundendialog-cfc-abraxas-informatik-ag-zurich-flughafen",
         "en": "apprenticeship-as-a-specialist-expert-customer-dialogue-efz-abraxas-informatik-ag-zurich-flughafen",
+        "de": "lehrstelle-als-fachfrau-fachmann-kundendialog-efz-abraxas-zurich-flughafen",
         "fr": "apprentissage-en-tant-que-specialiste-expert-dialogue-client-efz-abraxas-informatik-ag-zurich-flughafen"
       },
       "company": "Abraxas Informatik AG",
@@ -500,16 +514,16 @@
       "companyDomain": "abraxas.ch",
       "title": "Lehrstelle als Fachfrau / Fachmann Kundendialog EFZ",
       "titleByLocale": {
-        "de": "Lehrstelle als Fachfrau / Fachmann Kundendialog EFZ",
         "it": "Apprendistato come Fachfrau / Fachmann Kundendialog CFC",
         "en": "Apprenticeship as a specialist / expert Customer Dialogue EFZ",
+        "de": "Lehrstelle als Fachfrau / Fachmann Kundendialog EFZ",
         "fr": "Apprentissage en tant que spécialiste / expert Dialogue client EFZ"
       },
       "description": "Du willst wissen, wie professionelle Kundenkommunikation funktioniert und wie du Menschen kompetent unterstützen kannst? Als Fachfrau / Fachmann Kundendialog bei Abraxas bist du die erste Anlaufstelle für unsere Kundinnen und Kunden und sorgst für einen reibungslosen Austausch. Entdecke in deiner Lehre bei uns, wie spannend die Verbindung von Kommunikation, Service und IT ist – und wie du dabei früh Verantwortung übernehmen kannst.\nDeine Rolle\nAls Fachfrau / Fachmann Kundendialog EFZ bist du Spezialist:in für professionelle Kundenkommunikation und Service . Du berätst und betreust unsere Kundinnen und Kunden zu verschiedenen Produkten und Dienstleistungen und bist ihre erste Anlaufstelle bei Anliegen aller Art. Du nimmst Aufträge, Anfragen und Beschwerden entgegen und sorgst für eine lösungsorientierte Bearbeitung.\nDabei arbeitest du in den Bereichen Beratung, Betreuung und Kommunikation und führst Gespräche über verschiedene Kanäle wie Telefon, E-Mail oder Chat. Du erkennst Kundenbedürfnisse, analysierst Anliegen und findest passende Lösungen. Zudem stellst du sicher, dass unsere Kundinnen und Kunden jederzeit kompetent, freundlich und effizient betreut werden.\nDein Profil\n• Abgeschlossene Sekundarschule mit guten Leistungen in Deutsch und Französisch\n• Kontaktfreudiges und freundliches Auftreten – auch am Telefon\n• Geduldige, aufgestellte und eigeninitiative Persönlichkeit, die gerne mit Kunden zusammenarbeiten möchte\n• Freude und Interesse an der IT\n• Sprachgewandtheit in Deutsch, Französisch B1-Niveau (fortgeschrittene:r Anfänger:in)\nBeachte bitte auch die schulischen Anforderungen, die für diese Lehre vorausgesetzt werden und lese dazu die Dokumente des BIZ .\nUnser Angebot\nBrauchst du zwischendurch Abstand vom Digitalen? Bei uns stehen dir jederzeit Stifte, Papier und beschreibbare Wände für kreative Ideen zur Verfügung. Zum Abschalten kannst du eine Runde um den Circle drehen oder in unserem Ruheraum entspannen. Freu dich ausserdem auf Benefits wie vergünstigtes Fitness-Training, die Möglichkeit zum Ferienkauf und einen jährlichen Ausflug für alle Lernenden.\nBei uns in der Lehre erwarten dich flexible Arbeitszeiten, 6 Wochen Ferien, finanzielle Unterstützung bei Schulmitteln und viele weitere Goodies. Während deiner Ausbildung wirst du von engagierten Praxisausbildner:innen begleitet und übernimmst bereits früh Verantwortung – denn unsere Lernenden sind ein wichtiger Teil des Teams.\nKlingt spannend? Dann bewerbe dich für die Lehrstelle als Fachperson Kundendialog EFZ mit Start im August 2027.\nSo bewirbst du dich:\nBewirb dich direkt über dieses Inserat. Nach der Prüfung deiner Unterlagen melden wir uns bei dir und teilen dir mit, ob und an welchem Datum wir dich zu einem Vorstellungsgespräch einladen können.\nDiese Unterlagen benötigen wir von dir:\n• Motivationsschreiben\n• Aktueller Lebenslauf mit Foto\n• Alle Oberstufenzeugnisse\n• Stellwerk / Multicheck (falls vorhanden)\nBitte beachte: Bewerbungen nehmen wir aus Sicherheitsgründen nur online über unsere Stellenausschreibungen entgegen.\nBei Fragen zum Bewerbungsprozess hilft dir unser Berufsbildner Bruno Bertelli gerne weiter.",
       "descriptionByLocale": {
-        "de": "Du willst wissen, wie professionelle Kundenkommunikation funktioniert und wie du Menschen kompetent unterstützen kannst? Als Fachfrau / Fachmann Kundendialog bei Abraxas bist du die erste Anlaufstelle für unsere Kundinnen und Kunden und sorgst für einen reibungslosen Austausch. Entdecke in deiner Lehre bei uns, wie spannend die Verbindung von Kommunikation, Service und IT ist – und wie du dabei früh Verantwortung übernehmen kannst.\nDeine Rolle\nAls Fachfrau / Fachmann Kundendialog EFZ bist du Spezialist:in für professionelle Kundenkommunikation und Service . Du berätst und betreust unsere Kundinnen und Kunden zu verschiedenen Produkten und Dienstleistungen und bist ihre erste Anlaufstelle bei Anliegen aller Art. Du nimmst Aufträge, Anfragen und Beschwerden entgegen und sorgst für eine lösungsorientierte Bearbeitung.\nDabei arbeitest du in den Bereichen Beratung, Betreuung und Kommunikation und führst Gespräche über verschiedene Kanäle wie Telefon, E-Mail oder Chat. Du erkennst Kundenbedürfnisse, analysierst Anliegen und findest passende Lösungen. Zudem stellst du sicher, dass unsere Kundinnen und Kunden jederzeit kompetent, freundlich und effizient betreut werden.\nDein Profil\n• Abgeschlossene Sekundarschule mit guten Leistungen in Deutsch und Französisch\n• Kontaktfreudiges und freundliches Auftreten – auch am Telefon\n• Geduldige, aufgestellte und eigeninitiative Persönlichkeit, die gerne mit Kunden zusammenarbeiten möchte\n• Freude und Interesse an der IT\n• Sprachgewandtheit in Deutsch, Französisch B1-Niveau (fortgeschrittene:r Anfänger:in)\nBeachte bitte auch die schulischen Anforderungen, die für diese Lehre vorausgesetzt werden und lese dazu die Dokumente des BIZ .\nUnser Angebot\nBrauchst du zwischendurch Abstand vom Digitalen? Bei uns stehen dir jederzeit Stifte, Papier und beschreibbare Wände für kreative Ideen zur Verfügung. Zum Abschalten kannst du eine Runde um den Circle drehen oder in unserem Ruheraum entspannen. Freu dich ausserdem auf Benefits wie vergünstigtes Fitness-Training, die Möglichkeit zum Ferienkauf und einen jährlichen Ausflug für alle Lernenden.\nBei uns in der Lehre erwarten dich flexible Arbeitszeiten, 6 Wochen Ferien, finanzielle Unterstützung bei Schulmitteln und viele weitere Goodies. Während deiner Ausbildung wirst du von engagierten Praxisausbildner:innen begleitet und übernimmst bereits früh Verantwortung – denn unsere Lernenden sind ein wichtiger Teil des Teams.\nKlingt spannend? Dann bewerbe dich für die Lehrstelle als Fachperson Kundendialog EFZ mit Start im August 2027.\nSo bewirbst du dich:\nBewirb dich direkt über dieses Inserat. Nach der Prüfung deiner Unterlagen melden wir uns bei dir und teilen dir mit, ob und an welchem Datum wir dich zu einem Vorstellungsgespräch einladen können.\nDiese Unterlagen benötigen wir von dir:\n• Motivationsschreiben\n• Aktueller Lebenslauf mit Foto\n• Alle Oberstufenzeugnisse\n• Stellwerk / Multicheck (falls vorhanden)\nBitte beachte: Bewerbungen nehmen wir aus Sicherheitsgründen nur online über unsere Stellenausschreibungen entgegen.\nBei Fragen zum Bewerbungsprozess hilft dir unser Berufsbildner Bruno Bertelli gerne weiter.",
         "it": "Vuoi sapere come funziona la comunicazione dei clienti professionale e come puoi supportare in modo competente le persone? In qualità di cliente specializzato di dialogo ad Abraxas, sei il primo punto di contatto per i nostri clienti e garantisci uno scambio regolare. Nel tuo insegnamento con noi, scopri quanto sia eccitante la connessione tra comunicazione, servizio e IT – e come puoi assumerti la responsabilità in anticipo.\nIl tuo ruolo\nIn qualità di specialista nel dialogo clienti EFZ, sei uno specialista nella comunicazione e nel servizio dei clienti professionali. Si consiglia e supporta i nostri clienti su vari prodotti e servizi e sono il loro primo punto di contatto per le preoccupazioni di tutti i tipi. Accetti ordini, richieste e reclami e garantisci un trattamento orientato alla soluzione.\nSi lavora nelle aree di consulenza, supporto e comunicazione e conversazioni attraverso vari canali come telefono, e-mail o chat. Riconosce le esigenze dei clienti, analizza le preoccupazioni e trova soluzioni adeguate. Inoltre, si assicura che i nostri clienti sono serviti in modo competente, amichevole ed efficiente in ogni momento.\nIl tuo profilo\n• Scuola secondaria completa con buone prestazioni in tedesco e francese\n• Aspetto amichevole e cordiale – anche al telefono\n• Personalità paziente, consolidata e proattiva che vorrebbe lavorare con i clienti\n• Gioia e interesse per l'IT\n• Competenze linguistiche in tedesco, francese livello B1 (avanzato:r principiante:in)\nSi prega inoltre di notare i requisiti scolastici richiesti per questo insegnamento e leggere i documenti del BIS.\nLa nostra offerta\nHai bisogno di una distanza dal digitale? Con noi, penne, carta e pareti descrivibili sono sempre disponibili per idee creative. Per spegnere, è possibile girare il cerchio o rilassarsi nella nostra stanza di riposo. Si può anche aspettare a benefici come l'allenamento di fitness scontato, l'opportunità di acquistare una vacanza e un'escursione annuale per tutti gli studenti.\nCon noi nell'insegnamento, ci si può aspettare orari di lavoro flessibili, 6 settimane vacanze, supporto finanziario per i fondi scolastici e molte altre buoneies. Durante il vostro apprendistato, sarete accompagnati da formatori dedicati e vi assumete presto la responsabilità – perché i nostri studenti sono una parte importante della squadra.\nSembra eccitante? Poi si applichi all'apprendistato come un dialogo cliente specializzato EFZ a partire dall'agosto 2027.\nEcco come si applica:\nApplicare direttamente attraverso questo elenco. Dopo aver esaminato i tuoi documenti, ti contatteremo e ti faremo sapere se e in quale data possiamo invitarti ad un colloquio.\nAbbiamo bisogno di questi documenti da voi:\n• Lettera di motivazione\n• CV corrente con foto\n• Tutti i certificati di livello superiore\n• Interlocking / Multicheck (se disponibile)\nNota: Per motivi di sicurezza, accettiamo solo le applicazioni online tramite le nostre postazioni di lavoro.\nSe avete domande sul processo di applicazione, il nostro trainer Bruno Bertelli sarà lieto di aiutarvi.",
         "en": "You want to know how professional customer communication works and how you can competently support people? As a specialist customer dialogue at Abraxas, you are the first point of contact for our customers and ensure a smooth exchange. In your teaching with us, discover how exciting the connection between communication, service and IT is – and how you can take on responsibility early on.\nYour role\nAs a specialist in customer dialogue EFZ, you are a specialist in professional customer communication and service. You advise and support our customers on various products and services and are their first point of contact for concerns of all kinds. You accept orders, inquiries and complaints and ensure a solution-oriented processing.\nYou work in the areas of advice, support and communication and have conversations via various channels such as telephone, e-mail or chat. You recognize customer needs, analyze concerns and find suitable solutions. In addition, you ensure that our customers are serviced competently, friendly and efficient at all times.\nYour profile\n• Completed secondary school with good performance in German and French\n• Contactful and friendly appearance – also on the phone\n• Patient, established and proactive personality who would like to work with customers\n• Joy and interest in IT\n• Language skills in German, French B1 level (advanced:r beginner:in)\nPlease also note the school requirements required for this teaching and read the documents of the BIS.\nOur offer\nDo you need a distance from the digital? With us, pens, paper and describable walls are always available for creative ideas. To switch off, you can turn around the circle or relax in our rest room. You can also look forward to benefits such as discounted fitness training, the opportunity to buy a holiday and an annual excursion for all learners.\nWith us in teaching, you can expect flexible working hours, 6 weeks holidays, financial support for school funds and many other goodies. During your apprenticeship, you will be accompanied by dedicated trainers and take on responsibility early on – because our learners are an important part of the team.\nSounds exciting? Then apply for the apprenticeship as a specialist customer dialogue EFZ starting in August 2027.\nThis is how you apply:\nApply directly through this listing. After reviewing your documents, we will contact you and let you know if and on what date we can invite you to an interview.\nWe need these documents from you:\n• Letter of motivation\n• Current CV with photo\n• All upper-level certificates\n• Interlocking / Multicheck (if available)\nPlease note: For security reasons, we only accept applications online via our job postings.\nIf you have any questions about the application process, our trainer Bruno Bertelli will be happy to help you.",
+        "de": "Du willst wissen, wie professionelle Kundenkommunikation funktioniert und wie du Menschen kompetent unterstützen kannst? Als Fachfrau / Fachmann Kundendialog bei Abraxas bist du die erste Anlaufstelle für unsere Kundinnen und Kunden und sorgst für einen reibungslosen Austausch. Entdecke in deiner Lehre bei uns, wie spannend die Verbindung von Kommunikation, Service und IT ist – und wie du dabei früh Verantwortung übernehmen kannst.\nDeine Rolle\nAls Fachfrau / Fachmann Kundendialog EFZ bist du Spezialist:in für professionelle Kundenkommunikation und Service . Du berätst und betreust unsere Kundinnen und Kunden zu verschiedenen Produkten und Dienstleistungen und bist ihre erste Anlaufstelle bei Anliegen aller Art. Du nimmst Aufträge, Anfragen und Beschwerden entgegen und sorgst für eine lösungsorientierte Bearbeitung.\nDabei arbeitest du in den Bereichen Beratung, Betreuung und Kommunikation und führst Gespräche über verschiedene Kanäle wie Telefon, E-Mail oder Chat. Du erkennst Kundenbedürfnisse, analysierst Anliegen und findest passende Lösungen. Zudem stellst du sicher, dass unsere Kundinnen und Kunden jederzeit kompetent, freundlich und effizient betreut werden.\nDein Profil\n• Abgeschlossene Sekundarschule mit guten Leistungen in Deutsch und Französisch\n• Kontaktfreudiges und freundliches Auftreten – auch am Telefon\n• Geduldige, aufgestellte und eigeninitiative Persönlichkeit, die gerne mit Kunden zusammenarbeiten möchte\n• Freude und Interesse an der IT\n• Sprachgewandtheit in Deutsch, Französisch B1-Niveau (fortgeschrittene:r Anfänger:in)\nBeachte bitte auch die schulischen Anforderungen, die für diese Lehre vorausgesetzt werden und lese dazu die Dokumente des BIZ .\nUnser Angebot\nBrauchst du zwischendurch Abstand vom Digitalen? Bei uns stehen dir jederzeit Stifte, Papier und beschreibbare Wände für kreative Ideen zur Verfügung. Zum Abschalten kannst du eine Runde um den Circle drehen oder in unserem Ruheraum entspannen. Freu dich ausserdem auf Benefits wie vergünstigtes Fitness-Training, die Möglichkeit zum Ferienkauf und einen jährlichen Ausflug für alle Lernenden.\nBei uns in der Lehre erwarten dich flexible Arbeitszeiten, 6 Wochen Ferien, finanzielle Unterstützung bei Schulmitteln und viele weitere Goodies. Während deiner Ausbildung wirst du von engagierten Praxisausbildner:innen begleitet und übernimmst bereits früh Verantwortung – denn unsere Lernenden sind ein wichtiger Teil des Teams.\nKlingt spannend? Dann bewerbe dich für die Lehrstelle als Fachperson Kundendialog EFZ mit Start im August 2027.\nSo bewirbst du dich:\nBewirb dich direkt über dieses Inserat. Nach der Prüfung deiner Unterlagen melden wir uns bei dir und teilen dir mit, ob und an welchem Datum wir dich zu einem Vorstellungsgespräch einladen können.\nDiese Unterlagen benötigen wir von dir:\n• Motivationsschreiben\n• Aktueller Lebenslauf mit Foto\n• Alle Oberstufenzeugnisse\n• Stellwerk / Multicheck (falls vorhanden)\nBitte beachte: Bewerbungen nehmen wir aus Sicherheitsgründen nur online über unsere Stellenausschreibungen entgegen.\nBei Fragen zum Bewerbungsprozess hilft dir unser Berufsbildner Bruno Bertelli gerne weiter.",
         "fr": "Vous voulez savoir comment la communication client professionnelle fonctionne et comment vous pouvez soutenir les gens avec compétence? En tant que spécialiste du dialogue client chez Abraxas, vous êtes le premier point de contact pour nos clients et assurer un échange en douceur. Dans votre enseignement avec nous, découvrez à quel point le lien entre la communication, le service et l'informatique est excitant – et comment vous pouvez prendre vos responsabilités tôt.\nVotre rôle\nEn tant que spécialiste du dialogue client EFZ, vous êtes un spécialiste de la communication et du service clients professionnels. Vous conseillez et soutenez nos clients sur différents produits et services et êtes leur premier point de contact pour des préoccupations de toutes sortes. Vous acceptez les commandes, les demandes de renseignements et les plaintes et vous assurez un traitement axé sur la solution.\nVous travaillez dans les domaines des conseils, du soutien et de la communication et avez des conversations par différents canaux tels que le téléphone, le courriel ou le chat. Vous reconnaissez les besoins des clients, analysez les préoccupations et trouvez des solutions appropriées. En outre, vous assurez que nos clients sont desservis de manière compétente, amicale et efficace en tout temps.\nVotre profil\n• Études secondaires terminées avec de bonnes performances en allemand et en français\n• Aspect contactable et amical – également au téléphone\n• Patient, personnalité établie et proactive qui souhaite travailler avec les clients\n• Joy et intérêt pour les TI\n• Compétences linguistiques en allemand, français Niveau B1\nVeuillez également noter les exigences scolaires requises pour cet enseignement et lire les documents de la BRI.\nNotre offre\nVous avez besoin d'une distance par rapport au numérique? Avec nous, des stylos, du papier et des murs déchiffrables sont toujours disponibles pour des idées créatives. Pour éteindre, vous pouvez tourner autour du cercle ou vous détendre dans notre salle de repos. Vous pouvez également compter sur des avantages tels que l'entraînement physique à prix réduit, la possibilité d'acheter des vacances et une excursion annuelle pour tous les apprenants.\nAvec nous dans l'enseignement, vous pouvez vous attendre à des horaires de travail flexibles, 6 semaines de vacances, un soutien financier pour les fonds scolaires et beaucoup d'autres goodies. Durant votre apprentissage, vous serez accompagné de formateurs dévoués et assumerez vos responsabilités dès le début, car nos apprenants sont une partie importante de l'équipe.\nÇa semble excitant ? Puis postuler à l'apprentissage comme un dialogue client spécialisé EFZ à partir d'août 2027.\nVoici comment vous appliquez :\nAppliquer directement sur cette liste. Après avoir examiné vos documents, nous vous contacterons et vous ferons savoir si et à quelle date nous pouvons vous inviter à une entrevue.\nNous avons besoin de ces documents de votre part :\n• Lettre de motivation\n• CV actuel avec photo\n• Tous les certificats de niveau supérieur\n• Interlockage / Multivérification (si disponible)\nRemarque : Pour des raisons de sécurité, nous n'acceptons les candidatures en ligne que via nos offres d'emploi.\nSi vous avez des questions sur le processus de candidature, notre formateur Bruno Bertelli sera heureux de vous aider."
       },
       "location": "Zürich-Flughafen",
@@ -517,7 +531,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/lehrstelle-als-fachfrau-fachmann-kundendialog-efz-6830",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-31T22:08:23.105Z",
+      "crawledAt": "2026-08-01T10:49:27.871Z",
+      "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -534,16 +549,19 @@
       "postedDate": "2026-07-31",
       "applyUrl": "https://apply.refline.ch/215876/2397/index.html?lang=de&cid=1",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "externalId": "215876-2397",
       "pensumMin": 100,
       "pensumMax": 100,
       "pensum": "100%",
+      "previousSlugs": [
+        "lehrstelle-als-fachfrau-fachmann-kundendialog-efz-abraxas-zurich-flughafen",
+        "apprendistato-come-fachfrau-fachmann-kundendialog-cfc-abraxas-informatik-ag-zurich-flughafen"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-fachfrau-fachmann-kundendialog-efz-abraxas-zurich-flughafen"
+          "lehrstelle-als-fachfrau-fachmann-kundendialog-efz-abraxas-zurich-flughafen",
+          "apprendistato-come-fachfrau-fachmann-kundendialog-cfc-abraxas-informatik-ag-zurich-flughafen"
         ],
         "en": [
           "lehrstelle-als-fachfrau-fachmann-kundendialog-efz-abraxas-zurich-flughafen"
@@ -552,9 +570,7 @@
           "lehrstelle-als-fachfrau-fachmann-kundendialog-efz-abraxas-zurich-flughafen"
         ]
       },
-      "previousSlugs": [
-        "lehrstelle-als-fachfrau-fachmann-kundendialog-efz-abraxas-zurich-flughafen"
-      ],
+      "firstSeenAt": "2026-07-31T22:08:23.105Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -566,8 +582,7 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-07-31T22:08:23.105Z"
+      }
     },
     {
       "id": "abraxas-f8a55d71589b",
@@ -584,7 +599,7 @@
       "title": "ICT-System Engineer Citrix 80–100 %",
       "titleByLocale": {
         "it": "ICT-System Ingegnere Citrix 80–100 %",
-        "en": "ICT System Engineer Citrix 80-100%",
+        "en": "ICT-System Engineer Citrix 80–100 %",
         "de": "ICT-System Ingenieur Citrix 80–100 %",
         "fr": "ICT-System Ingénieur Citrix 80–100 %"
       },
@@ -600,7 +615,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/ict-system-engineer-citrix-80-100-3914",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-31T22:08:22.620Z",
+      "crawledAt": "2026-08-01T10:49:27.378Z",
+      "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -622,6 +638,17 @@
       "pensumMin": 100,
       "pensumMax": 100,
       "pensum": "100%",
+      "previousSlugs": [
+        "ict-system-engineer-mit-projektleitungserfahrung-80-100-abraxas-zurich-flughafen"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "ict-system-engineer-mit-projektleitungserfahrung-80-100-abraxas-zurich-flughafen"
+        ],
+        "fr": [
+          "ict-system-engineer-mit-projektleitungserfahrung-80-100-abraxas-zurich-flughafen"
+        ]
+      },
       "firstSeenAt": "2026-07-23T22:07:23.364Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -634,18 +661,7 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "ict-system-engineer-mit-projektleitungserfahrung-80-100-abraxas-zurich-flughafen"
-        ],
-        "fr": [
-          "ict-system-engineer-mit-projektleitungserfahrung-80-100-abraxas-zurich-flughafen"
-        ]
-      },
-      "previousSlugs": [
-        "ict-system-engineer-mit-projektleitungserfahrung-80-100-abraxas-zurich-flughafen"
-      ]
+      }
     },
     {
       "id": "abraxas-a33cc5665148",
@@ -662,7 +678,7 @@
       "title": "ICT-System Engineer Betrieb 80–100 %",
       "titleByLocale": {
         "it": "ICT-System Ingegnere Betrieb 80–100 %",
-        "en": "ICT System Engineer Operation 80-100%",
+        "en": "ICT-System Engineer Betrieb 80–100 %",
         "de": "ICT-System Ingenieur Betrieb 80–100 %",
         "fr": "ICT-System Ingénieur Betrieb 80–100 %"
       },
@@ -678,7 +694,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/ict-system-engineer-betrieb-80-100-9116",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-31T22:08:22.133Z",
+      "crawledAt": "2026-08-01T10:49:26.890Z",
+      "needsRetranslation": true,
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -707,7 +724,8 @@
         "ict-system-ingenieur-80-100-abraxas-informatik-ag-bern",
         "system-ingegnere-devops-deutsch-80-100-abraxas-informatik-ag-bern",
         "system-engineer-devops-deutsch-80-100-abraxas-bern",
-        "system-ingenieur-devops-deutsch-80-100-abraxas-informatik-ag-bern"
+        "system-ingenieur-devops-deutsch-80-100-abraxas-informatik-ag-bern",
+        "ict-system-ingegnere-betrieb-80-100-abraxas-informatik-ag-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -717,7 +735,8 @@
           "ict-system-ingenieur-80-100-abraxas-informatik-ag-bern",
           "system-ingegnere-devops-deutsch-80-100-abraxas-informatik-ag-bern",
           "system-engineer-devops-deutsch-80-100-abraxas-bern",
-          "system-ingenieur-devops-deutsch-80-100-abraxas-informatik-ag-bern"
+          "system-ingenieur-devops-deutsch-80-100-abraxas-informatik-ag-bern",
+          "ict-system-ingegnere-betrieb-80-100-abraxas-informatik-ag-bern"
         ],
         "de": [
           "ict-system-engineer-80-100-abraxas-bern"
@@ -772,7 +791,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/ict-system-engineer-devops-80-100-6206",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-31T22:08:21.645Z",
+      "crawledAt": "2026-08-01T10:49:26.388Z",
+      "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -823,7 +843,7 @@
       "title": "ICT System Engineer – IAM (WAF/IDP) 80%–100 %",
       "titleByLocale": {
         "it": "ICT System Ingegnere – IAM (WAF/IDP) 80%–100 %",
-        "en": "ICT System Engineer – IAM (WAF/IDP) 80%-100%",
+        "en": "ICT System Engineer – IAM (WAF/IDP) 80%–100 %",
         "de": "ICT System Ingenieur – IAM (WAF/IDP) 80%–100 %",
         "fr": "ICT System Ingénieur – IAM (WAF/IDP) 80%–100 %"
       },
@@ -839,7 +859,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/ict-system-engineer-iam-wafidp-80-100-7949",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-31T22:08:21.161Z",
+      "crawledAt": "2026-08-01T10:49:25.884Z",
+      "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -906,7 +927,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/bereichscontrollerin-60-80-7514",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-31T22:08:20.671Z",
+      "crawledAt": "2026-08-01T10:49:25.390Z",
+      "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -930,12 +952,14 @@
       "pensum": "60 - 80%",
       "previousSlugs": [
         "bereichscontroller-in-60-80-abraxas-st-gallen",
-        "bereichscontroller-in-60-80-abraxas-informatik-ag-st-gallen"
+        "bereichscontroller-in-60-80-abraxas-informatik-ag-st-gallen",
+        "area-controller-in-60-80-abraxas-informatik-ag-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "bereichscontroller-in-60-80-abraxas-st-gallen",
-          "bereichscontroller-in-60-80-abraxas-informatik-ag-st-gallen"
+          "bereichscontroller-in-60-80-abraxas-informatik-ag-st-gallen",
+          "area-controller-in-60-80-abraxas-informatik-ag-st-gallen"
         ],
         "fr": [
           "bereichscontroller-in-60-80-abraxas-informatik-ag-st-gallen"
@@ -986,7 +1010,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/applikations-supporterin-epsipol-ordnungsbussen-deutsch-amp-franzoesisch-80-100-5077",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-31T22:08:20.186Z",
+      "crawledAt": "2026-08-01T10:49:24.899Z",
       "needsRetranslation": false,
       "addressLocality": "Münchenstein",
       "addressRegion": "BL",
@@ -1010,11 +1034,13 @@
       "pensumMax": 100,
       "pensum": "80 - 100%",
       "previousSlugs": [
-        "applikations-supporter-in-epsipol-ordnungsbussen-deutsch-franzosisch-80-100-abraxas"
+        "applikations-supporter-in-epsipol-ordnungsbussen-deutsch-franzosisch-80-100-abraxas",
+        "supporto-per-l-applicazione-in-epsipol-ordnungsbussen-tedesco-e-francese-80-100-abraxas-informatik-ag-munchenstein"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "applikations-supporter-in-epsipol-ordnungsbussen-deutsch-franzosisch-80-100-abraxas"
+          "applikations-supporter-in-epsipol-ordnungsbussen-deutsch-franzosisch-80-100-abraxas",
+          "supporto-per-l-applicazione-in-epsipol-ordnungsbussen-tedesco-e-francese-80-100-abraxas-informatik-ag-munchenstein"
         ],
         "en": [
           "applikations-supporter-in-epsipol-ordnungsbussen-deutsch-franzosisch-80-100-abraxas"
@@ -1068,7 +1094,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/ai-solution-consultant-public-sector-80-100-4637",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-31T22:08:19.691Z",
+      "crawledAt": "2026-08-01T10:49:24.391Z",
+      "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1135,7 +1162,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/abacus-teamleiterin-80-100-3906",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-31T22:08:19.203Z",
+      "crawledAt": "2026-08-01T10:49:23.896Z",
+      "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1158,11 +1186,13 @@
       "pensumMax": 100,
       "pensum": "80 - 100%",
       "previousSlugs": [
-        "abacus-teamleiter-in-80-100-abraxas-st-gallen"
+        "abacus-teamleiter-in-80-100-abraxas-st-gallen",
+        "abacus-team-leader-80-100-abraxas-informatik-ag-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "abacus-teamleiter-in-80-100-abraxas-st-gallen"
+          "abacus-teamleiter-in-80-100-abraxas-st-gallen",
+          "abacus-team-leader-80-100-abraxas-informatik-ag-st-gallen"
         ],
         "en": [
           "abacus-teamleiter-in-80-100-abraxas-st-gallen"
@@ -1216,7 +1246,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/abacus-beraterin-svm-amp-proj-80-100-3900",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-31T22:08:18.718Z",
+      "crawledAt": "2026-08-01T10:49:23.405Z",
+      "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1239,11 +1270,13 @@
       "pensumMax": 100,
       "pensum": "80 - 100%",
       "previousSlugs": [
-        "abacus-berater-in-svm-proj-80-100-abraxas-st-gallen"
+        "abacus-berater-in-svm-proj-80-100-abraxas-st-gallen",
+        "consulente-abacus-in-svm-proj-80-100-abraxas-informatik-ag-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "abacus-berater-in-svm-proj-80-100-abraxas-st-gallen"
+          "abacus-berater-in-svm-proj-80-100-abraxas-st-gallen",
+          "consulente-abacus-in-svm-proj-80-100-abraxas-informatik-ag-st-gallen"
         ],
         "en": [
           "abacus-berater-in-svm-proj-80-100-abraxas-st-gallen"
@@ -1297,7 +1330,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/abacus-beraterin-finanzen-80-100-5481",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-31T22:08:18.227Z",
+      "crawledAt": "2026-08-01T10:49:22.759Z",
+      "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1320,11 +1354,13 @@
       "pensumMax": 100,
       "pensum": "80 - 100%",
       "previousSlugs": [
-        "abacus-berater-in-finanzen-80-100-abraxas-st-gallen"
+        "abacus-berater-in-finanzen-80-100-abraxas-st-gallen",
+        "consulente-abacus-in-finanza-80-100-abraxas-informatik-ag-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "abacus-berater-in-finanzen-80-100-abraxas-st-gallen"
+          "abacus-berater-in-finanzen-80-100-abraxas-st-gallen",
+          "consulente-abacus-in-finanza-80-100-abraxas-informatik-ag-st-gallen"
         ],
         "en": [
           "abacus-berater-in-finanzen-80-100-abraxas-st-gallen"
@@ -1378,7 +1414,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/abacus-beraterin-bpe-rest-amp-abareport-80-100-2411",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-31T22:08:17.585Z",
+      "crawledAt": "2026-08-01T10:49:22.113Z",
+      "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1508,7 +1545,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "abraxas-a11f069b2f2f",
@@ -1616,7 +1653,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "abraxas-1c1cdbf2149a",
@@ -1684,7 +1721,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "abraxas-813a829ba752",
@@ -1773,7 +1810,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "abraxas-e426ca879742",
@@ -1790,7 +1827,7 @@
       "title": "Lead Software Engineer – Data Migration 80 - 100%",
       "titleByLocale": {
         "it": "Lead Software Ingegnere – Data Migration 80 - 100%",
-        "en": "Lead Software Engineer – Data Migration 80 – 100%",
+        "en": "Lead Software Engineer – Data Migration 80 - 100%",
         "de": "Lead Software Ingenieur – Data Migration 80 - 100%",
         "fr": "Lead Software Ingénieur – Data Migration 80 - 100%"
       },
@@ -1841,7 +1878,8 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2,
+      "needsRetranslation": true
     },
     {
       "id": "abraxas-e6dfdea75a72",
@@ -1934,85 +1972,6 @@
           "@type": "QuantitativeValue",
           "minValue": 57500,
           "maxValue": 87000,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 1
-    },
-    {
-      "id": "abraxas-bebb8c846cbc",
-      "slug": "aiops-trasformazione-piombo-80-100-abraxas-informatik-ag-st-gallen",
-      "slugByLocale": {
-        "it": "aiops-trasformazione-piombo-80-100-abraxas-informatik-ag-st-gallen",
-        "en": "aiops-transformation-lead-80-100-abraxas-st-gallen",
-        "de": "aiops-transformation-lead-80-100-abraxas-st-gallen",
-        "fr": "aiops-transformation-plomb-80-100-abraxas-informatik-ag-st-gallen"
-      },
-      "company": "Abraxas Informatik AG",
-      "companyKey": "abraxas",
-      "companyDomain": "abraxas.ch",
-      "title": "AIOps Transformation Lead 80-100%",
-      "titleByLocale": {
-        "it": "Responsabile Trasformazione AIOps 80-100%",
-        "en": "AIOps Transformation Lead 80-100 %",
-        "de": "AIOps Transformation Lead 80-100%",
-        "fr": "AIOps Transformation plomb 80- 100%"
-      },
-      "description": "Gestalte den IT-Betrieb der Zukunft – mit AIOps, KI und Umsetzungskraft\nModerne IT-Landschaften werden komplexer – klassische Monitoring-Ansätze reichen dafür nicht mehr aus. Als AIOps Transformation Lead verbindest du IT-Operations, Data Science, Automatisierung und Observability und machst unseren IT-Betrieb intelligenter, proaktiver und effizienter.\nDu verankerst Künstliche Intelligenz gezielt in unserer Leistungserbringung, erkennst Potenziale und setzt tragfähige Lösungen gemeinsam mit den Fachteams um – mit strategischem Blick und echter Macher-Mentalität.\nMit AIOps-Plattformen, Machine Learning und Big-Data-Analysen erkennst du Anomalien frühzeitig, reduzierst Alert Fatigue, verkürzt die MTTR und stärkst Verfügbarkeit, Resilienz und Effizienz unserer IT-Services.\nZudem treibst du KI-basierte Innovationen voran, die Betriebswissen, Change-Logs, Architekturinformationen und Troubleshooting-Anleitungen aus Tickets, Logs und Betriebsdaten nutzbar machen.\nDeine Rolle\n• AIOps & Observability aufbauen: Aufbau, Einführung und Weiterentwicklung des AIOps-Ansatzes im grössten Bereich des Unternehmens. Identifikation und Priorisierung von Automatisierungs- und AI-Potenzialen im IT-Betrieb. Du konzipierst und entwickelst Lösungen zur Erfassung, Normalisierung und Analyse operativer Daten wie Events, Metriken, Logs, Traces und ITSM-Tickets.\n• KI-gestützte Analysen ermöglichen: Du nutzt Machine Learning, prädiktive Analysen und Generative KI, um Anomalien, Muster und Ursachen schneller zu erkennen und Root-Cause-Analysen zu verbessern.\n• Incident-Prozesse automatisieren: Du unterstützt die automatische Erkennung, Kategorisierung, Priorisierung und Behebung von Incidents und entwickelst Self-Healing-Workflows für wiederkehrende Störungen.\n• AIOps nachhaltig wirksam machen: Du validierst Modelle im Betrieb, reduzierst Fehlalarme, verbesserst die Datenqualität und sorgst dafür, dass Betriebswissen intelligent nutzbar wird.\n• Schnittstellen & Governance gestalten: Du arbeitest eng mit IT-Operations, DevOps, Cloud-Architektur, Security, ITSM und Data Science zusammen und stellst sicher, dass Lösungen governance-, compliance- und datenschutzkonform umgesetzt werden.\n• Service Design & Adoption vorantreiben: Du integrierst neue AIOps-Fähigkeiten in bestehende ITIL-4- und ITSM-Prozesse, begleitest Service Desk- und Operations-Teams im Change und stärkst das Vertrauen in KI-gestützte Workflows.\nDein Profil\n• Fundament: Abgeschlossenes Studium in Informatik, Wirtschaftsinformatik oder eine vergleichbare Qualifikation sowie mehrjährige Erfahrung im modernen IT-Betrieb, etwa in ITOps, DevOps oder SRE.\n• Cloud-, Plattform- & Automatisierungs-Know-how: Praxiserfahrung mit Cloud-Architekturen, idealerweise in hybriden oder Multi-Cloud-Umgebungen, sowie mit Kubernetes, Docker, OpenShift oder Automatisierungsplattformen wie Ansible.\n• Observability & Tooling: Sehr gute Kenntnisse in Monitoring- und Observability-Plattformen wie CheckMk, Dynatrace, Splunk, Datadog, Prometheus oder ELK-Stack.\n• Data & AI Skills: Gutes Verständnis von Machine Learning, Zeitreihenanalyse, Muster- und Anomalie Erkennung sowie Erfahrung mit Skriptsprachen wie Python oder PowerShell.\n• ITSM & Frameworks: Sicherer Umgang mit IT-Service-Management-Plattformen wie ServiceNow sowie fundierte Praxiserfahrung in ITIL 4 Practices, insbesondere Incident, Problem, Change und Continual Improvement.\n• Betriebs- und Provider-Verständnis: Erfahrung bei einem IT-Dienstleister oder Managed Service Provider ist von Vorteil, insbesondere in komplexen Kunden- und Betriebsumgebungen.\n• Arbeitsweise & Wirkung: Du denkst analytisch, erkennst Zusammenhänge in komplexen Systemlandschaften schnell und kannst technische Inhalte stufengerecht zwischen IT-Betrieb, Data Science und Management übersetzen.\n• Transformation & Mindset: Du bringst Macher-Qualitäten, Moderations- und Überzeugungsfähigkeit mit und hast Freude daran, KI, LLMs und agentische Systeme praxisnah zu erproben und Betriebsprozesse spürbar weiterzuentwickeln.\n• Sprachen: Fliessende Deutsch- und sehr gute Englischkenntnisse in Wort und Schrift.\nDeine Benefits\n• Gestaltungsspielraum: Die aktive Mitgestaltung unserer KI-Initiative mit hoher strategischer Relevanz. Eine Rolle mit hoher Wirkung in einem innovationsgetriebenen Umfeld, in dem du den IT-Betrieb der Zukunft aktiv mitprägst.\n• Aktueller Tech-Stack: Arbeiten mit modernen Technologien in Multi-Cloud, Generative AI, Agentic AI, Big Data, Observability, Automatisierung und ITSM.\n• Weiterentwicklung: Unterstützung für Zertifizierungen, Fachkonferenzen und kontinuierliches Lernen im Cloud-, Data-Science- und AIOps-Umfeld.\n• Kultur: Ein engagiertes, agiles Team mit kurzen Wegen, offener Zusammenarbeit und Raum für neue Ideen.\n• Bis zu 60 % Home-Office bei einem 100 % Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nWerde Teil unseres #TeamAbraxas. Dich erwartet ein zukunftsorientiertes Arbeitsumfeld mit moderner Arbeitsplatzgestaltung, sehr guter Verkehrsanbindung, grosszügiger Homeoffice-Regelung und ausgezeichneten Weiterbildungsmöglichkeiten.\nWir pflegen eine offene Du-Kultur – sende uns deine Bewerbung deshalb gerne direkt in der Du-Form.",
-      "descriptionByLocale": {
-        "it": "Disegna l'IT del futuro – con AIOps, AI e capacità di attuazione\n\nDescrizione\nLe moderne infrastrutture IT diventano sempre più complesse – i metodi di monitoraggio tradizionali non sono più sufficienti. Come Responsabile della Trasformazione AIOps, unisci IT-Operations, Data Science, automazione e osservabilità, rendendo la nostra gestione IT più intelligente, proattiva ed efficiente.\nIncorpora l'intelligenza artificiale miratamente nei nostri servizi, riconosci potenzialità e implementa soluzioni sostenibili insieme ai team di settore – con una visione strategica e una mentalità da realizzatori.\nCon piattaforme AIOps, Machine Learning e analisi Big Data, individui anomalie precocemente, riduci il fatica da allarmi, abbrevii il MTTR e rafforzi disponibilità, resilienza ed efficienza dei nostri servizi IT.\nInoltre, promuovi innovazioni basate su AI che rendono utilizzabili conoscenza operativa, log di cambiamento, informazioni architetturali e guide alla risoluzione dei problemi da ticket, log e dati operativi.\n\nIl tuo ruolo\n- Costruire AIOps & Observability: sviluppo, introduzione e miglioramento dell'approccio AIOps nel settore più grande dell'azienda. Identificazione e priorizzazione di potenzialità di automazione e AI nel settore IT.\n- Progettare e sviluppare soluzioni per la raccolta, normalizzazione e analisi di dati operativi come eventi, metriche, log, tracce e ticket ITSM.\n- Abilitare analisi assistite da AI: utilizzare Machine Learning, analisi predittive e AI generativa per riconoscere anomalie, pattern e cause più rapidamente e migliorare le analisi delle cause radice.\n- Automatizzare i processi di incident management: supportare il riconoscimento automatico, la categorizzazione, la priorizzazione e la risoluzione degli incidenti, sviluppando workflow di auto-riparazione per problemi ricorrenti.\n- Rendere efficace in modo sostenibile l'AIOps: validare modelli in produzione, ridurre falsi allarmi, migliorare la qualità dei dati e garantire un uso intelligente della conoscenza operativa.\n- Gestire interfacce e governance: collaborare strettamente con IT-Operations, DevOps, architettura cloud, sicurezza, ITSM e Data Science, assicurando che le soluzioni siano conformi a governance, compliance e privacy.\n- Promuovere il design e l'adozione dei servizi: integrare nuove capacità AIOps nei processi ITIL-4 e ITSM esistenti, supportare i team Service Desk e Operations nel cambiamento e rafforzare la fiducia nei workflow basati su AI.\n\nIl tuo profilo\n- Fondamenta: laurea in informatica, informatica gestionale o qualifiche equivalenti, con esperienza pluriennale in gestione IT moderna, come ITOps, DevOps o SRE.\n- Conoscenze di cloud, piattaforme e automazione: esperienza pratica con architetture cloud, preferibilmente in ambienti ibridi o multi-cloud, e con Kubernetes, Docker, OpenShift o piattaforme di automazione come Ansible.\n- Osservabilità e strumenti: ottima conoscenza di piattaforme di monitoraggio e osservabilità come CheckMk, Dynatrace, Splunk, Datadog, Prometheus o ELK-Stack.\n- Competenze di Data & AI: buona comprensione di Machine Learning, analisi di serie temporali, riconoscimento di pattern e anomalie, e esperienza con linguaggi di scripting come Python o PowerShell.\n- ITSM e framework: familiarità con piattaforme di gestione servizi IT come ServiceNow e solida esperienza pratica in ITIL 4, in particolare incident, problem, change e miglioramento continuo.\n- Conoscenza operativa e di provider: esperienza in un fornitore di servizi IT o Managed Service Provider è un vantaggio, specialmente in ambienti complessi di clienti e operativi.\n- Metodo di lavoro e impatto: pensiero analitico, capacità di riconoscere rapidamente relazioni in sistemi complessi e di tradurre contenuti tecnici tra IT-Operations, Data Science e management.\n- Trasformazione e mentalità: qualità da realizzatore, capacità di moderazione e convincimento, e piacere nel sperimentare AI, LLM e sistemi agentici in modo pratico, contribuendo allo sviluppo dei processi operativi.\n- Lingue: fluente in tedesco e molto buona conoscenza dell'inglese scritto e parlato.\n\nI tuoi benefici\n- Spazio alla progettazione: partecipazione attiva alla nostra iniziativa AI con alta rilevanza strategica. Un ruolo di grande impatto in un ambiente innovativo, dove plasmi attivamente l'IT del futuro.\n- Stack tecnologico aggiornato: lavoro con tecnologie moderne in multi-cloud, AI generativa, AI agentica, Big Data, osservabilità, automazione e ITSM.\n- Sviluppo professionale: supporto per certificazioni, conferenze di settore e apprendimento continuo in ambito cloud, Data Science e AIOps.\n- Cultura: team dinamico, agile, con comunicazione diretta e spazio per nuove idee.\n- Fino al 60% di smart working con un impegno full-time.\n- Acquisto ferie (2 settimane all'anno).\n- Settimana lavorativa di 41 ore con orari flessibili.\n- Minimo 25 giorni di ferie all'anno.\n- Supporto per formazione e aggiornamento finanziato al 100%.\n- Abbonamento SBB-Halbtax gratuito per tutti i dipendenti.\n\nContatto\nDiventa parte del nostro #TeamAbraxas. Ti aspetta un ambiente di lavoro orientato al futuro, con spazi di lavoro moderni, ottimi collegamenti di trasporto, regole di smart working generose e eccellenti opportunità di formazione.\nPromuoviamo una cultura aperta e informale – inviaci la tua candidatura in modo diretto e colloquiale.",
-        "en": "Design the IT operation of the future – with AIOps, AI and implementation power\n\nDescription Modern IT landscapes become more complex – classical monitoring approaches are no longer enough. As AIOp's Transformation Lead, you connect IT operations, data science, automation and visibility and make our IT operations smarter, more proactive and more efficient. You anchor artificial intelligence specifically in our service delivery, recognize potential and implement sustainable solutions together with the specialist teams – with a strategic view and a true creator mentality.\n\nAIOps platforms, machine learning and big data analytics help you identify anomalies early, reduce alert fat, shorten MTTR and increase availability, resilience and efficiency of our IT-Services. You also drive AI-based innovations that make operational knowledge, change logs, architecture information and troubleshooting instructions from tickets, logs and operating data usable.\n\nBuilding your role – AIOps & Observability: Building, implementing and developing the AIOps approach in the largest area of the company. Identifying and prioritizing automation and AI potentials in IT operations. You design and develop solutions for the collection, normalization and analysis of operational data such as events, metrics, logs, tracks and ITSM tickets. - Allow AI-based analytics: You use machine learning, predictive analyses and generic AI to detect anomalies, patterns and causes faster and improve root-to-line analysis.\n\n- Automate incident processes: You support automatic detection, categorization, prioritization and correction of incident and develop self-healing workflows for recurring faults. - Making AIOps sustainable: You revitalize models in operation, reduce false alarms, improve data quality and make operational knowledge usable in a smart way.\n\n- Design interfaces & governance: You work closely with IT operations, DevOps, cloud architecture, security, ITSM and data science and ensure that solutions are implemented in compliance with Ents, ints and data protection. - Promote Service Design &42: You integrate new AIOps capabilities into existing ITIL-4 and ITSM processes, support Service Desk and Operations teams in the change and strengthen confidence in AI-supported workflows.\n\nYour profile - Foundation: Completed studies in computer science, business IT or comparable qualifications, as well as several years of experience in modern IT operations, such as ITOps, DevOps or SRE. - Cloud, platform & automation know-how: Practical experience with cloud architectures, ideally in hybrid or multi-cloud environments, as well as with kubernetes, Docker, OpenShift or automation platforms such as Ansible. -obbility & Tooling: Very good knowledge in monitoring and obrability platforms such as CheckMk, Dynatrace, Splunk, Datadog, Prometheus or ELK stack.\n\n- Data & AI Skills: Good understanding of machine learning, time series analysis, sample and anomaly detection, and experience with scripting languages such as Python or PowerShell. - ITSM & Frameworks: Safe handling of IT service management platforms such as Service 07 and in-depth practical experience in ITIL 4 Practices, especially Incident, Problem, Change and Continuous 107. - Business and provider understanding: Experience with an IT service provider or a service provider is beneficial, especially in complex customer and operating environments.\n\n- Work mode & effect: You think analytically, quickly recognize connections in complex system landscapes and can translate technical content step by step between IT operations, data science and management. - Transformation & Mindset: You bring together the skills of creators, moderation and persuasion and enjoy testing AI, LLMs and agentic systems in a practical manner and significantly develop operational processes. - Languages: Flowing German and very good English knowledge in word and writing.\n\nYours, the scope for design: the active co-design of our AI initiative with high strategic relevance. A role with a high impact in an environment driven by the company, in which you actively influence the IT operation of the future. - Current Tech Stack: Working with modern technologies in multi-cloud, generic AI, Agentic AI, Big Data, obrability, automation and ITSM. - Further development: Support for certifications, specialist conferences and continuous learning in the cloud, data science and AIOps environment.\n\n- Culture: A dedicated, short-distance team of adresses, open cooperation and space for new ideas. - Up to 60% home office with a 100% workload possible - holiday purchase (2 weeks per year) - 41h week with flexible working hours at a full-time fund - Minimum 25 days of holidays per year - Promotion of training at 100% financial or time - Free SBB half-tax subscription for all employees\n\nContact Become part of our #TeamAbra Scae. A future-oriented working environment with modern workplace design, excellent transport connections, generous HomeOffice regulations and excellent training opportunities awaits you. We maintain an open du culture – so send us your application directly in the du-form.",
-        "de": "Gestalte den IT-Betrieb der Zukunft – mit AIOps, KI und Umsetzungskraft\nModerne IT-Landschaften werden komplexer – klassische Monitoring-Ansätze reichen dafür nicht mehr aus. Als AIOps Transformation Lead verbindest du IT-Operations, Data Science, Automatisierung und Observability und machst unseren IT-Betrieb intelligenter, proaktiver und effizienter.\nDu verankerst Künstliche Intelligenz gezielt in unserer Leistungserbringung, erkennst Potenziale und setzt tragfähige Lösungen gemeinsam mit den Fachteams um – mit strategischem Blick und echter Macher-Mentalität.\nMit AIOps-Plattformen, Machine Learning und Big-Data-Analysen erkennst du Anomalien frühzeitig, reduzierst Alert Fatigue, verkürzt die MTTR und stärkst Verfügbarkeit, Resilienz und Effizienz unserer IT-Services.\nZudem treibst du KI-basierte Innovationen voran, die Betriebswissen, Change-Logs, Architekturinformationen und Troubleshooting-Anleitungen aus Tickets, Logs und Betriebsdaten nutzbar machen.\nDeine Rolle\n• AIOps & Observability aufbauen: Aufbau, Einführung und Weiterentwicklung des AIOps-Ansatzes im grössten Bereich des Unternehmens. Identifikation und Priorisierung von Automatisierungs- und AI-Potenzialen im IT-Betrieb. Du konzipierst und entwickelst Lösungen zur Erfassung, Normalisierung und Analyse operativer Daten wie Events, Metriken, Logs, Traces und ITSM-Tickets.\n• KI-gestützte Analysen ermöglichen: Du nutzt Machine Learning, prädiktive Analysen und Generative KI, um Anomalien, Muster und Ursachen schneller zu erkennen und Root-Cause-Analysen zu verbessern.\n• Incident-Prozesse automatisieren: Du unterstützt die automatische Erkennung, Kategorisierung, Priorisierung und Behebung von Incidents und entwickelst Self-Healing-Workflows für wiederkehrende Störungen.\n• AIOps nachhaltig wirksam machen: Du validierst Modelle im Betrieb, reduzierst Fehlalarme, verbesserst die Datenqualität und sorgst dafür, dass Betriebswissen intelligent nutzbar wird.\n• Schnittstellen & Governance gestalten: Du arbeitest eng mit IT-Operations, DevOps, Cloud-Architektur, Security, ITSM und Data Science zusammen und stellst sicher, dass Lösungen governance-, compliance- und datenschutzkonform umgesetzt werden.\n• Service Design & Adoption vorantreiben: Du integrierst neue AIOps-Fähigkeiten in bestehende ITIL-4- und ITSM-Prozesse, begleitest Service Desk- und Operations-Teams im Change und stärkst das Vertrauen in KI-gestützte Workflows.\nDein Profil\n• Fundament: Abgeschlossenes Studium in Informatik, Wirtschaftsinformatik oder eine vergleichbare Qualifikation sowie mehrjährige Erfahrung im modernen IT-Betrieb, etwa in ITOps, DevOps oder SRE.\n• Cloud-, Plattform- & Automatisierungs-Know-how: Praxiserfahrung mit Cloud-Architekturen, idealerweise in hybriden oder Multi-Cloud-Umgebungen, sowie mit Kubernetes, Docker, OpenShift oder Automatisierungsplattformen wie Ansible.\n• Observability & Tooling: Sehr gute Kenntnisse in Monitoring- und Observability-Plattformen wie CheckMk, Dynatrace, Splunk, Datadog, Prometheus oder ELK-Stack.\n• Data & AI Skills: Gutes Verständnis von Machine Learning, Zeitreihenanalyse, Muster- und Anomalie Erkennung sowie Erfahrung mit Skriptsprachen wie Python oder PowerShell.\n• ITSM & Frameworks: Sicherer Umgang mit IT-Service-Management-Plattformen wie ServiceNow sowie fundierte Praxiserfahrung in ITIL 4 Practices, insbesondere Incident, Problem, Change und Continual Improvement.\n• Betriebs- und Provider-Verständnis: Erfahrung bei einem IT-Dienstleister oder Managed Service Provider ist von Vorteil, insbesondere in komplexen Kunden- und Betriebsumgebungen.\n• Arbeitsweise & Wirkung: Du denkst analytisch, erkennst Zusammenhänge in komplexen Systemlandschaften schnell und kannst technische Inhalte stufengerecht zwischen IT-Betrieb, Data Science und Management übersetzen.\n• Transformation & Mindset: Du bringst Macher-Qualitäten, Moderations- und Überzeugungsfähigkeit mit und hast Freude daran, KI, LLMs und agentische Systeme praxisnah zu erproben und Betriebsprozesse spürbar weiterzuentwickeln.\n• Sprachen: Fliessende Deutsch- und sehr gute Englischkenntnisse in Wort und Schrift.\nDeine Benefits\n• Gestaltungsspielraum: Die aktive Mitgestaltung unserer KI-Initiative mit hoher strategischer Relevanz. Eine Rolle mit hoher Wirkung in einem innovationsgetriebenen Umfeld, in dem du den IT-Betrieb der Zukunft aktiv mitprägst.\n• Aktueller Tech-Stack: Arbeiten mit modernen Technologien in Multi-Cloud, Generative AI, Agentic AI, Big Data, Observability, Automatisierung und ITSM.\n• Weiterentwicklung: Unterstützung für Zertifizierungen, Fachkonferenzen und kontinuierliches Lernen im Cloud-, Data-Science- und AIOps-Umfeld.\n• Kultur: Ein engagiertes, agiles Team mit kurzen Wegen, offener Zusammenarbeit und Raum für neue Ideen.\n• Bis zu 60 % Home-Office bei einem 100 % Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nWerde Teil unseres #TeamAbraxas. Dich erwartet ein zukunftsorientiertes Arbeitsumfeld mit moderner Arbeitsplatzgestaltung, sehr guter Verkehrsanbindung, grosszügiger Homeoffice-Regelung und ausgezeichneten Weiterbildungsmöglichkeiten.\nWir pflegen eine offene Du-Kultur – sende uns deine Bewerbung deshalb gerne direkt in der Du-Form.",
-        "fr": "Concevoir le fonctionnement informatique du futur – avec les AIOps, l'IA et la puissance de mise en œuvre\n\nDescription Les paysages informatiques modernes deviennent plus complexes – les approches de surveillance classiques ne suffisent plus. En tant que responsable de la transformation d'AIOp, vous connectez les opérations informatiques, la science des données, l'automatisation et la visibilité et rendez nos opérations informatiques plus intelligentes, plus proactives et plus efficaces.\n\nLes plateformes AIOps, l'apprentissage automatique et l'analyse des mégadonnées vous aident à identifier les anomalies tôt, à réduire les graisses d'alerte, à raccourcir la MTTR et à augmenter la disponibilité, la résilience et l'efficacité de nos services informatiques.\n\nDévelopper votre rôle – AIOps & Observability: Construire, mettre en œuvre et développer l'approche AIOps dans le plus grand domaine de l'entreprise. Identifier et prioriser les potentiels d'automatisation et d'IA dans les opérations informatiques. Vous concevez et développez des solutions pour la collecte, la normalisation et l'analyse de données opérationnelles telles que les événements, les métriques, les journaux, les pistes et les billets ITSM. - Permettre l'analyse basée sur l'IA: Vous utilisez l'apprentissage automatique, les analyses prédictives et l'IA générique pour détecter les anomalies, les motifs et les causes plus rapidement et améliorer l'analyse root-to-line.\n\n- Automatiser les processus d'incidents : Vous supportez la détection automatique, la catégorisation, la priorisation et la correction des incidents et développez des flux de travail autoguérisants pour les défauts récurrents. - Rendre AIOps durable : Vous revitalisez les modèles en fonctionnement, réduisez les fausses alarmes, améliorez la qualité des données et rendez les connaissances opérationnelles utilisables de manière intelligente.\n\n- Interfaces de conception et gouvernance : Vous travaillez en étroite collaboration avec les opérations informatiques, DevOps, architecture cloud, sécurité, ITSM et science des données et vous assurez que les solutions sont mises en œuvre conformément aux Ents, aux ITS et à la protection des données. - Promotion de la conception de service &42 : Vous intégrez de nouvelles capacités AIOps dans les processus ITIL-4 et ITSM existants, supportez les équipes Service Desk et Operations dans le changement et renforcez la confiance dans les workflows soutenus par l'IA.\n\nVotre profil - Fondation : Études terminées en informatique, informatique d'entreprise ou qualifications comparables, ainsi que plusieurs années d'expérience dans les opérations informatiques modernes, telles que ITOps, DevOps ou SRE. - Savoir-faire Cloud, plate-forme & automatisation : Expérience pratique avec les architectures cloud, idéalement dans des environnements hybrides ou multiclouds, ainsi que avec les kubernetes, les dockers, OpenShift ou les plateformes d'automatisation telles qu'Ansible. -obbilité & Tooling : Très bonne connaissance en monitoring et obrabilité telles que CheckMk, Dynatrace, Splunk, Datadog, Prometheus ou ELK empil.\n\n- Compétences en données et en intelligence artificielle : bonne compréhension de l'apprentissage automatique, analyse des séries chronologiques, détection d'échantillons et d'anomalies, et expérience avec des langages de scripts tels que Python ou PowerShell. - ITSM & Frameworks : gestion sécuritaire des plateformes de gestion de services informatiques telles que Service 07 et expérience pratique approfondie dans ITIL 4 Pratiques, en particulier Incident, Problème, Changement et Continu 107. - Compréhension des entreprises et des fournisseurs : l'expérience avec un fournisseur de services informatiques ou un fournisseur de services est bénéfique, en particulier dans des environnements complexes de clients et d'exploitation.\n\n- Mode de travail & effet : Vous pensez analytiquement, reconnaître rapidement les connexions dans des paysages complexes de systèmes et peut traduire le contenu technique étape par étape entre les opérations informatiques, la science des données et la gestion. - Transformation & Mindset : Vous rassemblez les compétences des créateurs, la modération et la persuasion et appréciez tester l'IA, les LLM et les systèmes agentsiques de manière pratique et développer de façon significative les processus opérationnels. - Langues : Flux allemand et très bonne connaissance de l'anglais en paroles et en écriture.\n\nVotre, la portée de la conception : la co-conception active de notre initiative AI avec une haute pertinence stratégique. Un rôle avec un impact élevé dans un environnement animé par l'entreprise, dans lequel vous influencez activement le fonctionnement informatique de l'avenir. - Support technique actuel : Travailler avec les technologies modernes en multi-cloud, générique AI, Agentic AI, Big Data, obrabilité, automatisation et ITSM. - Développement ultérieur : Support pour les certifications, conférences spécialisées et apprentissage continu dans l'environnement cloud, data science et AIOps.\n\n- Culture : Une équipe dédiée et de courte distance, de coopération ouverte et d'espace pour de nouvelles idées. - Jusqu'à 60% de bureau à domicile avec une charge de travail de 100% possible - achat de vacances (2 semaines par an) - 41h semaine avec des heures de travail flexibles dans un fonds à temps plein - minimum 25 jours de vacances par an - Promotion de la formation à 100% financière ou temporelle - Abonnement gratuit aux CFF demi-taxe pour tous les salariés\n\nContact Devenez membre de notre équipeAbra Scae. Un environnement de travail orienté vers l'avenir avec un design moderne du lieu de travail, d'excellents transports, de généreux règlements HomeOffice et d'excellentes opportunités de formation vous attendent."
-      },
-      "location": "St. Gallen",
-      "canton": "SG",
-      "url": "https://www.abraxas.ch/de/karriere/offene-stellen/aiops-transformation-lead-80-100-7995",
-      "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-30T22:19:54.122Z",
-      "addressLocality": "St. Gallen",
-      "addressRegion": "SG",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "9001",
-      "streetAddress": "St. Leonhard-Strasse 80",
-      "category": "IT / Sicurezza",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "IT / Informatica per la pubblica amministrazione",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-04",
-      "applyUrl": "https://apply.refline.ch/215876/2476/index.html?lang=de&cid=1",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "externalId": "215876-2476",
-      "pensumMin": 80,
-      "pensumMax": 100,
-      "pensum": "80 - 100%",
-      "previousSlugs": [
-        "aiops-transformation-lead-80-100-abraxas-st-gallen"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "aiops-transformation-lead-80-100-abraxas-st-gallen"
-        ],
-        "fr": [
-          "aiops-transformation-lead-80-100-abraxas-st-gallen"
-        ]
-      },
-      "firstSeenAt": "2026-07-04T09:59:57.135Z",
-      "salaryMin": 79000,
-      "salaryMax": 120000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 79000,
-          "maxValue": 120000,
           "unitText": "YEAR"
         }
       },
