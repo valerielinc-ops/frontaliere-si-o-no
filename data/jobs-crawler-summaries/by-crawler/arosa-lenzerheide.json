@@ -1,16 +1,16 @@
 {
   "key": "arosa-lenzerheide",
   "label": "Arosa Lenzerheide",
-  "generatedAt": "2026-07-31T22:14:01.407Z",
-  "total": 9,
+  "generatedAt": "2026-08-01T11:21:40.293Z",
+  "total": 7,
   "newCount": 0,
   "updatedCount": 7,
-  "removedCount": 0,
-  "unchangedCount": 2,
-  "durationMs": 10250,
-  "avgDurationMs": 10250,
+  "removedCount": 2,
+  "unchangedCount": 0,
+  "durationMs": 10426,
+  "avgDurationMs": 10426,
   "durationHistory": [
-    10250
+    10426
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -27,7 +27,7 @@
       "url": "https://app.reflinejobs.io/3316/0042/pub/27/index.html",
       "source": "Arosa Lenzerheide Dedicated Parser (Refline 3316)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-31T22:13:58.703Z",
+      "crawledAt": "2026-08-01T11:21:37.556Z",
       "addressLocality": "Lenzerheide",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -65,7 +65,7 @@
       "url": "https://app.reflinejobs.io/3316/0039/pub/25/index.html",
       "source": "Arosa Lenzerheide Dedicated Parser (Refline 3316)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-31T22:13:58.031Z",
+      "crawledAt": "2026-08-01T11:21:36.746Z",
       "addressLocality": "Lenzerheide",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -103,7 +103,7 @@
       "url": "https://app.reflinejobs.io/3316/0036/pub/23/index.html",
       "source": "Arosa Lenzerheide Dedicated Parser (Refline 3316)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-31T22:13:57.461Z",
+      "crawledAt": "2026-08-01T11:21:36.076Z",
       "addressLocality": "Lenzerheide",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -141,7 +141,7 @@
       "url": "https://app.reflinejobs.io/3316/0033/pub/21/index.html",
       "source": "Arosa Lenzerheide Dedicated Parser (Refline 3316)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-31T22:13:56.823Z",
+      "crawledAt": "2026-08-01T11:21:35.172Z",
       "addressLocality": "Lenzerheide",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -179,7 +179,7 @@
       "url": "https://app.reflinejobs.io/3316/0030/pub/19/index.html",
       "source": "Arosa Lenzerheide Dedicated Parser (Refline 3316)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-31T22:13:56.200Z",
+      "crawledAt": "2026-08-01T11:21:34.378Z",
       "addressLocality": "Lenzerheide",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -217,7 +217,7 @@
       "url": "https://app.reflinejobs.io/3316/0012/pub/9/index.html",
       "source": "Arosa Lenzerheide Dedicated Parser (Refline 3316)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-31T22:13:54.797Z",
+      "crawledAt": "2026-08-01T11:21:32.752Z",
       "addressLocality": "Lenzerheide",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -255,7 +255,7 @@
       "url": "https://app.reflinejobs.io/3316/0021/pub/16/index.html",
       "source": "Arosa Lenzerheide Dedicated Parser (Refline 3316)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-31T22:13:55.455Z",
+      "crawledAt": "2026-08-01T11:21:33.660Z",
       "addressLocality": "Lenzerheide",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -281,8 +281,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "arosa-lenzerheide-f2008c0cb826",
       "slug": "autista-in-arosa-lenzerheide-lenzerheide",
@@ -363,5 +362,6 @@
         "completeness": 22
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
