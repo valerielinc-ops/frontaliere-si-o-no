@@ -1,6 +1,6 @@
 {
   "crawlerKey": "spital-maennedorf",
-  "assembledAt": "2026-08-01T10:47:29.971Z",
+  "assembledAt": "2026-08-01T21:58:31.546Z",
   "jobs": [
     {
       "id": "spital-maennedorf-e3b8e098b8c9",
@@ -33,7 +33,8 @@
       "url": "https://recruitingapp-2736.umantis.com/Vacancies/453/Description/1",
       "source": "Spital Männedorf Dedicated Parser (Umantis tenant 2736)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-01T10:47:27.446Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-08-01T21:58:28.265Z",
       "addressLocality": "Männedorf",
       "postalCode": "8708",
       "addressCountry": "CH",
@@ -56,14 +57,18 @@
       "department": "Bettenstationen",
       "previousSlugsByLocale": {
         "de": [
-          "studium-hf-pflege-m-w-d-spital-maennedorf-ch"
+          "studium-hf-pflege-m-w-d-spital-maennedorf-ch",
+          "studium-hf-pflege-m-w-d-spital-mannedorf-mannedorf"
         ],
         "it": [
-          "studium-hf-pflege-m-w-d-spital-maennedorf-ch"
+          "studium-hf-pflege-m-w-d-spital-maennedorf-ch",
+          "studio-infermieristico-sss-m-f-d-spital-mannedorf-mannedorf"
         ]
       },
       "previousSlugs": [
-        "studium-hf-pflege-m-w-d-spital-maennedorf-ch"
+        "studium-hf-pflege-m-w-d-spital-maennedorf-ch",
+        "studium-hf-pflege-m-w-d-spital-mannedorf-mannedorf",
+        "studio-infermieristico-sss-m-f-d-spital-mannedorf-mannedorf"
       ],
       "firstSeenAt": "2026-05-26T14:56:01.406Z",
       "salaryMin": 73500,
@@ -111,7 +116,8 @@
       "url": "https://recruitingapp-2736.umantis.com/Vacancies/1065/Description/1",
       "source": "Spital Männedorf Dedicated Parser (Umantis tenant 2736)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-01T10:47:26.649Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-08-01T21:58:27.489Z",
       "addressLocality": "Männedorf",
       "postalCode": "8708",
       "addressCountry": "CH",
@@ -136,15 +142,19 @@
       "previousSlugsByLocale": {
         "de": [
           "medizinische-gerate-m-w-d-spital-mannedorf-mannedorf",
-          "studium-radiologie-mtra-hf-m-w-d-spital-maennedorf-ch"
+          "studium-radiologie-mtra-hf-m-w-d-spital-maennedorf-ch",
+          "studium-radiologie-mtra-hf-m-w-d-spital-mannedorf"
         ],
         "it": [
-          "studium-radiologie-mtra-hf-m-w-d-spital-maennedorf-ch"
+          "studium-radiologie-mtra-hf-m-w-d-spital-maennedorf-ch",
+          "studio-radiologia-mtra-hf-m-f-d-spital-mannedorf-mannedorf"
         ]
       },
       "previousSlugs": [
         "studium-radiologie-mtra-hf-m-w-d-spital-maennedorf-ch",
-        "medizinische-gerate-m-w-d-spital-mannedorf-mannedorf"
+        "medizinische-gerate-m-w-d-spital-mannedorf-mannedorf",
+        "studium-radiologie-mtra-hf-m-w-d-spital-mannedorf",
+        "studio-radiologia-mtra-hf-m-f-d-spital-mannedorf-mannedorf"
       ],
       "firstSeenAt": "2026-05-26T14:56:00.408Z",
       "salaryMin": 73500,
@@ -192,7 +202,8 @@
       "url": "https://recruitingapp-2736.umantis.com/Vacancies/1794/Description/1",
       "source": "Spital Männedorf Dedicated Parser (Umantis tenant 2736)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-01T10:47:25.867Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-08-01T21:58:26.691Z",
       "addressLocality": "Männedorf",
       "postalCode": "8708",
       "addressCountry": "CH",
@@ -229,14 +240,18 @@
       },
       "previousSlugsByLocale": {
         "de": [
-          "studium-fh-pflege-zusatzmodul-c-w-m-d-spital-maennedorf-ch"
+          "studium-fh-pflege-zusatzmodul-c-w-m-d-spital-maennedorf-ch",
+          "studium-fh-pflege-zusatzmodul-c-w-m-d-spital-mannedorf-mannedorf"
         ],
         "it": [
-          "studium-fh-pflege-zusatzmodul-c-w-m-d-spital-maennedorf-ch"
+          "studium-fh-pflege-zusatzmodul-c-w-m-d-spital-maennedorf-ch",
+          "studi-universitari-in-infermieristica-modulo-aggiuntivo-c-w-m-d-spital-mannedorf-mannedorf"
         ]
       },
       "previousSlugs": [
-        "studium-fh-pflege-zusatzmodul-c-w-m-d-spital-maennedorf-ch"
+        "studium-fh-pflege-zusatzmodul-c-w-m-d-spital-maennedorf-ch",
+        "studium-fh-pflege-zusatzmodul-c-w-m-d-spital-mannedorf-mannedorf",
+        "studi-universitari-in-infermieristica-modulo-aggiuntivo-c-w-m-d-spital-mannedorf-mannedorf"
       ],
       "firstSeenAt": "2026-05-26T14:55:59.407Z",
       "salaryMin": 73500,
@@ -285,7 +300,7 @@
       "source": "Spital Männedorf Dedicated Parser (Umantis tenant 2736)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-08-01T10:47:25.241Z",
+      "crawledAt": "2026-08-01T21:58:25.901Z",
       "addressLocality": "Männedorf",
       "postalCode": "8708",
       "addressCountry": "CH",
@@ -307,10 +322,12 @@
       "pensum": "80 - 100%",
       "previousSlugsByLocale": {
         "de": [
-          "fachfrau-operationstechnik-ota-80-100-m-w-d-spital-maennedorf-ch"
+          "fachfrau-operationstechnik-ota-80-100-m-w-d-spital-maennedorf-ch",
+          "fachfrau-operationstechnik-ota-80-100-m-w-d-spital-mannedorf-mannedorf"
         ],
         "it": [
-          "fachfrau-operationstechnik-ota-80-100-m-w-d-spital-maennedorf-ch"
+          "fachfrau-operationstechnik-ota-80-100-m-w-d-spital-maennedorf-ch",
+          "specialista-in-tecnica-chirurgica-ota-80-100-m-f-d-spital-mannedorf-mannedorf"
         ],
         "en": [
           "ota-80-100-m-w-d-spital-mannedorf-mannedorf"
@@ -318,7 +335,9 @@
       },
       "previousSlugs": [
         "fachfrau-operationstechnik-ota-80-100-m-w-d-spital-maennedorf-ch",
-        "ota-80-100-m-w-d-spital-mannedorf-mannedorf"
+        "ota-80-100-m-w-d-spital-mannedorf-mannedorf",
+        "fachfrau-operationstechnik-ota-80-100-m-w-d-spital-mannedorf-mannedorf",
+        "specialista-in-tecnica-chirurgica-ota-80-100-m-f-d-spital-mannedorf-mannedorf"
       ],
       "firstSeenAt": "2026-05-26T14:55:58.403Z",
       "salaryMin": 73500,
@@ -366,7 +385,8 @@
       "url": "https://recruitingapp-2736.umantis.com/Vacancies/1840/Description/1",
       "source": "Spital Männedorf Dedicated Parser (Umantis tenant 2736)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-01T10:47:24.478Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-08-01T21:58:25.094Z",
       "addressLocality": "Männedorf",
       "postalCode": "8708",
       "addressCountry": "CH",
@@ -415,11 +435,13 @@
       "department": "Bettenstationen",
       "previousSlugsByLocale": {
         "de": [
-          "pflegefachfrau-hf-fh-im-pool-m-w-d-spital-maennedorf-ch"
+          "pflegefachfrau-hf-fh-im-pool-m-w-d-spital-maennedorf-ch",
+          "pflegefachfrau-hf-fh-im-pool-m-w-d-spital-mannedorf-mannedorf"
         ],
         "it": [
           "pflegefachfrau-hf-fh-im-pool-m-w-d-spital-maennedorf-ch",
-          "infermiera-diplomata-hf-fh-nel-reparto-m-f-d-spital-mannedorf-mannedorf"
+          "infermiera-diplomata-hf-fh-nel-reparto-m-f-d-spital-mannedorf-mannedorf",
+          "infermiera-professionale-hf-fh-in-pool-m-f-d-spital-mannedorf-mannedorf"
         ],
         "en": [
           "senior-consultant-m-w-d-spital-mannedorf-mannedorf",
@@ -434,7 +456,9 @@
         "infermiera-diplomata-hf-fh-nel-reparto-m-f-d-spital-mannedorf-mannedorf",
         "senior-consultant-m-w-d-spital-mannedorf-mannedorf",
         "diploma-in-nursing-hf-fh-in-the-pool-m-f-d-spital-mannedorf-mannedorf",
-        "infirmier-diplome-hf-fh-en-pool-m-f-d-spital-mannedorf-mannedorf"
+        "infirmier-diplome-hf-fh-en-pool-m-f-d-spital-mannedorf-mannedorf",
+        "pflegefachfrau-hf-fh-im-pool-m-w-d-spital-mannedorf-mannedorf",
+        "infermiera-professionale-hf-fh-in-pool-m-f-d-spital-mannedorf-mannedorf"
       ],
       "firstSeenAt": "2026-05-26T14:55:56.949Z",
       "salaryMin": 73500,
@@ -482,7 +506,8 @@
       "url": "https://recruitingapp-2736.umantis.com/Vacancies/1207/Description/1",
       "source": "Spital Männedorf Dedicated Parser (Umantis tenant 2736)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-01T10:47:23.698Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-08-01T21:58:24.301Z",
       "addressLocality": "Männedorf",
       "postalCode": "8708",
       "addressCountry": "CH",
@@ -504,10 +529,12 @@
       "pensum": "80 - 100%",
       "previousSlugsByLocale": {
         "de": [
-          "pflegepraktikantin-bettenstationen-80-100-m-w-d-spital-maennedorf-ch"
+          "pflegepraktikantin-bettenstationen-80-100-m-w-d-spital-maennedorf-ch",
+          "pflegepraktikantin-bettenstationen-80-100-m-w-d-spital-mannedorf-mannedorf"
         ],
         "it": [
-          "pflegepraktikantin-bettenstationen-80-100-m-w-d-spital-maennedorf-ch"
+          "pflegepraktikantin-bettenstationen-80-100-m-w-d-spital-maennedorf-ch",
+          "tirocinante-infermieristico-reparti-di-degenza-80-100-m-f-d-spital-mannedorf-mannedorf"
         ],
         "fr": [
           "stations-lits-pour-infirmieres-internes-80-100-m-f-j-spital-mannedorf-mannedorf",
@@ -517,7 +544,8 @@
       "previousSlugs": [
         "pflegepraktikantin-bettenstationen-80-100-m-w-d-spital-maennedorf-ch",
         "pflegepraktikantin-bettenstationen-80-100-m-w-d-spital-mannedorf-mannedorf",
-        "stations-lits-pour-infirmieres-internes-80-100-m-f-j-spital-mannedorf-mannedorf"
+        "stations-lits-pour-infirmieres-internes-80-100-m-f-j-spital-mannedorf-mannedorf",
+        "tirocinante-infermieristico-reparti-di-degenza-80-100-m-f-d-spital-mannedorf-mannedorf"
       ],
       "firstSeenAt": "2026-05-26T14:55:56.498Z",
       "salaryMin": 62000,
@@ -565,7 +593,8 @@
       "url": "https://recruitingapp-2736.umantis.com/Vacancies/1098/Description/1",
       "source": "Spital Männedorf Dedicated Parser (Umantis tenant 2736)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-01T10:47:22.923Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-08-01T21:58:23.512Z",
       "addressLocality": "Männedorf",
       "postalCode": "8708",
       "addressCountry": "CH",
@@ -602,12 +631,14 @@
         "studio-nds-terapia-intensiva-80-100-m-f-d-spital-mannedorf-mannedorf",
         "study-nds-intensive-care-80-100-m-f-d-spital-mannedorf-mannedorf",
         "etudes-en-soins-intensifs-nds-80-100-m-f-d-spital-mannedorf-mannedorf",
-        "studium-nds-intensivpflege-80-100-m-w-d-spital-mannedorf-mannedorf"
+        "studium-nds-intensivpflege-80-100-m-w-d-spital-mannedorf-mannedorf",
+        "infermiere-a-specializzato-a-spital-mannedorf-mannedorf"
       ],
       "previousSlugsByLocale": {
         "it": [
           "studium-nds-intensivpflege-80-100-m-w-d-spital-maennedorf-ch",
-          "studio-nds-terapia-intensiva-80-100-m-f-d-spital-mannedorf-mannedorf"
+          "studio-nds-terapia-intensiva-80-100-m-f-d-spital-mannedorf-mannedorf",
+          "infermiere-a-specializzato-a-spital-mannedorf-mannedorf"
         ],
         "en": [
           "study-nds-intensive-care-80-100-m-f-d-spital-mannedorf-mannedorf"
@@ -665,7 +696,8 @@
       "url": "https://recruitingapp-2736.umantis.com/Vacancies/1893/Description/1",
       "source": "Spital Männedorf Dedicated Parser (Umantis tenant 2736)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-01T10:47:22.168Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-08-01T21:58:22.694Z",
       "addressLocality": "Männedorf",
       "postalCode": "8708",
       "addressCountry": "CH",
@@ -700,14 +732,18 @@
       "pensum": "40%",
       "previousSlugsByLocale": {
         "de": [
-          "ernahrungsberater-fh-bsc-40-m-w-d-spital-maennedorf-ch"
+          "ernahrungsberater-fh-bsc-40-m-w-d-spital-maennedorf-ch",
+          "ernahrungsberater-fh-bsc-40-m-w-d-spital-mannedorf-mannedorf"
         ],
         "it": [
-          "ernahrungsberater-fh-bsc-40-m-w-d-spital-maennedorf-ch"
+          "ernahrungsberater-fh-bsc-40-m-w-d-spital-maennedorf-ch",
+          "nutrizionista-fh-bsc-40-m-f-d-spital-mannedorf-mannedorf"
         ]
       },
       "previousSlugs": [
-        "ernahrungsberater-fh-bsc-40-m-w-d-spital-maennedorf-ch"
+        "ernahrungsberater-fh-bsc-40-m-w-d-spital-maennedorf-ch",
+        "ernahrungsberater-fh-bsc-40-m-w-d-spital-mannedorf-mannedorf",
+        "nutrizionista-fh-bsc-40-m-f-d-spital-mannedorf-mannedorf"
       ],
       "firstSeenAt": "2026-05-26T14:55:55.175Z",
       "salaryMin": 29400,
@@ -755,7 +791,8 @@
       "url": "https://recruitingapp-2736.umantis.com/Vacancies/1900/Description/1",
       "source": "Spital Männedorf Dedicated Parser (Umantis tenant 2736)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-01T10:47:21.428Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-08-01T21:58:21.856Z",
       "addressLocality": "Männedorf",
       "postalCode": "8708",
       "addressCountry": "CH",
@@ -789,16 +826,20 @@
       "previousSlugsByLocale": {
         "de": [
           "dipl-pflegefachperson-hf-fh-50-100-m-w-d-spital-maennedorf-ch",
-          "dipl-pflegefachfrau-hf-fh-50-100-m-w-d-spital-maennedorf-ch"
+          "dipl-pflegefachfrau-hf-fh-50-100-m-w-d-spital-maennedorf-ch",
+          "dipl-pflegefachperson-hf-fh-50-100-m-w-d-spital-mannedorf-mannedorf"
         ],
         "it": [
           "dipl-pflegefachperson-hf-fh-50-100-m-w-d-spital-maennedorf-ch",
-          "dipl-pflegefachfrau-hf-fh-50-100-m-w-d-spital-maennedorf-ch"
+          "dipl-pflegefachfrau-hf-fh-50-100-m-w-d-spital-maennedorf-ch",
+          "infermiere-dipl-sss-sup-50-100-m-f-d-spital-mannedorf-mannedorf"
         ]
       },
       "previousSlugs": [
         "dipl-pflegefachperson-hf-fh-50-100-m-w-d-spital-maennedorf-ch",
-        "dipl-pflegefachfrau-hf-fh-50-100-m-w-d-spital-maennedorf-ch"
+        "dipl-pflegefachfrau-hf-fh-50-100-m-w-d-spital-maennedorf-ch",
+        "dipl-pflegefachperson-hf-fh-50-100-m-w-d-spital-mannedorf-mannedorf",
+        "infermiere-dipl-sss-sup-50-100-m-f-d-spital-mannedorf-mannedorf"
       ],
       "firstSeenAt": "2026-05-26T14:55:54.727Z",
       "salaryMin": 73500,
@@ -846,7 +887,8 @@
       "url": "https://recruitingapp-2736.umantis.com/Vacancies/1901/Description/1",
       "source": "Spital Männedorf Dedicated Parser (Umantis tenant 2736)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-01T10:47:20.694Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-08-01T21:58:21.042Z",
       "addressLocality": "Männedorf",
       "postalCode": "8708",
       "addressCountry": "CH",
@@ -896,16 +938,20 @@
       "pensum": "50 - 100%",
       "previousSlugsByLocale": {
         "de": [
-          "dipl-pflegefachfrau-hf-fh-mit-fachverantwortung-50-100-m-w-d-spital-maennedorf-ch"
+          "dipl-pflegefachfrau-hf-fh-mit-fachverantwortung-50-100-m-w-d-spital-maennedorf-ch",
+          "dipl-pflegefachfrau-hf-fh-mit-fachverantwortung-50-100-m-w-d-spital-mannedorf-mannedorf"
         ],
         "it": [
           "dipl-pflegefachfrau-hf-fh-mit-fachverantwortung-50-100-m-w-d-spital-maennedorf-ch",
-          "dipl-pflegefachfrau-hf-fh-con-fachverantwortung-50-100-m-w-d-spital-mannedorf-mannedorf"
+          "dipl-pflegefachfrau-hf-fh-con-fachverantwortung-50-100-m-w-d-spital-mannedorf-mannedorf",
+          "dipl-pflegefachfrau-hf-fh-con-responsabilita-di-settore-50-100-spital-mannedorf-mannedorf"
         ]
       },
       "previousSlugs": [
         "dipl-pflegefachfrau-hf-fh-mit-fachverantwortung-50-100-m-w-d-spital-maennedorf-ch",
-        "dipl-pflegefachfrau-hf-fh-con-fachverantwortung-50-100-m-w-d-spital-mannedorf-mannedorf"
+        "dipl-pflegefachfrau-hf-fh-con-fachverantwortung-50-100-m-w-d-spital-mannedorf-mannedorf",
+        "dipl-pflegefachfrau-hf-fh-mit-fachverantwortung-50-100-m-w-d-spital-mannedorf-mannedorf",
+        "dipl-pflegefachfrau-hf-fh-con-responsabilita-di-settore-50-100-spital-mannedorf-mannedorf"
       ],
       "firstSeenAt": "2026-05-26T14:55:53.846Z",
       "salaryMin": 73500,
@@ -953,7 +999,8 @@
       "url": "https://recruitingapp-2736.umantis.com/Vacancies/1783/Description/1",
       "source": "Spital Männedorf Dedicated Parser (Umantis tenant 2736)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-01T10:47:19.906Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-08-01T21:58:20.253Z",
       "addressLocality": "Männedorf",
       "postalCode": "8708",
       "addressCountry": "CH",
@@ -996,14 +1043,18 @@
       "pensum": "60 - 100%",
       "previousSlugsByLocale": {
         "de": [
-          "leitende-arztin-gynakologie-geburtshilfe-60-100-m-w-d-spital-maennedorf-ch"
+          "leitende-arztin-gynakologie-geburtshilfe-60-100-m-w-d-spital-maennedorf-ch",
+          "leitende-arztin-gynakologie-geburtshilfe-60-100-m-w-d-spital-mannedorf-mannedorf"
         ],
         "it": [
-          "leitende-arztin-gynakologie-geburtshilfe-60-100-m-w-d-spital-maennedorf-ch"
+          "leitende-arztin-gynakologie-geburtshilfe-60-100-m-w-d-spital-maennedorf-ch",
+          "medico-direttore-di-ginecologia-e-ostetricia-60-100-m-w-d-spital-mannedorf-mannedorf"
         ]
       },
       "previousSlugs": [
-        "leitende-arztin-gynakologie-geburtshilfe-60-100-m-w-d-spital-maennedorf-ch"
+        "leitende-arztin-gynakologie-geburtshilfe-60-100-m-w-d-spital-maennedorf-ch",
+        "leitende-arztin-gynakologie-geburtshilfe-60-100-m-w-d-spital-mannedorf-mannedorf",
+        "medico-direttore-di-ginecologia-e-ostetricia-60-100-m-w-d-spital-mannedorf-mannedorf"
       ],
       "firstSeenAt": "2026-05-26T14:55:51.969Z",
       "salaryMin": 101500,
@@ -1051,7 +1102,8 @@
       "url": "https://recruitingapp-2736.umantis.com/Vacancies/1907/Description/1",
       "source": "Spital Männedorf Dedicated Parser (Umantis tenant 2736)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-01T10:47:19.149Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-08-01T21:58:19.446Z",
       "addressLocality": "Männedorf",
       "postalCode": "8708",
       "addressCountry": "CH",
@@ -1105,13 +1157,15 @@
       "previousSlugsByLocale": {
         "de": [
           "fachfrau-gesundheit-fage-efz-in-der-anasthesiepflege-60-m-w-d-spital-maennedorf-ch",
-          "fachfrau-gesundheit-fage-efz-oder-pflegeassistentin-in-der-anasthesiepflege-60-m-w-d"
+          "fachfrau-gesundheit-fage-efz-oder-pflegeassistentin-in-der-anasthesiepflege-60-m-w-d",
+          "fachfrau-gesundheit-fage-efz-in-der-anasthesiepflege-60-m-w-d-spital-mannedorf-mannedorf"
         ],
         "it": [
           "fachfrau-gesundheit-fage-efz-in-der-anasthesiepflege-60-m-w-d-spital-maennedorf-ch",
           "fachfrau-gesundheit-fage-cfc-in-der-anasthesiepflege-60-m-w-d-spital-mannedorf-mannedorf",
           "operatore-socio-sanitario-oss-efz-in-anestesia-60-m-f-d-spital-mannedorf-mannedorf",
-          "fachfrau-gesundheit-fage-efz-oder-pflegeassistentin-in-der-anasthesiepflege-60-m-w-d"
+          "fachfrau-gesundheit-fage-efz-oder-pflegeassistentin-in-der-anasthesiepflege-60-m-w-d",
+          "fachfrau-gesundheit-fage-efz-in-anestesia-60-m-w-d-spital-mannedorf-mannedorf"
         ],
         "en": [
           "senior-account-manager-m-w-d-spital-mannedorf-mannedorf",
@@ -1128,7 +1182,9 @@
         "senior-account-manager-m-w-d-spital-mannedorf-mannedorf",
         "health-care-specialist-fage-efz-in-anesthesia-care-60-m-f-d-spital-mannedorf-mannedorf",
         "assistant-e-en-soins-et-sante-communautaire-assc-efz-en-soins-anesthesiques-60-m-f-d-spital-mannedorf-mannedorf",
-        "fachfrau-gesundheit-fage-efz-oder-pflegeassistentin-in-der-anasthesiepflege-60-m-w-d"
+        "fachfrau-gesundheit-fage-efz-oder-pflegeassistentin-in-der-anasthesiepflege-60-m-w-d",
+        "fachfrau-gesundheit-fage-efz-in-der-anasthesiepflege-60-m-w-d-spital-mannedorf-mannedorf",
+        "fachfrau-gesundheit-fage-efz-in-anestesia-60-m-w-d-spital-mannedorf-mannedorf"
       ],
       "firstSeenAt": "2026-05-26T14:55:51.531Z",
       "salaryMin": 44100,
@@ -1176,7 +1232,8 @@
       "url": "https://recruitingapp-2736.umantis.com/Vacancies/1925/Description/1",
       "source": "Spital Männedorf Dedicated Parser (Umantis tenant 2736)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-01T10:47:18.371Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-08-01T21:58:18.659Z",
       "addressLocality": "Männedorf",
       "postalCode": "8708",
       "addressCountry": "CH",
@@ -1220,12 +1277,14 @@
       "previousSlugs": [
         "diabetesfachberater-50-m-w-d-spital-mannedorf-mannedorf",
         "diabetesfachberater-50-m-w-d-spital-maennedorf-ch",
-        "diabetesfachberater-in-50-m-w-d-spital-maennedorf-ch"
+        "diabetesfachberater-in-50-m-w-d-spital-maennedorf-ch",
+        "diabetes-specialist-50-m-w-d-spital-mannedorf-mannedorf"
       ],
       "previousSlugsByLocale": {
         "it": [
           "diabetesfachberater-50-m-w-d-spital-maennedorf-ch",
-          "diabetesfachberater-in-50-m-w-d-spital-maennedorf-ch"
+          "diabetesfachberater-in-50-m-w-d-spital-maennedorf-ch",
+          "diabetes-specialist-50-m-w-d-spital-mannedorf-mannedorf"
         ],
         "de": [
           "diabetesfachberater-50-m-w-d-spital-mannedorf-mannedorf"
@@ -1277,7 +1336,8 @@
       "url": "https://recruitingapp-2736.umantis.com/Vacancies/1928/Description/1",
       "source": "Spital Männedorf Dedicated Parser (Umantis tenant 2736)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-01T10:47:17.589Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-08-01T21:58:17.856Z",
       "addressLocality": "Männedorf",
       "postalCode": "8708",
       "addressCountry": "CH",
@@ -1319,14 +1379,18 @@
       "pensum": "80 - 100%",
       "previousSlugsByLocale": {
         "de": [
-          "stv-leitung-op-pflege-80-100-m-w-d-spital-maennedorf-ch"
+          "stv-leitung-op-pflege-80-100-m-w-d-spital-maennedorf-ch",
+          "stv-leitung-op-pflege-80-100-m-w-d-spital-mannedorf-mannedorf"
         ],
         "it": [
-          "stv-leitung-op-pflege-80-100-m-w-d-spital-maennedorf-ch"
+          "stv-leitung-op-pflege-80-100-m-w-d-spital-maennedorf-ch",
+          "responsabile-ad-interim-dell-assistenza-chirurgica-80-100-m-f-d-spital-mannedorf-mannedorf"
         ]
       },
       "previousSlugs": [
-        "stv-leitung-op-pflege-80-100-m-w-d-spital-maennedorf-ch"
+        "stv-leitung-op-pflege-80-100-m-w-d-spital-maennedorf-ch",
+        "stv-leitung-op-pflege-80-100-m-w-d-spital-mannedorf-mannedorf",
+        "responsabile-ad-interim-dell-assistenza-chirurgica-80-100-m-f-d-spital-mannedorf-mannedorf"
       ],
       "firstSeenAt": "2026-05-26T14:55:50.212Z",
       "salaryMin": 101500,
@@ -1374,7 +1438,8 @@
       "url": "https://recruitingapp-2736.umantis.com/Vacancies/1931/Description/1",
       "source": "Spital Männedorf Dedicated Parser (Umantis tenant 2736)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-01T10:47:16.824Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-08-01T21:58:17.071Z",
       "addressLocality": "Männedorf",
       "postalCode": "8708",
       "addressCountry": "CH",
@@ -1422,12 +1487,14 @@
       "previousSlugsByLocale": {
         "de": [
           "medizinische-diagnostikerin-80-m-w-d-spital-maennedorf-ch",
-          "medizinische-praxisassistentin-mpa-dipl-pflegefachfrau-hf-fh-80-100-m-w-d-spital"
+          "medizinische-praxisassistentin-mpa-dipl-pflegefachfrau-hf-fh-80-100-m-w-d-spital",
+          "medizinische-diagnostikerin-80-m-w-d-spital-mannedorf-mannedorf"
         ],
         "it": [
           "medizinische-diagnostikerin-80-m-w-d-spital-maennedorf-ch",
           "diagnostica-medico-80-m-f-d-spital-mannedorf-mannedorf",
-          "medizinische-praxisassistentin-mpa-dipl-pflegefachfrau-hf-fh-80-100-m-w-d-spital"
+          "medizinische-praxisassistentin-mpa-dipl-pflegefachfrau-hf-fh-80-100-m-w-d-spital",
+          "medicina-diagnostica-80-m-w-d-spital-mannedorf-mannedorf"
         ],
         "en": [
           "senior-consultant-m-w-d-spital-mannedorf-mannedorf-f2efdd",
@@ -1443,7 +1510,9 @@
         "diagnostica-medico-80-m-f-d-spital-mannedorf-mannedorf",
         "senior-consultant-m-w-d-spital-mannedorf-mannedorf-f2efdd",
         "medical-diagnostics-specialist-80-m-f-d-spital-mannedorf-mannedorf",
-        "specialiste-en-diagnostic-medical-80-h-f-spital-mannedorf-mannedorf"
+        "specialiste-en-diagnostic-medical-80-h-f-spital-mannedorf-mannedorf",
+        "medizinische-diagnostikerin-80-m-w-d-spital-mannedorf-mannedorf",
+        "medicina-diagnostica-80-m-w-d-spital-mannedorf-mannedorf"
       ],
       "firstSeenAt": "2026-05-26T14:55:49.222Z",
       "salaryMin": 73500,
@@ -1491,7 +1560,8 @@
       "url": "https://recruitingapp-2736.umantis.com/Vacancies/1873/Description/1",
       "source": "Spital Männedorf Dedicated Parser (Umantis tenant 2736)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-01T10:47:16.026Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-08-01T21:58:16.292Z",
       "addressLocality": "Männedorf",
       "postalCode": "8708",
       "addressCountry": "CH",
@@ -1541,10 +1611,12 @@
       "pensum": "60 - 100%",
       "previousSlugsByLocale": {
         "de": [
-          "dipl-radiologiefachfrau-hf-mtra-60-100-m-w-d-spital-maennedorf-ch"
+          "dipl-radiologiefachfrau-hf-mtra-60-100-m-w-d-spital-maennedorf-ch",
+          "dipl-radiologiefachfrau-hf-mtra-60-100-m-w-d-spital-mannedorf-mannedorf"
         ],
         "it": [
-          "dipl-radiologiefachfrau-hf-mtra-60-100-m-w-d-spital-maennedorf-ch"
+          "dipl-radiologiefachfrau-hf-mtra-60-100-m-w-d-spital-maennedorf-ch",
+          "dipl-radiologa-hf-mtra-60-100-m-w-d-spital-mannedorf-mannedorf"
         ],
         "fr": [
           "dipl-radiologiefachfrau-hf-mtra-60-100-m-w-d-spital-mannedorf-mannedorf"
@@ -1552,7 +1624,8 @@
       },
       "previousSlugs": [
         "dipl-radiologiefachfrau-hf-mtra-60-100-m-w-d-spital-maennedorf-ch",
-        "dipl-radiologiefachfrau-hf-mtra-60-100-m-w-d-spital-mannedorf-mannedorf"
+        "dipl-radiologiefachfrau-hf-mtra-60-100-m-w-d-spital-mannedorf-mannedorf",
+        "dipl-radiologa-hf-mtra-60-100-m-w-d-spital-mannedorf-mannedorf"
       ],
       "firstSeenAt": "2026-05-26T14:55:47.018Z",
       "salaryMin": 73500,
@@ -1600,7 +1673,8 @@
       "url": "https://recruitingapp-2736.umantis.com/Vacancies/1882/Description/1",
       "source": "Spital Männedorf Dedicated Parser (Umantis tenant 2736)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-01T10:47:15.403Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-08-01T21:58:15.507Z",
       "addressLocality": "Männedorf",
       "postalCode": "8708",
       "addressCountry": "CH",
@@ -1651,13 +1725,15 @@
       "previousSlugs": [
         "pflegefachfrau-hf-berufsbildnerin-akutgeriatrie-80-100-m-w-d-spital-maennedorf-ch",
         "berufsbildnerin-in-der-akutgeriatrie-80-100-m-w-d-spital-maennedorf-ch",
-        "berufsbildnerin-dipl-pflegefachfrau-hf-in-der-akutgeriatrie-80-100-m-w-d-spital-maennedorf"
+        "berufsbildnerin-dipl-pflegefachfrau-hf-in-der-akutgeriatrie-80-100-m-w-d-spital-maennedorf",
+        "pflegefachfrau-hf-berufsbildnerin-akutgeriatrie-80-100-m-w-d-spital-mannedorf-mannedorf"
       ],
       "previousSlugsByLocale": {
         "it": [
           "pflegefachfrau-hf-berufsbildnerin-akutgeriatrie-80-100-m-w-d-spital-maennedorf-ch",
           "berufsbildnerin-in-der-akutgeriatrie-80-100-m-w-d-spital-maennedorf-ch",
-          "berufsbildnerin-dipl-pflegefachfrau-hf-in-der-akutgeriatrie-80-100-m-w-d-spital-maennedorf"
+          "berufsbildnerin-dipl-pflegefachfrau-hf-in-der-akutgeriatrie-80-100-m-w-d-spital-maennedorf",
+          "pflegefachfrau-hf-berufsbildnerin-akutgeriatrie-80-100-m-w-d-spital-mannedorf-mannedorf"
         ],
         "de": [
           "pflegefachfrau-hf-berufsbildnerin-akutgeriatrie-80-100-m-w-d-spital-maennedorf-ch"
@@ -1709,7 +1785,8 @@
       "url": "https://recruitingapp-2736.umantis.com/Vacancies/1951/Description/1",
       "source": "Spital Männedorf Dedicated Parser (Umantis tenant 2736)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-01T10:47:14.617Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-08-01T21:58:14.718Z",
       "addressLocality": "Männedorf",
       "postalCode": "8708",
       "addressCountry": "CH",
@@ -1756,16 +1833,20 @@
       "previousSlugsByLocale": {
         "de": [
           "dipl-pflegefachfrau-hf-fh-im-dauernachtdienst-60-100-m-w-d-spital-maennedorf-ch",
-          "dipl-pflegefachfrau-hf-fh-im-dauernachtdienst-akutgeriatrie-60-100-m-w-d-spital-maennedorf"
+          "dipl-pflegefachfrau-hf-fh-im-dauernachtdienst-akutgeriatrie-60-100-m-w-d-spital-maennedorf",
+          "dipl-pflegefachfrau-hf-fh-im-dauernachtdienst-60-100-m-w-d-spital-mannedorf-mannedorf"
         ],
         "it": [
           "dipl-pflegefachfrau-hf-fh-im-dauernachtdienst-60-100-m-w-d-spital-maennedorf-ch",
-          "dipl-pflegefachfrau-hf-fh-im-dauernachtdienst-akutgeriatrie-60-100-m-w-d-spital-maennedorf"
+          "dipl-pflegefachfrau-hf-fh-im-dauernachtdienst-akutgeriatrie-60-100-m-w-d-spital-maennedorf",
+          "dipl-infermiere-hf-fh-per-turno-notturno-60-100-m-f-d-spital-mannedorf-mannedorf"
         ]
       },
       "previousSlugs": [
         "dipl-pflegefachfrau-hf-fh-im-dauernachtdienst-60-100-m-w-d-spital-maennedorf-ch",
-        "dipl-pflegefachfrau-hf-fh-im-dauernachtdienst-akutgeriatrie-60-100-m-w-d-spital-maennedorf"
+        "dipl-pflegefachfrau-hf-fh-im-dauernachtdienst-akutgeriatrie-60-100-m-w-d-spital-maennedorf",
+        "dipl-pflegefachfrau-hf-fh-im-dauernachtdienst-60-100-m-w-d-spital-mannedorf-mannedorf",
+        "dipl-infermiere-hf-fh-per-turno-notturno-60-100-m-f-d-spital-mannedorf-mannedorf"
       ],
       "firstSeenAt": "2026-05-26T14:55:44.377Z",
       "salaryMin": 73500,
@@ -1813,7 +1894,8 @@
       "url": "https://recruitingapp-2736.umantis.com/Vacancies/1957/Description/1",
       "source": "Spital Männedorf Dedicated Parser (Umantis tenant 2736)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-01T10:47:13.793Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-08-01T21:58:13.942Z",
       "addressLocality": "Männedorf",
       "postalCode": "8708",
       "addressCountry": "CH",
@@ -1835,7 +1917,8 @@
       "pensum": "50%",
       "previousSlugsByLocale": {
         "de": [
-          "diatkoch-50-und-100-m-w-d-spital-maennedorf-ch"
+          "diatkoch-50-und-100-m-w-d-spital-maennedorf-ch",
+          "diatkoch-100-m-w-d-spital-mannedorf-mannedorf"
         ],
         "it": [
           "dieta-100-m-w-d-spital-mannedorf-mannedorf",
@@ -1845,7 +1928,8 @@
       "previousSlugs": [
         "diatkoch-50-und-100-m-w-d-spital-maennedorf-ch",
         "dieta-100-m-w-d-spital-mannedorf-mannedorf",
-        "diatkoch-50-e-100-m-w-d-spital-mannedorf-mannedorf"
+        "diatkoch-50-e-100-m-w-d-spital-mannedorf-mannedorf",
+        "diatkoch-100-m-w-d-spital-mannedorf-mannedorf"
       ],
       "firstSeenAt": "2026-05-28T14:11:29.074Z",
       "salaryMin": 73500,
@@ -1893,7 +1977,8 @@
       "url": "https://recruitingapp-2736.umantis.com/Vacancies/1954/Description/1",
       "source": "Spital Männedorf Dedicated Parser (Umantis tenant 2736)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-01T10:47:12.987Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-08-01T21:58:13.125Z",
       "addressLocality": "Männedorf",
       "postalCode": "8708",
       "addressCountry": "CH",
@@ -1918,14 +2003,16 @@
           "dipl-pflegefachfrau-und-breast-care-nurse-50-60-m-w-d-spital-maennedorf-ch",
           "dipl-pflegefachfrau-und-oder-breast-care-nurse-50-60-m-w-d-spital-maennedorf-ch",
           "dipl-pflegefachfrau-onkologie-breast-care-nurse-50-60-m-w-d-spital-maennedorf-ch",
-          "dipl-pflegefachfrau-onkologie-breast-care-nurse-50-80-m-w-d-spital-maennedorf-ch"
+          "dipl-pflegefachfrau-onkologie-breast-care-nurse-50-80-m-w-d-spital-maennedorf-ch",
+          "dipl-pflegefachfrau-und-breast-care-nurse-50-60-m-w-d-spital-mannedorf-mannedorf"
         ],
         "it": [
           "dipl-pflegefachfrau-und-breast-care-nurse-50-60-m-w-d-spital-maennedorf-ch",
           "infermiera-50-60-m-w-d-spital-mannedorf-mannedorf",
           "dipl-pflegefachfrau-und-oder-breast-care-nurse-50-60-m-w-d-spital-maennedorf-ch",
           "dipl-pflegefachfrau-onkologie-breast-care-nurse-50-60-m-w-d-spital-maennedorf-ch",
-          "dipl-pflegefachfrau-onkologie-breast-care-nurse-50-80-m-w-d-spital-maennedorf-ch"
+          "dipl-pflegefachfrau-onkologie-breast-care-nurse-50-80-m-w-d-spital-maennedorf-ch",
+          "dipl-pflegefachfrau-e-breast-care-nurse-50-60-m-w-d-spital-mannedorf"
         ],
         "en": [
           "dipl-nurse-50-60-m-w-d-spital-mannedorf-mannedorf"
@@ -1941,7 +2028,9 @@
         "infermiera-50-60-m-w-d-spital-mannedorf-mannedorf",
         "dipl-nurse-50-60-m-w-d-spital-mannedorf-mannedorf",
         "infirmiere-diplomee-de-50-a-60-m-p-j-spital-mannedorf-mannedorf",
-        "dipl-pflegefachfrau-onkologie-breast-care-nurse-50-80-m-w-d-spital-maennedorf-ch"
+        "dipl-pflegefachfrau-onkologie-breast-care-nurse-50-80-m-w-d-spital-maennedorf-ch",
+        "dipl-pflegefachfrau-und-breast-care-nurse-50-60-m-w-d-spital-mannedorf-mannedorf",
+        "dipl-pflegefachfrau-e-breast-care-nurse-50-60-m-w-d-spital-mannedorf"
       ],
       "firstSeenAt": "2026-05-28T14:11:28.272Z",
       "salaryMin": 58800,
@@ -1989,7 +2078,8 @@
       "url": "https://recruitingapp-2736.umantis.com/Vacancies/1911/Description/1",
       "source": "Spital Männedorf Dedicated Parser (Umantis tenant 2736)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-01T10:47:12.227Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-08-01T21:58:12.317Z",
       "addressLocality": "Männedorf",
       "postalCode": "8708",
       "addressCountry": "CH",
@@ -2011,14 +2101,18 @@
       "pensum": "100%",
       "previousSlugsByLocale": {
         "de": [
-          "op-lagerungspfleger-100-m-w-d-spital-maennedorf-ch"
+          "op-lagerungspfleger-100-m-w-d-spital-maennedorf-ch",
+          "business-analyst-in-dokumentenmanagement-80-100-gkb-ch"
         ],
         "it": [
-          "op-lagerungspfleger-100-m-w-d-spital-maennedorf-ch"
+          "op-lagerungspfleger-100-m-w-d-spital-maennedorf-ch",
+          "analista-di-business-nella-gestione-documentale-graubundner-kantonalbank-chur"
         ]
       },
       "previousSlugs": [
-        "op-lagerungspfleger-100-m-w-d-spital-maennedorf-ch"
+        "op-lagerungspfleger-100-m-w-d-spital-maennedorf-ch",
+        "business-analyst-in-dokumentenmanagement-80-100-gkb-ch",
+        "analista-di-business-nella-gestione-documentale-graubundner-kantonalbank-chur"
       ],
       "firstSeenAt": "2026-06-02T14:44:31.439Z",
       "salaryMin": 73500,
@@ -2066,7 +2160,8 @@
       "url": "https://recruitingapp-2736.umantis.com/Vacancies/1947/Description/1",
       "source": "Spital Männedorf Dedicated Parser (Umantis tenant 2736)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-01T10:47:11.403Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-08-01T21:58:11.540Z",
       "addressLocality": "Männedorf",
       "postalCode": "8708",
       "addressCountry": "CH",
@@ -2088,12 +2183,14 @@
       "pensum": "80 - 90%",
       "previousSlugs": [
         "dipl-fachexperte-intensivmedizin-nds-80-90-m-w-d-spital-maennedorf-ch",
-        "dipl-fachexperte-intensivmedizin-nds-80-90-m-w-d-spital-mannedorf-mannedorf"
+        "dipl-fachexperte-intensivmedizin-nds-80-90-m-w-d-spital-mannedorf-mannedorf",
+        "dipl-assistenza-intensiva-specialistica-nds-80-90-m-f-d-spital-mannedorf-mannedorf"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-fachexperte-intensivmedizin-nds-80-90-m-w-d-spital-maennedorf-ch",
-          "dipl-fachexperte-intensivmedizin-nds-80-90-m-w-d-spital-mannedorf-mannedorf"
+          "dipl-fachexperte-intensivmedizin-nds-80-90-m-w-d-spital-mannedorf-mannedorf",
+          "dipl-assistenza-intensiva-specialistica-nds-80-90-m-f-d-spital-mannedorf-mannedorf"
         ]
       },
       "firstSeenAt": "2026-06-04T13:40:09.114Z",
@@ -2142,7 +2239,8 @@
       "url": "https://recruitingapp-2736.umantis.com/Vacancies/1958/Description/1",
       "source": "Spital Männedorf Dedicated Parser (Umantis tenant 2736)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-01T10:47:10.616Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-08-01T21:58:10.776Z",
       "addressLocality": "Männedorf",
       "postalCode": "8708",
       "addressCountry": "CH",
@@ -2171,7 +2269,8 @@
         "dipl-nursing-assistant-hf-fh-50-100-acute-geriatrics-m-w-d-spital-mannedorf-mannedorf",
         "pflegefachfrau-hf-fh-50-100-akutgeriatrie-m-w-d-spital-mannedorf-mannedorf",
         "dipl-auxiliaire-de-sante-hf-fh-50-100-geriatrie-aigue-m-w-d-spital-mannedorf-mannedorf",
-        "stv-stationsleitung-akutgeriatrie-80-100-m-w-d-spital-maennedorf-ch"
+        "stv-stationsleitung-akutgeriatrie-80-100-m-w-d-spital-maennedorf-ch",
+        "dipl-pflegefachfrau-hf-fh-e-fage-40-100-m-w-d-spital-mannedorf"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2180,7 +2279,8 @@
           "dipl-nursing-assistant-hf-fh-50-100-acute-geriatrics-m-w-d-spital-mannedorf-mannedorf",
           "pflegefachfrau-hf-fh-50-100-akutgeriatrie-m-w-d-spital-mannedorf-mannedorf",
           "dipl-auxiliaire-de-sante-hf-fh-50-100-geriatrie-aigue-m-w-d-spital-mannedorf-mannedorf",
-          "stv-stationsleitung-akutgeriatrie-80-100-m-w-d-spital-maennedorf-ch"
+          "stv-stationsleitung-akutgeriatrie-80-100-m-w-d-spital-maennedorf-ch",
+          "dipl-pflegefachfrau-hf-fh-e-fage-40-100-m-w-d-spital-mannedorf"
         ],
         "en": [
           "dipl-pflegefachfrau-hf-fh-und-fage-40-100-m-w-d-spital-maennedorf-ch",
@@ -2240,7 +2340,8 @@
       "url": "https://recruitingapp-2736.umantis.com/Vacancies/1959/Description/1",
       "source": "Spital Männedorf Dedicated Parser (Umantis tenant 2736)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-01T10:47:09.816Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-08-01T21:58:09.985Z",
       "addressLocality": "Männedorf",
       "postalCode": "8708",
       "addressCountry": "CH",
@@ -2261,11 +2362,13 @@
       "pensumMax": 100,
       "pensum": "60 - 100%",
       "previousSlugs": [
-        "pflegeexpertin-60-100-m-w-d-spital-maennedorf-ch"
+        "pflegeexpertin-60-100-m-w-d-spital-maennedorf-ch",
+        "esperto-di-carriera-60-100-m-w-d-spital-mannedorf-mannedorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "pflegeexpertin-60-100-m-w-d-spital-maennedorf-ch"
+          "pflegeexpertin-60-100-m-w-d-spital-maennedorf-ch",
+          "esperto-di-carriera-60-100-m-w-d-spital-mannedorf-mannedorf"
         ],
         "fr": [
           "pflegeexpertin-60-100-m-w-d-spital-maennedorf-ch"
@@ -2318,7 +2421,7 @@
       "source": "Spital Männedorf Dedicated Parser (Umantis tenant 2736)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-08-01T10:47:09.031Z",
+      "crawledAt": "2026-08-01T21:58:09.208Z",
       "addressLocality": "Männedorf",
       "postalCode": "8708",
       "addressCountry": "CH",
@@ -2339,11 +2442,13 @@
       "pensumMax": 100,
       "pensum": "80 - 100%",
       "previousSlugs": [
-        "leitende-arztin-leitender-arzt-geburtshilfe-frauenklinik-80-100-m-w-d-spital-maennedorf-ch"
+        "leitende-arztin-leitender-arzt-geburtshilfe-frauenklinik-80-100-m-w-d-spital-maennedorf-ch",
+        "medico-senior-senior-ostetricia-clinica-femminile-80-100-m-f-d-spital-mannedorf-mannedorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "leitende-arztin-leitender-arzt-geburtshilfe-frauenklinik-80-100-m-w-d-spital-maennedorf-ch"
+          "leitende-arztin-leitender-arzt-geburtshilfe-frauenklinik-80-100-m-w-d-spital-maennedorf-ch",
+          "medico-senior-senior-ostetricia-clinica-femminile-80-100-m-f-d-spital-mannedorf-mannedorf"
         ],
         "en": [
           "leitende-arztin-leitender-arzt-geburtshilfe-frauenklinik-80-100-m-w-d-spital-maennedorf-ch"
@@ -2399,7 +2504,7 @@
       "source": "Spital Männedorf Dedicated Parser (Umantis tenant 2736)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-08-01T10:47:08.265Z",
+      "crawledAt": "2026-08-01T21:58:08.395Z",
       "addressLocality": "Männedorf",
       "postalCode": "8708",
       "addressCountry": "CH",
@@ -2421,12 +2526,14 @@
       "pensum": "60 - 100%",
       "previousSlugs": [
         "kaderarzt-kaderarztin-gastroenterologie-60-100-spital-maennedorf-ch",
-        "kaderarzt-kaderarztin-gastroenterologie-60-100-spital-mannedorf-mannedorf"
+        "kaderarzt-kaderarztin-gastroenterologie-60-100-spital-mannedorf-mannedorf",
+        "cadre-medico-cadre-medico-gastroenterologia-60-100-spital-mannedorf-mannedorf"
       ],
       "previousSlugsByLocale": {
         "it": [
           "kaderarzt-kaderarztin-gastroenterologie-60-100-spital-maennedorf-ch",
-          "kaderarzt-kaderarztin-gastroenterologie-60-100-spital-mannedorf-mannedorf"
+          "kaderarzt-kaderarztin-gastroenterologie-60-100-spital-mannedorf-mannedorf",
+          "cadre-medico-cadre-medico-gastroenterologia-60-100-spital-mannedorf-mannedorf"
         ],
         "en": [
           "kaderarzt-kaderarztin-gastroenterologie-60-100-spital-mannedorf-mannedorf"
@@ -2481,7 +2588,8 @@
       "url": "https://recruitingapp-2736.umantis.com/Vacancies/1952/Description/1",
       "source": "Spital Männedorf Dedicated Parser (Umantis tenant 2736)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-01T10:47:07.450Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-08-01T21:58:07.592Z",
       "addressLocality": "Männedorf",
       "postalCode": "8708",
       "addressCountry": "CH",
@@ -2503,14 +2611,18 @@
       "pensum": "60 - 100%",
       "previousSlugsByLocale": {
         "de": [
-          "fachfrau-gesundheit-efz-60-100-m-w-d-spital-maennedorf-ch"
+          "fachfrau-gesundheit-efz-60-100-m-w-d-spital-maennedorf-ch",
+          "fachfrau-gesundheit-efz-60-100-m-w-d-spital-mannedorf-mannedorf"
         ],
         "it": [
-          "fachfrau-gesundheit-efz-60-100-m-w-d-spital-maennedorf-ch"
+          "fachfrau-gesundheit-efz-60-100-m-w-d-spital-maennedorf-ch",
+          "infermiera-sanitaria-efz-60-100-m-w-d-spital-mannedorf-mannedorf"
         ]
       },
       "previousSlugs": [
-        "fachfrau-gesundheit-efz-60-100-m-w-d-spital-maennedorf-ch"
+        "fachfrau-gesundheit-efz-60-100-m-w-d-spital-maennedorf-ch",
+        "fachfrau-gesundheit-efz-60-100-m-w-d-spital-mannedorf-mannedorf",
+        "infermiera-sanitaria-efz-60-100-m-w-d-spital-mannedorf-mannedorf"
       ],
       "firstSeenAt": "2026-06-18T13:08:11.205Z",
       "salaryMin": 73500,
@@ -2558,7 +2670,8 @@
       "url": "https://recruitingapp-2736.umantis.com/Vacancies/1960/Description/1",
       "source": "Spital Männedorf Dedicated Parser (Umantis tenant 2736)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-01T10:47:06.700Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-08-01T21:58:06.767Z",
       "addressLocality": "Männedorf",
       "postalCode": "8708",
       "addressCountry": "CH",
@@ -2582,12 +2695,14 @@
         "mitarbeiter-room-service-60-m-w-d-spital-maennedorf-ch",
         "mitarbeiter-hotellerie-room-service-60-m-w-d-spital-maennedorf-ch",
         "mitarbeiter-room-service-60-m-w-d-spital-mannedorf-mannedorf",
-        "mitarbeiter-hotellerie-room-service-60-m-w-d-spital-mannedorf-mannedorf"
+        "mitarbeiter-hotellerie-room-service-60-m-w-d-spital-mannedorf-mannedorf",
+        "collaboratore-trice-room-service-60-m-w-d-spital-mannedorf"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-room-service-60-m-w-d-spital-maennedorf-ch",
-          "mitarbeiter-hotellerie-room-service-60-m-w-d-spital-maennedorf-ch"
+          "mitarbeiter-hotellerie-room-service-60-m-w-d-spital-maennedorf-ch",
+          "collaboratore-trice-room-service-60-m-w-d-spital-mannedorf"
         ],
         "fr": [
           "mitarbeiter-room-service-60-m-w-d-spital-mannedorf-mannedorf"
@@ -2640,7 +2755,7 @@
       "source": "Spital Männedorf Dedicated Parser (Umantis tenant 2736)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-08-01T10:47:05.949Z",
+      "crawledAt": "2026-08-01T21:58:05.968Z",
       "addressLocality": "Männedorf",
       "postalCode": "8708",
       "addressCountry": "CH",
@@ -2662,12 +2777,14 @@
       "pensum": "90%",
       "previousSlugs": [
         "sachbearbeiter-patientenabrechnung-90-m-w-d-spital-maennedorf-ch",
-        "sachbearbeiter-patientenabrechnung-90-m-w-d-spital-mannedorf-mannedorf"
+        "sachbearbeiter-patientenabrechnung-90-m-w-d-spital-mannedorf-mannedorf",
+        "fatturazione-del-paziente-del-personale-90-m-f-d-spital-mannedorf-mannedorf"
       ],
       "previousSlugsByLocale": {
         "it": [
           "sachbearbeiter-patientenabrechnung-90-m-w-d-spital-maennedorf-ch",
-          "sachbearbeiter-patientenabrechnung-90-m-w-d-spital-mannedorf-mannedorf"
+          "sachbearbeiter-patientenabrechnung-90-m-w-d-spital-mannedorf-mannedorf",
+          "fatturazione-del-paziente-del-personale-90-m-f-d-spital-mannedorf-mannedorf"
         ],
         "en": [
           "sachbearbeiter-patientenabrechnung-90-m-w-d-spital-mannedorf-mannedorf"
@@ -2722,7 +2839,8 @@
       "url": "https://recruitingapp-2736.umantis.com/Vacancies/1971/Description/1",
       "source": "Spital Männedorf Dedicated Parser (Umantis tenant 2736)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-01T10:47:05.191Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-08-01T21:58:05.166Z",
       "addressLocality": "Männedorf",
       "postalCode": "8708",
       "addressCountry": "CH",
@@ -2744,11 +2862,13 @@
       "pensum": "40 - 100%",
       "previousSlugs": [
         "dipl-pflegefachfrau-hf-hf-privatstation-40-100-m-w-d-spital-maennedorf-ch",
-        "dipl-pflegefachfrau-hf-hf-privatstation-40-100-m-w-d-spital-mannedorf-mannedorf"
+        "dipl-pflegefachfrau-hf-hf-privatstation-40-100-m-w-d-spital-mannedorf-mannedorf",
+        "dipl-specializzato-infermieristica-hf-hf-stazione-privata-40-100-m-f-d-spital-mannedorf-mannedorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachfrau-hf-hf-privatstation-40-100-m-w-d-spital-maennedorf-ch"
+          "dipl-pflegefachfrau-hf-hf-privatstation-40-100-m-w-d-spital-maennedorf-ch",
+          "dipl-specializzato-infermieristica-hf-hf-stazione-privata-40-100-m-f-d-spital-mannedorf-mannedorf"
         ],
         "en": [
           "dipl-pflegefachfrau-hf-hf-privatstation-40-100-m-w-d-spital-mannedorf-mannedorf"
@@ -2803,7 +2923,8 @@
       "url": "https://recruitingapp-2736.umantis.com/Vacancies/1904/Description/1",
       "source": "Spital Männedorf Dedicated Parser (Umantis tenant 2736)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-01T10:47:04.396Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-08-01T21:58:04.368Z",
       "addressLocality": "Männedorf",
       "postalCode": "8708",
       "addressCountry": "CH",
@@ -2825,14 +2946,18 @@
       "pensum": "80 - 100%",
       "previousSlugsByLocale": {
         "de": [
-          "fachfrau-gesundheit-efz-privatabteilungen-80-100-m-w-d-spital-maennedorf-ch"
+          "fachfrau-gesundheit-efz-privatabteilungen-80-100-m-w-d-spital-maennedorf-ch",
+          "fachfrau-gesundheit-efz-privatabteilungen-80-100-m-w-d-spital-mannedorf-mannedorf"
         ],
         "it": [
-          "fachfrau-gesundheit-efz-privatabteilungen-80-100-m-w-d-spital-maennedorf-ch"
+          "fachfrau-gesundheit-efz-privatabteilungen-80-100-m-w-d-spital-maennedorf-ch",
+          "specialista-in-sanita-afc-reparti-privati-80-100-m-f-d-spital-mannedorf-mannedorf"
         ]
       },
       "previousSlugs": [
-        "fachfrau-gesundheit-efz-privatabteilungen-80-100-m-w-d-spital-maennedorf-ch"
+        "fachfrau-gesundheit-efz-privatabteilungen-80-100-m-w-d-spital-maennedorf-ch",
+        "fachfrau-gesundheit-efz-privatabteilungen-80-100-m-w-d-spital-mannedorf-mannedorf",
+        "specialista-in-sanita-afc-reparti-privati-80-100-m-f-d-spital-mannedorf-mannedorf"
       ],
       "firstSeenAt": "2026-06-29T23:20:22.383Z",
       "salaryMin": 73500,
@@ -2880,7 +3005,8 @@
       "url": "https://recruitingapp-2736.umantis.com/Vacancies/1886/Description/1",
       "source": "Spital Männedorf Dedicated Parser (Umantis tenant 2736)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-01T10:47:03.638Z",
+      "needsRetranslation": false,
+      "crawledAt": "2026-08-01T21:58:03.603Z",
       "addressLocality": "Männedorf",
       "postalCode": "8708",
       "addressCountry": "CH",
@@ -2904,18 +3030,22 @@
         "de": [
           "med-praxisassistentin-mpa-fachfrau-gesundheit-fage-30-100-m-w-d-im-jobsharing-spital",
           "med-praxisassistentin-mpa-fachfrau-gesundheit-fage-30-100-m-w-d-spital-maennedorf-ch",
-          "med-praxisassistentin-mpa-fachfrau-gesundheit-fage-50-m-w-d-spital-maennedorf-ch"
+          "med-praxisassistentin-mpa-fachfrau-gesundheit-fage-50-m-w-d-spital-maennedorf-ch",
+          "mpa-medizinische-praxisassistentin-50-60-m-w-d-spital-mannedorf-mannedorf"
         ],
         "it": [
           "med-praxisassistentin-mpa-fachfrau-gesundheit-fage-30-100-m-w-d-im-jobsharing-spital",
           "med-praxisassistentin-mpa-fachfrau-gesundheit-fage-30-100-m-w-d-spital-maennedorf-ch",
-          "med-praxisassistentin-mpa-fachfrau-gesundheit-fage-50-m-w-d-spital-maennedorf-ch"
+          "med-praxisassistentin-mpa-fachfrau-gesundheit-fage-50-m-w-d-spital-maennedorf-ch",
+          "mpa-medizinische-praxisassistentin-50-60-spital-mannedorf-mannedorf"
         ]
       },
       "previousSlugs": [
         "med-praxisassistentin-mpa-fachfrau-gesundheit-fage-30-100-m-w-d-im-jobsharing-spital",
         "med-praxisassistentin-mpa-fachfrau-gesundheit-fage-30-100-m-w-d-spital-maennedorf-ch",
-        "med-praxisassistentin-mpa-fachfrau-gesundheit-fage-50-m-w-d-spital-maennedorf-ch"
+        "med-praxisassistentin-mpa-fachfrau-gesundheit-fage-50-m-w-d-spital-maennedorf-ch",
+        "mpa-medizinische-praxisassistentin-50-60-m-w-d-spital-mannedorf-mannedorf",
+        "mpa-medizinische-praxisassistentin-50-60-spital-mannedorf-mannedorf"
       ],
       "firstSeenAt": "2026-06-30T12:40:54.061Z",
       "salaryMin": 73500,
@@ -2963,7 +3093,8 @@
       "url": "https://recruitingapp-2736.umantis.com/Vacancies/1948/Description/1",
       "source": "Spital Männedorf Dedicated Parser (Umantis tenant 2736)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-01T10:47:02.864Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-08-01T21:58:02.759Z",
       "addressLocality": "Männedorf",
       "postalCode": "8708",
       "addressCountry": "CH",
@@ -2985,12 +3116,14 @@
       "pensum": "20 - 100%",
       "previousSlugsByLocale": {
         "de": [
-          "dipl-ergotherapeut-in-20-100-m-w-d-akutgeriatrie-spital-maennedorf-ch"
+          "dipl-ergotherapeut-in-20-100-m-w-d-akutgeriatrie-spital-maennedorf-ch",
+          "dipl-ergotherapeut-dipl-ergotherapeutin-40-m-w-d-spital-maennedorf-ch"
         ],
         "it": [
           "dipl-ergotherapeut-in-20-100-m-w-d-akutgeriatrie-spital-mannedorf-mannedorf",
           "dipl-ergotherapeut-dipl-ergotherapeutin-40-m-w-d-spital-mannedorf-mannedorf",
-          "dipl-ergotherapeut-in-20-100-m-w-d-akutgeriatrie-spital-maennedorf-ch"
+          "dipl-ergotherapeut-in-20-100-m-w-d-akutgeriatrie-spital-maennedorf-ch",
+          "dipl-terapeuta-professionale-in-20-100-m-f-d-acute-geriatrics-spital-mannedorf-mannedorf"
         ],
         "en": [
           "dipl-ergotherapeut-dipl-ergotherapeutin-40-m-w-d-spital-mannedorf-mannedorf"
@@ -3002,7 +3135,9 @@
       "previousSlugs": [
         "dipl-ergotherapeut-in-20-100-m-w-d-akutgeriatrie-spital-mannedorf-mannedorf",
         "dipl-ergotherapeut-dipl-ergotherapeutin-40-m-w-d-spital-mannedorf-mannedorf",
-        "dipl-ergotherapeut-in-20-100-m-w-d-akutgeriatrie-spital-maennedorf-ch"
+        "dipl-ergotherapeut-in-20-100-m-w-d-akutgeriatrie-spital-maennedorf-ch",
+        "dipl-ergotherapeut-dipl-ergotherapeutin-40-m-w-d-spital-maennedorf-ch",
+        "dipl-terapeuta-professionale-in-20-100-m-f-d-acute-geriatrics-spital-mannedorf-mannedorf"
       ],
       "firstSeenAt": "2026-06-30T23:07:05.776Z",
       "salaryMin": 73500,
@@ -3050,7 +3185,8 @@
       "url": "https://recruitingapp-2736.umantis.com/Vacancies/1980/Description/1",
       "source": "Spital Männedorf Dedicated Parser (Umantis tenant 2736)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-01T10:47:02.055Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-08-01T21:58:01.936Z",
       "addressLocality": "Männedorf",
       "postalCode": "8708",
       "addressCountry": "CH",
@@ -3071,12 +3207,14 @@
         "assistent-in-gesundheit-und-soziales-ags-oder-pflegeassistent-in-m-w-d-gesundheitszentrum",
         "lehrstelle-fage-efz-2027-spital-mannedorf-mannedorf",
         "lehrstelle-fage-efz-2027-spital-maennedorf-ch",
-        "lehrstelle-fachfrau-fachmann-gesundheit-fage-efz-2027-spital-maennedorf-ch"
+        "lehrstelle-fachfrau-fachmann-gesundheit-fage-efz-2027-spital-maennedorf-ch",
+        "apprendistato-fage-cfc-2027-spital-mannedorf-mannedorf"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-fage-efz-2027-spital-maennedorf-ch",
-          "lehrstelle-fachfrau-fachmann-gesundheit-fage-efz-2027-spital-maennedorf-ch"
+          "lehrstelle-fachfrau-fachmann-gesundheit-fage-efz-2027-spital-maennedorf-ch",
+          "apprendistato-fage-cfc-2027-spital-mannedorf-mannedorf"
         ],
         "en": [
           "lehrstelle-fage-efz-2027-spital-mannedorf-mannedorf",
@@ -3135,7 +3273,8 @@
       "url": "https://recruitingapp-2736.umantis.com/Vacancies/1967/Description/1",
       "source": "Spital Männedorf Dedicated Parser (Umantis tenant 2736)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-01T10:47:01.298Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-08-01T21:58:01.111Z",
       "addressLocality": "Männedorf",
       "postalCode": "8708",
       "addressCountry": "CH",
@@ -3158,13 +3297,15 @@
       "previousSlugs": [
         "medizinische-praxisassistentin-mpa-60-80-m-w-d-spital-maennedorf-ch",
         "medizinische-praxisassistentin-mpa-60-80-m-w-d-spital-mannedorf-mannedorf",
-        "assistente-medico-mpa-60-80-m-f-d-spital-mannedorf-mannedorf"
+        "assistente-medico-mpa-60-80-m-f-d-spital-mannedorf-mannedorf",
+        "assistente-medico-mpa-60-80-lun-f-d-spital-mannedorf-mannedorf"
       ],
       "previousSlugsByLocale": {
         "it": [
           "medizinische-praxisassistentin-mpa-60-80-m-w-d-spital-maennedorf-ch",
           "medizinische-praxisassistentin-mpa-60-80-m-w-d-spital-mannedorf-mannedorf",
-          "assistente-medico-mpa-60-80-m-f-d-spital-mannedorf-mannedorf"
+          "assistente-medico-mpa-60-80-m-f-d-spital-mannedorf-mannedorf",
+          "assistente-medico-mpa-60-80-lun-f-d-spital-mannedorf-mannedorf"
         ],
         "en": [
           "medizinische-praxisassistentin-mpa-60-80-m-w-d-spital-mannedorf-mannedorf"
@@ -3220,7 +3361,7 @@
       "source": "Spital Männedorf Dedicated Parser (Umantis tenant 2736)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-08-01T10:47:00.538Z",
+      "crawledAt": "2026-08-01T21:58:00.320Z",
       "addressLocality": "Männedorf",
       "postalCode": "8708",
       "addressCountry": "CH",
@@ -3241,11 +3382,13 @@
       "pensumMax": 100,
       "pensum": "100%",
       "previousSlugs": [
-        "koch-efz-100-m-w-d-spital-maennedorf-ch"
+        "koch-efz-100-m-w-d-spital-maennedorf-ch",
+        "koch-cfc-100-m-w-d-spital-mannedorf-mannedorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "koch-efz-100-m-w-d-spital-maennedorf-ch"
+          "koch-efz-100-m-w-d-spital-maennedorf-ch",
+          "koch-cfc-100-m-w-d-spital-mannedorf-mannedorf"
         ],
         "en": [
           "koch-efz-100-m-w-d-spital-maennedorf-ch"
@@ -3300,7 +3443,8 @@
       "url": "https://recruitingapp-2736.umantis.com/Vacancies/1978/Description/1",
       "source": "Spital Männedorf Dedicated Parser (Umantis tenant 2736)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-01T10:46:59.769Z",
+      "needsRetranslation": false,
+      "crawledAt": "2026-08-01T21:57:59.514Z",
       "addressLocality": "Männedorf",
       "postalCode": "8708",
       "addressCountry": "CH",
@@ -3322,12 +3466,14 @@
       "pensum": "40 - 100%",
       "previousSlugs": [
         "arztsekretarin-90-100-m-w-d-spital-maennedorf-ch",
-        "arztsekretarin-ambulante-medizin-40-100-m-w-d-spital-maennedorf-ch"
+        "arztsekretarin-ambulante-medizin-40-100-m-w-d-spital-maennedorf-ch",
+        "segretario-medico-90-100-m-f-d-spital-mannedorf-mannedorf"
       ],
       "previousSlugsByLocale": {
         "it": [
           "arztsekretarin-90-100-m-w-d-spital-maennedorf-ch",
-          "arztsekretarin-ambulante-medizin-40-100-m-w-d-spital-maennedorf-ch"
+          "arztsekretarin-ambulante-medizin-40-100-m-w-d-spital-maennedorf-ch",
+          "segretario-medico-90-100-m-f-d-spital-mannedorf-mannedorf"
         ],
         "en": [
           "arztsekretarin-90-100-m-w-d-spital-maennedorf-ch"
@@ -3383,7 +3529,7 @@
       "source": "Spital Männedorf Dedicated Parser (Umantis tenant 2736)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-08-01T10:46:59.017Z",
+      "crawledAt": "2026-08-01T21:57:58.712Z",
       "addressLocality": "Männedorf",
       "postalCode": "8708",
       "addressCountry": "CH",
@@ -3404,11 +3550,13 @@
       "pensumMax": 100,
       "pensum": "100%",
       "previousSlugs": [
-        "facharzt-nephrologie-100-m-w-d-spital-maennedorf-ch"
+        "facharzt-nephrologie-100-m-w-d-spital-maennedorf-ch",
+        "neftologia-specialistica-100-m-f-d-spital-mannedorf-mannedorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "facharzt-nephrologie-100-m-w-d-spital-maennedorf-ch"
+          "facharzt-nephrologie-100-m-w-d-spital-maennedorf-ch",
+          "neftologia-specialistica-100-m-f-d-spital-mannedorf-mannedorf"
         ],
         "en": [
           "facharzt-nephrologie-100-m-w-d-spital-maennedorf-ch"
@@ -3463,7 +3611,8 @@
       "url": "https://recruitingapp-2736.umantis.com/Vacancies/1987/Description/1",
       "source": "Spital Männedorf Dedicated Parser (Umantis tenant 2736)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-01T10:46:58.257Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-08-01T21:57:57.957Z",
       "addressLocality": "Männedorf",
       "postalCode": "8708",
       "addressCountry": "CH",
@@ -3481,11 +3630,13 @@
       "requirementsByLocale": {},
       "department": "Human Resource Management",
       "previousSlugs": [
-        "lehrstelle-fachfrau-fachmann-betreuung-fabe-efz-2027-spital-maennedorf-ch"
+        "lehrstelle-fachfrau-fachmann-betreuung-fabe-efz-2027-spital-maennedorf-ch",
+        "apprendistato-fachfrau-fachmann-betreuung-fabe-cfc-2027-spital-mannedorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-fachfrau-fachmann-betreuung-fabe-efz-2027-spital-maennedorf-ch"
+          "lehrstelle-fachfrau-fachmann-betreuung-fabe-efz-2027-spital-maennedorf-ch",
+          "apprendistato-fachfrau-fachmann-betreuung-fabe-cfc-2027-spital-mannedorf"
         ],
         "en": [
           "lehrstelle-fachfrau-fachmann-betreuung-fabe-efz-2027-spital-maennedorf-ch"
@@ -3541,7 +3692,7 @@
       "source": "Spital Männedorf Dedicated Parser (Umantis tenant 2736)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-08-01T10:46:57.474Z",
+      "crawledAt": "2026-08-01T21:57:57.161Z",
       "addressLocality": "Männedorf",
       "postalCode": "8708",
       "addressCountry": "CH",
@@ -3562,11 +3713,13 @@
       "pensumMax": 70,
       "pensum": "50 - 70%",
       "previousSlugs": [
-        "reinigungskraft-50-70-m-w-d-spital-maennedorf-ch"
+        "reinigungskraft-50-70-m-w-d-spital-maennedorf-ch",
+        "reinigungskraft-50-70-m-w-d-spital-mannedorf-mannedorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "reinigungskraft-50-70-m-w-d-spital-maennedorf-ch"
+          "reinigungskraft-50-70-m-w-d-spital-maennedorf-ch",
+          "reinigungskraft-50-70-m-w-d-spital-mannedorf-mannedorf"
         ]
       },
       "firstSeenAt": "2026-07-14T22:20:29.492Z",
@@ -3616,7 +3769,7 @@
       "source": "Spital Männedorf Dedicated Parser (Umantis tenant 2736)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-08-01T10:46:56.698Z",
+      "crawledAt": "2026-08-01T21:57:56.384Z",
       "addressLocality": "Männedorf",
       "postalCode": "8708",
       "addressCountry": "CH",
@@ -3637,11 +3790,13 @@
       "pensumMax": 80,
       "pensum": "80%",
       "previousSlugs": [
-        "empfangsmitarbeiterin-und-patientenaufnahme-80-m-w-d-spital-maennedorf-ch"
+        "empfangsmitarbeiterin-und-patientenaufnahme-80-m-w-d-spital-maennedorf-ch",
+        "empfangsmitarbeiterin-e-patientenaufnahme-80-m-w-d-spital-mannedorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "empfangsmitarbeiterin-und-patientenaufnahme-80-m-w-d-spital-maennedorf-ch"
+          "empfangsmitarbeiterin-und-patientenaufnahme-80-m-w-d-spital-maennedorf-ch",
+          "empfangsmitarbeiterin-e-patientenaufnahme-80-m-w-d-spital-mannedorf"
         ]
       },
       "firstSeenAt": "2026-07-16T11:09:45.450Z",
@@ -3691,7 +3846,7 @@
       "source": "Spital Männedorf Dedicated Parser (Umantis tenant 2736)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-08-01T10:46:55.928Z",
+      "crawledAt": "2026-08-01T21:57:55.588Z",
       "addressLocality": "Männedorf",
       "postalCode": "8708",
       "addressCountry": "CH",
@@ -3712,11 +3867,13 @@
       "pensumMax": 100,
       "pensum": "50 - 100%",
       "previousSlugs": [
-        "dipl-rettungssanitater-hf-50-100-m-w-d-spital-maennedorf-ch"
+        "dipl-rettungssanitater-hf-50-100-m-w-d-spital-maennedorf-ch",
+        "dipl-rettungssanitater-hf-50-100-m-w-d-spital-mannedorf-mannedorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-rettungssanitater-hf-50-100-m-w-d-spital-maennedorf-ch"
+          "dipl-rettungssanitater-hf-50-100-m-w-d-spital-maennedorf-ch",
+          "dipl-rettungssanitater-hf-50-100-m-w-d-spital-mannedorf-mannedorf"
         ]
       },
       "firstSeenAt": "2026-07-16T22:05:10.993Z",
@@ -3766,7 +3923,7 @@
       "source": "Spital Männedorf Dedicated Parser (Umantis tenant 2736)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-08-01T10:46:55.154Z",
+      "crawledAt": "2026-08-01T21:57:54.804Z",
       "addressLocality": "Männedorf",
       "postalCode": "8708",
       "addressCountry": "CH",
@@ -3787,11 +3944,13 @@
       "pensumMax": 50,
       "pensum": "50%",
       "previousSlugs": [
-        "fachfrau-gesundheit-50-100-m-w-d-spital-maennedorf-ch"
+        "fachfrau-gesundheit-50-100-m-w-d-spital-maennedorf-ch",
+        "professionista-della-salute-50-100-m-f-d-spital-mannedorf-mannedorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachfrau-gesundheit-50-100-m-w-d-spital-maennedorf-ch"
+          "fachfrau-gesundheit-50-100-m-w-d-spital-maennedorf-ch",
+          "professionista-della-salute-50-100-m-f-d-spital-mannedorf-mannedorf"
         ],
         "en": [
           "fachfrau-gesundheit-50-100-m-w-d-spital-maennedorf-ch"
@@ -3847,7 +4006,7 @@
       "source": "Spital Männedorf Dedicated Parser (Umantis tenant 2736)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-08-01T10:46:54.352Z",
+      "crawledAt": "2026-08-01T21:57:54.006Z",
       "addressLocality": "Männedorf",
       "postalCode": "8708",
       "addressCountry": "CH",
@@ -3924,7 +4083,8 @@
       "url": "https://recruitingapp-2736.umantis.com/Vacancies/1775/Description/1",
       "source": "Spital Männedorf Dedicated Parser (Umantis tenant 2736)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-01T10:46:53.591Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-08-01T21:57:53.253Z",
       "addressLocality": "Männedorf",
       "postalCode": "8708",
       "addressCountry": "CH",
@@ -3945,11 +4105,13 @@
       "pensumMax": 100,
       "pensum": "80 - 100%",
       "previousSlugs": [
-        "oberarztin-gynakologie-geburtshilfe-80-100-m-w-d-spital-maennedorf-ch"
+        "oberarztin-gynakologie-geburtshilfe-80-100-m-w-d-spital-maennedorf-ch",
+        "ginecologia-senior-ostetricia-80-100-m-f-d-spital-mannedorf-mannedorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "oberarztin-gynakologie-geburtshilfe-80-100-m-w-d-spital-maennedorf-ch"
+          "oberarztin-gynakologie-geburtshilfe-80-100-m-w-d-spital-maennedorf-ch",
+          "ginecologia-senior-ostetricia-80-100-m-f-d-spital-mannedorf-mannedorf"
         ],
         "en": [
           "oberarztin-gynakologie-geburtshilfe-80-100-m-w-d-spital-maennedorf-ch"
@@ -4005,7 +4167,7 @@
       "source": "Spital Männedorf Dedicated Parser (Umantis tenant 2736)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-08-01T10:46:52.787Z",
+      "crawledAt": "2026-08-01T21:57:52.428Z",
       "addressLocality": "Männedorf",
       "postalCode": "8708",
       "addressCountry": "CH",
@@ -4026,11 +4188,13 @@
       "pensumMax": 100,
       "pensum": "40 - 100%",
       "previousSlugs": [
-        "dipl-pflegefachfrau-dialyse-40-100-m-w-d-spital-maennedorf-ch"
+        "dipl-pflegefachfrau-dialyse-40-100-m-w-d-spital-maennedorf-ch",
+        "dipl-specialista-di-dialisi-40-100-m-f-d-spital-mannedorf-mannedorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachfrau-dialyse-40-100-m-w-d-spital-maennedorf-ch"
+          "dipl-pflegefachfrau-dialyse-40-100-m-w-d-spital-maennedorf-ch",
+          "dipl-specialista-di-dialisi-40-100-m-f-d-spital-mannedorf-mannedorf"
         ],
         "en": [
           "dipl-pflegefachfrau-dialyse-40-100-m-w-d-spital-maennedorf-ch"
@@ -4058,9 +4222,9 @@
       "id": "spital-maennedorf-e11830f7be22",
       "slug": "apprendistato-kochin-koch-cfc-2027-spital-mannedorf",
       "slugByLocale": {
-        "de": "lehrstelle-kochin-koch-efz-2027-spital-maennedorf-ch",
         "it": "apprendistato-kochin-koch-cfc-2027-spital-mannedorf",
         "en": "apprenticeship-chef-cook-efz-2027-spital-mannedorf-mannedorf",
+        "de": "lehrstelle-kochin-koch-efz-2027-spital-maennedorf-ch",
         "fr": "chef-d-apprentissage-cuisinier-efz-2027-spital-mannedorf-mannedorf"
       },
       "company": "Spital Männedorf",
@@ -4068,16 +4232,16 @@
       "companyDomain": "spitalmaennedorf.ch",
       "title": "Lehrstelle Köchin / Koch EFZ 2027",
       "titleByLocale": {
-        "de": "Lehrstelle Köchin / Koch EFZ 2027",
         "it": "Apprendistato Köchin / Koch CFC 2027",
         "en": "Apprenticeship chef / cook EFZ 2027",
+        "de": "Lehrstelle Köchin / Koch EFZ 2027",
         "fr": "Chef d'apprentissage / cuisinier EFZ 2027"
       },
       "description": "Spital Männedorf – Dein ganz besonderer Arbeitsort.\nOb ein kleines „Danke“ oder ein morgendliches „Grüezi“ - bei uns stehen echte Wertschätzung und Menschlichkeit im Vordergrund. Die Nähe in unserem Haus macht den Alltag unkompliziert und ermöglicht interprofessionelle Zusammenarbeit auf höchstem Niveau. In einem Umfeld, in dem Unterstützung selbstverständlich ist, wird dein Engagement geschätzt und gefördert.\n\nDas Wesen deiner Tätigkeit:\n\n• Perfekte Präsentation der Gerichte der Küche\n• Mithilfe bei der Lagerbewirtschaftung\n• Korrekte Anwendung des HACCP (Hygienekonzept)\n• Mithilfe bei internen und externen Anlässen\n\nDie Basis deiner Leistung:\n\n• Abgeschlossen Schulausbildung (Sekundarschule A oder B)\n• Freude am Umgang mit Lebensmitteln und deren Zubereitung\n• Ausgeprägter Geschmackssinn\n• Bereitschaft an Wochenenden und Feiertagen zu arbeiten\n• Freude an der Zusammenarbeit mit verschiedenen Menschen und Kulturen\n\nDie Gründe deiner Entscheidung:\nWir bieten moderne Arbeitsbedingungen, fördern interne Weiterbildungen und setzen auf fachlichen Austausch über alle Disziplinen hinweg. Die ruhige Lage direkt am See und die Nähe zur pulsierenden Stadt Zürich runden deinen Arbeitsplatz ab. Darüber hinaus kannst du dich auf ganz spezielle Vorteile freuen.",
       "descriptionByLocale": {
-        "de": "Spital Männedorf – Dein ganz besonderer Arbeitsort.\nOb ein kleines „Danke“ oder ein morgendliches „Grüezi“ - bei uns stehen echte Wertschätzung und Menschlichkeit im Vordergrund. Die Nähe in unserem Haus macht den Alltag unkompliziert und ermöglicht interprofessionelle Zusammenarbeit auf höchstem Niveau. In einem Umfeld, in dem Unterstützung selbstverständlich ist, wird dein Engagement geschätzt und gefördert.\n\nDas Wesen deiner Tätigkeit:\n\n• Perfekte Präsentation der Gerichte der Küche\n• Mithilfe bei der Lagerbewirtschaftung\n• Korrekte Anwendung des HACCP (Hygienekonzept)\n• Mithilfe bei internen und externen Anlässen\n\nDie Basis deiner Leistung:\n\n• Abgeschlossen Schulausbildung (Sekundarschule A oder B)\n• Freude am Umgang mit Lebensmitteln und deren Zubereitung\n• Ausgeprägter Geschmackssinn\n• Bereitschaft an Wochenenden und Feiertagen zu arbeiten\n• Freude an der Zusammenarbeit mit verschiedenen Menschen und Kulturen\n\nDie Gründe deiner Entscheidung:\nWir bieten moderne Arbeitsbedingungen, fördern interne Weiterbildungen und setzen auf fachlichen Austausch über alle Disziplinen hinweg. Die ruhige Lage direkt am See und die Nähe zur pulsierenden Stadt Zürich runden deinen Arbeitsplatz ab. Darüber hinaus kannst du dich auf ganz spezielle Vorteile freuen.",
         "it": "Spital Männedorf – Il vostro luogo di lavoro molto speciale.\nSe un piccolo “grazie” o una mattina “Grüezi” – ci concentriamo sull’apprezzamento reale e sull’umanità. La vicinanza nella nostra casa rende la vita quotidiana semplice e consente la cooperazione interprofessionale al più alto livello. In un ambiente in cui il sostegno va senza dire, il vostro impegno è apprezzato e incoraggiato.\n\nLa natura della vostra attività:\n\n• Presentazione perfetta dei piatti della cucina\n• Assistenza nella gestione dello storage\n• corretta applicazione del HACCP (concetto di igiene)\n• Assistenza agli eventi interni ed esterni\n\nLa base delle tue prestazioni:\n\n• Formazione scolastica completa (scuola secondaria A o B)\n• Gioia nel trattare con il cibo e la sua preparazione\n• Forte senso del gusto\n• Volontà di lavorare nei fine settimana e nelle vacanze\n• Gioia di lavorare con persone e culture diverse\n\nLe ragioni della vostra decisione:\nOffriamo condizioni di lavoro moderne, promuovere la formazione interna e concentrarsi sullo scambio professionale in tutte le discipline. La posizione tranquilla direttamente sul lago e la vicinanza alla vivace città di Zurigo arrotondano il vostro posto di lavoro. Inoltre, si può aspettare molto vantaggi speciali.",
         "en": "Spital Männedorf – Your very special place of work.\nWhether a small “thank you” or a morning “Grüezi” – we focus on real appreciation and humanity. The proximity in our house makes everyday life uncomplicated and enables interprofessional cooperation at the highest level. In an environment where support goes without saying, your commitment is appreciated and encouraged.\n\nThe nature of your activity:\n\n• Perfect presentation of kitchen dishes\n• Assistance in storage management\n• Correct application of the HACCP (hygiene concept)\n• Assistance with internal and external events\n\nThe basis of your performance:\n\n• Completed school education (secondary school A or B)\n• Joy in dealing with food and its preparation\n• Strong sense of taste\n• Willingness to work on weekends and holidays\n• Joy of working with different people and cultures\n\nThe reasons for your decision:\nWe offer modern working conditions, promote internal training and focus on professional exchange across all disciplines. The quiet location directly on the lake and the proximity to the vibrant city of Zurich round off your workplace. In addition, you can look forward to very special advantages.",
+        "de": "Spital Männedorf – Dein ganz besonderer Arbeitsort.\nOb ein kleines „Danke“ oder ein morgendliches „Grüezi“ - bei uns stehen echte Wertschätzung und Menschlichkeit im Vordergrund. Die Nähe in unserem Haus macht den Alltag unkompliziert und ermöglicht interprofessionelle Zusammenarbeit auf höchstem Niveau. In einem Umfeld, in dem Unterstützung selbstverständlich ist, wird dein Engagement geschätzt und gefördert.\n\nDas Wesen deiner Tätigkeit:\n\n• Perfekte Präsentation der Gerichte der Küche\n• Mithilfe bei der Lagerbewirtschaftung\n• Korrekte Anwendung des HACCP (Hygienekonzept)\n• Mithilfe bei internen und externen Anlässen\n\nDie Basis deiner Leistung:\n\n• Abgeschlossen Schulausbildung (Sekundarschule A oder B)\n• Freude am Umgang mit Lebensmitteln und deren Zubereitung\n• Ausgeprägter Geschmackssinn\n• Bereitschaft an Wochenenden und Feiertagen zu arbeiten\n• Freude an der Zusammenarbeit mit verschiedenen Menschen und Kulturen\n\nDie Gründe deiner Entscheidung:\nWir bieten moderne Arbeitsbedingungen, fördern interne Weiterbildungen und setzen auf fachlichen Austausch über alle Disziplinen hinweg. Die ruhige Lage direkt am See und die Nähe zur pulsierenden Stadt Zürich runden deinen Arbeitsplatz ab. Darüber hinaus kannst du dich auf ganz spezielle Vorteile freuen.",
         "fr": "Spital Männedorf – Votre lieu de travail très spécial.\nQu'il s'agisse d'un petit merci ou d'un matin, nous nous concentrons sur l'appréciation et l'humanité réelles. La proximité de notre maison rend la vie quotidienne simple et permet une coopération interprofessionnelle au plus haut niveau. Dans un environnement où le soutien va sans dire, votre engagement est apprécié et encouragé.\n\nLa nature de votre activité :\n\n• Présentation parfaite des plats de cuisine\n• Assistance à la gestion du stockage\n• Application correcte du concept HACCP (hygiène)\n• Assistance aux événements internes et externes\n\nLa base de votre performance :\n\n• Études terminées (écoles secondaires A ou B)\n• La joie de traiter la nourriture et sa préparation\n• Fort sens du goût\n• Volonté de travailler le week-end et les jours fériés\n• Joy de travailler avec différentes personnes et cultures\n\nLes motifs de votre décision :\nNous offrons des conditions de travail modernes, promouvons la formation interne et nous nous concentrons sur les échanges professionnels dans toutes les disciplines. L'emplacement calme directement sur le lac et la proximité de la ville animée de Zurich complètent votre lieu de travail. De plus, vous pouvez vous attendre à des avantages très spéciaux."
       },
       "location": "Männedorf",
@@ -4085,7 +4249,8 @@
       "url": "https://recruitingapp-2736.umantis.com/Vacancies/1984/Description/1",
       "source": "Spital Männedorf Dedicated Parser (Umantis tenant 2736)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-01T10:46:52.003Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-08-01T21:57:51.605Z",
       "addressLocality": "Männedorf",
       "postalCode": "8708",
       "addressCountry": "CH",
@@ -4102,6 +4267,10 @@
       "requirements": [],
       "requirementsByLocale": {},
       "department": "Finanzen & Dienste",
+      "previousSlugs": [
+        "lehrstelle-kochin-koch-efz-2027-spital-maennedorf-ch",
+        "apprendistato-kochin-koch-cfc-2027-spital-mannedorf"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-kochin-koch-efz-2027-spital-maennedorf-ch",
@@ -4114,10 +4283,7 @@
           "lehrstelle-kochin-koch-efz-2027-spital-maennedorf-ch"
         ]
       },
-      "previousSlugs": [
-        "lehrstelle-kochin-koch-efz-2027-spital-maennedorf-ch",
-        "apprendistato-kochin-koch-cfc-2027-spital-mannedorf"
-      ],
+      "firstSeenAt": "2026-07-31T22:09:58.021Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -4130,83 +4296,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH",
-      "firstSeenAt": "2026-07-31T22:09:58.021Z"
-    },
-    {
-      "id": "spital-maennedorf-ee15aceb2285",
-      "slug": "medizinische-praxisassistentin-mpa-arztsekretarin-40-100-m-w-d-spital-mannedorf-mannedorf",
-      "slugByLocale": {
-        "it": "medizinische-praxisassistentin-mpa-arztsekretarin-40-100-m-w-d-spital-mannedorf-mannedorf",
-        "en": "medizinische-praxisassistentin-mpa-arztsekretarin-40-100-m-w-d-spital-mannedorf-mannedorf",
-        "de": "medizinische-praxisassistentin-mpa-arztsekretarin-40-100-m-w-d-spital-maennedorf-ch",
-        "fr": "medizinische-praxisassistentin-mpa-arztsekretarin-40-100-m-w-d-spital-mannedorf-mannedorf"
-      },
-      "company": "Spital Männedorf",
-      "companyKey": "spital-maennedorf",
-      "companyDomain": "spitalmaennedorf.ch",
-      "title": "Medizinische Praxisassistentin (MPA) / Arztsekretärin 40-100% (m/w/d)",
-      "titleByLocale": {
-        "it": "Assistente medico (MPA) / Segretario medico 40-100% (m/f/d)",
-        "en": "Medical practice assistant (MPA) / Medical secretary 40-100% (m/f/d)",
-        "de": "Medizinische Praxisassistentin (MPA) / Arztsekretärin 40-100% (m/w/d)",
-        "fr": "Assistant au cabinet médical (MPA) / Secrétaire médical 40-100% (m/f/d)"
-      },
-      "description": "Spital Männedorf – Dein ganz besonderer Arbeitsort.\nOb ein kleines „Danke“ oder ein morgendliches „Grüezi“ - bei uns stehen echte Wertschätzung und Menschlichkeit im Vordergrund. Die Nähe in unserem Haus macht den Alltag unkompliziert und ermöglicht patientenzentrierte Arbeit auf höchstem Niveau. In einem Umfeld, in dem interdisziplinäre Zusammenarbeit auf Augenhöhe selbstverständlich ist, bieten wir individuelle Behandlungen von der medizinischen Erstversorgung bis zur Rehabilitation.\n\nDas Wesen deiner Tätigkeit:\n\n• Koordination der ambulanten medizinischen Sprechstunde (Gastroenterologie, Kardiologie und Pneumologie)\n• Führen der Agenda und verantwortlich für einen reibungslosen Tagesablauf\n• Zuständig für die Verwaltung, Abrechnung und den Versand medizinischer Berichte\n• In telefonischem Kontakt mit Patientinnen und Patienten, Zuweisern und Kliniken und Gewährleistung einer professionellen Korrespondenz\n• Verwaltung E-Mail-Postfach sowie elektronische Ablage aller Dokumente\n• Bearbeitung von eingehenden Zuweisungen und Versicherungsanfragen\n\nDie Basis deiner Leistung:\n\n• Ausbildung als Arztsekretär/in oder MPA mit Berufserfahrung\n• Stilsicherheit in der deutschen Sprache in Wort und Schrift, Englisch von Vorteil\n• Hohes Verantwortungsbewusstsein sowie selbständige und exakte Arbeitsweise\n• Motivierte Persönlichkeit mit Freude an guter Teamarbeit\n\nDie Gründe deiner Entscheidung:\nWir bieten moderne Arbeitsbedingungen, fördern interne Weiterbildungen und setzen auf fachlichen Austausch über alle Disziplinen hinweg. Die ruhige Lage direkt am See und die Nähe zur pulsierenden Stadt Zürich runden deinen Arbeitsplatz ab. Darüber hinaus kannst du dich auf ganz spezielle Vorteile freuen.",
-      "descriptionByLocale": {
-        "it": "Spital Männedorf – Il vostro luogo di lavoro molto speciale.\nChe sia un piccolo “grazie” o una mattina “grüezi” – ci concentriamo sull’apprezzamento reale e sull’umanità. La vicinanza nella nostra casa rende la vita di tutti i giorni semplice e permette il lavoro incentrato sul paziente al massimo livello. In un ambiente in cui la cooperazione interdisciplinare a livello degli occhi è una questione naturalmente, offriamo trattamenti individuali da cure mediche primarie a riabilitazione.\n\nLa natura della vostra attività:\n\n• Coordinamento della consultazione medica ambulatoriale (gastroenterologia, cardiologia e polmonologia)\n• Gestione dell'ordine del giorno e responsabile di una routine quotidiana regolare\n• Responsabile gestione, fatturazione e invio di rapporti medici\n• In contatto telefonico con i pazienti, i referral e le cliniche e garantire la corrispondenza professionale\n• Gestione della casella di posta elettronica e archiviazione elettronica di tutti i documenti\n• Elaborazione di allocazioni in entrata e richieste di assicurazioni\n\nLa base delle tue prestazioni:\n\n• Formazione come segretario medico o MPA con esperienza professionale\n• Sicurezza stilistica nella lingua tedesca nella parola e nella scrittura, l'inglese è vantaggioso\n• Alto senso di responsabilità e metodi di lavoro indipendenti ed esatti\n• Personalità motivata con piacere in un buon lavoro di squadra\n\nLe ragioni della vostra decisione:\nOffriamo condizioni di lavoro moderne, promuovere la formazione interna e concentrarsi sullo scambio professionale in tutte le discipline. La posizione tranquilla direttamente sul lago e la vicinanza alla vivace città di Zurigo arrotondano il vostro posto di lavoro. Inoltre, si può aspettare molto vantaggi speciali.",
-        "en": "Spital Männedorf – Your very special place of work.\nWhether a small “thank you” or a morning “grüezi” – we focus on real appreciation and humanity. The proximity in our house makes everyday life uncomplicated and allows patient-centered work at the highest level. In an environment where interdisciplinary cooperation at eye level is a matter of course, we offer individual treatments from primary medical care to rehabilitation.\n\nThe nature of your activity:\n\n• Coordination of outpatient medical consultation (gastroenterology, cardiology and pulmonology)\n• Managing the agenda and responsible for a smooth daily routine\n• Responsible for managing, billing and sending medical reports\n• In telephone contact with patients, referrals and clinics and ensuring professional correspondence\n• Management of e-mail inbox and electronic storage of all documents\n• Processing of incoming allocations and insurance requests\n\nThe basis of your performance:\n\n• Training as medical secretary or MPA with professional experience\n• Stylistic security in the German language in word and writing, English is advantageous\n• High sense of responsibility as well as independent and exact working methods\n• Motivated personality with pleasure in good teamwork\n\nThe reasons for your decision:\nWe offer modern working conditions, promote internal training and focus on professional exchange across all disciplines. The quiet location directly on the lake and the proximity to the vibrant city of Zurich round off your workplace. In addition, you can look forward to very special advantages.",
-        "de": "Spital Männedorf – Dein ganz besonderer Arbeitsort.\nOb ein kleines „Danke“ oder ein morgendliches „Grüezi“ - bei uns stehen echte Wertschätzung und Menschlichkeit im Vordergrund. Die Nähe in unserem Haus macht den Alltag unkompliziert und ermöglicht patientenzentrierte Arbeit auf höchstem Niveau. In einem Umfeld, in dem interdisziplinäre Zusammenarbeit auf Augenhöhe selbstverständlich ist, bieten wir individuelle Behandlungen von der medizinischen Erstversorgung bis zur Rehabilitation.\n\nDas Wesen deiner Tätigkeit:\n\n• Koordination der ambulanten medizinischen Sprechstunde (Gastroenterologie, Kardiologie und Pneumologie)\n• Führen der Agenda und verantwortlich für einen reibungslosen Tagesablauf\n• Zuständig für die Verwaltung, Abrechnung und den Versand medizinischer Berichte\n• In telefonischem Kontakt mit Patientinnen und Patienten, Zuweisern und Kliniken und Gewährleistung einer professionellen Korrespondenz\n• Verwaltung E-Mail-Postfach sowie elektronische Ablage aller Dokumente\n• Bearbeitung von eingehenden Zuweisungen und Versicherungsanfragen\n\nDie Basis deiner Leistung:\n\n• Ausbildung als Arztsekretär/in oder MPA mit Berufserfahrung\n• Stilsicherheit in der deutschen Sprache in Wort und Schrift, Englisch von Vorteil\n• Hohes Verantwortungsbewusstsein sowie selbständige und exakte Arbeitsweise\n• Motivierte Persönlichkeit mit Freude an guter Teamarbeit\n\nDie Gründe deiner Entscheidung:\nWir bieten moderne Arbeitsbedingungen, fördern interne Weiterbildungen und setzen auf fachlichen Austausch über alle Disziplinen hinweg. Die ruhige Lage direkt am See und die Nähe zur pulsierenden Stadt Zürich runden deinen Arbeitsplatz ab. Darüber hinaus kannst du dich auf ganz spezielle Vorteile freuen.",
-        "fr": "Spital Männedorf – Votre lieu de travail très spécial.\nQu'il s'agisse d'un petit merci ou d'un matin, nous nous concentrons sur l'appréciation et l'humanité réelles. La proximité de notre maison rend la vie quotidienne simple et permet un travail centré sur le patient au plus haut niveau. Dans un environnement où la coopération interdisciplinaire au niveau des yeux est une question bien sûr, nous offrons des traitements individuels, des soins médicaux primaires à la réadaptation.\n\nLa nature de votre activité :\n\n• Coordination de la consultation médicale externe (gastroentérologie, cardiologie et Pulmonologie)\n• Gérer l'ordre du jour et assurer une routine quotidienne sans heurt\n• Responsable de la gestion, de la facturation et de l'envoi des rapports médicaux\n• En contact téléphonique avec les patients, les aiguillages et les cliniques et en assurant la correspondance professionnelle\n• Gestion de la boîte de réception du courrier électronique et stockage électronique de tous les documents\n• Traitement des allocations reçues et des demandes d ' assurance\n\nLa base de votre performance:\n\n• Formation en tant que secrétaire médical ou MPA avec expérience professionnelle\n• Sécurité stylistique en langue allemande en paroles et en écriture, l'anglais est avantageux\n• Un sens élevé des responsabilités ainsi que des méthodes de travail indépendantes et précises\n• Personnalité motivée avec plaisir dans un bon travail d'équipe\n\nLes raisons de votre décision :\nNous offrons des conditions de travail modernes, promouvons la formation interne et nous nous concentrons sur les échanges professionnels dans toutes les disciplines. L'emplacement calme directement sur le lac et la proximité de la ville animée de Zurich complètent votre lieu de travail. En outre, vous pouvez attendre avec impatience des avantages très spéciaux."
-      },
-      "location": "Männedorf",
-      "canton": "ZH",
-      "url": "https://recruitingapp-2736.umantis.com/Vacancies/1941/Description/1",
-      "source": "Spital Männedorf Dedicated Parser (Umantis tenant 2736)",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-31T11:35:30.539Z",
-      "addressLocality": "Männedorf",
-      "postalCode": "8708",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-28",
-      "applyUrl": "https://recruitingapp-2736.umantis.com/Vacancies/1941/Application/CheckLogin/1",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "department": "Klinik Medizin",
-      "pensumMin": 40,
-      "pensumMax": 100,
-      "pensum": "40 - 100%",
-      "previousSlugs": [
-        "medizinische-praxisassistentin-mpa-arztsekretarin-40-100-m-w-d-spital-maennedorf-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "medizinische-praxisassistentin-mpa-arztsekretarin-40-100-m-w-d-spital-maennedorf-ch"
-        ]
-      },
-      "firstSeenAt": "2026-07-28T11:27:48.866Z",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "ZH",
-      "crawlerMissStreak": 2
+      "addressRegion": "ZH"
     }
   ]
 }
