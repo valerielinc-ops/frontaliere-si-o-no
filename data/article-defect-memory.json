@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-08-01T21:26:31.655Z",
+  "updatedAt": "2026-08-01T22:09:25.271Z",
   "entities": {
     "AASTI": {
       "status": "suspect",
@@ -601,13 +601,13 @@
       "statusSource": "auto",
       "statusAt": "2026-07-29T06:26:58.011Z",
       "firstSeen": "2026-07-29T06:26:58.011Z",
-      "lastSeen": "2026-08-01T18:54:02.574Z",
-      "seen": 48,
+      "lastSeen": "2026-08-01T22:09:25.271Z",
+      "seen": 49,
       "unsupportedSightings": 1,
       "unsupportedRuns": [
         "30685261901"
       ],
-      "supportedSightings": 35,
+      "supportedSightings": 36,
       "names": [
         "Agenzia delle Entrate, il MEF, e l'Ufficio Federale di Statistica",
         "Ufficio Federale di Statistica",
@@ -619,6 +619,13 @@
         "30685261901:unknown"
       ],
       "evidence": [
+        {
+          "at": "2026-08-01T22:09:25.271Z",
+          "runId": "30719344144",
+          "articleId": "unknown",
+          "support": "present",
+          "name": "Ufficio Federale di Statistica"
+        },
         {
           "at": "2026-08-01T18:54:02.574Z",
           "runId": "30711305711",
@@ -667,13 +674,6 @@
           "articleId": "unknown",
           "support": "present",
           "name": "Ufficio Federale di Statistica"
-        },
-        {
-          "at": "2026-08-01T06:10:05.052Z",
-          "runId": "30685261901",
-          "articleId": "unknown",
-          "support": "present",
-          "name": "Agenzia delle Entrate, la MEF, l'Ufficio Federale di Statistica"
         }
       ]
     },
@@ -6595,11 +6595,11 @@
       "statusSource": "auto",
       "statusAt": "2026-07-29T06:26:58.011Z",
       "firstSeen": "2026-07-29T06:26:58.011Z",
-      "lastSeen": "2026-08-01T21:26:31.655Z",
-      "seen": 35,
+      "lastSeen": "2026-08-01T22:09:25.271Z",
+      "seen": 41,
       "unsupportedSightings": 0,
       "unsupportedRuns": [],
-      "supportedSightings": 22,
+      "supportedSightings": 28,
       "names": [
         "Ufficio Regionale della Disoccupazione",
         "Ufficio Regionale di Collocamento",
@@ -6610,8 +6610,43 @@
       "recentKeys": [],
       "evidence": [
         {
-          "at": "2026-08-01T21:26:31.655Z",
-          "runId": "30717888873",
+          "at": "2026-08-01T22:09:25.271Z",
+          "runId": "30719344144",
+          "articleId": "unknown",
+          "support": "present",
+          "name": "Ufficio regionale di collocamento"
+        },
+        {
+          "at": "2026-08-01T22:09:25.271Z",
+          "runId": "30719344144",
+          "articleId": "unknown",
+          "support": "present",
+          "name": "Ufficio regionale di collocamento"
+        },
+        {
+          "at": "2026-08-01T22:09:25.271Z",
+          "runId": "30719344144",
+          "articleId": "unknown",
+          "support": "present",
+          "name": "Ufficio regionale di collocamento"
+        },
+        {
+          "at": "2026-08-01T22:09:25.271Z",
+          "runId": "30719344144",
+          "articleId": "unknown",
+          "support": "present",
+          "name": "Ufficio Regionale di Collocamento"
+        },
+        {
+          "at": "2026-08-01T22:09:25.271Z",
+          "runId": "30719344144",
+          "articleId": "unknown",
+          "support": "present",
+          "name": "Ufficio regionale di collocamento"
+        },
+        {
+          "at": "2026-08-01T22:09:25.271Z",
+          "runId": "30719344144",
           "articleId": "unknown",
           "support": "present",
           "name": "Ufficio regionale di collocamento"
@@ -6626,41 +6661,6 @@
         {
           "at": "2026-08-01T21:26:31.655Z",
           "runId": "30717888873",
-          "articleId": "unknown",
-          "support": "present",
-          "name": "Ufficio regionale di collocamento"
-        },
-        {
-          "at": "2026-08-01T21:26:31.655Z",
-          "runId": "30717888873",
-          "articleId": "unknown",
-          "support": "present",
-          "name": "Ufficio regionale di collocamento"
-        },
-        {
-          "at": "2026-08-01T21:26:31.655Z",
-          "runId": "30717888873",
-          "articleId": "unknown",
-          "support": "present",
-          "name": "Ufficio regionale di collocamento"
-        },
-        {
-          "at": "2026-08-01T09:40:18.223Z",
-          "runId": "30693054693",
-          "articleId": "unknown",
-          "support": "present",
-          "name": "Ufficio regionale di collocamento"
-        },
-        {
-          "at": "2026-08-01T09:40:18.223Z",
-          "runId": "30693054693",
-          "articleId": "unknown",
-          "support": "present",
-          "name": "Ufficio regionale di collocamento"
-        },
-        {
-          "at": "2026-08-01T09:40:18.223Z",
-          "runId": "30693054693",
           "articleId": "unknown",
           "support": "present",
           "name": "Ufficio regionale di collocamento"
