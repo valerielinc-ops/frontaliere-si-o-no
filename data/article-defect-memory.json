@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-08-01T10:16:50.191Z",
+  "updatedAt": "2026-08-01T11:35:11.508Z",
   "entities": {
     "AASTI": {
       "status": "suspect",
@@ -730,20 +730,20 @@
       "statusSource": "auto",
       "statusAt": "2026-07-29T14:56:18.665Z",
       "firstSeen": "2026-07-29T14:56:18.665Z",
-      "lastSeen": "2026-08-01T10:16:50.191Z",
-      "seen": 16,
+      "lastSeen": "2026-08-01T11:35:11.508Z",
+      "seen": 17,
       "unsupportedSightings": 0,
       "unsupportedRuns": [],
-      "supportedSightings": 16,
+      "supportedSightings": 17,
       "names": [
         "Commissione federale delle banche"
       ],
       "recentKeys": [],
       "evidence": [
         {
-          "at": "2026-08-01T10:16:50.191Z",
-          "runId": "30694253023",
-          "articleId": "unknown",
+          "at": "2026-08-01T11:35:11.508Z",
+          "runId": "30697370065",
+          "articleId": "keller-sutter-stabilita-finanze-sane",
           "support": "present",
           "name": "Commissione federale delle banche"
         },
@@ -769,8 +769,8 @@
           "name": "Commissione federale delle banche"
         },
         {
-          "at": "2026-08-01T09:40:18.223Z",
-          "runId": "30693054693",
+          "at": "2026-08-01T10:16:50.191Z",
+          "runId": "30694253023",
           "articleId": "unknown",
           "support": "present",
           "name": "Commissione federale delle banche"

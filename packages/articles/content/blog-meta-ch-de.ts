@@ -1735,6 +1735,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.telelavoro-frontalieri-implicazioni-pratiche.title': 'Telearbeit für grenzüberschreitende Pendler: Was ändert sich',
     'blog.article.telelavoro-frontalieri-implicazioni-pratiche.excerpt': 'Neues Abkommen über grenzüberschreitende Pendler: Was es vorsieht und wie es die Arbeit von Grenzpendlern beeinflussen wird.',
     'blog.article.telelavoro-frontalieri-implicazioni-pratiche.imageAlt': 'Eine Szene eines Frontalierers, der in Lugano arbeitet',
+    'blog.article.keller-sutter-stabilita-finanze-sane.title': 'Keller-Sutter: "Stabilität und solide Finanzen sind die Stärke der Schweiz"',
+    'blog.article.keller-sutter-stabilita-finanze-sane.excerpt': 'Bundesrätin Karin Keller-Sutter betonte heute anlässlich des Nationalfeiertags in Kradolf-Schönenberg (Thurgau) Stabilität, solide Finanzen und Konsensbildung.',
+    'blog.article.keller-sutter-stabilita-finanze-sane.imageAlt': 'Eine Schweizerische Bundesrätin spricht in einem Zelt vor einem Mehrzweckhalle in Lugano.',
 };
 
 export default blogMetaChDe;

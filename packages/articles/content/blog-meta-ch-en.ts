@@ -1735,6 +1735,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.telelavoro-frontalieri-implicazioni-pratiche.title': 'Teleworking for cross-border commuters: what changes',
     'blog.article.telelavoro-frontalieri-implicazioni-pratiche.excerpt': 'New Frontier Agreement: what it provides for and how it will affect the work of border workers.',
     'blog.article.telelavoro-frontalieri-implicazioni-pratiche.imageAlt': 'A scene of a commuter working in Lugano',
+    'blog.article.keller-sutter-stabilita-finanze-sane.title': 'Keller-Sutter: "Stability and sound finances are Switzerland\'s strength"',
+    'blog.article.keller-sutter-stabilita-finanze-sane.excerpt': 'Federal Councillor Karin Keller-Sutter emphasised stability, sound finances and consensus-building on the occasion of the national holiday in Kradolf-Schönenberg (Thurgau) today.',
+    'blog.article.keller-sutter-stabilita-finanze-sane.imageAlt': 'A Swiss Federal Councillor speaks in a tent in front of a multi-purpose hall in Lugano.',
 };
 
 export default blogMetaChEn;

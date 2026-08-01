@@ -22442,6 +22442,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-keller-sutter-stabilita-finanze-sane': {
+    title: 'Keller-Sutter: «Stabilità e finanze sane, la forza della Svizzera»',
+    description: 'La consigliera federale Karin Keller-Sutter ha posto l\'accento su stabilità, finanze solide e ricerca del consenso intervenendo oggi a Kradolf-Schönenberg (TG)',
+    keywords: 'frontalieri, ticino, svizzera, italia, keller-sutter, stabilità, finanze, sane',
+    ogTitle: 'Keller-Sutter: Stabilità e finanze sane, la forza della Svizzera',
+    ogDescription: 'La consigliera federale Karin Keller-Sutter ha posto l\'accento su stabilità, finanze solide e ricerca del consenso intervenendo oggi a Kradolf-Schönenberg (TG)',
+    canonicalPath: '/articoli-svizzera/keller-sutter-stabilita-finanze-sane/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Keller-Sutter: «Stabilità e finanze sane, la forza della Svizzera»",
+      "description": "La consigliera federale Karin Keller-Sutter ha posto l'accento su stabilità, finanze solide e ricerca del consenso intervenendo oggi a Kradolf-Schönenberg (TG)",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/keller-sutter-stabilita-finanze-sane.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una consigliera federale parla in un tendone davanti al palazzetto polivalente a Lugano."
+      },
+      "datePublished": "2026-08-01T11:35:10+00:00",
+      "dateModified": "2026-08-01T11:35:10+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/keller-sutter-stabilita-finanze-sane/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

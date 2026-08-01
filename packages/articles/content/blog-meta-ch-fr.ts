@@ -1735,6 +1735,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.telelavoro-frontalieri-implicazioni-pratiche.title': 'Le télétravail pour les navetteurs transfrontaliers : quels changements',
     'blog.article.telelavoro-frontalieri-implicazioni-pratiche.excerpt': 'Nouvel accord transfrontalier pour les navetteurs : ce qu’il prévoit et comment il affectera le travail des navetteurs transfrontaliers.',
     'blog.article.telelavoro-frontalieri-implicazioni-pratiche.imageAlt': 'Une scène d\'un frontalier qui travaille à Lugano',
+    'blog.article.keller-sutter-stabilita-finanze-sane.title': 'Svizzera: stabilità e finanze sane, la nostra forza',
+    'blog.article.keller-sutter-stabilita-finanze-sane.excerpt': 'La conseillère fédérale Karin Keller-Sutter a mis l’accent sur la stabilité, des finances saines et la construction du consensus à l’occasion du jour férié national à Kradolf-Schönenberg (Thurgovie) aujourd’hui.',
+    'blog.article.keller-sutter-stabilita-finanze-sane.imageAlt': 'Une Conseillère fédérale suisse parle dans un tent en face d\'une salle omnisports à Lugano.',
 };
 
 export default blogMetaChFr;
