@@ -11,8 +11,14 @@
     "https://relewant.zohorecruit.com/jobs/Careers"
   ],
   "notes": "Dedicated ReleWant crawler reads the Zoho Recruit public JSON API. No HTML scraping needed. Keeps Ticino IT consulting vacancies.",
-  "updatedAt": "2026-08-01T11:35:27.210Z",
+  "updatedAt": "2026-08-01T22:17:33.295Z",
   "seedMetaByUrl": {
+    "https://relewant.zohorecruit.com/jobs/Careers/467189000020211001/Network-Security-Engineer": {
+      "location": "Chiasso",
+      "canton": "TI",
+      "company": "ReleWant",
+      "postedDate": "2026-08-01"
+    },
     "https://relewant.zohorecruit.com/jobs/Careers/467189000019784004/Data-Engineer": {
       "location": "Chiasso",
       "canton": "TI",
@@ -20,12 +26,6 @@
       "postedDate": "2026-08-01"
     },
     "https://relewant.zohorecruit.com/jobs/Careers/467189000018616085/Java-Developer": {
-      "location": "Chiasso",
-      "canton": "TI",
-      "company": "ReleWant",
-      "postedDate": "2026-08-01"
-    },
-    "https://relewant.zohorecruit.com/jobs/Careers/467189000020211001/Network-Security-Engineer": {
       "location": "Chiasso",
       "canton": "TI",
       "company": "ReleWant",
