@@ -1,16 +1,16 @@
 {
   "key": "rieter",
   "label": "Rieter",
-  "generatedAt": "2026-07-31T22:09:08.743Z",
+  "generatedAt": "2026-08-01T10:49:21.606Z",
   "total": 4,
   "newCount": 0,
-  "updatedCount": 4,
+  "updatedCount": 3,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 8333,
-  "avgDurationMs": 8333,
+  "unchangedCount": 1,
+  "durationMs": 8456,
+  "avgDurationMs": 8456,
   "durationHistory": [
-    8333
+    8456
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -26,7 +26,7 @@
       "url": "https://live.solique.ch/rieter/en/jobs/Application-Expert-CAD-PLM-100-wmd---4047046",
       "source": "Rieter Dedicated Parser (Solique)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-31T22:09:03.091Z",
+      "crawledAt": "2026-08-01T10:49:17.500Z",
       "addressLocality": "Winterthur",
       "addressRegion": "Zürich",
       "streetAddress": "Klosterstrasse 20",
@@ -64,7 +64,7 @@
       "url": "https://live.solique.ch/rieter/en/jobs/Senior-System-Engineer--4046390",
       "source": "Rieter Dedicated Parser (Solique)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-31T22:09:05.273Z",
+      "crawledAt": "2026-08-01T10:49:18.114Z",
       "addressLocality": "Winterthur",
       "addressRegion": "Zürich",
       "streetAddress": "Klosterstrasse 20",
@@ -102,7 +102,7 @@
       "url": "https://live.solique.ch/rieter/en/jobs/Application-Engineer-Technology-Preparation--4042993",
       "source": "Rieter Dedicated Parser (Solique)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-31T22:09:02.423Z",
+      "crawledAt": "2026-08-01T10:49:16.939Z",
       "addressLocality": "Winterthur",
       "addressRegion": "Zürich",
       "streetAddress": "Klosterstrasse 20",
@@ -127,10 +127,13 @@
         "translation": 25,
         "completeness": 20
       }
-    },
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "rieter-5cbc6f09de36",
-      "slug": "sachbearbeiter-in-export-und-sales-administration-80-100-rieter-pfaffikon-zh",
+      "slug": "sachbearbeiter-in-export-e-sales-administration-80-100-rieter-pfaffikon",
       "company": "Rieter",
       "companyKey": "rieter",
       "companyDomain": "rieter.com",
@@ -139,7 +142,7 @@
       "canton": "ZH",
       "url": "https://live.solique.ch/rieter/en/jobs/Sachbearbeiterin-Export-und-Sales-Administration-80-100---4031767",
       "source": "Rieter Dedicated Parser (Solique)",
-      "sourceLang": "de",
+      "sourceLang": "en",
       "crawledAt": "2026-07-31T22:09:04.565Z",
       "addressLocality": "Pfäffikon ZH",
       "addressRegion": "Zürich",
@@ -158,15 +161,16 @@
       "jobReqId": null,
       "employerBrand": "Bräcker",
       "firstSeenAt": "2026-07-04T12:31:14.154Z",
-      "_qualityScore": 64,
+      "salaryMin": 73500,
+      "salaryMax": 111500,
+      "crawlerMissStreak": 1,
+      "_qualityScore": 69,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 0,
         "translation": 25,
-        "completeness": 14
+        "completeness": 19
       }
     }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": []
+  ]
 }
