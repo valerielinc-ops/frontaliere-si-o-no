@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-08-01T01:12:27.933Z",
+  "updatedAt": "2026-08-01T04:32:17.087Z",
   "entities": {
     "AASTI": {
       "status": "suspect",
@@ -723,16 +723,30 @@
       "statusSource": "auto",
       "statusAt": "2026-07-29T14:56:18.665Z",
       "firstSeen": "2026-07-29T14:56:18.665Z",
-      "lastSeen": "2026-07-29T16:30:57.787Z",
-      "seen": 3,
+      "lastSeen": "2026-08-01T04:32:17.087Z",
+      "seen": 5,
       "unsupportedSightings": 0,
       "unsupportedRuns": [],
-      "supportedSightings": 3,
+      "supportedSightings": 5,
       "names": [
         "Commissione federale delle banche"
       ],
       "recentKeys": [],
       "evidence": [
+        {
+          "at": "2026-08-01T04:32:17.087Z",
+          "runId": "30683682399",
+          "articleId": "frontalieri-riapertura-attivita-edilizia",
+          "support": "present",
+          "name": "Commissione federale delle banche"
+        },
+        {
+          "at": "2026-08-01T04:32:17.087Z",
+          "runId": "30683682399",
+          "articleId": "frontalieri-riapertura-attivita-edilizia",
+          "support": "present",
+          "name": "Commissione federale delle banche"
+        },
         {
           "at": "2026-07-29T16:30:57.787Z",
           "runId": "30469517452",

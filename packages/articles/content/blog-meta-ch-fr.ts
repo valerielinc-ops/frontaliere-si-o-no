@@ -1729,6 +1729,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.medacta-crescita-ricavi-pietro.title': 'Medacta en croissance, résultats positifs au premier semestre',
     'blog.article.medacta-crescita-ricavi-pietro.excerpt': 'Le groupe basé à Castel San Pietro (TI) a réalisé un chiffre d\'affaires de 368 millions d\'euros au premier semestre 2025, soit une augmentation de 7 % par rapport à la même période de l\'année précédente.',
     'blog.article.medacta-crescita-ricavi-pietro.imageAlt': 'Image d\'une ville suisse avec un gratte-ciel',
+    'blog.article.frontalieri-riapertura-attivita-edilizia.title': '10 000 frontalieri, lunghe code al confine',
+    'blog.article.frontalieri-riapertura-attivita-edilizia.excerpt': 'Le canton du Tessin a décidé de rouvrir les activités liées à la construction, impliquant de nombreux travailleurs italiens transfrontaliers.',
+    'blog.article.frontalieri-riapertura-attivita-edilizia.imageAlt': 'Image d\'un chantier de construction en Suisse avec des travailleurs frontaliers italiens',
 };
 
 export default blogMetaChFr;
