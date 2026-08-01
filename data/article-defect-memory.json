@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-08-01T22:58:31.539Z",
+  "updatedAt": "2026-08-01T23:15:03.578Z",
   "entities": {
     "AASTI": {
       "status": "suspect",
@@ -172,28 +172,37 @@
       "statusSource": "auto",
       "statusAt": "2026-07-29T06:26:58.011Z",
       "firstSeen": "2026-07-29T06:26:58.011Z",
-      "lastSeen": "2026-08-01T18:54:02.574Z",
-      "seen": 50,
-      "unsupportedSightings": 3,
+      "lastSeen": "2026-08-01T23:15:03.578Z",
+      "seen": 51,
+      "unsupportedSightings": 4,
       "unsupportedRuns": [
+        "30722418922",
         "30685261901",
         "30595579311",
         "30489213850"
       ],
       "supportedSightings": 27,
       "names": [
+        "Amministrazione federale delle contribuzioni",
         "Amministrazione Federale delle Contribuzioni",
         "Ufficio federale delle contribuzioni",
         "Agenzia delle Entrate e l'Amministrazione Federale delle Contribuzioni",
-        "Ufficio Cantonale delle Contribuzioni",
-        "Agenzia federale delle contribuzioni"
+        "Ufficio Cantonale delle Contribuzioni"
       ],
       "recentKeys": [
+        "30722418922:svizzera-ceuta-melilla-controlli-frontiere",
         "30685261901:unknown",
         "30595579311:vivere-varzo-lavorare-ticino",
         "30489213850:unknown"
       ],
       "evidence": [
+        {
+          "at": "2026-08-01T23:15:03.578Z",
+          "runId": "30722418922",
+          "articleId": "svizzera-ceuta-melilla-controlli-frontiere",
+          "support": "absent",
+          "name": "Amministrazione federale delle contribuzioni"
+        },
         {
           "at": "2026-08-01T18:54:02.574Z",
           "runId": "30711305711",
@@ -242,13 +251,6 @@
           "articleId": "unknown",
           "support": "absent",
           "name": "Agenzia federale delle contribuzioni"
-        },
-        {
-          "at": "2026-08-01T05:07:38.771Z",
-          "runId": "30684723546",
-          "articleId": "telelavoro-frontalieri-implicazioni-pratiche",
-          "support": "unknown",
-          "name": "Amministrazione Federale delle Contribuzioni"
         }
       ]
     },
@@ -601,10 +603,11 @@
       "statusSource": "auto",
       "statusAt": "2026-07-29T06:26:58.011Z",
       "firstSeen": "2026-07-29T06:26:58.011Z",
-      "lastSeen": "2026-08-01T22:09:25.271Z",
-      "seen": 49,
-      "unsupportedSightings": 1,
+      "lastSeen": "2026-08-01T23:15:03.578Z",
+      "seen": 50,
+      "unsupportedSightings": 2,
       "unsupportedRuns": [
+        "30722418922",
         "30685261901"
       ],
       "supportedSightings": 36,
@@ -616,9 +619,17 @@
         "Ufficio Federale delle Statistiche"
       ],
       "recentKeys": [
+        "30722418922:svizzera-ceuta-melilla-controlli-frontiere",
         "30685261901:unknown"
       ],
       "evidence": [
+        {
+          "at": "2026-08-01T23:15:03.578Z",
+          "runId": "30722418922",
+          "articleId": "svizzera-ceuta-melilla-controlli-frontiere",
+          "support": "absent",
+          "name": "Ufficio federale di statistica"
+        },
         {
           "at": "2026-08-01T22:09:25.271Z",
           "runId": "30719344144",
@@ -657,13 +668,6 @@
         {
           "at": "2026-08-01T10:16:50.191Z",
           "runId": "30694253023",
-          "articleId": "unknown",
-          "support": "present",
-          "name": "Ufficio Federale di Statistica"
-        },
-        {
-          "at": "2026-08-01T06:10:05.052Z",
-          "runId": "30685261901",
           "articleId": "unknown",
           "support": "present",
           "name": "Ufficio Federale di Statistica"
@@ -730,20 +734,41 @@
       "statusSource": "auto",
       "statusAt": "2026-07-29T14:56:18.665Z",
       "firstSeen": "2026-07-29T14:56:18.665Z",
-      "lastSeen": "2026-08-01T16:50:58.177Z",
-      "seen": 21,
+      "lastSeen": "2026-08-01T23:15:03.578Z",
+      "seen": 25,
       "unsupportedSightings": 0,
       "unsupportedRuns": [],
-      "supportedSightings": 21,
+      "supportedSightings": 25,
       "names": [
         "Commissione federale delle banche"
       ],
       "recentKeys": [],
       "evidence": [
         {
-          "at": "2026-08-01T16:50:58.177Z",
-          "runId": "30708506247",
-          "articleId": "cassis-duedingen",
+          "at": "2026-08-01T23:15:03.578Z",
+          "runId": "30722418922",
+          "articleId": "svizzera-ceuta-melilla-controlli-frontiere",
+          "support": "present",
+          "name": "Commissione federale delle banche"
+        },
+        {
+          "at": "2026-08-01T23:15:03.578Z",
+          "runId": "30722418922",
+          "articleId": "svizzera-ceuta-melilla-controlli-frontiere",
+          "support": "present",
+          "name": "Commissione federale delle banche"
+        },
+        {
+          "at": "2026-08-01T23:15:03.578Z",
+          "runId": "30722418922",
+          "articleId": "svizzera-ceuta-melilla-controlli-frontiere",
+          "support": "present",
+          "name": "Commissione federale delle banche"
+        },
+        {
+          "at": "2026-08-01T23:15:03.578Z",
+          "runId": "30722418922",
+          "articleId": "svizzera-ceuta-melilla-controlli-frontiere",
           "support": "present",
           "name": "Commissione federale delle banche"
         },
@@ -769,30 +794,9 @@
           "name": "Commissione federale delle banche"
         },
         {
-          "at": "2026-08-01T11:35:11.508Z",
-          "runId": "30697370065",
-          "articleId": "keller-sutter-stabilita-finanze-sane",
-          "support": "present",
-          "name": "Commissione federale delle banche"
-        },
-        {
-          "at": "2026-08-01T10:16:50.191Z",
-          "runId": "30694253023",
-          "articleId": "unknown",
-          "support": "present",
-          "name": "Commissione federale delle banche"
-        },
-        {
-          "at": "2026-08-01T10:16:50.191Z",
-          "runId": "30694253023",
-          "articleId": "unknown",
-          "support": "present",
-          "name": "Commissione federale delle banche"
-        },
-        {
-          "at": "2026-08-01T10:16:50.191Z",
-          "runId": "30694253023",
-          "articleId": "unknown",
+          "at": "2026-08-01T16:50:58.177Z",
+          "runId": "30708506247",
+          "articleId": "cassis-duedingen",
           "support": "present",
           "name": "Commissione federale delle banche"
         }

@@ -1744,6 +1744,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.redditi-estero-controlli-doppia-tassazione.title': 'Ausländische Einkünfte: Doppelbesteuerung vermeiden',
     'blog.article.redditi-estero-controlli-doppia-tassazione.excerpt': 'Neue Regeln für grenzüberschreitende Pendler: Befreiungen, Befreiungen und wie man Doppelbesteuerung vermeidet.',
     'blog.article.redditi-estero-controlli-doppia-tassazione.imageAlt': 'Ein Grenzgänger mit Steuerdokumenten und einem Taschenrechner',
+    'blog.article.svizzera-ceuta-melilla-controlli-frontiere.title': 'Nach Ceuta und Melilla folgten Grenzkontrollen',
+    'blog.article.svizzera-ceuta-melilla-controlli-frontiere.excerpt': 'Zehntausende Migranten überquerten die Grenze in den Schengen-Raum. Die Episode entzündet die politische Debatte, auch in der Schweiz.',
+    'blog.article.svizzera-ceuta-melilla-controlli-frontiere.imageAlt': 'Panoramablick auf den Luganersee mit den Schweizer Bergen im Hintergrund.',
 };
 
 export default blogMetaChDe;
