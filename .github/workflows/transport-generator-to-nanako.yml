@@ -55,9 +55,26 @@ jobs:
     steps:
       # v5, not v4: v4's Node runtime gate fails on this runner image (see the
       # migration issue's "Trappole" section) — the repo standardises on v5.
+      #
+      # Sparse: this job reads the manifest and the ~67 files it names, nothing
+      # else. A full checkout materialises the whole working tree — 14k corpus
+      # files under packages/articles plus public/ — for no benefit here. The
+      # first attempt at this workflow (run 30719465152) sat in `checkout` for
+      # 17 minutes against the ~90s the rest of the repo's workflows take, and
+      # was cancelled; keeping the tree small removes that failure mode rather
+      # than hoping the runner behaves next time.
+      #
+      # If the manifest ever grows an entry outside these two prefixes, the
+      # "Resolve manifest" step's existence check fails loudly with the exact
+      # path — a missing sparse prefix cannot degrade into silently shipping
+      # fewer files.
       - uses: actions/checkout@v5
         with:
           fetch-depth: 1
+          sparse-checkout: |
+            .github/transport
+            scripts
+          sparse-checkout-cone-mode: true
 
       - name: Guard - target branch must not be nanako's default branch
         id: guard-branch
