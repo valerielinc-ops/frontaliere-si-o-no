@@ -1,16 +1,16 @@
 {
   "key": "privatklinik-hohenegg",
   "label": "Privatklinik Hohenegg",
-  "generatedAt": "2026-08-01T10:47:36.888Z",
-  "total": 2,
+  "generatedAt": "2026-08-01T21:58:13.833Z",
+  "total": 1,
   "newCount": 0,
   "updatedCount": 1,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 6202,
-  "avgDurationMs": 6202,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 5569,
+  "avgDurationMs": 5569,
   "durationHistory": [
-    6202
+    5569
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -27,7 +27,7 @@
       "url": "https://apply.refline.ch/640332/0063/pub/2/index.html",
       "source": "Privatklinik Hohenegg Dedicated Parser (Refline 640332)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-01T10:47:31.532Z",
+      "crawledAt": "2026-08-01T21:58:09.436Z",
       "addressLocality": "Meilen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -55,8 +55,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "privatklinik-hohenegg-4aec380d7fbc",
       "slug": "fachperson-gesundheit-cfc-60-100-privatklinik-hohenegg-meilen",
@@ -99,5 +98,6 @@
         "completeness": 22
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
