@@ -1,16 +1,16 @@
 {
   "key": "privatklinik-hohenegg",
   "label": "Privatklinik Hohenegg",
-  "generatedAt": "2026-07-31T22:08:07.610Z",
+  "generatedAt": "2026-08-01T10:47:36.888Z",
   "total": 2,
   "newCount": 0,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 7638,
-  "avgDurationMs": 7638,
+  "durationMs": 6202,
+  "avgDurationMs": 6202,
   "durationHistory": [
-    7638
+    6202
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -27,7 +27,7 @@
       "url": "https://apply.refline.ch/640332/0063/pub/2/index.html",
       "source": "Privatklinik Hohenegg Dedicated Parser (Refline 640332)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-31T22:08:00.695Z",
+      "crawledAt": "2026-08-01T10:47:31.532Z",
       "addressLocality": "Meilen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -90,7 +90,7 @@
       "firstSeenAt": "2026-07-03T23:11:37.913Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
