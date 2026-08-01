@@ -9168,6 +9168,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.nuove-regole-telelavoro-frontalieri-italia-svizzera.title': 'Nouvelles règles de télétravail pour les frontaliers entre l\'Italie et la Suisse',
     'blog.article.nuove-regole-telelavoro-frontalieri-italia-svizzera.excerpt': 'À compter du lundi 9 février 2026, les nouvelles règles réglementent le télétravail des frontaliers entre l\'Italie et la Suisse.',
     'blog.article.nuove-regole-telelavoro-frontalieri-italia-svizzera.imageAlt': 'Un frontalier en vélo sur la frontière italo-suisse, avec le Lac de Lugano en arrière-plan.',
+    'blog.article.casellario-da-berna-l-ok-per-studiare-un-accordo-per-lo-scambio-di-dati-con-l-italia.title': 'Casellario: Berna approva accordo dati con l\'Italia',
+    'blog.article.casellario-da-berna-l-ok-per-studiare-un-accordo-per-lo-scambio-di-dati-con-l-italia.excerpt': 'La Suisse a donné le feu vert à l’étude d’un accord d’échange de données avec l’Italie. L’accord vise à simplifier la gestion des données des travailleurs transfrontaliers.',
+    'blog.article.casellario-da-berna-l-ok-per-studiare-un-accordo-per-lo-scambio-di-dati-con-l-italia.imageAlt': 'Un groupe de frontaliers qui étudient un accord pour un échange de données avec l\'Italie dans un environnement de travail à Lugano, Tessin.',
 };
 
 export default blogMetaFr;

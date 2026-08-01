@@ -57908,6 +57908,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-casellario-da-berna-l-ok-per-studiare-un-accordo-per-lo-scambio-di-dati-con-l-italia': {
+    title: 'Casellario, Berna approva accordo dati con l\'Italia',
+    description: 'La Svizzera ha dato il via libera allo studio di un accordo per uno scambio di dati con l\'Italia. L\'accordo mira a semplificare la gestione dei dati dei',
+    keywords: 'frontalieri, ticino, svizzera, italia, casellario, berna, approva, accordo',
+    ogTitle: 'Casellario, da Berna l\'OK per studiare un accordo per uno scambio di dati con l\'Italia',
+    ogDescription: 'La Svizzera ha dato il via libera allo studio di un accordo per uno scambio di dati con l\'Italia. L\'accordo mira a semplificare la gestione dei dati dei',
+    canonicalPath: '/articoli-frontaliere/casellario-da-berna-l-ok-per-studiare-un-accordo-per-lo-scambio-di-dati-con-l-italia',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Casellario, Berna approva accordo dati con l'Italia",
+      "description": "La Svizzera ha dato il via libera allo studio di un accordo per uno scambio di dati con l'Italia. L'accordo mira a semplificare la gestione dei dati dei",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/casellario-da-berna-l-ok-per-studiare-un-accordo-per-lo-scambio-di-dati-con-l-italia.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un gruppo di frontalieri che studiano un accordo per uno scambio di dati con l'Italia in un ambiente di lavoro in Lugano, Ticino."
+      },
+      "datePublished": "2026-08-01T04:17:33+00:00",
+      "dateModified": "2026-08-01T04:17:33+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/casellario-da-berna-l-ok-per-studiare-un-accordo-per-lo-scambio-di-dati-con-l-italia/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

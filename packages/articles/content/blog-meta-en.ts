@@ -9166,6 +9166,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.nuove-regole-telelavoro-frontalieri-italia-svizzera.title': 'New rules for teleworking for border workers between Italy and Switzerland',
     'blog.article.nuove-regole-telelavoro-frontalieri-italia-svizzera.excerpt': 'As of Monday, February 9, 2026, the new rules govern the teleworking of border workers between Italy and Switzerland.',
     'blog.article.nuove-regole-telelavoro-frontalieri-italia-svizzera.imageAlt': 'A frontaliere in bike on the Italy-Switzerland border, with the Lake Lugano in the background.',
+    'blog.article.casellario-da-berna-l-ok-per-studiare-un-accordo-per-lo-scambio-di-dati-con-l-italia.title': 'Criminal records, Bern approves data agreement with Italy',
+    'blog.article.casellario-da-berna-l-ok-per-studiare-un-accordo-per-lo-scambio-di-dati-con-l-italia.excerpt': 'Switzerland has given the green light to the study of an agreement for an exchange of data with Italy. The agreement aims to simplify the management of cross-border workers\' data.',
+    'blog.article.casellario-da-berna-l-ok-per-studiare-un-accordo-per-lo-scambio-di-dati-con-l-italia.imageAlt': 'A group of border workers studying an agreement for data exchange with Italy in a workplace in Lugano, Ticino.',
 };
 
 export default blogMetaEn;
