@@ -27534,6 +27534,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'frontalieri-richiamati-lavoro-svizzera',
+ category: 'pratico',
+ date: '2026-08-01T09:04:15.709Z',
+ image: '/images/blog/frontalieri-richiamati-lavoro-svizzera.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

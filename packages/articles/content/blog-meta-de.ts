@@ -9171,6 +9171,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.organico-incompleto-congelate-le-hcap-women.title': 'Unvollständige Belegschaft: Hcap Women ’einfrieren’',
     'blog.article.organico-incompleto-congelate-le-hcap-women.excerpt': 'Ambrì Piotta gibt bekannt, dass das blau-weiße Team für die Damenwettbewerbe der Saison 2026/27 nicht registriert wird.',
     'blog.article.organico-incompleto-congelate-le-hcap-women.imageAlt': 'Ein Gruppe von Hcap Women-Spielern in Aktion während eines Freundschaftsspiels.',
+    'blog.article.frontalieri-richiamati-lavoro-svizzera.title': '10.000 Grenzpendler zurück zur Arbeit gerufen',
+    'blog.article.frontalieri-richiamati-lavoro-svizzera.excerpt': 'Laut der Quelle wurden etwa 10.000 italienische Grenzpendler zurück zur Arbeit in die Schweiz gerufen, mit langen Warteschlangen an der Grenze.',
+    'blog.article.frontalieri-richiamati-lavoro-svizzera.imageAlt': 'Frontalieri in der Schlange am Grenzübergang Brogeda, April 2020',
 };
 
 export default blogMetaDe;
