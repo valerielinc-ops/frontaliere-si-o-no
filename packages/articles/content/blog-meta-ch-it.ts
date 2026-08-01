@@ -1729,6 +1729,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.medacta-crescita-ricavi-pietro.title': 'Medacta ancora in crescita, aumentano i ricavi nei primi sei mesi',
     'blog.article.medacta-crescita-ricavi-pietro.excerpt': 'Il gruppo con sede a Castel San Pietro (TI) ha realizzato un fatturato di 368 milioni di euro nel primo semestre del 2025, un aumento del 7% rispetto allo stesso periodo dell\'anno precedente.',
     'blog.article.medacta-crescita-ricavi-pietro.imageAlt': 'Immagine di una città svizzera con un grattacielo',
+    'blog.article.frontalieri-riapertura-attivita-edilizia.title': '10mila frontalieri riapertura attività edilizia: lunghe code al confine',
+    'blog.article.frontalieri-riapertura-attivita-edilizia.excerpt': 'Il Canton Ticino ha deciso di riaprire le attività legate all\'edilizia, coinvolgendo molti operai frontalieri italiani.',
+    'blog.article.frontalieri-riapertura-attivita-edilizia.imageAlt': 'Immagine di un cantiere edile in Svizzera con lavoratori frontalieri italiani',
 };
 
 export default blogMetaChIt;

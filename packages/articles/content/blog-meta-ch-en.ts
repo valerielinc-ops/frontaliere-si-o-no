@@ -1729,6 +1729,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.medacta-crescita-ricavi-pietro.title': 'Medacta still growing, revenues increase in the first six months',
     'blog.article.medacta-crescita-ricavi-pietro.excerpt': 'The group based in Castel San Pietro (TI) achieved a turnover of 368 million euros in the first half of 2025, an increase of 7% compared to the same period of the previous year.',
     'blog.article.medacta-crescita-ricavi-pietro.imageAlt': 'Image of a Swiss city with a skyscraper',
+    'blog.article.frontalieri-riapertura-attivita-edilizia.title': '10,000 Commuters Reopen Construction: Long Border Queues',
+    'blog.article.frontalieri-riapertura-attivita-edilizia.excerpt': 'The Canton of Ticino has decided to reopen activities related to construction, involving many Italian cross-border workers.',
+    'blog.article.frontalieri-riapertura-attivita-edilizia.imageAlt': 'Image of a construction site in Switzerland with Italian frontier workers',
 };
 
 export default blogMetaChEn;
