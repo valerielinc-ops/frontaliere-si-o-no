@@ -32,6 +32,7 @@ import { fileURLToPath } from 'node:url';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { stableSlugHash } from './lib/dedicated-crawler-common.mjs';
 import { resolveJobDiffKey } from './lib/job-match-key.mjs';
+import { createCatFileBatch } from './lib/git-cat-file-batch.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -234,11 +235,23 @@ const _fileLocaleCache = new Map();
  * Build an index for ALL jobs in one slice file in a single pass over
  * the file's git history. Per-job lookup becomes O(1) afterwards.
  *
+ * Root cause of issue #5025: this used to spawn a fresh `execSync('git show
+ * <commit>:<path>')` process per historical blob (up to `maxCommits` per
+ * file) — the exact per-blob-subprocess anti-pattern already identified and
+ * fixed in scripts/scan-prev-slug-losses.mjs (issue #4654) via a long-lived
+ * `git cat-file --batch` process, but never carried over to this sibling
+ * script. With the scan step's own bottleneck fixed, this became the new
+ * dominant cost (coop-ticino.json's 352 jobs alone took 3+ minutes),
+ * cancelling the scheduled job mid-run. Reuses the SAME shared batch process
+ * (scripts/lib/git-cat-file-batch.mjs) across every file instead of spawning
+ * one per historical blob.
+ *
  * @param {string} file absolute path to the slice file
+ * @param {ReturnType<typeof createCatFileBatch>} catFile shared batch process
  * @param {number} [maxCommits=400] cap on history walked (newest first)
- * @returns {Map<string, Map<string, string>>} jobId → slug → locale
+ * @returns {Promise<Map<string, Map<string, string>>>} jobId → slug → locale
  */
-function buildFileLocaleIndex(file, maxCommits = 400) {
+async function buildFileLocaleIndex(file, catFile, maxCommits = 400) {
   if (_fileLocaleCache.has(file)) return _fileLocaleCache.get(file);
   const rel = path.relative(ROOT, file);
   let commits;
@@ -255,13 +268,8 @@ function buildFileLocaleIndex(file, maxCommits = 400) {
   /** @type {Map<string, Map<string,string>>} */
   const byJob = new Map();
   for (const commit of commits) {
-    let content;
-    try {
-      content = execSync(`git show ${commit}:${rel}`, {
-        encoding: 'utf8', maxBuffer: 100 * 1024 * 1024,
-        stdio: ['ignore', 'pipe', 'ignore'], cwd: ROOT,
-      });
-    } catch { continue; }
+    const content = await catFile.get(`${commit}:${rel}`);
+    if (content == null) continue;
     let parsed;
     try { parsed = JSON.parse(content); } catch { continue; }
     if (!Array.isArray(parsed?.jobs)) continue;
@@ -288,7 +296,7 @@ function buildFileLocaleIndex(file, maxCommits = 400) {
   return byJob;
 }
 
-function main() {
+async function main() {
   const args = process.argv.slice(2);
   const DRY_RUN = args.includes('--dry-run');
   const inputIdx = args.indexOf('--input');
@@ -325,6 +333,11 @@ function main() {
     filesByName.get(entry.file).push(entry);
   }
 
+  // Shared long-lived `git cat-file --batch` process (see
+  // scripts/lib/git-cat-file-batch.mjs) — ONE process serves every historical
+  // blob lookup across every file below instead of one subprocess per commit.
+  const catFile = createCatFileBatch(ROOT);
+
   let fileCount = 0;
   for (const [file, entries] of filesByName) {
     fileCount++;
@@ -338,7 +351,7 @@ function main() {
     const byId = new Map(slice.jobs.map(j => [resolveJobDiffKey(j), j]).filter(([k]) => k));
 
     // Build the per-file locale index ONCE; per-job lookup is O(1) below.
-    const fileIndex = buildFileLocaleIndex(filePath);
+    const fileIndex = await buildFileLocaleIndex(filePath, catFile);
 
     // Map every current job's own content-hash disambiguator to itself, so a
     // recovered slug carrying a MISMATCHED tail can be redirected to its real
@@ -389,6 +402,7 @@ function main() {
       stats.filesUpdated++;
     }
   }
+  catFile.close();
 
   console.log('\n📊 Backfill complete:');
   console.log(`  files updated:               ${stats.filesUpdated}${DRY_RUN ? ' (dry-run, no writes)' : ''}`);
@@ -412,5 +426,8 @@ const isMain = (() => {
 })();
 
 if (isMain) {
-  main();
+  main().catch((err) => {
+    console.error(err);
+    process.exit(1);
+  });
 }
