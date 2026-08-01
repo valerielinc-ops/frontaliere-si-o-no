@@ -64,17 +64,37 @@ jobs:
       # was cancelled; keeping the tree small removes that failure mode rather
       # than hoping the runner behaves next time.
       #
-      # If the manifest ever grows an entry outside these two prefixes, the
+      # If the manifest ever grows an entry outside these patterns, the
       # "Resolve manifest" step's existence check fails loudly with the exact
       # path — a missing sparse prefix cannot degrade into silently shipping
       # fewer files.
+      #
+      # NON-cone mode, which is a deliberate downgrade from the original
+      # cone-mode list. The manifest now names six files outside scripts/, and
+      # cone mode can only select whole directories: pulling `data/` in whole
+      # would materialise 1.7 GB (3451 files, mostly border-wait history and
+      # events slices) and `build-plugins/` another 8.9 GB-adjacent 298 —
+      # i.e. exactly the 17-minute checkout that killed run 30719465152 and
+      # that this sparse list exists to avoid. Non-cone takes gitignore-style
+      # patterns, so the six files can be named individually and the checkout
+      # stays at scripts/ plus six blobs.
+      #
+      # Every pattern is anchored with a leading slash. Unanchored, `scripts`
+      # in gitignore syntax matches a directory of that name at ANY depth,
+      # which would drag in packages/**/scripts too.
       - uses: actions/checkout@v5
         with:
           fetch-depth: 1
           sparse-checkout: |
-            .github/transport
-            scripts
-          sparse-checkout-cone-mode: true
+            /.github/transport/
+            /scripts/
+            /build-plugins/borderWaitData.ts
+            /data/borderCrossings.ts
+            /data/canton-url-slugs.json
+            /data/municipalities.ts
+            /services/borderCrossingSlug.ts
+            /services/borderWaitFormat.ts
+          sparse-checkout-cone-mode: false
 
       - name: Guard - target branch must not be nanako's default branch
         id: guard-branch

@@ -41,26 +41,34 @@ qualification. Concretely, checked against the real code:
 Found by running the transported code against nanako's actual tree (which the original session
 could not reach). Where this document and the code disagree, the code wins.
 
-1. **§5.3's first REWIRE target is the wrong file.** The plan says
-   `data/border-wait-averages.json` should be "fetched over HTTP from the live site instead of
-   read from a repo file". No generator script reads that file. It is *written* by
-   `scripts/compute-border-wait-averages.mjs` (a `traffic-scheduler.yml` step) and *read* by
-   `data/borderCrossings.ts` — a **site** file, statically importing it for the crossing cards.
-   It is a site artifact on both ends and has nothing to do with article generation.
+1. **§5.3's first REWIRE names the right file, for the wrong reason — and the URL it implies
+   did not exist.** The plan says `data/border-wait-averages.json` should be "fetched over HTTP
+   from the live site instead of read from a repo file", which reads as though a generator
+   script opens it. None does, directly. It reaches the generator *transitively*:
+   `scripts/lib/evergreen-topic-generator.mjs` → `data/borderCrossings.ts` →
+   `import computedAverages from './border-wait-averages.json'`. So it IS a generator
+   dependency, just not one visible in any producer's own source. (An earlier revision of this
+   section claimed it was not a generator dependency at all; that was wrong, and the chain above
+   is why.)
 
-   What the generator actually reads is `data/border-wait-history/*.json` — 90 daily files, via
-   `HISTORY_DIR` in `generate-border-wait-ranking-article.mjs:42` and
-   `aggregateCrossingStats()` in `scripts/lib/border-wait-ranking.mjs`, over a trailing
-   `DEFAULT_WINDOW_DAYS = 7` window.
+   The part that does hold: **it was not HTTP-reachable.** `data/` is not part of the deployed
+   surface — `public/data/` carried `border-wait-current.json` and `border-wait-ranking.json`,
+   not the averages — so "fetch it over HTTP" described an endpoint that did not exist.
+   `scripts/compute-border-wait-averages.mjs` now writes both copies, mirroring the
+   both-places pattern `border-wait-current.json` already used, and
+   `traffic-scheduler.yml` stages the published one. That is what makes the rewire real
+   rather than aspirational.
 
-   That correction has teeth, because **the history is not HTTP-reachable**. It is committed to
-   main and nowhere else: `public/data/` carries `border-wait-current.json` and
-   `border-wait-ranking.json`, not the history, and `deploy.yml:29` explicitly ignores
-   `data/border-wait-history/**` as a deploy trigger. So "fetch it over HTTP" is not a rewire
-   nanako can do unilaterally — main has to publish a generator-consumable window artifact
-   first. Substituting the averages file is not a shortcut either: it is a rolling **30**-day
-   p25/p75 of morning/evening buckets, whereas the ranking needs a **7**-day sample-weighted
-   mean over all 24 hourly cells. Different window, different statistic, different metric.
+   Separately, note what the ranking article reads, since it is easy to conflate the two:
+   `data/border-wait-history/*.json` (90 daily files, via `HISTORY_DIR` in
+   `generate-border-wait-ranking-article.mjs` and `aggregateCrossingStats()` in
+   `scripts/lib/border-wait-ranking.mjs`, over a trailing `DEFAULT_WINDOW_DAYS = 7`). That is
+   **not** the averages file and cannot be served by it: the averages are a rolling 30-day
+   p25/p75 of two commuter-hour buckets, the ranking needs a 7-day sample-weighted mean over
+   all 24 hourly cells. Different window, different statistic. The history is still
+   main-only and still not published (`deploy.yml` ignores it as a deploy trigger), so the
+   ranking producer is not yet cutover-ready — it is not in scope for §5.3 and needs its own
+   decision.
 
 2. **The transport manifest's closure is incomplete — the moved code cannot load as-is.**
    §5.2's transport shipped 67 files, but six of their static top-level imports were not
@@ -84,7 +92,40 @@ could not reach). Where this document and the code disagree, the code wins.
 
    The manifest's methodology comment claims the list is "the actual static-import transitive
    closure of the 7 entry points". It is the closure *within* `scripts/`; specifiers that leave
-   `scripts/` (`../build-plugins/`, `../data/`, `../services/`) were not followed.
+   `scripts/` (`../build-plugins/`, `../data/`, `../services/`) were not followed. The manifest
+   now carries the five that need copying, and the transport workflow's sparse checkout had to
+   drop to non-cone mode to fetch them without pulling all 1.7 GB of `data/`.
+
+   `articleSectionCore.mjs` is the sixth and is deliberately NOT in the manifest: it is a
+   symlink here into `packages/articles/engine/shared/`, a tree nanako already mirrors, so
+   copying it would have created a second drifting copy of the section tuple. The import is
+   repointed at nanako's own `engine/shared/` instead.
+
+## 0ter. How nanako-side changes are delivered
+
+Nothing outside Actions can write to nanako — confirmed again this session: the session git
+proxy returns **403** on push, and `POST /repos/nanakokyobashi-rgb/frontaliere-articles/git/refs`
+returns **403 Resource not accessible by integration**. `ARTICLES_REPO_PAT` remains the only
+credential that writes, and it only exists inside a workflow.
+
+That makes the nanako side a **two-step, ordered pipeline**, and the order is not optional:
+
+1. `transport-generator-to-nanako.yml` — structural copy. Idempotent and **destructive**: it
+   does `rm -rf generator` and rebuilds from the manifest, which is what makes a file dropped
+   from the manifest disappear from nanako rather than linger as an orphan.
+2. `apply-generator-rewire-to-nanako.yml` — the behavioural REWIRE, applied from
+   `.github/transport/nanako-generator-rewire.patch`.
+
+Step 2 exists precisely *because* step 1 is destructive. Everything that exists only on the
+nanako side — `corpus-paths.mjs`, the vendored whitelist, the tests, nanako's CI workflow, and
+the edits repointing transported files at nanako's layout — cannot live in the manifest,
+because it does not exist in this repository; and it would be deleted by the next transport if
+it were not re-applied. Running step 1 alone leaves nanako holding code that does not load.
+
+Step 2 is idempotent (a branch already carrying the patch reports "already applied" instead of
+failing), refuses to touch nanako's `content/`/`engine/` published surface, and defaults to
+`dry_run: true`. The patch was generated from a nanako working tree where all gates were green
+and verified to apply cleanly against `generator-transport`.
 
 ## 1. Transitive file closure (mechanical)
 
