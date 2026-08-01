@@ -1738,6 +1738,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.keller-sutter-stabilita-finanze-sane.title': 'Keller-Sutter: «Stabilità e finanze sane, la forza della Svizzera»',
     'blog.article.keller-sutter-stabilita-finanze-sane.excerpt': 'La consigliera federale Karin Keller-Sutter ha posto l\'accento su stabilità, finanze solide e ricerca del consenso intervenendo oggi a Kradolf-Schönenberg (TG) in occasione della festa nazionale.',
     'blog.article.keller-sutter-stabilita-finanze-sane.imageAlt': 'Una consigliera federale parla in un tendone davanti al palazzetto polivalente a Lugano.',
+    'blog.article.cassis-duedingen.title': 'Di più cassis a düdingen:',
+    'blog.article.cassis-duedingen.excerpt': 'La Svizzera non cade dal cielo, ma va coltivata',
+    'blog.article.cassis-duedingen.imageAlt': 'Gruppo di persone in un brunch in fattoria a Düdingen (FR)',
 };
 
 export default blogMetaChIt;

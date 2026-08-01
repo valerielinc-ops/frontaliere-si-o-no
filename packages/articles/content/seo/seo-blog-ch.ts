@@ -22481,6 +22481,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-cassis-duedingen': {
+    title: 'Di più cassis a düdingen: | Frontaliere Ticino',
+    description: 'Il consigliere federale Ignazio Cassis ha espresso il suo pensiero durante un brunch in fattoria a Düdingen (FR). Ha sottolineato l\'importanza di lavorare',
+    keywords: 'frontalieri, ticino, svizzera, italia, cassis, düdingen, cade, cielo',
+    ogTitle: 'Di più Cassis a Düdingen:',
+    ogDescription: 'Il consigliere federale Ignazio Cassis ha espresso il suo pensiero durante un brunch in fattoria a Düdingen (FR). Ha sottolineato l\'importanza di lavorare',
+    canonicalPath: '/articoli-svizzera/cassis-duedingen/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Di più cassis a düdingen:",
+      "description": "Il consigliere federale Ignazio Cassis ha espresso il suo pensiero durante un brunch in fattoria a Düdingen (FR). Ha sottolineato l'importanza di lavorare",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/cassis-duedingen.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Gruppo di persone in un brunch in fattoria a Düdingen (FR)"
+      },
+      "datePublished": "2026-08-01T16:50:57+00:00",
+      "dateModified": "2026-08-01T16:50:57+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/cassis-duedingen/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
