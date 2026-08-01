@@ -11,7 +11,7 @@
     "https://www.pemsa.ch/it/le-nostre-offerte-di-lavoro/"
   ],
   "notes": "Dedicated PEMSA crawler. National listing (all cantons). Detail pages have JSON-LD JobPosting with full location data; canton inferred per-job from the city. Construction/trades staffing agency.",
-  "updatedAt": "2026-08-01T10:54:43.945Z",
+  "updatedAt": "2026-08-01T22:04:08.988Z",
   "seedMetaByUrl": {
     "https://www.pemsa.ch/it/job/cofra-hussor-2685380/": {
       "location": "Fribourg",
@@ -781,18 +781,6 @@
       "company": "PEMSA",
       "postedDate": "2026-07-17"
     },
-    "https://www.pemsa.ch/it/job/idraulico-2683651/": {
-      "location": "Melide",
-      "canton": "TI",
-      "company": "PEMSA",
-      "postedDate": "2026-07-17"
-    },
-    "https://www.pemsa.ch/it/job/installatore-impianti-sprinkler-2683648/": {
-      "location": "Mezzovico",
-      "canton": "TI",
-      "company": "PEMSA",
-      "postedDate": "2026-07-17"
-    },
     "https://www.pemsa.ch/it/job/idraulico-per-acquedotti-2683645/": {
       "location": "Lugano",
       "canton": "TI",
@@ -978,18 +966,6 @@
       "canton": "TI",
       "company": "PEMSA",
       "postedDate": "2026-07-03"
-    },
-    "https://www.pemsa.ch/it/job/addetto-alla-regolazione-e-alla-programmazione-della-rettifica-a-5-assi-m-f-d-2680587/": {
-      "location": "Genève",
-      "canton": "GE",
-      "company": "PEMSA",
-      "postedDate": "2026-06-26"
-    },
-    "https://www.pemsa.ch/it/job/calcolatore-nel-settore-elettrico-quadri-elettrici-m-f-d-2680579/": {
-      "location": "Genève",
-      "canton": "GE",
-      "company": "PEMSA",
-      "postedDate": "2026-06-26"
     },
     "https://www.pemsa.ch/it/job/idraulico-impianti-sanitari-2680524/": {
       "location": "Rivera",
