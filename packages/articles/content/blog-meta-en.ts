@@ -9172,6 +9172,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.organico-incompleto-congelate-le-hcap-women.title': 'Incomplete staff: Hcap Women \'frozen\'',
     'blog.article.organico-incompleto-congelate-le-hcap-women.excerpt': 'Ambrì Piotta announces that the blue and white team will not be registered for the women\'s competitions of the 2026/27 season.',
     'blog.article.organico-incompleto-congelate-le-hcap-women.imageAlt': 'Hcap Women players in action during a friendly match.',
+    'blog.article.frontalieri-richiamati-lavoro-svizzera.title': '10,000 cross-border workers return to Switzerland: long queues',
+    'blog.article.frontalieri-richiamati-lavoro-svizzera.excerpt': 'According to the source, about 10,000 Italian border workers have been called to work in Switzerland, with long queues at the border.',
+    'blog.article.frontalieri-richiamati-lavoro-svizzera.imageAlt': 'Frontalieri in coda al valico di Brogeda, April 2020',
 };
 
 export default blogMetaEn;

@@ -9173,6 +9173,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.organico-incompleto-congelate-le-hcap-women.title': 'Organico incompleto: ‘congelate’ le Hcap Women',
     'blog.article.organico-incompleto-congelate-le-hcap-women.excerpt': 'L\'Ambrì Piotta comunica che la squadra delle biancoblù non sarà iscritta alle competizioni femminili della stagione 2026/27.',
     'blog.article.organico-incompleto-congelate-le-hcap-women.imageAlt': 'Un gruppo di giocatrici dell\'Hcap Women in azione durante un\'amichevole.',
+    'blog.article.frontalieri-richiamati-lavoro-svizzera.title': '10mila frontalieri richiamati al lavoro in Svizzera: lunghe code al confine',
+    'blog.article.frontalieri-richiamati-lavoro-svizzera.excerpt': 'Secondo la fonte, circa 10.000 frontalieri italiani sono stati richiamati al lavoro in Svizzera, con lunghe code al confine.',
+    'blog.article.frontalieri-richiamati-lavoro-svizzera.imageAlt': 'Frontalieri in coda al valico di Brogeda, aprile 2020',
 };
 
 export default blogMetaIt;

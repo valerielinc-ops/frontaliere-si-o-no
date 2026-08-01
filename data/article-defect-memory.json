@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-08-01T06:10:05.052Z",
+  "updatedAt": "2026-08-01T09:04:17.930Z",
   "entities": {
     "AASTI": {
       "status": "suspect",
@@ -4150,11 +4150,11 @@
       "statusSource": "auto",
       "statusAt": "2026-07-29T06:26:58.011Z",
       "firstSeen": "2026-07-29T06:26:58.011Z",
-      "lastSeen": "2026-08-01T06:10:05.052Z",
-      "seen": 87,
+      "lastSeen": "2026-08-01T09:04:17.930Z",
+      "seen": 88,
       "unsupportedSightings": 0,
       "unsupportedRuns": [],
-      "supportedSightings": 8,
+      "supportedSightings": 9,
       "names": [
         "Segreteria di Stato dell’economia",
         "Ufficio Cantonale del Ticino",
@@ -4164,6 +4164,13 @@
       ],
       "recentKeys": [],
       "evidence": [
+        {
+          "at": "2026-08-01T09:04:17.930Z",
+          "runId": "30692537080",
+          "articleId": "frontalieri-richiamati-lavoro-svizzera",
+          "support": "present",
+          "name": "Segreteria di Stato dell’economia"
+        },
         {
           "at": "2026-08-01T06:10:05.052Z",
           "runId": "30685261901",
@@ -4212,13 +4219,6 @@
           "articleId": "besano-da-frontaliere-pro-e-contro",
           "support": "present",
           "name": "Segreteria di Stato dell'Economia"
-        },
-        {
-          "at": "2026-07-30T03:50:18.183Z",
-          "runId": "30509507553",
-          "articleId": "unknown",
-          "support": "present",
-          "name": "Dipartimento federale delle finanze"
         }
       ]
     },
