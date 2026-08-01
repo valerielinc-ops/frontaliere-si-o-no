@@ -22520,6 +22520,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-redditi-estero-controlli-doppia-tassazione': {
+    title: 'Redditi esteri, controlli in arrivo: come evitare doppia tassazione',
+    description: 'Nuove regole per i frontalieri: esenzioni, franchigie e come evitare la doppia imposizione fiscale. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, redditi, esteri, controlli, arrivo',
+    ogTitle: 'Redditi prodotti all\'estero, scattano i controlli: come evitare la doppia tassazione',
+    ogDescription: 'Nuove regole per i frontalieri: esenzioni, franchigie e come evitare la doppia imposizione fiscale.',
+    canonicalPath: '/articoli-svizzera/redditi-estero-controlli-doppia-tassazione/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Redditi esteri, controlli in arrivo: come evitare doppia tassazione",
+      "description": "Nuove regole per i frontalieri: esenzioni, franchigie e come evitare la doppia imposizione fiscale. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/redditi-estero-controlli-doppia-tassazione.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un frontaliere con documenti fiscali e calcolatrice"
+      },
+      "datePublished": "2026-08-01T22:47:59+00:00",
+      "dateModified": "2026-08-01T22:47:59+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/redditi-estero-controlli-doppia-tassazione/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

@@ -1741,6 +1741,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.cassis-duedingen.title': 'Di più cassis a düdingen:',
     'blog.article.cassis-duedingen.excerpt': 'La Svizzera non cade dal cielo, ma va coltivata',
     'blog.article.cassis-duedingen.imageAlt': 'Gruppo di persone in un brunch in fattoria a Düdingen (FR)',
+    'blog.article.redditi-estero-controlli-doppia-tassazione.title': 'Redditi esteri, controlli in arrivo: come evitare doppia tassazione',
+    'blog.article.redditi-estero-controlli-doppia-tassazione.excerpt': 'Nuove regole per i frontalieri: esenzioni, franchigie e come evitare la doppia imposizione fiscale.',
+    'blog.article.redditi-estero-controlli-doppia-tassazione.imageAlt': 'Un frontaliere con documenti fiscali e calcolatrice',
 };
 
 export default blogMetaChIt;
