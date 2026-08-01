@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "planzer-2d11661c5fb5",
-      "slug": "apprentissage-logisticien-ne-cfc-orientation-stockage-planzer-avenches",
+      "slug": "logistician-ne-cfc-learning-orientamento-storage-planzer-avenches",
       "slugByLocale": {
         "fr": "apprentissage-logisticien-ne-cfc-orientation-stockage-planzer-avenches",
-        "it": "apprentissage-logisticien-ne-cfc-orientation-stockage-planzer-avenches",
-        "en": "apprentissage-logisticien-ne-cfc-orientation-stockage-planzer-avenches",
-        "de": "apprentissage-logisticien-ne-cfc-orientation-stockage-planzer-avenches"
+        "it": "logistician-ne-cfc-learning-orientamento-storage-planzer-avenches",
+        "en": "logistician-ne-cfc-learning-storage-orientation-planzer-avenches",
+        "de": "logistiker-ne-cfc-lernen-lagerungsorientierung-planzer-avenches"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -66,16 +66,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-31T22:08:08.335Z"
+      "firstSeenAt": "2026-07-31T22:08:08.335Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "apprentissage-logisticien-ne-cfc-orientation-stockage-planzer-avenches"
+        ],
+        "en": [
+          "apprentissage-logisticien-ne-cfc-orientation-stockage-planzer-avenches"
+        ],
+        "de": [
+          "apprentissage-logisticien-ne-cfc-orientation-stockage-planzer-avenches"
+        ]
+      },
+      "previousSlugs": [
+        "apprentissage-logisticien-ne-cfc-orientation-stockage-planzer-avenches"
+      ]
     },
     {
       "id": "planzer-7b93f1d9adc4",
-      "slug": "apprentissage-logisticien-ne-cfc-orientation-stockage-planzer-satigny-meyrin",
+      "slug": "logistician-ne-cfc-learning-orientamento-storage-planzer-satigny-meyrin",
       "slugByLocale": {
         "fr": "apprentissage-logisticien-ne-cfc-orientation-stockage-planzer-satigny-meyrin",
-        "it": "apprentissage-logisticien-ne-cfc-orientation-stockage-planzer-satigny-meyrin",
-        "en": "apprentissage-logisticien-ne-cfc-orientation-stockage-planzer-satigny-meyrin",
-        "de": "apprentissage-logisticien-ne-cfc-orientation-stockage-planzer-satigny-meyrin"
+        "it": "logistician-ne-cfc-learning-orientamento-storage-planzer-satigny-meyrin",
+        "en": "logistician-ne-cfc-learning-storage-orientation-planzer-satigny-meyrin",
+        "de": "logistiker-ne-cfc-lernen-lagerungsorientierung-planzer-satigny-meyrin"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -132,16 +146,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-31T22:08:07.644Z"
+      "firstSeenAt": "2026-07-31T22:08:07.644Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "apprentissage-logisticien-ne-cfc-orientation-stockage-planzer-satigny-meyrin"
+        ],
+        "en": [
+          "apprentissage-logisticien-ne-cfc-orientation-stockage-planzer-satigny-meyrin"
+        ],
+        "de": [
+          "apprentissage-logisticien-ne-cfc-orientation-stockage-planzer-satigny-meyrin"
+        ]
+      },
+      "previousSlugs": [
+        "apprentissage-logisticien-ne-cfc-orientation-stockage-planzer-satigny-meyrin"
+      ]
     },
     {
       "id": "planzer-afd125e94924",
-      "slug": "apprentissage-logisticien-ne-cfc-orientation-distribution-planzer-grand-lancy",
+      "slug": "logistician-ne-cfc-learning-orientamento-alla-distribuzione-planzer-grand-lancy",
       "slugByLocale": {
         "fr": "apprentissage-logisticien-ne-cfc-orientation-distribution-planzer-grand-lancy",
-        "it": "apprentissage-logisticien-ne-cfc-orientation-distribution-planzer-grand-lancy",
-        "en": "apprentissage-logisticien-ne-cfc-orientation-distribution-planzer-grand-lancy",
-        "de": "apprentissage-logisticien-ne-cfc-orientation-distribution-planzer-grand-lancy"
+        "it": "logistician-ne-cfc-learning-orientamento-alla-distribuzione-planzer-grand-lancy",
+        "en": "logistician-ne-cfc-learning-distribution-orientation-planzer-grand-lancy",
+        "de": "logistiker-ne-cfc-lernen-verteilungsorientierung-planzer-grand-lancy"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -198,16 +226,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-31T22:08:06.966Z"
+      "firstSeenAt": "2026-07-31T22:08:06.966Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "apprentissage-logisticien-ne-cfc-orientation-distribution-planzer-grand-lancy"
+        ],
+        "en": [
+          "apprentissage-logisticien-ne-cfc-orientation-distribution-planzer-grand-lancy"
+        ],
+        "de": [
+          "apprentissage-logisticien-ne-cfc-orientation-distribution-planzer-grand-lancy"
+        ]
+      },
+      "previousSlugs": [
+        "apprentissage-logisticien-ne-cfc-orientation-distribution-planzer-grand-lancy"
+      ]
     },
     {
       "id": "planzer-ffac8979bdbf",
-      "slug": "apprentissage-employe-e-de-commerce-cfc-branche-transport-planzer-penthalaz",
+      "slug": "apprendimento-dipendente-di-affari-swc-ramo-di-trasporto-planzer-penthalaz",
       "slugByLocale": {
         "fr": "apprentissage-employe-e-de-commerce-cfc-branche-transport-planzer-penthalaz",
-        "it": "apprentissage-employe-e-de-commerce-cfc-branche-transport-planzer-penthalaz",
-        "en": "apprentissage-employe-e-de-commerce-cfc-branche-transport-planzer-penthalaz",
-        "de": "apprentissage-employe-e-de-commerce-cfc-branche-transport-planzer-penthalaz"
+        "it": "apprendimento-dipendente-di-affari-swc-ramo-di-trasporto-planzer-penthalaz",
+        "en": "learning-business-employee-swc-transportation-branch-planzer-penthalaz",
+        "de": "learning-business-mitarbeiter-swc-transportation-branch-planzer-penthalaz"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -264,16 +306,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-31T22:08:06.290Z"
+      "firstSeenAt": "2026-07-31T22:08:06.290Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "apprentissage-employe-e-de-commerce-cfc-branche-transport-planzer-penthalaz"
+        ],
+        "en": [
+          "apprentissage-employe-e-de-commerce-cfc-branche-transport-planzer-penthalaz"
+        ],
+        "de": [
+          "apprentissage-employe-e-de-commerce-cfc-branche-transport-planzer-penthalaz"
+        ]
+      },
+      "previousSlugs": [
+        "apprentissage-employe-e-de-commerce-cfc-branche-transport-planzer-penthalaz"
+      ]
     },
     {
       "id": "planzer-fe82644a8395",
-      "slug": "apprentissage-employe-e-de-commerce-cfc-branche-transport-planzer-avenches",
+      "slug": "apprendimento-dipendente-di-affari-swc-ramo-di-trasporto-planzer-avenches",
       "slugByLocale": {
         "fr": "apprentissage-employe-e-de-commerce-cfc-branche-transport-planzer-avenches",
-        "it": "apprentissage-employe-e-de-commerce-cfc-branche-transport-planzer-avenches",
-        "en": "apprentissage-employe-e-de-commerce-cfc-branche-transport-planzer-avenches",
-        "de": "apprentissage-employe-e-de-commerce-cfc-branche-transport-planzer-avenches"
+        "it": "apprendimento-dipendente-di-affari-swc-ramo-di-trasporto-planzer-avenches",
+        "en": "learning-business-employee-swc-transportation-branch-planzer-avenches",
+        "de": "learning-business-mitarbeiter-swc-transportation-branch-planzer-avenches"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -330,16 +386,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-31T22:08:05.609Z"
+      "firstSeenAt": "2026-07-31T22:08:05.609Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "apprentissage-employe-e-de-commerce-cfc-branche-transport-planzer-avenches"
+        ],
+        "en": [
+          "apprentissage-employe-e-de-commerce-cfc-branche-transport-planzer-avenches"
+        ],
+        "de": [
+          "apprentissage-employe-e-de-commerce-cfc-branche-transport-planzer-avenches"
+        ]
+      },
+      "previousSlugs": [
+        "apprentissage-employe-e-de-commerce-cfc-branche-transport-planzer-avenches"
+      ]
     },
     {
       "id": "planzer-d6c97d18d595",
-      "slug": "apprentissage-employe-e-de-commerce-cfc-branche-transport-planzer-grand-lancy",
+      "slug": "apprendimento-dipendente-di-affari-swc-ramo-di-trasporto-planzer-grand-lancy",
       "slugByLocale": {
         "fr": "apprentissage-employe-e-de-commerce-cfc-branche-transport-planzer-grand-lancy",
-        "it": "apprentissage-employe-e-de-commerce-cfc-branche-transport-planzer-grand-lancy",
-        "en": "apprentissage-employe-e-de-commerce-cfc-branche-transport-planzer-grand-lancy",
-        "de": "apprentissage-employe-e-de-commerce-cfc-branche-transport-planzer-grand-lancy"
+        "it": "apprendimento-dipendente-di-affari-swc-ramo-di-trasporto-planzer-grand-lancy",
+        "en": "learning-business-employee-swc-transportation-branch-planzer-grand-lancy",
+        "de": "learning-business-mitarbeiter-swc-transportation-branch-planzer-grand-lancy"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -396,16 +466,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-31T22:08:04.907Z"
+      "firstSeenAt": "2026-07-31T22:08:04.907Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "apprentissage-employe-e-de-commerce-cfc-branche-transport-planzer-grand-lancy"
+        ],
+        "en": [
+          "apprentissage-employe-e-de-commerce-cfc-branche-transport-planzer-grand-lancy"
+        ],
+        "de": [
+          "apprentissage-employe-e-de-commerce-cfc-branche-transport-planzer-grand-lancy"
+        ]
+      },
+      "previousSlugs": [
+        "apprentissage-employe-e-de-commerce-cfc-branche-transport-planzer-grand-lancy"
+      ]
     },
     {
       "id": "planzer-fb58e4a36dc7",
-      "slug": "apprentissage-conducteur-trice-de-vehicules-legers-afp-planzer-penthalaz",
+      "slug": "apprendimento-driver-del-veicolo-leggero-afp-planzer-penthalaz",
       "slugByLocale": {
         "fr": "apprentissage-conducteur-trice-de-vehicules-legers-afp-planzer-penthalaz",
-        "it": "apprentissage-conducteur-trice-de-vehicules-legers-afp-planzer-penthalaz",
-        "en": "apprentissage-conducteur-trice-de-vehicules-legers-afp-planzer-penthalaz",
-        "de": "apprentissage-conducteur-trice-de-vehicules-legers-afp-planzer-penthalaz"
+        "it": "apprendimento-driver-del-veicolo-leggero-afp-planzer-penthalaz",
+        "en": "learning-lightweight-vehicle-driver-afp-planzer-penthalaz",
+        "de": "lernen-leichtgewichtiger-fahrzeugfahrer-afp-planzer-penthalaz"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -462,16 +546,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-31T22:08:04.222Z"
+      "firstSeenAt": "2026-07-31T22:08:04.222Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "apprentissage-conducteur-trice-de-vehicules-legers-afp-planzer-penthalaz"
+        ],
+        "en": [
+          "apprentissage-conducteur-trice-de-vehicules-legers-afp-planzer-penthalaz"
+        ],
+        "de": [
+          "apprentissage-conducteur-trice-de-vehicules-legers-afp-planzer-penthalaz"
+        ]
+      },
+      "previousSlugs": [
+        "apprentissage-conducteur-trice-de-vehicules-legers-afp-planzer-penthalaz"
+      ]
     },
     {
       "id": "planzer-8fb568a21c5b",
-      "slug": "apprentissage-conducteur-trice-de-vehicules-lourds-cfc-planzer-penthalaz",
+      "slug": "formazione-cfc-driver-del-veicolo-pesante-planzer-penthalaz",
       "slugByLocale": {
         "fr": "apprentissage-conducteur-trice-de-vehicules-lourds-cfc-planzer-penthalaz",
-        "it": "apprentissage-conducteur-trice-de-vehicules-lourds-cfc-planzer-penthalaz",
-        "en": "apprentissage-conducteur-trice-de-vehicules-lourds-cfc-planzer-penthalaz",
-        "de": "apprentissage-conducteur-trice-de-vehicules-lourds-cfc-planzer-penthalaz"
+        "it": "formazione-cfc-driver-del-veicolo-pesante-planzer-penthalaz",
+        "en": "learning-cfc-heavy-vehicle-driver-planzer-penthalaz",
+        "de": "lernen-cfc-fahrer-schwerer-nutzfahrzeuge-planzer-penthalaz"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -528,16 +626,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-31T22:08:03.524Z"
+      "firstSeenAt": "2026-07-31T22:08:03.524Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "apprentissage-conducteur-trice-de-vehicules-lourds-cfc-planzer-penthalaz"
+        ],
+        "en": [
+          "apprentissage-conducteur-trice-de-vehicules-lourds-cfc-planzer-penthalaz"
+        ],
+        "de": [
+          "apprentissage-conducteur-trice-de-vehicules-lourds-cfc-planzer-penthalaz"
+        ]
+      },
+      "previousSlugs": [
+        "apprentissage-conducteur-trice-de-vehicules-lourds-cfc-planzer-penthalaz"
+      ]
     },
     {
       "id": "planzer-7b9c42a338a7",
-      "slug": "apprentissage-conducteur-trice-de-vehicules-lourds-cfc-planzer-conthey",
+      "slug": "formazione-cfc-driver-del-veicolo-pesante-planzer-conthey",
       "slugByLocale": {
         "fr": "apprentissage-conducteur-trice-de-vehicules-lourds-cfc-planzer-conthey",
-        "it": "apprentissage-conducteur-trice-de-vehicules-lourds-cfc-planzer-conthey",
-        "en": "apprentissage-conducteur-trice-de-vehicules-lourds-cfc-planzer-conthey",
-        "de": "apprentissage-conducteur-trice-de-vehicules-lourds-cfc-planzer-conthey"
+        "it": "formazione-cfc-driver-del-veicolo-pesante-planzer-conthey",
+        "en": "learning-cfc-heavy-vehicle-driver-planzer-conthey",
+        "de": "lernen-cfc-fahrer-schwerer-nutzfahrzeuge-planzer-conthey"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -594,16 +706,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-31T22:08:02.743Z"
+      "firstSeenAt": "2026-07-31T22:08:02.743Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "apprentissage-conducteur-trice-de-vehicules-lourds-cfc-planzer-conthey"
+        ],
+        "en": [
+          "apprentissage-conducteur-trice-de-vehicules-lourds-cfc-planzer-conthey"
+        ],
+        "de": [
+          "apprentissage-conducteur-trice-de-vehicules-lourds-cfc-planzer-conthey"
+        ]
+      },
+      "previousSlugs": [
+        "apprentissage-conducteur-trice-de-vehicules-lourds-cfc-planzer-conthey"
+      ]
     },
     {
       "id": "planzer-010c576c0076",
-      "slug": "apprentissage-conducteur-trice-de-vehicules-lourds-cfc-planzer-grand-lancy",
+      "slug": "formazione-cfc-driver-del-veicolo-pesante-planzer-grand-lancy",
       "slugByLocale": {
         "fr": "apprentissage-conducteur-trice-de-vehicules-lourds-cfc-planzer-grand-lancy",
-        "it": "apprentissage-conducteur-trice-de-vehicules-lourds-cfc-planzer-grand-lancy",
-        "en": "apprentissage-conducteur-trice-de-vehicules-lourds-cfc-planzer-grand-lancy",
-        "de": "apprentissage-conducteur-trice-de-vehicules-lourds-cfc-planzer-grand-lancy"
+        "it": "formazione-cfc-driver-del-veicolo-pesante-planzer-grand-lancy",
+        "en": "learning-cfc-heavy-vehicle-driver-planzer-grand-lancy",
+        "de": "lernen-cfc-fahrer-schwerer-nutzfahrzeuge-planzer-grand-lancy"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -660,7 +786,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-31T22:08:01.623Z"
+      "firstSeenAt": "2026-07-31T22:08:01.623Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "apprentissage-conducteur-trice-de-vehicules-lourds-cfc-planzer-grand-lancy"
+        ],
+        "en": [
+          "apprentissage-conducteur-trice-de-vehicules-lourds-cfc-planzer-grand-lancy"
+        ],
+        "de": [
+          "apprentissage-conducteur-trice-de-vehicules-lourds-cfc-planzer-grand-lancy"
+        ]
+      },
+      "previousSlugs": [
+        "apprentissage-conducteur-trice-de-vehicules-lourds-cfc-planzer-grand-lancy"
+      ]
     },
     {
       "id": "planzer-873db533c8ba",
@@ -721,8 +861,7 @@
         "cambiamento-giornaliero-della-busta-dei-dipendenti-m-f-d-planzer-kallnach",
         "employee-envelope-day-shift-m-f-d-planzer-kallnach",
         "mitarbeiter-umschlag-tagschicht-m-w-d-planzer-kallnach",
-        "poste-de-jour-de-l-enveloppe-des-employes-m-f-d-planzer-kallnach",
-        "collaboratore-trice-umschlag-m-w-d-planzer-kallnach"
+        "poste-de-jour-de-l-enveloppe-des-employes-m-f-d-planzer-kallnach"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -733,8 +872,7 @@
           "cambiamento-giornaliero-della-busta-dei-dipendenti-m-f-d-planzer-kallnach",
           "employee-envelope-day-shift-m-f-d-planzer-kallnach",
           "mitarbeiter-umschlag-tagschicht-m-w-d-planzer-kallnach",
-          "poste-de-jour-de-l-enveloppe-des-employes-m-f-d-planzer-kallnach",
-          "collaboratore-trice-umschlag-m-w-d-planzer-kallnach"
+          "poste-de-jour-de-l-enveloppe-des-employes-m-f-d-planzer-kallnach"
         ],
         "en": [
           "mitarbeiter-umschlag-m-w-d-planzer-kallnach"
@@ -875,13 +1013,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "logistiker-efz-m-w-d-planzer-seewen",
-        "logistiker-cfc-m-w-d-planzer-seewen"
+        "logistiker-efz-m-w-d-planzer-seewen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "logistiker-efz-m-w-d-planzer-seewen",
-          "logistiker-cfc-m-w-d-planzer-seewen"
+          "logistiker-efz-m-w-d-planzer-seewen"
         ],
         "en": [
           "logistiker-efz-m-w-d-planzer-seewen"
@@ -967,8 +1103,7 @@
         "parcel-delivery-m-f-d-planzer-schmerikon",
         "paketzusteller-m-w-d-planzer-schmerikon",
         "livraison-de-colis-m-f-d-planzer-schmerikon",
-        "disponent-stuckgut-m-w-d-planzer-schmerikon",
-        "distribuzione-del-carico-generale-m-f-d-planzer-schmerikon"
+        "disponent-stuckgut-m-w-d-planzer-schmerikon"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -983,8 +1118,7 @@
           "parcel-delivery-m-f-d-planzer-schmerikon",
           "paketzusteller-m-w-d-planzer-schmerikon",
           "livraison-de-colis-m-f-d-planzer-schmerikon",
-          "disponent-stuckgut-m-w-d-planzer-schmerikon",
-          "distribuzione-del-carico-generale-m-f-d-planzer-schmerikon"
+          "disponent-stuckgut-m-w-d-planzer-schmerikon"
         ],
         "en": [
           "disponent-stuckgut-m-w-d-planzer-schmerikon"
@@ -1141,13 +1275,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "sachbearbeiter-disposition-stv-sachbearbeiter-schadenmanagement-m-w-d-planzer-spreitenbach",
-        "disposizione-del-personale-gestione-dei-reclami-m-f-d-planzer-spreitenbach"
+        "sachbearbeiter-disposition-stv-sachbearbeiter-schadenmanagement-m-w-d-planzer-spreitenbach"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sachbearbeiter-disposition-stv-sachbearbeiter-schadenmanagement-m-w-d-planzer-spreitenbach",
-          "disposizione-del-personale-gestione-dei-reclami-m-f-d-planzer-spreitenbach"
+          "sachbearbeiter-disposition-stv-sachbearbeiter-schadenmanagement-m-w-d-planzer-spreitenbach"
         ],
         "en": [
           "sachbearbeiter-disposition-stv-sachbearbeiter-schadenmanagement-m-w-d-planzer-spreitenbach"
@@ -1222,13 +1354,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "paketzusteller-m-w-d-planzer-winterthur",
-        "consegna-dei-pacchi-m-f-d-planzer-winterthur"
+        "paketzusteller-m-w-d-planzer-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "paketzusteller-m-w-d-planzer-winterthur",
-          "consegna-dei-pacchi-m-f-d-planzer-winterthur"
+          "paketzusteller-m-w-d-planzer-winterthur"
         ],
         "en": [
           "paketzusteller-m-w-d-planzer-winterthur"
@@ -1303,13 +1433,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeiter-logistik-m-w-d-planzer-harkingen",
-        "addetto-a-alla-logistica-m-w-d-planzer-harkingen"
+        "mitarbeiter-logistik-m-w-d-planzer-harkingen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-logistik-m-w-d-planzer-harkingen",
-          "addetto-a-alla-logistica-m-w-d-planzer-harkingen"
+          "mitarbeiter-logistik-m-w-d-planzer-harkingen"
         ],
         "en": [
           "mitarbeiter-logistik-m-w-d-planzer-harkingen"
@@ -1384,13 +1512,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "logistiker-eba-m-w-d-planzer-kolliken",
-        "logistiker-afp-m-w-d-planzer-kolliken"
+        "logistiker-eba-m-w-d-planzer-kolliken"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "logistiker-eba-m-w-d-planzer-kolliken",
-          "logistiker-afp-m-w-d-planzer-kolliken"
+          "logistiker-eba-m-w-d-planzer-kolliken"
         ],
         "en": [
           "logistiker-eba-m-w-d-planzer-kolliken"
@@ -1465,13 +1591,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "disponent-m-w-d-planzer-dallikon",
-        "m-w-d-planzer-dallikon"
+        "disponent-m-w-d-planzer-dallikon"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "disponent-m-w-d-planzer-dallikon",
-          "m-w-d-planzer-dallikon"
+          "disponent-m-w-d-planzer-dallikon"
         ],
         "fr": [
           "disponent-m-w-d-planzer-dallikon"

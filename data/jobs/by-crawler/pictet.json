@@ -51,13 +51,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "investment-analyst-pictet-singapore",
-        "investment-analista-pictet-group-singapore"
+        "investment-analyst-pictet-singapore"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "investment-analyst-pictet-singapore",
-          "investment-analista-pictet-group-singapore"
+          "investment-analyst-pictet-singapore"
         ],
         "fr": [
           "investment-analyst-pictet-singapore"
@@ -127,13 +125,11 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "compliance-officer-pictet-geneva",
-        "specialiste-du-respect-des-dispositions-pictet-group-geneva",
-        "ufficiale-di-conformita-pictet-group-geneva"
+        "specialiste-du-respect-des-dispositions-pictet-group-geneva"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "compliance-officer-pictet-geneva",
-          "ufficiale-di-conformita-pictet-group-geneva"
+          "compliance-officer-pictet-geneva"
         ],
         "de": [
           "compliance-officer-pictet-geneva"
@@ -268,13 +264,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "asia-economist-pictet-hong-kong",
-        "asia-economista-pictet-group-hong-kong"
+        "asia-economist-pictet-hong-kong"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "asia-economist-pictet-hong-kong",
-          "asia-economista-pictet-group-hong-kong"
+          "asia-economist-pictet-hong-kong"
         ],
         "de": [
           "asia-economist-pictet-hong-kong"
@@ -346,13 +340,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "operational-tax-officer-pictet-geneva",
-        "agente-fiscale-operativo-pictet-group-geneva"
+        "operational-tax-officer-pictet-geneva"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "operational-tax-officer-pictet-geneva",
-          "agente-fiscale-operativo-pictet-group-geneva"
+          "operational-tax-officer-pictet-geneva"
         ],
         "de": [
           "operational-tax-officer-pictet-geneva"
@@ -424,13 +416,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "banking-operations-officer-fixed-term-contract-24-months-pictet-luxembourg",
-        "responsabile-delle-operazioni-bancarie-contratto-a-termine-24-mesi-pictet-group-luxembourg"
+        "banking-operations-officer-fixed-term-contract-24-months-pictet-luxembourg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "banking-operations-officer-fixed-term-contract-24-months-pictet-luxembourg",
-          "responsabile-delle-operazioni-bancarie-contratto-a-termine-24-mesi-pictet-group-luxembourg"
+          "banking-operations-officer-fixed-term-contract-24-months-pictet-luxembourg"
         ],
         "de": [
           "banking-operations-officer-fixed-term-contract-24-months-pictet-luxembourg"
@@ -575,13 +565,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "banking-operations-officer-fixed-term-24-months-pictet-luxembourg",
-        "funzionamento-bancario-fixed-term-24-mesi-pictet-group-luxembourg"
+        "banking-operations-officer-fixed-term-24-months-pictet-luxembourg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "banking-operations-officer-fixed-term-24-months-pictet-luxembourg",
-          "funzionamento-bancario-fixed-term-24-mesi-pictet-group-luxembourg"
+          "banking-operations-officer-fixed-term-24-months-pictet-luxembourg"
         ],
         "de": [
           "banking-operations-officer-fixed-term-24-months-pictet-luxembourg"
@@ -606,12 +594,12 @@
     },
     {
       "id": "pictet-60e693a4b91c",
-      "slug": "internship-transfer-agent-register-pictet-luxembourg",
+      "slug": "internship-registrazione-agente-di-trasferimento-pictet-group-luxembourg",
       "slugByLocale": {
         "en": "internship-transfer-agent-register-pictet-luxembourg",
-        "it": "internship-transfer-agent-register-pictet-luxembourg",
+        "it": "internship-registrazione-agente-di-trasferimento-pictet-group-luxembourg",
         "de": "internship-transfer-agent-register-pictet-luxembourg",
-        "fr": "internship-transfer-agent-register-pictet-luxembourg"
+        "fr": "stage-registre-des-agents-de-transfert-pictet-group-luxembourg"
       },
       "company": "Pictet Group",
       "companyKey": "pictet",
@@ -666,16 +654,27 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-31T22:09:28.124Z"
+      "firstSeenAt": "2026-07-31T22:09:28.124Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "internship-transfer-agent-register-pictet-luxembourg"
+        ],
+        "fr": [
+          "internship-transfer-agent-register-pictet-luxembourg"
+        ]
+      },
+      "previousSlugs": [
+        "internship-transfer-agent-register-pictet-luxembourg"
+      ]
     },
     {
       "id": "pictet-96e7908aa61a",
-      "slug": "sustainability-researcher-fixed-term-contract-until-31-12-27-pictet-geneva",
+      "slug": "sostenibilita-ricercatore-contratto-a-termine-fino-al-31-12-27-pictet-group-geneva",
       "slugByLocale": {
         "en": "sustainability-researcher-fixed-term-contract-until-31-12-27-pictet-geneva",
-        "it": "sustainability-researcher-fixed-term-contract-until-31-12-27-pictet-geneva",
-        "de": "sustainability-researcher-fixed-term-contract-until-31-12-27-pictet-geneva",
-        "fr": "sustainability-researcher-fixed-term-contract-until-31-12-27-pictet-geneva"
+        "it": "sostenibilita-ricercatore-contratto-a-termine-fino-al-31-12-27-pictet-group-geneva",
+        "de": "nachhaltigkeitsforscher-befristungsvertrag-bis-31-12-27-pictet-group-geneva",
+        "fr": "chercheur-en-developpement-durable-contrat-a-duree-determinee-jusqu-au-31-12-27-pictet-group-geneva"
       },
       "company": "Pictet Group",
       "companyKey": "pictet",
@@ -730,7 +729,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-31T22:09:26.978Z"
+      "firstSeenAt": "2026-07-31T22:09:26.978Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sustainability-researcher-fixed-term-contract-until-31-12-27-pictet-geneva"
+        ],
+        "de": [
+          "sustainability-researcher-fixed-term-contract-until-31-12-27-pictet-geneva"
+        ],
+        "fr": [
+          "sustainability-researcher-fixed-term-contract-until-31-12-27-pictet-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "sustainability-researcher-fixed-term-contract-until-31-12-27-pictet-geneva"
+      ]
     },
     {
       "id": "pictet-9ed3806eb56d",
@@ -844,13 +857,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "working-student-financial-risk-management-m-f-d-pictet-frankfurt",
-        "gestione-dei-rischi-finanziari-degli-studenti-di-lavoro-m-f-d-pictet-group-frankfurt"
+        "working-student-financial-risk-management-m-f-d-pictet-frankfurt"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "working-student-financial-risk-management-m-f-d-pictet-frankfurt",
-          "gestione-dei-rischi-finanziari-degli-studenti-di-lavoro-m-f-d-pictet-group-frankfurt"
+          "working-student-financial-risk-management-m-f-d-pictet-frankfurt"
         ],
         "de": [
           "working-student-financial-risk-management-m-f-d-pictet-frankfurt"
@@ -923,13 +934,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "ai-security-engineer-pictet-geneva",
-        "ai-security-ingegnere-pictet-group-geneva"
+        "ai-security-engineer-pictet-geneva"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ai-security-engineer-pictet-geneva",
-          "ai-security-ingegnere-pictet-group-geneva"
+          "ai-security-engineer-pictet-geneva"
         ],
         "de": [
           "ai-security-engineer-pictet-geneva"
@@ -1002,13 +1011,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "internship-client-relationship-officer-support-12-months-pictet-luxembourg",
-        "internship-customer-relationship-officer-support-12-mesi-pictet-group-luxembourg"
+        "internship-client-relationship-officer-support-12-months-pictet-luxembourg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "internship-client-relationship-officer-support-12-months-pictet-luxembourg",
-          "internship-customer-relationship-officer-support-12-mesi-pictet-group-luxembourg"
+          "internship-client-relationship-officer-support-12-months-pictet-luxembourg"
         ],
         "de": [
           "internship-client-relationship-officer-support-12-months-pictet-luxembourg"

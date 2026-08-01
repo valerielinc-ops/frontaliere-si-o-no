@@ -226,14 +226,12 @@
       "previousSlugs": [
         "mpa-arztsekretar-in-radiologie-radio-onkologie-stgag-munsterlingen",
         "mpa-arztsekretar-in-radiologie-radio-onkologie-stgag-ch",
-        "mpa-arztsekretar-in-radiologie-radio-onkologie-stgag-ch-r134nd",
-        "mpa-sottosegretario-medico-radiologia-radio-oncologia-spital-thurgau-stgag-munsterlingen"
+        "mpa-arztsekretar-in-radiologie-radio-onkologie-stgag-ch-r134nd"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mpa-arztsekretar-in-radiologie-radio-onkologie-stgag-munsterlingen",
-          "mpa-arztsekretar-in-radiologie-radio-onkologie-stgag-ch",
-          "mpa-sottosegretario-medico-radiologia-radio-oncologia-spital-thurgau-stgag-munsterlingen"
+          "mpa-arztsekretar-in-radiologie-radio-onkologie-stgag-ch"
         ],
         "en": [
           "mpa-arztsekretar-in-radiologie-radio-onkologie-stgag-munsterlingen",
@@ -312,8 +310,7 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "oberarzt-arztin-ambulante-erwachsenenpsychiatrie-80-100-stgag-ch",
-          "oberarzt-arztin-ambulante-erwachsenenpsychiatrie-80-100-stgag-ch-r134o4"
+          "oberarzt-arztin-ambulante-erwachsenenpsychiatrie-80-100-stgag-ch"
         ],
         "it": [
           "oberarzt-arztin-ambulante-erwachsenenpsychiatrie-80-100-stgag-ch"
@@ -328,8 +325,7 @@
       },
       "previousSlugs": [
         "oberarzt-arztin-ambulante-erwachsenenpsychiatrie-80-100-stgag-ch",
-        "oberarzt-arztin-ambulante-erwachsenenpsychiatrie-80-100-stgag-munsterlingen-r134o4",
-        "oberarzt-arztin-ambulante-erwachsenenpsychiatrie-80-100-stgag-ch-r134o4"
+        "oberarzt-arztin-ambulante-erwachsenenpsychiatrie-80-100-stgag-munsterlingen-r134o4"
       ],
       "firstSeenAt": "2026-07-29T22:05:34.085Z",
       "salaryMin": 79000,
@@ -395,8 +391,7 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "psychologe-in-stgag-ch",
-          "psychologe-in-stgag-ch-r134o1"
+          "psychologe-in-stgag-ch"
         ],
         "it": [
           "psychologe-in-stgag-ch"
@@ -411,8 +406,7 @@
       },
       "previousSlugs": [
         "psychologe-in-stgag-ch",
-        "psychologe-in-stgag-munsterlingen-r134o1",
-        "psychologe-in-stgag-ch-r134o1"
+        "psychologe-in-stgag-munsterlingen-r134o1"
       ],
       "firstSeenAt": "2026-07-29T22:05:33.098Z",
       "salaryMin": 57500,
@@ -480,13 +474,11 @@
       "previousSlugsByLocale": {
         "de": [
           "praktikant-in-direktionsstab-stgag-ch-r134nc",
-          "praktikant-in-direktionsstab-stgag-ch",
-          "praktikant-in-direktionsstab-stgag-munsterlingen"
+          "praktikant-in-direktionsstab-stgag-ch"
         ],
         "it": [
           "praktikant-in-direktionsstab-stgag-munsterlingen",
-          "praktikant-in-direktionsstab-stgag-ch",
-          "addestramento-direttoratore-spital-thurgau-stgag-munsterlingen"
+          "praktikant-in-direktionsstab-stgag-ch"
         ],
         "en": [
           "praktikant-in-direktionsstab-stgag-munsterlingen",
@@ -500,8 +492,7 @@
       "previousSlugs": [
         "praktikant-in-direktionsstab-stgag-munsterlingen",
         "praktikant-in-direktionsstab-stgag-ch",
-        "praktikant-in-direktionsstab-stgag-ch-r134nc",
-        "addestramento-direttoratore-spital-thurgau-stgag-munsterlingen"
+        "praktikant-in-direktionsstab-stgag-ch-r134nc"
       ],
       "firstSeenAt": "2026-07-30T11:17:41.091Z",
       "salaryMin": 48000,
@@ -523,8 +514,8 @@
       "slugByLocale": {
         "de": "lehrstelle-als-assistent-in-gesundheit-und-soziales-2-jahre-stgag-munsterlingen",
         "it": "apprendistato-come-assistent-in-gesundheit-e-soziales-2-jahre-spital-thurgau-stgag-munsterlingen",
-        "en": "lehrstelle-als-assistent-in-gesundheit-und-soziales-2-jahre-stgag-munsterlingen",
-        "fr": "lehrstelle-als-assistent-in-gesundheit-und-soziales-2-jahre-stgag-munsterlingen"
+        "en": "apprenticeship-as-a-health-and-social-assistant-2-years-spital-thurgau-stgag-munsterlingen",
+        "fr": "apprentissage-comme-assistante-sociale-et-de-sante-2-ans-spital-thurgau-stgag-munsterlingen"
       },
       "company": "Spital Thurgau (STGAG)",
       "companyKey": "stgag",
@@ -574,13 +565,17 @@
           "apprendistato-come-assistent-in-gesundheit-e-soziales-2-jahre-spital-thurgau-stgag-kantonsspital-frauenfeld"
         ],
         "en": [
-          "lehrstelle-als-assistent-in-gesundheit-und-soziales-2-jahre-stgag-ch"
+          "lehrstelle-als-assistent-in-gesundheit-und-soziales-2-jahre-stgag-ch",
+          "lehrstelle-als-assistent-in-gesundheit-und-soziales-2-jahre-stgag-ch",
+          "lehrstelle-als-assistent-in-gesundheit-und-soziales-2-jahre-stgag-munsterlingen"
         ],
         "de": [
           "lehrstelle-als-assistent-in-gesundheit-und-soziales-2-jahre-stgag-ch"
         ],
         "fr": [
-          "lehrstelle-als-assistent-in-gesundheit-und-soziales-2-jahre-stgag-ch"
+          "lehrstelle-als-assistent-in-gesundheit-und-soziales-2-jahre-stgag-ch",
+          "lehrstelle-als-assistent-in-gesundheit-und-soziales-2-jahre-stgag-ch",
+          "lehrstelle-als-assistent-in-gesundheit-und-soziales-2-jahre-stgag-munsterlingen"
         ]
       },
       "previousSlugs": [
@@ -685,12 +680,12 @@
     },
     {
       "id": "stgag-f10b19c9ada3",
-      "slug": "praktikant-in-strukturiertes-praxisjahr-spj-pflege-fh-ost-2027-stgag-munsterlingen",
+      "slug": "stage-in-anno-pratico-strutturato-spj-cura-fh-ost-2027-spital-thurgau-stgag-munsterlingen",
       "slugByLocale": {
         "de": "praktikant-in-strukturiertes-praxisjahr-spj-pflege-fh-ost-2027-stgag-munsterlingen",
-        "it": "praktikant-in-strukturiertes-praxisjahr-spj-pflege-fh-ost-2027-stgag-munsterlingen",
-        "en": "praktikant-in-strukturiertes-praxisjahr-spj-pflege-fh-ost-2027-stgag-munsterlingen",
-        "fr": "praktikant-in-strukturiertes-praxisjahr-spj-pflege-fh-ost-2027-stgag-munsterlingen"
+        "it": "stage-in-anno-pratico-strutturato-spj-cura-fh-ost-2027-spital-thurgau-stgag-munsterlingen",
+        "en": "internship-in-structured-practical-year-spj-care-fh-ost-2027-spital-thurgau-stgag-munsterlingen",
+        "fr": "stage-en-annee-pratique-structuree-spj-soins-fh-ost-2027-spital-thurgau-stgag-munsterlingen"
       },
       "company": "Spital Thurgau (STGAG)",
       "companyKey": "stgag",
@@ -748,20 +743,28 @@
       "firstSeenAt": "2026-07-31T22:09:23.151Z",
       "previousSlugsByLocale": {
         "it": [
-          "praktikant-in-strukturiertes-praxisjahr-spj-pflege-fh-ost-2027-stgag-ch"
+          "praktikant-in-strukturiertes-praxisjahr-spj-pflege-fh-ost-2027-stgag-ch",
+          "praktikant-in-strukturiertes-praxisjahr-spj-pflege-fh-ost-2027-stgag-ch",
+          "praktikant-in-strukturiertes-praxisjahr-spj-pflege-fh-ost-2027-stgag-munsterlingen"
         ],
         "en": [
-          "praktikant-in-strukturiertes-praxisjahr-spj-pflege-fh-ost-2027-stgag-ch"
+          "praktikant-in-strukturiertes-praxisjahr-spj-pflege-fh-ost-2027-stgag-ch",
+          "praktikant-in-strukturiertes-praxisjahr-spj-pflege-fh-ost-2027-stgag-ch",
+          "praktikant-in-strukturiertes-praxisjahr-spj-pflege-fh-ost-2027-stgag-munsterlingen"
         ],
         "de": [
           "praktikant-in-strukturiertes-praxisjahr-spj-pflege-fh-ost-2027-stgag-ch"
         ],
         "fr": [
-          "praktikant-in-strukturiertes-praxisjahr-spj-pflege-fh-ost-2027-stgag-ch"
+          "praktikant-in-strukturiertes-praxisjahr-spj-pflege-fh-ost-2027-stgag-ch",
+          "praktikant-in-strukturiertes-praxisjahr-spj-pflege-fh-ost-2027-stgag-ch",
+          "praktikant-in-strukturiertes-praxisjahr-spj-pflege-fh-ost-2027-stgag-munsterlingen"
         ]
       },
       "previousSlugs": [
-        "praktikant-in-strukturiertes-praxisjahr-spj-pflege-fh-ost-2027-stgag-ch"
+        "praktikant-in-strukturiertes-praxisjahr-spj-pflege-fh-ost-2027-stgag-ch",
+        "praktikant-in-strukturiertes-praxisjahr-spj-pflege-fh-ost-2027-stgag-ch",
+        "praktikant-in-strukturiertes-praxisjahr-spj-pflege-fh-ost-2027-stgag-munsterlingen"
       ]
     },
     {
@@ -878,15 +881,13 @@
       "previousSlugs": [
         "dipl-pflegefachperson-hf-fh-fur-die-interdisziplinare-chirurgie-stgag-munsterlingen",
         "dipl-pflegefachperson-hf-fh-fur-die-interdisziplinare-chirurgie-stgag-ch",
-        "dipl-pflegefachperson-hf-fh-per-la-interdisziplinare-chirurgie-spital-thurgau-stgag-kantonsspital-frauenfeld",
-        "dipl-pflegefachperson-hf-fh-per-la-interdisziplinare-chirurgie-spital-thurgau-stgag-munsterlingen"
+        "dipl-pflegefachperson-hf-fh-per-la-interdisziplinare-chirurgie-spital-thurgau-stgag-kantonsspital-frauenfeld"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachperson-hf-fh-fur-die-interdisziplinare-chirurgie-stgag-munsterlingen",
           "dipl-pflegefachperson-hf-fh-fur-die-interdisziplinare-chirurgie-stgag-ch",
-          "dipl-pflegefachperson-hf-fh-per-la-interdisziplinare-chirurgie-spital-thurgau-stgag-kantonsspital-frauenfeld",
-          "dipl-pflegefachperson-hf-fh-per-la-interdisziplinare-chirurgie-spital-thurgau-stgag-munsterlingen"
+          "dipl-pflegefachperson-hf-fh-per-la-interdisziplinare-chirurgie-spital-thurgau-stgag-kantonsspital-frauenfeld"
         ],
         "en": [
           "dipl-pflegefachperson-hf-fh-fur-die-interdisziplinare-chirurgie-stgag-ch"
@@ -964,15 +965,13 @@
       "previousSlugs": [
         "fachmann-frau-gesundheit-efz-stgag-munsterlingen",
         "fachmann-frau-gesundheit-efz-stgag-ch",
-        "fachmann-frau-gesundheit-cfc-spital-thurgau-stgag-kantonsspital-frauenfeld",
-        "fachmann-frau-gesundheit-cfc-spital-thurgau-stgag-munsterlingen"
+        "fachmann-frau-gesundheit-cfc-spital-thurgau-stgag-kantonsspital-frauenfeld"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fachmann-frau-gesundheit-efz-stgag-munsterlingen",
           "fachmann-frau-gesundheit-efz-stgag-ch",
-          "fachmann-frau-gesundheit-cfc-spital-thurgau-stgag-kantonsspital-frauenfeld",
-          "fachmann-frau-gesundheit-cfc-spital-thurgau-stgag-munsterlingen"
+          "fachmann-frau-gesundheit-cfc-spital-thurgau-stgag-kantonsspital-frauenfeld"
         ],
         "en": [
           "fachmann-frau-gesundheit-efz-stgag-ch"

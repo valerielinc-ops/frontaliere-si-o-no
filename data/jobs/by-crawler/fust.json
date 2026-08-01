@@ -36,9 +36,9 @@
       },
       "slugByLocale": {
         "it": "fachfrau-mann-kundendialog-cfc-betty-bossi-dietikon-xz9v8p",
-        "en": "fachfrau-mann-kundendialog-efz-betty-bossi-dietikon-xz9v8p",
+        "en": "expert-mann-customer-dialogue-efz-coop-dietikon",
         "de": "fachfrau-mann-kundendialog-efz-betty-bossi-dietikon-xz9v8p",
-        "fr": "fachfrau-mann-kundendialog-efz-betty-bossi-dietikon-xz9v8p"
+        "fr": "expert-mann-dialogue-client-efz-coop-dietikon"
       },
       "requirementsByLocale": {},
       "sourceLang": "de",
@@ -49,20 +49,26 @@
           "fachfrau-mann-kundendialog-cfc-coop-dietikon"
         ],
         "en": [
-          "fachfrau-mann-kundendialog-efz-coop-dietikon-xz9v8p"
+          "fachfrau-mann-kundendialog-efz-coop-dietikon-xz9v8p",
+          "fachfrau-mann-kundendialog-efz-coop-dietikon-xz9v8p",
+          "fachfrau-mann-kundendialog-efz-betty-bossi-dietikon-xz9v8p"
         ],
         "de": [
           "fachfrau-mann-kundendialog-efz-coop-dietikon-xz9v8p"
         ],
         "fr": [
-          "fachfrau-mann-kundendialog-efz-coop-dietikon-xz9v8p"
+          "fachfrau-mann-kundendialog-efz-coop-dietikon-xz9v8p",
+          "fachfrau-mann-kundendialog-efz-coop-dietikon-xz9v8p",
+          "fachfrau-mann-kundendialog-efz-betty-bossi-dietikon-xz9v8p"
         ]
       },
       "previousSlugs": [
         "fachfrau-mann-kundendialog-efz-coop-dietikon",
         "fachfrau-mann-kundendialog-cfc-coop-dietikon-xz9v8p",
         "fachfrau-mann-kundendialog-cfc-coop-dietikon",
-        "fachfrau-mann-kundendialog-efz-coop-dietikon-xz9v8p"
+        "fachfrau-mann-kundendialog-efz-coop-dietikon-xz9v8p",
+        "fachfrau-mann-kundendialog-efz-coop-dietikon-xz9v8p",
+        "fachfrau-mann-kundendialog-efz-betty-bossi-dietikon-xz9v8p"
       ],
       "salaryMin": 113000,
       "salaryMax": 198500,
@@ -116,19 +122,26 @@
       },
       "slugByLocale": {
         "it": "mediamatiker-in-cfc-coop-muttenz-41xqle",
-        "en": "mediamatiker-in-efz-coop-muttenz-41xqle",
+        "en": "media-specialist-in-efz-coop-muttenz",
         "de": "mediamatiker-in-efz-coop-muttenz-41xqle",
-        "fr": "mediamatiker-in-efz-coop-muttenz-41xqle"
+        "fr": "specialiste-des-medias-en-efz-coop-muttenz"
       },
       "requirementsByLocale": {},
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
           "mediamatiker-in-efz-coop-muttenz"
+        ],
+        "en": [
+          "mediamatiker-in-efz-coop-muttenz-41xqle"
+        ],
+        "fr": [
+          "mediamatiker-in-efz-coop-muttenz-41xqle"
         ]
       },
       "previousSlugs": [
-        "mediamatiker-in-efz-coop-muttenz"
+        "mediamatiker-in-efz-coop-muttenz",
+        "mediamatiker-in-efz-coop-muttenz-41xqle"
       ],
       "salaryMin": 107000,
       "salaryMax": 187500,
@@ -182,9 +195,9 @@
       },
       "slugByLocale": {
         "it": "multimediaelektroniker-in-cfc-fust-oberburen-bhdm5o",
-        "en": "multimediaelektroniker-in-efz-fust-oberburen-bhdm5o",
+        "en": "multimedia-electronics-specialist-in-efz-fust-swiss-household-services-ag-oberburen",
         "de": "multimediaelektroniker-in-efz-fust-oberburen-bhdm5o",
-        "fr": "multimediaelektroniker-in-efz-fust-oberburen-bhdm5o"
+        "fr": "specialiste-de-l-electronique-multimedia-en-efz-fust-swiss-household-services-ag-oberburen"
       },
       "requirementsByLocale": {},
       "sourceLang": "de",
@@ -194,19 +207,25 @@
           "multimediaelektroniker-in-cfc-fust-swiss-household-services-ag-oberburen-bhdm5o"
         ],
         "en": [
-          "multimediaelektroniker-in-efz-fust-swiss-household-services-ag-oberburen-bhdm5o"
+          "multimediaelektroniker-in-efz-fust-swiss-household-services-ag-oberburen-bhdm5o",
+          "multimediaelektroniker-in-efz-fust-swiss-household-services-ag-oberburen-bhdm5o",
+          "multimediaelektroniker-in-efz-fust-oberburen-bhdm5o"
         ],
         "de": [
           "multimediaelektroniker-in-efz-fust-swiss-household-services-ag-oberburen-bhdm5o"
         ],
         "fr": [
-          "multimediaelektroniker-in-efz-fust-swiss-household-services-ag-oberburen-bhdm5o"
+          "multimediaelektroniker-in-efz-fust-swiss-household-services-ag-oberburen-bhdm5o",
+          "multimediaelektroniker-in-efz-fust-swiss-household-services-ag-oberburen-bhdm5o",
+          "multimediaelektroniker-in-efz-fust-oberburen-bhdm5o"
         ]
       },
       "previousSlugs": [
         "multimediaelektroniker-in-efz-fust-swiss-household-services-ag-oberburen",
         "multimediaelektroniker-in-cfc-fust-swiss-household-services-ag-oberburen-bhdm5o",
-        "multimediaelektroniker-in-efz-fust-swiss-household-services-ag-oberburen-bhdm5o"
+        "multimediaelektroniker-in-efz-fust-swiss-household-services-ag-oberburen-bhdm5o",
+        "multimediaelektroniker-in-efz-fust-swiss-household-services-ag-oberburen-bhdm5o",
+        "multimediaelektroniker-in-efz-fust-oberburen-bhdm5o"
       ],
       "salaryMin": 99000,
       "salaryMax": 174000,
@@ -394,9 +413,9 @@
       },
       "slugByLocale": {
         "it": "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-oberburen-8nu961",
-        "en": "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-8nu961",
+        "en": "retail-specialist-mann-efz-shape-of-shopping-experiences-fust-swiss-household-services-ag-oberburen",
         "de": "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-8nu961",
-        "fr": "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-8nu961"
+        "fr": "specialiste-du-commerce-de-detail-mann-efz-la-forme-des-experiences-de-shopping-fust-swiss-household-services-ag"
       },
       "requirementsByLocale": {},
       "sourceLang": "de",
@@ -407,20 +426,26 @@
           "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-swiss-household-services-ag-oberburen"
         ],
         "en": [
-          "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-swiss-household-services-ag-oberburen-8nu961"
+          "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-swiss-household-services-ag-oberburen-8nu961",
+          "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-swiss-household-services-ag-oberburen-8nu961",
+          "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-8nu961"
         ],
         "de": [
           "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-swiss-household-services-ag-oberburen-8nu961"
         ],
         "fr": [
-          "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-swiss-household-services-ag-oberburen-8nu961"
+          "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-swiss-household-services-ag-oberburen-8nu961",
+          "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-swiss-household-services-ag-oberburen-8nu961",
+          "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-8nu961"
         ]
       },
       "previousSlugs": [
         "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-swiss-household-services-ag-oberburen",
         "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-swiss-household-services-ag-oberburen-8nu961",
         "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-swiss-household-services-ag-oberburen",
-        "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-swiss-household-services-ag-oberburen-8nu961"
+        "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-swiss-household-services-ag-oberburen-8nu961",
+        "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-swiss-household-services-ag-oberburen-8nu961",
+        "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-8nu961"
       ],
       "salaryMin": 99000,
       "salaryMax": 174000,
@@ -479,9 +504,9 @@
       },
       "slugByLocale": {
         "it": "apprendistato-commercio-al-dettaglio-afc-settore-multimedia-fust-oberburen-u0a9vw",
-        "en": "apprendistato-commercio-al-dettaglio-afc-settore-multimedia-fust-oberburen-u0a9vw",
-        "de": "apprendistato-commercio-al-dettaglio-afc-settore-multimedia-fust-oberburen-u0a9vw",
-        "fr": "apprendistato-commercio-al-dettaglio-afc-settore-multimedia-fust-oberburen-u0a9vw"
+        "en": "afc-retail-trade-multimedia-industry-fust-oberburen",
+        "de": "afc-einzelhandel-multimedia-industrie-fust-oberburen",
+        "fr": "afc-commerce-de-detail-industrie-multimedia-fust-oberburen"
       },
       "requirementsByLocale": {},
       "sourceLang": "it",
@@ -550,9 +575,9 @@
       },
       "slugByLocale": {
         "it": "apprendistato-commercio-al-dettaglio-afc-settore-multimedia-fust-oberburen-fpy66h",
-        "en": "apprendistato-commercio-al-dettaglio-afc-settore-multimedia-fust-oberburen-fpy66h",
-        "de": "apprendistato-commercio-al-dettaglio-afc-settore-multimedia-fust-oberburen-fpy66h",
-        "fr": "apprendistato-commercio-al-dettaglio-afc-settore-multimedia-fust-oberburen-fpy66h"
+        "en": "afc-retail-trade-multimedia-industry-fust-oberburen-8c90a5",
+        "de": "afc-einzelhandel-multimedia-industrie-fust-oberburen-8c90a5",
+        "fr": "afc-commerce-de-detail-industrie-multimedia-fust-oberburen-8c90a5"
       },
       "requirementsByLocale": {},
       "sourceLang": "it",
@@ -621,9 +646,9 @@
       },
       "slugByLocale": {
         "it": "apprendistato-commercio-al-dettaglio-afc-settore-multimedia-fust-oberburen-rac677",
-        "en": "apprendistato-commercio-al-dettaglio-afc-settore-multimedia-fust-oberburen-rac677",
-        "de": "apprendistato-commercio-al-dettaglio-afc-settore-multimedia-fust-oberburen-rac677",
-        "fr": "apprendistato-commercio-al-dettaglio-afc-settore-multimedia-fust-oberburen-rac677"
+        "en": "afc-retail-trade-multimedia-industry-fust-oberburen-9370e6",
+        "de": "afc-einzelhandel-multimedia-industrie-fust-oberburen-9370e6",
+        "fr": "afc-commerce-de-detail-industrie-multimedia-fust-oberburen-9370e6"
       },
       "requirementsByLocale": {},
       "sourceLang": "it",
@@ -692,19 +717,26 @@
       },
       "slugByLocale": {
         "it": "impiegata-impiegato-in-logistica-afp-fust-oberburen-gtu0nk",
-        "en": "logistiker-in-eba-fust-oberburen-gtu0nk",
+        "en": "logistician-in-eba-fust-oberburen",
         "de": "logistiker-in-eba-fust-oberburen-gtu0nk",
-        "fr": "logistiker-in-eba-fust-oberburen-gtu0nk"
+        "fr": "logisticien-dans-eba-fust-oberburen"
       },
       "requirementsByLocale": {},
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
           "logistiker-in-eba-fust-oberburen"
+        ],
+        "en": [
+          "logistiker-in-eba-fust-oberburen-gtu0nk"
+        ],
+        "fr": [
+          "logistiker-in-eba-fust-oberburen-gtu0nk"
         ]
       },
       "previousSlugs": [
-        "logistiker-in-eba-fust-oberburen"
+        "logistiker-in-eba-fust-oberburen",
+        "logistiker-in-eba-fust-oberburen-gtu0nk"
       ],
       "salaryMin": 99000,
       "salaryMax": 174000,
@@ -763,19 +795,26 @@
       },
       "slugByLocale": {
         "it": "impiegata-impiegato-in-logistica-cfc-fust-oberburen-9i9ecc",
-        "en": "logistiker-in-efz-fust-oberburen-9i9ecc",
+        "en": "logistician-in-efz-fust-oberburen",
         "de": "logistiker-in-efz-fust-oberburen-9i9ecc",
-        "fr": "logistiker-in-efz-fust-oberburen-9i9ecc"
+        "fr": "logisticien-en-efz-fust-oberburen"
       },
       "requirementsByLocale": {},
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
           "logistiker-in-efz-fust-oberburen"
+        ],
+        "en": [
+          "logistiker-in-efz-fust-oberburen-9i9ecc"
+        ],
+        "fr": [
+          "logistiker-in-efz-fust-oberburen-9i9ecc"
         ]
       },
       "previousSlugs": [
-        "logistiker-in-efz-fust-oberburen"
+        "logistiker-in-efz-fust-oberburen",
+        "logistiker-in-efz-fust-oberburen-9i9ecc"
       ],
       "salaryMin": 99000,
       "salaryMax": 174000,
@@ -834,23 +873,28 @@
       },
       "slugByLocale": {
         "it": "kauffrau-mann-cfc-fust-oberburen-v9rad0",
-        "en": "kauffrau-mann-efz-fust-oberburen-v9rad0",
+        "en": "businesswoman-man-efz-fust-oberburen",
         "de": "kauffrau-mann-efz-fust-oberburen-v9rad0",
-        "fr": "kauffrau-mann-efz-fust-oberburen-v9rad0"
+        "fr": "femme-d-affaires-homme-efz-fust-oberburen"
       },
       "requirementsByLocale": {},
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
           "kauffrau-mann-efz-fust-oberburen",
-          "kauffrau-mann-cfc-fust-oberburen-v9rad0",
           "kauffrau-mann-cfc-fust-oberburen"
+        ],
+        "en": [
+          "kauffrau-mann-efz-fust-oberburen-v9rad0"
+        ],
+        "fr": [
+          "kauffrau-mann-efz-fust-oberburen-v9rad0"
         ]
       },
       "previousSlugs": [
         "kauffrau-mann-efz-fust-oberburen",
-        "kauffrau-mann-cfc-fust-oberburen-v9rad0",
-        "kauffrau-mann-cfc-fust-oberburen"
+        "kauffrau-mann-cfc-fust-oberburen",
+        "kauffrau-mann-efz-fust-oberburen-v9rad0"
       ],
       "salaryMin": 99000,
       "salaryMax": 174000,
@@ -909,23 +953,28 @@
       },
       "slugByLocale": {
         "it": "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-oberburen-l0d7ew",
-        "en": "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-l0d7ew",
+        "en": "retail-specialist-mann-efz-shape-of-shopping-experiences-fust-oberburen",
         "de": "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-l0d7ew",
-        "fr": "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-l0d7ew"
+        "fr": "specialiste-du-commerce-de-detail-mann-efz-la-forme-des-experiences-de-shopping-fust-oberburen"
       },
       "requirementsByLocale": {},
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
           "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen",
-          "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-oberburen-l0d7ew",
           "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-oberburen"
+        ],
+        "en": [
+          "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-l0d7ew"
+        ],
+        "fr": [
+          "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-l0d7ew"
         ]
       },
       "previousSlugs": [
         "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen",
-        "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-oberburen-l0d7ew",
-        "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-oberburen"
+        "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-oberburen",
+        "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-l0d7ew"
       ],
       "salaryMin": 99000,
       "salaryMax": 174000,
@@ -1006,6 +1055,8 @@
         "it": [
           "social-media-manager-m-w-d-80-100-coop-genossenschaft-basel-stadt-tr0124",
           "social-media-manager-w-m-d-80-100-coop-genossenschaft-basel",
+          "social-media-manager-m-w-d-80-100-coop-basel-stadt",
+          "social-media-manager-w-m-d-80-100-coop-genossenschaft-basel",
           "social-media-manager-m-w-d-80-100-coop-basel-stadt"
         ],
         "en": [
@@ -1013,6 +1064,7 @@
         ],
         "fr": [
           "social-media-manager-m-w-d-80-100-coop-genossenschaft-basel-stadt-tr0124",
+          "social-media-manager-m-w-d-80-100-coop-basel-stadt-tr0124",
           "social-media-manager-m-w-d-80-100-coop-basel-stadt-tr0124"
         ]
       },
@@ -1020,12 +1072,15 @@
         "social-media-manager-m-w-d-80-100-coop-genossenschaft-basel-stadt-tr0124",
         "social-media-manager-w-m-d-80-100-coop-genossenschaft-basel",
         "social-media-manager-m-w-d-80-100-coop-basel-stadt",
+        "social-media-manager-m-w-d-80-100-coop-basel-stadt-tr0124",
+        "social-media-manager-w-m-d-80-100-coop-genossenschaft-basel",
+        "social-media-manager-m-w-d-80-100-coop-basel-stadt",
         "social-media-manager-m-w-d-80-100-coop-basel-stadt-tr0124"
       ]
     },
     {
       "id": "company-qp6qt0",
-      "slug": "anlagefuhrer-in-produktion-coop-genossenschaft-pratteln-basel-landschaft-qp6qt0",
+      "slug": "operatore-di-sistema-in-produzione-coop-genossenschaft-pratteln-basel-landschaft",
       "company": "Coop Genossenschaft",
       "title": "Anlageführer:in Produktion",
       "location": "Pratteln, Basel-Landschaft",
@@ -1056,20 +1111,28 @@
         "fr": "## Opérateur de réseau:en production\n\n**Coop cooperative** — Pratteln, Basel-Landschaft, Svizzera\n\n## Tâche\n- Vous exploitez et surveillez la chaîne de production et respectez les règles d'hygiène et les directives de fabrication de produits\n- Vous créez les différents éléments d'investissement et les ajustez\n- Vous appliquez activement des mesures correctives, contrôlez les produits conformément aux règlements applicables et assurez la manipulation correcte des aliments\n- Vous nettoyez la chaîne de production et assurez un flux d'information en douceur\n\n## Exigences\n- Formation professionnelle complète en tant que technologue alimentaire: dans EFZ ou expérience professionnelle dans l'industrie de l'emballage\n- Préparation au travail posté\n- Compréhension technique\n- Bonne connaissance de l'allemand en mots et en écriture\n- Bon travail d'équipe, serviabilité et qualité de la pensée\n- Réductions: 5 fois le nombre de super points dans le supermarché, jusqu'à 20% de réduction dans tous les formats du groupe Coop, abonnements mobiles et prépayés moins chers chez Coop Mobile, carte Reka: rabais sur abonnement, rabais sur abonnement GA\n- Conditions d'emploi: Caisse de retraite: 2/3 sont payés par la coopérative, les conditions d'emploi attractives et l'égalité de rémunération certifiée, 18 semaines de congé de maternité payé et 4 semaines de congé de paternité payé\n- Heures de travail: 5 semaines de congés\n- Formation : plus de 600 cours de formation interne\n- Durabilité: Engagement envers les personnes et les animaux et la nature avec plus de 400 actions\n- Communication: application interne pour les employés\n- Santé : Mise à jour de la condition physique : Fr. 200.– Réduction sur l'abonnement annuel, participation gratuite à divers projets d'entreprise\n\n## Votre personne à contacter\nNathan Reicher\nMarketing des ressources humaines\n\n**Tipo:** Temps plein\n**Sécurité :** Pratteln"
       },
       "slugByLocale": {
-        "it": "anlagefuhrer-in-produktion-coop-genossenschaft-pratteln-basel-landschaft-qp6qt0",
-        "en": "anlagefuhrer-in-produktion-coop-genossenschaft-pratteln-basel-landschaft-qp6qt0",
+        "it": "operatore-di-sistema-in-produzione-coop-genossenschaft-pratteln-basel-landschaft",
+        "en": "system-operator-in-production-coop-genossenschaft-pratteln-basel-landschaft",
         "de": "anlagefuhrer-in-produktion-coop-genossenschaft-pratteln-basel-landschaft-qp6qt0",
-        "fr": "anlagefuhrer-in-produktion-coop-genossenschaft-pratteln-basel-landschaft-qp6qt0"
+        "fr": "operateur-de-reseau-en-production-coop-genossenschaft-pratteln-basel-landschaft"
       },
       "requirementsByLocale": {},
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "anlagefuhrer-in-produktion-coop-genossenschaft-pratteln-basel-landschaft"
+          "anlagefuhrer-in-produktion-coop-genossenschaft-pratteln-basel-landschaft",
+          "anlagefuhrer-in-produktion-coop-genossenschaft-pratteln-basel-landschaft-qp6qt0"
+        ],
+        "en": [
+          "anlagefuhrer-in-produktion-coop-genossenschaft-pratteln-basel-landschaft-qp6qt0"
+        ],
+        "fr": [
+          "anlagefuhrer-in-produktion-coop-genossenschaft-pratteln-basel-landschaft-qp6qt0"
         ]
       },
       "previousSlugs": [
-        "anlagefuhrer-in-produktion-coop-genossenschaft-pratteln-basel-landschaft"
+        "anlagefuhrer-in-produktion-coop-genossenschaft-pratteln-basel-landschaft",
+        "anlagefuhrer-in-produktion-coop-genossenschaft-pratteln-basel-landschaft-qp6qt0"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -1224,6 +1287,7 @@
       "previousSlugsByLocale": {
         "it": [
           "verkaufsberater-in-inklusive-stellvertretung-der-geschaftsfuhrung-coop-genossenschaft-luzern-wshfje",
+          "verkaufsberater-in-inklusive-stellvertretung-der-geschaftsfuhrung-coop-genossenschaft-luzern",
           "verkaufsberater-in-inklusive-stellvertretung-der-geschaftsfuhrung-coop-genossenschaft-luzern"
         ],
         "en": [
@@ -1235,6 +1299,7 @@
       },
       "previousSlugs": [
         "verkaufsberater-in-inklusive-stellvertretung-der-geschaftsfuhrung-coop-genossenschaft-luzern-wshfje",
+        "verkaufsberater-in-inklusive-stellvertretung-der-geschaftsfuhrung-coop-genossenschaft-luzern",
         "verkaufsberater-in-inklusive-stellvertretung-der-geschaftsfuhrung-coop-genossenschaft-luzern"
       ]
     },
@@ -1436,10 +1501,12 @@
         ],
         "en": [
           "verkaufsberater-in-christ-uhren-schmuck-ag-winterthur-zurich-pfpmsq",
+          "sales-consultant-christ-uhren-schmuck-ag-winterthur-vw2o0o",
           "sales-consultant-christ-uhren-schmuck-ag-winterthur-vw2o0o"
         ],
         "fr": [
           "verkaufsberater-in-christ-uhren-schmuck-ag-winterthur-zurich-pfpmsq",
+          "conseiller-de-vente-christ-uhren-schmuck-ag-winterthur-vw2o0o",
           "conseiller-de-vente-christ-uhren-schmuck-ag-winterthur-vw2o0o"
         ],
         "de": [
@@ -1448,6 +1515,42 @@
       },
       "previousSlugs": [
         "verkaufsberater-in-christ-uhren-schmuck-ag-winterthur-zurich-pfpmsq",
+        "consultant-en-vente-christ-uhren-schmuck-ag-winterthur-jkfmkz",
+        "geschaftsfuhrer-in-christ-orologi-gioielli-winterthur-zurich",
+        "geschaftsfuhrer-in-christ-orologi-gioielli-winterthur-zurich-0mrkue",
+        "managing-director-christ-uhren-schmuck-ag-winterthur",
+        "geschaftsfuhrer-in-christ-uhren-schmuck-ag-winterthur",
+        "directeur-general-christ-uhren-schmuck-ag-winterthur",
+        "geschaftsfuhrer-in-christ-uhren-schmuck-ag-winterthur-0mrkue",
+        "verkaufsberater-in-christ-orologi-gioielli-dielsdorf-zurich",
+        "verkaufsberater-in-christ-orologi-gioielli-dielsdorf-zurich-k1wrua",
+        "verkaufsberater-in-christ-uhren-schmuck-ag-dielsdorf",
+        "conseiller-ere-de-vente-christ-uhren-schmuck-ag-dielsdorf",
+        "verkaufsberater-in-christ-uhren-schmuck-ag-dielsdorf-k1wrua",
+        "consulente-vendite-christ-uhren-schmuck-ag-arbon",
+        "sales-consultant-christ-uhren-schmuck-ag-winterthur",
+        "sales-consultant-christ-uhren-schmuck-ag-dielsdorf",
+        "verkaufsberater-in-christ-uhren-schmuck-ag-winterthur",
+        "conseiller-de-vente-christ-uhren-schmuck-ag-winterthur",
+        "consulente-commerciale-in-christ-uhren-schmuck-ag-winterthur-zurich",
+        "sales-consultant-in-christ-uhren-schmuck-ag-winterthur-zurich",
+        "consultant-en-ventes-christ-uhren-schmuck-ag-winterthur-zurich",
+        "sales-consultant-christ-uhren-schmuck-ag-winterthur-vw2o0o",
+        "verkaufsberater-in-christ-uhren-schmuck-ag-winterthur-zurich-vw2o0o",
+        "conseiller-de-vente-christ-uhren-schmuck-ag-winterthur-vw2o0o",
+        "consulente-vendite-christ-uhren-schmuck-ag-winterthur",
+        "verkaufsberater-in-christ-uhren-schmuck-ag-winterthur-zurich",
+        "sales-consultant-christ-uhren-schmuck-ag-dielsdorf-k1wrua",
+        "consultant-en-vente-christ-uhren-schmuck-ag-dielsdorf",
+        "consultant-en-vente-christ-uhren-schmuck-ag-dielsdorf-k1wrua",
+        "conseiller-ere-de-vente-christ-uhren-schmuck-ag-dielsdorf-k1wrua",
+        "sales-consultant-christ-uhren-schmuck-ag-winterthur-a09af4",
+        "verkaufsberater-in-christ-uhren-schmuck-ag-winterthur-a09af4",
+        "verkaufsberater-in-christ-orologi-gioielli-winterthur-zurich-jkfmkz",
+        "consultant-en-vente-christ-uhren-schmuck-ag-winterthur",
+        "verkaufsberater-in-christ-uhren-schmuck-ag-winterthur-jkfmkz",
+        "sales-consultant-christ-uhren-schmuck-ag-winterthur-jkfmkz",
+        "conseiller-ere-de-vente-christ-uhren-schmuck-ag-winterthur",
         "consultant-en-vente-christ-uhren-schmuck-ag-winterthur-jkfmkz",
         "geschaftsfuhrer-in-christ-orologi-gioielli-winterthur-zurich",
         "geschaftsfuhrer-in-christ-orologi-gioielli-winterthur-zurich-0mrkue",
@@ -7667,7 +7770,6 @@
           "kochin-koch-m-w-d-coop-genossenschaft-biel-bern-v0jq63",
           "cook-cook-f-m-d-coop-genossenschaft-biel-3c0095",
           "cook-cook-f-m-d-coop-genossenschaft-biel-3c0095",
-          "cook-cook-f-m-d-coop-genossenschaft-biel-bern",
           "kochin-koch-m-w-d-coop-genossenschaft-biel-bern"
         ],
         "fr": [
@@ -7680,8 +7782,7 @@
         "kochin-koch-m-w-d-coop-genossenschaft-biel-bern-v0jq63",
         "cucinare-cucinare-f-m-d-coop-genossenschaft-biel-3c0095",
         "cook-cook-f-m-d-coop-genossenschaft-biel-3c0095",
-        "cuire-cuire-f-m-d-coop-genossenschaft-biel-3c0095",
-        "cook-cook-f-m-d-coop-genossenschaft-biel-bern"
+        "cuire-cuire-f-m-d-coop-genossenschaft-biel-3c0095"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -13571,7 +13672,6 @@
         "en": [
           "kochin-koch-m-w-d-coop-genossenschaft-bern-7z9gmc",
           "cook-cook-f-m-d-coop-genossenschaft-bern",
-          "cook-cook-f-m-d-coop-genossenschaft-bern-a8c9d4",
           "kochin-koch-m-w-d-coop-genossenschaft-bern"
         ],
         "fr": [
@@ -13588,8 +13688,7 @@
         "cucinare-cucinare-f-m-d-coop-genossenschaft-bern",
         "cook-cook-f-m-d-coop-genossenschaft-bern",
         "kochin-koch-m-w-d-coop-genossenschaft-bern-irdhh4",
-        "cuire-cuire-f-m-d-coop-genossenschaft-bern",
-        "cook-cook-f-m-d-coop-genossenschaft-bern-a8c9d4"
+        "cuire-cuire-f-m-d-coop-genossenschaft-bern"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -15700,7 +15799,6 @@
         ],
         "en": [
           "kochin-koch-m-w-d-coop-genossenschaft-winterthur-zurich-9qlmku",
-          "cook-cook-f-m-d-coop-genossenschaft-winterthur",
           "kochin-koch-m-w-d-coop-genossenschaft-winterthur-zurich"
         ],
         "fr": [
@@ -15710,8 +15808,7 @@
       "previousSlugs": [
         "kochin-koch-m-w-d-coop-genossenschaft-winterthur-zurich",
         "kochin-koch-m-w-d-coop-ristorante-winterthur-zurich",
-        "kochin-koch-m-w-d-coop-genossenschaft-winterthur-zurich-9qlmku",
-        "cook-cook-f-m-d-coop-genossenschaft-winterthur"
+        "kochin-koch-m-w-d-coop-genossenschaft-winterthur-zurich-9qlmku"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -17735,7 +17832,6 @@
           "cook-m-w-d-coop-genossenschaft-aarau-x72egi",
           "kochin-koch-m-w-d-coop-genossenschaft-aarau-aargau-ddg6am",
           "cook-cook-f-m-d-coop-genossenschaft-aarau-aargau",
-          "cook-cook-f-m-d-coop-genossenschaft-aarau",
           "kochin-koch-m-w-d-coop-genossenschaft-aarau-aargau"
         ],
         "de": [
@@ -17771,8 +17867,7 @@
         "cook-cook-f-m-d-coop-genossenschaft-aarau-aargau",
         "cuire-cuire-f-m-d-coop-genossenschaft-aarau-aargau",
         "cucinare-cucinare-f-m-d-coop-genossenschaft-aarau-aargau",
-        "kochin-koch-m-w-d-coop-genossenschaft-aarau-aargau",
-        "cook-cook-f-m-d-coop-genossenschaft-aarau"
+        "kochin-koch-m-w-d-coop-genossenschaft-aarau-aargau"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -18475,7 +18570,6 @@
           "kochin-koch-m-w-d-coop-genossenschaft-st-gallen-sankt-gallen-uo8mso",
           "cook-cook-f-m-d-coop-genossenschaft-st-gallen-sankt-gallen",
           "cook-cook-f-m-d-coop-genossenschaft-st-gallen-edf62c",
-          "cook-cook-f-m-d-coop-genossenschaft-st-gallen",
           "kochin-koch-m-w-d-coop-genossenschaft-st-gallen-sankt-gallen"
         ],
         "de": [
@@ -18512,8 +18606,7 @@
         "cuire-cuire-f-m-d-coop-genossenschaft-st-gallen-edf62c",
         "kochin-koch-m-w-d-coop-st-gallen-sankt-gallen",
         "cucinare-cucinare-f-m-d-coop-genossenschaft-st-gallen-edf62c",
-        "cook-cook-f-m-d-coop-genossenschaft-st-gallen-edf62c",
-        "cook-cook-f-m-d-coop-genossenschaft-st-gallen"
+        "cook-cook-f-m-d-coop-genossenschaft-st-gallen-edf62c"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -20206,7 +20299,6 @@
         ],
         "en": [
           "kochin-koch-m-w-d-coop-genossenschaft-volketswil-zurich-womu86",
-          "cook-cook-f-m-d-coop-genossenschaft-volketswil",
           "kochin-koch-m-w-d-coop-genossenschaft-volketswil-zurich"
         ],
         "fr": [
@@ -20216,8 +20308,7 @@
       "previousSlugs": [
         "kochin-koch-m-w-d-coop-genossenschaft-volketswil-zurich",
         "kochin-koch-m-w-d-coop-genossenschaft-volketswil-zurich-womu86",
-        "kochin-koch-m-w-d-coop-ristorante-volketswil-zurich",
-        "cook-cook-f-m-d-coop-genossenschaft-volketswil"
+        "kochin-koch-m-w-d-coop-ristorante-volketswil-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
