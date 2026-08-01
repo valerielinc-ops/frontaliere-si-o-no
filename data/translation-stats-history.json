@@ -1,119 +1,5 @@
 [
   {
-    "timestamp": "2026-07-12T15:48:32.475Z",
-    "label": "before",
-    "total": 24177,
-    "needsRetranslation": 7406,
-    "suppressed": 84,
-    "incomplete": 135,
-    "complete": 24042,
-    "missingByLocale": {
-      "it": 113,
-      "en": 94,
-      "de": 41,
-      "fr": 94
-    },
-    "topPending": [
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 50
-      },
-      {
-        "company": "Sunrise Communications AG",
-        "pending": 23
-      },
-      {
-        "company": "CSD ENGINEERS",
-        "pending": 12
-      },
-      {
-        "company": "Swiss Medical Network",
-        "pending": 10
-      },
-      {
-        "company": "Kantonsspital Aarau (KSA)",
-        "pending": 9
-      },
-      {
-        "company": "IKEA",
-        "pending": 5
-      },
-      {
-        "company": "Die Schweizerische Post",
-        "pending": 4
-      },
-      {
-        "company": "Kantonsspital Uri",
-        "pending": 3
-      },
-      {
-        "company": "Kantonsspital Baden (KSB)",
-        "pending": 3
-      },
-      {
-        "company": "Bürgenstock Hotels AG",
-        "pending": 2
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-07-12T16:20:15.126Z",
-    "label": "after",
-    "total": 24177,
-    "needsRetranslation": 2176,
-    "suppressed": 78,
-    "incomplete": 128,
-    "complete": 24049,
-    "missingByLocale": {
-      "it": 107,
-      "en": 88,
-      "de": 39,
-      "fr": 88
-    },
-    "topPending": [
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 50
-      },
-      {
-        "company": "Sunrise Communications AG",
-        "pending": 23
-      },
-      {
-        "company": "CSD ENGINEERS",
-        "pending": 12
-      },
-      {
-        "company": "Swiss Medical Network",
-        "pending": 10
-      },
-      {
-        "company": "IKEA",
-        "pending": 5
-      },
-      {
-        "company": "Die Schweizerische Post",
-        "pending": 4
-      },
-      {
-        "company": "Kantonsspital Uri",
-        "pending": 3
-      },
-      {
-        "company": "Kantonsspital Baden (KSB)",
-        "pending": 3
-      },
-      {
-        "company": "Bürgenstock Hotels AG",
-        "pending": 2
-      },
-      {
-        "company": "Implenia",
-        "pending": 2
-      }
-    ]
-  },
-  {
     "timestamp": "2026-07-12T23:07:32.967Z",
     "label": "before",
     "total": 24181,
@@ -11396,6 +11282,120 @@
       {
         "company": "Spital Schwyz",
         "pending": 2
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-08-01T06:55:08.015Z",
+    "label": "before",
+    "total": 26338,
+    "needsRetranslation": 11551,
+    "suppressed": 36,
+    "incomplete": 765,
+    "complete": 25573,
+    "missingByLocale": {
+      "it": 639,
+      "en": 394,
+      "de": 195,
+      "fr": 453
+    },
+    "topPending": [
+      {
+        "company": "Die Schweizerische Post",
+        "pending": 154
+      },
+      {
+        "company": "Jaeger-LeCoultre",
+        "pending": 91
+      },
+      {
+        "company": "Roche",
+        "pending": 74
+      },
+      {
+        "company": "Stadt Zürich",
+        "pending": 55
+      },
+      {
+        "company": "ZFV-Unternehmungen",
+        "pending": 43
+      },
+      {
+        "company": "Swiss Medical Network",
+        "pending": 34
+      },
+      {
+        "company": "Swisscom (sede Ticino)",
+        "pending": 27
+      },
+      {
+        "company": "Sunrise Communications AG",
+        "pending": 23
+      },
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 21
+      },
+      {
+        "company": "VOLG",
+        "pending": 19
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-08-01T07:01:03.650Z",
+    "label": "after",
+    "total": 26338,
+    "needsRetranslation": 1266,
+    "suppressed": 36,
+    "incomplete": 765,
+    "complete": 25573,
+    "missingByLocale": {
+      "it": 639,
+      "en": 394,
+      "de": 195,
+      "fr": 453
+    },
+    "topPending": [
+      {
+        "company": "Die Schweizerische Post",
+        "pending": 154
+      },
+      {
+        "company": "Jaeger-LeCoultre",
+        "pending": 91
+      },
+      {
+        "company": "Roche",
+        "pending": 74
+      },
+      {
+        "company": "Stadt Zürich",
+        "pending": 55
+      },
+      {
+        "company": "ZFV-Unternehmungen",
+        "pending": 43
+      },
+      {
+        "company": "Swiss Medical Network",
+        "pending": 34
+      },
+      {
+        "company": "Swisscom (sede Ticino)",
+        "pending": 27
+      },
+      {
+        "company": "Sunrise Communications AG",
+        "pending": 23
+      },
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 21
+      },
+      {
+        "company": "VOLG",
+        "pending": 19
       }
     ]
   }
