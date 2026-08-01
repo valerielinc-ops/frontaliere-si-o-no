@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-08-01T09:04:17.930Z",
+  "updatedAt": "2026-08-01T09:40:18.223Z",
   "entities": {
     "AASTI": {
       "status": "suspect",
@@ -730,17 +730,45 @@
       "statusSource": "auto",
       "statusAt": "2026-07-29T14:56:18.665Z",
       "firstSeen": "2026-07-29T14:56:18.665Z",
-      "lastSeen": "2026-08-01T05:07:38.771Z",
-      "seen": 8,
+      "lastSeen": "2026-08-01T09:40:18.223Z",
+      "seen": 12,
       "unsupportedSightings": 0,
       "unsupportedRuns": [],
-      "supportedSightings": 8,
+      "supportedSightings": 12,
       "names": [
         "Commissione federale delle banche"
       ],
       "recentKeys": [],
       "evidence": [
         {
+          "at": "2026-08-01T09:40:18.223Z",
+          "runId": "30693054693",
+          "articleId": "unknown",
+          "support": "present",
+          "name": "Commissione federale delle banche"
+        },
+        {
+          "at": "2026-08-01T09:40:18.223Z",
+          "runId": "30693054693",
+          "articleId": "unknown",
+          "support": "present",
+          "name": "Commissione federale delle banche"
+        },
+        {
+          "at": "2026-08-01T09:40:18.223Z",
+          "runId": "30693054693",
+          "articleId": "unknown",
+          "support": "present",
+          "name": "Commissione federale delle banche"
+        },
+        {
+          "at": "2026-08-01T09:40:18.223Z",
+          "runId": "30693054693",
+          "articleId": "unknown",
+          "support": "present",
+          "name": "Commissione federale delle banche"
+        },
+        {
           "at": "2026-08-01T05:07:38.771Z",
           "runId": "30684723546",
           "articleId": "telelavoro-frontalieri-implicazioni-pratiche",
@@ -765,34 +793,6 @@
           "at": "2026-08-01T04:32:17.087Z",
           "runId": "30683682399",
           "articleId": "frontalieri-riapertura-attivita-edilizia",
-          "support": "present",
-          "name": "Commissione federale delle banche"
-        },
-        {
-          "at": "2026-08-01T04:32:17.087Z",
-          "runId": "30683682399",
-          "articleId": "frontalieri-riapertura-attivita-edilizia",
-          "support": "present",
-          "name": "Commissione federale delle banche"
-        },
-        {
-          "at": "2026-07-29T16:30:57.787Z",
-          "runId": "30469517452",
-          "articleId": "storia-vigilanza-bancaria-svizzera",
-          "support": "present",
-          "name": "Commissione federale delle banche"
-        },
-        {
-          "at": "2026-07-29T14:56:18.665Z",
-          "runId": "30460991205",
-          "articleId": "frontalieri-tassa-salute",
-          "support": "present",
-          "name": "Commissione federale delle banche"
-        },
-        {
-          "at": "2026-07-29T14:56:18.665Z",
-          "runId": "30460991205",
-          "articleId": "frontalieri-tassa-salute",
           "support": "present",
           "name": "Commissione federale delle banche"
         }
@@ -4647,20 +4647,28 @@
       ]
     },
     "UCAS": {
-      "status": "suspect",
+      "status": "cleared",
       "statusSource": "auto",
-      "statusAt": "2026-07-29T06:26:58.011Z",
+      "statusAt": "2026-08-01T09:40:18.223Z",
       "firstSeen": "2026-07-29T06:26:58.011Z",
-      "lastSeen": "2026-07-29T06:26:58.011Z",
-      "seen": 1,
+      "lastSeen": "2026-08-01T09:40:18.223Z",
+      "seen": 2,
       "unsupportedSightings": 0,
       "unsupportedRuns": [],
-      "supportedSightings": 0,
+      "supportedSightings": 1,
       "names": [
+        "Ufficio cantonale delle assicurazioni sociali",
         "Ufficio Cantonale delle Assicurazioni Sociali"
       ],
       "recentKeys": [],
       "evidence": [
+        {
+          "at": "2026-08-01T09:40:18.223Z",
+          "runId": "30693054693",
+          "articleId": "unknown",
+          "support": "present",
+          "name": "Ufficio cantonale delle assicurazioni sociali"
+        },
         {
           "at": "2026-07-29T06:26:58.011Z",
           "runId": "corpus-scan",
@@ -6587,11 +6595,11 @@
       "statusSource": "auto",
       "statusAt": "2026-07-29T06:26:58.011Z",
       "firstSeen": "2026-07-29T06:26:58.011Z",
-      "lastSeen": "2026-08-01T06:10:05.052Z",
-      "seen": 27,
+      "lastSeen": "2026-08-01T09:40:18.223Z",
+      "seen": 30,
       "unsupportedSightings": 0,
       "unsupportedRuns": [],
-      "supportedSightings": 14,
+      "supportedSightings": 17,
       "names": [
         "Ufficio Regionale della Disoccupazione",
         "Ufficio Regionale di Collocamento",
@@ -6601,6 +6609,27 @@
       ],
       "recentKeys": [],
       "evidence": [
+        {
+          "at": "2026-08-01T09:40:18.223Z",
+          "runId": "30693054693",
+          "articleId": "unknown",
+          "support": "present",
+          "name": "Ufficio regionale di collocamento"
+        },
+        {
+          "at": "2026-08-01T09:40:18.223Z",
+          "runId": "30693054693",
+          "articleId": "unknown",
+          "support": "present",
+          "name": "Ufficio regionale di collocamento"
+        },
+        {
+          "at": "2026-08-01T09:40:18.223Z",
+          "runId": "30693054693",
+          "articleId": "unknown",
+          "support": "present",
+          "name": "Ufficio regionale di collocamento"
+        },
         {
           "at": "2026-08-01T06:10:05.052Z",
           "runId": "30685261901",
@@ -6633,27 +6662,6 @@
           "at": "2026-07-29T23:23:44.157Z",
           "runId": "30497755528",
           "articleId": "caro-carburanti-svizzera-indagine-comco",
-          "support": "present",
-          "name": "Uffici regionali di collocamento"
-        },
-        {
-          "at": "2026-07-29T23:23:44.157Z",
-          "runId": "30497755528",
-          "articleId": "caro-carburanti-svizzera-indagine-comco",
-          "support": "present",
-          "name": "Uffici regionali di collocamento"
-        },
-        {
-          "at": "2026-07-29T19:58:12.549Z",
-          "runId": "30483804455",
-          "articleId": "vivere-porto-ceresio-lavoro-ticino",
-          "support": "present",
-          "name": "Uffici regionali di collocamento"
-        },
-        {
-          "at": "2026-07-29T19:58:12.549Z",
-          "runId": "30483804455",
-          "articleId": "vivere-porto-ceresio-lavoro-ticino",
           "support": "present",
           "name": "Uffici regionali di collocamento"
         }
