@@ -96420,7 +96420,8 @@
         "stv-filialleiter-in-denner-ag-einsiedeln-jkrp0n",
         "stv-filialleiter-in-denner-einsiedeln",
         "vice-direttore-di-filiale-in-formazione-denner-ag-oensingen",
-        "vice-direttore-di-filiale-denner-basel"
+        "vice-direttore-di-filiale-denner-basel",
+        "vice-direttore-di-filiale-denner-ag-einsiedeln"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -96429,7 +96430,8 @@
           "stv-filialleiter-in-denner-ag-einsiedeln-jkrp0n",
           "stv-filialleiter-in-denner-einsiedeln",
           "vice-direttore-di-filiale-in-formazione-denner-ag-oensingen",
-          "vice-direttore-di-filiale-denner-basel"
+          "vice-direttore-di-filiale-denner-basel",
+          "vice-direttore-di-filiale-denner-ag-einsiedeln"
         ],
         "en": [
           "stv-filialleiter-in-denner-ag-einsiedeln-jkrp0n"
@@ -126966,7 +126968,9 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "8001",
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true,
+      "retranslationAttempts": 0
     },
     {
       "id": "company-b39cbr",
@@ -127301,7 +127305,9 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "8001",
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true,
+      "retranslationAttempts": 0
     },
     {
       "id": "company-mfpvtd",
