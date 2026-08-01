@@ -9182,6 +9182,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.seveso-lavori-sul-nodo-ferroviario.title': 'Stop ai treni S4 a Seveso e Camnago dal 3 al 23 agosto',
     'blog.article.seveso-lavori-sul-nodo-ferroviario.excerpt': 'Durante il periodo dei lavori, i collegamenti saranno garantiti da bus in partenza dalle vicinanze del Municipio di Seveso e dalla stazione di Camnago Lentate.',
     'blog.article.seveso-lavori-sul-nodo-ferroviario.imageAlt': 'Un treno ferroviario si avvicina al nodo ferroviario di Seveso',
+    'blog.article.riforma-ue-frontalieri-2026.title': 'Riforma UE, costo per la Svizzera: un miliardo',
+    'blog.article.riforma-ue-frontalieri-2026.excerpt': 'La Svizzera rischia di pagare un prezzo elevato per una riforma sociale approvata dall\'Unione europea.',
+    'blog.article.riforma-ue-frontalieri-2026.imageAlt': 'La vista di Lugano dal Lago Lugano',
 };
 
 export default blogMetaIt;
