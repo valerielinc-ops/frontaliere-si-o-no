@@ -603,6 +603,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'bns-utile-semestre-2026': { it: 'bns-utile-semestre-2026', en: 'snb-profit-first-half-2026-results', de: 'snb-gewinn-erstes-halbjahr-2026-ergebnisse', fr: 'bns-benefice-premier-semestre-2026-resultats' },
  'medacta-crescita-ricavi-pietro': { it: 'medacta-crescita-ricavi-pietro', en: 'medacta-revenue-growth-pietro', de: 'medacta-umsatzwachstum-pietro', fr: 'medacta-croissance-des-ventes-pietro' },
  'frontalieri-riapertura-attivita-edilizia': { it: 'frontalieri-riapertura-attivita-edilizia', en: 'frontalieri-riapertura-attivita-edilizia', de: 'frontalieri-riapertura-attivita-edilizia', fr: 'frontalieri-riapertura-attivita-edilizia' },
+ 'telelavoro-frontalieri-implicazioni-pratiche': { it: 'telelavoro-frontalieri-implicazioni-pratiche', en: 'telecommuting-for-frontaliers-practical-implications', de: 'telearbeit-fur-frontalierer-praktische-folgen', fr: 'teletravail-pour-frontalier-pratiques-implications' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
