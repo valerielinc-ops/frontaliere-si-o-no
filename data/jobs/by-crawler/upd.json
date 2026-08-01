@@ -1,7 +1,72 @@
 {
   "crawlerKey": "upd",
-  "assembledAt": "2026-07-28T11:39:03.270Z",
+  "assembledAt": "2026-08-01T22:05:05.697Z",
   "jobs": [
+    {
+      "id": "upd-f594a3e5a5c5",
+      "slug": "dipl-pflegefachperson-hf-fh-upd-bern",
+      "slugByLocale": {
+        "de": "dipl-pflegefachperson-hf-fh-upd-bern",
+        "it": "dipl-pflegefachperson-hf-fh-upd-bern",
+        "en": "dipl-pflegefachperson-hf-fh-upd-bern",
+        "fr": "dipl-pflegefachperson-hf-fh-upd-bern"
+      },
+      "company": "Universitäre Psychiatrische Dienste Bern (UPD)",
+      "companyKey": "upd",
+      "companyDomain": "upd.ch",
+      "title": "Dipl. Pflegefachperson HF/FH",
+      "titleByLocale": {
+        "de": "Dipl. Pflegefachperson HF/FH",
+        "it": "Dipl. Pflegefachperson HF/FH",
+        "en": "Dipl. Pflegefachperson HF/FH",
+        "fr": "Dipl. Pflegefachperson HF/FH"
+      },
+      "description": "Dipl. Pflegefachperson HF/FH bei Universitäres Psychiatrisches Zentrum Bern AG in Bern (3000, BE), Schweiz.\n\n• Bereich: Pflege\n• Art: Vollzeit\n• Befristung: Unbefristet\n• Standort: Bern (BE)\n• Bewerbung über das Umantis-Karriereportal von Universitäre Psychiatrische Dienste Bern (UPD)",
+      "descriptionByLocale": {
+        "de": "Dipl. Pflegefachperson HF/FH bei Universitäres Psychiatrisches Zentrum Bern AG in Bern (3000, BE), Schweiz.\n\n• Bereich: Pflege\n• Art: Vollzeit\n• Befristung: Unbefristet\n• Standort: Bern (BE)\n• Bewerbung über das Umantis-Karriereportal von Universitäre Psychiatrische Dienste Bern (UPD)",
+        "it": "Dipl. Pflegefachperson HF/FH bei Universitäres Psychiatrisches Zentrum Bern AG in Bern (3000, BE), Schweiz.\n\n• Bereich: Pflege\n• Art: Vollzeit\n• Befristung: Unbefristet\n• Standort: Bern (BE)\n• Bewerbung über das Umantis-Karriereportal von Universitäre Psychiatrische Dienste Bern (UPD)",
+        "en": "Dipl. Pflegefachperson HF/FH bei Universitäres Psychiatrisches Zentrum Bern AG in Bern (3000, BE), Schweiz.\n\n• Bereich: Pflege\n• Art: Vollzeit\n• Befristung: Unbefristet\n• Standort: Bern (BE)\n• Bewerbung über das Umantis-Karriereportal von Universitäre Psychiatrische Dienste Bern (UPD)",
+        "fr": "Dipl. Pflegefachperson HF/FH bei Universitäres Psychiatrisches Zentrum Bern AG in Bern (3000, BE), Schweiz.\n\n• Bereich: Pflege\n• Art: Vollzeit\n• Befristung: Unbefristet\n• Standort: Bern (BE)\n• Bewerbung über das Umantis-Karriereportal von Universitäre Psychiatrische Dienste Bern (UPD)"
+      },
+      "needsRetranslation": true,
+      "location": "Bern",
+      "canton": "BE",
+      "url": "https://recruitingapp-2908.umantis.com/Vacancies/3340/Description/1",
+      "source": "Universitäre Psychiatrische Dienste Bern (UPD) Dedicated Parser (Umantis listing tenant 2908)",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-01T22:04:53.028Z",
+      "addressLocality": "Bern",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "3000",
+      "category": "Sanità / Ospedali",
+      "contract": "temporary",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-01",
+      "applyUrl": "https://recruitingapp-2908.umantis.com/Vacancies/3340/Application/CheckLogin/1",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68500,
+          "maxValue": 104000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-08-01T22:04:53.028Z"
+    },
     {
       "id": "upd-e3603479ba20",
       "slug": "msc-psicologo-psicologo-pedagoga-sociale-pedagoga-sociale-dipl-infermiera-in-ass-ifi-universitare-psychiatrische-dienste",
@@ -78,7 +143,9 @@
       },
       "previousSlugs": [
         "msc-psychologe-psychologin-sozialpadagogin-sozialpadagoge-dipl-pflegefachperson-im-ass-ifi"
-      ]
+      ],
+      "crawlerMissStreak": 1,
+      "needsRetranslation": true
     },
     {
       "id": "upd-fce09d1ab9ab",
@@ -143,7 +210,7 @@
         }
       },
       "firstSeenAt": "2026-07-27T22:12:35.495Z",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "upd-5933638759ef",
@@ -252,85 +319,6 @@
         "dipl-nurse-as-night-watch-station-freiburghaus-universitare-psychiatrische-dienste-bern-upd-bern",
         "dipl-infirmiere-en-poste-de-veille-de-nuit-freiburghaus-universitare-psychiatrische-dienste-bern-upd-bern"
       ],
-      "crawlerMissStreak": 1
-    },
-    {
-      "id": "upd-fe1e7a4339e5",
-      "slug": "apprendistato-kochin-koch-cfc-universitare-psychiatrische-dienste-bern-upd-bern",
-      "slugByLocale": {
-        "de": "lehrstelle-kochin-koch-efz-upd-bern",
-        "it": "apprendistato-kochin-koch-cfc-universitare-psychiatrische-dienste-bern-upd-bern",
-        "en": "apprenticeship-chef-koch-efz-universitare-psychiatrische-dienste-bern-upd-bern",
-        "fr": "chef-d-apprentissage-koch-efz-universitare-psychiatrische-dienste-bern-upd-bern"
-      },
-      "company": "Universitäre Psychiatrische Dienste Bern (UPD)",
-      "companyKey": "upd",
-      "companyDomain": "upd.ch",
-      "title": "Lehrstelle Köchin / Koch EFZ",
-      "titleByLocale": {
-        "de": "Lehrstelle Köchin / Koch EFZ",
-        "it": "Apprendistato Köchin / Koch CFC",
-        "en": "Apprenticeship Chef / Koch EFZ",
-        "fr": "Chef d'apprentissage / Koch EFZ"
-      },
-      "description": "Lehrstelle Köchin / Koch EFZ bei Universitäres Psychiatrisches Zentrum Bern AG in Bern (3000, BE), Schweiz.\n\n• Bereich: Facility Services | Hotellerie | Technik und Handwerk\n• Art: Vollzeit\n• Befristung: Lehrvertrag\n• Standort: Bern (BE)\n• Bewerbung über das Umantis-Karriereportal von Universitäre Psychiatrische Dienste Bern (UPD)",
-      "descriptionByLocale": {
-        "de": "Lehrstelle Köchin / Koch EFZ bei Universitäres Psychiatrisches Zentrum Bern AG in Bern (3000, BE), Schweiz.\n\n• Bereich: Facility Services | Hotellerie | Technik und Handwerk\n• Art: Vollzeit\n• Befristung: Lehrvertrag\n• Standort: Bern (BE)\n• Bewerbung über das Umantis-Karriereportal von Universitäre Psychiatrische Dienste Bern (UPD)",
-        "it": "Apprendistato Köchin / Koch EFZ presso Universitäres Psychiatrisches Zentrum Bern AG a Berna (3000, BE), Svizzera.\n\n• Area: Servizi di Facility | Industria alberghiera | Tecnologia e Artigianato\n• Tipo: Tempo pieno\n• Termine temporaneo: contratto di insegnamento\n• Posizione: Berna (BE)\n• Applicazione tramite il Portale Umantis Career dell'Università Psichiatria Servizi Berna (UPD)",
-        "en": "Apprenticeship Köchin / Koch EFZ at Universitäres Psychiatrisches Zentrum Bern AG in Bern (3000, BE), Switzerland.\n\n• Area: Facility Services | Hotel Industry | Technology and Craftsmanship\n• Type: Full-time\n• Temporary term: teaching contract\n• Location: Bern (BE)\n• Application via the Umantis Career Portal of the University Psychiatric Services Bern (UPD)",
-        "fr": "Apprentissage Köchin / Koch EFZ à Universitäres Psychiatrisches Zentrum Bern AG à Berne (3000, BE), Suisse.\n\n• Domaine: Services d'installation\n• Type: Temps plein\n• Terme temporaire : contrat d'enseignement\n• Lieu: Berne (BE)\n• Application via le portail de carrière Umantis de l'Université Services psychiatriques Bern (UPD)"
-      },
-      "location": "Bern",
-      "canton": "BE",
-      "url": "https://recruitingapp-2908.umantis.com/Vacancies/3298/Description/1",
-      "source": "Universitäre Psychiatrische Dienste Bern (UPD) Dedicated Parser (Umantis listing tenant 2908)",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-24T22:11:34.173Z",
-      "addressLocality": "Bern",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3000",
-      "category": "Tecnica",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-24",
-      "applyUrl": "https://recruitingapp-2908.umantis.com/Vacancies/3298/Application/CheckLogin/1",
-      "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "lehrstelle-kochin-koch-efz-upd-bern"
-        ],
-        "en": [
-          "lehrstelle-kochin-koch-efz-upd-bern"
-        ],
-        "fr": [
-          "lehrstelle-kochin-koch-efz-upd-bern"
-        ]
-      },
-      "previousSlugs": [
-        "lehrstelle-kochin-koch-efz-upd-bern"
-      ],
-      "salaryMin": 57500,
-      "salaryMax": 87000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-07-24T22:11:34.173Z",
       "crawlerMissStreak": 2
     }
   ]
