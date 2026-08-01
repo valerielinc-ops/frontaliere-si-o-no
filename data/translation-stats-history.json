@@ -11398,5 +11398,119 @@
         "pending": 19
       }
     ]
+  },
+  {
+    "timestamp": "2026-08-01T11:34:45.198Z",
+    "label": "before",
+    "total": 26338,
+    "needsRetranslation": 10982,
+    "suppressed": 36,
+    "incomplete": 418,
+    "complete": 25920,
+    "missingByLocale": {
+      "it": 343,
+      "en": 278,
+      "de": 104,
+      "fr": 315
+    },
+    "topPending": [
+      {
+        "company": "Stadt Zürich",
+        "pending": 55
+      },
+      {
+        "company": "ZFV-Unternehmungen",
+        "pending": 43
+      },
+      {
+        "company": "Swiss Medical Network",
+        "pending": 34
+      },
+      {
+        "company": "Roche",
+        "pending": 32
+      },
+      {
+        "company": "Swisscom (sede Ticino)",
+        "pending": 27
+      },
+      {
+        "company": "Sunrise Communications AG",
+        "pending": 23
+      },
+      {
+        "company": "VOLG",
+        "pending": 19
+      },
+      {
+        "company": "Sulzer",
+        "pending": 16
+      },
+      {
+        "company": "CSD ENGINEERS",
+        "pending": 12
+      },
+      {
+        "company": "USI – Università della Svizzera italiana",
+        "pending": 12
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-08-01T11:40:14.668Z",
+    "label": "after",
+    "total": 26338,
+    "needsRetranslation": 923,
+    "suppressed": 36,
+    "incomplete": 418,
+    "complete": 25920,
+    "missingByLocale": {
+      "it": 343,
+      "en": 278,
+      "de": 104,
+      "fr": 315
+    },
+    "topPending": [
+      {
+        "company": "Stadt Zürich",
+        "pending": 55
+      },
+      {
+        "company": "ZFV-Unternehmungen",
+        "pending": 43
+      },
+      {
+        "company": "Swiss Medical Network",
+        "pending": 34
+      },
+      {
+        "company": "Roche",
+        "pending": 32
+      },
+      {
+        "company": "Swisscom (sede Ticino)",
+        "pending": 27
+      },
+      {
+        "company": "Sunrise Communications AG",
+        "pending": 23
+      },
+      {
+        "company": "VOLG",
+        "pending": 19
+      },
+      {
+        "company": "Sulzer",
+        "pending": 16
+      },
+      {
+        "company": "CSD ENGINEERS",
+        "pending": 12
+      },
+      {
+        "company": "USI – Università della Svizzera italiana",
+        "pending": 12
+      }
+    ]
   }
 ]
