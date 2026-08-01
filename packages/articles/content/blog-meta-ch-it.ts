@@ -1735,6 +1735,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.telelavoro-frontalieri-implicazioni-pratiche.title': 'Telelavoro per i frontalieri: cosa cambia',
     'blog.article.telelavoro-frontalieri-implicazioni-pratiche.excerpt': 'Nuovo Accordo Frontalieri: cosa prevede e come influirà sul lavoro dei frontalieri.',
     'blog.article.telelavoro-frontalieri-implicazioni-pratiche.imageAlt': 'Una scena di un frontaliere che lavora a Lugano',
+    'blog.article.keller-sutter-stabilita-finanze-sane.title': 'Keller-Sutter: «Stabilità e finanze sane, la forza della Svizzera»',
+    'blog.article.keller-sutter-stabilita-finanze-sane.excerpt': 'La consigliera federale Karin Keller-Sutter ha posto l\'accento su stabilità, finanze solide e ricerca del consenso intervenendo oggi a Kradolf-Schönenberg (TG) in occasione della festa nazionale.',
+    'blog.article.keller-sutter-stabilita-finanze-sane.imageAlt': 'Una consigliera federale parla in un tendone davanti al palazzetto polivalente a Lugano.',
 };
 
 export default blogMetaChIt;
