@@ -11809,7 +11809,7 @@
       "slug": "medical-direttore-cvm-roche-basel",
       "slugByLocale": {
         "it": "medical-direttore-cvm-roche-basel",
-        "en": "medical-director-cvm-roche-ch",
+        "en": "medical-director-cvm-roche-ch-27mycl",
         "de": "medical-direktor-cvm-roche-basel",
         "fr": "medical-director-cvm-roche-ch-27mycl"
       },
@@ -11878,7 +11878,6 @@
         ]
       },
       "firstSeenAt": "2026-06-03T15:16:10.885Z",
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "baseSalary": {
@@ -11891,7 +11890,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "needsRetranslation": true
     },
     {
       "id": "roche-fde92bb4bfa3",
@@ -18154,7 +18154,7 @@
       "slug": "direttore-medico-cvm-roche-basel",
       "slugByLocale": {
         "it": "direttore-medico-cvm-roche-basel",
-        "en": "medical-director-cvm-roche-ch",
+        "en": "medical-director-cvm-roche-ch-iufbmm",
         "de": "medical-direktor-cvm-roche-basel",
         "fr": "medical-director-cvm-roche-ch-iufbmm"
       },
@@ -18225,7 +18225,6 @@
         ]
       },
       "firstSeenAt": "2026-06-02T14:31:48.519Z",
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "baseSalary": {
@@ -18238,7 +18237,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "needsRetranslation": true
     },
     {
       "id": "roche-d2cad32d5ba2",

@@ -391589,7 +391589,8 @@
     "slugByLocale": {
       "it": "allrounder-80-100-m-f-d-carrosserie-hess-ag-bellach",
       "de": "reisefreudiger-allrounder-80-100-m-w-d-hess-bellach",
-      "fr": "voyageur-tout-terrain-80-100-m-f-d-carrosserie-hess-ag-bellach"
+      "fr": "voyageur-tout-terrain-80-100-m-f-d-carrosserie-hess-ag-bellach",
+      "en": "traveling-all-rounder-80-100-m-f-d-carrosserie-hess-ag-bellach"
     },
     "createdAt": "2026-07-23",
     "canton": "SO"
@@ -416641,7 +416642,7 @@
   "id|skyguide.ch|1419912033": {
     "canonicalSlug": "public-affairs-government-relations-manager-100-skyguide-wangen-b-dub-or-geneva-ch",
     "slugByLocale": {
-      "it": "public-affairs-government-relations-manager-100-skyguide-wangen-b",
+      "it": "responsabile-affari-pubblici-e-relazioni-pubbliche-100-skyguide-wangen-b",
       "de": "manager-fur-offentlichkeitsarbeit-regierungsbeziehungen-100-skyguide-wangen-b",
       "fr": "gestionnaire-des-affaires-publiques-et-des-relations-gouvernementales-100-skyguide-wangen-b",
       "en": "public-affairs-government-relations-manager-100-skyguide-wangen-b"
@@ -427220,7 +427221,8 @@
     "canonicalSlug": "demi-chef-de-partie-marriott-zurich",
     "slugByLocale": {
       "en": "demi-chef-de-partie-marriott-zurich",
-      "it": "mezzo-capopartita-marriott-international-zurich"
+      "it": "mezzo-capopartita-marriott-international-zurich",
+      "de": "halbparteienchef-marriott-international-zurich"
     },
     "createdAt": "2026-07-31",
     "canton": "ZH"
@@ -428940,7 +428942,10 @@
   "id|lonza.wd3.myworkdayjobs.com|r73839": {
     "canonicalSlug": "csv-engineer-80-100-m-f-d-lonza-ch",
     "slugByLocale": {
-      "en": "csv-engineer-80-100-m-f-d-lonza-ch"
+      "en": "csv-engineer-80-100-m-f-d-lonza-ch",
+      "it": "csv-ingegnere-80-100-m-f-d-lonza-ch",
+      "de": "csv-ingenieur-80-100-m-f-d-lonza-ch",
+      "fr": "csv-ingenieur-80-100-m-f-d-lonza-ch"
     },
     "createdAt": "2026-07-31",
     "canton": "VS"
@@ -431753,7 +431758,10 @@
   "id|fr.ch|1368233057": {
     "canonicalSlug": "pflegefachperson-fh-hf-fnpg-tk-villars-sur-glane-etat-de-fribourg-ch",
     "slugByLocale": {
-      "de": "pflegefachperson-fh-hf-fnpg-tk-villars-sur-glane-etat-de-fribourg-ch"
+      "de": "pflegefachperson-fh-hf-fnpg-tk-villars-sur-glane-etat-de-fribourg-ch",
+      "it": "infermiera-fh-hf-fnpg-tk-villars-sur-glane-etat-de-fribourg-villars-sur-glane",
+      "en": "nurse-fh-hf-fnpg-tk-villars-sur-glane-etat-de-fribourg-villars-sur-glane",
+      "fr": "infirmiere-fh-hf-fnpg-tk-villars-sur-glane-etat-de-fribourg-villars-sur-glane"
     },
     "createdAt": "2026-07-31",
     "canton": "FR"
@@ -443857,7 +443865,8 @@
     "slugByLocale": {
       "it": "assistant-executive-housekeeper-m-f-d-badrutt-s-palace-hotel-st-moritz",
       "en": "assistant-executive-housekeeper-m-w-d-badrutts-palace-ch",
-      "fr": "chef-de-secretariat-adjoint-m-f-d-badrutt-s-palace-hotel-st-moritz"
+      "fr": "chef-de-secretariat-adjoint-m-f-d-badrutt-s-palace-hotel-st-moritz",
+      "de": "assistent-executive-housekeeper-m-w-d-badrutt-s-palace-hotel-st-moritz"
     },
     "createdAt": "2026-08-01",
     "canton": "GR"
@@ -443898,7 +443907,8 @@
   "id|badruttscareers.com|8158231": {
     "canonicalSlug": "assistant-head-of-technical-services-m-w-d-badrutts-palace-ch",
     "slugByLocale": {
-      "en": "assistant-head-of-technical-services-m-w-d-badrutts-palace-ch"
+      "en": "assistant-head-of-technical-services-m-w-d-badrutts-palace-ch",
+      "de": "assistent-leiter-technical-services-m-w-d-badrutt-s-palace-hotel-st-moritz"
     },
     "createdAt": "2026-08-01",
     "canton": "GR"
@@ -445057,5 +445067,221 @@
     },
     "createdAt": "2026-08-01",
     "canton": "GE"
+  },
+  "id|solique.ch|4047714": {
+    "canonicalSlug": "intern-nel-lavoro-sociale-kantonale-verwaltung-zurich-zurich-altstetten",
+    "slugByLocale": {
+      "de": "praktikant-in-soziale-arbeit-kanton-zuerich-zurich-altstetten",
+      "it": "intern-nel-lavoro-sociale-kantonale-verwaltung-zurich-zurich-altstetten",
+      "en": "intern-in-social-work-kantonale-verwaltung-zurich-zurich-altstetten",
+      "fr": "stagiaire-travail-social-kantonale-verwaltung-zurich-zurich-altstetten"
+    },
+    "createdAt": "2026-08-01",
+    "canton": "ZH"
+  },
+  "id|bachem.com|1419532933": {
+    "canonicalSlug": "schnuppertag-laborant-in-specializzazione-chemie-a-bachem-ag-bubendorf",
+    "slugByLocale": {
+      "de": "schnuppertag-laborant-in-fachrichtung-chemie-a-bachem-bubendorf",
+      "it": "schnuppertag-laborant-in-specializzazione-chemie-a-bachem-ag-bubendorf",
+      "en": "schnuppertag-laborant-in-the-field-of-chemistry-a-bachem-ag-bubendorf",
+      "fr": "schnuppertag-laborant-dans-le-domaine-de-la-chimie-a-bachem-ag-bubendorf"
+    },
+    "createdAt": "2026-08-01",
+    "canton": "BL"
+  },
+  "id|bachem.com|1419530733": {
+    "canonicalSlug": "schnuppertag-chemie-e-pharmatechnologe-login-a-bachem-ag-bubendorf",
+    "slugByLocale": {
+      "de": "schnuppertag-chemie-und-pharmatechnologe-login-a-bachem-bubendorf",
+      "it": "schnuppertag-chemie-e-pharmatechnologe-login-a-bachem-ag-bubendorf",
+      "en": "schnuppertag-chemical-and-pharmatechnologist-login-a-bachem-ag-bubendorf",
+      "fr": "schnuppertag-chemical-et-pharmatechnologue-login-a-bachem-ag-bubendorf"
+    },
+    "createdAt": "2026-08-01",
+    "canton": "BL"
+  },
+  "id|bachem.com|1419038933": {
+    "canonicalSlug": "apprendistato-come-laborantin-laborant-cfc-specializzazione-chemie-con-schwerpunkt-synthese-o-analytik-bachem-ag-bubendorf",
+    "slugByLocale": {
+      "de": "lehrstelle-als-laborantin-laborant-efz-fachrichtung-chemie-mit-schwerpunkt-synthese-oder",
+      "it": "apprendistato-come-laborantin-laborant-cfc-specializzazione-chemie-con-schwerpunkt-synthese-o-analytik-bachem-ag-bubendorf",
+      "en": "apprenticeship-as-laboratory-assistant-laboratory-assistant-efz-field-of-chemistry-with-focus-on-synthesis-or-analysis",
+      "fr": "apprentissage-en-tant-qu-assistant-de-laboratoire-assistant-de-laboratoire-efz-domaine-de-la-chimie-avec-l-accent-sur-la"
+    },
+    "createdAt": "2026-08-01",
+    "canton": "BL"
+  },
+  "id|bachem.com|1419045933": {
+    "canonicalSlug": "apprendistato-come-chemie-e-pharmatechnologe-in-con-dem-schwerpunkt-chemietechnologie-a-bachem-ag-bubendorf",
+    "slugByLocale": {
+      "de": "lehrstelle-als-chemie-und-pharmatechnologe-in-mit-dem-schwerpunkt-chemietechnologie-a",
+      "it": "apprendistato-come-chemie-e-pharmatechnologe-in-con-dem-schwerpunkt-chemietechnologie-a-bachem-ag-bubendorf",
+      "en": "apprenticeship-as-a-chemical-and-pharmatechnologist-with-a-focus-on-chemical-technology-a-bachem-ag-bubendorf",
+      "fr": "apprentissage-en-tant-que-chimique-et-pharmacotechnologue-l-accent-etant-mis-sur-la-technologie-chimique-a-bachem-ag"
+    },
+    "createdAt": "2026-08-01",
+    "canton": "BL"
+  },
+  "id|bachem.com|1419046233": {
+    "canonicalSlug": "apprendistato-zur-logistiker-in-cfc-specializzazione-magazzino-a-bachem-ag-bubendorf",
+    "slugByLocale": {
+      "de": "lehrstelle-zur-logistiker-in-efz-fachrichtung-lager-a-bachem-bubendorf",
+      "it": "apprendistato-zur-logistiker-in-cfc-specializzazione-magazzino-a-bachem-ag-bubendorf",
+      "en": "apprenticeship-for-logistician-in-efz-specialisation-warehouse-a-bachem-ag-bubendorf",
+      "fr": "apprentissage-pour-logisticien-dans-efz-entrepot-de-specialisation-a-bachem-ag-bubendorf"
+    },
+    "createdAt": "2026-08-01",
+    "canton": "BL"
+  },
+  "id|bachem.com|1419046733": {
+    "canonicalSlug": "apprendistato-come-kauffrau-kaufmann-branche-dienstleistung-administration-a-bachem-ag-bubendorf",
+    "slugByLocale": {
+      "de": "lehrstelle-als-kauffrau-kaufmann-branche-dienstleistung-administration-a-bachem-bubendorf",
+      "it": "apprendistato-come-kauffrau-kaufmann-branche-dienstleistung-administration-a-bachem-ag-bubendorf",
+      "en": "apprenticeship-as-a-merchant-merchant-service-administration-industry-a-bachem-ag-bubendorf",
+      "fr": "apprentissage-en-tant-que-commercant-commercant-industrie-des-services-et-de-l-administration-a-bachem-ag-bubendorf"
+    },
+    "createdAt": "2026-08-01",
+    "canton": "BL"
+  },
+  "url|https://jobs.emilfrey.ch/product-owner-praktikantin-werkstudentin-de-j2269.html": {
+    "canonicalSlug": "proprietario-del-prodotto-interno-studente-di-lavoro-emil-frey-zurich",
+    "slugByLocale": {
+      "de": "product-owner-praktikant-in-werkstudent-in-emil-frey-zurich",
+      "it": "proprietario-del-prodotto-interno-studente-di-lavoro-emil-frey-zurich",
+      "en": "product-owner-intern-working-student-emil-frey-zurich",
+      "fr": "proprietaire-de-produit-stagiaire-etudiant-en-activite-emil-frey-zurich"
+    },
+    "createdAt": "2026-08-01",
+    "canton": "ZH"
+  },
+  "url|https://jobs.emilfrey.ch/praktikantin-digital-media-de-j1948.html": {
+    "canonicalSlug": "praktikant-in-digital-media-emil-frey-zurich",
+    "slugByLocale": {
+      "de": "praktikant-in-digital-media-emil-frey-zurich",
+      "fr": "stage-en-medias-numeriques-emil-frey-zurich"
+    },
+    "createdAt": "2026-08-01",
+    "canton": "ZH"
+  },
+  "id|fr.ch|1368233157": {
+    "canonicalSlug": "infermiera-hes-es-rfsm-villars-sur-glane-clinica-diurna-tedesca-etat-de-fribourg-villars-sur-glane",
+    "slugByLocale": {
+      "it": "infermiera-hes-es-rfsm-villars-sur-glane-clinica-diurna-tedesca-etat-de-fribourg-villars-sur-glane",
+      "en": "nurse-ere-hes-es-rfsm-villars-sur-glane-german-speaking-day-clinic-etat-de-fribourg-villars-sur-glane",
+      "de": "nurse-ere-hes-es-rfsm-villars-sur-glane-deutschsprachige-tagesklinik-etat-de-fribourg-villars-sur-glane",
+      "fr": "infirmier-ere-hes-es-rfsm-villars-sur-glane-clinique-de-jour-germanophone-etat-de-fribourg"
+    },
+    "createdAt": "2026-08-01",
+    "canton": "FR"
+  },
+  "url|https://jobs.hess-ag.ch/publication/projekteinkaeufer-scm/8j554cjigcpv8x6kcr5e6sdhsqpqpb2gth14lkr1covm8q3w2kkv516kq4sz7g2h": {
+    "canonicalSlug": "acquirente-del-progetto-scm-m-f-d-carrosserie-hess-ag-bellach",
+    "slugByLocale": {
+      "de": "projekteinkaufer-scm-m-w-d-hess-bellach",
+      "it": "acquirente-del-progetto-scm-m-f-d-carrosserie-hess-ag-bellach",
+      "en": "project-buyer-scm-m-f-d-carrosserie-hess-ag-bellach",
+      "fr": "acquereur-du-projet-scm-m-f-d-carrosserie-hess-ag-bellach"
+    },
+    "createdAt": "2026-08-01",
+    "canton": "SO"
+  },
+  "id|novartis.wd3.myworkdayjobs.com|req-10084743": {
+    "canonicalSlug": "capo-legale-ta-immunologia-e-crm-internazionale-novartis-basel-city",
+    "slugByLocale": {
+      "en": "head-legal-ta-immunology-and-crm-international-novartis-ch",
+      "it": "capo-legale-ta-immunologia-e-crm-internazionale-novartis-basel-city",
+      "fr": "responsable-juridique-ta-immunologie-et-crm-international-novartis-basel-city"
+    },
+    "createdAt": "2026-08-01",
+    "canton": "BS"
+  },
+  "id|luks.ch|0e97f220-8ae3-4eee-bccd-c5c72c2a29ed": {
+    "canonicalSlug": "personale-resoconto-del-personale-e-gestione-delle-richieste-100-luzerner-kantonsspital-luks-luzern",
+    "slugByLocale": {
+      "de": "sachbearbeiterin-sachbearbeiter-berichts-amp-anfragemanagement-100-luks-luzern",
+      "it": "personale-resoconto-del-personale-e-gestione-delle-richieste-100-luzerner-kantonsspital-luks-luzern",
+      "en": "personnel-personnel-report-inquiry-management-100-luzerner-kantonsspital-luks-luzern",
+      "fr": "rapport-sur-le-personnel-et-gestion-des-demandes-de-renseignements-100-luzerner-kantonsspital-luks-luzern"
+    },
+    "createdAt": "2026-08-01",
+    "canton": "LU"
+  },
+  "id|luks.ch|87a01ab4-3d0a-413d-a7bb-c980ea5b698d": {
+    "canonicalSlug": "infermiera-infermiera-medica-privato-semi-privato-guarnito-br-14-og-70-100-luzerner-kantonsspital-luks-luzern",
+    "slugByLocale": {
+      "de": "pflegefachfrau-pflegefachmann-medizinische-privat-halbprivatstation-br-14-og-70-100-luks",
+      "it": "infermiera-infermiera-medica-privato-semi-privato-guarnito-br-14-og-70-100-luzerner-kantonsspital-luks-luzern",
+      "en": "nurse-nurse-medical-private-semi-private-ward-br-14-og-70-100-luzerner-kantonsspital-luks-luzern",
+      "fr": "infirmiere-infirmiere-medecin-prive-semi-prive-br-14-og-70-100-luzerner-kantonsspital-luks-luzern"
+    },
+    "createdAt": "2026-08-01",
+    "canton": "LU"
+  },
+  "id|luks.ch|bf879d26-81c5-4ac6-92fd-4280a7db9798": {
+    "canonicalSlug": "pflegefachfrau-pflegefachmann-hf-fh-per-la-medizinische-tagesstation-60-70-luzerner-kantonsspital-luks-luzern",
+    "slugByLocale": {
+      "de": "pflegefachfrau-pflegefachmann-hf-fh-fur-die-medizinische-tagesstation-60-70-luks-luzern",
+      "it": "pflegefachfrau-pflegefachmann-hf-fh-per-la-medizinische-tagesstation-60-70-luzerner-kantonsspital-luks-luzern",
+      "en": "nursing-specialist-hf-fh-for-the-medical-day-care-unit-60-70-luzerner-kantonsspital-luks-luzern",
+      "fr": "specialiste-des-soins-infirmiers-hf-fh-pour-l-unite-de-garde-medicale-60-70-luzerner-kantonsspital-luks-luzern"
+    },
+    "createdAt": "2026-08-01",
+    "canton": "LU"
+  },
+  "id|luks.ch|961b9c3b-8475-4332-b3fe-25ef250b83f7": {
+    "canonicalSlug": "segretario-medico-segretario-medico-angiologia-50-luzerner-kantonsspital-luks-luzern",
+    "slugByLocale": {
+      "de": "arztsekretarin-arztsekretar-angiologie-50-luks-luzern",
+      "it": "segretario-medico-segretario-medico-angiologia-50-luzerner-kantonsspital-luks-luzern",
+      "en": "medical-secretary-medical-secretary-angiology-50-luzerner-kantonsspital-luks-luzern",
+      "fr": "secretaire-medical-secretaire-medical-angiologie-50-luzerner-kantonsspital-luks-luzern"
+    },
+    "createdAt": "2026-08-01",
+    "canton": "LU"
+  },
+  "id|lonza.wd3.myworkdayjobs.com|r77922-1": {
+    "canonicalSlug": "e2e-process-ingegnere-lonza-ch",
+    "slugByLocale": {
+      "it": "e2e-process-ingegnere-lonza-ch",
+      "en": "e2e-process-engineer-lonza-ch",
+      "de": "e2e-process-ingenieur-lonza-ch",
+      "fr": "e2e-process-ingenieur-lonza-ch"
+    },
+    "createdAt": "2026-08-01",
+    "canton": "VS"
+  },
+  "id|lonza.wd3.myworkdayjobs.com|r77979-1": {
+    "canonicalSlug": "scienziato-senior-qc-biochimica-80-100-f-m-d-lonza-ch",
+    "slugByLocale": {
+      "it": "scienziato-senior-qc-biochimica-80-100-f-m-d-lonza-ch",
+      "en": "senior-scientist-qc-biochemistry-80-100-f-m-d-lonza-ch",
+      "de": "senior-scientist-qc-biochemie-80-100-m-d-lonza-ch",
+      "fr": "chercheur-principal-qc-biochimie-80-100-f-m-j-lonza-ch"
+    },
+    "createdAt": "2026-08-01",
+    "canton": "VS"
+  },
+  "id|lonza.wd3.myworkdayjobs.com|r77970-1": {
+    "canonicalSlug": "associate-direttore-qa-logistica-functional-lead-80-100-f-m-d-lonza-ch",
+    "slugByLocale": {
+      "it": "associate-direttore-qa-logistica-functional-lead-80-100-f-m-d-lonza-ch",
+      "en": "associate-director-qa-logistics-functional-lead-80-100-f-m-d-lonza-ch",
+      "de": "associate-direktor-qa-logistik-functional-lead-80-100-f-m-d-lonza-ch",
+      "fr": "associate-directeur-qa-logistique-functional-lead-80-100-f-m-d-lonza-ch"
+    },
+    "createdAt": "2026-08-01",
+    "canton": "VS"
+  },
+  "id|lonza.wd3.myworkdayjobs.com|r78211": {
+    "canonicalSlug": "ingegnere-automazione-emr-deltav-80-100-m-f-d-lonza-ch",
+    "slugByLocale": {
+      "de": "emr-ingenieur-automatisierungsingenieur-deltav-80-100-m-w-d-lonza-ch",
+      "it": "ingegnere-automazione-emr-deltav-80-100-m-f-d-lonza-ch",
+      "en": "emr-engineer-automation-engineer-deltav-80-100-m-f-d-lonza-ch"
+    },
+    "createdAt": "2026-08-01",
+    "canton": "VS"
   }
 }

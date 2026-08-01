@@ -20215,25 +20215,32 @@
       "department": "Departement der Industriellen Betriebe",
       "unit": "Elektrizitätswerk",
       "referenceNumber": "51056",
-      "previousSlugs": [
-        "lehrstelle-2027-logistikerin-logistiker-efz-lager-stadt-zuerich-zurigo-51056",
-        "lehrstelle-2027-logistikerin-logistiker-efz-lager-stadt-zurich-zurich",
-        "apprendistato-2027-logistikerin-logistiker-cfc-magazzino-stadt-zurich"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-2027-logistikerin-logistiker-efz-lager-stadt-zuerich-zurigo-51056",
-          "apprendistato-2027-logistikerin-logistiker-cfc-magazzino-stadt-zurich"
+          "apprendistato-2027-logistikerin-logistiker-cfc-magazzino-stadt-zurich",
+          "apprendistato-2027-logistikerin-logistiker-cfc-magazzino-stadt-zurich-un5tny",
+          "lehrstelle-2027-logistikerin-logistiker-efz-lager-stadt-zuerich-zurigo-50043",
+          "apprendistato-2027-logistikerin-logistiker-cfc-magazzino-stadt-zurich-coayc5"
         ],
         "en": [
           "lehrstelle-2027-logistikerin-logistiker-efz-lager-stadt-zurich-zurich"
         ],
         "fr": [
           "lehrstelle-2027-logistikerin-logistiker-efz-lager-stadt-zurich-zurich"
+        ],
+        "de": [
+          "lehrstelle-2027-logistikerin-logistiker-efz-lager-stadt-zuerich-zurigo-50043"
         ]
       },
-      "firstSeenAt": "2026-08-01T11:12:03.867Z",
-      "needsRetranslation": true,
+      "previousSlugs": [
+        "lehrstelle-2027-logistikerin-logistiker-efz-lager-stadt-zuerich-zurigo-51056",
+        "lehrstelle-2027-logistikerin-logistiker-efz-lager-stadt-zurich-zurich",
+        "apprendistato-2027-logistikerin-logistiker-cfc-magazzino-stadt-zurich",
+        "apprendistato-2027-logistikerin-logistiker-cfc-magazzino-stadt-zurich-un5tny",
+        "lehrstelle-2027-logistikerin-logistiker-efz-lager-stadt-zuerich-zurigo-50043",
+        "apprendistato-2027-logistikerin-logistiker-cfc-magazzino-stadt-zurich-coayc5"
+      ],
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -20245,7 +20252,9 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-01T11:12:03.867Z",
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-74c76145cbc7",
