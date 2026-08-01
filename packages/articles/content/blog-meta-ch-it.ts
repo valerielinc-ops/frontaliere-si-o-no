@@ -1732,6 +1732,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.frontalieri-riapertura-attivita-edilizia.title': '10mila frontalieri riapertura attività edilizia: lunghe code al confine',
     'blog.article.frontalieri-riapertura-attivita-edilizia.excerpt': 'Il Canton Ticino ha deciso di riaprire le attività legate all\'edilizia, coinvolgendo molti operai frontalieri italiani.',
     'blog.article.frontalieri-riapertura-attivita-edilizia.imageAlt': 'Immagine di un cantiere edile in Svizzera con lavoratori frontalieri italiani',
+    'blog.article.telelavoro-frontalieri-implicazioni-pratiche.title': 'Telelavoro per i frontalieri: cosa cambia',
+    'blog.article.telelavoro-frontalieri-implicazioni-pratiche.excerpt': 'Nuovo Accordo Frontalieri: cosa prevede e come influirà sul lavoro dei frontalieri.',
+    'blog.article.telelavoro-frontalieri-implicazioni-pratiche.imageAlt': 'Una scena di un frontaliere che lavora a Lugano',
 };
 
 export default blogMetaChIt;

@@ -5194,6 +5194,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'telelavoro-frontalieri-implicazioni-pratiche',
+    category: 'pratico',
+    date: '2026-08-01T05:07:37.713Z',
+    image: '/images/blog/telelavoro-frontalieri-implicazioni-pratiche.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

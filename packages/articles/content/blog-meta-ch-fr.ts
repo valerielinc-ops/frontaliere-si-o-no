@@ -1732,6 +1732,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.frontalieri-riapertura-attivita-edilizia.title': '10 000 frontalieri, lunghe code al confine',
     'blog.article.frontalieri-riapertura-attivita-edilizia.excerpt': 'Le canton du Tessin a décidé de rouvrir les activités liées à la construction, impliquant de nombreux travailleurs italiens transfrontaliers.',
     'blog.article.frontalieri-riapertura-attivita-edilizia.imageAlt': 'Image d\'un chantier de construction en Suisse avec des travailleurs frontaliers italiens',
+    'blog.article.telelavoro-frontalieri-implicazioni-pratiche.title': 'Le télétravail pour les navetteurs transfrontaliers : quels changements',
+    'blog.article.telelavoro-frontalieri-implicazioni-pratiche.excerpt': 'Nouvel accord transfrontalier pour les navetteurs : ce qu’il prévoit et comment il affectera le travail des navetteurs transfrontaliers.',
+    'blog.article.telelavoro-frontalieri-implicazioni-pratiche.imageAlt': 'Une scène d\'un frontalier qui travaille à Lugano',
 };
 
 export default blogMetaChFr;

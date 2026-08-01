@@ -1732,6 +1732,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.frontalieri-riapertura-attivita-edilizia.title': '10,000 Commuters Reopen Construction: Long Border Queues',
     'blog.article.frontalieri-riapertura-attivita-edilizia.excerpt': 'The Canton of Ticino has decided to reopen activities related to construction, involving many Italian cross-border workers.',
     'blog.article.frontalieri-riapertura-attivita-edilizia.imageAlt': 'Image of a construction site in Switzerland with Italian frontier workers',
+    'blog.article.telelavoro-frontalieri-implicazioni-pratiche.title': 'Teleworking for cross-border commuters: what changes',
+    'blog.article.telelavoro-frontalieri-implicazioni-pratiche.excerpt': 'New Frontier Agreement: what it provides for and how it will affect the work of border workers.',
+    'blog.article.telelavoro-frontalieri-implicazioni-pratiche.imageAlt': 'A scene of a commuter working in Lugano',
 };
 
 export default blogMetaChEn;

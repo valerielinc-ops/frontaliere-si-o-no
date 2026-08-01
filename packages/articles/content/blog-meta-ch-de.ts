@@ -1732,6 +1732,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.frontalieri-riapertura-attivita-edilizia.title': '10.000 Grenzpendler eröffnen Bautätigkeit: lange Warteschlangen',
     'blog.article.frontalieri-riapertura-attivita-edilizia.excerpt': 'Der Kanton Tessin hat beschlossen, Bautätigkeiten wieder aufzunehmen, an denen viele italienische grenzüberschreitende Arbeiter beteiligt sind.',
     'blog.article.frontalieri-riapertura-attivita-edilizia.imageAlt': 'Bild eines Bauwerks in der Schweiz mit italienischen Grenzarbeitern',
+    'blog.article.telelavoro-frontalieri-implicazioni-pratiche.title': 'Telearbeit für grenzüberschreitende Pendler: Was ändert sich',
+    'blog.article.telelavoro-frontalieri-implicazioni-pratiche.excerpt': 'Neues Abkommen über grenzüberschreitende Pendler: Was es vorsieht und wie es die Arbeit von Grenzpendlern beeinflussen wird.',
+    'blog.article.telelavoro-frontalieri-implicazioni-pratiche.imageAlt': 'Eine Szene eines Frontalierers, der in Lugano arbeitet',
 };
 
 export default blogMetaChDe;
