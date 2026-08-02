@@ -19,10 +19,16 @@ name: Mirror article corpus to the articles repo
 # into a conflict.
 
 on:
-  push:
-    branches: [main]
-    paths:
-      - 'packages/articles/**'
+  # DISABLED AT CUTOVER. This trigger force-replaced nanako's corpus wholesale
+  # (`rm -rf content && cp -R packages/articles/content`) and overwrote its
+  # package.json. Now that nanako GENERATES articles, that would delete the ones
+  # this repo has never seen and strip the generator's dependencies. The mirror
+  # is kept dispatch-only rather than deleted, per §5.7: it stays until every
+  # producer is confirmed stopped, plus a week.
+  # push:
+  #   branches: [main]
+  #   paths:
+  #     - 'packages/articles/**'
   # Safety net, and in practice the load-bearing trigger. The `push` event above
   # does NOT fire for the commits that actually matter: every workflow that
   # writes the corpus (generate-article, crawl-events, batch-faq-articles,
@@ -35,9 +41,19 @@ on:
   # this change, corpus commits landed on main and none of them reached the
   # articles repo. generate-article.yml also dispatches this workflow directly
   # (with a PAT) so a new article does not wait for the next slot.
-  schedule:
-    # Every two hours, offset off the hour to stay clear of the deploy cron.
-    - cron: '41 */2 * * *'
+      # ── CUTOVER (issue #4974 item 3, §5.7) ──────────────────────────────
+      # Disabled here because this producer now runs in
+      # nanakokyobashi-rgb/frontaliere-articles, which owns the corpus. Leaving
+      # both enabled would give the same files two writers and the last push
+      # would win — the exact failure the migration exists to remove.
+      #
+      # workflow_dispatch is deliberately KEPT so this can still be run by hand
+      # during the observation window if the nanako side needs to be compared
+      # against it. Re-enabling means deleting these comment markers; it is not
+      # a code change, which is what makes the rollback cheap.
+  # schedule:  # DISABLED AT CUTOVER — see above
+  # # Every two hours, offset off the hour to stay clear of the deploy cron.
+  # - cron: '41 */2 * * *'
   workflow_dispatch:
 
 # Serialised, never cancelled: two mirrors racing would interleave force-pushes
