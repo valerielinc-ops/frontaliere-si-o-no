@@ -1,6 +1,6 @@
 {
   "crawlerKey": "fust",
-  "assembledAt": "2026-08-01T22:04:41.273Z",
+  "assembledAt": "2026-08-02T10:57:41.257Z",
   "jobs": [
     {
       "id": "company-xz9v8p",
@@ -20,7 +20,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-08-01T22:02:15.034Z",
+      "crawledAt": "2026-08-02T10:55:16.757Z",
       "firstSeenAt": "2026-07-31T22:16:26.890Z",
       "titleByLocale": {
         "it": "Fachfrau:mann Kundendialog CFC",
@@ -35,7 +35,7 @@
         "fr": "## Expert:mann dialogue client EFZ\n\n**Coop** — Dietikon, Dietikon, Svizzera\n\n## Vos tâches\n- Vous êtes le premier point de contact pour nos clients.\n- Vous traitez les demandes par téléphone et par écrit.\n- Vous avez des conversations en différentes langues.\n- Vous informez sur les produits et services.\n\n## Apporte ça avec toi.\n- Travail d'équipe et joie de contact avec les gens\n- Capacité organisationnelle et flexibilité\n- Volonté de travailler indépendamment et d'assumer la responsabilité\n- Profitez du développement dans une entreprise dynamique\n- Flair pour les langues étrangères\n- Très bonnes compétences en communication\n\n## C'est ce que nous vous offrons\n- Abonnement annuel \"mise à jour Fitness\"\n- CHF 500 pour ordinateur portable ou tablette\n- 50% sur le premier abonnement mobile de Coop Mobile\n- CFF demi-taxe ou action GA CHF 650\n- De nombreux avantages pour les employés\nRemo Arnold\nRH Formation professionnelle\nChoisissez votre personnage – Créez votre avenir\nConcevoir votre avenir avec un enseignement approprié. Coop offre un large éventail d'apprentissages et de possibilités de formation continue.\n\n**Tipo:** Temps plein\n**Sede:** Dietikon"
       },
       "slugByLocale": {
-        "it": "fachfrau-mann-kundendialog-cfc-betty-bossi-dietikon-xz9v8p",
+        "it": "fachfrau-mann-kundendialog-cfc-coop-dietikon",
         "en": "expert-mann-customer-dialogue-efz-betty-bossi-dietikon",
         "de": "fachfrau-mann-kundendialog-efz-betty-bossi-dietikon-xz9v8p",
         "fr": "expert-mann-dialogue-client-efz-betty-bossi-dietikon"
@@ -109,7 +109,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-08-01T22:02:15.034Z",
+      "crawledAt": "2026-08-02T10:55:16.757Z",
       "firstSeenAt": "2026-07-31T22:16:26.890Z",
       "titleByLocale": {
         "it": "Mediamatiker:in CFC",
@@ -182,7 +182,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-08-01T22:02:15.034Z",
+      "crawledAt": "2026-08-02T10:55:16.757Z",
       "firstSeenAt": "2026-07-31T22:16:26.890Z",
       "titleByLocale": {
         "it": "Multimediaelektroniker:in CFC",
@@ -270,10 +270,10 @@
       "source": "Company Careers Crawler",
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-08-01T22:02:15.034Z",
+      "crawledAt": "2026-08-02T10:55:16.757Z",
       "firstSeenAt": "2026-07-31T22:16:26.890Z",
       "titleByLocale": {
-        "it": "Biscottiere: Confettiere: Confettiere EFZ",
+        "it": "Bäcker:in Konditor:in Confiseur:in CFC",
         "en": "Baker: Confectioner: Pastry Chef EFZ",
         "de": "Bäcker:in Konditor:in Confiseur:in EFZ",
         "fr": "Boulanger: Confiseur: Pâtissier EFZ"
@@ -307,8 +307,6 @@
         "backer-in-konditor-in-confiseur-in-efz-coop-gossau",
         "backer-in-konditor-in-confiseur-in-efz-coop-gossau-6eudip"
       ],
-      "salaryMin": 99000,
-      "salaryMax": 174000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -323,7 +321,9 @@
       "addressRegion": "SG",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "country": "CH"
+      "country": "CH",
+      "salaryMin": 99000,
+      "salaryMax": 174000
     },
     {
       "id": "company-3mn7k0",
@@ -343,7 +343,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-08-01T22:02:15.034Z",
+      "crawledAt": "2026-08-02T10:55:16.757Z",
       "firstSeenAt": "2026-07-31T22:16:26.890Z",
       "titleByLocale": {
         "it": "Biscottiere: Tecnico Pasticcereo Confettiere EFZ",
@@ -380,8 +380,6 @@
         "backer-in-konditor-in-confiseur-in-efz-coop-gossau-2",
         "backer-in-konditor-in-confiseur-in-efz-coop-gossau-3mn7k0"
       ],
-      "salaryMin": 99000,
-      "salaryMax": 174000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -396,7 +394,9 @@
       "addressRegion": "SG",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "country": "CH"
+      "country": "CH",
+      "salaryMin": 99000,
+      "salaryMax": 174000
     },
     {
       "id": "company-8nu961",
@@ -416,7 +416,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-08-01T22:02:15.034Z",
+      "crawledAt": "2026-08-02T10:55:16.757Z",
       "firstSeenAt": "2026-07-31T22:16:26.890Z",
       "titleByLocale": {
         "it": "Detailhandelsfachfrau:mann CFC \"Gestalten von Einkaufserlebnissen\"",
@@ -431,7 +431,7 @@
         "fr": "## Spécialiste du commerce de détail:mann EFZ \"Forme d'expériences shopping\"\n\nServices ménagers suisses AG — Oberbüren, Oberbüren, Svizzera\n\n## Vos tâches\n- Conseiller nos clients exigeants\n- Vente et location de matériel électrique ménager et multimédia\n- Installation et configuration d'articles informatiques\n- Gestion de l'assortiment et conception des espaces d'exposition\n- Préparation des offres et traitement des commandes de réparation\n\n## Apporte ça avec toi.\n- Bons certificats de niveau supérieur\n- Essai multicontrôle ou interverrouillage\n- Une compréhension rapide\n- Le style des ventes est associé à une apparence gagnante\n- Responsabilité et compétences en matière de négociation\n\n## C'est ce que nous vous offrons\n- Avantages: Abonnement Coop Mobile et autres avantages en différents formats Coop, CHF 500 pour ordinateur portable ou tablette, CFF Half-Tax or share GA CHF 650\n- Communication & culture: culture DU dans toute l'entreprise, orientation vers des valeurs communes, application interne de communication avec les salariés\n- Jours fériés: 6 semaines jours fériés\n- Santé: abonnement annuel gratuit \"update Fitness\", conseil social gratuit et anonyme 24/7\nChoisissez votre personnage :\nCréez votre avenir\nFaçonnez votre avenir avec vos pieds et montrez ce qui est en vous ! Fust vous offre l'entrée de carrière optimale, où vous pouvez développer votre talent.\nUne chose est sûre : Fust court ! - votre avenir aussi.\n\nTipo: Temps plein\nSécurité : Oberbüren"
       },
       "slugByLocale": {
-        "it": "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-oberburen-8nu961",
+        "it": "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-oberburen",
         "en": "retail-specialist-mann-efz-shape-of-shopping-experiences-fust-swiss-household-services-ag-oberburen",
         "de": "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-8nu961",
         "fr": "specialiste-du-commerce-de-detail-mann-efz-forme-d-experiences-shopping-fust-swiss-household-services-ag-oberburen"
@@ -513,7 +513,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-08-01T22:02:15.034Z",
+      "crawledAt": "2026-08-02T10:55:16.757Z",
       "firstSeenAt": "2026-07-31T22:16:26.890Z",
       "titleByLocale": {
         "it": "Apprendistato commercio al dettaglio AFC settore multimedia",
@@ -596,7 +596,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-08-01T22:02:15.034Z",
+      "crawledAt": "2026-08-02T10:55:16.757Z",
       "firstSeenAt": "2026-07-31T22:16:26.890Z",
       "titleByLocale": {
         "it": "Apprendistato commercio al dettaglio AFC settore multimedia",
@@ -679,7 +679,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-08-01T22:02:15.034Z",
+      "crawledAt": "2026-08-02T10:55:16.757Z",
       "firstSeenAt": "2026-07-31T22:16:26.890Z",
       "titleByLocale": {
         "it": "Apprendistato commercio al dettaglio AFC settore multimedia",
@@ -762,7 +762,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-08-01T22:02:15.034Z",
+      "crawledAt": "2026-08-02T10:55:16.757Z",
       "firstSeenAt": "2026-07-31T22:16:26.890Z",
       "titleByLocale": {
         "it": "impiegata/impiegato in logistica AFP",
@@ -883,7 +883,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-08-01T22:02:15.034Z",
+      "crawledAt": "2026-08-02T10:55:16.757Z",
       "firstSeenAt": "2026-07-31T22:16:26.890Z",
       "titleByLocale": {
         "it": "impiegata/impiegato in logistica CFC",
@@ -965,7 +965,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-08-01T22:02:15.034Z",
+      "crawledAt": "2026-08-02T10:55:16.757Z",
       "firstSeenAt": "2026-07-31T22:16:26.890Z",
       "titleByLocale": {
         "it": "Kauffrau:mann CFC",
@@ -980,7 +980,7 @@
         "fr": "## Femme d'affaires: homme EFZ\n\nServices ménagers suisses AG — Oberbüren, Oberbüren, Svizzera\n\n## Vos tâches\n- Coopération dans nos différents départements/domaines\n- Conseiller et soutenir les clients et les employés par téléphone ou par courriel\n- Création et édition de correspondance, de tableaux et d'évaluations\n- Activités administratives diverses\n\n## Apporte ça avec toi.\n- Bons certificats de niveau supérieur\n- Essai multicontrôle ou interverrouillage\n- Communication sécurisée en allemand (en paroles et en écriture)\n- Compréhension rapide\n- Fonctionnement précis et fiable\n\n## C'est ce que nous vous offrons\n- Avantages: Abonnement Coop Mobile et autres avantages en différents formats Coop, CHF 500 pour ordinateur portable ou tablette, CFF Half-Tax or share GA CHF 650\n- Communication & culture: culture DU dans toute l'entreprise, orientation vers des valeurs communes, application interne de communication avec les salariés\n- Jours fériés: 6 semaines jours fériés\n- Santé: abonnement annuel gratuit \"update Fitness\", conseil social gratuit et anonyme 24/7\nChoisissez votre personnage :\nCréez votre avenir\nFaçonnez votre avenir avec vos pieds et montrez ce qui est en vous ! Fust vous offre l'entrée de carrière optimale, où vous pouvez développer votre talent.\nUne chose est sûre : Fust court ! - votre avenir aussi.\n\nTipo: Temps plein\nSécurité : Oberbüren"
       },
       "slugByLocale": {
-        "it": "kauffrau-mann-cfc-fust-oberburen-v9rad0",
+        "it": "kauffrau-mann-cfc-fust-oberburen",
         "en": "businesswoman-man-efz-fust-swiss-household-services-ag-oberburen",
         "de": "kauffrau-mann-efz-fust-oberburen-v9rad0",
         "fr": "femme-d-affaires-homme-efz-fust-swiss-household-services-ag-oberburen"
@@ -1049,7 +1049,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-08-01T22:02:15.034Z",
+      "crawledAt": "2026-08-02T10:55:16.757Z",
       "firstSeenAt": "2026-07-31T22:16:26.890Z",
       "titleByLocale": {
         "it": "Detailhandelsfachfrau:mann CFC \"Gestalten von Einkaufserlebnissen\"",
@@ -1064,7 +1064,7 @@
         "fr": "## Spécialiste du commerce de détail:mann EFZ \"Forme d'expériences shopping\"\n\nServices ménagers suisses AG — Oberbüren, Oberbüren, Svizzera\n\n## Vos tâches\n- Conseiller nos clients exigeants\n- Vente et location d'appareils électroménagers de haute qualité\n- Gestion de l'assortiment et conception des espaces d'exposition\n- Préparation des offres et traitement des commandes de réparation\n\n## Apporte ça avec toi.\n- Bons certificats de niveau supérieur\n- Essai multicontrôle ou interverrouillage\n- Compréhension rapide\n- Le style des ventes est associé à une apparence gagnante\n- Responsabilité et compétences en matière de négociation\n\n## C'est ce que nous vous offrons\n- Avantages: Abonnement Coop Mobile et autres avantages en différents formats Coop, CHF 500 pour ordinateur portable ou tablette, CFF Half-Tax or share GA CHF 650\n- Communication & culture: culture DU dans toute l'entreprise, orientation vers des valeurs communes, application interne de communication avec les salariés\n- Jours fériés: 6 semaines jours fériés\n- Santé: abonnement annuel gratuit \"update Fitness\", conseil social gratuit et anonyme 24/7\nChoisissez votre personnage :\nCréez votre avenir\nFaçonnez votre avenir avec vos pieds et montrez ce qui est en vous ! Fust vous offre l'entrée de carrière optimale, où vous pouvez développer votre talent.\nUne chose est sûre : Fust court ! - votre avenir aussi.\n\nTipo: Temps plein\nSécurité : Oberbüren"
       },
       "slugByLocale": {
-        "it": "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-oberburen-l0d7ew",
+        "it": "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-oberburen",
         "en": "retail-specialist-mann-efz-shape-of-shopping-experiences-fust-swiss-household-services-ag-oberburen-852680",
         "de": "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-l0d7ew",
         "fr": "specialiste-du-commerce-de-detail-mann-efz-forme-d-experiences-shopping-fust-swiss-household-services-ag-852680"
@@ -1135,10 +1135,10 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-08-01T22:02:15.034Z",
+      "crawledAt": "2026-08-02T10:55:16.757Z",
       "firstSeenAt": "2026-08-01T11:06:13.230Z",
       "slugByLocale": {
-        "it": "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-oberburen-p3ng5f",
+        "it": "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-oberburen",
         "en": "retail-specialist-mann-efz-shape-of-shopping-experiences-fust-swiss-household-services-ag-oberburen-6d31aa",
         "de": "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-p3ng5f",
         "fr": "specialiste-du-commerce-de-detail-mann-efz-forme-d-experiences-shopping-fust-swiss-household-services-ag-6d31aa"
@@ -1215,10 +1215,10 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-08-01T22:02:15.034Z",
+      "crawledAt": "2026-08-02T10:55:16.757Z",
       "firstSeenAt": "2026-08-01T11:06:13.230Z",
       "slugByLocale": {
-        "it": "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-oberburen-fzsnom",
+        "it": "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-oberburen",
         "en": "retail-specialist-mann-efz-shape-of-shopping-experiences-fust-swiss-household-services-ag-oberburen-d1381c",
         "de": "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-fzsnom",
         "fr": "specialiste-du-commerce-de-detail-mann-efz-forme-d-experiences-shopping-fust-swiss-household-services-ag-d1381c"
@@ -1295,10 +1295,10 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-08-01T22:02:15.034Z",
+      "crawledAt": "2026-08-02T10:55:16.757Z",
       "firstSeenAt": "2026-08-01T11:06:13.230Z",
       "slugByLocale": {
-        "it": "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-oberburen-mk8ij7",
+        "it": "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-oberburen",
         "en": "retail-specialist-mann-efz-shape-of-shopping-experiences-fust-swiss-household-services-ag-oberburen-d85efe",
         "de": "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-mk8ij7",
         "fr": "specialiste-du-commerce-de-detail-mann-efz-forme-d-experiences-shopping-fust-swiss-household-services-ag-d85efe"
@@ -1375,10 +1375,10 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-08-01T22:02:15.034Z",
+      "crawledAt": "2026-08-02T10:55:16.757Z",
       "firstSeenAt": "2026-08-01T11:06:13.230Z",
       "slugByLocale": {
-        "it": "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-oberburen-wazb8j",
+        "it": "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-oberburen",
         "en": "retail-specialist-mann-efz-shape-of-shopping-experiences-fust-swiss-household-services-ag-oberburen-cdff0b",
         "de": "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-wazb8j",
         "fr": "specialiste-du-commerce-de-detail-mann-efz-forme-d-experiences-shopping-fust-swiss-household-services-ag-cdff0b"
@@ -1455,10 +1455,10 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-08-01T22:02:15.034Z",
+      "crawledAt": "2026-08-02T10:55:16.757Z",
       "firstSeenAt": "2026-08-01T11:06:13.230Z",
       "slugByLocale": {
-        "it": "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-oberburen-xe34xb",
+        "it": "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-oberburen",
         "en": "retail-specialist-mann-efz-shape-of-shopping-experiences-fust-swiss-household-services-ag-oberburen-ed084a",
         "de": "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-xe34xb",
         "fr": "specialiste-du-commerce-de-detail-mann-efz-forme-d-experiences-shopping-fust-swiss-household-services-ag-ed084a"
@@ -1535,10 +1535,10 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-08-01T22:02:15.034Z",
+      "crawledAt": "2026-08-02T10:55:16.757Z",
       "firstSeenAt": "2026-08-01T11:06:13.230Z",
       "slugByLocale": {
-        "it": "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-oberburen-xd30dq",
+        "it": "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-oberburen",
         "en": "retail-specialist-mann-efz-shape-of-shopping-experiences-fust-swiss-household-services-ag-oberburen-8ae121",
         "de": "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-xd30dq",
         "fr": "specialiste-du-commerce-de-detail-mann-efz-forme-d-experiences-shopping-fust-swiss-household-services-ag-8ae121"
@@ -1615,10 +1615,10 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-08-01T22:02:15.034Z",
+      "crawledAt": "2026-08-02T10:55:16.757Z",
       "firstSeenAt": "2026-08-01T11:06:13.230Z",
       "slugByLocale": {
-        "it": "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-oberburen-cy5h5l",
+        "it": "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-oberburen",
         "en": "retail-specialist-mann-efz-shape-of-shopping-experiences-fust-swiss-household-services-ag-oberburen-a715fa",
         "de": "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-cy5h5l",
         "fr": "specialiste-du-commerce-de-detail-mann-efz-forme-d-experiences-shopping-fust-swiss-household-services-ag-a715fa"
@@ -1695,10 +1695,10 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-08-01T22:02:15.034Z",
+      "crawledAt": "2026-08-02T10:55:16.757Z",
       "firstSeenAt": "2026-08-01T11:06:13.230Z",
       "slugByLocale": {
-        "it": "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-oberburen-8vxct2",
+        "it": "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-oberburen",
         "en": "retail-specialist-mann-efz-shape-of-shopping-experiences-fust-swiss-household-services-ag-oberburen-f75131",
         "de": "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-8vxct2",
         "fr": "specialiste-du-commerce-de-detail-mann-efz-forme-d-experiences-shopping-fust-swiss-household-services-ag-f75131"
@@ -1775,10 +1775,10 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-08-01T22:02:15.034Z",
+      "crawledAt": "2026-08-02T10:55:16.757Z",
       "firstSeenAt": "2026-08-01T11:06:13.230Z",
       "slugByLocale": {
-        "it": "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-oberburen-dftyzu",
+        "it": "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-oberburen",
         "en": "retail-specialist-mann-efz-shape-of-shopping-experiences-fust-swiss-household-services-ag-oberburen-859629",
         "de": "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-dftyzu",
         "fr": "specialiste-du-commerce-de-detail-mann-efz-forme-d-experiences-shopping-fust-swiss-household-services-ag-859629"
@@ -1855,10 +1855,10 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-08-01T22:02:15.034Z",
+      "crawledAt": "2026-08-02T10:55:16.757Z",
       "firstSeenAt": "2026-08-01T11:06:13.230Z",
       "slugByLocale": {
-        "it": "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-oberburen-rpreud",
+        "it": "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-oberburen",
         "en": "retail-specialist-mann-efz-shape-of-shopping-experiences-fust-swiss-household-services-ag-oberburen-10425e",
         "de": "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-rpreud",
         "fr": "specialiste-du-commerce-de-detail-mann-efz-forme-d-experiences-shopping-fust-swiss-household-services-ag-10425e"
@@ -1935,10 +1935,10 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-08-01T22:02:15.034Z",
+      "crawledAt": "2026-08-02T10:55:16.757Z",
       "firstSeenAt": "2026-08-01T11:06:13.230Z",
       "slugByLocale": {
-        "it": "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-oberburen-9u50hh",
+        "it": "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-oberburen",
         "en": "retail-specialist-mann-efz-shape-of-shopping-experiences-fust-swiss-household-services-ag-oberburen-5dc0fa",
         "de": "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-9u50hh",
         "fr": "specialiste-du-commerce-de-detail-mann-efz-forme-d-experiences-shopping-fust-swiss-household-services-ag-5dc0fa"
@@ -2015,10 +2015,10 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-08-01T22:02:15.034Z",
+      "crawledAt": "2026-08-02T10:55:16.757Z",
       "firstSeenAt": "2026-08-01T11:06:13.230Z",
       "slugByLocale": {
-        "it": "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-oberburen-pqkd9m",
+        "it": "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-oberburen",
         "en": "retail-specialist-mann-efz-shape-of-shopping-experiences-fust-swiss-household-services-ag-oberburen-606b8d",
         "de": "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-pqkd9m",
         "fr": "specialiste-du-commerce-de-detail-mann-efz-forme-d-experiences-shopping-fust-swiss-household-services-ag-606b8d"
@@ -2095,10 +2095,10 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-08-01T22:02:15.034Z",
+      "crawledAt": "2026-08-02T10:55:16.757Z",
       "firstSeenAt": "2026-08-01T11:06:13.230Z",
       "slugByLocale": {
-        "it": "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-oberburen-u0jjxy",
+        "it": "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-oberburen",
         "en": "retail-specialist-mann-efz-shape-of-shopping-experiences-fust-swiss-household-services-ag-oberburen-4f4835",
         "de": "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-u0jjxy",
         "fr": "specialiste-du-commerce-de-detail-mann-efz-forme-d-experiences-shopping-fust-swiss-household-services-ag-4f4835"
@@ -2175,10 +2175,10 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-08-01T22:02:15.034Z",
+      "crawledAt": "2026-08-02T10:55:16.757Z",
       "firstSeenAt": "2026-08-01T11:06:13.230Z",
       "slugByLocale": {
-        "it": "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-oberburen-q6q0we",
+        "it": "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-oberburen",
         "en": "retail-specialist-mann-efz-shape-of-shopping-experiences-fust-swiss-household-services-ag-oberburen-0303e7",
         "de": "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-q6q0we",
         "fr": "specialiste-du-commerce-de-detail-mann-efz-forme-d-experiences-shopping-fust-swiss-household-services-ag-0303e7"
@@ -2255,10 +2255,10 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-08-01T22:02:15.034Z",
+      "crawledAt": "2026-08-02T10:55:16.757Z",
       "firstSeenAt": "2026-08-01T11:06:13.230Z",
       "slugByLocale": {
-        "it": "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-oberburen-0grk3s",
+        "it": "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-oberburen",
         "en": "retail-specialist-mann-efz-shape-of-shopping-experiences-fust-swiss-household-services-ag-oberburen-a404ab",
         "de": "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-0grk3s",
         "fr": "specialiste-du-commerce-de-detail-mann-efz-forme-d-experiences-shopping-fust-swiss-household-services-ag-a404ab"
@@ -2335,10 +2335,10 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-08-01T22:02:15.034Z",
+      "crawledAt": "2026-08-02T10:55:16.757Z",
       "firstSeenAt": "2026-08-01T11:06:13.230Z",
       "slugByLocale": {
-        "it": "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-oberburen-dz7dky",
+        "it": "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-oberburen",
         "en": "retail-specialist-mann-efz-shape-of-shopping-experiences-fust-swiss-household-services-ag-oberburen-776d90",
         "de": "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-dz7dky",
         "fr": "specialiste-du-commerce-de-detail-mann-efz-forme-d-experiences-shopping-fust-swiss-household-services-ag-776d90"
@@ -2415,10 +2415,10 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-08-01T22:02:15.034Z",
+      "crawledAt": "2026-08-02T10:55:16.757Z",
       "firstSeenAt": "2026-08-01T11:06:13.230Z",
       "slugByLocale": {
-        "it": "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-oberburen-9jkdne",
+        "it": "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-oberburen",
         "en": "retail-specialist-mann-efz-shape-of-shopping-experiences-fust-swiss-household-services-ag-oberburen-696983",
         "de": "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-9jkdne",
         "fr": "specialiste-du-commerce-de-detail-mann-efz-forme-d-experiences-shopping-fust-swiss-household-services-ag-696983"
@@ -2495,10 +2495,10 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-08-01T22:02:15.034Z",
+      "crawledAt": "2026-08-02T10:55:16.757Z",
       "firstSeenAt": "2026-08-01T11:06:13.230Z",
       "slugByLocale": {
-        "it": "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-oberburen-kup34n",
+        "it": "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-oberburen",
         "en": "retail-specialist-mann-efz-shape-of-shopping-experiences-fust-swiss-household-services-ag-oberburen-a61196",
         "de": "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-kup34n",
         "fr": "specialiste-du-commerce-de-detail-mann-efz-forme-d-experiences-shopping-fust-swiss-household-services-ag-a61196"
@@ -2575,10 +2575,10 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-08-01T22:02:15.034Z",
+      "crawledAt": "2026-08-02T10:55:16.757Z",
       "firstSeenAt": "2026-08-01T11:06:13.230Z",
       "slugByLocale": {
-        "it": "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-oberburen-z2xe77",
+        "it": "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-oberburen",
         "en": "retail-specialist-mann-efz-shape-of-shopping-experiences-fust-swiss-household-services-ag-oberburen-496fd8",
         "de": "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-z2xe77",
         "fr": "specialiste-du-commerce-de-detail-mann-efz-forme-d-experiences-shopping-fust-swiss-household-services-ag-496fd8"
@@ -2655,10 +2655,10 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-08-01T22:02:15.034Z",
+      "crawledAt": "2026-08-02T10:55:16.757Z",
       "firstSeenAt": "2026-08-01T11:06:13.230Z",
       "slugByLocale": {
-        "it": "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-oberburen-ej8teb",
+        "it": "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-oberburen",
         "en": "retail-specialist-mann-efz-shape-of-shopping-experiences-fust-swiss-household-services-ag-oberburen-891924",
         "de": "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-ej8teb",
         "fr": "specialiste-du-commerce-de-detail-mann-efz-forme-d-experiences-shopping-fust-swiss-household-services-ag-891924"
@@ -2735,10 +2735,10 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-08-01T22:02:15.034Z",
+      "crawledAt": "2026-08-02T10:55:16.757Z",
       "firstSeenAt": "2026-08-01T11:06:13.230Z",
       "slugByLocale": {
-        "it": "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-oberburen-upchr7",
+        "it": "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-oberburen",
         "en": "retail-specialist-mann-efz-shape-of-shopping-experiences-fust-swiss-household-services-ag-oberburen-8fe1bf",
         "de": "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-upchr7",
         "fr": "specialiste-du-commerce-de-detail-mann-efz-forme-d-experiences-shopping-fust-swiss-household-services-ag-8fe1bf"
@@ -2815,10 +2815,10 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-08-01T22:02:15.034Z",
+      "crawledAt": "2026-08-02T10:55:16.757Z",
       "firstSeenAt": "2026-08-01T11:06:13.230Z",
       "slugByLocale": {
-        "it": "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-oberburen-bhf8lm",
+        "it": "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-oberburen",
         "en": "retail-specialist-mann-efz-shape-of-shopping-experiences-fust-swiss-household-services-ag-oberburen-447cc5",
         "de": "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-bhf8lm",
         "fr": "specialiste-du-commerce-de-detail-mann-efz-forme-d-experiences-shopping-fust-swiss-household-services-ag-447cc5"
@@ -2895,10 +2895,10 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-08-01T22:02:15.034Z",
+      "crawledAt": "2026-08-02T10:55:16.757Z",
       "firstSeenAt": "2026-08-01T11:06:13.230Z",
       "slugByLocale": {
-        "it": "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-oberburen-xt8w9b",
+        "it": "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-oberburen",
         "en": "retail-specialist-mann-efz-shape-of-shopping-experiences-fust-swiss-household-services-ag-oberburen-0e249b",
         "de": "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-xt8w9b",
         "fr": "specialiste-du-commerce-de-detail-mann-efz-forme-d-experiences-shopping-fust-swiss-household-services-ag-0e249b"
@@ -2975,10 +2975,10 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-08-01T22:02:15.034Z",
+      "crawledAt": "2026-08-02T10:55:16.757Z",
       "firstSeenAt": "2026-08-01T11:06:13.230Z",
       "slugByLocale": {
-        "it": "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-oberburen-1yzntf",
+        "it": "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-oberburen",
         "en": "retail-specialist-mann-efz-shape-of-shopping-experiences-fust-swiss-household-services-ag-oberburen-30d8b6",
         "de": "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-1yzntf",
         "fr": "specialiste-du-commerce-de-detail-mann-efz-forme-d-experiences-shopping-fust-swiss-household-services-ag-30d8b6"
@@ -3055,10 +3055,10 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-08-01T22:02:15.034Z",
+      "crawledAt": "2026-08-02T10:55:16.757Z",
       "firstSeenAt": "2026-08-01T11:06:13.230Z",
       "slugByLocale": {
-        "it": "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-oberburen-5hhokl",
+        "it": "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-oberburen",
         "en": "retail-specialist-mann-efz-shape-of-shopping-experiences-fust-swiss-household-services-ag-oberburen-f1e519",
         "de": "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-5hhokl",
         "fr": "specialiste-du-commerce-de-detail-mann-efz-forme-d-experiences-shopping-fust-swiss-household-services-ag-f1e519"
@@ -3135,10 +3135,10 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-08-01T22:02:15.034Z",
+      "crawledAt": "2026-08-02T10:55:16.757Z",
       "firstSeenAt": "2026-08-01T11:06:13.230Z",
       "slugByLocale": {
-        "it": "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-oberburen-5rpih8",
+        "it": "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-oberburen",
         "en": "retail-specialist-mann-efz-shape-of-shopping-experiences-fust-swiss-household-services-ag-oberburen-0f3b4b",
         "de": "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-5rpih8",
         "fr": "specialiste-du-commerce-de-detail-mann-efz-forme-d-experiences-shopping-fust-swiss-household-services-ag-0f3b4b"
@@ -3215,10 +3215,10 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-08-01T22:02:15.034Z",
+      "crawledAt": "2026-08-02T10:55:16.757Z",
       "firstSeenAt": "2026-08-01T11:06:13.230Z",
       "slugByLocale": {
-        "it": "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-oberburen-sknog8",
+        "it": "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-oberburen",
         "en": "retail-specialist-mann-efz-shape-of-shopping-experiences-fust-swiss-household-services-ag-oberburen-f03a45",
         "de": "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-sknog8",
         "fr": "specialiste-du-commerce-de-detail-mann-efz-forme-d-experiences-shopping-fust-swiss-household-services-ag-f03a45"
@@ -3295,10 +3295,10 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-08-01T22:02:15.034Z",
+      "crawledAt": "2026-08-02T10:55:16.757Z",
       "firstSeenAt": "2026-08-01T11:06:13.230Z",
       "slugByLocale": {
-        "it": "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-oberburen-rcnlbq",
+        "it": "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-oberburen",
         "en": "retail-specialist-mann-efz-shape-of-shopping-experiences-fust-swiss-household-services-ag-oberburen-f7745f",
         "de": "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-rcnlbq",
         "fr": "specialiste-du-commerce-de-detail-mann-efz-forme-d-experiences-shopping-fust-swiss-household-services-ag-f7745f"
@@ -3375,10 +3375,10 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-08-01T22:02:15.034Z",
+      "crawledAt": "2026-08-02T10:55:16.757Z",
       "firstSeenAt": "2026-08-01T11:06:13.230Z",
       "slugByLocale": {
-        "it": "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-oberburen-5r0kmy",
+        "it": "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-oberburen",
         "en": "retail-specialist-mann-efz-shape-of-shopping-experiences-fust-swiss-household-services-ag-oberburen-7fc92d",
         "de": "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-5r0kmy",
         "fr": "specialiste-du-commerce-de-detail-mann-efz-forme-d-experiences-shopping-fust-swiss-household-services-ag-7fc92d"
@@ -3450,17 +3450,17 @@
       "source": "Company Careers Crawler",
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-08-01T22:02:15.034Z",
+      "crawledAt": "2026-08-02T10:55:16.757Z",
       "firstSeenAt": "2026-07-31T22:16:26.890Z",
       "slugByLocale": {
-        "it": "social-media-manager-m-w-d-80-100-coop-basel-stadt-tr0124",
-        "en": "social-media-manager-m-w-d-80-100-coop-basel-stadt-tr0124",
+        "it": "social-media-manager-f-m-d-80-100-coop-genossenschaft-basel-basel-stadt",
+        "en": "social-media-manager-m-w-d-80-100-coop-genossenschaft-basel-stadt-tr0124",
         "de": "social-media-manager-m-w-d-80-100-coop-basel-stadt-tr0124",
         "fr": "gestionnaire-de-medias-sociaux-f-m-d-80-100-coop-genossenschaft-basel"
       },
       "titleByLocale": {
         "it": "Social Media Manager (f/m/d), 80-100%",
-        "en": "Social Media Manager (f/m/d), 80-100 %",
+        "en": "Social Media Manager (w/m/d), 80-100%",
         "de": "Social Media Manager (w/m/d), 80-100%",
         "fr": "Social Media Manager (w/m/d), 80-100 %"
       },
@@ -3492,10 +3492,11 @@
           "social-media-manager-m-w-d-80-100-coop-genossenschaft-basel-stadt-tr0124",
           "social-media-manager-w-m-d-80-100-coop-genossenschaft-basel",
           "social-media-manager-m-w-d-80-100-coop-basel-stadt",
-          "social-media-manager-f-m-d-80-100-coop-genossenschaft-basel-basel-stadt",
+          "social-media-manager-m-w-d-80-100-coop-basel-stadt-tr0124",
           "social-media-manager-f-m-d-80-100-coop-genossenschaft-basel-basel-stadt"
         ],
         "en": [
+          "social-media-manager-m-w-d-80-100-coop-basel-stadt-tr0124",
           "social-media-manager-m-w-d-80-100-coop-genossenschaft-basel-stadt-tr0124"
         ],
         "de": [
@@ -3514,7 +3515,8 @@
         "social-media-manager-f-m-d-80-100-coop-genossenschaft-basel-basel-stadt"
       ],
       "salaryMin": 85500,
-      "salaryMax": 129500
+      "salaryMax": 129500,
+      "needsRetranslation": true
     },
     {
       "id": "company-qp6qt0",
@@ -3534,7 +3536,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-08-01T22:02:15.034Z",
+      "crawledAt": "2026-08-02T10:55:16.757Z",
       "firstSeenAt": "2026-07-31T22:16:26.890Z",
       "titleByLocale": {
         "it": "Operatore di sistema: in produzione",
@@ -3614,7 +3616,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-08-01T22:02:15.034Z",
+      "crawledAt": "2026-08-02T10:55:16.757Z",
       "firstSeenAt": "2026-07-31T22:16:26.890Z",
       "titleByLocale": {
         "it": "Tecnico di Facility (m/f/d)",
@@ -3629,8 +3631,8 @@
         "fr": "## Technicien des installations (m/f/d)\n\n**Coopérative Coop** — Frutigen, Berne, Svizzera\n\n## Tâches\n- Assurer le bon fonctionnement de toutes les installations et installations techniques\n- Entretien, entretien et amélioration continue des infrastructures\n- Responsabilité en matière de sécurité opérationnelle et de respect des exigences environnementales et de sécurité\n- Organisation du nettoyage, logistique et gestion des déchets\n- Soutien et entretien des installations de CVC, des véhicules et de la technologie de pisciculture\n- Achat de matériel, de machines et de matériel\n\n## Exigences\n- Formation technique de base (mécanicien de machines agricoles ou équivalent)\n- Expérience en matière d ' entretien technique et d ' achat de matériel et de machines\n- Méthode de travail indépendante, structurée et axée sur les solutions\n- Résilient physique, fiable et axé sur l'équipe\n- Comprendre les contrôles et l'automatisation\n- Flux de connaissance de l'allemand en mots et en écriture\n- Forte compréhension technique et force de mise en œuvre pratique\n- Un haut sens des responsabilités dans les domaines de la sécurité, de la qualité et de l'environnement\n- Engagement, initiative et méthode de travail de réflexion\n- Apparence ouverte, serviable et professionnelle\n- Capacité de hiérarchiser les tâches et de suivre\n\n## Ce que nous offrons\n- Avantages: paquet alimentaire (boissons incluses)\n- Conditions d'emploi: conditions d'emploi attrayantes\n- Heures de travail: 5 semaines de congés\n- Formation : appui à la formation\n- Durabilité : Engagement envers les personnes et les animaux et la nature avec plus de 400 actions\n- Communication : Environnement dynamique et axé sur l'équipe\n- Santé : milieux de travail ergonomiques\n\n## Votre personne à contacter\nJenny Wüthrich\nChef des finances et des RH\n\n**Tipo:** Temps partiel\n**Séde:** Fruits"
       },
       "slugByLocale": {
-        "it": "facility-technician-m-w-d-coop-genossenschaft-frutigen-bern-4xmp5j",
-        "en": "facility-technician-m-w-d-bergquellfisch-frutigen-bern-4xmp5j",
+        "it": "tecnico-di-facility-m-f-d-coop-genossenschaft-frutigen-bern",
+        "en": "facility-technician-m-w-d-coop-genossenschaft-frutigen-bern-4xmp5j",
         "de": "facility-techniker-m-w-d-coop-genossenschaft-frutigen-bern-4xmp5j",
         "fr": "facility-technicien-m-w-d-coop-genossenschaft-frutigen-bern-4xmp5j"
       },
@@ -3638,7 +3640,8 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "facility-technician-m-w-d-coop-genossenschaft-frutigen-bern"
+          "facility-technician-m-w-d-coop-genossenschaft-frutigen-bern",
+          "facility-technician-m-w-d-coop-genossenschaft-frutigen-bern-4xmp5j"
         ],
         "en": [
           "facility-technician-m-w-d-bergquellfisch-frutigen-bern-4xmp5j",
@@ -3647,7 +3650,8 @@
       },
       "previousSlugs": [
         "facility-technician-m-w-d-coop-genossenschaft-frutigen-bern",
-        "facility-technician-m-w-d-bergquellfisch-frutigen-bern-4xmp5j"
+        "facility-technician-m-w-d-bergquellfisch-frutigen-bern-4xmp5j",
+        "facility-technician-m-w-d-coop-genossenschaft-frutigen-bern-4xmp5j"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -3687,7 +3691,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-08-01T22:02:15.034Z",
+      "crawledAt": "2026-08-02T10:55:16.757Z",
       "firstSeenAt": "2026-07-31T22:16:26.890Z",
       "slugByLocale": {
         "de": "verkaufsberater-in-inklusive-stellvertretung-der-geschaftsfuhrung-coop-genossenschaft-luzern-wshfje",
@@ -3770,7 +3774,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-08-01T22:02:15.034Z",
+      "crawledAt": "2026-08-02T10:55:16.757Z",
       "firstSeenAt": "2026-07-31T22:16:26.890Z",
       "slugByLocale": {
         "it": "verkaufsberater-in-garden-e-pflanzen-jumbo-division-der-coop-genossenschaft-arbon-thurgau-ejgfg4",
@@ -3877,7 +3881,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-08-01T22:02:15.034Z",
+      "crawledAt": "2026-08-02T10:55:16.757Z",
       "firstSeenAt": "2026-07-31T22:16:26.890Z",
       "slugByLocale": {
         "de": "verkaufsberater-in-christ-uhren-schmuck-ag-winterthur-zurich-pfpmsq",
@@ -3923,7 +3927,6 @@
       "country": "CH",
       "previousSlugsByLocale": {
         "it": [
-          "conseiller-ere-de-vente-christ-uhren-schmuck-ag-dielsdorf-k1wrua",
           "sales-consultant-christ-uhren-schmuck-ag-winterthur-a09af4",
           "verkaufsberater-in-christ-uhren-schmuck-ag-winterthur-a09af4",
           "verkaufsberater-in-christ-orologi-gioielli-winterthur-zurich-jkfmkz",
@@ -3942,7 +3945,8 @@
           "verkaufsberater-in-christ-orologi-gioielli-dielsdorf-zurich-k1wrua",
           "verkaufsberater-in-christ-uhren-schmuck-ag-dielsdorf",
           "conseiller-ere-de-vente-christ-uhren-schmuck-ag-dielsdorf",
-          "consultant-en-vente-christ-uhren-schmuck-ag-dielsdorf-k1wrua"
+          "consultant-en-vente-christ-uhren-schmuck-ag-dielsdorf-k1wrua",
+          "conseiller-ere-de-vente-christ-uhren-schmuck-ag-dielsdorf-k1wrua"
         ],
         "en": [
           "verkaufsberater-in-christ-uhren-schmuck-ag-winterthur-zurich-pfpmsq",
@@ -4018,7 +4022,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-08-01T22:02:15.034Z",
+      "crawledAt": "2026-08-02T10:55:16.757Z",
       "firstSeenAt": "2026-07-30T22:15:40.711Z",
       "titleByLocale": {
         "de": "Anlageführer:in Produktion",
@@ -4101,7 +4105,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-08-01T22:02:15.034Z",
+      "crawledAt": "2026-08-02T10:55:16.757Z",
       "firstSeenAt": "2026-07-28T11:30:13.335Z",
       "titleByLocale": {
         "it": "Fiteria sanitaria: in cucine e bagni",
@@ -4125,7 +4129,6 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "installation-sanitaire-dans-les-cuisines-et-salles-de-bains-fust-swiss-household-services-ag-burgdorf-bern",
           "fiteria-sanitaria-in-cucine-e-bagni-fust-swiss-household-services-ag-burgdorf-bern",
           "sanitarmonteur-in-kuchen-bader-fust-burgdorf-bern",
           "sanitarmonteur-in-kuchen-bader-fust-swiss-household-services-ag-burgdorf-lzkg1f",
@@ -4144,7 +4147,8 @@
           "installation-sanitaire-dans-les-cuisines-et-salles-de-bains-fust-swiss-household-services-ag-burgdorf-lzkg1f",
           "sanitarmonteur-in-kuchen-bader-fust-swiss-household-services-ag-burgdorf-bern",
           "sanitarmonteur-in-kuchen-bader-fust-swiss-household-services-ag-burgdorf-bern-lzkg1f",
-          "sanitary-fitter-in-kitchens-bathrooms-fust-swiss-household-services-ag-burgdorf-bern"
+          "sanitary-fitter-in-kitchens-bathrooms-fust-swiss-household-services-ag-burgdorf-bern",
+          "installation-sanitaire-dans-les-cuisines-et-salles-de-bains-fust-swiss-household-services-ag-burgdorf-bern"
         ],
         "en": [
           "sanitarmonteur-in-kuchen-bader-fust-swiss-household-services-ag-steg-hohtenn-wallis-d8fkpx",
@@ -4231,7 +4235,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-08-01T22:02:15.034Z",
+      "crawledAt": "2026-08-02T10:55:16.757Z",
       "firstSeenAt": "2026-07-27T12:35:28.566Z",
       "titleByLocale": {
         "it": "Installatore: in cucine e bagni",
@@ -4255,7 +4259,6 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "schreinermonteur-in-kuchen-bader-fust-oberburen-sankt-gallen",
           "montatore-di-cucine-e-bagni-fust-swiss-household-services-ag-oberburen",
           "schreinermonteur-in-kuchen-bader-fust-oberburen-sankt-gallen-depljj",
           "kitchen-bathroom-installer-fust-swiss-household-services-ag-oberburen-depljj",
@@ -4274,7 +4277,8 @@
           "installatore-in-cucine-e-bagni-fust-swiss-household-services-ag-oberburen",
           "installer-in-kitchens-bathrooms-fust-swiss-household-services-ag-oberburen",
           "schreinermonteur-in-kuchen-bader-fust-oberburen-sankt-gallen-dpu5yl",
-          "installateur-dans-les-cuisines-et-salles-de-bains-fust-swiss-household-services-ag-oberburen"
+          "installateur-dans-les-cuisines-et-salles-de-bains-fust-swiss-household-services-ag-oberburen",
+          "schreinermonteur-in-kuchen-bader-fust-oberburen-sankt-gallen"
         ],
         "en": [
           "schreinermonteur-in-kuchen-bader-fust-swiss-household-services-ag-oberburen-sankt-gallen-x1cr3h",
@@ -4357,7 +4361,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-08-01T22:02:15.034Z",
+      "crawledAt": "2026-08-02T10:55:16.757Z",
       "firstSeenAt": "2026-07-27T12:35:28.566Z",
       "titleByLocale": {
         "it": "Home consegna fitter: negli elettrodomestici",
@@ -4389,10 +4393,6 @@
           "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-swiss-household-services-ag-lenzburg-mbsa43",
           "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-lenzburg-aargau-mbsa43",
           "home-delivery-technician-for-electrical-appliances-fust-swiss-household-services-ag-lenzburg",
-          "technicien-de-livraison-d-appareils-electromenagers-fust-swiss-household-services-ag-lenzburg",
-          "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-swiss-household-services-ag-lenzburg-ic0syv",
-          "technicien-de-livraison-a-domicile-pour-appareils-electromenagers-fust-swiss-household-services-ag-lenzburg",
-          "home-delivery-technician-for-household-appliances-fust-swiss-household-services-ag-lenzburg",
           "technicien-de-livraison-d-appareils-electromenagers-fust-swiss-household-services-ag-lenzburg",
           "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-swiss-household-services-ag-lenzburg-ic0syv",
           "technicien-de-livraison-a-domicile-pour-appareils-electromenagers-fust-swiss-household-services-ag-lenzburg",
@@ -4496,7 +4496,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-08-01T22:02:15.034Z",
+      "crawledAt": "2026-08-02T10:55:16.757Z",
       "firstSeenAt": "2026-07-27T12:35:28.566Z",
       "titleByLocale": {
         "it": "Home consegna fitter: negli elettrodomestici",
@@ -4520,7 +4520,6 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "home-delivery-installer-negli-elettrodomestici-fust-pratteln-basel-landschaft",
           "home-delivery-installer-in-electrical-household-appliances-fust-pratteln-basel-landschaft",
           "home-delivery-installer-in-electrical-household-appliances-fust-pratteln-basel-landschaft-576dn5",
           "installateur-de-livraison-a-domicile-dans-les-appareils-electromenagers-fust-pratteln-basel-landschaft",
@@ -4539,7 +4538,8 @@
           "home-delivery-technician-for-household-appliances-fust-pratteln-basel-landschaft-576dn5",
           "technicien-ne-de-livraison-a-domicile-pour-appareils-electromenagers-fust-pratteln-basel-landschaft-576dn5",
           "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-swiss-household-services-ag-dubendorf",
-          "technicien-de-livraison-et-d-installation-d-appareils-electromenagers-fust-swiss-household-services-ag-dubendorf"
+          "technicien-de-livraison-et-d-installation-d-appareils-electromenagers-fust-swiss-household-services-ag-dubendorf",
+          "home-delivery-installer-negli-elettrodomestici-fust-pratteln-basel-landschaft"
         ],
         "en": [
           "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-swiss-household-services-ag-pratteln-basel-landschaft-d3bmkh",
@@ -4641,7 +4641,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-08-01T22:02:15.034Z",
+      "crawledAt": "2026-08-02T10:55:16.757Z",
       "firstSeenAt": "2026-07-27T12:35:28.566Z",
       "titleByLocale": {
         "it": "Dispone di: in cucine e bagni",
@@ -4740,7 +4740,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-08-01T22:02:15.034Z",
+      "crawledAt": "2026-08-02T10:55:16.757Z",
       "firstSeenAt": "2026-07-27T12:35:28.566Z",
       "titleByLocale": {
         "en": "Application Developer Java 80 - 100%",
@@ -4818,7 +4818,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-08-01T22:02:15.034Z",
+      "crawledAt": "2026-08-02T10:55:16.757Z",
       "firstSeenAt": "2026-07-27T12:35:28.566Z",
       "titleByLocale": {
         "it": "Installatore: in cucine e bagni",
@@ -4916,7 +4916,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-08-01T22:02:15.034Z",
+      "crawledAt": "2026-08-02T10:55:16.757Z",
       "firstSeenAt": "2026-07-27T12:35:28.566Z",
       "titleByLocale": {
         "it": "2nd Level Support Ingegnere",
@@ -4987,7 +4987,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-08-01T22:02:15.034Z",
+      "crawledAt": "2026-08-02T10:55:16.757Z",
       "firstSeenAt": "2026-07-27T12:35:28.566Z",
       "titleByLocale": {
         "it": "Rappresentante del servizio clienti:in",
@@ -5089,7 +5089,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-08-01T22:02:15.034Z",
+      "crawledAt": "2026-08-02T10:55:16.757Z",
       "firstSeenAt": "2026-07-27T12:35:28.566Z",
       "titleByLocale": {
         "it": "Tecnico di servizio: in Soluzioni Professionali",
@@ -5202,7 +5202,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-08-01T22:02:15.034Z",
+      "crawledAt": "2026-08-02T10:55:16.757Z",
       "firstSeenAt": "2026-07-27T12:35:28.566Z",
       "titleByLocale": {
         "it": "Tecnico di servizio: in servizio domestico",
@@ -5308,7 +5308,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-08-01T22:02:15.034Z",
+      "crawledAt": "2026-08-02T10:55:16.757Z",
       "firstSeenAt": "2026-07-27T12:35:28.566Z",
       "titleByLocale": {
         "it": "Home consegna fitter: negli elettrodomestici",
@@ -5424,7 +5424,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-08-01T22:02:15.034Z",
+      "crawledAt": "2026-08-02T10:55:16.757Z",
       "firstSeenAt": "2026-07-28T11:30:13.335Z",
       "slugByLocale": {
         "it": "tecnico-di-servizio-in-soluzioni-professionali-fust-swiss-household-services-ag-oberburen-a5bc87",
@@ -5529,7 +5529,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-08-01T22:02:15.034Z",
+      "crawledAt": "2026-08-02T10:55:16.757Z",
       "firstSeenAt": "2026-07-27T12:35:28.566Z",
       "titleByLocale": {
         "it": "Verkaufsberater:in per Elektrohaushalt 80% - 100%",
@@ -5553,7 +5553,6 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufsberater-in-fur-elektrohaushalt-80-100-fust-swiss-household-services-ag-oftringen",
           "verkaufsberater-in-fur-elektrohaushalt-80-100-fust-swiss-household-services-ag-heimberg",
           "verkaufsberater-in-fur-elektrohaushalt-80-100-fust-swiss-household-services-ag-heimberg-bern",
           "verkaufsberater-in-fur-elektrohaushalt-80-100-fust-heimberg-bern-s7i8wy",
@@ -5572,7 +5571,8 @@
           "verkaufsberater-in-fur-elektrohaushalt-80-100-fust-olten-solothurn",
           "verkaufsberater-in-per-elektrohaushalt-80-100-fust-swiss-household-services-ag-heimberg",
           "verkaufsberater-in-per-elektrohaushalt-80-100-fust-swiss-household-services-ag-oftringen",
-          "verkaufsberater-in-fur-elektrohaushalt-multimedia-80-100-fust-swiss-household-services-ag-bern"
+          "verkaufsberater-in-fur-elektrohaushalt-multimedia-80-100-fust-swiss-household-services-ag-bern",
+          "verkaufsberater-in-fur-elektrohaushalt-80-100-fust-swiss-household-services-ag-oftringen"
         ],
         "en": [
           "verkaufsberater-in-fur-elektrohaushalt-80-100-fust-swiss-household-services-ag-heimberg-bern-0xbsgq",
@@ -5667,7 +5667,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-08-01T22:02:15.034Z",
+      "crawledAt": "2026-08-02T10:55:16.757Z",
       "firstSeenAt": "2026-07-27T12:35:28.566Z",
       "titleByLocale": {
         "it": "Verkaufsberater:in per Elektrohaushalt & Multimedia 80% - 100%",
@@ -5760,7 +5760,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-08-01T22:02:15.034Z",
+      "crawledAt": "2026-08-02T10:55:16.757Z",
       "firstSeenAt": "2026-07-23T22:11:44.385Z",
       "titleByLocale": {
         "it": "Direttore/trice lavori",
@@ -5842,7 +5842,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-08-01T22:02:15.034Z",
+      "crawledAt": "2026-08-02T10:55:16.757Z",
       "firstSeenAt": "2026-07-21T22:17:41.811Z",
       "titleByLocale": {
         "it": "Personale: in Amministrazione Logistica",
@@ -5950,7 +5950,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-08-01T22:02:15.034Z",
+      "crawledAt": "2026-08-02T10:55:16.757Z",
       "firstSeenAt": "2026-07-21T22:17:41.811Z",
       "titleByLocale": {
         "it": "Venditore:in / Planner:in cucine e bagni",
@@ -5974,7 +5974,6 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "vendeur-vendeuse-concepteur-conceptrice-cuisines-salles-de-bain-fust-swiss-household-services-ag-rapperswil-jona-0dssn4",
           "verkaufer-in-planer-in-kuchen-bader-fust-swiss-household-services-ag-biel",
           "salesperson-planner-kitchens-bathrooms-fust-swiss-household-services-ag-rapperswil-jona",
           "verkaufer-in-planer-in-kuchen-bader-fust-swiss-household-services-ag-rapperswil-jona",
@@ -5993,7 +5992,8 @@
           "verkaufer-in-planer-in-kuchen-bader-fust-swiss-household-services-ag-biel-1lfysx",
           "venditore-venditrice-progettista-cucine-bagni-fust-swiss-household-services-ag-rapperswil-jona",
           "verkaufer-in-planer-in-kuchen-bader-fust-rapperswil-jona-sankt-gallen-0dssn4",
-          "salesperson-kitchen-bathroom-designer-fust-swiss-household-services-ag-rapperswil-jona-0dssn4"
+          "salesperson-kitchen-bathroom-designer-fust-swiss-household-services-ag-rapperswil-jona-0dssn4",
+          "vendeur-vendeuse-concepteur-conceptrice-cuisines-salles-de-bain-fust-swiss-household-services-ag-rapperswil-jona-0dssn4"
         ],
         "en": [
           "verkaufer-in-planer-in-kuchen-bader-fust-swiss-household-services-ag-biel-bern-04zafu",
@@ -6082,7 +6082,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-08-01T22:02:15.034Z",
+      "crawledAt": "2026-08-02T10:55:16.757Z",
       "firstSeenAt": "2026-07-21T22:17:41.811Z",
       "slugByLocale": {
         "it": "verkaufsberater-in-per-elektrohaushalt-multimedia-80-100-fust-visp-wallis-nmm5ty",
@@ -6155,7 +6155,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-08-01T22:02:15.034Z",
+      "crawledAt": "2026-08-02T10:55:16.757Z",
       "firstSeenAt": "2026-07-20T12:16:15.722Z",
       "titleByLocale": {
         "it": "Fiteria sanitaria: in cucine e bagni",
@@ -6179,7 +6179,6 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "fiteria-sanitaria-in-cucine-e-bagni-fust-swiss-household-services-ag-burgdorf-bern",
           "coordinatore-a-cucine-bagni-fust-swiss-household-services-ag-burgdorf",
           "disponent-in-kuchen-bader-fust-burgdorf-bern-mts3op",
           "dispatcher-kitchens-bathrooms-fust-swiss-household-services-ag-burgdorf-mts3op",
@@ -6198,7 +6197,8 @@
           "sanitarmonteur-in-kuchen-bader-fust-burgdorf-bern-lzkg1f",
           "installation-sanitaire-dans-les-cuisines-et-salles-de-bains-fust-swiss-household-services-ag-burgdorf-lzkg1f",
           "sanitarmonteur-in-kuchen-bader-fust-swiss-household-services-ag-burgdorf-lzkg1f",
-          "sanitarmonteur-dans-kuchen-bader-fust-swiss-household-services-ag-burgdorf-lzkg1f"
+          "sanitarmonteur-dans-kuchen-bader-fust-swiss-household-services-ag-burgdorf-lzkg1f",
+          "fiteria-sanitaria-in-cucine-e-bagni-fust-swiss-household-services-ag-burgdorf-bern"
         ],
         "en": [
           "sanitarmonteur-in-kuchen-bader-fust-swiss-household-services-ag-burgdorf-bern-ihyw9w",
@@ -6298,7 +6298,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-08-01T22:02:15.034Z",
+      "crawledAt": "2026-08-02T10:55:16.757Z",
       "firstSeenAt": "2026-07-20T12:16:15.722Z",
       "titleByLocale": {
         "it": "Collaboratore/trice Intralogistik - Bereich Warenausgang",
@@ -6369,7 +6369,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-08-01T22:02:15.034Z",
+      "crawledAt": "2026-08-02T10:55:16.757Z",
       "firstSeenAt": "2026-07-20T12:16:15.722Z",
       "titleByLocale": {
         "it": "Chauffeur: in Cat. C/CE",
@@ -6476,7 +6476,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-08-01T22:02:15.034Z",
+      "crawledAt": "2026-08-02T10:55:16.757Z",
       "firstSeenAt": "2026-07-20T12:16:15.722Z",
       "titleByLocale": {
         "it": "Montage-Assistent:in per la Heimlieferung von Elektrohaushaltgeräten",
@@ -6571,7 +6571,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-08-01T22:02:15.034Z",
+      "crawledAt": "2026-08-02T10:55:16.757Z",
       "firstSeenAt": "2026-07-20T12:16:15.722Z",
       "titleByLocale": {
         "it": "Collaboratore/trice Intralogistik - Bereich Retouren",
@@ -6659,7 +6659,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-08-01T22:02:15.034Z",
+      "crawledAt": "2026-08-02T10:55:16.757Z",
       "firstSeenAt": "2026-07-20T12:16:15.722Z",
       "titleByLocale": {
         "it": "Tecnico di servizio: in Soluzioni Professionali",
@@ -6683,7 +6683,6 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "servicetechniker-in-professional-solutions-fust-swiss-household-services-ag-bern-3qkfr2",
           "servicetechniker-in-professional-solutions-fust-swiss-household-services-ag-oberburen-6yxyhs",
           "tecnico-di-servizio-in-soluzioni-professionali-fust-oberburen",
           "service-technician-professional-solutions-fust-swiss-household-services-ag-oberburen",
@@ -6702,7 +6701,8 @@
           "technicien-de-service-solutions-professionnelles-fust-oberburen",
           "service-technician-in-professional-solutions-fust-swiss-household-services-ag-luzern",
           "service-technician-in-professional-solutions-fust-swiss-household-services-ag-oberburen",
-          "servicetechniker-in-professional-solutions-fust-swiss-household-services-ag-bern"
+          "servicetechniker-in-professional-solutions-fust-swiss-household-services-ag-bern",
+          "servicetechniker-in-professional-solutions-fust-swiss-household-services-ag-bern-3qkfr2"
         ],
         "en": [
           "servicetechniker-in-professional-solutions-fust-oberburen-aqcu7o",
@@ -6785,7 +6785,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-08-01T22:02:15.034Z",
+      "crawledAt": "2026-08-02T10:55:16.757Z",
       "firstSeenAt": "2026-07-17T22:30:05.510Z",
       "titleByLocale": {
         "it": "Responsabile Marketing Trading",
@@ -6864,7 +6864,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-08-01T22:02:15.034Z",
+      "crawledAt": "2026-08-02T10:55:16.757Z",
       "firstSeenAt": "2026-07-17T22:30:05.510Z",
       "titleByLocale": {
         "it": "Tecnico di servizio: in Soluzioni Professionali",
@@ -6888,7 +6888,6 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "technicien-de-service-en-solutions-professionnelles-fust-bern",
           "tecnico-di-servizio-in-soluzioni-professionali-fust-oberburen",
           "service-technician-in-professional-solutions-fust-oberburen",
           "servicetechniker-in-professional-solutions-fust-oberburen-0jbfoy",
@@ -6907,7 +6906,8 @@
           "tecnico-di-servizio-soluzioni-professionali-fust-swiss-household-services-ag-oberburen",
           "servicetechniker-in-professional-solutions-fust-bern",
           "service-technician-in-professional-solutions-fust-swiss-household-services-ag-luzern",
-          "service-technician-in-professional-solutions-fust-bern"
+          "service-technician-in-professional-solutions-fust-bern",
+          "technicien-de-service-en-solutions-professionnelles-fust-bern"
         ],
         "en": [
           "servicetechniker-in-professional-solutions-fust-swiss-household-services-ag-oberburen-8fm84c",
@@ -6995,7 +6995,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-08-01T22:02:15.034Z",
+      "crawledAt": "2026-08-02T10:55:16.757Z",
       "firstSeenAt": "2026-07-14T22:27:27.990Z",
       "titleByLocale": {
         "it": "Capo della ricevuta aggiunto",
@@ -7075,11 +7075,11 @@
       "source": "Company Careers Crawler",
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-08-01T22:02:15.034Z",
+      "crawledAt": "2026-08-02T10:55:16.757Z",
       "firstSeenAt": "2026-07-10T22:39:27.410Z",
       "titleByLocale": {
         "it": "Project Manager: in Sponsorship",
-        "en": "Project Manager: in Sponsorship",
+        "en": "Project-Manager:in Sponsoring",
         "de": "Project-Manager:in Sponsoring",
         "fr": "Chef de Projet Sponsoring"
       },
@@ -7099,7 +7099,6 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "junior-projektmanager-sponsoring-coop-genossenschaft-arbedo-castione-1qcvc7",
           "junior-projektmanager-sponsoring-coop-genossenschaft-arbedo-castione",
           "junior-projektmanager-sponsoring-coop-arbedo-castione-ticino-1qcvc7",
           "junior-projektmanager-sponsoring-coop-genossenschaft-arbedo-castione-ticino-1qcvc7",
@@ -7118,7 +7117,8 @@
           "gestionnaire-de-projet-junior-parrainage-coop-genossenschaft-arbedo-castione-ticino",
           "junior-project-manager-sponsoring-coop-genossenschaft-arbedo-castione-1qcvc7",
           "junior-project-manager-sponsoring-coop-genossenschaft-arbedo-castione-ticino-1qcvc7",
-          "junior-projektleiter-sponsoring-coop-genossenschaft-arbedo-castione"
+          "junior-projektleiter-sponsoring-coop-genossenschaft-arbedo-castione",
+          "junior-projektmanager-sponsoring-coop-genossenschaft-arbedo-castione-1qcvc7"
         ],
         "en": [
           "project-manager-in-sponsoring-coop-genossenschaft-bern-c6dwd4",
@@ -7166,7 +7166,8 @@
       "employmentType": "FULL_TIME",
       "country": "CH",
       "salaryMin": 94500,
-      "salaryMax": 143000
+      "salaryMax": 143000,
+      "needsRetranslation": true
     },
     {
       "id": "company-8r1g8p",
@@ -7186,7 +7187,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-08-01T22:02:15.034Z",
+      "crawledAt": "2026-08-02T10:55:16.757Z",
       "firstSeenAt": "2026-07-10T22:39:27.410Z",
       "titleByLocale": {
         "it": "Collaboratore/trice Facility Management & Betriebsunterhalt",
@@ -7273,7 +7274,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-08-01T22:02:15.034Z",
+      "crawledAt": "2026-08-02T10:55:16.757Z",
       "firstSeenAt": "2026-07-10T22:39:27.410Z",
       "titleByLocale": {
         "it": "Monteur per den Austausch von Kücheneinbaugeräten",
@@ -7366,7 +7367,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-08-01T22:02:15.034Z",
+      "crawledAt": "2026-08-02T10:55:16.757Z",
       "firstSeenAt": "2026-07-10T22:39:27.410Z",
       "titleByLocale": {
         "it": "Verkaufsberater:in per Elektrohaushalt & Multimedia 80% - 100%",
@@ -7390,7 +7391,6 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "sales-consultant-for-household-appliances-and-multimedia-fust-swiss-household-services-ag-oberburen",
           "sales-consultant-in-for-electrical-household-and-multimedia-fust-swiss-household-services-ag-oberburen",
           "verkaufsberater-in-per-elektrohaushalt-e-multimedia-fust-oberburen-sankt-gallen-n31lw0",
           "sales-consultant-for-electrical-household-and-multimedia-fust-swiss-household-services-ag-wallisellen",
@@ -7409,7 +7409,8 @@
           "verkaufsberater-in-fur-elektrohaushalt-multimedia-80-100-fust-luzern",
           "consultant-en-ventes-en-electromenager-multimedia-80-100-fust-swiss-household-services-ag-oftringen",
           "consultant-en-ventes-pour-electromenager-multimedia-80-100-fust-swiss-household-services-ag-oftringen",
-          "sales-consultant-in-for-electrical-household-multimedia-80-100-fust-swiss-household-services-ag-bern"
+          "sales-consultant-in-for-electrical-household-multimedia-80-100-fust-swiss-household-services-ag-bern",
+          "sales-consultant-for-household-appliances-and-multimedia-fust-swiss-household-services-ag-oberburen"
         ],
         "en": [
           "verkaufsberater-in-fur-elektrohaushalt-multimedia-80-100-fust-luzern-jb4wob",
@@ -7508,7 +7509,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-08-01T22:02:15.034Z",
+      "crawledAt": "2026-08-02T10:55:16.757Z",
       "firstSeenAt": "2026-07-10T22:39:27.410Z",
       "titleByLocale": {
         "it": "Montatore/trice di impianti sanitari per cucine & bagni",
@@ -7595,7 +7596,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-08-01T22:02:15.034Z",
+      "crawledAt": "2026-08-02T10:55:16.757Z",
       "firstSeenAt": "2026-07-10T22:39:27.410Z",
       "titleByLocale": {
         "it": "Monteur per den Austausch von Kücheneinbaugeräten",
@@ -7678,7 +7679,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-08-01T22:02:15.034Z",
+      "crawledAt": "2026-08-02T10:55:16.757Z",
       "firstSeenAt": "2026-07-06T13:40:26.001Z",
       "titleByLocale": {
         "it": "Techniker:in per Multimedia-Geräte",
@@ -7780,7 +7781,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-08-01T22:02:15.034Z",
+      "crawledAt": "2026-08-02T10:55:16.757Z",
       "firstSeenAt": "2026-07-06T13:40:26.001Z",
       "titleByLocale": {
         "it": "Verkaufsberater:in per Elektrohaushalt & Multimedia 80% - 100%",
@@ -7865,7 +7866,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-08-01T22:02:15.034Z",
+      "crawledAt": "2026-08-02T10:55:16.757Z",
       "firstSeenAt": "2026-07-06T13:40:26.001Z",
       "titleByLocale": {
         "it": "Verkaufsberater:in per Elektrohaushalt e Multimedia",
@@ -7948,7 +7949,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-08-01T22:02:15.034Z",
+      "crawledAt": "2026-08-02T10:55:16.757Z",
       "firstSeenAt": "2026-07-06T13:40:26.001Z",
       "titleByLocale": {
         "it": "Rappresentante del servizio clienti:in servizio",
@@ -8060,7 +8061,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-08-01T22:02:15.034Z",
+      "crawledAt": "2026-08-02T10:55:16.757Z",
       "firstSeenAt": "2026-07-06T13:40:26.001Z",
       "titleByLocale": {
         "it": "Collaboratore/trice Intralogistik - Bereich Wareneingang",
@@ -8455,7 +8456,7 @@
       "crawledAt": "2026-07-30T22:15:40.711Z",
       "firstSeenAt": "2026-07-30T22:15:40.711Z",
       "titleByLocale": {
-        "fr": "Chef - Hôtel Pullman Basel Europe",
+        "fr": "Koch:Köchin - Hotel Pullman Basel Europe",
         "de": "Koch:Köchin - Hotel Pullman Basel Europe",
         "it": "Cuoco / Cuoca - Hotel Pullman Basel Europe",
         "en": "Cook - Hotel Pullman Basel Europe"
@@ -8503,7 +8504,8 @@
       "addressRegion": "BS",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "company-tsznkf",
@@ -9043,7 +9045,7 @@
       "firstSeenAt": "2026-07-16T11:35:31.670Z",
       "titleByLocale": {
         "it": "Analista di Categoria (h/m/d), 80%",
-        "en": "Category analyst (w/m/d), 80 %",
+        "en": "Category Analyst (w/m/d), 80%",
         "de": "Category Analyst (w/m/d), 80%",
         "fr": "Analyste de catégorie (h/f/d), 80%"
       },
@@ -9102,7 +9104,8 @@
       "employmentType": "FULL_TIME",
       "country": "CH",
       "salaryMin": 51600,
-      "salaryMax": 88000
+      "salaryMax": 88000,
+      "needsRetranslation": true
     },
     {
       "id": "company-389lo2",
@@ -10143,7 +10146,7 @@
       "crawledAt": "2026-07-28T22:21:06.436Z",
       "firstSeenAt": "2026-07-28T22:21:06.436Z",
       "titleByLocale": {
-        "en": "Cook / cook (f/m/d)",
+        "en": "Köchin / Koch (w/m/d)",
         "de": "Köchin / Koch (w/m/d)",
         "it": "Cucinare / cucinare (f/m/d)",
         "fr": "Cuire / cuire (f/m/d)"
@@ -10156,7 +10159,7 @@
       },
       "slugByLocale": {
         "it": "cucinare-cucinare-f-m-d-coop-genossenschaft-biel-bern",
-        "en": "cook-cook-f-m-d-coop-genossenschaft-biel-bern",
+        "en": "kochin-koch-m-w-d-coop-genossenschaft-biel-bern",
         "de": "kochin-koch-m-w-d-coop-genossenschaft-biel-bern-v0jq63",
         "fr": "cuire-cuire-f-m-d-coop-genossenschaft-biel-bern"
       },
@@ -10179,6 +10182,7 @@
           "kochin-koch-m-w-d-coop-genossenschaft-biel-bern-v0jq63",
           "cook-cook-f-m-d-coop-genossenschaft-biel-3c0095",
           "cook-cook-f-m-d-coop-genossenschaft-biel-3c0095",
+          "cook-cook-f-m-d-coop-genossenschaft-biel-bern",
           "kochin-koch-m-w-d-coop-genossenschaft-biel-bern"
         ],
         "fr": [
@@ -10191,7 +10195,8 @@
         "kochin-koch-m-w-d-coop-genossenschaft-biel-bern-v0jq63",
         "cucinare-cucinare-f-m-d-coop-genossenschaft-biel-3c0095",
         "cook-cook-f-m-d-coop-genossenschaft-biel-3c0095",
-        "cuire-cuire-f-m-d-coop-genossenschaft-biel-3c0095"
+        "cuire-cuire-f-m-d-coop-genossenschaft-biel-3c0095",
+        "cook-cook-f-m-d-coop-genossenschaft-biel-bern"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -10209,7 +10214,8 @@
       "addressRegion": "BE",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "company-utx1ku",
@@ -10491,7 +10497,7 @@
         "fr": "restaurant-f-m-d-marche-restaurants-schweiz-ag-dietlikon"
       },
       "titleByLocale": {
-        "fr": "Restaurant (f/m/d)",
+        "fr": "Teammember Restaurant (w/m/d)",
         "de": "Teammember Restaurant (w/m/d)",
         "it": "Membro del team Ristorante (w/m/d)",
         "en": "Restaurant Team Member (w/m/d)"
@@ -10537,7 +10543,8 @@
       "previousSlugs": [
         "teammember-restaurant-m-w-d-marche-restaurants-schweiz-ag-dietlikon",
         "teammember-restaurant-m-w-d-marche-restaurants-schweiz-ag-dietlikon-zfr8up"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "company-678f1e",
@@ -10566,7 +10573,7 @@
         "fr": "restaurant-f-m-d-marche-restaurants-schweiz-ag-dietlikon-d6c858"
       },
       "titleByLocale": {
-        "fr": "Restaurant (f/m/d)",
+        "fr": "Teammember Restaurant (w/m/d)",
         "de": "Teammember Restaurant (w/m/d)",
         "it": "Membro del Team Ristorante (w/m/d)",
         "en": "Restaurant Team Member (m/f/d)"
@@ -10653,7 +10660,8 @@
         "teammember-restaurant-m-w-d-marche-dietlikon-2",
         "teammember-restaurant-m-w-d-marche-restaurants-schweiz-ag-dietlikon-2",
         "teammember-restaurant-m-w-d-marche-restaurants-schweiz-ag-dietlikon-678f1e"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "company-2wcybk",
@@ -14554,7 +14562,7 @@
       "titleByLocale": {
         "de": "Sushi-Hilfskoch/Hilfsköchin",
         "it": "Sushi chef/chef",
-        "en": "Sushi chef/chef",
+        "en": "Sushi-Hilfskoch/Hilfsköchin",
         "fr": "Chef/chef Sushi"
       },
       "descriptionByLocale": {
@@ -14624,7 +14632,8 @@
         "chef-de-cuisine-100-two-spice-ag-dietlikon",
         "kuchenchef-in-100-two-spice-dietlikon",
         "sushi-help-chef-help-chef-two-spice-ag-dietlikon"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "company-zc21x8",
@@ -15009,7 +15018,7 @@
       "crawledAt": "2026-07-22T22:27:25.104Z",
       "firstSeenAt": "2026-07-22T22:27:25.104Z",
       "titleByLocale": {
-        "de": "Verkaufsberater:in Accessoires Uhren und Schmuck",
+        "de": "Verkaufsberater:in Parfumerie und Kosmetik",
         "it": "Verkaufsberater:in Parfumerie e Kosmetik",
         "en": "Sales consultants: in perfumery and cosmetics",
         "fr": "Consultants en vente: en parfumerie et cosmétiques"
@@ -16047,7 +16056,7 @@
       "titleByLocale": {
         "de": "Köchin / Koch (w/m/d)",
         "it": "Cucinare / cucinare (f/m/d)",
-        "en": "Cook / cook (f/m/d)",
+        "en": "Köchin / Koch (w/m/d)",
         "fr": "Cuire/cuire (f/m/d)"
       },
       "descriptionByLocale": {
@@ -16058,7 +16067,7 @@
       },
       "slugByLocale": {
         "it": "cucinare-cucinare-f-m-d-coop-genossenschaft-bern-a8c9d4",
-        "en": "cook-cook-f-m-d-coop-genossenschaft-bern-a8c9d4",
+        "en": "kochin-koch-m-w-d-coop-genossenschaft-bern",
         "de": "kochin-koch-m-w-d-coop-genossenschaft-bern-7z9gmc",
         "fr": "cuire-cuire-f-m-d-coop-genossenschaft-bern-a8c9d4"
       },
@@ -16083,6 +16092,7 @@
         "en": [
           "kochin-koch-m-w-d-coop-genossenschaft-bern-7z9gmc",
           "cook-cook-f-m-d-coop-genossenschaft-bern",
+          "cook-cook-f-m-d-coop-genossenschaft-bern-a8c9d4",
           "kochin-koch-m-w-d-coop-genossenschaft-bern"
         ],
         "fr": [
@@ -16099,7 +16109,8 @@
         "cucinare-cucinare-f-m-d-coop-genossenschaft-bern",
         "cook-cook-f-m-d-coop-genossenschaft-bern",
         "kochin-koch-m-w-d-coop-genossenschaft-bern-irdhh4",
-        "cuire-cuire-f-m-d-coop-genossenschaft-bern"
+        "cuire-cuire-f-m-d-coop-genossenschaft-bern",
+        "cook-cook-f-m-d-coop-genossenschaft-bern-a8c9d4"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -16117,7 +16128,8 @@
       "addressRegion": "BE",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "company-jsw1f0",
@@ -16209,7 +16221,8 @@
       "employmentType": "FULL_TIME",
       "country": "CH",
       "salaryMin": 73500,
-      "salaryMax": 111500
+      "salaryMax": 111500,
+      "needsRetranslation": true
     },
     {
       "id": "company-nz0q9t",
@@ -18178,7 +18191,7 @@
       "titleByLocale": {
         "de": "Köchin / Koch (w/m/d)",
         "it": "Cucinare / cucinare (f/m/d)",
-        "en": "Cook / cook (f/m/d)",
+        "en": "Köchin / Koch (w/m/d)",
         "fr": "Cuire/cuire (f/m/d)"
       },
       "descriptionByLocale": {
@@ -18189,7 +18202,7 @@
       },
       "slugByLocale": {
         "it": "cucinare-cucinare-f-m-d-coop-genossenschaft-winterthur",
-        "en": "cook-cook-f-m-d-coop-genossenschaft-winterthur",
+        "en": "kochin-koch-m-w-d-coop-genossenschaft-winterthur-zurich",
         "de": "kochin-koch-m-w-d-coop-genossenschaft-winterthur-zurich-9qlmku",
         "fr": "cuire-cuire-f-m-d-coop-genossenschaft-winterthur"
       },
@@ -18210,6 +18223,7 @@
         ],
         "en": [
           "kochin-koch-m-w-d-coop-genossenschaft-winterthur-zurich-9qlmku",
+          "cook-cook-f-m-d-coop-genossenschaft-winterthur",
           "kochin-koch-m-w-d-coop-genossenschaft-winterthur-zurich"
         ],
         "fr": [
@@ -18219,7 +18233,8 @@
       "previousSlugs": [
         "kochin-koch-m-w-d-coop-genossenschaft-winterthur-zurich",
         "kochin-koch-m-w-d-coop-ristorante-winterthur-zurich",
-        "kochin-koch-m-w-d-coop-genossenschaft-winterthur-zurich-9qlmku"
+        "kochin-koch-m-w-d-coop-genossenschaft-winterthur-zurich-9qlmku",
+        "cook-cook-f-m-d-coop-genossenschaft-winterthur"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -18237,7 +18252,8 @@
       "addressRegion": "ZH",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "company-4u0urp",
@@ -20192,7 +20208,7 @@
       "titleByLocale": {
         "de": "Köchin / Koch (w/m/d)",
         "it": "Cucinare / cucinare (f/m/d)",
-        "en": "Cook / cook (f/m/d)",
+        "en": "Köchin / Koch (w/m/d)",
         "fr": "Cuire / cuire (f/m/d)"
       },
       "descriptionByLocale": {
@@ -20203,7 +20219,7 @@
       },
       "slugByLocale": {
         "it": "cucinare-cucinare-f-m-d-coop-genossenschaft-aarau",
-        "en": "cook-cook-f-m-d-coop-genossenschaft-aarau",
+        "en": "kochin-koch-m-w-d-coop-genossenschaft-aarau-aargau",
         "de": "kochin-koch-m-w-d-coop-genossenschaft-aarau-aargau-ddg6am",
         "fr": "cuire-cuire-f-m-d-coop-genossenschaft-aarau"
       },
@@ -20243,6 +20259,7 @@
           "cook-m-w-d-coop-genossenschaft-aarau-x72egi",
           "kochin-koch-m-w-d-coop-genossenschaft-aarau-aargau-ddg6am",
           "cook-cook-f-m-d-coop-genossenschaft-aarau-aargau",
+          "cook-cook-f-m-d-coop-genossenschaft-aarau",
           "kochin-koch-m-w-d-coop-genossenschaft-aarau-aargau"
         ],
         "de": [
@@ -20278,7 +20295,8 @@
         "cook-cook-f-m-d-coop-genossenschaft-aarau-aargau",
         "cuire-cuire-f-m-d-coop-genossenschaft-aarau-aargau",
         "cucinare-cucinare-f-m-d-coop-genossenschaft-aarau-aargau",
-        "kochin-koch-m-w-d-coop-genossenschaft-aarau-aargau"
+        "kochin-koch-m-w-d-coop-genossenschaft-aarau-aargau",
+        "cook-cook-f-m-d-coop-genossenschaft-aarau"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -20296,7 +20314,8 @@
       "addressRegion": "AG",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "company-eszcs8",
@@ -20929,7 +20948,7 @@
       "titleByLocale": {
         "de": "Köchin / Koch (w/m/d)",
         "it": "Cucinare / cucinare (f/m/d)",
-        "en": "Cook / cook (f/m/d)",
+        "en": "Köchin / Koch (w/m/d)",
         "fr": "Cuire/cuire (f/m/d)"
       },
       "descriptionByLocale": {
@@ -20940,7 +20959,7 @@
       },
       "slugByLocale": {
         "it": "cucinare-cucinare-f-m-d-coop-genossenschaft-st-gallen",
-        "en": "cook-cook-f-m-d-coop-genossenschaft-st-gallen",
+        "en": "kochin-koch-m-w-d-coop-genossenschaft-st-gallen-sankt-gallen",
         "de": "kochin-koch-m-w-d-coop-genossenschaft-st-gallen-sankt-gallen-uo8mso",
         "fr": "cuire-cuire-f-m-d-coop-genossenschaft-st-gallen"
       },
@@ -20981,6 +21000,7 @@
           "kochin-koch-m-w-d-coop-genossenschaft-st-gallen-sankt-gallen-uo8mso",
           "cook-cook-f-m-d-coop-genossenschaft-st-gallen-sankt-gallen",
           "cook-cook-f-m-d-coop-genossenschaft-st-gallen-edf62c",
+          "cook-cook-f-m-d-coop-genossenschaft-st-gallen",
           "kochin-koch-m-w-d-coop-genossenschaft-st-gallen-sankt-gallen"
         ],
         "de": [
@@ -21017,7 +21037,8 @@
         "cuire-cuire-f-m-d-coop-genossenschaft-st-gallen-edf62c",
         "kochin-koch-m-w-d-coop-st-gallen-sankt-gallen",
         "cucinare-cucinare-f-m-d-coop-genossenschaft-st-gallen-edf62c",
-        "cook-cook-f-m-d-coop-genossenschaft-st-gallen-edf62c"
+        "cook-cook-f-m-d-coop-genossenschaft-st-gallen-edf62c",
+        "cook-cook-f-m-d-coop-genossenschaft-st-gallen"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -21035,7 +21056,8 @@
       "addressRegion": "SG",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "company-n5mu7v",
@@ -22678,7 +22700,7 @@
       "titleByLocale": {
         "de": "Köchin / Koch (w/m/d)",
         "it": "Cucinare / cucinare (f/m/d)",
-        "en": "Cook / cook (f/m/d)",
+        "en": "Köchin / Koch (w/m/d)",
         "fr": "Cuire/cuire (f/m/d)"
       },
       "descriptionByLocale": {
@@ -22689,7 +22711,7 @@
       },
       "slugByLocale": {
         "it": "cucinare-cucinare-f-m-d-coop-genossenschaft-volketswil",
-        "en": "cook-cook-f-m-d-coop-genossenschaft-volketswil",
+        "en": "kochin-koch-m-w-d-coop-genossenschaft-volketswil-zurich",
         "de": "kochin-koch-m-w-d-coop-genossenschaft-volketswil-zurich-womu86",
         "fr": "cuire-cuire-f-m-d-coop-genossenschaft-volketswil"
       },
@@ -22710,6 +22732,7 @@
         ],
         "en": [
           "kochin-koch-m-w-d-coop-genossenschaft-volketswil-zurich-womu86",
+          "cook-cook-f-m-d-coop-genossenschaft-volketswil",
           "kochin-koch-m-w-d-coop-genossenschaft-volketswil-zurich"
         ],
         "fr": [
@@ -22719,7 +22742,8 @@
       "previousSlugs": [
         "kochin-koch-m-w-d-coop-genossenschaft-volketswil-zurich",
         "kochin-koch-m-w-d-coop-genossenschaft-volketswil-zurich-womu86",
-        "kochin-koch-m-w-d-coop-ristorante-volketswil-zurich"
+        "kochin-koch-m-w-d-coop-ristorante-volketswil-zurich",
+        "cook-cook-f-m-d-coop-genossenschaft-volketswil"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -22737,7 +22761,8 @@
       "addressRegion": "ZH",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "company-3k950o",
@@ -25883,113 +25908,6 @@
       "country": "CH"
     },
     {
-      "id": "company-hjatpy",
-      "slug": "venditore-in-cassa-servizi-coop-genossenschaft-basel",
-      "company": "Coop Genossenschaft",
-      "title": "Verkäufer:in Kassen/Services",
-      "location": "Basel, Basel-Stadt",
-      "canton": "BS",
-      "category": "admin",
-      "contract": "part-time",
-      "currency": "CHF",
-      "description": "Aufgaben\n\n- Die Kasse ist dein Revier, hier sorgst du für gute Stimmung und einen reibungslosen Ablauf.\n\n- Du stellst sicher, dass sämtliche Prozesse und Regelungen eingehalten werden.\n\n- Im Teamwork unterstützt du auch deine Kolleginnen und Kollegen in anderen Bereichen.\n\nAnforderungen\n\n- Wir freuen uns auf deine Erfahrung im Verkaufsbereich.\n\n- Du leistest vollen Einsatz und bist bereit, Dienstleistungen zu erbringen.\n\n- Flexibilität ist dir auch bei den Einsatzzeiten wichtig.\n\n- Deutsch beherrschst du mündlich und schriftlich gut.\n\n- Vergünstigungen : Rabatt auf das Reiseangebot ITS Coop Travel, 5-fache Anzahl Superpunkte im Supermarkt, bis zu 20% Rabatt auf verschiedene Versicherungsleistungen, bis zu 20% Rabatt in allen Formaten der Coop-Gruppe, günstigere Mobile- und Prepaid-Abos bei Coop Mobile, Reka-Card: Vergünstigung bei Bezug, Vergünstigung bei Mobility CarSharing, Personalrabatt auch für Partner:in (im gleichen Haushalt lebend), Vergünstigung bei GA-Abonnement, Vergünstigungen bei Kulturanlässen, Vergünstigungen für Freizeitaktivitäten\n\n- Anstellungsbedingungen : Pensionskasse: 2/3 wird von Coop einbezahlt, Attraktive Anstellungsbedingungen und zertifizierte Lohngleichheit, Treueprämien, Sparplan bei der Pensionskasse,Gesamtarbeitsvertrag (GAV), 18 Wochen bezahlter Mutterschaftsurlaub und drei Wochen bezahlter Vaterschaftsurlaub\n\n- Arbeitszeit : 5 Wochen Ferien, flexible Arbeitszeitmodelle\n\n- Weiterbildung : Über 600 interne Weiterbildungskurse, Talentmanagement mit vielfältigen Entwicklungsmöglichkeiten, Aus- und Weiterbildungsangeboten des L-GAV und Coop\n\n- Nachhaltigkeit : Engagement für Mensch, Tier und Natur mit über 400 Taten\n\n- Kommunikation : interne App für Mitarbeitende\n\n- Gesundheit : Update-Fitness: Fr. 200.– Rabatt aufs Jahresabonnement, Gratis Teilnahme an verschiedenen Firmenläufen, Firmeninterne Sportangebote\n\nDeine Ansprechperson\nChristelle Heitz\nHR Marketing",
-      "requirements": [
-        "Im Teamwork unterstützt du auch deine Kolleginnen und Kollegen in anderen Bereichen.",
-        "Deutsch beherrschst du mündlich und schriftlich gut."
-      ],
-      "featured": false,
-      "postedDate": "2026-07-03",
-      "url": "https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-kassen-services/4fb3b9e6-adc1-47ae-8ed0-33aada7b9046",
-      "source": "Company Careers Crawler",
-      "companyKey": "fust",
-      "companyDomain": "fust.ch",
-      "crawledAt": "2026-07-03T22:08:48.156Z",
-      "firstSeenAt": "2026-07-03T22:08:48.156Z",
-      "titleByLocale": {
-        "de": "Verkäufer:in Kassen/Services",
-        "it": "Venditore:in cassa/servizi",
-        "en": "Seller:in cash registers/services",
-        "fr": "Vendeur:dans les caisses enregistreuses/services"
-      },
-      "descriptionByLocale": {
-        "de": "## Verkäufer:in Kassen/Services\n\n**Coop Genossenschaft** — Basel, Basel-Stadt, Svizzera\n\n## Aufgaben\n- Die Kasse ist dein Revier, hier sorgst du für gute Stimmung und einen reibungslosen Ablauf.\n- Du stellst sicher, dass sämtliche Prozesse und Regelungen eingehalten werden.\n- Im Teamwork unterstützt du auch deine Kolleginnen und Kollegen in anderen Bereichen.\n\n## Anforderungen\n- Wir freuen uns auf deine Erfahrung im Verkaufsbereich.\n- Du leistest vollen Einsatz und bist bereit, Dienstleistungen zu erbringen.\n- Flexibilität ist dir auch bei den Einsatzzeiten wichtig.\n- Deutsch beherrschst du mündlich und schriftlich gut.\n- Vergünstigungen: Rabatt auf das Reiseangebot ITS Coop Travel, 5-fache Anzahl Superpunkte im Supermarkt, bis zu 20% Rabatt auf verschiedene Versicherungsleistungen, bis zu 20% Rabatt in allen Formaten der Coop-Gruppe, günstigere Mobile- und Prepaid-Abos bei Coop Mobile, Reka-Card: Vergünstigung bei Bezug, Vergünstigung bei Mobility CarSharing, Personalrabatt auch für Partner:in (im gleichen Haushalt lebend), Vergünstigung bei GA-Abonnement, Vergünstigungen bei Kulturanlässen, Vergünstigungen für Freizeitaktivitäten\n- Anstellungsbedingungen: Pensionskasse: 2/3 wird von Coop einbezahlt, Attraktive Anstellungsbedingungen und zertifizierte Lohngleichheit, Treueprämien, Sparplan bei der Pensionskasse,Gesamtarbeitsvertrag (GAV), 18 Wochen bezahlter Mutterschaftsurlaub und drei Wochen bezahlter Vaterschaftsurlaub\n- Arbeitszeit: 5 Wochen Ferien, flexible Arbeitszeitmodelle\n- Weiterbildung: Über 600 interne Weiterbildungskurse, Talentmanagement mit vielfältigen Entwicklungsmöglichkeiten, Aus- und Weiterbildungsangeboten des L-GAV und Coop\n- Nachhaltigkeit: Engagement für Mensch, Tier und Natur mit über 400 Taten\n- Kommunikation: interne App für Mitarbeitende\n- Gesundheit: Update-Fitness: Fr. 200.– Rabatt aufs Jahresabonnement, Gratis Teilnahme an verschiedenen Firmenläufen, Firmeninterne Sportangebote\n\n## Deine Ansprechperson\nChristelle Heitz\nHR Marketing\n\n**Tipo:** Part-time\n**Sede:** Basel",
-        "it": "## Venditore:in cassa/servizi\n\nCoop Cooperative — Basel, Basel City, Svizzera\n\n## Compiti\n- Il registro di cassa è il vostro territorio, qui si assicura un buon umore e un processo liscio.\n- Assicurarsi che tutti i processi e le normative siano rispettati.\n- Nel lavoro di squadra, supporta anche i tuoi colleghi in altre aree.\n\n## Requisiti\n- Attendiamo con ansia la vostra esperienza nelle vendite.\n- Siete completamente impegnati e pronti a fornire servizi.\n- La flessibilità è anche importante per voi quando si tratta di tempi di distribuzione.\n- Voi padroneggiate il tedesco bene verbalmente e per iscritto.\n- Sconti: Sconto sull'offerta di viaggio ITS Coop Travel, 5 volte il numero di punti super nel supermercato, fino a 20% di sconto su vari servizi assicurativi, fino a 20% di sconto in tutti i formati del Gruppo Coop, abbonamenti più economici mobile e prepagati su Coop Mobile, Reka Card: sconto sull'acquisto, sconto su Mobility CarSharing, sconto personale anche per i partner:in (vivere nella stessa famiglia), sconto sull'abbonamento GA, sconti sugli eventi culturali, sconti sugli eventi, sconti sugli eventi, sconti sugli eventi culturali, sconti sugli eventi, sconti sugli eventi culturali, sconti\n- Condizioni di lavoro: Fondo pensione: 2/3 è pagato da Coop, Condizioni interessanti di occupazione e parità di retribuzione certificata, premi fedeltà, piano di risparmio del Fondo pensione, contratto di lavoro totale (GAV), 18 settimane di congedo di maternità retribuito e tre settimane di congedo di paternità retribuito\n- Orario di lavoro: 5 settimane vacanze, modelli di tempo di lavoro flessibili\n- Ulteriore istruzione: Più di 600 corsi di formazione interna, gestione del talento con diverse opportunità di sviluppo, formazione e ulteriori offerte di istruzione della L-GAV e Coop\n- Sostenibilità: Impegno a persone, animali e natura con oltre 400 azioni\n- Comunicazione: applicazione interna per i dipendenti\n- Salute: aggiornamento Fitness: Fr. 200.– Sconto su abbonamento annuale, partecipazione gratuita a varie piste aziendali, offerte sportive interne\n\n## La persona di contatto\nChristelle Heitz\nHR Marketing\n\nTipo: Tempo parziale\n♪ Sede. ♪ Basilea",
-        "en": "## Seller:in cash registers/services\n\n**Coop Cooperative** — Basel, Basel City, Svizzera\n\n## Tasks\n- The cash register is your territory, here you ensure a good mood and a smooth process.\n- You ensure that all processes and regulations are adhered to.\n- In teamwork, you also support your colleagues in other areas.\n\n## Requirements\n- We look forward to your experience in sales.\n- You are fully committed and ready to provide services.\n- Flexibility is also important to you when it comes to deployment times.\n- You master German well verbally and in writing.\n- Discounts: Discount on the travel offer ITS Coop Travel, 5 times the number of super points in the supermarket, up to 20% discount on various insurance services, up to 20% discount in all formats of the Coop Group, cheaper mobile and prepaid subscriptions on Coop Mobile, Reka Card: discount on purchase, discount on Mobility CarSharing, personal discount also for partners:in (living in the same household), discount on GA subscription, discounts on cultural events, discounts for leisure activities\n- Conditions of Employment: Pension Fund: 2/3 is paid by Coop, Attractive Conditions of Employment and Certified Equal Pay, Loyalty Premiums, Pension Fund Savings Plan, Total Employment Contract (GAV), 18 weeks of paid maternity leave and three weeks of paid paternity leave\n- Working time: 5 weeks holidays, flexible working time models\n- Further education: More than 600 internal training courses, talent management with diverse development opportunities, training and further education offers of the L-GAV and Coop\n- Sustainability: Commitment to people, animals and nature with more than 400 actions\n- Communication: internal app for employees\n- Health: Update Fitness: Fr. 200.– Discount on annual subscription, free participation in various company runs, in-house sports offers\n\n## Your contact person\nChristelle Heitz\nHR Marketing\n\n**Tipo:** Part-time\n**Sede:** Basel",
-        "fr": "## Vendeur:dans les caisses enregistreuses/services\n\n**Coopérative Coop** — Bâle, Bâle, Svizzera\n\n## Tâche\n- La caisse enregistreuse est votre territoire, ici vous assurez une bonne humeur et un processus en douceur.\n- Vous veillez à ce que tous les processus et règlements soient respectés.\n- En équipe, vous aidez également vos collègues dans d'autres domaines.\n\n## Exigences\n- Nous nous réjouissons de votre expérience dans les ventes.\n- Vous êtes pleinement engagé et prêt à fournir des services.\n- La flexibilité est également importante pour vous en ce qui concerne les temps de déploiement.\n- Vous maîtrisez l'allemand bien verbalement et par écrit.\n- Réductions: Réduction sur l'offre voyage ITS Coop Travel, 5 fois le nombre de super points dans le supermarché, jusqu'à 20% de réduction sur les différents services d'assurance, jusqu'à 20% de réduction dans tous les formats du groupe Coop, abonnements mobiles et prépayés moins chers sur Coop Mobile, Reka Card: réduction sur l'achat, réduction sur Mobility CarSharing, réduction personnelle également pour les partenaires:dans (habitant dans le même ménage), réduction sur l'abonnement GA, réductions sur les événements culturels, réductions sur les activités de loisirs\n- Conditions d'emploi: Caisse de retraite: 2/3 est payé par la Coop, les conditions d'emploi attractives et l'égalité de rémunération certifiée, les primes de fidélité, le régime d'épargne de la Caisse de retraite, le contrat d'emploi total, 18 semaines de congé de maternité payé et trois semaines de congé de paternité payé\n- Temps de travail: 5 semaines de vacances, modèles flexibles de temps de travail\n- Formation complémentaire: plus de 600 cours de formation interne, gestion des talents avec des possibilités de développement diverses, formation et offres de formation complémentaire du L-GAV et du Coop\n- Durabilité : Engagement envers les personnes, les animaux et la nature avec plus de 400 actions\n- Communication: application interne pour les employés\n- Santé : Mise à jour de la condition physique : Fr. 200.– Réduction sur l'abonnement annuel, participation gratuite à diverses activités de l'entreprise, offres de sports maison\n\n## Votre personne à contacter\nChristelle Heitz\nMarketing des ressources humaines\n\n**Tipo:** Temps partiel\n**Sécurité :** Bâle"
-      },
-      "slugByLocale": {
-        "it": "venditore-in-cassa-servizi-coop-genossenschaft-basel",
-        "en": "seller-in-cash-registers-services-coop-genossenschaft-basel",
-        "de": "verkaufer-in-kassen-services-coop-genossenschaft-basel-hjatpy",
-        "fr": "vendeur-dans-les-caisses-enregistreuses-services-coop-genossenschaft-basel"
-      },
-      "requirementsByLocale": {
-        "it": [],
-        "en": [],
-        "de": [
-          "Im Teamwork unterstützt du auch deine Kolleginnen und Kollegen in anderen Bereichen.",
-          "Deutsch beherrschst du mündlich und schriftlich gut."
-        ],
-        "fr": []
-      },
-      "sourceLang": "de",
-      "previousSlugsByLocale": {
-        "it": [
-          "verkaufer-in-kassen-services-coop-genossenschaft-basel-stadt",
-          "verkaufer-in-kassen-services-coop-genossenschaft-basel-stadt-hjatpy",
-          "venditore-in-cassa-servizi-coop-genossenschaft-basel-basel-stadt",
-          "verkaufer-in-kassen-services-coop-basel-stadt-hjatpy",
-          "verkaufer-in-kassen-services-coop-basel-stadt",
-          "verkaufer-in-kassen-services-coop-genossenschaft-basel"
-        ],
-        "en": [
-          "verkaufer-in-kassen-services-coop-genossenschaft-basel-stadt-hjatpy",
-          "seller-in-cash-registers-services-coop-genossenschaft-basel-basel-stadt",
-          "verkaufer-in-kassen-services-coop-basel-stadt-hjatpy",
-          "verkaufer-in-kassen-services-coop-genossenschaft-basel-hjatpy"
-        ],
-        "fr": [
-          "verkaufer-in-kassen-services-coop-genossenschaft-basel-stadt-hjatpy",
-          "vendeur-dans-les-caisses-enregistreuses-services-coop-genossenschaft-basel-basel-stadt",
-          "verkaufer-in-kassen-services-coop-basel-stadt-hjatpy",
-          "verkaufer-in-kassen-services-coop-genossenschaft-basel-hjatpy"
-        ],
-        "de": [
-          "verkaufer-in-kassen-services-coop-genossenschaft-basel-stadt-hjatpy",
-          "verkaufer-in-kassen-services-coop-basel-stadt-hjatpy"
-        ]
-      },
-      "previousSlugs": [
-        "verkaufer-in-kassen-services-coop-genossenschaft-basel-stadt",
-        "verkaufer-in-kassen-services-coop-genossenschaft-basel-stadt-hjatpy",
-        "seller-in-cash-registers-services-coop-genossenschaft-basel-basel-stadt",
-        "vendeur-dans-les-caisses-enregistreuses-services-coop-genossenschaft-basel-basel-stadt",
-        "venditore-in-cassa-servizi-coop-genossenschaft-basel-basel-stadt",
-        "verkaufer-in-kassen-services-coop-basel-stadt-hjatpy",
-        "verkaufer-in-kassen-services-coop-basel-stadt",
-        "verkaufer-in-kassen-services-coop-genossenschaft-basel-hjatpy",
-        "verkaufer-in-kassen-services-coop-genossenschaft-basel"
-      ],
-      "salaryMin": 62000,
-      "salaryMax": 94000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 94000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressLocality": "Basel, Basel-Stadt",
-      "addressRegion": "BS",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "postalCode": "4001",
-      "country": "CH"
-    },
-    {
       "id": "company-8ciuib",
       "slug": "crewmember-burger-king-on-call-f-m-d-marche-restaurants-schweiz-ag-dietlikon",
       "company": "Marché Restaurants Schweiz AG",
@@ -26100,7 +26018,7 @@
         "fr": "gestionnaire-de-magasins-100-f-m-d-marche-restaurants-schweiz-ag-dietlikon"
       },
       "titleByLocale": {
-        "en": "Store Manager 100% (f/m/d)",
+        "en": "Store Manager 100% (w/m/d)",
         "de": "Store Manager 100% (w/m/d)",
         "it": "Store Manager 100% (f/m/d)",
         "fr": "Gestionnaire de magasins 100% (f/m/d)"
@@ -26170,7 +26088,8 @@
         "assistant-store-manager-fur-neueroffnung-m-w-d-marche-dietlikon-yfhk5b",
         "assistent-store-manager-fur-neueroffnung-m-w-d-marche-dietlikon-yfhk5b",
         "assistant-store-manager-fur-neueroffnung-m-w-d-marche-restaurants-schweiz-ag-dietlikon"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "company-966hau",
