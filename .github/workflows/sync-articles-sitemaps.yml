@@ -56,6 +56,17 @@ jobs:
           # and the news-ticker payload (issue #4974 item 2). Listing them here
           # rather than `git add public/` keeps the commit scoped to what this
           # workflow owns — public/ carries plenty this job must never touch.
+          #
+          # The last three are the generator migration's additions (item 3, §3
+          # and §5.5 of docs/articles-generator-migration.md). They are listed
+          # unconditionally and that is safe today even though nanako publishes
+          # neither yet: the pull skips an artifact it cannot find, so the paths
+          # simply stay unmodified and drop out of the diff check below. Adding
+          # them now rather than at cutover means the day nanako starts emitting
+          # is a publisher change only, with nothing to remember on this side.
+          #
+          # public/images/blog is a DIRECTORY on purpose — the pull writes one
+          # file per new article and the set is not known ahead of time.
           FILES=(
             public/sitemap-blog.xml
             public/sitemap-blog-ch.xml
@@ -63,6 +74,9 @@ jobs:
             public/rss-svizzera.xml public/rss-svizzera-it.xml public/rss-svizzera-en.xml
             public/rss-svizzera-de.xml public/rss-svizzera-fr.xml
             public/news-ticker-live.json
+            public/sitemap-news.xml
+            public/sitemap.xml
+            public/images/blog
           )
 
           if git diff --quiet -- "${FILES[@]}" && git diff --quiet --cached -- "${FILES[@]}" \
