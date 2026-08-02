@@ -45,7 +45,6 @@
       "sourceLang": "en",
       "crawledAt": "2026-08-01T22:19:38.210Z",
       "firstSeenAt": "2026-08-01T10:57:55.821Z",
-      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -104,7 +103,6 @@
       "sourceLang": "en",
       "crawledAt": "2026-08-01T22:19:37.703Z",
       "firstSeenAt": "2026-08-01T10:57:54.942Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -260,8 +258,7 @@
       },
       "country": "CH",
       "addressRegion": "TI",
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true
+      "crawlerMissStreak": 2
     },
     {
       "id": "prada-ef469ffe20a6",
@@ -270,7 +267,7 @@
         "it": "assistente-di-borsa-prada-group-fidenza-stock-assistant",
         "en": "stock-assistant-prada-group-fidenza-stock-assistant",
         "de": "stock-assistent-prada-group-fidenza-stock-assistant",
-        "fr": "stock-assistant-prada-group-fidenza-stock-assistant"
+        "fr": "assistant-aux-stocks-prada-group-fidenza-stock-assistant"
       },
       "company": "Prada Group",
       "companyKey": "prada",
@@ -280,7 +277,7 @@
         "it": "Assistente di borsa",
         "en": "Stock Assistant",
         "de": "Stock Assistent",
-        "fr": "Stock Assistant"
+        "fr": "Assistant aux stocks"
       },
       "description": "Founded in 1913 in Italy, the Prada Group was built on a tradition of excellence and with a vision of innovation. The Group, a world leader in the luxury sector, operates in more than 45 countries with the PRADA, Miu Miu, Versace, Church’s, Car Shoe and Luna Rossa brands, and has employees of over 100 nationalities.\n\nJOB PURPOSE\n\nYou support the Stock Manager in all the responsibilities related to the warehouse management and in providing services to the Store.\n\nYou ensure the correct handling of goods in store, complying with the KPI’s and guidelines and company procedures for the care of the product.\n\nRESPONSIBILITIES\n\n• Ensure the care and protection of the product according to company guidelines\n\n• Day-to-day management of goods receipt and storage in line with company\n\nprocedures and criteria, preparing products to be brought to the sales floor and\n\nin special areas while optimizing the timing efficiency\n\n• Prepare shop-to-shop and returns transfers in compliance with company\n\nguidelines and timelines\n\n• Prepare the flow of E-Commerce orders (Prada.com or e-Tailers) making sure to\n\n• guarantee the required service levels\n\n• Prepare the flow of the damaged products, not sellable product (On Hold,\n\nConsignment ...), products under repair\n\n• Organizes the Packaging and Stationery physically and on the IT systems\n\n• Organizes the Display objects system\n\n• Ensure that the company guidelines are adopted in the event of theft, especially\n\nin terms of communication and documentation produced\n\n• Support in the prompt investigation in the event of system negatives\n\n• Participate in the organization and execution of the Physical and Cycle\n\nInventories of the finished product and accessory locations (packaging /\n\nstationery and Engineering materials) respecting the company timing\n\n• Support the management of the warehouse activities related to sales\n\n• Ensure security and cleanliness of the warehouse\n\nKNOWLEDGE AND SKILLS\n\nFluent spoken English expected.\n\nHigh sense of responsibility.\n\nBeing able to work in team as well as alone.\n\nOrganized and detail oriented.\n\nJoining our Company means working in a creative and international environment, with teams of people motivated by curiosity and the quest for excellence. The engine of our success is the importance and value that we place on the talent and passion of our people leading to their own professional growth.\n Prada Group promotes an inclusive work environment, ensuring equal opportunities for all candidates, regardless of gender, ethnicity, sexual orientation, disability, or other personal characteristics. We believe that diversity is a value and we are committed to build a fair and respectful workplace for all.",
       "descriptionByLocale": {
@@ -306,8 +303,7 @@
       "sourceLang": "en",
       "crawledAt": "2026-07-31T22:15:20.405Z",
       "previousSlugs": [
-        "stock-assistant-prada-group-fidenza-stock-assistant",
-        "assistant-aux-stocks-prada-group-fidenza-stock-assistant"
+        "stock-assistant-prada-group-fidenza-stock-assistant"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -317,7 +313,6 @@
           "stock-assistant-prada-group-fidenza-stock-assistant"
         ],
         "fr": [
-          "assistant-aux-stocks-prada-group-fidenza-stock-assistant",
           "stock-assistant-prada-group-fidenza-stock-assistant"
         ]
       },
@@ -336,8 +331,7 @@
       },
       "country": "CH",
       "addressRegion": "TI",
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true
+      "crawlerMissStreak": 2
     }
   ]
 }
