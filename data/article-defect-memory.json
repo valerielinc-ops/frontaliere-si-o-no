@@ -1,6 +1,9 @@
 {
   "schemaVersion": 1,
+
   "updatedAt": "2026-08-02T05:30:49.196Z",
+  "updatedAt": "2026-08-02T06:49:32.669Z",
+
   "entities": {
     "AASTI": {
       "status": "suspect",
@@ -172,8 +175,8 @@
       "statusSource": "auto",
       "statusAt": "2026-07-29T06:26:58.011Z",
       "firstSeen": "2026-07-29T06:26:58.011Z",
-      "lastSeen": "2026-08-02T02:12:09.277Z",
-      "seen": 70,
+      "lastSeen": "2026-08-02T06:49:32.669Z",
+      "seen": 71,
       "unsupportedSightings": 4,
       "unsupportedRuns": [
         "30722418922",
@@ -181,13 +184,13 @@
         "30595579311",
         "30489213850"
       ],
-      "supportedSightings": 46,
+      "supportedSightings": 47,
       "names": [
+        "Ufficio cantonale delle contribuzioni",
         "Amministrazione federale delle contribuzioni",
         "Amministrazione Federale delle Contribuzioni",
         "Ufficio federale delle contribuzioni",
-        "Agenzia delle Entrate e l'Amministrazione Federale delle Contribuzioni",
-        "Ufficio Cantonale delle Contribuzioni"
+        "Agenzia delle Entrate e l'Amministrazione Federale delle Contribuzioni"
       ],
       "recentKeys": [
         "30722418922:svizzera-ceuta-melilla-controlli-frontiere",
@@ -197,11 +200,11 @@
       ],
       "evidence": [
         {
-          "at": "2026-08-02T02:12:09.277Z",
-          "runId": "30727396854",
-          "articleId": "confronto-imposte-cantonali-2026",
+          "at": "2026-08-02T06:49:32.669Z",
+          "runId": "30733287319",
+          "articleId": "unknown",
           "support": "present",
-          "name": "Amministrazione Federale delle Contribuzioni"
+          "name": "Ufficio cantonale delle contribuzioni"
         },
         {
           "at": "2026-08-02T02:12:09.277Z",
@@ -250,7 +253,7 @@
           "runId": "30727396854",
           "articleId": "confronto-imposte-cantonali-2026",
           "support": "present",
-          "name": "Amministrazione federale delle contribuzioni"
+          "name": "Amministrazione Federale delle Contribuzioni"
         }
       ]
     },
@@ -5421,11 +5424,11 @@
       "statusSource": "auto",
       "statusAt": "2026-07-29T06:26:58.011Z",
       "firstSeen": "2026-07-29T06:26:58.011Z",
-      "lastSeen": "2026-07-29T06:26:58.011Z",
-      "seen": 5,
+      "lastSeen": "2026-08-02T06:49:32.669Z",
+      "seen": 6,
       "unsupportedSightings": 0,
       "unsupportedRuns": [],
-      "supportedSightings": 0,
+      "supportedSightings": 1,
       "names": [
         "Ufficio federale delle dogane",
         "Ufficio Federale delle Dogane",
@@ -5435,6 +5438,13 @@
       ],
       "recentKeys": [],
       "evidence": [
+        {
+          "at": "2026-08-02T06:49:32.669Z",
+          "runId": "30733287319",
+          "articleId": "unknown",
+          "support": "present",
+          "name": "Ufficio federale delle dogane"
+        },
         {
           "at": "2026-07-29T06:26:58.011Z",
           "runId": "corpus-scan",
