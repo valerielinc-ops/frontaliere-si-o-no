@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-26T22:52:04.878Z",
+  "generatedAt": "2026-08-02T22:46:54.242Z",
   "weights": {
     "gsc": 0.4,
     "suggest": 0.3,
@@ -14,18 +14,18 @@
       "cluster": "lavoro"
     },
     {
-      "kw": "frontalieri",
-      "normalizedKeyword": "frontalieri",
-      "weight": 0.304,
-      "source": "gsc+fingerprint",
-      "cluster": "generic"
-    },
-    {
       "kw": "2026",
       "normalizedKeyword": "2026",
       "weight": 0.3,
       "source": "fingerprint",
       "cluster": "novita"
+    },
+    {
+      "kw": "alcol",
+      "normalizedKeyword": "alcol",
+      "weight": 0.3,
+      "source": "fingerprint",
+      "cluster": "generic"
     },
     {
       "kw": "allarmanti",
@@ -47,6 +47,13 @@
       "weight": 0.3,
       "source": "suggest",
       "cluster": "fiscale"
+    },
+    {
+      "kw": "casi",
+      "normalizedKeyword": "casi",
+      "weight": 0.3,
+      "source": "fingerprint",
+      "cluster": "generic"
     },
     {
       "kw": "cifre",
@@ -77,13 +84,6 @@
       "cluster": "generic"
     },
     {
-      "kw": "franchigie",
-      "normalizedKeyword": "franchigie",
-      "weight": 0.3,
-      "source": "fingerprint",
-      "cluster": "generic"
-    },
-    {
       "kw": "imposta alla fonte frontalieri ticino",
       "normalizedKeyword": "imposta alla fonte frontalieri ticino",
       "weight": 0.3,
@@ -93,13 +93,6 @@
     {
       "kw": "incidenti",
       "normalizedKeyword": "incidenti",
-      "weight": 0.3,
-      "source": "fingerprint",
-      "cluster": "generic"
-    },
-    {
-      "kw": "italia-svizzera",
-      "normalizedKeyword": "italia-svizzera",
       "weight": 0.3,
       "source": "fingerprint",
       "cluster": "generic"
@@ -119,8 +112,8 @@
       "cluster": "generic"
     },
     {
-      "kw": "prevendita",
-      "normalizedKeyword": "prevendita",
+      "kw": "ogni",
+      "normalizedKeyword": "ogni",
       "weight": 0.3,
       "source": "fingerprint",
       "cluster": "generic"
@@ -156,6 +149,13 @@
     {
       "kw": "ticino",
       "normalizedKeyword": "ticino",
+      "weight": 0.3,
+      "source": "fingerprint",
+      "cluster": "generic"
+    },
+    {
+      "kw": "unia",
+      "normalizedKeyword": "unia",
       "weight": 0.3,
       "source": "fingerprint",
       "cluster": "generic"
