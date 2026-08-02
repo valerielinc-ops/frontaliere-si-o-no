@@ -41,6 +41,10 @@ on:
         description: 'Validate the patch applies, then stop without pushing'
         type: boolean
         default: true
+      patch_file:
+        description: 'Patch under .github/transport/ to apply. Default = the full transport→rewire patch, correct for a branch that has just been transported. Use a delta patch when the branch is ALREADY rewired: the full patch cannot re-apply there, because the transport rebuilds only generator/ and leaves .gitignore / package.json / generator-ci.yml carrying the previous rewire.'
+        required: false
+        default: 'nanako-generator-rewire.patch'
 
 # Shared with the transport workflow on purpose: the two must never interleave
 # against the same repository, since one rebuilds generator/ from scratch while
@@ -83,11 +87,28 @@ jobs:
           # nanako's main carries the published surface the live site consumes.
           echo "target_branch=$tb" >> "$GITHUB_OUTPUT"
 
+      - name: Guard - patch_file must be a plain name under .github/transport
+        id: guard-patch
+        env:
+          PF: ${{ inputs.patch_file }}
+        run: |
+          set -euo pipefail
+          pf="${PF:-nanako-generator-rewire.patch}"
+          # Basename only: this value is concatenated into a path in a job that
+          # holds ARTICLES_REPO_PAT, so no traversal and no absolute path.
+          case "$pf" in
+            */*|*..*|'') echo "::error::patch_file must be a bare filename, got '$pf'"; exit 1 ;;
+            *.patch) ;;
+            *) echo "::error::patch_file must end in .patch, got '$pf'"; exit 1 ;;
+          esac
+          echo "patch_file=$pf" >> "$GITHUB_OUTPUT"
+
       - name: Apply patch and push
         env:
           PAT: ${{ secrets.ARTICLES_REPO_PAT }}
           TARGET_BRANCH: ${{ steps.guard.outputs.target_branch }}
           DRY_RUN: ${{ inputs.dry_run }}
+          PATCH_FILE: ${{ steps.guard-patch.outputs.patch_file }}
         run: |
           set -euo pipefail
           if [ -z "${PAT:-}" ]; then
@@ -95,7 +116,7 @@ jobs:
             exit 1
           fi
 
-          patch="$GITHUB_WORKSPACE/.github/transport/nanako-generator-rewire.patch"
+          patch="$GITHUB_WORKSPACE/.github/transport/$PATCH_FILE"
           if [ ! -s "$patch" ]; then
             echo "::error::rewire patch is missing or empty at $patch"
             exit 1
