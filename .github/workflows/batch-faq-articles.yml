@@ -1,8 +1,18 @@
 name: Batch FAQ Generation
 
 on:
-  schedule:
-    - cron: '30 0 * * *'  # Daily at 00:30 UTC (after Gemini quota reset)
+      # ── CUTOVER (issue #4974 item 3, §5.7) ──────────────────────────────
+      # Disabled here because this producer now runs in
+      # nanakokyobashi-rgb/frontaliere-articles, which owns the corpus. Leaving
+      # both enabled would give the same files two writers and the last push
+      # would win — the exact failure the migration exists to remove.
+      #
+      # workflow_dispatch is deliberately KEPT so this can still be run by hand
+      # during the observation window if the nanako side needs to be compared
+      # against it. Re-enabling means deleting these comment markers; it is not
+      # a code change, which is what makes the rollback cheap.
+  # schedule:  # DISABLED AT CUTOVER — see above
+  # - cron: '30 0 * * *'  # Daily at 00:30 UTC (after Gemini quota reset)
   workflow_dispatch:
     inputs:
       limit:

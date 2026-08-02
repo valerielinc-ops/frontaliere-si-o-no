@@ -9,10 +9,20 @@ name: Refresh Border-Wait Ranking Digest (weekly)
 # with new articles.
 
 on:
-  schedule:
-    # Weekly, Monday 04:50 UTC — off-peak minute slot (avoids jobs :05-:55,
-    # articles :22, article-gen :07/:37, weather :23, events :40, fuel :37).
-    - cron: '50 4 * * 1'
+      # ── CUTOVER (issue #4974 item 3, §5.7) ──────────────────────────────
+      # Disabled here because this producer now runs in
+      # nanakokyobashi-rgb/frontaliere-articles, which owns the corpus. Leaving
+      # both enabled would give the same files two writers and the last push
+      # would win — the exact failure the migration exists to remove.
+      #
+      # workflow_dispatch is deliberately KEPT so this can still be run by hand
+      # during the observation window if the nanako side needs to be compared
+      # against it. Re-enabling means deleting these comment markers; it is not
+      # a code change, which is what makes the rollback cheap.
+  # schedule:  # DISABLED AT CUTOVER — see above
+  # # Weekly, Monday 04:50 UTC — off-peak minute slot (avoids jobs :05-:55,
+  # # articles :22, article-gen :07/:37, weather :23, events :40, fuel :37).
+  # - cron: '50 4 * * 1'
   workflow_dispatch: {}
 
 concurrency:
