@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-08-02T00:13:41.684Z",
+  "updatedAt": "2026-08-02T01:17:44.924Z",
   "entities": {
     "AASTI": {
       "status": "suspect",
@@ -603,10 +603,11 @@
       "statusSource": "auto",
       "statusAt": "2026-07-29T06:26:58.011Z",
       "firstSeen": "2026-07-29T06:26:58.011Z",
-      "lastSeen": "2026-08-01T23:15:03.578Z",
-      "seen": 50,
-      "unsupportedSightings": 2,
+      "lastSeen": "2026-08-02T01:17:44.924Z",
+      "seen": 51,
+      "unsupportedSightings": 3,
       "unsupportedRuns": [
+        "30724889385",
         "30722418922",
         "30685261901"
       ],
@@ -619,10 +620,18 @@
         "Ufficio Federale delle Statistiche"
       ],
       "recentKeys": [
+        "30724889385:unknown",
         "30722418922:svizzera-ceuta-melilla-controlli-frontiere",
         "30685261901:unknown"
       ],
       "evidence": [
+        {
+          "at": "2026-08-02T01:17:44.924Z",
+          "runId": "30724889385",
+          "articleId": "unknown",
+          "support": "absent",
+          "name": "Ufficio federale di statistica"
+        },
         {
           "at": "2026-08-01T23:15:03.578Z",
           "runId": "30722418922",
@@ -668,13 +677,6 @@
         {
           "at": "2026-08-01T10:16:50.191Z",
           "runId": "30694253023",
-          "articleId": "unknown",
-          "support": "present",
-          "name": "Ufficio Federale di Statistica"
-        },
-        {
-          "at": "2026-08-01T06:10:05.052Z",
-          "runId": "30685261901",
           "articleId": "unknown",
           "support": "present",
           "name": "Ufficio Federale di Statistica"
@@ -4427,17 +4429,31 @@
       "statusSource": "auto",
       "statusAt": "2026-07-29T08:23:04.319Z",
       "firstSeen": "2026-07-29T06:26:58.011Z",
-      "lastSeen": "2026-08-01T06:10:05.052Z",
-      "seen": 6,
+      "lastSeen": "2026-08-02T01:17:44.924Z",
+      "seen": 8,
       "unsupportedSightings": 0,
       "unsupportedRuns": [],
-      "supportedSightings": 3,
+      "supportedSightings": 5,
       "names": [
         "Segreteria di Stato svizzera per le questioni finanziarie internazionali",
         "Segreteria di Stato per le questioni finanziarie internazionali"
       ],
       "recentKeys": [],
       "evidence": [
+        {
+          "at": "2026-08-02T01:17:44.924Z",
+          "runId": "30724889385",
+          "articleId": "unknown",
+          "support": "present",
+          "name": "Segreteria di Stato svizzera per le questioni finanziarie internazionali"
+        },
+        {
+          "at": "2026-08-02T01:17:44.924Z",
+          "runId": "30724889385",
+          "articleId": "unknown",
+          "support": "present",
+          "name": "Segreteria di Stato svizzera per le questioni finanziarie internazionali"
+        },
         {
           "at": "2026-08-01T06:10:05.052Z",
           "runId": "30685261901",
@@ -6599,11 +6615,11 @@
       "statusSource": "auto",
       "statusAt": "2026-07-29T06:26:58.011Z",
       "firstSeen": "2026-07-29T06:26:58.011Z",
-      "lastSeen": "2026-08-01T22:09:25.271Z",
-      "seen": 41,
+      "lastSeen": "2026-08-02T01:17:44.924Z",
+      "seen": 42,
       "unsupportedSightings": 0,
       "unsupportedRuns": [],
-      "supportedSightings": 28,
+      "supportedSightings": 29,
       "names": [
         "Ufficio Regionale della Disoccupazione",
         "Ufficio Regionale di Collocamento",
@@ -6613,6 +6629,13 @@
       ],
       "recentKeys": [],
       "evidence": [
+        {
+          "at": "2026-08-02T01:17:44.924Z",
+          "runId": "30724889385",
+          "articleId": "unknown",
+          "support": "present",
+          "name": "Uffici regionali di collocamento"
+        },
         {
           "at": "2026-08-01T22:09:25.271Z",
           "runId": "30719344144",
@@ -6651,13 +6674,6 @@
         {
           "at": "2026-08-01T22:09:25.271Z",
           "runId": "30719344144",
-          "articleId": "unknown",
-          "support": "present",
-          "name": "Ufficio regionale di collocamento"
-        },
-        {
-          "at": "2026-08-01T21:26:31.655Z",
-          "runId": "30717888873",
           "articleId": "unknown",
           "support": "present",
           "name": "Ufficio regionale di collocamento"
