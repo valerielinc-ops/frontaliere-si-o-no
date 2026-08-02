@@ -1741,6 +1741,15 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.cassis-duedingen.title': 'Mehr Cassis in Düdingen:',
     'blog.article.cassis-duedingen.excerpt': 'Die Schweiz fällt nicht vom Himmel, sondern muss kultiviert werden',
     'blog.article.cassis-duedingen.imageAlt': 'Gruppe von Menschen bei einem brunch in einem Bauernhof in Düdingen (FR)',
+    'blog.article.redditi-estero-controlli-doppia-tassazione.title': 'Ausländische Einkünfte: Doppelbesteuerung vermeiden',
+    'blog.article.redditi-estero-controlli-doppia-tassazione.excerpt': 'Neue Regeln für grenzüberschreitende Pendler: Befreiungen, Befreiungen und wie man Doppelbesteuerung vermeidet.',
+    'blog.article.redditi-estero-controlli-doppia-tassazione.imageAlt': 'Ein Grenzgänger mit Steuerdokumenten und einem Taschenrechner',
+    'blog.article.svizzera-ceuta-melilla-controlli-frontiere.title': 'Nach Ceuta und Melilla folgten Grenzkontrollen',
+    'blog.article.svizzera-ceuta-melilla-controlli-frontiere.excerpt': 'Zehntausende Migranten überquerten die Grenze in den Schengen-Raum. Die Episode entzündet die politische Debatte, auch in der Schweiz.',
+    'blog.article.svizzera-ceuta-melilla-controlli-frontiere.imageAlt': 'Panoramablick auf den Luganersee mit den Schweizer Bergen im Hintergrund.',
+    'blog.article.confronto-imposte-cantonali-2026.title': 'Kantonssteuer: Vergleich 2026 und Fokus auf den Kanton Waadt',
+    'blog.article.confronto-imposte-cantonali-2026.excerpt': 'Analyse der kantonalen Steuersätze für 2026, Unterschiede zwischen Schweizer Kantonen und besonderer Fokus auf das Steuersystem des Kantons Vaud.',
+    'blog.article.confronto-imposte-cantonali-2026.imageAlt': 'Blick auf eine Schweizer Stadt mit modernen Bürogebäuden',
 };
 
 export default blogMetaChDe;

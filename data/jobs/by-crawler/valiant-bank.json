@@ -1,6 +1,6 @@
 {
   "crawlerKey": "valiant-bank",
-  "assembledAt": "2026-08-01T10:57:23.276Z",
+  "assembledAt": "2026-08-01T22:10:07.161Z",
   "jobs": [
     {
       "id": "valiant-bank-7d96c6dab566",
@@ -33,7 +33,7 @@
       "url": "https://jobs.valiant.ch/offene-stellen/conseiller-ere-numerique/09fa59fc-8171-4647-b1e9-847106b00f10",
       "source": "Valiant Bank AG Dedicated Parser (Prospective Career Center 1000394, JSON-LD)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-01T10:57:19.864Z",
+      "crawledAt": "2026-08-01T22:10:04.232Z",
       "addressLocality": "Gümligen/Bienne",
       "addressRegion": "BE",
       "streetAddress": "",
@@ -50,6 +50,7 @@
       "postedDate": "2023-01-22",
       "applyUrl": "https://jobs.valiant.ch/offene-stellen/conseiller-ere-numerique/09fa59fc-8171-4647-b1e9-847106b00f10",
       "hiringOrganizationName": "Valiant Bank AG",
+      "needsRetranslation": true,
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
@@ -113,7 +114,7 @@
       "url": "https://jobs.valiant.ch/offene-stellen/digitale-r-berater-in-inbound/a7ad4311-f4b5-4cfb-858b-13fbd8e0b0ee",
       "source": "Valiant Bank AG Dedicated Parser (Prospective Career Center 1000394, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-01T10:57:19.326Z",
+      "crawledAt": "2026-08-01T22:10:03.716Z",
       "addressLocality": "Gümligen/Bienne",
       "addressRegion": "BE",
       "streetAddress": "",
@@ -188,7 +189,7 @@
       "url": "https://jobs.valiant.ch/offene-stellen/berater-in-privat-und-geschaeftskunden/dd63b9f0-f6df-431a-8687-d68cb3c6b1ba",
       "source": "Valiant Bank AG Dedicated Parser (Prospective Career Center 1000394, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-01T10:57:18.811Z",
+      "crawledAt": "2026-08-01T22:10:03.183Z",
       "addressLocality": "Frauenfeld",
       "addressRegion": "SG",
       "streetAddress": "",
@@ -205,6 +206,7 @@
       "postedDate": "2025-02-04",
       "applyUrl": "https://jobs.valiant.ch/offene-stellen/berater-in-privat-und-geschaeftskunden/dd63b9f0-f6df-431a-8687-d68cb3c6b1ba",
       "hiringOrganizationName": "Valiant Bank AG",
+      "needsRetranslation": true,
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
@@ -266,7 +268,7 @@
       "url": "https://jobs.valiant.ch/offene-stellen/berater-in-vermoegensberatungskunden/d9fffdec-3231-4a14-99a4-aea8b98a91dd",
       "source": "Valiant Bank AG Dedicated Parser (Prospective Career Center 1000394, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-01T10:57:18.344Z",
+      "crawledAt": "2026-08-01T22:10:02.743Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "",
@@ -347,7 +349,7 @@
       "url": "https://jobs.valiant.ch/offene-stellen/generalist-in-kundenservice/f74844b9-de60-421e-a657-53a00926f348",
       "source": "Valiant Bank AG Dedicated Parser (Prospective Career Center 1000394, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-01T10:57:17.824Z",
+      "crawledAt": "2026-08-01T22:10:02.188Z",
       "addressLocality": "Biel",
       "addressRegion": "BE",
       "streetAddress": "",
@@ -428,7 +430,7 @@
       "url": "https://jobs.valiant.ch/offene-stellen/berater-in-privat-und-geschaeftskunden/68530eb6-558c-490d-b597-ff21bf45d3c0",
       "source": "Valiant Bank AG Dedicated Parser (Prospective Career Center 1000394, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-01T10:57:17.322Z",
+      "crawledAt": "2026-08-01T22:10:01.647Z",
       "addressLocality": "Meilen",
       "addressRegion": "ZH",
       "streetAddress": "",
@@ -445,6 +447,7 @@
       "postedDate": "2025-09-04",
       "applyUrl": "https://jobs.valiant.ch/offene-stellen/berater-in-privat-und-geschaeftskunden/68530eb6-558c-490d-b597-ff21bf45d3c0",
       "hiringOrganizationName": "Valiant Bank AG",
+      "needsRetranslation": true,
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
@@ -506,7 +509,7 @@
       "url": "https://jobs.valiant.ch/offene-stellen/generaliste-centre-clientele/307e0b40-ddc0-4c5f-980b-d0180fade2d2",
       "source": "Valiant Bank AG Dedicated Parser (Prospective Career Center 1000394, JSON-LD)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-01T10:57:16.386Z",
+      "crawledAt": "2026-08-01T22:10:01.055Z",
       "addressLocality": "Biel",
       "addressRegion": "BE",
       "streetAddress": "",
@@ -557,6 +560,87 @@
       }
     },
     {
+      "id": "valiant-bank-0e02ae007737",
+      "slug": "team-leader-credit-administration-80-100-valiant-bank-ag-gumligen",
+      "slugByLocale": {
+        "it": "team-leader-credit-administration-80-100-valiant-bank-ag-gumligen",
+        "en": "team-leader-credit-administration-80-100-valiant-bank-ag-gumligen",
+        "de": "teamleiter-kreditverwaltung-80-100-valiant-bank-ag-gumligen",
+        "fr": "responsable-d-equipe-administration-des-credits-80-100-valiant-gumligen"
+      },
+      "company": "Valiant Bank AG",
+      "companyKey": "valiant-bank",
+      "companyDomain": "valiant.ch",
+      "title": "Responsable d'équipe Administration des crédits 80-100%",
+      "titleByLocale": {
+        "it": "Team Leader Credit Administration 80-100%",
+        "en": "Team Leader Credit Administration 80-100%",
+        "de": "Teamleiter Kreditverwaltung 80-100%",
+        "fr": "Responsable d'équipe Administration des crédits 80-100%"
+      },
+      "description": "Simplifier ensemble. Car la vie regorge de possibilités. Et est devenue plus complexe en même temps. C'est pourquoi nous recherchons des collaboratrices et collaborateurs qui mettent en œuvre la simplicité avec nous.\n Vos activités\n\n• Gérer et soutenir l'équipe de l'Administration des crédits\n• Garantir un traitement des opérations de crédit conforme aux exigences légales, dans les délais et selon les standards de qualité\n• Etablir, réviser et gérer les actes de crédit ainsi que l'ensemble des correspondances et contrats\n• Traiter le courrier entrant et assurer sa répartition\n• Saisir et maintenir à jour les données crédits et immeubles dans le système\n• Effectuer les clôtures de crédits et délivrer les garanties\n• Assurer la qualité des données et réaliser les contrôles périodiques\n• Prolonger et transformer des produits de crédit existants\n• Soigner le contact téléphonique avec le personnel du front, les offices, notaires et les autres instituts financiers\n• Participer à des projets et contribuer à l'amélioration continue\n Vous possédez\n\n• Formation bancaire achevée ou formation commerciale (notariat / registre foncier), complétée par une formation continue en banque ou gestion d'entreprise\n• Expérience confirmée dans le domaine des crédits, idéalement en administration des crédits\n• Expérience en conduite souhaitée\n• Excellente maîtrise du français (langue de travail)\n• Bonnes connaissances de l'allemand requises\n• Méthode de travail autonome, rigoureuse et orientée solutions\n• Esprit d'équipe, capacité à gérer les priorités et à garder une vue d'ensemble en période d'activité intense\n• Bonnes capacités de communication, attitude gagnante et confiante\n• Connaissance de Finnova, un atout\n Questions sur le processus de candidature\nFrau Barbara Rychen, HR-Beraterin vous donnera volontiers les renseignements désirés.\n À notre sujet\nValiant est un prestataire financier suisse indépendant. Elle est exclusivement présente en Suisse et propose à la clientèle privée et aux PME une offre complète, simple et compréhensible dans tous les domaines financiers. Valiant est implantée localement dans quinze cantons : Argovie, Bâle-Campagne, Bâle-Ville, Berne, Fribourg, Jura, Lucerne, Neuchâtel, Saint-Gall, Schaffhouse, Soleure, Thurgovie, Vaud, Zoug et Zurich. En outre, elle est présente dans toute la Suisse grâce à ses prestations innovantes et numériques. Valiant affiche un total du bilan de 38,2 milliards de francs et emploie environ 1200 collaboratrices et collaborateurs, dont plus de 70 personnes en formation.\n\n• Gérer et soutenir l'équipe de l'Administration des crédits\n• Garantir un traitement des opérations de crédit conforme aux exigences légales, dans les délais et selon les standards de qualité\n• Etablir, réviser et gérer les actes de crédit ainsi que l'ensemble des correspondances et contrats\n• Traiter le courrier entrant et assurer sa répartition\n• Saisir et maintenir à jour les données crédits et immeubles dans le système\n• Effectuer les clôtures de crédits et délivrer les garanties\n• Assurer la qualité des données et réaliser les contrôles périodiques\n• Prolonger et transformer des produits de crédit existants\n• Soigner le contact téléphonique avec le personnel du front, les offices, notaires et les autres instituts financiers\n• Participer à des projets et contribuer à l'amélioration continue\n\n• Formation bancaire achevée ou formation commerciale (notariat / registre foncier), complétée par une formation continue en banque ou gestion d'entreprise\n• Expérience confirmée dans le domaine des crédits, idéalement en administration des crédits\n• Expérience en conduite souhaitée\n• Excellente maîtrise du français (langue de travail)\n• Bonnes connaissances de l'allemand requises\n• Méthode de travail autonome, rigoureuse et orientée solutions\n• Esprit d'équipe, capacité à gérer les priorités et à garder une vue d'ensemble en période d'activité intense\n• Bonnes capacités de communication, attitude gagnante et confiante\n• Connaissance de Finnova, un atout",
+      "descriptionByLocale": {
+        "it": "Semplificare insieme. Perché la vita è piena di possibilità. E divenne più complesso allo stesso tempo. Ecco perché cerchiamo collaboratori che implementano la semplicità con noi. Le tue attività\n• Gestire e supportare il team di Credit Administration\n• Assicurarsi che le operazioni di credito siano elaborate in conformità con i requisiti legali, nel tempo e secondo gli standard di qualità\n• Stabilire, rivedere e gestire strumenti di credito e tutti i contratti\n• Elaborare la posta in entrata e garantire la distribuzione\n• Immettere e mantenere i dati di credito e costruzione nel sistema\n• Conclusione di crediti e garanzie di emissione\n• Assicurare la qualità dei dati e eseguire controlli periodici\n• Estendere e trasformare i prodotti di credito esistenti\n• Mantenere il contatto telefonico con personale di prima linea, uffici, notai e altri istituti finanziari\n• Partecipare a progetti e contribuire al miglioramento continuo Sei proprio tu.\n• Formazione bancaria completa o formazione commerciale (registrato nazionale/territorio), integrata dalla formazione continua nella gestione bancaria o aziendale\n• Esperienza confermata nel campo del credito, idealmente nell'amministrazione del credito\n• Esperienza di guida desiderata\n• Eccellente padronanza del francese (lingua di lavoro)\n• Buona conoscenza del tedesco richiesto\n• Metodo indipendente, rigoroso e orientato alle soluzioni di lavoro\n• Spirito di squadra, capacità di gestire le priorità e mantenere una panoramica durante i periodi di intensa attività\n• Buone capacità di comunicazione, atteggiamento vincente e fiducioso\n• Conoscenza di Finnova, un bene Domande sul processo di applicazione Frau Barbara Rychen, HR-Beraterin vi darà le informazioni desiderate. Informazioni su di noi Valiant è un fornitore finanziario svizzero indipendente. È presente esclusivamente in Svizzera e offre ai clienti privati e alle PMI un'offerta completa, semplice e comprensibile in tutti i settori finanziari. Valiant si trova a 15 cantoni: Aargau, Basel-Campagne, Basel-Ville, Berna, Fribourg, Jura, Lucerna, Neuchâtel, Saint-Gall, Schaffhouse, Solothurn, Thurgau, Vaud, Zug e Zurigo. Inoltre, è presente in tutta la Svizzera grazie ai suoi servizi innovativi e digitali. Valiant ha un bilancio totale di 38,2 miliardi di franchi e impiega circa 1200 collaboratori, tra cui oltre 70 tirocinanti.\n• Gestire e supportare il team di Credit Administration\n• Assicurarsi che le operazioni di credito siano elaborate in conformità con i requisiti legali, nel tempo e secondo gli standard di qualità\n• Stabilire, rivedere e gestire strumenti di credito e tutti i contratti\n• Elaborare la posta in entrata e garantire la distribuzione\n• Immettere e mantenere i dati di credito e costruzione nel sistema\n• Conclusione di crediti e garanzie di emissione\n• Assicurare la qualità dei dati e eseguire controlli periodici\n• Estendere e trasformare i prodotti di credito esistenti\n• Mantenere il contatto telefonico con personale di prima linea, uffici, notai e altri istituti finanziari\n• Partecipare a progetti e contribuire al miglioramento continuo\n• Formazione bancaria completa o formazione commerciale (registrato nazionale/territorio), integrata dalla formazione continua nella gestione bancaria o aziendale\n• Esperienza confermata nel campo del credito, idealmente nell'amministrazione del credito\n• Esperienza di guida desiderata\n• Eccellente padronanza del francese (lingua di lavoro)\n• Buona conoscenza del tedesco richiesto\n• Metodo indipendente, rigoroso e orientato alle soluzioni di lavoro\n• Spirito di squadra, capacità di gestire le priorità e mantenere una panoramica durante i periodi di intensa attività\n• Buone capacità di comunicazione, atteggiamento vincente e fiducioso\n• Conoscenza di Finnova, un bene",
+        "en": "Simplify together. Because life is full of possibilities. And became more complex at the same time. That is why we are looking for collaborators who implement simplicity with us. Your activities\n• Manage and support the Credit Administration team\n• Ensure that credit operations are processed in accordance with legal requirements, on time and according to quality standards\n• Establish, revise and manage credit instruments and all correspondence and contracts\n• Process incoming mail and ensure distribution\n• Enter and maintain credit and building data in the system\n• Closing credits and issuing guarantees\n• Ensure data quality and perform periodic checks\n• Extend and transform existing credit products\n• Maintain telephone contact with front-line staff, offices, notaries and other financial institutions\n• Participate in projects and contribute to continuous improvement You own\n• Completed banking training or commercial training (notarial / land register), supplemented by continuing training in banking or business management\n• Experience confirmed in the field of credit, ideally in credit administration\n• Desired driving experience\n• Excellent mastery of French (working language)\n• Good knowledge of German required\n• Independent, rigorous and oriented method of work solutions\n• Team spirit, ability to manage priorities and maintain an overview during periods of intense activity\n• Good communication skills, winning and confident attitude\n• Knowledge of Finnova, an asset Questions on the application process Frau Barbara Rychen, HR-Beraterin will gladly give you the desired information. About Us Valiant is an independent Swiss financial provider. It is exclusively present in Switzerland and offers private customers and SMEs a comprehensive, simple and understandable offer in all financial fields. Valiant is located locally in fifteen cantons: Aargau, Basel-Campagne, Basel-Ville, Bern, Fribourg, Jura, Lucerne, Neuchâtel, Saint-Gall, Schaffhouse, Solothurn, Thurgau, Vaud, Zug and Zurich. Moreover, it is present throughout Switzerland thanks to its innovative and digital services. Valiant has a total balance sheet of 38.2 billion francs and employs about 1200 collaborators, including over 70 trainees.\n• Manage and support the Credit Administration team\n• Ensure that credit operations are processed in accordance with legal requirements, on time and according to quality standards\n• Establish, revise and manage credit instruments and all correspondence and contracts\n• Process incoming mail and ensure distribution\n• Enter and maintain credit and building data in the system\n• Closing credits and issuing guarantees\n• Ensure data quality and perform periodic checks\n• Extend and transform existing credit products\n• Maintain telephone contact with front-line staff, offices, notaries and other financial institutions\n• Participate in projects and contribute to continuous improvement\n• Completed banking training or commercial training (notarial / land register), supplemented by continuing training in banking or business management\n• Experience confirmed in the field of credit, ideally in credit administration\n• Desired driving experience\n• Excellent mastery of French (working language)\n• Good knowledge of German required\n• Independent, rigorous and oriented method of work solutions\n• Team spirit, ability to manage priorities and maintain an overview during periods of intense activity\n• Good communication skills, winning and confident attitude\n• Knowledge of Finnova, an asset",
+        "de": "Vereinfachen Sie gemeinsam. Weil das Leben voller Möglichkeiten ist. Und wurde gleichzeitig komplexer. Deshalb suchen wir Mitarbeiter, die mit uns Einfachheit umsetzen. Ihre Aktivitäten\n• Verwalten und unterstützen Sie das Credit Administration Team\n• Sicherstellen, dass Kreditgeschäfte gemäß den gesetzlichen Anforderungen, rechtzeitig und nach Qualitätsstandards verarbeitet werden\n• Einrichtung, Überarbeitung und Verwaltung von Kreditinstrumenten und aller Korrespondenz und Verträge\n• Verarbeiten Sie eingehende Post und sichern Sie die Verteilung\n• Geben und pflegen Sie Kredit- und Gebäudedaten im System\n• Abschlusskredite und Emissionsgarantien\n• Gewährleistung der Datenqualität und regelmäßige Überprüfungen\n• Erweitern und transformieren Sie bestehende Kreditprodukte\n• Halten Sie telefonischen Kontakt mit Frontline-Mitarbeiter, Büros, Notare und andere Finanzinstitute\n• Beteiligen Sie sich an Projekten und tragen Sie zur kontinuierlichen Verbesserung bei Sie besitzen\n• Absolvierte Bankausbildung oder kaufmännische Ausbildung (Notarial / Grundbuch), ergänzt durch Weiterbildung in Bank- oder Betriebswirtschaft\n• Erfahrung im Kreditbereich bestätigt, idealerweise in der Kreditverwaltung\n• Gewünschtes Fahrerlebnis\n• Hervorragende Beherrschung von Französisch (Arbeitssprache)\n• Gute Deutschkenntnisse erforderlich\n• Unabhängige, strenge und orientierte Arbeitsweise Lösungen\n• Teamgeist, Fähigkeit, Prioritäten zu verwalten und den Überblick in Zeiten intensiver Aktivität zu behalten\n• Gute Kommunikationsfähigkeiten, gewinnende und selbstbewusste Einstellung\n• Wissen über Finnova, ein Asset Fragen zum Bewerbungsprozess Frau Barbara Rychen, HR-Beraterin gibt Ihnen gerne die gewünschten Informationen. Über uns Valiant ist ein unabhängiger Schweizer Finanzanbieter. Sie ist ausschließlich in der Schweiz präsent und bietet Privatkunden und KMU ein umfassendes, einfaches und verständliches Angebot in allen Finanzbereichen. Valiant liegt lokal in fünfzehn Kantonen: Aargau, Basel-Campagne, Basel-Ville, Bern, Freiburg, Jura, Luzern, Neuenburg, Saint-Gall, Schaffhouse, Solothurn, Thurgau, Waadt, Zug und Zürich. Darüber hinaus ist sie dank ihrer innovativen und digitalen Dienstleistungen in der ganzen Schweiz präsent. Valiant hat eine Bilanzsumme von 38,2 Milliarden Franken und beschäftigt rund 1200 Mitarbeiter, darunter über 70 Auszubildende.\n• Verwalten und unterstützen Sie das Credit Administration Team\n• Sicherstellen, dass Kreditgeschäfte gemäß den gesetzlichen Anforderungen, rechtzeitig und nach Qualitätsstandards verarbeitet werden\n• Einrichtung, Überarbeitung und Verwaltung von Kreditinstrumenten und aller Korrespondenz und Verträge\n• Verarbeiten Sie eingehende Post und sichern Sie die Verteilung\n• Geben und pflegen Sie Kredit- und Gebäudedaten im System\n• Abschlusskredite und Emissionsgarantien\n• Gewährleistung der Datenqualität und regelmäßige Überprüfungen\n• Erweitern und transformieren Sie bestehende Kreditprodukte\n• Halten Sie telefonischen Kontakt mit Frontline-Mitarbeiter, Büros, Notare und andere Finanzinstitute\n• Beteiligen Sie sich an Projekten und tragen Sie zur kontinuierlichen Verbesserung bei\n• Absolvierte Bankausbildung oder kaufmännische Ausbildung (Notarial / Grundbuch), ergänzt durch Weiterbildung in Bank- oder Betriebswirtschaft\n• Erfahrung im Kreditbereich bestätigt, idealerweise in der Kreditverwaltung\n• Gewünschtes Fahrerlebnis\n• Hervorragende Beherrschung von Französisch (Arbeitssprache)\n• Gute Deutschkenntnisse erforderlich\n• Unabhängige, strenge und orientierte Arbeitsweise Lösungen\n• Teamgeist, Fähigkeit, Prioritäten zu verwalten und den Überblick in Zeiten intensiver Aktivität zu behalten\n• Gute Kommunikationsfähigkeiten, gewinnende und selbstbewusste Einstellung\n• Wissen über Finnova, ein Asset",
+        "fr": "Simplifier ensemble. Car la vie regorge de possibilités. Et est devenue plus complexe en même temps. C'est pourquoi nous recherchons des collaboratrices et collaborateurs qui mettent en œuvre la simplicité avec nous.\nVos activités\n\n• Gérer et soutenir l'équipe de l'Administration des crédits\n• Garantir un traitement des opérations de crédit conforme aux exigences légales, dans les délais et selon les standards de qualité\n• Etablir, réviser et gérer les actes de crédit ainsi que l'ensemble des correspondances et contrats\n• Traiter le courrier entrant et assurer sa répartition\n• Saisir et maintenir à jour les données crédits et immeubles dans le système\n• Effectuer les clôtures de crédits et délivrer les garanties\n• Assurer la qualité des données et réaliser les contrôles périodiques\n• Prolonger et transformer des produits de crédit existants\n• Soigner le contact téléphonique avec le personnel du front, les offices, notaires et les autres instituts financiers\n• Participer à des projets et contribuer à l'amélioration continue\nVous possédez\n\n• Formation bancaire achevée ou formation commerciale (notariat / registre foncier), complétée par une formation continue en banque ou gestion d'entreprise\n• Expérience confirmée dans le domaine des crédits, idéalement en administration des crédits\n• Expérience en conduite souhaitée\n• Excellente maîtrise du français (langue de travail)\n• Bonnes connaissances de l'allemand requises\n• Méthode de travail autonome, rigoureuse et orientée solutions\n• Esprit d'équipe, capacité à gérer les priorités et à garder une vue d'ensemble en période d'activité intense\n• Bonnes capacités de communication, attitude gagnante et confiante\n• Connaissance de Finnova, un atout\nQuestions sur le processus de candidature\nFrau Barbara Rychen, HR-Beraterin vous donnera volontiers les renseignements désirés.\nÀ notre sujet\nValiant est un prestataire financier suisse indépendant. Elle est exclusivement présente en Suisse et propose à la clientèle privée et aux PME une offre complète, simple et compréhensible dans tous les domaines financiers. Valiant est implantée localement dans quinze cantons : Argovie, Bâle-Campagne, Bâle-Ville, Berne, Fribourg, Jura, Lucerne, Neuchâtel, Saint-Gall, Schaffhouse, Soleure, Thurgovie, Vaud, Zoug et Zurich. En outre, elle est présente dans toute la Suisse grâce à ses prestations innovantes et numériques. Valiant affiche un total du bilan de 38,2 milliards de francs et emploie environ 1200 collaboratrices et collaborateurs, dont plus de 70 personnes en formation.\n\n• Gérer et soutenir l'équipe de l'Administration des crédits\n• Garantir un traitement des opérations de crédit conforme aux exigences légales, dans les délais et selon les standards de qualité\n• Etablir, réviser et gérer les actes de crédit ainsi que l'ensemble des correspondances et contrats\n• Traiter le courrier entrant et assurer sa répartition\n• Saisir et maintenir à jour les données crédits et immeubles dans le système\n• Effectuer les clôtures de crédits et délivrer les garanties\n• Assurer la qualité des données et réaliser les contrôles périodiques\n• Prolonger et transformer des produits de crédit existants\n• Soigner le contact téléphonique avec le personnel du front, les offices, notaires et les autres instituts financiers\n• Participer à des projets et contribuer à l'amélioration continue\n\n• Formation bancaire achevée ou formation commerciale (notariat / registre foncier), complétée par une formation continue en banque ou gestion d'entreprise\n• Expérience confirmée dans le domaine des crédits, idéalement en administration des crédits\n• Expérience en conduite souhaitée\n• Excellente maîtrise du français (langue de travail)\n• Bonnes connaissances de l'allemand requises\n• Méthode de travail autonome, rigoureuse et orientée solutions\n• Esprit d'équipe, capacité à gérer les priorités et à garder une vue d'ensemble en période d'activité intense\n• Bonnes capacités de communication, attitude gagnante et confiante\n• Connaissance de Finnova, un atout"
+      },
+      "location": "Gümligen",
+      "canton": "BE",
+      "url": "https://jobs.valiant.ch/offene-stellen/responsable-d-equipe-administration-des-credits/ca0ef4aa-ba74-4f45-a918-e75398552416",
+      "source": "Valiant Bank AG Dedicated Parser (Prospective Career Center 1000394, JSON-LD)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-08-01T22:09:52.580Z",
+      "addressLocality": "Gümligen",
+      "addressRegion": "BE",
+      "streetAddress": "",
+      "postalCode": "3073",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Banca",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "senior",
+      "sector": "Banche / Servizi Finanziari",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-04-10",
+      "applyUrl": "https://jobs.valiant.ch/offene-stellen/responsable-d-equipe-administration-des-credits/ca0ef4aa-ba74-4f45-a918-e75398552416",
+      "hiringOrganizationName": "Valiant Bank AG",
+      "needsRetranslation": false,
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "responsable-d-equipe-administration-des-credits-80-100-valiant-gumligen",
+        "team-leader-credit-administration-80-100-valiant-bank-ag-gumligen"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "responsable-d-equipe-administration-des-credits-80-100-valiant-gumligen",
+          "team-leader-credit-administration-80-100-valiant-bank-ag-gumligen"
+        ],
+        "en": [
+          "responsable-d-equipe-administration-des-credits-80-100-valiant-gumligen"
+        ],
+        "de": [
+          "responsable-d-equipe-administration-des-credits-80-100-valiant-gumligen"
+        ]
+      },
+      "firstSeenAt": "2026-07-04T12:23:07.043Z",
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68500,
+          "maxValue": 104000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
       "id": "valiant-bank-f924f4b46cc0",
       "slug": "compliance-officer-m-w-60-70-valiant-bern",
       "slugByLocale": {
@@ -587,7 +671,7 @@
       "url": "https://jobs.valiant.ch/offene-stellen/compliance-officer-m-w/9438af5e-3945-4127-9338-60ac759f862c",
       "source": "Valiant Bank AG Dedicated Parser (Prospective Career Center 1000394, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-01T10:57:00.662Z",
+      "crawledAt": "2026-08-01T22:09:46.009Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "streetAddress": "Bundesplatz 4",
@@ -604,6 +688,7 @@
       "postedDate": "2026-05-12",
       "applyUrl": "https://jobs.valiant.ch/offene-stellen/compliance-officer-m-w/9438af5e-3945-4127-9338-60ac759f862c",
       "hiringOrganizationName": "Valiant Bank AG",
+      "needsRetranslation": true,
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
@@ -659,7 +744,7 @@
       "url": "https://jobs.valiant.ch/offene-stellen/berater-in-privat-und-geschaeftskunden/de9ea92c-2abd-4606-8efc-2f36e2961609",
       "source": "Valiant Bank AG Dedicated Parser (Prospective Career Center 1000394, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-01T10:56:53.410Z",
+      "crawledAt": "2026-08-01T22:09:41.979Z",
       "addressLocality": "Wädenswil",
       "addressRegion": "ZH",
       "streetAddress": "",
@@ -676,6 +761,7 @@
       "postedDate": "2026-05-12",
       "applyUrl": "https://jobs.valiant.ch/offene-stellen/berater-in-privat-und-geschaeftskunden/de9ea92c-2abd-4606-8efc-2f36e2961609",
       "hiringOrganizationName": "Valiant Bank AG",
+      "needsRetranslation": true,
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
@@ -737,7 +823,7 @@
       "url": "https://jobs.valiant.ch/offene-stellen/berater-in-vermoegensberatungskunden/791c1db8-befd-4f88-aeaf-c50dcae09e51",
       "source": "Valiant Bank AG Dedicated Parser (Prospective Career Center 1000394, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-01T10:56:52.746Z",
+      "crawledAt": "2026-08-01T22:09:41.458Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "streetAddress": "",
@@ -818,7 +904,7 @@
       "url": "https://jobs.valiant.ch/offene-stellen/berater-in-privatkunden/e6ccb352-bdf5-46ab-8302-060383e05fc3",
       "source": "Valiant Bank AG Dedicated Parser (Prospective Career Center 1000394, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-01T10:56:52.311Z",
+      "crawledAt": "2026-08-01T22:09:41.039Z",
       "addressLocality": "Bern Betlehem",
       "addressRegion": "BE",
       "streetAddress": "",
@@ -899,7 +985,7 @@
       "url": "https://jobs.valiant.ch/offene-stellen/diverse-freie-ausbildungsplaetze-ab-1-august-2027/e511f785-7e8d-4da3-9cea-1a8a4992ecd4",
       "source": "Valiant Bank AG Dedicated Parser (Prospective Career Center 1000394, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-01T10:56:51.774Z",
+      "crawledAt": "2026-08-01T22:09:40.631Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "streetAddress": "Bahnhofplatz 7",
@@ -980,7 +1066,7 @@
       "url": "https://jobs.valiant.ch/offene-stellen/berater-in-privat-und-geschaeftskunden/6278b239-6167-4ae3-87d6-d0f20b1f79f6",
       "source": "Valiant Bank AG Dedicated Parser (Prospective Career Center 1000394, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-01T10:56:51.244Z",
+      "crawledAt": "2026-08-01T22:09:40.188Z",
       "addressLocality": "Bülach",
       "addressRegion": "ZH",
       "streetAddress": "",
@@ -997,6 +1083,7 @@
       "postedDate": "2026-05-26",
       "applyUrl": "https://jobs.valiant.ch/offene-stellen/berater-in-privat-und-geschaeftskunden/6278b239-6167-4ae3-87d6-d0f20b1f79f6",
       "hiringOrganizationName": "Valiant Bank AG",
+      "needsRetranslation": true,
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
@@ -1058,7 +1145,7 @@
       "url": "https://jobs.valiant.ch/offene-stellen/berater-in-privat-und-geschaeftskunden/64042003-3db5-4bcf-b663-13eba6d2a448",
       "source": "Valiant Bank AG Dedicated Parser (Prospective Career Center 1000394, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-01T10:56:50.748Z",
+      "crawledAt": "2026-08-01T22:09:39.776Z",
       "addressLocality": "Wohlen",
       "addressRegion": "AG",
       "streetAddress": "",
@@ -1075,6 +1162,7 @@
       "postedDate": "2026-05-26",
       "applyUrl": "https://jobs.valiant.ch/offene-stellen/berater-in-privat-und-geschaeftskunden/64042003-3db5-4bcf-b663-13eba6d2a448",
       "hiringOrganizationName": "Valiant Bank AG",
+      "needsRetranslation": true,
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
@@ -1136,7 +1224,7 @@
       "url": "https://jobs.valiant.ch/offene-stellen/berater-in-privatkunden-mit-entwicklungspotential-in-die-geschaeftskundenberatung/f9eb3326-a599-489a-9bc4-23b7c3e50fe7",
       "source": "Valiant Bank AG Dedicated Parser (Prospective Career Center 1000394, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-01T10:56:50.341Z",
+      "crawledAt": "2026-08-01T22:09:39.343Z",
       "addressLocality": "Münchenbuchsee",
       "addressRegion": "BE",
       "streetAddress": "",
@@ -1153,6 +1241,7 @@
       "postedDate": "2026-05-28",
       "applyUrl": "https://jobs.valiant.ch/offene-stellen/berater-in-privatkunden-mit-entwicklungspotential-in-die-geschaeftskundenberatung/f9eb3326-a599-489a-9bc4-23b7c3e50fe7",
       "hiringOrganizationName": "Valiant Bank AG",
+      "needsRetranslation": true,
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
@@ -1210,7 +1299,7 @@
       "url": "https://jobs.valiant.ch/offene-stellen/spezialist-in-unternehmensnachfolge/c4f865fa-ade8-448f-bd0d-b3b13318c300",
       "source": "Valiant Bank AG Dedicated Parser (Prospective Career Center 1000394, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-01T10:56:50.048Z",
+      "crawledAt": "2026-08-01T22:09:38.895Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "streetAddress": "Bahnhofplatz 7",
@@ -1291,7 +1380,7 @@
       "url": "https://jobs.valiant.ch/offene-stellen/berater-in-privatkunden/d1506728-4daf-4851-8b31-4e182dc8f12f",
       "source": "Valiant Bank AG Dedicated Parser (Prospective Career Center 1000394, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-01T10:56:49.775Z",
+      "crawledAt": "2026-08-01T22:09:38.351Z",
       "addressLocality": "Belp",
       "addressRegion": "BE",
       "streetAddress": "",
@@ -1372,7 +1461,7 @@
       "url": "https://jobs.valiant.ch/offene-stellen/berater-in-privat-und-geschaeftskunden/fb5388c3-099e-48a1-b95b-eb06a04f069c",
       "source": "Valiant Bank AG Dedicated Parser (Prospective Career Center 1000394, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-01T10:56:49.502Z",
+      "crawledAt": "2026-08-01T22:09:37.913Z",
       "addressLocality": "Brugg",
       "addressRegion": "AG",
       "streetAddress": "",
@@ -1389,6 +1478,7 @@
       "postedDate": "2026-06-15",
       "applyUrl": "https://jobs.valiant.ch/offene-stellen/berater-in-privat-und-geschaeftskunden/fb5388c3-099e-48a1-b95b-eb06a04f069c",
       "hiringOrganizationName": "Valiant Bank AG",
+      "needsRetranslation": true,
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
@@ -1450,7 +1540,7 @@
       "url": "https://jobs.valiant.ch/offene-stellen/responsable-de-succursale/4be749d3-6e0d-480c-9ea0-86b0b19c98a8",
       "source": "Valiant Bank AG Dedicated Parser (Prospective Career Center 1000394, JSON-LD)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-01T10:56:49.208Z",
+      "crawledAt": "2026-08-01T22:09:37.611Z",
       "addressLocality": "Moutier",
       "addressRegion": "JU",
       "streetAddress": "",
@@ -1467,6 +1557,7 @@
       "postedDate": "2026-06-24",
       "applyUrl": "https://jobs.valiant.ch/offene-stellen/responsable-de-succursale/4be749d3-6e0d-480c-9ea0-86b0b19c98a8",
       "hiringOrganizationName": "Valiant Bank AG",
+      "needsRetranslation": true,
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
@@ -1530,7 +1621,7 @@
       "url": "https://jobs.valiant.ch/offene-stellen/conseiller-ere-clientele-privee-et-commerciale/918ab9a2-ffbf-4116-82bd-abf85a2575b5",
       "source": "Valiant Bank AG Dedicated Parser (Prospective Career Center 1000394, JSON-LD)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-01T10:56:48.929Z",
+      "crawledAt": "2026-08-01T22:09:37.168Z",
       "addressLocality": "Vevey",
       "addressRegion": "VD",
       "streetAddress": "",
@@ -1611,7 +1702,7 @@
       "url": "https://jobs.valiant.ch/offene-stellen/berater-in-privatkunden-mit-entwicklungspotential-in-die-geschaeftskundenberatung/1429c305-7fd9-4962-8273-8d85ddab682c",
       "source": "Valiant Bank AG Dedicated Parser (Prospective Career Center 1000394, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-01T10:56:48.570Z",
+      "crawledAt": "2026-08-01T22:09:36.757Z",
       "addressLocality": "Seengen",
       "addressRegion": "AG",
       "streetAddress": "",
@@ -1628,6 +1719,7 @@
       "postedDate": "2026-06-30",
       "applyUrl": "https://jobs.valiant.ch/offene-stellen/berater-in-privatkunden-mit-entwicklungspotential-in-die-geschaeftskundenberatung/1429c305-7fd9-4962-8273-8d85ddab682c",
       "hiringOrganizationName": "Valiant Bank AG",
+      "needsRetranslation": true,
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
@@ -1687,7 +1779,7 @@
       "url": "https://jobs.valiant.ch/offene-stellen/berater-in-privatkunden/a0752331-d984-478b-963f-d8abeec949ae",
       "source": "Valiant Bank AG Dedicated Parser (Prospective Career Center 1000394, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-01T10:56:48.198Z",
+      "crawledAt": "2026-08-01T22:09:36.336Z",
       "addressLocality": "Reinach AG",
       "addressRegion": "AG",
       "streetAddress": "",
@@ -1781,7 +1873,7 @@
       "url": "https://jobs.valiant.ch/offene-stellen/senior-projektleiter-in-im-zentralen-projektmanagement/74c56c69-9945-4c1c-90d0-4c6f1c14f865",
       "source": "Valiant Bank AG Dedicated Parser (Prospective Career Center 1000394, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-01T10:56:47.924Z",
+      "crawledAt": "2026-08-01T22:09:35.919Z",
       "addressLocality": "Gümligen",
       "addressRegion": "BE",
       "streetAddress": "",
@@ -1798,6 +1890,7 @@
       "postedDate": "2026-07-15",
       "applyUrl": "https://jobs.valiant.ch/offene-stellen/senior-projektleiter-in-im-zentralen-projektmanagement/74c56c69-9945-4c1c-90d0-4c6f1c14f865",
       "hiringOrganizationName": "Valiant Bank AG",
+      "needsRetranslation": true,
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
@@ -1861,7 +1954,7 @@
       "url": "https://jobs.valiant.ch/offene-stellen/assistent-in-geschaeftsleitung/9974808c-0fea-4a03-843c-6e27e63c4ed1",
       "source": "Valiant Bank AG Dedicated Parser (Prospective Career Center 1000394, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-01T10:56:47.550Z",
+      "crawledAt": "2026-08-01T22:09:35.455Z",
       "addressLocality": "Bern Bundesplatz",
       "addressRegion": "BE",
       "streetAddress": "",
@@ -1942,7 +2035,7 @@
       "url": "https://jobs.valiant.ch/offene-stellen/assistant-e-de-la-direction/d8d1a8ad-429c-409e-8354-49065a0721e5",
       "source": "Valiant Bank AG Dedicated Parser (Prospective Career Center 1000394, JSON-LD)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-01T10:56:47.155Z",
+      "crawledAt": "2026-08-01T22:09:34.999Z",
       "addressLocality": "Bern Bundesplatz",
       "addressRegion": "BE",
       "streetAddress": "",
@@ -1959,6 +2052,7 @@
       "postedDate": "2026-07-22",
       "applyUrl": "https://jobs.valiant.ch/offene-stellen/assistant-e-de-la-direction/d8d1a8ad-429c-409e-8354-49065a0721e5",
       "hiringOrganizationName": "Valiant Bank AG",
+      "needsRetranslation": true,
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
@@ -2024,7 +2118,7 @@
       "url": "https://jobs.valiant.ch/offene-stellen/mitarbeiter-in-credit-office/1a9239b8-44a1-4214-8f9a-d562b2a10f6e",
       "source": "Valiant Bank AG Dedicated Parser (Prospective Career Center 1000394, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-01T10:56:46.707Z",
+      "crawledAt": "2026-08-01T22:09:34.477Z",
       "addressLocality": "Gümligen",
       "addressRegion": "BE",
       "streetAddress": "",
@@ -2041,6 +2135,7 @@
       "postedDate": "2026-07-24",
       "applyUrl": "https://jobs.valiant.ch/offene-stellen/mitarbeiter-in-credit-office/1a9239b8-44a1-4214-8f9a-d562b2a10f6e",
       "hiringOrganizationName": "Valiant Bank AG",
+      "needsRetranslation": true,
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
@@ -2101,7 +2196,7 @@
       "url": "https://jobs.valiant.ch/offene-stellen/trainer-in-kundencenter-jobsharing-moeglich/122c12f1-aad7-407c-bc55-e51b02ed1dbb",
       "source": "Valiant Bank AG Dedicated Parser (Prospective Career Center 1000394, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-01T10:56:46.315Z",
+      "crawledAt": "2026-08-01T22:09:34.015Z",
       "addressLocality": "Kundencenter Gümligen oder Biel",
       "addressRegion": "BE",
       "streetAddress": "",
@@ -2118,6 +2213,7 @@
       "postedDate": "2026-07-27",
       "applyUrl": "https://jobs.valiant.ch/offene-stellen/trainer-in-kundencenter-jobsharing-moeglich/122c12f1-aad7-407c-bc55-e51b02ed1dbb",
       "hiringOrganizationName": "Valiant Bank AG",
+      "needsRetranslation": true,
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
@@ -2147,88 +2243,6 @@
           "unitText": "YEAR"
         }
       }
-    },
-    {
-      "id": "valiant-bank-0e02ae007737",
-      "slug": "team-leader-credit-administration-80-100-valiant-bank-ag-gumligen",
-      "slugByLocale": {
-        "it": "team-leader-credit-administration-80-100-valiant-bank-ag-gumligen",
-        "en": "team-leader-credit-administration-80-100-valiant-bank-ag-gumligen",
-        "de": "teamleiter-kreditverwaltung-80-100-valiant-bank-ag-gumligen",
-        "fr": "responsable-d-equipe-administration-des-credits-80-100-valiant-gumligen"
-      },
-      "company": "Valiant Bank AG",
-      "companyKey": "valiant-bank",
-      "companyDomain": "valiant.ch",
-      "title": "Responsable d'équipe Administration des crédits 80-100%",
-      "titleByLocale": {
-        "it": "Team Leader Credit Administration 80-100%",
-        "en": "Team Leader Credit Administration 80-100%",
-        "de": "Teamleiter Kreditverwaltung 80-100%",
-        "fr": "Responsable d'équipe Administration des crédits 80-100%"
-      },
-      "description": "Simplifier ensemble. Car la vie regorge de possibilités. Et est devenue plus complexe en même temps. C'est pourquoi nous recherchons des collaboratrices et collaborateurs qui mettent en œuvre la simplicité avec nous.\n Vos activités\n\n• Gérer et soutenir l'équipe de l'Administration des crédits\n• Garantir un traitement des opérations de crédit conforme aux exigences légales, dans les délais et selon les standards de qualité\n• Etablir, réviser et gérer les actes de crédit ainsi que l'ensemble des correspondances et contrats\n• Traiter le courrier entrant et assurer sa répartition\n• Saisir et maintenir à jour les données crédits et immeubles dans le système\n• Effectuer les clôtures de crédits et délivrer les garanties\n• Assurer la qualité des données et réaliser les contrôles périodiques\n• Prolonger et transformer des produits de crédit existants\n• Soigner le contact téléphonique avec le personnel du front, les offices, notaires et les autres instituts financiers\n• Participer à des projets et contribuer à l'amélioration continue\n Vous possédez\n\n• Formation bancaire achevée ou formation commerciale (notariat / registre foncier), complétée par une formation continue en banque ou gestion d'entreprise\n• Expérience confirmée dans le domaine des crédits, idéalement en administration des crédits\n• Expérience en conduite souhaitée\n• Excellente maîtrise du français (langue de travail)\n• Bonnes connaissances de l'allemand requises\n• Méthode de travail autonome, rigoureuse et orientée solutions\n• Esprit d'équipe, capacité à gérer les priorités et à garder une vue d'ensemble en période d'activité intense\n• Bonnes capacités de communication, attitude gagnante et confiante\n• Connaissance de Finnova, un atout\n Questions sur le processus de candidature\nFrau Barbara Rychen, HR-Beraterin vous donnera volontiers les renseignements désirés.\n À notre sujet\nValiant est un prestataire financier suisse indépendant. Elle est exclusivement présente en Suisse et propose à la clientèle privée et aux PME une offre complète, simple et compréhensible dans tous les domaines financiers. Valiant est implantée localement dans quinze cantons : Argovie, Bâle-Campagne, Bâle-Ville, Berne, Fribourg, Jura, Lucerne, Neuchâtel, Saint-Gall, Schaffhouse, Soleure, Thurgovie, Vaud, Zoug et Zurich. En outre, elle est présente dans toute la Suisse grâce à ses prestations innovantes et numériques. Valiant affiche un total du bilan de 38,2 milliards de francs et emploie environ 1200 collaboratrices et collaborateurs, dont plus de 70 personnes en formation.\n\n• Gérer et soutenir l'équipe de l'Administration des crédits\n• Garantir un traitement des opérations de crédit conforme aux exigences légales, dans les délais et selon les standards de qualité\n• Etablir, réviser et gérer les actes de crédit ainsi que l'ensemble des correspondances et contrats\n• Traiter le courrier entrant et assurer sa répartition\n• Saisir et maintenir à jour les données crédits et immeubles dans le système\n• Effectuer les clôtures de crédits et délivrer les garanties\n• Assurer la qualité des données et réaliser les contrôles périodiques\n• Prolonger et transformer des produits de crédit existants\n• Soigner le contact téléphonique avec le personnel du front, les offices, notaires et les autres instituts financiers\n• Participer à des projets et contribuer à l'amélioration continue\n\n• Formation bancaire achevée ou formation commerciale (notariat / registre foncier), complétée par une formation continue en banque ou gestion d'entreprise\n• Expérience confirmée dans le domaine des crédits, idéalement en administration des crédits\n• Expérience en conduite souhaitée\n• Excellente maîtrise du français (langue de travail)\n• Bonnes connaissances de l'allemand requises\n• Méthode de travail autonome, rigoureuse et orientée solutions\n• Esprit d'équipe, capacité à gérer les priorités et à garder une vue d'ensemble en période d'activité intense\n• Bonnes capacités de communication, attitude gagnante et confiante\n• Connaissance de Finnova, un atout",
-      "descriptionByLocale": {
-        "it": "Semplificare insieme. Perché la vita è piena di possibilità. E divenne più complesso allo stesso tempo. Ecco perché cerchiamo collaboratori che implementano la semplicità con noi. Le tue attività\n• Gestire e supportare il team di Credit Administration\n• Assicurarsi che le operazioni di credito siano elaborate in conformità con i requisiti legali, nel tempo e secondo gli standard di qualità\n• Stabilire, rivedere e gestire strumenti di credito e tutti i contratti\n• Elaborare la posta in entrata e garantire la distribuzione\n• Immettere e mantenere i dati di credito e costruzione nel sistema\n• Conclusione di crediti e garanzie di emissione\n• Assicurare la qualità dei dati e eseguire controlli periodici\n• Estendere e trasformare i prodotti di credito esistenti\n• Mantenere il contatto telefonico con personale di prima linea, uffici, notai e altri istituti finanziari\n• Partecipare a progetti e contribuire al miglioramento continuo Sei proprio tu.\n• Formazione bancaria completa o formazione commerciale (registrato nazionale/territorio), integrata dalla formazione continua nella gestione bancaria o aziendale\n• Esperienza confermata nel campo del credito, idealmente nell'amministrazione del credito\n• Esperienza di guida desiderata\n• Eccellente padronanza del francese (lingua di lavoro)\n• Buona conoscenza del tedesco richiesto\n• Metodo indipendente, rigoroso e orientato alle soluzioni di lavoro\n• Spirito di squadra, capacità di gestire le priorità e mantenere una panoramica durante i periodi di intensa attività\n• Buone capacità di comunicazione, atteggiamento vincente e fiducioso\n• Conoscenza di Finnova, un bene Domande sul processo di applicazione Frau Barbara Rychen, HR-Beraterin vi darà le informazioni desiderate. Informazioni su di noi Valiant è un fornitore finanziario svizzero indipendente. È presente esclusivamente in Svizzera e offre ai clienti privati e alle PMI un'offerta completa, semplice e comprensibile in tutti i settori finanziari. Valiant si trova a 15 cantoni: Aargau, Basel-Campagne, Basel-Ville, Berna, Fribourg, Jura, Lucerna, Neuchâtel, Saint-Gall, Schaffhouse, Solothurn, Thurgau, Vaud, Zug e Zurigo. Inoltre, è presente in tutta la Svizzera grazie ai suoi servizi innovativi e digitali. Valiant ha un bilancio totale di 38,2 miliardi di franchi e impiega circa 1200 collaboratori, tra cui oltre 70 tirocinanti.\n• Gestire e supportare il team di Credit Administration\n• Assicurarsi che le operazioni di credito siano elaborate in conformità con i requisiti legali, nel tempo e secondo gli standard di qualità\n• Stabilire, rivedere e gestire strumenti di credito e tutti i contratti\n• Elaborare la posta in entrata e garantire la distribuzione\n• Immettere e mantenere i dati di credito e costruzione nel sistema\n• Conclusione di crediti e garanzie di emissione\n• Assicurare la qualità dei dati e eseguire controlli periodici\n• Estendere e trasformare i prodotti di credito esistenti\n• Mantenere il contatto telefonico con personale di prima linea, uffici, notai e altri istituti finanziari\n• Partecipare a progetti e contribuire al miglioramento continuo\n• Formazione bancaria completa o formazione commerciale (registrato nazionale/territorio), integrata dalla formazione continua nella gestione bancaria o aziendale\n• Esperienza confermata nel campo del credito, idealmente nell'amministrazione del credito\n• Esperienza di guida desiderata\n• Eccellente padronanza del francese (lingua di lavoro)\n• Buona conoscenza del tedesco richiesto\n• Metodo indipendente, rigoroso e orientato alle soluzioni di lavoro\n• Spirito di squadra, capacità di gestire le priorità e mantenere una panoramica durante i periodi di intensa attività\n• Buone capacità di comunicazione, atteggiamento vincente e fiducioso\n• Conoscenza di Finnova, un bene",
-        "en": "Simplify together. Because life is full of possibilities. And became more complex at the same time. That is why we are looking for collaborators who implement simplicity with us. Your activities\n• Manage and support the Credit Administration team\n• Ensure that credit operations are processed in accordance with legal requirements, on time and according to quality standards\n• Establish, revise and manage credit instruments and all correspondence and contracts\n• Process incoming mail and ensure distribution\n• Enter and maintain credit and building data in the system\n• Closing credits and issuing guarantees\n• Ensure data quality and perform periodic checks\n• Extend and transform existing credit products\n• Maintain telephone contact with front-line staff, offices, notaries and other financial institutions\n• Participate in projects and contribute to continuous improvement You own\n• Completed banking training or commercial training (notarial / land register), supplemented by continuing training in banking or business management\n• Experience confirmed in the field of credit, ideally in credit administration\n• Desired driving experience\n• Excellent mastery of French (working language)\n• Good knowledge of German required\n• Independent, rigorous and oriented method of work solutions\n• Team spirit, ability to manage priorities and maintain an overview during periods of intense activity\n• Good communication skills, winning and confident attitude\n• Knowledge of Finnova, an asset Questions on the application process Frau Barbara Rychen, HR-Beraterin will gladly give you the desired information. About Us Valiant is an independent Swiss financial provider. It is exclusively present in Switzerland and offers private customers and SMEs a comprehensive, simple and understandable offer in all financial fields. Valiant is located locally in fifteen cantons: Aargau, Basel-Campagne, Basel-Ville, Bern, Fribourg, Jura, Lucerne, Neuchâtel, Saint-Gall, Schaffhouse, Solothurn, Thurgau, Vaud, Zug and Zurich. Moreover, it is present throughout Switzerland thanks to its innovative and digital services. Valiant has a total balance sheet of 38.2 billion francs and employs about 1200 collaborators, including over 70 trainees.\n• Manage and support the Credit Administration team\n• Ensure that credit operations are processed in accordance with legal requirements, on time and according to quality standards\n• Establish, revise and manage credit instruments and all correspondence and contracts\n• Process incoming mail and ensure distribution\n• Enter and maintain credit and building data in the system\n• Closing credits and issuing guarantees\n• Ensure data quality and perform periodic checks\n• Extend and transform existing credit products\n• Maintain telephone contact with front-line staff, offices, notaries and other financial institutions\n• Participate in projects and contribute to continuous improvement\n• Completed banking training or commercial training (notarial / land register), supplemented by continuing training in banking or business management\n• Experience confirmed in the field of credit, ideally in credit administration\n• Desired driving experience\n• Excellent mastery of French (working language)\n• Good knowledge of German required\n• Independent, rigorous and oriented method of work solutions\n• Team spirit, ability to manage priorities and maintain an overview during periods of intense activity\n• Good communication skills, winning and confident attitude\n• Knowledge of Finnova, an asset",
-        "de": "Vereinfachen Sie gemeinsam. Weil das Leben voller Möglichkeiten ist. Und wurde gleichzeitig komplexer. Deshalb suchen wir Mitarbeiter, die mit uns Einfachheit umsetzen. Ihre Aktivitäten\n• Verwalten und unterstützen Sie das Credit Administration Team\n• Sicherstellen, dass Kreditgeschäfte gemäß den gesetzlichen Anforderungen, rechtzeitig und nach Qualitätsstandards verarbeitet werden\n• Einrichtung, Überarbeitung und Verwaltung von Kreditinstrumenten und aller Korrespondenz und Verträge\n• Verarbeiten Sie eingehende Post und sichern Sie die Verteilung\n• Geben und pflegen Sie Kredit- und Gebäudedaten im System\n• Abschlusskredite und Emissionsgarantien\n• Gewährleistung der Datenqualität und regelmäßige Überprüfungen\n• Erweitern und transformieren Sie bestehende Kreditprodukte\n• Halten Sie telefonischen Kontakt mit Frontline-Mitarbeiter, Büros, Notare und andere Finanzinstitute\n• Beteiligen Sie sich an Projekten und tragen Sie zur kontinuierlichen Verbesserung bei Sie besitzen\n• Absolvierte Bankausbildung oder kaufmännische Ausbildung (Notarial / Grundbuch), ergänzt durch Weiterbildung in Bank- oder Betriebswirtschaft\n• Erfahrung im Kreditbereich bestätigt, idealerweise in der Kreditverwaltung\n• Gewünschtes Fahrerlebnis\n• Hervorragende Beherrschung von Französisch (Arbeitssprache)\n• Gute Deutschkenntnisse erforderlich\n• Unabhängige, strenge und orientierte Arbeitsweise Lösungen\n• Teamgeist, Fähigkeit, Prioritäten zu verwalten und den Überblick in Zeiten intensiver Aktivität zu behalten\n• Gute Kommunikationsfähigkeiten, gewinnende und selbstbewusste Einstellung\n• Wissen über Finnova, ein Asset Fragen zum Bewerbungsprozess Frau Barbara Rychen, HR-Beraterin gibt Ihnen gerne die gewünschten Informationen. Über uns Valiant ist ein unabhängiger Schweizer Finanzanbieter. Sie ist ausschließlich in der Schweiz präsent und bietet Privatkunden und KMU ein umfassendes, einfaches und verständliches Angebot in allen Finanzbereichen. Valiant liegt lokal in fünfzehn Kantonen: Aargau, Basel-Campagne, Basel-Ville, Bern, Freiburg, Jura, Luzern, Neuenburg, Saint-Gall, Schaffhouse, Solothurn, Thurgau, Waadt, Zug und Zürich. Darüber hinaus ist sie dank ihrer innovativen und digitalen Dienstleistungen in der ganzen Schweiz präsent. Valiant hat eine Bilanzsumme von 38,2 Milliarden Franken und beschäftigt rund 1200 Mitarbeiter, darunter über 70 Auszubildende.\n• Verwalten und unterstützen Sie das Credit Administration Team\n• Sicherstellen, dass Kreditgeschäfte gemäß den gesetzlichen Anforderungen, rechtzeitig und nach Qualitätsstandards verarbeitet werden\n• Einrichtung, Überarbeitung und Verwaltung von Kreditinstrumenten und aller Korrespondenz und Verträge\n• Verarbeiten Sie eingehende Post und sichern Sie die Verteilung\n• Geben und pflegen Sie Kredit- und Gebäudedaten im System\n• Abschlusskredite und Emissionsgarantien\n• Gewährleistung der Datenqualität und regelmäßige Überprüfungen\n• Erweitern und transformieren Sie bestehende Kreditprodukte\n• Halten Sie telefonischen Kontakt mit Frontline-Mitarbeiter, Büros, Notare und andere Finanzinstitute\n• Beteiligen Sie sich an Projekten und tragen Sie zur kontinuierlichen Verbesserung bei\n• Absolvierte Bankausbildung oder kaufmännische Ausbildung (Notarial / Grundbuch), ergänzt durch Weiterbildung in Bank- oder Betriebswirtschaft\n• Erfahrung im Kreditbereich bestätigt, idealerweise in der Kreditverwaltung\n• Gewünschtes Fahrerlebnis\n• Hervorragende Beherrschung von Französisch (Arbeitssprache)\n• Gute Deutschkenntnisse erforderlich\n• Unabhängige, strenge und orientierte Arbeitsweise Lösungen\n• Teamgeist, Fähigkeit, Prioritäten zu verwalten und den Überblick in Zeiten intensiver Aktivität zu behalten\n• Gute Kommunikationsfähigkeiten, gewinnende und selbstbewusste Einstellung\n• Wissen über Finnova, ein Asset",
-        "fr": "Simplifier ensemble. Car la vie regorge de possibilités. Et est devenue plus complexe en même temps. C'est pourquoi nous recherchons des collaboratrices et collaborateurs qui mettent en œuvre la simplicité avec nous.\nVos activités\n\n• Gérer et soutenir l'équipe de l'Administration des crédits\n• Garantir un traitement des opérations de crédit conforme aux exigences légales, dans les délais et selon les standards de qualité\n• Etablir, réviser et gérer les actes de crédit ainsi que l'ensemble des correspondances et contrats\n• Traiter le courrier entrant et assurer sa répartition\n• Saisir et maintenir à jour les données crédits et immeubles dans le système\n• Effectuer les clôtures de crédits et délivrer les garanties\n• Assurer la qualité des données et réaliser les contrôles périodiques\n• Prolonger et transformer des produits de crédit existants\n• Soigner le contact téléphonique avec le personnel du front, les offices, notaires et les autres instituts financiers\n• Participer à des projets et contribuer à l'amélioration continue\nVous possédez\n\n• Formation bancaire achevée ou formation commerciale (notariat / registre foncier), complétée par une formation continue en banque ou gestion d'entreprise\n• Expérience confirmée dans le domaine des crédits, idéalement en administration des crédits\n• Expérience en conduite souhaitée\n• Excellente maîtrise du français (langue de travail)\n• Bonnes connaissances de l'allemand requises\n• Méthode de travail autonome, rigoureuse et orientée solutions\n• Esprit d'équipe, capacité à gérer les priorités et à garder une vue d'ensemble en période d'activité intense\n• Bonnes capacités de communication, attitude gagnante et confiante\n• Connaissance de Finnova, un atout\nQuestions sur le processus de candidature\nFrau Barbara Rychen, HR-Beraterin vous donnera volontiers les renseignements désirés.\nÀ notre sujet\nValiant est un prestataire financier suisse indépendant. Elle est exclusivement présente en Suisse et propose à la clientèle privée et aux PME une offre complète, simple et compréhensible dans tous les domaines financiers. Valiant est implantée localement dans quinze cantons : Argovie, Bâle-Campagne, Bâle-Ville, Berne, Fribourg, Jura, Lucerne, Neuchâtel, Saint-Gall, Schaffhouse, Soleure, Thurgovie, Vaud, Zoug et Zurich. En outre, elle est présente dans toute la Suisse grâce à ses prestations innovantes et numériques. Valiant affiche un total du bilan de 38,2 milliards de francs et emploie environ 1200 collaboratrices et collaborateurs, dont plus de 70 personnes en formation.\n\n• Gérer et soutenir l'équipe de l'Administration des crédits\n• Garantir un traitement des opérations de crédit conforme aux exigences légales, dans les délais et selon les standards de qualité\n• Etablir, réviser et gérer les actes de crédit ainsi que l'ensemble des correspondances et contrats\n• Traiter le courrier entrant et assurer sa répartition\n• Saisir et maintenir à jour les données crédits et immeubles dans le système\n• Effectuer les clôtures de crédits et délivrer les garanties\n• Assurer la qualité des données et réaliser les contrôles périodiques\n• Prolonger et transformer des produits de crédit existants\n• Soigner le contact téléphonique avec le personnel du front, les offices, notaires et les autres instituts financiers\n• Participer à des projets et contribuer à l'amélioration continue\n\n• Formation bancaire achevée ou formation commerciale (notariat / registre foncier), complétée par une formation continue en banque ou gestion d'entreprise\n• Expérience confirmée dans le domaine des crédits, idéalement en administration des crédits\n• Expérience en conduite souhaitée\n• Excellente maîtrise du français (langue de travail)\n• Bonnes connaissances de l'allemand requises\n• Méthode de travail autonome, rigoureuse et orientée solutions\n• Esprit d'équipe, capacité à gérer les priorités et à garder une vue d'ensemble en période d'activité intense\n• Bonnes capacités de communication, attitude gagnante et confiante\n• Connaissance de Finnova, un atout"
-      },
-      "location": "Gümligen",
-      "canton": "BE",
-      "url": "https://jobs.valiant.ch/offene-stellen/responsable-d-equipe-administration-des-credits/ca0ef4aa-ba74-4f45-a918-e75398552416",
-      "source": "Valiant Bank AG Dedicated Parser (Prospective Career Center 1000394, JSON-LD)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-07-31T22:25:09.758Z",
-      "addressLocality": "Gümligen",
-      "addressRegion": "BE",
-      "streetAddress": "",
-      "postalCode": "3073",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Banca",
-      "contract": "part-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "senior",
-      "sector": "Banche / Servizi Finanziari",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-10",
-      "applyUrl": "https://jobs.valiant.ch/offene-stellen/responsable-d-equipe-administration-des-credits/ca0ef4aa-ba74-4f45-a918-e75398552416",
-      "hiringOrganizationName": "Valiant Bank AG",
-      "needsRetranslation": false,
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "responsable-d-equipe-administration-des-credits-80-100-valiant-gumligen",
-        "team-leader-credit-administration-80-100-valiant-bank-ag-gumligen"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "responsable-d-equipe-administration-des-credits-80-100-valiant-gumligen",
-          "team-leader-credit-administration-80-100-valiant-bank-ag-gumligen"
-        ],
-        "en": [
-          "responsable-d-equipe-administration-des-credits-80-100-valiant-gumligen"
-        ],
-        "de": [
-          "responsable-d-equipe-administration-des-credits-80-100-valiant-gumligen"
-        ]
-      },
-      "firstSeenAt": "2026-07-04T12:23:07.043Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 1
     }
   ]
 }

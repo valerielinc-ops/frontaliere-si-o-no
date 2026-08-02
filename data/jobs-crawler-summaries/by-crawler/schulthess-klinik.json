@@ -1,16 +1,16 @@
 {
   "key": "schulthess-klinik",
   "label": "Schulthess Klinik",
-  "generatedAt": "2026-08-01T10:48:02.106Z",
-  "total": 9,
+  "generatedAt": "2026-08-01T21:57:45.331Z",
+  "total": 8,
   "newCount": 1,
   "updatedCount": 7,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 6648,
-  "avgDurationMs": 6648,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 6851,
+  "avgDurationMs": 6851,
   "durationHistory": [
-    6648
+    6851
   ],
   "newJobs": [
     {
@@ -26,7 +26,7 @@
       "url": "https://job.schulthess-klinik.ch/offene-stellen/mitarbeiterin-mitarbeiter-reinigung/3b4f374f-b405-4f0c-bfca-f960c110bb91",
       "source": "Schulthess Klinik Dedicated Parser (Prospective medium 1007262)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-01T10:47:56.533Z",
+      "crawledAt": "2026-08-01T21:57:39.494Z",
       "addressLocality": "Lengghalde 2, Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -65,7 +65,7 @@
       "url": "https://job.schulthess-klinik.ch/job-vacancies/research-assistant-anesthesiology-for-a-fixed-term-of-two-years/18c8967e-7373-43c4-acf4-74e61f04232f",
       "source": "Schulthess Klinik Dedicated Parser (Prospective medium 1007262)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-01T10:47:56.544Z",
+      "crawledAt": "2026-08-01T21:57:39.508Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -103,7 +103,7 @@
       "url": "https://job.schulthess-klinik.ch/offene-stellen/mitarbeiterin-mitarbeiter-reinigung/f050b2d8-eaf2-4906-aeb0-d65189dd9105",
       "source": "Schulthess Klinik Dedicated Parser (Prospective medium 1007262)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-01T10:47:56.542Z",
+      "crawledAt": "2026-08-01T21:57:39.503Z",
       "addressLocality": "Lengghalde 2, Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -141,7 +141,7 @@
       "url": "https://job.schulthess-klinik.ch/offene-stellen/stv-praxismanagerin-stv-praxismanager-hueft-und-kniechirurgie/7fe3e024-d7a9-48f2-af51-2aca45bc19ab",
       "source": "Schulthess Klinik Dedicated Parser (Prospective medium 1007262)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-01T10:47:56.546Z",
+      "crawledAt": "2026-08-01T21:57:39.510Z",
       "addressLocality": "Lengghalde 2, Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -179,7 +179,7 @@
       "url": "https://job.schulthess-klinik.ch/offene-stellen/arztsekretaerin-arztsekretaer-wirbelsaeulenchirurgie/e5d41b37-2f03-46d5-bf6a-d82dc81dc24c",
       "source": "Schulthess Klinik Dedicated Parser (Prospective medium 1007262)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-01T10:47:56.547Z",
+      "crawledAt": "2026-08-01T21:57:39.511Z",
       "addressLocality": "Lengghalde 2, Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -217,7 +217,7 @@
       "url": "https://job.schulthess-klinik.ch/offene-stellen/arztsekretaerin-arztsekretaer-schulter-und-ellbogenchirurgie/f0113e53-104f-439d-9d85-dc38a9f1e01a",
       "source": "Schulthess Klinik Dedicated Parser (Prospective medium 1007262)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-01T10:47:56.549Z",
+      "crawledAt": "2026-08-01T21:57:39.513Z",
       "addressLocality": "Lengghalde 2, Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -255,7 +255,7 @@
       "url": "https://job.schulthess-klinik.ch/offene-stellen/med-praxisassistentin-med-praxisassistent-rheumatologie-rehabilitation/8f712e35-aecd-403d-b0b9-d48e6d1ddab0",
       "source": "Schulthess Klinik Dedicated Parser (Prospective medium 1007262)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-01T10:47:56.550Z",
+      "crawledAt": "2026-08-01T21:57:39.519Z",
       "addressLocality": "Lengghalde 2, Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -293,7 +293,7 @@
       "url": "https://job.schulthess-klinik.ch/offene-stellen/radiologiefachperson/408d33fc-2664-40fa-a077-16db7969afc8",
       "source": "Schulthess Klinik Dedicated Parser (Prospective medium 1007262)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-01T10:47:56.551Z",
+      "crawledAt": "2026-08-01T21:57:39.521Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -319,8 +319,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "schulthess-klinik-793339b11e16",
       "slug": "pflegefachperson-mit-entwicklungsperspektive-zur-fachverantwortung-auf-der-bettenstation",
@@ -361,5 +360,6 @@
         "completeness": 25
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }

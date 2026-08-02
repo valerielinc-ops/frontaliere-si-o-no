@@ -9183,6 +9183,12 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.riforma-ue-frontalieri-2026.title': 'EU-Reform, Kosten für die Schweiz: eine Milliarde',
     'blog.article.riforma-ue-frontalieri-2026.excerpt': 'Die Schweiz riskiert einen hohen Preis für eine von der EU beschlossene Sozialreform.',
     'blog.article.riforma-ue-frontalieri-2026.imageAlt': 'Die Aussicht von Lugano auf den Luganersee',
+    'blog.article.frontalieri-perdono-lavoro-svizzera-paga-2026.title': 'Frontalieri in crisi: la Svizzera paga il prezzo della rivoluzione',
+    'blog.article.frontalieri-perdono-lavoro-svizzera-paga-2026.excerpt': 'Die Schweiz bereitet sich auf ein mögliches finanzielles Erdbeben vor, bedingt durch die Reform der Arbeitslosenunterstützung für Grenzpendler.',
+    'blog.article.frontalieri-perdono-lavoro-svizzera-paga-2026.imageAlt': 'Eine fotorealistische Szene mit dem Luganer See im Vordergrund, mit den Tessin-Bergen im Hintergrund. Die Sonnenuntergangslicht beleuchtet die Wasseroberfläche.',
+    'blog.article.rallentamenti-autostrada-a8-milano-varese.title': 'Verlangsamungen auf der Autobahn A8 zwischen Mailand und Varese',
+    'blog.article.rallentamenti-autostrada-a8-milano-varese.excerpt': 'Auf der A8-Autobahn zwischen Mailand und Varese werden Verlangsamungen erwartet, da die schalldämmenden Barrieren zwischen Castellanza und Legnano ersetzt wurden.',
+    'blog.article.rallentamenti-autostrada-a8-milano-varese.imageAlt': 'Stau auf der A8 zwischen Mailand und Varese',
 };
 
 export default blogMetaDe;

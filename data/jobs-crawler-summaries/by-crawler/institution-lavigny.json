@@ -1,16 +1,16 @@
 {
   "key": "institution-lavigny",
   "label": "Institution de Lavigny",
-  "generatedAt": "2026-08-01T10:47:42.230Z",
-  "total": 9,
+  "generatedAt": "2026-08-01T21:57:09.281Z",
+  "total": 8,
   "newCount": 0,
   "updatedCount": 8,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 6326,
-  "avgDurationMs": 6326,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 6845,
+  "avgDurationMs": 6845,
   "durationHistory": [
-    6326
+    6845
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -27,7 +27,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/74c8a52f-815e-4250-9f98-ba32b0dbe4de/",
       "source": "Institution de Lavigny Dedicated Parser (custom HTML + jobup deep-link)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-01T10:47:39.262Z",
+      "crawledAt": "2026-08-01T21:57:07.045Z",
       "addressLocality": "Lavigny",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -65,7 +65,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/4b91997b-672a-43e9-821a-0c46be4a0f46/",
       "source": "Institution de Lavigny Dedicated Parser (custom HTML + jobup deep-link)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-01T10:47:39.254Z",
+      "crawledAt": "2026-08-01T21:57:07.040Z",
       "addressLocality": "Lavigny",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -103,7 +103,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/d9920d30-1392-43cf-b788-2eb7a46df2ab/",
       "source": "Institution de Lavigny Dedicated Parser (custom HTML + jobup deep-link)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-01T10:47:39.251Z",
+      "crawledAt": "2026-08-01T21:57:07.039Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -141,7 +141,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/656ac97c-c105-4b99-9370-4fd04c1dbfc5/",
       "source": "Institution de Lavigny Dedicated Parser (custom HTML + jobup deep-link)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-01T10:47:39.263Z",
+      "crawledAt": "2026-08-01T21:57:07.045Z",
       "addressLocality": "Lavigny",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -179,7 +179,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/58678fa8-9cbb-48a0-8e53-04e12b8539c8/",
       "source": "Institution de Lavigny Dedicated Parser (custom HTML + jobup deep-link)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-01T10:47:39.269Z",
+      "crawledAt": "2026-08-01T21:57:07.043Z",
       "addressLocality": "Lavigny",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -205,44 +205,6 @@
       }
     },
     {
-      "id": "institution-lavigny-112083cc27e2",
-      "slug": "chef-fe-de-clinique-ou-adjoint-e-au-service-universitaire-de-neurorehabilitation",
-      "company": "Institution de Lavigny",
-      "companyKey": "institution-lavigny",
-      "companyDomain": "ilavigny.ch",
-      "title": "Chef-fe de clinique ou adjoint-e au Service universitaire de neuroréhabilitation",
-      "needsRetranslation": false,
-      "location": "Lavigny",
-      "canton": "VD",
-      "url": "https://www.jobup.ch/fr/emplois/detail/c8be9b7e-2f06-4aef-870a-bb520cb6ef8a/",
-      "source": "Institution de Lavigny Dedicated Parser (custom HTML + jobup deep-link)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-08-01T10:47:39.268Z",
-      "addressLocality": "Lavigny",
-      "addressRegion": "VD",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1175",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "senior",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-17",
-      "applyUrl": "https://www.jobup.ch/fr/emplois/detail/c8be9b7e-2f06-4aef-870a-bb520cb6ef8a/",
-      "careerSiteUrl": "https://www.ilavigny.ch/emploi/",
-      "firstSeenAt": "2026-06-17T22:48:42.225Z",
-      "_qualityScore": 87,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 17
-      }
-    },
-    {
       "id": "institution-lavigny-b061d173a096",
       "slug": "medecin-chef-fe-au-service-universitaire-de-neurorehabilitation-institution-lavigny",
       "company": "Institution de Lavigny",
@@ -255,7 +217,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/e0c73b19-0fc9-4cfd-acf2-e044ee9193ac/",
       "source": "Institution de Lavigny Dedicated Parser (custom HTML + jobup deep-link)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-01T10:47:39.271Z",
+      "crawledAt": "2026-08-01T21:57:07.042Z",
       "addressLocality": "Lavigny",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -281,6 +243,44 @@
       }
     },
     {
+      "id": "institution-lavigny-112083cc27e2",
+      "slug": "chef-fe-de-clinique-ou-adjoint-e-au-service-universitaire-de-neurorehabilitation",
+      "company": "Institution de Lavigny",
+      "companyKey": "institution-lavigny",
+      "companyDomain": "ilavigny.ch",
+      "title": "Chef-fe de clinique ou adjoint-e au Service universitaire de neuroréhabilitation",
+      "needsRetranslation": false,
+      "location": "Lavigny",
+      "canton": "VD",
+      "url": "https://www.jobup.ch/fr/emplois/detail/c8be9b7e-2f06-4aef-870a-bb520cb6ef8a/",
+      "source": "Institution de Lavigny Dedicated Parser (custom HTML + jobup deep-link)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-08-01T21:57:07.046Z",
+      "addressLocality": "Lavigny",
+      "addressRegion": "VD",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1175",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "senior",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-17",
+      "applyUrl": "https://www.jobup.ch/fr/emplois/detail/c8be9b7e-2f06-4aef-870a-bb520cb6ef8a/",
+      "careerSiteUrl": "https://www.ilavigny.ch/emploi/",
+      "firstSeenAt": "2026-06-17T22:48:42.225Z",
+      "_qualityScore": 87,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 25,
+        "completeness": 17
+      }
+    },
+    {
       "id": "institution-lavigny-189c320785f0",
       "slug": "civilistes-institution-lavigny-lavigny",
       "company": "Institution de Lavigny",
@@ -293,7 +293,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/6b892ec6-437b-4961-b40d-c5c38a58933c/",
       "source": "Institution de Lavigny Dedicated Parser (custom HTML + jobup deep-link)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-01T10:47:39.264Z",
+      "crawledAt": "2026-08-01T21:57:07.046Z",
       "addressLocality": "Lavigny",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -319,8 +319,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "institution-lavigny-f532936eab1e",
       "slug": "un-assistente-socio-educativo-in-cdi-all-80-institution-de-lavigny-lausanne",
@@ -361,5 +360,6 @@
         "completeness": 22
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }

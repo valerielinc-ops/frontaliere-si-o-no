@@ -5221,6 +5221,33 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'redditi-estero-controlli-doppia-tassazione',
+    category: 'fiscale',
+    date: '2026-08-01T22:47:59.465Z',
+    image: '/images/blog/redditi-estero-controlli-doppia-tassazione.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
+   {
+    id: 'svizzera-ceuta-melilla-controlli-frontiere',
+    category: 'fiscale',
+    date: '2026-08-01T23:15:01.859Z',
+    image: '/images/blog/svizzera-ceuta-melilla-controlli-frontiere.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
+   {
+    id: 'confronto-imposte-cantonali-2026',
+    category: 'fiscale',
+    date: '2026-08-02T02:12:08.749Z',
+    image: '/images/blog/confronto-imposte-cantonali-2026.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

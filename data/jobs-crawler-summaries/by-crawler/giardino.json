@@ -1,16 +1,16 @@
 {
   "key": "giardino",
   "label": "Giardino Group",
-  "generatedAt": "2026-08-01T11:02:14.544Z",
-  "total": 11,
+  "generatedAt": "2026-08-01T21:58:26.369Z",
+  "total": 10,
   "newCount": 0,
   "updatedCount": 10,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 6582,
-  "avgDurationMs": 6582,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 8757,
+  "avgDurationMs": 8757,
   "durationHistory": [
-    6582
+    8757
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -26,7 +26,7 @@
       "url": "https://giardinohotels.ch/en/jobs/gm-bell-attendant/",
       "source": "Giardino Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-01T11:02:11.382Z",
+      "crawledAt": "2026-08-01T21:58:23.092Z",
       "addressLocality": "Champfèr",
       "postalCode": "7512",
       "addressRegion": "GR",
@@ -62,7 +62,7 @@
       "url": "https://giardinohotels.ch/en/jobs/gm-assistant-concierge/",
       "source": "Giardino Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-01T11:02:11.383Z",
+      "crawledAt": "2026-08-01T21:58:23.092Z",
       "addressLocality": "Champfèr",
       "postalCode": "7512",
       "addressRegion": "GR",
@@ -98,7 +98,7 @@
       "url": "https://giardinohotels.ch/en/jobs/chef-de-rang/",
       "source": "Giardino Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-01T11:02:11.383Z",
+      "crawledAt": "2026-08-01T21:58:23.093Z",
       "addressLocality": "Champfèr",
       "postalCode": "7512",
       "addressRegion": "GR",
@@ -134,7 +134,7 @@
       "url": "https://giardinohotels.ch/en/jobs/staff-cook-m-w/",
       "source": "Giardino Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-01T11:02:11.378Z",
+      "crawledAt": "2026-08-01T21:58:23.089Z",
       "addressLocality": "Champfèr",
       "postalCode": "7512",
       "addressRegion": "GR",
@@ -170,7 +170,7 @@
       "url": "https://giardinohotels.ch/en/jobs/gm-chef-de-rang/",
       "source": "Giardino Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-01T11:02:11.382Z",
+      "crawledAt": "2026-08-01T21:58:23.092Z",
       "addressLocality": "Champfèr",
       "postalCode": "7512",
       "addressRegion": "GR",
@@ -206,7 +206,7 @@
       "url": "https://giardinohotels.ch/en/jobs/gm-demichef-de-partie/",
       "source": "Giardino Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-01T11:02:11.379Z",
+      "crawledAt": "2026-08-01T21:58:23.089Z",
       "addressLocality": "Champfèr",
       "postalCode": "7512",
       "addressRegion": "GR",
@@ -242,7 +242,7 @@
       "url": "https://giardinohotels.ch/en/jobs/gm-steward/",
       "source": "Giardino Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-01T11:02:11.382Z",
+      "crawledAt": "2026-08-01T21:58:23.091Z",
       "addressLocality": "Champfèr",
       "postalCode": "7512",
       "addressRegion": "GR",
@@ -278,7 +278,7 @@
       "url": "https://giardinohotels.ch/en/jobs/gm-chef-de-partie/",
       "source": "Giardino Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-01T11:02:11.384Z",
+      "crawledAt": "2026-08-01T21:58:23.093Z",
       "addressLocality": "Champfèr",
       "postalCode": "7512",
       "addressRegion": "GR",
@@ -314,7 +314,7 @@
       "url": "https://giardinohotels.ch/en/jobs/reservations-front-office-specialist/",
       "source": "Giardino Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-01T11:02:11.381Z",
+      "crawledAt": "2026-08-01T21:58:23.091Z",
       "addressLocality": "Champfèr",
       "postalCode": "7512",
       "addressRegion": "GR",
@@ -350,7 +350,7 @@
       "url": "https://giardinohotels.ch/en/jobs/ga-housekeeping-attendant/",
       "source": "Giardino Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-01T11:02:11.383Z",
+      "crawledAt": "2026-08-01T21:58:23.092Z",
       "addressLocality": "Ascona",
       "postalCode": "6612",
       "addressRegion": "TI",
@@ -375,8 +375,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "giardino-f99cad5a4ded",
       "slug": "marketing-pr-manager-giardino-group-ascona",
@@ -416,5 +415,6 @@
         "completeness": 22
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }

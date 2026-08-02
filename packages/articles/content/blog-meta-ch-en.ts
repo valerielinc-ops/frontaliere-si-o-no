@@ -1741,6 +1741,15 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.cassis-duedingen.title': 'More cassis in düdingen:',
     'blog.article.cassis-duedingen.excerpt': 'Switzerland does not fall from the sky, but must be cultivated',
     'blog.article.cassis-duedingen.imageAlt': 'Group of people at a brunch in a farm in Düdingen (FR)',
+    'blog.article.redditi-estero-controlli-doppia-tassazione.title': 'Foreign income, checks on the way: how to avoid double taxation',
+    'blog.article.redditi-estero-controlli-doppia-tassazione.excerpt': 'New rules for frontier workers: exemptions, deductibles and how to avoid double taxation.',
+    'blog.article.redditi-estero-controlli-doppia-tassazione.imageAlt': 'A cross-border worker with tax documents and a calculator',
+    'blog.article.svizzera-ceuta-melilla-controlli-frontiere.title': 'After Ceuta and Melilla, border controls',
+    'blog.article.svizzera-ceuta-melilla-controlli-frontiere.excerpt': 'Tens of thousands of migrants have crossed the border into the Schengen area. The episode inflames the political debate, even in Switzerland.',
+    'blog.article.svizzera-ceuta-melilla-controlli-frontiere.imageAlt': 'Panoramic view of Lake Lugano with the Swiss mountains in the background.',
+    'blog.article.confronto-imposte-cantonali-2026.title': 'Cantonal tax: comparison 2026 and focus on the canton of Vaud',
+    'blog.article.confronto-imposte-cantonali-2026.excerpt': 'Analysis of cantonal tax rates for 2026, differences between Swiss cantons and specific focus on the tax system of the Canton of Vaud.',
+    'blog.article.confronto-imposte-cantonali-2026.imageAlt': 'View of a Swiss city with modern office buildings',
 };
 
 export default blogMetaChEn;

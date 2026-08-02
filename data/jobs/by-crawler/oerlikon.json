@@ -1,6 +1,6 @@
 {
   "crawlerKey": "oerlikon",
-  "assembledAt": "2026-08-01T10:56:58.374Z",
+  "assembledAt": "2026-08-01T21:58:24.432Z",
   "jobs": [
     {
       "id": "oerlikon-623eccb0a7a7",
@@ -33,7 +33,7 @@
       "url": "https://careers.oerlikon.com/job/Customer-Service-Specialist-Riri-Zippers/104205-en_US",
       "source": "Oerlikon Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-01T10:56:54.826Z",
+      "crawledAt": "2026-08-01T21:58:21.008Z",
       "addressLocality": "Mendrisio, TI",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -109,7 +109,7 @@
       "url": "https://careers.oerlikon.com/job/Projektingenieur-%28gn%29-Electrical-Engineering/104461-en_US",
       "source": "Oerlikon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-01T10:56:54.054Z",
+      "crawledAt": "2026-08-01T21:58:20.220Z",
       "addressLocality": "Wohlen",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -187,7 +187,7 @@
       "url": "https://careers.oerlikon.com/job/Konstrukteur-%28gn%29/104474-en_US",
       "source": "Oerlikon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-01T10:56:53.287Z",
+      "crawledAt": "2026-08-01T21:58:19.419Z",
       "addressLocality": "Wohlen",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -264,7 +264,7 @@
       "url": "https://careers.oerlikon.com/job/Industrial-Software-&-Automation-Engineer-%28gn%29/104476-en_US",
       "source": "Oerlikon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-01T10:56:52.295Z",
+      "crawledAt": "2026-08-01T21:58:18.616Z",
       "addressLocality": "Wohlen",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -337,7 +337,7 @@
       "url": "https://careers.oerlikon.com/job/Automatiker-%28gn%29-im-Anlagenbau/103438-en_US",
       "source": "Oerlikon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-01T10:56:51.522Z",
+      "crawledAt": "2026-08-01T21:58:17.807Z",
       "addressLocality": "Wohlen",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -354,24 +354,24 @@
       "applyUrl": "https://careers.oerlikon.com/job/Automatiker-%28gn%29-im-Anlagenbau/103438-en_US",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "automatiker-gn-im-anlagenbau-oerlikon-ch",
+        "automatiker-gn-im-anlagenbau-oerlikon-wohlen"
+      ],
       "previousSlugsByLocale": {
-        "de": [
-          "automatiker-gn-im-anlagenbau-oerlikon-wohlen"
-        ],
         "it": [
           "automatiker-gn-im-anlagenbau-oerlikon-ch"
         ],
         "en": [
           "automatiker-gn-im-anlagenbau-oerlikon-ch"
         ],
+        "de": [
+          "automatiker-gn-im-anlagenbau-oerlikon-wohlen"
+        ],
         "fr": [
           "automatiker-gn-im-anlagenbau-oerlikon-ch"
         ]
       },
-      "previousSlugs": [
-        "automatiker-gn-im-anlagenbau-oerlikon-ch",
-        "automatiker-gn-im-anlagenbau-oerlikon-wohlen"
-      ],
       "firstSeenAt": "2026-07-23T11:18:20.994Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -417,7 +417,7 @@
       "url": "https://careers.oerlikon.com/job/Lehrstelle-als-Konstrukteur-%28gn%29-EFZ/103628-en_US",
       "source": "Oerlikon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-01T10:56:50.758Z",
+      "crawledAt": "2026-08-01T21:58:17.011Z",
       "addressLocality": "Wohlen",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -493,7 +493,7 @@
       "url": "https://careers.oerlikon.com/job/Project-Manager-%28gn%29/103867-en_US",
       "source": "Oerlikon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-01T10:56:49.985Z",
+      "crawledAt": "2026-08-01T21:58:16.208Z",
       "addressLocality": "Wohlen",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -555,7 +555,7 @@
       "url": "https://careers.oerlikon.com/job/Export-Verpacker-%28gn%29/103043-en_US",
       "source": "Oerlikon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-01T10:56:49.206Z",
+      "crawledAt": "2026-08-01T21:58:15.413Z",
       "addressLocality": "Wohlen",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -572,24 +572,24 @@
       "applyUrl": "https://careers.oerlikon.com/job/Export-Verpacker-%28gn%29/103043-en_US",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "export-verpacker-gn-oerlikon-ch",
+        "export-verpacker-gn-oerlikon-wohlen"
+      ],
       "previousSlugsByLocale": {
-        "de": [
-          "export-verpacker-gn-oerlikon-wohlen"
-        ],
         "it": [
           "export-verpacker-gn-oerlikon-ch"
         ],
         "en": [
           "export-verpacker-gn-oerlikon-ch"
         ],
+        "de": [
+          "export-verpacker-gn-oerlikon-wohlen"
+        ],
         "fr": [
           "export-verpacker-gn-oerlikon-ch"
         ]
       },
-      "previousSlugs": [
-        "export-verpacker-gn-oerlikon-ch",
-        "export-verpacker-gn-oerlikon-wohlen"
-      ],
       "firstSeenAt": "2026-07-14T11:18:13.138Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -635,7 +635,7 @@
       "url": "https://careers.oerlikon.com/job/Konstruktionsingenieur-%28gn%29/104256-en_US",
       "source": "Oerlikon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-01T10:56:48.439Z",
+      "crawledAt": "2026-08-01T21:58:14.629Z",
       "addressLocality": "Wohlen",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -652,10 +652,11 @@
       "applyUrl": "https://careers.oerlikon.com/job/Konstruktionsingenieur-%28gn%29/104256-en_US",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "konstruktionsingenieur-gn-oerlikon-ch",
+        "konstruktionsingenieur-gn-oerlikon-wohlen"
+      ],
       "previousSlugsByLocale": {
-        "de": [
-          "konstruktionsingenieur-gn-oerlikon-wohlen"
-        ],
         "it": [
           "konstruktionsingenieur-gn-oerlikon-ch",
           "konstruktionsingenieur-gn-oerlikon-wohlen"
@@ -663,14 +664,13 @@
         "en": [
           "konstruktionsingenieur-gn-oerlikon-wohlen"
         ],
+        "de": [
+          "konstruktionsingenieur-gn-oerlikon-wohlen"
+        ],
         "fr": [
           "konstruktionsingenieur-gn-oerlikon-wohlen"
         ]
       },
-      "previousSlugs": [
-        "konstruktionsingenieur-gn-oerlikon-ch",
-        "konstruktionsingenieur-gn-oerlikon-wohlen"
-      ],
       "firstSeenAt": "2026-07-08T22:12:54.230Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -716,7 +716,7 @@
       "url": "https://careers.oerlikon.com/job/Service-Techniker-f%C3%BCr-Produktionsanlagen-%28inhouse%29-%28gn%29/104492-en_US",
       "source": "Oerlikon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-01T10:56:47.665Z",
+      "crawledAt": "2026-08-01T21:58:13.834Z",
       "addressLocality": "Wohlen",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -792,7 +792,7 @@
       "url": "https://careers.oerlikon.com/job/Servicetechniker-%28gn%29/103981-en_US",
       "source": "Oerlikon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-01T10:56:46.884Z",
+      "crawledAt": "2026-08-01T21:58:13.038Z",
       "addressLocality": "Wohlen",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -870,7 +870,7 @@
       "url": "https://careers.oerlikon.com/job/Software-Engineer-%28gn%29/104224-en_US",
       "source": "Oerlikon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-01T10:56:46.088Z",
+      "crawledAt": "2026-08-01T21:58:12.208Z",
       "addressLocality": "Wohlen",
       "addressRegion": "GR",
       "addressCountry": "CH",

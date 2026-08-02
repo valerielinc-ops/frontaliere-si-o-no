@@ -1,6 +1,6 @@
 {
   "crawlerKey": "empa",
-  "assembledAt": "2026-08-01T11:29:44.632Z",
+  "assembledAt": "2026-08-01T22:24:16.635Z",
   "jobs": [
     {
       "id": "empa-8d5a51c62388",
@@ -33,7 +33,7 @@
       "url": "https://apply.refline.ch/673276/2176/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-01T11:29:41.776Z",
+      "crawledAt": "2026-08-01T22:24:13.898Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "streetAddress": "Ueberlandstrasse 129",
@@ -54,11 +54,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "postdoctoral-researcher-on-co2-solid-adsorbent-shaping-and-degradation-empa-dubendorf"
+        "postdoctoral-researcher-on-co2-solid-adsorbent-shaping-and-degradation-empa-dubendorf",
+        "ricercatore-post-dottorato-sulla-modellatura-e-degradazione-degli-adsorbenti-solidi-di-co2-empa-dubendorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "postdoctoral-researcher-on-co2-solid-adsorbent-shaping-and-degradation-empa-dubendorf"
+          "postdoctoral-researcher-on-co2-solid-adsorbent-shaping-and-degradation-empa-dubendorf",
+          "ricercatore-post-dottorato-sulla-modellatura-e-degradazione-degli-adsorbenti-solidi-di-co2-empa-dubendorf"
         ],
         "de": [
           "postdoctoral-researcher-on-co2-solid-adsorbent-shaping-and-degradation-empa-dubendorf"
@@ -112,7 +114,7 @@
       "url": "https://apply.refline.ch/673276/2181/pub/4/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-01T11:29:41.775Z",
+      "crawledAt": "2026-08-01T22:24:13.897Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "streetAddress": "Ueberlandstrasse 129",
@@ -133,11 +135,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "postdoc-position-in-co2-electrocatalysis-under-realistic-conditions-empa-dubendorf"
+        "postdoc-position-in-co2-electrocatalysis-under-realistic-conditions-empa-dubendorf",
+        "posizione-postdoc-in-elettrocatalisi-co2-in-condizioni-realistiche-empa-dubendorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "postdoc-position-in-co2-electrocatalysis-under-realistic-conditions-empa-dubendorf"
+          "postdoc-position-in-co2-electrocatalysis-under-realistic-conditions-empa-dubendorf",
+          "posizione-postdoc-in-elettrocatalisi-co2-in-condizioni-realistiche-empa-dubendorf"
         ],
         "de": [
           "postdoc-position-in-co2-electrocatalysis-under-realistic-conditions-empa-dubendorf"
@@ -147,6 +151,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T10:39:25.182Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -191,7 +196,7 @@
       "url": "https://apply.refline.ch/673276/2199/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-01T11:29:41.774Z",
+      "crawledAt": "2026-08-01T22:24:13.896Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "streetAddress": "Ueberlandstrasse 129",
@@ -212,93 +217,17 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lernende-r-fachperson-betriebsunterhalt-efz-oder-eba-a-empa-dubendorf"
+        "lernende-r-fachperson-betriebsunterhalt-efz-oder-eba-a-empa-dubendorf",
+        "apprendista-fachperson-betriebsunterhalt-cfc-o-afp-a-empa-dubendorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lernende-r-fachperson-betriebsunterhalt-efz-oder-eba-a-empa-dubendorf"
+          "lernende-r-fachperson-betriebsunterhalt-efz-oder-eba-a-empa-dubendorf",
+          "apprendista-fachperson-betriebsunterhalt-cfc-o-afp-a-empa-dubendorf"
         ]
       },
       "firstSeenAt": "2026-07-04T10:39:25.178Z",
-      "salaryMin": 62000,
-      "salaryMax": 94000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 94000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "empa-ee6a7d309755",
-      "slug": "apprendista-konstrukteur-in-cfc-a-empa-dubendorf",
-      "slugByLocale": {
-        "it": "apprendista-konstrukteur-in-cfc-a-empa-dubendorf",
-        "en": "apprentice-konstrukteur-in-efz-a-empa-dubendorf",
-        "de": "lernende-r-konstrukteur-in-efz-a-empa-dubendorf",
-        "fr": "apprenti-e-konstrukteur-in-efz-a-empa-dubendorf"
-      },
-      "company": "Empa",
-      "companyKey": "empa",
-      "companyDomain": "empa.ch",
-      "title": "Lernende/r Konstrukteur/in EFZ (a)",
-      "titleByLocale": {
-        "it": "Apprendista Konstrukteur/in CFC (a)",
-        "en": "Apprentice Konstrukteur/in EFZ (a)",
-        "de": "Lernende/r Konstrukteur/in EFZ (a)",
-        "fr": "Apprenti/e Konstrukteur/in EFZ (a)"
-      },
-      "description": "Materialwissenschaft und Technologie sind unsere Leidenschaft. Mit unserer Spitzenforschung leisten die rund 1'100 Mitarbeitenden der Empa entscheidende Beiträge zum Wohle der Gesellschaft für eine lebenswerte Zukunft. Die Empa ist eine Forschungsinstitution des ETH-Bereichs.\n\nLernende/r Konstrukteur/in EFZ (a)\n\nEine breite, fundierte und abwechslungsreiche Berufsausbildung ist uns ein zentrales Anliegen. Wir möchten dir mit einer Lehrstelle in der Forschung jedoch nicht nur das reine Berufshandwerk vermitteln, sondern auch Freude an deiner Tätigkeit.\n\nDie Grundvoraussetzungen für eine erfolgreiche Berufsausbildung an der Empa sind Leistungsbereitschaft, Enthusiasmus und Flexibilität sowie ein gewisses Mass an Selbstdisziplin. Werte wie Selbständigkeit, Verantwortungsbewusstsein, Kreativität, Kundenorientierung sowie die Fähigkeit mit-, voraus- und weiterzudenken werden dich während deiner gesamten Ausbildung bei uns begleiten. Ausserdem unterstützen wir dich mit «Saphir», unserem betriebsinternen Konzept zur Förderung der Lernenden. Wenn dich der Gedanke, in einem Forschungsumfeld an unserer aller Zukunft mitzuarbeiten, reizt und motiviert, freuen wir uns darauf, dich kennen zu lernen.\n\nDeine Aufgaben\n\n• Du entwickelst kreative und konstruktive Lösungen für Forschungs- und Prüfvorrichtungen auf einem 3D CAD-System\n\n• Fertigungsunterlagen herstellen und Produkte gestalten\n\n• Mit Kunden und Mitarbeitenden der Werkstatt kommunizieren\n\n• Evaluieren von Zukaufprodukten, Planen und Verfolgen von Terminen\n\n• Kontrolle der Funktionalität von fertigen Vorrichtungen\n\nDein Profil\n\nDein Sekundarabschluss ist in greifbarer Nähe und du hast gute Leistungen (Sek A) bis sehr gute Leistungen (Sek B) in den Hauptfächern Arithmetik/Algebra sowie Geometrie, Physik und Deutsch. Du besitzt ein sehr gutes räumliches Vorstellungsvermögen, bringst Lern- und Leistungsbereitschaft mit und hast Freude am Umgang mit Metallen und Kunststoffen. Dein Interesse an modernen, komplexen Maschinen sowie die Begabung für exaktes und speditives Arbeiten setzen wir voraus. Hohes Verantwortungsgefühl und Teamfähigkeit sind weitere wichtige Komponenten.\n\nUnser Angebot\n\nWir bieten eine solide Ausbildung mit einem modernen Arbeitsplatz. Während der Lehre setzt du dich mit Zeichnungstechniken und Konstruktionsmethoden auseinander und hast so die Möglichkeit, dir ein vielfältiges Wissen anzueignen. Die Empa ist ein lebendiges und innovatives Forschungsumfeld mit internationalem Flair und hervorragenden Anstellungsbedingungen in der Agglomeration Zürich. Weitere Informationen zur Lehre der Empa findest du in unserem Factsheet .\n\nHaben wir dich angesprochen? Dann schicke uns noch heute deine Bewerbung, wir freuen uns darauf.\n\n«a» steht in unseren Stelleninseraten für «alle». Wir leben eine Kultur der Inklusion und des Respekts. Bei uns sind alle Menschen willkommen, die Lust auf innovative, nachhaltige und sinnstiftende Tätigkeiten haben - nur das zählt.\n\nWir freuen uns auf deine vollständige Online-Bewerbung inkl. Bewerbungsschreiben, Lebenslauf, Schulzeugnisse, Stellwerktest und Schnupperberichte. Bitte reiche diese ausschliesslich über unser Bewerbungsportal ein. Bewerbungen per E-Mail sowie auf dem Postweg werden nicht berücksichtigt.",
-      "descriptionByLocale": {
-        "it": "La scienza dei materiali e la tecnologia sono la nostra passione. Con la nostra ricerca all'avanguardia, i circa 1.100 dipendenti di Empa danno un contributo decisivo a beneficio della società per un futuro che vale la pena di vivere. Empa è un'istituzione di ricerca del dominio ETH. Apparecchio/Constructor in EFZ (a) Un'ampia, ben fondata e diversificata formazione professionale è una preoccupazione centrale per noi. Con un apprendistato nella ricerca, vorremmo insegnarvi non solo il puro mestiere professionale, ma anche il piacere del vostro lavoro. I requisiti fondamentali per una formazione professionale di successo in Empa sono la volontà di svolgere, l'entusiasmo e la flessibilità e un certo grado di autodisciplina. Valori come l'autooccupazione, la responsabilità, la creatività, l'orientamento del cliente e la capacità di pensare avanti e avanti vi accompagneranno durante la vostra formazione con noi. Vi sosteniamo anche con “Saphir”, il nostro concetto interno per la promozione degli studenti. Se il pensiero di lavorare in un ambiente di ricerca sul futuro di noi tutti eccita e ti motiva, non vediamo l'ora di incontrarti. I tuoi compiti\n• Svilupperai soluzioni creative e costruttive per la ricerca e i dispositivi di test su un sistema CAD 3D\n• Fabbricazione di documenti e prodotti di design\n• Comunicare con clienti e dipendenti del workshop\n• Valutare i prodotti di acquisto, pianificare e tracciare le date\n• Controllo della funzionalità dei dispositivi finiti Il tuo profilo La tua laurea secondaria è a portata di mano e hai buone prestazioni (Sec A) a prestazioni molto buone (Sec B) nei soggetti principali Arithmetic/Algebra, nonché geometria, fisica e tedesca. Hai una buona immaginazione spaziale, portare l'apprendimento e le prestazioni e godere di lavorare con metalli e plastiche. Presupponiamo il vostro interesse per le macchine moderne, complesse e il talento per il lavoro esatto e in avanti. L'alto senso di responsabilità e il lavoro di squadra sono altri componenti importanti. La nostra offerta Offriamo una solida formazione con un posto di lavoro moderno. Durante l'insegnamento, si tratta di tecniche di disegno e metodi di costruzione e quindi hanno l'opportunità di acquisire una conoscenza diversificata. Empa è un ambiente di ricerca vivace e innovativo con un tocco internazionale e eccellenti condizioni di lavoro nell'agglomerato di Zurigo. Ulteriori informazioni sull'insegnamento di Empa possono essere trovate nella nostra scheda di fatto. Ti abbiamo parlato? Allora inviaci la tua domanda oggi, non vediamo l'ora di farlo. “a” sta per “tutti” nei nostri annunci di lavoro. Viviamo una cultura di inclusione e rispetto. Diamo il benvenuto a tutte le persone che hanno il desiderio di attività innovative, sostenibili e significative - solo che conta. Non vediamo l'ora della tua applicazione online completa incl. Lettera di domanda, CV, certificati scolastici, test di interlock e rapporti di prova. Si prega di inviarli esclusivamente tramite il nostro portale di applicazione. Le domande per e-mail o per posta non saranno considerate.",
-        "en": "Materials science and technology are our passion. With our cutting-edge research, Empa’s approximately 1,100 employees make decisive contributions to the benefit of society for a future worth living in. Empa is a research institution of the ETH Domain. Apprentice/Constructor in EFZ (a) A broad, well-founded and varied vocational training is a central concern for us. With an apprenticeship in research, we would like to teach you not only the pure professional craft, but also the pleasure of your work. The basic requirements for successful vocational training at Empa are willingness to perform, enthusiasm and flexibility as well as a certain degree of self-discipline. Values such as self-employment, responsibility, creativity, customer orientation and the ability to think ahead and ahead will accompany you throughout your training with us. We also support you with “Saphir”, our internal concept for the promotion of learners. If the thought of working in a research environment on the future of us all excites and motivates you, we look forward to meeting you. Your tasks\n• You will develop creative and constructive solutions for research and testing devices on a 3D CAD system\n• Manufacture documents and design products\n• Communicate with customers and employees of the workshop\n• Evaluating purchase products, planning and tracking dates\n• Control of the functionality of finished devices Your profile Your secondary degree is within reach and you have good performance (Sec A) to very good performance (Sec B) in the main subjects Arithmetic/Algebra as well as geometry, physics and German. You have a very good spatial imagination, bring learning and performance and enjoy working with metals and plastics. We presuppose your interest in modern, complex machines as well as the talent for exact and forward working. High sense of responsibility and teamwork are other important components. Our offer We offer a solid education with a modern workplace. During the teaching, you will deal with drawing techniques and construction methods and thus have the opportunity to acquire a diverse knowledge. Empa is a lively and innovative research environment with an international flair and excellent employment conditions in the agglomeration of Zurich. Further information on the teaching of Empa can be found in our factsheet. Did we talk to you? Then send us your application today, we look forward to it. “a” stands for “all” in our job advertisements. We live a culture of inclusion and respect. We welcome all people who have the desire for innovative, sustainable and meaningful activities - only that counts. We look forward to your complete online application incl. Application letter, CV, school certificates, interlock test and trial reports. Please submit them exclusively via our application portal. Applications by e-mail or by post will not be considered.",
-        "de": "Materialwissenschaft und Technologie sind unsere Leidenschaft. Mit unserer Spitzenforschung leisten die rund 1'100 Mitarbeitenden der Empa entscheidende Beiträge zum Wohle der Gesellschaft für eine lebenswerte Zukunft. Die Empa ist eine Forschungsinstitution des ETH-Bereichs.\n\nLernende/r Konstrukteur/in EFZ (a)\n\nEine breite, fundierte und abwechslungsreiche Berufsausbildung ist uns ein zentrales Anliegen. Wir möchten dir mit einer Lehrstelle in der Forschung jedoch nicht nur das reine Berufshandwerk vermitteln, sondern auch Freude an deiner Tätigkeit.\n\nDie Grundvoraussetzungen für eine erfolgreiche Berufsausbildung an der Empa sind Leistungsbereitschaft, Enthusiasmus und Flexibilität sowie ein gewisses Mass an Selbstdisziplin. Werte wie Selbständigkeit, Verantwortungsbewusstsein, Kreativität, Kundenorientierung sowie die Fähigkeit mit-, voraus- und weiterzudenken werden dich während deiner gesamten Ausbildung bei uns begleiten. Ausserdem unterstützen wir dich mit «Saphir», unserem betriebsinternen Konzept zur Förderung der Lernenden. Wenn dich der Gedanke, in einem Forschungsumfeld an unserer aller Zukunft mitzuarbeiten, reizt und motiviert, freuen wir uns darauf, dich kennen zu lernen.\n\nDeine Aufgaben\n\n• Du entwickelst kreative und konstruktive Lösungen für Forschungs- und Prüfvorrichtungen auf einem 3D CAD-System\n\n• Fertigungsunterlagen herstellen und Produkte gestalten\n\n• Mit Kunden und Mitarbeitenden der Werkstatt kommunizieren\n\n• Evaluieren von Zukaufprodukten, Planen und Verfolgen von Terminen\n\n• Kontrolle der Funktionalität von fertigen Vorrichtungen\n\nDein Profil\n\nDein Sekundarabschluss ist in greifbarer Nähe und du hast gute Leistungen (Sek A) bis sehr gute Leistungen (Sek B) in den Hauptfächern Arithmetik/Algebra sowie Geometrie, Physik und Deutsch. Du besitzt ein sehr gutes räumliches Vorstellungsvermögen, bringst Lern- und Leistungsbereitschaft mit und hast Freude am Umgang mit Metallen und Kunststoffen. Dein Interesse an modernen, komplexen Maschinen sowie die Begabung für exaktes und speditives Arbeiten setzen wir voraus. Hohes Verantwortungsgefühl und Teamfähigkeit sind weitere wichtige Komponenten.\n\nUnser Angebot\n\nWir bieten eine solide Ausbildung mit einem modernen Arbeitsplatz. Während der Lehre setzt du dich mit Zeichnungstechniken und Konstruktionsmethoden auseinander und hast so die Möglichkeit, dir ein vielfältiges Wissen anzueignen. Die Empa ist ein lebendiges und innovatives Forschungsumfeld mit internationalem Flair und hervorragenden Anstellungsbedingungen in der Agglomeration Zürich. Weitere Informationen zur Lehre der Empa findest du in unserem Factsheet .\n\nHaben wir dich angesprochen? Dann schicke uns noch heute deine Bewerbung, wir freuen uns darauf.\n\n«a» steht in unseren Stelleninseraten für «alle». Wir leben eine Kultur der Inklusion und des Respekts. Bei uns sind alle Menschen willkommen, die Lust auf innovative, nachhaltige und sinnstiftende Tätigkeiten haben - nur das zählt.\n\nWir freuen uns auf deine vollständige Online-Bewerbung inkl. Bewerbungsschreiben, Lebenslauf, Schulzeugnisse, Stellwerktest und Schnupperberichte. Bitte reiche diese ausschliesslich über unser Bewerbungsportal ein. Bewerbungen per E-Mail sowie auf dem Postweg werden nicht berücksichtigt.",
-        "fr": "La science et la technologie des matériaux sont notre passion. Grâce à notre recherche de pointe, Empa, environ 1 100 employés apportent une contribution décisive au bénéfice de la société pour un avenir digne d'être vécu. Empa est une institution de recherche du domaine ETH. Apprenti/constructeur dans EFZ (a) Une formation professionnelle large, fondée et variée est une préoccupation centrale pour nous. Avec un apprentissage en recherche, nous aimerions vous enseigner non seulement l'artisanat purement professionnel, mais aussi le plaisir de votre travail. Les exigences de base pour une formation professionnelle réussie à Empa sont la volonté d'accomplir, l'enthousiasme et la flexibilité ainsi qu'un certain degré d'autodiscipline. Des valeurs telles que le travail indépendant, la responsabilité, la créativité, l'orientation client et la capacité de penser à l'avenir vous accompagneront tout au long de votre formation avec nous. Nous vous accompagnons également avec notre concept interne pour la promotion des apprenants. Si l'idée de travailler dans un environnement de recherche sur l'avenir de nous excite et vous motive tous, nous nous réjouissons de vous rencontrer. Vos tâches\n• Vous développerez des solutions créatives et constructives pour les appareils de recherche et de test sur un système CAO 3D\n• Fabrication de documents et de produits de design\n• Communiquer avec les clients et les employés de l'atelier\n• Évaluer les produits d'achat, la planification et les dates de suivi\n• Contrôle de la fonctionnalité des dispositifs finis Votre profil Votre diplôme secondaire est à portée de main et vous avez de bonnes performances (Sec A) à très bonnes performances (Sec B) dans les sujets principaux Arithmétique/Algèbre ainsi que la géométrie, la physique et l'allemand. Vous avez une très bonne imagination spatiale, apportez l'apprentissage et la performance et aimez travailler avec les métaux et les plastiques. Nous présupposons votre intérêt pour les machines modernes et complexes ainsi que le talent pour le travail exact et avant. Le haut sens des responsabilités et le travail d'équipe sont d'autres éléments importants. Notre offre Nous offrons une éducation solide avec un lieu de travail moderne. Pendant l'enseignement, vous aurez affaire aux techniques de dessin et aux méthodes de construction et aurez ainsi la possibilité d'acquérir une connaissance diversifiée. Empa est un environnement de recherche dynamique et innovant avec un style international et d'excellentes conditions d'emploi dans l'agglomération de Zurich. De plus amples informations sur l'enseignement d'Empa se trouvent dans notre fiche d'information. On t'a parlé ? Alors envoyez-nous votre candidature aujourd'hui, nous attendons avec impatience. Il s'agit de tous dans nos offres d'emploi. Nous vivons une culture d'inclusion et de respect. Nous souhaitons la bienvenue à toutes les personnes qui désirent des activités novatrices, durables et significatives - seulement cela compte. Nous attendons avec impatience votre demande en ligne complète, y compris. Lettre de demande, CV, certificats scolaires, tests de verrouillage et rapports d'essai. Veuillez les soumettre exclusivement via notre portail d'applications. Les demandes par courrier électronique ou par la poste ne seront pas prises en considération."
-      },
-      "location": "Dübendorf",
-      "canton": "ZH",
-      "url": "https://apply.refline.ch/673276/2201/pub/1/index.html",
-      "source": "Empa Dedicated Parser (Refline 673276)",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-01T11:29:41.773Z",
-      "addressLocality": "Dübendorf",
-      "addressRegion": "ZH",
-      "streetAddress": "Ueberlandstrasse 129",
-      "postalCode": "8600",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Ricerca",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "intern",
-      "sector": "Università / Ricerca",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-22",
-      "applyUrl": "https://apply.refline.ch/673276/2201/pub/1/index.html",
-      "hiringOrganizationName": "Empa",
-      "jobReqId": "2201",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "lernende-r-konstrukteur-in-efz-a-empa-dubendorf"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "lernende-r-konstrukteur-in-efz-a-empa-dubendorf"
-        ],
-        "en": [
-          "lernende-r-konstrukteur-in-efz-a-empa-dubendorf"
-        ],
-        "fr": [
-          "lernende-r-konstrukteur-in-efz-a-empa-dubendorf"
-        ]
-      },
-      "firstSeenAt": "2026-07-04T10:39:25.175Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -343,7 +272,7 @@
       "url": "https://apply.refline.ch/673276/2204/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-01T11:29:41.770Z",
+      "crawledAt": "2026-08-01T22:24:13.895Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lerchenfeldstrasse 5",
@@ -364,14 +293,17 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lernende-r-laborant-in-efz-fachrichtung-textil-a-empa-st-gallen"
+        "lernende-r-laborant-in-efz-fachrichtung-textil-a-empa-st-gallen",
+        "apprendista-laborant-in-cfc-specializzazione-textil-a-empa-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lernende-r-laborant-in-efz-fachrichtung-textil-a-empa-st-gallen"
+          "lernende-r-laborant-in-efz-fachrichtung-textil-a-empa-st-gallen",
+          "apprendista-laborant-in-cfc-specializzazione-textil-a-empa-st-gallen"
         ]
       },
       "firstSeenAt": "2026-07-04T10:39:25.174Z",
+      "needsRetranslation": true,
       "salaryMin": 48000,
       "salaryMax": 73000,
       "baseSalary": {
@@ -386,37 +318,37 @@
       }
     },
     {
-      "id": "empa-61009aa65986",
-      "slug": "apprendista-laborant-in-specializzazione-chemie-a-empa-dubendorf",
+      "id": "empa-ee6a7d309755",
+      "slug": "apprendista-konstrukteur-in-cfc-a-empa-dubendorf",
       "slugByLocale": {
-        "it": "apprendista-laborant-in-specializzazione-chemie-a-empa-dubendorf",
-        "en": "lernende-r-laborant-in-fachrichtung-chemie-a-empa-dubendorf",
-        "de": "lernende-r-laborant-in-fachrichtung-chemie-a-empa-dubendorf",
-        "fr": "lernende-r-laborant-in-fachrichtung-chemie-a-empa-dubendorf"
+        "it": "apprendista-konstrukteur-in-cfc-a-empa-dubendorf",
+        "en": "apprentice-konstrukteur-in-efz-a-empa-dubendorf",
+        "de": "lernende-r-konstrukteur-in-efz-a-empa-dubendorf",
+        "fr": "apprenti-e-konstrukteur-in-efz-a-empa-dubendorf"
       },
       "company": "Empa",
       "companyKey": "empa",
       "companyDomain": "empa.ch",
-      "title": "Lernende/r Laborant/in Fachrichtung Chemie (a)",
+      "title": "Lernende/r Konstrukteur/in EFZ (a)",
       "titleByLocale": {
-        "it": "Apprendista Laborant/in specializzazione Chemie (a)",
-        "en": "Apprentice Laborant/in Fachrichtung Chemie (a)",
-        "de": "Lernende/r Laborant/in Fachrichtung Chemie (a)",
-        "fr": "Apprenti/e Laborant/in Fachrichtung Chemie (a)"
+        "it": "Apprendista Konstrukteur/in CFC (a)",
+        "en": "Apprentice Konstrukteur/in EFZ (a)",
+        "de": "Lernende/r Konstrukteur/in EFZ (a)",
+        "fr": "Apprenti/e Konstrukteur/in EFZ (a)"
       },
-      "description": "Materialwissenschaft und Technologie sind unsere Leidenschaft. Mit unserer Spitzenforschung leisten die rund 1'100 Mitarbeitenden der Empa entscheidende Beiträge zum Wohle der Gesellschaft für eine lebenswerte Zukunft. Die Empa ist eine Forschungsinstitution des ETH-Bereichs.\n\nLernende/r Laborant/in Fachrichtung Chemie (a)\n\nFür August 2027 bieten wir dir einen anspruchsvollen Ausbildungsplatz in einem faszinierenden Forschungsumfeld.\n\nWas dich erwartet\n\nDie spannenden Tätigkeiten im Chemielabor heissen Beobachten, Überwachen, Verarbeiten, Kommunizieren und Interpretieren von Daten, wobei du den sinnvollen Einsatz moderner analytischer Geräte zur Hilfe nimmst. Du bist für die praktische Durchführung wissenschaftlicher Untersuchungen zuständig, stellst chemische Substanzen her oder untersuchst sie.\n\nZusammen mit dem Nachbarinstitut Eawag führen wir ein gemeinsames Lehrlabor. Nebst dem Einführungskurs bei Lehrbeginn wirst du dort auch im zweiten und dritten Lehrjahr jeweils dreimonatige Ausbildungskurse besuchen. Die Berufsschule besuchst du in Winterthur.\n\nWas du mitbringst\n\nDie Sekundarschule A ist bald Geschichte und du schliesst diese mit sehr guten Leistungen vor allem in den naturwissenschaftlichen, mathematischen und auch sprachlichen Fächern ab. Du hast eine gute Beobachtungs- und Auffassungsgabe, bist ausdauernd und experimentierfreudig und arbeitest gerne im Team. Dein technisches Verständnis und manuelle Geschicklichkeit gehört genau so dazu wie deine Fähigkeit für abstraktes und analytisches Denken. Auch Sorgfalt und Zuverlässigkeit wissen wir zu schätzen. Die Freude am Umgang mit Computern und Elektronik ist ein Muss.\n Du bist zudem überzeugt, deine Zukunft mit einer Berufslehre zu starten.\n Bis Ende August 2026 werden die eingehenden Bewerbungen gesichtet. Wenn du weitergekommen bist, findet für dich ein Erstgespräch statt. Danach entscheiden wir die engste Auswahl für den Selektionsschnuppertag.\n\nWas wir dir bieten\n\nWir bieten eine spannende Ausbildung mit modernster Technik. Die Empa ist ein lebendiges und innovatives Forschungsumfeld mit internationalem Flair und hervorragenden Anstellungsbedingungen in der Agglomeration Zürich.\n\nWeitere Informationen zur Lehre der Empa findest du in unserem Factsheet .\n\nWir bieten eine spannende Ausbildung mit modernster Technik. Die Empa mit ihrem umfangreichen Campus ist ein lebendiges und innovatives Forschungsumfeld mit internationalem Flair und hervorragenden Anstellungsbedingungen in der Agglomeration Zürich.\n\n«a» steht in unseren Stelleninseraten für «alle». Wir leben eine Kultur der Inklusion und des Respekts. Bei uns sind alle Menschen willkommen, die Lust auf innovative, nachhaltige und sinnstiftende Tätigkeiten haben - nur das zählt.\n\nWir freuen uns auf deine vollständige Online-Bewerbung inkl. Motivationsschreiben, Lebenslauf, Zeugnisse, Diplome und Kontaktdaten von zwei Referenzpersonen. Bitte reiche diese ausschliesslich über unser Bewerbungsportal ein. Bewerbungen per E-Mail sowie auf dem Postweg werden nicht berücksichtigt.",
+      "description": "Materialwissenschaft und Technologie sind unsere Leidenschaft. Mit unserer Spitzenforschung leisten die rund 1'100 Mitarbeitenden der Empa entscheidende Beiträge zum Wohle der Gesellschaft für eine lebenswerte Zukunft. Die Empa ist eine Forschungsinstitution des ETH-Bereichs.\n\nLernende/r Konstrukteur/in EFZ (a)\n\nEine breite, fundierte und abwechslungsreiche Berufsausbildung ist uns ein zentrales Anliegen. Wir möchten dir mit einer Lehrstelle in der Forschung jedoch nicht nur das reine Berufshandwerk vermitteln, sondern auch Freude an deiner Tätigkeit.\n\nDie Grundvoraussetzungen für eine erfolgreiche Berufsausbildung an der Empa sind Leistungsbereitschaft, Enthusiasmus und Flexibilität sowie ein gewisses Mass an Selbstdisziplin. Werte wie Selbständigkeit, Verantwortungsbewusstsein, Kreativität, Kundenorientierung sowie die Fähigkeit mit-, voraus- und weiterzudenken werden dich während deiner gesamten Ausbildung bei uns begleiten. Ausserdem unterstützen wir dich mit «Saphir», unserem betriebsinternen Konzept zur Förderung der Lernenden. Wenn dich der Gedanke, in einem Forschungsumfeld an unserer aller Zukunft mitzuarbeiten, reizt und motiviert, freuen wir uns darauf, dich kennen zu lernen.\n\nDeine Aufgaben\n\n• Du entwickelst kreative und konstruktive Lösungen für Forschungs- und Prüfvorrichtungen auf einem 3D CAD-System\n\n• Fertigungsunterlagen herstellen und Produkte gestalten\n\n• Mit Kunden und Mitarbeitenden der Werkstatt kommunizieren\n\n• Evaluieren von Zukaufprodukten, Planen und Verfolgen von Terminen\n\n• Kontrolle der Funktionalität von fertigen Vorrichtungen\n\nDein Profil\n\nDein Sekundarabschluss ist in greifbarer Nähe und du hast gute Leistungen (Sek A) bis sehr gute Leistungen (Sek B) in den Hauptfächern Arithmetik/Algebra sowie Geometrie, Physik und Deutsch. Du besitzt ein sehr gutes räumliches Vorstellungsvermögen, bringst Lern- und Leistungsbereitschaft mit und hast Freude am Umgang mit Metallen und Kunststoffen. Dein Interesse an modernen, komplexen Maschinen sowie die Begabung für exaktes und speditives Arbeiten setzen wir voraus. Hohes Verantwortungsgefühl und Teamfähigkeit sind weitere wichtige Komponenten.\n\nUnser Angebot\n\nWir bieten eine solide Ausbildung mit einem modernen Arbeitsplatz. Während der Lehre setzt du dich mit Zeichnungstechniken und Konstruktionsmethoden auseinander und hast so die Möglichkeit, dir ein vielfältiges Wissen anzueignen. Die Empa ist ein lebendiges und innovatives Forschungsumfeld mit internationalem Flair und hervorragenden Anstellungsbedingungen in der Agglomeration Zürich. Weitere Informationen zur Lehre der Empa findest du in unserem Factsheet .\n\nHaben wir dich angesprochen? Dann schicke uns noch heute deine Bewerbung, wir freuen uns darauf.\n\n«a» steht in unseren Stelleninseraten für «alle». Wir leben eine Kultur der Inklusion und des Respekts. Bei uns sind alle Menschen willkommen, die Lust auf innovative, nachhaltige und sinnstiftende Tätigkeiten haben - nur das zählt.\n\nWir freuen uns auf deine vollständige Online-Bewerbung inkl. Bewerbungsschreiben, Lebenslauf, Schulzeugnisse, Stellwerktest und Schnupperberichte. Bitte reiche diese ausschliesslich über unser Bewerbungsportal ein. Bewerbungen per E-Mail sowie auf dem Postweg werden nicht berücksichtigt.",
       "descriptionByLocale": {
-        "it": "La scienza dei materiali e la tecnologia sono la nostra passione. Con la nostra ricerca all'avanguardia, i circa 1.100 dipendenti di Empa danno un contributo decisivo a beneficio della società per un futuro che vale la pena di vivere. Empa è un'istituzione di ricerca del dominio ETH. Apprendistato tecnico/chimica dipartimentale (a) Per l'agosto 2027 vi offriamo un apprendistato impegnativo in un ambiente di ricerca affascinante. Cosa aspettarsi Le entusiasmanti attività del laboratorio chimico stanno osservando, monitorando, elaborando, comunicando e interpretando i dati, utilizzando il ragionevole utilizzo dei moderni dispositivi analitici. Lei è responsabile della condotta pratica delle indagini scientifiche, della fabbricazione o dell'indagine di sostanze chimiche. Insieme all'istituto confinante Eawag, gestiamo un laboratorio di insegnamento comune. Oltre al corso introduttivo all'inizio dell'apprendistato, si frequentano anche corsi di formazione di tre mesi nel secondo e terzo anno di apprendistato. Visiterete la scuola professionale di Winterthur. Cosa porti Scuola secondaria A sarà presto storia e si finirà con prestazioni molto buone, soprattutto nelle scienze naturali, matematica e materie linguistiche. Avete una buona capacità di osservare e comprendere, sono persistenti e sperimentali e godere di lavorare in una squadra. La vostra comprensione tecnica e abilità manuale sono tanto una parte di questo come la vostra capacità di pensiero astratto e analitico. Apprezziamo anche la cura e l'affidabilità. La gioia di trattare con i computer e l'elettronica è un must. Siete anche convinti di iniziare il vostro futuro con un apprendistato professionale. Entro la fine di agosto 2026, le applicazioni in arrivo saranno esaminate. Se avete progredito, un primo incontro si svolgerà per voi. Poi decidiamo la selezione più vicina per il giorno di prova di selezione. Cosa ti offriamo\n• Offriamo una formazione emozionante con la tecnologia più recente. Empa è un ambiente di ricerca vivace e innovativo con un tocco internazionale e eccellenti condizioni di lavoro nell'agglomerato di Zurigo. Ulteriori informazioni sull'insegnamento di Empa possono essere trovate nella nostra scheda di fatto.\n• Offriamo una formazione emozionante con la tecnologia più recente. Empa con il suo ampio campus è un ambiente di ricerca vivace e innovativo con un tocco internazionale e eccellenti condizioni di lavoro nell'agglomerato di Zurigo. “a” sta per “tutti” nei nostri annunci di lavoro. Viviamo una cultura di inclusione e rispetto. Diamo il benvenuto a tutte le persone che hanno il desiderio di attività innovative, sostenibili e significative - solo che conta. Non vediamo l'ora della tua applicazione online completa incl. Lettera di motivazione, CV, certificati, diplomi e contatti di due persone di riferimento. Si prega di inviarli esclusivamente tramite il nostro portale di applicazione. Le domande per e-mail o per posta non saranno considerate.",
-        "en": "Materials science and technology are our passion. With our cutting-edge research, Empa’s approximately 1,100 employees make decisive contributions to the benefit of society for a future worth living in. Empa is a research institution of the ETH Domain. Apprentice laboratory technician/department chemistry (a) For August 2027 we offer you a challenging apprenticeship in a fascinating research environment. What to expect The exciting activities in the chemical laboratory are observing, monitoring, processing, communicating and interpreting data, using the sensible use of modern analytical devices. You are responsible for the practical conduct of scientific investigations, manufacture or investigate chemical substances. Together with the neighbouring institute Eawag, we run a joint teaching laboratory. In addition to the introductory course at the beginning of the apprenticeship, you will also attend three-month training courses in the second and third year of apprenticeship. You will visit the vocational school in Winterthur.\n• What you bring Secondary school A will soon be history and you will finish it with very good performances, especially in the natural sciences, mathematics and linguistic subjects. You have a good ability to observe and comprehend, are persistent and experimental and enjoy working in a team. Your technical understanding and manual skill are just as much a part of this as your ability for abstract and analytical thinking. We also appreciate care and reliability. The joy of dealing with computers and electronics is a must. You are also convinced to start your future with a vocational apprenticeship. By the end of August 2026, the incoming applications will be reviewed. If you have progressed, a first meeting will take place for you. Then we decide the closest selection for the selection trial day.\n• What we offer you\n• We offer an exciting training with the latest technology. Empa is a lively and innovative research environment with an international flair and excellent employment conditions in the agglomeration of Zurich. Further information on the teaching of Empa can be found in our factsheet.\n• We offer an exciting training with the latest technology. Empa with its extensive campus is a lively and innovative research environment with an international flair and excellent employment conditions in the agglomeration of Zurich. “a” stands for “all” in our job advertisements. We live a culture of inclusion and respect. We welcome all people who have the desire for innovative, sustainable and meaningful activities - only that counts. We look forward to your complete online application incl. Letter of motivation, CV, certificates, diplomas and contact details of two reference persons. Please submit them exclusively via our application portal. Applications by e-mail or by post will not be considered.",
-        "de": "Materialwissenschaft und Technologie sind unsere Leidenschaft. Mit unserer Spitzenforschung leisten die rund 1'100 Mitarbeitenden der Empa entscheidende Beiträge zum Wohle der Gesellschaft für eine lebenswerte Zukunft. Die Empa ist eine Forschungsinstitution des ETH-Bereichs.\n\nLernende/r Laborant/in Fachrichtung Chemie (a)\n\nFür August 2027 bieten wir dir einen anspruchsvollen Ausbildungsplatz in einem faszinierenden Forschungsumfeld.\n\nWas dich erwartet\n\nDie spannenden Tätigkeiten im Chemielabor heissen Beobachten, Überwachen, Verarbeiten, Kommunizieren und Interpretieren von Daten, wobei du den sinnvollen Einsatz moderner analytischer Geräte zur Hilfe nimmst. Du bist für die praktische Durchführung wissenschaftlicher Untersuchungen zuständig, stellst chemische Substanzen her oder untersuchst sie.\n\nZusammen mit dem Nachbarinstitut Eawag führen wir ein gemeinsames Lehrlabor. Nebst dem Einführungskurs bei Lehrbeginn wirst du dort auch im zweiten und dritten Lehrjahr jeweils dreimonatige Ausbildungskurse besuchen. Die Berufsschule besuchst du in Winterthur.\n\nWas du mitbringst\n\nDie Sekundarschule A ist bald Geschichte und du schliesst diese mit sehr guten Leistungen vor allem in den naturwissenschaftlichen, mathematischen und auch sprachlichen Fächern ab. Du hast eine gute Beobachtungs- und Auffassungsgabe, bist ausdauernd und experimentierfreudig und arbeitest gerne im Team. Dein technisches Verständnis und manuelle Geschicklichkeit gehört genau so dazu wie deine Fähigkeit für abstraktes und analytisches Denken. Auch Sorgfalt und Zuverlässigkeit wissen wir zu schätzen. Die Freude am Umgang mit Computern und Elektronik ist ein Muss.\nDu bist zudem überzeugt, deine Zukunft mit einer Berufslehre zu starten.\nBis Ende August 2026 werden die eingehenden Bewerbungen gesichtet. Wenn du weitergekommen bist, findet für dich ein Erstgespräch statt. Danach entscheiden wir die engste Auswahl für den Selektionsschnuppertag.\n\nWas wir dir bieten\n\nWir bieten eine spannende Ausbildung mit modernster Technik. Die Empa ist ein lebendiges und innovatives Forschungsumfeld mit internationalem Flair und hervorragenden Anstellungsbedingungen in der Agglomeration Zürich.\n\nWeitere Informationen zur Lehre der Empa findest du in unserem Factsheet .\n\nWir bieten eine spannende Ausbildung mit modernster Technik. Die Empa mit ihrem umfangreichen Campus ist ein lebendiges und innovatives Forschungsumfeld mit internationalem Flair und hervorragenden Anstellungsbedingungen in der Agglomeration Zürich.\n\n«a» steht in unseren Stelleninseraten für «alle». Wir leben eine Kultur der Inklusion und des Respekts. Bei uns sind alle Menschen willkommen, die Lust auf innovative, nachhaltige und sinnstiftende Tätigkeiten haben - nur das zählt.\n\nWir freuen uns auf deine vollständige Online-Bewerbung inkl. Motivationsschreiben, Lebenslauf, Zeugnisse, Diplome und Kontaktdaten von zwei Referenzpersonen. Bitte reiche diese ausschliesslich über unser Bewerbungsportal ein. Bewerbungen per E-Mail sowie auf dem Postweg werden nicht berücksichtigt.",
-        "fr": "La science et la technologie des matériaux sont notre passion. Grâce à notre recherche de pointe, Empa, environ 1 100 employés apportent une contribution décisive au bénéfice de la société pour un avenir digne d'être vécu. Empa est une institution de recherche du domaine ETH. Technicien de laboratoire d'apprentissage/chimie du département (a) Pour août 2027, nous vous proposons un apprentissage stimulant dans un environnement de recherche fascinant. À quoi s'attendre Les activités passionnantes du laboratoire de chimie sont l'observation, la surveillance, le traitement, la communication et l'interprétation des données, à l'aide d'instruments analytiques modernes. Vous êtes responsable de la conduite pratique des enquêtes scientifiques, de la fabrication ou de l'étude de substances chimiques. Avec l'institut voisin Eawag, nous gérons un laboratoire d'enseignement commun. En plus du cours d'introduction au début de l'apprentissage, vous suivrez également des cours de formation de trois mois en deuxième et troisième année d'apprentissage. Vous visiterez l'école professionnelle de Winterthur. Ce que vous apportez L'école secondaire A sera bientôt l'histoire et vous finirez avec de très bonnes performances, en particulier dans les sciences naturelles, les mathématiques et les matières linguistiques. Vous avez une bonne capacité à observer et comprendre, sont persistantes et expérimentales et aiment travailler en équipe. Votre compréhension technique et vos compétences manuelles sont autant une partie de cela que votre capacité à la pensée abstraite et analytique. Nous apprécions également le soin et la fiabilité. La joie de traiter avec les ordinateurs et l'électronique est un must. Vous êtes également convaincu de commencer votre avenir par un apprentissage professionnel. D'ici la fin du mois d'août 2026, les nouvelles demandes seront examinées. Si vous avez progressé, une première réunion aura lieu pour vous. Ensuite, nous décidons de la sélection la plus proche pour la journée d'essai de sélection. Ce que nous vous offrons\n• Nous offrons une formation passionnante avec la dernière technologie. Empa est un environnement de recherche dynamique et innovant avec un style international et d'excellentes conditions d'emploi dans l'agglomération de Zurich. De plus amples informations sur l'enseignement d'Empa se trouvent dans notre fiche d'information.\n• Nous offrons une formation passionnante avec la dernière technologie. Empa avec son vaste campus est un environnement de recherche dynamique et innovant avec un style international et d'excellentes conditions d'emploi dans l'agglomération de Zurich. Il s'agit de tous dans nos offres d'emploi. Nous vivons une culture d'inclusion et de respect. Nous souhaitons la bienvenue à toutes les personnes qui désirent des activités novatrices, durables et significatives - seulement cela compte. Nous attendons avec impatience votre demande en ligne complète, y compris. Lettre de motivation, CV, certificats, diplômes et coordonnées de deux personnes de référence. Veuillez les soumettre exclusivement via notre portail d'applications. Les demandes par courrier électronique ou par la poste ne seront pas prises en considération."
+        "it": "La scienza dei materiali e la tecnologia sono la nostra passione. Con la nostra ricerca all'avanguardia, i circa 1.100 dipendenti di Empa danno un contributo decisivo a beneficio della società per un futuro che vale la pena di vivere. Empa è un'istituzione di ricerca del dominio ETH. Apparecchio/Constructor in EFZ (a) Un'ampia, ben fondata e diversificata formazione professionale è una preoccupazione centrale per noi. Con un apprendistato nella ricerca, vorremmo insegnarvi non solo il puro mestiere professionale, ma anche il piacere del vostro lavoro. I requisiti fondamentali per una formazione professionale di successo in Empa sono la volontà di svolgere, l'entusiasmo e la flessibilità e un certo grado di autodisciplina. Valori come l'autooccupazione, la responsabilità, la creatività, l'orientamento del cliente e la capacità di pensare avanti e avanti vi accompagneranno durante la vostra formazione con noi. Vi sosteniamo anche con “Saphir”, il nostro concetto interno per la promozione degli studenti. Se il pensiero di lavorare in un ambiente di ricerca sul futuro di noi tutti eccita e ti motiva, non vediamo l'ora di incontrarti. I tuoi compiti\n• Svilupperai soluzioni creative e costruttive per la ricerca e i dispositivi di test su un sistema CAD 3D\n• Fabbricazione di documenti e prodotti di design\n• Comunicare con clienti e dipendenti del workshop\n• Valutare i prodotti di acquisto, pianificare e tracciare le date\n• Controllo della funzionalità dei dispositivi finiti Il tuo profilo La tua laurea secondaria è a portata di mano e hai buone prestazioni (Sec A) a prestazioni molto buone (Sec B) nei soggetti principali Arithmetic/Algebra, nonché geometria, fisica e tedesca. Hai una buona immaginazione spaziale, portare l'apprendimento e le prestazioni e godere di lavorare con metalli e plastiche. Presupponiamo il vostro interesse per le macchine moderne, complesse e il talento per il lavoro esatto e in avanti. L'alto senso di responsabilità e il lavoro di squadra sono altri componenti importanti. La nostra offerta Offriamo una solida formazione con un posto di lavoro moderno. Durante l'insegnamento, si tratta di tecniche di disegno e metodi di costruzione e quindi hanno l'opportunità di acquisire una conoscenza diversificata. Empa è un ambiente di ricerca vivace e innovativo con un tocco internazionale e eccellenti condizioni di lavoro nell'agglomerato di Zurigo. Ulteriori informazioni sull'insegnamento di Empa possono essere trovate nella nostra scheda di fatto. Ti abbiamo parlato? Allora inviaci la tua domanda oggi, non vediamo l'ora di farlo. “a” sta per “tutti” nei nostri annunci di lavoro. Viviamo una cultura di inclusione e rispetto. Diamo il benvenuto a tutte le persone che hanno il desiderio di attività innovative, sostenibili e significative - solo che conta. Non vediamo l'ora della tua applicazione online completa incl. Lettera di domanda, CV, certificati scolastici, test di interlock e rapporti di prova. Si prega di inviarli esclusivamente tramite il nostro portale di applicazione. Le domande per e-mail o per posta non saranno considerate.",
+        "en": "Materials science and technology are our passion. With our cutting-edge research, Empa’s approximately 1,100 employees make decisive contributions to the benefit of society for a future worth living in. Empa is a research institution of the ETH Domain. Apprentice/Constructor in EFZ (a) A broad, well-founded and varied vocational training is a central concern for us. With an apprenticeship in research, we would like to teach you not only the pure professional craft, but also the pleasure of your work. The basic requirements for successful vocational training at Empa are willingness to perform, enthusiasm and flexibility as well as a certain degree of self-discipline. Values such as self-employment, responsibility, creativity, customer orientation and the ability to think ahead and ahead will accompany you throughout your training with us. We also support you with “Saphir”, our internal concept for the promotion of learners. If the thought of working in a research environment on the future of us all excites and motivates you, we look forward to meeting you. Your tasks\n• You will develop creative and constructive solutions for research and testing devices on a 3D CAD system\n• Manufacture documents and design products\n• Communicate with customers and employees of the workshop\n• Evaluating purchase products, planning and tracking dates\n• Control of the functionality of finished devices Your profile Your secondary degree is within reach and you have good performance (Sec A) to very good performance (Sec B) in the main subjects Arithmetic/Algebra as well as geometry, physics and German. You have a very good spatial imagination, bring learning and performance and enjoy working with metals and plastics. We presuppose your interest in modern, complex machines as well as the talent for exact and forward working. High sense of responsibility and teamwork are other important components. Our offer We offer a solid education with a modern workplace. During the teaching, you will deal with drawing techniques and construction methods and thus have the opportunity to acquire a diverse knowledge. Empa is a lively and innovative research environment with an international flair and excellent employment conditions in the agglomeration of Zurich. Further information on the teaching of Empa can be found in our factsheet. Did we talk to you? Then send us your application today, we look forward to it. “a” stands for “all” in our job advertisements. We live a culture of inclusion and respect. We welcome all people who have the desire for innovative, sustainable and meaningful activities - only that counts. We look forward to your complete online application incl. Application letter, CV, school certificates, interlock test and trial reports. Please submit them exclusively via our application portal. Applications by e-mail or by post will not be considered.",
+        "de": "Materialwissenschaft und Technologie sind unsere Leidenschaft. Mit unserer Spitzenforschung leisten die rund 1'100 Mitarbeitenden der Empa entscheidende Beiträge zum Wohle der Gesellschaft für eine lebenswerte Zukunft. Die Empa ist eine Forschungsinstitution des ETH-Bereichs.\n\nLernende/r Konstrukteur/in EFZ (a)\n\nEine breite, fundierte und abwechslungsreiche Berufsausbildung ist uns ein zentrales Anliegen. Wir möchten dir mit einer Lehrstelle in der Forschung jedoch nicht nur das reine Berufshandwerk vermitteln, sondern auch Freude an deiner Tätigkeit.\n\nDie Grundvoraussetzungen für eine erfolgreiche Berufsausbildung an der Empa sind Leistungsbereitschaft, Enthusiasmus und Flexibilität sowie ein gewisses Mass an Selbstdisziplin. Werte wie Selbständigkeit, Verantwortungsbewusstsein, Kreativität, Kundenorientierung sowie die Fähigkeit mit-, voraus- und weiterzudenken werden dich während deiner gesamten Ausbildung bei uns begleiten. Ausserdem unterstützen wir dich mit «Saphir», unserem betriebsinternen Konzept zur Förderung der Lernenden. Wenn dich der Gedanke, in einem Forschungsumfeld an unserer aller Zukunft mitzuarbeiten, reizt und motiviert, freuen wir uns darauf, dich kennen zu lernen.\n\nDeine Aufgaben\n\n• Du entwickelst kreative und konstruktive Lösungen für Forschungs- und Prüfvorrichtungen auf einem 3D CAD-System\n\n• Fertigungsunterlagen herstellen und Produkte gestalten\n\n• Mit Kunden und Mitarbeitenden der Werkstatt kommunizieren\n\n• Evaluieren von Zukaufprodukten, Planen und Verfolgen von Terminen\n\n• Kontrolle der Funktionalität von fertigen Vorrichtungen\n\nDein Profil\n\nDein Sekundarabschluss ist in greifbarer Nähe und du hast gute Leistungen (Sek A) bis sehr gute Leistungen (Sek B) in den Hauptfächern Arithmetik/Algebra sowie Geometrie, Physik und Deutsch. Du besitzt ein sehr gutes räumliches Vorstellungsvermögen, bringst Lern- und Leistungsbereitschaft mit und hast Freude am Umgang mit Metallen und Kunststoffen. Dein Interesse an modernen, komplexen Maschinen sowie die Begabung für exaktes und speditives Arbeiten setzen wir voraus. Hohes Verantwortungsgefühl und Teamfähigkeit sind weitere wichtige Komponenten.\n\nUnser Angebot\n\nWir bieten eine solide Ausbildung mit einem modernen Arbeitsplatz. Während der Lehre setzt du dich mit Zeichnungstechniken und Konstruktionsmethoden auseinander und hast so die Möglichkeit, dir ein vielfältiges Wissen anzueignen. Die Empa ist ein lebendiges und innovatives Forschungsumfeld mit internationalem Flair und hervorragenden Anstellungsbedingungen in der Agglomeration Zürich. Weitere Informationen zur Lehre der Empa findest du in unserem Factsheet .\n\nHaben wir dich angesprochen? Dann schicke uns noch heute deine Bewerbung, wir freuen uns darauf.\n\n«a» steht in unseren Stelleninseraten für «alle». Wir leben eine Kultur der Inklusion und des Respekts. Bei uns sind alle Menschen willkommen, die Lust auf innovative, nachhaltige und sinnstiftende Tätigkeiten haben - nur das zählt.\n\nWir freuen uns auf deine vollständige Online-Bewerbung inkl. Bewerbungsschreiben, Lebenslauf, Schulzeugnisse, Stellwerktest und Schnupperberichte. Bitte reiche diese ausschliesslich über unser Bewerbungsportal ein. Bewerbungen per E-Mail sowie auf dem Postweg werden nicht berücksichtigt.",
+        "fr": "La science et la technologie des matériaux sont notre passion. Grâce à notre recherche de pointe, Empa, environ 1 100 employés apportent une contribution décisive au bénéfice de la société pour un avenir digne d'être vécu. Empa est une institution de recherche du domaine ETH. Apprenti/constructeur dans EFZ (a) Une formation professionnelle large, fondée et variée est une préoccupation centrale pour nous. Avec un apprentissage en recherche, nous aimerions vous enseigner non seulement l'artisanat purement professionnel, mais aussi le plaisir de votre travail. Les exigences de base pour une formation professionnelle réussie à Empa sont la volonté d'accomplir, l'enthousiasme et la flexibilité ainsi qu'un certain degré d'autodiscipline. Des valeurs telles que le travail indépendant, la responsabilité, la créativité, l'orientation client et la capacité de penser à l'avenir vous accompagneront tout au long de votre formation avec nous. Nous vous accompagnons également avec notre concept interne pour la promotion des apprenants. Si l'idée de travailler dans un environnement de recherche sur l'avenir de nous excite et vous motive tous, nous nous réjouissons de vous rencontrer. Vos tâches\n• Vous développerez des solutions créatives et constructives pour les appareils de recherche et de test sur un système CAO 3D\n• Fabrication de documents et de produits de design\n• Communiquer avec les clients et les employés de l'atelier\n• Évaluer les produits d'achat, la planification et les dates de suivi\n• Contrôle de la fonctionnalité des dispositifs finis Votre profil Votre diplôme secondaire est à portée de main et vous avez de bonnes performances (Sec A) à très bonnes performances (Sec B) dans les sujets principaux Arithmétique/Algèbre ainsi que la géométrie, la physique et l'allemand. Vous avez une très bonne imagination spatiale, apportez l'apprentissage et la performance et aimez travailler avec les métaux et les plastiques. Nous présupposons votre intérêt pour les machines modernes et complexes ainsi que le talent pour le travail exact et avant. Le haut sens des responsabilités et le travail d'équipe sont d'autres éléments importants. Notre offre Nous offrons une éducation solide avec un lieu de travail moderne. Pendant l'enseignement, vous aurez affaire aux techniques de dessin et aux méthodes de construction et aurez ainsi la possibilité d'acquérir une connaissance diversifiée. Empa est un environnement de recherche dynamique et innovant avec un style international et d'excellentes conditions d'emploi dans l'agglomération de Zurich. De plus amples informations sur l'enseignement d'Empa se trouvent dans notre fiche d'information. On t'a parlé ? Alors envoyez-nous votre candidature aujourd'hui, nous attendons avec impatience. Il s'agit de tous dans nos offres d'emploi. Nous vivons une culture d'inclusion et de respect. Nous souhaitons la bienvenue à toutes les personnes qui désirent des activités novatrices, durables et significatives - seulement cela compte. Nous attendons avec impatience votre demande en ligne complète, y compris. Lettre de demande, CV, certificats scolaires, tests de verrouillage et rapports d'essai. Veuillez les soumettre exclusivement via notre portail d'applications. Les demandes par courrier électronique ou par la poste ne seront pas prises en considération."
       },
       "location": "Dübendorf",
       "canton": "ZH",
-      "url": "https://apply.refline.ch/673276/2193/pub/1/index.html",
+      "url": "https://apply.refline.ch/673276/2201/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-01T11:29:41.769Z",
+      "crawledAt": "2026-08-01T22:24:13.895Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "streetAddress": "Ueberlandstrasse 129",
@@ -430,21 +362,30 @@
       "sector": "Università / Ricerca",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-05-20",
-      "applyUrl": "https://apply.refline.ch/673276/2193/pub/1/index.html",
+      "postedDate": "2026-05-22",
+      "applyUrl": "https://apply.refline.ch/673276/2201/pub/1/index.html",
       "hiringOrganizationName": "Empa",
-      "jobReqId": "2193",
+      "jobReqId": "2201",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lernende-r-laborant-in-fachrichtung-chemie-a-empa-dubendorf"
+        "lernende-r-konstrukteur-in-efz-a-empa-dubendorf",
+        "apprendista-konstrukteur-in-cfc-a-empa-dubendorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lernende-r-laborant-in-fachrichtung-chemie-a-empa-dubendorf"
+          "lernende-r-konstrukteur-in-efz-a-empa-dubendorf",
+          "apprendista-konstrukteur-in-cfc-a-empa-dubendorf"
+        ],
+        "en": [
+          "lernende-r-konstrukteur-in-efz-a-empa-dubendorf"
+        ],
+        "fr": [
+          "lernende-r-konstrukteur-in-efz-a-empa-dubendorf"
         ]
       },
-      "firstSeenAt": "2026-07-04T10:39:25.173Z",
+      "firstSeenAt": "2026-07-04T10:39:25.175Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -489,7 +430,7 @@
       "url": "https://apply.refline.ch/673276/2194/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-01T11:29:41.768Z",
+      "crawledAt": "2026-08-01T22:24:13.894Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "streetAddress": "Ueberlandstrasse 129",
@@ -510,6 +451,82 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-07-04T10:39:25.171Z",
+      "salaryMin": 62000,
+      "salaryMax": 94000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 62000,
+          "maxValue": 94000,
+          "unitText": "YEAR"
+        }
+      },
+      "needsRetranslation": true
+    },
+    {
+      "id": "empa-61009aa65986",
+      "slug": "apprendista-laborant-in-specializzazione-chemie-a-empa-dubendorf",
+      "slugByLocale": {
+        "it": "apprendista-laborant-in-specializzazione-chemie-a-empa-dubendorf",
+        "en": "lernende-r-laborant-in-fachrichtung-chemie-a-empa-dubendorf",
+        "de": "lernende-r-laborant-in-fachrichtung-chemie-a-empa-dubendorf",
+        "fr": "lernende-r-laborant-in-fachrichtung-chemie-a-empa-dubendorf"
+      },
+      "company": "Empa",
+      "companyKey": "empa",
+      "companyDomain": "empa.ch",
+      "title": "Lernende/r Laborant/in Fachrichtung Chemie (a)",
+      "titleByLocale": {
+        "it": "Apprendista Laborant/in specializzazione Chemie (a)",
+        "en": "Apprentice Laborant/in Fachrichtung Chemie (a)",
+        "de": "Lernende/r Laborant/in Fachrichtung Chemie (a)",
+        "fr": "Apprenti/e Laborant/in Fachrichtung Chemie (a)"
+      },
+      "description": "Materialwissenschaft und Technologie sind unsere Leidenschaft. Mit unserer Spitzenforschung leisten die rund 1'100 Mitarbeitenden der Empa entscheidende Beiträge zum Wohle der Gesellschaft für eine lebenswerte Zukunft. Die Empa ist eine Forschungsinstitution des ETH-Bereichs.\n\nLernende/r Laborant/in Fachrichtung Chemie (a)\n\nFür August 2027 bieten wir dir einen anspruchsvollen Ausbildungsplatz in einem faszinierenden Forschungsumfeld.\n\nWas dich erwartet\n\nDie spannenden Tätigkeiten im Chemielabor heissen Beobachten, Überwachen, Verarbeiten, Kommunizieren und Interpretieren von Daten, wobei du den sinnvollen Einsatz moderner analytischer Geräte zur Hilfe nimmst. Du bist für die praktische Durchführung wissenschaftlicher Untersuchungen zuständig, stellst chemische Substanzen her oder untersuchst sie.\n\nZusammen mit dem Nachbarinstitut Eawag führen wir ein gemeinsames Lehrlabor. Nebst dem Einführungskurs bei Lehrbeginn wirst du dort auch im zweiten und dritten Lehrjahr jeweils dreimonatige Ausbildungskurse besuchen. Die Berufsschule besuchst du in Winterthur.\n\nWas du mitbringst\n\nDie Sekundarschule A ist bald Geschichte und du schliesst diese mit sehr guten Leistungen vor allem in den naturwissenschaftlichen, mathematischen und auch sprachlichen Fächern ab. Du hast eine gute Beobachtungs- und Auffassungsgabe, bist ausdauernd und experimentierfreudig und arbeitest gerne im Team. Dein technisches Verständnis und manuelle Geschicklichkeit gehört genau so dazu wie deine Fähigkeit für abstraktes und analytisches Denken. Auch Sorgfalt und Zuverlässigkeit wissen wir zu schätzen. Die Freude am Umgang mit Computern und Elektronik ist ein Muss.\n Du bist zudem überzeugt, deine Zukunft mit einer Berufslehre zu starten.\n Bis Ende August 2026 werden die eingehenden Bewerbungen gesichtet. Wenn du weitergekommen bist, findet für dich ein Erstgespräch statt. Danach entscheiden wir die engste Auswahl für den Selektionsschnuppertag.\n\nWas wir dir bieten\n\nWir bieten eine spannende Ausbildung mit modernster Technik. Die Empa ist ein lebendiges und innovatives Forschungsumfeld mit internationalem Flair und hervorragenden Anstellungsbedingungen in der Agglomeration Zürich.\n\nWeitere Informationen zur Lehre der Empa findest du in unserem Factsheet .\n\nWir bieten eine spannende Ausbildung mit modernster Technik. Die Empa mit ihrem umfangreichen Campus ist ein lebendiges und innovatives Forschungsumfeld mit internationalem Flair und hervorragenden Anstellungsbedingungen in der Agglomeration Zürich.\n\n«a» steht in unseren Stelleninseraten für «alle». Wir leben eine Kultur der Inklusion und des Respekts. Bei uns sind alle Menschen willkommen, die Lust auf innovative, nachhaltige und sinnstiftende Tätigkeiten haben - nur das zählt.\n\nWir freuen uns auf deine vollständige Online-Bewerbung inkl. Motivationsschreiben, Lebenslauf, Zeugnisse, Diplome und Kontaktdaten von zwei Referenzpersonen. Bitte reiche diese ausschliesslich über unser Bewerbungsportal ein. Bewerbungen per E-Mail sowie auf dem Postweg werden nicht berücksichtigt.",
+      "descriptionByLocale": {
+        "it": "La scienza dei materiali e la tecnologia sono la nostra passione. Con la nostra ricerca all'avanguardia, i circa 1.100 dipendenti di Empa danno un contributo decisivo a beneficio della società per un futuro che vale la pena di vivere. Empa è un'istituzione di ricerca del dominio ETH. Apprendistato tecnico/chimica dipartimentale (a) Per l'agosto 2027 vi offriamo un apprendistato impegnativo in un ambiente di ricerca affascinante. Cosa aspettarsi Le entusiasmanti attività del laboratorio chimico stanno osservando, monitorando, elaborando, comunicando e interpretando i dati, utilizzando il ragionevole utilizzo dei moderni dispositivi analitici. Lei è responsabile della condotta pratica delle indagini scientifiche, della fabbricazione o dell'indagine di sostanze chimiche. Insieme all'istituto confinante Eawag, gestiamo un laboratorio di insegnamento comune. Oltre al corso introduttivo all'inizio dell'apprendistato, si frequentano anche corsi di formazione di tre mesi nel secondo e terzo anno di apprendistato. Visiterete la scuola professionale di Winterthur. Cosa porti Scuola secondaria A sarà presto storia e si finirà con prestazioni molto buone, soprattutto nelle scienze naturali, matematica e materie linguistiche. Avete una buona capacità di osservare e comprendere, sono persistenti e sperimentali e godere di lavorare in una squadra. La vostra comprensione tecnica e abilità manuale sono tanto una parte di questo come la vostra capacità di pensiero astratto e analitico. Apprezziamo anche la cura e l'affidabilità. La gioia di trattare con i computer e l'elettronica è un must. Siete anche convinti di iniziare il vostro futuro con un apprendistato professionale. Entro la fine di agosto 2026, le applicazioni in arrivo saranno esaminate. Se avete progredito, un primo incontro si svolgerà per voi. Poi decidiamo la selezione più vicina per il giorno di prova di selezione. Cosa ti offriamo\n• Offriamo una formazione emozionante con la tecnologia più recente. Empa è un ambiente di ricerca vivace e innovativo con un tocco internazionale e eccellenti condizioni di lavoro nell'agglomerato di Zurigo. Ulteriori informazioni sull'insegnamento di Empa possono essere trovate nella nostra scheda di fatto.\n• Offriamo una formazione emozionante con la tecnologia più recente. Empa con il suo ampio campus è un ambiente di ricerca vivace e innovativo con un tocco internazionale e eccellenti condizioni di lavoro nell'agglomerato di Zurigo. “a” sta per “tutti” nei nostri annunci di lavoro. Viviamo una cultura di inclusione e rispetto. Diamo il benvenuto a tutte le persone che hanno il desiderio di attività innovative, sostenibili e significative - solo che conta. Non vediamo l'ora della tua applicazione online completa incl. Lettera di motivazione, CV, certificati, diplomi e contatti di due persone di riferimento. Si prega di inviarli esclusivamente tramite il nostro portale di applicazione. Le domande per e-mail o per posta non saranno considerate.",
+        "en": "Materials science and technology are our passion. With our cutting-edge research, Empa’s approximately 1,100 employees make decisive contributions to the benefit of society for a future worth living in. Empa is a research institution of the ETH Domain. Apprentice laboratory technician/department chemistry (a) For August 2027 we offer you a challenging apprenticeship in a fascinating research environment. What to expect The exciting activities in the chemical laboratory are observing, monitoring, processing, communicating and interpreting data, using the sensible use of modern analytical devices. You are responsible for the practical conduct of scientific investigations, manufacture or investigate chemical substances. Together with the neighbouring institute Eawag, we run a joint teaching laboratory. In addition to the introductory course at the beginning of the apprenticeship, you will also attend three-month training courses in the second and third year of apprenticeship. You will visit the vocational school in Winterthur.\n• What you bring Secondary school A will soon be history and you will finish it with very good performances, especially in the natural sciences, mathematics and linguistic subjects. You have a good ability to observe and comprehend, are persistent and experimental and enjoy working in a team. Your technical understanding and manual skill are just as much a part of this as your ability for abstract and analytical thinking. We also appreciate care and reliability. The joy of dealing with computers and electronics is a must. You are also convinced to start your future with a vocational apprenticeship. By the end of August 2026, the incoming applications will be reviewed. If you have progressed, a first meeting will take place for you. Then we decide the closest selection for the selection trial day.\n• What we offer you\n• We offer an exciting training with the latest technology. Empa is a lively and innovative research environment with an international flair and excellent employment conditions in the agglomeration of Zurich. Further information on the teaching of Empa can be found in our factsheet.\n• We offer an exciting training with the latest technology. Empa with its extensive campus is a lively and innovative research environment with an international flair and excellent employment conditions in the agglomeration of Zurich. “a” stands for “all” in our job advertisements. We live a culture of inclusion and respect. We welcome all people who have the desire for innovative, sustainable and meaningful activities - only that counts. We look forward to your complete online application incl. Letter of motivation, CV, certificates, diplomas and contact details of two reference persons. Please submit them exclusively via our application portal. Applications by e-mail or by post will not be considered.",
+        "de": "Materialwissenschaft und Technologie sind unsere Leidenschaft. Mit unserer Spitzenforschung leisten die rund 1'100 Mitarbeitenden der Empa entscheidende Beiträge zum Wohle der Gesellschaft für eine lebenswerte Zukunft. Die Empa ist eine Forschungsinstitution des ETH-Bereichs.\n\nLernende/r Laborant/in Fachrichtung Chemie (a)\n\nFür August 2027 bieten wir dir einen anspruchsvollen Ausbildungsplatz in einem faszinierenden Forschungsumfeld.\n\nWas dich erwartet\n\nDie spannenden Tätigkeiten im Chemielabor heissen Beobachten, Überwachen, Verarbeiten, Kommunizieren und Interpretieren von Daten, wobei du den sinnvollen Einsatz moderner analytischer Geräte zur Hilfe nimmst. Du bist für die praktische Durchführung wissenschaftlicher Untersuchungen zuständig, stellst chemische Substanzen her oder untersuchst sie.\n\nZusammen mit dem Nachbarinstitut Eawag führen wir ein gemeinsames Lehrlabor. Nebst dem Einführungskurs bei Lehrbeginn wirst du dort auch im zweiten und dritten Lehrjahr jeweils dreimonatige Ausbildungskurse besuchen. Die Berufsschule besuchst du in Winterthur.\n\nWas du mitbringst\n\nDie Sekundarschule A ist bald Geschichte und du schliesst diese mit sehr guten Leistungen vor allem in den naturwissenschaftlichen, mathematischen und auch sprachlichen Fächern ab. Du hast eine gute Beobachtungs- und Auffassungsgabe, bist ausdauernd und experimentierfreudig und arbeitest gerne im Team. Dein technisches Verständnis und manuelle Geschicklichkeit gehört genau so dazu wie deine Fähigkeit für abstraktes und analytisches Denken. Auch Sorgfalt und Zuverlässigkeit wissen wir zu schätzen. Die Freude am Umgang mit Computern und Elektronik ist ein Muss.\nDu bist zudem überzeugt, deine Zukunft mit einer Berufslehre zu starten.\nBis Ende August 2026 werden die eingehenden Bewerbungen gesichtet. Wenn du weitergekommen bist, findet für dich ein Erstgespräch statt. Danach entscheiden wir die engste Auswahl für den Selektionsschnuppertag.\n\nWas wir dir bieten\n\nWir bieten eine spannende Ausbildung mit modernster Technik. Die Empa ist ein lebendiges und innovatives Forschungsumfeld mit internationalem Flair und hervorragenden Anstellungsbedingungen in der Agglomeration Zürich.\n\nWeitere Informationen zur Lehre der Empa findest du in unserem Factsheet .\n\nWir bieten eine spannende Ausbildung mit modernster Technik. Die Empa mit ihrem umfangreichen Campus ist ein lebendiges und innovatives Forschungsumfeld mit internationalem Flair und hervorragenden Anstellungsbedingungen in der Agglomeration Zürich.\n\n«a» steht in unseren Stelleninseraten für «alle». Wir leben eine Kultur der Inklusion und des Respekts. Bei uns sind alle Menschen willkommen, die Lust auf innovative, nachhaltige und sinnstiftende Tätigkeiten haben - nur das zählt.\n\nWir freuen uns auf deine vollständige Online-Bewerbung inkl. Motivationsschreiben, Lebenslauf, Zeugnisse, Diplome und Kontaktdaten von zwei Referenzpersonen. Bitte reiche diese ausschliesslich über unser Bewerbungsportal ein. Bewerbungen per E-Mail sowie auf dem Postweg werden nicht berücksichtigt.",
+        "fr": "La science et la technologie des matériaux sont notre passion. Grâce à notre recherche de pointe, Empa, environ 1 100 employés apportent une contribution décisive au bénéfice de la société pour un avenir digne d'être vécu. Empa est une institution de recherche du domaine ETH. Technicien de laboratoire d'apprentissage/chimie du département (a) Pour août 2027, nous vous proposons un apprentissage stimulant dans un environnement de recherche fascinant. À quoi s'attendre Les activités passionnantes du laboratoire de chimie sont l'observation, la surveillance, le traitement, la communication et l'interprétation des données, à l'aide d'instruments analytiques modernes. Vous êtes responsable de la conduite pratique des enquêtes scientifiques, de la fabrication ou de l'étude de substances chimiques. Avec l'institut voisin Eawag, nous gérons un laboratoire d'enseignement commun. En plus du cours d'introduction au début de l'apprentissage, vous suivrez également des cours de formation de trois mois en deuxième et troisième année d'apprentissage. Vous visiterez l'école professionnelle de Winterthur. Ce que vous apportez L'école secondaire A sera bientôt l'histoire et vous finirez avec de très bonnes performances, en particulier dans les sciences naturelles, les mathématiques et les matières linguistiques. Vous avez une bonne capacité à observer et comprendre, sont persistantes et expérimentales et aiment travailler en équipe. Votre compréhension technique et vos compétences manuelles sont autant une partie de cela que votre capacité à la pensée abstraite et analytique. Nous apprécions également le soin et la fiabilité. La joie de traiter avec les ordinateurs et l'électronique est un must. Vous êtes également convaincu de commencer votre avenir par un apprentissage professionnel. D'ici la fin du mois d'août 2026, les nouvelles demandes seront examinées. Si vous avez progressé, une première réunion aura lieu pour vous. Ensuite, nous décidons de la sélection la plus proche pour la journée d'essai de sélection. Ce que nous vous offrons\n• Nous offrons une formation passionnante avec la dernière technologie. Empa est un environnement de recherche dynamique et innovant avec un style international et d'excellentes conditions d'emploi dans l'agglomération de Zurich. De plus amples informations sur l'enseignement d'Empa se trouvent dans notre fiche d'information.\n• Nous offrons une formation passionnante avec la dernière technologie. Empa avec son vaste campus est un environnement de recherche dynamique et innovant avec un style international et d'excellentes conditions d'emploi dans l'agglomération de Zurich. Il s'agit de tous dans nos offres d'emploi. Nous vivons une culture d'inclusion et de respect. Nous souhaitons la bienvenue à toutes les personnes qui désirent des activités novatrices, durables et significatives - seulement cela compte. Nous attendons avec impatience votre demande en ligne complète, y compris. Lettre de motivation, CV, certificats, diplômes et coordonnées de deux personnes de référence. Veuillez les soumettre exclusivement via notre portail d'applications. Les demandes par courrier électronique ou par la poste ne seront pas prises en considération."
+      },
+      "location": "Dübendorf",
+      "canton": "ZH",
+      "url": "https://apply.refline.ch/673276/2193/pub/1/index.html",
+      "source": "Empa Dedicated Parser (Refline 673276)",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-01T22:24:13.894Z",
+      "addressLocality": "Dübendorf",
+      "addressRegion": "ZH",
+      "streetAddress": "Ueberlandstrasse 129",
+      "postalCode": "8600",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Ricerca",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "intern",
+      "sector": "Università / Ricerca",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-20",
+      "applyUrl": "https://apply.refline.ch/673276/2193/pub/1/index.html",
+      "hiringOrganizationName": "Empa",
+      "jobReqId": "2193",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "lernende-r-laborant-in-fachrichtung-chemie-a-empa-dubendorf",
+        "apprendista-laborant-in-specializzazione-chemie-a-empa-dubendorf"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "lernende-r-laborant-in-fachrichtung-chemie-a-empa-dubendorf",
+          "apprendista-laborant-in-specializzazione-chemie-a-empa-dubendorf"
+        ]
+      },
+      "firstSeenAt": "2026-07-04T10:39:25.173Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -554,7 +571,7 @@
       "url": "https://apply.refline.ch/673276/2195/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-01T11:29:41.766Z",
+      "crawledAt": "2026-08-01T22:24:13.893Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "streetAddress": "Ueberlandstrasse 129",
@@ -619,7 +636,7 @@
       "url": "https://apply.refline.ch/673276/2203/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-01T11:29:41.764Z",
+      "crawledAt": "2026-08-01T22:24:13.892Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lerchenfeldstrasse 5",
@@ -640,11 +657,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lernende-r-physiklaborant-in-efz-a-empa-st-gallen"
+        "lernende-r-physiklaborant-in-efz-a-empa-st-gallen",
+        "apprendista-physiklaborant-in-cfc-a-empa-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lernende-r-physiklaborant-in-efz-a-empa-st-gallen"
+          "lernende-r-physiklaborant-in-efz-a-empa-st-gallen",
+          "apprendista-physiklaborant-in-cfc-a-empa-st-gallen"
         ],
         "en": [
           "lernende-r-physiklaborant-in-efz-a-empa-st-gallen"
@@ -654,6 +673,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T10:39:25.169Z",
+      "needsRetranslation": true,
       "salaryMin": 48000,
       "salaryMax": 73000,
       "baseSalary": {
@@ -698,7 +718,7 @@
       "url": "https://apply.refline.ch/673276/2206/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-01T11:29:41.760Z",
+      "crawledAt": "2026-08-01T22:24:13.891Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "streetAddress": "Ueberlandstrasse 129",
@@ -719,11 +739,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lernende-r-polymechaniker-in-a-empa-dubendorf"
+        "lernende-r-polymechaniker-in-a-empa-dubendorf",
+        "apprendista-polymechaniker-in-a-empa-dubendorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lernende-r-polymechaniker-in-a-empa-dubendorf"
+          "lernende-r-polymechaniker-in-a-empa-dubendorf",
+          "apprendista-polymechaniker-in-a-empa-dubendorf"
         ],
         "en": [
           "lernende-r-polymechaniker-in-a-empa-dubendorf"
@@ -763,7 +785,7 @@
         "it": "Postdoc in fisica applicata dei laser",
         "en": "Postdoc in applied laser physics",
         "de": "Postdoc in Angewandter Laserphysik",
-        "fr": "Postdoc en physique laser appliquée"
+        "fr": "Postdoc in applied laser physics"
       },
       "description": "Materials science and technology are our passion. With our cutting-edge research, Empa's around 1,100 employees make essential contributions to the well-being of society for a future worth living. Empa is a research institution of the ETH Domain.\n\nPostdoc in applied laser physics\n\nThe Laboratory of Advanced Materials Processing (LAMP) is a multidisciplinary research unit that develops innovative functional modification of materials by beam (e.g. laser light, electrons) and plasma induced processing. LAMP provides full cycle technology development, starting from novel materials, deep understanding of the background physics of beam-matter interactions, development of automated AI/ML systems for novel materials processing and quality insurance. The lab combines additive manufacturing, large scale laser micro-processing, multiscale modelling and AI/ML for the quality monitoring/control, at the end offering to the society novel nanostructured materials, their shape-forming and integration into devices.\n\nYour tasks\n\n• Operation of different laser platforms\n\n• Conceptualization and setup of optical systems\n\n• Hardware synchronization and data acquisition\n\n• Conduction of experimental campaigns, evaluation of results and reporting\n\nYour profile\n\n• PhD degree in Physics/Photonics/Engineering or equivalent\n\n• Experience: Laser applications (measuring, processing, etc.), optical system design, assembly and usage\n\n• Skills: Hands-on experimental mindset, strong understanding of laser and optical physics, strong problem-solving and troubleshooting skills, experience with data analysis and experimental optimization\n\n• English, French and German as a plus\n\nOur offer\n\nEmpa offers a dynamic and inspiring research environment at its Thun campus, located near Bern. You will work on a scientifically and technologically cutting-edge topic of high relevance and novelty, with direct access to state-of-the-art research infrastructure and equipment. As part of an experienced and multidisciplinary project team with strong national and international collaborations, you will receive full support in advancing the current project as well as in shaping and realizing your own scientific ideas within the lab's research activities. You will be encouraged and supported in producing high-impact results, publishing in leading international peer-reviewed journals, and pursuing your personal and professional development. The position is available with a starting date in September 2026 and a duration of one year with the possibility of extension.\n\nWe live a culture of inclusion and respect. We welcome all people who are interested in innovative, sustainable and meaningful activities - that's what counts.\n\nWe look forward to receiving your complete online application including a letter of motivation, CV, certificates, diplomas and contact details of two reference persons. Please submit these exclusively via our job portal. Applications by e-mail and by post will not be considered.",
       "descriptionByLocale": {
@@ -777,7 +799,7 @@
       "url": "https://apply.refline.ch/673276/2208/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-01T11:29:41.758Z",
+      "crawledAt": "2026-08-01T22:24:13.890Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "streetAddress": "Feuerwerkerstrasse 39",
@@ -798,11 +820,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "postdoc-in-applied-laser-physics-empa-thun"
+        "postdoc-in-applied-laser-physics-empa-thun",
+        "postdoc-in-fisica-applicata-dei-laser-empa-thun"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "postdoc-in-applied-laser-physics-empa-thun"
+          "postdoc-in-applied-laser-physics-empa-thun",
+          "postdoc-in-fisica-applicata-dei-laser-empa-thun"
         ],
         "de": [
           "postdoc-in-applied-laser-physics-empa-thun"
@@ -812,6 +836,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T10:39:25.165Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -856,7 +881,7 @@
       "url": "https://apply.refline.ch/673276/2207/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-01T11:29:41.756Z",
+      "crawledAt": "2026-08-01T22:24:13.889Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "streetAddress": "Feuerwerkerstrasse 39",
@@ -888,7 +913,8 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "empa-3f0d824112e5",
@@ -921,7 +947,7 @@
       "url": "https://apply.refline.ch/673276/2209/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-01T11:29:41.753Z",
+      "crawledAt": "2026-08-01T22:24:13.888Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "streetAddress": "Ueberlandstrasse 129",
@@ -943,11 +969,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "postdoc-position-in-3d-x-ray-histopathology-of-colorectal-tumors-empa-dubendorf",
-        "position-postdoc-dans-l-histopathologie-par-rayons-x-3d-des-tumeurs-colorectales-empa-dubendorf"
+        "position-postdoc-dans-l-histopathologie-par-rayons-x-3d-des-tumeurs-colorectales-empa-dubendorf",
+        "posizione-post-doc-in-istopatologia-a-raggi-x-3d-dei-tumori-colorettali-empa-dubendorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "postdoc-position-in-3d-x-ray-histopathology-of-colorectal-tumors-empa-dubendorf"
+          "postdoc-position-in-3d-x-ray-histopathology-of-colorectal-tumors-empa-dubendorf",
+          "posizione-post-doc-in-istopatologia-a-raggi-x-3d-dei-tumori-colorettali-empa-dubendorf"
         ],
         "de": [
           "postdoc-position-in-3d-x-ray-histopathology-of-colorectal-tumors-empa-dubendorf"
@@ -958,6 +986,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T10:39:25.163Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -1002,7 +1031,7 @@
       "url": "https://apply.refline.ch/673276/2213/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-01T11:29:41.751Z",
+      "crawledAt": "2026-08-01T22:24:13.887Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lerchenfeldstrasse 5",
@@ -1081,7 +1110,7 @@
       "url": "https://apply.refline.ch/673276/2179/pub/5/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-01T11:29:41.748Z",
+      "crawledAt": "2026-08-01T22:24:13.886Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "streetAddress": "Ueberlandstrasse 129",
@@ -1103,11 +1132,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "phd-position-on-all-solid-state-batteries-empa-dubendorf",
-        "position-du-ph-d-sur-les-batteries-tout-etat-empa-dubendorf"
+        "position-du-ph-d-sur-les-batteries-tout-etat-empa-dubendorf",
+        "posizione-di-dottorato-su-batterie-interamente-a-stato-solido-empa-dubendorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "phd-position-on-all-solid-state-batteries-empa-dubendorf"
+          "phd-position-on-all-solid-state-batteries-empa-dubendorf",
+          "posizione-di-dottorato-su-batterie-interamente-a-stato-solido-empa-dubendorf"
         ],
         "fr": [
           "phd-position-on-all-solid-state-batteries-empa-dubendorf",
@@ -1115,6 +1146,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T10:39:25.154Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -1135,7 +1167,7 @@
         "it": "apprendista-physiklaborant-in-a-empa-thun-fb5508",
         "en": "apprentice-physiklaborant-in-a-empa-thun-fb5508",
         "de": "lernende-r-physiklaborant-in-a-empa-thun",
-        "fr": "apprentissage-laboratoire-de-physique-en-a-empa-thun"
+        "fr": "lernende-r-physiklaborant-in-a-empa-thun"
       },
       "company": "Empa",
       "companyKey": "empa",
@@ -1145,7 +1177,7 @@
         "it": "Apprendista Physiklaborant/in (a)",
         "en": "Apprentice Physiklaborant/in (a)",
         "de": "Lernende/r Physiklaborant/in (a)",
-        "fr": "Apprentissage/laboratoire de physique/en (a)"
+        "fr": "Lernende/r Physiklaborant/in (a)"
       },
       "description": "Materialwissenschaft und Technologie sind unsere Leidenschaft. Mit unserer Spitzenforschung leisten die rund 1'100 Mitarbeitenden der Empa entscheidende Beiträge zum Wohle der Gesellschaft für eine lebenswerte Zukunft. Die Empa ist eine Forschungsinstitution des ETH-Bereichs.\n\nLernende/r Physiklaborant/in (a)\n\nFür August 2027 bieten wir in der Abteilung Werkstoff- und Nanomechanik in Thun einen anspruchsvollen Ausbildungsplatz in einem faszinierenden Forschungsumfeld.\n\nWas erwartet dich\n\nAn einem ETH Forschungsinstitut tätig zu sein, bringt viel Abwechslung in den Berufsalltag. Wenn du Interesse an Physik, Elektronik, Technik und Werkstoffen hast, garantieren wir dir spannende Aufgaben in einem internationalen Umfeld der Forschung. Zudem liebst du das Tüfteln und Werken.\n\nWas bringst du mit\n\n• Sekundarschule A mit sehr guten Leistungen in den naturwissenschaftlichen, mathematischen und sprachlichen Fächern - Englisch ist bei uns Alltagssprache\n\n• Theoretisches und praktisches Interesse für Physik, Chemie, Werkstoffe, Elektronik sowie Informatik und an technischen Systemen\n\n• Abstraktes Denken und methodisches Vorgehen, technisches Verständnis und manuelle Geschicklichkeit\n\n• Gute Beobachtungs- und Auffassungsgabe, Sorgfalt, verantwortungsvolles und zuverlässiges Arbeiten\n\n• Freude an einer hoch technisierten und komplexen Arbeitsumgebung\n\n• Hohe Kompetenzen in der Kommunikation und Zusammenarbeit mit Menschen\n Du bist zudem überzeugt, deine Zukunft mit einer Berufslehre zu starten.\n\nWas wir dir bieten\n\n• Du untersuchst die physikalische und chemische Integrität von metallischen Werkstoffen und ihren Bauteilen, wie sie z.B. in Gebäuden, Brücken, Tunnels, Produktionsanlagen, im Maschinenbau sowie der Energie-, Bahn- und Medizinaltechnik angewendet werden\n\n• Du ermittelst Werkstoffkennwerte mittels modernster analytischer Methoden und führst physikalische Messungen und Versuchsreihen mit Werkstoffen und Systemen durch\n\n• Du tüftelst an Versuchsanlagen, bereitest Versuche vor, führst sie durch und dokumentierst sie anschliessend\n\n• Du besuchst die Berufsschule in Zürich. Der Besuch der BMS wird unterstützt.\n Wir bieten eine spannende und vielseitige Grundausbildung Ausbildung mit modernster Technik. Die Empa ist ein lebendiges und innovatives Forschungsumfeld mit internationalem Flair und hervorragenden Anstellungsbedingungen in der Agglomeration Zürich.\n\n«a» steht in unseren Stelleninseraten für «alle». Wir leben eine Kultur der Inklusion und des Respekts. Bei uns sind alle Menschen willkommen, die Lust auf innovative, nachhaltige und sinnstiftende Tätigkeiten haben - nur das zählt.\n\nWir freuen uns auf deine vollständige Online-Bewerbung inkl. Motivationsschreiben, Lebenslauf, Zeugnisse, Diplome und Kontaktdaten von zwei Referenzpersonen. Bitte reiche diese ausschliesslich über unser Bewerbungsportal ein. Bewerbungen per E-Mail sowie auf dem Postweg werden nicht berücksichtigt.",
       "descriptionByLocale": {
@@ -1159,7 +1191,7 @@
       "url": "https://apply.refline.ch/673276/2197/pub/2/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-01T11:29:41.747Z",
+      "crawledAt": "2026-08-01T22:24:13.885Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "streetAddress": "Feuerwerkerstrasse 39",
@@ -1182,11 +1214,14 @@
       "previousSlugs": [
         "lernende-r-physiklaborant-in-a-empa-thun",
         "laboratoire-d-apprentissage-de-physique-a-empa-thun-fb5508",
-        "laboratoire-d-apprentissage-de-physique-a-empa-thun"
+        "laboratoire-d-apprentissage-de-physique-a-empa-thun",
+        "apprentissage-laboratoire-de-physique-en-a-empa-thun",
+        "apprendista-physiklaborant-in-a-empa-thun-fb5508"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lernende-r-physiklaborant-in-a-empa-thun"
+          "lernende-r-physiklaborant-in-a-empa-thun",
+          "apprendista-physiklaborant-in-a-empa-thun-fb5508"
         ],
         "en": [
           "lernende-r-physiklaborant-in-a-empa-thun"
@@ -1194,10 +1229,12 @@
         "fr": [
           "laboratoire-d-apprentissage-de-physique-a-empa-thun-fb5508",
           "laboratoire-d-apprentissage-de-physique-a-empa-thun",
+          "apprentissage-laboratoire-de-physique-en-a-empa-thun",
           "lernende-r-physiklaborant-in-a-empa-thun"
         ]
       },
       "firstSeenAt": "2026-07-07T22:14:30.867Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -1242,7 +1279,7 @@
       "url": "https://apply.refline.ch/673276/2214/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-01T11:29:41.744Z",
+      "crawledAt": "2026-08-01T22:24:13.884Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "streetAddress": "Ueberlandstrasse 129",
@@ -1263,6 +1300,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-07-07T22:14:30.855Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -1307,7 +1345,7 @@
       "url": "https://apply.refline.ch/673276/2217/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-01T11:29:41.741Z",
+      "crawledAt": "2026-08-01T22:24:13.883Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lerchenfeldstrasse 5",
@@ -1328,11 +1366,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "postdoc-position-chemist-for-selective-ion-scavenging-in-batteries-empa-st-gallen"
+        "postdoc-position-chemist-for-selective-ion-scavenging-in-batteries-empa-st-gallen",
+        "posizione-postdoc-chemist-per-l-ion-scavenging-selettivo-in-batterie-empa-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "postdoc-position-chemist-for-selective-ion-scavenging-in-batteries-empa-st-gallen"
+          "postdoc-position-chemist-for-selective-ion-scavenging-in-batteries-empa-st-gallen",
+          "posizione-postdoc-chemist-per-l-ion-scavenging-selettivo-in-batterie-empa-st-gallen"
         ],
         "de": [
           "postdoc-position-chemist-for-selective-ion-scavenging-in-batteries-empa-st-gallen"
@@ -1386,7 +1426,7 @@
       "url": "https://apply.refline.ch/673276/2218/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-01T11:29:41.739Z",
+      "crawledAt": "2026-08-01T22:24:13.882Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lerchenfeldstrasse 5",
@@ -1418,7 +1458,8 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "empa-b087086e4595",
@@ -1451,7 +1492,7 @@
       "url": "https://apply.refline.ch/673276/2219/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-01T11:29:41.734Z",
+      "crawledAt": "2026-08-01T22:24:13.880Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "streetAddress": "Ueberlandstrasse 129",
@@ -1472,11 +1513,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "phd-position-soft-active-matter-microrobots-for-medicine-sam3-empa-dubendorf"
+        "phd-position-soft-active-matter-microrobots-for-medicine-sam3-empa-dubendorf",
+        "posizione-del-dottorato-soft-active-matter-microrobots-for-medicine-sam3-empa-dubendorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "phd-position-soft-active-matter-microrobots-for-medicine-sam3-empa-dubendorf"
+          "phd-position-soft-active-matter-microrobots-for-medicine-sam3-empa-dubendorf",
+          "posizione-del-dottorato-soft-active-matter-microrobots-for-medicine-sam3-empa-dubendorf"
         ]
       },
       "firstSeenAt": "2026-07-29T11:54:45.276Z",

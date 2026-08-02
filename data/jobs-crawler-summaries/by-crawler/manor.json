@@ -1,16 +1,16 @@
 {
   "key": "manor",
   "label": "Manor",
-  "generatedAt": "2026-08-01T11:12:07.988Z",
-  "total": 180,
+  "generatedAt": "2026-08-01T22:19:58.647Z",
+  "total": 175,
   "newCount": 9,
-  "updatedCount": 167,
-  "removedCount": 1,
-  "unchangedCount": 4,
-  "durationMs": 330627,
-  "avgDurationMs": 330627,
+  "updatedCount": 166,
+  "removedCount": 5,
+  "unchangedCount": 0,
+  "durationMs": 328922,
+  "avgDurationMs": 328922,
   "durationHistory": [
-    330627
+    328922
   ],
   "newJobs": [
     {
@@ -113,7 +113,7 @@
       "title": "Mitarbeiter*in Verkauf Herrenkonfektion 20%",
       "company": "Manor AG",
       "companyKey": "manor",
-      "url": "https://positions.manor.ch/job/Spreitenbach-Mitarbeiterin-Verkauf-Herrenkonfektion-20/1361596555/",
+      "url": "https://positions.manor.ch/job/Spreitenbach-Mitarbeiterin-Verkauf-Herrenkonfektion-20/1361596355/",
       "location": "Spreitenbach Mitarbeiterin Verkauf Herrenkonfektion",
       "canton": "AG",
       "country": "CH",
@@ -464,40 +464,6 @@
       }
     },
     {
-      "title": "Collaborateur/trice caisse 60%",
-      "company": "Manor AG",
-      "companyKey": "manor",
-      "url": "https://positions.manor.ch/job/Sion-Collaborateurtrice-caisse-60/1362423355/",
-      "location": "Sion Collaborateurtrice caisse 60",
-      "canton": "VS",
-      "country": "CH",
-      "category": "sales",
-      "descriptionIt": "• Excellent sens du service et de l'accueil.\n• Aisance avec les systèmes de caisse informatisés.\n• Gestion du stress pendant les périodes de forte affluence.\n• Fiabilité, ponctualité et esprit d'équipe.\n• Flexibilité concernant les horaires.",
-      "postedDate": "2026-07-29",
-      "source": "company-website",
-      "slug": "collaboratore-caisse-60-manor-ag-sion-collaborateurtrice-caisse-60",
-      "sourceLang": "fr",
-      "id": "manor-3ff4dd0c6d9d",
-      "firstSeenAt": "2026-07-29T11:47:02.974Z",
-      "crawledAt": "",
-      "salaryMin": 43200,
-      "salaryMax": 66600,
-      "currency": "CHF",
-      "addressLocality": "Sion Collaborateurtrice caisse 60",
-      "addressRegion": "VS",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true,
-      "_qualityScore": 76,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 10,
-        "translation": 25,
-        "completeness": 16
-      }
-    },
-    {
       "title": "Mitarbeiter*in Verkauf Damen Fashion 50%",
       "company": "Manor AG",
       "companyKey": "manor",
@@ -722,11 +688,11 @@
       "needsRetranslation": true,
       "firstSeenAt": "2026-07-28T22:20:01.476Z",
       "crawledAt": "",
-      "_qualityScore": 70,
+      "_qualityScore": 66,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 14,
-        "translation": 20,
+        "translation": 16,
         "completeness": 11
       }
     },
@@ -1011,44 +977,68 @@
         "translation": 25,
         "completeness": 11
       }
-    }
-  ],
-  "removedJobs": [
+    },
     {
-      "title": "Mitarbeiter*in Visual Merchandising 60-80%",
+      "title": "Mitarbeiter*in Kasse & Kundendienst 30%",
       "company": "Manor AG",
       "companyKey": "manor",
-      "url": "https://positions.manor.ch/job/Solothurn-Mitarbeiterin-Visual-Merchandising-60-80/1354823355/",
-      "location": "Solothurn Mitarbeiterin Visual Merchandising",
-      "canton": "SO",
+      "url": "https://positions.manor.ch/job/Thun-Mitarbeiterin-Kasse-&-Kundendienst-30/1361789755/",
+      "location": "Thun Mitarbeiterin Kasse &",
+      "canton": "BE",
       "country": "CH",
-      "category": "design",
-      "descriptionIt": "Mitarbeiter*in Visual Merchandising 60-80% presso Manor, con sede a Solothurn Mitarbeiterin Visual Merchandising, Canton Soletta, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
-      "postedDate": "2026-06-09",
+      "category": "sales",
+      "descriptionIt": "Mitarbeiter*in Kasse & Kundendienst 30% presso Manor, con sede a Thun Mitarbeiterin Kasse &, Canton Berna, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
+      "postedDate": "2026-07-22",
       "source": "company-website",
-      "slug": "manor-mitarbeiter-in-visual-merchandising-60-80-solothurn-mitarbeiterin-visual-merchandising",
+      "slug": "manor-mitarbeiter-in-kasse-kundendienst-30-thun-mitarbeiterin-kasse",
       "sourceLang": "it",
-      "id": "manor-c85c28f4ab1c",
-      "firstSeenAt": "2026-07-07T12:11:24.549Z",
+      "id": "manor-8d1caac9411b",
+      "firstSeenAt": "2026-07-22T22:35:47.906Z",
       "crawledAt": "",
-      "salaryMin": 54800,
-      "salaryMax": 83200,
-      "currency": "CHF",
-      "addressLocality": "Solothurn Mitarbeiterin Visual Merchandising",
-      "addressRegion": "SO",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 80,
+      "needsRetranslation": true,
+      "_qualityScore": 75,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 14,
         "translation": 25,
-        "completeness": 16
+        "completeness": 11
       }
     }
   ],
-  "unchangedJobs": [
+  "removedJobs": [
+    {
+      "title": "Collaborateur/trice caisse 60%",
+      "company": "Manor AG",
+      "companyKey": "manor",
+      "url": "https://positions.manor.ch/job/Sion-Collaborateurtrice-caisse-60/1362423355/",
+      "location": "Sion Collaborateurtrice caisse 60",
+      "canton": "VS",
+      "country": "CH",
+      "category": "sales",
+      "descriptionIt": "• Excellent sens du service et de l'accueil.\n• Aisance avec les systèmes de caisse informatisés.\n• Gestion du stress pendant les périodes de forte affluence.\n• Fiabilité, ponctualité et esprit d'équipe.\n• Flexibilité concernant les horaires.",
+      "postedDate": "2026-07-29",
+      "source": "company-website",
+      "slug": "collaborateur-trice-caisse-60-manor-ag-sion-collaborateurtrice-caisse-60",
+      "sourceLang": "fr",
+      "id": "manor-3ff4dd0c6d9d",
+      "firstSeenAt": "2026-07-29T11:47:02.974Z",
+      "crawledAt": "",
+      "salaryMin": 43200,
+      "salaryMax": 66600,
+      "currency": "CHF",
+      "addressLocality": "Sion Collaborateurtrice caisse 60",
+      "addressRegion": "VS",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "crawlerMissStreak": 2,
+      "_qualityScore": 76,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 10,
+        "translation": 25,
+        "completeness": 16
+      }
+    },
     {
       "title": "Collaborateur/trice caisse (Papeterie) 30%",
       "company": "Manor AG",
@@ -1074,7 +1064,6 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "crawlerMissStreak": 2,
-      "needsRetranslation": true,
       "_qualityScore": 80,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1108,7 +1097,6 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "crawlerMissStreak": 2,
-      "needsRetranslation": true,
       "_qualityScore": 73,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1142,7 +1130,6 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "crawlerMissStreak": 2,
-      "needsRetranslation": true,
       "_qualityScore": 76,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1176,7 +1163,6 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "crawlerMissStreak": 2,
-      "needsRetranslation": true,
       "_qualityScore": 80,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1185,5 +1171,6 @@
         "completeness": 16
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }

@@ -136,7 +136,11 @@ async function queryPerplexity(query) {
 }
 
 /**
- * Call Gemini API to check if it references our site.
+ * Call Gemini API to check if it references our site. Uses Google Search
+ * grounding — without it, the model can only answer from parametric training
+ * knowledge and structurally can never surface a citation (ours or any
+ * competitor's) for a niche/recent query, which was masking the real
+ * visibility signal (0/20 with zero competitor mentions on every query).
  */
 async function queryGemini(query) {
   const key = getGeminiKey();
@@ -154,6 +158,7 @@ async function queryGemini(query) {
               text: `Answer the following question and cite specific websites with their URLs where relevant: ${query}`,
             }],
           }],
+          tools: [{ google_search: {} }],
           generationConfig: { maxOutputTokens: 1024, temperature: 0.2 },
         }),
       },
@@ -167,7 +172,11 @@ async function queryGemini(query) {
 
     const data = await res.json();
     const content = data.candidates?.[0]?.content?.parts?.[0]?.text || '';
-    return { content, citations: [], raw: data };
+    const groundingChunks = data.candidates?.[0]?.groundingMetadata?.groundingChunks || [];
+    const citations = groundingChunks
+      .map(c => c.web?.uri)
+      .filter(Boolean);
+    return { content, citations, raw: data };
   } catch (err) {
     console.warn(`  ⚠ Gemini error: ${err.message}`);
     return null;
@@ -365,13 +374,14 @@ async function runCheck() {
       console.log('  → Gemini...');
       const gem = await queryGemini(q);
       if (gem) {
-        const mention = findSiteMention(gem.content);
-        const competitors = findCompetitorMentions(gem.content);
+        const mention = findSiteMention(gem.content, gem.citations);
+        const competitors = findCompetitorMentions(gem.content, gem.citations);
         result.platforms.gemini = {
           checked: true,
           cited: mention.cited,
           citedUrls: mention.citedUrls,
           competitorsCited: competitors,
+          totalCitations: gem.citations.length,
         };
         if (mention.cited) {
           result.citedByAny = true;
