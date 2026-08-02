@@ -46,7 +46,7 @@
  *   node scripts/assemble-events-dataset.mjs --stats    # assemble + print stats
  */
 
-import { readdirSync, readFileSync, writeFileSync, existsSync } from 'node:fs';
+import { readdirSync, readFileSync, writeFileSync, existsSync, mkdirSync } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import {
@@ -312,7 +312,24 @@ function assemble() {
     totalEvents: events.length,
     events,
   };
-  writeFileSync(EVENTS_DATASET_PATH, `${JSON.stringify(out, null, 2)}\n`, 'utf-8');
+  const json = `${JSON.stringify(out, null, 2)}\n`;
+  writeFileSync(EVENTS_DATASET_PATH, json, 'utf-8');
+
+  // Second copy under public/, mirroring what compute-border-wait-averages.mjs
+  // does for its own dataset and for the same reason (issue #4974 item 3).
+  //
+  // `data/` is not part of the deployed surface, so a consumer outside this repo
+  // has no way to read events.json at all. The events digest article moved to the
+  // articles repo with the rest of the generator, and it cannot reach into this
+  // repo's checkout without inverting the one-way architecture the migration
+  // exists to establish. Publishing the file is what makes that fetch possible;
+  // the crawling itself stays here, because it is a site data pipeline (§0.2).
+  // Derived from EVENTS_DATASET_PATH (…/data/events.json) rather than a second
+  // root computation, so the two copies cannot drift apart if the layout moves.
+  const publicPath = path.join(path.dirname(EVENTS_DATASET_PATH), '..', 'public', 'data', 'events.json');
+  mkdirSync(path.dirname(publicPath), { recursive: true });
+  writeFileSync(publicPath, json, 'utf-8');
+
   return { events, slices: slices.length, mergedAway, frontierAttached };
 }
 
