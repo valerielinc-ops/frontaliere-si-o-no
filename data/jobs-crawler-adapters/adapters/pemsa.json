@@ -11,7 +11,7 @@
     "https://www.pemsa.ch/it/le-nostre-offerte-di-lavoro/"
   ],
   "notes": "Dedicated PEMSA crawler. National listing (all cantons). Detail pages have JSON-LD JobPosting with full location data; canton inferred per-job from the city. Construction/trades staffing agency.",
-  "updatedAt": "2026-08-02T10:53:41.008Z",
+  "updatedAt": "2026-08-02T22:03:31.790Z",
   "seedMetaByUrl": {
     "https://www.pemsa.ch/it/job/cofra-hussor-2685380/": {
       "location": "Fribourg",
@@ -828,30 +828,6 @@
       "canton": "FR",
       "company": "PEMSA",
       "postedDate": "2026-07-09"
-    },
-    "https://www.pemsa.ch/it/job/progettista-di-strutture-metalliche-m-f-2682448/": {
-      "location": "Givisiez",
-      "canton": "FR",
-      "company": "PEMSA",
-      "postedDate": "2026-07-08"
-    },
-    "https://www.pemsa.ch/it/job/carpentiere-con-grande-esperienza-2682359/": {
-      "location": "Fribourg",
-      "canton": "FR",
-      "company": "PEMSA",
-      "postedDate": "2026-07-08"
-    },
-    "https://www.pemsa.ch/it/job/installatore-di-impianti-di-ventilazione-2682354/": {
-      "location": "Fribourg",
-      "canton": "FR",
-      "company": "PEMSA",
-      "postedDate": "2026-07-08"
-    },
-    "https://www.pemsa.ch/it/job/costruttore-di-casseforme-2682351/": {
-      "location": "Fribourg",
-      "canton": "FR",
-      "company": "PEMSA",
-      "postedDate": "2026-07-08"
     },
     "https://www.pemsa.ch/it/job/installatore-impianti-sprinkler-2682122/": {
       "location": "Lugano",

@@ -1,6 +1,6 @@
 {
   "crawlerKey": "spruengli",
-  "assembledAt": "2026-08-02T10:56:29.579Z",
+  "assembledAt": "2026-08-02T22:01:33.425Z",
   "jobs": [
     {
       "id": "spruengli-d5c32ab1c40e",
@@ -33,7 +33,7 @@
       "url": "https://apply.refline.ch/116352/1232/pub/5/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-02T10:56:25.474Z",
+      "crawledAt": "2026-08-02T22:01:29.463Z",
       "addressLocality": "Dietikon",
       "addressRegion": "ZH",
       "streetAddress": "Bernstrasse 89",
@@ -87,7 +87,8 @@
           "maxValue": 55800,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "spruengli-f6bdb802675d",
@@ -120,7 +121,7 @@
       "url": "https://apply.refline.ch/116352/1206/pub/26/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-02T10:56:25.474Z",
+      "crawledAt": "2026-08-02T22:01:29.463Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "streetAddress": "Bahnhofstrasse 25",
@@ -167,6 +168,7 @@
         ]
       },
       "firstSeenAt": "2026-07-31T22:18:24.558Z",
+      "needsRetranslation": true,
       "salaryMin": 49600,
       "salaryMax": 75200,
       "baseSalary": {
@@ -211,7 +213,7 @@
       "url": "https://apply.refline.ch/116352/1233/pub/16/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-02T10:56:25.473Z",
+      "crawledAt": "2026-08-02T22:01:29.462Z",
       "addressLocality": "Dietikon",
       "addressRegion": "ZH",
       "streetAddress": "Bernstrasse 89",
@@ -312,7 +314,8 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "spruengli-6c08318f0560",
@@ -345,7 +348,7 @@
       "url": "https://apply.refline.ch/116352/1229/pub/14/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-02T10:56:25.472Z",
+      "crawledAt": "2026-08-02T22:01:29.460Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "streetAddress": "Bahnhofstrasse 25",
@@ -392,6 +395,7 @@
         ]
       },
       "firstSeenAt": "2026-07-31T22:18:24.556Z",
+      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "baseSalary": {
@@ -436,7 +440,7 @@
       "url": "https://apply.refline.ch/116352/1125/pub/52/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-02T10:56:25.472Z",
+      "crawledAt": "2026-08-02T22:01:29.459Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Bahnhofstrasse 21",
@@ -489,6 +493,7 @@
         ]
       },
       "firstSeenAt": "2026-07-31T22:18:24.555Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -533,7 +538,7 @@
       "url": "https://apply.refline.ch/116352/1112/pub/14/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-02T10:56:25.471Z",
+      "crawledAt": "2026-08-02T22:01:29.458Z",
       "addressLocality": "Dietikon",
       "addressRegion": "ZH",
       "streetAddress": "Bernstrasse 89",
@@ -576,6 +581,7 @@
         ]
       },
       "firstSeenAt": "2026-07-31T22:18:24.555Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -620,7 +626,7 @@
       "url": "https://apply.refline.ch/116352/1237/pub/9/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-02T10:56:25.470Z",
+      "crawledAt": "2026-08-02T22:01:29.457Z",
       "addressLocality": "Dietikon",
       "addressRegion": "ZH",
       "streetAddress": "Bernstrasse 89",
@@ -697,7 +703,7 @@
         "it": "Torte di reparto di Confectioner/paziesserie (100%)",
         "en": "Confectioner’s department cakes/patisserie (100%)",
         "de": "Konditor-Confiseur*in Abteilung Torten/Patisserie (100%)",
-        "fr": "pâtissier dans le département des gâteaux/pâtisseries (100%)"
+        "fr": "Konditor-Confiseur*in Abteilung Torten/Patisserie (100%)"
       },
       "description": "Das 1836 gegründete Schweizer Familienunternehmen zählt heute mit seinem erlesenen Sortiment zu den renommiertesten Confiserien Europas. Die Produkte aus dem Hause Sprüngli stehen für beste Qualität, einmalige Frische und Natürlichkeit. Die vollendeten Kreationen bringen täglich Kundinnen und Kunden aus aller Welt ins Schwärmen.\n\nKonditor-Confiseur*in Abteilung Torten/Patisserie (100%)\n\n100%, Dietikon\n\nArbeiten bei Sprüngli\n\nIn unserer Manufaktur in Dietikon suchen wir für die Abteilung Torten/Patisserie per sofort oder nach Vereinbarung eine*n erfahrene*n, motivierte*n und engagierte*n\n\nWas du bei uns bewegst\n\nDu arbeitest in unserer Torten/Patisserie-Abteilung in unserer Manufaktur in Dietikon und stellst im Team unsere anspruchsvollen Rahmtorten und Rahmpatisserie auf höchstem Qualitätsniveau her. Dabei sind dir ein früher Arbeitsbeginn (05.00 oder 06.00 Uhr) und regelmässige Wochenend-Einsätze in einer Nachtschicht möglich.\n\nDeine Aufgaben\n\n• Handwerkliche Anfertigung unseres Torten-, Rahm- und Pâtisseriesortiments\n\n• Herstellung von Standard- und Saisonprodukten sowie Sonderbestellungen\n\n• Belegen, Glasieren und Überziehen von unterschiedlichen Produkten\n\n• Einhalten der Sicherheits-, Hygiene- und Qualitätsvorgaben\n\nWas wir uns wünschen\n\n• Lehrabschluss als Konditor-Confiseur*in EFZ oder EBA\n\n• Freude an deinem erlernten Beruf sowie an Arbeiten im Team\n\n• Exakte und qualitätsbewusste Arbeitsweise sowie Belastbarkeit auch in hektischen Situationen\n\n• Mobilität und Flexibilität, insbesondere in der Saison\n\n• Eine offene, kommunikative Persönlichkeit mit handwerklichem Geschick sowie guter körperlicher Verfassung\n\n• Gute Deutschkenntnisse\n\n• PC-Kenntnisse\n\nDarauf kannst du dich freuen\n\nBei uns erwartet dich ein vielseitiges und herausforderndes Aufgabengebiet in einem lebhaften, modernen Umfeld. Du arbeitest in einem motivierten Team mit offener Du-Kultur und echtem Zusammenhalt.\n\n🌙 Attraktive Nachtzulagen:\n Für Einsätze in der Nacht profitierst du von einer besonders attraktiven Regelung:\n – 40 % Lohnzuschlag in Geldform im Zeitraum von 22.00 bis 4.00 Uhr\n – 10 % Zeitgutschrift für geleistete Stunden zwischen 22.00 und 5.00 Uhr\n\n• ✨ 10 Minuten bezahlte Umkleidezeit\n\n• 👕 Arbeitskleidung inklusive Reinigung\n\n• 🎂Ein zusätzlicher freier Tag in deinem Geburtstagsmonat\n\n• 🏖️ 5 Wochen Ferien\n\n• 🚗 Kostenloser Parkplatz\n\n• 🛍️ Grosszügige Einkaufsvergünstigungen\n\n• 🥗 Verpflegungsmöglichkeiten vor Ort\n\n🛡️ Starke Sozialleistungen:\n – Die Arbeitgeberin übernimmt freiwillig die volle Prämie der Krankentaggeldversicherung\n – Die Kosten der Berufsunfallversicherung gemäss UVG werden vollständig von der Arbeitgeberin getragen\n\nBist du interessiert?\nDann freuen wir uns auf deine elektronische Bewerbung.*\nDerzeit nehmen wir keine Bewerbungen von Stellenvermittlungen für diese Position entgegen.",
       "descriptionByLocale": {
@@ -711,7 +717,7 @@
       "url": "https://apply.refline.ch/116352/1190/pub/36/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-02T10:56:25.469Z",
+      "crawledAt": "2026-08-02T22:01:29.455Z",
       "addressLocality": "Dietikon",
       "addressRegion": "ZH",
       "streetAddress": "Bernstrasse 89",
@@ -734,68 +740,42 @@
       "previousSlugs": [
         "konditor-confiseur-in-abteilung-torten-patisserie-100-spruengli-dietikon",
         "pasticceria-nel-reparto-torte-e-pasticcerie-100-confiserie-sprungli-ag-dietikon-f55944",
-        "torte-di-reparto-di-confectioner-paziesserie-100-confiserie-sprungli-ag-dietikon",
         "pasticceria-nel-reparto-torte-e-pasticcerie-100-confiserie-sprungli-ag-dietikon",
         "pastry-confectioner-in-the-cake-patisserie-department-100-confiserie-sprungli-ag-dietikon",
         "konditor-confiseur-in-abteilung-torten-patisserie-100-spruengli-dietikon-b0uhbb",
         "konditor-confiseur-in-abteilung-torten-patisserie-100-confiserie-sprungli-ag-dietikon",
-        "pasticceria-nel-reparto-torte-e-pasticcerie-100-confiserie-sprungli-ag-dietikon",
-        "pastry-confectioner-in-the-cake-patisserie-department-100-confiserie-sprungli-ag-dietikon",
-        "konditor-confiseur-in-abteilung-torten-patisserie-100-spruengli-dietikon-b0uhbb",
-        "konditor-confiseur-in-abteilung-torten-patisserie-100-confiserie-sprungli-ag-dietikon",
-        "pasticceria-nel-reparto-torte-e-pasticcerie-100-confiserie-sprungli-ag-dietikon",
-        "pastry-confectioner-in-the-cake-patisserie-department-100-confiserie-sprungli-ag-dietikon",
-        "konditor-confiseur-in-abteilung-torten-patisserie-100-spruengli-dietikon-b0uhbb",
-        "konditor-confiseur-in-abteilung-torten-patisserie-100-confiserie-sprungli-ag-dietikon",
-        "pasticceria-nel-reparto-torte-e-pasticcerie-100-confiserie-sprungli-ag-dietikon",
-        "pastry-confectioner-in-the-cake-patisserie-department-100-confiserie-sprungli-ag-dietikon",
-        "konditor-confiseur-in-abteilung-torten-patisserie-100-spruengli-dietikon-b0uhbb",
-        "konditor-confiseur-in-abteilung-torten-patisserie-100-confiserie-sprungli-ag-dietikon",
-        "pasticceria-nel-reparto-torte-e-pasticcerie-100-confiserie-sprungli-ag-dietikon",
-        "pastry-confectioner-in-the-cake-patisserie-department-100-confiserie-sprungli-ag-dietikon",
-        "konditor-confiseur-in-abteilung-torten-patisserie-100-spruengli-dietikon-b0uhbb",
-        "konditor-confiseur-in-abteilung-torten-patisserie-100-confiserie-sprungli-ag-dietikon"
+        "confectioner-confiser-department-100-confiserie-sprungli-ag-dietikon",
+        "konditor-confiseur-in-abteilung-confiserie-100-spruengli-dietikon",
+        "service-de-la-confiserie-100-confiserie-sprungli-ag-dietikon",
+        "patisserie-patisserie-100-confiserie-sprungli-ag-dietikon",
+        "torte-di-reparto-di-confectioner-paziesserie-100-confiserie-sprungli-ag-dietikon"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "torte-di-reparto-di-confectioner-paziesserie-100-confiserie-sprungli-ag-dietikon",
           "pasticceria-nel-reparto-torte-e-pasticcerie-100-confiserie-sprungli-ag-dietikon",
           "pastry-confectioner-in-the-cake-patisserie-department-100-confiserie-sprungli-ag-dietikon",
           "konditor-confiseur-in-abteilung-torten-patisserie-100-spruengli-dietikon-b0uhbb",
           "konditor-confiseur-in-abteilung-torten-patisserie-100-confiserie-sprungli-ag-dietikon",
-          "pasticceria-nel-reparto-torte-e-pasticcerie-100-confiserie-sprungli-ag-dietikon",
-          "pastry-confectioner-in-the-cake-patisserie-department-100-confiserie-sprungli-ag-dietikon",
-          "konditor-confiseur-in-abteilung-torten-patisserie-100-spruengli-dietikon-b0uhbb",
-          "konditor-confiseur-in-abteilung-torten-patisserie-100-confiserie-sprungli-ag-dietikon",
-          "pasticceria-nel-reparto-torte-e-pasticcerie-100-confiserie-sprungli-ag-dietikon",
-          "pastry-confectioner-in-the-cake-patisserie-department-100-confiserie-sprungli-ag-dietikon",
-          "konditor-confiseur-in-abteilung-torten-patisserie-100-spruengli-dietikon-b0uhbb",
-          "konditor-confiseur-in-abteilung-torten-patisserie-100-confiserie-sprungli-ag-dietikon",
-          "pasticceria-nel-reparto-torte-e-pasticcerie-100-confiserie-sprungli-ag-dietikon",
-          "pastry-confectioner-in-the-cake-patisserie-department-100-confiserie-sprungli-ag-dietikon",
-          "konditor-confiseur-in-abteilung-torten-patisserie-100-spruengli-dietikon-b0uhbb",
-          "konditor-confiseur-in-abteilung-torten-patisserie-100-confiserie-sprungli-ag-dietikon",
-          "pasticceria-nel-reparto-torte-e-pasticcerie-100-confiserie-sprungli-ag-dietikon",
-          "pastry-confectioner-in-the-cake-patisserie-department-100-confiserie-sprungli-ag-dietikon",
-          "konditor-confiseur-in-abteilung-torten-patisserie-100-spruengli-dietikon-b0uhbb",
-          "konditor-confiseur-in-abteilung-torten-patisserie-100-confiserie-sprungli-ag-dietikon"
+          "konditor-confiseur-in-abteilung-torten-patisserie-100-spruengli-dietikon",
+          "torte-di-reparto-di-confectioner-paziesserie-100-confiserie-sprungli-ag-dietikon"
         ],
         "en": [
           "konditor-confiseur-in-abteilung-torten-patisserie-100-spruengli-dietikon",
           "confectioner-confiser-department-100-confiserie-sprungli-ag-dietikon",
           "pastry-confectioner-in-the-cake-patisserie-department-100-confiserie-sprungli-ag-dietikon"
         ],
+        "de": [
+          "konditor-confiseur-in-abteilung-confiserie-100-spruengli-dietikon",
+          "konditor-confiseur-in-abteilung-torten-patisserie-100-spruengli-dietikon-b0uhbb"
+        ],
         "fr": [
           "konditor-confiseur-in-abteilung-torten-patisserie-100-spruengli-dietikon",
           "service-de-la-confiserie-100-confiserie-sprungli-ag-dietikon",
           "patisserie-patisserie-100-confiserie-sprungli-ag-dietikon"
-        ],
-        "de": [
-          "konditor-confiseur-in-abteilung-confiserie-100-spruengli-dietikon",
-          "konditor-confiseur-in-abteilung-torten-patisserie-100-spruengli-dietikon-b0uhbb"
         ]
       },
       "firstSeenAt": "2026-07-31T22:18:24.553Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -840,7 +820,7 @@
       "url": "https://apply.refline.ch/116352/1239/pub/9/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-02T10:56:25.468Z",
+      "crawledAt": "2026-08-02T22:01:29.454Z",
       "addressLocality": "Dietikon",
       "addressRegion": "ZH",
       "streetAddress": "Bernstrasse 89",
@@ -891,81 +871,6 @@
       }
     },
     {
-      "id": "spruengli-077b20740cf5",
-      "slug": "sachbearbeiter-in-stammdaten-80-100-confiserie-sprungli-ag-dietikon",
-      "slugByLocale": {
-        "it": "sachbearbeiter-in-stammdaten-80-100-confiserie-sprungli-ag-dietikon",
-        "en": "sachbearbeiter-in-stammdaten-80-100-confiserie-sprungli-ag-dietikon",
-        "de": "sachbearbeiter-in-stammdaten-80-100-spruengli-dietikon",
-        "fr": "sachbearbeiter-in-stammdaten-80-100-confiserie-sprungli-ag-dietikon"
-      },
-      "company": "Confiserie Sprüngli AG",
-      "companyKey": "spruengli",
-      "companyDomain": "spruengli.ch",
-      "title": "Sachbearbeiter*in Stammdaten (80-100%)",
-      "titleByLocale": {
-        "it": "Case handler* in dati master (80-100%)",
-        "en": "Case handler* in master data (80-100%)",
-        "de": "Sachbearbeiter*in Stammdaten (80-100%)",
-        "fr": "Gestionnaire de cas* dans les données principales (80-100%)"
-      },
-      "description": "Das 1836 gegründete Schweizer Familienunternehmen zählt heute mit seinem erlesenen Sortiment zu den renommiertesten Confiserien Europas. Die Produkte aus dem Hause Sprüngli stehen für beste Qualität, einmalige Frische und Natürlichkeit. Die vollendeten Kreationen bringen täglich Kundinnen und Kunden aus aller Welt ins Schwärmen.\n\nSachbearbeiter*in Stammdaten (80-100%)\n\n100%, Dietikon\n\nArbeiten bei Sprüngli\n\nDu suchst eine neue berufliche Herausforderung, in welcher du in der neu geschaffenen Abteilung «Stammdaten» dein Flair für Daten und Reportings einsetzen kannst? Dann freuen wir uns auf deine Bewerbung. In unserer Manufaktur in Dietikon suchen wir für die Abteilung Stammdaten ab sofort oder nach Vereinbarung eine*n erfahrene*n, motivierte*n und engagierte*n\n\nWas du bei uns bewegst\n\nIn unserer Abteilung Stammdaten bist du Teil eines dynamischen Duo’s, das für eine einwandfreie Stammdatenpflege verantwortlich ist. In dieser Drehscheibenfunktion bist du im engen Austausch mit Vertrieb, Marketing, Produktion, PPS, Finance und Einkauf. Was du bei uns bewegst:\n\n• Du erstellst, entwickelst und optimierst Reportings\n\n• Du kümmerst dich um die Eröffnung neuer Artikel, überwachst und kontrollierst die Stamm-daten\n\n• Du übernimmst die Verantwortung für Massenmutationen und hast die Möglichkeit zur Bewirtschaftung und Erstellung von Variantenkonfiguratoren\n\n• In diversen Arbeitsgruppen bringst du relevante Änderungen ein und setzt diese um\n\n• Du garantierst die langfristige Qualität der Stammdaten und bringst Ideen für Verbesserungen ein\n\n• Du analysierst, definierst und verbesserst die Prozessen im Stammdatenmanagement\n\n• Du übernimmst die Leitung von Stammdaten-Projekten\n\n• Du stehst als zentrale Schnittstellenfunktion in enger Zusammenarbeit mit sämtlichen Unternehmensbereichen\n\n• Du erstellst Dokumentationen, Schulungsunterlagen und führst die entsprechenden Schulungen durch\n\nWas wir uns wünschen\n\n• Abgeschlossene Ausbildung im kaufmännischen Bereich (EFZ)\n\n• Mindestens 5 Jahre Erfahrung im Stammdatenbereich\n\n• Du bist stark im Umgang mit den Office-Programmen und kannst deinen Aufgabenbereich eigenverantwortlich organisieren\n\n• Sehr gute SAP-Kenntnisse (insbesondere S/4 Hana)\n\n• Affinität für Zahlen und Starke Excel Kenntnisse\n\n• Kenntnisse von Prozessen\n\n• Kenntnisse in der Lebensmittelbranche und Projekterfahrung sind ein absolutes Plus\n\n• Du schätzt und förderst die Zusammenarbeit mit weiteren internen Stellen\n\n• Selbständige, gut strukturierte und engagierte Arbeitsweise auch in intensiven Phasen\n\n• Offene, zuverlässige und kommunikative Persönlichkeit mit schneller Auffassungsgabe\n\n• Stilsichere Deutschkenntnisse in Schrift und Sprache\n\nDarauf kannst du dich freuen\n\nBei uns erwartet dich ein vielseitiges und herausforderndes Aufgabengebiet in einem lebhaften und modernen Umfeld mit einem motivierten Team und einer kollegialen Du-Kultur. Für die Arbeitskleidung und deren Reinigung sowie für abwechslungsreiche Verpflegungsmöglichkeiten unter anderem in unserem Personalrestaurant sorgen wir gerne. Wir bieten dir gute Anstellungsbedingungen wie 5 Wochen Ferien, einen zusätzlichen freien Tag im Geburtstagsmonat, einen kostenlosen Parkplatz und grosszügige Einkaufsvergünstigungen.\n\nBist du interessiert?\nDann freuen wir uns auf deine elektronische Bewerbung.*\nDerzeit nehmen wir keine Bewerbungen von Stellenvermittlungen für diese Position entgegen.",
-      "descriptionByLocale": {
-        "it": "Fondata nel 1836, l'azienda di famiglia svizzera è oggi una delle più rinomate confiserie d'Europa con la sua squisita gamma. I prodotti Sprüngli sono sinonimo di qualità, freschezza e naturalezza uniche. Le creazioni completate portano clienti da tutto il mondo a sciamare ogni giorno.\n\nCase handler* in dati master (80-100%)\n\n100%, Dietikon\n\nLavorare a Sprüngli\n\nSei alla ricerca di una nuova sfida professionale in cui è possibile utilizzare il tuo fascino per i dati e la segnalazione nel nuovo reparto “Master Data” creato? Attendiamo con ansia la vostra applicazione. Nella nostra manifattura a Dietikon, stiamo cercando un servizio di dati esperto, motivato e impegnato da ora in poi o per accordo. *\n\nCosa fai con noi\n\nNel nostro reparto dati master, si fa parte di un duo dinamico che è responsabile della manutenzione impeccabile dei dati master. In questa funzione hub, si è in stretto contatto con vendite, marketing, produzione, PPS, finanza e acquisto. Cosa fai con noi:\n\n• Creare, sviluppare e ottimizzare la reportistica\n\n• Si prende cura di aprire nuovi articoli, monitorare e controllare i dati master\n\n• Vi assumete la responsabilità di mutazioni di massa e avete la possibilità di gestire e creare configuratori di varianti\n\n• In vari gruppi di lavoro si apportano modifiche pertinenti e implementarle\n\n• Garantisci la qualità a lungo termine dei dati master e porta idee per miglioramenti\n\n• Analizzi, definisci e migliora i processi nella gestione dei dati master\n\n• Si prende il controllo della gestione dei progetti di dati master\n\n• Sei una funzione di interfaccia centrale in stretta collaborazione con tutte le aree dell'azienda\n\n• Crea documentazione, materiali di formazione e effettua corsi di formazione appropriati\n\nCosa vogliamo\n\n• Formazione commerciale completa (EFZ)\n\n• Almeno 5 anni di esperienza nell'area dati master\n\n• Sei forte nel trattare con i programmi di ufficio e può organizzare la tua area di attività indipendentemente\n\n• Conoscenza SAP molto buona (specialmente S/4 Hana)\n\n• Affinità per numeri e forte conoscenza di Excel\n\n• Conoscenza dei processi\n\n• La conoscenza nell'industria alimentare e l'esperienza di progetto sono un plus assoluto\n\n• Apprezzate e promuovete la cooperazione con altri organismi interni\n\n• Metodo di lavoro indipendente, ben strutturato e impegnato anche in fasi intensive\n\n• Personalità aperta, affidabile e comunicativa con rapida comprensione\n\n• Conoscenze di stile fiducioso del tedesco per iscritto e lingua\n\nNon vedo l'ora.\n\nUna zona di responsabilità versatile e impegnativa vi aspetta in un ambiente vivace e moderno con un team motivato e una du-cultura collegiale. Per gli abiti da lavoro e la loro pulizia, così come per varie opzioni di cibo, tra le altre cose nel nostro ristorante personale, siamo felici di fornire. Offriamo buone condizioni di lavoro come 5 settimane vacanze, una giornata extra nel mese di compleanno, parcheggio gratuito e vantaggi commerciali generosi.\n\nSei interessato?\nAllora non vediamo l'ora della vostra applicazione elettronica. *\nAttualmente non accettiamo richieste di reclutamento per questa posizione.",
-        "en": "Founded in 1836, the Swiss family business is today one of the most renowned confiseries in Europe with its exquisite range. Sprüngli products stand for the best quality, unique freshness and naturalness. The completed creations bring customers from all over the world to swarm daily.\n\nCase handler* in master data (80-100%)\n\n100%, Dietikon\n\nWorking at Sprüngli\n\nAre you looking for a new professional challenge in which you can use your flair for data and reporting in the newly created “Master Data” department? We look forward to your application. In our manufactory in Dietikon, we are looking for an experienced, motivated and committed data department from now on or by agreement. *n\n\nWhat you do with us\n\nIn our master data department, you are part of a dynamic duo that is responsible for flawless master data maintenance. In this hub function, you are in close contact with sales, marketing, production, PPS, finance and purchasing. What you do with us:\n\n• You create, develop and optimize reporting\n\n• You take care of opening new articles, monitor and control the master data\n\n• You take responsibility for mass mutations and have the opportunity to manage and create variant configurators\n\n• In various working groups you bring relevant changes and implement them\n\n• You guarantee the long-term quality of the master data and bring ideas for improvements\n\n• You analyze, define and improve the processes in master data management\n\n• You take over the management of master data projects\n\n• You are a central interface function in close cooperation with all areas of the company\n\n• You create documentation, training materials and carry out the appropriate training courses\n\nWhat we want\n\n• Completed Commercial Training (EFZ)\n\n• At least 5 years of experience in the master data area\n\n• You are strong in dealing with the office programs and can organize your task area independently\n\n• Very good SAP knowledge (especially S/4 Hana)\n\n• Affinity for numbers and strong Excel knowledge\n\n• Knowledge of processes\n\n• Knowledge in the food industry and project experience are an absolute plus\n\n• You appreciate and promote cooperation with other internal bodies\n\n• Independent, well-structured and committed working method also in intensive phases\n\n• Open, reliable and communicative personality with quick comprehension\n\n• Style-confident knowledge of German in writing and language\n\nYou can look forward to that.\n\nA versatile and challenging area of responsibility awaits you in a lively and modern environment with a motivated team and a collegial du-culture. For the work clothes and their cleaning as well as for varied food options, among other things in our staff restaurant, we are happy to provide. We offer good employment conditions such as 5 weeks holidays, an extra day off in the birthday month, free parking and generous shopping perks.\n\nAre you interested?\nThen we look forward to your electronic application. *\nWe are not currently accepting recruitment applications for this position.",
-        "de": "Das 1836 gegründete Schweizer Familienunternehmen zählt heute mit seinem erlesenen Sortiment zu den renommiertesten Confiserien Europas. Die Produkte aus dem Hause Sprüngli stehen für beste Qualität, einmalige Frische und Natürlichkeit. Die vollendeten Kreationen bringen täglich Kundinnen und Kunden aus aller Welt ins Schwärmen.\n\nSachbearbeiter*in Stammdaten (80-100%)\n\n100%, Dietikon\n\nArbeiten bei Sprüngli\n\nDu suchst eine neue berufliche Herausforderung, in welcher du in der neu geschaffenen Abteilung «Stammdaten» dein Flair für Daten und Reportings einsetzen kannst? Dann freuen wir uns auf deine Bewerbung. In unserer Manufaktur in Dietikon suchen wir für die Abteilung Stammdaten ab sofort oder nach Vereinbarung eine*n erfahrene*n, motivierte*n und engagierte*n\n\nWas du bei uns bewegst\n\nIn unserer Abteilung Stammdaten bist du Teil eines dynamischen Duo’s, das für eine einwandfreie Stammdatenpflege verantwortlich ist. In dieser Drehscheibenfunktion bist du im engen Austausch mit Vertrieb, Marketing, Produktion, PPS, Finance und Einkauf. Was du bei uns bewegst:\n\n• Du erstellst, entwickelst und optimierst Reportings\n\n• Du kümmerst dich um die Eröffnung neuer Artikel, überwachst und kontrollierst die Stamm-daten\n\n• Du übernimmst die Verantwortung für Massenmutationen und hast die Möglichkeit zur Bewirtschaftung und Erstellung von Variantenkonfiguratoren\n\n• In diversen Arbeitsgruppen bringst du relevante Änderungen ein und setzt diese um\n\n• Du garantierst die langfristige Qualität der Stammdaten und bringst Ideen für Verbesserungen ein\n\n• Du analysierst, definierst und verbesserst die Prozessen im Stammdatenmanagement\n\n• Du übernimmst die Leitung von Stammdaten-Projekten\n\n• Du stehst als zentrale Schnittstellenfunktion in enger Zusammenarbeit mit sämtlichen Unternehmensbereichen\n\n• Du erstellst Dokumentationen, Schulungsunterlagen und führst die entsprechenden Schulungen durch\n\nWas wir uns wünschen\n\n• Abgeschlossene Ausbildung im kaufmännischen Bereich (EFZ)\n\n• Mindestens 5 Jahre Erfahrung im Stammdatenbereich\n\n• Du bist stark im Umgang mit den Office-Programmen und kannst deinen Aufgabenbereich eigenverantwortlich organisieren\n\n• Sehr gute SAP-Kenntnisse (insbesondere S/4 Hana)\n\n• Affinität für Zahlen und Starke Excel Kenntnisse\n\n• Kenntnisse von Prozessen\n\n• Kenntnisse in der Lebensmittelbranche und Projekterfahrung sind ein absolutes Plus\n\n• Du schätzt und förderst die Zusammenarbeit mit weiteren internen Stellen\n\n• Selbständige, gut strukturierte und engagierte Arbeitsweise auch in intensiven Phasen\n\n• Offene, zuverlässige und kommunikative Persönlichkeit mit schneller Auffassungsgabe\n\n• Stilsichere Deutschkenntnisse in Schrift und Sprache\n\nDarauf kannst du dich freuen\n\nBei uns erwartet dich ein vielseitiges und herausforderndes Aufgabengebiet in einem lebhaften und modernen Umfeld mit einem motivierten Team und einer kollegialen Du-Kultur. Für die Arbeitskleidung und deren Reinigung sowie für abwechslungsreiche Verpflegungsmöglichkeiten unter anderem in unserem Personalrestaurant sorgen wir gerne. Wir bieten dir gute Anstellungsbedingungen wie 5 Wochen Ferien, einen zusätzlichen freien Tag im Geburtstagsmonat, einen kostenlosen Parkplatz und grosszügige Einkaufsvergünstigungen.\n\nBist du interessiert?\nDann freuen wir uns auf deine elektronische Bewerbung.*\nDerzeit nehmen wir keine Bewerbungen von Stellenvermittlungen für diese Position entgegen.",
-        "fr": "Fondée en 1836, l'entreprise familiale suisse est aujourd'hui l'une des confiseries les plus renommées d'Europe avec sa gamme exquise. Les produits Sprüngli sont synonymes de la meilleure qualité, de fraîcheur unique et de naturel. Les créations achevées amènent des clients du monde entier à sillonner quotidiennement.\n\nGestionnaire de cas* dans les données principales (80-100%)\n\n100%, Dietikon\n\nTravailler chez Sprüngli\n\nÊtes-vous à la recherche d'un nouveau défi professionnel dans lequel vous pouvez utiliser votre flair pour les données et les rapports dans le nouveau département de \"Master Data\" ? Nous attendons avec impatience votre candidature. Dans notre manufacture à Dietikon, nous recherchons désormais un département de données expérimenté, motivé et engagé. *n\n\nCe que tu fais de nous\n\nDans notre département Master Data, vous faites partie d'un duo dynamique qui est responsable de la maintenance des données master sans faille. Dans cette fonction de hub, vous êtes en contact étroit avec les ventes, marketing, production, SPA, finances et achats. Ce que vous faites de nous :\n\n• Vous créez, développez et optimisez les rapports\n\n• Vous prenez soin d'ouvrir de nouveaux articles, de surveiller et de contrôler les données master\n\n• Vous prenez la responsabilité des mutations de masse et avez la possibilité de gérer et de créer des configurateurs de variante\n\n• Dans différents groupes de travail, vous apportez les changements pertinents et les mettez en œuvre\n\n• Vous garantissez la qualité à long terme des données master et apportez des idées d'amélioration\n\n• Vous analysez, définissez et améliorez les processus de gestion des données\n\n• Vous prenez en charge la gestion de projets de données master\n\n• Vous êtes une fonction d'interface centrale en étroite collaboration avec tous les domaines de l'entreprise\n\n• Vous créez de la documentation, du matériel de formation et exécutez les formations appropriées\n\nCe que nous voulons\n\n• Formation commerciale terminée (EFZ)\n\n• Au moins 5 ans d'expérience dans le domaine des données maîtresses\n\n• Vous êtes fort dans la gestion des programmes de bureau et pouvez organiser votre domaine de travail indépendamment\n\n• Très bonne connaissance SAP (en particulier S/4 Hana)\n\n• Affinité pour nombres et forte connaissance Excel\n\n• Connaissance des processus\n\n• Les connaissances dans l'industrie alimentaire et l'expérience de projet sont un plus absolu\n\n• Vous appréciez et encouragez la coopération avec d'autres organes internes\n\n• Méthode de travail indépendante, bien structurée et engagée également en phases intensives\n\n• Personnalité ouverte, fiable et communicative avec compréhension rapide\n\n• Style-confident connaissance de l'allemand dans l'écriture et la langue\n\nVous pouvez attendre avec impatience.\n\nUn espace de responsabilité polyvalent et stimulant vous attend dans un environnement animé et moderne avec une équipe motivée et une du-culture collégiale. Pour les vêtements de travail et leur nettoyage ainsi que pour diverses options alimentaires, entre autres dans notre restaurant du personnel, nous sommes heureux de fournir. Nous offrons de bonnes conditions d'emploi telles que 5 semaines de vacances, un jour de congé supplémentaire dans le mois d'anniversaire, un parking gratuit et des avantages commerciaux généreux.\n\nÇa t'intéresse ?\nEnsuite, nous attendons avec impatience votre application électronique. *\nNous n'acceptons pas actuellement les candidatures de recrutement pour ce poste."
-      },
-      "location": "Dietikon",
-      "canton": "ZH",
-      "url": "https://apply.refline.ch/116352/1250/pub/1/index.html",
-      "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-02T10:56:25.466Z",
-      "addressLocality": "Dietikon",
-      "addressRegion": "ZH",
-      "streetAddress": "Bernstrasse 89",
-      "postalCode": "8953",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Produzione",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Alimentare / Confetteria",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-23",
-      "applyUrl": "https://apply.refline.ch/116352/1250/pub/1/index.html",
-      "hiringOrganizationName": "Confiserie Sprüngli AG",
-      "jobReqId": "1250",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "sachbearbeiter-in-stammdaten-80-100-spruengli-dietikon",
-        "sachbearbeiter-in-stammdaten-80-100-confiserie-sprungli-ag-dietikon"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "sachbearbeiter-in-stammdaten-80-100-spruengli-dietikon",
-          "sachbearbeiter-in-stammdaten-80-100-confiserie-sprungli-ag-dietikon"
-        ]
-      },
-      "firstSeenAt": "2026-07-23T22:17:51.309Z",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "spruengli-b7b0a776998e",
       "slug": "testa-di-controllo-70-100-confiserie-sprungli-ag-dietikon",
       "slugByLocale": {
@@ -996,7 +901,7 @@
       "url": "https://apply.refline.ch/116352/1251/pub/5/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-02T10:56:25.466Z",
+      "crawledAt": "2026-08-02T22:01:29.453Z",
       "addressLocality": "Dietikon",
       "addressRegion": "ZH",
       "streetAddress": "Bernstrasse 89",
@@ -1046,6 +951,81 @@
       }
     },
     {
+      "id": "spruengli-077b20740cf5",
+      "slug": "sachbearbeiter-in-stammdaten-80-100-confiserie-sprungli-ag-dietikon",
+      "slugByLocale": {
+        "it": "sachbearbeiter-in-stammdaten-80-100-confiserie-sprungli-ag-dietikon",
+        "en": "sachbearbeiter-in-stammdaten-80-100-confiserie-sprungli-ag-dietikon",
+        "de": "sachbearbeiter-in-stammdaten-80-100-spruengli-dietikon",
+        "fr": "sachbearbeiter-in-stammdaten-80-100-confiserie-sprungli-ag-dietikon"
+      },
+      "company": "Confiserie Sprüngli AG",
+      "companyKey": "spruengli",
+      "companyDomain": "spruengli.ch",
+      "title": "Sachbearbeiter*in Stammdaten (80-100%)",
+      "titleByLocale": {
+        "it": "Case handler* in dati master (80-100%)",
+        "en": "Case handler* in master data (80-100%)",
+        "de": "Sachbearbeiter*in Stammdaten (80-100%)",
+        "fr": "Gestionnaire de cas* dans les données principales (80-100%)"
+      },
+      "description": "Das 1836 gegründete Schweizer Familienunternehmen zählt heute mit seinem erlesenen Sortiment zu den renommiertesten Confiserien Europas. Die Produkte aus dem Hause Sprüngli stehen für beste Qualität, einmalige Frische und Natürlichkeit. Die vollendeten Kreationen bringen täglich Kundinnen und Kunden aus aller Welt ins Schwärmen.\n\nSachbearbeiter*in Stammdaten (80-100%)\n\n100%, Dietikon\n\nArbeiten bei Sprüngli\n\nDu suchst eine neue berufliche Herausforderung, in welcher du in der neu geschaffenen Abteilung «Stammdaten» dein Flair für Daten und Reportings einsetzen kannst? Dann freuen wir uns auf deine Bewerbung. In unserer Manufaktur in Dietikon suchen wir für die Abteilung Stammdaten ab sofort oder nach Vereinbarung eine*n erfahrene*n, motivierte*n und engagierte*n\n\nWas du bei uns bewegst\n\nIn unserer Abteilung Stammdaten bist du Teil eines dynamischen Duo’s, das für eine einwandfreie Stammdatenpflege verantwortlich ist. In dieser Drehscheibenfunktion bist du im engen Austausch mit Vertrieb, Marketing, Produktion, PPS, Finance und Einkauf. Was du bei uns bewegst:\n\n• Du erstellst, entwickelst und optimierst Reportings\n\n• Du kümmerst dich um die Eröffnung neuer Artikel, überwachst und kontrollierst die Stamm-daten\n\n• Du übernimmst die Verantwortung für Massenmutationen und hast die Möglichkeit zur Bewirtschaftung und Erstellung von Variantenkonfiguratoren\n\n• In diversen Arbeitsgruppen bringst du relevante Änderungen ein und setzt diese um\n\n• Du garantierst die langfristige Qualität der Stammdaten und bringst Ideen für Verbesserungen ein\n\n• Du analysierst, definierst und verbesserst die Prozessen im Stammdatenmanagement\n\n• Du übernimmst die Leitung von Stammdaten-Projekten\n\n• Du stehst als zentrale Schnittstellenfunktion in enger Zusammenarbeit mit sämtlichen Unternehmensbereichen\n\n• Du erstellst Dokumentationen, Schulungsunterlagen und führst die entsprechenden Schulungen durch\n\nWas wir uns wünschen\n\n• Abgeschlossene Ausbildung im kaufmännischen Bereich (EFZ)\n\n• Mindestens 5 Jahre Erfahrung im Stammdatenbereich\n\n• Du bist stark im Umgang mit den Office-Programmen und kannst deinen Aufgabenbereich eigenverantwortlich organisieren\n\n• Sehr gute SAP-Kenntnisse (insbesondere S/4 Hana)\n\n• Affinität für Zahlen und Starke Excel Kenntnisse\n\n• Kenntnisse von Prozessen\n\n• Kenntnisse in der Lebensmittelbranche und Projekterfahrung sind ein absolutes Plus\n\n• Du schätzt und förderst die Zusammenarbeit mit weiteren internen Stellen\n\n• Selbständige, gut strukturierte und engagierte Arbeitsweise auch in intensiven Phasen\n\n• Offene, zuverlässige und kommunikative Persönlichkeit mit schneller Auffassungsgabe\n\n• Stilsichere Deutschkenntnisse in Schrift und Sprache\n\nDarauf kannst du dich freuen\n\nBei uns erwartet dich ein vielseitiges und herausforderndes Aufgabengebiet in einem lebhaften und modernen Umfeld mit einem motivierten Team und einer kollegialen Du-Kultur. Für die Arbeitskleidung und deren Reinigung sowie für abwechslungsreiche Verpflegungsmöglichkeiten unter anderem in unserem Personalrestaurant sorgen wir gerne. Wir bieten dir gute Anstellungsbedingungen wie 5 Wochen Ferien, einen zusätzlichen freien Tag im Geburtstagsmonat, einen kostenlosen Parkplatz und grosszügige Einkaufsvergünstigungen.\n\nBist du interessiert?\nDann freuen wir uns auf deine elektronische Bewerbung.*\nDerzeit nehmen wir keine Bewerbungen von Stellenvermittlungen für diese Position entgegen.",
+      "descriptionByLocale": {
+        "it": "Fondata nel 1836, l'azienda di famiglia svizzera è oggi una delle più rinomate confiserie d'Europa con la sua squisita gamma. I prodotti Sprüngli sono sinonimo di qualità, freschezza e naturalezza uniche. Le creazioni completate portano clienti da tutto il mondo a sciamare ogni giorno.\n\nCase handler* in dati master (80-100%)\n\n100%, Dietikon\n\nLavorare a Sprüngli\n\nSei alla ricerca di una nuova sfida professionale in cui è possibile utilizzare il tuo fascino per i dati e la segnalazione nel nuovo reparto “Master Data” creato? Attendiamo con ansia la vostra applicazione. Nella nostra manifattura a Dietikon, stiamo cercando un servizio di dati esperto, motivato e impegnato da ora in poi o per accordo. *\n\nCosa fai con noi\n\nNel nostro reparto dati master, si fa parte di un duo dinamico che è responsabile della manutenzione impeccabile dei dati master. In questa funzione hub, si è in stretto contatto con vendite, marketing, produzione, PPS, finanza e acquisto. Cosa fai con noi:\n\n• Creare, sviluppare e ottimizzare la reportistica\n\n• Si prende cura di aprire nuovi articoli, monitorare e controllare i dati master\n\n• Vi assumete la responsabilità di mutazioni di massa e avete la possibilità di gestire e creare configuratori di varianti\n\n• In vari gruppi di lavoro si apportano modifiche pertinenti e implementarle\n\n• Garantisci la qualità a lungo termine dei dati master e porta idee per miglioramenti\n\n• Analizzi, definisci e migliora i processi nella gestione dei dati master\n\n• Si prende il controllo della gestione dei progetti di dati master\n\n• Sei una funzione di interfaccia centrale in stretta collaborazione con tutte le aree dell'azienda\n\n• Crea documentazione, materiali di formazione e effettua corsi di formazione appropriati\n\nCosa vogliamo\n\n• Formazione commerciale completa (EFZ)\n\n• Almeno 5 anni di esperienza nell'area dati master\n\n• Sei forte nel trattare con i programmi di ufficio e può organizzare la tua area di attività indipendentemente\n\n• Conoscenza SAP molto buona (specialmente S/4 Hana)\n\n• Affinità per numeri e forte conoscenza di Excel\n\n• Conoscenza dei processi\n\n• La conoscenza nell'industria alimentare e l'esperienza di progetto sono un plus assoluto\n\n• Apprezzate e promuovete la cooperazione con altri organismi interni\n\n• Metodo di lavoro indipendente, ben strutturato e impegnato anche in fasi intensive\n\n• Personalità aperta, affidabile e comunicativa con rapida comprensione\n\n• Conoscenze di stile fiducioso del tedesco per iscritto e lingua\n\nNon vedo l'ora.\n\nUna zona di responsabilità versatile e impegnativa vi aspetta in un ambiente vivace e moderno con un team motivato e una du-cultura collegiale. Per gli abiti da lavoro e la loro pulizia, così come per varie opzioni di cibo, tra le altre cose nel nostro ristorante personale, siamo felici di fornire. Offriamo buone condizioni di lavoro come 5 settimane vacanze, una giornata extra nel mese di compleanno, parcheggio gratuito e vantaggi commerciali generosi.\n\nSei interessato?\nAllora non vediamo l'ora della vostra applicazione elettronica. *\nAttualmente non accettiamo richieste di reclutamento per questa posizione.",
+        "en": "Founded in 1836, the Swiss family business is today one of the most renowned confiseries in Europe with its exquisite range. Sprüngli products stand for the best quality, unique freshness and naturalness. The completed creations bring customers from all over the world to swarm daily.\n\nCase handler* in master data (80-100%)\n\n100%, Dietikon\n\nWorking at Sprüngli\n\nAre you looking for a new professional challenge in which you can use your flair for data and reporting in the newly created “Master Data” department? We look forward to your application. In our manufactory in Dietikon, we are looking for an experienced, motivated and committed data department from now on or by agreement. *n\n\nWhat you do with us\n\nIn our master data department, you are part of a dynamic duo that is responsible for flawless master data maintenance. In this hub function, you are in close contact with sales, marketing, production, PPS, finance and purchasing. What you do with us:\n\n• You create, develop and optimize reporting\n\n• You take care of opening new articles, monitor and control the master data\n\n• You take responsibility for mass mutations and have the opportunity to manage and create variant configurators\n\n• In various working groups you bring relevant changes and implement them\n\n• You guarantee the long-term quality of the master data and bring ideas for improvements\n\n• You analyze, define and improve the processes in master data management\n\n• You take over the management of master data projects\n\n• You are a central interface function in close cooperation with all areas of the company\n\n• You create documentation, training materials and carry out the appropriate training courses\n\nWhat we want\n\n• Completed Commercial Training (EFZ)\n\n• At least 5 years of experience in the master data area\n\n• You are strong in dealing with the office programs and can organize your task area independently\n\n• Very good SAP knowledge (especially S/4 Hana)\n\n• Affinity for numbers and strong Excel knowledge\n\n• Knowledge of processes\n\n• Knowledge in the food industry and project experience are an absolute plus\n\n• You appreciate and promote cooperation with other internal bodies\n\n• Independent, well-structured and committed working method also in intensive phases\n\n• Open, reliable and communicative personality with quick comprehension\n\n• Style-confident knowledge of German in writing and language\n\nYou can look forward to that.\n\nA versatile and challenging area of responsibility awaits you in a lively and modern environment with a motivated team and a collegial du-culture. For the work clothes and their cleaning as well as for varied food options, among other things in our staff restaurant, we are happy to provide. We offer good employment conditions such as 5 weeks holidays, an extra day off in the birthday month, free parking and generous shopping perks.\n\nAre you interested?\nThen we look forward to your electronic application. *\nWe are not currently accepting recruitment applications for this position.",
+        "de": "Das 1836 gegründete Schweizer Familienunternehmen zählt heute mit seinem erlesenen Sortiment zu den renommiertesten Confiserien Europas. Die Produkte aus dem Hause Sprüngli stehen für beste Qualität, einmalige Frische und Natürlichkeit. Die vollendeten Kreationen bringen täglich Kundinnen und Kunden aus aller Welt ins Schwärmen.\n\nSachbearbeiter*in Stammdaten (80-100%)\n\n100%, Dietikon\n\nArbeiten bei Sprüngli\n\nDu suchst eine neue berufliche Herausforderung, in welcher du in der neu geschaffenen Abteilung «Stammdaten» dein Flair für Daten und Reportings einsetzen kannst? Dann freuen wir uns auf deine Bewerbung. In unserer Manufaktur in Dietikon suchen wir für die Abteilung Stammdaten ab sofort oder nach Vereinbarung eine*n erfahrene*n, motivierte*n und engagierte*n\n\nWas du bei uns bewegst\n\nIn unserer Abteilung Stammdaten bist du Teil eines dynamischen Duo’s, das für eine einwandfreie Stammdatenpflege verantwortlich ist. In dieser Drehscheibenfunktion bist du im engen Austausch mit Vertrieb, Marketing, Produktion, PPS, Finance und Einkauf. Was du bei uns bewegst:\n\n• Du erstellst, entwickelst und optimierst Reportings\n\n• Du kümmerst dich um die Eröffnung neuer Artikel, überwachst und kontrollierst die Stamm-daten\n\n• Du übernimmst die Verantwortung für Massenmutationen und hast die Möglichkeit zur Bewirtschaftung und Erstellung von Variantenkonfiguratoren\n\n• In diversen Arbeitsgruppen bringst du relevante Änderungen ein und setzt diese um\n\n• Du garantierst die langfristige Qualität der Stammdaten und bringst Ideen für Verbesserungen ein\n\n• Du analysierst, definierst und verbesserst die Prozessen im Stammdatenmanagement\n\n• Du übernimmst die Leitung von Stammdaten-Projekten\n\n• Du stehst als zentrale Schnittstellenfunktion in enger Zusammenarbeit mit sämtlichen Unternehmensbereichen\n\n• Du erstellst Dokumentationen, Schulungsunterlagen und führst die entsprechenden Schulungen durch\n\nWas wir uns wünschen\n\n• Abgeschlossene Ausbildung im kaufmännischen Bereich (EFZ)\n\n• Mindestens 5 Jahre Erfahrung im Stammdatenbereich\n\n• Du bist stark im Umgang mit den Office-Programmen und kannst deinen Aufgabenbereich eigenverantwortlich organisieren\n\n• Sehr gute SAP-Kenntnisse (insbesondere S/4 Hana)\n\n• Affinität für Zahlen und Starke Excel Kenntnisse\n\n• Kenntnisse von Prozessen\n\n• Kenntnisse in der Lebensmittelbranche und Projekterfahrung sind ein absolutes Plus\n\n• Du schätzt und förderst die Zusammenarbeit mit weiteren internen Stellen\n\n• Selbständige, gut strukturierte und engagierte Arbeitsweise auch in intensiven Phasen\n\n• Offene, zuverlässige und kommunikative Persönlichkeit mit schneller Auffassungsgabe\n\n• Stilsichere Deutschkenntnisse in Schrift und Sprache\n\nDarauf kannst du dich freuen\n\nBei uns erwartet dich ein vielseitiges und herausforderndes Aufgabengebiet in einem lebhaften und modernen Umfeld mit einem motivierten Team und einer kollegialen Du-Kultur. Für die Arbeitskleidung und deren Reinigung sowie für abwechslungsreiche Verpflegungsmöglichkeiten unter anderem in unserem Personalrestaurant sorgen wir gerne. Wir bieten dir gute Anstellungsbedingungen wie 5 Wochen Ferien, einen zusätzlichen freien Tag im Geburtstagsmonat, einen kostenlosen Parkplatz und grosszügige Einkaufsvergünstigungen.\n\nBist du interessiert?\nDann freuen wir uns auf deine elektronische Bewerbung.*\nDerzeit nehmen wir keine Bewerbungen von Stellenvermittlungen für diese Position entgegen.",
+        "fr": "Fondée en 1836, l'entreprise familiale suisse est aujourd'hui l'une des confiseries les plus renommées d'Europe avec sa gamme exquise. Les produits Sprüngli sont synonymes de la meilleure qualité, de fraîcheur unique et de naturel. Les créations achevées amènent des clients du monde entier à sillonner quotidiennement.\n\nGestionnaire de cas* dans les données principales (80-100%)\n\n100%, Dietikon\n\nTravailler chez Sprüngli\n\nÊtes-vous à la recherche d'un nouveau défi professionnel dans lequel vous pouvez utiliser votre flair pour les données et les rapports dans le nouveau département de \"Master Data\" ? Nous attendons avec impatience votre candidature. Dans notre manufacture à Dietikon, nous recherchons désormais un département de données expérimenté, motivé et engagé. *n\n\nCe que tu fais de nous\n\nDans notre département Master Data, vous faites partie d'un duo dynamique qui est responsable de la maintenance des données master sans faille. Dans cette fonction de hub, vous êtes en contact étroit avec les ventes, marketing, production, SPA, finances et achats. Ce que vous faites de nous :\n\n• Vous créez, développez et optimisez les rapports\n\n• Vous prenez soin d'ouvrir de nouveaux articles, de surveiller et de contrôler les données master\n\n• Vous prenez la responsabilité des mutations de masse et avez la possibilité de gérer et de créer des configurateurs de variante\n\n• Dans différents groupes de travail, vous apportez les changements pertinents et les mettez en œuvre\n\n• Vous garantissez la qualité à long terme des données master et apportez des idées d'amélioration\n\n• Vous analysez, définissez et améliorez les processus de gestion des données\n\n• Vous prenez en charge la gestion de projets de données master\n\n• Vous êtes une fonction d'interface centrale en étroite collaboration avec tous les domaines de l'entreprise\n\n• Vous créez de la documentation, du matériel de formation et exécutez les formations appropriées\n\nCe que nous voulons\n\n• Formation commerciale terminée (EFZ)\n\n• Au moins 5 ans d'expérience dans le domaine des données maîtresses\n\n• Vous êtes fort dans la gestion des programmes de bureau et pouvez organiser votre domaine de travail indépendamment\n\n• Très bonne connaissance SAP (en particulier S/4 Hana)\n\n• Affinité pour nombres et forte connaissance Excel\n\n• Connaissance des processus\n\n• Les connaissances dans l'industrie alimentaire et l'expérience de projet sont un plus absolu\n\n• Vous appréciez et encouragez la coopération avec d'autres organes internes\n\n• Méthode de travail indépendante, bien structurée et engagée également en phases intensives\n\n• Personnalité ouverte, fiable et communicative avec compréhension rapide\n\n• Style-confident connaissance de l'allemand dans l'écriture et la langue\n\nVous pouvez attendre avec impatience.\n\nUn espace de responsabilité polyvalent et stimulant vous attend dans un environnement animé et moderne avec une équipe motivée et une du-culture collégiale. Pour les vêtements de travail et leur nettoyage ainsi que pour diverses options alimentaires, entre autres dans notre restaurant du personnel, nous sommes heureux de fournir. Nous offrons de bonnes conditions d'emploi telles que 5 semaines de vacances, un jour de congé supplémentaire dans le mois d'anniversaire, un parking gratuit et des avantages commerciaux généreux.\n\nÇa t'intéresse ?\nEnsuite, nous attendons avec impatience votre application électronique. *\nNous n'acceptons pas actuellement les candidatures de recrutement pour ce poste."
+      },
+      "location": "Dietikon",
+      "canton": "ZH",
+      "url": "https://apply.refline.ch/116352/1250/pub/1/index.html",
+      "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-02T22:01:29.451Z",
+      "addressLocality": "Dietikon",
+      "addressRegion": "ZH",
+      "streetAddress": "Bernstrasse 89",
+      "postalCode": "8953",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Produzione",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Alimentare / Confetteria",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-23",
+      "applyUrl": "https://apply.refline.ch/116352/1250/pub/1/index.html",
+      "hiringOrganizationName": "Confiserie Sprüngli AG",
+      "jobReqId": "1250",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "sachbearbeiter-in-stammdaten-80-100-spruengli-dietikon",
+        "sachbearbeiter-in-stammdaten-80-100-confiserie-sprungli-ag-dietikon"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiter-in-stammdaten-80-100-spruengli-dietikon",
+          "sachbearbeiter-in-stammdaten-80-100-confiserie-sprungli-ag-dietikon"
+        ]
+      },
+      "firstSeenAt": "2026-07-23T22:17:51.309Z",
+      "salaryMin": 73500,
+      "salaryMax": 111500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 73500,
+          "maxValue": 111500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
       "id": "spruengli-829b73669809",
       "slug": "commissione-di-cucina-chef-de-partie-100-confiserie-sprungli-ag-zurich",
       "slugByLocale": {
@@ -1076,7 +1056,7 @@
       "url": "https://apply.refline.ch/116352/1246/pub/1/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-02T10:56:25.463Z",
+      "crawledAt": "2026-08-02T22:01:29.448Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Bahnhofstrasse 21",
@@ -1111,6 +1091,7 @@
         ]
       },
       "firstSeenAt": "2026-07-14T11:18:14.564Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -1155,7 +1136,7 @@
       "url": "https://apply.refline.ch/116352/1247/pub/1/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-02T10:56:25.461Z",
+      "crawledAt": "2026-08-02T22:01:29.447Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Bahnhofstrasse 21",
@@ -1255,7 +1236,7 @@
       "url": "https://apply.refline.ch/116352/1094/pub/60/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-02T10:56:25.460Z",
+      "crawledAt": "2026-08-02T22:01:29.446Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Bahnhofstrasse 21",
@@ -1341,7 +1322,7 @@
       "url": "https://apply.refline.ch/116352/1172/pub/37/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-02T10:56:25.457Z",
+      "crawledAt": "2026-08-02T22:01:29.443Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "streetAddress": "Bahnhofplatz 10A",
@@ -1427,7 +1408,7 @@
       "url": "https://apply.refline.ch/116352/1193/pub/31/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-02T10:56:25.455Z",
+      "crawledAt": "2026-08-02T22:01:29.442Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "streetAddress": "Bahnhofplatz",
@@ -1469,6 +1450,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:00:50.640Z",
+      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -1513,7 +1495,7 @@
       "url": "https://apply.refline.ch/116352/1240/pub/6/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-02T10:56:25.454Z",
+      "crawledAt": "2026-08-02T22:01:29.440Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "streetAddress": "Bahnhofplatz 10A",
@@ -1599,7 +1581,7 @@
       "url": "https://apply.refline.ch/116352/1203/pub/17/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-02T10:56:25.453Z",
+      "crawledAt": "2026-08-02T22:01:29.439Z",
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "streetAddress": "Postfach 1462",
@@ -1640,6 +1622,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:00:50.638Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -1684,7 +1667,7 @@
       "url": "https://apply.refline.ch/116352/1201/pub/25/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-02T10:56:25.452Z",
+      "crawledAt": "2026-08-02T22:01:29.438Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Bahnhofstrasse 21",
@@ -1727,6 +1710,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:00:50.635Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -1771,7 +1755,7 @@
       "url": "https://apply.refline.ch/116352/1223/pub/13/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-02T10:56:25.451Z",
+      "crawledAt": "2026-08-02T22:01:29.437Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Bahnhofstrasse 21",
@@ -1805,6 +1789,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:00:50.630Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
