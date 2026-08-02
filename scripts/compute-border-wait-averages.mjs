@@ -37,6 +37,20 @@ const __dirname = path.dirname(__filename);
 const REPO_ROOT = path.resolve(__dirname, '..');
 const HISTORY_DIR = path.join(REPO_ROOT, 'data', 'border-wait-history');
 const OUTPUT_PATH = path.join(REPO_ROOT, 'data', 'border-wait-averages.json');
+// Second copy under public/, i.e. served at /data/border-wait-averages.json.
+// data/ is not part of the deployed surface, and the article generator moving
+// to nanakokyobashi-rgb/frontaliere-articles (issue #4974 item 3, §5.3 REWIRE)
+// needs this overlay over HTTP: its data/borderCrossings.ts used to import the
+// data/ copy directly, which stops being reachable once it runs in another
+// repository. Same both-places pattern border-wait-current.json already uses.
+const PUBLIC_OUTPUT_PATH = path.join(REPO_ROOT, 'public', 'data', 'border-wait-averages.json');
+
+/** Write the averages to both the data/ copy and the published public/ one. */
+function writeBoth(json) {
+  fs.writeFileSync(OUTPUT_PATH, json, 'utf-8');
+  fs.mkdirSync(path.dirname(PUBLIC_OUTPUT_PATH), { recursive: true });
+  fs.writeFileSync(PUBLIC_OUTPUT_PATH, json, 'utf-8');
+}
 const ROLLING_DAYS = 30;
 const MORNING_HOURS = [6, 7, 8, 9];
 const EVENING_HOURS = [16, 17, 18, 19];
@@ -88,7 +102,7 @@ function main() {
   const files = pickRecentFiles();
   if (files.length === 0) {
     console.warn(`[averages] no history files in ${HISTORY_DIR} — writing empty averages`);
-    fs.writeFileSync(OUTPUT_PATH, JSON.stringify({}, null, 2) + '\n', 'utf-8');
+    writeBoth(JSON.stringify({}, null, 2) + '\n');
     return;
   }
 
@@ -131,8 +145,8 @@ function main() {
     };
   }
 
-  fs.writeFileSync(OUTPUT_PATH, JSON.stringify(out, null, 2) + '\n', 'utf-8');
-  console.log(`✅ Wrote ${OUTPUT_PATH} (${Object.keys(out).length} crossings)`);
+  writeBoth(JSON.stringify(out, null, 2) + '\n');
+  console.log(`✅ Wrote ${OUTPUT_PATH} + ${PUBLIC_OUTPUT_PATH} (${Object.keys(out).length} crossings)`);
 }
 
 main();

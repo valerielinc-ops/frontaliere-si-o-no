@@ -1,0 +1,2507 @@
+diff --git a/.github/workflows/generator-ci.yml b/.github/workflows/generator-ci.yml
+new file mode 100644
+index 0000000..e0f8177
+--- /dev/null
++++ b/.github/workflows/generator-ci.yml
+@@ -0,0 +1,103 @@
++name: Generator CI
++
++# Gates for the article generator transported from valerielinc-ops/frontaliere-si-o-no
++# (issue #4974 item 3). This repository had no CI for generator/ at all — the 67
++# files arrived as a copy and had never been executed here, which is how six
++# unresolved imports and a wrong repo-root survived the transport unnoticed.
++#
++# Scoped to generator/ on purpose. `main` publishes the live surface (JSON,
++# sitemaps, 10 RSS feeds, news-ticker) that the site consumes in production, and
++# nothing in this workflow touches it: no writes, no pushes, no secrets.
++
++on:
++  push:
++    branches-ignore: [main]
++    paths:
++      - 'generator/**'
++      - '.github/workflows/generator-ci.yml'
++  pull_request:
++    paths:
++      - 'generator/**'
++      - '.github/workflows/generator-ci.yml'
++  workflow_dispatch:
++
++permissions:
++  contents: read
++
++concurrency:
++  group: generator-ci-${{ github.ref }}
++  cancel-in-progress: true
++
++jobs:
++  test:
++    runs-on: ubuntu-latest
++    steps:
++      - uses: actions/checkout@v5
++
++      - uses: actions/setup-node@v5
++        with:
++          node-version: '22'
++
++      # No `npm ci`: the generator's gates are deliberately dependency-free
++      # (node:test, node:assert). The repo has no lockfile and no devDeps, and
++      # adding a test framework just to run assertions would make this job the
++      # slowest thing in a repo whose whole job is to publish static files.
++
++      # The glob is not decoration. `node --test <dir>` collapses the directory
++      # into ONE failing test on Node 22 instead of discovering the files.
++      - name: Unit + closure gates
++        run: node --test 'generator/tests/*.test.mjs'
++
++      # The parity gate: the transported modules must still behave exactly as
++      # main's did at transport time. The golden was recorded by running the
++      # same probes against main's scripts/ tree and confirming both sides were
++      # byte-identical, so a diff here is a regression in this copy.
++      # See generator/tests/parity/run.mjs for the cross-repo invocation.
++      - name: Generator parity vs recorded main behaviour
++        run: node generator/tests/parity/run.mjs --check
++
++      # Validates the REWIRE without writing: fetches main's published averages
++      # and shape-checks them. Soft-fails when the site is unreachable, because
++      # the overlay is optional (borderCrossings.ts falls back to editorial
++      # defaults) — a flaky network must not turn this job red.
++      - name: Border-wait averages REWIRE reachable
++        run: node generator/scripts/refresh-border-wait-averages.mjs --check
++
++      # The ranking window is NOT soft-failing like the averages above: it is
++      # the weekly ranking article's actual data, so an unreachable or stale
++      # publisher must stop the pipeline rather than yield an article with no
++      # ranking on an evergreen URL that already ranks.
++      - name: Border-wait ranking window reachable and fresh
++        run: node generator/scripts/refresh-border-wait-window.mjs --check
++
++  dry-run:
++    # The generator's own smoke test: load every entry point with writes
++    # disabled (DRY_RUN=1, the convention the scripts already document) and
++    # confirm none of them dies on module resolution. This is what "the code
++    # has never been run here" was hiding — a static import of a file that was
++    # never transported throws before the first statement, so a script can be
++    # perfectly correct and still be dead on arrival.
++    runs-on: ubuntu-latest
++    steps:
++      - uses: actions/checkout@v5
++
++      - uses: actions/setup-node@v5
++        with:
++          node-version: '22'
++
++      # This job DOES need the dependencies, unlike the gates above: the whole
++      # point is to reach the end of each entry point's import graph, and that
++      # graph runs through jsdom / sharp / playwright / firebase-admin. Without
++      # them every script fails identically on a missing package and the check
++      # proves nothing.
++      - name: Install generator dependencies
++        run: npm ci --no-audit --no-fund
++
++      # generate-border-wait-ranking-article.mjs now REQUIRES the fetched window
++      # (it is the article's data). Fetch it first so the dry-run exercises the
++      # real path instead of the missing-cache error branch.
++      - name: Fetch border-wait ranking window
++        run: npm run refresh:border-wait-window
++
++      - name: Load every generator entry point (writes disabled)
++        run: npm run test:dry-run
+diff --git a/.gitignore b/.gitignore
+index 1eae0cf..35c1e97 100644
+--- a/.gitignore
++++ b/.gitignore
+@@ -1,2 +1,5 @@
+ dist/
+ node_modules/
++generator/data/border-wait-averages.json
++.tmp/
++generator/data/border-wait-ranking-window.json
+diff --git a/generator/README.md b/generator/README.md
+new file mode 100644
+index 0000000..f0351da
+--- /dev/null
++++ b/generator/README.md
+@@ -0,0 +1,137 @@
++# Article generator (transported from `valerielinc-ops/frontaliere-si-o-no`)
++
++Issue #4974 item 3. The authority for the plan is
++`docs/articles-generator-migration.md` **in that repo**, not this file — this
++one records only what is true HERE, and where reality diverged from the plan.
++
++**Nothing in here is wired to a schedule yet.** There is no cron, no secret, no
++push. `main` publishes the live surface (JSON, sitemaps, 10 RSS feeds,
++news-ticker) that the site consumes in production; the generator does not touch
++it. Cutover is step 6 of the plan and has not started.
++
++## Layout
++
++```
++generator/
++  scripts/          the 67 transported files (6 producers + fix-faq-locales + lib/**)
++  build-plugins/    \
++  data/              > vendored dependencies the transport missed — see below
++  services/         /
++  tests/            gates that did not exist before (node:test, no framework)
++```
++
++`build-plugins/`, `data/` and `services/` mirror main's directory names on
++purpose: the transported files import them with main-relative specifiers
++(`../data/municipalities.ts`), so keeping the names identical means those import
++lines stay byte-identical and the diff against main stays reviewable.
++
++Note `generator/data/` is NOT the same as the repo-root `data/` the generator
++writes its own state into (`article-source-quotas.json` and friends, which
++resolve against the repo root). One is vendored input, the other is generator
++state.
++
++## What had to change, and why
++
++The code arrived as a file copy and had never been executed here. Running it
++surfaced four classes of problem.
++
++**1. The transport closure was incomplete.** Six static top-level imports were
++never copied — `borderWaitData.ts`, `borderCrossings.ts`, `municipalities.ts`,
++`canton-url-slugs.json`, `borderWaitFormat.ts` (plus `borderCrossingSlug.ts`,
++pulled in by `borderCrossings.ts`). All are specifiers that LEAVE `scripts/`
++(`../build-plugins/`, `../data/`, `../services/`), which is exactly what the
++manifest's closure did not follow. A seventh, `articleSectionCore.mjs`, needed no
++copy at all: it is a symlink in main into `packages/articles/engine/shared/`,
++which this repo already mirrors at `engine/shared/` — the import was repointed
++instead. `generator/tests/import-closure.test.mjs` is the gate for this.
++
++**2. Every entry point resolved the wrong repo root.** In main these live at
++`scripts/x.mjs`, so `path.resolve(__dirname, '..')` was the repo root. Here they
++are at `generator/scripts/x.mjs`, so it silently became `generator/`. Reads
++would have failed and writes would have built a phantom corpus under
++`generator/`. All seven now resolve `'..', '..'`, and the closure test asserts
++none of them regresses.
++
++**3. Path layout.** Main keeps the corpus at `services/locales/**` (OS symlinks
++into `packages/articles/content/`); here it is a real `content/` tree. Rather
++than rewrite ~30 literals in an 8800-line file, `scripts/lib/corpus-paths.mjs`
++maps them, and every read/write in `create-article.mjs` funnels through the one
++`resolve()` helper. That module also replaces main's `resolve-git-add-path.mjs`,
++which was deliberately not transported: it exists solely to `realpath` past
++main's symlinks, and this repo has none. The mapping is an explicit table, not a
++prefix rule, so that the generator's own state files under `data/` are not
++quietly relocated into the published corpus.
++
++**4. Three REWIREs** (plan §5.3, plus the border-wait ranking window):
++
++- **Google News whitelist** — vendored as code at
++  `data/news-sitemap-whitelist.mjs`, not fetched. Main loaded it by
++  regex-parsing a `.ts` file at startup and treated a failed parse as an empty
++  list, which `isArticleEligibleForNewsSitemap()` reads as **allow-all**.
++  Transported here that fallback fired every time, because the file it looked
++  for does not exist in this repo: every article would have entered
++  `sitemap-news.xml`, silently. A static import cannot fail that way. Tokens are
++  byte-identical to main's and extracted mechanically; main stays the editorial
++  owner.
++- **Border-wait averages** — `scripts/refresh-border-wait-averages.mjs` fetches
++  them over HTTP into a gitignored cache that `data/borderCrossings.ts` reads.
++  The plan said "fetched over HTTP from the live site instead of read from a
++  repo file", which was right about the file but described a URL that did not
++  exist: `data/border-wait-averages.json` was not part of main's deployed
++  surface. Main now publishes it to `public/data/`, so the fetch has something
++  to fetch. Absence is not an error — the overlay is cosmetic and
++  `borderCrossings.ts` falls back to its editorial defaults, so a network blip
++  must never fail a generation run.
++- **Border-wait ranking window** — `scripts/refresh-border-wait-window.mjs`
++  fetches `border-wait-ranking-window.json`, the aggregate the weekly ranking
++  article is built from. In main that article read `data/border-wait-history/**`
++  directly: 90 daily files, 1.7 GB, Firestore telemetry that belongs to the site
++  repo. It never had to move. Every one of `rankingFromStats` /
++  `trendFromStats` / `computeFunFacts` bottoms out on the *aggregate*, ~140
++  crossings x 2 numbers, so main publishes that (32 KB) and the identical pure
++  functions run here. Two windows, not one, because the trend section compares
++  the current 7 days against the preceding 7.
++
++  Verified equivalent, not assumed: computing the ranking and the trend from
++  main's 1.7 GB history and from the 32 KB published aggregate gives
++  byte-identical results, and both functions are now parity probes.
++
++  **Unlike the averages, this fetch is REQUIRED.** The averages are a cosmetic
++  overlay with a documented fallback; this is the article's data. A ranking
++  article generated without a ranking is wrong output on an evergreen URL that
++  already ranks, not degraded output — so an unreachable publisher, a window
++  whose `windowDays` is not 7, or one whose data is more than 14 days old all
++  fail the run.
++
++## Gates
++
++```
++npm test              # unit + import-closure  (node --test, no dependencies)
++npm run test:parity   # behavioural parity vs main, byte-for-byte
++npm run test:dry-run  # every entry point loads with writes disabled
++```
++
++`test:parity` is the §5.4 byte-comparison. A whole generation run is not
++reproducible — it calls LLMs, fetches live RSS and stamps `new Date()` — so two
++runs of MAIN against itself would not match either. What IS comparable is the
++deterministic layer under it, and `tests/parity/run.mjs` runs the same probes
++against both trees:
++
++```
++node generator/tests/parity/run.mjs --root ../frontaliere-si-o-no/scripts > /tmp/main.json
++node generator/tests/parity/run.mjs > /tmp/nanako.json
++diff /tmp/main.json /tmp/nanako.json
++```
++
++That diff is currently empty — 32 calls across 8 modules, byte-identical. CI
++cannot run it (main is not checked out there), so `golden.json` is the recorded
++result and `--check` compares against it.
++
++## Known gaps
++
++- **The publisher does not emit the two new artifacts yet.** Main can already
++  receive a hero-image manifest (`images-manifest.json`) and Google News
++  candidates (`sitemap-news-candidates.xml`) — see §7 of the migration doc for
++  the exact contract — but nothing here writes them. Main tolerates their
++  absence by design until `--require-new` is set.
++- **No nanako-side secrets or workflows for generation.** Plan §6 question 3.
+diff --git a/generator/data/news-sitemap-whitelist.mjs b/generator/data/news-sitemap-whitelist.mjs
+new file mode 100644
+index 0000000..4c572d0
+--- /dev/null
++++ b/generator/data/news-sitemap-whitelist.mjs
+@@ -0,0 +1,192 @@
++/**
++ * Google News topic whitelist — VENDORED from frontaliere-si-o-no's
++ * `data/news-sitemap-whitelist.ts` (issue #4974 item 3, §5.3 REWIRE set).
++ *
++ * WHY A COPY AND NOT A LIVE CALL
++ *
++ * §5.3 is explicit: this is "vendored into nanako (as code, not a live call —
++ * it changes rarely and a live dependency on main from nanako's generation path
++ * would invert the intended one-way architecture)". Main pulls from here; the
++ * generation path must never reach back the other way. The list is a handful of
++ * editorial keywords that move a few times a year, so a copy costs little and a
++ * network dependency in the middle of article generation would cost a lot.
++ *
++ * WHY `.mjs` AND NOT A PARSE
++ *
++ * Main's `create-article.mjs` loaded this by regex-parsing the `.ts` file at
++ * startup, to avoid needing a TS loader for one string array. Transported here
++ * that parse silently returned `[]` — the file it looks for does not exist in
++ * this repo — and `isArticleEligibleForNewsSitemap()` treats an empty list as
++ * allow-all. Every article would have entered the news sitemap, defeating the
++ * topical-authority filter with no error and no log. Real code cannot fail that
++ * way: if this module is missing, the import throws.
++ *
++ * KEEPING IT IN SYNC
++ *
++ * Tokens below are byte-identical to main's, extracted mechanically rather than
++ * retyped, comments and grouping included, so a diff between the two files is
++ * readable. Main is the editorial owner: change it there first, then mirror.
++ * `generator/tests/news-sitemap-whitelist.test.mjs` pins the token count and a
++ * sample of the semantics, so an accidental edit here fails loudly.
++ *
++ * Filtered-out articles stay in `sitemap-blog.xml` and remain reachable — this
++ * only reduces noise in the NEWS sitemap. Never noindex, never delete HTML.
++ */
++
++/** Case-insensitive substring tokens, matched against slug + title + section + tags + keywords. */
++export const NEWS_SITEMAP_WHITELIST = Object.freeze([
++  // 1. Fisco / tasse / dichiarazione / accordo
++  'fisco',
++  'fiscale',
++  'tasse',
++  'tassa',
++  '730',
++  'dichiarazione',
++  'irpef',
++  'nuovo-accordo-2026',
++  'nuovo accordo',
++  'accordo-fiscale',
++  'imposta-fonte',
++  'imposta alla fonte',
++  'valore-locativo',
++  'valore locativo',
++  'perequazione',
++  'ristorni',
++
++  // 2. AVS / LPP / pensione / previdenza
++  'avs',
++  'lpp',
++  'pensione',
++  'pensioni',
++  'previdenza',
++  'pilastro-3a',
++  'terzo pilastro',
++
++  // 3. LAMal / assicurazione malattia / cassa malati / tassa salute
++  'lamal',
++  'assicurazione-malattia',
++  'assicurazione malattia',
++  'cassa-malati',
++  'cassa malati',
++  'cmi',
++  'tassa-salute',
++  'tassa salute',
++
++  // 4. Dogana / frontiera / permit / lavoro frontaliere / salari
++  // NOTE: do NOT add standalone "frontaliere/frontalieri" — they appear in
++  // virtually every Ticino-news slug and would defeat the filter. The compound
++  // tokens below (lavoro-frontaliere, parita-frontalieri, ristorni-frontalieri)
++  // are intentional: they capture genuine cross-border-worker stories.
++  'dogana',
++  'frontiera',
++  'varco',
++  'permit-g',
++  'permit g',
++  'permesso g',
++  'permit-b',
++  'permit b',
++  'permesso b',
++  'lavoro-frontaliere',
++  'lavoro frontaliere',
++  'parita-frontalieri',
++  'parita frontalieri',
++  'ristorni-frontalieri',
++  'ristorni frontalieri',
++  'salari',
++  'salario',
++  'stipendi',
++  'stipendio',
++  'contratto',
++  'dumping-salariale',
++  'dumping salariale',
++  'frontalieri-ticino',
++  'frontalieri del ticino',
++  'frontaliere ticino',
++  'lavoratori-frontalieri',
++  'lavoratori frontalieri',
++  'disoccupazione',
++  'occupazione-ticino',
++  'occupazione ticino',
++  'mercato-lavoro',
++  'mercato del lavoro',
++
++  // 5. Cambio valuta / CHF-EUR / bonifico / tasso
++  'cambio-valuta',
++  'cambio valuta',
++  'chf-eur',
++  'chf eur',
++  'franco-svizzero',
++  'franco svizzero',
++  'franco forte',
++  'bonifico',
++  'tasso',
++  'tassi-bce',
++  'tassi bce',
++  'inflazione',
++  'bce-tassi',
++  'bce tassi',
++
++  // 6. Trasporti frontaliere / treno / auto / traffico / webcam
++  // NOTE: "auto" alone is too noisy (matches "automatic", "autorita", etc.).
++  // Use compound tokens that name the frontaliere transport context.
++  'trasporti-frontaliere',
++  'trasporti frontaliere',
++  'treno',
++  'tilo',
++  'traffico',
++  'webcam-dogana',
++  'webcam dogana',
++  'autisti-bus',
++  'autisti bus',
++  'a2-melide',
++  'a2 melide',
++  'a2-chiasso',
++  'a2 chiasso',
++  'pendolarismo',
++  'autostrada-a2',
++  'autostrada a2',
++  'ffs-ticino',
++  'ffs ticino',
++  'treni-svizzeri',
++  'treni svizzeri',
++  'ferrovia-ticino',
++]);
++
++/** Google News window (per spec, articles older than ~2 days are dropped by Google). */
++export const NEWS_SITEMAP_WINDOW_HOURS = 48;
++
++function toLower(value) {
++  if (value === null || value === undefined) return '';
++  return String(value).toLowerCase();
++}
++
++/**
++ * True iff the article matches at least one whitelist token AND was published
++ * within the last {@link NEWS_SITEMAP_WINDOW_HOURS} hours. Mirrors
++ * `isArticleNewsEligible` in main's news-sitemap-whitelist.ts, including the
++ * future-dated-is-malformed rule.
++ *
++ * @param {{slug?:string,title?:string,articleSection?:string,tags?:string[],keywords?:string,publishedAt?:string|Date}} article
++ * @param {number} [now]
++ */
++export function isArticleNewsEligible(article, now = Date.now()) {
++  if (article.publishedAt !== undefined) {
++    const ts =
++      article.publishedAt instanceof Date
++        ? article.publishedAt.getTime()
++        : new Date(article.publishedAt).getTime();
++    if (Number.isNaN(ts)) return false;
++    const ageMs = now - ts;
++    if (ageMs < 0) return false; // future-dated = malformed, drop
++    if (ageMs > NEWS_SITEMAP_WINDOW_HOURS * 60 * 60 * 1000) return false;
++  }
++
++  const haystack = [
++    toLower(article.slug),
++    toLower(article.title),
++    toLower(article.articleSection),
++    toLower(article.keywords),
++    ...(article.tags ?? []).map(toLower),
++  ].join('  ');
++  return NEWS_SITEMAP_WHITELIST.some((t) => haystack.includes(t.toLowerCase()));
++}
+diff --git a/generator/scripts/batch-add-faq-to-articles.mjs b/generator/scripts/batch-add-faq-to-articles.mjs
+index db6b041..49fee19 100644
+--- a/generator/scripts/batch-add-faq-to-articles.mjs
++++ b/generator/scripts/batch-add-faq-to-articles.mjs
+@@ -25,8 +25,10 @@ import { execSync } from 'child_process';
+ 
+ const __filename = fileURLToPath(import.meta.url);
+ const __dirname = dirname(__filename);
+-const ROOT = resolve(__dirname, '..');
+-import { resolveGitAddPath } from './lib/resolve-git-add-path.mjs';
++// `../..`: the transport moved this from `scripts/` to `generator/scripts/`,
++// so one level up is now the generator directory, not the repo root.
++const ROOT = resolve(__dirname, '..', '..');
++import { corpusPath, resolveGitAddPath } from './lib/corpus-paths.mjs';
+ import { callLLM, callSingleModel, AI_MODELS, initScoreStore, getStats, flushScores, resetExhaustedModel, printRunSummary } from './lib/ai-models.mjs';
+ import { freeTranslateWithRetry, logCascadeSummary } from './lib/free-translate.mjs';
+ import { stripCodeFences, findMatchingClose, fixJsonStringBody, JSON_QUOTE_SAFETY_RULE_IT, describeJsonParseError, describeRawForDiagnostics } from './lib/llm-json-repair.mjs';
+@@ -111,7 +113,8 @@ EXAMPLES:
+ 
+ // ── Constants ────────────────────────────────────────────────
+ const LOCALES = ['it', 'en', 'de', 'fr'];
+-const BODY_DIR = `services/locales/${SECTION_BODY_DIR}`;
++// Mapped to this repo's `content/` layout; see lib/corpus-paths.mjs.
++const BODY_DIR = corpusPath(`services/locales/${SECTION_BODY_DIR}`);
+ // Section-keyed progress file so a svizzera run does not skip frontaliere
+ // articles (and vice versa). frontaliere keeps the original filename.
+ const PROGRESS_FILE = SECTION === 'svizzera'
+diff --git a/generator/scripts/create-article.mjs b/generator/scripts/create-article.mjs
+index c40f4f3..dbe316e 100755
+--- a/generator/scripts/create-article.mjs
++++ b/generator/scripts/create-article.mjs
+@@ -141,9 +141,10 @@ import { computeAdaptiveEvergreenThresholds } from './lib/scoring/constants.mjs'
+ import { detectBodyRepetition, dedupeRepeatedParagraphs, stripDuplicateTitleFromBody } from './lib/article-body-repetition.mjs';
+ import { loadEmbeddingStore, loadEmbeddingMeta } from './lib/scoring/embeddingMatcher.mjs';
+ import { appendCatalogEntry } from './generate-journalist-image-catalog.mjs';
+-import { ARTICLE_SECTION_CORE } from '../build-plugins/shared/articleSectionCore.mjs';
++import { ARTICLE_SECTION_CORE } from '../../engine/shared/articleSectionCore.mjs';
+ import { buildStructuralEvergreenTopics } from './lib/evergreen-topic-generator.mjs';
+-import { resolveGitAddPaths } from './lib/resolve-git-add-path.mjs';
++import { corpusPath, resolveGitAddPaths } from './lib/corpus-paths.mjs';
++import { NEWS_SITEMAP_WHITELIST } from '../data/news-sitemap-whitelist.mjs';
+ import { metaFieldRegex, unescapeTsValue } from './lib/meta-field-regex.mjs';
+ 
+ // ── Smarter generator inputs (Phase 3 — spec 2026-05-06) ───────
+@@ -183,32 +184,32 @@ const _evidenceIndex = USE_CASCADED_SCORING
+   : null;
+ 
+ // ── C1 News Sitemap Whitelist ──────────────────────────────────
+-// Loaded by parsing data/news-sitemap-whitelist.ts at startup so we don't
+-// need a TS loader for this single-string-array import. See that file for
+-// rationale and the full keyword list (5 + 1 macro-themes).
+-const NEWS_SITEMAP_WHITELIST_TOKENS = (() => {
+-  try {
+-    const wlPath = path.resolve('data/news-sitemap-whitelist.ts');
+-    if (!existsSync(wlPath)) return [];
+-    const src = readFileSync(wlPath, 'utf-8');
+-    const block = src.match(/NEWS_SITEMAP_WHITELIST[^=]*=\s*Object\.freeze\(\s*\[([\s\S]*?)\]\s*\)/);
+-    if (!block) return [];
+-    return [...block[1].matchAll(/'([^']+)'|"([^"]+)"/g)]
+-      .map((m) => (m[1] || m[2]).toLowerCase())
+-      .filter(Boolean);
+-  } catch (err) {
+-    console.error('⚠️  Could not load news-sitemap whitelist; defaulting to allow-all:', err?.message);
+-    return [];
+-  }
+-})();
++// REWIRED (issue #4974 item 3, §5.3). Main loaded this by regex-parsing
++// `data/news-sitemap-whitelist.ts` at startup, to avoid needing a TS loader for
++// one string array, and fell back to an empty list — i.e. allow-all — if the
++// parse found nothing. Transported here that fallback fired every time: the
++// file it looked for does not exist in this repository, so EVERY article would
++// have entered sitemap-news.xml, silently, with no error and no log. That is
++// the exact opposite of what the whitelist is for.
++//
++// It is now a vendored `.mjs` module imported statically (see
++// generator/data/news-sitemap-whitelist.mjs for why a copy rather than a live
++// call back into main). A missing module is now an import error, not a silent
++// policy inversion. The allow-all branch below is kept, because an empty list
++// is still the documented "do not block publishing" escape hatch — but it can
++// no longer be reached by accident.
++const NEWS_SITEMAP_WHITELIST_TOKENS = NEWS_SITEMAP_WHITELIST.map((t) => t.toLowerCase());
+ 
+ /**
+  * Decide whether an article should be added to sitemap-news.xml.
+  * `data` is the freshly-generated article object from create-article.mjs.
+  * Match is case-insensitive substring across slug, title, articleSection,
+- * keywords, and tags. Empty whitelist (load failure) falls back to allow-all
+- * to avoid blocking publishing on a parser hiccup — operator must rerun
+- * `npm run sanitize:news-sitemap` if that happens.
++ * keywords, and tags.
++ *
++ * NOTE this deliberately does NOT apply the 48h window that
++ * `isArticleNewsEligible()` in the vendored module also enforces: an article
++ * being generated right now is by definition inside it, and the window is
++ * re-applied downstream by the consumer when it prunes.
+  */
+ function isArticleEligibleForNewsSitemap(data) {
+   if (NEWS_SITEMAP_WHITELIST_TOKENS.length === 0) return true; // safe default
+@@ -1722,11 +1723,21 @@ const NEWS_SOURCES_SVIZZERA_FALLBACK_MAP = {
+   'https://www.watson.ch/api/1.0/rss/all.xml': 'https://www.watson.ch/',
+ };
+ 
+-const PROJECT_ROOT = new URL('..', import.meta.url).pathname.replace(/\/$/, '');
++// `../..`, not `..`. In main this script sits at `scripts/create-article.mjs`,
++// so one level up WAS the repo root; the transport (#4974 item 3, step 2) put it
++// at `generator/scripts/create-article.mjs`, which makes one level up the
++// `generator/` directory. Left unchanged, every read and write in this file
++// would have been scoped to `generator/…` — reads would fail and writes would
++// create a phantom corpus inside the generator tree.
++const PROJECT_ROOT = new URL('../..', import.meta.url).pathname.replace(/\/$/, '');
+ 
+ // ── Helpers ─────────────────────────────────────────────────
++// Every read and write in this file funnels through here, which is what makes
++// `corpusPath()` a single choke point for the main→nanako layout difference
++// (`services/locales/…` → `content/…`) instead of ~30 edited literals. See
++// lib/corpus-paths.mjs for why the mapping is an explicit table.
+ function resolve(rel) {
+-  return `${PROJECT_ROOT}/${rel}`;
++  return `${PROJECT_ROOT}/${corpusPath(rel)}`;
+ }
+ 
+ function read(rel) {
+diff --git a/generator/scripts/fix-faq-locales.mjs b/generator/scripts/fix-faq-locales.mjs
+index 24e420c..e2e54c9 100644
+--- a/generator/scripts/fix-faq-locales.mjs
++++ b/generator/scripts/fix-faq-locales.mjs
+@@ -16,10 +16,13 @@ import { fileURLToPath } from 'url';
+ import { dirname } from 'path';
+ import { freeTranslateWithRetry, logCascadeSummary } from './lib/free-translate.mjs';
+ import { detectLanguage } from './lib/detect-language.mjs';
++import { corpusPath } from './lib/corpus-paths.mjs';
+ 
+ const __filename = fileURLToPath(import.meta.url);
+ const __dirname = dirname(__filename);
+-const ROOT = resolve(__dirname, '..');
++// `../..`: the transport moved this from `scripts/` to `generator/scripts/`,
++// so one level up is now the generator directory, not the repo root.
++const ROOT = resolve(__dirname, '..', '..');
+ 
+ const args = process.argv.slice(2);
+ const DRY_RUN = args.includes('--dry-run');
+@@ -48,7 +51,7 @@ function getSectionArg() {
+ const SECTION = getSectionArg();
+ const SECTION_BODY_SUBDIR = SECTION === 'svizzera' ? 'blog-body-ch' : 'blog-body';
+ 
+-const BODY_DIR = resolve(ROOT, `services/locales/${SECTION_BODY_SUBDIR}`);
++const BODY_DIR = resolve(ROOT, corpusPath(`services/locales/${SECTION_BODY_SUBDIR}`));
+ 
+ // ── File helpers ────────────────────────────────────────────
+ 
+diff --git a/generator/scripts/generate-border-wait-ranking-article.mjs b/generator/scripts/generate-border-wait-ranking-article.mjs
+index 4547fc0..9659d49 100644
+--- a/generator/scripts/generate-border-wait-ranking-article.mjs
++++ b/generator/scripts/generate-border-wait-ranking-article.mjs
+@@ -29,17 +29,22 @@
+  */
+ import path from 'node:path';
+ import { fileURLToPath, pathToFileURL } from 'node:url';
+-import { writeFileSync, mkdirSync } from 'node:fs';
+-import { computeRanking, computeTrend, computeFunFacts, computeWeekWindow, computeMovers } from './lib/border-wait-ranking.mjs';
++import { writeFileSync, mkdirSync, existsSync, readFileSync } from 'node:fs';
++import { rankingFromStats, trendFromStats, computeFunFacts, computeWeekWindow, computeMovers } from './lib/border-wait-ranking.mjs';
+ import { buildBorderWaitRankingArticle } from './lib/border-wait-ranking-content.mjs';
+ import { registerArticleFiles, checkArticleIdExists, buildBodyFile } from './create-article.mjs';
+ import { bumpUpdatedAt, bumpDateModified, bumpSitemapLastmod } from './lib/evergreen-article-refresh.mjs';
+ import { isTicinoCrossing } from '../build-plugins/borderWaitData.ts';
++import { corpusPath } from './lib/corpus-paths.mjs';
+ 
+ const __dirname = path.dirname(fileURLToPath(import.meta.url));
+-const REPO_ROOT = path.resolve(__dirname, '..');
++// `../..`: the transport moved this from `scripts/` to `generator/scripts/`,
++// so one level up is now the generator directory, not the repo root.
++const REPO_ROOT = path.resolve(__dirname, '..', '..');
+ const LOCALES = ['it', 'en', 'de', 'fr'];
+-const HISTORY_DIR = path.join(REPO_ROOT, 'data', 'border-wait-history');
++// REWIRE (#4974 item 3): the 1.7 GB history stays in the site repo; this reads
++// the ~32 KB aggregate refresh-border-wait-window.mjs fetches from it.
++const WINDOW_PATH = path.join(__dirname, '..', 'data', 'border-wait-ranking-window.json');
+ const RANKING_JSON_PATH = path.join(REPO_ROOT, 'public', 'data', 'border-wait-ranking.json');
+ 
+ // Evergreen metadata — registered once, NEVER refreshed (no date/count inside).
+@@ -62,21 +67,54 @@ const STATIC_META = {
+   },
+ };
+ 
+-/** Compute the current ranking/trend/fun-facts/week-window/movers snapshot for todayIso. */
+-export function computeSnapshot(todayIso, historyDir = HISTORY_DIR) {
++/**
++ * Load the aggregate window fetched by refresh-border-wait-window.mjs.
++ *
++ * REWIRE (issue #4974 item 3). In main this script read
++ * `data/border-wait-history/*.json` directly — 90 daily files, 1.7 GB, site
++ * telemetry that stays there. Here the same numbers arrive as the ~32 KB
++ * aggregate main publishes, and the identical pure functions
++ * (`rankingFromStats` / `trendFromStats`) run over them.
++ *
++ * Missing is fatal, deliberately: this is the article's data, not an overlay.
++ * Generating the ranking article without a ranking is wrong output on an
++ * evergreen URL that already ranks, not degraded output.
++ */
++export function loadWindow(windowPath = WINDOW_PATH) {
++  if (!existsSync(windowPath)) {
++    throw new Error(
++      `border-wait window not found at ${windowPath} — run ` +
++        `generator/scripts/refresh-border-wait-window.mjs first`,
++    );
++  }
++  const payload = JSON.parse(readFileSync(windowPath, 'utf-8'));
++  if (!payload?.current?.perCrossing) {
++    throw new Error(`${windowPath} has no current.perCrossing — refusing`);
++  }
++  return payload;
++}
++
++/**
++ * Compute the current ranking/trend/fun-facts/week-window/movers snapshot for
++ * todayIso, from the fetched aggregate window.
++ */
++export function computeSnapshot(todayIso, windowPayload = loadWindow()) {
+   // This snapshot feeds the evergreen "Classifica delle dogane in Ticino"
+   // article + its embedded live chart (buildRankingJson below) — both
+-  // Ticino-only by identity. computeRanking/computeTrend are generic
++  // Ticino-only by identity. rankingFromStats/trendFromStats are generic
+   // aggregation over ALL registered crossings (now 134, incl. the 108
+   // non-Ticino Germany/Austria/Liechtenstein/France-corridor ones from
+   // #4889), so scope to Ticino here, once, before funFacts/movers derive
+   // from it — otherwise a foreign crossing could surface as this
+   // Ticino-only article's best/worst/biggest mover.
+-  const rankingAll = computeRanking(historyDir, todayIso, { days: 7 });
++  const rankingAll = rankingFromStats(windowPayload.current.perCrossing);
+   const ranking = rankingAll
+     .filter((r) => isTicinoCrossing(r.slug))
+     .map((r, idx) => ({ ...r, rank: idx + 1 }));
+-  const trendAll = computeTrend(historyDir, todayIso, { days: 7 });
++  const trendAll = trendFromStats(
++    windowPayload.current.perCrossing,
++    windowPayload.previous?.perCrossing ?? {},
++  );
+   const trend = Object.fromEntries(Object.entries(trendAll).filter(([slug]) => isTicinoCrossing(slug)));
+   const funFacts = computeFunFacts(ranking);
+   const { weekStart, weekEnd } = computeWeekWindow(todayIso, 7);
+@@ -85,8 +123,8 @@ export function computeSnapshot(todayIso, historyDir = HISTORY_DIR) {
+ }
+ 
+ /** Build the full registration `data` object from the current ranking snapshot. */
+-export function buildData(todayIso, historyDir = HISTORY_DIR) {
+-  const { ranking, trend, funFacts, weekStart, weekEnd, movers } = computeSnapshot(todayIso, historyDir);
++export function buildData(todayIso, windowPayload = loadWindow()) {
++  const { ranking, trend, funFacts, weekStart, weekEnd, movers } = computeSnapshot(todayIso, windowPayload);
+   const article = buildBorderWaitRankingArticle({ ranking, trend, funFacts, weekStart, weekEnd, movers, todayIso });
+   return {
+     id: article.id,
+@@ -101,7 +139,7 @@ export function buildData(todayIso, historyDir = HISTORY_DIR) {
+ /** Rewrite only the 4 body files (idempotent refresh; registration is append-only). */
+ export function refreshBodyFiles(data, repoRoot = REPO_ROOT, log = console.log) {
+   for (const locale of LOCALES) {
+-    const dir = path.join(repoRoot, 'services', 'locales', 'blog-body', locale);
++    const dir = path.join(repoRoot, corpusPath('services/locales/blog-body'), locale);
+     mkdirSync(dir, { recursive: true });
+     const file = path.join(dir, `${data.id}.ts`);
+     writeFileSync(file, buildBodyFile(data, locale));
+@@ -136,8 +174,11 @@ export function buildRankingJson({ ranking, trend, funFacts, todayIso, weekStart
+ async function main() {
+   const dryRun = process.env.DRY_RUN === '1' || process.env.DRY_RUN === 'true';
+   const todayIso = process.env.TODAY_ISO || new Date().toISOString().slice(0, 10);
+-  const { ranking, trend, funFacts, weekStart, weekEnd, movers } = computeSnapshot(todayIso);
+-  const data = buildData(todayIso);
++  // Loaded once and threaded through, so the two calls cannot disagree if the
++  // cache is refreshed mid-run.
++  const windowPayload = loadWindow();
++  const { ranking, trend, funFacts, weekStart, weekEnd, movers } = computeSnapshot(todayIso, windowPayload);
++  const data = buildData(todayIso, windowPayload);
+   const exists = checkArticleIdExists(data.id);
+ 
+   console.log(
+diff --git a/generator/scripts/generate-events-digest-article.mjs b/generator/scripts/generate-events-digest-article.mjs
+index 711a531..6ba73e3 100644
+--- a/generator/scripts/generate-events-digest-article.mjs
++++ b/generator/scripts/generate-events-digest-article.mjs
+@@ -25,9 +25,12 @@ import { loadEventsDataset, isoDay } from './lib/events-utils.mjs';
+ import { buildWeekendDigestArticle } from './lib/events-digest-content.mjs';
+ import { registerArticleFiles, checkArticleIdExists, buildBodyFile } from './create-article.mjs';
+ import { bumpUpdatedAt, bumpDateModified, bumpSitemapLastmod } from './lib/evergreen-article-refresh.mjs';
++import { corpusPath } from './lib/corpus-paths.mjs';
+ 
+ const __dirname = path.dirname(fileURLToPath(import.meta.url));
+-const REPO_ROOT = path.resolve(__dirname, '..');
++// `../..`: the transport moved this from `scripts/` to `generator/scripts/`,
++// so one level up is now the generator directory, not the repo root.
++const REPO_ROOT = path.resolve(__dirname, '..', '..');
+ const LOCALES = ['it', 'en', 'de', 'fr'];
+ 
+ // Evergreen metadata — registered once, NEVER refreshed (no date/count inside).
+@@ -67,7 +70,7 @@ export function buildData(todayIso) {
+ /** Rewrite only the 4 body files (idempotent refresh; registration is append-only). */
+ export function refreshBodyFiles(data, repoRoot = REPO_ROOT, log = console.log) {
+   for (const locale of LOCALES) {
+-    const dir = path.join(repoRoot, 'services', 'locales', 'blog-body', locale);
++    const dir = path.join(repoRoot, corpusPath('services/locales/blog-body'), locale);
+     mkdirSync(dir, { recursive: true });
+     const file = path.join(dir, `${data.id}.ts`);
+     writeFileSync(file, buildBodyFile(data, locale));
+diff --git a/generator/scripts/generate-journalist-image-catalog.mjs b/generator/scripts/generate-journalist-image-catalog.mjs
+index 6e5a423..1f50536 100644
+--- a/generator/scripts/generate-journalist-image-catalog.mjs
++++ b/generator/scripts/generate-journalist-image-catalog.mjs
+@@ -20,7 +20,9 @@ import fs from 'node:fs';
+ import path from 'node:path';
+ import { fileURLToPath } from 'node:url';
+ 
+-const PROJECT_ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
++// `../..`: the transport moved this from `scripts/` to `generator/scripts/`,
++// so one level up is now the generator directory, not the repo root.
++const PROJECT_ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', '..');
+ const BLOG_DIR = path.join(PROJECT_ROOT, 'public', 'images', 'blog');
+ const OUT_PATH = path.join(PROJECT_ROOT, 'public', 'data', 'journalist-image-catalog.json');
+ 
+@@ -77,7 +79,20 @@ export function appendCatalogEntry(blogImagePath) {
+ }
+ 
+ if (import.meta.url === `file://${process.argv[1]}`) {
++  // DRY_RUN=1 is the convention the other generator entry points already use
++  // ("plan only, no writes" — see generate-events-digest-article.mjs and
++  // generate-border-wait-ranking-article.mjs). This script had no dry-run
++  // branch, so a CI smoke run that merely wanted to prove it LOADS ended up
++  // creating public/data/ and writing the catalog. Added so the whole set can
++  // be exercised uniformly with writes off.
++  const dryRun = process.env.DRY_RUN === '1' || process.env.DRY_RUN === 'true';
+   const catalog = buildCatalog();
+-  writeCatalog(catalog);
+-  console.log(`✅ Wrote ${catalog.length} entries to ${path.relative(PROJECT_ROOT, OUT_PATH)}`);
++  if (dryRun) {
++    console.log(
++      `DRY_RUN — would write ${catalog.length} entries to ${path.relative(PROJECT_ROOT, OUT_PATH)}; no files written.`,
++    );
++  } else {
++    writeCatalog(catalog);
++    console.log(`✅ Wrote ${catalog.length} entries to ${path.relative(PROJECT_ROOT, OUT_PATH)}`);
++  }
+ }
+diff --git a/generator/scripts/lib/article-topic-selector.mjs b/generator/scripts/lib/article-topic-selector.mjs
+index 7ccfe25..3c3b0ff 100644
+--- a/generator/scripts/lib/article-topic-selector.mjs
++++ b/generator/scripts/lib/article-topic-selector.mjs
+@@ -38,6 +38,7 @@ import {
+ } from './cluster-classifier-prompt.mjs';
+ import { cascadedScore } from './scoring/cascadedScore.mjs';
+ import { computeAdaptiveTopicCandidateDupJaccard } from './scoring/constants.mjs';
++import { corpusPath } from './corpus-paths.mjs';
+ 
+ // ── Paths (overridable via opts for tests) ─────────────────────
+ export const PERFORMANCE_PATH = 'data/article-performance.json';
+@@ -201,7 +202,7 @@ export function extractItTitlesFromMeta(metaSrc) {
+   return out;
+ }
+ 
+-export function loadExistingItTitles(metaPath = 'services/locales/blog-meta-it.ts') {
++export function loadExistingItTitles(metaPath = corpusPath('services/locales/blog-meta-it.ts')) {
+   try {
+     if (!existsSync(metaPath)) return [];
+     return extractItTitlesFromMeta(readFileSync(metaPath, 'utf-8'));
+diff --git a/generator/scripts/lib/corpus-paths.mjs b/generator/scripts/lib/corpus-paths.mjs
+new file mode 100644
+index 0000000..2a020a0
+--- /dev/null
++++ b/generator/scripts/lib/corpus-paths.mjs
+@@ -0,0 +1,116 @@
++/**
++ * Translate the generator's repo-relative paths from the layout they were
++ * written against (frontaliere-si-o-no, "main") to this repository's layout.
++ *
++ * The generator was transported verbatim (issue #4974 item 3, step 2) so its
++ * diff against main stays reviewable. That means it still says
++ * `services/locales/blog-body/it/foo.ts` everywhere, which is main's path.
++ * Here the corpus is a flat `content/` tree. Rather than rewrite ~30 literals
++ * across an 8800-line script — and re-do it on every future transport — the
++ * mapping lives here and the scripts route their ONE path-resolution helper
++ * through it.
++ *
++ * ── Why `resolve-git-add-path.mjs` was deliberately NOT transported ─────────
++ *
++ * In main, `services/locales/blog-body{,-ch}` and `services/locales/blog-meta-*.ts`
++ * are OS symlinks into `packages/articles/content/` (the Fase 6 package
++ * migration, #4881/#4919). `git add` refuses a pathspec that walks through a
++ * symlinked directory ("fatal: pathspec ... is beyond a symbolic link") and
++ * silently no-ops when the pathspec IS a file symlink whose target changed, so
++ * main needs a `realpath` pass before every `git add`.
++ *
++ * This repository has no symlinks at all (verified: `find . -type l` is empty)
++ * — `content/` IS the real tree. Porting the symlink resolver would have been
++ * porting a workaround for a problem that does not exist here, and worse, its
++ * `realpathSync` fallback would silently rewrite paths for reasons that no
++ * longer apply. So the git-add helpers below are the same API with the symlink
++ * logic removed and the layout mapping put in its place: callers keep calling
++ * `resolveGitAddPaths(root, files)` and get paths that are correct HERE.
++ *
++ * ── Why an explicit table and not a prefix rewrite ──────────────────────────
++ *
++ * `data/` is NOT blanket-mapped. Main's `data/` holds two corpus registries
++ * (`blog-articles-data.ts`, `swiss-articles-data.ts`) that belong in `content/`
++ * here, but it ALSO holds generator state the generator owns and writes in
++ * place — `article-source-quotas.json`, `article-source-urls.json`,
++ * `topic-candidates-consumed.json` (§3 of the migration doc: these MOVE with
++ * the generator). A `data/ → content/` prefix rule would quietly relocate the
++ * generator's own scratch files into the published corpus. Same reasoning for
++ * `services/`: two router modules map, the rest are ordinary library imports.
++ *
++ * Anything with no rule is returned unchanged, which is the correct default for
++ * `public/…`, `scripts/…` and the generator's own state files.
++ */
++
++/** Root of the published corpus in this repository. */
++export const CORPUS_ROOT = 'content';
++
++/** Exact-path rewrites (main path → this repo's path). */
++const EXACT = new Map([
++  ['data/blog-articles-data.ts', 'content/blog-articles-data.ts'],
++  ['data/swiss-articles-data.ts', 'content/swiss-articles-data.ts'],
++  ['services/routerBlogData.ts', 'content/routerBlogData.ts'],
++  ['services/routerSwissData.ts', 'content/routerSwissData.ts'],
++  ['services/articleSections.ts', 'content/articleSections.ts'],
++]);
++
++/**
++ * Prefix rewrites, longest-first. `services/seo/` must be tested before any
++ * shorter `services/` rule would be, hence the explicit ordering rather than a
++ * plain object.
++ */
++const PREFIXES = [
++  ['packages/articles/content/', 'content/'],
++  ['services/locales/', 'content/'],
++  ['services/seo/', 'content/seo/'],
++];
++
++/**
++ * Map one repo-relative path from main's layout to this repository's.
++ * Idempotent: a path already expressed in this repo's layout is returned as-is,
++ * so it is safe to call on a value that may have been mapped already.
++ *
++ * @param {string} rel Repo-relative path, optionally with a trailing slash.
++ * @returns {string}
++ */
++export function corpusPath(rel) {
++  if (typeof rel !== 'string' || rel === '') return rel;
++
++  const trailingSlash = rel.endsWith('/');
++  const bare = trailingSlash ? rel.slice(0, -1) : rel;
++
++  const exact = EXACT.get(bare);
++  if (exact) return trailingSlash ? `${exact}/` : exact;
++
++  for (const [from, to] of PREFIXES) {
++    if (bare.startsWith(from)) {
++      const mapped = `${to}${bare.slice(from.length)}`;
++      return trailingSlash ? `${mapped}/` : mapped;
++    }
++  }
++
++  return rel;
++}
++
++/**
++ * Drop-in replacement for main's `resolve-git-add-path.mjs` export of the same
++ * name. Maps the path into this repo's layout; no symlink resolution, because
++ * there are no symlinks here (see the header). `repoRoot` is accepted and
++ * ignored so call sites need no edit.
++ *
++ * @param {string} _repoRoot Unused; kept for signature compatibility.
++ * @param {string} relPath
++ * @returns {string}
++ */
++export function resolveGitAddPath(_repoRoot, relPath) {
++  return corpusPath(relPath);
++}
++
++/**
++ * @param {string} _repoRoot Unused; kept for signature compatibility.
++ * @param {string[]} relPaths
++ * @returns {string[]}
++ */
++export function resolveGitAddPaths(_repoRoot, relPaths) {
++  return relPaths.map((p) => corpusPath(p));
++}
+diff --git a/generator/scripts/lib/evergreen-article-refresh.mjs b/generator/scripts/lib/evergreen-article-refresh.mjs
+index 20bbd03..42b4252 100644
+--- a/generator/scripts/lib/evergreen-article-refresh.mjs
++++ b/generator/scripts/lib/evergreen-article-refresh.mjs
+@@ -10,13 +10,14 @@
+ import { readFileSync, writeFileSync } from 'node:fs';
+ import path from 'node:path';
+ import { fileURLToPath } from 'node:url';
++import { corpusPath } from './corpus-paths.mjs';
+ 
+ const __dirname = path.dirname(fileURLToPath(import.meta.url));
+ const DEFAULT_REPO_ROOT = path.resolve(__dirname, '..', '..');
+ 
+ /** Bump (or insert) `updatedAt` on the ARTICLES entry so sitemap lastmod reflects the refresh. */
+ export function bumpUpdatedAt(id, todayIso, repoRoot = DEFAULT_REPO_ROOT) {
+-  const file = path.join(repoRoot, 'data', 'blog-articles-data.ts');
++  const file = path.join(repoRoot, corpusPath('data/blog-articles-data.ts'));
+   let src = readFileSync(file, 'utf-8');
+   const entryRe = new RegExp(`(\\n([ \\t]*)id: '${id}',[\\s\\S]*?)(\\n[ \\t]*\\},)`);
+   const m = src.match(entryRe);
+@@ -60,7 +61,7 @@ export function bumpDateModified(
+   repoRoot = DEFAULT_REPO_ROOT,
+   seoFile = 'services/seo/seo-blog-5.ts',
+ ) {
+-  const file = path.join(repoRoot, seoFile);
++  const file = path.join(repoRoot, corpusPath(seoFile));
+   const src = readFileSync(file, 'utf-8');
+   const startIdx = src.indexOf(`'blog-${id}':`);
+   if (startIdx < 0) return false;
+diff --git a/generator/scripts/lib/topic-sources/gscOrphans.mjs b/generator/scripts/lib/topic-sources/gscOrphans.mjs
+index de6d149..f100ba5 100644
+--- a/generator/scripts/lib/topic-sources/gscOrphans.mjs
++++ b/generator/scripts/lib/topic-sources/gscOrphans.mjs
+@@ -15,9 +15,10 @@
+ import { readFileSync, existsSync } from 'node:fs';
+ import { fnv1a32 } from '../fnv1a.mjs';
+ import { computeAdaptiveTopicCandidateDupJaccard } from '../scoring/constants.mjs';
++import { corpusPath } from '../corpus-paths.mjs';
+ 
+ const ORPHAN_QUERIES_PATH = 'data/gsc-orphan-queries.json';
+-const BLOG_META_PATH = 'services/locales/blog-meta-it.ts';
++const BLOG_META_PATH = corpusPath('services/locales/blog-meta-it.ts');
+ 
+ // Was 20 — too aggressive: dropped 327/329 orphan queries (~99%) including
+ // long-tail frontaliere-rich queries with 5–19 impressions/window. Lowered
+diff --git a/generator/scripts/publish-journalist-article.mjs b/generator/scripts/publish-journalist-article.mjs
+index 0069879..d702065 100644
+--- a/generator/scripts/publish-journalist-article.mjs
++++ b/generator/scripts/publish-journalist-article.mjs
+@@ -70,7 +70,9 @@ import { generateFaqIT } from './batch-add-faq-to-articles.mjs';
+ import { appendCatalogEntry } from './generate-journalist-image-catalog.mjs';
+ 
+ const __dirname = path.dirname(fileURLToPath(import.meta.url));
+-const PROJECT_ROOT = path.resolve(__dirname, '..');
++// `../..`: the transport moved this from `scripts/` to `generator/scripts/`,
++// so one level up is now the generator directory, not the repo root.
++const PROJECT_ROOT = path.resolve(__dirname, '..', '..');
+ const BASE_URL = 'https://frontaliereticino.ch';
+ 
+ // Mirrors the (unexported) CATEGORIES list in create-article.mjs. The client
+diff --git a/generator/scripts/refresh-border-wait-averages.mjs b/generator/scripts/refresh-border-wait-averages.mjs
+new file mode 100644
+index 0000000..9ee04ac
+--- /dev/null
++++ b/generator/scripts/refresh-border-wait-averages.mjs
+@@ -0,0 +1,136 @@
++#!/usr/bin/env node
++/**
++ * Refresh the border-wait averages overlay from the live site (issue #4974
++ * item 3, REWIRE set — §5.3 of frontaliere-si-o-no's
++ * docs/articles-generator-migration.md).
++ *
++ * WHY THIS EXISTS
++ *
++ * `generator/data/borderCrossings.ts` used to statically import
++ * `data/border-wait-averages.json`, a file main regenerates daily from a
++ * 30-day border-wait history that lives only in main. That import is the last
++ * thing in the generator's path that wanted a main-owned repo file. Vendoring
++ * a copy would have gone stale immediately; reading it out of main's git tree
++ * would have made this repo depend on main's checkout, inverting the one-way
++ * architecture the whole migration exists to establish. Fetching it over HTTP
++ * from the published site keeps the dependency one-way and read-only: nanako
++ * pulls a public artifact, exactly as main pulls nanako's published JSON.
++ *
++ * WHAT IT IS NOT
++ *
++ * Not a hard dependency. The averages are a cosmetic overlay on the editorial
++ * wait-time defaults already hard-coded in `borderCrossings.ts`, and that file
++ * treats a missing cache as "use the defaults". So this script exits 0 and
++ * writes nothing when the site is unreachable — a network blip must not fail an
++ * article-generation run over a wait-time string. It exits non-zero only when
++ * it fetched something and that something was not a usable averages document,
++ * because silently caching garbage is the failure that would be hard to see.
++ *
++ * Usage:
++ *   node generator/scripts/refresh-border-wait-averages.mjs
++ *   node generator/scripts/refresh-border-wait-averages.mjs --check   # no write
++ *
++ * Override the source with BORDER_WAIT_AVERAGES_URL (used by the tests).
++ */
++import fs from 'node:fs';
++import path from 'node:path';
++import { fileURLToPath } from 'node:url';
++
++const SOURCE =
++  process.env.BORDER_WAIT_AVERAGES_URL ??
++  'https://frontaliereticino.ch/data/border-wait-averages.json';
++
++const CACHE = path.join(
++  path.dirname(fileURLToPath(import.meta.url)),
++  '..',
++  'data',
++  'border-wait-averages.json',
++);
++
++const CHECK_ONLY = process.argv.includes('--check');
++
++const log = (msg) => console.log(`[refresh-border-wait-averages] ${msg}`);
++
++/** Soft failure: the overlay is optional, so an unreachable site is not an error. */
++function skip(msg) {
++  log(`${msg} — keeping the existing cache (editorial defaults apply if absent)`);
++  process.exit(0);
++}
++
++/** Hard failure: we got a document and it was not the one we asked for. */
++function fail(msg) {
++  console.error(`::error::[refresh-border-wait-averages] ${msg}`);
++  process.exit(1);
++}
++
++let raw;
++try {
++  const res = await fetch(SOURCE, { redirect: 'follow' });
++  if (!res.ok) skip(`${SOURCE} → HTTP ${res.status}`);
++  raw = await res.text();
++} catch (err) {
++  skip(`${SOURCE} unreachable: ${err.message}`);
++}
++
++let payload;
++try {
++  payload = JSON.parse(raw);
++} catch (err) {
++  fail(`${SOURCE} is not valid JSON: ${err.message}`);
++}
++
++// Shape gate. The published file is a flat map of crossing-slug → {morning?,
++// evening?} range strings. An HTML error page that came back with a 200 parses
++// as neither, and an array or a scalar means the publisher changed shape.
++if (!payload || typeof payload !== 'object' || Array.isArray(payload)) {
++  fail(`${SOURCE} is not a crossing-slug map — refusing to cache it`);
++}
++
++const slugs = Object.keys(payload);
++if (slugs.length === 0) fail(`${SOURCE} carries zero crossings — refusing`);
++
++for (const slug of slugs) {
++  const entry = payload[slug];
++  if (!entry || typeof entry !== 'object' || Array.isArray(entry)) {
++    fail(`${SOURCE}: '${slug}' is not an object — refusing`);
++  }
++  for (const window of ['morning', 'evening']) {
++    const value = entry[window];
++    if (value === undefined) continue;
++    // "2-13 min", or "2 min" when p25 == p75 — `formatRange()` in main's
++    // compute-border-wait-averages.mjs collapses a degenerate range to the
++    // single value rather than printing "2-2 min". Format-checking rather than
++    // trusting it keeps a raw number or a localised string from reaching an
++    // article body verbatim.
++    if (typeof value !== 'string' || !/^\d+(-\d+)? min$/.test(value)) {
++      fail(
++        `${SOURCE}: '${slug}'.${window} is ${JSON.stringify(value)}, ` +
++          `not a "N min" or "N-M min" range`,
++      );
++    }
++  }
++}
++
++// Shrink guard, same spirit as main's pull script: the crossing set is stable
++// (it tracks physical border posts), so a sharp drop means a truncated publish
++// rather than closed borders.
++if (fs.existsSync(CACHE)) {
++  try {
++    const current = JSON.parse(fs.readFileSync(CACHE, 'utf-8'));
++    const before = Object.keys(current).length;
++    if (slugs.length < before / 2) {
++      fail(`would shrink from ${before} to ${slugs.length} crossings — refusing`);
++    }
++  } catch {
++    // An unreadable cache is exactly what we are here to replace.
++  }
++}
++
++if (CHECK_ONLY) {
++  log(`--check: ${slugs.length} crossings validated, wrote nothing`);
++  process.exit(0);
++}
++
++fs.mkdirSync(path.dirname(CACHE), { recursive: true });
++fs.writeFileSync(CACHE, `${JSON.stringify(payload, null, 2)}\n`);
++log(`cached ${slugs.length} crossings from ${SOURCE}`);
+diff --git a/generator/scripts/refresh-border-wait-window.mjs b/generator/scripts/refresh-border-wait-window.mjs
+new file mode 100644
+index 0000000..0896c97
+--- /dev/null
++++ b/generator/scripts/refresh-border-wait-window.mjs
+@@ -0,0 +1,158 @@
++#!/usr/bin/env node
++/**
++ * Fetch the border-wait ranking window published by the site repository
++ * (issue #4974 item 3 — the REWIRE that lets the weekly ranking article be
++ * generated here instead of in valerielinc-ops/frontaliere-si-o-no).
++ *
++ * WHY A FETCH AND NOT A COPY
++ *
++ * The article is computed from `data/border-wait-history/*.json` — 90 daily
++ * files, 1.7 GB, collected from Firestore by the site repo and committed only
++ * there. None of that is article content and none of it should be mirrored
++ * here. What the generator actually needs is the aggregate underneath:
++ * `aggregateCrossingStats()` collapses the whole window to ~140 crossings x 2
++ * numbers, about 32 KB. Main publishes that; this fetches it.
++ *
++ * Two windows, because `trendFromStats()` compares the current 7 days against
++ * the preceding 7. A payload carrying only `current` costs the article its
++ * week-over-week trend section without failing.
++ *
++ * ── Why this one is REQUIRED, unlike refresh-border-wait-averages.mjs ────────
++ *
++ * The averages fetch is allowed to fail softly: it feeds a cosmetic overlay on
++ * editorial defaults, so a network blip must not fail a generation run. This
++ * one is the opposite. It IS the article's data — a ranking article generated
++ * without a ranking is not degraded output, it is wrong output, published to a
++ * live SEO surface under an evergreen URL that already ranks. So a failure here
++ * exits non-zero and the generation step does not run.
++ *
++ * Usage:
++ *   node generator/scripts/refresh-border-wait-window.mjs
++ *   node generator/scripts/refresh-border-wait-window.mjs --check   # no write
++ *
++ * Override the source with BORDER_WAIT_WINDOW_URL (used by the tests).
++ */
++import fs from 'node:fs';
++import path from 'node:path';
++import { fileURLToPath } from 'node:url';
++
++const SOURCE =
++  process.env.BORDER_WAIT_WINDOW_URL ??
++  'https://frontaliereticino.ch/data/border-wait-ranking-window.json';
++
++const CACHE = path.join(
++  path.dirname(fileURLToPath(import.meta.url)),
++  '..',
++  'data',
++  'border-wait-ranking-window.json',
++);
++
++const CHECK_ONLY = process.argv.includes('--check');
++
++const log = (msg) => console.log(`[refresh-border-wait-window] ${msg}`);
++const fail = (msg) => {
++  console.error(`::error::[refresh-border-wait-window] ${msg}`);
++  process.exit(1);
++};
++
++/** Retries only the transient classes; a 404 is a real absence and fails now. */
++async function get(url) {
++  let lastErr;
++  for (let i = 1; i <= 4; i++) {
++    try {
++      const res = await fetch(url, { redirect: 'follow' });
++      if (res.ok) {
++        const body = await res.text();
++        if (body.length > 0) return body;
++        lastErr = new Error('empty body');
++      } else {
++        const err = new Error(`HTTP ${res.status}`);
++        if (res.status < 500 && res.status !== 429) throw err;
++        lastErr = err;
++      }
++    } catch (err) {
++      if (/HTTP 4\d\d/.test(err.message)) throw err;
++      lastErr = err;
++    }
++    if (i < 4) await new Promise((r) => setTimeout(r, 1000 * 2 ** (i - 1)));
++  }
++  throw lastErr;
++}
++
++let raw;
++try {
++  raw = await get(SOURCE);
++} catch (err) {
++  fail(`${SOURCE} unavailable: ${err.message}`);
++}
++
++let payload;
++try {
++  payload = JSON.parse(raw);
++} catch (err) {
++  fail(`${SOURCE} is not valid JSON: ${err.message}`);
++}
++
++/** Validate one window half and return its crossing count. */
++function checkWindow(name) {
++  const w = payload?.[name];
++  if (!w || typeof w !== 'object') fail(`${SOURCE}: '${name}' window missing — refusing`);
++  for (const key of ['weekStart', 'weekEnd']) {
++    if (!/^\d{4}-\d{2}-\d{2}$/.test(w[key] ?? '')) {
++      fail(`${SOURCE}: ${name}.${key} is ${JSON.stringify(w[key])}, not an ISO date — refusing`);
++    }
++  }
++  const per = w.perCrossing;
++  if (!per || typeof per !== 'object' || Array.isArray(per)) {
++    fail(`${SOURCE}: ${name}.perCrossing is not an object — refusing`);
++  }
++  for (const [slug, s] of Object.entries(per)) {
++    if (typeof s?.weightedAvgMinutes !== 'number' || !Number.isFinite(s.weightedAvgMinutes)) {
++      fail(`${SOURCE}: ${name}.${slug}.weightedAvgMinutes is not a finite number — refusing`);
++    }
++    if (!Number.isInteger(s?.totalSamples) || s.totalSamples < 0) {
++      fail(`${SOURCE}: ${name}.${slug}.totalSamples is not a non-negative integer — refusing`);
++    }
++  }
++  return Object.keys(per).length;
++}
++
++if (payload?.windowDays !== 7) {
++  // The generator's own DEFAULT_WINDOW_DAYS is 7 and the article text says
++  // "settimana". A publisher that changed the window without this side knowing
++  // would produce an article whose prose contradicts its numbers.
++  fail(`${SOURCE}: windowDays is ${JSON.stringify(payload?.windowDays)}, expected 7 — refusing`);
++}
++
++const currentCount = checkWindow('current');
++const previousCount = checkWindow('previous');
++
++if (currentCount === 0) {
++  fail(`${SOURCE}: current window has zero crossings — refusing (the article would have no ranking)`);
++}
++
++// Staleness gate. The ranking is weekly and main republishes on every traffic
++// collect, so a window whose end is far in the past means the publisher stopped
++// and we would generate this week's article from last month's numbers — the
++// failure that looks like success.
++const ageDays = Math.floor(
++  (Date.now() - new Date(`${payload.current.weekEnd}T00:00:00Z`).getTime()) / 86_400_000,
++);
++if (ageDays > 14) {
++  fail(
++    `${SOURCE}: current window ends ${payload.current.weekEnd}, ${ageDays} days ago — ` +
++      `refusing to build a ranking article from stale data`,
++  );
++}
++
++if (CHECK_ONLY) {
++  log(`--check: ${currentCount} current / ${previousCount} previous crossings, wrote nothing`);
++  process.exit(0);
++}
++
++fs.mkdirSync(path.dirname(CACHE), { recursive: true });
++fs.writeFileSync(CACHE, `${JSON.stringify(payload, null, 2)}\n`);
++log(
++  `cached ${payload.current.weekStart}..${payload.current.weekEnd} — ` +
++    `${currentCount} current / ${previousCount} previous crossings`,
++);
+diff --git a/generator/tests/corpus-paths.test.mjs b/generator/tests/corpus-paths.test.mjs
+new file mode 100644
+index 0000000..c56f211
+--- /dev/null
++++ b/generator/tests/corpus-paths.test.mjs
+@@ -0,0 +1,184 @@
++/**
++ * The main→nanako layout mapping (issue #4974 item 3). Run with `node --test`.
++ *
++ * This is the module that replaced main's `resolve-git-add-path.mjs`, so the
++ * cases below are as much about what it must NOT do (relocate the generator's
++ * own state files, resolve symlinks that do not exist here) as what it must.
++ */
++import { test } from 'node:test';
++import assert from 'node:assert/strict';
++import { corpusPath, resolveGitAddPath, resolveGitAddPaths } from '../scripts/lib/corpus-paths.mjs';
++
++test('maps the per-locale body dirs into content/', () => {
++  assert.equal(corpusPath('services/locales/blog-body/it/foo.ts'), 'content/blog-body/it/foo.ts');
++  assert.equal(
++    corpusPath('services/locales/blog-body-ch/de/bar.ts'),
++    'content/blog-body-ch/de/bar.ts',
++  );
++});
++
++test('maps the meta chunks into content/', () => {
++  assert.equal(corpusPath('services/locales/blog-meta-it.ts'), 'content/blog-meta-it.ts');
++  assert.equal(corpusPath('services/locales/blog-meta-ch-fr.ts'), 'content/blog-meta-ch-fr.ts');
++});
++
++test('maps the registries, routers and seo files', () => {
++  assert.equal(corpusPath('data/blog-articles-data.ts'), 'content/blog-articles-data.ts');
++  assert.equal(corpusPath('data/swiss-articles-data.ts'), 'content/swiss-articles-data.ts');
++  assert.equal(corpusPath('services/routerBlogData.ts'), 'content/routerBlogData.ts');
++  assert.equal(corpusPath('services/routerSwissData.ts'), 'content/routerSwissData.ts');
++  assert.equal(corpusPath('services/seo/seo-blog-5.ts'), 'content/seo/seo-blog-5.ts');
++  assert.equal(corpusPath('services/seo/seo-blog-ch.ts'), 'content/seo/seo-blog-ch.ts');
++});
++
++test('maps main’s packages/articles/content/ prefix', () => {
++  assert.equal(corpusPath('packages/articles/content/blogArticleIds.ts'), 'content/blogArticleIds.ts');
++});
++
++test('preserves a trailing slash, because git-add pathspecs carry one', () => {
++  assert.equal(corpusPath('services/locales/blog-body-ch/'), 'content/blog-body-ch/');
++  assert.equal(corpusPath('services/locales/blog-body/'), 'content/blog-body/');
++});
++
++test('leaves the generator’s own state files under data/ alone', () => {
++  // The whole reason the mapping is an explicit table rather than a
++  // `data/ -> content/` prefix rule: these MOVE with the generator (§3) and
++  // must not be relocated into the published corpus.
++  for (const p of [
++    'data/article-source-quotas.json',
++    'data/article-source-urls.json',
++    'data/article-source-quotas-swiss.json',
++    'data/topic-candidates-consumed.json',
++  ]) {
++    assert.equal(corpusPath(p), p, `${p} must not be remapped`);
++  }
++});
++
++test('leaves unrelated paths untouched', () => {
++  for (const p of ['public/sitemap-news.xml', 'public/images/blog/x.webp', 'scripts/foo.mjs']) {
++    assert.equal(corpusPath(p), p);
++  }
++});
++
++test('is idempotent — mapping an already-mapped path is a no-op', () => {
++  const once = corpusPath('services/locales/blog-body/it/foo.ts');
++  assert.equal(corpusPath(once), once);
++});
++
++test('resolveGitAddPaths maps every entry and ignores repoRoot', () => {
++  const files = [
++    'services/locales/blog-meta-it.ts',
++    'data/blog-articles-data.ts',
++    'public/sitemap-news.xml',
++  ];
++  assert.deepEqual(resolveGitAddPaths('/anywhere', files), [
++    'content/blog-meta-it.ts',
++    'content/blog-articles-data.ts',
++    'public/sitemap-news.xml',
++  ]);
++  assert.equal(resolveGitAddPath('/anywhere', files[0]), 'content/blog-meta-it.ts');
++});
++
++test('every mapped corpus target actually exists in this repo', async () => {
++  // Guards the mapping against this repo's layout drifting under it — a rule
++  // that points at a directory nobody has is worse than no rule, because the
++  // generator would create it and publish nothing.
++  const fs = await import('node:fs');
++  const path = await import('node:path');
++  const url = await import('node:url');
++  const repoRoot = path.resolve(path.dirname(url.fileURLToPath(import.meta.url)), '..', '..');
++  for (const rel of [
++    'content/blog-body',
++    'content/blog-body-ch',
++    'content/blog-meta-it.ts',
++    'content/blog-articles-data.ts',
++    'content/swiss-articles-data.ts',
++    'content/routerBlogData.ts',
++    'content/routerSwissData.ts',
++    'content/seo/seo-blog-5.ts',
++    'content/seo/seo-blog-ch.ts',
++    'content/blogArticleIds.ts',
++  ]) {
++    assert.ok(fs.existsSync(path.join(repoRoot, rel)), `missing corpus target: ${rel}`);
++  }
++});
++
++test('no source file builds a corpus path without going through corpusPath()', async () => {
++  // The gate for the bug the dry-run harness could NOT catch. Under DRY_RUN=1
++  // the writing scripts do not write, so a main-relative output path stays
++  // invisible until a real run — at which point
++  // generate-events-digest-article.mjs created a phantom `services/` tree at
++  // the repo root and wrote four body files into it, while `content/` sat
++  // untouched and every runtime check reported success.
++  //
++  // The thing that is actually wrong is joining a main-relative corpus path
++  // DIRECTLY onto the repo root, which bypasses the mapping:
++  //   path.join(repoRoot, 'services', 'locales', 'blog-body', locale)   // BUG
++  //   path.join(repoRoot, `services/locales/${dir}`)                    // BUG
++  //
++  // A bare `services/locales/...` string is NOT a bug on its own — most of
++  // create-article.mjs is written that way on purpose, and those strings reach
++  // `resolve()`/`read()`/`write()`/`resolveGitAddPath()`, every one of which
++  // maps. Flagging them would flag the design. So the pattern below is anchored
++  // on the join-to-root, which is the step that skips the sink.
++  const fs = await import('node:fs');
++  const path = await import('node:path');
++  const url = await import('node:url');
++  const scriptsRoot = path.resolve(
++    path.dirname(url.fileURLToPath(import.meta.url)),
++    '..',
++    'scripts',
++  );
++
++  const files = [];
++  (function walk(dir) {
++    for (const e of fs.readdirSync(dir, { withFileTypes: true })) {
++      const p = path.join(dir, e.name);
++      if (e.isDirectory()) walk(p);
++      else if (p.endsWith('.mjs')) files.push(p);
++    }
++  })(scriptsRoot);
++
++  // join(<root>, …) where the next argument starts a main-relative corpus path,
++  // in either the segment spelling or the template-literal one.
++  const ROOT_VAR = '(?:repoRoot|REPO_ROOT|ROOT|PROJECT_ROOT|projectRoot)';
++  const CORPUS_HEAD = `(?:['"\`](?:services\\/locales|services\\/seo|packages\\/articles)|['"]services['"]\\s*,\\s*['"]locales['"]|['"\`]data\\/(?:blog|swiss)-articles-data)`;
++  const JOIN_TO_ROOT = new RegExp(`join\\(\\s*${ROOT_VAR}\\s*,\\s*${CORPUS_HEAD}`);
++
++  const offenders = [];
++  for (const file of files) {
++    if (file.endsWith('corpus-paths.mjs')) continue; // the mapping itself
++    const src = fs.readFileSync(file, 'utf-8');
++    src.split('\n').forEach((line, i) => {
++      const code = line.replace(/\/\/.*$/, '');
++      if (!JOIN_TO_ROOT.test(code)) return;
++      if (code.includes('corpusPath')) return; // already routed through the map
++      offenders.push(`${path.relative(scriptsRoot, file)}:${i + 1}: ${line.trim()}`);
++    });
++  }
++  assert.deepEqual(
++    offenders,
++    [],
++    `main-relative corpus paths not routed through corpusPath():\n  ${offenders.join('\n  ')}`,
++  );
++});
++
++test('this repo has no symlinks, which is why the resolver was dropped', async () => {
++  // If this ever fails, main's realpath-based resolve-git-add-path.mjs becomes
++  // relevant again and corpus-paths.mjs's header is no longer true.
++  const fs = await import('node:fs');
++  const path = await import('node:path');
++  const url = await import('node:url');
++  const repoRoot = path.resolve(path.dirname(url.fileURLToPath(import.meta.url)), '..', '..');
++  const found = [];
++  const walk = (dir) => {
++    for (const e of fs.readdirSync(dir, { withFileTypes: true })) {
++      if (e.name === '.git' || e.name === 'node_modules') continue;
++      const p = path.join(dir, e.name);
++      if (e.isSymbolicLink()) found.push(path.relative(repoRoot, p));
++      else if (e.isDirectory()) walk(p);
++    }
++  };
++  walk(path.join(repoRoot, 'content'));
++  assert.deepEqual(found, []);
++});
+diff --git a/generator/tests/dry-run-entrypoints.mjs b/generator/tests/dry-run-entrypoints.mjs
+new file mode 100644
+index 0000000..af4a37a
+--- /dev/null
++++ b/generator/tests/dry-run-entrypoints.mjs
+@@ -0,0 +1,184 @@
++#!/usr/bin/env node
++/**
++ * Load every generator entry point with writes disabled (issue #4974 item 3,
++ * §5.4 — "dry-run nanako's generator with writes disabled").
++ *
++ * WHAT THIS PROVES
++ *
++ * That the transported code LOADS in this repository. That sounds trivial and
++ * is not: a static `import` of a module that was never copied throws before the
++ * script's first statement, so a file can be perfectly correct and still be
++ * dead on arrival. Six of them were, and the only way to find out was to run
++ * them — which had never happened, because the transport was a file copy.
++ *
++ * Each entry point is spawned in a child process with `--help`, which every one
++ * of them handles before doing any work. The child either reaches its argument
++ * parsing (pass) or dies on a module-resolution/syntax error (fail). A non-zero
++ * exit for a REASON OTHER than a load failure is not counted against it — some
++ * of these legitimately refuse to run without credentials, and that refusal is
++ * the script working.
++ *
++ * WHAT IT DOES NOT PROVE
++ *
++ * That a full generation run produces correct articles. That needs the LLM
++ * credentials, live sources and a writable corpus this job deliberately does
++ * not have. Behavioural equivalence with main is covered separately, and
++ * deterministically, by tests/parity/run.mjs.
++ */
++import { spawn } from 'node:child_process';
++import fs from 'node:fs';
++import path from 'node:path';
++import { fileURLToPath } from 'node:url';
++
++const HERE = path.dirname(fileURLToPath(import.meta.url));
++const SCRIPTS = path.join(HERE, '..', 'scripts');
++const REPO_ROOT = path.resolve(HERE, '..', '..');
++
++const ENTRY_POINTS = [
++  'create-article.mjs',
++  'batch-add-faq-to-articles.mjs',
++  'fix-faq-locales.mjs',
++  'generate-border-wait-ranking-article.mjs',
++  'generate-events-digest-article.mjs',
++  'publish-journalist-article.mjs',
++  'generate-journalist-image-catalog.mjs',
++  'refresh-border-wait-averages.mjs',
++  'refresh-border-wait-window.mjs',
++];
++
++/**
++ * Errors that mean "this file could not be loaded". Anything else is the script
++ * running and then declining to proceed, which is a pass for our purposes.
++ */
++const LOAD_FAILURE = [
++  /ERR_MODULE_NOT_FOUND/,
++  /Cannot find module/,
++  /Cannot find package/,
++  /SyntaxError/,
++  /ERR_UNSUPPORTED_DIR_IMPORT/,
++  /ERR_UNKNOWN_FILE_EXTENSION/,
++];
++
++/**
++ * `DRY_RUN=1` is the generator's own convention, documented in the usage header
++ * of the scripts that do real work ("plan only, no writes"). `--help` alone is
++ * NOT enough and assuming it was is how this harness first ran: three entry
++ * points ignore it and went straight to work, and
++ * generate-border-wait-ranking-article.mjs rewrote four corpus body files
++ * before the check that was supposed to be verifying it had not.
++ */
++function run(file) {
++  return new Promise((resolve) => {
++    const child = spawn(process.execPath, [path.join(SCRIPTS, file), '--help'], {
++      cwd: REPO_ROOT,
++      env: { ...process.env, DRY_RUN: '1', CI: '1' },
++    });
++    let out = '';
++    child.stdout.on('data', (d) => (out += d));
++    child.stderr.on('data', (d) => (out += d));
++    // A script that blocks on network or stdin has still LOADED, which is what
++    // is under test — so a timeout is a pass, not a hang.
++    const timer = setTimeout(() => child.kill('SIGKILL'), 30_000);
++    child.on('close', (code) => {
++      clearTimeout(timer);
++      resolve({ code, out });
++    });
++  });
++}
++
++/**
++ * `git status --porcelain` as a Map of path → status code. Paths with spaces or
++ * renames are normalised to the destination path, which is the one that exists.
++ */
++function parseStatus(raw) {
++  const map = new Map();
++  for (const line of raw.split('\n')) {
++    if (!line.trim()) continue;
++    const code = line.slice(0, 2);
++    let rel = line.slice(3);
++    if (rel.includes(' -> ')) rel = rel.split(' -> ')[1];
++    map.set(rel.replace(/^"|"$/g, ''), code);
++  }
++  return map;
++}
++
++let failed = 0;
++const before = parseStatus(
++  await new Promise((resolve) => {
++    const g = spawn('git', ['status', '--porcelain'], { cwd: REPO_ROOT });
++    let o = '';
++    g.stdout.on('data', (d) => (o += d));
++    g.on('close', () => resolve(o));
++  }),
++);
++
++for (const file of ENTRY_POINTS) {
++  if (!fs.existsSync(path.join(SCRIPTS, file))) {
++    console.error(`::error::[dry-run] ${file} does not exist`);
++    failed += 1;
++    continue;
++  }
++  const { code, out } = await run(file);
++  const loadError = LOAD_FAILURE.find((rx) => rx.test(out));
++  if (loadError) {
++    const line = out.split('\n').find((l) => loadError.test(l)) ?? out.slice(0, 200);
++    console.error(`::error::[dry-run] ${file} failed to LOAD: ${line.trim()}`);
++    failed += 1;
++  } else {
++    console.log(`[dry-run] ${file}: loaded (exit ${code})`);
++  }
++}
++
++// ── The "writes disabled" half of the claim ─────────────────────────
++//
++// Measured as a BEFORE/AFTER delta of `git status --porcelain`, over the whole
++// tree — not an absolute "is the tree clean" check.
++//
++// Whole tree, because watching only content/ missed the more interesting
++// failure: generate-events-digest-article.mjs still built its output path from
++// main's `services/locales/blog-body/...`, so instead of touching the corpus it
++// silently created a phantom `services/` tree at the repo root and wrote four
++// body files into it. A check scoped to content/ reported success.
++//
++// A delta, because this has to be usable while someone has work in progress. An
++// absolute check would fail on any dirty tree, which in practice means it gets
++// ignored. Only paths that appear or change DURING the run are attributed to
++// the run — and only those are reverted, so a developer's uncommitted work is
++// never collateral.
++async function gitStatus() {
++  return new Promise((resolve) => {
++    const g = spawn('git', ['status', '--porcelain'], { cwd: REPO_ROOT });
++    let o = '';
++    g.stdout.on('data', (d) => (o += d));
++    g.on('close', () => resolve(o));
++  });
++}
++
++const after = parseStatus(await gitStatus());
++const introduced = [...after].filter(([p, code]) => before.get(p) !== code);
++
++if (introduced.length) {
++  for (const [rel] of introduced) {
++    const abs = path.join(REPO_ROOT, rel);
++    // Untracked → remove; tracked-and-modified → restore from HEAD.
++    if (before.has(rel)) {
++      await new Promise((r) => spawn('git', ['checkout', '--', rel], { cwd: REPO_ROOT }).on('close', r));
++    } else if (fs.existsSync(abs)) {
++      fs.rmSync(abs, { recursive: true, force: true });
++    } else {
++      await new Promise((r) => spawn('git', ['checkout', '--', rel], { cwd: REPO_ROOT }).on('close', r));
++    }
++  }
++  console.error(
++    '::error::[dry-run] an entry point wrote despite DRY_RUN=1 (reverted). ' +
++      'The script needs a dry-run branch, or its output path is still main-relative:\n  ' +
++      introduced.map(([p, c]) => `${c} ${p}`).join('\n  '),
++  );
++  failed += 1;
++}
++
++if (failed) {
++  console.error(`::error::[dry-run] ${failed} check(s) failed`);
++  process.exit(1);
++}
++console.log(`[dry-run] all ${ENTRY_POINTS.length} entry points load, corpus untouched`);
+diff --git a/generator/tests/import-closure.test.mjs b/generator/tests/import-closure.test.mjs
+new file mode 100644
+index 0000000..2dbbcd8
+--- /dev/null
++++ b/generator/tests/import-closure.test.mjs
+@@ -0,0 +1,101 @@
++/**
++ * Every relative import under generator/ must resolve on disk. `node --test`.
++ *
++ * This is the gate that would have caught the transport defect. The 67 files
++ * moved by #4974 item 3 step 2 were the static-import closure computed WITHIN
++ * `scripts/`; six specifiers that left `scripts/` (`../build-plugins/`,
++ * `../data/`, `../services/`) were never followed, so `create-article.mjs`
++ * threw at load — before `main()`, on a plain `import` — and nothing noticed,
++ * because the code had been copied but never run.
++ *
++ * A missing module is a load-time failure, which means it cannot be caught by
++ * any test that imports the module under test. It has to be checked statically,
++ * which is what this does.
++ *
++ * Deliberately regex-based rather than an actual resolver: the point is to
++ * check the FILES exist, and a resolver would need the module graph to load,
++ * which is the thing that is broken when this fails.
++ */
++import { test } from 'node:test';
++import assert from 'node:assert/strict';
++import fs from 'node:fs';
++import path from 'node:path';
++import { fileURLToPath } from 'node:url';
++
++const GENERATOR_ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
++
++/** Source files whose imports are checked. */
++function sourceFiles(dir, acc = []) {
++  for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
++    if (entry.name === 'node_modules') continue;
++    const p = path.join(dir, entry.name);
++    if (entry.isDirectory()) sourceFiles(p, acc);
++    else if (/\.(mjs|ts)$/.test(entry.name)) acc.push(p);
++  }
++  return acc;
++}
++
++const SPECIFIER = /(?:^|\n)\s*(?:import|export)[^'"\n]*?from\s*['"]([^'"]+)['"]/g;
++const BARE_IMPORT = /(?:^|\n)\s*import\s*['"](\.[^'"]+)['"]/g;
++
++test('every relative import under generator/ resolves to a file that exists', () => {
++  const missing = [];
++  for (const file of sourceFiles(GENERATOR_ROOT)) {
++    const src = fs.readFileSync(file, 'utf-8');
++    for (const re of [SPECIFIER, BARE_IMPORT]) {
++      re.lastIndex = 0;
++      for (const m of src.matchAll(re)) {
++        const spec = m[1];
++        if (!spec.startsWith('.')) continue;
++        const abs = path.resolve(path.dirname(file), spec);
++        if (!fs.existsSync(abs)) {
++          missing.push(
++            `${path.relative(GENERATOR_ROOT, file)} → ${spec} (${path.relative(GENERATOR_ROOT, abs)})`,
++          );
++        }
++      }
++    }
++  }
++  assert.deepEqual(missing, [], `unresolved relative imports:\n  ${missing.join('\n  ')}`);
++});
++
++test('resolve-git-add-path.mjs is absent, and nothing imports it', () => {
++  // It was excluded on purpose: it resolves symlinks that exist only in main
++  // (services/locales/** → packages/articles/content/**). corpus-paths.mjs
++  // replaced it. If this fails, someone re-imported main's workaround.
++  assert.equal(
++    fs.existsSync(path.join(GENERATOR_ROOT, 'scripts', 'lib', 'resolve-git-add-path.mjs')),
++    false,
++  );
++  // Matches an IMPORT of it, not a mention: corpus-paths.mjs names the module
++  // it replaced in its own header, and that prose is the documentation.
++  const importsIt = /from\s*['"][^'"]*resolve-git-add-path(\.mjs)?['"]|import\s*['"][^'"]*resolve-git-add-path(\.mjs)?['"]/;
++  const offenders = sourceFiles(GENERATOR_ROOT)
++    .filter((f) => importsIt.test(fs.readFileSync(f, 'utf-8')))
++    .map((f) => path.relative(GENERATOR_ROOT, f));
++  assert.deepEqual(offenders, []);
++});
++
++test('entry points resolve the repo root, not the generator directory', () => {
++  // The transport moved these from `scripts/` to `generator/scripts/`, so every
++  // `path.resolve(__dirname, '..')` silently started pointing at generator/.
++  // Reads would fail and writes would build a phantom corpus under generator/.
++  const entries = [
++    'create-article.mjs',
++    'batch-add-faq-to-articles.mjs',
++    'fix-faq-locales.mjs',
++    'generate-border-wait-ranking-article.mjs',
++    'generate-events-digest-article.mjs',
++    'publish-journalist-article.mjs',
++    'generate-journalist-image-catalog.mjs',
++  ];
++  for (const name of entries) {
++    const src = fs.readFileSync(path.join(GENERATOR_ROOT, 'scripts', name), 'utf-8');
++    const oneUp = /(?:path\.)?resolve\(\s*(?:path\.dirname\([^)]*\)|__dirname)\s*,\s*'\.\.'\s*\)/.test(src);
++    const urlOneUp = /new URL\('\.\.',\s*import\.meta\.url\)/.test(src);
++    assert.ok(
++      !oneUp && !urlOneUp,
++      `${name} still resolves one level up — that is generator/, not the repo root`,
++    );
++  }
++});
+diff --git a/generator/tests/news-sitemap-whitelist.test.mjs b/generator/tests/news-sitemap-whitelist.test.mjs
+new file mode 100644
+index 0000000..685d429
+--- /dev/null
++++ b/generator/tests/news-sitemap-whitelist.test.mjs
+@@ -0,0 +1,83 @@
++/**
++ * The vendored Google News whitelist (issue #4974 item 3, §5.3). `node --test`.
++ *
++ * The point of these is drift: this file is a COPY of main's editorial list, and
++ * the failure mode it replaced was silent (an empty list reads as allow-all).
++ * So the assertions pin the count and the semantics rather than eyeballing the
++ * array, and the eligibility cases are the ones whose answer would flip if the
++ * list quietly emptied.
++ */
++import { test } from 'node:test';
++import assert from 'node:assert/strict';
++import {
++  NEWS_SITEMAP_WHITELIST,
++  NEWS_SITEMAP_WINDOW_HOURS,
++  isArticleNewsEligible,
++} from '../data/news-sitemap-whitelist.mjs';
++
++const hoursAgo = (h) => new Date(Date.now() - h * 3_600_000);
++
++test('carries the full token list, not an empty allow-all', () => {
++  assert.equal(NEWS_SITEMAP_WHITELIST.length, 98);
++  assert.ok(Object.isFrozen(NEWS_SITEMAP_WHITELIST));
++});
++
++test('window is the 48h Google News spec value', () => {
++  assert.equal(NEWS_SITEMAP_WINDOW_HOURS, 48);
++});
++
++test('keeps one token from each of the six macro-themes', () => {
++  for (const t of ['fisco', 'avs', 'lamal', 'dogana', 'cambio-valuta', 'treno']) {
++    assert.ok(
++      NEWS_SITEMAP_WHITELIST.includes(t),
++      `theme token '${t}' missing — the list drifted from main`,
++    );
++  }
++});
++
++test('does NOT contain bare frontaliere/frontalieri', () => {
++  // Main's own comment: these appear in virtually every Ticino-news slug and
++  // would defeat the filter. Re-adding one is the most likely way to silently
++  // turn the whitelist back into allow-all.
++  assert.ok(!NEWS_SITEMAP_WHITELIST.includes('frontaliere'));
++  assert.ok(!NEWS_SITEMAP_WHITELIST.includes('frontalieri'));
++});
++
++test('admits an on-topic, fresh article', () => {
++  assert.equal(
++    isArticleNewsEligible({ slug: 'nuovo-accordo-fisco-2026', publishedAt: hoursAgo(2) }),
++    true,
++  );
++});
++
++test('rejects an off-topic article however fresh', () => {
++  assert.equal(
++    isArticleNewsEligible({ slug: 'hockey-club-lugano-vittoria', publishedAt: hoursAgo(1) }),
++    false,
++  );
++});
++
++test('rejects an on-topic article that aged out of the window', () => {
++  assert.equal(isArticleNewsEligible({ slug: 'fisco', publishedAt: hoursAgo(72) }), false);
++});
++
++test('rejects a future-dated article as malformed', () => {
++  assert.equal(isArticleNewsEligible({ slug: 'fisco', publishedAt: hoursAgo(-6) }), false);
++});
++
++test('rejects an unparseable date rather than letting it through', () => {
++  assert.equal(isArticleNewsEligible({ slug: 'fisco', publishedAt: 'not-a-date' }), false);
++});
++
++test('matches case-insensitively across every text field', () => {
++  const at = hoursAgo(1);
++  assert.equal(isArticleNewsEligible({ title: 'Novità sull’AVS', publishedAt: at }), true);
++  assert.equal(isArticleNewsEligible({ keywords: 'CASSA MALATI', publishedAt: at }), true);
++  assert.equal(isArticleNewsEligible({ tags: ['Pensione'], publishedAt: at }), true);
++  assert.equal(isArticleNewsEligible({ articleSection: 'Dogana', publishedAt: at }), true);
++});
++
++test('an article with no publishedAt is judged on topic alone', () => {
++  assert.equal(isArticleNewsEligible({ slug: 'fisco' }), true);
++  assert.equal(isArticleNewsEligible({ slug: 'hockey' }), false);
++});
+diff --git a/generator/tests/parity/golden.json b/generator/tests/parity/golden.json
+new file mode 100644
+index 0000000..3ac948b
+--- /dev/null
++++ b/generator/tests/parity/golden.json
+@@ -0,0 +1,193 @@
++{
++  "lib/border-wait-ranking.mjs": {
++    "computeWeekWindow([\"2026-07-15\"])": {
++      "value": {
++        "weekEnd": "2026-07-14",
++        "weekStart": "2026-07-08"
++      }
++    },
++    "computeWeekWindow([\"2028-03-01\"])": {
++      "value": {
++        "weekEnd": "2028-02-29",
++        "weekStart": "2028-02-23"
++      }
++    },
++    "rankingFromStats([{\"chiasso-strada\":{\"weightedAvgMinutes\":5.0555,\"totalSamples\":36},\"gaggiolo\":{\"weightedAvgMinutes\":0.6842,\"totalSamples\":38},\"ponte-tresa\":{\"weightedAvgMinutes\":0.1,\"totalSamples\":3}}])": {
++      "value": [
++        {
++          "avgMinutes": 0.6842,
++          "rank": 1,
++          "slug": "gaggiolo",
++          "totalSamples": 38
++        },
++        {
++          "avgMinutes": 5.0555,
++          "rank": 2,
++          "slug": "chiasso-strada",
++          "totalSamples": 36
++        }
++      ]
++    },
++    "rankingFromStats([{}])": {
++      "value": []
++    },
++    "trendFromStats([{\"chiasso-strada\":{\"weightedAvgMinutes\":6,\"totalSamples\":36},\"gaggiolo\":{\"weightedAvgMinutes\":1,\"totalSamples\":38},\"brogeda\":{\"weightedAvgMinutes\":3,\"totalSamples\":40}},{\"chiasso-strada\":{\"weightedAvgMinutes\":4,\"totalSamples\":30},\"gaggiolo\":{\"weightedAvgMinutes\":0.6,\"totalSamples\":25}}])": {
++      "value": {
++        "chiasso-strada": {
++          "currentAvgMinutes": 6,
++          "deltaMinutes": 2,
++          "direction": "worse",
++          "previousAvgMinutes": 4
++        },
++        "gaggiolo": {
++          "currentAvgMinutes": 1,
++          "deltaMinutes": 0.4,
++          "direction": "flat",
++          "previousAvgMinutes": 0.6
++        }
++      }
++    },
++    "windowFileNames([\"2026-01-03\",5])": {
++      "value": [
++        "2025-12-29.json",
++        "2025-12-30.json",
++        "2025-12-31.json",
++        "2026-01-01.json",
++        "2026-01-02.json"
++      ]
++    },
++    "windowFileNames([\"2026-07-15\"])": {
++      "value": [
++        "2026-07-08.json",
++        "2026-07-09.json",
++        "2026-07-10.json",
++        "2026-07-11.json",
++        "2026-07-12.json",
++        "2026-07-13.json",
++        "2026-07-14.json"
++      ]
++    }
++  },
++  "lib/border-wait-ranking.mjs#history": {
++    "aggregateCrossingStats(<fixture>,[\"2026-07-11\",3])": {
++      "value": {
++        "chiasso-strada": {
++          "totalSamples": 36,
++          "weightedAvgMinutes": 5.055555555555555
++        },
++        "gaggiolo": {
++          "totalSamples": 38,
++          "weightedAvgMinutes": 0.6578947368421053
++        }
++      }
++    },
++    "aggregateCrossingStats(<fixture>,[\"2026-07-11\",7])": {
++      "value": {
++        "chiasso-strada": {
++          "totalSamples": 36,
++          "weightedAvgMinutes": 5.055555555555555
++        },
++        "gaggiolo": {
++          "totalSamples": 38,
++          "weightedAvgMinutes": 0.6578947368421053
++        }
++      }
++    }
++  },
++  "lib/decode-html-entities.mjs": {
++    "decodeHtmlEntities([\"&amp;amp;\"])": {
++      "value": "&"
++    },
++    "decodeHtmlEntities([\"&quot;citt&agrave;&quot; &#8217;\"])": {
++      "value": "\"citt&agrave;\" ’"
++    },
++    "decodeHtmlEntities([\"Imposta &amp; tassa &lt;fonte&gt;\"])": {
++      "value": "Imposta & tassa <fonte>"
++    },
++    "decodeHtmlEntities([\"nessuna entita\"])": {
++      "value": "nessuna entita"
++    }
++  },
++  "lib/detect-language.mjs": {
++    "detectLanguage([\"Der Grenzgänger zahlt die Quellensteuer in der Schweiz.\"])": {
++      "value": "de"
++    },
++    "detectLanguage([\"Il frontaliere paga l’imposta alla fonte in Svizzera.\"])": {
++      "value": "it"
++    },
++    "detectLanguage([\"Le frontalier paie l’impôt à la source en Suisse.\"])": {
++      "value": "fr"
++    },
++    "detectLanguage([\"The cross-border worker pays withholding tax in Switzerland.\"])": {
++      "value": "en"
++    },
++    "isSameLanguage([\"Ciao a tutti quanti oggi\",\"Buongiorno a tutti quanti\",\"it\"])": {
++      "value": true
++    }
++  },
++  "lib/fnv1a.mjs": {
++    "fnv1a32([\"\"])": {
++      "value": 2166136261
++    },
++    "fnv1a32([\"città-öäü-À\"])": {
++      "value": 1000865185
++    },
++    "fnv1a32([\"frontaliere-ticino\"])": {
++      "value": 1877195393
++    },
++    "fnv1a32Mod([\"\",7])": {
++      "value": 2
++    },
++    "fnv1a32Mod([\"nuovo-accordo-fiscale-2026\",97])": {
++      "value": 70
++    }
++  },
++  "lib/haversine.mjs": {
++    "haversineKm([0,0,0,0])": {
++      "value": 0
++    },
++    "haversineKm([45.8399,8.9525,46.0037,8.9511])": {
++      "value": 18.214050913715447
++    }
++  },
++  "lib/it-text-similarity.mjs": {
++    "containmentSim([\"avs pensione\",\"la pensione avs cambia nel 2026\"])": {
++      "value": 1
++    },
++    "jaccardSim([\"tassa salute frontalieri ticino\",\"nuova tassa salute per frontalieri\"])": {
++      "value": 0.8
++    },
++    "normalizeItWord([\"Città\"])": {
++      "value": "Citt"
++    },
++    "stemIt([\"lavoratore\"])": {
++      "value": "lavora"
++    },
++    "stemIt([\"pensioni\"])": {
++      "value": "pen"
++    },
++    "tokenizeIt([\"Le nuove regole sulla tassa della salute per i frontalieri\"])": {
++      "value": [
++        "nuov",
++        "regol",
++        "imposta",
++        "sanità",
++        "frontaliere"
++      ]
++    }
++  },
++  "lib/slug-truncate.mjs": {
++    "truncateSlugAtWordBoundary([\"a-b-c-d-e-f-g-h-i-j-k\",5])": {
++      "value": "a-b-c"
++    },
++    "truncateSlugAtWordBoundary([\"breve\",60])": {
++      "value": "breve"
++    },
++    "truncateSlugAtWordBoundary([\"nuovo-accordo-fiscale-frontalieri-2026\",20])": {
++      "value": "nuovo-accordo-fiscal"
++    },
++    "truncateSlugAtWordBoundary([\"senzaseparatori\",6])": {
++      "value": "senzas"
++    }
++  }
++}
+diff --git a/generator/tests/parity/probes.mjs b/generator/tests/parity/probes.mjs
+new file mode 100644
+index 0000000..3a8594c
+--- /dev/null
++++ b/generator/tests/parity/probes.mjs
+@@ -0,0 +1,171 @@
++/**
++ * Deterministic probes for the main↔nanako generator parity check
++ * (issue #4974 item 3, §5.4 of the migration doc: "comparing its emitted
++ * body/meta/SEO files byte-for-byte against what main's current generator would
++ * have produced for the same synthetic input").
++ *
++ * WHAT THIS COVERS, AND WHAT IT CANNOT
++ *
++ * A full `create-article.mjs` run is not reproducible by construction: it calls
++ * LLMs, fetches live RSS, and stamps `new Date()` into everything it writes.
++ * Two runs of MAIN against itself would not be byte-identical, so diffing a
++ * whole run against nanako's would prove nothing.
++ *
++ * What IS byte-comparable is the deterministic layer underneath: the pure text
++ * transforms that turn a model's output into the strings that land in the
++ * corpus. Those are the functions the transport could plausibly have broken —
++ * a lost dependency, a changed default argument, a module that silently
++ * resolved to a different file. Every probe below is a pure function of its
++ * inputs, so main and nanako must agree exactly, and any disagreement is a real
++ * transport defect rather than clock noise.
++ *
++ * Each probe names a module by its path RELATIVE TO THE GENERATOR SCRIPTS ROOT,
++ * which is `scripts/` in main and `generator/scripts/` here. That is what lets
++ * one file drive both trees.
++ *
++ * Inputs are chosen to be nasty on purpose: accented Italian, HTML entities,
++ * competitor names, near-duplicate slugs, sparse history with null cells.
++ */
++
++/** @type {{module: string, calls: Array<{fn: string, args: unknown[]}>}[]} */
++export const PROBES = [
++  {
++    module: 'lib/fnv1a.mjs',
++    calls: [
++      { fn: 'fnv1a32', args: [''] },
++      { fn: 'fnv1a32', args: ['frontaliere-ticino'] },
++      { fn: 'fnv1a32', args: ['città-öäü-À'] },
++      { fn: 'fnv1a32Mod', args: ['nuovo-accordo-fiscale-2026', 97] },
++      { fn: 'fnv1a32Mod', args: ['', 7] },
++    ],
++  },
++  {
++    module: 'lib/slug-truncate.mjs',
++    calls: [
++      { fn: 'truncateSlugAtWordBoundary', args: ['nuovo-accordo-fiscale-frontalieri-2026', 20] },
++      { fn: 'truncateSlugAtWordBoundary', args: ['breve', 60] },
++      { fn: 'truncateSlugAtWordBoundary', args: ['a-b-c-d-e-f-g-h-i-j-k', 5] },
++      { fn: 'truncateSlugAtWordBoundary', args: ['senzaseparatori', 6] },
++    ],
++  },
++  {
++    module: 'lib/decode-html-entities.mjs',
++    calls: [
++      { fn: 'decodeHtmlEntities', args: ['Imposta &amp; tassa &lt;fonte&gt;'] },
++      { fn: 'decodeHtmlEntities', args: ['&quot;citt&agrave;&quot; &#8217;'] },
++      { fn: 'decodeHtmlEntities', args: ['nessuna entita'] },
++      { fn: 'decodeHtmlEntities', args: ['&amp;amp;'] },
++    ],
++  },
++  {
++    module: 'lib/detect-language.mjs',
++    calls: [
++      { fn: 'detectLanguage', args: ['Il frontaliere paga l’imposta alla fonte in Svizzera.'] },
++      { fn: 'detectLanguage', args: ['The cross-border worker pays withholding tax in Switzerland.'] },
++      { fn: 'detectLanguage', args: ['Der Grenzgänger zahlt die Quellensteuer in der Schweiz.'] },
++      { fn: 'detectLanguage', args: ['Le frontalier paie l’impôt à la source en Suisse.'] },
++      { fn: 'isSameLanguage', args: ['Ciao a tutti quanti oggi', 'Buongiorno a tutti quanti', 'it'] },
++    ],
++  },
++  {
++    module: 'lib/it-text-similarity.mjs',
++    calls: [
++      { fn: 'stemIt', args: ['pensioni'] },
++      { fn: 'stemIt', args: ['lavoratore'] },
++      { fn: 'normalizeItWord', args: ['Città'] },
++      { fn: 'tokenizeIt', args: ['Le nuove regole sulla tassa della salute per i frontalieri'] },
++      {
++        fn: 'jaccardSim',
++        args: ['tassa salute frontalieri ticino', 'nuova tassa salute per frontalieri'],
++      },
++      { fn: 'containmentSim', args: ['avs pensione', 'la pensione avs cambia nel 2026'] },
++    ],
++  },
++  {
++    module: 'lib/haversine.mjs',
++    calls: [
++      { fn: 'haversineKm', args: [45.8399, 8.9525, 46.0037, 8.9511] },
++      { fn: 'haversineKm', args: [0, 0, 0, 0] },
++    ],
++  },
++  {
++    module: 'lib/border-wait-ranking.mjs',
++    calls: [
++      { fn: 'windowFileNames', args: ['2026-07-15'] },
++      { fn: 'windowFileNames', args: ['2026-01-03', 5] },
++      { fn: 'computeWeekWindow', args: ['2026-07-15'] },
++      // Leap-day and year boundary: the ISO arithmetic is the part most likely
++      // to differ if a transported copy drifted.
++      { fn: 'computeWeekWindow', args: ['2028-03-01'] },
++      // The REWIRE path (#4974 item 3): with the ranking article generated in
++      // nanako from main's published aggregate rather than from the 1.7 GB
++      // history, these two ARE the article's numbers. Both sides must agree
++      // exactly or the published ranking silently diverges from the telemetry
++      // it claims to summarise.
++      {
++        fn: 'rankingFromStats',
++        args: [
++          {
++            'chiasso-strada': { weightedAvgMinutes: 5.0555, totalSamples: 36 },
++            gaggiolo: { weightedAvgMinutes: 0.6842, totalSamples: 38 },
++            // Under the 20-sample floor: must be dropped, not ranked last.
++            'ponte-tresa': { weightedAvgMinutes: 0.1, totalSamples: 3 },
++          },
++        ],
++      },
++      { fn: 'rankingFromStats', args: [{}] },
++      {
++        fn: 'trendFromStats',
++        args: [
++          {
++            'chiasso-strada': { weightedAvgMinutes: 6, totalSamples: 36 },
++            gaggiolo: { weightedAvgMinutes: 1, totalSamples: 38 },
++            // Present now, absent in the previous window — no trend possible.
++            brogeda: { weightedAvgMinutes: 3, totalSamples: 40 },
++          },
++          {
++            'chiasso-strada': { weightedAvgMinutes: 4, totalSamples: 30 },
++            // Delta 0.4 → below the 0.5 threshold, must read 'flat'.
++            gaggiolo: { weightedAvgMinutes: 0.6, totalSamples: 25 },
++          },
++        ],
++      },
++    ],
++  },
++];
++
++/**
++ * Probes whose module reads the filesystem, so they run against a synthetic
++ * tree the runner materialises rather than against literal arguments.
++ */
++export const HISTORY_FIXTURE = {
++  '2026-07-08.json': {
++    date: '2026-07-08',
++    perCrossing: {
++      'chiasso-strada': [
++        null,
++        { min: 1, avg: 4.5, max: 9, samples: 12 },
++        null,
++        { min: 0, avg: 2, max: 3, samples: 4 },
++      ],
++      gaggiolo: [{ min: 0, avg: 1.25, max: 2, samples: 8 }],
++      // A crossing whose cells are all unusable — must not reach the ranking.
++      'ponte-tresa': [null, { min: 0, max: 1 }, { avg: 'x', samples: 3 }],
++    },
++  },
++  '2026-07-09.json': {
++    date: '2026-07-09',
++    perCrossing: {
++      'chiasso-strada': [{ min: 2, avg: 6, max: 14, samples: 20 }],
++      gaggiolo: [{ min: 0, avg: 0.5, max: 1, samples: 30 }],
++    },
++  },
++  // Deliberately malformed: the aggregator must skip it, not throw.
++  '2026-07-10.json': { date: '2026-07-10', perCrossing: null },
++};
++
++/** Calls made against the materialised history fixture, with a frozen "today". */
++export const HISTORY_PROBES = [
++  { fn: 'aggregateCrossingStats', args: ['2026-07-11', 3] },
++  { fn: 'aggregateCrossingStats', args: ['2026-07-11', 7] },
++];
+diff --git a/generator/tests/parity/run.mjs b/generator/tests/parity/run.mjs
+new file mode 100644
+index 0000000..0624198
+--- /dev/null
++++ b/generator/tests/parity/run.mjs
+@@ -0,0 +1,162 @@
++#!/usr/bin/env node
++/**
++ * Byte-for-byte parity runner for the transported generator (issue #4974
++ * item 3, §5.4).
++ *
++ * Runs every probe in probes.mjs against a generator-scripts root and prints a
++ * canonical JSON report. Because the report is a deterministic function of the
++ * code under it, two roots agreeing byte-for-byte means the transported modules
++ * behave identically to the ones they were copied from.
++ *
++ *   # this repo's tree, compared against the committed golden
++ *   node generator/tests/parity/run.mjs --check
++ *
++ *   # re-record the golden after an INTENDED behaviour change
++ *   node generator/tests/parity/run.mjs --write
++ *
++ *   # the actual cross-repo comparison, run from a checkout that has both:
++ *   node generator/tests/parity/run.mjs --root ../frontaliere-si-o-no/scripts > /tmp/main.json
++ *   node generator/tests/parity/run.mjs > /tmp/nanako.json
++ *   diff /tmp/main.json /tmp/nanako.json && echo "byte-identical"
++ *
++ * `--root` is what makes this usable against main: the probes name modules
++ * relative to the generator scripts root, which is `scripts/` there and
++ * `generator/scripts/` here, so the same probe list drives both trees.
++ *
++ * CI only ever runs `--check`, since main is not checked out there. The golden
++ * is therefore a standing record of "what main produced at transport time",
++ * and a diff against it is a regression in the transported copy.
++ */
++import fs from 'node:fs';
++import os from 'node:os';
++import path from 'node:path';
++import { fileURLToPath } from 'node:url';
++import { PROBES, HISTORY_FIXTURE, HISTORY_PROBES } from './probes.mjs';
++
++const HERE = path.dirname(fileURLToPath(import.meta.url));
++const REPO_ROOT = path.resolve(HERE, '..', '..', '..');
++const GOLDEN = path.join(HERE, 'golden.json');
++
++const argv = process.argv.slice(2);
++const rootArg = argv.includes('--root') ? argv[argv.indexOf('--root') + 1] : null;
++const SCRIPTS_ROOT = rootArg
++  ? path.resolve(rootArg)
++  : path.join(REPO_ROOT, 'generator', 'scripts');
++const CHECK = argv.includes('--check');
++const WRITE = argv.includes('--write');
++
++/**
++ * Canonical JSON: object keys sorted at every level, so a report never differs
++ * for reasons that are not behavioural. `undefined` and non-finite numbers are
++ * tagged rather than dropped — losing the distinction between `undefined` and
++ * `null` would hide exactly the kind of drift this is looking for.
++ */
++function canonical(value) {
++  if (value === undefined) return { __undefined: true };
++  if (typeof value === 'number' && !Number.isFinite(value)) return { __number: String(value) };
++  if (value === null || typeof value !== 'object') return value;
++  if (value instanceof Set) return { __set: [...value].map(canonical) };
++  if (value instanceof Map) {
++    return { __map: [...value.entries()].map(([k, v]) => [canonical(k), canonical(v)]).sort() };
++  }
++  if (Array.isArray(value)) return value.map(canonical);
++  const out = {};
++  for (const k of Object.keys(value).sort()) out[k] = canonical(value[k]);
++  return out;
++}
++
++async function callProbe(mod, fn, args) {
++  const target = mod[fn];
++  if (typeof target !== 'function') {
++    return { error: `export '${fn}' is not a function (got ${typeof target})` };
++  }
++  try {
++    return { value: canonical(await target(...args)) };
++  } catch (err) {
++    // A thrown error is a legitimate observation, and one main and nanako must
++    // agree on — only the message is compared, never the stack (paths differ).
++    return { threw: `${err?.constructor?.name ?? 'Error'}: ${err?.message ?? err}` };
++  }
++}
++
++const report = { scriptsRoot: path.relative(REPO_ROOT, SCRIPTS_ROOT) || '.', probes: {} };
++
++for (const { module: rel, calls } of PROBES) {
++  const abs = path.join(SCRIPTS_ROOT, rel);
++  if (!fs.existsSync(abs)) {
++    report.probes[rel] = { error: 'module not found' };
++    continue;
++  }
++  let mod;
++  try {
++    mod = await import(`file://${abs}`);
++  } catch (err) {
++    report.probes[rel] = { error: `import failed: ${err.message}` };
++    continue;
++  }
++  const results = {};
++  for (const { fn, args } of calls) {
++    results[`${fn}(${JSON.stringify(args)})`] = await callProbe(mod, fn, args);
++  }
++  report.probes[rel] = results;
++}
++
++// ── Filesystem-backed probes ────────────────────────────────────────
++// aggregateCrossingStats() reads a history DIRECTORY, so the fixture is
++// materialised into a temp dir. Same bytes on both sides, so any difference is
++// in the aggregation, not the data.
++{
++  const rel = 'lib/border-wait-ranking.mjs';
++  const abs = path.join(SCRIPTS_ROOT, rel);
++  if (fs.existsSync(abs)) {
++    const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'parity-history-'));
++    for (const [name, doc] of Object.entries(HISTORY_FIXTURE)) {
++      fs.writeFileSync(path.join(dir, name), JSON.stringify(doc, null, 2));
++    }
++    const mod = await import(`file://${abs}`);
++    const results = {};
++    for (const { fn, args } of HISTORY_PROBES) {
++      results[`${fn}(<fixture>,${JSON.stringify(args)})`] = await callProbe(mod, fn, [dir, ...args]);
++    }
++    report.probes[`${rel}#history`] = results;
++    fs.rmSync(dir, { recursive: true, force: true });
++  }
++}
++
++// `scriptsRoot` is dropped from what gets compared: it is metadata about WHERE
++// the probes ran, and it necessarily differs between main and this repo. Only
++// behaviour is compared.
++const comparable = `${JSON.stringify(canonical(report.probes), null, 2)}\n`;
++
++if (WRITE) {
++  fs.writeFileSync(GOLDEN, comparable);
++  console.log(`[parity] wrote golden: ${path.relative(REPO_ROOT, GOLDEN)}`);
++  process.exit(0);
++}
++
++if (CHECK) {
++  if (!fs.existsSync(GOLDEN)) {
++    console.error('::error::[parity] no golden.json — run with --write first');
++    process.exit(1);
++  }
++  const expected = fs.readFileSync(GOLDEN, 'utf-8');
++  if (expected === comparable) {
++    const n = Object.keys(report.probes).length;
++    console.log(`[parity] ${n} probe module(s) byte-identical to golden`);
++    process.exit(0);
++  }
++  console.error('::error::[parity] output differs from golden.json');
++  const a = expected.split('\n');
++  const b = comparable.split('\n');
++  for (let i = 0; i < Math.max(a.length, b.length); i++) {
++    if (a[i] !== b[i]) {
++      console.error(`  first difference at line ${i + 1}:`);
++      console.error(`    golden:  ${a[i] ?? '<eof>'}`);
++      console.error(`    current: ${b[i] ?? '<eof>'}`);
++      break;
++    }
++  }
++  process.exit(1);
++}
++
++process.stdout.write(comparable);
+diff --git a/package.json b/package.json
+index 86acaf5..9992db8 100644
+--- a/package.json
++++ b/package.json
+@@ -9,5 +9,21 @@
+   "sideEffects": false,
+   "peerDependencies": {
+     "vite": "^6.2.0"
++  },
++  "dependencies": {
++    "@huggingface/transformers": "^4.2.0",
++    "firebase-admin": "^13.6.1",
++    "google-trends-api": "^4.9.2",
++    "jsdom": "^28.0.0",
++    "playwright": "^1.58.2",
++    "sharp": "^0.34.5",
++    "undici": "^7.24.5"
++  },
++  "scripts": {
++    "test": "node --test 'generator/tests/*.test.mjs'",
++    "test:parity": "node generator/tests/parity/run.mjs --check",
++    "test:dry-run": "node generator/tests/dry-run-entrypoints.mjs",
++    "refresh:border-wait": "node generator/scripts/refresh-border-wait-averages.mjs",
++    "refresh:border-wait-window": "node generator/scripts/refresh-border-wait-window.mjs"
+   }
+ }
+diff --git a/generator/data/borderCrossings.ts b/generator/data/borderCrossings.ts
+index 0000000..0000000 100644
+--- a/generator/data/borderCrossings.ts
++++ b/generator/data/borderCrossings.ts
+@@ -2512,10 +2512,45 @@
+ // Editorial defaults above stay as fallback for crossings with no history
+ // yet, and as a sane baseline before the first compute run lands in
+ // `data/`.
+-import computedAverages from './border-wait-averages.json' with { type: 'json' };
++// ── REWIRE (issue #4974 item 3, §5.3 of the migration doc) ────────
++//
++// In main this was `import computedAverages from './border-wait-averages.json'`
++// — a static import of a file `scripts/compute-border-wait-averages.mjs`
++// regenerates daily from a 30-day history that lives ONLY in main. That file
++// does not exist in this repository and never should: it is site telemetry, not
++// article content, and vendoring a daily-changing snapshot here would go stale
++// the moment it landed.
++//
++// So it is fetched instead, by `generator/scripts/refresh-border-wait-averages.mjs`,
++// which writes the cache this reads. A static `import` cannot be async, hence
++// the read-a-cache-file shape rather than a `fetch` at this line.
++//
++// Absence is explicitly NOT an error. The editorial defaults above are the
++// documented fallback ("for crossings with no history yet, and as a sane
++// baseline before the first compute run lands"), so a missing or unreadable
++// cache simply leaves them in place. Generation must not fail because a
++// cosmetic wait-time overlay could not be refreshed.
++import { readFileSync } from 'node:fs';
++import path from 'node:path';
++import { fileURLToPath } from 'node:url';
+ import { slugifyCrossingName } from '../services/borderCrossingSlug.ts';
+ 
+-const computed = computedAverages as Record<string, { morning?: string; evening?: string }>;
++const AVERAGES_CACHE = path.join(
++  path.dirname(fileURLToPath(import.meta.url)),
++  'border-wait-averages.json',
++);
++
++function loadComputedAverages(): Record<string, { morning?: string; evening?: string }> {
++  try {
++    const parsed: unknown = JSON.parse(readFileSync(AVERAGES_CACHE, 'utf-8'));
++    if (!parsed || typeof parsed !== 'object' || Array.isArray(parsed)) return {};
++    return parsed as Record<string, { morning?: string; evening?: string }>;
++  } catch {
++    return {};
++  }
++}
++
++const computed = loadComputedAverages();
+ for (const c of borderCrossings) {
+  const slug = slugifyCrossingName(c.name);
+  const entry = computed[slug];

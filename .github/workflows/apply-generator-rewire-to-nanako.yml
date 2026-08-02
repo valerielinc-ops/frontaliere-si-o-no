@@ -1,0 +1,165 @@
+name: Apply generator REWIRE patch to nanako
+
+# Second half of the generator migration's step 2→3 (issue #4974 item 3,
+# docs/articles-generator-migration.md §5.2 and §5.3).
+#
+# WHY A SECOND WORKFLOW INSTEAD OF FOLDING THIS INTO THE TRANSPORT
+#
+# transport-generator-to-nanako.yml does `rm -rf generator` and rebuilds the
+# directory from the manifest on every run. That is correct and deliberate — it
+# is what makes a file dropped from the manifest disappear from nanako instead
+# of lingering as an orphan. But it means anything that exists ONLY on the
+# nanako side is destroyed by the next transport: corpus-paths.mjs, the vendored
+# whitelist, the tests, the CI workflow, and the edits that repoint the
+# transported files at nanako's layout are all in that category. They cannot
+# live in the manifest, because they do not exist in this repository.
+#
+# So the pipeline is ordered, and the order is not optional:
+#
+#   1. transport-generator-to-nanako.yml   — structural copy (idempotent, destructive)
+#   2. this workflow                       — behavioural REWIRE (idempotent, additive)
+#
+# Run 1 then 2. Running 1 alone leaves nanako with code that does not load.
+#
+# WHY A PATCH FILE
+#
+# No credential reachable outside Actions can write to nanako — the Remote
+# Config PATs authenticate as valerielinc-ops with an empty scope set and
+# push:false, and the session git proxy returns 403 on push regardless. So the
+# change has to travel as data reviewable in THIS repo and be applied by a job
+# holding ARTICLES_REPO_PAT. The patch is generated from a verified-green nanako
+# working tree and is checked to apply cleanly before it is committed here.
+
+on:
+  workflow_dispatch:
+    inputs:
+      target_branch:
+        description: 'nanako side branch to patch (must NOT be main)'
+        required: true
+        default: 'claude/issue-4974-article-separation-obp1s5'
+      dry_run:
+        description: 'Validate the patch applies, then stop without pushing'
+        type: boolean
+        default: true
+
+# Shared with the transport workflow on purpose: the two must never interleave
+# against the same repository, since one rebuilds generator/ from scratch while
+# the other patches it.
+concurrency:
+  group: nanako-generator-transport
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 1
+          sparse-checkout: |
+            /.github/transport/
+          sparse-checkout-cone-mode: false
+
+      - name: Guard - target branch must not be nanako's default branch
+        id: guard
+        env:
+          # Via env:, never interpolated into the script. `${{ inputs.x }}`
+          # inside a run: block is substituted as literal shell text before the
+          # shell sees it, so `x"; curl …; #` would execute in a job holding
+          # ARTICLES_REPO_PAT. Same posture as the transport workflow.
+          TB: ${{ inputs.target_branch }}
+        run: |
+          set -euo pipefail
+          tb="${TB:-}"
+          case "$tb" in
+            ''|main|master|HEAD)
+              echo "::error::target_branch='$tb' is empty or a default-branch name — refusing."
+              exit 1
+              ;;
+          esac
+          # nanako's main carries the published surface the live site consumes.
+          echo "target_branch=$tb" >> "$GITHUB_OUTPUT"
+
+      - name: Apply patch and push
+        env:
+          PAT: ${{ secrets.ARTICLES_REPO_PAT }}
+          TARGET_BRANCH: ${{ steps.guard.outputs.target_branch }}
+          DRY_RUN: ${{ inputs.dry_run }}
+        run: |
+          set -euo pipefail
+          if [ -z "${PAT:-}" ]; then
+            echo "::error::ARTICLES_REPO_PAT is not set — cannot reach the articles repo"
+            exit 1
+          fi
+
+          patch="$GITHUB_WORKSPACE/.github/transport/nanako-generator-rewire.patch"
+          if [ ! -s "$patch" ]; then
+            echo "::error::rewire patch is missing or empty at $patch"
+            exit 1
+          fi
+
+          work=$(mktemp -d)
+          git clone --depth 1 \
+            "https://x-access-token:${PAT}@github.com/nanakokyobashi-rgb/frontaliere-articles.git" \
+            "$work"
+          cd "$work"
+
+          if ! git ls-remote --exit-code --heads origin "$TARGET_BRANCH" >/dev/null 2>&1; then
+            echo "::error::side branch '$TARGET_BRANCH' does not exist — run transport-generator-to-nanako.yml first"
+            exit 1
+          fi
+          git fetch --depth 1 origin "$TARGET_BRANCH"
+          git checkout -B "$TARGET_BRANCH" FETCH_HEAD
+
+          # Idempotent: a branch that already carries the REWIRE reports the
+          # patch as already applied rather than failing. That matters because
+          # the intended recovery from a bad transport is "re-run 1, then re-run
+          # 2", and step 2 must be safe to repeat.
+          if git apply --reverse --check "$patch" 2>/dev/null; then
+            echo "REWIRE patch is already applied to '$TARGET_BRANCH' — nothing to do"
+            exit 0
+          fi
+
+          if ! git apply --check "$patch"; then
+            echo "::error::patch does not apply to '$TARGET_BRANCH'. The transport step probably has not run, or ran with a different manifest. Re-run transport-generator-to-nanako.yml against this branch first."
+            exit 1
+          fi
+
+          git apply --stat "$patch"
+          git apply "$patch"
+
+          # The patch must never touch the published surface. content/, engine/
+          # and the root data files are what the live site consumes; this change
+          # is confined to generator/ plus repo-level config.
+          if git status --porcelain -- content engine index.ts articleSections.ts | grep -q .; then
+            echo "::error::patch modified the published corpus — refusing to push"
+            git status --porcelain -- content engine index.ts articleSections.ts
+            exit 1
+          fi
+
+          git config user.name "Valerie Linc"
+          git config user.email "valerielinc@gmail.com"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "patch applied but produced no change — nothing to push"
+            exit 0
+          fi
+
+          # Separate -m flags rather than one embedded newline-carrying string:
+          # inside a `run: |` block every continuation line has to keep the
+          # block's indentation, and a commit message that does is unreadable.
+          git commit -q \
+            -m "Rewire the transported generator for this repository's layout" \
+            -m "Applied from valerielinc-ops/frontaliere-si-o-no via .github/workflows/apply-generator-rewire-to-nanako.yml (issue #4974 item 3, plan section 5.3). See generator/README.md for what changed and why."
+
+          if [ "$DRY_RUN" = "true" ]; then
+            echo "dry_run=true — patch applies and commits cleanly; not pushing"
+            git show --stat HEAD | head -40
+            exit 0
+          fi
+
+          git push origin "HEAD:$TARGET_BRANCH"
+          echo "pushed REWIRE to nanako:$TARGET_BRANCH"

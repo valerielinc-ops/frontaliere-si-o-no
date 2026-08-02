@@ -78,13 +78,20 @@ jobs:
       - name: Recompute rolling 30-day averages
         run: node scripts/compute-border-wait-averages.mjs
 
+      # Publishes the 2x7-day aggregate the weekly ranking article is built from
+      # (issue #4974 item 3). Runs here rather than in the weekly workflow so the
+      # artifact is always fresh when the generator — which now lives in nanako —
+      # comes to fetch it, whatever hour its own cron fires at.
+      - name: Publish border-wait ranking window
+        run: node scripts/publish-border-wait-window.mjs
+
       - name: Commit + push (with rebase-retry)
         # Centralized rebase-retry helper (scripts/lib/git-push-with-retry.sh)
         # survives concurrent pushes from other data-refresh workflows.
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add data/border-wait-current.json public/data/border-wait-current.json data/border-wait-history data/border-wait-averages.json
+          git add data/border-wait-current.json public/data/border-wait-current.json data/border-wait-history data/border-wait-averages.json public/data/border-wait-averages.json public/data/border-wait-ranking-window.json
           if git diff --staged --quiet; then
             echo "No changes to commit"
             exit 0
@@ -92,7 +99,7 @@ jobs:
           git commit -m "chore(border-wait): live snapshot $(date -u +%Y-%m-%dT%H:%MZ)"
           bash scripts/lib/git-push-with-retry.sh \
             --branch "${GITHUB_REF_NAME:-main}" \
-            --regenerate-cmd "node scripts/collect-traffic.mjs && node scripts/compute-border-wait-averages.mjs && git add data/border-wait-current.json public/data/border-wait-current.json data/border-wait-history data/border-wait-averages.json"
+            --regenerate-cmd "node scripts/collect-traffic.mjs && node scripts/compute-border-wait-averages.mjs && node scripts/publish-border-wait-window.mjs && git add data/border-wait-current.json public/data/border-wait-current.json data/border-wait-history data/border-wait-averages.json public/data/border-wait-averages.json public/data/border-wait-ranking-window.json"
         # NOTE: Commit + push goes to main BUT deploy.yml has paths-ignore on
         # data/border-wait-* so this won't trigger a deploy storm — periodic
         # deploys will pick up the new JSON.
