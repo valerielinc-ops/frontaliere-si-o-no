@@ -2087,3 +2087,55 @@ index 86acaf5..28b44ac 100644
 +    "refresh:border-wait": "node generator/scripts/refresh-border-wait-averages.mjs"
    }
  }
+diff --git a/generator/data/borderCrossings.ts b/generator/data/borderCrossings.ts
+index 0000000..0000000 100644
+--- a/generator/data/borderCrossings.ts
++++ b/generator/data/borderCrossings.ts
+@@ -2512,10 +2512,45 @@
+ // Editorial defaults above stay as fallback for crossings with no history
+ // yet, and as a sane baseline before the first compute run lands in
+ // `data/`.
+-import computedAverages from './border-wait-averages.json' with { type: 'json' };
++// ── REWIRE (issue #4974 item 3, §5.3 of the migration doc) ────────
++//
++// In main this was `import computedAverages from './border-wait-averages.json'`
++// — a static import of a file `scripts/compute-border-wait-averages.mjs`
++// regenerates daily from a 30-day history that lives ONLY in main. That file
++// does not exist in this repository and never should: it is site telemetry, not
++// article content, and vendoring a daily-changing snapshot here would go stale
++// the moment it landed.
++//
++// So it is fetched instead, by `generator/scripts/refresh-border-wait-averages.mjs`,
++// which writes the cache this reads. A static `import` cannot be async, hence
++// the read-a-cache-file shape rather than a `fetch` at this line.
++//
++// Absence is explicitly NOT an error. The editorial defaults above are the
++// documented fallback ("for crossings with no history yet, and as a sane
++// baseline before the first compute run lands"), so a missing or unreadable
++// cache simply leaves them in place. Generation must not fail because a
++// cosmetic wait-time overlay could not be refreshed.
++import { readFileSync } from 'node:fs';
++import path from 'node:path';
++import { fileURLToPath } from 'node:url';
+ import { slugifyCrossingName } from '../services/borderCrossingSlug.ts';
+ 
+-const computed = computedAverages as Record<string, { morning?: string; evening?: string }>;
++const AVERAGES_CACHE = path.join(
++  path.dirname(fileURLToPath(import.meta.url)),
++  'border-wait-averages.json',
++);
++
++function loadComputedAverages(): Record<string, { morning?: string; evening?: string }> {
++  try {
++    const parsed: unknown = JSON.parse(readFileSync(AVERAGES_CACHE, 'utf-8'));
++    if (!parsed || typeof parsed !== 'object' || Array.isArray(parsed)) return {};
++    return parsed as Record<string, { morning?: string; evening?: string }>;
++  } catch {
++    return {};
++  }
++}
++
++const computed = loadComputedAverages();
+ for (const c of borderCrossings) {
+  const slug = slugifyCrossingName(c.name);
+  const entry = computed[slug];
