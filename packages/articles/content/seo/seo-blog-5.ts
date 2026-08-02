@@ -58181,6 +58181,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-rallentamenti-autostrada-a8-milano-varese': {
+    title: 'Rallentamenti sull\'autostrada A8 tra Milano e Varese',
+    description: 'Sono previsti rallentamenti sull\'autostrada A8 tra Milano e Varese a causa dei lavori di sostituzione delle barriere fonoassorbenti tra Castellanza e Legnano.',
+    keywords: 'frontalieri, ticino, svizzera, italia, rallentamenti, sull, autostrada, milano',
+    ogTitle: 'Rallentamenti sull\'autostrada A8 tra Milano e Varese',
+    ogDescription: 'Sono previsti rallentamenti sull\'autostrada A8 tra Milano e Varese a causa dei lavori di sostituzione delle barriere fonoassorbenti tra Castellanza e Legnano.',
+    canonicalPath: '/articoli-frontaliere/rallentamenti-autostrada-a8-milano-varese',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Rallentamenti sull'autostrada A8 tra Milano e Varese",
+      "description": "Sono previsti rallentamenti sull'autostrada A8 tra Milano e Varese a causa dei lavori di sostituzione delle barriere fonoassorbenti tra Castellanza e Legnano.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/rallentamenti-autostrada-a8-milano-varese.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Rallentamenti sull'autostrada A8 tra Milano e Varese"
+      },
+      "datePublished": "2026-08-02T01:37:13+00:00",
+      "dateModified": "2026-08-02T01:37:13+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/rallentamenti-autostrada-a8-milano-varese/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

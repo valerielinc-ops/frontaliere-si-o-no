@@ -9187,6 +9187,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.frontalieri-perdono-lavoro-svizzera-paga-2026.title': 'Frontier workers in crisis: Switzerland pays the price of revolution',
     'blog.article.frontalieri-perdono-lavoro-svizzera-paga-2026.excerpt': 'Switzerland is preparing for a possible financial earthquake due to the reform of the management of unemployment benefits for cross-border commuters.',
     'blog.article.frontalieri-perdono-lavoro-svizzera-paga-2026.imageAlt': 'A realistic scene with Lake Lugano in the foreground, with the Ticino mountains in the background. The sunset light illuminates the surface of the water.',
+    'blog.article.rallentamenti-autostrada-a8-milano-varese.title': 'Slowdowns on the A8 motorway between Milan and Varese',
+    'blog.article.rallentamenti-autostrada-a8-milano-varese.excerpt': 'Slowdowns are expected on the A8 motorway between Milan and Varese due to the replacement of the sound-absorbing barriers between Castellanza and Legnano.',
+    'blog.article.rallentamenti-autostrada-a8-milano-varese.imageAlt': 'Traffic congestion on the A8 highway between Milan and Varese',
 };
 
 export default blogMetaEn;
