@@ -447363,7 +447363,10 @@
   "id|admin.ch|9f18bb55-82df-4600-8682-baccd7ed672d": {
     "canonicalSlug": "lernende-r-mediamatiker-in-efz-confederazione-bern",
     "slugByLocale": {
-      "de": "lernende-r-mediamatiker-in-efz-confederazione-bern"
+      "de": "lernende-r-mediamatiker-in-efz-confederazione-bern",
+      "it": "apprendista-mediamatiker-in-cfc-confederazione-svizzera-bern-03f757",
+      "en": "apprentice-mediamatiker-in-efz-confederazione-svizzera-bern",
+      "fr": "apprenti-e-mediamatiker-in-efz-confederazione-svizzera-bern"
     },
     "createdAt": "2026-08-02",
     "canton": "BE"
@@ -447448,7 +447451,10 @@
   "id|admin.ch|a4ba640f-60ae-4a86-9c9a-c5246096245a": {
     "canonicalSlug": "praktikant-in-wms-3-1-confederazione-zollikofen",
     "slugByLocale": {
-      "de": "praktikant-in-wms-3-1-confederazione-zollikofen"
+      "de": "praktikant-in-wms-3-1-confederazione-zollikofen",
+      "it": "formazione-in-wms-3-1-confederazione-svizzera-zollikofen-24d9f0",
+      "en": "traineeship-in-wms-3-1-confederazione-svizzera-zollikofen-24d9f0",
+      "fr": "stage-en-wms-3-1-confederazione-svizzera-zollikofen-24d9f0"
     },
     "createdAt": "2026-08-02",
     "canton": "BE"
@@ -450906,5 +450912,49 @@
     },
     "createdAt": "2026-08-02",
     "canton": "ZH"
+  },
+  "id|solique.ch|4045911": {
+    "canonicalSlug": "med-praxisassistent-in-praxiskoordinator-in-ksw-ch",
+    "slugByLocale": {
+      "de": "med-praxisassistent-in-praxiskoordinator-in-ksw-ch"
+    },
+    "createdAt": "2026-08-02",
+    "canton": "ZH"
+  },
+  "id|solique.ch|4045914": {
+    "canonicalSlug": "medizinische-praxisassistentin-medizinischer-praxisassistent-ksw-ch",
+    "slugByLocale": {
+      "de": "medizinische-praxisassistentin-medizinischer-praxisassistent-ksw-ch"
+    },
+    "createdAt": "2026-08-02",
+    "canton": "ZH"
+  },
+  "id|admin.ch|f9a4e585-e0fc-47dd-af2c-d859dbc8d4ce": {
+    "canonicalSlug": "apprendista-kauffrau-kaufmann-cfc-confederazione-svizzera-bern",
+    "slugByLocale": {
+      "it": "apprendista-kauffrau-kaufmann-cfc-confederazione-svizzera-bern",
+      "en": "apprentice-kauffrau-kaufmann-efz-confederazione-svizzera-bern",
+      "de": "lernende-r-kauffrau-kaufmann-efz-confederazione-svizzera-bern-br-b-intro-satz-b-wir-bieten-dir-als-top-lehrbetrieb",
+      "fr": "apprenti-e-kauffrau-kaufmann-efz-confederazione-svizzera-bern"
+    },
+    "createdAt": "2026-08-02",
+    "canton": "BE"
+  },
+  "id|admin.ch|f4b1b32e-58b4-487e-b942-624037ddbd79": {
+    "canonicalSlug": "projektleiter-in-mobile-sicherheitskommunikation-msk-confederazione-svizzera-bern",
+    "slugByLocale": {
+      "de": "projektleiter-in-mobile-sicherheitskommunikation-msk-confederazione-bern",
+      "it": "projektleiter-in-mobile-sicherheitskommunikation-msk-confederazione-svizzera-bern"
+    },
+    "createdAt": "2026-08-02",
+    "canton": "BE"
+  },
+  "id|admin.ch|ea005ce1-effe-4ebc-8aaa-ae297d901436": {
+    "canonicalSlug": "lernende-r-elektroniker-in-efz-confederazione-lehrbeginn-august-2024-payerne",
+    "slugByLocale": {
+      "de": "lernende-r-elektroniker-in-efz-confederazione-lehrbeginn-august-2024-payerne"
+    },
+    "createdAt": "2026-08-02",
+    "canton": "JU"
   }
 }
