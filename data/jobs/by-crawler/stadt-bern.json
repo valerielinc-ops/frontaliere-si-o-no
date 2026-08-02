@@ -1,78 +1,7 @@
 {
   "crawlerKey": "stadt-bern",
-  "assembledAt": "2026-08-01T21:56:48.389Z",
+  "assembledAt": "2026-08-02T10:48:12.402Z",
   "jobs": [
-    {
-      "id": "stadt-bern-7c63b72c5c77",
-      "slug": "apprendistato-come-motorgeratemechaniker-in-cfc-stadt-bern",
-      "slugByLocale": {
-        "it": "apprendistato-come-motorgeratemechaniker-in-cfc-stadt-bern",
-        "en": "teaching-as-a-motorized-mechanic-efz-stadt-bern-bern",
-        "de": "lehre-als-motorgeratemechaniker-in-efz-stadt-bern-bern",
-        "fr": "enseignement-en-tant-que-mecanicien-motorise-efz-stadt-bern-bern"
-      },
-      "company": "Stadt Bern",
-      "companyKey": "stadt-bern",
-      "companyDomain": "bern.ch",
-      "title": "Lehre als Motorgerätemechaniker*in EFZ",
-      "titleByLocale": {
-        "it": "Apprendistato come Motorgerätemechaniker*in CFC",
-        "en": "Teaching as a motorized mechanic* EFZ",
-        "de": "Lehre als Motorgerätemechaniker*in EFZ",
-        "fr": "Enseignement en tant que mécanicien motorisé* EFZ"
-      },
-      "description": "Aufgaben:\n• Maschinen und Geräte warten und reparieren\n\n• Servicearbeiten ausführen mit einem kompetenten Team\n\n• Maschinen auf Funktionsfähigkeit prüfen\n\n• Ersatzteile anfertigen\n\nAnforderungen:\n• Abgeschlossener Volksschulabschluss\n\n• Handwerkliches Geschick und Interesse an Maschinen und Technik\n\n• Freude am Umgang mit Menschen",
-      "descriptionByLocale": {
-        "it": "Compiti:\n• Mantenere e riparare macchine e attrezzature\n• Eseguire il lavoro di servizio con un team competente\n• Macchine di prova per funzionalità\n• Fare pezzi di ricambio Requisiti\n• Completo della scuola elementare\n• Artigianato e interesse per macchinari e tecnologie\n• La gioia di affrontare le persone",
-        "en": "Tasks:\n• Maintain and repair machines and equipment\n• Carry out service work with a competent team\n• Testing machines for functionality\n• Make spare parts Requirements\n• Completed elementary school degree\n• Craftsmanship and interest in machinery and technology\n• The joy of dealing with people",
-        "de": "Aufgaben:\n• Maschinen und Geräte warten und reparieren\n\n• Servicearbeiten ausführen mit einem kompetenten Team\n\n• Maschinen auf Funktionsfähigkeit prüfen\n\n• Ersatzteile anfertigen\n\nAnforderungen:\n• Abgeschlossener Volksschulabschluss\n\n• Handwerkliches Geschick und Interesse an Maschinen und Technik\n\n• Freude am Umgang mit Menschen",
-        "fr": "Tâches :\n• Entretien et réparation des machines et du matériel\n• Effectuer un travail de service avec une équipe compétente\n• Machines d'essai pour la fonctionnalité\n• Fabrication de pièces de rechange Exigences\n• Diplôme d ' études primaires\n• Artisanat et intérêt pour les machines et la technologie\n• La joie de traiter avec les gens"
-      },
-      "location": "Bern",
-      "canton": "BE",
-      "url": "https://jobs.bern.ch/offene-stellen/lehre-als-motorgeraetemechaniker-in-efz/1761fdd9-b7fa-432a-8820-388e629a50fc",
-      "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-01T21:56:45.332Z",
-      "addressLocality": "Bern",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3006",
-      "streetAddress": "Junkerngasse 47",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Amministrazione Pubblica",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2025-12-17",
-      "applyUrl": "https://career74.sapsf.eu/career?company=stadtbern&career_ns=job_application&career_job_req_id=893",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "lehre-als-motorgeratemechaniker-in-efz-stadt-bern-bern"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "lehre-als-motorgeratemechaniker-in-efz-stadt-bern-bern"
-        ]
-      },
-      "firstSeenAt": "2026-07-04T12:31:55.741Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
-          "unitText": "YEAR"
-        }
-      }
-    },
     {
       "id": "stadt-bern-f76e2de30dc8",
       "slug": "responsabile-dell-architettura-digitale-aziendale-stadt-bern-bern",
@@ -105,7 +34,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/leiter-in-digitale-unternehmensarchitektur/c2787d9d-1586-429c-ac67-60a700ad3031",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-01T21:56:45.331Z",
+      "crawledAt": "2026-08-02T10:48:08.985Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -154,79 +83,72 @@
       }
     },
     {
-      "id": "stadt-bern-99c5971a5722",
-      "slug": "it-auditor-stadt-bern-bern",
+      "id": "stadt-bern-7c63b72c5c77",
+      "slug": "apprendistato-come-motorgeratemechaniker-in-cfc-stadt-bern",
       "slugByLocale": {
-        "it": "it-auditor-stadt-bern-bern",
-        "en": "it-auditor-stadt-bern-bern",
-        "de": "it-revisor-in-stadt-bern-bern",
-        "fr": "auditeur-informatique-stadt-bern-bern"
+        "it": "apprendistato-come-motorgeratemechaniker-in-cfc-stadt-bern",
+        "en": "teaching-as-a-motorized-mechanic-efz-stadt-bern-bern",
+        "de": "lehre-als-motorgeratemechaniker-in-efz-stadt-bern-bern",
+        "fr": "enseignement-en-tant-que-mecanicien-motorise-efz-stadt-bern-bern"
       },
       "company": "Stadt Bern",
       "companyKey": "stadt-bern",
       "companyDomain": "bern.ch",
-      "title": "IT-Revisor*in",
+      "title": "Lehre als Motorgerätemechaniker*in EFZ",
       "titleByLocale": {
-        "it": "IT auditor*",
-        "en": "IT auditor*",
-        "de": "IT-Revisor*in",
-        "fr": "Auditeur informatique*"
+        "it": "Apprendistato come Motorgerätemechaniker*in CFC",
+        "en": "Teaching as a motorized mechanic* EFZ",
+        "de": "Lehre als Motorgerätemechaniker*in EFZ",
+        "fr": "Enseignement en tant que mécanicien motorisé* EFZ"
       },
-      "description": "Durch die Tätigkeit in der Finanzkontrolle erhältst du Einblick in zahlreiche Bereiche der Stadtverwaltung Bern. Das macht unsere Arbeit spannend, abwechslungsreich und herausfordernd. Du arbeitest mit unterschiedlichen Anspruchsgruppen und Adressaten zusammen und gewinnst dabei laufend neue Einblicke in die Verwaltung und die Politik.<br/><br/>Die Tätigkeit in der Finanzkontrolle ist vielseitig und bietet einen breiten Einblick in die Aufgaben der städtischen Verwaltung. Mehr über unsere spannende Arbeit erfährst du <a href=\"https://finanzkontrolle.ch/\">hier</a>.\n\nAufgaben:\n• Du planst und leitest Prüfungen ausgewählter IT-Anwendungen und Geschäftsprozesse oder nimmst als Teammitglied daran teil\n\n• Du wirkst bei der Risikoanalyse der eingesetzten Anwendungen sowie bei der Beurteilung der Governance und des Kontrollumfelds mit\n\n• Du verfasst adressatengerechte Prüfberichte und vertrittst deine Feststellungen in Schlussbesprechungen\n\n• Du wirkst an der Weiterentwicklung unserer Prüfmethodik mit\n\n• Du übernimmst einen Aufgabenbereich, der entsprechend deinen Stärken und Interessen kontinuierlich erweitert wird\n\nAnforderungen:\n• Ausbildung in Informatik, Wirtschaftsinformatik, Betriebswirtschaft oder einer vergleichbaren Fachrichtung\n\n• Weiterbildung im Bereich der IT-Revision (CISA, CISM oder vergleichbar) oder Bereitschaft diese berufsbegleitend zu absolvieren\n\n• Idealerweise mehrjährige Berufserfahrung in IT, Wirtschaftsinformatik, Revision oder Businessanalyse\n\n• Selbstständige, strukturierte und präzise Arbeitsweise sowie ein hohes Qualitätsbewusstsein\n\n• Interesse und professionelle Skepsis\n\n• Freude am direkten Kundenkontakt sowie am Arbeiten im Team\n\nWir bieten:\nFür Sinn & Stadtleben\n Bei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern.",
+      "description": "Aufgaben:\n• Maschinen und Geräte warten und reparieren\n\n• Servicearbeiten ausführen mit einem kompetenten Team\n\n• Maschinen auf Funktionsfähigkeit prüfen\n\n• Ersatzteile anfertigen\n\nAnforderungen:\n• Abgeschlossener Volksschulabschluss\n\n• Handwerkliches Geschick und Interesse an Maschinen und Technik\n\n• Freude am Umgang mit Menschen",
       "descriptionByLocale": {
-        "it": "Attraverso il vostro lavoro nel controllo finanziario, si acquisirà conoscenza di numerose aree dell'amministrazione della città di Berna. Questo rende il nostro lavoro emozionante, vario e stimolante. Lavori con diversi stakeholder e destinatari e acquisisci nuove conoscenze nell'amministrazione e nella politica. > L'attività nel controllo finanziario è versatile e offre una vasta panoramica dei compiti dell'amministrazione comunale. Per saperne di più sul nostro entusiasmante lavoro <a href=\"https://finanzkontroll.ch/\">here </a>.\n\nCompiti:\n• Pianifica e guida gli audit delle applicazioni IT selezionate e dei processi aziendali o partecipa come membro del team\n\n• Contribuisci all'analisi dei rischi delle applicazioni utilizzate nonché alla valutazione dell'ambiente di governance e controllo\n\n• Scrivi report di test indirizzabili e rappresenta i tuoi risultati nelle riunioni finali\n\n• Contribuisci all'ulteriore sviluppo della nostra metodologia di test\n\n• Si prende su un'area di attività che viene continuamente ampliata in base ai vostri punti di forza e interessi\n\nRequisiti\n• Formazione in informatica, informatica aziendale, amministrazione aziendale o specializzazione equivalente\n\n• Formazione continua nel campo dell'audit IT (CISA, CISM o simili) o disponibilità a completare questa part-time\n\n• Idealmente, diversi anni di esperienza professionale in IT, informatica aziendale, audit o analisi aziendale\n\n• Metodi di lavoro indipendenti, strutturati e precisi, nonché un elevato livello di consapevolezza della qualità\n\n• Interessi e scetticismo professionale\n\n• Godere di un contatto diretto con i clienti e lavorare in un team\n\nOffriamo:\nPer il senso e la vita della città\nCon noi cambi qualcosa. Aiutate a plasmare la vita della città, assumete la responsabilità e rendete Berna più vivibile.\n\nNella città di Berna, più di 4.500 persone lavorano insieme in cinque directory e oltre 80 profili di lavoro. Ci impegniamo con passione e convinzione per le persone che vivono qui, che lavorano qui. Insieme formiamo la comunità e il futuro di questa città – visibile, tangibile, sostenibile. per la nostra città. Per Bern.",
-        "en": "Through your work in financial control, you will gain insight into numerous areas of the city administration of Bern. This makes our work exciting, varied and challenging. You work with different stakeholders and addressees and gain new insights into administration and politics. >The activity in financial control is versatile and offers a broad insight into the tasks of the city administration. You can find out more about our exciting work <a href=\"https://finanzkontroll.ch/\">here</a>.\n\nTasks:\n• You plan and lead audits of selected IT applications and business processes or participate as a team member\n\n• You contribute to the risk analysis of the applications used as well as to the assessment of the governance and control environment\n\n• You write addressable test reports and represent your findings in final meetings\n\n• You contribute to the further development of our test methodology\n\n• You take on a task area that is continuously expanded according to your strengths and interests\n\nRequirements\n• Training in computer science, business informatics, business administration or equivalent specialisation\n\n• Continuing education in the field of IT audit (CISA, CISM or similar) or willingness to complete this part-time\n\n• Ideally, several years of professional experience in IT, business informatics, auditing or business analysis\n\n• Independent, structured and precise working methods as well as a high level of quality awareness\n\n• Interest and professional skepticism\n\n• Enjoying direct customer contact and working in a team\n\nWe offer:\nFor sense and city life\nWith us you change something. You help shape city life, carry responsibility and make Bern more liveable.\n\nIn the city of Bern, more than 4,500 people work together across five directorates and more than 80 job profiles. We are committed with passion and conviction to the people who live here, who work here. Together we shape the community and the future of this city – visible, tangible, sustainable. for our city. For Bern.",
-        "de": "Durch die Tätigkeit in der Finanzkontrolle erhältst du Einblick in zahlreiche Bereiche der Stadtverwaltung Bern. Das macht unsere Arbeit spannend, abwechslungsreich und herausfordernd. Du arbeitest mit unterschiedlichen Anspruchsgruppen und Adressaten zusammen und gewinnst dabei laufend neue Einblicke in die Verwaltung und die Politik.<br/><br/>Die Tätigkeit in der Finanzkontrolle ist vielseitig und bietet einen breiten Einblick in die Aufgaben der städtischen Verwaltung. Mehr über unsere spannende Arbeit erfährst du <a href=\"https://finanzkontrolle.ch/\">hier</a>.\n\nAufgaben:\n• Du planst und leitest Prüfungen ausgewählter IT-Anwendungen und Geschäftsprozesse oder nimmst als Teammitglied daran teil\n\n• Du wirkst bei der Risikoanalyse der eingesetzten Anwendungen sowie bei der Beurteilung der Governance und des Kontrollumfelds mit\n\n• Du verfasst adressatengerechte Prüfberichte und vertrittst deine Feststellungen in Schlussbesprechungen\n\n• Du wirkst an der Weiterentwicklung unserer Prüfmethodik mit\n\n• Du übernimmst einen Aufgabenbereich, der entsprechend deinen Stärken und Interessen kontinuierlich erweitert wird\n\nAnforderungen:\n• Ausbildung in Informatik, Wirtschaftsinformatik, Betriebswirtschaft oder einer vergleichbaren Fachrichtung\n\n• Weiterbildung im Bereich der IT-Revision (CISA, CISM oder vergleichbar) oder Bereitschaft diese berufsbegleitend zu absolvieren\n\n• Idealerweise mehrjährige Berufserfahrung in IT, Wirtschaftsinformatik, Revision oder Businessanalyse\n\n• Selbstständige, strukturierte und präzise Arbeitsweise sowie ein hohes Qualitätsbewusstsein\n\n• Interesse und professionelle Skepsis\n\n• Freude am direkten Kundenkontakt sowie am Arbeiten im Team\n\nWir bieten:\nFür Sinn & Stadtleben\nBei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern.",
-        "fr": "Grâce à votre travail de contrôle financier, vous aurez un aperçu de nombreux domaines de l'administration de la ville de Berne. Cela rend notre travail passionnant, varié et difficile. Vous travaillez avec différents intervenants et destinataires et vous obtenez de nouvelles connaissances sur l'administration et la politique. > L'activité de contrôle financier est polyvalente et offre un large aperçu des tâches de l'administration municipale. Vous pouvez en savoir plus sur notre travail passionnant <a href=\"https://finanzkontroll.ch/\">ici</a>.\n\nTâches :\n• Vous planifiez et dirigez des vérifications de certaines applications de TI et de processus opérationnels ou participez comme membre de l'équipe\n\n• Vous contribuez à l'analyse des risques des applications utilisées ainsi qu'à l'évaluation de l'environnement de gouvernance et de contrôle\n\n• Vous rédigez des rapports d'essai adressables et représentez vos constatations lors des réunions finales\n\n• Vous contribuez au développement de notre méthodologie de test\n\n• Vous prenez un domaine de travail qui est continuellement élargi selon vos forces et vos intérêts\n\nExigences\n• Formation en informatique, informatique des entreprises, administration des entreprises ou spécialisation équivalente\n\n• Formation continue dans le domaine de la vérification des technologies de l'information (CISA, CISM ou similaire) ou volonté de compléter cette formation à temps partiel\n\n• Idéalement, plusieurs années d'expérience professionnelle dans les domaines de l'informatique, de l'informatique, de l'audit ou de l'analyse commerciale\n\n• Méthodes de travail indépendantes, structurées et précises ainsi qu'un niveau élevé de sensibilisation à la qualité\n\n• Intérêt et scepticisme professionnel\n\n• Profitez du contact direct avec le client et de travailler en équipe\n\nNous offrons:\nPour le sens et la vie urbaine\nAvec nous, tu changes quelque chose. Vous aidez à façonner la vie de la ville, à porter des responsabilités et à rendre Berne plus vivante.\n\nDans la ville de Berne, plus de 4 500 personnes travaillent ensemble dans cinq directions et plus de 80 profils d'emploi. Nous sommes engagés avec passion et conviction envers les gens qui vivent ici, qui travaillent ici. Ensemble, nous façonnons la communauté et l'avenir de cette ville – visible, tangible, durable. pour notre ville. Pour Bern."
+        "it": "Compiti:\n• Mantenere e riparare macchine e attrezzature\n• Eseguire il lavoro di servizio con un team competente\n• Macchine di prova per funzionalità\n• Fare pezzi di ricambio Requisiti\n• Completo della scuola elementare\n• Artigianato e interesse per macchinari e tecnologie\n• La gioia di affrontare le persone",
+        "en": "Tasks:\n• Maintain and repair machines and equipment\n• Carry out service work with a competent team\n• Testing machines for functionality\n• Make spare parts Requirements\n• Completed elementary school degree\n• Craftsmanship and interest in machinery and technology\n• The joy of dealing with people",
+        "de": "Aufgaben:\n• Maschinen und Geräte warten und reparieren\n\n• Servicearbeiten ausführen mit einem kompetenten Team\n\n• Maschinen auf Funktionsfähigkeit prüfen\n\n• Ersatzteile anfertigen\n\nAnforderungen:\n• Abgeschlossener Volksschulabschluss\n\n• Handwerkliches Geschick und Interesse an Maschinen und Technik\n\n• Freude am Umgang mit Menschen",
+        "fr": "Tâches :\n• Entretien et réparation des machines et du matériel\n• Effectuer un travail de service avec une équipe compétente\n• Machines d'essai pour la fonctionnalité\n• Fabrication de pièces de rechange Exigences\n• Diplôme d ' études primaires\n• Artisanat et intérêt pour les machines et la technologie\n• La joie de traiter avec les gens"
       },
-      "needsRetranslation": false,
       "location": "Bern",
       "canton": "BE",
-      "url": "https://jobs.bern.ch/offene-stellen/it-revisor-in/a9570065-d38f-40b2-a8c7-25b33cd859b3",
+      "url": "https://jobs.bern.ch/offene-stellen/lehre-als-motorgeraetemechaniker-in-efz/1761fdd9-b7fa-432a-8820-388e629a50fc",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-01T21:56:45.329Z",
+      "crawledAt": "2026-08-02T10:48:08.985Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
       "country": "CH",
-      "postalCode": "3011",
-      "streetAddress": "Bundesgasse 38",
-      "category": "IT",
+      "postalCode": "3006",
+      "streetAddress": "Junkerngasse 47",
+      "category": "Sanità / Ospedali",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
       "experienceLevel": "mid",
       "sector": "Amministrazione Pubblica",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-12",
-      "applyUrl": "https://jobs.bern.ch/offene-stellen/it-revisor-in/a9570065-d38f-40b2-a8c7-25b33cd859b3",
+      "postedDate": "2025-12-17",
+      "applyUrl": "https://career74.sapsf.eu/career?company=stadtbern&career_ns=job_application&career_job_req_id=893",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "it-revisor-in-stadt-bern-bern"
+        "lehre-als-motorgeratemechaniker-in-efz-stadt-bern-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "it-revisor-in-stadt-bern-bern"
-        ],
-        "en": [
-          "it-revisor-in-stadt-bern-bern"
-        ],
-        "fr": [
-          "it-revisor-in-stadt-bern-bern"
+          "lehre-als-motorgeratemechaniker-in-efz-stadt-bern-bern"
         ]
       },
-      "firstSeenAt": "2026-07-13T12:12:29.816Z",
-      "salaryMin": 73000,
-      "salaryMax": 124500,
+      "firstSeenAt": "2026-07-04T12:31:55.741Z",
+      "salaryMin": 57500,
+      "salaryMax": 87000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 73000,
-          "maxValue": 124500,
+          "minValue": 57500,
+          "maxValue": 87000,
           "unitText": "YEAR"
         }
       }
@@ -263,7 +185,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/projektleiter-in/75eb1e1b-7df9-461c-af76-125491d6a04a",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-01T21:56:45.329Z",
+      "crawledAt": "2026-08-02T10:48:08.984Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -306,87 +228,6 @@
       }
     },
     {
-      "id": "stadt-bern-91e56a86ea70",
-      "slug": "cucinare-cucinare-stadt-bern-bern-563762",
-      "slugByLocale": {
-        "it": "cucinare-cucinare-stadt-bern-bern-563762",
-        "en": "cook-cook-stadt-bern-bern",
-        "de": "koch-kochin-stadt-bern-bern",
-        "fr": "cuire-faire-cuire-stadt-bern-bern-563762"
-      },
-      "company": "Stadt Bern",
-      "companyKey": "stadt-bern",
-      "companyDomain": "bern.ch",
-      "title": "Koch / Köchin",
-      "titleByLocale": {
-        "it": "Cucinare / cucinare",
-        "en": "Cook / cook",
-        "de": "Koch / Köchin",
-        "fr": "Cuire / faire cuire"
-      },
-      "description": "Die \"Zieglerküche\" vereint eine moderne, prozessorientierte Grossproduktion von rund 4'200 Mahlzeiten pro Woche mit dem Auftrag, stellensuchende Personen sozial und beruflich zu integrieren. Wir sind ein motiviertes Team und schreiben das Mit- und Füreinander gross.\n\nAufgaben:\n• Mitarbeit in einer grossen Produktionsküche mit rund 4200 Mahlzeiten pro Woche im Cook & Chill-Verfahren\n\n• Zubereitung ausgewogener Menüs für Bernmobil und 16 familienergänzende Einrichtungen in der Stadt Bern (Kitas, Tagesschulen)\n\n• Einhaltung der vorgegebenen Qualitäts- und Hygienestandards, Reinigungs- und Werterhaltungsarbeiten nach HACCP-Vorgabe\n\n• Aktive Mitwirkung bei der Weiterentwicklung von Rezepturen und Abläufen\n\n• Zusammenarbeit mit einem engagierten Team und mit Personen aus der Arbeitsintegration\n\nAnforderungen:\n• Abgeschlossene Ausbildung als Koch/Köchin, gute Deutschkenntnisse in Wort und Schrift\n\n• Idealerweise Erfahrung in der Gemeinschaftsgastronomie oder in einer Produktionsküche\n\n• Freude an der Ausbildung von Menschen und an der Vermittlung von Fachwissen\n\n• Organisationstalent, belastbar und flexibel – auch in hektischen Momenten, hohes Qualitäts- und Hygienebewusstsein\n\n• Teamfähig und offen für die Zusammenarbeit mit Menschen aus verschiedensten Hintergründen\n\nWir bieten:\nFür Sinn & Stadtleben\n Bei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern.",
-      "descriptionByLocale": {
-        "it": "La Zieglerküche combina una produzione moderna e orientata al processo su larga scala di circa 4.200 pasti a settimana con il compito di integrare socialmente e professionalmente i cercatori di lavoro. Siamo un team motivato e mettiamo l'accento l'uno sull'altro.\n\nCompiti:\n• Lavorare in una grande cucina di produzione con circa 4200 pasti a settimana nel processo Cook & Chill\n\n• Preparazione di menu equilibrati per Bernmobil e 16 strutture familiari nella città di Berna (Kitas, scuole diurne)\n\n• Rispetto degli standard di qualità e igiene specificati, pulizia e conservazione del valore secondo le specifiche HACCP\n\n• Partecipazione attiva all'ulteriore sviluppo di ricette e processi\n\n• Collaborazione con un team impegnato e con persone dall'integrazione del lavoro\n\nRequisiti\n• Allenamento completato come cuoco, buona conoscenza del tedesco in parole e scrittura\n\n• Esperienza ideale nella gastronomia comunitaria o in una cucina di produzione\n\n• Godere dell'educazione delle persone e fornire competenze\n\n• Talenti organizzativi, resilienti e flessibili – anche nei momenti frenetici, elevata qualità e consapevolezza dell'igiene\n\n• Pronta e aperta per la collaborazione con persone di diversa provenienza\n\nOffriamo:\nPer il senso e la vita della città\nCon noi cambi qualcosa. Aiutate a plasmare la vita della città, assumete la responsabilità e rendete Berna più vivibile.\n\nNella città di Berna, più di 4.500 persone lavorano insieme in cinque directory e oltre 80 profili di lavoro. Ci impegniamo con passione e convinzione per le persone che vivono qui, che lavorano qui. Insieme formiamo la comunità e il futuro di questa città – visibile, tangibile, sostenibile. per la nostra città. Per Bern.",
-        "en": "The Zieglerküche combines a modern, process-oriented large-scale production of around 4,200 meals per week with the task of socially and professionally integrating job seekers. We are a motivated team and we put the emphasis on each other.\n\nTasks:\n• Working in a large production kitchen with around 4200 meals per week in the Cook & Chill process\n\n• Preparation of balanced menus for Bernmobil and 16 family facilities in the city of Bern (Kitas, day schools)\n\n• Compliance with specified quality and hygiene standards, cleaning and value preservation work according to HACCP specification\n\n• Active participation in the further development of recipes and processes\n\n• Collaboration with a committed team and with people from work integration\n\nRequirements\n• Completed training as a cook, good knowledge of German in words and writing\n\n• Ideally experience in community gastronomy or in a production kitchen\n\n• Enjoying the education of people and providing expertise\n\n• Organizational talent, resilient and flexible – even in hectic moments, high quality and hygiene awareness\n\n• Team-ready and open for cooperation with people from different backgrounds\n\nWe offer:\nFor sense and city life\nWith us you change something. You help shape city life, carry responsibility and make Bern more liveable.\n\nIn the city of Bern, more than 4,500 people work together across five directorates and more than 80 job profiles. We are committed with passion and conviction to the people who live here, who work here. Together we shape the community and the future of this city – visible, tangible, sustainable. for our city. For Bern.",
-        "de": "Die \"Zieglerküche\" vereint eine moderne, prozessorientierte Grossproduktion von rund 4'200 Mahlzeiten pro Woche mit dem Auftrag, stellensuchende Personen sozial und beruflich zu integrieren. Wir sind ein motiviertes Team und schreiben das Mit- und Füreinander gross.\n\nAufgaben:\n• Mitarbeit in einer grossen Produktionsküche mit rund 4200 Mahlzeiten pro Woche im Cook & Chill-Verfahren\n\n• Zubereitung ausgewogener Menüs für Bernmobil und 16 familienergänzende Einrichtungen in der Stadt Bern (Kitas, Tagesschulen)\n\n• Einhaltung der vorgegebenen Qualitäts- und Hygienestandards, Reinigungs- und Werterhaltungsarbeiten nach HACCP-Vorgabe\n\n• Aktive Mitwirkung bei der Weiterentwicklung von Rezepturen und Abläufen\n\n• Zusammenarbeit mit einem engagierten Team und mit Personen aus der Arbeitsintegration\n\nAnforderungen:\n• Abgeschlossene Ausbildung als Koch/Köchin, gute Deutschkenntnisse in Wort und Schrift\n\n• Idealerweise Erfahrung in der Gemeinschaftsgastronomie oder in einer Produktionsküche\n\n• Freude an der Ausbildung von Menschen und an der Vermittlung von Fachwissen\n\n• Organisationstalent, belastbar und flexibel – auch in hektischen Momenten, hohes Qualitäts- und Hygienebewusstsein\n\n• Teamfähig und offen für die Zusammenarbeit mit Menschen aus verschiedensten Hintergründen\n\nWir bieten:\nFür Sinn & Stadtleben\nBei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern.",
-        "fr": "La Zieglerküche combine une production moderne à grande échelle orientée processus d'environ 4 200 repas par semaine avec la tâche d'intégrer socialement et professionnellement les demandeurs d'emploi. Nous sommes une équipe motivée et nous mettons l'accent les uns sur les autres.\n\nTâches :\n• Travailler dans une grande cuisine de production avec environ 4200 repas par semaine dans le procédé Cook & Chill\n\n• Préparation de menus équilibrés pour Bernmobil et 16 installations familiales dans la ville de Berne (Kitas, écoles de jour)\n\n• Conformité aux normes de qualité et d'hygiène spécifiées, nettoyage et préservation de la valeur selon les spécifications HACCP\n\n• Participation active au développement des recettes et des processus\n\n• Collaboration avec une équipe engagée et avec des personnes d'intégration professionnelle\n\nExigences\n• Achevé la formation comme cuisinier, bonne connaissance de l'allemand dans les mots et l'écriture\n\n• Idéalement expérience dans la gastronomie communautaire ou dans une cuisine de production\n\n• Appréciation de l'éducation des personnes et fourniture d'expertise\n\n• Le talent organisationnel, résilient et flexible – même dans les moments agités, la haute qualité et la sensibilisation à l'hygiène\n\n• Prête à coopérer avec des personnes de différents horizons\n\nNous offrons:\nPour le sens et la vie urbaine\nAvec nous, tu changes quelque chose. Vous aidez à façonner la vie de la ville, à porter des responsabilités et à rendre Berne plus vivante.\n\nDans la ville de Berne, plus de 4 500 personnes travaillent ensemble dans cinq directions et plus de 80 profils d'emploi. Nous sommes engagés avec passion et conviction envers les gens qui vivent ici, qui travaillent ici. Ensemble, nous façonnons la communauté et l'avenir de cette ville – visible, tangible, durable. pour notre ville. Pour Bern."
-      },
-      "location": "Bern",
-      "canton": "BE",
-      "url": "https://jobs.bern.ch/offene-stellen/koch-koechin/bb260aca-9b8c-451e-ad8b-404bbcdaeaee",
-      "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-01T21:56:45.328Z",
-      "addressLocality": "Bern",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3007",
-      "streetAddress": "Morillonstrasse 77",
-      "category": "Ospitalità",
-      "contract": "full-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Amministrazione Pubblica",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-22",
-      "applyUrl": "https://jobs.bern.ch/offene-stellen/koch-koechin/bb260aca-9b8c-451e-ad8b-404bbcdaeaee",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "koch-kochin-stadt-bern-bern",
-        "cook-cook-stadt-bern-bern-563762",
-        "koch-kochin-stadt-bern"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "koch-kochin-stadt-bern-bern"
-        ],
-        "en": [
-          "koch-kochin-stadt-bern-bern",
-          "cook-cook-stadt-bern-bern-563762",
-          "koch-kochin-stadt-bern"
-        ],
-        "fr": [
-          "koch-kochin-stadt-bern-bern"
-        ]
-      },
-      "firstSeenAt": "2026-07-22T22:16:37.187Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "stadt-bern-69a5306835d0",
       "slug": "membro-della-direzione-medica-area-di-responsabilita-centro-di-chiamata-di-emergenza-stadt-bern-bern-fb5992",
       "slugByLocale": {
@@ -418,7 +259,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/mitglied-der-aerztlichen-leitung-verantwortungsbereich-notrufzentrale/b8042102-dcd5-4f53-811a-248778cfd4f5",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-01T21:56:45.328Z",
+      "crawledAt": "2026-08-02T10:48:08.983Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -473,6 +314,242 @@
       }
     },
     {
+      "id": "stadt-bern-99c5971a5722",
+      "slug": "it-auditor-stadt-bern-bern",
+      "slugByLocale": {
+        "it": "it-auditor-stadt-bern-bern",
+        "en": "it-auditor-stadt-bern-bern",
+        "de": "it-revisor-in-stadt-bern-bern",
+        "fr": "auditeur-informatique-stadt-bern-bern"
+      },
+      "company": "Stadt Bern",
+      "companyKey": "stadt-bern",
+      "companyDomain": "bern.ch",
+      "title": "IT-Revisor*in",
+      "titleByLocale": {
+        "it": "IT auditor*",
+        "en": "IT auditor*",
+        "de": "IT-Revisor*in",
+        "fr": "Auditeur informatique*"
+      },
+      "description": "Durch die Tätigkeit in der Finanzkontrolle erhältst du Einblick in zahlreiche Bereiche der Stadtverwaltung Bern. Das macht unsere Arbeit spannend, abwechslungsreich und herausfordernd. Du arbeitest mit unterschiedlichen Anspruchsgruppen und Adressaten zusammen und gewinnst dabei laufend neue Einblicke in die Verwaltung und die Politik.<br/><br/>Die Tätigkeit in der Finanzkontrolle ist vielseitig und bietet einen breiten Einblick in die Aufgaben der städtischen Verwaltung. Mehr über unsere spannende Arbeit erfährst du <a href=\"https://finanzkontrolle.ch/\">hier</a>.\n\nAufgaben:\n• Du planst und leitest Prüfungen ausgewählter IT-Anwendungen und Geschäftsprozesse oder nimmst als Teammitglied daran teil\n\n• Du wirkst bei der Risikoanalyse der eingesetzten Anwendungen sowie bei der Beurteilung der Governance und des Kontrollumfelds mit\n\n• Du verfasst adressatengerechte Prüfberichte und vertrittst deine Feststellungen in Schlussbesprechungen\n\n• Du wirkst an der Weiterentwicklung unserer Prüfmethodik mit\n\n• Du übernimmst einen Aufgabenbereich, der entsprechend deinen Stärken und Interessen kontinuierlich erweitert wird\n\nAnforderungen:\n• Ausbildung in Informatik, Wirtschaftsinformatik, Betriebswirtschaft oder einer vergleichbaren Fachrichtung\n\n• Weiterbildung im Bereich der IT-Revision (CISA, CISM oder vergleichbar) oder Bereitschaft diese berufsbegleitend zu absolvieren\n\n• Idealerweise mehrjährige Berufserfahrung in IT, Wirtschaftsinformatik, Revision oder Businessanalyse\n\n• Selbstständige, strukturierte und präzise Arbeitsweise sowie ein hohes Qualitätsbewusstsein\n\n• Interesse und professionelle Skepsis\n\n• Freude am direkten Kundenkontakt sowie am Arbeiten im Team\n\nWir bieten:\nFür Sinn & Stadtleben\n Bei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern.",
+      "descriptionByLocale": {
+        "it": "Attraverso il vostro lavoro nel controllo finanziario, si acquisirà conoscenza di numerose aree dell'amministrazione della città di Berna. Questo rende il nostro lavoro emozionante, vario e stimolante. Lavori con diversi stakeholder e destinatari e acquisisci nuove conoscenze nell'amministrazione e nella politica. > L'attività nel controllo finanziario è versatile e offre una vasta panoramica dei compiti dell'amministrazione comunale. Per saperne di più sul nostro entusiasmante lavoro <a href=\"https://finanzkontroll.ch/\">here </a>.\n\nCompiti:\n• Pianifica e guida gli audit delle applicazioni IT selezionate e dei processi aziendali o partecipa come membro del team\n\n• Contribuisci all'analisi dei rischi delle applicazioni utilizzate nonché alla valutazione dell'ambiente di governance e controllo\n\n• Scrivi report di test indirizzabili e rappresenta i tuoi risultati nelle riunioni finali\n\n• Contribuisci all'ulteriore sviluppo della nostra metodologia di test\n\n• Si prende su un'area di attività che viene continuamente ampliata in base ai vostri punti di forza e interessi\n\nRequisiti\n• Formazione in informatica, informatica aziendale, amministrazione aziendale o specializzazione equivalente\n\n• Formazione continua nel campo dell'audit IT (CISA, CISM o simili) o disponibilità a completare questa part-time\n\n• Idealmente, diversi anni di esperienza professionale in IT, informatica aziendale, audit o analisi aziendale\n\n• Metodi di lavoro indipendenti, strutturati e precisi, nonché un elevato livello di consapevolezza della qualità\n\n• Interessi e scetticismo professionale\n\n• Godere di un contatto diretto con i clienti e lavorare in un team\n\nOffriamo:\nPer il senso e la vita della città\nCon noi cambi qualcosa. Aiutate a plasmare la vita della città, assumete la responsabilità e rendete Berna più vivibile.\n\nNella città di Berna, più di 4.500 persone lavorano insieme in cinque directory e oltre 80 profili di lavoro. Ci impegniamo con passione e convinzione per le persone che vivono qui, che lavorano qui. Insieme formiamo la comunità e il futuro di questa città – visibile, tangibile, sostenibile. per la nostra città. Per Bern.",
+        "en": "Through your work in financial control, you will gain insight into numerous areas of the city administration of Bern. This makes our work exciting, varied and challenging. You work with different stakeholders and addressees and gain new insights into administration and politics. >The activity in financial control is versatile and offers a broad insight into the tasks of the city administration. You can find out more about our exciting work <a href=\"https://finanzkontroll.ch/\">here</a>.\n\nTasks:\n• You plan and lead audits of selected IT applications and business processes or participate as a team member\n\n• You contribute to the risk analysis of the applications used as well as to the assessment of the governance and control environment\n\n• You write addressable test reports and represent your findings in final meetings\n\n• You contribute to the further development of our test methodology\n\n• You take on a task area that is continuously expanded according to your strengths and interests\n\nRequirements\n• Training in computer science, business informatics, business administration or equivalent specialisation\n\n• Continuing education in the field of IT audit (CISA, CISM or similar) or willingness to complete this part-time\n\n• Ideally, several years of professional experience in IT, business informatics, auditing or business analysis\n\n• Independent, structured and precise working methods as well as a high level of quality awareness\n\n• Interest and professional skepticism\n\n• Enjoying direct customer contact and working in a team\n\nWe offer:\nFor sense and city life\nWith us you change something. You help shape city life, carry responsibility and make Bern more liveable.\n\nIn the city of Bern, more than 4,500 people work together across five directorates and more than 80 job profiles. We are committed with passion and conviction to the people who live here, who work here. Together we shape the community and the future of this city – visible, tangible, sustainable. for our city. For Bern.",
+        "de": "Durch die Tätigkeit in der Finanzkontrolle erhältst du Einblick in zahlreiche Bereiche der Stadtverwaltung Bern. Das macht unsere Arbeit spannend, abwechslungsreich und herausfordernd. Du arbeitest mit unterschiedlichen Anspruchsgruppen und Adressaten zusammen und gewinnst dabei laufend neue Einblicke in die Verwaltung und die Politik.<br/><br/>Die Tätigkeit in der Finanzkontrolle ist vielseitig und bietet einen breiten Einblick in die Aufgaben der städtischen Verwaltung. Mehr über unsere spannende Arbeit erfährst du <a href=\"https://finanzkontrolle.ch/\">hier</a>.\n\nAufgaben:\n• Du planst und leitest Prüfungen ausgewählter IT-Anwendungen und Geschäftsprozesse oder nimmst als Teammitglied daran teil\n\n• Du wirkst bei der Risikoanalyse der eingesetzten Anwendungen sowie bei der Beurteilung der Governance und des Kontrollumfelds mit\n\n• Du verfasst adressatengerechte Prüfberichte und vertrittst deine Feststellungen in Schlussbesprechungen\n\n• Du wirkst an der Weiterentwicklung unserer Prüfmethodik mit\n\n• Du übernimmst einen Aufgabenbereich, der entsprechend deinen Stärken und Interessen kontinuierlich erweitert wird\n\nAnforderungen:\n• Ausbildung in Informatik, Wirtschaftsinformatik, Betriebswirtschaft oder einer vergleichbaren Fachrichtung\n\n• Weiterbildung im Bereich der IT-Revision (CISA, CISM oder vergleichbar) oder Bereitschaft diese berufsbegleitend zu absolvieren\n\n• Idealerweise mehrjährige Berufserfahrung in IT, Wirtschaftsinformatik, Revision oder Businessanalyse\n\n• Selbstständige, strukturierte und präzise Arbeitsweise sowie ein hohes Qualitätsbewusstsein\n\n• Interesse und professionelle Skepsis\n\n• Freude am direkten Kundenkontakt sowie am Arbeiten im Team\n\nWir bieten:\nFür Sinn & Stadtleben\nBei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern.",
+        "fr": "Grâce à votre travail de contrôle financier, vous aurez un aperçu de nombreux domaines de l'administration de la ville de Berne. Cela rend notre travail passionnant, varié et difficile. Vous travaillez avec différents intervenants et destinataires et vous obtenez de nouvelles connaissances sur l'administration et la politique. > L'activité de contrôle financier est polyvalente et offre un large aperçu des tâches de l'administration municipale. Vous pouvez en savoir plus sur notre travail passionnant <a href=\"https://finanzkontroll.ch/\">ici</a>.\n\nTâches :\n• Vous planifiez et dirigez des vérifications de certaines applications de TI et de processus opérationnels ou participez comme membre de l'équipe\n\n• Vous contribuez à l'analyse des risques des applications utilisées ainsi qu'à l'évaluation de l'environnement de gouvernance et de contrôle\n\n• Vous rédigez des rapports d'essai adressables et représentez vos constatations lors des réunions finales\n\n• Vous contribuez au développement de notre méthodologie de test\n\n• Vous prenez un domaine de travail qui est continuellement élargi selon vos forces et vos intérêts\n\nExigences\n• Formation en informatique, informatique des entreprises, administration des entreprises ou spécialisation équivalente\n\n• Formation continue dans le domaine de la vérification des technologies de l'information (CISA, CISM ou similaire) ou volonté de compléter cette formation à temps partiel\n\n• Idéalement, plusieurs années d'expérience professionnelle dans les domaines de l'informatique, de l'informatique, de l'audit ou de l'analyse commerciale\n\n• Méthodes de travail indépendantes, structurées et précises ainsi qu'un niveau élevé de sensibilisation à la qualité\n\n• Intérêt et scepticisme professionnel\n\n• Profitez du contact direct avec le client et de travailler en équipe\n\nNous offrons:\nPour le sens et la vie urbaine\nAvec nous, tu changes quelque chose. Vous aidez à façonner la vie de la ville, à porter des responsabilités et à rendre Berne plus vivante.\n\nDans la ville de Berne, plus de 4 500 personnes travaillent ensemble dans cinq directions et plus de 80 profils d'emploi. Nous sommes engagés avec passion et conviction envers les gens qui vivent ici, qui travaillent ici. Ensemble, nous façonnons la communauté et l'avenir de cette ville – visible, tangible, durable. pour notre ville. Pour Bern."
+      },
+      "needsRetranslation": false,
+      "location": "Bern",
+      "canton": "BE",
+      "url": "https://jobs.bern.ch/offene-stellen/it-revisor-in/a9570065-d38f-40b2-a8c7-25b33cd859b3",
+      "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-02T10:48:08.983Z",
+      "addressLocality": "Bern",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "3011",
+      "streetAddress": "Bundesgasse 38",
+      "category": "IT",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Amministrazione Pubblica",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-12",
+      "applyUrl": "https://jobs.bern.ch/offene-stellen/it-revisor-in/a9570065-d38f-40b2-a8c7-25b33cd859b3",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "it-revisor-in-stadt-bern-bern"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "it-revisor-in-stadt-bern-bern"
+        ],
+        "en": [
+          "it-revisor-in-stadt-bern-bern"
+        ],
+        "fr": [
+          "it-revisor-in-stadt-bern-bern"
+        ]
+      },
+      "firstSeenAt": "2026-07-13T12:12:29.816Z",
+      "salaryMin": 73000,
+      "salaryMax": 124500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 73000,
+          "maxValue": 124500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "stadt-bern-91e56a86ea70",
+      "slug": "cucinare-cucinare-stadt-bern-bern-563762",
+      "slugByLocale": {
+        "it": "cucinare-cucinare-stadt-bern-bern-563762",
+        "en": "cook-cook-stadt-bern-bern",
+        "de": "koch-kochin-stadt-bern-bern",
+        "fr": "cuire-faire-cuire-stadt-bern-bern-563762"
+      },
+      "company": "Stadt Bern",
+      "companyKey": "stadt-bern",
+      "companyDomain": "bern.ch",
+      "title": "Koch / Köchin",
+      "titleByLocale": {
+        "it": "Cucinare / cucinare",
+        "en": "Cook / cook",
+        "de": "Koch / Köchin",
+        "fr": "Cuire / faire cuire"
+      },
+      "description": "Die \"Zieglerküche\" vereint eine moderne, prozessorientierte Grossproduktion von rund 4'200 Mahlzeiten pro Woche mit dem Auftrag, stellensuchende Personen sozial und beruflich zu integrieren. Wir sind ein motiviertes Team und schreiben das Mit- und Füreinander gross.\n\nAufgaben:\n• Mitarbeit in einer grossen Produktionsküche mit rund 4200 Mahlzeiten pro Woche im Cook & Chill-Verfahren\n\n• Zubereitung ausgewogener Menüs für Bernmobil und 16 familienergänzende Einrichtungen in der Stadt Bern (Kitas, Tagesschulen)\n\n• Einhaltung der vorgegebenen Qualitäts- und Hygienestandards, Reinigungs- und Werterhaltungsarbeiten nach HACCP-Vorgabe\n\n• Aktive Mitwirkung bei der Weiterentwicklung von Rezepturen und Abläufen\n\n• Zusammenarbeit mit einem engagierten Team und mit Personen aus der Arbeitsintegration\n\nAnforderungen:\n• Abgeschlossene Ausbildung als Koch/Köchin, gute Deutschkenntnisse in Wort und Schrift\n\n• Idealerweise Erfahrung in der Gemeinschaftsgastronomie oder in einer Produktionsküche\n\n• Freude an der Ausbildung von Menschen und an der Vermittlung von Fachwissen\n\n• Organisationstalent, belastbar und flexibel – auch in hektischen Momenten, hohes Qualitäts- und Hygienebewusstsein\n\n• Teamfähig und offen für die Zusammenarbeit mit Menschen aus verschiedensten Hintergründen\n\nWir bieten:\nFür Sinn & Stadtleben\n Bei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern.",
+      "descriptionByLocale": {
+        "it": "La Zieglerküche combina una produzione moderna e orientata al processo su larga scala di circa 4.200 pasti a settimana con il compito di integrare socialmente e professionalmente i cercatori di lavoro. Siamo un team motivato e mettiamo l'accento l'uno sull'altro.\n\nCompiti:\n• Lavorare in una grande cucina di produzione con circa 4200 pasti a settimana nel processo Cook & Chill\n\n• Preparazione di menu equilibrati per Bernmobil e 16 strutture familiari nella città di Berna (Kitas, scuole diurne)\n\n• Rispetto degli standard di qualità e igiene specificati, pulizia e conservazione del valore secondo le specifiche HACCP\n\n• Partecipazione attiva all'ulteriore sviluppo di ricette e processi\n\n• Collaborazione con un team impegnato e con persone dall'integrazione del lavoro\n\nRequisiti\n• Allenamento completato come cuoco, buona conoscenza del tedesco in parole e scrittura\n\n• Esperienza ideale nella gastronomia comunitaria o in una cucina di produzione\n\n• Godere dell'educazione delle persone e fornire competenze\n\n• Talenti organizzativi, resilienti e flessibili – anche nei momenti frenetici, elevata qualità e consapevolezza dell'igiene\n\n• Pronta e aperta per la collaborazione con persone di diversa provenienza\n\nOffriamo:\nPer il senso e la vita della città\nCon noi cambi qualcosa. Aiutate a plasmare la vita della città, assumete la responsabilità e rendete Berna più vivibile.\n\nNella città di Berna, più di 4.500 persone lavorano insieme in cinque directory e oltre 80 profili di lavoro. Ci impegniamo con passione e convinzione per le persone che vivono qui, che lavorano qui. Insieme formiamo la comunità e il futuro di questa città – visibile, tangibile, sostenibile. per la nostra città. Per Bern.",
+        "en": "The Zieglerküche combines a modern, process-oriented large-scale production of around 4,200 meals per week with the task of socially and professionally integrating job seekers. We are a motivated team and we put the emphasis on each other.\n\nTasks:\n• Working in a large production kitchen with around 4200 meals per week in the Cook & Chill process\n\n• Preparation of balanced menus for Bernmobil and 16 family facilities in the city of Bern (Kitas, day schools)\n\n• Compliance with specified quality and hygiene standards, cleaning and value preservation work according to HACCP specification\n\n• Active participation in the further development of recipes and processes\n\n• Collaboration with a committed team and with people from work integration\n\nRequirements\n• Completed training as a cook, good knowledge of German in words and writing\n\n• Ideally experience in community gastronomy or in a production kitchen\n\n• Enjoying the education of people and providing expertise\n\n• Organizational talent, resilient and flexible – even in hectic moments, high quality and hygiene awareness\n\n• Team-ready and open for cooperation with people from different backgrounds\n\nWe offer:\nFor sense and city life\nWith us you change something. You help shape city life, carry responsibility and make Bern more liveable.\n\nIn the city of Bern, more than 4,500 people work together across five directorates and more than 80 job profiles. We are committed with passion and conviction to the people who live here, who work here. Together we shape the community and the future of this city – visible, tangible, sustainable. for our city. For Bern.",
+        "de": "Die \"Zieglerküche\" vereint eine moderne, prozessorientierte Grossproduktion von rund 4'200 Mahlzeiten pro Woche mit dem Auftrag, stellensuchende Personen sozial und beruflich zu integrieren. Wir sind ein motiviertes Team und schreiben das Mit- und Füreinander gross.\n\nAufgaben:\n• Mitarbeit in einer grossen Produktionsküche mit rund 4200 Mahlzeiten pro Woche im Cook & Chill-Verfahren\n\n• Zubereitung ausgewogener Menüs für Bernmobil und 16 familienergänzende Einrichtungen in der Stadt Bern (Kitas, Tagesschulen)\n\n• Einhaltung der vorgegebenen Qualitäts- und Hygienestandards, Reinigungs- und Werterhaltungsarbeiten nach HACCP-Vorgabe\n\n• Aktive Mitwirkung bei der Weiterentwicklung von Rezepturen und Abläufen\n\n• Zusammenarbeit mit einem engagierten Team und mit Personen aus der Arbeitsintegration\n\nAnforderungen:\n• Abgeschlossene Ausbildung als Koch/Köchin, gute Deutschkenntnisse in Wort und Schrift\n\n• Idealerweise Erfahrung in der Gemeinschaftsgastronomie oder in einer Produktionsküche\n\n• Freude an der Ausbildung von Menschen und an der Vermittlung von Fachwissen\n\n• Organisationstalent, belastbar und flexibel – auch in hektischen Momenten, hohes Qualitäts- und Hygienebewusstsein\n\n• Teamfähig und offen für die Zusammenarbeit mit Menschen aus verschiedensten Hintergründen\n\nWir bieten:\nFür Sinn & Stadtleben\nBei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern.",
+        "fr": "La Zieglerküche combine une production moderne à grande échelle orientée processus d'environ 4 200 repas par semaine avec la tâche d'intégrer socialement et professionnellement les demandeurs d'emploi. Nous sommes une équipe motivée et nous mettons l'accent les uns sur les autres.\n\nTâches :\n• Travailler dans une grande cuisine de production avec environ 4200 repas par semaine dans le procédé Cook & Chill\n\n• Préparation de menus équilibrés pour Bernmobil et 16 installations familiales dans la ville de Berne (Kitas, écoles de jour)\n\n• Conformité aux normes de qualité et d'hygiène spécifiées, nettoyage et préservation de la valeur selon les spécifications HACCP\n\n• Participation active au développement des recettes et des processus\n\n• Collaboration avec une équipe engagée et avec des personnes d'intégration professionnelle\n\nExigences\n• Achevé la formation comme cuisinier, bonne connaissance de l'allemand dans les mots et l'écriture\n\n• Idéalement expérience dans la gastronomie communautaire ou dans une cuisine de production\n\n• Appréciation de l'éducation des personnes et fourniture d'expertise\n\n• Le talent organisationnel, résilient et flexible – même dans les moments agités, la haute qualité et la sensibilisation à l'hygiène\n\n• Prête à coopérer avec des personnes de différents horizons\n\nNous offrons:\nPour le sens et la vie urbaine\nAvec nous, tu changes quelque chose. Vous aidez à façonner la vie de la ville, à porter des responsabilités et à rendre Berne plus vivante.\n\nDans la ville de Berne, plus de 4 500 personnes travaillent ensemble dans cinq directions et plus de 80 profils d'emploi. Nous sommes engagés avec passion et conviction envers les gens qui vivent ici, qui travaillent ici. Ensemble, nous façonnons la communauté et l'avenir de cette ville – visible, tangible, durable. pour notre ville. Pour Bern."
+      },
+      "location": "Bern",
+      "canton": "BE",
+      "url": "https://jobs.bern.ch/offene-stellen/koch-koechin/bb260aca-9b8c-451e-ad8b-404bbcdaeaee",
+      "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-02T10:48:08.982Z",
+      "addressLocality": "Bern",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "3007",
+      "streetAddress": "Morillonstrasse 77",
+      "category": "Ospitalità",
+      "contract": "full-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Amministrazione Pubblica",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-22",
+      "applyUrl": "https://jobs.bern.ch/offene-stellen/koch-koechin/bb260aca-9b8c-451e-ad8b-404bbcdaeaee",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "koch-kochin-stadt-bern-bern",
+        "cook-cook-stadt-bern-bern-563762",
+        "koch-kochin-stadt-bern"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "koch-kochin-stadt-bern-bern"
+        ],
+        "en": [
+          "koch-kochin-stadt-bern-bern",
+          "cook-cook-stadt-bern-bern-563762",
+          "koch-kochin-stadt-bern"
+        ],
+        "fr": [
+          "koch-kochin-stadt-bern-bern"
+        ]
+      },
+      "firstSeenAt": "2026-07-22T22:16:37.187Z",
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68500,
+          "maxValue": 104000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "stadt-bern-bff2e8752c1f",
+      "slug": "sachbearbeiter-in-beitrage-e-zulagen-stadt-bern",
+      "slugByLocale": {
+        "it": "sachbearbeiter-in-beitrage-e-zulagen-stadt-bern",
+        "en": "person-handling-contributions-and-allowances-stadt-bern-bern",
+        "de": "sachbearbeiter-in-beitrage-und-zulagen-stadt-bern-bern",
+        "fr": "personne-prenant-en-charge-les-cotisations-et-indemnites-stadt-bern-bern"
+      },
+      "company": "Stadt Bern",
+      "companyKey": "stadt-bern",
+      "companyDomain": "bern.ch",
+      "title": "Sachbearbeiter*in Beiträge und Zulagen",
+      "titleByLocale": {
+        "it": "Sachbearbeiter*in Beiträge e Zulagen",
+        "en": "Person handling contributions and allowances",
+        "de": "Sachbearbeiter*in Beiträge und Zulagen",
+        "fr": "Personne prenant en charge les cotisations et indemnités"
+      },
+      "description": "Die AHV-Zweigstelle Bern-Ostermundigen bewegt sich am Puls des Lebens und ist erste Anlaufstelle für Fragen rund um die Sozialversicherungen der 1. Säule. Du nimmst den Service Public für die Bürger*innen in den Belangen der 1. Säule wahr. Du arbeitest interdisziplinär mit verschiedenen Fachpersonen zusammen und trägst massgeblich zur professionellen Umsetzung unseres Auftrages bei.\n\nAufgaben:\n• Telefonische, schriftliche und persönliche Beratung sowie Auskunftserteilung an versicherte Personen und Arbeitgebende in allen Fragen der AHV-Beitragspflicht, Familienzulagen und des Erwerbsersatzes\n\n• Bearbeitung von Gesuchen und Neuanmeldungen\n\n• Beschaffung der erforderlichen Unterlagen und Informationen zur Beurteilung der Beitrags- oder Leistungspflicht\n\n• Abklärungen mit Behörden sowie anderen Sozialversicherungen\n\nAnforderungen:\n• Abgeschlossene kaufmännische Grundausbildung und Fachausweis Sozialversicherung oder gleichwertige Weiterbildung gewünscht\n\n• Mehrjährige Berufserfahrung, idealerweise im Bereich Sozialversicherungen\n\n• Kundenorientiert und interessiert am Umgang mit Menschen aus verschiedenen Kulturen\n\n• Gute Fremdsprachenkenntnisse (Französisch, Englisch, weitere erwünscht)\n\n• Versierte IT-Kenntnisse\n\nWir bieten:\nFür Sinn & Stadtleben\n Bei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern.",
+      "descriptionByLocale": {
+        "it": "Il ramo AHV Bern-Ostermundigen è sul polso della vita ed è il primo punto di contatto per domande relative all'assicurazione sociale del primo pilastro. Lei svolge il servizio pubblico per i cittadini nell'interesse del primo pilastro. Si lavora interdisciplinare con vari specialisti e contribuire in modo significativo alla realizzazione professionale del nostro incarico.\n\nCompiti:\n• Telefono, consulenza scritta e personale, nonché informazioni alle persone assicurate e ai datori di lavoro in tutti i settori dell'obbligo di contributo dell'AHV, delle indennità familiari e della compensazione dei guadagni\n\n• Elaborazione di applicazioni e nuove applicazioni\n\n• Ottenere documenti e informazioni necessarie per valutare l'obbligo di contribuire o di pagare\n\n• Reclami con autorità e altre assicurazioni sociali\n\nRequisiti\n• Formazione commerciale completa e assicurazione sociale specializzata o formazione equivalente desiderata\n\n• Diversi anni di esperienza professionale, idealmente nel campo della sicurezza sociale\n\n• Clienti orientati e interessati a trattare con persone provenienti da diverse culture\n\n• Buona conoscenza delle lingue straniere (francese, inglese, più desiderato)\n\n• Capacità\n\nOffriamo:\nPer il senso e la vita della città\nCon noi cambi qualcosa. Aiutate a plasmare la vita della città, assumete la responsabilità e rendete Berna più vivibile.\n\nNella città di Berna, più di 4.500 persone lavorano insieme in cinque directory e oltre 80 profili di lavoro. Ci impegniamo con passione e convinzione per le persone che vivono qui, che lavorano qui. Insieme formiamo la comunità e il futuro di questa città – visibile, tangibile, sostenibile. per la nostra città. Per Bern.",
+        "en": "The AHV Bern-Ostermundigen branch is on the pulse of life and is the first point of contact for questions relating to the social insurance of the first pillar. You perform the service public for the citizens in the interests of the 1st pillar. You work interdisciplinary with various specialists and contribute significantly to the professional implementation of our assignment.\n\nTasks:\n• Telephone, written and personal advice as well as information to insured persons and employers in all matters of AHV contribution obligation, family allowances and earnings compensation\n\n• Processing of applications and new applications\n\n• Obtaining the necessary documents and information to assess the obligation to contribute or to pay\n\n• Claims with authorities and other social insurance\n\nRequirements\n• Completed basic commercial education and specialised social insurance or equivalent training desired\n\n• Several years of professional experience, ideally in the field of social security\n\n• Customer-oriented and interested in dealing with people from different cultures\n\n• Good knowledge of foreign languages (French, English, more desired)\n\n• IT skills\n\nWe offer:\nFor sense and city life\nWith us you change something. You help shape city life, carry responsibility and make Bern more liveable.\n\nIn the city of Bern, more than 4,500 people work together across five directorates and more than 80 job profiles. We are committed with passion and conviction to the people who live here, who work here. Together we shape the community and the future of this city – visible, tangible, sustainable. for our city. For Bern.",
+        "de": "Die AHV-Zweigstelle Bern-Ostermundigen bewegt sich am Puls des Lebens und ist erste Anlaufstelle für Fragen rund um die Sozialversicherungen der 1. Säule. Du nimmst den Service Public für die Bürger*innen in den Belangen der 1. Säule wahr. Du arbeitest interdisziplinär mit verschiedenen Fachpersonen zusammen und trägst massgeblich zur professionellen Umsetzung unseres Auftrages bei.\n\nAufgaben:\n• Telefonische, schriftliche und persönliche Beratung sowie Auskunftserteilung an versicherte Personen und Arbeitgebende in allen Fragen der AHV-Beitragspflicht, Familienzulagen und des Erwerbsersatzes\n\n• Bearbeitung von Gesuchen und Neuanmeldungen\n\n• Beschaffung der erforderlichen Unterlagen und Informationen zur Beurteilung der Beitrags- oder Leistungspflicht\n\n• Abklärungen mit Behörden sowie anderen Sozialversicherungen\n\nAnforderungen:\n• Abgeschlossene kaufmännische Grundausbildung und Fachausweis Sozialversicherung oder gleichwertige Weiterbildung gewünscht\n\n• Mehrjährige Berufserfahrung, idealerweise im Bereich Sozialversicherungen\n\n• Kundenorientiert und interessiert am Umgang mit Menschen aus verschiedenen Kulturen\n\n• Gute Fremdsprachenkenntnisse (Französisch, Englisch, weitere erwünscht)\n\n• Versierte IT-Kenntnisse\n\nWir bieten:\nFür Sinn & Stadtleben\nBei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern.",
+        "fr": "La branche AHV Bern-Ostermundige est sur le pouls de la vie et est le premier point de contact pour les questions relatives à l'assurance sociale du premier pilier. Vous exécutez le service public pour les citoyens dans l'intérêt du 1er pilier. Vous travaillez interdisciplinaire avec divers spécialistes et contribuez de manière significative à la mise en œuvre professionnelle de notre mission.\n\nTâches :\n• Conseils téléphoniques, écrits et personnels ainsi que de l'information aux assurés et aux employeurs sur toutes les questions relatives à l'obligation de cotiser au VHA, aux allocations familiales et à la rémunération\n\n• Traitement des demandes et des nouvelles demandes\n\n• Obtenir les documents et informations nécessaires pour évaluer l'obligation de contribuer ou de payer\n\n• Créances auprès des autorités et autres assurances sociales\n\nExigences\n• Achevé l'enseignement commercial de base et l'assurance sociale spécialisée ou formation équivalente souhaitée\n\n• Plusieurs années d'expérience professionnelle, idéalement dans le domaine de la sécurité sociale\n\n• Orientation client et intérêt à traiter avec des personnes de différentes cultures\n\n• Bonne connaissance des langues étrangères (français, anglais, plus désiré)\n\n• Compétences en TI\n\nNous offrons:\nPour le sens et la vie urbaine\nAvec nous, tu changes quelque chose. Vous aidez à façonner la vie de la ville, à porter des responsabilités et à rendre Berne plus vivante.\n\nDans la ville de Berne, plus de 4 500 personnes travaillent ensemble dans cinq directions et plus de 80 profils d'emploi. Nous sommes engagés avec passion et conviction envers les gens qui vivent ici, qui travaillent ici. Ensemble, nous façonnons la communauté et l'avenir de cette ville – visible, tangible, durable. pour notre ville. Pour Bern."
+      },
+      "location": "Bern",
+      "canton": "BE",
+      "url": "https://jobs.bern.ch/offene-stellen/sachbearbeiter-in-beitraege-und-zulagen/8e8e03d0-de0b-43f6-9bab-841ffe365a0e",
+      "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-02T10:48:08.981Z",
+      "addressLocality": "Bern",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "3011",
+      "streetAddress": "Bundesgasse 33",
+      "category": "Amministrazione",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Amministrazione Pubblica",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-19",
+      "applyUrl": "https://jobs.bern.ch/offene-stellen/sachbearbeiter-in-beitraege-und-zulagen/8e8e03d0-de0b-43f6-9bab-841ffe365a0e",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "sachbearbeiter-in-beitrage-und-zulagen-stadt-bern-bern"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiter-in-beitrage-und-zulagen-stadt-bern-bern"
+        ],
+        "en": [
+          "sachbearbeiter-in-beitrage-und-zulagen-stadt-bern-bern"
+        ],
+        "fr": [
+          "sachbearbeiter-in-beitrage-und-zulagen-stadt-bern-bern"
+        ]
+      },
+      "firstSeenAt": "2026-07-20T11:51:15.863Z",
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68500,
+          "maxValue": 104000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
       "id": "stadt-bern-6c11f99ecf95",
       "slug": "istruzione-sociale-stadt-bern-bern",
       "slugByLocale": {
@@ -504,7 +581,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/sozialpaedagog-in/38ec7719-0a08-4b60-a95c-f1b18fff9e05",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-01T21:56:45.327Z",
+      "crawledAt": "2026-08-02T10:48:08.978Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -564,83 +641,6 @@
       }
     },
     {
-      "id": "stadt-bern-bff2e8752c1f",
-      "slug": "sachbearbeiter-in-beitrage-e-zulagen-stadt-bern",
-      "slugByLocale": {
-        "it": "sachbearbeiter-in-beitrage-e-zulagen-stadt-bern",
-        "en": "person-handling-contributions-and-allowances-stadt-bern-bern",
-        "de": "sachbearbeiter-in-beitrage-und-zulagen-stadt-bern-bern",
-        "fr": "personne-prenant-en-charge-les-cotisations-et-indemnites-stadt-bern-bern"
-      },
-      "company": "Stadt Bern",
-      "companyKey": "stadt-bern",
-      "companyDomain": "bern.ch",
-      "title": "Sachbearbeiter*in Beiträge und Zulagen",
-      "titleByLocale": {
-        "it": "Sachbearbeiter*in Beiträge e Zulagen",
-        "en": "Person handling contributions and allowances",
-        "de": "Sachbearbeiter*in Beiträge und Zulagen",
-        "fr": "Personne prenant en charge les cotisations et indemnités"
-      },
-      "description": "Die AHV-Zweigstelle Bern-Ostermundigen bewegt sich am Puls des Lebens und ist erste Anlaufstelle für Fragen rund um die Sozialversicherungen der 1. Säule. Du nimmst den Service Public für die Bürger*innen in den Belangen der 1. Säule wahr. Du arbeitest interdisziplinär mit verschiedenen Fachpersonen zusammen und trägst massgeblich zur professionellen Umsetzung unseres Auftrages bei.\n\nAufgaben:\n• Telefonische, schriftliche und persönliche Beratung sowie Auskunftserteilung an versicherte Personen und Arbeitgebende in allen Fragen der AHV-Beitragspflicht, Familienzulagen und des Erwerbsersatzes\n\n• Bearbeitung von Gesuchen und Neuanmeldungen\n\n• Beschaffung der erforderlichen Unterlagen und Informationen zur Beurteilung der Beitrags- oder Leistungspflicht\n\n• Abklärungen mit Behörden sowie anderen Sozialversicherungen\n\nAnforderungen:\n• Abgeschlossene kaufmännische Grundausbildung und Fachausweis Sozialversicherung oder gleichwertige Weiterbildung gewünscht\n\n• Mehrjährige Berufserfahrung, idealerweise im Bereich Sozialversicherungen\n\n• Kundenorientiert und interessiert am Umgang mit Menschen aus verschiedenen Kulturen\n\n• Gute Fremdsprachenkenntnisse (Französisch, Englisch, weitere erwünscht)\n\n• Versierte IT-Kenntnisse\n\nWir bieten:\nFür Sinn & Stadtleben\n Bei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern.",
-      "descriptionByLocale": {
-        "it": "Il ramo AHV Bern-Ostermundigen è sul polso della vita ed è il primo punto di contatto per domande relative all'assicurazione sociale del primo pilastro. Lei svolge il servizio pubblico per i cittadini nell'interesse del primo pilastro. Si lavora interdisciplinare con vari specialisti e contribuire in modo significativo alla realizzazione professionale del nostro incarico.\n\nCompiti:\n• Telefono, consulenza scritta e personale, nonché informazioni alle persone assicurate e ai datori di lavoro in tutti i settori dell'obbligo di contributo dell'AHV, delle indennità familiari e della compensazione dei guadagni\n\n• Elaborazione di applicazioni e nuove applicazioni\n\n• Ottenere documenti e informazioni necessarie per valutare l'obbligo di contribuire o di pagare\n\n• Reclami con autorità e altre assicurazioni sociali\n\nRequisiti\n• Formazione commerciale completa e assicurazione sociale specializzata o formazione equivalente desiderata\n\n• Diversi anni di esperienza professionale, idealmente nel campo della sicurezza sociale\n\n• Clienti orientati e interessati a trattare con persone provenienti da diverse culture\n\n• Buona conoscenza delle lingue straniere (francese, inglese, più desiderato)\n\n• Capacità\n\nOffriamo:\nPer il senso e la vita della città\nCon noi cambi qualcosa. Aiutate a plasmare la vita della città, assumete la responsabilità e rendete Berna più vivibile.\n\nNella città di Berna, più di 4.500 persone lavorano insieme in cinque directory e oltre 80 profili di lavoro. Ci impegniamo con passione e convinzione per le persone che vivono qui, che lavorano qui. Insieme formiamo la comunità e il futuro di questa città – visibile, tangibile, sostenibile. per la nostra città. Per Bern.",
-        "en": "The AHV Bern-Ostermundigen branch is on the pulse of life and is the first point of contact for questions relating to the social insurance of the first pillar. You perform the service public for the citizens in the interests of the 1st pillar. You work interdisciplinary with various specialists and contribute significantly to the professional implementation of our assignment.\n\nTasks:\n• Telephone, written and personal advice as well as information to insured persons and employers in all matters of AHV contribution obligation, family allowances and earnings compensation\n\n• Processing of applications and new applications\n\n• Obtaining the necessary documents and information to assess the obligation to contribute or to pay\n\n• Claims with authorities and other social insurance\n\nRequirements\n• Completed basic commercial education and specialised social insurance or equivalent training desired\n\n• Several years of professional experience, ideally in the field of social security\n\n• Customer-oriented and interested in dealing with people from different cultures\n\n• Good knowledge of foreign languages (French, English, more desired)\n\n• IT skills\n\nWe offer:\nFor sense and city life\nWith us you change something. You help shape city life, carry responsibility and make Bern more liveable.\n\nIn the city of Bern, more than 4,500 people work together across five directorates and more than 80 job profiles. We are committed with passion and conviction to the people who live here, who work here. Together we shape the community and the future of this city – visible, tangible, sustainable. for our city. For Bern.",
-        "de": "Die AHV-Zweigstelle Bern-Ostermundigen bewegt sich am Puls des Lebens und ist erste Anlaufstelle für Fragen rund um die Sozialversicherungen der 1. Säule. Du nimmst den Service Public für die Bürger*innen in den Belangen der 1. Säule wahr. Du arbeitest interdisziplinär mit verschiedenen Fachpersonen zusammen und trägst massgeblich zur professionellen Umsetzung unseres Auftrages bei.\n\nAufgaben:\n• Telefonische, schriftliche und persönliche Beratung sowie Auskunftserteilung an versicherte Personen und Arbeitgebende in allen Fragen der AHV-Beitragspflicht, Familienzulagen und des Erwerbsersatzes\n\n• Bearbeitung von Gesuchen und Neuanmeldungen\n\n• Beschaffung der erforderlichen Unterlagen und Informationen zur Beurteilung der Beitrags- oder Leistungspflicht\n\n• Abklärungen mit Behörden sowie anderen Sozialversicherungen\n\nAnforderungen:\n• Abgeschlossene kaufmännische Grundausbildung und Fachausweis Sozialversicherung oder gleichwertige Weiterbildung gewünscht\n\n• Mehrjährige Berufserfahrung, idealerweise im Bereich Sozialversicherungen\n\n• Kundenorientiert und interessiert am Umgang mit Menschen aus verschiedenen Kulturen\n\n• Gute Fremdsprachenkenntnisse (Französisch, Englisch, weitere erwünscht)\n\n• Versierte IT-Kenntnisse\n\nWir bieten:\nFür Sinn & Stadtleben\nBei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern.",
-        "fr": "La branche AHV Bern-Ostermundige est sur le pouls de la vie et est le premier point de contact pour les questions relatives à l'assurance sociale du premier pilier. Vous exécutez le service public pour les citoyens dans l'intérêt du 1er pilier. Vous travaillez interdisciplinaire avec divers spécialistes et contribuez de manière significative à la mise en œuvre professionnelle de notre mission.\n\nTâches :\n• Conseils téléphoniques, écrits et personnels ainsi que de l'information aux assurés et aux employeurs sur toutes les questions relatives à l'obligation de cotiser au VHA, aux allocations familiales et à la rémunération\n\n• Traitement des demandes et des nouvelles demandes\n\n• Obtenir les documents et informations nécessaires pour évaluer l'obligation de contribuer ou de payer\n\n• Créances auprès des autorités et autres assurances sociales\n\nExigences\n• Achevé l'enseignement commercial de base et l'assurance sociale spécialisée ou formation équivalente souhaitée\n\n• Plusieurs années d'expérience professionnelle, idéalement dans le domaine de la sécurité sociale\n\n• Orientation client et intérêt à traiter avec des personnes de différentes cultures\n\n• Bonne connaissance des langues étrangères (français, anglais, plus désiré)\n\n• Compétences en TI\n\nNous offrons:\nPour le sens et la vie urbaine\nAvec nous, tu changes quelque chose. Vous aidez à façonner la vie de la ville, à porter des responsabilités et à rendre Berne plus vivante.\n\nDans la ville de Berne, plus de 4 500 personnes travaillent ensemble dans cinq directions et plus de 80 profils d'emploi. Nous sommes engagés avec passion et conviction envers les gens qui vivent ici, qui travaillent ici. Ensemble, nous façonnons la communauté et l'avenir de cette ville – visible, tangible, durable. pour notre ville. Pour Bern."
-      },
-      "location": "Bern",
-      "canton": "BE",
-      "url": "https://jobs.bern.ch/offene-stellen/sachbearbeiter-in-beitraege-und-zulagen/8e8e03d0-de0b-43f6-9bab-841ffe365a0e",
-      "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-01T21:56:45.327Z",
-      "addressLocality": "Bern",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3011",
-      "streetAddress": "Bundesgasse 33",
-      "category": "Amministrazione",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Amministrazione Pubblica",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-19",
-      "applyUrl": "https://jobs.bern.ch/offene-stellen/sachbearbeiter-in-beitraege-und-zulagen/8e8e03d0-de0b-43f6-9bab-841ffe365a0e",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "sachbearbeiter-in-beitrage-und-zulagen-stadt-bern-bern"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "sachbearbeiter-in-beitrage-und-zulagen-stadt-bern-bern"
-        ],
-        "en": [
-          "sachbearbeiter-in-beitrage-und-zulagen-stadt-bern-bern"
-        ],
-        "fr": [
-          "sachbearbeiter-in-beitrage-und-zulagen-stadt-bern-bern"
-        ]
-      },
-      "firstSeenAt": "2026-07-20T11:51:15.863Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "stadt-bern-7eae83c882c4",
       "slug": "apprendistato-tierpfleger-in-cfc-specializzazione-wildtiere-stadt-bern",
       "slugByLocale": {
@@ -671,7 +671,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/lehrstelle-tierpfleger-in-efz-fachrichtung-wildtiere/4c5bd33e-3bae-4bc7-b20e-4a246ac69cd7",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-01T21:56:45.326Z",
+      "crawledAt": "2026-08-02T10:48:08.977Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -749,7 +749,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/chauffeurin-kat-c/f2574343-d385-4779-819b-0df3829de450",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-01T21:56:45.324Z",
+      "crawledAt": "2026-08-02T10:48:08.977Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -796,78 +796,6 @@
       }
     },
     {
-      "id": "stadt-bern-47812b7ae4df",
-      "slug": "teamleiter-in-outtake-mit-stv-sektionsleitung-stadt-bern-bern",
-      "slugByLocale": {
-        "it": "teamleiter-in-outtake-mit-stv-sektionsleitung-stadt-bern-bern",
-        "en": "team-leader-in-outtake-with-stv-section-management-stadt-bern-bern",
-        "de": "teamleiter-in-outtake-mit-stv-sektionsleitung-stadt-bern-bern",
-        "fr": "chef-d-equipe-en-sortie-avec-stv-gestion-des-sections-stadt-bern-bern"
-      },
-      "company": "Stadt Bern",
-      "companyKey": "stadt-bern",
-      "companyDomain": "bern.ch",
-      "title": "Teamleiter*in Outtake mit Stv. Sektionsleitung",
-      "titleByLocale": {
-        "it": "Teamleiter*in Outtake con Stv. Sektionsleitung",
-        "en": "Team leader*in outtake with stv. Section management",
-        "de": "Teamleiter*in Outtake mit Stv. Sektionsleitung",
-        "fr": "Chef d'équipe* en sortie avec stv. Gestion des sections"
-      },
-      "description": "In der Sektion Outtake werden administrative Dienstleistungen in den Bereichen Krankenkassengeschäft, Klientenbuchhaltung, sozialhilferechtliche Abrechnung und Rückerstattung sowie Archivierung erbracht.\n\nAufgaben:\n• Personelle Leitung von rund 10 Mitarbeitenden\n\n• Umfassende fachliche Leitung bestimmter Aufgabenbereiche\n\n• Mitarbeit bei der Weiterentwicklung des Fallführungssystems FFS CSN (Citysoftnet)\n\n• Leitung kleinerer Projekte und Projektmitarbeit\n\n• Stellvertretung innerhalb des 4-köpfigen Leitungsteams, Vertretung der Sektion in internen Gremien\n\nAnforderungen:\n• Kaufmännische Ausbildung mit Fachausweis Sozialversicherungen\n\n• Mehrjährige Erfahrung in der Personalführung\n\n• Berufserfahrung in den Bereichen Sozialhilfe, Sozialversicherungen, Mahn- und Inkassowesen und / oder IT von Vorteil\n\n• Geschick in der Gesprächs- und Verhandlungsführung\n\n• Zahlenflair, Sicherheit in anspruchsvoller Korrespondenz (Verfügungen)\n\nWir bieten:\nFür Sinn & Stadtleben\n Bei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern.",
-      "descriptionByLocale": {
-        "it": "La sezione Outtake fornisce servizi amministrativi nei settori dell'assicurazione sanitaria, della contabilità clienti, dell'assistenza sociale fatturazione e del rimborso nonché dell'archiviazione.\n\nCompiti:\n• Gestione del personale di circa 10 dipendenti\n\n• Gestione tecnica completa di compiti specifici\n\n• Cooperazione nell'ulteriore sviluppo del sistema di gestione dei casi FFS CSN (Citysoftnet)\n\n• Gestione di piccoli progetti e collaborazione di progetti\n\n• Deputato all'interno del gruppo di gestione a 4 membri, rappresentanza della sezione in comitati interni\n\nRequisiti\n• Istruzione commerciale con certificato di assicurazione sociale specializzato\n\n• Diversi anni di esperienza nella gestione del personale\n\n• Esperienza professionale nei settori dell'assistenza sociale, dell'assicurazione sociale, della raccolta dei debiti e/o dell'IT di vantaggio\n\n• Conversazione e competenze di negoziazione\n\n• Portata, sicurezza in corrispondenza esigente (decisioni)\n\nOffriamo:\nPer senso e vita della città\nCon noi cambi qualcosa. Aiutate a plasmare la vita della città, assumete la responsabilità e rendete Berna più vivibile.\n\nNella città di Berna, più di 4.500 persone lavorano insieme in cinque directory e più di 80 profili di lavoro. Ci impegniamo con passione e convinzione per le persone che vivono qui, che lavorano qui. Insieme formiamo la comunità e il futuro di questa città – visibile, tangibile, sostenibile. per la nostra città. Per Bern.",
-        "en": "The Outtake section provides administrative services in the areas of health insurance business, client accounting, social assistance billing and reimbursement as well as archiving.\n\nTasks:\n• Personnel management of around 10 employees\n\n• Comprehensive technical management of specific tasks\n\n• Cooperation in the further development of the case management system FFS CSN (Citysoftnet)\n\n• Management of smaller projects and project collaboration\n\n• Deputy within the 4-member management team, representation of the section in internal committees\n\nRequirements\n• Commercial education with specialised social insurance certificate\n\n• Several years of experience in personnel management\n\n• Professional experience in the areas of social assistance, social insurance, dunning and debt collection and / or IT of advantage\n\n• Conversation and negotiation skills\n\n• Number flair, security in demanding correspondence (decisions)\n\nWe offer:\nFor sense and city life\nWith us you change something. You help shape city life, carry responsibility and make Bern more liveable.\n\nIn the city of Bern, more than 4,500 people work together across five directorates and more than 80 job profiles. We are committed with passion and conviction to the people who live here, who work here. Together we shape the community and the future of this city – visible, tangible, sustainable. for our city. For Bern.",
-        "de": "In der Sektion Outtake werden administrative Dienstleistungen in den Bereichen Krankenkassengeschäft, Klientenbuchhaltung, sozialhilferechtliche Abrechnung und Rückerstattung sowie Archivierung erbracht.\n\nAufgaben:\n• Personelle Leitung von rund 10 Mitarbeitenden\n\n• Umfassende fachliche Leitung bestimmter Aufgabenbereiche\n\n• Mitarbeit bei der Weiterentwicklung des Fallführungssystems FFS CSN (Citysoftnet)\n\n• Leitung kleinerer Projekte und Projektmitarbeit\n\n• Stellvertretung innerhalb des 4-köpfigen Leitungsteams, Vertretung der Sektion in internen Gremien\n\nAnforderungen:\n• Kaufmännische Ausbildung mit Fachausweis Sozialversicherungen\n\n• Mehrjährige Erfahrung in der Personalführung\n\n• Berufserfahrung in den Bereichen Sozialhilfe, Sozialversicherungen, Mahn- und Inkassowesen und / oder IT von Vorteil\n\n• Geschick in der Gesprächs- und Verhandlungsführung\n\n• Zahlenflair, Sicherheit in anspruchsvoller Korrespondenz (Verfügungen)\n\nWir bieten:\nFür Sinn & Stadtleben\nBei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern.",
-        "fr": "Cette section fournit des services administratifs dans les domaines de l'assurance-maladie, de la comptabilité des clients, de la facturation et du remboursement de l'aide sociale ainsi que de l'archivage.\n\nTâches :\n• Gestion du personnel d'environ 10 employés\n\n• Gestion technique globale de tâches spécifiques\n\n• Coopération pour le développement du système de gestion de cas FFS CSN (Citysoftnet)\n\n• Gestion de petits projets et collaboration de projets\n\n• Adjoint au sein de l'équipe de gestion de 4 membres, représentation de la section dans les comités internes\n\nExigences\n• Formation commerciale avec certificat d'assurance sociale spécialisée\n\n• Plusieurs années d'expérience dans la gestion du personnel\n\n• Expérience professionnelle dans les domaines de l'assistance sociale, de l'assurance sociale, de la dunning et du recouvrement des dettes et/ou de l'informatique d'avantage\n\n• Compétences en conversation et en négociation\n\n• Numéro flair, sécurité dans la correspondance exigeante (décisions)\n\nNous offrons:\nPour le sens et la vie en ville\nAvec nous, tu changes quelque chose. Vous aidez à façonner la vie de la ville, à porter des responsabilités et à rendre Berne plus vivante.\n\nDans la ville de Berne, plus de 4 500 personnes travaillent ensemble dans cinq directions et plus de 80 profils d'emploi. Nous sommes engagés avec passion et conviction envers les gens qui vivent ici, qui travaillent ici. Ensemble, nous façonnons la communauté et l'avenir de cette ville – visible, tangible, durable. pour notre ville. Pour Bern."
-      },
-      "needsRetranslation": false,
-      "location": "Bern",
-      "canton": "BE",
-      "url": "https://jobs.bern.ch/offene-stellen/teamleiter-in-outtake-mit-stv-sektionsleitung/3bd973d2-cf1e-4083-94c4-232e63c30d99",
-      "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-01T21:56:45.323Z",
-      "addressLocality": "Bern",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3007",
-      "streetAddress": "Schwarztorstrasse 71",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Amministrazione Pubblica",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-20",
-      "applyUrl": "https://jobs.bern.ch/offene-stellen/teamleiter-in-outtake-mit-stv-sektionsleitung/3bd973d2-cf1e-4083-94c4-232e63c30d99",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "chef-d-equipe-a-la-sortie-avec-stv-gestion-des-sections-stadt-bern-bern"
-      ],
-      "previousSlugsByLocale": {
-        "fr": [
-          "chef-d-equipe-a-la-sortie-avec-stv-gestion-des-sections-stadt-bern-bern"
-        ]
-      },
-      "firstSeenAt": "2026-07-21T11:14:29.730Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "stadt-bern-b5ac64e9060f",
       "slug": "cucinare-cucinare-stadt-bern-bern",
       "slugByLocale": {
@@ -898,7 +826,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/koch-koechin/cca1b1a4-54d6-48da-90db-b600cdf775ac",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-01T21:56:45.323Z",
+      "crawledAt": "2026-08-02T10:48:08.976Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -982,7 +910,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/mitarbeiter-in-rueckzugsraum-schuetzenmatte-oder-a/9927f5e6-8307-4b3d-8507-74969986a0b2",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-01T21:56:45.322Z",
+      "crawledAt": "2026-08-02T10:48:08.975Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1029,6 +957,78 @@
       }
     },
     {
+      "id": "stadt-bern-47812b7ae4df",
+      "slug": "teamleiter-in-outtake-mit-stv-sektionsleitung-stadt-bern-bern",
+      "slugByLocale": {
+        "it": "teamleiter-in-outtake-mit-stv-sektionsleitung-stadt-bern-bern",
+        "en": "team-leader-in-outtake-with-stv-section-management-stadt-bern-bern",
+        "de": "teamleiter-in-outtake-mit-stv-sektionsleitung-stadt-bern-bern",
+        "fr": "chef-d-equipe-en-sortie-avec-stv-gestion-des-sections-stadt-bern-bern"
+      },
+      "company": "Stadt Bern",
+      "companyKey": "stadt-bern",
+      "companyDomain": "bern.ch",
+      "title": "Teamleiter*in Outtake mit Stv. Sektionsleitung",
+      "titleByLocale": {
+        "it": "Teamleiter*in Outtake con Stv. Sektionsleitung",
+        "en": "Team leader*in outtake with stv. Section management",
+        "de": "Teamleiter*in Outtake mit Stv. Sektionsleitung",
+        "fr": "Chef d'équipe* en sortie avec stv. Gestion des sections"
+      },
+      "description": "In der Sektion Outtake werden administrative Dienstleistungen in den Bereichen Krankenkassengeschäft, Klientenbuchhaltung, sozialhilferechtliche Abrechnung und Rückerstattung sowie Archivierung erbracht.\n\nAufgaben:\n• Personelle Leitung von rund 10 Mitarbeitenden\n\n• Umfassende fachliche Leitung bestimmter Aufgabenbereiche\n\n• Mitarbeit bei der Weiterentwicklung des Fallführungssystems FFS CSN (Citysoftnet)\n\n• Leitung kleinerer Projekte und Projektmitarbeit\n\n• Stellvertretung innerhalb des 4-köpfigen Leitungsteams, Vertretung der Sektion in internen Gremien\n\nAnforderungen:\n• Kaufmännische Ausbildung mit Fachausweis Sozialversicherungen\n\n• Mehrjährige Erfahrung in der Personalführung\n\n• Berufserfahrung in den Bereichen Sozialhilfe, Sozialversicherungen, Mahn- und Inkassowesen und / oder IT von Vorteil\n\n• Geschick in der Gesprächs- und Verhandlungsführung\n\n• Zahlenflair, Sicherheit in anspruchsvoller Korrespondenz (Verfügungen)\n\nWir bieten:\nFür Sinn & Stadtleben\n Bei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern.",
+      "descriptionByLocale": {
+        "it": "La sezione Outtake fornisce servizi amministrativi nei settori dell'assicurazione sanitaria, della contabilità clienti, dell'assistenza sociale fatturazione e del rimborso nonché dell'archiviazione.\n\nCompiti:\n• Gestione del personale di circa 10 dipendenti\n\n• Gestione tecnica completa di compiti specifici\n\n• Cooperazione nell'ulteriore sviluppo del sistema di gestione dei casi FFS CSN (Citysoftnet)\n\n• Gestione di piccoli progetti e collaborazione di progetti\n\n• Deputato all'interno del gruppo di gestione a 4 membri, rappresentanza della sezione in comitati interni\n\nRequisiti\n• Istruzione commerciale con certificato di assicurazione sociale specializzato\n\n• Diversi anni di esperienza nella gestione del personale\n\n• Esperienza professionale nei settori dell'assistenza sociale, dell'assicurazione sociale, della raccolta dei debiti e/o dell'IT di vantaggio\n\n• Conversazione e competenze di negoziazione\n\n• Portata, sicurezza in corrispondenza esigente (decisioni)\n\nOffriamo:\nPer senso e vita della città\nCon noi cambi qualcosa. Aiutate a plasmare la vita della città, assumete la responsabilità e rendete Berna più vivibile.\n\nNella città di Berna, più di 4.500 persone lavorano insieme in cinque directory e più di 80 profili di lavoro. Ci impegniamo con passione e convinzione per le persone che vivono qui, che lavorano qui. Insieme formiamo la comunità e il futuro di questa città – visibile, tangibile, sostenibile. per la nostra città. Per Bern.",
+        "en": "The Outtake section provides administrative services in the areas of health insurance business, client accounting, social assistance billing and reimbursement as well as archiving.\n\nTasks:\n• Personnel management of around 10 employees\n\n• Comprehensive technical management of specific tasks\n\n• Cooperation in the further development of the case management system FFS CSN (Citysoftnet)\n\n• Management of smaller projects and project collaboration\n\n• Deputy within the 4-member management team, representation of the section in internal committees\n\nRequirements\n• Commercial education with specialised social insurance certificate\n\n• Several years of experience in personnel management\n\n• Professional experience in the areas of social assistance, social insurance, dunning and debt collection and / or IT of advantage\n\n• Conversation and negotiation skills\n\n• Number flair, security in demanding correspondence (decisions)\n\nWe offer:\nFor sense and city life\nWith us you change something. You help shape city life, carry responsibility and make Bern more liveable.\n\nIn the city of Bern, more than 4,500 people work together across five directorates and more than 80 job profiles. We are committed with passion and conviction to the people who live here, who work here. Together we shape the community and the future of this city – visible, tangible, sustainable. for our city. For Bern.",
+        "de": "In der Sektion Outtake werden administrative Dienstleistungen in den Bereichen Krankenkassengeschäft, Klientenbuchhaltung, sozialhilferechtliche Abrechnung und Rückerstattung sowie Archivierung erbracht.\n\nAufgaben:\n• Personelle Leitung von rund 10 Mitarbeitenden\n\n• Umfassende fachliche Leitung bestimmter Aufgabenbereiche\n\n• Mitarbeit bei der Weiterentwicklung des Fallführungssystems FFS CSN (Citysoftnet)\n\n• Leitung kleinerer Projekte und Projektmitarbeit\n\n• Stellvertretung innerhalb des 4-köpfigen Leitungsteams, Vertretung der Sektion in internen Gremien\n\nAnforderungen:\n• Kaufmännische Ausbildung mit Fachausweis Sozialversicherungen\n\n• Mehrjährige Erfahrung in der Personalführung\n\n• Berufserfahrung in den Bereichen Sozialhilfe, Sozialversicherungen, Mahn- und Inkassowesen und / oder IT von Vorteil\n\n• Geschick in der Gesprächs- und Verhandlungsführung\n\n• Zahlenflair, Sicherheit in anspruchsvoller Korrespondenz (Verfügungen)\n\nWir bieten:\nFür Sinn & Stadtleben\nBei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern.",
+        "fr": "Cette section fournit des services administratifs dans les domaines de l'assurance-maladie, de la comptabilité des clients, de la facturation et du remboursement de l'aide sociale ainsi que de l'archivage.\n\nTâches :\n• Gestion du personnel d'environ 10 employés\n\n• Gestion technique globale de tâches spécifiques\n\n• Coopération pour le développement du système de gestion de cas FFS CSN (Citysoftnet)\n\n• Gestion de petits projets et collaboration de projets\n\n• Adjoint au sein de l'équipe de gestion de 4 membres, représentation de la section dans les comités internes\n\nExigences\n• Formation commerciale avec certificat d'assurance sociale spécialisée\n\n• Plusieurs années d'expérience dans la gestion du personnel\n\n• Expérience professionnelle dans les domaines de l'assistance sociale, de l'assurance sociale, de la dunning et du recouvrement des dettes et/ou de l'informatique d'avantage\n\n• Compétences en conversation et en négociation\n\n• Numéro flair, sécurité dans la correspondance exigeante (décisions)\n\nNous offrons:\nPour le sens et la vie en ville\nAvec nous, tu changes quelque chose. Vous aidez à façonner la vie de la ville, à porter des responsabilités et à rendre Berne plus vivante.\n\nDans la ville de Berne, plus de 4 500 personnes travaillent ensemble dans cinq directions et plus de 80 profils d'emploi. Nous sommes engagés avec passion et conviction envers les gens qui vivent ici, qui travaillent ici. Ensemble, nous façonnons la communauté et l'avenir de cette ville – visible, tangible, durable. pour notre ville. Pour Bern."
+      },
+      "needsRetranslation": false,
+      "location": "Bern",
+      "canton": "BE",
+      "url": "https://jobs.bern.ch/offene-stellen/teamleiter-in-outtake-mit-stv-sektionsleitung/3bd973d2-cf1e-4083-94c4-232e63c30d99",
+      "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-02T10:48:08.975Z",
+      "addressLocality": "Bern",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "3007",
+      "streetAddress": "Schwarztorstrasse 71",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Amministrazione Pubblica",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-20",
+      "applyUrl": "https://jobs.bern.ch/offene-stellen/teamleiter-in-outtake-mit-stv-sektionsleitung/3bd973d2-cf1e-4083-94c4-232e63c30d99",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "chef-d-equipe-a-la-sortie-avec-stv-gestion-des-sections-stadt-bern-bern"
+      ],
+      "previousSlugsByLocale": {
+        "fr": [
+          "chef-d-equipe-a-la-sortie-avec-stv-gestion-des-sections-stadt-bern-bern"
+        ]
+      },
+      "firstSeenAt": "2026-07-21T11:14:29.730Z",
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68500,
+          "maxValue": 104000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
       "id": "stadt-bern-c2c8d0eb8b72",
       "slug": "foreman-stadt-bern-bern-da3c9d",
       "slugByLocale": {
@@ -1060,7 +1060,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/vorarbeiter-in/4ca8d9f5-83f5-47e9-8527-07d1d0f78b30",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-01T21:56:45.322Z",
+      "crawledAt": "2026-08-02T10:48:08.974Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1145,7 +1145,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/logistiker-in-chauffeur-in/825ce954-69b8-4fff-b552-c5fa73d5e1da",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-01T21:56:45.319Z",
+      "crawledAt": "2026-08-02T10:48:08.970Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1224,7 +1224,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/service-owner-microsoft-365/ae49df04-2786-49e4-85ab-7e5645672b4e",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-01T21:56:45.318Z",
+      "crawledAt": "2026-08-02T10:48:08.969Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1295,7 +1295,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/ict-security-operations-manager-in/7625c351-f01f-4511-b322-73f00fc8ddfb",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-01T21:56:45.317Z",
+      "crawledAt": "2026-08-02T10:48:08.968Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1369,7 +1369,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/lehrstellen-als-fachperson-betreuung-efz-fachrichtung-kinder/9f889b3c-9da3-481d-b642-cb6e0114928d",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-01T21:56:45.316Z",
+      "crawledAt": "2026-08-02T10:48:08.966Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1416,84 +1416,6 @@
       }
     },
     {
-      "id": "stadt-bern-2363fdd6645a",
-      "slug": "apprendistato-come-kuchenangestellte-r-afp-stadt-bern",
-      "slugByLocale": {
-        "it": "apprendistato-come-kuchenangestellte-r-afp-stadt-bern",
-        "en": "apprenticeship-as-a-kitchen-employee-eba-stadt-bern-bern",
-        "de": "lehrstelle-als-kuchenangestellte-r-eba-stadt-bern-bern",
-        "fr": "apprentissage-comme-employe-de-cuisine-eba-stadt-bern-bern"
-      },
-      "company": "Stadt Bern",
-      "companyKey": "stadt-bern",
-      "companyDomain": "bern.ch",
-      "title": "Lehrstelle als Küchenangestellte*r EBA",
-      "titleByLocale": {
-        "it": "Apprendistato come Küchenangestellte*r AFP",
-        "en": "Apprenticeship as a kitchen employee EBA",
-        "de": "Lehrstelle als Küchenangestellte*r EBA",
-        "fr": "Apprentissage comme employé de cuisine EBA"
-      },
-      "description": "Das Kompetenzzentrum Schlossmatt unterstützt Kinder, Jugendliche und Familien in Notlagen und Belastungssituationen. Die Hauswirtschaft ist zuständig für die Bereiche Küche/Verpflegung und Reinigung. Weitere Informationen findest du auf <a href=\"https://www.schlossmatt-bern.ch\" target=\"_blank\">www.schlossmatt-bern.ch</a>.<br/>\n\nAufgaben:\n• Zubereitung von kalten und warmen Speisen\n\n• Kennenlernen von Produkten sowie deren fachgerechter Lagerung und Verarbeitung – von der Anlieferung bis zum Servieren\n\n• Erlernen und Anwenden der Hygiene- und Schutzvorschriften\n\n• Mitarbeit bei Reinigungsarbeiten und in der Abwaschorganisation\n\nAnforderungen:\n• Abschluss der obligatorischen Schulbildung\n\n• Freude am Kochen und Interesse am Umgang mit Lebensmitteln\n\n• Sinn für Ordnung, Sauberkeit und hohes Hygienebewusstsein\n\n• Offenheit im Umgang mit Menschen und eine Prise Humor\n\n• Gute mündliche & schriftliche Deutschkenntnisse (mind. Niveau B1)\n\nWir bieten:\nVielfältig & fair\n Bei uns erwarten dich über 20 spannende Lehrberufe – von handwerklich bis administrativ. Als vielseitiger Ausbildungsbetrieb schätzen wir die unterschiedlichen Rollenbilder und zahlen allen Lehrberufen den gleichen Lohn – und Lernenden ab 25 sogar etwas mehr.\n\nDie Stadt Bern engagiert sich für eine nachhaltige Berufsbildung und bietet dir vielfältige Chancen für deinen Berufseinstieg. Rund 200 Lernende absolvieren aktuell ihre Ausbildung in über 20 verschiedenen Berufen – begleitet von mehr als 300 erfahrenen Mitarbeitenden, die ihr Wissen und ihre Begeisterung weitergeben. Bei uns erlernst du nicht nur deinen Traumberuf, sondern gestaltest auch das Leben in unserer Stadt aktiv mit. Werde Teil eines Teams, das mit Freude, Verantwortung und Herz für Bern arbeitet.",
-      "descriptionByLocale": {
-        "it": "Il Competence Center Schlossmatt supporta bambini, giovani e famiglie in emergenze e situazioni stressanti. La pulizia è responsabile per la cucina/cibo e aree di pulizia. Ulteriori informazioni sono disponibili su <a href=\"https://www.schlossmatt-bern.ch\" target=\" blank\">www.schlossmatt-bern.ch\n\nCompiti:\n• Preparazione di cibi freddi e caldi\n\n• Conoscere i prodotti e la loro conservazione e lavorazione professionale – dalla consegna al servizio\n\n• Imparare e applicare le norme di igiene e protezione\n\n• Cooperazione nei lavori di pulizia e nell'organizzazione del lavaggio\n\nRequisiti\n• Completamento dell'istruzione obbligatoria\n\n• Gioia di cucina e interesse nella gestione del cibo\n\n• Senso di ordine, pulizia e alta consapevolezza dell'igiene\n\n• Apertura nel trattare con le persone e un pizzico di umorismo\n\n• Buona conoscenza orale e scritta del tedesco (livello minimo B1)\n\nOffriamo:\nDiverso e giusto\nPiù di 20 apprendisti vi aspettano con noi – dall’artigianato all’amministrazione. Come azienda di apprendistato versatile, valutiamo i diversi modelli di ruolo e paghiamo tutti gli apprendisti lo stesso salario – e gli studenti da 25 anche un po 'di più.\n\nLa città di Berna è impegnata nella formazione professionale sostenibile e vi offre una vasta gamma di opportunità per la vostra carriera. Circa 200 apprendisti stanno attualmente completando la loro formazione in oltre 20 professioni diverse – accompagnati da oltre 300 dipendenti esperti che trasmettono la loro conoscenza ed entusiasmo. Con noi non solo impari il tuo lavoro da sogno, ma anche forma attivamente la vita nella nostra città. Diventa parte di un team che lavora con gioia, responsabilità e cuore per Berna.",
-        "en": "The Competence Center Schlossmatt supports children, young people and families in emergencies and stressful situations. Housekeeping is responsible for the kitchen/food and cleaning areas. Further information can be found at <a href=\"https://www.schlossmatt-bern.ch\" target=\" blank\">www.schlossmatt-bern.ch</a><br/>\n\nTasks:\n• Preparation of cold and warm food\n\n• Getting to know products as well as their professional storage and processing – from delivery to serving\n\n• Learning and applying hygiene and protection regulations\n\n• Cooperation in cleaning work and in the washing organisation\n\nRequirements\n• Completion of compulsory education\n\n• Joy of cooking and interest in handling food\n\n• Sense of order, cleanliness and high hygiene awareness\n\n• Openness in dealing with people and a pinch of humor\n\n• Good oral and written knowledge of German (minor level B1)\n\nWe offer:\nDiverse and fair\nMore than 20 exciting apprenticeships await you with us – from crafts to administrative. As a versatile apprenticeship company, we value the different role models and pay all apprenticeships the same wage – and learners from 25 even a little more.\n\nThe city of Bern is committed to sustainable vocational training and offers you a wide range of opportunities for your career. Around 200 apprentices are currently completing their training in over 20 different professions – accompanied by more than 300 experienced employees who pass on their knowledge and enthusiasm. With us you not only learn your dream job, but also actively shape life in our city. Become part of a team that works with joy, responsibility and heart for Bern.",
-        "de": "Das Kompetenzzentrum Schlossmatt unterstützt Kinder, Jugendliche und Familien in Notlagen und Belastungssituationen. Die Hauswirtschaft ist zuständig für die Bereiche Küche/Verpflegung und Reinigung. Weitere Informationen findest du auf <a href=\"https://www.schlossmatt-bern.ch\" target=\"_blank\">www.schlossmatt-bern.ch</a>.<br/>\n\nAufgaben:\n• Zubereitung von kalten und warmen Speisen\n\n• Kennenlernen von Produkten sowie deren fachgerechter Lagerung und Verarbeitung – von der Anlieferung bis zum Servieren\n\n• Erlernen und Anwenden der Hygiene- und Schutzvorschriften\n\n• Mitarbeit bei Reinigungsarbeiten und in der Abwaschorganisation\n\nAnforderungen:\n• Abschluss der obligatorischen Schulbildung\n\n• Freude am Kochen und Interesse am Umgang mit Lebensmitteln\n\n• Sinn für Ordnung, Sauberkeit und hohes Hygienebewusstsein\n\n• Offenheit im Umgang mit Menschen und eine Prise Humor\n\n• Gute mündliche & schriftliche Deutschkenntnisse (mind. Niveau B1)\n\nWir bieten:\nVielfältig & fair\nBei uns erwarten dich über 20 spannende Lehrberufe – von handwerklich bis administrativ. Als vielseitiger Ausbildungsbetrieb schätzen wir die unterschiedlichen Rollenbilder und zahlen allen Lehrberufen den gleichen Lohn – und Lernenden ab 25 sogar etwas mehr.\n\nDie Stadt Bern engagiert sich für eine nachhaltige Berufsbildung und bietet dir vielfältige Chancen für deinen Berufseinstieg. Rund 200 Lernende absolvieren aktuell ihre Ausbildung in über 20 verschiedenen Berufen – begleitet von mehr als 300 erfahrenen Mitarbeitenden, die ihr Wissen und ihre Begeisterung weitergeben. Bei uns erlernst du nicht nur deinen Traumberuf, sondern gestaltest auch das Leben in unserer Stadt aktiv mit. Werde Teil eines Teams, das mit Freude, Verantwortung und Herz für Bern arbeitet.",
-        "fr": "Le Centre de compétences Schlossmatt soutient les enfants, les jeunes et les familles dans les situations d'urgence et de stress. L'entretien ménager est responsable des aires de cuisine/alimentation et de nettoyage. Pour de plus amples renseignements, veuillez consulter le site <a href=\"https://www.schlossmatt-bern.ch\" cible>>www.schlossmatt-bern.ch</a><br/>\n\nTâches :\n• Préparation d'aliments froids et chauds\n\n• Apprendre à connaître les produits ainsi que leur stockage et leur transformation professionnels – de la livraison au service\n\n• Apprentissage et application des règles d'hygiène et de protection\n\n• Coopération dans les travaux de nettoyage et dans l'organisation de lavage\n\nExigences\n• Achèvement de la scolarité obligatoire\n\n• Joy de cuisine et intérêt pour la manipulation des aliments\n\n• Sens de l'ordre, propreté et bonne hygiène\n\n• L'ouverture dans les rapports avec les gens et une pincée d'humour\n\n• Bonne connaissance orale et écrite de l'allemand (niveau B1)\n\nNous offrons:\nDivers et équitables\nPlus de 20 apprentissages passionnants vous attendent avec nous – de l'artisanat à l'administration. En tant qu'entreprise d'apprentissage polyvalente, nous valorisons les différents modèles et payons tous les apprentissages le même salaire – et les apprenants de 25 encore un peu plus.\n\nLa ville de Berne est engagée dans la formation professionnelle durable et vous offre un large éventail d'opportunités pour votre carrière. Environ 200 apprentis suivent actuellement leur formation dans plus de 20 professions différentes, accompagnés de plus de 300 employés expérimentés qui transmettent leurs connaissances et leur enthousiasme. Avec nous, vous apprenez non seulement votre travail de rêve, mais aussi façonner activement la vie dans notre ville. Devenez membre d'une équipe qui travaille avec joie, responsabilité et cœur pour Berne."
-      },
-      "needsRetranslation": false,
-      "location": "Bern",
-      "canton": "BE",
-      "url": "https://jobs.bern.ch/offene-stellen/lehrstelle-als-kuechenangestellte-r-eba/9b8797fe-f121-469c-aade-cbc8778404d8",
-      "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-01T21:56:45.315Z",
-      "addressLocality": "Bern",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3008",
-      "streetAddress": "Huberstrasse 30",
-      "category": "Ospitalità",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Amministrazione Pubblica",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-31",
-      "applyUrl": "https://jobs.bern.ch/offene-stellen/lehrstelle-als-kuechenangestellte-r-eba/9b8797fe-f121-469c-aade-cbc8778404d8",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "lehrstelle-als-kuchenangestellte-r-eba-stadt-bern-bern"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "lehrstelle-als-kuchenangestellte-r-eba-stadt-bern-bern"
-        ],
-        "en": [
-          "lehrstelle-als-kuchenangestellte-r-eba-stadt-bern-bern"
-        ],
-        "fr": [
-          "lehrstelle-als-kuchenangestellte-r-eba-stadt-bern-bern"
-        ]
-      },
-      "firstSeenAt": "2026-07-31T22:06:53.113Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "stadt-bern-b1f5a6d675e7",
       "slug": "apprendistato-come-fachperson-kinderbetreuung-kita-cfc-stadt-bern",
       "slugByLocale": {
@@ -1524,7 +1446,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/lehrstelle-als-fachperson-kinderbetreuung-kita-efz/5c03c988-ec6f-4274-9397-c161f426293f",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-01T21:56:45.315Z",
+      "crawledAt": "2026-08-02T10:48:08.965Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1571,6 +1493,84 @@
       }
     },
     {
+      "id": "stadt-bern-2363fdd6645a",
+      "slug": "apprendistato-come-kuchenangestellte-r-afp-stadt-bern",
+      "slugByLocale": {
+        "it": "apprendistato-come-kuchenangestellte-r-afp-stadt-bern",
+        "en": "apprenticeship-as-a-kitchen-employee-eba-stadt-bern-bern",
+        "de": "lehrstelle-als-kuchenangestellte-r-eba-stadt-bern-bern",
+        "fr": "apprentissage-comme-employe-de-cuisine-eba-stadt-bern-bern"
+      },
+      "company": "Stadt Bern",
+      "companyKey": "stadt-bern",
+      "companyDomain": "bern.ch",
+      "title": "Lehrstelle als Küchenangestellte*r EBA",
+      "titleByLocale": {
+        "it": "Apprendistato come Küchenangestellte*r AFP",
+        "en": "Apprenticeship as a kitchen employee EBA",
+        "de": "Lehrstelle als Küchenangestellte*r EBA",
+        "fr": "Apprentissage comme employé de cuisine EBA"
+      },
+      "description": "Das Kompetenzzentrum Schlossmatt unterstützt Kinder, Jugendliche und Familien in Notlagen und Belastungssituationen. Die Hauswirtschaft ist zuständig für die Bereiche Küche/Verpflegung und Reinigung. Weitere Informationen findest du auf <a href=\"https://www.schlossmatt-bern.ch\" target=\"_blank\">www.schlossmatt-bern.ch</a>.<br/>\n\nAufgaben:\n• Zubereitung von kalten und warmen Speisen\n\n• Kennenlernen von Produkten sowie deren fachgerechter Lagerung und Verarbeitung – von der Anlieferung bis zum Servieren\n\n• Erlernen und Anwenden der Hygiene- und Schutzvorschriften\n\n• Mitarbeit bei Reinigungsarbeiten und in der Abwaschorganisation\n\nAnforderungen:\n• Abschluss der obligatorischen Schulbildung\n\n• Freude am Kochen und Interesse am Umgang mit Lebensmitteln\n\n• Sinn für Ordnung, Sauberkeit und hohes Hygienebewusstsein\n\n• Offenheit im Umgang mit Menschen und eine Prise Humor\n\n• Gute mündliche & schriftliche Deutschkenntnisse (mind. Niveau B1)\n\nWir bieten:\nVielfältig & fair\n Bei uns erwarten dich über 20 spannende Lehrberufe – von handwerklich bis administrativ. Als vielseitiger Ausbildungsbetrieb schätzen wir die unterschiedlichen Rollenbilder und zahlen allen Lehrberufen den gleichen Lohn – und Lernenden ab 25 sogar etwas mehr.\n\nDie Stadt Bern engagiert sich für eine nachhaltige Berufsbildung und bietet dir vielfältige Chancen für deinen Berufseinstieg. Rund 200 Lernende absolvieren aktuell ihre Ausbildung in über 20 verschiedenen Berufen – begleitet von mehr als 300 erfahrenen Mitarbeitenden, die ihr Wissen und ihre Begeisterung weitergeben. Bei uns erlernst du nicht nur deinen Traumberuf, sondern gestaltest auch das Leben in unserer Stadt aktiv mit. Werde Teil eines Teams, das mit Freude, Verantwortung und Herz für Bern arbeitet.",
+      "descriptionByLocale": {
+        "it": "Il Competence Center Schlossmatt supporta bambini, giovani e famiglie in emergenze e situazioni stressanti. La pulizia è responsabile per la cucina/cibo e aree di pulizia. Ulteriori informazioni sono disponibili su <a href=\"https://www.schlossmatt-bern.ch\" target=\" blank\">www.schlossmatt-bern.ch\n\nCompiti:\n• Preparazione di cibi freddi e caldi\n\n• Conoscere i prodotti e la loro conservazione e lavorazione professionale – dalla consegna al servizio\n\n• Imparare e applicare le norme di igiene e protezione\n\n• Cooperazione nei lavori di pulizia e nell'organizzazione del lavaggio\n\nRequisiti\n• Completamento dell'istruzione obbligatoria\n\n• Gioia di cucina e interesse nella gestione del cibo\n\n• Senso di ordine, pulizia e alta consapevolezza dell'igiene\n\n• Apertura nel trattare con le persone e un pizzico di umorismo\n\n• Buona conoscenza orale e scritta del tedesco (livello minimo B1)\n\nOffriamo:\nDiverso e giusto\nPiù di 20 apprendisti vi aspettano con noi – dall’artigianato all’amministrazione. Come azienda di apprendistato versatile, valutiamo i diversi modelli di ruolo e paghiamo tutti gli apprendisti lo stesso salario – e gli studenti da 25 anche un po 'di più.\n\nLa città di Berna è impegnata nella formazione professionale sostenibile e vi offre una vasta gamma di opportunità per la vostra carriera. Circa 200 apprendisti stanno attualmente completando la loro formazione in oltre 20 professioni diverse – accompagnati da oltre 300 dipendenti esperti che trasmettono la loro conoscenza ed entusiasmo. Con noi non solo impari il tuo lavoro da sogno, ma anche forma attivamente la vita nella nostra città. Diventa parte di un team che lavora con gioia, responsabilità e cuore per Berna.",
+        "en": "The Competence Center Schlossmatt supports children, young people and families in emergencies and stressful situations. Housekeeping is responsible for the kitchen/food and cleaning areas. Further information can be found at <a href=\"https://www.schlossmatt-bern.ch\" target=\" blank\">www.schlossmatt-bern.ch</a><br/>\n\nTasks:\n• Preparation of cold and warm food\n\n• Getting to know products as well as their professional storage and processing – from delivery to serving\n\n• Learning and applying hygiene and protection regulations\n\n• Cooperation in cleaning work and in the washing organisation\n\nRequirements\n• Completion of compulsory education\n\n• Joy of cooking and interest in handling food\n\n• Sense of order, cleanliness and high hygiene awareness\n\n• Openness in dealing with people and a pinch of humor\n\n• Good oral and written knowledge of German (minor level B1)\n\nWe offer:\nDiverse and fair\nMore than 20 exciting apprenticeships await you with us – from crafts to administrative. As a versatile apprenticeship company, we value the different role models and pay all apprenticeships the same wage – and learners from 25 even a little more.\n\nThe city of Bern is committed to sustainable vocational training and offers you a wide range of opportunities for your career. Around 200 apprentices are currently completing their training in over 20 different professions – accompanied by more than 300 experienced employees who pass on their knowledge and enthusiasm. With us you not only learn your dream job, but also actively shape life in our city. Become part of a team that works with joy, responsibility and heart for Bern.",
+        "de": "Das Kompetenzzentrum Schlossmatt unterstützt Kinder, Jugendliche und Familien in Notlagen und Belastungssituationen. Die Hauswirtschaft ist zuständig für die Bereiche Küche/Verpflegung und Reinigung. Weitere Informationen findest du auf <a href=\"https://www.schlossmatt-bern.ch\" target=\"_blank\">www.schlossmatt-bern.ch</a>.<br/>\n\nAufgaben:\n• Zubereitung von kalten und warmen Speisen\n\n• Kennenlernen von Produkten sowie deren fachgerechter Lagerung und Verarbeitung – von der Anlieferung bis zum Servieren\n\n• Erlernen und Anwenden der Hygiene- und Schutzvorschriften\n\n• Mitarbeit bei Reinigungsarbeiten und in der Abwaschorganisation\n\nAnforderungen:\n• Abschluss der obligatorischen Schulbildung\n\n• Freude am Kochen und Interesse am Umgang mit Lebensmitteln\n\n• Sinn für Ordnung, Sauberkeit und hohes Hygienebewusstsein\n\n• Offenheit im Umgang mit Menschen und eine Prise Humor\n\n• Gute mündliche & schriftliche Deutschkenntnisse (mind. Niveau B1)\n\nWir bieten:\nVielfältig & fair\nBei uns erwarten dich über 20 spannende Lehrberufe – von handwerklich bis administrativ. Als vielseitiger Ausbildungsbetrieb schätzen wir die unterschiedlichen Rollenbilder und zahlen allen Lehrberufen den gleichen Lohn – und Lernenden ab 25 sogar etwas mehr.\n\nDie Stadt Bern engagiert sich für eine nachhaltige Berufsbildung und bietet dir vielfältige Chancen für deinen Berufseinstieg. Rund 200 Lernende absolvieren aktuell ihre Ausbildung in über 20 verschiedenen Berufen – begleitet von mehr als 300 erfahrenen Mitarbeitenden, die ihr Wissen und ihre Begeisterung weitergeben. Bei uns erlernst du nicht nur deinen Traumberuf, sondern gestaltest auch das Leben in unserer Stadt aktiv mit. Werde Teil eines Teams, das mit Freude, Verantwortung und Herz für Bern arbeitet.",
+        "fr": "Le Centre de compétences Schlossmatt soutient les enfants, les jeunes et les familles dans les situations d'urgence et de stress. L'entretien ménager est responsable des aires de cuisine/alimentation et de nettoyage. Pour de plus amples renseignements, veuillez consulter le site <a href=\"https://www.schlossmatt-bern.ch\" cible>>www.schlossmatt-bern.ch</a><br/>\n\nTâches :\n• Préparation d'aliments froids et chauds\n\n• Apprendre à connaître les produits ainsi que leur stockage et leur transformation professionnels – de la livraison au service\n\n• Apprentissage et application des règles d'hygiène et de protection\n\n• Coopération dans les travaux de nettoyage et dans l'organisation de lavage\n\nExigences\n• Achèvement de la scolarité obligatoire\n\n• Joy de cuisine et intérêt pour la manipulation des aliments\n\n• Sens de l'ordre, propreté et bonne hygiène\n\n• L'ouverture dans les rapports avec les gens et une pincée d'humour\n\n• Bonne connaissance orale et écrite de l'allemand (niveau B1)\n\nNous offrons:\nDivers et équitables\nPlus de 20 apprentissages passionnants vous attendent avec nous – de l'artisanat à l'administration. En tant qu'entreprise d'apprentissage polyvalente, nous valorisons les différents modèles et payons tous les apprentissages le même salaire – et les apprenants de 25 encore un peu plus.\n\nLa ville de Berne est engagée dans la formation professionnelle durable et vous offre un large éventail d'opportunités pour votre carrière. Environ 200 apprentis suivent actuellement leur formation dans plus de 20 professions différentes, accompagnés de plus de 300 employés expérimentés qui transmettent leurs connaissances et leur enthousiasme. Avec nous, vous apprenez non seulement votre travail de rêve, mais aussi façonner activement la vie dans notre ville. Devenez membre d'une équipe qui travaille avec joie, responsabilité et cœur pour Berne."
+      },
+      "needsRetranslation": false,
+      "location": "Bern",
+      "canton": "BE",
+      "url": "https://jobs.bern.ch/offene-stellen/lehrstelle-als-kuechenangestellte-r-eba/9b8797fe-f121-469c-aade-cbc8778404d8",
+      "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-02T10:48:08.962Z",
+      "addressLocality": "Bern",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "3008",
+      "streetAddress": "Huberstrasse 30",
+      "category": "Ospitalità",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Amministrazione Pubblica",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-31",
+      "applyUrl": "https://jobs.bern.ch/offene-stellen/lehrstelle-als-kuechenangestellte-r-eba/9b8797fe-f121-469c-aade-cbc8778404d8",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "lehrstelle-als-kuchenangestellte-r-eba-stadt-bern-bern"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "lehrstelle-als-kuchenangestellte-r-eba-stadt-bern-bern"
+        ],
+        "en": [
+          "lehrstelle-als-kuchenangestellte-r-eba-stadt-bern-bern"
+        ],
+        "fr": [
+          "lehrstelle-als-kuchenangestellte-r-eba-stadt-bern-bern"
+        ]
+      },
+      "firstSeenAt": "2026-07-31T22:06:53.113Z",
+      "salaryMin": 57500,
+      "salaryMax": 87000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 57500,
+          "maxValue": 87000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
       "id": "stadt-bern-882983a7f26a",
       "slug": "team-leader-in-service-desk-stadt-bern-bern",
       "slugByLocale": {
@@ -1602,7 +1602,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/teamleiter-in-service-desk/89e94143-e052-4049-b631-e11070be3dc8",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-01T21:56:45.314Z",
+      "crawledAt": "2026-08-02T10:48:08.959Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1680,7 +1680,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/sozialarbeiter-in-kindesschutz/b08445e2-8d32-47aa-a95e-83222100bc4d",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-01T21:56:45.313Z",
+      "crawledAt": "2026-08-02T10:48:08.957Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1757,7 +1757,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/lehrstelle-kauffrau-kaufmann-efz/08236f3e-92df-4972-8c3b-b3d57dc53f88",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-01T21:56:45.312Z",
+      "crawledAt": "2026-08-02T10:48:08.955Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1828,7 +1828,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/lehrstelle-kauffrau-kaufmann-efz-fuer-sporttalente/568bdcbd-ed0f-4a57-96e0-cb31c95dd28d",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-01T21:56:45.310Z",
+      "crawledAt": "2026-08-02T10:48:08.953Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1905,7 +1905,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/mitarbeiter-in-kasse-im-hallen-und-freibad-weyermannshaus/29134946-fe7c-401c-9145-fc0346411a20",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-01T21:56:45.308Z",
+      "crawledAt": "2026-08-02T10:48:08.949Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",

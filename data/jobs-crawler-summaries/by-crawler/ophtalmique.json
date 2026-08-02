@@ -1,16 +1,16 @@
 {
   "key": "ophtalmique",
   "label": "Hôpital ophtalmique Jules-Gonin (Fondation Asile des aveugles)",
-  "generatedAt": "2026-08-01T22:28:55.170Z",
-  "total": 7,
+  "generatedAt": "2026-08-02T11:06:04.871Z",
+  "total": 5,
   "newCount": 0,
   "updatedCount": 5,
-  "removedCount": 0,
-  "unchangedCount": 2,
-  "durationMs": 6869,
-  "avgDurationMs": 6869,
+  "removedCount": 2,
+  "unchangedCount": 0,
+  "durationMs": 7692,
+  "avgDurationMs": 7692,
   "durationHistory": [
-    6869
+    7692
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -27,7 +27,7 @@
       "url": "https://emploi.ophtalmique.ch/?page=advertisement_display&id=1872",
       "source": "Ophtalmique Dedicated Parser (eRecruit RSS + advertisement_display detail)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-01T22:28:52.657Z",
+      "crawledAt": "2026-08-02T11:06:01.644Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -65,7 +65,7 @@
       "url": "https://emploi.ophtalmique.ch/?page=advertisement_display&id=1870",
       "source": "Ophtalmique Dedicated Parser (eRecruit RSS + advertisement_display detail)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-01T22:28:52.267Z",
+      "crawledAt": "2026-08-02T11:06:01.196Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -103,7 +103,7 @@
       "url": "https://emploi.ophtalmique.ch/?page=advertisement_display&id=1849",
       "source": "Ophtalmique Dedicated Parser (eRecruit RSS + advertisement_display detail)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-01T22:28:51.880Z",
+      "crawledAt": "2026-08-02T11:06:00.754Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -141,7 +141,7 @@
       "url": "https://emploi.ophtalmique.ch/?page=advertisement_display&id=1841",
       "source": "Ophtalmique Dedicated Parser (eRecruit RSS + advertisement_display detail)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-01T22:28:51.003Z",
+      "crawledAt": "2026-08-02T11:05:59.716Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -179,7 +179,7 @@
       "url": "https://emploi.ophtalmique.ch/?page=advertisement_display&id=1842",
       "source": "Ophtalmique Dedicated Parser (eRecruit RSS + advertisement_display detail)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-01T22:28:51.493Z",
+      "crawledAt": "2026-08-02T11:06:00.309Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -205,8 +205,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "ophtalmique-6a3b96f5d193",
       "slug": "ergoterapista-con-specialista-a-bassa-visione-in-orientamento-e-mobilita-hopital-ophtalmique-jules-gonin-fondation-asile",
@@ -289,5 +288,6 @@
         "completeness": 22
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }

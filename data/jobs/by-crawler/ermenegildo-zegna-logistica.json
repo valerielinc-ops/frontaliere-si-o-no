@@ -1,6 +1,6 @@
 {
   "crawlerKey": "ermenegildo-zegna-logistica",
-  "assembledAt": "2026-08-01T22:20:00.565Z",
+  "assembledAt": "2026-08-02T10:53:15.412Z",
   "jobs": [
     {
       "url": "https://careers.zegnagroup.com/jobs/job-details?JobID=272160171&Team=231361271",
@@ -13,16 +13,16 @@
       "country": "CH",
       "description": "Posizione aperta presso Ermenegildo Zegna Group. Ruolo: Back Office Intern - Ufficio Modelli. Sede: Mendrisio, Svizzera.",
       "descriptionByLocale": {
-        "it": "Posizione aperta presso Ermenegildo Zegna Group. Ruolo: Back Office Intern - Ufficio Modelli. Sede: Mendrisio, Svizzera.",
-        "en": "Open location at Ermenegildo Zegna Group. Role: Back Office Intern - Model Office. Location: Mendrisio, Switzerland.",
-        "de": "Offener Standort bei Ermenegildo Zegna Group. Rolle: Back Office Intern - Model Office. Standort: Mendrisio, Schweiz.",
-        "fr": "Ouvrir l'emplacement au groupe Ermenegildo Zegna. Rôle : Stagiaire du back office - Model Office. Lieu: Mendrisio, Suisse."
+        "it": "Posizione aperta\nPosizione aperta presso Ermenegildo Zegna Group.\n\nRuolo\nRuolo: Back Office Intern - Ufficio Modelli.\n\nSede\nSede: Mendrisio, Svizzera.\n\nDescrizione\n- Posizione aperta presso Ermenegildo Zegna Group.\n- Ruolo: Back Office Intern - Ufficio Modelli.\n- Sede: Mendrisio, Svizzera.\n\nContatto\n(aggiungere contatto)",
+        "en": "Open Position\nOpen position at the Ermenegildo Zegna Group.\n\nRole\nRole: Back Office Intern - Pattern Department.\n\nLocation\nLocation: Mendrisio, Switzerland.\n\nDescription\n- Open position at Ermenegildo Zegna Group.\n- Role: Back Office Intern - Patternmaking Department.\n- Location: Mendrisio, Switzerland.\n\nContact\n(add contact)",
+        "de": "Offene Stelle\nOffene Stelle bei der Ermenegildo Zegna Group.\n\nPosition\nPosition: Back-Office-Praktikant – Modellabteilung.\n\nStandort\nStandort: Mendrisio, Schweiz.\n\nBeschreibung\n- Offene Stelle bei der Ermenegildo Zegna Group.\n- Position: Back-Office-Praktikant – Modellabteilung.\n- Standort: Mendrisio, Schweiz.\n\nKontakt\n(Kontakt hinzufügen)",
+        "fr": "Poste à pourvoir\nPoste à pourvoir au sein du groupe Ermenegildo Zegna.\n\nFonction\nFonction : Stagiaire Back-Office - Bureau des modèles.\n\nLieu de travail\nLieu de travail : Mendrisio, Suisse.\n\nDescription\n- Poste à pourvoir au sein du groupe Ermenegildo Zegna.\n- Poste : Stagiaire Back-Office - Service des modèles.\n- Lieu : Mendrisio, Suisse.\n\nContact\n(ajouter les coordonnées)"
       },
       "titleByLocale": {
-        "it": "Back Office Tirocinante - Ufficio Modelli",
-        "en": "Back Office Intern - Model Office",
-        "de": "Back Office Praktikant - Ufficio Modelli",
-        "fr": "Back Office Stagiaire - Ufficio Modelli"
+        "it": "Back Office Intern - Ufficio Modelli",
+        "en": "Back Office Intern - Ufficio Modelli",
+        "de": "Back Office-Praktikant",
+        "fr": "Stage Back Office"
       },
       "slug": "back-office-intern-ufficio-modelli-zegna",
       "slugByLocale": {
@@ -46,7 +46,6 @@
       },
       "sourceLang": "it",
       "crawledAt": "",
-      "needsRetranslation": true,
       "id": "ermenegildo-zegna-logistica-877a68c644c3",
       "salaryMin": 41600,
       "salaryMax": 63000,
@@ -143,7 +142,8 @@
       },
       "previousSlugs": [
         "junior-brand-control-pricing-specialist-zegna"
-      ]
+      ],
+      "needsRetranslation": true
     }
   ]
 }

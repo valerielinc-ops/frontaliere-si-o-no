@@ -1,6 +1,6 @@
 {
   "crawlerKey": "hrc",
-  "assembledAt": "2026-08-01T21:57:20.484Z",
+  "assembledAt": "2026-08-02T10:49:03.592Z",
   "jobs": [
     {
       "id": "hrc-d31f65cdb6ba",
@@ -34,7 +34,7 @@
       "url": "https://emploi.hopitalrivierachablais.ch/nos-offres/chef-dunite-administrative-hf-a-80-100",
       "source": "HRC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-01T21:57:18.514Z",
+      "crawledAt": "2026-08-02T10:49:01.102Z",
       "addressLocality": "Rennaz",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -58,7 +58,6 @@
         "klinikleiter-oder-assistenzleiter-klinik-h-f-bei-80-100-hopital-riviera-chablais-hrc-rennaz",
         "chef-de-clinique-ou-chef-de-clinique-adjoint-h-f-a-80-100-hrc-rennaz",
         "chef-de-clinique-ou-chef-de-clinique-adjoint-m-w-d-a-80-100-hopital-riviera-chablais-hrc-rennaz",
-        "capo-unita-amministrativa-h-f-all-80-100-hopital-riviera-chablais-hrc-rennaz",
         "capo-unita-pulizia-igiene-e-ambiente-m-f-al-100-hopital-riviera-chablais-hrc-rennaz",
         "head-of-unit-hygiene-and-environment-100-h-f-hopital-riviera-chablais-hrc-rennaz",
         "leiter-der-abteilung-hygiene-und-umwelt-100-h-f-hopital-riviera-chablais-hrc-rennaz",
@@ -66,7 +65,8 @@
         "capo-unita-immobiliare-h-f-a-80-100-hopital-riviera-chablais-hrc-rennaz",
         "head-of-real-estate-unit-h-f-at-80-100-hopital-riviera-chablais-hrc-rennaz",
         "leiter-der-real-estate-unit-h-f-bei-80-100-hopital-riviera-chablais-hrc-rennaz",
-        "chef-d-unite-immobilier-h-f-a-80-100-hrc-rennaz"
+        "chef-d-unite-immobilier-h-f-a-80-100-hrc-rennaz",
+        "capo-unita-amministrativa-h-f-all-80-100-hopital-riviera-chablais-hrc-rennaz"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -76,7 +76,6 @@
           "klinikleiter-oder-assistenzleiter-klinik-h-f-bei-80-100-hopital-riviera-chablais-hrc-rennaz",
           "chef-de-clinique-ou-chef-de-clinique-adjoint-h-f-a-80-100-hrc-rennaz",
           "chef-de-clinique-ou-chef-de-clinique-adjoint-m-w-d-a-80-100-hopital-riviera-chablais-hrc-rennaz",
-          "capo-unita-amministrativa-h-f-all-80-100-hopital-riviera-chablais-hrc-rennaz",
           "capo-unita-pulizia-igiene-e-ambiente-m-f-al-100-hopital-riviera-chablais-hrc-rennaz",
           "head-of-unit-hygiene-and-environment-100-h-f-hopital-riviera-chablais-hrc-rennaz",
           "leiter-der-abteilung-hygiene-und-umwelt-100-h-f-hopital-riviera-chablais-hrc-rennaz",
@@ -84,7 +83,8 @@
           "capo-unita-immobiliare-h-f-a-80-100-hopital-riviera-chablais-hrc-rennaz",
           "head-of-real-estate-unit-h-f-at-80-100-hopital-riviera-chablais-hrc-rennaz",
           "leiter-der-real-estate-unit-h-f-bei-80-100-hopital-riviera-chablais-hrc-rennaz",
-          "chef-d-unite-immobilier-h-f-a-80-100-hrc-rennaz"
+          "chef-d-unite-immobilier-h-f-a-80-100-hrc-rennaz",
+          "capo-unita-amministrativa-h-f-all-80-100-hopital-riviera-chablais-hrc-rennaz"
         ],
         "en": [
           "chef-d-unite-administrative-h-f-a-80-100-hrc-rennaz",
@@ -149,7 +149,7 @@
       "url": "https://emploi.hopitalrivierachablais.ch/nos-offres/assistant-en-soins-et-sante-communautaire-assc-hf-a-80-100",
       "source": "HRC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-01T21:57:18.496Z",
+      "crawledAt": "2026-08-02T10:49:01.079Z",
       "addressLocality": "Rennaz",
       "addressRegion": "VD",
       "addressCountry": "CH",
