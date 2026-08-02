@@ -1,6 +1,6 @@
 {
   "crawlerKey": "guess-europe",
-  "assembledAt": "2026-08-01T22:07:20.576Z",
+  "assembledAt": "2026-08-02T10:54:02.075Z",
   "jobs": [
     {
       "title": "Buyer Administrator Factory Intern",
@@ -633,7 +633,8 @@
         "fr": [
           "sales-associate-mall-of-switzerland-ebikon-50pt-guess-europe-sagl-ebikon-ticino-switzerland"
         ]
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "title": "Stock Associate Aubonne (100 PT)",
@@ -707,7 +708,8 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-09T22:38:35.232Z"
+      "firstSeenAt": "2026-07-09T22:38:35.232Z",
+      "needsRetranslation": true
     }
   ]
 }
