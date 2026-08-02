@@ -214,14 +214,86 @@ describe('pull-articles-api: hero-image manifest', () => {
     expect(out).toContain('rss.xml: 12 items');
   });
 
-  it('fails when the artifacts are absent but --require-new is set', async () => {
+  // The two artifacts have OPPOSITE absence semantics under --require-new, and
+  // asserting only "absence fails" hid that: the candidates are derived from the
+  // corpus and emitted on every publish (empty <urlset> included), so missing
+  // means a broken publisher; the manifest is emitted only when nanako holds hero
+  // images, because this script refuses one listing zero. Requiring both is
+  // unsatisfiable — nanako can neither publish an empty manifest nor omit it.
+  it('fails when the news candidates are absent but --require-new is set', async () => {
     routes = baseRoutes();
     const dir = makeCheckout();
 
     const { code, out } = await run(dir, ['--require-new']);
 
     expect(code).toBe(1);
-    expect(out).toContain('images-manifest.json is absent but --require-new is set');
+    expect(out).toContain('sitemap-news-candidates.xml is absent but --require-new is set');
+  });
+
+  it('tolerates an absent image manifest under --require-new, when candidates are published', async () => {
+    routes = { ...baseRoutes(), 'sitemap-news-candidates.xml': urlset([]) };
+    const dir = makeCheckout();
+
+    const { code, out } = await run(dir, ['--require-new']);
+
+    expect(code).toBe(0);
+    expect(out).toContain('images-manifest.json: not published');
+    // ...and it must NOT claim the flag would make this fatal, because it does not.
+    expect(out).not.toContain('images-manifest.json is absent but --require-new is set');
+  });
+
+  it('pulls the border-wait ranking snapshot into public/data', async () => {
+    routes = {
+      ...baseRoutes(),
+      'border-wait-ranking.json': JSON.stringify({
+        ranking: [{ slug: 'chiasso', avgMinutes: 12.5 }],
+      }),
+    };
+    const dir = makeCheckout();
+
+    const { code } = await run(dir);
+
+    expect(code).toBe(0);
+    const written = JSON.parse(readPub(dir, 'data/border-wait-ranking.json'));
+    expect(written.ranking).toHaveLength(1);
+  });
+
+  it('refuses a ranking snapshot with zero crossings rather than blanking the chart', async () => {
+    routes = { ...baseRoutes(), 'border-wait-ranking.json': JSON.stringify({ ranking: [] }) };
+    const dir = makeCheckout();
+
+    const { code, out } = await run(dir);
+
+    expect(code).toBe(1);
+    expect(out).toContain('carries no ranking entries');
+  });
+
+  it('tolerates an absent ranking snapshot under --require-new', async () => {
+    // The ranking producer cuts over LATER than the publisher, so absence here
+    // is a stage of the migration, not a broken publish.
+    routes = { ...baseRoutes(), 'sitemap-news-candidates.xml': urlset([]) };
+    const dir = makeCheckout();
+
+    const { code } = await run(dir, ['--require-new']);
+
+    expect(code).toBe(0);
+  });
+
+  it('still refuses a PRESENT but zero-image manifest under --require-new', async () => {
+    // The tolerance above is for absence only. An emitted-but-empty manifest is
+    // the publisher-died-mid-write case and stays a refusal, which is precisely
+    // why absence has to be the way nanako says "no images yet".
+    routes = {
+      ...baseRoutes(),
+      'sitemap-news-candidates.xml': urlset([]),
+      'images-manifest.json': JSON.stringify({ images: [] }),
+    };
+    const dir = makeCheckout();
+
+    const { code, out } = await run(dir, ['--require-new']);
+
+    expect(code).toBe(1);
+    expect(out).toContain('lists zero images');
   });
 
   it('downloads a listed image and writes it under public/images/blog', async () => {

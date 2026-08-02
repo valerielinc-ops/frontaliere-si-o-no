@@ -148,7 +148,12 @@ jobs:
         # Rewrites the 4 blog-body files of the stable `eventi-weekend-ticino`
         # article with the current weekend's events (no re-registration, no RSS
         # churn). Soft-fail: a refresh hiccup must never block the events commit.
-        run: node scripts/generate-events-digest-article.mjs || echo "::warning::digest article refresh skipped"
+        # DISABLED AT CUTOVER (#4974 item 3, §5.7): the digest now runs in
+        # nanakokyobashi-rgb/frontaliere-articles, which fetches the dataset the
+        # steps above publish. Everything ELSE in this workflow stays — the
+        # crawling is a site data pipeline (§0.2), and nanako now DEPENDS on it
+        # continuing to write public/data/events.json.
+        run: echo "digest refresh moved to the articles repo — see refresh-events-digest.yml there"
 
       - name: Gate — events dataset + refreshed body must keep the suite green
         id: gate
@@ -175,7 +180,13 @@ jobs:
           # and a path that IS a file symlink (seo-blog-5.ts, blog-articles-data.ts)
           # stages nothing at all while still exiting 0 — which would silently
           # drop the dateModified/updatedAt bumps this job just wrote.
+          # public/data/events.json is the SAME dataset, written in the same call
+          # by assemble-events-dataset.mjs. It is staged because `data/` is not
+          # deployed, so without the published copy the events digest — which now
+          # runs in the articles repo — has no way to read this at all (#4974
+          # item 3). Same both-places pattern as border-wait-averages.json.
           node scripts/lib/git-add-resolved.mjs data/events.json \
+            public/data/events.json \
             data/events/by-source/tio-agenda.json \
             data/events/by-source/guidle.json \
             data/events/by-source/myswitzerland.json \
