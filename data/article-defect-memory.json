@@ -1,9 +1,6 @@
 {
   "schemaVersion": 1,
-
-  "updatedAt": "2026-08-02T05:30:49.196Z",
-  "updatedAt": "2026-08-02T06:49:32.669Z",
-
+  "updatedAt": "2026-08-02T08:56:45.854Z",
   "entities": {
     "AASTI": {
       "status": "suspect",
@@ -175,8 +172,8 @@
       "statusSource": "auto",
       "statusAt": "2026-07-29T06:26:58.011Z",
       "firstSeen": "2026-07-29T06:26:58.011Z",
-      "lastSeen": "2026-08-02T06:49:32.669Z",
-      "seen": 71,
+      "lastSeen": "2026-08-02T08:56:45.854Z",
+      "seen": 72,
       "unsupportedSightings": 4,
       "unsupportedRuns": [
         "30722418922",
@@ -184,7 +181,7 @@
         "30595579311",
         "30489213850"
       ],
-      "supportedSightings": 47,
+      "supportedSightings": 48,
       "names": [
         "Ufficio cantonale delle contribuzioni",
         "Amministrazione federale delle contribuzioni",
@@ -200,18 +197,18 @@
       ],
       "evidence": [
         {
+          "at": "2026-08-02T08:56:45.854Z",
+          "runId": "30738771998",
+          "articleId": "unknown",
+          "support": "present",
+          "name": "Amministrazione Federale delle Contribuzioni"
+        },
+        {
           "at": "2026-08-02T06:49:32.669Z",
           "runId": "30733287319",
           "articleId": "unknown",
           "support": "present",
           "name": "Ufficio cantonale delle contribuzioni"
-        },
-        {
-          "at": "2026-08-02T02:12:09.277Z",
-          "runId": "30727396854",
-          "articleId": "confronto-imposte-cantonali-2026",
-          "support": "present",
-          "name": "Amministrazione Federale delle Contribuzioni"
         },
         {
           "at": "2026-08-02T02:12:09.277Z",
@@ -606,21 +603,21 @@
       "statusSource": "auto",
       "statusAt": "2026-07-29T06:26:58.011Z",
       "firstSeen": "2026-07-29T06:26:58.011Z",
-      "lastSeen": "2026-08-02T05:30:49.196Z",
-      "seen": 58,
+      "lastSeen": "2026-08-02T07:50:36.855Z",
+      "seen": 59,
       "unsupportedSightings": 3,
       "unsupportedRuns": [
         "30724889385",
         "30722418922",
         "30685261901"
       ],
-      "supportedSightings": 43,
+      "supportedSightings": 44,
       "names": [
+        "Agenzia delle Entrate, il MEF e l'Ufficio Federale di Statistica",
         "Agenzia delle Entrate, il MEF, e l'Ufficio Federale di Statistica",
         "Ufficio Federale di Statistica",
         "Agenzia delle Entrate, la MEF, l'Ufficio Federale di Statistica",
-        "Ufficio federale di statistica",
-        "Ufficio Federale delle Statistiche"
+        "Ufficio federale di statistica"
       ],
       "recentKeys": [
         "30724889385:unknown",
@@ -628,6 +625,13 @@
         "30685261901:unknown"
       ],
       "evidence": [
+        {
+          "at": "2026-08-02T07:50:36.855Z",
+          "runId": "30736687890",
+          "articleId": "unknown",
+          "support": "present",
+          "name": "Agenzia delle Entrate, il MEF e l'Ufficio Federale di Statistica"
+        },
         {
           "at": "2026-08-02T05:30:49.196Z",
           "runId": "30732422743",
@@ -675,13 +679,6 @@
           "runId": "30727396854",
           "articleId": "confronto-imposte-cantonali-2026",
           "support": "present",
-          "name": "Ufficio federale di statistica"
-        },
-        {
-          "at": "2026-08-02T01:17:44.924Z",
-          "runId": "30724889385",
-          "articleId": "unknown",
-          "support": "absent",
           "name": "Ufficio federale di statistica"
         }
       ]
@@ -6640,11 +6637,11 @@
       "statusSource": "auto",
       "statusAt": "2026-07-29T06:26:58.011Z",
       "firstSeen": "2026-07-29T06:26:58.011Z",
-      "lastSeen": "2026-08-02T02:12:09.277Z",
-      "seen": 46,
+      "lastSeen": "2026-08-02T07:50:36.855Z",
+      "seen": 47,
       "unsupportedSightings": 0,
       "unsupportedRuns": [],
-      "supportedSightings": 33,
+      "supportedSightings": 34,
       "names": [
         "Ufficio Regionale della Disoccupazione",
         "Ufficio Regionale di Collocamento",
@@ -6654,6 +6651,13 @@
       ],
       "recentKeys": [],
       "evidence": [
+        {
+          "at": "2026-08-02T07:50:36.855Z",
+          "runId": "30736687890",
+          "articleId": "unknown",
+          "support": "present",
+          "name": "Uffici regionali di collocamento"
+        },
         {
           "at": "2026-08-02T02:12:09.277Z",
           "runId": "30727396854",
@@ -6688,13 +6692,6 @@
           "articleId": "unknown",
           "support": "present",
           "name": "Uffici regionali di collocamento"
-        },
-        {
-          "at": "2026-08-01T22:09:25.271Z",
-          "runId": "30719344144",
-          "articleId": "unknown",
-          "support": "present",
-          "name": "Ufficio regionale di collocamento"
         },
         {
           "at": "2026-08-01T22:09:25.271Z",
