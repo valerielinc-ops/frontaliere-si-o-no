@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-08-01T23:15:03.578Z",
+  "updatedAt": "2026-08-02T00:13:41.684Z",
   "entities": {
     "AASTI": {
       "status": "suspect",
@@ -172,8 +172,8 @@
       "statusSource": "auto",
       "statusAt": "2026-07-29T06:26:58.011Z",
       "firstSeen": "2026-07-29T06:26:58.011Z",
-      "lastSeen": "2026-08-01T23:15:03.578Z",
-      "seen": 51,
+      "lastSeen": "2026-08-02T00:13:41.684Z",
+      "seen": 53,
       "unsupportedSightings": 4,
       "unsupportedRuns": [
         "30722418922",
@@ -181,7 +181,7 @@
         "30595579311",
         "30489213850"
       ],
-      "supportedSightings": 27,
+      "supportedSightings": 29,
       "names": [
         "Amministrazione federale delle contribuzioni",
         "Amministrazione Federale delle Contribuzioni",
@@ -196,6 +196,20 @@
         "30489213850:unknown"
       ],
       "evidence": [
+        {
+          "at": "2026-08-02T00:13:41.684Z",
+          "runId": "30722985655",
+          "articleId": "unknown",
+          "support": "present",
+          "name": "Amministrazione Federale delle Contribuzioni"
+        },
+        {
+          "at": "2026-08-02T00:13:41.684Z",
+          "runId": "30722985655",
+          "articleId": "unknown",
+          "support": "present",
+          "name": "Amministrazione Federale delle Contribuzioni"
+        },
         {
           "at": "2026-08-01T23:15:03.578Z",
           "runId": "30722418922",
@@ -237,20 +251,6 @@
           "articleId": "unknown",
           "support": "present",
           "name": "Agenzia delle Entrate e l'Amministrazione Federale delle Contribuzioni"
-        },
-        {
-          "at": "2026-08-01T06:10:05.052Z",
-          "runId": "30685261901",
-          "articleId": "unknown",
-          "support": "present",
-          "name": "Ufficio Cantonale delle Contribuzioni"
-        },
-        {
-          "at": "2026-08-01T06:10:05.052Z",
-          "runId": "30685261901",
-          "articleId": "unknown",
-          "support": "absent",
-          "name": "Agenzia federale delle contribuzioni"
         }
       ]
     },
@@ -4326,20 +4326,27 @@
       "statusSource": "auto",
       "statusAt": "2026-07-29T06:26:58.011Z",
       "firstSeen": "2026-07-29T06:26:58.011Z",
-      "lastSeen": "2026-08-01T17:51:51.486Z",
-      "seen": 18,
+      "lastSeen": "2026-08-02T00:13:41.684Z",
+      "seen": 19,
       "unsupportedSightings": 0,
       "unsupportedRuns": [],
-      "supportedSightings": 7,
+      "supportedSightings": 8,
       "names": [
+        "Ufficio federale delle dogane e della sicurezza",
         "Ufficio federale delle dogane e della sicurezza dei confini",
         "Ufficio di registro dell'Ufficio di Stato per l'immigrazione",
         "Ufficio Cantonale della Migrazione",
-        "Ufficio della migrazione del Canton Ticino",
-        "Ufficio federale delle migrazioni"
+        "Ufficio della migrazione del Canton Ticino"
       ],
       "recentKeys": [],
       "evidence": [
+        {
+          "at": "2026-08-02T00:13:41.684Z",
+          "runId": "30722985655",
+          "articleId": "unknown",
+          "support": "present",
+          "name": "Ufficio federale delle dogane e della sicurezza"
+        },
         {
           "at": "2026-08-01T17:51:51.486Z",
           "runId": "30709065471",
@@ -4388,13 +4395,6 @@
           "articleId": "lavoro-part-time-svizzera-diritti",
           "support": "present",
           "name": "Segreteria di Stato della migrazione"
-        },
-        {
-          "at": "2026-07-29T06:26:58.011Z",
-          "runId": "corpus-scan",
-          "articleId": "ticinese-frontalieri",
-          "support": "unknown",
-          "name": "Ufficio federale delle migrazioni"
         }
       ]
     },
@@ -6826,20 +6826,27 @@
       "statusSource": "auto",
       "statusAt": "2026-07-29T06:26:58.011Z",
       "firstSeen": "2026-07-29T06:26:58.011Z",
-      "lastSeen": "2026-08-01T16:15:40.032Z",
-      "seen": 10,
+      "lastSeen": "2026-08-02T00:13:41.684Z",
+      "seen": 11,
       "unsupportedSightings": 0,
       "unsupportedRuns": [],
-      "supportedSightings": 4,
+      "supportedSightings": 5,
       "names": [
+        "Ufficio federale delle dogane",
         "Ufficio Cantonale della Popolazione",
         "Ufficio federale di statistica",
         "Ufficio Cantonale di Statistica",
-        "Ufficio cantonale delle statistiche",
-        "Ufficio di statistica del Cantone"
+        "Ufficio cantonale delle statistiche"
       ],
       "recentKeys": [],
       "evidence": [
+        {
+          "at": "2026-08-02T00:13:41.684Z",
+          "runId": "30722985655",
+          "articleId": "unknown",
+          "support": "present",
+          "name": "Ufficio federale delle dogane"
+        },
         {
           "at": "2026-08-01T16:15:40.032Z",
           "runId": "30705553845",
@@ -6888,13 +6895,6 @@
           "articleId": "frontalieri-ticino-diminuzione",
           "support": "unknown",
           "name": "Ufficio cantonale di statistica"
-        },
-        {
-          "at": "2026-07-29T06:26:58.011Z",
-          "runId": "corpus-scan",
-          "articleId": "divario-salariale-frontalieri-ticino-2026",
-          "support": "unknown",
-          "name": "Ufficio di statistica del Canton Ticino"
         }
       ]
     },
