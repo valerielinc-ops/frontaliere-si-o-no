@@ -175,7 +175,13 @@ jobs:
           # and a path that IS a file symlink (seo-blog-5.ts, blog-articles-data.ts)
           # stages nothing at all while still exiting 0 — which would silently
           # drop the dateModified/updatedAt bumps this job just wrote.
+          # public/data/events.json is the SAME dataset, written in the same call
+          # by assemble-events-dataset.mjs. It is staged because `data/` is not
+          # deployed, so without the published copy the events digest — which now
+          # runs in the articles repo — has no way to read this at all (#4974
+          # item 3). Same both-places pattern as border-wait-averages.json.
           node scripts/lib/git-add-resolved.mjs data/events.json \
+            public/data/events.json \
             data/events/by-source/tio-agenda.json \
             data/events/by-source/guidle.json \
             data/events/by-source/myswitzerland.json \
