@@ -1,16 +1,16 @@
 {
   "key": "rieter",
   "label": "Rieter",
-  "generatedAt": "2026-08-01T21:58:31.198Z",
-  "total": 4,
+  "generatedAt": "2026-08-02T10:49:16.423Z",
+  "total": 3,
   "newCount": 0,
   "updatedCount": 3,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 6633,
-  "avgDurationMs": 6633,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 6490,
+  "avgDurationMs": 6490,
   "durationHistory": [
-    6633
+    6490
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -26,7 +26,7 @@
       "url": "https://live.solique.ch/rieter/en/jobs/Application-Expert-CAD-PLM-100-wmd---4047046",
       "source": "Rieter Dedicated Parser (Solique)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-01T21:58:26.473Z",
+      "crawledAt": "2026-08-02T10:49:12.680Z",
       "addressLocality": "Winterthur",
       "addressRegion": "Zürich",
       "streetAddress": "Klosterstrasse 20",
@@ -64,7 +64,7 @@
       "url": "https://live.solique.ch/rieter/en/jobs/Senior-System-Engineer--4046390",
       "source": "Rieter Dedicated Parser (Solique)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-01T21:58:27.057Z",
+      "crawledAt": "2026-08-02T10:49:13.346Z",
       "addressLocality": "Winterthur",
       "addressRegion": "Zürich",
       "streetAddress": "Klosterstrasse 20",
@@ -102,7 +102,7 @@
       "url": "https://live.solique.ch/rieter/en/jobs/Application-Engineer-Technology-Preparation--4042993",
       "source": "Rieter Dedicated Parser (Solique)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-01T21:58:25.894Z",
+      "crawledAt": "2026-08-02T10:49:12.009Z",
       "addressLocality": "Winterthur",
       "addressRegion": "Zürich",
       "streetAddress": "Klosterstrasse 20",
@@ -129,8 +129,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "rieter-5cbc6f09de36",
       "slug": "sachbearbeiter-in-export-e-sales-administration-80-100-rieter-pfaffikon",
@@ -172,5 +171,6 @@
         "completeness": 19
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
