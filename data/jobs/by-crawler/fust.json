@@ -3491,12 +3491,9 @@
         "it": [
           "social-media-manager-m-w-d-80-100-coop-genossenschaft-basel-stadt-tr0124",
           "social-media-manager-w-m-d-80-100-coop-genossenschaft-basel",
-          "social-media-manager-m-w-d-80-100-coop-basel-stadt",
-          "social-media-manager-m-w-d-80-100-coop-basel-stadt-tr0124",
-          "social-media-manager-f-m-d-80-100-coop-genossenschaft-basel-basel-stadt"
+          "social-media-manager-m-w-d-80-100-coop-basel-stadt"
         ],
         "en": [
-          "social-media-manager-m-w-d-80-100-coop-basel-stadt-tr0124",
           "social-media-manager-m-w-d-80-100-coop-genossenschaft-basel-stadt-tr0124"
         ],
         "de": [
@@ -3511,8 +3508,7 @@
         "social-media-manager-m-w-d-80-100-coop-genossenschaft-basel-stadt-tr0124",
         "social-media-manager-w-m-d-80-100-coop-genossenschaft-basel",
         "social-media-manager-m-w-d-80-100-coop-basel-stadt",
-        "social-media-manager-m-w-d-80-100-coop-basel-stadt-tr0124",
-        "social-media-manager-f-m-d-80-100-coop-genossenschaft-basel-basel-stadt"
+        "social-media-manager-m-w-d-80-100-coop-basel-stadt-tr0124"
       ],
       "salaryMin": 85500,
       "salaryMax": 129500
@@ -3639,22 +3635,15 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "facility-technician-m-w-d-coop-genossenschaft-frutigen-bern",
-          "facility-technician-m-w-d-coop-genossenschaft-frutigen-bern-4xmp5j",
-          "tecnico-di-facility-m-f-d-coop-genossenschaft-frutigen-bern",
-          "tecnico-di-facility-m-f-d-coop-genossenschaft-frutigen-bern",
-          "tecnico-di-facility-m-f-d-coop-genossenschaft-frutigen-bern"
+          "facility-technician-m-w-d-coop-genossenschaft-frutigen-bern"
         ],
         "en": [
-          "facility-technician-m-w-d-bergquellfisch-frutigen-bern-4xmp5j",
-          "facility-technician-m-w-d-coop-genossenschaft-frutigen-bern-4xmp5j"
+          "facility-technician-m-w-d-bergquellfisch-frutigen-bern-4xmp5j"
         ]
       },
       "previousSlugs": [
         "facility-technician-m-w-d-coop-genossenschaft-frutigen-bern",
-        "facility-technician-m-w-d-bergquellfisch-frutigen-bern-4xmp5j",
-        "facility-technician-m-w-d-coop-genossenschaft-frutigen-bern-4xmp5j",
-        "tecnico-di-facility-m-f-d-coop-genossenschaft-frutigen-bern"
+        "facility-technician-m-w-d-bergquellfisch-frutigen-bern-4xmp5j"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -10186,7 +10175,6 @@
           "kochin-koch-m-w-d-coop-genossenschaft-biel-bern-v0jq63",
           "cook-cook-f-m-d-coop-genossenschaft-biel-3c0095",
           "cook-cook-f-m-d-coop-genossenschaft-biel-3c0095",
-          "cook-cook-f-m-d-coop-genossenschaft-biel-bern",
           "kochin-koch-m-w-d-coop-genossenschaft-biel-bern"
         ],
         "fr": [
@@ -10199,8 +10187,7 @@
         "kochin-koch-m-w-d-coop-genossenschaft-biel-bern-v0jq63",
         "cucinare-cucinare-f-m-d-coop-genossenschaft-biel-3c0095",
         "cook-cook-f-m-d-coop-genossenschaft-biel-3c0095",
-        "cuire-cuire-f-m-d-coop-genossenschaft-biel-3c0095",
-        "cook-cook-f-m-d-coop-genossenschaft-biel-bern"
+        "cuire-cuire-f-m-d-coop-genossenschaft-biel-3c0095"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -16092,7 +16079,6 @@
         "en": [
           "kochin-koch-m-w-d-coop-genossenschaft-bern-7z9gmc",
           "cook-cook-f-m-d-coop-genossenschaft-bern",
-          "cook-cook-f-m-d-coop-genossenschaft-bern-a8c9d4",
           "kochin-koch-m-w-d-coop-genossenschaft-bern"
         ],
         "fr": [
@@ -16109,8 +16095,7 @@
         "cucinare-cucinare-f-m-d-coop-genossenschaft-bern",
         "cook-cook-f-m-d-coop-genossenschaft-bern",
         "kochin-koch-m-w-d-coop-genossenschaft-bern-irdhh4",
-        "cuire-cuire-f-m-d-coop-genossenschaft-bern",
-        "cook-cook-f-m-d-coop-genossenschaft-bern-a8c9d4"
+        "cuire-cuire-f-m-d-coop-genossenschaft-bern"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -18221,7 +18206,6 @@
         ],
         "en": [
           "kochin-koch-m-w-d-coop-genossenschaft-winterthur-zurich-9qlmku",
-          "cook-cook-f-m-d-coop-genossenschaft-winterthur",
           "kochin-koch-m-w-d-coop-genossenschaft-winterthur-zurich"
         ],
         "fr": [
@@ -18231,8 +18215,7 @@
       "previousSlugs": [
         "kochin-koch-m-w-d-coop-genossenschaft-winterthur-zurich",
         "kochin-koch-m-w-d-coop-ristorante-winterthur-zurich",
-        "kochin-koch-m-w-d-coop-genossenschaft-winterthur-zurich-9qlmku",
-        "cook-cook-f-m-d-coop-genossenschaft-winterthur"
+        "kochin-koch-m-w-d-coop-genossenschaft-winterthur-zurich-9qlmku"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -20279,7 +20262,6 @@
           "cook-m-w-d-coop-genossenschaft-aarau-x72egi",
           "kochin-koch-m-w-d-coop-genossenschaft-aarau-aargau-ddg6am",
           "cook-cook-f-m-d-coop-genossenschaft-aarau-aargau",
-          "cook-cook-f-m-d-coop-genossenschaft-aarau",
           "kochin-koch-m-w-d-coop-genossenschaft-aarau-aargau"
         ],
         "de": [
@@ -20315,8 +20297,7 @@
         "cook-cook-f-m-d-coop-genossenschaft-aarau-aargau",
         "cuire-cuire-f-m-d-coop-genossenschaft-aarau-aargau",
         "cucinare-cucinare-f-m-d-coop-genossenschaft-aarau-aargau",
-        "kochin-koch-m-w-d-coop-genossenschaft-aarau-aargau",
-        "cook-cook-f-m-d-coop-genossenschaft-aarau"
+        "kochin-koch-m-w-d-coop-genossenschaft-aarau-aargau"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -21019,7 +21000,6 @@
           "kochin-koch-m-w-d-coop-genossenschaft-st-gallen-sankt-gallen-uo8mso",
           "cook-cook-f-m-d-coop-genossenschaft-st-gallen-sankt-gallen",
           "cook-cook-f-m-d-coop-genossenschaft-st-gallen-edf62c",
-          "cook-cook-f-m-d-coop-genossenschaft-st-gallen",
           "kochin-koch-m-w-d-coop-genossenschaft-st-gallen-sankt-gallen"
         ],
         "de": [
@@ -21056,8 +21036,7 @@
         "cuire-cuire-f-m-d-coop-genossenschaft-st-gallen-edf62c",
         "kochin-koch-m-w-d-coop-st-gallen-sankt-gallen",
         "cucinare-cucinare-f-m-d-coop-genossenschaft-st-gallen-edf62c",
-        "cook-cook-f-m-d-coop-genossenschaft-st-gallen-edf62c",
-        "cook-cook-f-m-d-coop-genossenschaft-st-gallen"
+        "cook-cook-f-m-d-coop-genossenschaft-st-gallen-edf62c"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -22750,7 +22729,6 @@
         ],
         "en": [
           "kochin-koch-m-w-d-coop-genossenschaft-volketswil-zurich-womu86",
-          "cook-cook-f-m-d-coop-genossenschaft-volketswil",
           "kochin-koch-m-w-d-coop-genossenschaft-volketswil-zurich"
         ],
         "fr": [
@@ -22760,8 +22738,7 @@
       "previousSlugs": [
         "kochin-koch-m-w-d-coop-genossenschaft-volketswil-zurich",
         "kochin-koch-m-w-d-coop-genossenschaft-volketswil-zurich-womu86",
-        "kochin-koch-m-w-d-coop-ristorante-volketswil-zurich",
-        "cook-cook-f-m-d-coop-genossenschaft-volketswil"
+        "kochin-koch-m-w-d-coop-ristorante-volketswil-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,

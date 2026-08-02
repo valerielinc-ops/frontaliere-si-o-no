@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "prada-3ecf5b122edd",
-      "slug": "stock-manager-wynn-las-vegas-prada-group-nearest-major-market-las-vegas",
+      "slug": "direttore-generale-wynn-las-vegas-prada-group-nearest-major-market-las-vegas",
       "slugByLocale": {
         "en": "stock-manager-wynn-las-vegas-prada-group-nearest-major-market-las-vegas",
-        "it": "stock-manager-wynn-las-vegas-prada-group-nearest-major-market-las-vegas",
-        "de": "stock-manager-wynn-las-vegas-prada-group-nearest-major-market-las-vegas",
-        "fr": "stock-manager-wynn-las-vegas-prada-group-nearest-major-market-las-vegas"
+        "it": "direttore-generale-wynn-las-vegas-prada-group-nearest-major-market-las-vegas",
+        "de": "aktienmanager-wynn-las-vegas-prada-group-nearest-major-market-las-vegas",
+        "fr": "directeur-des-stocks-wynn-las-vegas-prada-group-nearest-major-market-las-vegas"
       },
       "company": "Prada Group",
       "companyKey": "prada",
@@ -60,16 +60,30 @@
       },
       "country": "CH",
       "addressRegion": "TI",
-      "firstSeenAt": "2026-08-02T10:53:04.409Z"
+      "firstSeenAt": "2026-08-02T10:53:04.409Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "stock-manager-wynn-las-vegas-prada-group-nearest-major-market-las-vegas"
+        ],
+        "de": [
+          "stock-manager-wynn-las-vegas-prada-group-nearest-major-market-las-vegas"
+        ],
+        "fr": [
+          "stock-manager-wynn-las-vegas-prada-group-nearest-major-market-las-vegas"
+        ]
+      },
+      "previousSlugs": [
+        "stock-manager-wynn-las-vegas-prada-group-nearest-major-market-las-vegas"
+      ]
     },
     {
       "id": "prada-281c59237408",
-      "slug": "assistant-general-manager-wynn-las-vegas-prada-group-nearest-major-market-las-vegas",
+      "slug": "assistente-generale-wynn-las-vegas-prada-group-nearest-major-market-las-vegas",
       "slugByLocale": {
         "en": "assistant-general-manager-wynn-las-vegas-prada-group-nearest-major-market-las-vegas",
-        "it": "assistant-general-manager-wynn-las-vegas-prada-group-nearest-major-market-las-vegas",
+        "it": "assistente-generale-wynn-las-vegas-prada-group-nearest-major-market-las-vegas",
         "de": "assistant-general-manager-wynn-las-vegas-prada-group-nearest-major-market-las-vegas",
-        "fr": "assistant-general-manager-wynn-las-vegas-prada-group-nearest-major-market-las-vegas"
+        "fr": "directeur-general-adjoint-wynn-las-vegas-prada-group-nearest-major-market-las-vegas"
       },
       "company": "Prada Group",
       "companyKey": "prada",
@@ -120,15 +134,26 @@
       },
       "country": "CH",
       "addressRegion": "TI",
-      "firstSeenAt": "2026-08-02T10:53:03.311Z"
+      "firstSeenAt": "2026-08-02T10:53:03.311Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistant-general-manager-wynn-las-vegas-prada-group-nearest-major-market-las-vegas"
+        ],
+        "fr": [
+          "assistant-general-manager-wynn-las-vegas-prada-group-nearest-major-market-las-vegas"
+        ]
+      },
+      "previousSlugs": [
+        "assistant-general-manager-wynn-las-vegas-prada-group-nearest-major-market-las-vegas"
+      ]
     },
     {
       "id": "prada-626076e76901",
-      "slug": "general-manager-wynn-las-vegas-prada-group-nearest-major-market-las-vegas",
+      "slug": "direttore-generale-wynn-las-vegas-prada-group-nearest-major-market-las-vegas-16f7e3",
       "slugByLocale": {
         "en": "general-manager-wynn-las-vegas-prada-group-nearest-major-market-las-vegas",
-        "it": "general-manager-wynn-las-vegas-prada-group-nearest-major-market-las-vegas",
-        "de": "general-manager-wynn-las-vegas-prada-group-nearest-major-market-las-vegas",
+        "it": "direttore-generale-wynn-las-vegas-prada-group-nearest-major-market-las-vegas-16f7e3",
+        "de": "geschaftsfuhrerin-wynn-las-vegas-prada-group-nearest-major-market-las-vegas",
         "fr": "general-manager-wynn-las-vegas-prada-group-nearest-major-market-las-vegas"
       },
       "company": "Prada Group",
@@ -180,7 +205,18 @@
       },
       "country": "CH",
       "addressRegion": "TI",
-      "firstSeenAt": "2026-08-02T10:53:02.747Z"
+      "firstSeenAt": "2026-08-02T10:53:02.747Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "general-manager-wynn-las-vegas-prada-group-nearest-major-market-las-vegas"
+        ],
+        "de": [
+          "general-manager-wynn-las-vegas-prada-group-nearest-major-market-las-vegas"
+        ]
+      },
+      "previousSlugs": [
+        "general-manager-wynn-las-vegas-prada-group-nearest-major-market-las-vegas"
+      ]
     },
     {
       "id": "prada-9e09c4263f23",
