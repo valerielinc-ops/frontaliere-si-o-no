@@ -5168,28 +5168,50 @@
         "consultant-in-garden-jumbo-rumlang",
         "consultant-en-jardin-jumbo-rumlang",
         "consulente-in-giardino-jumbo-rumlang",
-        "consulente-in-giardino-jumbo-division-der-coop-genossenschaft-rumlang"
+        "consulente-in-giardino-jumbo-division-der-coop-genossenschaft-rumlang",
+        "consulente-in-giardino-jumbo-division-der-coop-genossenschaft-frauenfeld",
+        "consultant-in-the-garden-jumbo-division-der-coop-genossenschaft-frauenfeld",
+        "verkausberater-in-garten-jumbo-division-der-coop-genossenschaft-frauenfeld-thurgau-yy06by",
+        "consultant-dans-le-jardin-jumbo-division-der-coop-genossenschaft-frauenfeld",
+        "verkausberater-in-garten-jumbo-frauenfeld",
+        "consulente-in-giardino-jumbo-frauenfeld",
+        "verkausberater-in-garten-jumbo-division-der-coop-genossenschaft-frauenfeld-thurgau",
+        "consultant-in-the-garden-jumbo-frauenfeld",
+        "consultant-dans-le-jardin-jumbo-frauenfeld",
+        "consulente-di-vendita-garden-jumbo-frauenfeld"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkausberater-in-garden-jumbo-rumlang",
           "consulente-in-giardino-jumbo-rumlang",
-          "consulente-in-giardino-jumbo-division-der-coop-genossenschaft-rumlang"
+          "consulente-in-giardino-jumbo-division-der-coop-genossenschaft-rumlang",
+          "consulente-in-giardino-jumbo-division-der-coop-genossenschaft-frauenfeld",
+          "consultant-in-the-garden-jumbo-division-der-coop-genossenschaft-frauenfeld",
+          "verkausberater-in-garten-jumbo-division-der-coop-genossenschaft-frauenfeld-thurgau-yy06by",
+          "consultant-dans-le-jardin-jumbo-division-der-coop-genossenschaft-frauenfeld",
+          "verkausberater-in-garten-jumbo-frauenfeld",
+          "consulente-in-giardino-jumbo-frauenfeld",
+          "verkausberater-in-garten-jumbo-division-der-coop-genossenschaft-frauenfeld-thurgau",
+          "consultant-in-the-garden-jumbo-frauenfeld",
+          "consultant-dans-le-jardin-jumbo-frauenfeld",
+          "consulente-di-vendita-garden-jumbo-frauenfeld"
         ],
         "en": [
           "verkausberater-in-garden-jumbo-rumlang",
-          "consultant-in-garden-jumbo-rumlang"
+          "consultant-in-garden-jumbo-rumlang",
+          "consultant-in-the-garden-jumbo-division-der-coop-genossenschaft-frauenfeld"
         ],
         "de": [
-          "verkausberater-in-garden-jumbo-rumlang"
+          "verkausberater-in-garden-jumbo-rumlang",
+          "verkausberater-in-garten-jumbo-division-der-coop-genossenschaft-frauenfeld-thurgau-yy06by"
         ],
         "fr": [
           "verkausberater-in-garden-jumbo-rumlang",
-          "consultant-en-jardin-jumbo-rumlang"
+          "consultant-en-jardin-jumbo-rumlang",
+          "consultant-dans-le-jardin-jumbo-division-der-coop-genossenschaft-frauenfeld"
         ]
       },
       "firstSeenAt": "2026-07-15T22:03:50.004Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -5201,7 +5223,8 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "jumbo-3a1a730a-f88",
@@ -5383,14 +5406,22 @@
         "conseiller-commercial-en-jardin-et-plantes-jumbo-arbon",
         "verkaufsberater-in-garden-e-pflanzen-jumbo-arbon",
         "verkaufsberater-in-garden-e-pflanzen-jumbo-division-der-coop-genossenschaft-arbon",
-        "verkaufsberater-in-garden-und-pflanzen-jumbo-division-der-coop-genossenschaft-arbon"
+        "verkaufsberater-in-garden-und-pflanzen-jumbo-division-der-coop-genossenschaft-arbon",
+        "sales-advisor-garden-and-plants-jumbo-division-der-coop-genossenschaft-arbon",
+        "conseiller-de-vente-jardin-et-plantes-jumbo-division-der-coop-genossenschaft-arbon",
+        "sales-consultant-in-garden-and-plants-jumbo-division-der-coop-genossenschaft-arbon",
+        "sales-consultant-garden-and-plants-jumbo-division-der-coop-genossenschaft-arbon"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufsberater-in-garden-und-pflanzen-jumbo-arbon",
           "verkaufsberater-in-garden-e-pflanzen-jumbo-arbon",
           "verkaufsberater-in-garden-e-pflanzen-jumbo-division-der-coop-genossenschaft-arbon",
-          "verkaufsberater-in-garden-und-pflanzen-jumbo-division-der-coop-genossenschaft-arbon"
+          "verkaufsberater-in-garden-und-pflanzen-jumbo-division-der-coop-genossenschaft-arbon",
+          "sales-advisor-garden-and-plants-jumbo-division-der-coop-genossenschaft-arbon",
+          "conseiller-de-vente-jardin-et-plantes-jumbo-division-der-coop-genossenschaft-arbon",
+          "sales-consultant-in-garden-and-plants-jumbo-division-der-coop-genossenschaft-arbon",
+          "sales-consultant-garden-and-plants-jumbo-division-der-coop-genossenschaft-arbon"
         ],
         "en": [
           "verkaufsberater-in-garden-und-pflanzen-jumbo-arbon",
@@ -5405,7 +5436,6 @@
         ]
       },
       "firstSeenAt": "2026-07-17T11:19:55.699Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -5417,7 +5447,8 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "jumbo-8b6f6d05-19d",
@@ -6542,13 +6573,15 @@
         "seller-in-cash-registers-services-jumbo-winterthur",
         "vendeur-dans-les-caisses-enregistreuses-services-jumbo-winterthur",
         "venditore-in-cassa-servizi-jumbo-winterthur",
-        "venditore-in-cassa-servizi-jumbo-division-der-coop-genossenschaft-winterthur"
+        "venditore-in-cassa-servizi-jumbo-division-der-coop-genossenschaft-winterthur",
+        "addetto-a-alle-vendite-cassa-servizi-jumbo-division-der-coop-genossenschaft-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-kassen-services-jumbo-winterthur",
           "venditore-in-cassa-servizi-jumbo-winterthur",
-          "venditore-in-cassa-servizi-jumbo-division-der-coop-genossenschaft-winterthur"
+          "venditore-in-cassa-servizi-jumbo-division-der-coop-genossenschaft-winterthur",
+          "addetto-a-alle-vendite-cassa-servizi-jumbo-division-der-coop-genossenschaft-winterthur"
         ],
         "en": [
           "verkaufer-in-kassen-services-jumbo-winterthur",
@@ -6563,7 +6596,6 @@
         ]
       },
       "firstSeenAt": "2026-07-21T22:07:32.677Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -6575,7 +6607,8 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "jumbo-7a391f43-51e",
@@ -7045,7 +7078,9 @@
           "verkaufsberater-in-do-it-jumbo-division-der-coop-genossenschaft-chur-vdvumu",
           "verkaufsberater-in-do-it-jumbo-chur-graubunden",
           "verkaufsberater-in-do-it-jumbo-chur",
-          "consulente-di-vendita-in-do-it-jumbo-division-der-coop-genossenschaft-chur"
+          "consulente-di-vendita-in-do-it-jumbo-division-der-coop-genossenschaft-chur",
+          "consulente-di-vendita-tessile-jumbo-division-der-coop-genossenschaft-chur",
+          "sales-consultant-do-it-jumbo-division-der-coop-genossenschaft-chur"
         ],
         "en": [
           "verkaufsberater-in-do-it-jumbo-chur-graubunden-6rkagt"
@@ -7061,10 +7096,11 @@
         "verkaufsberater-in-do-it-jumbo-chur-graubunden",
         "verkaufsberater-in-do-it-jumbo-chur",
         "verkaufsberater-in-do-it-jumbo-division-der-coop-genossenschaft-chur-graubunden-d7iwq3",
-        "consulente-di-vendita-in-do-it-jumbo-division-der-coop-genossenschaft-chur"
+        "consulente-di-vendita-in-do-it-jumbo-division-der-coop-genossenschaft-chur",
+        "consulente-di-vendita-tessile-jumbo-division-der-coop-genossenschaft-chur",
+        "sales-consultant-do-it-jumbo-division-der-coop-genossenschaft-chur"
       ],
       "firstSeenAt": "2026-07-22T22:08:27.955Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -7076,7 +7112,8 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "jumbo-6d6c4d9f-e38",
@@ -9552,21 +9589,52 @@
         "mitarbeiter-in-logistik-jumbo-hochdorf",
         "addetto-a-alla-logistica-jumbo-hochdorf-hr27dl",
         "addetto-a-alla-logistica-jumbo-hochdorf",
-        "addetto-a-alla-logistica-jumbo-hochdorf-luzern-hr27dl"
+        "addetto-a-alla-logistica-jumbo-hochdorf-luzern-hr27dl",
+        "associate-logistik-jumbo-hochdorf",
+        "collaborateur-trice-logistik-jumbo-hochdorf",
+        "agent-logistique-jumbo-hochdorf",
+        "addetto-a-alla-logistica-jumbo-hinwil-zurich-46ft1b",
+        "associate-logistik-jumbo-hinwil-zurich-46ft1b",
+        "mitarbeiter-in-logistik-jumbo-hinwil-zurich-46ft1b",
+        "collaborateur-trice-logistik-jumbo-hinwil-zurich-46ft1b",
+        "mitarbeiter-in-logistik-jumbo-hinwil",
+        "mitarbeiter-in-logistik-jumbo-hinwil-zurich",
+        "mitarbeiter-in-logistik-jumbo-wurenlingen",
+        "addetto-a-alla-logistica-jumbo-wurenlingen-wc1kpz",
+        "addetto-a-alla-logistica-jumbo-wurenlingen",
+        "logistics-officer-jumbo-hochdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-logistik-jumbo-hochdorf",
           "addetto-a-alla-logistica-jumbo-hochdorf-hr27dl",
           "addetto-a-alla-logistica-jumbo-hochdorf",
-          "addetto-a-alla-logistica-jumbo-hochdorf-luzern-hr27dl"
+          "addetto-a-alla-logistica-jumbo-hochdorf-luzern-hr27dl",
+          "associate-logistik-jumbo-hochdorf",
+          "collaborateur-trice-logistik-jumbo-hochdorf",
+          "agent-logistique-jumbo-hochdorf",
+          "addetto-a-alla-logistica-jumbo-hinwil-zurich-46ft1b",
+          "associate-logistik-jumbo-hinwil-zurich-46ft1b",
+          "mitarbeiter-in-logistik-jumbo-hinwil-zurich-46ft1b",
+          "collaborateur-trice-logistik-jumbo-hinwil-zurich-46ft1b",
+          "mitarbeiter-in-logistik-jumbo-hinwil",
+          "mitarbeiter-in-logistik-jumbo-hinwil-zurich",
+          "mitarbeiter-in-logistik-jumbo-wurenlingen",
+          "addetto-a-alla-logistica-jumbo-wurenlingen-wc1kpz",
+          "addetto-a-alla-logistica-jumbo-wurenlingen",
+          "logistics-officer-jumbo-hochdorf"
         ],
         "de": [
           "mitarbeiter-in-logistik-jumbo-hochdorf"
+        ],
+        "en": [
+          "associate-logistik-jumbo-hochdorf"
+        ],
+        "fr": [
+          "collaborateur-trice-logistik-jumbo-hochdorf"
         ]
       },
       "firstSeenAt": "2026-07-31T22:08:44.854Z",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -9578,7 +9646,8 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "jumbo-a224bc21-db7",
