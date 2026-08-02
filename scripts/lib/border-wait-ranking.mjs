@@ -95,7 +95,27 @@ export function aggregateCrossingStats(historyDir, todayIso, days = DEFAULT_WIND
  * @returns {Array<{ slug: string, avgMinutes: number, totalSamples: number, rank: number }>}
  */
 export function computeRanking(historyDir, todayIso, { days = DEFAULT_WINDOW_DAYS, minSamples = MIN_SAMPLES_FOR_RANKING } = {}) {
-  const stats = aggregateCrossingStats(historyDir, todayIso, days);
+  return rankingFromStats(aggregateCrossingStats(historyDir, todayIso, days), { minSamples });
+}
+
+/**
+ * The ranking itself, over an ALREADY-AGGREGATED stats object rather than a
+ * history directory.
+ *
+ * Split out for the generator migration (issue #4974 item 3): the 1.7 GB
+ * `data/border-wait-history/**` tree stays in this repository, and the article
+ * generator — which now runs in nanakokyobashi-rgb/frontaliere-articles — reads
+ * a few-KB aggregate published over HTTP instead. That aggregate is exactly the
+ * `aggregateCrossingStats()` return shape, so both sides run this identical
+ * function over identical numbers; only where the numbers came from differs.
+ *
+ * `computeRanking()` above is unchanged in behaviour and still the entry point
+ * for anything holding a history directory.
+ *
+ * @param {Record<string, { weightedAvgMinutes: number, totalSamples: number }>} stats
+ * @returns {Array<{ slug: string, avgMinutes: number, totalSamples: number, rank: number }>}
+ */
+export function rankingFromStats(stats, { minSamples = MIN_SAMPLES_FOR_RANKING } = {}) {
   return Object.entries(stats)
     .filter(([, s]) => s.totalSamples >= minSamples)
     .map(([slug, s]) => ({ slug, avgMinutes: s.weightedAvgMinutes, totalSamples: s.totalSamples }))
@@ -113,7 +133,18 @@ export function computeTrend(historyDir, todayIso, { days = DEFAULT_WINDOW_DAYS,
   const current = aggregateCrossingStats(historyDir, todayIso, days);
   const previousTodayIso = isoDayOffset(todayIso, -days);
   const previous = aggregateCrossingStats(historyDir, previousTodayIso, days);
+  return trendFromStats(current, previous, { minSamples });
+}
 
+/**
+ * The week-over-week comparison, over two ALREADY-AGGREGATED stats objects.
+ * Same split, and same reason, as `rankingFromStats()` above — note this is the
+ * function that makes the published aggregate need TWO windows rather than one.
+ *
+ * @param {Record<string, { weightedAvgMinutes: number, totalSamples: number }>} current
+ * @param {Record<string, { weightedAvgMinutes: number, totalSamples: number }>} previous
+ */
+export function trendFromStats(current, previous, { minSamples = MIN_SAMPLES_FOR_RANKING } = {}) {
   /** @type {Record<string, ReturnType<typeof computeTrend>[string]>} */
   const out = {};
   for (const [slug, curr] of Object.entries(current)) {

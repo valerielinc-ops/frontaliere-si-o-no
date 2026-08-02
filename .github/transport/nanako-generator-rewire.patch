@@ -1,9 +1,9 @@
 diff --git a/.github/workflows/generator-ci.yml b/.github/workflows/generator-ci.yml
 new file mode 100644
-index 0000000..e172344
+index 0000000..e0f8177
 --- /dev/null
 +++ b/.github/workflows/generator-ci.yml
-@@ -0,0 +1,90 @@
+@@ -0,0 +1,103 @@
 +name: Generator CI
 +
 +# Gates for the article generator transported from valerielinc-ops/frontaliere-si-o-no
@@ -69,6 +69,13 @@ index 0000000..e172344
 +      - name: Border-wait averages REWIRE reachable
 +        run: node generator/scripts/refresh-border-wait-averages.mjs --check
 +
++      # The ranking window is NOT soft-failing like the averages above: it is
++      # the weekly ranking article's actual data, so an unreachable or stale
++      # publisher must stop the pipeline rather than yield an article with no
++      # ranking on an evergreen URL that already ranks.
++      - name: Border-wait ranking window reachable and fresh
++        run: node generator/scripts/refresh-border-wait-window.mjs --check
++
 +  dry-run:
 +    # The generator's own smoke test: load every entry point with writes
 +    # disabled (DRY_RUN=1, the convention the scripts already document) and
@@ -92,23 +99,30 @@ index 0000000..e172344
 +      - name: Install generator dependencies
 +        run: npm ci --no-audit --no-fund
 +
++      # generate-border-wait-ranking-article.mjs now REQUIRES the fetched window
++      # (it is the article's data). Fetch it first so the dry-run exercises the
++      # real path instead of the missing-cache error branch.
++      - name: Fetch border-wait ranking window
++        run: npm run refresh:border-wait-window
++
 +      - name: Load every generator entry point (writes disabled)
 +        run: npm run test:dry-run
 diff --git a/.gitignore b/.gitignore
-index 1eae0cf..5bbe4e4 100644
+index 1eae0cf..35c1e97 100644
 --- a/.gitignore
 +++ b/.gitignore
-@@ -1,2 +1,4 @@
+@@ -1,2 +1,5 @@
  dist/
  node_modules/
 +generator/data/border-wait-averages.json
 +.tmp/
++generator/data/border-wait-ranking-window.json
 diff --git a/generator/README.md b/generator/README.md
 new file mode 100644
-index 0000000..5cb7ea2
+index 0000000..f0351da
 --- /dev/null
 +++ b/generator/README.md
-@@ -0,0 +1,117 @@
+@@ -0,0 +1,137 @@
 +# Article generator (transported from `valerielinc-ops/frontaliere-si-o-no`)
 +
 +Issue #4974 item 3. The authority for the plan is
@@ -173,7 +187,7 @@ index 0000000..5cb7ea2
 +prefix rule, so that the generator's own state files under `data/` are not
 +quietly relocated into the published corpus.
 +
-+**4. Two REWIREs** (plan §5.3):
++**4. Three REWIREs** (plan §5.3, plus the border-wait ranking window):
 +
 +- **Google News whitelist** — vendored as code at
 +  `data/news-sitemap-whitelist.mjs`, not fetched. Main loaded it by
@@ -193,6 +207,26 @@ index 0000000..5cb7ea2
 +  to fetch. Absence is not an error — the overlay is cosmetic and
 +  `borderCrossings.ts` falls back to its editorial defaults, so a network blip
 +  must never fail a generation run.
++- **Border-wait ranking window** — `scripts/refresh-border-wait-window.mjs`
++  fetches `border-wait-ranking-window.json`, the aggregate the weekly ranking
++  article is built from. In main that article read `data/border-wait-history/**`
++  directly: 90 daily files, 1.7 GB, Firestore telemetry that belongs to the site
++  repo. It never had to move. Every one of `rankingFromStats` /
++  `trendFromStats` / `computeFunFacts` bottoms out on the *aggregate*, ~140
++  crossings x 2 numbers, so main publishes that (32 KB) and the identical pure
++  functions run here. Two windows, not one, because the trend section compares
++  the current 7 days against the preceding 7.
++
++  Verified equivalent, not assumed: computing the ranking and the trend from
++  main's 1.7 GB history and from the 32 KB published aggregate gives
++  byte-identical results, and both functions are now parity probes.
++
++  **Unlike the averages, this fetch is REQUIRED.** The averages are a cosmetic
++  overlay with a documented fallback; this is the article's data. A ranking
++  article generated without a ranking is wrong output on an evergreen URL that
++  already ranks, not degraded output — so an unreachable publisher, a window
++  whose `windowDays` is not 7, or one whose data is more than 14 days old all
++  fail the run.
 +
 +## Gates
 +
@@ -575,10 +609,18 @@ index 24e420c..e2e54c9 100644
  // ── File helpers ────────────────────────────────────────────
  
 diff --git a/generator/scripts/generate-border-wait-ranking-article.mjs b/generator/scripts/generate-border-wait-ranking-article.mjs
-index 4547fc0..800cd98 100644
+index 4547fc0..9659d49 100644
 --- a/generator/scripts/generate-border-wait-ranking-article.mjs
 +++ b/generator/scripts/generate-border-wait-ranking-article.mjs
-@@ -35,9 +35,12 @@ import { buildBorderWaitRankingArticle } from './lib/border-wait-ranking-content
+@@ -29,17 +29,22 @@
+  */
+ import path from 'node:path';
+ import { fileURLToPath, pathToFileURL } from 'node:url';
+-import { writeFileSync, mkdirSync } from 'node:fs';
+-import { computeRanking, computeTrend, computeFunFacts, computeWeekWindow, computeMovers } from './lib/border-wait-ranking.mjs';
++import { writeFileSync, mkdirSync, existsSync, readFileSync } from 'node:fs';
++import { rankingFromStats, trendFromStats, computeFunFacts, computeWeekWindow, computeMovers } from './lib/border-wait-ranking.mjs';
+ import { buildBorderWaitRankingArticle } from './lib/border-wait-ranking-content.mjs';
  import { registerArticleFiles, checkArticleIdExists, buildBodyFile } from './create-article.mjs';
  import { bumpUpdatedAt, bumpDateModified, bumpSitemapLastmod } from './lib/evergreen-article-refresh.mjs';
  import { isTicinoCrossing } from '../build-plugins/borderWaitData.ts';
@@ -590,9 +632,85 @@ index 4547fc0..800cd98 100644
 +// so one level up is now the generator directory, not the repo root.
 +const REPO_ROOT = path.resolve(__dirname, '..', '..');
  const LOCALES = ['it', 'en', 'de', 'fr'];
- const HISTORY_DIR = path.join(REPO_ROOT, 'data', 'border-wait-history');
+-const HISTORY_DIR = path.join(REPO_ROOT, 'data', 'border-wait-history');
++// REWIRE (#4974 item 3): the 1.7 GB history stays in the site repo; this reads
++// the ~32 KB aggregate refresh-border-wait-window.mjs fetches from it.
++const WINDOW_PATH = path.join(__dirname, '..', 'data', 'border-wait-ranking-window.json');
  const RANKING_JSON_PATH = path.join(REPO_ROOT, 'public', 'data', 'border-wait-ranking.json');
-@@ -101,7 +104,7 @@ export function buildData(todayIso, historyDir = HISTORY_DIR) {
+ 
+ // Evergreen metadata — registered once, NEVER refreshed (no date/count inside).
+@@ -62,21 +67,54 @@ const STATIC_META = {
+   },
+ };
+ 
+-/** Compute the current ranking/trend/fun-facts/week-window/movers snapshot for todayIso. */
+-export function computeSnapshot(todayIso, historyDir = HISTORY_DIR) {
++/**
++ * Load the aggregate window fetched by refresh-border-wait-window.mjs.
++ *
++ * REWIRE (issue #4974 item 3). In main this script read
++ * `data/border-wait-history/*.json` directly — 90 daily files, 1.7 GB, site
++ * telemetry that stays there. Here the same numbers arrive as the ~32 KB
++ * aggregate main publishes, and the identical pure functions
++ * (`rankingFromStats` / `trendFromStats`) run over them.
++ *
++ * Missing is fatal, deliberately: this is the article's data, not an overlay.
++ * Generating the ranking article without a ranking is wrong output on an
++ * evergreen URL that already ranks, not degraded output.
++ */
++export function loadWindow(windowPath = WINDOW_PATH) {
++  if (!existsSync(windowPath)) {
++    throw new Error(
++      `border-wait window not found at ${windowPath} — run ` +
++        `generator/scripts/refresh-border-wait-window.mjs first`,
++    );
++  }
++  const payload = JSON.parse(readFileSync(windowPath, 'utf-8'));
++  if (!payload?.current?.perCrossing) {
++    throw new Error(`${windowPath} has no current.perCrossing — refusing`);
++  }
++  return payload;
++}
++
++/**
++ * Compute the current ranking/trend/fun-facts/week-window/movers snapshot for
++ * todayIso, from the fetched aggregate window.
++ */
++export function computeSnapshot(todayIso, windowPayload = loadWindow()) {
+   // This snapshot feeds the evergreen "Classifica delle dogane in Ticino"
+   // article + its embedded live chart (buildRankingJson below) — both
+-  // Ticino-only by identity. computeRanking/computeTrend are generic
++  // Ticino-only by identity. rankingFromStats/trendFromStats are generic
+   // aggregation over ALL registered crossings (now 134, incl. the 108
+   // non-Ticino Germany/Austria/Liechtenstein/France-corridor ones from
+   // #4889), so scope to Ticino here, once, before funFacts/movers derive
+   // from it — otherwise a foreign crossing could surface as this
+   // Ticino-only article's best/worst/biggest mover.
+-  const rankingAll = computeRanking(historyDir, todayIso, { days: 7 });
++  const rankingAll = rankingFromStats(windowPayload.current.perCrossing);
+   const ranking = rankingAll
+     .filter((r) => isTicinoCrossing(r.slug))
+     .map((r, idx) => ({ ...r, rank: idx + 1 }));
+-  const trendAll = computeTrend(historyDir, todayIso, { days: 7 });
++  const trendAll = trendFromStats(
++    windowPayload.current.perCrossing,
++    windowPayload.previous?.perCrossing ?? {},
++  );
+   const trend = Object.fromEntries(Object.entries(trendAll).filter(([slug]) => isTicinoCrossing(slug)));
+   const funFacts = computeFunFacts(ranking);
+   const { weekStart, weekEnd } = computeWeekWindow(todayIso, 7);
+@@ -85,8 +123,8 @@ export function computeSnapshot(todayIso, historyDir = HISTORY_DIR) {
+ }
+ 
+ /** Build the full registration `data` object from the current ranking snapshot. */
+-export function buildData(todayIso, historyDir = HISTORY_DIR) {
+-  const { ranking, trend, funFacts, weekStart, weekEnd, movers } = computeSnapshot(todayIso, historyDir);
++export function buildData(todayIso, windowPayload = loadWindow()) {
++  const { ranking, trend, funFacts, weekStart, weekEnd, movers } = computeSnapshot(todayIso, windowPayload);
+   const article = buildBorderWaitRankingArticle({ ranking, trend, funFacts, weekStart, weekEnd, movers, todayIso });
+   return {
+     id: article.id,
+@@ -101,7 +139,7 @@ export function buildData(todayIso, historyDir = HISTORY_DIR) {
  /** Rewrite only the 4 body files (idempotent refresh; registration is append-only). */
  export function refreshBodyFiles(data, repoRoot = REPO_ROOT, log = console.log) {
    for (const locale of LOCALES) {
@@ -601,6 +719,20 @@ index 4547fc0..800cd98 100644
      mkdirSync(dir, { recursive: true });
      const file = path.join(dir, `${data.id}.ts`);
      writeFileSync(file, buildBodyFile(data, locale));
+@@ -136,8 +174,11 @@ export function buildRankingJson({ ranking, trend, funFacts, todayIso, weekStart
+ async function main() {
+   const dryRun = process.env.DRY_RUN === '1' || process.env.DRY_RUN === 'true';
+   const todayIso = process.env.TODAY_ISO || new Date().toISOString().slice(0, 10);
+-  const { ranking, trend, funFacts, weekStart, weekEnd, movers } = computeSnapshot(todayIso);
+-  const data = buildData(todayIso);
++  // Loaded once and threaded through, so the two calls cannot disagree if the
++  // cache is refreshed mid-run.
++  const windowPayload = loadWindow();
++  const { ranking, trend, funFacts, weekStart, weekEnd, movers } = computeSnapshot(todayIso, windowPayload);
++  const data = buildData(todayIso, windowPayload);
+   const exists = checkArticleIdExists(data.id);
+ 
+   console.log(
 diff --git a/generator/scripts/generate-events-digest-article.mjs b/generator/scripts/generate-events-digest-article.mjs
 index 711a531..6ba73e3 100644
 --- a/generator/scripts/generate-events-digest-article.mjs
@@ -1011,6 +1143,170 @@ index 0000000..9ee04ac
 +fs.mkdirSync(path.dirname(CACHE), { recursive: true });
 +fs.writeFileSync(CACHE, `${JSON.stringify(payload, null, 2)}\n`);
 +log(`cached ${slugs.length} crossings from ${SOURCE}`);
+diff --git a/generator/scripts/refresh-border-wait-window.mjs b/generator/scripts/refresh-border-wait-window.mjs
+new file mode 100644
+index 0000000..0896c97
+--- /dev/null
++++ b/generator/scripts/refresh-border-wait-window.mjs
+@@ -0,0 +1,158 @@
++#!/usr/bin/env node
++/**
++ * Fetch the border-wait ranking window published by the site repository
++ * (issue #4974 item 3 — the REWIRE that lets the weekly ranking article be
++ * generated here instead of in valerielinc-ops/frontaliere-si-o-no).
++ *
++ * WHY A FETCH AND NOT A COPY
++ *
++ * The article is computed from `data/border-wait-history/*.json` — 90 daily
++ * files, 1.7 GB, collected from Firestore by the site repo and committed only
++ * there. None of that is article content and none of it should be mirrored
++ * here. What the generator actually needs is the aggregate underneath:
++ * `aggregateCrossingStats()` collapses the whole window to ~140 crossings x 2
++ * numbers, about 32 KB. Main publishes that; this fetches it.
++ *
++ * Two windows, because `trendFromStats()` compares the current 7 days against
++ * the preceding 7. A payload carrying only `current` costs the article its
++ * week-over-week trend section without failing.
++ *
++ * ── Why this one is REQUIRED, unlike refresh-border-wait-averages.mjs ────────
++ *
++ * The averages fetch is allowed to fail softly: it feeds a cosmetic overlay on
++ * editorial defaults, so a network blip must not fail a generation run. This
++ * one is the opposite. It IS the article's data — a ranking article generated
++ * without a ranking is not degraded output, it is wrong output, published to a
++ * live SEO surface under an evergreen URL that already ranks. So a failure here
++ * exits non-zero and the generation step does not run.
++ *
++ * Usage:
++ *   node generator/scripts/refresh-border-wait-window.mjs
++ *   node generator/scripts/refresh-border-wait-window.mjs --check   # no write
++ *
++ * Override the source with BORDER_WAIT_WINDOW_URL (used by the tests).
++ */
++import fs from 'node:fs';
++import path from 'node:path';
++import { fileURLToPath } from 'node:url';
++
++const SOURCE =
++  process.env.BORDER_WAIT_WINDOW_URL ??
++  'https://frontaliereticino.ch/data/border-wait-ranking-window.json';
++
++const CACHE = path.join(
++  path.dirname(fileURLToPath(import.meta.url)),
++  '..',
++  'data',
++  'border-wait-ranking-window.json',
++);
++
++const CHECK_ONLY = process.argv.includes('--check');
++
++const log = (msg) => console.log(`[refresh-border-wait-window] ${msg}`);
++const fail = (msg) => {
++  console.error(`::error::[refresh-border-wait-window] ${msg}`);
++  process.exit(1);
++};
++
++/** Retries only the transient classes; a 404 is a real absence and fails now. */
++async function get(url) {
++  let lastErr;
++  for (let i = 1; i <= 4; i++) {
++    try {
++      const res = await fetch(url, { redirect: 'follow' });
++      if (res.ok) {
++        const body = await res.text();
++        if (body.length > 0) return body;
++        lastErr = new Error('empty body');
++      } else {
++        const err = new Error(`HTTP ${res.status}`);
++        if (res.status < 500 && res.status !== 429) throw err;
++        lastErr = err;
++      }
++    } catch (err) {
++      if (/HTTP 4\d\d/.test(err.message)) throw err;
++      lastErr = err;
++    }
++    if (i < 4) await new Promise((r) => setTimeout(r, 1000 * 2 ** (i - 1)));
++  }
++  throw lastErr;
++}
++
++let raw;
++try {
++  raw = await get(SOURCE);
++} catch (err) {
++  fail(`${SOURCE} unavailable: ${err.message}`);
++}
++
++let payload;
++try {
++  payload = JSON.parse(raw);
++} catch (err) {
++  fail(`${SOURCE} is not valid JSON: ${err.message}`);
++}
++
++/** Validate one window half and return its crossing count. */
++function checkWindow(name) {
++  const w = payload?.[name];
++  if (!w || typeof w !== 'object') fail(`${SOURCE}: '${name}' window missing — refusing`);
++  for (const key of ['weekStart', 'weekEnd']) {
++    if (!/^\d{4}-\d{2}-\d{2}$/.test(w[key] ?? '')) {
++      fail(`${SOURCE}: ${name}.${key} is ${JSON.stringify(w[key])}, not an ISO date — refusing`);
++    }
++  }
++  const per = w.perCrossing;
++  if (!per || typeof per !== 'object' || Array.isArray(per)) {
++    fail(`${SOURCE}: ${name}.perCrossing is not an object — refusing`);
++  }
++  for (const [slug, s] of Object.entries(per)) {
++    if (typeof s?.weightedAvgMinutes !== 'number' || !Number.isFinite(s.weightedAvgMinutes)) {
++      fail(`${SOURCE}: ${name}.${slug}.weightedAvgMinutes is not a finite number — refusing`);
++    }
++    if (!Number.isInteger(s?.totalSamples) || s.totalSamples < 0) {
++      fail(`${SOURCE}: ${name}.${slug}.totalSamples is not a non-negative integer — refusing`);
++    }
++  }
++  return Object.keys(per).length;
++}
++
++if (payload?.windowDays !== 7) {
++  // The generator's own DEFAULT_WINDOW_DAYS is 7 and the article text says
++  // "settimana". A publisher that changed the window without this side knowing
++  // would produce an article whose prose contradicts its numbers.
++  fail(`${SOURCE}: windowDays is ${JSON.stringify(payload?.windowDays)}, expected 7 — refusing`);
++}
++
++const currentCount = checkWindow('current');
++const previousCount = checkWindow('previous');
++
++if (currentCount === 0) {
++  fail(`${SOURCE}: current window has zero crossings — refusing (the article would have no ranking)`);
++}
++
++// Staleness gate. The ranking is weekly and main republishes on every traffic
++// collect, so a window whose end is far in the past means the publisher stopped
++// and we would generate this week's article from last month's numbers — the
++// failure that looks like success.
++const ageDays = Math.floor(
++  (Date.now() - new Date(`${payload.current.weekEnd}T00:00:00Z`).getTime()) / 86_400_000,
++);
++if (ageDays > 14) {
++  fail(
++    `${SOURCE}: current window ends ${payload.current.weekEnd}, ${ageDays} days ago — ` +
++      `refusing to build a ranking article from stale data`,
++  );
++}
++
++if (CHECK_ONLY) {
++  log(`--check: ${currentCount} current / ${previousCount} previous crossings, wrote nothing`);
++  process.exit(0);
++}
++
++fs.mkdirSync(path.dirname(CACHE), { recursive: true });
++fs.writeFileSync(CACHE, `${JSON.stringify(payload, null, 2)}\n`);
++log(
++  `cached ${payload.current.weekStart}..${payload.current.weekEnd} — ` +
++    `${currentCount} current / ${previousCount} previous crossings`,
++);
 diff --git a/generator/tests/corpus-paths.test.mjs b/generator/tests/corpus-paths.test.mjs
 new file mode 100644
 index 0000000..c56f211
@@ -1203,10 +1499,10 @@ index 0000000..c56f211
 +});
 diff --git a/generator/tests/dry-run-entrypoints.mjs b/generator/tests/dry-run-entrypoints.mjs
 new file mode 100644
-index 0000000..be19e7d
+index 0000000..af4a37a
 --- /dev/null
 +++ b/generator/tests/dry-run-entrypoints.mjs
-@@ -0,0 +1,183 @@
+@@ -0,0 +1,184 @@
 +#!/usr/bin/env node
 +/**
 + * Load every generator entry point with writes disabled (issue #4974 item 3,
@@ -1252,6 +1548,7 @@ index 0000000..be19e7d
 +  'publish-journalist-article.mjs',
 +  'generate-journalist-image-catalog.mjs',
 +  'refresh-border-wait-averages.mjs',
++  'refresh-border-wait-window.mjs',
 +];
 +
 +/**
@@ -1588,10 +1885,10 @@ index 0000000..685d429
 +});
 diff --git a/generator/tests/parity/golden.json b/generator/tests/parity/golden.json
 new file mode 100644
-index 0000000..2ba60c4
+index 0000000..3ac948b
 --- /dev/null
 +++ b/generator/tests/parity/golden.json
-@@ -0,0 +1,158 @@
+@@ -0,0 +1,193 @@
 +{
 +  "lib/border-wait-ranking.mjs": {
 +    "computeWeekWindow([\"2026-07-15\"])": {
@@ -1604,6 +1901,41 @@ index 0000000..2ba60c4
 +      "value": {
 +        "weekEnd": "2028-02-29",
 +        "weekStart": "2028-02-23"
++      }
++    },
++    "rankingFromStats([{\"chiasso-strada\":{\"weightedAvgMinutes\":5.0555,\"totalSamples\":36},\"gaggiolo\":{\"weightedAvgMinutes\":0.6842,\"totalSamples\":38},\"ponte-tresa\":{\"weightedAvgMinutes\":0.1,\"totalSamples\":3}}])": {
++      "value": [
++        {
++          "avgMinutes": 0.6842,
++          "rank": 1,
++          "slug": "gaggiolo",
++          "totalSamples": 38
++        },
++        {
++          "avgMinutes": 5.0555,
++          "rank": 2,
++          "slug": "chiasso-strada",
++          "totalSamples": 36
++        }
++      ]
++    },
++    "rankingFromStats([{}])": {
++      "value": []
++    },
++    "trendFromStats([{\"chiasso-strada\":{\"weightedAvgMinutes\":6,\"totalSamples\":36},\"gaggiolo\":{\"weightedAvgMinutes\":1,\"totalSamples\":38},\"brogeda\":{\"weightedAvgMinutes\":3,\"totalSamples\":40}},{\"chiasso-strada\":{\"weightedAvgMinutes\":4,\"totalSamples\":30},\"gaggiolo\":{\"weightedAvgMinutes\":0.6,\"totalSamples\":25}}])": {
++      "value": {
++        "chiasso-strada": {
++          "currentAvgMinutes": 6,
++          "deltaMinutes": 2,
++          "direction": "worse",
++          "previousAvgMinutes": 4
++        },
++        "gaggiolo": {
++          "currentAvgMinutes": 1,
++          "deltaMinutes": 0.4,
++          "direction": "flat",
++          "previousAvgMinutes": 0.6
++        }
 +      }
 +    },
 +    "windowFileNames([\"2026-01-03\",5])": {
@@ -1752,10 +2084,10 @@ index 0000000..2ba60c4
 +}
 diff --git a/generator/tests/parity/probes.mjs b/generator/tests/parity/probes.mjs
 new file mode 100644
-index 0000000..6be1aac
+index 0000000..3a8594c
 --- /dev/null
 +++ b/generator/tests/parity/probes.mjs
-@@ -0,0 +1,138 @@
+@@ -0,0 +1,171 @@
 +/**
 + * Deterministic probes for the main↔nanako generator parity check
 + * (issue #4974 item 3, §5.4 of the migration doc: "comparing its emitted
@@ -1855,6 +2187,39 @@ index 0000000..6be1aac
 +      // Leap-day and year boundary: the ISO arithmetic is the part most likely
 +      // to differ if a transported copy drifted.
 +      { fn: 'computeWeekWindow', args: ['2028-03-01'] },
++      // The REWIRE path (#4974 item 3): with the ranking article generated in
++      // nanako from main's published aggregate rather than from the 1.7 GB
++      // history, these two ARE the article's numbers. Both sides must agree
++      // exactly or the published ranking silently diverges from the telemetry
++      // it claims to summarise.
++      {
++        fn: 'rankingFromStats',
++        args: [
++          {
++            'chiasso-strada': { weightedAvgMinutes: 5.0555, totalSamples: 36 },
++            gaggiolo: { weightedAvgMinutes: 0.6842, totalSamples: 38 },
++            // Under the 20-sample floor: must be dropped, not ranked last.
++            'ponte-tresa': { weightedAvgMinutes: 0.1, totalSamples: 3 },
++          },
++        ],
++      },
++      { fn: 'rankingFromStats', args: [{}] },
++      {
++        fn: 'trendFromStats',
++        args: [
++          {
++            'chiasso-strada': { weightedAvgMinutes: 6, totalSamples: 36 },
++            gaggiolo: { weightedAvgMinutes: 1, totalSamples: 38 },
++            // Present now, absent in the previous window — no trend possible.
++            brogeda: { weightedAvgMinutes: 3, totalSamples: 40 },
++          },
++          {
++            'chiasso-strada': { weightedAvgMinutes: 4, totalSamples: 30 },
++            // Delta 0.4 → below the 0.5 threshold, must read 'flat'.
++            gaggiolo: { weightedAvgMinutes: 0.6, totalSamples: 25 },
++          },
++        ],
++      },
 +    ],
 +  },
 +];
@@ -2063,10 +2428,10 @@ index 0000000..0624198
 +
 +process.stdout.write(comparable);
 diff --git a/package.json b/package.json
-index 86acaf5..28b44ac 100644
+index 86acaf5..9992db8 100644
 --- a/package.json
 +++ b/package.json
-@@ -9,5 +9,20 @@
+@@ -9,5 +9,21 @@
    "sideEffects": false,
    "peerDependencies": {
      "vite": "^6.2.0"
@@ -2084,7 +2449,8 @@ index 86acaf5..28b44ac 100644
 +    "test": "node --test 'generator/tests/*.test.mjs'",
 +    "test:parity": "node generator/tests/parity/run.mjs --check",
 +    "test:dry-run": "node generator/tests/dry-run-entrypoints.mjs",
-+    "refresh:border-wait": "node generator/scripts/refresh-border-wait-averages.mjs"
++    "refresh:border-wait": "node generator/scripts/refresh-border-wait-averages.mjs",
++    "refresh:border-wait-window": "node generator/scripts/refresh-border-wait-window.mjs"
    }
  }
 diff --git a/generator/data/borderCrossings.ts b/generator/data/borderCrossings.ts
