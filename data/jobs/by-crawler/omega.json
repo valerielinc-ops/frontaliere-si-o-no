@@ -1,6 +1,6 @@
 {
   "crawlerKey": "omega",
-  "assembledAt": "2026-08-02T11:14:23.941Z",
+  "assembledAt": "2026-08-02T22:14:48.586Z",
   "jobs": [
     {
       "id": "omega-32494",
@@ -33,7 +33,7 @@
       "url": "https://www.swatchgroup.com/fr/job/32494",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-02T11:14:20.844Z",
+      "crawledAt": "2026-08-02T22:14:45.728Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -69,12 +69,14 @@
       },
       "previousSlugs": [
         "cuisinier-h-f-temporaire-omega-biel-bienne",
-        "cuisinier-m-w-d-temporaire-omega-sa-biel-bienne"
+        "cuisinier-m-w-d-temporaire-omega-sa-biel-bienne",
+        "kitchen-h-f-temporario-omega-sa-biel-bienne"
       ],
       "previousSlugsByLocale": {
         "it": [
           "cuisinier-h-f-temporaire-omega-biel-bienne",
-          "cuisinier-m-w-d-temporaire-omega-sa-biel-bienne"
+          "cuisinier-m-w-d-temporaire-omega-sa-biel-bienne",
+          "kitchen-h-f-temporario-omega-sa-biel-bienne"
         ],
         "en": [
           "cuisinier-h-f-temporaire-omega-biel-bienne"
@@ -84,6 +86,7 @@
         ]
       },
       "firstSeenAt": "2026-07-10T13:31:47.089Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -102,7 +105,7 @@
       "slug": "designato-h-f-omega-sa-biel-bienne",
       "slugByLocale": {
         "it": "designato-h-f-omega-sa-biel-bienne",
-        "en": "designate-h-f-omega-sa-biel-bienne",
+        "en": "designer-m-w-d-omega-sa-biel-bienne",
         "de": "bezeichnung-h-f-omega-sa-biel-bienne",
         "fr": "designer-h-f-omega-biel-bienne"
       },
@@ -112,7 +115,7 @@
       "title": "DESIGNER (H/F)",
       "titleByLocale": {
         "it": "DESIGNATO (H/F)",
-        "en": "DESIGNATE (H/F)",
+        "en": "DESIGNER (H/F)",
         "de": "BEZEICHNUNG (H/F)",
         "fr": "DESIGNER (H/F)"
       },
@@ -128,7 +131,7 @@
       "url": "https://www.swatchgroup.com/fr/job/32497",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-02T11:13:59.553Z",
+      "crawledAt": "2026-08-02T22:14:23.941Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -173,6 +176,8 @@
         "spare-parts-stock-employee-h-f-omega-biel-bienne",
         "employed-stock-parts-h-f-omega-sa-biel-bienne",
         "arbeitsparteien-h-f-omega-sa-biel-bienne",
+        "designate-h-f-omega-sa-biel-bienne",
+        "designato-h-f-omega-sa-biel-bienne",
         "designer-m-w-d-omega-sa-biel-bienne"
       ],
       "previousSlugsByLocale": {
@@ -180,12 +185,14 @@
           "designer-h-f-omega-biel-bienne",
           "spare-parts-stock-employee-h-f-omega-biel-bienne",
           "employed-stock-parts-h-f-omega-sa-biel-bienne",
-          "arbeitsparteien-h-f-omega-sa-biel-bienne"
+          "arbeitsparteien-h-f-omega-sa-biel-bienne",
+          "designato-h-f-omega-sa-biel-bienne"
         ],
         "en": [
           "designer-h-f-omega-biel-bienne",
           "designer-h-f-omega-sa-biel-bienne",
           "employed-stock-parts-h-f-omega-sa-biel-bienne",
+          "designate-h-f-omega-sa-biel-bienne",
           "designer-m-w-d-omega-sa-biel-bienne"
         ],
         "de": [
@@ -197,6 +204,7 @@
         ]
       },
       "firstSeenAt": "2026-07-10T13:31:25.778Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -241,7 +249,7 @@
       "url": "https://www.swatchgroup.com/en/job/32500",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-02T11:13:38.141Z",
+      "crawledAt": "2026-08-02T22:14:02.431Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -307,6 +315,7 @@
         ]
       },
       "firstSeenAt": "2026-07-10T13:31:04.444Z",
+      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "baseSalary": {
@@ -351,7 +360,7 @@
       "url": "https://www.swatchgroup.com/en/job/32560",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-02T11:13:16.290Z",
+      "crawledAt": "2026-08-02T22:13:40.931Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -383,17 +392,20 @@
         ]
       },
       "previousSlugs": [
-        "international-sales-trainer-m-w-omega-biel-bienne"
+        "international-sales-trainer-m-w-omega-biel-bienne",
+        "trainer-internazionale-m-w-omega-sa-biel-bienne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "international-sales-trainer-m-w-omega-biel-bienne"
+          "international-sales-trainer-m-w-omega-biel-bienne",
+          "trainer-internazionale-m-w-omega-sa-biel-bienne"
         ],
         "de": [
           "international-sales-trainer-m-w-omega-biel-bienne"
         ]
       },
       "firstSeenAt": "2026-07-17T11:53:15.053Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -438,7 +450,7 @@
       "url": "https://www.swatchgroup.com/fr/job/32611",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-02T11:12:54.918Z",
+      "crawledAt": "2026-08-02T22:13:19.593Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -465,6 +477,7 @@
         ]
       },
       "firstSeenAt": "2026-07-30T11:51:59.660Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -509,7 +522,7 @@
       "url": "https://www.swatchgroup.com/fr/job/32650",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-02T11:12:33.612Z",
+      "crawledAt": "2026-08-02T22:12:57.847Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -551,12 +564,14 @@
       },
       "previousSlugs": [
         "apprentissage-horloger-ere-cfc-omega-biel-bienne",
-        "apprentissage-horloger-ere-cfc-omega-sa-biel-bienne"
+        "apprentissage-horloger-ere-cfc-omega-sa-biel-bienne",
+        "avvertenza-omega-sa-biel-bienne"
       ],
       "previousSlugsByLocale": {
         "it": [
           "apprentissage-horloger-ere-cfc-omega-biel-bienne",
-          "apprentissage-horloger-ere-cfc-omega-sa-biel-bienne"
+          "apprentissage-horloger-ere-cfc-omega-sa-biel-bienne",
+          "avvertenza-omega-sa-biel-bienne"
         ],
         "en": [
           "apprentissage-horloger-ere-cfc-omega-biel-bienne"
@@ -566,6 +581,7 @@
         ]
       },
       "firstSeenAt": "2026-07-28T11:53:31.231Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -610,7 +626,7 @@
       "url": "https://www.swatchgroup.com/fr/job/32651",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-02T11:12:11.254Z",
+      "crawledAt": "2026-08-02T22:12:36.007Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -652,12 +668,14 @@
       },
       "previousSlugs": [
         "apprentissage-horloger-ere-de-production-cfc-omega-biel-bienne",
-        "apprentissage-horloger-ere-de-production-cfc-omega-sa-biel-bienne"
+        "apprentissage-horloger-ere-de-production-cfc-omega-sa-biel-bienne",
+        "avvertenza-dell-ira-della-produzione-di-cfc-omega-sa-biel-bienne"
       ],
       "previousSlugsByLocale": {
         "it": [
           "apprentissage-horloger-ere-de-production-cfc-omega-biel-bienne",
-          "apprentissage-horloger-ere-de-production-cfc-omega-sa-biel-bienne"
+          "apprentissage-horloger-ere-de-production-cfc-omega-sa-biel-bienne",
+          "avvertenza-dell-ira-della-produzione-di-cfc-omega-sa-biel-bienne"
         ],
         "en": [
           "apprentissage-horloger-ere-de-production-cfc-omega-biel-bienne"
@@ -667,6 +685,7 @@
         ]
       },
       "firstSeenAt": "2026-07-28T11:53:10.043Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -711,7 +730,7 @@
       "url": "https://www.swatchgroup.com/fr/job/32654",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-02T11:11:49.762Z",
+      "crawledAt": "2026-08-02T22:12:14.644Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -744,12 +763,14 @@
       },
       "previousSlugs": [
         "apprentissage-employe-e-de-commerce-cfc-omega-biel-bienne",
-        "apprentissage-employe-e-de-commerce-cfc-omega-sa-biel-bienne"
+        "apprentissage-employe-e-de-commerce-cfc-omega-sa-biel-bienne",
+        "avviso-occupato-del-trade-swc-omega-sa-biel-bienne"
       ],
       "previousSlugsByLocale": {
         "it": [
           "apprentissage-employe-e-de-commerce-cfc-omega-biel-bienne",
-          "apprentissage-employe-e-de-commerce-cfc-omega-sa-biel-bienne"
+          "apprentissage-employe-e-de-commerce-cfc-omega-sa-biel-bienne",
+          "avviso-occupato-del-trade-swc-omega-sa-biel-bienne"
         ],
         "en": [
           "apprentissage-employe-e-de-commerce-cfc-omega-biel-bienne"
@@ -759,6 +780,7 @@
         ]
       },
       "firstSeenAt": "2026-07-28T11:52:48.559Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -803,7 +825,7 @@
       "url": "https://www.swatchgroup.com/fr/job/32653",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-02T11:11:28.168Z",
+      "crawledAt": "2026-08-02T22:11:52.356Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -843,12 +865,14 @@
       },
       "previousSlugs": [
         "apprentissage-operateur-rice-en-horlogerie-afp-omega-biel-bienne",
-        "apprentissage-operateur-rice-en-horlogerie-afp-omega-sa-biel-bienne"
+        "apprentissage-operateur-rice-en-horlogerie-afp-omega-sa-biel-bienne",
+        "attenzione-operazione-omega-sa-biel-bienne"
       ],
       "previousSlugsByLocale": {
         "it": [
           "apprentissage-operateur-rice-en-horlogerie-afp-omega-biel-bienne",
-          "apprentissage-operateur-rice-en-horlogerie-afp-omega-sa-biel-bienne"
+          "apprentissage-operateur-rice-en-horlogerie-afp-omega-sa-biel-bienne",
+          "attenzione-operazione-omega-sa-biel-bienne"
         ],
         "en": [
           "apprentissage-operateur-rice-en-horlogerie-afp-omega-biel-bienne"
@@ -858,6 +882,7 @@
         ]
       },
       "firstSeenAt": "2026-07-28T11:52:27.421Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -902,7 +927,7 @@
       "url": "https://www.swatchgroup.com/de/job/32652",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-02T11:11:06.847Z",
+      "crawledAt": "2026-08-02T22:11:30.874Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -943,11 +968,13 @@
         ]
       },
       "previousSlugs": [
-        "lehrstelle-als-urhmacher-in-efz-omega-biel-bienne"
+        "lehrstelle-als-urhmacher-in-efz-omega-biel-bienne",
+        "apprendistato-come-urhmacher-in-cfc-omega-sa-biel-bienne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-urhmacher-in-efz-omega-biel-bienne"
+          "lehrstelle-als-urhmacher-in-efz-omega-biel-bienne",
+          "apprendistato-come-urhmacher-in-cfc-omega-sa-biel-bienne"
         ],
         "en": [
           "lehrstelle-als-urhmacher-in-efz-omega-biel-bienne"
@@ -957,6 +984,7 @@
         ]
       },
       "firstSeenAt": "2026-07-28T11:52:06.121Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -1001,7 +1029,7 @@
       "url": "https://www.swatchgroup.com/fr/job/32655",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-02T11:10:45.392Z",
+      "crawledAt": "2026-08-02T22:11:09.545Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1041,18 +1069,21 @@
       },
       "previousSlugs": [
         "apprentissage-logisticien-ne-cfc-omega-biel-bienne",
-        "apprentissage-logisticien-ne-cfc-omega-sa-biel-bienne"
+        "apprentissage-logisticien-ne-cfc-omega-sa-biel-bienne",
+        "logistician-learning-cfc-omega-sa-biel-bienne"
       ],
       "previousSlugsByLocale": {
         "it": [
           "apprentissage-logisticien-ne-cfc-omega-biel-bienne",
-          "apprentissage-logisticien-ne-cfc-omega-sa-biel-bienne"
+          "apprentissage-logisticien-ne-cfc-omega-sa-biel-bienne",
+          "logistician-learning-cfc-omega-sa-biel-bienne"
         ],
         "de": [
           "apprentissage-logisticien-ne-cfc-omega-biel-bienne"
         ]
       },
       "firstSeenAt": "2026-07-28T11:51:44.701Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -1097,7 +1128,7 @@
       "url": "https://www.swatchgroup.com/de/job/32658",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-02T11:10:23.948Z",
+      "crawledAt": "2026-08-02T22:10:48.042Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1138,17 +1169,20 @@
         ]
       },
       "previousSlugs": [
-        "lehrstelle-als-urhmacher-in-produktion-efz-omega-biel-bienne"
+        "lehrstelle-als-urhmacher-in-produktion-efz-omega-biel-bienne",
+        "apprendistato-come-urhmacher-in-produktion-cfc-omega-sa-biel-bienne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-urhmacher-in-produktion-efz-omega-biel-bienne"
+          "lehrstelle-als-urhmacher-in-produktion-efz-omega-biel-bienne",
+          "apprendistato-come-urhmacher-in-produktion-cfc-omega-sa-biel-bienne"
         ],
         "en": [
           "lehrstelle-als-urhmacher-in-produktion-efz-omega-biel-bienne"
         ]
       },
       "firstSeenAt": "2026-07-28T11:51:23.564Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
