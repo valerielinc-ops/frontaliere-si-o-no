@@ -1,6 +1,6 @@
 {
   "crawlerKey": "hornbach",
-  "assembledAt": "2026-08-02T10:53:56.397Z",
+  "assembledAt": "2026-08-02T22:04:24.799Z",
   "jobs": [
     {
       "id": "hornbach-152450",
@@ -33,7 +33,7 @@
       "url": "https://jobs.hornbach.ch/offer-redirect/?offerApiId=MTUyNDUw&showApplicationForm=false",
       "source": "Hornbach Dedicated Parser (job-shop/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-02T10:53:53.051Z",
+      "crawledAt": "2026-08-02T22:04:20.709Z",
       "addressLocality": "Luzern Littau",
       "addressRegion": "Luzern",
       "streetAddress": "Thorenbergstrasse 49",
@@ -62,6 +62,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T10:58:56.906Z",
+      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -106,7 +107,7 @@
       "url": "https://jobs.hornbach.ch/offer-redirect/?offerApiId=MTUyNTIy&showApplicationForm=false",
       "source": "Hornbach Dedicated Parser (job-shop/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-02T10:53:53.041Z",
+      "crawledAt": "2026-08-02T22:04:20.707Z",
       "addressLocality": "Luzern Littau",
       "addressRegion": "Luzern",
       "streetAddress": "Thorenbergstrasse 49",
@@ -139,6 +140,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T10:58:56.906Z",
+      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -183,7 +185,7 @@
       "url": "https://jobs.hornbach.ch/offer-redirect/?offerApiId=MTUzMDkx&showApplicationForm=false",
       "source": "Hornbach Dedicated Parser (job-shop/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-02T10:53:53.037Z",
+      "crawledAt": "2026-08-02T22:04:20.706Z",
       "addressLocality": "Sirnach",
       "addressRegion": "TG",
       "streetAddress": "Ebnetstrasse 5",
@@ -212,6 +214,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T10:58:56.903Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -256,7 +259,7 @@
       "url": "https://jobs.hornbach.ch/offer-redirect/?offerApiId=MTUzMjI5&showApplicationForm=false",
       "source": "Hornbach Dedicated Parser (job-shop/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-02T10:53:53.036Z",
+      "crawledAt": "2026-08-02T22:04:20.705Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "streetAddress": "Längfeldweg 140",
@@ -285,6 +288,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T10:58:56.902Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -329,7 +333,7 @@
       "url": "https://jobs.hornbach.ch/offer-redirect/?offerApiId=MTUzMzkx&showApplicationForm=false",
       "source": "Hornbach Dedicated Parser (job-shop/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-02T10:53:53.035Z",
+      "crawledAt": "2026-08-02T22:04:20.704Z",
       "addressLocality": "Affoltern am Albis",
       "addressRegion": "ZH",
       "streetAddress": "Obfelderstrasse 37",
@@ -358,6 +362,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T10:58:56.899Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -402,7 +407,7 @@
       "url": "https://jobs.hornbach.ch/offer-redirect/?offerApiId=MTUyNTIz&showApplicationForm=false",
       "source": "Hornbach Dedicated Parser (job-shop/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-02T10:53:53.035Z",
+      "crawledAt": "2026-08-02T22:04:20.704Z",
       "addressLocality": "Luzern Littau",
       "addressRegion": "Luzern",
       "streetAddress": "Thorenbergstrasse 49",
@@ -448,6 +453,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T10:58:56.900Z",
+      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -492,7 +498,7 @@
       "url": "https://jobs.hornbach.ch/offer-redirect/?offerApiId=MTUzNzUy&showApplicationForm=false",
       "source": "Hornbach Dedicated Parser (job-shop/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-02T10:53:53.032Z",
+      "crawledAt": "2026-08-02T22:04:20.703Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "streetAddress": "Längfeldweg 140",
@@ -525,6 +531,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T10:58:56.898Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -569,7 +576,7 @@
       "url": "https://jobs.hornbach.ch/offer-redirect/?offerApiId=MTU0MDQy&showApplicationForm=false",
       "source": "Hornbach Dedicated Parser (job-shop/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-02T10:53:53.032Z",
+      "crawledAt": "2026-08-02T22:04:20.703Z",
       "addressLocality": "Galgenen",
       "addressRegion": "SZ",
       "streetAddress": "Kantonsstrasse 61",
@@ -602,6 +609,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T10:58:56.896Z",
+      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -611,6 +619,84 @@
           "@type": "QuantitativeValue",
           "minValue": 69500,
           "maxValue": 106000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "hornbach-154063",
+      "slug": "bad-e-kuchenplaner-in-hornbach-sirnach",
+      "slugByLocale": {
+        "it": "bad-e-kuchenplaner-in-hornbach-sirnach",
+        "en": "bathroom-and-kitchen-planner-in-hornbach-sirnach",
+        "de": "bad-und-kuchenplaner-in-hornbach-sirnach",
+        "fr": "planificateur-salle-de-bains-et-cuisine-in-hornbach-sirnach"
+      },
+      "company": "Hornbach",
+      "companyKey": "hornbach",
+      "companyDomain": "hornbach.ch",
+      "title": "Bad- und Küchenplaner:in",
+      "titleByLocale": {
+        "it": "Bad- e Küchenplaner:in",
+        "en": "Bathroom and kitchen planner:in",
+        "de": "Bad- und Küchenplaner:in",
+        "fr": "Planificateur salle de bains et cuisine:in"
+      },
+      "description": "Darauf kannst Du Dich freuen\n• 39-Stunden-Woche mit flexiblen Pausen\n• Vollzeit oder Teilzeit wählbar zwischen 50 % und 100 %\n• BVG-Anteil (Pensionskasse) von 65 % bezahlt\n• Grosszügiger Mutter- und Vaterschaftsurlaub\n• Mindestens 5 Wochen Ferien pro Jahr Es gibt immer was zu tun\n• Du berätst und begleitest unsere Kundschaft bei der Verwirklichung ihrer Bad- und Küchenprojekte.\n• Dank Deiner Skizzen und Pläne visualisierst Du die individuellen Kundenwünsche.\n• Die Koordination zwischen dem Montage Service, Lieferanten und internen Ansprechpersonen liegt in Deiner Verantwortung.\n• Du bearbeitest Kundenanliegen sowie Reklamationen und trägst zur optimalen Warenpräsentation bei. Dein Fundament\n• Du hast eine abgeschlossene Berufsausbildung und Erfahrung im Bad- und Küchenbau oder in der Bad- und Küchenplanung.\n• Du bringst Herzblut für die Kundenberatung mit und begeisterst Durch Dein Verkaufstalent.\n• Du hast idealerweise bereits Erfahrungen gesammelt mit Planungssoftwares wie Carat.\n• Deine Leidenschaft für ästhetische Raumgestaltung zeichnet Dich aus.\n• Auf Deine Flexibilität im Rahmen unserer Öffnungszeiten können wir uns verlassen.\n\nBereich: Verkauf / Detailhandel",
+      "descriptionByLocale": {
+        "it": "Non vedo l'ora.\n• Settimana di 39 ore con pause flessibili\n• Selezione a tempo pieno o part-time tra il 50% e il 100%\n• Quota BVG (Fondo di sospensione) del 65 % versata\n• Generoso congedo di maternità e di paternità\n• Almeno 5 settimane di vacanza all'anno C'è sempre qualcosa da fare\n• Potrai consigliare e accompagnare i nostri clienti nella realizzazione dei loro progetti di bagno e cucina.\n• Visualizzare grazie ai tuoi schizzi e piani Lei desidera il cliente individuale.\n• Il coordinamento tra il servizio di assemblaggio, i fornitori e i referenti interni è vostra responsabilità.\n• Gestisci le preoccupazioni dei clienti e le lamentele e contribuisci alla presentazione ottimale delle merci. La tua fondazione\n• Hai completato la formazione professionale e l'esperienza nella costruzione di bagno e cucina o nella progettazione di bagno e cucina.\n• Porti passione per la consulenza dei clienti e ispirisci attraverso il tuo talento di vendita.\n• Idealmente, hai già acquisito esperienza con software di pianificazione come Carat.\n• La tua passione per l'interior design estetico ti distingue.\n• Possiamo contare sulla vostra flessibilità entro i nostri orari di apertura. Area: Vendita / Commercio al dettaglio",
+        "en": "You can look forward to it.\n• 39-hour week with flexible breaks\n• Full-time or part-time selection between 50% and 100%\n• BVG share (pension fund) of 65 % paid\n• Generous maternity and paternity leave\n• At least 5 weeks of vacation per year There is always something to do\n• You will advise and accompany our customers in the realization of their bathroom and kitchen projects.\n• Visualize thanks to your sketches and plans You the individual customer wishes.\n• The coordination between the assembly service, suppliers and internal contact persons is your responsibility.\n• You handle customer concerns as well as complaints and contribute to the optimal presentation of goods. Your foundation\n• You have completed vocational training and experience in bathroom and kitchen construction or in bathroom and kitchen planning.\n• You bring passion for customer advice and inspire through your sales talent.\n• Ideally, you have already gained experience with planning software like Carat.\n• Your passion for aesthetic interior design sets you apart.\n• We can rely on your flexibility within our opening hours. Area: Sales / Retail Trade",
+        "de": "Darauf kannst Du Dich freuen\n• 39-Stunden-Woche mit flexiblen Pausen\n• Vollzeit oder Teilzeit wählbar zwischen 50 % und 100 %\n• BVG-Anteil (Pensionskasse) von 65 % bezahlt\n• Grosszügiger Mutter- und Vaterschaftsurlaub\n• Mindestens 5 Wochen Ferien pro Jahr Es gibt immer was zu tun\n• Du berätst und begleitest unsere Kundschaft bei der Verwirklichung ihrer Bad- und Küchenprojekte.\n• Dank Deiner Skizzen und Pläne visualisierst Du die individuellen Kundenwünsche.\n• Die Koordination zwischen dem Montage Service, Lieferanten und internen Ansprechpersonen liegt in Deiner Verantwortung.\n• Du bearbeitest Kundenanliegen sowie Reklamationen und trägst zur optimalen Warenpräsentation bei. Dein Fundament\n• Du hast eine abgeschlossene Berufsausbildung und Erfahrung im Bad- und Küchenbau oder in der Bad- und Küchenplanung.\n• Du bringst Herzblut für die Kundenberatung mit und begeisterst Durch Dein Verkaufstalent.\n• Du hast idealerweise bereits Erfahrungen gesammelt mit Planungssoftwares wie Carat.\n• Deine Leidenschaft für ästhetische Raumgestaltung zeichnet Dich aus.\n• Auf Deine Flexibilität im Rahmen unserer Öffnungszeiten können wir uns verlassen.\n\nBereich: Verkauf / Detailhandel",
+        "fr": "Vous pouvez attendre avec impatience.\n• Semaine de 39 heures avec pauses flexibles\n• Sélection à temps plein ou à temps partiel entre 50% et 100%\n• Part BVG (fonds de pension) de 65 % versée\n• Congé de maternité et de paternité généreux\n• Au moins 5 semaines de vacances par an Il y a toujours quelque chose à faire.\n• Vous conseillerez et accompagnerez nos clients dans la réalisation de leurs projets de salle de bains et de cuisine.\n• Visualisez grâce à vos croquis et plans Vous que le client souhaite.\n• La coordination entre le service de montage, les fournisseurs et les personnes-ressources internes est de votre responsabilité.\n• Vous traitez les préoccupations des clients ainsi que les plaintes et contribuez à la présentation optimale des marchandises. Votre fondation\n• Vous avez terminé la formation professionnelle et l'expérience dans la construction de salle de bains et de cuisine ou dans la planification de salle de bains et de cuisine.\n• Vous apportez de la passion pour les conseils des clients et inspirez à travers votre talent de vente.\n• Idéalement, vous avez déjà acquis de l'expérience avec des logiciels de planification comme Carat.\n• Votre passion pour le design d'intérieur esthétique vous distingue.\n• Nous pouvons compter sur votre flexibilité dans nos heures d'ouverture. Domaine: Vente / Commerce de détail"
+      },
+      "location": "Sirnach",
+      "canton": "TG",
+      "url": "https://jobs.hornbach.ch/offer-redirect/?offerApiId=MTU0MDYz&showApplicationForm=false",
+      "source": "Hornbach Dedicated Parser (job-shop/Typesense)",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-02T22:04:20.702Z",
+      "addressLocality": "Sirnach",
+      "addressRegion": "TG",
+      "streetAddress": "Ebnetstrasse 5",
+      "postalCode": "8370",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "admin",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "sector": "Retail / Bricolage e Giardinaggio",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-06",
+      "applyUrl": "https://career5.successfactors.eu/sfcareer/jobreqcareer?jobId=154063&company=Hornbach&username=",
+      "jobReqId": "154063",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "bad-und-kuchenplaner-in-hornbach-sirnach"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "bad-und-kuchenplaner-in-hornbach-sirnach"
+        ],
+        "en": [
+          "bad-und-kuchenplaner-in-hornbach-sirnach"
+        ],
+        "fr": [
+          "bad-und-kuchenplaner-in-hornbach-sirnach"
+        ]
+      },
+      "firstSeenAt": "2026-07-04T10:58:56.894Z",
+      "needsRetranslation": true,
+      "salaryMin": 57500,
+      "salaryMax": 87000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 57500,
+          "maxValue": 87000,
           "unitText": "YEAR"
         }
       }
@@ -646,7 +732,7 @@
       "url": "https://jobs.hornbach.ch/offer-redirect/?offerApiId=MTU0MDUz&showApplicationForm=false",
       "source": "Hornbach Dedicated Parser (job-shop/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-02T10:53:53.031Z",
+      "crawledAt": "2026-08-02T22:04:20.702Z",
       "addressLocality": "Galgenen",
       "addressRegion": "SZ",
       "streetAddress": "Kantonsstrasse 61",
@@ -697,83 +783,6 @@
       }
     },
     {
-      "id": "hornbach-154063",
-      "slug": "bad-e-kuchenplaner-in-hornbach-sirnach",
-      "slugByLocale": {
-        "it": "bad-e-kuchenplaner-in-hornbach-sirnach",
-        "en": "bathroom-and-kitchen-planner-in-hornbach-sirnach",
-        "de": "bad-und-kuchenplaner-in-hornbach-sirnach",
-        "fr": "planificateur-salle-de-bains-et-cuisine-in-hornbach-sirnach"
-      },
-      "company": "Hornbach",
-      "companyKey": "hornbach",
-      "companyDomain": "hornbach.ch",
-      "title": "Bad- und Küchenplaner:in",
-      "titleByLocale": {
-        "it": "Bad- e Küchenplaner:in",
-        "en": "Bathroom and kitchen planner:in",
-        "de": "Bad- und Küchenplaner:in",
-        "fr": "Planificateur salle de bains et cuisine:in"
-      },
-      "description": "Darauf kannst Du Dich freuen\n• 39-Stunden-Woche mit flexiblen Pausen\n• Vollzeit oder Teilzeit wählbar zwischen 50 % und 100 %\n• BVG-Anteil (Pensionskasse) von 65 % bezahlt\n• Grosszügiger Mutter- und Vaterschaftsurlaub\n• Mindestens 5 Wochen Ferien pro Jahr Es gibt immer was zu tun\n• Du berätst und begleitest unsere Kundschaft bei der Verwirklichung ihrer Bad- und Küchenprojekte.\n• Dank Deiner Skizzen und Pläne visualisierst Du die individuellen Kundenwünsche.\n• Die Koordination zwischen dem Montage Service, Lieferanten und internen Ansprechpersonen liegt in Deiner Verantwortung.\n• Du bearbeitest Kundenanliegen sowie Reklamationen und trägst zur optimalen Warenpräsentation bei. Dein Fundament\n• Du hast eine abgeschlossene Berufsausbildung und Erfahrung im Bad- und Küchenbau oder in der Bad- und Küchenplanung.\n• Du bringst Herzblut für die Kundenberatung mit und begeisterst Durch Dein Verkaufstalent.\n• Du hast idealerweise bereits Erfahrungen gesammelt mit Planungssoftwares wie Carat.\n• Deine Leidenschaft für ästhetische Raumgestaltung zeichnet Dich aus.\n• Auf Deine Flexibilität im Rahmen unserer Öffnungszeiten können wir uns verlassen.\n\nBereich: Verkauf / Detailhandel",
-      "descriptionByLocale": {
-        "it": "Non vedo l'ora.\n• Settimana di 39 ore con pause flessibili\n• Selezione a tempo pieno o part-time tra il 50% e il 100%\n• Quota BVG (Fondo di sospensione) del 65 % versata\n• Generoso congedo di maternità e di paternità\n• Almeno 5 settimane di vacanza all'anno C'è sempre qualcosa da fare\n• Potrai consigliare e accompagnare i nostri clienti nella realizzazione dei loro progetti di bagno e cucina.\n• Visualizzare grazie ai tuoi schizzi e piani Lei desidera il cliente individuale.\n• Il coordinamento tra il servizio di assemblaggio, i fornitori e i referenti interni è vostra responsabilità.\n• Gestisci le preoccupazioni dei clienti e le lamentele e contribuisci alla presentazione ottimale delle merci. La tua fondazione\n• Hai completato la formazione professionale e l'esperienza nella costruzione di bagno e cucina o nella progettazione di bagno e cucina.\n• Porti passione per la consulenza dei clienti e ispirisci attraverso il tuo talento di vendita.\n• Idealmente, hai già acquisito esperienza con software di pianificazione come Carat.\n• La tua passione per l'interior design estetico ti distingue.\n• Possiamo contare sulla vostra flessibilità entro i nostri orari di apertura. Area: Vendita / Commercio al dettaglio",
-        "en": "You can look forward to it.\n• 39-hour week with flexible breaks\n• Full-time or part-time selection between 50% and 100%\n• BVG share (pension fund) of 65 % paid\n• Generous maternity and paternity leave\n• At least 5 weeks of vacation per year There is always something to do\n• You will advise and accompany our customers in the realization of their bathroom and kitchen projects.\n• Visualize thanks to your sketches and plans You the individual customer wishes.\n• The coordination between the assembly service, suppliers and internal contact persons is your responsibility.\n• You handle customer concerns as well as complaints and contribute to the optimal presentation of goods. Your foundation\n• You have completed vocational training and experience in bathroom and kitchen construction or in bathroom and kitchen planning.\n• You bring passion for customer advice and inspire through your sales talent.\n• Ideally, you have already gained experience with planning software like Carat.\n• Your passion for aesthetic interior design sets you apart.\n• We can rely on your flexibility within our opening hours. Area: Sales / Retail Trade",
-        "de": "Darauf kannst Du Dich freuen\n• 39-Stunden-Woche mit flexiblen Pausen\n• Vollzeit oder Teilzeit wählbar zwischen 50 % und 100 %\n• BVG-Anteil (Pensionskasse) von 65 % bezahlt\n• Grosszügiger Mutter- und Vaterschaftsurlaub\n• Mindestens 5 Wochen Ferien pro Jahr Es gibt immer was zu tun\n• Du berätst und begleitest unsere Kundschaft bei der Verwirklichung ihrer Bad- und Küchenprojekte.\n• Dank Deiner Skizzen und Pläne visualisierst Du die individuellen Kundenwünsche.\n• Die Koordination zwischen dem Montage Service, Lieferanten und internen Ansprechpersonen liegt in Deiner Verantwortung.\n• Du bearbeitest Kundenanliegen sowie Reklamationen und trägst zur optimalen Warenpräsentation bei. Dein Fundament\n• Du hast eine abgeschlossene Berufsausbildung und Erfahrung im Bad- und Küchenbau oder in der Bad- und Küchenplanung.\n• Du bringst Herzblut für die Kundenberatung mit und begeisterst Durch Dein Verkaufstalent.\n• Du hast idealerweise bereits Erfahrungen gesammelt mit Planungssoftwares wie Carat.\n• Deine Leidenschaft für ästhetische Raumgestaltung zeichnet Dich aus.\n• Auf Deine Flexibilität im Rahmen unserer Öffnungszeiten können wir uns verlassen.\n\nBereich: Verkauf / Detailhandel",
-        "fr": "Vous pouvez attendre avec impatience.\n• Semaine de 39 heures avec pauses flexibles\n• Sélection à temps plein ou à temps partiel entre 50% et 100%\n• Part BVG (fonds de pension) de 65 % versée\n• Congé de maternité et de paternité généreux\n• Au moins 5 semaines de vacances par an Il y a toujours quelque chose à faire.\n• Vous conseillerez et accompagnerez nos clients dans la réalisation de leurs projets de salle de bains et de cuisine.\n• Visualisez grâce à vos croquis et plans Vous que le client souhaite.\n• La coordination entre le service de montage, les fournisseurs et les personnes-ressources internes est de votre responsabilité.\n• Vous traitez les préoccupations des clients ainsi que les plaintes et contribuez à la présentation optimale des marchandises. Votre fondation\n• Vous avez terminé la formation professionnelle et l'expérience dans la construction de salle de bains et de cuisine ou dans la planification de salle de bains et de cuisine.\n• Vous apportez de la passion pour les conseils des clients et inspirez à travers votre talent de vente.\n• Idéalement, vous avez déjà acquis de l'expérience avec des logiciels de planification comme Carat.\n• Votre passion pour le design d'intérieur esthétique vous distingue.\n• Nous pouvons compter sur votre flexibilité dans nos heures d'ouverture. Domaine: Vente / Commerce de détail"
-      },
-      "location": "Sirnach",
-      "canton": "TG",
-      "url": "https://jobs.hornbach.ch/offer-redirect/?offerApiId=MTU0MDYz&showApplicationForm=false",
-      "source": "Hornbach Dedicated Parser (job-shop/Typesense)",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-02T10:53:53.030Z",
-      "addressLocality": "Sirnach",
-      "addressRegion": "TG",
-      "streetAddress": "Ebnetstrasse 5",
-      "postalCode": "8370",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "admin",
-      "contract": "part-time",
-      "employmentType": "PART_TIME",
-      "sector": "Retail / Bricolage e Giardinaggio",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-09-06",
-      "applyUrl": "https://career5.successfactors.eu/sfcareer/jobreqcareer?jobId=154063&company=Hornbach&username=",
-      "jobReqId": "154063",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "bad-und-kuchenplaner-in-hornbach-sirnach"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "bad-und-kuchenplaner-in-hornbach-sirnach"
-        ],
-        "en": [
-          "bad-und-kuchenplaner-in-hornbach-sirnach"
-        ],
-        "fr": [
-          "bad-und-kuchenplaner-in-hornbach-sirnach"
-        ]
-      },
-      "firstSeenAt": "2026-07-04T10:58:56.894Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "hornbach-154143",
       "slug": "legno-del-venditore-hornbach-luzern-littau",
       "slugByLocale": {
@@ -804,7 +813,7 @@
       "url": "https://jobs.hornbach.ch/offer-redirect/?offerApiId=MTU0MTQz&showApplicationForm=false",
       "source": "Hornbach Dedicated Parser (job-shop/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-02T10:53:53.030Z",
+      "crawledAt": "2026-08-02T22:04:20.701Z",
       "addressLocality": "Luzern Littau",
       "addressRegion": "Luzern",
       "streetAddress": "Thorenbergstrasse 49",
@@ -835,6 +844,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T10:58:56.891Z",
+      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -879,7 +889,7 @@
       "url": "https://jobs.hornbach.ch/offer-redirect/?offerApiId=MTU0MDMx&showApplicationForm=false",
       "source": "Hornbach Dedicated Parser (job-shop/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-02T10:53:53.030Z",
+      "crawledAt": "2026-08-02T22:04:20.701Z",
       "addressLocality": "Luzern Littau",
       "addressRegion": "Luzern",
       "streetAddress": "Thorenbergstrasse 49",
@@ -952,7 +962,7 @@
       "url": "https://jobs.hornbach.ch/offer-redirect/?offerApiId=MTU0MTg1&showApplicationForm=false",
       "source": "Hornbach Dedicated Parser (job-shop/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-02T10:53:53.024Z",
+      "crawledAt": "2026-08-02T22:04:20.700Z",
       "addressLocality": "Sirnach",
       "addressRegion": "TG",
       "streetAddress": "Ebnetstrasse 5",
@@ -981,6 +991,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T10:58:56.890Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -1025,7 +1036,7 @@
       "url": "https://jobs.hornbach.ch/offer-redirect/?offerApiId=MTU0MjU3&showApplicationForm=false",
       "source": "Hornbach Dedicated Parser (job-shop/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-02T10:53:53.023Z",
+      "crawledAt": "2026-08-02T22:04:20.700Z",
       "addressLocality": "Affoltern am Albis",
       "addressRegion": "ZH",
       "streetAddress": "Obfelderstrasse 37",
@@ -1054,6 +1065,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T10:58:56.884Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -1098,7 +1110,7 @@
       "url": "https://jobs.hornbach.ch/offer-redirect/?offerApiId=MTU0MjUy&showApplicationForm=false",
       "source": "Hornbach Dedicated Parser (job-shop/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-02T10:53:53.023Z",
+      "crawledAt": "2026-08-02T22:04:20.700Z",
       "addressLocality": "Galgenen",
       "addressRegion": "SZ",
       "streetAddress": "Kantonsstrasse 61",
@@ -1171,7 +1183,7 @@
       "url": "https://jobs.hornbach.ch/offer-redirect/?offerApiId=MTU0MjYw&showApplicationForm=false",
       "source": "Hornbach Dedicated Parser (job-shop/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-02T10:53:53.022Z",
+      "crawledAt": "2026-08-02T22:04:20.699Z",
       "addressLocality": "Affoltern am Albis",
       "addressRegion": "ZH",
       "streetAddress": "Obfelderstrasse 37",
@@ -1244,7 +1256,7 @@
       "url": "https://jobs.hornbach.ch/offer-redirect/?offerApiId=MTU0MjM5&showApplicationForm=false",
       "source": "Hornbach Dedicated Parser (job-shop/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-02T10:53:53.022Z",
+      "crawledAt": "2026-08-02T22:04:20.699Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "streetAddress": "Längfeldweg 140",
@@ -1317,7 +1329,7 @@
       "url": "https://jobs.hornbach.ch/offer-redirect/?offerApiId=MTU0MjYy&showApplicationForm=false",
       "source": "Hornbach Dedicated Parser (job-shop/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-02T10:53:53.018Z",
+      "crawledAt": "2026-08-02T22:04:20.698Z",
       "addressLocality": "Affoltern am Albis",
       "addressRegion": "ZH",
       "streetAddress": "Obfelderstrasse 37",
@@ -1350,6 +1362,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T10:58:56.882Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -1394,7 +1407,7 @@
       "url": "https://jobs.hornbach.ch/offer-redirect/?offerApiId=MTU0Mjc5&showApplicationForm=false",
       "source": "Hornbach Dedicated Parser (job-shop/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-02T10:53:53.017Z",
+      "crawledAt": "2026-08-02T22:04:20.697Z",
       "addressLocality": "Galgenen",
       "addressRegion": "SZ",
       "streetAddress": "Kantonsstrasse 61",
@@ -1429,6 +1442,7 @@
         ]
       },
       "firstSeenAt": "2026-07-07T12:07:30.397Z",
+      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -1473,7 +1487,7 @@
       "url": "https://jobs.hornbach.ch/offer-redirect/?offerApiId=MTU0Mjgw&showApplicationForm=false",
       "source": "Hornbach Dedicated Parser (job-shop/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-02T10:53:53.017Z",
+      "crawledAt": "2026-08-02T22:04:20.697Z",
       "addressLocality": "Galgenen",
       "addressRegion": "SZ",
       "streetAddress": "Kantonsstrasse 61",
@@ -1502,6 +1516,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T10:58:56.881Z",
+      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -1546,7 +1561,7 @@
       "url": "https://jobs.hornbach.ch/offer-redirect/?offerApiId=MTU0MjM4&showApplicationForm=false",
       "source": "Hornbach Dedicated Parser (job-shop/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-02T10:53:53.014Z",
+      "crawledAt": "2026-08-02T22:04:20.696Z",
       "addressLocality": "Affoltern am Albis",
       "addressRegion": "ZH",
       "streetAddress": "Obfelderstrasse 37",
@@ -1581,6 +1596,7 @@
         ]
       },
       "firstSeenAt": "2026-07-07T12:07:30.395Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -1625,7 +1641,7 @@
       "url": "https://jobs.hornbach.ch/offer-redirect/?offerApiId=MTUzNjA5&showApplicationForm=false",
       "source": "Hornbach Dedicated Parser (job-shop/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-02T10:53:53.013Z",
+      "crawledAt": "2026-08-02T22:04:20.696Z",
       "addressLocality": "Luzern Littau",
       "addressRegion": "Luzern",
       "streetAddress": "Thorenbergstrasse 49",
@@ -1654,6 +1670,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T10:58:56.889Z",
+      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -1698,7 +1715,7 @@
       "url": "https://jobs.hornbach.ch/offer-redirect/?offerApiId=MTU0MjAw&showApplicationForm=false",
       "source": "Hornbach Dedicated Parser (job-shop/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-02T10:53:53.008Z",
+      "crawledAt": "2026-08-02T22:04:20.693Z",
       "addressLocality": "Sirnach",
       "addressRegion": "TG",
       "streetAddress": "Ebnetstrasse 5",
@@ -1727,79 +1744,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T10:58:56.887Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "hornbach-154186",
-      "slug": "addetto-a-alla-logistica-hornbach-sirnach",
-      "slugByLocale": {
-        "it": "addetto-a-alla-logistica-hornbach-sirnach",
-        "en": "associate-logistik-hornbach-sirnach",
-        "de": "mitarbeiter-in-logistik-hornbach-sirnach",
-        "fr": "collaborateur-trice-logistik-hornbach-sirnach"
-      },
-      "company": "Hornbach",
-      "companyKey": "hornbach",
-      "companyDomain": "hornbach.ch",
-      "title": "Mitarbeiter:in Logistik",
-      "titleByLocale": {
-        "it": "Addetto/a alla logistica",
-        "en": "Associate Logistik",
-        "de": "Mitarbeiter:in Logistik",
-        "fr": "Collaborateur/trice Logistik"
-      },
-      "description": "Darauf kannst Du Dich freuen\n• 39-Stunden-Woche mit flexiblen Pausen\n• Mindestens 5 Wochen Ferien pro Jahr\n• BVG-Anteil (Pensionskasse) von 65 % bezahlt\n• Fairer Mindestlohn ab CHF 4'400\n• Grosszügiger Mutter- und Vaterschaftsurlaub Es gibt immer was zu tun\n• Du fertigst den Wareneingang ab und stellst die Ware der Verkaufsfläche bereit.\n• Beim Be- und Entladen von LKW's packst Du mit an.\n• Du unterstützt Dein Team, wo immer es was zu tun gibt. Dein Fundament\n• Deine Leidenschaft für einen reibungslosen Warenfluss und Deine Macherpersönlichkeit zeichnen Dich aus.\n• Du hast idealerweise eine abgeschlossene Ausbildung als Logistiker:in oder Berufserfahrung in der Logistik.\n• Du besitzt einen Staplerführerausweis sowie den Autoführerschein und behältst in stressigen Situationen den Überblick.\n\nBereich: Logistik / Supply Chain",
-      "descriptionByLocale": {
-        "it": "Non vedo l'ora.\n• Settimana di 39 ore con pause flessibili\n• Almeno 5 settimane di vacanza all'anno\n• Quota BVG (Fondo di sospensione) del 65 % versata\n• Equo salario minimo da CHF 4'400\n• Generoso congedo di maternità e di paternità C'è sempre qualcosa da fare\n• Finisci la ricevuta della merce e fornisci la merce all'area di vendita.\n• Quando si caricano e scaricano i camion, si entra in gioco.\n• Sostieni la tua squadra ovunque ci sia qualcosa da fare. La tua fondazione\n• La vostra passione per un flusso liscio di merci e la vostra personalità creatrice vi distingue.\n• Idealmente, hai completato la formazione come logistica: in o esperienza professionale nella logistica.\n• Hai una patente di guida per camion e la patente di guida per auto e tieni traccia delle situazioni stressanti. Area: Logistica / Supply Chain",
-        "en": "You can look forward to it.\n• 39-hour week with flexible breaks\n• At least 5 weeks of vacation per year\n• BVG share (pension fund) of 65 % paid\n• Fair minimum wage from CHF 4'400\n• Generous maternity and paternity leave There is always something to do\n• You finish the goods receipt and provide the goods to the sales area.\n• When loading and unloading trucks, you get involved.\n• You support your team wherever there is something to do. Your foundation\n• Your passion for a smooth flow of goods and your maker personality set you apart.\n• Ideally, you have completed training as a logistician: in or professional experience in logistics.\n• You have a truck driver’s license and the car driver’s license and keep track of stressful situations. Area: Logistics / Supply Chain",
-        "de": "Darauf kannst Du Dich freuen\n• 39-Stunden-Woche mit flexiblen Pausen\n• Mindestens 5 Wochen Ferien pro Jahr\n• BVG-Anteil (Pensionskasse) von 65 % bezahlt\n• Fairer Mindestlohn ab CHF 4'400\n• Grosszügiger Mutter- und Vaterschaftsurlaub Es gibt immer was zu tun\n• Du fertigst den Wareneingang ab und stellst die Ware der Verkaufsfläche bereit.\n• Beim Be- und Entladen von LKW's packst Du mit an.\n• Du unterstützt Dein Team, wo immer es was zu tun gibt. Dein Fundament\n• Deine Leidenschaft für einen reibungslosen Warenfluss und Deine Macherpersönlichkeit zeichnen Dich aus.\n• Du hast idealerweise eine abgeschlossene Ausbildung als Logistiker:in oder Berufserfahrung in der Logistik.\n• Du besitzt einen Staplerführerausweis sowie den Autoführerschein und behältst in stressigen Situationen den Überblick.\n\nBereich: Logistik / Supply Chain",
-        "fr": "Vous pouvez attendre avec impatience.\n• Semaine de 39 heures avec pauses flexibles\n• Au moins 5 semaines de vacances par an\n• Part BVG (fonds de pension) de 65 % versée\n• Salaire minimum équitable à partir de CHF 4'400\n• Congé de maternité et de paternité généreux Il y a toujours quelque chose à faire.\n• Vous terminez le reçu des marchandises et fournissez les marchandises à la zone de vente.\n• Lors du chargement et du déchargement des camions, vous vous impliquez.\n• Vous soutenez votre équipe partout où il y a quelque chose à faire. Votre fondation\n• Votre passion pour un flux de marchandises en douceur et votre personnalité de fabricant vous ont mis à part.\n• Idéalement, vous avez suivi une formation en tant que logisticien : expérience professionnelle en logistique.\n• Vous avez un permis de conducteur de camion et le permis de conducteur de voiture et garder une trace des situations stressantes. Domaine: Logistique / Chaîne d'approvisionnement"
-      },
-      "location": "Sirnach",
-      "canton": "TG",
-      "url": "https://jobs.hornbach.ch/offer-redirect/?offerApiId=MTU0MTg2&showApplicationForm=false",
-      "source": "Hornbach Dedicated Parser (job-shop/Typesense)",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-02T10:53:53.007Z",
-      "addressLocality": "Sirnach",
-      "addressRegion": "TG",
-      "streetAddress": "Ebnetstrasse 5",
-      "postalCode": "8370",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "admin",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "sector": "Retail / Bricolage e Giardinaggio",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-01-07",
-      "applyUrl": "https://career5.successfactors.eu/sfcareer/jobreqcareer?jobId=154186&company=Hornbach&username=",
-      "jobReqId": "154186",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "mitarbeiter-in-logistik-hornbach-sirnach",
-        "addetto-a-alla-logistica-hornbach-sirnach"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "mitarbeiter-in-logistik-hornbach-sirnach",
-          "addetto-a-alla-logistica-hornbach-sirnach"
-        ]
-      },
-      "firstSeenAt": "2026-07-04T10:58:56.885Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -1844,7 +1789,7 @@
       "url": "https://jobs.hornbach.ch/offer-redirect/?offerApiId=MTU0Mzgy&showApplicationForm=false",
       "source": "Hornbach Dedicated Parser (job-shop/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-02T10:53:53.006Z",
+      "crawledAt": "2026-08-02T22:04:20.691Z",
       "addressLocality": "Affoltern am Albis",
       "addressRegion": "ZH",
       "streetAddress": "Obfelderstrasse 37",
@@ -1879,6 +1824,7 @@
         ]
       },
       "firstSeenAt": "2026-07-17T11:37:55.306Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -1888,6 +1834,80 @@
           "@type": "QuantitativeValue",
           "minValue": 73500,
           "maxValue": 111500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "hornbach-154186",
+      "slug": "addetto-a-alla-logistica-hornbach-sirnach",
+      "slugByLocale": {
+        "it": "addetto-a-alla-logistica-hornbach-sirnach",
+        "en": "associate-logistik-hornbach-sirnach",
+        "de": "mitarbeiter-in-logistik-hornbach-sirnach",
+        "fr": "collaborateur-trice-logistik-hornbach-sirnach"
+      },
+      "company": "Hornbach",
+      "companyKey": "hornbach",
+      "companyDomain": "hornbach.ch",
+      "title": "Mitarbeiter:in Logistik",
+      "titleByLocale": {
+        "it": "Addetto/a alla logistica",
+        "en": "Associate Logistik",
+        "de": "Mitarbeiter:in Logistik",
+        "fr": "Collaborateur/trice Logistik"
+      },
+      "description": "Darauf kannst Du Dich freuen\n• 39-Stunden-Woche mit flexiblen Pausen\n• Mindestens 5 Wochen Ferien pro Jahr\n• BVG-Anteil (Pensionskasse) von 65 % bezahlt\n• Fairer Mindestlohn ab CHF 4'400\n• Grosszügiger Mutter- und Vaterschaftsurlaub Es gibt immer was zu tun\n• Du fertigst den Wareneingang ab und stellst die Ware der Verkaufsfläche bereit.\n• Beim Be- und Entladen von LKW's packst Du mit an.\n• Du unterstützt Dein Team, wo immer es was zu tun gibt. Dein Fundament\n• Deine Leidenschaft für einen reibungslosen Warenfluss und Deine Macherpersönlichkeit zeichnen Dich aus.\n• Du hast idealerweise eine abgeschlossene Ausbildung als Logistiker:in oder Berufserfahrung in der Logistik.\n• Du besitzt einen Staplerführerausweis sowie den Autoführerschein und behältst in stressigen Situationen den Überblick.\n\nBereich: Logistik / Supply Chain",
+      "descriptionByLocale": {
+        "it": "Non vedo l'ora.\n• Settimana di 39 ore con pause flessibili\n• Almeno 5 settimane di vacanza all'anno\n• Quota BVG (Fondo di sospensione) del 65 % versata\n• Equo salario minimo da CHF 4'400\n• Generoso congedo di maternità e di paternità C'è sempre qualcosa da fare\n• Finisci la ricevuta della merce e fornisci la merce all'area di vendita.\n• Quando si caricano e scaricano i camion, si entra in gioco.\n• Sostieni la tua squadra ovunque ci sia qualcosa da fare. La tua fondazione\n• La vostra passione per un flusso liscio di merci e la vostra personalità creatrice vi distingue.\n• Idealmente, hai completato la formazione come logistica: in o esperienza professionale nella logistica.\n• Hai una patente di guida per camion e la patente di guida per auto e tieni traccia delle situazioni stressanti. Area: Logistica / Supply Chain",
+        "en": "You can look forward to it.\n• 39-hour week with flexible breaks\n• At least 5 weeks of vacation per year\n• BVG share (pension fund) of 65 % paid\n• Fair minimum wage from CHF 4'400\n• Generous maternity and paternity leave There is always something to do\n• You finish the goods receipt and provide the goods to the sales area.\n• When loading and unloading trucks, you get involved.\n• You support your team wherever there is something to do. Your foundation\n• Your passion for a smooth flow of goods and your maker personality set you apart.\n• Ideally, you have completed training as a logistician: in or professional experience in logistics.\n• You have a truck driver’s license and the car driver’s license and keep track of stressful situations. Area: Logistics / Supply Chain",
+        "de": "Darauf kannst Du Dich freuen\n• 39-Stunden-Woche mit flexiblen Pausen\n• Mindestens 5 Wochen Ferien pro Jahr\n• BVG-Anteil (Pensionskasse) von 65 % bezahlt\n• Fairer Mindestlohn ab CHF 4'400\n• Grosszügiger Mutter- und Vaterschaftsurlaub Es gibt immer was zu tun\n• Du fertigst den Wareneingang ab und stellst die Ware der Verkaufsfläche bereit.\n• Beim Be- und Entladen von LKW's packst Du mit an.\n• Du unterstützt Dein Team, wo immer es was zu tun gibt. Dein Fundament\n• Deine Leidenschaft für einen reibungslosen Warenfluss und Deine Macherpersönlichkeit zeichnen Dich aus.\n• Du hast idealerweise eine abgeschlossene Ausbildung als Logistiker:in oder Berufserfahrung in der Logistik.\n• Du besitzt einen Staplerführerausweis sowie den Autoführerschein und behältst in stressigen Situationen den Überblick.\n\nBereich: Logistik / Supply Chain",
+        "fr": "Vous pouvez attendre avec impatience.\n• Semaine de 39 heures avec pauses flexibles\n• Au moins 5 semaines de vacances par an\n• Part BVG (fonds de pension) de 65 % versée\n• Salaire minimum équitable à partir de CHF 4'400\n• Congé de maternité et de paternité généreux Il y a toujours quelque chose à faire.\n• Vous terminez le reçu des marchandises et fournissez les marchandises à la zone de vente.\n• Lors du chargement et du déchargement des camions, vous vous impliquez.\n• Vous soutenez votre équipe partout où il y a quelque chose à faire. Votre fondation\n• Votre passion pour un flux de marchandises en douceur et votre personnalité de fabricant vous ont mis à part.\n• Idéalement, vous avez suivi une formation en tant que logisticien : expérience professionnelle en logistique.\n• Vous avez un permis de conducteur de camion et le permis de conducteur de voiture et garder une trace des situations stressantes. Domaine: Logistique / Chaîne d'approvisionnement"
+      },
+      "location": "Sirnach",
+      "canton": "TG",
+      "url": "https://jobs.hornbach.ch/offer-redirect/?offerApiId=MTU0MTg2&showApplicationForm=false",
+      "source": "Hornbach Dedicated Parser (job-shop/Typesense)",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-02T22:04:20.691Z",
+      "addressLocality": "Sirnach",
+      "addressRegion": "TG",
+      "streetAddress": "Ebnetstrasse 5",
+      "postalCode": "8370",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "admin",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "sector": "Retail / Bricolage e Giardinaggio",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-01-07",
+      "applyUrl": "https://career5.successfactors.eu/sfcareer/jobreqcareer?jobId=154186&company=Hornbach&username=",
+      "jobReqId": "154186",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "mitarbeiter-in-logistik-hornbach-sirnach",
+        "addetto-a-alla-logistica-hornbach-sirnach"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "mitarbeiter-in-logistik-hornbach-sirnach",
+          "addetto-a-alla-logistica-hornbach-sirnach"
+        ]
+      },
+      "firstSeenAt": "2026-07-04T10:58:56.885Z",
+      "needsRetranslation": true,
+      "salaryMin": 57500,
+      "salaryMax": 87000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 57500,
+          "maxValue": 87000,
           "unitText": "YEAR"
         }
       }
@@ -1923,7 +1943,7 @@
       "url": "https://jobs.hornbach.ch/offer-redirect/?offerApiId=MTU0NDA3&showApplicationForm=false",
       "source": "Hornbach Dedicated Parser (job-shop/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-02T10:53:53.005Z",
+      "crawledAt": "2026-08-02T22:04:20.687Z",
       "addressLocality": "Luzern Littau",
       "addressRegion": "Luzern",
       "streetAddress": "Thorenbergstrasse 49",
@@ -1971,6 +1991,7 @@
         ]
       },
       "firstSeenAt": "2026-07-21T11:20:39.857Z",
+      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -2015,7 +2036,7 @@
       "url": "https://jobs.hornbach.ch/offer-redirect/?offerApiId=MTU0NDYw&showApplicationForm=false",
       "source": "Hornbach Dedicated Parser (job-shop/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-02T10:53:53.005Z",
+      "crawledAt": "2026-08-02T22:04:20.687Z",
       "addressLocality": "Affoltern am Albis",
       "addressRegion": "ZH",
       "streetAddress": "Obfelderstrasse 37",
@@ -2050,6 +2071,7 @@
         ]
       },
       "firstSeenAt": "2026-07-15T22:22:53.337Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -2094,7 +2116,7 @@
       "url": "https://jobs.hornbach.ch/offer-redirect/?offerApiId=MTU0NTg3&showApplicationForm=false",
       "source": "Hornbach Dedicated Parser (job-shop/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-02T10:53:53.004Z",
+      "crawledAt": "2026-08-02T22:04:20.686Z",
       "addressLocality": "Sirnach",
       "addressRegion": "TG",
       "streetAddress": "Ebnetstrasse 5",
@@ -2129,6 +2151,7 @@
         ]
       },
       "firstSeenAt": "2026-07-27T12:35:32.957Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -2173,7 +2196,7 @@
       "url": "https://jobs.hornbach.ch/offer-redirect/?offerApiId=MTU0Mzk5&showApplicationForm=false",
       "source": "Hornbach Dedicated Parser (job-shop/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-02T10:53:53.002Z",
+      "crawledAt": "2026-08-02T22:04:20.685Z",
       "addressLocality": "Galgenen",
       "addressRegion": "SZ",
       "streetAddress": "Kantonsstrasse 61",
@@ -2208,6 +2231,7 @@
         ]
       },
       "firstSeenAt": "2026-07-20T22:09:42.243Z",
+      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -2252,7 +2276,7 @@
       "url": "https://jobs.hornbach.ch/offer-redirect/?offerApiId=MTUyNTMw&showApplicationForm=false",
       "source": "Hornbach Dedicated Parser (job-shop/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-02T10:53:53.001Z",
+      "crawledAt": "2026-08-02T22:04:20.684Z",
       "addressLocality": "Sirnach",
       "addressRegion": "TG",
       "streetAddress": "Ebnetstrasse 5",
@@ -2281,6 +2305,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T10:58:56.901Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -2325,7 +2350,7 @@
       "url": "https://jobs.hornbach.ch/offer-redirect/?offerApiId=MTU0NTcw&showApplicationForm=false",
       "source": "Hornbach Dedicated Parser (job-shop/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-02T10:53:52.999Z",
+      "crawledAt": "2026-08-02T22:04:20.682Z",
       "addressLocality": "Galgenen",
       "addressRegion": "SZ",
       "streetAddress": "Kantonsstrasse 61",
@@ -2360,6 +2385,7 @@
         ]
       },
       "firstSeenAt": "2026-07-27T12:35:32.954Z",
+      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -2404,7 +2430,7 @@
       "url": "https://jobs.hornbach.ch/offer-redirect/?offerApiId=MTUzOTg2&showApplicationForm=false",
       "source": "Hornbach Dedicated Parser (job-shop/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-02T10:53:52.995Z",
+      "crawledAt": "2026-08-02T22:04:20.681Z",
       "addressLocality": "Sirnach",
       "addressRegion": "TG",
       "streetAddress": "Ebnetstrasse 5",
@@ -2433,6 +2459,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T10:58:56.897Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -2477,7 +2504,7 @@
       "url": "https://jobs.hornbach.ch/offer-redirect/?offerApiId=MTU0MDY3&showApplicationForm=false",
       "source": "Hornbach Dedicated Parser (job-shop/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-02T10:53:52.994Z",
+      "crawledAt": "2026-08-02T22:04:20.679Z",
       "addressLocality": "Galgenen",
       "addressRegion": "SZ",
       "streetAddress": "Kantonsstrasse 61",
@@ -2506,6 +2533,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T10:58:56.893Z",
+      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
