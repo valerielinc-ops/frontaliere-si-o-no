@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-08-02T02:12:09.277Z",
+  "updatedAt": "2026-08-02T05:30:49.196Z",
   "entities": {
     "AASTI": {
       "status": "suspect",
@@ -603,15 +603,15 @@
       "statusSource": "auto",
       "statusAt": "2026-07-29T06:26:58.011Z",
       "firstSeen": "2026-07-29T06:26:58.011Z",
-      "lastSeen": "2026-08-02T02:12:09.277Z",
-      "seen": 57,
+      "lastSeen": "2026-08-02T05:30:49.196Z",
+      "seen": 58,
       "unsupportedSightings": 3,
       "unsupportedRuns": [
         "30724889385",
         "30722418922",
         "30685261901"
       ],
-      "supportedSightings": 42,
+      "supportedSightings": 43,
       "names": [
         "Agenzia delle Entrate, il MEF, e l'Ufficio Federale di Statistica",
         "Ufficio Federale di Statistica",
@@ -625,6 +625,13 @@
         "30685261901:unknown"
       ],
       "evidence": [
+        {
+          "at": "2026-08-02T05:30:49.196Z",
+          "runId": "30732422743",
+          "articleId": "unknown",
+          "support": "present",
+          "name": "Ufficio federale di statistica"
+        },
         {
           "at": "2026-08-02T02:12:09.277Z",
           "runId": "30727396854",
@@ -671,13 +678,6 @@
           "at": "2026-08-02T01:17:44.924Z",
           "runId": "30724889385",
           "articleId": "unknown",
-          "support": "absent",
-          "name": "Ufficio federale di statistica"
-        },
-        {
-          "at": "2026-08-01T23:15:03.578Z",
-          "runId": "30722418922",
-          "articleId": "svizzera-ceuta-melilla-controlli-frontiere",
           "support": "absent",
           "name": "Ufficio federale di statistica"
         }
@@ -3257,17 +3257,25 @@
       "statusSource": "auto",
       "statusAt": "2026-07-29T06:26:58.011Z",
       "firstSeen": "2026-07-29T06:26:58.011Z",
-      "lastSeen": "2026-07-29T06:26:58.011Z",
-      "seen": 4,
+      "lastSeen": "2026-08-02T05:30:49.196Z",
+      "seen": 5,
       "unsupportedSightings": 0,
       "unsupportedRuns": [],
-      "supportedSightings": 0,
+      "supportedSightings": 1,
       "names": [
+        "Istituto nazionale della previdenza sociale",
         "Istituto Nazionale della Previdenza Sociale",
         "Istituto nazionale italiano della previdenza sociale"
       ],
       "recentKeys": [],
       "evidence": [
+        {
+          "at": "2026-08-02T05:30:49.196Z",
+          "runId": "30732422743",
+          "articleId": "unknown",
+          "support": "present",
+          "name": "Istituto nazionale della previdenza sociale"
+        },
         {
           "at": "2026-07-29T06:26:58.011Z",
           "runId": "corpus-scan",
