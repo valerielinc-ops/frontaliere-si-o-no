@@ -1747,6 +1747,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.svizzera-ceuta-melilla-controlli-frontiere.title': 'Nach Ceuta und Melilla folgten Grenzkontrollen',
     'blog.article.svizzera-ceuta-melilla-controlli-frontiere.excerpt': 'Zehntausende Migranten überquerten die Grenze in den Schengen-Raum. Die Episode entzündet die politische Debatte, auch in der Schweiz.',
     'blog.article.svizzera-ceuta-melilla-controlli-frontiere.imageAlt': 'Panoramablick auf den Luganersee mit den Schweizer Bergen im Hintergrund.',
+    'blog.article.confronto-imposte-cantonali-2026.title': 'Kantonssteuer: Vergleich 2026 und Fokus auf den Kanton Waadt',
+    'blog.article.confronto-imposte-cantonali-2026.excerpt': 'Analyse der kantonalen Steuersätze für 2026, Unterschiede zwischen Schweizer Kantonen und besonderer Fokus auf das Steuersystem des Kantons Vaud.',
+    'blog.article.confronto-imposte-cantonali-2026.imageAlt': 'Blick auf eine Schweizer Stadt mit modernen Bürogebäuden',
 };
 
 export default blogMetaChDe;
