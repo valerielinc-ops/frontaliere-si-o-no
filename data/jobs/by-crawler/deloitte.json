@@ -768,11 +768,11 @@
     },
     {
       "id": "deloitte-f8c6958852c0",
-      "slug": "senior-consultant-tech-m-a-advisory-deloitte-zurich",
+      "slug": "consulente-senior-consulenza-m-a-tecnologica-deloitte-zurich",
       "slugByLocale": {
-        "it": "senior-consultant-tech-m-a-advisory-deloitte-zurich",
+        "it": "consulente-senior-consulenza-m-a-tecnologica-deloitte-zurich",
         "en": "senior-consultant-tech-m-a-advisory-deloitte-zurich",
-        "de": "senior-consultant-tech-m-a-advisory-deloitte-zurich",
+        "de": "senior-berater-in-technologie-m-a-beratung-deloitte-zurich",
         "fr": "consultant-principal-conseil-en-fusions-et-acquisitions-techniques-deloitte-zurich"
       },
       "company": "Deloitte",
@@ -829,7 +829,18 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-consultant-tech-m-a-advisory-deloitte-zurich"
+        ],
+        "de": [
+          "senior-consultant-tech-m-a-advisory-deloitte-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "senior-consultant-tech-m-a-advisory-deloitte-zurich"
+      ]
     },
     {
       "id": "deloitte-2644b238deb1",
@@ -1699,9 +1710,9 @@
     },
     {
       "id": "deloitte-5ab20e18b404",
-      "slug": "senior-consultant-manager-insurance-innovation-transformation-deloitte-zurich",
+      "slug": "senior-consultant-manager-innovazione-e-trasformazione-assicurativa-deloitte-zurich",
       "slugByLocale": {
-        "it": "senior-consultant-manager-insurance-innovation-transformation-deloitte-zurich",
+        "it": "senior-consultant-manager-innovazione-e-trasformazione-assicurativa-deloitte-zurich",
         "en": "senior-consultant-manager-insurance-innovation-transformation-deloitte-zurich",
         "de": "senior-consultant-manager-insurance-innovation-transformation-deloitte-zurich",
         "fr": "consultant-principal-gestionnaire-innovation-et-transformation-en-assurance-deloitte-zurich"
@@ -1760,7 +1771,15 @@
           "maxValue": 206500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-consultant-manager-insurance-innovation-transformation-deloitte-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "senior-consultant-manager-insurance-innovation-transformation-deloitte-zurich"
+      ]
     },
     {
       "id": "deloitte-a81f22821d1d",
