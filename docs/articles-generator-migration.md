@@ -101,6 +101,29 @@ could not reach). Where this document and the code disagree, the code wins.
    copying it would have created a second drifting copy of the section tuple. The import is
    repointed at nanako's own `engine/shared/` instead.
 
+3. **`--require-new` as shipped was unsatisfiable.** §7 says to pass it "in the same commit
+   that turns nanako's publisher on", and `getIfPublished()` applied it to BOTH artifacts.
+   But the two have opposite absence semantics, and only one of them can be mandatory:
+
+   - `sitemap-news-candidates.xml` is derived from the corpus and emitted on **every** publish,
+     empty `<urlset>` included — a quiet day is a correct outcome, not an absence. Once nanako
+     publishes at all, missing means a broken publisher. Mandatory, correctly.
+   - `images-manifest.json` is emitted **only when nanako holds hero images**, because
+     `pull-articles-api.mjs` refuses a manifest listing zero of them (§7.1: an empty list is
+     indistinguishable from a publisher that died mid-write). Nanako holds none — verified, not
+     assumed: `find` over its tree returns 0 `.webp`, and none can appear until generation
+     cuts over.
+
+   So nanako could neither publish an empty manifest (main refuses it) nor omit it
+   (`--require-new` refused that): the first `--require-new` sync would fail against a publisher
+   behaving exactly as specified. Found by running the real `pull-articles-api.mjs` against
+   nanako's real `dist/api` over a fixture server — invisible to reading, since each half is
+   correct on its own. `getIfPublished()` now takes `requiredWhenNew`, and the image manifest
+   passes `false`; it becomes mandatory on the day the first hero image is generated in nanako,
+   not before. Covered by three cases in
+   `tests/pull-articles-api-migration-artifacts.test.ts` (20 total), including that a
+   *present-but-empty* manifest is still refused — the tolerance is for absence only.
+
 ## 0ter. How nanako-side changes are delivered
 
 Nothing outside Actions can write to nanako — confirmed again this session: the session git
@@ -460,6 +483,51 @@ actor doing the same write and introduces no new coupling (§3).
 They are listed unconditionally: while nanako publishes nothing, the pull leaves those paths
 untouched and they drop out of the workflow's own diff check, so cutover day is a publisher
 change only, with nothing to remember on this side.
+
+### 7.3 The nanako side of the contract — SHIPPED
+
+Both artifacts are emitted by `scripts/build-api.mjs` (nanako-owned; main has no
+`packages/articles/scripts`, so the mirror never touches it), delivered by
+`.github/transport/nanako-publisher-artifacts.patch` via §0ter's pipeline.
+
+**Candidates are derived from the corpus, not accumulated in a committed file.** A file
+`create-article.mjs` appended to would be a second source of truth that drifts the moment a run
+dies between writing the corpus and writing the file. Deriving makes the artifact a pure
+function of the registry — the same argument `sitemap-blog.xml`, the ten feeds and the ticker
+already make in that script — so republishing on every push is idempotent and self-healing.
+
+Eligibility uses the **vendored** `generator/data/news-sitemap-whitelist.mjs`, imported rather
+than re-copied: a third copy of the token list is exactly the drift its header warns about. The
+import is static, because the failure it replaced (a regex parse returning `[]`) was silent.
+Note the two directions differ — an empty list makes `isArticleNewsEligible` deny-all, while
+`create-article.mjs`'s older in-file `isArticleEligibleForNewsSitemap` treats it as allow-all.
+
+What the corpus can and cannot reconstruct, checked against the files rather than assumed:
+`slug`, `title` and `keywords` are all present (the last only inside the `seo-blog*.ts` chunks);
+`articleSection` and `tags` are **not persisted anywhere in nanako** — create-article holds them
+only in memory during generation — so the registry's `category` stands in for the former and the
+latter is simply absent. `news:publication_date` carries the registry's own `date` verbatim,
+which for generator-written articles is a full ISO instant (3042 of 3059) and for the handful of
+legacy day-only dates resolves to midnight UTC: less window, never fabricated freshness.
+
+Measured on the real tree at `a26ed567`: 3640 dated articles → 18 inside the 48h window → **7
+candidates**, 11 rejected by the whitelist (hockey, autostrada delays, BNS results — the
+off-topic set the filter exists for). Run end-to-end against main's real `pull-articles-api.mjs`
+over a fixture server, the merge produced `1 serving + 7 candidate → 7 entries, 0 pruned`, with
+the shared `<loc>` going to the candidate as specified.
+
+`images-manifest.json` is **not emitted at all** while `public/images/blog` holds no `.webp`,
+which is nanako's state today and until generation cuts over — see §0bis.3 for why emitting an
+empty one is not an option. The images-present branch was exercised too (synthetic RIFF/WEBP →
+manifest emitted, file copied into `dist/api/images/blog/`, main fetched and committed it under
+`--require-new`), so cutover day does not discover that path for the first time.
+
+`publish-api.yml` gates both on the artifact rather than on the builder's exit code, matching
+its sibling checks. The candidates gate is presence + shape + a `<url>`/`<news:publication_date>`
+parity check + a **ceiling** of 200 — deliberately not a floor, which would refuse every correct
+quiet day; the ceiling catches the opposite failure, a broken window offering the whole 3.6k
+corpus as "news". The manifest is gated only when present, and every listed path must exist in
+`dist/api` or the site would fetch a 404 and fail the whole sync.
 
 ---
 

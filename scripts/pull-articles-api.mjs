@@ -209,15 +209,42 @@ const getBinary = (name) => fetchArtifact(name, { binary: true });
  * Fetch an artifact nanako may not publish yet. Only a 404 counts as "absent" —
  * a 500, a timeout or a truncated body is still a real failure, since treating
  * a flaky publish as "not emitted yet" is precisely how a stale surface would
- * sail through unnoticed. Under --require-new even the 404 is fatal.
+ * sail through unnoticed. Under --require-new a 404 is fatal too, unless the
+ * artifact is one whose absence stays meaningful after cutover (`requiredWhenNew`).
+ *
+ * That exception is not a loophole, it is the images manifest's actual contract.
+ * The two artifacts have opposite absence semantics and only one of them can be
+ * made mandatory:
+ *
+ *   - sitemap-news-candidates.xml is DERIVED from the corpus and emitted on every
+ *     publish, empty <urlset> and all — a quiet day is a correct outcome, not an
+ *     absence. So once nanako publishes, missing == broken publisher. Mandatory.
+ *   - images-manifest.json is emitted only when nanako actually holds hero images,
+ *     because THIS script refuses a manifest listing zero of them (see below: an
+ *     empty list is indistinguishable from a publisher that died mid-write). While
+ *     generation still runs here, nanako holds none, so the correct publisher
+ *     behaviour is to emit nothing at all.
+ *
+ * Requiring both would therefore be unsatisfiable: nanako cannot publish an empty
+ * manifest (this script refuses it) and cannot omit it (--require-new refuses that).
+ * Found by running this script against nanako's real build output, not by reading —
+ * with both mandatory, the first --require-new sync fails on a publisher that is
+ * behaving exactly as specified. The manifest becomes mandatory on its own day, the
+ * one the first hero image is generated in nanako.
  */
-async function getIfPublished(name, { binary = false } = {}) {
+async function getIfPublished(name, { binary = false, requiredWhenNew = true } = {}) {
   try {
     return await fetchArtifact(name, { binary });
   } catch (err) {
     if (/HTTP 404/.test(err.message)) {
-      if (REQUIRE_NEW) fail(`${name} is absent but --require-new is set — refusing`);
-      log(`${name}: not published yet — skipping (pass --require-new to make this fatal)`);
+      if (REQUIRE_NEW && requiredWhenNew) {
+        fail(`${name} is absent but --require-new is set — refusing`);
+      }
+      log(
+        REQUIRE_NEW
+          ? `${name}: not published (absence is a valid state for this artifact) — skipping`
+          : `${name}: not published yet — skipping (pass --require-new to make this fatal)`,
+      );
       return null;
     }
     fail(`${name} unavailable: ${err.message}`);
@@ -373,7 +400,10 @@ for (const name of FEEDS) {
 // in a surface that is already out the door. Removal, if it is ever wanted, is a
 // separate deliberate job — not a side effect of a sync.
 {
-  const raw = await getIfPublished(IMAGE_MANIFEST);
+  // requiredWhenNew: false — see getIfPublished's header. Nanako emits this file
+  // only when it holds at least one hero image, so its absence stays a valid
+  // state after cutover and must not fail the sync.
+  const raw = await getIfPublished(IMAGE_MANIFEST, { requiredWhenNew: false });
   if (raw === null) {
     // Nothing to do — nanako has not started publishing images.
   } else {
