@@ -171,8 +171,7 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "rfsm-fribourg-c067bd5f3bb3",
@@ -275,7 +274,7 @@
       "title": "Psychologue rec. niv. féd., Psychothérapeute en formation, RFSM VsG - Institut psychothérapie",
       "titleByLocale": {
         "it": "Psicologo re. niv. alimentato., Psicoterapeuta in formazione, RFSM VsG - Istituto di psicoterapia",
-        "en": "Psychologue rec. niv. féd., Psychothérapeute en formation, RFSM VsG - Institut psychothérapie",
+        "en": "Psychologist rec. niv. fed., Psychotherapist in training, RFSM VsG - Psychotherapy Institute",
         "de": "Psychologe rec. niv. fed., Psychotherapeut in Ausbildung, RFSM VsG - Psychotherapie Institut",
         "fr": "Psychologue rec. niv. féd., Psychothérapeute en formation, RFSM VsG - Institut psychothérapie"
       },
@@ -340,8 +339,7 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "rfsm-fribourg-425fcf343ae9",
@@ -480,25 +478,44 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "fr": [
-          "medecin-assistant-e-rfsm-secteur-psychiatrie-et-psychotherapie-adulte-rfsm-fribourg"
+          "medecin-assistant-e-rfsm-secteur-psychiatrie-et-psychotherapie-adulte-rfsm-fribourg",
+          "medecin-assistant-e-rfsm-secteur-psychiatrie-et-psychotherapie-de-l-enfant-adolescent-etat"
         ],
         "it": [
           "medecin-assistant-e-rfsm-secteur-psychiatrie-et-psychotherapie-adulte-rfsm-fribourg",
-          "assistente-medico-rfsm-psichiatria-e-settore-psicoterapia-per-adulti-rfsm-reseau-fribourgeois-sante-mentale-marsens"
+          "assistente-medico-rfsm-psichiatria-e-settore-psicoterapia-per-adulti-rfsm-reseau-fribourgeois-sante-mentale-marsens",
+          "assistente-medico-rfsm-psichiatria-infantile-adolescente-e-settore-psicoterapia-etat-de-fribourg-marsens",
+          "assistant-physician-rfsm-child-adolescent-psychiatry-and-psychotherapy-sector-etat-de-fribourg-marsens",
+          "medecin-assistent-e-rfsm-secteur-psychiatrie-et-psychotherapie-de-l-enfant-adolescent-etat-de-fribourg-marsens",
+          "medecin-assistant-e-rfsm-secteur-psychiatrie-et-psychotherapie-de-l-enfant-adolescent-etat",
+          "medecin-assistant-e-rfsm-secteur-psychiatrie-et-psychotherapie-de-l-enfant-adolescent-rfsm",
+          "assistant-physician-rfsm-child-adolescent-psychiatry-and-psychotherapy-sector-rfsm-reseau-fribourgeois-sante-mentale",
+          "medecin-assistent-e-rfsm-secteur-psychiatrie-et-psychotherapie-de-l-enfant-adolescent-rfsm-reseau-fribourgeois-sante",
+          "assistente-medico-rfsm-psichiatria-infantile-adolescente-e-settore-psicoterapia-rfsm-reseau-fribourgeois-sante-mentale"
         ],
         "en": [
           "medecin-assistant-e-rfsm-secteur-psychiatrie-et-psychotherapie-adulte-rfsm-fribourg",
-          "assistant-physician-rfsm-psychiatry-and-adult-psychotherapy-sector-rfsm-reseau-fribourgeois-sante-mentale-marsens"
+          "assistant-physician-rfsm-psychiatry-and-adult-psychotherapy-sector-rfsm-reseau-fribourgeois-sante-mentale-marsens",
+          "assistant-physician-rfsm-child-adolescent-psychiatry-and-psychotherapy-sector-etat-de-fribourg-marsens"
         ],
         "de": [
-          "medecin-assistent-e-rfsm-secteur-psychiatrie-et-psychotherapie-adulte-rfsm-reseau-fribourgeois-sante-mentale-marsens"
+          "medecin-assistent-e-rfsm-secteur-psychiatrie-et-psychotherapie-adulte-rfsm-reseau-fribourgeois-sante-mentale-marsens",
+          "medecin-assistent-e-rfsm-secteur-psychiatrie-et-psychotherapie-de-l-enfant-adolescent-etat-de-fribourg-marsens"
         ]
       },
       "previousSlugs": [
         "medecin-assistent-e-rfsm-secteur-psychiatrie-et-psychotherapie-adulte-rfsm-reseau-fribourgeois-sante-mentale-marsens",
         "medecin-assistant-e-rfsm-secteur-psychiatrie-et-psychotherapie-adulte-rfsm-fribourg",
         "assistant-physician-rfsm-psychiatry-and-adult-psychotherapy-sector-rfsm-reseau-fribourgeois-sante-mentale-marsens",
-        "assistente-medico-rfsm-psichiatria-e-settore-psicoterapia-per-adulti-rfsm-reseau-fribourgeois-sante-mentale-marsens"
+        "assistente-medico-rfsm-psichiatria-e-settore-psicoterapia-per-adulti-rfsm-reseau-fribourgeois-sante-mentale-marsens",
+        "assistente-medico-rfsm-psichiatria-infantile-adolescente-e-settore-psicoterapia-etat-de-fribourg-marsens",
+        "assistant-physician-rfsm-child-adolescent-psychiatry-and-psychotherapy-sector-etat-de-fribourg-marsens",
+        "medecin-assistent-e-rfsm-secteur-psychiatrie-et-psychotherapie-de-l-enfant-adolescent-etat-de-fribourg-marsens",
+        "medecin-assistant-e-rfsm-secteur-psychiatrie-et-psychotherapie-de-l-enfant-adolescent-etat",
+        "medecin-assistant-e-rfsm-secteur-psychiatrie-et-psychotherapie-de-l-enfant-adolescent-rfsm",
+        "assistant-physician-rfsm-child-adolescent-psychiatry-and-psychotherapy-sector-rfsm-reseau-fribourgeois-sante-mentale",
+        "medecin-assistent-e-rfsm-secteur-psychiatrie-et-psychotherapie-de-l-enfant-adolescent-rfsm-reseau-fribourgeois-sante",
+        "assistente-medico-rfsm-psichiatria-infantile-adolescente-e-settore-psicoterapia-rfsm-reseau-fribourgeois-sante-mentale"
       ],
       "firstSeenAt": "2026-05-21T00:02:58.754Z",
       "salaryMin": 68500,
@@ -512,8 +529,7 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "rfsm-fribourg-d9aab3e1ed20",
@@ -613,8 +629,7 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "rfsm-fribourg-62963e273184",
@@ -699,8 +714,7 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "rfsm-fribourg-8479d0cc32d9",

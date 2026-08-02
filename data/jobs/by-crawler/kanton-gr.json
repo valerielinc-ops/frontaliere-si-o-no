@@ -250,8 +250,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR",
-      "needsRetranslation": true
+      "addressRegion": "GR"
     },
     {
       "id": "kanton-gr-a8e75bb870ce",
@@ -573,7 +572,6 @@
         ]
       },
       "firstSeenAt": "2026-07-23T12:33:19.361Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -680,7 +678,6 @@
         ]
       },
       "firstSeenAt": "2026-07-23T12:33:18.692Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -1047,7 +1044,6 @@
         ]
       },
       "firstSeenAt": "2026-07-23T12:33:16.017Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -1217,7 +1213,6 @@
         ]
       },
       "firstSeenAt": "2026-07-16T12:36:37.849Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -1287,23 +1282,35 @@
       "previousSlugs": [
         "assistent-in-generalsekretar-kanton-gr-ch",
         "assistent-in-generalsekretar-kantonale-verwaltung-graubunden-chur",
-        "segretario-aggiunto-generale-kantonale-verwaltung-graubunden-chur"
+        "segretario-aggiunto-generale-kantonale-verwaltung-graubunden-chur",
+        "segretario-kantonale-verwaltung-graubunden-chur",
+        "secretary-kantonale-verwaltung-graubunden-chur",
+        "sekretar-in-kanton-gr-ch",
+        "secretaire-kantonale-verwaltung-graubunden-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
           "assistent-in-generalsekretar-kanton-gr-ch",
           "assistent-in-generalsekretar-kantonale-verwaltung-graubunden-chur",
-          "segretario-aggiunto-generale-kantonale-verwaltung-graubunden-chur"
+          "segretario-aggiunto-generale-kantonale-verwaltung-graubunden-chur",
+          "segretario-kantonale-verwaltung-graubunden-chur",
+          "secretary-kantonale-verwaltung-graubunden-chur",
+          "sekretar-in-kanton-gr-ch",
+          "secretaire-kantonale-verwaltung-graubunden-chur"
         ],
         "en": [
-          "assistent-in-generalsekretar-kantonale-verwaltung-graubunden-chur"
+          "assistent-in-generalsekretar-kantonale-verwaltung-graubunden-chur",
+          "secretary-kantonale-verwaltung-graubunden-chur"
         ],
         "fr": [
-          "assistent-in-generalsekretar-kantonale-verwaltung-graubunden-chur"
+          "assistent-in-generalsekretar-kantonale-verwaltung-graubunden-chur",
+          "secretaire-kantonale-verwaltung-graubunden-chur"
+        ],
+        "de": [
+          "sekretar-in-kanton-gr-ch"
         ]
       },
       "firstSeenAt": "2026-07-16T12:36:35.117Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -1470,7 +1477,6 @@
         ]
       },
       "firstSeenAt": "2026-07-16T12:36:33.758Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -1675,7 +1681,7 @@
       "companyDomain": "gr.ch",
       "title": "Strassenwart/-in",
       "titleByLocale": {
-        "it": "Strassenwart/-in",
+        "it": "Streetkeeper/in",
         "en": "Road Maintenance Worker",
         "de": "Strassenwart/-in",
         "fr": "Agent de Maintenance Routière"
@@ -1739,7 +1745,6 @@
         ]
       },
       "firstSeenAt": "2026-07-10T22:21:06.855Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -1909,7 +1914,6 @@
         ]
       },
       "firstSeenAt": "2026-06-19T12:48:18.540Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -2023,7 +2027,6 @@
         "diventa-poliziotto-poliziotta-presso-la-kapo-gr-kantonale-verwaltung-graubunden-chur"
       ],
       "firstSeenAt": "2026-04-13T10:48:34.939Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
