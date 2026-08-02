@@ -214,7 +214,23 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-02T11:06:27.908Z"
+      "firstSeenAt": "2026-08-02T11:06:27.908Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "copywriter-6-mesi-msc-group-geneva"
+        ],
+        "de": [
+          "texter-6-monate-vertrag-msc-group-geneva"
+        ],
+        "fr": [
+          "redacteur-contrat-de-6-mois-msc-group-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "copywriter-6-mesi-msc-group-geneva",
+        "texter-6-monate-vertrag-msc-group-geneva",
+        "redacteur-contrat-de-6-mois-msc-group-geneva"
+      ]
     },
     {
       "id": "msc-cargo-4cce7fb6d42a",
@@ -591,7 +607,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-02T11:06:21.526Z"
+      "firstSeenAt": "2026-08-02T11:06:21.526Z",
+      "previousSlugsByLocale": {
+        "fr": [
+          "senior-manager-digital-medias-payants-delivery-msc-group-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "senior-manager-digital-medias-payants-delivery-msc-group-geneva"
+      ]
     },
     {
       "id": "msc-cargo-8fd1f556af0a",
