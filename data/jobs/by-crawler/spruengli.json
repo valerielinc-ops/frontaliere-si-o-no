@@ -740,45 +740,36 @@
       "previousSlugs": [
         "konditor-confiseur-in-abteilung-torten-patisserie-100-spruengli-dietikon",
         "pasticceria-nel-reparto-torte-e-pasticcerie-100-confiserie-sprungli-ag-dietikon-f55944",
-        "dipartimento-confectioner-confiser-100-confiserie-sprungli-ag-dietikon",
-        "confezionatore-di-panetteria-fine-100-confiserie-sprungli-ag-dietikon",
-        "baker-confectioner-in-the-department-of-fine-bakery-100-confiserie-sprungli-ag-dietikon",
-        "backer-konditor-in-abteilung-feinbackerei-100-spruengli-dietikon",
-        "boulangerie-confiserie-dans-le-departement-de-la-boulangerie-fine-100-confiserie-sprungli-ag-dietikon",
-        "backer-konditor-in-abteilung-feinbackerei-100-confiserie-sprungli-ag-dietikon",
-        "confectioner-confiser-department-100-confiserie-sprungli-ag-dietikon",
-        "konditor-confiseur-in-abteilung-confiserie-100-spruengli-dietikon",
-        "service-de-la-confiserie-100-confiserie-sprungli-ag-dietikon",
-        "patisserie-patisserie-100-confiserie-sprungli-ag-dietikon",
-        "torte-di-reparto-di-confectioner-paziesserie-100-confiserie-sprungli-ag-dietikon"
+        "torte-di-reparto-di-confectioner-paziesserie-100-confiserie-sprungli-ag-dietikon",
+        "pasticceria-nel-reparto-torte-e-pasticcerie-100-confiserie-sprungli-ag-dietikon",
+        "pastry-confectioner-in-the-cake-patisserie-department-100-confiserie-sprungli-ag-dietikon",
+        "konditor-confiseur-in-abteilung-torten-patisserie-100-spruengli-dietikon-b0uhbb",
+        "konditor-confiseur-in-abteilung-torten-patisserie-100-confiserie-sprungli-ag-dietikon"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "konditor-confiseur-in-abteilung-torten-patisserie-100-spruengli-dietikon",
-          "pasticceria-nel-reparto-torte-e-pasticcerie-100-confiserie-sprungli-ag-dietikon-f55944",
-          "dipartimento-confectioner-confiser-100-confiserie-sprungli-ag-dietikon",
-          "confezionatore-di-panetteria-fine-100-confiserie-sprungli-ag-dietikon",
-          "baker-confectioner-in-the-department-of-fine-bakery-100-confiserie-sprungli-ag-dietikon",
-          "backer-konditor-in-abteilung-feinbackerei-100-spruengli-dietikon",
-          "boulangerie-confiserie-dans-le-departement-de-la-boulangerie-fine-100-confiserie-sprungli-ag-dietikon",
-          "backer-konditor-in-abteilung-feinbackerei-100-confiserie-sprungli-ag-dietikon",
-          "torte-di-reparto-di-confectioner-paziesserie-100-confiserie-sprungli-ag-dietikon"
+          "torte-di-reparto-di-confectioner-paziesserie-100-confiserie-sprungli-ag-dietikon",
+          "pasticceria-nel-reparto-torte-e-pasticcerie-100-confiserie-sprungli-ag-dietikon",
+          "pastry-confectioner-in-the-cake-patisserie-department-100-confiserie-sprungli-ag-dietikon",
+          "konditor-confiseur-in-abteilung-torten-patisserie-100-spruengli-dietikon-b0uhbb",
+          "konditor-confiseur-in-abteilung-torten-patisserie-100-confiserie-sprungli-ag-dietikon"
         ],
         "en": [
           "konditor-confiseur-in-abteilung-torten-patisserie-100-spruengli-dietikon",
-          "confectioner-confiser-department-100-confiserie-sprungli-ag-dietikon"
-        ],
-        "de": [
-          "konditor-confiseur-in-abteilung-confiserie-100-spruengli-dietikon"
+          "confectioner-confiser-department-100-confiserie-sprungli-ag-dietikon",
+          "pastry-confectioner-in-the-cake-patisserie-department-100-confiserie-sprungli-ag-dietikon"
         ],
         "fr": [
           "konditor-confiseur-in-abteilung-torten-patisserie-100-spruengli-dietikon",
           "service-de-la-confiserie-100-confiserie-sprungli-ag-dietikon",
           "patisserie-patisserie-100-confiserie-sprungli-ag-dietikon"
+        ],
+        "de": [
+          "konditor-confiseur-in-abteilung-confiserie-100-spruengli-dietikon",
+          "konditor-confiseur-in-abteilung-torten-patisserie-100-spruengli-dietikon-b0uhbb"
         ]
       },
       "firstSeenAt": "2026-07-31T22:18:24.553Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -790,7 +781,8 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "spruengli-5f47c60025c7",
