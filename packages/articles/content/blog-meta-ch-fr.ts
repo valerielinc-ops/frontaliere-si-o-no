@@ -1747,6 +1747,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.svizzera-ceuta-melilla-controlli-frontiere.title': 'Après Ceuta et Melilla, contrôles aux frontières',
     'blog.article.svizzera-ceuta-melilla-controlli-frontiere.excerpt': 'Des dizaines de milliers de migrants ont franchi la frontière vers l’espace Schengen. Cet épisode attise le débat politique, même en Suisse.',
     'blog.article.svizzera-ceuta-melilla-controlli-frontiere.imageAlt': 'Vue panoramique du lac de Lugano avec les montagnes suisses en arrière-plan.',
+    'blog.article.confronto-imposte-cantonali-2026.title': 'Taxe cantonale : comparaison 2026 et focus sur le canton de Vaud',
+    'blog.article.confronto-imposte-cantonali-2026.excerpt': 'Analyse des taux d’imposition cantonaux pour 2026, des différences entre les cantons suisses et l’attention particulière portée au système fiscal du canton de Vaud.',
+    'blog.article.confronto-imposte-cantonali-2026.imageAlt': 'Vue d\'une ville suisse avec des immeubles de bureaux modernes',
 };
 
 export default blogMetaChFr;

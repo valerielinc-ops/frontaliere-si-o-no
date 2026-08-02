@@ -5239,6 +5239,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'confronto-imposte-cantonali-2026',
+    category: 'fiscale',
+    date: '2026-08-02T02:12:08.749Z',
+    image: '/images/blog/confronto-imposte-cantonali-2026.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
