@@ -3349,7 +3349,7 @@
     "slugByLocale": {
       "de": "entreprise-architect-confederazione-bern",
       "en": "enterprise-architect-confederazione-svizzera-bern",
-      "fr": "entreprise-architect-confederazione-bern",
+      "fr": "architecte-d-entreprise-confederazione-svizzera-bern",
       "it": "entreprise-architetto-confederazione-svizzera-bern"
     }
   },
@@ -210903,7 +210903,8 @@
     "slugByLocale": {
       "it": "farmacia-assistente-ore-di-contratto-richieste-di-chiamata-hopital-intercantonal-de-la-broye-hib-payerne",
       "en": "pharmacy-assistant-contract-hours-call-requests-hopital-intercantonal-de-la-broye-hib-payerne",
-      "fr": "assistant-e-en-pharmacie-en-contrat-heures-demandes-sur-appels-hib-broye-payerne"
+      "fr": "assistant-e-en-pharmacie-en-contrat-heures-demandes-sur-appels-hib-broye-payerne",
+      "de": "farmacia-assistente-ore-di-contratto-richieste-di-chiamata-hopital-intercantonal-de-la-broye-hib-payerne"
     }
   },
   "url|https://emploi.hopital-broye.ch/nos-offres/aide-de-cuisine-de-90-a-100": {
@@ -248223,7 +248224,11 @@
     "canonicalSlug": "scholarship-atc-swiss-sherpa-foundation-raron-air-zermatt",
     "canton": "VS",
     "createdAt": "2026-06-20",
-    "slugByLocale": {}
+    "slugByLocale": {
+      "it": "borsa-di-studio-atc-swiss-sherpa-foundation-air-zermatt-ag-raron",
+      "en": "scholarship-atc-swiss-sherpa-foundation-raron-air-zermatt",
+      "de": "stipendium-atc-swiss-sherpa-foundation-air-zermatt-ag-raron"
+    }
   },
   "url|https://www.alpiq.com/career/open-jobs/your-application/8917": {
     "canonicalSlug": "senior-quantitative-engineer-quantitative-systems-engineer-alpiq-lausanne",
@@ -445414,7 +445419,8 @@
     "slugByLocale": {
       "it": "lehre-informatik-applikationsentwicklung-cfc-m-w-d-galaxus-zurich",
       "de": "lehre-informatik-applikationsentwicklung-efz-m-w-d-galaxus-zurich-rcw7ds",
-      "en": "lehre-computer-science-application-development-efz-f-m-d-galaxus-zurich"
+      "en": "lehre-computer-science-application-development-efz-f-m-d-galaxus-zurich",
+      "fr": "lehre-computer-science-application-development-efz-f-m-d-galaxus-zurich"
     },
     "createdAt": "2026-08-02",
     "canton": "ZH"
@@ -445537,7 +445543,8 @@
     "canonicalSlug": "senior-consultant-tech-m-a-advisory-deloitte-zurich",
     "slugByLocale": {
       "it": "senior-consultant-tech-m-a-advisory-deloitte-zurich",
-      "fr": "consultant-principal-conseil-en-fusions-et-acquisitions-techniques-deloitte-zurich"
+      "fr": "consultant-principal-conseil-en-fusions-et-acquisitions-techniques-deloitte-zurich",
+      "en": "senior-consultant-tech-m-a-advisory-deloitte-zurich"
     },
     "createdAt": "2026-08-02",
     "canton": "ZH"
@@ -445579,7 +445586,9 @@
     "canonicalSlug": "senior-consultant-swiss-individual-tax-tax-legal-deloitte-zurich",
     "slugByLocale": {
       "it": "senior-consultant-swiss-individual-tax-tax-legal-deloitte-zurich",
-      "fr": "consultant-principal-taxe-individuelle-suisse-fiscalite-droit-deloitte-zurich"
+      "fr": "consultant-principal-taxe-individuelle-suisse-fiscalite-droit-deloitte-zurich",
+      "en": "senior-consultant-swiss-individual-tax-tax-legal-deloitte-basel",
+      "de": "senior-consultant-swiss-individual-tax-tax-legal-deloitte-zurich"
     },
     "createdAt": "2026-08-02",
     "canton": "ZH"
@@ -445610,7 +445619,8 @@
     "canonicalSlug": "senior-consultant-manager-banking-fpsl-sap-consulting-deloitte-zurich",
     "slugByLocale": {
       "it": "senior-consultant-manager-banking-fpsl-sap-consulting-deloitte-zurich",
-      "fr": "consultant-principal-gestionnaire-services-bancaires-fpsl-sap-consulting-deloitte-zurich"
+      "fr": "consultant-principal-gestionnaire-services-bancaires-fpsl-sap-consulting-deloitte-zurich",
+      "en": "senior-consultant-manager-banking-fpsl-sap-consulting-deloitte-zurich"
     },
     "createdAt": "2026-08-02",
     "canton": "ZH"
@@ -445619,7 +445629,8 @@
     "canonicalSlug": "senior-consultant-manager-sap-sd-sales-and-distribution-deloitte-zurich",
     "slugByLocale": {
       "it": "senior-consultant-manager-sap-sd-sales-and-distribution-deloitte-zurich",
-      "fr": "consultant-principal-gestionnaire-dd-sap-ventes-et-distribution-deloitte-zurich"
+      "fr": "consultant-principal-gestionnaire-dd-sap-ventes-et-distribution-deloitte-zurich",
+      "en": "senior-consultant-manager-sap-sd-sales-and-distribution-deloitte-zurich"
     },
     "createdAt": "2026-08-02",
     "canton": "ZH"
@@ -445628,7 +445639,8 @@
     "canonicalSlug": "senior-consultant-manager-financial-consolidation-reporting-epm-deloitte-zurich",
     "slugByLocale": {
       "it": "senior-consultant-manager-financial-consolidation-reporting-epm-deloitte-zurich",
-      "fr": "consultant-principal-gestionnaire-consolidation-financiere-et-rapports-epm-deloitte-zurich"
+      "fr": "consultant-principal-gestionnaire-consolidation-financiere-et-rapports-epm-deloitte-zurich",
+      "en": "senior-consultant-manager-financial-consolidation-reporting-epm-deloitte-zurich"
     },
     "createdAt": "2026-08-02",
     "canton": "ZH"
@@ -445660,7 +445672,8 @@
     "slugByLocale": {
       "it": "senior-consultant-valuation-and-modelling-deloitte-geneva",
       "en": "senior-consultant-valuation-and-modelling-deloitte-zurich",
-      "fr": "consultant-principal-evaluation-et-modelisation-deloitte-geneva"
+      "fr": "consultant-principal-evaluation-et-modelisation-deloitte-geneva",
+      "de": "senior-consultant-valuation-and-modelling-deloitte-geneva"
     },
     "createdAt": "2026-08-02",
     "canton": "ZH"
@@ -445669,7 +445682,8 @@
     "canonicalSlug": "senior-consultant-manager-insurance-innovation-transformation-deloitte-zurich",
     "slugByLocale": {
       "it": "senior-consultant-manager-insurance-innovation-transformation-deloitte-zurich",
-      "fr": "consultant-principal-gestionnaire-innovation-et-transformation-en-assurance-deloitte-zurich"
+      "fr": "consultant-principal-gestionnaire-innovation-et-transformation-en-assurance-deloitte-zurich",
+      "en": "senior-consultant-manager-insurance-innovation-transformation-deloitte-zurich"
     },
     "createdAt": "2026-08-02",
     "canton": "ZH"
@@ -445678,7 +445692,9 @@
     "canonicalSlug": "senior-consultant-manager-technology-risk-advisory-technology-transformation-deloitte",
     "slugByLocale": {
       "it": "senior-consultant-manager-technology-risk-advisory-technology-transformation-deloitte",
-      "fr": "conseiller-principal-gestionnaire-technologie-risque-conseil-technologie-et-transformation-deloitte-zurich"
+      "fr": "conseiller-principal-gestionnaire-technologie-risque-conseil-technologie-et-transformation-deloitte-zurich",
+      "en": "senior-consultant-manager-technology-risk-advisory-technology-transformation-deloitte",
+      "de": "senior-consultant-manager-technologie-risikoberatung-technologie-transformation-deloitte-zurich"
     },
     "createdAt": "2026-08-02",
     "canton": "ZH"
@@ -445687,7 +445703,8 @@
     "canonicalSlug": "senior-consultant-risk-audit-and-controls-deloitte-geneva",
     "slugByLocale": {
       "it": "senior-consultant-risk-audit-and-controls-deloitte-geneva",
-      "fr": "senior-consultant-risk-audit-and-controls-deloitte-zurich"
+      "fr": "senior-consultant-risk-audit-and-controls-deloitte-zurich",
+      "en": "senior-consultant-risk-audit-and-controls-deloitte-geneva"
     },
     "createdAt": "2026-08-02",
     "canton": "ZH"
@@ -450916,7 +450933,10 @@
   "id|solique.ch|4045911": {
     "canonicalSlug": "med-praxisassistent-in-praxiskoordinator-in-ksw-ch",
     "slugByLocale": {
-      "de": "med-praxisassistent-in-praxiskoordinator-in-ksw-ch"
+      "de": "med-praxisassistent-in-praxiskoordinator-in-ksw-ch",
+      "it": "med-assistente-in-coordinatore-in-pratica-kantonsspital-winterthur-ksw-winterthur",
+      "en": "med-practice-assistant-in-practice-coordinator-in-kantonsspital-winterthur-ksw-winterthur",
+      "fr": "medicament-assistant-in-coordonnateur-in-kantonsspital-winterthur-ksw-winterthur"
     },
     "createdAt": "2026-08-02",
     "canton": "ZH"
@@ -450924,7 +450944,10 @@
   "id|solique.ch|4045914": {
     "canonicalSlug": "medizinische-praxisassistentin-medizinischer-praxisassistent-ksw-ch",
     "slugByLocale": {
-      "de": "medizinische-praxisassistentin-medizinischer-praxisassistent-ksw-ch"
+      "de": "medizinische-praxisassistentin-medizinischer-praxisassistent-ksw-ch",
+      "it": "assistente-di-pratica-medica-assistente-di-pratica-medica-kantonsspital-winterthur-ksw-winterthur",
+      "en": "medical-practice-assistant-medical-practice-assistant-kantonsspital-winterthur-ksw-winterthur-dc3e1e",
+      "fr": "assistant-de-pratique-medicale-assistant-de-pratique-medicale-kantonsspital-winterthur-ksw-winterthur-dc3e1e"
     },
     "createdAt": "2026-08-02",
     "canton": "ZH"
@@ -450944,7 +450967,9 @@
     "canonicalSlug": "projektleiter-in-mobile-sicherheitskommunikation-msk-confederazione-svizzera-bern",
     "slugByLocale": {
       "de": "projektleiter-in-mobile-sicherheitskommunikation-msk-confederazione-bern",
-      "it": "projektleiter-in-mobile-sicherheitskommunikation-msk-confederazione-svizzera-bern"
+      "it": "projektleiter-in-mobile-sicherheitskommunikation-msk-confederazione-svizzera-bern",
+      "en": "project-manager-in-mobile-security-communication-msk-confederazione-svizzera-bern",
+      "fr": "gestionnaire-de-projet-dans-mobile-security-communication-msk-confederazione-svizzera-bern"
     },
     "createdAt": "2026-08-02",
     "canton": "BE"
@@ -450952,9 +450977,170 @@
   "id|admin.ch|ea005ce1-effe-4ebc-8aaa-ae297d901436": {
     "canonicalSlug": "lernende-r-elektroniker-in-efz-confederazione-lehrbeginn-august-2024-payerne",
     "slugByLocale": {
-      "de": "lernende-r-elektroniker-in-efz-confederazione-lehrbeginn-august-2024-payerne"
+      "de": "lernende-r-elektroniker-in-efz-confederazione-lehrbeginn-august-2024-payerne",
+      "it": "apprendista-elektroniker-in-cfc-confederazione-svizzera-lehrbeginn-august-2024-payerne"
     },
     "createdAt": "2026-08-02",
     "canton": "JU"
+  },
+  "id|ikea.com|lehrstelle-logistiker-in-01-08-2027-31-07-2030": {
+    "canonicalSlug": "lehrstelle-logistiker-in-01-08-2027-31-07-2030-ikea-ch",
+    "slugByLocale": {
+      "it": "lehrstelle-logistiker-in-01-08-2027-31-07-2030-ikea-ch"
+    },
+    "createdAt": "2026-08-02",
+    "canton": "LU"
+  },
+  "id|ikea.com|lehrstelle-polydesigner-in-3d-01-08-2027-31-07-2031-schwerpunkt-styling": {
+    "canonicalSlug": "apprendistato-polydesigner-in-3d-01-08-2027-31-07-2031-schwerpunkt-styling-ikea-spreitenbach",
+    "slugByLocale": {
+      "de": "lehrstelle-polydesigner-in-3d-01-08-2027-31-07-2031-schwerpunkt-styling-ikea-ch",
+      "it": "apprendistato-polydesigner-in-3d-01-08-2027-31-07-2031-schwerpunkt-styling-ikea-spreitenbach"
+    },
+    "createdAt": "2026-08-02",
+    "canton": "AG"
+  },
+  "id|ikea.com|lehrstelle-logistiker-in-efz-01-08-2027-31-07-2030": {
+    "canonicalSlug": "lehrstelle-logistiker-in-efz-01-08-2027-31-07-2030-ikea-ch",
+    "slugByLocale": {
+      "it": "lehrstelle-logistiker-in-efz-01-08-2027-31-07-2030-ikea-ch"
+    },
+    "createdAt": "2026-08-02",
+    "canton": "ZH"
+  },
+  "id|ikea.com|lehrstelle-logistiker-in-efz-fachrichtung-lager": {
+    "canonicalSlug": "apprendistato-logistiker-in-cfc-specializzazione-magazzino-ikea-st-gallen",
+    "slugByLocale": {
+      "de": "lehrstelle-logistiker-in-efz-fachrichtung-lager-ikea-ch",
+      "it": "apprendistato-logistiker-in-cfc-specializzazione-magazzino-ikea-st-gallen"
+    },
+    "createdAt": "2026-08-02",
+    "canton": "SG"
+  },
+  "id|ikea.com|lehrstelle-polydesigner-in-3d-schwerpunkt-styling": {
+    "canonicalSlug": "apprendistato-polydesigner-in-3d-schwerpunkt-styling-ikea-st-gallen",
+    "slugByLocale": {
+      "de": "lehrstelle-polydesigner-in-3d-schwerpunkt-styling-ikea-ch",
+      "it": "apprendistato-polydesigner-in-3d-schwerpunkt-styling-ikea-st-gallen"
+    },
+    "createdAt": "2026-08-02",
+    "canton": "SG"
+  },
+  "url|https://ksm-jobs.ch/job/fachperson-betreuung-fachrichtung-kinderbetreuung-als-miterzieherin-60": {
+    "canonicalSlug": "fachperson-betreuung-specializzazione-kinderbetreuung-come-miterzieherin-60-klinik-schloss-mammern",
+    "slugByLocale": {
+      "it": "fachperson-betreuung-specializzazione-kinderbetreuung-come-miterzieherin-60-klinik-schloss-mammern",
+      "en": "specialist-childcare-as-co-educator-60-klinik-schloss-mammern-mammern",
+      "de": "fachperson-betreuung-fachrichtung-kinderbetreuung-als-miterzieherin-60-klinik-schloss",
+      "fr": "garde-d-enfants-specialisee-comme-co-educateur-60-klinik-schloss-mammern-mammern"
+    },
+    "createdAt": "2026-08-02",
+    "canton": "TG"
+  },
+  "url|https://www.air-zermatt.ch/en/service/vacancies/transport-or-emergency-medical-technician-100--571": {
+    "canonicalSlug": "trasporto-o-emergenza-tecnico-medico-100-air-zermatt-ag-raron",
+    "slugByLocale": {
+      "it": "trasporto-o-emergenza-tecnico-medico-100-air-zermatt-ag-raron",
+      "en": "transport-or-emergency-medical-technician-100-raron-air-zermatt"
+    },
+    "createdAt": "2026-08-02",
+    "canton": "VS"
+  },
+  "url|https://www.air-zermatt.ch/de/service/offene-stellen/transport-oder-rettungssanitaeterin-100--571": {
+    "canonicalSlug": "transport-o-rettungssanitater-in-100-air-zermatt-ag-raron",
+    "slugByLocale": {
+      "it": "transport-o-rettungssanitater-in-100-air-zermatt-ag-raron",
+      "en": "transport-or-rescources-in-100-air-zermatt-ag-raron",
+      "de": "transport-oder-rettungssanitater-in-100-raron-air-zermatt",
+      "fr": "transport-ou-ressources-en-100-air-zermatt-ag-raron"
+    },
+    "createdAt": "2026-08-02",
+    "canton": "VS"
+  },
+  "url|https://karriere.orellfuessli.ch/de/offene-stellen/category-managerin-100": {
+    "canonicalSlug": "responsabile-categoria-100-a-orell-fussli-thalia-zurich",
+    "slugByLocale": {
+      "it": "responsabile-categoria-100-a-orell-fussli-thalia-zurich",
+      "de": "category-manager-in-100-a-orell-fuessli-thalia-zurich",
+      "fr": "gestionnaire-de-categorie-100-a-orell-fussli-thalia-zurich"
+    },
+    "createdAt": "2026-08-02",
+    "canton": "ZH"
+  },
+  "url|https://karriere.orellfuessli.ch/de/offene-stellen/buchhaendlerin-60": {
+    "canonicalSlug": "buchhandler-in-60-a-orell-fussli-thalia-zurich",
+    "slugByLocale": {
+      "it": "buchhandler-in-60-a-orell-fussli-thalia-zurich",
+      "de": "buchhandler-in-60-a-orell-fuessli-thalia-zurich",
+      "fr": "buchhandler-in-60-a-orell-fussli-thalia-zurich"
+    },
+    "createdAt": "2026-08-02",
+    "canton": "ZH"
+  },
+  "url|https://karriere.orellfuessli.ch/de/offene-stellen/verkaufsmitarbeiterin-buchhandel-20-40": {
+    "canonicalSlug": "dipendente-di-vendita-in-libreria-20-40-a-orell-fussli-thalia-zurich",
+    "slugByLocale": {
+      "it": "dipendente-di-vendita-in-libreria-20-40-a-orell-fussli-thalia-zurich",
+      "en": "sales-employee-in-bookseller-20-40-a-orell-fussli-thalia-zurich",
+      "de": "verkaufsmitarbeiter-in-buchhandel-20-40-a-orell-fuessli-thalia-zurich",
+      "fr": "salarie-de-vente-dans-libraire-20-40-a-orell-fussli-thalia-zurich"
+    },
+    "createdAt": "2026-08-02",
+    "canton": "ZH"
+  },
+  "url|https://karriere.orellfuessli.ch/de/offene-stellen/buchhaendlerin-30-40": {
+    "canonicalSlug": "libreria-in-30-40-a-orell-fussli-thalia-baden",
+    "slugByLocale": {
+      "it": "libreria-in-30-40-a-orell-fussli-thalia-baden",
+      "en": "buchhandler-in-30-40-a-orell-fussli-thalia-baden",
+      "de": "buchhandler-in-30-40-a-orell-fuessli-thalia-baden",
+      "fr": "librairie-en-30-40-a-orell-fussli-thalia-baden"
+    },
+    "createdAt": "2026-08-02",
+    "canton": "AG"
+  },
+  "url|https://karriere.orellfuessli.ch/de/offene-stellen/lernender-buchhandel-efz": {
+    "canonicalSlug": "apprendista-r-buchhandel-cfc-orell-fussli-thalia-bern",
+    "slugByLocale": {
+      "it": "apprendista-r-buchhandel-cfc-orell-fussli-thalia-bern",
+      "en": "apprentice-r-buchhandel-efz-orell-fussli-thalia-bern",
+      "de": "lernende-r-buchhandel-efz-orell-fuessli-thalia-bern",
+      "fr": "apprenti-e-r-buchhandel-efz-orell-fussli-thalia-bern"
+    },
+    "createdAt": "2026-08-02",
+    "canton": "BE"
+  },
+  "url|https://karriere.orellfuessli.ch/de/offene-stellen/lernender-buchhandel-efz-0": {
+    "canonicalSlug": "apprendista-r-buchhandel-cfc-orell-fussli-thalia-zurich",
+    "slugByLocale": {
+      "it": "apprendista-r-buchhandel-cfc-orell-fussli-thalia-zurich",
+      "en": "apprentice-r-buchhandel-efz-orell-fussli-thalia-zurich",
+      "de": "lernende-r-buchhandel-efz-orell-fuessli-thalia-zurich",
+      "fr": "apprenti-e-r-buchhandel-efz-orell-fussli-thalia-zurich"
+    },
+    "createdAt": "2026-08-02",
+    "canton": "ZH"
+  },
+  "url|https://karriere.orellfuessli.ch/de/offene-stellen/lernender-buchhandel-efz-1": {
+    "canonicalSlug": "apprendista-r-buchhandel-cfc-orell-fussli-thalia-winterthur",
+    "slugByLocale": {
+      "it": "apprendista-r-buchhandel-cfc-orell-fussli-thalia-winterthur",
+      "en": "apprentice-r-buchhandel-efz-orell-fussli-thalia-winterthur",
+      "de": "lernende-r-buchhandel-efz-orell-fuessli-thalia-winterthur",
+      "fr": "apprenti-e-r-buchhandel-efz-orell-fussli-thalia-winterthur"
+    },
+    "createdAt": "2026-08-02",
+    "canton": "ZH"
+  },
+  "url|https://karriere.orellfuessli.ch/de/offene-stellen/buchhaendlerin-80-100": {
+    "canonicalSlug": "libreria-in-80-100-a-orell-fussli-thalia-bern",
+    "slugByLocale": {
+      "it": "libreria-in-80-100-a-orell-fussli-thalia-bern",
+      "en": "bookseller-in-80-100-a-orell-fussli-thalia-bern",
+      "de": "buchhandler-in-80-100-a-orell-fuessli-thalia-bern",
+      "fr": "librairie-en-80-100-a-orell-fussli-thalia-bern"
+    },
+    "createdAt": "2026-08-02",
+    "canton": "BE"
   }
 }
