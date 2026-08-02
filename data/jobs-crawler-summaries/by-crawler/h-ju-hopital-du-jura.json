@@ -1,16 +1,16 @@
 {
   "key": "h-ju-hopital-du-jura",
   "label": "Hôpital du Jura (H-JU)",
-  "generatedAt": "2026-08-01T21:59:51.585Z",
-  "total": 6,
+  "generatedAt": "2026-08-02T10:53:25.841Z",
+  "total": 5,
   "newCount": 0,
   "updatedCount": 5,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 7049,
-  "avgDurationMs": 7049,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 6915,
+  "avgDurationMs": 6915,
   "durationHistory": [
-    7049
+    6915
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -27,7 +27,7 @@
       "url": "https://www.h-ju.ch/fr/Carrieres/Emploi/Emploi.html#offer/4350/physiotherapeute",
       "source": "H-JU Hôpital du Jura Dedicated Parser (Johdi Suite)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-01T21:59:45.842Z",
+      "crawledAt": "2026-08-02T10:53:20.561Z",
       "addressLocality": "Porrentruy",
       "addressRegion": "JU",
       "addressCountry": "CH",
@@ -65,7 +65,7 @@
       "url": "https://www.h-ju.ch/fr/Carrieres/Emploi/Emploi.html#offer/4228/assistante-medicale-mediped-delemont",
       "source": "H-JU Hôpital du Jura Dedicated Parser (Johdi Suite)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-01T21:59:46.423Z",
+      "crawledAt": "2026-08-02T10:53:21.189Z",
       "addressLocality": "Delémont",
       "addressRegion": "JU",
       "addressCountry": "CH",
@@ -103,7 +103,7 @@
       "url": "https://www.h-ju.ch/fr/Carrieres/Emploi/Emploi.html#offer/4202/chef-ou-cheffe-de-clinique-service-des-urgences-delemont",
       "source": "H-JU Hôpital du Jura Dedicated Parser (Johdi Suite)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-01T21:59:46.974Z",
+      "crawledAt": "2026-08-02T10:53:21.862Z",
       "addressLocality": "Delémont",
       "addressRegion": "JU",
       "addressCountry": "CH",
@@ -141,7 +141,7 @@
       "url": "https://www.h-ju.ch/fr/Carrieres/Emploi/Emploi.html#offer/4165/etudiante-ambulancierere-es",
       "source": "H-JU Hôpital du Jura Dedicated Parser (Johdi Suite)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-01T21:59:47.525Z",
+      "crawledAt": "2026-08-02T10:53:22.534Z",
       "addressLocality": "Delémont",
       "addressRegion": "JU",
       "addressCountry": "CH",
@@ -179,7 +179,7 @@
       "url": "https://www.h-ju.ch/fr/Carrieres/Emploi/Emploi.html#offer/4036/medecin-urgentiste",
       "source": "H-JU Hôpital du Jura Dedicated Parser (Johdi Suite)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-01T21:59:48.098Z",
+      "crawledAt": "2026-08-02T10:53:23.185Z",
       "addressLocality": "Delémont",
       "addressRegion": "JU",
       "addressCountry": "CH",
@@ -205,8 +205,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "h-ju-hopital-du-jura-24f304f594ba",
       "slug": "driver-tpmr-hopital-du-jura-h-ju-porrentruy",
@@ -247,5 +246,6 @@
         "completeness": 22
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
