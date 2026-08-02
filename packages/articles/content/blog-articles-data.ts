@@ -27579,6 +27579,15 @@ const RAW_ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'rallentamenti-autostrada-a8-milano-varese',
+ category: 'pratico',
+ date: '2026-08-02T01:37:13.862Z',
+ image: '/images/blog/rallentamenti-autostrada-a8-milano-varese.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
