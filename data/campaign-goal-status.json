@@ -5,14 +5,28 @@
       "source": "posthog",
       "issueRef": "#4298",
       "matureAt": "2026-07-31",
-      "state": "observing"
+      "state": "failing",
+      "lastValue": {
+        "rate": 0.004883546205860256,
+        "created": 26,
+        "shown": 5324
+      },
+      "detail": "26/5324 = 0.49%",
+      "targetDescription": ">= 5% (job_alert_created / job_alert_cta_shown, 14gg)",
+      "lastCheckAt": "2026-08-02T07:52:20.639Z"
     },
     "dead_clicks_reduction": {
       "title": "Dead click $dead_click -50% (14gg)",
       "source": "posthog",
       "issueRef": "#4304",
       "matureAt": "2026-07-31",
-      "state": "observing"
+      "state": "failing",
+      "lastValue": {
+        "deadClicks": 6857
+      },
+      "detail": "6857 $dead_click (14gg)",
+      "targetDescription": "< 5991 $dead_click events (14gg, -50% su baseline riproporzionata da 25.675/30gg)",
+      "lastCheckAt": "2026-08-02T07:52:20.639Z"
     },
     "error_rate": {
       "title": "Error rate < 1% (30gg)",
@@ -64,6 +78,6 @@
       "state": "observing"
     }
   },
-  "generatedAt": "2026-07-26T07:57:56.283Z",
+  "generatedAt": "2026-08-02T07:52:20.639Z",
   "campaignStart": "2026-07-17"
 }
