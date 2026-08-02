@@ -514,7 +514,7 @@
       },
       "slugByLocale": {
         "it": "responsabile-di-squadra-infrastrutture-industriali-linee-elettriche-ferroviarie-pemsa-fribourg",
-        "en": "manager-di-squadra-infrastrutture-industriali-linee-elettriche-ferroviarie-pemsa-fribourg",
+        "en": "team-leader-industrial-infrastructures-railway-power-lines-pemsa-fribourg",
         "de": "teamleiter-industrieanlagen-bahnstromleitungen-pemsa-fribourg",
         "fr": "chef-d-equipe-infrastructures-industrielles-lignes-electriques-ferroviaires-pemsa-fribourg"
       },
@@ -2204,7 +2204,7 @@
       },
       "slugByLocale": {
         "it": "responsabile-di-squadra-infrastrutture-industriali-linee-elettriche-ferroviarie-pemsa-lausanne",
-        "en": "manager-di-squadra-infrastrutture-industriali-linee-elettriche-ferroviarie-pemsa-lausanne",
+        "en": "team-leader-industrial-infrastructure-railway-electrical-lines-pemsa-lausanne",
         "de": "teamleiter-industrieinfrastruktur-eisenbahn-elektroleitungen-pemsa-lausanne",
         "fr": "chef-d-equipe-infrastructures-industrielles-lignes-electriques-ferroviaires-pemsa-lausanne"
       },
@@ -8338,7 +8338,7 @@
       "slugByLocale": {
         "it": "installatore-di-quadri-elettrici-pemsa-estavayer-le-lac",
         "en": "installer-of-electric-paintings-pemsa-estavayer-le-lac",
-        "de": "elektrischer-panelinstallateur-pemsa-estavayer-le-lac",
+        "de": "installateur-von-elektrischen-gemalden-pemsa-estavayer-le-lac",
         "fr": "installateur-de-peintures-electriques-pemsa-estavayer-le-lac"
       },
       "id": "pemsa-c12b4ba3b3ab",
@@ -8883,8 +8883,8 @@
       "slugByLocale": {
         "it": "idraulico-impianti-riscaldamento-pemsa-sigirino",
         "en": "hydraulic-plants-heating-pemsa-sigirino",
-        "de": "heizungsinstallateur-pemsa-sigirino",
-        "fr": "idraulico-impianti-riscaldamento-pemsa-sigirino"
+        "de": "hydraulische-anlagen-heizung-pemsa-sigirino",
+        "fr": "installations-hydrauliques-chauffage-pemsa-sigirino"
       },
       "id": "pemsa-d2e141039089",
       "salaryMin": 49500,
@@ -8907,16 +8907,12 @@
           "heizungsanlageninstallateur-pemsa-sigirino",
           "hydraulische-anlagen-heizung-pemsa-sigirino",
           "heizungsinstallateur-pemsa-sigirino"
-        ],
-        "fr": [
-          "installations-hydrauliques-chauffage-pemsa-sigirino"
         ]
       },
       "previousSlugs": [
         "heizungsanlagen-techniker-pemsa-sigirino",
         "heizungsanlageninstallateur-pemsa-sigirino",
         "hydraulische-anlagen-heizung-pemsa-sigirino",
-        "installations-hydrauliques-chauffage-pemsa-sigirino",
         "heizungsinstallateur-pemsa-sigirino"
       ]
     },
@@ -9591,7 +9587,7 @@
       "slugByLocale": {
         "it": "idraulico-pemsa-sigirino",
         "en": "hydraulic-pemsa-sigirino",
-        "de": "hydraulisch-pemsa-sigirino",
+        "de": "hydraulik-pemsa-sigirino",
         "fr": "hydraulique-pemsa-sigirino"
       },
       "id": "pemsa-83eb01c945e2",
@@ -9952,9 +9948,9 @@
       "description": "PEMSA, agenzia di reclutamento specializzata nel settore edile e tecnico, cerca un profilo Progettista elettrico a Genève. PEMSA garantisce condizioni di lavoro ottimali e un supporto professionale durante tutto il processo. Candidati tramite il portale ufficiale.",
       "titleByLocale": {
         "it": "Progettista elettrico",
-        "en": "Progettista elettrico",
-        "de": "Progettista elettrico",
-        "fr": "Progettista elettrico"
+        "en": "Electric designer",
+        "de": "Elektrischer Designer",
+        "fr": "Designer électrique"
       },
       "descriptionByLocale": {
         "it": "## Progettista elettrico\n\n**PEMSA** — Genève (GE)\n\nPEMSA, agenzia di reclutamento specializzata nel settore edile e tecnico, cerca un profilo Progettista elettrico a Genève. PEMSA garantisce condizioni di lavoro ottimali e un supporto professionale durante tutto il processo. Candidati tramite il portale ufficiale.\n\nPEMSA è da oltre 30 anni un punto di riferimento nel mercato svizzero per il reclutamento e la gestione di professionisti qualificati nei settori della costruzione, impiantistica, elettrotecnica e meccanica industriale. \n• Offriamo contratti fissi e temporanei, con la sicurezza di un partner stabile e la flessibilità che cerchi.\n\nVantaggi: consulenza personalizzata, accesso a cantieri di prestigio in tutta la Svizzera, supporto amministrativo completo, retribuzione competitiva e opportunità di formazione continua.",
@@ -9964,9 +9960,9 @@
       },
       "slugByLocale": {
         "it": "progettista-elettrico-pemsa-geneve",
-        "en": "progettista-elettrico-pemsa-geneve",
-        "de": "progettista-elettrico-pemsa-geneve",
-        "fr": "progettista-elettrico-pemsa-geneve"
+        "en": "electric-designer-pemsa-geneve",
+        "de": "elektrischer-designer-pemsa-geneve",
+        "fr": "designer-electrique-pemsa-geneve"
       },
       "id": "pemsa-bbfa7c96a7a4",
       "needsRetranslation": true,

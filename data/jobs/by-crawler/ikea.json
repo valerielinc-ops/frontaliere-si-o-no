@@ -61,7 +61,6 @@
         ]
       },
       "firstSeenAt": "2026-07-14T22:23:31.695Z",
-      "needsRetranslation": true,
       "salaryMin": 29400,
       "salaryMax": 44600,
       "baseSalary": {
@@ -327,7 +326,6 @@
         ]
       },
       "firstSeenAt": "2026-07-20T12:07:43.910Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -571,7 +569,6 @@
         ]
       },
       "firstSeenAt": "2026-07-21T22:32:54.405Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -822,7 +819,6 @@
         ]
       },
       "firstSeenAt": "2026-07-16T22:20:01.884Z",
-      "needsRetranslation": true,
       "salaryMin": 31000,
       "salaryMax": 47000,
       "baseSalary": {
@@ -1126,7 +1122,6 @@
         ]
       },
       "firstSeenAt": "2026-07-10T22:15:51.547Z",
-      "needsRetranslation": true,
       "salaryMin": 11500,
       "salaryMax": 17400,
       "baseSalary": {
@@ -1210,8 +1205,7 @@
           "maxValue": 60900,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "ikea-fc75d89c2b2d",
@@ -1278,7 +1272,6 @@
         ]
       },
       "firstSeenAt": "2026-07-14T22:23:31.679Z",
-      "needsRetranslation": true,
       "salaryMin": 57200,
       "salaryMax": 101200,
       "baseSalary": {
@@ -1361,7 +1354,6 @@
         ]
       },
       "firstSeenAt": "2026-07-06T22:20:16.453Z",
-      "needsRetranslation": true,
       "salaryMin": 24800,
       "salaryMax": 37600,
       "baseSalary": {
@@ -1448,7 +1440,6 @@
         ]
       },
       "firstSeenAt": "2026-07-29T22:04:31.744Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -1527,7 +1518,6 @@
         ]
       },
       "firstSeenAt": "2026-07-29T22:04:31.743Z",
-      "needsRetranslation": true,
       "salaryMin": 44100,
       "salaryMax": 66900,
       "baseSalary": {
@@ -1545,7 +1535,7 @@
       "id": "ikea-7a66eddf61cd",
       "slug": "collaborateur-trice-cuisine-ikea-40-ikea-aubonne",
       "slugByLocale": {
-        "it": "collaborateur-trice-cuisine-ikea-40-ikea-aubonne",
+        "it": "contributatore-da-cucina-ikea-40-ikea-aubonne-vaud-switzerland",
         "en": "cuisine-ikea-40-team-member-ikea-aubonne",
         "de": "ikea-kuchenmitarbeiter-40-ikea-aubonne",
         "fr": "collaborateur-trice-cuisine-ikea-40-ikea-ch"
@@ -1555,7 +1545,7 @@
       "companyDomain": "ikea.ch",
       "title": "Collaborateur*trice Cuisine IKEA 40%",
       "titleByLocale": {
-        "it": "Collaborateur*trice Cuisine IKEA 40%",
+        "it": "IKEA Cucina Collaboratore 40%",
         "en": "IKEA Kitchen Collaborator 40%",
         "de": "IKEA Küchenmitarbeiter 40%",
         "fr": "Collaborateur*trice Cuisine IKEA 40%"
@@ -1597,12 +1587,7 @@
         "mitarbeiter-in-restaurant-kuche-ikea-20-ikea-vernier-geneve-switzerland",
         "collaborateur-trice-restaurant-cuisine-ikea-20-ikea-ch",
         "ikea-cuisine-collaborateur-40-ikea-aubonne",
-        "contributatore-da-cucina-ikea-40-ikea-aubonne-vaud-switzerland",
         "koch-kellnerin-ikea-40-ikea-aubonne",
-        "collaborateur-trice-cuisine-ikea-40-ikea-aubonne",
-        "collaborateur-trice-cuisine-ikea-40-ikea-aubonne",
-        "collaborateur-trice-cuisine-ikea-40-ikea-aubonne",
-        "collaborateur-trice-cuisine-ikea-40-ikea-aubonne",
         "collaborateur-trice-cuisine-ikea-40-ikea-aubonne"
       ],
       "previousSlugsByLocale": {
@@ -1614,11 +1599,6 @@
           "mitarbeiter-in-restaurant-kuche-ikea-20-ikea-vernier-geneve-switzerland",
           "collaborateur-trice-restaurant-cuisine-ikea-20-ikea-ch",
           "ikea-cuisine-collaborateur-40-ikea-aubonne",
-          "contributatore-da-cucina-ikea-40-ikea-aubonne-vaud-switzerland",
-          "collaborateur-trice-cuisine-ikea-40-ikea-aubonne",
-          "collaborateur-trice-cuisine-ikea-40-ikea-aubonne",
-          "collaborateur-trice-cuisine-ikea-40-ikea-aubonne",
-          "collaborateur-trice-cuisine-ikea-40-ikea-aubonne",
           "collaborateur-trice-cuisine-ikea-40-ikea-aubonne"
         ],
         "de": [
@@ -1640,8 +1620,7 @@
           "maxValue": 36600,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "ikea-2309546a74ba",
@@ -1710,7 +1689,6 @@
         ]
       },
       "firstSeenAt": "2026-07-24T22:07:27.082Z",
-      "needsRetranslation": true,
       "salaryMin": 58800,
       "salaryMax": 89200,
       "baseSalary": {
@@ -1740,8 +1718,8 @@
       "titleByLocale": {
         "de": "Lehrstelle Polydesigner:in 3D (01.08.2027-31.07.2031, Schwerpunkt Styling)",
         "it": "Apprendistato Polydesigner:in 3D (01.08.2027-31.07.2031, Schwerpunkt Styling)",
-        "en": "Lehrstelle Polydesigner:in 3D (01.08.2027-31.07.2031, Schwerpunkt Styling)",
-        "fr": "Lehrstelle Polydesigner:in 3D (01.08.2027-31.07.2031, Schwerpunkt Styling)"
+        "en": "Polydesigner: in 3D (01.08.2027-31.07.2031, focus on styling)",
+        "fr": "Polydesigner: en 3D (01.08.2027-31.07.2031, se concentrer sur le style)"
       },
       "description": "Lehrstelle Polydesigner:in 3D (01.08.2027-31.07.2031, Schwerpunkt Styling) — IKEA",
       "descriptionByLocale": {
@@ -1810,8 +1788,8 @@
       "titleByLocale": {
         "de": "Lehrstelle Detailhandelsfachfrau/-mann (01.08.2027-31.07.2030, Schwerpunkt Gestalten von Einkaufserlebnissen)",
         "it": "Apprendistato Impiegato/a del commercio al dettaglio (01.08.2027-31.07.2030, Schwerpunkt Gestalten von Einkaufserlebnissen)",
-        "en": "Lehrstelle Detailhandelsfachfrau/-mann (01.08.2027-31.07.2030, Schwerpunkt Gestalten von Einkaufserlebnissen)",
-        "fr": "Lehrstelle Detailhandelsfachfrau/-mann (01.08.2027-31.07.2030, Schwerpunkt Gestalten von Einkaufserlebnissen)"
+        "en": "Apprenticeship Detailhandelsfachfrau/-mann (01.08.2027-31.07.2030, focus on designing shopping experiences)",
+        "fr": "Apprenticeship Detailhandelsfachfrau/-mann (01.08.2027-31.07.2030, se concentrer sur la conception d'expériences d'achat)"
       },
       "description": "Lehrstelle Detailhandelsfachfrau/-mann (01.08.2027-31.07.2030, Schwerpunkt Gestalten von Einkaufserlebnissen) — IKEA",
       "descriptionByLocale": {
@@ -2004,8 +1982,8 @@
       "titleByLocale": {
         "de": "Lehrstelle Logistiker/in EFZ (Fachrichtung Lager)",
         "it": "Apprendistato Logistiker/in CFC (specializzazione magazzino)",
-        "en": "Lehrstelle Logistiker/in EFZ (Fachrichtung Lager)",
-        "fr": "Lehrstelle Logistiker/in EFZ (Fachrichtung Lager)"
+        "en": "Apprenticeship in logistics/EFZ (department warehouse)",
+        "fr": "Apprentissage en logistique/EFZ (entrepôt départemental)"
       },
       "description": "Lehrstelle Logistiker/in EFZ (Fachrichtung Lager) — IKEA",
       "descriptionByLocale": {
@@ -2144,8 +2122,8 @@
       "titleByLocale": {
         "de": "Lehrstelle Polydesigner:in 3D (Schwerpunkt Styling)",
         "it": "Apprendistato Polydesigner:in 3D (Schwerpunkt Styling)",
-        "en": "Lehrstelle Polydesigner:in 3D (Schwerpunkt Styling)",
-        "fr": "Lehrstelle Polydesigner:in 3D (Schwerpunkt Styling)"
+        "en": "Polydesigner: in 3D (focus on styling)",
+        "fr": "Polydesigner: en 3D (accent sur le style)"
       },
       "description": "Lehrstelle Polydesigner:in 3D (Schwerpunkt Styling) — IKEA",
       "descriptionByLocale": {
