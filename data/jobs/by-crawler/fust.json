@@ -3787,7 +3787,8 @@
           "social-media-manager-m-w-d-80-100-coop-genossenschaft-basel-stadt-tr0124",
           "social-media-manager-w-m-d-80-100-coop-genossenschaft-basel",
           "social-media-manager-m-w-d-80-100-coop-basel-stadt",
-          "social-media-manager-m-w-d-80-100-coop-basel-stadt-tr0124"
+          "social-media-manager-m-w-d-80-100-coop-basel-stadt-tr0124",
+          "social-media-manager-f-m-d-80-100-coop-genossenschaft-basel-basel-stadt"
         ],
         "en": [
           "social-media-manager-m-w-d-80-100-coop-basel-stadt-tr0124",
@@ -3805,7 +3806,8 @@
         "social-media-manager-m-w-d-80-100-coop-genossenschaft-basel-stadt-tr0124",
         "social-media-manager-w-m-d-80-100-coop-genossenschaft-basel",
         "social-media-manager-m-w-d-80-100-coop-basel-stadt",
-        "social-media-manager-m-w-d-80-100-coop-basel-stadt-tr0124"
+        "social-media-manager-m-w-d-80-100-coop-basel-stadt-tr0124",
+        "social-media-manager-f-m-d-80-100-coop-genossenschaft-basel-basel-stadt"
       ],
       "salaryMin": 85500,
       "salaryMax": 129500,
@@ -3934,7 +3936,8 @@
       "previousSlugsByLocale": {
         "it": [
           "facility-technician-m-w-d-coop-genossenschaft-frutigen-bern",
-          "facility-technician-m-w-d-coop-genossenschaft-frutigen-bern-4xmp5j"
+          "facility-technician-m-w-d-coop-genossenschaft-frutigen-bern-4xmp5j",
+          "tecnico-di-facility-m-f-d-coop-genossenschaft-frutigen-bern"
         ],
         "en": [
           "facility-technician-m-w-d-bergquellfisch-frutigen-bern-4xmp5j"
@@ -3943,7 +3946,8 @@
       "previousSlugs": [
         "facility-technician-m-w-d-coop-genossenschaft-frutigen-bern",
         "facility-technician-m-w-d-bergquellfisch-frutigen-bern-4xmp5j",
-        "facility-technician-m-w-d-coop-genossenschaft-frutigen-bern-4xmp5j"
+        "facility-technician-m-w-d-coop-genossenschaft-frutigen-bern-4xmp5j",
+        "tecnico-di-facility-m-f-d-coop-genossenschaft-frutigen-bern"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -4620,10 +4624,6 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "technicien-de-livraison-d-appareils-electromenagers-fust-swiss-household-services-ag-lenzburg",
-          "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-swiss-household-services-ag-lenzburg-ic0syv",
-          "technicien-de-livraison-a-domicile-pour-appareils-electromenagers-fust-swiss-household-services-ag-lenzburg",
-          "home-delivery-technician-for-household-appliances-fust-swiss-household-services-ag-lenzburg",
           "montage-assistent-in-per-la-heimlieferung-von-elektrohaushaltgeraten-fust-lenzburg-aargau-k9aj64",
           "assembly-assistent-in-for-home-delivery-of-household-appliances-fust-swiss-household-services-ag-lenzburg",
           "montage-assistent-in-fur-die-heimlieferung-von-elektrohaushaltgeraten-fust-lenzburg-aargau-k9aj64",
@@ -4635,7 +4635,11 @@
           "technicien-de-livraison-a-domicile-d-appareils-electromenagers-fust-grigioni",
           "home-delivery-installer-in-electrical-household-appliances-fust-lenzburg-aargau",
           "installateur-de-livraison-a-domicile-dans-les-appareils-electromenagers-fust-lenzburg-aargau",
-          "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-lenzburg-aargau"
+          "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-lenzburg-aargau",
+          "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-lenzburg-aargau-mbsa43",
+          "home-delivery-technician-for-electrical-appliances-fust-swiss-household-services-ag-lenzburg",
+          "home-consegna-fitter-negli-elettrodomestici-fust-swiss-household-services-ag-lenzburg",
+          "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-swiss-household-services-ag-lenzburg-mbsa43"
         ],
         "en": [
           "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-swiss-household-services-ag-lenzburg-aargau-n6qwpl",
@@ -11283,7 +11287,6 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "consultant-en-ventes-in-schreinerei-jumbo-division-der-coop-genossenschaft-heimberg-opflt2",
           "verkaufsberater-in-schreinerei-jumbo-division-der-coop-genossenschaft-heimberg",
           "sales-consultant-in-schreinerei-jumbo-division-der-coop-genossenschaft-heimberg",
           "consultant-en-ventes-in-schreinerei-jumbo-division-der-coop-genossenschaft-heimberg",
@@ -11302,7 +11305,8 @@
           "consulente-di-vendita-in-falegnameria-jumbo-heimberg",
           "sales-consultant-in-carpentry-jumbo-division-der-coop-genossenschaft-heimberg-18d34f",
           "verkaufsberater-in-schreinerei-jumbo-division-der-coop-genossenschaft-heimberg-bern-opflt2",
-          "consultant-en-ventes-en-menuiserie-jumbo-division-der-coop-genossenschaft-heimberg-18d34f"
+          "consultant-en-ventes-en-menuiserie-jumbo-division-der-coop-genossenschaft-heimberg-18d34f",
+          "sales-consultant-in-schreinerei-jumbo-division-der-coop-genossenschaft-heimberg-opflt2"
         ],
         "en": [
           "verkaufsberater-in-schreinerei-jumbo-division-der-coop-genossenschaft-heimberg-bern-6i5h3n",
@@ -19811,7 +19815,6 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "sales-consultant-garden-jumbo-division-der-coop-genossenschaft-rumlang",
           "jardin-de-consultants-en-vente-jumbo-division-der-coop-genossenschaft-rumlang",
           "consulente-di-vendita-in-garden-jumbo-division-der-coop-genossenschaft-rumlang-zurich",
           "consultant-in-garden-jumbo-division-der-coop-genossenschaft-rumlang-zurich",
@@ -19830,7 +19833,8 @@
           "garden-sales-advisor-jumbo-division-der-coop-genossenschaft-frauenfeld",
           "conseiller-ere-de-vente-jardin-jumbo-division-der-coop-genossenschaft-frauenfeld",
           "verkausberater-in-garten-jumbo-division-der-coop-genossenschaft-frauenfeld-thurgau",
-          "consulente-in-giardino-jumbo-division-der-coop-genossenschaft-frauenfeld"
+          "consulente-in-giardino-jumbo-division-der-coop-genossenschaft-frauenfeld",
+          "verkausberater-in-garden-jumbo-division-der-coop-genossenschaft-rumlang-zurich"
         ],
         "en": [
           "consultant-in-garden-jumbo-division-der-coop-genossenschaft-rumlang",
@@ -20633,7 +20637,6 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "cuisinier-cuisiniere-f-h-d-coop-genossenschaft-aarau",
           "cuisiniere-en-poids-m-j-coop-genossenschaft-aarau-x72egi",
           "cuisiniere-en-poids-m-j-coop-genossenschaft-aarau",
           "cook-m-f-d-coop-genossenschaft-aarau",
@@ -20652,7 +20655,8 @@
           "cook-f-m-d-coop-genossenschaft-aarau",
           "cooker-m-w-d-coop-genossenschaft-aarau-x72egi",
           "cooker-w-m-d-coop-genossenschaft-aarau",
-          "cuisinier-ere-w-m-d-coop-genossenschaft-aarau"
+          "cuisinier-ere-w-m-d-coop-genossenschaft-aarau",
+          "cuisinier-ere-m-w-d-coop-genossenschaft-aarau-x72egi"
         ],
         "en": [
           "cook-m-w-d-coop-genossenschaft-aarau-x72egi",
