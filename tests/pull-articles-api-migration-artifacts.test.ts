@@ -242,6 +242,43 @@ describe('pull-articles-api: hero-image manifest', () => {
     expect(out).not.toContain('images-manifest.json is absent but --require-new is set');
   });
 
+  it('pulls the border-wait ranking snapshot into public/data', async () => {
+    routes = {
+      ...baseRoutes(),
+      'border-wait-ranking.json': JSON.stringify({
+        ranking: [{ slug: 'chiasso', avgMinutes: 12.5 }],
+      }),
+    };
+    const dir = makeCheckout();
+
+    const { code } = await run(dir);
+
+    expect(code).toBe(0);
+    const written = JSON.parse(readPub(dir, 'data/border-wait-ranking.json'));
+    expect(written.ranking).toHaveLength(1);
+  });
+
+  it('refuses a ranking snapshot with zero crossings rather than blanking the chart', async () => {
+    routes = { ...baseRoutes(), 'border-wait-ranking.json': JSON.stringify({ ranking: [] }) };
+    const dir = makeCheckout();
+
+    const { code, out } = await run(dir);
+
+    expect(code).toBe(1);
+    expect(out).toContain('carries no ranking entries');
+  });
+
+  it('tolerates an absent ranking snapshot under --require-new', async () => {
+    // The ranking producer cuts over LATER than the publisher, so absence here
+    // is a stage of the migration, not a broken publish.
+    routes = { ...baseRoutes(), 'sitemap-news-candidates.xml': urlset([]) };
+    const dir = makeCheckout();
+
+    const { code } = await run(dir, ['--require-new']);
+
+    expect(code).toBe(0);
+  });
+
   it('still refuses a PRESENT but zero-image manifest under --require-new', async () => {
     // The tolerance above is for absence only. An emitted-but-empty manifest is
     // the publisher-died-mid-write case and stays a refusal, which is precisely

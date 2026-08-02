@@ -98,6 +98,8 @@ const fail = (msg) => {
 // silently serving a stale news sitemap is the thing being guarded against.
 const IMAGE_MANIFEST = 'images-manifest.json';
 const NEWS_CANDIDATES = 'sitemap-news-candidates.xml';
+/** Site-consumed ranking snapshot nanako republishes (§4). */
+const BORDER_RANKING = 'border-wait-ranking.json';
 const NEWS_SITEMAP = 'sitemap-news.xml';
 const SITEMAP_INDEX = 'sitemap.xml';
 
@@ -484,6 +486,34 @@ for (const name of FEEDS) {
     }
 
     log(`${IMAGE_MANIFEST}: ${images.length} listed, ${present} already local, ${fetched} to fetch`);
+  }
+}
+
+// ── Border-wait ranking snapshot (§4) ────────────────────────────────
+//
+// Not article content: this feeds InlineBorderWaitRanking, the live chart. It is
+// pulled rather than computed here because the ranking is derived from the same
+// 7-day window nanako already holds, and two producers of one number disagree
+// the moment their windows differ by a run.
+//
+// requiredWhenNew: false — nanako emits this only once its ranking producer has
+// run there, which is a later step of the cutover than the publisher itself. Same
+// posture as the image manifest: absence is a state, malformed is a failure.
+{
+  const raw = await getIfPublished(BORDER_RANKING, { requiredWhenNew: false });
+  if (raw !== null) {
+    let payload;
+    try {
+      payload = JSON.parse(raw);
+    } catch (err) {
+      fail(`${BORDER_RANKING} is not valid JSON: ${err.message}`);
+    }
+    const entries = Array.isArray(payload?.ranking) ? payload.ranking : null;
+    if (!entries || entries.length === 0) {
+      fail(`${BORDER_RANKING} carries no ranking entries — refusing to blank the live chart`);
+    }
+    staged.set(path.join(PUBLIC_DIR, 'data', BORDER_RANKING), raw);
+    log(`${BORDER_RANKING}: ${entries.length} crossings`);
   }
 }
 
