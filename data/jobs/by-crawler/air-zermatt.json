@@ -93,8 +93,8 @@
       "slugByLocale": {
         "it": "trasporto-o-emergenza-tecnico-medico-100-air-zermatt-ag-raron",
         "en": "transport-or-emergency-medical-technician-100-raron-air-zermatt",
-        "de": "transport-or-emergency-medical-technician-100-raron-air-zermatt",
-        "fr": "transport-or-emergency-medical-technician-100-raron-air-zermatt"
+        "de": "transport-oder-notfallmedizintechniker-100-air-zermatt-ag-raron",
+        "fr": "technicien-de-transport-ou-medical-d-urgence-100-air-zermatt-ag-raron"
       },
       "company": "Air Zermatt AG",
       "companyKey": "air-zermatt",
@@ -140,6 +140,12 @@
         "it": [
           "transport-or-emergency-medical-technician-100-raron-air-zermatt",
           "trasporto-o-emergenza-tecnico-medico-100-air-zermatt-ag-raron"
+        ],
+        "de": [
+          "transport-or-emergency-medical-technician-100-raron-air-zermatt"
+        ],
+        "fr": [
+          "transport-or-emergency-medical-technician-100-raron-air-zermatt"
         ]
       },
       "firstSeenAt": "2026-08-01T22:20:59.575Z",
