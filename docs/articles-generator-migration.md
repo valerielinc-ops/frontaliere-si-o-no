@@ -36,6 +36,97 @@ qualification. Concretely, checked against the real code:
 4. File-closure counts (§1) are real, not "64/16": between 61 and 103 files per producer,
    176 unique files across all six, only 22 of which already live under `packages/articles/`.
 
+## 0bis. Corrections to THIS document
+
+Found by running the transported code against nanako's actual tree (which the original session
+could not reach). Where this document and the code disagree, the code wins.
+
+1. **§5.3's first REWIRE names the right file, for the wrong reason — and the URL it implies
+   did not exist.** The plan says `data/border-wait-averages.json` should be "fetched over HTTP
+   from the live site instead of read from a repo file", which reads as though a generator
+   script opens it. None does, directly. It reaches the generator *transitively*:
+   `scripts/lib/evergreen-topic-generator.mjs` → `data/borderCrossings.ts` →
+   `import computedAverages from './border-wait-averages.json'`. So it IS a generator
+   dependency, just not one visible in any producer's own source. (An earlier revision of this
+   section claimed it was not a generator dependency at all; that was wrong, and the chain above
+   is why.)
+
+   The part that does hold: **it was not HTTP-reachable.** `data/` is not part of the deployed
+   surface — `public/data/` carried `border-wait-current.json` and `border-wait-ranking.json`,
+   not the averages — so "fetch it over HTTP" described an endpoint that did not exist.
+   `scripts/compute-border-wait-averages.mjs` now writes both copies, mirroring the
+   both-places pattern `border-wait-current.json` already used, and
+   `traffic-scheduler.yml` stages the published one. That is what makes the rewire real
+   rather than aspirational.
+
+   Separately, note what the ranking article reads, since it is easy to conflate the two:
+   `data/border-wait-history/*.json` (90 daily files, via `HISTORY_DIR` in
+   `generate-border-wait-ranking-article.mjs` and `aggregateCrossingStats()` in
+   `scripts/lib/border-wait-ranking.mjs`, over a trailing `DEFAULT_WINDOW_DAYS = 7`). That is
+   **not** the averages file and cannot be served by it: the averages are a rolling 30-day
+   p25/p75 of two commuter-hour buckets, the ranking needs a 7-day sample-weighted mean over
+   all 24 hourly cells. Different window, different statistic. The history is still
+   main-only and still not published (`deploy.yml` ignores it as a deploy trigger), so the
+   ranking producer is not yet cutover-ready — it is not in scope for §5.3 and needs its own
+   decision.
+
+2. **The transport manifest's closure is incomplete — the moved code cannot load as-is.**
+   §5.2's transport shipped 67 files, but six of their static top-level imports were not
+   included, and all six exist in main:
+
+   | Missing in nanako | Imported by |
+   |---|---|
+   | `build-plugins/shared/articleSectionCore.mjs` | `scripts/create-article.mjs:144` |
+   | `build-plugins/borderWaitData.ts` | `scripts/generate-border-wait-ranking-article.mjs` |
+   | `services/borderWaitFormat.ts` | `scripts/lib/border-wait-ranking-content.mjs:22` |
+   | `data/borderCrossings.ts` | `scripts/lib/evergreen-topic-generator.mjs` |
+   | `data/municipalities.ts` | `scripts/lib/events-utils.mjs`, `evergreen-topic-generator.mjs` |
+   | `data/canton-url-slugs.json` | `scripts/lib/events-utils.mjs` |
+
+   These are `import ... from` at module top level, so this is a load-time failure, not a
+   runtime edge case: `create-article.mjs` throws before `main()` on nanako today. (A seventh,
+   `scripts/lib/resolve-git-add-path.mjs`, is absent *deliberately* — see §5.3 — and is the only
+   one the manifest documents.) Note also that three of the six are `.ts`, so whatever imports
+   them needs `tsx`, not plain `node` — the same split `border-wait-ranking.mjs`'s own header
+   describes.
+
+   The manifest's methodology comment claims the list is "the actual static-import transitive
+   closure of the 7 entry points". It is the closure *within* `scripts/`; specifiers that leave
+   `scripts/` (`../build-plugins/`, `../data/`, `../services/`) were not followed. The manifest
+   now carries the five that need copying, and the transport workflow's sparse checkout had to
+   drop to non-cone mode to fetch them without pulling all 1.7 GB of `data/`.
+
+   `articleSectionCore.mjs` is the sixth and is deliberately NOT in the manifest: it is a
+   symlink here into `packages/articles/engine/shared/`, a tree nanako already mirrors, so
+   copying it would have created a second drifting copy of the section tuple. The import is
+   repointed at nanako's own `engine/shared/` instead.
+
+## 0ter. How nanako-side changes are delivered
+
+Nothing outside Actions can write to nanako — confirmed again this session: the session git
+proxy returns **403** on push, and `POST /repos/nanakokyobashi-rgb/frontaliere-articles/git/refs`
+returns **403 Resource not accessible by integration**. `ARTICLES_REPO_PAT` remains the only
+credential that writes, and it only exists inside a workflow.
+
+That makes the nanako side a **two-step, ordered pipeline**, and the order is not optional:
+
+1. `transport-generator-to-nanako.yml` — structural copy. Idempotent and **destructive**: it
+   does `rm -rf generator` and rebuilds from the manifest, which is what makes a file dropped
+   from the manifest disappear from nanako rather than linger as an orphan.
+2. `apply-generator-rewire-to-nanako.yml` — the behavioural REWIRE, applied from
+   `.github/transport/nanako-generator-rewire.patch`.
+
+Step 2 exists precisely *because* step 1 is destructive. Everything that exists only on the
+nanako side — `corpus-paths.mjs`, the vendored whitelist, the tests, nanako's CI workflow, and
+the edits repointing transported files at nanako's layout — cannot live in the manifest,
+because it does not exist in this repository; and it would be deleted by the next transport if
+it were not re-applied. Running step 1 alone leaves nanako holding code that does not load.
+
+Step 2 is idempotent (a branch already carrying the patch reports "already applied" instead of
+failing), refuses to touch nanako's `content/`/`engine/` published surface, and defaults to
+`dry_run: true`. The patch was generated from a nanako working tree where all gates were green
+and verified to apply cleanly against `generator-transport`.
+
 ## 1. Transitive file closure (mechanical)
 
 Method: a throwaway script (not committed — see the end of this doc) starting from each
@@ -299,6 +390,76 @@ has an explicit rollback.
    should not accept unparseable body files either) or stay in main as a defense-in-depth check
    on whatever `pull-articles-api.mjs`/a future full-text sync brings in. Depends on the answer
    to question 1.
+
+## 7. Published-artifact contract (step 5 — SHIPPED)
+
+Step 5 of §5 is implemented in `scripts/pull-articles-api.mjs`, covered by
+`tests/pull-articles-api-migration-artifacts.test.ts` (16 cases, mutation-verified). Main can
+now receive both artifacts; nanako does not emit either yet, and that is the intended order.
+
+**Absence is not failure — yet.** Both artifacts are fetched with a 404-tolerant path, because
+this landed BEFORE nanako publishes them and a mandatory fetch would have broken every existing
+green pull on the first run. Only a 404 counts as "absent": a 5xx, a timeout or a truncated
+body is still a hard failure, since treating a flaky publish as "not emitted yet" is exactly how
+a stale surface would sail through. Pass `--require-new` (or `ARTICLES_PULL_REQUIRE_NEW=1`) in
+the same commit that turns nanako's publisher on — from that point absence IS the failure.
+
+### 7.1 `images-manifest.json`
+
+```json
+{ "commit": "<sha>",
+  "images": [ { "id": "blog-xyz", "path": "images/blog/blog-xyz.webp", "bytes": 31488 } ] }
+```
+
+`bytes` is optional; when present it must match the fetched length exactly. Main downloads only
+the files it does not already have, so a steady-state run fetches zero images and the manifest
+can be republished whole on every push without either side tracking the other's state.
+
+Validation, all fail-closed: `path` must match `^images/blog/[a-z0-9][a-z0-9._-]*\.webp$` AND
+resolve inside `public/images/blog` (a remote document choosing a filesystem destination is the
+one genuine injection surface this script has, so the check is an allowlist plus a containment
+assertion, not a sanitiser); the body must carry a real `RIFF`/`WEBP` header, which is what
+stops a 200-with-an-HTML-error-page from being committed as an article's hero image; and the
+file must be ≤320KB, the same `BLOG_IMAGE_HARD_MAX_BYTES` ceiling `optimizeImageToWebp` already
+enforces generator-side.
+
+The pull is **additive**: an id that disappears from the manifest does NOT delete the local
+file. Images are referenced by already-published sitemap and RSS entries with a 48h tail, so
+unlinking one on the strength of a single manifest read trades a little disk for a broken
+`<image:loc>` in a surface that is already out the door.
+
+### 7.2 `sitemap-news-candidates.xml`
+
+A normal `<urlset>` whose `<url>` blocks are byte-shaped like the ones `modifySitemapNews()`
+writes today (`<loc>`, `<lastmod>`, hreflang alternates, `<news:news>` with
+`<news:publication_date>` and `<news:title>`, `<image:image>`). Every block MUST carry a
+`<news:publication_date>`; one without it is refused, because it is the field the whole
+freshness window turns on.
+
+This implements §3's option (a). **Nanako decides eligibility once**, at generation time, from
+the whitelist vendored into its own tree (§5.3). Main never re-decides it — it merges candidates
+over what it is serving (candidate wins on a shared `<loc>`: fresher date, newer hreflang set)
+and applies only the mechanical 48h prune that `scripts/cleanup-news-sitemap.mjs` runs today as
+a pre-generation step inside `generate-article.yml`. When that workflow goes away with the
+generator, the prune has to live wherever the file is assembled, which is now here.
+
+**The shrink guard is deliberately inverted for this file.** The sitemaps in §7's sibling pulls
+refuse to shrink; this one is *supposed* to shrink, every single day, because the window prunes
+it — a count floor would refuse every correct quiet-day run. What must never happen is losing an
+entry that is still inside its window, so that is the assertion instead: every currently-served
+in-window `<loc>` must survive the merge or the run refuses. A future `publication_date` is
+treated as a publisher clock bug and pruned, not as an exceptionally fresh article, so a bad
+timestamp cannot pin an entry in the sitemap forever.
+
+Rewriting the child sitemap also bumps `public/sitemap.xml`'s `<lastmod>` for it, in the same
+run — that used to be `updateSitemapIndexLastmod()` inside the generator, so this is the same
+actor doing the same write and introduces no new coupling (§3).
+
+`.github/workflows/sync-articles-sitemaps.yml` stages `public/sitemap-news.xml`,
+`public/sitemap.xml` and the `public/images/blog` directory alongside the existing artifacts.
+They are listed unconditionally: while nanako publishes nothing, the pull leaves those paths
+untouched and they drop out of the workflow's own diff check, so cutover day is a publisher
+change only, with nothing to remember on this side.
 
 ---
 
