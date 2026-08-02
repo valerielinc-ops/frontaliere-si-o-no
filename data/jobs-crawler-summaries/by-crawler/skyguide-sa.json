@@ -1,16 +1,16 @@
 {
   "key": "skyguide-sa",
   "label": "Skyguide",
-  "generatedAt": "2026-08-02T10:58:29.116Z",
+  "generatedAt": "2026-08-02T21:59:31.721Z",
   "total": 11,
   "newCount": 0,
   "updatedCount": 10,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 8800,
-  "avgDurationMs": 8800,
+  "durationMs": 6969,
+  "avgDurationMs": 6969,
   "durationHistory": [
-    8800
+    6969
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -411,11 +411,11 @@
       "retranslationAttempts": 3,
       "localeMismatchSuppressed": true,
       "localeMismatchSuppressedLen": 2285,
-      "_qualityScore": 85,
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 23,
+        "translation": 25,
         "completeness": 19
       }
     }
