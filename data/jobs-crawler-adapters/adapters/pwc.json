@@ -11,8 +11,32 @@
     "https://ohws.prospective.ch/public/v1/medium/1000311/jobs?lang=en&offset=0&limit=500"
   ],
   "notes": "Dedicated PwC Switzerland crawler. Uses Prospective.ch API (medium 1000311). Full job data in API response, no detail page fetching needed. Crawls ALL jobs; canton filter in frontend handles geographic filtering.",
-  "updatedAt": "2026-08-02T22:01:33.980Z",
+  "updatedAt": "2026-08-03T22:15:03.772Z",
   "seedMetaByUrl": {
+    "https://jobs.pwc.ch/job-vacancies/senior-manager-legal-counsel-arbeitsrecht/498b0a86-458a-48fc-a746-612bc3162646": {
+      "location": "Zürich",
+      "canton": "ZH",
+      "company": "PwC Switzerland",
+      "postedDate": "2026-08-03"
+    },
+    "https://jobs.pwc.ch/job-vacancies/associate-tax-technology/a78a87d6-980c-4ae3-9769-3582a42d1769": {
+      "location": "Zürich",
+      "canton": "ZH",
+      "company": "PwC Switzerland",
+      "postedDate": "2026-08-03"
+    },
+    "https://jobs.pwc.ch/job-vacancies/lehrstelle-als-kaufmann-kauffrau-treuhand-efz/33640f64-a13b-48f1-a500-648599465092": {
+      "location": "Zürich",
+      "canton": "ZH",
+      "company": "PwC Switzerland",
+      "postedDate": "2026-08-03"
+    },
+    "https://jobs.pwc.ch/job-vacancies/lehrstelle-als-kaufmann-kauffrau-dienstleistung-administration-efz/ad8b1080-01a5-4221-87c9-469380d167d3": {
+      "location": "Zürich",
+      "canton": "ZH",
+      "company": "PwC Switzerland",
+      "postedDate": "2026-08-03"
+    },
     "https://jobs.pwc.ch/job-vacancies/manager-audit-trade-industries-and-services/e3970582-d838-4290-b7fc-08baea00d35d": {
       "location": "Geneva",
       "canton": "GE",

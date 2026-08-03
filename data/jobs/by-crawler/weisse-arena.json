@@ -1,6 +1,6 @@
 {
   "crawlerKey": "weisse-arena",
-  "assembledAt": "2026-08-02T21:59:35.111Z",
+  "assembledAt": "2026-08-03T22:13:36.779Z",
   "jobs": [
     {
       "id": "weisse-arena-f75d8e4df5ab",
@@ -33,7 +33,7 @@
       "url": "https://www.weissearena.com/jobs/details.html?jobId=4518&jobTitle=Koch%2FK%C3%B6chin+mit+Feuer+und+Leidenschaft",
       "source": "Weisse Arena Gruppe Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-02T21:59:30.625Z",
+      "crawledAt": "2026-08-03T22:13:32.240Z",
       "addressLocality": "Laax",
       "postalCode": "7031",
       "addressCountry": "CH",
@@ -68,6 +68,7 @@
         ]
       },
       "firstSeenAt": "2026-06-16T14:41:43.955Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -113,7 +114,7 @@
       "url": "https://www.weissearena.com/jobs/details.html?jobId=4521&jobTitle=Servicemitarbeiter%3Ain",
       "source": "Weisse Arena Gruppe Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-02T21:59:30.625Z",
+      "crawledAt": "2026-08-03T22:13:32.240Z",
       "addressLocality": "Laax",
       "postalCode": "7031",
       "addressCountry": "CH",
@@ -142,12 +143,14 @@
         "servicemitarbeiter-in-im-fruhstuckservice-weisse-arena-ch",
         "addetto-al-servizio-di-colazione-weisse-arena-gruppe-laax",
         "breakfast-service-attendant-weisse-arena-gruppe-laax",
-        "employe-de-service-de-petit-dejeuner-weisse-arena-gruppe-laax"
+        "employe-de-service-de-petit-dejeuner-weisse-arena-gruppe-laax",
+        "dipendente-del-servizio-weisse-arena-gruppe-laax"
       ],
       "previousSlugsByLocale": {
         "it": [
           "servicemitarbeiter-in-weisse-arena-ch",
-          "servicemitarbeiter-in-weisse-arena-gruppe-laax"
+          "servicemitarbeiter-in-weisse-arena-gruppe-laax",
+          "dipendente-del-servizio-weisse-arena-gruppe-laax"
         ],
         "en": [
           "servicemitarbeiter-in-weisse-arena-gruppe-laax"
@@ -157,6 +160,7 @@
         ]
       },
       "firstSeenAt": "2026-06-16T14:41:43.956Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -202,7 +206,7 @@
       "url": "https://www.weissearena.com/jobs/details.html?jobId=4524&jobTitle=Nachtportier%3Ain",
       "source": "Weisse Arena Gruppe Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-02T21:59:30.624Z",
+      "crawledAt": "2026-08-03T22:13:32.239Z",
       "addressLocality": "Laax",
       "postalCode": "7031",
       "addressCountry": "CH",
@@ -224,10 +228,12 @@
       "contractLabel": "Saisonanstellung",
       "previousSlugsByLocale": {
         "de": [
-          "nachtportier-in-weisse-arena-ch"
+          "nachtportier-in-weisse-arena-ch",
+          "nachtportier-in-weisse-arena-gruppe-laax"
         ],
         "it": [
-          "nachtportier-in-weisse-arena-ch"
+          "nachtportier-in-weisse-arena-ch",
+          "portatore-notturno-weisse-arena-gruppe-laax"
         ],
         "en": [
           "nachtportier-in-weisse-arena-ch"
@@ -237,9 +243,12 @@
         ]
       },
       "previousSlugs": [
-        "nachtportier-in-weisse-arena-ch"
+        "nachtportier-in-weisse-arena-ch",
+        "nachtportier-in-weisse-arena-gruppe-laax",
+        "portatore-notturno-weisse-arena-gruppe-laax"
       ],
       "firstSeenAt": "2026-06-22T15:11:23.123Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -259,7 +268,7 @@
       "slug": "assistente-cuoco-weisse-arena-gruppe-laax",
       "slugByLocale": {
         "it": "assistente-cuoco-weisse-arena-gruppe-laax",
-        "en": "auxiliary-cook-weisse-arena-gruppe-laax",
+        "en": "hilfskoch-hilfskochin-weisse-arena-gruppe-laax",
         "de": "hilfskoch-hilfskochin-weisse-arena-ch",
         "fr": "cuisiniere-auxiliaire-weisse-arena-gruppe-laax"
       },
@@ -269,7 +278,7 @@
       "title": "Hilfskoch/Hilfsköchin",
       "titleByLocale": {
         "it": "Assistente cuoco",
-        "en": "Auxiliary cook",
+        "en": "Hilfskoch/Hilfsköchin",
         "de": "Hilfskoch/Hilfsköchin",
         "fr": "Cuisinière auxiliaire"
       },
@@ -285,7 +294,7 @@
       "url": "https://www.weissearena.com/jobs/details.html?jobId=4519&jobTitle=Hilfskoch%2FHilfsk%C3%B6chin",
       "source": "Weisse Arena Gruppe Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-02T21:59:30.624Z",
+      "crawledAt": "2026-08-03T22:13:32.239Z",
       "addressLocality": "Laax",
       "postalCode": "7031",
       "addressCountry": "CH",
@@ -307,14 +316,18 @@
       "contractLabel": "Festanstellung",
       "previousSlugs": [
         "hilfskoch-hilfskochin-weisse-arena-ch",
+        "auxiliary-cook-weisse-arena-gruppe-laax",
+        "assistente-cuoco-weisse-arena-gruppe-laax",
         "hilfskoch-hilfskochin-weisse-arena-gruppe-laax"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "hilfskoch-hilfskochin-weisse-arena-ch"
+          "hilfskoch-hilfskochin-weisse-arena-ch",
+          "assistente-cuoco-weisse-arena-gruppe-laax"
         ],
         "en": [
           "hilfskoch-hilfskochin-weisse-arena-ch",
+          "auxiliary-cook-weisse-arena-gruppe-laax",
           "hilfskoch-hilfskochin-weisse-arena-gruppe-laax"
         ],
         "fr": [
@@ -322,6 +335,7 @@
         ]
       },
       "firstSeenAt": "2026-06-16T14:41:43.954Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -367,7 +381,7 @@
       "url": "https://www.weissearena.com/jobs/details.html?jobId=4527&jobTitle=K%C3%BCchenchef%3Ain+rocksresorts",
       "source": "Weisse Arena Gruppe Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-02T21:59:30.623Z",
+      "crawledAt": "2026-08-03T22:13:32.238Z",
       "addressLocality": "Laax",
       "postalCode": "7031",
       "addressCountry": "CH",
@@ -388,11 +402,13 @@
       "pensum": "100%",
       "contractLabel": "Festanstellung",
       "previousSlugs": [
-        "kuchenchef-in-rocksresorts-weisse-arena-ch"
+        "kuchenchef-in-rocksresorts-weisse-arena-ch",
+        "chef-in-scogliere-weisse-arena-gruppe-laax"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "kuchenchef-in-rocksresorts-weisse-arena-ch"
+          "kuchenchef-in-rocksresorts-weisse-arena-ch",
+          "chef-in-scogliere-weisse-arena-gruppe-laax"
         ]
       },
       "firstSeenAt": "2026-08-01T21:58:40.690Z",
@@ -441,7 +457,7 @@
       "url": "https://www.weissearena.com/jobs/details.html?jobId=4530&jobTitle=Mitarbeiter%3Ain+Bahn%C3%BCberwachung",
       "source": "Weisse Arena Gruppe Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-02T21:59:30.620Z",
+      "crawledAt": "2026-08-03T22:13:32.235Z",
       "addressLocality": "Laax",
       "postalCode": "7031",
       "addressCountry": "CH",
@@ -465,14 +481,16 @@
         "mitarbeiter-in-bahnuberwachung-weisse-arena-ch",
         "collaboratore-trice-bahnuberwachung-weisse-arena-gruppe-laax-z3tj49",
         "associate-bahnuberwachung-weisse-arena-gruppe-laax",
-        "collaborateur-trice-bahnuberwachung-weisse-arena-gruppe-laax"
+        "collaborateur-trice-bahnuberwachung-weisse-arena-gruppe-laax",
+        "collaboratore-trice-bahnuberwachung-weisse-arena-gruppe-laax"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-bahnuberwachung-weisse-arena-ch",
           "collaboratore-trice-bahnuberwachung-weisse-arena-gruppe-laax-z3tj49",
           "associate-bahnuberwachung-weisse-arena-gruppe-laax",
-          "collaborateur-trice-bahnuberwachung-weisse-arena-gruppe-laax"
+          "collaborateur-trice-bahnuberwachung-weisse-arena-gruppe-laax",
+          "collaboratore-trice-bahnuberwachung-weisse-arena-gruppe-laax"
         ],
         "en": [
           "mitarbeiter-in-bahnuberwachung-weisse-arena-ch"
@@ -482,6 +500,7 @@
         ]
       },
       "firstSeenAt": "2026-07-16T22:06:42.752Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -491,6 +510,86 @@
           "@type": "QuantitativeValue",
           "minValue": 57500,
           "maxValue": 87000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "GR"
+    },
+    {
+      "id": "weisse-arena-f1a98cf75e9e",
+      "slug": "squad-lead-marketing-amp-comunicazione-di-prodotto-weisse-arena-gruppe-laax",
+      "slugByLocale": {
+        "it": "squad-lead-marketing-amp-comunicazione-di-prodotto-weisse-arena-gruppe-laax",
+        "en": "squad-lead-marketing-product-communication-weisse-arena-ch",
+        "de": "squad-lead-marketing-product-communication-weisse-arena-ch",
+        "fr": "commercialisation-du-plomb-de-l-equipe-et-communication-des-produits-weisse-arena-gruppe-laax"
+      },
+      "company": "Weisse Arena Gruppe",
+      "companyKey": "weisse-arena",
+      "companyDomain": "weissearena.com",
+      "title": "Squad Lead Marketing & Product-Communication",
+      "titleByLocale": {
+        "it": "Squad Lead Marketing & Comunicazione di prodotto",
+        "en": "Squad Lead Marketing & Product-Communication",
+        "de": "Squad Lead Marketing & Product-Communication",
+        "fr": "Commercialisation du plomb de l'équipe et communication des produits"
+      },
+      "description": "Die Weisse Arena Gruppe in LAAX ist Vorreiter im alpinen Tourismus und eine begeisterte Community für einmalige Bergabenteuer. Zur Gruppe gehören diverse Hotel- und Gastronomiebetriebe, Sport und Rental Shops, eine Ski-, Snowboard- und Bikeschule sowie eine Management- und eine Baugesellschaft. Unser Erfolg? Ein motiviertes und engagiertes Team, das seine Leidenschaft täglich lebt. | Das Team Marketing & Product-Communication verantwortet die Marke LAAX, die Marketingaktivitäten und die Produkt-Kommunikation entlang der gesamten Customer Journey. Vom ersten Kontakt bis zur Buchung: Wir begeistern Menschen für LAAX, gewinnen Gäste, binden sie langfristig und leisten damit einen messbaren Beitrag zum Betriebsergebnis. Wir arbeiten datenbasiert, eng vernetzt mit den internen Fachbereichen, der Geschäftsleitung und externen Partnern. | Als Squad Lead Marketing & Product-Communication führst du das Team und verantwortest die strategische Weiterentwicklung von Marke, Kommunikation und Marketing. Du steuerst den gesamten Marketing Funnel von Awareness über Consideration bis zur Conversion. Pensum 90–100%, Arbeitsort LAAX. Du rapportierst an den Head of Digital & Marketing sowie an den Director Customer Performance Management. | Was du bewegst:\n• Du führst und entwickelst das Team Marketing & Product-Communication, setzt klare Prioritäten und förderst deine Leute fachlich wie persönlich\n• Du gestaltest die Marketingstrategie von LAAX aktiv mit und planst mit deinem Team Kampagnen und Kommunikationsmassnahmen – von den kreativen Inhalten mit dem Content-Team (Foto, Video, Design) bis zur datenbasierten Optimierung mit unserer externen Performance-Agentur\n• Du verantwortest die externe Produkt-Kommunikation und sorgst für einen klaren, konsistenten und zielgruppengerechten Auftritt, der zur Marke LAAX passt\n• Du steigerst die Markenbekanntheit und nutzt Potenziale für Up- und Cross-Selling entlang der Customer Journey\n• Du entwickelst mit den Fachbereichen die Customer Journey weiter, damit unsere Gäste über alle Kontaktpunkte hinweg ein überzeugendes Erlebnis haben\n• Du leitest bereichsübergreifende Projekte und koordinierst die Zusammenarbeit mit Medien, Agenturen, Partnern und internen Stakeholdern\n• Du definierst die wichtigsten Ziele und Kennzahlen, misst die Wirkung eurer Massnahmen und setzt Budget und Ressourcen mit Fokus auf einen nachhaltigen ROI ein | Was dich ausmacht:\n• Mehrjährige Führungserfahrung im Marketing oder in der Kommunikation\n• Erfahrung in der Entwicklung und Umsetzung von Marketingstrategien\n• Sehr gutes Verständnis für digitale Marketingkanäle und Customer Experience\n• Du arbeitest datenbasiert und nutzt Analysen als Grundlage für fundierte Entscheidungen\n• Selbstständige, strukturierte und lösungsorientierte Arbeitsweise\n• Du denkst strategisch und handelst pragmatisch, setzt Prioritäten und triffst Entscheidungen\n• Du kommunizierst klar und verbindlich und bist es gewohnt, dich durchzusetzen\n• Du führst Menschen gerne, entwickelst Teams weiter und begeisterst unterschiedliche Persönlichkeiten für einen gemeinsamen Weg\n• Sehr gute Deutsch- und Englischkenntnisse, weitere Sprachen von Vorteil\n• Du begeisterst dich für LAAX, unsere Marke, unseren Sport und unser Umfeld | Ein attraktiver Arbeitsplatz inmitten einer atemberaubenden Bergwelt ist dir gewiss. Zudem hast du die Möglichkeit, dich in unserem dynamischen, aufgeweckten Team und der lebhaften Unternehmenskultur weiterzuentwickeln. Freue dich auf zahlreiche Mitarbeitervergünstigungen , wie freie Bergfahrten, Vergünstigungen in unseren Shops, Hotels und Gastronomiebetrieben sowie Vorteile für deine Familie.Starte jetzt dein berufliches Abenteuer bei der Weissen Arena Gruppe mit deiner vollständigen Online-Bewerbung mit Foto. Wir freuen uns darauf. | Mountain Vision AG Customer Experience & Communication Claude Bravi Director Customer Performance Management www.weissearena.com I www.laax.com",
+      "descriptionByLocale": {
+        "it": "Il White Arena Group di LAAX è un pioniere nel turismo alpino e una comunità entusiasta per avventure di montagna uniche. Il gruppo comprende varie attività di hotel e catering, negozi di sport e noleggio, una scuola di sci, snowboard e bici, nonché una società di gestione e costruzione. Il nostro successo? Un team motivato e dedicato che vive quotidianamente la sua passione. # Il team Marketing & Product Communication è responsabile del marchio LAAX, delle attività di marketing e della comunicazione dei prodotti lungo l'intero percorso del cliente. Dal primo contatto alla prenotazione: Ispiriamo le persone per LAAX, attraiamo gli ospiti, li trattiamo a lungo termine e diamo un contributo misurabile al risultato operativo. Lavoriamo in base ai dati, strettamente in rete con reparti interni, gestione e partner esterni. Come Squad Lead Marketing & Product Communication, si guida il team e sono responsabili dello sviluppo strategico del marchio, della comunicazione e del marketing. Si controlla l'intero imbuto di marketing dalla consapevolezza alla considerazione alla conversione. Pensum 90-100%, luogo di lavoro LAAX. Fai rapporto al Responsabile Digital & Marketing e al Direttore della Customer Performance Management. Cosa si muove:\n• Condurre e sviluppare il team Marketing & Product Communication, impostare priorità chiare e promuovere le persone professionalmente e personalmente\n• Forma attivamente la strategia di marketing di LAAX e pianifica campagne e comunicazioni con il tuo team – dal contenuto creativo con il team di contenuti (foto, video, design) all'ottimizzazione basata sui dati con la nostra agenzia di performance esterna.\n• Sei responsabile per la comunicazione esterna del prodotto e assicura un aspetto chiaro, coerente e orientato al gruppo target che si adatta al marchio LAAX\n• Si aumenta la consapevolezza del marchio e si utilizza il potenziale per up- e cross-selling lungo il percorso del cliente\n• Sviluppi il viaggio del cliente con le aree specializzate in modo che i nostri ospiti abbiano un'esperienza convincente in tutti i punti di contatto\n• Conduci progetti cross-divisionali e coordina la cooperazione con media, agenzie, partner e stakeholder interni\n• Definisci gli obiettivi e le metriche più importanti, misura l'impatto delle tue azioni e utilizza budget e risorse con un focus sul ROI sostenibile. Cosa ti fa:\n• Diversi anni di esperienza di leadership nel marketing o nella comunicazione\n• Esperienza nello sviluppo e nell'attuazione di strategie di marketing\n• Ottima comprensione dei canali di marketing digitale e dell'esperienza del cliente\n• Lei lavora a dati basati e utilizza analisi come base per decisioni informate\n• Metodo di lavoro indipendente, strutturato e orientato alla soluzione\n• Pensi strategicamente e agisca in modo pragmatico, fissa le priorità e prendi decisioni\n• Comunichi in modo chiaro e vincolante e sei abituato ad affermare te stesso\n• Ti piace guidare le persone, sviluppare team e ispirare personalità diverse per un percorso comune\n• Conoscenza molto buona di tedesco e inglese, altre lingue sono vantaggiose\n• Sei entusiasta di LAAX, il nostro marchio, il nostro sport e il nostro ambiente. Un posto di lavoro attraente nel mezzo di un mondo di montagna mozzafiato è certo per voi. Hai anche l'opportunità di sviluppare nel nostro team dinamico, brillante e vivace cultura aziendale. Godetevi numerosi vantaggi per i dipendenti, come gite in montagna gratuite, vantaggi nei nostri negozi, hotel e ristoranti, e benefici per la vostra famiglia. Inizia la tua avventura professionale con il Weissen Arena Group ora con la tua applicazione online completa con la foto. Non vediamo l'ora. | Mountain Vision AG Customer Experience & Communication Claude Bravi Direttore Customer Performance Management www.weissearena.com I www.laax.com",
+        "en": "The White Arena Group in LAAX is a pioneer in alpine tourism and an enthusiastic community for unique mountain adventures. The group includes various hotel and catering businesses, sports and rental shops, a ski, snowboard and bike school as well as a management and construction company. Our success? A motivated and dedicated team that lives its passion daily. | The Marketing & Product Communication team is responsible for the LAAX brand, marketing activities and product communication along the entire customer journey. From first contact to booking: We inspire people for LAAX, attract guests, retain them in the long term and thus make a measurable contribution to the operating result. We work data-based, closely networked with internal departments, management and external partners. As Squad Lead Marketing & Product Communication, you lead the team and are responsible for the strategic development of the brand, communication and marketing. You control the entire marketing funnel from awareness to consideration to conversion. Pensum 90–100%, place of work LAAX. You report to the Head of Digital & Marketing and to the Director of Customer Performance Management. What You Move:\n• You lead and develop the Marketing & Product Communication team, set clear priorities and promote your people professionally and personally\n• You actively shape LAAX’s marketing strategy and plan campaigns and communications with your team – from creative content with the content team (photo, video, design) to data-based optimization with our external performance agency.\n• You are responsible for external product communication and ensure a clear, consistent and target group-oriented appearance that fits the LAAX brand\n• You increase brand awareness and use potential for up- and cross-selling along the customer journey\n• You develop the customer journey further with the specialist areas so that our guests have a convincing experience across all contact points\n• You lead cross-divisional projects and coordinate cooperation with media, agencies, partners and internal stakeholders\n• You define the most important goals and metrics, measure the impact of your actions and use budget and resources with a focus on sustainable ROI. What makes you:\n• Several years of leadership experience in marketing or communication\n• Experience in developing and implementing marketing strategies\n• Very good understanding of digital marketing channels and customer experience\n• You work data-based and use analytics as a basis for informed decisions\n• Independent, structured and solution-oriented working method\n• You think strategically and act pragmatically, set priorities and make decisions\n• You communicate clearly and bindingly and are used to asserting yourself\n• You like to lead people, develop teams and inspire different personalities for a common path\n• Very good knowledge of German and English, other languages are advantageous\n• You are enthusiastic about LAAX, our brand, our sport and our environment. An attractive workplace in the middle of a breathtaking mountain world is certain for you. You also have the opportunity to develop in our dynamic, bright team and vibrant company culture. Enjoy numerous employee benefits, such as free mountain rides, perks in our shops, hotels and restaurants, and benefits for your family.Start your professional adventure with the Weissen Arena Group now with your complete online application with photo. We look forward to it. | Mountain Vision AG Customer Experience & Communication Claude Bravi Director Customer Performance Management www.weissearena.com I www.laax.com",
+        "de": "Die Weisse Arena Gruppe in LAAX ist Vorreiter im alpinen Tourismus und eine begeisterte Community für einmalige Bergabenteuer. Zur Gruppe gehören diverse Hotel- und Gastronomiebetriebe, Sport und Rental Shops, eine Ski-, Snowboard- und Bikeschule sowie eine Management- und eine Baugesellschaft. Unser Erfolg? Ein motiviertes und engagiertes Team, das seine Leidenschaft täglich lebt. | Das Team Marketing & Product-Communication verantwortet die Marke LAAX, die Marketingaktivitäten und die Produkt-Kommunikation entlang der gesamten Customer Journey. Vom ersten Kontakt bis zur Buchung: Wir begeistern Menschen für LAAX, gewinnen Gäste, binden sie langfristig und leisten damit einen messbaren Beitrag zum Betriebsergebnis. Wir arbeiten datenbasiert, eng vernetzt mit den internen Fachbereichen, der Geschäftsleitung und externen Partnern. | Als Squad Lead Marketing & Product-Communication führst du das Team und verantwortest die strategische Weiterentwicklung von Marke, Kommunikation und Marketing. Du steuerst den gesamten Marketing Funnel von Awareness über Consideration bis zur Conversion. Pensum 90–100%, Arbeitsort LAAX. Du rapportierst an den Head of Digital & Marketing sowie an den Director Customer Performance Management. | Was du bewegst:\n• Du führst und entwickelst das Team Marketing & Product-Communication, setzt klare Prioritäten und förderst deine Leute fachlich wie persönlich\n• Du gestaltest die Marketingstrategie von LAAX aktiv mit und planst mit deinem Team Kampagnen und Kommunikationsmassnahmen – von den kreativen Inhalten mit dem Content-Team (Foto, Video, Design) bis zur datenbasierten Optimierung mit unserer externen Performance-Agentur\n• Du verantwortest die externe Produkt-Kommunikation und sorgst für einen klaren, konsistenten und zielgruppengerechten Auftritt, der zur Marke LAAX passt\n• Du steigerst die Markenbekanntheit und nutzt Potenziale für Up- und Cross-Selling entlang der Customer Journey\n• Du entwickelst mit den Fachbereichen die Customer Journey weiter, damit unsere Gäste über alle Kontaktpunkte hinweg ein überzeugendes Erlebnis haben\n• Du leitest bereichsübergreifende Projekte und koordinierst die Zusammenarbeit mit Medien, Agenturen, Partnern und internen Stakeholdern\n• Du definierst die wichtigsten Ziele und Kennzahlen, misst die Wirkung eurer Massnahmen und setzt Budget und Ressourcen mit Fokus auf einen nachhaltigen ROI ein | Was dich ausmacht:\n• Mehrjährige Führungserfahrung im Marketing oder in der Kommunikation\n• Erfahrung in der Entwicklung und Umsetzung von Marketingstrategien\n• Sehr gutes Verständnis für digitale Marketingkanäle und Customer Experience\n• Du arbeitest datenbasiert und nutzt Analysen als Grundlage für fundierte Entscheidungen\n• Selbstständige, strukturierte und lösungsorientierte Arbeitsweise\n• Du denkst strategisch und handelst pragmatisch, setzt Prioritäten und triffst Entscheidungen\n• Du kommunizierst klar und verbindlich und bist es gewohnt, dich durchzusetzen\n• Du führst Menschen gerne, entwickelst Teams weiter und begeisterst unterschiedliche Persönlichkeiten für einen gemeinsamen Weg\n• Sehr gute Deutsch- und Englischkenntnisse, weitere Sprachen von Vorteil\n• Du begeisterst dich für LAAX, unsere Marke, unseren Sport und unser Umfeld | Ein attraktiver Arbeitsplatz inmitten einer atemberaubenden Bergwelt ist dir gewiss. Zudem hast du die Möglichkeit, dich in unserem dynamischen, aufgeweckten Team und der lebhaften Unternehmenskultur weiterzuentwickeln. Freue dich auf zahlreiche Mitarbeitervergünstigungen , wie freie Bergfahrten, Vergünstigungen in unseren Shops, Hotels und Gastronomiebetrieben sowie Vorteile für deine Familie.Starte jetzt dein berufliches Abenteuer bei der Weissen Arena Gruppe mit deiner vollständigen Online-Bewerbung mit Foto. Wir freuen uns darauf. | Mountain Vision AG Customer Experience & Communication Claude Bravi Director Customer Performance Management www.weissearena.com I www.laax.com",
+        "fr": "Le White Arena Group de LAAX est un pionnier du tourisme alpin et une communauté enthousiaste pour des aventures de montagne uniques. Le groupe comprend diverses entreprises hôtelières et de restauration, des magasins de sport et de location, une école de ski, de snowboard et de vélo ainsi qu'une société de gestion et de construction. Notre succès ? Une équipe motivée et dévouée qui vit sa passion au quotidien. Autres L'équipe Marketing & Communication Produit est responsable de la marque LAAX, des activités marketing et de la communication produit tout au long du parcours client. Du premier contact à la réservation: Nous inspirons les gens pour LAAX, attirons les invités, les conservons à long terme et apportons ainsi une contribution mesurable au résultat opérationnel. Nous travaillons sur la base de données, en étroite collaboration avec les ministères internes, la gestion et les partenaires externes. Comme Squad Lead Marketing & Product Communication, vous dirigez l'équipe et êtes responsable du développement stratégique de la marque, de la communication et du marketing. Vous contrôlez l'entonnoir de marketing entier de la conscience à la considération à la conversion. Pensum 90–100%, lieu de travail LAAX. Vous faites rapport au responsable du Digital & Marketing et au directeur de la gestion de la performance client. Ce que vous déplacez :\n• Vous dirigez et développez l'équipe Marketing & Communication Produit, définissez des priorités claires et faites la promotion professionnelle et personnelle de vos collaborateurs\n• Vous façonnez activement la stratégie de marketing de LAAX, planifiez des campagnes et des communications avec votre équipe – du contenu créatif avec l'équipe de contenu (photo, vidéo, conception) à l'optimisation basée sur les données avec notre agence de performance externe.\n• Vous êtes responsable de la communication externe des produits et assurez une apparence claire, cohérente et orientée vers le groupe cible qui correspond à la marque LAAX\n• Vous augmentez la sensibilisation de la marque et le potentiel d'utilisation pour la mise à jour et la vente croisée le long du parcours client\n• Vous développez le parcours client plus loin avec les domaines spécialisés afin que nos clients aient une expérience convaincante sur tous les points de contact\n• Vous dirigez des projets interdivisions et coordonnez la coopération avec les médias, les agences, les partenaires et les intervenants internes\n• Vous définissez les objectifs et les mesures les plus importants, mesurez l'impact de vos actions et utilisez le budget et les ressources en mettant l'accent sur un ROI durable. Qu'est-ce qui vous fait :\n• Plusieurs années d'expérience en marketing ou en communication\n• Expérience dans l'élaboration et la mise en œuvre de stratégies de marketing\n• Très bonne compréhension des canaux de marketing numérique et de l'expérience client\n• Vous travaillez sur base de données et utilisez l'analyse comme base pour des décisions éclairées\n• Méthode de travail indépendante, structurée et axée sur les solutions\n• Vous pensez stratégiquement et agissez de manière pragmatique, fixez des priorités et prenez des décisions\n• Vous communiquez clairement et de manière contraignante et êtes habitué à vous affirmer\n• Vous aimez diriger les gens, développer des équipes et inspirer différentes personnalités pour un chemin commun\n• Très bonne connaissance de l'allemand et de l'anglais, d'autres langues sont avantageuses\n• Vous êtes enthousiaste pour LAAX, notre marque, notre sport et notre environnement. Un lieu de travail attrayant au milieu d'un monde montagneux à couper le souffle est certain pour vous. Vous avez également l'occasion de vous développer dans notre équipe dynamique, lumineuse et dynamique culture d'entreprise. Profitez de nombreux avantages pour les employés, comme des promenades en montagne gratuites, des avantages dans nos magasins, hôtels et restaurants, et des avantages pour votre famille. Commencez votre aventure professionnelle avec le Groupe Weissen Arena maintenant avec votre candidature en ligne complète avec photo. Nous nous réjouissons de cela. Mountain Vision AG Customer Experience & Communication Claude Bravi Directeur Customer Performance Management www.weissearena.com I www.laax.com"
+      },
+      "location": "Laax",
+      "canton": "GR",
+      "url": "https://www.weissearena.com/jobs/details.html?jobId=4533&jobTitle=Squad+Lead+Marketing+%26+Product-Communication",
+      "source": "Weisse Arena Gruppe Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-03T22:13:32.234Z",
+      "addressLocality": "Laax",
+      "postalCode": "7031",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Marketing",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "sector": "Turismo / Sport",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-23",
+      "applyUrl": "https://emea3.recruitmentplatform.com/apply-app/pages/application-form?jobId=PD6FK026203F3VBQBLO8NV79D-4533&langCode=de_DE",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "department": "Customer Experience & Communication",
+      "jobNumber": "WAG02443",
+      "pensum": "80 - 100%",
+      "contractLabel": "Festanstellung",
+      "previousSlugs": [
+        "squad-lead-marketing-product-communication-weisse-arena-ch",
+        "squad-lead-marketing-amp-comunicazione-di-prodotto-weisse-arena-gruppe-laax"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "squad-lead-marketing-product-communication-weisse-arena-ch",
+          "squad-lead-marketing-amp-comunicazione-di-prodotto-weisse-arena-gruppe-laax"
+        ],
+        "fr": [
+          "squad-lead-marketing-product-communication-weisse-arena-ch"
+        ]
+      },
+      "firstSeenAt": "2026-07-24T11:11:09.086Z",
+      "needsRetranslation": true,
+      "salaryMin": 87500,
+      "salaryMax": 154500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 87500,
+          "maxValue": 154500,
           "unitText": "YEAR"
         }
       },
@@ -527,7 +626,7 @@
       "url": "https://www.weissearena.com/jobs/details.html?jobId=4535&jobTitle=Restaurantleiter%3Ain",
       "source": "Weisse Arena Gruppe Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-02T21:59:30.618Z",
+      "crawledAt": "2026-08-03T22:13:32.233Z",
       "addressLocality": "Laax",
       "postalCode": "7031",
       "addressCountry": "CH",
@@ -550,7 +649,8 @@
       "previousSlugsByLocale": {
         "it": [
           "restaurantleiter-in-weisse-arena-gruppe-laax",
-          "restaurantleiter-in-weisse-arena-ch"
+          "restaurantleiter-in-weisse-arena-ch",
+          "ristorante-manager-in-weisse-arena-gruppe-laax"
         ],
         "en": [
           "restaurantleiter-in-weisse-arena-gruppe-laax"
@@ -559,14 +659,17 @@
           "restaurantleiter-in-weisse-arena-gruppe-laax"
         ],
         "de": [
-          "restaurantleiter-in-weisse-arena-ch"
+          "restaurantleiter-in-weisse-arena-ch",
+          "restaurantleiter-in-weisse-arena-gruppe-laax"
         ]
       },
       "previousSlugs": [
         "restaurantleiter-in-weisse-arena-gruppe-laax",
-        "restaurantleiter-in-weisse-arena-ch"
+        "restaurantleiter-in-weisse-arena-ch",
+        "ristorante-manager-in-weisse-arena-gruppe-laax"
       ],
       "firstSeenAt": "2026-07-27T22:09:19.913Z",
+      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -612,7 +715,7 @@
       "url": "https://www.weissearena.com/jobs/details.html?jobId=4534&jobTitle=R%C3%A9ceptionist%3Ain",
       "source": "Weisse Arena Gruppe Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-02T21:59:30.618Z",
+      "crawledAt": "2026-08-03T22:13:32.233Z",
       "addressLocality": "Laax",
       "postalCode": "7031",
       "addressCountry": "CH",
@@ -633,11 +736,13 @@
       "pensum": "100%",
       "contractLabel": "Saisonanstellung",
       "previousSlugs": [
-        "receptionist-in-weisse-arena-ch"
+        "receptionist-in-weisse-arena-ch",
+        "ricevitore-in-weisse-arena-gruppe-laax"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "receptionist-in-weisse-arena-ch"
+          "receptionist-in-weisse-arena-ch",
+          "ricevitore-in-weisse-arena-gruppe-laax"
         ],
         "en": [
           "receptionist-in-weisse-arena-ch"
@@ -647,6 +752,7 @@
         ]
       },
       "firstSeenAt": "2026-07-27T12:32:58.031Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -656,83 +762,6 @@
           "@type": "QuantitativeValue",
           "minValue": 57500,
           "maxValue": 87000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "GR"
-    },
-    {
-      "id": "weisse-arena-f1a98cf75e9e",
-      "slug": "squad-lead-marketing-amp-comunicazione-di-prodotto-weisse-arena-gruppe-laax",
-      "slugByLocale": {
-        "it": "squad-lead-marketing-amp-comunicazione-di-prodotto-weisse-arena-gruppe-laax",
-        "en": "squad-lead-marketing-product-communication-weisse-arena-ch",
-        "de": "squad-lead-marketing-product-communication-weisse-arena-ch",
-        "fr": "commercialisation-du-plomb-de-l-equipe-et-communication-des-produits-weisse-arena-gruppe-laax"
-      },
-      "company": "Weisse Arena Gruppe",
-      "companyKey": "weisse-arena",
-      "companyDomain": "weissearena.com",
-      "title": "Squad Lead Marketing & Product-Communication",
-      "titleByLocale": {
-        "it": "Squad Lead Marketing & Comunicazione di prodotto",
-        "en": "Squad Lead Marketing & Product Communication",
-        "de": "Squad Lead Marketing & Product-Communication",
-        "fr": "Commercialisation du plomb de l'équipe et communication des produits"
-      },
-      "description": "Die Weisse Arena Gruppe in LAAX ist Vorreiter im alpinen Tourismus und eine begeisterte Community für einmalige Bergabenteuer. Zur Gruppe gehören diverse Hotel- und Gastronomiebetriebe, Sport und Rental Shops, eine Ski-, Snowboard- und Bikeschule sowie eine Management- und eine Baugesellschaft. Unser Erfolg? Ein motiviertes und engagiertes Team, das seine Leidenschaft täglich lebt. | Das Team Marketing & Product-Communication verantwortet die Marke LAAX, die Marketingaktivitäten und die Produkt-Kommunikation entlang der gesamten Customer Journey. Vom ersten Kontakt bis zur Buchung: Wir begeistern Menschen für LAAX, gewinnen Gäste, binden sie langfristig und leisten damit einen messbaren Beitrag zum Betriebsergebnis. Wir arbeiten datenbasiert, eng vernetzt mit den internen Fachbereichen, der Geschäftsleitung und externen Partnern. | Als Squad Lead Marketing & Product-Communication führst du das Team und verantwortest die strategische Weiterentwicklung von Marke, Kommunikation und Marketing. Du steuerst den gesamten Marketing Funnel von Awareness über Consideration bis zur Conversion. Pensum 90–100%, Arbeitsort LAAX. Du rapportierst an den Head of Digital & Marketing sowie an den Director Customer Performance Management. | Was du bewegst:\n• Du führst und entwickelst das Team Marketing & Product-Communication, setzt klare Prioritäten und förderst deine Leute fachlich wie persönlich\n• Du gestaltest die Marketingstrategie von LAAX aktiv mit und planst mit deinem Team Kampagnen und Kommunikationsmassnahmen – von den kreativen Inhalten mit dem Content-Team (Foto, Video, Design) bis zur datenbasierten Optimierung mit unserer externen Performance-Agentur\n• Du verantwortest die externe Produkt-Kommunikation und sorgst für einen klaren, konsistenten und zielgruppengerechten Auftritt, der zur Marke LAAX passt\n• Du steigerst die Markenbekanntheit und nutzt Potenziale für Up- und Cross-Selling entlang der Customer Journey\n• Du entwickelst mit den Fachbereichen die Customer Journey weiter, damit unsere Gäste über alle Kontaktpunkte hinweg ein überzeugendes Erlebnis haben\n• Du leitest bereichsübergreifende Projekte und koordinierst die Zusammenarbeit mit Medien, Agenturen, Partnern und internen Stakeholdern\n• Du definierst die wichtigsten Ziele und Kennzahlen, misst die Wirkung eurer Massnahmen und setzt Budget und Ressourcen mit Fokus auf einen nachhaltigen ROI ein | Was dich ausmacht:\n• Mehrjährige Führungserfahrung im Marketing oder in der Kommunikation\n• Erfahrung in der Entwicklung und Umsetzung von Marketingstrategien\n• Sehr gutes Verständnis für digitale Marketingkanäle und Customer Experience\n• Du arbeitest datenbasiert und nutzt Analysen als Grundlage für fundierte Entscheidungen\n• Selbstständige, strukturierte und lösungsorientierte Arbeitsweise\n• Du denkst strategisch und handelst pragmatisch, setzt Prioritäten und triffst Entscheidungen\n• Du kommunizierst klar und verbindlich und bist es gewohnt, dich durchzusetzen\n• Du führst Menschen gerne, entwickelst Teams weiter und begeisterst unterschiedliche Persönlichkeiten für einen gemeinsamen Weg\n• Sehr gute Deutsch- und Englischkenntnisse, weitere Sprachen von Vorteil\n• Du begeisterst dich für LAAX, unsere Marke, unseren Sport und unser Umfeld | Ein attraktiver Arbeitsplatz inmitten einer atemberaubenden Bergwelt ist dir gewiss. Zudem hast du die Möglichkeit, dich in unserem dynamischen, aufgeweckten Team und der lebhaften Unternehmenskultur weiterzuentwickeln. Freue dich auf zahlreiche Mitarbeitervergünstigungen , wie freie Bergfahrten, Vergünstigungen in unseren Shops, Hotels und Gastronomiebetrieben sowie Vorteile für deine Familie.Starte jetzt dein berufliches Abenteuer bei der Weissen Arena Gruppe mit deiner vollständigen Online-Bewerbung mit Foto. Wir freuen uns darauf. | Mountain Vision AG Customer Experience & Communication Claude Bravi Director Customer Performance Management www.weissearena.com I www.laax.com",
-      "descriptionByLocale": {
-        "it": "Il White Arena Group di LAAX è un pioniere nel turismo alpino e una comunità entusiasta per avventure di montagna uniche. Il gruppo comprende varie attività di hotel e catering, negozi di sport e noleggio, una scuola di sci, snowboard e bici, nonché una società di gestione e costruzione. Il nostro successo? Un team motivato e dedicato che vive quotidianamente la sua passione. # Il team Marketing & Product Communication è responsabile del marchio LAAX, delle attività di marketing e della comunicazione dei prodotti lungo l'intero percorso del cliente. Dal primo contatto alla prenotazione: Ispiriamo le persone per LAAX, attraiamo gli ospiti, li trattiamo a lungo termine e diamo un contributo misurabile al risultato operativo. Lavoriamo in base ai dati, strettamente in rete con reparti interni, gestione e partner esterni. Come Squad Lead Marketing & Product Communication, si guida il team e sono responsabili dello sviluppo strategico del marchio, della comunicazione e del marketing. Si controlla l'intero imbuto di marketing dalla consapevolezza alla considerazione alla conversione. Pensum 90-100%, luogo di lavoro LAAX. Fai rapporto al Responsabile Digital & Marketing e al Direttore della Customer Performance Management. Cosa si muove:\n• Condurre e sviluppare il team Marketing & Product Communication, impostare priorità chiare e promuovere le persone professionalmente e personalmente\n• Forma attivamente la strategia di marketing di LAAX e pianifica campagne e comunicazioni con il tuo team – dal contenuto creativo con il team di contenuti (foto, video, design) all'ottimizzazione basata sui dati con la nostra agenzia di performance esterna.\n• Sei responsabile per la comunicazione esterna del prodotto e assicura un aspetto chiaro, coerente e orientato al gruppo target che si adatta al marchio LAAX\n• Si aumenta la consapevolezza del marchio e si utilizza il potenziale per up- e cross-selling lungo il percorso del cliente\n• Sviluppi il viaggio del cliente con le aree specializzate in modo che i nostri ospiti abbiano un'esperienza convincente in tutti i punti di contatto\n• Conduci progetti cross-divisionali e coordina la cooperazione con media, agenzie, partner e stakeholder interni\n• Definisci gli obiettivi e le metriche più importanti, misura l'impatto delle tue azioni e utilizza budget e risorse con un focus sul ROI sostenibile. Cosa ti fa:\n• Diversi anni di esperienza di leadership nel marketing o nella comunicazione\n• Esperienza nello sviluppo e nell'attuazione di strategie di marketing\n• Ottima comprensione dei canali di marketing digitale e dell'esperienza del cliente\n• Lei lavora a dati basati e utilizza analisi come base per decisioni informate\n• Metodo di lavoro indipendente, strutturato e orientato alla soluzione\n• Pensi strategicamente e agisca in modo pragmatico, fissa le priorità e prendi decisioni\n• Comunichi in modo chiaro e vincolante e sei abituato ad affermare te stesso\n• Ti piace guidare le persone, sviluppare team e ispirare personalità diverse per un percorso comune\n• Conoscenza molto buona di tedesco e inglese, altre lingue sono vantaggiose\n• Sei entusiasta di LAAX, il nostro marchio, il nostro sport e il nostro ambiente. Un posto di lavoro attraente nel mezzo di un mondo di montagna mozzafiato è certo per voi. Hai anche l'opportunità di sviluppare nel nostro team dinamico, brillante e vivace cultura aziendale. Godetevi numerosi vantaggi per i dipendenti, come gite in montagna gratuite, vantaggi nei nostri negozi, hotel e ristoranti, e benefici per la vostra famiglia. Inizia la tua avventura professionale con il Weissen Arena Group ora con la tua applicazione online completa con la foto. Non vediamo l'ora. | Mountain Vision AG Customer Experience & Communication Claude Bravi Direttore Customer Performance Management www.weissearena.com I www.laax.com",
-        "en": "The White Arena Group in LAAX is a pioneer in alpine tourism and an enthusiastic community for unique mountain adventures. The group includes various hotel and catering businesses, sports and rental shops, a ski, snowboard and bike school as well as a management and construction company. Our success? A motivated and dedicated team that lives its passion daily. | The Marketing & Product Communication team is responsible for the LAAX brand, marketing activities and product communication along the entire customer journey. From first contact to booking: We inspire people for LAAX, attract guests, retain them in the long term and thus make a measurable contribution to the operating result. We work data-based, closely networked with internal departments, management and external partners. As Squad Lead Marketing & Product Communication, you lead the team and are responsible for the strategic development of the brand, communication and marketing. You control the entire marketing funnel from awareness to consideration to conversion. Pensum 90–100%, place of work LAAX. You report to the Head of Digital & Marketing and to the Director of Customer Performance Management. What You Move:\n• You lead and develop the Marketing & Product Communication team, set clear priorities and promote your people professionally and personally\n• You actively shape LAAX’s marketing strategy and plan campaigns and communications with your team – from creative content with the content team (photo, video, design) to data-based optimization with our external performance agency.\n• You are responsible for external product communication and ensure a clear, consistent and target group-oriented appearance that fits the LAAX brand\n• You increase brand awareness and use potential for up- and cross-selling along the customer journey\n• You develop the customer journey further with the specialist areas so that our guests have a convincing experience across all contact points\n• You lead cross-divisional projects and coordinate cooperation with media, agencies, partners and internal stakeholders\n• You define the most important goals and metrics, measure the impact of your actions and use budget and resources with a focus on sustainable ROI. What makes you:\n• Several years of leadership experience in marketing or communication\n• Experience in developing and implementing marketing strategies\n• Very good understanding of digital marketing channels and customer experience\n• You work data-based and use analytics as a basis for informed decisions\n• Independent, structured and solution-oriented working method\n• You think strategically and act pragmatically, set priorities and make decisions\n• You communicate clearly and bindingly and are used to asserting yourself\n• You like to lead people, develop teams and inspire different personalities for a common path\n• Very good knowledge of German and English, other languages are advantageous\n• You are enthusiastic about LAAX, our brand, our sport and our environment. An attractive workplace in the middle of a breathtaking mountain world is certain for you. You also have the opportunity to develop in our dynamic, bright team and vibrant company culture. Enjoy numerous employee benefits, such as free mountain rides, perks in our shops, hotels and restaurants, and benefits for your family.Start your professional adventure with the Weissen Arena Group now with your complete online application with photo. We look forward to it. | Mountain Vision AG Customer Experience & Communication Claude Bravi Director Customer Performance Management www.weissearena.com I www.laax.com",
-        "de": "Die Weisse Arena Gruppe in LAAX ist Vorreiter im alpinen Tourismus und eine begeisterte Community für einmalige Bergabenteuer. Zur Gruppe gehören diverse Hotel- und Gastronomiebetriebe, Sport und Rental Shops, eine Ski-, Snowboard- und Bikeschule sowie eine Management- und eine Baugesellschaft. Unser Erfolg? Ein motiviertes und engagiertes Team, das seine Leidenschaft täglich lebt. | Das Team Marketing & Product-Communication verantwortet die Marke LAAX, die Marketingaktivitäten und die Produkt-Kommunikation entlang der gesamten Customer Journey. Vom ersten Kontakt bis zur Buchung: Wir begeistern Menschen für LAAX, gewinnen Gäste, binden sie langfristig und leisten damit einen messbaren Beitrag zum Betriebsergebnis. Wir arbeiten datenbasiert, eng vernetzt mit den internen Fachbereichen, der Geschäftsleitung und externen Partnern. | Als Squad Lead Marketing & Product-Communication führst du das Team und verantwortest die strategische Weiterentwicklung von Marke, Kommunikation und Marketing. Du steuerst den gesamten Marketing Funnel von Awareness über Consideration bis zur Conversion. Pensum 90–100%, Arbeitsort LAAX. Du rapportierst an den Head of Digital & Marketing sowie an den Director Customer Performance Management. | Was du bewegst:\n• Du führst und entwickelst das Team Marketing & Product-Communication, setzt klare Prioritäten und förderst deine Leute fachlich wie persönlich\n• Du gestaltest die Marketingstrategie von LAAX aktiv mit und planst mit deinem Team Kampagnen und Kommunikationsmassnahmen – von den kreativen Inhalten mit dem Content-Team (Foto, Video, Design) bis zur datenbasierten Optimierung mit unserer externen Performance-Agentur\n• Du verantwortest die externe Produkt-Kommunikation und sorgst für einen klaren, konsistenten und zielgruppengerechten Auftritt, der zur Marke LAAX passt\n• Du steigerst die Markenbekanntheit und nutzt Potenziale für Up- und Cross-Selling entlang der Customer Journey\n• Du entwickelst mit den Fachbereichen die Customer Journey weiter, damit unsere Gäste über alle Kontaktpunkte hinweg ein überzeugendes Erlebnis haben\n• Du leitest bereichsübergreifende Projekte und koordinierst die Zusammenarbeit mit Medien, Agenturen, Partnern und internen Stakeholdern\n• Du definierst die wichtigsten Ziele und Kennzahlen, misst die Wirkung eurer Massnahmen und setzt Budget und Ressourcen mit Fokus auf einen nachhaltigen ROI ein | Was dich ausmacht:\n• Mehrjährige Führungserfahrung im Marketing oder in der Kommunikation\n• Erfahrung in der Entwicklung und Umsetzung von Marketingstrategien\n• Sehr gutes Verständnis für digitale Marketingkanäle und Customer Experience\n• Du arbeitest datenbasiert und nutzt Analysen als Grundlage für fundierte Entscheidungen\n• Selbstständige, strukturierte und lösungsorientierte Arbeitsweise\n• Du denkst strategisch und handelst pragmatisch, setzt Prioritäten und triffst Entscheidungen\n• Du kommunizierst klar und verbindlich und bist es gewohnt, dich durchzusetzen\n• Du führst Menschen gerne, entwickelst Teams weiter und begeisterst unterschiedliche Persönlichkeiten für einen gemeinsamen Weg\n• Sehr gute Deutsch- und Englischkenntnisse, weitere Sprachen von Vorteil\n• Du begeisterst dich für LAAX, unsere Marke, unseren Sport und unser Umfeld | Ein attraktiver Arbeitsplatz inmitten einer atemberaubenden Bergwelt ist dir gewiss. Zudem hast du die Möglichkeit, dich in unserem dynamischen, aufgeweckten Team und der lebhaften Unternehmenskultur weiterzuentwickeln. Freue dich auf zahlreiche Mitarbeitervergünstigungen , wie freie Bergfahrten, Vergünstigungen in unseren Shops, Hotels und Gastronomiebetrieben sowie Vorteile für deine Familie.Starte jetzt dein berufliches Abenteuer bei der Weissen Arena Gruppe mit deiner vollständigen Online-Bewerbung mit Foto. Wir freuen uns darauf. | Mountain Vision AG Customer Experience & Communication Claude Bravi Director Customer Performance Management www.weissearena.com I www.laax.com",
-        "fr": "Le White Arena Group de LAAX est un pionnier du tourisme alpin et une communauté enthousiaste pour des aventures de montagne uniques. Le groupe comprend diverses entreprises hôtelières et de restauration, des magasins de sport et de location, une école de ski, de snowboard et de vélo ainsi qu'une société de gestion et de construction. Notre succès ? Une équipe motivée et dévouée qui vit sa passion au quotidien. Autres L'équipe Marketing & Communication Produit est responsable de la marque LAAX, des activités marketing et de la communication produit tout au long du parcours client. Du premier contact à la réservation: Nous inspirons les gens pour LAAX, attirons les invités, les conservons à long terme et apportons ainsi une contribution mesurable au résultat opérationnel. Nous travaillons sur la base de données, en étroite collaboration avec les ministères internes, la gestion et les partenaires externes. Comme Squad Lead Marketing & Product Communication, vous dirigez l'équipe et êtes responsable du développement stratégique de la marque, de la communication et du marketing. Vous contrôlez l'entonnoir de marketing entier de la conscience à la considération à la conversion. Pensum 90–100%, lieu de travail LAAX. Vous faites rapport au responsable du Digital & Marketing et au directeur de la gestion de la performance client. Ce que vous déplacez :\n• Vous dirigez et développez l'équipe Marketing & Communication Produit, définissez des priorités claires et faites la promotion professionnelle et personnelle de vos collaborateurs\n• Vous façonnez activement la stratégie de marketing de LAAX, planifiez des campagnes et des communications avec votre équipe – du contenu créatif avec l'équipe de contenu (photo, vidéo, conception) à l'optimisation basée sur les données avec notre agence de performance externe.\n• Vous êtes responsable de la communication externe des produits et assurez une apparence claire, cohérente et orientée vers le groupe cible qui correspond à la marque LAAX\n• Vous augmentez la sensibilisation de la marque et le potentiel d'utilisation pour la mise à jour et la vente croisée le long du parcours client\n• Vous développez le parcours client plus loin avec les domaines spécialisés afin que nos clients aient une expérience convaincante sur tous les points de contact\n• Vous dirigez des projets interdivisions et coordonnez la coopération avec les médias, les agences, les partenaires et les intervenants internes\n• Vous définissez les objectifs et les mesures les plus importants, mesurez l'impact de vos actions et utilisez le budget et les ressources en mettant l'accent sur un ROI durable. Qu'est-ce qui vous fait :\n• Plusieurs années d'expérience en marketing ou en communication\n• Expérience dans l'élaboration et la mise en œuvre de stratégies de marketing\n• Très bonne compréhension des canaux de marketing numérique et de l'expérience client\n• Vous travaillez sur base de données et utilisez l'analyse comme base pour des décisions éclairées\n• Méthode de travail indépendante, structurée et axée sur les solutions\n• Vous pensez stratégiquement et agissez de manière pragmatique, fixez des priorités et prenez des décisions\n• Vous communiquez clairement et de manière contraignante et êtes habitué à vous affirmer\n• Vous aimez diriger les gens, développer des équipes et inspirer différentes personnalités pour un chemin commun\n• Très bonne connaissance de l'allemand et de l'anglais, d'autres langues sont avantageuses\n• Vous êtes enthousiaste pour LAAX, notre marque, notre sport et notre environnement. Un lieu de travail attrayant au milieu d'un monde montagneux à couper le souffle est certain pour vous. Vous avez également l'occasion de vous développer dans notre équipe dynamique, lumineuse et dynamique culture d'entreprise. Profitez de nombreux avantages pour les employés, comme des promenades en montagne gratuites, des avantages dans nos magasins, hôtels et restaurants, et des avantages pour votre famille. Commencez votre aventure professionnelle avec le Groupe Weissen Arena maintenant avec votre candidature en ligne complète avec photo. Nous nous réjouissons de cela. Mountain Vision AG Customer Experience & Communication Claude Bravi Directeur Customer Performance Management www.weissearena.com I www.laax.com"
-      },
-      "location": "Laax",
-      "canton": "GR",
-      "url": "https://www.weissearena.com/jobs/details.html?jobId=4533&jobTitle=Squad+Lead+Marketing+%26+Product-Communication",
-      "source": "Weisse Arena Gruppe Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-02T21:59:30.618Z",
-      "addressLocality": "Laax",
-      "postalCode": "7031",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Marketing",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
-      "sector": "Turismo / Sport",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-23",
-      "applyUrl": "https://emea3.recruitmentplatform.com/apply-app/pages/application-form?jobId=PD6FK026203F3VBQBLO8NV79D-4533&langCode=de_DE",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "department": "Customer Experience & Communication",
-      "jobNumber": "WAG02443",
-      "pensum": "80 - 100%",
-      "contractLabel": "Festanstellung",
-      "previousSlugs": [
-        "squad-lead-marketing-product-communication-weisse-arena-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "squad-lead-marketing-product-communication-weisse-arena-ch"
-        ],
-        "fr": [
-          "squad-lead-marketing-product-communication-weisse-arena-ch"
-        ]
-      },
-      "firstSeenAt": "2026-07-24T11:11:09.086Z",
-      "salaryMin": 87500,
-      "salaryMax": 154500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 87500,
-          "maxValue": 154500,
           "unitText": "YEAR"
         }
       },
@@ -769,7 +798,7 @@
       "url": "https://www.weissearena.com/jobs/details.html?jobId=4538&jobTitle=Guest+Experience+Host",
       "source": "Weisse Arena Gruppe Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-02T21:59:30.614Z",
+      "crawledAt": "2026-08-03T22:13:32.228Z",
       "addressLocality": "Laax",
       "postalCode": "7031",
       "addressCountry": "CH",
@@ -790,6 +819,7 @@
       "pensum": "100%",
       "contractLabel": "Saisonanstellung",
       "firstSeenAt": "2026-07-27T22:09:19.912Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -810,7 +840,7 @@
       "slugByLocale": {
         "it": "risorse-umane-generalist-in-weisse-arena-gruppe-laax",
         "en": "hr-generalist-weisse-arena-gruppe-laax",
-        "de": "hr-generalist-in-weisse-arena-ch",
+        "de": "hr-generalist-in-weisse-arena-gruppe-laax",
         "fr": "ressources-humaines-generalist-in-weisse-arena-gruppe-laax"
       },
       "company": "Weisse Arena Gruppe",
@@ -835,7 +865,7 @@
       "url": "https://www.weissearena.com/jobs/details.html?jobId=4539&jobTitle=HR+Generalist%3Ain",
       "source": "Weisse Arena Gruppe Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-02T21:59:30.612Z",
+      "crawledAt": "2026-08-03T22:13:32.222Z",
       "addressLocality": "Laax",
       "postalCode": "7031",
       "addressCountry": "CH",
@@ -859,27 +889,27 @@
         "ressources-humaines-generalist-in-weisse-arena-gruppe-laax",
         "hr-generalist-in-weisse-arena-ch",
         "hr-generalist-in-weisse-arena-gruppe-laax",
-        "hr-generalist-in-weisse-arena-gruppe-laax",
-        "hr-generalist-in-weisse-arena-gruppe-laax",
-        "hr-generalist-in-weisse-arena-gruppe-laax"
+        "risorse-umane-generalist-in-weisse-arena-gruppe-laax"
       ],
       "previousSlugsByLocale": {
         "it": [
           "ressources-humaines-generalist-in-weisse-arena-gruppe-laax",
           "hr-generalist-in-weisse-arena-ch",
           "hr-generalist-in-weisse-arena-gruppe-laax",
-          "hr-generalist-in-weisse-arena-gruppe-laax",
-          "hr-generalist-in-weisse-arena-gruppe-laax",
-          "hr-generalist-in-weisse-arena-gruppe-laax"
+          "risorse-umane-generalist-in-weisse-arena-gruppe-laax"
+        ],
+        "en": [
+          "hr-generalist-in-weisse-arena-ch"
         ],
         "fr": [
           "hr-generalist-in-weisse-arena-ch"
         ],
-        "en": [
+        "de": [
           "hr-generalist-in-weisse-arena-ch"
         ]
       },
       "firstSeenAt": "2026-08-02T10:50:35.047Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {

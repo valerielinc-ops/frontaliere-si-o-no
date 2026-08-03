@@ -46,6 +46,15 @@ import {
   landingPathFromDistRelative,
 } from './shared/keywordLandingPlan.ts';
 
+// Single producer (issue #4974 item 3, migration §10.4 step 2): these live in
+// the colocated articles package so nanako's fast-publish path and this repo's
+// full build cannot emit different output for the same page. Re-exported under
+// their original names — every existing importer of this module is unchanged.
+import { transformHreflang } from '../packages/articles/engine/hreflangPostprocess';
+export { transformHreflang };
+export type { HreflangTransformResult } from '../packages/articles/engine/hreflangPostprocess';
+
+
 interface HreflangPostprocessOptions {
   readonly baseUrl: string;
 }
@@ -80,132 +89,6 @@ function* walkHtml(dir: string): Iterable<string> {
       yield p;
     }
   }
-}
-
-/**
- * Pure transform: strip `<link rel="alternate" hreflang>` tags whose target
- * file does not pass the supplied existence predicate. Returns `null` if the
- * HTML has no hreflang tags or all tags survive (no rewrite needed).
- *
- * Extracted from the plugin's closeBundle handler so the
- * `postWalkCoordinatorPlugin` can apply it during a single shared dist/ walk.
- *
- * Inputs:
- *   - html: current HTML string (already potentially mutated by prior steps)
- *   - distDir / baseUrl: passed through to `filterExistingAlternates`
- *   - existsCheck (optional): override the disk lookup. Useful when the
- *     coordinator has built an in-memory Set of every emitted HTML path so
- *     the walk avoids repeated `fs.existsSync` syscalls.
- */
-export interface HreflangTransformResult {
-  readonly html: string;
-  readonly kept: number;
-  readonly dropped: number;
-}
-
-export function transformHreflang(
-  html: string,
-  distDir: string,
-  baseUrl: string,
-  existsCheck?: (absPath: string) => boolean,
-  /** dist-relative path of the page being rewritten (enables the stale-landing repair). */
-  pagePath?: string,
-): HreflangTransformResult | null {
-  if (!html.includes('hreflang=')) return null;
-
-  const matches: Array<{
-    full: string;
-    entry: LocaleAlternates;
-    index: number;
-  }> = [];
-  HREFLANG_LINK_RX.lastIndex = 0;
-  let m: RegExpExecArray | null;
-  while ((m = HREFLANG_LINK_RX.exec(html)) !== null) {
-    matches.push({
-      full: m[0],
-      entry: { locale: m[1], url: m[2] },
-      index: m.index,
-    });
-  }
-  if (matches.length === 0) return null;
-
-  const alternates: readonly LocaleAlternates[] = matches.map((x) => x.entry);
-
-  // Landing-plan gate. Fires only once both owners have sealed the plan
-  // (shared/keywordLandingPlan.ts) and only on that URL family.
-  //
-  // The `/{section}/{ricerca|search|suche|recherche}-{slug}/` pages are
-  // emitted per locale from per-locale query data, so a keyword can earn a
-  // landing in one locale and not in another while the emitter still writes
-  // the full four-locale alternate set. On a BUILD_LOCALE shard the existence
-  // check cannot see that: an alternate for a locale this shard does not emit
-  // is absent by design, so it is kept unchecked — correct for a sibling that
-  // lives on another shard, blind for one that exists nowhere. That blind spot
-  // is the 75 `missingTarget` offenders on run 30376520728.
-  //
-  // The whole block goes, not the offending entries: audit-hreflang requires
-  // 4 locales + x-default once ANY hreflang is present, so a thinned set only
-  // trades `[missingTarget]` for `[tooFew]`. Pages carrying no hreflang are
-  // explicitly skipped by that audit, and no page is deleted — only the
-  // unresolvable block is.
-  //
-  // Deliberately narrower than the blanket "drop ALL if kept < 5" that Phase
-  // 8a reverted on 2026-05-12: that fired everywhere, on the premise that
-  // every page emitting hreflang has its full set on disk. This fires only
-  // where the build's own plan says a target is never written.
-  if (hasKeywordLandingPlan()) {
-    const pageIsStale =
-      pagePath !== undefined && isStaleKeywordLanding(landingPathFromDistRelative(pagePath));
-    const hasUnplannedTarget = alternates.some(
-      (a) => isKeywordLandingPath(a.url) && !isPlannedKeywordLanding(a.url),
-    );
-    if (pageIsStale || hasUnplannedTarget) {
-      let stripped = html;
-      for (let i = matches.length - 1; i >= 0; i--) {
-        const match = matches[i];
-        const end = match.index + match.full.length;
-        const tail = stripped.slice(end);
-        const trailingNl = tail.startsWith('\n') ? 1 : 0;
-        stripped = stripped.slice(0, match.index) + stripped.slice(end + trailingNl);
-      }
-      return { html: stripped, kept: 0, dropped: matches.length };
-    }
-  }
-
-  const kept = existsCheck
-    ? filterExistingAlternatesWith(alternates, distDir, baseUrl, existsCheck)
-    : filterExistingAlternates(alternates, distDir, baseUrl);
-  const keptUrls = new Set(kept.map((k) => `${k.locale}|${k.url}`));
-
-  if (kept.length === alternates.length) {
-    // Nothing to drop — return null so the coordinator skips a write.
-    return null;
-  }
-
-  // Phase 8a (2026-05-12) reverted the previous "drop ALL if kept < 5"
-  // band-aid. With the per-job emit now dedup-keyed by
-  // `(canton, locale, slug)` instead of `(locale, slug)`, cross-canton
-  // slug collisions no longer suppress sibling locale files — every
-  // page that emits hreflang has its full 4-locale + x-default set on
-  // disk. Strip only the genuinely broken alternates and keep the rest;
-  // the audit's `alternates.size === 0` short-circuit is no longer the
-  // escape hatch.
-  let rewritten = html;
-  let droppedCount = 0;
-  for (let i = matches.length - 1; i >= 0; i--) {
-    const match = matches[i];
-    const key = `${match.entry.locale}|${match.entry.url}`;
-    if (keptUrls.has(key)) continue;
-    droppedCount++;
-    const end = match.index + match.full.length;
-    const tail = rewritten.slice(end);
-    const trailingNl = tail.startsWith('\n') ? 1 : 0;
-    rewritten =
-      rewritten.slice(0, match.index) +
-      rewritten.slice(end + trailingNl);
-  }
-
-  return { html: rewritten, kept: keptUrls.size, dropped: droppedCount };
 }
 
 /**

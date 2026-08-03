@@ -67,6 +67,7 @@ import path from 'node:path';
 import { writeAuditReport } from './lib/auditReport.mjs';
 import { walkHtmlFiles, sampleFiles, resolveSamplingEnv } from './lib/audit-runner.mjs';
 import { readHeadOrAll } from './lib/readHead.mjs';
+import { isExternallyServedUrl } from './lib/externally-served-paths.mjs';
 
 const DIST = path.resolve('dist');
 const BASE_URL = 'https://frontaliereticino.ch';
@@ -147,6 +148,11 @@ function normaliseHref(href) {
  * we would invent a failure the previous implementation never reported.
  */
 function targetExists(href, distFiles) {
+  // Article sections are rendered and served by the articles repo via the
+  // Worker; this build has no file for them and is not supposed to. An
+  // alternate pointing there is reachable, not broken.
+  // See scripts/lib/externally-served-paths.mjs.
+  if (isExternallyServedUrl(href)) return true;
   const target = urlToDistFile(href);
   if (!target) return true; // not on our host / unmappable — previously skipped
   if (distFiles.has(target)) return true;

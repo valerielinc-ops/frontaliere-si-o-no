@@ -1,6 +1,6 @@
 {
   "crawlerKey": "heineken-ch",
-  "assembledAt": "2026-08-02T22:09:42.770Z",
+  "assembledAt": "2026-08-03T22:20:18.134Z",
   "jobs": [
     {
       "id": "heineken-ch-3d1c80a02409",
@@ -48,7 +48,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=149552&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-02T22:09:40.501Z",
+      "crawledAt": "2026-08-03T22:20:15.154Z",
       "previousSlugs": [
         "elektroinstallateur-automatiker-chur-m-w-heineken-ch-chur",
         "installatore-trice-elettrico-a-automatiker-chur-m-w-d-heineken-switzerland-chur"
@@ -60,6 +60,7 @@
         ]
       },
       "firstSeenAt": "2026-07-09T22:38:49.171Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "currency": "CHF",
@@ -120,7 +121,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=153028&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-02T22:09:32.926Z",
+      "crawledAt": "2026-08-03T22:20:06.903Z",
       "previousSlugs": [
         "mitarbeiterin-brauereifuhrungen-10-auf-abruf-heineken-ch-luzern",
         "personale-in-birrerie-10-su-chiamata-heineken-switzerland-luzern"
@@ -198,7 +199,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=152911&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-02T22:09:24.490Z",
+      "crawledAt": "2026-08-03T22:19:59.264Z",
       "previousSlugs": [
         "logistiker-in-getrankelager-100-heineken-ch-luzern",
         "logistica-negozio-100-heineken-switzerland-luzern"
@@ -216,6 +217,410 @@
         ]
       },
       "firstSeenAt": "2026-05-13T11:12:50.193Z",
+      "needsRetranslation": true,
+      "salaryMin": 69500,
+      "salaryMax": 106000,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 69500,
+          "maxValue": 106000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "heineken-ch-a2a2ef235f05",
+      "jobReqId": "156187",
+      "slug": "autista-cat-c-e-heineken-switzerland-luzern",
+      "slugByLocale": {
+        "it": "autista-cat-c-e-heineken-switzerland-luzern",
+        "en": "driver-cat-c-e-heineken-switzerland-luzern",
+        "de": "chauffeur-kat-c-e-heineken-ch-luzern",
+        "fr": "chauffeur-cat-c-e-heineken-switzerland-luzern"
+      },
+      "company": "Heineken Switzerland",
+      "companyKey": "heineken-ch",
+      "companyDomain": "theheinekencompany.com",
+      "title": "Chauffeur Kat. C/E",
+      "titleByLocale": {
+        "it": "Autista cat. C/E",
+        "en": "Driver Cat. C/E",
+        "de": "Chauffeur Kat. C/E",
+        "fr": "Chauffeur cat. C/E"
+      },
+      "description": "Für unsere Tochtergesellschaft Stardrinks AG suchen für den Standort Luzern eine selbständige und motivierte Persönlichkeit als Chauffeur Kat. C/E Du bist verantwortlich für die pünktliche und bedarfsgerechte Lieferung aller Produkte aus unserem Sortiment an unsere Kunden – vorwiegend in der Gastronomie, Hotellerie sowie im Detailhandel. Dabei stellst du sicher, dass das Fahrzeug gemäss den Vorgaben des Strassenverkehrsgesetzes verkehrstauglich ist und dass die gesetzlichen Bestimmungen zur Beladung (Ladungssicherung, Gewicht, Gewichtsverteilung) eingehalten werden. Diese abwechslungsreiche und dynamische Tätigkeit umfasst unter anderem folgende \n• Aufgaben: Transport von Getränken zu Gastronomiebetrieben und Events Rücknahme von Leergut Bewirtschaftung der Kundenlager Transport von Kühlanhängern und Ausschankwagen Korrekte Dokumentation mittels GreenMile Unterstützung im Lager bei Bedarf Um diese verantwortungsvolle Aufgabe erfolgreich zu erfüllen, bringst du Folgendes mit: Fahrerbewilligung Kat. C und E Berufserfahrung als Chauffeur Einwandfreie Umgangsformen, Zuverlässigkeit und Verbindlichkeit Selbstständige und strukturierte Arbeitsweise Gute Deutschkenntnisse in Wort und Schrift Auch in hektischen Zeiten behältst du den Überblick und triffst den richtigen Ton Körperliche Fitness und Belastbarkeit Idealerweise Wohnort in der Region Auch motivierte Lehrabgänger:innen im Bereich Strassentransport sind herzlich willkommen Interessiert? Frau Alicia Fritz freut sich auf deine vollständigen Bewerbungsunterlagen.",
+      "descriptionByLocale": {
+        "it": "Descrizione Per la nostra controllata Stardrinks AG, propone per la sede di Erstfeld una persona autonoma e motivata come Autista Cat. C/E. Essere responsabile della consegna puntuale e conformi alle esigenze di tutti i prodotti del nostro assortimento ai nostri clienti – principalmente nel settore della ristorazione, dell'hotellerie e del commercio al dettaglio. Assicuri che il veicolo sia conforme all normativa del codice della strada e che le disposizioni legali relative al carico (fissaggio del carico, peso, distribuzione del peso) siano rispettate. Questa attività varia e comprende tra le altre cose le seguenti dinamiche Mansioni - Transporto di alimentazione presso esercizi di ristorazione ed eventi - Ritiro di misericordia vuote - Gestione del magazzino clienti - Trasporto di rimorchi refrigerati e carri di servizio - Documentazione corretta tramite GreenMile - Supporto in magazzino secondo necessità\n• Requisiti - Patenti di guida Cat. E - Esperienza professionale come autista - Comportamento impeccabile, affidabilità e serietà - Lavoro autonomo e strutturato - Buona conoscenza del tedesco parlato e scritto - Anche in tempi frenetici, mantenere la calma e adottare il tono giusto - Buona forma fisica e resistenza - Idealmente residenza nella regione - Anche diplomati motivati nel settore del trasporto su strada sono i successivi Cosa? Interessato? La signora Alicia Fritz partecipa con piacere i tuoi documenti di candidatura completi.",
+        "en": "Descrizione Per la nostra controllata Stardrinks AG, cerchiamo per la sede di Erstfeld una persona autonoma e motivata come Autista Cat. C/E. Be responsabile della consegna puntuale e conforme alle esigenze di tutti i prodotti del nostro assortimento ai nostri clienti – principalmente nel settore della ristorazione, dell'hotellerie e del commercio al dettaglio. Assicuri che il veicolo sia conforme all normative del codice della strada e che le disposizioni legali relative al carico (fissaggio del carico, peso, distribuzione del peso) siano rispettate. Questa attività varia e dinamica comprende tra le altre cose le seguenti Mansioni - Transporto di bevande presso esercizi di ristorazione ed eventi - Ritiro di merci vuote - Gestione del magazzino clienti - Trasporto di rimorchi refrigerati e carri di servizio - Documentazione corretta tramite GreenMile - Supporto in magazzino secondo necessità\n• Requisiti - Patents di guida Cat. E - Esperienza professionale come autista - Comportamento impeccabile, affidabilità e serietà - Lavoro autonomo e strutturato - Buona conoscenza del tedesco parlato e scritto - Anche in tempi frenetici, mantenere la calma e adottare il tono giusto - Buona forma fisica e resistenza - Idealmente residenza nella regione - Anche diplomati motivati nel settore del trasporto su strada sono i benvenuti\n• Cosa offriamo Interessato? La signora Alicia Fritz attende con piacere i tuoi documenti di candidatura completi.",
+        "de": "Für unsere Tochtergesellschaft Stardrinks AG suchen für den Standort Luzern eine selbständige und motivierte Persönlichkeit als Chauffeur Kat. C/E Du bist verantwortlich für die pünktliche und bedarfsgerechte Lieferung aller Produkte aus unserem Sortiment an unsere Kunden – vorwiegend in der Gastronomie, Hotellerie sowie im Detailhandel. Dabei stellst du sicher, dass das Fahrzeug gemäss den Vorgaben des Strassenverkehrsgesetzes verkehrstauglich ist und dass die gesetzlichen Bestimmungen zur Beladung (Ladungssicherung, Gewicht, Gewichtsverteilung) eingehalten werden. Diese abwechslungsreiche und dynamische Tätigkeit umfasst unter anderem folgende \n• Aufgaben: Transport von Getränken zu Gastronomiebetrieben und Events Rücknahme von Leergut Bewirtschaftung der Kundenlager Transport von Kühlanhängern und Ausschankwagen Korrekte Dokumentation mittels GreenMile Unterstützung im Lager bei Bedarf Um diese verantwortungsvolle Aufgabe erfolgreich zu erfüllen, bringst du Folgendes mit: Fahrerbewilligung Kat. C und E Berufserfahrung als Chauffeur Einwandfreie Umgangsformen, Zuverlässigkeit und Verbindlichkeit Selbstständige und strukturierte Arbeitsweise Gute Deutschkenntnisse in Wort und Schrift Auch in hektischen Zeiten behältst du den Überblick und triffst den richtigen Ton Körperliche Fitness und Belastbarkeit Idealerweise Wohnort in der Region Auch motivierte Lehrabgänger:innen im Bereich Strassentransport sind herzlich willkommen Interessiert? Frau Alicia Fritz freut sich auf deine vollständigen Bewerbungsunterlagen.",
+        "fr": "Descrizione Per la nostra controllata Stardrinks AG, cerchiamo per la sede di Erstfeld una persona autonoma e motivata come Autista Cat. C/E. Soit responsabile della consegna puntuale e conforme alle esigenze di tutti i prodotti del nostro assortimento ai nostri clienti – principalmente nel settore della ristorazione, dell' hotellerie e del commercio al dettaglio. Assicuri che il veicolo sia conforme alle normative del codice della strada e che le disposizioni legali relative al carico (fissaggio del carico, peso, distribution del peso) siano rispettate. Questa attività varia e dinamica comprende tra le altre cose le seguenti Mansioni - Transporto di bevande presso esercizi di ristorazione ed eventi - Ritiro di merci vuote - Gestione del magazzino clienti - Trasporto di rimorchi refrigerati e carri di servizio - Documentazione corretta tramite GreenMile - Supporto in magazzino secondo necessità\n• Requisiti - Patent di guida Cat. C e E - Esperienza professionale come autista - Comportamento impeccabile, affidabilità e serietà - Lavoro autonomo e strutturato - Buona conoscenza del tedesco parlato e scritto - Anche in tempi frenetici, mantenere la calma e adottare il tono giusto - Buona forma fisica e resistenza - Idealmente residenza nella regione - Anche motivati nel settore del trasporto su strada sono i benvenuti\n• Cosa offriamo Intéressé ? La signora Alicia Fritz attende con piacere i tuoi documenti di candidatura completi."
+      },
+      "location": "Luzern",
+      "canton": "LU",
+      "addressLocality": "Luzern",
+      "addressRegion": "LU",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "7000",
+      "streetAddress": "Luzern, LU",
+      "category": "Logistica",
+      "sector": "Industria / Alimentare",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "featured": false,
+      "postedDate": "2026-05-13",
+      "url": "https://careers.theheinekencompany.com/job/heineken-switzerland/switzerland/chauffeur-kat-ce-0?jobid=156187",
+      "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=156187&career_ns=job_application",
+      "source": "Heineken Switzerland Dedicated Parser (Playwright)",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-03T22:19:51.338Z",
+      "previousSlugs": [
+        "chauffeur-kat-c-e-heineken-ch-luzern",
+        "autista-cat-c-e-heineken-switzerland-luzern"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "chauffeur-kat-c-e-heineken-ch-luzern",
+          "autista-cat-c-e-heineken-switzerland-luzern"
+        ],
+        "en": [
+          "chauffeur-kat-c-e-heineken-ch-luzern"
+        ],
+        "fr": [
+          "chauffeur-kat-c-e-heineken-ch-luzern"
+        ]
+      },
+      "firstSeenAt": "2026-05-13T11:12:28.078Z",
+      "salaryMin": 69500,
+      "salaryMax": 106000,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 69500,
+          "maxValue": 106000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "heineken-ch-e2b43be893a0",
+      "jobReqId": "158627",
+      "slug": "servizio-clienti-agente-heineken-switzerland-luzern",
+      "slugByLocale": {
+        "it": "servizio-clienti-agente-heineken-switzerland-luzern",
+        "en": "agent-customer-service-heineken-ch-luzern",
+        "de": "mitarbeiter-in-kundenservice-heineken-ch-luzern",
+        "fr": "agent-service-clientele-heineken-switzerland-luzern"
+      },
+      "company": "Heineken Switzerland",
+      "companyKey": "heineken-ch",
+      "companyDomain": "theheinekencompany.com",
+      "title": "Mitarbeiter:in Kundenservice",
+      "titleByLocale": {
+        "it": "Servizio clienti agente",
+        "en": "Agent Customer Service",
+        "de": "Mitarbeiter:in Kundenservice",
+        "fr": "Agent Service clientèle"
+      },
+      "description": "Für unsere Tochtergesellschaft Stardrinks AG suchen wir zur Stärkung unseres Kundenservice Center in Luzern nach einer engagierten, flexiblen und sprachgewandten Persönlichkeit als Kundendienstmitarbeiter/in Deutsch und Französisch oder Italienisch. In dieser lebendigen und abwechslungsreichen Rolle bist du die erste Ansprechperson für unsere Kunden und stehst täglich telefonisch in Kontakt mit ihnen. Deine \n• Aufgaben umfassen dabei folgende Schwerpunkte: Kundenbetreuung und Vertrauensaufbau für nachhaltige Kundenbindungen Telefonverkauf und Beratung (Inbound und Outbound) für unsere Bestandskunden Steigerung des Bestellwerts durch Empfehlung von passenden Zusatzprodukten und Optionen Pflege der Kundendaten zur Sicherstellung aktueller und zuverlässiger Informationen Bearbeitung von Reklamationen und Weiterleitung von Beschwerden an die zuständigen Abteilungen Administrative Unterstützung für den Telefonverkauf und die Datenpflege Das bringst du mit: Abgeschlossene Berufsausbildung als solides Fundament Erfahrung im Kundenservice und Telefonverkauf – für einen schnellen Einstieg ins Aufgabengebiet Engagement, Durchhaltevermögen und eine gute Portion Humor, um auch in hektischen Situationen die Ruhe zu bewahren Versierter Umgang mit MS Office Kenntnisse in SAP und MS Dynamics von Vorteil Deutsch auf muttersprachlichem Niveau sowie gute mündliche und schriftliche Kenntnisse in Französisch oder Italienisch. Hast du Interesse Teil unseres Teams zu werden? Dann freuen wir uns auf deine Bewerbung.",
+      "descriptionByLocale": {
+        "it": "Per la nostra filiale Stardrinks AG, stiamo cercando di rafforzare il nostro centro assistenza clienti a Lucerna per una personalità dedicata, flessibile e linguistica come dipendente del servizio clienti/in tedesco e francese o italiano. In questo ruolo vivace e vario, sei la prima persona di contatto per i nostri clienti e mettersi in contatto con loro ogni giorno per telefono. Il tuo\n• Le attività includono le seguenti priorità: assistenza clienti e costruzione di fiducia per le relazioni con i clienti sostenibili Aumento del valore dell'ordine su raccomandazione di prodotti e opzioni aggiuntive appropriati Cura dei dati del cliente per garantire informazioni attuali e affidabili Trattamento dei reclami e reclami di invio ai dipartimenti competenti Supporto amministrativo per le vendite telefoniche e la manutenzione dei dati Sei interessato a diventare parte della nostra squadra? Allora non vediamo l'ora della vostra applicazione.",
+        "en": "For our subsidiary Stardrinks AG, we are looking to strengthen our customer service center in Lucerne for a dedicated, flexible and linguistic personality as a customer service employee/in German and French or Italian. In this lively and varied role, you are the first contact person for our customers and get in touch with them daily by phone. Your\n• Tasks include the following priorities: customer support and confidence building for sustainable customer relationships Phone sales and advice (inbound and outbound) for our existing customers Increase the order value by recommendation of appropriate additional products and options Care of customer data to ensure current and reliable information Processing of complaints and forwarding complaints to the competent departments Administrative support for the telephone sales and data maintenance Are you interested in becoming part of our team? Then we look forward to your application.",
+        "de": "Für unsere Tochtergesellschaft Stardrinks AG suchen wir zur Stärkung unseres Kundenservice Center in Luzern nach einer engagierten, flexiblen und sprachgewandten Persönlichkeit als Kundendienstmitarbeiter/in Deutsch und Französisch oder Italienisch. In dieser lebendigen und abwechslungsreichen Rolle bist du die erste Ansprechperson für unsere Kunden und stehst täglich telefonisch in Kontakt mit ihnen. Deine \n• Aufgaben umfassen dabei folgende Schwerpunkte: Kundenbetreuung und Vertrauensaufbau für nachhaltige Kundenbindungen Telefonverkauf und Beratung (Inbound und Outbound) für unsere Bestandskunden Steigerung des Bestellwerts durch Empfehlung von passenden Zusatzprodukten und Optionen Pflege der Kundendaten zur Sicherstellung aktueller und zuverlässiger Informationen Bearbeitung von Reklamationen und Weiterleitung von Beschwerden an die zuständigen Abteilungen Administrative Unterstützung für den Telefonverkauf und die Datenpflege Das bringst du mit: Abgeschlossene Berufsausbildung als solides Fundament Erfahrung im Kundenservice und Telefonverkauf – für einen schnellen Einstieg ins Aufgabengebiet Engagement, Durchhaltevermögen und eine gute Portion Humor, um auch in hektischen Situationen die Ruhe zu bewahren Versierter Umgang mit MS Office Kenntnisse in SAP und MS Dynamics von Vorteil Deutsch auf muttersprachlichem Niveau sowie gute mündliche und schriftliche Kenntnisse in Französisch oder Italienisch. Hast du Interesse Teil unseres Teams zu werden? Dann freuen wir uns auf deine Bewerbung.",
+        "fr": "Pour notre filiale Stardrinks AG, nous cherchons à renforcer notre centre de service à la clientèle à Lucerne pour une personnalité dédiée, flexible et linguistique en tant qu'employé de service à la clientèle/en allemand et français ou italien. Dans ce rôle animé et varié, vous êtes la première personne de contact pour nos clients et entrer en contact avec eux quotidiennement par téléphone. Votre\n• Les tâches incluent les priorités suivantes: soutien à la clientèle et renforcement de la confiance pour des relations client durables Ventes et conseils téléphoniques (entrées et sorties) pour nos clients existants Augmenter la valeur de commande par la recommandation de produits et d'options supplémentaires appropriés Soin des données client pour assurer l'information actuelle et fiable Traitement des plaintes et transmission des plaintes aux services compétents Soutien administratif pour les ventes téléphoniques et la maintenance des données Vous voulez faire partie de notre équipe ? Ensuite, nous attendons avec impatience votre candidature."
+      },
+      "location": "Luzern",
+      "canton": "LU",
+      "addressLocality": "Luzern",
+      "addressRegion": "LU",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "7000",
+      "streetAddress": "Luzern, LU",
+      "category": "Logistica",
+      "sector": "Industria / Alimentare",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "featured": false,
+      "postedDate": "2026-05-28",
+      "url": "https://careers.theheinekencompany.com/job/heineken-switzerland/switzerland/mitarbeiterin-kundenservice?jobid=158627",
+      "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=158627&career_ns=job_application",
+      "source": "Heineken Switzerland Dedicated Parser (Playwright)",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-03T22:19:43.217Z",
+      "previousSlugs": [
+        "agent-customer-service-heineken-ch-luzern",
+        "mitarbeiter-in-kundenservice-heineken-ch-luzern",
+        "servizio-clienti-agente-heineken-switzerland-luzern"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "agent-customer-service-heineken-ch-luzern",
+          "mitarbeiter-in-kundenservice-heineken-ch-luzern",
+          "servizio-clienti-agente-heineken-switzerland-luzern"
+        ],
+        "de": [
+          "agent-customer-service-heineken-ch-luzern"
+        ],
+        "fr": [
+          "agent-customer-service-heineken-ch-luzern"
+        ]
+      },
+      "firstSeenAt": "2026-05-28T12:46:50.069Z",
+      "needsRetranslation": true,
+      "salaryMin": 69500,
+      "salaryMax": 106000,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 69500,
+          "maxValue": 106000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "heineken-ch-b7ac2b956d7d",
+      "jobReqId": "160678",
+      "slug": "supporto-clienti-dell-agente-heineken-switzerland-winterthur",
+      "slugByLocale": {
+        "it": "supporto-clienti-dell-agente-heineken-switzerland-winterthur",
+        "en": "agent-customer-support-heineken-ch-winterthur",
+        "de": "agent-customer-support-heineken-ch-winterthur",
+        "fr": "agent-service-a-la-clientele-heineken-switzerland-winterthur"
+      },
+      "company": "Heineken Switzerland",
+      "companyKey": "heineken-ch",
+      "companyDomain": "theheinekencompany.com",
+      "title": "Agent Customer Support",
+      "titleByLocale": {
+        "it": "Supporto clienti dell'agente",
+        "en": "Agent Customer Support",
+        "de": "Agent Customer Support",
+        "fr": "Agent Service à la clientèle"
+      },
+      "description": "Für unsere Tochtergesellschaft Stardrinks AG suchen wir zur Stärkung unseres Kundensupport-Centers in Winterthur nach einer engagierten, flexiblen und sprachgewandten Persönlichkeit als Kundendienstmitarbeiter/in Deutsch sowie einer weiteren Landessprache. In dieser lebhaften und vielseitigen Tätigkeit bist du die erste Ansprechperson für unsere Kunden und stehst täglich mit ihnen im telefonischen Kontakt. Folgende Schwerpunkte werden deinen Tagesablauf prägen: Professionelle Kundenbetreuung und Beziehungspflege Entgegennahme und Bearbeitung aller Kundenkontakte und reklamationen aus allen Kommunikationskanälen (Telefon, E-Mail,Online etc.) Bearbeitung von Kundenreklamationen und Koordination von Beschwerden mit anderen Abteilungen 1st Level Support E-Commerce Erstellung von Rechnungskorrekturen Durchführung von Umfragen zur Kundenzufriedenheit Auftragsprüfung, etc. Das bringst du mit: Abgeschlossene Berufsausbildung Erfahrung im Kundendienst und im Umgang mit Reklamationsmanagement Flair und Affinität für Themen aus dem Rechnungswesen Gewinnbringende Persönlichkeit, Verkaufsgeschick und Einfühlungsvermögen Sorgfältige, selbstständige und verantwortungsbewusste Arbeitsweise gepaart mit Ausdauer und Durchhaltevermögen Gutes vernetztes Denken Versierter Umgang mit den gängigen MS-Office-Applikationen. SAP-Kentnisse sehr von Vorteil. Muttersprache Deutsch, sowie sehr gute Französisch- und/oder Italienischkenntnisse Hast du Interesse, Teil unseres Teams zu werden? Dann freuen wir uns auf deine Bewerbung.",
+      "descriptionByLocale": {
+        "it": "Per la nostra affiliata Stardrinks AG, stiamo cercando una personalità impegnata, flessibile e linguistica come rappresentante del servizio clienti / in tedesco e un'altra lingua nazionale per rafforzare il nostro centro di assistenza clienti a Winterthur. In questa attività vivace e versatile, sei la prima persona di contatto per i nostri clienti e sei in contatto telefonico giornaliero con loro. I seguenti punti focali daranno forma alla tua routine quotidiana: Assistenza clienti professionale e manutenzione delle relazioni Accettazione e elaborazione di tutti i contatti e reclami dei clienti da tutti i canali di comunicazione (telefono, e-mail, online, ecc.) Elaborazione delle lamentele del cliente e coordinamento delle denunce con altri dipartimenti 1 ° livello Supporto E-Commerce Creazione di correzioni di fattura Condurre i sondaggi sulla soddisfazione del cliente Lo portate con voi: Completata esperienza di formazione professionale nel servizio clienti e nel trattare con la gestione dei reclami flair e affinità per argomenti di contabilità personalità proficua, competenze di vendita ed empatia Metodi di lavoro accurati, indipendenti e responsabili accoppiati con perseveranza e perseveranza Buona pensiero in rete Gestione qualificata delle applicazioni di ufficio MS comuni. La conoscenza SAP è molto utile. Lingua madre Tedesco, così come una buona conoscenza del francese e/o italiano Sei interessato a diventare parte della nostra squadra? Attendiamo con ansia la vostra applicazione.",
+        "en": "For our subsidiary Stardrinks AG, we are looking for a committed, flexible and linguistic personality as a customer service representative / in German and another national language to strengthen our customer support center in Winterthur. In this lively and versatile activity, you are the first contact person for our customers and are in daily telephone contact with them. The following focal points will shape your daily routine: Professional customer support and relationship maintenance Acceptance and processing of all customer contacts and complaints from all communication channels (telephone, e-mail, online, etc.) Processing of customer complaints and coordination of complaints with other departments 1st Level Support E-Commerce Creation of invoice corrections Conducting customer satisfaction surveys Order review, etc. You bring this with you: Completed vocational training experience in customer service and in dealing with complaint management flair and affinity for topics from accounting Profitable personality, sales skills and empathy Careful, independent and responsible working methods coupled with perseverance and perseverance Good networked thinking Skilled handling of the common MS office applications. SAP knowledge is very beneficial. Mother tongue German, as well as very good knowledge of French and/or Italian Are you interested in becoming part of our team? We look forward to your application.",
+        "de": "Für unsere Tochtergesellschaft Stardrinks AG suchen wir zur Stärkung unseres Kundensupport-Centers in Winterthur nach einer engagierten, flexiblen und sprachgewandten Persönlichkeit als Kundendienstmitarbeiter/in Deutsch sowie einer weiteren Landessprache. In dieser lebhaften und vielseitigen Tätigkeit bist du die erste Ansprechperson für unsere Kunden und stehst täglich mit ihnen im telefonischen Kontakt. Folgende Schwerpunkte werden deinen Tagesablauf prägen: Professionelle Kundenbetreuung und Beziehungspflege Entgegennahme und Bearbeitung aller Kundenkontakte und reklamationen aus allen Kommunikationskanälen (Telefon, E-Mail,Online etc.) Bearbeitung von Kundenreklamationen und Koordination von Beschwerden mit anderen Abteilungen 1st Level Support E-Commerce Erstellung von Rechnungskorrekturen Durchführung von Umfragen zur Kundenzufriedenheit Auftragsprüfung, etc. Das bringst du mit: Abgeschlossene Berufsausbildung Erfahrung im Kundendienst und im Umgang mit Reklamationsmanagement Flair und Affinität für Themen aus dem Rechnungswesen Gewinnbringende Persönlichkeit, Verkaufsgeschick und Einfühlungsvermögen Sorgfältige, selbstständige und verantwortungsbewusste Arbeitsweise gepaart mit Ausdauer und Durchhaltevermögen Gutes vernetztes Denken Versierter Umgang mit den gängigen MS-Office-Applikationen. SAP-Kentnisse sehr von Vorteil. Muttersprache Deutsch, sowie sehr gute Französisch- und/oder Italienischkenntnisse Hast du Interesse, Teil unseres Teams zu werden? Dann freuen wir uns auf deine Bewerbung.",
+        "fr": "Pour notre filiale Stardrinks AG, nous recherchons une personnalité engagée, flexible et linguistique en tant que représentant du service à la clientèle / en allemand et une autre langue nationale pour renforcer notre centre de support à la clientèle à Winterthur. Dans cette activité dynamique et polyvalente, vous êtes la première personne de contact pour nos clients et êtes en contact téléphonique quotidien avec eux. Les points focaux suivants façonneront votre routine quotidienne : Assistance client professionnelle et maintenance relationnelle Acceptation et traitement de tous les contacts clients et plaintes de tous les canaux de communication (téléphone, e-mail, en ligne, etc.) Traitement des plaintes des clients et coordination des plaintes avec d'autres ministères Soutien de premier niveau Commerce électronique Création de corrections de factures Réalisation d'enquêtes sur la satisfaction des clients Examen des commandes, etc. Vous apportez ceci avec vous: Expérience de formation professionnelle complète dans le service à la clientèle et dans le traitement de la gestion des plaintes flair et l'affinité pour les sujets de la comptabilité Personnalité rentable, compétences de vente et empathie Méthodes de travail attentives, indépendantes et responsables couplées à la persévérance et la persévérance Bonne pensée en réseau Gestion compétente des applications communes MS Office. Les connaissances SAP sont très bénéfiques. Langue maternelle Allemand, ainsi que très bonne connaissance du français et/ou de l'italien Vous voulez faire partie de notre équipe ? Nous attendons avec impatience votre candidature."
+      },
+      "location": "Winterthur",
+      "canton": "ZH",
+      "addressLocality": "Winterthur",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "7000",
+      "streetAddress": "Winterthur, ZH",
+      "category": "Logistica",
+      "sector": "Industria / Alimentare",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "featured": false,
+      "postedDate": "2026-06-25",
+      "url": "https://careers.theheinekencompany.com/job/heineken-switzerland/agent-customer-support?jobid=160678",
+      "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=160678&career_ns=job_application",
+      "source": "Heineken Switzerland Dedicated Parser (Playwright)",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-03T22:19:35.388Z",
+      "previousSlugs": [
+        "agent-customer-support-heineken-ch-winterthur",
+        "supporto-clienti-dell-agente-heineken-switzerland-winterthur"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "agent-customer-support-heineken-ch-winterthur",
+          "supporto-clienti-dell-agente-heineken-switzerland-winterthur"
+        ],
+        "fr": [
+          "agent-customer-support-heineken-ch-winterthur"
+        ]
+      },
+      "firstSeenAt": "2026-06-25T22:27:52.893Z",
+      "needsRetranslation": true,
+      "salaryMin": 73500,
+      "salaryMax": 111500,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 73500,
+          "maxValue": 111500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "heineken-ch-7822fc944d74",
+      "jobReqId": "162220",
+      "slug": "logistica-key-account-specialista-80-100-heineken-switzerland-luzern",
+      "slugByLocale": {
+        "it": "logistica-key-account-specialista-80-100-heineken-switzerland-luzern",
+        "en": "logistics-key-account-specialist-80-100-heineken-ch-luzern",
+        "de": "logistics-key-account-specialist-80-100-heineken-ch-luzern",
+        "fr": "logistique-key-account-specialiste-80-100-heineken-switzerland-luzern"
+      },
+      "company": "Heineken Switzerland",
+      "companyKey": "heineken-ch",
+      "companyDomain": "theheinekencompany.com",
+      "title": "Logistics Key Account Specialist (80-100%)",
+      "titleByLocale": {
+        "it": "Logistica Key Account Specialista (80-100%)",
+        "en": "Logistics Key Account Specialist (80-100%)",
+        "de": "Logistik Key Account Spezialist (80-100%)",
+        "fr": "Logistique Key Account Spécialiste (80-100%)"
+      },
+      "description": "Deine Hauptaufgaben: Betreuung und Weiterentwicklung strategischer Logistikbeziehungen mit Schlüsselkunden zur Sicherstellung einer hohen Servicequalität Koordination der Zusammenarbeit zwischen Kunden sowie internen Bereichen wie Sales, Customer Service, Logistik und Transport Planung und Umsetzung von Optimierungsmassnahmen entlang der Supply Chain zur Steigerung von Service, Effizienz und Kundenzufriedenheit Überwachung der Logistikleistung und Sicherstellung der Einhaltung von Service-, Qualitäts- und Sicherheitsstandards Identifikation und Realisierung von Optimierungspotenzialen hinsichtlich Kosten, Prozessen und Kundenanforderungen Mitarbeit bei Projekten sowie der kontinuierlichen Weiterentwicklung von Prozessen und Schnittstellen im Verantwortungsbereich Unsere \n• Anforderungen: Abgeschlossene Berufsausbildung sowie Berufserfahrung in den Bereichen Logistik, Supply Chain Management oder Customer Service Erfahrung in der Steuerung von Kundenbeziehungen und bereichsübergreifenden Projekten Gutes Verständnis logistischer Prozesse und kundenspezifischer Supply Chains Selbstständige, strukturierte und lösungsorientierte Arbeitsweise Sehr gute Deutschkenntnisse sowie gute Englischkenntnisse in Wort und Schrift",
+      "descriptionByLocale": {
+        "it": "Per il reparto Trasporti e Servizio Clienti di Lucerna, stiamo cercando una personalità responsabile e impegnata come Specialista di Logistica Key Account. I vostri compiti principali: Supporto e ulteriore sviluppo di relazioni logistiche strategiche con i clienti chiave per garantire alta qualità di servizio Coordinamento della cooperazione tra i clienti e aree interne come vendite, servizio clienti, logistica e trasporto Pianificazione e attuazione di misure di ottimizzazione lungo la catena di fornitura per aumentare il servizio, l'efficienza e la soddisfazione del cliente Monitoraggio delle prestazioni logistiche e garantire il rispetto delle norme di servizio, qualità e sicurezza Identificazione e realizzazione del potenziale di ottimizzazione per quanto riguarda i costi, processi e le esigenze del cliente\n• Requisiti: Completata la formazione professionale e l'esperienza professionale nei settori della logistica, della gestione della supply chain o del servizio clienti Esperienza nella gestione delle relazioni con i clienti e dei progetti cross-divisionali Buona comprensione dei processi logistici e delle supply chain specifiche del cliente Metodo di lavoro indipendente, strutturato e orientato alla soluzione Ottima conoscenza del tedesco e buona conoscenza dell'inglese nelle parole e nella scrittura Sei interessato a un compito versatile come parte di un team dinamico? Poi Marisa Reati, HR Business Partner & POD Manager, non vede l'ora della vostra applicazione.",
+        "en": "For the Transportation & Customer Service department in Lucerne, we are looking for a responsible and committed personality as a Logistics Key Account Specialist. Your main tasks: Support and further development of strategic logistics relationships with key customers to ensure high service quality Coordination of cooperation between customers as well as internal areas such as sales, customer service, logistics and transport Planning and implementation of optimization measures along the supply chain to increase service, efficiency and customer satisfaction Monitoring of logistics performance and ensuring compliance with service, quality and security standards Identification and realization of optimization potential with regard to costs, processes and customer requirements Collaboration in projects as well as the continuous further development of processes and interfaces in the area of responsibility Our\n• Requirements: Completed vocational training as well as professional experience in the areas of logistics, supply chain management or customer service Experience in the management of customer relationships and cross-divisional projects Good understanding of logistics processes and customer-specific supply chains Independent, structured and solution-oriented working method Very good knowledge of German as well as good knowledge of English in words and writing Are you interested in a versatile task as part of a dynamic team? Then Marisa Reati, HR Business Partner & POD Manager, looks forward to your application.",
+        "de": "Deine Hauptaufgaben: Betreuung und Weiterentwicklung strategischer Logistikbeziehungen mit Schlüsselkunden zur Sicherstellung einer hohen Servicequalität Koordination der Zusammenarbeit zwischen Kunden sowie internen Bereichen wie Sales, Customer Service, Logistik und Transport Planung und Umsetzung von Optimierungsmassnahmen entlang der Supply Chain zur Steigerung von Service, Effizienz und Kundenzufriedenheit Überwachung der Logistikleistung und Sicherstellung der Einhaltung von Service-, Qualitäts- und Sicherheitsstandards Identifikation und Realisierung von Optimierungspotenzialen hinsichtlich Kosten, Prozessen und Kundenanforderungen Mitarbeit bei Projekten sowie der kontinuierlichen Weiterentwicklung von Prozessen und Schnittstellen im Verantwortungsbereich Unsere \n• Anforderungen: Abgeschlossene Berufsausbildung sowie Berufserfahrung in den Bereichen Logistik, Supply Chain Management oder Customer Service Erfahrung in der Steuerung von Kundenbeziehungen und bereichsübergreifenden Projekten Gutes Verständnis logistischer Prozesse und kundenspezifischer Supply Chains Selbstständige, strukturierte und lösungsorientierte Arbeitsweise Sehr gute Deutschkenntnisse sowie gute Englischkenntnisse in Wort und Schrift",
+        "fr": "Pour le service Transport & Service à la clientèle à Lucerne, nous recherchons une personnalité responsable et engagée en tant que spécialiste de compte clé logistique. Vos principales tâches: Soutien et développement des relations logistiques stratégiques avec les principaux clients pour assurer une qualité de service élevée Coordination de la coopération entre les clients ainsi que des domaines internes tels que les ventes, le service à la clientèle, la logistique et les transports Planification et mise en œuvre de mesures d'optimisation le long de la chaîne d'approvisionnement pour accroître le service, l'efficacité et la satisfaction des clients Suivi des performances logistiques et garantie du respect des normes de service, de qualité et de sécurité Identification et réalisation du potentiel d'optimisation en ce qui concerne les coûts, les processus et les besoins des clients Collaboration dans les projets ainsi que le développement continu des processus et des interfaces dans le domaine de responsabilité Notre\n• Exigences: Formation professionnelle complétée ainsi que l'expérience professionnelle dans les domaines de la logistique, de la gestion de la chaîne d'approvisionnement ou du service à la clientèle Expérience dans la gestion des relations client et des projets interdivisions Bonne compréhension des processus logistiques et des chaînes d'approvisionnement spécifiques à la clientèle Méthode de travail indépendante, structurée et orientée vers la solution Très bonne connaissance de l'allemand ainsi que bonne connaissance de l'anglais en mots et en écriture Êtes-vous intéressé par une tâche polyvalente dans le cadre d'une équipe dynamique? Puis Marisa Reati, HR Business Partner & POD Manager, attend avec impatience votre candidature."
+      },
+      "location": "Luzern",
+      "canton": "LU",
+      "addressLocality": "Luzern",
+      "addressRegion": "LU",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "7000",
+      "streetAddress": "Luzern, LU",
+      "category": "Logistica",
+      "sector": "Industria / Alimentare",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "featured": false,
+      "postedDate": "2026-07-22",
+      "url": "https://careers.theheinekencompany.com/job/heineken-switzerland/switzerland/logistics-key-account-specialist-80-100?jobid=162220",
+      "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=162220&career_ns=job_application",
+      "source": "Heineken Switzerland Dedicated Parser (Playwright)",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-03T22:19:27.101Z",
+      "previousSlugs": [
+        "logistics-key-account-specialist-80-100-heineken-ch-luzern",
+        "logistica-key-account-specialista-80-100-heineken-switzerland-luzern"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "logistics-key-account-specialist-80-100-heineken-ch-luzern",
+          "logistica-key-account-specialista-80-100-heineken-switzerland-luzern"
+        ],
+        "fr": [
+          "logistics-key-account-specialist-80-100-heineken-ch-luzern"
+        ]
+      },
+      "firstSeenAt": "2026-07-22T11:56:39.423Z",
+      "needsRetranslation": true,
+      "salaryMin": 69500,
+      "salaryMax": 106000,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 69500,
+          "maxValue": 106000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "heineken-ch-5b1f13bcfca3",
+      "jobReqId": "162611",
+      "slug": "consulente-commerciale-nel-settore-gastronomia-heineken-switzerland-luzern",
+      "slugByLocale": {
+        "it": "consulente-commerciale-nel-settore-gastronomia-heineken-switzerland-luzern",
+        "en": "sales-consultant-in-the-field-gastronomy-heineken-switzerland-luzern",
+        "de": "verkaufsberater-in-im-aussendienst-gastronomie-heineken-ch-luzern",
+        "fr": "consultant-en-ventes-sur-le-terrain-gastronomie-heineken-switzerland-luzern"
+      },
+      "company": "Heineken Switzerland",
+      "companyKey": "heineken-ch",
+      "companyDomain": "theheinekencompany.com",
+      "title": "Verkaufsberater/in im Aussendienst (Gastronomie)",
+      "titleByLocale": {
+        "it": "Consulente commerciale nel settore (gastronomia)",
+        "en": "Sales consultant in the field (gastronomy)",
+        "de": "Verkaufsberater/in im Aussendienst (Gastronomie)",
+        "fr": "Consultant en ventes sur le terrain (gastronomie)"
+      },
+      "description": "Respekt, Genuss und Qualität aus Leidenschaft gehören zu unseren Kernwerten. Als Bierproduzent mit Brauereistandorten in Chur und Luzern sowie einem eigenen Getränkehandel mit 19 Standorten in der gesamten Schweiz sind wir ein Unternehmen von nationaler Bedeutung. Wir setzen auf einen Mix aus Tradition, Innovation und Kundennähe. Mit unseren Markenbieren tragen wir zur vielfältigen Schweizer Bierkultur bei. Für unser Verkaufsgebiet Kanton Schwyz, Küssnacht und Rontal suchen wir einen selbständigen, erfahrenen und zielorientierten Verkaufsprofi als Verkaufsberater/in im Aussendienst (Gastronomie) Du liebst es, Beziehungen aufzubauen, Menschen zu begeistern und gemeinsam Erfolge zu erzielen? Möchtest du für unsere Kundinnen und Kunden eine vertrauensvolle Partnerin bzw. ein vertrauensvoller Partner sein und die Zukunft der Gastronomie aktiv mitgestalten? Dann könnte diese Herausforderung genau das Richtige für dich sein! In dieser abwechslungsreichen und vielseitigen Rolle erwarten dich folgende \n• Aufgaben: Gewinnung neuer Kundinnen und Kunden (WIN) sowie Betreuung, Weiterentwicklung und Ausbau bestehender Partnerschaften (KEEP) in Hotels, Restaurants, Bars und weiteren Gastronomiebetrieben Führen von Verkaufs- und Vertragsverhandlungen auf Augenhöhe mit viel Eigenverantwortung und Gestaltungsspielraum Verantwortung für ein professionelles Debitorenmanagement in enger Zusammenarbeit mit deinen Kundinnen und Kunden Ausbau der Distribution unserer Fokusmarken sowie Sicherstellung einer starken Präsenz und Sichtbarkeit unserer Marken am Markt Damit du in dieser Rolle erfolgreich bist, bringst du idealerweise Folgendes mit: Erfahrung im Verkauf, vorzugsweise im Aussendienst der Konsumgüterbranche Freude und nachweisbare Erfolge in der Neukundengewinnung und im Aufbau nachhaltiger Kundenbeziehungen Hohe Eigeninitiative, Selbstständigkeit und einen ausgeprägten Willen, Ziele zu erreichen Eine authentische, kommunikative und überzeugende Persönlichkeit mit Durchhaltevermögen und Leidenschaft für den Verkauf Gute Kenntnisse der lokalen Gastronomie und ein Gespür für Markt- und Kundenbedürfnisse Sicherer Umgang mit MS Office sowie idealerweise Erfahrung mit CRM-Systemen Wohnsitz in der Verkaufsregion und ein bestehendes Netzwerk, das du aktiv pflegst und weiter ausbaust Was dich besonders auszeichnet: Du baust gerne langfristige Beziehungen auf, denkst unternehmerisch und schätzt die Freiheit, deinen Erfolg selbst mitzugestalten. Gleichzeitig verstehst du es, Menschen für Ideen, Marken und gemeinsame Lösungen zu begeistern. Klingt das nach der Herausforderung, die du suchst? Dann freuen wir uns auf deine Bewerbung und darauf, gemeinsam mit dir die Zukunft der Gastronomie zu gestalten.",
+      "descriptionByLocale": {
+        "it": "Il rispetto, il godimento e la qualità basati sulla passione sono tra i nostri valori fondamentali. In qualità di produttore di birra con sedi di birreria a Chur e Lucerne, nonché il nostro commercio di bevande con 19 sedi in tutta la Svizzera, siamo una società di importanza nazionale. Ci concentriamo su un mix di tradizione, innovazione e prossimità del cliente. Con le nostre birre di marca, contribuiamo alla diversificata cultura della birra svizzera. Per la nostra zona di vendita Canton Schwyz, Küssnacht e Rontal cerchiamo un professionista di vendita indipendente, esperto e orientato verso l'obiettivo come consulente di vendita nel servizio di campo (gastronomia) Ti piace costruire relazioni, emozionare le persone e raggiungere il successo insieme? Vuoi essere un partner affidabile per i nostri clienti e plasmare attivamente il futuro della gastronomia? Allora questa sfida potrebbe essere giusto per voi! In questo ruolo vario e versatile, il seguente vi aspetta:\n• Compiti: Acquisizione di nuovi clienti (WIN) e supporto, ulteriore sviluppo e espansione delle partnership esistenti (KEEP) in hotel, ristoranti, bar e altre società di catering Leader vendite e trattative contrattuali su un piano di parità con un sacco di responsabilità personale e spazio per manovra Responsabilità per una gestione professionale del debitore in stretta collaborazione con i vostri clienti Espansione della distribuzione dei nostri marchi di focus, oltre a garantire una forte presenza e visibilità dei nostri marchi Per avere successo in questo ruolo, è idealmente portare il seguente: Esperienza nelle vendite, preferibilmente nel servizio sul campo dell'industria dei beni di consumo Gioia e successi dimostrabili nell'acquisizione di nuovi clienti e nello sviluppo di relazioni con i clienti sostenibili Alta iniziativa, autooccupazione e una spiccata volontà di raggiungere gli obiettivi Una personalità autentica, comunicativa e convincente con perseveranza e passione per le vendite Buona conoscenza della ristorazione locale e un senso di mercato e dei bisogni dei clienti Gestione sicura di MS Office così come l'esperienza ideale con i sistemi CRM residenza nella regione di vendita e una rete esistente, che si mantiene e amplia ulteriormente Ciò che ti distingue è che ti piace costruire relazioni a lungo termine, pensare imprenditoriale e apprezzare la libertà di contribuire a plasmare il tuo successo. Allo stesso tempo, sai come far emozionare le persone su idee, marchi e soluzioni comuni. Questo suona come la sfida che stai cercando? Allora non vediamo l'ora della vostra applicazione e di modellare il futuro della gastronomia insieme a voi.",
+        "en": "Respect, enjoyment and quality based on passion are among our core values. As a beer producer with brewery locations in Chur and Lucerne as well as our own beverage trade with 19 locations throughout Switzerland, we are a company of national importance. We focus on a mix of tradition, innovation and customer proximity. With our brand beers, we contribute to the diverse Swiss beer culture. For our sales area Canton Schwyz, Küssnacht and Rontal we are looking for an independent, experienced and goal-oriented sales professional as sales consultant in the field service (gastronomy) Do you love building relationships, getting people excited and achieving success together? Do you want to be a trusted partner for our customers and actively shape the future of gastronomy? Then this challenge could be just right for you! In this varied and versatile role, the following awaits you:\n• Tasks: Acquisition of new customers (WIN) as well as support, further development and expansion of existing partnerships (KEEP) in hotels, restaurants, bars and other catering companies Leading sales and contract negotiations on an equal footing with a lot of personal responsibility and room for manoeuvre Responsibility for a professional debtor management in close cooperation with your customers Expansion of the distribution of our focus brands as well as ensuring a strong presence and visibility of our brands in the market In order to be successful in this role, you ideally bring the following: Experience in sales, preferably in the field service of the consumer goods industry Joy and demonstrable successes in the acquisition of new customers and in the development of sustainable customer relationships High initiative, self-employment and a pronounced will to achieve goals An authentic, communicative and convincing personality with perseverance and passion for sales Good knowledge of the local catering and a sense of market and customer needs Secure handling of MS Office as well as ideal experience with CRM systems residence in the sales region and an existing network, which you actively maintain and further expand What sets you apart is that you like to build long-term relationships, think entrepreneurially and appreciate the freedom to help shape your own success. At the same time, you know how to get people excited about ideas, brands and common solutions. Does that sound like the challenge you’re looking for? Then we look forward to your application and to shaping the future of gastronomy together with you.",
+        "de": "Respekt, Genuss und Qualität aus Leidenschaft gehören zu unseren Kernwerten. Als Bierproduzent mit Brauereistandorten in Chur und Luzern sowie einem eigenen Getränkehandel mit 19 Standorten in der gesamten Schweiz sind wir ein Unternehmen von nationaler Bedeutung. Wir setzen auf einen Mix aus Tradition, Innovation und Kundennähe. Mit unseren Markenbieren tragen wir zur vielfältigen Schweizer Bierkultur bei. Für unser Verkaufsgebiet Kanton Schwyz, Küssnacht und Rontal suchen wir einen selbständigen, erfahrenen und zielorientierten Verkaufsprofi als Verkaufsberater/in im Aussendienst (Gastronomie) Du liebst es, Beziehungen aufzubauen, Menschen zu begeistern und gemeinsam Erfolge zu erzielen? Möchtest du für unsere Kundinnen und Kunden eine vertrauensvolle Partnerin bzw. ein vertrauensvoller Partner sein und die Zukunft der Gastronomie aktiv mitgestalten? Dann könnte diese Herausforderung genau das Richtige für dich sein! In dieser abwechslungsreichen und vielseitigen Rolle erwarten dich folgende \n• Aufgaben: Gewinnung neuer Kundinnen und Kunden (WIN) sowie Betreuung, Weiterentwicklung und Ausbau bestehender Partnerschaften (KEEP) in Hotels, Restaurants, Bars und weiteren Gastronomiebetrieben Führen von Verkaufs- und Vertragsverhandlungen auf Augenhöhe mit viel Eigenverantwortung und Gestaltungsspielraum Verantwortung für ein professionelles Debitorenmanagement in enger Zusammenarbeit mit deinen Kundinnen und Kunden Ausbau der Distribution unserer Fokusmarken sowie Sicherstellung einer starken Präsenz und Sichtbarkeit unserer Marken am Markt Damit du in dieser Rolle erfolgreich bist, bringst du idealerweise Folgendes mit: Erfahrung im Verkauf, vorzugsweise im Aussendienst der Konsumgüterbranche Freude und nachweisbare Erfolge in der Neukundengewinnung und im Aufbau nachhaltiger Kundenbeziehungen Hohe Eigeninitiative, Selbstständigkeit und einen ausgeprägten Willen, Ziele zu erreichen Eine authentische, kommunikative und überzeugende Persönlichkeit mit Durchhaltevermögen und Leidenschaft für den Verkauf Gute Kenntnisse der lokalen Gastronomie und ein Gespür für Markt- und Kundenbedürfnisse Sicherer Umgang mit MS Office sowie idealerweise Erfahrung mit CRM-Systemen Wohnsitz in der Verkaufsregion und ein bestehendes Netzwerk, das du aktiv pflegst und weiter ausbaust Was dich besonders auszeichnet: Du baust gerne langfristige Beziehungen auf, denkst unternehmerisch und schätzt die Freiheit, deinen Erfolg selbst mitzugestalten. Gleichzeitig verstehst du es, Menschen für Ideen, Marken und gemeinsame Lösungen zu begeistern. Klingt das nach der Herausforderung, die du suchst? Dann freuen wir uns auf deine Bewerbung und darauf, gemeinsam mit dir die Zukunft der Gastronomie zu gestalten.",
+        "fr": "Le respect, la jouissance et la qualité basées sur la passion font partie de nos valeurs fondamentales. En tant que producteur de bière avec des sites de brasserie à Chur et Lucerne ainsi que notre propre commerce de boissons avec 19 sites dans toute la Suisse, nous sommes une entreprise d'importance nationale. Nous nous concentrons sur un mélange de tradition, d'innovation et de proximité client. Avec nos bières de marque, nous contribuons à la diversité de la culture de la bière suisse. Pour notre zone commerciale Canton Schwyz, Küssnacht et Rontal, nous sommes à la recherche d'un professionnel de la vente indépendant, expérimenté et axé sur les objectifs en tant que conseiller commercial dans le service sur le terrain (gastronomie) Aimez - vous établir des relations, susciter de l'enthousiasme et réussir ensemble? Voulez-vous être un partenaire de confiance pour nos clients et façonner activement l'avenir de la gastronomie ? Alors ce défi pourrait être juste pour vous! Dans ce rôle varié et polyvalent, les éléments suivants vous attendent :\n• Tâches: Acquisition de nouveaux clients (WIN) ainsi que le soutien, le développement et l'expansion des partenariats existants (KEEP) dans les hôtels, restaurants, bars et autres entreprises de restauration Mener des négociations commerciales et contractuelles sur un pied d'égalité avec beaucoup de responsabilité personnelle et de marge de manœuvre Responsabilité pour une gestion professionnelle des débiteurs en étroite collaboration avec vos clients Extension de la distribution de nos marques ciblées ainsi que d'assurer une forte présence et visibilité de nos marques sur le marché Afin de réussir dans ce rôle, vous apportez idéalement ce qui suit: Expérience dans les ventes, de préférence dans le service sur le terrain de l'industrie des biens de consommation Joy et succès démontrables dans l'acquisition de nouveaux clients et dans le développement de relations client durables Haute initiative, travail indépendant et une volonté prononcée pour atteindre les objectifs Une personnalité authentique, communicative et convaincante avec persévérance et passion pour les ventes Bonne connaissance de la restauration locale et un sens du marché et des besoins du client Gestion sécurisée de MS Office ainsi que l'expérience idéale avec les systèmes CRM résidence dans la région de vente et un réseau existant, que vous maintenez et développez activement Ce qui vous distingue, c'est que vous aimez construire des relations à long terme, penser en entreprise et apprécier la liberté d'aider à façonner votre propre succès. En même temps, vous savez comment exciter les gens à propos d'idées, de marques et de solutions communes. Ça ressemble au défi que vous cherchez ? Ensuite, nous nous réjouissons de votre application et de façonner l'avenir de la gastronomie avec vous."
+      },
+      "location": "Luzern",
+      "canton": "LU",
+      "addressLocality": "Luzern",
+      "addressRegion": "LU",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "7000",
+      "streetAddress": "Luzern, LU",
+      "category": "Commerciale",
+      "sector": "Industria / Alimentare",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "featured": false,
+      "postedDate": "2026-07-28",
+      "url": "https://careers.theheinekencompany.com/job/heineken-switzerland/switzerland/verkaufsberaterin-im-aussendienst-gastronomie?jobid=162611",
+      "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=162611&career_ns=job_application",
+      "source": "Heineken Switzerland Dedicated Parser (Playwright)",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-03T22:19:20.470Z",
+      "previousSlugs": [
+        "verkaufsberater-in-im-aussendienst-gastronomie-heineken-ch-luzern",
+        "consulente-commerciale-nel-settore-gastronomia-heineken-switzerland-chur",
+        "verkaufsberater-in-im-aussendienst-gastronomie-heineken-ch-chur",
+        "sales-consultant-in-the-field-gastronomy-heineken-switzerland-chur",
+        "consultant-commercial-sur-le-terrain-gastronomie-heineken-switzerland-chur",
+        "consulente-commerciale-nel-settore-gastronomia-heineken-switzerland-luzern"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufsberater-in-im-aussendienst-gastronomie-heineken-ch-luzern",
+          "consulente-commerciale-nel-settore-gastronomia-heineken-switzerland-chur",
+          "verkaufsberater-in-im-aussendienst-gastronomie-heineken-ch-chur",
+          "sales-consultant-in-the-field-gastronomy-heineken-switzerland-chur",
+          "consultant-commercial-sur-le-terrain-gastronomie-heineken-switzerland-chur",
+          "consulente-commerciale-nel-settore-gastronomia-heineken-switzerland-luzern"
+        ],
+        "en": [
+          "verkaufsberater-in-im-aussendienst-gastronomie-heineken-ch-luzern",
+          "sales-consultant-in-the-field-gastronomy-heineken-switzerland-chur"
+        ],
+        "de": [
+          "verkaufsberater-in-im-aussendienst-gastronomie-heineken-ch-chur"
+        ],
+        "fr": [
+          "verkaufsberater-in-im-aussendienst-gastronomie-heineken-ch-luzern",
+          "consultant-commercial-sur-le-terrain-gastronomie-heineken-switzerland-chur"
+        ]
+      },
+      "firstSeenAt": "2026-07-28T22:34:47.887Z",
+      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "currency": "CHF",
@@ -306,406 +711,8 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
-    },
-    {
-      "id": "heineken-ch-a2a2ef235f05",
-      "jobReqId": "156187",
-      "slug": "autista-cat-c-e-heineken-switzerland-luzern",
-      "slugByLocale": {
-        "it": "autista-cat-c-e-heineken-switzerland-luzern",
-        "en": "driver-cat-c-e-heineken-switzerland-luzern",
-        "de": "chauffeur-kat-c-e-heineken-ch-luzern",
-        "fr": "chauffeur-cat-c-e-heineken-switzerland-luzern"
       },
-      "company": "Heineken Switzerland",
-      "companyKey": "heineken-ch",
-      "companyDomain": "theheinekencompany.com",
-      "title": "Chauffeur Kat. C/E",
-      "titleByLocale": {
-        "it": "Autista cat. C/E",
-        "en": "Driver Cat. C/E",
-        "de": "Chauffeur Kat. C/E",
-        "fr": "Chauffeur cat. C/E"
-      },
-      "description": "Für unsere Tochtergesellschaft Stardrinks AG suchen für den Standort Luzern eine selbständige und motivierte Persönlichkeit als Chauffeur Kat. C/E Du bist verantwortlich für die pünktliche und bedarfsgerechte Lieferung aller Produkte aus unserem Sortiment an unsere Kunden – vorwiegend in der Gastronomie, Hotellerie sowie im Detailhandel. Dabei stellst du sicher, dass das Fahrzeug gemäss den Vorgaben des Strassenverkehrsgesetzes verkehrstauglich ist und dass die gesetzlichen Bestimmungen zur Beladung (Ladungssicherung, Gewicht, Gewichtsverteilung) eingehalten werden. Diese abwechslungsreiche und dynamische Tätigkeit umfasst unter anderem folgende \n• Aufgaben: Transport von Getränken zu Gastronomiebetrieben und Events Rücknahme von Leergut Bewirtschaftung der Kundenlager Transport von Kühlanhängern und Ausschankwagen Korrekte Dokumentation mittels GreenMile Unterstützung im Lager bei Bedarf Um diese verantwortungsvolle Aufgabe erfolgreich zu erfüllen, bringst du Folgendes mit: Fahrerbewilligung Kat. C und E Berufserfahrung als Chauffeur Einwandfreie Umgangsformen, Zuverlässigkeit und Verbindlichkeit Selbstständige und strukturierte Arbeitsweise Gute Deutschkenntnisse in Wort und Schrift Auch in hektischen Zeiten behältst du den Überblick und triffst den richtigen Ton Körperliche Fitness und Belastbarkeit Idealerweise Wohnort in der Region Auch motivierte Lehrabgänger:innen im Bereich Strassentransport sind herzlich willkommen Interessiert? Frau Alicia Fritz freut sich auf deine vollständigen Bewerbungsunterlagen.",
-      "descriptionByLocale": {
-        "it": "Descrizione Per la nostra controllata Stardrinks AG, propone per la sede di Erstfeld una persona autonoma e motivata come Autista Cat. C/E. Essere responsabile della consegna puntuale e conformi alle esigenze di tutti i prodotti del nostro assortimento ai nostri clienti – principalmente nel settore della ristorazione, dell'hotellerie e del commercio al dettaglio. Assicuri che il veicolo sia conforme all normativa del codice della strada e che le disposizioni legali relative al carico (fissaggio del carico, peso, distribuzione del peso) siano rispettate. Questa attività varia e comprende tra le altre cose le seguenti dinamiche Mansioni - Transporto di alimentazione presso esercizi di ristorazione ed eventi - Ritiro di misericordia vuote - Gestione del magazzino clienti - Trasporto di rimorchi refrigerati e carri di servizio - Documentazione corretta tramite GreenMile - Supporto in magazzino secondo necessità\n• Requisiti - Patenti di guida Cat. E - Esperienza professionale come autista - Comportamento impeccabile, affidabilità e serietà - Lavoro autonomo e strutturato - Buona conoscenza del tedesco parlato e scritto - Anche in tempi frenetici, mantenere la calma e adottare il tono giusto - Buona forma fisica e resistenza - Idealmente residenza nella regione - Anche diplomati motivati nel settore del trasporto su strada sono i successivi Cosa? Interessato? La signora Alicia Fritz partecipa con piacere i tuoi documenti di candidatura completi.",
-        "en": "Descrizione Per la nostra controllata Stardrinks AG, cerchiamo per la sede di Erstfeld una persona autonoma e motivata come Autista Cat. C/E. Be responsabile della consegna puntuale e conforme alle esigenze di tutti i prodotti del nostro assortimento ai nostri clienti – principalmente nel settore della ristorazione, dell'hotellerie e del commercio al dettaglio. Assicuri che il veicolo sia conforme all normative del codice della strada e che le disposizioni legali relative al carico (fissaggio del carico, peso, distribuzione del peso) siano rispettate. Questa attività varia e dinamica comprende tra le altre cose le seguenti Mansioni - Transporto di bevande presso esercizi di ristorazione ed eventi - Ritiro di merci vuote - Gestione del magazzino clienti - Trasporto di rimorchi refrigerati e carri di servizio - Documentazione corretta tramite GreenMile - Supporto in magazzino secondo necessità\n• Requisiti - Patents di guida Cat. E - Esperienza professionale come autista - Comportamento impeccabile, affidabilità e serietà - Lavoro autonomo e strutturato - Buona conoscenza del tedesco parlato e scritto - Anche in tempi frenetici, mantenere la calma e adottare il tono giusto - Buona forma fisica e resistenza - Idealmente residenza nella regione - Anche diplomati motivati nel settore del trasporto su strada sono i benvenuti\n• Cosa offriamo Interessato? La signora Alicia Fritz attende con piacere i tuoi documenti di candidatura completi.",
-        "de": "Für unsere Tochtergesellschaft Stardrinks AG suchen für den Standort Luzern eine selbständige und motivierte Persönlichkeit als Chauffeur Kat. C/E Du bist verantwortlich für die pünktliche und bedarfsgerechte Lieferung aller Produkte aus unserem Sortiment an unsere Kunden – vorwiegend in der Gastronomie, Hotellerie sowie im Detailhandel. Dabei stellst du sicher, dass das Fahrzeug gemäss den Vorgaben des Strassenverkehrsgesetzes verkehrstauglich ist und dass die gesetzlichen Bestimmungen zur Beladung (Ladungssicherung, Gewicht, Gewichtsverteilung) eingehalten werden. Diese abwechslungsreiche und dynamische Tätigkeit umfasst unter anderem folgende \n• Aufgaben: Transport von Getränken zu Gastronomiebetrieben und Events Rücknahme von Leergut Bewirtschaftung der Kundenlager Transport von Kühlanhängern und Ausschankwagen Korrekte Dokumentation mittels GreenMile Unterstützung im Lager bei Bedarf Um diese verantwortungsvolle Aufgabe erfolgreich zu erfüllen, bringst du Folgendes mit: Fahrerbewilligung Kat. C und E Berufserfahrung als Chauffeur Einwandfreie Umgangsformen, Zuverlässigkeit und Verbindlichkeit Selbstständige und strukturierte Arbeitsweise Gute Deutschkenntnisse in Wort und Schrift Auch in hektischen Zeiten behältst du den Überblick und triffst den richtigen Ton Körperliche Fitness und Belastbarkeit Idealerweise Wohnort in der Region Auch motivierte Lehrabgänger:innen im Bereich Strassentransport sind herzlich willkommen Interessiert? Frau Alicia Fritz freut sich auf deine vollständigen Bewerbungsunterlagen.",
-        "fr": "Descrizione Per la nostra controllata Stardrinks AG, cerchiamo per la sede di Erstfeld una persona autonoma e motivata come Autista Cat. C/E. Soit responsabile della consegna puntuale e conforme alle esigenze di tutti i prodotti del nostro assortimento ai nostri clienti – principalmente nel settore della ristorazione, dell' hotellerie e del commercio al dettaglio. Assicuri che il veicolo sia conforme alle normative del codice della strada e che le disposizioni legali relative al carico (fissaggio del carico, peso, distribution del peso) siano rispettate. Questa attività varia e dinamica comprende tra le altre cose le seguenti Mansioni - Transporto di bevande presso esercizi di ristorazione ed eventi - Ritiro di merci vuote - Gestione del magazzino clienti - Trasporto di rimorchi refrigerati e carri di servizio - Documentazione corretta tramite GreenMile - Supporto in magazzino secondo necessità\n• Requisiti - Patent di guida Cat. C e E - Esperienza professionale come autista - Comportamento impeccabile, affidabilità e serietà - Lavoro autonomo e strutturato - Buona conoscenza del tedesco parlato e scritto - Anche in tempi frenetici, mantenere la calma e adottare il tono giusto - Buona forma fisica e resistenza - Idealmente residenza nella regione - Anche motivati nel settore del trasporto su strada sono i benvenuti\n• Cosa offriamo Intéressé ? La signora Alicia Fritz attende con piacere i tuoi documenti di candidatura completi."
-      },
-      "location": "Luzern",
-      "canton": "LU",
-      "addressLocality": "Luzern",
-      "addressRegion": "LU",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "7000",
-      "streetAddress": "Luzern, LU",
-      "category": "Logistica",
-      "sector": "Industria / Alimentare",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "featured": false,
-      "postedDate": "2026-05-13",
-      "url": "https://careers.theheinekencompany.com/job/heineken-switzerland/switzerland/chauffeur-kat-ce-0?jobid=156187",
-      "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=156187&career_ns=job_application",
-      "source": "Heineken Switzerland Dedicated Parser (Playwright)",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-02T22:09:08.829Z",
-      "previousSlugs": [
-        "chauffeur-kat-c-e-heineken-ch-luzern",
-        "autista-cat-c-e-heineken-switzerland-luzern"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "chauffeur-kat-c-e-heineken-ch-luzern",
-          "autista-cat-c-e-heineken-switzerland-luzern"
-        ],
-        "en": [
-          "chauffeur-kat-c-e-heineken-ch-luzern"
-        ],
-        "fr": [
-          "chauffeur-kat-c-e-heineken-ch-luzern"
-        ]
-      },
-      "firstSeenAt": "2026-05-13T11:12:28.078Z",
-      "salaryMin": 69500,
-      "salaryMax": 106000,
-      "currency": "CHF",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 69500,
-          "maxValue": 106000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "heineken-ch-e2b43be893a0",
-      "jobReqId": "158627",
-      "slug": "servizio-clienti-agente-heineken-switzerland-luzern",
-      "slugByLocale": {
-        "it": "servizio-clienti-agente-heineken-switzerland-luzern",
-        "en": "agent-customer-service-heineken-ch-luzern",
-        "de": "mitarbeiter-in-kundenservice-heineken-ch-luzern",
-        "fr": "agent-service-clientele-heineken-switzerland-luzern"
-      },
-      "company": "Heineken Switzerland",
-      "companyKey": "heineken-ch",
-      "companyDomain": "theheinekencompany.com",
-      "title": "Mitarbeiter:in Kundenservice",
-      "titleByLocale": {
-        "it": "Servizio clienti agente",
-        "en": "Agent Customer Service",
-        "de": "Mitarbeiter:in Kundenservice",
-        "fr": "Agent Service clientèle"
-      },
-      "description": "Für unsere Tochtergesellschaft Stardrinks AG suchen wir zur Stärkung unseres Kundenservice Center in Luzern nach einer engagierten, flexiblen und sprachgewandten Persönlichkeit als Kundendienstmitarbeiter/in Deutsch und Französisch oder Italienisch. In dieser lebendigen und abwechslungsreichen Rolle bist du die erste Ansprechperson für unsere Kunden und stehst täglich telefonisch in Kontakt mit ihnen. Deine \n• Aufgaben umfassen dabei folgende Schwerpunkte: Kundenbetreuung und Vertrauensaufbau für nachhaltige Kundenbindungen Telefonverkauf und Beratung (Inbound und Outbound) für unsere Bestandskunden Steigerung des Bestellwerts durch Empfehlung von passenden Zusatzprodukten und Optionen Pflege der Kundendaten zur Sicherstellung aktueller und zuverlässiger Informationen Bearbeitung von Reklamationen und Weiterleitung von Beschwerden an die zuständigen Abteilungen Administrative Unterstützung für den Telefonverkauf und die Datenpflege Das bringst du mit: Abgeschlossene Berufsausbildung als solides Fundament Erfahrung im Kundenservice und Telefonverkauf – für einen schnellen Einstieg ins Aufgabengebiet Engagement, Durchhaltevermögen und eine gute Portion Humor, um auch in hektischen Situationen die Ruhe zu bewahren Versierter Umgang mit MS Office Kenntnisse in SAP und MS Dynamics von Vorteil Deutsch auf muttersprachlichem Niveau sowie gute mündliche und schriftliche Kenntnisse in Französisch oder Italienisch. Hast du Interesse Teil unseres Teams zu werden? Dann freuen wir uns auf deine Bewerbung.",
-      "descriptionByLocale": {
-        "it": "Per la nostra filiale Stardrinks AG, stiamo cercando di rafforzare il nostro centro assistenza clienti a Lucerna per una personalità dedicata, flessibile e linguistica come dipendente del servizio clienti/in tedesco e francese o italiano. In questo ruolo vivace e vario, sei la prima persona di contatto per i nostri clienti e mettersi in contatto con loro ogni giorno per telefono. Il tuo\n• Le attività includono le seguenti priorità: assistenza clienti e costruzione di fiducia per le relazioni con i clienti sostenibili Aumento del valore dell'ordine su raccomandazione di prodotti e opzioni aggiuntive appropriati Cura dei dati del cliente per garantire informazioni attuali e affidabili Trattamento dei reclami e reclami di invio ai dipartimenti competenti Supporto amministrativo per le vendite telefoniche e la manutenzione dei dati Sei interessato a diventare parte della nostra squadra? Allora non vediamo l'ora della vostra applicazione.",
-        "en": "For our subsidiary Stardrinks AG, we are looking to strengthen our customer service center in Lucerne for a dedicated, flexible and linguistic personality as a customer service employee/in German and French or Italian. In this lively and varied role, you are the first contact person for our customers and get in touch with them daily by phone. Your\n• Tasks include the following priorities: customer support and confidence building for sustainable customer relationships Phone sales and advice (inbound and outbound) for our existing customers Increase the order value by recommendation of appropriate additional products and options Care of customer data to ensure current and reliable information Processing of complaints and forwarding complaints to the competent departments Administrative support for the telephone sales and data maintenance Are you interested in becoming part of our team? Then we look forward to your application.",
-        "de": "Für unsere Tochtergesellschaft Stardrinks AG suchen wir zur Stärkung unseres Kundenservice Center in Luzern nach einer engagierten, flexiblen und sprachgewandten Persönlichkeit als Kundendienstmitarbeiter/in Deutsch und Französisch oder Italienisch. In dieser lebendigen und abwechslungsreichen Rolle bist du die erste Ansprechperson für unsere Kunden und stehst täglich telefonisch in Kontakt mit ihnen. Deine \n• Aufgaben umfassen dabei folgende Schwerpunkte: Kundenbetreuung und Vertrauensaufbau für nachhaltige Kundenbindungen Telefonverkauf und Beratung (Inbound und Outbound) für unsere Bestandskunden Steigerung des Bestellwerts durch Empfehlung von passenden Zusatzprodukten und Optionen Pflege der Kundendaten zur Sicherstellung aktueller und zuverlässiger Informationen Bearbeitung von Reklamationen und Weiterleitung von Beschwerden an die zuständigen Abteilungen Administrative Unterstützung für den Telefonverkauf und die Datenpflege Das bringst du mit: Abgeschlossene Berufsausbildung als solides Fundament Erfahrung im Kundenservice und Telefonverkauf – für einen schnellen Einstieg ins Aufgabengebiet Engagement, Durchhaltevermögen und eine gute Portion Humor, um auch in hektischen Situationen die Ruhe zu bewahren Versierter Umgang mit MS Office Kenntnisse in SAP und MS Dynamics von Vorteil Deutsch auf muttersprachlichem Niveau sowie gute mündliche und schriftliche Kenntnisse in Französisch oder Italienisch. Hast du Interesse Teil unseres Teams zu werden? Dann freuen wir uns auf deine Bewerbung.",
-        "fr": "Pour notre filiale Stardrinks AG, nous cherchons à renforcer notre centre de service à la clientèle à Lucerne pour une personnalité dédiée, flexible et linguistique en tant qu'employé de service à la clientèle/en allemand et français ou italien. Dans ce rôle animé et varié, vous êtes la première personne de contact pour nos clients et entrer en contact avec eux quotidiennement par téléphone. Votre\n• Les tâches incluent les priorités suivantes: soutien à la clientèle et renforcement de la confiance pour des relations client durables Ventes et conseils téléphoniques (entrées et sorties) pour nos clients existants Augmenter la valeur de commande par la recommandation de produits et d'options supplémentaires appropriés Soin des données client pour assurer l'information actuelle et fiable Traitement des plaintes et transmission des plaintes aux services compétents Soutien administratif pour les ventes téléphoniques et la maintenance des données Vous voulez faire partie de notre équipe ? Ensuite, nous attendons avec impatience votre candidature."
-      },
-      "location": "Luzern",
-      "canton": "LU",
-      "addressLocality": "Luzern",
-      "addressRegion": "LU",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "7000",
-      "streetAddress": "Luzern, LU",
-      "category": "Logistica",
-      "sector": "Industria / Alimentare",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "featured": false,
-      "postedDate": "2026-05-28",
-      "url": "https://careers.theheinekencompany.com/job/heineken-switzerland/switzerland/mitarbeiterin-kundenservice?jobid=158627",
-      "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=158627&career_ns=job_application",
-      "source": "Heineken Switzerland Dedicated Parser (Playwright)",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-02T22:09:00.947Z",
-      "previousSlugs": [
-        "agent-customer-service-heineken-ch-luzern",
-        "mitarbeiter-in-kundenservice-heineken-ch-luzern",
-        "servizio-clienti-agente-heineken-switzerland-luzern"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "agent-customer-service-heineken-ch-luzern",
-          "mitarbeiter-in-kundenservice-heineken-ch-luzern",
-          "servizio-clienti-agente-heineken-switzerland-luzern"
-        ],
-        "de": [
-          "agent-customer-service-heineken-ch-luzern"
-        ],
-        "fr": [
-          "agent-customer-service-heineken-ch-luzern"
-        ]
-      },
-      "firstSeenAt": "2026-05-28T12:46:50.069Z",
-      "salaryMin": 69500,
-      "salaryMax": 106000,
-      "currency": "CHF",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 69500,
-          "maxValue": 106000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "heineken-ch-b7ac2b956d7d",
-      "jobReqId": "160678",
-      "slug": "supporto-clienti-dell-agente-heineken-switzerland-winterthur",
-      "slugByLocale": {
-        "it": "supporto-clienti-dell-agente-heineken-switzerland-winterthur",
-        "en": "agent-customer-support-heineken-ch-winterthur",
-        "de": "agent-customer-support-heineken-ch-winterthur",
-        "fr": "agent-service-a-la-clientele-heineken-switzerland-winterthur"
-      },
-      "company": "Heineken Switzerland",
-      "companyKey": "heineken-ch",
-      "companyDomain": "theheinekencompany.com",
-      "title": "Agent Customer Support",
-      "titleByLocale": {
-        "it": "Supporto clienti dell'agente",
-        "en": "Agent Customer Support",
-        "de": "Agent Customer Support",
-        "fr": "Agent Service à la clientèle"
-      },
-      "description": "Für unsere Tochtergesellschaft Stardrinks AG suchen wir zur Stärkung unseres Kundensupport-Centers in Winterthur nach einer engagierten, flexiblen und sprachgewandten Persönlichkeit als Kundendienstmitarbeiter/in Deutsch sowie einer weiteren Landessprache. In dieser lebhaften und vielseitigen Tätigkeit bist du die erste Ansprechperson für unsere Kunden und stehst täglich mit ihnen im telefonischen Kontakt. Folgende Schwerpunkte werden deinen Tagesablauf prägen: Professionelle Kundenbetreuung und Beziehungspflege Entgegennahme und Bearbeitung aller Kundenkontakte und reklamationen aus allen Kommunikationskanälen (Telefon, E-Mail,Online etc.) Bearbeitung von Kundenreklamationen und Koordination von Beschwerden mit anderen Abteilungen 1st Level Support E-Commerce Erstellung von Rechnungskorrekturen Durchführung von Umfragen zur Kundenzufriedenheit Auftragsprüfung, etc. Das bringst du mit: Abgeschlossene Berufsausbildung Erfahrung im Kundendienst und im Umgang mit Reklamationsmanagement Flair und Affinität für Themen aus dem Rechnungswesen Gewinnbringende Persönlichkeit, Verkaufsgeschick und Einfühlungsvermögen Sorgfältige, selbstständige und verantwortungsbewusste Arbeitsweise gepaart mit Ausdauer und Durchhaltevermögen Gutes vernetztes Denken Versierter Umgang mit den gängigen MS-Office-Applikationen. SAP-Kentnisse sehr von Vorteil. Muttersprache Deutsch, sowie sehr gute Französisch- und/oder Italienischkenntnisse Hast du Interesse, Teil unseres Teams zu werden? Dann freuen wir uns auf deine Bewerbung.",
-      "descriptionByLocale": {
-        "it": "Per la nostra affiliata Stardrinks AG, stiamo cercando una personalità impegnata, flessibile e linguistica come rappresentante del servizio clienti / in tedesco e un'altra lingua nazionale per rafforzare il nostro centro di assistenza clienti a Winterthur. In questa attività vivace e versatile, sei la prima persona di contatto per i nostri clienti e sei in contatto telefonico giornaliero con loro. I seguenti punti focali daranno forma alla tua routine quotidiana: Assistenza clienti professionale e manutenzione delle relazioni Accettazione e elaborazione di tutti i contatti e reclami dei clienti da tutti i canali di comunicazione (telefono, e-mail, online, ecc.) Elaborazione delle lamentele del cliente e coordinamento delle denunce con altri dipartimenti 1 ° livello Supporto E-Commerce Creazione di correzioni di fattura Condurre i sondaggi sulla soddisfazione del cliente Lo portate con voi: Completata esperienza di formazione professionale nel servizio clienti e nel trattare con la gestione dei reclami flair e affinità per argomenti di contabilità personalità proficua, competenze di vendita ed empatia Metodi di lavoro accurati, indipendenti e responsabili accoppiati con perseveranza e perseveranza Buona pensiero in rete Gestione qualificata delle applicazioni di ufficio MS comuni. La conoscenza SAP è molto utile. Lingua madre Tedesco, così come una buona conoscenza del francese e/o italiano Sei interessato a diventare parte della nostra squadra? Attendiamo con ansia la vostra applicazione.",
-        "en": "For our subsidiary Stardrinks AG, we are looking for a committed, flexible and linguistic personality as a customer service representative / in German and another national language to strengthen our customer support center in Winterthur. In this lively and versatile activity, you are the first contact person for our customers and are in daily telephone contact with them. The following focal points will shape your daily routine: Professional customer support and relationship maintenance Acceptance and processing of all customer contacts and complaints from all communication channels (telephone, e-mail, online, etc.) Processing of customer complaints and coordination of complaints with other departments 1st Level Support E-Commerce Creation of invoice corrections Conducting customer satisfaction surveys Order review, etc. You bring this with you: Completed vocational training experience in customer service and in dealing with complaint management flair and affinity for topics from accounting Profitable personality, sales skills and empathy Careful, independent and responsible working methods coupled with perseverance and perseverance Good networked thinking Skilled handling of the common MS office applications. SAP knowledge is very beneficial. Mother tongue German, as well as very good knowledge of French and/or Italian Are you interested in becoming part of our team? We look forward to your application.",
-        "de": "Für unsere Tochtergesellschaft Stardrinks AG suchen wir zur Stärkung unseres Kundensupport-Centers in Winterthur nach einer engagierten, flexiblen und sprachgewandten Persönlichkeit als Kundendienstmitarbeiter/in Deutsch sowie einer weiteren Landessprache. In dieser lebhaften und vielseitigen Tätigkeit bist du die erste Ansprechperson für unsere Kunden und stehst täglich mit ihnen im telefonischen Kontakt. Folgende Schwerpunkte werden deinen Tagesablauf prägen: Professionelle Kundenbetreuung und Beziehungspflege Entgegennahme und Bearbeitung aller Kundenkontakte und reklamationen aus allen Kommunikationskanälen (Telefon, E-Mail,Online etc.) Bearbeitung von Kundenreklamationen und Koordination von Beschwerden mit anderen Abteilungen 1st Level Support E-Commerce Erstellung von Rechnungskorrekturen Durchführung von Umfragen zur Kundenzufriedenheit Auftragsprüfung, etc. Das bringst du mit: Abgeschlossene Berufsausbildung Erfahrung im Kundendienst und im Umgang mit Reklamationsmanagement Flair und Affinität für Themen aus dem Rechnungswesen Gewinnbringende Persönlichkeit, Verkaufsgeschick und Einfühlungsvermögen Sorgfältige, selbstständige und verantwortungsbewusste Arbeitsweise gepaart mit Ausdauer und Durchhaltevermögen Gutes vernetztes Denken Versierter Umgang mit den gängigen MS-Office-Applikationen. SAP-Kentnisse sehr von Vorteil. Muttersprache Deutsch, sowie sehr gute Französisch- und/oder Italienischkenntnisse Hast du Interesse, Teil unseres Teams zu werden? Dann freuen wir uns auf deine Bewerbung.",
-        "fr": "Pour notre filiale Stardrinks AG, nous recherchons une personnalité engagée, flexible et linguistique en tant que représentant du service à la clientèle / en allemand et une autre langue nationale pour renforcer notre centre de support à la clientèle à Winterthur. Dans cette activité dynamique et polyvalente, vous êtes la première personne de contact pour nos clients et êtes en contact téléphonique quotidien avec eux. Les points focaux suivants façonneront votre routine quotidienne : Assistance client professionnelle et maintenance relationnelle Acceptation et traitement de tous les contacts clients et plaintes de tous les canaux de communication (téléphone, e-mail, en ligne, etc.) Traitement des plaintes des clients et coordination des plaintes avec d'autres ministères Soutien de premier niveau Commerce électronique Création de corrections de factures Réalisation d'enquêtes sur la satisfaction des clients Examen des commandes, etc. Vous apportez ceci avec vous: Expérience de formation professionnelle complète dans le service à la clientèle et dans le traitement de la gestion des plaintes flair et l'affinité pour les sujets de la comptabilité Personnalité rentable, compétences de vente et empathie Méthodes de travail attentives, indépendantes et responsables couplées à la persévérance et la persévérance Bonne pensée en réseau Gestion compétente des applications communes MS Office. Les connaissances SAP sont très bénéfiques. Langue maternelle Allemand, ainsi que très bonne connaissance du français et/ou de l'italien Vous voulez faire partie de notre équipe ? Nous attendons avec impatience votre candidature."
-      },
-      "location": "Winterthur",
-      "canton": "ZH",
-      "addressLocality": "Winterthur",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "7000",
-      "streetAddress": "Winterthur, ZH",
-      "category": "Logistica",
-      "sector": "Industria / Alimentare",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "featured": false,
-      "postedDate": "2026-06-25",
-      "url": "https://careers.theheinekencompany.com/job/heineken-switzerland/agent-customer-support?jobid=160678",
-      "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=160678&career_ns=job_application",
-      "source": "Heineken Switzerland Dedicated Parser (Playwright)",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-02T22:08:52.988Z",
-      "previousSlugs": [
-        "agent-customer-support-heineken-ch-winterthur",
-        "supporto-clienti-dell-agente-heineken-switzerland-winterthur"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "agent-customer-support-heineken-ch-winterthur",
-          "supporto-clienti-dell-agente-heineken-switzerland-winterthur"
-        ],
-        "fr": [
-          "agent-customer-support-heineken-ch-winterthur"
-        ]
-      },
-      "firstSeenAt": "2026-06-25T22:27:52.893Z",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
-      "currency": "CHF",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "heineken-ch-7822fc944d74",
-      "jobReqId": "162220",
-      "slug": "logistica-key-account-specialista-80-100-heineken-switzerland-luzern",
-      "slugByLocale": {
-        "it": "logistica-key-account-specialista-80-100-heineken-switzerland-luzern",
-        "en": "logistics-key-account-specialist-80-100-heineken-ch-luzern",
-        "de": "logistics-key-account-specialist-80-100-heineken-ch-luzern",
-        "fr": "logistique-key-account-specialiste-80-100-heineken-switzerland-luzern"
-      },
-      "company": "Heineken Switzerland",
-      "companyKey": "heineken-ch",
-      "companyDomain": "theheinekencompany.com",
-      "title": "Logistics Key Account Specialist (80-100%)",
-      "titleByLocale": {
-        "it": "Logistica Key Account Specialista (80-100%)",
-        "en": "Logistics Key Account Specialist (80-100%)",
-        "de": "Logistik Key Account Spezialist (80-100%)",
-        "fr": "Logistique Key Account Spécialiste (80-100%)"
-      },
-      "description": "Deine Hauptaufgaben: Betreuung und Weiterentwicklung strategischer Logistikbeziehungen mit Schlüsselkunden zur Sicherstellung einer hohen Servicequalität Koordination der Zusammenarbeit zwischen Kunden sowie internen Bereichen wie Sales, Customer Service, Logistik und Transport Planung und Umsetzung von Optimierungsmassnahmen entlang der Supply Chain zur Steigerung von Service, Effizienz und Kundenzufriedenheit Überwachung der Logistikleistung und Sicherstellung der Einhaltung von Service-, Qualitäts- und Sicherheitsstandards Identifikation und Realisierung von Optimierungspotenzialen hinsichtlich Kosten, Prozessen und Kundenanforderungen Mitarbeit bei Projekten sowie der kontinuierlichen Weiterentwicklung von Prozessen und Schnittstellen im Verantwortungsbereich Unsere \n• Anforderungen: Abgeschlossene Berufsausbildung sowie Berufserfahrung in den Bereichen Logistik, Supply Chain Management oder Customer Service Erfahrung in der Steuerung von Kundenbeziehungen und bereichsübergreifenden Projekten Gutes Verständnis logistischer Prozesse und kundenspezifischer Supply Chains Selbstständige, strukturierte und lösungsorientierte Arbeitsweise Sehr gute Deutschkenntnisse sowie gute Englischkenntnisse in Wort und Schrift",
-      "descriptionByLocale": {
-        "it": "Per il reparto Trasporti e Servizio Clienti di Lucerna, stiamo cercando una personalità responsabile e impegnata come Specialista di Logistica Key Account. I vostri compiti principali: Supporto e ulteriore sviluppo di relazioni logistiche strategiche con i clienti chiave per garantire alta qualità di servizio Coordinamento della cooperazione tra i clienti e aree interne come vendite, servizio clienti, logistica e trasporto Pianificazione e attuazione di misure di ottimizzazione lungo la catena di fornitura per aumentare il servizio, l'efficienza e la soddisfazione del cliente Monitoraggio delle prestazioni logistiche e garantire il rispetto delle norme di servizio, qualità e sicurezza Identificazione e realizzazione del potenziale di ottimizzazione per quanto riguarda i costi, processi e le esigenze del cliente\n• Requisiti: Completata la formazione professionale e l'esperienza professionale nei settori della logistica, della gestione della supply chain o del servizio clienti Esperienza nella gestione delle relazioni con i clienti e dei progetti cross-divisionali Buona comprensione dei processi logistici e delle supply chain specifiche del cliente Metodo di lavoro indipendente, strutturato e orientato alla soluzione Ottima conoscenza del tedesco e buona conoscenza dell'inglese nelle parole e nella scrittura Sei interessato a un compito versatile come parte di un team dinamico? Poi Marisa Reati, HR Business Partner & POD Manager, non vede l'ora della vostra applicazione.",
-        "en": "For the Transportation & Customer Service department in Lucerne, we are looking for a responsible and committed personality as a Logistics Key Account Specialist. Your main tasks: Support and further development of strategic logistics relationships with key customers to ensure high service quality Coordination of cooperation between customers as well as internal areas such as sales, customer service, logistics and transport Planning and implementation of optimization measures along the supply chain to increase service, efficiency and customer satisfaction Monitoring of logistics performance and ensuring compliance with service, quality and security standards Identification and realization of optimization potential with regard to costs, processes and customer requirements Collaboration in projects as well as the continuous further development of processes and interfaces in the area of responsibility Our\n• Requirements: Completed vocational training as well as professional experience in the areas of logistics, supply chain management or customer service Experience in the management of customer relationships and cross-divisional projects Good understanding of logistics processes and customer-specific supply chains Independent, structured and solution-oriented working method Very good knowledge of German as well as good knowledge of English in words and writing Are you interested in a versatile task as part of a dynamic team? Then Marisa Reati, HR Business Partner & POD Manager, looks forward to your application.",
-        "de": "Deine Hauptaufgaben: Betreuung und Weiterentwicklung strategischer Logistikbeziehungen mit Schlüsselkunden zur Sicherstellung einer hohen Servicequalität Koordination der Zusammenarbeit zwischen Kunden sowie internen Bereichen wie Sales, Customer Service, Logistik und Transport Planung und Umsetzung von Optimierungsmassnahmen entlang der Supply Chain zur Steigerung von Service, Effizienz und Kundenzufriedenheit Überwachung der Logistikleistung und Sicherstellung der Einhaltung von Service-, Qualitäts- und Sicherheitsstandards Identifikation und Realisierung von Optimierungspotenzialen hinsichtlich Kosten, Prozessen und Kundenanforderungen Mitarbeit bei Projekten sowie der kontinuierlichen Weiterentwicklung von Prozessen und Schnittstellen im Verantwortungsbereich Unsere \n• Anforderungen: Abgeschlossene Berufsausbildung sowie Berufserfahrung in den Bereichen Logistik, Supply Chain Management oder Customer Service Erfahrung in der Steuerung von Kundenbeziehungen und bereichsübergreifenden Projekten Gutes Verständnis logistischer Prozesse und kundenspezifischer Supply Chains Selbstständige, strukturierte und lösungsorientierte Arbeitsweise Sehr gute Deutschkenntnisse sowie gute Englischkenntnisse in Wort und Schrift",
-        "fr": "Pour le service Transport & Service à la clientèle à Lucerne, nous recherchons une personnalité responsable et engagée en tant que spécialiste de compte clé logistique. Vos principales tâches: Soutien et développement des relations logistiques stratégiques avec les principaux clients pour assurer une qualité de service élevée Coordination de la coopération entre les clients ainsi que des domaines internes tels que les ventes, le service à la clientèle, la logistique et les transports Planification et mise en œuvre de mesures d'optimisation le long de la chaîne d'approvisionnement pour accroître le service, l'efficacité et la satisfaction des clients Suivi des performances logistiques et garantie du respect des normes de service, de qualité et de sécurité Identification et réalisation du potentiel d'optimisation en ce qui concerne les coûts, les processus et les besoins des clients Collaboration dans les projets ainsi que le développement continu des processus et des interfaces dans le domaine de responsabilité Notre\n• Exigences: Formation professionnelle complétée ainsi que l'expérience professionnelle dans les domaines de la logistique, de la gestion de la chaîne d'approvisionnement ou du service à la clientèle Expérience dans la gestion des relations client et des projets interdivisions Bonne compréhension des processus logistiques et des chaînes d'approvisionnement spécifiques à la clientèle Méthode de travail indépendante, structurée et orientée vers la solution Très bonne connaissance de l'allemand ainsi que bonne connaissance de l'anglais en mots et en écriture Êtes-vous intéressé par une tâche polyvalente dans le cadre d'une équipe dynamique? Puis Marisa Reati, HR Business Partner & POD Manager, attend avec impatience votre candidature."
-      },
-      "location": "Luzern",
-      "canton": "LU",
-      "addressLocality": "Luzern",
-      "addressRegion": "LU",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "7000",
-      "streetAddress": "Luzern, LU",
-      "category": "Logistica",
-      "sector": "Industria / Alimentare",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "featured": false,
-      "postedDate": "2026-07-22",
-      "url": "https://careers.theheinekencompany.com/job/heineken-switzerland/switzerland/logistics-key-account-specialist-80-100?jobid=162220",
-      "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=162220&career_ns=job_application",
-      "source": "Heineken Switzerland Dedicated Parser (Playwright)",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-02T22:08:44.849Z",
-      "previousSlugs": [
-        "logistics-key-account-specialist-80-100-heineken-ch-luzern",
-        "logistica-key-account-specialista-80-100-heineken-switzerland-luzern"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "logistics-key-account-specialist-80-100-heineken-ch-luzern",
-          "logistica-key-account-specialista-80-100-heineken-switzerland-luzern"
-        ],
-        "fr": [
-          "logistics-key-account-specialist-80-100-heineken-ch-luzern"
-        ]
-      },
-      "firstSeenAt": "2026-07-22T11:56:39.423Z",
-      "salaryMin": 69500,
-      "salaryMax": 106000,
-      "currency": "CHF",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 69500,
-          "maxValue": 106000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "heineken-ch-5b1f13bcfca3",
-      "jobReqId": "162611",
-      "slug": "consulente-commerciale-nel-settore-gastronomia-heineken-switzerland-luzern",
-      "slugByLocale": {
-        "it": "consulente-commerciale-nel-settore-gastronomia-heineken-switzerland-luzern",
-        "en": "sales-consultant-in-the-field-gastronomy-heineken-switzerland-luzern",
-        "de": "verkaufsberater-in-im-aussendienst-gastronomie-heineken-ch-luzern",
-        "fr": "consultant-en-ventes-sur-le-terrain-gastronomie-heineken-switzerland-luzern"
-      },
-      "company": "Heineken Switzerland",
-      "companyKey": "heineken-ch",
-      "companyDomain": "theheinekencompany.com",
-      "title": "Verkaufsberater/in im Aussendienst (Gastronomie)",
-      "titleByLocale": {
-        "it": "Consulente commerciale nel settore (gastronomia)",
-        "en": "Sales consultant in the field (gastronomy)",
-        "de": "Verkaufsberater/in im Aussendienst (Gastronomie)",
-        "fr": "Consultant en ventes sur le terrain (gastronomie)"
-      },
-      "description": "Respekt, Genuss und Qualität aus Leidenschaft gehören zu unseren Kernwerten. Als Bierproduzent mit Brauereistandorten in Chur und Luzern sowie einem eigenen Getränkehandel mit 19 Standorten in der gesamten Schweiz sind wir ein Unternehmen von nationaler Bedeutung. Wir setzen auf einen Mix aus Tradition, Innovation und Kundennähe. Mit unseren Markenbieren tragen wir zur vielfältigen Schweizer Bierkultur bei. Für unser Verkaufsgebiet Kanton Schwyz, Küssnacht und Rontal suchen wir einen selbständigen, erfahrenen und zielorientierten Verkaufsprofi als Verkaufsberater/in im Aussendienst (Gastronomie) Du liebst es, Beziehungen aufzubauen, Menschen zu begeistern und gemeinsam Erfolge zu erzielen? Möchtest du für unsere Kundinnen und Kunden eine vertrauensvolle Partnerin bzw. ein vertrauensvoller Partner sein und die Zukunft der Gastronomie aktiv mitgestalten? Dann könnte diese Herausforderung genau das Richtige für dich sein! In dieser abwechslungsreichen und vielseitigen Rolle erwarten dich folgende \n• Aufgaben: Gewinnung neuer Kundinnen und Kunden (WIN) sowie Betreuung, Weiterentwicklung und Ausbau bestehender Partnerschaften (KEEP) in Hotels, Restaurants, Bars und weiteren Gastronomiebetrieben Führen von Verkaufs- und Vertragsverhandlungen auf Augenhöhe mit viel Eigenverantwortung und Gestaltungsspielraum Verantwortung für ein professionelles Debitorenmanagement in enger Zusammenarbeit mit deinen Kundinnen und Kunden Ausbau der Distribution unserer Fokusmarken sowie Sicherstellung einer starken Präsenz und Sichtbarkeit unserer Marken am Markt Damit du in dieser Rolle erfolgreich bist, bringst du idealerweise Folgendes mit: Erfahrung im Verkauf, vorzugsweise im Aussendienst der Konsumgüterbranche Freude und nachweisbare Erfolge in der Neukundengewinnung und im Aufbau nachhaltiger Kundenbeziehungen Hohe Eigeninitiative, Selbstständigkeit und einen ausgeprägten Willen, Ziele zu erreichen Eine authentische, kommunikative und überzeugende Persönlichkeit mit Durchhaltevermögen und Leidenschaft für den Verkauf Gute Kenntnisse der lokalen Gastronomie und ein Gespür für Markt- und Kundenbedürfnisse Sicherer Umgang mit MS Office sowie idealerweise Erfahrung mit CRM-Systemen Wohnsitz in der Verkaufsregion und ein bestehendes Netzwerk, das du aktiv pflegst und weiter ausbaust Was dich besonders auszeichnet: Du baust gerne langfristige Beziehungen auf, denkst unternehmerisch und schätzt die Freiheit, deinen Erfolg selbst mitzugestalten. Gleichzeitig verstehst du es, Menschen für Ideen, Marken und gemeinsame Lösungen zu begeistern. Klingt das nach der Herausforderung, die du suchst? Dann freuen wir uns auf deine Bewerbung und darauf, gemeinsam mit dir die Zukunft der Gastronomie zu gestalten.",
-      "descriptionByLocale": {
-        "it": "Il rispetto, il godimento e la qualità basati sulla passione sono tra i nostri valori fondamentali. In qualità di produttore di birra con sedi di birreria a Chur e Lucerne, nonché il nostro commercio di bevande con 19 sedi in tutta la Svizzera, siamo una società di importanza nazionale. Ci concentriamo su un mix di tradizione, innovazione e prossimità del cliente. Con le nostre birre di marca, contribuiamo alla diversificata cultura della birra svizzera. Per la nostra zona di vendita Canton Schwyz, Küssnacht e Rontal cerchiamo un professionista di vendita indipendente, esperto e orientato verso l'obiettivo come consulente di vendita nel servizio di campo (gastronomia) Ti piace costruire relazioni, emozionare le persone e raggiungere il successo insieme? Vuoi essere un partner affidabile per i nostri clienti e plasmare attivamente il futuro della gastronomia? Allora questa sfida potrebbe essere giusto per voi! In questo ruolo vario e versatile, il seguente vi aspetta:\n• Compiti: Acquisizione di nuovi clienti (WIN) e supporto, ulteriore sviluppo e espansione delle partnership esistenti (KEEP) in hotel, ristoranti, bar e altre società di catering Leader vendite e trattative contrattuali su un piano di parità con un sacco di responsabilità personale e spazio per manovra Responsabilità per una gestione professionale del debitore in stretta collaborazione con i vostri clienti Espansione della distribuzione dei nostri marchi di focus, oltre a garantire una forte presenza e visibilità dei nostri marchi Per avere successo in questo ruolo, è idealmente portare il seguente: Esperienza nelle vendite, preferibilmente nel servizio sul campo dell'industria dei beni di consumo Gioia e successi dimostrabili nell'acquisizione di nuovi clienti e nello sviluppo di relazioni con i clienti sostenibili Alta iniziativa, autooccupazione e una spiccata volontà di raggiungere gli obiettivi Una personalità autentica, comunicativa e convincente con perseveranza e passione per le vendite Buona conoscenza della ristorazione locale e un senso di mercato e dei bisogni dei clienti Gestione sicura di MS Office così come l'esperienza ideale con i sistemi CRM residenza nella regione di vendita e una rete esistente, che si mantiene e amplia ulteriormente Ciò che ti distingue è che ti piace costruire relazioni a lungo termine, pensare imprenditoriale e apprezzare la libertà di contribuire a plasmare il tuo successo. Allo stesso tempo, sai come far emozionare le persone su idee, marchi e soluzioni comuni. Questo suona come la sfida che stai cercando? Allora non vediamo l'ora della vostra applicazione e di modellare il futuro della gastronomia insieme a voi.",
-        "en": "Respect, enjoyment and quality based on passion are among our core values. As a beer producer with brewery locations in Chur and Lucerne as well as our own beverage trade with 19 locations throughout Switzerland, we are a company of national importance. We focus on a mix of tradition, innovation and customer proximity. With our brand beers, we contribute to the diverse Swiss beer culture. For our sales area Canton Schwyz, Küssnacht and Rontal we are looking for an independent, experienced and goal-oriented sales professional as sales consultant in the field service (gastronomy) Do you love building relationships, getting people excited and achieving success together? Do you want to be a trusted partner for our customers and actively shape the future of gastronomy? Then this challenge could be just right for you! In this varied and versatile role, the following awaits you:\n• Tasks: Acquisition of new customers (WIN) as well as support, further development and expansion of existing partnerships (KEEP) in hotels, restaurants, bars and other catering companies Leading sales and contract negotiations on an equal footing with a lot of personal responsibility and room for manoeuvre Responsibility for a professional debtor management in close cooperation with your customers Expansion of the distribution of our focus brands as well as ensuring a strong presence and visibility of our brands in the market In order to be successful in this role, you ideally bring the following: Experience in sales, preferably in the field service of the consumer goods industry Joy and demonstrable successes in the acquisition of new customers and in the development of sustainable customer relationships High initiative, self-employment and a pronounced will to achieve goals An authentic, communicative and convincing personality with perseverance and passion for sales Good knowledge of the local catering and a sense of market and customer needs Secure handling of MS Office as well as ideal experience with CRM systems residence in the sales region and an existing network, which you actively maintain and further expand What sets you apart is that you like to build long-term relationships, think entrepreneurially and appreciate the freedom to help shape your own success. At the same time, you know how to get people excited about ideas, brands and common solutions. Does that sound like the challenge you’re looking for? Then we look forward to your application and to shaping the future of gastronomy together with you.",
-        "de": "Respekt, Genuss und Qualität aus Leidenschaft gehören zu unseren Kernwerten. Als Bierproduzent mit Brauereistandorten in Chur und Luzern sowie einem eigenen Getränkehandel mit 19 Standorten in der gesamten Schweiz sind wir ein Unternehmen von nationaler Bedeutung. Wir setzen auf einen Mix aus Tradition, Innovation und Kundennähe. Mit unseren Markenbieren tragen wir zur vielfältigen Schweizer Bierkultur bei. Für unser Verkaufsgebiet Kanton Schwyz, Küssnacht und Rontal suchen wir einen selbständigen, erfahrenen und zielorientierten Verkaufsprofi als Verkaufsberater/in im Aussendienst (Gastronomie) Du liebst es, Beziehungen aufzubauen, Menschen zu begeistern und gemeinsam Erfolge zu erzielen? Möchtest du für unsere Kundinnen und Kunden eine vertrauensvolle Partnerin bzw. ein vertrauensvoller Partner sein und die Zukunft der Gastronomie aktiv mitgestalten? Dann könnte diese Herausforderung genau das Richtige für dich sein! In dieser abwechslungsreichen und vielseitigen Rolle erwarten dich folgende \n• Aufgaben: Gewinnung neuer Kundinnen und Kunden (WIN) sowie Betreuung, Weiterentwicklung und Ausbau bestehender Partnerschaften (KEEP) in Hotels, Restaurants, Bars und weiteren Gastronomiebetrieben Führen von Verkaufs- und Vertragsverhandlungen auf Augenhöhe mit viel Eigenverantwortung und Gestaltungsspielraum Verantwortung für ein professionelles Debitorenmanagement in enger Zusammenarbeit mit deinen Kundinnen und Kunden Ausbau der Distribution unserer Fokusmarken sowie Sicherstellung einer starken Präsenz und Sichtbarkeit unserer Marken am Markt Damit du in dieser Rolle erfolgreich bist, bringst du idealerweise Folgendes mit: Erfahrung im Verkauf, vorzugsweise im Aussendienst der Konsumgüterbranche Freude und nachweisbare Erfolge in der Neukundengewinnung und im Aufbau nachhaltiger Kundenbeziehungen Hohe Eigeninitiative, Selbstständigkeit und einen ausgeprägten Willen, Ziele zu erreichen Eine authentische, kommunikative und überzeugende Persönlichkeit mit Durchhaltevermögen und Leidenschaft für den Verkauf Gute Kenntnisse der lokalen Gastronomie und ein Gespür für Markt- und Kundenbedürfnisse Sicherer Umgang mit MS Office sowie idealerweise Erfahrung mit CRM-Systemen Wohnsitz in der Verkaufsregion und ein bestehendes Netzwerk, das du aktiv pflegst und weiter ausbaust Was dich besonders auszeichnet: Du baust gerne langfristige Beziehungen auf, denkst unternehmerisch und schätzt die Freiheit, deinen Erfolg selbst mitzugestalten. Gleichzeitig verstehst du es, Menschen für Ideen, Marken und gemeinsame Lösungen zu begeistern. Klingt das nach der Herausforderung, die du suchst? Dann freuen wir uns auf deine Bewerbung und darauf, gemeinsam mit dir die Zukunft der Gastronomie zu gestalten.",
-        "fr": "Le respect, la jouissance et la qualité basées sur la passion font partie de nos valeurs fondamentales. En tant que producteur de bière avec des sites de brasserie à Chur et Lucerne ainsi que notre propre commerce de boissons avec 19 sites dans toute la Suisse, nous sommes une entreprise d'importance nationale. Nous nous concentrons sur un mélange de tradition, d'innovation et de proximité client. Avec nos bières de marque, nous contribuons à la diversité de la culture de la bière suisse. Pour notre zone commerciale Canton Schwyz, Küssnacht et Rontal, nous sommes à la recherche d'un professionnel de la vente indépendant, expérimenté et axé sur les objectifs en tant que conseiller commercial dans le service sur le terrain (gastronomie) Aimez - vous établir des relations, susciter de l'enthousiasme et réussir ensemble? Voulez-vous être un partenaire de confiance pour nos clients et façonner activement l'avenir de la gastronomie ? Alors ce défi pourrait être juste pour vous! Dans ce rôle varié et polyvalent, les éléments suivants vous attendent :\n• Tâches: Acquisition de nouveaux clients (WIN) ainsi que le soutien, le développement et l'expansion des partenariats existants (KEEP) dans les hôtels, restaurants, bars et autres entreprises de restauration Mener des négociations commerciales et contractuelles sur un pied d'égalité avec beaucoup de responsabilité personnelle et de marge de manœuvre Responsabilité pour une gestion professionnelle des débiteurs en étroite collaboration avec vos clients Extension de la distribution de nos marques ciblées ainsi que d'assurer une forte présence et visibilité de nos marques sur le marché Afin de réussir dans ce rôle, vous apportez idéalement ce qui suit: Expérience dans les ventes, de préférence dans le service sur le terrain de l'industrie des biens de consommation Joy et succès démontrables dans l'acquisition de nouveaux clients et dans le développement de relations client durables Haute initiative, travail indépendant et une volonté prononcée pour atteindre les objectifs Une personnalité authentique, communicative et convaincante avec persévérance et passion pour les ventes Bonne connaissance de la restauration locale et un sens du marché et des besoins du client Gestion sécurisée de MS Office ainsi que l'expérience idéale avec les systèmes CRM résidence dans la région de vente et un réseau existant, que vous maintenez et développez activement Ce qui vous distingue, c'est que vous aimez construire des relations à long terme, penser en entreprise et apprécier la liberté d'aider à façonner votre propre succès. En même temps, vous savez comment exciter les gens à propos d'idées, de marques et de solutions communes. Ça ressemble au défi que vous cherchez ? Ensuite, nous nous réjouissons de votre application et de façonner l'avenir de la gastronomie avec vous."
-      },
-      "location": "Luzern",
-      "canton": "LU",
-      "addressLocality": "Luzern",
-      "addressRegion": "LU",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "7000",
-      "streetAddress": "Luzern, LU",
-      "category": "Commerciale",
-      "sector": "Industria / Alimentare",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "featured": false,
-      "postedDate": "2026-07-28",
-      "url": "https://careers.theheinekencompany.com/job/heineken-switzerland/switzerland/verkaufsberaterin-im-aussendienst-gastronomie?jobid=162611",
-      "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=162611&career_ns=job_application",
-      "source": "Heineken Switzerland Dedicated Parser (Playwright)",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-02T22:08:37.290Z",
-      "previousSlugs": [
-        "verkaufsberater-in-im-aussendienst-gastronomie-heineken-ch-luzern",
-        "consulente-commerciale-nel-settore-gastronomia-heineken-switzerland-chur",
-        "verkaufsberater-in-im-aussendienst-gastronomie-heineken-ch-chur",
-        "sales-consultant-in-the-field-gastronomy-heineken-switzerland-chur",
-        "consultant-commercial-sur-le-terrain-gastronomie-heineken-switzerland-chur",
-        "consulente-commerciale-nel-settore-gastronomia-heineken-switzerland-luzern"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "verkaufsberater-in-im-aussendienst-gastronomie-heineken-ch-luzern",
-          "consulente-commerciale-nel-settore-gastronomia-heineken-switzerland-chur",
-          "verkaufsberater-in-im-aussendienst-gastronomie-heineken-ch-chur",
-          "sales-consultant-in-the-field-gastronomy-heineken-switzerland-chur",
-          "consultant-commercial-sur-le-terrain-gastronomie-heineken-switzerland-chur",
-          "consulente-commerciale-nel-settore-gastronomia-heineken-switzerland-luzern"
-        ],
-        "en": [
-          "verkaufsberater-in-im-aussendienst-gastronomie-heineken-ch-luzern",
-          "sales-consultant-in-the-field-gastronomy-heineken-switzerland-chur"
-        ],
-        "de": [
-          "verkaufsberater-in-im-aussendienst-gastronomie-heineken-ch-chur"
-        ],
-        "fr": [
-          "verkaufsberater-in-im-aussendienst-gastronomie-heineken-ch-luzern",
-          "consultant-commercial-sur-le-terrain-gastronomie-heineken-switzerland-chur"
-        ]
-      },
-      "firstSeenAt": "2026-07-28T22:34:47.887Z",
-      "salaryMin": 69500,
-      "salaryMax": 106000,
-      "currency": "CHF",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 69500,
-          "maxValue": 106000,
-          "unitText": "YEAR"
-        }
-      }
+      "crawlerMissStreak": 2
     }
   ]
 }

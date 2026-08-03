@@ -1,18 +1,47 @@
 {
   "key": "pkb-private-bank",
   "label": "PKB",
-  "generatedAt": "2026-08-02T22:17:54.682Z",
-  "total": 2,
-  "newCount": 0,
+  "generatedAt": "2026-08-03T22:25:38.237Z",
+  "total": 3,
+  "newCount": 1,
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 4087,
-  "avgDurationMs": 4087,
+  "durationMs": 4648,
+  "avgDurationMs": 4648,
   "durationHistory": [
-    4087
+    4648
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "title": "Réceptionniste et Assistant(e) administratif(ve) à 60%",
+      "company": "PKB Private Bank SA",
+      "companyKey": "pkb-private-bank",
+      "companyDomain": "pkb.ch",
+      "url": "https://careers.pkb.ch/job/view-job.php?id=29-receptionniste-et-assistant-e-administratif-ve-%C3%A0-60-gen%C3%A8ve&language=it",
+      "slug": "receptionniste-et-assistant-e-administratif-ve-a-60-pkb-private-bank-geneve",
+      "location": "Genève",
+      "canton": "TI",
+      "country": "CH",
+      "postalCode": "6900",
+      "streetAddress": "Rue Charles-Galland 12",
+      "postedDate": "2026-08-03",
+      "validThrough": "",
+      "sector": "Banca e servizi finanziari",
+      "role": "Centralino/Segretariato/Servizi generali",
+      "employmentType": "PART_TIME",
+      "source": "PKB Dedicated Parser (Arca24)",
+      "sourceLang": "it",
+      "crawledAt": "2026-08-03T22:25:34.929Z",
+      "_qualityScore": 67,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 4,
+        "completeness": 20
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "title": "Collaboratore Payments & Securities (f/m)",
@@ -33,7 +62,7 @@
       "employmentType": "FULL_TIME",
       "source": "PKB Dedicated Parser (Arca24)",
       "sourceLang": "it",
-      "crawledAt": "2026-08-02T22:17:51.821Z",
+      "crawledAt": "2026-08-03T22:25:35.178Z",
       "id": "pkb-private-bank-a98c1a99f4f2",
       "firstSeenAt": "2026-07-28T11:43:51.581Z",
       "_qualityScore": 88,
@@ -63,7 +92,7 @@
       "employmentType": "FULL_TIME",
       "source": "PKB Dedicated Parser (Arca24)",
       "sourceLang": "it",
-      "crawledAt": "2026-08-02T22:17:52.084Z",
+      "crawledAt": "2026-08-03T22:25:35.445Z",
       "id": "pkb-private-bank-14e6e40f691f",
       "firstSeenAt": "2026-07-10T10:40:31.816Z",
       "_qualityScore": 88,

@@ -17,6 +17,10 @@
  * vite.config.ts (Phase-2-UI brief — vite.config is read-only).
  */
 
+// Must run before the package module below is evaluated — it wires the real
+// site values into configureSiteShell() that the package's render functions
+// read via getSiteShell(). Same contract as build-plugins/ogPagesPlugin.ts.
+import './articlesSiteShellBootstrap';
 import type fsT from 'node:fs';
 import { clampMetaDescription } from './shared/titleSuffix';
 import { railGutters } from './shared/railGutters';
@@ -2396,72 +2400,24 @@ function renderArticleHubPagesCore(args: RenderArticleHubCoreArgs): void {
   }
 }
 
-export interface RenderArticleHubPagesOptions {
-  readonly rootDir: string;
-  readonly distDir: string;
-  readonly section: ArticleSection;
-  /** Narrow which locales render (default: all 4 {@link HUB_LOCALES}). */
-  readonly locales?: readonly HubLocale[];
-}
-
-export interface RenderArticleHubPagesResult {
-  /** Files physically written (post content-hash-manifest skip), this call only. */
-  readonly written: number;
-  /**
-   * Dist-relative path (no leading slash) of every page this call rendered,
-   * regardless of hash-skip, grouped by the locale it belongs to — e.g.
-   * `{ it: ['articoli-svizzera/tutti/index.html', ...], en: [...], ... }`.
-   * Grouped (rather than a flat list) because the caller hands each locale's
-   * paths to `scripts/lib/push-article-shard-incremental.sh` separately —
-   * that script pushes into one locale's shard repo per invocation.
-   */
-  readonly pathsByLocale: Record<HubLocale, string[]>;
-}
-
-/**
- * Standalone async entry point for the fast-publish path (issue #4881 Fase
- * 1): renders one article section's `/tutti/` archive + pagination into a
- * scratch `distDir`, without a full `vite build`. Mirrors the precedent set
- * by `ogPagesPlugin.ts`'s exported `renderArticlePages` (#4837) — resolves
- * its own fs/np/SPA-bundle info and writes through its own `WriteCollector`,
- * then delegates to the SAME synchronous {@link renderArticleHubPagesCore}
- * that the full build's `emitSeoHubs` calls, so a fix to one path benefits
- * both and a fork can't silently drift them apart.
- */
-export async function renderArticleHubPages(
-  opts: RenderArticleHubPagesOptions,
-): Promise<RenderArticleHubPagesResult> {
-  const { rootDir, distDir, section, locales } = opts;
-  const fs = await import('node:fs');
-  const np = await import('node:path');
-  const { resolveSpaBundle } = await import('./spaBundleResolver');
-  const { entryJs, entryCss, hasSpaBundle } = resolveSpaBundle(distDir);
-
-  const collector = new WriteCollector({ distDir, pluginName: 'seoHubsPlugin' });
-  const qw = (filePath: string, content: string) => {
-    collector.add(filePath, content);
-  };
-  const pathsByLocale: Record<HubLocale, string[]> = { it: [], en: [], de: [], fr: [] };
-
-  renderArticleHubPagesCore({
-    fs: fs as unknown as typeof fsT,
-    np: np as unknown as typeof npT,
-    rootDir,
-    distDir,
-    section,
-    qw,
-    sitemapEntries: [],
-    dateStamp: new Date().toISOString().slice(0, 10),
-    entryJs,
-    entryCss,
-    hasSpaBundle,
-    onPageEmitted: (locale, relPath) => { pathsByLocale[locale].push(relPath); },
-    locales,
-  });
-
-  const written = await collector.flush();
-  return { written, pathsByLocale };
-}
+// The fast-publish entry point now lives in the colocated articles package
+// (issue #4974 item 3 / migration §10.4 step 1) so nanako can render an
+// article's archive without this repo. Re-exported here under its original
+// name so every existing `build-plugins/seoHubsPlugin` importer — including
+// scripts/publish-article-fast.mjs — keeps resolving unchanged, exactly like
+// the `build-plugins/ogPagesPlugin.ts` shim left by #4881 Fase 6.
+//
+// `emitSeoHubs` below deliberately keeps calling this file's OWN
+// `renderArticleHubPagesCore`, NOT the package's. That is what keeps
+// tests/render-article-hub-pages-narrow-vs-full.test.ts meaningful: it
+// compares the package's narrowed renderer against this repo's full-build
+// emitter, and would become a vacuous self-comparison if both sides ran the
+// same code. The test IS the guard on the narrowing.
+export {
+  renderArticleHubPages,
+  type RenderArticleHubPagesOptions,
+  type RenderArticleHubPagesResult,
+} from '../packages/articles/engine/articleHubPagesPlugin';
 
 /**
  * Emits all 4 hub families × 4 locales × all paginated pages to dist/.
