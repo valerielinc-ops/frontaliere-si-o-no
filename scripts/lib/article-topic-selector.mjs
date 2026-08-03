@@ -981,15 +981,57 @@ export function loadEvergreenRejectedTracker(opts = {}) {
   const path = (opts && opts.path) || EVERGREEN_REJECTED_PATH;
   const raw = loadJsonSafe(path);
   if (!raw || typeof raw !== 'object' || !Array.isArray(raw.keywords)) {
-    return { keywords: [] };
+    return { keywords: [], strikes: {} };
   }
-  return { keywords: raw.keywords.filter((x) => typeof x === 'string') };
+  // `strikes` is additive: a file written before it existed simply has none,
+  // and one written with it stays readable by an older build, which ignores it.
+  const strikes = {};
+  if (raw.strikes && typeof raw.strikes === 'object') {
+    for (const [k, v] of Object.entries(raw.strikes)) {
+      if (typeof k === 'string' && Number.isInteger(v) && v > 0) strikes[k] = v;
+    }
+  }
+  return { keywords: raw.keywords.filter((x) => typeof x === 'string'), strikes };
 }
+
+/**
+ * Strikes before a keyword stops being offered. Three, not one: quality
+ * rejects are partly LLM variance, so a single bad draft must not retire a
+ * good topic (that is why quality rejects were excluded from the permanent
+ * ban in the first place). Three consecutive failures is no longer variance.
+ */
+export const EVERGREEN_STRIKE_LIMIT = 3;
 
 /** Whether `keyword` was already confirmed a duplicate in a previous run. */
 export function isEvergreenRejected(tracker, keyword) {
   if (!tracker || !Array.isArray(tracker.keywords) || !keyword) return false;
-  return tracker.keywords.includes(keyword);
+  if (tracker.keywords.includes(keyword)) return true;
+  // Strike-limited backoff. A keyword whose gates never converge used to be
+  // re-picked on every cron slot forever: it is not a duplicate and not a
+  // topic-gate abort, so nothing recorded it, and it burned the entire run
+  // each time. That is what stopped article production between 2026-07-30 and
+  // 2026-08-03 — the same tax keyword was selected, failed the source-fidelity
+  // gate through all six attempts, and came back 30 minutes later.
+  const n = tracker.strikes?.[keyword];
+  return Number.isInteger(n) && n >= EVERGREEN_STRIKE_LIMIT;
+}
+
+/**
+ * Record one non-fatal failure for `keyword`. Pure — caller persists. Unlike
+ * `appendEvergreenRejected` this does not retire the keyword outright; it
+ * retires only once `EVERGREEN_STRIKE_LIMIT` is reached.
+ */
+export function strikeEvergreenKeyword(tracker, keyword, opts = {}) {
+  const keywords = Array.isArray(tracker?.keywords) ? tracker.keywords.slice() : [];
+  const strikes = { ...(tracker?.strikes || {}) };
+  if (!keyword) return { keywords, strikes };
+  strikes[keyword] = (strikes[keyword] || 0) + 1;
+  // Bounded like `keywords`, and by the same FIFO rule, so a long-lived repo
+  // cannot grow this map without limit.
+  const maxIds = (opts && opts.maxIds) || EVERGREEN_REJECTED_MAX_IDS;
+  const over = Object.keys(strikes).length - maxIds;
+  if (over > 0) for (const k of Object.keys(strikes).slice(0, over)) delete strikes[k];
+  return { keywords, strikes };
 }
 
 /**
@@ -1002,7 +1044,7 @@ export function appendEvergreenRejected(tracker, keyword, opts = {}) {
   const keywords = Array.isArray(tracker?.keywords) ? tracker.keywords.slice() : [];
   if (keyword && !keywords.includes(keyword)) keywords.push(keyword);
   while (keywords.length > maxIds) keywords.shift();
-  return { keywords };
+  return { keywords, strikes: { ...(tracker?.strikes || {}) } };
 }
 
 /** Persist the evergreen-rejected tracker to disk. */
@@ -1012,7 +1054,10 @@ export function persistEvergreenRejectedTracker(tracker, opts = {}) {
     mkdirSync(dirname(path), { recursive: true });
     writeFileSync(
       path,
-      JSON.stringify({ keywords: Array.isArray(tracker?.keywords) ? tracker.keywords : [] }, null, 2) + '\n',
+      JSON.stringify({
+        keywords: Array.isArray(tracker?.keywords) ? tracker.keywords : [],
+        strikes: (tracker && typeof tracker.strikes === 'object' && tracker.strikes) || {},
+      }, null, 2) + '\n',
       'utf-8',
     );
     return true;
