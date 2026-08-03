@@ -103,6 +103,22 @@ export interface SiteShellContract {
   asyncCssLink: (href: string) => string;
   asyncCssFallbackScript: string;
   esc: (s: string) => string;
+  /** Full `<head>` CSS block (preload + noscript fallback) for a hub page. */
+  asyncCssHeadBlock: (entryCss?: string) => string;
+  /** The SPA root element + hydration placeholders a static page must carry. */
+  rootShell: (hasSpaBundle: boolean) => string;
+
+  // build-plugins/shared/railGutters.ts
+  railGutters: (enabled: boolean) => { open: string; close: string };
+
+  // build-plugins/shared/buildDayStamp.ts — day-granularity build stamp. Must
+  // come from the host: `dateModified` has to agree with what the full build
+  // emits for the same page, or every fast-published archive page differs from
+  // its next full-build rewrite by one JSON-LD field.
+  buildDayStampIso: () => string;
+
+  // build-plugins/shared/stripLiteralMarkdown.ts
+  stripLiteralMarkdown: (s: string) => string;
 
   // build-plugins/batchWrite.ts
   WriteCollector: ArticleWriteCollectorCtor;
@@ -157,6 +173,16 @@ export interface SiteShellContract {
   // build-plugins/seoHubsData.ts
   hubLocales: readonly ArticleLocale[];
   articlesPageSize: number;
+  /**
+   * Canonical page-1 path of the FRONTALIERE article archive per locale —
+   * `HUB_SLUGS[locale].articlesAll`. Supplied by the host rather than derived
+   * here because upstream builds it from `SLUG_TABLES[locale].blog` (a ~590-line
+   * site route table) crossed with `HUB_SLUG_BY_LOCALE[locale].tutti`; re-deriving
+   * it in this package would either duplicate that table or silently drift from
+   * it. The svizzera section's equivalent IS derived locally, from
+   * `ARTICLE_SECTIONS.svizzera.indexSlug`, which this package already owns.
+   */
+  articlesAllPaths: Record<ArticleLocale, string>;
 
   // build-plugins/blogContextualLinksData.ts
   contextualLinkRules: Record<ArticleLocale, readonly ArticleContextualLinkRule[]>;
