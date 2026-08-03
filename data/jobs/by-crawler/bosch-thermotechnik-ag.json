@@ -1,6 +1,6 @@
 {
   "crawlerKey": "bosch-thermotechnik-ag",
-  "assembledAt": "2026-08-03T12:37:07.410Z",
+  "assembledAt": "2026-08-03T22:21:58.293Z",
   "jobs": [
     {
       "title": "Lehrstelle Kaufmann-/frau EFZ/M 2027 (m/w/div.)",
@@ -44,14 +44,6 @@
         "fr": "lehrstelle-kaufmann-frau-efz-m-2027-m-w-div-bosch-buttikon"
       },
       "id": "bosch-thermotechnik-ag-866a26f99bcd",
-      "previousSlugsByLocale": {
-        "it": [
-          "lehrstelle-kaufmann-frau-efz-m-2027-m-w-div-bosch-buttikon"
-        ]
-      },
-      "previousSlugs": [
-        "lehrstelle-kaufmann-frau-efz-m-2027-m-w-div-bosch-buttikon"
-      ],
       "salaryMin": 58500,
       "salaryMax": 89500,
       "currency": "CHF",
@@ -65,7 +57,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-03T12:37:07.409Z"
+      "firstSeenAt": "2026-08-03T12:37:07.409Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "lehrstelle-kaufmann-frau-efz-m-2027-m-w-div-bosch-buttikon"
+        ]
+      },
+      "previousSlugs": [
+        "lehrstelle-kaufmann-frau-efz-m-2027-m-w-div-bosch-buttikon"
+      ]
     },
     {
       "title": "Logistiker 100% (w/m/div.) - REF292961C",
@@ -588,7 +588,8 @@
         "apprendistato-kauffrau-kaufmann-ref279222f-bosch-thermotechnik-ag-st-niklaus",
         "lehrstelle-kauffrau-kaufmann-ref279222f-bosch-st-niklaus",
         "lehrstelle-kauffrau-kaufmann-2027-ref289852b-bosch-st-niklaus"
-      ]
+      ],
+      "needsRetranslation": true
     }
   ]
 }
