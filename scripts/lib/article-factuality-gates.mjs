@@ -995,6 +995,18 @@ export const KNOWN_INSTITUTION_ACRONYMS = new Set([
   'SMPA',     // Swiss Music Promoters Association — smpa.ch
   'FIBL',     // FiBL, Istituto di ricerca dell'agricoltura biologica — fibl.org
   'NIA',      // National Immigration Administration (Cina) — en.nia.gov.cn
+  // 2026-08-03. Added when extractSourceAnchors switched to judging the SOURCE
+  // against this set: these appear in frontalieri tax/social-security sources
+  // constantly and were absent, so they would have silently stopped being
+  // required anchors. Each meets the entry criterion above — the body or scheme
+  // publishes under this acronym.
+  'IPG',      // Indennità di perdita di guadagno (CH) — the I of AVS/AI/IPG
+  'CAF',      // Centro di assistenza fiscale (IT)
+  'ISEE',     // Indicatore della situazione economica equivalente (IT)
+  'TFR',      // Trattamento di fine rapporto (IT)
+  'CCNL',     // Contratto collettivo nazionale di lavoro (IT)
+  'AIRE',     // Anagrafe degli italiani residenti all'estero (IT)
+  'ANF',      // Assegno per il nucleo familiare (IT, INPS)
 ]);
 
 /**
@@ -1452,9 +1464,39 @@ export function extractSourceAnchors(sourceText) {
   for (const m of sourceText.matchAll(DATE_IT_RE)) {
     anchors.add(`date:${m[3]}-${String(MONTHS_IT[m[2].toLowerCase()]).padStart(2, '0')}-${String(Number(m[1])).padStart(2, '0')}`);
   }
-  // Institution / organisation acronyms actually present in the source
+  // Institution / organisation acronyms actually present in the source.
+  //
+  // ALLOW-LIST, not deny-list. The deny-list version of this loop is what
+  // stalled generation from 2026-07-30 to 2026-08-03. `[A-Z]{3,8}` minus
+  // STOP_TOKENS harvests every all-caps word, and an evergreen SEO brief is
+  // full of all-caps EMPHASIS rather than acronyms — so on the frontalieri
+  // tax brief it produced, alongside 14 genuine bodies, these eight required
+  // "facts": ARTICOLO and SEO (from the brief's own `[ARTICOLO EVERGREEN SEO]`
+  // header), SOLO and MAI (from «trattenuta SOLO in Svizzera (MAI "in entrambi
+  // i paesi")»), NON (from «(NON 2026)»), VALIDI (from «Acronimi/enti VALIDI»),
+  // GENNAIO (a month), and IPG.
+  //
+  // Those are structurally unsatisfiable: no article will ever contain "VALIDI"
+  // as an entity, let alone reproduce a prompt header. They sat permanently in
+  // the denominator and permanently outside the numerator, pinning recall below
+  // the 50% gate no matter how faithful the draft was — measured at 16% then
+  // 43% on successive attempts of run 30784967708, never passing. The retry
+  // loop then burned all six attempts and the job was hard-killed at 2400s with
+  // no article. Worse, `source-fidelity-low`'s remediation quotes the missing
+  // anchors back to the writer, so the gate was actively instructing the model
+  // to insert the word "VALIDI" into a tax article.
+  //
+  // KNOWN_INSTITUTION_ACRONYMS is already this module's authority on what is a
+  // real body — checkFabricatedInstitutionAcronyms judges the ARTICLE against
+  // it. Judging the SOURCE against the same list is the consistent rule, and it
+  // fails safe: an unlisted acronym stops being a *required* anchor instead of
+  // becoming an impossible one. If a real institution is being missed, the fix
+  // is to add it to that set, which improves both gates at once.
   for (const m of sourceText.matchAll(/\b([A-Z]{3,8})\b/g)) {
-    if (!STOP_TOKENS.has(m[1])) anchors.add(`org:${m[1].toUpperCase()}`);
+    const token = m[1].toUpperCase();
+    if (STOP_TOKENS.has(m[1])) continue;
+    if (!KNOWN_INSTITUTION_ACRONYMS.has(token)) continue;
+    anchors.add(`org:${token}`);
   }
   return anchors;
 }
@@ -1476,7 +1518,20 @@ export function extractSourceAnchors(sourceText) {
  */
 export function renderAnchorForPrompt(anchor) {
   const [kind, value] = String(anchor).split(':');
-  if (kind === 'pct') return `${value}%`;
+  // Italian decimal comma, because that is the ONLY form matchedAnchors()
+  // accepts: it tests `n.toString().replace('.', ',')`. This branch used to
+  // return the raw key, so the contract and every remediation asked for "5.3%"
+  // while the recall check would only ever credit "5,3%" — the identical defect
+  // the `date` branch below was already fixed for, and with the identical
+  // consequence: a writer that complied EXACTLY still failed the gate, and no
+  // retry could converge.
+  //
+  // It is invisible on whole numbers ("23".replace('.', ',') === "23"), which
+  // is why it survived: only fractional rates are affected. Run 30784967708 is
+  // the proof — across six attempts the writer recovered 18%, 23%, 35% and 43%
+  // and never once recovered 5.3%, 1.1% or 1.5%, which are exactly the three
+  // non-integer percentages in that source.
+  if (kind === 'pct') return `${Number(value).toString().replace('.', ',')}%`;
   if (kind === 'km') return `${Number(value)} km`;
   if (kind === 'date') {
     const [y, mo, d] = value.split('-');
@@ -1669,14 +1724,19 @@ export function checkSourceFidelity(articleText, sourceText, opts = {}) {
       'source-key-rates-dropped',
       'critical',
       `L'articolo ha perso ${missingPct.length}/${srcPct.length} delle percentuali della fonte `
-      + `(${missingPct.map((p) => `${p.slice(4)}%`).join(', ')}) — senza queste il dato resta incomprensibile`,
-      `percentuali fonte: ${srcPct.map((p) => `${p.slice(4)}%`).join(', ')}`,
+      // renderAnchorForPrompt, never `slice(4)`: the raw key is dot-decimal and
+      // the recall check only credits the comma form, so quoting the key here
+      // asked the writer for a string that could not satisfy the gate quoting it.
+      + `(${missingPct.map(renderAnchorForPrompt).join(', ')}) — senza queste il dato resta incomprensibile`,
+      `percentuali fonte: ${srcPct.map(renderAnchorForPrompt).join(', ')}`,
       `${missingPct.map((p) => {
         const evidence = anchorEvidence(sourceText, p);
         return evidence ? `${renderAnchorForPrompt(p)} — la fonte dice: «${evidence}»` : '';
       }).filter(Boolean).join('\n')}\n`
-      + `Reintegra nel testo le percentuali ${missingPct.map((p) => `${p.slice(4)}%`).join(' e ')} spiegando a cosa si riferiscono, `
-      + `come fa la fonte. NON rimuovere le altre cifre per "mettere a posto" l'articolo: il problema è che ne mancano, `
+      + `Reintegra nel testo le percentuali ${missingPct.map(renderAnchorForPrompt).join(' e ')} spiegando a cosa si riferiscono, `
+      + `come fa la fonte. Scrivile ESATTAMENTE nella forma indicata qui sopra: il controllo è letterale e vuole la `
+      + `virgola decimale, quindi "5,3%" conta e "5.3%" no — anche se la fonte usa il punto. `
+      + `NON rimuovere le altre cifre per "mettere a posto" l'articolo: il problema è che ne mancano, `
       + `non che ce ne siano troppe. Un'aliquota citata senza il suo termine di paragone è incomprensibile per il lettore.`,
     ));
   }
@@ -1689,7 +1749,9 @@ export function checkSourceFidelity(articleText, sourceText, opts = {}) {
       'critical',
       `L'articolo conserva solo ${found.size}/${anchors.size} dei fatti verificabili della fonte `
       + `(recall ${(recall * 100).toFixed(0)}% < ${(minRecall * 100).toFixed(0)}%) — omissioni critiche`,
-      `mancanti: ${missing.slice(0, 12).join(', ')}`,
+      // Rendered, not raw keys: `evidence` is echoed to the writer too, and a
+      // raw `pct:5.3` / `date:2024-01-01` names a string the gate would refuse.
+      `mancanti: ${missing.slice(0, 12).map(renderAnchorForPrompt).join(', ')}`,
       // renderAnchorForPrompt, not a local copy: the `date` branch here used to
       // return the raw key, so this instruction asked for "2023-07-17" while
       // matchedAnchors only ever accepts "17 luglio 2023" — a writer that
@@ -1699,8 +1761,17 @@ export function checkSourceFidelity(articleText, sourceText, opts = {}) {
       // Each missing anchor ships with the source sentence that carries it, so
       // the writer reinstates the fact by reusing verified material instead of
       // recalling it (see anchorEvidence).
-      `Riscrivi ATTENENDOTI alla fonte e reintegra i dati mancanti. `
-      + `Per ognuno hai qui sotto la frase della fonte da cui ricavarlo — riusala, non ricostruirla a memoria:\n`
+      // How many more are actually needed to clear the gate, not just "you
+      // failed". A writer told only "recall 43% < 50%" cannot tell whether it
+      // needs one more fact or fifteen, and across six attempts it has no way
+      // to see whether it is converging. Naming the shortfall turns the gate
+      // from a verdict into an instruction with a finish line.
+      `Ne mancano ${Math.max(1, Math.ceil(anchors.size * minRecall) - found.size)} per superare il controllo `
+      + `(ne servono ${Math.ceil(anchors.size * minRecall)} su ${anchors.size}, adesso ne hai ${found.size}). `
+      + `Riscrivi ATTENENDOTI alla fonte e reintegra i dati mancanti. `
+      + `Per ognuno hai qui sotto la frase della fonte da cui ricavarlo — riusala, non ricostruirla a memoria. `
+      + `Scrivi ogni dato nella forma ESATTA indicata qui sotto: il controllo è letterale, `
+      + `quindi "5,3%" conta e "5.3%" no, "1 gennaio 2024" conta e "2024-01-01" no.\n`
       + `${missing.slice(0, 10).map((a) => {
         const label = renderAnchorForPrompt(a);
         const evidence = anchorEvidence(sourceText, a);

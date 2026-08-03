@@ -27,6 +27,8 @@ const {
   loadEvergreenRejectedTracker,
   isEvergreenRejected,
   appendEvergreenRejected,
+  strikeEvergreenKeyword,
+  EVERGREEN_STRIKE_LIMIT,
   persistEvergreenRejectedTracker,
   RANKER_MIN_SCORE,
   EXPERIMENTAL_RATIO_DEFAULT,
@@ -410,7 +412,7 @@ describe('experimental counter', () => {
 
 describe('evergreen-rejected tracker (#3138)', () => {
   it('returns {keywords:[]} when missing', () => {
-    expect(loadEvergreenRejectedTracker({ path: join(workDir, 'missing.json') })).toEqual({ keywords: [] });
+    expect(loadEvergreenRejectedTracker({ path: join(workDir, 'missing.json') })).toEqual({ keywords: [], strikes: {} });
   });
 
   it('isEvergreenRejected is false for an unseen keyword', () => {
@@ -439,7 +441,51 @@ describe('evergreen-rejected tracker (#3138)', () => {
     const p = join(workDir, 'rejected.json');
     const tracker = appendEvergreenRejected({ keywords: [] }, 'kw-x');
     persistEvergreenRejectedTracker(tracker, { path: p });
-    expect(loadEvergreenRejectedTracker({ path: p })).toEqual({ keywords: ['kw-x'] });
+    expect(loadEvergreenRejectedTracker({ path: p })).toEqual({ keywords: ['kw-x'], strikes: {} });
+  });
+
+  // ── Strike-limited backoff (2026-08-03) ─────────────────────────
+  //
+  // Quality rejects were deliberately never recorded here, on the grounds that
+  // LLM variance makes them transient. True for one draft, wrong as a policy:
+  // a keyword whose gates never converge is not a duplicate and not a
+  // topic-gate abort, so nothing retired it, and it was re-picked on every
+  // cron slot — burning the whole 40-minute run each time. Article output went
+  // from ~16/day to zero between 2026-07-30 and 2026-08-03 that way.
+  it('strikes do not retire a keyword before the limit', () => {
+    let tracker = { keywords: [], strikes: {} };
+    for (let i = 1; i < EVERGREEN_STRIKE_LIMIT; i++) {
+      tracker = strikeEvergreenKeyword(tracker, 'kw-flaky');
+      expect(isEvergreenRejected(tracker, 'kw-flaky')).toBe(false);
+    }
+    tracker = strikeEvergreenKeyword(tracker, 'kw-flaky');
+    expect(isEvergreenRejected(tracker, 'kw-flaky')).toBe(true);
+  });
+
+  it('strikes are per-keyword and survive a persist/reload round trip', () => {
+    const p = join(workDir, 'strikes.json');
+    let tracker = { keywords: [], strikes: {} };
+    for (let i = 0; i < EVERGREEN_STRIKE_LIMIT; i++) tracker = strikeEvergreenKeyword(tracker, 'kw-doomed');
+    tracker = strikeEvergreenKeyword(tracker, 'kw-unlucky');
+    persistEvergreenRejectedTracker(tracker, { path: p });
+    const reloaded = loadEvergreenRejectedTracker({ path: p });
+    expect(isEvergreenRejected(reloaded, 'kw-doomed')).toBe(true);
+    expect(isEvergreenRejected(reloaded, 'kw-unlucky')).toBe(false);
+  });
+
+  it('reads a pre-strikes file written by an older build', () => {
+    const p = join(workDir, 'legacy.json');
+    writeFileSync(p, JSON.stringify({ keywords: ['kw-banned'] }), 'utf-8');
+    const t = loadEvergreenRejectedTracker({ path: p });
+    expect(t).toEqual({ keywords: ['kw-banned'], strikes: {} });
+    expect(isEvergreenRejected(t, 'kw-banned')).toBe(true);
+  });
+
+  it('banning a keyword keeps the strike counts of the others', () => {
+    let tracker = strikeEvergreenKeyword({ keywords: [], strikes: {} }, 'kw-flaky');
+    tracker = appendEvergreenRejected(tracker, 'kw-dup');
+    expect(tracker.keywords).toEqual(['kw-dup']);
+    expect(tracker.strikes['kw-flaky']).toBe(1);
   });
 
   it('does not mutate the input tracker (pure)', () => {
