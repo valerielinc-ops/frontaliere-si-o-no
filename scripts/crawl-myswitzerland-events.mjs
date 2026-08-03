@@ -93,6 +93,12 @@ const FETCH_TIMEOUT_MS = 20000;
 const ALGOLIA_DELAY_MS = 120; // between Algolia queries (index enumeration)
 const DETAIL_DELAY_MS = 500; // between myswitzerland.com origin detail-page fetches
 const RUN_BUDGET_MS = Number(process.env.MYSWITZERLAND_CRAWL_BUDGET_MS) || 8 * 60_000; // per-run wall-clock cap
+// Caps the locale-fallback translation pass that runs AFTER the visit loop.
+// RUN_BUDGET_MS never covered it, so the process routinely outlived its stated
+// budget by ~18min and was killed by crawl-events.yml's timeout-minutes before
+// it could save the checkpoint or the slice — see the note on
+// enrichEventsWithLocaleFallbackTranslations in lib/events-utils.mjs.
+const TRANSLATE_BUDGET_MS = Number(process.env.MYSWITZERLAND_TRANSLATE_BUDGET_MS) || 4 * 60_000;
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
@@ -563,7 +569,9 @@ async function main() {
   // translated it) instead of a missing locale — fill those gaps via the
   // free-translate.mjs cascade, same disk cache as crawl-tio-agenda.mjs.
   const translationCache = loadEventTitleTranslationCache();
-  const translatedEvents = await enrichEventsWithLocaleFallbackTranslations(events, translationCache);
+  const translatedEvents = await enrichEventsWithLocaleFallbackTranslations(events, translationCache, {
+    deadline: Date.now() + TRANSLATE_BUDGET_MS,
+  });
   const titleFilled = translatedEvents.filter((e) => e.titleByLocale && LOCALES.every((l) => e.titleByLocale[l])).length;
   console.log(`[myswitzerland] locale-fallback translation: ${titleFilled}/${translatedEvents.length} event(s) now have title in all ${LOCALES.length} locales`);
 

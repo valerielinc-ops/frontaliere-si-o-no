@@ -630,3 +630,155 @@ successful deploy publishes it. It is currently the *only* reason both nanako CI
 Note that `public/data/border-wait-averages.json` is 404 on the CDN for the same reason, which
 means §0bis.1's "that is what makes the rewire real rather than aspirational" is not yet true in
 production either — it will be after the same deploy.
+
+## 9. Post-cutover verification (2026-08-03), measured
+
+Cutover completed 2026-08-02. Everything below was established by reading run logs and by
+executing the code, not by reading it. Where the working assumption was wrong, that is recorded
+rather than quietly corrected — the wrong assumption is the useful part.
+
+### 9.1 §8.4 has cleared
+
+`cdn.frontaliereticino.ch/data/border-wait-ranking-window.json` now returns **200** (32088 bytes).
+The deploy §8.4 was waiting for has run. Both nanako gates that depended on it are unblocked, and
+`border-wait` is no longer blocked on (a).
+
+Correction to a wrong host assumption that cost time here: `public/data/**` is served **only**
+from `cdn.frontaliereticino.ch`, never from the apex. The apex 404s every file in that directory,
+including ones committed for months (`fuel-prices.json`, `border-wait-averages.json`). Probing the
+apex and concluding "the deploy is broken" is a false negative. Both fetchers already try the CDN
+first, so this affects diagnosis only, not production.
+
+### 9.2 `generate-border-wait-ranking-weekly` — registered and working, schedule merely late
+
+Cron `50 4 * * 1`; at 06:05Z Monday, zero scheduled runs, and it is the only producer never to
+have executed for real. Three findings, in the order they overturn the obvious reading:
+
+1. **Not a registration failure.** A `workflow_dispatch` (run 30788999719) was accepted and ran
+   green through every step: window fetch (the hard gate), article body render, snapshot JSON.
+   Only the commit steps were skipped, because the dispatch was `dry_run: true`. The workflow is
+   registered, dispatchable, and correct.
+2. **Not a nanako-wide cron problem.** Every other schedule in the repo delivers —
+   `generate-article` 26 runs, `publish-journalist-articles` 11, `batch-faq-articles` 6.
+3. **It is GitHub scheduler skew.** Measured on this repo the same morning: `batch-faq-articles`
+   is `30 0 * * *` and fired at **04:06Z — 3h36m late**. `generate-article`'s `:07`/`:37` slots
+   land anywhere from `:05` to `:48`. A weekly slot 1h15m overdue is well inside observed skew.
+
+So: wait, do not "fix". If the slot is still empty by ~08:30Z it was dropped rather than delayed,
+and the response is a manual `workflow_dispatch` (which is proven to work), not a code change.
+
+Consequence worth knowing: `border-wait-ranking.json` is absent from nanako's API surface (404)
+precisely because this producer has never run for real. That is handled, not broken —
+`build-api.mjs` logs `not emitted — the ranking producer has not run here yet` and the site keeps
+serving its own pre-cutover copy. The chart is frozen, not blank, and unfreezes on the first real
+run.
+
+### 9.3 `sync-articles-sitemaps` 21:58 failure — transient push contention, already self-healed
+
+Run 30769071732 failed in `Commit if changed`. The log shows **40 of 40 push attempts rejected**,
+every rebase succeeding, and `origin/main` advancing between attempts
+(`103a33c8 → 44389a65 → 11bda608 → 82fde1b5` inside seconds). Retry budget exhausted during a
+burst of concurrent pushes to main; not a migration defect and not a code defect.
+
+It self-healed as designed: runs #51 (22:45) and #52 (23:09) are green and the sitemap commit
+landed at 23:11:35 (`f2eb89a9`). The sync republishes whole from the API rather than replaying a
+delta, so a lost run costs nothing once a later one succeeds.
+
+### 9.4 `publish-api` "2 commits behind" — correct behaviour, not lag
+
+The surface sits at `48674899` while nanako's `main` is at `3adba69d`. This is right, and the
+`paths` filter is what makes it right. The two commits in between touch exactly one file each:
+
+| Commit | Files | Touches `content/**`? |
+|---|---|---|
+| `48674899` | 20 (`content/blog-body`, 4 locale metas, seo, …) | yes → published |
+| `82438be7` | 1 — `data/topic-candidates-evergreen-rejected.json` | no → correctly skipped |
+| `3adba69d` | 1 — `data/topic-candidates-evergreen-rejected.json` | no → correctly skipped |
+
+Both are runs that scanned, rejected every candidate, and recorded the rejection. No article was
+generated, so there is nothing to republish. Surface verified live: 3061 articles, 585 swiss, 5
+ticker entries, `Last-Modified: Sun, 02 Aug 2026 23:09:51 GMT` — matching `48674899` exactly.
+
+One real cosmetic defect: those commits are titled `Generate blog article (svizzera)` /
+`(frontaliere)` despite generating no article. The message is emitted unconditionally, which makes
+the log read as five successful generations where there were three. Not fixed here — it is a
+message string in nanako's producer, unrelated to this repo's change.
+
+### 9.5 `events.json` — the digest gate was right, the site never produced the file
+
+**The 404 is not a deploy problem.** `public/data/events.json` has never existed in this repo at
+any commit. `crawl-events` writes it in `assemble-events-dataset.mjs` and stages it in
+`Commit dataset` — a step the job has not reached since **2026-07-07**.
+
+Every scheduled run for at least ten consecutive days ends `cancelled` at exactly 60 minutes, in
+`Crawl myswitzerland.com (nationwide)`. The reason is not a slow crawl. From run 30738613901's log:
+
+```
+08:25:28  step starts
+08:28:00  catalog enumerated (21314 events across 4 locales)
+08:28:00  resuming from checkpoint index 1331/21314
+08:33:28  time budget (480000ms) reached after 320/21314 event(s) — stopping, will resume next run
+08:51:49  ##[error]The operation was canceled.
+```
+
+The crawler **honours its 8-minute budget and finishes its loop at 08:33:28**, then hangs for a
+further 18 minutes and is killed. What runs in that window is
+`enrichEventsWithLocaleFallbackTranslations` — a stage placed *after* the budgeted visit loop, so
+`RUN_BUDGET_MS` never covered it. It is one sequential network round trip per missing locale per
+field over every event, and it was unbounded.
+
+Everything that makes progress durable sits *after* that call: `saveCursor()`,
+`saveEventTitleTranslationCache()`, `mergeEventsIntoSlice()`. None of them ever ran. So:
+
+- the checkpoint froze at `nextIndex: 1331, updatedAt: 2026-07-07T09:16:50Z`;
+- every run re-crawled the same 320 of 21314 records and discarded them;
+- the by-source slice, the translation cache and the dataset were never written;
+- `public/data/events.json` was never created, so `refresh-events-digest` correctly stayed red.
+
+The digest's hard gate did its job: it refused to overwrite a good evergreen digest with "no
+events this weekend". The gate was never the problem.
+
+This is the **same failure mode as tio-agenda's 2026-07-03 backlog pass** (run 28683305065), one
+stage further down, and it is why raising `timeout-minutes` 35 → 60 then did not prevent it: an
+unbounded stage expands to whatever budget it is given.
+
+**Fixed** (this commit, main-side only — nanako needs no change):
+
+- `enrichEventsWithLocaleFallbackTranslations` takes an opt-in `deadline`. Past it the remaining
+  events pass through untranslated, keeping their source-locale text; gaps refill on a later run
+  from the persisted cache. Default stays unbounded, so no existing caller changes behaviour.
+- Both nationwide crawlers pass one: `MYSWITZERLAND_TRANSLATE_BUDGET_MS` /
+  `GUIDLE_TRANSLATE_BUDGET_MS`, 4 minutes each. **guidle had the same flaw** — its step measured
+  19min against an 8min budget and survived only because myswitzerland, running after it, absorbed
+  the timeout. Capping one alone just moves the overrun.
+- `crawl-events.yml` gains an `if: always()` step that commits the nationwide checkpoints, slices
+  and caches straight after the crawlers. The existing "Persist geo/translation caches" step runs
+  *before* guidle and myswitzerland, so it only ever covered tio-agenda; everything the nationwide
+  crawlers produce depended on a commit step gated behind assemble *and* the vitest gate. That is
+  how a month of crawling was lost, and it is a progress ratchet, not a deliverable — hence
+  `continue-on-error`.
+
+Measured budget after the fix: checkout ~145s + tio ~880s + guidle ~800s + myswitzerland ~870s +
+geneve + assemble + gate ~20s + commit ≈ **49 min against the 60-min cap**, versus a job that
+previously could not finish at all. `timeout-minutes` is deliberately left at 60: every stage is
+now bounded, and the new persist step means a bad week costs one run's progress instead of all of
+it.
+
+Verification actually run, not asserted:
+- 40/40 `tests/events-nationwide-sources.test.ts` (2 new: deadline mid-batch, and unbounded default).
+- 39/39 on the crawl-events gate suite (`events-pipeline`, `blog-body-typescript-syntax`).
+- Real wall-clock check, unmocked timers: 400 events × 3 gaps × 50ms = 60s of work, capped at 3s,
+  completed in 3026ms with 400/400 events returned and every source-locale string intact.
+- The real crawler, live against Algolia and myswitzerland.com:
+  `MYSWITZERLAND_TRANSLATE_BUDGET_MS=15000 node scripts/crawl-myswitzerland-events.mjs --dry-run --limit=6`
+  → budget message fires, process **exits 0** instead of hanging.
+
+### 9.6 §5.7 — `mirror-articles-corpus` deletion: not yet, earliest 2026-08-09
+
+The workflow is inert as intended: `on:` carries **only** `workflow_dispatch`; both `push` and
+`schedule` are commented out. Last run of any kind is #90, a manual dispatch at 2026-08-02T08:57Z
+during cutover; nothing since.
+
+The §5.7 criterion is holding so far — **0 commits have touched `packages/articles/` on main since
+the cutover** (queried `since=2026-08-02T11:30Z`). That is 1 day of the required 7. Re-check on or
+after 2026-08-09 with the same query; delete only if it still returns 0.

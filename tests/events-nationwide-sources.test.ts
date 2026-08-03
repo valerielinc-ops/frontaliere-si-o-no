@@ -352,4 +352,54 @@ describe('enrichEventsWithLocaleFallbackTranslations', () => {
     const out = await enrichEventsWithLocaleFallbackTranslations(events, cache, { translateFn, delayMs: 0 });
     expect(out[0].titleByLocale).toEqual({ it: 'Solo italiano' });
   });
+
+  // The stage that cancelled crawl-events daily from 2026-07-07 on. It runs
+  // AFTER each nationwide crawler's budgeted visit loop, so RUN_BUDGET_MS never
+  // bounded it; unbounded, it consumed the rest of timeout-minutes and the job
+  // died before saveCursor()/mergeEventsIntoSlice(), freezing the myswitzerland
+  // checkpoint at 1331/21314 and never producing public/data/events.json.
+  it('stops translating once the deadline passes and passes the tail through untranslated', async () => {
+    const events = [
+      { id: 'myswitzerland:a', titleByLocale: { it: 'Primo' } },
+      { id: 'myswitzerland:b', titleByLocale: { it: 'Secondo' } },
+      { id: 'myswitzerland:c', titleByLocale: { it: 'Terzo' } },
+    ];
+    const cache = {};
+    // Expires after the first event is enriched, so the deadline is crossed
+    // mid-batch rather than before the loop starts.
+    let now = 1_000;
+    const nowSpy = vi.spyOn(Date, 'now').mockImplementation(() => now);
+    const translateFn = vi.fn(async ({ targetLang }: { targetLang: string }) => {
+      now += 10;
+      return `[${targetLang}]`;
+    });
+
+    const out = await enrichEventsWithLocaleFallbackTranslations(events, cache, {
+      translateFn,
+      delayMs: 0,
+      deadline: 1_020,
+    });
+    nowSpy.mockRestore();
+
+    expect(out).toHaveLength(3); // every event still comes back
+    expect(out[0].titleByLocale).toEqual({ it: 'Primo', en: '[en]', de: '[de]', fr: '[fr]' });
+    // Tail keeps its source-locale text instead of being dropped or blanked.
+    expect(out[1].titleByLocale).toEqual({ it: 'Secondo' });
+    expect(out[2].titleByLocale).toEqual({ it: 'Terzo' });
+    expect(out[1]).not.toBe(events[1]); // still shallow-copied, not the input object
+    expect(translateFn).toHaveBeenCalledTimes(3); // only the first event's 3 gaps
+  });
+
+  it('translates the whole batch when no deadline is given (default is unbounded)', async () => {
+    const events = [
+      { id: 'guidle:6', titleByLocale: { it: 'Uno' } },
+      { id: 'guidle:7', titleByLocale: { it: 'Due' } },
+    ];
+    const cache = {};
+    const translateFn = vi.fn(async ({ targetLang }: { targetLang: string }) => `[${targetLang}]`);
+
+    const out = await enrichEventsWithLocaleFallbackTranslations(events, cache, { translateFn, delayMs: 0 });
+    expect(out[0].titleByLocale.fr).toBe('[fr]');
+    expect(out[1].titleByLocale.fr).toBe('[fr]');
+  });
 });
