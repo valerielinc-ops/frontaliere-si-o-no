@@ -1,18 +1,53 @@
 {
   "key": "lidl-svizzera",
   "label": "Lidl",
-  "generatedAt": "2026-08-02T22:00:05.393Z",
-  "total": 378,
-  "newCount": 0,
-  "updatedCount": 63,
+  "generatedAt": "2026-08-03T12:36:37.520Z",
+  "total": 379,
+  "newCount": 1,
+  "updatedCount": 64,
   "removedCount": 0,
-  "unchangedCount": 315,
-  "durationMs": 140910,
-  "avgDurationMs": 140910,
+  "unchangedCount": 314,
+  "durationMs": 183889,
+  "avgDurationMs": 183889,
   "durationHistory": [
-    140910
+    183889
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "id": "company-clblww",
+      "slug": "ch-tuttofare-vendita-m-w-d-20-40-lidl-svizzera-sant-antonino",
+      "company": "Lidl Svizzera",
+      "title": "CH_ Tuttofare vendita (m/f/d) 20-40% — Sant'Antonino",
+      "location": "Sant'Antonino",
+      "canton": "TI",
+      "category": "sales",
+      "contract": "part-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-03",
+      "url": "https://team.lidl.ch/it/jobs/ch-tuttofare-vendita-m-f-d-20-40-sant-antonino-674975",
+      "source": "Company Careers Crawler",
+      "_targetScope": {
+        "type": "adapter_seed_meta",
+        "location": "Sant'Antonino",
+        "canton": "TI"
+      },
+      "companyKey": "lidl-svizzera",
+      "companyDomain": "lidl.ch",
+      "crawledAt": "2026-08-03T12:36:28.635Z",
+      "firstSeenAt": "2026-08-03T12:36:28.635Z",
+      "needsRetranslation": true,
+      "country": "CH",
+      "sourceLang": "it",
+      "_qualityScore": 79,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 25,
+        "translation": 15,
+        "completeness": 14
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "id": "company-rvoh8q",
@@ -35,7 +70,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-08-02T21:59:57.393Z",
+      "crawledAt": "2026-08-03T12:36:28.635Z",
       "firstSeenAt": "2026-07-29T11:43:30.548Z",
       "country": "CH",
       "sourceLang": "it",
@@ -81,6 +116,8 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
+      "salaryMin": 23600,
+      "salaryMax": 36200,
       "needsRetranslation": true,
       "_qualityScore": 94,
       "_qualityBreakdown": {
@@ -121,6 +158,8 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
+      "salaryMin": 23600,
+      "salaryMax": 36200,
       "needsRetranslation": true,
       "_qualityScore": 95,
       "_qualityBreakdown": {

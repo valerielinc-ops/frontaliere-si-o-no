@@ -15,7 +15,7 @@
     "https://jobs.ruag.ch/offene-stellen/professional-ict-architect/d4302aa0-afaa-4a3c-81c4-e6e41ab1de92",
     "https://jobs.ruag.ch/offene-stellen/lehrstelle-als-automatiker-in-efz-2027/e5115d98-fabd-4c70-b86f-8ec2c4dd88bb",
     "https://jobs.ruag.ch/offene-stellen/lehrstelle-als-elektroniker-in-efz-2027/b10df6a2-4457-493a-8064-60fdb52f30b1",
-    "https://jobs.ruag.ch/offene-stellen/gebaeude-und-elektrotechnik-spezialistin/10071ee0-626c-4b21-bd91-04a5469914e0",
+    "https://jobs.ruag.ch/offene-stellen/facility-manager-gebaeude-elektrotechnik/10071ee0-626c-4b21-bd91-04a5469914e0",
     "https://jobs.ruag.ch/offene-stellen/ai-engineer-c5i/4afaa9aa-74c1-4b4d-9232-cf65651ce8ec",
     "https://jobs.ruag.ch/offene-stellen/software-engineer-c5i/ec08db9a-3b4f-4aad-8eb5-6134c5e87458",
     "https://jobs.ruag.ch/offene-stellen/technische-r-projektleiterin/813e247b-c8af-4618-b5b0-d520dfbbbd75",
@@ -27,7 +27,6 @@
     "https://jobs.ruag.ch/offene-stellen/strategische-r-einkaeuferin-immobilien-bauleistungen-generalplaner-generalunternehmer/ca1d5908-4c07-4867-b18c-55448e525188",
     "https://jobs.ruag.ch/offene-stellen/risk-management-assistant/6660c90c-99fd-4df4-9435-c85c586a76a6",
     "https://jobs.ruag.ch/offene-stellen/gebaeudetechnikerin-sanitaer-heizungsinstallateurin/63ae7f4e-efa5-4ba3-ba28-f9dd8a26dbb7",
-    "https://jobs.ruag.ch/offene-stellen/principal-cyber-security-c5i/0a59f7e8-c226-4939-9dcb-e52d75ce0ab6",
     "https://jobs.ruag.ch/offene-stellen/head-of-corporate-security-west/3f23481b-bf84-4825-ae03-40fd071ea03c",
     "https://jobs.ruag.ch/offene-stellen/head-of-corporate-security-east/c99ccd4e-01b2-4069-8107-74f4247c4f93",
     "https://jobs.ruag.ch/offene-stellen/head-of-corporate-security-governance/dbc78305-e271-4052-9d9c-9d411ccc27f0",
@@ -71,7 +70,7 @@
     "https://jobs.ruag.ch/offene-stellen/lehrstelle-als-informatiker-in-efz-plattformentwicklung-2027/6d6f25f0-2262-4a3d-a7fe-5c7f598981a2"
   ],
   "notes": "Dedicated RUAG crawler uses official jobs.ruag.ch detail pages and recursive discovery from internal similar-job links because the public listing often returns 400.",
-  "updatedAt": "2026-08-02T22:09:36.170Z",
+  "updatedAt": "2026-08-03T12:57:32.139Z",
   "seedMetaByUrl": {
     "https://jobs.ruag.ch/offene-stellen/facility-manager-technics-betriebselektrikerin/190b7508-d7e8-403d-b49f-7c2f57a59965": {
       "location": "Altdorf",
@@ -103,7 +102,7 @@
       "company": "RUAG AG",
       "postedDate": "2026-06-23"
     },
-    "https://jobs.ruag.ch/offene-stellen/gebaeude-und-elektrotechnik-spezialistin/10071ee0-626c-4b21-bd91-04a5469914e0": {
+    "https://jobs.ruag.ch/offene-stellen/facility-manager-gebaeude-elektrotechnik/10071ee0-626c-4b21-bd91-04a5469914e0": {
       "location": "Emmen",
       "canton": "LU",
       "company": "RUAG AG",
@@ -174,12 +173,6 @@
       "canton": "LU",
       "company": "RUAG AG",
       "postedDate": "2026-04-21"
-    },
-    "https://jobs.ruag.ch/offene-stellen/principal-cyber-security-c5i/0a59f7e8-c226-4939-9dcb-e52d75ce0ab6": {
-      "location": "Thun",
-      "canton": "BE",
-      "company": "RUAG AG",
-      "postedDate": "2026-03-27"
     },
     "https://jobs.ruag.ch/offene-stellen/head-of-corporate-security-west/3f23481b-bf84-4825-ae03-40fd071ea03c": {
       "location": "Bern",

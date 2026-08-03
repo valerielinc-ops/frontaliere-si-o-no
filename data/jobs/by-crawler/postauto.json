@@ -1,6 +1,6 @@
 {
   "crawlerKey": "postauto",
-  "assembledAt": "2026-08-02T22:10:06.907Z",
+  "assembledAt": "2026-08-03T12:39:48.768Z",
   "jobs": [
     {
       "id": "postauto-e2b4d6d8873a",
@@ -33,7 +33,7 @@
       "url": "https://job.post.ch/default/job/PostAuto-Fahrerin/74278-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-02T22:10:03.855Z",
+      "crawledAt": "2026-08-03T12:39:46.357Z",
       "addressLocality": "Chur",
       "addressRegion": "GR",
       "streetAddress": "",
@@ -60,7 +60,8 @@
         "postauto-fahrer-in-post",
         "pilote-postbus-in-postauto-chur",
         "autista-postbus-postauto-ag-chur",
-        "postbus-driver-in-postauto-ag-chur-egmnfn"
+        "postbus-driver-in-postauto-ag-chur-egmnfn",
+        "postbus-driver-in-postauto-ag-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -69,7 +70,8 @@
           "postauto-fahrer-in-post",
           "pilote-postbus-in-postauto-chur",
           "autista-postbus-postauto-ag-chur",
-          "postbus-driver-in-postauto-ag-chur-egmnfn"
+          "postbus-driver-in-postauto-ag-chur-egmnfn",
+          "postbus-driver-in-postauto-ag-chur"
         ],
         "en": [
           "postauto-fahrer-in-postauto-chur",
@@ -81,6 +83,7 @@
         ]
       },
       "firstSeenAt": "2026-07-07T12:15:02.400Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -125,7 +128,7 @@
       "url": "https://job.post.ch/default/job/Ticketkontrolleurin-und-Kundenberatung/74268-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-02T22:10:02.425Z",
+      "crawledAt": "2026-08-03T12:39:45.050Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "streetAddress": "",
@@ -174,6 +177,7 @@
         ]
       },
       "firstSeenAt": "2026-07-07T12:15:00.874Z",
+      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -192,7 +196,7 @@
       "slug": "postbus-driver-in-postauto-trimmis",
       "slugByLocale": {
         "it": "postbus-driver-in-postauto-trimmis",
-        "en": "postauto-fahrer-in-post",
+        "en": "postbus-driver-in-postauto-ag-trimmis",
         "de": "postauto-fahrer-in-postauto-trimmis",
         "fr": "pilote-postbus-in-postauto-trimmis"
       },
@@ -218,7 +222,7 @@
       "url": "https://job.post.ch/default/job/PostAuto-Fahrerin/74276-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-02T22:10:00.969Z",
+      "crawledAt": "2026-08-03T12:39:43.762Z",
       "addressLocality": "Trimmis",
       "addressRegion": "GR",
       "streetAddress": "",
@@ -242,15 +246,19 @@
       "previousSlugs": [
         "postauto-fahrer-in-postauto-trimmis",
         "pilote-postbus-in-postauto-ag-trimmis",
-        "postbus-driver-in-postauto-ag-trimmis"
+        "postbus-driver-in-postauto-ag-trimmis",
+        "postauto-fahrer-in-post",
+        "postbus-driver-in-postauto-trimmis"
       ],
       "previousSlugsByLocale": {
         "it": [
           "postauto-fahrer-in-postauto-trimmis",
-          "postbus-driver-in-postauto-ag-trimmis"
+          "postbus-driver-in-postauto-ag-trimmis",
+          "postbus-driver-in-postauto-trimmis"
         ],
         "en": [
           "postauto-fahrer-in-postauto-trimmis",
+          "postauto-fahrer-in-post",
           "postbus-driver-in-postauto-ag-trimmis"
         ],
         "fr": [
@@ -259,6 +267,7 @@
         ]
       },
       "firstSeenAt": "2026-07-07T12:14:59.372Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -303,7 +312,7 @@
       "url": "https://job.post.ch/default/job/PostAuto-Fahrerin/74275-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-02T22:09:59.511Z",
+      "crawledAt": "2026-08-03T12:39:42.451Z",
       "addressLocality": "Lenzerheide/Lai",
       "addressRegion": "GR",
       "streetAddress": "",
@@ -325,11 +334,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "postauto-fahrer-in-postauto-lenzerheide-lai"
+        "postauto-fahrer-in-postauto-lenzerheide-lai",
+        "postbus-driver-in-postauto-ag-lenzerheide-lai"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "postauto-fahrer-in-postauto-lenzerheide-lai"
+          "postauto-fahrer-in-postauto-lenzerheide-lai",
+          "postbus-driver-in-postauto-ag-lenzerheide-lai"
         ],
         "en": [
           "postauto-fahrer-in-postauto-lenzerheide-lai"
@@ -339,6 +350,7 @@
         ]
       },
       "firstSeenAt": "2026-07-07T12:14:57.973Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -357,7 +369,7 @@
       "slug": "postbus-driver-in-postauto-schiers",
       "slugByLocale": {
         "it": "postbus-driver-in-postauto-schiers",
-        "en": "postauto-fahrer-in-post",
+        "en": "postbus-driver-in-postauto-ag-schiers",
         "de": "postauto-fahrer-in-postauto-schiers",
         "fr": "pilote-postbus-in-postauto-schiers"
       },
@@ -383,7 +395,7 @@
       "url": "https://job.post.ch/default/job/PostAuto-Fahrerin/74280-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-02T22:09:58.003Z",
+      "crawledAt": "2026-08-03T12:39:41.135Z",
       "addressLocality": "Schiers",
       "addressRegion": "GR",
       "streetAddress": "",
@@ -407,15 +419,19 @@
       "previousSlugs": [
         "postauto-fahrer-in-postauto-schiers",
         "pilote-postbus-in-postauto-ag-schiers",
-        "postbus-driver-in-postauto-ag-schiers"
+        "postbus-driver-in-postauto-ag-schiers",
+        "postauto-fahrer-in-post",
+        "postbus-driver-in-postauto-schiers"
       ],
       "previousSlugsByLocale": {
         "it": [
           "postauto-fahrer-in-postauto-schiers",
-          "postbus-driver-in-postauto-ag-schiers"
+          "postbus-driver-in-postauto-ag-schiers",
+          "postbus-driver-in-postauto-schiers"
         ],
         "en": [
           "postauto-fahrer-in-postauto-schiers",
+          "postauto-fahrer-in-post",
           "postbus-driver-in-postauto-ag-schiers"
         ],
         "fr": [
@@ -424,6 +440,7 @@
         ]
       },
       "firstSeenAt": "2026-07-07T12:14:55.757Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -468,7 +485,7 @@
       "url": "https://job.post.ch/default/job/PostAuto-Fahrerin/74291-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-02T22:09:56.580Z",
+      "crawledAt": "2026-08-03T12:39:39.804Z",
       "addressLocality": "Laax GR",
       "addressRegion": "GR",
       "streetAddress": "",
@@ -490,11 +507,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "postauto-fahrer-in-postauto-laax-gr"
+        "postauto-fahrer-in-postauto-laax-gr",
+        "postbus-driver-in-postauto-ag-laax-gr"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "postauto-fahrer-in-postauto-laax-gr"
+          "postauto-fahrer-in-postauto-laax-gr",
+          "postbus-driver-in-postauto-ag-laax-gr"
         ],
         "en": [
           "postauto-fahrer-in-postauto-laax-gr"
@@ -504,6 +523,7 @@
         ]
       },
       "firstSeenAt": "2026-07-08T22:23:45.073Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -522,7 +542,7 @@
       "slug": "postbus-driver-in-postauto-endingen",
       "slugByLocale": {
         "it": "postbus-driver-in-postauto-endingen",
-        "en": "postauto-fahrer-in-post",
+        "en": "postbus-driver-in-postauto-ag-endingen",
         "de": "postauto-fahrer-in-postauto-endingen",
         "fr": "pilote-postbus-in-postauto-endingen"
       },
@@ -548,7 +568,7 @@
       "url": "https://job.post.ch/default/job/PostAuto-Fahrerin/74294-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-02T22:09:55.107Z",
+      "crawledAt": "2026-08-03T12:39:38.501Z",
       "addressLocality": "Endingen",
       "addressRegion": "AG",
       "streetAddress": "",
@@ -572,15 +592,19 @@
       "previousSlugs": [
         "postauto-fahrer-in-postauto-endingen",
         "pilote-postbus-in-postauto-ag-endingen",
-        "postbus-driver-in-postauto-ag-endingen"
+        "postbus-driver-in-postauto-ag-endingen",
+        "postauto-fahrer-in-post",
+        "postbus-driver-in-postauto-endingen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "postauto-fahrer-in-postauto-endingen",
-          "postbus-driver-in-postauto-ag-endingen"
+          "postbus-driver-in-postauto-ag-endingen",
+          "postbus-driver-in-postauto-endingen"
         ],
         "en": [
           "postauto-fahrer-in-postauto-endingen",
+          "postauto-fahrer-in-post",
           "postbus-driver-in-postauto-ag-endingen"
         ],
         "fr": [
@@ -589,6 +613,7 @@
         ]
       },
       "firstSeenAt": "2026-07-08T22:23:43.698Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -633,7 +658,7 @@
       "url": "https://job.post.ch/default/job/PostAuto-Fahrerin/74295-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-02T22:09:53.692Z",
+      "crawledAt": "2026-08-03T12:39:37.203Z",
       "addressLocality": "Ilanz",
       "addressRegion": "GR",
       "streetAddress": "",
@@ -655,11 +680,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "postauto-fahrer-in-postauto-ilanz"
+        "postauto-fahrer-in-postauto-ilanz",
+        "postbus-driver-in-postauto-ag-ilanz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "postauto-fahrer-in-postauto-ilanz"
+          "postauto-fahrer-in-postauto-ilanz",
+          "postbus-driver-in-postauto-ag-ilanz"
         ],
         "en": [
           "postauto-fahrer-in-postauto-ilanz"
@@ -669,6 +696,7 @@
         ]
       },
       "firstSeenAt": "2026-07-09T12:19:18.739Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -687,7 +715,7 @@
       "slug": "postbus-driver-in-postauto-wilderswil",
       "slugByLocale": {
         "it": "postbus-driver-in-postauto-wilderswil",
-        "en": "postauto-fahrer-in-post",
+        "en": "postbus-driver-postauto-ag-wilderswil",
         "de": "postauto-fahrer-in-postauto-wilderswil",
         "fr": "pilote-postbus-in-postauto-wilderswil"
       },
@@ -713,7 +741,7 @@
       "url": "https://job.post.ch/default/job/PostAuto-Fahrerin/74075-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-02T22:09:52.250Z",
+      "crawledAt": "2026-08-03T12:39:35.902Z",
       "addressLocality": "Wilderswil",
       "addressRegion": "BE",
       "streetAddress": "",
@@ -736,17 +764,22 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "postauto-fahrer-in-postauto-wilderswil",
+        "postauto-fahrer-in-post",
+        "postbus-driver-in-postauto-wilderswil",
         "postbus-driver-postauto-ag-wilderswil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "postauto-fahrer-in-postauto-wilderswil"
+          "postauto-fahrer-in-postauto-wilderswil",
+          "postbus-driver-in-postauto-wilderswil"
         ],
         "en": [
+          "postauto-fahrer-in-post",
           "postbus-driver-postauto-ag-wilderswil"
         ]
       },
       "firstSeenAt": "2026-07-04T11:33:37.505Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -791,7 +824,7 @@
       "url": "https://job.post.ch/default/job/Kundenbetreuerin-Flottenmanagement-Gesch%C3%A4ftskunden/74191-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-02T22:09:50.843Z",
+      "crawledAt": "2026-08-03T12:39:34.630Z",
       "addressLocality": "Moosseedorf",
       "addressRegion": "BE",
       "streetAddress": "",
@@ -814,16 +847,21 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "kundenbetreuer-in-flottenmanagement-geschaftskunden-postauto-moosseedorf"
+          "kundenbetreuer-in-flottenmanagement-geschaftskunden-postauto-moosseedorf",
+          "kundenbetreuer-in-flottenmanagement-geschaftskunden-post"
         ],
         "it": [
-          "kundenbetreuer-in-flottenmanagement-geschaftskunden-postauto-moosseedorf"
+          "kundenbetreuer-in-flottenmanagement-geschaftskunden-postauto-moosseedorf",
+          "customer-manager-nella-gestione-della-flotta-die-schweizerische-post-moosseedorf"
         ]
       },
       "previousSlugs": [
-        "kundenbetreuer-in-flottenmanagement-geschaftskunden-postauto-moosseedorf"
+        "kundenbetreuer-in-flottenmanagement-geschaftskunden-postauto-moosseedorf",
+        "kundenbetreuer-in-flottenmanagement-geschaftskunden-post",
+        "customer-manager-nella-gestione-della-flotta-die-schweizerische-post-moosseedorf"
       ],
       "firstSeenAt": "2026-07-14T22:07:15.144Z",
+      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "baseSalary": {
@@ -868,7 +906,7 @@
       "url": "https://job.post.ch/default/job/Teamleiterin-Fahrpersonal/74343-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-02T22:09:49.415Z",
+      "crawledAt": "2026-08-03T12:39:33.343Z",
       "addressLocality": "Weinfelden",
       "addressRegion": "TG",
       "streetAddress": "",
@@ -893,12 +931,14 @@
         "teamleiter-in-fahrpersonal-postauto-weinfelden",
         "team-leader-in-driving-personnel-postauto-ag-weinfelden",
         "chef-d-equipe-dans-le-personnel-de-conduite-postauto-ag-weinfelden",
-        "team-leader-nel-personale-di-guida-postauto-ag-weinfelden"
+        "team-leader-nel-personale-di-guida-postauto-ag-weinfelden",
+        "team-leader-nel-personale-di-guida-postauto-weinfelden"
       ],
       "previousSlugsByLocale": {
         "it": [
           "teamleiter-in-fahrpersonal-postauto-weinfelden",
-          "team-leader-nel-personale-di-guida-postauto-ag-weinfelden"
+          "team-leader-nel-personale-di-guida-postauto-ag-weinfelden",
+          "team-leader-nel-personale-di-guida-postauto-weinfelden"
         ],
         "en": [
           "teamleiter-in-fahrpersonal-postauto-weinfelden",
@@ -954,7 +994,7 @@
       "url": "https://job.post.ch/default/job/PostAuto-Fahrerin/74357-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-02T22:09:47.975Z",
+      "crawledAt": "2026-08-03T12:39:32.030Z",
       "addressLocality": "Appenzell",
       "addressRegion": "AI",
       "streetAddress": "",
@@ -978,12 +1018,14 @@
       "previousSlugs": [
         "postauto-fahrer-in-postauto-appenzell",
         "pilote-postbus-in-postauto-ag-appenzell",
-        "postbus-driver-in-postauto-ag-appenzell"
+        "postbus-driver-in-postauto-ag-appenzell",
+        "postbus-driver-in-postauto-appenzell"
       ],
       "previousSlugsByLocale": {
         "it": [
           "postauto-fahrer-in-postauto-appenzell",
-          "postbus-driver-in-postauto-ag-appenzell"
+          "postbus-driver-in-postauto-ag-appenzell",
+          "postbus-driver-in-postauto-appenzell"
         ],
         "en": [
           "postauto-fahrer-in-postauto-appenzell"
@@ -994,6 +1036,7 @@
         ]
       },
       "firstSeenAt": "2026-07-21T12:32:34.703Z",
+      "needsRetranslation": true,
       "salaryMin": 65000,
       "salaryMax": 98500,
       "baseSalary": {
@@ -1038,7 +1081,7 @@
       "url": "https://job.post.ch/default/job/Co-Teamleiterin-Fahrpersonal/74379-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-02T22:09:46.494Z",
+      "crawledAt": "2026-08-03T12:39:30.742Z",
       "addressLocality": "Ilanz",
       "addressRegion": "GR",
       "streetAddress": "",
@@ -1060,11 +1103,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "co-teamleiter-in-fahrpersonal-postauto-ilanz"
+        "co-teamleiter-in-fahrpersonal-postauto-ilanz",
+        "co-team-leader-nel-personale-di-guida-postauto-ag-ilanz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "co-teamleiter-in-fahrpersonal-postauto-ilanz"
+          "co-teamleiter-in-fahrpersonal-postauto-ilanz",
+          "co-team-leader-nel-personale-di-guida-postauto-ag-ilanz"
         ],
         "en": [
           "co-teamleiter-in-fahrpersonal-postauto-ilanz"
@@ -1086,6 +1131,176 @@
           "unitText": "YEAR"
         }
       }
+    },
+    {
+      "id": "postauto-318dbdb3c660",
+      "slug": "ticketkontrolleur-in-und-kundenberatung-post",
+      "slugByLocale": {
+        "de": "ticketkontrolleur-in-und-kundenberatung-postauto-chur",
+        "it": "ticketkontrolleur-in-und-kundenberatung-post",
+        "en": "ticketkontrolleur-in-und-kundenberatung-postauto-ag-chur",
+        "fr": "ticketkontrolleur-in-und-kundenberatung-postauto-ag-chur"
+      },
+      "company": "PostAuto AG",
+      "companyKey": "postauto",
+      "companyDomain": "postauto.ch",
+      "title": "Ticketkontrolleur:in und Kundenberatung",
+      "titleByLocale": {
+        "de": "Ticketkontrolleur:in und Kundenberatung",
+        "it": "Ticketkontrolleur:in e Kundenberatung",
+        "en": "Ticketkontrolleur:in und Kundenberatung",
+        "fr": "Ticketkontrolleur:in und Kundenberatung"
+      },
+      "description": "Bist du gerne unterwegs und schätzt den direkten Kontakt mit Fahrgästen? Dann bist du bei uns genau richtig, denn mit dir erleben unsere Fahrgäste erstklassigen Service und professionelle Beratung auf jedem Kilometer!\n\nDas kannst du bewirken\n\n- Zusammen mit deinem Team sorgst du für professionelle Ticketkontrollen und leistest damit einen wichtigen Beitrag zur Einnahmensicherung.\n\n- Von Montag bis Sonntag bist du auf unseren abwechslungsreichen regionalen Linien im Einsatz.\n\n- Du berätst unsere Fahrgäste kompetent und zuvorkommend in Tarif- und Fahrplanfragen und schaffst positive Erlebnisse für unsere Kundschaft.\n\n- Ausserdem übernimmst du Sonderaufgaben wie Strukturerhebungen oder Betrugsprävention.\n\nDas bringst du mit\n\n- Du hast eine Grundausbildung abgeschlossen und verfügst über den Führerausweis der Kategorie B.\n\n- Dank deiner lösungsorientierten Art kannst du geschickt argumentieren und auch in hektischen Situationen souverän und ruhig bleiben.\n\n- Du hast Freude am täglichen Kundenkontakt und geniesst die Abwechslung, die unregelmässige Arbeitszeiten (inkl. Sonn- und Feiertage) mit sich bringen.\n\n- Deine sehr guten Deutschkenntnisse sowie gute Italienisch- und Englischkenntnisse in Wort und Schrift und ein versierter Umgang mit digitalen Geräten runden dein Profil ab.",
+      "descriptionByLocale": {
+        "de": "Bist du gerne unterwegs und schätzt den direkten Kontakt mit Fahrgästen? Dann bist du bei uns genau richtig, denn mit dir erleben unsere Fahrgäste erstklassigen Service und professionelle Beratung auf jedem Kilometer!\n\nDas kannst du bewirken\n\n- Zusammen mit deinem Team sorgst du für professionelle Ticketkontrollen und leistest damit einen wichtigen Beitrag zur Einnahmensicherung.\n\n- Von Montag bis Sonntag bist du auf unseren abwechslungsreichen regionalen Linien im Einsatz.\n\n- Du berätst unsere Fahrgäste kompetent und zuvorkommend in Tarif- und Fahrplanfragen und schaffst positive Erlebnisse für unsere Kundschaft.\n\n- Ausserdem übernimmst du Sonderaufgaben wie Strukturerhebungen oder Betrugsprävention.\n\nDas bringst du mit\n\n- Du hast eine Grundausbildung abgeschlossen und verfügst über den Führerausweis der Kategorie B.\n\n- Dank deiner lösungsorientierten Art kannst du geschickt argumentieren und auch in hektischen Situationen souverän und ruhig bleiben.\n\n- Du hast Freude am täglichen Kundenkontakt und geniesst die Abwechslung, die unregelmässige Arbeitszeiten (inkl. Sonn- und Feiertage) mit sich bringen.\n\n- Deine sehr guten Deutschkenntnisse sowie gute Italienisch- und Englischkenntnisse in Wort und Schrift und ein versierter Umgang mit digitalen Geräten runden dein Profil ab.",
+        "it": "Bist du gerne unterwegs und schätzt den direkten Kontakt mit Fahrgästen? Dann bist du bei uns genau richtig, denn mit dir erleben unsere Fahrgäste erstklassigen Service und professionelle Beratung auf jedem Kilometer!\n\nDas kannst du bewirken\n\n- Zusammen mit deinem Team sorgst du für professionelle Ticketkontrollen und leistest damit einen wichtigen Beitrag zur Einnahmensicherung.\n\n- Von Montag bis Sonntag bist du auf unseren abwechslungsreichen regionalen Linien im Einsatz.\n\n- Du berätst unsere Fahrgäste kompetent und zuvorkommend in Tarif- und Fahrplanfragen und schaffst positive Erlebnisse für unsere Kundschaft.\n\n- Ausserdem übernimmst du Sonderaufgaben wie Strukturerhebungen oder Betrugsprävention.\n\nDas bringst du mit\n\n- Du hast eine Grundausbildung abgeschlossen und verfügst über den Führerausweis der Kategorie B.\n\n- Dank deiner lösungsorientierten Art kannst du geschickt argumentieren und auch in hektischen Situationen souverän und ruhig bleiben.\n\n- Du hast Freude am täglichen Kundenkontakt und geniesst die Abwechslung, die unregelmässige Arbeitszeiten (inkl. Sonn- und Feiertage) mit sich bringen.\n\n- Deine sehr guten Deutschkenntnisse sowie gute Italienisch- und Englischkenntnisse in Wort und Schrift und ein versierter Umgang mit digitalen Geräten runden dein Profil ab.",
+        "en": "Bist du gerne unterwegs und schätzt den direkten Kontakt mit Fahrgästen? Dann bist du bei uns genau richtig, denn mit dir erleben unsere Fahrgäste erstklassigen Service und professionelle Beratung auf jedem Kilometer!\n\nDas kannst du bewirken\n\n- Zusammen mit deinem Team sorgst du für professionelle Ticketkontrollen und leistest damit einen wichtigen Beitrag zur Einnahmensicherung.\n\n- Von Montag bis Sonntag bist du auf unseren abwechslungsreichen regionalen Linien im Einsatz.\n\n- Du berätst unsere Fahrgäste kompetent und zuvorkommend in Tarif- und Fahrplanfragen und schaffst positive Erlebnisse für unsere Kundschaft.\n\n- Ausserdem übernimmst du Sonderaufgaben wie Strukturerhebungen oder Betrugsprävention.\n\nDas bringst du mit\n\n- Du hast eine Grundausbildung abgeschlossen und verfügst über den Führerausweis der Kategorie B.\n\n- Dank deiner lösungsorientierten Art kannst du geschickt argumentieren und auch in hektischen Situationen souverän und ruhig bleiben.\n\n- Du hast Freude am täglichen Kundenkontakt und geniesst die Abwechslung, die unregelmässige Arbeitszeiten (inkl. Sonn- und Feiertage) mit sich bringen.\n\n- Deine sehr guten Deutschkenntnisse sowie gute Italienisch- und Englischkenntnisse in Wort und Schrift und ein versierter Umgang mit digitalen Geräten runden dein Profil ab.",
+        "fr": "Bist du gerne unterwegs und schätzt den direkten Kontakt mit Fahrgästen? Dann bist du bei uns genau richtig, denn mit dir erleben unsere Fahrgäste erstklassigen Service und professionelle Beratung auf jedem Kilometer!\n\nDas kannst du bewirken\n\n- Zusammen mit deinem Team sorgst du für professionelle Ticketkontrollen und leistest damit einen wichtigen Beitrag zur Einnahmensicherung.\n\n- Von Montag bis Sonntag bist du auf unseren abwechslungsreichen regionalen Linien im Einsatz.\n\n- Du berätst unsere Fahrgäste kompetent und zuvorkommend in Tarif- und Fahrplanfragen und schaffst positive Erlebnisse für unsere Kundschaft.\n\n- Ausserdem übernimmst du Sonderaufgaben wie Strukturerhebungen oder Betrugsprävention.\n\nDas bringst du mit\n\n- Du hast eine Grundausbildung abgeschlossen und verfügst über den Führerausweis der Kategorie B.\n\n- Dank deiner lösungsorientierten Art kannst du geschickt argumentieren und auch in hektischen Situationen souverän und ruhig bleiben.\n\n- Du hast Freude am täglichen Kundenkontakt und geniesst die Abwechslung, die unregelmässige Arbeitszeiten (inkl. Sonn- und Feiertage) mit sich bringen.\n\n- Deine sehr guten Deutschkenntnisse sowie gute Italienisch- und Englischkenntnisse in Wort und Schrift und ein versierter Umgang mit digitalen Geräten runden dein Profil ab."
+      },
+      "location": "Chur",
+      "canton": "GR",
+      "url": "https://job.post.ch/default/job/Ticketkontrolleurin-und-Kundenberatung/74193-de_DE",
+      "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-03T12:39:25.745Z",
+      "addressLocality": "Chur",
+      "addressRegion": "GR",
+      "streetAddress": "",
+      "postalCode": "",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Assistenza clienti",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Trasporti pubblici / Autobus",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-03",
+      "validThrough": "2026-09-02",
+      "pensum": "40-100%",
+      "applyUrl": "https://job.post.ch/default/job/Ticketkontrolleurin-und-Kundenberatung/74193-de_DE",
+      "jobReqId": "74193",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "ticketkontrolleur-in-und-kundenberatung-postauto-chur"
+        ],
+        "en": [
+          "ticket-controller-in-and-customer-advice-postauto-chur"
+        ],
+        "fr": [
+          "controleur-de-billetterie-en-et-conseil-client-postauto-chur"
+        ]
+      },
+      "previousSlugs": [
+        "ticketkontrolleur-in-und-kundenberatung-postauto-chur",
+        "ticket-controller-in-and-customer-advice-postauto-chur",
+        "controleur-de-billetterie-en-et-conseil-client-postauto-chur"
+      ],
+      "needsRetranslation": true,
+      "salaryMin": 57500,
+      "salaryMax": 87000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 57500,
+          "maxValue": 87000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-08-03T12:39:25.745Z"
+    },
+    {
+      "id": "postauto-7ad4d659f586",
+      "slug": "specialista-di-sicurezza-nei-trasporti-pubblici-controllo-dei-biglietti-postauto-brig",
+      "slugByLocale": {
+        "de": "sicherheitsspezialist-in-offentlicher-verkehr-fahrausweiskontrolle-postauto-brig",
+        "en": "sicherheitsspezialist-in-offentlicher-verkehr-fahrausweiskontrolle-postauto-ag-brig",
+        "fr": "sicherheitsspezialist-in-offentlicher-verkehr-fahrausweiskontrolle-postauto-ag-brig",
+        "it": "specialista-di-sicurezza-nei-trasporti-pubblici-controllo-dei-biglietti-postauto-brig"
+      },
+      "company": "PostAuto AG",
+      "companyKey": "postauto",
+      "companyDomain": "postauto.ch",
+      "title": "Sicherheitsspezialist:in Öffentlicher Verkehr - Fahrausweiskontrolle",
+      "titleByLocale": {
+        "de": "Sicherheitsspezialist:in Öffentlicher Verkehr - Fahrausweiskontrolle",
+        "it": "Sicherheitsspezialist:in Öffentlicher Verkehr - Fahrausweiskontrolle",
+        "en": "Sicherheitsspezialist:in Öffentlicher Verkehr - Fahrausweiskontrolle",
+        "fr": "Sicherheitsspezialist:in Öffentlicher Verkehr - Fahrausweiskontrolle"
+      },
+      "description": "Interessierst du dich für die Sicherheit, reist du gerne und schätzt du den direkten Kontakt mit Fahrgästen im öffentlichen Verkehr? Dann werde Teil von PostAuto und übernimm eine zentrale Rolle bei der Gewährleistung der Sicherheit sowie der Kontrolle von Fahrausweisen im Kanton Wallis. Mit dir ist sichergestellt, dass alle Fahrgäste sicher und mit gültigem Ticket unterwegs sind.\n\nDas kannst du bewirken\n\n- Mit deiner Erfahrung im Sicherheitsbereich und deiner Ruhe bewährst du Ordnung und trägst aktiv zur Sicherheit im öffentlichen Verkehr im Wallis bei.\n\n- Gemeinsam mit deinem Team führst du Fahrkartenkontrollen professionell durch und leistest damit einen entscheidenden Beitrag zur Sicherung der Einnahmen.\n\n- Du informierst, berätst und unterstützt unsere Kundinnen und Kunden kompetent und freundlich bei Fragen zu Tarifen, Fahrplänen und Dienstleistungen und sorgst so für positive Erlebnisse.\n\n- Du bist selbstständig auf unseren vielseitigen Regionalstrecken im Einsatz, von Montag bis Sonntag (05:00–23:00), und meisterst anspruchsvolle Situationen mit Ruhe, Diplomatie und Souveränität.\n\n- Du bist bereit, Sonderaufträge im Bereich Sicherheit wahrzunehmen.\n\n- Trotz deiner Selbstständigkeit arbeitest du eng mit deinem Team zusammen und verfolgst auch in herausfordernden Situationen einen lösungsorientierten Ansatz.\n\nDas bringst du mit\n\n- Du hast eine Grundausbildung im Sicherheitsbereich abgeschlossen und besitzt den Führerausweis der Kategorie B.\n\n- Du bist zweisprachig und beherrschst Deutsch und Französisch mündlich wie schriftlich. Weitere Fremdsprachen sind ein Vorteil.\n\n- Dank deiner lösungsorientierten Denkweise argumentierst du geschickt und bleibst auch in stressigen Situationen ruhig und sicher.\n\n- Du schätzt den täglichen Kontakt mit Kundinnen und Kunden und kommst gut mit unregelmässigen Arbeitszeiten zurecht (einschliesslich Sonntagen und Feiertagen).\n\n- Du bist im Umgang mit digitalen Hilfsmitteln versiert und bringst die nötige körperliche Belastbarkeit für anspruchsvolle Situationen mit.\n\nBitte lege deiner Bewerbung einen aktuellen Strafregisterauszug bei. Unvollständige Bewerbungen können nicht berücksichtigt werden!",
+      "descriptionByLocale": {
+        "de": "Interessierst du dich für die Sicherheit, reist du gerne und schätzt du den direkten Kontakt mit Fahrgästen im öffentlichen Verkehr? Dann werde Teil von PostAuto und übernimm eine zentrale Rolle bei der Gewährleistung der Sicherheit sowie der Kontrolle von Fahrausweisen im Kanton Wallis. Mit dir ist sichergestellt, dass alle Fahrgäste sicher und mit gültigem Ticket unterwegs sind.\n\nDas kannst du bewirken\n\n- Mit deiner Erfahrung im Sicherheitsbereich und deiner Ruhe bewährst du Ordnung und trägst aktiv zur Sicherheit im öffentlichen Verkehr im Wallis bei.\n\n- Gemeinsam mit deinem Team führst du Fahrkartenkontrollen professionell durch und leistest damit einen entscheidenden Beitrag zur Sicherung der Einnahmen.\n\n- Du informierst, berätst und unterstützt unsere Kundinnen und Kunden kompetent und freundlich bei Fragen zu Tarifen, Fahrplänen und Dienstleistungen und sorgst so für positive Erlebnisse.\n\n- Du bist selbstständig auf unseren vielseitigen Regionalstrecken im Einsatz, von Montag bis Sonntag (05:00–23:00), und meisterst anspruchsvolle Situationen mit Ruhe, Diplomatie und Souveränität.\n\n- Du bist bereit, Sonderaufträge im Bereich Sicherheit wahrzunehmen.\n\n- Trotz deiner Selbstständigkeit arbeitest du eng mit deinem Team zusammen und verfolgst auch in herausfordernden Situationen einen lösungsorientierten Ansatz.\n\nDas bringst du mit\n\n- Du hast eine Grundausbildung im Sicherheitsbereich abgeschlossen und besitzt den Führerausweis der Kategorie B.\n\n- Du bist zweisprachig und beherrschst Deutsch und Französisch mündlich wie schriftlich. Weitere Fremdsprachen sind ein Vorteil.\n\n- Dank deiner lösungsorientierten Denkweise argumentierst du geschickt und bleibst auch in stressigen Situationen ruhig und sicher.\n\n- Du schätzt den täglichen Kontakt mit Kundinnen und Kunden und kommst gut mit unregelmässigen Arbeitszeiten zurecht (einschliesslich Sonntagen und Feiertagen).\n\n- Du bist im Umgang mit digitalen Hilfsmitteln versiert und bringst die nötige körperliche Belastbarkeit für anspruchsvolle Situationen mit.\n\nBitte lege deiner Bewerbung einen aktuellen Strafregisterauszug bei. Unvollständige Bewerbungen können nicht berücksichtigt werden!",
+        "it": "Interessierst du dich für die Sicherheit, reist du gerne und schätzt du den direkten Kontakt mit Fahrgästen im öffentlichen Verkehr? Dann werde Teil von PostAuto und übernimm eine zentrale Rolle bei der Gewährleistung der Sicherheit sowie der Kontrolle von Fahrausweisen im Kanton Wallis. Mit dir ist sichergestellt, dass alle Fahrgäste sicher und mit gültigem Ticket unterwegs sind.\n\nDas kannst du bewirken\n\n- Mit deiner Erfahrung im Sicherheitsbereich und deiner Ruhe bewährst du Ordnung und trägst aktiv zur Sicherheit im öffentlichen Verkehr im Wallis bei.\n\n- Gemeinsam mit deinem Team führst du Fahrkartenkontrollen professionell durch und leistest damit einen entscheidenden Beitrag zur Sicherung der Einnahmen.\n\n- Du informierst, berätst und unterstützt unsere Kundinnen und Kunden kompetent und freundlich bei Fragen zu Tarifen, Fahrplänen und Dienstleistungen und sorgst so für positive Erlebnisse.\n\n- Du bist selbstständig auf unseren vielseitigen Regionalstrecken im Einsatz, von Montag bis Sonntag (05:00–23:00), und meisterst anspruchsvolle Situationen mit Ruhe, Diplomatie und Souveränität.\n\n- Du bist bereit, Sonderaufträge im Bereich Sicherheit wahrzunehmen.\n\n- Trotz deiner Selbstständigkeit arbeitest du eng mit deinem Team zusammen und verfolgst auch in herausfordernden Situationen einen lösungsorientierten Ansatz.\n\nDas bringst du mit\n\n- Du hast eine Grundausbildung im Sicherheitsbereich abgeschlossen und besitzt den Führerausweis der Kategorie B.\n\n- Du bist zweisprachig und beherrschst Deutsch und Französisch mündlich wie schriftlich. Weitere Fremdsprachen sind ein Vorteil.\n\n- Dank deiner lösungsorientierten Denkweise argumentierst du geschickt und bleibst auch in stressigen Situationen ruhig und sicher.\n\n- Du schätzt den täglichen Kontakt mit Kundinnen und Kunden und kommst gut mit unregelmässigen Arbeitszeiten zurecht (einschliesslich Sonntagen und Feiertagen).\n\n- Du bist im Umgang mit digitalen Hilfsmitteln versiert und bringst die nötige körperliche Belastbarkeit für anspruchsvolle Situationen mit.\n\nBitte lege deiner Bewerbung einen aktuellen Strafregisterauszug bei. Unvollständige Bewerbungen können nicht berücksichtigt werden!",
+        "en": "Interessierst du dich für die Sicherheit, reist du gerne und schätzt du den direkten Kontakt mit Fahrgästen im öffentlichen Verkehr? Dann werde Teil von PostAuto und übernimm eine zentrale Rolle bei der Gewährleistung der Sicherheit sowie der Kontrolle von Fahrausweisen im Kanton Wallis. Mit dir ist sichergestellt, dass alle Fahrgäste sicher und mit gültigem Ticket unterwegs sind.\n\nDas kannst du bewirken\n\n- Mit deiner Erfahrung im Sicherheitsbereich und deiner Ruhe bewährst du Ordnung und trägst aktiv zur Sicherheit im öffentlichen Verkehr im Wallis bei.\n\n- Gemeinsam mit deinem Team führst du Fahrkartenkontrollen professionell durch und leistest damit einen entscheidenden Beitrag zur Sicherung der Einnahmen.\n\n- Du informierst, berätst und unterstützt unsere Kundinnen und Kunden kompetent und freundlich bei Fragen zu Tarifen, Fahrplänen und Dienstleistungen und sorgst so für positive Erlebnisse.\n\n- Du bist selbstständig auf unseren vielseitigen Regionalstrecken im Einsatz, von Montag bis Sonntag (05:00–23:00), und meisterst anspruchsvolle Situationen mit Ruhe, Diplomatie und Souveränität.\n\n- Du bist bereit, Sonderaufträge im Bereich Sicherheit wahrzunehmen.\n\n- Trotz deiner Selbstständigkeit arbeitest du eng mit deinem Team zusammen und verfolgst auch in herausfordernden Situationen einen lösungsorientierten Ansatz.\n\nDas bringst du mit\n\n- Du hast eine Grundausbildung im Sicherheitsbereich abgeschlossen und besitzt den Führerausweis der Kategorie B.\n\n- Du bist zweisprachig und beherrschst Deutsch und Französisch mündlich wie schriftlich. Weitere Fremdsprachen sind ein Vorteil.\n\n- Dank deiner lösungsorientierten Denkweise argumentierst du geschickt und bleibst auch in stressigen Situationen ruhig und sicher.\n\n- Du schätzt den täglichen Kontakt mit Kundinnen und Kunden und kommst gut mit unregelmässigen Arbeitszeiten zurecht (einschliesslich Sonntagen und Feiertagen).\n\n- Du bist im Umgang mit digitalen Hilfsmitteln versiert und bringst die nötige körperliche Belastbarkeit für anspruchsvolle Situationen mit.\n\nBitte lege deiner Bewerbung einen aktuellen Strafregisterauszug bei. Unvollständige Bewerbungen können nicht berücksichtigt werden!",
+        "fr": "Interessierst du dich für die Sicherheit, reist du gerne und schätzt du den direkten Kontakt mit Fahrgästen im öffentlichen Verkehr? Dann werde Teil von PostAuto und übernimm eine zentrale Rolle bei der Gewährleistung der Sicherheit sowie der Kontrolle von Fahrausweisen im Kanton Wallis. Mit dir ist sichergestellt, dass alle Fahrgäste sicher und mit gültigem Ticket unterwegs sind.\n\nDas kannst du bewirken\n\n- Mit deiner Erfahrung im Sicherheitsbereich und deiner Ruhe bewährst du Ordnung und trägst aktiv zur Sicherheit im öffentlichen Verkehr im Wallis bei.\n\n- Gemeinsam mit deinem Team führst du Fahrkartenkontrollen professionell durch und leistest damit einen entscheidenden Beitrag zur Sicherung der Einnahmen.\n\n- Du informierst, berätst und unterstützt unsere Kundinnen und Kunden kompetent und freundlich bei Fragen zu Tarifen, Fahrplänen und Dienstleistungen und sorgst so für positive Erlebnisse.\n\n- Du bist selbstständig auf unseren vielseitigen Regionalstrecken im Einsatz, von Montag bis Sonntag (05:00–23:00), und meisterst anspruchsvolle Situationen mit Ruhe, Diplomatie und Souveränität.\n\n- Du bist bereit, Sonderaufträge im Bereich Sicherheit wahrzunehmen.\n\n- Trotz deiner Selbstständigkeit arbeitest du eng mit deinem Team zusammen und verfolgst auch in herausfordernden Situationen einen lösungsorientierten Ansatz.\n\nDas bringst du mit\n\n- Du hast eine Grundausbildung im Sicherheitsbereich abgeschlossen und besitzt den Führerausweis der Kategorie B.\n\n- Du bist zweisprachig und beherrschst Deutsch und Französisch mündlich wie schriftlich. Weitere Fremdsprachen sind ein Vorteil.\n\n- Dank deiner lösungsorientierten Denkweise argumentierst du geschickt und bleibst auch in stressigen Situationen ruhig und sicher.\n\n- Du schätzt den täglichen Kontakt mit Kundinnen und Kunden und kommst gut mit unregelmässigen Arbeitszeiten zurecht (einschliesslich Sonntagen und Feiertagen).\n\n- Du bist im Umgang mit digitalen Hilfsmitteln versiert und bringst die nötige körperliche Belastbarkeit für anspruchsvolle Situationen mit.\n\nBitte lege deiner Bewerbung einen aktuellen Strafregisterauszug bei. Unvollständige Bewerbungen können nicht berücksichtigt werden!"
+      },
+      "location": "Brig",
+      "canton": "VS",
+      "url": "https://job.post.ch/default/job/Sicherheitsspezialistin-%C3%96ffentlicher-Verkehr-Fahrausweiskontrolle/74068-de_DE",
+      "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-03T12:39:23.636Z",
+      "addressLocality": "Brig",
+      "addressRegion": "VS",
+      "streetAddress": "",
+      "postalCode": "",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Sicurezza",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Trasporti pubblici / Autobus",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-03",
+      "validThrough": "2026-09-03",
+      "pensum": "80-100%",
+      "applyUrl": "https://job.post.ch/default/job/Sicherheitsspezialistin-%C3%96ffentlicher-Verkehr-Fahrausweiskontrolle/74068-de_DE",
+      "jobReqId": "74068",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "sicherheitsspezialist-in-offentlicher-verkehr-fahrausweiskontrolle-postauto-brig"
+        ],
+        "en": [
+          "security-specialist-in-public-transport-ticket-control-postauto-brig"
+        ],
+        "fr": [
+          "specialiste-de-la-securite-dans-les-transports-publics-controle-des-billets-postauto-brig"
+        ]
+      },
+      "previousSlugs": [
+        "sicherheitsspezialist-in-offentlicher-verkehr-fahrausweiskontrolle-postauto-brig",
+        "security-specialist-in-public-transport-ticket-control-postauto-brig",
+        "specialiste-de-la-securite-dans-les-transports-publics-controle-des-billets-postauto-brig"
+      ],
+      "needsRetranslation": true,
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 60500,
+          "maxValue": 91500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-08-03T12:39:23.636Z"
     }
   ]
 }

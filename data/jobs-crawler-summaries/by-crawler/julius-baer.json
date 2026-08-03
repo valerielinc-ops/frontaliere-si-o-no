@@ -1,18 +1,86 @@
 {
   "key": "julius-baer",
   "label": "Julius Baer",
-  "generatedAt": "2026-08-02T21:58:41.952Z",
-  "total": 84,
-  "newCount": 2,
-  "updatedCount": 82,
+  "generatedAt": "2026-08-03T12:34:37.285Z",
+  "total": 86,
+  "newCount": 4,
+  "updatedCount": 80,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 64350,
-  "avgDurationMs": 64350,
+  "unchangedCount": 2,
+  "durationMs": 58992,
+  "avgDurationMs": 58992,
   "durationHistory": [
-    64350
+    58992
   ],
   "newJobs": [
+    {
+      "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Geneva/Business-Manager-Intermediaries--Geneva--100---f-m-d-_r-19332-1",
+      "applyUrl": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Geneva/Business-Manager-Intermediaries--Geneva--100---f-m-d-_r-19332-1",
+      "title": "Business Manager Intermediaries, Geneva, 100% (f/m/d)",
+      "company": "Julius Baer",
+      "companyKey": "julius-baer",
+      "location": "Geneva",
+      "canton": "GE",
+      "country": "CH",
+      "addressLocality": "Geneva",
+      "addressRegion": "GE",
+      "addressCountry": "CH",
+      "postalCode": "",
+      "streetAddress": "",
+      "slug": "business-manager-intermediaries-geneva-100-f-m-d-julius-baer",
+      "category": "management",
+      "datePosted": "2026-08-03",
+      "source": "julius-baer-workday-crawler",
+      "employmentType": "FULL_TIME",
+      "sourceLang": "en",
+      "experienceLevel": "SENIOR",
+      "sector": "Banking / Wealth Management",
+      "_targetScope": {
+        "canton": "GE",
+        "location": "Geneva"
+      },
+      "_qualityScore": 60,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 6,
+        "completeness": 9
+      }
+    },
+    {
+      "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Junior-Transformation-Strategist-100---f-m-d-_r-19240-1",
+      "applyUrl": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Junior-Transformation-Strategist-100---f-m-d-_r-19240-1",
+      "title": "Junior Transformation Strategist 100% (f/m/d)",
+      "company": "Julius Baer",
+      "companyKey": "julius-baer",
+      "location": "Zurich",
+      "canton": "ZH",
+      "country": "CH",
+      "addressLocality": "Zurich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "postalCode": "",
+      "streetAddress": "",
+      "slug": "junior-transformation-strategist-100-f-m-d-julius-baer",
+      "category": "general",
+      "datePosted": "2026-08-03",
+      "source": "julius-baer-workday-crawler",
+      "employmentType": "FULL_TIME",
+      "sourceLang": "en",
+      "experienceLevel": "ENTRY",
+      "sector": "Banking / Wealth Management",
+      "_targetScope": {
+        "canton": "ZH",
+        "location": "Zurich"
+      },
+      "_qualityScore": 58,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 6,
+        "completeness": 9
+      }
+    },
     {
       "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Assistant-Relationship-Manager-Intermediaries-100---f-m-d-_r-19253-2",
       "applyUrl": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Assistant-Relationship-Manager-Intermediaries-100---f-m-d-_r-19253-2",
@@ -83,6 +151,41 @@
     }
   ],
   "updatedJobs": [
+    {
+      "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Team-Head-Data-Center-of-Excellence-100---f-m-d-_r-18127-1",
+      "applyUrl": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Team-Head-Data-Center-of-Excellence-100---f-m-d-_r-18127-1",
+      "title": "Team Head Tax Reporting and Reconciliation Data Services 100% (f/m/d)",
+      "company": "Julius Baer",
+      "companyKey": "julius-baer",
+      "location": "Zurich",
+      "canton": "ZH",
+      "country": "CH",
+      "addressLocality": "Zurich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "postalCode": "",
+      "streetAddress": "",
+      "slug": "team-head-tax-reporting-and-reconciliation-data-services-100-f-m-d-julius-baer",
+      "category": "technology",
+      "datePosted": "2026-05-22",
+      "source": "julius-baer-workday-crawler",
+      "employmentType": "FULL_TIME",
+      "sourceLang": "en",
+      "experienceLevel": "SENIOR",
+      "sector": "Banking / Wealth Management",
+      "_targetScope": {
+        "canton": "ZH",
+        "location": "Zurich"
+      },
+      "firstSeenAt": "2026-06-29T22:17:29.935Z",
+      "_qualityScore": 77,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 9
+      }
+    },
     {
       "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Communication-Specialists-for-Region-WMS-80-100---f-m-d-_r-19126-2",
       "applyUrl": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Communication-Specialists-for-Region-WMS-80-100---f-m-d-_r-19126-2",
@@ -1101,11 +1204,14 @@
         "translation": 25,
         "completeness": 9
       }
-    },
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
-      "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Senior-Accountant---Banking-Operations-and-Credit-Specialist-100---f-m-d-_r-17229-2",
-      "applyUrl": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Senior-Accountant---Banking-Operations-and-Credit-Specialist-100---f-m-d-_r-17229-2",
-      "title": "Senior Accountant - Banking Operations and Credit Specialist 100% (f/m/d)",
+      "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Working-Student---Junior-Machine-Learning-Engineer-60---100---f-m-d-_r-18997-3",
+      "applyUrl": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Working-Student---Junior-Machine-Learning-Engineer-60---100---f-m-d-_r-18997-3",
+      "title": "Working Student – Junior Machine Learning Engineer 60 - 100% (f/m/d)",
       "company": "Julius Baer",
       "companyKey": "julius-baer",
       "location": "Zurich",
@@ -1116,28 +1222,69 @@
       "addressCountry": "CH",
       "postalCode": "",
       "streetAddress": "",
-      "slug": "senior-accountant-banking-operations-and-credit-specialist-100-f-m-d-julius-baer",
+      "slug": "working-student-junior-machine-learning-engineer-60-100-f-m-d-julius-baer",
       "category": "technology",
-      "datePosted": "2025-12-11",
+      "datePosted": "2026-07-07",
       "source": "julius-baer-workday-crawler",
       "employmentType": "FULL_TIME",
       "sourceLang": "en",
-      "experienceLevel": "SENIOR",
+      "experienceLevel": "ENTRY",
+      "sector": "Banking / Wealth Management",
+      "_targetScope": {
+        "canton": "ZH",
+        "location": "Zurich"
+      },
+      "firstSeenAt": "2026-07-08T11:13:46.226Z",
+      "salaryMin": 62000,
+      "salaryMax": 94000,
+      "currency": "CHF",
+      "crawlerMissStreak": 1,
+      "_qualityScore": 82,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 14
+      }
+    },
+    {
+      "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/XMLNAME--Junior--Sanction-Advisory-100---f-m-d-_r-18801-2",
+      "applyUrl": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/XMLNAME--Junior--Sanction-Advisory-100---f-m-d-_r-18801-2",
+      "title": "(Junior) Sanction Advisory 100% (f/m/d)",
+      "company": "Julius Baer",
+      "companyKey": "julius-baer",
+      "location": "Zurich",
+      "canton": "ZH",
+      "country": "CH",
+      "addressLocality": "Zurich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "postalCode": "",
+      "streetAddress": "",
+      "slug": "junior-sanction-advisory-100-f-m-d-julius-baer",
+      "category": "general",
+      "datePosted": "2026-06-24",
+      "source": "julius-baer-workday-crawler",
+      "employmentType": "FULL_TIME",
+      "sourceLang": "en",
+      "experienceLevel": "ENTRY",
       "sector": "Banking / Wealth Management",
       "_targetScope": {
         "canton": "ZH",
         "location": "Zurich"
       },
       "firstSeenAt": "2026-06-29T22:17:29.935Z",
-      "_qualityScore": 77,
+      "salaryMin": 62000,
+      "salaryMax": 94000,
+      "currency": "CHF",
+      "crawlerMissStreak": 1,
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 18,
+        "richness": 20,
         "translation": 25,
-        "completeness": 9
+        "completeness": 14
       }
     }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": []
+  ]
 }
