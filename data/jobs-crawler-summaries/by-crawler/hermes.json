@@ -1,18 +1,54 @@
 {
   "key": "hermes",
   "label": "Hermès",
-  "generatedAt": "2026-08-02T21:59:46.190Z",
-  "total": 10,
-  "newCount": 0,
-  "updatedCount": 10,
+  "generatedAt": "2026-08-03T12:38:46.306Z",
+  "total": 11,
+  "newCount": 1,
+  "updatedCount": 9,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 18201,
-  "avgDurationMs": 18201,
+  "unchangedCount": 1,
+  "durationMs": 19711,
+  "avgDurationMs": 19711,
   "durationHistory": [
-    18201
+    19711
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "id": "hermes-c78b967a5619",
+      "slug": "cdi-hote-esse-d-accueil-geneve-f-h-hermes-ch",
+      "company": "Hermès",
+      "companyKey": "hermes",
+      "companyDomain": "hermes.com",
+      "title": "CDI - Hôte(esse) d'Accueil Genève (F/H)",
+      "location": "Geneve, Geneva, Switzerland",
+      "canton": "GE",
+      "url": "https://talents.hermes.com/en/sites/CX/jobs/20188/",
+      "source": "Hermès Dedicated Parser",
+      "sourceLang": "fr",
+      "crawledAt": "2026-08-03T12:38:36.633Z",
+      "addressLocality": "Geneve, Geneva, Switzerland",
+      "postalCode": "1204",
+      "addressRegion": "Genève",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Luxury goods / fashion / watchmaking",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-03",
+      "applyUrl": "https://talents.hermes.com/en/sites/CX/jobs/20188/",
+      "_qualityScore": 64,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 4,
+        "completeness": 17
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "id": "hermes-611960534235",
@@ -26,7 +62,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/jobs/23011/",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-02T21:59:37.604Z",
+      "crawledAt": "2026-08-03T12:38:37.341Z",
       "addressLocality": "Zurich, Switzerland",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -61,7 +97,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/jobs/23012/",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-02T21:59:38.247Z",
+      "crawledAt": "2026-08-03T12:38:38.019Z",
       "addressLocality": "Zurich, Switzerland",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -96,7 +132,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/jobs/20205/",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-02T21:59:38.875Z",
+      "crawledAt": "2026-08-03T12:38:38.696Z",
       "addressLocality": "Geneve, Geneva, Switzerland",
       "postalCode": "1204",
       "addressRegion": "Genève",
@@ -132,7 +168,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/jobs/22458/",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-02T21:59:39.469Z",
+      "crawledAt": "2026-08-03T12:38:39.367Z",
       "addressLocality": "Geneve, Geneva, Switzerland",
       "postalCode": "1204",
       "addressRegion": "Genève",
@@ -168,7 +204,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/jobs/22031/",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-02T21:59:40.061Z",
+      "crawledAt": "2026-08-03T12:38:40.041Z",
       "addressLocality": "Geneve, Geneva, Switzerland",
       "postalCode": "1204",
       "addressRegion": "Genève",
@@ -204,7 +240,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/jobs/22205/",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-02T21:59:40.771Z",
+      "crawledAt": "2026-08-03T12:38:40.691Z",
       "addressLocality": "Lugano, Ticino, Switzerland",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -239,7 +275,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/jobs/21857/",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-02T21:59:41.407Z",
+      "crawledAt": "2026-08-03T12:38:41.435Z",
       "addressLocality": "Zurich, Switzerland",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -274,7 +310,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/jobs/21898/",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-08-02T21:59:41.963Z",
+      "crawledAt": "2026-08-03T12:38:42.085Z",
       "addressLocality": "Lugano, Ticino, Switzerland",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -309,7 +345,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/jobs/21421/",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-02T21:59:42.561Z",
+      "crawledAt": "2026-08-03T12:38:42.755Z",
       "addressLocality": "Zurich, Switzerland",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -331,10 +367,13 @@
         "translation": 25,
         "completeness": 14
       }
-    },
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "hermes-dea5392486ce",
-      "slug": "cdi-sales-associate-gstaad-w-m-hermes-ch",
+      "slug": "cdi-addetto-alle-vendite-gstaad-w-m-hermes-gstaad-bern-switzerland",
       "company": "Hermès",
       "companyKey": "hermes",
       "companyDomain": "hermes.com",
@@ -359,15 +398,16 @@
       "postedDate": "2026-01-20",
       "applyUrl": "https://talents.hermes.com/en/sites/CX/jobs/19709/",
       "firstSeenAt": "2026-06-10T09:03:25.691Z",
-      "_qualityScore": 82,
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "crawlerMissStreak": 1,
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 14
+        "completeness": 19
       }
     }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": []
+  ]
 }
