@@ -1,6 +1,6 @@
 {
   "crawlerKey": "hochgebirgsklinik-davos",
-  "assembledAt": "2026-08-02T21:57:44.826Z",
+  "assembledAt": "2026-08-03T12:33:44.415Z",
   "jobs": [
     {
       "id": "hochgebirgsklinik-davos-9be0377bcb5a",
@@ -33,7 +33,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/jobs/oberarzt-kinder-und-jugendpsychiatrie-m-w-d-50-100/2a0add2d-0614-42ba-ad05-60d19f534e16",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-02T21:57:39.523Z",
+      "crawledAt": "2026-08-03T12:33:39.986Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -124,7 +124,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/jobs/leitender-arzt-leitende-aerztin-kardiologie-m-w-d-80-100/1542b5b8-94c8-4b7b-9967-005e20fd5755",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-02T21:57:39.518Z",
+      "crawledAt": "2026-08-03T12:33:39.984Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -210,7 +210,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/jobs/forschungspraktikum-kardiologie-100-w-m-d/18ac40eb-ec84-4dc0-b508-ed30a3cbab9c",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-02T21:57:39.517Z",
+      "crawledAt": "2026-08-03T12:33:39.982Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -289,7 +289,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/jobs/pflegefachperson-w-m-d/52da1727-a83d-4832-96b0-36f5a4f523dd",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-02T21:57:39.509Z",
+      "crawledAt": "2026-08-03T12:33:39.981Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -383,7 +383,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/jobs/pflegehelfer-w-m-d/ce60703d-7f74-4a5b-8e90-9bcd926d7f05",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-02T21:57:39.501Z",
+      "crawledAt": "2026-08-03T12:33:39.979Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -426,6 +426,7 @@
         ]
       },
       "firstSeenAt": "2026-07-06T14:58:53.520Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -471,7 +472,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/jobs/fachperson-gesundheit-w-m-d/14775039-62be-49b3-bf6f-6bfc07902e8d",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-02T21:57:39.492Z",
+      "crawledAt": "2026-08-03T12:33:39.977Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -565,7 +566,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/jobs/oberaerztin-oberarzt-oder-leitende-aerztin-leitender-arzt-angiologie-60-100/2b77f4b9-21fc-4d7e-a122-021827e42ea3",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-02T21:57:39.490Z",
+      "crawledAt": "2026-08-03T12:33:39.976Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -662,7 +663,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/jobs/oberarzt-oberaerztin-kardiologie-m-w-80-100/5de1a134-374a-45f8-bc5e-29aa1d6bf4a7",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-02T21:57:39.486Z",
+      "crawledAt": "2026-08-03T12:33:39.974Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -704,6 +705,7 @@
         ]
       },
       "firstSeenAt": "2026-07-14T21:58:40.639Z",
+      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -733,7 +735,7 @@
       "title": "Physiotherapeut (m/w/d) 60%",
       "titleByLocale": {
         "it": "Fisioterapia (m/w/d) 70-80 %",
-        "en": "Physiotherapist (m/f/d) 60%",
+        "en": "Physiotherapeut (m/w/d) 60%",
         "de": "Physiotherapeut (m/w/d) 60%",
         "fr": "Physiothérapie (m/p/p) 70-80 %"
       },
@@ -749,7 +751,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/jobs/physiotherapeut-m-w-d-60/f3843250-71d4-4a40-9e02-65430b6de711",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-02T21:57:39.480Z",
+      "crawledAt": "2026-08-03T12:33:39.970Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -797,6 +799,7 @@
         ]
       },
       "firstSeenAt": "2026-07-13T21:57:11.373Z",
+      "needsRetranslation": true,
       "salaryMin": 46000,
       "salaryMax": 69600,
       "baseSalary": {
@@ -826,7 +829,7 @@
       "title": "Psychologe Eltern- Kind und Jugendstation (m/w/d) 80 - 100%",
       "titleByLocale": {
         "it": "Psychologe Eltern- Kind e Jugendstation (m/w/d) 80 - 100%",
-        "en": "Psychologist parent-child and youth unit (m/f/d) 80 - 100%",
+        "en": "Psychologe Eltern- Kind und Jugendstation (m/w/d) 80 - 100%",
         "de": "Psychologe Eltern- Kind und Jugendstation (m/w/d) 80 - 100%",
         "fr": "Groupe des parents et des jeunes (m/f/j)"
       },
@@ -842,7 +845,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/jobs/psychologe-eltern-kind-und-jugendstation-m-w-d-80-100/83c6ab17-db8e-4be4-bc62-c8fca77da559",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-02T21:57:39.478Z",
+      "crawledAt": "2026-08-03T12:33:39.968Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -882,6 +885,7 @@
         ]
       },
       "firstSeenAt": "2026-07-13T21:57:11.372Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -910,7 +914,7 @@
       "companyDomain": "hochgebirgsklinik.ch",
       "title": "Kosmetikerin / Kosmetiker (w/m/d) 50 - 60%",
       "titleByLocale": {
-        "it": "Cosmetologo / Cosmetologo (f/m/d) 50 - 60 %",
+        "it": "Kosmetikerin / Kosmetiker (w/m/d) 50 - 60%",
         "en": "Spa Therapist (m/f) 50 - 60 %",
         "de": "Kosmetikerin / Kosmetiker (w/m/d) 50 - 60%",
         "fr": "Thérapeute de spa (m/f) 50 - 60 %"
@@ -927,7 +931,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/jobs/kosmetikerin-kosmetiker-w-m-d-50-60/53b75447-57a9-4109-95a1-cdd03c439546",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-02T21:57:39.472Z",
+      "crawledAt": "2026-08-03T12:33:39.967Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -977,6 +981,7 @@
         ]
       },
       "firstSeenAt": "2026-07-10T22:03:11.797Z",
+      "needsRetranslation": true,
       "salaryMin": 34500,
       "salaryMax": 52200,
       "baseSalary": {
@@ -1022,7 +1027,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/jobs/fachaerztin-facharzt-kinder-und-jugendmedizin-aufbau-ambulante-paediatrie/5a2bec78-5935-4cc2-9ed5-43778371169c",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-02T21:57:39.465Z",
+      "crawledAt": "2026-08-03T12:33:39.965Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1068,6 +1073,7 @@
         ]
       },
       "firstSeenAt": "2026-07-14T21:58:40.637Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -1113,7 +1119,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/jobs/hr-generalistin-hr-generalist-m-w-d-50-100/9f0e4ac6-3947-4b65-8ec5-952db86106b2",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-02T21:57:39.459Z",
+      "crawledAt": "2026-08-03T12:33:39.960Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1159,6 +1165,7 @@
         ]
       },
       "firstSeenAt": "2026-07-30T22:09:17.126Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -1204,7 +1211,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/jobs/service-aushilfe-auf-stundenbasis/2eae9f26-33fb-4d8b-8173-43c74cb3ff04",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-02T21:57:39.454Z",
+      "crawledAt": "2026-08-03T12:33:39.958Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1286,7 +1293,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/jobs/teamleitung-pflege-kardiologie-w-m-d-80-100/7a96b7e9-b155-4c7b-aecf-9cf71bac3290",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-02T21:57:39.452Z",
+      "crawledAt": "2026-08-03T12:33:39.956Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1332,6 +1339,7 @@
         ]
       },
       "firstSeenAt": "2026-07-06T14:58:53.516Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -1361,7 +1369,7 @@
       "title": "Fahrer & Allrounder (m/w/d) 80-100%",
       "titleByLocale": {
         "it": "Driver & Allrounder (m/f/d) (80-100%)",
-        "en": "Driver & Allrounder (m/f/d) 80-100 %",
+        "en": "Fahrer & Allrounder (m/w/d) 80-100%",
         "de": "Fahrer & Allrounder (m/w/d) 80-100%",
         "fr": "Conducteur & Allrounder (m/f/d) (80-100%)"
       },
@@ -1377,7 +1385,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/jobs/fahrer-allrounder-m-w-d-80-100/32823add-9687-47e6-b8cb-3b78857cd076",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-02T21:57:39.448Z",
+      "crawledAt": "2026-08-03T12:33:39.954Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1414,6 +1422,7 @@
         ]
       },
       "firstSeenAt": "2026-07-31T11:36:28.421Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -1427,6 +1436,78 @@
         }
       },
       "addressRegion": "GR"
+    },
+    {
+      "id": "hochgebirgsklinik-davos-d86a411e8f3b",
+      "slug": "medizinische-kv-angestellte-m-w-d-60-80-hochgebirgsklinik-davos-ch",
+      "slugByLocale": {
+        "de": "medizinische-kv-angestellte-m-w-d-60-80-hochgebirgsklinik-davos-ch",
+        "it": "medizinische-kv-angestellte-m-w-d-60-80-hochgebirgsklinik-davos-ch",
+        "en": "medizinische-kv-angestellte-m-w-d-60-80-hochgebirgsklinik-davos-ch",
+        "fr": "medizinische-kv-angestellte-m-w-d-60-80-hochgebirgsklinik-davos-ch"
+      },
+      "company": "Hochgebirgsklinik Davos",
+      "companyKey": "hochgebirgsklinik-davos",
+      "companyDomain": "hochgebirgsklinik.ch",
+      "title": "Medizinische KV-Angestellte (m/w/d) 60% - 80%",
+      "titleByLocale": {
+        "de": "Medizinische KV-Angestellte (m/w/d) 60% - 80%",
+        "it": "Medizinische KV-Angestellte (m/w/d) 60% - 80%",
+        "en": "Medizinische KV-Angestellte (m/w/d) 60% - 80%",
+        "fr": "Medizinische KV-Angestellte (m/w/d) 60% - 80%"
+      },
+      "description": "Du sorgst im Ambulatorium der Hochgebirgsklinik Davos dafür, dass Termine, Anmeldungen und Sprechstunden reibungslos laufen – nah am medizinischen Alltag und in einem Umfeld, das Work-Life-Balance ernst nimmt. Für ergänzende Auskünfte steht Ihnen Frau Sarah Meisser, Administrative Leitung Ambulatorium, unter der Telefonnummer + 41 81 417 39 39 gerne zur Verfügung. | Aufgaben: Du bist die erste Anlaufstelle im Ambulatorium – freundlich, organisiert und mittendrin im Geschehen. Mit deinem Einsatz sorgst du dafür, dass unsere Sprechstunden und administrativen Abläufe reibungslos funktionieren.\n• Du empfängst Patientinnen und Patienten sowie Besuchende mit Ruhe und Freundlichkeit\n• Du koordinierst Termine, führst das Telefon und hältst die Sprechstunden organisatorisch auf Kurs\n• Du bereitest ambulante Eintritte vor und stellst sicher, dass alle Informationen vollständig vorliegen\n• Du erfasst Patientendaten korrekt und zuverlässig\n• Du führst interne Fälle sauber und vorausschauend\n• Du hältst unsere Stammdaten aktuell und sorgst dafür, dass im Hintergrund alles stimmt | Anforderungen: Du arbeitest gerne strukturiert, behältst den Überblick und bist dort am stärksten, wo Menschen und Organisation aufeinandertreffen.\n• Medizinische oder kaufmännische Grundausbildung\n• Selbstständige, präzise und verantwortungsbewusste Arbeitsweise\n• Hohe Sozialkompetenz – du findest schnell einen guten Draht zu Menschen\n• Flexibilität und Teamgeist , auch wenn es einmal lebhafter wird\n• Digitale Arbeitsroutine sowie Freude an administrativen Abläufen\n• Sehr gutes Deutsch , Fremdsprachenkenntnisse sind von Vorteil",
+      "descriptionByLocale": {
+        "de": "Du sorgst im Ambulatorium der Hochgebirgsklinik Davos dafür, dass Termine, Anmeldungen und Sprechstunden reibungslos laufen – nah am medizinischen Alltag und in einem Umfeld, das Work-Life-Balance ernst nimmt. Für ergänzende Auskünfte steht Ihnen Frau Sarah Meisser, Administrative Leitung Ambulatorium, unter der Telefonnummer + 41 81 417 39 39 gerne zur Verfügung. | Aufgaben: Du bist die erste Anlaufstelle im Ambulatorium – freundlich, organisiert und mittendrin im Geschehen. Mit deinem Einsatz sorgst du dafür, dass unsere Sprechstunden und administrativen Abläufe reibungslos funktionieren.\n• Du empfängst Patientinnen und Patienten sowie Besuchende mit Ruhe und Freundlichkeit\n• Du koordinierst Termine, führst das Telefon und hältst die Sprechstunden organisatorisch auf Kurs\n• Du bereitest ambulante Eintritte vor und stellst sicher, dass alle Informationen vollständig vorliegen\n• Du erfasst Patientendaten korrekt und zuverlässig\n• Du führst interne Fälle sauber und vorausschauend\n• Du hältst unsere Stammdaten aktuell und sorgst dafür, dass im Hintergrund alles stimmt | Anforderungen: Du arbeitest gerne strukturiert, behältst den Überblick und bist dort am stärksten, wo Menschen und Organisation aufeinandertreffen.\n• Medizinische oder kaufmännische Grundausbildung\n• Selbstständige, präzise und verantwortungsbewusste Arbeitsweise\n• Hohe Sozialkompetenz – du findest schnell einen guten Draht zu Menschen\n• Flexibilität und Teamgeist , auch wenn es einmal lebhafter wird\n• Digitale Arbeitsroutine sowie Freude an administrativen Abläufen\n• Sehr gutes Deutsch , Fremdsprachenkenntnisse sind von Vorteil",
+        "it": "Du sorgst im Ambulatorium der Hochgebirgsklinik Davos dafür, dass Termine, Anmeldungen und Sprechstunden reibungslos laufen – nah am medizinischen Alltag und in einem Umfeld, das Work-Life-Balance ernst nimmt. Für ergänzende Auskünfte steht Ihnen Frau Sarah Meisser, Administrative Leitung Ambulatorium, unter der Telefonnummer + 41 81 417 39 39 gerne zur Verfügung. | Aufgaben: Du bist die erste Anlaufstelle im Ambulatorium – freundlich, organisiert und mittendrin im Geschehen. Mit deinem Einsatz sorgst du dafür, dass unsere Sprechstunden und administrativen Abläufe reibungslos funktionieren.\n• Du empfängst Patientinnen und Patienten sowie Besuchende mit Ruhe und Freundlichkeit\n• Du koordinierst Termine, führst das Telefon und hältst die Sprechstunden organisatorisch auf Kurs\n• Du bereitest ambulante Eintritte vor und stellst sicher, dass alle Informationen vollständig vorliegen\n• Du erfasst Patientendaten korrekt und zuverlässig\n• Du führst interne Fälle sauber und vorausschauend\n• Du hältst unsere Stammdaten aktuell und sorgst dafür, dass im Hintergrund alles stimmt | Anforderungen: Du arbeitest gerne strukturiert, behältst den Überblick und bist dort am stärksten, wo Menschen und Organisation aufeinandertreffen.\n• Medizinische oder kaufmännische Grundausbildung\n• Selbstständige, präzise und verantwortungsbewusste Arbeitsweise\n• Hohe Sozialkompetenz – du findest schnell einen guten Draht zu Menschen\n• Flexibilität und Teamgeist , auch wenn es einmal lebhafter wird\n• Digitale Arbeitsroutine sowie Freude an administrativen Abläufen\n• Sehr gutes Deutsch , Fremdsprachenkenntnisse sind von Vorteil",
+        "en": "Du sorgst im Ambulatorium der Hochgebirgsklinik Davos dafür, dass Termine, Anmeldungen und Sprechstunden reibungslos laufen – nah am medizinischen Alltag und in einem Umfeld, das Work-Life-Balance ernst nimmt. Für ergänzende Auskünfte steht Ihnen Frau Sarah Meisser, Administrative Leitung Ambulatorium, unter der Telefonnummer + 41 81 417 39 39 gerne zur Verfügung. | Aufgaben: Du bist die erste Anlaufstelle im Ambulatorium – freundlich, organisiert und mittendrin im Geschehen. Mit deinem Einsatz sorgst du dafür, dass unsere Sprechstunden und administrativen Abläufe reibungslos funktionieren.\n• Du empfängst Patientinnen und Patienten sowie Besuchende mit Ruhe und Freundlichkeit\n• Du koordinierst Termine, führst das Telefon und hältst die Sprechstunden organisatorisch auf Kurs\n• Du bereitest ambulante Eintritte vor und stellst sicher, dass alle Informationen vollständig vorliegen\n• Du erfasst Patientendaten korrekt und zuverlässig\n• Du führst interne Fälle sauber und vorausschauend\n• Du hältst unsere Stammdaten aktuell und sorgst dafür, dass im Hintergrund alles stimmt | Anforderungen: Du arbeitest gerne strukturiert, behältst den Überblick und bist dort am stärksten, wo Menschen und Organisation aufeinandertreffen.\n• Medizinische oder kaufmännische Grundausbildung\n• Selbstständige, präzise und verantwortungsbewusste Arbeitsweise\n• Hohe Sozialkompetenz – du findest schnell einen guten Draht zu Menschen\n• Flexibilität und Teamgeist , auch wenn es einmal lebhafter wird\n• Digitale Arbeitsroutine sowie Freude an administrativen Abläufen\n• Sehr gutes Deutsch , Fremdsprachenkenntnisse sind von Vorteil",
+        "fr": "Du sorgst im Ambulatorium der Hochgebirgsklinik Davos dafür, dass Termine, Anmeldungen und Sprechstunden reibungslos laufen – nah am medizinischen Alltag und in einem Umfeld, das Work-Life-Balance ernst nimmt. Für ergänzende Auskünfte steht Ihnen Frau Sarah Meisser, Administrative Leitung Ambulatorium, unter der Telefonnummer + 41 81 417 39 39 gerne zur Verfügung. | Aufgaben: Du bist die erste Anlaufstelle im Ambulatorium – freundlich, organisiert und mittendrin im Geschehen. Mit deinem Einsatz sorgst du dafür, dass unsere Sprechstunden und administrativen Abläufe reibungslos funktionieren.\n• Du empfängst Patientinnen und Patienten sowie Besuchende mit Ruhe und Freundlichkeit\n• Du koordinierst Termine, führst das Telefon und hältst die Sprechstunden organisatorisch auf Kurs\n• Du bereitest ambulante Eintritte vor und stellst sicher, dass alle Informationen vollständig vorliegen\n• Du erfasst Patientendaten korrekt und zuverlässig\n• Du führst interne Fälle sauber und vorausschauend\n• Du hältst unsere Stammdaten aktuell und sorgst dafür, dass im Hintergrund alles stimmt | Anforderungen: Du arbeitest gerne strukturiert, behältst den Überblick und bist dort am stärksten, wo Menschen und Organisation aufeinandertreffen.\n• Medizinische oder kaufmännische Grundausbildung\n• Selbstständige, präzise und verantwortungsbewusste Arbeitsweise\n• Hohe Sozialkompetenz – du findest schnell einen guten Draht zu Menschen\n• Flexibilität und Teamgeist , auch wenn es einmal lebhafter wird\n• Digitale Arbeitsroutine sowie Freude an administrativen Abläufen\n• Sehr gutes Deutsch , Fremdsprachenkenntnisse sind von Vorteil"
+      },
+      "location": "Davos",
+      "canton": "GR",
+      "url": "https://karriere.hochgebirgsklinik.ch/jobs/medizinische-kv-angestellte-m-w-d-60-80/07b1bd9f-2af9-4702-9710-11f16db4715a",
+      "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-03T12:33:39.952Z",
+      "addressLocality": "Davos",
+      "postalCode": "7270",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Medicina",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Assistenza",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2025-11-27",
+      "applyUrl": "https://recruitingapp-2932.umantis.com/Vacancies/613/Application/CheckLogin/1?lang=ger",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "department": "Ärztlicher/medizinischer Dienst",
+      "streetAddress": "Promenade 117",
+      "pensumMin": 60,
+      "pensumMax": 60,
+      "pensum": "60%",
+      "contactPerson": "Isabelle Künzli",
+      "contactPhone": "+41 81 417 30 40",
+      "needsRetranslation": true,
+      "salaryMin": 46000,
+      "salaryMax": 69600,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 46000,
+          "maxValue": 69600,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "GR",
+      "firstSeenAt": "2026-08-03T12:33:39.952Z"
     },
     {
       "id": "hochgebirgsklinik-davos-cc3a79472545",
@@ -1459,7 +1540,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/jobs/assistenzarzt-kardiologie-m-w-100/22edadbd-7656-4096-b02f-9d630c9e61ec",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-02T21:57:39.446Z",
+      "crawledAt": "2026-08-03T12:33:39.950Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1493,6 +1574,7 @@
         ]
       },
       "firstSeenAt": "2026-07-13T21:57:11.368Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -1538,7 +1620,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/jobs/assistenzarzt-pneumologie-m-w-d-100-ab-01-januar-2027/3b68d999-67c3-4c6d-b901-5d41248ea40d",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-02T21:57:39.444Z",
+      "crawledAt": "2026-08-03T12:33:39.949Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1617,7 +1699,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/jobs/assistenzarzt-pneumologie-m-w-d-100-01-januar-2027/4d4e7800-74a2-47bf-9804-5fd982caf4bf",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-02T21:57:39.442Z",
+      "crawledAt": "2026-08-03T12:33:39.945Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1651,6 +1733,7 @@
         ]
       },
       "firstSeenAt": "2026-07-13T21:57:11.365Z",
+      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -1696,7 +1779,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/jobs/lehrstelle-als-fachperson-gesundheit-fage-efz-w-m-d-ab-august-2027/5a2f85b0-3b8b-423e-beb0-523a10861221",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-02T21:57:39.426Z",
+      "crawledAt": "2026-08-03T12:33:39.929Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1737,6 +1820,7 @@
         ]
       },
       "firstSeenAt": "2026-07-31T11:36:28.401Z",
+      "needsRetranslation": true,
       "salaryMin": 48000,
       "salaryMax": 73000,
       "baseSalary": {
