@@ -1,55 +1,45 @@
 {
   "key": "galenica",
   "label": "Galenica",
-  "generatedAt": "2026-08-02T22:18:14.009Z",
-  "total": 386,
+  "generatedAt": "2026-08-03T12:38:01.695Z",
+  "total": 382,
   "newCount": 0,
-  "updatedCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 113076,
-  "avgDurationMs": 113076,
+  "unchangedCount": 0,
+  "durationMs": 110868,
+  "avgDurationMs": 110868,
   "durationHistory": [
-    113076
+    110868
   ],
   "newJobs": [],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "updatedJobs": [
     {
-      "title": "CRM Application Owner (w/m/d)",
-      "company": "Galenica AG (Galenica)",
+      "title": "Assistente di farmacia AFC",
+      "company": "Amavita (Galenica)",
       "companyKey": "galenica",
-      "url": "https://jobs.galenica.com/it/jobs/#job.id=3118192.4030555",
-      "location": "Bern",
-      "canton": "BE",
+      "url": "https://jobs.galenica.com/it/jobs/#job.id=12692235",
+      "location": "Sion",
+      "canton": "VS",
       "country": "CH",
       "category": "healthcare",
-      "descriptionIt": "CRM Application Owner (w/m/d) presso Galenica AG (Gruppo Galenica), con sede a Bern, Untermattweg 8, Svizzera. Galenica è il principale gruppo svizzero nel settore sanitario e gestisce la più grande rete di farmacie del Paese, con i marchi Amavita, Sun Store e Coop Vitality. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al paziente con eccellenti prospettive di sviluppo professionale.",
-      "applyUrl": "",
-      "postedDate": "2026-06-04",
+      "descriptionIt": "Assistente di farmacia AFC presso Amavita (Gruppo Galenica), con sede a Sion, Rue de Lausanne 2, Svizzera. Galenica è il principale gruppo svizzero nel settore sanitario e gestisce la più grande rete di farmacie del Paese, con i marchi Amavita, Sun Store e Coop Vitality. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al paziente con eccellenti prospettive di sviluppo professionale.",
+      "applyUrl": "https://www.yousty.ch/de-CH/lehrstellen/profile/12692235-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-sion-vs-amavita?widget=60fe46a6-e22b-4512-ae18-ab0157fbb01d",
+      "postedDate": "",
       "source": "company-website",
-      "sourceLang": "en",
-      "slug": "titolare-dell-applicazione-crm-w-m-d-galenica-ag-galenica-bern",
-      "id": "galenica-cdc1c705c9ef",
+      "sourceLang": "it",
+      "slug": "galenica-amavita-assistente-di-farmacia-afc-sion",
+      "id": "galenica-1989d558259a",
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "salaryMin": 85000,
-      "salaryMax": 119000,
-      "currency": "CHF",
-      "streetAddress": "Untermattweg 8",
-      "postalCode": "3027",
-      "addressLocality": "Bern",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 86,
+      "_qualityScore": 73,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 14,
         "translation": 25,
-        "completeness": 22
+        "completeness": 9
       }
     }
-  ]
+  ],
+  "removedJobs": [],
+  "unchangedJobs": []
 }
