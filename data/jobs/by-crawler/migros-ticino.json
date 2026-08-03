@@ -1252,6 +1252,8 @@
         "mitarbeiter-in-sales-man-s-world-catering-services-migros-zurich-zfi4bg",
         "employe-dans-le-monde-des-vendeurs-catering-services-migros-zurich"
       ],
+      "salaryMin": 83000,
+      "salaryMax": 127500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -1267,9 +1269,7 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "country": "CH",
-      "needsRetranslation": true,
-      "salaryMin": 83000,
-      "salaryMax": 127500
+      "needsRetranslation": true
     },
     {
       "id": "company-abcgjr",
@@ -8601,8 +8601,7 @@
       "previousSlugsByLocale": {
         "it": [
           "fitness-instructor-m-w-d-activ-fitness-uzwil-qgyefy",
-          "istruttore-di-fitness-f-m-d-activ-fitness-uzwil",
-          "fitness-instructor-m-w-d-activ-fitness-uzwil"
+          "istruttore-di-fitness-f-m-d-activ-fitness-uzwil"
         ],
         "fr": [
           "fitness-instructor-m-w-d-activ-fitness-uzwil-qgyefy"
@@ -8610,8 +8609,7 @@
       },
       "previousSlugs": [
         "fitness-instructor-m-w-d-activ-fitness-uzwil-qgyefy",
-        "istruttore-di-fitness-f-m-d-activ-fitness-uzwil",
-        "fitness-instructor-m-w-d-activ-fitness-uzwil"
+        "istruttore-di-fitness-f-m-d-activ-fitness-uzwil"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -8628,9 +8626,9 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "country": "CH",
-      "needsRetranslation": true,
       "salaryMin": 57500,
-      "salaryMax": 87000
+      "salaryMax": 87000,
+      "needsRetranslation": true
     },
     {
       "id": "company-mpwtfl",
@@ -22268,8 +22266,7 @@
       "previousSlugsByLocale": {
         "it": [
           "fitness-instructor-m-w-d-activ-fitness-aarau-6dp8yi",
-          "istruttore-di-fitness-f-m-d-activ-fitness-aarau-184abe",
-          "fitness-instructor-m-w-d-activ-fitness-aarau"
+          "istruttore-di-fitness-f-m-d-activ-fitness-aarau-184abe"
         ],
         "fr": [
           "fitness-instructor-m-w-d-activ-fitness-aarau-6dp8yi"
@@ -22277,12 +22274,11 @@
       },
       "previousSlugs": [
         "fitness-instructor-m-w-d-activ-fitness-aarau-6dp8yi",
-        "istruttore-di-fitness-f-m-d-activ-fitness-aarau-184abe",
-        "fitness-instructor-m-w-d-activ-fitness-aarau"
+        "istruttore-di-fitness-f-m-d-activ-fitness-aarau-184abe"
       ],
-      "needsRetranslation": true,
       "salaryMin": 62000,
-      "salaryMax": 94000
+      "salaryMax": 94000,
+      "needsRetranslation": true
     },
     {
       "id": "company-jjo352",
@@ -24027,8 +24023,7 @@
       "previousSlugsByLocale": {
         "it": [
           "magaziner-in-migros-sissach-genossenschaft-migros-basel-sissach-syd8d1",
-          "rivista-di-migros-sissach-genossenschaft-migros-basel-sissach",
-          "magaziner-in-migros-sissach-genossenschaft-migros-basel-sissach"
+          "rivista-di-migros-sissach-genossenschaft-migros-basel-sissach"
         ],
         "en": [
           "magaziner-in-migros-sissach-genossenschaft-migros-basel-sissach-syd8d1"
@@ -24039,8 +24034,7 @@
       },
       "previousSlugs": [
         "magaziner-in-migros-sissach-genossenschaft-migros-basel-sissach-syd8d1",
-        "rivista-di-migros-sissach-genossenschaft-migros-basel-sissach",
-        "magaziner-in-migros-sissach-genossenschaft-migros-basel-sissach"
+        "rivista-di-migros-sissach-genossenschaft-migros-basel-sissach"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -24057,9 +24051,9 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "country": "CH",
-      "needsRetranslation": true,
       "salaryMin": 62000,
-      "salaryMax": 94000
+      "salaryMax": 94000,
+      "needsRetranslation": true
     },
     {
       "id": "company-wnug04",
@@ -26345,8 +26339,7 @@
       "previousSlugsByLocale": {
         "it": [
           "studentenaushilfe-supermarkt-genossenschaft-migros-aare-herzogenbuchsee-b0m608",
-          "supermercato-dell-assistenza-agli-studenti-genossenschaft-migros-aare-herzogenbuchsee",
-          "studentenaushilfe-supermarkt-genossenschaft-migros-aare-herzogenbuchsee"
+          "supermercato-dell-assistenza-agli-studenti-genossenschaft-migros-aare-herzogenbuchsee"
         ],
         "en": [
           "studentenaushilfe-supermarkt-genossenschaft-migros-aare-herzogenbuchsee-b0m608"
@@ -26357,8 +26350,7 @@
       },
       "previousSlugs": [
         "studentenaushilfe-supermarkt-genossenschaft-migros-aare-herzogenbuchsee-b0m608",
-        "supermercato-dell-assistenza-agli-studenti-genossenschaft-migros-aare-herzogenbuchsee",
-        "studentenaushilfe-supermarkt-genossenschaft-migros-aare-herzogenbuchsee"
+        "supermercato-dell-assistenza-agli-studenti-genossenschaft-migros-aare-herzogenbuchsee"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -26375,9 +26367,9 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "country": "CH",
-      "needsRetranslation": true,
       "salaryMin": 68500,
-      "salaryMax": 104000
+      "salaryMax": 104000,
+      "needsRetranslation": true
     },
     {
       "id": "company-hyppfl",
@@ -26464,8 +26456,7 @@
         "it": [
           "chef-de-rang-gurten-park-im-grunen-wabern-hyppfl",
           "cuciniera-gurten-park-im-grunen-wabern",
-          "capo-di-stato-maggiore-gurten-park-im-grunen-wabern",
-          "chef-de-rang-gurten-park-im-grunen-wabern"
+          "capo-di-stato-maggiore-gurten-park-im-grunen-wabern"
         ],
         "en": [
           "chef-de-rang-gurten-park-im-grunen-wabern-hyppfl"
@@ -26477,8 +26468,7 @@
       "previousSlugs": [
         "chef-de-rang-gurten-park-im-grunen-wabern-hyppfl",
         "cuciniera-gurten-park-im-grunen-wabern",
-        "capo-di-stato-maggiore-gurten-park-im-grunen-wabern",
-        "chef-de-rang-gurten-park-im-grunen-wabern"
+        "capo-di-stato-maggiore-gurten-park-im-grunen-wabern"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -26495,9 +26485,9 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "country": "CH",
-      "needsRetranslation": true,
       "salaryMin": 68500,
-      "salaryMax": 104000
+      "salaryMax": 104000,
+      "needsRetranslation": true
     },
     {
       "id": "company-l7wwv0",
@@ -28141,8 +28131,7 @@
           "fitness-instructor-w-activ-fitness-zurich",
           "instructeur-fitness-w-m-d-activ-fitness-zurich",
           "fitnesstrainer-m-w-d-activ-fitness-kloten-m06cvc",
-          "istruttore-di-fitness-f-m-d-activ-fitness-zurich-0038b2",
-          "fitness-instructor-m-w-d-activ-fitness-zurich"
+          "istruttore-di-fitness-f-m-d-activ-fitness-zurich-0038b2"
         ],
         "en": [
           "fitness-instructor-w-activ-fitness-zurich"
@@ -28161,8 +28150,7 @@
         "fitness-instructor-w-activ-fitness-zurich",
         "instructeur-fitness-w-m-d-activ-fitness-zurich",
         "fitnesstrainer-m-w-d-activ-fitness-kloten-m06cvc",
-        "istruttore-di-fitness-f-m-d-activ-fitness-zurich-0038b2",
-        "fitness-instructor-m-w-d-activ-fitness-zurich"
+        "istruttore-di-fitness-f-m-d-activ-fitness-zurich-0038b2"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -28179,9 +28167,9 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "country": "CH",
-      "needsRetranslation": true,
       "salaryMin": 73500,
-      "salaryMax": 111500
+      "salaryMax": 111500,
+      "needsRetranslation": true
     },
     {
       "id": "company-2ndjc9",
@@ -38165,8 +38153,7 @@
         "it": [
           "fitness-instructor-m-w-d-activ-fitness-bern-94d9wk",
           "fitness-instructor-w-m-d-activ-fitness-bern",
-          "istruttore-di-fitness-f-m-d-activ-fitness-bern",
-          "fitness-instructor-m-w-d-activ-fitness-bern"
+          "istruttore-di-fitness-f-m-d-activ-fitness-bern"
         ],
         "fr": [
           "fitness-instructor-m-w-d-activ-fitness-bern-94d9wk"
@@ -38175,8 +38162,7 @@
       "previousSlugs": [
         "fitness-instructor-m-w-d-activ-fitness-bern-94d9wk",
         "fitness-instructor-w-m-d-activ-fitness-bern",
-        "istruttore-di-fitness-f-m-d-activ-fitness-bern",
-        "fitness-instructor-m-w-d-activ-fitness-bern"
+        "istruttore-di-fitness-f-m-d-activ-fitness-bern"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -38193,9 +38179,9 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "country": "CH",
-      "needsRetranslation": true,
       "salaryMin": 68500,
-      "salaryMax": 104000
+      "salaryMax": 104000,
+      "needsRetranslation": true
     },
     {
       "id": "company-e0m88e",
@@ -50229,8 +50215,7 @@
         "it": [
           "fitness-instructor-m-w-d-activ-fitness-winterthur-z2duja",
           "fitness-instructor-w-m-d-activ-fitness-winterthur",
-          "istruttore-di-fitness-f-m-d-activ-fitness-winterthur",
-          "fitness-instructor-m-w-d-activ-fitness-winterthur"
+          "istruttore-di-fitness-f-m-d-activ-fitness-winterthur"
         ],
         "fr": [
           "fitness-instructor-m-w-d-activ-fitness-winterthur-z2duja"
@@ -50239,12 +50224,11 @@
       "previousSlugs": [
         "fitness-instructor-m-w-d-activ-fitness-winterthur-z2duja",
         "fitness-instructor-w-m-d-activ-fitness-winterthur",
-        "istruttore-di-fitness-f-m-d-activ-fitness-winterthur",
-        "fitness-instructor-m-w-d-activ-fitness-winterthur"
+        "istruttore-di-fitness-f-m-d-activ-fitness-winterthur"
       ],
-      "needsRetranslation": true,
       "salaryMin": 73500,
-      "salaryMax": 111500
+      "salaryMax": 111500,
+      "needsRetranslation": true
     },
     {
       "id": "company-zduj5s",
@@ -57821,19 +57805,17 @@
         "it": [
           "fitness-instructor-m-w-d-activ-fitness-kloten-lboeq8",
           "fitness-instructor-w-m-d-activ-fitness-kloten",
-          "istruttore-di-fitness-f-m-d-activ-fitness-kloten",
-          "fitness-instructor-m-w-d-activ-fitness-kloten"
+          "istruttore-di-fitness-f-m-d-activ-fitness-kloten"
         ]
       },
       "previousSlugs": [
         "fitness-instructor-m-w-d-activ-fitness-kloten-lboeq8",
         "fitness-instructor-w-m-d-activ-fitness-kloten",
-        "istruttore-di-fitness-f-m-d-activ-fitness-kloten",
-        "fitness-instructor-m-w-d-activ-fitness-kloten"
+        "istruttore-di-fitness-f-m-d-activ-fitness-kloten"
       ],
-      "needsRetranslation": true,
       "salaryMin": 73500,
-      "salaryMax": 111500
+      "salaryMax": 111500,
+      "needsRetranslation": true
     },
     {
       "id": "migrolino-31b2fdd0e1d8",
@@ -81223,8 +81205,7 @@
         "it": [
           "fitness-instructor-aushilfe-m-w-d-activ-fitness-uzwil-9l6a24",
           "fitness-instructor-aushilfe-w-m-d-activ-fitness-uzwil",
-          "assistenza-agli-istruttore-di-fitness-f-m-d-activ-fitness-uzwil",
-          "fitness-instructor-aushilfe-m-w-d-activ-fitness-uzwil"
+          "assistenza-agli-istruttore-di-fitness-f-m-d-activ-fitness-uzwil"
         ],
         "de": [
           "fitnesstrainer-aushilfe-m-w-d-activ-fitness-uzwil-9l6a24"
@@ -81241,8 +81222,7 @@
         "fitnesstrainer-aushilfe-w-m-d-activ-fitness-thun",
         "fitnesstrainer-aushilfe-m-w-d-activ-fitness-thun-lxomto",
         "fitness-instructor-aushilfe-w-m-d-activ-fitness-uzwil",
-        "assistenza-agli-istruttore-di-fitness-f-m-d-activ-fitness-uzwil",
-        "fitness-instructor-aushilfe-m-w-d-activ-fitness-uzwil"
+        "assistenza-agli-istruttore-di-fitness-f-m-d-activ-fitness-uzwil"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -81260,9 +81240,9 @@
       "employmentType": "FULL_TIME",
       "postalCode": "9000",
       "country": "CH",
-      "needsRetranslation": true,
       "salaryMin": 57500,
-      "salaryMax": 87000
+      "salaryMax": 87000,
+      "needsRetranslation": true
     },
     {
       "id": "company-o8pp1i",
@@ -103385,14 +103365,12 @@
       "previousSlugsByLocale": {
         "it": [
           "lehrperson-ballett-im-stundenlohn-genossenschaft-migros-ostschweiz-st-gallen-78ume2",
-          "maestro-ballet-nel-salario-orario-genossenschaft-migros-ostschweiz-st-gallen",
-          "lehrperson-ballett-im-stundenlohn-genossenschaft-migros-ostschweiz-st-gallen"
+          "maestro-ballet-nel-salario-orario-genossenschaft-migros-ostschweiz-st-gallen"
         ]
       },
       "previousSlugs": [
         "lehrperson-ballett-im-stundenlohn-genossenschaft-migros-ostschweiz-st-gallen-78ume2",
-        "maestro-ballet-nel-salario-orario-genossenschaft-migros-ostschweiz-st-gallen",
-        "lehrperson-ballett-im-stundenlohn-genossenschaft-migros-ostschweiz-st-gallen"
+        "maestro-ballet-nel-salario-orario-genossenschaft-migros-ostschweiz-st-gallen"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -103410,9 +103388,9 @@
       "employmentType": "FULL_TIME",
       "postalCode": "9000",
       "country": "CH",
-      "needsRetranslation": true,
       "salaryMin": 49500,
-      "salaryMax": 75000
+      "salaryMax": 75000,
+      "needsRetranslation": true
     },
     {
       "id": "company-dy1cum",
@@ -103761,8 +103739,7 @@
       "previousSlugsByLocale": {
         "it": [
           "nachwuchsprogramm-marktleiter-in-supermarkt-genossenschaft-migros-aare-solothurn-7668ya",
-          "programma-giovani-talenti-responsabile-del-supermercato-genossenschaft-migros-aare-solothurn",
-          "nachwuchsprogramm-marktleiter-in-supermarkt-genossenschaft-migros-aare-solothurn"
+          "programma-giovani-talenti-responsabile-del-supermercato-genossenschaft-migros-aare-solothurn"
         ],
         "en": [
           "nachwuchsprogramm-marktleiter-in-supermarkt-genossenschaft-migros-aare-solothurn-7668ya"
@@ -103773,8 +103750,7 @@
       },
       "previousSlugs": [
         "nachwuchsprogramm-marktleiter-in-supermarkt-genossenschaft-migros-aare-solothurn-7668ya",
-        "programma-giovani-talenti-responsabile-del-supermercato-genossenschaft-migros-aare-solothurn",
-        "nachwuchsprogramm-marktleiter-in-supermarkt-genossenschaft-migros-aare-solothurn"
+        "programma-giovani-talenti-responsabile-del-supermercato-genossenschaft-migros-aare-solothurn"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -103792,9 +103768,9 @@
       "employmentType": "FULL_TIME",
       "postalCode": "4500",
       "country": "CH",
-      "needsRetranslation": true,
       "salaryMin": 68500,
-      "salaryMax": 104000
+      "salaryMax": 104000,
+      "needsRetranslation": true
     },
     {
       "id": "company-i8ziuc",
@@ -119847,8 +119823,7 @@
       "previousSlugsByLocale": {
         "it": [
           "chefmetzger-in-genossenschaft-migros-zurich-bulach-ix8whl",
-          "capo-macellaio-genossenschaft-migros-zurich-bulach",
-          "chefmetzger-in-genossenschaft-migros-zurich-bulach"
+          "capo-macellaio-genossenschaft-migros-zurich-bulach"
         ],
         "en": [
           "chefmetzger-in-genossenschaft-migros-zurich-bulach-ix8whl"
@@ -119859,8 +119834,7 @@
       },
       "previousSlugs": [
         "chefmetzger-in-genossenschaft-migros-zurich-bulach-ix8whl",
-        "capo-macellaio-genossenschaft-migros-zurich-bulach",
-        "chefmetzger-in-genossenschaft-migros-zurich-bulach"
+        "capo-macellaio-genossenschaft-migros-zurich-bulach"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -119878,9 +119852,9 @@
       "employmentType": "FULL_TIME",
       "postalCode": "8001",
       "country": "CH",
-      "needsRetranslation": true,
       "salaryMin": 73500,
-      "salaryMax": 111500
+      "salaryMax": 111500,
+      "needsRetranslation": true
     },
     {
       "id": "company-ed2n7a",
@@ -121829,8 +121803,7 @@
         "it": [
           "nachwuchsprogramm-marktleiter-in-supermarkt-genossenschaft-migros-aare-aarau-u3lv0t",
           "programma-di-giovani-talenti-market-manager-in-supermercato-genossenschaft-migros-aare-aarau",
-          "programma-giovani-talenti-responsabile-del-supermercato-genossenschaft-migros-aare-aarau",
-          "nachwuchsprogramm-marktleiter-in-supermarkt-genossenschaft-migros-aare-aarau"
+          "programma-giovani-talenti-responsabile-del-supermercato-genossenschaft-migros-aare-aarau"
         ],
         "en": [
           "nachwuchsprogramm-marktleiter-in-supermarkt-genossenschaft-migros-aare-aarau-u3lv0t",
@@ -121846,8 +121819,7 @@
         "programma-di-giovani-talenti-market-manager-in-supermercato-genossenschaft-migros-aare-aarau",
         "young-talent-program-market-manager-in-supermarket-genossenschaft-migros-aare-aarau",
         "programme-de-jeunes-talents-gestionnaire-de-marche-au-supermarche-genossenschaft-migros-aare-aarau",
-        "programma-giovani-talenti-responsabile-del-supermercato-genossenschaft-migros-aare-aarau",
-        "nachwuchsprogramm-marktleiter-in-supermarkt-genossenschaft-migros-aare-aarau"
+        "programma-giovani-talenti-responsabile-del-supermercato-genossenschaft-migros-aare-aarau"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -121865,9 +121837,9 @@
       "employmentType": "FULL_TIME",
       "postalCode": "5000",
       "country": "CH",
-      "needsRetranslation": true,
       "salaryMin": 62000,
-      "salaryMax": 94000
+      "salaryMax": 94000,
+      "needsRetranslation": true
     },
     {
       "id": "company-4bynzo",
@@ -123578,8 +123550,7 @@
         "it": [
           "nachwuchsprogramm-marktleiter-in-supermarkt-genossenschaft-migros-aare-bern-4bpow0",
           "programma-di-giovani-talenti-market-manager-in-supermercato-genossenschaft-migros-aare-bern",
-          "programma-giovani-talenti-responsabile-del-supermercato-genossenschaft-migros-aare-bern",
-          "nachwuchsprogramm-marktleiter-in-supermarkt-genossenschaft-migros-aare-bern"
+          "programma-giovani-talenti-responsabile-del-supermercato-genossenschaft-migros-aare-bern"
         ],
         "en": [
           "nachwuchsprogramm-marktleiter-in-supermarkt-genossenschaft-migros-aare-bern-4bpow0",
@@ -123595,8 +123566,7 @@
         "programma-di-giovani-talenti-market-manager-in-supermercato-genossenschaft-migros-aare-bern",
         "young-talent-program-market-manager-in-supermarket-genossenschaft-migros-aare-bern",
         "programme-de-jeunes-talents-gestionnaire-de-marche-au-supermarche-genossenschaft-migros-aare-bern",
-        "programma-giovani-talenti-responsabile-del-supermercato-genossenschaft-migros-aare-bern",
-        "nachwuchsprogramm-marktleiter-in-supermarkt-genossenschaft-migros-aare-bern"
+        "programma-giovani-talenti-responsabile-del-supermercato-genossenschaft-migros-aare-bern"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -123614,9 +123584,9 @@
       "employmentType": "FULL_TIME",
       "postalCode": "3001",
       "country": "CH",
-      "needsRetranslation": true,
       "salaryMin": 68500,
-      "salaryMax": 104000
+      "salaryMax": 104000,
+      "needsRetranslation": true
     },
     {
       "id": "company-isxjx4",

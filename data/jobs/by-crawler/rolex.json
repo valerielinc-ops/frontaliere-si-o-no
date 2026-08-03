@@ -132,19 +132,16 @@
       "previousSlugs": [
         "chef-de-projets-nouveaux-produits-h-f-rolex-ch",
         "chef-de-projets-nouveaux-produits-h-f-rolex-geneve",
-        "capo-di-nuovi-progetti-di-prodotti-h-f-rolex-geneve",
-        "chef-de-projets-nouveaux-produits-m-w-d-rolex-geneve"
+        "capo-di-nuovi-progetti-di-prodotti-h-f-rolex-geneve"
       ],
       "previousSlugsByLocale": {
         "it": [
           "chef-de-projets-nouveaux-produits-h-f-rolex-ch",
           "chef-de-projets-nouveaux-produits-h-f-rolex-geneve",
-          "capo-di-nuovi-progetti-di-prodotti-h-f-rolex-geneve",
-          "chef-de-projets-nouveaux-produits-m-w-d-rolex-geneve"
+          "capo-di-nuovi-progetti-di-prodotti-h-f-rolex-geneve"
         ]
       },
       "firstSeenAt": "2026-06-24T22:41:45.930Z",
-      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -156,7 +153,8 @@
           "maxValue": 126500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "rolex-ca55be12609f",
@@ -1572,7 +1570,6 @@
         "decoller-h-f-rolex-bienne-1wfg7i",
         "swiss-machinist-m-w-d-rolex-bienne",
         "drehmaschinenbediener-m-w-d-rolex-bienne",
-        "decoller-h-f-rolex-bienne",
         "abscheider-h-f-rolex-bienne",
         "tornitore-di-barra-m-f-rolex-bienne",
         "colletter-m-w-d-rolex-bienne",
@@ -1587,7 +1584,6 @@
           "roller-m-w-d-rolex-bienne",
           "decoller-h-f-rolex-bienne-1wfg7i",
           "swiss-machinist-m-w-d-rolex-bienne",
-          "decoller-h-f-rolex-bienne",
           "colletter-m-w-d-rolex-bienne"
         ],
         "de": [
