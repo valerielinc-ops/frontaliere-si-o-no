@@ -115,6 +115,8 @@ import {
   loadEvergreenRejectedTracker as _loadEvergreenRejectedTracker,
   isEvergreenRejected as _isEvergreenRejected,
   appendEvergreenRejected as _appendEvergreenRejected,
+  strikeEvergreenKeyword as _strikeEvergreenKeyword,
+  EVERGREEN_STRIKE_LIMIT as _EVERGREEN_STRIKE_LIMIT,
   persistEvergreenRejectedTracker as _persistEvergreenRejectedTracker,
 } from './lib/article-topic-selector.mjs';
 
@@ -9724,6 +9726,19 @@ async function main() {
             // variance makes them transient; blocking permanently is too aggressive.
             evergreenRejectedTracker = _appendEvergreenRejected(evergreenRejectedTracker, selectedTopic.keyword);
             try { _persistEvergreenRejectedTracker(evergreenRejectedTracker); } catch { /* ignore */ }
+          } else if (isQualityReject && selectedTopic) {
+            // A STRIKE, not a ban — the reasoning above is right that one bad
+            // draft is variance, but "never record it" was the wrong conclusion:
+            // it left no way to tell variance from a keyword that fails every
+            // time. Such a keyword was re-picked on every cron slot and burned
+            // the whole run, which is how production went to zero on
+            // 2026-08-03. Retired only at EVERGREEN_STRIKE_LIMIT.
+            // Persisted immediately, same reason as the ban path: a later
+            // wall-budget break or hard kill must not lose the count.
+            evergreenRejectedTracker = _strikeEvergreenKeyword(evergreenRejectedTracker, selectedTopic.keyword);
+            const n = evergreenRejectedTracker.strikes?.[selectedTopic.keyword] || 0;
+            console.error(`   ⚠️  "${selectedTopic.keyword}": strike ${n}/${_EVERGREEN_STRIKE_LIMIT} (quality reject)`);
+            try { _persistEvergreenRejectedTracker(evergreenRejectedTracker); } catch { /* ignore */ }
           }
 
           if (isTopicGateAbort) {
@@ -10161,6 +10176,25 @@ async function generateAndValidateArticle(url, sourceContext = null) {
         }
         const summary = gateResult.blocking.map((i) => `[${i.code}] ${i.message}`).join('; ');
         const gateErr = new Error(`Articolo rigettato dai gate deterministici: ${summary}`);
+        // The wall budget stops new TOPIC attempts, but nothing stopped this
+        // inner loop, so a topic whose gates never converge kept issuing full
+        // regenerations past the budget until the workflow's `timeout ... 2400s`
+        // SIGKILLed the process mid-generation. That loses everything the run
+        // learned, including the rejection bookkeeping above — which is why the
+        // same doomed keyword came back on the next cron slot and did it again.
+        // Run 30784967708 died on attempt 3/6, 40min in, with a 30min budget.
+        //
+        // Giving up here reaches the normal no-article exit instead: the
+        // tracker is persisted, the slot is released, and the next run starts
+        // clean. A deferred article costs one slot; a hard kill costs the slot
+        // AND repeats forever.
+        if (attempt < maxAttempts && wallBudgetExceeded()) {
+          console.error(
+            `  ⏱️  Budget wall-clock (${Math.round(RUN_WALL_BUDGET_MS / 60000)}min) superato dopo ${attempt}/${maxAttempts} `
+            + `tentativi sui gate deterministici — interrompo invece di farmi uccidere dal timeout del workflow.`,
+          );
+          throw gateErr;
+        }
         if (attempt < maxAttempts) {
           // Feed back CORRECTIVE INSTRUCTIONS, not just complaints: every gate
           // issue carries the concrete fix (and the corrected values, where we
