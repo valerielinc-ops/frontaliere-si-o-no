@@ -27,6 +27,8 @@ import {
   checkContradictoryNormDates,
   checkSourceFreshness,
   extractSourceAnchors,
+  renderAnchorForPrompt,
+  matchedAnchors,
   checkSourceFidelity,
   runFactualityGates,
   formatRemediation,
@@ -676,6 +678,62 @@ describe('source fidelity', () => {
       + 'Ticino al 100% delle tabelle invece che all\'80%. Riguarda chi ha lavorato in Ticino tra il '
       + '31 dicembre 2018 e il 17 luglio 2023, residente entro i 20 km dal confine.';
     expect(checkSourceFidelity(article, SOURCE)).toEqual([]);
+  });
+
+  // ── The 2026-07-30 → 2026-08-03 production stall ──────────────────
+  //
+  // Article output fell from ~16/day to zero. Two independent defects in this
+  // module, both of which made the gate unsatisfiable rather than strict, and
+  // both invisible until the run logs were read: the retry loop burned all six
+  // attempts on every evergreen slot and the job was SIGKILLed at 2400s.
+
+  // Defect 1. `[A-Z]{3,8}` minus a deny-list harvested all-caps EMPHASIS as
+  // required "institution" anchors. An evergreen SEO brief is full of it.
+  it('does not turn all-caps emphasis or prompt scaffolding into required anchors', () => {
+    const brief = '[ARTICOLO EVERGREEN SEO]\n'
+      + '- Imposta alla fonte: trattenuta SOLO in Svizzera per i frontalieri (MAI "in entrambi i paesi").\n'
+      + '- Nuovo Accordo: in vigore dal 1° GENNAIO 2024 (NON 2026). La Svizzera NON è membro UE/SEE.\n'
+      + '- Acronimi/enti VALIDI (non inventarne altri): SECO, SEM, USTAT, INPS.';
+    const anchors = extractSourceAnchors(brief);
+    // Real bodies still required.
+    for (const org of ['org:SECO', 'org:SEM', 'org:USTAT', 'org:INPS']) expect(anchors).toContain(org);
+    // Emphasis and scaffolding are not facts an article can ever "keep".
+    for (const junk of ['org:ARTICOLO', 'org:SEO', 'org:SOLO', 'org:MAI', 'org:NON', 'org:VALIDI', 'org:GENNAIO']) {
+      expect(anchors).not.toContain(junk);
+    }
+  });
+
+  // Defect 2. renderAnchorForPrompt emitted the raw dot-decimal key while
+  // matchedAnchors only ever credits the Italian comma form — so the contract
+  // and the remediation asked for "5.3%" and the gate refused it. Identical to
+  // the date-branch bug already fixed above, and invisible on whole numbers,
+  // which is why only fractional rates were ever reported missing.
+  it('asks for percentages in the exact form the recall check accepts', () => {
+    expect(renderAnchorForPrompt('pct:5.3')).toBe('5,3%');
+    expect(renderAnchorForPrompt('pct:23')).toBe('23%'); // whole numbers unchanged
+  });
+
+  it('credits an article that wrote every rate exactly as the gate asked for it', () => {
+    const src = 'Contributi svizzeri: AVS/AI/IPG 5.3% dipendente, AD/AC 1.1%, LAINF 0.7–1.5%, LPP 7–18%. '
+      + 'IRPEF italiana: 23%, 35%, 43%. Enti: SECO, SEM, USTAT, INPS.';
+    const anchors = extractSourceAnchors(src);
+    // The article is written by following renderAnchorForPrompt literally.
+    const article = 'I contributi valgono '
+      + [...anchors].filter((a) => a.startsWith('pct:')).map(renderAnchorForPrompt).join(', ')
+      + '. Gli enti competenti sono SECO, SEM, USTAT e INPS.';
+    const found = matchedAnchors(article, anchors);
+    for (const pct of [...anchors].filter((a) => a.startsWith('pct:'))) expect(found).toContain(pct);
+    expect(codes(checkSourceFidelity(article, src))).not.toContain('source-key-rates-dropped');
+  });
+
+  it('tells the writer how many more anchors are needed to pass, not just that it failed', () => {
+    const src = 'Contributi: AVS 5.3%, AD 1.1%, LAINF 1.5%, LPP 18%. IRPEF 23%, 35%, 43%. '
+      + 'Enti: SECO, SEM, USTAT, INPS, SUVA, MEF.';
+    const vague = 'Un articolo generico sui contributi, senza aliquote. Cita solo SECO.';
+    const fidelity = checkSourceFidelity(vague, src).find((i) => i.code === 'source-fidelity-low');
+    expect(fidelity).toBeDefined();
+    expect(fidelity!.fix).toMatch(/Ne mancano \d+ per superare il controllo/);
+    expect(fidelity!.fix).toMatch(/ne servono \d+ su \d+, adesso ne hai \d+/);
   });
 
   it('does not gate on a source too thin to carry anchors', () => {
