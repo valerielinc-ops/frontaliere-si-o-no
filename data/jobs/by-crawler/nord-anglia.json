@@ -1,6 +1,6 @@
 {
   "crawlerKey": "nord-anglia",
-  "assembledAt": "2026-08-03T12:36:00.099Z",
+  "assembledAt": "2026-08-03T22:24:56.493Z",
   "jobs": [
     {
       "id": "nord-anglia-d37cea6aab56",
@@ -33,7 +33,7 @@
       "url": "https://careers.nordangliaeducation.com/job/Aubonne-Learning-Support-Assistants/1079699301/?feedId=null&utm_source=J2WRSS&utm_medium=rss&utm_campaign=J2W_RSS",
       "source": "La Côte International School Aubonne Dedicated Parser (Nord Anglia jobs2web RSS)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-03T12:35:53.486Z",
+      "crawledAt": "2026-08-03T22:24:51.026Z",
       "addressLocality": "Aubonne",
       "addressRegion": "VD",
       "streetAddress": "Chemin de Clamogne 8",
@@ -54,7 +54,6 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "learning-support-assistants-nord-anglia-aubonne",
-        "assistenti-di-supporto-all-apprendimento-la-cote-international-school-nord-anglia-education-aubonne",
         "biologielehrer-in-la-cote-international-school-nord-anglia-education-aubonne",
         "professeur-de-biologie-la-cote-international-school-nord-anglia-education-aubonne",
         "coordinatore-del-trasporto-scolastico-e-portinaio-polifunzionale-la-cote-international-school-nord-anglia-education",
@@ -73,12 +72,12 @@
         "lehrer-fur-mathematik-la-cote-international-school-nord-anglia-education-aubonne",
         "lehrerin-fur-biologie-la-cote-international-school-nord-anglia-education-aubonne",
         "insegnante-di-biologia-la-cote-international-school-nord-anglia-education-aubonne",
-        "teacher-of-biology-nord-anglia-aubonne"
+        "teacher-of-biology-nord-anglia-aubonne",
+        "assistenti-di-supporto-all-apprendimento-la-cote-international-school-nord-anglia-education-aubonne"
       ],
       "previousSlugsByLocale": {
         "it": [
           "learning-support-assistants-nord-anglia-aubonne",
-          "assistenti-di-supporto-all-apprendimento-la-cote-international-school-nord-anglia-education-aubonne",
           "biologielehrer-in-la-cote-international-school-nord-anglia-education-aubonne",
           "professeur-de-biologie-la-cote-international-school-nord-anglia-education-aubonne",
           "coordinatore-del-trasporto-scolastico-e-portinaio-polifunzionale-la-cote-international-school-nord-anglia-education",
@@ -96,7 +95,11 @@
           "chauffeur-scolaire-et-concierge-polyvalent-nord-anglia-aubonne",
           "lehrer-fur-mathematik-la-cote-international-school-nord-anglia-education-aubonne",
           "lehrerin-fur-biologie-la-cote-international-school-nord-anglia-education-aubonne",
-          "insegnante-di-biologia-la-cote-international-school-nord-anglia-education-aubonne"
+          "insegnante-di-biologia-la-cote-international-school-nord-anglia-education-aubonne",
+          "assistenti-di-supporto-all-apprendimento-la-cote-international-school-nord-anglia-education-aubonne"
+        ],
+        "en": [
+          "teacher-of-biology-nord-anglia-aubonne"
         ],
         "de": [
           "learning-support-assistants-nord-anglia-aubonne",
@@ -105,12 +108,10 @@
         "fr": [
           "learning-support-assistants-nord-anglia-aubonne",
           "professeur-de-biologie-la-cote-international-school-nord-anglia-education-aubonne"
-        ],
-        "en": [
-          "teacher-of-biology-nord-anglia-aubonne"
         ]
       },
       "firstSeenAt": "2026-07-09T12:16:46.426Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
