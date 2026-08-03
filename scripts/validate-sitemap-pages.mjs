@@ -101,6 +101,7 @@ import { join, dirname, extname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { writeAuditReport } from './lib/auditReport.mjs';
 import { JOB_BOARD_SECTION_RX, getJobBoardSectionPrefix } from './lib/jobBoardSections.mjs';
+import { isExternallyServedUrl, isExternallyServedPath } from './lib/externally-served-paths.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
@@ -441,6 +442,8 @@ function runAuditSitemapCanonicals() {
 
   for (const { sitemap, loc } of urls) {
     if (/\.(pdf|xml|txt|json|rss|xsl|ico)(\?|#|$)/i.test(loc)) continue;
+    // Served from the article shard repos, not from this build.
+    if (isExternallyServedUrl(loc)) continue;
     totalChecked++;
     const htmlPath = locToHtmlPath_audit(loc);
     if (!htmlPath) {
@@ -728,7 +731,14 @@ function runValidateContentQuality() {
   const noindexInSitemap = [];
   let errors = 0;
 
+  let externallyServed = 0;
   for (const { sitemap, url, path } of urls) {
+    // The BLOCKING check. These paths are rendered by the articles repo and
+    // served from the shard Pages repos through the Worker — this build has no
+    // file for them by design, and eleven of them were measured live at the
+    // apex while absent from this dist/. Counting them as missing is what
+    // blocked deploy-publish for the whole site.
+    if (isExternallyServedPath(path.startsWith('/') ? path : `/${path}`)) { externallyServed++; continue; }
     const filePath = urlToFile_vcq(path);
     const html = readHtml(filePath);
     if (html === null) {
@@ -761,6 +771,10 @@ function runValidateContentQuality() {
     if (isIndividualJobPage(path) && !hasJobPostingSchema(html) && words >= MIN_WORDS) {
       jobsNoSchema.push({ sitemap, path, words });
     }
+  }
+
+  if (externallyServed > 0) {
+    out.push(`ℹ️  ${externallyServed} sitemap URL(s) skipped — served from the article shard repos, not from this build\n`);
   }
 
   if (missing.length > 0) {

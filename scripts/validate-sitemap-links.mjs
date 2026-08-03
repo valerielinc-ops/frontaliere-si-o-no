@@ -14,6 +14,7 @@
 import { readFileSync, existsSync, readdirSync } from 'node:fs';
 import path from 'node:path';
 import { writeAuditReport } from './lib/auditReport.mjs';
+import { isExternallyServedUrl } from './lib/externally-served-paths.mjs';
 
 const ROOT = process.cwd();
 const DIST = path.join(ROOT, 'dist');
@@ -101,7 +102,12 @@ for (const file of sitemapFiles) {
 
   let fileMissing = 0;
 
+  let fileExternal = 0;
   for (const url of allUrls) {
+    // Served from the article shard repos via the Worker, not from this build
+    // — see scripts/lib/externally-served-paths.mjs. Listing them is correct;
+    // expecting a file in dist/ for them is not.
+    if (isExternallyServedUrl(url)) { fileExternal++; continue; }
     totalUrls++;
     const distPath = urlToDistPath(url);
     if (!existsSync(distPath)) {
@@ -112,7 +118,8 @@ for (const file of sitemapFiles) {
   }
 
   const status = fileMissing === 0 ? '✅' : '❌';
-  console.log(`  ${status} ${file}: ${allUrls.length} URLs checked, ${fileMissing} missing`);
+  const extNote = fileExternal > 0 ? `, ${fileExternal} externally served` : '';
+  console.log(`  ${status} ${file}: ${allUrls.length - fileExternal} URLs checked, ${fileMissing} missing${extNote}`);
 }
 
 console.log(`\n📊 Total: ${totalUrls} URLs checked across ${sitemapFiles.length} sitemaps`);
