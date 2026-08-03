@@ -30,6 +30,14 @@ import path from 'node:path';
 import { CDN_BLOG_BASE } from './shared/blogImageCdn';
 import { shouldEmitPath } from './shared/localeEmitFilter';
 
+// Single producer (issue #4974 item 3, migration §10.4 step 2): these live in
+// the colocated articles package so nanako's fast-publish path and this repo's
+// full build cannot emit different output for the same page. Re-exported under
+// their original names — every existing importer of this module is unchanged.
+import { rewriteBlogImageRefs, hasBlogImageLeak } from '../packages/articles/engine/blogImageCdnFinalize';
+export { rewriteBlogImageRefs, hasBlogImageLeak };
+
+
 const ORIGIN = 'https://frontaliereticino.ch';
 const SCAN_EXT = new Set(['.html', '.xml', '.txt']);
 
@@ -48,27 +56,6 @@ const reRel = new RegExp('(?<![\\w.@])/images/blog/' + FILE, 'g');
 const reLeak = new RegExp(
   '(?:' + ESC_ORIGIN + '/images/blog/|(?<![\\w.@])/images/blog/)(?!thumbnails/)' + FILE,
 );
-
-/**
- * Rewrite every same-origin reference to a FULL blog hero image
- * (`/images/blog/<file>.<ext>`, origin-absolute or site-relative) to its CDN
- * URL. Pure string transform, no filesystem I/O — extracted (#4837 stream A)
- * so the standalone single-article fast-publish script
- * (scripts/publish-article-fast.mjs) can apply the IDENTICAL rewrite to a
- * freshly-rendered page without needing the physical dist/images/blog
- * directory to exist (this plugin's closeBundle guards on that directory,
- * which a scratch single-article render never has). Do not fork this — any
- * fix here must benefit both the full build and the fast path.
- */
-export function rewriteBlogImageRefs(html: string): string {
-  const repl = (_m: string, file: string): string => `${CDN_BLOG_BASE}/${file}`;
-  return html.replace(reAbs, repl).replace(reRel, repl);
-}
-
-/** True when `html` still references a full (non-thumbnail, non-CDN) blog image after rewriteBlogImageRefs. */
-export function hasBlogImageLeak(html: string): boolean {
-  return reLeak.test(html);
-}
 
 // Perf: the original finalize scanned every file TWICE (a rewrite pass + a
 // separate guard pass). The single pass in closeBundle below rewrites and
