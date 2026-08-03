@@ -1047,3 +1047,38 @@ execute it in one pass with a real build to check against.
 
 Until then the site keeps serving the 2026-08-02T01:40Z build, and jobs, events
 and fuel prices keep not deploying.
+
+### 11.7 Step 4's dry run PASSED in CI (run 30811674458)
+
+Dispatched on the feature branch with `dry_run: true`. Every step green, the
+publish step correctly skipped:
+
+    resolved id=bce-bns-ferme-cambi-per-frontalieri section=frontaliere dry=true
+    write OK   nanakokyobashi-rgb/frontaliere-articolifrontaliere-it
+    write OK   nanakokyobashi-rgb/frontaliere-articolifrontaliere-en
+    write OK   nanakokyobashi-rgb/frontaliere-articolifrontaliere-de
+    write OK   nanakokyobashi-rgb/frontaliere-articolifrontaliere-fr
+    [og-pages] Generated 4 OG landing pages for 4001 articles — wrote 8
+    [publish-article-fast] done — 8 article files + 34 hub pages, wall=1.0s
+    IT archive lists 100 items
+    article carries a named Person author
+
+Three things this settles that a local run could not:
+
+1. §10.2's write question is now confirmed from INSIDE Actions too, with the
+   real Remote Config PAT, not only by the receive-pack probe from a session.
+2. The whole chain works on a clean runner: `npm ci`, the Remote Config load,
+   the shell-contract bootstrap, the render, the gates. Nothing depended on
+   local state.
+3. The registry-symlink fix is confirmed by the "named Person author" line. On
+   a fresh checkout before that commit the same run would have emitted a
+   generic Organization author and passed silently — the gate is what makes
+   the difference visible.
+
+The two earlier runs (11:35, 11:42) resolved `skip=true` correctly: neither
+push touched `content/**`. That is the intended behaviour, but it means those
+runs proved only the trigger and the resolve step, not the render — worth
+knowing before reading a green tick as end-to-end proof.
+
+Still not done: the first ARMED publish. `FAST_PUBLISH_ARMED` is unset, so
+nothing has been written to a shard or the CDN from this repo yet.
