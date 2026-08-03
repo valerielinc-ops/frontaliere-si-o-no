@@ -15,10 +15,14 @@
 //
 // Thresholds are intentionally decoupled from the generators' own per-shard
 // cap (build-plugins/relatedSearchClustersPlugin.ts SITEMAP_SHARD_CAP =
-// 45_000, scripts/lib/sitemap-shard.mjs DEFAULT_CAP_PER_SHARD = 45000):
+// 39_000, scripts/lib/sitemap-shard.mjs DEFAULT_CAP_PER_SHARD = 39000):
 // several shards are *by design* filled to exactly that cap, so CRITICAL
 // must sit strictly above it or every full-by-design shard trips a false
-// positive every week (#4395).
+// positive every week (#4395). The generator cap was ALSO lowered below
+// WARNING_THRESHOLD itself (45,000 → 39,000, issue #5066) after the same
+// class of false positive recurred at the WARNING level: a shard full at
+// the old 45,000 cap sat above the 42,000 warning floor, so every
+// full-by-design shard guaranteed a weekly WARNING too.
 //
 // Google's hard cap is 50,000 URLs per sitemap file; we want to react well
 // before we hit it so we have time to reshard.

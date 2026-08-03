@@ -41,7 +41,12 @@ import path from 'node:path';
  * @property {Array<UrlEntry>} urls
  */
 
-const DEFAULT_CAP_PER_SHARD = 45000;
+// Kept strictly below the weekly monitor's WARNING_THRESHOLD (42,000,
+// scripts/check-sitemap-shard-size.mjs) — see the SITEMAP_SHARD_CAP comment
+// in build-plugins/relatedSearchClustersPlugin.ts (same cap value, sibling
+// constant) for why 45,000 previously guaranteed a weekly false-positive
+// warning on every full-by-design shard (issue #5066).
+const DEFAULT_CAP_PER_SHARD = 39000;
 const FILENAME_PREFIX = 'sitemap-jobs';
 
 /**
@@ -101,7 +106,7 @@ function slugifyKey(key) {
  *
  * @param {Array<UrlEntry>} urls
  * @param {Object} [options]
- * @param {number} [options.capPerShard=45000]
+ * @param {number} [options.capPerShard=39000]
  * @param {(url: UrlEntry) => string} [options.shardKey] - if omitted, round-robin numeric shards
  * @param {string} [options.filenamePrefix="sitemap-jobs"]
  * @returns {Array<Shard>}
