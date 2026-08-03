@@ -29,7 +29,7 @@ import {
   SEO_STATIC_CSS_FILENAME,
   CDN_PRECONNECT_HINT,
 } from './constants';
-import { asyncCssLink, ASYNC_CSS_FALLBACK_SCRIPT, esc } from './htmlTemplate';
+import { asyncCssLink, ASYNC_CSS_FALLBACK_SCRIPT, esc, asyncCssHeadBlock, rootShell } from './htmlTemplate';
 import { WriteCollector } from './batchWrite';
 import {
   buildTitleWithBrand,
@@ -49,7 +49,10 @@ import { imageObjectLd } from '../services/seo/imageObjectLd';
 import { ORGANIZATION_LD } from '../services/seo/organizationLd';
 import { getAuthorBySlug } from '../data/authors';
 import { SLUG_TABLES } from '../services/routeSlugs.data';
-import { HUB_LOCALES, ARTICLES_PAGE_SIZE } from './seoHubsData';
+import { HUB_LOCALES, ARTICLES_PAGE_SIZE, HUB_SLUGS } from './seoHubsData';
+import { railGutters } from './shared/railGutters';
+import { buildDayStampIso } from './shared/buildDayStamp';
+import { stripLiteralMarkdown } from './shared/stripLiteralMarkdown';
 import {
   BLOG_CONTEXTUAL_LINKS,
   BLOG_LINKS_MAX_PER_ARTICLE,
@@ -87,6 +90,14 @@ const contract: SiteShellContract = {
   asyncCssLink,
   asyncCssFallbackScript: ASYNC_CSS_FALLBACK_SCRIPT,
   esc,
+  asyncCssHeadBlock,
+  rootShell,
+
+  railGutters,
+
+  buildDayStampIso,
+
+  stripLiteralMarkdown,
 
   WriteCollector,
 
@@ -121,6 +132,12 @@ const contract: SiteShellContract = {
 
   hubLocales: HUB_LOCALES,
   articlesPageSize: ARTICLES_PAGE_SIZE,
+  articlesAllPaths: {
+    it: HUB_SLUGS.it.articlesAll,
+    en: HUB_SLUGS.en.articlesAll,
+    de: HUB_SLUGS.de.articlesAll,
+    fr: HUB_SLUGS.fr.articlesAll,
+  },
 
   contextualLinkRules: BLOG_CONTEXTUAL_LINKS,
   contextualLinksMaxPerArticle: BLOG_LINKS_MAX_PER_ARTICLE,
