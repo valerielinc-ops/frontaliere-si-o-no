@@ -1,7 +1,61 @@
 {
   "crawlerKey": "alpiq",
-  "assembledAt": "2026-08-02T22:15:15.141Z",
+  "assembledAt": "2026-08-03T22:31:35.474Z",
   "jobs": [
+    {
+      "id": "alpiq-04e9cf13b072",
+      "slug": "financial-performance-analyst-alpiq-lausanne",
+      "slugByLocale": {
+        "it": "financial-performance-analyst-alpiq-lausanne"
+      },
+      "company": "Alpiq",
+      "companyKey": "alpiq",
+      "companyDomain": "alpiq.com",
+      "title": "Financial & Performance Analyst",
+      "titleByLocale": {
+        "it": "Financial & Performance Analyst"
+      },
+      "description": "Financial & Performance Analyst\n\nRole type: Permanent | Location: Lausanne or Olten (CH), or Madrid (SP) | Model: Hybrid | Level of travels: 10%Your mission: The Financial & Performance Analyst enables evidence-based decision by designing, structuring and developing frameworks and tools, including external benchmarking, aimed at&hellip;\n\nLausanne - 100%\nPermanent",
+      "descriptionByLocale": {
+        "it": "Financial & Performance Analyst\n\nRole type: Permanent | Location: Lausanne or Olten (CH), or Madrid (SP) | Model: Hybrid | Level of travels: 10%Your mission: The Financial & Performance Analyst enables evidence-based decision by designing, structuring and developing frameworks and tools, including external benchmarking, aimed at&hellip;\n\nLausanne - 100%\nPermanent"
+      },
+      "requirements": [],
+      "requirementsByLocale": {
+        "it": []
+      },
+      "location": "Lausanne",
+      "canton": "",
+      "postalCode": "1003",
+      "streetAddress": "",
+      "addressLocality": "Lausanne",
+      "addressRegion": "",
+      "addressCountry": "CH",
+      "employmentType": "PART_TIME",
+      "category": "energy",
+      "contract": "full-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-03",
+      "url": "https://www.alpiq.com/career/open-jobs/your-application/9612",
+      "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9612&lang=en_GB",
+      "source": "Alpiq Dedicated Parser",
+      "sourceLang": "en",
+      "crawledAt": "2026-08-03T22:31:33.409Z",
+      "country": "CH",
+      "salaryMin": 68000,
+      "salaryMax": 104000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68000,
+          "maxValue": 104000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-08-03T22:31:33.409Z"
+    },
     {
       "id": "alpiq-de0001564a5d",
       "slug": "m-a-manager-all-100-alpiq-olten",
@@ -62,7 +116,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "previousSlugsByLocale": {
         "it": [
           "m-a-manager-all-100-alpiq-olten",
@@ -119,7 +173,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9599&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-02T22:15:12.301Z",
+      "crawledAt": "2026-08-03T22:31:33.408Z",
       "firstSeenAt": "2026-07-22T23:28:45.496Z",
       "country": "CH",
       "salaryMin": 96000,
@@ -188,7 +242,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9515&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-02T22:15:12.302Z",
+      "crawledAt": "2026-08-03T22:31:33.408Z",
       "firstSeenAt": "2026-07-17T11:43:13.714Z",
       "country": "CH",
       "salaryMin": 96000,
@@ -249,7 +303,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9598&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-02T22:15:12.302Z",
+      "crawledAt": "2026-08-03T22:31:33.408Z",
       "firstSeenAt": "2026-07-16T23:01:54.449Z",
       "country": "CH",
       "salaryMin": 68000,
@@ -318,7 +372,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9601&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-02T22:15:12.302Z",
+      "crawledAt": "2026-08-03T22:31:33.408Z",
       "firstSeenAt": "2026-07-06T12:57:17.444Z",
       "country": "CH",
       "salaryMin": 68000,
@@ -387,7 +441,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9302&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-02T22:15:12.300Z",
+      "crawledAt": "2026-08-03T22:31:33.406Z",
       "firstSeenAt": "2026-06-29T21:34:24.960Z",
       "country": "CH",
       "salaryMin": 96000,
@@ -453,7 +507,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9518&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-02T22:15:12.301Z",
+      "crawledAt": "2026-08-03T22:31:33.407Z",
       "localeMismatchSuppressed": true,
       "localeMismatchSuppressedLen": 61,
       "retranslationAttempts": 3,
