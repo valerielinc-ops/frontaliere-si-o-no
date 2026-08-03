@@ -250,8 +250,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR",
-      "needsRetranslation": true
+      "addressRegion": "GR"
     },
     {
       "id": "kanton-gr-a8e75bb870ce",
@@ -573,7 +572,6 @@
         ]
       },
       "firstSeenAt": "2026-07-23T12:33:19.361Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -680,7 +678,6 @@
         ]
       },
       "firstSeenAt": "2026-07-23T12:33:18.692Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -1047,7 +1044,6 @@
         ]
       },
       "firstSeenAt": "2026-07-23T12:33:16.017Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -1217,7 +1213,6 @@
         ]
       },
       "firstSeenAt": "2026-07-16T12:36:37.849Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -1316,7 +1311,6 @@
         ]
       },
       "firstSeenAt": "2026-07-16T12:36:35.117Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -1483,7 +1477,6 @@
         ]
       },
       "firstSeenAt": "2026-07-16T12:36:33.758Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -1857,7 +1850,6 @@
         "diventa-poliziotto-poliziotta-presso-la-kapo-gr-kantonale-verwaltung-graubunden-chur"
       ],
       "firstSeenAt": "2026-04-13T10:48:34.939Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -1886,7 +1878,7 @@
       "companyDomain": "gr.ch",
       "title": "Strassenwart/-in",
       "titleByLocale": {
-        "it": "Strassenwart/-in",
+        "it": "Streetkeeper/in",
         "en": "Road Maintenance Worker",
         "de": "Strassenwart/-in",
         "fr": "Agent de Maintenance Routière"
@@ -1963,8 +1955,7 @@
         }
       },
       "addressRegion": "GR",
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "kanton-gr-fe139115b82e",
@@ -2050,8 +2041,7 @@
         }
       },
       "addressRegion": "GR",
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     }
   ]
 }
