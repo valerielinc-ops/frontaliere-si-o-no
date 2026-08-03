@@ -1,0 +1,6 @@
+{
+  "version": 1,
+  "note": "SHA-256 of the SCALAR half of SiteShellContract, JSON.stringify(sorted keys, null, 2). Both repos assert this: the main repo from build-plugins/articlesSiteShellBootstrap.ts, this repo from host/siteShellBootstrap.ts. These values render into every article <head>, so a drift between the two makes a fast-published page differ from the full build that later overwrites it. Functions are excluded (not comparable by value) — their behaviour is covered by the byte-identity renders instead.",
+  "scalarFields": 21,
+  "sha256": "80fefebf58d6f01b2e0c9903ce07247cf6dcbdf59a2f92920f57f1405e3984ce"
+}

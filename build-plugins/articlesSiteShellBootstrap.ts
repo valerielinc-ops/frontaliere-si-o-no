@@ -145,3 +145,8 @@ const contract: SiteShellContract = {
 };
 
 configureSiteShell(contract);
+
+// Exported for host/shell-contract-fingerprint parity checks (issue #4974
+// item 3): the articles repo carries a transported copy of every scalar here,
+// and both repos assert the same fingerprint so a drift fails on both sides.
+export { contract };
