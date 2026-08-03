@@ -1314,7 +1314,7 @@
       "descriptionByLocale": {
         "it": "Descrizione\n\nGiornata di pratica - Uno sguardo dietro le quinte delle cure di emergenza e di terapia intensiva Pediatria — Ospedale cantonale di Aarau (KSA), Aarau",
         "en": "Description Day of Practice - A glimpse behind the scenes of emergency and intensive care Pediatrics — Kantonsspital Aarau (KSA), Aarau",
-        "de": "Praxistag - Ein Blick hinter die Kulissen der Notfall- und Intensivpflege Pädiatrie — Kantonsspital Aarau (KSA), Aarau",
+        "de": "## Beschreibung\n\nPraxistag - Ein Blick hinter die Kulissen der Notfall- und Intensivpflege Pädiatrie — Kantonsspital Aarau (KSA), Aarau",
         "fr": "Description Jour de pratique - Un aperçu dans les coulisses de la pédiatrie en cas d'urgence et de soins intensifs — Kantonsspital Aarau (KSA), Aarau"
       },
       "location": "Aarau",
@@ -1350,7 +1350,6 @@
           "praxistag-ein-blick-hinter-la-kulissen-der-notfall-e-intensivpflege-padiatrie-kantonsspital-aarau-ksa-aarau"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-10T12:11:07.794Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -1386,8 +1385,10 @@
       },
       "description": "Pflegepraktikum ausbildungsunabhängig (Medizin) — Kantonsspital Aarau (KSA), Aarau",
       "descriptionByLocale": {
-        "de": "Pflegepraktikum ausbildungsunabhängig (Medizin) — Kantonsspital Aarau (KSA), Aarau",
-        "fr": "Pflegepraktikum ausbildungsunabhängig (Medizin) — Kantonsspital Aarau (KSA), Aarau"
+        "de": "Die in den Erwägungsgründen 215 bis 316 genannten Maßnahmen sind in den Erwägungsgründen 215 bis 316 der vorläufigen Verordnung aufgeführt.",
+        "fr": "Pflegepraktikum ausbildungsunabhängig (Medizin) — Kantonsspital Aarau (KSA), Aarau",
+        "it": "Tirocinio di cura indipendente dalla formazione (Medicina) — Kantonsspital Aarau (KSA), Aarau",
+        "en": "Pflegepraktikum aus bldungsunabhängig (Medizin) — Kantonspital Aarau (KSA), Aarau"
       },
       "location": "Aarau",
       "canton": "AG",
@@ -1427,10 +1428,9 @@
           "stage-de-soins-independant-de-la-formation-medecine-kantonsspital-aarau-ksa-aarau"
         ]
       },
-      "needsRetranslation": true,
       "localeMismatchSuppressed": true,
       "localeMismatchSuppressedLen": 82,
-      "retranslationAttempts": 24,
+      "retranslationAttempts": 25,
       "firstSeenAt": "2026-07-10T12:11:07.794Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -2840,7 +2840,9 @@
         "dipl-pflegefachfrau-pflegefachmann-ksa-ch-2-9zvgm1",
         "dipl-pflegefachfrau-pflegefachmann-kantonsspital-aarau-ksa-aarau-9zvgm1",
         "registered-nurse-nursing-professional-kantonsspital-aarau-ksa-aarau",
-        "dipl-pflegefachfrau-pflegefachmann-kantonsspital-aarau-ksa-aarau"
+        "dipl-pflegefachfrau-pflegefachmann-kantonsspital-aarau-ksa-aarau",
+        "dipl-pflegefachfrau-pflegefachmann-ksa-ch-2",
+        "dipl-pflegefachfrau-pflegefachmann-ksa-ch-2"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2857,11 +2859,11 @@
           "dipl-pflegefachfrau-pflegefachmann-kantonsspital-aarau-ksa-aarau"
         ],
         "fr": [
-          "dipl-pflegefachfrau-pflegefachmann-ksa-ch-2-9zvgm1"
+          "dipl-pflegefachfrau-pflegefachmann-ksa-ch-2-9zvgm1",
+          "dipl-pflegefachfrau-pflegefachmann-ksa-ch-2"
         ]
       },
       "firstSeenAt": "2026-07-10T12:11:07.793Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -2873,7 +2875,8 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ksa-968b793c93c3",
@@ -3209,7 +3212,7 @@
       "descriptionByLocale": {
         "it": "Oberärztin / Oberarzt Interdisziplinäres Notfallzentrum — Kantonsspital Aarau (KSA), Aarau",
         "en": "Oberärztin / Oberarzt Interdisziplinäres Notfallzentrum. Kantonsspital Aarau (KSA), Aarau",
-        "de": "Oberärztin / Oberarzt Interdisziplinäres Notfallzentrum — Kantonsspital Aarau (KSA), Aarau",
+        "de": "Oberärztin / Oberarzt Interdisziplinäres Notfallzentrum. Kantonsspital Aarau (KSA), Aarau",
         "fr": "Oberärztin / Oberarzt Interdisziplinäres Notfallzentrum. Kantonsspital Aarau (KSA), Aarau"
       },
       "location": "Aarau",
@@ -3245,7 +3248,6 @@
           "medico-senior-centro-di-emergenza-interdisciplinare-kantonsspital-aarau-ksa-aarau"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-10T12:11:07.793Z",
       "salaryMin": 85500,
       "salaryMax": 129500,
@@ -3258,7 +3260,10 @@
           "maxValue": 129500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 3,
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 90
     },
     {
       "id": "ksa-37758d07bf5b",
@@ -3807,7 +3812,9 @@
         "logi-hyardfachfrau-hyardfachmann-kantonsspital-aarau-ksa-aarau-755135",
         "dipl-pflegefachfrau-pflegefachmann-kantonsspital-aarau-ksa-aarau-9zu4ig",
         "registered-nurse-nursing-specialist-kantonsspital-aarau-ksa-aarau",
-        "dipl-pflegefachfrau-pflegefachmann-kantonsspital-aarau-ksa-aarau"
+        "dipl-pflegefachfrau-pflegefachmann-kantonsspital-aarau-ksa-aarau",
+        "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8",
+        "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3825,11 +3832,11 @@
           "dipl-pflegefachfrau-pflegefachmann-kantonsspital-aarau-ksa-aarau"
         ],
         "fr": [
-          "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8-9zu4ig"
+          "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8-9zu4ig",
+          "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8"
         ]
       },
       "firstSeenAt": "2026-07-10T12:11:07.792Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -3841,7 +3848,8 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ksa-4ff77a59da50",
@@ -4544,7 +4552,9 @@
         "logi-hyardfachfrau-hyardfachmann-kantonsspital-aarau-ksa-aarau-64caf8",
         "dipl-pflegefachfrau-pflegefachmann-kantonsspital-aarau-ksa-aarau-9ztkax",
         "registered-nurse-nursing-professional-kantonsspital-aarau-ksa-aarau",
-        "dipl-pflegefachfrau-pflegefachmann-kantonsspital-aarau-ksa-aarau"
+        "dipl-pflegefachfrau-pflegefachmann-kantonsspital-aarau-ksa-aarau",
+        "dipl-pflegefachfrau-pflegefachmann-ksa-ch-9",
+        "dipl-pflegefachfrau-pflegefachmann-ksa-ch-9"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4561,11 +4571,11 @@
           "dipl-pflegefachfrau-pflegefachmann-kantonsspital-aarau-ksa-aarau"
         ],
         "fr": [
-          "dipl-pflegefachfrau-pflegefachmann-ksa-ch-9-9ztkax"
+          "dipl-pflegefachfrau-pflegefachmann-ksa-ch-9-9ztkax",
+          "dipl-pflegefachfrau-pflegefachmann-ksa-ch-9"
         ]
       },
       "firstSeenAt": "2026-07-10T12:11:07.792Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -4577,7 +4587,8 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ksa-f78d48c02a15",
@@ -4602,8 +4613,8 @@
       "descriptionByLocale": {
         "it": "Compiti - Siete responsabili della preparazione delle varie ore di consultazione, del prelievo di sangue in modo piacevole e capillare, dei controlli della funzione polmonare, dei test di puntura, della scrittura ECG, dell'ECG 24h, ecc. - Avete eseguito le normative con precisione, in modo accurato e indipendente. - Una cooperazione costruttiva con il servizio medico, l'APM e la segreteria è centrale. - Gli orari di funzionamento sono dal lunedì al venerdì.\n\nRequisiti - Si porta una formazione professionale completata con un certificato di competenza come medico. Assistente pratica o uno specialista in infermieristica / infermieristica. - Buone competenze PC e capacità organizzative. - Siete una persona flessibile e resiliente e lavorare in modo affidabile, in modo indipendente e avere una comprensione rapida. - Le vostre capacità di comunicazione sono distinti così come le vostre competenze di squadra, servizio e mentalità di servizio.\n\nOffriamo un caloroso benvenuto all'Ospedale cantonale Aarau (KSA). Sia che si trovi presso l'Ospedale cantonale Aarau, presso le sedi di KSA Bahnhof Aarau, KSA LCCburg o KSA Frick. siamo lì per voi tutto il giorno. Con la nostra vasta gamma di servizi, dalla cura di base alla medicina altamente specializzata, siamo competenti e affidabili in tutte le località.",
         "en": "Tasks - You are responsible for preparing the various consultation hours, blood sampling in a pleasant and capillary manner, lung function controls, prick tests, ECG writing, 24h ECG, etc. - You execute regulations accurately, speditively and independently. - A constructive cooperation with medical service, the MPA's and the secretariat is central. - The operating times are from Monday to Friday.\n\nRequirements - You bring a completed vocational training with a certificate of competence as a medical practitioner. Practice assistant or a specialist in nursing / nursing. - Good PC skills and organizational skills. - You are a flexible and resilient person and work reliably, speditively, independently and have a fast understanding. - Your communication skills are distinguished as well as your team skills, service and service mentality.\n\nWe offer a warm welcome to the Cantonal Hospital Aarau (KSA). Whether you are at the Cantonal Hospital Aarau, at the locations of KSA Bahnhof Aarau, KSA LCCburg or KSA Frick – we are there for you around the clock. With our wide range of services, from basic care to highly specialised medicine, we are competent and reliable at all locations.",
-        "de": "Aufgaben:\n• Sie sind zuständig für die Vorbereitung der verschiedenen Sprechstunden, Blutentnahmen venös und kapillär, Lungenfunktionskontrollen, Prick-Testungen, EKG schreiben, 24h-EKG, etc.\n\n• Sie führen Verordnungen exakt, speditiv und selbständig aus.\n\n• Eine konstruktive Zusammenarbeit mit Arztdienst, den MPA's und dem Sekretariat ist zentral.\n\n• Die Einsatzzeiten sind von Montag bis Freitag.\n\nAnforderungen:\n• Sie bringen eine abgeschlossene Berufsausbildung mit Fähigkeitsausweis als Med. Praxisassistent/in oder als Dipl. Pflegefachfrau/Pflegefachmann mit.\n\n• Gute PC-Kenntnisse und organisatorische Fähigkeiten.\n\n• Sie sind eine flexible und belastbare Person und arbeiten zuverlässig, speditiv, selbstständig und haben eine schnelle Auffassungsgabe.\n\n• Ihre kommunikativen Fähigkeiten zeichnen Sie ebenso aus wie Ihre Teamfähigkeit, Dienstleistungs- und Servicementalität.\n\nHerzlich willkommen im Kantonsspital Aarau (KSA).\nOb im Kantonsspital Aarau, an den Standorten KSA Bahnhof Aarau, KSA Lenzburg oder KSA Frick – wir sind rund um die Uhr für Sie da. Mit unserem breiten Angebot, von der Grundversorgung bis hin zur hochspezialisierten Medizin, stehen wir Ihnen an allen Standorten kompetent und zuverlässig zur Seite.",
-        "fr": "Tâches - Vous êtes responsable de la préparation des différentes heures de consultation, prélèvement de sang d'une manière agréable et capillaire, contrôle de la fonction pulmonaire, tests de piqûre, rédaction d'ECG, 24h ECG, etc. - Vous exécutez les règlements avec précision, spécifité et indépendance. - Une coopération constructive avec le service médical, le MPA et le secrétariat est centrale. - Les heures d'opération sont du lundi au vendredi.\n\nExigences - Vous apportez une formation professionnelle complétée avec un certificat de compétence en tant que médecin. Assistante pratique ou spécialiste en soins infirmiers / infirmiers. - Bonnes compétences en PC et en organisation. - Vous êtes une personne flexible et résiliente et travaillez de façon fiable, spécifique, indépendante et avec une compréhension rapide. -\n• Vos compétences en communication sont distinguées ainsi que vos compétences en équipe, votre service et votre mentalité de service.\n\nNous vous accueillons chaleureusement à l'hôpital cantonal Aarau (KSA). Que vous soyez à l'hôpital cantonal Aarau, aux endroits de KSA Bahnhof Aarau, KSA LCCburg ou KSA Frick – nous sommes là pour vous 24 heures sur 24. Avec notre large gamme de services, des soins de base à la médecine hautement spécialisée, nous sommes compétents et fiables à tous les endroits."
+        "de": "Aufgaben\n- Sie sind zuständig für die Vorbereitung der verschiedenen Sprechstunden, Blutentnahmen venös und kapillär, Lungenfunktionskontrollen, Prick-Testungen, EKG schreiben, 24h-EKG, etc.\n- Sie führen Verordnungen exakt, speditiv und selbständig aus.\n- Eine konstruktive Zusammenarbeit mit Arztdienst, den MPA's und dem Sekretariat ist zentral.\n- Die Einsatzzeiten sind von Montag bis Freitag.\n\nAnforderungen\n- Sie bringen eine abgeschlossene Berufsausbildung mit Fähigkeitsausweis als Med. Praxisassistent/in oder als Dipl. Pflegefachfrau/Pflegefachmann mit.\n- Gute PC-Kenntnisse und organisatorische Fähigkeiten.\n- Sie sind eine flexible und belastbare Person und arbeiten zuverlässig, speditiv, selbstständig und haben eine schnelle Auffassungsgabe.\n- Ihre kommunikativen Fähigkeiten zeichnen Sie ebenso aus wie Ihre Teamfähigkeit, Dienstleistungs- und Servicementalität.\n\nWir bieten\nHerzlich willkommen im Kantonsspital Aarau (KSA).\nOb im Kantonsspital Aarau, an den Standorten KSA Bahnhof Aarau, KSA Lenzburg oder KSA Frick – wir sind rund um die Uhr für Sie da. Mit unserem breiten Angebot, von der Grundversorgung bis hin zur hochspezialisierten Medizin, stehen wir Ihnen an allen Standorten kompetent und zuverlässig zur Seite.",
+        "fr": "Tâches - Vous êtes responsable de la préparation des différentes heures de consultation, prélèvement de sang d'une manière agréable et capillaire, contrôle de la fonction pulmonaire, tests de piqûre, rédaction d'ECG, 24h ECG, etc. - Vous exécutez les règlements avec précision, spécifité et indépendance. - Une coopération constructive avec le service médical, le MPA et le secrétariat est centrale. - Les heures d'opération sont du lundi au vendredi.\n\nExigences - Vous apportez une formation professionnelle complétée avec un certificat de compétence en tant que médecin. Assistante pratique ou spécialiste en soins infirmiers / infirmiers. - Bonnes compétences en PC et en organisation. - Vous êtes une personne flexible et résiliente et travaillez de façon fiable, spécifique, indépendante et avec une compréhension rapide. - Vos compétences en communication sont distinguées ainsi que vos compétences en équipe, votre service et votre mentalité de service.\n\nNous vous accueillons chaleureusement à l'hôpital cantonal Aarau (KSA). Que vous soyez à l'hôpital cantonal Aarau, aux endroits de KSA Bahnhof Aarau, KSA LCCburg ou KSA Frick – nous sommes là pour vous 24 heures sur 24. Avec notre large gamme de services, des soins de base à la médecine hautement spécialisée, nous sommes compétents et fiables à tous les endroits."
       },
       "location": "Aarau",
       "canton": "AG",
@@ -4634,7 +4645,9 @@
         "assistente-medico-kantonsspital-aarau-ksa-aarau",
         "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau-uinkfe",
         "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau-9ztjrt",
-        "med-praxisassistente-in-kantonsspital-aarau-ksa-aarau"
+        "med-praxisassistente-in-kantonsspital-aarau-ksa-aarau",
+        "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau",
+        "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4645,11 +4658,11 @@
           "med-praxisassistente-in-kantonsspital-aarau-ksa-aarau"
         ],
         "fr": [
-          "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau-9ztjrt"
+          "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau-9ztjrt",
+          "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau"
         ]
       },
       "firstSeenAt": "2026-07-10T12:11:07.792Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -4661,7 +4674,8 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ksa-b6e1ec77798d",
@@ -7077,7 +7091,9 @@
         "logi-hyardfachfrau-hyardfachmann-kantonsspital-aarau-ksa-aarau-4b0cb4",
         "dipl-pflegefachfrau-pflegefachmann-kantonsspital-aarau-ksa-aarau-9ztkas",
         "registered-nurse-nursing-specialist-kantonsspital-aarau-ksa-aarau",
-        "dipl-pflegefachfrau-pflegefachmann-kantonsspital-aarau-ksa-aarau"
+        "dipl-pflegefachfrau-pflegefachmann-kantonsspital-aarau-ksa-aarau",
+        "dipl-pflegefachfrau-pflegefachmann-ksa-ch-5",
+        "dipl-pflegefachfrau-pflegefachmann-ksa-ch-5"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -7094,11 +7110,11 @@
           "dipl-pflegefachfrau-pflegefachmann-kantonsspital-aarau-ksa-aarau"
         ],
         "fr": [
-          "dipl-pflegefachfrau-pflegefachmann-ksa-ch-5-9ztkas"
+          "dipl-pflegefachfrau-pflegefachmann-ksa-ch-5-9ztkas",
+          "dipl-pflegefachfrau-pflegefachmann-ksa-ch-5"
         ]
       },
       "firstSeenAt": "2026-07-10T12:11:07.792Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -7110,7 +7126,8 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ksa-ac4838d9c43c",
