@@ -1,23 +1,24 @@
 {
   "key": "lidl-svizzera",
   "label": "Lidl",
-  "generatedAt": "2026-08-03T12:36:37.520Z",
-  "total": 379,
-  "newCount": 1,
+  "generatedAt": "2026-08-03T22:12:10.573Z",
+  "total": 378,
+  "newCount": 0,
   "updatedCount": 64,
   "removedCount": 0,
   "unchangedCount": 314,
-  "durationMs": 183889,
-  "avgDurationMs": 183889,
+  "durationMs": 117345,
+  "avgDurationMs": 117345,
   "durationHistory": [
-    183889
+    117345
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "company-clblww",
-      "slug": "ch-tuttofare-vendita-m-w-d-20-40-lidl-svizzera-sant-antonino",
+      "slug": "ch-tuttofare-vendita-m-w-d-20-40-lidl-svizzera-sant-antonino-clblww",
       "company": "Lidl Svizzera",
-      "title": "CH_ Tuttofare vendita (m/f/d) 20-40% — Sant'Antonino",
+      "title": "CH_ Tuttofare vendita (m/f/d) 20-40%",
       "location": "Sant'Antonino",
       "canton": "TI",
       "category": "sales",
@@ -34,21 +35,23 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-08-03T12:36:28.635Z",
+      "crawledAt": "2026-08-03T22:12:01.927Z",
       "firstSeenAt": "2026-08-03T12:36:28.635Z",
-      "needsRetranslation": true,
       "country": "CH",
       "sourceLang": "it",
-      "_qualityScore": 79,
+      "addressLocality": "Sant'Antonino",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 15,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 19
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "company-rvoh8q",
       "slug": "ch-venditore-venditrice-con-responsabilita-del-turno-m-w-d-60-80-lidl-svizzera-st-moritz-rvoh8q",
@@ -70,7 +73,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-08-03T12:36:28.635Z",
+      "crawledAt": "2026-08-03T22:12:01.927Z",
       "firstSeenAt": "2026-07-29T11:43:30.548Z",
       "country": "CH",
       "sourceLang": "it",
@@ -1218,47 +1221,6 @@
       "postalCode": "8001",
       "salaryMin": 29400,
       "salaryMax": 44600,
-      "needsRetranslation": true,
-      "_qualityScore": 92,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 23,
-        "completeness": 22
-      }
-    },
-    {
-      "id": "company-dwpy10",
-      "slug": "allrounder-vendita-m-w-d-20-60-lidl-svizzera-st-gallen-dwpy10",
-      "company": "Lidl Svizzera",
-      "title": "Allrounder Verkauf (m/w/d) 20-60% — St. Gallen",
-      "location": "St. Gallen",
-      "canton": "SG",
-      "category": "admin",
-      "contract": "part-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-03",
-      "url": "https://team.lidl.ch/de/jobs/allrounder-verkauf-m-w-d-20-60-st-gallen-698748",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "St. Gallen",
-        "canton": "SG"
-      },
-      "companyKey": "lidl-svizzera",
-      "companyDomain": "lidl.ch",
-      "crawledAt": "2026-07-27T12:31:53.616Z",
-      "firstSeenAt": "2026-07-06T22:40:50.002Z",
-      "country": "CH",
-      "sourceLang": "de",
-      "addressLocality": "St. Gallen",
-      "addressRegion": "SG",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "postalCode": "9000",
-      "salaryMin": 34500,
-      "salaryMax": 52200,
       "needsRetranslation": true,
       "_qualityScore": 92,
       "_qualityBreakdown": {
