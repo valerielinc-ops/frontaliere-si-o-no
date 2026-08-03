@@ -54,14 +54,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "senior-system-engineer-rieter-winterthur",
-        "senior-system-engineer-100-w-m-d-rieter-winterthur",
-        "senior-system-ingegnere-rieter-winterthur"
+        "senior-system-engineer-100-w-m-d-rieter-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
           "senior-system-engineer-rieter-winterthur",
-          "senior-system-engineer-100-w-m-d-rieter-winterthur",
-          "senior-system-ingegnere-rieter-winterthur"
+          "senior-system-engineer-100-w-m-d-rieter-winterthur"
         ],
         "de": [
           "senior-system-engineer-rieter-winterthur"
@@ -91,7 +89,7 @@
         "en": "sap-senior-consultant-service-and-repair-cs-100-w-m-d-rieter-winterthur",
         "it": "sap-senior-consultant-service-and-repair-cs-100-w-m-d-rieter-winterthur",
         "de": "sap-senior-consultant-service-and-repair-cs-100-w-m-d-rieter-winterthur",
-        "fr": "sap-senior-consultant-service-and-repair-cs-100-w-m-d-rieter-winterthur"
+        "fr": "service-et-reparation-de-consultants-principaux-sap-cs-100-p-m-j-rieter-winterthur"
       },
       "company": "Rieter",
       "companyKey": "rieter",
@@ -152,12 +150,12 @@
     },
     {
       "id": "rieter-5e3fee4d2cd7",
-      "slug": "product-manager-automation-100-w-m-d-rieter-winterthur",
+      "slug": "automazione-100-w-m-d-rieter-winterthur",
       "slugByLocale": {
         "en": "product-manager-automation-100-w-m-d-rieter-winterthur",
-        "it": "product-manager-automation-100-w-m-d-rieter-winterthur",
-        "de": "product-manager-automation-100-w-m-d-rieter-winterthur",
-        "fr": "product-manager-automation-100-w-m-d-rieter-winterthur"
+        "it": "automazione-100-w-m-d-rieter-winterthur",
+        "de": "produktmanager-automation-100-w-m-d-rieter-winterthur",
+        "fr": "automatisation-du-gestionnaire-de-produits-100-p-m-d-rieter-winterthur"
       },
       "company": "Rieter",
       "companyKey": "rieter",
@@ -220,23 +218,37 @@
           "automazione-di-product-manager-rieter-winterthur",
           "product-manager-automation-rieter-winterthur",
           "produktmanager-automatisierung-rieter-winterthur",
-          "gestionnaire-de-produits-automatisation-rieter-winterthur"
+          "gestionnaire-de-produits-automatisation-rieter-winterthur",
+          "automazione-di-product-manager-rieter-winterthur",
+          "product-manager-automation-rieter-winterthur",
+          "produktmanager-automatisierung-rieter-winterthur",
+          "gestionnaire-de-produits-automatisation-rieter-winterthur",
+          "product-manager-automation-100-w-m-d-rieter-winterthur"
         ],
         "en": [
           "product-manager-automation-rieter-winterthur"
         ],
         "de": [
-          "produktmanager-automatisierung-rieter-winterthur"
+          "produktmanager-automatisierung-rieter-winterthur",
+          "produktmanager-automatisierung-rieter-winterthur",
+          "product-manager-automation-100-w-m-d-rieter-winterthur"
         ],
         "fr": [
-          "gestionnaire-de-produits-automatisation-rieter-winterthur"
+          "gestionnaire-de-produits-automatisation-rieter-winterthur",
+          "gestionnaire-de-produits-automatisation-rieter-winterthur",
+          "product-manager-automation-100-w-m-d-rieter-winterthur"
         ]
       },
       "previousSlugs": [
         "automazione-di-product-manager-rieter-winterthur",
         "product-manager-automation-rieter-winterthur",
         "produktmanager-automatisierung-rieter-winterthur",
-        "gestionnaire-de-produits-automatisation-rieter-winterthur"
+        "gestionnaire-de-produits-automatisation-rieter-winterthur",
+        "automazione-di-product-manager-rieter-winterthur",
+        "product-manager-automation-rieter-winterthur",
+        "produktmanager-automatisierung-rieter-winterthur",
+        "gestionnaire-de-produits-automatisation-rieter-winterthur",
+        "product-manager-automation-100-w-m-d-rieter-winterthur"
       ]
     },
     {
@@ -301,15 +313,7 @@
           "maxValue": 134500,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "de": [
-          "anwendungsexperte-cad-plm-100-w-m-d-rieter-winterthur"
-        ]
-      },
-      "previousSlugs": [
-        "anwendungsexperte-cad-plm-100-w-m-d-rieter-winterthur"
-      ]
+      }
     },
     {
       "id": "rieter-b2c063694e2b",

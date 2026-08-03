@@ -53,13 +53,11 @@
       "requirementsByLocale": {},
       "streetAddress": "Chemin du Closel 15-17",
       "previousSlugs": [
-        "automaticien-ne-pour-le-metro-m2-tl-lausanne-lausanne",
-        "automatico-per-metro-m2-tl-transports-publics-de-la-region-lausannoise-lausanne"
+        "automaticien-ne-pour-le-metro-m2-tl-lausanne-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "automaticien-ne-pour-le-metro-m2-tl-lausanne-lausanne",
-          "automatico-per-metro-m2-tl-transports-publics-de-la-region-lausannoise-lausanne"
+          "automaticien-ne-pour-le-metro-m2-tl-lausanne-lausanne"
         ],
         "en": [
           "automaticien-ne-pour-le-metro-m2-tl-lausanne-lausanne"
@@ -133,22 +131,18 @@
       "streetAddress": "Chemin du Closel 15-17",
       "previousSlugs": [
         "analyste-systemes-financiers-tl-lausanne-lausanne",
-        "analystenfinanzsysteme-tl-transports-publics-de-la-region-lausannoise-lausanne",
-        "analizzare-i-sistemi-finanziari-tl-transports-publics-de-la-region-lausannoise-lausanne",
-        "analyste-systemes-financiers-tl-transports-publics-de-la-region-lausannoise-lausanne"
+        "analystenfinanzsysteme-tl-transports-publics-de-la-region-lausannoise-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "analyste-systemes-financiers-tl-lausanne-lausanne",
-          "analizzare-i-sistemi-finanziari-tl-transports-publics-de-la-region-lausannoise-lausanne"
+          "analyste-systemes-financiers-tl-lausanne-lausanne"
         ],
         "en": [
           "analyste-systemes-financiers-tl-lausanne-lausanne"
         ],
         "de": [
           "analyste-systemes-financiers-tl-lausanne-lausanne",
-          "analystenfinanzsysteme-tl-transports-publics-de-la-region-lausannoise-lausanne",
-          "analyste-systemes-financiers-tl-transports-publics-de-la-region-lausannoise-lausanne"
+          "analystenfinanzsysteme-tl-transports-publics-de-la-region-lausannoise-lausanne"
         ]
       },
       "firstSeenAt": "2026-07-23T22:06:27.045Z",
@@ -224,8 +218,7 @@
         "meccanica-del-treno-per-la-linea-leb-tl-transports-publics-de-la-region-lausannoise-lausanne",
         "train-mechanics-for-the-leb-line-tl-transports-publics-de-la-region-lausannoise-lausanne",
         "zugmechaniker-fur-die-leb-strecke-tl-transports-publics-de-la-region-lausannoise-lausanne",
-        "mecanicien-ne-s-de-train-pour-la-ligne-du-leb-tl-lausanne-lausanne",
-        "driver-per-il-bus-e-driver-filobus-tl-transports-publics-de-la-region-lausannoise-lausanne"
+        "mecanicien-ne-s-de-train-pour-la-ligne-du-leb-tl-lausanne-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -237,8 +230,7 @@
           "meccanica-del-treno-per-la-linea-leb-tl-transports-publics-de-la-region-lausannoise-lausanne",
           "train-mechanics-for-the-leb-line-tl-transports-publics-de-la-region-lausannoise-lausanne",
           "zugmechaniker-fur-die-leb-strecke-tl-transports-publics-de-la-region-lausannoise-lausanne",
-          "mecanicien-ne-s-de-train-pour-la-ligne-du-leb-tl-lausanne-lausanne",
-          "driver-per-il-bus-e-driver-filobus-tl-transports-publics-de-la-region-lausannoise-lausanne"
+          "mecanicien-ne-s-de-train-pour-la-ligne-du-leb-tl-lausanne-lausanne"
         ],
         "en": [
           "railway-constructors-tl-transports-publics-de-la-region-lausannoise-lausanne"
@@ -343,12 +335,12 @@
     },
     {
       "id": "tl-lausanne-079975fc61d3",
-      "slug": "stagiaire-environnement-tl-lausanne-lausanne",
+      "slug": "internship-ambiente-tl-transports-publics-de-la-region-lausannoise-lausanne",
       "slugByLocale": {
         "fr": "stagiaire-environnement-tl-lausanne-lausanne",
-        "it": "stagiaire-environnement-tl-lausanne-lausanne",
-        "en": "stagiaire-environnement-tl-lausanne-lausanne",
-        "de": "stagiaire-environnement-tl-lausanne-lausanne"
+        "it": "internship-ambiente-tl-transports-publics-de-la-region-lausannoise-lausanne",
+        "en": "internship-environment-tl-transports-publics-de-la-region-lausannoise-lausanne",
+        "de": "praktikumsumgebung-tl-transports-publics-de-la-region-lausannoise-lausanne"
       },
       "company": "tl (Transports publics de la région lausannoise)",
       "companyKey": "tl-lausanne",
@@ -404,7 +396,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-03T12:54:13.343Z"
+      "firstSeenAt": "2026-08-03T12:54:13.343Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "stagiaire-environnement-tl-lausanne-lausanne"
+        ],
+        "en": [
+          "stagiaire-environnement-tl-lausanne-lausanne"
+        ],
+        "de": [
+          "stagiaire-environnement-tl-lausanne-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "stagiaire-environnement-tl-lausanne-lausanne"
+      ]
     }
   ]
 }
