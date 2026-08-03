@@ -693,7 +693,7 @@
         "it": "torte-di-reparto-di-confectioner-paziesserie-100-confiserie-sprungli-ag-dietikon",
         "en": "confectioner-s-department-cakes-patisserie-100-confiserie-sprungli-ag-dietikon",
         "de": "konditor-confiseur-in-abteilung-torten-patisserie-100-spruengli-dietikon",
-        "fr": "patisserie-patisserie-100-confiserie-sprungli-ag-dietikon"
+        "fr": "patissier-dans-le-departement-des-gateaux-patisseries-100-confiserie-sprungli-ag-dietikon"
       },
       "company": "Confiserie Sprüngli AG",
       "companyKey": "spruengli",
@@ -753,8 +753,8 @@
         "backer-konditor-in-abteilung-feinbackerei-100-spruengli-dietikon",
         "boulangerie-confiserie-dans-le-departement-de-la-boulangerie-fine-100-confiserie-sprungli-ag-dietikon",
         "backer-konditor-in-abteilung-feinbackerei-100-confiserie-sprungli-ag-dietikon",
-        "patissier-dans-le-departement-des-gateaux-patisseries-100-confiserie-sprungli-ag-dietikon",
-        "torte-di-reparto-di-confectioner-paziesserie-100-confiserie-sprungli-ag-dietikon"
+        "torte-di-reparto-di-confectioner-paziesserie-100-confiserie-sprungli-ag-dietikon",
+        "patisserie-patisserie-100-confiserie-sprungli-ag-dietikon"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -783,11 +783,10 @@
         "fr": [
           "konditor-confiseur-in-abteilung-torten-patisserie-100-spruengli-dietikon",
           "service-de-la-confiserie-100-confiserie-sprungli-ag-dietikon",
-          "patissier-dans-le-departement-des-gateaux-patisseries-100-confiserie-sprungli-ag-dietikon"
+          "patisserie-patisserie-100-confiserie-sprungli-ag-dietikon"
         ]
       },
       "firstSeenAt": "2026-07-31T22:18:24.553Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -799,7 +798,8 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "spruengli-5f47c60025c7",

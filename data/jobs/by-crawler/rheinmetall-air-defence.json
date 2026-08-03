@@ -307,7 +307,7 @@
         "it": "fresatrici-cnc-m-f-d-rheinmetall-air-defence-ag-zurich",
         "en": "cnc-milling-cutter-m-f-d-rheinmetall-air-defence-ag-zurich",
         "de": "cnc-fraser-m-w-d-rheinmetall-air-defence-ag-zurich",
-        "fr": "decoupeuse-cnc-m-f-d-rheinmetall-air-defence-ag-zurich"
+        "fr": "decoupe-cnc-m-f-d-rheinmetall-air-defence-ag-zurich"
       },
       "company": "Rheinmetall Air Defence AG",
       "companyKey": "rheinmetall-air-defence",
@@ -354,8 +354,8 @@
       },
       "previousSlugs": [
         "cnc-fraser-m-w-d-rheinmetall-air-defence-ag-zurich",
-        "decoupe-cnc-m-f-d-rheinmetall-air-defence-ag-zurich",
-        "fresatrici-cnc-m-f-d-rheinmetall-air-defence-ag-zurich"
+        "fresatrici-cnc-m-f-d-rheinmetall-air-defence-ag-zurich",
+        "decoupeuse-cnc-m-f-d-rheinmetall-air-defence-ag-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -367,11 +367,10 @@
         ],
         "fr": [
           "cnc-fraser-m-w-d-rheinmetall-air-defence-ag-zurich",
-          "decoupe-cnc-m-f-d-rheinmetall-air-defence-ag-zurich"
+          "decoupeuse-cnc-m-f-d-rheinmetall-air-defence-ag-zurich"
         ]
       },
       "firstSeenAt": "2026-07-04T11:46:21.916Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -383,7 +382,8 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "rheinmetall-air-defence-2b3680c93d85",
