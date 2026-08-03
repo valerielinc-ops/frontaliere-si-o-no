@@ -3887,7 +3887,7 @@
       "slugByLocale": {
         "it": "infermiera-di-emergenza-in-cdd-all-80-hirslanden-klinik-lausanne",
         "en": "emergency-nurse-in-cdd-at-80-hirslanden-klinik-lausanne",
-        "de": "notfallkrankenschwester-in-cdd-bei-80-hirslanden-klinik-lausanne",
+        "de": "notfall-krankenschwester-in-cdd-bei-80-hirslanden-klinik-lausanne",
         "fr": "infirmier-ere-aux-urgences-en-cdd-a-80-hirslanden-lausanne"
       },
       "company": "Hirslanden Klinik",
@@ -3932,7 +3932,6 @@
       "previousSlugsByLocale": {
         "de": [
           "notfallkrankenschwester-80-hirslanden-klinik-lausanne",
-          "notfall-krankenschwester-in-cdd-bei-80-hirslanden-klinik-lausanne",
           "infirmier-ere-aux-urgences-en-cdd-a-80-hirslanden-lausanne"
         ],
         "it": [
@@ -3957,8 +3956,7 @@
         "infermiera-di-emergenza-80-hirslanden-klinik-lausanne",
         "emergency-nurse-80-hirslanden-klinik-lausanne",
         "notfallkrankenschwester-80-hirslanden-klinik-lausanne",
-        "infirmier-ere-aux-urgences-a-80-hirslanden-lausanne",
-        "notfall-krankenschwester-in-cdd-bei-80-hirslanden-klinik-lausanne"
+        "infirmier-ere-aux-urgences-a-80-hirslanden-lausanne"
       ],
       "firstSeenAt": "2026-07-09T22:25:58.559Z",
       "salaryMin": 48400,
@@ -12684,11 +12682,11 @@
     },
     {
       "id": "hirslanden-0d9d75736209",
-      "slug": "50-brancardia-hirslanden-klinik-lausanne",
+      "slug": "50-ramificazione-hirslanden-klinik-lausanne",
       "slugByLocale": {
-        "it": "50-brancardia-hirslanden-klinik-lausanne",
-        "en": "brancardier-ere-a-50-hirslanden-klinik-lausanne",
-        "de": "brancardier-ere-a-50-hirslanden-lausanne",
+        "it": "50-ramificazione-hirslanden-klinik-lausanne",
+        "en": "50-branching-hirslanden-klinik-lausanne",
+        "de": "50-verzweigung-hirslanden-klinik-lausanne",
         "fr": "brancardier-ere-a-50-hirslanden-lausanne"
       },
       "company": "Hirslanden Klinik",
@@ -12731,24 +12729,17 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
-        "de": [
-          "50-verzweigung-hirslanden-klinik-lausanne"
-        ],
+        "de": [],
         "it": [
           "brancardier-ere-a-50-hirslanden-lausanne",
-          "50-ramificazione-hirslanden-klinik-lausanne",
           "brancardier-ere-a-50-hirslanden-klinik-lausanne"
         ],
         "en": [
-          "brancardier-ere-a-50-hirslanden-lausanne",
-          "50-branching-hirslanden-klinik-lausanne"
+          "brancardier-ere-a-50-hirslanden-lausanne"
         ]
       },
       "previousSlugs": [
         "brancardier-ere-a-50-hirslanden-lausanne",
-        "50-verzweigung-hirslanden-klinik-lausanne",
-        "50-ramificazione-hirslanden-klinik-lausanne",
-        "50-branching-hirslanden-klinik-lausanne",
         "brancardier-ere-a-50-hirslanden-klinik-lausanne"
       ],
       "firstSeenAt": "2026-07-16T22:07:46.291Z",
