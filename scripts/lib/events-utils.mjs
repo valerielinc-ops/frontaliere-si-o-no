@@ -841,12 +841,44 @@ async function fillLocaleGaps(byLocale, cache, { fieldType, locales, delayMs, tr
  * a NEW array; events are shallow-copied, never mutated in place. Used by
  * `crawl-myswitzerland-events.mjs` and `crawl-guidle-events.mjs`; `translateFn`
  * is injectable so tests never hit the network.
+ *
+ * `deadline` (epoch ms, opt-in) caps this stage's wall clock. Past it the
+ * remaining events are passed through untranslated — they keep the
+ * source-locale text they already carry, and their gaps are refilled on a
+ * later run from the persisted cache. Unbounded, this is the single longest
+ * thing either nationwide crawler does: one sequential network round trip per
+ * missing locale per field, so a few hundred events cost thousands of
+ * requests, and neither crawler's RUN_BUDGET_MS covered it — that cap stops
+ * the VISIT loop and nothing after it.
+ *
+ * That gap is what cancelled crawl-events every day from 2026-07-07 on. The
+ * budgeted visit loop stopped on time, this stage then ate the remainder of
+ * timeout-minutes, and the job was killed before saveCursor() and
+ * mergeEventsIntoSlice() ever ran — so the myswitzerland checkpoint froze at
+ * index 1331/21314, every run redid the same 320 records and threw them away,
+ * and the "Commit dataset" step was never reached at all. It is the same
+ * failure mode as tio-agenda's 2026-07-03 backlog pass (run 28683305065),
+ * one stage further down, which is why raising timeout-minutes to 60 then did
+ * not prevent it: an unbounded stage expands to whatever budget it is given.
  */
 export async function enrichEventsWithLocaleFallbackTranslations(events, cache, options = {}) {
-  const { locales = ['it', 'en', 'de', 'fr'], delayMs = LOCALE_FALLBACK_DELAY_MS, translateFn = freeTranslateWithRetry } = options;
+  const {
+    locales = ['it', 'en', 'de', 'fr'],
+    delayMs = LOCALE_FALLBACK_DELAY_MS,
+    translateFn = freeTranslateWithRetry,
+    deadline = null,
+  } = options;
   const out = [];
+  let skipped = 0;
   for (const event of events) {
     const next = { ...event };
+    if (deadline !== null && Date.now() >= deadline) {
+      // Shallow-copied like every other element, so the "new array, never
+      // mutated in place" contract holds on the timed-out tail too.
+      out.push(next);
+      skipped += 1;
+      continue;
+    }
     if (event.titleByLocale) {
       next.titleByLocale = await fillLocaleGaps(event.titleByLocale, cache, { fieldType: 'title', locales, delayMs, translateFn });
     }
@@ -859,6 +891,12 @@ export async function enrichEventsWithLocaleFallbackTranslations(events, cache, 
       });
     }
     out.push(next);
+  }
+  if (skipped) {
+    console.log(
+      `[events] locale-fallback translation: budget reached — ${skipped}/${events.length} event(s) passed through ` +
+        `untranslated (source-locale text kept), gaps retried next run`,
+    );
   }
   return out;
 }
