@@ -1,6 +1,6 @@
 {
   "crawlerKey": "rheinmetall-air-defence",
-  "assembledAt": "2026-08-03T12:49:38.361Z",
+  "assembledAt": "2026-08-03T22:30:37.987Z",
   "jobs": [
     {
       "id": "rheinmetall-air-defence-77078b0dcb51",
@@ -32,7 +32,7 @@
       "url": "https://www.rheinmetall.com/en/job/senior_payroll_specialist_100___m_w_d_/1086158",
       "source": "Rheinmetall Air Defence AG Dedicated Parser (corporate careers API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-03T12:49:34.981Z",
+      "crawledAt": "2026-08-03T22:30:35.472Z",
       "companyDomain": "rheinmetall.com",
       "addressLocality": "Zürich",
       "postalCode": "8050",
@@ -55,6 +55,7 @@
         "contractTypeLabel": "Unbefristeter Vertrag"
       },
       "firstSeenAt": "2026-07-04T11:46:30.247Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -98,7 +99,7 @@
       "url": "https://www.rheinmetall.com/en/job/electrical_engineer__m_w_d_/1033847",
       "source": "Rheinmetall Air Defence AG Dedicated Parser (corporate careers API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-03T12:49:34.540Z",
+      "crawledAt": "2026-08-03T22:30:34.609Z",
       "companyDomain": "rheinmetall.com",
       "addressLocality": "Zürich",
       "postalCode": "8050",
@@ -139,6 +140,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:46:20.932Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -182,7 +184,7 @@
       "url": "https://www.rheinmetall.com/en/job/senior_project_manager__m_w_d_/1084841",
       "source": "Rheinmetall Air Defence AG Dedicated Parser (corporate careers API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-03T12:49:34.088Z",
+      "crawledAt": "2026-08-03T22:30:34.544Z",
       "companyDomain": "rheinmetall.com",
       "addressLocality": "Zürich",
       "postalCode": "8050",
@@ -205,6 +207,7 @@
         "contractTypeLabel": "Unbefristeter Vertrag"
       },
       "firstSeenAt": "2026-07-04T11:46:08.931Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -248,7 +251,7 @@
       "url": "https://www.rheinmetall.com/en/job/aoi_supporter__m_w_d_/1021496",
       "source": "Rheinmetall Air Defence AG Dedicated Parser (corporate careers API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-03T12:49:33.639Z",
+      "crawledAt": "2026-08-03T22:30:33.786Z",
       "companyDomain": "rheinmetall.com",
       "addressLocality": "Zürich",
       "postalCode": "8050",
@@ -327,7 +330,7 @@
       "url": "https://www.rheinmetall.com/en/job/cnc_fraeser__m_w_d_/1056443",
       "source": "Rheinmetall Air Defence AG Dedicated Parser (corporate careers API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-03T12:49:33.154Z",
+      "crawledAt": "2026-08-03T22:30:33.719Z",
       "companyDomain": "rheinmetall.com",
       "addressLocality": "Zürich",
       "postalCode": "8050",
@@ -351,9 +354,8 @@
       },
       "previousSlugs": [
         "cnc-fraser-m-w-d-rheinmetall-air-defence-ag-zurich",
-        "fresatrici-cnc-m-f-d-rheinmetall-air-defence-ag-zurich",
         "decoupeuse-cnc-m-f-d-rheinmetall-air-defence-ag-zurich",
-        "decoupeuse-cnc-m-f-d-rheinmetall-air-defence-ag-zurich"
+        "fresatrici-cnc-m-f-d-rheinmetall-air-defence-ag-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -369,6 +371,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:46:21.916Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -412,7 +415,7 @@
       "url": "https://www.rheinmetall.com/en/job/cnc_fraeser___springer___allrounder__m_w_d_/1106936",
       "source": "Rheinmetall Air Defence AG Dedicated Parser (corporate careers API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-03T12:49:32.617Z",
+      "crawledAt": "2026-08-03T22:30:33.651Z",
       "companyDomain": "rheinmetall.com",
       "addressLocality": "Zürich",
       "postalCode": "8050",
@@ -435,6 +438,7 @@
         "contractTypeLabel": "Unbefristeter Vertrag"
       },
       "firstSeenAt": "2026-07-22T11:55:00.684Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -478,7 +482,7 @@
       "url": "https://www.rheinmetall.com/en/job/sales_manager_europa__m_w_d_/1109372",
       "source": "Rheinmetall Air Defence AG Dedicated Parser (corporate careers API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-03T12:49:32.157Z",
+      "crawledAt": "2026-08-03T22:30:33.620Z",
       "companyDomain": "rheinmetall.com",
       "addressLocality": "Zürich",
       "postalCode": "8050",
@@ -514,6 +518,7 @@
         ]
       },
       "firstSeenAt": "2026-07-24T11:18:50.767Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -557,7 +562,7 @@
       "url": "https://www.rheinmetall.com/en/job/warengruppeneinkaeufer_metall__m_w_d_/1109414",
       "source": "Rheinmetall Air Defence AG Dedicated Parser (corporate careers API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-03T12:49:31.642Z",
+      "crawledAt": "2026-08-03T22:30:33.558Z",
       "companyDomain": "rheinmetall.com",
       "addressLocality": "Zürich",
       "postalCode": "8050",
@@ -639,7 +644,7 @@
       "url": "https://www.rheinmetall.com/en/job/senior_systems_engineer_missile_systems__m_w_d_/1106909",
       "source": "Rheinmetall Air Defence AG Dedicated Parser (corporate careers API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-03T12:49:31.045Z",
+      "crawledAt": "2026-08-03T22:30:33.535Z",
       "companyDomain": "rheinmetall.com",
       "addressLocality": "Zürich",
       "postalCode": "8050",
@@ -662,6 +667,7 @@
         "contractTypeLabel": "Unbefristeter Vertrag"
       },
       "firstSeenAt": "2026-07-22T11:54:38.092Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -705,7 +711,7 @@
       "url": "https://www.rheinmetall.com/en/job/praktikant_im_bereich_deep_learning__m_w_d_/1105727",
       "source": "Rheinmetall Air Defence AG Dedicated Parser (corporate careers API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-03T12:49:30.593Z",
+      "crawledAt": "2026-08-03T22:30:33.497Z",
       "companyDomain": "rheinmetall.com",
       "addressLocality": "Zürich",
       "postalCode": "8050",
@@ -787,7 +793,7 @@
       "url": "https://www.rheinmetall.com/en/job/sales_manager_mittlerer_osten__m_w_d_/1109369",
       "source": "Rheinmetall Air Defence AG Dedicated Parser (corporate careers API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-03T12:49:30.130Z",
+      "crawledAt": "2026-08-03T22:30:33.473Z",
       "companyDomain": "rheinmetall.com",
       "addressLocality": "Zürich",
       "postalCode": "8050",
@@ -826,6 +832,7 @@
         ]
       },
       "firstSeenAt": "2026-07-24T11:18:47.317Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -869,7 +876,7 @@
       "url": "https://www.rheinmetall.com/en/job/sales_manager_asien__m_w_d_/1109363",
       "source": "Rheinmetall Air Defence AG Dedicated Parser (corporate careers API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-03T12:49:29.583Z",
+      "crawledAt": "2026-08-03T22:30:33.448Z",
       "companyDomain": "rheinmetall.com",
       "addressLocality": "Zürich",
       "postalCode": "8050",
@@ -920,6 +927,7 @@
         ]
       },
       "firstSeenAt": "2026-07-24T11:18:45.451Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -963,7 +971,7 @@
       "url": "https://www.rheinmetall.com/en/job/sap_q_modul_key_user__m_w_d_/1086140",
       "source": "Rheinmetall Air Defence AG Dedicated Parser (corporate careers API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-03T12:49:28.518Z",
+      "crawledAt": "2026-08-03T22:30:33.357Z",
       "companyDomain": "rheinmetall.com",
       "addressLocality": "Zürich",
       "postalCode": "8050",
@@ -999,6 +1007,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:46:29.813Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -1042,7 +1051,7 @@
       "url": "https://www.rheinmetall.com/en/job/project_procurement_manager__m_w_d_/1082378",
       "source": "Rheinmetall Air Defence AG Dedicated Parser (corporate careers API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-03T12:49:27.032Z",
+      "crawledAt": "2026-08-03T22:30:33.328Z",
       "companyDomain": "rheinmetall.com",
       "addressLocality": "Zürich",
       "postalCode": "8050",
@@ -1088,6 +1097,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:46:06.717Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -1131,7 +1141,7 @@
       "url": "https://www.rheinmetall.com/en/job/atlassian_expert__m_w_d_/1082375",
       "source": "Rheinmetall Air Defence AG Dedicated Parser (corporate careers API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-03T12:49:25.928Z",
+      "crawledAt": "2026-08-03T22:30:33.264Z",
       "companyDomain": "rheinmetall.com",
       "addressLocality": "Zürich",
       "postalCode": "8050",
@@ -1167,6 +1177,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:46:06.265Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -1210,7 +1221,7 @@
       "url": "https://www.rheinmetall.com/en/job/elektrokonstrukteur_ecad__m_w_d_/1082336",
       "source": "Rheinmetall Air Defence AG Dedicated Parser (corporate careers API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-03T12:49:24.835Z",
+      "crawledAt": "2026-08-03T22:30:33.238Z",
       "companyDomain": "rheinmetall.com",
       "addressLocality": "Zürich",
       "postalCode": "8050",
@@ -1249,6 +1260,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:46:05.691Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -1292,7 +1304,7 @@
       "url": "https://www.rheinmetall.com/en/job/head_of_integrated_product_support__ips__management__m_w_d_/1083539",
       "source": "Rheinmetall Air Defence AG Dedicated Parser (corporate careers API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-03T12:49:23.744Z",
+      "crawledAt": "2026-08-03T22:30:33.208Z",
       "companyDomain": "rheinmetall.com",
       "addressLocality": "Zürich",
       "postalCode": "8050",
@@ -1315,6 +1327,7 @@
         "contractTypeLabel": "Unbefristeter Vertrag"
       },
       "firstSeenAt": "2026-07-04T11:46:08.493Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -1358,7 +1371,7 @@
       "url": "https://www.rheinmetall.com/en/job/elektroniker___prueffeldtechniker__m_w_d_/1083524",
       "source": "Rheinmetall Air Defence AG Dedicated Parser (corporate careers API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-03T12:49:22.505Z",
+      "crawledAt": "2026-08-03T22:30:33.073Z",
       "companyDomain": "rheinmetall.com",
       "addressLocality": "Zürich",
       "postalCode": "8050",
@@ -1440,7 +1453,7 @@
       "url": "https://www.rheinmetall.com/en/job/systemtechniker_erprobungszentrum__m_w_d_/1082417",
       "source": "Rheinmetall Air Defence AG Dedicated Parser (corporate careers API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-03T12:49:21.190Z",
+      "crawledAt": "2026-08-03T22:30:33.048Z",
       "companyDomain": "rheinmetall.com",
       "addressLocality": "Studen",
       "postalCode": "8845",
@@ -1522,7 +1535,7 @@
       "url": "https://www.rheinmetall.com/en/job/monteur_serienbaugruppen__m_w_d_/1063562",
       "source": "Rheinmetall Air Defence AG Dedicated Parser (corporate careers API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-03T12:49:20.639Z",
+      "crawledAt": "2026-08-03T22:30:32.993Z",
       "companyDomain": "rheinmetall.com",
       "addressLocality": "Zürich",
       "postalCode": "8050",
@@ -1604,7 +1617,7 @@
       "url": "https://www.rheinmetall.com/en/job/elektronik_wareneingangspruefer___leiterplattenpruefer__pcb_pcba___m_w_d_/1063589",
       "source": "Rheinmetall Air Defence AG Dedicated Parser (corporate careers API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-03T12:49:20.154Z",
+      "crawledAt": "2026-08-03T22:30:32.909Z",
       "companyDomain": "rheinmetall.com",
       "addressLocality": "Zürich",
       "postalCode": "8050",
@@ -1686,7 +1699,7 @@
       "url": "https://www.rheinmetall.com/en/job/fachlicher_teamleiter_messraum_zerspanung__m_w_d_/1067072",
       "source": "Rheinmetall Air Defence AG Dedicated Parser (corporate careers API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-03T12:49:19.283Z",
+      "crawledAt": "2026-08-03T22:30:32.083Z",
       "companyDomain": "rheinmetall.com",
       "addressLocality": "Zürich",
       "postalCode": "8050",
@@ -1768,7 +1781,7 @@
       "url": "https://www.rheinmetall.com/en/job/senior_it_systemtechniker__m_w_d_/1071713",
       "source": "Rheinmetall Air Defence AG Dedicated Parser (corporate careers API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-03T12:49:18.770Z",
+      "crawledAt": "2026-08-03T22:30:32.059Z",
       "companyDomain": "rheinmetall.com",
       "addressLocality": "Zürich",
       "postalCode": "8050",
@@ -1850,7 +1863,7 @@
       "url": "https://www.rheinmetall.com/en/job/werkstoffspezialist_im_bereich_waermebehandlung__m_w_d_/1046684",
       "source": "Rheinmetall Air Defence AG Dedicated Parser (corporate careers API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-03T12:49:18.133Z",
+      "crawledAt": "2026-08-03T22:30:32.034Z",
       "companyDomain": "rheinmetall.com",
       "addressLocality": "Zürich",
       "postalCode": "8050",
@@ -1932,7 +1945,7 @@
       "url": "https://www.rheinmetall.com/en/job/technischer_einsatzleiter_air_defence_erprobung___demonstration__m_w_d_/1045055",
       "source": "Rheinmetall Air Defence AG Dedicated Parser (corporate careers API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-03T12:49:17.689Z",
+      "crawledAt": "2026-08-03T22:30:31.285Z",
       "companyDomain": "rheinmetall.com",
       "addressLocality": "Zürich",
       "postalCode": "8050",
@@ -1968,8 +1981,8 @@
           "essai-integration-et-demonstration-m-f-d-rheinmetall-air-defence-ag-zurich",
           "gestionnaire-des-operations-techniques-de-la-defense-aerienne-essai-et-demonstration-m-f-d-rheinmetall-air-defence-ag",
           "gestionnaire-des-operations-techniques-de-la-defense-aerienne-essais-et-demonstrations-m-f-d-rheinmetall-air-defence-ag",
-          "technischer-einsatzleiter-air-defence-erprobung-demonstration-m-w-d-rheinmetall-air-defence-ag-zurich",
-          "gestionnaire-des-operations-techniques-de-la-defense-aerienne-essais-et-demonstration-m-f-d-rheinmetall-air-defence-ag"
+          "gestionnaire-des-operations-techniques-de-la-defense-aerienne-essais-et-demonstration-m-f-d-rheinmetall-air-defence-ag",
+          "technischer-einsatzleiter-air-defence-erprobung-demonstration-m-w-d-rheinmetall-air-defence-ag-zurich"
         ],
         "de": [
           "technischer-einsatzleiter-air-defence-erprobung-demonstration-m-w-d-rheinmetall-air",
@@ -1980,13 +1993,14 @@
         "erprobungsingenieur-test-integration-und-demonstration-m-w-d-rheinmetall-air-defence-ag",
         "essai-integration-et-demonstration-m-f-d-rheinmetall-air-defence-ag-zurich",
         "gestionnaire-des-operations-techniques-de-la-defense-aerienne-essai-et-demonstration-m-f-d-rheinmetall-air-defence-ag",
-        "technischer-einsatzleiter-air-defence-erprobung-demonstration-m-w-d-rheinmetall-air",
         "gestionnaire-des-operations-techniques-de-la-defense-aerienne-essais-et-demonstrations-m-f-d-rheinmetall-air-defence-ag",
+        "gestionnaire-des-operations-techniques-de-la-defense-aerienne-essais-et-demonstration-m-f-d-rheinmetall-air-defence-ag",
+        "technischer-einsatzleiter-air-defence-erprobung-demonstration-m-w-d-rheinmetall-air",
         "erprobungsingenieur-test-integration-e-demonstration-m-w-d-rheinmetall-air-defence-ag-zurich",
-        "technischer-einsatzleiter-air-defence-erprobung-demonstration-m-w-d-rheinmetall-air-defence-ag-zurich",
-        "gestionnaire-des-operations-techniques-de-la-defense-aerienne-essais-et-demonstration-m-f-d-rheinmetall-air-defence-ag"
+        "technischer-einsatzleiter-air-defence-erprobung-demonstration-m-w-d-rheinmetall-air-defence-ag-zurich"
       ],
       "firstSeenAt": "2026-07-04T11:45:58.402Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -2030,7 +2044,7 @@
       "url": "https://www.rheinmetall.com/en/job/schlosser__m_w_d_/1006130",
       "source": "Rheinmetall Air Defence AG Dedicated Parser (corporate careers API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-03T12:49:17.160Z",
+      "crawledAt": "2026-08-03T22:30:31.246Z",
       "companyDomain": "rheinmetall.com",
       "addressLocality": "Zürich",
       "postalCode": "8050",
@@ -2112,7 +2126,7 @@
       "url": "https://www.rheinmetall.com/en/job/laborant_metallurgie_werkstoffspezialist__m_w_d_/1004933",
       "source": "Rheinmetall Air Defence AG Dedicated Parser (corporate careers API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-03T12:49:16.728Z",
+      "crawledAt": "2026-08-03T22:30:31.219Z",
       "companyDomain": "rheinmetall.com",
       "addressLocality": "Zürich",
       "postalCode": "8050",
@@ -2151,6 +2165,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:46:20.497Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -2194,7 +2209,7 @@
       "url": "https://www.rheinmetall.com/en/job/geschuetzmechaniker__m_w_d_/1002710",
       "source": "Rheinmetall Air Defence AG Dedicated Parser (corporate careers API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-03T12:49:15.984Z",
+      "crawledAt": "2026-08-03T22:30:31.143Z",
       "companyDomain": "rheinmetall.com",
       "addressLocality": "Studen",
       "postalCode": "8845",
@@ -2233,6 +2248,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:46:19.530Z",
+      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -2276,7 +2292,7 @@
       "url": "https://www.rheinmetall.com/en/job/teamleiter_montage__m_w_d_/1002665",
       "source": "Rheinmetall Air Defence AG Dedicated Parser (corporate careers API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-03T12:49:15.526Z",
+      "crawledAt": "2026-08-03T22:30:31.118Z",
       "companyDomain": "rheinmetall.com",
       "addressLocality": "Zürich",
       "postalCode": "8050",
@@ -2334,6 +2350,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:45:51.359Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -2377,7 +2394,7 @@
       "url": "https://www.rheinmetall.com/en/job/elektroniker___automatiker__m_w_d_/1012481",
       "source": "Rheinmetall Air Defence AG Dedicated Parser (corporate careers API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-03T12:49:14.991Z",
+      "crawledAt": "2026-08-03T22:30:30.985Z",
       "companyDomain": "rheinmetall.com",
       "addressLocality": "Zürich",
       "postalCode": "8050",
@@ -2459,7 +2476,7 @@
       "url": "https://www.rheinmetall.com/en/job/prozessingenieur_im_qualitaetsmanagement__m_w_d_/1010471",
       "source": "Rheinmetall Air Defence AG Dedicated Parser (corporate careers API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-03T12:49:14.530Z",
+      "crawledAt": "2026-08-03T22:30:30.961Z",
       "companyDomain": "rheinmetall.com",
       "addressLocality": "Zürich",
       "postalCode": "8050",
@@ -2541,7 +2558,7 @@
       "url": "https://www.rheinmetall.com/en/job/rams_manager__m_w_d_/1009352",
       "source": "Rheinmetall Air Defence AG Dedicated Parser (corporate careers API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-03T12:49:13.986Z",
+      "crawledAt": "2026-08-03T22:30:30.914Z",
       "companyDomain": "rheinmetall.com",
       "addressLocality": "Zürich",
       "postalCode": "8050",
@@ -2564,6 +2581,7 @@
         "contractTypeLabel": "Unbefristeter Vertrag"
       },
       "firstSeenAt": "2026-07-04T11:46:20.038Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -2607,7 +2625,7 @@
       "url": "https://www.rheinmetall.com/en/job/auditmanager__m_w_d_/948944",
       "source": "Rheinmetall Air Defence AG Dedicated Parser (corporate careers API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-03T12:49:13.540Z",
+      "crawledAt": "2026-08-03T22:30:30.882Z",
       "companyDomain": "rheinmetall.com",
       "addressLocality": "Zürich",
       "postalCode": "8050",
@@ -2646,6 +2664,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:45:50.596Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -2689,7 +2708,7 @@
       "url": "https://www.rheinmetall.com/en/job/mitarbeiter_qualitaetssicherung_wareneingang__m_w_d_/971699",
       "source": "Rheinmetall Air Defence AG Dedicated Parser (corporate careers API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-03T12:49:12.769Z",
+      "crawledAt": "2026-08-03T22:30:30.757Z",
       "companyDomain": "rheinmetall.com",
       "addressLocality": "Zürich",
       "postalCode": "8050",
@@ -2795,7 +2814,7 @@
       "url": "https://www.rheinmetall.com/en/job/elektrotechniker_inbetriebnahme_flugabwehrsysteme__m_w_d_/888857",
       "source": "Rheinmetall Air Defence AG Dedicated Parser (corporate careers API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-03T12:49:11.900Z",
+      "crawledAt": "2026-08-03T22:30:30.732Z",
       "companyDomain": "rheinmetall.com",
       "addressLocality": "Zürich",
       "postalCode": "8050",
@@ -2838,6 +2857,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:46:14.256Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -2881,7 +2901,7 @@
       "url": "https://www.rheinmetall.com/en/job/produktionstechniker_industrialisierung__m_w_d_/837104",
       "source": "Rheinmetall Air Defence AG Dedicated Parser (corporate careers API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-03T12:49:09.696Z",
+      "crawledAt": "2026-08-03T22:30:30.692Z",
       "companyDomain": "rheinmetall.com",
       "addressLocality": "Zürich",
       "postalCode": "8050",
@@ -2922,6 +2942,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:46:12.755Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -2965,7 +2986,7 @@
       "url": "https://www.rheinmetall.com/en/job/messtechniker_als_pruefplaner__m_w_d_/837101",
       "source": "Rheinmetall Air Defence AG Dedicated Parser (corporate careers API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-03T12:49:09.155Z",
+      "crawledAt": "2026-08-03T22:30:30.155Z",
       "companyDomain": "rheinmetall.com",
       "addressLocality": "Zürich",
       "postalCode": "8050",
@@ -3045,7 +3066,7 @@
       "url": "https://www.rheinmetall.com/en/job/quality_manager__m_w_d_/863609",
       "source": "Rheinmetall Air Defence AG Dedicated Parser (corporate careers API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-03T12:49:08.391Z",
+      "crawledAt": "2026-08-03T22:30:30.094Z",
       "companyDomain": "rheinmetall.com",
       "addressLocality": "Zürich",
       "postalCode": "8050",
@@ -3078,6 +3099,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:45:49.095Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -3121,7 +3143,7 @@
       "url": "https://www.rheinmetall.com/en/job/spezialist_in_planung_und_steuerung_von_kundenprojekten_im_team_pmo__m_w_d_/1116209",
       "source": "Rheinmetall Air Defence AG Dedicated Parser (corporate careers API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-03T12:49:07.647Z",
+      "crawledAt": "2026-08-03T22:30:30.060Z",
       "companyDomain": "rheinmetall.com",
       "addressLocality": "Zürich",
       "postalCode": "8050",
@@ -3158,6 +3180,7 @@
         ]
       },
       "firstSeenAt": "2026-08-01T11:14:58.430Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -3201,7 +3224,7 @@
       "url": "https://www.rheinmetall.com/en/job/praktikant_strategie_und_produktmanagement__m_w_d_/1112042",
       "source": "Rheinmetall Air Defence AG Dedicated Parser (corporate careers API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-03T12:49:07.124Z",
+      "crawledAt": "2026-08-03T22:30:30.036Z",
       "companyDomain": "rheinmetall.com",
       "addressLocality": "Zürich",
       "postalCode": "8050",
@@ -3238,6 +3261,7 @@
         ]
       },
       "firstSeenAt": "2026-07-28T22:21:41.417Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -3281,7 +3305,7 @@
       "url": "https://www.rheinmetall.com/en/job/praktikum_business_excellence/1116107",
       "source": "Rheinmetall Air Defence AG Dedicated Parser (corporate careers API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-03T12:49:06.675Z",
+      "crawledAt": "2026-08-03T22:30:29.993Z",
       "companyDomain": "rheinmetall.com",
       "addressLocality": "Zürich",
       "postalCode": "8050",
@@ -3317,6 +3341,7 @@
         ]
       },
       "firstSeenAt": "2026-08-01T11:14:58.934Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -3360,7 +3385,7 @@
       "url": "https://www.rheinmetall.com/en/job/material_manager_procurement__m_w_d_/1113569",
       "source": "Rheinmetall Air Defence AG Dedicated Parser (corporate careers API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-03T12:49:05.811Z",
+      "crawledAt": "2026-08-03T22:30:29.915Z",
       "companyDomain": "rheinmetall.com",
       "addressLocality": "Zürich",
       "postalCode": "8050",
@@ -3396,6 +3421,7 @@
         ]
       },
       "firstSeenAt": "2026-07-30T11:26:18.631Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -3439,7 +3465,7 @@
       "url": "https://www.rheinmetall.com/en/job/fachexperte_baugruppenverdrahtung_kabelfertigung__m_w_d_/1094570",
       "source": "Rheinmetall Air Defence AG Dedicated Parser (corporate careers API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-03T12:49:05.366Z",
+      "crawledAt": "2026-08-03T22:30:29.885Z",
       "companyDomain": "rheinmetall.com",
       "addressLocality": "Zürich",
       "postalCode": "8050",
@@ -3478,6 +3504,7 @@
         ]
       },
       "firstSeenAt": "2026-07-09T12:27:39.056Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -3521,7 +3548,7 @@
       "url": "https://www.rheinmetall.com/en/job/production_engineer_and_lean_supporter_electronic_manufacturing__m_w_d_/1072976",
       "source": "Rheinmetall Air Defence AG Dedicated Parser (corporate careers API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-03T12:49:04.655Z",
+      "crawledAt": "2026-08-03T22:30:29.833Z",
       "companyDomain": "rheinmetall.com",
       "addressLocality": "Zürich",
       "postalCode": "8050",
@@ -3557,6 +3584,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:46:29.386Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -3600,7 +3628,7 @@
       "url": "https://www.rheinmetall.com/en/job/integrated_product_support_manager__m_w_d_/1072955",
       "source": "Rheinmetall Air Defence AG Dedicated Parser (corporate careers API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-03T12:49:04.159Z",
+      "crawledAt": "2026-08-03T22:30:29.241Z",
       "companyDomain": "rheinmetall.com",
       "addressLocality": "Zürich",
       "postalCode": "8050",
@@ -3636,6 +3664,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:46:28.941Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -3679,7 +3708,7 @@
       "url": "https://www.rheinmetall.com/en/job/produktionssteuerer_baugruppen_und_endmontage__m_w_d_/1078652",
       "source": "Rheinmetall Air Defence AG Dedicated Parser (corporate careers API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-03T12:49:03.705Z",
+      "crawledAt": "2026-08-03T22:30:29.177Z",
       "companyDomain": "rheinmetall.com",
       "addressLocality": "Zürich",
       "postalCode": "8050",
@@ -3717,11 +3746,12 @@
         "fr": [
           "montage-du-controleur-de-production-et-assemblage-final-m-f-d-rheinmetall-air-defence-ag-zurich",
           "controle-de-la-production-du-montage-et-du-montage-final-m-f-d-rheinmetall-air-defence-ag-zurich",
-          "produktionssteuerer-baugruppen-und-endmontage-m-w-d-rheinmetall-air-defence-ag-zurich",
-          "controle-de-production-du-montage-et-du-montage-final-m-f-d-rheinmetall-air-defence-ag-zurich"
+          "controle-de-production-du-montage-et-du-montage-final-m-f-d-rheinmetall-air-defence-ag-zurich",
+          "produktionssteuerer-baugruppen-und-endmontage-m-w-d-rheinmetall-air-defence-ag-zurich"
         ]
       },
       "firstSeenAt": "2026-07-04T11:46:09.786Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -3765,7 +3795,7 @@
       "url": "https://www.rheinmetall.com/en/job/systemingenieur_radarsysteme__m_w_d_/1079981",
       "source": "Rheinmetall Air Defence AG Dedicated Parser (corporate careers API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-03T12:49:02.919Z",
+      "crawledAt": "2026-08-03T22:30:29.126Z",
       "companyDomain": "rheinmetall.com",
       "addressLocality": "Zürich",
       "postalCode": "8050",
@@ -3860,7 +3890,7 @@
       "url": "https://www.rheinmetall.com/en/job/elektroniker_baugruppenverdrahtung__m_w_d_/1075796",
       "source": "Rheinmetall Air Defence AG Dedicated Parser (corporate careers API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-03T12:49:02.417Z",
+      "crawledAt": "2026-08-03T22:30:29.097Z",
       "companyDomain": "rheinmetall.com",
       "addressLocality": "Zürich",
       "postalCode": "8050",
@@ -3942,7 +3972,7 @@
       "url": "https://www.rheinmetall.com/en/job/mitarbeiter_lackiererei_im_2_schichtbetrieb__m_w_d_/1077128",
       "source": "Rheinmetall Air Defence AG Dedicated Parser (corporate careers API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-03T12:49:01.962Z",
+      "crawledAt": "2026-08-03T22:30:29.032Z",
       "companyDomain": "rheinmetall.com",
       "addressLocality": "Zürich",
       "postalCode": "8050",
@@ -3994,6 +4024,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:46:04.455Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -4037,7 +4068,7 @@
       "url": "https://www.rheinmetall.com/en/job/elektroingenieur_control_nodes_und_sensor_systeme__m_w_d_/1074146",
       "source": "Rheinmetall Air Defence AG Dedicated Parser (corporate careers API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-03T12:49:01.403Z",
+      "crawledAt": "2026-08-03T22:30:28.191Z",
       "companyDomain": "rheinmetall.com",
       "addressLocality": "Zürich",
       "postalCode": "8050",
@@ -4076,6 +4107,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:46:27.676Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -4119,7 +4151,7 @@
       "url": "https://www.rheinmetall.com/en/job/embedded_software_entwickler__m_w_d_/1074089",
       "source": "Rheinmetall Air Defence AG Dedicated Parser (corporate careers API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-03T12:49:00.574Z",
+      "crawledAt": "2026-08-03T22:30:27.629Z",
       "companyDomain": "rheinmetall.com",
       "addressLocality": "Zürich",
       "postalCode": "8050",
@@ -4155,6 +4187,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:46:26.470Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -4198,7 +4231,7 @@
       "url": "https://www.rheinmetall.com/en/job/prozessplaner___avor_elektronische_baugruppen_und_systeme__m_w_d_/1056440",
       "source": "Rheinmetall Air Defence AG Dedicated Parser (corporate careers API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-03T12:49:00.139Z",
+      "crawledAt": "2026-08-03T22:30:27.039Z",
       "companyDomain": "rheinmetall.com",
       "addressLocality": "Zürich",
       "postalCode": "8050",
@@ -4246,7 +4279,8 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "rheinmetall-air-defence-00166c61abb5",
@@ -4278,7 +4312,7 @@
       "url": "https://www.rheinmetall.com/en/job/teamleitung_interne_logistik__m_w_d_/1053083",
       "source": "Rheinmetall Air Defence AG Dedicated Parser (corporate careers API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-03T12:48:59.675Z",
+      "crawledAt": "2026-08-03T22:30:26.988Z",
       "companyDomain": "rheinmetall.com",
       "addressLocality": "Zürich",
       "postalCode": "8050",
@@ -4360,7 +4394,7 @@
       "url": "https://www.rheinmetall.com/en/job/elektrotechniker_takt_inbetriebnahme_flugabwehrsysteme__m_w_d_/1052072",
       "source": "Rheinmetall Air Defence AG Dedicated Parser (corporate careers API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-03T12:48:59.163Z",
+      "crawledAt": "2026-08-03T22:30:26.884Z",
       "companyDomain": "rheinmetall.com",
       "addressLocality": "Zürich",
       "postalCode": "8050",
@@ -4385,9 +4419,9 @@
       "previousSlugs": [
         "elektrotechniker-takt-inbetriebnahme-flugabwehrsysteme-m-w-d-rheinmetall-air-defence-ag",
         "systemes-antiaeriens-de-demarrage-d-horloges-electriques-m-f-d-rheinmetall-air-defence-ag-zurich",
+        "ingenieur-electrique-systemes-antiaeriens-de-mise-en-service-de-l-horloge-m-f-d-rheinmetall-air-defence-ag-zurich",
         "sistemi-di-avviamento-dell-orologio-dell-ingegnere-elettrico-m-f-d-rheinmetall-air-defence-ag-zurich",
-        "elektrotechniker-takt-inbetriebnahme-flugabwehrsysteme-m-w-d-rheinmetall-air-defence-ag-zurich",
-        "ingenieur-electrique-systemes-antiaeriens-de-mise-en-service-de-l-horloge-m-f-d-rheinmetall-air-defence-ag-zurich"
+        "elektrotechniker-takt-inbetriebnahme-flugabwehrsysteme-m-w-d-rheinmetall-air-defence-ag-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4400,11 +4434,12 @@
         "fr": [
           "elektrotechniker-takt-inbetriebnahme-flugabwehrsysteme-m-w-d-rheinmetall-air-defence-ag",
           "systemes-antiaeriens-de-demarrage-d-horloges-electriques-m-f-d-rheinmetall-air-defence-ag-zurich",
-          "elektrotechniker-takt-inbetriebnahme-flugabwehrsysteme-m-w-d-rheinmetall-air-defence-ag-zurich",
-          "ingenieur-electrique-systemes-antiaeriens-de-mise-en-service-de-l-horloge-m-f-d-rheinmetall-air-defence-ag-zurich"
+          "ingenieur-electrique-systemes-antiaeriens-de-mise-en-service-de-l-horloge-m-f-d-rheinmetall-air-defence-ag-zurich",
+          "elektrotechniker-takt-inbetriebnahme-flugabwehrsysteme-m-w-d-rheinmetall-air-defence-ag-zurich"
         ]
       },
       "firstSeenAt": "2026-07-04T11:46:22.349Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -4448,7 +4483,7 @@
       "url": "https://www.rheinmetall.com/en/job/technischer_projektleiter_gesamtsysteme__m_w_d_/1058741",
       "source": "Rheinmetall Air Defence AG Dedicated Parser (corporate careers API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-03T12:48:58.708Z",
+      "crawledAt": "2026-08-03T22:30:26.846Z",
       "companyDomain": "rheinmetall.com",
       "addressLocality": "Zürich",
       "postalCode": "8050",
@@ -4487,6 +4522,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:46:24.672Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -4530,7 +4566,7 @@
       "url": "https://www.rheinmetall.com/en/job/technischer_projektleiter_gesamtsysteme_missile__m_w_d_/1058738",
       "source": "Rheinmetall Air Defence AG Dedicated Parser (corporate careers API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-03T12:48:58.087Z",
+      "crawledAt": "2026-08-03T22:30:26.822Z",
       "companyDomain": "rheinmetall.com",
       "addressLocality": "Zürich",
       "postalCode": "8050",
@@ -4612,7 +4648,7 @@
       "url": "https://www.rheinmetall.com/en/job/sachbearbeiter_import___export__m_w_d_/1062380",
       "source": "Rheinmetall Air Defence AG Dedicated Parser (corporate careers API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-03T12:48:57.553Z",
+      "crawledAt": "2026-08-03T22:30:26.661Z",
       "companyDomain": "rheinmetall.com",
       "addressLocality": "Zürich",
       "postalCode": "8050",
@@ -4691,7 +4727,7 @@
       "url": "https://www.rheinmetall.com/en/job/schweisser__m_w_d_/1024751",
       "source": "Rheinmetall Air Defence AG Dedicated Parser (corporate careers API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-03T12:48:57.060Z",
+      "crawledAt": "2026-08-03T22:30:26.614Z",
       "companyDomain": "rheinmetall.com",
       "addressLocality": "Zürich",
       "postalCode": "8050",
@@ -4804,7 +4840,7 @@
       "url": "https://www.rheinmetall.com/en/job/systemtechniker_flugabwehr_im_aussendienst__m_w_d_/1029095",
       "source": "Rheinmetall Air Defence AG Dedicated Parser (corporate careers API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-03T12:48:56.576Z",
+      "crawledAt": "2026-08-03T22:30:26.583Z",
       "companyDomain": "rheinmetall.com",
       "addressLocality": "Zürich",
       "postalCode": "8050",
@@ -4886,7 +4922,7 @@
       "url": "https://www.rheinmetall.com/en/job/sql_spezialist__m_w_d_/1028000",
       "source": "Rheinmetall Air Defence AG Dedicated Parser (corporate careers API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-03T12:48:56.057Z",
+      "crawledAt": "2026-08-03T22:30:26.504Z",
       "companyDomain": "rheinmetall.com",
       "addressLocality": "Zürich",
       "postalCode": "8050",
@@ -4928,6 +4964,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:45:54.183Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -4971,7 +5008,7 @@
       "url": "https://www.rheinmetall.com/en/job/qualitaetspruefer_waerme_und_oberflaechenbehandlung__m_w_d_/984911",
       "source": "Rheinmetall Air Defence AG Dedicated Parser (corporate careers API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-03T12:48:55.327Z",
+      "crawledAt": "2026-08-03T22:30:26.356Z",
       "companyDomain": "rheinmetall.com",
       "addressLocality": "Zürich",
       "postalCode": "8050",
@@ -5051,7 +5088,7 @@
       "url": "https://www.rheinmetall.com/en/job/praktikant_qualitaetsmanagement__m_w_d_/984824",
       "source": "Rheinmetall Air Defence AG Dedicated Parser (corporate careers API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-03T12:48:54.497Z",
+      "crawledAt": "2026-08-03T22:30:23.822Z",
       "companyDomain": "rheinmetall.com",
       "addressLocality": "Zürich",
       "postalCode": "8050",
@@ -5133,7 +5170,7 @@
       "url": "https://www.rheinmetall.com/en/job/praktikant_betriebsmittelverwaltung__m_w_d_/983597",
       "source": "Rheinmetall Air Defence AG Dedicated Parser (corporate careers API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-03T12:48:53.989Z",
+      "crawledAt": "2026-08-03T22:30:23.657Z",
       "companyDomain": "rheinmetall.com",
       "addressLocality": "Zürich",
       "postalCode": "8050",
@@ -5215,7 +5252,7 @@
       "url": "https://www.rheinmetall.com/en/job/produktionsingenieur_montage__integration_und_test__m_w_d_/982469",
       "source": "Rheinmetall Air Defence AG Dedicated Parser (corporate careers API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-03T12:48:53.504Z",
+      "crawledAt": "2026-08-03T22:30:23.634Z",
       "companyDomain": "rheinmetall.com",
       "addressLocality": "Zürich",
       "postalCode": "8050",
@@ -5252,6 +5289,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:46:16.421Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -5295,7 +5333,7 @@
       "url": "https://www.rheinmetall.com/en/job/monteur_waffen___waffenrohre__m_w_d_/982460",
       "source": "Rheinmetall Air Defence AG Dedicated Parser (corporate careers API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-03T12:48:53.043Z",
+      "crawledAt": "2026-08-03T22:30:23.560Z",
       "companyDomain": "rheinmetall.com",
       "addressLocality": "Zürich",
       "postalCode": "8050",
@@ -5377,7 +5415,7 @@
       "url": "https://www.rheinmetall.com/en/job/baugruppenmonteur_vormontage__m_w_d_/982457",
       "source": "Rheinmetall Air Defence AG Dedicated Parser (corporate careers API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-03T12:48:52.570Z",
+      "crawledAt": "2026-08-03T22:30:23.470Z",
       "companyDomain": "rheinmetall.com",
       "addressLocality": "Zürich",
       "postalCode": "8050",
@@ -5459,7 +5497,7 @@
       "url": "https://www.rheinmetall.com/en/job/senior_softwareentwickler_fuehrungssysteme__m_w_d_/994214",
       "source": "Rheinmetall Air Defence AG Dedicated Parser (corporate careers API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-03T12:48:51.835Z",
+      "crawledAt": "2026-08-03T22:30:23.361Z",
       "companyDomain": "rheinmetall.com",
       "addressLocality": "Zürich",
       "postalCode": "8050",
@@ -5554,7 +5592,7 @@
       "url": "https://www.rheinmetall.com/en/job/mitarbeiter_qualitaetssicherung_elektronik__m_w_d_/945788",
       "source": "Rheinmetall Air Defence AG Dedicated Parser (corporate careers API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-03T12:48:50.991Z",
+      "crawledAt": "2026-08-03T22:30:23.150Z",
       "companyDomain": "rheinmetall.com",
       "addressLocality": "Zürich",
       "postalCode": "8050",
