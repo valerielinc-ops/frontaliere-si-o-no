@@ -1,19 +1,21 @@
 {
   "key": "bps-suisse",
   "label": "BPS Suisse",
-  "generatedAt": "2026-08-03T12:35:24.827Z",
+  "generatedAt": "2026-08-03T22:13:52.071Z",
   "total": 4,
   "newCount": 0,
-  "updatedCount": 4,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 5960,
-  "avgDurationMs": 5960,
+  "unchangedCount": 4,
+  "durationMs": 6665,
+  "avgDurationMs": 6665,
   "durationHistory": [
-    5960
+    6665
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "bps-suisse-7e40eb648fab",
       "title": "Consulente Alla Clientela Individuale",
@@ -37,7 +39,7 @@
       "currency": "CHF",
       "postedDate": "2026-08-03",
       "source": "bps-suisse-careers-crawler",
-      "crawledAt": "2026-08-03T12:35:20.532Z",
+      "crawledAt": "2026-08-03T22:13:47.078Z",
       "_targetScope": {
         "canton": "TI",
         "location": "Lugano"
@@ -77,7 +79,7 @@
       "currency": "CHF",
       "postedDate": "2026-08-03",
       "source": "bps-suisse-careers-crawler",
-      "crawledAt": "2026-08-03T12:35:21.637Z",
+      "crawledAt": "2026-08-03T22:13:48.251Z",
       "_targetScope": {
         "canton": "TI",
         "location": "Lugano"
@@ -117,7 +119,7 @@
       "currency": "CHF",
       "postedDate": "2026-08-03",
       "source": "bps-suisse-careers-crawler",
-      "crawledAt": "2026-08-03T12:35:22.122Z",
+      "crawledAt": "2026-08-03T22:13:48.787Z",
       "_targetScope": {
         "canton": "TI",
         "location": "Lugano"
@@ -157,7 +159,7 @@
       "currency": "CHF",
       "postedDate": "2026-08-03",
       "source": "bps-suisse-careers-crawler",
-      "crawledAt": "2026-08-03T12:35:22.586Z",
+      "crawledAt": "2026-08-03T22:13:49.302Z",
       "_targetScope": {
         "canton": "TI",
         "location": "Lugano"
@@ -174,7 +176,5 @@
         "completeness": 25
       }
     }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": []
+  ]
 }
