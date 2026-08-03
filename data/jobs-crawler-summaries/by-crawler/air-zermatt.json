@@ -1,21 +1,22 @@
 {
   "key": "air-zermatt",
   "label": "Air Zermatt AG",
-  "generatedAt": "2026-08-03T13:17:41.494Z",
+  "generatedAt": "2026-08-03T22:17:07.302Z",
   "total": 4,
-  "newCount": 2,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 4608,
-  "avgDurationMs": 4608,
+  "durationMs": 4383,
+  "avgDurationMs": 4383,
   "durationHistory": [
-    4608
+    4383
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "air-zermatt-301ff1817ac1",
-      "slug": "transport-oder-rettungssanitater-in-100-raron-air-zermatt",
+      "slug": "transport-o-rettungssanitater-in-100-air-zermatt-ag-raron",
       "company": "Air Zermatt AG",
       "companyKey": "air-zermatt",
       "companyDomain": "air-zermatt.ch",
@@ -38,12 +39,13 @@
       "applyUrl": "https://www.air-zermatt.ch/de/service/offene-stellen/transport-oder-rettungssanitaeterin-100--571",
       "source": "Air Zermatt Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-03T13:17:39.100Z",
-      "_qualityScore": 64,
+      "crawledAt": "2026-08-03T22:17:04.694Z",
+      "firstSeenAt": "2026-08-03T13:17:39.100Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -72,17 +74,17 @@
       "applyUrl": "https://www.air-zermatt.ch/de/service/offene-stellen/stipendium-atc-amp-swiss-sherpa-foundation-442",
       "source": "Air Zermatt Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-03T13:17:39.373Z",
-      "_qualityScore": 64,
+      "crawledAt": "2026-08-03T22:17:05.058Z",
+      "firstSeenAt": "2026-08-03T13:17:39.373Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [
     {
@@ -115,7 +117,7 @@
       "salaryMin": 60500,
       "salaryMax": 91500,
       "currency": "CHF",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -154,7 +156,7 @@
       "salaryMin": 60500,
       "salaryMax": 91500,
       "currency": "CHF",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
