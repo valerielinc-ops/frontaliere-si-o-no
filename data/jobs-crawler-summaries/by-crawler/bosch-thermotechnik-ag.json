@@ -1,18 +1,49 @@
 {
   "key": "bosch-thermotechnik-ag",
   "label": "Bosch Thermotechnik AG",
-  "generatedAt": "2026-08-02T22:00:33.927Z",
+  "generatedAt": "2026-08-03T12:37:07.411Z",
   "total": 8,
-  "newCount": 0,
-  "updatedCount": 8,
-  "removedCount": 0,
+  "newCount": 1,
+  "updatedCount": 7,
+  "removedCount": 1,
   "unchangedCount": 0,
-  "durationMs": 21215,
-  "avgDurationMs": 21215,
+  "durationMs": 20658,
+  "avgDurationMs": 20658,
   "durationHistory": [
-    21215
+    20658
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "title": "Lehrstelle Kaufmann-/frau EFZ/M 2027 (m/w/div.)",
+      "slug": "lehrstelle-kaufmann-frau-efz-m-2027-m-w-div-bosch-buttikon",
+      "url": "https://jobs.bosch.com/en/job/REF290878S-lehrstelle-kaufmann-frau-efz-m-2027-m-w-div",
+      "applyUrl": "https://jobs.smartrecruiters.com/BoschGroup/744000141219184-lehrstelle-kaufmann-frau-efz-m-2027-m-w-div-?oga=true&trid=2897ada5-c831-4fce-a5b7-4e5f01ecb702",
+      "company": "Bosch Thermotechnik AG",
+      "companyKey": "bosch-thermotechnik-ag",
+      "companyDomain": "bosch.ch",
+      "location": "Buttikon",
+      "addressLocality": "Buttikon",
+      "addressRegion": "AG",
+      "addressCountry": "CH",
+      "canton": "AG",
+      "country": "CH",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "category": "sales",
+      "sector": "Energia",
+      "source": "bosch-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-08-03",
+      "validThrough": "",
+      "_qualityScore": 77,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 16,
+        "completeness": 14
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "title": "Logistiker 100% (w/m/div.) - REF292961C",
@@ -258,10 +289,12 @@
         "translation": 25,
         "completeness": 19
       }
-    },
+    }
+  ],
+  "removedJobs": [
     {
       "title": "Lehrstelle Informatiker (w/m/div.) 2027 - REF289882W",
-      "slug": "lehrstelle-informatiker-w-m-div-2027-ref289882w-bosch-st-niklaus",
+      "slug": "apprendistato-informatiker-w-m-div-2027-ref289882w-bosch-thermotechnik-ag-st-niklaus",
       "url": "https://jobs.bosch.com/en/job/REF289882W-lehrstelle-informatiker-w-m-div-2027-ref289882w",
       "applyUrl": "https://jobs.smartrecruiters.com/BoschGroup/744000136446649-lehrstelle-informatiker-w-m-div-2027-ref289882w?oga=true&trid=2897ada5-c831-4fce-a5b7-4e5f01ecb702",
       "company": "Bosch Thermotechnik AG",
@@ -295,6 +328,5 @@
       }
     }
   ],
-  "removedJobs": [],
   "unchangedJobs": []
 }
