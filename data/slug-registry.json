@@ -414738,7 +414738,8 @@
     "canonicalSlug": "winder-sulzer-ch",
     "slugByLocale": {
       "en": "winder-sulzer-ch",
-      "fr": "ventilateur-sulzer-pasadena-bd1ff4"
+      "fr": "ventilateur-sulzer-pasadena-bd1ff4",
+      "it": "ventola-sulzer-pasadena-bd1ff4"
     },
     "createdAt": "2026-07-28",
     "canton": "VD"
@@ -451162,7 +451163,9 @@
     "canonicalSlug": "apprentissage-en-logistique-01-08-2027-31-07-2030-ikea-aubonne",
     "slugByLocale": {
       "fr": "apprentissage-en-logistique-01-08-2027-31-07-2030-ikea-ch",
-      "it": "apprentissage-en-logistique-01-08-2027-31-07-2030-ikea-aubonne"
+      "it": "apprentissage-en-logistique-01-08-2027-31-07-2030-ikea-aubonne",
+      "en": "logistics-learning-01-08-2027-31-07-2030-ikea-aubonne-vaud-switzerland",
+      "de": "logistisches-lernen-01-08-2027-31-07-2030-ikea-aubonne-vaud-switzerland"
     },
     "createdAt": "2026-08-03",
     "canton": "VD"
@@ -451171,7 +451174,9 @@
     "canonicalSlug": "apprentissage-dans-la-vente-commerce-de-detail-01-08-2027-31-07-2030-ikea-aubonne",
     "slugByLocale": {
       "fr": "apprentissage-dans-la-vente-commerce-de-detail-01-08-2027-31-07-2030-ikea-ch",
-      "it": "apprentissage-dans-la-vente-commerce-de-detail-01-08-2027-31-07-2030-ikea-aubonne"
+      "it": "apprentissage-dans-la-vente-commerce-de-detail-01-08-2027-31-07-2030-ikea-aubonne",
+      "en": "apprenticeship-in-sales-retail-trade-01-08-2027-31-07-2030-ikea-aubonne-vaud-switzerland",
+      "de": "ausbildung-im-vertrieb-einzelhandel-01-08-2027-31-07-2030-ikea-aubonne-vaud-switzerland"
     },
     "createdAt": "2026-08-03",
     "canton": "VD"
@@ -451188,7 +451193,8 @@
     "canonicalSlug": "apprendistato-polydesigner-in-3d-cfc-01-08-2027-31-07-2031-schwerpunkt-styling-ikea-dietlikon",
     "slugByLocale": {
       "de": "lehrstelle-polydesigner-in-3d-efz-01-08-2027-31-07-2031-schwerpunkt-styling-ikea-ch",
-      "it": "apprendistato-polydesigner-in-3d-cfc-01-08-2027-31-07-2031-schwerpunkt-styling-ikea-dietlikon"
+      "it": "apprendistato-polydesigner-in-3d-cfc-01-08-2027-31-07-2031-schwerpunkt-styling-ikea-dietlikon",
+      "fr": "polydesigner-en-efz-3d-01-08-2027-31-07-2031-se-concentrer-sur-le-style-ikea-dietlikon-zurich-switzerland"
     },
     "createdAt": "2026-08-03",
     "canton": "ZH"
@@ -451196,7 +451202,8 @@
   "id|migros.ch|cce78946-f72b-496f-9ef2-e1ac0a6e2dae": {
     "canonicalSlug": "responsable-de-rayon-poisson-produits-carnes-m-w-d-societe-cooperative-migros-geneve-nyon-kcctbq",
     "slugByLocale": {
-      "fr": "responsable-de-rayon-poisson-produits-carnes-m-w-d-societe-cooperative-migros-geneve-nyon-kcctbq"
+      "fr": "responsable-de-rayon-poisson-produits-carnes-m-w-d-societe-cooperative-migros-geneve-nyon-kcctbq",
+      "en": "head-of-fish-meat-products-f-h-d-societe-cooperative-migros-geneve-nyon"
     },
     "createdAt": "2026-08-03",
     "canton": "VD"
@@ -451205,7 +451212,8 @@
     "canonicalSlug": "collaboratore-trice-in-sales-man-s-world-catering-services-migros-zurich-zfi4bg",
     "slugByLocale": {
       "it": "collaboratore-trice-in-sales-man-s-world-catering-services-migros-zurich-zfi4bg",
-      "de": "mitarbeiter-in-sales-man-s-world-catering-services-migros-zurich-zfi4bg"
+      "de": "mitarbeiter-in-sales-man-s-world-catering-services-migros-zurich-zfi4bg",
+      "fr": "employe-au-monde-des-vendeurs-catering-services-migros-zurich"
     },
     "createdAt": "2026-08-03",
     "canton": "ZH"
@@ -451591,5 +451599,82 @@
     },
     "createdAt": "2026-08-03",
     "canton": "GR"
+  },
+  "id|post.ch|73868-de_de": {
+    "canonicalSlug": "apprendistato-come-addetto-a-al-commercio-al-dettaglio-cfc-die-schweizerische-post-glarus",
+    "slugByLocale": {
+      "it": "apprendistato-come-addetto-a-al-commercio-al-dettaglio-cfc-die-schweizerische-post-glarus",
+      "en": "apprenticeship-as-a-retail-trade-expert-efz-die-schweizerische-post-glarus",
+      "de": "lehre-als-detailhandelsfachmann-frau-efz-post",
+      "fr": "apprentissage-en-tant-qu-expert-du-commerce-de-detail-efz-die-schweizerische-post-glarus"
+    },
+    "createdAt": "2026-08-03",
+    "canton": "GL"
+  },
+  "id|post.ch|73878-de_de": {
+    "canonicalSlug": "apprendistato-come-addetto-a-al-commercio-al-dettaglio-cfc-die-schweizerische-post-burgdorf",
+    "slugByLocale": {
+      "it": "apprendistato-come-addetto-a-al-commercio-al-dettaglio-cfc-die-schweizerische-post-burgdorf",
+      "en": "apprenticeship-as-a-retail-trade-expert-efz-die-schweizerische-post-burgdorf",
+      "de": "lehre-als-detailhandelsfachmann-frau-efz-post",
+      "fr": "apprentissage-en-tant-qu-expert-en-commerce-de-detail-efz-die-schweizerische-post-burgdorf"
+    },
+    "createdAt": "2026-08-03",
+    "canton": "BE"
+  },
+  "id|post.ch|73891-de_de": {
+    "canonicalSlug": "apprendistato-come-fachmann-frau-kundendialog-cfc-die-schweizerische-post-biel-bienne",
+    "slugByLocale": {
+      "it": "apprendistato-come-fachmann-frau-kundendialog-cfc-die-schweizerische-post-biel-bienne",
+      "en": "teaching-as-an-expert-customer-dialogue-efz-die-schweizerische-post-biel-bienne",
+      "de": "lehre-als-fachmann-frau-kundendialog-efz-post",
+      "fr": "enseignement-en-tant-qu-expert-dialogue-client-efz-die-schweizerische-post-biel-bienne"
+    },
+    "createdAt": "2026-08-03",
+    "canton": "BE"
+  },
+  "id|post.ch|73897-de_de": {
+    "canonicalSlug": "apprendistato-come-kaufmann-frau-cfc-dienstleistung-e-administration-die-schweizerische-post-frauenfeld",
+    "slugByLocale": {
+      "it": "apprendistato-come-kaufmann-frau-cfc-dienstleistung-e-administration-die-schweizerische-post-frauenfeld",
+      "en": "apprenticeship-as-a-merchant-efz-service-and-administration-die-schweizerische-post-frauenfeld",
+      "de": "lehre-als-kaufmann-frau-efz-dienstleistung-und-administration-post",
+      "fr": "apprentissage-en-tant-que-commercant-efz-service-et-administration-die-schweizerische-post-frauenfeld"
+    },
+    "createdAt": "2026-08-03",
+    "canton": "TG"
+  },
+  "id|post.ch|73869-de_de": {
+    "canonicalSlug": "apprendistato-come-impiegata-impiegato-in-logistica-cfc-distribuzione-recapito-misto-lettere-e-pacchi-die-cbb711",
+    "slugByLocale": {
+      "it": "apprendistato-come-impiegata-impiegato-in-logistica-cfc-distribuzione-recapito-misto-lettere-e-pacchi-die-cbb711",
+      "en": "teaching-as-a-logistician-mixed-delivery-letters-and-packages-in-efz-distribution-die-schweizerische-post-frick",
+      "de": "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post-btvf8n",
+      "fr": "enseignement-en-tant-que-logisticien-livraison-mixte-lettres-et-colis-dans-efz-distribution-die-schweizerische-cbb711"
+    },
+    "createdAt": "2026-08-03",
+    "canton": "AG"
+  },
+  "id|post.ch|73873-de_de": {
+    "canonicalSlug": "apprendistato-come-impiegata-impiegato-in-logistica-cfc-distribuzione-recapito-misto-lettere-e-pacchi-die-6f84a8",
+    "slugByLocale": {
+      "it": "apprendistato-come-impiegata-impiegato-in-logistica-cfc-distribuzione-recapito-misto-lettere-e-pacchi-die-6f84a8",
+      "en": "teaching-as-a-logistician-mixed-delivery-letters-and-packages-in-efz-distribution-die-schweizerische-post-granichen",
+      "de": "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post",
+      "fr": "enseignement-en-tant-que-logisticien-livraison-mixte-lettres-et-paquets-dans-efz-distribution-die-schweizerische-post"
+    },
+    "createdAt": "2026-08-03",
+    "canton": "AG"
+  },
+  "id|post.ch|74019-de_de": {
+    "canonicalSlug": "apprendistato-come-impiegata-impiegato-in-logistica-cfc-distribution-paketzustellung-die-schweizerische-post-berneck",
+    "slugByLocale": {
+      "it": "apprendistato-come-impiegata-impiegato-in-logistica-cfc-distribution-paketzustellung-die-schweizerische-post-berneck",
+      "en": "teaching-as-a-logistician-in-efz-distribution-package-delivery-die-schweizerische-post-berneck",
+      "de": "lehre-als-logistiker-in-efz-distribution-paketzustellung-post",
+      "fr": "enseignement-en-tant-que-logisticien-dans-efz-distribution-package-delivery-die-schweizerische-post-berneck"
+    },
+    "createdAt": "2026-08-03",
+    "canton": "SG"
   }
 }
