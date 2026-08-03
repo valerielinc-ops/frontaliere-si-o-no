@@ -15482,6 +15482,7 @@
         "it": [
           "depanneur-installateur-electricien-avec-cfc-depanneuse-installatrice-electricienne-avec-cfc-100-merinat-s-a-succursale-d",
           "riparatore-installatore-elettricista-con-cfc-riparatore-installatore-elettricista-con-cfc-100-merinat-s-a-succursale-de",
+          "riparatore-installatore-elettricista-con-cfc-riparatore-installatore-elettricista-con-cfc-100-merinat-s-a-succursale-de",
           "riparatore-installatore-elettricista-con-cfc-riparatore-installatore-elettricista-con-cfc-100-merinat-s-a-succursale-de"
         ]
       },
@@ -18865,7 +18866,7 @@
       "streetAddress": "",
       "postalCode": "3001",
       "firstSeenAt": "2026-05-17T09:50:15.033Z",
-      "retranslationAttempts": 1,
+      "retranslationAttempts": 0,
       "previousSlugsByLocale": {
         "it": [
           "elettricista-di-montaggio-in-efz-100-schild-elektro-ag-grindelwald",
@@ -18888,7 +18889,8 @@
         "montage-elektriker-in-efz-100-schild-elektro-ag-grindelwald",
         "montage-elektriker-in-cfc-100-schild-elektro-ag-grindelwald",
         "assembly-electrician-in-efz-100-schild-elektro-ag-grindelwald"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Elektroinstallateur/in EFZ (100%)",
@@ -19055,7 +19057,9 @@
       },
       "streetAddress": "",
       "postalCode": "8500",
-      "firstSeenAt": "2026-05-17T09:50:15.035Z"
+      "firstSeenAt": "2026-05-17T09:50:15.035Z",
+      "needsRetranslation": true,
+      "retranslationAttempts": 0
     },
     {
       "title": "Elektroinstallateur/in EFZ mit Flair für Telematik (100%)",
