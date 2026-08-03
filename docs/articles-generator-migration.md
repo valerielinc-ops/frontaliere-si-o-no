@@ -782,3 +782,124 @@ during cutover; nothing since.
 The §5.7 criterion is holding so far — **0 commits have touched `packages/articles/` on main since
 the cutover** (queried `since=2026-08-02T11:30Z`). That is 1 day of the required 7. Re-check on or
 after 2026-08-09 with the same query; delete only if it still returns 0.
+
+## 10. The last coupling: `fast-publish`, and the closure to move it (2026-08-03)
+
+### 10.1 The site froze because §4 misjudged one workflow
+
+`fast-publish-article.yml` renders ONE article's four locale pages and pushes them
+straight to that article's shard repos plus the CDN — «skipping the full build
+entirely». Before the cutover, `generate-article` dispatched it after every
+generation, and that is how an article became visible in minutes. 75 runs, the
+last on **2026-08-02T02:12Z**.
+
+§4 filed it under «trigger-deploy / fast-publish / corpus-mirror dispatches:
+site-only». That judged where the workflow RAN, not what it DID, and what it did
+was the only thing that made an article visible without a full deploy. Nothing
+dispatches it now, so nothing has gone live: the site has served a build from
+**2026-08-02T01:40Z** ever since — run #74, the one before the last fast-publish.
+
+The freeze is enforced, correctly, by a gate. `validate-sitemap-pages` blocks
+`deploy-publish`'s final `publish` job because the sitemaps — pulled fresh from
+nanako's API by `sync-articles-sitemaps` — list 11 URLs that `dist/` has no page
+for. Those 11 are exactly the articles generated after the cutover. The site can
+LIST what nanako produces and cannot RENDER it, because §7's published contract
+carries metadata and sitemaps only: an `articles.json` record is
+`{id, category, date, updatedAt, image, hasCalculator, authorSlug, authorName}` —
+no title, no body. This is the sitemap REWIRE half-done, in its full form.
+
+Note the blast radius: that gate blocks the WHOLE site, not the articles. Jobs,
+events and fuel prices have not deployed either.
+
+### 10.2 Separation is already architectural — the credentials were a red herring
+
+The obvious reading is that nanako needs something from main. It does not.
+`scripts/lib/section-shard-owners.json` already says:
+
+```json
+"articolifrontaliere": "nanakokyobashi-rgb",
+"articolisvizzera":    "nanakokyobashi-rgb"
+```
+
+The eight article shard repos are nanako's own, and `git ls-remote` with Remote
+Config's `GITHUB_PAT` reaches all of them. `shard-git-helpers.sh`'s
+`shard_pat_push` already falls back to `$SHARD_PUSH_PAT`, else `$GITHUB_PAT` —
+the one hydrated from Firebase. R2/CF credentials are in nanako's RC too.
+
+So the `SHARD_*_DEPLOY_KEY` secrets in main's `shard-secrets-overflow`
+environment are irrelevant here: main needed them because main pushed to repos it
+did not own. Nanako pushes to its own. The Worker routes
+`/articoli-frontaliere/*` to `origin-articolifrontaliere-<loc>` — those same
+Pages repos — so main's build is not on the serving path for an article at all.
+
+NOT YET PROVEN, and it must be proven by execution before anything depends on it:
+that the PAT can WRITE to a shard repo. `ls-remote` proves read. This session
+cannot test more — the agent proxy refuses `POST /git/refs` («Write access to
+this GitHub API path is not permitted through this proxy») and reports the shard
+repos out of session scope. The write has to be proven inside Actions, which is
+also where it will run.
+
+### 10.3 The closure, measured
+
+`publish-article-fast.mjs` (348 lines) has no local ES imports; it calls seven
+render steps. Steps 1 and 3 are already here — `renderArticlePages` lives in
+`engine/ogPagesPlugin.ts` and the contextual-link injector in
+`engine/shared/contextualLinkInjector.ts`. What is missing:
+
+| step | module | lines | note |
+|---|---|---|---|
+| 2 | `build-plugins/flatHtmlRedirectPlugin.ts` | 257 | + `scripts/lib/strip-scripts-styles.mjs` (16) |
+| 4 | `build-plugins/hreflangPostprocessPlugin.ts` | 346 | + `shared/hreflangGuard` (87), `shared/keywordLandingPlan` (161), `shared/localeEmitFilter` (135) |
+| 5 | `build-plugins/blogImageCdnFinalizePlugin.ts` | 176 | + `shared/blogImageCdn` (41) |
+| 6 | `scripts/offload-generated-images-cdn.mjs` | — | run unmodified as a subprocess |
+| 7 | `renderArticleHubPagesCore` | 116 | see below |
+
+Steps 1–6 make an article REACHABLE by direct URL. Step 7 re-renders the
+section's `/tutti/` archive, which is what makes it LISTED. Shipping 1–6 without
+7 would be another half-rewire: articles that exist but appear nowhere.
+
+**Step 7 is extractable, not blocked.** It looks blocked, because it lives inside
+`build-plugins/seoHubsPlugin.ts` — 2819 lines, 21 local imports, dragging
+job-sector landings, canton registries, company logos and weekly employer data.
+Copying that file would move half the site. But the FUNCTION is 116 lines and its
+call set is closed and article-only:
+
+- `readArticleArchiveUnionSlugs` → already at `engine/shared/articleArchiveUnion.ts`
+- `readArticleSlugs`, `readBlogUrlSlugs`, `readArticleExcerpts` → already at `engine/shared/articleReaders.ts`
+- `ARTICLE_SECTIONS` → already at `articleSections.ts`
+- `HUB_SLUGS`, `HUB_LOCALES`, `ARTICLES_PAGE_SIZE`, `buildHtml`,
+  `svizzeraArticlesArchiveBasePaths`, `humanizeSlug`, `paginatedPath`
+  → `build-plugins/seoHubsData.ts` (321 lines), the ONLY new file
+
+`seoHubsData.ts` imports `shared/cantonSection` and `services/routeSlugs.data` at
+the top, but the article path never reaches them — grepping the 116-line function
+for `canton|routeSlugs` returns 0. So the extraction takes those seven exports
+and leaves the canton machinery behind.
+
+Transport BY FUNCTION CLOSURE, not by file. Judging this by the file would have
+concluded "2819 lines, not portable" and left the coupling in place — the same
+mistake in the opposite direction to §8.2's repo-root sweep, where judging by the
+literal instead of by directory depth missed half the sites.
+
+### 10.4 Order of work
+
+1. Extract `renderArticleHubPagesCore` + the seven `seoHubsData` exports.
+   `tests/render-article-hub-pages-narrow-vs-full.test.ts` already exists to prove
+   the narrow render is byte-identical to the full build's — run it against the
+   extraction, that is what it is for.
+2. Transport the seven article-only modules above.
+3. Transport `publish-article-fast.mjs`, `push-article-shard-incremental.sh`,
+   `shard-git-helpers.sh`, `upload-cdn-file.sh`, `section-shard-owners.json`.
+4. Workflow in nanako on `push: content/**` — the same chain link restored in
+   0517589 — with the FIRST run dry: render and validate, push nothing. That is
+   what proves 10.2's open question without risking a shard.
+5. Only then: stop `pull-articles-api.mjs` publishing article sitemap entries
+   main cannot render, which unblocks `deploy-publish` for the whole site.
+
+Step 5 last on purpose. Doing it first would unblock the site by making it
+advertise fewer articles — the symptom would go away and the coupling would stay.
+
+`check-article-byte-identity.mjs` is the standing guard for all of this: if the
+fast path renders a page even slightly differently from the full build, there are
+two producers of one page that disagree — the same failure §4 flagged for the
+border-wait ranking JSON and resolved by giving it a single owner.
