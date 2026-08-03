@@ -1,119 +1,5 @@
 [
   {
-    "timestamp": "2026-07-15T17:39:31.032Z",
-    "label": "before",
-    "total": 24891,
-    "needsRetranslation": 9181,
-    "suppressed": 48,
-    "incomplete": 244,
-    "complete": 24647,
-    "missingByLocale": {
-      "it": 202,
-      "en": 134,
-      "de": 84,
-      "fr": 165
-    },
-    "topPending": [
-      {
-        "company": "Sunrise Communications AG",
-        "pending": 25
-      },
-      {
-        "company": "Zurich Insurance (sede Ticino)",
-        "pending": 24
-      },
-      {
-        "company": "Two Spice AG",
-        "pending": 18
-      },
-      {
-        "company": "Swiss Medical Network",
-        "pending": 18
-      },
-      {
-        "company": "USI – Università della Svizzera italiana",
-        "pending": 13
-      },
-      {
-        "company": "CSD ENGINEERS",
-        "pending": 12
-      },
-      {
-        "company": "Spitex Grauholz",
-        "pending": 11
-      },
-      {
-        "company": "Stadt Zürich",
-        "pending": 9
-      },
-      {
-        "company": "Swiss Re",
-        "pending": 8
-      },
-      {
-        "company": "IKEA",
-        "pending": 5
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-07-15T17:47:20.365Z",
-    "label": "after",
-    "total": 24891,
-    "needsRetranslation": 1793,
-    "suppressed": 46,
-    "incomplete": 244,
-    "complete": 24647,
-    "missingByLocale": {
-      "it": 202,
-      "en": 134,
-      "de": 84,
-      "fr": 165
-    },
-    "topPending": [
-      {
-        "company": "Sunrise Communications AG",
-        "pending": 25
-      },
-      {
-        "company": "Zurich Insurance (sede Ticino)",
-        "pending": 24
-      },
-      {
-        "company": "Two Spice AG",
-        "pending": 18
-      },
-      {
-        "company": "Swiss Medical Network",
-        "pending": 18
-      },
-      {
-        "company": "USI – Università della Svizzera italiana",
-        "pending": 13
-      },
-      {
-        "company": "CSD ENGINEERS",
-        "pending": 12
-      },
-      {
-        "company": "Spitex Grauholz",
-        "pending": 11
-      },
-      {
-        "company": "Stadt Zürich",
-        "pending": 9
-      },
-      {
-        "company": "Swiss Re",
-        "pending": 8
-      },
-      {
-        "company": "IKEA",
-        "pending": 5
-      }
-    ]
-  },
-  {
     "timestamp": "2026-07-15T23:03:44.646Z",
     "label": "before",
     "total": 24890,
@@ -11396,6 +11282,120 @@
       {
         "company": "Sulzer",
         "pending": 2
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-08-03T18:14:33.611Z",
+    "label": "before",
+    "total": 26203,
+    "needsRetranslation": 9534,
+    "suppressed": 40,
+    "incomplete": 433,
+    "complete": 25770,
+    "missingByLocale": {
+      "it": 333,
+      "en": 274,
+      "de": 157,
+      "fr": 293
+    },
+    "topPending": [
+      {
+        "company": "Jaeger-LeCoultre",
+        "pending": 89
+      },
+      {
+        "company": "Rolex",
+        "pending": 36
+      },
+      {
+        "company": "Swiss Medical Network",
+        "pending": 36
+      },
+      {
+        "company": "Sunrise Communications AG",
+        "pending": 25
+      },
+      {
+        "company": "Universitätsspital Basel",
+        "pending": 21
+      },
+      {
+        "company": "PwC Switzerland",
+        "pending": 19
+      },
+      {
+        "company": "Stadt Zürich",
+        "pending": 18
+      },
+      {
+        "company": "LANDI Graubünden AG",
+        "pending": 16
+      },
+      {
+        "company": "Swiss Re",
+        "pending": 12
+      },
+      {
+        "company": "CSD ENGINEERS",
+        "pending": 11
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-08-03T18:22:04.138Z",
+    "label": "after",
+    "total": 26203,
+    "needsRetranslation": 869,
+    "suppressed": 40,
+    "incomplete": 419,
+    "complete": 25784,
+    "missingByLocale": {
+      "it": 319,
+      "en": 261,
+      "de": 156,
+      "fr": 279
+    },
+    "topPending": [
+      {
+        "company": "Jaeger-LeCoultre",
+        "pending": 89
+      },
+      {
+        "company": "Rolex",
+        "pending": 36
+      },
+      {
+        "company": "Swiss Medical Network",
+        "pending": 36
+      },
+      {
+        "company": "Sunrise Communications AG",
+        "pending": 25
+      },
+      {
+        "company": "Universitätsspital Basel",
+        "pending": 21
+      },
+      {
+        "company": "Stadt Zürich",
+        "pending": 18
+      },
+      {
+        "company": "LANDI Graubünden AG",
+        "pending": 16
+      },
+      {
+        "company": "Swiss Re",
+        "pending": 12
+      },
+      {
+        "company": "CSD ENGINEERS",
+        "pending": 11
+      },
+      {
+        "company": "IKEA",
+        "pending": 10
       }
     ]
   }
