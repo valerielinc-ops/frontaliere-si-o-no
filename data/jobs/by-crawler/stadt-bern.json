@@ -1,6 +1,6 @@
 {
   "crawlerKey": "stadt-bern",
-  "assembledAt": "2026-08-02T21:57:37.019Z",
+  "assembledAt": "2026-08-03T12:32:25.718Z",
   "jobs": [
     {
       "id": "stadt-bern-7c63b72c5c77",
@@ -33,7 +33,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/lehre-als-motorgeraetemechaniker-in-efz/1761fdd9-b7fa-432a-8820-388e629a50fc",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-02T21:57:23.840Z",
+      "crawledAt": "2026-08-03T12:32:20.668Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -105,7 +105,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/leiter-in-digitale-unternehmensarchitektur/c2787d9d-1586-429c-ac67-60a700ad3031",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-02T21:57:23.839Z",
+      "crawledAt": "2026-08-03T12:32:20.667Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -185,7 +185,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/it-revisor-in/a9570065-d38f-40b2-a8c7-25b33cd859b3",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-02T21:57:23.838Z",
+      "crawledAt": "2026-08-03T12:32:20.666Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -263,7 +263,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/projektleiter-in/75eb1e1b-7df9-461c-af76-125491d6a04a",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-02T21:57:23.838Z",
+      "crawledAt": "2026-08-03T12:32:20.666Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -337,7 +337,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/mitglied-der-aerztlichen-leitung-verantwortungsbereich-notrufzentrale/b8042102-dcd5-4f53-811a-248778cfd4f5",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-02T21:57:23.837Z",
+      "crawledAt": "2026-08-03T12:32:20.665Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -422,7 +422,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/koch-koechin/bb260aca-9b8c-451e-ad8b-404bbcdaeaee",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-02T21:57:23.836Z",
+      "crawledAt": "2026-08-03T12:32:20.664Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -443,14 +443,12 @@
       "previousSlugs": [
         "koch-kochin-stadt-bern-bern",
         "cook-cook-stadt-bern-bern-563762",
-        "koch-kochin-stadt-bern",
         "cucinare-cucinare-stadt-bern-bern-563762",
         "cucinare-cucinare-stadt-bern-bern-e7xp98",
         "cuire-faire-cuire-stadt-bern-bern",
         "koch-kochin-stadt-bern-bern-e7xp98",
-        "cucinare-cucinare-stadt-bern-bern-e7xp98",
-        "cuire-faire-cuire-stadt-bern-bern",
-        "koch-kochin-stadt-bern-bern-e7xp98"
+        "koch-kochin-stadt-bern",
+        "koch-kochin-stadt-bern-bd84qc"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -462,8 +460,9 @@
         ],
         "en": [
           "cook-cook-stadt-bern-bern-563762",
+          "koch-kochin-stadt-bern-bern",
           "koch-kochin-stadt-bern",
-          "koch-kochin-stadt-bern-bern"
+          "koch-kochin-stadt-bern-bd84qc"
         ],
         "fr": [
           "koch-kochin-stadt-bern-bern",
@@ -515,7 +514,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/sachbearbeiter-in-beitraege-und-zulagen/8e8e03d0-de0b-43f6-9bab-841ffe365a0e",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-02T21:57:23.836Z",
+      "crawledAt": "2026-08-03T12:32:20.664Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -562,83 +561,6 @@
       }
     },
     {
-      "id": "stadt-bern-7eae83c882c4",
-      "slug": "apprendistato-tierpfleger-in-cfc-specializzazione-wildtiere-stadt-bern",
-      "slugByLocale": {
-        "it": "apprendistato-tierpfleger-in-cfc-specializzazione-wildtiere-stadt-bern",
-        "en": "apprenticeship-veterinarian-efz-specialising-in-wildlife-stadt-bern-bern",
-        "de": "lehrstelle-tierpfleger-in-efz-fachrichtung-wildtiere-stadt-bern-bern",
-        "fr": "veterinaire-en-apprentissage-efz-specialise-dans-la-faune-sauvage-stadt-bern-bern"
-      },
-      "company": "Stadt Bern",
-      "companyKey": "stadt-bern",
-      "companyDomain": "bern.ch",
-      "title": "Lehrstelle Tierpfleger*in (EFZ) Fachrichtung Wildtiere",
-      "titleByLocale": {
-        "it": "Apprendistato Tierpfleger*in (CFC) specializzazione Wildtiere",
-        "en": "Apprenticeship veterinarian (EFZ) specialising in wildlife",
-        "de": "Lehrstelle Tierpfleger*in (EFZ) Fachrichtung Wildtiere",
-        "fr": "Vétérinaire en apprentissage (EFZ) spécialisé dans la faune sauvage"
-      },
-      "description": "Per 1. August 2027 bieten wir im Tierpark Bern eine 2-jährige, verkürzte Grundausbildung.\n\nAufgaben:\n• Futter zubereiten (dazu gehört auch das Schlachten von Futtertieren), Anlagen reinigen und Umgebung pflegen (z.B. jäten, mähen)\n\n• Unterschiedlichste Tiere betreuen und die Verantwortung für ihre fach- und artgerechte Haltung, Pflege und Zucht übernehmen\n\n• Anlagen unterhalten und artgerecht einrichten\n\n• Gäste informieren\n\nAnforderungen:\n• Abgeschlossene Berufslehre (vorzugsweise in handwerklicher Richtung)\n\n• Gültiger PW-Führerausweis (Kat. B)\n\n• Sinn für praktische Arbeit und Freude am körperlichen Einsatz\n\n• robuste Gesundheit, keine Allergien, kräftige Konstitution\n\n• Akzeptanz von Schmutzarbeiten\n\n• gute Beobachtungsgabe sowie Aufmerksamkeit im Umgang mit Tieren, Zuverlässigkei\n\nWir bieten:\nFür Sinn & Stadtleben\n Bei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern.",
-      "descriptionByLocale": {
-        "it": "A partire dal 1o agosto 2027, offriamo una formazione di base di 2 anni, abbreviato a Tierpark Bern.\n\nCompiti:\n• Preparare il cibo (questo include animali da foraggio macellazione), piante pulite e la cura per l'ambiente (ad esempio erbacce, falci)\n\n• Cura di animali diversi e assumersi la responsabilità per la loro allevamento professionale e specifico\n\n• Mantenere le strutture e impostare in modo appropriato\n\n• Siete pregati di comunicare\n\nRequisiti\n• Apprendistato professionale completo (preferibilmente nella direzione dell'artigianato)\n\n• Passaporto Passeggero Valido (Cat. B)\n\n• Senso di lavoro pratico e piacere nell'uso fisico\n\n• salute robusta, nessuna allergie, forte costituzione\n\n• Accettazione del lavoro sporco\n\n• buone capacità di osservazione e attenzione nella gestione degli animali, affidabilità\n\nOffriamo:\nPer il senso e la vita della città\nCon noi cambi qualcosa. Aiutate a plasmare la vita della città, assumete la responsabilità e rendete Berna più vivibile.\n\nNella città di Berna, più di 4.500 persone lavorano insieme in cinque directory e oltre 80 profili di lavoro. Ci impegniamo con passione e convinzione per le persone che vivono qui, che lavorano qui. Insieme formiamo la comunità e il futuro di questa città – visibile, tangibile, sostenibile. per la nostra città. Per Bern.",
-        "en": "As of August 1, 2027, we offer a 2-year, shortened basic training at Tierpark Bern.\n\nTasks:\n• Prepare food (this includes slaughtering forage animals), clean plants and care for the environment (e.g. weeding, mowing)\n\n• Caring for different animals and taking responsibility for their professional and species-appropriate husbandry, care and breeding\n\n• Maintain facilities and set up appropriately\n\n• Guests inform\n\nRequirements\n• Completed vocational apprenticeship (preferably in the craft direction)\n\n• Valid Passenger Passport (Cat. B)\n\n• Sense of practical work and pleasure in physical use\n\n• robust health, no allergies, strong constitution\n\n• Acceptance of dirt work\n\n• good observation skills as well as attention in handling animals, reliability\n\nWe offer:\nFor sense and city life\nWith us you change something. You help shape city life, carry responsibility and make Bern more liveable.\n\nIn the city of Bern, more than 4,500 people work together across five directorates and more than 80 job profiles. We are committed with passion and conviction to the people who live here, who work here. Together we shape the community and the future of this city – visible, tangible, sustainable. for our city. For Bern.",
-        "de": "Per 1. August 2027 bieten wir im Tierpark Bern eine 2-jährige, verkürzte Grundausbildung.\n\nAufgaben:\n• Futter zubereiten (dazu gehört auch das Schlachten von Futtertieren), Anlagen reinigen und Umgebung pflegen (z.B. jäten, mähen)\n\n• Unterschiedlichste Tiere betreuen und die Verantwortung für ihre fach- und artgerechte Haltung, Pflege und Zucht übernehmen\n\n• Anlagen unterhalten und artgerecht einrichten\n\n• Gäste informieren\n\nAnforderungen:\n• Abgeschlossene Berufslehre (vorzugsweise in handwerklicher Richtung)\n\n• Gültiger PW-Führerausweis (Kat. B)\n\n• Sinn für praktische Arbeit und Freude am körperlichen Einsatz\n\n• robuste Gesundheit, keine Allergien, kräftige Konstitution\n\n• Akzeptanz von Schmutzarbeiten\n\n• gute Beobachtungsgabe sowie Aufmerksamkeit im Umgang mit Tieren, Zuverlässigkei\n\nWir bieten:\nFür Sinn & Stadtleben\nBei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern.",
-        "fr": "Au 1er août 2027, nous offrons une formation de base de 2 ans, raccourcie, au Tierpark Bern.\n\nTâches :\n• Préparer des aliments (cela comprend l'abattage des animaux fourragers), des plantes propres et des soins à l'environnement (p. ex. désherbage, fauchage)\n\n• Prendre soin de différents animaux et assumer la responsabilité de leur élevage, soins et élevage professionnels et adaptés aux espèces\n\n• Entretien des installations et installation appropriée\n\n• Informer les clients\n\nExigences\n• Apprentissage professionnel achevé (de préférence dans la direction artisanale)\n\n• Passeport passager valide (Cat. B)\n\n• Sens du travail pratique et plaisir dans l'utilisation physique\n\n• santé robuste, pas d'allergie, constitution forte\n\n• Acceptation des travaux de saleté\n\n• bonnes compétences d'observation ainsi que l'attention dans la manipulation des animaux, fiabilité\n\nNous offrons:\nPour le sens et la vie urbaine\nAvec nous, tu changes quelque chose. Vous aidez à façonner la vie de la ville, à porter des responsabilités et à rendre Berne plus vivante.\n\nDans la ville de Berne, plus de 4 500 personnes travaillent ensemble dans cinq directions et plus de 80 profils d'emploi. Nous sommes engagés avec passion et conviction envers les gens qui vivent ici, qui travaillent ici. Ensemble, nous façonnons la communauté et l'avenir de cette ville – visible, tangible, durable. pour notre ville. Pour Bern."
-      },
-      "location": "Bern",
-      "canton": "BE",
-      "url": "https://jobs.bern.ch/offene-stellen/lehrstelle-tierpfleger-in-efz-fachrichtung-wildtiere/4c5bd33e-3bae-4bc7-b20e-4a246ac69cd7",
-      "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-02T21:57:23.835Z",
-      "addressLocality": "Bern",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3005",
-      "streetAddress": "Tierparkweg 1",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Amministrazione Pubblica",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-31",
-      "applyUrl": "https://jobs.bern.ch/offene-stellen/lehrstelle-tierpfleger-in-efz-fachrichtung-wildtiere/4c5bd33e-3bae-4bc7-b20e-4a246ac69cd7",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "lehrstelle-tierpfleger-in-efz-fachrichtung-wildtiere-stadt-bern-bern"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "lehrstelle-tierpfleger-in-efz-fachrichtung-wildtiere-stadt-bern-bern"
-        ],
-        "en": [
-          "lehrstelle-tierpfleger-in-efz-fachrichtung-wildtiere-stadt-bern-bern"
-        ],
-        "fr": [
-          "lehrstelle-tierpfleger-in-efz-fachrichtung-wildtiere-stadt-bern-bern"
-        ]
-      },
-      "firstSeenAt": "2026-07-31T22:06:53.132Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "stadt-bern-6c11f99ecf95",
       "slug": "istruzione-sociale-stadt-bern-bern",
       "slugByLocale": {
@@ -670,7 +592,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/sozialpaedagog-in/38ec7719-0a08-4b60-a95c-f1b18fff9e05",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-02T21:57:23.835Z",
+      "crawledAt": "2026-08-03T12:32:20.663Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -730,6 +652,83 @@
       }
     },
     {
+      "id": "stadt-bern-7eae83c882c4",
+      "slug": "apprendistato-tierpfleger-in-cfc-specializzazione-wildtiere-stadt-bern",
+      "slugByLocale": {
+        "it": "apprendistato-tierpfleger-in-cfc-specializzazione-wildtiere-stadt-bern",
+        "en": "apprenticeship-veterinarian-efz-specialising-in-wildlife-stadt-bern-bern",
+        "de": "lehrstelle-tierpfleger-in-efz-fachrichtung-wildtiere-stadt-bern-bern",
+        "fr": "veterinaire-en-apprentissage-efz-specialise-dans-la-faune-sauvage-stadt-bern-bern"
+      },
+      "company": "Stadt Bern",
+      "companyKey": "stadt-bern",
+      "companyDomain": "bern.ch",
+      "title": "Lehrstelle Tierpfleger*in (EFZ) Fachrichtung Wildtiere",
+      "titleByLocale": {
+        "it": "Apprendistato Tierpfleger*in (CFC) specializzazione Wildtiere",
+        "en": "Apprenticeship veterinarian (EFZ) specialising in wildlife",
+        "de": "Lehrstelle Tierpfleger*in (EFZ) Fachrichtung Wildtiere",
+        "fr": "Vétérinaire en apprentissage (EFZ) spécialisé dans la faune sauvage"
+      },
+      "description": "Per 1. August 2027 bieten wir im Tierpark Bern eine 2-jährige, verkürzte Grundausbildung.\n\nAufgaben:\n• Futter zubereiten (dazu gehört auch das Schlachten von Futtertieren), Anlagen reinigen und Umgebung pflegen (z.B. jäten, mähen)\n\n• Unterschiedlichste Tiere betreuen und die Verantwortung für ihre fach- und artgerechte Haltung, Pflege und Zucht übernehmen\n\n• Anlagen unterhalten und artgerecht einrichten\n\n• Gäste informieren\n\nAnforderungen:\n• Abgeschlossene Berufslehre (vorzugsweise in handwerklicher Richtung)\n\n• Gültiger PW-Führerausweis (Kat. B)\n\n• Sinn für praktische Arbeit und Freude am körperlichen Einsatz\n\n• robuste Gesundheit, keine Allergien, kräftige Konstitution\n\n• Akzeptanz von Schmutzarbeiten\n\n• gute Beobachtungsgabe sowie Aufmerksamkeit im Umgang mit Tieren, Zuverlässigkei\n\nWir bieten:\nFür Sinn & Stadtleben\n Bei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern.",
+      "descriptionByLocale": {
+        "it": "A partire dal 1o agosto 2027, offriamo una formazione di base di 2 anni, abbreviato a Tierpark Bern.\n\nCompiti:\n• Preparare il cibo (questo include animali da foraggio macellazione), piante pulite e la cura per l'ambiente (ad esempio erbacce, falci)\n\n• Cura di animali diversi e assumersi la responsabilità per la loro allevamento professionale e specifico\n\n• Mantenere le strutture e impostare in modo appropriato\n\n• Siete pregati di comunicare\n\nRequisiti\n• Apprendistato professionale completo (preferibilmente nella direzione dell'artigianato)\n\n• Passaporto Passeggero Valido (Cat. B)\n\n• Senso di lavoro pratico e piacere nell'uso fisico\n\n• salute robusta, nessuna allergie, forte costituzione\n\n• Accettazione del lavoro sporco\n\n• buone capacità di osservazione e attenzione nella gestione degli animali, affidabilità\n\nOffriamo:\nPer il senso e la vita della città\nCon noi cambi qualcosa. Aiutate a plasmare la vita della città, assumete la responsabilità e rendete Berna più vivibile.\n\nNella città di Berna, più di 4.500 persone lavorano insieme in cinque directory e oltre 80 profili di lavoro. Ci impegniamo con passione e convinzione per le persone che vivono qui, che lavorano qui. Insieme formiamo la comunità e il futuro di questa città – visibile, tangibile, sostenibile. per la nostra città. Per Bern.",
+        "en": "As of August 1, 2027, we offer a 2-year, shortened basic training at Tierpark Bern.\n\nTasks:\n• Prepare food (this includes slaughtering forage animals), clean plants and care for the environment (e.g. weeding, mowing)\n\n• Caring for different animals and taking responsibility for their professional and species-appropriate husbandry, care and breeding\n\n• Maintain facilities and set up appropriately\n\n• Guests inform\n\nRequirements\n• Completed vocational apprenticeship (preferably in the craft direction)\n\n• Valid Passenger Passport (Cat. B)\n\n• Sense of practical work and pleasure in physical use\n\n• robust health, no allergies, strong constitution\n\n• Acceptance of dirt work\n\n• good observation skills as well as attention in handling animals, reliability\n\nWe offer:\nFor sense and city life\nWith us you change something. You help shape city life, carry responsibility and make Bern more liveable.\n\nIn the city of Bern, more than 4,500 people work together across five directorates and more than 80 job profiles. We are committed with passion and conviction to the people who live here, who work here. Together we shape the community and the future of this city – visible, tangible, sustainable. for our city. For Bern.",
+        "de": "Per 1. August 2027 bieten wir im Tierpark Bern eine 2-jährige, verkürzte Grundausbildung.\n\nAufgaben:\n• Futter zubereiten (dazu gehört auch das Schlachten von Futtertieren), Anlagen reinigen und Umgebung pflegen (z.B. jäten, mähen)\n\n• Unterschiedlichste Tiere betreuen und die Verantwortung für ihre fach- und artgerechte Haltung, Pflege und Zucht übernehmen\n\n• Anlagen unterhalten und artgerecht einrichten\n\n• Gäste informieren\n\nAnforderungen:\n• Abgeschlossene Berufslehre (vorzugsweise in handwerklicher Richtung)\n\n• Gültiger PW-Führerausweis (Kat. B)\n\n• Sinn für praktische Arbeit und Freude am körperlichen Einsatz\n\n• robuste Gesundheit, keine Allergien, kräftige Konstitution\n\n• Akzeptanz von Schmutzarbeiten\n\n• gute Beobachtungsgabe sowie Aufmerksamkeit im Umgang mit Tieren, Zuverlässigkei\n\nWir bieten:\nFür Sinn & Stadtleben\nBei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern.",
+        "fr": "Au 1er août 2027, nous offrons une formation de base de 2 ans, raccourcie, au Tierpark Bern.\n\nTâches :\n• Préparer des aliments (cela comprend l'abattage des animaux fourragers), des plantes propres et des soins à l'environnement (p. ex. désherbage, fauchage)\n\n• Prendre soin de différents animaux et assumer la responsabilité de leur élevage, soins et élevage professionnels et adaptés aux espèces\n\n• Entretien des installations et installation appropriée\n\n• Informer les clients\n\nExigences\n• Apprentissage professionnel achevé (de préférence dans la direction artisanale)\n\n• Passeport passager valide (Cat. B)\n\n• Sens du travail pratique et plaisir dans l'utilisation physique\n\n• santé robuste, pas d'allergie, constitution forte\n\n• Acceptation des travaux de saleté\n\n• bonnes compétences d'observation ainsi que l'attention dans la manipulation des animaux, fiabilité\n\nNous offrons:\nPour le sens et la vie urbaine\nAvec nous, tu changes quelque chose. Vous aidez à façonner la vie de la ville, à porter des responsabilités et à rendre Berne plus vivante.\n\nDans la ville de Berne, plus de 4 500 personnes travaillent ensemble dans cinq directions et plus de 80 profils d'emploi. Nous sommes engagés avec passion et conviction envers les gens qui vivent ici, qui travaillent ici. Ensemble, nous façonnons la communauté et l'avenir de cette ville – visible, tangible, durable. pour notre ville. Pour Bern."
+      },
+      "location": "Bern",
+      "canton": "BE",
+      "url": "https://jobs.bern.ch/offene-stellen/lehrstelle-tierpfleger-in-efz-fachrichtung-wildtiere/4c5bd33e-3bae-4bc7-b20e-4a246ac69cd7",
+      "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-03T12:32:20.662Z",
+      "addressLocality": "Bern",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "3005",
+      "streetAddress": "Tierparkweg 1",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Amministrazione Pubblica",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-31",
+      "applyUrl": "https://jobs.bern.ch/offene-stellen/lehrstelle-tierpfleger-in-efz-fachrichtung-wildtiere/4c5bd33e-3bae-4bc7-b20e-4a246ac69cd7",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "lehrstelle-tierpfleger-in-efz-fachrichtung-wildtiere-stadt-bern-bern"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "lehrstelle-tierpfleger-in-efz-fachrichtung-wildtiere-stadt-bern-bern"
+        ],
+        "en": [
+          "lehrstelle-tierpfleger-in-efz-fachrichtung-wildtiere-stadt-bern-bern"
+        ],
+        "fr": [
+          "lehrstelle-tierpfleger-in-efz-fachrichtung-wildtiere-stadt-bern-bern"
+        ]
+      },
+      "firstSeenAt": "2026-07-31T22:06:53.132Z",
+      "salaryMin": 57500,
+      "salaryMax": 87000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 57500,
+          "maxValue": 87000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
       "id": "stadt-bern-a37099937ee8",
       "slug": "chauffeur-cat-c-stadt-bern-bern",
       "slugByLocale": {
@@ -761,7 +760,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/chauffeurin-kat-c/f2574343-d385-4779-819b-0df3829de450",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-02T21:57:23.834Z",
+      "crawledAt": "2026-08-03T12:32:20.662Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -808,6 +807,464 @@
       }
     },
     {
+      "id": "stadt-bern-475eeebddf64",
+      "slug": "project-manager-in-gis-bern-stadt-bern-bern",
+      "slugByLocale": {
+        "de": "teilprojektleiter-in-gis-bern-stadt-bern-bern",
+        "it": "project-manager-in-gis-bern-stadt-bern-bern",
+        "en": "teilprojektleiter-in-gis-bern-stadt-bern-bern",
+        "fr": "gestionnaire-de-projet-dans-sig-bern-stadt-bern-bern"
+      },
+      "company": "Stadt Bern",
+      "companyKey": "stadt-bern",
+      "companyDomain": "bern.ch",
+      "title": "Teilprojektleiter*in GIS-Bern",
+      "titleByLocale": {
+        "de": "Teilprojektleiter*in GIS-Bern",
+        "it": "Project Manager* in GIS-Bern",
+        "en": "Project Manager* in GIS-Bern",
+        "fr": "Gestionnaire de projet* dans SIG-Bern"
+      },
+      "description": "Das GIS der Stadt Bern weiterentwickeln, Fachbereiche vernetzen und die digitale Zukunft gestalten - sind das deine Themen? Dann bist du bei uns genau richtig.\n\nAufgaben:\n• Du treibst die Neuausrichtung der GIS-Infrastruktur der Stadt Bern voran\n\n• Du leitest Teilprojekte und arbeitest in Arbeitspaketen mit\n\n• Du hinterfragst bestehende Applikationen und Prozesse kritisch und entwickelst sie weiter\n\n• Du erhebst Anforderungen und übersetzt sie in moderne, zukunftsfähige Lösungen\n\n• Du konzipierst moderne GIS-Anwendungen (Esri, VertiGIS, OSS) und verbindest Fach, IT und externe Partner\n\nAnforderungen:\n• Mehrjährige GIS-Erfahrung inklusiv Projektleitung\n\n• Fundiertes Architekturverständnis (idealerweise Esri/VertiGIS, idealerweise ergänzt durch OSS)\n\n• Ausgeprägte analytische und konzeptionelle Fähigkeiten\n\n• Souveränes Auftreten und klare Kommunikation im komplexen Umfeld\n\n• Hohe Eigenverantwortung und Umsetzungsstärke\n\nWir bieten:\nFür Sinn & Stadtleben\n Bei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern.",
+      "descriptionByLocale": {
+        "de": "Das GIS der Stadt Bern weiterentwickeln, Fachbereiche vernetzen und die digitale Zukunft gestalten - sind das deine Themen? Dann bist du bei uns genau richtig.\n\nAufgaben:\n• Du treibst die Neuausrichtung der GIS-Infrastruktur der Stadt Bern voran\n\n• Du leitest Teilprojekte und arbeitest in Arbeitspaketen mit\n\n• Du hinterfragst bestehende Applikationen und Prozesse kritisch und entwickelst sie weiter\n\n• Du erhebst Anforderungen und übersetzt sie in moderne, zukunftsfähige Lösungen\n\n• Du konzipierst moderne GIS-Anwendungen (Esri, VertiGIS, OSS) und verbindest Fach, IT und externe Partner\n\nAnforderungen:\n• Mehrjährige GIS-Erfahrung inklusiv Projektleitung\n\n• Fundiertes Architekturverständnis (idealerweise Esri/VertiGIS, idealerweise ergänzt durch OSS)\n\n• Ausgeprägte analytische und konzeptionelle Fähigkeiten\n\n• Souveränes Auftreten und klare Kommunikation im komplexen Umfeld\n\n• Hohe Eigenverantwortung und Umsetzungsstärke\n\nWir bieten:\nFür Sinn & Stadtleben\n Bei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern.",
+        "it": "Sviluppare ulteriormente il GIS della città di Berna, aree specialistiche di networking e modellare il futuro digitale - sono questi i vostri argomenti? Allora hai ragione con noi.\n\nCompiti:\n• State avanzando il riallineamento dell'infrastruttura GIS della città di Berna\n\n• Conduci sottoprogetti e lavori in pacchetti di lavoro\n\n• Metti in discussione applicazioni e processi esistenti e sviluppali ulteriormente\n\n• Si alzano i requisiti e li traducono in soluzioni moderne e sostenibili\n\n• Progetti applicazioni GIS moderne (Esri, VertiGIS, OSS) e colleghi specialisti, IT e partner esterni\n\nRequisiti\n• Diversi anni di esperienza GIS tra cui la gestione del progetto\n\n• Comprensione architettonica sonora (idealmente Esri/VertiGIS, idealmente completato da OSS)\n\n• Forte capacità analitiche e concettuali\n\n• Aspetto sovrano e comunicazione chiara in un ambiente complesso\n\n• Alta responsabilità personale e forza di implementazione\n\nOffriamo:\nPer il senso e la vita della città\n Con noi cambi qualcosa. Aiutate a plasmare la vita della città, assumete la responsabilità e rendete Berna più vivibile.\n\nNella città di Berna, più di 4.500 persone lavorano insieme in cinque directory e oltre 80 profili di lavoro. Ci impegniamo con passione e convinzione per le persone che vivono qui, che lavorano qui. Insieme formiamo la comunità e il futuro di questa città – visibile, tangibile, sostenibile. per la nostra città. Per Bern.",
+        "en": "Further developing the GIS of the city of Bern, networking specialist areas and shaping the digital future - are these your topics? Then you are exactly right with us.\n\nTasks:\n• You are driving forward the realignment of the GIS infrastructure of the city of Bern\n\n• You lead sub-projects and work in work packages\n\n• You critically question existing applications and processes and develop them further\n\n• You raise requirements and translate them into modern, sustainable solutions\n\n• You design modern GIS applications (Esri, VertiGIS, OSS) and connect specialists, IT and external partners\n\nRequirements\n• Several years of GIS experience including project management\n\n• Sound architectural understanding (ideally Esri/VertiGIS, ideally complemented by OSS)\n\n• Strong analytical and conceptual skills\n\n• Sovereign appearance and clear communication in a complex environment\n\n• High personal responsibility and implementation strength\n\nWe offer:\nFor sense and city life\n With us you change something. You help shape city life, carry responsibility and make Bern more liveable.\n\nIn the city of Bern, more than 4,500 people work together across five directorates and more than 80 job profiles. We are committed with passion and conviction to the people who live here, who work here. Together we shape the community and the future of this city – visible, tangible, sustainable. for our city. For Bern.",
+        "fr": "Développer le SIG de la ville de Berne, les zones de réseautage et façonner l'avenir numérique - ce sont vos sujets? Alors vous avez raison avec nous.\n\nTâches :\n• Vous allez de l'avant le réalignement de l'infrastructure SIG de la ville de Berne\n\n• Vous dirigez des sous-projets et travaillez dans des paquets de travail\n\n• Vous remettez en question les applications et les processus existants et les développez davantage\n\n• Vous augmentez les exigences et les traduisez en solutions modernes et durables\n\n• Vous concevez des applications SIG modernes (Esri, VertiGIS, OSS) et connectez des spécialistes, des TI et des partenaires externes\n\nExigences\n• Plusieurs années d'expérience en SIG, y compris la gestion de projet\n\n• Compréhension architecturale sonore (idéalement Esri/VertiGIS, idéalement complétée par OSS)\n\n• Fortes compétences analytiques et conceptuelles\n\n• L'apparence souveraine et la communication claire dans un environnement complexe\n\n• Haute responsabilité personnelle et force de mise en œuvre\n\nNous offrons:\nPour le sens et la vie urbaine\n Avec nous, tu changes quelque chose. Vous aidez à façonner la vie de la ville, à porter des responsabilités et à rendre Berne plus vivante.\n\nDans la ville de Berne, plus de 4 500 personnes travaillent ensemble dans cinq directions et plus de 80 profils d'emploi. Nous sommes engagés avec passion et conviction envers les gens qui vivent ici, qui travaillent ici. Ensemble, nous façonnons la communauté et l'avenir de cette ville – visible, tangible, durable. pour notre ville. Pour Bern."
+      },
+      "location": "Bern",
+      "canton": "BE",
+      "url": "https://jobs.bern.ch/offene-stellen/teilprojektleiter-in-gis-bern/b832fa96-c5fc-4d2d-9fa8-18f53d176e3b",
+      "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-03T12:32:20.661Z",
+      "addressLocality": "Bern",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "3027",
+      "streetAddress": "Bümplizstrasse 45",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Amministrazione Pubblica",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-02",
+      "applyUrl": "https://jobs.bern.ch/offene-stellen/teilprojektleiter-in-gis-bern/b832fa96-c5fc-4d2d-9fa8-18f53d176e3b",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68500,
+          "maxValue": 104000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-08-03T12:32:20.661Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "teilprojektleiter-in-gis-bern-stadt-bern-bern"
+        ],
+        "fr": [
+          "teilprojektleiter-in-gis-bern-stadt-bern-bern"
+        ]
+      },
+      "previousSlugs": [
+        "teilprojektleiter-in-gis-bern-stadt-bern-bern"
+      ]
+    },
+    {
+      "id": "stadt-bern-b5ac64e9060f",
+      "slug": "koch-kochin-stadt-bern",
+      "slugByLocale": {
+        "de": "koch-kochin-stadt-bern-bern",
+        "it": "cucinare-cucinare-stadt-bern-bern",
+        "en": "cook-cook-stadt-bern-bern",
+        "fr": "cuire-faire-cuire-stadt-bern-bern"
+      },
+      "company": "Stadt Bern",
+      "companyKey": "stadt-bern",
+      "companyDomain": "bern.ch",
+      "title": "Koch / Köchin",
+      "titleByLocale": {
+        "de": "Koch / Köchin",
+        "en": "Cook / cook",
+        "it": "Cucinare / cucinare",
+        "fr": "Cuire / faire cuire"
+      },
+      "description": "Für diese Stelle verzichten wir bewusst auf ein Motivationsschreiben. Bitte reiche deinen aktuellen Lebenslauf sowie deine vollständigen Zeugnisse und Diplome ein.\n\nAufgaben:\n• Du bist Teil des Küchenteams und kochst für Kindergarten- und Schulkinder\n\n• Du bist in unterschiedlichen Filialen im Einsatz: Laubeg, Murifeld und Sonnenhof\n\n• Du unterstützt die Küchenleitung bei der Menüplanung, Menükalkulation und Warenbeschaffung\n\n• Bei der Ausbildung von Lernenden bist du die zweite Ansprechperperson\n\n• Du hilfst mit, die Umsetzung der gesetzlichen Hygienestandards stetig zu verbessern\n\nAnforderungen:\n• Ausbildung als Koch / Köchin mit eidgenössischem Fähigkeitszeugnis\n\n• Berufserfahrung und Kenntnisse in kindergerechter Ernährung sind erwünscht\n\n• Freude an Kontakt mit Kindern und Jugendlichen\n\n• Gute schriftliche und mündliche Deutschkenntnisse (B2)\n\nWir bieten:\nFür Sinn & Stadtleben\n Bei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern.",
+      "descriptionByLocale": {
+        "de": "Für diese Stelle verzichten wir bewusst auf ein Motivationsschreiben. Bitte reiche deinen aktuellen Lebenslauf sowie deine vollständigen Zeugnisse und Diplome ein.\n\nAufgaben:\n• Du bist Teil des Küchenteams und kochst für Kindergarten- und Schulkinder\n\n• Du bist in unterschiedlichen Filialen im Einsatz: Laubeg, Murifeld und Sonnenhof\n\n• Du unterstützt die Küchenleitung bei der Menüplanung, Menükalkulation und Warenbeschaffung\n\n• Bei der Ausbildung von Lernenden bist du die zweite Ansprechperperson\n\n• Du hilfst mit, die Umsetzung der gesetzlichen Hygienestandards stetig zu verbessern\n\nAnforderungen:\n• Ausbildung als Koch / Köchin mit eidgenössischem Fähigkeitszeugnis\n\n• Berufserfahrung und Kenntnisse in kindergerechter Ernährung sind erwünscht\n\n• Freude an Kontakt mit Kindern und Jugendlichen\n\n• Gute schriftliche und mündliche Deutschkenntnisse (B2)\n\nWir bieten:\nFür Sinn & Stadtleben\n Bei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern.",
+        "it": "Per questa posizione rinunciamo deliberatamente a una lettera di motivazione. Si prega di inviare il CV corrente e certificati e diplomi completi.\n\nCompiti:\n• Siete parte della squadra di cucina e cucinare per l'asilo e i bambini della scuola\n\n• Lavori in diversi settori: Laubeg, Murifeld e Sonnenhof\n\n• Supporti la gestione della cucina nella pianificazione del menu, calcolo del menu e approvvigionamento di beni\n\n• Nella formazione degli studenti, sei la seconda persona di contatto\n\n• Aiuta a migliorare continuamente l'attuazione degli standard di igiene legale\n\nRequisiti\n• Formazione come cuoco / cuoco con certificato federale di abilità\n\n• Esperienza professionale e conoscenza nella nutrizione per bambini sono desiderati\n\n• Gioia di contatto con bambini e giovani\n\n• Buona conoscenza scritta e orale del tedesco (B2)\n\nOffriamo:\nPer il senso e la vita della città\n Con noi cambi qualcosa. Aiutate a plasmare la vita della città, assumete la responsabilità e rendete Berna più vivibile.\n\nNella città di Berna, più di 4.500 persone lavorano insieme in cinque directory e oltre 80 profili di lavoro. Ci impegniamo con passione e convinzione per le persone che vivono qui, che lavorano qui. Insieme formiamo la comunità e il futuro di questa città – visibile, tangibile, sostenibile. per la nostra città. Per Bern.",
+        "en": "For this position we deliberately waive a letter of motivation. Please submit your current CV and complete certificates and diplomas.\n\nTasks:\n• You are part of the kitchen team and cook for kindergarten and school children\n\n• You are working in different branches: Laubeg, Murifeld and Sonnenhof\n\n• You support the kitchen management in menu planning, menu calculation and goods procurement\n\n• In the training of learners, you are the second contact person\n\n• You help to continuously improve the implementation of legal hygiene standards\n\nRequirements\n• Training as a cook / cook with federal certificate of ability\n\n• Professional experience and knowledge in child-friendly nutrition are desired\n\n• Joy of contact with children and young people\n\n• Good written and oral knowledge of German (B2)\n\nWe offer:\nFor sense and city life\n With us you change something. You help shape city life, carry responsibility and make Bern more liveable.\n\nIn the city of Bern, more than 4,500 people work together across five directorates and more than 80 job profiles. We are committed with passion and conviction to the people who live here, who work here. Together we shape the community and the future of this city – visible, tangible, sustainable. for our city. For Bern.",
+        "fr": "Pour cette position, nous abandonnons délibérément une lettre de motivation. Veuillez soumettre votre CV actuel et des certificats et diplômes complets.\n\nTâches :\n• Vous faites partie de l'équipe de cuisine et cuisinez pour les enfants de la maternelle et de l'école\n\n• Vous travaillez dans différentes branches: Laubeg, Murifeld et Sonnenhof\n\n• Vous soutenez la gestion de cuisine dans la planification de menus, le calcul de menus et l'approvisionnement de biens\n\n• Dans la formation des apprenants, vous êtes la deuxième personne à contacter\n\n• Vous contribuez à améliorer en permanence la mise en œuvre des normes d'hygiène juridique\n\nExigences\n• Formation comme cuisinier / cuisinier avec un certificat fédéral de compétence\n\n• Expérience professionnelle et connaissances en nutrition adaptée aux enfants sont souhaitées\n\n• Joy de contact avec les enfants et les jeunes\n\n• Bonne connaissance écrite et orale de l'allemand (B2)\n\nNous offrons:\nPour le sens et la vie urbaine\n Avec nous, tu changes quelque chose. Vous aidez à façonner la vie de la ville, à porter des responsabilités et à rendre Berne plus vivante.\n\nDans la ville de Berne, plus de 4 500 personnes travaillent ensemble dans cinq directions et plus de 80 profils d'emploi. Nous sommes engagés avec passion et conviction envers les gens qui vivent ici, qui travaillent ici. Ensemble, nous façonnons la communauté et l'avenir de cette ville – visible, tangible, durable. pour notre ville. Pour Bern."
+      },
+      "location": "Bern",
+      "canton": "BE",
+      "url": "https://jobs.bern.ch/offene-stellen/koch-koechin/cca1b1a4-54d6-48da-90db-b600cdf775ac",
+      "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-03T12:32:20.661Z",
+      "addressLocality": "Bern",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "3006",
+      "streetAddress": "Schosshaldenstrasse 37",
+      "category": "Ospitalità",
+      "contract": "full-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Amministrazione Pubblica",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-16",
+      "applyUrl": "https://jobs.bern.ch/offene-stellen/koch-koechin/cca1b1a4-54d6-48da-90db-b600cdf775ac",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "koch-kochin-stadt-bern-bern"
+        ]
+      },
+      "previousSlugs": [
+        "koch-kochin-stadt-bern-bern"
+      ],
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68500,
+          "maxValue": 104000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-08-03T12:32:20.661Z"
+    },
+    {
+      "id": "stadt-bern-47812b7ae4df",
+      "slug": "teamleiter-in-outtake-mit-stv-sektionsleitung-stadt-bern-bern",
+      "slugByLocale": {
+        "it": "teamleiter-in-outtake-mit-stv-sektionsleitung-stadt-bern-bern",
+        "en": "team-leader-in-outtake-with-stv-section-management-stadt-bern-bern",
+        "de": "teamleiter-in-outtake-mit-stv-sektionsleitung-stadt-bern-bern",
+        "fr": "chef-d-equipe-en-sortie-avec-stv-gestion-des-sections-stadt-bern-bern"
+      },
+      "company": "Stadt Bern",
+      "companyKey": "stadt-bern",
+      "companyDomain": "bern.ch",
+      "title": "Teamleiter*in Outtake mit Stv. Sektionsleitung",
+      "titleByLocale": {
+        "it": "Teamleiter*in Outtake con Stv. Sektionsleitung",
+        "en": "Team leader*in outtake with stv. Section management",
+        "de": "Teamleiter*in Outtake mit Stv. Sektionsleitung",
+        "fr": "Chef d'équipe* en sortie avec stv. Gestion des sections"
+      },
+      "description": "In der Sektion Outtake werden administrative Dienstleistungen in den Bereichen Krankenkassengeschäft, Klientenbuchhaltung, sozialhilferechtliche Abrechnung und Rückerstattung sowie Archivierung erbracht.\n\nAufgaben:\n• Personelle Leitung von rund 10 Mitarbeitenden\n\n• Umfassende fachliche Leitung bestimmter Aufgabenbereiche\n\n• Mitarbeit bei der Weiterentwicklung des Fallführungssystems FFS CSN (Citysoftnet)\n\n• Leitung kleinerer Projekte und Projektmitarbeit\n\n• Stellvertretung innerhalb des 4-köpfigen Leitungsteams, Vertretung der Sektion in internen Gremien\n\nAnforderungen:\n• Kaufmännische Ausbildung mit Fachausweis Sozialversicherungen\n\n• Mehrjährige Erfahrung in der Personalführung\n\n• Berufserfahrung in den Bereichen Sozialhilfe, Sozialversicherungen, Mahn- und Inkassowesen und / oder IT von Vorteil\n\n• Geschick in der Gesprächs- und Verhandlungsführung\n\n• Zahlenflair, Sicherheit in anspruchsvoller Korrespondenz (Verfügungen)\n\nWir bieten:\nFür Sinn & Stadtleben\n Bei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern.",
+      "descriptionByLocale": {
+        "it": "La sezione Outtake fornisce servizi amministrativi nei settori dell'assicurazione sanitaria, della contabilità clienti, dell'assistenza sociale fatturazione e del rimborso nonché dell'archiviazione.\n\nCompiti:\n• Gestione del personale di circa 10 dipendenti\n\n• Gestione tecnica completa di compiti specifici\n\n• Cooperazione nell'ulteriore sviluppo del sistema di gestione dei casi FFS CSN (Citysoftnet)\n\n• Gestione di piccoli progetti e collaborazione di progetti\n\n• Deputato all'interno del gruppo di gestione a 4 membri, rappresentanza della sezione in comitati interni\n\nRequisiti\n• Istruzione commerciale con certificato di assicurazione sociale specializzato\n\n• Diversi anni di esperienza nella gestione del personale\n\n• Esperienza professionale nei settori dell'assistenza sociale, dell'assicurazione sociale, della raccolta dei debiti e/o dell'IT di vantaggio\n\n• Conversazione e competenze di negoziazione\n\n• Portata, sicurezza in corrispondenza esigente (decisioni)\n\nOffriamo:\nPer senso e vita della città\nCon noi cambi qualcosa. Aiutate a plasmare la vita della città, assumete la responsabilità e rendete Berna più vivibile.\n\nNella città di Berna, più di 4.500 persone lavorano insieme in cinque directory e più di 80 profili di lavoro. Ci impegniamo con passione e convinzione per le persone che vivono qui, che lavorano qui. Insieme formiamo la comunità e il futuro di questa città – visibile, tangibile, sostenibile. per la nostra città. Per Bern.",
+        "en": "The Outtake section provides administrative services in the areas of health insurance business, client accounting, social assistance billing and reimbursement as well as archiving.\n\nTasks:\n• Personnel management of around 10 employees\n\n• Comprehensive technical management of specific tasks\n\n• Cooperation in the further development of the case management system FFS CSN (Citysoftnet)\n\n• Management of smaller projects and project collaboration\n\n• Deputy within the 4-member management team, representation of the section in internal committees\n\nRequirements\n• Commercial education with specialised social insurance certificate\n\n• Several years of experience in personnel management\n\n• Professional experience in the areas of social assistance, social insurance, dunning and debt collection and / or IT of advantage\n\n• Conversation and negotiation skills\n\n• Number flair, security in demanding correspondence (decisions)\n\nWe offer:\nFor sense and city life\nWith us you change something. You help shape city life, carry responsibility and make Bern more liveable.\n\nIn the city of Bern, more than 4,500 people work together across five directorates and more than 80 job profiles. We are committed with passion and conviction to the people who live here, who work here. Together we shape the community and the future of this city – visible, tangible, sustainable. for our city. For Bern.",
+        "de": "In der Sektion Outtake werden administrative Dienstleistungen in den Bereichen Krankenkassengeschäft, Klientenbuchhaltung, sozialhilferechtliche Abrechnung und Rückerstattung sowie Archivierung erbracht.\n\nAufgaben:\n• Personelle Leitung von rund 10 Mitarbeitenden\n\n• Umfassende fachliche Leitung bestimmter Aufgabenbereiche\n\n• Mitarbeit bei der Weiterentwicklung des Fallführungssystems FFS CSN (Citysoftnet)\n\n• Leitung kleinerer Projekte und Projektmitarbeit\n\n• Stellvertretung innerhalb des 4-köpfigen Leitungsteams, Vertretung der Sektion in internen Gremien\n\nAnforderungen:\n• Kaufmännische Ausbildung mit Fachausweis Sozialversicherungen\n\n• Mehrjährige Erfahrung in der Personalführung\n\n• Berufserfahrung in den Bereichen Sozialhilfe, Sozialversicherungen, Mahn- und Inkassowesen und / oder IT von Vorteil\n\n• Geschick in der Gesprächs- und Verhandlungsführung\n\n• Zahlenflair, Sicherheit in anspruchsvoller Korrespondenz (Verfügungen)\n\nWir bieten:\nFür Sinn & Stadtleben\nBei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern.",
+        "fr": "Cette section fournit des services administratifs dans les domaines de l'assurance-maladie, de la comptabilité des clients, de la facturation et du remboursement de l'aide sociale ainsi que de l'archivage.\n\nTâches :\n• Gestion du personnel d'environ 10 employés\n\n• Gestion technique globale de tâches spécifiques\n\n• Coopération pour le développement du système de gestion de cas FFS CSN (Citysoftnet)\n\n• Gestion de petits projets et collaboration de projets\n\n• Adjoint au sein de l'équipe de gestion de 4 membres, représentation de la section dans les comités internes\n\nExigences\n• Formation commerciale avec certificat d'assurance sociale spécialisée\n\n• Plusieurs années d'expérience dans la gestion du personnel\n\n• Expérience professionnelle dans les domaines de l'assistance sociale, de l'assurance sociale, de la dunning et du recouvrement des dettes et/ou de l'informatique d'avantage\n\n• Compétences en conversation et en négociation\n\n• Numéro flair, sécurité dans la correspondance exigeante (décisions)\n\nNous offrons:\nPour le sens et la vie en ville\nAvec nous, tu changes quelque chose. Vous aidez à façonner la vie de la ville, à porter des responsabilités et à rendre Berne plus vivante.\n\nDans la ville de Berne, plus de 4 500 personnes travaillent ensemble dans cinq directions et plus de 80 profils d'emploi. Nous sommes engagés avec passion et conviction envers les gens qui vivent ici, qui travaillent ici. Ensemble, nous façonnons la communauté et l'avenir de cette ville – visible, tangible, durable. pour notre ville. Pour Bern."
+      },
+      "needsRetranslation": false,
+      "location": "Bern",
+      "canton": "BE",
+      "url": "https://jobs.bern.ch/offene-stellen/teamleiter-in-outtake-mit-stv-sektionsleitung/3bd973d2-cf1e-4083-94c4-232e63c30d99",
+      "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-03T12:32:20.660Z",
+      "addressLocality": "Bern",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "3007",
+      "streetAddress": "Schwarztorstrasse 71",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Amministrazione Pubblica",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-20",
+      "applyUrl": "https://jobs.bern.ch/offene-stellen/teamleiter-in-outtake-mit-stv-sektionsleitung/3bd973d2-cf1e-4083-94c4-232e63c30d99",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "chef-d-equipe-a-la-sortie-avec-stv-gestion-des-sections-stadt-bern-bern"
+      ],
+      "previousSlugsByLocale": {
+        "fr": [
+          "chef-d-equipe-a-la-sortie-avec-stv-gestion-des-sections-stadt-bern-bern"
+        ]
+      },
+      "firstSeenAt": "2026-07-21T11:14:29.730Z",
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68500,
+          "maxValue": 104000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "stadt-bern-d56ddbd2f1c4",
+      "slug": "apprendistato-come-motorgeratemechaniker-stadt-bern",
+      "slugByLocale": {
+        "de": "lehrstelle-als-motorgeratemechaniker-stadt-bern-bern",
+        "it": "apprendistato-come-motorgeratemechaniker-stadt-bern",
+        "en": "apprenticeship-as-engineer-stadt-bern-bern",
+        "fr": "apprentissage-en-tant-qu-ingenieur-stadt-bern-bern"
+      },
+      "company": "Stadt Bern",
+      "companyKey": "stadt-bern",
+      "companyDomain": "bern.ch",
+      "title": "Lehrstelle als Motorgerätemechaniker",
+      "titleByLocale": {
+        "de": "Lehrstelle als Motorgerätemechaniker",
+        "it": "Apprendistato come Motorgerätemechaniker",
+        "en": "Apprenticeship as engineer",
+        "fr": "Apprentissage en tant qu'ingénieur"
+      },
+      "description": "Stadtgrün Bern betreut die öffentlichen Grünflächen und Bäume und betreibt eine Gärtnerei sowie die Friedhöfe. Bist du von Maschinen und an der Technik fasziniert und liebst abwechslungsreiche Tätigkeiten? Arbeitest du gerne mal draussen und mal drinnen?\n\nAufgaben:\n• Maschinen und Geräte warten und reparieren\n\n• Servicearbeiten ausführen mit einem kompetenten Team\n\n• Maschinen auf Funktionsfähigkeit prüfen\n\n• Ersatzteile anfertigen\n\nAnforderungen:\n• Abgeschlossener Volksschulabschluss\n\n• Handwerkliches Geschick und Interesse an Maschinen und Technik\n\n• Freude am Umgang mit Menschen\n\nWir bieten:\nFür Sinn & Stadtleben\n Bei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern.",
+      "descriptionByLocale": {
+        "de": "Stadtgrün Bern betreut die öffentlichen Grünflächen und Bäume und betreibt eine Gärtnerei sowie die Friedhöfe. Bist du von Maschinen und an der Technik fasziniert und liebst abwechslungsreiche Tätigkeiten? Arbeitest du gerne mal draussen und mal drinnen?\n\nAufgaben:\n• Maschinen und Geräte warten und reparieren\n\n• Servicearbeiten ausführen mit einem kompetenten Team\n\n• Maschinen auf Funktionsfähigkeit prüfen\n\n• Ersatzteile anfertigen\n\nAnforderungen:\n• Abgeschlossener Volksschulabschluss\n\n• Handwerkliches Geschick und Interesse an Maschinen und Technik\n\n• Freude am Umgang mit Menschen\n\nWir bieten:\nFür Sinn & Stadtleben\n Bei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern.",
+        "it": "Stadtgrün Bern gestisce gli spazi verdi pubblici e gli alberi e gestisce un vivaio e i cimiteri. Sei affascinato da macchine e tecnologie e l'amore varie attività? Ti piace lavorare fuori e dentro?\n\nCompiti:\n• Mantenere e riparare macchine e attrezzature\n\n• Eseguire il lavoro di servizio con un team competente\n\n• Macchine di prova per funzionalità\n\n• Fare pezzi di ricambio\n\nRequisiti\n• Completo della scuola elementare\n\n• Artigianato e interesse per macchinari e tecnologie\n\n• La gioia di affrontare le persone\n\nOffriamo:\nPer il senso e la vita della città\n Con noi cambi qualcosa. Aiutate a plasmare la vita della città, assumete la responsabilità e rendete Berna più vivibile.\n\nNella città di Berna, più di 4.500 persone lavorano insieme in cinque directory e oltre 80 profili di lavoro. Ci impegniamo con passione e convinzione per le persone che vivono qui, che lavorano qui. Insieme formiamo la comunità e il futuro di questa città – visibile, tangibile, sostenibile. per la nostra città. Per Bern.",
+        "en": "Stadtgrün Bern manages the public green spaces and trees and operates a nursery and the cemeteries. Are you fascinated by machines and technology and love varied activities? Do you like working outside and inside?\n\nTasks:\n• Maintain and repair machines and equipment\n\n• Carry out service work with a competent team\n\n• Testing machines for functionality\n\n• Make spare parts\n\nRequirements\n• Completed elementary school degree\n\n• Craftsmanship and interest in machinery and technology\n\n• The joy of dealing with people\n\nWe offer:\nFor sense and city life\n With us you change something. You help shape city life, carry responsibility and make Bern more liveable.\n\nIn the city of Bern, more than 4,500 people work together across five directorates and more than 80 job profiles. We are committed with passion and conviction to the people who live here, who work here. Together we shape the community and the future of this city – visible, tangible, sustainable. for our city. For Bern.",
+        "fr": "Stadtgrün Bern gère les espaces verts et les arbres publics et exploite une pépinière et les cimetières. Êtes-vous fasciné par les machines et la technologie et aimez-vous les activités variées? Tu aimes travailler dehors et à l'intérieur ?\n\nTâches :\n• Entretien et réparation des machines et du matériel\n\n• Effectuer un travail de service avec une équipe compétente\n\n• Machines d'essai pour la fonctionnalité\n\n• Fabrication de pièces de rechange\n\nExigences\n• Diplôme d ' études primaires\n\n• Artisanat et intérêt pour les machines et la technologie\n\n• La joie de traiter avec les gens\n\nNous offrons:\nPour le sens et la vie urbaine\n Avec nous, tu changes quelque chose. Vous aidez à façonner la vie de la ville, à porter des responsabilités et à rendre Berne plus vivante.\n\nDans la ville de Berne, plus de 4 500 personnes travaillent ensemble dans cinq directions et plus de 80 profils d'emploi. Nous sommes engagés avec passion et conviction envers les gens qui vivent ici, qui travaillent ici. Ensemble, nous façonnons la communauté et l'avenir de cette ville – visible, tangible, durable. pour notre ville. Pour Bern."
+      },
+      "location": "Bern",
+      "canton": "BE",
+      "url": "https://jobs.bern.ch/offene-stellen/lehrstelle-als-motorgeraetemechaniker/1f8b077d-0f26-4cad-b3c6-9f8f9d27aa6f",
+      "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-03T12:32:20.658Z",
+      "addressLocality": "Bern",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "3006",
+      "streetAddress": "Elfenauweg 94D",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Amministrazione Pubblica",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-02",
+      "applyUrl": "https://jobs.bern.ch/offene-stellen/lehrstelle-als-motorgeraetemechaniker/1f8b077d-0f26-4cad-b3c6-9f8f9d27aa6f",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "lehrstelle-als-motorgeratemechaniker-stadt-bern-bern"
+        ],
+        "en": [
+          "lehrstelle-als-motorgeratemechaniker-stadt-bern-bern"
+        ],
+        "fr": [
+          "lehrstelle-als-motorgeratemechaniker-stadt-bern-bern"
+        ]
+      },
+      "previousSlugs": [
+        "lehrstelle-als-motorgeratemechaniker-stadt-bern-bern"
+      ],
+      "salaryMin": 57500,
+      "salaryMax": 87000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 57500,
+          "maxValue": 87000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-08-03T12:32:20.658Z"
+    },
+    {
+      "id": "stadt-bern-037d87116520",
+      "slug": "apprendistato-gartner-in-garten-e-landschaftsbau-stadt-bern",
+      "slugByLocale": {
+        "de": "lehrstelle-gartner-in-garten-und-landschaftsbau-stadt-bern-bern",
+        "it": "apprendistato-gartner-in-garten-e-landschaftsbau-stadt-bern",
+        "en": "apprenticeship-gardener-in-garden-and-landscaping-stadt-bern-bern",
+        "fr": "apprentissage-jardinier-en-jardin-et-amenagement-paysager-stadt-bern-bern"
+      },
+      "company": "Stadt Bern",
+      "companyKey": "stadt-bern",
+      "companyDomain": "bern.ch",
+      "title": "Lehrstelle Gärtner*in Garten- und Landschaftsbau",
+      "titleByLocale": {
+        "de": "Lehrstelle Gärtner*in Garten- und Landschaftsbau",
+        "it": "Apprendistato Gärtner*in Garten- e Landschaftsbau",
+        "en": "Apprenticeship Gardener* in Garden and Landscaping",
+        "fr": "Apprentissage Jardinier* en jardin et aménagement paysager"
+      },
+      "description": "Bist du eine aufgestellte, praktisch begabte junge Persönlichkeit? Hast du Freude an der Arbeit im Freien und möchtest die Tätigkeiten im Garten- und Landschaftsbau kennenlernen?\n\nAufgaben:\n• Gärten, Grünflächen, Spiel- und Sportanlagen sowie die Friedhöfe der Stadt Bern mit einem erfahrenen Team bepflanzen und pflegen\n\n• Wege, Plätze, Mauern und Treppen mit Begleitung von kompetenten Ausbildern und Arbeitskollegen bauen\n\n• Kundenkontakte pflegen\n\nAnforderungen:\n• Abgeschlossener Volksschulabschluss\n\n• Freude an der Natur und den Pflanzen\n\n• Dienstleistungsorietiertes Handeln\n\nWir bieten:\nFür Sinn & Stadtleben\n Bei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern.",
+      "descriptionByLocale": {
+        "de": "Bist du eine aufgestellte, praktisch begabte junge Persönlichkeit? Hast du Freude an der Arbeit im Freien und möchtest die Tätigkeiten im Garten- und Landschaftsbau kennenlernen?\n\nAufgaben:\n• Gärten, Grünflächen, Spiel- und Sportanlagen sowie die Friedhöfe der Stadt Bern mit einem erfahrenen Team bepflanzen und pflegen\n\n• Wege, Plätze, Mauern und Treppen mit Begleitung von kompetenten Ausbildern und Arbeitskollegen bauen\n\n• Kundenkontakte pflegen\n\nAnforderungen:\n• Abgeschlossener Volksschulabschluss\n\n• Freude an der Natur und den Pflanzen\n\n• Dienstleistungsorietiertes Handeln\n\nWir bieten:\nFür Sinn & Stadtleben\n Bei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern.",
+        "it": "Sei una giovane personalità stabilita e praticamente dotata? Ti piace lavorare all'aperto e vuoi conoscere attività di giardinaggio e paesaggistica?\n\nCompiti:\n• Giardini, aree verdi, giochi e strutture sportive, nonché i cimiteri della città di Berna con un esperto team di impianto e cura\n\n• Costruire percorsi, piazze, pareti e scale accompagnati da istruttori competenti e colleghi di lavoro\n\n• Mantenere i contatti dei clienti\n\nRequisiti\n• Completo della scuola elementare\n\n• Gioia nella natura e nelle piante\n\n• Azione basata sui servizi\n\nOffriamo:\nPer il senso e la vita della città\n Con noi cambi qualcosa. Aiutate a plasmare la vita della città, assumete la responsabilità e rendete Berna più vivibile.\n\nNella città di Berna, più di 4.500 persone lavorano insieme in cinque directory e oltre 80 profili di lavoro. Ci impegniamo con passione e convinzione per le persone che vivono qui, che lavorano qui. Insieme formiamo la comunità e il futuro di questa città – visibile, tangibile, sostenibile. per la nostra città. Per Bern.",
+        "en": "Are you an established, practically gifted young personality? Do you enjoy working outdoors and would like to learn about gardening and landscaping activities?\n\nTasks:\n• Gardens, green areas, play and sports facilities as well as the cemeteries of the city of Bern with an experienced team plant and care\n\n• Build paths, squares, walls and stairs accompanied by competent instructors and work colleagues\n\n• Maintaining customer contacts\n\nRequirements\n• Completed elementary school degree\n\n• Joy in nature and plants\n\n• Service-based action\n\nWe offer:\nFor sense and city life\n With us you change something. You help shape city life, carry responsibility and make Bern more liveable.\n\nIn the city of Bern, more than 4,500 people work together across five directorates and more than 80 job profiles. We are committed with passion and conviction to the people who live here, who work here. Together we shape the community and the future of this city – visible, tangible, sustainable. for our city. For Bern.",
+        "fr": "Êtes-vous une jeune personnalité établie et pratiquement douée ? Vous aimez travailler à l'extérieur et souhaitez en apprendre davantage sur le jardinage et les activités d'aménagement paysager?\n\nTâches :\n• Jardins, espaces verts, installations de jeux et de sports ainsi que les cimetières de la ville de Berne avec une usine d'équipe et de soins expérimentés\n\n• Construire des sentiers, des places, des murs et des escaliers avec des instructeurs compétents et des collègues de travail\n\n• Maintenir les contacts avec les clients\n\nExigences\n• Diplôme d ' études primaires\n\n• La joie dans la nature et les plantes\n\n• Action axée sur les services\n\nNous offrons:\nPour le sens et la vie urbaine\n Avec nous, tu changes quelque chose. Vous aidez à façonner la vie de la ville, à porter des responsabilités et à rendre Berne plus vivante.\n\nDans la ville de Berne, plus de 4 500 personnes travaillent ensemble dans cinq directions et plus de 80 profils d'emploi. Nous sommes engagés avec passion et conviction envers les gens qui vivent ici, qui travaillent ici. Ensemble, nous façonnons la communauté et l'avenir de cette ville – visible, tangible, durable. pour notre ville. Pour Bern."
+      },
+      "location": "Bern",
+      "canton": "BE",
+      "url": "https://jobs.bern.ch/offene-stellen/lehrstelle-gaertner-in-garten-und-landschaftsbau/6733ce74-06ef-4e2c-850c-1efb5fb003ba",
+      "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-03T12:32:20.657Z",
+      "addressLocality": "Bern",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "3006",
+      "streetAddress": "Elfenauweg 94D",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Amministrazione Pubblica",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-02",
+      "applyUrl": "https://jobs.bern.ch/offene-stellen/lehrstelle-gaertner-in-garten-und-landschaftsbau/6733ce74-06ef-4e2c-850c-1efb5fb003ba",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "lehrstelle-gartner-in-garten-und-landschaftsbau-stadt-bern-bern"
+        ],
+        "en": [
+          "lehrstelle-gartner-in-garten-und-landschaftsbau-stadt-bern-bern"
+        ],
+        "fr": [
+          "lehrstelle-gartner-in-garten-und-landschaftsbau-stadt-bern-bern"
+        ]
+      },
+      "previousSlugs": [
+        "lehrstelle-gartner-in-garten-und-landschaftsbau-stadt-bern-bern"
+      ],
+      "salaryMin": 57500,
+      "salaryMax": 87000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 57500,
+          "maxValue": 87000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-08-03T12:32:20.657Z"
+    },
+    {
+      "id": "stadt-bern-402ee18820bb",
+      "slug": "apprendistato-gartner-in-pflanzenproduktion-stadt-bern",
+      "slugByLocale": {
+        "de": "lehrstelle-gartner-in-pflanzenproduktion-stadt-bern-bern",
+        "it": "apprendistato-gartner-in-pflanzenproduktion-stadt-bern",
+        "en": "apprenticeship-gardener-in-plant-production-stadt-bern-bern",
+        "fr": "apprentissage-jardinier-en-production-vegetale-stadt-bern-bern"
+      },
+      "company": "Stadt Bern",
+      "companyKey": "stadt-bern",
+      "companyDomain": "bern.ch",
+      "title": "Lehrstelle Gärtner*in Pflanzenproduktion",
+      "titleByLocale": {
+        "de": "Lehrstelle Gärtner*in Pflanzenproduktion",
+        "it": "Apprendistato Gärtner*in Pflanzenproduktion",
+        "en": "Apprenticeship Gardener* in plant production",
+        "fr": "Apprentissage Jardinier* en production végétale"
+      },
+      "description": "Bist du eine aufgestellte, praktisch begabte junge Persönlichkeit? Bist du interessiert die Gartenwelt in einem aufgestellten und kompetenten Team kennenzulernen?\n\nAufgaben:\n• Pflanzen säen, pikieren und pflegen in modern eingerichteten Gewächshäusern\n\n• Blumenschmuck produzieren, verkaufen und unsere Kundschaft beraten\n\n• Gräber bepflanzen auf unseren Friedhöfen\n\nAnforderungen:\n• Abgeschlossene Volksschulausbildung\n\n• Freude an Pflanzen und der Natur\n\n• Offene, zuverlässige und unkomplizierte Persönlichkeit\n\nWir bieten:\nFür Sinn & Stadtleben\n Bei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern.",
+      "descriptionByLocale": {
+        "de": "Bist du eine aufgestellte, praktisch begabte junge Persönlichkeit? Bist du interessiert die Gartenwelt in einem aufgestellten und kompetenten Team kennenzulernen?\n\nAufgaben:\n• Pflanzen säen, pikieren und pflegen in modern eingerichteten Gewächshäusern\n\n• Blumenschmuck produzieren, verkaufen und unsere Kundschaft beraten\n\n• Gräber bepflanzen auf unseren Friedhöfen\n\nAnforderungen:\n• Abgeschlossene Volksschulausbildung\n\n• Freude an Pflanzen und der Natur\n\n• Offene, zuverlässige und unkomplizierte Persönlichkeit\n\nWir bieten:\nFür Sinn & Stadtleben\n Bei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern.",
+        "it": "Sei una giovane personalità stabilita e praticamente dotata? Sei interessato a conoscere il mondo del giardino in un team stabilito e competente?\n\nCompiti:\n• Piante semina, pique e cura in serra modernamente arredate\n\n• Produrre, vendere e consigliare i nostri clienti\n\n• Piantare le tombe nei nostri cimiteri\n\nRequisiti\n• Formazione primaria completa\n\n• Gioia nelle piante e nella natura\n\n• Personalità aperta, affidabile e semplice\n\nOffriamo:\nPer il senso e la vita della città\n Con noi cambi qualcosa. Aiutate a plasmare la vita della città, assumete la responsabilità e rendete Berna più vivibile.\n\nNella città di Berna, più di 4.500 persone lavorano insieme in cinque directory e oltre 80 profili di lavoro. Ci impegniamo con passione e convinzione per le persone che vivono qui, che lavorano qui. Insieme formiamo la comunità e il futuro di questa città – visibile, tangibile, sostenibile. per la nostra città. Per Bern.",
+        "en": "Are you an established, practically gifted young personality? Are you interested in getting to know the garden world in an established and competent team?\n\nTasks:\n• Plants sow, pique and care in modernly furnished greenhouses\n\n• Produce, sell and advise our customers\n\n• Planting graves in our cemeteries\n\nRequirements\n• Completed primary education\n\n• Joy in plants and nature\n\n• Open, reliable and uncomplicated personality\n\nWe offer:\nFor sense and city life\n With us you change something. You help shape city life, carry responsibility and make Bern more liveable.\n\nIn the city of Bern, more than 4,500 people work together across five directorates and more than 80 job profiles. We are committed with passion and conviction to the people who live here, who work here. Together we shape the community and the future of this city – visible, tangible, sustainable. for our city. For Bern.",
+        "fr": "Êtes-vous une jeune personnalité établie et pratiquement douée ? Êtes-vous intéressé à connaître le monde du jardin dans une équipe établie et compétente?\n\nTâches :\n• Plantes truies, piques et soins dans des serres meublées modernement\n\n• Produire, vendre et conseiller nos clients\n\n• Planter des tombes dans nos cimetières\n\nExigences\n• Enseignement primaire terminé\n\n• Joy dans les plantes et la nature\n\n• Personnalité ouverte, fiable et simple\n\nNous offrons:\nPour le sens et la vie urbaine\n Avec nous, tu changes quelque chose. Vous aidez à façonner la vie de la ville, à porter des responsabilités et à rendre Berne plus vivante.\n\nDans la ville de Berne, plus de 4 500 personnes travaillent ensemble dans cinq directions et plus de 80 profils d'emploi. Nous sommes engagés avec passion et conviction envers les gens qui vivent ici, qui travaillent ici. Ensemble, nous façonnons la communauté et l'avenir de cette ville – visible, tangible, durable. pour notre ville. Pour Bern."
+      },
+      "location": "Bern",
+      "canton": "BE",
+      "url": "https://jobs.bern.ch/offene-stellen/lehrstelle-gaertner-in-pflanzenproduktion/003940ea-fc84-436e-9fd8-2e49b744e90f",
+      "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-03T12:32:20.656Z",
+      "addressLocality": "Bern",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "3006",
+      "streetAddress": "Elfenauweg 94D",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Amministrazione Pubblica",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-02",
+      "applyUrl": "https://jobs.bern.ch/offene-stellen/lehrstelle-gaertner-in-pflanzenproduktion/003940ea-fc84-436e-9fd8-2e49b744e90f",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "lehrstelle-gartner-in-pflanzenproduktion-stadt-bern-bern"
+        ],
+        "en": [
+          "lehrstelle-gartner-in-pflanzenproduktion-stadt-bern-bern"
+        ],
+        "fr": [
+          "lehrstelle-gartner-in-pflanzenproduktion-stadt-bern-bern"
+        ]
+      },
+      "previousSlugs": [
+        "lehrstelle-gartner-in-pflanzenproduktion-stadt-bern-bern"
+      ],
+      "salaryMin": 57500,
+      "salaryMax": 87000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 57500,
+          "maxValue": 87000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-08-03T12:32:20.656Z"
+    },
+    {
       "id": "stadt-bern-9789519cc8b9",
       "slug": "collaboratore-trice-in-ruckzugsraum-schutzenmatte-10-o-15-a-stadt-bern",
       "slugByLocale": {
@@ -839,7 +1296,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/mitarbeiter-in-rueckzugsraum-schuetzenmatte-oder-a/9927f5e6-8307-4b3d-8507-74969986a0b2",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-02T21:57:23.833Z",
+      "crawledAt": "2026-08-03T12:32:20.655Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -886,78 +1343,6 @@
       }
     },
     {
-      "id": "stadt-bern-47812b7ae4df",
-      "slug": "teamleiter-in-outtake-mit-stv-sektionsleitung-stadt-bern-bern",
-      "slugByLocale": {
-        "it": "teamleiter-in-outtake-mit-stv-sektionsleitung-stadt-bern-bern",
-        "en": "team-leader-in-outtake-with-stv-section-management-stadt-bern-bern",
-        "de": "teamleiter-in-outtake-mit-stv-sektionsleitung-stadt-bern-bern",
-        "fr": "chef-d-equipe-en-sortie-avec-stv-gestion-des-sections-stadt-bern-bern"
-      },
-      "company": "Stadt Bern",
-      "companyKey": "stadt-bern",
-      "companyDomain": "bern.ch",
-      "title": "Teamleiter*in Outtake mit Stv. Sektionsleitung",
-      "titleByLocale": {
-        "it": "Teamleiter*in Outtake con Stv. Sektionsleitung",
-        "en": "Team leader*in outtake with stv. Section management",
-        "de": "Teamleiter*in Outtake mit Stv. Sektionsleitung",
-        "fr": "Chef d'équipe* en sortie avec stv. Gestion des sections"
-      },
-      "description": "In der Sektion Outtake werden administrative Dienstleistungen in den Bereichen Krankenkassengeschäft, Klientenbuchhaltung, sozialhilferechtliche Abrechnung und Rückerstattung sowie Archivierung erbracht.\n\nAufgaben:\n• Personelle Leitung von rund 10 Mitarbeitenden\n\n• Umfassende fachliche Leitung bestimmter Aufgabenbereiche\n\n• Mitarbeit bei der Weiterentwicklung des Fallführungssystems FFS CSN (Citysoftnet)\n\n• Leitung kleinerer Projekte und Projektmitarbeit\n\n• Stellvertretung innerhalb des 4-köpfigen Leitungsteams, Vertretung der Sektion in internen Gremien\n\nAnforderungen:\n• Kaufmännische Ausbildung mit Fachausweis Sozialversicherungen\n\n• Mehrjährige Erfahrung in der Personalführung\n\n• Berufserfahrung in den Bereichen Sozialhilfe, Sozialversicherungen, Mahn- und Inkassowesen und / oder IT von Vorteil\n\n• Geschick in der Gesprächs- und Verhandlungsführung\n\n• Zahlenflair, Sicherheit in anspruchsvoller Korrespondenz (Verfügungen)\n\nWir bieten:\nFür Sinn & Stadtleben\n Bei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern.",
-      "descriptionByLocale": {
-        "it": "La sezione Outtake fornisce servizi amministrativi nei settori dell'assicurazione sanitaria, della contabilità clienti, dell'assistenza sociale fatturazione e del rimborso nonché dell'archiviazione.\n\nCompiti:\n• Gestione del personale di circa 10 dipendenti\n\n• Gestione tecnica completa di compiti specifici\n\n• Cooperazione nell'ulteriore sviluppo del sistema di gestione dei casi FFS CSN (Citysoftnet)\n\n• Gestione di piccoli progetti e collaborazione di progetti\n\n• Deputato all'interno del gruppo di gestione a 4 membri, rappresentanza della sezione in comitati interni\n\nRequisiti\n• Istruzione commerciale con certificato di assicurazione sociale specializzato\n\n• Diversi anni di esperienza nella gestione del personale\n\n• Esperienza professionale nei settori dell'assistenza sociale, dell'assicurazione sociale, della raccolta dei debiti e/o dell'IT di vantaggio\n\n• Conversazione e competenze di negoziazione\n\n• Portata, sicurezza in corrispondenza esigente (decisioni)\n\nOffriamo:\nPer senso e vita della città\nCon noi cambi qualcosa. Aiutate a plasmare la vita della città, assumete la responsabilità e rendete Berna più vivibile.\n\nNella città di Berna, più di 4.500 persone lavorano insieme in cinque directory e più di 80 profili di lavoro. Ci impegniamo con passione e convinzione per le persone che vivono qui, che lavorano qui. Insieme formiamo la comunità e il futuro di questa città – visibile, tangibile, sostenibile. per la nostra città. Per Bern.",
-        "en": "The Outtake section provides administrative services in the areas of health insurance business, client accounting, social assistance billing and reimbursement as well as archiving.\n\nTasks:\n• Personnel management of around 10 employees\n\n• Comprehensive technical management of specific tasks\n\n• Cooperation in the further development of the case management system FFS CSN (Citysoftnet)\n\n• Management of smaller projects and project collaboration\n\n• Deputy within the 4-member management team, representation of the section in internal committees\n\nRequirements\n• Commercial education with specialised social insurance certificate\n\n• Several years of experience in personnel management\n\n• Professional experience in the areas of social assistance, social insurance, dunning and debt collection and / or IT of advantage\n\n• Conversation and negotiation skills\n\n• Number flair, security in demanding correspondence (decisions)\n\nWe offer:\nFor sense and city life\nWith us you change something. You help shape city life, carry responsibility and make Bern more liveable.\n\nIn the city of Bern, more than 4,500 people work together across five directorates and more than 80 job profiles. We are committed with passion and conviction to the people who live here, who work here. Together we shape the community and the future of this city – visible, tangible, sustainable. for our city. For Bern.",
-        "de": "In der Sektion Outtake werden administrative Dienstleistungen in den Bereichen Krankenkassengeschäft, Klientenbuchhaltung, sozialhilferechtliche Abrechnung und Rückerstattung sowie Archivierung erbracht.\n\nAufgaben:\n• Personelle Leitung von rund 10 Mitarbeitenden\n\n• Umfassende fachliche Leitung bestimmter Aufgabenbereiche\n\n• Mitarbeit bei der Weiterentwicklung des Fallführungssystems FFS CSN (Citysoftnet)\n\n• Leitung kleinerer Projekte und Projektmitarbeit\n\n• Stellvertretung innerhalb des 4-köpfigen Leitungsteams, Vertretung der Sektion in internen Gremien\n\nAnforderungen:\n• Kaufmännische Ausbildung mit Fachausweis Sozialversicherungen\n\n• Mehrjährige Erfahrung in der Personalführung\n\n• Berufserfahrung in den Bereichen Sozialhilfe, Sozialversicherungen, Mahn- und Inkassowesen und / oder IT von Vorteil\n\n• Geschick in der Gesprächs- und Verhandlungsführung\n\n• Zahlenflair, Sicherheit in anspruchsvoller Korrespondenz (Verfügungen)\n\nWir bieten:\nFür Sinn & Stadtleben\nBei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern.",
-        "fr": "Cette section fournit des services administratifs dans les domaines de l'assurance-maladie, de la comptabilité des clients, de la facturation et du remboursement de l'aide sociale ainsi que de l'archivage.\n\nTâches :\n• Gestion du personnel d'environ 10 employés\n\n• Gestion technique globale de tâches spécifiques\n\n• Coopération pour le développement du système de gestion de cas FFS CSN (Citysoftnet)\n\n• Gestion de petits projets et collaboration de projets\n\n• Adjoint au sein de l'équipe de gestion de 4 membres, représentation de la section dans les comités internes\n\nExigences\n• Formation commerciale avec certificat d'assurance sociale spécialisée\n\n• Plusieurs années d'expérience dans la gestion du personnel\n\n• Expérience professionnelle dans les domaines de l'assistance sociale, de l'assurance sociale, de la dunning et du recouvrement des dettes et/ou de l'informatique d'avantage\n\n• Compétences en conversation et en négociation\n\n• Numéro flair, sécurité dans la correspondance exigeante (décisions)\n\nNous offrons:\nPour le sens et la vie en ville\nAvec nous, tu changes quelque chose. Vous aidez à façonner la vie de la ville, à porter des responsabilités et à rendre Berne plus vivante.\n\nDans la ville de Berne, plus de 4 500 personnes travaillent ensemble dans cinq directions et plus de 80 profils d'emploi. Nous sommes engagés avec passion et conviction envers les gens qui vivent ici, qui travaillent ici. Ensemble, nous façonnons la communauté et l'avenir de cette ville – visible, tangible, durable. pour notre ville. Pour Bern."
-      },
-      "needsRetranslation": false,
-      "location": "Bern",
-      "canton": "BE",
-      "url": "https://jobs.bern.ch/offene-stellen/teamleiter-in-outtake-mit-stv-sektionsleitung/3bd973d2-cf1e-4083-94c4-232e63c30d99",
-      "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-02T21:57:23.833Z",
-      "addressLocality": "Bern",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3007",
-      "streetAddress": "Schwarztorstrasse 71",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Amministrazione Pubblica",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-20",
-      "applyUrl": "https://jobs.bern.ch/offene-stellen/teamleiter-in-outtake-mit-stv-sektionsleitung/3bd973d2-cf1e-4083-94c4-232e63c30d99",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "chef-d-equipe-a-la-sortie-avec-stv-gestion-des-sections-stadt-bern-bern"
-      ],
-      "previousSlugsByLocale": {
-        "fr": [
-          "chef-d-equipe-a-la-sortie-avec-stv-gestion-des-sections-stadt-bern-bern"
-        ]
-      },
-      "firstSeenAt": "2026-07-21T11:14:29.730Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "stadt-bern-c2c8d0eb8b72",
       "slug": "foreman-stadt-bern-bern-da3c9d",
       "slugByLocale": {
@@ -989,7 +1374,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/vorarbeiter-in/4ca8d9f5-83f5-47e9-8527-07d1d0f78b30",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-02T21:57:23.832Z",
+      "crawledAt": "2026-08-03T12:32:20.652Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1043,6 +1428,77 @@
       }
     },
     {
+      "id": "stadt-bern-cec2f263f114",
+      "slug": "titolare-del-servizio-microsoft-365-stadt-bern-bern",
+      "slugByLocale": {
+        "it": "titolare-del-servizio-microsoft-365-stadt-bern-bern",
+        "en": "service-owner-microsoft-365-stadt-bern-bern",
+        "de": "service-owner-microsoft-365-stadt-bern-bern",
+        "fr": "service-owner-microsoft-365-stadt-bern-bern"
+      },
+      "company": "Stadt Bern",
+      "companyKey": "stadt-bern",
+      "companyDomain": "bern.ch",
+      "title": "Service Owner Microsoft 365",
+      "titleByLocale": {
+        "it": "Titolare del servizio Microsoft 365",
+        "en": "Service Owner Microsoft 365",
+        "de": "Service Owner Microsoft 365",
+        "fr": "Propriétaire du service Microsoft 365"
+      },
+      "description": "Zur Verstärkung unseres M365-Collaboration-Teams suchen wir per sofort oder nach Vereinbarung eine engagierte, selbständige Persönlichkeit. Wenn Microsoft 365 deine Passion ist, du in diesem Bereich fundierte Erfahrung mitbringst und du als technisches Pendant zu den Product Ownern die M365-Kollaborationslandschaft weiterentwickeln möchtest, freuen wir uns auf deine Bewerbung.\n\nAufgaben:\n• Du betreust die städtischen M365-Kollaborationslösungen MS Teams, OneDrive, SharePoint Online und Co. technisch und stellst deren reibungslosen Betrieb sicher\n\n• Du koordinierst die Weiterentwicklung der M365-Plattform innerhalb der IT-Abteilung\n\n• Du konfigurierst die M365-Kollaborationssuite sicher nach \"Best Practices\" und setzt Vorgaben des Produkteverantwortlichen M365 um\n\n• Du fungierst als technische*r Berater*in des Produkteverantwortlichen M365 und ermöglichst die positive Weiterentwicklung\n\nAnforderungen:\n• Abgeschlossenes Studium (Bachelor) in Informatik, höhere Berufsbildung in Informatik oder Informatik EFZ mit entsprechender Weiterbildung\n\n• Mehrjährige, ausgewiesene Erfahrung im Betrieb von Microsoft 365 in einer grösseren IT-Organisation\n\n• Ausgeprägtes Verständnis und Sensibilität für Datenschutz und IT-Sicherheit\n\n• Hohe Dienstleistungs- und Kundenorientierung\n\n• Fähigkeit, die Geschicke zwischen IT und Kundschaft zu orchestrieren und Projekte zeitgerecht umzusetzen\n\nWir bieten:\nFür Sinn & Stadtleben\n Bei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern.",
+      "descriptionByLocale": {
+        "it": "Il vostro lavoro ha un impatto – per Berna e per le persone che vivono e lavorano qui. Crea con noi la comunità e il futuro di questa città: visibile, tangibile, sostenibile. Computer Science City di Berna è l'integratore di servizi e fornitore di soluzioni ICT orientate al cliente ed economiche per l'amministrazione della città e le scuole primarie. Per rafforzare il nostro team di collaborazione M365, siamo alla ricerca di una personalità impegnata e indipendente immediatamente o di un accordo. Se Microsoft 365 è la vostra passione, avete una profonda esperienza in questo settore e si desidera sviluppare ulteriormente il panorama di collaborazione M365 come una controparte tecnica per i proprietari di prodotti, non vediamo l'ora della vostra applicazione.\n\nCompiti:\n• Tu gestisci tecnicamente le soluzioni di collaborazione M365 municipali MS Teams, OneDrive, SharePoint Online e Co. e garantisci il loro funzionamento regolare\n\n• Coordinate l'ulteriore sviluppo della piattaforma M365 all'interno del reparto IT\n\n• Configurate la suite di collaborazione M365 in modo sicuro secondo le \"migliori pratiche\" e implementate le specifiche del product manager M365\n\n• Lei agisce come consulente tecnico del product manager M365 e abilita lo sviluppo positivo\n\nRequisiti\n• Studi completi (bachelor) in scienze informatiche, formazione professionale superiore in informatica o informatica EFZ con corrispondente ulteriore istruzione\n\n• Diversi anni di esperienza comprovata nel funzionamento di Microsoft 365 in una più grande organizzazione IT\n\n• Forte comprensione e sensibilità per la protezione dei dati e la sicurezza IT\n\n• Alta assistenza e orientamento al cliente\n\n• Capacità di orchestrare le fortune tra IT e clienti e realizzare progetti in tempo\n\nOffriamo:\nPer il senso e la vita della città\nCon noi cambi qualcosa. Aiutate a plasmare la vita della città, assumete la responsabilità e rendete Berna più vivibile.\n\nNella città di Berna, più di 4.500 persone lavorano insieme in cinque directory e oltre 80 profili di lavoro. Ci impegniamo con passione e convinzione per le persone che vivono qui, che lavorano qui. Insieme formiamo la comunità e il futuro di questa città – visibile, tangibile, sostenibile. per la nostra città. Per Bern.",
+        "en": "Your work has an impact – for Bern and for the people who live and work here. Create with us the community and the future of this city: visible, tangible, sustainable.<br/ >The Finance, Human Resources and Computer Science Directorate provides a wide range of services within the city and provides central resources. Computer Science City of Bern is the service integrator and provider for customer-oriented and economic ICT solutions for the city administration and primary schools.<br/>To strengthen our M365 collaboration team, we are looking for a committed, independent personality immediately or by agreement. If Microsoft 365 is your passion, you have profound experience in this area and you want to further develop the M365 collaboration landscape as a technical counterpart to the product owners, we look forward to your application.\n\nTasks:\n• You technically manage the municipal M365 collaboration solutions MS Teams, OneDrive, SharePoint Online and Co. and ensure their smooth operation\n\n• You coordinate the further development of the M365 platform within the IT department\n\n• You configure the M365 collaboration suite safely according to \"best practices\" and implement the specifications of the product manager M365\n\n• You act as technical consultant of the product manager M365 and enable the positive development\n\nRequirements\n• Completed studies (bachelor) in computer science, higher vocational training in computer science or computer science EFZ with corresponding further education\n\n• Several years of proven experience in the operation of Microsoft 365 in a larger IT organization\n\n• Strong understanding and sensitivity for data protection and IT security\n\n• High service and customer orientation\n\n• Ability to orchestrate the fortunes between IT and customers and implement projects on time\n\nWe offer:\nFor sense and city life\nWith us you change something. You help shape city life, carry responsibility and make Bern more liveable.\n\nIn the city of Bern, more than 4,500 people work together across five directorates and more than 80 job profiles. We are committed with passion and conviction to the people who live here, who work here. Together we shape the community and the future of this city – visible, tangible, sustainable. for our city. For Bern.",
+        "de": "Zur Verstärkung unseres M365-Collaboration-Teams suchen wir per sofort oder nach Vereinbarung eine engagierte, selbständige Persönlichkeit. Wenn Microsoft 365 deine Passion ist, du in diesem Bereich fundierte Erfahrung mitbringst und du als technisches Pendant zu den Product Ownern die M365-Kollaborationslandschaft weiterentwickeln möchtest, freuen wir uns auf deine Bewerbung.\n\nAufgaben:\n• Du betreust die städtischen M365-Kollaborationslösungen MS Teams, OneDrive, SharePoint Online und Co. technisch und stellst deren reibungslosen Betrieb sicher\n\n• Du koordinierst die Weiterentwicklung der M365-Plattform innerhalb der IT-Abteilung\n\n• Du konfigurierst die M365-Kollaborationssuite sicher nach \"Best Practices\" und setzt Vorgaben des Produkteverantwortlichen M365 um\n\n• Du fungierst als technische*r Berater*in des Produkteverantwortlichen M365 und ermöglichst die positive Weiterentwicklung\n\nAnforderungen:\n• Abgeschlossenes Studium (Bachelor) in Informatik, höhere Berufsbildung in Informatik oder Informatik EFZ mit entsprechender Weiterbildung\n\n• Mehrjährige, ausgewiesene Erfahrung im Betrieb von Microsoft 365 in einer grösseren IT-Organisation\n\n• Ausgeprägtes Verständnis und Sensibilität für Datenschutz und IT-Sicherheit\n\n• Hohe Dienstleistungs- und Kundenorientierung\n\n• Fähigkeit, die Geschicke zwischen IT und Kundschaft zu orchestrieren und Projekte zeitgerecht umzusetzen\n\nWir bieten:\nFür Sinn & Stadtleben\nBei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern.",
+        "fr": "Votre travail a un impact – pour Bern et pour les personnes qui vivent et travaillent ici. Créer avec nous la communauté et l'avenir de cette ville : visible, tangible, durable.<br/ >La Direction des finances, des ressources humaines et de l'informatique offre un large éventail de services dans la ville et fournit des ressources centrales. Computer Science City of Bern est l'intégrateur de services et le fournisseur de solutions TIC orientées client et économique pour l'administration municipale et les écoles primaires.<br/> Pour renforcer notre équipe de collaboration M365, nous recherchons une personnalité engagée et indépendante immédiatement ou d'un commun accord. Si Microsoft 365 est votre passion, vous avez une expérience profonde dans ce domaine et vous voulez développer le paysage de collaboration M365 en tant que contrepartie technique des propriétaires de produits, nous attendons avec impatience votre application.\n\nTâches :\n• Vous gérez techniquement les solutions de collaboration M365 municipales MS Teams, OneDrive, SharePoint Online et Co. et assurez leur bon fonctionnement\n\n• Vous coordonnez le développement ultérieur de la plateforme M365 au sein du département IT\n\n• Vous configurez la suite de collaboration M365 en toute sécurité selon les « meilleures pratiques » et implémentez les spécifications du gestionnaire de produits M365\n\n• Vous agissez en tant que consultant technique du gestionnaire de produits M365 et permet le développement positif\n\nExigences\n• Études terminées (bachelor) en informatique, formation professionnelle supérieure en informatique ou en informatique EFZ avec formation complémentaire correspondante\n\n• Plusieurs années d'expérience prouvée dans le fonctionnement de Microsoft 365 dans une organisation informatique plus grande\n\n• Bonne compréhension et sensibilité pour la protection des données et la sécurité informatique\n\n• Service élevé et orientation client\n\n• Capacité d'orchestrer les fortunes entre l'informatique et les clients et de mettre en œuvre des projets à temps\n\nNous offrons:\nPour le sens et la vie urbaine\nAvec nous, tu changes quelque chose. Vous aidez à façonner la vie de la ville, à porter des responsabilités et à rendre Berne plus vivante.\n\nDans la ville de Berne, plus de 4 500 personnes travaillent ensemble dans cinq directions et plus de 80 profils d'emploi. Nous sommes engagés avec passion et conviction envers les gens qui vivent ici, qui travaillent ici. Ensemble, nous façonnons la communauté et l'avenir de cette ville – visible, tangible, durable. pour notre ville. Pour Bern."
+      },
+      "location": "Bern",
+      "canton": "BE",
+      "url": "https://jobs.bern.ch/offene-stellen/service-owner-microsoft-365/ae49df04-2786-49e4-85ab-7e5645672b4e",
+      "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-03T12:32:20.651Z",
+      "addressLocality": "Bern",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "3027",
+      "streetAddress": "Bümplizstrasse 45",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Amministrazione Pubblica",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-23",
+      "applyUrl": "https://jobs.bern.ch/offene-stellen/service-owner-microsoft-365/ae49df04-2786-49e4-85ab-7e5645672b4e",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "service-owner-microsoft-365-stadt-bern-bern"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "service-owner-microsoft-365-stadt-bern-bern"
+        ]
+      },
+      "firstSeenAt": "2026-07-23T22:04:58.955Z",
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68500,
+          "maxValue": 104000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
       "id": "stadt-bern-1e6322662ca5",
       "slug": "logisticista-chauffeur-stadt-bern-bern",
       "slugByLocale": {
@@ -1074,7 +1530,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/logistiker-in-chauffeur-in/825ce954-69b8-4fff-b552-c5fa73d5e1da",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-02T21:57:23.828Z",
+      "crawledAt": "2026-08-03T12:32:20.651Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1123,77 +1579,6 @@
       }
     },
     {
-      "id": "stadt-bern-cec2f263f114",
-      "slug": "titolare-del-servizio-microsoft-365-stadt-bern-bern",
-      "slugByLocale": {
-        "it": "titolare-del-servizio-microsoft-365-stadt-bern-bern",
-        "en": "service-owner-microsoft-365-stadt-bern-bern",
-        "de": "service-owner-microsoft-365-stadt-bern-bern",
-        "fr": "service-owner-microsoft-365-stadt-bern-bern"
-      },
-      "company": "Stadt Bern",
-      "companyKey": "stadt-bern",
-      "companyDomain": "bern.ch",
-      "title": "Service Owner Microsoft 365",
-      "titleByLocale": {
-        "it": "Titolare del servizio Microsoft 365",
-        "en": "Service Owner Microsoft 365",
-        "de": "Service Owner Microsoft 365",
-        "fr": "Propriétaire du service Microsoft 365"
-      },
-      "description": "Zur Verstärkung unseres M365-Collaboration-Teams suchen wir per sofort oder nach Vereinbarung eine engagierte, selbständige Persönlichkeit. Wenn Microsoft 365 deine Passion ist, du in diesem Bereich fundierte Erfahrung mitbringst und du als technisches Pendant zu den Product Ownern die M365-Kollaborationslandschaft weiterentwickeln möchtest, freuen wir uns auf deine Bewerbung.\n\nAufgaben:\n• Du betreust die städtischen M365-Kollaborationslösungen MS Teams, OneDrive, SharePoint Online und Co. technisch und stellst deren reibungslosen Betrieb sicher\n\n• Du koordinierst die Weiterentwicklung der M365-Plattform innerhalb der IT-Abteilung\n\n• Du konfigurierst die M365-Kollaborationssuite sicher nach \"Best Practices\" und setzt Vorgaben des Produkteverantwortlichen M365 um\n\n• Du fungierst als technische*r Berater*in des Produkteverantwortlichen M365 und ermöglichst die positive Weiterentwicklung\n\nAnforderungen:\n• Abgeschlossenes Studium (Bachelor) in Informatik, höhere Berufsbildung in Informatik oder Informatik EFZ mit entsprechender Weiterbildung\n\n• Mehrjährige, ausgewiesene Erfahrung im Betrieb von Microsoft 365 in einer grösseren IT-Organisation\n\n• Ausgeprägtes Verständnis und Sensibilität für Datenschutz und IT-Sicherheit\n\n• Hohe Dienstleistungs- und Kundenorientierung\n\n• Fähigkeit, die Geschicke zwischen IT und Kundschaft zu orchestrieren und Projekte zeitgerecht umzusetzen\n\nWir bieten:\nFür Sinn & Stadtleben\n Bei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern.",
-      "descriptionByLocale": {
-        "it": "Il vostro lavoro ha un impatto – per Berna e per le persone che vivono e lavorano qui. Crea con noi la comunità e il futuro di questa città: visibile, tangibile, sostenibile. Computer Science City di Berna è l'integratore di servizi e fornitore di soluzioni ICT orientate al cliente ed economiche per l'amministrazione della città e le scuole primarie. Per rafforzare il nostro team di collaborazione M365, siamo alla ricerca di una personalità impegnata e indipendente immediatamente o di un accordo. Se Microsoft 365 è la vostra passione, avete una profonda esperienza in questo settore e si desidera sviluppare ulteriormente il panorama di collaborazione M365 come una controparte tecnica per i proprietari di prodotti, non vediamo l'ora della vostra applicazione.\n\nCompiti:\n• Tu gestisci tecnicamente le soluzioni di collaborazione M365 municipali MS Teams, OneDrive, SharePoint Online e Co. e garantisci il loro funzionamento regolare\n\n• Coordinate l'ulteriore sviluppo della piattaforma M365 all'interno del reparto IT\n\n• Configurate la suite di collaborazione M365 in modo sicuro secondo le \"migliori pratiche\" e implementate le specifiche del product manager M365\n\n• Lei agisce come consulente tecnico del product manager M365 e abilita lo sviluppo positivo\n\nRequisiti\n• Studi completi (bachelor) in scienze informatiche, formazione professionale superiore in informatica o informatica EFZ con corrispondente ulteriore istruzione\n\n• Diversi anni di esperienza comprovata nel funzionamento di Microsoft 365 in una più grande organizzazione IT\n\n• Forte comprensione e sensibilità per la protezione dei dati e la sicurezza IT\n\n• Alta assistenza e orientamento al cliente\n\n• Capacità di orchestrare le fortune tra IT e clienti e realizzare progetti in tempo\n\nOffriamo:\nPer il senso e la vita della città\nCon noi cambi qualcosa. Aiutate a plasmare la vita della città, assumete la responsabilità e rendete Berna più vivibile.\n\nNella città di Berna, più di 4.500 persone lavorano insieme in cinque directory e oltre 80 profili di lavoro. Ci impegniamo con passione e convinzione per le persone che vivono qui, che lavorano qui. Insieme formiamo la comunità e il futuro di questa città – visibile, tangibile, sostenibile. per la nostra città. Per Bern.",
-        "en": "Your work has an impact – for Bern and for the people who live and work here. Create with us the community and the future of this city: visible, tangible, sustainable.<br/ >The Finance, Human Resources and Computer Science Directorate provides a wide range of services within the city and provides central resources. Computer Science City of Bern is the service integrator and provider for customer-oriented and economic ICT solutions for the city administration and primary schools.<br/>To strengthen our M365 collaboration team, we are looking for a committed, independent personality immediately or by agreement. If Microsoft 365 is your passion, you have profound experience in this area and you want to further develop the M365 collaboration landscape as a technical counterpart to the product owners, we look forward to your application.\n\nTasks:\n• You technically manage the municipal M365 collaboration solutions MS Teams, OneDrive, SharePoint Online and Co. and ensure their smooth operation\n\n• You coordinate the further development of the M365 platform within the IT department\n\n• You configure the M365 collaboration suite safely according to \"best practices\" and implement the specifications of the product manager M365\n\n• You act as technical consultant of the product manager M365 and enable the positive development\n\nRequirements\n• Completed studies (bachelor) in computer science, higher vocational training in computer science or computer science EFZ with corresponding further education\n\n• Several years of proven experience in the operation of Microsoft 365 in a larger IT organization\n\n• Strong understanding and sensitivity for data protection and IT security\n\n• High service and customer orientation\n\n• Ability to orchestrate the fortunes between IT and customers and implement projects on time\n\nWe offer:\nFor sense and city life\nWith us you change something. You help shape city life, carry responsibility and make Bern more liveable.\n\nIn the city of Bern, more than 4,500 people work together across five directorates and more than 80 job profiles. We are committed with passion and conviction to the people who live here, who work here. Together we shape the community and the future of this city – visible, tangible, sustainable. for our city. For Bern.",
-        "de": "Zur Verstärkung unseres M365-Collaboration-Teams suchen wir per sofort oder nach Vereinbarung eine engagierte, selbständige Persönlichkeit. Wenn Microsoft 365 deine Passion ist, du in diesem Bereich fundierte Erfahrung mitbringst und du als technisches Pendant zu den Product Ownern die M365-Kollaborationslandschaft weiterentwickeln möchtest, freuen wir uns auf deine Bewerbung.\n\nAufgaben:\n• Du betreust die städtischen M365-Kollaborationslösungen MS Teams, OneDrive, SharePoint Online und Co. technisch und stellst deren reibungslosen Betrieb sicher\n\n• Du koordinierst die Weiterentwicklung der M365-Plattform innerhalb der IT-Abteilung\n\n• Du konfigurierst die M365-Kollaborationssuite sicher nach \"Best Practices\" und setzt Vorgaben des Produkteverantwortlichen M365 um\n\n• Du fungierst als technische*r Berater*in des Produkteverantwortlichen M365 und ermöglichst die positive Weiterentwicklung\n\nAnforderungen:\n• Abgeschlossenes Studium (Bachelor) in Informatik, höhere Berufsbildung in Informatik oder Informatik EFZ mit entsprechender Weiterbildung\n\n• Mehrjährige, ausgewiesene Erfahrung im Betrieb von Microsoft 365 in einer grösseren IT-Organisation\n\n• Ausgeprägtes Verständnis und Sensibilität für Datenschutz und IT-Sicherheit\n\n• Hohe Dienstleistungs- und Kundenorientierung\n\n• Fähigkeit, die Geschicke zwischen IT und Kundschaft zu orchestrieren und Projekte zeitgerecht umzusetzen\n\nWir bieten:\nFür Sinn & Stadtleben\nBei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern.",
-        "fr": "Votre travail a un impact – pour Bern et pour les personnes qui vivent et travaillent ici. Créer avec nous la communauté et l'avenir de cette ville : visible, tangible, durable.<br/ >La Direction des finances, des ressources humaines et de l'informatique offre un large éventail de services dans la ville et fournit des ressources centrales. Computer Science City of Bern est l'intégrateur de services et le fournisseur de solutions TIC orientées client et économique pour l'administration municipale et les écoles primaires.<br/> Pour renforcer notre équipe de collaboration M365, nous recherchons une personnalité engagée et indépendante immédiatement ou d'un commun accord. Si Microsoft 365 est votre passion, vous avez une expérience profonde dans ce domaine et vous voulez développer le paysage de collaboration M365 en tant que contrepartie technique des propriétaires de produits, nous attendons avec impatience votre application.\n\nTâches :\n• Vous gérez techniquement les solutions de collaboration M365 municipales MS Teams, OneDrive, SharePoint Online et Co. et assurez leur bon fonctionnement\n\n• Vous coordonnez le développement ultérieur de la plateforme M365 au sein du département IT\n\n• Vous configurez la suite de collaboration M365 en toute sécurité selon les « meilleures pratiques » et implémentez les spécifications du gestionnaire de produits M365\n\n• Vous agissez en tant que consultant technique du gestionnaire de produits M365 et permet le développement positif\n\nExigences\n• Études terminées (bachelor) en informatique, formation professionnelle supérieure en informatique ou en informatique EFZ avec formation complémentaire correspondante\n\n• Plusieurs années d'expérience prouvée dans le fonctionnement de Microsoft 365 dans une organisation informatique plus grande\n\n• Bonne compréhension et sensibilité pour la protection des données et la sécurité informatique\n\n• Service élevé et orientation client\n\n• Capacité d'orchestrer les fortunes entre l'informatique et les clients et de mettre en œuvre des projets à temps\n\nNous offrons:\nPour le sens et la vie urbaine\nAvec nous, tu changes quelque chose. Vous aidez à façonner la vie de la ville, à porter des responsabilités et à rendre Berne plus vivante.\n\nDans la ville de Berne, plus de 4 500 personnes travaillent ensemble dans cinq directions et plus de 80 profils d'emploi. Nous sommes engagés avec passion et conviction envers les gens qui vivent ici, qui travaillent ici. Ensemble, nous façonnons la communauté et l'avenir de cette ville – visible, tangible, durable. pour notre ville. Pour Bern."
-      },
-      "location": "Bern",
-      "canton": "BE",
-      "url": "https://jobs.bern.ch/offene-stellen/service-owner-microsoft-365/ae49df04-2786-49e4-85ab-7e5645672b4e",
-      "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-02T21:57:23.827Z",
-      "addressLocality": "Bern",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3027",
-      "streetAddress": "Bümplizstrasse 45",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Amministrazione Pubblica",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-23",
-      "applyUrl": "https://jobs.bern.ch/offene-stellen/service-owner-microsoft-365/ae49df04-2786-49e4-85ab-7e5645672b4e",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "service-owner-microsoft-365-stadt-bern-bern"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "service-owner-microsoft-365-stadt-bern-bern"
-        ]
-      },
-      "firstSeenAt": "2026-07-23T22:04:58.955Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "stadt-bern-3f62a1ac5f99",
       "slug": "gestione-delle-operazioni-di-sicurezza-delle-tic-stadt-bern-bern",
       "slugByLocale": {
@@ -1224,7 +1609,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/ict-security-operations-manager-in/7625c351-f01f-4511-b322-73f00fc8ddfb",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-02T21:57:23.826Z",
+      "crawledAt": "2026-08-03T12:32:20.650Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1298,7 +1683,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/lehrstellen-als-fachperson-betreuung-efz-fachrichtung-kinder/9f889b3c-9da3-481d-b642-cb6e0114928d",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-02T21:57:23.824Z",
+      "crawledAt": "2026-08-03T12:32:20.646Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1375,7 +1760,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/lehrstelle-als-fachperson-kinderbetreuung-kita-efz/5c03c988-ec6f-4274-9397-c161f426293f",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-02T21:57:23.823Z",
+      "crawledAt": "2026-08-03T12:32:20.645Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1453,7 +1838,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/lehrstelle-als-kuechenangestellte-r-eba/9b8797fe-f121-469c-aade-cbc8778404d8",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-02T21:57:23.820Z",
+      "crawledAt": "2026-08-03T12:32:20.643Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1531,7 +1916,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/teamleiter-in-service-desk/89e94143-e052-4049-b631-e11070be3dc8",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-02T21:57:23.816Z",
+      "crawledAt": "2026-08-03T12:32:20.642Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1609,7 +1994,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/sozialarbeiter-in-kindesschutz/b08445e2-8d32-47aa-a95e-83222100bc4d",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-02T21:57:23.815Z",
+      "crawledAt": "2026-08-03T12:32:20.640Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1686,7 +2071,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/lehrstelle-kauffrau-kaufmann-efz/08236f3e-92df-4972-8c3b-b3d57dc53f88",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-02T21:57:23.814Z",
+      "crawledAt": "2026-08-03T12:32:20.639Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1757,7 +2142,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/lehrstelle-kauffrau-kaufmann-efz-fuer-sporttalente/568bdcbd-ed0f-4a57-96e0-cb31c95dd28d",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-02T21:57:23.812Z",
+      "crawledAt": "2026-08-03T12:32:20.637Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1834,7 +2219,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/mitarbeiter-in-kasse-im-hallen-und-freibad-weyermannshaus/29134946-fe7c-401c-9145-fc0346411a20",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-02T21:57:23.808Z",
+      "crawledAt": "2026-08-03T12:32:20.635Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1879,6 +2264,322 @@
           "unitText": "YEAR"
         }
       }
+    },
+    {
+      "id": "stadt-bern-429017004519",
+      "slug": "apprendistato-come-geomatiker-in-stadt-bern",
+      "slugByLocale": {
+        "de": "lehre-als-geomatiker-in-stadt-bern-bern",
+        "it": "apprendistato-come-geomatiker-in-stadt-bern",
+        "en": "teaching-as-a-geomatician-stadt-bern-bern",
+        "fr": "enseignement-en-tant-que-geomatique-stadt-bern-bern"
+      },
+      "company": "Stadt Bern",
+      "companyKey": "stadt-bern",
+      "companyDomain": "bern.ch",
+      "title": "Lehre als Geomatiker*in",
+      "titleByLocale": {
+        "de": "Lehre als Geomatiker*in",
+        "it": "Apprendistato come Geomatiker*in",
+        "en": "Teaching as a geomatician",
+        "fr": "Enseignement en tant que géomatique"
+      },
+      "description": "Hast du Freude an geografischen Daten und Informatik? Arbeitest du gerne<br/>im Freien und im Büro und bist dabei genau und sorgfältig?\n\nAufgaben:\n• Geodaten ausmessen und im System erfassen\n\n• Messgeräte programmieren und korrekt positionieren lernen\n\n• Aufgabengebiet der amtlichen Vermessung / Geoinformation kennenlernen\n\n• Besuch der Berufsschule in Zürich (Blockkurse)\n\n• Überbetriebliche Kurse besuchen\n\n• Berufsmaturitiät (BMS) möglich\n\nAnforderungen:\n• Abgeschlossene Sekundarschule\n\n• Gute Leistungen in Geometrie, Mathematik und deutscher Sprache\n\n• Gutes räumliches Vorstellungsvermögen\n\n• Technisches Flair und Freude an der digitalen Arbeitswelt\n\n• Freude am Umgang mit Menschen\n\nWir bieten:\nFür Sinn & Stadtleben\n Bei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern.",
+      "descriptionByLocale": {
+        "de": "Hast du Freude an geografischen Daten und Informatik? Arbeitest du gerne<br/>im Freien und im Büro und bist dabei genau und sorgfältig?\n\nAufgaben:\n• Geodaten ausmessen und im System erfassen\n\n• Messgeräte programmieren und korrekt positionieren lernen\n\n• Aufgabengebiet der amtlichen Vermessung / Geoinformation kennenlernen\n\n• Besuch der Berufsschule in Zürich (Blockkurse)\n\n• Überbetriebliche Kurse besuchen\n\n• Berufsmaturitiät (BMS) möglich\n\nAnforderungen:\n• Abgeschlossene Sekundarschule\n\n• Gute Leistungen in Geometrie, Mathematik und deutscher Sprache\n\n• Gutes räumliches Vorstellungsvermögen\n\n• Technisches Flair und Freude an der digitalen Arbeitswelt\n\n• Freude am Umgang mit Menschen\n\nWir bieten:\nFür Sinn & Stadtleben\n Bei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern.",
+        "it": "Ti piacciono i dati geografici e le scienze informatiche? Ti piace lavorare in esterno e in ufficio e sei accurato e attento?\n\nCompiti:\n• Misurare i dati spaziali e registrarli nel sistema\n\n• Programmazione strumenti di misura e apprendimento per posizionarli correttamente\n\n• Area di attività dell'indagine ufficiale / Conoscere la geoinformazione\n\n• Visita alla Scuola Professionale di Zurigo (corsi di blocco)\n\n• Partecipare a corsi intercompany\n\n• Maturità professionale (BMS) è possibile\n\nRequisiti\n• Scuola secondaria completa\n\n• Buoni risultati in geometria, matematica e tedesco\n\n• Buona immaginazione spaziale\n\n• Il fascino tecnico e la gioia nel mondo del lavoro digitale\n\n• La gioia di affrontare le persone\n\nOffriamo:\nPer il senso e la vita della città\n Con noi cambi qualcosa. Aiutate a plasmare la vita della città, assumete la responsabilità e rendete Berna più vivibile.\n\nNella città di Berna, più di 4.500 persone lavorano insieme in cinque directory e oltre 80 profili di lavoro. Ci impegniamo con passione e convinzione per le persone che vivono qui, che lavorano qui. Insieme formiamo la comunità e il futuro di questa città – visibile, tangibile, sostenibile. per la nostra città. Per Bern.",
+        "en": "Do you enjoy geographic data and computer science? Do you like working<br/> outdoors and in the office and are accurate and careful?\n\nTasks:\n• Measure spatial data and record them in the system\n\n• Programming measuring instruments and learning to position them correctly\n\n• Task area of official surveying / Getting to know geoinformation\n\n• Visit to the Vocational School in Zurich (block courses)\n\n• Attending intercompany courses\n\n• Professional Maturity (BMS) is possible\n\nRequirements\n• Completed secondary school\n\n• Good achievements in geometry, mathematics and German\n\n• Good spatial imagination\n\n• Technical flair and joy in the digital working world\n\n• The joy of dealing with people\n\nWe offer:\nFor sense and city life\n With us you change something. You help shape city life, carry responsibility and make Bern more liveable.\n\nIn the city of Bern, more than 4,500 people work together across five directorates and more than 80 job profiles. We are committed with passion and conviction to the people who live here, who work here. Together we shape the community and the future of this city – visible, tangible, sustainable. for our city. For Bern.",
+        "fr": "Vous aimez les données géographiques et l'informatique? Vous aimez travailler à l'extérieur et au bureau, et êtes précis et prudent?\n\nTâches :\n• Mesurer les données spatiales et les enregistrer dans le système\n\n• Programmation d'instruments de mesure et d'apprentissage pour les positionner correctement\n\n• Domaine d'activité de l'arpentage officiel / Apprendre à connaître la géoinformation\n\n• Visite à l'école professionnelle de Zurich (cours en bloc)\n\n• Cours interentreprises\n\n• La maturité professionnelle (BMS) est possible\n\nExigences\n• Enseignement secondaire terminé\n\n• Bonnes réalisations en géométrie, mathématiques et allemand\n\n• Bonne imagination spatiale\n\n• Le style technique et la joie dans le monde du travail numérique\n\n• La joie de traiter avec les gens\n\nNous offrons:\nPour le sens et la vie urbaine\n Avec nous, tu changes quelque chose. Vous aidez à façonner la vie de la ville, à porter des responsabilités et à rendre Berne plus vivante.\n\nDans la ville de Berne, plus de 4 500 personnes travaillent ensemble dans cinq directions et plus de 80 profils d'emploi. Nous sommes engagés avec passion et conviction envers les gens qui vivent ici, qui travaillent ici. Ensemble, nous façonnons la communauté et l'avenir de cette ville – visible, tangible, durable. pour notre ville. Pour Bern."
+      },
+      "location": "Bern",
+      "canton": "BE",
+      "url": "https://jobs.bern.ch/offene-stellen/lehre-als-geomatiker-in/6cdae81a-6a9c-480a-b814-d699f9d6d7d5",
+      "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-03T12:32:20.634Z",
+      "addressLocality": "Bern",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "3027",
+      "streetAddress": "Bümplizstrasse 45",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Amministrazione Pubblica",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-02",
+      "applyUrl": "https://jobs.bern.ch/offene-stellen/lehre-als-geomatiker-in/6cdae81a-6a9c-480a-b814-d699f9d6d7d5",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "lehre-als-geomatiker-in-stadt-bern-bern"
+        ],
+        "en": [
+          "lehre-als-geomatiker-in-stadt-bern-bern"
+        ],
+        "fr": [
+          "lehre-als-geomatiker-in-stadt-bern-bern"
+        ]
+      },
+      "previousSlugs": [
+        "lehre-als-geomatiker-in-stadt-bern-bern"
+      ],
+      "salaryMin": 57500,
+      "salaryMax": 87000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 57500,
+          "maxValue": 87000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-08-03T12:32:20.634Z"
+    },
+    {
+      "id": "stadt-bern-5d72ee53d6d9",
+      "slug": "apprendistato-recyclist-in-stadt-bern",
+      "slugByLocale": {
+        "de": "lehrstelle-recyclist-in-stadt-bern-bern",
+        "it": "apprendistato-recyclist-in-stadt-bern",
+        "en": "teaching-recyclist-in-stadt-bern-bern",
+        "fr": "enseignement-du-recyclage-stadt-bern-bern"
+      },
+      "company": "Stadt Bern",
+      "companyKey": "stadt-bern",
+      "companyDomain": "bern.ch",
+      "title": "Lehrstelle Recyclist*in",
+      "titleByLocale": {
+        "de": "Lehrstelle Recyclist*in",
+        "it": "Apprendistato Recyclist*in",
+        "en": "Teaching Recyclist*in",
+        "fr": "Enseignement du recyclage"
+      },
+      "description": "Recyceln statt wegwerfen - Nachhaltigkeit ist Trumpf. Wenn dich der Recyclingkreislauf interessiert, du gerne mit Werkzeugen und Maschinen hantierst, du wind- und wetterfest bist und du gerne Kundenkontakt hast. Dann komm zu uns in die Lehre als Recyclist*in.\n\nAufgaben:\n• Umgang mit den verschiedensten Materialien (Metall, Alu, Glas etc.) kennenlernen\n\n• Wertstoffe auf unseren Entsorgungshöfen entgegennehmen, sortieren, lagern und aufbereiten\n\n• Verschiedene Umschlaggeräte wie z. B. Stapler oder Sortierbagger bedienen\n\nAnforderungen:\n• Abgeschlossene Real- oder Sekundarschule\n\n• Handwerkliches Geschick und Interesse an einer praktischen und abwechslungsreichen Tätigkeit\n\n• Freude am Kundenkontakt und dem Umgang mit Maschinen\n\n• Robuste Gesundheit und Freude an der Arbeit im Freien\n\nWir bieten:\nFür Sinn & Stadtleben\n Bei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern.",
+      "descriptionByLocale": {
+        "de": "Recyceln statt wegwerfen - Nachhaltigkeit ist Trumpf. Wenn dich der Recyclingkreislauf interessiert, du gerne mit Werkzeugen und Maschinen hantierst, du wind- und wetterfest bist und du gerne Kundenkontakt hast. Dann komm zu uns in die Lehre als Recyclist*in.\n\nAufgaben:\n• Umgang mit den verschiedensten Materialien (Metall, Alu, Glas etc.) kennenlernen\n\n• Wertstoffe auf unseren Entsorgungshöfen entgegennehmen, sortieren, lagern und aufbereiten\n\n• Verschiedene Umschlaggeräte wie z. B. Stapler oder Sortierbagger bedienen\n\nAnforderungen:\n• Abgeschlossene Real- oder Sekundarschule\n\n• Handwerkliches Geschick und Interesse an einer praktischen und abwechslungsreichen Tätigkeit\n\n• Freude am Kundenkontakt und dem Umgang mit Maschinen\n\n• Robuste Gesundheit und Freude an der Arbeit im Freien\n\nWir bieten:\nFür Sinn & Stadtleben\n Bei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern.",
+        "it": "Il riciclaggio invece di gettare via – la sostenibilità è la carta vincente. Se sei interessato al ciclo di riciclaggio, ti piace gestire utensili e macchine, sei resistente al vento e agli agenti atmosferici e ti piace avere un contatto con il cliente. Allora vieni da noi come riciclista.\n\nCompiti:\n• Scopri come gestire una vasta gamma di materiali (metal, alluminio, vetro, ecc.)\n\n• Accettare, ordinare, immagazzinare e elaborare materiali riciclabili presso i nostri cantieri\n\n• Funzionamento di varie attrezzature di manipolazione come carrelli elevatori o escavatori\n\nRequisiti\n• Scuola reale o secondaria completata\n\n• Artigianato e interesse per un'attività pratica e varia\n\n• Divertimento delle macchine per il contatto e la movimentazione dei clienti\n\n• Robusta salute e gioia al lavoro all'aperto\n\nOffriamo:\nPer il senso e la vita della città\n Con noi cambi qualcosa. Aiutate a plasmare la vita della città, assumete la responsabilità e rendete Berna più vivibile.\n\nNella città di Berna, più di 4.500 persone lavorano insieme in cinque directory e oltre 80 profili di lavoro. Ci impegniamo con passione e convinzione per le persone che vivono qui, che lavorano qui. Insieme formiamo la comunità e il futuro di questa città – visibile, tangibile, sostenibile. per la nostra città. Per Bern.",
+        "en": "Recycling instead of throwing away – sustainability is the trump card. If you are interested in the recycling cycle, you like to handle tools and machines, you are wind and weather resistant and you like to have customer contact. Then come to us as a recyclist.\n\nTasks:\n• Get to know how to handle a wide variety of materials (metal, aluminum, glass, etc.)\n\n• Accepting, sorting, storing and processing recyclable materials at our disposal yards\n\n• Operating various handling equipment such as forklifts or excavators\n\nRequirements\n• Completed real or secondary school\n\n• Craftsmanship and interest in a practical and varied activity\n\n• Enjoying customer contact and handling machines\n\n• Robust Health and Joy at Working Outdoors\n\nWe offer:\nFor sense and city life\n With us you change something. You help shape city life, carry responsibility and make Bern more liveable.\n\nIn the city of Bern, more than 4,500 people work together across five directorates and more than 80 job profiles. We are committed with passion and conviction to the people who live here, who work here. Together we shape the community and the future of this city – visible, tangible, sustainable. for our city. For Bern.",
+        "fr": "Recyclage au lieu de jeter – la durabilité est la carte de prédilection. Si vous êtes intéressé par le cycle de recyclage, vous aimez manipuler des outils et des machines, vous êtes résistant au vent et aux intempéries et vous aimez avoir un contact client. Alors venez à nous en tant que recycliste.\n\nTâches :\n• Apprenez à manipuler une grande variété de matériaux (métal, aluminium, verre, etc.)\n\n• Accepter, trier, stocker et traiter des matières recyclables à nos chantiers\n\n• Utilisation de divers équipements de manutention tels que chariots élévateurs ou pelles\n\nExigences\n• Enseignement réel ou secondaire terminé\n\n• Artisanat et intérêt pour une activité pratique et variée\n\n• Profitez du contact client et des machines de manutention\n\n• Santé robuste et joie au travail en plein air\n\nNous offrons:\nPour le sens et la vie urbaine\n Avec nous, tu changes quelque chose. Vous aidez à façonner la vie de la ville, à porter des responsabilités et à rendre Berne plus vivante.\n\nDans la ville de Berne, plus de 4 500 personnes travaillent ensemble dans cinq directions et plus de 80 profils d'emploi. Nous sommes engagés avec passion et conviction envers les gens qui vivent ici, qui travaillent ici. Ensemble, nous façonnons la communauté et l'avenir de cette ville – visible, tangible, durable. pour notre ville. Pour Bern."
+      },
+      "location": "Bern",
+      "canton": "BE",
+      "url": "https://jobs.bern.ch/offene-stellen/lehrstelle-recyclist-in/88a43347-1bfb-4be8-b50a-eed4f0fffc46",
+      "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-03T12:32:20.633Z",
+      "addressLocality": "Bern",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "3001",
+      "streetAddress": "Murtenstrasse 100",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Amministrazione Pubblica",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-02",
+      "applyUrl": "https://jobs.bern.ch/offene-stellen/lehrstelle-recyclist-in/88a43347-1bfb-4be8-b50a-eed4f0fffc46",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "lehrstelle-recyclist-in-stadt-bern-bern"
+        ],
+        "en": [
+          "lehrstelle-recyclist-in-stadt-bern-bern"
+        ],
+        "fr": [
+          "lehrstelle-recyclist-in-stadt-bern-bern"
+        ]
+      },
+      "previousSlugs": [
+        "lehrstelle-recyclist-in-stadt-bern-bern"
+      ],
+      "salaryMin": 57500,
+      "salaryMax": 87000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 57500,
+          "maxValue": 87000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-08-03T12:32:20.633Z"
+    },
+    {
+      "id": "stadt-bern-0b896ba85b70",
+      "slug": "personale-specializzato-nell-edificio-di-amministrazione-del-servizio-domestico-schwarztorstrasse-stadt-bern-bern",
+      "slugByLocale": {
+        "de": "fachmitarbeiter-in-hausdienst-verwaltungsgebaude-schwarztorstrasse-stadt-bern-bern",
+        "it": "personale-specializzato-nell-edificio-di-amministrazione-del-servizio-domestico-schwarztorstrasse-stadt-bern-bern",
+        "en": "specialist-staff-in-the-home-service-administration-building-schwarztorstrasse-stadt-bern-bern",
+        "fr": "personnel-specialise-dans-le-batiment-d-administration-des-services-a-domicile-schwarztorstrasse-stadt-bern-bern"
+      },
+      "company": "Stadt Bern",
+      "companyKey": "stadt-bern",
+      "companyDomain": "bern.ch",
+      "title": "Fachmitarbeiter*in Hausdienst Verwaltungsgebäude Schwarztorstrasse",
+      "titleByLocale": {
+        "de": "Fachmitarbeiter*in Hausdienst Verwaltungsgebäude Schwarztorstrasse",
+        "it": "Personale specializzato* nell'edificio di amministrazione del servizio domestico Schwarztorstrasse",
+        "en": "Specialist staff* in the home service administration building Schwarztorstrasse",
+        "fr": "Personnel spécialisé* dans le bâtiment d'administration des services à domicile Schwarztorstrasse"
+      },
+      "description": "<strong>Du denkst lösungsorientiert, arbeitest selbstständig, organisiert und möchtest einen wichtigen Beitrag zu einem reibungslosen Gebäudebetrieb leisten? </strong><strong>Dann bist du bei uns genau richtig!</strong>\n\nAufgaben:\n• Überwachen, betreiben und unterhalten haustechnischer Anlagen\n\n• Selbständiges Ausführen, Organisieren und Überwachen von Gebäudereparaturen\n\n• Durchführung von Reinigungsarbeiten mit Reinigungsmaschinen\n\n• Mithilfe beim Winterdienst sowie bei kleineren Umzügen\n\n• Dienstleistung am Kunden\n\nAnforderungen:\n• Abgeschlossene handwerkliche Berufsausbildung im Bereich HLKSE oder Abschluss als Fachmann/Fachfrau Betriebsunterhalt EFZ und/oder Hauswart*in mit eidgenössischem Fachausweis\n\n• Technisches Verständnis sowie Interesse an technischen Anlagen und Steuerungen\n\n• Teamorientierte Persönlichkeit mit ausgeprägten kommunikativen Fähigkeiten sowie einer selbstständigen, zuverlässigen Arbeitsweise.\n\n• Führerausweis Kategorie B\n\n• Fundierte MS-Office-Kenntnisse und gute Deutschkenntnisse\n\nWir bieten:\nFür Sinn & Stadtleben\n Bei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern.",
+      "descriptionByLocale": {
+        "de": "<strong>Du denkst lösungsorientiert, arbeitest selbstständig, organisiert und möchtest einen wichtigen Beitrag zu einem reibungslosen Gebäudebetrieb leisten? </strong><strong>Dann bist du bei uns genau richtig!</strong>\n\nAufgaben:\n• Überwachen, betreiben und unterhalten haustechnischer Anlagen\n\n• Selbständiges Ausführen, Organisieren und Überwachen von Gebäudereparaturen\n\n• Durchführung von Reinigungsarbeiten mit Reinigungsmaschinen\n\n• Mithilfe beim Winterdienst sowie bei kleineren Umzügen\n\n• Dienstleistung am Kunden\n\nAnforderungen:\n• Abgeschlossene handwerkliche Berufsausbildung im Bereich HLKSE oder Abschluss als Fachmann/Fachfrau Betriebsunterhalt EFZ und/oder Hauswart*in mit eidgenössischem Fachausweis\n\n• Technisches Verständnis sowie Interesse an technischen Anlagen und Steuerungen\n\n• Teamorientierte Persönlichkeit mit ausgeprägten kommunikativen Fähigkeiten sowie einer selbstständigen, zuverlässigen Arbeitsweise.\n\n• Führerausweis Kategorie B\n\n• Fundierte MS-Office-Kenntnisse und gute Deutschkenntnisse\n\nWir bieten:\nFür Sinn & Stadtleben\n Bei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern.",
+        "it": "> Pensi alla soluzione, al lavoro indipendentemente, organizzato e vuole dare un contributo importante a un'operazione di costruzione liscia? Traduzione: Allora hai esattamente ragione con noi!\n\nCompiti:\n• Monitoraggio, funzionamento e manutenzione di attrezzature domestiche\n\n• implementazione indipendente, organizzazione e monitoraggio delle riparazioni edilizie\n\n• Attuazione del lavoro di pulizia con macchine per la pulizia\n\n• Assistenza con servizio invernale e piccole mosse\n\n• Servizio clienti\n\nRequisiti\n• Completata la formazione professionale artigianale nel campo di HLKSE o laurea come esperto/specialista di manutenzione aziendale EFZ e/o governante* con certificato professionale federale\n\n• Comprensione tecnica e interesse per le attrezzature tecniche e i controlli\n\n• Personalità orientata al team con forti capacità di comunicazione e un metodo di lavoro indipendente e affidabile.\n\n• Titolo di guida della categoria B\n\n• Conoscenza di MS-Office e buone competenze tedesche\n\nOffriamo:\nPer il senso e la vita della città\n Con noi cambi qualcosa. Aiutate a plasmare la vita della città, assumete la responsabilità e rendete Berna più vivibile.\n\nNella città di Berna, più di 4.500 persone lavorano insieme in cinque directory e oltre 80 profili di lavoro. Ci impegniamo con passione e convinzione per le persone che vivono qui, che lavorano qui. Insieme formiamo la comunità e il futuro di questa città – visibile, tangibile, sostenibile. per la nostra città. Per Bern.",
+        "en": "<strong>You think solution-oriented, work independently, organized and want to make an important contribution to a smooth building operation? </strong><strong>Then you are exactly right with us!</strong>\n\nTasks:\n• Monitoring, operating and maintaining domestic equipment\n\n• Independent implementation, organisation and monitoring of building repairs\n\n• Implementation of cleaning work with cleaning machines\n\n• Assistance with winter service and smaller moves\n\n• Customer service\n\nRequirements\n• Completed craftsmanship vocational training in the field of HLKSE or degree as an expert/specialist company maintenance EFZ and/or housekeeper* with federal professional certificate\n\n• Technical understanding and interest in technical equipment and controls\n\n• Team-oriented personality with strong communication skills as well as an independent, reliable working method.\n\n• Category B driving licence\n\n• Sound MS-Office knowledge and good German skills\n\nWe offer:\nFor sense and city life\n With us you change something. You help shape city life, carry responsibility and make Bern more liveable.\n\nIn the city of Bern, more than 4,500 people work together across five directorates and more than 80 job profiles. We are committed with passion and conviction to the people who live here, who work here. Together we shape the community and the future of this city – visible, tangible, sustainable. for our city. For Bern.",
+        "fr": "<fort> Vous pensez que la solution est orientée, que vous travaillez de façon indépendante, organisée et que vous voulez apporter une contribution importante à une exploitation en douceur? </strong><strong> Alors vous avez exactement raison avec nous!</strong>\n\nTâches :\n• Surveillance, exploitation et entretien du matériel domestique\n\n• Mise en œuvre, organisation et suivi indépendants des réparations des bâtiments\n\n• Réalisation de travaux de nettoyage avec des machines de nettoyage\n\n• Aide au service d'hiver et aux déménagements plus petits\n\n• Service à la clientèle\n\nExigences\n• Achevé une formation professionnelle dans le domaine du HLKSE ou diplôme en tant qu'expert/spécialiste de maintenance de l'entreprise EFZ et/ou femme de ménage* avec certificat professionnel fédéral\n\n• Compréhension technique et intérêt pour les équipements et les contrôles techniques\n\n• Personnalité axée sur l'équipe avec de solides compétences en communication ainsi qu'une méthode de travail indépendante et fiable.\n\n• Permis de conduire de catégorie B\n\n• Bonne connaissance de MS-Office et bonnes compétences allemandes\n\nNous offrons:\nPour le sens et la vie urbaine\n Avec nous, tu changes quelque chose. Vous aidez à façonner la vie de la ville, à porter des responsabilités et à rendre Berne plus vivante.\n\nDans la ville de Berne, plus de 4 500 personnes travaillent ensemble dans cinq directions et plus de 80 profils d'emploi. Nous sommes engagés avec passion et conviction envers les gens qui vivent ici, qui travaillent ici. Ensemble, nous façonnons la communauté et l'avenir de cette ville – visible, tangible, durable. pour notre ville. Pour Bern."
+      },
+      "location": "Bern",
+      "canton": "BE",
+      "url": "https://jobs.bern.ch/offene-stellen/fachmitarbeiter-in-hausdienst-verwaltungsgebaeude-schwarztorstrasse/cab2a115-5d53-449c-b5f3-97a62be8d43e",
+      "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-03T12:32:20.630Z",
+      "addressLocality": "Bern",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "3007",
+      "streetAddress": "Schwarztorstrasse 71",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Amministrazione Pubblica",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-02",
+      "applyUrl": "https://jobs.bern.ch/offene-stellen/fachmitarbeiter-in-hausdienst-verwaltungsgebaeude-schwarztorstrasse/cab2a115-5d53-449c-b5f3-97a62be8d43e",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68500,
+          "maxValue": 104000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-08-03T12:32:20.630Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachmitarbeiter-in-hausdienst-verwaltungsgebaude-schwarztorstrasse-stadt-bern-bern"
+        ],
+        "en": [
+          "fachmitarbeiter-in-hausdienst-verwaltungsgebaude-schwarztorstrasse-stadt-bern-bern"
+        ],
+        "fr": [
+          "fachmitarbeiter-in-hausdienst-verwaltungsgebaude-schwarztorstrasse-stadt-bern-bern"
+        ]
+      },
+      "previousSlugs": [
+        "fachmitarbeiter-in-hausdienst-verwaltungsgebaude-schwarztorstrasse-stadt-bern-bern"
+      ]
+    },
+    {
+      "id": "stadt-bern-05f6deffccdd",
+      "slug": "personale-specializzato-nell-edificio-amministrativo-hausdienst-bundesgasse-stadt-bern-bern",
+      "slugByLocale": {
+        "de": "fachmitarbeiter-in-hausdienst-verwaltungsgebaude-bundesgasse-stadt-bern-bern",
+        "it": "personale-specializzato-nell-edificio-amministrativo-hausdienst-bundesgasse-stadt-bern-bern",
+        "en": "specialist-staff-in-the-hausdienst-administration-building-bundesgasse-stadt-bern-bern",
+        "fr": "personnel-specialise-dans-le-batiment-administratif-de-hausdienst-bundesgasse-stadt-bern-bern"
+      },
+      "company": "Stadt Bern",
+      "companyKey": "stadt-bern",
+      "companyDomain": "bern.ch",
+      "title": "Fachmitarbeiter*in Hausdienst Verwaltungsgebäude Bundesgasse",
+      "titleByLocale": {
+        "de": "Fachmitarbeiter*in Hausdienst Verwaltungsgebäude Bundesgasse",
+        "it": "Personale specializzato* nell'edificio amministrativo Hausdienst Bundesgasse",
+        "en": "Specialist staff* in the Hausdienst administration building Bundesgasse",
+        "fr": "Personnel spécialisé* dans le bâtiment administratif de Hausdienst Bundesgasse"
+      },
+      "description": "<strong>Du denkst lösungsorientiert, arbeitest selbstständig, organisiert und möchtest einen wichtigen Beitrag zu einem reibungslosen Gebäudebetrieb leisten? </strong><strong>Dann bist du bei uns genau richtig!</strong>\n\nAufgaben:\n• Überwachen, betreiben und unterhalten komplexer haustechnischer Anlagen\n\n• Selbständiges Ausführen, Organisieren und Überwachen von Gebäudereparaturen\n\n• Reinigung der Glashülle des Gewächshauses mithilfe einer Dachreinigungsanlage\n\n• Durchführung von Reinigungsarbeiten mit Reinigungsmaschinen\n\n• Mithilfe beim Winterdienst sowie bei kleineren Umzügen\n\nAnforderungen:\n• Abgeschlossene handwerkliche Berufsausbildung im Bereich HLKSE oder Abschluss als Fachmann/Fachfrau Betriebsunterhalt EFZ und/oder Hauswart*in mit eidgenössischem Fachausweis\n\n• Technisches Verständnis sowie Interesse an komplexen technischen Anlagen und Steuerungen\n\n• Teamorientierte Persönlichkeit mit ausgeprägten kommunikativen Fähigkeiten sowie einer selbstständigen, zuverlässigen Arbeitsweise.\n\n• Führerausweis Kategorie B von Vorteil\n\n• Fundierte MS-Office-Kenntnisse und gute Deutschkenntnisse\n\nWir bieten:\nFür Sinn & Stadtleben\n Bei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern.",
+      "descriptionByLocale": {
+        "de": "<strong>Du denkst lösungsorientiert, arbeitest selbstständig, organisiert und möchtest einen wichtigen Beitrag zu einem reibungslosen Gebäudebetrieb leisten? </strong><strong>Dann bist du bei uns genau richtig!</strong>\n\nAufgaben:\n• Überwachen, betreiben und unterhalten komplexer haustechnischer Anlagen\n\n• Selbständiges Ausführen, Organisieren und Überwachen von Gebäudereparaturen\n\n• Reinigung der Glashülle des Gewächshauses mithilfe einer Dachreinigungsanlage\n\n• Durchführung von Reinigungsarbeiten mit Reinigungsmaschinen\n\n• Mithilfe beim Winterdienst sowie bei kleineren Umzügen\n\nAnforderungen:\n• Abgeschlossene handwerkliche Berufsausbildung im Bereich HLKSE oder Abschluss als Fachmann/Fachfrau Betriebsunterhalt EFZ und/oder Hauswart*in mit eidgenössischem Fachausweis\n\n• Technisches Verständnis sowie Interesse an komplexen technischen Anlagen und Steuerungen\n\n• Teamorientierte Persönlichkeit mit ausgeprägten kommunikativen Fähigkeiten sowie einer selbstständigen, zuverlässigen Arbeitsweise.\n\n• Führerausweis Kategorie B von Vorteil\n\n• Fundierte MS-Office-Kenntnisse und gute Deutschkenntnisse\n\nWir bieten:\nFür Sinn & Stadtleben\n Bei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern.",
+        "it": "> Pensi alla soluzione, al lavoro indipendentemente, organizzato e vuole dare un contributo importante a un'operazione di costruzione liscia? Traduzione: Allora hai esattamente ragione con noi!\n\nCompiti:\n• Monitoraggio, funzionamento e manutenzione di complessi impianti di costruzione\n\n• implementazione indipendente, organizzazione e monitoraggio delle riparazioni edilizie\n\n• Pulizia della busta di vetro della serra utilizzando un sistema di pulizia del tetto\n\n• Attuazione del lavoro di pulizia con macchine per la pulizia\n\n• Assistenza con servizio invernale e piccole mosse\n\nRequisiti\n• Completata la formazione professionale artigianale nel campo di HLKSE o laurea come esperto/specialista di manutenzione aziendale EFZ e/o governante* con certificato professionale federale\n\n• Comprensione tecnica e interesse per complessi sistemi tecnici e controlli\n\n• Personalità orientata al team con forti capacità di comunicazione e un metodo di lavoro indipendente e affidabile.\n\n• La patente di guida di categoria B è vantaggiosa\n\n• Conoscenza di MS-Office e buone competenze tedesche\n\nOffriamo:\nPer il senso e la vita della città\n Con noi cambi qualcosa. Aiutate a plasmare la vita della città, assumete la responsabilità e rendete Berna più vivibile.\n\nNella città di Berna, più di 4.500 persone lavorano insieme in cinque directory e oltre 80 profili di lavoro. Ci impegniamo con passione e convinzione per le persone che vivono qui, che lavorano qui. Insieme formiamo la comunità e il futuro di questa città – visibile, tangibile, sostenibile. per la nostra città. Per Bern.",
+        "en": "<strong>You think solution-oriented, work independently, organized and want to make an important contribution to a smooth building operation? </strong><strong>Then you are exactly right with us!</strong>\n\nTasks:\n• Monitoring, operating and maintaining complex building installations\n\n• Independent implementation, organisation and monitoring of building repairs\n\n• Cleaning of the glass envelope of the greenhouse using a roof cleaning system\n\n• Implementation of cleaning work with cleaning machines\n\n• Assistance with winter service and smaller moves\n\nRequirements\n• Completed craftsmanship vocational training in the field of HLKSE or degree as an expert/specialist company maintenance EFZ and/or housekeeper* with federal professional certificate\n\n• Technical understanding and interest in complex technical systems and controls\n\n• Team-oriented personality with strong communication skills as well as an independent, reliable working method.\n\n• Category B driving licence is advantageous\n\n• Sound MS-Office knowledge and good German skills\n\nWe offer:\nFor sense and city life\n With us you change something. You help shape city life, carry responsibility and make Bern more liveable.\n\nIn the city of Bern, more than 4,500 people work together across five directorates and more than 80 job profiles. We are committed with passion and conviction to the people who live here, who work here. Together we shape the community and the future of this city – visible, tangible, sustainable. for our city. For Bern.",
+        "fr": "<fort> Vous pensez que la solution est orientée, que vous travaillez de façon indépendante, organisée et que vous voulez apporter une contribution importante à une exploitation en douceur? </strong><strong> Alors vous avez exactement raison avec nous!</strong>\n\nTâches :\n• Surveillance, exploitation et entretien des installations de construction complexes\n\n• Mise en œuvre, organisation et suivi indépendants des réparations des bâtiments\n\n• Nettoyage de l'enveloppe vitrée de la serre à l'aide d'un système de nettoyage du toit\n\n• Réalisation de travaux de nettoyage avec des machines de nettoyage\n\n• Aide au service d'hiver et aux déménagements plus petits\n\nExigences\n• Achevé une formation professionnelle dans le domaine du HLKSE ou diplôme en tant qu'expert/spécialiste de maintenance de l'entreprise EFZ et/ou femme de ménage* avec certificat professionnel fédéral\n\n• Compréhension technique et intérêt pour les systèmes et contrôles techniques complexes\n\n• Personnalité axée sur l'équipe avec de solides compétences en communication ainsi qu'une méthode de travail indépendante et fiable.\n\n• Le permis de conduire de catégorie B est avantageux\n\n• Bonne connaissance de MS-Office et bonnes compétences allemandes\n\nNous offrons:\nPour le sens et la vie urbaine\n Avec nous, tu changes quelque chose. Vous aidez à façonner la vie de la ville, à porter des responsabilités et à rendre Berne plus vivante.\n\nDans la ville de Berne, plus de 4 500 personnes travaillent ensemble dans cinq directions et plus de 80 profils d'emploi. Nous sommes engagés avec passion et conviction envers les gens qui vivent ici, qui travaillent ici. Ensemble, nous façonnons la communauté et l'avenir de cette ville – visible, tangible, durable. pour notre ville. Pour Bern."
+      },
+      "location": "Bern",
+      "canton": "BE",
+      "url": "https://jobs.bern.ch/offene-stellen/fachmitarbeiter-in-hausdienst-verwaltungsgebaeude-bundesgasse/7ddc9095-a58c-41e2-bed6-831cdb7e5a57",
+      "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-03T12:32:20.623Z",
+      "addressLocality": "Bern",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "3006",
+      "streetAddress": "Elfenauweg 94D",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Amministrazione Pubblica",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-02",
+      "applyUrl": "https://jobs.bern.ch/offene-stellen/fachmitarbeiter-in-hausdienst-verwaltungsgebaeude-bundesgasse/7ddc9095-a58c-41e2-bed6-831cdb7e5a57",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68500,
+          "maxValue": 104000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-08-03T12:32:20.623Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachmitarbeiter-in-hausdienst-verwaltungsgebaude-bundesgasse-stadt-bern-bern"
+        ],
+        "en": [
+          "fachmitarbeiter-in-hausdienst-verwaltungsgebaude-bundesgasse-stadt-bern-bern"
+        ],
+        "fr": [
+          "fachmitarbeiter-in-hausdienst-verwaltungsgebaude-bundesgasse-stadt-bern-bern"
+        ]
+      },
+      "previousSlugs": [
+        "fachmitarbeiter-in-hausdienst-verwaltungsgebaude-bundesgasse-stadt-bern-bern"
+      ]
     }
   ]
 }

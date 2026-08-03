@@ -1,16 +1,16 @@
 {
   "key": "spital-nidwalden",
   "label": "Spital Nidwalden",
-  "generatedAt": "2026-08-02T22:07:23.412Z",
+  "generatedAt": "2026-08-03T12:38:48.186Z",
   "total": 1,
   "newCount": 0,
   "updatedCount": 1,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 5383,
-  "avgDurationMs": 5383,
+  "durationMs": 6441,
+  "avgDurationMs": 6441,
   "durationHistory": [
-    5383
+    6441
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -27,7 +27,7 @@
       "url": "https://jobs.luks.ch/offene-stellen/fachfrau-mann-gesundheit-efz/cd84e609-7d40-41ff-a077-21b354f1f198",
       "source": "Spital Nidwalden Dedicated Parser (Prospective medium 1003280)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-02T22:07:20.599Z",
+      "crawledAt": "2026-08-03T12:38:44.242Z",
       "addressLocality": "Stans",
       "addressRegion": "NW",
       "addressCountry": "CH",
@@ -53,48 +53,6 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "id": "spital-nidwalden-d17c3f5c4a99",
-      "slug": "2-collaboratore-trice-innen-hauswirtschaft-80-e-100-luzerner-kantonsspital-luks-stans",
-      "company": "Spital Nidwalden",
-      "companyKey": "spital-nidwalden",
-      "companyDomain": "spital-nidwalden.ch",
-      "title": "3 Mitarbeiter/-innen Hauswirtschaft zu je 60%",
-      "needsRetranslation": false,
-      "location": "Stans",
-      "canton": "NW",
-      "url": "https://jobs.luks.ch/offene-stellen/3-mitarbeiter-innen-hauswirtschaft-zu-je/102588bb-0360-4897-bb00-9eed742efc74",
-      "source": "Spital Nidwalden Dedicated Parser (Prospective medium 1003280)",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-01T10:59:51.896Z",
-      "addressLocality": "Stans",
-      "addressRegion": "NW",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "6370",
-      "streetAddress": "",
-      "category": "Ospitalità",
-      "contract": "full-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-02",
-      "applyUrl": "https://recruitment.luks.ch/engage/jobexchange/applyBy.do?jobOfferId=8a8883029e222cb9019f27fa5a96646b&j=jobexchange",
-      "firstSeenAt": "2026-07-03T12:54:59.352Z",
-      "salaryMin": 41700,
-      "salaryMax": 63600,
-      "crawlerMissStreak": 2,
-      "_qualityScore": 84,
-      "_qualityBreakdown": {
-        "cleanliness": 17,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 22
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }

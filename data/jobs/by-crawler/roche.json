@@ -9008,9 +9008,9 @@
     },
     {
       "id": "roche-353c8b53b221",
-      "slug": "buyer-trainee-attacca-e-programma-treno-roche-central-singapore",
+      "slug": "buyer-trainee-addetto-e-programma-di-treni-roche-central-singapore",
       "slugByLocale": {
-        "it": "buyer-trainee-attacca-e-programma-treno-roche-central-singapore",
+        "it": "buyer-trainee-addetto-e-programma-di-treni-roche-central-singapore",
         "en": "buyer-trainee-attach-train-program-roche-ch",
         "de": "buyer-auszubildender-attach-train-program-roche-central-singapore",
         "fr": "buyer-apprenti-attach-train-program-roche-central-singapore"
@@ -9053,11 +9053,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "buyer-trainee-attach-train-program-roche-ch"
+        "buyer-trainee-attach-train-program-roche-ch",
+        "buyer-trainee-attacca-e-programma-treno-roche-central-singapore"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "buyer-trainee-attach-train-program-roche-ch"
+          "buyer-trainee-attach-train-program-roche-ch",
+          "buyer-trainee-attacca-e-programma-treno-roche-central-singapore"
         ]
       },
       "needsRetranslation": true,
@@ -11489,7 +11491,7 @@
       "slug": "medical-direttore-cvm-roche-basel",
       "slugByLocale": {
         "it": "medical-direttore-cvm-roche-basel",
-        "en": "medical-director-cvm-roche-ch",
+        "en": "medical-director-cvm-roche-ch-27mycl",
         "de": "medical-direktor-cvm-roche-basel",
         "fr": "medical-director-cvm-roche-ch-27mycl"
       },
@@ -11536,15 +11538,17 @@
         "medical-direttore-cvm-roche-basel-hfwosr",
         "medical-director-cvm-roche-ch-2",
         "medical-direttore-cvm-roche-basel-iufblz",
-        "directeur-medical-cvm-roche-basel",
-        "medical-director-cvm-roche-ch-27mycl"
+        "directeur-medical-cvm-roche-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
           "medical-director-cvm-roche-ch"
         ],
         "en": [
-          "medical-director-cvm-roche-ch-27mycl"
+          "medical-director-cvm-roche-ch",
+          "medical-director-cvm-roche-ch",
+          "medical-director-cvm-roche-ch",
+          "medical-director-cvm-roche-ch"
         ],
         "de": [
           "medical-director-cvm-roche-ch"
@@ -14089,9 +14093,9 @@
     },
     {
       "id": "roche-e651a228bab5",
-      "slug": "specjalista-specjalistka-ds-serwisu-technicznego-roche-poland",
+      "slug": "specialista-dell-assistenza-tecnica-specialista-roche-poland",
       "slugByLocale": {
-        "it": "specjalista-specjalistka-ds-serwisu-technicznego-roche-poland",
+        "it": "specialista-dell-assistenza-tecnica-specialista-roche-poland",
         "en": "specjalista-specjalistka-ds-serwisu-technicznego-roche-ch",
         "de": "specjalista-specjalistka-ds-serwisu-technicznego-roche-ch",
         "fr": "specjalista-specjalistka-ds-serwisu-technicznego-roche-ch"
@@ -14101,7 +14105,7 @@
       "companyDomain": "roche.com",
       "title": "Specjalista / Specjalistka ds. Serwisu Technicznego",
       "titleByLocale": {
-        "it": "Specjalista / Specjalistka ds. Serwisu Technicznego",
+        "it": "Specialista dell'assistenza tecnica/specialista",
         "en": "Specjalista / Specjalistka ds. Serwisu Technicznego",
         "de": "Specjalista / Specjalistka ds. Serwisu Technicznego",
         "fr": "Specjalista / Specjalistka ds. Serwisu Technicznego"
@@ -14135,12 +14139,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "specjalista-specjalistka-ds-serwisu-technicznego-roche-ch",
-        "specialista-dell-assistenza-tecnica-specialista-roche-poland"
+        "specjalista-specjalistka-ds-serwisu-technicznego-roche-poland"
       ],
       "previousSlugsByLocale": {
         "it": [
           "specjalista-specjalistka-ds-serwisu-technicznego-roche-ch",
-          "specialista-dell-assistenza-tecnica-specialista-roche-poland"
+          "specjalista-specjalistka-ds-serwisu-technicznego-roche-poland"
         ]
       },
       "needsRetranslation": true,
@@ -17685,7 +17689,7 @@
       "slug": "direttore-medico-cvm-roche-basel",
       "slugByLocale": {
         "it": "direttore-medico-cvm-roche-basel",
-        "en": "medical-director-cvm-roche-ch",
+        "en": "medical-director-cvm-roche-ch-iufbmm",
         "de": "medical-direktor-cvm-roche-basel",
         "fr": "medical-director-cvm-roche-ch-iufbmm"
       },
@@ -17732,8 +17736,7 @@
         "medical-director-cvm-roche-ch-3",
         "medical-direttore-cvm-roche-basel-hfwosr",
         "medical-director-cvm-roche-ch-2",
-        "directeur-medical-cvm-roche-basel-74757b",
-        "medical-director-cvm-roche-ch-iufbmm"
+        "directeur-medical-cvm-roche-basel-74757b"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -17742,7 +17745,10 @@
           "medical-director-cvm-roche-ch-3"
         ],
         "en": [
-          "medical-director-cvm-roche-ch-iufbmm"
+          "medical-director-cvm-roche-ch",
+          "medical-director-cvm-roche-ch",
+          "medical-director-cvm-roche-ch",
+          "medical-director-cvm-roche-ch"
         ],
         "de": [
           "medical-director-cvm-roche-ch"
@@ -33344,7 +33350,7 @@
       "slug": "solution-architetto-dia-r-d-roche-basel",
       "slugByLocale": {
         "it": "solution-architetto-dia-r-d-roche-basel",
-        "en": "solution-architect-dia-r-d-roche-ch",
+        "en": "solution-architect-dia-r-d-roche-ch-3i9uyi",
         "de": "losungsarchitekt-dia-r-d-roche-basel",
         "fr": "solution-architecte-dia-r-d-roche-basel"
       },
@@ -33393,7 +33399,6 @@
         "solution-architect-dia-rd-roche-ch",
         "losungsarchitekt-dia-rd-roche-pune",
         "solution-architecte-dia-rd-roche-pune",
-        "solution-architect-dia-r-d-roche-ch-3i9uyi",
         "solution-architetto-dia-commercial-operations-roche-basel",
         "solution-architect-dia-commercial-operations-roche-ch",
         "losungsarchitekt-dia-commercial-operations-roche-basel",
@@ -33413,8 +33418,11 @@
         ],
         "en": [
           "solution-architect-dia-rd-roche-ch",
-          "solution-architect-dia-r-d-roche-ch-3i9uyi",
-          "solution-architect-dia-commercial-operations-roche-ch"
+          "solution-architect-dia-commercial-operations-roche-ch",
+          "solution-architect-dia-r-d-roche-ch",
+          "solution-architect-dia-r-d-roche-ch",
+          "solution-architect-dia-r-d-roche-ch",
+          "solution-architect-dia-r-d-roche-ch"
         ],
         "de": [
           "solution-architect-dia-r-d-roche-ch",
@@ -53244,13 +53252,11 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "finance-enterprise-partner-roche-ch",
-        "finanzen-enterprise-partner-roche-mississauga",
-        "finanza-enterprise-partner-roche-mississauga"
+        "finanzen-enterprise-partner-roche-mississauga"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "finance-enterprise-partner-roche-ch",
-          "finanza-enterprise-partner-roche-mississauga"
+          "finance-enterprise-partner-roche-ch"
         ],
         "de": [
           "finanzen-enterprise-partner-roche-mississauga"
@@ -58963,8 +58969,7 @@
         "partner-del-viaggio-paziente-islamabad-roche-islamabad",
         "patient-journey-partner-islamabad-roche-ch",
         "partner-del-viaggio-paziente-roche-hyderabad",
-        "patient-journey-partner-ophthalmologie-roche-hyderabad",
-        "partner-del-viaggio-paziente-oftalmologia-roche-hyderabad"
+        "patient-journey-partner-ophthalmologie-roche-hyderabad"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -58972,8 +58977,7 @@
           "patient-journey-partner-roche-ch-2",
           "partner-del-viaggio-paziente-islamabad-roche-islamabad",
           "patient-journey-partner-islamabad-roche-ch",
-          "partner-del-viaggio-paziente-roche-hyderabad",
-          "partner-del-viaggio-paziente-oftalmologia-roche-hyderabad"
+          "partner-del-viaggio-paziente-roche-hyderabad"
         ],
         "de": [
           "patient-journey-partner-ophthalmologie-roche-hyderabad"
@@ -59051,8 +59055,7 @@
         "partenaire-d-entreprise-financier-m-j-roche-vienna",
         "partenaire-d-entreprise-financier-w-m-d-roche-vienna",
         "finance-enterprise-partner-w-m-d-roche-vienna",
-        "finanzen-enterprise-partner-roche-vilnius",
-        "finanza-enterprise-partner-roche-vilnius"
+        "finanzen-enterprise-partner-roche-vilnius"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -59062,8 +59065,7 @@
           "finanzen-enterprise-partner-w-m-d-roche-vienna",
           "partenaire-d-entreprise-financier-m-j-roche-vienna",
           "partenaire-d-entreprise-financier-w-m-d-roche-vienna",
-          "finance-enterprise-partner-w-m-d-roche-vienna",
-          "finanza-enterprise-partner-roche-vilnius"
+          "finance-enterprise-partner-w-m-d-roche-vienna"
         ],
         "en": [
           "finance-enterprise-partner-w-m-d-roche-ch"
@@ -59286,13 +59288,11 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "marketingmanager-neurologie-m-w-d-roche-ch",
-        "gestionnaire-du-marketing-neurologie-m-f-d-roche-mannheim",
-        "marketing-manager-neurologia-m-f-d-roche-mannheim"
+        "gestionnaire-du-marketing-neurologie-m-f-d-roche-mannheim"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "marketingmanager-neurologie-m-w-d-roche-ch",
-          "marketing-manager-neurologia-m-f-d-roche-mannheim"
+          "marketingmanager-neurologie-m-w-d-roche-ch"
         ],
         "fr": [
           "gestionnaire-du-marketing-neurologie-m-f-d-roche-mannheim"

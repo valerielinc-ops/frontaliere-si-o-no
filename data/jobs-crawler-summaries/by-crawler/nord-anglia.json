@@ -1,16 +1,16 @@
 {
   "key": "nord-anglia",
   "label": "La Côte International School (Nord Anglia Education)",
-  "generatedAt": "2026-08-02T22:00:21.684Z",
+  "generatedAt": "2026-08-03T12:35:58.607Z",
   "total": 2,
   "newCount": 0,
-  "updatedCount": 2,
+  "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 6363,
-  "avgDurationMs": 6363,
+  "unchangedCount": 1,
+  "durationMs": 5853,
+  "avgDurationMs": 5853,
   "durationHistory": [
-    6363
+    5853
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -26,7 +26,7 @@
       "url": "https://careers.nordangliaeducation.com/job/Aubonne-Learning-Support-Assistants/1079699301/?feedId=null&utm_source=J2WRSS&utm_medium=rss&utm_campaign=J2W_RSS",
       "source": "La Côte International School Aubonne Dedicated Parser (Nord Anglia jobs2web RSS)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-02T22:00:16.087Z",
+      "crawledAt": "2026-08-03T12:35:53.486Z",
       "addressLocality": "Aubonne",
       "addressRegion": "VD",
       "streetAddress": "Chemin de Clamogne 8",
@@ -51,10 +51,13 @@
         "translation": 25,
         "completeness": 20
       }
-    },
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "nord-anglia-8720a5afd8ce",
-      "slug": "teacher-of-biology-nord-anglia-aubonne",
+      "slug": "insegnante-di-biologia-la-cote-international-school-nord-anglia-education-aubonne",
       "company": "La Côte International School (Nord Anglia Education)",
       "companyKey": "nord-anglia",
       "companyDomain": "nordangliaeducation.com",
@@ -82,15 +85,16 @@
       "applyUrl": "https://careers.nordangliaeducation.com/job/Aubonne-Teacher-of-Biology/1399902133/?feedId=null&utm_source=J2WRSS&utm_medium=rss&utm_campaign=J2W_RSS",
       "jobReqId": "1399902133",
       "firstSeenAt": "2026-07-04T11:24:02.378Z",
-      "_qualityScore": 88,
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "crawlerMissStreak": 1,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 25
       }
     }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": []
+  ]
 }

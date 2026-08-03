@@ -1,6 +1,6 @@
 {
   "crawlerKey": "clinica-holistica-engiadina",
-  "assembledAt": "2026-08-02T22:20:17.625Z",
+  "assembledAt": "2026-08-03T13:10:46.477Z",
   "jobs": [
     {
       "id": "clinica-holistica-engiadina-72c9c3974d19",
@@ -47,7 +47,8 @@
       "applyUrl": "https://www.clinica-holistica.ch/de/job/oberaerztin-oder-oberarzt-mit-facharzttitel-psychiatrie-und-psychotherapie-80-100-bei",
       "source": "Clinica Holistica Engiadina Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-02T22:20:14.891Z",
+      "crawledAt": "2026-08-03T13:10:43.063Z",
+      "needsRetranslation": true,
       "previousSlugs": [
         "oberarztin-oder-oberarzt-mit-facharzttitel-in-psychiatrie-und-psychotherapie-80-100-bei",
         "medico-specialista-in-psichiatria-e-psicoterapia-80-100-possibilita-di-ruolo-di-capo-dipartimento-clinica-holistica",
@@ -129,7 +130,8 @@
       "applyUrl": "https://www.clinica-holistica.ch/de/job/fachpsychologin-fachpsychologe-80-100-bei-hinreichender-eignung-anstellung-als-oberpsychologin",
       "source": "Clinica Holistica Engiadina Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-02T22:20:12.324Z",
+      "crawledAt": "2026-08-03T13:10:40.328Z",
+      "needsRetranslation": true,
       "previousSlugs": [
         "fachpsychologin-fachpsychologe-80-100-bei-hinreichender-eignung-anstellung-als",
         "psicologo-specializzato-80-100-possibilita-di-assunzione-come-psicologo-capo-se-idoneo-clinica-holistica-engiadina-susch",
@@ -211,7 +213,8 @@
       "applyUrl": "https://www.clinica-holistica.ch/de/node/293",
       "source": "Clinica Holistica Engiadina Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-02T22:20:09.903Z",
+      "crawledAt": "2026-08-03T13:10:37.936Z",
+      "needsRetranslation": true,
       "previousSlugs": [
         "somatische-arztin-oder-somatischer-arzt-facharzttitel-allgemeinmedizin-innere-medizin",
         "medico-somatico-o-medico-somatico-specialista-in-medicina-generale-medicina-interna-medicina-fisica-e-riabilitazione",
@@ -293,7 +296,7 @@
       "applyUrl": "https://www.clinica-holistica.ch/de/job/hilfskoch-kuechenhilfe-mwd",
       "source": "Clinica Holistica Engiadina Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-02T22:20:07.330Z",
+      "crawledAt": "2026-08-03T13:10:35.356Z",
       "needsRetranslation": false,
       "previousSlugs": [
         "hilfskoch-kuchenhilfe-m-w-d-clinica-holistica-engiadina-susch",
@@ -378,7 +381,8 @@
       "applyUrl": "https://www.clinica-holistica.ch/de/job/hr-assistentin-40-60",
       "source": "Clinica Holistica Engiadina Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-02T22:20:05.552Z",
+      "crawledAt": "2026-08-03T13:10:33.313Z",
+      "needsRetranslation": true,
       "previousSlugs": [
         "hr-assistent-in-40-60-clinica-holistica-engiadina-susch",
         "hr-assistant-in-40-60-clinica-holistica-engiadina-susch"
@@ -454,7 +458,7 @@
       "applyUrl": "https://www.clinica-holistica.ch/de/job/jungkoch-jungkoechin",
       "source": "Clinica Holistica Engiadina Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-02T22:20:03.070Z",
+      "crawledAt": "2026-08-03T13:10:30.683Z",
       "needsRetranslation": false,
       "previousSlugs": [
         "jungkoch-jungkochin-clinica-holistica-engiadina-susch",
@@ -531,7 +535,7 @@
       "applyUrl": "https://www.clinica-holistica.ch/de/job/raumpflegerin",
       "source": "Clinica Holistica Engiadina Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-02T22:20:00.279Z",
+      "crawledAt": "2026-08-03T13:10:28.068Z",
       "needsRetranslation": false,
       "previousSlugs": [
         "raumpfleger-in-clinica-holistica-engiadina-susch",
@@ -562,6 +566,75 @@
           "unitText": "YEAR"
         }
       }
+    },
+    {
+      "id": "clinica-holistica-engiadina-3ae5161d1bd1",
+      "slug": "responsabile-kunsttherapie-clinica-holistica-engiadina-susch",
+      "slugByLocale": {
+        "de": "leiter-in-kunsttherapie-clinica-holistica-engiadina-susch",
+        "it": "responsabile-kunsttherapie-clinica-holistica-engiadina-susch",
+        "en": "leiter-in-kunsttherapie-clinica-holistica-engiadina-susch",
+        "fr": "leiter-in-kunsttherapie-clinica-holistica-engiadina-susch"
+      },
+      "company": "Clinica Holistica Engiadina",
+      "companyKey": "clinica-holistica-engiadina",
+      "companyDomain": "clinica-holistica.ch",
+      "title": "Leiter/in Kunsttherapie",
+      "titleByLocale": {
+        "de": "Leiter/in Kunsttherapie",
+        "it": "Responsabile Kunsttherapie",
+        "en": "Leiter/in Kunsttherapie",
+        "fr": "Leiter/in Kunsttherapie"
+      },
+      "description": "Bild\nLeiter/in Kunsttherapie\nDeine Hauptaufgaben\nOperative, personelle und fachliche Führung des Kunsttherapie-Teams, bestehend aus einem Team mit bis zu 16 Mitarbeitenden (Mal-, Gestaltungs-, Tanz-, Bewegungs- und Musiktherapeut/innen)\nAktive Mitarbeit als Kunsttherapeut/in\nGewährleistung der bestmöglichen Betreuung für die Patient/innen\nInterdisziplinäre und transparente Zusammenarbeit mit allen an der Behandlung beteiligten Fachpersonen\nAktive Weiterentwicklung diverser Konzepte in Zusammenarbeit mit der ärztlichen Leitung\nBeteiligung an übergeordneten \n• Aufgaben der psychiatrischen Einrichtung\nMitglied der Abteilungsleitersitzungen\nDein Profil\nMehrjährige Berufs- und Führungserfahrung im stationären Setting, Führungserfahrung von Vorteil\nSehr gute Kommunikationsfähigkeiten, Belastbarkeit sowie ein gut organisierter Arbeitsstil\nHohe Dienstleistungsorientierung und Freude an der Weiterentwicklung des Qualitätsstandards\nFähigkeit zu einer wertschätzenden und prozessorientierten Zusammenarbeit\nAufgestellte Persönlichkeit mit hohem Mass an Einfühlungsvermögen und Belastbarkeit\nSehr gute Kenntnisse im Umgang mit MS-Office Programmen\nStilsicheres Deutsch in Wort und Schrift\nsofort oder nach Vereinbarung\n70 - 100 %\nUnser Angebot\nSinnstiftende Tätigkeit in einer Fachklinik für Stressfolgeerkrankungen und Burnout mit ganzheitlichem Therapieansatz\nWertschätzende interdisziplinäre Zusammenarbeit – geprägt von fachlichem Austausch und gegenseitigem Lernen.\nPersönliche und fachliche Weiterentwicklung durch Weiterbildungen, Supervisionen und den Austausch im Team.\nEin einzigartiger Arbeitsort im Engadin – umgeben von einer beeindruckenden Bergwelt und Natur mit vielfältigen Möglichkeiten für Sport und Erholung.\nJetzt bewerben\nArbeiten und Leben im Engadin und der Clinica Holistica\nInfobroschüre für Bewerber/innen\nErfahre mehr\nKontakt für Fragen\n\nJoanne Weder\nLeiterin Kunsttherapien\n\n+41 81 300 26 30\nj.weder@clinica-holistica.ch\n\nBjörn Wehlmann\nLeiter HR\n\n+41 81 300 26 74\nhr@clinica-holistica.ch",
+      "descriptionByLocale": {
+        "de": "Bild\nLeiter/in Kunsttherapie\nDeine Hauptaufgaben\nOperative, personelle und fachliche Führung des Kunsttherapie-Teams, bestehend aus einem Team mit bis zu 16 Mitarbeitenden (Mal-, Gestaltungs-, Tanz-, Bewegungs- und Musiktherapeut/innen)\nAktive Mitarbeit als Kunsttherapeut/in\nGewährleistung der bestmöglichen Betreuung für die Patient/innen\nInterdisziplinäre und transparente Zusammenarbeit mit allen an der Behandlung beteiligten Fachpersonen\nAktive Weiterentwicklung diverser Konzepte in Zusammenarbeit mit der ärztlichen Leitung\nBeteiligung an übergeordneten \n• Aufgaben der psychiatrischen Einrichtung\nMitglied der Abteilungsleitersitzungen\nDein Profil\nMehrjährige Berufs- und Führungserfahrung im stationären Setting, Führungserfahrung von Vorteil\nSehr gute Kommunikationsfähigkeiten, Belastbarkeit sowie ein gut organisierter Arbeitsstil\nHohe Dienstleistungsorientierung und Freude an der Weiterentwicklung des Qualitätsstandards\nFähigkeit zu einer wertschätzenden und prozessorientierten Zusammenarbeit\nAufgestellte Persönlichkeit mit hohem Mass an Einfühlungsvermögen und Belastbarkeit\nSehr gute Kenntnisse im Umgang mit MS-Office Programmen\nStilsicheres Deutsch in Wort und Schrift\nsofort oder nach Vereinbarung\n70 - 100 %\nUnser Angebot\nSinnstiftende Tätigkeit in einer Fachklinik für Stressfolgeerkrankungen und Burnout mit ganzheitlichem Therapieansatz\nWertschätzende interdisziplinäre Zusammenarbeit – geprägt von fachlichem Austausch und gegenseitigem Lernen.\nPersönliche und fachliche Weiterentwicklung durch Weiterbildungen, Supervisionen und den Austausch im Team.\nEin einzigartiger Arbeitsort im Engadin – umgeben von einer beeindruckenden Bergwelt und Natur mit vielfältigen Möglichkeiten für Sport und Erholung.\nJetzt bewerben\nArbeiten und Leben im Engadin und der Clinica Holistica\nInfobroschüre für Bewerber/innen\nErfahre mehr\nKontakt für Fragen\n\nJoanne Weder\nLeiterin Kunsttherapien\n\n+41 81 300 26 30\nj.weder@clinica-holistica.ch\n\nBjörn Wehlmann\nLeiter HR\n\n+41 81 300 26 74\nhr@clinica-holistica.ch",
+        "it": "Bild\nLeiter/in Kunsttherapie\nDeine Hauptaufgaben\nOperative, personelle und fachliche Führung des Kunsttherapie-Teams, bestehend aus einem Team mit bis zu 16 Mitarbeitenden (Mal-, Gestaltungs-, Tanz-, Bewegungs- und Musiktherapeut/innen)\nAktive Mitarbeit als Kunsttherapeut/in\nGewährleistung der bestmöglichen Betreuung für die Patient/innen\nInterdisziplinäre und transparente Zusammenarbeit mit allen an der Behandlung beteiligten Fachpersonen\nAktive Weiterentwicklung diverser Konzepte in Zusammenarbeit mit der ärztlichen Leitung\nBeteiligung an übergeordneten \n• Aufgaben der psychiatrischen Einrichtung\nMitglied der Abteilungsleitersitzungen\nDein Profil\nMehrjährige Berufs- und Führungserfahrung im stationären Setting, Führungserfahrung von Vorteil\nSehr gute Kommunikationsfähigkeiten, Belastbarkeit sowie ein gut organisierter Arbeitsstil\nHohe Dienstleistungsorientierung und Freude an der Weiterentwicklung des Qualitätsstandards\nFähigkeit zu einer wertschätzenden und prozessorientierten Zusammenarbeit\nAufgestellte Persönlichkeit mit hohem Mass an Einfühlungsvermögen und Belastbarkeit\nSehr gute Kenntnisse im Umgang mit MS-Office Programmen\nStilsicheres Deutsch in Wort und Schrift\nsofort oder nach Vereinbarung\n70 - 100 %\nUnser Angebot\nSinnstiftende Tätigkeit in einer Fachklinik für Stressfolgeerkrankungen und Burnout mit ganzheitlichem Therapieansatz\nWertschätzende interdisziplinäre Zusammenarbeit – geprägt von fachlichem Austausch und gegenseitigem Lernen.\nPersönliche und fachliche Weiterentwicklung durch Weiterbildungen, Supervisionen und den Austausch im Team.\nEin einzigartiger Arbeitsort im Engadin – umgeben von einer beeindruckenden Bergwelt und Natur mit vielfältigen Möglichkeiten für Sport und Erholung.\nJetzt bewerben\nArbeiten und Leben im Engadin und der Clinica Holistica\nInfobroschüre für Bewerber/innen\nErfahre mehr\nKontakt für Fragen\n\nJoanne Weder\nLeiterin Kunsttherapien\n\n+41 81 300 26 30\nj.weder@clinica-holistica.ch\n\nBjörn Wehlmann\nLeiter HR\n\n+41 81 300 26 74\nhr@clinica-holistica.ch",
+        "en": "Bild\nLeiter/in Kunsttherapie\nDeine Hauptaufgaben\nOperative, personelle und fachliche Führung des Kunsttherapie-Teams, bestehend aus einem Team mit bis zu 16 Mitarbeitenden (Mal-, Gestaltungs-, Tanz-, Bewegungs- und Musiktherapeut/innen)\nAktive Mitarbeit als Kunsttherapeut/in\nGewährleistung der bestmöglichen Betreuung für die Patient/innen\nInterdisziplinäre und transparente Zusammenarbeit mit allen an der Behandlung beteiligten Fachpersonen\nAktive Weiterentwicklung diverser Konzepte in Zusammenarbeit mit der ärztlichen Leitung\nBeteiligung an übergeordneten \n• Aufgaben der psychiatrischen Einrichtung\nMitglied der Abteilungsleitersitzungen\nDein Profil\nMehrjährige Berufs- und Führungserfahrung im stationären Setting, Führungserfahrung von Vorteil\nSehr gute Kommunikationsfähigkeiten, Belastbarkeit sowie ein gut organisierter Arbeitsstil\nHohe Dienstleistungsorientierung und Freude an der Weiterentwicklung des Qualitätsstandards\nFähigkeit zu einer wertschätzenden und prozessorientierten Zusammenarbeit\nAufgestellte Persönlichkeit mit hohem Mass an Einfühlungsvermögen und Belastbarkeit\nSehr gute Kenntnisse im Umgang mit MS-Office Programmen\nStilsicheres Deutsch in Wort und Schrift\nsofort oder nach Vereinbarung\n70 - 100 %\nUnser Angebot\nSinnstiftende Tätigkeit in einer Fachklinik für Stressfolgeerkrankungen und Burnout mit ganzheitlichem Therapieansatz\nWertschätzende interdisziplinäre Zusammenarbeit – geprägt von fachlichem Austausch und gegenseitigem Lernen.\nPersönliche und fachliche Weiterentwicklung durch Weiterbildungen, Supervisionen und den Austausch im Team.\nEin einzigartiger Arbeitsort im Engadin – umgeben von einer beeindruckenden Bergwelt und Natur mit vielfältigen Möglichkeiten für Sport und Erholung.\nJetzt bewerben\nArbeiten und Leben im Engadin und der Clinica Holistica\nInfobroschüre für Bewerber/innen\nErfahre mehr\nKontakt für Fragen\n\nJoanne Weder\nLeiterin Kunsttherapien\n\n+41 81 300 26 30\nj.weder@clinica-holistica.ch\n\nBjörn Wehlmann\nLeiter HR\n\n+41 81 300 26 74\nhr@clinica-holistica.ch",
+        "fr": "Bild\nLeiter/in Kunsttherapie\nDeine Hauptaufgaben\nOperative, personelle und fachliche Führung des Kunsttherapie-Teams, bestehend aus einem Team mit bis zu 16 Mitarbeitenden (Mal-, Gestaltungs-, Tanz-, Bewegungs- und Musiktherapeut/innen)\nAktive Mitarbeit als Kunsttherapeut/in\nGewährleistung der bestmöglichen Betreuung für die Patient/innen\nInterdisziplinäre und transparente Zusammenarbeit mit allen an der Behandlung beteiligten Fachpersonen\nAktive Weiterentwicklung diverser Konzepte in Zusammenarbeit mit der ärztlichen Leitung\nBeteiligung an übergeordneten \n• Aufgaben der psychiatrischen Einrichtung\nMitglied der Abteilungsleitersitzungen\nDein Profil\nMehrjährige Berufs- und Führungserfahrung im stationären Setting, Führungserfahrung von Vorteil\nSehr gute Kommunikationsfähigkeiten, Belastbarkeit sowie ein gut organisierter Arbeitsstil\nHohe Dienstleistungsorientierung und Freude an der Weiterentwicklung des Qualitätsstandards\nFähigkeit zu einer wertschätzenden und prozessorientierten Zusammenarbeit\nAufgestellte Persönlichkeit mit hohem Mass an Einfühlungsvermögen und Belastbarkeit\nSehr gute Kenntnisse im Umgang mit MS-Office Programmen\nStilsicheres Deutsch in Wort und Schrift\nsofort oder nach Vereinbarung\n70 - 100 %\nUnser Angebot\nSinnstiftende Tätigkeit in einer Fachklinik für Stressfolgeerkrankungen und Burnout mit ganzheitlichem Therapieansatz\nWertschätzende interdisziplinäre Zusammenarbeit – geprägt von fachlichem Austausch und gegenseitigem Lernen.\nPersönliche und fachliche Weiterentwicklung durch Weiterbildungen, Supervisionen und den Austausch im Team.\nEin einzigartiger Arbeitsort im Engadin – umgeben von einer beeindruckenden Bergwelt und Natur mit vielfältigen Möglichkeiten für Sport und Erholung.\nJetzt bewerben\nArbeiten und Leben im Engadin und der Clinica Holistica\nInfobroschüre für Bewerber/innen\nErfahre mehr\nKontakt für Fragen\n\nJoanne Weder\nLeiterin Kunsttherapien\n\n+41 81 300 26 30\nj.weder@clinica-holistica.ch\n\nBjörn Wehlmann\nLeiter HR\n\n+41 81 300 26 74\nhr@clinica-holistica.ch"
+      },
+      "location": "Susch",
+      "canton": "GR",
+      "addressLocality": "Susch",
+      "addressRegion": "GR",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "7542",
+      "category": "healthcare-therapy",
+      "sector": "Salute / Psichiatria",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "senior",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-03",
+      "url": "https://www.clinica-holistica.ch/de/job/leiterin-kunsttherapie",
+      "applyUrl": "https://www.clinica-holistica.ch/de/job/leiterin-kunsttherapie",
+      "source": "Clinica Holistica Engiadina Dedicated Parser (Playwright)",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-03T13:10:25.665Z",
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "leiter-in-kunsttherapie-clinica-holistica-engiadina-susch"
+        ]
+      },
+      "previousSlugs": [
+        "leiter-in-kunsttherapie-clinica-holistica-engiadina-susch"
+      ],
+      "salaryMin": 79000,
+      "salaryMax": 120000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 79000,
+          "maxValue": 120000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-08-03T13:10:25.665Z"
     }
   ]
 }
