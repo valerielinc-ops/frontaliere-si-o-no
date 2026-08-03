@@ -11,8 +11,20 @@
     "https://www.pemsa.ch/it/le-nostre-offerte-di-lavoro/"
   ],
   "notes": "Dedicated PEMSA crawler. National listing (all cantons). Detail pages have JSON-LD JobPosting with full location data; canton inferred per-job from the city. Construction/trades staffing agency.",
-  "updatedAt": "2026-08-03T12:40:25.531Z",
+  "updatedAt": "2026-08-03T22:16:20.867Z",
   "seedMetaByUrl": {
+    "https://www.pemsa.ch/it/job/muratore-edile-2685619/": {
+      "location": "Genève",
+      "canton": "GE",
+      "company": "PEMSA",
+      "postedDate": "2026-08-03"
+    },
+    "https://www.pemsa.ch/it/job/dispositivo-di-regolazione-del-rastrello-per-asfalto-2685614/": {
+      "location": "Genève",
+      "canton": "GE",
+      "company": "PEMSA",
+      "postedDate": "2026-08-03"
+    },
     "https://www.pemsa.ch/it/job/meccanico-di-macchine-agricole-efz-m-f-d-2685587/": {
       "location": "Basel",
       "canton": "BS",
@@ -966,12 +978,6 @@
       "canton": "TI",
       "company": "PEMSA",
       "postedDate": "2026-07-10"
-    },
-    "https://www.pemsa.ch/it/job/elettricista-con-comprovata-esperienza-2682526/": {
-      "location": "Romont FR",
-      "canton": "FR",
-      "company": "PEMSA",
-      "postedDate": "2026-07-09"
     },
     "https://www.pemsa.ch/it/job/installatore-impianti-sprinkler-2682122/": {
       "location": "Lugano",
