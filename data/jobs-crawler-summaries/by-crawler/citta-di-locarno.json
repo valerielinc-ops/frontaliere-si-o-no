@@ -1,55 +1,19 @@
 {
   "key": "citta-di-locarno",
   "label": "Locarno",
-  "generatedAt": "2026-08-03T12:41:37.160Z",
+  "generatedAt": "2026-08-03T22:27:28.084Z",
   "total": 7,
   "newCount": 0,
-  "updatedCount": 1,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 9899,
-  "avgDurationMs": 9899,
+  "unchangedCount": 1,
+  "durationMs": 7503,
+  "avgDurationMs": 7503,
   "durationHistory": [
-    9899
+    7503
   ],
   "newJobs": [],
-  "updatedJobs": [
-    {
-      "id": "citta-di-locarno-educatrice-educatore-i-quale-responsabile-parco-robinson-10-20-locarno",
-      "slug": "educatrice-educatore-i-quale-responsabile-parco-robinson-10-20-locarno",
-      "company": "Città di Locarno",
-      "companyKey": "citta-di-locarno",
-      "companyDomain": "locarno.ch",
-      "title": "Educatrice/educatore I quale Responsabile Parco Robinson (10-20%)",
-      "location": "Locarno",
-      "canton": "TI",
-      "addressLocality": "Locarno",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "postalCode": "6600",
-      "streetAddress": "Piazza Grande 18",
-      "category": "public-admin",
-      "contract": "full-time",
-      "employmentType": "PART_TIME",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-10",
-      "url": "https://locarno.pi-asp.de/bewerber-web/?company=100-FIRMA-ID&tenant=&lang=I#position,id=aff97447-2e8b-446e-8e50-22d3bbe2c9f1,popup=y",
-      "pdfUrl": "https://www.locarno.ch/files/documenti/Bando_concorso_resp_parco_robinson.pdf",
-      "applyUrl": "https://locarno.pi-asp.de/bewerber-web/?company=100-FIRMA-ID&tenant=&lang=I#position,id=aff97447-2e8b-446e-8e50-22d3bbe2c9f1,popup=y",
-      "source": "Locarno Dedicated Parser",
-      "sourceLang": "it",
-      "crawledAt": "2026-08-03T12:41:34.403Z",
-      "firstSeenAt": "2026-07-09T22:41:46.298Z",
-      "_qualityScore": 94,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 25,
-        "completeness": 20
-      }
-    }
-  ],
+  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [
     {
@@ -77,7 +41,7 @@
       "applyUrl": "https://locarno.pi-asp.de/bewerber-web/?company=100-FIRMA-ID&tenant=&lang=I#position,id=7e203d4e-5e55-40dc-99c9-adbb71dc99f3,popup=y",
       "source": "Locarno Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-08-03T12:41:29.773Z",
+      "crawledAt": "2026-08-03T22:27:23.850Z",
       "firstSeenAt": "2026-07-09T22:41:46.298Z",
       "country": "CH",
       "_qualityScore": 94,
@@ -116,12 +80,15 @@
       "crawledAt": "2026-08-03T12:41:30.907Z",
       "firstSeenAt": "2026-07-09T22:41:46.298Z",
       "country": "CH",
-      "_qualityScore": 94,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "crawlerMissStreak": 1,
+      "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
         "translation": 25,
-        "completeness": 20
+        "completeness": 25
       }
     },
     {
@@ -152,12 +119,15 @@
       "crawledAt": "2026-08-03T12:41:31.644Z",
       "firstSeenAt": "2026-07-09T22:41:46.298Z",
       "country": "CH",
-      "_qualityScore": 94,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "crawlerMissStreak": 1,
+      "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
         "translation": 25,
-        "completeness": 20
+        "completeness": 25
       }
     },
     {
@@ -188,12 +158,15 @@
       "crawledAt": "2026-08-03T12:41:32.406Z",
       "firstSeenAt": "2026-07-09T22:41:46.298Z",
       "country": "CH",
-      "_qualityScore": 94,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "crawlerMissStreak": 1,
+      "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
         "translation": 25,
-        "completeness": 20
+        "completeness": 25
       }
     },
     {
@@ -224,12 +197,15 @@
       "crawledAt": "2026-08-03T12:41:33.079Z",
       "firstSeenAt": "2026-07-09T22:41:46.298Z",
       "country": "CH",
-      "_qualityScore": 94,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "crawlerMissStreak": 1,
+      "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
         "translation": 25,
-        "completeness": 20
+        "completeness": 25
       }
     },
     {
@@ -260,12 +236,15 @@
       "crawledAt": "2026-08-03T12:41:33.709Z",
       "firstSeenAt": "2026-07-09T22:41:46.298Z",
       "country": "CH",
-      "_qualityScore": 94,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "crawlerMissStreak": 1,
+      "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
         "translation": 25,
-        "completeness": 20
+        "completeness": 25
       }
     },
     {
@@ -296,12 +275,15 @@
       "crawledAt": "2026-08-03T12:41:34.403Z",
       "firstSeenAt": "2026-07-09T22:41:46.298Z",
       "country": "CH",
-      "_qualityScore": 94,
+      "salaryMin": 13600,
+      "salaryMax": 20600,
+      "crawlerMissStreak": 1,
+      "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
         "translation": 25,
-        "completeness": 20
+        "completeness": 25
       }
     }
   ]
