@@ -1,66 +1,18 @@
 {
   "key": "manor",
   "label": "Manor",
-  "generatedAt": "2026-08-03T12:44:36.784Z",
+  "generatedAt": "2026-08-03T22:28:00.944Z",
   "total": 177,
-  "newCount": 11,
-  "updatedCount": 166,
+  "newCount": 9,
+  "updatedCount": 167,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 329531,
-  "avgDurationMs": 329531,
+  "unchangedCount": 1,
+  "durationMs": 312310,
+  "avgDurationMs": 312310,
   "durationHistory": [
-    329531
+    312310
   ],
   "newJobs": [
-    {
-      "title": "Collaboratore/trice Servizio Clienti 60%",
-      "company": "Manor AG",
-      "companyKey": "manor",
-      "url": "https://positions.manor.ch/job/Locarno-Collaboratoretrice-Servizio-Clienti-60/1362781155/",
-      "location": "Locarno Collaboratoretrice Servizio Clienti",
-      "canton": "TI",
-      "country": "CH",
-      "category": "hospitality",
-      "descriptionIt": "Collaboratore/trice Servizio Clienti 60% presso Manor, con sede a Locarno Collaboratoretrice Servizio Clienti, Canton Ticino, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
-      "postedDate": "2026-08-03",
-      "source": "company-website",
-      "slug": "manor-collaboratore-trice-servizio-clienti-60-locarno-collaboratoretrice-servizio-clienti",
-      "sourceLang": "it",
-      "crawledAt": "",
-      "needsRetranslation": true,
-      "_qualityScore": 64,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 14,
-        "translation": 14,
-        "completeness": 11
-      }
-    },
-    {
-      "title": "Mitarbeiter*in Verkauf Parfümerie 80%",
-      "company": "Manor AG",
-      "companyKey": "manor",
-      "url": "https://positions.manor.ch/job/Emmen-Mitarbeiterin-Verkauf-Parf%C3%BCmerie-80/1362781555/",
-      "location": "Emmen Mitarbeiterin Verkauf Parfümerie",
-      "canton": "LU",
-      "country": "CH",
-      "category": "sales",
-      "descriptionIt": "• Ausgeprägte Verkaufs- und Beratungskompetenz.\n• Hohe Kunden- und Serviceorientierung.\n• Begeisterung für Beauty, Parfümerie sowie Hautpflege und Make-up.\n• Kommunikationsstarkes und überzeugendes Auftreten.\n• Freude am aktiven Verkauf und an der Erreichung von Verkaufszielen.\n• Gepflegtes, professionelles und markengerechtes Erscheinungsbild.\n• Selbstständige, zuverlässige und strukturierte Arbeitsweise.\n• Teamfähigkeit sowie hohe Sozialkompetenz.",
-      "postedDate": "2026-08-03",
-      "source": "company-website",
-      "slug": "manor-mitarbeiter-in-verkauf-parfumerie-80-emmen-mitarbeiterin-verkauf-parfumerie",
-      "sourceLang": "de",
-      "crawledAt": "",
-      "needsRetranslation": true,
-      "_qualityScore": 66,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 14,
-        "translation": 16,
-        "completeness": 11
-      }
-    },
     {
       "title": "Retail Media Coordinator 100%",
       "company": "Manor AG",
@@ -113,7 +65,7 @@
       "title": "Mitarbeiter*in Logistik Kommissionierung 100%",
       "company": "Manor AG",
       "companyKey": "manor",
-      "url": "https://positions.manor.ch/job/Hochdorf-Mitarbeiterin-Logistik-Kommissionierung-100/1362292455/",
+      "url": "https://positions.manor.ch/job/Hochdorf-Mitarbeiterin-Logistik-Kommissionierung-100/1362291455/",
       "location": "Hochdorf Mitarbeiterin Logistik Kommissionierung",
       "canton": "LU",
       "country": "CH",
@@ -161,7 +113,7 @@
       "title": "Mitarbeiter*in Verkauf Herrenkonfektion 20%",
       "company": "Manor AG",
       "companyKey": "manor",
-      "url": "https://positions.manor.ch/job/Spreitenbach-Mitarbeiterin-Verkauf-Herrenkonfektion-20/1361596355/",
+      "url": "https://positions.manor.ch/job/Spreitenbach-Mitarbeiterin-Verkauf-Herrenkonfektion-20/1361596555/",
       "location": "Spreitenbach Mitarbeiterin Verkauf Herrenkonfektion",
       "canton": "AG",
       "country": "CH",
@@ -280,6 +232,57 @@
   ],
   "updatedJobs": [
     {
+      "title": "Collaboratore/trice Servizio Clienti 60%",
+      "company": "Manor AG",
+      "companyKey": "manor",
+      "url": "https://positions.manor.ch/job/Locarno-Collaboratoretrice-Servizio-Clienti-60/1362781155/",
+      "location": "Locarno Collaboratoretrice Servizio Clienti",
+      "canton": "TI",
+      "country": "CH",
+      "category": "hospitality",
+      "descriptionIt": "Collaboratore/trice Servizio Clienti 60% presso Manor, con sede a Locarno Collaboratoretrice Servizio Clienti, Canton Ticino, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
+      "postedDate": "2026-08-03",
+      "source": "company-website",
+      "slug": "manor-collaboratore-trice-servizio-clienti-60-locarno-collaboratoretrice-servizio-clienti",
+      "sourceLang": "it",
+      "id": "manor-7bd201add591",
+      "firstSeenAt": "2026-08-03T12:44:36.777Z",
+      "crawledAt": "",
+      "_qualityScore": 75,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 14,
+        "translation": 25,
+        "completeness": 11
+      }
+    },
+    {
+      "title": "Mitarbeiter*in Verkauf Parfümerie 80%",
+      "company": "Manor AG",
+      "companyKey": "manor",
+      "url": "https://positions.manor.ch/job/Emmen-Mitarbeiterin-Verkauf-Parf%C3%BCmerie-80/1362781555/",
+      "location": "Emmen Mitarbeiterin Verkauf Parfümerie",
+      "canton": "LU",
+      "country": "CH",
+      "category": "sales",
+      "descriptionIt": "• Ausgeprägte Verkaufs- und Beratungskompetenz.\n• Hohe Kunden- und Serviceorientierung.\n• Begeisterung für Beauty, Parfümerie sowie Hautpflege und Make-up.\n• Kommunikationsstarkes und überzeugendes Auftreten.\n• Freude am aktiven Verkauf und an der Erreichung von Verkaufszielen.\n• Gepflegtes, professionelles und markengerechtes Erscheinungsbild.\n• Selbstständige, zuverlässige und strukturierte Arbeitsweise.\n• Teamfähigkeit sowie hohe Sozialkompetenz.",
+      "postedDate": "2026-08-03",
+      "source": "company-website",
+      "slug": "collaboratore-trice-in-vendita-parfumerie-80-manor-ag-emmen-mitarbeiterin-verkauf-parfumerie",
+      "sourceLang": "de",
+      "id": "manor-df312bdb64a0",
+      "firstSeenAt": "2026-08-03T12:44:36.777Z",
+      "crawledAt": "",
+      "needsRetranslation": true,
+      "_qualityScore": 75,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 14,
+        "translation": 25,
+        "completeness": 11
+      }
+    },
+    {
       "title": "Retail Media Coordinator 100%",
       "company": "Manor AG",
       "companyKey": "manor",
@@ -328,32 +331,6 @@
         "cleanliness": 25,
         "richness": 14,
         "translation": 25,
-        "completeness": 11
-      }
-    },
-    {
-      "title": "Collaborateur/trice supermarché 50%",
-      "company": "Manor AG",
-      "companyKey": "manor",
-      "url": "https://positions.manor.ch/job/Gen%C3%A8ve-1-Collaborateurtrice-supermarch%C3%A9-50/1362690755/",
-      "location": "Genève 1 Collaborateurtrice supermarché",
-      "canton": "GE",
-      "country": "CH",
-      "category": "retail",
-      "descriptionIt": "Collaborateur/trice supermarché 50% presso Manor, con sede a Genève 1 Collaborateurtrice supermarché, Canton Ginevra, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
-      "postedDate": "2026-07-31",
-      "source": "company-website",
-      "slug": "manor-collaborateur-trice-supermarche-50-geneve-1-collaborateurtrice-supermarche",
-      "sourceLang": "it",
-      "id": "manor-f300b5bb3bd8",
-      "firstSeenAt": "2026-07-31T22:31:37.321Z",
-      "crawledAt": "",
-      "needsRetranslation": true,
-      "_qualityScore": 73,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 14,
-        "translation": 23,
         "completeness": 11
       }
     },
@@ -538,6 +515,32 @@
       }
     },
     {
+      "title": "Mitarbeiter*in Logistik Kommissionierung 100%",
+      "company": "Manor AG",
+      "companyKey": "manor",
+      "url": "https://positions.manor.ch/job/Hochdorf-Mitarbeiterin-Logistik-Kommissionierung-100/1362292455/",
+      "location": "Hochdorf Mitarbeiterin Logistik Kommissionierung",
+      "canton": "LU",
+      "country": "CH",
+      "category": "logistics",
+      "descriptionIt": "Mitarbeiter*in Logistik Kommissionierung 100% presso Manor, con sede a Hochdorf Mitarbeiterin Logistik Kommissionierung, Canton Lucerna, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
+      "postedDate": "2026-07-28",
+      "source": "company-website",
+      "slug": "manor-mitarbeiter-in-logistik-kommissionierung-100-hochdorf-mitarbeiterin-logistik-kommissionierung",
+      "sourceLang": "it",
+      "id": "manor-34ddc2a01017",
+      "firstSeenAt": "2026-08-03T12:44:36.777Z",
+      "crawledAt": "",
+      "needsRetranslation": true,
+      "_qualityScore": 75,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 14,
+        "translation": 25,
+        "completeness": 11
+      }
+    },
+    {
       "title": "Mitarbeiter*in Logistik 20%",
       "company": "Manor AG",
       "companyKey": "manor",
@@ -555,11 +558,11 @@
       "needsRetranslation": true,
       "firstSeenAt": "2026-07-28T12:07:44.810Z",
       "crawledAt": "",
-      "_qualityScore": 66,
+      "_qualityScore": 70,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 14,
-        "translation": 16,
+        "translation": 20,
         "completeness": 11
       }
     },
@@ -590,32 +593,6 @@
       }
     },
     {
-      "title": "Mitarbeiter*in Logistik Kommissionierung 100%",
-      "company": "Manor AG",
-      "companyKey": "manor",
-      "url": "https://positions.manor.ch/job/Hochdorf-Mitarbeiterin-Logistik-Kommissionierung-100/1362291455/",
-      "location": "Hochdorf Mitarbeiterin Logistik Kommissionierung",
-      "canton": "LU",
-      "country": "CH",
-      "category": "logistics",
-      "descriptionIt": "Mitarbeiter*in Logistik Kommissionierung 100% presso Manor, con sede a Hochdorf Mitarbeiterin Logistik Kommissionierung, Canton Lucerna, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
-      "postedDate": "2026-07-28",
-      "source": "company-website",
-      "slug": "manor-mitarbeiter-in-logistik-kommissionierung-100-hochdorf-mitarbeiterin-logistik-kommissionierung",
-      "sourceLang": "it",
-      "id": "manor-73c17e883462",
-      "firstSeenAt": "2026-07-28T12:07:44.810Z",
-      "crawledAt": "",
-      "needsRetranslation": true,
-      "_qualityScore": 75,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 14,
-        "translation": 25,
-        "completeness": 11
-      }
-    },
-    {
       "title": "Mitarbeiter*in Logistik (Montagsaushilfe eManor) 20%",
       "company": "Manor AG",
       "companyKey": "manor",
@@ -633,11 +610,11 @@
       "needsRetranslation": true,
       "firstSeenAt": "2026-07-28T12:07:44.810Z",
       "crawledAt": "",
-      "_qualityScore": 66,
+      "_qualityScore": 70,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 14,
-        "translation": 16,
+        "translation": 20,
         "completeness": 11
       }
     },
@@ -736,11 +713,11 @@
       "needsRetranslation": true,
       "firstSeenAt": "2026-07-28T22:20:01.476Z",
       "crawledAt": "",
-      "_qualityScore": 66,
+      "_qualityScore": 70,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 14,
-        "translation": 16,
+        "translation": 20,
         "completeness": 11
       }
     },
@@ -1026,33 +1003,43 @@
         "translation": 25,
         "completeness": 11
       }
-    },
-    {
-      "title": "Collaborateur/trice supermarché (Poissonnerie) 50%",
-      "company": "Manor AG",
-      "companyKey": "manor",
-      "url": "https://positions.manor.ch/job/Sion-Collaborateurtrice-supermarch%C3%A9-%28Poissonnerie%29-50/1361808155/",
-      "location": "Sion Collaborateurtrice supermarché (Poissonnerie)",
-      "canton": "VS",
-      "country": "CH",
-      "category": "retail",
-      "descriptionIt": "Collaborateur/trice supermarché (Poissonnerie) 50% presso Manor, con sede a Sion Collaborateurtrice supermarché (Poissonnerie), Canton Vallese, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
-      "postedDate": "2026-07-22",
-      "source": "company-website",
-      "slug": "manor-collaborateur-trice-supermarche-poissonnerie-50-sion-collaborateurtrice-supermarche-poissonnerie",
-      "sourceLang": "it",
-      "id": "manor-f2ed28561701",
-      "firstSeenAt": "2026-07-22T22:35:47.906Z",
-      "crawledAt": "",
-      "_qualityScore": 75,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 14,
-        "translation": 25,
-        "completeness": 11
-      }
     }
   ],
   "removedJobs": [],
-  "unchangedJobs": []
+  "unchangedJobs": [
+    {
+      "title": "Collaborateur/trice supermarché 50%",
+      "company": "Manor AG",
+      "companyKey": "manor",
+      "url": "https://positions.manor.ch/job/Gen%C3%A8ve-1-Collaborateurtrice-supermarch%C3%A9-50/1362690755/",
+      "location": "Genève 1 Collaborateurtrice supermarché",
+      "canton": "GE",
+      "country": "CH",
+      "category": "retail",
+      "descriptionIt": "Collaborateur/trice supermarché 50% presso Manor, con sede a Genève 1 Collaborateurtrice supermarché, Canton Ginevra, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
+      "postedDate": "2026-07-31",
+      "source": "company-website",
+      "slug": "manor-collaborateur-trice-supermarche-50-geneve-1-collaborateurtrice-supermarche",
+      "sourceLang": "it",
+      "id": "manor-f300b5bb3bd8",
+      "firstSeenAt": "2026-07-31T22:31:37.321Z",
+      "crawledAt": "",
+      "salaryMin": 36000,
+      "salaryMax": 55500,
+      "currency": "CHF",
+      "addressLocality": "Genève 1 Collaborateurtrice supermarché",
+      "addressRegion": "GE",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "crawlerMissStreak": 1,
+      "needsRetranslation": true,
+      "_qualityScore": 78,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 14,
+        "translation": 23,
+        "completeness": 16
+      }
+    }
+  ]
 }

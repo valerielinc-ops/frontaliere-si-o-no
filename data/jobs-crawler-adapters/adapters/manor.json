@@ -43,7 +43,6 @@
     "https://positions.manor.ch/job/Basel-Retail-Media-Coordinator-100/1359234155/",
     "https://positions.manor.ch/job/Basel-Retail-Media-Coordinator-100/1359234055/",
     "https://positions.manor.ch/job/Sion-Collaborateurtrice-service-20-Etudiant/1362654955/",
-    "https://positions.manor.ch/job/Gen%C3%A8ve-1-Collaborateurtrice-supermarch%C3%A9-50/1362690755/",
     "https://positions.manor.ch/job/Gen%C3%A8ve-1-Collaborateurtrice-Visual-Merchandising-%28D%C3%A9coration-food%29-100/1354556755/",
     "https://positions.manor.ch/job/Spreitenbach-Drogistin-80/1164169755/",
     "https://positions.manor.ch/job/Fribourg-Collaborateurtrice-service-clients-20/1361684055/",
@@ -134,7 +133,6 @@
     "https://positions.manor.ch/job/Gen%C3%A8ve-1-Collaborateurtrice-supermarch%C3%A9-%28Pain-&-P%C3%A2tisserie%29-50/1362028955/",
     "https://positions.manor.ch/job/Gen%C3%A8ve-1-Collaborateurtrice-vente-%28Confection-Dames%29-50/1351453155/",
     "https://positions.manor.ch/job/Sargans-Mitarbeiterin-Supermarkt-20/1361735355/",
-    "https://positions.manor.ch/job/Baden-Assistentin-Restaurant-100/1361733555/",
     "https://positions.manor.ch/job/Emmen-Gerant-100/1355239855/",
     "https://positions.manor.ch/job/Sion-Collaborateurtrice-caisse-%28Food%29-20/1361807155/",
     "https://positions.manor.ch/job/Baden-K%C3%BCchenchef-100/1355473355/",
@@ -184,10 +182,11 @@
     "https://positions.manor.ch/job/Basel-Mitarbeiterin-Verkauf-Parf%C3%BCmerie-30/1362675155/",
     "https://positions.manor.ch/job/Basel-Fischverk%C3%A4uferin-40/1360386555/",
     "https://positions.manor.ch/job/Basel-KochK%C3%B6chin-80-100/1361600455/",
-    "https://positions.manor.ch/job/Vevey-Collaborateurtrice-caisse-%28Sport%29-20/1361893355/"
+    "https://positions.manor.ch/job/Vevey-Collaborateurtrice-caisse-%28Sport%29-20/1361893355/",
+    "https://positions.manor.ch/job/Baden-Assistentin-Restaurant-100/1361733555/"
   ],
   "notes": "Sitemap-based crawler — positions.manor.ch (SAP SuccessFactors / jobs2web). Manor AG national department-store chain (HQ Basel) — collects CH-wide across all target cantons.",
-  "updatedAt": "2026-08-03T12:44:33.221Z",
+  "updatedAt": "2026-08-03T22:27:57.793Z",
   "seedMetaByUrl": {
     "https://positions.manor.ch/job/Lausanne-Collaborateurtrice-vente-%28Home-&-M%C3%A9nage%29-70/1359499155/": {
       "company": "Manor AG",
@@ -326,10 +325,6 @@
       "companyDomain": "manor.ch"
     },
     "https://positions.manor.ch/job/Sion-Collaborateurtrice-service-20-Etudiant/1362654955/": {
-      "company": "Manor AG",
-      "companyDomain": "manor.ch"
-    },
-    "https://positions.manor.ch/job/Gen%C3%A8ve-1-Collaborateurtrice-supermarch%C3%A9-50/1362690755/": {
       "company": "Manor AG",
       "companyDomain": "manor.ch"
     },
@@ -693,10 +688,6 @@
       "company": "Manor AG",
       "companyDomain": "manor.ch"
     },
-    "https://positions.manor.ch/job/Baden-Assistentin-Restaurant-100/1361733555/": {
-      "company": "Manor AG",
-      "companyDomain": "manor.ch"
-    },
     "https://positions.manor.ch/job/Emmen-Gerant-100/1355239855/": {
       "company": "Manor AG",
       "companyDomain": "manor.ch"
@@ -894,6 +885,10 @@
       "companyDomain": "manor.ch"
     },
     "https://positions.manor.ch/job/Vevey-Collaborateurtrice-caisse-%28Sport%29-20/1361893355/": {
+      "company": "Manor AG",
+      "companyDomain": "manor.ch"
+    },
+    "https://positions.manor.ch/job/Baden-Assistentin-Restaurant-100/1361733555/": {
       "company": "Manor AG",
       "companyDomain": "manor.ch"
     }
