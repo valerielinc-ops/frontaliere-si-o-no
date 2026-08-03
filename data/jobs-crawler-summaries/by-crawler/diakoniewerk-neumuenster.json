@@ -1,19 +1,21 @@
 {
   "key": "diakoniewerk-neumuenster",
   "label": "Diakoniewerk Neumünster (Gesundheitswelt Zollikerberg)",
-  "generatedAt": "2026-08-03T12:59:32.952Z",
-  "total": 7,
+  "generatedAt": "2026-08-03T22:31:36.344Z",
+  "total": 8,
   "newCount": 0,
-  "updatedCount": 1,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 40299,
-  "avgDurationMs": 40299,
+  "unchangedCount": 1,
+  "durationMs": 37103,
+  "avgDurationMs": 37103,
   "durationHistory": [
-    40299
+    37103
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "diakoniewerk-neumuenster-0eb84c40373f",
       "slug": "expert-expert-care-diakoniewerk-neumunster-gesundheitswelt-zollikerberg-spital-zollikerberg-zollikerberg",
@@ -45,7 +47,7 @@
       "firstSeenAt": "2026-05-19T15:19:47.620Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -54,7 +56,5 @@
         "completeness": 22
       }
     }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": []
+  ]
 }
