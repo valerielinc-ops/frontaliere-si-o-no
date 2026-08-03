@@ -1,6 +1,6 @@
 {
   "crawlerKey": "zfv-unternehmungen",
-  "assembledAt": "2026-08-03T12:52:28.182Z",
+  "assembledAt": "2026-08-03T12:28:25.534Z",
   "jobs": [
     {
       "id": "zfv-unternehmungen-74d19ea56c29",
@@ -420,7 +420,6 @@
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
       "crawledAt": "2026-08-03T12:52:22.048Z",
-      "needsRetranslation": true,
       "addressLocality": "Basel",
       "postalCode": "4052",
       "streetAddress": "St. Alban-Anlage 26",
@@ -439,12 +438,36 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "bar-service-mitarbeiter-in-50-zfv-unternehmungen-basel",
-        "bar-service-collaboratore-trice-50-zfv-unternehmungen-basel"
+        "bar-service-collaboratore-trice-50-zfv-unternehmungen-basel",
+        "buffet-collaboratore-trice-40-zfv-unternehmungen-basel",
+        "buffet-associate-40-zfv-unternehmungen-basel",
+        "buffet-mitarbeiter-in-40-zfv-unternehmungen-basel",
+        "buffet-collaborateur-trice-40-zfv-unternehmungen-basel",
+        "dipendente-a-buffet-30-zfv-unternehmungen-basel",
+        "buffet-employee-30-zfv-unternehmungen-basel",
+        "buffet-mitarbeiterin-30-zfv-unternehmungen-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
           "bar-service-mitarbeiter-in-50-zfv-unternehmungen-basel",
-          "bar-service-collaboratore-trice-50-zfv-unternehmungen-basel"
+          "bar-service-collaboratore-trice-50-zfv-unternehmungen-basel",
+          "buffet-collaboratore-trice-40-zfv-unternehmungen-basel",
+          "buffet-associate-40-zfv-unternehmungen-basel",
+          "buffet-mitarbeiter-in-40-zfv-unternehmungen-basel",
+          "buffet-collaborateur-trice-40-zfv-unternehmungen-basel",
+          "dipendente-a-buffet-30-zfv-unternehmungen-basel",
+          "buffet-employee-30-zfv-unternehmungen-basel",
+          "buffet-mitarbeiterin-30-zfv-unternehmungen-basel"
+        ],
+        "en": [
+          "buffet-associate-40-zfv-unternehmungen-basel"
+        ],
+        "de": [
+          "buffet-mitarbeiter-in-40-zfv-unternehmungen-basel",
+          "buffet-mitarbeiterin-30-zfv-unternehmungen-basel"
+        ],
+        "fr": [
+          "buffet-collaborateur-trice-40-zfv-unternehmungen-basel"
         ]
       },
       "firstSeenAt": "2026-07-04T12:44:20.882Z",
@@ -459,7 +482,8 @@
           "maxValue": 47000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "zfv-unternehmungen-eda90ae7b817",
@@ -512,12 +536,31 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "betriebsassistent-in-zfv-unternehmungen-basel",
-        "assistente-operativo-in-zfv-unternehmungen-basel"
+        "assistente-operativo-in-zfv-unternehmungen-basel",
+        "torneo-operativo-e-40-zfv-unternehmungen-basel",
+        "operating-tournament-e-40-zfv-unternehmungen-basel",
+        "betriebstournant-e-40-zfv-unternehmungen-basel",
+        "tournoi-operationnel-e-40-zfv-unternehmungen-basel",
+        "tour-operateur-e-40-zfv-unternehmungen-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
           "betriebsassistent-in-zfv-unternehmungen-basel",
-          "assistente-operativo-in-zfv-unternehmungen-basel"
+          "assistente-operativo-in-zfv-unternehmungen-basel",
+          "torneo-operativo-e-40-zfv-unternehmungen-basel",
+          "operating-tournament-e-40-zfv-unternehmungen-basel",
+          "betriebstournant-e-40-zfv-unternehmungen-basel",
+          "tournoi-operationnel-e-40-zfv-unternehmungen-basel",
+          "tour-operateur-e-40-zfv-unternehmungen-basel"
+        ],
+        "en": [
+          "operating-tournament-e-40-zfv-unternehmungen-basel"
+        ],
+        "de": [
+          "betriebstournant-e-40-zfv-unternehmungen-basel"
+        ],
+        "fr": [
+          "tournoi-operationnel-e-40-zfv-unternehmungen-basel"
         ]
       },
       "firstSeenAt": "2026-07-04T12:44:19.886Z",

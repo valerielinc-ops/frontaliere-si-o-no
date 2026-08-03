@@ -1268,7 +1268,7 @@
       "slug": "demi-chef-de-partie-inverno-26-27-w-verbier-marriott-international-verbier",
       "slugByLocale": {
         "it": "demi-chef-de-partie-inverno-26-27-w-verbier-marriott-international-verbier",
-        "en": "demi-chef-de-partie-winter-26-27-w-verbier-marriott-verbier",
+        "en": "demi-chef-de-partie-winter-26-27-w-verbier-marriott-verbier-aqymwl",
         "de": "demi-chef-de-partie-inverno-26-27-w-verbier-marriott-international-verbier",
         "fr": "demi-chef-de-partie-hiver-26-27-w-verbier-marriott-international-verbier"
       },
@@ -1345,7 +1345,6 @@
         "demi-chef-de-partie-inverno-26-27-w-verbier-marriott-international-verbier"
       ],
       "firstSeenAt": "2026-07-29T22:38:15.937Z",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -1358,7 +1357,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VS"
+      "addressRegion": "VS",
+      "needsRetranslation": true
     },
     {
       "id": "marriott-79d0261a5fa1",

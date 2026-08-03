@@ -1,6 +1,6 @@
 {
   "crawlerKey": "epfl",
-  "assembledAt": "2026-08-03T12:35:57.716Z",
+  "assembledAt": "2026-08-03T11:31:15.838Z",
   "jobs": [
     {
       "id": "epfl-48d3349f3c92",
@@ -4271,16 +4271,32 @@
         "postdoctorat-en-finance-quantitative-a-l-epfl-epfl-lausanne",
         "poste-de-postdoctorant-en-finance-quantitative-a-l-epfl-epfl-lausanne",
         "postdoctorant-en-finance-quantitative-a-l-epfl-epfl-lausanne",
-        "postdoc-epfl-lausanne"
+        "postdoc-epfl-lausanne",
+        "postdoc-nella-biofisica-sperimentale-epfl-lausanne",
+        "postdoc-in-experimental-biophysics-epfl-lausanne",
+        "postdoc-in-experimenteller-biophysik-epfl-lausanne",
+        "postdoc-en-biophysique-experimentale-epfl-lausanne"
       ],
       "previousSlugsByLocale": {
         "fr": [
           "postdoctorant-en-finance-quantitative-a-l-epfl-epfl-lausanne",
-          "postdoc-epfl-lausanne"
+          "postdoc-epfl-lausanne",
+          "postdoc-en-biophysique-experimentale-epfl-lausanne"
+        ],
+        "it": [
+          "postdoc-nella-biofisica-sperimentale-epfl-lausanne",
+          "postdoc-in-experimental-biophysics-epfl-lausanne",
+          "postdoc-in-experimenteller-biophysik-epfl-lausanne",
+          "postdoc-en-biophysique-experimentale-epfl-lausanne"
+        ],
+        "en": [
+          "postdoc-in-experimental-biophysics-epfl-lausanne"
+        ],
+        "de": [
+          "postdoc-in-experimenteller-biophysik-epfl-lausanne"
         ]
       },
       "firstSeenAt": "2026-06-29T13:42:50.059Z",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -4293,7 +4309,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "needsRetranslation": true
     },
     {
       "id": "epfl-09d95276d981",
