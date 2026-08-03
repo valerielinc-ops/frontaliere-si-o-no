@@ -126,6 +126,11 @@ const FETCH_TIMEOUT_MS = 20000;
 const SITEMAP_DELAY_MS = 300; // between sitemap shard fetches
 const DETAIL_DELAY_MS = 400; // between guidle.com origin detail-page fetches
 const RUN_BUDGET_MS = Number(process.env.GUIDLE_CRAWL_BUDGET_MS) || 8 * 60_000; // per-run wall-clock cap
+// Same unbounded post-loop translation pass as crawl-myswitzerland-events.mjs
+// (shared helper, shared flaw): guidle's step measured 19min against an 8min
+// budget. It survived only because myswitzerland, running after it, absorbed
+// the timeout instead. Capped here too, or fixing one just moves the overrun.
+const TRANSLATE_BUDGET_MS = Number(process.env.GUIDLE_TRANSLATE_BUDGET_MS) || 4 * 60_000;
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
@@ -571,7 +576,9 @@ async function main() {
   // instead of a missing locale — fill those gaps via the free-translate.mjs
   // cascade, same disk cache as crawl-tio-agenda.mjs.
   const translationCache = loadEventTitleTranslationCache();
-  const translatedEvents = await enrichEventsWithLocaleFallbackTranslations(events, translationCache);
+  const translatedEvents = await enrichEventsWithLocaleFallbackTranslations(events, translationCache, {
+    deadline: Date.now() + TRANSLATE_BUDGET_MS,
+  });
   const titleFilled = translatedEvents.filter((e) => e.titleByLocale && LOCALES.every((l) => e.titleByLocale[l])).length;
   console.log(`[guidle] locale-fallback translation: ${titleFilled}/${translatedEvents.length} event(s) now have title in all ${LOCALES.length} locales`);
 
