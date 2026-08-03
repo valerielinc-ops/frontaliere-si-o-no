@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "sourceKey": "guidle",
   "sourceName": "Guidle",
-  "assembledAt": "2026-07-07T09:08:46.439Z",
+  "assembledAt": "2026-08-03T09:08:16.870Z",
   "events": [
     {
       "id": "guidle:AJdd68h",
@@ -380,48 +380,6 @@
       "imageUrl": "/images/events/guidle-ACwguab.jpg"
     },
     {
-      "id": "guidle:ANCUTHP",
-      "title": "Chaplin - Das Musical",
-      "titleByLocale": {
-        "it": "Chaplin - Das Musical",
-        "en": "Chaplin - Das Musical",
-        "de": "Chaplin - Das Musical",
-        "fr": "Chaplin - Das Musical"
-      },
-      "description": "Treten Sie ein in die Welt des legendären Charlie Chaplin – Komiker, Visionär und Ikone der Filmgeschichte.",
-      "descriptionByLocale": {
-        "it": "Treten Sie ein in die Welt des legendären Charlie Chaplin – Komiker, Visionär und Ikone der Filmgeschichte.",
-        "en": "Treten Sie ein in die Welt des legendären Charlie Chaplin – Komiker, Visionär und Ikone der Filmgeschichte.",
-        "de": "Treten Sie ein in die Welt des legendären Charlie Chaplin – Komiker, Visionär und Ikone der Filmgeschichte.",
-        "fr": "Treten Sie ein in die Welt des legendären Charlie Chaplin – Komiker, Visionär und Ikone der Filmgeschichte."
-      },
-      "startDate": "2026-07-03",
-      "endDate": "2026-07-25",
-      "startTime": "19:45",
-      "category": "Musical",
-      "venue": "Walensee-Bühne",
-      "comune": "Walenstadt",
-      "canton": "SG",
-      "url": "https://www.guidle.com/it/veranstaltungen/musik/walenstadt/chaplin-das-musical-1006-25072026_ANCUTHP",
-      "sourceKey": "guidle",
-      "sourceName": "Guidle",
-      "price": {
-        "amount": 50,
-        "currency": "CHF",
-        "isFree": false
-      },
-      "address": {
-        "street": "Kasernenstrasse",
-        "postalCode": "8880"
-      },
-      "geo": {
-        "lat": 47.1229112,
-        "lng": 9.3017408
-      },
-      "recurring": true,
-      "imageUrl": "/images/events/guidle-ANCUTHP.jpg"
-    },
-    {
       "id": "guidle:AXxhpH8",
       "title": "Natur- und Waldbaden",
       "titleByLocale": {
@@ -504,42 +462,6 @@
       },
       "recurring": true,
       "imageUrl": "/images/events/guidle-AVyD6pp.jpg"
-    },
-    {
-      "id": "guidle:ARifGJW",
-      "title": "Schlager Open Air Flumserberg",
-      "titleByLocale": {
-        "it": "Schlager Open Air Flumserberg",
-        "en": "Schlager Open Air Flumserberg",
-        "de": "Schlager Open Air Flumserberg",
-        "fr": "Schlager Open Air Flumserberg"
-      },
-      "description": "Schlagerfans dürfen sich freuen, wenn zu neuen Hits geschaukelt und zu alten Klassikern mitgesungen wird.",
-      "descriptionByLocale": {
-        "it": "Schlagerfans dürfen sich freuen, wenn zu neuen Hits geschaukelt und zu alten Klassikern mitgesungen wird.",
-        "en": "Schlagerfans dürfen sich freuen, wenn zu neuen Hits geschaukelt und zu alten Klassikern mitgesungen wird.",
-        "de": "Schlagerfans dürfen sich freuen, wenn zu neuen Hits geschaukelt und zu alten Klassikern mitgesungen wird.",
-        "fr": "Schlagerfans dürfen sich freuen, wenn zu neuen Hits geschaukelt und zu alten Klassikern mitgesungen wird."
-      },
-      "startDate": "2026-07-31",
-      "endDate": "2026-07-31",
-      "startTime": "12:30",
-      "category": "Open Air",
-      "venue": "Molseralp",
-      "canton": "SG",
-      "url": "https://www.guidle.com/it/veranstaltungen/musik/flumserberg-tannenbodenalp/schlager-open-air-flumserberg_ARifGJW",
-      "sourceKey": "guidle",
-      "sourceName": "Guidle",
-      "address": {
-        "street": "Flumserberg-Tannenboden",
-        "postalCode": "8898"
-      },
-      "geo": {
-        "lat": 47.091991,
-        "lng": 9.2785321
-      },
-      "recurring": false,
-      "imageUrl": "/images/events/guidle-ARifGJW.jpg"
     },
     {
       "id": "guidle:AeJEtS3",
@@ -1322,48 +1244,6 @@
       "imageUrl": "/images/events/guidle-AZVmURc.jpg"
     },
     {
-      "id": "guidle:AaZy1DQ",
-      "title": "Open Air Gränichen 2026",
-      "titleByLocale": {
-        "it": "Open Air Gränichen 2026",
-        "en": "Open Air Gränichen 2026",
-        "de": "Open Air Gränichen 2026",
-        "fr": "Open Air Gränichen 2026"
-      },
-      "description": "Open Air Gränichen è un festival di due giorni senza scopo di lucro per la scena hardcore, punk, metalcore e rock.",
-      "descriptionByLocale": {
-        "it": "Open Air Gränichen è un festival di due giorni senza scopo di lucro per la scena hardcore, punk, metalcore e rock.",
-        "en": "Open Air Gränichen is a two-day non-profit festival for the hardcore, punk, metalcore and rock scene.",
-        "de": "Das Open Air Gränichen ist ein zweitägiges Non-Profit-Festival für die Hardcore-, Punk-, Metalcore- und Rock-Szene.",
-        "fr": "L'Open Air Gränichen est un festival de deux jours à but non lucratif pour la scène hardcore, punk, metalcore et rock."
-      },
-      "startDate": "2026-07-31",
-      "endDate": "2026-08-01",
-      "startTime": "12:00",
-      "category": "Festival / Incontro",
-      "venue": "Open Air Gränichen",
-      "comune": "Gränichen",
-      "canton": "AG",
-      "url": "https://www.guidle.com/it/veranstaltungen/alternativ/graenichen/open-air-graenichen-2026_AaZy1DQ",
-      "sourceKey": "guidle",
-      "sourceName": "Guidle",
-      "price": {
-        "amount": 100,
-        "currency": "CHF",
-        "isFree": false
-      },
-      "address": {
-        "street": "Moortalstrasse",
-        "postalCode": "5722"
-      },
-      "geo": {
-        "lat": 47.349127,
-        "lng": 8.104314
-      },
-      "recurring": true,
-      "imageUrl": "/images/events/guidle-AaZy1DQ.jpg"
-    },
-    {
       "id": "guidle:AmDEyrf",
       "title": "Ginial Bar – immer am 10. des Monats",
       "titleByLocale": {
@@ -1814,43 +1694,6 @@
       "imageUrl": "/images/events/guidle-AgjT41t.jpg"
     },
     {
-      "id": "guidle:AyhC97c",
-      "title": "Cari Cari Openair",
-      "titleByLocale": {
-        "it": "Cari Cari Openair",
-        "en": "Cari Cari Openair",
-        "de": "Cari Cari Openair",
-        "fr": "Cari Cari Openair"
-      },
-      "description": "Nach ihrem umjubelten Mühledebüt Anfang 2025 kehrt das österreichische Duo Cari Cari im August endlich zurück.",
-      "descriptionByLocale": {
-        "it": "Nach ihrem umjubelten Mühledebüt Anfang 2025 kehrt das österreichische Duo Cari Cari im August endlich zurück.",
-        "en": "Nach ihrem umjubelten Mühledebüt Anfang 2025 kehrt das österreichische Duo Cari Cari im August endlich zurück.",
-        "de": "Nach ihrem umjubelten Mühledebüt Anfang 2025 kehrt das österreichische Duo Cari Cari im August endlich zurück.",
-        "fr": "Nach ihrem umjubelten Mühledebüt Anfang 2025 kehrt das österreichische Duo Cari Cari im August endlich zurück."
-      },
-      "startDate": "2026-07-30",
-      "endDate": "2026-07-30",
-      "startTime": "19:00",
-      "category": "Indipendente / Alternative Rock",
-      "venue": "Mühle Hunziken",
-      "comune": "Rubigen",
-      "canton": "BE",
-      "url": "https://www.guidle.com/it/veranstaltungen/alternativ/rubigen/cari-cari-openair_AyhC97c",
-      "sourceKey": "guidle",
-      "sourceName": "Guidle",
-      "address": {
-        "street": "Hunziken 101",
-        "postalCode": "3113"
-      },
-      "geo": {
-        "lat": 46.8907188,
-        "lng": 7.5418315
-      },
-      "recurring": false,
-      "imageUrl": "/images/events/guidle-AyhC97c.jpg"
-    },
-    {
       "id": "guidle:A1WygTE",
       "title": "TAP Bern: «Härdöpfeler» – die hochprozentige Impro-Pokershow",
       "titleByLocale": {
@@ -2130,47 +1973,6 @@
       },
       "recurring": false,
       "imageUrl": "/images/events/guidle-AmdDDy2.jpg"
-    },
-    {
-      "id": "guidle:AR4eq3Y",
-      "title": "The Wombats (UK)",
-      "titleByLocale": {
-        "it": "The Wombats (UK)",
-        "en": "The Wombats (UK)",
-        "de": "The Wombats (UK)",
-        "fr": "The Wombats (UK)"
-      },
-      "description": "Türöffnung: 19h00Support: 20h00The Wombats: 21h00 Kaum eine Band versetzt ihre Fans so schnell in Tanzlaune wie The Wombats.",
-      "descriptionByLocale": {
-        "it": "Türöffnung: 19h00Support: 20h00The Wombats: 21h00 Kaum eine Band versetzt ihre Fans so schnell in Tanzlaune wie The Wombats.",
-        "en": "Türöffnung: 19h00Support: 20h00The Wombats: 21h00 Kaum eine Band versetzt ihre Fans so schnell in Tanzlaune wie The Wombats.",
-        "de": "Türöffnung: 19h00Support: 20h00The Wombats: 21h00 Kaum eine Band versetzt ihre Fans so schnell in Tanzlaune wie The Wombats.",
-        "fr": "Türöffnung: 19h00Support: 20h00The Wombats: 21h00 Kaum eine Band versetzt ihre Fans so schnell in Tanzlaune wie The Wombats."
-      },
-      "startDate": "2026-07-28",
-      "endDate": "2026-07-28",
-      "startTime": "20:00",
-      "category": "Indipendente / Alternative Rock",
-      "venue": "X-TRA",
-      "canton": "ZH",
-      "url": "https://www.guidle.com/it/veranstaltungen/alternativ/zuerich/the-wombats-uk_AR4eq3Y",
-      "sourceKey": "guidle",
-      "sourceName": "Guidle",
-      "price": {
-        "amount": 56,
-        "currency": "CHF",
-        "isFree": false
-      },
-      "address": {
-        "street": "Limmatstrasse 118",
-        "postalCode": "8005"
-      },
-      "geo": {
-        "lat": 47.3839834,
-        "lng": 8.5328258
-      },
-      "recurring": false,
-      "imageUrl": "/images/events/guidle-AR4eq3Y.jpg"
     },
     {
       "id": "guidle:A1w2C7H",
@@ -2705,43 +2507,6 @@
       "imageUrl": "/images/events/guidle-ATbaQyH.jpg"
     },
     {
-      "id": "guidle:AYXpJFr",
-      "title": "Old Sea Brigade & Luke Sital-Singh",
-      "titleByLocale": {
-        "it": "Old Sea Brigade & Luke Sital-Singh",
-        "en": "Old Sea Brigade & Luke Sital-Singh",
-        "de": "Old Sea Brigade & Luke Sital-Singh",
-        "fr": "Old Sea Brigade & Luke Sital-Singh"
-      },
-      "description": "Zum allerersten Mal stehen Old Sea Brigade &amp; Luke Sital-Singh gemeinsam im wohl idyllischsten Sommergarten überhaupt auf der Bühne – und besser könnte ein lauer Abend im<strong> Mü</strong>",
-      "descriptionByLocale": {
-        "it": "Zum allerersten Mal stehen Old Sea Brigade &amp; Luke Sital-Singh gemeinsam im wohl idyllischsten Sommergarten überhaupt auf der Bühne – und besser könnte ein lauer Abend im<strong> Mü</strong>",
-        "en": "Zum allerersten Mal stehen Old Sea Brigade &amp; Luke Sital-Singh gemeinsam im wohl idyllischsten Sommergarten überhaupt auf der Bühne – und besser könnte ein lauer Abend im<strong> Mü</strong>",
-        "de": "Zum allerersten Mal stehen Old Sea Brigade &amp; Luke Sital-Singh gemeinsam im wohl idyllischsten Sommergarten überhaupt auf der Bühne – und besser könnte ein lauer Abend im<strong> Mü</strong>",
-        "fr": "Zum allerersten Mal stehen Old Sea Brigade &amp; Luke Sital-Singh gemeinsam im wohl idyllischsten Sommergarten überhaupt auf der Bühne – und besser könnte ein lauer Abend im<strong> Mü</strong>"
-      },
-      "startDate": "2026-07-11",
-      "endDate": "2026-07-11",
-      "startTime": "19:00",
-      "category": "cantautore",
-      "venue": "Mühle Hunziken",
-      "comune": "Rubigen",
-      "canton": "BE",
-      "url": "https://www.guidle.com/it/veranstaltungen/alternativ/rubigen/old-sea-brigade-und-luke-sital-singh_AYXpJFr",
-      "sourceKey": "guidle",
-      "sourceName": "Guidle",
-      "address": {
-        "street": "Hunziken 101",
-        "postalCode": "3113"
-      },
-      "geo": {
-        "lat": 46.8907188,
-        "lng": 7.5418315
-      },
-      "recurring": false,
-      "imageUrl": "/images/events/guidle-AYXpJFr.jpg"
-    },
-    {
       "id": "guidle:AGtXXrD",
       "title": "Main Concept",
       "titleByLocale": {
@@ -2949,89 +2714,6 @@
       "imageUrl": "/images/events/guidle-AKZv4dT.jpg"
     },
     {
-      "id": "guidle:A4pdqiN",
-      "title": "Paradisco",
-      "titleByLocale": {
-        "it": "Paradisco",
-        "en": "Paradisco",
-        "de": "Paradisco",
-        "fr": "Paradisco"
-      },
-      "description": "Paradisco sind die Berner Sängerin und Elektronikerin Lea Heimann und ihre Blutsschwester, die Groove-Zauberin Katharina Reidy.",
-      "descriptionByLocale": {
-        "it": "Paradisco sind die Berner Sängerin und Elektronikerin Lea Heimann und ihre Blutsschwester, die Groove-Zauberin Katharina Reidy.",
-        "en": "Paradisco sind die Berner Sängerin und Elektronikerin Lea Heimann und ihre Blutsschwester, die Groove-Zauberin Katharina Reidy.",
-        "de": "Paradisco sind die Berner Sängerin und Elektronikerin Lea Heimann und ihre Blutsschwester, die Groove-Zauberin Katharina Reidy.",
-        "fr": "Paradisco sind die Berner Sängerin und Elektronikerin Lea Heimann und ihre Blutsschwester, die Groove-Zauberin Katharina Reidy."
-      },
-      "startDate": "2026-07-25",
-      "endDate": "2026-07-25",
-      "startTime": "20:30",
-      "category": "Sperimentale",
-      "venue": "Werkhof Egelsee",
-      "canton": "BE",
-      "url": "https://www.guidle.com/it/veranstaltungen/alternativ/bern/paradisco_A4pdqiN",
-      "sourceKey": "guidle",
-      "sourceName": "Guidle",
-      "price": {
-        "amount": 0,
-        "currency": "CHF",
-        "isFree": true
-      },
-      "address": {
-        "street": "Muristrasse 21E",
-        "postalCode": "3006"
-      },
-      "geo": {
-        "lat": 46.9436444,
-        "lng": 7.464051
-      },
-      "recurring": false,
-      "imageUrl": "/images/events/guidle-A4pdqiN.jpg"
-    },
-    {
-      "id": "guidle:AKy5cZw",
-      "title": "Fiddler's Green Openair",
-      "titleByLocale": {
-        "it": "Fiddler's Green Openair",
-        "en": "Fiddler's Green Openair",
-        "de": "Fiddler's Green Openair",
-        "fr": "Fiddler's Green Openair"
-      },
-      "description": "Fiddler’s Green kommen nach vier Jahren endlich zurück nach Rubigen! Dabei feiern sie auch gleich ihr 5. Mühlekonzert und wo ginge das besser als unter freiem Himmel auf der Bühne am Teich?",
-      "descriptionByLocale": {
-        "it": "Fiddler’s Green kommen nach vier Jahren endlich zurück nach Rubigen! Dabei feiern sie auch gleich ihr 5. Mühlekonzert und wo ginge das besser als unter freiem Himmel auf der Bühne am Teich?",
-        "en": "Fiddler’s Green kommen nach vier Jahren endlich zurück nach Rubigen! Dabei feiern sie auch gleich ihr 5. Mühlekonzert und wo ginge das besser als unter freiem Himmel auf der Bühne am Teich?",
-        "de": "Fiddler’s Green kommen nach vier Jahren endlich zurück nach Rubigen! Dabei feiern sie auch gleich ihr 5. Mühlekonzert und wo ginge das besser als unter freiem Himmel auf der Bühne am Teich?",
-        "fr": "Fiddler’s Green kommen nach vier Jahren endlich zurück nach Rubigen! Dabei feiern sie auch gleich ihr 5. Mühlekonzert und wo ginge das besser als unter freiem Himmel auf der Bühne am Teich?"
-      },
-      "startDate": "2026-07-31",
-      "endDate": "2026-07-31",
-      "startTime": "19:00",
-      "category": "Rock generalmente",
-      "venue": "Mühle Hunziken",
-      "comune": "Rubigen",
-      "canton": "BE",
-      "url": "https://www.guidle.com/it/veranstaltungen/kleinkunst/rubigen/fiddlers-green-openair_AKy5cZw",
-      "sourceKey": "guidle",
-      "sourceName": "Guidle",
-      "price": {
-        "amount": 37,
-        "currency": "CHF",
-        "isFree": false
-      },
-      "address": {
-        "street": "Hunziken 101",
-        "postalCode": "3113"
-      },
-      "geo": {
-        "lat": 46.8907188,
-        "lng": 7.5418315
-      },
-      "recurring": false,
-      "imageUrl": "/images/events/guidle-AKy5cZw.jpg"
-    },
-    {
       "id": "guidle:AKtVKVu",
       "title": "Taxibrousse",
       "titleByLocale": {
@@ -3113,48 +2795,6 @@
       },
       "recurring": false,
       "imageUrl": "/images/events/guidle-AxDEYUC.jpg"
-    },
-    {
-      "id": "guidle:AcrWeNu",
-      "title": "30. Waldrock Open-Air",
-      "titleByLocale": {
-        "it": "30. Waldrock Open-Air",
-        "en": "30. Waldrock Open-Air",
-        "de": "30. Waldrock Open-Air",
-        "fr": "30. Waldrock Open-Air"
-      },
-      "description": "Waldrock - we rock for kidz",
-      "descriptionByLocale": {
-        "it": "Waldrock - we rock for kidz",
-        "en": "Waldrock - we rock for kidz",
-        "de": "Waldrock - we rock for kidz",
-        "fr": "Waldrock - we rock for kidz"
-      },
-      "startDate": "2026-07-24",
-      "endDate": "2026-07-25",
-      "startTime": "19:00",
-      "category": "Festival / Incontro",
-      "venue": "Waldrock Open-Air",
-      "comune": "Herzogenbuchsee",
-      "canton": "BE",
-      "url": "https://www.guidle.com/it/veranstaltungen/alternativ/roethenbach-herzogenbuchsee/30-waldrock-open-air_AcrWeNu",
-      "sourceKey": "guidle",
-      "sourceName": "Guidle",
-      "price": {
-        "amount": 0,
-        "currency": "CHF",
-        "isFree": true
-      },
-      "address": {
-        "street": "Winkelgrube",
-        "postalCode": "3373"
-      },
-      "geo": {
-        "lat": 47.209045,
-        "lng": 7.684637
-      },
-      "recurring": true,
-      "imageUrl": "/images/events/guidle-AcrWeNu.jpg"
     },
     {
       "id": "guidle:AbAhmeP",
@@ -3436,47 +3076,6 @@
       "imageUrl": "/images/events/guidle-AHHgvs2.jpg"
     },
     {
-      "id": "guidle:AfFu6ZS",
-      "title": "DIRTY SOUND MAGNET - Eine der Besten Live Rock-Bands in der Kulti Wetzikon",
-      "titleByLocale": {
-        "it": "DIRTY SOUND MAGNET - Eine der Besten Live Rock-Bands in der Kulti Wetzikon",
-        "en": "DIRTY SOUND MAGNET - Eine der Besten Live Rock-Bands in der Kulti Wetzikon",
-        "de": "DIRTY SOUND MAGNET - Eine der Besten Live Rock-Bands in der Kulti Wetzikon",
-        "fr": "DIRTY SOUND MAGNET - Die Beste Live Band in der Kulti Wetzikon"
-      },
-      "description": "Ein unvergessliches Musik Erlebnis welches den Fans jeden Abend ein fröhliches Lächeln auf's Gesicht zaubert.",
-      "descriptionByLocale": {
-        "it": "Ein unvergessliches Musik Erlebnis welches den Fans jeden Abend ein fröhliches Lächeln auf's Gesicht zaubert.",
-        "en": "Ein unvergessliches Musik Erlebnis welches den Fans jeden Abend ein fröhliches Lächeln auf's Gesicht zaubert.",
-        "de": "Ein unvergessliches Musik Erlebnis welches den Fans jeden Abend ein fröhliches Lächeln auf's Gesicht zaubert.",
-        "fr": "Une expérience musicale inoubliable."
-      },
-      "startDate": "2026-07-18",
-      "endDate": "2026-07-18",
-      "startTime": "18:30",
-      "category": "Rock generalmente",
-      "venue": "Kulturfabrik Wetzikon",
-      "canton": "ZH",
-      "url": "https://www.guidle.com/it/veranstaltungen/alternativ/wetzikon-zh/dirty-sound-magnet-die-beste-live-band-in-der-kulti-wetzikon_AfFu6ZS",
-      "sourceKey": "guidle",
-      "sourceName": "Guidle",
-      "price": {
-        "amount": 25,
-        "currency": "CHF",
-        "isFree": false
-      },
-      "address": {
-        "street": "Zürcherstrasse 40/42",
-        "postalCode": "8620"
-      },
-      "geo": {
-        "lat": 47.3249644,
-        "lng": 8.7865442
-      },
-      "recurring": false,
-      "imageUrl": "/images/events/guidle-AfFu6ZS.jpg"
-    },
-    {
       "id": "guidle:ARNeMdW",
       "title": "Röseligarte",
       "titleByLocale": {
@@ -3594,43 +3193,6 @@
       },
       "recurring": false,
       "imageUrl": "/images/events/guidle-ANXM6pp.jpg"
-    },
-    {
-      "id": "guidle:AaA8DVB",
-      "title": "Dirty Sound Magnet",
-      "titleByLocale": {
-        "it": "Dirty Sound Magnet",
-        "en": "Dirty Sound Magnet",
-        "de": "Dirty Sound Magnet",
-        "fr": "Dirty Sound Magnet"
-      },
-      "description": "Dirty Sound Magnet stehen für hypnotische Sounds, wilde Dynamik und eine Live-Energie, die irgendwo zwischen Psychedelic-Rausch, Classic Rock und purem Kontrollverlust liegt.",
-      "descriptionByLocale": {
-        "it": "Dirty Sound Magnet stehen für hypnotische Sounds, wilde Dynamik und eine Live-Energie, die irgendwo zwischen Psychedelic-Rausch, Classic Rock und purem Kontrollverlust liegt.",
-        "en": "Dirty Sound Magnet stehen für hypnotische Sounds, wilde Dynamik und eine Live-Energie, die irgendwo zwischen Psychedelic-Rausch, Classic Rock und purem Kontrollverlust liegt.",
-        "de": "Dirty Sound Magnet stehen für hypnotische Sounds, wilde Dynamik und eine Live-Energie, die irgendwo zwischen Psychedelic-Rausch, Classic Rock und purem Kontrollverlust liegt.",
-        "fr": "Dirty Sound Magnet stehen für hypnotische Sounds, wilde Dynamik und eine Live-Energie, die irgendwo zwischen Psychedelic-Rausch, Classic Rock und purem Kontrollverlust liegt."
-      },
-      "startDate": "2026-07-10",
-      "endDate": "2026-07-10",
-      "startTime": "19:00",
-      "category": "Rock generalmente",
-      "venue": "Mühle Hunziken",
-      "comune": "Rubigen",
-      "canton": "BE",
-      "url": "https://www.guidle.com/it/veranstaltungen/alternativ/rubigen/dirty-sound-magnet_AaA8DVB",
-      "sourceKey": "guidle",
-      "sourceName": "Guidle",
-      "address": {
-        "street": "Hunziken 101",
-        "postalCode": "3113"
-      },
-      "geo": {
-        "lat": 46.8907188,
-        "lng": 7.5418315
-      },
-      "recurring": false,
-      "imageUrl": "/images/events/guidle-AaA8DVB.jpg"
     },
     {
       "id": "guidle:AkbMDGD",
@@ -4160,42 +3722,6 @@
       "imageUrl": "/images/events/guidle-A7qM3Fp.jpg"
     },
     {
-      "id": "guidle:ANCakNB",
-      "title": "Musikfestival Jardin Bizarre",
-      "titleByLocale": {
-        "it": "Musikfestival Jardin Bizarre",
-        "en": "Music Festival Jardin Bizarre",
-        "de": "Musikfestival Jardin Bizarre",
-        "fr": "Musikfestival Jardin Bizarre"
-      },
-      "description": "Sieben Bands aus der Schweiz und verschiedenen Ecken der Welt verzaubern während zwei Festivaltagen das Festivaltal mit einzigartigen Perlen der alternativen Rockmusik.",
-      "descriptionByLocale": {
-        "it": "Sieben Bands aus der Schweiz und verschiedenen Ecken der Welt verzaubern während zwei Festivaltagen das Festivaltal mit einzigartigen Perlen der alternativen Rockmusik.",
-        "en": "Seven bands from Switzerland and various corners of the world enchant the festival valley for two days with unique gems of alternative rock music.",
-        "de": "Sieben Bands aus der Schweiz und verschiedenen Ecken der Welt verzaubern während zwei Festivaltagen das Festivaltal mit einzigartigen Perlen der alternativen Rockmusik.",
-        "fr": "Sieben Bands aus der Schweiz und verschiedenen Ecken der Welt verzaubern während zwei Festivaltagen das Festivaltal mit einzigartigen Perlen der alternativen Rockmusik."
-      },
-      "startDate": "2026-07-25",
-      "endDate": "2026-07-26",
-      "startTime": "00:00",
-      "category": "Festival / Incontro",
-      "venue": "Alp Hobiel",
-      "comune": "Engelberg",
-      "canton": "OW",
-      "url": "https://www.guidle.com/it/events/music/engelberg/music-festival-jardin-bizarre_ANCakNB",
-      "sourceKey": "guidle",
-      "sourceName": "Guidle",
-      "address": {
-        "postalCode": "6390"
-      },
-      "geo": {
-        "lat": 46.808637,
-        "lng": 8.495521
-      },
-      "recurring": true,
-      "imageUrl": "/images/events/guidle-ANCakNB.jpg"
-    },
-    {
       "id": "guidle:AaS5Pqt",
       "title": "Anda Morts (AT) & Support",
       "titleByLocale": {
@@ -4431,47 +3957,6 @@
       "imageUrl": "/images/events/guidle-AtmRr1f.jpg"
     },
     {
-      "id": "guidle:ArvpkJQ",
-      "title": "Municipal Waste",
-      "titleByLocale": {
-        "it": "Municipal Waste",
-        "en": "Municipal Waste",
-        "de": "Municipal Waste",
-        "fr": "Municipal Waste"
-      },
-      "description": "<b>Crossover Thrash Metal in Zürich</b>",
-      "descriptionByLocale": {
-        "it": "<b>Crossover Thrash Metal in Zürich</b>",
-        "en": "<b>Crossover Thrash Metal in Zürich</b>",
-        "de": "<b>Crossover Thrash Metal in Zürich</b>",
-        "fr": "<b>Crossover Thrash Metal in Zürich</b>"
-      },
-      "startDate": "2026-07-23",
-      "endDate": "2026-07-23",
-      "startTime": "20:00",
-      "category": "Altri musica",
-      "venue": "Jugendkulturhaus Dynamo",
-      "canton": "ZH",
-      "url": "https://www.guidle.com/it/veranstaltungen/alternativ/zuerich/municipal-waste_ArvpkJQ",
-      "sourceKey": "guidle",
-      "sourceName": "Guidle",
-      "price": {
-        "amount": 43.9,
-        "currency": "CHF",
-        "isFree": false
-      },
-      "address": {
-        "street": "Wasserwerkstrasse 21",
-        "postalCode": "8006"
-      },
-      "geo": {
-        "lat": 47.3830325,
-        "lng": 8.5396693
-      },
-      "recurring": false,
-      "imageUrl": "/images/events/guidle-ArvpkJQ.jpg"
-    },
-    {
       "id": "guidle:AmJFUbB",
       "title": "NOX ORAE 2026",
       "titleByLocale": {
@@ -4554,6 +4039,615 @@
       },
       "recurring": false,
       "imageUrl": "/images/events/guidle-AtMYJsN.jpg"
+    },
+    {
+      "id": "guidle:AmGsbPe",
+      "title": "Konzert - Sturz in die Sonne",
+      "titleByLocale": {
+        "it": "Konzert - Sturz in die Sonne",
+        "en": "Concert - Fall into the sun",
+        "de": "Konzert-Sturm in die Sonne",
+        "fr": "Concert - Sturz in die Sonne"
+      },
+      "description": "Immersive Klangperformance inspiriert vom Roman «Sturz in die Sonne» von Charles Ferdinand Ramuz. Turntableorchester, Stimmen & Raumklang verbinden sich zu einem intensiven Konzert im Klanghaus",
+      "descriptionByLocale": {
+        "it": "Immersive Klangperformance inspiriert vom Roman «Sturz in die Sonne» von Charles Ferdinand Ramuz. Turntableorchester, Stimmen & Raumklang verbinden sich zu einem intensiven Konzert im Klanghaus",
+        "en": "Immersive Klangperformance inspired by Roman «Sturz in die Sonne» by Charles Ferdinand Ramuz. Turntable orchestra, Stimmen & Raumklang verbinden sich zu einem intensiven Konzert im Klanghaus",
+        "de": "Immersive Klangperformance inspiriert vom Roman „Sturz in die Sonne“ von Charles Ferdinand Ramuz. Plattenspielerorchester, Stimmen & Raumklang verbinden sich zu einem intensiven Konzert im Klanghaus",
+        "fr": "Immersive Klangperformance inspiriert vom Roman « Sturz in die Sonne » de Charles Ferdinand Ramuz. Turntableorchester, Stimmen & Raumklang verbinden sich zu einem intensiven Konzert im Klanghaus"
+      },
+      "startDate": "2026-09-05",
+      "endDate": "2026-09-05",
+      "startTime": "19:30",
+      "category": "Performance artistico",
+      "venue": "Klanghaus Toggenburg",
+      "canton": "SG",
+      "url": "https://www.guidle.com/it/veranstaltungen/alternativ/wildhaus/konzert-sturz-in-die-sonne_AmGsbPe",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 104,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Vordere Schwendistrasse 61",
+        "postalCode": "9658"
+      },
+      "geo": {
+        "lat": 47.1886732,
+        "lng": 9.3296006
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-AmGsbPe.jpg"
+    },
+    {
+      "id": "guidle:ARrHhaK",
+      "title": "Alcest (FR)",
+      "titleByLocale": {
+        "it": "Alcest (FR)",
+        "en": "Alcest (FR)",
+        "de": "Alcest (FR)",
+        "fr": "Alceste (FR)"
+      },
+      "description": "Wie so oft verlangen ALCEST ihren Hörer:innen Geduld ab, mäandern durch verschiedene Stimmungen, und lassen ihre Musik in einem Ausbruch an Emotion kulminieren.",
+      "descriptionByLocale": {
+        "it": "Wie so oft verlangen ALCEST ihren Hörer:innen Geduld ab, mäandern durch verschiedene Stimmungen, und lassen ihre Musik in einem Ausbruch an Emotion kulminieren.",
+        "en": "How often ALCEST ihren Hörer:innen Geduld ab, mäandern durch verschiedene Stimmungen, und lassen ihre Musik in einem Ausbruch an Emotion kulminieren.",
+        "de": "Wie so oft verlangen ALCEST ihren Hörer:innen Geduld ab, mäandern durch verschiedene Stimmungen, und lassen sie ihre Musik in einem Ausbruch an Emotion kulminieren.",
+        "fr": "Wie so oft verlangen ALCEST ihren Hörer :innen Geduld ab, mäandern durch verschiedene Stimmungen, und lassen ihre Musik in einem Ausbruch an Emotion kulminieren."
+      },
+      "startDate": "2026-08-13",
+      "endDate": "2026-08-13",
+      "startTime": "19:00",
+      "category": "Metal / Hardcore",
+      "venue": "KiFF - Kultur in der Futterfabrik",
+      "comune": "Aarau",
+      "canton": "AG",
+      "url": "https://www.guidle.com/it/veranstaltungen/musik/aarau/alcest-fr_ARrHhaK",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Tellistrasse 118",
+        "postalCode": "5000"
+      },
+      "geo": {
+        "lat": 47.3985618,
+        "lng": 8.0647273
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-ARrHhaK.jpg"
+    },
+    {
+      "id": "guidle:AEXsUJY",
+      "title": "ZÜRI BATTLE 2026",
+      "titleByLocale": {
+        "it": "ZÜRI BATTLE 2026",
+        "en": "ZRI",
+        "de": "ZÜRI-SCHLACHT 2026",
+        "fr": "BATAILLE DE ZIURI 2026"
+      },
+      "description": "HIP HOP ZOO & Aight present: ZÜRI BATTLE 2026feat. Special Showcase Datum: Samstag, 19.",
+      "descriptionByLocale": {
+        "it": "HIP HOP ZOO & Aight present: ZÜRI BATTLE 2026feat. Special Showcase Datum: Samstag, 19.",
+        "en": "HIP HOP ZOO & Aight present: ZRI Special Shoase Case Datum: Samstag, 19.",
+        "de": "HIP HOP ZOO & Aight präsentieren: ZÜRI BATTLE 2026 mit Special Showcase Datum: Samstag, 19.",
+        "fr": "HIP HOP ZOO & Aight present : ZÜRI BATTLE 2026feat. Special Showcase Datum : Samstag, 19."
+      },
+      "startDate": "2026-09-19",
+      "endDate": "2026-09-19",
+      "startTime": "20:30",
+      "category": "Altri eventi",
+      "venue": "Jugendkulturhaus Dynamo",
+      "canton": "ZH",
+      "url": "https://www.guidle.com/it/veranstaltungen/alternativ/zuerich/zueri-battle-2026_AEXsUJY",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 25,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Wasserwerkstrasse 21",
+        "postalCode": "8006"
+      },
+      "geo": {
+        "lat": 47.3830325,
+        "lng": 8.5396693
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-AEXsUJY.jpg"
+    },
+    {
+      "id": "guidle:A2mHr6q",
+      "title": "«Musik und Szene in Transformation» Master Festival",
+      "titleByLocale": {
+        "it": "«Musik und Szene in Transformation» Master Festival",
+        "en": "\"Music and scene in transformation\" Master Festival",
+        "de": "„Musik und Szene in Transformation“ Master Festival",
+        "fr": "« Musik und Szene in Transformation » Master Festival"
+      },
+      "description": "Emilė Ribokaitė",
+      "descriptionByLocale": {
+        "it": "Emilė Ribokaitė",
+        "en": "Emile Ribokaite",
+        "de": "Emile Ribokaite",
+        "fr": "Émile Ribokaïte"
+      },
+      "startDate": "2026-09-25",
+      "endDate": "2026-09-25",
+      "startTime": "20:00",
+      "category": "Festival / Incontro",
+      "venue": "Gare du Nord",
+      "canton": "BS",
+      "url": "https://www.guidle.com/it/veranstaltungen/dies-das/basel/musik-und-szene-in-transformation-master-festival_A2mHr6q",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 0,
+        "currency": "CHF",
+        "isFree": true
+      },
+      "address": {
+        "street": "Schwarzwaldallee 200",
+        "postalCode": "4058"
+      },
+      "geo": {
+        "lat": 47.5673897,
+        "lng": 7.6070845
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-A2mHr6q.jpg"
+    },
+    {
+      "id": "guidle:Acv6rYJ",
+      "title": "Pelicans Music Night",
+      "titleByLocale": {
+        "it": "Wildenstein all'aria aperta 2026",
+        "en": "Wildenstein Open Air 2026",
+        "de": "Wildenstein Openair 2026",
+        "fr": "Wildenstein Open Air 2026"
+      },
+      "description": "Musica dal vivo al massimo con Oli Oesch/Michel Trutmann e i Pelicans di Bubendorf in una splendida cornice di fronte al castello di Wildenstein.",
+      "descriptionByLocale": {
+        "it": "Musica dal vivo al massimo con Oli Oesch/Michel Trutmann e i Pelicans di Bubendorf in una splendida cornice di fronte al castello di Wildenstein.",
+        "en": "Live music at its best with Oli Oesch/Michel Trutmann and the Pelicans from Bubendorf in a beautiful setting in front of Wildenstein Castle.",
+        "de": "Live-Musik vom Feinsten bei wunderschöner Kulisse vor dem Schloss Wildenstein.",
+        "fr": "Le meilleur de la musique live avec Oli Oesch/Michel Trutmann et les Pelicans de Bubendorf dans un cadre magnifique devant le château de Wildenstein."
+      },
+      "startDate": "2026-08-15",
+      "endDate": "2026-08-15",
+      "startTime": "17:00",
+      "category": "Open Air",
+      "venue": "Hof Wildenstein",
+      "comune": "Bubendorf",
+      "canton": "BL",
+      "url": "https://www.guidle.com/it/eventi/alternativo/bubendorf/pelicans-music-night_Acv6rYJ",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 20,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Wildensteinerstrasse",
+        "postalCode": "4416"
+      },
+      "geo": {
+        "lat": 47.43071406349738,
+        "lng": 7.737418137048353
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-Acv6rYJ.jpg"
+    },
+    {
+      "id": "guidle:ACdwvXZ",
+      "title": "Schiller",
+      "titleByLocale": {
+        "it": "Schiller",
+        "en": "Schiller",
+        "de": "Schiller",
+        "fr": "Schiller"
+      },
+      "description": "Deutschlands Meister der elektronischen Klangwelten - unter dem Sternenhimmel wird der Sommer hörbar",
+      "descriptionByLocale": {
+        "it": "Deutschlands Meister der elektronischen Klangwelten - unter dem Sternenhimmel wird der Sommer hörbar",
+        "en": "Germany's masters of electronic soundscapes - summer becomes audible under the starry sky",
+        "de": "Deutschlands Meister der elektronischen Klangwelten – unter dem Sternenhimmel wird der Sommer hörbar",
+        "fr": "Deutschlands Meister der elektronischen Klangwelten - sous le Sternenhimmel wird der Sommer hörbar"
+      },
+      "startDate": "2026-09-11",
+      "endDate": "2026-09-11",
+      "startTime": "20:00",
+      "category": "Pop generalmente",
+      "venue": "Schlossgarten Insel Mainau",
+      "canton": "",
+      "url": "https://www.guidle.com/it/veranstaltungen/alternativ/konstanz/schiller_ACdwvXZ",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 54.9,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Insel Mainau",
+        "postalCode": "78465"
+      },
+      "geo": {
+        "lat": 47.7054864,
+        "lng": 9.195575
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-ACdwvXZ.jpg"
+    },
+    {
+      "id": "guidle:AiTkmEC",
+      "title": "Blood Red Shoes",
+      "titleByLocale": {
+        "it": "Blood Red Shoes",
+        "en": "Blood Red Shoes",
+        "de": "Blood Red Shoes",
+        "fr": "Blood Red Shoes"
+      },
+      "description": "Hallo, wir sind Blood Red Shoes, ein Duo bestehend aus Laura-Mary Carter (Gitarre und Gesang) und Steven Ansell (Schlagzeug und Gesang).",
+      "descriptionByLocale": {
+        "it": "Hallo, wir sind Blood Red Shoes, ein Duo bestehend aus Laura-Mary Carter (Gitarre und Gesang) und Steven Ansell (Schlagzeug und Gesang).",
+        "en": "Hallo, wir sind Blood Red Shoes, ein Duo bestehend aus Laura-Mary Carter (Gitarre und Gesang) und Steven Ansell (Schlagzeug und Gesang).",
+        "de": "Hallo, wir sind Blood Red Shoes, ein Duo bestehend aus Laura-Mary Carter (Gitarre und Gesang) und Steven Ansell (Schlagzeug und Gesang).",
+        "fr": "Hallo, wir sind Blood Red Shoes, ein Duo bestehend aus Laura-Mary Carter (Gitarre und Gesang) und Steven Ansell (Schlagzeug und Gesang)."
+      },
+      "startDate": "2026-10-08",
+      "endDate": "2026-10-08",
+      "startTime": "19:30",
+      "category": "Rock generalmente",
+      "venue": "Plaza Klub",
+      "canton": "ZH",
+      "url": "https://www.guidle.com/it/veranstaltungen/alternativ/zuerich/blood-red-shoes_AiTkmEC",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 39.8,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Badenerstrasse 109",
+        "postalCode": "8004"
+      },
+      "geo": {
+        "lat": 47.3740855,
+        "lng": 8.5246346
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-AiTkmEC.jpg"
+    },
+    {
+      "id": "guidle:AhSXNRF",
+      "title": "Triggerfinger",
+      "titleByLocale": {
+        "it": "Triggerfinger",
+        "en": "Triggerfinger",
+        "de": "Triggerfinger",
+        "fr": "Triggerfinger"
+      },
+      "description": "Rock",
+      "descriptionByLocale": {
+        "it": "Rock",
+        "en": "Rock",
+        "de": "Rock",
+        "fr": "Rock"
+      },
+      "startDate": "2026-10-15",
+      "endDate": "2026-10-15",
+      "startTime": "20:00",
+      "category": "Rock generalmente",
+      "venue": "Albani Music Club",
+      "comune": "Winterthur",
+      "canton": "ZH",
+      "url": "https://www.guidle.com/it/veranstaltungen/alternativ/winterthur/triggerfinger_AhSXNRF",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 21,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Steinberggasse 16",
+        "postalCode": "8400"
+      },
+      "geo": {
+        "lat": 47.4984843,
+        "lng": 8.7291693
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-AhSXNRF.jpg"
+    },
+    {
+      "id": "guidle:A3KPT6B",
+      "title": "Yak trekking",
+      "titleByLocale": {
+        "it": "Yak trekking",
+        "en": "Yak trekking",
+        "de": "Yak trekking",
+        "fr": "Yak trekking"
+      },
+      "description": "Ein unvergesslicher Moment zwischen Erde und Himmel.",
+      "descriptionByLocale": {
+        "it": "Ein unvergesslicher Moment zwischen Erde und Himmel.",
+        "en": "An unforgettable moment between earth and sky.",
+        "de": "Ein unvergesslicher Moment zwischen Erde und Himmel.",
+        "fr": "Un moment inoubliable entre terre et ciel."
+      },
+      "startDate": "2026-08-08",
+      "endDate": "2026-08-08",
+      "startTime": "09:30",
+      "category": "Escursionismo",
+      "venue": "Office du Tourisme Veysonnaz",
+      "comune": "Veysonnaz",
+      "canton": "VS",
+      "url": "https://www.guidle.com/it/veranstaltungen/alternativ/veysonnaz/yak-trekking_A3KPT6B",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 40,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Route de Magrappé 42",
+        "postalCode": "1993"
+      },
+      "geo": {
+        "lat": 46.1956086,
+        "lng": 7.3439529
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-A3KPT6B.jpg"
+    },
+    {
+      "id": "guidle:At3Gh5R",
+      "title": "Tristan Brusch - Am Anfang Tour 2026 - Die Zugabe",
+      "titleByLocale": {
+        "it": "Tristan Brusch - Am Anfang Tour 2026 - Die Zugabe",
+        "en": "Tristan Brusch - Am Anfang Tour 2026 - Die Zugabe",
+        "de": "Tristan Brusch - Am Anfang Tour 2026 - Die Zugabe",
+        "fr": "Tristan Brusch - Am Anfang Tour 2026 - Die Zugabe"
+      },
+      "description": "Nach einem nahezu restlos ausverkauften ersten Teil der „Am Anfang“-Tour kommt Tristan Brusch zurück für eine Zugabe – weil es sich richtig anfühlt. Und weil so viele noch dabei sein wollen.",
+      "descriptionByLocale": {
+        "it": "Nach einem nahezu restlos ausverkauften ersten Teil der „Am Anfang“-Tour kommt Tristan Brusch zurück für eine Zugabe – weil es sich richtig anfühlt. Und weil so viele noch dabei sein wollen.",
+        "en": "Nach einem nahezu restlos ausverkauften ersten Teil der „Am Anfang“-Tour kommt Tristan Brusch zurück für eine Zugabe – weil es sich richtig anfühlt. Und weil so viele noch dabei sein wollen.",
+        "de": "Nach einem nahezu restlos ausverkauften ersten Teil der „Am Anfang“-Tour kommt Tristan Brusch zurück für eine Zugabe – weil es sich richtig anfühlt. Und weil so viele noch dabei sein wollen.",
+        "fr": "Nach einem nahezu restlos ausverkauften ersten Teil der „Am Anfang“-Tour kommt Tristan Brusch zurück für eine Zugabe – weil es sich richtig anfühlt. Und weil so viele noch dabei sein wollen."
+      },
+      "startDate": "2026-10-08",
+      "endDate": "2026-10-08",
+      "startTime": "20:00",
+      "category": "Pop generalmente",
+      "venue": "Kulturladen",
+      "canton": "",
+      "url": "https://www.guidle.com/it/veranstaltungen/alternativ/konstanz/tristan-brusch-am-anfang-tour-2026-die-zugabe_At3Gh5R",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 31,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Joseph-Belli-Weg 5",
+        "postalCode": "78467"
+      },
+      "geo": {
+        "lat": 47.6789501,
+        "lng": 9.1632133
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-At3Gh5R.jpg"
+    },
+    {
+      "id": "guidle:AR5dM91",
+      "title": "Musikfestival Oerlikon 2026",
+      "titleByLocale": {
+        "it": "Musikfestival Oerlikon 2026",
+        "en": "Musikfestival Oerlikon 2026",
+        "de": "Musikfestival Oerlikon 2026",
+        "fr": "Musikfestival Oerlikon 2026"
+      },
+      "description": "Das Musikfestival Oerlikon lädt ein, das Quartier durch lokale Musik neu zu entdecken. Drei einzigartige Locations, ein vielseitiges Line-up und echte Festivalatmosphäre – abseits des Mainstreams.",
+      "descriptionByLocale": {
+        "it": "Das Musikfestival Oerlikon lädt ein, das Quartier durch lokale Musik neu zu entdecken. Drei einzigartige Locations, ein vielseitiges Line-up und echte Festivalatmosphäre – abseits des Mainstreams.",
+        "en": "Das Musikfestival Oerlikon lädt ein, das Quartier durch lokale Musik neu zu entdecken. Drei einzigartige Locations, ein vielseitiges Line-up und echte Festivalatmosphäre – abseits des Mainstreams.",
+        "de": "Das Musikfestival Oerlikon lädt ein, das Quartier durch lokale Musik neu zu entdecken. Drei einzigartige Locations, ein vielseitiges Line-up und echte Festivalatmosphäre – abseits des Mainstreams.",
+        "fr": "Das Musikfestival Oerlikon lädt ein, das Quartier durch lokale Musik neu zu entdecken. Drei einzigartige Locations, ein vielseitiges Line-up und echte Festivalatmosphäre – abseits des Mainstreams."
+      },
+      "startDate": "2026-09-19",
+      "endDate": "2026-09-19",
+      "startTime": "16:30",
+      "category": "Festival / Incontro",
+      "venue": "Zürich-Oerlikon",
+      "comune": "Zürich",
+      "canton": "ZH",
+      "url": "https://www.guidle.com/it/veranstaltungen/alternativ/zuerich/musikfestival-oerlikon-2026_AR5dM91",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 3,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "postalCode": "8050"
+      },
+      "geo": {
+        "lat": 47.416024,
+        "lng": 8.554538
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-AR5dM91.jpg"
+    },
+    {
+      "id": "guidle:AgZW1Ga",
+      "title": "FRISKA VILJOR",
+      "titleByLocale": {
+        "it": "FRISKA VILJOR",
+        "en": "FRISKA VILJOR",
+        "de": "FRISKA VILJOR",
+        "fr": "FRISKA VILJOR"
+      },
+      "description": "Wir haben Friska Viljor früh im Leben gegründet – als junge Erwachsene, orientierungslos und ohne klare Richtung.",
+      "descriptionByLocale": {
+        "it": "Wir haben Friska Viljor früh im Leben gegründet – als junge Erwachsene, orientierungslos und ohne klare Richtung.",
+        "en": "Wir haben Friska Viljor früh im Leben gegründet – als junge Erwachsene, orientierungslos und ohne klare Richtung.",
+        "de": "Wir haben Friska Viljor früh im Leben gegründet – als junge Erwachsene, orientierungslos und ohne klare Richtung.",
+        "fr": "Wir haben Friska Viljor früh im Leben gegründet – als junge Erwachsene, orientierungslos und ohne klare Richtung."
+      },
+      "startDate": "2026-09-04",
+      "endDate": "2026-09-04",
+      "startTime": "20:00",
+      "category": "Pop generalmente",
+      "venue": "Werkraum Warteck pp",
+      "canton": "BS",
+      "url": "https://www.guidle.com/it/veranstaltungen/alternativ/basel/friska-viljor_AgZW1Ga",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Burgweg 7",
+        "postalCode": "4058"
+      },
+      "geo": {
+        "lat": 47.5582951,
+        "lng": 7.6010703
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-AgZW1Ga.jpg"
+    },
+    {
+      "id": "guidle:A3irNee",
+      "title": "Dachs & Friends (CH) & Support",
+      "titleByLocale": {
+        "it": "Dachs & Friends (CH) & Support",
+        "en": "Dachs & Friends (CH) & Support",
+        "de": "Dachs & Friends (CH) & Support",
+        "fr": "Dachs & Friends (CH) & Support"
+      },
+      "description": "Der Dachs ist ein scheues Raubtier und hält seinen Bau sauber. Man erspäht ihn meist nach Sonnenuntergang in Waldrandnähe.",
+      "descriptionByLocale": {
+        "it": "Der Dachs ist ein scheues Raubtier und hält seinen Bau sauber. Man erspäht ihn meist nach Sonnenuntergang in Waldrandnähe.",
+        "en": "Der Dachs ist ein scheues Raubtier und hält seinen Bau sauber. Man erspäht ihn meist nach Sonnenuntergang in Waldrandnähe.",
+        "de": "Der Dachs ist ein scheues Raubtier und hält seinen Bau sauber. Man erspäht ihn meist nach Sonnenuntergang in Waldrandnähe.",
+        "fr": "Der Dachs ist ein scheues Raubtier und hält seinen Bau sauber. Man erspäht ihn meist nach Sonnenuntergang in Waldrandnähe."
+      },
+      "startDate": "2026-10-09",
+      "endDate": "2026-10-09",
+      "startTime": "20:30",
+      "category": "Altri eventi",
+      "venue": "Bogen F",
+      "canton": "ZH",
+      "url": "https://www.guidle.com/it/veranstaltungen/dies-das/zuerich/dachs-und-friends-ch_A3irNee",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 35,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Viaduktstrasse 97",
+        "postalCode": "8005"
+      },
+      "geo": {
+        "lat": 47.3847733,
+        "lng": 8.5208588
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-A3irNee.jpg"
+    },
+    {
+      "id": "guidle:AKGEEh2",
+      "title": "Jesca Hoop (US) & Support",
+      "titleByLocale": {
+        "it": "Jesca Hoop (US) & Support",
+        "en": "Jesca Hoop (US) & Support",
+        "de": "Jesca Hoop (US) & Support",
+        "fr": "Jesca Hoop (US) & Support"
+      },
+      "description": "Es war ein langer Weg, bis JESCA HOOP bei der Musik angekommen war.",
+      "descriptionByLocale": {
+        "it": "Es war ein langer Weg, bis JESCA HOOP bei der Musik angekommen war.",
+        "en": "Es war ein langer Weg, bis JESCA HOOP bei der Musik angekommen war.",
+        "de": "Es war ein langer Weg, bis JESCA HOOP bei der Musik angekommen war.",
+        "fr": "Es war ein langer Weg, bis JESCA HOOP bei der Musik angekommen war."
+      },
+      "startDate": "2026-09-24",
+      "endDate": "2026-09-24",
+      "startTime": "20:30",
+      "category": "Altri eventi",
+      "venue": "Bogen F",
+      "canton": "ZH",
+      "url": "https://www.guidle.com/it/veranstaltungen/dies-das/zuerich/jesca-hoop-us-und-support_AKGEEh2",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 35,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Viaduktstrasse 97",
+        "postalCode": "8005"
+      },
+      "geo": {
+        "lat": 47.3847733,
+        "lng": 8.5208588
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-AKGEEh2.jpg"
+    },
+    {
+      "id": "guidle:AYMuBp1",
+      "title": "Kapa Tult (DE) & Support",
+      "titleByLocale": {
+        "it": "Kapa Tult (DE) & Support",
+        "en": "Kapa Tult (DE) & Support",
+        "de": "Kapa Tult (DE) & Support",
+        "fr": "Kapa Tult (DE) & Support"
+      },
+      "description": "Diesen Satz kopieren wir gleich aus der offiziellen Band-Bio, denn besser kann man die neue Platte „Immer alles gleichzeitig“ von KAPA TULT nicht auf den Punkt bringen: „Ein Album wie ein Vulkan:",
+      "descriptionByLocale": {
+        "it": "Diesen Satz kopieren wir gleich aus der offiziellen Band-Bio, denn besser kann man die neue Platte „Immer alles gleichzeitig“ von KAPA TULT nicht auf den Punkt bringen: „Ein Album wie ein Vulkan:",
+        "en": "Diesen Satz kopieren wir gleich aus der offiziellen Band-Bio, denn besser kann man die neue Platte „Immer alles gleichzeitig“ von KAPA TULT nicht auf den Punkt bringen: „Ein Album wie ein Vulkan:",
+        "de": "Diesen Satz kopieren wir gleich aus der offiziellen Band-Bio, denn besser kann man die neue Platte „Immer alles gleichzeitig“ von KAPA TULT nicht auf den Punkt bringen: „Ein Album wie ein Vulkan:",
+        "fr": "Diesen Satz kopieren wir gleich aus der offiziellen Band-Bio, denn besser kann man die neue Platte „Immer alles gleichzeitig“ von KAPA TULT nicht auf den Punkt bringen: „Ein Album wie ein Vulkan:"
+      },
+      "startDate": "2026-10-17",
+      "endDate": "2026-10-17",
+      "startTime": "20:30",
+      "category": "Altri eventi",
+      "venue": "Bogen F",
+      "canton": "ZH",
+      "url": "https://www.guidle.com/it/veranstaltungen/dies-das/zuerich/kapa-tult-de-und-support_AYMuBp1",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 35,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Viaduktstrasse 97",
+        "postalCode": "8005"
+      },
+      "geo": {
+        "lat": 47.3847733,
+        "lng": 8.5208588
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-AYMuBp1.jpg"
     }
   ]
 }
