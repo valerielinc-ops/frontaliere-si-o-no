@@ -1,6 +1,6 @@
 {
   "crawlerKey": "jumbo",
-  "assembledAt": "2026-08-03T12:35:47.049Z",
+  "assembledAt": "2026-08-03T11:43:44.777Z",
   "jobs": [
     {
       "id": "jumbo-0c1325ee-198",
@@ -5410,7 +5410,9 @@
         "sales-advisor-garden-and-plants-jumbo-division-der-coop-genossenschaft-arbon",
         "conseiller-de-vente-jardin-et-plantes-jumbo-division-der-coop-genossenschaft-arbon",
         "sales-consultant-in-garden-and-plants-jumbo-division-der-coop-genossenschaft-arbon",
-        "sales-consultant-garden-and-plants-jumbo-division-der-coop-genossenschaft-arbon"
+        "sales-consultant-garden-and-plants-jumbo-division-der-coop-genossenschaft-arbon",
+        "verkaufsberater-in-garden-e-pflanzen-jumbo-division-der-coop-genossenschaft-arbon-thurgau-ejgfg4",
+        "verkaufsberater-in-garden-und-pflanzen-jumbo-division-der-coop-genossenschaft-arbon-thurgau-ejgfg4"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -5421,14 +5423,17 @@
           "sales-advisor-garden-and-plants-jumbo-division-der-coop-genossenschaft-arbon",
           "conseiller-de-vente-jardin-et-plantes-jumbo-division-der-coop-genossenschaft-arbon",
           "sales-consultant-in-garden-and-plants-jumbo-division-der-coop-genossenschaft-arbon",
-          "sales-consultant-garden-and-plants-jumbo-division-der-coop-genossenschaft-arbon"
+          "sales-consultant-garden-and-plants-jumbo-division-der-coop-genossenschaft-arbon",
+          "verkaufsberater-in-garden-e-pflanzen-jumbo-division-der-coop-genossenschaft-arbon-thurgau-ejgfg4",
+          "verkaufsberater-in-garden-und-pflanzen-jumbo-division-der-coop-genossenschaft-arbon-thurgau-ejgfg4"
         ],
         "en": [
           "verkaufsberater-in-garden-und-pflanzen-jumbo-arbon",
           "sales-advisor-in-garden-and-plants-jumbo-arbon"
         ],
         "de": [
-          "verkaufsberater-in-garden-und-pflanzen-jumbo-arbon"
+          "verkaufsberater-in-garden-und-pflanzen-jumbo-arbon",
+          "verkaufsberater-in-garden-und-pflanzen-jumbo-division-der-coop-genossenschaft-arbon-thurgau-ejgfg4"
         ],
         "fr": [
           "verkaufsberater-in-garden-und-pflanzen-jumbo-arbon",
@@ -5436,7 +5441,6 @@
         ]
       },
       "firstSeenAt": "2026-07-17T11:19:55.699Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -5448,7 +5452,8 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "jumbo-8b6f6d05-19d",

@@ -1,6 +1,6 @@
 {
   "crawlerKey": "ffs-officine-ferrovie-federali",
-  "assembledAt": "2026-08-03T12:56:43.748Z",
+  "assembledAt": "2026-08-03T11:33:01.285Z",
   "jobs": [
     {
       "id": "sbb-fb9d13c03800",
@@ -2319,11 +2319,28 @@
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-08-03T12:50:53.334Z",
       "previousSlugs": [
-        "ressourcenplaner-in-ffs-officine-ferrovie-federali-zurich-altstetten"
+        "ressourcenplaner-in-ffs-officine-ferrovie-federali-zurich-altstetten",
+        "formatore-professionale-in-automazione-ffs-officine-ferrovie-federali-zurich-altstetten",
+        "vocational-trainer-automation-ffs-officine-ferrovie-federali-zurich-altstetten",
+        "berufsbildner-in-automation-ffs-officine-ferrovie-federali-zurich-altstetten",
+        "formateur-triceen-automatisation-ffs-officine-ferrovie-federali-zurich-altstetten"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ressourcenplaner-in-ffs-officine-ferrovie-federali-zurich-altstetten"
+          "ressourcenplaner-in-ffs-officine-ferrovie-federali-zurich-altstetten",
+          "formatore-professionale-in-automazione-ffs-officine-ferrovie-federali-zurich-altstetten",
+          "vocational-trainer-automation-ffs-officine-ferrovie-federali-zurich-altstetten",
+          "berufsbildner-in-automation-ffs-officine-ferrovie-federali-zurich-altstetten",
+          "formateur-triceen-automatisation-ffs-officine-ferrovie-federali-zurich-altstetten"
+        ],
+        "en": [
+          "vocational-trainer-automation-ffs-officine-ferrovie-federali-zurich-altstetten"
+        ],
+        "de": [
+          "berufsbildner-in-automation-ffs-officine-ferrovie-federali-zurich-altstetten"
+        ],
+        "fr": [
+          "formateur-triceen-automatisation-ffs-officine-ferrovie-federali-zurich-altstetten"
         ]
       },
       "firstSeenAt": "2026-07-29T11:55:10.321Z",
@@ -2761,11 +2778,28 @@
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-08-03T12:51:08.718Z",
       "previousSlugs": [
-        "chefmonteur-in-fahrleitungszugmaschine-fzm-ffs-officine-ferrovie-federali-dulliken"
+        "chefmonteur-in-fahrleitungszugmaschine-fzm-ffs-officine-ferrovie-federali-dulliken",
+        "agente-di-condotta-in-cat-a-macchina-di-trazione-della-linea-di-contatto-fzm-ffs-officine-ferrovie-federali-dulliken",
+        "train-driver-cat-a-overhead-contact-line-tractor-fzm-ffs-officine-ferrovie-federali-dulliken",
+        "triebfahrzeugfuhrer-in-kat-a-fahrleitungszugmaschine-fzm-ffs-officine-ferrovie-federali-dulliken",
+        "conducteur-de-train-en-cat-a-tracteur-de-cat-a-fzm-ffs-officine-ferrovie-federali-dulliken"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "chefmonteur-in-fahrleitungszugmaschine-fzm-ffs-officine-ferrovie-federali-dulliken"
+          "chefmonteur-in-fahrleitungszugmaschine-fzm-ffs-officine-ferrovie-federali-dulliken",
+          "agente-di-condotta-in-cat-a-macchina-di-trazione-della-linea-di-contatto-fzm-ffs-officine-ferrovie-federali-dulliken",
+          "train-driver-cat-a-overhead-contact-line-tractor-fzm-ffs-officine-ferrovie-federali-dulliken",
+          "triebfahrzeugfuhrer-in-kat-a-fahrleitungszugmaschine-fzm-ffs-officine-ferrovie-federali-dulliken",
+          "conducteur-de-train-en-cat-a-tracteur-de-cat-a-fzm-ffs-officine-ferrovie-federali-dulliken"
+        ],
+        "en": [
+          "train-driver-cat-a-overhead-contact-line-tractor-fzm-ffs-officine-ferrovie-federali-dulliken"
+        ],
+        "de": [
+          "triebfahrzeugfuhrer-in-kat-a-fahrleitungszugmaschine-fzm-ffs-officine-ferrovie-federali-dulliken"
+        ],
+        "fr": [
+          "conducteur-de-train-en-cat-a-tracteur-de-cat-a-fzm-ffs-officine-ferrovie-federali-dulliken"
         ]
       },
       "firstSeenAt": "2026-07-28T22:12:05.883Z",
@@ -4877,7 +4911,11 @@
         "responsabile-costruzioni-responsabile-senior-costruzioni-stradale-ffs-officine-ferrovie-federali-zurich",
         "site-manager-superstructure-manager-roadway-ffs-officine-ferrovie-federali-zurich",
         "bauleiter-in-oberbauleiter-in-fahrbahn-ffs-officine-ferrovie-federali-zurich",
-        "directeur-de-construction-in-superstructure-manager-in-road-ffs-officine-ferrovie-federali-zurich"
+        "directeur-de-construction-in-superstructure-manager-in-road-ffs-officine-ferrovie-federali-zurich",
+        "capo-sezione-in-galleria-nel-grande-progetto-di-zurigo-stadelhofen-ffs-officine-ferrovie-federali-zurich-altstetten",
+        "section-manager-tunnel-in-the-zurich-stadelhofen-major-project-ffs-officine-ferrovie-federali-zurich-altstetten",
+        "abschnittsleiter-in-tunnel-im-grossprojekt-zurich-stadelhofen-ffs-officine-ferrovie-federali-zurich-altstetten",
+        "chef-de-section-en-tunnel-dans-le-projet-stadelhofen-de-zurich-ffs-officine-ferrovie-federali-zurich-altstetten"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4894,18 +4932,25 @@
           "responsabile-costruzioni-responsabile-senior-costruzioni-stradale-ffs-officine-ferrovie-federali-zurich",
           "site-manager-superstructure-manager-roadway-ffs-officine-ferrovie-federali-zurich",
           "bauleiter-in-oberbauleiter-in-fahrbahn-ffs-officine-ferrovie-federali-zurich",
-          "directeur-de-construction-in-superstructure-manager-in-road-ffs-officine-ferrovie-federali-zurich"
+          "directeur-de-construction-in-superstructure-manager-in-road-ffs-officine-ferrovie-federali-zurich",
+          "capo-sezione-in-galleria-nel-grande-progetto-di-zurigo-stadelhofen-ffs-officine-ferrovie-federali-zurich-altstetten",
+          "section-manager-tunnel-in-the-zurich-stadelhofen-major-project-ffs-officine-ferrovie-federali-zurich-altstetten",
+          "abschnittsleiter-in-tunnel-im-grossprojekt-zurich-stadelhofen-ffs-officine-ferrovie-federali-zurich-altstetten",
+          "chef-de-section-en-tunnel-dans-le-projet-stadelhofen-de-zurich-ffs-officine-ferrovie-federali-zurich-altstetten"
         ],
         "en": [
           "project-manager-roadway-ffs-officine-ferrovie-federali-zurich-altstetten",
-          "project-manager-technical-systems-electrical-systems-50hz-ffs-officine-ferrovie-federali-zurich-altstetten"
+          "project-manager-technical-systems-electrical-systems-50hz-ffs-officine-ferrovie-federali-zurich-altstetten",
+          "section-manager-tunnel-in-the-zurich-stadelhofen-major-project-ffs-officine-ferrovie-federali-zurich-altstetten"
         ],
         "de": [
-          "projektleiter-in-technische-anlagen-elektroanlagen-50hz-ffs-officine-ferrovie-federali-zurich-altstetten"
+          "projektleiter-in-technische-anlagen-elektroanlagen-50hz-ffs-officine-ferrovie-federali-zurich-altstetten",
+          "abschnittsleiter-in-tunnel-im-grossprojekt-zurich-stadelhofen-ffs-officine-ferrovie-federali-zurich-altstetten"
         ],
         "fr": [
           "chef-de-projet-roadway-ffs-officine-ferrovie-federali-zurich-altstetten",
-          "gestionnaire-de-projet-dans-les-systemes-techniques-electriques-50hz-ffs-officine-ferrovie-federali-zurich-altstetten"
+          "gestionnaire-de-projet-dans-les-systemes-techniques-electriques-50hz-ffs-officine-ferrovie-federali-zurich-altstetten",
+          "chef-de-section-en-tunnel-dans-le-projet-stadelhofen-de-zurich-ffs-officine-ferrovie-federali-zurich-altstetten"
         ]
       },
       "firstSeenAt": "2026-07-20T12:41:16.466Z",
@@ -6912,11 +6957,18 @@
         "responsabile-del-progetto-di-esecuzione-ffs-officine-ferrovie-federali-olten",
         "execution-project-manager-ffs-officine-ferrovie-federali-olten",
         "ausfuhrungsprojektleiter-in-ffs-officine-ferrovie-federali-olten",
-        "chef-de-projet-d-execution-ffs-officine-ferrovie-federali-olten"
+        "chef-de-projet-d-execution-ffs-officine-ferrovie-federali-olten",
+        "esperto-nella-tecnologia-delle-flotte-ffs-officine-ferrovie-federali-olten",
+        "responsabile-controlling-m-f-d-100-ffs-officine-ferrovie-federali-olten",
+        "technical-expertin-fleet-technology-ffs-officine-ferrovie-federali-olten",
+        "head-of-controlling-m-f-d-100-ffs-officine-ferrovie-federali-olten",
+        "fachexperte-in-flottentechnik-ffs-officine-ferrovie-federali-olten",
+        "leiter-controlling-m-w-d-100-ffs-officine-ferrovie-federali-olten",
+        "technologie-de-flotte-experte-en-la-matiere-ffs-officine-ferrovie-federali-olten",
+        "chef-du-controle-l-f-d-a-100-ffs-officine-ferrovie-federali-olten"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistant-client-ffs-officine-ferrovie-federali-olten",
           "kundenassistent-in-ffs-officine-ferrovie-federali-olten",
           "directeur-commercial-f-f-d-a-100-ffs-officine-ferrovie-federali-olten",
           "direttore-commerciale-m-f-d-al-100-ffs-officine-ferrovie-federali-olten",
@@ -6935,7 +6987,8 @@
           "projektleiter-in-umwelt-ffs-officine-ferrovie-federali-olten",
           "environnement-de-gestion-de-projet-ffs-officine-ferrovie-federali-olten",
           "responsabile-del-progetto-di-esecuzione-ffs-officine-ferrovie-federali-olten",
-          "kundenassistent-in-ffs-officine-ferrovie-federali-40-70-olten"
+          "esperto-nella-tecnologia-delle-flotte-ffs-officine-ferrovie-federali-olten",
+          "responsabile-controlling-m-f-d-100-ffs-officine-ferrovie-federali-olten"
         ],
         "en": [
           "transport-coordinator-short-term-planning-ffs-officine-ferrovie-federali-olten",
@@ -6943,7 +6996,9 @@
           "head-of-production-management-werk-olten-ffs-officine-ferrovie-federali-olten",
           "customer-assistant-in-ffs-officine-ferrovie-federali-olten",
           "commercial-manager-m-f-d-100-ffs-officine-ferrovie-federali-olten",
-          "execution-project-manager-ffs-officine-ferrovie-federali-olten"
+          "execution-project-manager-ffs-officine-ferrovie-federali-olten",
+          "technical-expertin-fleet-technology-ffs-officine-ferrovie-federali-olten",
+          "head-of-controlling-m-f-d-100-ffs-officine-ferrovie-federali-olten"
         ],
         "de": [
           "transportkoordinator-in-kurzfristplanung-ffs-officine-ferrovie-federali-olten",
@@ -6951,7 +7006,9 @@
           "produktionsleiter-werk-olten-ffs-officine-ferrovie-federali-olten",
           "kundenassistent-in-ffs-officine-ferrovie-federali-40-70-olten",
           "commercial-manager-m-w-d-100-ffs-officine-ferrovie-federali-olten",
-          "ausfuhrungsprojektleiter-in-ffs-officine-ferrovie-federali-olten"
+          "ausfuhrungsprojektleiter-in-ffs-officine-ferrovie-federali-olten",
+          "fachexperte-in-flottentechnik-ffs-officine-ferrovie-federali-olten",
+          "leiter-controlling-m-w-d-100-ffs-officine-ferrovie-federali-olten"
         ],
         "fr": [
           "coordinateur-de-transport-en-planification-a-court-terme-ffs-officine-ferrovie-federali-olten",
@@ -6959,7 +7016,9 @@
           "responsable-du-pilotage-de-la-production-werk-olten-ffs-officine-ferrovie-federali-olten",
           "assistant-client-ffs-officine-ferrovie-federali-olten",
           "directeur-commercial-f-f-d-a-100-ffs-officine-ferrovie-federali-olten",
-          "chef-de-projet-d-execution-ffs-officine-ferrovie-federali-olten"
+          "chef-de-projet-d-execution-ffs-officine-ferrovie-federali-olten",
+          "technologie-de-flotte-experte-en-la-matiere-ffs-officine-ferrovie-federali-olten",
+          "chef-du-controle-l-f-d-a-100-ffs-officine-ferrovie-federali-olten"
         ]
       },
       "firstSeenAt": "2026-07-10T22:11:44.448Z",

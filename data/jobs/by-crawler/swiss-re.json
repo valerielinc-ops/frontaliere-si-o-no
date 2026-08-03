@@ -1,6 +1,6 @@
 {
   "crawlerKey": "swiss-re",
-  "assembledAt": "2026-08-03T12:42:26.256Z",
+  "assembledAt": "2026-08-03T12:17:08.703Z",
   "jobs": [
     {
       "id": "swiss-re-eb683c9f7002",
@@ -8463,7 +8463,11 @@
         "executive-assistant-swiss-re-ch",
         "executive-assistent-swiss-re-bratislava-sk",
         "assistant-executif-swiss-re-bratislava-sk",
-        "executive-assistant-swiss-re-bratislava-sk"
+        "executive-assistant-swiss-re-bratislava-sk",
+        "executive-assistant-operations-specialista-swiss-re-bratislava-sk",
+        "executive-assistant-operations-specialist-swiss-re-ch",
+        "executive-assistent-operations-spezialist-swiss-re-bratislava-sk",
+        "executive-assistant-operations-specialiste-swiss-re-bratislava-sk"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -8471,20 +8475,26 @@
           "executive-assistant-swiss-re-ch",
           "executive-assistent-swiss-re-bratislava-sk",
           "assistant-executif-swiss-re-bratislava-sk",
-          "executive-assistant-swiss-re-bratislava-sk"
+          "executive-assistant-swiss-re-bratislava-sk",
+          "executive-assistant-operations-specialista-swiss-re-bratislava-sk",
+          "executive-assistant-operations-specialist-swiss-re-ch",
+          "executive-assistent-operations-spezialist-swiss-re-bratislava-sk",
+          "executive-assistant-operations-specialiste-swiss-re-bratislava-sk"
         ],
         "en": [
-          "executive-assistant-swiss-re-ch"
+          "executive-assistant-swiss-re-ch",
+          "executive-assistant-operations-specialist-swiss-re-ch"
         ],
         "de": [
-          "executive-assistent-swiss-re-bratislava-sk"
+          "executive-assistent-swiss-re-bratislava-sk",
+          "executive-assistent-operations-spezialist-swiss-re-bratislava-sk"
         ],
         "fr": [
-          "assistant-executif-swiss-re-bratislava-sk"
+          "assistant-executif-swiss-re-bratislava-sk",
+          "executive-assistant-operations-specialiste-swiss-re-bratislava-sk"
         ]
       },
       "firstSeenAt": "2026-07-16T22:39:35.849Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -8497,7 +8507,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "needsRetranslation": true
     },
     {
       "id": "swiss-re-4bdde3e841aa",
@@ -13558,26 +13569,36 @@
       "previousSlugs": [
         "back-office-administrator-with-spanish-temporary-swiss-re-ch",
         "back-office-administrator-mit-spanish-temporary-swiss-re-bratislava-sk",
-        "administrateur-de-back-office-avec-espagnol-temporaire-swiss-re-bratislava-sk"
+        "administrateur-de-back-office-avec-espagnol-temporaire-swiss-re-bratislava-sk",
+        "amministratore-di-ufficio-con-francese-o-tedesco-temporario-swiss-re-bratislava-sk",
+        "back-office-administrator-with-french-or-german-temporary-swiss-re-ch",
+        "back-office-administrator-mit-franzosisch-oder-deutsch-vorubergehend-swiss-re-bratislava-sk",
+        "administrateur-back-office-avec-francais-ou-allemand-temporaire-swiss-re-bratislava-sk"
       ],
       "previousSlugsByLocale": {
         "it": [
           "back-office-administrator-with-spanish-temporary-swiss-re-ch",
           "back-office-administrator-mit-spanish-temporary-swiss-re-bratislava-sk",
-          "administrateur-de-back-office-avec-espagnol-temporaire-swiss-re-bratislava-sk"
+          "administrateur-de-back-office-avec-espagnol-temporaire-swiss-re-bratislava-sk",
+          "amministratore-di-ufficio-con-francese-o-tedesco-temporario-swiss-re-bratislava-sk",
+          "back-office-administrator-with-french-or-german-temporary-swiss-re-ch",
+          "back-office-administrator-mit-franzosisch-oder-deutsch-vorubergehend-swiss-re-bratislava-sk",
+          "administrateur-back-office-avec-francais-ou-allemand-temporaire-swiss-re-bratislava-sk"
         ],
         "en": [
-          "back-office-administrator-with-spanish-temporary-swiss-re-ch"
+          "back-office-administrator-with-spanish-temporary-swiss-re-ch",
+          "back-office-administrator-with-french-or-german-temporary-swiss-re-ch"
         ],
         "de": [
-          "back-office-administrator-mit-spanish-temporary-swiss-re-bratislava-sk"
+          "back-office-administrator-mit-spanish-temporary-swiss-re-bratislava-sk",
+          "back-office-administrator-mit-franzosisch-oder-deutsch-vorubergehend-swiss-re-bratislava-sk"
         ],
         "fr": [
-          "administrateur-de-back-office-avec-espagnol-temporaire-swiss-re-bratislava-sk"
+          "administrateur-de-back-office-avec-espagnol-temporaire-swiss-re-bratislava-sk",
+          "administrateur-back-office-avec-francais-ou-allemand-temporaire-swiss-re-bratislava-sk"
         ]
       },
       "firstSeenAt": "2026-07-08T11:23:46.357Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -13590,7 +13611,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "needsRetranslation": true
     },
     {
       "id": "swiss-re-abb622392780",

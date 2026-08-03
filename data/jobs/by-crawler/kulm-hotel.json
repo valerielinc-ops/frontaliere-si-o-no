@@ -1,6 +1,6 @@
 {
   "crawlerKey": "kulm-hotel",
-  "assembledAt": "2026-08-03T12:53:13.481Z",
+  "assembledAt": "2026-08-03T11:50:54.918Z",
   "jobs": [
     {
       "id": "kulm-hotel-6d5358fd2a15",
@@ -1121,19 +1121,31 @@
       "pensum": "100%",
       "previousSlugs": [
         "demi-chef-de-partie-kulm-country-club-m-w-d-kulm-hotel-st-moritz",
-        "leader-di-meta-partito-kulm-country-club-m-p-d-kulm-hotel-st-moritz-st-moritz-0da109"
+        "leader-di-meta-partito-kulm-country-club-m-p-d-kulm-hotel-st-moritz-st-moritz-0da109",
+        "kitchen-helper-kulm-country-club-m-w-d-kulm-hotel-st-moritz",
+        "kuchenhelfer-kulm-country-club-m-w-d-kulm-hotel-st-moritz-st-moritz-c331ed",
+        "aide-cuisine-kulm-country-club-m-w-d-kulm-hotel-st-moritz-st-moritz-c331ed"
       ],
       "previousSlugsByLocale": {
         "it": [
           "demi-chef-de-partie-kulm-country-club-m-w-d-kulm-hotel-st-moritz",
-          "leader-di-meta-partito-kulm-country-club-m-p-d-kulm-hotel-st-moritz-st-moritz-0da109"
+          "leader-di-meta-partito-kulm-country-club-m-p-d-kulm-hotel-st-moritz-st-moritz-0da109",
+          "kitchen-helper-kulm-country-club-m-w-d-kulm-hotel-st-moritz",
+          "kuchenhelfer-kulm-country-club-m-w-d-kulm-hotel-st-moritz-st-moritz-c331ed",
+          "aide-cuisine-kulm-country-club-m-w-d-kulm-hotel-st-moritz-st-moritz-c331ed"
         ],
         "de": [
-          "demi-chef-de-partie-kulm-country-club-m-w-d-kulm-hotel-st-moritz"
+          "demi-chef-de-partie-kulm-country-club-m-w-d-kulm-hotel-st-moritz",
+          "kuchenhelfer-kulm-country-club-m-w-d-kulm-hotel-st-moritz-st-moritz-c331ed"
+        ],
+        "en": [
+          "kitchen-helper-kulm-country-club-m-w-d-kulm-hotel-st-moritz"
+        ],
+        "fr": [
+          "aide-cuisine-kulm-country-club-m-w-d-kulm-hotel-st-moritz-st-moritz-c331ed"
         ]
       },
       "firstSeenAt": "2026-07-14T12:06:53.525Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -1145,7 +1157,8 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "kulm-hotel-0168e8aece90",
