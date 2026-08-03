@@ -416214,7 +416214,9 @@
     "canonicalSlug": "stv-teamleiter-in-betreuung-e-pflege-palliative-care-viva-luzern",
     "slugByLocale": {
       "de": "stv-teamleiter-in-betreuung-und-pflege-palliative-care-viva-luzern-luzern",
-      "it": "stv-teamleiter-in-betreuung-e-pflege-palliative-care-viva-luzern"
+      "it": "stv-teamleiter-in-betreuung-e-pflege-palliative-care-viva-luzern",
+      "en": "stv-team-leader-in-care-and-care-palliative-care-viva-luzern-luzern",
+      "fr": "chef-d-equipe-en-soins-palliatifs-viva-luzern-luzern"
     },
     "createdAt": "2026-07-28",
     "canton": "LU"
@@ -416223,7 +416225,9 @@
     "canonicalSlug": "stv-teamleiter-in-pflege-per-spezialisierte-demenz-wohngruppe-viva-luzern",
     "slugByLocale": {
       "de": "stv-teamleiter-in-pflege-fur-spezialisierte-demenz-wohngruppe-viva-luzern-luzern",
-      "it": "stv-teamleiter-in-pflege-per-spezialisierte-demenz-wohngruppe-viva-luzern"
+      "it": "stv-teamleiter-in-pflege-per-spezialisierte-demenz-wohngruppe-viva-luzern",
+      "en": "stv-team-leader-in-care-for-specialized-dementia-residential-group-viva-luzern-luzern",
+      "fr": "chef-d-equipe-de-stv-en-soins-pour-un-groupe-specialise-de-personnes-atteintes-de-demence-viva-luzern-luzern"
     },
     "createdAt": "2026-07-28",
     "canton": "LU"
@@ -450987,7 +450991,9 @@
   "id|ikea.com|lehrstelle-logistiker-in-01-08-2027-31-07-2030": {
     "canonicalSlug": "lehrstelle-logistiker-in-01-08-2027-31-07-2030-ikea-ch",
     "slugByLocale": {
-      "it": "lehrstelle-logistiker-in-01-08-2027-31-07-2030-ikea-ch"
+      "it": "lehrstelle-logistiker-in-01-08-2027-31-07-2030-ikea-ch",
+      "en": "apprenticeship-as-a-logistics-specialist-01-08-2027-31-07-2030-ikea-rothenburg-luzern-switzerland",
+      "fr": "apprentissage-en-tant-que-specialiste-logistique-01-08-2027-31-07-2030-ikea-rothenburg-luzern-switzerland"
     },
     "createdAt": "2026-08-02",
     "canton": "LU"
@@ -451005,7 +451011,9 @@
   "id|ikea.com|lehrstelle-logistiker-in-efz-01-08-2027-31-07-2030": {
     "canonicalSlug": "lehrstelle-logistiker-in-efz-01-08-2027-31-07-2030-ikea-ch",
     "slugByLocale": {
-      "it": "lehrstelle-logistiker-in-efz-01-08-2027-31-07-2030-ikea-ch"
+      "it": "lehrstelle-logistiker-in-efz-01-08-2027-31-07-2030-ikea-ch",
+      "en": "apprenticeship-as-a-logistics-specialist-01-08-2027-31-07-2030-ikea-dietlikon-zurich-switzerland",
+      "fr": "apprentissage-en-tant-que-specialiste-logistique-01-08-2027-31-07-2030-ikea-dietlikon-zurich-switzerland"
     },
     "createdAt": "2026-08-02",
     "canton": "ZH"
@@ -451149,5 +451157,439 @@
     },
     "createdAt": "2026-08-02",
     "canton": "BE"
+  },
+  "id|ikea.com|apprentissage-en-logistique-01-08-2027-31-07-2030": {
+    "canonicalSlug": "apprentissage-en-logistique-01-08-2027-31-07-2030-ikea-aubonne",
+    "slugByLocale": {
+      "fr": "apprentissage-en-logistique-01-08-2027-31-07-2030-ikea-ch",
+      "it": "apprentissage-en-logistique-01-08-2027-31-07-2030-ikea-aubonne"
+    },
+    "createdAt": "2026-08-03",
+    "canton": "VD"
+  },
+  "id|ikea.com|apprentissage-dans-la-vente-commerce-de-detail-01-08-2027-31-07-2030": {
+    "canonicalSlug": "apprentissage-dans-la-vente-commerce-de-detail-01-08-2027-31-07-2030-ikea-aubonne",
+    "slugByLocale": {
+      "fr": "apprentissage-dans-la-vente-commerce-de-detail-01-08-2027-31-07-2030-ikea-ch",
+      "it": "apprentissage-dans-la-vente-commerce-de-detail-01-08-2027-31-07-2030-ikea-aubonne"
+    },
+    "createdAt": "2026-08-03",
+    "canton": "VD"
+  },
+  "id|ikea.com|apprenti-e-polydesigner-3d-cfc-01-08-2027-31-07-2030": {
+    "canonicalSlug": "apprenti-e-polydesigner-3d-cfc-01-08-2027-31-07-2030-ikea-ch",
+    "slugByLocale": {
+      "fr": "apprenti-e-polydesigner-3d-cfc-01-08-2027-31-07-2030-ikea-ch"
+    },
+    "createdAt": "2026-08-03",
+    "canton": "VS"
+  },
+  "id|ikea.com|lehrstelle-polydesigner-in-3d-efz-01-08-2027-31-07-2031-schwerpunkt-styling": {
+    "canonicalSlug": "apprendistato-polydesigner-in-3d-cfc-01-08-2027-31-07-2031-schwerpunkt-styling-ikea-dietlikon",
+    "slugByLocale": {
+      "de": "lehrstelle-polydesigner-in-3d-efz-01-08-2027-31-07-2031-schwerpunkt-styling-ikea-ch",
+      "it": "apprendistato-polydesigner-in-3d-cfc-01-08-2027-31-07-2031-schwerpunkt-styling-ikea-dietlikon"
+    },
+    "createdAt": "2026-08-03",
+    "canton": "ZH"
+  },
+  "id|migros.ch|cce78946-f72b-496f-9ef2-e1ac0a6e2dae": {
+    "canonicalSlug": "responsable-de-rayon-poisson-produits-carnes-m-w-d-societe-cooperative-migros-geneve-nyon-kcctbq",
+    "slugByLocale": {
+      "fr": "responsable-de-rayon-poisson-produits-carnes-m-w-d-societe-cooperative-migros-geneve-nyon-kcctbq"
+    },
+    "createdAt": "2026-08-03",
+    "canton": "VD"
+  },
+  "id|migros.ch|1ed684ad-9e91-46fe-8034-038e2db2eaa1": {
+    "canonicalSlug": "collaboratore-trice-in-sales-man-s-world-catering-services-migros-zurich-zfi4bg",
+    "slugByLocale": {
+      "it": "collaboratore-trice-in-sales-man-s-world-catering-services-migros-zurich-zfi4bg",
+      "de": "mitarbeiter-in-sales-man-s-world-catering-services-migros-zurich-zfi4bg"
+    },
+    "createdAt": "2026-08-03",
+    "canton": "ZH"
+  },
+  "id|admin.ch|f72e99d8-ee76-419f-acbd-ed2087e62de2": {
+    "canonicalSlug": "administrative-r-assistent-in-der-abteilung-tarife-e-grundlagen-confederazione-svizzera-bern",
+    "slugByLocale": {
+      "de": "administrative-r-assistent-in-in-der-abteilung-tarife-und-grundlagen-confederazione-bern",
+      "it": "administrative-r-assistent-in-der-abteilung-tarife-e-grundlagen-confederazione-svizzera-bern"
+    },
+    "createdAt": "2026-08-03",
+    "canton": "BE"
+  },
+  "id|admin.ch|a0d72f57-ea80-4efd-8b4d-b26330955bc8": {
+    "canonicalSlug": "fachkoordinator-in-cyberubungen-e-vorfallmanagement-confederazione-svizzera-bern",
+    "slugByLocale": {
+      "de": "fachkoordinator-in-cyberubungen-und-vorfallmanagement-confederazione-bern",
+      "it": "fachkoordinator-in-cyberubungen-e-vorfallmanagement-confederazione-svizzera-bern"
+    },
+    "createdAt": "2026-08-03",
+    "canton": "BE"
+  },
+  "id|admin.ch|05c72bf4-8805-43c7-9ebc-87048186c924": {
+    "canonicalSlug": "hochschulpraktikant-in-sektion-landschaftsmanagement-confederazione-ittigen",
+    "slugByLocale": {
+      "de": "hochschulpraktikant-in-sektion-landschaftsmanagement-confederazione-ittigen"
+    },
+    "createdAt": "2026-08-03",
+    "canton": "BE"
+  },
+  "id|admin.ch|5ac86545-418d-404c-bbbb-75d8b77e8e4b": {
+    "canonicalSlug": "apprendista-laborant-in-cfc-biologie-confederazione-svizzera-mittelhausern-und-bern",
+    "slugByLocale": {
+      "de": "lernende-r-laborant-in-efz-biologie-confederazione-mittelhausern-und-bern",
+      "it": "apprendista-laborant-in-cfc-biologie-confederazione-svizzera-mittelhausern-und-bern"
+    },
+    "createdAt": "2026-08-03",
+    "canton": "BE"
+  },
+  "id|admin.ch|e7cc5478-43dd-4bd4-bb1c-e93a11c50dd5": {
+    "canonicalSlug": "projektleiter-in-it-im-bereich-fuhrungsinformationssysteme-c2-confederazione-svizzera-bern",
+    "slugByLocale": {
+      "de": "projektleiter-in-it-im-bereich-fuhrungsinformationssysteme-c2-confederazione-bern",
+      "it": "projektleiter-in-it-im-bereich-fuhrungsinformationssysteme-c2-confederazione-svizzera-bern"
+    },
+    "createdAt": "2026-08-03",
+    "canton": "BE"
+  },
+  "id|admin.ch|46acb52d-44c7-45b1-aa68-1c74b1b8920b": {
+    "canonicalSlug": "wissenschaftliche-r-collaboratore-trice-in-hydrologische-vorhersagen-e-modelle-confederazione-svizzera-ittigen",
+    "slugByLocale": {
+      "de": "wissenschaftliche-r-mitarbeiter-in-hydrologische-vorhersagen-und-modelle-confederazione-ittigen",
+      "it": "wissenschaftliche-r-collaboratore-trice-in-hydrologische-vorhersagen-e-modelle-confederazione-svizzera-ittigen"
+    },
+    "createdAt": "2026-08-03",
+    "canton": "BE"
+  },
+  "id|hochgebirgsklinik.ch|2a0add2d-0614-42ba-ad05-60d19f534e16": {
+    "canonicalSlug": "medico-capo-di-psichiatria-infantile-e-dell-adolescenza-m-f-d-50-100-hochgebirgsklinik-davos-davos",
+    "slugByLocale": {
+      "it": "medico-capo-di-psichiatria-infantile-e-dell-adolescenza-m-f-d-50-100-hochgebirgsklinik-davos-davos",
+      "en": "senior-consultant-m-w-d-50-100-hochgebirgsklinik-davos-davos",
+      "de": "oberarzt-kinder-und-jugendpsychiatrie-m-w-d-50-100-hochgebirgsklinik-davos-ch",
+      "fr": "medecin-chef-en-psychiatrie-de-l-enfant-et-de-l-adolescent-m-f-d-50-100-hochgebirgsklinik-davos-davos"
+    },
+    "createdAt": "2026-08-03",
+    "canton": "GR"
+  },
+  "id|hochgebirgsklinik.ch|1542b5b8-94c8-4b7b-9967-005e20fd5755": {
+    "canonicalSlug": "medico-cardiologo-senior-m-w-d-80-100-hochgebirgsklinik-davos-davos",
+    "slugByLocale": {
+      "it": "medico-cardiologo-senior-m-w-d-80-100-hochgebirgsklinik-davos-davos",
+      "en": "senior-cardiologist-m-w-d-80-100-hochgebirgsklinik-davos-davos",
+      "de": "leitender-arzt-leitende-arztin-kardiologie-m-w-d-80-100-hochgebirgsklinik-davos-ch",
+      "fr": "cardiologue-senior-m-w-d-80-100-hochgebirgsklinik-davos-davos"
+    },
+    "createdAt": "2026-08-03",
+    "canton": "GR"
+  },
+  "id|hochgebirgsklinik.ch|18ac40eb-ec84-4dc0-b508-ed30a3cbab9c": {
+    "canonicalSlug": "stage-di-ricerca-in-cardiologia-100-m-f-d-hochgebirgsklinik-davos-davos",
+    "slugByLocale": {
+      "it": "stage-di-ricerca-in-cardiologia-100-m-f-d-hochgebirgsklinik-davos-davos",
+      "en": "research-internship-in-cardiology-100-w-m-d-hochgebirgsklinik-davos-davos",
+      "de": "forschungspraktikum-kardiologie-100-w-m-d-hochgebirgsklinik-davos-ch",
+      "fr": "stage-de-recherche-en-cardiologie-100-h-f-x-hochgebirgsklinik-davos-davos"
+    },
+    "createdAt": "2026-08-03",
+    "canton": "GR"
+  },
+  "id|hochgebirgsklinik.ch|52da1727-a83d-4832-96b0-36f5a4f523dd": {
+    "canonicalSlug": "assistente-sanitario-m-f-d-hochgebirgsklinik-davos-davos",
+    "slugByLocale": {
+      "it": "assistente-sanitario-m-f-d-hochgebirgsklinik-davos-davos",
+      "en": "nurse-f-m-d-hochgebirgsklinik-davos-davos",
+      "de": "pflegefachperson-w-m-d-hochgebirgsklinik-davos-ch",
+      "fr": "aide-soignant-m-f-d-hochgebirgsklinik-davos-davos"
+    },
+    "createdAt": "2026-08-03",
+    "canton": "GR"
+  },
+  "id|hochgebirgsklinik.ch|ce60703d-7f74-4a5b-8e90-9bcd926d7f05": {
+    "canonicalSlug": "assistente-infermieristico-m-f-d-hochgebirgsklinik-davos-davos",
+    "slugByLocale": {
+      "it": "assistente-infermieristico-m-f-d-hochgebirgsklinik-davos-davos",
+      "en": "nursing-assistant-m-f-d-hochgebirgsklinik-davos-davos",
+      "de": "pflegehelfer-w-m-d-hochgebirgsklinik-davos-ch",
+      "fr": "aide-soignant-m-f-d-hochgebirgsklinik-davos-davos"
+    },
+    "createdAt": "2026-08-03",
+    "canton": "GR"
+  },
+  "id|hochgebirgsklinik.ch|14775039-62be-49b3-bf6f-6bfc07902e8d": {
+    "canonicalSlug": "specialista-in-salute-m-f-d-hochgebirgsklinik-davos-davos",
+    "slugByLocale": {
+      "it": "specialista-in-salute-m-f-d-hochgebirgsklinik-davos-davos",
+      "en": "healthcare-specialist-w-m-d-hochgebirgsklinik-davos-davos",
+      "de": "fachperson-gesundheit-w-m-d-hochgebirgsklinik-davos-ch",
+      "fr": "specialiste-en-sante-h-f-x-hochgebirgsklinik-davos-davos"
+    },
+    "createdAt": "2026-08-03",
+    "canton": "GR"
+  },
+  "id|hochgebirgsklinik.ch|2b77f4b9-21fc-4d7e-a122-021827e42ea3": {
+    "canonicalSlug": "medico-cardiovascolare-e-angiologia-60-100-hochgebirgsklinik-davos-davos",
+    "slugByLocale": {
+      "it": "medico-cardiovascolare-e-angiologia-60-100-hochgebirgsklinik-davos-davos",
+      "en": "vascular-medicine-and-angiology-60-100-hochgebirgsklinik-davos-davos",
+      "de": "oberarztin-oberarzt-oder-leitende-arztin-leitender-arzt-angiologie-60-100-hochgebirgsklinik-davos-davos",
+      "fr": "medecin-cardiovasculaire-et-angiologie-60-100-hochgebirgsklinik-davos-davos"
+    },
+    "createdAt": "2026-08-03",
+    "canton": "GR"
+  },
+  "id|hochgebirgsklinik.ch|5de1a134-374a-45f8-bc5e-29aa1d6bf4a7": {
+    "canonicalSlug": "consulente-senior-m-w-80-100-hochgebirgsklinik-davos-davos",
+    "slugByLocale": {
+      "it": "consulente-senior-m-w-80-100-hochgebirgsklinik-davos-davos",
+      "en": "senior-consultant-m-w-80-100-hochgebirgsklinik-davos-davos",
+      "de": "oberarzt-oberarztin-kardiologie-m-w-80-100-hochgebirgsklinik-davos-ch",
+      "fr": "consultant-principal-m-m-80-100-hochgebirgsklinik-davos-davos"
+    },
+    "createdAt": "2026-08-03",
+    "canton": "GR"
+  },
+  "id|hochgebirgsklinik.ch|f3843250-71d4-4a40-9e02-65430b6de711": {
+    "canonicalSlug": "fisioterapia-m-w-d-70-80-hochgebirgsklinik-davos-davos",
+    "slugByLocale": {
+      "it": "fisioterapia-m-w-d-70-80-hochgebirgsklinik-davos-davos",
+      "en": "physiotherapeut-m-w-d-60-hochgebirgsklinik-davos",
+      "de": "physiotherapeut-m-w-d-70-80-hochgebirgsklinik-davos-ch",
+      "fr": "physiotherapie-m-p-p-70-80-hochgebirgsklinik-davos-davos"
+    },
+    "createdAt": "2026-08-03",
+    "canton": "GR"
+  },
+  "id|hochgebirgsklinik.ch|83c6ab17-db8e-4be4-bc62-c8fca77da559": {
+    "canonicalSlug": "psychologe-eltern-kind-e-jugendstation-m-w-d-80-100-hochgebirgsklinik-davos",
+    "slugByLocale": {
+      "it": "psychologe-eltern-kind-e-jugendstation-m-w-d-80-100-hochgebirgsklinik-davos",
+      "en": "psychologist-parent-child-and-youth-unit-m-f-d-80-100-hochgebirgsklinik-davos-davos",
+      "de": "psychologe-eltern-kind-und-jugendstation-m-w-d-80-100-hochgebirgsklinik-davos-ch",
+      "fr": "groupe-des-parents-et-des-jeunes-m-f-j-hochgebirgsklinik-davos-davos"
+    },
+    "createdAt": "2026-08-03",
+    "canton": "GR"
+  },
+  "id|hochgebirgsklinik.ch|53b75447-57a9-4109-95a1-cdd03c439546": {
+    "canonicalSlug": "kosmetikerin-kosmetiker-m-w-d-50-60-hochgebirgsklinik-davos",
+    "slugByLocale": {
+      "it": "kosmetikerin-kosmetiker-m-w-d-50-60-hochgebirgsklinik-davos",
+      "en": "spa-therapist-m-f-50-60-hochgebirgsklinik-davos-davos",
+      "de": "kosmetikerin-kosmetiker-w-m-d-50-60-hochgebirgsklinik-davos-ch",
+      "fr": "therapeute-de-spa-m-f-50-60-hochgebirgsklinik-davos-davos"
+    },
+    "createdAt": "2026-08-03",
+    "canton": "GR"
+  },
+  "id|hochgebirgsklinik.ch|5a2bec78-5935-4cc2-9ed5-43778371169c": {
+    "canonicalSlug": "facharztin-facharzt-kinder-e-jugendmedizin-aufbau-ambulante-padiatrie-hochgebirgsklinik-davos-davos",
+    "slugByLocale": {
+      "it": "facharztin-facharzt-kinder-e-jugendmedizin-aufbau-ambulante-padiatrie-hochgebirgsklinik-davos-davos",
+      "en": "specialist-specialist-pediatrics-and-adolescent-medicine-development-of-outpatient-pediatrics-hochgebirgsklinik-davos",
+      "de": "facharztin-facharzt-kinder-und-jugendmedizin-aufbau-ambulante-padiatrie-hochgebirgsklinik-",
+      "fr": "specialiste-specialiste-en-pediatrie-et-medecine-des-adolescents-developpement-de-la-pediatrie-externe-hochgebirgsklinik"
+    },
+    "createdAt": "2026-08-03",
+    "canton": "GR"
+  },
+  "id|hochgebirgsklinik.ch|9f0e4ac6-3947-4b65-8ec5-952db86106b2": {
+    "canonicalSlug": "risorse-umane-generalistin-risorse-umane-generalist-m-w-d-50-100-hochgebirgsklinik-davos-davos",
+    "slugByLocale": {
+      "it": "risorse-umane-generalistin-risorse-umane-generalist-m-w-d-50-100-hochgebirgsklinik-davos-davos",
+      "en": "hr-business-partner-m-w-d-50-100-hochgebirgsklinik-davos-ch",
+      "de": "hr-generalistin-hr-generalist-m-w-d-50-100-hochgebirgsklinik-davos-ch",
+      "fr": "partenaire-d-affaires-rh-m-f-j-50-100-hochgebirgsklinik-davos-davos"
+    },
+    "createdAt": "2026-08-03",
+    "canton": "GR"
+  },
+  "id|hochgebirgsklinik.ch|2eae9f26-33fb-4d8b-8173-43c74cb3ff04": {
+    "canonicalSlug": "assistenza-di-servizio-su-base-oraria-hochgebirgsklinik-davos-davos",
+    "slugByLocale": {
+      "it": "assistenza-di-servizio-su-base-oraria-hochgebirgsklinik-davos-davos",
+      "en": "service-assistance-on-an-hourly-basis-hochgebirgsklinik-davos-davos",
+      "de": "service-aushilfe-auf-stundenbasis-hochgebirgsklinik-davos-ch",
+      "fr": "assistance-horaire-hochgebirgsklinik-davos-davos"
+    },
+    "createdAt": "2026-08-03",
+    "canton": "GR"
+  },
+  "id|hochgebirgsklinik.ch|7a96b7e9-b155-4c7b-aecf-9cf71bac3290": {
+    "canonicalSlug": "teamleiter-w-m-d-80-100-hochgebirgsklinik-davos-davos",
+    "slugByLocale": {
+      "it": "teamleiter-w-m-d-80-100-hochgebirgsklinik-davos-davos",
+      "en": "teamleiter-w-m-d-80-100-hochgebirgsklinik-davos-davos",
+      "de": "teamleitung-pflege-kardiologie-w-m-d-80-100-hochgebirgsklinik-davos-ch",
+      "fr": "teamleiter-m-j-80-100-hochgebirgsklinik-davos-davos"
+    },
+    "createdAt": "2026-08-03",
+    "canton": "GR"
+  },
+  "id|hochgebirgsklinik.ch|32823add-9687-47e6-b8cb-3b78857cd076": {
+    "canonicalSlug": "driver-allrounder-m-f-d-80-100-hochgebirgsklinik-davos-davos",
+    "slugByLocale": {
+      "it": "driver-allrounder-m-f-d-80-100-hochgebirgsklinik-davos-davos",
+      "de": "fahrer-allrounder-m-w-d-80-100-hochgebirgsklinik-davos-ch",
+      "fr": "conducteur-allrounder-m-f-d-80-100-hochgebirgsklinik-davos-davos"
+    },
+    "createdAt": "2026-08-03",
+    "canton": "GR"
+  },
+  "id|hochgebirgsklinik.ch|22edadbd-7656-4096-b02f-9d630c9e61ec": {
+    "canonicalSlug": "assistente-medico-cardiologo-m-f-100-hochgebirgsklinik-davos-davos",
+    "slugByLocale": {
+      "it": "assistente-medico-cardiologo-m-f-100-hochgebirgsklinik-davos-davos",
+      "en": "assistant-physician-cardiology-m-f-100-hochgebirgsklinik-davos-davos",
+      "de": "assistenzarzt-kardiologie-m-w-100-hochgebirgsklinik-davos-ch",
+      "fr": "assistant-medecin-en-cardiologie-m-f-a-100-hochgebirgsklinik-davos-davos"
+    },
+    "createdAt": "2026-08-03",
+    "canton": "GR"
+  },
+  "id|hochgebirgsklinik.ch|3b68d999-67c3-4c6d-b901-5d41248ea40d": {
+    "canonicalSlug": "assistente-medico-pneumologia-m-f-d-100-dal-1-gennaio-2027-hochgebirgsklinik-davos-davos",
+    "slugByLocale": {
+      "it": "assistente-medico-pneumologia-m-f-d-100-dal-1-gennaio-2027-hochgebirgsklinik-davos-davos",
+      "en": "senior-physician-pneumology-m-f-d-100-from-1-january-2027-hochgebirgsklinik-davos-davos",
+      "de": "assistenzarzt-pneumologie-m-w-d-100-ab-01-januar-2027-hochgebirgsklinik-davos-ch",
+      "fr": "medecin-adjoint-pneumologie-m-f-d-100-a-partir-du-1er-janvier-2027-hochgebirgsklinik-davos-davos"
+    },
+    "createdAt": "2026-08-03",
+    "canton": "GR"
+  },
+  "id|hochgebirgsklinik.ch|4d4e7800-74a2-47bf-9804-5fd982caf4bf": {
+    "canonicalSlug": "assistente-medico-pneumologia-m-f-d-100-01-gennaio-2027-hochgebirgsklinik-davos-davos",
+    "slugByLocale": {
+      "it": "assistente-medico-pneumologia-m-f-d-100-01-gennaio-2027-hochgebirgsklinik-davos-davos",
+      "en": "senior-physician-pneumology-m-f-d-100-01-january-2027-hochgebirgsklinik-davos-davos",
+      "de": "assistenzarzt-pneumologie-m-w-d-100-01-januar-2027-hochgebirgsklinik-davos-ch",
+      "fr": "medecin-adjoint-pneumologie-m-f-d-100-01-janvier-2027-hochgebirgsklinik-davos-davos"
+    },
+    "createdAt": "2026-08-03",
+    "canton": "GR"
+  },
+  "id|hochgebirgsklinik.ch|5a2f85b0-3b8b-423e-beb0-523a10861221": {
+    "canonicalSlug": "apprendistato-come-fachperson-gesundheit-fage-cfc-m-w-d-ab-august-2027-hochgebirgsklinik-davos",
+    "slugByLocale": {
+      "it": "apprendistato-come-fachperson-gesundheit-fage-cfc-m-w-d-ab-august-2027-hochgebirgsklinik-davos",
+      "en": "apprenticeship-as-a-specialist-health-fage-efz-f-m-d-from-august-2027-hochgebirgsklinik-davos-davos",
+      "de": "lehrstelle-als-fachperson-gesundheit-fage-efz-w-m-d-ab-august-2027-hochgebirgsklinik-davos",
+      "fr": "apprentissage-en-tant-que-specialiste-de-la-sante-fage-efz-f-m-d-a-partir-d-aout-2027-hochgebirgsklinik-davos-davos"
+    },
+    "createdAt": "2026-08-03",
+    "canton": "GR"
+  },
+  "id|vivaluzern.ch|b56e0936-9a9e-485d-8d35-cd286dd309a9": {
+    "canonicalSlug": "pflegefachfrau-mann-hf-per-wohnbereich-con-teils-gerontopsychiatrischer-specializzazione-viva-luzern",
+    "slugByLocale": {
+      "it": "pflegefachfrau-mann-hf-per-wohnbereich-con-teils-gerontopsychiatrischer-specializzazione-viva-luzern",
+      "en": "nursing-specialist-hf-for-living-area-with-partly-gerontopsychiatric-specialisation-viva-luzern-luzern",
+      "de": "pflegefachfrau-mann-hf-fur-wohnbereich-mit-teils-gerontopsychiatrischer-fachrichtung-viva",
+      "fr": "specialiste-des-soins-infirmiers-hf-pour-la-zone-de-vie-avec-specialisation-partiellement-gerontopsychiatrique-viva"
+    },
+    "createdAt": "2026-08-03",
+    "canton": "LU"
+  },
+  "url|https://www.pdgr.ch/jobs/fachfrau-fachmann-betreuung": {
+    "canonicalSlug": "fachfrau-fachmann-betreuung-cfc-psychiatrische-dienste-graubunden-igis-landquart-untervaz",
+    "slugByLocale": {
+      "it": "fachfrau-fachmann-betreuung-cfc-psychiatrische-dienste-graubunden-igis-landquart-untervaz",
+      "en": "specialist-professional-support-efz-psychiatrische-dienste-graubunden-igis-landquart-untervaz",
+      "de": "fachfrau-fachmann-betreuung-efz-pdgr-ch",
+      "fr": "specialiste-soutien-professionnel-efz-psychiatrische-dienste-graubunden-igis-landquart-untervaz"
+    },
+    "createdAt": "2026-08-03",
+    "canton": "GR"
+  },
+  "url|https://www.pdgr.ch/jobs/fachfrau-fachmann-hauswirtschaft-2": {
+    "canonicalSlug": "fachfrau-fachmann-hotellerie-hauswirtschaft-cfc-psychiatrische-dienste-graubunden-cazis",
+    "slugByLocale": {
+      "it": "fachfrau-fachmann-hotellerie-hauswirtschaft-cfc-psychiatrische-dienste-graubunden-cazis",
+      "en": "professional-specialist-hotel-industry-housekeeping-efz-psychiatrische-dienste-graubunden-cazis",
+      "de": "fachfrau-fachmann-hotellerie-hauswirtschaft-efz-pdgr-ch",
+      "fr": "professionnel-specialise-de-l-hotellerie-menagement-efz-psychiatrische-dienste-graubunden-cazis"
+    },
+    "createdAt": "2026-08-03",
+    "canton": "GR"
+  },
+  "url|https://www.pdgr.ch/jobs/fachfrau-fachmann-gesundheit": {
+    "canonicalSlug": "fachfrau-fachmann-gesundheit-cfc-psychiatrische-dienste-graubunden-cazis-chur",
+    "slugByLocale": {
+      "it": "fachfrau-fachmann-gesundheit-cfc-psychiatrische-dienste-graubunden-cazis-chur",
+      "en": "specialist-health-efz-psychiatrische-dienste-graubunden-cazis-chur",
+      "de": "fachfrau-fachmann-gesundheit-efz-pdgr-ch",
+      "fr": "specialiste-de-la-sante-efz-psychiatrische-dienste-graubunden-cazis-chur"
+    },
+    "createdAt": "2026-08-03",
+    "canton": "GR"
+  },
+  "url|https://www.pdgr.ch/jobs/kauffrau-kaufmann": {
+    "canonicalSlug": "kauffrau-kaufmann-efz-psychiatrische-dienste-graubunden-cazis-chur-rothenbrunnen",
+    "slugByLocale": {
+      "it": "kauffrau-kaufmann-efz-psychiatrische-dienste-graubunden-cazis-chur-rothenbrunnen",
+      "en": "kauffrau-kaufmann-efz-psychiatrische-dienste-graubunden-cazis-chur-rothenbrunnen",
+      "de": "kauffrau-kaufmann-efz-pdgr-ch",
+      "fr": "kauffrau-kaufmann-efz-psychiatrische-dienste-graubunden-cazis-chur-rothenbrunnen"
+    },
+    "createdAt": "2026-08-03",
+    "canton": "GR"
+  },
+  "url|https://www.pdgr.ch/jobs/gaertnerin-gaertner": {
+    "canonicalSlug": "gartnerin-gartner-cfc-psychiatrische-dienste-graubunden-chur",
+    "slugByLocale": {
+      "it": "gartnerin-gartner-cfc-psychiatrische-dienste-graubunden-chur",
+      "en": "gardener-efz-psychiatrische-dienste-graubunden-chur",
+      "de": "gartnerin-gartner-efz-pdgr-ch",
+      "fr": "jardinier-efz-psychiatrische-dienste-graubunden-chur"
+    },
+    "createdAt": "2026-08-03",
+    "canton": "GR"
+  },
+  "url|https://www.pdgr.ch/jobs/floristin-florist-3": {
+    "canonicalSlug": "floristin-florist-cfc-psychiatrische-dienste-graubunden-chur",
+    "slugByLocale": {
+      "it": "floristin-florist-cfc-psychiatrische-dienste-graubunden-chur",
+      "en": "florist-florist-efz-psychiatrische-dienste-graubunden-chur",
+      "de": "floristin-florist-efz-pdgr-ch",
+      "fr": "fleuriste-fleuriste-efz-psychiatrische-dienste-graubunden-chur"
+    },
+    "createdAt": "2026-08-03",
+    "canton": "GR"
+  },
+  "url|https://www.pdgr.ch/jobs/informatikerin-informatiker": {
+    "canonicalSlug": "informatikerin-informatiker-cfc-psychiatrische-dienste-graubunden-chur",
+    "slugByLocale": {
+      "it": "informatikerin-informatiker-cfc-psychiatrische-dienste-graubunden-chur",
+      "en": "computer-scientist-computer-scientist-efz-psychiatrische-dienste-graubunden-chur",
+      "de": "informatikerin-informatiker-efz-pdgr-ch",
+      "fr": "computer-scientist-computer-scientist-efz-psychiatrische-dienste-graubunden-chur"
+    },
+    "createdAt": "2026-08-03",
+    "canton": "GR"
+  },
+  "url|https://www.pdgr.ch/jobs/fachfrau-fachmann-betriebsunterhalt-efz-chur": {
+    "canonicalSlug": "fachfrau-fachmann-betriebsunterhalt-efz-psychiatrische-dienste-graubunden-chur",
+    "slugByLocale": {
+      "it": "fachfrau-fachmann-betriebsunterhalt-efz-psychiatrische-dienste-graubunden-chur",
+      "en": "professional-specialist-operational-maintenance-efz-psychiatrische-dienste-graubunden-chur",
+      "de": "fachfrau-fachmann-betriebsunterhalt-efz-pdgr-ch",
+      "fr": "professionnel-specialiste-entretien-operationnel-efz-psychiatrische-dienste-graubunden-chur"
+    },
+    "createdAt": "2026-08-03",
+    "canton": "GR"
+  },
+  "url|https://www.pdgr.ch/jobs/nachtaerztin-nachtarzt-2": {
+    "canonicalSlug": "medico-notturno-medico-notturno-psychiatrische-dienste-graubunden-chur",
+    "slugByLocale": {
+      "it": "medico-notturno-medico-notturno-psychiatrische-dienste-graubunden-chur",
+      "en": "night-doctor-night-doctor-psychiatrische-dienste-graubunden-chur",
+      "de": "nachtarztin-nachtarzt-pdgr-ch",
+      "fr": "docteur-de-nuit-docteur-de-nuit-psychiatrische-dienste-graubunden-chur"
+    },
+    "createdAt": "2026-08-03",
+    "canton": "GR"
   }
 }
