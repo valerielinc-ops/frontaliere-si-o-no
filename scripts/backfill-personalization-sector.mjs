@@ -40,6 +40,14 @@ import {
 
 const SECTOR_FIELDS = ['sector_interest', 'job_category'];
 
+// Bounded concurrency for per-subscriber Firestore reads. The loop below was
+// fully sequential (one subscriber's 2 reads awaited before the next started),
+// so wall-time scaled linearly with the `newsletter_subscribers` collection
+// size — it eventually exceeded the workflow's 10-minute timeout as the
+// collection grew (issue #5053). Reads are independent per subscriber, so
+// fanning them out is safe.
+const READ_CONCURRENCY = 20;
+
 function parseArgs(argv) {
   const args = { apply: false, limit: Infinity, email: null };
   for (let i = 0; i < argv.length; i++) {
@@ -127,22 +135,25 @@ async function main() {
   }
   console.log(`   Candidate enriched profiles: ${docs.length}`);
 
-  let scanned = 0;
+  const toScan = docs.slice(0, Number.isFinite(args.limit) ? args.limit : docs.length);
   const corrections = [];
-  for (const doc of docs) {
-    if (scanned >= args.limit) break;
-    scanned++;
-    const email = doc.id;
-    const subscriber = doc.data() || {};
-    const [personalization, alerts] = await Promise.all([
-      loadPersonalization(db, email),
-      loadAlerts(db, email),
-    ]);
-    const correction = computeSectorCorrection(subscriber, personalization, alerts);
-    if (correction) {
-      corrections.push({ email, before: { sector_interest: subscriber.sector_interest, job_category: subscriber.job_category }, after: correction });
-    }
+  for (let i = 0; i < toScan.length; i += READ_CONCURRENCY) {
+    const chunk = toScan.slice(i, i + READ_CONCURRENCY);
+    const results = await Promise.all(chunk.map(async (doc) => {
+      const email = doc.id;
+      const subscriber = doc.data() || {};
+      const [personalization, alerts] = await Promise.all([
+        loadPersonalization(db, email),
+        loadAlerts(db, email),
+      ]);
+      const correction = computeSectorCorrection(subscriber, personalization, alerts);
+      return correction
+        ? { email, before: { sector_interest: subscriber.sector_interest, job_category: subscriber.job_category }, after: correction }
+        : null;
+    }));
+    for (const r of results) if (r) corrections.push(r);
   }
+  const scanned = toScan.length;
 
   console.log(`   Scanned: ${scanned}   Corrections: ${corrections.length}`);
   for (const c of corrections.slice(0, 50)) {
