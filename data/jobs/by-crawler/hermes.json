@@ -1,6 +1,6 @@
 {
   "crawlerKey": "hermes",
-  "assembledAt": "2026-08-03T22:12:54.461Z",
+  "assembledAt": "2026-08-04T11:38:44.427Z",
   "jobs": [
     {
       "id": "hermes-c29e4ff59493",
@@ -33,7 +33,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/jobs/21421/",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-03T22:12:50.794Z",
+      "crawledAt": "2026-08-04T11:38:40.627Z",
       "addressLocality": "Zurich, Switzerland",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -50,14 +50,17 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "cx-manager-zurich-w-m-hermes-ch"
+        "cx-manager-zurich-w-m-hermes-ch",
+        "cx-manager-zurigo-f-m-hermes-zurich-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "cx-manager-zurich-w-m-hermes-ch"
+          "cx-manager-zurich-w-m-hermes-ch",
+          "cx-manager-zurigo-f-m-hermes-zurich-switzerland"
         ]
       },
       "firstSeenAt": "2026-06-11T07:53:06.117Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -102,7 +105,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/jobs/21898/",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-08-03T22:12:50.130Z",
+      "crawledAt": "2026-08-04T11:38:39.984Z",
       "addressLocality": "Lugano, Ticino, Switzerland",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -163,7 +166,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/jobs/21857/",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-03T22:12:49.489Z",
+      "crawledAt": "2026-08-04T11:38:39.343Z",
       "addressLocality": "Zurich, Switzerland",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -210,6 +213,7 @@
         ]
       },
       "firstSeenAt": "2026-06-10T09:03:23.277Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -254,7 +258,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/jobs/22205/",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-03T22:12:48.800Z",
+      "crawledAt": "2026-08-04T11:38:38.687Z",
       "addressLocality": "Lugano, Ticino, Switzerland",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -288,17 +292,20 @@
         ]
       },
       "previousSlugs": [
-        "cdi-floor-manager-lugano-w-m-hermes-ch"
+        "cdi-floor-manager-lugano-w-m-hermes-ch",
+        "cdi-responsabile-di-sala-lugano-figli-luna-hermes-lugano-ticino-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "cdi-floor-manager-lugano-w-m-hermes-ch"
+          "cdi-floor-manager-lugano-w-m-hermes-ch",
+          "cdi-responsabile-di-sala-lugano-figli-luna-hermes-lugano-ticino-switzerland"
         ],
         "fr": [
           "cdi-floor-manager-lugano-w-m-hermes-ch"
         ]
       },
       "firstSeenAt": "2026-06-10T09:03:22.668Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -343,7 +350,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/jobs/22031/",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-03T22:12:48.097Z",
+      "crawledAt": "2026-08-04T11:38:38.034Z",
       "addressLocality": "Geneve, Geneva, Switzerland",
       "postalCode": "1204",
       "addressRegion": "Genève",
@@ -375,17 +382,20 @@
       },
       "previousSlugs": [
         "cdd-maintenance-project-coordinator-f-h-hermes-ch",
-        "cdd-maintenance-project-coordinateur-f-h-hermes-geneve-geneva-switzerland"
+        "cdd-maintenance-project-coordinateur-f-h-hermes-geneve-geneva-switzerland",
+        "cdd-coordinatore-del-progetto-di-manutenzione-f-h-hermes-geneve-geneva-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "cdd-maintenance-project-coordinator-f-h-hermes-ch"
+          "cdd-maintenance-project-coordinator-f-h-hermes-ch",
+          "cdd-coordinatore-del-progetto-di-manutenzione-f-h-hermes-geneve-geneva-switzerland"
         ],
         "fr": [
           "cdd-maintenance-project-coordinateur-f-h-hermes-geneve-geneva-switzerland"
         ]
       },
       "firstSeenAt": "2026-06-10T09:03:21.737Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -430,7 +440,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/jobs/22458/",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-03T22:12:47.444Z",
+      "crawledAt": "2026-08-04T11:38:37.380Z",
       "addressLocality": "Geneve, Geneva, Switzerland",
       "postalCode": "1204",
       "addressRegion": "Genève",
@@ -448,11 +458,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "stage-communication-1an-f-h-hermes-ch"
+        "stage-communication-1an-f-h-hermes-ch",
+        "comunicazione-1-anno-f-h-hermes-geneve-geneva-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "stage-communication-1an-f-h-hermes-ch"
+          "stage-communication-1an-f-h-hermes-ch",
+          "comunicazione-1-anno-f-h-hermes-geneve-geneva-switzerland"
         ]
       },
       "firstSeenAt": "2026-06-11T07:52:59.019Z",
@@ -500,7 +512,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/jobs/20205/",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-03T22:12:46.621Z",
+      "crawledAt": "2026-08-04T11:38:36.732Z",
       "addressLocality": "Geneve, Geneva, Switzerland",
       "postalCode": "1204",
       "addressRegion": "Genève",
@@ -518,11 +530,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "cdi-floor-supervisor-geneve-f-h-hermes-ch"
+        "cdi-floor-supervisor-geneve-f-h-hermes-ch",
+        "cdi-floor-supervisore-geneve-f-h-hermes-geneve-geneva-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "cdi-floor-supervisor-geneve-f-h-hermes-ch"
+          "cdi-floor-supervisor-geneve-f-h-hermes-ch",
+          "cdi-floor-supervisore-geneve-f-h-hermes-geneve-geneva-switzerland"
         ],
         "de": [
           "cdi-floor-supervisor-geneve-f-h-hermes-ch"
@@ -557,7 +571,7 @@
       "title": "CDI - Sales Associate Zürich (80% - 5 Tage) (H/F)",
       "titleByLocale": {
         "it": "CDI - Sales Associate Zurich (80% - 5 giorni) (H/F)",
-        "en": "CDI - Sales Associate Zurich (80% - 5 days) (H/F)",
+        "en": "CDI - Sales Associate Zürich (80% - 5 Tage) (H/F)",
         "de": "CDI - Sales Associate Zürich (80% - 5 Tage) (H/F)",
         "fr": "CDI - Sales Associate Zurich (80% - 5 jours) (H/F)"
       },
@@ -573,7 +587,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/jobs/23012/",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-03T22:12:45.999Z",
+      "crawledAt": "2026-08-04T11:38:36.064Z",
       "addressLocality": "Zurich, Switzerland",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -590,17 +604,20 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "cdi-sales-associate-zurich-80-5-tage-h-f-hermes-ch"
+        "cdi-sales-associate-zurich-80-5-tage-h-f-hermes-ch",
+        "cdi-sales-associate-zurich-80-5-giorni-h-f-hermes-zurich-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "cdi-sales-associate-zurich-80-5-tage-h-f-hermes-ch"
+          "cdi-sales-associate-zurich-80-5-tage-h-f-hermes-ch",
+          "cdi-sales-associate-zurich-80-5-giorni-h-f-hermes-zurich-switzerland"
         ],
         "fr": [
           "cdi-sales-associate-zurich-80-5-tage-h-f-hermes-ch"
         ]
       },
       "firstSeenAt": "2026-07-26T10:53:20.742Z",
+      "needsRetranslation": true,
       "salaryMin": 58800,
       "salaryMax": 89200,
       "baseSalary": {
@@ -631,7 +648,7 @@
         "it": "CDI - Host di benvenuto - (W/M)",
         "en": "CDI - Welcome Host - (W/M)",
         "de": "CDI - Welcome Host - (W/M)",
-        "fr": "CDI - Hôte de bienvenue - (W/M)"
+        "fr": "CDI - Welcome Host - (W/M)"
       },
       "description": "Ihr Arbeitsalltag\n\n• Jeden Besucher herzlich und stilvoll zu empfangen, dabei die Eleganz des Hauses zu verkörpern und einen gepflegten, unvergesslichen ersten Eindruck zu hinterlassen.\n\n• Die Erwartungen des Kunden bereits bei seiner Ankunft zu erkennen und ihn taktvoll zu dem Bereich, Ort oder Ansprechpartner zu leiten, der am besten zu ihm passt, um ihm ein reibungsloses und individuelles Erlebnis zu bieten.\n\n• Sorgen Sie für eine harmonische und ruhige Atmosphäre im Empfangsbereich, indem Sie Gelassenheit, Höflichkeit und Flexibilität an den Tag legen – auch zu Stoßzeiten.\n\n• Sorgen Sie für eine einwandfreie Koordination mit den verschiedenen Teams (Verkauf, Betrieb, Sicherheit), indem Sie Ankünfte und Termine in Echtzeit weitergeben, um eine optimale Betreuung zu gewährleisten.\n\n• Verwalten Sie den Terminkalender präzise, indem Sie Ankünfte, Verschiebungen und Stornierungen aktualisieren und gleichzeitig für eine lückenlose Nachverfolgung sorgen.\n\n• Nutzen Sie ein spezielles digitales Tool, um den Besucherstrom zu steuern, die Besucherzahlen im Geschäft in Echtzeit zu verfolgen und den Ablauf des Kundenbesuchs zu optimieren.\n\n• Bieten Sie einen aufmerksamen und proaktiven Service an, wie zum Beispiel Hilfe beim Regenschirm, einen Getränkeservice oder eine zuvorkommende Begleitung bis zum Ausgang oder zum Fahrzeug.\n\n• Sorgen Sie für ein angenehmes Erlebnis für wartende Kunden, indem Sie taktvoll kommunizieren, wenn das Geschäft seine maximale Kapazität erreicht hat, und darauf achten, die Wartezeiten so kurz wie möglich zu halten.\n\nDie Schlüssel zu Ihrem Erfolg\n\n• Nachweisbare Erfahrung im Gastgewerbe oder im Premium-Einzelhandel im Umgang mit einer anspruchsvollen Kundschaft sowie ein ausgeprägtes Gespür für Servicequalität.\n\n• Hervorragende Kompetenzen im Kundenservice, gepaart mit einer herzlichen, professionellen und auf Kundenzufriedenheit ausgerichteten Haltung.\n\n• Sehr gute Kenntnisse der Region, um Besucher über Genf und Umgebung zu informieren und ihnen Orientierung zu bieten.\n\n• Die Fähigkeit, in Stoßzeiten gelassen und professionell zu agieren und dabei stets einen aufmerksamen Empfang zu gewährleisten.\n\n• Herzliche und authentische Art, die einen reibungslosen und positiven Umgang mit jedem Kunden fördert und gleichzeitig eine diskrete Haltung bewahrt.\n\n• Perfekte Beherrschung der deutschen und der englischen Sprache, um lokale und internationale Kunden problemlos zu empfangen\n\nAls verantwortungsvoller Arbeitgeber setzen wir uns für Ethik, Vielfalt und Integration ein. Begleiten Sie das menschliche Abenteuer von Hermès!",
       "descriptionByLocale": {
@@ -645,7 +662,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/jobs/23011/",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-03T22:12:45.196Z",
+      "crawledAt": "2026-08-04T11:38:35.437Z",
       "addressLocality": "Zurich, Switzerland",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -662,14 +679,17 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "cdi-welcome-host-w-m-hermes-ch"
+        "cdi-welcome-host-w-m-hermes-ch",
+        "cdi-host-di-benvenuto-w-m-hermes-zurich-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "cdi-welcome-host-w-m-hermes-ch"
+          "cdi-welcome-host-w-m-hermes-ch",
+          "cdi-host-di-benvenuto-w-m-hermes-zurich-switzerland"
         ]
       },
       "firstSeenAt": "2026-07-26T10:53:20.130Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -687,8 +707,8 @@
       "id": "hermes-833caf19b0b2",
       "slug": "cdi-in-store-visual-merchandiser-f-h-hermes-ch",
       "slugByLocale": {
-        "en": "cdi-in-store-visual-merchandiser-f-h-hermes-ch",
         "it": "cdi-in-store-visual-merchandiser-f-h-hermes-ch",
+        "en": "cdi-in-store-visual-merchandiser-f-h-hermes-ch",
         "de": "cdi-in-store-visual-merchandiser-f-h-hermes-ch",
         "fr": "cdi-merchandiser-visuel-sur-place-f-h-hermes-geneve-geneva-switzerland"
       },
@@ -697,15 +717,15 @@
       "companyDomain": "hermes.com",
       "title": "CDI - In-Store Visual Merchandiser (F/H)",
       "titleByLocale": {
-        "en": "CDI - In-Store Visual Merchandiser (F/H)",
         "it": "CDI - In-Store Visual Merchandiser (F/H)",
+        "en": "CDI - In-Store Visual Merchandiser (F/H)",
         "de": "CDI - In-Store Visual Merchandiser (F/H)",
         "fr": "CDI - Merchandiser visuel sur place (F/H)"
       },
       "description": "RESPONSIBILITIES\n\n• The In-Store Visual Merchandiser of the Geneva Flagship Store carries out the daily rotation of collections in full alignment with Hermès Group Visual Merchandising guidelines, working closely with the Geneva Store VM Manager, the Switzerland & Central Europe VM Manager, and all store teams.\n\n• Support the VM Manager in the preparation and execution of special events, including product launches, commercial events, and in-store animations.\n\n• Deliver inspiring, dynamic, and meaningful visual displays, fully consistent with Hermès VM guidelines and aligned with the monthly VM schedule.\n\n• Build strong working relationships with all store functions, including Métiers Ambassadors, Sales Advisors, and Stock Teams, to ensure the correct execution of Visual Merchandising activities. Ensure that products, pricing, and stock are properly arranged and consistently maintained, in full compliance with store and company rules.\n\n• Consistently document VM work and actively contribute to, develop, animate, and inspire the Visual Merchandising community.\n\n• Monitor in-store presentation materials (PLV): ensure correct use, maintenance, timely ordering or replacement when needed, and proper storage, with regular checks performed.\n\n• Organize and optimize secondary displays (drawers, concealed shelving, counters), supporting the store in structuring them according to Hermès VM guidelines to facilitate sales. Propose practical solutions regarding space management and product positioning when needed.\n\nPROFILE\n\n• Bachelor’s and/or Master’s degree, preferably in art, design, fashion, or visual merchandising.\n\n• Strong aesthetic sensitivity and creative mindset, with a high level of attention to detail.\n\n• Solid understanding of retail dynamics, business challenges, and commercial priorities within a fast-paced store environment.\n\n• Proven talent with first experience in Visual Merchandising role, managing complex assortments in a multi-category or multi-store context.\n\n• Excellent collaboration and influencing skills, with demonstrated flexibility and the ability to manage the unexpected challenges typical of retail.\n\n• Ability to translate global corporate guidelines into relevant and effective local market execution.\n\n• Strong problem-solving mindset, hands-on attitude, and ease of approach.\n\n• Strong service orientation and natural ability to build trust with store teams.\n\n• French and English proficiency are required\n\n• Part Time 50% role requiring a 7:00 AM start; flexible schedule across 4-5 days\n\nAs a responsible employer, we are committed to ethics, diversity and inclusion. Join the Hermès human adventure !",
       "descriptionByLocale": {
-        "en": "RESPONSIBILITIES\n\n• The In-Store Visual Merchandiser of the Geneva Flagship Store carries out the daily rotation of collections in full alignment with Hermès Group Visual Merchandising guidelines, working closely with the Geneva Store VM Manager, the Switzerland & Central Europe VM Manager, and all store teams.\n\n• Support the VM Manager in the preparation and execution of special events, including product launches, commercial events, and in-store animations.\n\n• Deliver inspiring, dynamic, and meaningful visual displays, fully consistent with Hermès VM guidelines and aligned with the monthly VM schedule.\n\n• Build strong working relationships with all store functions, including Métiers Ambassadors, Sales Advisors, and Stock Teams, to ensure the correct execution of Visual Merchandising activities. Ensure that products, pricing, and stock are properly arranged and consistently maintained, in full compliance with store and company rules.\n\n• Consistently document VM work and actively contribute to, develop, animate, and inspire the Visual Merchandising community.\n\n• Monitor in-store presentation materials (PLV): ensure correct use, maintenance, timely ordering or replacement when needed, and proper storage, with regular checks performed.\n\n• Organize and optimize secondary displays (drawers, concealed shelving, counters), supporting the store in structuring them according to Hermès VM guidelines to facilitate sales. Propose practical solutions regarding space management and product positioning when needed.\n\nPROFILE\n\n• Bachelor’s and/or Master’s degree, preferably in art, design, fashion, or visual merchandising.\n\n• Strong aesthetic sensitivity and creative mindset, with a high level of attention to detail.\n\n• Solid understanding of retail dynamics, business challenges, and commercial priorities within a fast-paced store environment.\n\n• Proven talent with first experience in Visual Merchandising role, managing complex assortments in a multi-category or multi-store context.\n\n• Excellent collaboration and influencing skills, with demonstrated flexibility and the ability to manage the unexpected challenges typical of retail.\n\n• Ability to translate global corporate guidelines into relevant and effective local market execution.\n\n• Strong problem-solving mindset, hands-on attitude, and ease of approach.\n\n• Strong service orientation and natural ability to build trust with store teams.\n\n• French and English proficiency are required\n\n• Part Time 50% role requiring a 7:00 AM start; flexible schedule across 4-5 days\n\nAs a responsible employer, we are committed to ethics, diversity and inclusion. Join the Hermès human adventure !",
         "it": "RISPOSIZIONI\n\n• L'In-Store Visual Merchandiser del Flagship Store di Ginevra effettua la rotazione quotidiana delle collezioni in pieno allineamento con le linee guida di Hermès Group Visual Merchandising, lavorando a stretto contatto con il Gestore VM di Geneva Store, il Gestore VM di Svizzera & Central Europe e tutti i team di store.\n\n• Supporta il VM Manager nella preparazione e nell'esecuzione di eventi speciali, tra cui lanci di prodotti, eventi commerciali e animazioni in-store.\n\n• Fornire display visivi ispiranti, dinamici e significativi, pienamente conformi alle linee guida di Hermès VM e allineati con il calendario mensile delle VM.\n\n• Costruire forti rapporti di lavoro con tutte le funzioni del negozio, tra cui gli Ambasciatori Métiers, i Vendite Advisors e i Team Stock, per garantire la corretta esecuzione delle attività di Visual Merchandising. Assicurarsi che i prodotti, i prezzi e le azioni sono adeguatamente organizzati e costantemente mantenuti, nel pieno rispetto delle regole del negozio e dell'azienda.\n\n• Documentare costantemente il lavoro della VM e contribuire attivamente a, sviluppare, animare e ispirare la comunità di Visual Merchandising.\n\n• Monitorare i materiali di presentazione in-store (PLV): garantire l'uso corretto, la manutenzione, l'ordine tempestivo o la sostituzione quando necessario, e la conservazione corretta, con controlli regolari eseguiti.\n\n• Organizzare e ottimizzare i display secondari (trasporti, scaffali nascosti, contatori), supportando il negozio nella strutturazione secondo le linee guida di Hermès VM per facilitare le vendite. Proporre soluzioni pratiche per la gestione dello spazio e il posizionamento dei prodotti quando necessario.\n\nPROFESSIONALE\n\n• Corso di laurea e/o master, preferibilmente in arte, design, moda o visual merchandising.\n\n• Forte sensibilità estetica e mentalità creativa, con un alto livello di attenzione ai dettagli.\n\n• Una solida comprensione delle dinamiche di vendita al dettaglio, delle sfide aziendali e delle priorità commerciali in un ambiente di vendita veloce.\n\n• Talenti collaudati con la prima esperienza nel ruolo di Visual Merchandising, gestendo complessi assortimento in un contesto multi-categoria o multi-store.\n\n• Ottima collaborazione e competenze influenti, con dimostrata flessibilità e capacità di gestire le sfide inaspettate tipiche del retail.\n\n• Capacità di tradurre le linee guida aziendali globali in esecuzione di mercato locale rilevante ed efficace.\n\n• Forte mentalità problem-solving, atteggiamento hands-on e facilità di approccio.\n\n• Forte orientamento al servizio e naturale capacità di costruire fiducia con i team di negozio.\n\n• La competenza francese e inglese è richiesta\n\n• Part Time 50% ruolo che richiede un inizio di 7:00 AM; programma flessibile in 4-5 giorni\n\nCome datore di lavoro responsabile, ci impegniamo per l'etica, la diversità e l'inclusione. Unisciti all'avventura umana di Hermès!",
+        "en": "RESPONSIBILITIES\n\n• The In-Store Visual Merchandiser of the Geneva Flagship Store carries out the daily rotation of collections in full alignment with Hermès Group Visual Merchandising guidelines, working closely with the Geneva Store VM Manager, the Switzerland & Central Europe VM Manager, and all store teams.\n\n• Support the VM Manager in the preparation and execution of special events, including product launches, commercial events, and in-store animations.\n\n• Deliver inspiring, dynamic, and meaningful visual displays, fully consistent with Hermès VM guidelines and aligned with the monthly VM schedule.\n\n• Build strong working relationships with all store functions, including Métiers Ambassadors, Sales Advisors, and Stock Teams, to ensure the correct execution of Visual Merchandising activities. Ensure that products, pricing, and stock are properly arranged and consistently maintained, in full compliance with store and company rules.\n\n• Consistently document VM work and actively contribute to, develop, animate, and inspire the Visual Merchandising community.\n\n• Monitor in-store presentation materials (PLV): ensure correct use, maintenance, timely ordering or replacement when needed, and proper storage, with regular checks performed.\n\n• Organize and optimize secondary displays (drawers, concealed shelving, counters), supporting the store in structuring them according to Hermès VM guidelines to facilitate sales. Propose practical solutions regarding space management and product positioning when needed.\n\nPROFILE\n\n• Bachelor’s and/or Master’s degree, preferably in art, design, fashion, or visual merchandising.\n\n• Strong aesthetic sensitivity and creative mindset, with a high level of attention to detail.\n\n• Solid understanding of retail dynamics, business challenges, and commercial priorities within a fast-paced store environment.\n\n• Proven talent with first experience in Visual Merchandising role, managing complex assortments in a multi-category or multi-store context.\n\n• Excellent collaboration and influencing skills, with demonstrated flexibility and the ability to manage the unexpected challenges typical of retail.\n\n• Ability to translate global corporate guidelines into relevant and effective local market execution.\n\n• Strong problem-solving mindset, hands-on attitude, and ease of approach.\n\n• Strong service orientation and natural ability to build trust with store teams.\n\n• French and English proficiency are required\n\n• Part Time 50% role requiring a 7:00 AM start; flexible schedule across 4-5 days\n\nAs a responsible employer, we are committed to ethics, diversity and inclusion. Join the Hermès human adventure !",
         "de": "VERANTWORTUNGEN\n\n• Der In-Store Visual Merchandiser des Geneva Flagship Store führt die tägliche Rotation der Kollektionen in voller Übereinstimmung mit den Richtlinien der Hermès Group Visual Merchandising durch und arbeitet eng mit dem Geneva Store VM Manager, dem Switzerland & Central Europe VM Manager und allen Filialteams zusammen.\n\n• Unterstützen Sie den VM-Manager bei der Vorbereitung und Durchführung von Sonderveranstaltungen, einschließlich Produkteinführungen, kommerziellen Veranstaltungen und In-Store-Animationen.\n\n• Liefern Sie inspirierende, dynamische und aussagekräftige visuelle Displays, die vollständig den VM-Richtlinien von Hermès entsprechen und auf den monatlichen VM-Zeitplan abgestimmt sind.\n\n• Aufbau starker Arbeitsbeziehungen zu allen Filialfunktionen, einschließlich Métiers Botschaftern, Verkaufsberatern und Lagerteams, um die korrekte Ausführung von Visual Merchandising-Aktivitäten sicherzustellen. Stellen Sie sicher, dass Produkte, Preise und Lager ordnungsgemäß organisiert und konsequent gepflegt werden, in voller Übereinstimmung mit den Regeln des Geschäfts und des Unternehmens.\n\n• Dokumentieren Sie konsequent die VM-Arbeit und tragen Sie aktiv dazu bei, entwickeln, animieren und inspirieren Sie die Visual Merchandising-Community.\n\n• Überwachen Sie In-Store-Präsentationsmaterialien (PLV): Stellen Sie die korrekte Verwendung, Wartung, rechtzeitige Bestellung oder Austausch bei Bedarf und eine ordnungsgemäße Lagerung sicher, wobei regelmäßige Kontrollen durchgeführt werden.\n\n• Organisieren und optimieren Sie Sekundärdisplays (Schubladen, versteckte Regale, Theken) und unterstützen Sie den Laden bei der Strukturierung nach Hermès VM-Richtlinien, um den Verkauf zu erleichtern. Schlagen Sie bei Bedarf praktische Lösungen für das Raummanagement und die Produktpositionierung vor.\n\nPROFIL\n\n• Bachelor- und / oder Master-Abschluss, vorzugsweise in Kunst, Design, Mode oder Visual Merchandising.\n\n• Starke ästhetische Sensibilität und kreative Denkweise, mit einem hohen Maß an Liebe zum Detail.\n\n• Ein solides Verständnis der Einzelhandelsdynamik, der geschäftlichen Herausforderungen und der kommerziellen Prioritäten in einer schnelllebigen Ladenumgebung.\n\n• Bewährte Talente mit erster Erfahrung in der Rolle von Visual Merchandising und der Verwaltung komplexer Sortimente in einem Multi-Kategorie- oder Multi-Store-Kontext.\n\n• Hervorragende Zusammenarbeit und beeinflussende Fähigkeiten, mit demonstrierter Flexibilität und der Fähigkeit, die unerwarteten Herausforderungen des Einzelhandels zu bewältigen.\n\n• Fähigkeit, globale Unternehmensrichtlinien in relevante und effektive lokale Marktausführung zu übersetzen.\n\n• Starke Problemlösungsmentalität, praktische Haltung und einfache Herangehensweise.\n\n• Starke Serviceorientierung und natürliche Fähigkeit, Vertrauen mit Store-Teams aufzubauen.\n\n• Französische und englische Kenntnisse sind erforderlich\n\n• Teilzeit 50% Rolle erfordert einen 7:00 Start; flexibler Zeitplan über 4-5 Tage\n\nAls verantwortungsvoller Arbeitgeber bekennen wir uns zu Ethik, Diversität und Inklusion. Nehmen Sie am menschlichen Abenteuer Hermès teil!",
         "fr": "RESPONSABLES\n\n• Le Marchandisateur Visual In-Store du Geneva Flagship Store effectue la rotation quotidienne des collections en alignement complet avec les directives du Groupe Hermès, en collaboration étroite avec le Geneva Store VM Manager, le Suisse & Europe centrale VM Manager et toutes les équipes de magasins.\n\n• Soutenir le gestionnaire de VM dans la préparation et l'exécution d'événements spéciaux, y compris les lancements de produits, les événements commerciaux et les animations en magasin.\n\n• Offrez des affichages visuels inspirants, dynamiques et significatifs, entièrement conformes aux directives Hermès VM et alignés sur le calendrier mensuel VM.\n\n• Établir des relations de travail solides avec toutes les fonctions de magasin, y compris les ambassadeurs de Métiers, les conseillers commerciaux et les équipes de stock, pour assurer la bonne exécution des activités de marchandisation visuelle. S'assurer que les produits, les prix et les stocks sont bien disposés et maintenus, en pleine conformité avec les règles du magasin et de l'entreprise.\n\n• Documenter de façon cohérente le travail de la VM et contribuer activement au développement, à l'animation et à l'inspiration de la communauté des marchands visuels.\n\n• Surveiller les documents de présentation en magasin (PLV) : veiller à l'utilisation correcte, à l'entretien, à la commande ou au remplacement en temps opportun, au besoin, et à l'entreposage approprié, avec des vérifications régulières.\n\n• Organisez et optimisez les présentoirs secondaires (tiroirs, étagères cachées, comptoirs), en les structurant selon les directives Hermès VM pour faciliter les ventes. Proposer des solutions pratiques concernant la gestion de l'espace et le positionnement des produits au besoin.\n\nPROFIL\n\n• Baccalauréat et/ou maîtrise, de préférence en art, design, mode ou merchandising visuel.\n\n• Sensibilité esthétique forte et esprit créatif, avec un haut niveau d'attention au détail.\n\n• Compréhension solide de la dynamique du commerce de détail, des défis commerciaux et des priorités commerciales dans un environnement de magasin rapide.\n\n• Un talent éprouvé avec une première expérience dans le rôle de marchandisation visuelle, la gestion d'assortiments complexes dans un contexte multi-catégorie ou multi-magasin.\n\n• Excellente collaboration et influence des compétences, avec une flexibilité démontrée et la capacité de gérer les défis inattendus typiques du commerce de détail.\n\n• Capacité de traduire les lignes directrices mondiales des entreprises en une exécution locale pertinente et efficace des marchés.\n\n• Forte résolution de problèmes, attitude pratique et facilité d'approche.\n\n• Forte orientation du service et la capacité naturelle de renforcer la confiance avec les équipes de magasin.\n\n• Les compétences en français et en anglais sont requises\n\n• Temps partiel 50% de rôle nécessitant un départ de 7:00 AM; horaire flexible sur 4-5 jours\n\nEn tant qu'employeur responsable, nous sommes attachés à l'éthique, à la diversité et à l'inclusion. Rejoignez l'aventure humaine Hermès !"
       },
@@ -714,7 +734,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/jobs/22674/",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-03T22:12:44.509Z",
+      "crawledAt": "2026-08-04T11:38:34.791Z",
       "addressLocality": "Geneve, Geneva, Switzerland",
       "postalCode": "1204",
       "addressRegion": "Genève",
@@ -730,9 +750,9 @@
       "postedDate": "2026-08-03",
       "applyUrl": "https://talents.hermes.com/en/sites/CX/jobs/22674/",
       "requirements": [],
-      "requirementsByLocale": {
-        "en": []
-      },
+      "requirementsByLocale": {},
+      "firstSeenAt": "2026-08-03T22:12:44.509Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -744,8 +764,7 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-08-03T22:12:44.509Z"
+      }
     },
     {
       "id": "hermes-c78b967a5619",
@@ -778,7 +797,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/jobs/20188/",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-03T22:12:43.795Z",
+      "crawledAt": "2026-08-04T11:38:34.179Z",
       "addressLocality": "Geneve, Geneva, Switzerland",
       "postalCode": "1204",
       "addressRegion": "Genève",
@@ -796,11 +815,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "cdi-hote-esse-d-accueil-geneve-f-h-hermes-ch"
+        "cdi-hote-esse-d-accueil-geneve-f-h-hermes-ch",
+        "cdi-ospitalita-ginevra-f-h-hermes-geneve-geneva-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "cdi-hote-esse-d-accueil-geneve-f-h-hermes-ch"
+          "cdi-hote-esse-d-accueil-geneve-f-h-hermes-ch",
+          "cdi-ospitalita-ginevra-f-h-hermes-geneve-geneva-switzerland"
         ],
         "en": [
           "cdi-hote-esse-d-accueil-geneve-f-h-hermes-ch"
@@ -822,86 +843,6 @@
           "unitText": "YEAR"
         }
       }
-    },
-    {
-      "id": "hermes-dea5392486ce",
-      "slug": "cdi-addetto-alle-vendite-gstaad-w-m-hermes-gstaad-bern-switzerland",
-      "slugByLocale": {
-        "it": "cdi-addetto-alle-vendite-gstaad-w-m-hermes-gstaad-bern-switzerland",
-        "en": "cdi-sales-associate-gstaad-w-m-hermes-ch",
-        "de": "cdi-verkaufsassistent-gstaad-w-m-hermes-gstaad-bern-switzerland",
-        "fr": "cdi-associe-aux-ventes-gstaad-w-m-hermes-gstaad-bern-switzerland"
-      },
-      "company": "Hermès",
-      "companyKey": "hermes",
-      "companyDomain": "hermes.com",
-      "title": "CDI - Sales Associate Gstaad (W/M)",
-      "titleByLocale": {
-        "it": "CDI - Addetto alle vendite Gstaad (W/M)",
-        "en": "CDI - Sales Associate Gstaad (W/M)",
-        "de": "CDI – Verkaufsassistent Gstaad (W/M)",
-        "fr": "CDI - Associé aux ventes Gstaad (W/M)"
-      },
-      "description": "What will your mission be?\n As Sales Associate you are at the heart of the sales activities in store.\n You will enchant every visitor with simplicity and generosity, delivering quality service at all times. You make sure to adapt to each client, identifying their needs and surprising them across the different Hermès universes.\n You focus on delivering high quality sales, developing strong client relationships during and after his journey in the store.\n\nWhat will your daily life look like?\n\n• You will be the client’s first impression of Hermès image and convey simplicity & generosity at all times\n\n• You provide excellent customer service adapted the culture & personality of each client and maintain a pleasant shopping environment consistent with the Hermès brand image\n\n• You develop sales across all product universes, always keeping in mind the quality of products & the excellence of service that Hermès wishes to give to its clients\n\n• You call on current & potential customers to establish & maintain client relationship and to inform about new products & services\n\n• You identify & handle client enquiries and concerns\n\nWhat will you need to be successful?\n\n• At least 3 years of relevant customer facing experience in high end retail\n\n• A natural passion for people & service\n\n• The ability to adapt to different cultures & a real sense of empathy\n\n• A team player attitude to reach a common goal & go the extra mile\n\n• Very good knowledge of our local customers and their habits\n\n• Fluent English and German or French is required\n\nWhat can we offer you?\n\n• You will be part of a collective adventure, joining a small dynamic team with great spirit and high standards\n\n• You will discover a growing house with a strong and family base and responsible values\n\n• You will have the chance to build your bespoke career path\n\n• You will have the opportunity to bring & develop your own local client network\n\nAs a responsible employer, we are committed to ethics, diversity and inclusion. Join the Hermès human adventure!",
-      "descriptionByLocale": {
-        "it": "Quale sarà la tua missione? In qualità di addetto alle vendite, sei al centro delle attività di vendita in negozio. Incanterai ogni visitatore con semplicità e generosità, offrendo un servizio di qualità in ogni momento. Ti assicuri di adattarti a ogni cliente, identificando le sue esigenze e sorprendendole nei diversi universi Hermès. Ti concentri sulla realizzazione di vendite di alta qualità, sviluppando solide relazioni con i clienti durante e dopo il suo viaggio in negozio. Come sarà la tua vita quotidiana?\n• Sarai la prima impressione del cliente sull'immagine di Hermès e trasmetterai sempre semplicità e generosità\n• Fornisci un eccellente servizio clienti adattato alla cultura e alla personalità di ciascun cliente e mantieni un piacevole ambiente di acquisto coerente con l'immagine del marchio Hermès\n• Sviluppi le vendite in tutti gli universi di prodotti, tenendo sempre presente la qualità dei prodotti e l'eccellenza del servizio che Hermès desidera dare ai suoi clienti\n• Inviti i clienti attuali e potenziali a stabilire e mantenere relazioni con i clienti e a informare su nuovi prodotti e servizi\n• Identifichi e gestisci le richieste e le preoccupazioni dei clienti Cosa dovrai fare per avere successo?\n• Almeno 3 anni di esperienza rilevante nei confronti dei clienti nella vendita al dettaglio di fascia alta\n• Una passione naturale per le persone e il servizio\n• La capacità di adattarsi a culture diverse e un vero senso di empatia\n• Un atteggiamento da giocatore di squadra per raggiungere un obiettivo comune e fare il possibile\n• Ottima conoscenza dei nostri clienti locali e dei loro",
-        "en": "What will your mission be?\nAs Sales Associate you are at the heart of the sales activities in store.\nYou will enchant every visitor with simplicity and generosity, delivering quality service at all times. You make sure to adapt to each client, identifying their needs and surprising them across the different Hermès universes.\nYou focus on delivering high quality sales, developing strong client relationships during and after his journey in the store.\n\nWhat will your daily life look like?\n\n• You will be the client’s first impression of Hermès image and convey simplicity & generosity at all times\n\n• You provide excellent customer service adapted the culture & personality of each client and maintain a pleasant shopping environment consistent with the Hermès brand image\n\n• You develop sales across all product universes, always keeping in mind the quality of products & the excellence of service that Hermès wishes to give to its clients\n\n• You call on current & potential customers to establish & maintain client relationship and to inform about new products & services\n\n• You identify & handle client enquiries and concerns\n\nWhat will you need to be successful?\n\n• At least 3 years of relevant customer facing experience in high end retail\n\n• A natural passion for people & service\n\n• The ability to adapt to different cultures & a real sense of empathy\n\n• A team player attitude to reach a common goal & go the extra mile\n\n• Very good knowledge of our local customers and their habits\n\n• Fluent English and German or French is required\n\nWhat can we offer you?\n\n• You will be part of a collective adventure, joining a small dynamic team with great spirit and high standards\n\n• You will discover a growing house with a strong and family base and responsible values\n\n• You will have the chance to build your bespoke career path\n\n• You will have the opportunity to bring & develop your own local client network\n\nAs a responsible employer, we are committed to ethics, diversity and inclusion. Join the Hermès human adventure!",
-        "de": "Was wird Ihre Mission sein? Als Vertriebsmitarbeiter stehen Sie im Mittelpunkt der Verkaufsaktivitäten im Geschäft. Sie werden jeden Besucher mit Einfachheit und Großzügigkeit verzaubern und jederzeit einen qualitativ hochwertigen Service bieten. Sie stellen sicher, dass Sie sich an jeden Kunden anpassen, seine Bedürfnisse identifizieren und ihn in den verschiedenen Hermès-Universen überraschen. Sie konzentrieren sich darauf, qualitativ hochwertige Verkäufe zu erzielen und während und nach seiner Reise im Geschäft starke Kundenbeziehungen aufzubauen. Wie wird Ihr Alltag aussehen?\n• Sie werden der erste Eindruck des Kunden von Hermès Image sein und jederzeit Einfachheit und Großzügigkeit vermitteln\n• Sie bieten einen exzellenten Kundenservice, der an die Kultur und Persönlichkeit jedes Kunden angepasst ist, und pflegen ein angenehmes Einkaufsumfeld, das mit dem Markenimage von Hermès übereinstimmt\n• Sie entwickeln Verkäufe in allen Produktuniversen und berücksichtigen dabei immer die Qualität der Produkte und die Exzellenz des Services, den Hermès seinen Kunden bieten möchte\n• Sie rufen aktuelle und potenzielle Kunden dazu auf, Kundenbeziehungen aufzubauen und zu pflegen und über neue Produkte und Dienstleistungen zu informieren\n• Sie identifizieren und bearbeiten Kundenanfragen und -anliegen Was benötigen Sie, um erfolgreich zu sein?\n• Mindestens 3 Jahre relevante Kundenerfahrung im High-End-Einzelhandel\n• Eine natürliche Leidenschaft für Menschen & Service\n• Die Fähigkeit, sich an verschiedene Kulturen anzupassen & ein echtes Gefühl von Empathie\n• Eine Teamplayer-Haltung, um ein gemeinsames Ziel zu erreichen & die Extrameile zu gehen\n• Sehr gute Kenntnisse unserer lokalen Kunden und ihrer",
-        "fr": "Quelle sera votre mission ? En tant que Sales Associate, vous êtes au cœur des activités de vente en magasin. Vous enchanterez chaque visiteur avec simplicité et générosité, offrant un service de qualité à tout moment. Vous veillez à vous adapter à chaque client, en identifiant leurs besoins et en les surprenant à travers les différents univers Hermès. Vous vous concentrez sur la réalisation de ventes de haute qualité, en développant de solides relations avec les clients pendant et après son parcours dans le magasin. À quoi ressemblera votre vie quotidienne ?\n• Vous serez la première impression du client sur l'image d'Hermès et transmettrez la simplicité et la générosité à tout moment\n• Vous fournissez un excellent service client adapté à la culture et à la personnalité de chaque client et maintenez un environnement d'achat agréable cohérent avec l'image de marque d'Hermès\n• Vous développez les ventes dans tous les univers de produits, en gardant toujours à l'esprit la qualité des produits et l'excellence du service qu'Hermès souhaite offrir à ses clients\n• Vous faites appel à des clients actuels et potentiels pour établir et maintenir une relation client et pour les informer sur les nouveaux produits et services\n• Vous identifiez et gérez les demandes et les préoccupations des clients De quoi aurez-vous besoin pour réussir ?\n• Au moins 3 ans d'expérience pertinente face à la clientèle dans le commerce de détail haut de gamme\n• Une passion naturelle pour les gens et le service\n• La capacité de s'adapter à différentes cultures et un réel sens de l'empathie\n• Une attitude de travail d'équipe pour atteindre un objectif commun et faire un effort supplémentaire\n• Une très bonne connaissance de nos clients locaux et de leurs"
-      },
-      "location": "Gstaad, Bern, Switzerland",
-      "canton": "BE",
-      "url": "https://talents.hermes.com/en/sites/CX/jobs/19709/",
-      "source": "Hermès Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-08-02T21:59:43.167Z",
-      "addressLocality": "Gstaad, Bern, Switzerland",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Commerciale",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Luxury goods / fashion / watchmaking",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-01-20",
-      "applyUrl": "https://talents.hermes.com/en/sites/CX/jobs/19709/",
-      "requirements": [],
-      "requirementsByLocale": {
-        "it": [
-          "Almeno 3 anni di esperienza rilevante nei confronti dei clienti nella vendita al dettaglio di fascia alta"
-        ]
-      },
-      "previousSlugs": [
-        "cdi-sales-associate-gstaad-w-m-hermes-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "cdi-sales-associate-gstaad-w-m-hermes-ch"
-        ],
-        "de": [
-          "cdi-sales-associate-gstaad-w-m-hermes-ch"
-        ],
-        "fr": [
-          "cdi-sales-associate-gstaad-w-m-hermes-ch"
-        ]
-      },
-      "firstSeenAt": "2026-06-10T09:03:25.691Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 2
     }
   ]
 }

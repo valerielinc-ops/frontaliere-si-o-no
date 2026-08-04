@@ -1,16 +1,16 @@
 {
   "key": "capri-holdings",
   "label": "Capri Holdings",
-  "generatedAt": "2026-08-03T22:11:56.214Z",
-  "total": 7,
+  "generatedAt": "2026-08-04T11:32:27.157Z",
+  "total": 6,
   "newCount": 0,
   "updatedCount": 6,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 18655,
-  "avgDurationMs": 18655,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 17732,
+  "avgDurationMs": 17732,
   "durationHistory": [
-    18655
+    17732
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -245,8 +245,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "url": "https://capri.wd1.myworkdayjobs.com/en-US/Michael_Kors/job/Geneva/fix-term-Sales-Associate--Geneva---Part-Time_R_785478",
       "applyUrl": "https://capri.wd1.myworkdayjobs.com/en-US/Michael_Kors/job/Geneva/fix-term-Sales-Associate--Geneva---Part-Time_R_785478",
@@ -289,5 +288,6 @@
         "completeness": 20
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }

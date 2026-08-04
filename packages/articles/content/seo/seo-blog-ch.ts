@@ -23417,6 +23417,84 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-attacco-hacker-liechtenstein-svizzera': {
+    title: 'Attacco hacker nel Liechtenstein, allarme pure in Svizzera',
+    description: 'Il furto di dati dal registro delle fondazioni del Liechtenstein solleva timori per le ripercussioni fiscali anche in Svizzera. Analisi delle conseguenze.',
+    keywords: 'frontalieri, ticino, svizzera, italia, attacco, hacker, liechtenstein, allarme',
+    ogTitle: 'Attacco hacker nel Liechtenstein, allarme pure in Svizzera',
+    ogDescription: 'Il furto di dati dal registro delle fondazioni del Liechtenstein solleva timori per le ripercussioni fiscali anche in Svizzera. Analisi delle conseguenze.',
+    canonicalPath: '/articoli-svizzera/attacco-hacker-liechtenstein-svizzera/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Attacco hacker nel Liechtenstein, allarme pure in Svizzera",
+      "description": "Il furto di dati dal registro delle fondazioni del Liechtenstein solleva timori per le ripercussioni fiscali anche in Svizzera. Analisi delle conseguenze.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/attacco-hacker-liechtenstein-svizzera.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Veduta di un centro finanziario svizzero, rappresentazione di stabilità e trasparenza."
+      },
+      "datePublished": "2026-08-04T10:25:51+00:00",
+      "dateModified": "2026-08-04T10:25:51+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/attacco-hacker-liechtenstein-svizzera/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-le-assenze-totale-dal-dazio-nelle-situazioni-di-emergenza': {
+    title: 'Le condizioni per l\'esenzione totale dal dazio nelle situazioni di emergenza',
+    description: 'La Cassazione ha chiarito il concetto di emergenza ai fini dell\'esenzione dai dazi. La sentenza ha importanti implicazioni pratiche per le autorità doganali.',
+    keywords: 'frontalieri, ticino, svizzera, italia, condizioni, esenzione, totale, dazio',
+    ogTitle: 'Esenzione totale dal dazio nelle situazioni di emergenza',
+    ogDescription: 'La Cassazione ha chiarito il concetto di emergenza ai fini dell\'esenzione dai dazi. La sentenza ha importanti implicazioni pratiche per le autorità doganali.',
+    canonicalPath: '/articoli-svizzera/le-assenze-totale-dal-dazio-nelle-situazioni-di-emergenza/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Le condizioni per l'esenzione totale dal dazio nelle situazioni di emergenza",
+      "description": "La Cassazione ha chiarito il concetto di emergenza ai fini dell'esenzione dai dazi. La sentenza ha importanti implicazioni pratiche per le autorità doganali.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/le-assenze-totale-dal-dazio-nelle-situazioni-di-emergenza.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una scena di emergenza medica in un ospedale svizzero"
+      },
+      "datePublished": "2026-08-04T12:47:50+00:00",
+      "dateModified": "2026-08-04T12:47:50+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/le-assenze-totale-dal-dazio-nelle-situazioni-di-emergenza/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
