@@ -9240,6 +9240,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.lucibello-disti-verifica-fondi.title': 'Lucibello: "Pas d\'enrichissement ou d\'utilisation frauduleuse"',
     'blog.article.lucibello-disti-verifica-fondi.excerpt': 'Le président de Disti se défend de l\'accusation d\'utilisation abusive des fonds, en assurant la transparence et le respect des procédures.',
     'blog.article.lucibello-disti-verifica-fondi.imageAlt': 'Vue aérienne de Lugano avec le centre-ville et le lac de Lugano en arrière-plan',
+    'blog.article.inflazione-svizzera-luglio-2026.title': 'L\'inflation en Suisse tombe à 0,4% en juillet',
+    'blog.article.inflazione-svizzera-luglio-2026.excerpt': 'L\'inflation en Suisse s\'est établie à 0,4% en juillet, après 0,5% en juin et 0,6% en avril et mai.',
+    'blog.article.inflazione-svizzera-luglio-2026.imageAlt': 'Vue aérienne de Lugano, Tessin, Suisse, avec le lac et les montagnes en arrière-plan.',
 };
 
 export default blogMetaFr;
