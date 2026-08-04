@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "savedAt": "2026-08-04T22:21:47.217Z",
+  "savedAt": "2026-08-04T22:41:52.780Z",
   "entries": [
     {
       "key": "d75719e12bc559369b74abd12b1a133042ef5e67255856876010887a99333ff9",
@@ -283760,16 +283760,16 @@
     },
     {
       "key": "94e2df269dee06298ca5f282e72f6d0b4f7f43028a60f3fca25a492c6a34831f",
-      "touchedAt": 1785844106601,
+      "touchedAt": 1785882671661,
       "value": {
         "isJob": true,
         "confidence": 0.9,
-        "reason": "The page contains a concrete role title, responsibilities, requirements, and application context, which meets the criteria for a real single job detail page."
+        "reason": "The page contains a concrete role title, responsibilities/requirements, and application context, which meets the criteria for a real single job detail page."
       }
     },
     {
       "key": "8fdc8149e0005a7ec7b3cd4cab8ed4b0713d90211efadb31d2dda43d4d006509",
-      "touchedAt": 1785844106792,
+      "touchedAt": 1785882692299,
       "value": {
         "isJob": true,
         "confidence": 0.9,
@@ -289329,6 +289329,357 @@
         "isJob": true,
         "confidence": 0.9,
         "reason": "The page contains a concrete role title (Lehrstelle Produktionsmechaniker(in) EFZ (3 Jahre)), responsibilities/requirements (e.g. bearbeiten von Hochpräzise Einzel- oder Grossserienteilen, Wartung von Fertigungs- und Produktionsanlagen), and application context (e.g. Bewerbungsschreiben, Lebenslauf, Zeugnisse). The page also includes a company description, a call to action to apply for the job, and a contact person. This suggests that the page is a real single job detail page rather than a generic careers listing or company information page."
+      }
+    },
+    {
+      "key": "b14585ea112dfedddefe03d42558ae52b4c76af8c6d7f8e7586fc2273a384539",
+      "touchedAt": 1785882680475,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title, responsibilities, and requirements, as well as an application context, which suggests that it is a real single job detail page."
+      }
+    },
+    {
+      "key": "a932c7f5a2a8f79a408f7467f883b359693057baf92b7dab33e7a21f0a046b26",
+      "touchedAt": 1785882687218,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title, responsibilities, and requirements, as well as an application context, which meets the criteria for a real single job detail page."
+      }
+    },
+    {
+      "key": "cc96b066cee27aa25ad27819378fe8ce3e15e8018161ae56328a264dccbfd47c",
+      "touchedAt": 1785882691957,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title, responsibilities, and requirements, as well as application context, which are typical characteristics of a real single job detail page."
+      }
+    },
+    {
+      "key": "93ccfccb9e47e6f48ff1b6d7a433ed1111a1528c234eca85b6645560c157595f",
+      "touchedAt": 1785882698781,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title, responsibilities, and application context, including a job summary, accountabilities, and job qualifications, which are typical characteristics of a real single job detail page."
+      }
+    },
+    {
+      "key": "17d3b3de04e6af0369fc9cf26a163f44879fdc78b40030110c29416e7985913b",
+      "touchedAt": 1785882704221,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title, responsibilities/requirements, and application context, which are typical characteristics of a real single job detail page. The page also includes a personal message from the recruiter, a detailed description of the company and the role, and specific requirements for the position. However, the confidence level is not 1.0 because the page also includes some generic information about the company and the benefits of working there, which could be found on a generic careers page."
+      }
+    },
+    {
+      "key": "bf325933f32221b1ee34f764e54f0c807fd2a19094340cc991e8d357580b4bf4",
+      "touchedAt": 1785882709591,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title, responsibilities, and requirements, as well as an application context, indicating that it is a real single job detail page."
+      }
+    },
+    {
+      "key": "6855a207471d293652d0a325e3854e4e9c77f8f7a3902dda5a7c1d0f8f659e4e",
+      "touchedAt": 1785882714762,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title, responsibilities, and application context, including a detailed job description, basic and preferred qualifications, and a clear call to action to apply for the position."
+      }
+    },
+    {
+      "key": "e50e057c9e8f416a60393272f70aa11a9fee2f6d5c55a3035704312e1ed8c7db",
+      "touchedAt": 1785883222829,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a specific role title (Senior Group Employee Benefits Underwriter), detailed responsibilities and requirements, and application context (Apply now button)."
+      }
+    },
+    {
+      "key": "4a46657c650ebe7d7763090e15dd6f93357aaa21f3e559b32a6e0b251d50a319",
+      "touchedAt": 1785883223042,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a specific role title (Lead Inbound Data Flow SAP Group Reporting), detailed responsibilities and requirements, and application context (Apply Now button)."
+      }
+    },
+    {
+      "key": "9461f1e6605bc804984a538cfc72ecde873159f70379daf80c0e707021936da6",
+      "touchedAt": 1785883224971,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a specific role title (SME Master Data Management/Accounting SAP Group Reporting), detailed responsibilities and requirements, and application context (Apply now button)."
+      }
+    },
+    {
+      "key": "0fa3ff7341e3aea0cfd8e4094f79ca13e6654a490be3643645b133edbf0cee5d",
+      "touchedAt": 1785883225197,
+      "value": {
+        "isJob": true,
+        "confidence": 0.95,
+        "reason": "The page contains a specific role title (Lead Reporting Solution SAP Group Reporting), detailed responsibilities and requirements, and application context (Apply now button)."
+      }
+    },
+    {
+      "key": "5f6284ae162849ff34dfd011cea3866d9c237f6bcb2270d34aa0bb646ae1db66",
+      "touchedAt": 1785883226141,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a specific role title (Senior Captive Underwriter), detailed responsibilities and requirements, and application context (Apply Now button)."
+      }
+    },
+    {
+      "key": "7629601e05a4e7fb1f301a21961f229fb490a52776eb2f1527f3b1e40860259c",
+      "touchedAt": 1785883260604,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a specific role title (Spezialist Zentrales Beschwerdemanagement), detailed responsibilities and requirements, and application context (application button, contact information)."
+      }
+    },
+    {
+      "key": "28930196ca72c3dcff30ea66710647cec876be2202a6a8a0d741a7c0c36d4a0e",
+      "touchedAt": 1785883281033,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a specific job title (Surety Underwriter), detailed responsibilities and requirements, and application context (Candidati ora)."
+      }
+    },
+    {
+      "key": "03da6bba7fc876c4f91ec1925c1293644376f45d5c1bad60e11558bc613e0e71",
+      "touchedAt": 1785883281273,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a specific role title (Claims Crop Field Adjuster II), detailed responsibilities and requirements, and application context."
+      }
+    },
+    {
+      "key": "d82ed11ff75a7e061da8b1273e1048366ec387941e8d9a76a6619fcccdf43179",
+      "touchedAt": 1785883281937,
+      "value": {
+        "isJob": true,
+        "confidence": 0.95,
+        "reason": "The page contains a specific role title (Staff Legal Sr. Liability Trial Attorney), detailed responsibilities and requirements, and application context (salary range, benefits, and application button)."
+      }
+    },
+    {
+      "key": "bbacb972125dee7eb5fa0d3c18e854abc1dec3192c4ebc3458cb80d2f7819025",
+      "touchedAt": 1785883282193,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a specific role title (Home Claims Loss Assessor), detailed responsibilities and requirements, and application context."
+      }
+    },
+    {
+      "key": "294e5c03d6d8ab86cbf4fb98ef71b2e32b64ad7aeeba766637c19a786def8252",
+      "touchedAt": 1785883282478,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a specific role title ('(Wirtschafts-)Informatiker als Automation Engineer für Prozessautomatisierung (m/w/d)'), detailed responsibilities and requirements, and application context."
+      }
+    },
+    {
+      "key": "71e567cb474a7fc4d25ec0c6d1d862dde401bf9465883c1a80ef84c6a66b765e",
+      "touchedAt": 1785883282726,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a specific job title, detailed responsibilities and requirements, and application context."
+      }
+    },
+    {
+      "key": "8571086c618b176525efedb97cad8040efc7cfc06ca6893d0d3f96ae3ca406d0",
+      "touchedAt": 1785883283091,
+      "value": {
+        "isJob": true,
+        "confidence": 0.95,
+        "reason": "The page contains a specific role title (Underwriter Liability), detailed responsibilities and requirements, and application context (Candidati ora)."
+      }
+    },
+    {
+      "key": "329324118428b6bc174528f6a8ca1133d9d2575063aa8567b912374f75b42c4a",
+      "touchedAt": 1785883283532,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a specific role title (Senior Actuarial Systems Analyst), detailed responsibilities and requirements, and application context."
+      }
+    },
+    {
+      "key": "7ed2b8bc78c3c23bd683b90a6b52c04f6fd748f52705dc23817e165b215b19dc",
+      "touchedAt": 1785883283872,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a specific job title (Bancassurance Executive - Tech, Ops), responsibilities/requirements (implied by the job description), and application context (apply now button)."
+      }
+    },
+    {
+      "key": "5bb1241cb0c441ff2a14f11819e1c37f9e56287296093c9e083ed17d34c88def",
+      "touchedAt": 1785883284067,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a specific role title (Marine Claims Specialist), detailed responsibilities and requirements, and application context (salary range, benefits, and application instructions)."
+      }
+    },
+    {
+      "key": "611891f586695855038c6430c3f84f3f6a73f70dce379c6ac1d602b73474365d",
+      "touchedAt": 1785883284323,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a specific role title (ESPECIALISTA LEGAL DE SINIESTROS), detailed responsibilities and requirements, and application context (Enviar candidatura ahora)."
+      }
+    },
+    {
+      "key": "fbf524715f1c5da33304ab4ad7c1ea4b329574c75e0bd43a9f33781e24b21668",
+      "touchedAt": 1785883288225,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a specific job title (Claims Officer (Travel)), detailed job responsibilities and qualifications, and an application context (Apply now button)."
+      }
+    },
+    {
+      "key": "2df5dc8022b99ce7aa5f5c44013540b180c84c00f35fe92cdcae685942158dd3",
+      "touchedAt": 1785883288886,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a specific role title (Digital Associate Internship), detailed responsibilities and requirements, and application context."
+      }
+    },
+    {
+      "key": "ca00ad12967ad287ab9f16e4babc06c7e467f4ca38b99bae2cc35e72840fc3db",
+      "touchedAt": 1785883289234,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a specific job title (Head of Property, Commercial Insurance), detailed responsibilities and requirements, and application context (recruiter name, closing date)."
+      }
+    },
+    {
+      "key": "ea7f6be8970236ca57f6983595eaca66e0685572987294ea11b9b2ba1b61d029",
+      "touchedAt": 1785883289619,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a specific role title (AVP, Underwriting Director or VP, Senior Underwriting Director - E&S Excess Casualty), detailed responsibilities and requirements, and application context (Apply now button)."
+      }
+    },
+    {
+      "key": "13af5da052f0ac97e7689831696046d6bb11eacd1e446fe465f95dc8a9b55d0e",
+      "touchedAt": 1785883290142,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a specific role title (Actuario Street Pricing), detailed responsibilities and requirements, and application context."
+      }
+    },
+    {
+      "key": "1e60a75b637048cd961d18a3173178282db07b3cf32ed7b700a57a9f1b24656e",
+      "touchedAt": 1785883290544,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a specific role title (Responsable Red Pericial), detailed responsibilities and requirements, and application context (Enviar candidatura ahora)."
+      }
+    },
+    {
+      "key": "6fc28e7cc49ba42e73714a26d86b2f58a045888ed5446fdadbe17c594cc0569f",
+      "touchedAt": 1785883290959,
+      "value": {
+        "isJob": true,
+        "confidence": 0.95,
+        "reason": "The page contains a specific role title (Senior Liability Underwriter), detailed responsibilities and requirements, and application context (Apply Now button)."
+      }
+    },
+    {
+      "key": "d41ba4508d17507dc9aab174bba59904c95a54448b38afa704db770acf35486a",
+      "touchedAt": 1785883291362,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a specific role title (Underwriter Liability), detailed responsibilities and requirements, and application context (Candidati ora)."
+      }
+    },
+    {
+      "key": "57ed794724285a3dad13b53f486f4c86718a26b31db8319e2d48ade243de12ef",
+      "touchedAt": 1785883291916,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a specific job title, detailed responsibilities and requirements, and application context."
+      }
+    },
+    {
+      "key": "8562e2f7cece2d297c9b4ce9bb9b2b08c700fbe9cd2ceeb7d03b23e760d4f6f6",
+      "touchedAt": 1785883292292,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a specific job title (Bancassurance Executive - Tech, Ops), application context (Apply now button), and a job description section with responsibilities and requirements."
+      }
+    },
+    {
+      "key": "15f1883011d6e6ad83040a9735a442b4aedf05458629469de03b74035f28a956",
+      "touchedAt": 1785883292675,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a specific job title (Marine Claims Specialist), detailed responsibilities and requirements, and application context (salary range, benefits, and application button)."
+      }
+    },
+    {
+      "key": "5ac675b8a25494a4a0938475783734a328d0333069d0cce8a2dd9a0286fb6718",
+      "touchedAt": 1785883293329,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a specific role title (ESPECIALISTA LEGAL DE SINIESTROS), detailed responsibilities and requirements, and application context (Enviar candidatura ahora)."
+      }
+    },
+    {
+      "key": "015f415192d1cf0a2b3237cf1f1dfd7e1c8dd8c485c9a03596b946153c6abd07",
+      "touchedAt": 1785883293840,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a specific role title (Senior Finance Performance Analyst), detailed responsibilities and requirements, and application context (Apply now button)."
+      }
+    },
+    {
+      "key": "6a479e1d09840f88912300ff06bb0e0ed9cafeec1bbe87e6bda23dd432c7ee70",
+      "touchedAt": 1785883294430,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a specific job title (ANALISTA TRIBUTARIO II), detailed responsibilities and qualifications, and application context."
+      }
+    },
+    {
+      "key": "3403aca3ddcb1f3955327f0a105db35b248a8abb7f196bcdedd9526f89af524b",
+      "touchedAt": 1785883295072,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a specific role title (Sr. Claims Specialist, General Liability), detailed responsibilities and requirements, and application context (pay range, benefits, etc.)."
       }
     }
   ]
