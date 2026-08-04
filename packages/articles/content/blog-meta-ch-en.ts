@@ -1801,6 +1801,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.angestellte-schweiz-aumento-2027.title': 'Angestellte Schweiz calls for a 1.5% wage increase for 2027',
     'blog.article.angestellte-schweiz-aumento-2027.excerpt': 'The association is also focusing on greater investment in training and better working conditions.',
     'blog.article.angestellte-schweiz-aumento-2027.imageAlt': 'Image of a salary increase in Switzerland',
+    'blog.article.swiss-fatturato-costi-carburante-conseguenze.title': 'Swiss, turnover rises, profit falls',
+    'blog.article.swiss-fatturato-costi-carburante-conseguenze.excerpt': 'Swiss\'s turnover increased by 3.2% in the first half of 2026, but operating profit decreased by 3.2%.',
+    'blog.article.swiss-fatturato-costi-carburante-conseguenze.imageAlt': 'Image of a plane taking off from Lugano Airport with a Swiss flag waving.',
 };
 
 export default blogMetaChEn;

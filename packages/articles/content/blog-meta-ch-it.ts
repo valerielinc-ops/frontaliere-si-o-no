@@ -1801,6 +1801,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.angestellte-schweiz-aumento-2027.title': 'Angestellte Schweiz chiede un aumento salariale dell\'1,5% per il 2027',
     'blog.article.angestellte-schweiz-aumento-2027.excerpt': 'L\'associazione punta anche su maggiori investimenti nella formazione e su migliori condizioni lavorative.',
     'blog.article.angestellte-schweiz-aumento-2027.imageAlt': 'Immagine di un aumento stipendio in Svizzera',
+    'blog.article.swiss-fatturato-costi-carburante-conseguenze.title': 'Swiss, sale il fatturato, cala l\'utile',
+    'blog.article.swiss-fatturato-costi-carburante-conseguenze.excerpt': 'Il fatturato della Swiss è aumentato del 3,2% nel primo semestre 2026, ma l\'utile operativo è diminuito del 3,2%.',
+    'blog.article.swiss-fatturato-costi-carburante-conseguenze.imageAlt': 'Immagine di un aereo che decolla dall\'aeroporto di Lugano con una bandiera svizzera sventolante.',
 };
 
 export default blogMetaChIt;

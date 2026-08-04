@@ -1801,6 +1801,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.angestellte-schweiz-aumento-2027.title': 'Angestellte Schweiz demande une augmentation de salaire de 1,5 % pour 2027',
     'blog.article.angestellte-schweiz-aumento-2027.excerpt': 'L’association se concentre également sur un investissement accru dans la formation et de meilleures conditions de travail.',
     'blog.article.angestellte-schweiz-aumento-2027.imageAlt': 'Image d\'une augmentation de salaire en Suisse',
+    'blog.article.swiss-fatturato-costi-carburante-conseguenze.title': 'Swiss, hausse du chiffre d\'affaires, baisse du bénéfice',
+    'blog.article.swiss-fatturato-costi-carburante-conseguenze.excerpt': 'Le chiffre d\'affaires de Swiss a augmenté de 3,2% au premier semestre 2026, mais le bénéfice d\'exploitation a diminué de 3,2%.',
+    'blog.article.swiss-fatturato-costi-carburante-conseguenze.imageAlt': 'Image d\'un avion qui décolle de l\'aéroport de Lugano avec un drapeau suisse flottant.',
 };
 
 export default blogMetaChFr;
