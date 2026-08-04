@@ -1813,6 +1813,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.attacco-hacker-liechtenstein-svizzera.title': 'Hacker attack in Liechtenstein, alarm also in Switzerland',
     'blog.article.attacco-hacker-liechtenstein-svizzera.excerpt': 'The theft of data from the Principality\'s register of foundations raises fears of tax and criminal repercussions even in Swiss territory.',
     'blog.article.attacco-hacker-liechtenstein-svizzera.imageAlt': 'View of a Swiss financial district, symbolizing stability and transparency.',
+    'blog.article.le-assenze-totale-dal-dazio-nelle-situazioni-di-emergenza.title': 'The conditions for total exemption from duty in emergency situations',
+    'blog.article.le-assenze-totale-dal-dazio-nelle-situazioni-di-emergenza.excerpt': 'The Supreme Court clarified the concept of emergency for the purposes of duty exemption',
+    'blog.article.le-assenze-totale-dal-dazio-nelle-situazioni-di-emergenza.imageAlt': 'A medical emergency scene in a Swiss hospital',
 };
 
 export default blogMetaChEn;
