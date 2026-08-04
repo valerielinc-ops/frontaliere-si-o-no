@@ -13,7 +13,7 @@
     "https://careers.aristongroup.com/sitemap_index.xml"
   ],
   "notes": "Dedicated Ariston Group crawler parses the careers RSS feed and SuccessFactors job detail pages, then keeps only Ticino/Grigioni jobs via shared Swiss target-location matching.",
-  "updatedAt": "2026-08-04T11:45:29.992Z",
+  "updatedAt": "2026-08-04T22:15:44.372Z",
   "seedMetaByUrl": {
     "https://careers.aristongroup.com/job/Hechingen-SERVICETECHNIKER-%28MWD%29-FREIBURG-UND-UMGEBUNG-Hech-72379/1281305901/": {
       "location": "Hechingen, DE, 72379",
@@ -26,12 +26,6 @@
       "canton": "LU",
       "company": "Ariston Group",
       "postedDate": "2026-07-15"
-    },
-    "https://careers.aristongroup.com/job/Freiburg-KEY-ACCOUNT-MANAGEMENT-%28MWD%29-PROJEKT-UND-WOHNUNGSWIRTSCHAFT-IN-BADEN-W%C3%9CRTTEMBERG-Bade-_/1241127101/": {
-      "location": "Baden-Württemberg, DE, .",
-      "canton": "AG",
-      "company": "Ariston Group",
-      "postedDate": "2026-07-20"
     },
     "https://careers.aristongroup.com/job/Oberentfelden-SERVICETECHNIKER-W%C3%84RMEPUMPEN-%28MW%29-Ober-5036/1406080933/": {
       "location": "Oberentfelden, CH, 5036",
@@ -68,12 +62,6 @@
       "canton": "",
       "company": "Ariston Group",
       "postedDate": "2026-07-09"
-    },
-    "https://careers.aristongroup.com/job/Frankfurt-%28Oder%29-TECHNISCHER-KUNDENBERATER-HEIZUNG-IM-RAUM-HANNOVER%2C-DRESDEN%2C-FRANKFURT-ODER-KOBLENZ-%28MWD%29-Hann-x/1412682133/": {
-      "location": "Hannover, Dresden, Frankfurt, Koblenz, DE, x",
-      "canton": "AG",
-      "company": "Ariston Group",
-      "postedDate": "2026-07-08"
     },
     "https://careers.aristongroup.com/job/Leinfelden-Echterdingen-VERKAUFSBERATER-F%C3%9CR-HEIZTECHNIK-%28MWD%29-IM-VERKAUFSGEBIET-OST-BADEN-W%C3%9CRTTEMBERG-Lein-70771/1388749833/": {
       "location": "Leinfelden-Echterdingen, DE, 70771",
@@ -152,6 +140,18 @@
       "canton": "BE",
       "company": "Ariston Group",
       "postedDate": "2026-07-09"
+    },
+    "https://careers.aristongroup.com/job/Frankfurt-%28Oder%29-TECHNISCHER-KUNDENBERATER-HEIZUNG-IM-RAUM-HANNOVER%2C-DRESDEN%2C-FRANKFURT-ODER-KOBLENZ-%28MWD%29-Hann-x/1412682133/": {
+      "location": "Hannover, Dresden, Frankfurt, Koblenz, DE, x",
+      "canton": "AG",
+      "company": "Ariston Group",
+      "postedDate": "2026-07-08"
+    },
+    "https://careers.aristongroup.com/job/Freiburg-KEY-ACCOUNT-MANAGEMENT-%28MWD%29-PROJEKT-UND-WOHNUNGSWIRTSCHAFT-IN-BADEN-W%C3%9CRTTEMBERG-Bade-_/1241127101/": {
+      "location": "Baden-Württemberg, DE, .",
+      "canton": "AG",
+      "company": "Ariston Group",
+      "postedDate": "2026-07-20"
     }
   }
 }
