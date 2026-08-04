@@ -9231,6 +9231,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.coworking-spazi-lavoro-ticino.title': 'Coworking et espaces de travail partagés à Lugano',
     'blog.article.coworking-spazi-lavoro-ticino.excerpt': 'Guide pratique pour les travailleurs indépendants et frontaliers : gestion fiscale, prévoyance et choix des espaces de travail au Tessin.',
     'blog.article.coworking-spazi-lavoro-ticino.imageAlt': 'Espace de coworking moderne à Lugano avec vue sur le lac',
+    'blog.article.locarno-film-festival-guida-pratica.title': 'Festival du film de Locarno : billets et informations pour les frontaliers',
+    'blog.article.locarno-film-festival-guida-pratica.excerpt': 'Guide pratique pour suivre les projections sur la Piazza Grande. Informations sur les prix, les réservations et la gestion du retour en Italie pour les travailleurs frontaliers.',
+    'blog.article.locarno-film-festival-guida-pratica.imageAlt': 'Piazza Grande à Locarno pendant le festival du film',
 };
 
 export default blogMetaFr;
