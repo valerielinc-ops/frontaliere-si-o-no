@@ -22637,6 +22637,630 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-rendite-avs-all-estero': {
+    title: 'Rendite di vecchiaia all’estero: quel che c’è da sapere',
+    description: 'Scopri come riscuotere la tua rendita AVS/AI dall\'estero e a cosa fare attenzione in quanto svizzero all\'estero. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, rendite, vecchiaia, estero, quel',
+    ogTitle: 'Rendite di vecchiaia all’estero: quel che c’è da sapere',
+    ogDescription: 'Scopri come riscuotere la tua rendita AVS/AI dall\'estero e a cosa fare attenzione in quanto svizzero all\'estero.',
+    canonicalPath: '/articoli-svizzera/rendite-avs-all-estero/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Rendite di vecchiaia all’estero: quel che c’è da sapere",
+      "description": "Scopri come riscuotere la tua rendita AVS/AI dall'estero e a cosa fare attenzione in quanto svizzero all'estero. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/rendite-avs-all-estero.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista panoramica del Lago di Lugano con le montagne svizzere sullo sfondo"
+      },
+      "datePublished": "2026-08-02T18:06:02+00:00",
+      "dateModified": "2026-08-02T18:06:02+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/rendite-avs-all-estero/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-ceo-kagi-esportazioni-difficolta': {
+    title: 'CEO di Kägi: «Il problema più grande sono le esportazioni»',
+    description: 'Cédric El-Idrissi, CEO di Kägi, affronta le sfide delle esportazioni e dei costi delle materie prime. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, kägi, problema, grande, sono',
+    ogTitle: 'CEO di Kägi: «Il problema più grande sono le esportazioni»',
+    ogDescription: 'Cédric El-Idrissi, CEO di Kägi, affronta le sfide delle esportazioni e dei costi delle materie prime.',
+    canonicalPath: '/articoli-svizzera/ceo-kagi-esportazioni-difficolta/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "CEO di Kägi: «Il problema più grande sono le esportazioni»",
+      "description": "Cédric El-Idrissi, CEO di Kägi, affronta le sfide delle esportazioni e dei costi delle materie prime. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/ceo-kagi-esportazioni-difficolta.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista panoramica di Lugano con il lago e le montagne"
+      },
+      "datePublished": "2026-08-02T20:00:36+00:00",
+      "dateModified": "2026-08-02T20:00:36+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/ceo-kagi-esportazioni-difficolta/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-lavoro-forzato-svizzera': {
+    title: 'Lavoro forzato nelle catene svizzere: realtà o mito?',
+    description: 'Gli Stati Uniti accusano la Svizzera di non fare abbastanza contro il lavoro forzato nelle sue catene di approvvigionamento. Scopri di più. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, lavoro, forzato, nelle, catene',
+    ogTitle: 'Vero o falso: nelle catene di approvvigionamento svizzere esiste il lavoro forzato?',
+    ogDescription: 'Gli Stati Uniti accusano la Svizzera di non fare abbastanza contro il lavoro forzato nelle sue catene di approvvigionamento. Scopri di più.',
+    canonicalPath: '/articoli-svizzera/lavoro-forzato-svizzera/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Lavoro forzato nelle catene svizzere: realtà o mito?",
+      "description": "Gli Stati Uniti accusano la Svizzera di non fare abbastanza contro il lavoro forzato nelle sue catene di approvvigionamento. Scopri di più. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/lavoro-forzato-svizzera.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista panoramica di Lugano con il lago e le montagne"
+      },
+      "datePublished": "2026-08-02T21:58:22+00:00",
+      "dateModified": "2026-08-02T21:58:22+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/lavoro-forzato-svizzera/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-frontalieri-pensione-altrove': {
+    title: 'Svizzeri all\'estero: pensione qui o altrove | Frontaliere Ticino',
+    description: 'Secondo quanto comunicato nel settembre 2025, molte persone di nazionalità svizzera in pensione vivono a metà tempo tra la Svizzera e un altro Paese.',
+    keywords: 'frontalieri, ticino, svizzera, italia, svizzeri, estero, pensione, altrove',
+    ogTitle: 'Svizzeri in pensione vivono a metà tempo tra la Svizzera e un altro Paese',
+    ogDescription: 'Secondo quanto comunicato nel settembre 2025, molte persone di nazionalità svizzera in pensione vivono a metà tempo tra la Svizzera e un altro Paese.',
+    canonicalPath: '/articoli-svizzera/frontalieri-pensione-altrove/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Svizzeri all'estero: pensione qui o altrove",
+      "description": "Secondo quanto comunicato nel settembre 2025, molte persone di nazionalità svizzera in pensione vivono a metà tempo tra la Svizzera e un altro Paese.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/frontalieri-pensione-altrove.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "svizzeri in pensione vivono a metà tempo tra la Svizzera e un altro Paese"
+      },
+      "datePublished": "2026-08-02T22:45:06+00:00",
+      "dateModified": "2026-08-02T22:45:06+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/frontalieri-pensione-altrove/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-milionari-reddito-svizzera-2022': {
+    title: 'Guadagnano oltre un milione di franchi all\'anno: ecco dove vivono',
+    description: 'Zurigo risulta in testa, con 482 milionari di reddito, seguita da Zugo. Ma spicca anche Lugano, con 99 milionari di reddito. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, guadagnano, oltre, milione, franchi',
+    ogTitle: 'Milionari di reddito in Svizzera: dove vivono',
+    ogDescription: 'Zurigo risulta in testa, con 482 milionari di reddito, seguita da Zugo. Ma spicca anche Lugano, con 99 milionari di reddito.',
+    canonicalPath: '/articoli-svizzera/milionari-reddito-svizzera-2022/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Guadagnano oltre un milione di franchi all'anno: ecco dove vivono",
+      "description": "Zurigo risulta in testa, con 482 milionari di reddito, seguita da Zugo. Ma spicca anche Lugano, con 99 milionari di reddito. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/milionari-reddito-svizzera-2022.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista panoramica di Zurigo con il Lago di Zurigo sullo sfondo"
+      },
+      "datePublished": "2026-08-03T08:57:06+00:00",
+      "dateModified": "2026-08-03T08:57:06+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/milionari-reddito-svizzera-2022/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-le-scuse-di-pfister-alle-chiese': {
+    title: 'Pfister scusa Chiese, obbligo ecclesiastici resta',
+    description: 'Il Consigliere federale Martin Pfister invia una lettera di scuse alle Chiese cristiane svizzere, ma l\'obbligo di servizio per gli ecclesiastici resta.',
+    keywords: 'frontalieri, ticino, svizzera, italia, pfister, scusa, chiese, obbligo',
+    ogTitle: 'Le scuse di Pfister alle Chiese, ma l\'obbligo di servizio per gli ecclesiastici resta',
+    ogDescription: 'Il Consigliere federale Martin Pfister invia una lettera di scuses alle Chiese cristiane svizzere, ma l\'obbligo di servizio per gli ecclesiastici resta.',
+    canonicalPath: '/articoli-svizzera/le-scuse-di-pfister-alle-chiese/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Pfister scusa Chiese, obbligo ecclesiastici resta",
+      "description": "Il Consigliere federale Martin Pfister invia una lettera di scuse alle Chiese cristiane svizzere, ma l'obbligo di servizio per gli ecclesiastici resta.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/le-scuse-di-pfister-alle-chiese.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Il Consigliere federale Martin Pfister invia una lettera di scuse alle Chiese cristiane svizzere."
+      },
+      "datePublished": "2026-08-03T12:16:24+00:00",
+      "dateModified": "2026-08-03T12:16:24+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/le-scuse-di-pfister-alle-chiese/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-publibike-passa-investitore-britannico': {
+    title: 'Publibike passa a un investitore britannico | Frontaliere Ticino',
+    description: 'Il noleggiatore svizzero di biciclette Publibike passa in maggioranza all’investitore britannico Visionedgeone. Markus Bacher resta CEO e azionista di',
+    keywords: 'frontalieri, ticino, svizzera, italia, publibike, passa, investitore, britannico',
+    ogTitle: 'Publibike passa a un investitore britannico',
+    ogDescription: 'Il noleggiatore svizzero di biciclette Publibike passa in maggioranza all’investitore britannico Visionedgeone. Markus Bacher resta CEO e azionista di',
+    canonicalPath: '/articoli-svizzera/publibike-passa-investitore-britannico/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Publibike passa a un investitore britannico",
+      "description": "Il noleggiatore svizzero di biciclette Publibike passa in maggioranza all’investitore britannico Visionedgeone. Markus Bacher resta CEO e azionista di",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/publibike-passa-investitore-britannico.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Bicicletta elettrica di Publibike parcheggiata a Lugano"
+      },
+      "datePublished": "2026-08-03T13:06:08+00:00",
+      "dateModified": "2026-08-03T13:06:08+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/publibike-passa-investitore-britannico/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-vendite-auto-svizzera-luglio-2026': {
+    title: 'Auto in Svizzera: calo a luglio, boom elettrico BYD',
+    description: 'Le vendite di auto nuove in Svizzera scendono del 3,2% a luglio 2026. L\'elettrico avanza con BYD che sorpassa Tesla. Dati ufficiali Auto-Svizzera.',
+    keywords: 'frontalieri, ticino, svizzera, italia, auto, calo, luglio, boom',
+    ogTitle: 'Auto in Svizzera: calo a luglio, boom elettrico BYD',
+    ogDescription: 'Le vendite di auto nuove in Svizzera scendono del 3,2% a luglio 2026. L\'elettrico avanza con BYD che sorpassa Tesla.',
+    canonicalPath: '/articoli-svizzera/vendite-auto-svizzera-luglio-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Auto in Svizzera: calo a luglio, boom elettrico BYD",
+      "description": "Le vendite di auto nuove in Svizzera scendono del 3,2% a luglio 2026. L'elettrico avanza con BYD che sorpassa Tesla. Dati ufficiali Auto-Svizzera.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/vendite-auto-svizzera-luglio-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Salone di auto elettriche e ibride in Svizzera"
+      },
+      "datePublished": "2026-08-03T15:36:39+00:00",
+      "dateModified": "2026-08-03T15:36:39+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/vendite-auto-svizzera-luglio-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-rallentamento-borsa-svizzera-luglio': {
+    title: 'Borsa svizzera: i volumi scendono a luglio | Frontaliere Ticino',
+    description: 'L\'attività alla borsa svizzera cala del 10,4% a luglio. Analisi dei volumi, transazioni e impatto stagionale secondo i dati ufficiali di SIX. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, borsa, volumi, scendono, luglio',
+    ogTitle: 'Borsa svizzera: volumi in calo a luglio, i dati SIX',
+    ogDescription: 'L\'attività alla borsa svizzera cala del 10,4% a luglio. Analisi dei volumi, transazioni e impatto stagionale secondo i dati ufficiali di SIX.',
+    canonicalPath: '/articoli-svizzera/rallentamento-borsa-svizzera-luglio/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Borsa svizzera: i volumi scendono a luglio",
+      "description": "L'attività alla borsa svizzera cala del 10,4% a luglio. Analisi dei volumi, transazioni e impatto stagionale secondo i dati ufficiali di SIX. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/rallentamento-borsa-svizzera-luglio.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Veduta del distretto finanziario svizzero durante la pausa estiva"
+      },
+      "datePublished": "2026-08-03T17:36:24+00:00",
+      "dateModified": "2026-08-03T17:36:24+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/rallentamento-borsa-svizzera-luglio/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-il-futuro-del-lavoro': {
+    title: 'L\'intelligenza artificiale rivoluziona il mercato del lavoro',
+    description: 'Secondo quanto comunicato nel giugno 2025, l\'intelligenza artificiale sta cambiando il modo in cui lavoriamo in Svizzera. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, intelligenza, artificiale, rivoluziona, mercato',
+    ogTitle: 'Il futuro del lavoro in Svizzera: come l\'intelligenza artificiale sta cambiando il mercato del lavoro',
+    ogDescription: 'Secondo quanto comunicato nel giugno 2025, l\'intelligenza artificiale sta cambiando il modo in cui lavoriamo in Svizzera',
+    canonicalPath: '/articoli-svizzera/il-futuro-del-lavoro/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "L'intelligenza artificiale rivoluziona il mercato del lavoro",
+      "description": "Secondo quanto comunicato nel giugno 2025, l'intelligenza artificiale sta cambiando il modo in cui lavoriamo in Svizzera. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/il-futuro-del-lavoro.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Fotografia di un algoritmo di intelligenza artificiale in azione in Svizzera"
+      },
+      "datePublished": "2026-08-03T18:31:49+00:00",
+      "dateModified": "2026-08-03T18:31:49+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/il-futuro-del-lavoro/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-votazioni-federali-guida-2026': {
+    title: 'Votazioni federali: le date e i temi del 27 settembre 2026',
+    description: 'Guida ufficiale alle votazioni federali del 27 settembre 2026: neutralità, agricoltura e futuro della Svizzera. Informazioni utili per i cittadini.',
+    keywords: 'frontalieri, ticino, svizzera, italia, votazioni, federali, date, temi',
+    ogTitle: 'Votazioni federali 27 settembre 2026: i temi principali',
+    ogDescription: 'Scopri i temi delle votazioni federali del 27 settembre 2026: neutralità e alimentazione al voto in Svizzera.',
+    canonicalPath: '/articoli-svizzera/votazioni-federali-guida-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Votazioni federali: le date e i temi del 27 settembre 2026",
+      "description": "Guida ufficiale alle votazioni federali del 27 settembre 2026: neutralità, agricoltura e futuro della Svizzera. Informazioni utili per i cittadini.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/votazioni-federali-guida-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Palazzo federale a Berna, sede delle decisioni politiche svizzere."
+      },
+      "datePublished": "2026-08-03T18:55:21+00:00",
+      "dateModified": "2026-08-03T18:55:21+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/votazioni-federali-guida-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-publibike-investitore-britannico': {
+    title: 'Di più PubliBike passa in mani inglesi, acquistata da fondo d’investimento',
+    description: 'La società PubliBike è stata acquisita in maggioranza da VisionEdgeOne, un fondo d\'investimento britannico. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, publibike, passa, mani, inglesi',
+    ogTitle: 'PubliBike passa in mani inglesi, acquistata da fondo d\'investimento',
+    ogDescription: 'La società PubliBike è stata acquisita in maggioranza da VisionEdgeOne, un fondo d\'investimento britannico.',
+    canonicalPath: '/articoli-svizzera/publibike-investitore-britannico/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Di più PubliBike passa in mani inglesi, acquistata da fondo d’investimento",
+      "description": "La società PubliBike è stata acquisita in maggioranza da VisionEdgeOne, un fondo d'investimento britannico. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/publibike-investitore-britannico.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Frontaliere svizzero in bicicletta davanti al lago di Lugano"
+      },
+      "datePublished": "2026-08-03T21:36:51+00:00",
+      "dateModified": "2026-08-03T21:36:51+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/publibike-investitore-britannico/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-economia-sanitaria-svizzera': {
+    title: 'Economia sanitaria svizzera: sfide e innovazioni',
+    description: 'Analisi delle multinazionali svizzere nel settore sanitario e delle sfide attuali. Innovazioni e ricerche in corso per migliorare la salute. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, economia, sanitaria, sfide, innovazioni',
+    ogTitle: 'Economia sanitaria svizzera: sfide e innovazioni',
+    ogDescription: 'Analisi delle multinazionali svizzere nel settore sanitario e delle sfide attuali. Innovazioni e ricerche in corso per migliorare la salute.',
+    canonicalPath: '/articoli-svizzera/economia-sanitaria-svizzera/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Economia sanitaria svizzera: sfide e innovazioni",
+      "description": "Analisi delle multinazionali svizzere nel settore sanitario e delle sfide attuali. Innovazioni e ricerche in corso per migliorare la salute. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/economia-sanitaria-svizzera.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista panoramica di Lugano con il lago e le montagne circostanti"
+      },
+      "datePublished": "2026-08-04T00:05:09+00:00",
+      "dateModified": "2026-08-04T00:05:09+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/economia-sanitaria-svizzera/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-cercare-lavoro-svizzera-estero-guida': {
+    title: 'Cercare lavoro in Svizzera dall\'estero: guida pratica',
+    description: 'Scopri come cercare lavoro in Svizzera dall\'estero: portali di annunci, CV in formato svizzero, colloqui, permesso di lavoro e primi passi burocratici.',
+    keywords: 'frontalieri, ticino, svizzera, italia, cercare, lavoro, dall, estero',
+    ogTitle: 'Cercare lavoro in Svizzera dall\'estero: guida pratica',
+    ogDescription: 'Scopri come cercare lavoro in Svizzera dall\'estero: portali di annunci, CV in formato svizzero, colloqui, permesso di lavoro e primi passi burocratici.',
+    canonicalPath: '/articoli-svizzera/cercare-lavoro-svizzera-estero-guida/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Cercare lavoro in Svizzera dall'estero: guida pratica",
+      "description": "Scopri come cercare lavoro in Svizzera dall'estero: portali di annunci, CV in formato svizzero, colloqui, permesso di lavoro e primi passi burocratici.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/cercare-lavoro-svizzera-estero-guida.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista panoramica di Lugano, Svizzera"
+      },
+      "datePublished": "2026-08-04T01:29:23+00:00",
+      "dateModified": "2026-08-04T01:29:23+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/cercare-lavoro-svizzera-estero-guida/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-frontaliere-ticino-98-famiglie-caso-solidale': {
+    title: 'Fatture, affitto e cassa malati, le difficoltà di 98 famiglie',
+    description: 'Un sondaggio sui beneficiari del progetto Cesto Solidale Amélie rivela difficoltà economiche e mancanza di lavoro. Dati aggiornati 2026 per frontalieri in',
+    keywords: 'frontalieri, ticino, svizzera, italia, fatture, affitto, cassa, malati',
+    ogTitle: 'Fatture, affitto e cassa malati, le difficoltà di 98 famiglie',
+    ogDescription: 'Un sondaggio sui beneficiari del progetto Cesto Solidale Amélie rivela difficoltà economiche e mancanza di lavoro.',
+    canonicalPath: '/articoli-svizzera/frontaliere-ticino-98-famiglie-caso-solidale/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Fatture, affitto e cassa malati, le difficoltà di 98 famiglie",
+      "description": "Un sondaggio sui beneficiari del progetto Cesto Solidale Amélie rivela difficoltà economiche e mancanza di lavoro. Dati aggiornati 2026 per frontalieri in",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/frontaliere-ticino-98-famiglie-caso-solidale.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Famiglie svizzere che ricevono cesti solidali"
+      },
+      "datePublished": "2026-08-04T04:53:54+00:00",
+      "dateModified": "2026-08-04T04:53:54+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/frontaliere-ticino-98-famiglie-caso-solidale/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-un-matrimonio-che-vale-cento-posti-di-lavoro': {
+    title: 'Un matrimonio che vale cento posti di lavoro | Frontaliere Ticino',
+    description: 'La notizia è stata ufficializzata venerdì scorso a Prato Sornico. In Vallemaggia si celebra un matrimonio che vale complessivamente un centinaio di posti di',
+    keywords: 'frontalieri, ticino, svizzera, italia, matrimonio, vale, cento, posti',
+    ogTitle: 'Un matrimonio che vale cento posti di lavoro',
+    ogDescription: 'La notizia è stata ufficializzata venerdì scorso a Prato Sornico. In Vallemaggia si celebra un matrimonio che vale complessivamente un centinaio di posti di',
+    canonicalPath: '/articoli-svizzera/un-matrimonio-che-vale-cento-posti-di-lavoro/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Un matrimonio che vale cento posti di lavoro",
+      "description": "La notizia è stata ufficializzata venerdì scorso a Prato Sornico. In Vallemaggia si celebra un matrimonio che vale complessivamente un centinaio di posti di",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/un-matrimonio-che-vale-cento-posti-di-lavoro.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un matrimonio tra quattro ditte edili in Vallemaggia"
+      },
+      "datePublished": "2026-08-04T05:05:39+00:00",
+      "dateModified": "2026-08-04T05:05:39+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/un-matrimonio-che-vale-cento-posti-di-lavoro/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
