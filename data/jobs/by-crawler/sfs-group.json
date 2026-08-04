@@ -1,6 +1,6 @@
 {
   "crawlerKey": "sfs-group",
-  "assembledAt": "2026-08-03T22:30:29.177Z",
+  "assembledAt": "2026-08-04T11:50:32.750Z",
   "jobs": [
     {
       "id": "sfs-group-d28e368a8b5c",
@@ -33,7 +33,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/techniker-in-wärmebehandlung-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-03T22:30:26.186Z",
+      "crawledAt": "2026-08-04T11:50:29.262Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -114,7 +114,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/teamleiter-in-qm-reklamationsmanagement-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-03T22:30:26.027Z",
+      "crawledAt": "2026-08-04T11:50:29.086Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -153,6 +153,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:18:33.392Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -197,7 +198,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/spécialiste-vente-interne-pour-(epi)-en-équipement-d'atelier-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-03T22:30:25.868Z",
+      "crawledAt": "2026-08-04T11:50:28.915Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "postalCode": "1000",
@@ -277,7 +278,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/senior-software-engineer-–-smart-factory-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-03T22:30:25.710Z",
+      "crawledAt": "2026-08-04T11:50:28.744Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -298,6 +299,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-07-04T12:18:33.038Z",
+      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -342,7 +344,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/senior-qualitätsmanager-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-03T22:30:25.551Z",
+      "crawledAt": "2026-08-04T11:50:28.574Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -379,6 +381,7 @@
         ]
       },
       "firstSeenAt": "2026-07-16T11:15:23.617Z",
+      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -423,7 +426,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/sap-modulbetreuung-pp-qm-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-03T22:30:25.386Z",
+      "crawledAt": "2026-08-04T11:50:28.404Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -460,6 +463,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:18:32.860Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -504,7 +508,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/sap-modulbetreuer-fi-co-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-03T22:30:25.227Z",
+      "crawledAt": "2026-08-04T11:50:28.232Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -541,6 +545,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:18:32.686Z",
+      "needsRetranslation": true,
       "salaryMin": 60000,
       "salaryMax": 102000,
       "baseSalary": {
@@ -585,7 +590,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/project-manager-engineering-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-03T22:30:25.067Z",
+      "crawledAt": "2026-08-04T11:50:28.062Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -606,6 +611,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-07-31T11:54:37.544Z",
+      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -650,7 +656,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/produktentwickler-in-—-aerospace-blind-fastener-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-03T22:30:24.908Z",
+      "crawledAt": "2026-08-04T11:50:27.888Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -728,7 +734,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/polymechaniker-in-–-schleifen-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-03T22:30:24.749Z",
+      "crawledAt": "2026-08-04T11:50:27.716Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -765,6 +771,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:18:32.163Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -809,7 +816,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/polymechaniker-in-–-erosion-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-03T22:30:24.588Z",
+      "crawledAt": "2026-08-04T11:50:27.543Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -890,7 +897,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/kunststofftechnologe-in-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-03T22:30:24.428Z",
+      "crawledAt": "2026-08-04T11:50:27.370Z",
       "addressLocality": "Hallau",
       "addressRegion": "SH",
       "postalCode": "8200",
@@ -926,6 +933,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:18:31.814Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -970,7 +978,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/group-finance-specialist-sap-fi-key-user-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-03T22:30:24.267Z",
+      "crawledAt": "2026-08-04T11:50:27.199Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -1048,7 +1056,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/automatiker-in-schichtmodell-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-03T22:30:24.102Z",
+      "crawledAt": "2026-08-04T11:50:27.026Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -1129,7 +1137,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/automatiker-in-instandhaltung-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-03T22:30:23.938Z",
+      "crawledAt": "2026-08-04T11:50:26.853Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -1170,6 +1178,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:18:31.117Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -1214,7 +1223,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/anwendungstechniker-in-rainscreen-vhf-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-03T22:30:23.770Z",
+      "crawledAt": "2026-08-04T11:50:26.663Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -1295,7 +1304,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/anwendungstechniker-in-hauraton-entwässerungssysteme-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-03T22:30:23.592Z",
+      "crawledAt": "2026-08-04T11:50:26.432Z",
       "addressLocality": "Buchs ZH",
       "addressRegion": "ZH",
       "postalCode": "9435",
@@ -1423,86 +1432,8 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
-    },
-    {
-      "id": "sfs-group-981538319b32",
-      "slug": "logistiker-in-m-w-d-sfs-group-rebstein",
-      "slugByLocale": {
-        "it": "logistiker-in-m-w-d-sfs-group-rebstein",
-        "en": "logistician-m-f-d-sfs-group-rebstein",
-        "de": "logistiker-in-m-f-d-sfs-group-rebstein",
-        "fr": "logisticien-m-f-d-sfs-group-rebstein"
       },
-      "company": "SFS Group",
-      "companyKey": "sfs-group",
-      "companyDomain": "sfs.com",
-      "title": "Logistiker/in (m/f/d)",
-      "titleByLocale": {
-        "it": "Logisticista (m/f/d)",
-        "en": "Logistician (m/f/d)",
-        "de": "Logistiker/in (m/f/d)",
-        "fr": "Logisticien (m/f/d)"
-      },
-      "description": "SFS ist schweizweit ein flächendeckender Anbieter von Schrauben, Werkzeugen, Beschlägen, Bausortimenten, Sonderteilen und chemisch-technischen Produkten. Unseren Kunden bieten wir sowohl online als auch mit lokalen Verkaufsfilialen eine professionelle Beratung. Zahlreiche Mitarbeitende im Aussendienst betreuen Sie mit kompetenten Empfehlungen und Lösungsvorschlägen. Dazu gehört ein zeit- und marktgerechtes Sortiment. Your Tasks:\n• Zusammenführung von Waren innerhalb des Lagers\n• Fachgerechte Zusammenstellung von Paketen und Paletten\n• Versandgerechtes Verpacken von Paketsendungen für den Postversand\n• Bearbeitung und Abwicklung von Umlagerungsbestellungen\n• Kontrolle von Gebinden und Paletten zur Sicherstellung der Qualität\n• Durchführung von Lagerbereinigungen sowie Inventuren Your profile:\n• Abgeschlossene Grundbildung als Logistiker/in EFZ\n• Praxiserfahrung im Logistikbereich\n• Gültiger Staplerausweis (SUVA anerkannt)\n• Erfahrung mit SAP von Vorteil\n• Körperlich belastbar und robust\n• Teamorientierte, selbständige und flexible Arbeitsweise mit klarer Kommunikation\n• Gute Deutschkenntnisse in Wort und Schrift We offer:\n• Anstellung in zukunftsorientiertem & innovativem Unternehmen\n• Sechs Wochen Ferien & zusätzlicher Ferienkauf möglich\n• Jährliche Erfolgsbeteiligung\n• Klar strukturierte Einarbeitungsphase mit abteilungsübergreifendem Onboarding-Programm\n• Weitere Benefits: https://join.sfs.com/ch/de/benefits/",
-      "descriptionByLocale": {
-        "it": "SFS è un fornitore nazionale di viti, utensili, raccordi, campi da costruzione, parti speciali e prodotti chimici-tecnici in tutta la Svizzera. Offriamo ai nostri clienti consulenza professionale sia online che con filiali di vendita locali. Numerosi dipendenti del servizio di campo forniscono raccomandazioni e soluzioni competenti. Questo include una gamma di tempo e mercato. I vostri compiti:\n• Raccolta di merci all'interno del magazzino\n• Montaggio professionale di pacchetti e pallet\n• Imballaggio di pacchi per posta\n• Elaborazione e gestione degli ordini di trasferimento\n• Controllo di pacchetti e pallet per garantire la qualità\n• Attuazione delle pulizie di stoccaggio e degli inventari Il tuo profilo:\n• Formazione di base completa come logistico/EFZ\n• Esperienza pratica nella logistica\n• Carrelli elevatori validi (riconosciuto SUVA)\n• Esperienza con SAP è un vantaggio\n• Fisicamente resiliente e robusto\n• Metodo di lavoro indipendente e flessibile, orientato al team con una comunicazione chiara\n• Buona conoscenza del tedesco in parola e scrittura Offriamo:\n• Occupazione in azienda innovativa e orientata al futuro\n• Sei settimane di vacanze e possibilità di acquisto di vacanze aggiuntive\n• Partecipazione annuale al successo\n• Fase di formazione chiaramente strutturata con programma di onboard cross-department\n• Altri vantaggi: https://join.sfs.com/ch/de/benefits/",
-        "en": "SFS is a nationwide provider of screws, tools, fittings, building ranges, special parts and chemical-technical products throughout Switzerland. We offer our customers professional advice both online and with local sales branches. Numerous employees in the field service provide you with competent recommendations and solutions. This includes a time and market range. Your Tasks:\n• Collection of goods within the warehouse\n• Professional assembly of packages and pallets\n• Packaging of parcels for mail\n• Processing and handling of relocation orders\n• Control of packages and pallets to ensure quality\n• Implementation of storage cleanups and inventories Your profile:\n• Completed basic training as a logistician/EFZ\n• Practical experience in logistics\n• Valid forklift (SUVA recognised)\n• Experience with SAP is an advantage\n• Physically resilient and robust\n• Team-oriented, independent and flexible working method with clear communication\n• Good knowledge of German in word and writing We offer:\n• Employment in future-oriented & innovative company\n• Six weeks of holidays & additional holiday purchase possible\n• Annual participation in success\n• Clearly structured training phase with cross-department onboarding program\n• Other benefits: https://join.sfs.com/ch/de/benefits/",
-        "de": "SFS ist schweizweit ein flächendeckender Anbieter von Schrauben, Werkzeugen, Beschlägen, Bausortimenten, Sonderteilen und chemisch-technischen Produkten. Unseren Kunden bieten wir sowohl online als auch mit lokalen Verkaufsfilialen eine professionelle Beratung. Zahlreiche Mitarbeitende im Aussendienst betreuen Sie mit kompetenten Empfehlungen und Lösungsvorschlägen. Dazu gehört ein zeit- und marktgerechtes Sortiment. Your Tasks:\n• Zusammenführung von Waren innerhalb des Lagers\n• Fachgerechte Zusammenstellung von Paketen und Paletten\n• Versandgerechtes Verpacken von Paketsendungen für den Postversand\n• Bearbeitung und Abwicklung von Umlagerungsbestellungen\n• Kontrolle von Gebinden und Paletten zur Sicherstellung der Qualität\n• Durchführung von Lagerbereinigungen sowie Inventuren Your profile:\n• Abgeschlossene Grundbildung als Logistiker/in EFZ\n• Praxiserfahrung im Logistikbereich\n• Gültiger Staplerausweis (SUVA anerkannt)\n• Erfahrung mit SAP von Vorteil\n• Körperlich belastbar und robust\n• Teamorientierte, selbständige und flexible Arbeitsweise mit klarer Kommunikation\n• Gute Deutschkenntnisse in Wort und Schrift We offer:\n• Anstellung in zukunftsorientiertem & innovativem Unternehmen\n• Sechs Wochen Ferien & zusätzlicher Ferienkauf möglich\n• Jährliche Erfolgsbeteiligung\n• Klar strukturierte Einarbeitungsphase mit abteilungsübergreifendem Onboarding-Programm\n• Weitere Benefits: https://join.sfs.com/ch/de/benefits/",
-        "fr": "SFS est un fournisseur national de vis, outils, raccords, gammes de construction, pièces spéciales et produits chimiques-techniques dans toute la Suisse. Nous offrons à nos clients des conseils professionnels en ligne et avec les agences de vente locales. De nombreux employés du service sur le terrain vous fournissent des recommandations et des solutions compétentes. Cela comprend une plage de temps et de marché. Vos tâches :\n• Collecte des marchandises dans l'entrepôt\n• Montage professionnel des paquets et palettes\n• Emballage des colis pour le courrier\n• Traitement et traitement des ordres de réinstallation\n• Contrôle des colis et palettes pour assurer la qualité\n• Mise en œuvre des nettoyages et des inventaires de stockage Votre profil :\n• Achevé la formation de base en tant que logisticien/EFZ\n• Expérience pratique en logistique\n• Chariot élévateur valide (SUVA reconnu)\n• L'expérience avec SAP est un avantage\n• Résilience physique et robuste\n• Méthode de travail axée sur l'équipe, indépendante et flexible, avec une communication claire\n• Bonne connaissance de l'allemand en paroles et en écriture Nous offrons:\n• L'emploi dans une entreprise tournée vers l'avenir et innovante\n• Six semaines de vacances et un achat de vacances supplémentaire possible\n• Participation annuelle au succès\n• Phase de formation clairement structurée avec programme interservices à bord\n• Autres avantages: https://join.sfs.com/ch/de/bénéfices/"
-      },
-      "location": "Rebstein",
-      "canton": "SG",
-      "url": "https://join.sfs.com/ch/en/vacancies/logistiker-in-(m-f-d).html",
-      "source": "SFS Group Dedicated Parser (Umantis/AEM)",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-02T22:19:50.912Z",
-      "addressLocality": "Rebstein",
-      "addressRegion": "SG",
-      "postalCode": "9000",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Logistica",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Industria / Meccanica",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-29",
-      "applyUrl": "https://jobapplication.sfs.com/Vacancies/2984/Application/CheckLogin/1?lang=eng",
-      "jobReqId": "2984",
-      "legalEntity": "SFS",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "logistiker-in-m-f-d-sfs-group-rebstein"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "logistiker-in-m-f-d-sfs-group-rebstein"
-        ],
-        "en": [
-          "logistiker-in-m-f-d-sfs-group-rebstein"
-        ],
-        "fr": [
-          "logistiker-in-m-f-d-sfs-group-rebstein"
-        ]
-      },
-      "firstSeenAt": "2026-07-29T11:54:54.123Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 2
+      "crawlerMissStreak": 1
     }
   ]
 }
