@@ -71,15 +71,13 @@
         "verkaufer-in-denner-balsthal",
         "seller-denner-balsthal",
         "vendeur-denner-balsthal",
-        "venditore-denner-balsthal",
-        "venditore-migros-ticino-balsthal"
+        "venditore-denner-balsthal"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-denner-2",
           "verkaufer-in-denner",
-          "venditore-denner-balsthal",
-          "venditore-migros-ticino-balsthal"
+          "venditore-denner-balsthal"
         ],
         "en": [
           "verkaufer-in-denner-balsthal",
@@ -176,15 +174,13 @@
         "seller-seller-denner-vevey",
         "verkaufer-verkaufer-denner-vevey",
         "venditore-venditore-denner-vevey",
-        "vendeur-vendeuse-denner-vevey",
-        "venditore-venditore-denner-sa-vevey"
+        "vendeur-vendeuse-denner-vevey"
       ],
       "previousSlugsByLocale": {
         "it": [
           "vendeur-vendeuse-denner-2",
           "vendeur-vendeuse-denner",
-          "venditore-venditore-denner-vevey",
-          "venditore-venditore-denner-sa-vevey"
+          "venditore-venditore-denner-vevey"
         ],
         "en": [
           "vendeur-vendeuse-denner",
@@ -571,10 +567,10 @@
       "id": "denner-97baed929bbd",
       "slug": "filialleiter-in-ausbildung-denner-sissach",
       "slugByLocale": {
-        "it": "filialleiter-in-ausbildung-denner-sissach",
+        "it": "direttore-di-negozio-in-formazione-denner-ag-sissach-1193f4",
         "de": "filialleiter-in-ausbildung-denner-ag-sissach-g3b8n9",
-        "en": "filialleiter-in-ausbildung-denner-sissach",
-        "fr": "filialleiter-in-ausbildung-denner-sissach"
+        "en": "store-manager-in-training-denner-ag-sissach-1193f4",
+        "fr": "gestionnaire-de-magasin-en-formation-denner-ag-sissach-1193f4"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -634,18 +630,10 @@
       "previousSlugsByLocale": {
         "it": [
           "filialleiter-in-in-ausbildung-denner"
-        ],
-        "en": [
-          "store-manager-in-training-denner-ag-sissach-1193f4"
-        ],
-        "fr": [
-          "gestionnaire-de-magasin-en-formation-denner-ag-sissach-1193f4"
         ]
       },
       "previousSlugs": [
-        "filialleiter-in-in-ausbildung-denner",
-        "store-manager-in-training-denner-ag-sissach-1193f4",
-        "gestionnaire-de-magasin-en-formation-denner-ag-sissach-1193f4"
+        "filialleiter-in-in-ausbildung-denner"
       ],
       "salaryMin": 74000,
       "salaryMax": 113500,
@@ -828,13 +816,11 @@
       "sourceLang": "de",
       "crawledAt": "2026-08-04T11:39:46.916Z",
       "previousSlugs": [
-        "verkaufer-in-denner",
-        "venditore-denner-ag-basel-3f3d5d"
+        "verkaufer-in-denner"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-denner",
-          "venditore-denner-ag-basel-3f3d5d"
+          "verkaufer-in-denner"
         ]
       },
       "firstSeenAt": "2026-08-03T22:20:09.109Z",
@@ -947,7 +933,7 @@
         "it": "assistente-nella-gestione-delle-branche-denner-ag-biel-bienne",
         "en": "assistant-branch-manager-denner-ag-biel-bienne-a20fa2",
         "de": "assistent-in-filialleitung-denner-ag-biel-bienne-6838o1",
-        "fr": "assistant-dans-la-gestion-des-succursales-denner-biel-bienne"
+        "fr": "directeur-adjoint-de-succursale-denner-ag-biel-bienne-a20fa2"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -1010,7 +996,6 @@
         "assistent-in-filialleitung-denner-ag-biel-bienne-2",
         "assistent-in-filialleitung-denner-ag-biel-bienne-6838o1",
         "assistant-dans-la-gestion-des-succursales-denner-ag-biel-bienne",
-        "directeur-adjoint-de-succursale-denner-ag-biel-bienne-a20fa2",
         "assistant-dans-la-gestion-des-succursales-denner-biel-bienne"
       ],
       "previousSlugsByLocale": {
@@ -1028,7 +1013,6 @@
           "assistent-in-filialleitung-denner-biel-bienne",
           "assistent-in-filialleitung-denner-ag-biel-bienne-6838o1",
           "assistant-dans-la-gestion-des-succursales-denner-ag-biel-bienne",
-          "directeur-adjoint-de-succursale-denner-ag-biel-bienne-a20fa2",
           "assistant-dans-la-gestion-des-succursales-denner-biel-bienne"
         ]
       },
@@ -1151,10 +1135,10 @@
       "id": "denner-bb62049d06ca",
       "slug": "assistent-in-filialleitung-denner-biel-bienne",
       "slugByLocale": {
-        "it": "assistent-in-filialleitung-denner-biel-bienne",
+        "it": "vice-direttore-di-filiale-denner-ag-biel-bienne-6408b4",
         "de": "assistent-in-filialleitung-denner-ag-biel-bienne-n6myx0",
-        "en": "assistent-in-filialleitung-denner-biel-bienne",
-        "fr": "assistent-in-filialleitung-denner-biel-bienne"
+        "en": "assistant-branch-manager-denner-ag-biel-bienne",
+        "fr": "directeur-adjoint-de-succursale-denner-ag-biel-bienne"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -1214,18 +1198,10 @@
       "previousSlugsByLocale": {
         "it": [
           "assistent-in-filialleitung-denner"
-        ],
-        "en": [
-          "assistant-branch-manager-denner-ag-biel-bienne"
-        ],
-        "fr": [
-          "directeur-adjoint-de-succursale-denner-ag-biel-bienne"
         ]
       },
       "previousSlugs": [
-        "assistent-in-filialleitung-denner",
-        "assistant-branch-manager-denner-ag-biel-bienne",
-        "directeur-adjoint-de-succursale-denner-ag-biel-bienne"
+        "assistent-in-filialleitung-denner"
       ],
       "salaryMin": 77500,
       "salaryMax": 118500,
@@ -1417,15 +1393,13 @@
         "stv-filialleiter-in-ausbildung-denner-oensingen",
         "stv-filialleiter-in-in-ausbildung-denner-ag-oensingen",
         "stv-branch-manager-in-formazione-denner-ag-oensingen",
-        "stv-filialleiter-in-in-ausbildung-denner-chur-c7igr5",
-        "vice-responsabile-di-filiale-in-formazione-denner-chur"
+        "stv-filialleiter-in-in-ausbildung-denner-chur-c7igr5"
       ],
       "previousSlugsByLocale": {
         "it": [
           "stv-filialleiter-in-in-ausbildung-denner",
           "stv-filialleiter-in-in-ausbildung-denner-ag-oensingen",
-          "stv-branch-manager-in-formazione-denner-ag-oensingen",
-          "vice-responsabile-di-filiale-in-formazione-denner-chur"
+          "stv-branch-manager-in-formazione-denner-ag-oensingen"
         ],
         "en": [
           "stv-filialleiter-in-ausbildung-denner-oensingen",
@@ -1458,10 +1432,10 @@
       "id": "denner-c73c9b593c90",
       "slug": "assistente-nella-gestione-delle-branche-denner-solothurn",
       "slugByLocale": {
-        "it": "assistente-nella-gestione-delle-branche-denner-solothurn",
+        "it": "vice-direttore-di-filiale-denner-ag-solothurn",
         "en": "assistant-branch-manager-denner-ag-solothurn",
         "de": "assistent-in-filialleitung-denner-ag-solothurn-rkwer0",
-        "fr": "assistant-dans-la-gestion-des-succursales-denner-solothurn"
+        "fr": "directeur-adjoint-de-succursale-denner-ag-solothurn"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -1524,10 +1498,9 @@
         "assistent-in-filialleitung-denner-2",
         "assistent-in-filialleitung-denner-ag-solothurn",
         "assistent-in-filialleitung-denner-ag-solothurn-rkwer0",
-        "vice-direttore-di-filiale-denner-ag-solothurn",
         "assistant-dans-la-gestion-des-succursales-denner-ag-solothurn",
         "assistente-nella-gestione-delle-branche-denner-ag-solothurn",
-        "directeur-adjoint-de-succursale-denner-ag-solothurn"
+        "assistant-dans-la-gestion-des-succursales-denner-solothurn"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1536,7 +1509,6 @@
           "assistent-in-filialleitung-denner-2",
           "assistent-in-filialleitung-denner-ag-solothurn",
           "assistent-in-filialleitung-denner-ag-solothurn-rkwer0",
-          "vice-direttore-di-filiale-denner-ag-solothurn",
           "assistente-nella-gestione-delle-branche-denner-ag-solothurn"
         ],
         "en": [
@@ -1547,7 +1519,7 @@
           "assistent-in-filialleitung-denner-solothurn",
           "assistent-in-filialleitung-denner-ag-solothurn-rkwer0",
           "assistant-dans-la-gestion-des-succursales-denner-ag-solothurn",
-          "directeur-adjoint-de-succursale-denner-ag-solothurn"
+          "assistant-dans-la-gestion-des-succursales-denner-solothurn"
         ]
       },
       "firstSeenAt": "2026-08-03T22:20:08.242Z",
@@ -1717,13 +1689,11 @@
       "sourceLang": "de",
       "crawledAt": "2026-08-04T11:39:45.605Z",
       "previousSlugs": [
-        "verkaufer-in-denner",
-        "venditore-denner-ag-basel-8b3f9b"
+        "verkaufer-in-denner"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-denner",
-          "venditore-denner-ag-basel-8b3f9b"
+          "verkaufer-in-denner"
         ]
       },
       "firstSeenAt": "2026-08-03T22:20:07.739Z",
@@ -2227,13 +2197,11 @@
       "crawledAt": "2026-08-04T11:39:45.126Z",
       "previousSlugs": [
         "assistent-in-filialleitung-denner",
-        "assistent-in-filialleitung-denner-biberist",
-        "assistente-nella-gestione-delle-branche-denner-ag-biberist"
+        "assistent-in-filialleitung-denner-biberist"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistent-in-filialleitung-denner",
-          "assistente-nella-gestione-delle-branche-denner-ag-biberist"
+          "assistent-in-filialleitung-denner"
         ],
         "en": [
           "assistent-in-filialleitung-denner-biberist"
@@ -2323,13 +2291,13 @@
       "previousSlugs": [
         "verkaufer-in-im-stundenlohn-denner",
         "verkaufer-in-im-stundenlohn-denner-steffisburg",
-        "venditore-nel-salario-orario-denner-ag-steffisburg",
+        "venditore-nel-salario-orario-denner-ag-breitenbach",
         "venditore-nel-salario-orario-denner-ag-breitenbach"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-im-stundenlohn-denner",
-          "venditore-nel-salario-orario-denner-ag-steffisburg",
+          "venditore-nel-salario-orario-denner-ag-breitenbach",
           "venditore-nel-salario-orario-denner-ag-breitenbach"
         ],
         "en": [
@@ -2419,13 +2387,11 @@
       "crawledAt": "2026-08-04T11:39:44.573Z",
       "previousSlugs": [
         "verkaufer-in-im-stundenlohn-denner",
-        "verkaufer-in-im-stundenlohn-denner-birsfelden",
-        "venditore-nel-salario-orario-denner-ag-birsfelden"
+        "verkaufer-in-im-stundenlohn-denner-birsfelden"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-im-stundenlohn-denner",
-          "venditore-nel-salario-orario-denner-ag-birsfelden"
+          "verkaufer-in-im-stundenlohn-denner"
         ],
         "en": [
           "verkaufer-in-im-stundenlohn-denner-birsfelden"
@@ -2514,13 +2480,11 @@
       "crawledAt": "2026-08-04T11:39:44.554Z",
       "previousSlugs": [
         "verkaufer-in-denner",
-        "verkaufer-in-denner-huttwil",
-        "venditore-denner-ag-huttwil"
+        "verkaufer-in-denner-huttwil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-denner",
-          "venditore-denner-ag-huttwil"
+          "verkaufer-in-denner"
         ],
         "en": [
           "verkaufer-in-denner-huttwil"
@@ -2823,7 +2787,7 @@
       "slugByLocale": {
         "it": "stv-branch-manager-in-denner-ag-zurich-3e601b",
         "fr": "directeur-de-succursale-stv-in-denner-ag-zurich-3e601b",
-        "en": "stv-filialleiter-in-denner-zurich",
+        "en": "assistant-store-manager-denner-ag-zurich",
         "de": "stv-filialleiter-in-denner-ag-zurich-2zbait"
       },
       "company": "Denner",
@@ -2888,14 +2852,16 @@
           "stv-filialleiter-in-denner-7"
         ],
         "en": [
-          "assistant-store-manager-denner-ag-zurich"
+          "stv-filialleiter-in-denner-zurich"
         ]
       },
       "previousSlugs": [
         "stv-filialleiter-in-denner",
-        "assistant-store-manager-denner-ag-zurich",
         "stv-filialleiter-in-denner-6",
-        "stv-filialleiter-in-denner-7"
+        "stv-filialleiter-in-denner-7",
+        "stv-filialleiter-in-denner-6",
+        "stv-filialleiter-in-denner-7",
+        "stv-filialleiter-in-denner-zurich"
       ],
       "salaryMin": 83000,
       "salaryMax": 127500,
@@ -3003,10 +2969,10 @@
       "id": "denner-c04351a446ce",
       "slug": "verkaufer-in-denner-zurich",
       "slugByLocale": {
-        "it": "verkaufer-in-denner-zurich",
+        "it": "venditore-denner-ag-zurich-1ed56c",
         "de": "verkaufer-in-denner-ag-zurich",
-        "en": "verkaufer-in-denner-zurich",
-        "fr": "verkaufer-in-denner-zurich"
+        "en": "seller-denner-ag-zurich-1ed56c",
+        "fr": "vendeur-denner-ag-zurich-1ed56c"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -3066,18 +3032,10 @@
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-denner"
-        ],
-        "en": [
-          "seller-denner-ag-zurich-1ed56c"
-        ],
-        "fr": [
-          "vendeur-denner-ag-zurich-1ed56c"
         ]
       },
       "previousSlugs": [
-        "verkaufer-in-denner",
-        "seller-denner-ag-zurich-1ed56c",
-        "vendeur-denner-ag-zurich-1ed56c"
+        "verkaufer-in-denner"
       ],
       "salaryMin": 83000,
       "salaryMax": 127500,
@@ -3655,7 +3613,7 @@
       "id": "denner-0cf4571e76d0",
       "slug": "stv-branch-manager-in-denner-zurich",
       "slugByLocale": {
-        "it": "stv-branch-manager-in-denner-zurich",
+        "it": "vice-direttore-di-filiale-denner-ag-zurich",
         "en": "deputy-branch-manager-denner-ag-zurich-6527ca",
         "de": "stv-filialleiter-in-denner-ag-zurich-gdn8qz",
         "fr": "directeur-adjoint-de-la-succursale-denner-ag-zurich-6527ca"
@@ -3728,8 +3686,7 @@
         "stv-branch-manager-in-denner-monchaltorf",
         "stv-branch-manager-in-denner-wollerau",
         "stv-branch-manager-in-denner-schaffhausen",
-        "vice-direttore-di-negozio-denner-ag-zurich",
-        "vice-direttore-di-filiale-denner-ag-zurich"
+        "vice-direttore-di-negozio-denner-ag-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3746,8 +3703,7 @@
           "stv-branch-manager-in-denner-monchaltorf",
           "stv-branch-manager-in-denner-wollerau",
           "stv-branch-manager-in-denner-schaffhausen",
-          "vice-direttore-di-negozio-denner-ag-zurich",
-          "vice-direttore-di-filiale-denner-ag-zurich"
+          "vice-direttore-di-negozio-denner-ag-zurich"
         ],
         "en": [
           "deputy-branch-manager-denner-ag-zurich"

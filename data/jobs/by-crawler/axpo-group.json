@@ -40,14 +40,20 @@
       },
       "slugByLocale": {
         "it": "apprendistato-automatiker-in-cfc-m-w-d-axpo-group-dottingen",
-        "en": "lehrstelle-automatiker-in-efz-w-m-d-17102943-7686-461d-8a6d-6dccb53ac21a",
+        "en": "automatic-apprenticeship-f-m-d-axpo-group-dottingen",
         "de": "lehrstelle-automatiker-in-efz-w-m-d-axpo-group-dottingen",
-        "fr": "lehrstelle-automatiker-in-efz-w-m-d-17102943-7686-461d-8a6d-6dccb53ac21a"
+        "fr": "apprentissage-automatique-f-m-d-axpo-group-dottingen"
       },
       "crawledAt": "2026-08-04T11:47:02.098Z",
       "id": "axpo-group-dd8c5cef2960",
       "previousSlugsByLocale": {
         "it": [
+          "lehrstelle-automatiker-in-efz-w-m-d-17102943-7686-461d-8a6d-6dccb53ac21a"
+        ],
+        "en": [
+          "lehrstelle-automatiker-in-efz-w-m-d-17102943-7686-461d-8a6d-6dccb53ac21a"
+        ],
+        "fr": [
           "lehrstelle-automatiker-in-efz-w-m-d-17102943-7686-461d-8a6d-6dccb53ac21a"
         ]
       },
@@ -107,14 +113,23 @@
       },
       "slugByLocale": {
         "it": "impiegato-a-commerciale-f-m-d-axpo-group-soazza",
-        "en": "impiegato-a-commerciale-f-m-d-38a8a31e-dd0e-47f9-869d-0867ce68b318",
-        "de": "impiegato-a-commerciale-f-m-d-38a8a31e-dd0e-47f9-869d-0867ce68b318",
-        "fr": "impiegato-a-commerciale-f-m-d-38a8a31e-dd0e-47f9-869d-0867ce68b318"
+        "en": "employee-commerciale-f-m-d-axpo-group-soazza",
+        "de": "angestellte-r-commerciale-f-m-d-axpo-group-soazza",
+        "fr": "employe-e-commerciale-f-m-d-axpo-group-soazza"
       },
       "crawledAt": "2026-08-04T11:47:02.123Z",
       "id": "axpo-group-5e27c94dc340",
       "previousSlugsByLocale": {
         "it": [
+          "impiegato-a-commerciale-f-m-d-38a8a31e-dd0e-47f9-869d-0867ce68b318"
+        ],
+        "en": [
+          "impiegato-a-commerciale-f-m-d-38a8a31e-dd0e-47f9-869d-0867ce68b318"
+        ],
+        "de": [
+          "impiegato-a-commerciale-f-m-d-38a8a31e-dd0e-47f9-869d-0867ce68b318"
+        ],
+        "fr": [
           "impiegato-a-commerciale-f-m-d-38a8a31e-dd0e-47f9-869d-0867ce68b318"
         ]
       },
@@ -541,7 +556,7 @@
       },
       "slugByLocale": {
         "it": "operazioni-e-manutenzione-produzione-idraulica-f-m-d-axpo-group-baden",
-        "en": "beauftragte-r-betrieb-instandhaltung-hydrau-lische-produktion-w-m-d-axpo-group-baden",
+        "en": "operations-and-maintenance-hydraulic-production-f-m-d-axpo-group-baden",
         "de": "beauftragte-r-betrieb-amp-instandhaltung-hydrau-lische-produktion-w-m-d-c455391f-ccc9-4f4c-b4d7-63e7c63ffa87",
         "fr": "exploitation-et-entretien-production-hydraulique-f-m-d-axpo-group-baden"
       },
@@ -563,7 +578,6 @@
       "firstSeenAt": "2026-07-29T11:58:55.396Z",
       "previousSlugsByLocale": {
         "en": [
-          "operations-and-maintenance-hydraulic-production-f-m-d-axpo-group-baden",
           "beauftragte-r-betrieb-instandhaltung-hydrau-lische-produktion-w-m-d-axpo-group-baden"
         ],
         "it": [
@@ -575,7 +589,6 @@
       },
       "previousSlugs": [
         "beauftragte-r-betrieb-amp-instandhaltung-hydrau-lische-produktion-w-m-d-c455391f-ccc9-4f4c-b4d7-63e7c63ffa87",
-        "operations-and-maintenance-hydraulic-production-f-m-d-axpo-group-baden",
         "beauftragte-r-betrieb-instandhaltung-hydrau-lische-produktion-w-m-d-axpo-group-baden"
       ]
     },
@@ -840,7 +853,7 @@
       },
       "slugByLocale": {
         "it": "fachhandwerker-in-infrastruktur-w-m-d-axpo-group-glattfelden",
-        "en": "fachhandwerker-in-infrastruktur-w-m-d-axpo-group-glattfelden",
+        "en": "professional-craftsman-in-infrastructure-f-m-d-axpo-group-glattfelden",
         "de": "fachhandwerker-in-infrastruktur-w-m-d-axpo-group-glattfelden",
         "fr": "fachhandwerker-in-infrastruktur-w-m-d-axpo-group-glattfelden"
       },
@@ -862,8 +875,7 @@
       "firstSeenAt": "2026-07-27T13:07:35.878Z",
       "previousSlugsByLocale": {
         "en": [
-          "professional-trader-in-infrastructure-f-m-d-axpo-group-glattfelden",
-          "professional-craftsman-in-infrastructure-f-m-d-axpo-group-glattfelden"
+          "professional-trader-in-infrastructure-f-m-d-axpo-group-glattfelden"
         ],
         "it": [
           "fachhandwerker-in-infrastruktur-w-m-d-06f00e1e-a000-4f8c-9ee0-58d2caaadc22"
@@ -877,8 +889,7 @@
       },
       "previousSlugs": [
         "professional-trader-in-infrastructure-f-m-d-axpo-group-glattfelden",
-        "fachhandwerker-in-infrastruktur-w-m-d-06f00e1e-a000-4f8c-9ee0-58d2caaadc22",
-        "professional-craftsman-in-infrastructure-f-m-d-axpo-group-glattfelden"
+        "fachhandwerker-in-infrastruktur-w-m-d-06f00e1e-a000-4f8c-9ee0-58d2caaadc22"
       ]
     },
     {
@@ -2626,7 +2637,7 @@
       },
       "slugByLocale": {
         "it": "misurazione-dell-energia-f-m-d-ckw-emmen",
-        "en": "case-manager-energiemessung-w-m-d-ckw-emmen",
+        "en": "case-manager-energy-measurement-f-m-d-ckw-emmen",
         "de": "case-manager-energiemessung-w-m-d-508909c0-0363-41a5-ac7b-f18ea7ff2091",
         "fr": "gestionnaire-de-cas-mesure-de-l-energie-f-m-d-ckw-emmen"
       },
@@ -2650,7 +2661,6 @@
       "previousSlugsByLocale": {
         "en": [
           "case-manager-energy-measurement-w-m-d-ckw-emmen",
-          "case-manager-energy-measurement-f-m-d-ckw-emmen",
           "case-manager-energiemessung-w-m-d-ckw-emmen"
         ],
         "it": [
@@ -2663,7 +2673,6 @@
       "previousSlugs": [
         "case-manager-energy-measurement-w-m-d-ckw-emmen",
         "case-manager-energiemessung-w-m-d-508909c0-0363-41a5-ac7b-f18ea7ff2091",
-        "case-manager-energy-measurement-f-m-d-ckw-emmen",
         "case-manager-energiemessung-w-m-d-ckw-emmen"
       ]
     },

@@ -202,15 +202,13 @@
       "previousSlugs": [
         "bed-dispatch-in-spital-sts-thun",
         "expedition-du-lit-en-spital-sts-thun",
-        "bettendisponent-in-spital-sts-thun",
-        "spedizione-del-letto-in-spital-sts-thun"
+        "bettendisponent-in-spital-sts-thun"
       ],
       "previousSlugsByLocale": {
         "it": [
           "bed-dispatch-in-spital-sts-thun",
           "expedition-du-lit-en-spital-sts-thun",
-          "bettendisponent-in-spital-sts-thun",
-          "spedizione-del-letto-in-spital-sts-thun"
+          "bettendisponent-in-spital-sts-thun"
         ],
         "en": [
           "bettendisponent-in-spital-sts-thun"
@@ -283,13 +281,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "nds-hf-intensivpflege-2027-2029-spital-sts-thun",
-        "nds-hf-cura-intensiva-2027-2029-spital-sts-thun"
+        "nds-hf-intensivpflege-2027-2029-spital-sts-thun"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "nds-hf-intensivpflege-2027-2029-spital-sts-thun",
-          "nds-hf-cura-intensiva-2027-2029-spital-sts-thun"
+          "nds-hf-intensivpflege-2027-2029-spital-sts-thun"
         ],
         "en": [
           "nds-hf-intensivpflege-2027-2029-spital-sts-thun"
@@ -366,8 +362,7 @@
         "specialist-health-efz-for-early-and-late-service-medicine-spital-sts-thun",
         "fachfrau-fachmann-gesundheit-efz-fur-fruh-und-spatdienst-medizin-spital-sts-thun",
         "specialiste-de-la-sante-efz-pour-la-medecine-precoce-et-tardive-spital-sts-thun",
-        "fachfrau-fachmann-gesundheit-spital-sts-thun",
-        "salute-professionale-spital-sts-thun"
+        "fachfrau-fachmann-gesundheit-spital-sts-thun"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -375,8 +370,7 @@
           "specialist-health-efz-for-early-and-late-service-medicine-spital-sts-thun",
           "fachfrau-fachmann-gesundheit-efz-fur-fruh-und-spatdienst-medizin-spital-sts-thun",
           "specialiste-de-la-sante-efz-pour-la-medecine-precoce-et-tardive-spital-sts-thun",
-          "fachfrau-fachmann-gesundheit-spital-sts-thun",
-          "salute-professionale-spital-sts-thun"
+          "fachfrau-fachmann-gesundheit-spital-sts-thun"
         ],
         "en": [
           "specialist-health-efz-for-early-and-late-service-medicine-spital-sts-thun",
@@ -454,13 +448,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "praktikant-in-psychologie-spital-sts-thun",
-        "interno-in-psicologia-spital-sts-thun"
+        "praktikant-in-psychologie-spital-sts-thun"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "praktikant-in-psychologie-spital-sts-thun",
-          "interno-in-psicologia-spital-sts-thun"
+          "praktikant-in-psychologie-spital-sts-thun"
         ],
         "en": [
           "praktikant-in-psychologie-spital-sts-thun"
@@ -566,7 +558,7 @@
         "de": "hr-business-partner-spital-sts-thun",
         "it": "hr-business-partner-spital-sts-thun",
         "en": "hr-business-partner-spital-sts-thun",
-        "fr": "hr-business-partner-spital-sts-thun"
+        "fr": "partenaire-operationnel-rh-spital-sts-thun"
       },
       "company": "Spital STS",
       "companyKey": "spital-sts",
@@ -629,8 +621,8 @@
       "slugByLocale": {
         "de": "stellvertretende-r-leiter-in-disposition-sekretariat-onkologie-und-hamatologiezentrum",
         "it": "stellvertretende-r-responsabile-disposition-sekretariat-onkologie-e-hamatologiezentrum-spital-sts-thun-und-spiez",
-        "en": "stellvertretende-r-leiter-in-disposition-sekretariat-onkologie-und-hamatologiezentrum",
-        "fr": "stellvertretende-r-leiter-in-disposition-sekretariat-onkologie-und-hamatologiezentrum"
+        "en": "deputy-r-head-in-disposition-secretariat-oncology-and-haematology-centre-spital-sts-thun-und-spiez",
+        "fr": "chef-adjoint-dans-la-disposition-secretariat-centre-d-oncologie-et-d-hematologie-spital-sts-thun-und-spiez"
       },
       "company": "Spital STS",
       "companyKey": "spital-sts",
@@ -676,6 +668,12 @@
       "previousSlugsByLocale": {
         "it": [
           "stellvertretende-r-leiter-in-disposition-sekretariat-onkologie-und-hamatologiezentrum"
+        ],
+        "en": [
+          "stellvertretende-r-leiter-in-disposition-sekretariat-onkologie-und-hamatologiezentrum"
+        ],
+        "fr": [
+          "stellvertretende-r-leiter-in-disposition-sekretariat-onkologie-und-hamatologiezentrum"
         ]
       },
       "previousSlugs": [
@@ -697,12 +695,12 @@
     },
     {
       "id": "spital-sts-5aa0eee3bb31",
-      "slug": "fachfrau-fachmann-apotheke-spital-sts-thun",
+      "slug": "farmacia-professionale-professionale-spital-sts-thun",
       "slugByLocale": {
         "de": "fachfrau-fachmann-apotheke-spital-sts-thun",
-        "it": "fachfrau-fachmann-apotheke-spital-sts-thun",
-        "en": "fachfrau-fachmann-apotheke-spital-sts-thun",
-        "fr": "fachfrau-fachmann-apotheke-spital-sts-thun"
+        "it": "farmacia-professionale-professionale-spital-sts-thun",
+        "en": "professional-professional-pharmacy-spital-sts-thun",
+        "fr": "pharmacie-professionnelle-spital-sts-thun"
       },
       "company": "Spital STS",
       "companyKey": "spital-sts",
@@ -757,7 +755,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-04T11:43:12.754Z"
+      "firstSeenAt": "2026-08-04T11:43:12.754Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachfrau-fachmann-apotheke-spital-sts-thun"
+        ],
+        "en": [
+          "fachfrau-fachmann-apotheke-spital-sts-thun"
+        ],
+        "fr": [
+          "fachfrau-fachmann-apotheke-spital-sts-thun"
+        ]
+      },
+      "previousSlugs": [
+        "fachfrau-fachmann-apotheke-spital-sts-thun"
+      ]
     },
     {
       "id": "spital-sts-2349465049a1",
@@ -816,8 +828,7 @@
         "med-assistente-pratica-in-urologia-spital-sts-thun",
         "medical-practice-assistant-urology-spital-sts-thun",
         "med-praxisassistent-in-urologie-spital-sts-thun",
-        "assistant-medical-en-urologie-spital-sts-thun",
-        "med-assistente-pratica-in-chirurgia-spinale-spital-sts-thun"
+        "assistant-medical-en-urologie-spital-sts-thun"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -829,8 +840,7 @@
           "med-assistente-pratica-in-urologia-spital-sts-thun",
           "medical-practice-assistant-urology-spital-sts-thun",
           "med-praxisassistent-in-urologie-spital-sts-thun",
-          "assistant-medical-en-urologie-spital-sts-thun",
-          "med-assistente-pratica-in-chirurgia-spinale-spital-sts-thun"
+          "assistant-medical-en-urologie-spital-sts-thun"
         ],
         "en": [
           "med-praxisassistent-in-wirbelsaulenchirurgie-spital-sts-thun",
@@ -909,13 +919,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "fachfrau-mann-gesundheit-notfallzentrum-spital-sts-thun",
-        "centro-di-emergenza-sanitaria-professionale-spital-sts-thun"
+        "fachfrau-mann-gesundheit-notfallzentrum-spital-sts-thun"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachfrau-mann-gesundheit-notfallzentrum-spital-sts-thun",
-          "centro-di-emergenza-sanitaria-professionale-spital-sts-thun"
+          "fachfrau-mann-gesundheit-notfallzentrum-spital-sts-thun"
         ],
         "en": [
           "fachfrau-mann-gesundheit-notfallzentrum-spital-sts-thun"
@@ -997,8 +1005,7 @@
         "dipl-nursing-specialist-surgery-spital-sts-thun",
         "dipl-pflegefachfrau-mann-chirurgie-spital-sts-thun",
         "dipl-chirurgie-specialisee-en-soins-infirmiers-spital-sts-thun",
-        "dipl-pflegefachfrau-mann-psychiatrie-tagesklinik-spital-sts-thun",
-        "dipl-infermieristica-specialista-clinica-giorno-psichiatria-spital-sts-thun"
+        "dipl-pflegefachfrau-mann-psychiatrie-tagesklinik-spital-sts-thun"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1010,8 +1017,7 @@
           "dipl-nursing-specialist-surgery-spital-sts-thun",
           "dipl-pflegefachfrau-mann-chirurgie-spital-sts-thun",
           "dipl-chirurgie-specialisee-en-soins-infirmiers-spital-sts-thun",
-          "dipl-pflegefachfrau-mann-psychiatrie-tagesklinik-spital-sts-thun",
-          "dipl-infermieristica-specialista-clinica-giorno-psichiatria-spital-sts-thun"
+          "dipl-pflegefachfrau-mann-psychiatrie-tagesklinik-spital-sts-thun"
         ],
         "en": [
           "dipl-nursing-professional-gastroenterology-spital-sts-thun",

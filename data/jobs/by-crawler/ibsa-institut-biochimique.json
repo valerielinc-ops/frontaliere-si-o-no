@@ -30,8 +30,8 @@
       "slugByLocale": {
         "it": "accounting-officer-sost-maternita-e-collaborazione-persona-responsabile-ed-affidabile-abituata-a-gestire-scadenze-a-breve-termine-luogo-di-l-toyw1a",
         "en": "accounting-officer-sost-maternita-ibsa-institut-biochimique-6926-working-area-toyw1a",
-        "de": "accounting-officer-ibsa-institut-biochimique-6926-working-area-toyw1a",
-        "fr": "accounting-officer-ibsa-institut-biochimique-6926-working-area-toyw1a"
+        "de": "accounting-officer-sost-maternita-ibsa-institut-biochimique-6926-working-area-toyw1a",
+        "fr": "accounting-officer-sost-maternita-ibsa-institut-biochimique-6926-working-area-toyw1a"
       },
       "titleByLocale": {
         "en": "Accounting Officer",
@@ -50,6 +50,12 @@
       "country": "CH",
       "previousSlugsByLocale": {
         "en": [
+          "accounting-officer-ibsa-institut-biochimique-6926-working-area-toyw1a"
+        ],
+        "de": [
+          "accounting-officer-ibsa-institut-biochimique-6926-working-area-toyw1a"
+        ],
+        "fr": [
           "accounting-officer-ibsa-institut-biochimique-6926-working-area-toyw1a"
         ]
       },
