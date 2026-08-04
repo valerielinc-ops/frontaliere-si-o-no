@@ -1,6 +1,6 @@
 {
   "crawlerKey": "ibsa-institut-biochimique",
-  "assembledAt": "2026-08-04T11:42:45.679Z",
+  "assembledAt": "2026-08-04T22:33:27.897Z",
   "jobs": [
     {
       "id": "company-toyw1a",
@@ -25,7 +25,7 @@
       },
       "companyKey": "ibsa-institut-biochimique",
       "companyDomain": "ibsa.ch",
-      "crawledAt": "2026-08-04T11:42:43.269Z",
+      "crawledAt": "2026-08-04T22:33:26.831Z",
       "firstSeenAt": "2026-08-04T11:42:43.269Z",
       "slugByLocale": {
         "it": "accounting-officer-sost-maternita-e-collaborazione-persona-responsabile-ed-affidabile-abituata-a-gestire-scadenze-a-breve-termine-luogo-di-l-toyw1a",
@@ -34,8 +34,8 @@
         "fr": "accounting-officer-sost-maternita-ibsa-institut-biochimique-6926-working-area-toyw1a"
       },
       "titleByLocale": {
-        "en": "Accounting Officer",
         "it": "Accounting Officer",
+        "en": "Accounting Officer",
         "de": "Rechnungsführer",
         "fr": "Comptable"
       },
@@ -77,7 +77,8 @@
       "addressLocality": "6926 Working Area",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-d2v3bw",
@@ -107,7 +108,7 @@
       },
       "companyKey": "ibsa-institut-biochimique",
       "companyDomain": "ibsa.ch",
-      "crawledAt": "2026-08-04T11:42:43.269Z",
+      "crawledAt": "2026-08-04T22:33:26.831Z",
       "firstSeenAt": "2026-07-22T11:43:57.748Z",
       "titleByLocale": {
         "en": "Jr Clinical & Safety Compliance Specialist",
@@ -171,7 +172,8 @@
       "addressLocality": "Ticino",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-d18wk3",
@@ -200,7 +202,7 @@
       },
       "companyKey": "ibsa-institut-biochimique",
       "companyDomain": "ibsa.ch",
-      "crawledAt": "2026-08-04T11:42:43.269Z",
+      "crawledAt": "2026-08-04T22:33:26.831Z",
       "firstSeenAt": "2026-07-22T22:26:29.099Z",
       "titleByLocale": {
         "en": "Pharmaceutical Technology Technician",
@@ -265,7 +267,8 @@
       "addressLocality": "Ma",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-dh2g46",
@@ -296,7 +299,7 @@
       },
       "companyKey": "ibsa-institut-biochimique",
       "companyDomain": "ibsa.ch",
-      "crawledAt": "2026-08-04T11:42:43.269Z",
+      "crawledAt": "2026-08-04T22:33:26.831Z",
       "firstSeenAt": "2026-07-21T22:11:42.744Z",
       "titleByLocale": {
         "en": "Pharmaceutical Technology Technician",
@@ -373,7 +376,8 @@
       "addressLocality": "Ma",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-tngyfi",
@@ -402,7 +406,7 @@
       },
       "companyKey": "ibsa-institut-biochimique",
       "companyDomain": "ibsa.ch",
-      "crawledAt": "2026-08-04T11:42:43.269Z",
+      "crawledAt": "2026-08-04T22:33:26.831Z",
       "firstSeenAt": "2026-07-14T22:10:56.599Z",
       "titleByLocale": {
         "en": "Jr Medical Writing Specialist",
@@ -471,7 +475,8 @@
       "addressLocality": "Collina d",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-356u61",
@@ -498,7 +503,7 @@
       },
       "companyKey": "ibsa-institut-biochimique",
       "companyDomain": "ibsa.ch",
-      "crawledAt": "2026-08-04T11:42:43.269Z",
+      "crawledAt": "2026-08-04T22:33:26.831Z",
       "firstSeenAt": "2026-07-06T22:20:40.267Z",
       "titleByLocale": {
         "en": "QC Analysis Technician",
@@ -566,7 +571,8 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "postalCode": "6912"
+      "postalCode": "6912",
+      "needsRetranslation": true
     },
     {
       "id": "company-bm0ep4",
@@ -591,7 +597,7 @@
       },
       "companyKey": "ibsa-institut-biochimique",
       "companyDomain": "ibsa.ch",
-      "crawledAt": "2026-08-04T11:42:43.269Z",
+      "crawledAt": "2026-08-04T22:33:26.831Z",
       "firstSeenAt": "2026-07-06T22:20:40.267Z",
       "slugByLocale": {
         "it": "cmo-manager-e-i-fornitori-il-ruolo-prevede-il-coordinamento-di-un-team-di-4-persone-svizzera-e-italia-e-una-costante-interazione-con-stakeho-bm0ep4",
@@ -640,7 +646,8 @@
       "previousSlugs": [
         "cmo-manager-ibsa-institut-biochimique-grancia-bm0ep4",
         "responsabile-cmo-ibsa-institut-biochimique-grancia"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "company-um2f7f",
@@ -667,7 +674,7 @@
       },
       "companyKey": "ibsa-institut-biochimique",
       "companyDomain": "ibsa.ch",
-      "crawledAt": "2026-08-04T11:42:43.269Z",
+      "crawledAt": "2026-08-04T22:33:26.831Z",
       "firstSeenAt": "2026-07-06T22:20:40.267Z",
       "slugByLocale": {
         "de": "industrial-controlling-manager-delle-technical-operations-nella-realizzazione-dei-programmi-di-efficientamento-industriale-responsabilita-co-um2f7f",
@@ -744,7 +751,8 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "postalCode": "6500"
+      "postalCode": "6500",
+      "needsRetranslation": true
     }
   ]
 }
