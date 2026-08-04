@@ -25,7 +25,7 @@
     "https://jobs.ruag.ch/offene-stellen/head-of-strategic-project-pocurement-real-estate/933cf3f7-d49e-4d23-820a-08b64a9c31f4",
     "https://jobs.ruag.ch/offene-stellen/strategische-r-einkaeuferin-immobilien-bauleistungen-generalplaner-generalunternehmer/ca1d5908-4c07-4867-b18c-55448e525188",
     "https://jobs.ruag.ch/offene-stellen/risk-management-assistant/6660c90c-99fd-4df4-9435-c85c586a76a6",
-    "https://jobs.ruag.ch/offene-stellen/gebaeudetechnikerin-sanitaer-heizungsinstallateurin/63ae7f4e-efa5-4ba3-ba28-f9dd8a26dbb7",
+    "https://jobs.ruag.ch/offene-stellen/gebaeudetechnikerin-hlks-sanitaerinstallateurin/63ae7f4e-efa5-4ba3-ba28-f9dd8a26dbb7",
     "https://jobs.ruag.ch/offene-stellen/head-of-corporate-security-west/3f23481b-bf84-4825-ae03-40fd071ea03c",
     "https://jobs.ruag.ch/offene-stellen/head-of-corporate-security-east/c99ccd4e-01b2-4069-8107-74f4247c4f93",
     "https://jobs.ruag.ch/offene-stellen/head-of-corporate-security-governance/dbc78305-e271-4052-9d9c-9d411ccc27f0",
@@ -67,10 +67,11 @@
     "https://jobs.ruag.ch/offene-stellen/lehrstelle-als-mediamatiker-in-efz-2027/5457a25f-95ff-4eef-b31e-95f8be924a6d",
     "https://jobs.ruag.ch/offene-stellen/lehrstelle-als-informatiker-in-efz-plattformentwicklung-2027/41aac842-03c6-4077-b4ff-30c372f6a069",
     "https://jobs.ruag.ch/offene-stellen/lehrstelle-als-informatiker-in-efz-plattformentwicklung-2027/6d6f25f0-2262-4a3d-a7fe-5c7f598981a2",
-    "https://jobs.ruag.ch/open-vacancies/senior-software-engineer-c5i/6d33c977-7809-4202-9a86-3f80e474104c"
+    "https://jobs.ruag.ch/open-vacancies/senior-software-engineer-c5i/6d33c977-7809-4202-9a86-3f80e474104c",
+    "https://jobs.ruag.ch/offene-stellen/legal-counsel/9e7711a0-4521-4fdf-a1e4-99dcd29eb969"
   ],
   "notes": "Dedicated RUAG crawler uses official jobs.ruag.ch detail pages and recursive discovery from internal similar-job links because the public listing often returns 400.",
-  "updatedAt": "2026-08-03T22:31:24.283Z",
+  "updatedAt": "2026-08-04T11:54:40.753Z",
   "seedMetaByUrl": {
     "https://jobs.ruag.ch/offene-stellen/facility-manager-technics-betriebselektrikerin/190b7508-d7e8-403d-b49f-7c2f57a59965": {
       "location": "Altdorf",
@@ -162,7 +163,7 @@
       "company": "RUAG AG",
       "postedDate": "2026-07-03"
     },
-    "https://jobs.ruag.ch/offene-stellen/gebaeudetechnikerin-sanitaer-heizungsinstallateurin/63ae7f4e-efa5-4ba3-ba28-f9dd8a26dbb7": {
+    "https://jobs.ruag.ch/offene-stellen/gebaeudetechnikerin-hlks-sanitaerinstallateurin/63ae7f4e-efa5-4ba3-ba28-f9dd8a26dbb7": {
       "location": "Alpnach,Emmen,Stans",
       "canton": "LU",
       "company": "RUAG AG",
@@ -419,6 +420,12 @@
       "canton": "BE",
       "company": "RUAG AG",
       "postedDate": "2026-08-03"
+    },
+    "https://jobs.ruag.ch/offene-stellen/legal-counsel/9e7711a0-4521-4fdf-a1e4-99dcd29eb969": {
+      "location": "Bern",
+      "canton": "BE",
+      "company": "RUAG AG",
+      "postedDate": "2026-08-04"
     }
   }
 }
