@@ -1,6 +1,6 @@
 {
   "crawlerKey": "damiani-group",
-  "assembledAt": "2026-08-04T11:36:36.582Z",
+  "assembledAt": "2026-08-04T22:22:44.276Z",
   "jobs": [
     {
       "title": "Graphic Designer - Freelance",
@@ -59,11 +59,12 @@
       },
       "streetAddress": "Via Penate 12",
       "postalCode": "6850",
-      "firstSeenAt": "2026-08-04T11:36:36.581Z"
+      "firstSeenAt": "2026-08-04T11:36:36.581Z",
+      "needsRetranslation": true
     },
     {
       "title": "Finance & Accounting Integration Specialist",
-      "slug": "finance-accounting-integration-specialist-damiani-group-mendrisio",
+      "slug": "finanza-accounting-integration-specialista-damiani-group-mendrisio",
       "url": "https://careers.damianigroup.com/job/Mendrisio-Finance-&-Accounting-Integration-Specialist/1362895655/",
       "applyUrl": "https://careers.damianigroup.com/talentcommunity/apply/1362895655/?locale=en_US",
       "company": "Damiani Group",
@@ -97,7 +98,7 @@
         "fr": "Spécialiste de l'intégration des finances et de la comptabilité - Temps déterminé\n\nSociété: Damiani Groupe Lieu de travail: Siège de Mendrisio (Suisse) Type de contrat: Durée déterminée\n\n## Qui sommes-nous ?\n\nDamiani Group est l'un des principaux groupes de luxe internationaux dans l'industrie de la joaillerie et de l'horlogerie, reconnu pour son excellence artisanale, le design Made in Italy et un portefeuille de marques prestigieuses. Dans le cadre de la croissance et de l'intégration d'une nouvelle marque acquise par le Groupe, nous sommes à la recherche d'un spécialiste de l'intégration financière et comptable à inclure dans notre siège social à Mendrisio.\n\n## Objectif de la position\n\nLa ressource se joindra à l'équipe Finance & Comptabilité Corporate avec la responsabilité de présider les activités comptables et administratives liées à l'intégration d'une marque de luxe récemment acquise par le Groupe.\n\nCe rôle assure le contrôle, le rapprochement et le suivi des flux comptables et de trésorerie, assurant l'exactitude, l'exhaustivité et un support documentaire adéquat pour les processus de clôture mensuels, tant pour la société suisse que pour les sociétés étrangères concernées.\n\n## Responsabilité principale\n\n- Surveiller et soutenir les opérations mensuelles de la marque acquise, en assurant la bonne transposition dans les bilans locaux du Groupe.\n- Veiller à l'exactitude et à l'exhaustivité des principaux postes comptables, notamment en ce qui concerne les recettes, les achats et la valorisation de l'entrepôt.\n- Vérifiez la bonne gestion du cycle actif et passif, en assurant l'exhaustivité du processus de facturation et de sa comptabilité.\n- Effectuer des vérifications et des rapprochements comptables pour appuyer les fermetures mensuelles.\n- Coordonner le flux d'information avec les administrations locales des entreprises du Groupe, en favorisant une harmonisation efficace des informations comptables.\n- Gérer l'embarquement de nouveaux fournisseurs en suivant les itinéraires approuvés fournis par les projets d'entreprise.\n- Enregistrer les factures des fournisseurs et surveiller les flux de paiement relatifs aux fins de la clôture comptable mensuelle correcte.\n- Collaboration avec les équipes des Finances et les intervenants impliqués dans le processus d'intégration de la nouvelle marque, contribuant à l'harmonisation des processus administratifs et comptables.\n\n## Exigences\n\n- Diplôme en économie, administration, finances ou disciplines connexes.\n- Expérience d'au moins 2 à 5 ans en matière de responsabilité administrative, de préférence acquise dans des entreprises structurées ou multinationales.\n- Connaissance approfondie de la comptabilité générale.\n- Bonne connaissance de la comptabilité des stocks.\n- Une solide expérience dans la gestion des comptes clients et des fournisseurs.\n- Connaissance des principes comptables de l'OCI.\n- Expérience en utilisant SAP ERP.\n- Connaissance des outils d'information commerciale et de l'analyse des données.\n- Excellente maîtrise de Microsoft Excel.\n\n## Compétences personnelles\n\n- Précision et grande attention au détail.\n- Excellente capacité d'analyse et rapprochement des données.\n- Capacité organisationnelle et gestion des priorités.\n- Résolution de problèmes et approche proactive.\n- Excellentes compétences relationnelles et préparation au travail dans les équipes internationales.\n- Flexibilité et capacité à fonctionner efficacement dans des contextes dynamiques et pendant les processus d'intégration des entreprises.\n\n## Langues\n\n- Italien: couramment.\n- Anglais: niveau B2 ou plus.\n\n## Ce que nous offrons\n\n- L'occasion de rejoindre l'un des principaux groupes internationaux de luxe.\n- Un rôle stratégique au sein d'un projet d'intégration internationale avec une forte exposition aux différentes entreprises du Groupe.\n- Un environnement de travail dynamique, international et collaboratif.\n- Stage de 6 mois à durée déterminée au siège du Groupe à Mendrisio."
       },
       "slugByLocale": {
-        "it": "finance-accounting-integration-specialist-damiani-group-mendrisio",
+        "it": "finanza-accounting-integration-specialista-damiani-group-mendrisio",
         "en": "finance-accounting-integration-specialist-damiani-group-mendrisio",
         "de": "finanzen-accounting-integration-spezialist-damiani-group-mendrisio",
         "fr": "finance-accounting-integration-specialist-damiani-group-mendrisio"
@@ -118,7 +119,15 @@
       },
       "streetAddress": "Via Penate 12",
       "postalCode": "6850",
-      "firstSeenAt": "2026-08-04T11:36:36.581Z"
+      "firstSeenAt": "2026-08-04T11:36:36.581Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "finance-accounting-integration-specialist-damiani-group-mendrisio"
+        ]
+      },
+      "previousSlugs": [
+        "finance-accounting-integration-specialist-damiani-group-mendrisio"
+      ]
     },
     {
       "title": "Consolidation & Reporting Specialist",
@@ -217,7 +226,7 @@
       "slugByLocale": {
         "it": "specialista-servizio-clienti-lingua-araba-o-russa-damiani-group-mendrisio",
         "en": "specialista-customer-service-lingua-araba-o-russa-damiani-group-mendrisio",
-        "de": "customer-service-specialist-arabisch-oder-russisch-damiani-group-mendrisio",
+        "de": "specialista-kundendienst-lingua-araba-o-russa-damiani-group-mendrisio",
         "fr": "specialiste-service-client-arabe-ou-russe-damiani-group-mendrisio"
       },
       "previousSlugs": [
@@ -226,6 +235,7 @@
         "specialista-kundendienst-lingua-araba-o-russa-damiani-group-mendrisio-fstjwv",
         "servizio-clienti-specialista-lingua-araba-o-russa-damiani-group-mendrisio",
         "specialista-customer-service-lingua-araba-o-russa-damiani-group-mendrisio",
+        "customer-service-specialist-arabisch-oder-russisch-damiani-group-mendrisio",
         "specialista-kundendienst-lingua-araba-o-russa-damiani-group-mendrisio"
       ],
       "salaryMin": 54000,
@@ -254,6 +264,7 @@
           "specialista-customer-service-lingua-araba-o-russa-damiani-group-mendrisio"
         ],
         "de": [
+          "customer-service-specialist-arabisch-oder-russisch-damiani-group-mendrisio",
           "specialista-kundendienst-lingua-araba-o-russa-damiani-group-mendrisio"
         ]
       },
@@ -375,7 +386,8 @@
       },
       "streetAddress": "Via Penate 12",
       "postalCode": "6850",
-      "firstSeenAt": "2026-07-24T11:12:56.301Z"
+      "firstSeenAt": "2026-07-24T11:12:56.301Z",
+      "needsRetranslation": true
     },
     {
       "title": "Customer Service Specialist - German Speaking",
