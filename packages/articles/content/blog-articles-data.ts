@@ -27723,6 +27723,24 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'lucibello-disti-verifica-fondi',
+ category: 'pratico',
+ date: '2026-08-04T15:56:57.457Z',
+ image: '/images/blog/lucibello-disti-verifica-fondi.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
+ {
+ id: 'inflazione-svizzera-luglio-2026',
+ category: 'fiscale',
+ date: '2026-08-04T19:19:19.831Z',
+ image: '/images/blog/inflazione-svizzera-luglio-2026.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

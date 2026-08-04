@@ -1819,6 +1819,12 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.vigilanza-banche-svizzera-scandali.title': 'Banking supervision in Switzerland: new rules after crises',
     'blog.article.vigilanza-banche-svizzera-scandali.excerpt': 'The Swiss Government is proposing new powers for Finma to impose fines and disclose defaulted banks after the collapse of Credit Suisse.',
     'blog.article.vigilanza-banche-svizzera-scandali.imageAlt': 'Federal Palace in Bern, seat of the Swiss government',
+    'blog.article.siccita-contadini-mobilitano.title': 'More Drought: farmers mobilize, the fodder bag arrives',
+    'blog.article.siccita-contadini-mobilitano.excerpt': 'The drought is causing serious problems for Swiss farmers, who are doing everything in their power to deal with the situation.',
+    'blog.article.siccita-contadini-mobilitano.imageAlt': 'A Swiss farmer preparing for harvest',
+    'blog.article.emigrazione-tasse-obblighi-dopo-partenza.title': 'Emigrating from Switzerland: what happens to taxes after departure',
+    'blog.article.emigrazione-tasse-obblighi-dopo-partenza.excerpt': 'After leaving Switzerland in May 2025, the payment of taxes does not always end. Here is what the legislation provides for those who move abroad.',
+    'blog.article.emigrazione-tasse-obblighi-dopo-partenza.imageAlt': 'Person reviewing tax documents with Zurich skyline visible, symbolizing Swiss emigration and tax obligations after leaving the country.',
 };
 
 export default blogMetaChEn;

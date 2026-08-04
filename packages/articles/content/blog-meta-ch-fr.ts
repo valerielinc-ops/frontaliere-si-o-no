@@ -1819,6 +1819,12 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.vigilanza-banche-svizzera-scandali.title': 'Surveillance des banques en Suisse : nouvelles règles après les crises',
     'blog.article.vigilanza-banche-svizzera-scandali.excerpt': 'Le gouvernement suisse propose de nouveaux pouvoirs à la Finma pour infliger des amendes et faire connaître les banques défaillantes après l\'effondrement du Credit Suisse.',
     'blog.article.vigilanza-banche-svizzera-scandali.imageAlt': 'Palais fédéral à Berne, siège du gouvernement suisse',
+    'blog.article.siccita-contadini-mobilitano.title': 'Plus de sécheresse : les paysans se mobilisent, la bourse des fourrages arrive',
+    'blog.article.siccita-contadini-mobilitano.excerpt': 'La sécheresse cause de graves problèmes aux paysans suisses, qui font tout ce qui est en leur pouvoir pour faire face à la situation.',
+    'blog.article.siccita-contadini-mobilitano.imageAlt': 'Un agriculteur suisse se prépare pour la récolte',
+    'blog.article.emigrazione-tasse-obblighi-dopo-partenza.title': 'Émigrer de Suisse : qu\'advient-il des taxes après le départ',
+    'blog.article.emigrazione-tasse-obblighi-dopo-partenza.excerpt': 'Après avoir quitté la Suisse en mai 2025, le paiement des impôts ne prend pas toujours fin. Voici ce que prévoit la législation pour ceux qui partent à l\'étranger.',
+    'blog.article.emigrazione-tasse-obblighi-dopo-partenza.imageAlt': 'Personne consultant des documents fiscaux avec la skyline de Zurich en arrière-plan, symbole des obligations fiscales après l\'émigration de Suisse.',
 };
 
 export default blogMetaChFr;

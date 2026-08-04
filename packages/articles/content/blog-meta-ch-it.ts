@@ -1819,6 +1819,12 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.vigilanza-banche-svizzera-scandali.title': 'Vigilanza banche in Svizzera: nuove norme dopo i crisi',
     'blog.article.vigilanza-banche-svizzera-scandali.excerpt': 'Il Governo svizzero propone nuovi poteri alla Finma per infliggere multe e rendere note le banche inadempienti dopo il tracollo di Credit Suisse.',
     'blog.article.vigilanza-banche-svizzera-scandali.imageAlt': 'Palazzo federale a Berna, sede del governo svizzero',
+    'blog.article.siccita-contadini-mobilitano.title': 'Di più Siccità: i contadini si mobilitano, arriva la borsa dei foraggi',
+    'blog.article.siccita-contadini-mobilitano.excerpt': 'La siccità sta causando gravi problemi ai contadini svizzeri, che stanno facendo tutto ciò che è in loro potere per affrontare la situazione.',
+    'blog.article.siccita-contadini-mobilitano.imageAlt': 'Un contadino svizzero che si prepara per la raccolta dei foraggi',
+    'blog.article.emigrazione-tasse-obblighi-dopo-partenza.title': 'Emigrare dalla Svizzera: cosa succede alle tasse dopo la partenza',
+    'blog.article.emigrazione-tasse-obblighi-dopo-partenza.excerpt': 'Dopo aver lasciato la Svizzera nel maggio 2025, il pagamento delle tasse non sempre finisce. Ecco cosa prevede la normativa per chi si trasferisce all’estero.',
+    'blog.article.emigrazione-tasse-obblighi-dopo-partenza.imageAlt': 'Persona che esamina documenti fiscali con panorama di Zurigo sullo sfondo, simbolo degli obblighi tributari dopo l\'emigrazione dalla Svizzera.',
 };
 
 export default blogMetaChIt;

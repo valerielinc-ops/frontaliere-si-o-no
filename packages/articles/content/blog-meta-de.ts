@@ -9234,6 +9234,12 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.littering-lavoro-e-aviatione-novita-del-1-augusto.title': 'Littering, Arbeit und Luftfahrt: die Neuheiten vom 1. August',
     'blog.article.littering-lavoro-e-aviatione-novita-del-1-augusto.excerpt': 'Von den Strafen für das Littering bis zur Verlängerung der Kurzarbeit, hier sind die Neuigkeiten vom 1. August.',
     'blog.article.littering-lavoro-e-aviatione-novita-del-1-augusto.imageAlt': 'Panoramablick auf Lugano mit See und Bergen',
+    'blog.article.lucibello-disti-verifica-fondi.title': 'Lucibello: Kein persönlicher Gewinn oder Geldbetrug',
+    'blog.article.lucibello-disti-verifica-fondi.excerpt': 'Der Vorsitzende von Disti wehrt sich gegen den Vorwurf der missbräuchlichen Verwendung von Geldern und sorgt für Transparenz und Einhaltung der Verfahren.',
+    'blog.article.lucibello-disti-verifica-fondi.imageAlt': 'Luftbild von Lugano mit Stadtzentrum und Luganersee im Hintergrund',
+    'blog.article.inflazione-svizzera-luglio-2026.title': 'Inflation in der Schweiz sinkt im Juli auf 0,4%',
+    'blog.article.inflazione-svizzera-luglio-2026.excerpt': 'Die Inflation in der Schweiz lag im Juli bei 0,4%, nach 0,5% im Juni und 0,6% im April und Mai.',
+    'blog.article.inflazione-svizzera-luglio-2026.imageAlt': 'Luftaufnahme von Lugano, Tessin, Schweiz, mit dem See und den Bergen im Hintergrund.',
 };
 
 export default blogMetaDe;
