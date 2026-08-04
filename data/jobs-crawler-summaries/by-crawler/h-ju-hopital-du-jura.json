@@ -1,16 +1,16 @@
 {
   "key": "h-ju-hopital-du-jura",
   "label": "Hôpital du Jura (H-JU)",
-  "generatedAt": "2026-08-03T22:14:58.513Z",
-  "total": 5,
+  "generatedAt": "2026-08-04T11:43:21.460Z",
+  "total": 4,
   "newCount": 0,
   "updatedCount": 4,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 6202,
-  "avgDurationMs": 6202,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 6510,
+  "avgDurationMs": 6510,
   "durationHistory": [
-    6202
+    6510
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -27,7 +27,7 @@
       "url": "https://www.h-ju.ch/fr/Carrieres/Emploi/Emploi.html#offer/4350/physiotherapeute",
       "source": "H-JU Hôpital du Jura Dedicated Parser (Johdi Suite)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-03T22:14:53.576Z",
+      "crawledAt": "2026-08-04T11:43:16.128Z",
       "addressLocality": "Porrentruy",
       "addressRegion": "JU",
       "addressCountry": "CH",
@@ -65,7 +65,7 @@
       "url": "https://www.h-ju.ch/fr/Carrieres/Emploi/Emploi.html#offer/4202/chef-ou-cheffe-de-clinique-service-des-urgences-delemont",
       "source": "H-JU Hôpital du Jura Dedicated Parser (Johdi Suite)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-03T22:14:54.158Z",
+      "crawledAt": "2026-08-04T11:43:16.711Z",
       "addressLocality": "Delémont",
       "addressRegion": "JU",
       "addressCountry": "CH",
@@ -103,7 +103,7 @@
       "url": "https://www.h-ju.ch/fr/Carrieres/Emploi/Emploi.html#offer/4165/etudiante-ambulancierere-es",
       "source": "H-JU Hôpital du Jura Dedicated Parser (Johdi Suite)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-03T22:14:54.728Z",
+      "crawledAt": "2026-08-04T11:43:17.272Z",
       "addressLocality": "Delémont",
       "addressRegion": "JU",
       "addressCountry": "CH",
@@ -141,7 +141,7 @@
       "url": "https://www.h-ju.ch/fr/Carrieres/Emploi/Emploi.html#offer/4036/medecin-urgentiste",
       "source": "H-JU Hôpital du Jura Dedicated Parser (Johdi Suite)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-03T22:14:55.319Z",
+      "crawledAt": "2026-08-04T11:43:17.871Z",
       "addressLocality": "Delémont",
       "addressRegion": "JU",
       "addressCountry": "CH",
@@ -167,8 +167,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "h-ju-hopital-du-jura-573897ddafdf",
       "slug": "assistente-medico-mediped-delemont-hopital-du-jura-h-ju-delemont",
@@ -209,5 +208,6 @@
         "completeness": 22
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
