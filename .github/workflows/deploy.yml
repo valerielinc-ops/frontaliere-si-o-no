@@ -437,6 +437,17 @@ jobs:
 
       - name: Build (BUILD_LOCALE=${{ matrix.locale }})
         shell: bash
+        env:
+          # Cap glibc's per-thread malloc arenas. Measured on run 30884117744,
+          # which the runner killed with SIGTERM: RSS 12655 MB against a
+          # heapTotal of 8424 MB and external of 130 MB — about 4.1 GB of
+          # resident memory that is neither V8 heap nor Buffers. That gap is
+          # the classic glibc arena signature: libuv's threadpool touches
+          # malloc from several threads, glibc gives each its own arena, and
+          # those arenas are never returned to the OS. Two arenas trades a
+          # little allocator contention for gigabytes of RSS, and changes no
+          # behaviour.
+          MALLOC_ARENA_MAX: '2'
         run: |
           set -o pipefail
           npm run build:ci 2>&1 | tee /tmp/build.log
