@@ -1822,6 +1822,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.siccita-contadini-mobilitano.title': 'More Drought: farmers mobilize, the fodder bag arrives',
     'blog.article.siccita-contadini-mobilitano.excerpt': 'The drought is causing serious problems for Swiss farmers, who are doing everything in their power to deal with the situation.',
     'blog.article.siccita-contadini-mobilitano.imageAlt': 'A Swiss farmer preparing for harvest',
+    'blog.article.emigrazione-tasse-obblighi-dopo-partenza.title': 'Emigrating from Switzerland: what happens to taxes after departure',
+    'blog.article.emigrazione-tasse-obblighi-dopo-partenza.excerpt': 'After leaving Switzerland in May 2025, the payment of taxes does not always end. Here is what the legislation provides for those who move abroad.',
+    'blog.article.emigrazione-tasse-obblighi-dopo-partenza.imageAlt': 'Person reviewing tax documents with Zurich skyline visible, symbolizing Swiss emigration and tax obligations after leaving the country.',
 };
 
 export default blogMetaChEn;
