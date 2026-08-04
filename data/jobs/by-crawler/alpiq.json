@@ -15,15 +15,17 @@
       "companyDomain": "alpiq.com",
       "title": "Financial & Performance Analyst",
       "titleByLocale": {
-        "it": "Analizzatore finanziario e delle prestazioni",
-        "de": "Finanz- und Performance Analyst",
-        "fr": "Analyste des finances et du rendement"
+        "it": "Analista Finanziario e delle Performance",
+        "de": "Finanz- und Performance-Analyst",
+        "fr": "Analyste Financier et des Performances",
+        "en": "Financial & Performance Analyst"
       },
       "description": "Financial & Performance Analyst\n\nRole type: Permanent | Location: Lausanne or Olten (CH), or Madrid (SP) | Model: Hybrid | Level of travels: 10%Your mission: The Financial & Performance Analyst enables evidence-based decision by designing, structuring and developing frameworks and tools, including external benchmarking, aimed at&hellip;\n\nLausanne - 100%\nPermanent",
       "descriptionByLocale": {
-        "it": "Analizzatore finanziario e delle prestazioni\n\nTipo di ruolo: Permanente | Luogo: Losanna o Olten (CH), o Madrid (SP) | Modello: Hybrid | Livello di viaggio: 10%La tua missione: The Financial & Performance Analyst consente la decisione basata sulle prove progettando, strutturando e sviluppando quadri e strumenti, compreso il benchmarking esterno, finalizzato a…\n\nLausanne - 100%\nPermanente",
-        "de": "Finanz- und Performance Analyst\n\nRollentyp: Permanent | Standort: Lausanne oder Olten (CH) oder Madrid (SP) | Modell: Hybrid | Reiseniveau: 10%Ihr Auftrag: Der Financial & Performance Analyst ermöglicht evidenzbasierte Entscheidungen durch die Gestaltung, Strukturierung und Entwicklung von Frameworks und Tools, einschließlich externem Benchmarking, mit dem Ziel & hellip;\n\nLausanne - 100%\nDauerhaft",
-        "fr": "Analyste des finances et du rendement\n\nType de rôle: Permanente.\n\nLausanne - 100%\nPermanent"
+        "it": "Analista finanziario e delle prestazioni\n\nDettagli ruolo\n- Tipo di ruolo: permanente\n- Località: Losanna o Olten (CH), o Madrid (SP)\n- Modello: Ibrido\n- Livello di spostamenti: 10%\n\nMission\nIl Financial & Performance Analyst consente decisioni basate sull'evidenza progettando, strutturando e sviluppando framework e strumenti, incluso il benchmarking esterno, volti a...",
+        "de": "Financial & Performance Analyst Role Details - Rollentyp: Permanent - Ort: Lausanne oder Olten (CH) oder Madrid (SP) - Modell: Hybrid - Reiseniveau: 10% Mission Das Financial & Performance Analyst ermöglicht evidenzbasierte Entscheidungen, indem es Rahmen und Tools, einschließlich externes Benchmarking, entwirft, strukturiert und entwickelt, die auf...",
+        "fr": "Analyste financier et performance Détails du rôle - Type de rôle : Permanent - Emplacement : Lausanne ou Olten (CH), ou Madrid (SP) - Modèle : Hybrid - Niveau de voyage : 10% Mission L'analyste financier et performance permet de prendre des décisions fondées sur des preuves en concevant, structurant et développant des cadres et des outils, y compris des...",
+        "en": "Financial & Performance Analyst\n\nRole Details\n- Role type: Permanent\n- Location: Lausanne or Olten (CH), or Madrid (SP)\n- Model: Hybrid\n- Level of travels: 10%\n\nMission\nThe Financial & Performance Analyst enables evidence-based decision by designing, structuring and developing frameworks and tools, including external benchmarking, aimed at…"
       },
       "requirements": [],
       "requirementsByLocale": {
@@ -62,7 +64,7 @@
       },
       "firstSeenAt": "2026-08-03T22:31:33.409Z",
       "needsRetranslation": true,
-      "retranslationAttempts": 0
+      "retranslationAttempts": 1
     },
     {
       "id": "alpiq-de0001564a5d",
@@ -124,7 +126,15 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 2
+      "crawlerMissStreak": 2,
+      "previousSlugsByLocale": {
+        "it": [
+          "m-a-manager-all-100-alpiq-olten"
+        ]
+      },
+      "previousSlugs": [
+        "m-a-manager-all-100-alpiq-olten"
+      ]
     },
     {
       "id": "alpiq-4d715dc319cd",
@@ -185,7 +195,15 @@
           "maxValue": 146500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "market-risk-manager-all-90-100-alpiq-olten"
+        ]
+      },
+      "previousSlugs": [
+        "market-risk-manager-all-90-100-alpiq-olten"
+      ]
     },
     {
       "id": "alpiq-c0ef4d9c8b9f",
@@ -307,7 +325,15 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "structured-products-trader-spanish-market-alpiq-olten"
+        ]
+      },
+      "previousSlugs": [
+        "structured-products-trader-spanish-market-alpiq-olten"
+      ]
     },
     {
       "id": "alpiq-e1fbe0ada2de",
@@ -368,7 +394,15 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "archivist-in-all-100-alpiq-olten"
+        ]
+      },
+      "previousSlugs": [
+        "archivist-in-all-100-alpiq-olten"
+      ]
     },
     {
       "id": "alpiq-dbe206690861",
@@ -429,7 +463,15 @@
           "maxValue": 146500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "projektleiter-in-strategische-projektportfolioplanung-all-100-alpiq-olten"
+        ]
+      },
+      "previousSlugs": [
+        "projektleiter-in-strategische-projektportfolioplanung-all-100-alpiq-olten"
+      ]
     },
     {
       "id": "alpiq-70d91ad872b7",
@@ -490,7 +532,15 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "electricien-ne-automaticien-ne-alpiq-martigny"
+        ]
+      },
+      "previousSlugs": [
+        "electricien-ne-automaticien-ne-alpiq-martigny"
+      ]
     }
   ]
 }

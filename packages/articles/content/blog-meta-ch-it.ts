@@ -1813,6 +1813,12 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.attacco-hacker-liechtenstein-svizzera.title': 'Attacco hacker nel Liechtenstein, allarme pure in Svizzera',
     'blog.article.attacco-hacker-liechtenstein-svizzera.excerpt': 'Il furto di dati dal registro delle fondazioni del Principato solleva timori per le ripercussioni fiscali e penali anche in territorio elvetico.',
     'blog.article.attacco-hacker-liechtenstein-svizzera.imageAlt': 'Veduta di un centro finanziario svizzero, rappresentazione di stabilità e trasparenza.',
+    'blog.article.le-assenze-totale-dal-dazio-nelle-situazioni-di-emergenza.title': 'Le condizioni per l\'esenzione totale dal dazio nelle situazioni di emergenza',
+    'blog.article.le-assenze-totale-dal-dazio-nelle-situazioni-di-emergenza.excerpt': 'La Cassazione ha chiarito il concetto di emergenza ai fini dell\'esenzione dai dazi',
+    'blog.article.le-assenze-totale-dal-dazio-nelle-situazioni-di-emergenza.imageAlt': 'Una scena di emergenza medica in un ospedale svizzero',
+    'blog.article.vigilanza-banche-svizzera-scandali.title': 'Vigilanza banche in Svizzera: nuove norme dopo i crisi',
+    'blog.article.vigilanza-banche-svizzera-scandali.excerpt': 'Il Governo svizzero propone nuovi poteri alla Finma per infliggere multe e rendere note le banche inadempienti dopo il tracollo di Credit Suisse.',
+    'blog.article.vigilanza-banche-svizzera-scandali.imageAlt': 'Palazzo federale a Berna, sede del governo svizzero',
 };
 
 export default blogMetaChIt;
