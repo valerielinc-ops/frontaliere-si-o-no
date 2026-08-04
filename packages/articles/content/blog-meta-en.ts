@@ -9232,6 +9232,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.locarno-film-festival-guida-pratica.title': 'Locarno Film Festival: tickets and info for border workers',
     'blog.article.locarno-film-festival-guida-pratica.excerpt': 'Practical guide to follow the projections in Piazza Grande. Information on prices, reservations and return management in Italy for frontier workers.',
     'blog.article.locarno-film-festival-guida-pratica.imageAlt': 'Piazza Grande in Locarno during the film festival',
+    'blog.article.littering-lavoro-e-aviatione-novita-del-1-augusto.title': 'Littering, labour and aviation: the news of 1 August',
+    'blog.article.littering-lavoro-e-aviatione-novita-del-1-augusto.excerpt': 'From the fines for littering to the extension of reduced work, here are the news for August 1st.',
+    'blog.article.littering-lavoro-e-aviatione-novita-del-1-augusto.imageAlt': 'Panoramic view of Lugano with lake and mountains',
 };
 
 export default blogMetaEn;

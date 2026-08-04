@@ -1810,6 +1810,12 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.leclanche-crisi-finanziaria-2025.title': 'Leclanché: Finanzkrise und Verschiebung des Berichts 2025',
     'blog.article.leclanche-crisi-finanziaria-2025.excerpt': 'Die Gesellschaft aus Yverdon-les-Bains setzt die Aktien aus und verschiebt den Geschäftsbericht. Der Punkt zur finanziellen Situation und den laufenden Verhandlungen.',
     'blog.article.leclanche-crisi-finanziaria-2025.imageAlt': 'Schweizer Unternehmenszentrale in einem Finanzkontext.',
+    'blog.article.attacco-hacker-liechtenstein-svizzera.title': 'Hackerangriff in Liechtenstein, Alarm auch in der Schweiz',
+    'blog.article.attacco-hacker-liechtenstein-svizzera.excerpt': 'Der Diebstahl von Daten aus dem Stiftungsregister des Fürstentums wirft auch in der Schweiz Bedenken hinsichtlich der steuerlichen und strafrechtlichen Folgen auf.',
+    'blog.article.attacco-hacker-liechtenstein-svizzera.imageAlt': 'Ansicht eines Schweizer Finanzviertels, das Stabilität und Transparenz symbolisiert.',
+    'blog.article.le-assenze-totale-dal-dazio-nelle-situazioni-di-emergenza.title': 'Die Voraussetzungen für die vollständige Zollbefreiung in Notfallsituationen',
+    'blog.article.le-assenze-totale-dal-dazio-nelle-situazioni-di-emergenza.excerpt': 'Das Kassationsgericht hat das Konzept des Notfalls für die Zwecke der Zollbefreiung geklärt',
+    'blog.article.le-assenze-totale-dal-dazio-nelle-situazioni-di-emergenza.imageAlt': 'Ein medizinisches Notfall-Szenario in einem Schweizer Krankenhaus',
 };
 
 export default blogMetaChDe;

@@ -5428,6 +5428,24 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'attacco-hacker-liechtenstein-svizzera',
+    category: 'fiscale',
+    date: '2026-08-04T10:25:51.621Z',
+    image: '/images/blog/attacco-hacker-liechtenstein-svizzera.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
+   {
+    id: 'le-assenze-totale-dal-dazio-nelle-situazioni-di-emergenza',
+    category: 'fiscale',
+    date: '2026-08-04T12:47:50.473Z',
+    image: '/images/blog/le-assenze-totale-dal-dazio-nelle-situazioni-di-emergenza.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

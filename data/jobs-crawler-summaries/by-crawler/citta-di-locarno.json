@@ -1,16 +1,16 @@
 {
   "key": "citta-di-locarno",
   "label": "Locarno",
-  "generatedAt": "2026-08-03T22:27:28.084Z",
+  "generatedAt": "2026-08-04T11:50:01.197Z",
   "total": 7,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 7503,
-  "avgDurationMs": 7503,
+  "durationMs": 5730,
+  "avgDurationMs": 5730,
   "durationHistory": [
-    7503
+    5730
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -41,7 +41,7 @@
       "applyUrl": "https://locarno.pi-asp.de/bewerber-web/?company=100-FIRMA-ID&tenant=&lang=I#position,id=7e203d4e-5e55-40dc-99c9-adbb71dc99f3,popup=y",
       "source": "Locarno Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-08-03T22:27:23.850Z",
+      "crawledAt": "2026-08-04T11:49:58.521Z",
       "firstSeenAt": "2026-07-09T22:41:46.298Z",
       "country": "CH",
       "_qualityScore": 94,
@@ -82,7 +82,7 @@
       "country": "CH",
       "salaryMin": 49500,
       "salaryMax": 75000,
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -121,7 +121,7 @@
       "country": "CH",
       "salaryMin": 49500,
       "salaryMax": 75000,
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -160,7 +160,7 @@
       "country": "CH",
       "salaryMin": 49500,
       "salaryMax": 75000,
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -199,7 +199,7 @@
       "country": "CH",
       "salaryMin": 49500,
       "salaryMax": 75000,
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -238,7 +238,7 @@
       "country": "CH",
       "salaryMin": 49500,
       "salaryMax": 75000,
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -277,7 +277,7 @@
       "country": "CH",
       "salaryMin": 13600,
       "salaryMax": 20600,
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,

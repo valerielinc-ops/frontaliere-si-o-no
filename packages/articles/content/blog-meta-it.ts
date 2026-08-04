@@ -9233,6 +9233,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.locarno-film-festival-guida-pratica.title': 'Locarno Film Festival: biglietti e info per frontalieri',
     'blog.article.locarno-film-festival-guida-pratica.excerpt': 'Guida pratica per seguire le proiezioni in Piazza Grande. Informazioni su prezzi, prenotazioni e gestione del rientro in Italia per i lavoratori frontalieri.',
     'blog.article.locarno-film-festival-guida-pratica.imageAlt': 'Piazza Grande a Locarno durante il festival del cinema',
+    'blog.article.littering-lavoro-e-aviatione-novita-del-1-augusto.title': 'Littering, lavoro e aviazione: le novità del 1° agosto',
+    'blog.article.littering-lavoro-e-aviatione-novita-del-1-augusto.excerpt': 'Dalle multe per il littering alla proroga del lavoro ridotto, ecco le novità del 1° agosto.',
+    'blog.article.littering-lavoro-e-aviatione-novita-del-1-augusto.imageAlt': 'Vista panoramica di Lugano con il lago e le montagne',
 };
 
 export default blogMetaIt;
