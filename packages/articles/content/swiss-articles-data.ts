@@ -5455,6 +5455,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'siccita-contadini-mobilitano',
+    category: 'fiscale',
+    date: '2026-08-04T15:48:30.180Z',
+    image: '/images/blog/siccita-contadini-mobilitano.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

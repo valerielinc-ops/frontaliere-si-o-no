@@ -1819,6 +1819,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.vigilanza-banche-svizzera-scandali.title': 'Surveillance des banques en Suisse : nouvelles règles après les crises',
     'blog.article.vigilanza-banche-svizzera-scandali.excerpt': 'Le gouvernement suisse propose de nouveaux pouvoirs à la Finma pour infliger des amendes et faire connaître les banques défaillantes après l\'effondrement du Credit Suisse.',
     'blog.article.vigilanza-banche-svizzera-scandali.imageAlt': 'Palais fédéral à Berne, siège du gouvernement suisse',
+    'blog.article.siccita-contadini-mobilitano.title': 'Plus de sécheresse : les paysans se mobilisent, la bourse des fourrages arrive',
+    'blog.article.siccita-contadini-mobilitano.excerpt': 'La sécheresse cause de graves problèmes aux paysans suisses, qui font tout ce qui est en leur pouvoir pour faire face à la situation.',
+    'blog.article.siccita-contadini-mobilitano.imageAlt': 'Un agriculteur suisse se prépare pour la récolte',
 };
 
 export default blogMetaChFr;
