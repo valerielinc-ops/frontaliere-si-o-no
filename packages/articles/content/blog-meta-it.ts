@@ -9221,6 +9221,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.matrimonio-aziendale-vallemaggia-100.title': 'Vallemaggia, un maxi-matrimonio edile salva 100 posti',
     'blog.article.matrimonio-aziendale-vallemaggia-100.excerpt': 'Quattro aziende edili si uniscono nella nuova VDM Holding SA. Operativa dal 2027, l\'operazione mira a garantire continuità sociale e occupazionale in valle.',
     'blog.article.matrimonio-aziendale-vallemaggia-100.imageAlt': 'Veduta panoramica della Vallemaggia con architettura tradizionale in pietra.',
+    'blog.article.spread-nel-cambio-valuta-cos-e-quanto-ti-costa-davvero.title': 'Spread nel cambio valuta: cos\'è e quanto ti costa davvero',
+    'blog.article.spread-nel-cambio-valuta-cos-e-quanto-ti-costa-davvero.excerpt': 'Lo spread nel cambio valuta: cos\'è e quanto ti costa davvero. Scopri come funziona e come puoi evitare di pagare troppo.',
+    'blog.article.spread-nel-cambio-valuta-cos-e-quanto-ti-costa-davvero.imageAlt': 'Frontaliere che consulta un operatore di cambio',
 };
 
 export default blogMetaIt;

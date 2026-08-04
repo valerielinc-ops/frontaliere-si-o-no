@@ -9220,6 +9220,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.matrimonio-aziendale-vallemaggia-100.title': 'Vallemaggia, a maxi-construction wedding saves 100 jobs',
     'blog.article.matrimonio-aziendale-vallemaggia-100.excerpt': 'Four construction companies are joining forces to form the new VDM Holding Ltd. Operational since 2027, the operation aims to ensure social and employment continuity in the valley.',
     'blog.article.matrimonio-aziendale-vallemaggia-100.imageAlt': 'Panoramic view of Vallemaggia with traditional stone architecture.',
+    'blog.article.spread-nel-cambio-valuta-cos-e-quanto-ti-costa-davvero.title': 'Spreads in currency exchange: what it is and how much it really costs you',
+    'blog.article.spread-nel-cambio-valuta-cos-e-quanto-ti-costa-davvero.excerpt': 'The spread in currency exchange: what it is and how much it really costs you. Find out how it works and how you can avoid paying too much.',
+    'blog.article.spread-nel-cambio-valuta-cos-e-quanto-ti-costa-davvero.imageAlt': 'Frontalier checks exchange rates with a banker',
 };
 
 export default blogMetaEn;

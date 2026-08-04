@@ -9219,6 +9219,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.matrimonio-aziendale-vallemaggia-100.title': 'Vallemaggia, eine Maxi-Bauhochzeit, spart 100 Arbeitsplätze',
     'blog.article.matrimonio-aziendale-vallemaggia-100.excerpt': 'Vier Bauunternehmen schließen sich zusammen, um die neue VDM Holding Ltd. zu gründen. Seit 2027 in Betrieb, zielt der Betrieb darauf ab, soziale und beschäftigte Kontinuität im Tal zu gewährleisten.',
     'blog.article.matrimonio-aziendale-vallemaggia-100.imageAlt': 'Panoramablick auf das Vallemaggia mit traditioneller Steinarchitektur.',
+    'blog.article.spread-nel-cambio-valuta-cos-e-quanto-ti-costa-davvero.title': 'Spread beim Geldwechsel: Was ist das und wie viel kostet es dich wirklich?',
+    'blog.article.spread-nel-cambio-valuta-cos-e-quanto-ti-costa-davvero.excerpt': 'Der Spread bei der Währungsbörse: Was es ist und wie viel es Sie wirklich kostet. Finden Sie heraus, wie es funktioniert und wie Sie vermeiden können, zu viel zu bezahlen.',
+    'blog.article.spread-nel-cambio-valuta-cos-e-quanto-ti-costa-davvero.imageAlt': 'Ein Frontalier überprüft den aktuellen Wechselkurs mit einem Banker',
 };
 
 export default blogMetaDe;
