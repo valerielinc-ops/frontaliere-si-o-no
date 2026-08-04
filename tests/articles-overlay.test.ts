@@ -115,3 +115,44 @@ describe('fetchArticleOverlay — escalates past the published window', () => {
     expect(fn).toHaveBeenCalledTimes(1);
   });
 });
+
+// The count alone has a blind spot: ids this build ships that the corpus has
+// since dropped inflate `bundledCount` and hide a real shortfall. The date test
+// closes it — `oldest` is published for exactly this.
+describe('fetchArticleOverlay — the date trigger catches what the count misses', () => {
+  beforeEach(() => { vi.restoreAllMocks(); });
+
+  const recent = {
+    total: 3074,
+    oldest: '2026-07-21',
+    articles: [{ id: 'r1', title: 'Recente' }],
+  };
+  const full = {
+    total: 3074,
+    oldest: '2026-01-01',
+    articles: [{ id: 'r1', title: 'Recente' }, { id: 'gap', title: 'Nel buco' }],
+  };
+
+  const stub = () => vi.stubGlobal('fetch', vi.fn((u: string) => Promise.resolve({
+    ok: true,
+    json: () => Promise.resolve(String(u).includes('-full') ? full : recent),
+  } as unknown as Response)));
+
+  it('escalates when the bundle ends before the window starts, even though the counts agree', async () => {
+    stub();
+    // 3073 bundled + 1 in the window >= 3074, so the count trigger stays quiet —
+    // but this build's newest article predates the window's oldest entry.
+    const out = await fetchArticleOverlay('frontaliere', 'it', 3073, '2026-07-01');
+    expect(out.map((a) => a.id)).toEqual(['r1', 'gap']);
+  });
+
+  it('does not escalate when the window reaches back past the bundle', async () => {
+    const fn = vi.fn((_u: string) => Promise.resolve({
+      ok: true, json: () => Promise.resolve(recent),
+    } as unknown as Response));
+    vi.stubGlobal('fetch', fn);
+    const out = await fetchArticleOverlay('frontaliere', 'it', 3073, '2026-08-01');
+    expect(out.map((a) => a.id)).toEqual(['r1']);
+    expect(fn).toHaveBeenCalledTimes(1);
+  });
+});

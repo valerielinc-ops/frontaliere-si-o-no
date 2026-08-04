@@ -97,8 +97,10 @@ function esc(s: string): string {
  *
  * The per-card styles are CSS classes rather than inline style attributes:
  * 100 cards x ~750 bytes of repeated inline styles is ~75 KB, which put the
- * hub over the 200 KB page-weight gate. The `.ssg-*` rules live in
- * `public/assets/seo-static.css`, already linked on these pages.
+ * hub over the page-weight gate (260 KB — `scripts/audit-page-weight.mjs`).
+ * The `.ssg-*` rules live in `public/assets/seo-static.css`, already linked on
+ * these pages. Measured today: 839 B per card, the frontaliere hub at 124.5 KB
+ * and the svizzera hub projected at 91.9 KB.
  */
 export function renderArticleHubCards(args: RenderArticleHubCardsArgs): string {
   const { articles, locale, sectionSlug, localePrefix, resolveSlug, resolveMeta } = args;
@@ -113,12 +115,19 @@ export function renderArticleHubCards(args: RenderArticleHubCardsArgs): string {
     const title = meta
       ? esc(meta.title)
       : art.id.replace(/-/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase());
-    const desc = meta ? esc(meta.desc).substring(0, 150) : '';
+    // Truncate BEFORE escaping. The other way round cuts inside an entity when
+    // a `&` lands near the limit — `…&am`, rendered literally.
+    const desc = meta ? esc(meta.desc.substring(0, 150)) : '';
     const catColor = CATEGORY_COLORS[art.category] ?? CATEGORY_COLORS.fiscale;
     const catLabel = CATEGORY_LABELS[art.category]?.[locale] ?? art.category;
+    // timeZone pinned: 17 registry entries are bare `YYYY-MM-DD`, parsed as
+    // midnight UTC, and an unpinned toLocaleDateString formats them in the
+    // runner's zone — `2026-06-30` renders "29 giu 2026" under TZ=America/*.
+    // Dormant on GitHub runners (UTC) and exactly the drift to avoid now that
+    // two different machines emit this same markup.
     const dateStr = new Date(art.date).toLocaleDateString(
       locale === 'it' ? 'it-IT' : locale,
-      { day: 'numeric', month: 'short', year: 'numeric' },
+      { day: 'numeric', month: 'short', year: 'numeric', timeZone: 'UTC' },
     );
     // First two cards are above-the-fold on the hub — mark them
     // fetchpriority="high" (eager load, but flagged to the browser as LCP

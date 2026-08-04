@@ -1051,11 +1051,17 @@ function renderArticleHubPagesCore(args: RenderArticleHubCoreArgs): void {
     }
 
     // Newest first. `masterSlugs` is a Set filled from the meta chunk and the
-    // slug map, i.e. the order articles were APPENDED — so every new article
-    // landed on the LAST page. With 3074 articles at 100 per page that is page
-    // 31, and only page 1 is in the sitemap: the rest is reachable through the
-    // pagination chain alone, which put a freshly published article ~31 hops
-    // from anything that links to it.
+    // slug map, i.e. the order articles were APPENDED — so a freshly published
+    // article landed on the LAST page, page 31 of 31.
+    //
+    // Not a reachability fix: the flat pagination nav links every page, so
+    // page-31 was always one hop from page-1, and `sitemapEntries` is pushed
+    // inside the per-page loop so every page gets an entry in a full build.
+    // (Neither is worth much today — no archive URL is in any live sitemap,
+    // because fast-publish passes `sitemapEntries: []` and the site build no
+    // longer emits these pages. That is its own gap.) This is about the page
+    // people and crawlers actually land on carrying the newest articles
+    // instead of the oldest.
     //
     // An id the registry has no date for sorts last but keeps its relative
     // position, so a registry that is briefly out of step with the meta chunks
@@ -1088,9 +1094,22 @@ function renderArticleHubPagesCore(args: RenderArticleHubCoreArgs): void {
         })()
       : undefined;
 
-    // Mirror the master-hubs emission gate: IT keeps every page-N as static
-    // HTML; non-IT locales emit only page-1 (page-N routes via the SPA).
-    const emitNonItPageN = false;
+    // Every locale now emits every page-N as static HTML.
+    //
+    // It used to be IT-only, with non-IT page-N left to the SPA. That was
+    // survivable while the archive listed in append order, because the hub
+    // grid (newest 100) and the archive's only static page (oldest 100)
+    // covered disjoint sets — 200 articles reachable per locale. Sorting the
+    // archive newest-first collapses those two sets onto each other: measured
+    // on EN, overlap goes 0 → 100, so 100 articles per locale would lose their
+    // only static internal link and the two pages would become near-duplicate
+    // listings under different canonicals.
+    //
+    // Emitting page-N everywhere fixes both at once and is the direction the
+    // site wants anyway: more indexable pages, every article statically
+    // linked. Cost is build output — 30 extra pages per non-IT locale per
+    // section.
+    const emitNonItPageN = true;
     for (let page = 1; page <= totalPages; page++) {
       if (page > 1 && locale !== 'it' && !emitNonItPageN) continue;
       const slice = items.slice((page - 1) * pageSize, page * pageSize);

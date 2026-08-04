@@ -53,17 +53,20 @@ function isUsable(a: unknown): a is OverlayArticle {
 }
 
 /** One fetch of a published index file. `null` on any problem. */
-async function fetchIndex(path: string): Promise<{ articles: OverlayArticle[]; total: number } | null> {
+async function fetchIndex(
+  path: string,
+): Promise<{ articles: OverlayArticle[]; total: number; oldest: string | null } | null> {
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), TIMEOUT_MS);
   try {
     const res = await fetch(cdnDataUrl(path), { signal: controller.signal });
     if (!res.ok) return null;
-    const body = await res.json() as { articles?: unknown; total?: unknown };
+    const body = await res.json() as { articles?: unknown; total?: unknown; oldest?: unknown };
     if (!Array.isArray(body?.articles)) return null;
     return {
       articles: body.articles.filter(isUsable),
       total: typeof body.total === 'number' ? body.total : 0,
+      oldest: typeof body.oldest === 'string' ? body.oldest : null,
     };
   } catch {
     return null;
@@ -92,11 +95,26 @@ export async function fetchArticleOverlay(
   section: OverlaySection,
   locale: Locale,
   bundledCount?: number,
+  bundledNewest?: string,
 ): Promise<OverlayArticle[]> {
   const recent = await fetchIndex(`/data/blog-index-${section}-${locale}.json`);
   if (!recent) return [];
 
-  if (typeof bundledCount === 'number' && bundledCount + recent.articles.length < recent.total) {
+  // Two independent triggers, because the count on its own has a blind spot.
+  //
+  // The count estimates the gap as `total - bundledCount`, but the real gap is
+  // against the INTERSECTION: ids this build ships that the corpus has since
+  // dropped inflate `bundledCount` and mask a genuine shortfall. The date test
+  // has no such blind spot — if this build's newest article predates the
+  // window's oldest entry, the window starts after the bundle ends and there
+  // is provably something in between, whatever the counts say. `oldest` is
+  // published for exactly this.
+  const countSaysGap =
+    typeof bundledCount === 'number' && bundledCount + recent.articles.length < recent.total;
+  const dateSaysGap =
+    typeof bundledNewest === 'string' && recent.oldest !== null && bundledNewest < recent.oldest;
+
+  if (countSaysGap || dateSaysGap) {
     const full = await fetchIndex(`/data/blog-index-${section}-${locale}-full.json`);
     // Still fail-open: a missing or malformed full index leaves the window's
     // entries in place rather than dropping the overlay altogether.

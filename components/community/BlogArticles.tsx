@@ -1238,7 +1238,11 @@ function BlogArticles({
  // fetchArticleOverlay already resolves to [] on every failure path.
  // `data.length` lets the overlay tell whether the published window can
  // actually close the gap to this build, instead of assuming it does.
- void fetchArticleOverlay(section, getLocale(), data.length).then((overlay) => {
+ const bundledNewest = data.reduce(
+   (max: string, a: { date?: string }) => (a.date && a.date > max ? a.date : max),
+   '',
+ );
+ void fetchArticleOverlay(section, getLocale(), data.length, bundledNewest || undefined).then((overlay) => {
    const { articles: merged, added } = mergeOverlay(data, overlay, getLocale());
    if (added > 0) setArticles(merged);
  }).catch(() => {});
