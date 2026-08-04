@@ -90,7 +90,24 @@ const ticker = JSON.stringify({
   ],
 });
 
-const SITEMAPS = ['sitemap-blog.xml', 'sitemap-blog-ch.xml'];
+/**
+ * The archive sitemap (issue #4974): `/{section}/{all}/` and its page-N chain,
+ * which appeared in no sitemap at all until the corpus began publishing them.
+ * Its own fixture rather than a second copy of `blogSitemap` — the shape that
+ * matters here is a page-1 entry carrying alternates and a page-N one without,
+ * which is how the emitted pages actually differ.
+ */
+const archiveSitemap = urlset([
+  `  <url>
+    <loc>https://frontaliereticino.ch/articoli-frontaliere/tutti/</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://frontaliereticino.ch/articoli-frontaliere/tutti/" />
+  </url>`,
+  `  <url>
+    <loc>https://frontaliereticino.ch/articoli-frontaliere/tutti/page-2/</loc>
+  </url>`,
+]);
+
+const SITEMAPS = ['sitemap-blog.xml', 'sitemap-blog-ch.xml', 'sitemap-articles-archive.xml'];
 const FEEDS = [
   'rss.xml',
   'rss-it.xml',
@@ -116,7 +133,9 @@ function baseRoutes(): Routes {
     'manifest.json': JSON.stringify({ commit: 'deadbeefcafe', counts: { articles: 500 } }),
     'news-ticker-live.json': ticker,
   };
-  for (const s of SITEMAPS) r[s] = blogSitemap;
+  for (const s of SITEMAPS) {
+    r[s] = s === 'sitemap-articles-archive.xml' ? archiveSitemap : blogSitemap;
+  }
   for (const f of FEEDS) r[f] = feed;
   return r;
 }
