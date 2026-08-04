@@ -454567,7 +454567,9 @@
     "canonicalSlug": "med-praxisassistentin-praxisassistent-o-fachperson-gesundheit-notfallpraxis-kantonsspital-winterthur-ksw-winterthur",
     "slugByLocale": {
       "de": "med-praxisassistentin-praxisassistent-oder-fachperson-gesundheit-notfallpraxis-ksw-ch",
-      "it": "med-praxisassistentin-praxisassistent-o-fachperson-gesundheit-notfallpraxis-kantonsspital-winterthur-ksw-winterthur"
+      "it": "med-praxisassistentin-praxisassistent-o-fachperson-gesundheit-notfallpraxis-kantonsspital-winterthur-ksw-winterthur",
+      "en": "med-practical-assistant-or-health-emergency-practice-kantonsspital-winterthur-ksw-winterthur",
+      "fr": "medicament-assistant-pratique-ou-cabinet-d-urgence-kantonsspital-winterthur-ksw-winterthur"
     },
     "createdAt": "2026-08-03",
     "canton": "ZH"
@@ -454575,7 +454577,10 @@
   "id|solique.ch|4048547": {
     "canonicalSlug": "logopadin-logopade-ksw-ch",
     "slugByLocale": {
-      "de": "logopadin-logopade-ksw-ch"
+      "de": "logopadin-logopade-ksw-ch",
+      "it": "medico-di-discorso-medico-di-discorso-kantonsspital-winterthur-ksw-winterthur",
+      "en": "speech-doctor-speech-doctor-kantonsspital-winterthur-ksw-winterthur",
+      "fr": "orthophoniste-orthophoniste-kantonsspital-winterthur-ksw-winterthur"
     },
     "createdAt": "2026-08-03",
     "canton": "ZH"
@@ -454584,7 +454589,9 @@
     "canonicalSlug": "disponentin-disponent-radiologie-kantonsspital-winterthur-ksw-winterthur",
     "slugByLocale": {
       "de": "disponentin-disponent-radiologie-ksw-ch",
-      "it": "disponentin-disponent-radiologie-kantonsspital-winterthur-ksw-winterthur"
+      "it": "disponentin-disponent-radiologie-kantonsspital-winterthur-ksw-winterthur",
+      "en": "disponentine-disponent-radiology-kantonsspital-winterthur-ksw-winterthur",
+      "fr": "depontine-depont-radiologie-kantonsspital-winterthur-ksw-winterthur"
     },
     "createdAt": "2026-08-03",
     "canton": "ZH"
@@ -455043,7 +455050,9 @@
     "canonicalSlug": "sachbearbeiter-kundendienst-servizio-interno-a-60-100-geberit-rapperswil-jona",
     "slugByLocale": {
       "de": "sachbearbeiter-kundendienst-innendienst-a-60-100-geberit-ch",
-      "it": "sachbearbeiter-kundendienst-servizio-interno-a-60-100-geberit-rapperswil-jona"
+      "it": "sachbearbeiter-kundendienst-servizio-interno-a-60-100-geberit-rapperswil-jona",
+      "en": "sachbearbeiter-kundendienst-innendienst-a-60-100-geberit-rapperswil-jona",
+      "fr": "sachbearbeiter-kundendienst-innendienst-a-60-100-geberit-rapperswil-jona"
     },
     "createdAt": "2026-08-03",
     "canton": "SG"
@@ -455064,7 +455073,8 @@
     "slugByLocale": {
       "fr": "juriste-etat-de-vaud-lausanne",
       "it": "ufficiale-legale-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
-      "en": "legal-officer-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
+      "en": "legal-officer-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+      "de": "legal-officer-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
     },
     "createdAt": "2026-08-03",
     "canton": "VD"
@@ -457222,5 +457232,123 @@
     },
     "createdAt": "2026-08-04",
     "canton": "BL"
+  },
+  "id|solique.ch|4048799": {
+    "canonicalSlug": "pflegefachfrau-pflegefachmann-aufwachraum-ksw-ch",
+    "slugByLocale": {
+      "de": "pflegefachfrau-pflegefachmann-aufwachraum-ksw-ch"
+    },
+    "createdAt": "2026-08-04",
+    "canton": "ZH"
+  },
+  "id|luks.ch|8ec3140c-479f-4485-8906-81ae2ae1a701": {
+    "canonicalSlug": "segretario-medico-segretario-medico-mba-histology-100-luzerner-kantonsspital-luks-luzern",
+    "slugByLocale": {
+      "de": "arztsekretarin-arztsekretar-mba-histologie-100-luks-luzern",
+      "it": "segretario-medico-segretario-medico-mba-histology-100-luzerner-kantonsspital-luks-luzern",
+      "en": "medical-secretary-medical-secretary-mba-histology-100-luzerner-kantonsspital-luks-luzern",
+      "fr": "secretaire-medical-secretaire-medical-mba-histologie-100-luzerner-kantonsspital-luks-luzern"
+    },
+    "createdAt": "2026-08-04",
+    "canton": "LU"
+  },
+  "id|lonza.wd3.myworkdayjobs.com|r78315-1": {
+    "canonicalSlug": "material-management-analyst-80-100-lonza-ch",
+    "slugByLocale": {
+      "en": "material-management-analyst-80-100-lonza-ch"
+    },
+    "createdAt": "2026-08-04",
+    "canton": "VS"
+  },
+  "id|lonza.wd3.myworkdayjobs.com|r77707": {
+    "canonicalSlug": "chemist-chemical-engineer-m-f-d-dsp-preparative-chromatography-technologies-80-100-lonza-ch",
+    "slugByLocale": {
+      "en": "chemist-chemical-engineer-m-f-d-dsp-preparative-chromatography-technologies-80-100-lonza-ch"
+    },
+    "createdAt": "2026-08-04",
+    "canton": "VS"
+  },
+  "id|lonza.wd3.myworkdayjobs.com|r77765": {
+    "canonicalSlug": "staff-ufficiale-opera-vigili-del-fuoco-m-f-d-80-100-lonza-ch",
+    "slugByLocale": {
+      "de": "stabsoffizier-werksfeuerwehr-m-w-d-80-100-lonza-ch",
+      "it": "staff-ufficiale-opera-vigili-del-fuoco-m-f-d-80-100-lonza-ch",
+      "en": "staff-officer-works-fire-brigade-m-f-d-80-100-lonza-ch",
+      "fr": "un-officier-d-etat-major-travaille-dans-une-brigade-de-pompiers-m-f-d-80-100-lonza-ch"
+    },
+    "createdAt": "2026-08-04",
+    "canton": "VS"
+  },
+  "id|lonza.wd3.myworkdayjobs.com|r78215": {
+    "canonicalSlug": "iniziative-strategiche-it-lead-lonza-ch",
+    "slugByLocale": {
+      "en": "it-strategic-initiatives-lead-lonza-ch",
+      "it": "iniziative-strategiche-it-lead-lonza-ch",
+      "de": "strategische-initiativen-fuhren-lonza-ch",
+      "fr": "initiatives-strategiques-de-ti-responsable-lonza-ch"
+    },
+    "createdAt": "2026-08-04",
+    "canton": "BS"
+  },
+  "id|lonza.wd3.myworkdayjobs.com|r78440": {
+    "canonicalSlug": "apprendistato-laborant-in-cfc-chemie-per-1-august-2027-m-w-d-lonza-ch",
+    "slugByLocale": {
+      "de": "lehrstelle-laborant-in-efz-chemie-per-1-august-2027-m-f-d-lonza-ch",
+      "it": "apprendistato-laborant-in-cfc-chemie-per-1-august-2027-m-w-d-lonza-ch",
+      "fr": "apprentissage-travailleur-in-efz-chemie-par-1er-aout-2027-m-f-d-lonza-ch"
+    },
+    "createdAt": "2026-08-04",
+    "canton": "BS"
+  },
+  "id|lonza.wd3.myworkdayjobs.com|r78441": {
+    "canonicalSlug": "apprendistato-laborant-in-cfc-biologie-per-1-august-2027-m-w-d-lonza-ch",
+    "slugByLocale": {
+      "de": "lehrstelle-laborant-in-efz-biologie-per-1-august-2027-m-f-d-lonza-ch",
+      "it": "apprendistato-laborant-in-cfc-biologie-per-1-august-2027-m-w-d-lonza-ch",
+      "fr": "apprenticeship-laborant-in-efz-biologie-au-1er-aout-2027-m-f-d-lonza-ch"
+    },
+    "createdAt": "2026-08-04",
+    "canton": "BS"
+  },
+  "id|lonza.wd3.myworkdayjobs.com|r78377": {
+    "canonicalSlug": "apprendistato-polymechaniker-in-cfc-per-01-august-2027-m-w-d-lonza-ch",
+    "slugByLocale": {
+      "de": "lehrstelle-polymechaniker-in-efz-per-01-august-2027-m-f-d-lonza-ch",
+      "it": "apprendistato-polymechaniker-in-cfc-per-01-august-2027-m-w-d-lonza-ch",
+      "en": "apprenticeship-polymechanic-in-efz-as-of-01-august-2027-m-f-d-lonza-ch",
+      "fr": "apprentissage-polymecanique-dans-efz-a-compter-du-1er-aout-2027-m-f-d-lonza-ch"
+    },
+    "createdAt": "2026-08-04",
+    "canton": "AG"
+  },
+  "id|lonza.wd3.myworkdayjobs.com|r78259": {
+    "canonicalSlug": "apprendistato-chemie-e-pharmatechnologe-in-cfc-per-01-august-2027-100-lonza-ch",
+    "slugByLocale": {
+      "de": "lehrstelle-chemie-und-pharmatechnologe-in-efz-per-01-august-2027-100-lonza-ch",
+      "it": "apprendistato-chemie-e-pharmatechnologe-in-cfc-per-01-august-2027-100-lonza-ch",
+      "en": "apprenticeship-chemical-and-pharmaceutical-technologist-in-efz-as-of-01-august-2027-100-lonza-ch",
+      "fr": "apprentissage-technologue-chimique-et-pharmaceutique-en-efz-au-1er-aout-2027-100-lonza-ch"
+    },
+    "createdAt": "2026-08-04",
+    "canton": "AG"
+  },
+  "id|lonza.wd3.myworkdayjobs.com|r78072": {
+    "canonicalSlug": "head-of-plant-engineering-80-100-m-f-d-lonza-ch",
+    "slugByLocale": {
+      "en": "head-of-plant-engineering-80-100-m-f-d-lonza-ch"
+    },
+    "createdAt": "2026-08-04",
+    "canton": "VS"
+  },
+  "id|csd.ch|8162930": {
+    "canonicalSlug": "projektleiter-ingenieurgeologie-e-geotechnik-80-100-m-w-d-csd-engineers-zurich",
+    "slugByLocale": {
+      "de": "projektleiter-ingenieurgeologie-und-geotechnik-80-100-m-w-d-csd-engineers-ch",
+      "it": "projektleiter-ingenieurgeologie-e-geotechnik-80-100-m-w-d-csd-engineers-zurich",
+      "en": "project-manager-engineering-geology-and-geoengineering-80-100-m-f-d-csd-engineers-zurich",
+      "fr": "gestionnaire-de-projet-genie-geologie-et-geoingenierie-80-100-m-f-d-csd-engineers-zurich"
+    },
+    "createdAt": "2026-08-04",
+    "canton": "ZH"
   }
 }
