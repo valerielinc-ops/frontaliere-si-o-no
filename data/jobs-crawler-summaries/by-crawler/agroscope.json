@@ -1,18 +1,49 @@
 {
   "key": "agroscope",
   "label": "Agroscope",
-  "generatedAt": "2026-08-04T11:43:40.087Z",
-  "total": 8,
-  "newCount": 0,
+  "generatedAt": "2026-08-04T22:22:11.452Z",
+  "total": 9,
+  "newCount": 1,
   "updatedCount": 7,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 6471,
-  "avgDurationMs": 6471,
+  "durationMs": 4593,
+  "avgDurationMs": 4593,
   "durationHistory": [
-    6471
+    4593
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "title": "Lernende/-r Obstfachmann/frau EFZ",
+      "slug": "lernende-r-obstfachmann-frau-efz-agroscope-wadenswil",
+      "url": "https://jobs.admin.ch/posti-vacanti/lernende-r-obstfachmann-frau-efz/56514357-7ec5-4e13-b1a3-44d821ed61e7",
+      "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=14404",
+      "company": "Agroscope",
+      "companyKey": "agroscope",
+      "companyDomain": "admin.ch",
+      "location": "8820 Wädenswil",
+      "addressLocality": "Wädenswil",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "canton": "ZH",
+      "country": "CH",
+      "category": "science",
+      "sector": "Pubblica amministrazione",
+      "source": "agroscope-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2025-12-17",
+      "validThrough": "2027-12-16",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "_qualityScore": 73,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 16,
+        "completeness": 14
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "title": "Wissenschaftliche-r Mitarbeiter-in",
@@ -260,43 +291,7 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "title": "Lernende/-r Obstfachmann/frau EFZ",
-      "slug": "apprendista-obstfachmann-frau-cfc-confederazione-svizzera-wadenswil",
-      "url": "https://jobs.admin.ch/posti-vacanti/lernende-r-obstfachmann-frau-efz/56514357-7ec5-4e13-b1a3-44d821ed61e7",
-      "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=14404",
-      "company": "Agroscope",
-      "companyKey": "agroscope",
-      "companyDomain": "admin.ch",
-      "location": "8820 Wädenswil",
-      "addressLocality": "Wädenswil",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "canton": "ZH",
-      "country": "CH",
-      "category": "science",
-      "sector": "Pubblica amministrazione",
-      "source": "agroscope-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2025-12-17",
-      "validThrough": "2027-12-16",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "id": "agroscope-dbfc22c9ba04",
-      "salaryMin": 62000,
-      "salaryMax": 94000,
-      "currency": "CHF",
-      "firstSeenAt": "2026-08-02T22:07:39.646Z",
-      "_qualityScore": 87,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 19
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": [
     {
       "title": "HR Business Partner/-in",
