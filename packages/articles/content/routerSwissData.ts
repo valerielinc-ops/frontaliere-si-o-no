@@ -632,6 +632,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'attacco-hacker-liechtenstein-svizzera': { it: 'attacco-hacker-liechtenstein-svizzera', en: 'hacker-attack-liechtenstein-switzerland', de: 'hacker-angriff-liechtenstein-schweiz', fr: 'attaque-pirate-liechtenstein-suisse' },
  'le-assenze-totale-dal-dazio-nelle-situazioni-di-emergenza': { it: 'le-assenze-totale-dal-dazio-nelle-situazioni-di-emergenza', en: 'exemption-total-duties-emergency', de: 'vollstandige-steuerbefreiung-in-notfallen', fr: 'exemption-totale-des-droits-de-douane-en-cas-d-urgence' },
  'vigilanza-banche-svizzera-scandali': { it: 'vigilanza-banche-svizzera-scandali', en: 'swiss-banking-oversight-scandals', de: 'schweizer-bankenaufsicht-skandale', fr: 'surveillance-banques-suisses-scandales' },
+ 'siccita-contadini-mobilitano': { it: 'siccita-contadini-mobilitano', en: 'drought-farmers-mobilize', de: 'durre-bauern-mobilisieren', fr: 'secheresse-farmers-mobilisent' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

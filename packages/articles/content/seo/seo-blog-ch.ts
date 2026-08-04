@@ -23534,6 +23534,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-siccita-contadini-mobilitano': {
+    title: 'Di più Siccità: i contadini si mobilitano, arriva la borsa dei foraggi',
+    description: 'La siccità sta causando gravi problemi ai contadini svizzeri, che stanno facendo tutto ciò che è in loro potere per affrontare la situazione. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, siccità, contadini, mobilitano, arriva',
+    ogTitle: 'Di più Siccità: i contadini si mobilitano, arriva la borsa dei foraggi',
+    ogDescription: 'La siccità sta causando gravi problemi ai contadini svizzeri, che stanno facendo tutto ciò che è in loro potere per affrontare la situazione.',
+    canonicalPath: '/articoli-svizzera/siccita-contadini-mobilitano/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Di più Siccità: i contadini si mobilitano, arriva la borsa dei foraggi",
+      "description": "La siccità sta causando gravi problemi ai contadini svizzeri, che stanno facendo tutto ciò che è in loro potere per affrontare la situazione. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/siccita-contadini-mobilitano.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un contadino svizzero che si prepara per la raccolta dei foraggi"
+      },
+      "datePublished": "2026-08-04T15:48:30+00:00",
+      "dateModified": "2026-08-04T15:48:30+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/siccita-contadini-mobilitano/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
