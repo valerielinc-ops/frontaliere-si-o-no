@@ -1082,3 +1082,87 @@ knowing before reading a green tick as end-to-end proof.
 
 Still not done: the first ARMED publish. `FAST_PUBLISH_ARMED` is unset, so
 nothing has been written to a shard or the CDN from this repo yet.
+
+## 12. Separation closed (2026-08-03)
+
+§10.4's five steps are done, plus four things §10 did not name. Everything
+below was established by running it.
+
+### 12.1 The five steps
+
+1. `renderArticleHubPagesCore` extracted — §11.1 for the closure that was ten
+   times the estimate, and for §10.3's two claims that did not survive
+   measurement.
+2. The three fast-publish transforms moved, 332 lines not ~1200, host
+   re-exporting them so there is one producer.
+3. Driver + shard/CDN scripts transported — and §11.2's unnamed prerequisite,
+   that nanako had no `configureSiteShell()` and so could not render at all.
+4. `fast-publish-article.yml` restored on `push: content/**`. A corpus push now
+   publishes; the kill switch is `.github/FAST_PUBLISH_DISABLED`, a file,
+   because the Actions variables API is refused by the agent proxy and a
+   variable-only switch would have stayed unset forever — which is exactly how
+   the pipeline sat idle after its dry run passed.
+5. Article URLs no longer validated against a `dist/` that does not serve them
+   (§11.6). Done as an exclusion derived from the Worker's `SECTION_ROUTES`,
+   NOT as §10.4 proposed — dropping the sitemap entries would have de-indexed
+   articles that had just become publishable, and recurred on every generation.
+
+**16 articles live**, all of them 404 before this work.
+
+### 12.2 The imminent data loss §10 did not see
+
+`push-section-shard.sh` is FULL-REPLACE, and this repo's corpus no longer
+receives what nanako generates — measured, fourteen live articles absent from
+`packages/articles/content/` here. The next full deploy would have replaced
+each article shard with a tree missing all of them. The shrink guard would not
+have caught it: it is a PERCENTAGE, and fourteen pages out of ~3000 is nowhere
+near it.
+
+Closed by `scripts/lib/deploy-shard-sections.sh`, which all six shard-push
+loops now use, plus `ARTICOLI*_BUILD_EMIT_SKIP` defaulting to true in the
+workflow expression. **The order is not interchangeable**: stopping the push is
+safe alone; stopping the BUILD first, while still pushing, IS the wipe.
+`fast-publish-reconcile.yml` is retired to dispatch-only — it existed to repair
+precisely that overwrite, and left armed would republish from the stale corpus.
+
+### 12.3 Nothing was pushing the article sitemaps to the edge
+
+`EDGE_PUSHED_FILES` whitelists both, but the only caller of
+`publish-edge-files.mjs` is this repo's `fast-publish-article.yml` — the
+workflow §4 archived. Same root cause as the 404s, one orphan further down.
+nanako's `publish-api.yml` now pushes them, from the job that generates them.
+
+### 12.4 The pattern, stated plainly for whoever is next
+
+Every defect in this migration reported success:
+
+| what | reported | actually |
+|---|---|---|
+| corpus symlinks missing | render OK, 4 pages/locale | archive listed 0 articles |
+| registry symlinks untracked | render OK, byte-identical summary | author downgraded to Organization, byline gone |
+| no shard deploy key | run green, "not provisioned" | zero HTML pushed |
+| apex-only cache purge | "✅ purged" | `age` still growing, 404 served |
+| wrong R2 key (caught pre-ship) | upload would succeed | key the Worker never reads |
+| no RC in publish-api (caught pre-ship) | step would warn and skip | edge push never happens |
+| empty generation | "Generate blog article" | only a rejected-candidates file |
+
+A green run is not evidence. In this codebase a missing input degrades output
+instead of stopping it, so the only proof is a differential: render both ways
+and compare, or assert the artifact is readable at the origin. Every gate added
+here does one of those two things.
+
+### 12.5 Still open
+
+- **§5.7** — delete `mirror-articles-corpus`, earliest 2026-08-09. Recheck with
+  `/repos/valerielinc-ops/frontaliere-si-o-no/commits?path=packages/articles&since=<cutover>`.
+- **`host/` is a second producer of the site chrome.** Unavoidable — host values
+  are what a host owns. Both repos now assert the same fingerprint over the 21
+  scalars AND the same golden over 23 function probes, so either side drifting
+  fails on its own side. That is mitigation, not removal.
+- **The archive does not sort by date**, so a new article lands on the last page
+  (31 of 31). Pre-existing behaviour, byte-identical to the full build, left
+  alone deliberately — but it means discovery of a fresh article depends on the
+  sitemap and RSS, not on the archive front page.
+- **`compact-article-shard-history.yml`** in this repo still iterates all
+  sections including the article ones. It only compacts history, so it cannot
+  lose content, but it is maintenance this repo no longer owns.
