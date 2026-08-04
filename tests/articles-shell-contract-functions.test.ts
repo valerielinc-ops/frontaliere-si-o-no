@@ -17,7 +17,7 @@ import path from 'node:path';
 
 async function probe() {
   const { contract: c } = await import('../build-plugins/articlesSiteShellBootstrap');
-  const out = {};
+  const out: Record<string, unknown> = {};
 
   out.esc = c.esc('a & b < c > d " e \' f');
   out.escEmpty = c.esc('');

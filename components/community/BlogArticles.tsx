@@ -1,7 +1,8 @@
 import { useState, useEffect, useRef, useMemo, useCallback, Suspense, memo, Fragment, type FC, type ReactNode, type ReactElement, type CSSProperties } from 'react';
 import { lazyRetry } from '@/services/lazyRetry';
 import { resilientImport } from '@/services/resilientImport';
-import { useTranslation, useLocale, loadBlogMeta, loadArticleBody, getCantonI18nParams } from '@/services/i18n';
+import { useTranslation, useLocale, loadBlogMeta, loadArticleBody, getCantonI18nParams, getLocale } from '@/services/i18n';
+import { fetchArticleOverlay, mergeOverlay } from '@/services/articlesOverlay';
 import type { Locale } from '@/services/i18n';
 import { buildPath, preloadBlogData } from '@/services/router';
 import { resolveJobCanton } from '@/build-plugins/shared/cantonSection';
@@ -1224,6 +1225,21 @@ function BlogArticles({
  ]).then(([, , data]) => {
  setArticles(data);
  setBlogReady(true);
+
+ // Articles published since this bundle was built (issue #4974 item 3).
+ // The registry above is compiled in, so anything the articles repo has
+ // generated since the last deploy is live at its own URL and absent from
+ // every list on this site. Fetch the index that repo publishes and merge
+ // in whatever we do not already have.
+ //
+ // Runs AFTER setBlogReady(true) on purpose: the list paints from the
+ // bundle immediately and gains the newer entries when they arrive, so a
+ // slow or failed overlay costs nothing. The .catch is belt-and-braces —
+ // fetchArticleOverlay already resolves to [] on every failure path.
+ void fetchArticleOverlay(section, getLocale()).then((overlay) => {
+   const { articles: merged, added } = mergeOverlay(data, overlay, getLocale());
+   if (added > 0) setArticles(merged);
+ }).catch(() => {});
  }).catch(() => {});
  }, [section]);
 
