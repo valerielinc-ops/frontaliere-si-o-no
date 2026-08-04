@@ -4,9 +4,9 @@
   "jobs": [
     {
       "id": "alpiq-04e9cf13b072",
-      "slug": "financial-performance-analyst-alpiq-lausanne",
+      "slug": "analista-finanziario-e-delle-performance-alpiq-lausanne",
       "slugByLocale": {
-        "it": "financial-performance-analyst-alpiq-lausanne",
+        "it": "analista-finanziario-e-delle-performance-alpiq-lausanne",
         "de": "finanz-und-performance-analyst-alpiq-lausanne",
         "fr": "analyste-des-finances-et-du-rendement-alpiq-lausanne",
         "en": "financial-performance-analyst-alpiq-lausanne"
@@ -61,7 +61,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-03T22:31:33.409Z"
+      "firstSeenAt": "2026-08-03T22:31:33.409Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "financial-performance-analyst-alpiq-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "financial-performance-analyst-alpiq-lausanne"
+      ]
     },
     {
       "id": "alpiq-4d715dc319cd",
@@ -122,15 +130,7 @@
           "maxValue": 146500,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "market-risk-manager-all-90-100-alpiq-olten"
-        ]
-      },
-      "previousSlugs": [
-        "market-risk-manager-all-90-100-alpiq-olten"
-      ]
+      }
     },
     {
       "id": "alpiq-c0ef4d9c8b9f",
@@ -252,15 +252,7 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "structured-products-trader-spanish-market-alpiq-olten"
-        ]
-      },
-      "previousSlugs": [
-        "structured-products-trader-spanish-market-alpiq-olten"
-      ]
+      }
     },
     {
       "id": "alpiq-e1fbe0ada2de",
@@ -321,15 +313,7 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "archivist-in-all-100-alpiq-olten"
-        ]
-      },
-      "previousSlugs": [
-        "archivist-in-all-100-alpiq-olten"
-      ]
+      }
     },
     {
       "id": "alpiq-dbe206690861",
@@ -390,15 +374,7 @@
           "maxValue": 146500,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "projektleiter-in-strategische-projektportfolioplanung-all-100-alpiq-olten"
-        ]
-      },
-      "previousSlugs": [
-        "projektleiter-in-strategische-projektportfolioplanung-all-100-alpiq-olten"
-      ]
+      }
     },
     {
       "id": "alpiq-70d91ad872b7",
@@ -459,15 +435,7 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "electricien-ne-automaticien-ne-alpiq-martigny"
-        ]
-      },
-      "previousSlugs": [
-        "electricien-ne-automaticien-ne-alpiq-martigny"
-      ]
+      }
     }
   ]
 }

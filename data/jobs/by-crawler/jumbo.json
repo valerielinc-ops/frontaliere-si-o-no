@@ -19827,10 +19827,10 @@
       "id": "jumbo-630dac25-ed3",
       "slug": "rayon-leader-in-garden-jumbo-emmen",
       "slugByLocale": {
-        "it": "rayon-leader-in-garden-jumbo-emmen",
-        "en": "rayonleiter-in-garden-jumbo-emmen",
         "de": "rayonleiter-in-garden-jumbo-emmen-luzern-k2ti81",
-        "fr": "chef-de-rayon-a-garden-jumbo-emmen"
+        "it": "rayon-leader-in-garden-jumbo-division-der-coop-genossenschaft-emmen-7a4364",
+        "en": "rayon-leader-in-garden-jumbo-emmen-3d8ec5",
+        "fr": "chef-de-rayon-a-garden-jumbo-division-der-coop-genossenschaft-emmen-7a4364"
       },
       "company": "JUMBO",
       "companyKey": "jumbo",
@@ -19887,24 +19887,6 @@
           "• Deutsch beherrschst du sehr gut – mündlich und schriftlich."
         ]
       },
-      "firstSeenAt": "2026-08-04T11:33:52.759Z",
-      "needsRetranslation": true,
-      "previousSlugsByLocale": {
-        "it": [
-          "rayonleiter-in-garden-jumbo-emmen",
-          "rayon-leader-in-garden-jumbo-emmen"
-        ],
-        "de": [
-          "rayonleiter-in-garden-jumbo-emmen"
-        ],
-        "fr": [
-          "rayonleiter-in-garden-jumbo-emmen"
-        ]
-      },
-      "previousSlugs": [
-        "rayonleiter-in-garden-jumbo-emmen",
-        "rayon-leader-in-garden-jumbo-emmen"
-      ],
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -19916,7 +19898,30 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-04T11:33:52.759Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "rayonleiter-in-garden-jumbo-emmen",
+          "rayon-leader-in-garden-jumbo-emmen"
+        ],
+        "fr": [
+          "rayonleiter-in-garden-jumbo-emmen",
+          "chef-de-rayon-a-garden-jumbo-emmen"
+        ],
+        "de": [
+          "rayonleiter-in-garden-jumbo-emmen"
+        ],
+        "en": [
+          "rayonleiter-in-garden-jumbo-emmen"
+        ]
+      },
+      "previousSlugs": [
+        "rayonleiter-in-garden-jumbo-emmen",
+        "rayon-leader-in-garden-jumbo-emmen",
+        "chef-de-rayon-a-garden-jumbo-emmen"
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "jumbo-854df8e9-980",
@@ -20020,10 +20025,10 @@
       "id": "jumbo-143fae69-ef0",
       "slug": "venditore-in-cassa-servizi-jumbo-arbon",
       "slugByLocale": {
-        "it": "venditore-in-cassa-servizi-jumbo-arbon",
-        "en": "seller-in-cash-registers-services-jumbo-arbon",
         "de": "verkaufer-in-kassen-services-jumbo-arbon-thurgau-y60t1d",
-        "fr": "vendeur-dans-les-caisses-enregistreuses-services-jumbo-arbon"
+        "it": "venditore-in-cassa-servizi-jumbo-division-der-coop-genossenschaft-arbon-d3a9e5",
+        "en": "seller-in-cash-registers-services-jumbo-division-der-coop-genossenschaft-arbon-d3a9e5",
+        "fr": "vendeur-dans-les-caisses-enregistreuses-services-jumbo-division-der-coop-genossenschaft-arbon-d3a9e5"
       },
       "company": "JUMBO",
       "companyKey": "jumbo",
@@ -20080,27 +20085,6 @@
           "• Am liebsten arbeiten Sie mit Menschen – mit der Kundschaft und im Team."
         ]
       },
-      "firstSeenAt": "2026-08-04T11:33:52.753Z",
-      "needsRetranslation": true,
-      "previousSlugsByLocale": {
-        "it": [
-          "verkaufer-in-kassen-services-jumbo-arbon",
-          "venditore-in-cassa-servizi-jumbo-arbon"
-        ],
-        "de": [
-          "verkaufer-in-kassen-services-jumbo-arbon"
-        ],
-        "en": [
-          "verkaufer-in-kassen-services-jumbo-arbon"
-        ],
-        "fr": [
-          "verkaufer-in-kassen-services-jumbo-arbon"
-        ]
-      },
-      "previousSlugs": [
-        "verkaufer-in-kassen-services-jumbo-arbon",
-        "venditore-in-cassa-servizi-jumbo-arbon"
-      ],
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -20112,16 +20096,41 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-04T11:33:52.753Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufer-in-kassen-services-jumbo-arbon",
+          "venditore-in-cassa-servizi-jumbo-arbon"
+        ],
+        "en": [
+          "verkaufer-in-kassen-services-jumbo-arbon",
+          "seller-in-cash-registers-services-jumbo-arbon"
+        ],
+        "fr": [
+          "verkaufer-in-kassen-services-jumbo-arbon",
+          "vendeur-dans-les-caisses-enregistreuses-services-jumbo-arbon"
+        ],
+        "de": [
+          "verkaufer-in-kassen-services-jumbo-arbon"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufer-in-kassen-services-jumbo-arbon",
+        "venditore-in-cassa-servizi-jumbo-arbon",
+        "seller-in-cash-registers-services-jumbo-arbon",
+        "vendeur-dans-les-caisses-enregistreuses-services-jumbo-arbon"
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "jumbo-7505fd0c-d87",
       "slug": "consulente-vendite-in-garden-jumbo-feuerthalen",
       "slugByLocale": {
-        "it": "consulente-vendite-in-garden-jumbo-feuerthalen",
-        "en": "sales-advisor-in-garden-jumbo-feuerthalen",
         "de": "verkaufsberater-in-garden-jumbo-feuerthalen-zurich-vcnjum",
-        "fr": "conseiller-commercial-a-garden-jumbo-feuerthalen"
+        "it": "consulente-vendite-in-garden-jumbo-division-der-coop-genossenschaft-feuerthalen-330c5c",
+        "en": "sales-advisor-in-garden-jumbo-division-der-coop-genossenschaft-feuerthalen-330c5c",
+        "fr": "conseiller-commercial-a-garden-jumbo-division-der-coop-genossenschaft-feuerthalen-330c5c"
       },
       "company": "JUMBO",
       "companyKey": "jumbo",
@@ -20177,27 +20186,6 @@
           "• Lächeln ist dein Geheimnis zum Erfolg!"
         ]
       },
-      "firstSeenAt": "2026-08-04T11:33:52.752Z",
-      "needsRetranslation": true,
-      "previousSlugsByLocale": {
-        "it": [
-          "verkaufsberater-in-garden-jumbo-feuerthalen",
-          "consulente-vendite-in-garden-jumbo-feuerthalen"
-        ],
-        "de": [
-          "verkaufsberater-in-garden-jumbo-feuerthalen"
-        ],
-        "en": [
-          "verkaufsberater-in-garden-jumbo-feuerthalen"
-        ],
-        "fr": [
-          "verkaufsberater-in-garden-jumbo-feuerthalen"
-        ]
-      },
-      "previousSlugs": [
-        "verkaufsberater-in-garden-jumbo-feuerthalen",
-        "consulente-vendite-in-garden-jumbo-feuerthalen"
-      ],
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -20209,7 +20197,32 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-04T11:33:52.752Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufsberater-in-garden-jumbo-feuerthalen",
+          "consulente-vendite-in-garden-jumbo-feuerthalen"
+        ],
+        "en": [
+          "verkaufsberater-in-garden-jumbo-feuerthalen",
+          "sales-advisor-in-garden-jumbo-feuerthalen"
+        ],
+        "fr": [
+          "verkaufsberater-in-garden-jumbo-feuerthalen",
+          "conseiller-commercial-a-garden-jumbo-feuerthalen"
+        ],
+        "de": [
+          "verkaufsberater-in-garden-jumbo-feuerthalen"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufsberater-in-garden-jumbo-feuerthalen",
+        "consulente-vendite-in-garden-jumbo-feuerthalen",
+        "sales-advisor-in-garden-jumbo-feuerthalen",
+        "conseiller-commercial-a-garden-jumbo-feuerthalen"
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "jumbo-d1456db1-5af",
@@ -20450,10 +20463,10 @@
       "id": "jumbo-9b1d384d-3f9",
       "slug": "marketing-assistant-elektromaterial-e-licht-jumbo-division-der-coop-genossenschaft-dietlikon-zurich-61viq3",
       "slugByLocale": {
-        "it": "marketing-assistant-elektromaterial-e-licht-jumbo-division-der-coop-genossenschaft-dietlikon-zurich-61viq3",
-        "en": "marketing-assistant-electrical-material-and-light-jumbo-dietlikon",
         "de": "marketing-assistant-elektromaterial-und-licht-jumbo-division-der-coop-genossenschaft-dietlikon-zurich-61viq3",
-        "fr": "assistant-marketing-materiel-electrique-et-lumiere-jumbo-dietlikon"
+        "it": "marketing-assistant-elektromaterial-e-licht-jumbo-division-der-coop-genossenschaft-dietlikon-zurich-61viq3",
+        "en": "marketing-assistant-electrical-material-and-light-jumbo-division-der-coop-genossenschaft-dietlikon",
+        "fr": "assistant-marketing-materiel-electrique-et-lumiere-jumbo-division-der-coop-genossenschaft-dietlikon"
       },
       "company": "JUMBO",
       "companyKey": "jumbo",
@@ -20512,27 +20525,29 @@
           "• Erfahrungen mit SAP-Systemen und -Prozessen sowie Französischkenntnisse sind wünschenswert"
         ]
       },
-      "previousSlugs": [
-        "marketing-assistant-elektromaterial-und-licht-jumbo-dietlikon",
-        "marketing-assistant-elektromaterial-e-licht-jumbo-dietlikon"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "marketing-assistant-elektromaterial-und-licht-jumbo-dietlikon",
           "marketing-assistant-elektromaterial-e-licht-jumbo-dietlikon"
         ],
         "en": [
-          "marketing-assistant-elektromaterial-und-licht-jumbo-dietlikon"
+          "marketing-assistant-elektromaterial-und-licht-jumbo-dietlikon",
+          "marketing-assistant-electrical-material-and-light-jumbo-dietlikon"
         ],
         "fr": [
-          "marketing-assistant-elektromaterial-und-licht-jumbo-dietlikon"
+          "marketing-assistant-elektromaterial-und-licht-jumbo-dietlikon",
+          "assistant-marketing-materiel-electrique-et-lumiere-jumbo-dietlikon"
         ],
         "de": [
           "marketing-assistant-elektromaterial-und-licht-jumbo-dietlikon"
         ]
       },
-      "firstSeenAt": "2026-08-04T11:33:52.746Z",
-      "needsRetranslation": true,
+      "previousSlugs": [
+        "marketing-assistant-elektromaterial-und-licht-jumbo-dietlikon",
+        "marketing-assistant-elektromaterial-e-licht-jumbo-dietlikon",
+        "marketing-assistant-electrical-material-and-light-jumbo-dietlikon",
+        "assistant-marketing-materiel-electrique-et-lumiere-jumbo-dietlikon"
+      ],
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -20544,7 +20559,9 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-04T11:33:52.746Z",
+      "needsRetranslation": true
     }
   ]
 }
