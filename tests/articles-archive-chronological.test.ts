@@ -48,7 +48,11 @@ describe('article archive ordering', () => {
       entryCss,
       hasSpaBundle,
     } as Parameters<typeof emitSeoHubs>[0]);
-  });
+  // Explicit hook timeout. `emitSeoHubs` renders every hub kind for both
+  // article sections — ~8s locally, past the 10s hook default on a CI runner
+  // (vitest.config.ts sets testTimeout but leaves hookTimeout at the default,
+  // so this suite timed out in CI while passing here).
+  }, 120_000);
 
   afterAll(() => {
     if (distDir) fs.rmSync(distDir, { recursive: true, force: true });
