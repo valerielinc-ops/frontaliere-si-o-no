@@ -9225,6 +9225,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.ristoranti-tipici-lugano-guida.title': 'Die besten typischen Tessiner Restaurants in Lugano',
     'blog.article.ristoranti-tipici-lugano-guida.excerpt': 'Führer zu den Grotti und Tavernen von Lugano. Entdecken Sie die traditionellen Gerichte und wie Sie Ihr Budget zwischen Schweizer Gehalt und IRPEF-Steuer verwalten können.',
     'blog.article.ristoranti-tipici-lugano-guida.imageAlt': 'Ein typisches Tessiner Grotto in der Gegend von Lugano',
+    'blog.article.coworking-spazi-lavoro-ticino.title': 'Coworking und Shared Workspaces in Lugano',
+    'blog.article.coworking-spazi-lavoro-ticino.excerpt': 'Praktischer Leitfaden für Selbständige und Grenzgänger: Steuer-, Vorsorge- und Arbeitsplatzwahl im Tessin.',
+    'blog.article.coworking-spazi-lavoro-ticino.imageAlt': 'Moderner Coworking-Space in Lugano mit Seeblick',
 };
 
 export default blogMetaDe;

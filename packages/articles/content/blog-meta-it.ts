@@ -9227,6 +9227,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.ristoranti-tipici-lugano-guida.title': 'Migliori ristoranti tipici ticinesi a Lugano',
     'blog.article.ristoranti-tipici-lugano-guida.excerpt': 'Guida ai grotti e alle osterie di Lugano. Scopri i piatti della tradizione e come gestire il budget tra stipendio svizzero e tassazione IRPEF.',
     'blog.article.ristoranti-tipici-lugano-guida.imageAlt': 'Un tipico grotto ticinese nella zona di Lugano',
+    'blog.article.coworking-spazi-lavoro-ticino.title': 'Coworking e spazi di lavoro condiviso a Lugano',
+    'blog.article.coworking-spazi-lavoro-ticino.excerpt': 'Guida pratica per lavoratori autonomi e frontalieri: gestione fiscale, previdenziale e scelta degli spazi di lavoro in Ticino.',
+    'blog.article.coworking-spazi-lavoro-ticino.imageAlt': 'Spazio di coworking moderno a Lugano con vista lago',
 };
 
 export default blogMetaIt;

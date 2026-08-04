@@ -9226,6 +9226,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.ristoranti-tipici-lugano-guida.title': 'Best typical Ticino restaurants in Lugano',
     'blog.article.ristoranti-tipici-lugano-guida.excerpt': 'Guide to the grottos and taverns of Lugano. Discover traditional dishes and how to manage the budget between Swiss salary and personal income tax.',
     'blog.article.ristoranti-tipici-lugano-guida.imageAlt': 'A traditional Ticino grotto in the Lugano area',
+    'blog.article.coworking-spazi-lavoro-ticino.title': 'Coworking and shared workspaces in Lugano',
+    'blog.article.coworking-spazi-lavoro-ticino.excerpt': 'Practical guide for self-employed and frontier workers: tax, social security management and choice of workspaces in Ticino.',
+    'blog.article.coworking-spazi-lavoro-ticino.imageAlt': 'Modern coworking space in Lugano with lake view',
 };
 
 export default blogMetaEn;
