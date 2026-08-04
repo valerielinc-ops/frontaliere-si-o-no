@@ -447,6 +447,45 @@ jobs:
           MALLOC_ARENA_MAX: '2'
         run: |
           set -o pipefail
+
+          # Host-memory sampler. The builds that die report only
+          # "The runner has received a shutdown signal" and exit 143, which
+          # names no cause, and every theory read off the build's OWN numbers
+          # has been falsified by the last SUCCESSFUL run (15922, 2026-08-03):
+          # it peaked at rss 12643 MB — HIGHER than the 12203 MB of a run the
+          # host killed — and finished. Disk is not it either: all three runs
+          # report an identical 108 G free. What no log carries is the figure
+          # that would actually settle it, the HOST's free memory at the
+          # moment of death. This samples it every 10 s so the next failure is
+          # a measurement instead of another guess.
+          #
+          # `MemAvailable` is the number that matters (free + reclaimable),
+          # not `MemFree`. A run killed by the host will show it collapsing
+          # toward zero in the seconds before the log stops; one that stays
+          # comfortable rules host memory out and sends the search elsewhere.
+          #
+          # Run against a real shell before landing, which caught two defects
+          # that would have made this silently useless: piping the loop through
+          # `sed` to add the prefix emitted NOTHING (sed block-buffers when
+          # stdout is not a tty, so a sampler this sparse never flushed), and
+          # `$!` then held the PID of the pipeline's last element rather than
+          # the loop, so the trap left the sampler running. The prefix is
+          # printed inline and there is no pipe.
+          #
+          # The 4-hour bound is a backstop, not the mechanism: the trap below
+          # is what normally stops it. It exists so a sampler can never be what
+          # keeps a runner alive if the trap is ever bypassed.
+          ( end=$(( $(date +%s) + 14400 ))
+            while [ "$(date +%s)" -lt "$end" ]; do
+              printf '[hostmem] '
+              awk '/^(MemTotal|MemAvailable|MemFree|SwapFree|Dirty):/ {sub(/:/,"",$1); printf "%s=%dMB ", $1, $2/1024}' /proc/meminfo
+              printf 'topRSS=%dMB\n' "$(ps -eo rss= --sort=-rss | head -1 | awk '{print int($1/1024)}')"
+              sleep 10
+            done ) &
+          sampler=$!
+          # Never let the sampler outlive the step, whatever the build does.
+          trap 'kill "$sampler" 2>/dev/null || true' EXIT
+
           npm run build:ci 2>&1 | tee /tmp/build.log
 
       - name: Verify critical dist pages before upload
