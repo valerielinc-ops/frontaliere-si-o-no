@@ -85342,10 +85342,10 @@
     },
     {
       "id": "roche-0a1f627654d3",
-      "slug": "lead-sdet-software-engineering-manager-test-automation-lead-roche-ch",
+      "slug": "lead-sdet-responsabile-automazione-test-roche-carlsbad",
       "slugByLocale": {
         "en": "lead-sdet-software-engineering-manager-test-automation-lead-roche-ch",
-        "it": "lead-sdet-software-engineering-manager-test-automation-lead-roche-ch",
+        "it": "lead-sdet-responsabile-automazione-test-roche-carlsbad",
         "de": "leitender-sdet-software-entwicklungs-manager-leiter-fur-testautomatisierung-roche-carlsbad",
         "fr": "lead-sdet-gestionnaire-technique-des-logiciels-lead-d-automatisation-des-essais-roche-carlsbad"
       },
@@ -85399,7 +85399,15 @@
         }
       },
       "addressRegion": "BS",
-      "firstSeenAt": "2026-08-03T22:13:38.447Z"
+      "firstSeenAt": "2026-08-03T22:13:38.447Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "lead-sdet-software-engineering-manager-test-automation-lead-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "lead-sdet-software-engineering-manager-test-automation-lead-roche-ch"
+      ]
     },
     {
       "id": "roche-3b2eff45b129",
