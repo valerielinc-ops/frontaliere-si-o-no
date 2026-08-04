@@ -9235,6 +9235,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.littering-lavoro-e-aviatione-novita-del-1-augusto.title': 'Littering, labour and aviation: the news of 1 August',
     'blog.article.littering-lavoro-e-aviatione-novita-del-1-augusto.excerpt': 'From the fines for littering to the extension of reduced work, here are the news for August 1st.',
     'blog.article.littering-lavoro-e-aviatione-novita-del-1-augusto.imageAlt': 'Panoramic view of Lugano with lake and mountains',
+    'blog.article.lucibello-disti-verifica-fondi.title': 'Lucibello: "No personal enrichment or fraudulent use of funds"',
+    'blog.article.lucibello-disti-verifica-fondi.excerpt': 'The chairman of Disti defends himself against the accusation of improper use of funds, ensuring transparency and compliance with procedures.',
+    'blog.article.lucibello-disti-verifica-fondi.imageAlt': 'Aerial view of Lugano with the city center and Lake Lugano in the background',
 };
 
 export default blogMetaEn;

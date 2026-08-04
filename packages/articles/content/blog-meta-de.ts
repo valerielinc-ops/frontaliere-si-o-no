@@ -9234,6 +9234,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.littering-lavoro-e-aviatione-novita-del-1-augusto.title': 'Littering, Arbeit und Luftfahrt: die Neuheiten vom 1. August',
     'blog.article.littering-lavoro-e-aviatione-novita-del-1-augusto.excerpt': 'Von den Strafen für das Littering bis zur Verlängerung der Kurzarbeit, hier sind die Neuigkeiten vom 1. August.',
     'blog.article.littering-lavoro-e-aviatione-novita-del-1-augusto.imageAlt': 'Panoramablick auf Lugano mit See und Bergen',
+    'blog.article.lucibello-disti-verifica-fondi.title': 'Lucibello: Kein persönlicher Gewinn oder Geldbetrug',
+    'blog.article.lucibello-disti-verifica-fondi.excerpt': 'Der Vorsitzende von Disti wehrt sich gegen den Vorwurf der missbräuchlichen Verwendung von Geldern und sorgt für Transparenz und Einhaltung der Verfahren.',
+    'blog.article.lucibello-disti-verifica-fondi.imageAlt': 'Luftbild von Lugano mit Stadtzentrum und Luganersee im Hintergrund',
 };
 
 export default blogMetaDe;
