@@ -56,22 +56,30 @@
         ],
         "en": [
           "logistikfachmann-frau-lager-monteceneri-isone-confederazione-rivera",
-          "logistikfachmann-frau-lager-monteceneri-isone-swiss-armed-forces-vtg-bern-f018y2"
+          "logistikfachmann-frau-lager-monteceneri-isone-swiss-armed-forces-vtg-bern-f018y2",
+          "logistics-specialists-lager-monteceneri-isone-confederazione-svizzera-rivera",
+          "logistics-specialists-lager-monteceneri-isone-confederazione-svizzera-rivera"
         ],
         "de": [
           "logistikfachmann-frau-lager-monteceneri-isone-confederazione-rivera"
         ],
         "fr": [
           "logistikfachmann-frau-lager-monteceneri-isone-confederazione-rivera",
-          "logistikfachmann-frau-lager-monteceneri-isone-swiss-armed-forces-vtg-bern-f018y2"
+          "logistikfachmann-frau-lager-monteceneri-isone-swiss-armed-forces-vtg-bern-f018y2",
+          "specialistes-en-logistique-lager-monteceneri-isone-confederazione-svizzera-rivera",
+          "specialistes-en-logistique-lager-monteceneri-isone-confederazione-svizzera-rivera"
         ]
       },
       "previousSlugs": [
         "logistikfachmann-frau-lager-monteceneri-isone-swiss-armed-forces-vtg-bern",
         "logistikfachmann-frau-lager-monteceneri-isone-swiss-armed-forces-vtg-bern-f018y2",
         "logistikfachmann-frau-lager-monteceneri-isone-confederazione-rivera",
-        "logistikfachmann-frau-magazzino-monteceneri-isone-confederazione-svizzera-rivera"
+        "logistikfachmann-frau-magazzino-monteceneri-isone-confederazione-svizzera-rivera",
+        "logistics-specialists-lager-monteceneri-isone-confederazione-svizzera-rivera",
+        "specialistes-en-logistique-lager-monteceneri-isone-confederazione-svizzera-rivera"
       ],
+      "salaryMin": 49500,
+      "salaryMax": 75000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -87,8 +95,6 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "country": "CH",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
       "needsRetranslation": true
     },
     {
