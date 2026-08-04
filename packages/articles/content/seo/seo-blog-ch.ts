@@ -23261,6 +23261,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-angestellte-schweiz-aumento-2027': {
+    title: 'Angestellte Schweiz chiede un aumento salariale dell\'1,5% per il 2027',
+    description: 'L\'associazione Angestellte Schweiz ha chiesto un aumento salariale medio dell\'1,5% in vista della trattativa per il 2027. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, angestellte, schweiz, chiede, aumento',
+    ogTitle: 'Aumento stipendio in Svizzera: Angestellte Schweiz chiede un aumento salariale dell\'1,5% per il 2027',
+    ogDescription: 'L\'associazione Angestellte Schweiz ha chiesto un aumento salariale medio dell\'1,5% in vista della trattativa per il 2027.',
+    canonicalPath: '/articoli-svizzera/angestellte-schweiz-aumento-2027/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Angestellte Schweiz chiede un aumento salariale dell'1,5% per il 2027",
+      "description": "L'associazione Angestellte Schweiz ha chiesto un aumento salariale medio dell'1,5% in vista della trattativa per il 2027. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/angestellte-schweiz-aumento-2027.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine di un aumento stipendio in Svizzera"
+      },
+      "datePublished": "2026-08-04T06:55:40+00:00",
+      "dateModified": "2026-08-04T06:55:40+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/angestellte-schweiz-aumento-2027/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
