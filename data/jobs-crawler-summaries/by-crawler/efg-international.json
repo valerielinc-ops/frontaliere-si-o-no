@@ -1,18 +1,120 @@
 {
   "key": "efg-international",
   "label": "EFG",
-  "generatedAt": "2026-08-04T11:33:00.861Z",
-  "total": 33,
-  "newCount": 0,
+  "generatedAt": "2026-08-04T22:14:59.733Z",
+  "total": 34,
+  "newCount": 1,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 32,
-  "durationMs": 20575,
-  "avgDurationMs": 20575,
+  "durationMs": 24418,
+  "avgDurationMs": 24418,
   "durationHistory": [
-    20575
+    24418
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "id": "efg-6385",
+      "slug": "business-risk-manager-pb-coo-brm-efg-lugano",
+      "company": "EFG International AG",
+      "title": "Business Risk Manager - PB COO - BRM",
+      "location": "Lugano",
+      "canton": "TI",
+      "category": "finance",
+      "contract": "permanent",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-04",
+      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6385",
+      "source": "Oracle HCM API",
+      "sourceLang": "en",
+      "companyKey": "efg-international",
+      "companyDomain": "efginternational.com",
+      "canonicalContent": {
+        "byLocale": {
+          "en": {
+            "summary": [
+              "Motivated, passionate, hard worker and positive individual who continuously aims to make outstanding contributions and effect a difference from day 1."
+            ],
+            "responsibilities": [
+              "Execute all BRM controls on Private Banking area on a monthly respectively quarterly basis and ensures precise and proper documentation of results",
+              "Preparation of the CRO RSC and Quarterly Control report",
+              "Ensure that the identified control non in compliance and related risk mitigating actions are timely remediated",
+              "Contribution on preparation of the annual risk and control self-assessment (RSCA) as well as other ad hoc assessment & reviews.",
+              "Work with the Regional and Global PB BRM to achieve a robust First Line of Defence in the Area",
+              "Report on the internal control environment and potentially arising risks or issues.",
+              "Collaborate with local Compliance teams, Ops Risk and auditors for any ad-hoc reviews"
+            ],
+            "requirements": [
+              "Economics Bachelor’s degree or equivalent experience in the related field",
+              "Experience in the Financial & Audit Industry, Risk Control domain, Compliance and Risk Management functions",
+              "Excellent data analysis and Program Languages (Python, SQL, R), Bloomberg Terminal",
+              "Languages required: English, German, French and Italian",
+              "Pro-active and clear communicator with strong organizational skills",
+              "Detailed oriented, precise and ability to work under pressure and tight deadlines",
+              "Willing to go the extra mile, efficient and resourceful<br>"
+            ],
+            "benefits": [
+              "Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement",
+              "Hands-on: Being proactive to rapidly deliver high-quality results",
+              "Passionate: Being committed and striving for excellence",
+              "Solution-driven: Focusing on client outcomes and treating clients fairly with a risk-aware mindset",
+              "Partnership-oriented: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.<br>"
+            ],
+            "process": [],
+            "highlights": [
+              "Execute all BRM controls on Private Banking area on a monthly respectively quarterly basis and ensures precise and proper documentation of results",
+              "Preparation of the CRO RSC and Quarterly Control report",
+              "Ensure that the identified control non in compliance and related risk mitigating actions are timely remediated",
+              "Economics Bachelor’s degree or equivalent experience in the related field",
+              "Experience in the Financial & Audit Industry, Risk Control domain, Compliance and Risk Management functions",
+              "Excellent data analysis and Program Languages (Python, SQL, R), Bloomberg Terminal",
+              "Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement",
+              "Hands-on: Being proactive to rapidly deliver high-quality results"
+            ],
+            "keywords": [
+              "Economics Bachelor’s degree or equivalent experience in the related field",
+              "Experience in the Financial & Audit Industry",
+              "Excellent data analysis and Program Languages (Python",
+              "Languages required",
+              "Pro-active and clear communicator with strong organizational skills",
+              "Execute all BRM controls on Private Banking area on a monthly respectively quarterly basis and ensures precise and proper documentation of results",
+              "Preparation of the CRO RSC and Quarterly Control report",
+              "Ensure that the identified control non in compliance and related risk mitigating actions are timely remediated",
+              "Contribution on preparation of the annual risk and control self-assessment (RSCA) as well as other ad hoc assessment & reviews."
+            ],
+            "sections": [
+              {
+                "id": "company",
+                "heading": "Our Company",
+                "paragraphs": [
+                  "EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice. <br>",
+                  "EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation.",
+                  "<br><strong>Our Purpose and Mission</strong>",
+                  "Empowering entrepreneurial minds to create value – today and for the future.",
+                  "We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value.<br>"
+                ],
+                "bullets": []
+              }
+            ],
+            "readingMinutes": 2
+          }
+        }
+      },
+      "crawledAt": "2026-08-04T22:14:55.681Z",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "needsRetranslation": true,
+      "datePosted": "2026-08-04",
+      "_qualityScore": 68,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 25,
+        "translation": 4,
+        "completeness": 14
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "id": "efg-5984",
@@ -48,7 +150,7 @@
           }
         }
       },
-      "crawledAt": "2026-08-04T11:32:57.193Z",
+      "crawledAt": "2026-08-04T22:14:55.728Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "datePosted": "2026-07-10",
@@ -172,7 +274,7 @@
           }
         }
       },
-      "crawledAt": "2026-08-04T11:32:57.246Z",
+      "crawledAt": "2026-08-04T22:14:55.771Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "datePosted": "2026-07-20",
@@ -336,7 +438,7 @@
           }
         }
       },
-      "crawledAt": "2026-08-04T11:32:57.244Z",
+      "crawledAt": "2026-08-04T22:14:55.770Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-06-25",
@@ -456,7 +558,7 @@
           }
         }
       },
-      "crawledAt": "2026-08-04T11:32:57.241Z",
+      "crawledAt": "2026-08-04T22:14:55.768Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-07-02",
@@ -510,7 +612,7 @@
           }
         }
       },
-      "crawledAt": "2026-08-04T11:32:57.237Z",
+      "crawledAt": "2026-08-04T22:14:55.764Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-05-20",
@@ -565,7 +667,7 @@
           }
         }
       },
-      "crawledAt": "2026-08-04T11:32:57.230Z",
+      "crawledAt": "2026-08-04T22:14:55.762Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-06-03",
@@ -694,7 +796,7 @@
           }
         }
       },
-      "crawledAt": "2026-08-04T11:32:57.226Z",
+      "crawledAt": "2026-08-04T22:14:55.758Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-04-01",
@@ -795,7 +897,7 @@
           }
         }
       },
-      "crawledAt": "2026-08-04T11:32:57.222Z",
+      "crawledAt": "2026-08-04T22:14:55.754Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "sourceLang": "en",
@@ -915,7 +1017,7 @@
           }
         }
       },
-      "crawledAt": "2026-08-04T11:32:57.218Z",
+      "crawledAt": "2026-08-04T22:14:55.750Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "datePosted": "2026-07-08",
@@ -1031,7 +1133,7 @@
           }
         }
       },
-      "crawledAt": "2026-08-04T11:32:57.216Z",
+      "crawledAt": "2026-08-04T22:14:55.748Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "sourceLang": "en",
@@ -1086,7 +1188,7 @@
           }
         }
       },
-      "crawledAt": "2026-08-04T11:32:57.211Z",
+      "crawledAt": "2026-08-04T22:14:55.743Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-05-28",
@@ -1210,7 +1312,7 @@
           }
         }
       },
-      "crawledAt": "2026-08-04T11:32:57.208Z",
+      "crawledAt": "2026-08-04T22:14:55.740Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-01-19",
@@ -1265,7 +1367,7 @@
           }
         }
       },
-      "crawledAt": "2026-08-04T11:32:57.205Z",
+      "crawledAt": "2026-08-04T22:14:55.737Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-04-07",
@@ -1320,7 +1422,7 @@
           }
         }
       },
-      "crawledAt": "2026-08-04T11:32:57.201Z",
+      "crawledAt": "2026-08-04T22:14:55.734Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "datePosted": "2026-04-21",
@@ -1375,7 +1477,7 @@
           }
         }
       },
-      "crawledAt": "2026-08-04T11:32:57.199Z",
+      "crawledAt": "2026-08-04T22:14:55.731Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "datePosted": "2026-04-08",
@@ -1485,7 +1587,7 @@
           }
         }
       },
-      "crawledAt": "2026-08-04T11:32:57.180Z",
+      "crawledAt": "2026-08-04T22:14:55.725Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "sourceLang": "en",
@@ -1613,7 +1715,7 @@
           }
         }
       },
-      "crawledAt": "2026-08-04T11:32:57.159Z",
+      "crawledAt": "2026-08-04T22:14:55.712Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "sourceLang": "en",
@@ -1669,7 +1771,7 @@
           }
         }
       },
-      "crawledAt": "2026-08-04T11:32:57.155Z",
+      "crawledAt": "2026-08-04T22:14:55.710Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-06-24",
@@ -1816,7 +1918,7 @@
           }
         }
       },
-      "crawledAt": "2026-08-04T11:32:57.145Z",
+      "crawledAt": "2026-08-04T22:14:55.706Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-02-11",
@@ -1939,7 +2041,7 @@
           }
         }
       },
-      "crawledAt": "2026-08-04T11:32:57.125Z",
+      "crawledAt": "2026-08-04T22:14:55.698Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "datePosted": "2026-07-21",
@@ -2046,7 +2148,7 @@
           }
         }
       },
-      "crawledAt": "2026-08-04T11:32:57.121Z",
+      "crawledAt": "2026-08-04T22:14:55.695Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-07-23",
