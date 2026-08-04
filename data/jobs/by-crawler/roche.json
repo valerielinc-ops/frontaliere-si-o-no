@@ -13625,9 +13625,9 @@
     },
     {
       "id": "roche-e651a228bab5",
-      "slug": "specjalista-specjalistka-ds-serwisu-technicznego-roche-poland",
+      "slug": "specialista-dell-assistenza-tecnica-specialista-roche-poland",
       "slugByLocale": {
-        "it": "specjalista-specjalistka-ds-serwisu-technicznego-roche-poland",
+        "it": "specialista-dell-assistenza-tecnica-specialista-roche-poland",
         "en": "specjalista-specjalistka-ds-serwisu-technicznego-roche-ch",
         "de": "specjalista-specjalistka-ds-serwisu-technicznego-roche-ch",
         "fr": "specjalista-specjalistka-ds-serwisu-technicznego-roche-ch"
@@ -13671,12 +13671,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "specjalista-specjalistka-ds-serwisu-technicznego-roche-ch",
-        "specialista-dell-assistenza-tecnica-specialista-roche-poland"
+        "specjalista-specjalistka-ds-serwisu-technicznego-roche-poland"
       ],
       "previousSlugsByLocale": {
         "it": [
           "specjalista-specjalistka-ds-serwisu-technicznego-roche-ch",
-          "specialista-dell-assistenza-tecnica-specialista-roche-poland"
+          "specjalista-specjalistka-ds-serwisu-technicznego-roche-poland"
         ]
       },
       "needsRetranslation": true,
@@ -85338,9 +85338,9 @@
       "id": "roche-0a1f627654d3",
       "slug": "lead-sdet-software-engineering-manager-test-automation-lead-roche-ch",
       "slugByLocale": {
-        "it": "lead-sdet-software-engineering-manager-test-automation-lead-roche-ch",
         "en": "lead-sdet-software-engineering-manager-test-automation-lead-roche-ch",
-        "de": "lead-sdet-software-engineering-manager-test-automation-lead-roche-ch",
+        "it": "lead-sdet-software-engineering-manager-test-automation-lead-roche-ch",
+        "de": "leitender-sdet-software-entwicklungs-manager-leiter-fur-testautomatisierung-roche-carlsbad",
         "fr": "lead-sdet-gestionnaire-technique-des-logiciels-lead-d-automatisation-des-essais-roche-carlsbad"
       },
       "company": "Roche",

@@ -508,8 +508,8 @@
       "slugByLocale": {
         "it": "falegname-afc-aep-m-f-d-pemsa-basel",
         "en": "joiner-afc-aep-m-f-d-pemsa-basel",
-        "de": "schlie-er-afc-aep-m-w-d-pemsa-basel",
-        "fr": "joiniere-afc-aep-m-f-d-pemsa-basel"
+        "de": "zimmerer-efz-eba-m-w-d-pemsa-basel",
+        "fr": "menuisier-cfc-afp-m-f-d-pemsa-basel"
       },
       "id": "pemsa-d5c55c2ae50f",
       "salaryMin": 62000,
@@ -630,8 +630,8 @@
       "slugByLocale": {
         "it": "imbianchino-afc-aep-m-f-d-pemsa-basel",
         "en": "imbianchino-afc-aep-m-f-d-pemsa-basel",
-        "de": "imbianchino-afc-aep-m-f-d-pemsa-basel",
-        "fr": "imbianchino-afc-aep-m-f-d-pemsa-basel"
+        "de": "maler-efz-aep-m-w-d-pemsa-basel",
+        "fr": "peintre-cfc-aep-m-f-d-pemsa-basel"
       },
       "id": "pemsa-af7f90ce40b9",
       "salaryMin": 62000,
@@ -743,9 +743,9 @@
       },
       "slugByLocale": {
         "it": "stuccatore-afc-aep-m-f-d-pemsa-basel",
-        "en": "afc-aep-rack-m-f-d-pemsa-basel",
-        "de": "afc-aep-rack-m-w-d-pemsa-basel",
-        "fr": "support-afc-aep-m-f-d-pemsa-basel"
+        "en": "plasterer-with-federal-certificate-of-competence-afc-aep-m-f-d-pemsa-basel",
+        "de": "verputzer-efz-aep-m-w-d-pemsa-basel",
+        "fr": "platrier-cfc-aep-m-f-d-pemsa-basel"
       },
       "id": "pemsa-143777a2ac75",
       "salaryMin": 62000,
@@ -800,9 +800,9 @@
       },
       "slugByLocale": {
         "it": "operatore-metalmeccanico-afc-aec-m-f-d-pemsa-basel",
-        "en": "operatore-metalmeccanico-afc-aec-m-f-d-pemsa-basel",
-        "de": "operatore-metalmeccanico-afc-aec-m-f-d-pemsa-basel",
-        "fr": "operatore-metalmeccanico-afc-aec-m-f-d-pemsa-basel"
+        "en": "metalworking-operator-m-f-d-pemsa-basel",
+        "de": "metallbearbeitungswerker-in-efz-eba-m-w-d-pemsa-basel",
+        "fr": "operateur-en-mecanique-afc-aec-m-f-d-pemsa-basel"
       },
       "id": "pemsa-c59db2f80886",
       "salaryMin": 62000,
@@ -857,9 +857,9 @@
       },
       "slugByLocale": {
         "it": "lattoniere-afc-abi-m-f-d-pemsa-basel",
-        "en": "lattoniere-afc-abi-m-f-d-pemsa-basel",
-        "de": "lattoniere-afc-abi-m-f-d-pemsa-basel",
-        "fr": "lattoniere-afc-abi-m-f-d-pemsa-basel"
+        "en": "sheet-metal-worker-afc-abi-m-f-d-pemsa-basel",
+        "de": "spengler-efz-eba-m-w-d-pemsa-basel",
+        "fr": "couvreur-en-tole-afc-afp-m-f-d-pemsa-basel"
       },
       "id": "pemsa-3bc43e14537e",
       "salaryMin": 62000,
@@ -916,7 +916,7 @@
         "it": "carpentiere-afc-aep-m-f-d-pemsa-basel",
         "en": "afc-aep-carpenter-m-f-d-pemsa-basel",
         "de": "carpentiere-afc-aep-m-f-d-pemsa-basel",
-        "fr": "charpentier-afc-aep-m-f-d-pemsa-basel"
+        "fr": "charpentier-cfc-afp-m-f-d-pemsa-basel"
       },
       "id": "pemsa-6a6a489d9ddc",
       "salaryMin": 62000,
@@ -971,9 +971,9 @@
       },
       "slugByLocale": {
         "it": "copritetto-afc-aep-m-f-d-pemsa-basel",
-        "en": "cover-afc-aep-m-f-d-pemsa-basel",
-        "de": "abdeckung-afc-aep-m-w-d-pemsa-basel",
-        "fr": "couverture-afc-aep-m-f-d-pemsa-basel"
+        "en": "roofing-technician-afc-aep-m-f-d-pemsa-basel",
+        "de": "dachdecker-in-efz-aep-m-w-d-pemsa-basel",
+        "fr": "couvreur-cfc-aep-m-f-d-pemsa-basel"
       },
       "id": "pemsa-f84c6a50d7a8",
       "salaryMin": 62000,
@@ -1028,9 +1028,9 @@
       },
       "slugByLocale": {
         "it": "piastrellista-afc-aep-m-f-d-pemsa-basel",
-        "en": "piastrellista-afc-aep-m-f-d-pemsa-basel",
-        "de": "piastrellista-afc-aep-m-f-d-pemsa-basel",
-        "fr": "piastrellista-afc-aep-m-f-d-pemsa-basel"
+        "en": "tile-layer-afc-aep-m-f-d-pemsa-basel",
+        "de": "plattenleger-in-efz-eba-m-w-d-pemsa-basel",
+        "fr": "carreleur-cfc-afp-m-f-d-pemsa-basel"
       },
       "id": "pemsa-c27d0cbb3394",
       "salaryMin": 62000,
@@ -1144,7 +1144,7 @@
         "it": "idraulico-afc-aec-m-f-d-pemsa-basel",
         "en": "hydraulic-afc-aec-m-f-d-pemsa-basel",
         "de": "idraulico-afc-aec-m-f-d-pemsa-basel",
-        "fr": "afc-aec-hydraulique-m-f-d-pemsa-basel"
+        "fr": "plombier-cfc-afp-m-f-d-pemsa-basel"
       },
       "id": "pemsa-820dbd8ba2ba",
       "salaryMin": 62000,
@@ -1688,7 +1688,7 @@
       },
       "slugByLocale": {
         "it": "saldatore-tubista-pemsa-torricella",
-        "en": "saldatore-tubista-pemsa-torricella",
+        "en": "tube-welder-pemsa-torricella",
         "de": "saldatore-tubista-pemsa-torricella",
         "fr": "saldatore-tubista-pemsa-torricella"
       },
