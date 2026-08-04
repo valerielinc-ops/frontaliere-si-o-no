@@ -1801,6 +1801,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.angestellte-schweiz-aumento-2027.title': 'Die Angestellte Schweiz fordert eine Lohnerhöhung von 1,5 % für 2027',
     'blog.article.angestellte-schweiz-aumento-2027.excerpt': 'Der Verband konzentriert sich außerdem auf größere Investitionen in Ausbildung und bessere Arbeitsbedingungen.',
     'blog.article.angestellte-schweiz-aumento-2027.imageAlt': 'Bild von einem Gehaltserhöhung in der Schweiz',
+    'blog.article.swiss-fatturato-costi-carburante-conseguenze.title': 'Swiss, Umsatz steigt, Gewinn sinkt',
+    'blog.article.swiss-fatturato-costi-carburante-conseguenze.excerpt': 'Der Umsatz der Swiss stieg im ersten Halbjahr 2026 um 3,2%, das operative Ergebnis sank jedoch um 3,2%.',
+    'blog.article.swiss-fatturato-costi-carburante-conseguenze.imageAlt': 'Bild eines Flugzeugs, das vom Flughafen Lugano abhebt, mit einer Schweizer Flagge wehend.',
 };
 
 export default blogMetaChDe;

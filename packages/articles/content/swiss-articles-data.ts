@@ -5401,6 +5401,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'swiss-fatturato-costi-carburante-conseguenze',
+    category: 'fiscale',
+    date: '2026-08-04T07:14:17.767Z',
+    image: '/images/blog/swiss-fatturato-costi-carburante-conseguenze.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

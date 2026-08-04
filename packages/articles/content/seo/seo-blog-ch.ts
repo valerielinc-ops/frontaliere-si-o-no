@@ -23300,6 +23300,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-swiss-fatturato-costi-carburante-conseguenze': {
+    title: 'Swiss, sale il fatturato, cala l\'utile | Frontaliere Ticino',
+    description: 'Il fatturato della Swiss è aumentato del 3,2% nel primo semestre 2026, mentre l\'utile operativo è diminuito del 3,2%. Dati aggiornati 2026 per frontalieri in',
+    keywords: 'frontalieri, ticino, svizzera, italia, swiss, sale, fatturato, cala',
+    ogTitle: 'Swiss, sale il fatturato, cala l\'utile',
+    ogDescription: 'Il fatturato della Swiss è aumentato del 3,2% nel primo semestre 2026, mentre l\'utile operativo è diminuito del 3,2%.',
+    canonicalPath: '/articoli-svizzera/swiss-fatturato-costi-carburante-conseguenze/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Swiss, sale il fatturato, cala l'utile",
+      "description": "Il fatturato della Swiss è aumentato del 3,2% nel primo semestre 2026, mentre l'utile operativo è diminuito del 3,2%. Dati aggiornati 2026 per frontalieri in",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/swiss-fatturato-costi-carburante-conseguenze.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine di un aereo che decolla dall'aeroporto di Lugano con una bandiera svizzera sventolante."
+      },
+      "datePublished": "2026-08-04T07:14:17+00:00",
+      "dateModified": "2026-08-04T07:14:17+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/swiss-fatturato-costi-carburante-conseguenze/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

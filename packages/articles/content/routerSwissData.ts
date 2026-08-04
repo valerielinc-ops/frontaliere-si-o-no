@@ -626,6 +626,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'frontaliere-ticino-98-famiglie-caso-solidale': { it: 'frontaliere-ticino-98-famiglie-caso-solidale', en: 'frontaliere-ticino-98-families-solidarity-case', de: 'frontaliere-ticino-98-familien-solidaritaetsfall', fr: 'frontaliere-ticino-98-familles-cause-solidarite' },
  'un-matrimonio-che-vale-cento-posti-di-lavoro': { it: 'un-matrimonio-che-vale-cento-posti-di-lavoro', en: 'a-union-of-four-construction-companies-in-vallemaggia', de: 'eine-verbindung-von-vier-bauunternehmen-in-vallemaggia', fr: 'un-mariage-entre-quatre-entreprises-de-construction-en-vallemaggia' },
  'angestellte-schweiz-aumento-2027': { it: 'angestellte-schweiz-aumento-2027', en: 'angestellte-schweiz-aumento-2027', de: 'angestellte-schweiz-aumento-2027', fr: 'angestellte-schweiz-aumento-2027' },
+ 'swiss-fatturato-costi-carburante-conseguenze': { it: 'swiss-fatturato-costi-carburante-conseguenze', en: 'swiss-fatturato-costi-carburante-conseguenze', de: 'swiss-fatturato-costi-carburante-conseguenze', fr: 'swiss-fatturato-costi-carburante-conseguenze' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
