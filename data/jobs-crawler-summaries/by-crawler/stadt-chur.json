@@ -1,18 +1,19 @@
 {
   "key": "stadt-chur",
   "label": "stadt-chur",
-  "generatedAt": "2026-08-04T11:47:51.968Z",
+  "generatedAt": "2026-08-04T22:38:23.750Z",
   "total": 9,
-  "newCount": 2,
-  "updatedCount": 7,
+  "newCount": 0,
+  "updatedCount": 9,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 632388,
-  "avgDurationMs": 632388,
+  "durationMs": 632004,
+  "avgDurationMs": 632004,
   "durationHistory": [
-    632388
+    632004
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "title": "Sargträger/in",
       "slug": "sargtrager-in-stadt-chur-1669",
@@ -36,13 +37,18 @@
       "validThrough": "",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-08-04T11:38:57.713Z",
-      "_qualityScore": 49,
+      "crawledAt": "2026-08-04T22:29:29.449Z",
+      "id": "stadt-chur-4309d92c4ac7",
+      "salaryMin": 57500,
+      "salaryMax": 87000,
+      "currency": "CHF",
+      "firstSeenAt": "2026-08-04T11:38:57.713Z",
+      "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 10,
-        "translation": 0,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 19
       }
     },
     {
@@ -68,17 +74,20 @@
       "validThrough": "",
       "employmentType": "apprenticeship",
       "contractType": "stage",
-      "crawledAt": "2026-08-04T11:40:04.481Z",
-      "_qualityScore": 49,
+      "crawledAt": "2026-08-04T22:30:36.212Z",
+      "id": "stadt-chur-6baf9a5642b8",
+      "salaryMin": 41600,
+      "salaryMax": 76000,
+      "currency": "CHF",
+      "firstSeenAt": "2026-08-04T11:40:04.481Z",
+      "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 10,
-        "translation": 0,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 19
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "title": "Leitende/r Mechaniker/in und Stv. Bereichsleiter/in Werkstatt und Flottenmanagement",
       "slug": "leitende-r-mechaniker-in-und-stv-bereichsleiter-in-werkstatt-und-flottenmanagement-stadt-chur-1704",
@@ -102,7 +111,7 @@
       "validThrough": "",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-08-04T11:41:11.242Z",
+      "crawledAt": "2026-08-04T22:31:42.975Z",
       "id": "stadt-chur-74fdc42733da",
       "salaryMin": 67000,
       "salaryMax": 102000,
@@ -139,7 +148,7 @@
       "validThrough": "",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-08-04T11:42:18.007Z",
+      "crawledAt": "2026-08-04T22:32:49.738Z",
       "id": "stadt-chur-00c100636c42",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -176,7 +185,7 @@
       "validThrough": "",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-08-04T11:43:24.770Z",
+      "crawledAt": "2026-08-04T22:33:56.499Z",
       "id": "stadt-chur-c06cc9091d80",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -213,7 +222,7 @@
       "validThrough": "",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-08-04T11:44:31.530Z",
+      "crawledAt": "2026-08-04T22:35:03.262Z",
       "id": "stadt-chur-f6ae3a02a7e5",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -250,7 +259,7 @@
       "validThrough": "",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-08-04T11:45:38.291Z",
+      "crawledAt": "2026-08-04T22:36:10.023Z",
       "id": "stadt-chur-8181a7de3772",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -287,7 +296,7 @@
       "validThrough": "",
       "employmentType": "temporary",
       "contractType": "temporaneo",
-      "crawledAt": "2026-08-04T11:46:45.054Z",
+      "crawledAt": "2026-08-04T22:37:16.785Z",
       "id": "stadt-chur-8abd0783429f",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -324,7 +333,7 @@
       "validThrough": "",
       "employmentType": "apprenticeship",
       "contractType": "stage",
-      "crawledAt": "2026-08-04T11:47:51.815Z",
+      "crawledAt": "2026-08-04T22:38:23.543Z",
       "id": "stadt-chur-b4ceea7ca5ef",
       "salaryMin": 57500,
       "salaryMax": 87000,
