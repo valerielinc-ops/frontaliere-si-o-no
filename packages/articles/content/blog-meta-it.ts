@@ -9242,6 +9242,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.inflazione-svizzera-luglio-2026.title': 'Inflazione in Svizzera scende allo 0,4% in luglio',
     'blog.article.inflazione-svizzera-luglio-2026.excerpt': 'L\'inflazione in Svizzera si è attestata allo 0,4% in luglio, dopo lo 0,5% di giugno e lo 0,6% di aprile e maggio.',
     'blog.article.inflazione-svizzera-luglio-2026.imageAlt': 'Vista aerea di Lugano, Ticino, Svizzera, con il lago e le montagne sullo sfondo.',
+    'blog.article.frontaliere-documenti-primo-giorno-lavoro-ticino-2026-famiglia-con-figli.title': 'Primo giorno in Ticino: checklist per famiglie con figli',
+    'blog.article.frontaliere-documenti-primo-giorno-lavoro-ticino-2026-famiglia-con-figli.excerpt': 'Conoscere i documenti necessari per il primo giorno di lavoro in Ticino è fondamentale per i frontaliere che lavorano in Svizzera e risiedono in Italia.',
+    'blog.article.frontaliere-documenti-primo-giorno-lavoro-ticino-2026-famiglia-con-figli.imageAlt': 'Un frontaliere con la sua famiglia si prepara per il primo giorno di lavoro in Ticino.',
 };
 
 export default blogMetaIt;
