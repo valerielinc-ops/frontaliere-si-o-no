@@ -159,6 +159,38 @@ const REQUIRED_OWNERS: readonly KeywordLandingOwner[] = [
 
 const owners = new Set<KeywordLandingOwner>();
 
+/**
+ * Register the paths an owner will emit. Safe to call many times per owner.
+ *
+ * This writer was missing when the readers were extracted into this package,
+ * and nothing caught it: `build-plugins/shared/keywordLandingPlan.ts` kept its
+ * own copy of `owners`/`planned` and its own writer, so the emitters registered
+ * there while `transformHreflang` — which lives HERE — read a registry no one
+ * ever wrote to. `hasKeywordLandingPlan()` was therefore permanently false and
+ * the stale-landing repair below never fired in a real build. The four tests
+ * that cover it failed on `main` for days, reading as noise.
+ *
+ * The shim in build-plugins now re-exports these, so there is one registry.
+ */
+export function registerKeywordLandingPaths(
+  owner: KeywordLandingOwner,
+  paths: readonly string[],
+): void {
+  for (const p of paths) planned.add(normalizeLandingPath(p));
+  owners.add(owner);
+}
+
+/** How many distinct paths the plan holds. Test/diagnostic surface. */
+export function keywordLandingPlanSize(): number {
+  return planned.size;
+}
+
+/** Drop all plan state. Tests only — a build registers once and never resets. */
+export function __resetKeywordLandingPlanForTests(): void {
+  planned.clear();
+  owners.clear();
+}
+
 /** Normalise a URL or pathname to the registry's key form. */
 export function normalizeLandingPath(urlOrPath: string): string {
   let p = urlOrPath;
