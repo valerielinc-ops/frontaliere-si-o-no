@@ -9241,6 +9241,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.inflazione-svizzera-luglio-2026.title': 'Inflation in Switzerland drops to 0.4% in July',
     'blog.article.inflazione-svizzera-luglio-2026.excerpt': 'Inflation in Switzerland stood at 0.4% in July, after 0.5% in June and 0.6% in April and May.',
     'blog.article.inflazione-svizzera-luglio-2026.imageAlt': 'Aerial view of Lugano, Ticino, Switzerland, with the lake and mountains in the background.',
+    'blog.article.frontaliere-documenti-primo-giorno-lavoro-ticino-2026-famiglia-con-figli.title': 'First day in Ticino: checklist for families with children',
+    'blog.article.frontaliere-documenti-primo-giorno-lavoro-ticino-2026-famiglia-con-figli.excerpt': 'Knowing the necessary documents for the first day of work in Ticino is essential for border workers who work in Switzerland and reside in Italy.',
+    'blog.article.frontaliere-documenti-primo-giorno-lavoro-ticino-2026-famiglia-con-figli.imageAlt': 'A family of a frontier worker prepares for the first day of work in Ticino.',
 };
 
 export default blogMetaEn;

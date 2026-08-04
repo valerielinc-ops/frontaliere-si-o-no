@@ -27741,6 +27741,15 @@ const RAW_ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'frontaliere-documenti-primo-giorno-lavoro-ticino-2026-famiglia-con-figli',
+ category: 'pratico',
+ date: '2026-08-04T23:01:23.812Z',
+ image: '/images/blog/frontaliere-documenti-primo-giorno-lavoro-ticino-2026-famiglia-con-figli.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

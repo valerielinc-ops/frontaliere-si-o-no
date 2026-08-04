@@ -9243,6 +9243,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.inflazione-svizzera-luglio-2026.title': 'L\'inflation en Suisse tombe à 0,4% en juillet',
     'blog.article.inflazione-svizzera-luglio-2026.excerpt': 'L\'inflation en Suisse s\'est établie à 0,4% en juillet, après 0,5% en juin et 0,6% en avril et mai.',
     'blog.article.inflazione-svizzera-luglio-2026.imageAlt': 'Vue aérienne de Lugano, Tessin, Suisse, avec le lac et les montagnes en arrière-plan.',
+    'blog.article.frontaliere-documenti-primo-giorno-lavoro-ticino-2026-famiglia-con-figli.title': 'Premier jour au Tessin : checklist pour les familles avec enfants',
+    'blog.article.frontaliere-documenti-primo-giorno-lavoro-ticino-2026-famiglia-con-figli.excerpt': 'Connaître les documents nécessaires pour le premier jour de travail au Tessin est essentiel pour les frontaliers qui travaillent en Suisse et résident en Italie.',
+    'blog.article.frontaliere-documenti-primo-giorno-lavoro-ticino-2026-famiglia-con-figli.imageAlt': 'Une famille d\'un travailleur frontalier se prépare pour la première journée de travail en Tessin.',
 };
 
 export default blogMetaFr;
