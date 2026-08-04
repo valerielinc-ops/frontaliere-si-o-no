@@ -1807,6 +1807,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.rientro-in-svizzera-senza-lavoro-guida.title': 'Return to Switzerland without a job: what to know first',
     'blog.article.rientro-in-svizzera-senza-lavoro-guida.excerpt': 'In December 2024, the SBI received 240 requests for information for re-entry. The rights and procedures for those looking for work upon return.',
     'blog.article.rientro-in-svizzera-senza-lavoro-guida.imageAlt': 'Job center office in Lugano with Swiss flag, symbolizing returning to Switzerland and job search for cross-border workers',
+    'blog.article.leclanche-crisi-finanziaria-2025.title': 'Leclanché: financial crisis and postponement of the 2025 report',
+    'blog.article.leclanche-crisi-finanziaria-2025.excerpt': 'The Yverdon-les-Bains company suspends the shares and postpones the operating relationship. The point about the financial situation and the ongoing negotiations.',
+    'blog.article.leclanche-crisi-finanziaria-2025.imageAlt': 'Swiss corporate headquarters in a financial context.',
 };
 
 export default blogMetaChEn;

@@ -1807,6 +1807,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.rientro-in-svizzera-senza-lavoro-guida.title': 'Arbeitslose Rückkehr in die Schweiz: Was Sie zuerst wissen sollten',
     'blog.article.rientro-in-svizzera-senza-lavoro-guida.excerpt': 'Im Dezember 2024 gingen bei der ASO 240 Auskunftsersuchen zur Rückkehr ein. Die Rechte und Verfahren für Arbeitssuchende bei der Rückkehr.',
     'blog.article.rientro-in-svizzera-senza-lavoro-guida.imageAlt': 'Arbeitsvermittlungsbüro in Lugano mit Schweizer Flagge, Symbol für Rückkehr in die Schweiz und Jobsuche für Grenzgänger',
+    'blog.article.leclanche-crisi-finanziaria-2025.title': 'Leclanché: Finanzkrise und Verschiebung des Berichts 2025',
+    'blog.article.leclanche-crisi-finanziaria-2025.excerpt': 'Die Gesellschaft aus Yverdon-les-Bains setzt die Aktien aus und verschiebt den Geschäftsbericht. Der Punkt zur finanziellen Situation und den laufenden Verhandlungen.',
+    'blog.article.leclanche-crisi-finanziaria-2025.imageAlt': 'Schweizer Unternehmenszentrale in einem Finanzkontext.',
 };
 
 export default blogMetaChDe;

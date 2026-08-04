@@ -1807,6 +1807,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.rientro-in-svizzera-senza-lavoro-guida.title': 'Rientro in Svizzera senza lavoro: cosa sapere prima',
     'blog.article.rientro-in-svizzera-senza-lavoro-guida.excerpt': 'Nel dicembre 2024 l’OSE ha ricevuto 240 richieste di informazioni per il rientro. I diritti e le procedure per chi cerca lavoro al rientro.',
     'blog.article.rientro-in-svizzera-senza-lavoro-guida.imageAlt': 'Ufficio di collocamento a Lugano con bandiera svizzera, simboleggia il rientro in Svizzera e la ricerca di lavoro per i frontalieri',
+    'blog.article.leclanche-crisi-finanziaria-2025.title': 'Leclanché: crisi finanziaria e rinvio del rapporto 2025',
+    'blog.article.leclanche-crisi-finanziaria-2025.excerpt': 'La società di Yverdon-les-Bains sospende le azioni e rinvia il rapporto d\'esercizio. Il punto sulla situazione finanziaria e le trattative in corso.',
+    'blog.article.leclanche-crisi-finanziaria-2025.imageAlt': 'Sede aziendale svizzera in un contesto finanziario.',
 };
 
 export default blogMetaChIt;

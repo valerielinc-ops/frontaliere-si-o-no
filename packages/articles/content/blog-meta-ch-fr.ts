@@ -1807,6 +1807,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.rientro-in-svizzera-senza-lavoro-guida.title': 'Retour en Suisse sans travail : ce qu\'il faut savoir en premier',
     'blog.article.rientro-in-svizzera-senza-lavoro-guida.excerpt': 'En décembre 2024, l’ose a reçu 240 demandes d\'informations pour le retour. Les droits et les procédures pour ceux qui cherchent du travail à leur retour.',
     'blog.article.rientro-in-svizzera-senza-lavoro-guida.imageAlt': 'Bureau de placement à Lugano avec le drapeau suisse, symbole du retour en Suisse et de la recherche d\'emploi pour les frontaliers',
+    'blog.article.leclanche-crisi-finanziaria-2025.title': 'Leclanché : crise financière et report du rapport 2025',
+    'blog.article.leclanche-crisi-finanziaria-2025.excerpt': 'La société d\'Yverdon-les-Bains suspend les actions et reporte le rapport d\'exercice. Le point sur la situation financière et les négociations en cours.',
+    'blog.article.leclanche-crisi-finanziaria-2025.imageAlt': 'Siège social suisse dans un contexte financier.',
 };
 
 export default blogMetaChFr;
