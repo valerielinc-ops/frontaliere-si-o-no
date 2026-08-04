@@ -46,8 +46,22 @@ const ROOT = process.cwd();
 const PUBLIC_DIR = path.join(ROOT, 'public');
 const CHECK_ONLY = process.argv.includes('--check');
 
-/** Sitemaps this site serves verbatim from the articles repo. */
-const SITEMAPS = ['sitemap-blog.xml', 'sitemap-blog-ch.xml'];
+/**
+ * Sitemaps this site serves verbatim from the articles repo.
+ *
+ * `sitemap-articles-archive.xml` joined them for issue #4974: the
+ * `/{section}/{all}/` pages and their `page-N` chain appeared in NO sitemap at
+ * all. `emitSeoHubs` does push an entry per page, but only into the file the
+ * site build writes — and the site stopped emitting these pages when
+ * BUILD_EMIT_SKIP went on, while fast-publish (which does emit them) passes
+ * `sitemapEntries: []`. Measured on the live index before the fix: zero
+ * archive URLs across every sitemap it lists, against ~240 indexable pages.
+ */
+const SITEMAPS = [
+  'sitemap-blog.xml',
+  'sitemap-blog-ch.xml',
+  'sitemap-articles-archive.xml',
+];
 
 /**
  * RSS feeds, served verbatim like the sitemaps (issue #4974 item 2). Ten files:
