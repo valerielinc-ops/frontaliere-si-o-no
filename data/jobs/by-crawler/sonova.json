@@ -1,6 +1,6 @@
 {
   "crawlerKey": "sonova",
-  "assembledAt": "2026-08-03T22:10:32.385Z",
+  "assembledAt": "2026-08-04T11:07:33.614Z",
   "jobs": [
     {
       "id": "sonova-ecf20b32da66",
@@ -680,80 +680,6 @@
           "@type": "QuantitativeValue",
           "minValue": 73500,
           "maxValue": 111500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "sonova-03f8e60a8edd",
-      "slug": "stage-in-qualita-e-ingegneria-dei-dati-m-f-d-sonova-staefa-switzerland",
-      "slugByLocale": {
-        "it": "stage-in-qualita-e-ingegneria-dei-dati-m-f-d-sonova-staefa-switzerland",
-        "en": "internship-in-data-quality-and-engineering-m-f-d-sonova-ch",
-        "de": "internship-in-data-qualitat-and-engineering-m-f-d-sonova-staefa",
-        "fr": "internship-in-data-qualite-and-engineering-m-f-d-sonova-staefa"
-      },
-      "company": "Sonova",
-      "companyKey": "sonova",
-      "companyDomain": "sonova.com",
-      "title": "Internship in Data quality and engineering (m/f/d)",
-      "titleByLocale": {
-        "it": "Stage in qualità e ingegneria dei dati (m/f/d)",
-        "en": "Internship in Data quality and engineering (m/f/d)",
-        "de": "Internship in Data Qualität and engineering (m/f/d)",
-        "fr": "Internship in Data Qualité and engineering (m/f/d)"
-      },
-      "description": "If you are looking for an opportunity to dive into big data and get hand-on experience in real-world data engineering challenges, this opportunity is for you.\n\nAs an intern, you will create tools and methods to ensure our data is reliable and ready for analytics.\n\nYour focus will be on designing and implementing tools and solutions for data quality assessment. You will dive into the data and propose new solutions to assess and track data health over time.\n\nYour work will span over the full solution lifecycle, from evaluating existing frameworks to production implementation. You will be part of the R&D Data Operations team, giving you direct exposure to real day-to-day data challenges such as pipeline execution, data cleaning, and handling large volumes of data.\n\nMore about the role\n\n• Perform a literature and state-of-the-art review of data quality methods, and assess their performance and suitability for the required scenario\n\n• Evaluate and assess data pipeline capabilities to design and implement a data profiling tool\n\n• Implement a working prototype of the profiling framework, including selected methods.\n\n• Evaluate the prototype performance and scalability using synthetic data\n\nMore about you\n\n• BSc or MSc in Mathematics, Statistics, Engineering, Computer Science, Physics or a related field\n\n• General understanding of coding environments (Python), dataset handling and statistics and machine learning methods\n\n• Foundations on data engineering and familiarity with data quality concepts\n\n• Strong communication skills with the ability to bridge technical and business perspectives\n\nMore about what we offer\n\nAs one of the world’s leading hearing care providers headquartered in Switzerland, we’re committed to building an inclusive culture. We want to create an environment where you can balance a successful career with your commitments and interests outside of work, through our flexible hybrid working model.\n\nWe offer a wide range of training opportunities for both your professional and personal development, and there are exceptional growth opportunities with individual development plans.\n\n<div dir=\"auto\" style=\" width:calc(100% - 16px) !important;\"",
-      "descriptionByLocale": {
-        "it": "Se siete alla ricerca di un'opportunità di immergersi in grandi dati e ottenere esperienza pratica nelle sfide di ingegneria dei dati del mondo reale, questa opportunità è per voi.\n\nCome stagista, creerai strumenti e metodi per garantire che i nostri dati siano affidabili e pronti per l'analisi.\n\nIl vostro focus sarà sulla progettazione e l'implementazione di strumenti e soluzioni per la valutazione della qualità dei dati. Si immergerà nei dati e proporrà nuove soluzioni per valutare e monitorare la salute dei dati nel tempo.\n\nIl vostro lavoro si estenderà sul ciclo di vita completo della soluzione, dalla valutazione dei quadri esistenti all'implementazione della produzione. Sarete parte del team R&D Data Operations, che vi darà l'esposizione diretta a reali sfide di dati quotidiane come l'esecuzione delle pipeline, la pulizia dei dati e la gestione di grandi volumi di dati.\n\nUlteriori informazioni sul ruolo\n\n• Eseguire una letteratura e una revisione all'avanguardia dei metodi di qualità dei dati, e valutare le loro prestazioni e idoneità per lo scenario richiesto\n\n• Valutare e valutare le capacità di data pipeline per progettare e implementare uno strumento di profilazione dati\n\n• Implementare un prototipo di lavoro del framework di profilazione, compresi i metodi selezionati.\n\n• Valutare le prestazioni del prototipo e la scalabilità utilizzando i dati sintetici\n\nPiù di te\n\n• BSc o MSc in matematica, statistica, ingegneria, informatica, fisica o un campo correlato\n\n• Comprensione generale degli ambienti di codifica (Python), della gestione dei dataset e delle statistiche e dei metodi di apprendimento automatico\n\n• Fondamenti sull'ingegneria dei dati e la familiarità con i concetti di qualità dei dati\n\n• Forte capacità di comunicazione con la capacità di colmare prospettive tecniche e aziendali\n\nMaggiori informazioni su ciò che offriamo\n\nCome uno dei principali fornitori di servizi per l’udito con sede in Svizzera, ci impegniamo a costruire una cultura inclusiva. Vogliamo creare un ambiente in cui è possibile bilanciare una carriera di successo con i vostri impegni e interessi al di fuori del lavoro, attraverso il nostro modello di lavoro ibrido flessibile.\n\nOffriamo una vasta gamma di opportunità di formazione sia per il vostro sviluppo professionale che personale, e ci sono eccezionali opportunità di crescita con i piani di sviluppo individuali.\n\n<div dir=\"auto\" style=\" larghezza:calc(100% - 16px)",
-        "en": "If you are looking for an opportunity to dive into big data and get hand-on experience in real-world data engineering challenges, this opportunity is for you.\n\nAs an intern, you will create tools and methods to ensure our data is reliable and ready for analytics.\n\nYour focus will be on designing and implementing tools and solutions for data quality assessment. You will dive into the data and propose new solutions to assess and track data health over time.\n\nYour work will span over the full solution lifecycle, from evaluating existing frameworks to production implementation. You will be part of the R&D Data Operations team, giving you direct exposure to real day-to-day data challenges such as pipeline execution, data cleaning, and handling large volumes of data.\n\nMore about the role\n\n• Perform a literature and state-of-the-art review of data quality methods, and assess their performance and suitability for the required scenario\n\n• Evaluate and assess data pipeline capabilities to design and implement a data profiling tool\n\n• Implement a working prototype of the profiling framework, including selected methods.\n\n• Evaluate the prototype performance and scalability using synthetic data\n\nMore about you\n\n• BSc or MSc in Mathematics, Statistics, Engineering, Computer Science, Physics or a related field\n\n• General understanding of coding environments (Python), dataset handling and statistics and machine learning methods\n\n• Foundations on data engineering and familiarity with data quality concepts\n\n• Strong communication skills with the ability to bridge technical and business perspectives\n\nMore about what we offer\n\nAs one of the world’s leading hearing care providers headquartered in Switzerland, we’re committed to building an inclusive culture. We want to create an environment where you can balance a successful career with your commitments and interests outside of work, through our flexible hybrid working model.\n\nWe offer a wide range of training opportunities for both your professional and personal development, and there are exceptional growth opportunities with individual development plans.\n\n<div dir=\"auto\" style=\" width:calc(100% - 16px) !important;\"",
-        "de": "Wenn Sie nach einer Gelegenheit suchen, in Big Data einzutauchen und praktische Erfahrungen mit realen Data Engineering-Herausforderungen zu sammeln, ist diese Gelegenheit genau das Richtige für Sie.\n\nAls Praktikant erstellen Sie Tools und Methoden, um sicherzustellen, dass unsere Daten zuverlässig und bereit für Analysen sind.\n\nIhr Fokus liegt auf der Gestaltung und Implementierung von Tools und Lösungen für die Bewertung der Datenqualität. Sie werden in die Daten eintauchen und neue Lösungen vorschlagen, um den Datenzustand im Laufe der Zeit zu bewerten und zu verfolgen.\n\nIhre Arbeit erstreckt sich über den gesamten Lösungslebenszyklus, von der Bewertung bestehender Frameworks bis hin zur Implementierung der Produktion. Sie werden Teil des R&D Data Operations-Teams sein und Ihnen einen direkten Einblick in reale tägliche Datenherausforderungen wie Pipelineausführung, Datenbereinigung und Umgang mit großen Datenmengen geben.\n\nMehr über die Rolle\n\n• Führen Sie eine Literatur- und State-of-the-Art-Überprüfung von Datenqualitätsmethoden durch und bewerten Sie deren Leistung und Eignung für das erforderliche Szenario\n\n• Bewerten und Bewerten von Datenpipeline-Fähigkeiten zum Entwerfen und Implementieren eines Datenprofiling-Tools\n\n• Implementieren Sie einen funktionierenden Prototyp des Profiling-Frameworks, einschließlich ausgewählter Methoden.\n\n• Bewerten Sie die Leistung und Skalierbarkeit des Prototyps unter Verwendung synthetischer Daten\n\nMehr über dich\n\n• BSc oder MSc in Mathematik, Statistik, Ingenieurwissenschaften, Informatik, Physik oder einem verwandten Bereich\n\n• Allgemeines Verständnis von Codierungsumgebungen (Python), Datensatzhandling und Statistik sowie Methoden des maschinellen Lernens\n\n• Grundlagen zum Data Engineering und Vertrautheit mit Datenqualitätskonzepten\n\n• Starke Kommunikationsfähigkeit mit der Fähigkeit, technische und geschäftliche Perspektiven zu überbrücken\n\nMehr über das, was wir anbieten\n\nAls einer der weltweit führenden Hörgeräteanbieter mit Hauptsitz in der Schweiz engagieren wir uns für den Aufbau einer inklusiven Kultur. Wir möchten ein Umfeld schaffen, in dem Sie eine erfolgreiche Karriere mit Ihren Verpflichtungen und Interessen außerhalb der Arbeit durch unser flexibles hybrides Arbeitsmodell in Einklang bringen können.\n\nWir bieten eine breite Palette von Ausbildungsmöglichkeiten für Ihre berufliche und persönliche Entwicklung, und es gibt außergewöhnliche Wachstumsmöglichkeiten mit individuellen Entwicklungsplänen.\n\n<div dir=\"auto\" style=\" width:calc(100% - 16px) !wichtig;\"",
-        "fr": "Si vous êtes à la recherche d'une occasion de plonger dans le big data et d'acquérir une expérience pratique dans les défis d'ingénierie de données du monde réel, cette opportunité est pour vous.\n\nEn tant que stagiaire, vous créerez des outils et des méthodes pour s'assurer que nos données sont fiables et prêtes à l'analyse.\n\nVotre objectif sera de concevoir et de mettre en œuvre des outils et des solutions pour l'évaluation de la qualité des données. Vous plongerez dans les données et proposerez de nouvelles solutions pour évaluer et suivre la santé des données au fil du temps.\n\nVotre travail s'étendra sur tout le cycle de vie de la solution, de l'évaluation des cadres existants à la mise en œuvre de la production. Vous ferez partie de l'équipe d'exploitation des données de R-D, ce qui vous permettra d'être directement exposé aux défis quotidiens réels en matière de données, tels que l'exécution des pipelines, le nettoyage des données et le traitement d'un grand nombre de données.\n\nEn savoir plus sur le rôle\n\n• Effectuer un examen de la documentation et des méthodes de qualité des données, et évaluer leur rendement et leur aptitude au scénario requis.\n\n• Évaluer les capacités du pipeline de données pour concevoir et mettre en œuvre un outil de profilage des données\n\n• Mettre en œuvre un prototype de travail du cadre de profilage, y compris certaines méthodes.\n\n• Évaluer la performance et l'évolutivité du prototype à l'aide de données synthétiques\n\nPlus sur vous\n\n• BSc ou MSc en mathématiques, statistiques, génie, informatique, physique ou un domaine connexe\n\n• Compréhension générale des environnements de codage (Python), du traitement des ensembles de données et des statistiques et des méthodes d'apprentissage automatique\n\n• Fondations pour l'ingénierie des données et la connaissance des concepts de qualité des données\n\n• Fortes compétences en communication avec la capacité de rapprocher les perspectives techniques et commerciales\n\nPlus sur ce que nous offrons\n\nEn tant que l'un des principaux fournisseurs de soins auditifs en Suisse, nous sommes engagés à bâtir une culture inclusive. Nous voulons créer un environnement où vous pouvez concilier une carrière réussie avec vos engagements et vos intérêts en dehors du travail, grâce à notre modèle de travail hybride flexible.\n\nNous offrons un large éventail de possibilités de formation pour votre développement professionnel et personnel, et il ya des possibilités de croissance exceptionnelles avec des plans de développement individuels.\n\n<div dir=\"auto\" style=\" largeur:calc(100% - 16px) !important;\""
-      },
-      "location": "Staefa, Switzerland",
-      "canton": "ZH",
-      "url": "https://jobs.sonova.com/job/Staefa-Internship-in-Data-quality-and-engineering-%28mfd%29/1418752833/",
-      "source": "Sonova Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-08-03T22:10:29.323Z",
-      "addressLocality": "Staefa",
-      "addressRegion": "Zürich",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Ingegneria",
-      "employmentType": "OTHER",
-      "experienceLevel": "intern",
-      "sector": "MedTech / Hearing care (hearing aids, cochlear implants, consumer hearing)",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-24",
-      "applyUrl": "https://jobs.sonova.com/talentcommunity/apply/1418752833/?locale=en_US",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "internship-in-data-quality-and-engineering-m-f-d-sonova-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "internship-in-data-quality-and-engineering-m-f-d-sonova-ch"
-        ],
-        "de": [
-          "internship-in-data-quality-and-engineering-m-f-d-sonova-ch"
-        ],
-        "fr": [
-          "internship-in-data-quality-and-engineering-m-f-d-sonova-ch"
-        ]
-      },
-      "firstSeenAt": "2026-07-24T22:05:37.977Z",
-      "salaryMin": 62000,
-      "salaryMax": 94000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 94000,
           "unitText": "YEAR"
         }
       }

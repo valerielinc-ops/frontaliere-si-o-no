@@ -1,6 +1,6 @@
 {
   "crawlerKey": "unispital-basel",
-  "assembledAt": "2026-08-03T22:16:36.357Z",
+  "assembledAt": "2026-08-04T11:17:51.587Z",
   "jobs": [
     {
       "id": "unispital-basel-7e895057a061",
@@ -4027,84 +4027,6 @@
         "assistente-medico-mpa-universitatsspital-basel-basel"
       ],
       "firstSeenAt": "2026-05-27T00:38:44.886Z",
-      "salaryMin": 62000,
-      "salaryMax": 94000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 94000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "unispital-basel-9d0424689001",
-      "slug": "dipl-infermieristica-specialista-hf-fh-medicina-acuta-universitatsspital-basel-basel",
-      "slugByLocale": {
-        "it": "dipl-infermieristica-specialista-hf-fh-medicina-acuta-universitatsspital-basel-basel",
-        "en": "dipl-nursing-specialist-hf-fh-acute-medicine-universitatsspital-basel-basel",
-        "de": "dipl-pflegefachfrau-pflegefachmann-hf-fh-akutmedizin-unispital-basel-ch",
-        "fr": "dipl-specialiste-des-soins-infirmiers-hf-fh-medecine-aigue-universitatsspital-basel-basel"
-      },
-      "company": "Universitätsspital Basel",
-      "companyKey": "unispital-basel",
-      "companyDomain": "unispital-basel.ch",
-      "title": "Dipl. Pflegefachfrau/Pflegefachmann HF/FH Akutmedizin",
-      "titleByLocale": {
-        "it": "Dipl. Pflegefachfrau/Pflegefachmann HF/FH Akutmedizin",
-        "en": "Dipl. Nursing specialist HF/FH acute medicine",
-        "de": "Dipl. Pflegefachfrau/Pflegefachmann HF/FH Akutmedizin",
-        "fr": "Dipl. Spécialiste des soins infirmiers HF/FH médecine aiguë"
-      },
-      "description": "Aufgaben:\n• Professionelle Pflege, Begleitung und Unterstützung unserer Patientinnen und Patienten\n\n• Selbständige Organisation des eigenen Arbeitsbereiches\n\n• Punktuelle Anleitung und Betreuung von Lernenden verschiedener Berufsgruppen (HF/FH, FaGe)\n\n• Zielorientierte Zusammenarbeit und Vernetzung\n\nAnforderungen:\n• Abgeschlossene Berufsausbildung als dipl. Pflegefachfrau/Pflegefachmann HF/FH mit Erfahrung, vorzugsweise im Akutbereich\n\n• Motivation zur Mitgestaltung und Weiterentwicklung pflegerischer Standards und Prozesse\n\n• Interesse an Teamentwicklung und die Fähigkeit zur produktiven Zusammenarbeit in interprofessionellen Teams\n\n• Flexibilität und Bereitschaft sich auf fortlaufende Veränderungen in einem dynamischen Umfeld einzulassen\n\n• Freude am Pflegeberuf mit der Fachrichtung Innere Medizin und dermatologische Erkrankungen\n\nWir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n\n• Unterstützung bei Umzug und Wohnungssuche\n\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n\n• Campus im Herzen Basels und im Dreiländereck\n\n• Umfassende Kinderbetreuungsmöglichkeiten\n\n• Kostenloses Sport- und Bewegungsprogramm",
-      "descriptionByLocale": {
-        "it": "Compiti:\n• Assistenza professionale, supporto e supporto dei nostri pazienti\n• Organizzazione indipendente della propria area di lavoro\n• Guida selettiva e supervisione degli studenti di diversi gruppi professionali (HF/FH, FaGe)\n• Cooperazione e rete orientate agli obiettivi Requisiti\n• Formazione professionale completa come dipl. Specialista infermieristico HF/FH con esperienza, preferibilmente nel campo acuto\n• Motivazione per la co-creazione e l'ulteriore sviluppo di standard e processi di coltivazione\n• Interessi nello sviluppo del team e la capacità di collaborare in modo produttivo ai team interprofessionali\n• Flessibilità e volontà di impegnarsi in un cambiamento continuo in un ambiente dinamico\n• Divertimento della professione di infermiera con la specializzazione Medicina Interna e Malattie Dermatologiche Offriamo:\n• Politica salariale attraente e benefici sociali eccellenti\n• Vantaggi per shopping, sport e tempo libero\n• Assistenza nel trasferimento e nella ricerca di alloggi\n• 25 giorni di vacanza plus 5 anche free flexitage\n• Sostegno all'ulteriore istruzione e alla pianificazione della carriera\n• Campus nel cuore di Basilea e l'angolo trinazionale\n• Servizi per l'infanzia completi\n• Programma gratuito di sport ed esercizio",
-        "en": "Tasks:\n• Professional care, support and support of our patients\n• Independent organisation of own work area\n• Selective guidance and supervision of learners of different professional groups (HF/FH, FaGe)\n• Goal-oriented cooperation and networking Requirements\n• Completed vocational training as dipl. Nursing specialist HF/FH with experience, preferably in the acute field\n• Motivation for co-creation and further development of nurturing standards and processes\n• Interest in team development and the ability to collaborate productively in interprofessional teams\n• Flexibility and willingness to engage in ongoing change in a dynamic environment\n• Enjoyment of the nursing profession with the specialization Internal Medicine and Dermatological Diseases We offer:\n• Attractive wage policy and excellent social benefits\n• Advantages for shopping, sports and leisure\n• Assistance in moving and finding accommodation\n• 25 holiday days plus 5 also free flexitage\n• Support for further education and career planning\n• Campus in the heart of Basel and the Trinational Corner\n• Comprehensive childcare facilities\n• Free Sports and Exercise Program",
-        "de": "Aufgaben:\n• Professionelle Pflege, Begleitung und Unterstützung unserer Patientinnen und Patienten\n\n• Selbständige Organisation des eigenen Arbeitsbereiches\n\n• Punktuelle Anleitung und Betreuung von Lernenden verschiedener Berufsgruppen (HF/FH, FaGe)\n\n• Zielorientierte Zusammenarbeit und Vernetzung\n\nAnforderungen:\n• Abgeschlossene Berufsausbildung als dipl. Pflegefachfrau/Pflegefachmann HF/FH mit Erfahrung, vorzugsweise im Akutbereich\n\n• Motivation zur Mitgestaltung und Weiterentwicklung pflegerischer Standards und Prozesse\n\n• Interesse an Teamentwicklung und die Fähigkeit zur produktiven Zusammenarbeit in interprofessionellen Teams\n\n• Flexibilität und Bereitschaft sich auf fortlaufende Veränderungen in einem dynamischen Umfeld einzulassen\n\n• Freude am Pflegeberuf mit der Fachrichtung Innere Medizin und dermatologische Erkrankungen\n\nWir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n\n• Unterstützung bei Umzug und Wohnungssuche\n\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n\n• Campus im Herzen Basels und im Dreiländereck\n\n• Umfassende Kinderbetreuungsmöglichkeiten\n\n• Kostenloses Sport- und Bewegungsprogramm",
-        "fr": "Tâches :\n• Soins professionnels, soutien et soutien de nos patients\n• Organisation indépendante de son propre domaine de travail\n• Orientation et supervision sélectives des apprenants de différents groupes professionnels (HF/FH, FaGe)\n• Coopération et mise en réseau axées sur les objectifs Exigences\n• Achevé la formation professionnelle comme dipl. Spécialiste des soins infirmiers HF/FH avec expérience, de préférence dans le domaine aigu\n• Motivation pour la co-création et le développement des normes et des processus d'éducation\n• Intérêt pour le développement d'équipes et la capacité de collaborer de manière productive dans les équipes interprofessionnelles\n• Souplesse et volonté de s ' engager dans un changement continu dans un environnement dynamique\n• Appréciation de la profession infirmière avec spécialisation Médecine interne et maladies dermatologiques Nous offrons:\n• Une politique salariale attrayante et d'excellentes prestations sociales\n• Avantages pour le shopping, le sport et les loisirs\n• Aide au déménagement et à la recherche de logements\n• 25 jours de vacances plus 5 flexitage gratuit\n• Appui à la formation continue et à la planification des carrières\n• Campus au cœur de Bâle et du Coin Trinational\n• Établissements complets de garde d ' enfants\n• Programme de sports et d'exercices gratuits"
-      },
-      "location": "Basel",
-      "canton": "BS",
-      "url": "https://job.unispital-basel.ch/offene-stellen/dipl-pflegefachfrau-pflegefachmann-hf-fh-akutmedizin/402493a8-c2dc-456c-8931-9fee87cc5cb9",
-      "source": "USB Dedicated Parser (Prospective API)",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-03T22:15:53.188Z",
-      "addressLocality": "Basel",
-      "addressRegion": "BS",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "4031",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-03",
-      "applyUrl": "https://career012.successfactors.eu/career?company=USB&career_ns=job_application&career_job_req_id=27417",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "dipl-pflegefachfrau-pflegefachmann-hf-fh-akutmedizin-unispital-basel-ch",
-        "dipl-pflegefachfrau-pflegefachmann-hf-fh-akutmedizin-universitatsspital-basel-basel"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "dipl-pflegefachfrau-pflegefachmann-hf-fh-akutmedizin-unispital-basel-ch",
-          "dipl-pflegefachfrau-pflegefachmann-hf-fh-akutmedizin-universitatsspital-basel-basel"
-        ],
-        "en": [
-          "dipl-pflegefachfrau-pflegefachmann-hf-fh-akutmedizin-unispital-basel-ch"
-        ],
-        "fr": [
-          "dipl-pflegefachfrau-pflegefachmann-hf-fh-akutmedizin-unispital-basel-ch"
-        ]
-      },
-      "firstSeenAt": "2026-07-03T12:46:13.904Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {

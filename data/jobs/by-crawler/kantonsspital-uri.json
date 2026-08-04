@@ -1,6 +1,6 @@
 {
   "crawlerKey": "kantonsspital-uri",
-  "assembledAt": "2026-08-03T22:24:03.668Z",
+  "assembledAt": "2026-08-04T10:41:00.891Z",
   "jobs": [
     {
       "id": "kantonsspital-uri-a7ca34ef560a",
@@ -937,83 +937,6 @@
           "@type": "QuantitativeValue",
           "minValue": 96000,
           "maxValue": 146000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "kantonsspital-uri-7282ae1c3b0d",
-      "slug": "apprendistato-medizinische-r-praxisassistent-in-cfc-m-w-d-kantonsspital-uri-altdorf",
-      "slugByLocale": {
-        "it": "apprendistato-medizinische-r-praxisassistent-in-cfc-m-w-d-kantonsspital-uri-altdorf",
-        "en": "apprenticeship-medical-practice-assistant-efz-f-m-d-kantonsspital-uri-altdorf",
-        "de": "lehrstelle-medizinische-r-praxisassistent-in-efz-w-m-d-kantonsspital-uri-altdorf",
-        "fr": "assistant-en-pratique-medicale-en-apprentissage-efz-f-m-d-kantonsspital-uri-altdorf"
-      },
-      "company": "Kantonsspital Uri",
-      "companyKey": "kantonsspital-uri",
-      "companyDomain": "ksuri.ch",
-      "title": "Lehrstelle Medizinische/r Praxisassistent/in EFZ (w/m/d)",
-      "titleByLocale": {
-        "it": "Apprendistato Assistente Pratica Medica EFZ (f/m/d)",
-        "en": "Apprenticeship Medical Practice Assistant EFZ (f/m/d)",
-        "de": "Lehrstelle Medizinische/r Praxisassistent/in EFZ (w/m/d)",
-        "fr": "Assistant en pratique médicale en apprentissage EFZ (f/m/d)"
-      },
-      "description": "Deine Aufgaben während der Ausbildung::\nBei uns lernst du alles, was du für den Alltag als Medizinische:r Praxisassistent:in brauchst. Du bist von Anfang an Teil unseres Teams:\n• Patientinnen und Patienten herzlich empfangen und betreuen\n• Ärztinnen und Ärzte bei Untersuchungen, Sprechstunden und kleinen Eingriffen unterstützen\n• Laboruntersuchungen durchführen und Ergebnisse auswerten\n• Röntgenaufnahmen, EKGs und Lungenfunktionstests begleiten\n• Infusionen und Injektionen unter Anleitung verabreichen\n• Termine planen, Dokumentationen führen und Abläufe organisieren",
-      "descriptionByLocale": {
-        "it": "I tuoi compiti durante la formazione: Con noi imparerai tutto ciò di cui hai bisogno nella vita quotidiana come assistente medico. Farai parte del nostro team fin dall'inizio:\n• Accoglienza calorosa e assistenza ai pazienti\n• Supporto ai medici con esami, consulenze e procedure minori\n• Eseguire esami di laboratorio e valutare i risultati\n• Accompagnare radiografie, ECG e test di funzionalità polmonare\n• Somministrare infusioni e iniezioni sotto guida\n• Pianificare appuntamenti, conservare documentazione e organizzare i processi",
-        "en": "Your tasks during the training: With us, you will learn everything you need for everyday life as a medical practice assistant. You will be part of our team from the very beginning:\n• Warmly welcome and care for patients\n• Support doctors with examinations, consultations and minor procedures\n• Carry out laboratory tests and evaluate results\n• Accompany X-rays, ECGs and lung function tests\n• Administer infusions and injections under guidance\n• Plan appointments, keep documentation and organize processes",
-        "de": "Deine Aufgaben während der Ausbildung::\nBei uns lernst du alles, was du für den Alltag als Medizinische:r Praxisassistent:in brauchst. Du bist von Anfang an Teil unseres Teams:\n• Patientinnen und Patienten herzlich empfangen und betreuen\n• Ärztinnen und Ärzte bei Untersuchungen, Sprechstunden und kleinen Eingriffen unterstützen\n• Laboruntersuchungen durchführen und Ergebnisse auswerten\n• Röntgenaufnahmen, EKGs und Lungenfunktionstests begleiten\n• Infusionen und Injektionen unter Anleitung verabreichen\n• Termine planen, Dokumentationen führen und Abläufe organisieren",
-        "fr": "Vos tâches pendant la formation : Avec nous, vous apprendrez tout ce dont vous avez besoin pour la vie quotidienne en tant qu'assistant médical. Vous ferez partie de notre équipe dès le tout début :\n• Accueillir chaleureusement et prendre soin des patients\n• Soutenir les médecins lors des examens, consultations et interventions mineures\n• Réaliser des analyses de laboratoire et évaluer les résultats\n• Accompagner les radiographies, ECG et tests de fonction pulmonaire\n• Administrer des perfusions et injections sous supervision\n• Planifier les rendez-vous, conserver la documentation et organiser les processus"
-      },
-      "needsRetranslation": false,
-      "location": "Altdorf",
-      "canton": "UR",
-      "url": "https://stellen.ksuri.ch/Lehrstelle-Medizinischer-Praxisassistentin-EFZ-wmd-de-j421.html",
-      "source": "Kantonsspital Uri Dedicated Parser (rexx systems stellen.ksuri.ch)",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-03T22:23:54.631Z",
-      "addressLocality": "Altdorf",
-      "addressRegion": "UR",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "6460",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-12",
-      "applyUrl": "https://stellen.ksuri.ch/Lehrstelle-Medizinischer-Praxisassistentin-EFZ-wmd-de-j421.html",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "lehrstelle-medizinische-r-praxisassistent-in-efz-w-m-d-kantonsspital-uri-altdorf"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "lehrstelle-medizinische-r-praxisassistent-in-efz-w-m-d-kantonsspital-uri-altdorf"
-        ],
-        "en": [
-          "lehrstelle-medizinische-r-praxisassistent-in-efz-w-m-d-kantonsspital-uri-altdorf"
-        ],
-        "fr": [
-          "lehrstelle-medizinische-r-praxisassistent-in-efz-w-m-d-kantonsspital-uri-altdorf"
-        ]
-      },
-      "firstSeenAt": "2026-06-12T12:21:33.114Z",
-      "salaryMin": 58500,
-      "salaryMax": 89000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 58500,
-          "maxValue": 89000,
           "unitText": "YEAR"
         }
       }
