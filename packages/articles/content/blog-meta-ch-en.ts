@@ -1825,6 +1825,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.emigrazione-tasse-obblighi-dopo-partenza.title': 'Emigrating from Switzerland: what happens to taxes after departure',
     'blog.article.emigrazione-tasse-obblighi-dopo-partenza.excerpt': 'After leaving Switzerland in May 2025, the payment of taxes does not always end. Here is what the legislation provides for those who move abroad.',
     'blog.article.emigrazione-tasse-obblighi-dopo-partenza.imageAlt': 'Person reviewing tax documents with Zurich skyline visible, symbolizing Swiss emigration and tax obligations after leaving the country.',
+    'blog.article.banche-cercano-piu-personale.title': 'More Banks looking for more staff, announcements +14% in July',
+    'blog.article.banche-cercano-piu-personale.excerpt': 'The number of job postings in Swiss banks increased by 14% in July 2026.',
+    'blog.article.banche-cercano-piu-personale.imageAlt': 'Swiss banks looking for staff in July 2026',
 };
 
 export default blogMetaChEn;
