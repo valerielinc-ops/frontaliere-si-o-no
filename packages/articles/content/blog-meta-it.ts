@@ -9236,6 +9236,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.littering-lavoro-e-aviatione-novita-del-1-augusto.title': 'Littering, lavoro e aviazione: le novità del 1° agosto',
     'blog.article.littering-lavoro-e-aviatione-novita-del-1-augusto.excerpt': 'Dalle multe per il littering alla proroga del lavoro ridotto, ecco le novità del 1° agosto.',
     'blog.article.littering-lavoro-e-aviatione-novita-del-1-augusto.imageAlt': 'Vista panoramica di Lugano con il lago e le montagne',
+    'blog.article.lucibello-disti-verifica-fondi.title': 'Lucibello: «Nessun arricchimento personale o uso fraudolento di fondi»',
+    'blog.article.lucibello-disti-verifica-fondi.excerpt': 'Il presidente di Disti si difende dall\'accusa di utilizzo improprio di fondi, assicurando trasparenza e rispetto delle procedure.',
+    'blog.article.lucibello-disti-verifica-fondi.imageAlt': 'Vista aerea di Lugano con il centro città e il Lago di Lugano sullo sfondo',
 };
 
 export default blogMetaIt;
