@@ -1,35 +1,33 @@
 {
   "key": "spital-zollikerberg",
   "label": "Spital Zollikerberg",
-  "generatedAt": "2026-08-03T22:10:52.837Z",
+  "generatedAt": "2026-08-04T11:32:02.698Z",
   "total": 8,
   "newCount": 0,
-  "updatedCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 40908,
-  "avgDurationMs": 40908,
+  "unchangedCount": 0,
+  "durationMs": 36682,
+  "avgDurationMs": 36682,
   "durationHistory": [
-    40908
+    36682
   ],
   "newJobs": [],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "updatedJobs": [
     {
-      "id": "spital-zollikerberg-befd15f752f4",
-      "slug": "expert-expert-care-spital-zollikerberg-zollikerberg",
+      "id": "spital-zollikerberg-06888fd58913",
+      "slug": "formazione-professionale-formazione-professionale-specialista-salute-presso-la-stazione-privata-interdisciplinare-8af16a",
       "company": "Spital Zollikerberg",
       "companyKey": "spital-zollikerberg",
       "companyDomain": "spitalzollikerberg.ch",
-      "title": "Fachexpertin / Fachexperte Pflege",
+      "title": "Berufsbildnerin / Berufsbildner Fachmann / Fachfrau Gesundheit auf der interdisziplinären Privatstation 1",
       "needsRetranslation": false,
       "location": "Zollikerberg",
       "canton": "ZH",
-      "url": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=22d8121f-3819-41ca-8df6-b6874d8147ef,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
+      "url": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=a94d0bcc-a57b-4cf9-8c89-2b43169ecec5,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "source": "Spital Zollikerberg Dedicated Parser (Next.js SSR listing + PI-ASP Playwright detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-02T21:57:43.095Z",
+      "crawledAt": "2026-08-03T12:32:36.592Z",
       "addressLocality": "Zollikerberg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -43,18 +41,20 @@
       "currency": "CHF",
       "featured": false,
       "postedDate": "2026-06-15",
-      "applyUrl": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=22d8121f-3819-41ca-8df6-b6874d8147ef,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
+      "applyUrl": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=a94d0bcc-a57b-4cf9-8c89-2b43169ecec5,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "firstSeenAt": "2026-05-19T12:20:47.142Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "crawlerMissStreak": 2,
-      "_qualityScore": 88,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 23,
+        "translation": 25,
         "completeness": 22
       }
     }
-  ]
+  ],
+  "removedJobs": [],
+  "unchangedJobs": []
 }
