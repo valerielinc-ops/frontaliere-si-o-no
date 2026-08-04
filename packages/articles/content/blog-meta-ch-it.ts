@@ -1804,6 +1804,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.swiss-fatturato-costi-carburante-conseguenze.title': 'Swiss, sale il fatturato, cala l\'utile',
     'blog.article.swiss-fatturato-costi-carburante-conseguenze.excerpt': 'Il fatturato della Swiss è aumentato del 3,2% nel primo semestre 2026, ma l\'utile operativo è diminuito del 3,2%.',
     'blog.article.swiss-fatturato-costi-carburante-conseguenze.imageAlt': 'Immagine di un aereo che decolla dall\'aeroporto di Lugano con una bandiera svizzera sventolante.',
+    'blog.article.rientro-in-svizzera-senza-lavoro-guida.title': 'Rientro in Svizzera senza lavoro: cosa sapere prima',
+    'blog.article.rientro-in-svizzera-senza-lavoro-guida.excerpt': 'Nel dicembre 2024 l’OSE ha ricevuto 240 richieste di informazioni per il rientro. I diritti e le procedure per chi cerca lavoro al rientro.',
+    'blog.article.rientro-in-svizzera-senza-lavoro-guida.imageAlt': 'Ufficio di collocamento a Lugano con bandiera svizzera, simboleggia il rientro in Svizzera e la ricerca di lavoro per i frontalieri',
 };
 
 export default blogMetaChIt;

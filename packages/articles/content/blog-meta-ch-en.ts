@@ -1804,6 +1804,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.swiss-fatturato-costi-carburante-conseguenze.title': 'Swiss, turnover rises, profit falls',
     'blog.article.swiss-fatturato-costi-carburante-conseguenze.excerpt': 'Swiss\'s turnover increased by 3.2% in the first half of 2026, but operating profit decreased by 3.2%.',
     'blog.article.swiss-fatturato-costi-carburante-conseguenze.imageAlt': 'Image of a plane taking off from Lugano Airport with a Swiss flag waving.',
+    'blog.article.rientro-in-svizzera-senza-lavoro-guida.title': 'Return to Switzerland without a job: what to know first',
+    'blog.article.rientro-in-svizzera-senza-lavoro-guida.excerpt': 'In December 2024, the SBI received 240 requests for information for re-entry. The rights and procedures for those looking for work upon return.',
+    'blog.article.rientro-in-svizzera-senza-lavoro-guida.imageAlt': 'Job center office in Lugano with Swiss flag, symbolizing returning to Switzerland and job search for cross-border workers',
 };
 
 export default blogMetaChEn;

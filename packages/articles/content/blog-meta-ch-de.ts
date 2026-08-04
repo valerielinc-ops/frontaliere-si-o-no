@@ -1804,6 +1804,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.swiss-fatturato-costi-carburante-conseguenze.title': 'Swiss, Umsatz steigt, Gewinn sinkt',
     'blog.article.swiss-fatturato-costi-carburante-conseguenze.excerpt': 'Der Umsatz der Swiss stieg im ersten Halbjahr 2026 um 3,2%, das operative Ergebnis sank jedoch um 3,2%.',
     'blog.article.swiss-fatturato-costi-carburante-conseguenze.imageAlt': 'Bild eines Flugzeugs, das vom Flughafen Lugano abhebt, mit einer Schweizer Flagge wehend.',
+    'blog.article.rientro-in-svizzera-senza-lavoro-guida.title': 'Arbeitslose Rückkehr in die Schweiz: Was Sie zuerst wissen sollten',
+    'blog.article.rientro-in-svizzera-senza-lavoro-guida.excerpt': 'Im Dezember 2024 gingen bei der ASO 240 Auskunftsersuchen zur Rückkehr ein. Die Rechte und Verfahren für Arbeitssuchende bei der Rückkehr.',
+    'blog.article.rientro-in-svizzera-senza-lavoro-guida.imageAlt': 'Arbeitsvermittlungsbüro in Lugano mit Schweizer Flagge, Symbol für Rückkehr in die Schweiz und Jobsuche für Grenzgänger',
 };
 
 export default blogMetaChDe;
