@@ -1,18 +1,19 @@
 {
   "key": "rieter",
   "label": "Rieter",
-  "generatedAt": "2026-08-04T11:33:13.786Z",
+  "generatedAt": "2026-08-04T22:16:31.183Z",
   "total": 6,
-  "newCount": 1,
-  "updatedCount": 5,
+  "newCount": 0,
+  "updatedCount": 6,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 8668,
-  "avgDurationMs": 8668,
+  "durationMs": 8594,
+  "avgDurationMs": 8594,
   "durationHistory": [
-    8668
+    8594
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "rieter-b24c2360cc8b",
       "slug": "trainer-customer-training-rieter-winterthur",
@@ -25,7 +26,7 @@
       "url": "https://live.solique.ch/rieter/en/jobs/Trainer-Customer-Training--4048838",
       "source": "Rieter Dedicated Parser (Solique)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-04T11:33:09.893Z",
+      "crawledAt": "2026-08-04T22:16:27.565Z",
       "addressLocality": "Winterthur",
       "addressRegion": "Zürich",
       "streetAddress": "Klosterstrasse 20",
@@ -42,16 +43,15 @@
       "applyUrl": "https://live.solique.ch/rieter/en/jobs/Trainer-Customer-Training--4048838",
       "jobReqId": "2602160915jg",
       "employerBrand": "Rieter AG",
-      "_qualityScore": 67,
+      "firstSeenAt": "2026-08-04T11:33:09.893Z",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "rieter-5e3fee4d2cd7",
       "slug": "product-manager-automation-100-w-m-d-rieter-winterthur",
@@ -64,7 +64,7 @@
       "url": "https://live.solique.ch/rieter/en/jobs/Product-Manager-Automation-100-wmd---4048539",
       "source": "Rieter Dedicated Parser (Solique)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-04T11:33:08.095Z",
+      "crawledAt": "2026-08-04T22:16:25.726Z",
       "addressLocality": "Winterthur",
       "addressRegion": "Zürich",
       "streetAddress": "Klosterstrasse 20",
@@ -102,7 +102,7 @@
       "url": "https://live.solique.ch/rieter/en/jobs/SAP-Senior-Consultant-Service-and-Repair-CS-100-wmd---4048335",
       "source": "Rieter Dedicated Parser (Solique)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-04T11:33:08.694Z",
+      "crawledAt": "2026-08-04T22:16:26.348Z",
       "addressLocality": "Winterthur",
       "addressRegion": "Zürich",
       "streetAddress": "Klosterstrasse 20",
@@ -140,7 +140,7 @@
       "url": "https://live.solique.ch/rieter/en/jobs/Application-Expert-CAD-PLM-100-wmd---4047046",
       "source": "Rieter Dedicated Parser (Solique)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-04T11:33:07.502Z",
+      "crawledAt": "2026-08-04T22:16:25.116Z",
       "addressLocality": "Winterthur",
       "addressRegion": "Zürich",
       "streetAddress": "Klosterstrasse 20",
@@ -178,7 +178,7 @@
       "url": "https://live.solique.ch/rieter/en/jobs/Senior-System-Engineer-100-wmd---4046390",
       "source": "Rieter Dedicated Parser (Solique)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-04T11:33:09.297Z",
+      "crawledAt": "2026-08-04T22:16:26.967Z",
       "addressLocality": "Winterthur",
       "addressRegion": "Zürich",
       "streetAddress": "Klosterstrasse 20",
@@ -216,7 +216,7 @@
       "url": "https://live.solique.ch/rieter/en/jobs/Application-Engineer-Technology-Preparation-100-wmd---4042993",
       "source": "Rieter Dedicated Parser (Solique)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-04T11:33:06.900Z",
+      "crawledAt": "2026-08-04T22:16:24.475Z",
       "addressLocality": "Winterthur",
       "addressRegion": "Zürich",
       "streetAddress": "Klosterstrasse 20",
