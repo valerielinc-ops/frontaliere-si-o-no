@@ -5473,6 +5473,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'banche-cercano-piu-personale',
+    category: 'fiscale',
+    date: '2026-08-04T19:28:06.775Z',
+    image: '/images/blog/banche-cercano-piu-personale.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

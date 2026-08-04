@@ -1825,6 +1825,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.emigrazione-tasse-obblighi-dopo-partenza.title': 'Auswandern aus der Schweiz: Was passiert mit den Steuern nach der Ausreise?',
     'blog.article.emigrazione-tasse-obblighi-dopo-partenza.excerpt': 'Nach der Ausreise aus der Schweiz im Mai 2025 endet die Steuerzahlung nicht immer. Hier ist, was das Gesetz für diejenigen vorsieht, die ins Ausland ziehen.',
     'blog.article.emigrazione-tasse-obblighi-dopo-partenza.imageAlt': 'Person, die Steuerdokumente durchgeht mit Blick auf die Zürcher Skyline, Symbol für Steuerpflichten nach Auswanderung aus der Schweiz.',
+    'blog.article.banche-cercano-piu-personale.title': 'Mehr Banken suchen mehr Personal, Inserate +14% im Juli',
+    'blog.article.banche-cercano-piu-personale.excerpt': 'Die Zahl der Stellenausschreibungen in Schweizer Banken stieg im Juli 2026 um 14%.',
+    'blog.article.banche-cercano-piu-personale.imageAlt': 'Schweizer Banken suchen Personal im Juli 2026',
 };
 
 export default blogMetaChDe;

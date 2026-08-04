@@ -1825,6 +1825,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.emigrazione-tasse-obblighi-dopo-partenza.title': 'Emigrare dalla Svizzera: cosa succede alle tasse dopo la partenza',
     'blog.article.emigrazione-tasse-obblighi-dopo-partenza.excerpt': 'Dopo aver lasciato la Svizzera nel maggio 2025, il pagamento delle tasse non sempre finisce. Ecco cosa prevede la normativa per chi si trasferisce all’estero.',
     'blog.article.emigrazione-tasse-obblighi-dopo-partenza.imageAlt': 'Persona che esamina documenti fiscali con panorama di Zurigo sullo sfondo, simbolo degli obblighi tributari dopo l\'emigrazione dalla Svizzera.',
+    'blog.article.banche-cercano-piu-personale.title': 'Di più Banche cercano più personale, annunci +14% in luglio',
+    'blog.article.banche-cercano-piu-personale.excerpt': 'Il numero di annunci di lavoro nelle banche svizzere è aumentato del 14% in luglio 2026.',
+    'blog.article.banche-cercano-piu-personale.imageAlt': 'Banche svizzere che cercano personale in luglio 2026',
 };
 
 export default blogMetaChIt;
