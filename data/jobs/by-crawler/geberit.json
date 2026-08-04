@@ -1428,8 +1428,8 @@
       "slugByLocale": {
         "de": "sachbearbeiter-kundendienst-innendienst-a-60-100-geberit-ch",
         "it": "sachbearbeiter-kundendienst-servizio-interno-a-60-100-geberit-rapperswil-jona",
-        "en": "sachbearbeiter-kundendienst-innendienst-a-60-100-geberit-ch",
-        "fr": "sachbearbeiter-kundendienst-innendienst-a-60-100-geberit-ch"
+        "en": "in-house-service-a-60-100-geberit-rapperswil-jona",
+        "fr": "service-interne-a-60-100-geberit-rapperswil-jona"
       },
       "company": "Geberit",
       "companyKey": "geberit",
@@ -1473,8 +1473,6 @@
         "de": []
       },
       "previousSlugs": [
-        "in-house-service-a-60-100-geberit-rapperswil-jona",
-        "service-interne-a-60-100-geberit-rapperswil-jona",
         "sachbearbeiter-kundendienst-innendienst-a-60-100-geberit-ch"
       ],
       "previousSlugsByLocale": {
@@ -1482,11 +1480,9 @@
           "sachbearbeiter-kundendienst-innendienst-a-60-100-geberit-ch"
         ],
         "en": [
-          "in-house-service-a-60-100-geberit-rapperswil-jona",
           "sachbearbeiter-kundendienst-innendienst-a-60-100-geberit-ch"
         ],
         "fr": [
-          "service-interne-a-60-100-geberit-rapperswil-jona",
           "sachbearbeiter-kundendienst-innendienst-a-60-100-geberit-ch"
         ]
       },
