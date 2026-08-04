@@ -1,16 +1,16 @@
 {
   "key": "migros-hq",
   "label": "Migros HQ Zürich",
-  "generatedAt": "2026-08-04T11:42:16.269Z",
+  "generatedAt": "2026-08-04T22:31:23.204Z",
   "total": 5,
   "newCount": 0,
   "updatedCount": 5,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 9973,
-  "avgDurationMs": 9973,
+  "durationMs": 9859,
+  "avgDurationMs": 9859,
   "durationHistory": [
-    9973
+    9859
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -26,7 +26,7 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/migros-genossenschafts-bund/product-owner-servicenow-plattform-basis-wmd/5ebe9a24-db13-4fee-a3b1-b041531b7f2b",
       "source": "Migros HQ Zürich Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-04T11:42:11.846Z",
+      "crawledAt": "2026-08-04T22:31:18.770Z",
       "addressLocality": "Zürich",
       "streetAddress": "Limmatstrasse 152",
       "postalCode": "8005",
@@ -63,7 +63,7 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/migros-genossenschafts-bund/product-owner-it-service-management-prozesse-wmd/1154b515-4e45-4735-a454-ac9d1965f08c",
       "source": "Migros HQ Zürich Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-04T11:42:11.858Z",
+      "crawledAt": "2026-08-04T22:31:18.779Z",
       "addressLocality": "Zürich",
       "streetAddress": "Limmatstrasse 152",
       "postalCode": "8005",
@@ -100,7 +100,7 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/migros-genossenschafts-bund/senior-fullstack-software-engineer-wmd/09ccf7b4-dac3-4044-8c6b-e99ce019a15e",
       "source": "Migros HQ Zürich Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-04T11:42:11.866Z",
+      "crawledAt": "2026-08-04T22:31:18.784Z",
       "addressLocality": "Zürich",
       "streetAddress": "Limmatstrasse 152",
       "postalCode": "8005",
@@ -137,7 +137,7 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/migros-genossenschafts-bund/projektleiterin-automatisierung-anlagen-und-logistik/cb447da7-1318-4e75-b069-13e7d80a8619",
       "source": "Migros HQ Zürich Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-04T11:42:11.862Z",
+      "crawledAt": "2026-08-04T22:31:18.780Z",
       "addressLocality": "Zürich",
       "streetAddress": "Limmatstrasse 152",
       "postalCode": "8005",
@@ -174,7 +174,7 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/migros-genossenschafts-bund/senior-data-engineer-beschaffung-logistik-wmd/89d6b64c-1257-4082-bd93-ec8e89d52bd5",
       "source": "Migros HQ Zürich Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-04T11:42:11.864Z",
+      "crawledAt": "2026-08-04T22:31:18.782Z",
       "addressLocality": "Zürich",
       "streetAddress": "Limmatstrasse 152",
       "postalCode": "8005",
@@ -190,6 +190,7 @@
       "featured": false,
       "postedDate": "2026-06-24",
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/migros-genossenschafts-bund/senior-data-engineer-beschaffung-logistik-wmd/89d6b64c-1257-4082-bd93-ec8e89d52bd5",
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-08T11:17:49.455Z",
       "_qualityScore": 94,
       "_qualityBreakdown": {
@@ -200,47 +201,6 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "id": "migros-hq-eda0ae7d66f5",
-      "slug": "senior-project-manager-nell-edilizia-e-nelle-infrastrutture-migros-genossenschafts-bund-zurich-u7n9c0",
-      "company": "Migros HQ Zürich",
-      "companyKey": "migros-hq",
-      "companyDomain": "migros.ch",
-      "title": "Senior Projektleiter*in Bauherrenvertretung Bau und Infrastruktur",
-      "location": "Zürich",
-      "canton": "ZH",
-      "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/migros-genossenschafts-bund/senior-projektleiterin-bauherrenvertretung-bau-und-infrastruktur/e687a82e-f5d7-4821-ad27-485c45d57e9a",
-      "source": "Migros HQ Zürich Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-02T22:02:18.513Z",
-      "addressLocality": "Zürich",
-      "streetAddress": "Limmatstrasse 152",
-      "postalCode": "8005",
-      "addressRegion": "Zürich",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
-      "sector": "Retail",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-05",
-      "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/migros-genossenschafts-bund/senior-projektleiterin-bauherrenvertretung-bau-und-infrastruktur/e687a82e-f5d7-4821-ad27-485c45d57e9a",
-      "firstSeenAt": "2026-07-08T11:17:49.451Z",
-      "salaryMin": 101500,
-      "salaryMax": 154000,
-      "crawlerMissStreak": 2,
-      "_qualityScore": 99,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 25,
-        "completeness": 25
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }
