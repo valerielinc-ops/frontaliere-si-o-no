@@ -1,6 +1,6 @@
 {
   "crawlerKey": "fust",
-  "assembledAt": "2026-08-04T11:56:23.429Z",
+  "assembledAt": "2026-08-04T10:29:09.184Z",
   "jobs": [
     {
       "id": "company-61viq3",
@@ -786,6 +786,7 @@
           "montatore-trice-di-impianti-sanitari-per-cucine-bagni-fust-bellinzona-ticino",
           "montatore-trice-di-impianti-sanitari-per-cucine-bagni-fust-bellinzona-ticino-o2tf7s",
           "montatore-trice-di-impianti-sanitari-per-cucine-bagni-fust-swiss-household-services-ag-bellinzona-o2tf7s",
+          "montatore-trice-di-impianti-sanitari-per-cucine-bagni-fust-swiss-household-services-ag-bellinzona-ticino-gtcmmi",
           "montatore-trice-di-impianti-sanitari-per-cucine-bagni-fust-swiss-household-services-ag-bellinzona-ticino-gtcmmi"
         ],
         "en": [
@@ -813,11 +814,12 @@
         "sanitary-equipment-for-kitchens-and-bathrooms-fust-swiss-household-services-ag-bellinzona-ticino",
         "sanitarausstattung-fur-kuchen-und-badezimmer-fust-swiss-household-services-ag-bellinzona-ticino",
         "equipement-sanitaire-pour-cuisines-et-salles-de-bains-fust-swiss-household-services-ag-bellinzona-ticino",
-        "montatore-trice-di-impianti-sanitari-per-cucine-bagni-fust-bellinzona-ticino-o2tf7s",
-        "montatore-trice-di-impianti-sanitari-per-cucine-bagni-fust-swiss-household-services-ag-bellinzona-o2tf7s",
         "montatore-trice-di-impianti-sanitari-per-cucine-bagni-fust-swiss-household-services-ag-bellinzona-ticino-gtcmmi",
-        "montatore-trice-di-impianti-sanitari-per-cucine-bagni-fust-bellinzona-ticino-gtcmmi"
+        "montatore-trice-di-impianti-sanitari-per-cucine-bagni-fust-bellinzona-ticino-gtcmmi",
+        "montatore-trice-di-impianti-sanitari-per-cucine-bagni-fust-swiss-household-services-ag-bellinzona-ticino-gtcmmi"
       ],
+      "salaryMin": 70500,
+      "salaryMax": 98500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -837,9 +839,7 @@
         "type": "adapter_seed_meta",
         "location": "Ticino",
         "canton": "TI"
-      },
-      "salaryMin": 70500,
-      "salaryMax": 98500
+      }
     },
     {
       "id": "company-k19qk9",
@@ -889,6 +889,9 @@
           "monteur-fur-den-austausch-von-kucheneinbaugeraten-fust-burgdorf-bern-kvfpg7",
           "monteur-per-den-austausch-von-kucheneinbaugeraten-fust-swiss-household-services-ag-burgdorf-bern-kvfpg7",
           "monteur-fur-den-austausch-von-kucheneinbaugeraten-fust-swiss-household-services-ag-burgdorf-bern-kvfpg7",
+          "monteur-per-den-austausch-von-kucheneinbaugeraten-fust-swiss-household-services-ag-burgdorf-bern-k19qk9",
+          "monteur-per-den-austausch-von-kucheneinbaugeraten-fust-swiss-household-services-ag-burgdorf",
+          "monteur-fur-den-austausch-von-kucheneinbaugeraten-fust-swiss-household-services-ag-burgdorf",
           "monteur-per-den-austausch-von-kucheneinbaugeraten-fust-swiss-household-services-ag-burgdorf-bern-k19qk9"
         ],
         "en": [
@@ -896,14 +899,14 @@
           "installers-for-the-replacement-of-built-in-kitchen-appliances-fust-swiss-household-services-ag-burgdorf-bern",
           "monteur-fur-den-austausch-von-kucheneinbaugeraten-fust-burgdorf-bern-k19qk9"
         ],
-        "de": [
-          "monteur-fur-den-austausch-von-kucheneinbaugeraten-fust-swiss-household-services-ag-burgdorf-bern-k19qk9",
-          "monteur-fur-den-austausch-von-kucheneinbaugeraten-fust-burgdorf-bern-kvfpg7"
-        ],
         "fr": [
           "monteur-fur-den-austausch-von-kucheneinbaugeraten-fust-swiss-household-services-ag-burgdorf-bern-k19qk9",
           "installateurs-pour-le-remplacement-des-appareils-de-cuisine-integres-fust-swiss-household-services-ag-burgdorf-bern",
           "monteur-fur-den-austausch-von-kucheneinbaugeraten-fust-burgdorf-bern-k19qk9"
+        ],
+        "de": [
+          "monteur-fur-den-austausch-von-kucheneinbaugeraten-fust-swiss-household-services-ag-burgdorf-bern-k19qk9",
+          "monteur-fur-den-austausch-von-kucheneinbaugeraten-fust-burgdorf-bern-kvfpg7"
         ]
       },
       "previousSlugs": [
@@ -913,12 +916,13 @@
         "installers-for-the-replacement-of-built-in-kitchen-appliances-fust-swiss-household-services-ag-burgdorf-bern",
         "installateurs-pour-le-remplacement-des-appareils-de-cuisine-integres-fust-swiss-household-services-ag-burgdorf-bern",
         "monteur-fur-den-austausch-von-kucheneinbaugeraten-fust-burgdorf-bern-k19qk9",
-        "monteur-per-den-austausch-von-kucheneinbaugeraten-fust-burgdorf-bern-kvfpg7",
-        "monteur-fur-den-austausch-von-kucheneinbaugeraten-fust-burgdorf-bern-kvfpg7",
-        "monteur-per-den-austausch-von-kucheneinbaugeraten-fust-swiss-household-services-ag-burgdorf-bern-kvfpg7",
-        "monteur-fur-den-austausch-von-kucheneinbaugeraten-fust-swiss-household-services-ag-burgdorf-bern-kvfpg7",
+        "monteur-per-den-austausch-von-kucheneinbaugeraten-fust-swiss-household-services-ag-burgdorf-bern-k19qk9",
+        "monteur-per-den-austausch-von-kucheneinbaugeraten-fust-swiss-household-services-ag-burgdorf",
+        "monteur-fur-den-austausch-von-kucheneinbaugeraten-fust-swiss-household-services-ag-burgdorf",
         "monteur-per-den-austausch-von-kucheneinbaugeraten-fust-swiss-household-services-ag-burgdorf-bern-k19qk9"
       ],
+      "salaryMin": 68500,
+      "salaryMax": 104000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -938,9 +942,7 @@
         "type": "adapter_seed_meta",
         "location": "Berna",
         "canton": "BE"
-      },
-      "salaryMin": 68500,
-      "salaryMax": 104000
+      }
     },
     {
       "id": "company-rbvodh",
@@ -991,6 +993,8 @@
           "ajusteur-pour-le-remplacement-des-appareils-de-cuisine-integres-fust-swiss-household-services-ag-oberburen",
           "monteur-fur-den-austausch-von-kucheneinbaugeraten-fust-oberburen-sankt-gallen-zhqtc1",
           "monteur-per-den-austausch-von-kucheneinbaugeraten-fust-oberburen-sankt-gallen-zhqtc1",
+          "monteur-per-den-austausch-von-kucheneinbaugeraten-fust-swiss-household-services-ag-oberburen-sankt-gallen-rbvodh",
+          "monteur-per-den-austausch-von-kucheneinbaugeraten-fust-swiss-household-services-ag-oberburen",
           "monteur-per-den-austausch-von-kucheneinbaugeraten-fust-swiss-household-services-ag-oberburen-sankt-gallen-rbvodh"
         ],
         "en": [
@@ -998,14 +1002,14 @@
           "installers-for-the-replacement-of-built-in-kitchen-appliances-fust-swiss-household-services-ag-oberburen-sankt-gallen",
           "monteur-fur-den-austausch-von-kucheneinbaugeraten-fust-oberburen-sankt-gallen-rbvodh"
         ],
-        "de": [
-          "monteur-fur-den-austausch-von-kucheneinbaugeraten-fust-swiss-household-services-ag-oberburen-sankt-gallen-rbvodh",
-          "monteur-fur-den-austausch-von-kucheneinbaugeraten-fust-oberburen-sankt-gallen-6a1ppk"
-        ],
         "fr": [
           "monteur-fur-den-austausch-von-kucheneinbaugeraten-fust-swiss-household-services-ag-oberburen-sankt-gallen-rbvodh",
           "installateurs-pour-le-remplacement-des-appareils-de-cuisine-integres-fust-swiss-household-services-ag-oberburen-sankt",
           "monteur-fur-den-austausch-von-kucheneinbaugeraten-fust-oberburen-sankt-gallen-rbvodh"
+        ],
+        "de": [
+          "monteur-fur-den-austausch-von-kucheneinbaugeraten-fust-swiss-household-services-ag-oberburen-sankt-gallen-rbvodh",
+          "monteur-fur-den-austausch-von-kucheneinbaugeraten-fust-oberburen-sankt-gallen-6a1ppk"
         ]
       },
       "previousSlugs": [
@@ -1015,13 +1019,12 @@
         "installers-for-the-replacement-of-built-in-kitchen-appliances-fust-swiss-household-services-ag-oberburen-sankt-gallen",
         "installateurs-pour-le-remplacement-des-appareils-de-cuisine-integres-fust-swiss-household-services-ag-oberburen-sankt",
         "monteur-fur-den-austausch-von-kucheneinbaugeraten-fust-oberburen-sankt-gallen-rbvodh",
-        "monteur-per-den-austausch-von-kucheneinbaugeraten-fust-oberburen-sankt-gallen-6a1ppk",
-        "monteur-fur-den-austausch-von-kucheneinbaugeraten-fust-oberburen-sankt-gallen-6a1ppk",
-        "ajusteur-pour-le-remplacement-des-appareils-de-cuisine-integres-fust-swiss-household-services-ag-oberburen",
-        "monteur-fur-den-austausch-von-kucheneinbaugeraten-fust-oberburen-sankt-gallen-zhqtc1",
-        "monteur-per-den-austausch-von-kucheneinbaugeraten-fust-oberburen-sankt-gallen-zhqtc1",
+        "monteur-per-den-austausch-von-kucheneinbaugeraten-fust-swiss-household-services-ag-oberburen-sankt-gallen-rbvodh",
+        "monteur-per-den-austausch-von-kucheneinbaugeraten-fust-swiss-household-services-ag-oberburen",
         "monteur-per-den-austausch-von-kucheneinbaugeraten-fust-swiss-household-services-ag-oberburen-sankt-gallen-rbvodh"
       ],
+      "salaryMin": 57500,
+      "salaryMax": 87000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -1041,9 +1044,7 @@
         "type": "adapter_seed_meta",
         "location": "San Gallo",
         "canton": "SG"
-      },
-      "salaryMin": 57500,
-      "salaryMax": 87000
+      }
     },
     {
       "id": "company-xbnkqr",
@@ -1199,18 +1200,45 @@
           "verkaufsberater-in-per-elektrohaushalt-e-multimedia-fust-chur-graubunden-kv56l8",
           "verkaufsberater-in-fur-elektrohaushalt-und-multimedia-fust-chur-graubunden-kv56l8",
           "sales-consultant-in-electrical-household-and-multimedia-fust-chur-graubunden",
-          "consultant-en-ventes-en-electromenager-et-multimedia-fust-chur-graubunden"
+          "consultant-en-ventes-en-electromenager-et-multimedia-fust-chur-graubunden",
+          "consultant-en-ventes-en-electromenager-multimedia-80-100-fust-swiss-household-services-ag-grenchen",
+          "sales-consultant-in-for-electrical-household-multimedia-80-100-fust-swiss-household-services-ag-bern",
+          "sales-consultant-for-household-appliances-and-multimedia-fust-swiss-household-services-ag-oberburen",
+          "sales-consultant-in-for-electrical-household-and-multimedia-fust-swiss-household-services-ag-oberburen",
+          "verkaufsberater-in-per-elektrohaushalt-e-multimedia-fust-oberburen-sankt-gallen-n31lw0",
+          "sales-consultant-for-electrical-household-and-multimedia-fust-swiss-household-services-ag-wallisellen",
+          "verkaufsberater-in-per-elektrohaushalt-e-multimedia-fust-wallisellen-zurich-p0wx27",
+          "sales-consultant-for-electrical-household-and-multimedia-fust-swiss-household-services-ag-oberburen",
+          "sales-consultant-for-electrical-household-multimedia-80-100-fust-swiss-household-services-ag-bern",
+          "sales-consultant-for-electrical-household-multimedia-80-100-fust-swiss-household-services-ag-grenchen",
+          "verkaufsberater-in-per-elektrohaushalt-multimedia-80-100-fust-grenchen-solothurn-4opay7",
+          "sales-consultant-for-electrical-household-and-multimedia-fust-swiss-household-services-ag-frauenfeld",
+          "sales-consultant-in-electrical-household-and-multimedia-fust-swiss-household-services-ag-wallisellen",
+          "sales-consultant-in-electrical-household-multimedia-80-100-fust-swiss-household-services-ag-grenchen",
+          "verkaufsberater-in-per-elektrohaushalt-multimedia-80-100-fust-grenchen-solothurn-daijlz"
         ],
         "en": [
           "verkaufsberater-in-fur-elektrohaushalt-und-multimedia-fust-chur-graubunden-a6k6ub",
-          "sales-consultant-in-electrical-household-and-multimedia-fust-chur-graubunden"
-        ],
-        "de": [
-          "verkaufsberater-in-fur-elektrohaushalt-und-multimedia-fust-chur-graubunden-kv56l8"
+          "sales-consultant-in-electrical-household-and-multimedia-fust-chur-graubunden",
+          "sales-consultant-in-for-electrical-household-and-multimedia-fust-swiss-household-services-ag-oberburen",
+          "sales-consultant-for-electrical-household-and-multimedia-fust-swiss-household-services-ag-wallisellen",
+          "sales-consultant-for-electrical-household-multimedia-80-100-fust-swiss-household-services-ag-grenchen",
+          "sales-consultant-in-electrical-household-multimedia-80-100-fust-swiss-household-services-ag-grenchen"
         ],
         "fr": [
           "verkaufsberater-in-fur-elektrohaushalt-und-multimedia-fust-chur-graubunden-a6k6ub",
-          "consultant-en-ventes-en-electromenager-et-multimedia-fust-chur-graubunden"
+          "consultant-en-ventes-en-electromenager-et-multimedia-fust-chur-graubunden",
+          "consultant-en-ventes-pour-l-electricite-la-maison-et-le-multimedia-fust-swiss-household-services-ag-oberburen",
+          "consultant-en-ventes-pour-l-electricite-la-maison-et-le-multimedia-fust-swiss-household-services-ag-wallisellen",
+          "consultant-commercial-pour-l-electricite-le-menage-et-le-multimedia-80-100-fust-swiss-household-services-ag-grenchen",
+          "consultant-en-ventes-en-electromenager-multimedia-80-100-fust-swiss-household-services-ag-grenchen"
+        ],
+        "de": [
+          "verkaufsberater-in-fur-elektrohaushalt-und-multimedia-fust-chur-graubunden-kv56l8",
+          "verkaufsberater-in-fur-elektrohaushalt-und-multimedia-fust-oberburen-sankt-gallen-n31lw0",
+          "verkaufsberater-in-fur-elektrohaushalt-und-multimedia-fust-wallisellen-zurich-p0wx27",
+          "verkaufsberater-in-fur-elektrohaushalt-multimedia-80-100-fust-grenchen-solothurn-4opay7",
+          "verkaufsberater-in-fur-elektrohaushalt-multimedia-80-100-fust-grenchen-solothurn-daijlz"
         ]
       },
       "previousSlugs": [
@@ -1219,8 +1247,32 @@
         "sales-consultant-in-electrical-household-and-multimedia-fust-chur-graubunden",
         "consultant-en-ventes-en-electromenager-et-multimedia-fust-chur-graubunden",
         "verkaufsberater-in-per-elektrohaushalt-e-multimedia-fust-chur-graubunden-kv56l8",
-        "verkaufsberater-in-fur-elektrohaushalt-und-multimedia-fust-chur-graubunden-kv56l8"
+        "verkaufsberater-in-fur-elektrohaushalt-und-multimedia-fust-chur-graubunden-kv56l8",
+        "consultant-en-ventes-en-electromenager-multimedia-80-100-fust-swiss-household-services-ag-grenchen",
+        "sales-consultant-in-for-electrical-household-multimedia-80-100-fust-swiss-household-services-ag-bern",
+        "sales-consultant-for-household-appliances-and-multimedia-fust-swiss-household-services-ag-oberburen",
+        "sales-consultant-in-for-electrical-household-and-multimedia-fust-swiss-household-services-ag-oberburen",
+        "verkaufsberater-in-per-elektrohaushalt-e-multimedia-fust-oberburen-sankt-gallen-n31lw0",
+        "sales-consultant-for-electrical-household-and-multimedia-fust-swiss-household-services-ag-wallisellen",
+        "verkaufsberater-in-per-elektrohaushalt-e-multimedia-fust-wallisellen-zurich-p0wx27",
+        "sales-consultant-for-electrical-household-and-multimedia-fust-swiss-household-services-ag-oberburen",
+        "sales-consultant-for-electrical-household-multimedia-80-100-fust-swiss-household-services-ag-bern",
+        "sales-consultant-for-electrical-household-multimedia-80-100-fust-swiss-household-services-ag-grenchen",
+        "verkaufsberater-in-per-elektrohaushalt-multimedia-80-100-fust-grenchen-solothurn-4opay7",
+        "sales-consultant-for-electrical-household-and-multimedia-fust-swiss-household-services-ag-frauenfeld",
+        "sales-consultant-in-electrical-household-and-multimedia-fust-swiss-household-services-ag-wallisellen",
+        "sales-consultant-in-electrical-household-multimedia-80-100-fust-swiss-household-services-ag-grenchen",
+        "verkaufsberater-in-per-elektrohaushalt-multimedia-80-100-fust-grenchen-solothurn-daijlz",
+        "verkaufsberater-in-fur-elektrohaushalt-und-multimedia-fust-oberburen-sankt-gallen-n31lw0",
+        "verkaufsberater-in-fur-elektrohaushalt-und-multimedia-fust-wallisellen-zurich-p0wx27",
+        "verkaufsberater-in-fur-elektrohaushalt-multimedia-80-100-fust-grenchen-solothurn-4opay7",
+        "verkaufsberater-in-fur-elektrohaushalt-multimedia-80-100-fust-grenchen-solothurn-daijlz",
+        "consultant-en-ventes-pour-l-electricite-la-maison-et-le-multimedia-fust-swiss-household-services-ag-oberburen",
+        "consultant-en-ventes-pour-l-electricite-la-maison-et-le-multimedia-fust-swiss-household-services-ag-wallisellen",
+        "consultant-commercial-pour-l-electricite-le-menage-et-le-multimedia-80-100-fust-swiss-household-services-ag-grenchen"
       ],
+      "salaryMin": 57500,
+      "salaryMax": 87000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -1235,9 +1287,7 @@
       "addressRegion": "GR",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "country": "CH",
-      "salaryMin": 57500,
-      "salaryMax": 87000
+      "country": "CH"
     },
     {
       "id": "company-mt7q8e",
@@ -1374,33 +1424,25 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "kundendienstmitarbeiter-in-service-fust-koniz-bern",
-          "kundendienstmitarbeiter-in-service-fust-koniz-bern-62uy7p",
-          "kundendienstmitarbeiter-in-service-fust-koniz-bern-3w5tb0",
-          "kundendienstmitarbeiter-in-service-fust-swiss-household-services-ag-koniz-3w5tb0",
-          "kundendienstmitarbeiter-in-service-fust-swiss-household-services-ag-koniz",
-          "operatore-a-di-assistenza-clienti-fust-swiss-household-services-ag-koniz",
-          "customer-service-representative-in-service-fust-koniz-bern",
-          "representant-du-service-a-la-clientele-en-service-fust-koniz-bern",
-          "rappresentante-del-servizio-clienti-in-fust-swiss-household-services-ag-oberburen",
           "customer-service-representative-in-fust-swiss-household-services-ag-oberburen",
           "kundendienstmitarbeiter-in-fust-oberburen-sankt-gallen-wki4de",
           "representant-du-service-a-la-clientele-in-fust-swiss-household-services-ag-oberburen",
           "kundendienstmitarbeiter-in-fust-oberburen-sankt-gallen",
           "kundendienstmitarbeiter-in-fust-swiss-household-services-ag-oberburen-wki4de",
           "technicien-service-a-domicile-fust-swiss-household-services-ag-oberburen",
+          "rappresentante-del-servizio-clienti-in-servizio-fust-koniz-bern",
           "rappresentante-del-servizio-clienti-in-servizio-fust-koniz-bern"
         ],
         "en": [
           "kundendienstmitarbeiter-in-service-fust-koniz-bern-62uy7p",
           "customer-service-representative-in-service-fust-koniz-bern"
         ],
-        "de": [
-          "kundendienstmitarbeiter-in-service-fust-koniz-bern-3w5tb0"
-        ],
         "fr": [
           "kundendienstmitarbeiter-in-service-fust-koniz-bern-62uy7p",
           "representant-du-service-a-la-clientele-en-service-fust-koniz-bern"
+        ],
+        "de": [
+          "kundendienstmitarbeiter-in-service-fust-koniz-bern-3w5tb0"
         ]
       },
       "previousSlugs": [
@@ -1421,6 +1463,8 @@
         "technicien-service-a-domicile-fust-swiss-household-services-ag-oberburen",
         "rappresentante-del-servizio-clienti-in-servizio-fust-koniz-bern"
       ],
+      "salaryMin": 68500,
+      "salaryMax": 104000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -1435,9 +1479,7 @@
       "addressRegion": "BE",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "country": "CH",
-      "salaryMin": 68500,
-      "salaryMax": 104000
+      "country": "CH"
     },
     {
       "id": "company-xz9v8p",
@@ -8039,7 +8081,9 @@
       "previousSlugsByLocale": {
         "it": [
           "verkaufsberater-in-fur-elektrohaushalt-multimedia-80-100-fust-oftringen-aargau",
-          "consultant-commercial-pour-l-electricite-le-menage-et-le-multimedia-80-100-fust-swiss-household-services-ag-oftringen"
+          "consultant-commercial-pour-l-electricite-le-menage-et-le-multimedia-80-100-fust-swiss-household-services-ag-oftringen",
+          "sales-consultant-for-electrical-household-multimedia-80-100-fust-swiss-household-services-ag-oftringen",
+          "consultant-en-ventes-pour-electromenager-multimedia-80-100-fust-swiss-household-services-ag-oftringen"
         ],
         "en": [
           "verkaufsberater-in-fur-elektrohaushalt-multimedia-80-100-fust-oftringen-aargau-hb54v3",
@@ -8055,7 +8099,9 @@
         "sales-consultant-in-electrical-household-multimedia-80-100-fust-oftringen-aargau",
         "consultant-en-ventes-en-electromenager-multimedia-80-100-fust-oftringen-aargau",
         "verkaufsberater-in-fur-elektrohaushalt-multimedia-80-100-fust-oftringen-aargau",
-        "consultant-commercial-pour-l-electricite-le-menage-et-le-multimedia-80-100-fust-swiss-household-services-ag-oftringen"
+        "consultant-commercial-pour-l-electricite-le-menage-et-le-multimedia-80-100-fust-swiss-household-services-ag-oftringen",
+        "sales-consultant-for-electrical-household-multimedia-80-100-fust-swiss-household-services-ag-oftringen",
+        "consultant-en-ventes-pour-electromenager-multimedia-80-100-fust-swiss-household-services-ag-oftringen"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -10002,7 +10048,8 @@
       "previousSlugsByLocale": {
         "it": [
           "facility-technician-m-w-d-coop-genossenschaft-frutigen-bern",
-          "facility-technician-m-w-d-coop-genossenschaft-frutigen-bern-4xmp5j"
+          "facility-technician-m-w-d-coop-genossenschaft-frutigen-bern-4xmp5j",
+          "tecnico-di-facility-m-f-d-coop-genossenschaft-frutigen-bern"
         ],
         "en": [
           "facility-technician-m-w-d-bergquellfisch-frutigen-bern-4xmp5j"
@@ -10011,7 +10058,8 @@
       "previousSlugs": [
         "facility-technician-m-w-d-coop-genossenschaft-frutigen-bern",
         "facility-technician-m-w-d-bergquellfisch-frutigen-bern-4xmp5j",
-        "facility-technician-m-w-d-coop-genossenschaft-frutigen-bern-4xmp5j"
+        "facility-technician-m-w-d-coop-genossenschaft-frutigen-bern-4xmp5j",
+        "tecnico-di-facility-m-f-d-coop-genossenschaft-frutigen-bern"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -17484,7 +17532,9 @@
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-food-coop-genossenschaft-bern",
-          "verkaufer-in-food-coop-genossenschaft-bern-2gmv2k"
+          "verkaufer-in-food-coop-genossenschaft-bern-2gmv2k",
+          "verkaufer-in-food-convenience-coop-genossenschaft-bern",
+          "verkaufer-in-food-studentenaushilfe-coop-genossenschaft-bern"
         ],
         "en": [
           "verkaufer-in-food-coop-genossenschaft-bern-2gmv2k"
@@ -17495,7 +17545,9 @@
       },
       "previousSlugs": [
         "verkaufer-in-food-coop-genossenschaft-bern",
-        "verkaufer-in-food-coop-genossenschaft-bern-2gmv2k"
+        "verkaufer-in-food-coop-genossenschaft-bern-2gmv2k",
+        "verkaufer-in-food-convenience-coop-genossenschaft-bern",
+        "verkaufer-in-food-studentenaushilfe-coop-genossenschaft-bern"
       ]
     },
     {
@@ -27827,7 +27879,7 @@
       },
       "descriptionByLocale": {
         "de": "## Beschreibung\n\nMit den berufsbegleitenden Quereinsteigerprogrammen schaffst du neue Perspektiven für deine berufliche Karriere.",
-        "it": "Descrizione Con i programmi di avviamento incrociato che accompagnano la carriera, creerai nuove prospettive per la tua carriera.",
+        "it": "Descrizione\n\nCon i programmi di inserimento lavorativo, crei nuove prospettive per la tua carriera professionale.",
         "en": "Description With the career-accompanying cross-starter programs you create new perspectives for your career.",
         "fr": "Description Avec les programmes de démarrage croisés qui accompagnent votre carrière, vous créez de nouvelles perspectives pour votre carrière."
       },
