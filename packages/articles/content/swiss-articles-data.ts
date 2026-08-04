@@ -5464,6 +5464,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'emigrazione-tasse-obblighi-dopo-partenza',
+    category: 'fiscale',
+    date: '2026-08-04T18:36:06.615Z',
+    image: '/images/blog/emigrazione-tasse-obblighi-dopo-partenza.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

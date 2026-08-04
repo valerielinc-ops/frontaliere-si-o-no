@@ -23573,6 +23573,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-emigrazione-tasse-obblighi-dopo-partenza': {
+    title: 'Emigrare dalla Svizzera: cosa succede alle tasse dopo la partenza',
+    description: 'Dopo l’emigrazione dalla Svizzera nel maggio 2025, le tasse non sempre finiscono. Scopri chi rimane assoggettato e quali procedure seguire per evitare sorprese.',
+    keywords: 'frontalieri, ticino, svizzera, italia, emigrare, dalla, cosa, succede',
+    ogTitle: 'Tasse dopo l’emigrazione dalla Svizzera',
+    ogDescription: 'Scopri cosa succede alle tasse dopo aver lasciato la Svizzera: procedure, eccezioni e rischi per chi si trasferisce all’estero.',
+    canonicalPath: '/articoli-svizzera/emigrazione-tasse-obblighi-dopo-partenza/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Emigrare dalla Svizzera: cosa succede alle tasse dopo la partenza",
+      "description": "Dopo l’emigrazione dalla Svizzera nel maggio 2025, le tasse non sempre finiscono. Scopri chi rimane assoggettato e quali procedure seguire per evitare sorprese.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/emigrazione-tasse-obblighi-dopo-partenza.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Persona che esamina documenti fiscali con panorama di Zurigo sullo sfondo, simbolo degli obblighi tributari dopo l'emigrazione dalla Svizzera."
+      },
+      "datePublished": "2026-08-04T18:36:06+00:00",
+      "dateModified": "2026-08-04T18:36:06+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/emigrazione-tasse-obblighi-dopo-partenza/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

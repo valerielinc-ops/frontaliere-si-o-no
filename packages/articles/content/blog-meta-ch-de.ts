@@ -1822,6 +1822,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.siccita-contadini-mobilitano.title': 'Mehr Dürre: Bauern mobilisieren, Futterbörse kommt',
     'blog.article.siccita-contadini-mobilitano.excerpt': 'Die Dürre verursacht ernsthafte Probleme für die Schweizer Bauern, die alles in ihrer Macht Stehende tun, um der Situation zu begegnen.',
     'blog.article.siccita-contadini-mobilitano.imageAlt': 'Ein Schweizer Bauer vorbereitet sich auf die Ernte',
+    'blog.article.emigrazione-tasse-obblighi-dopo-partenza.title': 'Auswandern aus der Schweiz: Was passiert mit den Steuern nach der Ausreise?',
+    'blog.article.emigrazione-tasse-obblighi-dopo-partenza.excerpt': 'Nach der Ausreise aus der Schweiz im Mai 2025 endet die Steuerzahlung nicht immer. Hier ist, was das Gesetz für diejenigen vorsieht, die ins Ausland ziehen.',
+    'blog.article.emigrazione-tasse-obblighi-dopo-partenza.imageAlt': 'Person, die Steuerdokumente durchgeht mit Blick auf die Zürcher Skyline, Symbol für Steuerpflichten nach Auswanderung aus der Schweiz.',
 };
 
 export default blogMetaChDe;
