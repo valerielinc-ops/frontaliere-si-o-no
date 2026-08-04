@@ -9222,6 +9222,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.spread-nel-cambio-valuta-cos-e-quanto-ti-costa-davvero.title': 'Spread beim Geldwechsel: Was ist das und wie viel kostet es dich wirklich?',
     'blog.article.spread-nel-cambio-valuta-cos-e-quanto-ti-costa-davvero.excerpt': 'Der Spread bei der Währungsbörse: Was es ist und wie viel es Sie wirklich kostet. Finden Sie heraus, wie es funktioniert und wie Sie vermeiden können, zu viel zu bezahlen.',
     'blog.article.spread-nel-cambio-valuta-cos-e-quanto-ti-costa-davvero.imageAlt': 'Ein Frontalier überprüft den aktuellen Wechselkurs mit einem Banker',
+    'blog.article.ristoranti-tipici-lugano-guida.title': 'Die besten typischen Tessiner Restaurants in Lugano',
+    'blog.article.ristoranti-tipici-lugano-guida.excerpt': 'Führer zu den Grotti und Tavernen von Lugano. Entdecken Sie die traditionellen Gerichte und wie Sie Ihr Budget zwischen Schweizer Gehalt und IRPEF-Steuer verwalten können.',
+    'blog.article.ristoranti-tipici-lugano-guida.imageAlt': 'Ein typisches Tessiner Grotto in der Gegend von Lugano',
 };
 
 export default blogMetaDe;

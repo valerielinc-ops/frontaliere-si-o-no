@@ -9223,6 +9223,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.spread-nel-cambio-valuta-cos-e-quanto-ti-costa-davvero.title': 'Spreads in currency exchange: what it is and how much it really costs you',
     'blog.article.spread-nel-cambio-valuta-cos-e-quanto-ti-costa-davvero.excerpt': 'The spread in currency exchange: what it is and how much it really costs you. Find out how it works and how you can avoid paying too much.',
     'blog.article.spread-nel-cambio-valuta-cos-e-quanto-ti-costa-davvero.imageAlt': 'Frontalier checks exchange rates with a banker',
+    'blog.article.ristoranti-tipici-lugano-guida.title': 'Best typical Ticino restaurants in Lugano',
+    'blog.article.ristoranti-tipici-lugano-guida.excerpt': 'Guide to the grottos and taverns of Lugano. Discover traditional dishes and how to manage the budget between Swiss salary and personal income tax.',
+    'blog.article.ristoranti-tipici-lugano-guida.imageAlt': 'A traditional Ticino grotto in the Lugano area',
 };
 
 export default blogMetaEn;

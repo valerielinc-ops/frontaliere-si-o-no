@@ -9224,6 +9224,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.spread-nel-cambio-valuta-cos-e-quanto-ti-costa-davvero.title': 'Spread nel cambio valuta: cos\'è e quanto ti costa davvero',
     'blog.article.spread-nel-cambio-valuta-cos-e-quanto-ti-costa-davvero.excerpt': 'Lo spread nel cambio valuta: cos\'è e quanto ti costa davvero. Scopri come funziona e come puoi evitare di pagare troppo.',
     'blog.article.spread-nel-cambio-valuta-cos-e-quanto-ti-costa-davvero.imageAlt': 'Frontaliere che consulta un operatore di cambio',
+    'blog.article.ristoranti-tipici-lugano-guida.title': 'Migliori ristoranti tipici ticinesi a Lugano',
+    'blog.article.ristoranti-tipici-lugano-guida.excerpt': 'Guida ai grotti e alle osterie di Lugano. Scopri i piatti della tradizione e come gestire il budget tra stipendio svizzero e tassazione IRPEF.',
+    'blog.article.ristoranti-tipici-lugano-guida.imageAlt': 'Un tipico grotto ticinese nella zona di Lugano',
 };
 
 export default blogMetaIt;

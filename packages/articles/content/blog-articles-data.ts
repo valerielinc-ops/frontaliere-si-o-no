@@ -27687,6 +27687,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'ristoranti-tipici-lugano-guida',
+ category: 'pratico',
+ date: '2026-08-04T07:09:15.171Z',
+ image: '/images/blog/ristoranti-tipici-lugano-guida.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
