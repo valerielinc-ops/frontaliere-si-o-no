@@ -58727,6 +58727,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-locarno-film-festival-guida-pratica': {
+    title: 'Locarno Film Festival: biglietti e info per frontalieri',
+    description: 'Info su biglietti e proiezioni in Piazza Grande per frontalieri. Scopri come gestire fiscalità e rientro in Italia tra lavoro in Ticino e cinema.',
+    keywords: 'frontalieri, ticino, svizzera, italia, locarno, film, festival, biglietti',
+    ogTitle: 'Locarno Film Festival: biglietti e guida per frontalieri',
+    ogDescription: 'Info su biglietti e proiezioni in Piazza Grande per frontalieri. Scopri come gestire fiscalità e rientro in Italia tra lavoro in Ticino e cinema.',
+    canonicalPath: '/articoli-frontaliere/locarno-film-festival-guida-pratica',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Locarno Film Festival: biglietti e info per frontalieri",
+      "description": "Info su biglietti e proiezioni in Piazza Grande per frontalieri. Scopri come gestire fiscalità e rientro in Italia tra lavoro in Ticino e cinema.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/locarno-film-festival-guida-pratica.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Piazza Grande a Locarno durante il festival del cinema"
+      },
+      "datePublished": "2026-08-04T07:55:41+00:00",
+      "dateModified": "2026-08-04T07:55:41+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/locarno-film-festival-guida-pratica/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
