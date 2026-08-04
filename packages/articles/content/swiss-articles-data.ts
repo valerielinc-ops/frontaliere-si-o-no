@@ -5392,6 +5392,42 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'angestellte-schweiz-aumento-2027',
+    category: 'fiscale',
+    date: '2026-08-04T06:55:40.230Z',
+    image: '/images/blog/angestellte-schweiz-aumento-2027.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
+   {
+    id: 'swiss-fatturato-costi-carburante-conseguenze',
+    category: 'fiscale',
+    date: '2026-08-04T07:14:17.767Z',
+    image: '/images/blog/swiss-fatturato-costi-carburante-conseguenze.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
+   {
+    id: 'rientro-in-svizzera-senza-lavoro-guida',
+    category: 'pratico',
+    date: '2026-08-04T07:38:42.193Z',
+    image: '/images/blog/rientro-in-svizzera-senza-lavoro-guida.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
+   {
+    id: 'leclanche-crisi-finanziaria-2025',
+    category: 'fiscale',
+    date: '2026-08-04T08:11:32.298Z',
+    image: '/images/blog/leclanche-crisi-finanziaria-2025.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

@@ -9219,6 +9219,18 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.matrimonio-aziendale-vallemaggia-100.title': 'Vallemaggia, eine Maxi-Bauhochzeit, spart 100 Arbeitsplätze',
     'blog.article.matrimonio-aziendale-vallemaggia-100.excerpt': 'Vier Bauunternehmen schließen sich zusammen, um die neue VDM Holding Ltd. zu gründen. Seit 2027 in Betrieb, zielt der Betrieb darauf ab, soziale und beschäftigte Kontinuität im Tal zu gewährleisten.',
     'blog.article.matrimonio-aziendale-vallemaggia-100.imageAlt': 'Panoramablick auf das Vallemaggia mit traditioneller Steinarchitektur.',
+    'blog.article.spread-nel-cambio-valuta-cos-e-quanto-ti-costa-davvero.title': 'Spread beim Geldwechsel: Was ist das und wie viel kostet es dich wirklich?',
+    'blog.article.spread-nel-cambio-valuta-cos-e-quanto-ti-costa-davvero.excerpt': 'Der Spread bei der Währungsbörse: Was es ist und wie viel es Sie wirklich kostet. Finden Sie heraus, wie es funktioniert und wie Sie vermeiden können, zu viel zu bezahlen.',
+    'blog.article.spread-nel-cambio-valuta-cos-e-quanto-ti-costa-davvero.imageAlt': 'Ein Frontalier überprüft den aktuellen Wechselkurs mit einem Banker',
+    'blog.article.ristoranti-tipici-lugano-guida.title': 'Die besten typischen Tessiner Restaurants in Lugano',
+    'blog.article.ristoranti-tipici-lugano-guida.excerpt': 'Führer zu den Grotti und Tavernen von Lugano. Entdecken Sie die traditionellen Gerichte und wie Sie Ihr Budget zwischen Schweizer Gehalt und IRPEF-Steuer verwalten können.',
+    'blog.article.ristoranti-tipici-lugano-guida.imageAlt': 'Ein typisches Tessiner Grotto in der Gegend von Lugano',
+    'blog.article.coworking-spazi-lavoro-ticino.title': 'Coworking und Shared Workspaces in Lugano',
+    'blog.article.coworking-spazi-lavoro-ticino.excerpt': 'Praktischer Leitfaden für Selbständige und Grenzgänger: Steuer-, Vorsorge- und Arbeitsplatzwahl im Tessin.',
+    'blog.article.coworking-spazi-lavoro-ticino.imageAlt': 'Moderner Coworking-Space in Lugano mit Seeblick',
+    'blog.article.locarno-film-festival-guida-pratica.title': 'Locarno Film Festival: Tickets und Infos für Grenzgänger',
+    'blog.article.locarno-film-festival-guida-pratica.excerpt': 'Praktischer Leitfaden, um die Projektionen auf der Piazza Grande zu verfolgen. Informationen zu Preisen, Buchungen und Verwaltung der Rückkehr nach Italien für Grenzgänger.',
+    'blog.article.locarno-film-festival-guida-pratica.imageAlt': 'Piazza Grande in Locarno während des Filmfestivals',
 };
 
 export default blogMetaDe;

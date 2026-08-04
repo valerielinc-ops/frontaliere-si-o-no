@@ -58610,6 +58610,162 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-spread-nel-cambio-valuta-cos-e-quanto-ti-costa-davvero': {
+    title: 'Spread nel cambio valuta: cos\'è e quanto ti costa davvero',
+    description: 'Scopri come funziona lo spread nel cambio valuta e come puoi evitare di pagare troppo. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, spread, cambio, valuta, quanto',
+    ogTitle: 'Spread nel cambio valuta: cos\'è e quanto ti costa davvero',
+    ogDescription: 'Scopri come funziona lo spread nel cambio valuta e come puoi evitare di pagare troppo.',
+    canonicalPath: '/articoli-frontaliere/spread-nel-cambio-valuta-cos-e-quanto-ti-costa-davvero',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Spread nel cambio valuta: cos'è e quanto ti costa davvero",
+      "description": "Scopri come funziona lo spread nel cambio valuta e come puoi evitare di pagare troppo. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/spread-nel-cambio-valuta-cos-e-quanto-ti-costa-davvero.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Frontaliere che consulta un operatore di cambio"
+      },
+      "datePublished": "2026-08-04T06:46:58+00:00",
+      "dateModified": "2026-08-04T06:46:58+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/spread-nel-cambio-valuta-cos-e-quanto-ti-costa-davvero/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-ristoranti-tipici-lugano-guida': {
+    title: 'Migliori ristoranti tipici ticinesi a Lugano | Frontaliere Ticino',
+    description: 'Scopri i migliori ristoranti tipici a Lugano. Guida pratica per frontalieri sulla gestione del budget, tasse e previdenza tra Italia e Svizzera. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, migliori, ristoranti, tipici, ticinesi',
+    ogTitle: 'Migliori ristoranti tipici ticinesi a Lugano',
+    ogDescription: 'Guida pratica per frontalieri tra gastronomia ticinese e gestione finanziaria.',
+    canonicalPath: '/articoli-frontaliere/ristoranti-tipici-lugano-guida',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Migliori ristoranti tipici ticinesi a Lugano",
+      "description": "Scopri i migliori ristoranti tipici a Lugano. Guida pratica per frontalieri sulla gestione del budget, tasse e previdenza tra Italia e Svizzera. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/ristoranti-tipici-lugano-guida.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un tipico grotto ticinese nella zona di Lugano"
+      },
+      "datePublished": "2026-08-04T07:09:15+00:00",
+      "dateModified": "2026-08-04T07:09:15+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/ristoranti-tipici-lugano-guida/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-coworking-spazi-lavoro-ticino': {
+    title: 'Coworking e spazi di lavoro condiviso a Lugano',
+    description: 'Guida pratica per frontalieri: gestione fiscale, contributi AVS/LPP e uso degli spazi di coworking in Ticino secondo il nuovo accordo fiscale 2024.',
+    keywords: 'frontalieri, ticino, svizzera, italia, coworking, spazi, lavoro, condiviso',
+    ogTitle: 'Coworking e spazi di lavoro condiviso a Lugano',
+    ogDescription: 'Guida per frontalieri: fiscalità, contributi e coworking in Ticino.',
+    canonicalPath: '/articoli-frontaliere/coworking-spazi-lavoro-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Coworking e spazi di lavoro condiviso a Lugano",
+      "description": "Guida pratica per frontalieri: gestione fiscale, contributi AVS/LPP e uso degli spazi di coworking in Ticino secondo il nuovo accordo fiscale 2024.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/coworking-spazi-lavoro-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Spazio di coworking moderno a Lugano con vista lago"
+      },
+      "datePublished": "2026-08-04T07:29:20+00:00",
+      "dateModified": "2026-08-04T07:29:20+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/coworking-spazi-lavoro-ticino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-locarno-film-festival-guida-pratica': {
+    title: 'Locarno Film Festival: biglietti e info per frontalieri',
+    description: 'Info su biglietti e proiezioni in Piazza Grande per frontalieri. Scopri come gestire fiscalità e rientro in Italia tra lavoro in Ticino e cinema.',
+    keywords: 'frontalieri, ticino, svizzera, italia, locarno, film, festival, biglietti',
+    ogTitle: 'Locarno Film Festival: biglietti e guida per frontalieri',
+    ogDescription: 'Info su biglietti e proiezioni in Piazza Grande per frontalieri. Scopri come gestire fiscalità e rientro in Italia tra lavoro in Ticino e cinema.',
+    canonicalPath: '/articoli-frontaliere/locarno-film-festival-guida-pratica',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Locarno Film Festival: biglietti e info per frontalieri",
+      "description": "Info su biglietti e proiezioni in Piazza Grande per frontalieri. Scopri come gestire fiscalità e rientro in Italia tra lavoro in Ticino e cinema.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/locarno-film-festival-guida-pratica.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Piazza Grande a Locarno durante il festival del cinema"
+      },
+      "datePublished": "2026-08-04T07:55:41+00:00",
+      "dateModified": "2026-08-04T07:55:41+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/locarno-film-festival-guida-pratica/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

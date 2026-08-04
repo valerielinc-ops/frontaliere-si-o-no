@@ -1798,6 +1798,18 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.un-matrimonio-che-vale-cento-posti-di-lavoro.title': 'Un mariage qui vaut cent emplois',
     'blog.article.un-matrimonio-che-vale-cento-posti-di-lavoro.excerpt': 'La nouvelle a été officiellement officiellée vendredi dernier à Prato Sornico. À Vallemaggia, un mariage est célébré valant au total cent emplois.',
     'blog.article.un-matrimonio-che-vale-cento-posti-di-lavoro.imageAlt': 'Un mariage entre quatre entreprises de construction en Vallemaggia',
+    'blog.article.angestellte-schweiz-aumento-2027.title': 'Angestellte Schweiz demande une augmentation de salaire de 1,5 % pour 2027',
+    'blog.article.angestellte-schweiz-aumento-2027.excerpt': 'L’association se concentre également sur un investissement accru dans la formation et de meilleures conditions de travail.',
+    'blog.article.angestellte-schweiz-aumento-2027.imageAlt': 'Image d\'une augmentation de salaire en Suisse',
+    'blog.article.swiss-fatturato-costi-carburante-conseguenze.title': 'Swiss, hausse du chiffre d\'affaires, baisse du bénéfice',
+    'blog.article.swiss-fatturato-costi-carburante-conseguenze.excerpt': 'Le chiffre d\'affaires de Swiss a augmenté de 3,2% au premier semestre 2026, mais le bénéfice d\'exploitation a diminué de 3,2%.',
+    'blog.article.swiss-fatturato-costi-carburante-conseguenze.imageAlt': 'Image d\'un avion qui décolle de l\'aéroport de Lugano avec un drapeau suisse flottant.',
+    'blog.article.rientro-in-svizzera-senza-lavoro-guida.title': 'Retour en Suisse sans travail : ce qu\'il faut savoir en premier',
+    'blog.article.rientro-in-svizzera-senza-lavoro-guida.excerpt': 'En décembre 2024, l’ose a reçu 240 demandes d\'informations pour le retour. Les droits et les procédures pour ceux qui cherchent du travail à leur retour.',
+    'blog.article.rientro-in-svizzera-senza-lavoro-guida.imageAlt': 'Bureau de placement à Lugano avec le drapeau suisse, symbole du retour en Suisse et de la recherche d\'emploi pour les frontaliers',
+    'blog.article.leclanche-crisi-finanziaria-2025.title': 'Leclanché : crise financière et report du rapport 2025',
+    'blog.article.leclanche-crisi-finanziaria-2025.excerpt': 'La société d\'Yverdon-les-Bains suspend les actions et reporte le rapport d\'exercice. Le point sur la situation financière et les négociations en cours.',
+    'blog.article.leclanche-crisi-finanziaria-2025.imageAlt': 'Siège social suisse dans un contexte financier.',
 };
 
 export default blogMetaChFr;

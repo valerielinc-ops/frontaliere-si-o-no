@@ -27678,6 +27678,42 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'spread-nel-cambio-valuta-cos-e-quanto-ti-costa-davvero',
+ category: 'pratico',
+ date: '2026-08-04T06:46:57.999Z',
+ image: '/images/blog/spread-nel-cambio-valuta-cos-e-quanto-ti-costa-davvero.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
+ {
+ id: 'ristoranti-tipici-lugano-guida',
+ category: 'pratico',
+ date: '2026-08-04T07:09:15.171Z',
+ image: '/images/blog/ristoranti-tipici-lugano-guida.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
+ {
+ id: 'coworking-spazi-lavoro-ticino',
+ category: 'pratico',
+ date: '2026-08-04T07:29:20.164Z',
+ image: '/images/blog/coworking-spazi-lavoro-ticino.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
+ {
+ id: 'locarno-film-festival-guida-pratica',
+ category: 'pratico',
+ date: '2026-08-04T07:55:41.175Z',
+ image: '/images/blog/locarno-film-festival-guida-pratica.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

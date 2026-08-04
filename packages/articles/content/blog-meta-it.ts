@@ -9221,6 +9221,18 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.matrimonio-aziendale-vallemaggia-100.title': 'Vallemaggia, un maxi-matrimonio edile salva 100 posti',
     'blog.article.matrimonio-aziendale-vallemaggia-100.excerpt': 'Quattro aziende edili si uniscono nella nuova VDM Holding SA. Operativa dal 2027, l\'operazione mira a garantire continuità sociale e occupazionale in valle.',
     'blog.article.matrimonio-aziendale-vallemaggia-100.imageAlt': 'Veduta panoramica della Vallemaggia con architettura tradizionale in pietra.',
+    'blog.article.spread-nel-cambio-valuta-cos-e-quanto-ti-costa-davvero.title': 'Spread nel cambio valuta: cos\'è e quanto ti costa davvero',
+    'blog.article.spread-nel-cambio-valuta-cos-e-quanto-ti-costa-davvero.excerpt': 'Lo spread nel cambio valuta: cos\'è e quanto ti costa davvero. Scopri come funziona e come puoi evitare di pagare troppo.',
+    'blog.article.spread-nel-cambio-valuta-cos-e-quanto-ti-costa-davvero.imageAlt': 'Frontaliere che consulta un operatore di cambio',
+    'blog.article.ristoranti-tipici-lugano-guida.title': 'Migliori ristoranti tipici ticinesi a Lugano',
+    'blog.article.ristoranti-tipici-lugano-guida.excerpt': 'Guida ai grotti e alle osterie di Lugano. Scopri i piatti della tradizione e come gestire il budget tra stipendio svizzero e tassazione IRPEF.',
+    'blog.article.ristoranti-tipici-lugano-guida.imageAlt': 'Un tipico grotto ticinese nella zona di Lugano',
+    'blog.article.coworking-spazi-lavoro-ticino.title': 'Coworking e spazi di lavoro condiviso a Lugano',
+    'blog.article.coworking-spazi-lavoro-ticino.excerpt': 'Guida pratica per lavoratori autonomi e frontalieri: gestione fiscale, previdenziale e scelta degli spazi di lavoro in Ticino.',
+    'blog.article.coworking-spazi-lavoro-ticino.imageAlt': 'Spazio di coworking moderno a Lugano con vista lago',
+    'blog.article.locarno-film-festival-guida-pratica.title': 'Locarno Film Festival: biglietti e info per frontalieri',
+    'blog.article.locarno-film-festival-guida-pratica.excerpt': 'Guida pratica per seguire le proiezioni in Piazza Grande. Informazioni su prezzi, prenotazioni e gestione del rientro in Italia per i lavoratori frontalieri.',
+    'blog.article.locarno-film-festival-guida-pratica.imageAlt': 'Piazza Grande a Locarno durante il festival del cinema',
 };
 
 export default blogMetaIt;

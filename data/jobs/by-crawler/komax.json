@@ -82,7 +82,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:37:16.824Z",
-      "needsRetranslation": true,
       "salaryMin": 58500,
       "salaryMax": 89000,
       "baseSalary": {
@@ -202,7 +201,7 @@
       "title": "Technical Sales Specialist 80-100% (m/w)",
       "titleByLocale": {
         "it": "Specialista Vendite Tecnico 80-100% (m/f)",
-        "en": "Technical Sales Specialist 80-100% (m/w)",
+        "en": "Technical Sales Specialist 80-100% (m/f)",
         "de": "Technical Sales Spezialist 80-100% (m/w)",
         "fr": "Spécialiste Commercial Technique 80-100% (m/f)"
       },
@@ -251,7 +250,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:37:16.827Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -343,7 +341,6 @@
         ]
       },
       "firstSeenAt": "2026-08-02T11:09:52.371Z",
-      "needsRetranslation": true,
       "salaryMin": 96000,
       "salaryMax": 146000,
       "baseSalary": {
@@ -424,7 +421,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:37:16.826Z",
-      "needsRetranslation": true,
       "salaryMin": 58500,
       "salaryMax": 89000,
       "baseSalary": {
@@ -505,7 +501,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:37:16.824Z",
-      "needsRetranslation": true,
       "salaryMin": 58500,
       "salaryMax": 89000,
       "baseSalary": {
@@ -586,7 +581,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:37:16.823Z",
-      "needsRetranslation": true,
       "salaryMin": 58500,
       "salaryMax": 89000,
       "baseSalary": {
@@ -651,17 +645,32 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-08-03T12:57:50.072Z",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "talent-acquisition-recruiting-specialist-80-100-komax-ch"
+          "talent-acquisition-recruiting-specialist-80-100-komax-ch",
+          "talent-acquisition-recruiting-specialista-80-100-komax-dierikon-i2mz7u",
+          "talent-acquisition-recruiting-specialist-80-100-komax-dierikon",
+          "talent-acquisition-recruiting-specialist-80-100-komax-ch-i2mz7u",
+          "talent-acquisition-recruiting-specialista-80-100-komax-dierikon-i2myh5",
+          "talent-acquisition-recruiting-specialist-80-100-komax-ch-i2myh5"
         ],
         "fr": [
           "talent-acquisition-recruiting-specialist-80-100-komax-ch"
+        ],
+        "en": [
+          "talent-acquisition-recruiting-specialist-80-100-komax-dierikon"
+        ],
+        "de": [
+          "talent-acquisition-recruiting-specialist-80-100-komax-ch-i2mz7u"
         ]
       },
       "previousSlugs": [
-        "talent-acquisition-recruiting-specialist-80-100-komax-ch"
+        "talent-acquisition-recruiting-specialist-80-100-komax-ch",
+        "talent-acquisition-recruiting-specialista-80-100-komax-dierikon-i2mz7u",
+        "talent-acquisition-recruiting-specialist-80-100-komax-dierikon",
+        "talent-acquisition-recruiting-specialist-80-100-komax-ch-i2mz7u",
+        "talent-acquisition-recruiting-specialista-80-100-komax-dierikon-i2myh5",
+        "talent-acquisition-recruiting-specialist-80-100-komax-ch-i2myh5"
       ],
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -691,7 +700,7 @@
       "title": "HR Operations Specialist 60-100% (Mutterschaftsvertretung)",
       "titleByLocale": {
         "it": "Risorse Umane Operations Specialista 60-100% (Mutterschaftsvertretung)",
-        "en": "HR Operations Specialist 60-100% (Mutterschaftsvertretung)",
+        "en": "HR Operations Specialist 60-100% (Maternity Representation)",
         "de": "Personalwesen Operations Spezialist 60-100% (Mutterschaftsvertretung)",
         "fr": "Ressources Humaines Operations Spécialiste 60-100% (Mutterschaftsvertretung)"
       },
@@ -740,7 +749,6 @@
         ]
       },
       "firstSeenAt": "2026-07-22T12:26:00.719Z",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -833,8 +841,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "komax-17523c713651",
