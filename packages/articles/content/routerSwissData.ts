@@ -627,6 +627,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'un-matrimonio-che-vale-cento-posti-di-lavoro': { it: 'un-matrimonio-che-vale-cento-posti-di-lavoro', en: 'a-union-of-four-construction-companies-in-vallemaggia', de: 'eine-verbindung-von-vier-bauunternehmen-in-vallemaggia', fr: 'un-mariage-entre-quatre-entreprises-de-construction-en-vallemaggia' },
  'angestellte-schweiz-aumento-2027': { it: 'angestellte-schweiz-aumento-2027', en: 'angestellte-schweiz-aumento-2027', de: 'angestellte-schweiz-aumento-2027', fr: 'angestellte-schweiz-aumento-2027' },
  'swiss-fatturato-costi-carburante-conseguenze': { it: 'swiss-fatturato-costi-carburante-conseguenze', en: 'swiss-fatturato-costi-carburante-conseguenze', de: 'swiss-fatturato-costi-carburante-conseguenze', fr: 'swiss-fatturato-costi-carburante-conseguenze' },
+ 'rientro-in-svizzera-senza-lavoro-guida': { it: 'rientro-in-svizzera-senza-lavoro-guida', en: 'returning-to-switzerland-unemployed-guide', de: 'zurueck-in-die-schweiz-ohne-job-leitfaden', fr: 'retour-en-suisse-sans-emploi-guide' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
