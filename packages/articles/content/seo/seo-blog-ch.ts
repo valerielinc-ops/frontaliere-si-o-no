@@ -23417,6 +23417,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-attacco-hacker-liechtenstein-svizzera': {
+    title: 'Attacco hacker nel Liechtenstein, allarme pure in Svizzera',
+    description: 'Il furto di dati dal registro delle fondazioni del Liechtenstein solleva timori per le ripercussioni fiscali anche in Svizzera. Analisi delle conseguenze.',
+    keywords: 'frontalieri, ticino, svizzera, italia, attacco, hacker, liechtenstein, allarme',
+    ogTitle: 'Attacco hacker nel Liechtenstein, allarme pure in Svizzera',
+    ogDescription: 'Il furto di dati dal registro delle fondazioni del Liechtenstein solleva timori per le ripercussioni fiscali anche in Svizzera. Analisi delle conseguenze.',
+    canonicalPath: '/articoli-svizzera/attacco-hacker-liechtenstein-svizzera/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Attacco hacker nel Liechtenstein, allarme pure in Svizzera",
+      "description": "Il furto di dati dal registro delle fondazioni del Liechtenstein solleva timori per le ripercussioni fiscali anche in Svizzera. Analisi delle conseguenze.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/attacco-hacker-liechtenstein-svizzera.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Veduta di un centro finanziario svizzero, rappresentazione di stabilità e trasparenza."
+      },
+      "datePublished": "2026-08-04T10:25:51+00:00",
+      "dateModified": "2026-08-04T10:25:51+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/attacco-hacker-liechtenstein-svizzera/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
