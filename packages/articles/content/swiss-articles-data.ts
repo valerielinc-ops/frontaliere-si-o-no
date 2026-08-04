@@ -5419,6 +5419,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'leclanche-crisi-finanziaria-2025',
+    category: 'fiscale',
+    date: '2026-08-04T08:11:32.298Z',
+    image: '/images/blog/leclanche-crisi-finanziaria-2025.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
