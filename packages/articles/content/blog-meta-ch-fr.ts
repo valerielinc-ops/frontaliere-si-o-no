@@ -1798,6 +1798,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.un-matrimonio-che-vale-cento-posti-di-lavoro.title': 'Un mariage qui vaut cent emplois',
     'blog.article.un-matrimonio-che-vale-cento-posti-di-lavoro.excerpt': 'La nouvelle a été officiellement officiellée vendredi dernier à Prato Sornico. À Vallemaggia, un mariage est célébré valant au total cent emplois.',
     'blog.article.un-matrimonio-che-vale-cento-posti-di-lavoro.imageAlt': 'Un mariage entre quatre entreprises de construction en Vallemaggia',
+    'blog.article.angestellte-schweiz-aumento-2027.title': 'Angestellte Schweiz demande une augmentation de salaire de 1,5 % pour 2027',
+    'blog.article.angestellte-schweiz-aumento-2027.excerpt': 'L’association se concentre également sur un investissement accru dans la formation et de meilleures conditions de travail.',
+    'blog.article.angestellte-schweiz-aumento-2027.imageAlt': 'Image d\'une augmentation de salaire en Suisse',
 };
 
 export default blogMetaChFr;

@@ -1798,6 +1798,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.un-matrimonio-che-vale-cento-posti-di-lavoro.title': 'Eine Ehe, die hundert Arbeitsplätze wert ist',
     'blog.article.un-matrimonio-che-vale-cento-posti-di-lavoro.excerpt': 'Die Nachricht wurde am vergangenen Freitag in Prato Sornico offiziell gemacht. Im Maggiatal wird eine Hochzeit gefeiert, die insgesamt etwa hundert Arbeitsplätze wert ist.',
     'blog.article.un-matrimonio-che-vale-cento-posti-di-lavoro.imageAlt': 'Eine Verbindung von vier Bauunternehmen in Vallemaggia',
+    'blog.article.angestellte-schweiz-aumento-2027.title': 'Die Angestellte Schweiz fordert eine Lohnerhöhung von 1,5 % für 2027',
+    'blog.article.angestellte-schweiz-aumento-2027.excerpt': 'Der Verband konzentriert sich außerdem auf größere Investitionen in Ausbildung und bessere Arbeitsbedingungen.',
+    'blog.article.angestellte-schweiz-aumento-2027.imageAlt': 'Bild von einem Gehaltserhöhung in der Schweiz',
 };
 
 export default blogMetaChDe;
