@@ -1,18 +1,66 @@
 {
   "key": "manor",
   "label": "Manor",
-  "generatedAt": "2026-08-04T11:45:29.022Z",
-  "total": 177,
-  "newCount": 9,
-  "updatedCount": 167,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 317249,
-  "avgDurationMs": 317249,
+  "generatedAt": "2026-08-04T22:30:20.345Z",
+  "total": 179,
+  "newCount": 13,
+  "updatedCount": 166,
+  "removedCount": 2,
+  "unchangedCount": 0,
+  "durationMs": 312326,
+  "avgDurationMs": 312326,
   "durationHistory": [
-    317249
+    312326
   ],
   "newJobs": [
+    {
+      "title": "Mitarbeiter*in Verkauf Haushalt (Vorhänge) 60%",
+      "company": "Manor AG",
+      "companyKey": "manor",
+      "url": "https://positions.manor.ch/job/Schaffhausen-Mitarbeiterin-Verkauf-Haushalt-%28Vorh%C3%A4nge%29-60/1362943055/",
+      "location": "Schaffhausen Mitarbeiterin Verkauf Haushalt",
+      "canton": "SH",
+      "country": "CH",
+      "category": "sales",
+      "descriptionIt": "freude an selbständiges Arbeiten bei den Vorhängen. Messen und berechnen der Aufträge anhand der Kundenwünsche.",
+      "postedDate": "2026-08-04",
+      "source": "company-website",
+      "slug": "manor-mitarbeiter-in-verkauf-haushalt-vorhange-60-schaffhausen-mitarbeiterin-verkauf-haushalt",
+      "sourceLang": "de",
+      "crawledAt": "",
+      "needsRetranslation": true,
+      "_qualityScore": 55,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 3,
+        "translation": 16,
+        "completeness": 11
+      }
+    },
+    {
+      "title": "Mitarbeiter*in Kasse 10%",
+      "company": "Manor AG",
+      "companyKey": "manor",
+      "url": "https://positions.manor.ch/job/St_-Gallen-Mitarbeiterin-Kasse-10/1362943855/",
+      "location": "St. Gallen Mitarbeiterin Kasse",
+      "canton": "SG",
+      "country": "CH",
+      "category": "sales",
+      "descriptionIt": "Mitarbeiter*in Kasse 10% presso Manor, con sede a St. Gallen Mitarbeiterin Kasse, Canton San Gallo, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
+      "postedDate": "2026-08-04",
+      "source": "company-website",
+      "slug": "manor-mitarbeiter-in-kasse-10-st-gallen-mitarbeiterin-kasse",
+      "sourceLang": "it",
+      "crawledAt": "",
+      "needsRetranslation": true,
+      "_qualityScore": 66,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 14,
+        "translation": 16,
+        "completeness": 11
+      }
+    },
     {
       "title": "Retail Media Coordinator 100%",
       "company": "Manor AG",
@@ -65,7 +113,7 @@
       "title": "Mitarbeiter*in Logistik Kommissionierung 100%",
       "company": "Manor AG",
       "companyKey": "manor",
-      "url": "https://positions.manor.ch/job/Hochdorf-Mitarbeiterin-Logistik-Kommissionierung-100/1362291455/",
+      "url": "https://positions.manor.ch/job/Hochdorf-Mitarbeiterin-Logistik-Kommissionierung-100/1362292455/",
       "location": "Hochdorf Mitarbeiterin Logistik Kommissionierung",
       "canton": "LU",
       "country": "CH",
@@ -82,6 +130,31 @@
         "cleanliness": 25,
         "richness": 14,
         "translation": 16,
+        "completeness": 11
+      }
+    },
+    {
+      "title": "Drogist*in Dermacenter 40%",
+      "company": "Manor AG",
+      "companyKey": "manor",
+      "url": "https://positions.manor.ch/job/Solothurn-Drogistin-Dermacenter-40/1362288155/",
+      "location": "Solothurn Drogistin Dermacenter 40",
+      "canton": "SO",
+      "country": "CH",
+      "category": "healthcare",
+      "descriptionIt": "Professionelle Kundenberatung\n• Einkassieren gemäss Vorgaben\n• Bearbeiten von Retouren und Garantiefällen",
+      "postedDate": "2026-07-28",
+      "source": "company-website",
+      "slug": "collaboratore-trice-in-parfumerie-40-manor-ag-solothurn-mitarbeiterin-parfumerie-40",
+      "sourceLang": "de",
+      "id": "manor-e5c9d4b8be94",
+      "firstSeenAt": "2026-07-28T12:07:44.810Z",
+      "crawledAt": "",
+      "_qualityScore": 64,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 3,
+        "translation": 25,
         "completeness": 11
       }
     },
@@ -113,7 +186,7 @@
       "title": "Mitarbeiter*in Verkauf Herrenkonfektion 20%",
       "company": "Manor AG",
       "companyKey": "manor",
-      "url": "https://positions.manor.ch/job/Spreitenbach-Mitarbeiterin-Verkauf-Herrenkonfektion-20/1361596555/",
+      "url": "https://positions.manor.ch/job/Spreitenbach-Mitarbeiterin-Verkauf-Herrenkonfektion-20/1361596355/",
       "location": "Spreitenbach Mitarbeiterin Verkauf Herrenkonfektion",
       "canton": "AG",
       "country": "CH",
@@ -122,6 +195,30 @@
       "postedDate": "2026-07-20",
       "source": "company-website",
       "slug": "manor-mitarbeiter-in-verkauf-herrenkonfektion-20-spreitenbach-mitarbeiterin-verkauf-herrenkonfektion",
+      "sourceLang": "it",
+      "crawledAt": "",
+      "needsRetranslation": true,
+      "_qualityScore": 66,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 14,
+        "translation": 16,
+        "completeness": 11
+      }
+    },
+    {
+      "title": "Mitarbeiter*in Verkauf Herrenkonfektion 40%",
+      "company": "Manor AG",
+      "companyKey": "manor",
+      "url": "https://positions.manor.ch/job/Pf%C3%A4ffikon-Mitarbeiterin-Verkauf-Herrenkonfektion-40/1361623355/",
+      "location": "Pfäffikon Mitarbeiterin Verkauf Herrenkonfektion",
+      "canton": "ZH",
+      "country": "CH",
+      "category": "sales",
+      "descriptionIt": "Mitarbeiter*in Verkauf Herrenkonfektion 40% presso Manor, con sede a Pfäffikon Mitarbeiterin Verkauf Herrenkonfektion, Canton Zurigo, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
+      "postedDate": "2026-07-20",
+      "source": "company-website",
+      "slug": "manor-mitarbeiter-in-verkauf-herrenkonfektion-40-pfaffikon-mitarbeiterin-verkauf-herrenkonfektion",
       "sourceLang": "it",
       "crawledAt": "",
       "needsRetranslation": true,
@@ -411,32 +508,6 @@
       }
     },
     {
-      "title": "Collaborateur/trice caisse (Outlet) 50%",
-      "company": "Manor AG",
-      "companyKey": "manor",
-      "url": "https://positions.manor.ch/job/Sierre-Collaborateurtrice-caisse-%28Outlet%29-50/1362447055/",
-      "location": "Sierre Collaborateurtrice caisse (Outlet)",
-      "canton": "VS",
-      "country": "CH",
-      "category": "sales",
-      "descriptionIt": "Collaborateur/trice caisse (Outlet) 50% presso Manor, con sede a Sierre Collaborateurtrice caisse (Outlet), Canton Vallese, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
-      "postedDate": "2026-07-29",
-      "source": "company-website",
-      "slug": "manor-collaborateur-trice-caisse-outlet-50-sierre-collaborateurtrice-caisse-outlet",
-      "sourceLang": "it",
-      "id": "manor-3245e57e18c9",
-      "firstSeenAt": "2026-07-29T11:47:02.974Z",
-      "crawledAt": "",
-      "needsRetranslation": true,
-      "_qualityScore": 75,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 14,
-        "translation": 25,
-        "completeness": 11
-      }
-    },
-    {
       "title": "Collaborateur/trice service 20%",
       "company": "Manor AG",
       "companyKey": "manor",
@@ -489,6 +560,32 @@
       }
     },
     {
+      "title": "Collaborateur/trice caisse (Outlet) 50%",
+      "company": "Manor AG",
+      "companyKey": "manor",
+      "url": "https://positions.manor.ch/job/Sierre-Collaborateurtrice-caisse-%28Outlet%29-50/1362447055/",
+      "location": "Sierre Collaborateurtrice caisse (Outlet)",
+      "canton": "VS",
+      "country": "CH",
+      "category": "sales",
+      "descriptionIt": "Collaborateur/trice caisse (Outlet) 50% presso Manor, con sede a Sierre Collaborateurtrice caisse (Outlet), Canton Vallese, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
+      "postedDate": "2026-07-29",
+      "source": "company-website",
+      "slug": "manor-collaborateur-trice-caisse-outlet-50-sierre-collaborateurtrice-caisse-outlet",
+      "sourceLang": "it",
+      "id": "manor-3245e57e18c9",
+      "firstSeenAt": "2026-07-29T11:47:02.974Z",
+      "crawledAt": "",
+      "needsRetranslation": true,
+      "_qualityScore": 75,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 14,
+        "translation": 25,
+        "completeness": 11
+      }
+    },
+    {
       "title": "Mitarbeiter*in Logistik (Montagsaushilfe eManor) 20%",
       "company": "Manor AG",
       "companyKey": "manor",
@@ -506,11 +603,11 @@
       "needsRetranslation": true,
       "firstSeenAt": "2026-07-28T12:07:44.810Z",
       "crawledAt": "",
-      "_qualityScore": 66,
+      "_qualityScore": 70,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 14,
-        "translation": 16,
+        "translation": 20,
         "completeness": 11
       }
     },
@@ -558,11 +655,11 @@
       "needsRetranslation": true,
       "firstSeenAt": "2026-07-28T12:07:44.810Z",
       "crawledAt": "",
-      "_qualityScore": 66,
+      "_qualityScore": 70,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 14,
-        "translation": 16,
+        "translation": 20,
         "completeness": 11
       }
     },
@@ -648,7 +745,7 @@
       "title": "Mitarbeiter*in Logistik Kommissionierung 100%",
       "company": "Manor AG",
       "companyKey": "manor",
-      "url": "https://positions.manor.ch/job/Hochdorf-Mitarbeiterin-Logistik-Kommissionierung-100/1362292455/",
+      "url": "https://positions.manor.ch/job/Hochdorf-Mitarbeiterin-Logistik-Kommissionierung-100/1362291455/",
       "location": "Hochdorf Mitarbeiterin Logistik Kommissionierung",
       "canton": "LU",
       "country": "CH",
@@ -658,39 +755,14 @@
       "source": "company-website",
       "slug": "manor-mitarbeiter-in-logistik-kommissionierung-100-hochdorf-mitarbeiterin-logistik-kommissionierung",
       "sourceLang": "it",
-      "id": "manor-34ddc2a01017",
-      "firstSeenAt": "2026-08-03T12:44:36.777Z",
+      "id": "manor-73c17e883462",
+      "firstSeenAt": "2026-08-04T11:45:29.018Z",
       "crawledAt": "",
       "needsRetranslation": true,
       "_qualityScore": 75,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 14,
-        "translation": 25,
-        "completeness": 11
-      }
-    },
-    {
-      "title": "Mitarbeiter*in Parfümerie 40%",
-      "company": "Manor AG",
-      "companyKey": "manor",
-      "url": "https://positions.manor.ch/job/Solothurn-Mitarbeiterin-Parf%C3%BCmerie-40/1362288155/",
-      "location": "Solothurn Mitarbeiterin Parfümerie 40",
-      "canton": "SO",
-      "country": "CH",
-      "category": "healthcare",
-      "descriptionIt": "Professionelle Kundenberatung\n• Einkassieren gemäss Vorgaben\n• Bearbeiten von Retouren und Garantiefällen",
-      "postedDate": "2026-07-28",
-      "source": "company-website",
-      "slug": "collaboratore-trice-in-parfumerie-40-manor-ag-solothurn-mitarbeiterin-parfumerie-40",
-      "sourceLang": "de",
-      "id": "manor-e5c9d4b8be94",
-      "firstSeenAt": "2026-07-28T12:07:44.810Z",
-      "crawledAt": "",
-      "_qualityScore": 64,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 3,
         "translation": 25,
         "completeness": 11
       }
@@ -713,11 +785,11 @@
       "needsRetranslation": true,
       "firstSeenAt": "2026-07-28T22:20:01.476Z",
       "crawledAt": "",
-      "_qualityScore": 66,
+      "_qualityScore": 70,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 14,
-        "translation": 16,
+        "translation": 20,
         "completeness": 11
       }
     },
@@ -1002,10 +1074,35 @@
         "translation": 25,
         "completeness": 11
       }
+    },
+    {
+      "title": "Mitarbeiter*in Kasse & Kundendienst 30%",
+      "company": "Manor AG",
+      "companyKey": "manor",
+      "url": "https://positions.manor.ch/job/Thun-Mitarbeiterin-Kasse-&-Kundendienst-30/1361789755/",
+      "location": "Thun Mitarbeiterin Kasse &",
+      "canton": "BE",
+      "country": "CH",
+      "category": "sales",
+      "descriptionIt": "Mitarbeiter*in Kasse & Kundendienst 30% presso Manor, con sede a Thun Mitarbeiterin Kasse &, Canton Berna, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
+      "postedDate": "2026-07-22",
+      "source": "company-website",
+      "slug": "manor-mitarbeiter-in-kasse-kundendienst-30-thun-mitarbeiterin-kasse",
+      "sourceLang": "it",
+      "id": "manor-8d1caac9411b",
+      "firstSeenAt": "2026-07-22T22:35:47.906Z",
+      "crawledAt": "",
+      "needsRetranslation": true,
+      "_qualityScore": 75,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 14,
+        "translation": 25,
+        "completeness": 11
+      }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "title": "Collaborateur/trice supermarché 50%",
       "company": "Manor AG",
@@ -1031,7 +1128,6 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "crawlerMissStreak": 2,
-      "needsRetranslation": true,
       "_qualityScore": 78,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1039,6 +1135,39 @@
         "translation": 23,
         "completeness": 16
       }
+    },
+    {
+      "title": "Mitarbeiter*in Parfümerie 40%",
+      "company": "Manor AG",
+      "companyKey": "manor",
+      "url": "https://positions.manor.ch/job/Solothurn-Mitarbeiterin-Parf%C3%BCmerie-40/1362288155/",
+      "location": "Solothurn Mitarbeiterin Parfümerie 40",
+      "canton": "SO",
+      "country": "CH",
+      "category": "healthcare",
+      "descriptionIt": "Professionelle Kundenberatung\n• Einkassieren gemäss Vorgaben\n• Bearbeiten von Retouren und Garantiefällen",
+      "postedDate": "2026-07-28",
+      "source": "company-website",
+      "slug": "collaboratore-trice-in-parfumerie-40-manor-ag-solothurn-mitarbeiterin-parfumerie-40",
+      "sourceLang": "de",
+      "id": "manor-e5c9d4b8be94",
+      "firstSeenAt": "2026-07-28T12:07:44.810Z",
+      "crawledAt": "",
+      "salaryMin": 34000,
+      "salaryMax": 47600,
+      "currency": "CHF",
+      "addressLocality": "Solothurn Mitarbeiterin Parfümerie 40",
+      "addressRegion": "SO",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "_qualityScore": 69,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 3,
+        "translation": 25,
+        "completeness": 16
+      }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
