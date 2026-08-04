@@ -50,9 +50,13 @@ import {
 // the colocated articles package so nanako's fast-publish path and this repo's
 // full build cannot emit different output for the same page. Re-exported under
 // their original names — every existing importer of this module is unchanged.
-import { transformHreflang } from '../packages/articles/engine/hreflangPostprocess';
+// Extension is REQUIRED — see the note on the same import in
+// flatHtmlRedirectPlugin.ts. postWalkWorker.mjs loads this module in a
+// worker_thread under plain Node ESM, where an extensionless deep specifier
+// into the `"type": "module"` articles package does not resolve.
+import { transformHreflang } from '../packages/articles/engine/hreflangPostprocess.ts';
 export { transformHreflang };
-export type { HreflangTransformResult } from '../packages/articles/engine/hreflangPostprocess';
+export type { HreflangTransformResult } from '../packages/articles/engine/hreflangPostprocess.ts';
 
 
 interface HreflangPostprocessOptions {

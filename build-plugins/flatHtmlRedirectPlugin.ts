@@ -39,7 +39,14 @@ import type { Plugin } from 'vite';
 // the colocated articles package so nanako's fast-publish path and this repo's
 // full build cannot emit different output for the same page. Re-exported under
 // their original names — every existing importer of this module is unchanged.
-import { NOINDEX_BRIDGE, buildFlatBridgeFromSibling, extractOgTags } from '../packages/articles/engine/flatHtmlRedirect';
+// Extension is REQUIRED, not stylistic. postWalkWorker.mjs loads this module
+// inside a worker_thread under plain Node ESM + tsx, and `packages/articles`
+// is its own `"type": "module"` package, where an extensionless deep
+// specifier does not resolve — the build died on exactly this line with
+// ERR_MODULE_NOT_FOUND (run 15955). It resolves fine on the main thread under
+// Vite, which is why nothing caught it until the post-walk phase. Same reason
+// the worker's own `contextualLinkInjector.ts` import carries one.
+import { NOINDEX_BRIDGE, buildFlatBridgeFromSibling, extractOgTags } from '../packages/articles/engine/flatHtmlRedirect.ts';
 export { NOINDEX_BRIDGE, buildFlatBridgeFromSibling, extractOgTags };
 
 
