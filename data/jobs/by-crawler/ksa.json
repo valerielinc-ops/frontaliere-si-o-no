@@ -1093,7 +1093,7 @@
       "descriptionByLocale": {
         "it": "Descrizione\n\nGiornata di pratica - Uno sguardo dietro le quinte delle cure di emergenza e di terapia intensiva Pediatria — Ospedale cantonale di Aarau (KSA), Aarau",
         "en": "Description Day of Practice - A glimpse behind the scenes of emergency and intensive care Pediatrics — Kantonsspital Aarau (KSA), Aarau",
-        "de": "Praxistag - Ein Blick hinter die Kulissen der Notfall- und Intensivpflege Pädiatrie — Kantonsspital Aarau (KSA), Aarau",
+        "de": "## Beschreibung\n\nPraxistag - Ein Blick hinter die Kulissen der Notfall- und Intensivpflege Pädiatrie — Kantonsspital Aarau (KSA), Aarau",
         "fr": "Description Jour de pratique - Un aperçu dans les coulisses de la pédiatrie en cas d'urgence et de soins intensifs — Kantonsspital Aarau (KSA), Aarau"
       },
       "location": "Aarau",
@@ -1129,7 +1129,6 @@
           "praxistag-ein-blick-hinter-la-kulissen-der-notfall-e-intensivpflege-padiatrie-kantonsspital-aarau-ksa-aarau"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-10T12:11:07.794Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -1151,7 +1150,7 @@
         "it": "ausbildungsunabhangig-medizin-kantonsspital-aarau-ksa-aarau",
         "en": "care-internship-independent-of-training-medicine-kantonsspital-aarau-ksa-aarau",
         "de": "pflegepraktikum-ausbildungsunabhangig-medizin-ksa-ch",
-        "fr": "stage-de-soins-independant-de-la-formation-medecine-kantonsspital-aarau-ksa-aarau"
+        "fr": "pflegepraktikum-ausbildungsunabhangig-medizin-ksa-ch"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -1165,8 +1164,10 @@
       },
       "description": "Pflegepraktikum ausbildungsunabhängig (Medizin) — Kantonsspital Aarau (KSA), Aarau",
       "descriptionByLocale": {
-        "de": "Pflegepraktikum ausbildungsunabhängig (Medizin) — Kantonsspital Aarau (KSA), Aarau",
-        "fr": "Pflegepraktikum ausbildungsunabhängig (Medizin) — Kantonsspital Aarau (KSA), Aarau"
+        "de": "Die in den Erwägungsgründen 215 bis 316 genannten Maßnahmen sind in den Erwägungsgründen 215 bis 316 der vorläufigen Verordnung aufgeführt.",
+        "fr": "Pflegepraktikum ausbildungsunabhängig (Medizin) — Kantonsspital Aarau (KSA), Aarau",
+        "it": "Pflegepraktikum ausbildungsunabhängig (Medizin) — Kantonsspital Aarau (KSA), Aarau\n\nIl Kantonspital Aarau (KSA) cerca un/a praticante in infermieristica per un periodo di tirocinio ausbildungsunabhängig. Il tirocinio è rivolto a studenti di medicina che desiderano acquisire esperienza pratica in un ambiente ospedaliero.\n\nIl tirocinio offre l'opportunità di lavorare in diverse aree del KSA, tra cui reparti di medicina interna, chirurgia, pediatria e altre specializzazioni. I praticanti avranno la possibilità di assistere ai pazienti, partecipare alle attività cliniche quotidiane e collaborare con il personale sanitario esperto.\n\nRequisiti:\n- Studente di medicina iscritto/a a un'università svizzera o straniera.\n- Conoscenza di base della lingua tedesca (scritto e parlato).\n- Disponibilità a lavorare in turni di notte e fine settimana.\n- Passione per il lavoro in ambito sanitario e desiderio di imparare.\n\nOfferte:\n- Esperienza pratica in un ambiente ospedaliero di alto livello.\n- Opportunità di lavorare con pazienti in diverse aree mediche.\n- Collaborazione con un team professionale e competente.\n- Possibilità di acquisire competenze cliniche e di lavoro in squadra.\n\nIl KSA è un ospedale universitario con una reputazione solida e offre un ambiente di lavoro stimolante e professionale. Il tirocinio è una buona opportunità per chi desidera approfondire le proprie conoscenze in ambito sanitario e prepararsi per una carriera nel settore della salute.\n\nPer ulteriori informazioni e per candidarsi, contattare il servizio di assunzione del KSA.",
+        "en": "Pflegepraktikum aus bldungsunabhängig (Medizin) — Kantonspital Aarau (KSA), Aarau"
       },
       "location": "Aarau",
       "canton": "AG",
@@ -1193,7 +1194,8 @@
       "department": "Kantonsspital Aarau AG",
       "previousSlugs": [
         "pflegepraktikum-ausbildungsunabhangig-medizin-ksa-ch",
-        "ausbildungsunabhangig-medizin-kantonsspital-aarau-ksa-aarau"
+        "ausbildungsunabhangig-medizin-kantonsspital-aarau-ksa-aarau",
+        "stage-de-soins-independant-de-la-formation-medecine-kantonsspital-aarau-ksa-aarau"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1201,13 +1203,12 @@
           "ausbildungsunabhangig-medizin-kantonsspital-aarau-ksa-aarau"
         ],
         "fr": [
-          "pflegepraktikum-ausbildungsunabhangig-medizin-ksa-ch"
+          "stage-de-soins-independant-de-la-formation-medecine-kantonsspital-aarau-ksa-aarau"
         ]
       },
-      "needsRetranslation": true,
       "localeMismatchSuppressed": true,
       "localeMismatchSuppressedLen": 82,
-      "retranslationAttempts": 25,
+      "retranslationAttempts": 26,
       "firstSeenAt": "2026-07-10T12:11:07.794Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -1594,7 +1595,6 @@
         ]
       },
       "firstSeenAt": "2026-07-11T11:38:53.676Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -1606,7 +1606,8 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ksa-d06935f7da80",
@@ -2323,7 +2324,7 @@
       "descriptionByLocale": {
         "it": "Oberärztin / Oberarzt Interdisziplinäres Notfallzentrum — Kantonsspital Aarau (KSA), Aarau",
         "en": "Oberärztin / Oberarzt Interdisziplinäres Notfallzentrum. Kantonsspital Aarau (KSA), Aarau",
-        "de": "Oberärztin / Oberarzt Interdisziplinäres Notfallzentrum — Kantonsspital Aarau (KSA), Aarau",
+        "de": "Oberärztin / Oberarzt Interdisziplinäres Notfallzentrum. Kantonsspital Aarau (KSA), Aarau",
         "fr": "Oberärztin / Oberarzt Interdisziplinäres Notfallzentrum. Kantonsspital Aarau (KSA), Aarau"
       },
       "location": "Aarau",
@@ -2359,10 +2360,9 @@
           "medico-senior-centro-di-emergenza-interdisciplinare-kantonsspital-aarau-ksa-aarau"
         ]
       },
-      "needsRetranslation": true,
       "localeMismatchSuppressed": true,
       "localeMismatchSuppressedLen": 90,
-      "retranslationAttempts": 3,
+      "retranslationAttempts": 4,
       "firstSeenAt": "2026-07-10T12:11:07.793Z",
       "salaryMin": 85500,
       "salaryMax": 129500,
@@ -3390,7 +3390,8 @@
         ],
         "de": [
           "dipl-pflegefachfrau-pflegefachmann-hf-fh-mit-ndk-uberwachungspflege-ksa-ch-9zut0b",
-          "dipl-pflegefachfrau-pflegefachmann-hf-fh-mit-ndk-uberwachungspflege-ksa-ch"
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-mit-ndk-uberwachungspflege-ksa-ch",
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-mit-ndk-uberwachungspflege-ksa-ch-9zut0b"
         ]
       },
       "firstSeenAt": "2026-07-10T12:11:07.793Z",
@@ -3566,7 +3567,6 @@
         ]
       },
       "firstSeenAt": "2026-07-10T12:11:07.793Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -3578,7 +3578,8 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ksa-968b793c93c3",
@@ -4483,7 +4484,6 @@
         ]
       },
       "firstSeenAt": "2026-07-10T12:11:07.792Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -4495,7 +4495,8 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ksa-ac4838d9c43c",
@@ -4902,7 +4903,6 @@
         ]
       },
       "firstSeenAt": "2026-07-10T12:11:07.792Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -4914,7 +4914,8 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ksa-4ff77a59da50",
@@ -5638,7 +5639,6 @@
         ]
       },
       "firstSeenAt": "2026-07-10T12:11:07.792Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -5650,7 +5650,8 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ksa-b6e1ec77798d",
@@ -6774,7 +6775,8 @@
         "dipl-pflegefachfrau-pflegefachmann-ksa-ch",
         "dipl-pflegefachfrau-pflegefachmann-ksa-ch-4",
         "dipl-pflegefachfrau-pflegefachmann-ksa-ch-9ztjno",
-        "dipl-infermiera-nurse-professionale-kantonsspital-aarau-ksa-aarau-77740d"
+        "dipl-infermiera-nurse-professionale-kantonsspital-aarau-ksa-aarau-77740d",
+        "dipl-pflegefachfrau-pflegefachmann-ksa-ch-9ztjno"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -6785,16 +6787,16 @@
         "en": [
           "dipl-pflegefachfrau-pflegefachmann-ksa-ch"
         ],
-        "de": [
-          "dipl-pflegefachfrau-pflegefachmann-ksa-ch-9ztjno",
-          "dipl-pflegefachfrau-pflegefachmann-ksa-ch"
-        ],
         "fr": [
           "dipl-pflegefachfrau-pflegefachmann-ksa-ch"
+        ],
+        "de": [
+          "dipl-pflegefachfrau-pflegefachmann-ksa-ch-9ztjno",
+          "dipl-pflegefachfrau-pflegefachmann-ksa-ch",
+          "dipl-pflegefachfrau-pflegefachmann-ksa-ch-9ztjno"
         ]
       },
       "firstSeenAt": "2026-07-14T12:11:49.770Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -6806,7 +6808,8 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ksa-4bebb7661cc0",
@@ -7145,7 +7148,6 @@
         ]
       },
       "firstSeenAt": "2026-07-10T12:11:07.791Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -7157,7 +7159,8 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ksa-860cd5cd29b0",
@@ -8619,10 +8622,10 @@
       },
       "description": "Service-/Unterhaltstechniker/in Heizung-Kälte — Kantonsspital Aarau (KSA), Aarau",
       "descriptionByLocale": {
-        "de": "Service-/Unterhaltstechniker/in Heizung-Kälte — Kantonsspital Aarau (KSA), Aarau\n\nIhre Aufgaben:\n\n- Sie sind verantwortlich für die Instandhaltung und Wartung der Heizungs- und Kälteanlagen im Kantonsspital Aarau.\n- Sie führen regelmäßige Inspektionen und Wartungsarbeiten durch, um den einwandfreien Betrieb der Anlagen sicherzustellen.\n- Sie beheben Störungen und Fehler an den Anlagen und sorgen für eine schnelle Wiederherstellung des Betriebs.\n- Sie arbeiten eng mit anderen technischen Abteilungen und externen Dienstleistern zusammen, um die bestmögliche Leistung der Anlagen zu gewährleisten.\n- Sie dokumentieren alle durchgeführten Arbeiten und halten die technischen Unterlagen auf dem neuesten Stand.\n\nIhr Profil:\n\n- Sie verfügen über eine abgeschlossene Berufsausbildung als Heizungs- und Lüftungsinstallateur/in oder eine gleichwertige Ausbildung.\n- Sie haben mehrjährige Berufserfahrung in der Instandhaltung und Wartung von Heizungs- und Kälteanlagen.\n- Sie besitzen fundierte Kenntnisse in der Bedienung und Wartung von modernen Heizungs- und Kälteanlagen.\n- Sie sind in der Lage, technische Unterlagen zu lesen und zu verstehen.\n- Sie arbeiten selbstständig und zuverlässig und haben ein hohes Maß an Verantwortungsbewusstsein.\n- Sie sind bereit, im Schichtdienst zu arbeiten und bei Notfällen einsatzbereit zu sein.\n\nUnser Angebot:\n\n- Eine interessante und abwechslungsreiche Tätigkeit in einem modernen Krankenhaus.\n- Eine attraktive Vergütung und soziale Leistungen.\n- Fort- und Weiterbildungsmöglichkeiten.\n- Ein motiviertes und kollegiales Arbeitsumfeld.\n\nHaben wir Ihr Interesse geweckt?\n\nDann freuen wir uns auf Ihre Bewerbung mit den üblichen Unterlagen per E-Mail an [E-Mail-Adresse].\n\nKantonsspital Aarau (KSA)\nTalstrasse 1\n5001 Aarau\nSchweiz\nTel: +41 62 838 11 11\nE-Mail: [E-Mail-Adresse]\nWeb: [Webseite]",
+        "de": "Service-/Unterhaltstechniker/in Heizung-Kälte — Kantonsspital Aarau (KSA), Aarau\n\nSie sind technisch versiert und haben Erfahrung in der Wartung und Reparatur von Heizungs- und Kälteanlagen? Dann sind Sie bei uns genau richtig! Als Service-/Unterhaltstechniker/in im Kantonsspital Aarau (KSA) sind Sie für die Instandhaltung und den Betrieb der Heizungs- und Kälteanlagen verantwortlich. Ihre Aufgaben umfassen die regelmäßige Wartung, Reparatur und Optimierung der Anlagen, um sicherzustellen, dass sie effizient und zuverlässig funktionieren.\n\nIhre Aufgaben:\n- Durchführung von Wartungs- und Reparaturarbeiten an Heizungs- und Kälteanlagen\n- Überwachung des Betriebszustands und der Energieeffizienz der Anlagen\n- Zusammenarbeit mit Fachpersonal und anderen Abteilungen zur Lösung technischer Probleme\n- Dokumentation aller Arbeiten und Berichterstattung an die Fachabteilung\n- Einhaltung von Sicherheitsvorschriften und Qualitätsstandards\n\nIhr Profil:\n- Fachausbildung oder Berufserfahrung in der Heizungs- und Kälteinstallation\n- Kenntnisse in der Wartung und Reparatur von Heizungs- und Kälteanlagen\n- Erfahrung in der Arbeit mit verschiedenen Systemen (z. B. HVAC, Kälteanlagen)\n- Zuverlässigkeit, Teamfähigkeit und gute Kommunikationsfähigkeiten\n- Führerschein (Klasse B) und Bereitschaft zur Arbeit in Schichtdienst\n\nWir bieten:\n- Attraktive Arbeitsbedingungen im Kantonsspital Aarau\n- Weiterbildungsmöglichkeiten und berufliche Entwicklung\n- Ein modernes Arbeitsumfeld in einem renommierten Spital\n\nBewerben Sie sich jetzt und werden Sie Teil eines engagierten Teams!",
         "it": "Service-/Unterhaltstechniker/in Heizung-Kälte — Kantonsspital Aarau (KSA), Aarau",
-        "en": "Heating and Air Conditioning Service/Maintenance Technician — Kantonsspital Aarau (KSA), Aarau\n\nWe are seeking a motivated and skilled Heating and Air Conditioning Service/Maintenance Technician to join our team at Kantonsspital Aarau (KSA) in Aarau. In this role, you will be responsible for the installation, maintenance, and repair of heating and air conditioning systems to ensure optimal performance and energy efficiency.\n\nYour Responsibilities:\n\n- Perform regular maintenance and inspections of heating and air conditioning systems.\n- Diagnose and repair faults in heating and air conditioning systems.\n- Install new heating and air conditioning systems as required.\n- Ensure compliance with safety regulations and standards.\n- Document all maintenance and repair activities.\n- Collaborate with other departments to ensure smooth operation of the hospital's infrastructure.\n\nYour Profile:\n\n- Completed vocational training as a heating and air conditioning technician.\n- Several years of professional experience in a similar role.\n- Knowledge of heating and air conditioning systems, including control systems.\n- Ability to read and interpret technical drawings and schematics.\n- Strong problem-solving skills and attention to detail.\n- Willingness to work flexible hours, including evenings and weekends.\n- Valid driver's license.\n\nWhat We Offer:\n\n- A challenging and varied role in a dynamic environment.\n- Opportunities for professional development and training.\n- A competitive salary and benefits package.\n- A supportive and collaborative team.\n\nIf you are a dedicated professional with a passion for heating and air conditioning systems, we would love to hear from you. Please submit your application, including your CV and cover letter, to our HR department.\n\nKantonsspital Aarau (KSA) is an equal opportunity employer and welcomes applications from all qualified candidates.",
-        "fr": "Technicien/ne de service et d'entretien en chauffage et climatisation — Hôpital cantonal d'Aarau (KSA), Aarau"
+        "en": "Service-/Maintenance Technician Heating-Cooling — Canton Hospital Aarau (KSA), Aarau\n\nThe Canton Hospital Aarau (KSA) is seeking a skilled Service-/Maintenance Technician Heating-Cooling to join our team. In this role, you will be responsible for the maintenance, repair, and installation of heating, ventilation, air conditioning (HVAC), and refrigeration systems in our hospital facilities. The ideal candidate will have a strong technical background, excellent problem-solving skills, and a commitment to ensuring the smooth operation of critical infrastructure.\n\nKey Responsibilities:\n- Perform routine and preventive maintenance on HVAC and refrigeration systems.\n- Conduct repairs and troubleshooting of heating, cooling, and refrigeration equipment.\n- Install and commission new HVAC and refrigeration systems.\n- Ensure compliance with safety regulations and hospital standards.\n- Collaborate with cross-functional teams to resolve technical issues.\n- Document maintenance activities and system performance.\n- Participate in emergency response and system breakdown management.\n\nRequirements:\n- Completed vocational training or equivalent in HVAC or refrigeration technology.\n- Several years of experience in HVAC and refrigeration maintenance.\n- Knowledge of relevant safety regulations and hospital standards.\n- Strong technical skills and hands-on problem-solving abilities.\n- Ability to work independently and as part of a team.\n- Good communication skills in German and English.\n- Valid driver’s license and willingness to travel.\n\nWe offer:\n- A dynamic and challenging work environment in a leading healthcare institution.\n- Competitive salary and benefits.\n- Opportunities for professional development and career growth.\n- A supportive and collaborative team.\n\nIf you are a passionate and experienced Service-/Maintenance Technician Heating-Cooling with a commitment to quality and patient care, we would like to hear from you. Please submit your application including your CV and any relevant certificates to [contact information].\n\nThe Canton Hospital Aarau (KSA) is an equal opportunity employer and welcomes applications from all qualified candidates.",
+        "fr": "Service-/Unterhaltstechniker/in Heizung-Kälte — Kantonsspital Aarau (KSA), Aarau\n\nLe Service Technique du Cantonsspital Aarau (KSA) recherche un(e) technicien(ne) en service et entretien pour les systèmes de chauffage et de climatisation. Vous serez responsable de l'entretien préventif et correctif des installations de chauffage, de ventilation, de climatisation et de réfrigération du KSA, ainsi que de la gestion des systèmes de contrôle et de surveillance.\n\nVos principales tâches incluront :\n- L'entretien préventif et correctif des installations de chauffage, de ventilation, de climatisation et de réfrigération.\n- La gestion des systèmes de contrôle et de surveillance, y compris la maintenance des capteurs, des contrôleurs et des logiciels associés.\n- La coordination avec les fournisseurs et les équipes de maintenance pour assurer un fonctionnement optimal des systèmes.\n- La documentation des interventions et des rapports d'entretien.\n- La participation à des projets de modernisation et d'optimisation des installations.\n\nNous recherchons un(e) candidat(e) avec :\n- Une formation professionnelle en technique de chauffage, ventilation, climatisation et réfrigération (HVACR) ou une expérience équivalente.\n- Une expérience pratique dans l'entretien et la maintenance des systèmes HVACR.\n- Des connaissances en systèmes de contrôle et de surveillance, y compris les logiciels associés.\n- Une bonne connaissance des normes de sécurité et des réglementations en vigueur.\n- Des compétences en communication et en travail d'équipe.\n- Une disponibilité pour travailler en horaires variables, y compris les week-ends et les nuits.\n\nLe KSA offre un environnement de travail stimulant et des perspectives de développement professionnel. Si vous êtes passionné(e) par la technique et souhaitez contribuer à un projet ambitieux, nous serions ravis de vous accueillir dans notre équipe.\n\nPour postuler, veuillez envoyer votre candidature complète, y compris votre CV et une lettre de motivation, à [adresse e-mail] ou par courrier à [adresse postale]. Veuillez indiquer le numéro de référence [numéro] dans votre candidature."
       },
       "location": "Aarau",
       "canton": "AG",
@@ -8662,7 +8665,6 @@
         ]
       },
       "firstSeenAt": "2026-07-10T12:11:07.793Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -8675,8 +8677,10 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 2,
-      "crawlerMissStreak": 2
+      "retranslationAttempts": 3,
+      "crawlerMissStreak": 2,
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 80
     }
   ]
 }
