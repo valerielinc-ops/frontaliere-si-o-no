@@ -18,6 +18,13 @@ import { CRITICAL_CSS_LINK } from './shared/criticalCss';
 import { jsToJson as sharedJsToJson } from './shared/jsToJson';
 import { buildArticleSeoSections, cleanupArticleBodySections, articleBodySectionLabel, renderArticleDerivedSectionsHtml } from './articleSeoFallback';
 import { renderAuthoritativeSourcesHtml } from './shared/authoritativeSources';
+// Single producer for the hub `ssg-article-grid` (issue #4974 item 4): nanako's
+// fast-publish refreshes the same grid on every article it publishes, so the
+// two emitters cannot drift. Extension is explicit for the same reason
+// flatHtmlRedirect's is — `packages/articles` is its own "type": "module"
+// package, where an extensionless deep specifier does not resolve under plain
+// Node ESM.
+import { renderArticleHubCards, ARTICLES_HEADING } from '../packages/articles/engine/articlesHubCards.ts';
 import { SECTION_EDITORIAL, SECTION_EDITORIAL_KEYS } from './editorialContent';
 import { normalizeStructuredData } from '../services/seo/schema-normalizers';
 import { ORGANIZATION_LD_JSON } from '../services/seo/organizationLd';
@@ -4603,39 +4610,20 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  const localePrefix = localePrefixes.includes(urlSegs[0] ?? '') ? urlSegs[0] : '';
  const cardLocale = (localePrefix || 'it') as 'it' | 'en' | 'de' | 'fr';
  const topArticles = blogArticlesStatic.slice(0, 100);
- const ARTICLES_HEADING: Record<string, string> = {
- it: 'Ultimi Articoli per Frontalieri',
- en: 'Latest Articles for Cross-Border Workers',
- de: 'Neueste Artikel für Grenzgänger',
- fr: 'Derniers Articles pour Frontaliers',
- };
- const CATEGORY_COLORS: Record<string, string> = {
- fiscale: 'background:var(--color-accent-subtle);color:#4338ca',
- pratico: 'background:#ecfdf5;color:#047857',
- novita: 'background:#fff7ed;color:#c2410c',
- pensione: 'background:#fdf4ff;color:#7e22ce',
- };
- const CATEGORY_LABELS: Record<string, Record<string, string>> = {
- fiscale: { it: 'Fiscale', en: 'Tax', de: 'Steuer', fr: 'Fiscal' },
- pratico: { it: 'Pratico', en: 'Practical', de: 'Praktisch', fr: 'Pratique' },
- novita: { it: 'Novità', en: 'News', de: 'News', fr: 'Actualité' },
- pensione: { it: 'Pensione', en: 'Pension', de: 'Rente', fr: 'Retraite' },
- };
- const articleCardsHtml = topArticles.map((art, idx) => {
- const artSlug = articleIdToSlug[cardLocale]?.[art.id] ?? art.id;
- const artPath = localePrefix ? `/${localePrefix}/${blogListSlug}/${artSlug}` : `/${blogListSlug}/${artSlug}`;
+ // Card markup lives in packages/articles/engine/articlesHubCards.ts — see the
+ // import at the top for why. `topArticles` is already capped and sorted here;
+ // the renderer re-applies the cap so the corpus-side caller gets the same one.
+ const articleCardsHtml = renderArticleHubCards({
+ articles: topArticles,
+ locale: cardLocale,
+ sectionSlug: blogListSlug,
+ localePrefix,
+ resolveSlug: (id) => articleIdToSlug[cardLocale]?.[id],
+ resolveMeta: (_id, artPath) => {
  const artSeo = seoMap.get(seoKey(artPath));
- const title = artSeo ? esc(artSeo.ogT) : art.id.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
- const desc = artSeo ? esc(artSeo.desc).substring(0, 150) : '';
- const catColor = CATEGORY_COLORS[art.category] ?? CATEGORY_COLORS.fiscale;
- const catLabel = CATEGORY_LABELS[art.category]?.[cardLocale] ?? art.category;
- const dateStr = new Date(art.date).toLocaleDateString(cardLocale === 'it' ? 'it-IT' : cardLocale, { day: 'numeric', month: 'short', year: 'numeric' });
- // First two cards are above-the-fold on the hub — mark them
- // fetchpriority="high" (eager load, but flagged to the browser as LCP
- // candidates) so `audit-page-weight` sees the required loading signal.
- const imgLoadingAttrs = idx < 2 ? ' fetchpriority="high"' : ' loading="lazy"';
- return `<a href="${artPath}" aria-label="${title}" class="ssg-art-card"><img src="${art.image}" alt="${title}" width="400" height="200" class="ssg-art-img"${imgLoadingAttrs}><div class="ssg-art-body"><span class="ssg-art-cat" style="${catColor}">${esc(catLabel)}</span><span class="ssg-art-date">${dateStr}</span><h3 class="ssg-art-title">${title}</h3>${desc ? `<p class="ssg-art-desc">${desc}</p>` : ''}</div></a>`;
- }).join('');
+ return artSeo ? { title: artSeo.ogT, desc: artSeo.desc } : null;
+ },
+ });
  // Extracted per-card inline styles into CSS classes to keep the
  // articles-hub HTML under the 200 KB page-weight gate (100 cards × ~750
  // bytes of repeated inline styles ≈ 75 KB savings). The .ssg-* rules now
