@@ -52,28 +52,57 @@ function isUsable(a: unknown): a is OverlayArticle {
       && typeof r.title === 'string' && r.title.length > 0;
 }
 
+/** One fetch of a published index file. `null` on any problem. */
+async function fetchIndex(path: string): Promise<{ articles: OverlayArticle[]; total: number } | null> {
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), TIMEOUT_MS);
+  try {
+    const res = await fetch(cdnDataUrl(path), { signal: controller.signal });
+    if (!res.ok) return null;
+    const body = await res.json() as { articles?: unknown; total?: unknown };
+    if (!Array.isArray(body?.articles)) return null;
+    return {
+      articles: body.articles.filter(isUsable),
+      total: typeof body.total === 'number' ? body.total : 0,
+    };
+  } catch {
+    return null;
+  } finally {
+    clearTimeout(timer);
+  }
+}
+
 /**
  * Fetch the overlay for one section+locale. Resolves to `[]` on any problem.
+ *
+ * `bundledCount` — how many articles this build shipped — turns the published
+ * window from a contract into a fast path. The publisher caps the recent index
+ * at 150 entries, which was sized against how often the site deploys; when
+ * deploys stall (2026-08-03 → 04) the bundle stops advancing while articles
+ * keep publishing, and anything older than the window and newer than the
+ * bundle falls into neither. Those articles are live at their own URL and
+ * invisible in every list, and nothing reports it.
+ *
+ * So: if the window provably cannot close the gap — the bundle plus the whole
+ * window still totals less than the corpus — fetch the complete index instead.
+ * On the common path (`bundledCount` current) the comparison is false and not
+ * a byte more is downloaded. Omit `bundledCount` to keep the old behaviour.
  */
 export async function fetchArticleOverlay(
   section: OverlaySection,
   locale: Locale,
+  bundledCount?: number,
 ): Promise<OverlayArticle[]> {
-  const url = cdnDataUrl(`/data/blog-index-${section}-${locale}.json`);
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), TIMEOUT_MS);
-  try {
-    const res = await fetch(url, { signal: controller.signal });
-    if (!res.ok) return [];
-    const body: unknown = await res.json();
-    const articles = (body as { articles?: unknown })?.articles;
-    if (!Array.isArray(articles)) return [];
-    return articles.filter(isUsable);
-  } catch {
-    return [];
-  } finally {
-    clearTimeout(timer);
+  const recent = await fetchIndex(`/data/blog-index-${section}-${locale}.json`);
+  if (!recent) return [];
+
+  if (typeof bundledCount === 'number' && bundledCount + recent.articles.length < recent.total) {
+    const full = await fetchIndex(`/data/blog-index-${section}-${locale}-full.json`);
+    // Still fail-open: a missing or malformed full index leaves the window's
+    // entries in place rather than dropping the overlay altogether.
+    if (full && full.articles.length > recent.articles.length) return full.articles;
   }
+  return recent.articles;
 }
 
 /**

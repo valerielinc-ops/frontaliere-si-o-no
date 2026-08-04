@@ -974,6 +974,33 @@ interface RenderArticleHubCoreArgs {
  * never skipped. No crash, no warning spam (the readers return `[]`/empty
  * maps when the seed files are present-but-empty).
  */
+/**
+ * `id → date` out of a section's registry, for the archive's chronological order.
+ *
+ * Read with a regex and not an import for the reason the rest of this file
+ * already gives: the registry is a TS module with extensionless relative
+ * specifiers, and this code runs under plain Node ESM on the fast-publish path.
+ *
+ * An unreadable registry yields an empty map, and the sort below then leaves
+ * the order exactly as it was — degrading to the previous behaviour rather
+ * than to an empty or arbitrarily shuffled archive.
+ */
+function readArticleDates(
+  fs: typeof fsT,
+  np: typeof npT,
+  rootDir: string,
+  registryFile: string,
+): Map<string, string> {
+  const out = new Map<string, string>();
+  try {
+    const src = fs.readFileSync(np.join(rootDir, registryFile), 'utf-8');
+    const rx = /\{\s*id:\s*'([^']+)',\s*category:\s*'[^']*',\s*date:\s*'([^']+)'/g;
+    let m: RegExpExecArray | null;
+    while ((m = rx.exec(src)) !== null) out.set(m[1], m[2]);
+  } catch { /* registry absent — keep insertion order */ }
+  return out;
+}
+
 function renderArticleHubPagesCore(args: RenderArticleHubCoreArgs): void {
   const {
     baseUrl: BASE_URL,
@@ -1012,7 +1039,7 @@ function renderArticleHubPagesCore(args: RenderArticleHubCoreArgs): void {
     const masterSlugs = new Set<string>(itArticles.map((a) => a.slug));
     for (const slug of Object.keys(blogUrlSlugs)) masterSlugs.add(slug);
 
-    const items: Array<{ href: string; label: string; excerpt?: string }> = [];
+    const items: Array<{ href: string; label: string; excerpt?: string; id: string }> = [];
     for (const slug of masterSlugs) {
       const label = localeBySlug.get(slug) ?? itBySlug.get(slug) ?? humanizeSlug(slug);
       const urlSlug = blogUrlSlugs[slug]?.[locale] ?? slug;
@@ -1020,8 +1047,28 @@ function renderArticleHubPagesCore(args: RenderArticleHubCoreArgs): void {
       const excerpt = rawExcerpt && rawExcerpt.length > 140
         ? rawExcerpt.slice(0, 137).trimEnd() + '…'
         : rawExcerpt;
-      items.push({ href: `${prefix}/${blogSection}/${urlSlug}/`, label, excerpt });
+      items.push({ href: `${prefix}/${blogSection}/${urlSlug}/`, label, excerpt, id: slug });
     }
+
+    // Newest first. `masterSlugs` is a Set filled from the meta chunk and the
+    // slug map, i.e. the order articles were APPENDED — so every new article
+    // landed on the LAST page. With 3074 articles at 100 per page that is page
+    // 31, and only page 1 is in the sitemap: the rest is reachable through the
+    // pagination chain alone, which put a freshly published article ~31 hops
+    // from anything that links to it.
+    //
+    // An id the registry has no date for sorts last but keeps its relative
+    // position, so a registry that is briefly out of step with the meta chunks
+    // drops nothing from the archive.
+    const dateById = readArticleDates(fs, np, rootDir, cfg.registryFile);
+    items.sort((a, b) => {
+      const da = dateById.get(a.id);
+      const db = dateById.get(b.id);
+      if (da && db) return db.localeCompare(da);
+      if (da) return -1;
+      if (db) return 1;
+      return 0;
+    });
 
     const total = items.length;
     // Page count from the shared union size — identical to `total` while the

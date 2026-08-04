@@ -61,3 +61,57 @@ describe('fetchArticleOverlay — every failure resolves to []', () => {
     expect(r.map((a) => a.id)).toEqual(['buono']);
   });
 });
+
+// The published window (RECENT_LIMIT=150) was sized against how often the site
+// deploys. When deploys stall, the bundle stops advancing while articles keep
+// publishing, and anything older than the window and newer than the bundle is
+// in NEITHER — live at its own URL, invisible in every list, with nothing
+// reporting it. The escalation below is what removes that cliff.
+describe('fetchArticleOverlay — escalates past the published window', () => {
+  beforeEach(() => { vi.restoreAllMocks(); });
+
+  const recent = { total: 3000, articles: [{ id: 'r1', title: 'Recente' }] };
+  const full = {
+    total: 3000,
+    articles: [{ id: 'r1', title: 'Recente' }, { id: 'v1', title: 'Vecchio ma non nel bundle' }],
+  };
+
+  const stub = (impl: (url: string) => unknown) =>
+    vi.stubGlobal('fetch', vi.fn((u: string) => Promise.resolve({
+      ok: true, json: () => Promise.resolve(impl(u)),
+    } as unknown as Response)));
+
+  it('fetches the full index when the window cannot close the gap', async () => {
+    stub((u) => (String(u).includes('-full') ? full : recent));
+    // 100 bundled + 1 in the window = 101, against a corpus of 3000.
+    const out = await fetchArticleOverlay('frontaliere', 'it', 100);
+    expect(out.map((a) => a.id)).toEqual(['r1', 'v1']);
+  });
+
+  it('does not fetch the full index when the bundle is current', async () => {
+    const fn = vi.fn((_u: string) => Promise.resolve({
+      ok: true, json: () => Promise.resolve(recent),
+    } as unknown as Response));
+    vi.stubGlobal('fetch', fn);
+    const out = await fetchArticleOverlay('frontaliere', 'it', 2999);
+    expect(out.map((a) => a.id)).toEqual(['r1']);
+    expect(fn).toHaveBeenCalledTimes(1);
+    expect(String(fn.mock.calls[0][0])).not.toContain('-full');
+  });
+
+  it('keeps the window when the full index is missing — never drops the overlay', async () => {
+    stub((u) => (String(u).includes('-full') ? { nope: 1 } : recent));
+    const out = await fetchArticleOverlay('frontaliere', 'it', 100);
+    expect(out.map((a) => a.id)).toEqual(['r1']);
+  });
+
+  it('behaves exactly as before when the caller passes no bundle size', async () => {
+    const fn = vi.fn((_u: string) => Promise.resolve({
+      ok: true, json: () => Promise.resolve(recent),
+    } as unknown as Response));
+    vi.stubGlobal('fetch', fn);
+    const out = await fetchArticleOverlay('frontaliere', 'it');
+    expect(out.map((a) => a.id)).toEqual(['r1']);
+    expect(fn).toHaveBeenCalledTimes(1);
+  });
+});

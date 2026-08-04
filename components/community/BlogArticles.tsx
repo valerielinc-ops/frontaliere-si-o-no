@@ -1236,7 +1236,9 @@ function BlogArticles({
  // bundle immediately and gains the newer entries when they arrive, so a
  // slow or failed overlay costs nothing. The .catch is belt-and-braces —
  // fetchArticleOverlay already resolves to [] on every failure path.
- void fetchArticleOverlay(section, getLocale()).then((overlay) => {
+ // `data.length` lets the overlay tell whether the published window can
+ // actually close the gap to this build, instead of assuming it does.
+ void fetchArticleOverlay(section, getLocale(), data.length).then((overlay) => {
    const { articles: merged, added } = mergeOverlay(data, overlay, getLocale());
    if (added > 0) setArticles(merged);
  }).catch(() => {});

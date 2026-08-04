@@ -1745,6 +1745,47 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  }
  }
 
+ // The same three reads for the svizzera section (issue #4974 item 4). Its
+ // hub shipped without a card grid at all: the bare index carried editorial
+ // copy and a CTA to /tutti/, so a reader landing on /articoli-svizzera/ saw
+ // no article until they clicked through, and the corpus had no marker to
+ // refresh. `swiss-articles-data.ts` is the same `Article` shape, so the same
+ // regex reads it.
+ let swissArticlesStatic: StaticArticle[] = [];
+ let swissHeroImageStatic = '';
+ try {
+ const swissDataSrc = fs.readFileSync(np.resolve(rootDir, 'data', 'swiss-articles-data.ts'), 'utf-8');
+ const swissBlocks = [...swissDataSrc.matchAll(/\{\s*id:\s*'([^']+)',\s*category:\s*'([^']+)',\s*date:\s*'([^']+)',\s*image:\s*'([^']+)'/gs)];
+ swissArticlesStatic = swissBlocks.map(m => ({ id: m[1], category: m[2], date: m[3], image: m[4] }));
+ swissArticlesStatic.sort((a, b) => b.date.localeCompare(a.date));
+ if (swissArticlesStatic.length) {
+ swissHeroImageStatic = swissArticlesStatic[0].image;
+ }
+ } catch { /* non-fatal */ }
+
+ const swissSlugs = new Set(['articoli-svizzera', 'swiss-articles', 'schweiz-artikel', 'articles-suisse']);
+ const swissArticleIdByLocale: Record<'it' | 'en' | 'de' | 'fr', Record<string, string>> = {
+ it: {}, en: {}, de: {}, fr: {},
+ };
+ try {
+ const routerSwissDataSrc = fs.readFileSync(np.resolve(rootDir, 'services/routerSwissData.ts'), 'utf-8');
+ const rx = /["']([^"']+)["']:\s*\{\s*it:\s*["']([^"']+)["'],\s*en:\s*["']([^"']+)["'],\s*de:\s*["']([^"']+)["'],\s*fr:\s*["']([^"']+)["']/g;
+ let match: RegExpExecArray | null;
+ while ((match = rx.exec(routerSwissDataSrc)) !== null) {
+ swissArticleIdByLocale.it[match[2]] = match[1];
+ swissArticleIdByLocale.en[match[3]] = match[1];
+ swissArticleIdByLocale.de[match[4]] = match[1];
+ swissArticleIdByLocale.fr[match[5]] = match[1];
+ }
+ } catch { /* non-fatal */ }
+
+ const swissIdToSlug: Record<string, Record<string, string>> = { it: {}, en: {}, de: {}, fr: {} };
+ for (const locale of ['it', 'en', 'de', 'fr'] as const) {
+ for (const [slug, id] of Object.entries(swissArticleIdByLocale[locale])) {
+ swissIdToSlug[locale][id] = slug;
+ }
+ }
+
  const parseBlogBodyLocale = (locale: 'it' | 'en' | 'de' | 'fr') => {
  const out: Record<string, { body1?: string; body2?: string; body3?: string }> = {};
  const dir = np.resolve(rootDir, 'services', 'locales', 'blog-body', locale);
@@ -4507,6 +4548,9 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  const blogSlugs = ['articoli-frontaliere', 'cross-border-articles', 'frontier-articles', 'grenzgaenger-artikel', 'articles-frontalier'];
  const vitaSlugs = ['vivere-in-ticino', 'living-in-ticino', 'leben-im-tessin', 'vivre-au-tessin'];
  const isBlogDetailPage = blogSlugs.includes(firstSeg) && urlSegs.length > (localePrefixes.includes(urlSegs[0] ?? '') ? 2 : 1);
+ // Only the BARE svizzera index gets the new grid; its article pages keep the
+ // shell they already render, so this cannot change any published article.
+ const isSwissDetailPage = swissSlugs.has(firstSeg) && urlSegs.length > (localePrefixes.includes(urlSegs[0] ?? '') ? 2 : 1);
  const localeKey = (locale === 'en' || locale === 'de' || locale === 'fr') ? locale : 'it';
  const articleSlug = isBlogDetailPage ? (urlSegs[urlSegs.length - 1] ?? '') : '';
  const articleId = articleSlug
@@ -4597,6 +4641,36 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  rootHtml = `<div class="s-wWmcGm"><div style="${sp};height:7rem;margin-bottom:1.5rem"></div><article><h1 class="s-lHdmvf">${esc(h1Text)}</h1><p class="s-zvDmuv">${esc(seoData.desc)}</p>${editorialHtml}${editorialSourcesHtml}</article><div class="s-1oTdPl">${`<div style="${sp};height:5rem"></div>`.repeat(4)}</div><nav class="s-eazYqN">${navHtml}</nav></div>`;
  } else if (fiscoSlugs.includes(firstSeg)) {
  rootHtml = `<div class="s-wWmcGm"><div class="s-34uchz">${`<div style="${sp};width:6rem;height:2.25rem;border-radius:9999px"></div>`.repeat(5)}</div><article><h1 class="s-lHdmvf">${esc(h1Text)}</h1><p class="s-zvDmuv">${esc(seoData.desc)}</p>${editorialHtml}${editorialSourcesHtml}</article><div style="${sp};height:14rem;margin-top:1.5rem"></div><nav class="s-eazYqN">${navHtml}</nav></div>`;
+ } else if (swissSlugs.has(firstSeg) && !isSwissDetailPage) {
+ // The svizzera hub shipped with no card grid: editorial copy and a CTA to
+ // /tutti/, nothing else. A reader landing here saw zero articles until they
+ // clicked through, and — the reason it matters now — the page carried no
+ // `ssg-article-grid` marker, so the corpus had nothing to refresh and the
+ // section could never go live-on-publish the way frontaliere does.
+ //
+ // Same renderer, same 100-card cap, its own registry and slug map. Kept a
+ // separate branch rather than folded into the blogSlugs one below: that
+ // branch also owns article DETAIL pages, and widening its condition would
+ // put every published svizzera article through a code path it has never
+ // been rendered by.
+ const heroImg = swissHeroImageStatic
+ ? `<img class="s-zYpvpO" src="${swissHeroImageStatic}" alt="${esc(seoData.ogT)}" width="800" height="320" fetchpriority="high">`
+ : `<div style="${sp};height:16rem;margin-bottom:1.5rem"></div>`;
+ const swissListSlug = firstSeg;
+ const swissLocalePrefix = localePrefixes.includes(urlSegs[0] ?? '') ? urlSegs[0] : '';
+ const swissCardLocale = (swissLocalePrefix || 'it') as 'it' | 'en' | 'de' | 'fr';
+ const swissCardsHtml = renderArticleHubCards({
+ articles: swissArticlesStatic.slice(0, 100),
+ locale: swissCardLocale,
+ sectionSlug: swissListSlug,
+ localePrefix: swissLocalePrefix,
+ resolveSlug: (id) => swissIdToSlug[swissCardLocale]?.[id],
+ resolveMeta: (_id, artPath) => {
+ const artSeo = seoMap.get(seoKey(artPath));
+ return artSeo ? { title: artSeo.ogT, desc: artSeo.desc } : null;
+ },
+ });
+ rootHtml = `<div class="s-wWmcGm">${heroImg}<article><h1 class="s-lHdmvf">${esc(h1Text)}</h1><p class="s-zvDmuv">${esc(seoData.desc)}</p>${editorialHtml}</article><h2 class="s-sXAwQz">${ARTICLES_HEADING[locale] ?? ARTICLES_HEADING.it}</h2><div class="ssg-article-grid">${swissCardsHtml}</div><nav class="s-eazYqN">${navHtml}</nav></div>`;
  } else if (blogSlugs.includes(firstSeg)) {
  const heroImg = blogHeroImageStatic ? `<img class="s-zYpvpO" src="${blogHeroImageStatic}" alt="${esc(seoData.ogT)}" width="800" height="320" fetchpriority="high">` : `<div style="${sp};height:16rem;margin-bottom:1.5rem"></div>`;
  // Ad placeholders reserve vertical space so React hydration doesn't cause layout shifts (CLS).
