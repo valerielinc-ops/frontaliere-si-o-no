@@ -1810,6 +1810,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.leclanche-crisi-finanziaria-2025.title': 'Leclanché: financial crisis and postponement of the 2025 report',
     'blog.article.leclanche-crisi-finanziaria-2025.excerpt': 'The Yverdon-les-Bains company suspends the shares and postpones the operating relationship. The point about the financial situation and the ongoing negotiations.',
     'blog.article.leclanche-crisi-finanziaria-2025.imageAlt': 'Swiss corporate headquarters in a financial context.',
+    'blog.article.attacco-hacker-liechtenstein-svizzera.title': 'Hacker attack in Liechtenstein, alarm also in Switzerland',
+    'blog.article.attacco-hacker-liechtenstein-svizzera.excerpt': 'The theft of data from the Principality\'s register of foundations raises fears of tax and criminal repercussions even in Swiss territory.',
+    'blog.article.attacco-hacker-liechtenstein-svizzera.imageAlt': 'View of a Swiss financial district, symbolizing stability and transparency.',
 };
 
 export default blogMetaChEn;

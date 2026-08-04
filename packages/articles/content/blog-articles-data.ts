@@ -27714,6 +27714,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'littering-lavoro-e-aviatione-novita-del-1-augusto',
+ category: 'novita',
+ date: '2026-08-04T10:48:15.109Z',
+ image: '/images/blog/littering-lavoro-e-aviatione-novita-del-1-augusto.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

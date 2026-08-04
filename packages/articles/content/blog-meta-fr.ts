@@ -9234,6 +9234,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.locarno-film-festival-guida-pratica.title': 'Festival du film de Locarno : billets et informations pour les frontaliers',
     'blog.article.locarno-film-festival-guida-pratica.excerpt': 'Guide pratique pour suivre les projections sur la Piazza Grande. Informations sur les prix, les réservations et la gestion du retour en Italie pour les travailleurs frontaliers.',
     'blog.article.locarno-film-festival-guida-pratica.imageAlt': 'Piazza Grande à Locarno pendant le festival du film',
+    'blog.article.littering-lavoro-e-aviatione-novita-del-1-augusto.title': 'Littérature, travail et aviation : les nouveautés du 1er août',
+    'blog.article.littering-lavoro-e-aviatione-novita-del-1-augusto.excerpt': 'Des amendes pour littering à la prolongation du travail réduit, voici les nouveautés du 1er août.',
+    'blog.article.littering-lavoro-e-aviatione-novita-del-1-augusto.imageAlt': 'Vue panoramique de Lugano avec le lac et les montagnes',
 };
 
 export default blogMetaFr;

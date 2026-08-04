@@ -1,6 +1,6 @@
 {
   "crawlerKey": "gkb",
-  "assembledAt": "2026-08-03T22:13:03.711Z",
+  "assembledAt": "2026-08-04T11:38:47.177Z",
   "jobs": [
     {
       "id": "gkb-d829938f33ae",
@@ -33,7 +33,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1930/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-03T22:12:59.767Z",
+      "crawledAt": "2026-08-04T11:38:43.661Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -56,10 +56,12 @@
       "firstSeenAt": "2026-07-03T12:21:57.949Z",
       "previousSlugsByLocale": {
         "it": [
-          "fachspezialist-in-rechtsdienst-compliance-80-100-gkb-ch"
+          "fachspezialist-in-rechtsdienst-compliance-80-100-gkb-ch",
+          "servizio-legale-specializzato-conformita-80-100-graubundner-kantonalbank-chur"
         ],
         "de": [
-          "fachspezialist-in-rechtsdienst-compliance-80-100-gkb-ch"
+          "fachspezialist-in-rechtsdienst-compliance-80-100-gkb-ch",
+          "fachspezialist-in-rechtsdienst-compliance-80-100-graubundner-kantonalbank-chur"
         ],
         "en": [
           "fachspezialist-in-rechtsdienst-compliance-80-100-gkb-ch"
@@ -69,7 +71,9 @@
         ]
       },
       "previousSlugs": [
-        "fachspezialist-in-rechtsdienst-compliance-80-100-gkb-ch"
+        "fachspezialist-in-rechtsdienst-compliance-80-100-gkb-ch",
+        "fachspezialist-in-rechtsdienst-compliance-80-100-graubundner-kantonalbank-chur",
+        "servizio-legale-specializzato-conformita-80-100-graubundner-kantonalbank-chur"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -116,7 +120,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1948/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-03T22:12:53.053Z",
+      "crawledAt": "2026-08-04T11:38:42.779Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -140,12 +144,14 @@
         "specialist-geschaftsfuhrung-beratung-stiftungen-80-gkb-ch",
         "dipl-ergotherapeut-dipl-ergotherapeutin-40-m-w-d-spital-maennedorf-ch",
         "dipl-ergotherapeut-dipl-ergotherapeutin-40-m-w-d-spital-mannedorf-mannedorf",
-        "specialist-geschaftsfuhrung-beratung-stiftungen-80-graubundner-kantonalbank-chur"
+        "specialist-geschaftsfuhrung-beratung-stiftungen-80-graubundner-kantonalbank-chur",
+        "specialista-geschaftsfuhrung-beratung-stiftungen-80-graubundner-kantonalbank-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
           "specialist-geschaftsfuhrung-beratung-stiftungen-80-gkb-ch",
-          "dipl-ergotherapeut-dipl-ergotherapeutin-40-m-w-d-spital-mannedorf-mannedorf"
+          "dipl-ergotherapeut-dipl-ergotherapeutin-40-m-w-d-spital-mannedorf-mannedorf",
+          "specialista-geschaftsfuhrung-beratung-stiftungen-80-graubundner-kantonalbank-chur"
         ],
         "de": [
           "dipl-ergotherapeut-dipl-ergotherapeutin-40-m-w-d-spital-maennedorf-ch",
@@ -156,6 +162,7 @@
         ]
       },
       "firstSeenAt": "2026-07-08T11:24:58.407Z",
+      "needsRetranslation": true,
       "salaryMin": 46000,
       "salaryMax": 69600,
       "baseSalary": {
@@ -201,7 +208,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1945/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-03T22:12:52.156Z",
+      "crawledAt": "2026-08-04T11:38:41.890Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -223,14 +230,18 @@
       "pensum": "80 - 100%",
       "previousSlugsByLocale": {
         "de": [
-          "fachleiter-in-client-lifecycle-management-80-100-gkb-ch"
+          "fachleiter-in-client-lifecycle-management-80-100-gkb-ch",
+          "abteilungsleitung-pflegeheim-seora-laufenburg-w-m-d-gesundheitszentrum-fricktal"
         ],
         "it": [
-          "fachleiter-in-client-lifecycle-management-80-100-gkb-ch"
+          "fachleiter-in-client-lifecycle-management-80-100-gkb-ch",
+          "responsabile-del-reparto-casa-di-cura-seora-laufenburg-uomo-donna-gesundheitszentrum-fricktal-rheinfelden"
         ]
       },
       "previousSlugs": [
-        "fachleiter-in-client-lifecycle-management-80-100-gkb-ch"
+        "fachleiter-in-client-lifecycle-management-80-100-gkb-ch",
+        "abteilungsleitung-pflegeheim-seora-laufenburg-w-m-d-gesundheitszentrum-fricktal",
+        "responsabile-del-reparto-casa-di-cura-seora-laufenburg-uomo-donna-gesundheitszentrum-fricktal-rheinfelden"
       ],
       "firstSeenAt": "2026-07-09T22:31:04.939Z",
       "salaryMin": 87500,
@@ -278,7 +289,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1946/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-03T22:12:51.289Z",
+      "crawledAt": "2026-08-04T11:38:40.998Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -299,17 +310,20 @@
       "pensumMax": 100,
       "pensum": "80 - 100%",
       "previousSlugs": [
-        "senior-specialist-client-lifecycle-management-80-100-gkb-ch"
+        "senior-specialist-client-lifecycle-management-80-100-gkb-ch",
+        "senior-specialista-client-lifecycle-management-80-100-graubundner-kantonalbank-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-specialist-client-lifecycle-management-80-100-gkb-ch"
+          "senior-specialist-client-lifecycle-management-80-100-gkb-ch",
+          "senior-specialista-client-lifecycle-management-80-100-graubundner-kantonalbank-chur"
         ],
         "fr": [
           "senior-specialist-client-lifecycle-management-80-100-gkb-ch"
         ]
       },
       "firstSeenAt": "2026-07-09T22:31:04.014Z",
+      "needsRetranslation": true,
       "salaryMin": 87500,
       "salaryMax": 154500,
       "baseSalary": {
@@ -355,7 +369,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1949/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-03T22:12:50.406Z",
+      "crawledAt": "2026-08-04T11:38:40.107Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -376,17 +390,20 @@
       "pensumMax": 100,
       "pensum": "80 - 100%",
       "previousSlugs": [
-        "junior-specialist-asset-servicing-80-100-gkb-ch"
+        "junior-specialist-asset-servicing-80-100-gkb-ch",
+        "junior-specialista-asset-servicing-80-100-graubundner-kantonalbank-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "junior-specialist-asset-servicing-80-100-gkb-ch"
+          "junior-specialist-asset-servicing-80-100-gkb-ch",
+          "junior-specialista-asset-servicing-80-100-graubundner-kantonalbank-chur"
         ],
         "fr": [
           "junior-specialist-asset-servicing-80-100-gkb-ch"
         ]
       },
       "firstSeenAt": "2026-07-16T11:12:16.682Z",
+      "needsRetranslation": true,
       "salaryMin": 48500,
       "salaryMax": 85500,
       "baseSalary": {
@@ -432,7 +449,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1950/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-03T22:12:49.486Z",
+      "crawledAt": "2026-08-04T11:38:39.213Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -454,11 +471,13 @@
       "pensum": "80 - 100%",
       "previousSlugs": [
         "trainee-finanzieren-80-100-gkb-ch",
-        "trainee-finanzieren-80-100-graubundner-kantonalbank-chur"
+        "trainee-finanzieren-80-100-graubundner-kantonalbank-chur",
+        "apprendista-finanzieren-80-100-graubundner-kantonalbank-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "trainee-finanzieren-80-100-gkb-ch"
+          "trainee-finanzieren-80-100-gkb-ch",
+          "apprendista-finanzieren-80-100-graubundner-kantonalbank-chur"
         ],
         "en": [
           "trainee-finanzieren-80-100-gkb-ch"
@@ -516,7 +535,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1952/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-03T22:12:48.596Z",
+      "crawledAt": "2026-08-04T11:38:38.334Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -538,12 +557,14 @@
       "pensum": "60%",
       "previousSlugs": [
         "studentenstelle-personalentwicklung-60-gkb-ch",
-        "studentenstelle-personalentwicklung-60-graubundner-kantonalbank-chur"
+        "studentenstelle-personalentwicklung-60-graubundner-kantonalbank-chur",
+        "sviluppo-dell-occupazione-degli-studenti-60-graubundner-kantonalbank-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
           "studentenstelle-personalentwicklung-60-gkb-ch",
-          "studentenstelle-personalentwicklung-60-graubundner-kantonalbank-chur"
+          "studentenstelle-personalentwicklung-60-graubundner-kantonalbank-chur",
+          "sviluppo-dell-occupazione-degli-studenti-60-graubundner-kantonalbank-chur"
         ],
         "en": [
           "studentenstelle-personalentwicklung-60-graubundner-kantonalbank-chur"
@@ -582,7 +603,7 @@
       "title": "Studentenstelle Marketing (60%)",
       "titleByLocale": {
         "it": "Posizione degli studenti di marketing (60%)",
-        "en": "Marketing student position (60%)",
+        "en": "Studentenstelle Marketing (60%)",
         "de": "Studentenstelle Marketing (60%)",
         "fr": "Position étudiante en marketing (60%)"
       },
@@ -598,7 +619,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1954/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-03T22:12:47.702Z",
+      "crawledAt": "2026-08-04T11:38:37.448Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -620,12 +641,14 @@
       "pensum": "60%",
       "previousSlugs": [
         "studentenstelle-marketing-60-gkb-ch",
-        "studentenstelle-marketing-60-graubundner-kantonalbank-chur"
+        "studentenstelle-marketing-60-graubundner-kantonalbank-chur",
+        "posizione-degli-studenti-di-marketing-60-graubundner-kantonalbank-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
           "studentenstelle-marketing-60-gkb-ch",
-          "studentenstelle-marketing-60-graubundner-kantonalbank-chur"
+          "studentenstelle-marketing-60-graubundner-kantonalbank-chur",
+          "posizione-degli-studenti-di-marketing-60-graubundner-kantonalbank-chur"
         ],
         "en": [
           "studentenstelle-marketing-60-graubundner-kantonalbank-chur"
@@ -635,6 +658,7 @@
         ]
       },
       "firstSeenAt": "2026-07-29T22:05:06.647Z",
+      "needsRetranslation": true,
       "salaryMin": 35100,
       "salaryMax": 62100,
       "baseSalary": {
@@ -680,7 +704,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1955/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-03T22:12:46.805Z",
+      "crawledAt": "2026-08-04T11:38:36.557Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -702,12 +726,14 @@
       "pensum": "80 - 100%",
       "previousSlugs": [
         "senior-berater-in-spezialfinanzierungen-80-100-gkb-ch",
-        "senior-berater-in-spezialfinanzierungen-80-100-graubundner-kantonalbank-chur"
+        "senior-berater-in-spezialfinanzierungen-80-100-graubundner-kantonalbank-chur",
+        "senior-consulente-in-finanziamento-speciale-80-100-graubundner-kantonalbank-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
           "senior-berater-in-spezialfinanzierungen-80-100-gkb-ch",
-          "senior-berater-in-spezialfinanzierungen-80-100-graubundner-kantonalbank-chur"
+          "senior-berater-in-spezialfinanzierungen-80-100-graubundner-kantonalbank-chur",
+          "senior-consulente-in-finanziamento-speciale-80-100-graubundner-kantonalbank-chur"
         ],
         "en": [
           "senior-berater-in-spezialfinanzierungen-80-100-graubundner-kantonalbank-chur"
@@ -735,9 +761,9 @@
       "id": "gkb-61fa6a66bb66",
       "slug": "assistente-in-mortgage-lenzerheide-80-graubundner-kantonalbank-lenzerheide",
       "slugByLocale": {
-        "de": "assistent-in-hypotheken-lenzerheide-80-gkb-ch",
         "it": "assistente-in-mortgage-lenzerheide-80-graubundner-kantonalbank-lenzerheide",
         "en": "assistant-in-mortgage-lenzerheide-80-graubundner-kantonalbank-lenzerheide",
+        "de": "assistent-in-hypotheken-lenzerheide-80-gkb-ch",
         "fr": "assistant-en-hypotheque-lenzerheide-80-graubundner-kantonalbank-lenzerheide"
       },
       "company": "Graubündner Kantonalbank",
@@ -745,16 +771,16 @@
       "companyDomain": "gkb.ch",
       "title": "Assistent:in Hypotheken Lenzerheide (80%)",
       "titleByLocale": {
-        "de": "Assistent:in Hypotheken Lenzerheide (80%)",
         "it": "Assistente: in Mortgage Lenzerheide (80%)",
         "en": "Assistant:in Mortgage Lenzerheide (80%)",
+        "de": "Assistent:in Hypotheken Lenzerheide (80%)",
         "fr": "Assistant: en hypothèque Lenzerheide (80%)"
       },
       "description": "Graubündner Kantonalbank | online seit: 03.08.2026 | „Wie auch immer deine Zukunft aussehen wird. Wir bei der Graubündner Kantonalbank sorgen dafür, dass es nicht irgendeine Zukunft wird, sondern die beste Zukunft aller Zeiten.“ Du möchtest gemeinsam mit uns Zeichen setzen, unsere Kunden mit erstklassigem Service begeistern und die GKB als erfolgreiche Beraterbank mitgestalten? Dann bieten wir dir ein spannendes Umfeld mit Entwicklungsmöglichkeiten in eine Rolle als Berater:in Hypotheken. | ab sofort oder nach Vereinbarung |\n• Aktive Unterstützung der Berater:innen Hypotheken\n• Vorprüfung und Aufarbeitung von Hypothekaranfragen von Privatkunden\n• Selbständige Abwicklung von telefonischen und schriftlichen Kundenaufträgen\n• Selbstständige Bearbeitung des Team-Hypotheken-Pool\n• Übernahme verschiedener administrativer Aufgaben\n• Aktives Einbringen von Gestaltungsideen für die stetige Prozessoptimierung |\n• Kaufmännische Grundausbildung (Banklehre oder –Praktikum), idealerweise mit zwei bis drei Jahren Berufserfahrung\n• Freude und Interesse am Hypothekargeschäft\n• Hohe Leistungsbereitschaft, Kundenorientierung und Belastbarkeit\n• Flexible, teamorientierte Persönlichkeit mit selbständiger zuverlässiger Arbeitsweise | Bist du bereit für deine beste Zukunft? Dann bewirb dich jetzt. Wir suchen keine perfekten CVs, sondern Talente mit Neugier, Drive und Verantwortungsbewusstsein. Auch wenn du nicht alles mitbringst: Wenn du wachsen willst, bist du bei uns richtig – ob am Anfang deiner Laufbahn oder bereits mit viel Erfahrung im Gepäck. | Ich bin interessiert und möchte mich bewerben",
       "descriptionByLocale": {
-        "de": "Graubündner Kantonalbank | online seit: 03.08.2026 | „Wie auch immer deine Zukunft aussehen wird. Wir bei der Graubündner Kantonalbank sorgen dafür, dass es nicht irgendeine Zukunft wird, sondern die beste Zukunft aller Zeiten.“ Du möchtest gemeinsam mit uns Zeichen setzen, unsere Kunden mit erstklassigem Service begeistern und die GKB als erfolgreiche Beraterbank mitgestalten? Dann bieten wir dir ein spannendes Umfeld mit Entwicklungsmöglichkeiten in eine Rolle als Berater:in Hypotheken. | ab sofort oder nach Vereinbarung |\n• Aktive Unterstützung der Berater:innen Hypotheken\n• Vorprüfung und Aufarbeitung von Hypothekaranfragen von Privatkunden\n• Selbständige Abwicklung von telefonischen und schriftlichen Kundenaufträgen\n• Selbstständige Bearbeitung des Team-Hypotheken-Pool\n• Übernahme verschiedener administrativer Aufgaben\n• Aktives Einbringen von Gestaltungsideen für die stetige Prozessoptimierung |\n• Kaufmännische Grundausbildung (Banklehre oder –Praktikum), idealerweise mit zwei bis drei Jahren Berufserfahrung\n• Freude und Interesse am Hypothekargeschäft\n• Hohe Leistungsbereitschaft, Kundenorientierung und Belastbarkeit\n• Flexible, teamorientierte Persönlichkeit mit selbständiger zuverlässiger Arbeitsweise | Bist du bereit für deine beste Zukunft? Dann bewirb dich jetzt. Wir suchen keine perfekten CVs, sondern Talente mit Neugier, Drive und Verantwortungsbewusstsein. Auch wenn du nicht alles mitbringst: Wenn du wachsen willst, bist du bei uns richtig – ob am Anfang deiner Laufbahn oder bereits mit viel Erfahrung im Gepäck. | Ich bin interessiert und möchte mich bewerben",
         "it": "Graubündner Kantonalbank | online da: 03.08.2026 | Qualunque sia il tuo futuro. A Graubündner Kantonalbank, ci assicuriamo che non sia solo un futuro, ma il miglior futuro di sempre. Vuoi impostare un esempio insieme a noi, ispirare i nostri clienti con un servizio di prima classe e contribuire a modellare GKB come una banca di consulenza di successo? Allora vi offriamo un ambiente emozionante con opportunità di sviluppo in un ruolo come consulente: in mutui. | da ora in poi o per accordo |\n• Supporto attivo dei consulenti: all'interno dei mutui\n• Esame preliminare e trattamento delle richieste private di ipoteca\n• Trattamento indipendente degli ordini telefonici e dei clienti\n• Elaborazione indipendente della squadra ipoteca\n• Assumere vari compiti amministrativi\n• Introduzione attiva delle idee di progettazione per l'ottimizzazione continua dei processi |\n• Formazione commerciale di base (banca o stage), idealmente con due o tre anni di esperienza professionale\n• Gioia e interesse per il business mutuo\n• Elevate prestazioni, orientamento del cliente e resilienza\n• Personalità flessibile e orientata al team con metodi di lavoro indipendenti e affidabili | Sei pronto per il tuo futuro migliore? Quindi applicare ora. Non siamo alla ricerca di CV perfetti, ma talenti con curiosità, guida e un senso di responsabilità. Anche se non porti tutto: Se vuoi crescere, hai ragione con noi – sia all'inizio della tua carriera che già con molta esperienza nei tuoi bagagli. | Sono interessato e vorrei candidarmi",
         "en": "Graubündner Kantonalbank | online since: 03.08.2026 | Whatever your future will look like. At Graubündner Kantonalbank, we ensure that it is not just any future, but the best future ever. Would you like to set an example together with us, inspire our customers with first-class service and help shape GKB as a successful consulting bank? Then we offer you an exciting environment with development opportunities in a role as a consultant: in mortgages. | from now on or by agreement |\n• Active support of advisors: inside mortgages\n• Preliminary examination and processing of private mortgage enquiries\n• Independent processing of telephone and written customer orders\n• Independent processing of the team mortgage pool\n• Taking on various administrative tasks\n• Active introduction of design ideas for continuous process optimization |\n• Basic commercial training (banking or internship), ideally with two to three years of professional experience\n• Joy and interest in the mortgage business\n• High performance, customer orientation and resilience\n• Flexible, team-oriented personality with independent, reliable working methods | Are you ready for your best future? Then apply now. We are not looking for perfect CVs, but talents with curiosity, drive and a sense of responsibility. Even if you do not bring everything: If you want to grow, you are right with us – whether at the beginning of your career or already with a lot of experience in your luggage. | I am interested and would like to apply",
+        "de": "Graubündner Kantonalbank | online seit: 03.08.2026 | „Wie auch immer deine Zukunft aussehen wird. Wir bei der Graubündner Kantonalbank sorgen dafür, dass es nicht irgendeine Zukunft wird, sondern die beste Zukunft aller Zeiten.“ Du möchtest gemeinsam mit uns Zeichen setzen, unsere Kunden mit erstklassigem Service begeistern und die GKB als erfolgreiche Beraterbank mitgestalten? Dann bieten wir dir ein spannendes Umfeld mit Entwicklungsmöglichkeiten in eine Rolle als Berater:in Hypotheken. | ab sofort oder nach Vereinbarung |\n• Aktive Unterstützung der Berater:innen Hypotheken\n• Vorprüfung und Aufarbeitung von Hypothekaranfragen von Privatkunden\n• Selbständige Abwicklung von telefonischen und schriftlichen Kundenaufträgen\n• Selbstständige Bearbeitung des Team-Hypotheken-Pool\n• Übernahme verschiedener administrativer Aufgaben\n• Aktives Einbringen von Gestaltungsideen für die stetige Prozessoptimierung |\n• Kaufmännische Grundausbildung (Banklehre oder –Praktikum), idealerweise mit zwei bis drei Jahren Berufserfahrung\n• Freude und Interesse am Hypothekargeschäft\n• Hohe Leistungsbereitschaft, Kundenorientierung und Belastbarkeit\n• Flexible, teamorientierte Persönlichkeit mit selbständiger zuverlässiger Arbeitsweise | Bist du bereit für deine beste Zukunft? Dann bewirb dich jetzt. Wir suchen keine perfekten CVs, sondern Talente mit Neugier, Drive und Verantwortungsbewusstsein. Auch wenn du nicht alles mitbringst: Wenn du wachsen willst, bist du bei uns richtig – ob am Anfang deiner Laufbahn oder bereits mit viel Erfahrung im Gepäck. | Ich bin interessiert und möchte mich bewerben",
         "fr": "Graubündner Kantonalbank en ligne depuis: 03.08.2026 Quel que soit votre avenir. Chez Graubündner Kantonalbank, nous nous assurons que ce n'est pas n'importe quel avenir, mais le meilleur avenir jamais. Souhaitez-vous donner l'exemple avec nous, inspirer nos clients avec un service de première classe et aider à façonner GKB comme une banque de consultation réussie? Ensuite, nous vous offrons un environnement passionnant avec des opportunités de développement dans un rôle de consultant: dans les hypothèques. Désormais ou par accord\n• Soutien actif des conseillers : hypothèques intérieures\n• Examen préliminaire et traitement des demandes de renseignements hypothécaires privés\n• Traitement indépendant des commandes par téléphone et par écrit\n• Traitement indépendant du pool hypothécaire de l'équipe\n• Prise en charge de diverses tâches administratives\n• Introduction active d'idées de conception pour l'optimisation continue des processus\n• Formation commerciale de base (banque ou stage), idéalement avec deux à trois ans d'expérience professionnelle\n• La joie et les intérêts dans l'entreprise hypothécaire\n• Haute performance, orientation client et résilience\n• Personnalité flexible et axée sur l'équipe avec des méthodes de travail indépendantes et fiables. Alors appliquez maintenant. Nous ne cherchons pas des CV parfaits, mais des talents avec curiosité, dynamisme et sens des responsabilités. Même si vous n'apportez pas tout: Si vous voulez grandir, vous avez raison avec nous – que ce soit au début de votre carrière ou déjà avec beaucoup d'expérience dans vos bagages. Je suis intéressé et je voudrais postuler"
       },
       "location": "Lenzerheide",
@@ -762,7 +788,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1937/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-03T22:12:45.906Z",
+      "crawledAt": "2026-08-04T11:38:35.663Z",
       "addressLocality": "Lenzerheide",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -777,13 +803,28 @@
       "postedDate": "2026-08-03",
       "applyUrl": "https://recruitingapp-2607.umantis.com/Vacancies/1937/Application/CheckLogin/1",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "department": "Region Lenzerheide / RLEN",
       "pensumMin": 80,
       "pensumMax": 80,
       "pensum": "80%",
+      "previousSlugs": [
+        "assistent-in-hypotheken-lenzerheide-80-gkb-ch",
+        "assistente-in-mortgage-lenzerheide-80-graubundner-kantonalbank-lenzerheide"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "assistent-in-hypotheken-lenzerheide-80-gkb-ch",
+          "assistente-in-mortgage-lenzerheide-80-graubundner-kantonalbank-lenzerheide"
+        ],
+        "en": [
+          "assistent-in-hypotheken-lenzerheide-80-gkb-ch"
+        ],
+        "fr": [
+          "assistent-in-hypotheken-lenzerheide-80-gkb-ch"
+        ]
+      },
+      "firstSeenAt": "2026-08-03T22:12:45.906Z",
       "salaryMin": 46000,
       "salaryMax": 69600,
       "baseSalary": {
@@ -796,22 +837,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR",
-      "firstSeenAt": "2026-08-03T22:12:45.906Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "assistent-in-hypotheken-lenzerheide-80-gkb-ch"
-        ],
-        "en": [
-          "assistent-in-hypotheken-lenzerheide-80-gkb-ch"
-        ],
-        "fr": [
-          "assistent-in-hypotheken-lenzerheide-80-gkb-ch"
-        ]
-      },
-      "previousSlugs": [
-        "assistent-in-hypotheken-lenzerheide-80-gkb-ch"
-      ]
+      "addressRegion": "GR"
     },
     {
       "id": "gkb-e8678ecbf87d",
@@ -830,7 +856,7 @@
         "it": "Studente part-time/in CEO-Office/Directorate Secretariat (60%)",
         "en": "Part-time student: in CEO-Office/Directorate Secretariat (60%)",
         "de": "Studentenstelle CEO-Office/Direktionssekretariat (60%)",
-        "fr": "Poste étudiant CEO-Bureau/Secrétariat de la direction (60%)"
+        "fr": "Studentenstelle CEO-Office/Direktionssekretariat (60%)"
       },
       "description": "Graubündner Kantonalbank | online seit: 14.06.2026 | \"Wie auch immer deine Zukunft aussehen wird. Wir bei der Graubündner Kantonalbank sorgen dafür, dass es nicht irgendeine Zukunft wird, sondern die beste Zukunft aller Zeiten.\" Bringe dein Organisationstalent, deine proaktive Denkweise und dein Gespür für reibungslose Abläufe in einem dynamischen Umfeld ein. | 1. August 2026 oder nach Vereinbarung - befristet bis Ende Studium |\n• Du unterstützt die Geschäftsleitung und den Bankrat in organisatorischen und administrativen Belangen.\n• Du koordinierst Termine, Meetings, Workshops und Veranstaltungen.\n• Du bereitest Sitzungen vor, erstellst Präsentationen und unterstützt bei der Protokollführung.\n• Du übernimmst selbstständig verschiedene Assistenzaufgaben im CEO-Office und fungierst als organisatorische Drehscheibe.\n• Du bringst deine Ideen ein und unterstützt die Weiterentwicklung unserer Prozesse und Arbeitsweisen.\n• Als Teil des Bereichs Unternehmensentwicklung/CEO Office erhältst du spannende Einblicke in strategische Fragestellungen und die Zusammenarbeit mit Geschäftsleitung und Bankrat. |\n• Du studierst an einer Fachhochschule oder Universität (Bachelor oder Master), vorzugsweise in Betriebswirtschaft oder einem verwandten Studiengang.\n• Du bist organisiert, denkst mit und behältst auch in einem dynamischen Umfeld den Überblick.\n• Du arbeitest selbstständig, zuverlässig und mit einem hohen Qualitätsanspruch.\n• Du bringst Eigeninitiative, Drive und die Motivation mit, Verantwortung zu übernehmen und Dinge voranzubringen.\n• Du kommunizierst stilsicher auf Deutsch und bewegst dich sicher in der digitalen Arbeitswelt mit Microsoft 365. | Bist du bereit für deine beste Zukunft? Dann bewirb dich jetzt. Wir suchen keine perfekten CVs, sondern Talente mit Neugier, Drive und Verantwortungsbewusstsein. Auch wenn du nicht alles mitbringst: Wenn du wachsen willst, bist du bei uns richtig – ob am Anfang deiner Laufbahn oder bereits mit viel Erfahrung im Gepäck. | Ich bin interessiert und möchte mich bewerben",
       "descriptionByLocale": {
@@ -899,7 +925,8 @@
         }
       },
       "addressRegion": "GR",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2,
+      "needsRetranslation": true
     }
   ]
 }

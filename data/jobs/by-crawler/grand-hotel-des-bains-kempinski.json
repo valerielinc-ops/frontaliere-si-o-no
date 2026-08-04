@@ -1,6 +1,6 @@
 {
   "crawlerKey": "grand-hotel-des-bains-kempinski",
-  "assembledAt": "2026-08-03T22:11:43.041Z",
+  "assembledAt": "2026-08-04T11:32:44.394Z",
   "jobs": [
     {
       "title": "Junior Housekeeping Supervisor (f/m/d)",
@@ -44,7 +44,7 @@
         "de": "junior-housekeeping-vorgesetzter-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz",
         "fr": "junior-housekeeping-superviseur-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz"
       },
-      "crawledAt": "2026-08-03T22:11:42.099Z",
+      "crawledAt": "2026-08-04T11:32:43.369Z",
       "id": "grand-hotel-des-bains-kempinski-654eb613a331",
       "salaryMin": 48000,
       "salaryMax": 73000,
@@ -119,7 +119,7 @@
         "de": "cluster-groups-event-manager-m-w-deutschsprachig-440723",
         "fr": "cluster-groups-event-manager-m-w-deutschsprachig-kempinski-palace-engelberg-engelberg"
       },
-      "crawledAt": "2026-08-03T22:11:42.108Z",
+      "crawledAt": "2026-08-04T11:32:43.381Z",
       "id": "grand-hotel-des-bains-kempinski-f2cb76113aff",
       "previousSlugsByLocale": {
         "fr": [
@@ -187,10 +187,10 @@
       "slugByLocale": {
         "it": "responsabile-vendite-cluster-m-w-kempinski-palace-engelberg-engelberg",
         "en": "cluster-sales-manager-m-w-kempinski-palace-engelberg-engelberg",
-        "de": "vertriebsleiter-m-w-kempinski-palace-engelberg-engelberg",
+        "de": "cluster-senior-sales-manager-m-w-d-kempinski-palace-engelberg",
         "fr": "directeur-des-ventes-en-grappe-m-m-kempinski-palace-engelberg-engelberg"
       },
-      "crawledAt": "2026-08-03T22:11:42.112Z",
+      "crawledAt": "2026-08-04T11:32:43.392Z",
       "id": "grand-hotel-des-bains-kempinski-f564ef0355f2",
       "salaryMin": 96000,
       "salaryMax": 146000,
@@ -208,6 +208,7 @@
       "firstSeenAt": "2026-07-02T11:26:32.876Z",
       "previousSlugsByLocale": {
         "de": [
+          "vertriebsleiter-m-w-kempinski-palace-engelberg-engelberg",
           "cluster-senior-sales-manager-m-w-d-kempinski-palace-engelberg"
         ],
         "it": [
@@ -216,8 +217,10 @@
       },
       "previousSlugs": [
         "cluster-senior-sales-manager-m-w-451348",
+        "vertriebsleiter-m-w-kempinski-palace-engelberg-engelberg",
         "cluster-senior-sales-manager-m-w-d-kempinski-palace-engelberg"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Florist (f/m/d)",
@@ -244,7 +247,7 @@
       "contractType": "seasonal",
       "description": "Under a name steeped in tradition, Kempinski, hoteliers since 1897, has traveled the world in search of fascinating destinations, without ever forgetting its traditions and European heritage. The spacious resorts and stylish city and wellness hotels reflect an individual and unique character, especially for guests who appreciate 5-star service and luxury on their business or private trips. What actually makes a grand hotel? It is ahead of its time, creating and nurturing traditions. Would you like to develop your own traditions and strengthen the positioning of your department as a sporty, inviting, warm, and refreshingly uncomplicated 5-star hotel? Do you have an eye for detail and work creatively and independently? We are looking for you as a florist to support our housekeeping team for the upcoming winter-season 2026/2027! | Key Responsibilities:\n• Responsible for floral decorations throughout the hotel (rooms, spa, restaurants, event rooms, and all public areas)\n• Responsible for designing and planning decorations for events (birthdays, gala dinners, New Year's Eve celebrations, etc.)\n• Preparation of floral decorations based on guest requests\n• Care and maintenance of cut flowers and plants\n• Determination of material consumption, price calculation, ordering and receiving goods, handling internal inquiries and orders\n• Overall budget management for the floristry department | Skills, Knowledge and Expertise:\n• Completed training as a florist\n• Professional experience in a similar position in a comparable hotel Professional competence, creativity, and attention to detail, as well as a very high awareness of quality\n• Structured and organized way of working\n• Keen interest in team-oriented work\n• Good knowledge of German and English | Benefits:\n• Live and work in the heart of the Engadin Alps\n• A wide range of creative opportunities\n• A pleasant working atmosphere in a young and dynamic team\n• International career prospects and development opportunities\n• Outstanding employee benefits in all Kempinski hotels, among others\n• Staff accommodation in the immediate vicinity of the hotel, including laundry facilities, a fitness and common room, a kitchen, and a wide range of dishes in our staff restaurant\n• Free use of the in-house daycare center for employees' children\n• Monthly employee activities such as skiing, snowboarding, and cross-country skiing courses, hiking trips, spa evenings, and German courses\n• Internal “Feel Good Committee” to help shape all welfare issues",
       "titleByLocale": {
-        "it": "Fiorista (f/m/d)",
+        "it": "Florist (f/m/d)",
         "en": "Florist (f/m/d)",
         "de": "Florist (m/m/d)",
         "fr": "Fleuriste (f/m/d)"
@@ -261,7 +264,7 @@
         "de": "florist-m-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz",
         "fr": "fleuriste-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz"
       },
-      "crawledAt": "2026-08-03T22:11:42.114Z",
+      "crawledAt": "2026-08-04T11:32:43.396Z",
       "id": "grand-hotel-des-bains-kempinski-0d48596e0883",
       "previousSlugsByLocale": {
         "it": [
@@ -296,7 +299,8 @@
       },
       "streetAddress": "Via Mezdi 27",
       "postalCode": "7500",
-      "firstSeenAt": "2026-06-29T13:20:35.672Z"
+      "firstSeenAt": "2026-06-29T13:20:35.672Z",
+      "needsRetranslation": true
     },
     {
       "title": "In-Room Dining Supervisor (f/m/d)",
@@ -340,7 +344,7 @@
         "de": "room-service-vorgesetzter-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz",
         "fr": "room-service-superviseur-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz"
       },
-      "crawledAt": "2026-08-03T22:11:42.115Z",
+      "crawledAt": "2026-08-04T11:32:43.406Z",
       "id": "grand-hotel-des-bains-kempinski-6f74aa1f5a3e",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -411,7 +415,7 @@
       "titleByLocale": {
         "it": "Apprentice \"Fachfrau/-mann Hotellerie-Hauswirtschaft CFC\" (f/m/d) from August 2027",
         "en": "Apprentice \"Frau/-mann Hotellerie-Hauswirtschaft EFZ\" (f/m/d) from August 2027",
-        "de": "Lehrling \"Fachfrau/-mann Hotellerie-Hauswirtschaft EFZ\" (m/d) ab August 2027",
+        "de": "Apprentice \"Fachfrau/-mann Hotellerie-Hauswirtschaft EFZ\" (f/m/d) from August 2027",
         "fr": "Apprenti \"Fachfrau/-mann Hotellerie-Hauswirtschaft EFZ\" (f/m/d) à partir d'août 2027"
       },
       "descriptionByLocale": {
@@ -426,7 +430,7 @@
         "de": "apprentice-fachfrau-mann-hotellerie-hauswirtschaft-efz-f-m-d-from-august-2027-grand-hotel-des-bains-kempinski-st-moritz",
         "fr": "apprenti-fachfrau-mann-hotellerie-hauswirtschaft-efz-f-m-d-a-partir-d-aout-2027-grand-hotel-des-bains-kempinski-st"
       },
-      "crawledAt": "2026-08-03T22:11:42.122Z",
+      "crawledAt": "2026-08-04T11:32:43.406Z",
       "id": "grand-hotel-des-bains-kempinski-f76a49b25e01",
       "previousSlugs": [
         "apprentice-fachfrau-mann-hotellerie-hauswirtschaft-cfc-m-w-d-from-august-2027-grand-hotel-des-bains-kempinski-st-moritz",
@@ -458,7 +462,8 @@
         "fr": [
           "apprentice-fachfrau-mann-hotellerie-hauswirtschaft-efz-f-m-d-from-august-2027-511313"
         ]
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "title": "Apprentice \"Hotel-Kommunikationsfach EFZ\" (f/m/d) from August 2027",
@@ -487,7 +492,7 @@
       "titleByLocale": {
         "it": "Apprendista \"Hotel-Kommunikationsfach EFZ\" (f/m/d) da agosto 2027",
         "en": "Apprentice \"Hotel Communication Subject EFZ\" (f/m/d) from August 2027",
-        "de": "Lehrling \"Hotel-Kommunikationsfach EFZ\" (w/m/d) ab August 2027",
+        "de": "Apprentice \"Hotel-Kommunikationsfach EFZ\" (f/m/d) from August 2027",
         "fr": "Apprentissage \"Hotel-Kommunikationsfach EFZ\" (f/m/d) à partir d'août 2027"
       },
       "descriptionByLocale": {
@@ -502,7 +507,7 @@
         "de": "apprentice-hotel-kommunikationsfach-efz-f-m-d-from-august-2027-grand-hotel-des-bains-kempinski-st-moritz-st-moritz",
         "fr": "apprentissage-hotel-kommunikationsfach-efz-f-m-d-a-partir-d-aout-2027-grand-hotel-des-bains-kempinski-st-moritz-st"
       },
-      "crawledAt": "2026-08-03T22:11:42.123Z",
+      "crawledAt": "2026-08-04T11:32:43.407Z",
       "id": "grand-hotel-des-bains-kempinski-a9bbd3ecacbf",
       "previousSlugsByLocale": {
         "it": [
@@ -532,7 +537,8 @@
       },
       "streetAddress": "Via Mezdi 27",
       "postalCode": "7500",
-      "firstSeenAt": "2026-05-19T22:37:17.858Z"
+      "firstSeenAt": "2026-05-19T22:37:17.858Z",
+      "needsRetranslation": true
     },
     {
       "title": "Apprentice \"Koch EFZ\" (f/m/d) from August 2027",
@@ -561,7 +567,7 @@
       "titleByLocale": {
         "it": "Apprendista \"Koch EFZ\" (f/m/d) da agosto 2027",
         "en": "Apprentice “Koch EFZ” (f/m/d) from August 2027",
-        "de": "Lehrling \"Koch EFZ\" (w/m/d) ab August 2027",
+        "de": "Apprentice \"Koch EFZ\" (f/m/d) from August 2027",
         "fr": "Apprenti \"Koch EFZ\" (f/m/d) à partir d'août 2027"
       },
       "descriptionByLocale": {
@@ -576,7 +582,7 @@
         "de": "apprentice-koch-efz-f-m-d-from-august-2027-grand-hotel-des-bains-kempinski-st-moritz-st-moritz",
         "fr": "apprenti-koch-efz-f-m-d-a-partir-d-aout-2027-grand-hotel-des-bains-kempinski-st-moritz-st-moritz"
       },
-      "crawledAt": "2026-08-03T22:11:42.130Z",
+      "crawledAt": "2026-08-04T11:32:43.415Z",
       "id": "grand-hotel-des-bains-kempinski-f5bd3c6e6c87",
       "salaryMin": 41600,
       "salaryMax": 63000,
@@ -615,7 +621,8 @@
         "apprentice-koch-efz-f-m-d-from-august-2026-328957",
         "auszubildende-koch-efz-f-m-d-ab-august-2026-grand-hotel-des-bains-kempinski-st-moritz-st-moritz",
         "apprentice-koch-efz-f-m-d-from-august-2027-511326"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Laundry Attendant/ Seamstress (w/m/d)",
@@ -645,7 +652,7 @@
         "it": "Laundry Attendant/ Seamstress (f/m/d)",
         "en": "Laundry Attendant/Seamstress (f/m/d)",
         "de": "Laundry Attendant/ Seamstress (w/m/d)",
-        "fr": "Service de blanchisserie/soutien (m/j)"
+        "fr": "Laundry Attendant/ Seamstress (w/m/d)"
       },
       "descriptionByLocale": {
         "it": "Hai un occhio per i dettagli e anche lavorare in situazioni stressanti organizzate e accurate? Per supportare il nostro team di pulizia dinamico e altamente motivato, ti stiamo cercando per la prossima stagione invernale! # I vostri compiti principali:\n• Pulizia di uniformi, vestiti privati e materiali\n• Servizio stiratura\n• Cucitura di utensili\n• Adozione di lavanderia all'ordine | Competenze e qualifiche desiderate:\n• Resilienza, pulizia, così come la consapevolezza di qualità molto alta\n• Metodi di lavoro strutturati e organizzati\n• Grande interesse per il lavoro orientato al team\n• Buona conoscenza della lingua tedesca e inglese\n• Conoscenza significativa dell'utilizzo di una macchina da cucire | Attendere per voi:\n• Vivere e lavorare al centro delle Alpi Engadine\n• Varie possibilità di design\n• Piacevole atmosfera di lavoro in un team giovane e dinamico\n• Prospettive internazionali di carriera e opportunità di sviluppo\n• Vantaggi eccezionali per i dipendenti in tutti gli hotel Kempinski\n• Alloggio personale nelle immediate vicinanze dell'hotel incl. Lavatrice, sala comune fitness, cucina e una ricca offerta di cibo nel nostro ristorante personale\n• Uso gratuito dell'asilo interno per la cura dei bambini dipendenti\n• Attività mensili dei dipendenti come corsi di sci, snowboard e cross-country, escursioni, serate spa e corsi di tedesco\n• Interno “Feel Good Committee” per la co-creazione in tutti gli argomenti del welfare",
@@ -659,7 +666,7 @@
         "de": "laundry-attendant-seamstress-w-m-d-534444",
         "fr": "laundry-attendant-seamstress-w-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz"
       },
-      "crawledAt": "2026-08-03T22:11:42.131Z",
+      "crawledAt": "2026-08-04T11:32:43.416Z",
       "id": "grand-hotel-des-bains-kempinski-b523a0cd6007",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -693,7 +700,8 @@
         "service-de-blanchisserie-soutien-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz",
         "service-de-blanchisserie-soutien-m-j-grand-hotel-des-bains-kempinski-st-moritz-st-moritz",
         "laundry-attendant-seamstress-w-m-d-534444"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Staff House Cleaner (f/m/d)",
@@ -723,7 +731,7 @@
         "it": "Addetto alle pulizie della casa del personale (f/m/d)",
         "en": "Staff House Cleaner (f/m/d)",
         "de": "Personal Reiniger (m/m/d)",
-        "fr": "Nettoyeur de la maison du personnel (f/m/d)"
+        "fr": "Staff House Cleaner (f/m/d)"
       },
       "descriptionByLocale": {
         "it": "Sotto un nome ricco di tradizione, Kempinski, albergatori dal 1897, ha viaggiato nel mondo alla ricerca di destinazioni affascinanti senza mai dimenticare le sue tradizioni e il suo patrimonio europeo. I rinomati resort e gli eleganti hotel di città e benessere riflettono un carattere individuale e unico, soprattutto per gli ospiti che apprezzano il servizio a 5 stelle e il lusso quando viaggiano per affari o per piacere. | Responsabilità chiave:\n• Pulizia delle case del personale (camere, camere comuni e cucine, corridoi, ecc.)\n• Pulizia degli impianti sanitari del personale\n• Pulire i guardaroba\n• Controllare la funzionalità e la buona condizione degli articoli in cucina, lavanderia e camere durante la pulizia\n• Garantire la manutenzione e la pulizia dell'attrezzatura e degli uffici del pavimento Sostenere gli addetti alle sale come richiesto | Competenze, Conoscenza e Competenza: Hai un occhio per i dettagli e il lavoro in modo organizzato e preciso anche in situazioni stressanti? Siamo alla ricerca di unire il nostro team di pulizia dinamico e altamente motivato per la prossima stagione invernale! Per questo compito impegnativo dovete avere:\n• Capacità di lavorare sotto pressione, timidezza e consapevolezza di altissima qualità\n• Modo di lavoro strutturato e organizzato\n• Grande interesse per il lavoro orientato al team\n• Buona conoscenza della lingua tedesca e inglese\n• Possessione di una patente di guida valida per la classe di veicolo B | Vantaggi:\n• Vivere e lavorare nel cuore delle Alpi Engadine\n• Una vasta gamma di opportunità creative\n• Piacevole atmosfera di lavoro in un team giovane e dinamico\n• Prospettive internazionali di carriera e opportunità di sviluppo\n• Vantaggi eccezionali per i dipendenti in tutti gli hotel Kempinski\n• Alloggio personale nelle immediate vicinanze dell'hotel incl. lavanderia, sala fitness e una vasta gamma di pasti nel nostro ristorante personale Uso gratuito del centro diurno interno per badare ai bambini dei dipendenti. Servizio lavanderia, sala fitness, cucina e una vasta gamma di pasti nel nostro ristorante personale\n• Uso gratuito del centro diurno interno per occuparsi dei bambini dei dipendenti\n• Attività mensili dei dipendenti come corsi di sci, snowboard e sci di fondo, escursioni, serate spa e corsi di tedesco\n• Interno «Comitato Buono» per contribuire a plasmare tutte le questioni di benessere",
@@ -737,7 +745,7 @@
         "de": "personal-reiniger-m-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz",
         "fr": "staff-house-cleaner-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz"
       },
-      "crawledAt": "2026-08-03T22:11:42.138Z",
+      "crawledAt": "2026-08-04T11:32:43.417Z",
       "id": "grand-hotel-des-bains-kempinski-730dd5cf2312",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -771,7 +779,8 @@
         "personal-reiniger-w-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz",
         "nettoyeur-de-la-maison-du-personnel-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz",
         "staff-house-cleaner-f-m-d-534446"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Room Attendant (f/m/d)",
@@ -801,7 +810,7 @@
         "it": "Assistente di stanza (f/m/d)",
         "en": "Room Attendant (f/m/d)",
         "de": "Zimmerbegleiter (m/m/d)",
-        "fr": "préposé à la salle (f/m/d)"
+        "fr": "Room Attendant (f/m/d)"
       },
       "descriptionByLocale": {
         "it": "Sotto un nome ricco di tradizione, Kempinski, albergatori dal 1897, ha viaggiato nel mondo alla ricerca di destinazioni affascinanti senza mai dimenticare le sue tradizioni e il suo patrimonio europeo. I rinomati resort e gli eleganti hotel di città e benessere riflettono un carattere individuale e unico, soprattutto per gli ospiti che apprezzano il servizio a 5 stelle e il lusso quando viaggiano per affari o per piacere. Ti stiamo cercando come cameriere! | Responsabilità chiave:\n• Pulizia delle camere\n• Controllare la funzionalità e la buona condizione degli articoli in camera durante la pulizia Pulire i corridoi e pavimenti\n• Garantire la manutenzione e la pulizia delle attrezzature e degli uffici\n• Effettuare il servizio di turn-down | Competenze, Conoscenza e Competenza: Hai un occhio per i dettagli e lavori in modo organizzato e preciso anche in situazioni stressanti? Stiamo cercando di unirvi al nostro team di pulizia dinamico e altamente motivato! Per questo compito impegnativo avete\n• Capacità di lavorare sotto pressione, timidezza e consapevolezza di altissima qualità\n• Modo di lavoro strutturato e organizzato\n• Grande interesse per il lavoro orientato al team\n• Buona conoscenza della lingua tedesca e inglese | Offriamo:\n• Vivere e lavorare nel cuore delle Alpi Engadine\n• Una vasta gamma di opportunità creative\n• Piacevole atmosfera di lavoro in un team giovane e dinamico\n• Prospettive internazionali di carriera e opportunità di sviluppo Vantaggi eccezionali dei dipendenti in tutti i Kempinski Hotels\n• Alloggio personale nelle immediate vicinanze dell'hotel incl. lavanderie, sala fitness comune e una vasta gamma di pasti nel nostro ristorante personale. Servizio lavanderia, sala fitness, cucina e una vasta gamma di pasti nel nostro ristorante personale\n• Uso gratuito del centro di assistenza all'infanzia interno per i bambini dipendenti\n• Attività mensili dei dipendenti quali sci, snowboard e sci di fondo, escursioni, serate spa e corsi di tedesco\n• Interno «Comitato Buono» per contribuire a plasmare tutte le questioni di benessere",
@@ -815,7 +824,7 @@
         "de": "zimmerbegleiter-m-w-d-grand-hotel-des-bains-kempinski-st-moritz",
         "fr": "room-attendant-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz"
       },
-      "crawledAt": "2026-08-03T22:11:42.139Z",
+      "crawledAt": "2026-08-04T11:32:43.425Z",
       "id": "grand-hotel-des-bains-kempinski-01ad278bee64",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -845,7 +854,8 @@
       "previousSlugs": [
         "zimmerbegleiter-m-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz",
         "room-attendant-f-m-d-537572"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Technician (f/m/d) Billionaire Dinner Show",
@@ -889,7 +899,7 @@
         "de": "techniker-f-m-d-billionaire-dinner-show-grand-hotel-des-bains-kempinski-st-moritz-st-moritz",
         "fr": "technicien-f-m-d-billionaire-dinner-show-grand-hotel-des-bains-kempinski-st-moritz-st-moritz"
       },
-      "crawledAt": "2026-08-03T22:11:42.140Z",
+      "crawledAt": "2026-08-04T11:32:43.425Z",
       "id": "grand-hotel-des-bains-kempinski-b09ecffbab81",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -906,7 +916,8 @@
       },
       "streetAddress": "Via Mezdi 27",
       "postalCode": "7500",
-      "firstSeenAt": "2026-07-15T22:00:09.508Z"
+      "firstSeenAt": "2026-07-15T22:00:09.508Z",
+      "needsRetranslation": true
     },
     {
       "title": "Front Office Agent (f/m/d)",
@@ -935,7 +946,7 @@
       "titleByLocale": {
         "it": "Agente di ufficio anteriore (f/m/d)",
         "en": "Front Office Agent (f/m/d)",
-        "de": "Front Office Agent (m/d)",
+        "de": "Front Office Agent (f/m/d)",
         "fr": "Agent de réception (f/m/d)"
       },
       "descriptionByLocale": {
@@ -950,7 +961,7 @@
         "de": "front-office-agent-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz",
         "fr": "agent-de-reception-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz"
       },
-      "crawledAt": "2026-08-03T22:11:42.140Z",
+      "crawledAt": "2026-08-04T11:32:43.426Z",
       "id": "grand-hotel-des-bains-kempinski-bb4113a49a40",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -978,7 +989,8 @@
       },
       "previousSlugs": [
         "front-office-agent-f-m-d-545945"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Host/Hostess and Commis de Rang (f/m/d) Neora Restaurant",
@@ -1008,7 +1020,7 @@
         "it": "Host/Hostess e Commis de Rang (f/m/d) Neora Restaurant",
         "en": "Host/Hostess and Commis de Rang (f/m/d) Neora Restaurant",
         "de": "Host/Hostess und Commis de Rang (w/m/d) Restaurant Neora",
-        "fr": "Hôte/hôte et Commissaire de Rang (f/m/d) Restaurant Neora"
+        "fr": "Host/Hostess and Commis de Rang (f/m/d) Neora Restaurant"
       },
       "descriptionByLocale": {
         "it": "Sotto un nome ricco di tradizione, Kempinski, albergatori dal 1897, ha viaggiato nel mondo alla ricerca di destinazioni affascinanti, senza mai dimenticare le sue tradizioni e il suo patrimonio europeo. Gli spaziosi resort e gli eleganti hotel di città e benessere riflettono un carattere individuale e unico, soprattutto per gli ospiti che apprezzano il servizio a 5 stelle e il lusso sul loro business o viaggi privati. La cucina greca è una delle più antiche e diverse al mondo. Con Neora, il Grand Hotel des Bains Kempinski porta questa tradizione culinaria a un nuovo livello: modernamente interpretato e con stile cosmopolita. Gli ospiti possono aspettarsi un'esperienza sensuale che combina origini autentiche con una calda ospitalità. Dal pane di pita a forma di mano e olio d'oliva pressato a freddo alla souvla cotta sopra un fuoco aperto – ogni piatto è un omaggio alle origini della cucina greca e progettato per essere condiviso. Ti piace misurarti contro gli elevati standard? Sei soddisfatto solo quando i tuoi ospiti sono troppo? Sei molto motivato e apprezzi la competenza di un team ben coordinato? Per rafforzare il nostro innovativo team Food Beverage, stiamo cercando una personalità motivata e dinamica per unire il nostro ristorante Neora come Host/Hostess Commis de Rang dalla prossima stagione invernale 2026/27. | Responsabilità chiave:\n• Accogliere i nostri ospiti e scortarli ai loro tavoli\n• Prenotare la tavola\n• Promuovere attivamente le nostre varie opzioni gastronomiche\n• Sostenere il team di assistenza\n• Sostenere il reparto operazioni quando necessario, soprattutto durante i tempi di punta o gli eventi | Competenze, Conoscenza e competenza: il vostro motto è quello di essere un ospite perfetto e amabile ad ogni ospite mentre promuove attivamente i nostri outlet F B. Per questo ruolo impegnativo, avete:\n• Allenamento completato in un hotel comparabile e esperienza professionale iniziale in gastronomia di lusso.\n• Oltre al tuo aspetto impeccabile e ben curato, impressioni con il tuo fascino naturale.\n• Buone capacità di comunicazione e conoscenza della natura umana\n• Un approccio strutturato e organizzato al lavoro\n• Un vivo interesse per il lavoro orientato al team\n• Molto buone competenze in lingua italiana, inglese e tedesca sono un prerequisito\n• Compiti:\n• Vivere e lavorare nel cuore delle Alpi Engadine\n• Una vasta gamma di opportunità per modellare la tua carriera\n• Una piacevole atmosfera di lavoro in un team giovane e dinamico\n• Prospettive internazionali di carriera e opportunità di sviluppo\n• Vantaggi eccezionali dei dipendenti in tutti gli hotel Kempinski, tra gli altri\n• Alloggio personale nelle immediate vicinanze dell'hotel, compresi i servizi di lavanderia, una sala fitness e comune, una cucina e una vasta gamma di piatti nel nostro ristorante personale\n• Uso gratuito del centro diurno interno per i bambini dipendenti\n• Attività del personale mensile come sci, snowboard e sci di fondo, escursioni, serate spa e corsi di tedesco\n• Interno «Comitato Buono» per contribuire a plasmare tutte le questioni di benessere",
@@ -1022,7 +1034,7 @@
         "de": "host-hostess-und-commis-de-rang-w-m-d-restaurant-neora-grand-hotel-des-bains-kempinski-st-moritz-st-moritz",
         "fr": "host-hostess-and-commis-de-rang-f-m-d-neora-restaurant-grand-hotel-des-bains-kempinski-st-moritz-st-moritz"
       },
-      "crawledAt": "2026-08-03T22:11:42.141Z",
+      "crawledAt": "2026-08-04T11:32:43.431Z",
       "id": "grand-hotel-des-bains-kempinski-00cc210d24ec",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -1054,7 +1066,8 @@
       "previousSlugs": [
         "hote-hote-et-commissaire-de-rang-f-m-d-restaurant-neora-grand-hotel-des-bains-kempinski-st-moritz-st-moritz",
         "host-hostess-and-commis-de-rang-f-m-d-neora-restaurant-546070"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Chef de Rang (f/m/d)",
@@ -1098,7 +1111,7 @@
         "de": "chef-de-rang-f-m-d-546082",
         "fr": "chef-de-rang-f-m-d-546082"
       },
-      "crawledAt": "2026-08-03T22:11:42.142Z",
+      "crawledAt": "2026-08-04T11:32:43.432Z",
       "id": "grand-hotel-des-bains-kempinski-f43b146e1210",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -1115,7 +1128,8 @@
       },
       "streetAddress": "Via Mezdi 27",
       "postalCode": "7500",
-      "firstSeenAt": "2026-07-21T11:14:40.057Z"
+      "firstSeenAt": "2026-07-21T11:14:40.057Z",
+      "needsRetranslation": true
     },
     {
       "title": "Concierge (f/m/d)",
@@ -1159,7 +1173,7 @@
         "de": "concierge-w-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz",
         "fr": "concierge-f-m-d-546088"
       },
-      "crawledAt": "2026-08-03T22:11:42.144Z",
+      "crawledAt": "2026-08-04T11:32:43.432Z",
       "id": "grand-hotel-des-bains-kempinski-b660d10a5384",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -1187,7 +1201,8 @@
       },
       "previousSlugs": [
         "concierge-f-m-d-546088"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Steward (f/m/d)",
@@ -1231,7 +1246,7 @@
         "de": "steward-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz",
         "fr": "deplacement-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz"
       },
-      "crawledAt": "2026-08-03T22:11:42.147Z",
+      "crawledAt": "2026-08-04T11:32:43.437Z",
       "id": "grand-hotel-des-bains-kempinski-2e3f24dbd9cf",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -1260,7 +1275,8 @@
       "previousSlugs": [
         "amministratore-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz",
         "intendant-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Asian Specialty Chef (f/m/d)",
@@ -1304,7 +1320,7 @@
         "de": "asian-specialty-chef-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz",
         "fr": "chef-de-specialite-asiatique-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz"
       },
-      "crawledAt": "2026-08-03T22:11:42.148Z",
+      "crawledAt": "2026-08-04T11:32:43.438Z",
       "id": "grand-hotel-des-bains-kempinski-c4882d52cb49",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -1365,7 +1381,7 @@
         "it": "Host/ Hostess (f/m/d) Les Saisons",
         "en": "Host/ Hostess (f/m/d) Les Saisons",
         "de": "Gastgeberin/Gastgeberin (m/d) Les Saisons",
-        "fr": "Hôte/hôtesse (f/m/d) Les Saisons"
+        "fr": "Host/ Hostess (f/m/d) Les Saisons"
       },
       "descriptionByLocale": {
         "it": "Sotto un nome ricco di tradizione, Kempinski, albergatori dal 1897, ha viaggiato per il mondo alla ricerca di destinazioni affascinanti, senza mai dimenticare le sue tradizioni e il suo patrimonio europeo. Gli spaziosi resort e gli eleganti hotel di città e benessere riflettono un carattere individuale e unico, soprattutto per gli ospiti che apprezzano il servizio a 5 stelle e il lusso sulle loro attività o viaggi privati. Hai lo scopo di raggiungere standard elevati? Sei soddisfatto solo quando i tuoi ospiti sono troppo? Sei molto motivato e apprezzi la competenza di un team ben coordinato? Per rafforzare il nostro innovativo team di Restaurant Les Saisons, ti stiamo cercando come host/Hostess dinamico e motivato per la prossima stagione invernale 2026/2027! | Responsabilità chiave:\n• Accogliere i nostri ospiti e scortarli ai loro tavoli\n• Prenotare la tavola\n• Promozione attiva dei nostri vari ristoranti\n• Sostenere il team di assistenza\n• Sostenere il reparto operazioni quando necessario, soprattutto durante i tempi di punta o gli eventi | Competenze, Conoscenza e competenza: il vostro motto è quello di essere un ospite perfetto e affascinante per ogni ospite mentre promuove attivamente i nostri outlet F B. Per questo ruolo impegnativo, avete:\n• Formazione completa in un hotel comparabile e esperienza professionale iniziale in gastronomia di lusso\n• Oltre al tuo aspetto impeccabile e ben curato, impressioni con il tuo fascino naturale\n• Buone capacità di comunicazione e conoscenza della natura umana\n• Un modo di lavoro strutturato e organizzato\n• Un forte interesse per il lavoro di squadra\n• Molto buone competenze in tedesco e inglese sono un prerequisito\n• Compiti:\n• Vivere e lavorare nel cuore delle Alpi Engadine\n• Una vasta gamma di opportunità creative\n• Una piacevole atmosfera di lavoro in un team giovane e dinamico\n• Prospettive internazionali di carriera e opportunità di sviluppo\n• Vantaggi eccezionali dei dipendenti in tutti gli hotel Kempinski, tra gli altri\n• Alloggio personale nelle immediate vicinanze dell'hotel, compresi i servizi di lavanderia, una sala fitness e comune, una cucina e una vasta gamma di piatti nel nostro ristorante personale\n• Uso gratuito del centro diurno interno per i bambini dipendenti\n• Attività mensili dei dipendenti quali sci, snowboard e sci di fondo, escursioni, serate spa e corsi di tedesco\n• Interno «Comitato Buono» per contribuire a plasmare tutte le questioni di benessere",
@@ -1377,9 +1393,9 @@
         "it": "host-hostess-f-m-d-les-saisons-546990",
         "en": "host-hostess-f-m-d-les-saisons-546990",
         "de": "gastgeberin-gastgeberin-m-d-les-saisons-grand-hotel-des-bains-kempinski-st-moritz-st-moritz",
-        "fr": "hote-hotesse-f-m-d-les-saisons-grand-hotel-des-bains-kempinski-st-moritz-st-moritz"
+        "fr": "host-hostess-f-m-d-les-saisons-grand-hotel-des-bains-kempinski-st-moritz-st-moritz"
       },
-      "crawledAt": "2026-08-03T22:11:42.149Z",
+      "crawledAt": "2026-08-04T11:32:43.438Z",
       "id": "grand-hotel-des-bains-kempinski-0abf4c120c60",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -1399,12 +1415,15 @@
       "firstSeenAt": "2026-07-22T22:05:43.599Z",
       "previousSlugsByLocale": {
         "fr": [
+          "hote-hotesse-f-m-d-les-saisons-grand-hotel-des-bains-kempinski-st-moritz-st-moritz",
           "host-hostess-f-m-d-les-saisons-grand-hotel-des-bains-kempinski-st-moritz-st-moritz"
         ]
       },
       "previousSlugs": [
+        "hote-hotesse-f-m-d-les-saisons-grand-hotel-des-bains-kempinski-st-moritz-st-moritz",
         "host-hostess-f-m-d-les-saisons-grand-hotel-des-bains-kempinski-st-moritz-st-moritz"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Public Area Attendant (f/m/d)",
@@ -1448,7 +1467,7 @@
         "de": "offentlicher-besucher-m-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz",
         "fr": "presence-dans-la-zone-publique-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz"
       },
-      "crawledAt": "2026-08-03T22:11:42.150Z",
+      "crawledAt": "2026-08-04T11:32:43.439Z",
       "id": "grand-hotel-des-bains-kempinski-26e82e31aa49",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -1523,7 +1542,7 @@
         "de": "assistent-front-office-manager-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz",
         "fr": "gestionnaire-adjoint-de-la-liaison-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz"
       },
-      "crawledAt": "2026-08-03T22:11:42.150Z",
+      "crawledAt": "2026-08-04T11:32:43.440Z",
       "id": "grand-hotel-des-bains-kempinski-5bf5450f833a",
       "salaryMin": 79000,
       "salaryMax": 120000,
@@ -1540,7 +1559,8 @@
       },
       "streetAddress": "Via Mezdi 27",
       "postalCode": "7500",
-      "firstSeenAt": "2026-07-24T22:06:14.293Z"
+      "firstSeenAt": "2026-07-24T22:06:14.293Z",
+      "needsRetranslation": true
     },
     {
       "title": "Shiftleader Reception (f/m/d)",
@@ -1584,7 +1604,7 @@
         "de": "empfang-von-schaltanfuhrern-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz",
         "fr": "reception-du-chef-de-quart-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz"
       },
-      "crawledAt": "2026-08-03T22:11:42.151Z",
+      "crawledAt": "2026-08-04T11:32:43.441Z",
       "id": "grand-hotel-des-bains-kempinski-863b9883f13c",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -1659,7 +1679,7 @@
         "de": "assistent-f-b-manager-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz",
         "fr": "gestionnaire-adjoint-f-b-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz"
       },
-      "crawledAt": "2026-08-03T22:11:42.153Z",
+      "crawledAt": "2026-08-04T11:32:43.445Z",
       "id": "grand-hotel-des-bains-kempinski-2ebfca87023f",
       "salaryMin": 79000,
       "salaryMax": 120000,
@@ -1719,7 +1739,7 @@
       "titleByLocale": {
         "it": "Apprendista Food & Beverage (f/m/d)",
         "en": "Trainee Food & Beverage (f/m/d)",
-        "de": "Trainee Food & Beverage (w/m/d)",
+        "de": "Trainee Food & Beverage (f/m/d)",
         "fr": "Apprenti Food & Beverage (f/m/d)"
       },
       "descriptionByLocale": {
@@ -1734,7 +1754,7 @@
         "de": "trainee-food-beverage-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz",
         "fr": "apprenti-food-beverage-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz"
       },
-      "crawledAt": "2026-08-03T22:11:42.154Z",
+      "crawledAt": "2026-08-04T11:32:43.446Z",
       "id": "grand-hotel-des-bains-kempinski-25e074da8fec",
       "salaryMin": 48000,
       "salaryMax": 73000,
@@ -1762,7 +1782,256 @@
       },
       "previousSlugs": [
         "trainee-food-beverage-f-m-d-554190"
-      ]
+      ],
+      "needsRetranslation": true
+    },
+    {
+      "title": "Pizza Chef (f/m/d)",
+      "slug": "pizza-chef-f-m-d-555387",
+      "url": "https://kempinski.pinpointhq.com/en/postings/3d61eb75-8518-4b27-841d-5a21bf2e046c",
+      "applyUrl": "https://kempinski.pinpointhq.com/en/postings/3d61eb75-8518-4b27-841d-5a21bf2e046c",
+      "company": "Grand Hotel des Bains Kempinski St. Moritz",
+      "companyKey": "grand-hotel-des-bains-kempinski",
+      "companyDomain": "kempinski.com",
+      "location": "St. Moritz",
+      "addressLocality": "St. Moritz",
+      "addressRegion": "GR",
+      "addressCountry": "CH",
+      "canton": "GR",
+      "country": "CH",
+      "category": "Turismo & Ospitalità",
+      "sector": "Hotellerie & Gastronomia",
+      "department": "Kitchen",
+      "source": "kempinski-dedicated-crawler",
+      "sourceLang": "en",
+      "postedDate": "2026-08-04",
+      "validThrough": "",
+      "employmentType": "FULL_TIME",
+      "contractType": "seasonal",
+      "description": "The Grand Hotel des Bains Kempinski will host the remarkable Billionaire Dinner Show. The event, which already takes place year-round in Dubai and in summer at its historic location in Porto Cervo and at the legendary Sporting in Monte Carlo, will now expand its presence to St. Moritz. Billionaire, part of the Majestas Group, is a premier destination for luxury dining, entertainment and exclusive experiences for all our guests at the world's most exclusive venues. Combining exceptional cuisine, breathtaking ambience and unparalleled service, we cater to the world's elite, offering a unique blend of sophistication and excitement every evening. To support our kitchen team, we are looking for you as a seasonal pizza chef for the winterseason 2026/2027. In this role, you will learn the unique recipe for the famous ‘Crazy Pizza’. | Key Responsibilities: Your main task is to create pizzas according to the well-known recipes of ‘Crazy Pizza’ and to ensure that every pizza meets our high quality and freshness standards. In addition to maintaining a spotless kitchen, you will work closely with the head chef, gain valuable insights from team feedback and continuously expand your culinary expertise. Your daily work:\n• Making and kneading homemade pizza dough\n• Supervising the preparation of ingredients by the pizza team (cleaning vegetables, preparing sauces and toppings)\n• Supporting and training newly hired pizza team members\n• Monitoring and executing customer orders for pizza\n• Making pizzas by hand and baking them professionally in the oven\n• Keeping the kitchen, oven and utensils clean in accordance with HACCP regulations\n• Improving the customer experience through skilful acrobatic pizza tossing | Skills, Knowledge and Expertise:\n• You have an EU/EFTA identity card\n• Previous relevant experience in a similar role and in a fast-paced environment.\n• Exceptional service standards with attention to detail.\n• Passion for hospitality with a friendly demeanour and a smile.\n• Good English skills with the ability to communicate confidently.\n• Ability to work under pressure and willingness to work in a team.\n• Willingness to work full-time and be flexible. | Benefits:\n• Live and work in the heart of the Engadin Alps\n• A wide range of creative opportunities\n• A pleasant working atmosphere in a young and dynamic team\n• International career prospects and development opportunities\n• Outstanding employee benefits in all Kempinski hotels, among others\n• Staff accommodation in the immediate vicinity of the hotel, including laundry facilities, a fitness and common room, a kitchen and a wide range of dishes in our staff restaurant\n• Free use of the in-house daycare centre for employee children\n• Monthly employee activities such as skiing, snowboarding and cross-country skiing courses, hiking trips, spa evenings and German courses\n• Internal ‘Feel Good Committee’ to help shape all welfare issues",
+      "titleByLocale": {
+        "en": "Pizza Chef (f/m/d)",
+        "it": "Pizza Chef (f/m/d)",
+        "de": "Pizza Chef (f/m/d)",
+        "fr": "Pizza Chef (f/m/d)"
+      },
+      "descriptionByLocale": {
+        "en": "The Grand Hotel des Bains Kempinski will host the remarkable Billionaire Dinner Show. The event, which already takes place year-round in Dubai and in summer at its historic location in Porto Cervo and at the legendary Sporting in Monte Carlo, will now expand its presence to St. Moritz. Billionaire, part of the Majestas Group, is a premier destination for luxury dining, entertainment and exclusive experiences for all our guests at the world's most exclusive venues. Combining exceptional cuisine, breathtaking ambience and unparalleled service, we cater to the world's elite, offering a unique blend of sophistication and excitement every evening. To support our kitchen team, we are looking for you as a seasonal pizza chef for the winterseason 2026/2027. In this role, you will learn the unique recipe for the famous ‘Crazy Pizza’. | Key Responsibilities: Your main task is to create pizzas according to the well-known recipes of ‘Crazy Pizza’ and to ensure that every pizza meets our high quality and freshness standards. In addition to maintaining a spotless kitchen, you will work closely with the head chef, gain valuable insights from team feedback and continuously expand your culinary expertise. Your daily work:\n• Making and kneading homemade pizza dough\n• Supervising the preparation of ingredients by the pizza team (cleaning vegetables, preparing sauces and toppings)\n• Supporting and training newly hired pizza team members\n• Monitoring and executing customer orders for pizza\n• Making pizzas by hand and baking them professionally in the oven\n• Keeping the kitchen, oven and utensils clean in accordance with HACCP regulations\n• Improving the customer experience through skilful acrobatic pizza tossing | Skills, Knowledge and Expertise:\n• You have an EU/EFTA identity card\n• Previous relevant experience in a similar role and in a fast-paced environment.\n• Exceptional service standards with attention to detail.\n• Passion for hospitality with a friendly demeanour and a smile.\n• Good English skills with the ability to communicate confidently.\n• Ability to work under pressure and willingness to work in a team.\n• Willingness to work full-time and be flexible. | Benefits:\n• Live and work in the heart of the Engadin Alps\n• A wide range of creative opportunities\n• A pleasant working atmosphere in a young and dynamic team\n• International career prospects and development opportunities\n• Outstanding employee benefits in all Kempinski hotels, among others\n• Staff accommodation in the immediate vicinity of the hotel, including laundry facilities, a fitness and common room, a kitchen and a wide range of dishes in our staff restaurant\n• Free use of the in-house daycare centre for employee children\n• Monthly employee activities such as skiing, snowboarding and cross-country skiing courses, hiking trips, spa evenings and German courses\n• Internal ‘Feel Good Committee’ to help shape all welfare issues",
+        "it": "The Grand Hotel des Bains Kempinski will host the remarkable Billionaire Dinner Show. The event, which already takes place year-round in Dubai and in summer at its historic location in Porto Cervo and at the legendary Sporting in Monte Carlo, will now expand its presence to St. Moritz. Billionaire, part of the Majestas Group, is a premier destination for luxury dining, entertainment and exclusive experiences for all our guests at the world's most exclusive venues. Combining exceptional cuisine, breathtaking ambience and unparalleled service, we cater to the world's elite, offering a unique blend of sophistication and excitement every evening. To support our kitchen team, we are looking for you as a seasonal pizza chef for the winterseason 2026/2027. In this role, you will learn the unique recipe for the famous ‘Crazy Pizza’. | Key Responsibilities: Your main task is to create pizzas according to the well-known recipes of ‘Crazy Pizza’ and to ensure that every pizza meets our high quality and freshness standards. In addition to maintaining a spotless kitchen, you will work closely with the head chef, gain valuable insights from team feedback and continuously expand your culinary expertise. Your daily work:\n• Making and kneading homemade pizza dough\n• Supervising the preparation of ingredients by the pizza team (cleaning vegetables, preparing sauces and toppings)\n• Supporting and training newly hired pizza team members\n• Monitoring and executing customer orders for pizza\n• Making pizzas by hand and baking them professionally in the oven\n• Keeping the kitchen, oven and utensils clean in accordance with HACCP regulations\n• Improving the customer experience through skilful acrobatic pizza tossing | Skills, Knowledge and Expertise:\n• You have an EU/EFTA identity card\n• Previous relevant experience in a similar role and in a fast-paced environment.\n• Exceptional service standards with attention to detail.\n• Passion for hospitality with a friendly demeanour and a smile.\n• Good English skills with the ability to communicate confidently.\n• Ability to work under pressure and willingness to work in a team.\n• Willingness to work full-time and be flexible. | Benefits:\n• Live and work in the heart of the Engadin Alps\n• A wide range of creative opportunities\n• A pleasant working atmosphere in a young and dynamic team\n• International career prospects and development opportunities\n• Outstanding employee benefits in all Kempinski hotels, among others\n• Staff accommodation in the immediate vicinity of the hotel, including laundry facilities, a fitness and common room, a kitchen and a wide range of dishes in our staff restaurant\n• Free use of the in-house daycare centre for employee children\n• Monthly employee activities such as skiing, snowboarding and cross-country skiing courses, hiking trips, spa evenings and German courses\n• Internal ‘Feel Good Committee’ to help shape all welfare issues",
+        "de": "The Grand Hotel des Bains Kempinski will host the remarkable Billionaire Dinner Show. The event, which already takes place year-round in Dubai and in summer at its historic location in Porto Cervo and at the legendary Sporting in Monte Carlo, will now expand its presence to St. Moritz. Billionaire, part of the Majestas Group, is a premier destination for luxury dining, entertainment and exclusive experiences for all our guests at the world's most exclusive venues. Combining exceptional cuisine, breathtaking ambience and unparalleled service, we cater to the world's elite, offering a unique blend of sophistication and excitement every evening. To support our kitchen team, we are looking for you as a seasonal pizza chef for the winterseason 2026/2027. In this role, you will learn the unique recipe for the famous ‘Crazy Pizza’. | Key Responsibilities: Your main task is to create pizzas according to the well-known recipes of ‘Crazy Pizza’ and to ensure that every pizza meets our high quality and freshness standards. In addition to maintaining a spotless kitchen, you will work closely with the head chef, gain valuable insights from team feedback and continuously expand your culinary expertise. Your daily work:\n• Making and kneading homemade pizza dough\n• Supervising the preparation of ingredients by the pizza team (cleaning vegetables, preparing sauces and toppings)\n• Supporting and training newly hired pizza team members\n• Monitoring and executing customer orders for pizza\n• Making pizzas by hand and baking them professionally in the oven\n• Keeping the kitchen, oven and utensils clean in accordance with HACCP regulations\n• Improving the customer experience through skilful acrobatic pizza tossing | Skills, Knowledge and Expertise:\n• You have an EU/EFTA identity card\n• Previous relevant experience in a similar role and in a fast-paced environment.\n• Exceptional service standards with attention to detail.\n• Passion for hospitality with a friendly demeanour and a smile.\n• Good English skills with the ability to communicate confidently.\n• Ability to work under pressure and willingness to work in a team.\n• Willingness to work full-time and be flexible. | Benefits:\n• Live and work in the heart of the Engadin Alps\n• A wide range of creative opportunities\n• A pleasant working atmosphere in a young and dynamic team\n• International career prospects and development opportunities\n• Outstanding employee benefits in all Kempinski hotels, among others\n• Staff accommodation in the immediate vicinity of the hotel, including laundry facilities, a fitness and common room, a kitchen and a wide range of dishes in our staff restaurant\n• Free use of the in-house daycare centre for employee children\n• Monthly employee activities such as skiing, snowboarding and cross-country skiing courses, hiking trips, spa evenings and German courses\n• Internal ‘Feel Good Committee’ to help shape all welfare issues",
+        "fr": "The Grand Hotel des Bains Kempinski will host the remarkable Billionaire Dinner Show. The event, which already takes place year-round in Dubai and in summer at its historic location in Porto Cervo and at the legendary Sporting in Monte Carlo, will now expand its presence to St. Moritz. Billionaire, part of the Majestas Group, is a premier destination for luxury dining, entertainment and exclusive experiences for all our guests at the world's most exclusive venues. Combining exceptional cuisine, breathtaking ambience and unparalleled service, we cater to the world's elite, offering a unique blend of sophistication and excitement every evening. To support our kitchen team, we are looking for you as a seasonal pizza chef for the winterseason 2026/2027. In this role, you will learn the unique recipe for the famous ‘Crazy Pizza’. | Key Responsibilities: Your main task is to create pizzas according to the well-known recipes of ‘Crazy Pizza’ and to ensure that every pizza meets our high quality and freshness standards. In addition to maintaining a spotless kitchen, you will work closely with the head chef, gain valuable insights from team feedback and continuously expand your culinary expertise. Your daily work:\n• Making and kneading homemade pizza dough\n• Supervising the preparation of ingredients by the pizza team (cleaning vegetables, preparing sauces and toppings)\n• Supporting and training newly hired pizza team members\n• Monitoring and executing customer orders for pizza\n• Making pizzas by hand and baking them professionally in the oven\n• Keeping the kitchen, oven and utensils clean in accordance with HACCP regulations\n• Improving the customer experience through skilful acrobatic pizza tossing | Skills, Knowledge and Expertise:\n• You have an EU/EFTA identity card\n• Previous relevant experience in a similar role and in a fast-paced environment.\n• Exceptional service standards with attention to detail.\n• Passion for hospitality with a friendly demeanour and a smile.\n• Good English skills with the ability to communicate confidently.\n• Ability to work under pressure and willingness to work in a team.\n• Willingness to work full-time and be flexible. | Benefits:\n• Live and work in the heart of the Engadin Alps\n• A wide range of creative opportunities\n• A pleasant working atmosphere in a young and dynamic team\n• International career prospects and development opportunities\n• Outstanding employee benefits in all Kempinski hotels, among others\n• Staff accommodation in the immediate vicinity of the hotel, including laundry facilities, a fitness and common room, a kitchen and a wide range of dishes in our staff restaurant\n• Free use of the in-house daycare centre for employee children\n• Monthly employee activities such as skiing, snowboarding and cross-country skiing courses, hiking trips, spa evenings and German courses\n• Internal ‘Feel Good Committee’ to help shape all welfare issues"
+      },
+      "slugByLocale": {
+        "it": "pizza-chef-f-m-d-555387",
+        "en": "pizza-chef-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz",
+        "de": "pizza-chef-f-m-d-555387",
+        "fr": "pizza-chef-f-m-d-555387"
+      },
+      "crawledAt": "2026-08-04T11:32:43.446Z",
+      "id": "grand-hotel-des-bains-kempinski-29aad5ceb1a9",
+      "needsRetranslation": true,
+      "salaryMin": 57500,
+      "salaryMax": 87000,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 57500,
+          "maxValue": 87000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Via Mezdi 27",
+      "postalCode": "7500",
+      "firstSeenAt": "2026-08-04T11:32:43.446Z"
+    },
+    {
+      "title": "Commis de Cuisine (f/m/d)",
+      "slug": "commis-de-cuisine-f-m-d-555389",
+      "url": "https://kempinski.pinpointhq.com/en/postings/0963fbcb-a194-4415-9ac5-db903dc5433a",
+      "applyUrl": "https://kempinski.pinpointhq.com/en/postings/0963fbcb-a194-4415-9ac5-db903dc5433a",
+      "company": "Grand Hotel des Bains Kempinski St. Moritz",
+      "companyKey": "grand-hotel-des-bains-kempinski",
+      "companyDomain": "kempinski.com",
+      "location": "St. Moritz",
+      "addressLocality": "St. Moritz",
+      "addressRegion": "GR",
+      "addressCountry": "CH",
+      "canton": "GR",
+      "country": "CH",
+      "category": "Turismo & Ospitalità",
+      "sector": "Hotellerie & Gastronomia",
+      "department": "Kitchen",
+      "source": "kempinski-dedicated-crawler",
+      "sourceLang": "en",
+      "postedDate": "2026-08-04",
+      "validThrough": "",
+      "employmentType": "FULL_TIME",
+      "contractType": "seasonal",
+      "description": "Under a name steeped in tradition, Kempinski, hoteliers since 1897, has travelled the world in search of fascinating destinations, without ever forgetting its traditions and European heritage. The spacious resorts and stylish city and wellness hotels reflect an individual and unique character, especially for guests who appreciate 5-star service and luxury on their business or private trips. What actually makes a grand hotel? It is ahead of its time, creating and cultivating traditions. Would you like to develop your own traditions and strengthen the positioning of your area as a sporty, inviting, warm and refreshingly uncomplicated 5-star hotel? Then we are looking for you to join our creative and dynamic culinary team as a commis de cuisine for the winterseason 2026/2027. | Key Responsibilities:\n• Daily mise en place\n• Preparation and cooking of dishes assigned to your station\n• Adherence to quality standards in the kitchen area\n• Adherence to specified recipes\n• Joint responsibility for proper food storage and compliance with HACCP guidelines | Skills, Knowledge and Expertise:\n• Completed training as a chef and initial professional experience in a high-end 5-star restaurant\n• Professional competence, creativity and attention to detail, as well as a very high level of quality awareness\n• Structured and organised approach to work\n• Keen interest in team-oriented work\n• Very good German and English language skills | Benefits:\n• Live and work in the heart of the Engadin Alps\n• A wide range of creative opportunities\n• A pleasant working atmosphere in a young and dynamic team\n• International career prospects and development opportunities\n• Outstanding employee benefits in all Kempinski hotels, among others\n• Staff accommodation in the immediate vicinity of the hotel, including laundry facilities, a fitness and common room, a kitchen and a wide range of dishes in our staff restaurant\n• Free use of the in-house daycare centre for employee children\n• Monthly employee activities such as skiing, snowboarding and cross-country skiing courses, hiking trips, spa evenings and German courses\n• Internal ‘Feel Good Committee’ to help shape all welfare issues",
+      "titleByLocale": {
+        "en": "Commis de Cuisine (f/m/d)",
+        "it": "Commis de Cuisine (f/m/d)",
+        "de": "Commis de Cuisine (f/m/d)",
+        "fr": "Commis de Cuisine (f/m/d)"
+      },
+      "descriptionByLocale": {
+        "en": "Under a name steeped in tradition, Kempinski, hoteliers since 1897, has travelled the world in search of fascinating destinations, without ever forgetting its traditions and European heritage. The spacious resorts and stylish city and wellness hotels reflect an individual and unique character, especially for guests who appreciate 5-star service and luxury on their business or private trips. What actually makes a grand hotel? It is ahead of its time, creating and cultivating traditions. Would you like to develop your own traditions and strengthen the positioning of your area as a sporty, inviting, warm and refreshingly uncomplicated 5-star hotel? Then we are looking for you to join our creative and dynamic culinary team as a commis de cuisine for the winterseason 2026/2027. | Key Responsibilities:\n• Daily mise en place\n• Preparation and cooking of dishes assigned to your station\n• Adherence to quality standards in the kitchen area\n• Adherence to specified recipes\n• Joint responsibility for proper food storage and compliance with HACCP guidelines | Skills, Knowledge and Expertise:\n• Completed training as a chef and initial professional experience in a high-end 5-star restaurant\n• Professional competence, creativity and attention to detail, as well as a very high level of quality awareness\n• Structured and organised approach to work\n• Keen interest in team-oriented work\n• Very good German and English language skills | Benefits:\n• Live and work in the heart of the Engadin Alps\n• A wide range of creative opportunities\n• A pleasant working atmosphere in a young and dynamic team\n• International career prospects and development opportunities\n• Outstanding employee benefits in all Kempinski hotels, among others\n• Staff accommodation in the immediate vicinity of the hotel, including laundry facilities, a fitness and common room, a kitchen and a wide range of dishes in our staff restaurant\n• Free use of the in-house daycare centre for employee children\n• Monthly employee activities such as skiing, snowboarding and cross-country skiing courses, hiking trips, spa evenings and German courses\n• Internal ‘Feel Good Committee’ to help shape all welfare issues",
+        "it": "Under a name steeped in tradition, Kempinski, hoteliers since 1897, has travelled the world in search of fascinating destinations, without ever forgetting its traditions and European heritage. The spacious resorts and stylish city and wellness hotels reflect an individual and unique character, especially for guests who appreciate 5-star service and luxury on their business or private trips. What actually makes a grand hotel? It is ahead of its time, creating and cultivating traditions. Would you like to develop your own traditions and strengthen the positioning of your area as a sporty, inviting, warm and refreshingly uncomplicated 5-star hotel? Then we are looking for you to join our creative and dynamic culinary team as a commis de cuisine for the winterseason 2026/2027. | Key Responsibilities:\n• Daily mise en place\n• Preparation and cooking of dishes assigned to your station\n• Adherence to quality standards in the kitchen area\n• Adherence to specified recipes\n• Joint responsibility for proper food storage and compliance with HACCP guidelines | Skills, Knowledge and Expertise:\n• Completed training as a chef and initial professional experience in a high-end 5-star restaurant\n• Professional competence, creativity and attention to detail, as well as a very high level of quality awareness\n• Structured and organised approach to work\n• Keen interest in team-oriented work\n• Very good German and English language skills | Benefits:\n• Live and work in the heart of the Engadin Alps\n• A wide range of creative opportunities\n• A pleasant working atmosphere in a young and dynamic team\n• International career prospects and development opportunities\n• Outstanding employee benefits in all Kempinski hotels, among others\n• Staff accommodation in the immediate vicinity of the hotel, including laundry facilities, a fitness and common room, a kitchen and a wide range of dishes in our staff restaurant\n• Free use of the in-house daycare centre for employee children\n• Monthly employee activities such as skiing, snowboarding and cross-country skiing courses, hiking trips, spa evenings and German courses\n• Internal ‘Feel Good Committee’ to help shape all welfare issues",
+        "de": "Under a name steeped in tradition, Kempinski, hoteliers since 1897, has travelled the world in search of fascinating destinations, without ever forgetting its traditions and European heritage. The spacious resorts and stylish city and wellness hotels reflect an individual and unique character, especially for guests who appreciate 5-star service and luxury on their business or private trips. What actually makes a grand hotel? It is ahead of its time, creating and cultivating traditions. Would you like to develop your own traditions and strengthen the positioning of your area as a sporty, inviting, warm and refreshingly uncomplicated 5-star hotel? Then we are looking for you to join our creative and dynamic culinary team as a commis de cuisine for the winterseason 2026/2027. | Key Responsibilities:\n• Daily mise en place\n• Preparation and cooking of dishes assigned to your station\n• Adherence to quality standards in the kitchen area\n• Adherence to specified recipes\n• Joint responsibility for proper food storage and compliance with HACCP guidelines | Skills, Knowledge and Expertise:\n• Completed training as a chef and initial professional experience in a high-end 5-star restaurant\n• Professional competence, creativity and attention to detail, as well as a very high level of quality awareness\n• Structured and organised approach to work\n• Keen interest in team-oriented work\n• Very good German and English language skills | Benefits:\n• Live and work in the heart of the Engadin Alps\n• A wide range of creative opportunities\n• A pleasant working atmosphere in a young and dynamic team\n• International career prospects and development opportunities\n• Outstanding employee benefits in all Kempinski hotels, among others\n• Staff accommodation in the immediate vicinity of the hotel, including laundry facilities, a fitness and common room, a kitchen and a wide range of dishes in our staff restaurant\n• Free use of the in-house daycare centre for employee children\n• Monthly employee activities such as skiing, snowboarding and cross-country skiing courses, hiking trips, spa evenings and German courses\n• Internal ‘Feel Good Committee’ to help shape all welfare issues",
+        "fr": "Under a name steeped in tradition, Kempinski, hoteliers since 1897, has travelled the world in search of fascinating destinations, without ever forgetting its traditions and European heritage. The spacious resorts and stylish city and wellness hotels reflect an individual and unique character, especially for guests who appreciate 5-star service and luxury on their business or private trips. What actually makes a grand hotel? It is ahead of its time, creating and cultivating traditions. Would you like to develop your own traditions and strengthen the positioning of your area as a sporty, inviting, warm and refreshingly uncomplicated 5-star hotel? Then we are looking for you to join our creative and dynamic culinary team as a commis de cuisine for the winterseason 2026/2027. | Key Responsibilities:\n• Daily mise en place\n• Preparation and cooking of dishes assigned to your station\n• Adherence to quality standards in the kitchen area\n• Adherence to specified recipes\n• Joint responsibility for proper food storage and compliance with HACCP guidelines | Skills, Knowledge and Expertise:\n• Completed training as a chef and initial professional experience in a high-end 5-star restaurant\n• Professional competence, creativity and attention to detail, as well as a very high level of quality awareness\n• Structured and organised approach to work\n• Keen interest in team-oriented work\n• Very good German and English language skills | Benefits:\n• Live and work in the heart of the Engadin Alps\n• A wide range of creative opportunities\n• A pleasant working atmosphere in a young and dynamic team\n• International career prospects and development opportunities\n• Outstanding employee benefits in all Kempinski hotels, among others\n• Staff accommodation in the immediate vicinity of the hotel, including laundry facilities, a fitness and common room, a kitchen and a wide range of dishes in our staff restaurant\n• Free use of the in-house daycare centre for employee children\n• Monthly employee activities such as skiing, snowboarding and cross-country skiing courses, hiking trips, spa evenings and German courses\n• Internal ‘Feel Good Committee’ to help shape all welfare issues"
+      },
+      "slugByLocale": {
+        "it": "commis-de-cuisine-f-m-d-555389",
+        "en": "commis-de-cuisine-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz",
+        "de": "commis-de-cuisine-f-m-d-555389",
+        "fr": "commis-de-cuisine-f-m-d-555389"
+      },
+      "crawledAt": "2026-08-04T11:32:43.447Z",
+      "id": "grand-hotel-des-bains-kempinski-7ef74a44160d",
+      "needsRetranslation": true,
+      "salaryMin": 57500,
+      "salaryMax": 87000,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 57500,
+          "maxValue": 87000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Via Mezdi 27",
+      "postalCode": "7500",
+      "firstSeenAt": "2026-08-04T11:32:43.447Z"
+    },
+    {
+      "title": "Nightchef (f/m/d)",
+      "slug": "nightchef-f-m-d-555391",
+      "url": "https://kempinski.pinpointhq.com/en/postings/7c9c2f18-08ba-436e-84c6-5d1029c0dc24",
+      "applyUrl": "https://kempinski.pinpointhq.com/en/postings/7c9c2f18-08ba-436e-84c6-5d1029c0dc24",
+      "company": "Grand Hotel des Bains Kempinski St. Moritz",
+      "companyKey": "grand-hotel-des-bains-kempinski",
+      "companyDomain": "kempinski.com",
+      "location": "St. Moritz",
+      "addressLocality": "St. Moritz",
+      "addressRegion": "GR",
+      "addressCountry": "CH",
+      "canton": "GR",
+      "country": "CH",
+      "category": "Turismo & Ospitalità",
+      "sector": "Hotellerie & Gastronomia",
+      "department": "Kitchen",
+      "source": "kempinski-dedicated-crawler",
+      "sourceLang": "en",
+      "postedDate": "2026-08-04",
+      "validThrough": "",
+      "employmentType": "FULL_TIME",
+      "contractType": "seasonal",
+      "description": "Under a name steeped in tradition, Kempinski, hoteliers since 1897, has travelled the world in search of fascinating destinations, without ever forgetting its traditions and European heritage. The spacious resorts and stylish city and wellness hotels reflect an individual and unique character, especially for guests who appreciate 5-star service and luxury on their business or private trips. For the 2026/2027 winter season, we are looking for you as a night chef at Chef de Partie or Demi Chef de Partie level. | Key Responsibilities: If you love working at night and being independent of shift work, if you want to be your own boss and can handle your important responsibilities confidently and independently, then the ‘Night Chef on Top of the World’ work environment is exactly the challenge and springboard you need.\n• Independent work at night\n• Daily mise en place for breakfast\n• Support for the breakfast team\n• Responsibility for the 24-hour room service menu between 11 p.m. and 7 a.m.\n• Compliance with quality standards in the kitchen area\n• Compliance with specified recipes\n• Joint responsibility for proper food storage and compliance with HACCP guidelines | Skills, Knowledge and Expertise:\n• Completed training as a chef and several years of professional experience in a high-end 5-star restaurant\n• Professional competence, creativity and attention to detail, as well as a very high level of quality awareness\n• Structured and organised way of working\n• Keen interest in team-oriented work\n• You enjoy working at night\n• Very good German and English skills. | Benefits:\n• Live and work in the heart of the Engadin Alps\n• A wide range of creative opportunities\n• A pleasant working atmosphere in a young and dynamic team\n• International career prospects and development opportunities\n• Outstanding employee benefits in all Kempinski hotels, among others\n• Staff accommodation in the immediate vicinity of the hotel, including laundry facilities, a fitness and common room, a kitchen and a wide range of dishes in our staff restaurant\n• Free use of the in-house daycare centre for employee children\n• Monthly employee activities such as skiing, snowboarding and cross-country skiing courses, hiking trips, spa evenings and German courses\n• Internal ‘Feel Good Committee’ to help shape all welfare issues",
+      "titleByLocale": {
+        "en": "Nightchef (f/m/d)",
+        "it": "Nightchef (f/m/d)",
+        "de": "Nightchef (f/m/d)",
+        "fr": "Nightchef (f/m/d)"
+      },
+      "descriptionByLocale": {
+        "en": "Under a name steeped in tradition, Kempinski, hoteliers since 1897, has travelled the world in search of fascinating destinations, without ever forgetting its traditions and European heritage. The spacious resorts and stylish city and wellness hotels reflect an individual and unique character, especially for guests who appreciate 5-star service and luxury on their business or private trips. For the 2026/2027 winter season, we are looking for you as a night chef at Chef de Partie or Demi Chef de Partie level. | Key Responsibilities: If you love working at night and being independent of shift work, if you want to be your own boss and can handle your important responsibilities confidently and independently, then the ‘Night Chef on Top of the World’ work environment is exactly the challenge and springboard you need.\n• Independent work at night\n• Daily mise en place for breakfast\n• Support for the breakfast team\n• Responsibility for the 24-hour room service menu between 11 p.m. and 7 a.m.\n• Compliance with quality standards in the kitchen area\n• Compliance with specified recipes\n• Joint responsibility for proper food storage and compliance with HACCP guidelines | Skills, Knowledge and Expertise:\n• Completed training as a chef and several years of professional experience in a high-end 5-star restaurant\n• Professional competence, creativity and attention to detail, as well as a very high level of quality awareness\n• Structured and organised way of working\n• Keen interest in team-oriented work\n• You enjoy working at night\n• Very good German and English skills. | Benefits:\n• Live and work in the heart of the Engadin Alps\n• A wide range of creative opportunities\n• A pleasant working atmosphere in a young and dynamic team\n• International career prospects and development opportunities\n• Outstanding employee benefits in all Kempinski hotels, among others\n• Staff accommodation in the immediate vicinity of the hotel, including laundry facilities, a fitness and common room, a kitchen and a wide range of dishes in our staff restaurant\n• Free use of the in-house daycare centre for employee children\n• Monthly employee activities such as skiing, snowboarding and cross-country skiing courses, hiking trips, spa evenings and German courses\n• Internal ‘Feel Good Committee’ to help shape all welfare issues",
+        "it": "Under a name steeped in tradition, Kempinski, hoteliers since 1897, has travelled the world in search of fascinating destinations, without ever forgetting its traditions and European heritage. The spacious resorts and stylish city and wellness hotels reflect an individual and unique character, especially for guests who appreciate 5-star service and luxury on their business or private trips. For the 2026/2027 winter season, we are looking for you as a night chef at Chef de Partie or Demi Chef de Partie level. | Key Responsibilities: If you love working at night and being independent of shift work, if you want to be your own boss and can handle your important responsibilities confidently and independently, then the ‘Night Chef on Top of the World’ work environment is exactly the challenge and springboard you need.\n• Independent work at night\n• Daily mise en place for breakfast\n• Support for the breakfast team\n• Responsibility for the 24-hour room service menu between 11 p.m. and 7 a.m.\n• Compliance with quality standards in the kitchen area\n• Compliance with specified recipes\n• Joint responsibility for proper food storage and compliance with HACCP guidelines | Skills, Knowledge and Expertise:\n• Completed training as a chef and several years of professional experience in a high-end 5-star restaurant\n• Professional competence, creativity and attention to detail, as well as a very high level of quality awareness\n• Structured and organised way of working\n• Keen interest in team-oriented work\n• You enjoy working at night\n• Very good German and English skills. | Benefits:\n• Live and work in the heart of the Engadin Alps\n• A wide range of creative opportunities\n• A pleasant working atmosphere in a young and dynamic team\n• International career prospects and development opportunities\n• Outstanding employee benefits in all Kempinski hotels, among others\n• Staff accommodation in the immediate vicinity of the hotel, including laundry facilities, a fitness and common room, a kitchen and a wide range of dishes in our staff restaurant\n• Free use of the in-house daycare centre for employee children\n• Monthly employee activities such as skiing, snowboarding and cross-country skiing courses, hiking trips, spa evenings and German courses\n• Internal ‘Feel Good Committee’ to help shape all welfare issues",
+        "de": "Under a name steeped in tradition, Kempinski, hoteliers since 1897, has travelled the world in search of fascinating destinations, without ever forgetting its traditions and European heritage. The spacious resorts and stylish city and wellness hotels reflect an individual and unique character, especially for guests who appreciate 5-star service and luxury on their business or private trips. For the 2026/2027 winter season, we are looking for you as a night chef at Chef de Partie or Demi Chef de Partie level. | Key Responsibilities: If you love working at night and being independent of shift work, if you want to be your own boss and can handle your important responsibilities confidently and independently, then the ‘Night Chef on Top of the World’ work environment is exactly the challenge and springboard you need.\n• Independent work at night\n• Daily mise en place for breakfast\n• Support for the breakfast team\n• Responsibility for the 24-hour room service menu between 11 p.m. and 7 a.m.\n• Compliance with quality standards in the kitchen area\n• Compliance with specified recipes\n• Joint responsibility for proper food storage and compliance with HACCP guidelines | Skills, Knowledge and Expertise:\n• Completed training as a chef and several years of professional experience in a high-end 5-star restaurant\n• Professional competence, creativity and attention to detail, as well as a very high level of quality awareness\n• Structured and organised way of working\n• Keen interest in team-oriented work\n• You enjoy working at night\n• Very good German and English skills. | Benefits:\n• Live and work in the heart of the Engadin Alps\n• A wide range of creative opportunities\n• A pleasant working atmosphere in a young and dynamic team\n• International career prospects and development opportunities\n• Outstanding employee benefits in all Kempinski hotels, among others\n• Staff accommodation in the immediate vicinity of the hotel, including laundry facilities, a fitness and common room, a kitchen and a wide range of dishes in our staff restaurant\n• Free use of the in-house daycare centre for employee children\n• Monthly employee activities such as skiing, snowboarding and cross-country skiing courses, hiking trips, spa evenings and German courses\n• Internal ‘Feel Good Committee’ to help shape all welfare issues",
+        "fr": "Under a name steeped in tradition, Kempinski, hoteliers since 1897, has travelled the world in search of fascinating destinations, without ever forgetting its traditions and European heritage. The spacious resorts and stylish city and wellness hotels reflect an individual and unique character, especially for guests who appreciate 5-star service and luxury on their business or private trips. For the 2026/2027 winter season, we are looking for you as a night chef at Chef de Partie or Demi Chef de Partie level. | Key Responsibilities: If you love working at night and being independent of shift work, if you want to be your own boss and can handle your important responsibilities confidently and independently, then the ‘Night Chef on Top of the World’ work environment is exactly the challenge and springboard you need.\n• Independent work at night\n• Daily mise en place for breakfast\n• Support for the breakfast team\n• Responsibility for the 24-hour room service menu between 11 p.m. and 7 a.m.\n• Compliance with quality standards in the kitchen area\n• Compliance with specified recipes\n• Joint responsibility for proper food storage and compliance with HACCP guidelines | Skills, Knowledge and Expertise:\n• Completed training as a chef and several years of professional experience in a high-end 5-star restaurant\n• Professional competence, creativity and attention to detail, as well as a very high level of quality awareness\n• Structured and organised way of working\n• Keen interest in team-oriented work\n• You enjoy working at night\n• Very good German and English skills. | Benefits:\n• Live and work in the heart of the Engadin Alps\n• A wide range of creative opportunities\n• A pleasant working atmosphere in a young and dynamic team\n• International career prospects and development opportunities\n• Outstanding employee benefits in all Kempinski hotels, among others\n• Staff accommodation in the immediate vicinity of the hotel, including laundry facilities, a fitness and common room, a kitchen and a wide range of dishes in our staff restaurant\n• Free use of the in-house daycare centre for employee children\n• Monthly employee activities such as skiing, snowboarding and cross-country skiing courses, hiking trips, spa evenings and German courses\n• Internal ‘Feel Good Committee’ to help shape all welfare issues"
+      },
+      "slugByLocale": {
+        "it": "nightchef-f-m-d-555391",
+        "en": "nightchef-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz",
+        "de": "nightchef-f-m-d-555391",
+        "fr": "nightchef-f-m-d-555391"
+      },
+      "crawledAt": "2026-08-04T11:32:43.451Z",
+      "id": "grand-hotel-des-bains-kempinski-d85dc80dfe29",
+      "needsRetranslation": true,
+      "salaryMin": 57500,
+      "salaryMax": 87000,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 57500,
+          "maxValue": 87000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Via Mezdi 27",
+      "postalCode": "7500",
+      "firstSeenAt": "2026-08-04T11:32:43.451Z"
+    },
+    {
+      "title": "Cafeteria Attendant (f/m/d)",
+      "slug": "cafeteria-attendant-f-m-d-555401",
+      "url": "https://kempinski.pinpointhq.com/en/postings/c5617059-d54a-4835-9341-7ef39bfcf887",
+      "applyUrl": "https://kempinski.pinpointhq.com/en/postings/c5617059-d54a-4835-9341-7ef39bfcf887",
+      "company": "Grand Hotel des Bains Kempinski St. Moritz",
+      "companyKey": "grand-hotel-des-bains-kempinski",
+      "companyDomain": "kempinski.com",
+      "location": "St. Moritz",
+      "addressLocality": "St. Moritz",
+      "addressRegion": "GR",
+      "addressCountry": "CH",
+      "canton": "GR",
+      "country": "CH",
+      "category": "Turismo & Ospitalità",
+      "sector": "Hotellerie & Gastronomia",
+      "department": "Kitchen",
+      "source": "kempinski-dedicated-crawler",
+      "sourceLang": "en",
+      "postedDate": "2026-08-04",
+      "validThrough": "",
+      "employmentType": "FULL_TIME",
+      "contractType": "seasonal",
+      "description": "Under a name steeped in tradition, Kempinski – hoteliers since 1897 – has travelled the world in search of fascinating destinations, without ever losing sight of its traditions and European heritage. Its spacious resorts and stylish city and wellness hotels reflect a distinctive and unique character, tailored specifically for guests who appreciate five-star service and luxury on their business or leisure trips. What actually defines a Grand Hotel? It is ahead of its time; it creates traditions and nurtures them. Would you like to develop your own traditions and, through your department, reinforce our positioning as a sporty, warmly welcoming and refreshingly uncomplicated 5-star hotel? Do you have an eye for detail and work creatively and independently? To support our Culinary Team, we are looking for you to join us as a Cafeteria Attendant from the 2026/2027 winter season. | Key Responsibilities:\n• Responsibility for ensuring the workplace is kept spotlessly clean\n• Monitoring the quality of goods and food served\n• Serving meals at the specified times\n• Checking, storing and preparing existing and delivered goods\n• Serving meals in the staff canteen\n• Cleaning, maintaining and storing crockery, glassware, cutlery and kitchen utensils\n• Ensuring the cleanliness of the kitchen and canteen areas, as well as the F B back-office area\n• Proper use and maintenance of the machinery and equipment provided\n• Preparing meals in accordance with the instructions of the station chef, head chef or sous-chef | Skills, Knowledge and Expertise:\n• Initial professional experience in upmarket catering\n• Ability to cope with pressure, attention to detail and a very high standard of quality\n• A structured and organised approach to work\n• A keen interest in team-oriented work\n• Your motto is to be the perfect, warm and welcoming host to every guest\n• Good command of German and English is essential. A basic knowledge of a further foreign language is desirable | Benefits:\n• Living and working in the heart of the Engadin Alps\n• A wide range of opportunities to shape your role\n• A pleasant working atmosphere within a young and dynamic team\n• International career prospects and opportunities for development\n• Outstanding staff benefits, including access to all Kempinski hotels\n• Staff accommodation in the immediate vicinity of the hotel, including laundry facilities, a fitness room, communal lounge and kitchen, and a varied selection of meals in our staff restaurant\n• Free use of the in-house crèche for staff children\n• Monthly staff activities such as cycling or SUP courses, hiking trips, spa evenings and German language courses\n• In-house ‘Feel Good Committee’ to help shape all welfare initiatives",
+      "titleByLocale": {
+        "en": "Cafeteria Attendant (f/m/d)",
+        "it": "Cafeteria Attendant (f/m/d)",
+        "de": "Cafeteria Attendant (f/m/d)",
+        "fr": "Cafeteria Attendant (f/m/d)"
+      },
+      "descriptionByLocale": {
+        "en": "Under a name steeped in tradition, Kempinski – hoteliers since 1897 – has travelled the world in search of fascinating destinations, without ever losing sight of its traditions and European heritage. Its spacious resorts and stylish city and wellness hotels reflect a distinctive and unique character, tailored specifically for guests who appreciate five-star service and luxury on their business or leisure trips. What actually defines a Grand Hotel? It is ahead of its time; it creates traditions and nurtures them. Would you like to develop your own traditions and, through your department, reinforce our positioning as a sporty, warmly welcoming and refreshingly uncomplicated 5-star hotel? Do you have an eye for detail and work creatively and independently? To support our Culinary Team, we are looking for you to join us as a Cafeteria Attendant from the 2026/2027 winter season. | Key Responsibilities:\n• Responsibility for ensuring the workplace is kept spotlessly clean\n• Monitoring the quality of goods and food served\n• Serving meals at the specified times\n• Checking, storing and preparing existing and delivered goods\n• Serving meals in the staff canteen\n• Cleaning, maintaining and storing crockery, glassware, cutlery and kitchen utensils\n• Ensuring the cleanliness of the kitchen and canteen areas, as well as the F B back-office area\n• Proper use and maintenance of the machinery and equipment provided\n• Preparing meals in accordance with the instructions of the station chef, head chef or sous-chef | Skills, Knowledge and Expertise:\n• Initial professional experience in upmarket catering\n• Ability to cope with pressure, attention to detail and a very high standard of quality\n• A structured and organised approach to work\n• A keen interest in team-oriented work\n• Your motto is to be the perfect, warm and welcoming host to every guest\n• Good command of German and English is essential. A basic knowledge of a further foreign language is desirable | Benefits:\n• Living and working in the heart of the Engadin Alps\n• A wide range of opportunities to shape your role\n• A pleasant working atmosphere within a young and dynamic team\n• International career prospects and opportunities for development\n• Outstanding staff benefits, including access to all Kempinski hotels\n• Staff accommodation in the immediate vicinity of the hotel, including laundry facilities, a fitness room, communal lounge and kitchen, and a varied selection of meals in our staff restaurant\n• Free use of the in-house crèche for staff children\n• Monthly staff activities such as cycling or SUP courses, hiking trips, spa evenings and German language courses\n• In-house ‘Feel Good Committee’ to help shape all welfare initiatives",
+        "it": "Under a name steeped in tradition, Kempinski – hoteliers since 1897 – has travelled the world in search of fascinating destinations, without ever losing sight of its traditions and European heritage. Its spacious resorts and stylish city and wellness hotels reflect a distinctive and unique character, tailored specifically for guests who appreciate five-star service and luxury on their business or leisure trips. What actually defines a Grand Hotel? It is ahead of its time; it creates traditions and nurtures them. Would you like to develop your own traditions and, through your department, reinforce our positioning as a sporty, warmly welcoming and refreshingly uncomplicated 5-star hotel? Do you have an eye for detail and work creatively and independently? To support our Culinary Team, we are looking for you to join us as a Cafeteria Attendant from the 2026/2027 winter season. | Key Responsibilities:\n• Responsibility for ensuring the workplace is kept spotlessly clean\n• Monitoring the quality of goods and food served\n• Serving meals at the specified times\n• Checking, storing and preparing existing and delivered goods\n• Serving meals in the staff canteen\n• Cleaning, maintaining and storing crockery, glassware, cutlery and kitchen utensils\n• Ensuring the cleanliness of the kitchen and canteen areas, as well as the F B back-office area\n• Proper use and maintenance of the machinery and equipment provided\n• Preparing meals in accordance with the instructions of the station chef, head chef or sous-chef | Skills, Knowledge and Expertise:\n• Initial professional experience in upmarket catering\n• Ability to cope with pressure, attention to detail and a very high standard of quality\n• A structured and organised approach to work\n• A keen interest in team-oriented work\n• Your motto is to be the perfect, warm and welcoming host to every guest\n• Good command of German and English is essential. A basic knowledge of a further foreign language is desirable | Benefits:\n• Living and working in the heart of the Engadin Alps\n• A wide range of opportunities to shape your role\n• A pleasant working atmosphere within a young and dynamic team\n• International career prospects and opportunities for development\n• Outstanding staff benefits, including access to all Kempinski hotels\n• Staff accommodation in the immediate vicinity of the hotel, including laundry facilities, a fitness room, communal lounge and kitchen, and a varied selection of meals in our staff restaurant\n• Free use of the in-house crèche for staff children\n• Monthly staff activities such as cycling or SUP courses, hiking trips, spa evenings and German language courses\n• In-house ‘Feel Good Committee’ to help shape all welfare initiatives",
+        "de": "Under a name steeped in tradition, Kempinski – hoteliers since 1897 – has travelled the world in search of fascinating destinations, without ever losing sight of its traditions and European heritage. Its spacious resorts and stylish city and wellness hotels reflect a distinctive and unique character, tailored specifically for guests who appreciate five-star service and luxury on their business or leisure trips. What actually defines a Grand Hotel? It is ahead of its time; it creates traditions and nurtures them. Would you like to develop your own traditions and, through your department, reinforce our positioning as a sporty, warmly welcoming and refreshingly uncomplicated 5-star hotel? Do you have an eye for detail and work creatively and independently? To support our Culinary Team, we are looking for you to join us as a Cafeteria Attendant from the 2026/2027 winter season. | Key Responsibilities:\n• Responsibility for ensuring the workplace is kept spotlessly clean\n• Monitoring the quality of goods and food served\n• Serving meals at the specified times\n• Checking, storing and preparing existing and delivered goods\n• Serving meals in the staff canteen\n• Cleaning, maintaining and storing crockery, glassware, cutlery and kitchen utensils\n• Ensuring the cleanliness of the kitchen and canteen areas, as well as the F B back-office area\n• Proper use and maintenance of the machinery and equipment provided\n• Preparing meals in accordance with the instructions of the station chef, head chef or sous-chef | Skills, Knowledge and Expertise:\n• Initial professional experience in upmarket catering\n• Ability to cope with pressure, attention to detail and a very high standard of quality\n• A structured and organised approach to work\n• A keen interest in team-oriented work\n• Your motto is to be the perfect, warm and welcoming host to every guest\n• Good command of German and English is essential. A basic knowledge of a further foreign language is desirable | Benefits:\n• Living and working in the heart of the Engadin Alps\n• A wide range of opportunities to shape your role\n• A pleasant working atmosphere within a young and dynamic team\n• International career prospects and opportunities for development\n• Outstanding staff benefits, including access to all Kempinski hotels\n• Staff accommodation in the immediate vicinity of the hotel, including laundry facilities, a fitness room, communal lounge and kitchen, and a varied selection of meals in our staff restaurant\n• Free use of the in-house crèche for staff children\n• Monthly staff activities such as cycling or SUP courses, hiking trips, spa evenings and German language courses\n• In-house ‘Feel Good Committee’ to help shape all welfare initiatives",
+        "fr": "Under a name steeped in tradition, Kempinski – hoteliers since 1897 – has travelled the world in search of fascinating destinations, without ever losing sight of its traditions and European heritage. Its spacious resorts and stylish city and wellness hotels reflect a distinctive and unique character, tailored specifically for guests who appreciate five-star service and luxury on their business or leisure trips. What actually defines a Grand Hotel? It is ahead of its time; it creates traditions and nurtures them. Would you like to develop your own traditions and, through your department, reinforce our positioning as a sporty, warmly welcoming and refreshingly uncomplicated 5-star hotel? Do you have an eye for detail and work creatively and independently? To support our Culinary Team, we are looking for you to join us as a Cafeteria Attendant from the 2026/2027 winter season. | Key Responsibilities:\n• Responsibility for ensuring the workplace is kept spotlessly clean\n• Monitoring the quality of goods and food served\n• Serving meals at the specified times\n• Checking, storing and preparing existing and delivered goods\n• Serving meals in the staff canteen\n• Cleaning, maintaining and storing crockery, glassware, cutlery and kitchen utensils\n• Ensuring the cleanliness of the kitchen and canteen areas, as well as the F B back-office area\n• Proper use and maintenance of the machinery and equipment provided\n• Preparing meals in accordance with the instructions of the station chef, head chef or sous-chef | Skills, Knowledge and Expertise:\n• Initial professional experience in upmarket catering\n• Ability to cope with pressure, attention to detail and a very high standard of quality\n• A structured and organised approach to work\n• A keen interest in team-oriented work\n• Your motto is to be the perfect, warm and welcoming host to every guest\n• Good command of German and English is essential. A basic knowledge of a further foreign language is desirable | Benefits:\n• Living and working in the heart of the Engadin Alps\n• A wide range of opportunities to shape your role\n• A pleasant working atmosphere within a young and dynamic team\n• International career prospects and opportunities for development\n• Outstanding staff benefits, including access to all Kempinski hotels\n• Staff accommodation in the immediate vicinity of the hotel, including laundry facilities, a fitness room, communal lounge and kitchen, and a varied selection of meals in our staff restaurant\n• Free use of the in-house crèche for staff children\n• Monthly staff activities such as cycling or SUP courses, hiking trips, spa evenings and German language courses\n• In-house ‘Feel Good Committee’ to help shape all welfare initiatives"
+      },
+      "slugByLocale": {
+        "it": "cafeteria-attendant-f-m-d-555401",
+        "en": "cafeteria-attendant-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz",
+        "de": "cafeteria-attendant-f-m-d-555401",
+        "fr": "cafeteria-attendant-f-m-d-555401"
+      },
+      "crawledAt": "2026-08-04T11:32:43.452Z",
+      "id": "grand-hotel-des-bains-kempinski-8fc4ad3f1acd",
+      "needsRetranslation": true,
+      "salaryMin": 57500,
+      "salaryMax": 87000,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 57500,
+          "maxValue": 87000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Via Mezdi 27",
+      "postalCode": "7500",
+      "firstSeenAt": "2026-08-04T11:32:43.452Z"
     }
   ]
 }
