@@ -336,8 +336,8 @@ jobs:
       # behavior (both sections keep emitting into the monolith build).
       # MUST stay in lockstep with the push-loop exclusion below — never
       # flip one true without the other in the SAME deploy.
-      ARTICOLIFRONTALIERE_BUILD_EMIT_SKIP: ${{ vars.ARTICOLIFRONTALIERE_BUILD_EMIT_SKIP }}
-      ARTICOLISVIZZERA_BUILD_EMIT_SKIP: ${{ vars.ARTICOLISVIZZERA_BUILD_EMIT_SKIP }}
+      ARTICOLIFRONTALIERE_BUILD_EMIT_SKIP: ${{ vars.ARTICOLIFRONTALIERE_BUILD_EMIT_SKIP == 'false' && 'false' || 'true' }}
+      ARTICOLISVIZZERA_BUILD_EMIT_SKIP: ${{ vars.ARTICOLISVIZZERA_BUILD_EMIT_SKIP == 'false' && 'false' || 'true' }}
     steps:
       - name: Free disk space (remove unused toolchains)
         shell: bash
@@ -601,8 +601,8 @@ jobs:
           # would force-push a near-empty tree over the live shard —
           # excluded from the loop below instead. MUST stay in lockstep
           # with the build-time emit skip (same two repo variables).
-          ARTICOLIFRONTALIERE_BUILD_EMIT_SKIP: ${{ vars.ARTICOLIFRONTALIERE_BUILD_EMIT_SKIP }}
-          ARTICOLISVIZZERA_BUILD_EMIT_SKIP: ${{ vars.ARTICOLISVIZZERA_BUILD_EMIT_SKIP }}
+          ARTICOLIFRONTALIERE_BUILD_EMIT_SKIP: ${{ vars.ARTICOLIFRONTALIERE_BUILD_EMIT_SKIP == 'false' && 'false' || 'true' }}
+          ARTICOLISVIZZERA_BUILD_EMIT_SKIP: ${{ vars.ARTICOLISVIZZERA_BUILD_EMIT_SKIP == 'false' && 'false' || 'true' }}
         run: |
           set -uo pipefail
           # Each section pushes to its OWN shard repo — one section's push
@@ -626,7 +626,7 @@ jobs:
           # never-assigned array is an unbound-variable abort, not an empty count.
           failed=()
           pids=(); names=()
-          for section in $(jq -r 'keys[] | select(startswith("_")|not)' scripts/lib/section-shard-slugs.json); do
+          for section in $(bash scripts/lib/deploy-shard-sections.sh); do
             # #4881 Fase 5: build no longer emits this section when its
             # BUILD_EMIT_SKIP flag is on — a full-replace push here would
             # force-push a near-empty dist/ tree over the live shard, wiping
@@ -756,7 +756,7 @@ jobs:
           }
           MAX_PARALLEL=4
           pids=()
-          for section in $(jq -r 'keys[] | select(startswith("_")|not)' scripts/lib/section-shard-slugs.json); do
+          for section in $(bash scripts/lib/deploy-shard-sections.sh); do
             pack_section "$section" &
             pids+=("$!")
             if [ "${#pids[@]}" -ge "$MAX_PARALLEL" ]; then
@@ -889,11 +889,11 @@ jobs:
           # for them (its own ok-marker gate) — skipped explicitly here
           # instead to avoid a permanent "no push ok-marker" ::warning::
           # every deploy that reads like a failure but isn't one.
-          ARTICOLIFRONTALIERE_BUILD_EMIT_SKIP: ${{ vars.ARTICOLIFRONTALIERE_BUILD_EMIT_SKIP }}
-          ARTICOLISVIZZERA_BUILD_EMIT_SKIP: ${{ vars.ARTICOLISVIZZERA_BUILD_EMIT_SKIP }}
+          ARTICOLIFRONTALIERE_BUILD_EMIT_SKIP: ${{ vars.ARTICOLIFRONTALIERE_BUILD_EMIT_SKIP == 'false' && 'false' || 'true' }}
+          ARTICOLISVIZZERA_BUILD_EMIT_SKIP: ${{ vars.ARTICOLISVIZZERA_BUILD_EMIT_SKIP == 'false' && 'false' || 'true' }}
         run: |
           set -uo pipefail
-          for section in $(jq -r 'keys[] | select(startswith("_")|not)' scripts/lib/section-shard-slugs.json); do
+          for section in $(bash scripts/lib/deploy-shard-sections.sh); do
             skip_var="$(echo "$section" | tr a-z A-Z)_BUILD_EMIT_SKIP"
             if [ "${!skip_var:-}" = "true" ]; then
               echo "$section-it: BUILD_EMIT_SKIP=true — build never emitted this section, no ok-marker, nothing to strip"
@@ -1229,8 +1229,8 @@ jobs:
           GH_REPO: ${{ github.repository }}
           # Issue #4881 Fase 5 — see ogPagesPlugin.ts's closeBundle docblock
           # and the IT-leg push step above for the full contract.
-          ARTICOLIFRONTALIERE_BUILD_EMIT_SKIP: ${{ vars.ARTICOLIFRONTALIERE_BUILD_EMIT_SKIP }}
-          ARTICOLISVIZZERA_BUILD_EMIT_SKIP: ${{ vars.ARTICOLISVIZZERA_BUILD_EMIT_SKIP }}
+          ARTICOLIFRONTALIERE_BUILD_EMIT_SKIP: ${{ vars.ARTICOLIFRONTALIERE_BUILD_EMIT_SKIP == 'false' && 'false' || 'true' }}
+          ARTICOLISVIZZERA_BUILD_EMIT_SKIP: ${{ vars.ARTICOLISVIZZERA_BUILD_EMIT_SKIP == 'false' && 'false' || 'true' }}
         run: |
           set -uo pipefail
           # Each section pushes to its OWN shard repo — one section's push
@@ -1253,7 +1253,7 @@ jobs:
           # never-assigned array is an unbound-variable abort, not an empty count.
           failed=()
           pids=(); names=()
-          for section in $(jq -r 'keys[] | select(startswith("_")|not)' scripts/lib/section-shard-slugs.json); do
+          for section in $(bash scripts/lib/deploy-shard-sections.sh); do
             # #4881 Fase 5: same exclusion as the IT-leg push step above —
             # build no longer emitted this section, so a full-replace push
             # here would force-push a near-empty dist/ tree over the shard.
@@ -1362,7 +1362,7 @@ jobs:
           }
           MAX_PARALLEL=4
           pids=()
-          for section in $(jq -r 'keys[] | select(startswith("_")|not)' scripts/lib/section-shard-slugs.json); do
+          for section in $(bash scripts/lib/deploy-shard-sections.sh); do
             pack_section "$section" &
             pids+=("$!")
             if [ "${#pids[@]}" -ge "$MAX_PARALLEL" ]; then
@@ -1491,11 +1491,11 @@ jobs:
           ARTICOLISVIZZERA_SHARD_LIVE: ${{ vars.ARTICOLISVIZZERA_SHARD_LIVE }}
           # Issue #4881 Fase 5: same exclusion as the IT-leg strip step —
           # see that step's comment for the rationale.
-          ARTICOLIFRONTALIERE_BUILD_EMIT_SKIP: ${{ vars.ARTICOLIFRONTALIERE_BUILD_EMIT_SKIP }}
-          ARTICOLISVIZZERA_BUILD_EMIT_SKIP: ${{ vars.ARTICOLISVIZZERA_BUILD_EMIT_SKIP }}
+          ARTICOLIFRONTALIERE_BUILD_EMIT_SKIP: ${{ vars.ARTICOLIFRONTALIERE_BUILD_EMIT_SKIP == 'false' && 'false' || 'true' }}
+          ARTICOLISVIZZERA_BUILD_EMIT_SKIP: ${{ vars.ARTICOLISVIZZERA_BUILD_EMIT_SKIP == 'false' && 'false' || 'true' }}
         run: |
           set -uo pipefail
-          for section in $(jq -r 'keys[] | select(startswith("_")|not)' scripts/lib/section-shard-slugs.json); do
+          for section in $(bash scripts/lib/deploy-shard-sections.sh); do
             skip_var="$(echo "$section" | tr a-z A-Z)_BUILD_EMIT_SKIP"
             if [ "${!skip_var:-}" = "true" ]; then
               echo "$section-${{ matrix.locale }}: BUILD_EMIT_SKIP=true — build never emitted this section, no ok-marker, nothing to strip"
