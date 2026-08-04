@@ -23612,6 +23612,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-banche-cercano-piu-personale': {
+    title: 'Di più Banche cercano più personale, annunci +14% in luglio',
+    description: 'Il numero di annunci di lavoro nelle banche svizzere è aumentato del 14% in luglio 2026. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, banche, cercano, personale, annunci',
+    ogTitle: 'Banche svizzere cercano personale in luglio 2026',
+    ogDescription: 'Il numero di annunci di lavoro nelle banche svizzere è aumentato del 14% in luglio 2026.',
+    canonicalPath: '/articoli-svizzera/banche-cercano-piu-personale/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Di più Banche cercano più personale, annunci +14% in luglio",
+      "description": "Il numero di annunci di lavoro nelle banche svizzere è aumentato del 14% in luglio 2026. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/banche-cercano-piu-personale.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Banche svizzere che cercano personale in luglio 2026"
+      },
+      "datePublished": "2026-08-04T19:28:06+00:00",
+      "dateModified": "2026-08-04T19:28:06+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/banche-cercano-piu-personale/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

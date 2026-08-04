@@ -634,6 +634,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'vigilanza-banche-svizzera-scandali': { it: 'vigilanza-banche-svizzera-scandali', en: 'swiss-banking-oversight-scandals', de: 'schweizer-bankenaufsicht-skandale', fr: 'surveillance-banques-suisses-scandales' },
  'siccita-contadini-mobilitano': { it: 'siccita-contadini-mobilitano', en: 'drought-farmers-mobilize', de: 'durre-bauern-mobilisieren', fr: 'secheresse-farmers-mobilisent' },
  'emigrazione-tasse-obblighi-dopo-partenza': { it: 'emigrazione-tasse-obblighi-dopo-partenza', en: 'emigrating-from-switzerland-tax-obligations-after-leaving', de: 'auswanderung-steuerpflicht-nach-abreise-aus-der-schweiz', fr: 'emigration-de-suisse-obligations-fiscales-apres-le-depart' },
+ 'banche-cercano-piu-personale': { it: 'banche-cercano-piu-personale', en: 'swiss-banks-look-for-staff-july', de: 'schweizer-banken-suchen-personal-juli', fr: 'banques-suisses-recherchent-personnel-juillet' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

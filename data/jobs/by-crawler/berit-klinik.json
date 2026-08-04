@@ -419,7 +419,7 @@
         "it": "trasporti-100-berit-klinik-speicher-05af3a",
         "en": "transportation-100-berit-klinik-speicher-05af3a",
         "de": "transport-100-berit-klinik",
-        "fr": "transport-100-berit-klinik-speicher"
+        "fr": "transports-100-berit-klinik-speicher"
       },
       "_meta": {
         "sourceFilename": "stelleninserat_ma_logistik_interner_transport_100__6f934eb381.pdf"
@@ -427,7 +427,6 @@
       "id": "berit-klinik-4f13802e5b8b",
       "previousSlugs": [
         "transport-100-berit-klinik",
-        "transports-100-berit-klinik-speicher",
         "transport-100-berit-klinik-speicher"
       ],
       "previousSlugsByLocale": {
@@ -439,7 +438,6 @@
         ],
         "fr": [
           "transport-100-berit-klinik",
-          "transports-100-berit-klinik-speicher",
           "transport-100-berit-klinik-speicher"
         ]
       },
@@ -650,8 +648,8 @@
       "slugByLocale": {
         "de": "fachperson-marketing-und-kommunikation-assistentin-ceo-100-berit-klinik",
         "it": "fachperson-marketing-e-kommunikation-assistentin-ceo-100-berit-klinik-wattwil",
-        "en": "fachperson-marketing-und-kommunikation-assistentin-ceo-100-berit-klinik",
-        "fr": "fachperson-marketing-und-kommunikation-assistentin-ceo-100-berit-klinik"
+        "en": "marketing-and-communication-assistant-ceo-100-berit-klinik-wattwil",
+        "fr": "directeur-general-adjoint-marketing-et-communication-100-berit-klinik-wattwil"
       },
       "_meta": {
         "sourceFilename": "stelleninserat_fachperson_marketing_und_kommunikation_assistentin_ceo__100__86e756996f.pdf"
@@ -659,6 +657,12 @@
       "id": "berit-klinik-e5db29e28865",
       "previousSlugsByLocale": {
         "it": [
+          "fachperson-marketing-und-kommunikation-assistentin-ceo-100-berit-klinik"
+        ],
+        "en": [
+          "fachperson-marketing-und-kommunikation-assistentin-ceo-100-berit-klinik"
+        ],
+        "fr": [
           "fachperson-marketing-und-kommunikation-assistentin-ceo-100-berit-klinik"
         ]
       },
