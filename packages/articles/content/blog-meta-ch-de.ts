@@ -1816,6 +1816,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.le-assenze-totale-dal-dazio-nelle-situazioni-di-emergenza.title': 'Die Voraussetzungen für die vollständige Zollbefreiung in Notfallsituationen',
     'blog.article.le-assenze-totale-dal-dazio-nelle-situazioni-di-emergenza.excerpt': 'Das Kassationsgericht hat das Konzept des Notfalls für die Zwecke der Zollbefreiung geklärt',
     'blog.article.le-assenze-totale-dal-dazio-nelle-situazioni-di-emergenza.imageAlt': 'Ein medizinisches Notfall-Szenario in einem Schweizer Krankenhaus',
+    'blog.article.vigilanza-banche-svizzera-scandali.title': 'Bankenaufsicht in der Schweiz: Neue Regeln nach Krisen',
+    'blog.article.vigilanza-banche-svizzera-scandali.excerpt': 'Die Schweizer Regierung schlägt der Finma neue Befugnisse vor, um Bußgelder zu verhängen und säumige Banken nach dem Zusammenbruch der Credit Suisse zu melden.',
+    'blog.article.vigilanza-banche-svizzera-scandali.imageAlt': 'Bundeshaus in Bern, Sitz der Schweizer Regierung',
 };
 
 export default blogMetaChDe;

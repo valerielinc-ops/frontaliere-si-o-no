@@ -1816,6 +1816,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.le-assenze-totale-dal-dazio-nelle-situazioni-di-emergenza.title': 'Les conditions de l\'exonération totale du droit dans les situations d\'urgence',
     'blog.article.le-assenze-totale-dal-dazio-nelle-situazioni-di-emergenza.excerpt': 'La Cour de cassation a clarifié la notion d\'urgence aux fins de l\'exonération des droits',
     'blog.article.le-assenze-totale-dal-dazio-nelle-situazioni-di-emergenza.imageAlt': 'Une scène d\'urgence médicale dans un hôpital suisse',
+    'blog.article.vigilanza-banche-svizzera-scandali.title': 'Surveillance des banques en Suisse : nouvelles règles après les crises',
+    'blog.article.vigilanza-banche-svizzera-scandali.excerpt': 'Le gouvernement suisse propose de nouveaux pouvoirs à la Finma pour infliger des amendes et faire connaître les banques défaillantes après l\'effondrement du Credit Suisse.',
+    'blog.article.vigilanza-banche-svizzera-scandali.imageAlt': 'Palais fédéral à Berne, siège du gouvernement suisse',
 };
 
 export default blogMetaChFr;
