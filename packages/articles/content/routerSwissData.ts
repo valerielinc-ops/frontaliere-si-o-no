@@ -629,6 +629,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'swiss-fatturato-costi-carburante-conseguenze': { it: 'swiss-fatturato-costi-carburante-conseguenze', en: 'swiss-fatturato-costi-carburante-conseguenze', de: 'swiss-fatturato-costi-carburante-conseguenze', fr: 'swiss-fatturato-costi-carburante-conseguenze' },
  'rientro-in-svizzera-senza-lavoro-guida': { it: 'rientro-in-svizzera-senza-lavoro-guida', en: 'returning-to-switzerland-unemployed-guide', de: 'zurueck-in-die-schweiz-ohne-job-leitfaden', fr: 'retour-en-suisse-sans-emploi-guide' },
  'leclanche-crisi-finanziaria-2025': { it: 'leclanche-crisi-finanziaria-2025', en: 'leclanche-financial-difficulties-2025-report', de: 'leclanche-finanzielle-schwierigkeiten-2025-bericht', fr: 'leclanche-difficultes-financieres-rapport-2025' },
+ 'attacco-hacker-liechtenstein-svizzera': { it: 'attacco-hacker-liechtenstein-svizzera', en: 'hacker-attack-liechtenstein-switzerland', de: 'hacker-angriff-liechtenstein-schweiz', fr: 'attaque-pirate-liechtenstein-suisse' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
