@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "prada-6c4e57745113",
-      "slug": "prada-runner-sankt-moritz-prada-group-saint-moritz",
+      "slug": "addetto-alla-logistica-prada-sankt-moritz-prada-group-saint-moritz",
       "slugByLocale": {
-        "it": "prada-runner-sankt-moritz-prada-group-saint-moritz",
         "en": "prada-runner-sankt-moritz-prada-group-saint-moritz",
+        "it": "addetto-alla-logistica-prada-sankt-moritz-prada-group-saint-moritz",
         "de": "prada-runner-sankt-moritz-prada-group-saint-moritz",
-        "fr": "prada-runner-sankt-moritz-prada-group-saint-moritz"
+        "fr": "assistant-logistique-prada-saint-moritz-prada-group-saint-moritz"
       },
       "company": "Prada Group",
       "companyKey": "prada",
@@ -58,7 +58,18 @@
       },
       "country": "CH",
       "addressRegion": "GR",
-      "firstSeenAt": "2026-08-03T22:16:33.147Z"
+      "firstSeenAt": "2026-08-03T22:16:33.147Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "prada-runner-sankt-moritz-prada-group-saint-moritz"
+        ],
+        "fr": [
+          "prada-runner-sankt-moritz-prada-group-saint-moritz"
+        ]
+      },
+      "previousSlugs": [
+        "prada-runner-sankt-moritz-prada-group-saint-moritz"
+      ]
     },
     {
       "id": "prada-0c54df42911a",
