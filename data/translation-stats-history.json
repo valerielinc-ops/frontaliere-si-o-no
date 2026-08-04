@@ -11398,5 +11398,119 @@
         "pending": 2
       }
     ]
+  },
+  {
+    "timestamp": "2026-08-04T13:16:53.164Z",
+    "label": "before",
+    "total": 26330,
+    "needsRetranslation": 1718,
+    "suppressed": 42,
+    "incomplete": 118,
+    "complete": 26212,
+    "missingByLocale": {
+      "it": 66,
+      "en": 39,
+      "de": 55,
+      "fr": 58
+    },
+    "topPending": [
+      {
+        "company": "Swiss Medical Network",
+        "pending": 36
+      },
+      {
+        "company": "Sunrise Communications AG",
+        "pending": 23
+      },
+      {
+        "company": "CSD ENGINEERS",
+        "pending": 12
+      },
+      {
+        "company": "IKEA",
+        "pending": 11
+      },
+      {
+        "company": "Kantonsspital Aarau (KSA)",
+        "pending": 4
+      },
+      {
+        "company": "Mikron Group",
+        "pending": 4
+      },
+      {
+        "company": "Bürgenstock Hotels AG",
+        "pending": 3
+      },
+      {
+        "company": "Kantonsspital Uri",
+        "pending": 3
+      },
+      {
+        "company": "Roche",
+        "pending": 3
+      },
+      {
+        "company": "Alpiq",
+        "pending": 2
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-08-04T14:12:20.907Z",
+    "label": "after",
+    "total": 26330,
+    "needsRetranslation": 545,
+    "suppressed": 42,
+    "incomplete": 115,
+    "complete": 26215,
+    "missingByLocale": {
+      "it": 66,
+      "en": 40,
+      "de": 55,
+      "fr": 56
+    },
+    "topPending": [
+      {
+        "company": "Swiss Medical Network",
+        "pending": 36
+      },
+      {
+        "company": "Sunrise Communications AG",
+        "pending": 23
+      },
+      {
+        "company": "CSD ENGINEERS",
+        "pending": 11
+      },
+      {
+        "company": "IKEA",
+        "pending": 11
+      },
+      {
+        "company": "Kantonsspital Aarau (KSA)",
+        "pending": 4
+      },
+      {
+        "company": "Mikron Group",
+        "pending": 4
+      },
+      {
+        "company": "Bürgenstock Hotels AG",
+        "pending": 3
+      },
+      {
+        "company": "Kantonsspital Uri",
+        "pending": 3
+      },
+      {
+        "company": "Roche",
+        "pending": 3
+      },
+      {
+        "company": "Alpiq",
+        "pending": 2
+      }
+    ]
   }
 ]
