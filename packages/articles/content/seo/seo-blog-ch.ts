@@ -23261,6 +23261,162 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-angestellte-schweiz-aumento-2027': {
+    title: 'Angestellte Schweiz chiede un aumento salariale dell\'1,5% per il 2027',
+    description: 'L\'associazione Angestellte Schweiz ha chiesto un aumento salariale medio dell\'1,5% in vista della trattativa per il 2027. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, angestellte, schweiz, chiede, aumento',
+    ogTitle: 'Aumento stipendio in Svizzera: Angestellte Schweiz chiede un aumento salariale dell\'1,5% per il 2027',
+    ogDescription: 'L\'associazione Angestellte Schweiz ha chiesto un aumento salariale medio dell\'1,5% in vista della trattativa per il 2027.',
+    canonicalPath: '/articoli-svizzera/angestellte-schweiz-aumento-2027/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Angestellte Schweiz chiede un aumento salariale dell'1,5% per il 2027",
+      "description": "L'associazione Angestellte Schweiz ha chiesto un aumento salariale medio dell'1,5% in vista della trattativa per il 2027. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/angestellte-schweiz-aumento-2027.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine di un aumento stipendio in Svizzera"
+      },
+      "datePublished": "2026-08-04T06:55:40+00:00",
+      "dateModified": "2026-08-04T06:55:40+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/angestellte-schweiz-aumento-2027/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-swiss-fatturato-costi-carburante-conseguenze': {
+    title: 'Swiss, sale il fatturato, cala l\'utile | Frontaliere Ticino',
+    description: 'Il fatturato della Swiss è aumentato del 3,2% nel primo semestre 2026, mentre l\'utile operativo è diminuito del 3,2%. Dati aggiornati 2026 per frontalieri in',
+    keywords: 'frontalieri, ticino, svizzera, italia, swiss, sale, fatturato, cala',
+    ogTitle: 'Swiss, sale il fatturato, cala l\'utile',
+    ogDescription: 'Il fatturato della Swiss è aumentato del 3,2% nel primo semestre 2026, mentre l\'utile operativo è diminuito del 3,2%.',
+    canonicalPath: '/articoli-svizzera/swiss-fatturato-costi-carburante-conseguenze/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Swiss, sale il fatturato, cala l'utile",
+      "description": "Il fatturato della Swiss è aumentato del 3,2% nel primo semestre 2026, mentre l'utile operativo è diminuito del 3,2%. Dati aggiornati 2026 per frontalieri in",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/swiss-fatturato-costi-carburante-conseguenze.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine di un aereo che decolla dall'aeroporto di Lugano con una bandiera svizzera sventolante."
+      },
+      "datePublished": "2026-08-04T07:14:17+00:00",
+      "dateModified": "2026-08-04T07:14:17+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/swiss-fatturato-costi-carburante-conseguenze/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-rientro-in-svizzera-senza-lavoro-guida': {
+    title: 'Rientro in Svizzera senza lavoro: cosa sapere prima',
+    description: 'Nel dicembre 2024 l’OSE ha ricevuto 240 richieste di informazioni per il rientro in Svizzera. Scopri diritti, procedure e cosa sapere prima di rientrare senza',
+    keywords: 'frontalieri, ticino, svizzera, italia, rientro, senza, lavoro, cosa',
+    ogTitle: 'Rientro Svizzera senza lavoro: diritti e procedure',
+    ogDescription: 'Scopri diritti, procedure e cosa sapere prima di rientrare in Svizzera senza lavoro. OSE e SECO: informazioni ufficiali 2024.',
+    canonicalPath: '/articoli-svizzera/rientro-in-svizzera-senza-lavoro-guida/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Rientro in Svizzera senza lavoro: cosa sapere prima",
+      "description": "Nel dicembre 2024 l’OSE ha ricevuto 240 richieste di informazioni per il rientro in Svizzera. Scopri diritti, procedure e cosa sapere prima di rientrare senza",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/rientro-in-svizzera-senza-lavoro-guida.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ufficio di collocamento a Lugano con bandiera svizzera, simboleggia il rientro in Svizzera e la ricerca di lavoro per i frontalieri"
+      },
+      "datePublished": "2026-08-04T07:38:42+00:00",
+      "dateModified": "2026-08-04T07:38:42+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/rientro-in-svizzera-senza-lavoro-guida/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-leclanche-crisi-finanziaria-2025': {
+    title: 'Leclanché: crisi finanziaria e rinvio del rapporto 2025',
+    description: 'Leclanché in difficoltà: azioni sospese e rinvio del rapporto 2025. Analisi della situazione finanziaria e delle trattative per il futuro dell\'azienda.',
+    keywords: 'frontalieri, ticino, svizzera, italia, leclanché, crisi, finanziaria, rinvio',
+    ogTitle: 'Leclanché: crisi finanziaria e rinvio rapporto 2025',
+    ogDescription: 'Leclanché in difficoltà: azioni sospese e rinvio del rapporto 2025. Analisi della situazione finanziaria e delle trattative per il futuro dell\'azienda.',
+    canonicalPath: '/articoli-svizzera/leclanche-crisi-finanziaria-2025/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Leclanché: crisi finanziaria e rinvio del rapporto 2025",
+      "description": "Leclanché in difficoltà: azioni sospese e rinvio del rapporto 2025. Analisi della situazione finanziaria e delle trattative per il futuro dell'azienda.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/leclanche-crisi-finanziaria-2025.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Sede aziendale svizzera in un contesto finanziario."
+      },
+      "datePublished": "2026-08-04T08:11:32+00:00",
+      "dateModified": "2026-08-04T08:11:32+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/leclanche-crisi-finanziaria-2025/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

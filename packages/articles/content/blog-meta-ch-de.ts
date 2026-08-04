@@ -1798,6 +1798,18 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.un-matrimonio-che-vale-cento-posti-di-lavoro.title': 'Eine Ehe, die hundert Arbeitsplätze wert ist',
     'blog.article.un-matrimonio-che-vale-cento-posti-di-lavoro.excerpt': 'Die Nachricht wurde am vergangenen Freitag in Prato Sornico offiziell gemacht. Im Maggiatal wird eine Hochzeit gefeiert, die insgesamt etwa hundert Arbeitsplätze wert ist.',
     'blog.article.un-matrimonio-che-vale-cento-posti-di-lavoro.imageAlt': 'Eine Verbindung von vier Bauunternehmen in Vallemaggia',
+    'blog.article.angestellte-schweiz-aumento-2027.title': 'Die Angestellte Schweiz fordert eine Lohnerhöhung von 1,5 % für 2027',
+    'blog.article.angestellte-schweiz-aumento-2027.excerpt': 'Der Verband konzentriert sich außerdem auf größere Investitionen in Ausbildung und bessere Arbeitsbedingungen.',
+    'blog.article.angestellte-schweiz-aumento-2027.imageAlt': 'Bild von einem Gehaltserhöhung in der Schweiz',
+    'blog.article.swiss-fatturato-costi-carburante-conseguenze.title': 'Swiss, Umsatz steigt, Gewinn sinkt',
+    'blog.article.swiss-fatturato-costi-carburante-conseguenze.excerpt': 'Der Umsatz der Swiss stieg im ersten Halbjahr 2026 um 3,2%, das operative Ergebnis sank jedoch um 3,2%.',
+    'blog.article.swiss-fatturato-costi-carburante-conseguenze.imageAlt': 'Bild eines Flugzeugs, das vom Flughafen Lugano abhebt, mit einer Schweizer Flagge wehend.',
+    'blog.article.rientro-in-svizzera-senza-lavoro-guida.title': 'Arbeitslose Rückkehr in die Schweiz: Was Sie zuerst wissen sollten',
+    'blog.article.rientro-in-svizzera-senza-lavoro-guida.excerpt': 'Im Dezember 2024 gingen bei der ASO 240 Auskunftsersuchen zur Rückkehr ein. Die Rechte und Verfahren für Arbeitssuchende bei der Rückkehr.',
+    'blog.article.rientro-in-svizzera-senza-lavoro-guida.imageAlt': 'Arbeitsvermittlungsbüro in Lugano mit Schweizer Flagge, Symbol für Rückkehr in die Schweiz und Jobsuche für Grenzgänger',
+    'blog.article.leclanche-crisi-finanziaria-2025.title': 'Leclanché: Finanzkrise und Verschiebung des Berichts 2025',
+    'blog.article.leclanche-crisi-finanziaria-2025.excerpt': 'Die Gesellschaft aus Yverdon-les-Bains setzt die Aktien aus und verschiebt den Geschäftsbericht. Der Punkt zur finanziellen Situation und den laufenden Verhandlungen.',
+    'blog.article.leclanche-crisi-finanziaria-2025.imageAlt': 'Schweizer Unternehmenszentrale in einem Finanzkontext.',
 };
 
 export default blogMetaChDe;
