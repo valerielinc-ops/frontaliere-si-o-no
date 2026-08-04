@@ -609,6 +609,22 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'redditi-estero-controlli-doppia-tassazione': { it: 'redditi-estero-controlli-doppia-tassazione', en: 'income-earned-abroad-controls-avoiding-double-taxation', de: 'einkommen-im-ausland-kontrollen-doppelbesteuerung-vermeiden', fr: 'revenus-gagnes-a-l-etranger-controles-eviter-double-imposition' },
  'svizzera-ceuta-melilla-controlli-frontiere': { it: 'svizzera-ceuta-melilla-controlli-frontiere', en: 'switzerland-ceuta-melilla-border-controls', de: 'schweiz-ceuta-melilla-grenzkontrollen', fr: 'suisse-ceuta-melilla-controles-frontieres' },
  'confronto-imposte-cantonali-2026': { it: 'confronto-imposte-cantonali-2026', en: 'cantonal-tax-comparison-2026-vaud', de: 'kantonale-steuervergleich-2026-waadt', fr: 'comparaison-impots-cantonaux-2026-vaud' },
+ 'rendite-avs-all-estero': { it: 'rendite-avs-all-estero', en: 'swiss-state-pensions-abroad', de: 'ahv-rente-im-ausland', fr: 'rentes-avs-a-l-etranger' },
+ 'ceo-kagi-esportazioni-difficolta': { it: 'ceo-kagi-esportazioni-difficolta', en: 'kagi-ceo-export-challenges', de: 'kagi-chef-export-schwierigkeiten', fr: 'ceo-kagi-difficultes-exportation' },
+ 'lavoro-forzato-svizzera': { it: 'lavoro-forzato-svizzera', en: 'forced-labor-swiss-supply-chains', de: 'zwangsarbeit-in-schweizer-lieferketten', fr: 'travail-force-dans-les-chaines-dapprovisionnement-suisses' },
+ 'frontalieri-pensione-altrove': { it: 'frontalieri-pensione-altrove', en: 'frontalieri-pensione-altrove-en', de: 'frontalieri-pensione-altrove-de', fr: 'frontalieri-pensione-altrove-fr' },
+ 'milionari-reddito-svizzera-2022': { it: 'milionari-reddito-svizzera-2022', en: 'millionaires-income-switzerland-2022', de: 'millionaere-einkommen-schweiz-2022', fr: 'millionnaires-revenu-suisse-2022' },
+ 'le-scuse-di-pfister-alle-chiese': { it: 'le-scuse-di-pfister-alle-chiese', en: 'pfister-apology-to-christian-churches', de: 'pfister-entschuldigung-an-die-schweizer-christlichen-kirchen', fr: 'l-excuse-de-pfister-aux-eglises-chretiennes-suisses' },
+ 'publibike-passa-investitore-britannico': { it: 'publibike-passa-investitore-britannico', en: 'publibike-passes-to-british-investor', de: 'publibike-wechselt-zu-britischem-investor', fr: 'publibike-passe-a-un-investisseur-britannique' },
+ 'vendite-auto-svizzera-luglio-2026': { it: 'vendite-auto-svizzera-luglio-2026', en: 'car-sales-switzerland-july-2026', de: 'auto-verkaeufe-schweiz-juli-2026', fr: 'ventes-voitures-suisse-juillet-2026' },
+ 'rallentamento-borsa-svizzera-luglio': { it: 'rallentamento-borsa-svizzera-luglio', en: 'slowdown-swiss-stock-exchange-july', de: 'verlangsamung-schweizer-boerse-juli', fr: 'ralentissement-bourse-suisse-juillet' },
+ 'il-futuro-del-lavoro': { it: 'il-futuro-del-lavoro', en: 'the-future-of-work', de: 'die-zukunft-der-arbeit', fr: 'l-avenir-du-travail' },
+ 'votazioni-federali-guida-2026': { it: 'votazioni-federali-guida-2026', en: 'federal-votes-september-27-2026', de: 'eidgenoessische-abstimmungen-27-september-2026', fr: 'votations-federales-27-septembre-2026' },
+ 'publibike-investitore-britannico': { it: 'publibike-investitore-britannico', en: 'publibike-british-investor', de: 'publibike-britischer-investor', fr: 'publibike-investisseur-britannique' },
+ 'economia-sanitaria-svizzera': { it: 'economia-sanitaria-svizzera', en: 'swiss-health-economy', de: 'schweizer-gesundheitswirtschaft', fr: 'economie-sante-suisse' },
+ 'cercare-lavoro-svizzera-estero-guida': { it: 'cercare-lavoro-svizzera-estero-guida', en: 'job-search-switzerland-from-abroad-guide', de: 'arbeitsplatzsuche-schweiz-aus-dem-ausland-guide', fr: 'recherche-d-emploi-suisse-de-l-etranger-guide' },
+ 'frontaliere-ticino-98-famiglie-caso-solidale': { it: 'frontaliere-ticino-98-famiglie-caso-solidale', en: 'frontaliere-ticino-98-families-solidarity-case', de: 'frontaliere-ticino-98-familien-solidaritaetsfall', fr: 'frontaliere-ticino-98-familles-cause-solidarite' },
+ 'un-matrimonio-che-vale-cento-posti-di-lavoro': { it: 'un-matrimonio-che-vale-cento-posti-di-lavoro', en: 'a-union-of-four-construction-companies-in-vallemaggia', de: 'eine-verbindung-von-vier-bauunternehmen-in-vallemaggia', fr: 'un-mariage-entre-quatre-entreprises-de-construction-en-vallemaggia' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
