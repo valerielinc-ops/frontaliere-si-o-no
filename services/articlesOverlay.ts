@@ -52,28 +52,75 @@ function isUsable(a: unknown): a is OverlayArticle {
       && typeof r.title === 'string' && r.title.length > 0;
 }
 
+/** One fetch of a published index file. `null` on any problem. */
+async function fetchIndex(
+  path: string,
+): Promise<{ articles: OverlayArticle[]; total: number; oldest: string | null } | null> {
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), TIMEOUT_MS);
+  try {
+    const res = await fetch(cdnDataUrl(path), { signal: controller.signal });
+    if (!res.ok) return null;
+    const body = await res.json() as { articles?: unknown; total?: unknown; oldest?: unknown };
+    if (!Array.isArray(body?.articles)) return null;
+    return {
+      articles: body.articles.filter(isUsable),
+      total: typeof body.total === 'number' ? body.total : 0,
+      oldest: typeof body.oldest === 'string' ? body.oldest : null,
+    };
+  } catch {
+    return null;
+  } finally {
+    clearTimeout(timer);
+  }
+}
+
 /**
  * Fetch the overlay for one section+locale. Resolves to `[]` on any problem.
+ *
+ * `bundledCount` — how many articles this build shipped — turns the published
+ * window from a contract into a fast path. The publisher caps the recent index
+ * at 150 entries, which was sized against how often the site deploys; when
+ * deploys stall (2026-08-03 → 04) the bundle stops advancing while articles
+ * keep publishing, and anything older than the window and newer than the
+ * bundle falls into neither. Those articles are live at their own URL and
+ * invisible in every list, and nothing reports it.
+ *
+ * So: if the window provably cannot close the gap — the bundle plus the whole
+ * window still totals less than the corpus — fetch the complete index instead.
+ * On the common path (`bundledCount` current) the comparison is false and not
+ * a byte more is downloaded. Omit `bundledCount` to keep the old behaviour.
  */
 export async function fetchArticleOverlay(
   section: OverlaySection,
   locale: Locale,
+  bundledCount?: number,
+  bundledNewest?: string,
 ): Promise<OverlayArticle[]> {
-  const url = cdnDataUrl(`/data/blog-index-${section}-${locale}.json`);
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), TIMEOUT_MS);
-  try {
-    const res = await fetch(url, { signal: controller.signal });
-    if (!res.ok) return [];
-    const body: unknown = await res.json();
-    const articles = (body as { articles?: unknown })?.articles;
-    if (!Array.isArray(articles)) return [];
-    return articles.filter(isUsable);
-  } catch {
-    return [];
-  } finally {
-    clearTimeout(timer);
+  const recent = await fetchIndex(`/data/blog-index-${section}-${locale}.json`);
+  if (!recent) return [];
+
+  // Two independent triggers, because the count on its own has a blind spot.
+  //
+  // The count estimates the gap as `total - bundledCount`, but the real gap is
+  // against the INTERSECTION: ids this build ships that the corpus has since
+  // dropped inflate `bundledCount` and mask a genuine shortfall. The date test
+  // has no such blind spot — if this build's newest article predates the
+  // window's oldest entry, the window starts after the bundle ends and there
+  // is provably something in between, whatever the counts say. `oldest` is
+  // published for exactly this.
+  const countSaysGap =
+    typeof bundledCount === 'number' && bundledCount + recent.articles.length < recent.total;
+  const dateSaysGap =
+    typeof bundledNewest === 'string' && recent.oldest !== null && bundledNewest < recent.oldest;
+
+  if (countSaysGap || dateSaysGap) {
+    const full = await fetchIndex(`/data/blog-index-${section}-${locale}-full.json`);
+    // Still fail-open: a missing or malformed full index leaves the window's
+    // entries in place rather than dropping the overlay altogether.
+    if (full && full.articles.length > recent.articles.length) return full.articles;
   }
+  return recent.articles;
 }
 
 /**

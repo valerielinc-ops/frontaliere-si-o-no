@@ -713,27 +713,25 @@ jobs:
           bash scripts/lib/trigger-workflow.sh "fast-publish-article.yml" "$INPUTS_JSON" \
           || true
 
-      # ── Mirror the corpus to the articles repo ────────────────────────
-      # Same anti-recursion reason as the two dispatches above: the commit was
-      # pushed with the default GITHUB_TOKEN, so mirror-articles-corpus.yml's
-      # `on: push` never fires for it. Without this the mirror only ran when a
-      # human dispatched it, the articles repo stayed on whatever snapshot it
-      # was extracted at, and the published surface it serves — sitemaps, the
-      # RSS feeds and the news-ticker payload (issue 4974 item 2) — silently
-      # aged out. A stale API is worse than no API, because a consumer cannot
-      # tell the difference.
+      # ── Corpus mirror: REMOVED AT CUTOVER (issue #4974 item 3, §5.7) ──
       #
-      # Best-effort: the mirror also runs on a two-hourly schedule, so a failed
-      # dispatch costs latency, never the update. Deliberately NOT gated on
-      # verify_article: any corpus write in this run is worth mirroring.
-      - name: Trigger corpus mirror
-        id: trigger_mirror
-        if: steps.commit.outputs.committed == 'true'
-        run: |
-          TRIGGER_REF="main" \
-          TRIGGER_EXPECTED_SHA="$(git rev-parse HEAD)" \
-          bash scripts/lib/trigger-workflow.sh "mirror-articles-corpus.yml" '{}' \
-          || true
+      # This step used to dispatch mirror-articles-corpus.yml after every commit,
+      # back when this repo was the only writer and the articles repo was a
+      # read-only copy. That direction is now reversed: nanako GENERATES
+      # articles, and `scripts/pull-articles-corpus.mjs` (run by
+      # sync-articles-sitemaps.yml) pulls its `content/` back into
+      # `packages/articles/content/`.
+      #
+      # The mirror does `rm -rf content && cp -R packages/articles/content`.
+      # Dispatching it from here would therefore DELETE every article generated
+      # in nanako since this repo last pulled — silently, and reported as a
+      # successful mirror. The workflow's own `on:` block was disabled at
+      # cutover for exactly this reason; this dispatch was the one path that
+      # could still fire it, and it survived because nothing tested for it.
+      #
+      # Left as a comment rather than deleted so the next reader finds the
+      # reason instead of re-adding it. The invariant is pinned by
+      # tests/workflows/articles-mirror-trigger.test.ts.
 
       # ── Notify Google Indexing API ─────────────────────────────────────
       # REMOVED (issue #4837 stream C): this step used to ping Google right
