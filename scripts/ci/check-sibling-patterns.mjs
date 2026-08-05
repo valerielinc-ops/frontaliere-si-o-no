@@ -60,6 +60,7 @@ import { execFileSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { resolve } from 'node:path';
 import { readFileSync } from 'node:fs';
+import { resolveMergeBase, formatUnresolvableMergeBaseMessage } from './lib/resolve-merge-base.mjs';
 
 const argv = process.argv.slice(2);
 const STRICT = argv.includes('--strict');
@@ -161,48 +162,9 @@ function resolveBase() {
   return 'HEAD~1';
 }
 
-// Incremental depth steps tried on a shallow clone before giving up (issue
-// #5195): a full `--unshallow` would defeat the point of staying shallow (the
-// reporting machine keeps the repo shallow because a full clone is ~9.6GB and
-// doesn't fit on disk), so we only fetch enough extra history to reach a
-// common ancestor, capped.
-const DEEPEN_STEPS = [100, 500, 2000];
-
-/**
- * Resolves the merge-base between `base` and HEAD, self-healing a shallow
- * clone instead of silently falling back to a bogus comparison (issue #5195).
- *
- * On a shallow clone `git merge-base` can exit 0 with EMPTY output when the
- * shallow boundary cuts off before the real common ancestor — the caller
- * previously did `mergeBase = git(...).trim() || base`, which on empty output
- * substituted `base` itself as the "merge-base". A two-dot diff against that
- * fake merge-base compares the full tree of `base` against HEAD instead of
- * just the branch's own changes, surfacing every file that merely differs
- * between the two (unrelated in-flight work on other files) as a "candidate
- * sibling" — the ~100-370 false positives per push reported in #5195.
- *
- * Fix: if merge-base is empty AND the repo is shallow, incrementally
- * `git fetch --deepen` until a common ancestor is found (bounded by
- * DEEPEN_STEPS) instead of guessing. If it still can't be found — deepening
- * exhausted, no network, or histories are genuinely unrelated — return null
- * so the caller can skip the comparison with an explicit message instead of
- * emitting a misleading fallback diff.
- */
-function resolveMergeBase(base) {
-  let mergeBase = git(['merge-base', base, 'HEAD'], { allowFail: true }).trim();
-  if (mergeBase) return { mergeBase, deepened: false };
-
-  const isShallow =
-    git(['rev-parse', '--is-shallow-repository'], { allowFail: true }).trim() === 'true';
-  if (!isShallow) return { mergeBase: null, deepened: false };
-
-  for (const step of DEEPEN_STEPS) {
-    git(['fetch', `--deepen=${step}`, 'origin'], { allowFail: true });
-    mergeBase = git(['merge-base', base, 'HEAD'], { allowFail: true }).trim();
-    if (mergeBase) return { mergeBase, deepened: true };
-  }
-  return { mergeBase: null, deepened: true };
-}
+// resolveMergeBase / formatUnresolvableMergeBaseMessage: see
+// scripts/ci/lib/resolve-merge-base.mjs (issue #5195 — shared with
+// check-below-floor-bridge.mjs, which had the same verbatim antipattern).
 
 /**
  * Estrae espressioni verbatim dalle righe RIMOSSE del diff (prefisso `-`).
@@ -460,14 +422,7 @@ function main() {
     // di falsi positivi (ogni file che differisce da `base`, non solo quelli
     // del branch). Bail-out esplicito invece: candidate-surfacer inattendibile
     // è peggio di nessun candidate-surfacer.
-    const msg =
-      `check-sibling-patterns: merge-base tra ${base} e HEAD non calcolabile` +
-      (deepened
-        ? ' (anche dopo aver approfondito il clone shallow con git fetch --deepen)'
-        : ' su clone shallow') +
-      ' — confronto non affidabile su alberi potenzialmente non imparentati, salto ' +
-      "l'analisi invece di produrre falsi positivi. Per un confronto affidabile: " +
-      '`git fetch --unshallow` (o un clone completo) prima del push.';
+    const msg = `check-sibling-patterns: ${formatUnresolvableMergeBaseMessage(base, deepened)}`;
     if (JSON_OUT) {
       console.log(
         JSON.stringify(
