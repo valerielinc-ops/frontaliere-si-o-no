@@ -9255,6 +9255,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.frontaliere-infortunio-lainf-2026-oltre-20-km.title': 'Frontalier : Accident du travail et assurance LAA en 2026',
     'blog.article.frontaliere-infortunio-lainf-2026-oltre-20-km.excerpt': 'Découvrez les nouveautés de l\'assurance-accidents LAAF pour les frontaliers en 2026, en mettant l\'accent sur « plus de 20 km » et la checklist opérationnelle.',
     'blog.article.frontaliere-infortunio-lainf-2026-oltre-20-km.imageAlt': 'Vue aérienne de Castelgrande à Bellinzona, Tessin, Suisse.',
+    'blog.article.poste-italiane-consulenti-finanziari-varese.title': 'Poste Italiane recherche des conseillers financiers dans la province de Varese',
+    'blog.article.poste-italiane-consulenti-finanziari-varese.excerpt': 'L\'entreprise recherche des diplômés pour des activités de promotion et de vente de services financiers, d\'assurance et de financement jusqu\'au 26 août',
+    'blog.article.poste-italiane-consulenti-finanziari-varese.imageAlt': 'Bureau de poste italien à Varese avec conseiller financier',
 };
 
 export default blogMetaFr;

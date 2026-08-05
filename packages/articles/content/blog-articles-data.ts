@@ -27777,6 +27777,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'poste-italiane-consulenti-finanziari-varese',
+ category: 'novita',
+ date: '2026-08-05T03:21:31.658Z',
+ image: '/images/blog/poste-italiane-consulenti-finanziari-varese.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
