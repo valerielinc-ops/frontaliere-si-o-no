@@ -125,6 +125,23 @@ describe('analytics.ts — app_error message truncation vs GA4 100-char cap (#45
     // deny-list-relevant substring, which is exactly how #4589 slipped past scripts/lib/error-issue-sync.mjs.
     expect(raw.slice(0, 100)).not.toMatch(/does not provide an export named/);
   });
+
+  it('the exception event `description` param uses the stripped classifiableMessage, not the raw annotated decodedMessage (regression: #5061)', () => {
+    // scripts/analytics-report.mjs falls back to the `exception` event's
+    // `description` custom dimension (customEvent:description) when the
+    // `app_error`/`error_message` dimension isn't registered/available, and
+    // app-error-issue-sync.mjs runs ISSUE_DENY_PATTERNS against whatever that
+    // fallback yields. A `description` built from the FULL annotated
+    // decodedMessage (`[type] [Component:Name] message`) reproduces the exact
+    // #4589 truncation bug one level up: GA4's ~100-char ingestion cap slices
+    // the deny-relevant substring off before app-error-issue-sync.mjs ever
+    // sees it, so an already self-healed version-skew SyntaxError filed a
+    // spurious backlog issue (#5061).
+    const exceptionBlock = analyticsSrc.match(/const classifiableMessage[\s\S]*?log\('exception',[\s\S]*?\}\);/);
+    expect(exceptionBlock).not.toBeNull();
+    expect(exceptionBlock![0]).toMatch(/description:\s*truncate\(`\[\$\{type\}\]\s*\$\{classifiableMessage\}`/);
+    expect(exceptionBlock![0]).not.toMatch(/description:\s*truncate\(`\[\$\{type\}\]\s*\$\{decodedMessage\}`/);
+  });
 });
 
 describe('analytics.ts — ui_interaction payload', () => {
