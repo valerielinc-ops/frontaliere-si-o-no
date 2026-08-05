@@ -1843,6 +1843,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.assicurazione-disoccupazione-svizzera-funzionamento.title': 'Schweizer Arbeitslosenversicherung: So funktioniert\'s',
     'blog.article.assicurazione-disoccupazione-svizzera-funzionamento.excerpt': 'Vollständiger Leitfaden zu den Anforderungen, der Berechnung der Entschädigung und den Pflichten gegenüber dem RAV für Arbeitnehmende in der Schweiz.',
     'blog.article.assicurazione-disoccupazione-svizzera-funzionamento.imageAlt': 'Blick auf ein Geschäftsviertel in Lugano',
+    'blog.article.sistema-sanitario-svizzero-lamal-funzionamento.title': 'Schweizerisches Gesundheitssystem KVG: So funktioniert\'s',
+    'blog.article.sistema-sanitario-svizzero-lamal-funzionamento.excerpt': 'Praktischer Leitfaden zur Funktionsweise des Gesundheitssystems in der Schweiz: KVG-Pflicht, Krankenkassenwahl, Franchisen und Rückerstattungen.',
+    'blog.article.sistema-sanitario-svizzero-lamal-funzionamento.imageAlt': 'Schweizer Gesundheitseinrichtung in städtischer Umgebung',
 };
 
 export default blogMetaChDe;
