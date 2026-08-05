@@ -29,7 +29,18 @@ export interface JobAlertConfig {
    * expansion follow-up — see docs/CATHEDRAL-STATUS.md #12.
    */
   cantonFilter?: string[] | null;
-  frequency: 'daily' | 'weekly';
+  /**
+   * Send cadence.
+   *
+   * `'immediate'` (issue #5012 phase 2) is NOT a third digest interval: it
+   * routes the alert to a different sender entirely. `scripts/send-job-alerts.mjs`
+   * is a once-a-day cron; `scripts/send-company-alerts.mjs` is event-driven on
+   * the commit that publishes a new job. The partition between the two lives in
+   * ONE place — `isImmediateCompanyAlert` in scripts/lib/company-alert-routing.mjs
+   * — and requires the employer pin, so `immediate` is only ever set by
+   * `subscribeCompanyAlert`. It is not offered in the generic alert form.
+   */
+  frequency: 'daily' | 'weekly' | 'immediate';
   /**
    * Sticky manual pin (owner design 2026-07-16): when `true`, `frequency`
    * above is authoritative and `scripts/lib/jobAlertEngagementTier.mjs`
@@ -569,7 +580,14 @@ export async function subscribeCompanyAlert(
     contractTypes: [],
     sectors: [],
     cantonFilter: null,
-    frequency: 'daily',
+    // IMMEDIATE, not daily (#5012 phase 2). The issue specifies `immediate` for
+    // phase 1, and it is the whole value of following an employer: a digest
+    // slot 24h later, mixed in with unrelated matches, is a different product.
+    // `frequencyOverride: true` pins it so the adaptive-cadence engine
+    // (scripts/lib/jobAlertEngagementTier.mjs) never quietly demotes a
+    // followed employer to weekly because the user hasn't opened lately.
+    frequency: 'immediate',
+    frequencyOverride: true,
     locale,
     specificJobId: null,
     specificCompanyKey: key,
@@ -578,6 +596,20 @@ export async function subscribeCompanyAlert(
     sourceJobTitle: source?.title ?? null,
   };
   return createAlert(userId, email, config);
+}
+
+/**
+ * Every employer the user currently follows (issue #5012 phase 2) — the data
+ * behind the "Le mie aziende seguite" page.
+ *
+ * Reuses `getUserAlerts` and filters in memory: no second query, therefore no
+ * second Firestore index. `firestore.indexes.json` is NOT applied by CI, so a
+ * surface that needed a new composite index would merge green and then fail in
+ * production with FAILED_PRECONDITION on its first real use.
+ */
+export async function listFollowedCompanies(userId: string): Promise<JobAlert[]> {
+  const alerts = await getUserAlerts(userId);
+  return alerts.filter((a) => Boolean(a.specificCompanyKey));
 }
 
 /**

@@ -106,7 +106,14 @@ function parseCsvList(value) {
 function normalizeFrequency(value) {
  if (value === undefined || value === null) return undefined;
  const v = String(value).trim().toLowerCase();
- if (v === 'daily' || v === 'weekly') return v;
+ // 'immediate' (#5012 phase 2) is the CompanyAlert cadence: it routes the alert
+ // to scripts/send-company-alerts.mjs (event-driven on a new job) instead of the
+ // daily digest. Accepted here so an alert created or edited through the
+ // /preferenze-newsletter/ token link round-trips the same shape the in-app
+ // path writes — rejecting it would have made the token path silently rewrite a
+ // followed employer back onto the digest, the "same field, two writers,
+ // different values" failure #5151 was extracted to prevent.
+ if (v === 'daily' || v === 'weekly' || v === 'immediate') return v;
  return null; // explicit invalid sentinel
 }
 

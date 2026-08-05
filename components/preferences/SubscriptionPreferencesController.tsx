@@ -66,6 +66,12 @@ interface SectionStrings {
  alertCancel: string;
  frequencyDaily: string;
  frequencyWeekly: string;
+ /**
+  * #5012 phase 2 — the CompanyAlert cadence. Without its own label a
+  * followed employer rendered as `frequencyOther` ("periodico"), which is
+  * the one thing an immediate alert is not.
+  */
+ frequencyImmediate: string;
  frequencyOther: string;
  keywordsLabel: string;
  /** #5012 — label for a CompanyAlert row (`specificCompanyKey`). */
@@ -120,6 +126,7 @@ const STRINGS: Record<Locale, SectionStrings> = {
  alertCancel: 'Annulla',
  frequencyDaily: 'giornaliero',
  frequencyWeekly: 'settimanale',
+ frequencyImmediate: 'immediato',
  frequencyOther: 'periodico',
  keywordsLabel: 'Parole chiave',
  companyLabel: 'Azienda seguita',
@@ -173,6 +180,7 @@ const STRINGS: Record<Locale, SectionStrings> = {
  alertCancel: 'Cancel',
  frequencyDaily: 'daily',
  frequencyWeekly: 'weekly',
+ frequencyImmediate: 'immediate',
  frequencyOther: 'periodic',
  keywordsLabel: 'Keywords',
  companyLabel: 'Company followed',
@@ -226,6 +234,7 @@ const STRINGS: Record<Locale, SectionStrings> = {
  alertCancel: 'Abbrechen',
  frequencyDaily: 'täglich',
  frequencyWeekly: 'wöchentlich',
+ frequencyImmediate: 'sofort',
  frequencyOther: 'regelmässig',
  keywordsLabel: 'Suchbegriffe',
  companyLabel: 'Gefolgtes Unternehmen',
@@ -279,6 +288,7 @@ const STRINGS: Record<Locale, SectionStrings> = {
  alertCancel: 'Annuler',
  frequencyDaily: 'quotidien',
  frequencyWeekly: 'hebdomadaire',
+ frequencyImmediate: 'immédiat',
  frequencyOther: 'périodique',
  keywordsLabel: 'Mots-clés',
  companyLabel: 'Entreprise suivie',
@@ -322,6 +332,8 @@ function formatFrequency(freq: string, S: SectionStrings): string {
  const f = (freq || '').toLowerCase();
  if (f === 'daily') return S.frequencyDaily;
  if (f === 'weekly') return S.frequencyWeekly;
+ // #5012 phase 2: routed to scripts/send-company-alerts.mjs, not the digest.
+ if (f === 'immediate') return S.frequencyImmediate;
  return S.frequencyOther;
 }
 

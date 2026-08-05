@@ -221,7 +221,7 @@ const SALARY_HUB_ARTICLE_PATHS = new Set([
 
 // ── Route types ──────────────────────────────────────────────
 
-export type ActiveTab = 'calculator' | 'confronti' | 'fisco' | 'guida' | 'vita' | 'stats' | 'feedback' | 'privacy' | 'terms' | 'data-deletion' | 'api-status' | 'gamification' | 'forum' | 'contact' | 'partners' | 'consulting' | 'press-kit' | 'job-board' | 'profile' | 'morning' | 'blog' | 'admin' | 'glossario' | 'faq' | 'sitemap' | 'dialetto' | 'contracts' | 'tfr-calculator' | 'permit-quiz' | 'frontaliere-wizard' | 'tredicesima' | 'weekly-digest' | 'tool-of-week' | 'email-confirmed' | 'newsletter-preferences' | 'sindacati' | 'chi-siamo' | 'correzioni' | 'metodologia' | 'tassazione-hub' | 'autore' | 'publish' | 'publisher-dashboard' | 'for-employers' | 'employer-insights' | 'journalist-dashboard' | 'subscribe';
+export type ActiveTab = 'calculator' | 'confronti' | 'fisco' | 'guida' | 'vita' | 'stats' | 'feedback' | 'privacy' | 'terms' | 'data-deletion' | 'api-status' | 'gamification' | 'forum' | 'contact' | 'partners' | 'consulting' | 'press-kit' | 'job-board' | 'profile' | 'morning' | 'blog' | 'admin' | 'glossario' | 'faq' | 'sitemap' | 'dialetto' | 'contracts' | 'tfr-calculator' | 'permit-quiz' | 'frontaliere-wizard' | 'tredicesima' | 'weekly-digest' | 'tool-of-week' | 'email-confirmed' | 'newsletter-preferences' | 'sindacati' | 'chi-siamo' | 'correzioni' | 'metodologia' | 'tassazione-hub' | 'autore' | 'publish' | 'publisher-dashboard' | 'for-employers' | 'employer-insights' | 'journalist-dashboard' | 'subscribe' | 'followed-companies';
 
 export type CalcolatoreSubTab = 'calculator' | 'whatif' | 'payslip' | 'ral' | 'bonus' | 'parental-leave' | 'residency' | 'salary-quiz';
 export type ConfrontiSubTab = 'exchange' | 'banks' | 'health' | 'mobile' | 'shopping' | 'cost-of-living' | 'jobs' | 'renovation';
@@ -1946,6 +1946,10 @@ function buildTopLevelReverse(table: SlugTable, locale: Locale): TopLevelSlugMap
  [table.toolOfWeek]: { tab: 'tool-of-week' },
  [table.emailConfirmed]: { tab: 'email-confirmed' },
  [table.newsletterPreferences]: { tab: 'newsletter-preferences' },
+ // "Le mie aziende seguite" (#5012). A distinct top-level segment
+ // (`aziende-seguite`), NOT a child of the employer-profile family: that one
+ // matches `^/aziende/<slug>/` exactly, so the two namespaces cannot collide.
+ [table.followedCompanies]: { tab: 'followed-companies' },
  [table.admin]: { tab: 'admin' },
  [table.sindacati]: { tab: 'sindacati' },
  [table.tassazioneHub]: { tab: 'tassazione-hub' },
@@ -3739,6 +3743,8 @@ export function buildPath(route: AppRoute, locale?: Locale): string {
  return finish(`${prefix}/${table.emailConfirmed}${hashSuffix}`);
  case 'newsletter-preferences':
  return finish(`${prefix}/${table.newsletterPreferences}${hashSuffix}`);
+ case 'followed-companies':
+ return finish(`${prefix}/${table.followedCompanies}${hashSuffix}`);
  default:
  return finish((prefix || '/') + hashSuffix);
  }
@@ -3842,6 +3848,8 @@ export function getSeoSection(route: AppRoute): string {
  return 'email-confirmed';
  case 'newsletter-preferences':
  return 'newsletter-preferences';
+ case 'followed-companies':
+ return 'followed-companies';
  case 'tassazione-hub':
  return 'tassazione-hub';
  case 'autore':

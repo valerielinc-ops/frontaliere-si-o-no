@@ -8581,8 +8581,12 @@ const JobBoard: React.FC<JobBoardProps> = ({
  onError={handleCompanyLogoError} /> ) : ( <Building2 className="w-4 h-4 text-muted" /> )} </div> <div className="min-w-0"> <h3 className="text-sm font-bold font-display text-heading">{t('jobBoard.companyHeading')}</h3> <p className="text-sm text-subtle mt-1"> {selectedJob.company} · {selectedJob.location} ({selectedJob.canton}) </p> <p className="text-sm text-muted mt-2"> {/* BLOCK-B: Regionalize for national expansion — currently hardcodes Ticino/Tessin text */} Frontaliere Ticino ha scovato questa opportunità nel monitoraggio aziende. </p> </div> </div> </a> <div className="flex flex-wrap gap-3 pt-1"> <button onClick={() => handleApply(selectedJob)} className="inline-flex items-center gap-2 px-4 py-2 min-h-[44px] text-sm font-semibold font-display bg-accent hover:bg-accent-hover text-on-accent rounded-lg transition-colors" > <ArrowUpRight className="w-4 h-4" /> {t('jobBoard.apply')} </button> <button type="button" onClick={() => void handleShare(selectedJob)} className="inline-flex items-center gap-2 px-4 py-2 min-h-[44px] text-sm font-semibold font-display border border-edge text-body text-strong rounded-lg hover:bg-surface-raised" > <ArrowUpRight className="w-4 h-4" /> {t('common.share')} </button> </div> {appliedNoticeJsx}
  {/* CompanyAlert (#5012): "Segui questa azienda". Unlike the per-ad button
      below this is NOT restricted to publisher ads — following an employer is
-     the recurring reason to come back, and every job detail names one. */}
- {userId && userEmail && selectedJob.company && (
+     the recurring reason to come back, and every job detail names one.
+     Nor is it gated on a session any more (#5012 phase 2): an ANONYMOUS
+     visitor gets the email-capture + double-opt-in path inside the component.
+     Gating it on `userId && userEmail` hid the CTA from exactly the visitor
+     whose email we do not have yet — the one the feature exists to acquire. */}
+ {selectedJob.company && (
  <Suspense fallback={null}>
  <CompanyFollowButton
  company={String(selectedJob.company)}
@@ -8595,10 +8599,16 @@ const JobBoard: React.FC<JobBoardProps> = ({
  sourceJobTitle={selectedJob.title ?? null}
  onSubscribed={() => {
  Analytics.trackJobAlertCtaClick('company_follow_button', 'success', String(selectedJob.company));
- Analytics.trackJobAlertCreated({ keywords: String(selectedJob.company || ''), frequency: 'daily', surface: 'company_follow_button' });
+ Analytics.trackJobAlertCreated({ keywords: String(selectedJob.company || ''), frequency: 'immediate', surface: 'company_follow_button' });
  invalidateUserAlertsCache();
  }}
  onUnsubscribed={() => { invalidateUserAlertsCache(); }}
+ onOptInRequested={() => {
+ // Distinct from 'success': the address is captured but the follow is
+ // still parked pending confirmation — counting it as a created alert
+ // would inflate the funnel with un-consented subscriptions.
+ Analytics.trackJobAlertCtaClick('company_follow_button', 'accept', String(selectedJob.company));
+ }}
  onErrored={() => {
  Analytics.trackJobAlertCtaClick('company_follow_button', 'error', String(selectedJob.company));
  }}

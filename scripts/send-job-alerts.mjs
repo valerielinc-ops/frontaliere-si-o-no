@@ -21,7 +21,6 @@
 
 import fs from 'node:fs';
 import path from 'node:path';
-import { createHmac } from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 import { peelDanglingClauseTail } from '../build-plugins/shared/clauseTail.mjs';
 import { normalizeContract } from '../services/newsletter-content.mjs';
@@ -47,6 +46,8 @@ import { computeScheduledSendAt, resolveEffectivePreferredHour, perUserSendTimeE
 import { resolveEffectiveJobAlertTier, JOB_ALERT_ENGAGEMENT_TIERS } from './lib/jobAlertEngagementTier.mjs';
 import { buildDeliveryDocId } from '../functions/src/lib/deliveryDocId.js';
 import { makePreferencesUrl, generateAutologinCode, makeAuthenticatedUrl as makeAuthenticatedUrlShared } from '../services/newsletterUrls.mjs';
+import { makeAlertUnsubscribeUrl, makeAllAlertsUnsubscribeUrl } from './lib/job-alert-unsub-urls.mjs';
+import { isImmediateCompanyAlert } from './lib/company-alert-routing.mjs';
 // localePathPrefix aliased to the local name this script has always used for
 // its locale-aware URL construction — the implementation is the canonical
 // shared helper (also used by send-newsletter.mjs, send-saved-jobs-digest.mjs).
@@ -107,15 +108,9 @@ if (TARGET_EMAIL_RAW) {
   console.log(`🎯 TARGET_EMAIL set — limiting send to: ${TARGET_EMAIL_RAW}`);
 }
 
-// One-click unsubscribe endpoint (RFC 8058). MUST live on the sending domain
-// (frontaliereticino.ch) or the URL↔sending-domain mismatch trips spam filters —
-// the raw europe-west6-frontaliere-ticino.cloudfunctions.net/jobAlertUnsubscribe
-// host differs from the From domain (alerts@frontaliereticino.ch). This apex path
-// is transparently proxied to that Cloud Function by the locale-router Worker
-// (infra/cloudflare-worker/locale-router.js — method + query + body preserved, so
-// the List-Unsubscribe-Post one-click POST still reaches the function). Trailing
-// slash is canonical (site convention) and dodges a no-slash→slash 301 on POST.
-const UNSUB_URL = `${BASE_URL}/disiscrivi-alert/`;
+// The one-click unsubscribe endpoint (RFC 8058) and its two HMAC link builders
+// now live in scripts/lib/job-alert-unsub-urls.mjs — imported above and shared
+// with scripts/send-company-alerts.mjs.
 
 // makePreferencesUrl (and its per-locale slug table) lives in
 // services/newsletterUrls.mjs — shared with send-newsletter.mjs and the
@@ -463,23 +458,12 @@ function getStrings(locale) {
   return EMAIL_STRINGS[locale] || EMAIL_STRINGS.it;
 }
 
-function makeAlertUnsubscribeUrl(alertId, email) {
-  const secret = process.env.NEWSLETTER_SECRET;
-  if (!secret) return `${BASE_URL}/cerca-lavoro-ticino/`;
-  const token = createHmac('sha256', secret)
-    .update(`job_alert_unsub:${alertId}:${email.toLowerCase().trim()}`)
-    .digest('hex');
-  return `${UNSUB_URL}?alertId=${encodeURIComponent(alertId)}&email=${encodeURIComponent(email)}&token=${token}`;
-}
-
-function makeAllAlertsUnsubscribeUrl(email) {
-  const secret = process.env.NEWSLETTER_SECRET;
-  if (!secret) return `${BASE_URL}/cerca-lavoro-ticino/`;
-  const token = createHmac('sha256', secret)
-    .update(`job_alert_unsub_all:${email.toLowerCase().trim()}`)
-    .digest('hex');
-  return `${UNSUB_URL}?email=${encodeURIComponent(email)}&token=${token}&action=unsubscribe_all`;
-}
+// makeAlertUnsubscribeUrl / makeAllAlertsUnsubscribeUrl moved to
+// scripts/lib/job-alert-unsub-urls.mjs (#5012 phase 2) when the CompanyAlert
+// immediate sender needed the same links. Keeping a copy here would have put
+// the HMAC derivation in two files while its verifier lives in a third
+// (functions/src/jobAlertUnsubscribe.js) — Non-Negotiable #6, and the exact
+// drift class #5151 was spent extracting.
 
 // generateAutologinCode lives in services/newsletterUrls.mjs (shared with
 // send-newsletter.mjs and the win-back/sunset runner, AGENTS.md #6).
@@ -912,6 +896,17 @@ function buildAlertEmail(alert, matchedJobs, autologinEnabled = true) {
   }).join('');
 
   const filterParts = [];
+  // CompanyAlert (#5012 phase 2): the followed employer IS the filter, and it
+  // must be named FIRST. A company-pinned alert has no keywords, no locations
+  // and no sectors, so this block used to fall through to `s.allOffers` \u2014 the
+  // email told a user who had followed one employer that its filter was
+  // "tutte le offerte". Read from the shown jobs (correctly-cased display
+  // name) with the persisted slug as the fallback.
+  if (alert.specificCompanyKey) {
+    const pinnedCompanyName = String(shownJobs[0]?.company || '').trim()
+      || String(alert.specificCompanyKey).split('-').map((w) => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
+    filterParts.push(pinnedCompanyName);
+  }
   if (keyword) filterParts.push(keyword);
   if (alert.locations?.length > 0) filterParts.push(alert.locations.join(', '));
   if (alert.sectors?.length > 0) filterParts.push(alert.sectors.join(', '));
@@ -1412,6 +1407,18 @@ async function main() {
   alerts = alerts.filter((a) => a.paused !== true);
   if (alerts.length !== beforePauseFilter) {
     console.log(`   ⏸️  Paused alerts skipped: ${beforePauseFilter - alerts.length}`);
+  }
+
+  // CompanyAlert on the IMMEDIATE cadence belongs to scripts/send-company-alerts.mjs
+  // (#5012 phase 2), which is event-driven on new jobs. This is the negation of
+  // that runner's claim predicate — one shared function
+  // (scripts/lib/company-alert-routing.mjs), applied on both sides, so the two
+  // senders stay disjoint AND total. Without it the subscriber would receive the
+  // same job twice: once immediately, once in tomorrow's digest.
+  const beforeImmediateFilter = alerts.length;
+  alerts = alerts.filter((a) => !isImmediateCompanyAlert(a));
+  if (alerts.length !== beforeImmediateFilter) {
+    console.log(`   🏢 Immediate CompanyAlerts skipped (owned by send-company-alerts.mjs): ${beforeImmediateFilter - alerts.length}`);
   }
 
   // Filter to allowed emails during testing phase

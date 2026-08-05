@@ -336,7 +336,12 @@ export default function JobAlertForm({ authUser, onRequireAuth, initialKeyword =
  }
  };
 
- const handleUpdateFrequency = async (alertId: string, newFrequency: 'daily' | 'weekly') => {
+ // 'immediate' (#5012 phase 2) is a real stored cadence: a CompanyAlert routed
+ // to scripts/send-company-alerts.mjs. It is not OFFERED as a new choice here —
+ // an immediate cadence without an employer pin means one email per job across
+ // the whole board — but it must round-trip, so the type accepts it and the
+ // option below is rendered only for an alert that already carries it.
+ const handleUpdateFrequency = async (alertId: string, newFrequency: 'daily' | 'weekly' | 'immediate') => {
  const target = alerts.find((a) => a.id === alertId);
  const email = target?.email || authUser?.email;
  if (!email) {
@@ -741,9 +746,16 @@ export default function JobAlertForm({ authUser, onRequireAuth, initialKeyword =
  <select
  id={`alert-freq-${alert.id}`}
  value={alert.frequency}
- onChange={(e) => handleUpdateFrequency(alert.id, e.target.value as 'daily' | 'weekly')}
+ onChange={(e) => handleUpdateFrequency(alert.id, e.target.value as 'daily' | 'weekly' | 'immediate')}
  className="px-2 py-0.5 text-xs rounded border border-edge bg-surface"
  >
+ {/* Rendered only for an alert that ALREADY is immediate (#5012 phase 2).
+     Without a matching <option> the select shows no selection at all and
+     the first interaction silently rewrites a followed employer onto the
+     digest — a cadence downgrade the user never asked for. */}
+ {alert.frequency === 'immediate' && (
+ <option value="immediate">{t('jobAlert.immediate') || 'Immediata'}</option>
+ )}
  <option value="daily">{t('jobAlert.daily') || 'Giornaliera'}</option>
  <option value="weekly">{t('jobAlert.weekly') || 'Settimanale'}</option>
  </select>
@@ -761,7 +773,17 @@ export default function JobAlertForm({ authUser, onRequireAuth, initialKeyword =
  <div className="text-xs text-muted mt-0.5 flex items-center gap-1.5 flex-wrap">
  {alert.frequencyOverride ? (
  <>
- <span>{alert.frequency === 'daily' ? (t('jobAlert.daily') || 'Giornaliera') : (t('jobAlert.weekly') || 'Settimanale')}</span>
+ {/* Three-way, not a daily/else binary (#5012 phase 2): the binary
+     rendered every immediate CompanyAlert as "Settimanale" — the one
+     cadence it is not. Same defect fixed in formatFrequency
+     (components/preferences/SubscriptionPreferencesController.tsx). */}
+ <span>
+ {alert.frequency === 'immediate'
+ ? (t('jobAlert.immediate') || 'Immediata')
+ : alert.frequency === 'daily'
+ ? (t('jobAlert.daily') || 'Giornaliera')
+ : (t('jobAlert.weekly') || 'Settimanale')}
+ </span>
  <span className="text-[10px] sm:text-xs px-1.5 py-0.5 rounded-full bg-surface-alt border border-edge">{t('jobAlert.pinned') || 'fissata manualmente'}</span>
  </>
  ) : (
