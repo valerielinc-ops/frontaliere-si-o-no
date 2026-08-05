@@ -7,6 +7,15 @@ description: >-
   in COVERAGE to the monolith build (same pages, same content) but never
   holds more than one locale's SSG output live in the same process.
 
+  STATUS (issue #4943, 2026-08-05): this did NOT work. The documented revert
+  trigger below fired — scheduled runs still die at/above the ~11.7 GB ceiling,
+  now as a HOST kill (`Killed` → "runner has received a shutdown signal") on the
+  FIRST locale rather than a V8 OOM, so per-locale filtering is not shedding the
+  memory this diagnosis assumed. Per that trigger the next step is reducing the
+  SEO page surface itself, NOT another heap knob. adsense-prereview.yml has left
+  this path entirely (it audits the live site over HTTP and needs no dist), so
+  cathedral-seo-gates-check.yml is now the ONLY caller.
+
   Root cause this fixes (issue #4586 / #4586-sibling cathedral-seo-gates-check):
   the monolith `npm run build:ci` in adsense-prereview.yml and
   cathedral-seo-gates-check.yml OOMs (FatalProcessOutOfMemory, exit 134)

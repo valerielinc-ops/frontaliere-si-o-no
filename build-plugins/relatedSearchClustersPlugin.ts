@@ -361,10 +361,12 @@ const CACHE_KEY_INPUTS = [
 // below is `false` on every shard and this on-disk cache is never read or
 // written at all during a production sharded deploy — each shard always
 // does a full fresh emit from `data/*.json`. The cache only activates for
-// non-sharded monolith builds (adsense-prereview.yml,
-// cathedral-seo-gates-check.yml, local dev), which run as one process with
-// one CACHE_VERSION value — no shard-vs-shard mismatch is possible there
-// either.
+// non-sharded monolith builds (cathedral-seo-gates-check.yml, local dev),
+// which run as one process with one CACHE_VERSION value — no shard-vs-shard
+// mismatch is possible there either. (adsense-prereview.yml was in this list
+// until issue #4943: it no longer builds at all — it audits the live site over
+// HTTP — because the monolith build it ran to produce dist/ was OOM-killed by
+// the host on every run since 2026-07-07.)
 const CACHE_VERSION = 'v9';
 
 // `SITEMAP_SHARD_CAP` and `padShardIndex` are imported from

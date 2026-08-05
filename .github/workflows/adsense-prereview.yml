@@ -7,9 +7,9 @@ on:
   workflow_dispatch:
     inputs:
       sample:
-        description: 'Sample pages to audit (default 140)'
+        description: 'Pages to audit, spread across every page family (default 400)'
         required: false
-        default: '140'
+        default: '400'
         type: string
       strict:
         description: 'Fail workflow on blocking findings'
@@ -19,6 +19,11 @@ on:
         options:
           - 'true'
           - 'false'
+      base:
+        description: 'Origin to audit (default production)'
+        required: false
+        default: 'https://frontaliereticino.ch'
+        type: string
 
 permissions:
   contents: read
@@ -27,41 +32,31 @@ permissions:
 jobs:
   adsense-prereview:
     runs-on: ubuntu-latest
-    # The audit needs the COMPLETE dist (homepage + blog + every landing type),
-    # so it runs the monolith full SSG build — the same one deploy.yml's monolith
-    # path runs, measured at ~143 min (deploy run 27822078795). The earlier 45→90
-    # min ceilings cancelled the build mid-SSG (run 27935218721 cancelled at 87 min,
-    # build still in_progress, no error); the sibling cathedral-seo-gates-check.yml
-    # hits the same wall at 90 min. 180 min clears ~143 min with growth headroom.
-    # (Auditing the deployed github-pages artifact instead was rejected: the
-    # matrix deploy's artifact is per-locale/partial — missing homepage + blog —
-    # so it produces all-FAIL false negatives. See ## Non implementato in the PR.)
-    timeout-minutes: 180
+    # issue #4943: this job used to run the FULL 4-locale SSG build (free 25 GB
+    # of disk, npm ci, assemble the jobs dataset, seo-build-data-prep, then
+    # build-dist-multi-locale-merged) purely so the audit could read <=140 HTML
+    # files out of dist/. That build is OOM-killed by the HOST — `Killed`, then
+    # "The runner has received a shutdown signal", step reported as cancelled —
+    # ~80 min in, on the FIRST locale, at RSS ~11.7 GB on a 16 GB runner. It had
+    # not produced a report since 2026-07-07. Building each locale separately
+    # (#4586) did not shed the memory; that composite action's own documented
+    # revert trigger ("if a scheduled run still OOMs at/above ~11.7 GB, pursue
+    # reducing the SEO page surface instead of retrying this knob") had fired.
+    #
+    # The audit now reads the LIVE SITE over HTTP instead. That is not a
+    # workaround, it is the more faithful check: AdSense reviews the deployed
+    # site, so this sees what its crawler sees — Worker routing, redirects and
+    # real 404s included — none of which dist/ can show. No build, no npm ci
+    # (the audit imports only Node builtins and two dependency-free local
+    # modules), no disk pressure, no 20k-line Vite asset table truncating the
+    # log. Runs in minutes.
+    #
+    # The composite action `build-dist-multi-locale-merged` is deliberately NOT
+    # deleted: cathedral-seo-gates-check.yml still uses it and genuinely needs a
+    # built dist.
+    timeout-minutes: 20
 
     steps:
-      # Free ~25-30 GB before the full SSG build emits dist/ (33k+ pages × 4
-      # locales). ubuntu-latest ships ~14 GB free on / — the monolith build
-      # fills it mid-Vite-emit and dies with "No space left on device", and the
-      # worker dies before logs flush so the Build step log vanishes from the
-      # archive (scheduled run 27952579135). deploy.yml's build job already does
-      # this; mirror it here. Deletes only toolchains this repo never uses.
-      - name: Free disk space (remove unused toolchains)
-        shell: bash
-        run: |
-          echo "::group::Disk usage BEFORE cleanup"
-          df -h /
-          echo "::endgroup::"
-          sudo rm -rf /usr/local/lib/android &
-          sudo rm -rf /usr/share/dotnet &
-          sudo rm -rf /opt/ghc &
-          sudo rm -rf /usr/local/share/boost &
-          sudo rm -rf /opt/hostedtoolcache/CodeQL &
-          sudo rm -rf /usr/share/swift &
-          wait
-          echo "::group::Disk usage AFTER cleanup"
-          df -h /
-          echo "::endgroup::"
-
       - name: Checkout
         uses: actions/checkout@v5
 
@@ -69,57 +64,46 @@ jobs:
         uses: actions/setup-node@v5
         with:
           node-version: '22'
-          cache: npm
-
-      - name: Install dependencies
-        run: npm ci
-
-      - name: Assemble jobs dataset from per-crawler slices
-        run: node scripts/assemble-jobs-dataset.mjs --stats
-
-      # ── Pre-build data prep — MUST mirror deploy.yml's build job ──────────
-      # The audit reads `dist/`, so this workflow must emit the SAME dist
-      # deploy.yml ships. deploy dedups + migrates + cleans the dataset BEFORE
-      # build:ci; building the RAW assembled set (~12.1k jobs × 4 locales)
-      # OOMs the 16 GB runner (exit 134) before the audit runs (issue #2121).
-      # The shared composite action keeps this in lockstep with deploy.yml and
-      # cathedral-seo-gates-check.yml (the read-only sibling that audits the
-      # same dist). None of its steps require secrets.
-      - name: SEO build data-prep (shared with deploy.yml)
-        uses: ./.github/actions/seo-build-data-prep
-
-      # issue #4586: this used to be a single monolithic `npm run build:ci`
-      # building all 4 locales in ONE Node process — heapUsed grew
-      # monotonically across SSG phases (3.6GB → 11.7GB, run 29732063285)
-      # and OOM-crashed (FatalProcessOutOfMemory, exit 134) before reaching
-      # the audit step. Root-caused as live retention (forced GC at each
-      # phase checkpoint reclaimed only ~13MB of ~11.7GB — not a leak, not a
-      # missing heap flag) from the "company hub v2" SEO surface growth
-      # (#4306/#4323, ~22k pages across it/en/de/fr). Structural fix: build
-      # each locale SEPARATELY (same BUILD_LOCALE mechanism deploy.yml's
-      # build-locale matrix already uses in production) and merge the 4
-      # outputs into one dist/ tree — same code path, ~1/4 peak heap per
-      # process, zero change to build-plugins/**. See the composite action
-      # for the full diagnosis + revert trigger (unvalidated pre-merge —
-      # cannot exercise a 180min workflow locally).
-      - name: Build dist (per-locale, memory-bounded merge)
-        uses: ./.github/actions/build-dist-multi-locale-merged
 
       - name: Run AdSense pre-review audit
+        id: audit
         env:
           # Dispatch inputs reach the shell as DATA, never as script text
           # (${{ … }} is substituted before the shell parses the line).
-          INPUT_SAMPLE: ${{ inputs.sample || '140' }}
+          INPUT_SAMPLE: ${{ inputs.sample || '400' }}
           INPUT_STRICT: ${{ inputs.strict || 'true' }}
+          INPUT_BASE: ${{ inputs.base || 'https://frontaliereticino.ch' }}
         run: |
-          SAMPLE="$INPUT_SAMPLE"
-          STRICT="$INPUT_STRICT"
-          FLAGS="--sample $SAMPLE --save"
-          if [ "$STRICT" = "true" ]; then
+          FLAGS="--source live --base $INPUT_BASE --sample $INPUT_SAMPLE --save"
+          if [ "$INPUT_STRICT" = "true" ]; then
             FLAGS="$FLAGS --strict"
           fi
           echo "Running: node scripts/adsense-prereview-audit.mjs $FLAGS"
+          set +e
           node scripts/adsense-prereview-audit.mjs $FLAGS
+          code=$?
+          set -e
+          echo "code=$code" >> "$GITHUB_OUTPUT"
+          # Exit codes are contractual (see the audit script docblock):
+          #   0 clean · 1 audit COULD NOT RUN (infra) · 2 blocking POLICY findings.
+          # Both non-zero codes fail the job — a finding is never swallowed — but
+          # only code 1 is a broken workflow worth filing a bug for. Code 2 means
+          # the checklist did its job and the site has a policy problem to fix;
+          # filing a daily "Workflow Failure" bug for that would be noise and
+          # would bury the real signal.
+          case "$code" in
+            0)
+              echo "✅ No blocking AdSense findings."
+              ;;
+            2)
+              echo "::error title=AdSense policy findings::The checklist ran and found BLOCKING policy findings. See the job summary and the uploaded report — this is a site content/config problem, not a broken workflow."
+              exit 2
+              ;;
+            *)
+              echo "::error title=AdSense checklist could not run::The audit failed to execute (exit $code) — the site or its sitemaps were unreachable."
+              exit "$code"
+              ;;
+          esac
 
       - name: Upload report artifacts
         if: always()
@@ -130,9 +114,31 @@ jobs:
             reports/adsense-prereview-*.json
             reports/adsense-prereview-*.md
           retention-days: 90
+          if-no-files-found: warn
 
+      # Symmetric to the failure reporter below: when the checklist runs clean
+      # again, close the canonical "Workflow Failure" issue instead of leaving it
+      # open forever. This workflow accumulated exactly that stale state — the
+      # recurring issue stayed open across 29 days of red — and the shared
+      # creator already implements the resolve half for this purpose. Uses the
+      # SAME stable title so it targets the issue the failure path would open.
+      - name: Resolve the failure issue on a clean run
+        if: success()
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          node scripts/lib/github-issue-creator.mjs \
+            --title "Workflow Failure: ${{ github.workflow }}" \
+            --workflow "${{ github.workflow }}" \
+            --run-url "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}" \
+            --resolve
+
+      # Only an audit that COULD NOT RUN is a workflow failure. Blocking policy
+      # findings (exit 2) are a real, expected output of a working checklist and
+      # are tracked as content issues, not as recurring workflow-failure bugs.
       - name: Report failure to GitHub Issues
-        if: failure()
+        if: failure() && steps.audit.outputs.code != '2'
         continue-on-error: true
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
