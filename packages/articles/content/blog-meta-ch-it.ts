@@ -1846,6 +1846,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.sistema-sanitario-svizzero-lamal-funzionamento.title': 'Sistema sanitario svizzero LAMal: come funziona',
     'blog.article.sistema-sanitario-svizzero-lamal-funzionamento.excerpt': 'Guida pratica al funzionamento del sistema sanitario in Svizzera: obbligo LAMal, scelta della cassa malati, franchigie e rimborsi.',
     'blog.article.sistema-sanitario-svizzero-lamal-funzionamento.imageAlt': 'Edificio sanitario svizzero in un contesto urbano',
+    'blog.article.come-funzionano-votazioni-federali-ch.title': 'Votazioni federali: guida al funzionamento della democrazia diretta',
+    'blog.article.come-funzionano-votazioni-federali-ch.excerpt': 'Scopri come operano le iniziative popolari e i referendum, pilastri della democrazia diretta svizzera che coinvolgono popolo e Cantoni.',
+    'blog.article.come-funzionano-votazioni-federali-ch.imageAlt': 'Palazzo federale a Berna sede della democrazia svizzera',
 };
 
 export default blogMetaChIt;

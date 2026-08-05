@@ -1846,6 +1846,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.sistema-sanitario-svizzero-lamal-funzionamento.title': 'Swiss health system LAMal: how it works',
     'blog.article.sistema-sanitario-svizzero-lamal-funzionamento.excerpt': 'Practical guide to the functioning of the health system in Switzerland: LAMal obligation, choice of sick pay, deductibles and reimbursements.',
     'blog.article.sistema-sanitario-svizzero-lamal-funzionamento.imageAlt': 'Swiss healthcare facility building in an urban setting',
+    'blog.article.come-funzionano-votazioni-federali-ch.title': 'Federal Voting: Guiding the Functioning of Direct Democracy',
+    'blog.article.come-funzionano-votazioni-federali-ch.excerpt': 'Find out how popular initiatives and referendums, pillars of Swiss direct democracy involving the people and cantons, work.',
+    'blog.article.come-funzionano-votazioni-federali-ch.imageAlt': 'Federal Palace in Bern seat of Swiss democracy',
 };
 
 export default blogMetaChEn;

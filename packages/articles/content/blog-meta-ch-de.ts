@@ -1846,6 +1846,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.sistema-sanitario-svizzero-lamal-funzionamento.title': 'Schweizerisches Gesundheitssystem KVG: So funktioniert\'s',
     'blog.article.sistema-sanitario-svizzero-lamal-funzionamento.excerpt': 'Praktischer Leitfaden zur Funktionsweise des Gesundheitssystems in der Schweiz: KVG-Pflicht, Krankenkassenwahl, Franchisen und Rückerstattungen.',
     'blog.article.sistema-sanitario-svizzero-lamal-funzionamento.imageAlt': 'Schweizer Gesundheitseinrichtung in städtischer Umgebung',
+    'blog.article.come-funzionano-votazioni-federali-ch.title': 'Eidgenössische Abstimmungen: Direkte Demokratie erklärt',
+    'blog.article.come-funzionano-votazioni-federali-ch.excerpt': 'Erfahren Sie, wie Volksinitiativen und Volksabstimmungen funktionieren, Säulen der direkten Demokratie der Schweiz, an denen Volk und Kantone beteiligt sind.',
+    'blog.article.come-funzionano-votazioni-federali-ch.imageAlt': 'Bundeshaus in Bern Sitz der Schweizer Demokratie',
 };
 
 export default blogMetaChDe;
