@@ -1,6 +1,6 @@
 // scripts/migrate-all-known-job-slugs-canton-aware.mjs
 // Phase 8 Sub-PR (c): one-shot migration that rewrites every per-locale path in
-// data/all-known-job-slugs.json so that non-TI jobs use their canton-aware
+// the canonical slug registry so that non-TI jobs use their canton-aware
 // section slug (e.g. /cerca-lavoro-zurigo/...) instead of the legacy TI section.
 //
 // Before this migration, every tracking entry was emitted under the frozen TI
@@ -23,15 +23,17 @@
 //        Missing-> keep the TI path (orphan slug; preserves prior behaviour).
 //   3. Preserve any non-locale metadata on the entry (e.g. `source`,
 //      `importedAt` from the GSC-404 import path).
-//   4. Re-emit the file with 2-space indent + trailing newline.
+//   4. Re-emit through `writeAllKnownJobSlugs` — the registry is sharded under
+//      data/all-known-job-slugs/ since #4248 (the monolith crossed GitHub's
+//      100 MB push limit), and the store is its ONLY writer (AGENTS.md #6).
 //
 // TI invariance: jobs whose resolved canton is TI keep the legacy section
 // path verbatim — resolveCantonSection short-circuits on 'TI'.
 import fs from 'node:fs';
 import path from 'node:path';
 import { createCantonResolvers, AGGREGATE_KEY } from '../build-plugins/shared/cantonResolvers.mjs';
+import { readAllKnownJobSlugs, writeAllKnownJobSlugs } from './lib/all-known-job-slugs-store.mjs';
 
-const TRACKING_PATH = path.resolve('data/all-known-job-slugs.json');
 const JOBS_PATH = path.resolve('data/jobs.json');
 const CANTON_SLUGS_PATH = path.resolve('data/canton-url-slugs.json');
 const MUNI_PATH = path.resolve('data/canton-municipalities.json');
@@ -66,7 +68,7 @@ for (const locale of LOCALES) {
 }
 
 // ── Migration body ─────────────────────────────────────────────────
-const tracking = JSON.parse(fs.readFileSync(TRACKING_PATH, 'utf8'));
+const tracking = readAllKnownJobSlugs();
 const jobs = JSON.parse(fs.readFileSync(JOBS_PATH, 'utf8'));
 
 // 1. Index every job slug-alias -> job (so we can resolve its canton).
@@ -158,7 +160,7 @@ for (const [trackingSlug, entry] of Object.entries(tracking)) {
   out[trackingSlug] = newEntry;
 }
 
-fs.writeFileSync(TRACKING_PATH, JSON.stringify(out) + '\n');
+writeAllKnownJobSlugs(out);
 
 console.log('all-known-job-slugs canton-aware migration:');
 console.log(`  total tracking entries:      ${Object.keys(tracking).length}`);

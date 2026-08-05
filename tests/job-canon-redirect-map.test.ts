@@ -4,10 +4,11 @@ import os from 'node:os';
 import path from 'node:path';
 
 import { jobCanonRedirectMapPlugin } from '../build-plugins/jobCanonRedirectMapPlugin';
+import { writeAllKnownJobSlugs } from '../scripts/lib/all-known-job-slugs-store.mjs';
 
 /**
  * The plugin emits dist/job-canon/<shard>.json (slug → {locale: section prefix})
- * from data/all-known-job-slugs.json, so public/404.html / the Worker can redirect
+ * from the canonical slug registry, so public/404.html / the Worker can redirect
  * a canton-drift orphan (same slug, wrong/old canton section) to the slug's
  * current canonical page at request time. Invariants:
  *   - the slug is keyed under the 2-char shard of its localized last segment,
@@ -33,7 +34,7 @@ describe('jobCanonRedirectMapPlugin', () => {
     tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'job-canon-'));
     fs.mkdirSync(path.join(tmp, 'data'), { recursive: true });
     fs.mkdirSync(path.join(tmp, 'dist'), { recursive: true });
-    fs.writeFileSync(path.join(tmp, 'data', 'all-known-job-slugs.json'), JSON.stringify(tracking));
+    writeAllKnownJobSlugs(tracking, tmp);
     const plugin = jobCanonRedirectMapPlugin(tmp);
     (plugin.closeBundle as () => void).call(plugin);
   });

@@ -4,19 +4,21 @@
  *
  * `slugifyEmployer` mirrors the `slugifyCompanyBuild` algorithm used in
  * jobsSeoPagesPlugin so the resulting slug matches the keys stored in
- * `data/all-known-job-slugs.json` (which records `azienda-{slug}` entries
+ * the canonical slug registry (which records `azienda-{slug}` entries
  * written at build time by jobsSeoPagesPlugin).
  *
  * `employerCanonicalHref` checks whether a slug is present in the supplied
- * knownSlugs registry (built from the JSON file above) and returns the
+ * knownSlugs registry (built from the registry above) and returns the
  * canonical company-hub URL when found.
  *
- * `loadKnownCompanySlugs` reads `data/all-known-job-slugs.json` and extracts
+ * `loadKnownCompanySlugs` reads the canonical slug registry (sharded under
+ * `data/all-known-job-slugs/`, #4248) via `readAllKnownJobSlugs` and extracts
  * the set of company slugs (keys prefixed with `azienda-`).
  */
 
 import fs from 'node:fs';
 import np from 'node:path';
+import { readAllKnownJobSlugs } from '../../scripts/lib/all-known-job-slugs-store.mjs';
 
 /**
  * Convert an employer name to the slug used by jobsSeoPagesPlugin when it
@@ -58,7 +60,8 @@ export function employerCanonicalHref(
  * `jobsSeoPagesPlugin` during company landing page emission (authoritative,
  * lists all ~227 deployed companies).
  *
- * Fallback: `data/all-known-job-slugs.json` — legacy tracking file that only
+ * Fallback: the canonical slug registry (sharded under
+ * `data/all-known-job-slugs/` since #4248) — legacy tracking data that only
  * records bridge pages for old job slugs (keys prefixed `azienda-`). This
  * path is taken on the very first build after a fresh clone, before
  * `known-company-slugs.json` has been generated.
@@ -75,10 +78,8 @@ export function loadKnownCompanySlugs(rootDir: string): Set<string> {
   } catch { /* fall through */ }
   // Fallback: legacy tracking file (only catches bridge pages). This path
   // runs when the primary file hasn't been generated yet (first build).
-  const legacy = np.resolve(rootDir, 'data/all-known-job-slugs.json');
   try {
-    const raw = fs.readFileSync(legacy, 'utf-8');
-    const data: Record<string, unknown> = JSON.parse(raw);
+    const data: Record<string, unknown> = readAllKnownJobSlugs(rootDir);
     const slugs = new Set<string>();
     for (const key of Object.keys(data)) {
       if (key.startsWith('azienda-')) slugs.add(key.slice('azienda-'.length));
