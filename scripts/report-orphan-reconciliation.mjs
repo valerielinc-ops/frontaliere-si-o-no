@@ -66,6 +66,13 @@ export const HISTORY_FILE = 'data/orphan-reconciliation-history.json';
 /** Keep the series long enough to see a trend, short enough to stay a small diff. */
 export const HISTORY_MAX_ROWS = 180;
 
+/**
+ * Wall-clock ceiling for reading the previous registry out of git. See the use
+ * site: this is telemetry sharing a 30-minute job budget with the push-retry
+ * loop, so it yields rather than competes.
+ */
+export const BACKLOG_PROBE_BUDGET_MS = 90_000;
+
 function git(args, rootDir) {
   // stderr is discarded on purpose: `git show HEAD:<shard>` legitimately fails
   // with "exists on disk, but not in 'HEAD'" for a shard that has never been
@@ -121,8 +128,25 @@ export function registrySlugsMissingOnHead(onDisk, rootDir = ROOT) {
   }
 
   // For every changed shard, the set of slugs it held at HEAD.
+  //
+  // Time-boxed on purpose. This step runs INSIDE sync-gsc-orphans' 30-minute
+  // job budget, which #4162 already documented as tight: the push-retry loop
+  // under contention eats most of it, and a job killed mid-loop never reaches
+  // the soft-fail path. Telemetry must never be what pushes it over — so if the
+  // probe runs long (the one-off recovery run rewrites all 32 shards at once),
+  // abandon the backlog columns and report the totals instead of stealing
+  // budget from the commit that actually lands the work.
+  const deadline = Date.now() + BACKLOG_PROBE_BUDGET_MS;
   const headSlugsByShard = new Map();
   for (const i of changedIdx) {
+    if (Date.now() > deadline) {
+      console.warn(
+        `  ⚠️  backlog probe over ${BACKLOG_PROBE_BUDGET_MS / 1000}s after ` +
+          `${headSlugsByShard.size}/${changedIdx.size} shards — reporting totals only ` +
+          '(the commit step owns the rest of the job budget)',
+      );
+      return null;
+    }
     const set = new Set();
     try {
       const blob = git(['show', `HEAD:${KNOWN_SLUGS_SHARD_DIR}/${shardFileName(i)}`], rootDir);
