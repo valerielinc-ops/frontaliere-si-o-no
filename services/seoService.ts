@@ -819,7 +819,12 @@ function buildBorderCrossingSeoMetadata(): Record<string, SEOMetadata> {
  structuredData: {
  '@context': 'https://schema.org',
  '@type': 'WebPage',
- name: `Traffico dogana ${label}`,
+ // Must be the SAME string as <title> (reviewer catch on PR #5111, same
+ // class fixed in borderMunicipalityPagesPlugin.ts): the raw
+ // `Traffico dogana ${label}` here used to match `title` by accident
+ // before the #4828 cap, and would diverge for exactly the long DE/FR
+ // labels the cap exists for.
+ name: title,
  url: `${BASE_URL}${canonicalPath}`,
  description,
  },

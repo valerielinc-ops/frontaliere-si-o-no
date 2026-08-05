@@ -139,6 +139,22 @@ describe('SSG and SPA build border-crossing metadata from the one shared module 
       expect(source).toContain('borderCrossingLabel(crossingId)');
     });
   }
+
+  it('services/seoService.ts keeps structuredData.name on the same builder as <title>', () => {
+    // Same class as the reviewer catch on PR #5111 (borderMunicipalityPagesPlugin.ts
+    // subjectOf.WebPage.name): this generic-template block used to set
+    // `name: \`Traffico dogana ${label}\`` — the raw, uncapped label — while
+    // `title` a few lines above already went through the capped
+    // `buildBorderCrossingTitle` cascade. Both matched by accident before the
+    // #4828 cap; structured data would have disagreed with the rendered
+    // <title> for exactly the long DE/FR crossings the cap exists for.
+    const lines = read('services/seoService.ts').split('\n');
+    const start = lines.findIndex((l) => l.includes('function buildBorderCrossingSeoMetadata'));
+    expect(start, 'buildBorderCrossingSeoMetadata not found').toBeGreaterThan(-1);
+    const block = lines.slice(start, start + 40).join('\n');
+    expect(block).toMatch(/name:\s*title,/);
+    expect(block).not.toMatch(/name:\s*`Traffico dogana \$\{label\}`/);
+  });
 });
 
 describe('comune di frontiera <title> stays within the audit:title-length cap (#4828)', () => {
