@@ -1,13 +1,13 @@
 {
   "crawlerKey": "see-spital",
-  "assembledAt": "2026-08-05T11:44:01.975Z",
+  "assembledAt": "2026-08-05T22:34:42.328Z",
   "jobs": [
     {
       "id": "see-spital-5c7a070a875d",
       "slug": "assistente-pj-laureato-in-chirurgia-see-spital-horgen",
       "slugByLocale": {
         "it": "assistente-pj-laureato-in-chirurgia-see-spital-horgen",
-        "en": "sub-assistant-pj-graduate-surgery-see-spital-horgen",
+        "en": "pj-absolvent-in-chirurgies-see-spital-horgen",
         "de": "unterassistent-in-pj-absolvent-in-chirurgie-see-spital-ch",
         "fr": "sous-assistant-e-diplome-e-pj-en-chirurgie-see-spital-horgen"
       },
@@ -34,7 +34,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-08-05T11:43:59.190Z",
+      "crawledAt": "2026-08-05T22:34:39.988Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -55,13 +55,17 @@
       "previousSlugs": [
         "unterassistent-in-pj-absolvent-in-chirurgie-see-spital-ch",
         "pj-absolvens-in-chirurgie-see-spital-horgen",
+        "sub-assistant-pj-graduate-surgery-see-spital-horgen",
+        "assistente-pj-laureato-in-chirurgia-see-spital-horgen",
         "pj-absolvent-in-chirurgies-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "unterassistent-in-pj-absolvent-in-chirurgie-see-spital-ch"
+          "unterassistent-in-pj-absolvent-in-chirurgie-see-spital-ch",
+          "assistente-pj-laureato-in-chirurgia-see-spital-horgen"
         ],
         "en": [
+          "sub-assistant-pj-graduate-surgery-see-spital-horgen",
           "pj-absolvent-in-chirurgies-see-spital-horgen"
         ],
         "de": [
@@ -114,7 +118,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/391/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-05T11:43:58.107Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-08-05T22:34:38.951Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -142,11 +147,13 @@
       "pensum": "60%",
       "previousSlugs": [
         "dipl-pflegefachperson-hf-fur-den-pflegepool-max-60-see-spital-horgen",
-        "dipl-pflegefachperson-hf-fur-den-pflegepool-max-60-see-spital-ch"
+        "dipl-pflegefachperson-hf-fur-den-pflegepool-max-60-see-spital-ch",
+        "infermiere-diplomato-sss-per-il-pool-di-assistenza-max-60-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-hf-fur-den-pflegepool-max-60-see-spital-ch"
+          "dipl-pflegefachperson-hf-fur-den-pflegepool-max-60-see-spital-ch",
+          "infermiere-diplomato-sss-per-il-pool-di-assistenza-max-60-see-spital-horgen"
         ],
         "de": [
           "dipl-pflegefachperson-hf-fur-den-pflegepool-max-60-see-spital-horgen"
@@ -198,7 +205,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/794/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-05T11:43:57.023Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-08-05T22:34:37.908Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -220,11 +228,13 @@
       "pensumMax": 60,
       "pensum": "60%",
       "previousSlugs": [
-        "fachfrauen-manner-gesundheit-fur-den-pflegepool-max-60-see-spital-ch"
+        "fachfrauen-manner-gesundheit-fur-den-pflegepool-max-60-see-spital-ch",
+        "specialisti-salute-per-il-pool-di-assistenza-max-60-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachfrauen-manner-gesundheit-fur-den-pflegepool-max-60-see-spital-ch"
+          "fachfrauen-manner-gesundheit-fur-den-pflegepool-max-60-see-spital-ch",
+          "specialisti-salute-per-il-pool-di-assistenza-max-60-see-spital-horgen"
         ]
       },
       "firstSeenAt": "2026-05-26T14:56:07.176Z",
@@ -273,7 +283,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/688/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-05T11:43:55.934Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-08-05T22:34:36.916Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -321,11 +332,13 @@
         "assistente-di-cura-in-medicina-see-spital-horgen",
         "medical-care-assistant-see-spital-horgen",
         "pflegeassistent-in-medizin-see-spital-ch",
-        "assistant-de-soins-medicaux-see-spital-horgen"
+        "assistant-de-soins-medicaux-see-spital-horgen",
+        "assistente-assistente-di-medicina-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "unterassistent-in-pj-absolvent-in-medizin-see-spital-ch"
+          "unterassistent-in-pj-absolvent-in-medizin-see-spital-ch",
+          "assistente-assistente-di-medicina-see-spital-horgen"
         ]
       },
       "firstSeenAt": "2026-05-26T14:56:06.182Z",
@@ -374,7 +387,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/851/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-05T11:43:54.868Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-08-05T22:34:35.931Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -419,12 +433,14 @@
       "contractDuration": "permanent",
       "previousSlugs": [
         "dipl-pflegefachfrau-mann-hf-im-nachtdienst-see-spital-ch",
-        "dipl-pflegefachfrau-mann-hf-im-nachtdienst-tertianum-see-spital-ch"
+        "dipl-pflegefachfrau-mann-hf-im-nachtdienst-tertianum-see-spital-ch",
+        "dipl-infermiere-re-notturno-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-mann-hf-im-nachtdienst-see-spital-ch",
-          "dipl-pflegefachfrau-mann-hf-im-nachtdienst-tertianum-see-spital-ch"
+          "dipl-pflegefachfrau-mann-hf-im-nachtdienst-tertianum-see-spital-ch",
+          "dipl-infermiere-re-notturno-see-spital-horgen"
         ]
       },
       "firstSeenAt": "2026-05-26T14:56:05.177Z",
@@ -473,7 +489,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/285/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-05T11:43:53.695Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-08-05T22:34:34.919Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -514,11 +531,13 @@
       "department": "See-Spital",
       "contractDuration": "permanent",
       "previousSlugs": [
-        "dipl-fachfrau-mann-operationstechnik-hf-see-spital-ch"
+        "dipl-fachfrau-mann-operationstechnik-hf-see-spital-ch",
+        "specialista-in-tecnica-chirurgica-hf-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-fachfrau-mann-operationstechnik-hf-see-spital-ch"
+          "dipl-fachfrau-mann-operationstechnik-hf-see-spital-ch",
+          "specialista-in-tecnica-chirurgica-hf-see-spital-horgen"
         ]
       },
       "firstSeenAt": "2026-05-26T14:56:04.181Z",
@@ -567,7 +586,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/888/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-05T11:43:52.618Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-08-05T22:34:33.943Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -613,11 +633,13 @@
       "department": "See-Spital",
       "contractDuration": "temporary",
       "previousSlugs": [
-        "studierende-r-experte-anasthesiepflege-nds-hf-see-spital-ch"
+        "studierende-r-experte-anasthesiepflege-nds-hf-see-spital-ch",
+        "studente-esperto-anestesia-nds-hf-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "studierende-r-experte-anasthesiepflege-nds-hf-see-spital-ch"
+          "studierende-r-experte-anasthesiepflege-nds-hf-see-spital-ch",
+          "studente-esperto-anestesia-nds-hf-see-spital-horgen"
         ]
       },
       "firstSeenAt": "2026-05-26T14:56:03.180Z",
@@ -666,7 +688,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/696/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-05T11:43:52.023Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-08-05T22:34:32.974Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -717,11 +740,13 @@
       "contractDuration": "permanent",
       "previousSlugs": [
         "dipl-pflegefachperson-hf-chirurgie-see-spital-ch",
-        "dipl-pflegefachperson-hf-chirurgie-see-spital-horgen"
+        "dipl-pflegefachperson-hf-chirurgie-see-spital-horgen",
+        "dipl-persona-di-cura-hf-chirurgia-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-hf-chirurgie-see-spital-ch"
+          "dipl-pflegefachperson-hf-chirurgie-see-spital-ch",
+          "dipl-persona-di-cura-hf-chirurgia-see-spital-horgen"
         ],
         "en": [
           "dipl-pflegefachperson-hf-chirurgie-see-spital-horgen"
@@ -747,9 +772,9 @@
       "slug": "sanitario-di-emergenza-in-formazione-see-spital-horgen",
       "slugByLocale": {
         "it": "sanitario-di-emergenza-in-formazione-see-spital-horgen",
-        "en": "emergency-medical-technician-in-training-see-spital-horgen",
+        "en": "senior-physician-pediatric-rehabilitation-and-intervention-80-100-see-spital-horgen",
         "de": "rettungssanitater-in-in-ausbildung-see-spital-ch",
-        "fr": "technicien-en-soins-d-urgence-en-formation-see-spital-horgen"
+        "fr": "medecin-chef-reeducation-pediatrique-et-intervention-80-100-see-spital-horgen"
       },
       "company": "See-Spital",
       "companyKey": "see-spital",
@@ -773,7 +798,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/782/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-05T11:43:50.929Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-08-05T22:34:31.937Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -824,17 +850,23 @@
       "contractDuration": "temporary",
       "previousSlugs": [
         "rettungssanitater-in-in-ausbildung-see-spital-ch",
+        "emergency-medical-technician-in-training-see-spital-horgen",
+        "technicien-en-soins-d-urgence-en-formation-see-spital-horgen",
+        "sanitario-di-emergenza-in-formazione-see-spital-horgen",
         "senior-physician-pediatric-rehabilitation-and-intervention-80-100-see-spital-horgen",
         "medecin-chef-reeducation-pediatrique-et-intervention-80-100-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "rettungssanitater-in-in-ausbildung-see-spital-ch"
+          "rettungssanitater-in-in-ausbildung-see-spital-ch",
+          "sanitario-di-emergenza-in-formazione-see-spital-horgen"
         ],
         "en": [
+          "emergency-medical-technician-in-training-see-spital-horgen",
           "senior-physician-pediatric-rehabilitation-and-intervention-80-100-see-spital-horgen"
         ],
         "fr": [
+          "technicien-en-soins-d-urgence-en-formation-see-spital-horgen",
           "medecin-chef-reeducation-pediatrique-et-intervention-80-100-see-spital-horgen"
         ]
       },
@@ -884,7 +916,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1028/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-05T11:43:49.836Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-08-05T22:34:30.931Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -931,11 +964,13 @@
       "department": "See-Spital",
       "contractDuration": "temporary",
       "previousSlugs": [
-        "studierende-r-radiologiefachfrau-mann-hf-see-spital-ch"
+        "studierende-r-radiologiefachfrau-mann-hf-see-spital-ch",
+        "radiologo-a-formatore-a-hf-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "studierende-r-radiologiefachfrau-mann-hf-see-spital-ch"
+          "studierende-r-radiologiefachfrau-mann-hf-see-spital-ch",
+          "radiologo-a-formatore-a-hf-see-spital-horgen"
         ]
       },
       "firstSeenAt": "2026-05-26T14:55:59.812Z",
@@ -984,7 +1019,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1058/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-05T11:43:48.742Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-08-05T22:34:29.879Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -1026,12 +1062,14 @@
       "contractDuration": "permanent",
       "previousSlugs": [
         "stellvertretung-stationsleitung-akutgeriatrie-see-spital-ch",
-        "stellvertretung-stationsleitung-akutgeriatrie-tertianum-see-spital-ch"
+        "stellvertretung-stationsleitung-akutgeriatrie-tertianum-see-spital-ch",
+        "vice-direttore-di-sezione-di-geriatria-acuta-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "stellvertretung-stationsleitung-akutgeriatrie-see-spital-ch",
-          "stellvertretung-stationsleitung-akutgeriatrie-tertianum-see-spital-ch"
+          "stellvertretung-stationsleitung-akutgeriatrie-tertianum-see-spital-ch",
+          "vice-direttore-di-sezione-di-geriatria-acuta-see-spital-horgen"
         ]
       },
       "firstSeenAt": "2026-05-26T14:55:59.370Z",
@@ -1080,7 +1118,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/470/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-05T11:43:47.564Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-08-05T22:34:28.873Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -1130,11 +1169,13 @@
       "department": "See-Spital",
       "contractDuration": "temporary",
       "previousSlugs": [
-        "dipl-expert-in-anasthesiepflege-see-spital-ch"
+        "dipl-expert-in-anasthesiepflege-see-spital-ch",
+        "esperto-a-di-anestesia-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-expert-in-anasthesiepflege-see-spital-ch"
+          "dipl-expert-in-anasthesiepflege-see-spital-ch",
+          "esperto-a-di-anestesia-see-spital-horgen"
         ]
       },
       "firstSeenAt": "2026-05-26T14:55:58.768Z",
@@ -1183,7 +1224,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/972/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-05T11:43:46.503Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-08-05T22:34:27.832Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -1234,14 +1276,18 @@
       "contractDuration": "permanent",
       "previousSlugsByLocale": {
         "de": [
-          "dipl-pflegefachperson-hf-excellence-see-spital-ch"
+          "dipl-pflegefachperson-hf-excellence-see-spital-ch",
+          "dipl-pflegefachperson-hf-exzellenz-see-spital-horgen"
         ],
         "it": [
-          "dipl-pflegefachperson-hf-excellence-see-spital-ch"
+          "dipl-pflegefachperson-hf-excellence-see-spital-ch",
+          "dipl-persona-di-cura-hf-excellence-see-spital-horgen"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachperson-hf-excellence-see-spital-ch"
+        "dipl-pflegefachperson-hf-excellence-see-spital-ch",
+        "dipl-pflegefachperson-hf-exzellenz-see-spital-horgen",
+        "dipl-persona-di-cura-hf-excellence-see-spital-horgen"
       ],
       "firstSeenAt": "2026-05-26T14:55:58.325Z",
       "salaryMin": 73500,
@@ -1289,7 +1335,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/880/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-05T11:43:45.422Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-08-05T22:34:26.767Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -1339,12 +1386,14 @@
       "contractDuration": "permanent",
       "previousSlugs": [
         "dipl-pflegefachperson-hf-medizin-uberwiegend-fur-den-nachtdienst-im-wechsel-mit",
-        "dipl-pflegefachperson-hf-medizin-uberwiegend-per-den-nachtdienst-im-wechsel-con-tagdiensten-see-spital-horgen"
+        "dipl-pflegefachperson-hf-medizin-uberwiegend-per-den-nachtdienst-im-wechsel-con-tagdiensten-see-spital-horgen",
+        "dipl-persona-di-cura-hf-medicina-notturna-e-giornaliera-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachperson-hf-medizin-uberwiegend-fur-den-nachtdienst-im-wechsel-mit",
-          "dipl-pflegefachperson-hf-medizin-uberwiegend-per-den-nachtdienst-im-wechsel-con-tagdiensten-see-spital-horgen"
+          "dipl-pflegefachperson-hf-medizin-uberwiegend-per-den-nachtdienst-im-wechsel-con-tagdiensten-see-spital-horgen",
+          "dipl-persona-di-cura-hf-medicina-notturna-e-giornaliera-see-spital-horgen"
         ]
       },
       "firstSeenAt": "2026-05-26T14:55:57.723Z",
@@ -1393,7 +1442,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/717/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-05T11:43:44.822Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-08-05T22:34:25.786Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -1443,11 +1493,13 @@
       "department": "See-Spital",
       "contractDuration": "permanent",
       "previousSlugs": [
-        "dipl-pflegefachperson-hf-medizin-see-spital-ch"
+        "dipl-pflegefachperson-hf-medizin-see-spital-ch",
+        "specialista-infermieristico-qualificato-medicina-hf-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-hf-medizin-see-spital-ch"
+          "dipl-pflegefachperson-hf-medizin-see-spital-ch",
+          "specialista-infermieristico-qualificato-medicina-hf-see-spital-horgen"
         ],
         "en": [
           "dipl-pflegefachperson-hf-medizin-see-spital-ch"
@@ -1499,7 +1551,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1137/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-05T11:43:43.723Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-08-05T22:34:24.808Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -1539,12 +1592,14 @@
       "contractDuration": "permanent",
       "previousSlugs": [
         "sportarztin-arzt-see-spital-ch",
-        "sportarztin-arzt-policlinic-see-spital-ch"
+        "sportarztin-arzt-policlinic-see-spital-ch",
+        "medico-dello-sport-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "sportarztin-arzt-see-spital-ch",
-          "sportarztin-arzt-policlinic-see-spital-ch"
+          "sportarztin-arzt-policlinic-see-spital-ch",
+          "medico-dello-sport-see-spital-horgen"
         ]
       },
       "firstSeenAt": "2026-05-26T14:55:56.535Z",
@@ -1593,7 +1648,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1129/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-05T11:43:42.642Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-08-05T22:34:23.804Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -1637,12 +1693,14 @@
         "assistenzarzt-arztin-nephrologie-see-spital-ch",
         "medico-di-medicina-interna-nefrologia-see-spital-horgen",
         "assistant-physician-nephrology-see-spital-horgen",
-        "assistant-en-medecine-interne-nephrologie-see-spital-horgen"
+        "assistant-en-medecine-interne-nephrologie-see-spital-horgen",
+        "infermiere-a-specializzato-a-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "assistenzarzt-arztin-nephrologie-see-spital-ch",
-          "medico-di-medicina-interna-nefrologia-see-spital-horgen"
+          "medico-di-medicina-interna-nefrologia-see-spital-horgen",
+          "infermiere-a-specializzato-a-see-spital-horgen"
         ],
         "en": [
           "assistant-physician-nephrology-see-spital-horgen"
@@ -1700,7 +1758,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1032/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-05T11:43:41.578Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-08-05T22:34:22.752Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -1749,11 +1808,13 @@
       "department": "See-Spital",
       "contractDuration": "temporary",
       "previousSlugs": [
-        "studierende-r-operationstechnik-hf-see-spital-ch"
+        "studierende-r-operationstechnik-hf-see-spital-ch",
+        "studente-operatore-tecnico-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "studierende-r-operationstechnik-hf-see-spital-ch"
+          "studierende-r-operationstechnik-hf-see-spital-ch",
+          "studente-operatore-tecnico-see-spital-horgen"
         ]
       },
       "firstSeenAt": "2026-05-26T14:55:55.490Z",
@@ -1802,7 +1863,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1198/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-05T11:43:40.543Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-08-05T22:34:21.708Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -1851,12 +1913,14 @@
         "healthcare-professional-efz-medicine-see-spital-horgen",
         "fachfrau-mann-gesundheit-efz-medizin-see-spital-ch",
         "professionnel-de-sante-efz-medecine-see-spital-horgen",
-        "fachfrau-mann-gesundheit-cfc-medizin-see-spital-horgen"
+        "fachfrau-mann-gesundheit-cfc-medizin-see-spital-horgen",
+        "fachinfermiere-efz-excellence-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fachfrau-mann-gesundheit-efz-excellence-see-spital-ch",
-          "fachfrau-mann-gesundheit-cfc-excellence-see-spital-horgen"
+          "fachfrau-mann-gesundheit-cfc-excellence-see-spital-horgen",
+          "fachinfermiere-efz-excellence-see-spital-horgen"
         ]
       },
       "firstSeenAt": "2026-05-26T14:55:55.019Z",
@@ -1905,7 +1969,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/313/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-05T11:43:39.439Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-08-05T22:34:20.683Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -1953,11 +2018,13 @@
       "department": "See-Spital",
       "contractDuration": "permanent",
       "previousSlugs": [
-        "studierende-r-pflegefachfrau-mann-hf-see-spital-ch"
+        "studierende-r-pflegefachfrau-mann-hf-see-spital-ch",
+        "studente-studente-di-infermieristica-hf-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "studierende-r-pflegefachfrau-mann-hf-see-spital-ch"
+          "studierende-r-pflegefachfrau-mann-hf-see-spital-ch",
+          "studente-studente-di-infermieristica-hf-see-spital-horgen"
         ]
       },
       "firstSeenAt": "2026-05-26T14:55:53.834Z",
@@ -2006,7 +2073,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1240/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-05T11:43:38.342Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-08-05T22:34:19.671Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2053,11 +2121,13 @@
       "department": "See-Spital",
       "contractDuration": "permanent",
       "previousSlugs": [
-        "dipl-pflegefachperson-hf-interdisziplinar-see-spital-ch"
+        "dipl-pflegefachperson-hf-interdisziplinar-see-spital-ch",
+        "dipl-persona-di-cura-hf-interdisciplinare-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-hf-interdisziplinar-see-spital-ch"
+          "dipl-pflegefachperson-hf-interdisziplinar-see-spital-ch",
+          "dipl-persona-di-cura-hf-interdisciplinare-see-spital-horgen"
         ]
       },
       "firstSeenAt": "2026-05-26T14:55:51.108Z",
@@ -2106,7 +2176,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1248/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-05T11:43:37.202Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-08-05T22:34:18.642Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2154,14 +2225,18 @@
       "contractDuration": "permanent",
       "previousSlugsByLocale": {
         "de": [
-          "klinische-r-fachspezialist-in-physician-associate-see-spital-ch"
+          "klinische-r-fachspezialist-in-physician-associate-see-spital-ch",
+          "klinische-r-fachspezialist-in-arzt-associate-see-spital-horgen"
         ],
         "it": [
-          "klinische-r-fachspezialist-in-physician-associate-see-spital-ch"
+          "klinische-r-fachspezialist-in-physician-associate-see-spital-ch",
+          "fachspezialist-in-clinico-physician-associate-see-spital-horgen"
         ]
       },
       "previousSlugs": [
-        "klinische-r-fachspezialist-in-physician-associate-see-spital-ch"
+        "klinische-r-fachspezialist-in-physician-associate-see-spital-ch",
+        "klinische-r-fachspezialist-in-arzt-associate-see-spital-horgen",
+        "fachspezialist-in-clinico-physician-associate-see-spital-horgen"
       ],
       "firstSeenAt": "2026-05-26T14:55:49.412Z",
       "salaryMin": 73500,
@@ -2209,7 +2284,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1256/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-05T11:43:36.147Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-08-05T22:34:17.625Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2315,7 +2391,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-08-05T11:43:35.085Z",
+      "crawledAt": "2026-08-05T22:34:16.634Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2395,7 +2471,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1261/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-05T11:43:34.059Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-08-05T22:34:15.564Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2476,7 +2553,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-08-05T11:43:32.965Z",
+      "crawledAt": "2026-08-05T22:34:14.554Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2495,11 +2572,13 @@
       "department": "See-Spital",
       "contractDuration": "permanent",
       "previousSlugs": [
-        "arztsekretar-in-medizin-mit-schwerpunkt-gastroenterologie-see-spital-ch"
+        "arztsekretar-in-medizin-mit-schwerpunkt-gastroenterologie-see-spital-ch",
+        "segretario-del-dottore-in-medicina-con-focus-sulla-gastroenterologia-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "arztsekretar-in-medizin-mit-schwerpunkt-gastroenterologie-see-spital-ch"
+          "arztsekretar-in-medizin-mit-schwerpunkt-gastroenterologie-see-spital-ch",
+          "segretario-del-dottore-in-medicina-con-focus-sulla-gastroenterologia-see-spital-horgen"
         ],
         "en": [
           "arztsekretar-in-medizin-mit-schwerpunkt-gastroenterologie-see-spital-ch"
@@ -2554,7 +2633,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1269/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-05T11:43:31.881Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-08-05T22:34:13.568Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2575,7 +2655,8 @@
       "previousSlugsByLocale": {
         "de": [
           "assistent-in-aemp-see-spital-ch",
-          "praxisassistent-in-policlinic-see-spital-ch"
+          "praxisassistent-in-policlinic-see-spital-ch",
+          "praxisassistent-in-see-spital-ch"
         ],
         "it": [
           "praxisassistent-in-see-spital-ch",
@@ -2584,7 +2665,8 @@
           "assistant-in-aemp-see-spital-horgen",
           "assistent-in-aemp-see-spital-ch",
           "assistant-en-aemp-see-spital-horgen",
-          "praxisassistent-in-policlinic-see-spital-ch"
+          "praxisassistent-in-policlinic-see-spital-ch",
+          "assistente-pratico-see-spital-horgen"
         ],
         "en": [
           "praxisassistent-in-see-spital-horgen",
@@ -2606,7 +2688,8 @@
         "assistant-in-aemp-see-spital-horgen",
         "assistent-in-aemp-see-spital-ch",
         "assistant-en-aemp-see-spital-horgen",
-        "praxisassistent-in-policlinic-see-spital-ch"
+        "praxisassistent-in-policlinic-see-spital-ch",
+        "assistente-pratico-see-spital-horgen"
       ],
       "firstSeenAt": "2026-06-29T14:13:58.523Z",
       "salaryMin": 73500,
@@ -2654,7 +2737,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1265/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-05T11:43:30.823Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-08-05T22:34:12.499Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2674,12 +2758,14 @@
       "contractDuration": "temporary",
       "previousSlugs": [
         "med-praxisassistent-in-onkologie-see-spital-ch",
-        "med-praxisassistent-in-arztsekretar-in-onkologie-see-spital-ch"
+        "med-praxisassistent-in-arztsekretar-in-onkologie-see-spital-ch",
+        "med-assistente-di-pratica-in-oncologia-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "med-praxisassistent-in-onkologie-see-spital-ch",
-          "med-praxisassistent-in-arztsekretar-in-onkologie-see-spital-ch"
+          "med-praxisassistent-in-arztsekretar-in-onkologie-see-spital-ch",
+          "med-assistente-di-pratica-in-oncologia-see-spital-horgen"
         ],
         "en": [
           "med-praxisassistent-in-onkologie-see-spital-ch"
@@ -2735,7 +2821,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-08-05T11:43:29.698Z",
+      "crawledAt": "2026-08-05T22:34:11.479Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2754,11 +2840,13 @@
       "department": "See-Spital",
       "contractDuration": "permanent",
       "previousSlugs": [
-        "dipl-pflegefachperson-hf-onkologie-see-spital-ch"
+        "dipl-pflegefachperson-hf-onkologie-see-spital-ch",
+        "dipl-cura-professionale-hf-oncologia-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-hf-onkologie-see-spital-ch"
+          "dipl-pflegefachperson-hf-onkologie-see-spital-ch",
+          "dipl-cura-professionale-hf-oncologia-see-spital-horgen"
         ],
         "en": [
           "dipl-pflegefachperson-hf-onkologie-see-spital-ch"
@@ -2814,7 +2902,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-08-05T11:43:28.603Z",
+      "crawledAt": "2026-08-05T22:34:10.452Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2833,11 +2921,13 @@
       "department": "See-Spital",
       "contractDuration": "permanent",
       "previousSlugs": [
-        "oberarztin-arzt-onkologie-see-spital-ch"
+        "oberarztin-arzt-onkologie-see-spital-ch",
+        "oncologia-del-medico-senior-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "oberarztin-arzt-onkologie-see-spital-ch"
+          "oberarztin-arzt-onkologie-see-spital-ch",
+          "oncologia-del-medico-senior-see-spital-horgen"
         ],
         "en": [
           "oberarztin-arzt-onkologie-see-spital-ch"
@@ -2892,7 +2982,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1274/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-05T11:43:27.518Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-08-05T22:34:09.446Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2915,7 +3006,8 @@
         "praxisassistent-in-see-spital-ch",
         "praxisassistent-in-see-spital-horgen",
         "praxisassistent-in-policlinic-see-spital-ch-2",
-        "praxisassistent-in-policlinic-see-spital-ch"
+        "praxisassistent-in-policlinic-see-spital-ch",
+        "assistente-pratico-see-spital-horgen-79c446"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2923,7 +3015,8 @@
           "praxisassistent-in-see-spital-ch",
           "praxisassistent-in-see-spital-horgen",
           "praxisassistent-in-policlinic-see-spital-ch-2",
-          "praxisassistent-in-policlinic-see-spital-ch"
+          "praxisassistent-in-policlinic-see-spital-ch",
+          "assistente-pratico-see-spital-horgen-79c446"
         ],
         "en": [
           "praxisassistent-in-see-spital-horgen"
@@ -2981,7 +3074,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1273/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-05T11:43:26.462Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-08-05T22:34:08.390Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -3001,11 +3095,13 @@
       "contractDuration": "permanent",
       "previousSlugs": [
         "applikationsverantwortliche-r-klinisches-informationssystem-kis-see-spital-ch",
-        "applikationsverantwortliche-r-klinisches-informationssystem-kis-see-spital-horgen"
+        "applikationsverantwortliche-r-klinisches-informationssystem-kis-see-spital-horgen",
+        "responsabile-dell-applicazione-sistema-informativo-clinico-kis-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "applikationsverantwortliche-r-klinisches-informationssystem-kis-see-spital-ch"
+          "applikationsverantwortliche-r-klinisches-informationssystem-kis-see-spital-ch",
+          "responsabile-dell-applicazione-sistema-informativo-clinico-kis-see-spital-horgen"
         ],
         "en": [
           "applikationsverantwortliche-r-klinisches-informationssystem-kis-see-spital-ch",
@@ -3062,7 +3158,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-08-05T11:43:25.380Z",
+      "crawledAt": "2026-08-05T22:34:07.353Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -3081,11 +3177,13 @@
       "department": "See-Spital",
       "contractDuration": "permanent",
       "previousSlugs": [
-        "hebamme-bsc-see-spital-ch"
+        "hebamme-bsc-see-spital-ch",
+        "midwife-bsc-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "hebamme-bsc-see-spital-ch"
+          "hebamme-bsc-see-spital-ch",
+          "midwife-bsc-see-spital-horgen"
         ],
         "en": [
           "hebamme-bsc-see-spital-ch"
@@ -3113,9 +3211,9 @@
       "id": "see-spital-11959c01fdf1",
       "slug": "apprendistato-come-fachfrau-mann-gesundheit-cfc-see-spital-horgen",
       "slugByLocale": {
-        "de": "lehrstelle-als-fachfrau-mann-gesundheit-efz-see-spital-ch",
         "it": "apprendistato-come-fachfrau-mann-gesundheit-cfc-see-spital-horgen",
         "en": "apprenticeship-as-a-specialist-health-efz-see-spital-horgen",
+        "de": "lehrstelle-als-fachfrau-mann-gesundheit-efz-see-spital-ch",
         "fr": "apprentissage-en-tant-que-specialiste-de-la-sante-efz-see-spital-horgen"
       },
       "company": "See-Spital",
@@ -3123,16 +3221,16 @@
       "companyDomain": "see-spital.ch",
       "title": "Lehrstelle als Fachfrau*mann Gesundheit EFZ",
       "titleByLocale": {
-        "de": "Lehrstelle als Fachfrau*mann Gesundheit EFZ",
         "it": "Apprendistato come Fachfrau*mann Gesundheit CFC",
         "en": "Apprenticeship as a specialist Health EFZ",
+        "de": "Lehrstelle als Fachfrau*mann Gesundheit EFZ",
         "fr": "Apprentissage en tant que spécialiste de la santé EFZ"
       },
       "description": "Ihr Aufgabengebiet:\n\n• Sie erhalten einen spannenden Einblick in unsere abwechslungsreichen Fachbereiche\n• Es erwarten Sie medizinaltechnische Aufgaben bei denen Sie Vitalzeichen messen, Verbände wechseln oder auch Medikamente richten und verabreichen\n• Pflege und Betreuung von Menschen jeden Alters – inklusive Körperpflege, Ernährung und Aktivitäten\n• Sie erledigen administrative Aufgaben , unter anderem auch die Elektronische Pflegedokumentation\n• Enge interdisziplinäre Zusammenarbeit mit den verschiedenen Fachbereichen und Fachpersonen des See-Spitals\n\nIhr Profil:\n\n• Sie verfügen über einen Schulabschluss der Sekundarschule A oder B\n• Sekundarschule B: Noten 5.0 oder besser\n• Sie bringen hohe Motivation und Engagement für die dreijährige Ausbildung mit\n• Sie zeigen Einfühlungsvermögen im Umgang mit Patient*innen sowie deren Angehörigen\n• Sie sind belastbar und pflichtbewusst\n• Sie zeichnen sich durch Pünktlichkeit aus, selbst bei Dienstbeginn um 06:45 Uhr\n\nWas wir Ihnen bieten:\n\n• Finanzielle Unterstützung: Jährlich 400 CHF für Schulbücher, Pauschalbetrag für Reisespesen, Übernahme des Halbtax sowie diverse Rabatte und Konditionen für Mitarbeiter*innen.\n• Attraktives Arbeitsumfeld mit einer offenen und wertschätzenden Arbeitsatmosphäre in einem modernen und dynamischen Umfeld.\n• Gemeinsame Anlässe für unsere Lernenden: Berufsmessen, Berufswahlmarkt, Sommerfest, interne Veranstaltungen sowie Lehrabschlussfeier.\n• Einführungswoche sowie spannende Bildungstage und Einblicke in verschiedene Fachbereiche und Abteilungen. Was Ihre Bewerbung beinhaltet:\n• Aussagekräftiges Motivationsschreiben\n• Lebenslauf inkl. Foto\n• Schulzeugnisse der Oberstufe\n• Multicheck oder Stellwerktest\n• Schnupperberichte",
       "descriptionByLocale": {
-        "de": "Ihr Aufgabengebiet:\n\n• Sie erhalten einen spannenden Einblick in unsere abwechslungsreichen Fachbereiche\n• Es erwarten Sie medizinaltechnische Aufgaben bei denen Sie Vitalzeichen messen, Verbände wechseln oder auch Medikamente richten und verabreichen\n• Pflege und Betreuung von Menschen jeden Alters – inklusive Körperpflege, Ernährung und Aktivitäten\n• Sie erledigen administrative Aufgaben , unter anderem auch die Elektronische Pflegedokumentation\n• Enge interdisziplinäre Zusammenarbeit mit den verschiedenen Fachbereichen und Fachpersonen des See-Spitals\n\nIhr Profil:\n\n• Sie verfügen über einen Schulabschluss der Sekundarschule A oder B\n• Sekundarschule B: Noten 5.0 oder besser\n• Sie bringen hohe Motivation und Engagement für die dreijährige Ausbildung mit\n• Sie zeigen Einfühlungsvermögen im Umgang mit Patient*innen sowie deren Angehörigen\n• Sie sind belastbar und pflichtbewusst\n• Sie zeichnen sich durch Pünktlichkeit aus, selbst bei Dienstbeginn um 06:45 Uhr\n\nWas wir Ihnen bieten:\n\n• Finanzielle Unterstützung: Jährlich 400 CHF für Schulbücher, Pauschalbetrag für Reisespesen, Übernahme des Halbtax sowie diverse Rabatte und Konditionen für Mitarbeiter*innen.\n• Attraktives Arbeitsumfeld mit einer offenen und wertschätzenden Arbeitsatmosphäre in einem modernen und dynamischen Umfeld.\n• Gemeinsame Anlässe für unsere Lernenden: Berufsmessen, Berufswahlmarkt, Sommerfest, interne Veranstaltungen sowie Lehrabschlussfeier.\n• Einführungswoche sowie spannende Bildungstage und Einblicke in verschiedene Fachbereiche und Abteilungen. Was Ihre Bewerbung beinhaltet:\n• Aussagekräftiges Motivationsschreiben\n• Lebenslauf inkl. Foto\n• Schulzeugnisse der Oberstufe\n• Multicheck oder Stellwerktest\n• Schnupperberichte",
         "it": "Le tue responsabilità:\n\n• Potrai ottenere una visione emozionante nelle nostre diverse aree specialistiche\n• È possibile aspettarsi compiti medico-tecnici in cui si misurano segni vitali, cambiare vestimenti o anche diretto e somministrare farmaci\n• Cura e cura per le persone di tutte le età – tra cui la cura personale, la nutrizione e le attività\n• Eseguono compiti amministrativi, inclusa la documentazione di manutenzione elettronica\n• Chiudere la cooperazione interdisciplinare con i vari dipartimenti e specialisti dell'Ospedale di See\n\nIl tuo profilo:\n\n• Hai una laurea scolastica dalla scuola secondaria A o B\n• Scuola secondaria B: Gradi 5.0 o meglio\n• Essi portano alta motivazione e impegno alla formazione triennale\n• Essi mostrano empatia nel trattare con i pazienti e i loro parenti\n• Sono resilienti e dutiful\n• Sono caratterizzati da puntualità, anche all'inizio del servizio alle 06:45\n\nCosa ti offriamo:\n\n• Sostegno finanziario: annualmente 400 CHF per i libri scolastici, somma forfettaria per le spese di viaggio, assunzione della tassa di metà e vari sconti e condizioni per i dipendenti.\n• Ambiente di lavoro attraente con un'atmosfera di lavoro aperta e apprezzata in un ambiente moderno e dinamico.\n• Occasioni comuni per i nostri studenti: fiere, mercato di scelta di carriera, festival estivo, eventi interni e festa di laurea di insegnamento.\n• Introduzione settimana così come emozionanti giorni educativi e approfondimenti in vari dipartimenti e reparti. Ciò che la vostra applicazione include:\n• Una lettera di motivazione significativa\n• CV incl. Foto\n• Certificati di scuola superiore\n• Test multicheck o interlocking\n• Testimonianze",
         "en": "Your responsibilities:\n\n• You will get an exciting insight into our varied specialist areas\n• You can expect medical-technical tasks in which you measure vital signs, change dressings or even direct and administer medications\n• Caring for and caring for people of all ages – including personal care, nutrition and activities\n• They perform administrative tasks, including electronic maintenance documentation\n• Close interdisciplinary cooperation with the various departments and specialists of the See Hospital\n\nYour profile:\n\n• You have a school degree from secondary school A or B\n• Secondary School B: Grades 5.0 or better\n• They bring high motivation and commitment to the three-year training\n• They show empathy in dealing with patients and their relatives\n• They are resilient and dutiful\n• They are characterized by punctuality, even at the start of service at 06:45\n\nWhat we offer you:\n\n• Financial support: annually 400 CHF for schoolbooks, lump sum for travel expenses, assumption of the half tax as well as various discounts and conditions for employees.\n• Attractive working environment with an open and appreciative working atmosphere in a modern and dynamic environment.\n• Common occasions for our learners: trade fairs, career choice market, summer festival, internal events and teaching graduation party.\n• Introduction week as well as exciting educational days and insights into various departments and departments. What your application includes:\n• A meaningful motivation letter\n• CV incl. Photo\n• High school certificates\n• Multicheck or interlocking test\n• Testimonials",
+        "de": "Ihr Aufgabengebiet:\n\n• Sie erhalten einen spannenden Einblick in unsere abwechslungsreichen Fachbereiche\n• Es erwarten Sie medizinaltechnische Aufgaben bei denen Sie Vitalzeichen messen, Verbände wechseln oder auch Medikamente richten und verabreichen\n• Pflege und Betreuung von Menschen jeden Alters – inklusive Körperpflege, Ernährung und Aktivitäten\n• Sie erledigen administrative Aufgaben , unter anderem auch die Elektronische Pflegedokumentation\n• Enge interdisziplinäre Zusammenarbeit mit den verschiedenen Fachbereichen und Fachpersonen des See-Spitals\n\nIhr Profil:\n\n• Sie verfügen über einen Schulabschluss der Sekundarschule A oder B\n• Sekundarschule B: Noten 5.0 oder besser\n• Sie bringen hohe Motivation und Engagement für die dreijährige Ausbildung mit\n• Sie zeigen Einfühlungsvermögen im Umgang mit Patient*innen sowie deren Angehörigen\n• Sie sind belastbar und pflichtbewusst\n• Sie zeichnen sich durch Pünktlichkeit aus, selbst bei Dienstbeginn um 06:45 Uhr\n\nWas wir Ihnen bieten:\n\n• Finanzielle Unterstützung: Jährlich 400 CHF für Schulbücher, Pauschalbetrag für Reisespesen, Übernahme des Halbtax sowie diverse Rabatte und Konditionen für Mitarbeiter*innen.\n• Attraktives Arbeitsumfeld mit einer offenen und wertschätzenden Arbeitsatmosphäre in einem modernen und dynamischen Umfeld.\n• Gemeinsame Anlässe für unsere Lernenden: Berufsmessen, Berufswahlmarkt, Sommerfest, interne Veranstaltungen sowie Lehrabschlussfeier.\n• Einführungswoche sowie spannende Bildungstage und Einblicke in verschiedene Fachbereiche und Abteilungen. Was Ihre Bewerbung beinhaltet:\n• Aussagekräftiges Motivationsschreiben\n• Lebenslauf inkl. Foto\n• Schulzeugnisse der Oberstufe\n• Multicheck oder Stellwerktest\n• Schnupperberichte",
         "fr": "Vos responsabilités :\n\n• Vous aurez un aperçu passionnant de nos domaines spécialisés variés\n• Vous pouvez vous attendre à des tâches médicales-techniques dans lesquelles vous mesurez les signes vitaux, changez les pansements ou même direct et administrer des médicaments\n• Prendre soin des personnes de tous âges – soins personnels, nutrition et activités\n• Ils exécutent des tâches administratives, y compris la documentation de maintenance électronique\n• Coopération interdisciplinaire étroite avec les différents départements et spécialistes de l'hôpital See\n\nVotre profil:\n\n• Vous avez un diplôme d'études secondaires A ou B\n• École secondaire B : 5e année ou plus\n• Ils apportent une forte motivation et un engagement à la formation de trois ans\n• Ils font preuve d'empathie face aux patients et à leurs proches.\n• Ils sont résistants et doivent\n• Ils sont caractérisés par la ponctualité, même au début du service à 06:45\n\nCe que nous vous offrons:\n\n• Soutien financier: 400 CHF par an pour les livres scolaires, montant forfaitaire pour les frais de voyage, prise en charge de la moitié de taxe ainsi que diverses réductions et conditions pour les employés.\n• Environnement de travail attrayant avec une atmosphère de travail ouverte et appréciée dans un environnement moderne et dynamique.\n• Des occasions communes pour nos apprenants : foires commerciales, marché de choix de carrière, festival d'été, événements internes et soirée d'enseignement.\n• Semaine d'introduction ainsi que des journées d'éducation passionnantes et des aperçus sur divers ministères. Ce que votre demande comprend:\n• Une lettre de motivation significative\n• CV incl. Photo\n• Certificats d'études secondaires\n• Essai de vérification multiple ou de verrouillage\n• Témoignages"
       },
       "location": "Horgen",
@@ -3140,7 +3238,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1277/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-05T11:43:24.293Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-08-05T22:34:06.334Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -3155,14 +3254,17 @@
       "postedDate": "2026-08-05",
       "applyUrl": "https://recruitingapp-2939.umantis.com/Vacancies/1277/Application/CheckLogin/1",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "department": "See-Spital",
       "contractDuration": "temporary",
+      "previousSlugs": [
+        "lehrstelle-als-fachfrau-mann-gesundheit-efz-see-spital-ch",
+        "apprendistato-come-fachfrau-mann-gesundheit-cfc-see-spital-horgen"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-fachfrau-mann-gesundheit-efz-see-spital-ch"
+          "lehrstelle-als-fachfrau-mann-gesundheit-efz-see-spital-ch",
+          "apprendistato-come-fachfrau-mann-gesundheit-cfc-see-spital-horgen"
         ],
         "en": [
           "lehrstelle-als-fachfrau-mann-gesundheit-efz-see-spital-ch"
@@ -3171,9 +3273,7 @@
           "lehrstelle-als-fachfrau-mann-gesundheit-efz-see-spital-ch"
         ]
       },
-      "previousSlugs": [
-        "lehrstelle-als-fachfrau-mann-gesundheit-efz-see-spital-ch"
-      ],
+      "firstSeenAt": "2026-08-05T11:43:24.293Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -3186,16 +3286,15 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH",
-      "firstSeenAt": "2026-08-05T11:43:24.293Z"
+      "addressRegion": "ZH"
     },
     {
       "id": "see-spital-cdb99946681f",
       "slug": "apprendistato-come-kochin-koch-cfc-see-spital-horgen",
       "slugByLocale": {
-        "de": "lehrstelle-als-kochin-koch-efz-see-spital-ch",
         "it": "apprendistato-come-kochin-koch-cfc-see-spital-horgen",
         "en": "apprenticeship-as-chef-koch-efz-see-spital-horgen",
+        "de": "lehrstelle-als-kochin-koch-efz-see-spital-ch",
         "fr": "apprentissage-en-tant-que-chef-koch-efz-see-spital-horgen"
       },
       "company": "See-Spital",
@@ -3203,16 +3302,16 @@
       "companyDomain": "see-spital.ch",
       "title": "Lehrstelle als Köchin*Koch EFZ",
       "titleByLocale": {
-        "de": "Lehrstelle als Köchin*Koch EFZ",
         "it": "Apprendistato come Köchin*Koch CFC",
         "en": "Apprenticeship as Chef*Koch EFZ",
+        "de": "Lehrstelle als Köchin*Koch EFZ",
         "fr": "Apprentissage en tant que Chef*Koch EFZ"
       },
       "description": "Ihr Aufgabengebiet:\n\n• Im See-Spital Horgen werden täglich rund 850 Mahlzeiten zubereitet, als Köchin*Koch in Ausbildung erwerben Sie neben der Theorie in der Berufsfachschule fundierte praktische Kenntnisse im Gastronomiebereich des Spitals.\n• Während Ihrer dreijährigen Ausbildung arbeiten Sie in unserer Grossküche auf den Posten Entremetier, Saucier, Gardemanger und Patisserie.\n• Sie erlernen die professionelle Zubereitung von warmen und kalten Speisen für Patient*innen, Besucher*innen und Mitarbeiter*innen.\n• Neben den handwerklichen Tätigkeiten in der Küche erlernen Sie die Hygienegrundlagen für die Lebensmittelherstellung.\n\nIhr Profil:\n\n• Sekundarschulabschluss Niveau A oder B\n• Freude am Umgang mit Lebensmitteln und am Kochen\n• Körperliche Belastbarkeit, da zum grossen Teil im Stehen gearbeitet wird.\n• Ausgeprägte Kommunikations- und Teamfähigkeit\n• Belastbarkeit auch in hektischen Situationen\n• Flexibilität und Bereitschaft zu unregelmässigen Arbeitszeiten und -einsätzen\n• Gepflegtes Erscheinungsbild sowie hohes Hygienebewusstsein\n• Verantwortungsbewusstsein und Zuverlässigkeit\n• Offenheit für Neues und Lernbereitschaft\n\nWas wir Ihnen bieten:\n\n• Finanzielle Unterstützung: Jährlich 400 CHF für Schulbücher, Pauschalbetrag für Reisespesen, Übernahme des Halbtax sowie diverse Rabatte und Konditionen für Mitarbeiter*innen.\n• Attraktives Arbeitsumfeld mit einer offenen und wertschätzenden Arbeitsatmosphäre in einem modernen und dynamischen Umfeld.\n• Gemeinsame Anlässe für unsere Lernenden: Berufsmessen, Berufswahlmarkt, Sommerfest, interne Veranstaltungen sowie Lehrabschlussfeier.\n• Einführungswoche sowie spannende Bildungstage und Einblicke in verschiedene Fachbereiche und Abteilungen. Was Ihre Bewerbung beinhaltet:\n• Aussagekräftiges Motivationsschreiben\n• Lebenslauf inkl. Foto\n• Schulzeugnisse der Oberstufe\n• Multicheck oder Stellwerktest\n• Schnupperberichte",
       "descriptionByLocale": {
-        "de": "Ihr Aufgabengebiet:\n\n• Im See-Spital Horgen werden täglich rund 850 Mahlzeiten zubereitet, als Köchin*Koch in Ausbildung erwerben Sie neben der Theorie in der Berufsfachschule fundierte praktische Kenntnisse im Gastronomiebereich des Spitals.\n• Während Ihrer dreijährigen Ausbildung arbeiten Sie in unserer Grossküche auf den Posten Entremetier, Saucier, Gardemanger und Patisserie.\n• Sie erlernen die professionelle Zubereitung von warmen und kalten Speisen für Patient*innen, Besucher*innen und Mitarbeiter*innen.\n• Neben den handwerklichen Tätigkeiten in der Küche erlernen Sie die Hygienegrundlagen für die Lebensmittelherstellung.\n\nIhr Profil:\n\n• Sekundarschulabschluss Niveau A oder B\n• Freude am Umgang mit Lebensmitteln und am Kochen\n• Körperliche Belastbarkeit, da zum grossen Teil im Stehen gearbeitet wird.\n• Ausgeprägte Kommunikations- und Teamfähigkeit\n• Belastbarkeit auch in hektischen Situationen\n• Flexibilität und Bereitschaft zu unregelmässigen Arbeitszeiten und -einsätzen\n• Gepflegtes Erscheinungsbild sowie hohes Hygienebewusstsein\n• Verantwortungsbewusstsein und Zuverlässigkeit\n• Offenheit für Neues und Lernbereitschaft\n\nWas wir Ihnen bieten:\n\n• Finanzielle Unterstützung: Jährlich 400 CHF für Schulbücher, Pauschalbetrag für Reisespesen, Übernahme des Halbtax sowie diverse Rabatte und Konditionen für Mitarbeiter*innen.\n• Attraktives Arbeitsumfeld mit einer offenen und wertschätzenden Arbeitsatmosphäre in einem modernen und dynamischen Umfeld.\n• Gemeinsame Anlässe für unsere Lernenden: Berufsmessen, Berufswahlmarkt, Sommerfest, interne Veranstaltungen sowie Lehrabschlussfeier.\n• Einführungswoche sowie spannende Bildungstage und Einblicke in verschiedene Fachbereiche und Abteilungen. Was Ihre Bewerbung beinhaltet:\n• Aussagekräftiges Motivationsschreiben\n• Lebenslauf inkl. Foto\n• Schulzeugnisse der Oberstufe\n• Multicheck oder Stellwerktest\n• Schnupperberichte",
         "it": "Le tue responsabilità:\n\n• Nella See-Spital Horgen, circa 850 pasti sono preparati ogni giorno come cuoco in formazione Oltre alla teoria della scuola professionale, ha una profonda conoscenza pratica nel settore della gastronomia dell'ospedale.\n• Durante il vostro tirocinio di tre anni, lavorerete nella nostra grande cucina a Entremetier, Saucier, Gardemanger e Patisserie.\n• Imparano la preparazione professionale di cibo caldo e freddo per pazienti, visitatori e dipendenti.\n• Oltre alle attività artigianali in cucina, imparerai le basi igieniche per la produzione alimentare.\n\nIl tuo profilo:\n\n• Livello di istruzione secondaria A o B\n• Gioia nel trattare con cibo e cucina\n• Resistenza fisica, dal momento che la maggior parte del lavoro è fatto mentre in piedi.\n• Forte comunicazione e competenze di squadra\n• Resilienza anche in situazioni frenetiche\n• Flessibilità e disponibilità a lavorare ore irregolari e incarichi\n• Aspetto principale e elevata consapevolezza dell'igiene\n• Responsabilità e affidabilità\n• Apertura a nuove cose e disponibilità ad imparare\n\nCosa ti offriamo:\n\n• Sostegno finanziario: annualmente 400 CHF per i libri scolastici, somma forfettaria per le spese di viaggio, assunzione della tassa di metà e vari sconti e condizioni per i dipendenti.\n• Ambiente di lavoro attraente con un'atmosfera di lavoro aperta e apprezzata in un ambiente moderno e dinamico.\n• Occasioni comuni per i nostri studenti: fiere, mercato di scelta di carriera, festival estivo, eventi interni e festa di laurea di insegnamento.\n• Introduzione settimana così come emozionanti giorni educativi e approfondimenti in vari dipartimenti e reparti. Ciò che la vostra applicazione include:\n• Una lettera di motivazione significativa\n• CV incl. Foto\n• Certificati di scuola superiore\n• Test multicheck o interlocking\n• Testimonianze",
         "en": "Your responsibilities:\n\n• In the See-Spital Horgen, around 850 meals are prepared every day as a cook in training In addition to the theory in the vocational school, she has in-depth practical knowledge in the hospital's gastronomy sector.\n• During your three-year apprenticeship, you will work in our large kitchen at Entremetier, Saucier, Gardemanger and Patisserie.\n• They learn the professional preparation of warm and cold food for patients, visitors and employees.\n• In addition to the craft activities in the kitchen, you will learn the hygiene basics for food production.\n\nYour profile:\n\n• Secondary education level A or B\n• Joy in dealing with food and cooking\n• Physical resilience, since most of the work is done while standing.\n• Strong communication and team skills\n• Resilience even in hectic situations\n• Flexibility and willingness to work irregular hours and assignments\n• Maintained appearance and high hygiene awareness\n• Responsibility and reliability\n• Openness to new things and willingness to learn\n\nWhat we offer you:\n\n• Financial support: annually 400 CHF for schoolbooks, lump sum for travel expenses, assumption of the half tax as well as various discounts and conditions for employees.\n• Attractive working environment with an open and appreciative working atmosphere in a modern and dynamic environment.\n• Common occasions for our learners: trade fairs, career choice market, summer festival, internal events and teaching graduation party.\n• Introduction week as well as exciting educational days and insights into various departments and departments. What your application includes:\n• A meaningful motivation letter\n• CV incl. Photo\n• High school certificates\n• Multicheck or interlocking test\n• Testimonials",
+        "de": "Ihr Aufgabengebiet:\n\n• Im See-Spital Horgen werden täglich rund 850 Mahlzeiten zubereitet, als Köchin*Koch in Ausbildung erwerben Sie neben der Theorie in der Berufsfachschule fundierte praktische Kenntnisse im Gastronomiebereich des Spitals.\n• Während Ihrer dreijährigen Ausbildung arbeiten Sie in unserer Grossküche auf den Posten Entremetier, Saucier, Gardemanger und Patisserie.\n• Sie erlernen die professionelle Zubereitung von warmen und kalten Speisen für Patient*innen, Besucher*innen und Mitarbeiter*innen.\n• Neben den handwerklichen Tätigkeiten in der Küche erlernen Sie die Hygienegrundlagen für die Lebensmittelherstellung.\n\nIhr Profil:\n\n• Sekundarschulabschluss Niveau A oder B\n• Freude am Umgang mit Lebensmitteln und am Kochen\n• Körperliche Belastbarkeit, da zum grossen Teil im Stehen gearbeitet wird.\n• Ausgeprägte Kommunikations- und Teamfähigkeit\n• Belastbarkeit auch in hektischen Situationen\n• Flexibilität und Bereitschaft zu unregelmässigen Arbeitszeiten und -einsätzen\n• Gepflegtes Erscheinungsbild sowie hohes Hygienebewusstsein\n• Verantwortungsbewusstsein und Zuverlässigkeit\n• Offenheit für Neues und Lernbereitschaft\n\nWas wir Ihnen bieten:\n\n• Finanzielle Unterstützung: Jährlich 400 CHF für Schulbücher, Pauschalbetrag für Reisespesen, Übernahme des Halbtax sowie diverse Rabatte und Konditionen für Mitarbeiter*innen.\n• Attraktives Arbeitsumfeld mit einer offenen und wertschätzenden Arbeitsatmosphäre in einem modernen und dynamischen Umfeld.\n• Gemeinsame Anlässe für unsere Lernenden: Berufsmessen, Berufswahlmarkt, Sommerfest, interne Veranstaltungen sowie Lehrabschlussfeier.\n• Einführungswoche sowie spannende Bildungstage und Einblicke in verschiedene Fachbereiche und Abteilungen. Was Ihre Bewerbung beinhaltet:\n• Aussagekräftiges Motivationsschreiben\n• Lebenslauf inkl. Foto\n• Schulzeugnisse der Oberstufe\n• Multicheck oder Stellwerktest\n• Schnupperberichte",
         "fr": "Vos responsabilités :\n\n• Dans le See-Spital Horgen, environ 850 repas sont préparés chaque jour comme cuisinier en formation En plus de la théorie de l'école professionnelle, elle possède des connaissances pratiques approfondies dans le secteur de la gastronomie de l'hôpital.\n• Pendant votre apprentissage de trois ans, vous travaillerez dans notre grande cuisine à Entremetier, Saucier, Gardemanger et Patisserie.\n• Ils apprennent la préparation professionnelle des aliments chauds et froids pour les patients, les visiteurs et les employés.\n• En plus des activités artisanales dans la cuisine, vous apprendrez les bases d'hygiène pour la production alimentaire.\n\nVotre profil:\n\n• Enseignement secondaire de niveau A ou B\n• La joie dans la nourriture et la cuisine\n• La résilience physique, puisque la plupart des travaux sont effectués en position debout.\n• Fortes compétences en communication et en équipe\n• Résilience même dans des situations agitées\n• Flexibilité et volonté de travailler des heures et des affectations irrégulières\n• Maintien de l'apparence et sensibilisation élevée à l'hygiène\n• Responsabilité et fiabilité\n• Ouverture aux nouvelles choses et volonté d'apprendre\n\nCe que nous vous offrons:\n\n• Soutien financier: 400 CHF par an pour les livres scolaires, montant forfaitaire pour les frais de voyage, prise en charge de la moitié de taxe ainsi que diverses réductions et conditions pour les employés.\n• Environnement de travail attrayant avec une atmosphère de travail ouverte et appréciée dans un environnement moderne et dynamique.\n• Des occasions communes pour nos apprenants : foires commerciales, marché de choix de carrière, festival d'été, événements internes et soirée d'enseignement.\n• Semaine d'introduction ainsi que des journées d'éducation passionnantes et des aperçus sur divers ministères. Ce que votre demande comprend:\n• Une lettre de motivation significative\n• CV incl. Photo\n• Certificats d'études secondaires\n• Essai de vérification multiple ou de verrouillage\n• Témoignages"
       },
       "location": "Horgen",
@@ -3220,7 +3319,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1278/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-05T11:43:23.185Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-08-05T22:34:05.347Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -3235,14 +3335,17 @@
       "postedDate": "2026-08-05",
       "applyUrl": "https://recruitingapp-2939.umantis.com/Vacancies/1278/Application/CheckLogin/1",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "department": "See-Spital",
       "contractDuration": "temporary",
+      "previousSlugs": [
+        "lehrstelle-als-kochin-koch-efz-see-spital-ch",
+        "apprendistato-come-kochin-koch-cfc-see-spital-horgen"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-kochin-koch-efz-see-spital-ch"
+          "lehrstelle-als-kochin-koch-efz-see-spital-ch",
+          "apprendistato-come-kochin-koch-cfc-see-spital-horgen"
         ],
         "en": [
           "lehrstelle-als-kochin-koch-efz-see-spital-ch"
@@ -3251,9 +3354,7 @@
           "lehrstelle-als-kochin-koch-efz-see-spital-ch"
         ]
       },
-      "previousSlugs": [
-        "lehrstelle-als-kochin-koch-efz-see-spital-ch"
-      ],
+      "firstSeenAt": "2026-08-05T11:43:23.185Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -3266,16 +3367,15 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH",
-      "firstSeenAt": "2026-08-05T11:43:23.185Z"
+      "addressRegion": "ZH"
     },
     {
       "id": "see-spital-0ff0c4ca1a74",
       "slug": "apprendistato-come-kuchenangestellte-r-afp-see-spital-horgen",
       "slugByLocale": {
-        "de": "lehrstelle-als-kuchenangestellte-r-eba-see-spital-ch",
         "it": "apprendistato-come-kuchenangestellte-r-afp-see-spital-horgen",
         "en": "apprenticeship-as-a-kitchen-employee-eba-see-spital-horgen",
+        "de": "lehrstelle-als-kuchenangestellte-r-eba-see-spital-ch",
         "fr": "apprentissage-comme-employe-de-cuisine-eba-see-spital-horgen"
       },
       "company": "See-Spital",
@@ -3283,16 +3383,16 @@
       "companyDomain": "see-spital.ch",
       "title": "Lehrstelle als Küchenangestellte*r EBA",
       "titleByLocale": {
-        "de": "Lehrstelle als Küchenangestellte*r EBA",
         "it": "Apprendistato come Küchenangestellte*r AFP",
         "en": "Apprenticeship as a kitchen employee EBA",
+        "de": "Lehrstelle als Küchenangestellte*r EBA",
         "fr": "Apprentissage comme employé de cuisine EBA"
       },
       "description": "Ihr Aufgabengebiet:\n\n• Während Ihrer zweijährigen Ausbildung sammeln Sie praxisnahe Erfahrungen in der spannenden Gastronomie des See-Spitals.\n• Sie arbeiten aktiv in der Grossküche mit und unterstützen bei der Zubereitung von warmen und kalten Speisen für Patient*innen, Mitarbeiter*innen und Besucher*innen.\n• Auf den verschiedenen Posten Entremetier, Saucier, Gardemanger und Patisserie lernen Sie die Grundtechniken der Küche kennen.\n• Neben den handwerklichen Tätigkeiten in der Küche erlernen Sie die Hygienegrundlagen für die Lebensmittelherstellung\n\nIhr Profil:\n\n• Sekundarabschluss Niveau B oder C\n• Freude am Umgang mit Lebensmitteln und am Kochen\n• Körperliche Belastbarkeit, da zum grossen Teil im Stehen gearbeitet wird.\n• Ausgeprägte Kommunikations- und Teamfähigkei\n• Belastbarkeit auch in hektischen Situationen\n• Flexibilität und Bereitschaft zu unregelmässigen Arbeitszeiten und -einsätzen\n• Gepflegtes Erscheinungsbild sowie hohes Hygienebewusstsein\n• Verantwortungsbewusstsein und Zuverlässigkeit\n• Offenheit für Neues und Lernbereitschaft\n\nWas wir Ihnen bieten:\n\n• Finanzielle Unterstützung: Jährlich 400 CHF für Schulbücher, Pauschalbetrag für Reisespesen, Übernahme des Halbtax sowie diverse Rabatte und Konditionen für Mitarbeiter*innen.\n• Attraktives Arbeitsumfeld mit einer offenen und wertschätzenden Arbeitsatmosphäre in einem modernen und dynamischen Umfeld.\n• Gemeinsame Anlässe für unsere Lernenden: Berufsmessen, Berufswahlmarkt, Sommerfest, interne Veranstaltungen sowie Lehrabschlussfeier.\n• Einführungswoche sowie spannende Bildungstage und Einblicke in verschiedene Fachbereiche und Abteilungen. Was Ihre Bewerbung beinhaltet:\n• Aussagekräftiges Motivationsschreiben\n• Lebenslauf inkl. Foto\n• Schulzeugnisse\n• Multicheck oder Stellwerktest\n• Schnupperberichte",
       "descriptionByLocale": {
-        "de": "Ihr Aufgabengebiet:\n\n• Während Ihrer zweijährigen Ausbildung sammeln Sie praxisnahe Erfahrungen in der spannenden Gastronomie des See-Spitals.\n• Sie arbeiten aktiv in der Grossküche mit und unterstützen bei der Zubereitung von warmen und kalten Speisen für Patient*innen, Mitarbeiter*innen und Besucher*innen.\n• Auf den verschiedenen Posten Entremetier, Saucier, Gardemanger und Patisserie lernen Sie die Grundtechniken der Küche kennen.\n• Neben den handwerklichen Tätigkeiten in der Küche erlernen Sie die Hygienegrundlagen für die Lebensmittelherstellung\n\nIhr Profil:\n\n• Sekundarabschluss Niveau B oder C\n• Freude am Umgang mit Lebensmitteln und am Kochen\n• Körperliche Belastbarkeit, da zum grossen Teil im Stehen gearbeitet wird.\n• Ausgeprägte Kommunikations- und Teamfähigkei\n• Belastbarkeit auch in hektischen Situationen\n• Flexibilität und Bereitschaft zu unregelmässigen Arbeitszeiten und -einsätzen\n• Gepflegtes Erscheinungsbild sowie hohes Hygienebewusstsein\n• Verantwortungsbewusstsein und Zuverlässigkeit\n• Offenheit für Neues und Lernbereitschaft\n\nWas wir Ihnen bieten:\n\n• Finanzielle Unterstützung: Jährlich 400 CHF für Schulbücher, Pauschalbetrag für Reisespesen, Übernahme des Halbtax sowie diverse Rabatte und Konditionen für Mitarbeiter*innen.\n• Attraktives Arbeitsumfeld mit einer offenen und wertschätzenden Arbeitsatmosphäre in einem modernen und dynamischen Umfeld.\n• Gemeinsame Anlässe für unsere Lernenden: Berufsmessen, Berufswahlmarkt, Sommerfest, interne Veranstaltungen sowie Lehrabschlussfeier.\n• Einführungswoche sowie spannende Bildungstage und Einblicke in verschiedene Fachbereiche und Abteilungen. Was Ihre Bewerbung beinhaltet:\n• Aussagekräftiges Motivationsschreiben\n• Lebenslauf inkl. Foto\n• Schulzeugnisse\n• Multicheck oder Stellwerktest\n• Schnupperberichte",
         "it": "Le tue responsabilità:\n\n• Durante l'apprendistato di due anni, si acquisirà esperienza pratica nell'emozionante gastronomia del See-Spital.\n• Lavorano attivamente nella grande cucina e sostengono la preparazione di cibo caldo e freddo per pazienti, dipendenti e visitatori.\n• Nei vari post Entremetier, Saucier, Gardemanger e Patisserie si arriva a conoscere le tecniche di base della cucina.\n• Oltre alle attività artigianali in cucina, imparerai le basi igieniche per la produzione alimentare\n\nIl tuo profilo:\n\n• Livello di istruzione secondaria B o C\n• Gioia nel trattare con cibo e cucina\n• Resistenza fisica, dal momento che la maggior parte del lavoro è fatto mentre in piedi.\n• Forte comunicazione e competenze di squadra\n• Resilienza anche in situazioni frenetiche\n• Flessibilità e disponibilità a lavorare ore irregolari e incarichi\n• Aspetto principale e elevata consapevolezza dell'igiene\n• Responsabilità e affidabilità\n• Apertura a nuove cose e disponibilità ad imparare\n\nCosa ti offriamo:\n\n• Sostegno finanziario: annualmente 400 CHF per i libri scolastici, somma forfettaria per le spese di viaggio, assunzione della tassa di metà e vari sconti e condizioni per i dipendenti.\n• Ambiente di lavoro attraente con un'atmosfera di lavoro aperta e apprezzata in un ambiente moderno e dinamico.\n• Occasioni comuni per i nostri studenti: fiere, mercato di scelta di carriera, festival estivo, eventi interni e festa di laurea di insegnamento.\n• Introduzione settimana così come emozionanti giorni educativi e approfondimenti in vari dipartimenti e reparti. Ciò che la vostra applicazione include:\n• Una lettera di motivazione significativa\n• CV incl. Foto\n• Certificati scolastici\n• Test multicheck o interlocking\n• Testimonianze",
         "en": "Your responsibilities:\n\n• During your two-year apprenticeship, you will gain practical experience in the exciting gastronomy of the See-Spital.\n• They actively work in the large kitchen and support the preparation of hot and cold food for patients, employees and visitors.\n• On the various posts Entremetier, Saucier, Gardemanger and Patisserie you will get to know the basic techniques of the kitchen.\n• In addition to the craft activities in the kitchen, you will learn the hygiene basics for food production\n\nYour profile:\n\n• Secondary education level B or C\n• Joy in dealing with food and cooking\n• Physical resilience, since most of the work is done while standing.\n• Strong communication and team skills\n• Resilience even in hectic situations\n• Flexibility and willingness to work irregular hours and assignments\n• Maintained appearance and high hygiene awareness\n• Responsibility and reliability\n• Openness to new things and willingness to learn\n\nWhat we offer you:\n\n• Financial support: annually 400 CHF for schoolbooks, lump sum for travel expenses, assumption of the half tax as well as various discounts and conditions for employees.\n• Attractive working environment with an open and appreciative working atmosphere in a modern and dynamic environment.\n• Common occasions for our learners: trade fairs, career choice market, summer festival, internal events and teaching graduation party.\n• Introduction week as well as exciting educational days and insights into various departments and departments. What your application includes:\n• A meaningful motivation letter\n• CV incl. Photo\n• School certificates\n• Multicheck or interlocking test\n• Testimonials",
+        "de": "Ihr Aufgabengebiet:\n\n• Während Ihrer zweijährigen Ausbildung sammeln Sie praxisnahe Erfahrungen in der spannenden Gastronomie des See-Spitals.\n• Sie arbeiten aktiv in der Grossküche mit und unterstützen bei der Zubereitung von warmen und kalten Speisen für Patient*innen, Mitarbeiter*innen und Besucher*innen.\n• Auf den verschiedenen Posten Entremetier, Saucier, Gardemanger und Patisserie lernen Sie die Grundtechniken der Küche kennen.\n• Neben den handwerklichen Tätigkeiten in der Küche erlernen Sie die Hygienegrundlagen für die Lebensmittelherstellung\n\nIhr Profil:\n\n• Sekundarabschluss Niveau B oder C\n• Freude am Umgang mit Lebensmitteln und am Kochen\n• Körperliche Belastbarkeit, da zum grossen Teil im Stehen gearbeitet wird.\n• Ausgeprägte Kommunikations- und Teamfähigkei\n• Belastbarkeit auch in hektischen Situationen\n• Flexibilität und Bereitschaft zu unregelmässigen Arbeitszeiten und -einsätzen\n• Gepflegtes Erscheinungsbild sowie hohes Hygienebewusstsein\n• Verantwortungsbewusstsein und Zuverlässigkeit\n• Offenheit für Neues und Lernbereitschaft\n\nWas wir Ihnen bieten:\n\n• Finanzielle Unterstützung: Jährlich 400 CHF für Schulbücher, Pauschalbetrag für Reisespesen, Übernahme des Halbtax sowie diverse Rabatte und Konditionen für Mitarbeiter*innen.\n• Attraktives Arbeitsumfeld mit einer offenen und wertschätzenden Arbeitsatmosphäre in einem modernen und dynamischen Umfeld.\n• Gemeinsame Anlässe für unsere Lernenden: Berufsmessen, Berufswahlmarkt, Sommerfest, interne Veranstaltungen sowie Lehrabschlussfeier.\n• Einführungswoche sowie spannende Bildungstage und Einblicke in verschiedene Fachbereiche und Abteilungen. Was Ihre Bewerbung beinhaltet:\n• Aussagekräftiges Motivationsschreiben\n• Lebenslauf inkl. Foto\n• Schulzeugnisse\n• Multicheck oder Stellwerktest\n• Schnupperberichte",
         "fr": "Vos responsabilités :\n\n• Pendant votre apprentissage de deux ans, vous aurez une expérience pratique dans la gastronomie passionnante du See-Spital.\n• Ils travaillent activement dans la grande cuisine et soutiennent la préparation d'aliments chauds et froids pour les patients, les employés et les visiteurs.\n• Sur les différents postes Entremetier, Saucier, Gardemanger et Patisserie vous apprendrez à connaître les techniques de base de la cuisine.\n• En plus des activités artisanales dans la cuisine, vous apprendrez les bases d'hygiène pour la production alimentaire\n\nVotre profil:\n\n• Enseignement secondaire de niveau B ou C\n• La joie dans la nourriture et la cuisine\n• La résilience physique, puisque la plupart des travaux sont effectués en position debout.\n• Fortes compétences en communication et en équipe\n• Résilience même dans des situations agitées\n• Flexibilité et volonté de travailler des heures et des affectations irrégulières\n• Maintien de l'apparence et sensibilisation élevée à l'hygiène\n• Responsabilité et fiabilité\n• Ouverture aux nouvelles choses et volonté d'apprendre\n\nCe que nous vous offrons:\n\n• Soutien financier: 400 CHF par an pour les livres scolaires, montant forfaitaire pour les frais de voyage, prise en charge de la moitié de taxe ainsi que diverses réductions et conditions pour les employés.\n• Environnement de travail attrayant avec une atmosphère de travail ouverte et appréciée dans un environnement moderne et dynamique.\n• Des occasions communes pour nos apprenants : foires commerciales, marché de choix de carrière, festival d'été, événements internes et soirée d'enseignement.\n• Semaine d'introduction ainsi que des journées d'éducation passionnantes et des aperçus sur divers ministères. Ce que votre demande comprend:\n• Une lettre de motivation significative\n• CV incl. Photo\n• Certificats scolaires\n• Essai de vérification multiple ou de verrouillage\n• Témoignages"
       },
       "location": "Horgen",
@@ -3300,7 +3400,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1279/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-05T11:43:22.091Z",
+      "needsRetranslation": false,
+      "crawledAt": "2026-08-05T22:34:04.326Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -3315,14 +3416,17 @@
       "postedDate": "2026-08-05",
       "applyUrl": "https://recruitingapp-2939.umantis.com/Vacancies/1279/Application/CheckLogin/1",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "department": "See-Spital",
       "contractDuration": "permanent",
+      "previousSlugs": [
+        "lehrstelle-als-kuchenangestellte-r-eba-see-spital-ch",
+        "apprendistato-come-kuchenangestellte-r-afp-see-spital-horgen"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-kuchenangestellte-r-eba-see-spital-ch"
+          "lehrstelle-als-kuchenangestellte-r-eba-see-spital-ch",
+          "apprendistato-come-kuchenangestellte-r-afp-see-spital-horgen"
         ],
         "en": [
           "lehrstelle-als-kuchenangestellte-r-eba-see-spital-ch"
@@ -3331,8 +3435,80 @@
           "lehrstelle-als-kuchenangestellte-r-eba-see-spital-ch"
         ]
       },
+      "firstSeenAt": "2026-08-05T11:43:22.091Z",
+      "salaryMin": 62000,
+      "salaryMax": 94000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 62000,
+          "maxValue": 94000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "ZH"
+    },
+    {
+      "id": "see-spital-ade25d8a4204",
+      "slug": "apprendistato-come-praktiker-in-hotellerie-hauswirtschaft-afp-see-spital-horgen",
+      "slugByLocale": {
+        "de": "lehrstelle-als-praktiker-in-hotellerie-hauswirtschaft-eba-see-spital-ch",
+        "it": "apprendistato-come-praktiker-in-hotellerie-hauswirtschaft-afp-see-spital-horgen",
+        "en": "lehrstelle-als-praktiker-in-hotellerie-hauswirtschaft-eba-see-spital-ch",
+        "fr": "lehrstelle-als-praktiker-in-hotellerie-hauswirtschaft-eba-see-spital-ch"
+      },
+      "company": "See-Spital",
+      "companyKey": "see-spital",
+      "companyDomain": "see-spital.ch",
+      "title": "Lehrstelle als Praktiker*in Hotellerie-Hauswirtschaft EBA",
+      "titleByLocale": {
+        "de": "Lehrstelle als Praktiker*in Hotellerie-Hauswirtschaft EBA",
+        "it": "Apprendistato come Praktiker*in Hotellerie-Hauswirtschaft AFP",
+        "en": "Lehrstelle als Praktiker*in Hotellerie-Hauswirtschaft EBA",
+        "fr": "Lehrstelle als Praktiker*in Hotellerie-Hauswirtschaft EBA"
+      },
+      "description": "Ihr Aufgabengebiet:\n\n• Vielseitige Mitarbeit in den Bereichen Hotellerie und Hauswirtschaft\n• Unterstützung in der Wäscherei in der Abwaschorganisation sowie Mithilfe bei Reinigungsarbeiten\n• Bereitstellung und Servieren von Getränken und einfachen Speisen in der Gastronomie und im Room-Service\n• Nachhaltige Entsorgung von Abfällen und Mithilfe beim Sortieren der Wertstoffe\n• Sorgfältige Einhaltung der Hygiene-, Sicherheits- und Umweltstandards\n\nIhr Profil:\n\n• Abgeschlossene obligatorische Schulbildung\n• Gute Deutschkenntnisse mündlich und schriftlich, mindestens B2 Niveau\n• Zuverlässigkeit und Interesse am Beruf sowie hohes Dienstleitungsbewusstsein\n• Motivation für die Zusammenarbeit in einem lebendigen, multikulturellen Team\n• Bereitschaft, Ihr Wissen weiterzuentwickeln und einen wichtigen Beitrag zum Erfolg unseres Spitals zu leisten\n\nWas wir Ihnen bieten:\n\n• Finanzielle Unterstützung: Jährlich 400 CHF für Schulbücher, Pauschalbetrag für Reisespesen, Übernahme des Halbtax sowie diverse Rabatte und Konditionen für Mitarbeiter*innen.\n• Attraktives Arbeitsumfeld mit einer offenen und wertschätzenden Arbeitsatmosphäre in einem modernen und dynamischen Umfeld.\n• Gemeinsame Anlässe für unsere Lernenden: Berufsmessen, Berufswahlmarkt, Sommerfest, interne Veranstaltungen sowie Lehrabschlussfeier.\n• Einführungswoche sowie spannende Bildungstage und Einblicke in verschiedene Fachbereiche und Abteilungen. Was Ihre Bewerbung beinhaltet:\n• Aussagekräftiges Motivationsschreiben\n• Lebenslauf inkl. Foto\n• Schulzeugnisse der Oberstufe\n• Multicheck oder Stellwerktest\n• Schnupperberichte",
+      "descriptionByLocale": {
+        "de": "Ihr Aufgabengebiet:\n\n• Vielseitige Mitarbeit in den Bereichen Hotellerie und Hauswirtschaft\n• Unterstützung in der Wäscherei in der Abwaschorganisation sowie Mithilfe bei Reinigungsarbeiten\n• Bereitstellung und Servieren von Getränken und einfachen Speisen in der Gastronomie und im Room-Service\n• Nachhaltige Entsorgung von Abfällen und Mithilfe beim Sortieren der Wertstoffe\n• Sorgfältige Einhaltung der Hygiene-, Sicherheits- und Umweltstandards\n\nIhr Profil:\n\n• Abgeschlossene obligatorische Schulbildung\n• Gute Deutschkenntnisse mündlich und schriftlich, mindestens B2 Niveau\n• Zuverlässigkeit und Interesse am Beruf sowie hohes Dienstleitungsbewusstsein\n• Motivation für die Zusammenarbeit in einem lebendigen, multikulturellen Team\n• Bereitschaft, Ihr Wissen weiterzuentwickeln und einen wichtigen Beitrag zum Erfolg unseres Spitals zu leisten\n\nWas wir Ihnen bieten:\n\n• Finanzielle Unterstützung: Jährlich 400 CHF für Schulbücher, Pauschalbetrag für Reisespesen, Übernahme des Halbtax sowie diverse Rabatte und Konditionen für Mitarbeiter*innen.\n• Attraktives Arbeitsumfeld mit einer offenen und wertschätzenden Arbeitsatmosphäre in einem modernen und dynamischen Umfeld.\n• Gemeinsame Anlässe für unsere Lernenden: Berufsmessen, Berufswahlmarkt, Sommerfest, interne Veranstaltungen sowie Lehrabschlussfeier.\n• Einführungswoche sowie spannende Bildungstage und Einblicke in verschiedene Fachbereiche und Abteilungen. Was Ihre Bewerbung beinhaltet:\n• Aussagekräftiges Motivationsschreiben\n• Lebenslauf inkl. Foto\n• Schulzeugnisse der Oberstufe\n• Multicheck oder Stellwerktest\n• Schnupperberichte",
+        "it": "Ihr Aufgabengebiet:\n\n• Vielseitige Mitarbeit in den Bereichen Hotellerie und Hauswirtschaft\n• Unterstützung in der Wäscherei in der Abwaschorganisation sowie Mithilfe bei Reinigungsarbeiten\n• Bereitstellung und Servieren von Getränken und einfachen Speisen in der Gastronomie und im Room-Service\n• Nachhaltige Entsorgung von Abfällen und Mithilfe beim Sortieren der Wertstoffe\n• Sorgfältige Einhaltung der Hygiene-, Sicherheits- und Umweltstandards\n\nIhr Profil:\n\n• Abgeschlossene obligatorische Schulbildung\n• Gute Deutschkenntnisse mündlich und schriftlich, mindestens B2 Niveau\n• Zuverlässigkeit und Interesse am Beruf sowie hohes Dienstleitungsbewusstsein\n• Motivation für die Zusammenarbeit in einem lebendigen, multikulturellen Team\n• Bereitschaft, Ihr Wissen weiterzuentwickeln und einen wichtigen Beitrag zum Erfolg unseres Spitals zu leisten\n\nWas wir Ihnen bieten:\n\n• Finanzielle Unterstützung: Jährlich 400 CHF für Schulbücher, Pauschalbetrag für Reisespesen, Übernahme des Halbtax sowie diverse Rabatte und Konditionen für Mitarbeiter*innen.\n• Attraktives Arbeitsumfeld mit einer offenen und wertschätzenden Arbeitsatmosphäre in einem modernen und dynamischen Umfeld.\n• Gemeinsame Anlässe für unsere Lernenden: Berufsmessen, Berufswahlmarkt, Sommerfest, interne Veranstaltungen sowie Lehrabschlussfeier.\n• Einführungswoche sowie spannende Bildungstage und Einblicke in verschiedene Fachbereiche und Abteilungen. Was Ihre Bewerbung beinhaltet:\n• Aussagekräftiges Motivationsschreiben\n• Lebenslauf inkl. Foto\n• Schulzeugnisse der Oberstufe\n• Multicheck oder Stellwerktest\n• Schnupperberichte",
+        "en": "Ihr Aufgabengebiet:\n\n• Vielseitige Mitarbeit in den Bereichen Hotellerie und Hauswirtschaft\n• Unterstützung in der Wäscherei in der Abwaschorganisation sowie Mithilfe bei Reinigungsarbeiten\n• Bereitstellung und Servieren von Getränken und einfachen Speisen in der Gastronomie und im Room-Service\n• Nachhaltige Entsorgung von Abfällen und Mithilfe beim Sortieren der Wertstoffe\n• Sorgfältige Einhaltung der Hygiene-, Sicherheits- und Umweltstandards\n\nIhr Profil:\n\n• Abgeschlossene obligatorische Schulbildung\n• Gute Deutschkenntnisse mündlich und schriftlich, mindestens B2 Niveau\n• Zuverlässigkeit und Interesse am Beruf sowie hohes Dienstleitungsbewusstsein\n• Motivation für die Zusammenarbeit in einem lebendigen, multikulturellen Team\n• Bereitschaft, Ihr Wissen weiterzuentwickeln und einen wichtigen Beitrag zum Erfolg unseres Spitals zu leisten\n\nWas wir Ihnen bieten:\n\n• Finanzielle Unterstützung: Jährlich 400 CHF für Schulbücher, Pauschalbetrag für Reisespesen, Übernahme des Halbtax sowie diverse Rabatte und Konditionen für Mitarbeiter*innen.\n• Attraktives Arbeitsumfeld mit einer offenen und wertschätzenden Arbeitsatmosphäre in einem modernen und dynamischen Umfeld.\n• Gemeinsame Anlässe für unsere Lernenden: Berufsmessen, Berufswahlmarkt, Sommerfest, interne Veranstaltungen sowie Lehrabschlussfeier.\n• Einführungswoche sowie spannende Bildungstage und Einblicke in verschiedene Fachbereiche und Abteilungen. Was Ihre Bewerbung beinhaltet:\n• Aussagekräftiges Motivationsschreiben\n• Lebenslauf inkl. Foto\n• Schulzeugnisse der Oberstufe\n• Multicheck oder Stellwerktest\n• Schnupperberichte",
+        "fr": "Ihr Aufgabengebiet:\n\n• Vielseitige Mitarbeit in den Bereichen Hotellerie und Hauswirtschaft\n• Unterstützung in der Wäscherei in der Abwaschorganisation sowie Mithilfe bei Reinigungsarbeiten\n• Bereitstellung und Servieren von Getränken und einfachen Speisen in der Gastronomie und im Room-Service\n• Nachhaltige Entsorgung von Abfällen und Mithilfe beim Sortieren der Wertstoffe\n• Sorgfältige Einhaltung der Hygiene-, Sicherheits- und Umweltstandards\n\nIhr Profil:\n\n• Abgeschlossene obligatorische Schulbildung\n• Gute Deutschkenntnisse mündlich und schriftlich, mindestens B2 Niveau\n• Zuverlässigkeit und Interesse am Beruf sowie hohes Dienstleitungsbewusstsein\n• Motivation für die Zusammenarbeit in einem lebendigen, multikulturellen Team\n• Bereitschaft, Ihr Wissen weiterzuentwickeln und einen wichtigen Beitrag zum Erfolg unseres Spitals zu leisten\n\nWas wir Ihnen bieten:\n\n• Finanzielle Unterstützung: Jährlich 400 CHF für Schulbücher, Pauschalbetrag für Reisespesen, Übernahme des Halbtax sowie diverse Rabatte und Konditionen für Mitarbeiter*innen.\n• Attraktives Arbeitsumfeld mit einer offenen und wertschätzenden Arbeitsatmosphäre in einem modernen und dynamischen Umfeld.\n• Gemeinsame Anlässe für unsere Lernenden: Berufsmessen, Berufswahlmarkt, Sommerfest, interne Veranstaltungen sowie Lehrabschlussfeier.\n• Einführungswoche sowie spannende Bildungstage und Einblicke in verschiedene Fachbereiche und Abteilungen. Was Ihre Bewerbung beinhaltet:\n• Aussagekräftiges Motivationsschreiben\n• Lebenslauf inkl. Foto\n• Schulzeugnisse der Oberstufe\n• Multicheck oder Stellwerktest\n• Schnupperberichte"
+      },
+      "location": "Horgen",
+      "canton": "ZH",
+      "url": "https://recruitingapp-2939.umantis.com/Vacancies/1280/Description/1",
+      "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
+      "sourceLang": "de",
+      "needsRetranslation": true,
+      "crawledAt": "2026-08-05T22:34:03.280Z",
+      "addressLocality": "Horgen",
+      "postalCode": "8810",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Ospitalità",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "intern",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-05",
+      "applyUrl": "https://recruitingapp-2939.umantis.com/Vacancies/1280/Application/CheckLogin/1",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "department": "See-Spital",
+      "contractDuration": "temporary",
+      "previousSlugsByLocale": {
+        "it": [
+          "lehrstelle-als-praktiker-in-hotellerie-hauswirtschaft-eba-see-spital-ch"
+        ]
+      },
       "previousSlugs": [
-        "lehrstelle-als-kuchenangestellte-r-eba-see-spital-ch"
+        "lehrstelle-als-praktiker-in-hotellerie-hauswirtschaft-eba-see-spital-ch"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -3347,7 +3523,7 @@
         }
       },
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-08-05T11:43:22.091Z"
+      "firstSeenAt": "2026-08-05T22:34:03.280Z"
     }
   ]
 }
