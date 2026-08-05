@@ -55,6 +55,7 @@ import { filterFixtureJobs } from './lib/fixture-data-filter.mjs';
 import { SWISS_LOCALITY_SENTENCE_SPLIT_RX } from './lib/swiss-locality-sentence-split.mjs';
 import { commitInChunks } from './lib/firestore-batch.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
+import { readOrphanEnriched } from './lib/orphan-enriched-store.mjs';
 import { resolveJobDiffKey } from './lib/job-match-key.mjs';
 import { validateJobUrls } from './lib/validate-job-url.mjs';
 import { archiveRemovedJobsToSlice } from './lib/expired-jobs-archive.mjs';
@@ -2991,12 +2992,11 @@ export async function assembleJobsDataset({ withStats = false } = {}) {
 
         // Reconcile orphan slugs → merge into active jobs' previousSlugs
         const orphanFile = path.join(ROOT, 'data', 'orphan-indexed-job-slugs.json');
-        const enrichedFile = path.join(ROOT, 'data', 'orphan-enriched-data.json');
         if (fs.existsSync(orphanFile)) {
           const orphanSlugs = JSON.parse(fs.readFileSync(orphanFile, 'utf8'));
-          const enrichedData = fs.existsSync(enrichedFile)
-            ? JSON.parse(fs.readFileSync(enrichedFile, 'utf8'))
-            : {};
+          // Sharded ledger (#4248); returns [] when absent, which is what the
+          // previous `fs.existsSync ? parse : {}` degraded to for a missing file.
+          const enrichedData = readOrphanEnriched(ROOT);
           // reconcile* mutano `assembled` in place (aggiungono previousSlugs);
           // NON scrivono slice (l'opzione `writeSlices` non è implementata in
           // reconcile-job-slugs.mjs — vi si legge solo { dryRun, verbose, max }).

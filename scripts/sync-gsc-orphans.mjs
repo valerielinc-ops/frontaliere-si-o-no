@@ -3,8 +3,9 @@
  * sync-gsc-orphans.mjs
  *
  * Synchronizes orphan job slugs from Google Search Console, enriches them
- * from all available local + remote sources, and writes
- * `data/orphan-enriched-data.json` used by the build plugin.
+ * from all available local + remote sources, and writes the enriched-orphan
+ * ledger used by the build plugin — sharded under `data/orphan-enriched-data/`
+ * behind `scripts/lib/orphan-enriched-store.mjs` (#4248), never as a monolith.
  *
  * Usage:
  *   node scripts/load-rc-env.mjs && node scripts/sync-gsc-orphans.mjs
@@ -36,6 +37,11 @@ import { stripScriptsAndStyles } from './lib/crawler-template.mjs';
 import { assertCompatFloor } from './lib/compat-paths-floor-guard.mjs';
 import { readCompatPaths, writeCompatPaths } from './lib/compat-paths-store.mjs';
 import { readAllKnownJobSlugs, writeAllKnownJobSlugs } from './lib/all-known-job-slugs-store.mjs';
+import {
+  readOrphanEnriched,
+  writeOrphanEnriched,
+  ORPHAN_ENRICHED_SHARD_DIR,
+} from './lib/orphan-enriched-store.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -941,14 +947,18 @@ function writeOutputs(enrichedOrphans, gscMap) {
 
   if (DRY_RUN) {
     console.log('  ⏭️  --dry-run: skipping file writes');
-    console.log(`  Would write ${enrichedOrphans.length} orphans to orphan-enriched-data.json`);
+    console.log(`  Would write ${enrichedOrphans.length} orphans to the enriched-orphan store`);
     return;
   }
 
-  // 1. orphan-enriched-data.json — full enriched array
-  const enrichedPath = dataPath('orphan-enriched-data.json');
-  writeJson(enrichedPath, enrichedOrphans);
-  console.log(`  💾 ${enrichedPath}: ${enrichedOrphans.length} entries`);
+  // 1. The enriched-orphan ledger — sharded under data/orphan-enriched-data/
+  //    (#4248). The monolith crossed GitHub's 100 MB per-blob push limit at
+  //    111.90 MB and had every push carrying it rejected with GH001.
+  const enriched = writeOrphanEnriched(enrichedOrphans, ROOT);
+  console.log(
+    `  💾 ${ORPHAN_ENRICHED_SHARD_DIR}/: ${enriched.totalRecords} entries, ` +
+      `${enriched.totalSlugs} slugs across ${enriched.shardCount} shards`,
+  );
 
   // 2. orphan-indexed-job-slugs.json — simple slug array (backward compat)
   const slugsPath = dataPath('orphan-indexed-job-slugs.json');
@@ -1285,7 +1295,7 @@ async function main() {
   // The enrichment data (GSC queries, titles, company info) is used by the build
   // plugin to create richer soft-landing pages. Without it, pages degrade to generic
   // "Mercato del lavoro in Ticino" fallback content.
-  const existingEnriched = readJsonSafe(dataPath('orphan-enriched-data.json'));
+  const existingEnriched = readOrphanEnriched(ROOT);
   if (Array.isArray(existingEnriched) && existingEnriched.length > 0) {
     const currentKeys = new Set(orphans.map((o) => `${o.locale}:${o.slug}`));
     const bySlug = new Map();
