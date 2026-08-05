@@ -50,6 +50,7 @@ import { hardenJobsWithStructuredSalary } from './lib/structured-salary.mjs';
 import { normalizeDescriptionBullets, cleanCrawlerArtifacts } from './lib/crawler-template.mjs';
 import { computeCrawlerQualityAggregate, computeJobQualityScore, buildStableId, cleanPreviousSlugsPerLocale, isLocationExplicitlyForeign, healTruncatedStLocalities, addPreviousSlugForLocale, captureLostSlugs, DEFAULT_PREV_SLUG_CAP, stableSlugHash, appendSlugDisambiguator } from './lib/dedicated-crawler-common.mjs';
 import { inferAnyCanton, isKnownSwissCity, isCantonOnlyLabel, findSwissCityInText, rescueSwissCityFromText, isTargetCanton, TARGET_CANTONS } from './lib/target-swiss-locations.mjs';
+import { getCantonDisplayName } from './lib/crawler-location-config.mjs';
 import { filterFixtureJobs } from './lib/fixture-data-filter.mjs';
 import { SWISS_LOCALITY_SENTENCE_SPLIT_RX } from './lib/swiss-locality-sentence-split.mjs';
 import { commitInChunks } from './lib/firestore-batch.mjs';
@@ -138,21 +139,33 @@ export function registerCrawlerSummaryGuard(key, label) {
  *   3. Strip a leading `:` / whitespace left over from `Location:Ticino`.
  *   4. Trim.
  *   5. If the value still smells like prose (>60 char OR contains tell-tale
- *      body-content keywords), fall back to "Ticino" — by-crawler files are
- *      Ticino-targeted, so the canton label is a safe, audit-friendly default.
+ *      body-content keywords), fall back to the job's OWN canton label.
+ *
+ * On (5) and on the empty/"undefined" guard the fallback used to be the literal
+ * `'Ticino'` — written when by-crawler files really were Ticino-only. The funnel
+ * now serves all 26 cantons, so that constant silently relabels a Nidwalden or
+ * Bern posting as Ticino: `inferAnyCanton('Ticino')` then returns TI, the canton
+ * field flips, the job is emitted under `/cerca-lavoro-ticino/`, ships
+ * `addressRegion:"TI"` in its JobPosting (AGENTS.md Non-Negotiable #3) and
+ * pollutes the single query that carries most of the organic traffic. Callers
+ * therefore pass the job's own canton label (`cantonFallbackLocality`), and the
+ * bare `'Ticino'` survives only where there is genuinely no canton on record.
+ *
+ * @param {unknown} rawValue
+ * @param {string} [fallbackLocality='Ticino'] locality to use when the value
+ *   carries no usable city — derive it from the job's canton, never hardcode.
  */
-function sanitizeJobLocationField(rawValue) {
+function sanitizeJobLocationField(rawValue, fallbackLocality = 'Ticino') {
   if (typeof rawValue !== 'string') return rawValue;
   const original = rawValue;
+  const fallback = String(fallbackLocality || '').trim() || 'Ticino';
   // A detail parser that returns the literal string "undefined"/"null" (or an
   // empty/whitespace value) slips past every `|| fallback` (truthy) and would
   // become `addressLocality: "undefined"` → Google rejects the JobPosting
   // structured data → de-index (AGENTS.md non-negotiable #3). Issue #900.
-  // by-crawler files are Ticino-targeted, so the canton label is a safe,
-  // audit-friendly default (same fallback this function already uses for prose).
   const trimmedOriginal = original.trim();
   if (trimmedOriginal === '' || /^(undefined|null)$/i.test(trimmedOriginal)) {
-    return 'Ticino';
+    return fallback;
   }
   let s = original
     .replace(/^.*?Location\s*[:.]?\s*/i, '')
@@ -165,9 +178,60 @@ function sanitizeJobLocationField(rawValue) {
     .replace(/^[\s:]+/, '')
     .trim();
   if (s.length > 60 || /\b(availability|offer you|requirements|inspektionen|home ?office|company address|posizione esclusivamente|ottima conoscenza|befristet)\b/i.test(s)) {
-    return 'Ticino';
+    return fallback;
   }
   return s === '' ? original : s;
+}
+
+/**
+ * Locality label to use when a job's own location text is unusable.
+ *
+ * Returns the Italian display name of the job's canton ("NW" → "Nidvaldo"), so
+ * the placeholder agrees with the canton the crawler recorded instead of
+ * contradicting it. Falls back to `'Ticino'` only for a job with no canton at
+ * all — there the funnel's primary canton is the historical default and the
+ * canton fill/pin logic downstream is what decides the real section.
+ *
+ * @param {object} job
+ * @returns {string}
+ */
+export function cantonFallbackLocality(job) {
+  const code = String(job?.canton || '').toUpperCase().trim();
+  if (!code) return 'Ticino';
+  const label = getCantonDisplayName(code, 'it');
+  return label && label !== code ? label : 'Ticino';
+}
+
+/**
+ * Re-label a canton-ONLY locality that names a canton the job is not in.
+ *
+ * A locality like "Ticino" is not a municipality — it is the canton's own name
+ * standing in for a city, produced by `safeLocationToken`'s default fallback,
+ * by a publisher intake field, or by a parser that scraped the region label.
+ * `isWeakCantonOnlyLabelOverride` (#4570) already stops such a label flipping
+ * the job's `canton`, and `resolveCantonAgainstPin` stops a stale pin doing the
+ * same — but the string itself survives into `addressLocality`, so a Solothurn
+ * or Nidwalden posting still ships `jobLocation.address.addressLocality:
+ * "Ticino"` in its JobPosting (AGENTS.md Non-Negotiable #3 — jobLocation must
+ * be correct, in every locale) and reads as a Ticino job to anyone scanning the
+ * card. 111 live records carried this shape.
+ *
+ * Rewrites the label to the job's OWN canton name; leaves real city names, and
+ * labels that already agree with the job's canton, untouched.
+ *
+ * @param {string} value current locality string
+ * @param {string} canton job's canton code
+ * @returns {string} the value, or the job's canton label when the value names a
+ *   different canton
+ */
+export function realignCantonOnlyLocality(value, canton) {
+  const s = String(value ?? '').trim();
+  const code = String(canton || '').toUpperCase().trim();
+  if (!s || !code) return value;
+  if (!isCantonOnlyLabel(s)) return value;
+  if (inferAnyCanton(s) === code) return value;
+  const label = getCantonDisplayName(code, 'it');
+  return label && label !== code ? label : value;
 }
 
 /**
@@ -250,8 +314,13 @@ export function normalizeParsedJobsForSlice(jobs) {
   for (const job of jobs) {
     if (!job || typeof job !== 'object') continue;
 
+    const localityFallback = cantonFallbackLocality(job);
+
     if (typeof job.location === 'string') {
-      const cleaned = sanitizeJobLocationField(job.location);
+      const cleaned = realignCantonOnlyLocality(
+        sanitizeJobLocationField(job.location, localityFallback),
+        job.canton,
+      );
       if (cleaned !== job.location) {
         job.location = cleaned;
         locationFixed++;
@@ -270,7 +339,10 @@ export function normalizeParsedJobsForSlice(jobs) {
     // rather than persisting an empty locality (which propagates to
     // deriveCanton/deriveStreetAddress lookups that key on addressLocality).
     if (typeof job.addressLocality === 'string' && job.addressLocality.trim()) {
-      const cleanedAddr = sanitizeJobLocationField(job.addressLocality);
+      const cleanedAddr = realignCantonOnlyLocality(
+        sanitizeJobLocationField(job.addressLocality, localityFallback),
+        job.canton,
+      );
       if (cleanedAddr !== job.addressLocality) job.addressLocality = cleanedAddr;
     } else if (!String(job.addressLocality || '').trim() && typeof job.location === 'string' && job.location.trim()) {
       job.addressLocality = job.location;
@@ -415,7 +487,7 @@ const DATA_STATS = path.join(ROOT, 'data', 'jobs-stats.json');
 // `/data/jobs-stats.json`, which Vite copies from public/. generateJobBoardStats
 // writes both on a full build; the cache-HIT path must restore both too.
 const PUBLIC_STATS = path.join(ROOT, 'public', 'data', 'jobs-stats.json');
-const ASSEMBLE_OUTPUT_CACHE_VERSION = '2026-06-30-canton-pin-inference-override-v1';
+const ASSEMBLE_OUTPUT_CACHE_VERSION = '2026-08-05-canton-pin-job-canton-authoritative-v1';
 
 /**
  * Compute a fingerprint of all crawler-slice input files so the assembly can
@@ -724,6 +796,70 @@ export function acceptInferredCantonForFill(rawInferred) {
  */
 export function isWeakCantonOnlyLabelOverride(existingCanton, locationText) {
   return Boolean(existingCanton) && isCantonOnlyLabel(String(locationText || '').trim());
+}
+
+/**
+ * Reconcile a job's canton with the canton PIN ledger, and say what the ledger
+ * must hold afterwards.
+ *
+ * The ledger exists to stop the URL section (`/cerca-lavoro-<canton>/<slug>/`)
+ * drifting between builds as `inferAnyCanton`'s municipality DB grows. That is
+ * a tie-break job: it is only ever the *best available* signal when the record
+ * carries no canton of its own.
+ *
+ * It used to be more than that — the pin won over the job's own `canton`
+ * whenever `inferAnyCanton(city)` came back empty, which is the normal outcome
+ * for any city BFS doesn't list as a municipality (a hamlet, a resort, a
+ * "Remote" placeholder). `Obbürgen` (a village inside Stansstad, NW) is exactly
+ * that: Bürgenstock Hotels AG records canton NW on all 39 postings, BFS cannot
+ * resolve "Obbürgen", a stale TI pin therefore overwrote NW on every build, and
+ * — because a wrong pin was never rewritten — it could never heal (#4838).
+ * Measured across `data/jobs/by-crawler/`: **1,188 jobs** in 100+ employers were
+ * being relabelled this way, plus 455 where inference already beat the pin but
+ * the stale value stayed in the ledger and would take over again the moment the
+ * location text degraded.
+ *
+ * Precedence, highest first:
+ *   1. the job's own resolved canton (crawler-declared, or BFS-inferred by the
+ *      fill step above) — per-job evidence, and stable across builds because it
+ *      comes from parser config / the posting itself, not from a growing DB;
+ *   2. the pin — used only to fill a canton the job does not have.
+ *
+ * When (1) contradicts the ledger the ledger is REWRITTEN, so the correction is
+ * durable instead of being re-applied (and re-lost) every build. Re-sectioning
+ * an already-indexed URL is covered by the cross-canton relocation bridge
+ * (#3144, `activeDriftRealPathByCompat` in build-plugins/jobsSeoPagesPlugin.ts),
+ * which serves the legacy path as a canonical bridge to the live page.
+ *
+ * Exported for unit testing.
+ *
+ * @param {object} args
+ * @param {string} args.jobCanton      job's canton AFTER the inference fill step.
+ * @param {string|null} args.inferredCanton  accepted `inferAnyCanton` result, or null.
+ * @param {string|undefined} args.pinnedCanton  ledger value for this identity.
+ * @returns {{canton: string, pin: string, outcome: 'pin-frozen'|'pin-agrees'|'pin-corrected'|'pin-added'|'unpinned'}}
+ *   `canton` = the canton to emit; `pin` = the value the ledger must hold
+ *   (`''` means "do not record a pin for this identity").
+ */
+export function resolveCantonAgainstPin({ jobCanton, inferredCanton, pinnedCanton }) {
+  const job = String(jobCanton || '').toUpperCase().trim();
+  const inferred = String(inferredCanton || '').toUpperCase().trim();
+  const pinned = String(pinnedCanton || '').toUpperCase().trim();
+
+  if (!pinned) {
+    // Only pin a NON-EMPTY canton backed by a confident city inference: pinning
+    // "" would freeze the job mis-placed forever, and pinning an unverified
+    // value would re-create the stale ledger this function exists to drain.
+    if (inferred && job) return { canton: job, pin: job, outcome: 'pin-added' };
+    return { canton: job, pin: '', outcome: 'unpinned' };
+  }
+  if (!job) {
+    // No canton of our own — the pin is the only signal there is. Freeze to it:
+    // this is the URL-stability guarantee the ledger was built for.
+    return { canton: pinned, pin: pinned, outcome: 'pin-frozen' };
+  }
+  if (job === pinned) return { canton: job, pin: pinned, outcome: 'pin-agrees' };
+  return { canton: job, pin: job, outcome: 'pin-corrected' };
 }
 
 const SWISS_PC_RE = /^\d{4}$/;
@@ -1578,8 +1714,15 @@ async function assembleJobs() {
   // is hardened.
   let sanitizedLoc = 0;
   for (const job of deduped) {
-    const cleanedLoc = sanitizeJobLocationField(job.location);
-    const cleanedAddr = sanitizeJobLocationField(job.addressLocality);
+    const localityFallback = cantonFallbackLocality(job);
+    const cleanedLoc = realignCantonOnlyLocality(
+      sanitizeJobLocationField(job.location, localityFallback),
+      job.canton,
+    );
+    const cleanedAddr = realignCantonOnlyLocality(
+      sanitizeJobLocationField(job.addressLocality, localityFallback),
+      job.canton,
+    );
     if (cleanedLoc !== job.location) {
       job.location = cleanedLoc;
       sanitizedLoc++;
@@ -1781,34 +1924,31 @@ async function assembleJobs() {
     // of this crawl); a NEW pin is recorded only with a confident inferred canton.
     const pinId = buildStableJobIdentity(job);
     if (pinId) {
+      // Precedence + ledger self-healing live in resolveCantonAgainstPin: the
+      // pin fills a canton the job does not have, and is REWRITTEN whenever the
+      // job resolved one of its own that contradicts it. buildStableJobIdentity
+      // keys on the apply URL, which COLLIDES when a crawler reuses one listing
+      // URL across postings (galenica ships every role as
+      // https://jobs.galenica.com/it/jobs): a single early TI pin froze 220
+      // non-TI jobs (Bern/Vaud/ZH…) onto the TI section — wrong canton, wrong
+      // addressRegion, buried in sitemap-jobs-ticino (the 2026-06
+      // max-bfs-depth regression). Same shape as #4838's Obbürgen freeze; both
+      // are resolved by treating per-job evidence as authoritative over the
+      // ledger.
       const pinned = cantonPins[pinId];
-      if (pinned) {
-        // A pin must NOT override the job's own confidently-inferred canton.
-        // buildStableJobIdentity keys on the apply URL, which COLLIDES when a
-        // crawler reuses one listing URL across postings (galenica ships every
-        // role as https://jobs.galenica.com/it/jobs): a single early TI pin then
-        // froze 220 non-TI jobs (Bern/Vaud/ZH…) onto the TI section — wrong
-        // canton + wrong addressRegion + buried in sitemap-jobs-ticino (the
-        // 2026-06 max-bfs-depth regression). The job's location is per-job
-        // authoritative, so when inference confidently resolves a DIFFERENT
-        // canton it wins over the pin. #3144's relocation bridge keeps the
-        // legacy-TI URL alive, so re-sectioning a mis-pinned job no longer 404s
-        // an indexed URL. A city-less job (inferred === null) still honours the
-        // pin, preserving the URL-stability guarantee for jobs whose location
-        // dropped out of this crawl.
-        if (inferred && inferred !== pinned) {
-          cantonPinsCorrected++;
-        } else if (job.canton !== pinned) {
-          job.canton = pinned;
-          if (job.addressRegion && job.addressRegion.length === 2) job.addressRegion = pinned;
-          cantonPinsFrozen++;
-        }
-      } else if (inferred && job.canton) {
-        // Only pin a NON-EMPTY canton: pinning "" would freeze the job
-        // mis-placed forever (the empty-canton bug the fill above prevents).
-        cantonPins[pinId] = job.canton;
-        cantonPinsAdded++;
+      const decision = resolveCantonAgainstPin({
+        jobCanton: job.canton,
+        inferredCanton: inferred,
+        pinnedCanton: pinned,
+      });
+      if (decision.canton !== job.canton) {
+        job.canton = decision.canton;
+        if (job.addressRegion && job.addressRegion.length === 2) job.addressRegion = decision.canton;
       }
+      if (decision.pin && cantonPins[pinId] !== decision.pin) cantonPins[pinId] = decision.pin;
+      if (decision.outcome === 'pin-frozen') cantonPinsFrozen++;
+      else if (decision.outcome === 'pin-corrected') cantonPinsCorrected++;
+      else if (decision.outcome === 'pin-added') cantonPinsAdded++;
     }
   }
   try {
@@ -1823,7 +1963,7 @@ async function assembleJobs() {
     console.log(`  🚧 Canton off-target: skipped ${cantonOffTargetSkipped} inferred-but-off-funnel canton(s) (left as-is — see warnings above for triage)`);
   }
   if (cantonPinsFrozen > 0 || cantonPinsAdded > 0 || cantonPinsCorrected > 0) {
-    console.log(`  📌 Canton pins: froze ${cantonPinsFrozen} to indexed canton, added ${cantonPinsAdded}, corrected ${cantonPinsCorrected} (location overrode colliding pin) (ledger ${Object.keys(cantonPins).length})`);
+    console.log(`  📌 Canton pins: froze ${cantonPinsFrozen} canton-less job(s) to the pinned canton, added ${cantonPinsAdded}, corrected ${cantonPinsCorrected} (job's own canton overrode a contradicting pin — ledger rewritten) (ledger ${Object.keys(cantonPins).length})`);
   }
   if (cantonEmptyNoSignal > 0) {
     // #2772 item 2: these jobs cannot self-heal next assemble either — their

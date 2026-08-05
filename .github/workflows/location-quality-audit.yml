@@ -4,8 +4,11 @@ name: location-quality-audit
 # (scripts/audit-job-locations.mjs): how many jobs have a canton that
 # mismatches the BFS-inferred canton, how many have a city that matches no
 # canonical Swiss location ("custom" value — the bug class behind the
-# reported Hirslanden Bern instances), and how many silently fall back to
-# their company's own most-common ("default") canton. Opens/updates ONE
+# reported Hirslanden Bern instances), how many silently fall back to
+# their company's own most-common ("default") canton, and how many ship a
+# canton that contradicts what the crawler recorded in
+# data/jobs/by-crawler/ (BFS-independent — the only signal that catches a
+# mislabelled hamlet like Obbürgen/NW, #4838). Opens/updates ONE
 # stable-title tracking issue every run with the numeric snapshot so the
 # trend is visible over time. This is NOT a deploy gate — report-only, same
 # shape as audit-404-risk.yml. Zero-Claude (deterministic script + node/gh
@@ -69,7 +72,13 @@ jobs:
           const r = JSON.parse(readFileSync('data/location-audit-report.json', 'utf8'));
           const s = r.summary;
           const pct = (n) => (r.audited > 0 ? ((n / r.audited) * 100).toFixed(2) : '0.00');
-          const hasRealBugs = s.cantonMismatch > 0 || s.foreignInSwiss > 0;
+          const overridden = s.crawlerCantonOverridden || 0;
+          // A published canton that contradicts the crawler's own record is a
+          // wrong canton by construction — no municipality database has to
+          // adjudicate it — so it belongs with the two never-acceptable
+          // categories rather than in the informational rows (#4838: the BFS-only
+          // signal reported 0 problems while 28/39 Bürgenstock jobs shipped TI).
+          const hasRealBugs = s.cantonMismatch > 0 || s.foreignInSwiss > 0 || overridden > 0;
 
           let md = `## Location data quality snapshot\n\n`;
           md += `Audited ${r.audited} / ${r.totalJobs} jobs (geocoding ${r.geocodingEnabled ? 'ON' : 'OFF'}).\n\n`;
@@ -77,13 +86,15 @@ jobs:
           md += `| ✅ Correct (BFS-confirmed) | ${s.correct} | ${pct(s.correct)}% |\n`;
           md += `| ⚠️ Canton mismatch (BFS disagrees with stored canton) | ${s.cantonMismatch} | ${pct(s.cantonMismatch)}% |\n`;
           md += `| 🚨 Foreign city tagged as Swiss canton | ${s.foreignInSwiss} | ${pct(s.foreignInSwiss)}% |\n`;
+          md += `| 📌 Published canton contradicts the crawler record | ${overridden} | ${pct(overridden)}% |\n`;
           md += `| ❓ Custom/unknown location (matches no canonical Swiss location) | ${s.customLocation} | ${pct(s.customLocation)}% |\n`;
           md += `| 🏢 Suspected company-default fallback | ${s.companyDefaultFallback} | ${pct(s.companyDefaultFallback)}% |\n`;
           md += `| 📭 Empty location | ${s.emptyLocation} | ${pct(s.emptyLocation)}% |\n`;
           md += `| 🔤 Lowercase canton (stored) | ${s.lowercaseCanton} | ${pct(s.lowercaseCanton)}% |\n\n`;
           md += hasRealBugs
-            ? `🚨 **Canton mismatch and/or foreign-tagged-as-Swiss are non-zero** — these are the two categories a crawler must never produce (location must always resolve to a real Swiss canton, not a stored-but-wrong one). Check the full report artifact for offending companies/cities.\n\n`
-            : `No canton-mismatch / foreign-tagged-as-Swiss bugs this run.\n\n`;
+            ? `🚨 **Canton mismatch, foreign-tagged-as-Swiss and/or crawler-canton-overridden are non-zero** — these are the three categories the dataset must never produce (location must always resolve to a real Swiss canton, and the published canton must never contradict the crawler's own record). Check the full report artifact for offending companies/cities.\n\n`
+            : `No canton-mismatch / foreign-tagged-as-Swiss / crawler-canton-overridden bugs this run.\n\n`;
+          md += `_\`📌 Published canton contradicts the crawler record\` is BFS-independent: it fires for hamlets and resorts BFS does not list as municipalities, which the other rows can only file under "custom/unknown location". ${r.crawlerRecordsIndexed || 0} crawler records indexed this run._\n\n`;
           md += `**Run:** ${process.env.RUN_URL}\n`;
           md += `Full per-job detail: \`location-audit-report\` workflow artifact (30-day retention).\n`;
           md += `Script: \`scripts/audit-job-locations.mjs\`\n`;
