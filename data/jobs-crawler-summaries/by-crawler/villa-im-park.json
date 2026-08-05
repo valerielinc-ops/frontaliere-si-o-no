@@ -1,19 +1,60 @@
 {
   "key": "villa-im-park",
   "label": "Privatklinik Villa im Park",
-  "generatedAt": "2026-08-04T22:16:35.316Z",
+  "generatedAt": "2026-08-05T11:29:00.511Z",
   "total": 2,
   "newCount": 0,
-  "updatedCount": 2,
+  "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 3538,
-  "avgDurationMs": 3538,
+  "unchangedCount": 1,
+  "durationMs": 4498,
+  "avgDurationMs": 4498,
   "durationHistory": [
-    3538
+    4498
   ],
   "newJobs": [],
   "updatedJobs": [
+    {
+      "id": "villa-im-park-2e1ad74d807b",
+      "slug": "lehrstelle-fachperson-gesundheit-fur-sommer-2027-villa-im-park-rothrist",
+      "company": "Privatklinik Villa im Park",
+      "companyKey": "villa-im-park",
+      "companyDomain": "swissmedical.net",
+      "title": "Lehrstelle Fachperson Gesundheit für Sommer 2027",
+      "location": "Rothrist",
+      "canton": "AG",
+      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000124593045-lehrstelle-fachperson-gesundheit-fur-sommer-2027?oga=true",
+      "source": "Privatklinik Villa im Park Dedicated Parser (SmartRecruiters)",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-05T11:28:57.109Z",
+      "addressLocality": "Rothrist",
+      "addressRegion": "AG",
+      "streetAddress": "Bernstrasse 84",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "4852",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "intern",
+      "sector": "Sanità",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-05",
+      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000124593045-lehrstelle-fachperson-gesundheit-fur-sommer-2027?oga=true",
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-05-20T06:03:29.059Z",
+      "_qualityScore": 83,
+      "_qualityBreakdown": {
+        "cleanliness": 20,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 20
+      }
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "villa-im-park-4bdcb31f92c9",
       "slug": "fachperson-per-lagerungspflege-60-80-privatklinik-villa-im-park-rothrist",
@@ -42,55 +83,17 @@
       "featured": false,
       "postedDate": "2026-07-13",
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000137508569-fachperson-fur-lagerungspflege-60-80-?oga=true",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-13T22:10:59.254Z",
-      "_qualityScore": 83,
+      "salaryMin": 49600,
+      "salaryMax": 75200,
+      "crawlerMissStreak": 1,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
-        "cleanliness": 20,
+        "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
-      }
-    },
-    {
-      "id": "villa-im-park-2e1ad74d807b",
-      "slug": "lehrstelle-fachperson-gesundheit-fur-sommer-2027-villa-im-park-rothrist",
-      "company": "Privatklinik Villa im Park",
-      "companyKey": "villa-im-park",
-      "companyDomain": "swissmedical.net",
-      "title": "Lehrstelle Fachperson Gesundheit für Sommer 2027",
-      "location": "Rothrist",
-      "canton": "AG",
-      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000124593045-lehrstelle-fachperson-gesundheit-fur-sommer-2027?oga=true",
-      "source": "Privatklinik Villa im Park Dedicated Parser (SmartRecruiters)",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-04T22:16:33.145Z",
-      "addressLocality": "Rothrist",
-      "addressRegion": "AG",
-      "streetAddress": "Bernstrasse 84",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "4852",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "intern",
-      "sector": "Sanità",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-05",
-      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000124593045-lehrstelle-fachperson-gesundheit-fur-sommer-2027?oga=true",
-      "needsRetranslation": false,
-      "firstSeenAt": "2026-05-20T06:03:29.059Z",
-      "_qualityScore": 83,
-      "_qualityBreakdown": {
-        "cleanliness": 20,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 20
+        "completeness": 25
       }
     }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": []
+  ]
 }

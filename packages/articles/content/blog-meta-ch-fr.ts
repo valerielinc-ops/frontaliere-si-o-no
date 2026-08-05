@@ -1864,6 +1864,18 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.caldo-disparita-sociali-ginevra.title': 'Vague de chaleur : femmes, personnes âgées et pauvres les plus à risque',
     'blog.article.caldo-disparita-sociali-ginevra.excerpt': 'Un rapport de l\'Université de Genève révèle que la capacité à faire face aux vagues de chaleur dépend de facteurs sociaux, économiques et de logement.',
     'blog.article.caldo-disparita-sociali-ginevra.imageAlt': 'Ville suisse pendant une chaude journée d\'été',
+    'blog.article.svizzeri-fuga-estero-costo-casa.title': 'Suisses en fuite au-delà de la frontière : le coût de la maison pèse',
+    'blog.article.svizzeri-fuga-estero-costo-casa.excerpt': 'Plus de 154\'000 Suisses vivent dans des zones frontalières étrangères : une augmentation de 14% tirée par des prix immobiliers insoutenables et des loyers en constante augmentation.',
+    'blog.article.svizzeri-fuga-estero-costo-casa.imageAlt': 'Vue panoramique d\'une zone résidentielle frontalière tra la Suisse et l\'Italie',
+    'blog.article.calo-disavanzo-cantonale-2026.title': 'Déficit cantonal 2026 : baisse à -49,7 millions de francs',
+    'blog.article.calo-disavanzo-cantonale-2026.excerpt': 'Le Conseil d\'État a mis à jour le budget prévisionnel de juin, réduisant le déficit prévu à -49,7 millions de CHF, grâce à une augmentation des revenus et des dépenses contrôlées.',
+    'blog.article.calo-disavanzo-cantonale-2026.imageAlt': 'Bâtiment cantonal à Bellinzone avec des documents financiers sur une table, arrière‑plan alpin.',
+    'blog.article.canicola-lavoro-dialogo-consiglio-stato.title': 'Canicule et travail : le Conseil d\'État entame le dialogue avec les syndicats',
+    'blog.article.canicola-lavoro-dialogo-consiglio-stato.excerpt': 'Le Conseil d\'Etat de Bellinzone rencontre UNIA, OCST, USS et VPOD pour définir des mesures au travail pendant les vagues de chaleur, avec la participation de la Députation tessinoise au niveau fédéral.',
+    'blog.article.canicola-lavoro-dialogo-consiglio-stato.imageAlt': 'Salle du Conseil d\'État à Bellinzona avec lumière du jour, représentants syndicaux et politiciens en discussion.',
+    'blog.article.glencore-aumenta-utili-e-ricavi-nel-semestre.title': 'Glencore augmente ses bénéfices et ses revenus au cours du semestre',
+    'blog.article.glencore-aumenta-utili-e-ricavi-nel-semestre.excerpt': 'La société de trading et de minage a enregistré une forte augmentation de ses bénéfices et de ses revenus au premier semestre 2026',
+    'blog.article.glencore-aumenta-utili-e-ricavi-nel-semestre.imageAlt': 'Image d\'un centre financier de Zurich avec un grand écran montrant les données de Glencore',
 };
 
 export default blogMetaChFr;

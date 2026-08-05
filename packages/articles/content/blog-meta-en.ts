@@ -9271,6 +9271,15 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.indicatore-affari-aziende-luglio.title': 'Business indicator companies: recovery in almost all sectors',
     'blog.article.indicatore-affari-aziende-luglio.excerpt': 'The economic situation of Swiss companies improves according to the KOF Institute of the Federal Polytechnic of Zurich, with an indicator of more than 21.5 points in July.',
     'blog.article.indicatore-affari-aziende-luglio.imageAlt': 'Overview of a financial district in Switzerland with modern buildings',
+    'blog.article.svizzeri-fuga-alloglio-ticino.title': 'Swiss on the run across the border for accommodation',
+    'blog.article.svizzeri-fuga-alloglio-ticino.excerpt': '154,700 Swiss live in border regions. 70% of Romans find rents too high. Como and Varese among the regions concerned.',
+    'blog.article.svizzeri-fuga-alloglio-ticino.imageAlt': 'Panoramic view of Lake Como with Swiss citizens moving to the area',
+    'blog.article.borsa-rotta-isola-15000-punti.title': 'Bag up, route on the island of 15,000 points?',
+    'blog.article.borsa-rotta-isola-15000-punti.excerpt': 'New all-time highs on the Dow Jones and S&P-500 push toward the psychological milestone of 15,000 points, inducing analysts to a more serene look at the present',
+    'blog.article.borsa-rotta-isola-15000-punti.imageAlt': 'Swiss city panorama with financial charts in windows, clear sky',
+    'blog.article.tradate-lite-ferito-trentenne.title': 'Litigation in front of Tradate station: 30-year-old injured',
+    'blog.article.tradate-lite-ferito-trentenne.excerpt': 'An argument between non-EU citizens degenerated into a fight and a 30-year-old man was injured.',
+    'blog.article.tradate-lite-ferito-trentenne.imageAlt': 'A fight in a train station',
 };
 
 export default blogMetaEn;

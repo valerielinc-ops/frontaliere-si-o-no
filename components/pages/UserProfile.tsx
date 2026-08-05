@@ -13,6 +13,7 @@
  */
 
 import React, { useState, useEffect, useCallback, useMemo, useRef } from 'react';
+import IrpefAddizionaleValue from '@/components/shared/IrpefAddizionaleValue';
 import { reportCaughtError } from '@/services/errorReporter';
 import { savePartialProfile } from '@/services/profileFirestore';
 import {
@@ -1489,7 +1490,7 @@ const UserProfile: React.FC = () => {
  {t('profile.muniDistance')}: {selectedMuni.distanceKm} km
  </span>
  <span className="px-2 py-0.5 bg-warning-subtle text-warning text-xs font-bold rounded-md">
- {t('profile.muniIrpef')}: {selectedMuni.irpefAddizionale}%
+ {t('profile.muniIrpef')}: <IrpefAddizionaleValue municipality={selectedMuni} />
  </span>
  <span className="px-2 py-0.5 bg-success-subtle text-success text-xs font-bold rounded-md">
  {t('profile.muniFascia')}: {selectedMuni.fascia}

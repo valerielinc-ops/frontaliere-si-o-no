@@ -2019,7 +2019,6 @@ const JobBoardRailShell: React.FC<{ isDesktopLg: boolean; children: React.ReactN
  adSlot={AD_SLOTS.JOBDETAIL_TOP_BANNER.slot}
  adFormat={AD_SLOTS.JOBDETAIL_TOP_BANNER.format}
  fullWidthResponsive={AD_SLOTS.JOBDETAIL_TOP_BANNER.fullWidthResponsive}
- minHeight={AD_SLOTS.JOBDETAIL_TOP_BANNER.placeholderMinHeight}
  />
  )}
  <div className={RAIL_GRID_CLASS_X} style={railStyle}>
@@ -5538,8 +5537,15 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // static `infeedAdListItemHtml`; cadence is the shared `shouldPlaceInfeedAd`.
  const renderInfeedAd = (keySuffix: string): React.ReactNode => {
  const cfg = isMobile ? AD_SLOTS.JOBLIST_INFEED_MOBILE : AD_SLOTS.JOBLIST_INFEED_DESKTOP;
+ // Reserve from the registry, never a literal: this wrapper hard-coded 280 and
+ // silently outlived the #4302 raise to 336, under-reserving every in-feed unit
+ // in the list (up to JOBLIST_AD_MAX_PER_LIST per page) — issue #4677.
  return (
- <div key={`infeed-${isMobile ? 'm' : 'd'}-${keySuffix}-${adRefreshKey}`} className="min-h-[280px]">
+ <div
+ key={`infeed-${isMobile ? 'm' : 'd'}-${keySuffix}-${adRefreshKey}`}
+ style={{ ['--ad-mh' as string]: `${cfg.placeholderMinHeight}px` }}
+ className="min-h-[var(--ad-mh)]"
+ >
  <AdSenseBanner
  adSlot={cfg.slot}
  adFormat={cfg.format}
@@ -8269,7 +8275,6 @@ const JobBoard: React.FC<JobBoardProps> = ({
  adSlot={AD_SLOTS.JOBDETAIL_TOP_BANNER.slot}
  adFormat={AD_SLOTS.JOBDETAIL_TOP_BANNER.format}
  fullWidthResponsive={AD_SLOTS.JOBDETAIL_TOP_BANNER.fullWidthResponsive}
- minHeight={AD_SLOTS.JOBDETAIL_TOP_BANNER.placeholderMinHeight}
  className="flex-1 min-w-0"
  />
  )}

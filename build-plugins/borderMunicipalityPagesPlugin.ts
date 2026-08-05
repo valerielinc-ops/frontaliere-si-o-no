@@ -11,11 +11,13 @@
  */
 
 import fs from 'node:fs';
+import { irpefDisplayText, irpefDisplayTitle } from '../services/irpefAddizionaleRegime';
 import path from 'node:path';
 import type { Plugin } from 'vite';
 import { WriteCollector } from './batchWrite';
 import { BASE_URL, countHtmlBodyWords, MIN_INDEXABLE_WORDS } from './constants';
 import { buildSeoPageHtml } from './shared/seoPageShell';
+import { composePlaceTitle, TITLE_MAX_CHARS } from './shared/titleSuffix';
 import { endOfContentMultiplexHtml } from './lib/adSlotHtml';
 import { staticPagesFlushed } from './shared/buildSignals';
 import { MUNICIPALITIES, type Municipality } from '../data/municipalities';
@@ -178,6 +180,18 @@ interface Copy {
   role: string;
   h1: (m: Municipality) => string;
   title: (m: Municipality) => string;
+  /**
+   * Second cascade rung for <title> (composePlaceTitle) — shorter than
+   * `title` but still keyword-bearing (issue #4886: a bare-name last
+   * candidate is CTR-dead, no query-intent signal).
+   */
+  titleMid: (m: Municipality) => string;
+  /**
+   * Shortest cascade rung for <title> — never the bare comune name.
+   * Reuses this locale's core "frontalieri Ticino" phrase so even the
+   * minimal form still carries the page's local-SEO keyword.
+   */
+  titleShort: (m: Municipality) => string;
   desc: (m: Municipality, c: BorderCrossing) => string;
   badgeFrontier: (m: Municipality) => string;
   distance: string;
@@ -236,6 +250,8 @@ const COPY = {
     role: 'Comune di frontiera',
     h1: (m: Municipality) => `${m.name}: vivere da frontaliere e lavorare in Ticino`,
     title: (m: Municipality) => `${m.name} frontalieri Ticino: dogana, tasse e tempi`,
+    titleMid: (m: Municipality) => `${m.name} frontalieri Ticino: dogana e tasse`,
+    titleShort: (m: Municipality) => `${m.name}: frontalieri Ticino`,
     desc: (m: Municipality, c: BorderCrossing) => `${m.name} (${m.province}) per frontalieri: distanza dal confine, addizionale IRPEF, affitti stimati e dogana più vicina (${c.name}) con tempi medi.`,
     badgeFrontier: (m: Municipality) => `Fascia ${m.fascia}`,
     distance: 'Distanza confine',
@@ -286,6 +302,8 @@ const COPY = {
     role: 'Border municipality',
     h1: (m: Municipality) => `${m.name}: living in Italy and commuting to Ticino`,
     title: (m: Municipality) => `${m.name} for Ticino commuters: border, tax and time`,
+    titleMid: (m: Municipality) => `${m.name} for Ticino commuters: border and tax`,
+    titleShort: (m: Municipality) => `${m.name} for Ticino commuters`,
     desc: (m: Municipality, c: BorderCrossing) => `${m.name} (${m.province}) for cross-border workers: border distance, local IRPEF surcharge, estimated rents and nearest crossing (${c.name}) with average waits.`,
     badgeFrontier: (m: Municipality) => `Zone ${m.fascia}`,
     distance: 'Border distance',
@@ -336,6 +354,8 @@ const COPY = {
     role: 'Grenzgemeinde',
     h1: (m: Municipality) => `${m.name}: in Italien wohnen und ins Tessin pendeln`,
     title: (m: Municipality) => `${m.name} für Tessin-Pendler: Grenze, Steuer und Zeit`,
+    titleMid: (m: Municipality) => `${m.name} für Tessin-Pendler: Grenze und Steuer`,
+    titleShort: (m: Municipality) => `${m.name} für Tessin-Pendler`,
     desc: (m: Municipality, c: BorderCrossing) => `${m.name} (${m.province}) für Grenzgänger: Distanz zur Grenze, kommunaler IRPEF-Zuschlag, geschätzte Mieten und nächster Übergang (${c.name}).`,
     badgeFrontier: (m: Municipality) => `Zone ${m.fascia}`,
     distance: 'Grenzdistance',
@@ -386,6 +406,8 @@ const COPY = {
     role: 'Commune frontalière',
     h1: (m: Municipality) => `${m.name}: vivre en Italie et travailler au Tessin`,
     title: (m: Municipality) => `${m.name} frontaliers Tessin: douane, impôts et temps`,
+    titleMid: (m: Municipality) => `${m.name} frontaliers Tessin: douane et impôts`,
+    titleShort: (m: Municipality) => `${m.name} frontaliers Tessin`,
     desc: (m: Municipality, c: BorderCrossing) => `${m.name} (${m.province}) pour frontaliers: distance frontière, surtaxe IRPEF locale, loyers estimés et poste frontière le plus proche (${c.name}).`,
     badgeFrontier: (m: Municipality) => `Zone ${m.fascia}`,
     distance: 'Distance frontière',
@@ -595,7 +617,9 @@ function renderScenarioBody(params: {
   const mendrisio = formatInt(commute.mendrisio, locale);
   const lugano = formatInt(commute.lugano, locale);
   const locarno = formatInt(commute.locarno, locale);
-  const irpef = formatDecimal(municipality.irpefAddizionale, locale);
+  // Regime-aware (#4875): the 51 Valle d'Aosta comuni levy no comunal
+  // surcharge — printing their 0 raw on an INDEXED page reads as "cheapest".
+  const irpef = irpefDisplayText(municipality, locale, formatDecimal(municipality.irpefAddizionale, locale));
   const rent = formatInt(municipality.avgRentMonthly, locale);
   const carCost = formatInt(commute.costMonthly, locale);
   // Crossings without traffic-history data yet (e.g. future non-Ticino
@@ -816,6 +840,39 @@ function renderHydrationPanel(params: {
   </section>`;
 }
 
+/**
+ * Budget-aware, place-preserving <title> for a comune di frontiera page.
+ *
+ * The sibling border-municipality plugins (french / german / austrian /
+ * liechtenstein) have run this `composePlaceTitle` cascade since #3772/#4886;
+ * THIS one — the Italian `/vivere-in-ticino/comuni-di-frontiera/` set — was
+ * missed by that sweep and still concatenated an unbounded comune name onto a
+ * 42-44 char boilerplate. Multi-word comuni ("Bardello con Malgesso e
+ * Bregano", "Maccagno con Pino e Veddasca", "San Bartolomeo Val Cavargna")
+ * blow the 66-char cap in all four locales — 5 of the `spa-other` offenders in
+ * post-deploy validation run 30974294824.
+ *
+ * Rungs are longest-first and each keeps the FULL comune name: the boilerplate
+ * shrinks, the place name never does, and the shortest rung still carries this
+ * locale's core "frontalieri Ticino" keyword rather than degrading to a
+ * CTR-dead bare name (#4886 Item 1).
+ *
+ * Raw `.length` (composePlaceTitle's default measure) is exact here: `m.name`
+ * comes from the curated `data/municipalities` gazetteer, not from crawler free
+ * text, so it can never contain an `&`/`<`/`>`/`"` that would expand on escape
+ * — unlike the company-name callers that must pass `(s) => esc(s).length`.
+ *
+ * Exported for `tests/border-municipality-title-cascade.test.ts`, which asserts
+ * the cap over the FULL live gazetteer × 4 locales rather than a sample.
+ */
+export function buildBorderMunicipalityTitle(municipality: Municipality, locale: Locale): string {
+  const copy = COPY[locale];
+  return composePlaceTitle(
+    [copy.title(municipality), copy.titleMid(municipality), copy.titleShort(municipality)],
+    TITLE_MAX_CHARS,
+  );
+}
+
 function renderPage(params: {
   municipality: Municipality;
   locale: Locale;
@@ -872,7 +929,7 @@ function renderPage(params: {
 
     <dl class="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
       ${renderMetric(copy.distance, `${formatDecimal(municipality.distanceKm, locale)} km`, METRIC_DETAIL.municipalDataset[locale])}
-      ${renderMetric(copy.irpef, `${formatDecimal(municipality.irpefAddizionale, locale)}%`, METRIC_DETAIL.localRate[locale])}
+      ${renderMetric(copy.irpef, irpefDisplayText(municipality, locale, `${formatDecimal(municipality.irpefAddizionale, locale)}%`), irpefDisplayTitle(municipality, locale) || METRIC_DETAIL.localRate[locale])}
       ${renderMetric(copy.rent, `EUR ${formatInt(municipality.avgRentMonthly, locale)}`, METRIC_DETAIL.monthlyRent[locale])}
       ${renderMetric(copy.population, formatInt(municipality.population, locale), municipality.province)}
     </dl>
@@ -965,8 +1022,14 @@ function renderPage(params: {
       longitude: municipality.lng,
     },
     subjectOf: {
-      '@type': 'WebPage',
-      name: copy.title(municipality),
+      // Must be the SAME string the page ships as <title>. Before the #4828
+      // cascade both read `copy.title(municipality)` and matched by accident;
+      // capping only the <title> would have made them diverge for exactly the
+      // long-name comuni the cap exists for ("Bardello con Malgesso e Bregano":
+      // WebPage.name 73 char vs <title> ≤66). Structured-data `name` tracking a
+      // different string than the rendered title is a data-quality defect in its
+      // own right, so both go through the one builder.
+      name: buildBorderMunicipalityTitle(municipality, locale),
       url: canonicalUrl,
     },
   });
@@ -988,7 +1051,7 @@ function renderPage(params: {
   );
   const html = buildSeoPageHtml({
     locale,
-    title: copy.title(municipality),
+    title: buildBorderMunicipalityTitle(municipality, locale),
     description: copy.desc(municipality, crossing),
     canonicalUrl,
     hreflangHtml: buildAlternates(municipality),

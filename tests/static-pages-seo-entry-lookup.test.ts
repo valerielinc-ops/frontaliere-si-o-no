@@ -246,6 +246,100 @@ describe('seo source files parse contract (real files)', () => {
     expect(offenders, `structuredData parse-breakers (jsToJson would silently drop these):\n${offenders.join('\n')}`).toEqual([]);
   });
 
+  // The general form of the gate above, and the one that would have caught the
+  // #5004 regression the two specific gates missed: a spread of an IMPORTED
+  // identifier (`...ORGANIZATION_LD_FULL`) inside a structuredData literal.
+  //
+  // staticPagesPlugin regex-parses this file, it does not import it — its
+  // `constDefs` map only resolves `const NAME = …` declared in the concatenated
+  // source, never an imported binding. The spread therefore survives into
+  // jsToJson as literal text, JSON.parse throws, and the silent
+  // `catch { /* skip SD */ }` drops the ENTIRE structuredData array for that
+  // entry — every node in it, not just the offending one. On the home entry
+  // that is WebSite + SearchAction + WebPage gone, with a green build.
+  //
+  // Rather than enumerate breaker constructs one at a time (`//` comments,
+  // method calls, now spreads), assert the property that actually matters:
+  // every literal must survive the real parse path.
+  /** Same brace/bracket walk as staticPagesPlugin's local `extractBalanced`. */
+  const extractBalancedLiteral = (src: string, pos: number): string | null => {
+    const open = src[pos];
+    if (open !== '{' && open !== '[') return null;
+    const close = open === '{' ? '}' : ']';
+    let depth = 0;
+    let instr: string | null = null;
+    for (let i = pos; i < src.length; i++) {
+      const c = src[i];
+      if (instr) {
+        if (c === '\\') { i++; continue; }
+        if (c === instr) instr = null;
+        continue;
+      }
+      if (c === '"' || c === "'" || c === '`') { instr = c; continue; }
+      if (c === open) depth++;
+      else if (c === close) { depth--; if (depth === 0) return src.slice(pos, i + 1); }
+    }
+    return null;
+  };
+
+  it('EVERY structuredData literal survives the real jsToJson → JSON.parse path', () => {
+    const src = readFileSync(path.resolve(ROOT, 'services', 'seo', 'seo-pages.ts'), 'utf-8');
+    const entries = parseEntries(src);
+
+    // Mirror staticPagesPlugin's constDefs pass (its lines ~1988 and ~2077):
+    // a `const NAME = …` DECLARED IN THIS SOURCE is substituted into the
+    // literal before jsToJson runs, which is why SPEAKABLE_SECTION and
+    // HOWTO_CALCULATOR are legitimate. An IMPORTED binding is not in this map
+    // and never gets resolved — that asymmetry is the whole bug class.
+    const constDefs = new Map<string, string>();
+    const constRefRx = /^const\s+([A-Z_][A-Z0-9_]*)\s*=\s*/gm;
+    let cMatch: RegExpExecArray | null;
+    while ((cMatch = constRefRx.exec(src)) !== null) {
+      const valStart = cMatch.index + cMatch[0].length;
+      const balanced = extractBalancedLiteral(src, valStart);
+      if (balanced) constDefs.set(cMatch[1], balanced);
+    }
+    const resolveConsts = (sd: string): string => {
+      let out = sd;
+      for (const [name, value] of constDefs) {
+        out = out.replace(new RegExp(`(?<=[\\[,\\s])${name}(?=[\\],\\s,;])`, 'g'), value);
+      }
+      return out;
+    };
+
+    const offenders: string[] = [];
+    for (const [cp, { sd }] of entries) {
+      if (!sd) continue;
+      try {
+        JSON.parse(
+          jsToJson(resolveConsts(sd), { baseUrl: BASE_URL, buildDateIso: '2026-01-01T00:00:00.000Z' }),
+        );
+      } catch (err) {
+        offenders.push(`${cp}: ${(err as Error).message}`);
+      }
+    }
+    expect(
+      offenders,
+      `structuredData that staticPagesPlugin would SILENTLY DROP (whole array, no build error):\n${offenders.join('\n')}`,
+    ).toEqual([]);
+  });
+
+  // Narrower companion, for a clearer failure message than a JSON position
+  // offset when someone reaches for the obvious refactor.
+  it('no structuredData literal spreads an identifier (regex parser cannot resolve it)', () => {
+    const src = readFileSync(path.resolve(ROOT, 'services', 'seo', 'seo-pages.ts'), 'utf-8');
+    const entries = parseEntries(src);
+    const spreadRx = /\.\.\.[A-Za-z_$][\w$]*/;
+    const offenders: string[] = [];
+    for (const [cp, { sd }] of entries) {
+      if (!sd) continue;
+      const noStrings = sd.replace(/"(?:[^"\\]|\\.)*"|'(?:[^'\\]|\\.)*'|`[^`]*`/g, '""');
+      const m = noStrings.match(spreadRx);
+      if (m) offenders.push(`${cp}: spreads ${m[0]} — this file is regex-parsed, not imported`);
+    }
+    expect(offenders, offenders.join('\n')).toEqual([]);
+  });
+
   it('/supporto/ and /metodologia/ structuredData parse to their declared @type', () => {
     const src = readFileSync(path.resolve(ROOT, 'services', 'seo', 'seo-pages.ts'), 'utf-8');
     const entries = parseEntries(src);

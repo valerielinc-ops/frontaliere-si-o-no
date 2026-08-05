@@ -165,11 +165,13 @@ jobs:
           exit "$fail"
 
       # Mirrors the fault-tolerant parallel-push pattern at deploy.yml
-      # (`push-section-shard.sh` loop, MAX_PARALLEL / `|| fail=1` / `wait`) —
-      # incident 2026-07-24 (run 30057726623): one section's push failure
-      # silently aborted the rest of the loop before it. At most 4 locales
-      # here (never 27 sections), so no MAX_PARALLEL batching is needed — all
-      # 4 legs are simply backgrounded and waited on individually.
+      # (`push-section-shard.sh` fan-out, since #5130 driven by
+      # scripts/lib/bounded-parallel.sh: a failing item is recorded, never
+      # allowed to abort the rest) — incident 2026-07-24 (run 30057726623):
+      # one section's push failure silently aborted the rest of the loop
+      # before it. At most 4 locales here (never 27 sections), so no
+      # concurrency cap is needed and the shared driver would buy nothing —
+      # all 4 legs are simply backgrounded and waited on individually.
       #
       # `<section>` passed to push-article-shard-incremental.sh is the SHARD
       # section token (articolifrontaliere / articolisvizzera — the

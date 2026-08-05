@@ -307,7 +307,6 @@ export default function CalcolatoreTabContent() {
  adSlot={AD_SLOTS.HOMEPAGE_MID_DISPLAY.slot}
  adFormat={AD_SLOTS.HOMEPAGE_MID_DISPLAY.format}
  fullWidthResponsive={AD_SLOTS.HOMEPAGE_MID_DISPLAY.fullWidthResponsive}
- minHeight={AD_SLOTS.HOMEPAGE_MID_DISPLAY.placeholderMinHeight}
  className="mt-6 mb-4"
  enabled={!!result}
  reserveSpace

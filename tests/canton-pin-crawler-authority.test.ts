@@ -32,7 +32,7 @@ import {
   normalizeParsedJobsForSlice,
 } from '../scripts/assemble-jobs-dataset.mjs';
 // @ts-expect-error — plain .mjs lib, no type declarations
-import { inferAnyCanton } from '../scripts/lib/target-swiss-locations.mjs';
+import { inferAnyCanton, isTargetCanton } from '../scripts/lib/target-swiss-locations.mjs';
 
 /** Test fixtures must never carry absolute dates (AGENTS.md → test fixtures). */
 const daysAgo = (n: number) => new Date(Date.now() - n * 86_400_000).toISOString();
@@ -97,6 +97,25 @@ describe('resolveCantonAgainstPin — the job outranks the ledger', () => {
   it('normalises case so a lowercase crawler canton is not read as a contradiction', () => {
     expect(resolveCantonAgainstPin({ jobCanton: 'nw', inferredCanton: null, pinnedCanton: 'NW' }))
       .toMatchObject({ canton: 'NW', outcome: 'pin-agrees' });
+  });
+
+  it('does not let an OFF-FUNNEL canton overrule the pin, nor enter the ledger', () => {
+    // Three live records carry the country code "CH" in the canton field.
+    // /cerca-lavoro-ch/ does not exist, so letting it win would convert a job
+    // the pin was placing correctly into an orphan with no URL section — the
+    // outcome acceptInferredCantonForFill already blocks on the inference path.
+    expect(isTargetCanton('CH')).toBe(false);
+    expect(resolveCantonAgainstPin({ jobCanton: 'CH', inferredCanton: null, pinnedCanton: 'ZH' }))
+      .toEqual({ canton: 'ZH', pin: 'ZH', outcome: 'pin-frozen' });
+    // …and it is never seeded into the ledger as a new pin either.
+    expect(resolveCantonAgainstPin({ jobCanton: 'CH', inferredCanton: 'ZH', pinnedCanton: undefined }))
+      .toMatchObject({ pin: '', outcome: 'unpinned' });
+  });
+
+  it('leaves an off-funnel canton untouched when there is no pin to fall back on', () => {
+    // Blanking it here would hide a crawler bug the location audit should see.
+    expect(resolveCantonAgainstPin({ jobCanton: 'CH', inferredCanton: null, pinnedCanton: undefined }))
+      .toEqual({ canton: 'CH', pin: '', outcome: 'unpinned' });
   });
 });
 

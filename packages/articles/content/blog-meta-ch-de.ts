@@ -1864,6 +1864,18 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.caldo-disparita-sociali-ginevra.title': 'Hitzewelle: Frauen, ältere und arme Menschen am stärksten gefährdet',
     'blog.article.caldo-disparita-sociali-ginevra.excerpt': 'Ein Bericht der Universität Genf zeigt, dass die Fähigkeit, mit Hitzewellen umzugehen, von sozialen, wirtschaftlichen und Wohnfaktoren abhängt.',
     'blog.article.caldo-disparita-sociali-ginevra.imageAlt': 'Schweizer Stadt an einem heissen Sommertag',
+    'blog.article.svizzeri-fuga-estero-costo-casa.title': 'Schweizer auf der Flucht über die Grenze: Wiegen Sie die Kosten des Hauses',
+    'blog.article.svizzeri-fuga-estero-costo-casa.excerpt': 'Über 154\'000 Schweizerinnen und Schweizer leben in ausländischen Grenzgebieten - ein Plus von 14 Prozent, angetrieben von unhaltbaren Immobilienpreisen und stetig steigenden Mieten.',
+    'blog.article.svizzeri-fuga-estero-costo-casa.imageAlt': 'Panoramablick auf ein Wohngebiet im Grenzgebiet zwischen der Schweiz und Italien',
+    'blog.article.calo-disavanzo-cantonale-2026.title': 'Kantonales Defizit 2026: Rückgang auf -49,7 Mio. Franken',
+    'blog.article.calo-disavanzo-cantonale-2026.excerpt': 'Der Staatsrat hat den Vorabschluss für Juni aktualisiert und das prognostizierte Defizit dank gesteigerter Erträge und kontrollierter Ausgaben auf -49,7 Mio. CHF gesenkt.',
+    'blog.article.calo-disavanzo-cantonale-2026.imageAlt': 'Kantonsgebäude in Bellinzona mit Finanzunterlagen auf einem Tisch, Alpenkulisse.',
+    'blog.article.canicola-lavoro-dialogo-consiglio-stato.title': 'Hitzewallung und Arbeit: Staatsrat nimmt Dialog mit Gewerkschaften auf',
+    'blog.article.canicola-lavoro-dialogo-consiglio-stato.excerpt': 'Der Staatsrat von Bellinzona trifft sich mit der UNIA, dem OCST, dem SGB und dem VPOD, um Maßnahmen bei der Arbeit während der Hitzewellen unter Einbeziehung des Tessiner Departements auf Bundesebene zu definieren.',
+    'blog.article.canicola-lavoro-dialogo-consiglio-stato.imageAlt': 'Ratssaal in Bellinzona mit Sonnenlicht, Gewerkschaftsvertreter und Politiker im Gespräch.',
+    'blog.article.glencore-aumenta-utili-e-ricavi-nel-semestre.title': 'Glencore steigert Gewinn und Umsatz im Halbjahr',
+    'blog.article.glencore-aumenta-utili-e-ricavi-nel-semestre.excerpt': 'Das Handels- und Miningunternehmen verzeichnete im ersten Halbjahr 2026 einen starken Gewinn- und Ertragszuwachs',
+    'blog.article.glencore-aumenta-utili-e-ricavi-nel-semestre.imageAlt': 'Bild eines Finanzzentrums von Zürich mit einem großen Bildschirm, der die Glencore-Daten zeigt',
 };
 
 export default blogMetaChDe;

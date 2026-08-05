@@ -15,7 +15,7 @@ import {
   getCrawlerElapsedMs,
 } from './jobs-url-helper.mjs';
 import {
-  writeJobsCrawlerSlice,
+  writeJobsCrawlerSliceVerified,
   writeSummaryCrawlerSlice,
   registerCrawlerSummaryGuard,
   assembleJobsDataset,
@@ -33,6 +33,7 @@ import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
+import { STRONG_PHRASES } from './lib/validate-job-url.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -207,7 +208,7 @@ async function gotoGracePage(page, url, { attempts = 3, timeoutMs = 45000 } = {}
   let lastError = null;
   for (let attempt = 1; attempt <= attempts; attempt += 1) {
     try {
-      await page.goto(url, { waitUntil: 'domcontentloaded', timeout: timeoutMs });
+      const response = await page.goto(url, { waitUntil: 'domcontentloaded', timeout: timeoutMs });
       await page.waitForTimeout(attempt === 1 ? 2500 : 4500);
       if (await isChallengePage(page)) {
         lastError = new Error(`challenge attempt ${attempt}/${attempts}`);
@@ -216,7 +217,7 @@ async function gotoGracePage(page, url, { attempts = 3, timeoutMs = 45000 } = {}
           continue;
         }
       }
-      return;
+      return response;
     } catch (err) {
       lastError = err;
       if (attempt < attempts) {
@@ -445,6 +446,67 @@ async function fetchJobDetails(listings) {
     }
 
     return jobs;
+  });
+}
+
+// ──────────────────────────────────────────────────────────────
+// Shrink-guard evidence probing
+// ──────────────────────────────────────────────────────────────
+
+/**
+ * Browser-based validator for writeJobsCrawlerSliceVerified's anti-shrink
+ * guard (#5016/#5017). The default `validateJobUrls` (scripts/lib/validate-job-url.mjs)
+ * probes with a bare `fetch()`, which hotelcareer.com's Cloudflare protection
+ * always answers with 403 — the SAME protection this crawler needs a full
+ * Playwright browser to get past for the listing/detail pages in the first
+ * place. A fail-open 403 can never be "definitive" evidence, so every
+ * genuine shrink (e.g. seasonal postings expiring) was structurally
+ * unprovable and permanently bricked the crawler (10 consecutive failed
+ * runs, #5138). This validator reuses the same browser + challenge-retry
+ * (`withBrowser`/`gotoGracePage`/`isChallengePage`) the crawler already uses
+ * to resolve the challenge, so a disappeared job can actually be probed:
+ * HTTP 404/410, redirect back to the generic listing URL, or a "no longer
+ * available" phrase are definitive-dead; anything else (still live, or the
+ * challenge never resolves) stays fail-open, so a blocked probe still can
+ * never masquerade as proof.
+ */
+async function verifyGraceJobUrlsBrowser(jobs, { timeoutMs } = {}) {
+  return withBrowser(async (context) => {
+    const results = [];
+    const genericListing = CAREERS_URL.replace(/\/+$/, '');
+    for (const j of jobs) {
+      const page = await context.newPage();
+      try {
+        let response;
+        try {
+          response = await gotoGracePage(page, j.url, { timeoutMs: timeoutMs || 45000 });
+        } catch (err) {
+          // Challenge never resolved / navigation failed — inconclusive.
+          results.push({ id: j.id, valid: true, reason: 'network-error-or-challenge' });
+          continue;
+        }
+        const status = response ? response.status() : 0;
+        if (status === 404 || status === 410) {
+          results.push({ id: j.id, valid: false, status, reason: `http-${status}`, definitive: true });
+          continue;
+        }
+        const finalUrl = page.url().replace(/\/+$/, '');
+        if (finalUrl === genericListing) {
+          results.push({ id: j.id, valid: false, status, reason: 'redirect-to-generic-listing', definitive: true });
+          continue;
+        }
+        const bodyText = compact((await page.locator('body').textContent().catch(() => '')) || '').toLowerCase();
+        const closedPhrase = STRONG_PHRASES.find((p) => bodyText.includes(p));
+        if (closedPhrase) {
+          results.push({ id: j.id, valid: false, status, reason: `phrase:${closedPhrase}`, definitive: true });
+          continue;
+        }
+        results.push({ id: j.id, valid: true, status, reason: 'still-live-or-ambiguous' });
+      } finally {
+        await page.close();
+      }
+    }
+    return results;
   });
 }
 
@@ -681,7 +743,16 @@ async function main() {
   const _durationMs = getCrawlerElapsedMs();
   const _sliceRaw = fs.existsSync(DATA_JOBS) ? JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8')) : [];
   const _sliceJobs = Array.isArray(_sliceRaw) ? _sliceRaw.filter(isTargetJob) : [];
-  writeJobsCrawlerSlice(COMPANY_KEY, _sliceJobs);
+  // Evidence-gated write (#5016/#5017). This crawler has its own pipeline
+  // (it does not go through runStandardCrawlerPipeline), so it opts into the
+  // same acceptance path explicitly: if the anti-shrink guard trips, every
+  // job the smaller slice drops is probed at its own hotelcareer.com detail
+  // URL and the write only proceeds when all of them are provably gone.
+  // Custom `validate` (#5138): the default fetch-based validator always gets
+  // 403'd by hotelcareer.com's Cloudflare protection, so probing needs the
+  // same Playwright browser this crawler already uses for the listing/detail
+  // pages — see verifyGraceJobUrlsBrowser above.
+  await writeJobsCrawlerSliceVerified(COMPANY_KEY, _sliceJobs, { validate: verifyGraceJobUrlsBrowser });
   writeSummaryCrawlerSlice({
     key: COMPANY_KEY,
     label: 'grace',

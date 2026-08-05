@@ -67,6 +67,38 @@ describe('workflow inputs never reach a run: block as script text (#5032)', () =
     expect(scanWorkflows(path.join(FIXTURES_DIR, 'safe'))).toEqual([]);
   });
 
+  it('takes the LEAST constrained declaration when dispatch and call disagree', () => {
+    // `choice` is dispatch-only, so a workflow offering the same knob to callers
+    // re-declares it as `string`. The value can arrive through either path, so
+    // the gate must reason about the weakest guarantee, not the last one parsed.
+    const violations: Violation[] = scanWorkflows(path.join(FIXTURES_DIR, 'dual-declared'));
+    expect(violations).toHaveLength(1);
+    expect(violations[0].reason).toMatch(/type "string"/);
+  });
+
+  it('fails CLOSED on an expression it cannot terminate', () => {
+    // A scanner that silently skips what it cannot parse is the one failure
+    // mode a security gate must not have.
+    const violations: Violation[] = scanWorkflows(path.join(FIXTURES_DIR, 'unterminated'));
+    expect(violations).toHaveLength(1);
+    expect(violations[0].reason).toMatch(/unterminated/);
+  });
+
+  it('fails CLOSED when an input is named outside any parsed expression', () => {
+    const violations: Violation[] = scanWorkflows(path.join(FIXTURES_DIR, 'ref-outside-expression'));
+    expect(violations).toHaveLength(1);
+    expect(violations[0].reason).toMatch(/outside any parsed/);
+  });
+
+  it('rejects a choice option shaped like a FLAG rather than a value', () => {
+    // Not a shell metacharacter, but `--force` interpolated as a bare word
+    // becomes a flag for the downstream script — constrained-but-flag-shaped is
+    // not the property this exemption promises.
+    const violations: Violation[] = scanWorkflows(path.join(FIXTURES_DIR, 'flag-shaped-choice'));
+    expect(violations).toHaveLength(1);
+    expect(violations[0].expr).toBe('--force');
+  });
+
   it('rejects a choice whose declared options are NOT shell-safe', () => {
     // The whole reason `choice` may stay inline is that Actions rejects any
     // value outside `options`. An option carrying a metacharacter voids that,

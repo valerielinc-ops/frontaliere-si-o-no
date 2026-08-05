@@ -1,4 +1,6 @@
 import React, { useState, useMemo, useCallback, useEffect, useDeferredValue } from 'react';
+import { leviesIrpefAddizionale, compareIrpefAddizionaleWithDirection } from '@/services/irpefAddizionaleRegime';
+import IrpefAddizionaleValue from '@/components/shared/IrpefAddizionaleValue';
 import { useMediaQuery } from '@/hooks/useMediaQuery';
 import { useTranslation } from '@/services/i18n';
 import { borderCrossings } from '@/data/borderCrossings';
@@ -127,11 +129,13 @@ const BorderMunicipalitiesMap: React.FC<Props> = ({ userProfile }) => {
  // Sort municipalities
  const sortedMunicipalities = useMemo(() => {
  return [...municipalitiesWithTax].sort((a, b) => {
+ if (deferredSortField === 'addizionale') {
+ return compareIrpefAddizionaleWithDirection(a, b, deferredSortDir);
+ }
  let cmp = 0;
  switch (deferredSortField) {
  case 'name': cmp = a.name.localeCompare(b.name, 'it'); break;
  case 'tax': cmp = a.taxResult.finalItalianTaxEUR - b.taxResult.finalItalianTaxEUR; break;
- case 'addizionale': cmp = a.irpefAddizionale - b.irpefAddizionale; break;
  case 'distance': cmp = a.distanceKm - b.distanceKm; break;
  }
  return deferredSortDir === 'asc' ? cmp : -cmp;
@@ -172,6 +176,11 @@ const BorderMunicipalitiesMap: React.FC<Props> = ({ userProfile }) => {
  const getColor = (m: Municipality): string => {
  switch (colorMode) {
  case 'irpef': {
+ // A comune under the no-surcharge regime (Valle d'Aosta, special statute)
+ // is not on this scale at all — colouring it green said "cheapest rate"
+ // for a tax it does not levy (#4875). Neutral colour + the popup's `n.d.`
+ // disclosure instead of the best bucket it never earned.
+ if (!leviesIrpefAddizionale(m)) return MAP_COLORS.neutral;
  if (m.irpefAddizionale <= 0.5) return MAP_COLORS.success;
  if (m.irpefAddizionale <= 0.65) return MAP_COLORS.warning;
  return MAP_COLORS.danger;
@@ -299,7 +308,7 @@ const BorderMunicipalitiesMap: React.FC<Props> = ({ userProfile }) => {
  <p className="font-bold text-sm">{m.name}</p>
  <p className="text-muted">{m.province} — {t('bordermap.fascia')} {m.fascia}</p>
  <hr />
- <p>📊 IRPEF add.: <b>{m.irpefAddizionale}%</b></p>
+ <p>📊 IRPEF add.: <b><IrpefAddizionaleValue municipality={m} /></b></p>
  <p>📏 {t('bordermap.distCrossing')}: <b>{m.distanceKm} km</b></p>
  <p>🏠 {t('bordermap.avgRent')}: <b>€{m.avgRentMonthly}/mese</b></p>
  <p>👥 {t('bordermap.pop')}: <b>{m.population.toLocaleString('it-IT')}</b></p>
@@ -323,7 +332,7 @@ const BorderMunicipalitiesMap: React.FC<Props> = ({ userProfile }) => {
  <div className="grid grid-cols-2 gap-3 text-center">
  <div className="p-2 bg-surface-alt rounded-lg">
  <p className="text-sm text-muted">{t('bordermap.mode.irpef')}</p>
- <p className="text-lg font-bold text-strong">{selectedMunicipality.irpefAddizionale}%</p>
+ <p className="text-lg font-bold text-strong"><IrpefAddizionaleValue municipality={selectedMunicipality} /></p>
  </div>
  <div className="p-2 bg-surface-alt rounded-lg">
  <p className="text-sm text-muted">{t('bordermap.distCrossing')}</p>
@@ -431,7 +440,7 @@ const BorderMunicipalitiesMap: React.FC<Props> = ({ userProfile }) => {
  </div>
  <div className="p-2 bg-surface rounded-lg">
  <p className="text-sm text-muted">{t('bordermap.addComunale')}</p>
- <p className="text-lg font-bold text-body">{compareWith.irpefAddizionale}%</p>
+ <p className="text-lg font-bold text-body"><IrpefAddizionaleValue municipality={compareWith} /></p>
  </div>
  <div className="p-2 bg-surface rounded-lg">
  <p className="text-sm text-muted">{t('bordermap.addRegionale')}</p>
@@ -627,7 +636,7 @@ const BorderMunicipalitiesMap: React.FC<Props> = ({ userProfile }) => {
  </div>
  <div className="p-2 bg-surface rounded-lg">
  <p className="text-sm text-muted">{t('bordermap.addComunale')}</p>
- <p className="text-lg font-bold text-body">{compareWith.irpefAddizionale}%</p>
+ <p className="text-lg font-bold text-body"><IrpefAddizionaleValue municipality={compareWith} /></p>
  </div>
  <div className="p-2 bg-surface rounded-lg">
  <p className="text-sm text-muted">{t('bordermap.addRegionale')}</p>
@@ -697,7 +706,7 @@ const BorderMunicipalitiesMap: React.FC<Props> = ({ userProfile }) => {
  <p className="font-bold text-sm">{m.name}</p>
  <p className="text-muted">{m.province} — {t('bordermap.fascia')} {m.fascia}</p>
  <hr />
- <p>📊 IRPEF add.: <b>{m.irpefAddizionale}%</b></p>
+ <p>📊 IRPEF add.: <b><IrpefAddizionaleValue municipality={m} /></b></p>
  <p>📏 {t('bordermap.distCrossing')}: <b>{m.distanceKm} km</b></p>
  <p>🏠 {t('bordermap.avgRent')}: <b>€{m.avgRentMonthly}/mese</b></p>
  <p>👥 {t('bordermap.pop')}: <b>{m.population.toLocaleString('it-IT')}</b></p>
@@ -721,7 +730,7 @@ const BorderMunicipalitiesMap: React.FC<Props> = ({ userProfile }) => {
  <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
  <div className="p-3 bg-surface-alt rounded-lg">
  <p className="text-sm text-muted">{t('bordermap.mode.irpef')}</p>
- <p className="text-xl font-bold text-strong">{selectedMunicipality.irpefAddizionale}%</p>
+ <p className="text-xl font-bold text-strong"><IrpefAddizionaleValue municipality={selectedMunicipality} /></p>
  </div>
  <div className="p-3 bg-surface-alt rounded-lg">
  <p className="text-sm text-muted">{t('bordermap.distCrossing')}</p>
@@ -819,7 +828,7 @@ const BorderMunicipalitiesMap: React.FC<Props> = ({ userProfile }) => {
  <div className="grid grid-cols-2 gap-2 mb-3">
  <div className="p-2 bg-surface-alt rounded-lg">
  <p className="text-sm text-muted">{t('bordermap.addComunale')}</p>
- <p className="text-sm font-bold text-body">{m.irpefAddizionale}% <span className="text-xs font-normal text-muted">(€{formatEUR(m.taxResult.addizionaleComunale)})</span></p>
+ <p className="text-sm font-bold text-body"><IrpefAddizionaleValue municipality={m} /> <span className="text-xs font-normal text-muted">(€{formatEUR(m.taxResult.addizionaleComunale)})</span></p>
  </div>
  <div className="p-2 bg-surface-alt rounded-lg">
  <p className="text-sm text-muted">{t('bordermap.addRegionale')}</p>
