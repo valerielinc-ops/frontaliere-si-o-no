@@ -11,8 +11,104 @@
     "https://www.pemsa.ch/it/le-nostre-offerte-di-lavoro/"
   ],
   "notes": "Dedicated PEMSA crawler. National listing (all cantons). Detail pages have JSON-LD JobPosting with full location data; canton inferred per-job from the city. Construction/trades staffing agency.",
-  "updatedAt": "2026-08-04T11:40:36.392Z",
+  "updatedAt": "2026-08-05T11:35:14.852Z",
   "seedMetaByUrl": {
+    "https://www.pemsa.ch/it/job/lattoniere-conciatetti-m-f-d-100-2685768/": {
+      "location": "Martigny",
+      "canton": "VS",
+      "company": "PEMSA",
+      "postedDate": "2026-08-04"
+    },
+    "https://www.pemsa.ch/it/job/lattoniere-zincatore-m-f-d-100-2685765/": {
+      "location": "Sion",
+      "canton": "VS",
+      "company": "PEMSA",
+      "postedDate": "2026-08-04"
+    },
+    "https://www.pemsa.ch/it/job/installatore-elettricista-afc-m-f-d-2685762/": {
+      "location": "Martigny",
+      "canton": "VS",
+      "company": "PEMSA",
+      "postedDate": "2026-08-04"
+    },
+    "https://www.pemsa.ch/it/job/installatore-elettricista-afc-m-f-d-2685759/": {
+      "location": "Riddes",
+      "canton": "VS",
+      "company": "PEMSA",
+      "postedDate": "2026-08-04"
+    },
+    "https://www.pemsa.ch/it/job/installatore-elettricista-afc-m-f-d-2685756/": {
+      "location": "Sion",
+      "canton": "VS",
+      "company": "PEMSA",
+      "postedDate": "2026-08-04"
+    },
+    "https://www.pemsa.ch/it/job/responsabile-di-progetto-nel-settore-elettrico-2685754/": {
+      "location": "Genève",
+      "canton": "GE",
+      "company": "PEMSA",
+      "postedDate": "2026-08-04"
+    },
+    "https://www.pemsa.ch/it/job/installatore-di-impianti-idraulici-m-f-d-100-2685742/": {
+      "location": "Ardon",
+      "canton": "VS",
+      "company": "PEMSA",
+      "postedDate": "2026-08-04"
+    },
+    "https://www.pemsa.ch/it/job/installatore-di-impianti-idraulici-m-f-d-100-2685738/": {
+      "location": "Martigny",
+      "canton": "VS",
+      "company": "PEMSA",
+      "postedDate": "2026-08-04"
+    },
+    "https://www.pemsa.ch/it/job/installatore-di-impianti-sanitari-afc-m-f-d-100-2685735/": {
+      "location": "Sion",
+      "canton": "VS",
+      "company": "PEMSA",
+      "postedDate": "2026-08-04"
+    },
+    "https://www.pemsa.ch/it/job/installatore-di-impianti-di-riscaldamento-m-f-d-100-2685732/": {
+      "location": "Martigny",
+      "canton": "VS",
+      "company": "PEMSA",
+      "postedDate": "2026-08-04"
+    },
+    "https://www.pemsa.ch/it/job/installatore-di-impianti-di-riscaldamento-m-f-d-100-2685727/": {
+      "location": "Sion",
+      "canton": "VS",
+      "company": "PEMSA",
+      "postedDate": "2026-08-04"
+    },
+    "https://www.pemsa.ch/it/job/muratore-edile-q-afc-a-b-2685724/": {
+      "location": "Martigny",
+      "canton": "VS",
+      "company": "PEMSA",
+      "postedDate": "2026-08-04"
+    },
+    "https://www.pemsa.ch/it/job/muratore-edile-q-afc-a-b-2685721/": {
+      "location": "Sion",
+      "canton": "VS",
+      "company": "PEMSA",
+      "postedDate": "2026-08-04"
+    },
+    "https://www.pemsa.ch/it/job/muratore-edile-q-afc-a-b-2685717/": {
+      "location": "Sierre",
+      "canton": "VS",
+      "company": "PEMSA",
+      "postedDate": "2026-08-04"
+    },
+    "https://www.pemsa.ch/it/job/posatore-posatrice-posatore-di-muri-a-secco-autonomo-a-m-f-d-100-2685713/": {
+      "location": "Sierre",
+      "canton": "VS",
+      "company": "PEMSA",
+      "postedDate": "2026-08-04"
+    },
+    "https://www.pemsa.ch/it/job/tecnico-specializzato-in-vetri-per-autoveicoli-m-f-2685701/": {
+      "location": "Neuchâtel",
+      "canton": "NE",
+      "company": "PEMSA",
+      "postedDate": "2026-08-04"
+    },
     "https://www.pemsa.ch/it/job/elettricista-di-montaggio-afc-m-f-d-2685688/": {
       "location": "Basel",
       "canton": "BS",
@@ -27,12 +123,6 @@
     },
     "https://www.pemsa.ch/it/job/installatore-di-impianti-di-ventilazione-vd-2685673/": {
       "location": "Renens VD",
-      "canton": "VD",
-      "company": "PEMSA",
-      "postedDate": "2026-08-04"
-    },
-    "https://www.pemsa.ch/it/job/operario-di-officina-m-f-2685669/": {
-      "location": "Aigle",
       "canton": "VD",
       "company": "PEMSA",
       "postedDate": "2026-08-04"
@@ -829,27 +919,9 @@
       "company": "PEMSA",
       "postedDate": "2026-07-20"
     },
-    "https://www.pemsa.ch/it/job/copritetto-2683995/": {
-      "location": "Bellinzona",
-      "canton": "TI",
-      "company": "PEMSA",
-      "postedDate": "2026-07-20"
-    },
     "https://www.pemsa.ch/it/job/rottamatore-2683963/": {
       "location": "Bulle",
       "canton": "FR",
-      "company": "PEMSA",
-      "postedDate": "2026-07-20"
-    },
-    "https://www.pemsa.ch/it/job/elettromeccanico-per-impianti-di-betonaggio-2683958/": {
-      "location": "Locarno",
-      "canton": "TI",
-      "company": "PEMSA",
-      "postedDate": "2026-07-20"
-    },
-    "https://www.pemsa.ch/it/job/gessatore-intonacatore-2683955/": {
-      "location": "Locarno",
-      "canton": "TI",
       "company": "PEMSA",
       "postedDate": "2026-07-20"
     },
@@ -957,24 +1029,6 @@
     },
     "https://www.pemsa.ch/it/job/assistente-installatore-di-impianti-idraulici-2682968/": {
       "location": "Marly",
-      "canton": "FR",
-      "company": "PEMSA",
-      "postedDate": "2026-07-13"
-    },
-    "https://www.pemsa.ch/it/job/installatore-cablatore-di-quadri-elettrici-2682965/": {
-      "location": "Vevey",
-      "canton": "VD",
-      "company": "PEMSA",
-      "postedDate": "2026-07-13"
-    },
-    "https://www.pemsa.ch/it/job/elettricista-qualificato-e-autonomo-2682962/": {
-      "location": "Rossens FR",
-      "canton": "FR",
-      "company": "PEMSA",
-      "postedDate": "2026-07-13"
-    },
-    "https://www.pemsa.ch/it/job/responsabile-di-officina-per-quadri-elettrici-2682958/": {
-      "location": "Bulle",
       "canton": "FR",
       "company": "PEMSA",
       "postedDate": "2026-07-13"
