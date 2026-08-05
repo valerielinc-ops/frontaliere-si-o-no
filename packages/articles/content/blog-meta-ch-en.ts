@@ -1831,6 +1831,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.cile-1988-democrazia-svizzera.title': 'Chile 1988: lessons from the end of a dictatorship',
     'blog.article.cile-1988-democrazia-svizzera.excerpt': 'The Chilean plebiscite of 1988 marked the end of 15 years of military dictatorship led by Pinochet.',
     'blog.article.cile-1988-democrazia-svizzera.imageAlt': 'Aerial view of Lugano with Ticino landscape in the background',
+    'blog.article.franco-svizzero-economia-bns-politica-monetaria.title': 'Swiss Franc: Economics and Monetary Policy of the SNB',
+    'blog.article.franco-svizzero-economia-bns-politica-monetaria.excerpt': 'Learn about the role of the Swiss National Bank in monetary policy and the impact of the strong franc on the economy and wages.',
+    'blog.article.franco-svizzero-economia-bns-politica-monetaria.imageAlt': 'Panoramic view of Lugano with the lake and mountains',
 };
 
 export default blogMetaChEn;
