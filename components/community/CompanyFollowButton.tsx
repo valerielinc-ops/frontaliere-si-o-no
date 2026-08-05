@@ -4,9 +4,9 @@ import { useTranslation } from '@/services/i18n';
 import type { Locale } from '@/services/i18n';
 import {
   companyAlertKey,
+  deleteAlert,
   findCompanyAlert,
   subscribeCompanyAlert,
-  updateAlert,
 } from '@/services/jobAlertService';
 
 export type CompanyFollowButtonStatus = 'idle' | 'loading' | 'submitting' | 'following' | 'error';
@@ -37,7 +37,7 @@ export interface CompanyFollowButtonProps {
   /** Test seams. */
   lookup?: typeof findCompanyAlert;
   subscribe?: typeof subscribeCompanyAlert;
-  unfollow?: typeof updateAlert;
+  unfollow?: typeof deleteAlert;
 }
 
 /**
@@ -72,7 +72,7 @@ export default function CompanyFollowButton({
   onErrored,
   lookup = findCompanyAlert,
   subscribe = subscribeCompanyAlert,
-  unfollow = updateAlert,
+  unfollow = deleteAlert,
 }: CompanyFollowButtonProps) {
   const { t } = useTranslation();
   const [status, setStatus] = useState<CompanyFollowButtonStatus>('loading');
@@ -116,7 +116,14 @@ export default function CompanyFollowButton({
     if (!alertId) return;
     setStatus('submitting');
     try {
-      await unfollow(email, alertId, { specificCompanyKey: null });
+      // Deactivates the alert (active:false + unsubscribed_at) rather than only
+      // nulling the pin (#5012 review). Clearing specificCompanyKey alone left the row
+      // ACTIVE, and buildAlertProfile still derives softTokens from the sourceJobTitle /
+      // sourceJobSlug the follow captured — so an "unfollowed" employer kept sending
+      // weak-intent matches from the title of the job the user happened to be reading.
+      // It also kept consuming a MAX_ALERTS_PER_USER slot for a subscription the user
+      // had explicitly cancelled.
+      await unfollow(email, alertId);
       setAlertId(null);
       setStatus('idle');
       if (onUnsubscribed) onUnsubscribed();
