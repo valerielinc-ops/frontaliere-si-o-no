@@ -8628,6 +8628,16 @@ ${staticAnalyticsHtml}
         // necessarily emit. Registering those would make the plan
         // over-inclusive and silently disarm the stale-landing repair.
         registerKeywordLandingPaths('jobs-seo-pages', [kwCanonicalPath]);
+        // #5168: this class now carries `noindexMinAgeDays`, so the decision
+        // below also reports a `noindex` band -- and this call site
+        // deliberately does NOT consume it. The band was measured on
+        // sitemap-search-clusters (292 795 URLs, 98,0 % with zero impressions
+        // in 90 days); the cluster-shaped URLs THIS plugin advertises live in
+        // sitemap-jobs instead and measure nothing like it -- 209 URLs, of
+        // which 60 (29 %) earn impressions, averaging 103 each against 17 for
+        // a cluster canonical. Applying the same band here would de-index a
+        // family where nearly a third of the pages rank. Consume the field
+        // only after measuring THIS surface on its own.
         const __kwDecision = trafficFilter.decideMulti(__kwCandidatePaths, 'gsc-keyword-landing');
  const __kwAction: 'full' | 'thin' = __kwDecision.action === 'thin' ? 'thin' : 'full';
  const __kwFullBody = `<h1>${esc(itCopy.heading)}</h1>\n <p>${esc(kwDesc)}</p>\n ${kwQueryIntro}\n ${kwIntro}\n <p>${esc(kwCta)}</p>\n <ul class="s-0WjlyL">${kwListHtml}</ul>\n <p><a href="${kwSectionUrl}">${esc(kwOpenAllLabel)}</a></p>\n ${kwMarketSection}\n ${renderJobBoardListingDensityProse(locale, { subject: _kwQuery || kwQueryDisplay || itCopy.heading, location: _kwCity ? _kwCity.charAt(0).toUpperCase() + _kwCity.slice(1) : getCantonDisplayLabel(DEFAULT_CANTON, locale), resultCount: kwJobs.length, companyCount: kwUniqueCompanies.length, locationCount: kwUniqueLocations.length })}\n ${kwCommuterBlock}`;
@@ -8842,6 +8852,16 @@ ${staticAnalyticsHtml}
         // necessarily emit. Registering those would make the plan
         // over-inclusive and silently disarm the stale-landing repair.
         registerKeywordLandingPaths('jobs-seo-pages', [canonicalPath]);
+        // #5168: this class now carries `noindexMinAgeDays`, so the decision
+        // below also reports a `noindex` band -- and this call site
+        // deliberately does NOT consume it. The band was measured on
+        // sitemap-search-clusters (292 795 URLs, 98,0 % with zero impressions
+        // in 90 days); the cluster-shaped URLs THIS plugin advertises live in
+        // sitemap-jobs instead and measure nothing like it -- 209 URLs, of
+        // which 60 (29 %) earn impressions, averaging 103 each against 17 for
+        // a cluster canonical. Applying the same band here would de-index a
+        // family where nearly a third of the pages rank. Consume the field
+        // only after measuring THIS surface on its own.
         const __ssDecision = trafficFilter.decideMulti(__ssCandidatePaths, 'gsc-keyword-landing');
  const __ssAction: 'full' | 'thin' = __ssDecision.action === 'thin' ? 'thin' : 'full';
  const __ssBody = __ssAction === 'thin'
@@ -9047,6 +9067,16 @@ ${staticAnalyticsHtml}
         // necessarily emit. Registering those would make the plan
         // over-inclusive and silently disarm the stale-landing repair.
         registerKeywordLandingPaths('jobs-seo-pages', [canonicalPath]);
+        // #5168: this class now carries `noindexMinAgeDays`, so the decision
+        // below also reports a `noindex` band -- and this call site
+        // deliberately does NOT consume it. The band was measured on
+        // sitemap-search-clusters (292 795 URLs, 98,0 % with zero impressions
+        // in 90 days); the cluster-shaped URLs THIS plugin advertises live in
+        // sitemap-jobs instead and measure nothing like it -- 209 URLs, of
+        // which 60 (29 %) earn impressions, averaging 103 each against 17 for
+        // a cluster canonical. Applying the same band here would de-index a
+        // family where nearly a third of the pages rank. Consume the field
+        // only after measuring THIS surface on its own.
         const __cmDecision = trafficFilter.decideMulti(__cmCandidatePaths, 'gsc-keyword-landing');
  const __cmAction: 'full' | 'thin' = __cmDecision.action === 'thin' ? 'thin' : 'full';
  const __cmBody = __cmAction === 'thin'

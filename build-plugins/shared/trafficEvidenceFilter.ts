@@ -70,8 +70,16 @@ export interface FilterDecision {
    * about the URL rather than about how recently it was published.
    *
    * Orthogonal to `action`. `action` decides how much HTML the page gets;
-   * `noindex` decides whether Google is invited to rank it. A caller that
-   * ignores this field keeps the pre-#5168 behaviour exactly.
+   * `noindex` decides whether Google is invited to rank it.
+   *
+   * OPT-IN, unlike `action`: a caller that ignores this field keeps the
+   * pre-#5168 behaviour exactly. That asymmetry is deliberate. `urlClass`
+   * `gsc-keyword-landing` is shared by four emit sites across two plugins,
+   * and only `relatedSearchClustersPlugin` advertises its URLs in
+   * sitemap-search-clusters -- the surface the band was measured on. The
+   * three sites in `jobsSeoPagesPlugin` advertise theirs in sitemap-jobs,
+   * where the same URL shape measures 29 % impressed rather than 2 %, so they
+   * read `action` and skip this. Each of them says so in place; grep #5168.
    */
   noindex?: boolean;
   /** Why `noindex` is true — surfaces in build logs, mirrors `reason`. */
