@@ -48,10 +48,20 @@ export interface CompanyFollowButtonProps {
  * The persisted token is `companyAlertKey()` — the canonical `/aziende/<slug>/`
  * slug, the ONE normalisation shared with the matcher.
  *
- * Unfollow clears the pin rather than soft-deleting the alert doc, so the user
- * keeps a single alert row they can re-target — and, more importantly, the
- * follow state is always readable back (`findCompanyAlert`), which is what makes
- * the subscription manageable at all (GDPR: the user must be able to withdraw).
+ * Unfollow DEACTIVATES the alert (`deleteAlert` → `active:false` + `unsubscribed_at`).
+ *
+ * An earlier revision only cleared the pin, on the reasoning that keeping one
+ * re-targetable row made the follow state readable back. That was wrong in a way that
+ * mattered: the row stayed ACTIVE, and `buildAlertProfile` still derives softTokens from
+ * the `sourceJobTitle`/`sourceJobSlug` the follow captured — so an unfollowed employer kept
+ * producing weak-intent matches built from the title of whatever job the user happened to
+ * be reading. An unsubscribe that keeps sending email is a GDPR problem, not a UX nicety.
+ * It also kept consuming a MAX_ALERTS_PER_USER slot for a cancelled subscription.
+ *
+ * Consequence, deliberate: `findCompanyAlert` filters on `active == true`, so a re-follow
+ * creates a NEW alert document rather than reviving the deactivated one. That is the
+ * correct audit trail — the withdrawal stays on record with its `unsubscribed_at` — and it
+ * costs one document, not one query.
  *
  * No new Firestore query: `findCompanyAlert` filters `getUserAlerts()` in
  * memory, reusing the already-deployed (userId, active, createdAt desc)

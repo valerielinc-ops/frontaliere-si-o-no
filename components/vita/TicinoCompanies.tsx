@@ -12,6 +12,7 @@ import { cdnDataUrl } from '@/services/cdnDataBase';
 import extraCompaniesData from '@/data/ticino-companies-extra.json';
 import crawlerCompaniesData from '@/data/crawler-companies-auto.json';
 import ProviderLogo from '@/components/shared/ProviderLogo';
+import { baseCompanySlug, rawCompanySlug } from '@/build-plugins/shared/companyProfileSlug.mjs';
 
 const companyDomain = (website: string) =>
  website ? new URL(website).hostname.replace(/^www\./, '') : '';
@@ -250,6 +251,8 @@ type ExternalCompanyRaw = {
 
 const FALLBACK_COORDS: [number, number] = [46.0037, 8.9511];
 
+// General text key: still used for city / name matching below, and NOT company-slug
+// specific \u2014 deliberately left local rather than folded into the shared module.
 const normalizeTextKey = (value: string) =>
  value
  .toLowerCase()
@@ -258,13 +261,20 @@ const normalizeTextKey = (value: string) =>
  .replace(/[^a-z0-9]+/g, ' ')
  .trim();
 
-const slugify = (value: string) =>
- normalizeTextKey(value).replace(/\s+/g, '-').slice(0, 200);
+/** Company slug, shared normalisation + the local 200-char cap. */
+const slugify = (value: string) => rawCompanySlug(value).slice(0, 200);
 
+// Delegates to the shared company-slug normalisation (#5012 review) \u2014 this builds
+// `companyJobsHref`, a live CTA into the job-board company filter, so a silent divergence
+// from the router breaks the link.
+//
+// NOT a plain call to baseCompanySlug: this variant has its own contract, and collapsing it
+// would change behaviour. It PREFERS an explicit `votedSlug` when one is supplied (the
+// curated slug wins over the derived one), and its Lidl check also fires on the voted slug
+// itself. Only the normalisation is shared; the preference order stays here.
 const canonicalCompanyRouteSlug = (companyName: string, votedSlug = '') => {
- const key = normalizeTextKey(companyName);
  const candidate = String(votedSlug || '').trim();
- if (key.includes('lidl') || candidate === 'lidl' || candidate.startsWith('lidl-')) return 'lidl';
+ if (baseCompanySlug(companyName) === 'lidl' || candidate === 'lidl' || candidate.startsWith('lidl-')) return 'lidl';
  return candidate || slugify(companyName);
 };
 

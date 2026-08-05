@@ -86,6 +86,14 @@ describe('one company-slug normalisation (#5012, Non-Negotiable #6)', () => {
       'build-plugins/weeklyEmployersData.ts',
       'scripts/refresh-weekly-employers-top-pairs.mjs',
       'services/jobAlertMatching.mjs',
+      // Round 3 of review found three MORE copies. staticPagesPlugin's carried a comment
+      // saying it "MUST mirror" the two above — and a production 404 ("burkhalter-group")
+      // that a hand-kept mirror had already caused. job-board-stats feeds the
+      // topCompaniesActive URLs; TicinoCompanies builds a live CTA href. Every one of them
+      // is a funnel-critical URL, which is why the list is exhaustive rather than a sample.
+      'build-plugins/staticPagesPlugin.ts',
+      'scripts/lib/job-board-stats.mjs',
+      'components/vita/TicinoCompanies.tsx',
     ]) {
       expect(readRepoFile(rel).includes(fold), `${rel} re-implements the company-slug Lidl fold`).toBe(false);
     }
