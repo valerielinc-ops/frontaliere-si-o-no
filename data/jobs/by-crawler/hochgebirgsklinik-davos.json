@@ -1,6 +1,6 @@
 {
   "crawlerKey": "hochgebirgsklinik-davos",
-  "assembledAt": "2026-08-04T22:16:09.270Z",
+  "assembledAt": "2026-08-05T11:28:01.643Z",
   "jobs": [
     {
       "id": "hochgebirgsklinik-davos-9be0377bcb5a",
@@ -33,7 +33,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/jobs/oberarzt-kinder-und-jugendpsychiatrie-m-w-d-50-100/2a0add2d-0614-42ba-ad05-60d19f534e16",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-04T22:16:04.463Z",
+      "crawledAt": "2026-08-05T11:27:56.278Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -124,7 +124,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/jobs/leitender-arzt-leitende-aerztin-kardiologie-m-w-d-80-100/1542b5b8-94c8-4b7b-9967-005e20fd5755",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-04T22:16:04.461Z",
+      "crawledAt": "2026-08-05T11:27:56.275Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -209,7 +209,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/jobs/forschungspraktikum-kardiologie-100-w-m-d/18ac40eb-ec84-4dc0-b508-ed30a3cbab9c",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-04T22:16:04.460Z",
+      "crawledAt": "2026-08-05T11:27:56.274Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -288,7 +288,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/jobs/pflegefachperson-w-m-d/52da1727-a83d-4832-96b0-36f5a4f523dd",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-04T22:16:04.459Z",
+      "crawledAt": "2026-08-05T11:27:56.272Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -382,7 +382,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/jobs/pflegehelfer-w-m-d/ce60703d-7f74-4a5b-8e90-9bcd926d7f05",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-04T22:16:04.457Z",
+      "crawledAt": "2026-08-05T11:27:56.270Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -425,6 +425,7 @@
         ]
       },
       "firstSeenAt": "2026-07-06T14:58:53.520Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -470,7 +471,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/jobs/fachperson-gesundheit-w-m-d/14775039-62be-49b3-bf6f-6bfc07902e8d",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-04T22:16:04.456Z",
+      "crawledAt": "2026-08-05T11:27:56.269Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -564,7 +565,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/jobs/oberaerztin-oberarzt-oder-leitende-aerztin-leitender-arzt-angiologie-60-100/2b77f4b9-21fc-4d7e-a122-021827e42ea3",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-04T22:16:04.454Z",
+      "crawledAt": "2026-08-05T11:27:56.267Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -661,7 +662,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/jobs/oberarzt-oberaerztin-kardiologie-m-w-80-100/5de1a134-374a-45f8-bc5e-29aa1d6bf4a7",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-04T22:16:04.453Z",
+      "crawledAt": "2026-08-05T11:27:56.265Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -703,6 +704,7 @@
         ]
       },
       "firstSeenAt": "2026-07-14T21:58:40.639Z",
+      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -712,97 +714,6 @@
           "@type": "QuantitativeValue",
           "minValue": 79000,
           "maxValue": 120000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "GR"
-    },
-    {
-      "id": "hochgebirgsklinik-davos-3b31e0624bf7",
-      "slug": "fisioterapia-m-w-d-70-80-hochgebirgsklinik-davos-davos",
-      "slugByLocale": {
-        "it": "fisioterapia-m-w-d-70-80-hochgebirgsklinik-davos-davos",
-        "en": "physiotherapeut-m-w-d-60-hochgebirgsklinik-davos",
-        "de": "physiotherapeut-m-w-d-70-80-hochgebirgsklinik-davos-ch",
-        "fr": "physiotherapie-m-p-p-70-80-hochgebirgsklinik-davos-davos"
-      },
-      "company": "Hochgebirgsklinik Davos",
-      "companyKey": "hochgebirgsklinik-davos",
-      "companyDomain": "hochgebirgsklinik.ch",
-      "title": "Physiotherapeut (m/w/d) 60%",
-      "titleByLocale": {
-        "it": "Fisioterapia (m/w/d) 70-80 %",
-        "en": "Physiotherapist (m/f/d) 60%",
-        "de": "Physiotherapeut (m/w/d) 60%",
-        "fr": "Physiothérapie (m/p/p) 70-80 %"
-      },
-      "description": "Wir suchen für unser innovatives Reha-Team einen Physiotherapeuten (m/w/d) 60% Hinter unserer Erfolgsgeschichte steht das Hochgebirgsklinik-Team mit seinen über 400 engagierten Mitarbeitenden. Die vielseitigen Kompetenzbereiche und die enge Zusammenarbeit zwischen den Teams ermöglichen Ihnen eine verantwortungsvolle Aufgabe und Gestaltungsmöglichkeiten. Zudem bietet Ihnen die Hochgebirgsklinik zeitgemässe Anstellungsbedingungen (u. a. Kinderkrippe und Mitarbeiterunterkunft) sowie einen idealen Standort für vielseitige Freizeitaktivitäten in der Ferienregion Graubünden. Für ergänzende Auskünfte steht Ihnen Herrn Robert Kröher, Leiter Physiotherapie, unter der Telefonnummer +41 81 417 42 04, gerne zur Verfügung. | Aufgaben:\n• Angenehmes Arbeitsklima\n• Akutbehandlung von stationären Patienten aller Fachrichtungen\n• Einzel- und Gruppentherapien von stationären und ambulanten Patienten\n• Termin- und Therapieplanung\n• Arbeit im interdisziplinären Team (Physikalische Therapie)\n• Regelmässiger fachlicher Austausch | Anforderungen:\n• Abgeschlossene Ausbildung als Physiotherapeut/-in mit SRK-Anerkennung\n• Engagierte Persönlichkeit mit einer selbstständigen und zuverlässigen Arbeitsweise\n• Hohe Sozialkompetenz sowie kunden- und dienstleistungsorientiertes Denken\n• Teamgeist, Eigenverantwortung und Einsatzbereitschaft\n• Organisationsgeschick und Kommunikationsvermögen\n• Gute Deutschkenntnisse in Wort und Schrift",
-      "descriptionByLocale": {
-        "it": "Stiamo cercando un fisioterapista (m/w/d) 70-80% Dietro la nostra storia di successo è il team Hochgebirgsklinik con più di 400 dipendenti dedicati. Le diverse aree di competenza e stretta collaborazione tra i team consentono di avere un compito responsabile e opzioni di progettazione. Inoltre, l'Hochgebirgsklinik vi offre condizioni di lavoro contemporanee (compreso il crèche di un bambino e l'alloggio dei dipendenti) e una posizione ideale per attività ricreative versatili nella regione turistica Grigio. Per ulteriori informazioni, rivolgersi al sig. Robert Kröher, responsabile della fisioterapia al numero +41 81 417 42 04. Compiti:\n• Piacevole clima di lavoro\n• Trattamento acuto di pazienti stazionari di tutte le discipline\n• Terapie individuali e di gruppo di pazienti stazionari e ambulatoriali\n• pianificazione dell'appuntamento e della terapia\n• Lavoro nel team interdisciplinare (terapia fisica)\n• Regolare scambio professionale | Requisiti:\n• Allenamento completo come fisioterapista con riconoscimento SRK\n• Personalità impegnata con un modo di lavoro indipendente e affidabile\n• Alta competenza sociale e pensiero orientato al cliente e al servizio\n• Spirito di squadra, responsabilità e impegno\n• Capacità organizzative e competenze di comunicazione\n• Buona conoscenza del tedesco nella parola e nella scrittura",
-        "en": "We are looking for a physiotherapist (m/w/d) 70-80% Behind our success story is the Hochgebirgsklinik team with more than 400 dedicated employees. The diverse areas of competence and close cooperation between the teams allow you to have a responsible task and design options. In addition, the Hochgebirgsklinik offers you contemporary conditions of employment (including a child’s crèche and employee accommodation) as well as an ideal location for versatile leisure activities in the holiday region Graubünden. For additional information, please contact Mr. Robert Kröher, Head of Physiotherapy at +41 81 417 42 04. Tasks:\n• Pleasant working climate\n• Acute treatment of stationary patients of all disciplines\n• Individual and group therapies of stationary and outpatient patients\n• appointment and therapy planning\n• Work in the interdisciplinary team (physical therapy)\n• Regular professional exchange | Requirements:\n• Complete training as a physiotherapist with SRK recognition\n• Engaged personality with an independent and reliable way of working\n• High social competence and customer and service-oriented thinking\n• Team spirit, self-responsibility and commitment\n• Organisational skills and communication skills\n• Good knowledge of German in word and writing",
-        "de": "Wir suchen für unser innovatives Reha-Team einen Physiotherapeuten (m/w/d) 60% Hinter unserer Erfolgsgeschichte steht das Hochgebirgsklinik-Team mit seinen über 400 engagierten Mitarbeitenden. Die vielseitigen Kompetenzbereiche und die enge Zusammenarbeit zwischen den Teams ermöglichen Ihnen eine verantwortungsvolle Aufgabe und Gestaltungsmöglichkeiten. Zudem bietet Ihnen die Hochgebirgsklinik zeitgemässe Anstellungsbedingungen (u. a. Kinderkrippe und Mitarbeiterunterkunft) sowie einen idealen Standort für vielseitige Freizeitaktivitäten in der Ferienregion Graubünden. Für ergänzende Auskünfte steht Ihnen Herrn Robert Kröher, Leiter Physiotherapie, unter der Telefonnummer +41 81 417 42 04, gerne zur Verfügung. | Aufgaben:\n• Angenehmes Arbeitsklima\n• Akutbehandlung von stationären Patienten aller Fachrichtungen\n• Einzel- und Gruppentherapien von stationären und ambulanten Patienten\n• Termin- und Therapieplanung\n• Arbeit im interdisziplinären Team (Physikalische Therapie)\n• Regelmässiger fachlicher Austausch | Anforderungen:\n• Abgeschlossene Ausbildung als Physiotherapeut/-in mit SRK-Anerkennung\n• Engagierte Persönlichkeit mit einer selbstständigen und zuverlässigen Arbeitsweise\n• Hohe Sozialkompetenz sowie kunden- und dienstleistungsorientiertes Denken\n• Teamgeist, Eigenverantwortung und Einsatzbereitschaft\n• Organisationsgeschick und Kommunikationsvermögen\n• Gute Deutschkenntnisse in Wort und Schrift",
-        "fr": "Nous sommes à la recherche d'un physiothérapeute (m/w/d) 70-80% Derrière notre réussite se trouve l'équipe Hochgebirgsklinik avec plus de 400 employés dévoués. Les différents domaines de compétence et la coopération étroite entre les équipes vous permettent d'avoir une tâche responsable et des options de conception. En outre, le Hochgebirgsklinik vous offre des conditions d'emploi contemporaines (y compris une crèche enfantine et un hébergement pour employés) ainsi qu'un emplacement idéal pour des activités de loisirs polyvalentes dans la région de vacances Graubünden. Pour plus d'informations, veuillez contacter M. Robert Kröher, responsable de la physiothérapie au +41 81 417 42 04. Tâches :\n• Un climat de travail agréable\n• Traitement aigu des patients stationnaires de toutes disciplines\n• Thérapies individuelles et collectives de patients en établissement ou en consultation externe\n• rendez-vous et planification thérapeutique\n• Travail dans l'équipe interdisciplinaire (thérapie physique)\n• Échange professionnel régulier.\n• Formation complète en physiothérapeute avec reconnaissance SRK\n• Personnalité engagée avec une manière de travailler indépendante et fiable\n• Haute compétence sociale et pensée axée sur le client et le service\n• Esprit d'équipe, responsabilité et engagement\n• Compétences organisationnelles et compétences en communication\n• Bonne connaissance de l'allemand en paroles et en écriture"
-      },
-      "location": "Davos",
-      "canton": "GR",
-      "url": "https://karriere.hochgebirgsklinik.ch/jobs/physiotherapeut-m-w-d-60/f3843250-71d4-4a40-9e02-65430b6de711",
-      "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-04T22:16:04.452Z",
-      "addressLocality": "Davos",
-      "postalCode": "7270",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Terapia",
-      "contract": "part-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Assistenza",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-27",
-      "applyUrl": "https://recruitingapp-2932.umantis.com/Vacancies/647/Application/CheckLogin/1?lang=ger",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "department": "Therapie",
-      "streetAddress": "Promenade 117",
-      "pensumMin": 60,
-      "pensumMax": 60,
-      "pensum": "60%",
-      "contactPerson": "Thomas Fischer",
-      "contactPhone": "0814173078",
-      "previousSlugs": [
-        "physiotherapeut-m-w-d-60-hochgebirgsklinik-davos-ch",
-        "insegnante-m-f-d-20-40-hochgebirgsklinik-davos-davos",
-        "lehrperson-m-w-d-20-40-hochgebirgsklinik-davos-ch",
-        "enseignant-e-m-f-d-20-40-hochgebirgsklinik-davos-davos",
-        "physiotherapeut-m-w-d-60-hochgebirgsklinik-davos-davos",
-        "physiotherapist-m-f-d-60-hochgebirgsklinik-davos-davos",
-        "fisioterapia-m-w-d-70-80-hochgebirgsklinik-davos-davos"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "physiotherapeut-m-w-d-60-hochgebirgsklinik-davos-ch",
-          "insegnante-m-f-d-20-40-hochgebirgsklinik-davos-davos",
-          "lehrperson-m-w-d-20-40-hochgebirgsklinik-davos-ch",
-          "enseignant-e-m-f-d-20-40-hochgebirgsklinik-davos-davos",
-          "fisioterapia-m-w-d-70-80-hochgebirgsklinik-davos-davos"
-        ],
-        "en": [
-          "physiotherapeut-m-w-d-60-hochgebirgsklinik-davos-davos",
-          "physiotherapist-m-f-d-60-hochgebirgsklinik-davos-davos"
-        ]
-      },
-      "firstSeenAt": "2026-07-13T21:57:11.373Z",
-      "salaryMin": 46000,
-      "salaryMax": 69600,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 46000,
-          "maxValue": 69600,
           "unitText": "YEAR"
         }
       },
@@ -823,7 +734,7 @@
       "title": "Psychologe Eltern- Kind und Jugendstation (m/w/d) 80 - 100%",
       "titleByLocale": {
         "it": "Psychologe Eltern- Kind e Jugendstation (m/w/d) 80 - 100%",
-        "en": "Psychologist parent-child and youth unit (m/f/d) 80 - 100%",
+        "en": "Psychologe Eltern- Kind und Jugendstation (m/w/d) 80 - 100%",
         "de": "Psychologe Eltern- Kind und Jugendstation (m/w/d) 80 - 100%",
         "fr": "Groupe des parents et des jeunes (m/f/j)"
       },
@@ -839,7 +750,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/jobs/psychologe-eltern-kind-und-jugendstation-m-w-d-80-100/83c6ab17-db8e-4be4-bc62-c8fca77da559",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-04T22:16:04.450Z",
+      "crawledAt": "2026-08-05T11:27:56.263Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -879,6 +790,7 @@
         ]
       },
       "firstSeenAt": "2026-07-13T21:57:11.372Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -907,7 +819,7 @@
       "companyDomain": "hochgebirgsklinik.ch",
       "title": "Kosmetikerin / Kosmetiker (w/m/d) 50 - 60%",
       "titleByLocale": {
-        "it": "Cosmetologo / Cosmetologo (f/m/d) 50 - 60 %",
+        "it": "Kosmetikerin / Kosmetiker (w/m/d) 50 - 60%",
         "en": "Spa Therapist (m/f) 50 - 60 %",
         "de": "Kosmetikerin / Kosmetiker (w/m/d) 50 - 60%",
         "fr": "Thérapeute de spa (m/f) 50 - 60 %"
@@ -924,7 +836,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/jobs/kosmetikerin-kosmetiker-w-m-d-50-60/53b75447-57a9-4109-95a1-cdd03c439546",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-04T22:16:04.449Z",
+      "crawledAt": "2026-08-05T11:27:56.254Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -972,6 +884,7 @@
         ]
       },
       "firstSeenAt": "2026-07-10T22:03:11.797Z",
+      "needsRetranslation": true,
       "salaryMin": 34500,
       "salaryMax": 52200,
       "baseSalary": {
@@ -1017,7 +930,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/jobs/fachaerztin-facharzt-kinder-und-jugendmedizin-aufbau-ambulante-paediatrie/5a2bec78-5935-4cc2-9ed5-43778371169c",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-04T22:16:04.448Z",
+      "crawledAt": "2026-08-05T11:27:56.252Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1063,6 +976,7 @@
         ]
       },
       "firstSeenAt": "2026-07-14T21:58:40.637Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -1108,7 +1022,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/jobs/hr-generalistin-hr-generalist-m-w-d-50-100/9f0e4ac6-3947-4b65-8ec5-952db86106b2",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-04T22:16:04.444Z",
+      "crawledAt": "2026-08-05T11:27:56.249Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1154,6 +1068,7 @@
         ]
       },
       "firstSeenAt": "2026-07-30T22:09:17.126Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -1199,7 +1114,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/jobs/service-aushilfe-auf-stundenbasis/2eae9f26-33fb-4d8b-8173-43c74cb3ff04",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-04T22:16:04.441Z",
+      "crawledAt": "2026-08-05T11:27:56.247Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1281,7 +1196,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/jobs/teamleitung-pflege-kardiologie-w-m-d-80-100/7a96b7e9-b155-4c7b-aecf-9cf71bac3290",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-04T22:16:04.439Z",
+      "crawledAt": "2026-08-05T11:27:56.245Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1327,6 +1242,7 @@
         ]
       },
       "firstSeenAt": "2026-07-06T14:58:53.516Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -1356,7 +1272,7 @@
       "title": "Fahrer & Allrounder (m/w/d) 80-100%",
       "titleByLocale": {
         "it": "Driver & Allrounder (m/f/d) (80-100%)",
-        "en": "Driver & Allrounder (m/f/d) 80-100 %",
+        "en": "Fahrer & Allrounder (m/w/d) 80-100%",
         "de": "Fahrer & Allrounder (m/w/d) 80-100%",
         "fr": "Conducteur & Allrounder (m/f/d) (80-100%)"
       },
@@ -1372,7 +1288,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/jobs/fahrer-allrounder-m-w-d-80-100/32823add-9687-47e6-b8cb-3b78857cd076",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-04T22:16:04.438Z",
+      "crawledAt": "2026-08-05T11:27:56.242Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1409,6 +1325,7 @@
         ]
       },
       "firstSeenAt": "2026-07-31T11:36:28.421Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -1454,7 +1371,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/jobs/medizinische-kv-angestellte-m-w-d-60-80/07b1bd9f-2af9-4702-9710-11f16db4715a",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-04T22:16:04.436Z",
+      "crawledAt": "2026-08-05T11:27:56.240Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1475,8 +1392,8 @@
       "pensumMin": 60,
       "pensumMax": 60,
       "pensum": "60%",
-      "contactPerson": "Isabelle Künzli",
-      "contactPhone": "+41 81 417 30 40",
+      "contactPerson": "André Sutter",
+      "contactPhone": "4022",
       "previousSlugs": [
         "medizinische-kv-angestellte-m-w-d-60-80-hochgebirgsklinik-davos-ch",
         "dipendenti-di-cv-medici-m-f-d-60-80-hochgebirgsklinik-davos-davos"
@@ -1494,6 +1411,7 @@
         ]
       },
       "firstSeenAt": "2026-08-03T12:33:39.952Z",
+      "needsRetranslation": true,
       "salaryMin": 46000,
       "salaryMax": 69600,
       "baseSalary": {
@@ -1539,7 +1457,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/jobs/assistenzarzt-kardiologie-m-w-100/22edadbd-7656-4096-b02f-9d630c9e61ec",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-04T22:16:04.435Z",
+      "crawledAt": "2026-08-05T11:27:56.236Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1573,6 +1491,7 @@
         ]
       },
       "firstSeenAt": "2026-07-13T21:57:11.368Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -1618,7 +1537,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/jobs/assistenzarzt-pneumologie-m-w-d-100-ab-01-januar-2027/3b68d999-67c3-4c6d-b901-5d41248ea40d",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-04T22:16:04.433Z",
+      "crawledAt": "2026-08-05T11:27:56.234Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1697,7 +1616,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/jobs/assistenzarzt-pneumologie-m-w-d-100-01-januar-2027/4d4e7800-74a2-47bf-9804-5fd982caf4bf",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-04T22:16:04.430Z",
+      "crawledAt": "2026-08-05T11:27:56.221Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1731,6 +1650,7 @@
         ]
       },
       "firstSeenAt": "2026-07-13T21:57:11.365Z",
+      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -1776,7 +1696,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/jobs/lehrstelle-als-fachperson-gesundheit-fage-efz-w-m-d-ab-august-2027/5a2f85b0-3b8b-423e-beb0-523a10861221",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-04T22:16:04.416Z",
+      "crawledAt": "2026-08-05T11:27:56.169Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1817,6 +1737,7 @@
         ]
       },
       "firstSeenAt": "2026-07-31T11:36:28.401Z",
+      "needsRetranslation": true,
       "salaryMin": 48000,
       "salaryMax": 73000,
       "baseSalary": {
@@ -1830,6 +1751,99 @@
         }
       },
       "addressRegion": "GR"
+    },
+    {
+      "id": "hochgebirgsklinik-davos-3b31e0624bf7",
+      "slug": "fisioterapia-m-w-d-70-80-hochgebirgsklinik-davos-davos",
+      "slugByLocale": {
+        "it": "fisioterapia-m-w-d-70-80-hochgebirgsklinik-davos-davos",
+        "en": "physiotherapeut-m-w-d-60-hochgebirgsklinik-davos",
+        "de": "physiotherapeut-m-w-d-70-80-hochgebirgsklinik-davos-ch",
+        "fr": "physiotherapie-m-p-p-70-80-hochgebirgsklinik-davos-davos"
+      },
+      "company": "Hochgebirgsklinik Davos",
+      "companyKey": "hochgebirgsklinik-davos",
+      "companyDomain": "hochgebirgsklinik.ch",
+      "title": "Physiotherapeut (m/w/d) 60%",
+      "titleByLocale": {
+        "it": "Fisioterapia (m/w/d) 70-80 %",
+        "en": "Physiotherapeut (m/w/d) 60%",
+        "de": "Physiotherapeut (m/w/d) 60%",
+        "fr": "Physiothérapie (m/p/p) 70-80 %"
+      },
+      "description": "Wir suchen für unser innovatives Reha-Team einen Physiotherapeuten (m/w/d) 60% Hinter unserer Erfolgsgeschichte steht das Hochgebirgsklinik-Team mit seinen über 400 engagierten Mitarbeitenden. Die vielseitigen Kompetenzbereiche und die enge Zusammenarbeit zwischen den Teams ermöglichen Ihnen eine verantwortungsvolle Aufgabe und Gestaltungsmöglichkeiten. Zudem bietet Ihnen die Hochgebirgsklinik zeitgemässe Anstellungsbedingungen (u. a. Kinderkrippe und Mitarbeiterunterkunft) sowie einen idealen Standort für vielseitige Freizeitaktivitäten in der Ferienregion Graubünden. Für ergänzende Auskünfte steht Ihnen Herrn Robert Kröher, Leiter Physiotherapie, unter der Telefonnummer +41 81 417 42 04, gerne zur Verfügung. | Aufgaben:\n• Angenehmes Arbeitsklima\n• Akutbehandlung von stationären Patienten aller Fachrichtungen\n• Einzel- und Gruppentherapien von stationären und ambulanten Patienten\n• Termin- und Therapieplanung\n• Arbeit im interdisziplinären Team (Physikalische Therapie)\n• Regelmässiger fachlicher Austausch | Anforderungen:\n• Abgeschlossene Ausbildung als Physiotherapeut/-in mit SRK-Anerkennung\n• Engagierte Persönlichkeit mit einer selbstständigen und zuverlässigen Arbeitsweise\n• Hohe Sozialkompetenz sowie kunden- und dienstleistungsorientiertes Denken\n• Teamgeist, Eigenverantwortung und Einsatzbereitschaft\n• Organisationsgeschick und Kommunikationsvermögen\n• Gute Deutschkenntnisse in Wort und Schrift",
+      "descriptionByLocale": {
+        "it": "Stiamo cercando un fisioterapista (m/w/d) 70-80% Dietro la nostra storia di successo è il team Hochgebirgsklinik con più di 400 dipendenti dedicati. Le diverse aree di competenza e stretta collaborazione tra i team consentono di avere un compito responsabile e opzioni di progettazione. Inoltre, l'Hochgebirgsklinik vi offre condizioni di lavoro contemporanee (compreso il crèche di un bambino e l'alloggio dei dipendenti) e una posizione ideale per attività ricreative versatili nella regione turistica Grigio. Per ulteriori informazioni, rivolgersi al sig. Robert Kröher, responsabile della fisioterapia al numero +41 81 417 42 04. Compiti:\n• Piacevole clima di lavoro\n• Trattamento acuto di pazienti stazionari di tutte le discipline\n• Terapie individuali e di gruppo di pazienti stazionari e ambulatoriali\n• pianificazione dell'appuntamento e della terapia\n• Lavoro nel team interdisciplinare (terapia fisica)\n• Regolare scambio professionale | Requisiti:\n• Allenamento completo come fisioterapista con riconoscimento SRK\n• Personalità impegnata con un modo di lavoro indipendente e affidabile\n• Alta competenza sociale e pensiero orientato al cliente e al servizio\n• Spirito di squadra, responsabilità e impegno\n• Capacità organizzative e competenze di comunicazione\n• Buona conoscenza del tedesco nella parola e nella scrittura",
+        "en": "We are looking for a physiotherapist (m/w/d) 70-80% Behind our success story is the Hochgebirgsklinik team with more than 400 dedicated employees. The diverse areas of competence and close cooperation between the teams allow you to have a responsible task and design options. In addition, the Hochgebirgsklinik offers you contemporary conditions of employment (including a child’s crèche and employee accommodation) as well as an ideal location for versatile leisure activities in the holiday region Graubünden. For additional information, please contact Mr. Robert Kröher, Head of Physiotherapy at +41 81 417 42 04. Tasks:\n• Pleasant working climate\n• Acute treatment of stationary patients of all disciplines\n• Individual and group therapies of stationary and outpatient patients\n• appointment and therapy planning\n• Work in the interdisciplinary team (physical therapy)\n• Regular professional exchange | Requirements:\n• Complete training as a physiotherapist with SRK recognition\n• Engaged personality with an independent and reliable way of working\n• High social competence and customer and service-oriented thinking\n• Team spirit, self-responsibility and commitment\n• Organisational skills and communication skills\n• Good knowledge of German in word and writing",
+        "de": "Wir suchen für unser innovatives Reha-Team einen Physiotherapeuten (m/w/d) 60% Hinter unserer Erfolgsgeschichte steht das Hochgebirgsklinik-Team mit seinen über 400 engagierten Mitarbeitenden. Die vielseitigen Kompetenzbereiche und die enge Zusammenarbeit zwischen den Teams ermöglichen Ihnen eine verantwortungsvolle Aufgabe und Gestaltungsmöglichkeiten. Zudem bietet Ihnen die Hochgebirgsklinik zeitgemässe Anstellungsbedingungen (u. a. Kinderkrippe und Mitarbeiterunterkunft) sowie einen idealen Standort für vielseitige Freizeitaktivitäten in der Ferienregion Graubünden. Für ergänzende Auskünfte steht Ihnen Herrn Robert Kröher, Leiter Physiotherapie, unter der Telefonnummer +41 81 417 42 04, gerne zur Verfügung. | Aufgaben:\n• Angenehmes Arbeitsklima\n• Akutbehandlung von stationären Patienten aller Fachrichtungen\n• Einzel- und Gruppentherapien von stationären und ambulanten Patienten\n• Termin- und Therapieplanung\n• Arbeit im interdisziplinären Team (Physikalische Therapie)\n• Regelmässiger fachlicher Austausch | Anforderungen:\n• Abgeschlossene Ausbildung als Physiotherapeut/-in mit SRK-Anerkennung\n• Engagierte Persönlichkeit mit einer selbstständigen und zuverlässigen Arbeitsweise\n• Hohe Sozialkompetenz sowie kunden- und dienstleistungsorientiertes Denken\n• Teamgeist, Eigenverantwortung und Einsatzbereitschaft\n• Organisationsgeschick und Kommunikationsvermögen\n• Gute Deutschkenntnisse in Wort und Schrift",
+        "fr": "Nous sommes à la recherche d'un physiothérapeute (m/w/d) 70-80% Derrière notre réussite se trouve l'équipe Hochgebirgsklinik avec plus de 400 employés dévoués. Les différents domaines de compétence et la coopération étroite entre les équipes vous permettent d'avoir une tâche responsable et des options de conception. En outre, le Hochgebirgsklinik vous offre des conditions d'emploi contemporaines (y compris une crèche enfantine et un hébergement pour employés) ainsi qu'un emplacement idéal pour des activités de loisirs polyvalentes dans la région de vacances Graubünden. Pour plus d'informations, veuillez contacter M. Robert Kröher, responsable de la physiothérapie au +41 81 417 42 04. Tâches :\n• Un climat de travail agréable\n• Traitement aigu des patients stationnaires de toutes disciplines\n• Thérapies individuelles et collectives de patients en établissement ou en consultation externe\n• rendez-vous et planification thérapeutique\n• Travail dans l'équipe interdisciplinaire (thérapie physique)\n• Échange professionnel régulier.\n• Formation complète en physiothérapeute avec reconnaissance SRK\n• Personnalité engagée avec une manière de travailler indépendante et fiable\n• Haute compétence sociale et pensée axée sur le client et le service\n• Esprit d'équipe, responsabilité et engagement\n• Compétences organisationnelles et compétences en communication\n• Bonne connaissance de l'allemand en paroles et en écriture"
+      },
+      "location": "Davos",
+      "canton": "GR",
+      "url": "https://karriere.hochgebirgsklinik.ch/jobs/physiotherapeut-m-w-d-60/f3843250-71d4-4a40-9e02-65430b6de711",
+      "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-04T22:16:04.452Z",
+      "addressLocality": "Davos",
+      "postalCode": "7270",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Terapia",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Assistenza",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-27",
+      "applyUrl": "https://recruitingapp-2932.umantis.com/Vacancies/647/Application/CheckLogin/1?lang=ger",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "department": "Therapie",
+      "streetAddress": "Promenade 117",
+      "pensumMin": 60,
+      "pensumMax": 60,
+      "pensum": "60%",
+      "contactPerson": "Thomas Fischer",
+      "contactPhone": "0814173078",
+      "previousSlugs": [
+        "physiotherapeut-m-w-d-60-hochgebirgsklinik-davos-ch",
+        "insegnante-m-f-d-20-40-hochgebirgsklinik-davos-davos",
+        "lehrperson-m-w-d-20-40-hochgebirgsklinik-davos-ch",
+        "enseignant-e-m-f-d-20-40-hochgebirgsklinik-davos-davos",
+        "physiotherapeut-m-w-d-60-hochgebirgsklinik-davos-davos",
+        "physiotherapist-m-f-d-60-hochgebirgsklinik-davos-davos",
+        "fisioterapia-m-w-d-70-80-hochgebirgsklinik-davos-davos"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "physiotherapeut-m-w-d-60-hochgebirgsklinik-davos-ch",
+          "insegnante-m-f-d-20-40-hochgebirgsklinik-davos-davos",
+          "lehrperson-m-w-d-20-40-hochgebirgsklinik-davos-ch",
+          "enseignant-e-m-f-d-20-40-hochgebirgsklinik-davos-davos",
+          "fisioterapia-m-w-d-70-80-hochgebirgsklinik-davos-davos"
+        ],
+        "en": [
+          "physiotherapeut-m-w-d-60-hochgebirgsklinik-davos-davos",
+          "physiotherapist-m-f-d-60-hochgebirgsklinik-davos-davos"
+        ]
+      },
+      "firstSeenAt": "2026-07-13T21:57:11.373Z",
+      "salaryMin": 46000,
+      "salaryMax": 69600,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 46000,
+          "maxValue": 69600,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "GR",
+      "crawlerMissStreak": 1,
+      "needsRetranslation": true
     }
   ]
 }
