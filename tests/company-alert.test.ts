@@ -202,3 +202,39 @@ describe('HTTP entrypoint forwards every field the handler accepts (#5012)', () 
     },
   );
 });
+
+describe('pinned-company match survives a brand alias whose canonical is not a substring (#5012 review)', () => {
+  // Raised as a question in review. It is a real defect, and it is the precise failure
+  // mode this feature was built to avoid: the alert saves fine, the UI says "following",
+  // and no email ever arrives.
+  //
+  // Lidl and Migros hid it. Lidl folds every variant to `lidl` on BOTH sides, and
+  // `migros-ticino` happens to CONTAIN `migros`, so the bidirectional substring test
+  // passes by luck. Guess has neither property: the alert stores the canonical
+  // `guess-europe-sagl`, a job carries `Guess Ticino` -> `guess-ticino`, and neither
+  // string contains the other.
+  function alertFor(companyKey: string) {
+    return buildAlertProfile(
+      { keywords: [], locations: [], sectors: [], contractTypes: [], cantonFilter: null, specificCompanyKey: companyKey },
+      {},
+    );
+  }
+
+  it('matches a job posted under a declared alias of the followed brand', () => {
+    const pin = canonicalCompanyProfileSlug('Guess Ticino');
+    expect(pin).toBe('guess-europe-sagl'); // the alias folded on write
+
+    const profile = alertFor(pin);
+    for (const company of ['Guess Ticino', 'Guess Europe Sagl', 'Guess Europe Switzerland']) {
+      expect(
+        scoreJobForAlert({ id: 'g', title: 'Sales Assistant', company, canton: 'TI' }, profile),
+        `following Guess must match a job posted as "${company}"`,
+      ).toBeGreaterThan(0);
+    }
+  });
+
+  it('still refuses an unrelated employer', () => {
+    const profile = alertFor(canonicalCompanyProfileSlug('Guess Ticino'));
+    expect(scoreJobForAlert({ id: 'x', title: 'Sales Assistant', company: 'Medacta International SA', canton: 'TI' }, profile)).toBe(0);
+  });
+});

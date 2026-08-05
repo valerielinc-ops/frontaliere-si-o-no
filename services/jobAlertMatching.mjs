@@ -33,7 +33,7 @@
  */
 
 import { extractKeywords } from './newsletter-content.mjs';
-import { baseCompanySlug } from '../build-plugins/shared/companyProfileSlug.mjs';
+import { baseCompanySlug, canonicalCompanyProfileSlug } from '../build-plugins/shared/companyProfileSlug.mjs';
 import { locTokenHit } from './locToken.mjs';
 import { municipalityToCantons } from './provinceCantonAffinity.ts';
 
@@ -143,6 +143,30 @@ function normalizeCompanyToken(value) {
   // or a pinned alert would round-trip through two different normalisations and
   // silently never fire.
   const t = baseCompanySlug(value, value).replace(/-/g, '');
+  return t.length >= 3 ? t : '';
+}
+
+/**
+ * Company token for the PINNED-employer comparison, with declared brand aliases folded
+ * onto their canonical.
+ *
+ * Separate from {@link normalizeCompanyToken} because the pin is the one comparison where
+ * the fold is mandatory on BOTH sides. CompanyAlert persists the canonical
+ * (`canonicalCompanyProfileSlug`), while a job carries whatever legal-entity name the
+ * crawler saw; the pin test then compared a folded string against an unfolded one.
+ *
+ * It survived review twice because the two brands under test hide it: Lidl folds every
+ * variant to `lidl` on both sides, and `migros-ticino` happens to CONTAIN `migros`, so the
+ * bidirectional substring check passes by luck. Guess has neither property — the alert
+ * stores `guess-europe-sagl`, the job yields `guess-ticino`, neither contains the other,
+ * and a follower of that brand would never have received a single email. No error, no log:
+ * exactly the silent failure this feature was extracted to prevent (#5012 review).
+ *
+ * @param {string} value
+ * @returns {string}
+ */
+function canonicalCompanyToken(value) {
+  const t = canonicalCompanyProfileSlug(value, value).replace(/-/g, '');
   return t.length >= 3 ? t : '';
 }
 
@@ -269,7 +293,8 @@ export function buildAlertProfile(alert, subscriber = null, extras = {}) {
   const specificJobIds = uniq(
     [].concat(a.specificJobId || [], a.specificJobIds || []).map((v) => String(v || '').trim()),
   );
-  const specificCompanyKey = normalizeCompanyToken(a.specificCompanyKey);
+  // Folded, not merely normalised — see canonicalCompanyToken.
+  const specificCompanyKey = canonicalCompanyToken(a.specificCompanyKey);
 
   // 7. Profile-derived geo PREFERENCE (issue #2993). When the alert carries no
   //    explicit location/canton scope, these HIGH-CONFIDENCE signals — the
@@ -397,7 +422,8 @@ export function scoreJobForAlert(job, profile, locale) {
   const pinnedJobs = profile.specificJobIds || [];
   const pinnedCompany = profile.specificCompanyKey || '';
   if (pinnedJobs.length > 0 || pinnedCompany) {
-    const jobCompanyKey = normalizeCompanyToken(job.companyKey || job.company);
+    // Both sides folded onto the canonical brand so an alias-named job still matches.
+    const jobCompanyKey = canonicalCompanyToken(job.companyKey || job.company);
     const idHit = pinnedJobs.includes(String(job.id || ''))
       || pinnedJobs.includes(String(job.publisherJobId || ''));
     const companyHit = Boolean(pinnedCompany && jobCompanyKey
