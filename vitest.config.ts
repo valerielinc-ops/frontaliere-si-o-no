@@ -147,6 +147,9 @@ const JSDOM_TS_FILES = [
   'tests/related-search-clusters.test.ts',
   'tests/resilient-import.test.ts',
   'tests/router.test.ts',
+  // Reads the article body back out of the shard's static HTML — needs a DOM
+  // and a DOMParser (services/runtimeArticleResolution.ts).
+  'tests/runtime-article-resolution.test.ts',
   'tests/seo-html-lang-sync.test.ts',
   'tests/seo-localization.test.ts',
   'tests/seo-noindex-filter-variants.test.ts',

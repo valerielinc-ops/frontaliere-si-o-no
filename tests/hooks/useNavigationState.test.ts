@@ -15,6 +15,15 @@ vi.mock('@/services/router', () => ({
   preloadBlogData: vi.fn(() => Promise.resolve()),
   resolveBlogSlug: vi.fn(() => null),
   getLocalizedJobSlug: vi.fn((slug: string) => slug),
+  preloadSwissData: vi.fn(() => Promise.resolve()),
+  resolveSwissSlug: vi.fn(() => null),
+  learnRuntimeBlogSlugs: vi.fn(),
+  learnRuntimeSwissSlugs: vi.fn(),
+}));
+
+// Dynamically imported by the hook, so the mock has to be registered here.
+vi.mock('@/services/runtimeArticleResolution', () => ({
+  adoptRuntimeArticle: vi.fn(() => Promise.resolve(null)),
 }));
 
 vi.mock('@/services/i18n', () => ({
@@ -45,7 +54,8 @@ vi.mock('@/services/analyticsProxy', () => ({
 }));
 
 import { useNavigationState } from '@/hooks/useNavigationState';
-import { pushRoute, parseHashToPath } from '@/services/router';
+import { pushRoute, parseHashToPath, parsePath, resolveBlogSlug, learnRuntimeBlogSlugs } from '@/services/router';
+import { adoptRuntimeArticle } from '@/services/runtimeArticleResolution';
 import { prefetchTab } from '@/services/prefetch';
 import { updateMetaTags, trackSectionView } from '@/hooks/seoHelpers';
 import { Analytics, unlockAchievement } from '@/services/analyticsProxy';
@@ -253,6 +263,126 @@ describe('useNavigationState', () => {
 
       act(() => { result.current.setJobSlug('some-job-slug'); });
       expect(result.current.jobSlug).toBe('some-job-slug');
+    });
+  });
+
+  // Issue #4974 item 3. An article published after the last deploy is missing
+  // from the compiled slug map, so parsePath hands back `blogSlug` and never
+  // `blogArticle`. The SPA then rendered the hub list over a correct article
+  // page — measured 2026-08-04 on 17 live URLs, h1 going from the article
+  // title to "Guida Frontaliere" on hydration.
+  describe('unresolved article slug', () => {
+    const STATIC_ARTICLE = '<div id="root"></div>'
+      + '<main class="seo-static-content"><article class="ft-blog-article">'
+      + '<h1>Poste Italiane cerca consulenti finanziari in Varese</h1>'
+      + '<section><h2>Contesto</h2><p>Testo.</p></section>'
+      + '</article></main>';
+
+    const pendingArticleRoute = () => {
+      vi.mocked(parsePath).mockReturnValue({
+        route: { activeTab: 'blog' as const, blogSlug: 'poste-italiane-consulenti-finanziari-varese' },
+        locale: 'it' as const,
+      } as never);
+    };
+
+    beforeEach(() => {
+      document.body.innerHTML = STATIC_ARTICLE;
+      pendingArticleRoute();
+      vi.mocked(resolveBlogSlug).mockReturnValue(null as never);
+    });
+
+    afterEach(() => {
+      document.body.innerHTML = '';
+      vi.mocked(parsePath).mockReturnValue({
+        route: { activeTab: 'calculator' as const },
+        locale: 'it' as const,
+      } as never);
+    });
+
+    it('hands the page to the static article instead of the hub list, from the first frame', () => {
+      const { result } = renderHook(() => useNavigationState());
+      // staticOverlay is what makes App.tsx skip its own <main> and leave the
+      // shard's article visible. It must be true synchronously — a value set
+      // only after the async resolution would still flash the hub list.
+      expect(result.current.staticOverlay).toBe(true);
+      expect(result.current.blogArticle).toBeNull();
+    });
+
+    it('does not stamp the hub\'s SEO over the article\'s own head', () => {
+      renderHook(() => useNavigationState());
+      expect(updateMetaTags).not.toHaveBeenCalled();
+      expect(trackSectionView).not.toHaveBeenCalled();
+    });
+
+    it('stays on the static article when the corpus API cannot resolve the slug', async () => {
+      vi.mocked(adoptRuntimeArticle).mockResolvedValue(null);
+      const { result } = renderHook(() => useNavigationState());
+      await act(async () => { await Promise.resolve(); await Promise.resolve(); });
+
+      expect(result.current.staticOverlay).toBe(true);
+      expect(result.current.blogArticle).toBeNull();
+    });
+
+    it('stays on the static article when the corpus API throws', async () => {
+      vi.mocked(adoptRuntimeArticle).mockRejectedValue(new Error('offline'));
+      const { result } = renderHook(() => useNavigationState());
+      await act(async () => { await Promise.resolve(); await Promise.resolve(); });
+
+      expect(result.current.staticOverlay).toBe(true);
+      expect(result.current.blogArticle).toBeNull();
+    });
+
+    it('stays on the static article when the id resolves but the page cannot be drawn', async () => {
+      vi.mocked(adoptRuntimeArticle).mockResolvedValue({
+        id: 'poste-italiane-consulenti-finanziari-varese',
+        slugs: { it: 'poste-italiane-consulenti-finanziari-varese' },
+        renderable: false,
+      });
+      const { result } = renderHook(() => useNavigationState());
+      await act(async () => { await Promise.resolve(); await Promise.resolve(); });
+
+      expect(result.current.staticOverlay).toBe(true);
+      expect(result.current.blogArticle).toBeNull();
+      // The pair is still learned: canonical URLs and the language switcher
+      // point at the real article even when the SPA does not render it.
+      expect(learnRuntimeBlogSlugs).toHaveBeenCalledWith(
+        'poste-italiane-consulenti-finanziari-varese',
+        { it: 'poste-italiane-consulenti-finanziari-varese' },
+      );
+    });
+
+    it('takes over only once the article is fully resolved', async () => {
+      vi.mocked(adoptRuntimeArticle).mockResolvedValue({
+        id: 'poste-italiane-consulenti-finanziari-varese',
+        slugs: { it: 'poste-italiane-consulenti-finanziari-varese' },
+        renderable: true,
+      });
+      const { result } = renderHook(() => useNavigationState());
+      await act(async () => { await Promise.resolve(); await Promise.resolve(); });
+
+      expect(result.current.blogArticle).toBe('poste-italiane-consulenti-finanziari-varese');
+      expect(result.current.staticOverlay).toBe(false);
+    });
+
+    it('never reaches the network for an article this build already ships', async () => {
+      vi.mocked(resolveBlogSlug).mockReturnValue('poste-italiane-consulenti-finanziari-varese' as never);
+      const { result } = renderHook(() => useNavigationState());
+      await act(async () => { await Promise.resolve(); await Promise.resolve(); });
+
+      expect(result.current.blogArticle).toBe('poste-italiane-consulenti-finanziari-varese');
+      expect(result.current.staticOverlay).toBe(false);
+      expect(adoptRuntimeArticle).not.toHaveBeenCalled();
+    });
+
+    it('does not blank the page when there is no static article to fall back to', async () => {
+      // No `main.seo-static-content` — a client-side arrival, or a URL the
+      // shard never emitted. Overlay mode here would show nothing at all.
+      document.body.innerHTML = '<div id="root"></div>';
+      vi.mocked(adoptRuntimeArticle).mockResolvedValue(null);
+      const { result } = renderHook(() => useNavigationState());
+      await act(async () => { await Promise.resolve(); await Promise.resolve(); });
+
+      expect(result.current.staticOverlay).toBe(false);
     });
   });
 });

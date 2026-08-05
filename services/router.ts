@@ -1584,9 +1584,62 @@ export function preloadBlogData(): Promise<void> {
  return _blogDataPromise;
 }
 
+// ── Slug pairs learned at RUNTIME, for articles this build never shipped ──
+//
+// `_reverseBlog`/`_blogSlugs` above come from the bundle, so an article
+// published after the last deploy is in neither and its URL resolves to
+// nothing (issue #4974 item 3 — on 17 live pages the h1 flipped from the
+// article title to "Guida Frontaliere" post-hydration, measured 2026-08-04).
+// `services/runtimeArticleResolution.ts` learns those pairs from the JSON the
+// corpus publishes and deposits them here.
+//
+// Kept in SEPARATE maps, deliberately: the bundled maps stay exactly what the
+// build produced and are still consulted FIRST, and `preloadBlogData`'s
+// `if (_blogSlugs) return` fast path can't be tripped by a runtime write. A
+// runtime pair only ever answers a question the bundle already failed.
+const _runtimeReverseBlog: Partial<Record<Locale, Record<string, string>>> = {};
+const _runtimeBlogSlugs: Record<string, Partial<Record<Locale, string>>> = {};
+const _runtimeReverseSwiss: Partial<Record<Locale, Record<string, string>>> = {};
+const _runtimeSwissSlugs: Record<string, Partial<Record<Locale, string>>> = {};
+
+function learnSlugs(
+ reverse: Partial<Record<Locale, Record<string, string>>>,
+ forward: Record<string, Partial<Record<Locale, string>>>,
+ id: string,
+ slugs: Partial<Record<Locale, string>>,
+): void {
+ if (!id) return;
+ const known = forward[id] ?? (forward[id] = {});
+ for (const [locale, slug] of Object.entries(slugs) as Array<[Locale, string | undefined]>) {
+ if (!slug) continue;
+ known[locale] = slug;
+ (reverse[locale] ?? (reverse[locale] = {}))[slug] = id;
+ }
+}
+
+/**
+ * Register an article id ↔ slug pair discovered at runtime.
+ *
+ * Both directions matter. The reverse one is what lets the URL resolve at all;
+ * the FORWARD one is what stops `buildPath` from rewriting the URL once it
+ * does. `pushRoute` fires on the very state update that adopts the article and
+ * `buildPath` falls back to the raw id when it has no slug — on the 176
+ * frontaliere articles whose Italian slug differs from their id, that would
+ * swap a working URL for a 404.
+ */
+export function learnRuntimeBlogSlugs(id: string, slugs: Partial<Record<Locale, string>>): void {
+ learnSlugs(_runtimeReverseBlog, _runtimeBlogSlugs, id, slugs);
+}
+
+/** Same, for the Switzerland-wide (svizzera) mirror section. */
+export function learnRuntimeSwissSlugs(id: string, slugs: Partial<Record<Locale, string>>): void {
+ learnSlugs(_runtimeReverseSwiss, _runtimeSwissSlugs, id, slugs);
+}
+
 /** Resolve a blog slug to an article ID (returns undefined if data not loaded or slug unknown). */
 export function resolveBlogSlug(slug: string, locale: Locale): BlogArticleId | undefined {
- return _reverseBlog?.[locale]?.[slug];
+ return (_reverseBlog?.[locale]?.[slug]
+ ?? _runtimeReverseBlog[locale]?.[slug]) as BlogArticleId | undefined;
 }
 
 // ── Lazy-loaded svizzera (Switzerland-wide) article data (routerSwissData.ts) ──
@@ -1608,7 +1661,7 @@ export function preloadSwissData(): Promise<void> {
 
 /** Resolve a svizzera article slug to its id (undefined if data not loaded or slug unknown). */
 export function resolveSwissSlug(slug: string, locale: Locale): string | undefined {
- return _reverseSwiss?.[locale]?.[slug];
+ return _reverseSwiss?.[locale]?.[slug] ?? _runtimeReverseSwiss[locale]?.[slug];
 }
 
 const REVERSE_CALCOLATORE = buildLocaleReverses(CALCOLATORE_SUB_TO_SLUG);
@@ -3619,7 +3672,7 @@ export function buildPath(route: AppRoute, locale?: Locale): string {
  if (route.blogSection === 'svizzera') {
  const swissId = route.swissArticle;
  if (swissId) {
- const slug = _swissSlugs?.[swissId]?.[lang] ?? swissId;
+ const slug = _swissSlugs?.[swissId]?.[lang] ?? _runtimeSwissSlugs[swissId]?.[lang] ?? swissId;
  return finish(`${prefix}/${table.blogCh}/${slug}${hashSuffix}`);
  }
  if (route.swissSlug) {
@@ -3629,7 +3682,7 @@ export function buildPath(route: AppRoute, locale?: Locale): string {
  }
  const article = route.blogArticle;
  if (article) {
- const slug = _blogSlugs?.[article]?.[lang] ?? article;
+ const slug = _blogSlugs?.[article]?.[lang] ?? _runtimeBlogSlugs[article]?.[lang] ?? article;
  return finish(`${prefix}/${table.blog}/${slug}${hashSuffix}`);
  }
  // Defense-in-depth: when the lazy-loaded blog data hasn't resolved the
