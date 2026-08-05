@@ -27822,6 +27822,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'indicatore-affari-aziende-luglio',
+ category: 'novita',
+ date: '2026-08-05T08:13:31.926Z',
+ image: '/images/blog/indicatore-affari-aziende-luglio.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

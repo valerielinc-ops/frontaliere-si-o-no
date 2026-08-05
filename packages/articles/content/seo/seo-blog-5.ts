@@ -59234,6 +59234,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-indicatore-affari-aziende-luglio': {
+    title: 'Indicatore affari aziende: ripresa in quasi tutti i settori',
+    description: 'La situazione economica delle aziende svizzere migliora secondo l\'Istituto KOF. Indicatore a più 21,5 punti in luglio con crescita nei settori chiave.',
+    keywords: 'frontalieri, ticino, svizzera, italia, indicatore, affari, aziende, ripresa',
+    ogTitle: 'Indicatore affari aziende KOF: ripresa in quasi tutti i settori',
+    ogDescription: 'Migliora l\'indicatore degli affari delle aziende svizzere calcolato dall\'Istituto KOF. Tutti i dettagli sui settori e sull\'inflazione.',
+    canonicalPath: '/articoli-frontaliere/indicatore-affari-aziende-luglio',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Indicatore affari aziende: ripresa in quasi tutti i settori",
+      "description": "La situazione economica delle aziende svizzere migliora secondo l'Istituto KOF. Indicatore a più 21,5 punti in luglio con crescita nei settori chiave.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/indicatore-affari-aziende-luglio.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Panoramica di un distretto finanziario in Svizzera con edifici moderni e attività economica"
+      },
+      "datePublished": "2026-08-05T08:13:31+00:00",
+      "dateModified": "2026-08-05T08:13:31+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/indicatore-affari-aziende-luglio/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

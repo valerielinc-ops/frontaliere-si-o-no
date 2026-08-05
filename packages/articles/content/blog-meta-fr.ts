@@ -9270,6 +9270,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.vivere-nel-cuore-di-bellinzona.title': 'Vivre au cœur de Bellinzone : qualité de vie et maisons',
     'blog.article.vivere-nel-cuore-di-bellinzona.excerpt': 'Découvrez ce que signifie vivre dans le centre historique de Bellinzone, entre les châteaux UNESCO, le marché du samedi et un marché immobilier avantageux.',
     'blog.article.vivere-nel-cuore-di-bellinzona.imageAlt': 'Le centre historique de Bellinzona avec ses tours médiévales le matin',
+    'blog.article.indicatore-affari-aziende-luglio.title': 'Indicateur affaires entreprises : reprise dans presque tous les secteurs',
+    'blog.article.indicatore-affari-aziende-luglio.excerpt': 'La situation économique des entreprises suisses s\'améliore selon l\'Institut KOF de l\'Ecole polytechnique fédérale de Zurich, avec un indicateur à plus 21,5 points en juillet.',
+    'blog.article.indicatore-affari-aziende-luglio.imageAlt': 'Vue d\'ensemble d\'un quartier financier en Suisse avec des batiments modernes',
 };
 
 export default blogMetaFr;
