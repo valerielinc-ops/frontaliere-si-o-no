@@ -32,6 +32,7 @@ import { BASE_URL, buildCanonicalBridgePage } from './constants';
 import { resolveSearchConsoleCompatTarget } from './searchConsoleCompat';
 import { readCompatPaths } from '../scripts/lib/compat-paths-store.mjs';
 import { readAllKnownJobSlugs } from '../scripts/lib/all-known-job-slugs-store.mjs';
+import { shouldEmitPath } from './shared/localeEmitFilter';
 import searchClusterMapFile from '../data/search-cluster-301-map.json';
 
 // Legacy per-canton related-search cluster URLs (old slug format, now 404). The
@@ -214,12 +215,40 @@ export function cfHot404BridgePlugin(rootDir: string): Plugin {
       let emittedFull = 0;
       let skippedExisting = 0;
       let skippedUnresolved = 0;
+      let skippedNonOwnedLocale = 0;
 
       for (const { path: rawPath } of ordered) {
+        const from = withSlash(rawPath);
+
+        // Per-locale matrix shard (BUILD_LOCALE, issue #5130): a bridge in a
+        // NON-owned locale subtree is deleted, unread, by
+        // scripts/ci/prune-locale-shard.mjs in the very next workflow step — it
+        // can never ship from this shard, so resolving + rendering + writing it
+        // is pure waste. This plugin emits 403,693 pages on the `it` shard of
+        // run 31036546298 (183.5 s wall / 83.5 s cpu — the gap is the sync
+        // mkdir+write per page), and on an en/de/fr shard the overwhelming
+        // majority of those belong to the apex tree that shard never keeps.
+        //
+        // Safe because this plugin's own reads never depend on a skipped write:
+        //  - the gap-fill `existsSync(outDir/index.html)` probes the path we are
+        //    about to write, always in the SAME locale as `from`;
+        //  - `canonFile` / `fallbackPath` probes resolve inside the same locale
+        //    subtree as `from` too (the canton-moved full-copy branch is gated
+        //    on `isItPath`), so a non-owned skip never changes an owned emit;
+        //  - postWalkCoordinator's hreflang pass keeps a cross-shard alternate
+        //    UNCONDITIONALLY (`!shouldEmitLocale(ownerEmitLocale(l)) → keep`,
+        //    hreflangPostprocessPlugin.ts:115), so a missing non-owned file can
+        //    never turn an owned page's alternate into a dropped link.
+        // shouldEmitPath returns true for ALL paths on the default all-locale
+        // build (EMIT_ALL_LOCALES) → no-op, byte-identical output.
+        if (!shouldEmitPath(path.join(distDir, from.slice(1)), distDir)) {
+          skippedNonOwnedLocale++;
+          continue;
+        }
+
         const resolution = resolveSearchConsoleCompatTarget(rawPath, slugIndex);
         if (!resolution) { skippedUnresolved++; continue; }
 
-        const from = withSlash(rawPath);
         const fromNorm = from.replace(/\/+$/, '');
 
         let to = withSlash(resolution.canonicalPath);
@@ -348,7 +377,8 @@ export function cfHot404BridgePlugin(rootDir: string): Plugin {
           `\x1b[36m[cf-hot-404-bridge]\x1b[0m Recovered ${emitted} Cloudflare/GSC-confirmed 404s ` +
             `(${emittedFull} full-content canton-moved copies [${itIndexable ? 'indexable+canonical' : 'noindex'}], ` +
             `${emitted - emittedFull} thin bridges; ` +
-            `cap ${MAX_EMIT}; ${skippedExisting} already had richer pages, ${skippedUnresolved} unresolved). ` +
+            `cap ${MAX_EMIT}; ${skippedExisting} already had richer pages, ${skippedUnresolved} unresolved, ` +
+            `${skippedNonOwnedLocale} non-owned-locale skipped). ` +
             `[mem] heapUsed=${heapMb}MB after emit.`,
         );
       }
