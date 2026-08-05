@@ -69,6 +69,10 @@ on:
         description: 'Max article ids per section (testing only — blank = full section)'
         type: string
         default: ''
+      only_ids:
+        description: 'Comma-separated article ids to rerender (canary/targeted repair — overrides limit; blank = whole section)'
+        type: string
+        default: ''
       batch_size:
         description: 'Article ids per render subprocess batch (memory-bounded — see scripts/rerender-article-corpus.mjs header comment)'
         type: string
@@ -181,6 +185,7 @@ jobs:
           INPUT_BATCH_SIZE: ${{ inputs.batch_size || '300' }}
           INPUT_DRY_RUN: ${{ inputs.dry_run }}
           INPUT_LIMIT: ${{ inputs.limit }}
+          INPUT_ONLY_IDS: ${{ inputs.only_ids }}
         run: |
           set -euo pipefail
           mkdir -p /tmp/rerender-corpus
@@ -194,6 +199,15 @@ jobs:
           fi
           if [ -n "$INPUT_LIMIT" ]; then
             ARGS+=(--limit "$INPUT_LIMIT")
+          fi
+          # --only-ids wins over --limit in the driver (it picks the id list
+          # BEFORE the limit slice), so a run that names ids gets exactly those
+          # and nothing else. That is what makes a canary verifiable: the first
+          # ids of a section's enumeration are mostly archived redirect stubs
+          # (8 of the first 10 for frontaliere), so `--limit 10` re-renders
+          # pages that carry none of the properties one would check afterwards.
+          if [ -n "${INPUT_ONLY_IDS:-}" ]; then
+            ARGS+=(--only-ids "$INPUT_ONLY_IDS")
           fi
           # Pinned to the same tsx major package.json's devDependencies
           # declares ("tsx": "^4.21.0"), matching publish-article-fast.mjs's
