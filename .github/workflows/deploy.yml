@@ -654,26 +654,32 @@ jobs:
           set -uo pipefail
           # Each section pushes to its OWN shard repo — one section's push
           # failure (e.g. a corrupted remote clone) must never skip the
-          # others. `|| fail=1` absorbs a non-zero exit so every section is
-          # always attempted; the step still ends non-zero (red in the
+          # others. bp_run_bounded records each failing section instead of
+          # aborting the fan-out; the step still ends non-zero (red in the
           # Actions UI) when any section genuinely failed. Incident
           # 2026-07-24 (run 30057726623): svizzera-it's push failure silently
-          # aborted this loop before zurigo-it was even attempted.
+          # aborted the old loop before zurigo-it was even attempted.
           #
           # Bounded-parallel, not unbounded: push-section-shard.sh's own
           # header (see "$stage ... leaked disk" note) documents issue #4734
           # — concurrent `stage` clones (up to several GB each for
           # ticino/svizzera/zurigo) piling up unfreed exhausted runner disk
-          # even under the OLD sequential loop. Capping concurrent in-flight
-          # pushes keeps peak `stage` usage bounded to MAX_PARALLEL sections
-          # at a time instead of scaling with the full 27-section list.
-          MAX_PARALLEL=4
-          fail=0
-          # Declared up front: `set -u` is on, and "${#failed[@]}" on an
-          # never-assigned array is an unbound-variable abort, not an empty count.
-          failed=()
-          pids=(); names=()
-          for section in $(bash scripts/lib/deploy-shard-sections.sh); do
+          # even under the OLD sequential loop. The cap is UNCHANGED at 4 and
+          # bp_run_bounded enforces it as a hard ceiling on IN-FLIGHT pushes,
+          # so peak `stage` usage is exactly what it was before.
+          #
+          # What changed (issue #5130): a sliding window + longest-first
+          # ordering replaces the batch barrier over an alphabetical list.
+          # The barrier made a batch cost as long as its slowest member, and
+          # alphabetical order put ticino (305k files) in the same batch as
+          # svitto (14k) and turgovia (24k) — measured 13.4 min of wall for
+          # 21.8 min of work on run 30980769677. Neither change raises peak
+          # concurrency, RSS or disk. Full measured breakdown:
+          # scripts/lib/bounded-parallel.sh.
+          source scripts/lib/bounded-parallel.sh
+
+          push_one() {
+            local section="$1" skip_var
             # #4881 Fase 5: build no longer emits this section when its
             # BUILD_EMIT_SKIP flag is on — a full-replace push here would
             # force-push a near-empty dist/ tree over the live shard, wiping
@@ -683,27 +689,34 @@ jobs:
             skip_var="$(echo "$section" | tr a-z A-Z)_BUILD_EMIT_SKIP"
             if [ "${!skip_var:-}" = "true" ]; then
               echo "$section-it: BUILD_EMIT_SKIP=true — excluded from full-replace push (served by fast-publish only)"
-              continue
+              return 0
             fi
-            bash scripts/lib/push-section-shard.sh "$section" it dist &
-            pids+=("$!"); names+=("$section")
-            if [ "${#pids[@]}" -ge "$MAX_PARALLEL" ]; then
-              for idx in "${!pids[@]}"; do
-                wait "${pids[$idx]}" || { echo "::warning::${names[$idx]}-it shard push step failed — continuing to the next section"; fail=1; failed+=("${names[$idx]}"); }
-              done
-              pids=(); names=()
+            if bash scripts/lib/push-section-shard.sh "$section" it dist; then
+              return 0
             fi
-          done
-          for idx in "${!pids[@]}"; do
-            wait "${pids[$idx]}" || { echo "::warning::${names[$idx]}-it shard push step failed — continuing to the next section"; fail=1; failed+=("${names[$idx]}"); }
-          done
+            echo "::warning::$section-it shard push step failed — continuing to the next section"
+            return 1
+          }
+
+          # A partial section list here would silently stop pushing a shard,
+          # leaving it serving a stale build with no signal anywhere — so an
+          # ordering failure is fatal, never a shortened fan-out.
+          order="$(bp_section_order dist it)" || {
+            echo "::error::could not order the section list — refusing to push a partial set of shards"
+            exit 1
+          }
+          echo "section push order (longest-first): $(echo "$order" | tr '\n' ' ')"
+
+          export BP_FAILED_FILE="$RUNNER_TEMP/shard-push-failed-it.txt"
+          fail=0
+          bp_run_bounded 4 push_one $order || fail=1
           # A tolerated failure must still be VISIBLE: file/refresh one deduped
           # issue naming the shards that stayed unpublished (incident
           # 2026-07-30 — uri-it failed on every deploy for 3 days behind a
           # ::warning:: inside a green run).
-          if [ "${#failed[@]}" -gt 0 ]; then
+          if [ -s "$BP_FAILED_FILE" ]; then
             node scripts/ci/report-shard-push-failure.mjs \
-              --locale it --shards "$(IFS=,; echo "${failed[*]}")" || true
+              --locale it --shards "$(paste -sd, "$BP_FAILED_FILE")" || true
           fi
           exit "$fail"
 
@@ -757,7 +770,11 @@ jobs:
           # file-count-verify is CPU/IO-bound and independent per section
           # (each reads/writes its own $RUNNER_TEMP/<section>-* paths, no
           # cross-section overlap) — safe to fan out, capped for the same
-          # runner-disk-pressure reason as the push step.
+          # runner-disk-pressure reason as the push step. Same shared
+          # sliding-window driver and same longest-first order as that step
+          # (memoised in $RUNNER_TEMP, so this reuses the push step's walk of
+          # dist instead of paying for a second one).
+          source scripts/lib/bounded-parallel.sh
           pack_section() {
             local section="$1"
             local live_var="$(echo "$section" | tr a-z A-Z)_SHARD_LIVE"
@@ -801,17 +818,15 @@ jobs:
             fi
             rm -rf "$src"
           }
-          MAX_PARALLEL=4
-          pids=()
-          for section in $(bash scripts/lib/deploy-shard-sections.sh); do
-            pack_section "$section" &
-            pids+=("$!")
-            if [ "${#pids[@]}" -ge "$MAX_PARALLEL" ]; then
-              for pid in "${pids[@]}"; do wait "$pid"; done
-              pids=()
-            fi
-          done
-          for pid in "${pids[@]}"; do wait "$pid"; done
+          # Degrade to the plain list rather than pack nothing: this tar only
+          # feeds post-deploy-validate-dist's rehydrate FAST PATH, which
+          # already falls back to a git clone per section — but skipping
+          # sections silently is still not on the table.
+          order="$(bp_section_order dist it)" || {
+            echo "::warning::could not order the section list — packing in list order"
+            order="$(bash scripts/lib/deploy-shard-sections.sh)"
+          }
+          bp_run_bounded 4 pack_section $order || true
       - name: Upload shard batch 1 dist for post-deploy validation
         if: matrix.locale == 'it'
         continue-on-error: true
@@ -1316,51 +1331,55 @@ jobs:
           ARTICOLISVIZZERA_BUILD_EMIT_SKIP: ${{ vars.ARTICOLISVIZZERA_BUILD_EMIT_SKIP == 'false' && 'false' || 'true' }}
         run: |
           set -uo pipefail
+          loc="${{ matrix.locale }}"
           # Each section pushes to its OWN shard repo — one section's push
           # failure (e.g. a corrupted remote clone) must never skip the
-          # others. `|| fail=1` absorbs a non-zero exit so every section is
-          # always attempted; the step still ends non-zero (red in the
+          # others. bp_run_bounded records each failing section instead of
+          # aborting the fan-out; the step still ends non-zero (red in the
           # Actions UI) when any section genuinely failed. Incident
           # 2026-07-24 (run 30057726623): svizzera-it's push failure silently
-          # aborted this loop before zurigo-it was even attempted.
+          # aborted the old loop before zurigo-it was even attempted.
           # Bounded-parallel, not unbounded: push-section-shard.sh's own
           # header documents issue #4734 — concurrent `stage` clones (up to
           # several GB each for ticino/svizzera/zurigo) piling up unfreed
-          # exhausted runner disk even under the OLD sequential loop. Capping
-          # concurrent in-flight pushes keeps peak `stage` usage bounded to
-          # MAX_PARALLEL sections at a time instead of scaling with the full
-          # 27-section list.
-          MAX_PARALLEL=4
-          fail=0
-          # Declared up front: `set -u` is on, and "${#failed[@]}" on an
-          # never-assigned array is an unbound-variable abort, not an empty count.
-          failed=()
-          pids=(); names=()
-          for section in $(bash scripts/lib/deploy-shard-sections.sh); do
+          # exhausted runner disk even under the OLD sequential loop. The cap
+          # is UNCHANGED at 4 and bp_run_bounded enforces it as a hard ceiling
+          # on IN-FLIGHT pushes, so peak `stage` usage is what it was.
+          # Sliding window + longest-first ordering (issue #5130) — see the
+          # IT-leg push step above and scripts/lib/bounded-parallel.sh.
+          source scripts/lib/bounded-parallel.sh
+
+          push_one() {
+            local section="$1" skip_var
             # #4881 Fase 5: same exclusion as the IT-leg push step above —
             # build no longer emitted this section, so a full-replace push
             # here would force-push a near-empty dist/ tree over the shard.
             skip_var="$(echo "$section" | tr a-z A-Z)_BUILD_EMIT_SKIP"
             if [ "${!skip_var:-}" = "true" ]; then
-              echo "$section-${{ matrix.locale }}: BUILD_EMIT_SKIP=true — excluded from full-replace push (served by fast-publish only)"
-              continue
+              echo "$section-$loc: BUILD_EMIT_SKIP=true — excluded from full-replace push (served by fast-publish only)"
+              return 0
             fi
-            bash scripts/lib/push-section-shard.sh "$section" "${{ matrix.locale }}" dist &
-            pids+=("$!"); names+=("$section")
-            if [ "${#pids[@]}" -ge "$MAX_PARALLEL" ]; then
-              for idx in "${!pids[@]}"; do
-                wait "${pids[$idx]}" || { echo "::warning::${names[$idx]}-${{ matrix.locale }} shard push step failed — continuing to the next section"; fail=1; failed+=("${names[$idx]}"); }
-              done
-              pids=(); names=()
+            if bash scripts/lib/push-section-shard.sh "$section" "$loc" dist; then
+              return 0
             fi
-          done
-          for idx in "${!pids[@]}"; do
-            wait "${pids[$idx]}" || { echo "::warning::${names[$idx]}-${{ matrix.locale }} shard push step failed — continuing to the next section"; fail=1; failed+=("${names[$idx]}"); }
-          done
+            echo "::warning::$section-$loc shard push step failed — continuing to the next section"
+            return 1
+          }
+
+          # Fatal on an ordering failure — see the IT-leg push step above.
+          order="$(bp_section_order dist "$loc")" || {
+            echo "::error::could not order the section list — refusing to push a partial set of shards"
+            exit 1
+          }
+          echo "section push order (longest-first): $(echo "$order" | tr '\n' ' ')"
+
+          export BP_FAILED_FILE="$RUNNER_TEMP/shard-push-failed-$loc.txt"
+          fail=0
+          bp_run_bounded 4 push_one $order || fail=1
           # Same visibility contract as the IT leg above — see that comment.
-          if [ "${#failed[@]}" -gt 0 ]; then
+          if [ -s "$BP_FAILED_FILE" ]; then
             node scripts/ci/report-shard-push-failure.mjs \
-              --locale "${{ matrix.locale }}" --shards "$(IFS=,; echo "${failed[*]}")" || true
+              --locale "$loc" --shards "$(paste -sd, "$BP_FAILED_FILE")" || true
           fi
           exit "$fail"
 
@@ -1405,7 +1424,10 @@ jobs:
           set -uo pipefail
           loc="${{ matrix.locale }}"
           # Bounded-parallel (cap 4) — see the IT leg's "Pack section shard
-          # dist" step above for the full rationale.
+          # dist" step above for the full rationale. Same shared
+          # sliding-window driver and same longest-first order (memoised by
+          # the push step, so no second walk of dist).
+          source scripts/lib/bounded-parallel.sh
           pack_section() {
             local section="$1"
             local live_var="$(echo "$section" | tr a-z A-Z)_SHARD_LIVE"
@@ -1443,17 +1465,13 @@ jobs:
             fi
             rm -rf "$src"
           }
-          MAX_PARALLEL=4
-          pids=()
-          for section in $(bash scripts/lib/deploy-shard-sections.sh); do
-            pack_section "$section" &
-            pids+=("$!")
-            if [ "${#pids[@]}" -ge "$MAX_PARALLEL" ]; then
-              for pid in "${pids[@]}"; do wait "$pid"; done
-              pids=()
-            fi
-          done
-          for pid in "${pids[@]}"; do wait "$pid"; done
+          # Degrade to the plain list rather than pack nothing — see the IT
+          # leg's "Pack section shard dist" step above.
+          order="$(bp_section_order dist "$loc")" || {
+            echo "::warning::could not order the section list — packing in list order"
+            order="$(bash scripts/lib/deploy-shard-sections.sh)"
+          }
+          bp_run_bounded 4 pack_section $order || true
       - name: Upload shard batch 1 dist for post-deploy validation
         if: matrix.locale != 'it'
         continue-on-error: true

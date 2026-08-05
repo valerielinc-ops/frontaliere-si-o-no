@@ -59273,6 +59273,123 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-svizzeri-fuga-alloglio-ticino': {
+    title: 'Svizzeri in fuga oltreconfine per l\'alloggio | Frontaliere Ticino',
+    description: '154\'700 svizzeri vivono in regioni di confine. 70% dei romandi trova affitti troppo alti. Implicazioni per frontalieri Ticino-Italia. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, svizzeri, fuga, oltreconfine, alloggio',
+    ogTitle: 'Svizzeri in fuga oltreconfine per l\'alloggio: implicazioni per i frontalieri ticinesi',
+    ogDescription: '154\'700 svizzeri vivono in regioni di confine. 70% dei romandi trova affitti troppo alti. Implicazioni per frontalieri Ticino-Italia.',
+    canonicalPath: '/articoli-frontaliere/svizzeri-fuga-alloglio-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Svizzeri in fuga oltreconfine per l'alloggio",
+      "description": "154'700 svizzeri vivono in regioni di confine. 70% dei romandi trova affitti troppo alti. Implicazioni per frontalieri Ticino-Italia. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/svizzeri-fuga-alloglio-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista sul lago di Como con frontalieri che si spostano verso la regione"
+      },
+      "datePublished": "2026-08-05T09:59:53+00:00",
+      "dateModified": "2026-08-05T09:59:53+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/svizzeri-fuga-alloglio-ticino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-borsa-rotta-isola-15000-punti': {
+    title: 'Borsa su, rotta sull\'isola dei 15\'000 punti? | Frontaliere Ticino',
+    description: 'Nuovi massimi storici su Dow Jones e S&P-500 spingono verso i 15\'000 punti. Analisi per frontalieri ticinesi e investimenti in CHF. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, borsa, rotta, sull, isola',
+    ogTitle: 'Borsa su, rotta sull\'isola dei 15\'000 punti?',
+    ogDescription: 'Nuovi massimi storici su Dow Jones e S&P-500 spingono verso i 15\'000 punti. Cosa significa per frontalieri e investimenti in valuta sviziera.',
+    canonicalPath: '/articoli-frontaliere/borsa-rotta-isola-15000-punti',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Borsa su, rotta sull'isola dei 15'000 punti?",
+      "description": "Nuovi massimi storici su Dow Jones e S&P-500 spingono verso i 15'000 punti. Analisi per frontalieri ticinesi e investimenti in CHF. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/borsa-rotta-isola-15000-punti.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Panoramica città svizzera con grafici finanziari in vetrate, cielo sereno"
+      },
+      "datePublished": "2026-08-05T10:24:14+00:00",
+      "dateModified": "2026-08-05T10:24:14+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/borsa-rotta-isola-15000-punti/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-tradate-lite-ferito-trentenne': {
+    title: 'Lite davanti alla stazione di Tradate: ferito un trentenne',
+    description: 'Una discussione tra cittadini extracomunitari è degenerata in rissa e un uomo di 30 anni è rimasto ferito. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, lite, davanti, alla, stazione',
+    ogTitle: 'Lite davanti alla stazione di Tradate: ferito un trentenne',
+    ogDescription: 'Una discussione tra cittadini extracomunitari è degenerata in rissa e un uomo di 30 anni è rimasto ferito.',
+    canonicalPath: '/articoli-frontaliere/tradate-lite-ferito-trentenne',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Lite davanti alla stazione di Tradate: ferito un trentenne",
+      "description": "Una discussione tra cittadini extracomunitari è degenerata in rissa e un uomo di 30 anni è rimasto ferito. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/tradate-lite-ferito-trentenne.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una lite in una stazione ferroviaria"
+      },
+      "datePublished": "2026-08-05T13:42:10+00:00",
+      "dateModified": "2026-08-05T13:42:10+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/tradate-lite-ferito-trentenne/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

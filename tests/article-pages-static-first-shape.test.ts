@@ -34,6 +34,42 @@ describe('article pages emit a static-first body (#4959)', () => {
     expect(source).toContain('articleRootShell(false)');
   });
 
+  /**
+   * #4828 — the sibling-main shape above is only HALF of the staticOverlay
+   * shell contract. `build-plugins/htmlTemplate.ts` emits `#root`, then the
+   * `<main class="seo-static-content">`, then `<div id="footer-root"></div>`;
+   * App.tsx portals the footer into that last node on staticOverlay routes.
+   * #4959 mirrored the `#root` half here and dropped the footer half, so every
+   * article page opted into the contract while violating it — 3608 offenders
+   * in `audit:footer-root-presence` (post-deploy validation run 30974294824),
+   * up from 23. Every other `seo-static-content` emitter in the repo reaches
+   * this shape through `buildSeoPageHtml`; this file is the only hand-rolled
+   * one, so it is the only one that can drift.
+   */
+  it('every seo-static-content <main> is followed by the #footer-root portal target', () => {
+    const source = read('packages/articles/engine/ogPagesPlugin.ts');
+
+    const isComment = (line: string): boolean => {
+      const t = line.trimStart();
+      return t.startsWith('//') || t.startsWith('*') || t.startsWith('/*');
+    };
+    const emitted = source
+      .split('\n')
+      .filter((line) => !isComment(line))
+      .filter((line) => line.includes('<main class="seo-static-content'));
+
+    expect(emitted.length, 'expected at least one emitted seo-static-content <main>').toBeGreaterThan(0);
+    for (const line of emitted) {
+      expect(
+        line,
+        'a seo-static-content <main> emitted without the ${ARTICLE_FOOTER_ROOT} portal target — ' +
+          'App.tsx would fall back to an inline footer inside #root, above the article body',
+      ).toContain('</main>${ARTICLE_FOOTER_ROOT}');
+    }
+
+    expect(source).toContain("const ARTICLE_FOOTER_ROOT = '<div id=\"footer-root\"></div>'");
+  });
+
   it('the bare article indexes opt into the sibling-main shape', () => {
     const source = read('build-plugins/staticPagesPlugin.ts');
     expect(source).toContain('isBareArticleIndex');

@@ -11,8 +11,14 @@
     "https://jobs.skyguide.ch/search/?createNewAlert=false&q=&locationsearch=&optionsFacetsDD_department=&optionsFacetsDD_location=&startrow=0"
   ],
   "notes": "Dedicated Skyguide crawler parses the national SuccessFactors listing (all cantons, paginated) and extracts full detail pages; canton derived per-job.",
-  "updatedAt": "2026-08-04T22:18:56.196Z",
+  "updatedAt": "2026-08-05T11:30:35.522Z",
   "seedMetaByUrl": {
+    "https://jobs.skyguide.ch/job/Wangen-b_-D%C3%BCbendorf-Network-Architect-%2880-100%29/1399690633/": {
+      "location": "Wangen b. Dübendorf",
+      "canton": "ZH",
+      "company": "Skyguide",
+      "postedDate": "2026-08-05"
+    },
     "https://jobs.skyguide.ch/job/Wangen-b_-D%C3%BCbendorf-IT-Application-Solutions-Lead-%2880-100%29/1391456533/": {
       "location": "Wangen b. Dübendorf",
       "canton": "ZH",
@@ -72,12 +78,6 @@
       "canton": "VD",
       "company": "Skyguide",
       "postedDate": "2026-07-20"
-    },
-    "https://jobs.skyguide.ch/job/Wangen-b_-D%C3%BCbendorf-Network-Architect-%2880-100%29/1399690633/": {
-      "location": "Wangen b. Dübendorf",
-      "canton": "ZH",
-      "company": "Skyguide",
-      "postedDate": "2026-07-07"
     }
   }
 }

@@ -128,11 +128,18 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
+          # Stable title (ISSUES.md dedup a monte): the run date used to be
+          # interpolated here, so a drift that persisted week after week opened a
+          # brand-new issue every week for the same condition. The date belongs
+          # in the body — `github-issue-creator.mjs` comments each recurrence on
+          # the canonical issue, which is what makes the persistence visible.
           DATE=$(date -u +%Y-%m-%d)
-          TITLE="[GSC] Brand dilution alert ${DATE}"
+          TITLE="[GSC] Brand dilution alert on tracked frontaliere queries"
           BODY_FILE=$(mktemp)
           {
             echo "Weekly GSC frontaliere brand monitor detected at least one tracked query slipping ≥3 positions in average rank."
+            echo
+            echo "**Detected on:** ${DATE}"
             echo
             echo "**Property:** \`sc-domain:frontaliereticino.ch\`"
             echo "**Lookback:** 14 days"
@@ -156,13 +163,14 @@ jobs:
             echo "3. After remediation, re-run with \`update_baseline: true\` from the workflow_dispatch input to refresh the baseline. Do NOT widen the threshold."
           } > "$BODY_FILE"
 
-          gh issue create \
+          node scripts/lib/github-issue-creator.mjs \
             --title "$TITLE" \
-            --body-file "$BODY_FILE" \
-            --label "seo,monitoring,brand-drift" || \
-          gh issue create \
-            --title "$TITLE" \
-            --body-file "$BODY_FILE"
+            --description "$(cat "$BODY_FILE")" \
+            --priority 2 \
+            --label seo \
+            --label monitoring \
+            --label brand-drift \
+            --workflow "${{ github.workflow }}"
 
       - name: Cleanup credentials
         if: always()

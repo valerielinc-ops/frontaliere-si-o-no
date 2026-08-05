@@ -1,6 +1,6 @@
 {
   "crawlerKey": "schulthess-klinik",
-  "assembledAt": "2026-08-04T22:15:41.293Z",
+  "assembledAt": "2026-08-05T11:27:34.082Z",
   "jobs": [
     {
       "id": "schulthess-klinik-e4c656f98d30",
@@ -34,7 +34,7 @@
       "url": "https://job.schulthess-klinik.ch/offene-stellen/radiologiefachperson/408d33fc-2664-40fa-a077-16db7969afc8",
       "source": "Schulthess Klinik Dedicated Parser (Prospective medium 1007262)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-04T22:15:33.764Z",
+      "crawledAt": "2026-08-05T11:27:24.199Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -113,7 +113,7 @@
       "url": "https://job.schulthess-klinik.ch/offene-stellen/med-praxisassistentin-med-praxisassistent-rheumatologie-rehabilitation/8f712e35-aecd-403d-b0b9-d48e6d1ddab0",
       "source": "Schulthess Klinik Dedicated Parser (Prospective medium 1007262)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-04T22:15:33.761Z",
+      "crawledAt": "2026-08-05T11:27:24.195Z",
       "addressLocality": "Lengghalde 2, Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -205,7 +205,7 @@
       "url": "https://job.schulthess-klinik.ch/offene-stellen/arztsekretaerin-arztsekretaer-schulter-und-ellbogenchirurgie/f0113e53-104f-439d-9d85-dc38a9f1e01a",
       "source": "Schulthess Klinik Dedicated Parser (Prospective medium 1007262)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-04T22:15:33.756Z",
+      "crawledAt": "2026-08-05T11:27:24.193Z",
       "addressLocality": "Lengghalde 2, Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -295,7 +295,7 @@
       "url": "https://job.schulthess-klinik.ch/offene-stellen/arztsekretaerin-arztsekretaer-wirbelsaeulenchirurgie/e5d41b37-2f03-46d5-bf6a-d82dc81dc24c",
       "source": "Schulthess Klinik Dedicated Parser (Prospective medium 1007262)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-04T22:15:33.754Z",
+      "crawledAt": "2026-08-05T11:27:24.187Z",
       "addressLocality": "Lengghalde 2, Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -348,69 +348,6 @@
       }
     },
     {
-      "id": "schulthess-klinik-4c10ad59e226",
-      "slug": "research-assistant-anesthesiology-for-a-fixed-term-of-two-years-schulthess-klinik-zurich",
-      "slugByLocale": {
-        "it": "research-assistant-anesthesiology-for-a-fixed-term-of-two-years-schulthess-klinik-zurich",
-        "en": "research-assistant-anesthesiology-for-a-fixed-term-of-two-years-schulthess-klinik-zurich",
-        "de": "forschung-assistent-anesthesiology-for-a-fixed-term-of-two-years-schulthess-klinik-zurich",
-        "fr": "research-assistant-anesthesiology-for-a-fixed-term-of-two-years-schulthess-klinik-zurich"
-      },
-      "company": "Schulthess Klinik",
-      "companyKey": "schulthess-klinik",
-      "companyDomain": "schulthess-klinik.ch",
-      "title": "Research Assistant Anesthesiology for a fixed term of two years",
-      "titleByLocale": {
-        "it": "Ricerca Assistant Anesthesiology for a fixed term of two years",
-        "en": "Research Assistant Anesthesiology for a fixed term of two years",
-        "de": "Forschung Assistent Anesthesiology for a fixed term of two years",
-        "fr": "Recherche Assistant Anesthesiology for a fixed term of two years"
-      },
-      "description": "Aufgaben:\n• Literature searches and evidence summaries\n\n• Research project planning and study protocol development\n\n• Preparation of ethics submissions\n\n• Coordination of research projects\n\n• Collaboration with clinicians and multidisciplinary teams\n\n• Data collection and management\n\n• Basic statistical analyses\n\n• Preparation of scientific manuscripts, abstracts, and presentations\n\n• Presentation of research findings\n\nAnforderungen:\n• Bachelor/Master of Science (BSc/MSc) in a relevant biomedical field (e.g. clinical research, sport science, physiology, epidemiology, psychology, physiotherapy, nursing)\n\n• Strong coding abilities (Python/R,SQL) including relevant ML libraries (numpy, matplotlib, pandas, sklearn, pytorch/tensorflow/keras)\n\n• Experience with developing ML models\n\n• Experience with STATA, REDCap, FileMaker is a plus\n\n• Precise and structured approach to work\n\n• Excellent oral and written German and English skills\n\nWir bieten:\n• 40-hour week\n\n• Possibility of working from home\n\n• Attractive social security contributions and numerous benefits\n\n• Team spirit\n\n• Affordable meals in the staff restaurant",
-      "descriptionByLocale": {
-        "it": "Aufgaben:\n• Sostenere la progettazione e la pianificazione di progetti di ricerca, nonché lo sviluppo di protocolli di studio\n\n• Sostenere la preparazione, la scrittura e la presentazione del lavoro scientifico\n\n• Coordinamento dei progetti\n\n• Preparazione di documenti per il comitato etico locale\n\n• Raccolta dei dati\n\n• Collaborare con i medici\n\n• Analisi statistiche di base\n\nAnforderungen:\n• Bachelor/Master of Science (BSc/MSc) in un campo biomedico rilevante (ad esempio ricerca clinica, scienza dello sport, fisiologia, epidemiologia, psicologia, fisioterapia, infermieristica)\n\n• Forte capacità di codifica (Python/R,SQL) comprese le librerie ML rilevanti (numpy, matplotlib, pandas, sklearn, pytorch/tensorflow/keras)\n\n• Esperienza con lo sviluppo di modelli ML\n\n• Esperienza con STATA, REDCap, FileMaker è un plus\n\n• Approccio preciso e strutturato al lavoro\n\n• Eccellente orale e scritto tedesco e inglese competenze\n\nWir bieten:\n• Settimana di 40 ore\n\n• Possibilità di lavorare da casa\n\n• Contributi di previdenza sociale interessanti e numerosi vantaggi\n\n• Spirito di squadra\n\n• Pasti convenienti nel ristorante del personale",
-        "en": "Aufgaben:\n• Literature searches and evidence summaries\n\n• Research project planning and study protocol development\n\n• Preparation of ethics submissions\n\n• Coordination of research projects\n\n• Collaboration with clinicians and multidisciplinary teams\n\n• Data collection and management\n\n• Basic statistical analyses\n\n• Preparation of scientific manuscripts, abstracts, and presentations\n\n• Presentation of research findings\n\nAnforderungen:\n• Bachelor/Master of Science (BSc/MSc) in a relevant biomedical field (e.g. clinical research, sport science, physiology, epidemiology, psychology, physiotherapy, nursing)\n\n• Strong coding abilities (Python/R,SQL) including relevant ML libraries (numpy, matplotlib, pandas, sklearn, pytorch/tensorflow/keras)\n\n• Experience with developing ML models\n\n• Experience with STATA, REDCap, FileMaker is a plus\n\n• Precise and structured approach to work\n\n• Excellent oral and written German and English skills\n\nWir bieten:\n• 40-hour week\n\n• Possibility of working from home\n\n• Attractive social security contributions and numerous benefits\n\n• Team spirit\n\n• Affordable meals in the staff restaurant",
-        "de": "Aufgaben:\n• Unterstützung der Konzeption und Planung von Forschungsprojekten sowie der Entwicklung von Studienprotokollen\n\n• Unterstützung der Vorbereitung, des Schreibens und der Präsentation wissenschaftlicher Arbeiten\n\n• Koordinierende Projekte\n\n• Vorbereitung von Dokumenten für die lokale Ethikkommission\n\n• Datenerhebung\n\n• Zusammenarbeit mit den Klinikern\n\n• Statistische Grundlagenanalysen\n\nAnforderungen:\n• Bachelor/Master of Science (BSc/MSc) in einem relevanten biomedizinischen Bereich (z.B. klinische Forschung, Sportwissenschaft, Physiologie, Epidemiologie, Psychologie, Physiotherapie, Krankenpflege)\n\n• Starke Kodierungsfähigkeiten (Python/R,SQL) einschließlich relevanter ML-Bibliotheken (numpy, matplotlib, pandas, sklearn, pytorch/tensorflow/keras)\n\n• Erfahrung mit der Entwicklung von ML-Modellen\n\n• Erfahrung mit STATA, REDCap, FileMaker ist ein Plus\n\n• Präzise und strukturierte Arbeitsweise\n\n• Hervorragende mündliche und schriftliche Deutsch- und Englischkenntnisse\n\nWir bieten:\n• 40 Stunden Woche\n\n• Möglichkeit, von zu Hause aus zu arbeiten\n\n• Attraktive Sozialversicherungsbeiträge und zahlreiche Leistungen\n\n• Teamgeist\n\n• Erschwingliche Mahlzeiten im Personalrestaurant",
-        "fr": "Aufgaben:\n• Soutenir la conception et la planification de projets de recherche, ainsi que l'élaboration de protocoles d'étude\n\n• Soutenir la préparation, la rédaction et la présentation des travaux scientifiques\n\n• Coordination des projets\n\n• Préparation de documents pour le comité d'éthique local\n\n• Collecte de données\n\n• Collaborer avec les cliniciens\n\n• Analyses statistiques de base\n\nC'est pas vrai.\n• Baccalauréat/maîtrise en sciences (BSc/MSc) dans un domaine biomédical pertinent (p. ex. recherche clinique, sciences du sport, physiologie, épidémiologie, psychologie, physiothérapie, soins infirmiers)\n\n• Fortes capacités de codage (Python/R,SQL) incluant les bibliothèques ML pertinentes (numpy, matplotlib, pandas, sklearn, pytorch/tensorflow/keras)\n\n• Expérience du développement de modèles ML\n\n• Expérience avec STATA, REDCap, FileMaker est un plus\n\n• Approche précise et structurée du travail\n\n• Excellentes compétences orales et écrites en allemand et en anglais\n\n- Oui.\n• Semaine de 40 heures\n\n• Possibilité de travailler à domicile\n\n• Cotisations de sécurité sociale attrayantes et nombreuses prestations\n\n• Esprit d'équipe\n\n• Repas abordables dans le restaurant du personnel"
-      },
-      "location": "Zürich",
-      "canton": "ZH",
-      "url": "https://job.schulthess-klinik.ch/job-vacancies/research-assistant-anesthesiology-for-a-fixed-term-of-two-years/18c8967e-7373-43c4-acf4-74e61f04232f",
-      "source": "Schulthess Klinik Dedicated Parser (Prospective medium 1007262)",
-      "sourceLang": "en",
-      "crawledAt": "2026-08-04T22:15:33.752Z",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8008",
-      "streetAddress": "Lengghalde 2",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-29",
-      "applyUrl": "https://job.schulthess-klinik.ch/successfactors/EMEA_ROT/SchulthessK/de/apply?id=2044",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "firstSeenAt": "2026-07-29T22:02:49.179Z",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "schulthess-klinik-37b29e44b0f6",
       "slug": "mitarbeiterin-collaboratore-trice-reinigung-schulthess-klinik-lengghalde-2-zurich",
       "slugByLocale": {
@@ -441,7 +378,7 @@
       "url": "https://job.schulthess-klinik.ch/offene-stellen/mitarbeiterin-mitarbeiter-reinigung/f050b2d8-eaf2-4906-aeb0-d65189dd9105",
       "source": "Schulthess Klinik Dedicated Parser (Prospective medium 1007262)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-04T22:15:33.750Z",
+      "crawledAt": "2026-08-05T11:27:24.184Z",
       "addressLocality": "Lengghalde 2, Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -539,7 +476,7 @@
       "url": "https://job.schulthess-klinik.ch/offene-stellen/mitarbeiterin-mitarbeiter-restaurant-bistro/c6a7a7f1-2cca-46d3-813b-05f7a2313c57",
       "source": "Schulthess Klinik Dedicated Parser (Prospective medium 1007262)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-04T22:15:33.746Z",
+      "crawledAt": "2026-08-05T11:27:24.174Z",
       "addressLocality": "Lengghalde 2, Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -618,7 +555,7 @@
       "url": "https://job.schulthess-klinik.ch/offene-stellen/pflegefachperson-fuer-die-bettenstationen/cd530412-09e7-4d81-8749-7edc606137ba",
       "source": "Schulthess Klinik Dedicated Parser (Prospective medium 1007262)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-04T22:15:33.730Z",
+      "crawledAt": "2026-08-05T11:27:24.157Z",
       "addressLocality": "Lengghalde 2, Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -663,6 +600,70 @@
           "unitText": "YEAR"
         }
       }
+    },
+    {
+      "id": "schulthess-klinik-4c10ad59e226",
+      "slug": "research-assistant-anesthesiology-for-a-fixed-term-of-two-years-schulthess-klinik-zurich",
+      "slugByLocale": {
+        "it": "research-assistant-anesthesiology-for-a-fixed-term-of-two-years-schulthess-klinik-zurich",
+        "en": "research-assistant-anesthesiology-for-a-fixed-term-of-two-years-schulthess-klinik-zurich",
+        "de": "forschung-assistent-anesthesiology-for-a-fixed-term-of-two-years-schulthess-klinik-zurich",
+        "fr": "research-assistant-anesthesiology-for-a-fixed-term-of-two-years-schulthess-klinik-zurich"
+      },
+      "company": "Schulthess Klinik",
+      "companyKey": "schulthess-klinik",
+      "companyDomain": "schulthess-klinik.ch",
+      "title": "Research Assistant Anesthesiology for a fixed term of two years",
+      "titleByLocale": {
+        "it": "Ricerca Assistant Anesthesiology for a fixed term of two years",
+        "en": "Research Assistant Anesthesiology for a fixed term of two years",
+        "de": "Forschung Assistent Anesthesiology for a fixed term of two years",
+        "fr": "Recherche Assistant Anesthesiology for a fixed term of two years"
+      },
+      "description": "Aufgaben:\n• Literature searches and evidence summaries\n\n• Research project planning and study protocol development\n\n• Preparation of ethics submissions\n\n• Coordination of research projects\n\n• Collaboration with clinicians and multidisciplinary teams\n\n• Data collection and management\n\n• Basic statistical analyses\n\n• Preparation of scientific manuscripts, abstracts, and presentations\n\n• Presentation of research findings\n\nAnforderungen:\n• Bachelor/Master of Science (BSc/MSc) in a relevant biomedical field (e.g. clinical research, sport science, physiology, epidemiology, psychology, physiotherapy, nursing)\n\n• Strong coding abilities (Python/R,SQL) including relevant ML libraries (numpy, matplotlib, pandas, sklearn, pytorch/tensorflow/keras)\n\n• Experience with developing ML models\n\n• Experience with STATA, REDCap, FileMaker is a plus\n\n• Precise and structured approach to work\n\n• Excellent oral and written German and English skills\n\nWir bieten:\n• 40-hour week\n\n• Possibility of working from home\n\n• Attractive social security contributions and numerous benefits\n\n• Team spirit\n\n• Affordable meals in the staff restaurant",
+      "descriptionByLocale": {
+        "it": "Aufgaben:\n• Sostenere la progettazione e la pianificazione di progetti di ricerca, nonché lo sviluppo di protocolli di studio\n\n• Sostenere la preparazione, la scrittura e la presentazione del lavoro scientifico\n\n• Coordinamento dei progetti\n\n• Preparazione di documenti per il comitato etico locale\n\n• Raccolta dei dati\n\n• Collaborare con i medici\n\n• Analisi statistiche di base\n\nAnforderungen:\n• Bachelor/Master of Science (BSc/MSc) in un campo biomedico rilevante (ad esempio ricerca clinica, scienza dello sport, fisiologia, epidemiologia, psicologia, fisioterapia, infermieristica)\n\n• Forte capacità di codifica (Python/R,SQL) comprese le librerie ML rilevanti (numpy, matplotlib, pandas, sklearn, pytorch/tensorflow/keras)\n\n• Esperienza con lo sviluppo di modelli ML\n\n• Esperienza con STATA, REDCap, FileMaker è un plus\n\n• Approccio preciso e strutturato al lavoro\n\n• Eccellente orale e scritto tedesco e inglese competenze\n\nWir bieten:\n• Settimana di 40 ore\n\n• Possibilità di lavorare da casa\n\n• Contributi di previdenza sociale interessanti e numerosi vantaggi\n\n• Spirito di squadra\n\n• Pasti convenienti nel ristorante del personale",
+        "en": "Aufgaben:\n• Literature searches and evidence summaries\n\n• Research project planning and study protocol development\n\n• Preparation of ethics submissions\n\n• Coordination of research projects\n\n• Collaboration with clinicians and multidisciplinary teams\n\n• Data collection and management\n\n• Basic statistical analyses\n\n• Preparation of scientific manuscripts, abstracts, and presentations\n\n• Presentation of research findings\n\nAnforderungen:\n• Bachelor/Master of Science (BSc/MSc) in a relevant biomedical field (e.g. clinical research, sport science, physiology, epidemiology, psychology, physiotherapy, nursing)\n\n• Strong coding abilities (Python/R,SQL) including relevant ML libraries (numpy, matplotlib, pandas, sklearn, pytorch/tensorflow/keras)\n\n• Experience with developing ML models\n\n• Experience with STATA, REDCap, FileMaker is a plus\n\n• Precise and structured approach to work\n\n• Excellent oral and written German and English skills\n\nWir bieten:\n• 40-hour week\n\n• Possibility of working from home\n\n• Attractive social security contributions and numerous benefits\n\n• Team spirit\n\n• Affordable meals in the staff restaurant",
+        "de": "Aufgaben:\n• Unterstützung der Konzeption und Planung von Forschungsprojekten sowie der Entwicklung von Studienprotokollen\n\n• Unterstützung der Vorbereitung, des Schreibens und der Präsentation wissenschaftlicher Arbeiten\n\n• Koordinierende Projekte\n\n• Vorbereitung von Dokumenten für die lokale Ethikkommission\n\n• Datenerhebung\n\n• Zusammenarbeit mit den Klinikern\n\n• Statistische Grundlagenanalysen\n\nAnforderungen:\n• Bachelor/Master of Science (BSc/MSc) in einem relevanten biomedizinischen Bereich (z.B. klinische Forschung, Sportwissenschaft, Physiologie, Epidemiologie, Psychologie, Physiotherapie, Krankenpflege)\n\n• Starke Kodierungsfähigkeiten (Python/R,SQL) einschließlich relevanter ML-Bibliotheken (numpy, matplotlib, pandas, sklearn, pytorch/tensorflow/keras)\n\n• Erfahrung mit der Entwicklung von ML-Modellen\n\n• Erfahrung mit STATA, REDCap, FileMaker ist ein Plus\n\n• Präzise und strukturierte Arbeitsweise\n\n• Hervorragende mündliche und schriftliche Deutsch- und Englischkenntnisse\n\nWir bieten:\n• 40 Stunden Woche\n\n• Möglichkeit, von zu Hause aus zu arbeiten\n\n• Attraktive Sozialversicherungsbeiträge und zahlreiche Leistungen\n\n• Teamgeist\n\n• Erschwingliche Mahlzeiten im Personalrestaurant",
+        "fr": "Aufgaben:\n• Soutenir la conception et la planification de projets de recherche, ainsi que l'élaboration de protocoles d'étude\n\n• Soutenir la préparation, la rédaction et la présentation des travaux scientifiques\n\n• Coordination des projets\n\n• Préparation de documents pour le comité d'éthique local\n\n• Collecte de données\n\n• Collaborer avec les cliniciens\n\n• Analyses statistiques de base\n\nC'est pas vrai.\n• Baccalauréat/maîtrise en sciences (BSc/MSc) dans un domaine biomédical pertinent (p. ex. recherche clinique, sciences du sport, physiologie, épidémiologie, psychologie, physiothérapie, soins infirmiers)\n\n• Fortes capacités de codage (Python/R,SQL) incluant les bibliothèques ML pertinentes (numpy, matplotlib, pandas, sklearn, pytorch/tensorflow/keras)\n\n• Expérience du développement de modèles ML\n\n• Expérience avec STATA, REDCap, FileMaker est un plus\n\n• Approche précise et structurée du travail\n\n• Excellentes compétences orales et écrites en allemand et en anglais\n\n- Oui.\n• Semaine de 40 heures\n\n• Possibilité de travailler à domicile\n\n• Cotisations de sécurité sociale attrayantes et nombreuses prestations\n\n• Esprit d'équipe\n\n• Repas abordables dans le restaurant du personnel"
+      },
+      "location": "Zürich",
+      "canton": "ZH",
+      "url": "https://job.schulthess-klinik.ch/job-vacancies/research-assistant-anesthesiology-for-a-fixed-term-of-two-years/18c8967e-7373-43c4-acf4-74e61f04232f",
+      "source": "Schulthess Klinik Dedicated Parser (Prospective medium 1007262)",
+      "sourceLang": "en",
+      "crawledAt": "2026-08-04T22:15:33.752Z",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8008",
+      "streetAddress": "Lengghalde 2",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-29",
+      "applyUrl": "https://job.schulthess-klinik.ch/successfactors/EMEA_ROT/SchulthessK/de/apply?id=2044",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "firstSeenAt": "2026-07-29T22:02:49.179Z",
+      "salaryMin": 73500,
+      "salaryMax": 111500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 73500,
+          "maxValue": 111500,
+          "unitText": "YEAR"
+        }
+      },
+      "crawlerMissStreak": 1
     }
   ]
 }
