@@ -73,8 +73,17 @@ export async function ensureRedirectRule(token, zoneId, desired, { dryRun = fals
     const cur = existing[idx];
     const curFv = cur.action_parameters?.from_value;
     const wantFv = desired.action_parameters.from_value;
+    // A redirect target is EITHER dynamic (`expression`) or static (`value`),
+    // and BOTH must be compared. Comparing only `expression` is drift-blind for
+    // a static target: both sides read `undefined`, so the rule reports
+    // "already present and current" forever — including after someone edits the
+    // destination by hand in the dashboard. Latent today (every caller here uses
+    // the concat() form), fixed alongside the identical bug in
+    // cf-locale-failover-setup.mjs's redirectRuleInShape() so the two ruleset
+    // writers in this repo cannot disagree about what "in shape" means (#5176).
     if (cur.expression === desired.expression &&
         curFv?.target_url?.expression === wantFv.target_url.expression &&
+        curFv?.target_url?.value === wantFv.target_url.value &&
         curFv?.status_code === wantFv.status_code &&
         curFv?.preserve_query_string === wantFv.preserve_query_string &&
         cur.enabled === desired.enabled) {
