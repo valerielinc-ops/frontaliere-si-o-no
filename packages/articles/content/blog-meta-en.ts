@@ -9283,6 +9283,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.caso-delmastro-protesta-avs.title': 'Case of Delmastro, Avs\'s protest to the Chamber with blindfolds',
     'blog.article.caso-delmastro-protesta-avs.excerpt': 'The deputies of Alleanza Verdi and Sinistra blindfolded themselves in the room to protest against the lack of access to the chats between Andrea Delmastro and Mauro Carroccia.',
     'blog.article.caso-delmastro-protesta-avs.imageAlt': 'Protest at the Chamber',
+    'blog.article.mendrisio-strada-serpiano-urgenti-lavori.title': 'Urgent work must be done on the road leading to Serpiano',
+    'blog.article.mendrisio-strada-serpiano-urgenti-lavori.excerpt': 'The Municipality of Mendrisio has requested a credit of 1.2 million francs for the safety of the roads and the three bridges.',
+    'blog.article.mendrisio-strada-serpiano-urgenti-lavori.imageAlt': 'Roadworks at Serpiano',
 };
 
 export default blogMetaEn;

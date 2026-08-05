@@ -9285,6 +9285,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.caso-delmastro-protesta-avs.title': 'Affaire Delmastro, l\'amaro spettacolo di Avs in tribuna',
     'blog.article.caso-delmastro-protesta-avs.excerpt': 'Les députés de l\'Alliance Verte et de la Gauche se sont bandés les yeux dans l\'hémicycle pour protester contre le non-accès aux chats entre Andrea Delmastro et Mauro Carroccia.',
     'blog.article.caso-delmastro-protesta-avs.imageAlt': 'Protestation à la Chambre des députés',
+    'blog.article.mendrisio-strada-serpiano-urgenti-lavori.title': 'Des travaux urgents doivent être effectués sur la route menant à Serpiano',
+    'blog.article.mendrisio-strada-serpiano-urgenti-lavori.excerpt': 'La Mairie de Mendrisio a demandé un crédit de 1,2 million de francs pour la sécurisation des cils routiers et des trois ponts.',
+    'blog.article.mendrisio-strada-serpiano-urgenti-lavori.imageAlt': 'Travaux de route à Serpiano',
 };
 
 export default blogMetaFr;
