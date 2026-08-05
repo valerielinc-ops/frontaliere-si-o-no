@@ -60,6 +60,12 @@ import { buildTitleWithBrand, clampMetaDescription } from './shared/titleSuffix'
 import { differentiateH1FromTitle } from './shared/seoContentTokens';
 import { inlineScriptJson } from './shared/inlineJsonScript';
 import { ARTICLE_SECTION_DESCRIPTORS } from './shared/articleSectionDescriptors';
+import {
+  parseAnnotatedSitemapUrls,
+  collectLocaleVariantEntries,
+  renderLocaleVariantSitemaps,
+  isLocaleVariantSitemapFile,
+} from './shared/localeVariantSitemap';
 const SUFFIX_STRIP_RE = /\s*[|·]\s*Frontaliere Ticino\s*$/i;
 function capTitle70(s: string): string {
  if (!s) return s;
@@ -1851,13 +1857,27 @@ export function staticPagesPlugin(rootDir: string): Plugin {
 
  /* ── 1. Parse sitemap sub-files for all URLs with hreflang ── */
  let sitemapSrc: string;
+ // Seeded sitemaps whose hreflang annotations name locale-variant pages this
+ // build renders. `sitemapFiles` (below) is the subset that ALSO drives HTML
+ // emission from this plugin; blog-ch and news articles are rendered by
+ // ogPagesPlugin instead, so they must not be added there — but their
+ // alternates need the same `<loc>` backfill (issue #5110), hence the wider
+ // list here.
+ const seededSitemapFiles = [
+   'sitemap-pages.xml',
+   'sitemap-blog.xml',
+   'sitemap-glossario.xml',
+   'sitemap-blog-ch.xml',
+   'sitemap-news.xml',
+ ];
+ const readSeededSitemap = (f: string): string => {
+   try { return fs.readFileSync(np.resolve(rootDir, 'public', f), 'utf-8'); }
+   catch { return ''; }
+ };
  try {
  // sitemap.xml is now an index — read all sub-sitemaps
  const sitemapFiles = ['sitemap-pages.xml', 'sitemap-blog.xml', 'sitemap-glossario.xml'];
- sitemapSrc = sitemapFiles.map(f => {
- try { return fs.readFileSync(np.resolve(rootDir, 'public', f), 'utf-8'); }
- catch { return ''; }
- }).join('\n');
+ sitemapSrc = sitemapFiles.map(readSeededSitemap).join('\n');
  } catch {
  console.warn('[static-pages] Could not read sitemap files — skipping');
  // Unblock downstream consumers before bailing. borderMunicipalityPagesPlugin,
@@ -2586,6 +2606,12 @@ export function staticPagesPlugin(rootDir: string): Plugin {
 
  let count = 0;
  let skipped = 0;
+ // Dist-relative paths (no trailing slash) of the locale-variant pages THIS
+ // plugin renders. Together with `ogPagesPaths` (which covers the article
+ // sections ogPagesPlugin owns) it is the emit ground truth the #5110
+ // `<loc>` backfill is gated on — see the sitemap-locale-variants emit at the
+ // end of this hook.
+ const emittedLocaleVariants = new Set<string>();
 
  // Only process Italian URLs (no /en/, /de/, /fr/ prefix) to avoid duplicates —
  // locale variants are generated from the hreflang data
@@ -5101,6 +5127,12 @@ ${hrefTags}
  const locNormalized = locPath.replace(/\/+$/, '') || '/';
  // Deterministic skip: if ogPagesPlugin owns this path, don't race on fs.existsSync
  if (ogPagesPaths.has(locNormalized)) continue;
+ // Rendered by this plugin → it needs a <url><loc> of its own (#5110).
+ // Recorded BEFORE `_qw`, not after: the WriteCollector drops writes whose
+ // locale is outside BUILD_LOCALE on a per-locale shard build, so anything
+ // derived from what physically lands in dist/ would under-count on every
+ // shard and strip the very annotations this backfill exists to keep.
+ emittedLocaleVariants.add(locNormalized);
  // NOTE: previously skipped when fs.existsSync(locFile), but that blocked schema
  // re-translation on incremental builds. staticPagesPlugin owns all non-ogPages locale
  // variants, so always regenerate so JSON-LD reflects current translations.
@@ -5273,6 +5305,48 @@ ${hrefTags}
  // WriteCollector's background auto-flush and silently lose their patches —
  // see build-plugins/shared/buildSignals.ts for the full rationale.
  resolveStaticPagesFlushed();
+
+ /* ── Locale-variant <loc> backfill (issue #5110) ──────────────
+  * Every EN/DE/FR page rendered from a seeded sitemap's hreflang
+  * annotations gets its own <url><loc> carrying the same 4-locale group, so
+  * the annotations are reciprocal BY CONSTRUCTION and
+  * sanitizeSitemapHreflangReciprocity has nothing left to strip. Before
+  * this, `sitemap-pages.xml` served 190 of its 1480 alternates and ~12k
+  * live, indexable locale pages were listed in no sitemap at all.
+  *
+  * Written with fs.writeFileSync, like the seo-hubs sitemap above: the
+  * WriteCollector's BUILD_LOCALE filter is scoped to locale SUBTREES, and
+  * this file lives at the dist root — it must be emitted whole on every
+  * shard, exactly like sitemap-pages.xml itself.
+  *
+  * sitemapAliasPlugin discovers `sitemap-*.xml` by readdir, so the shards
+  * land in the sitemap index without anyone patching it.
+  */
+ try {
+   const seededSources = seededSitemapFiles.flatMap((f) =>
+     parseAnnotatedSitemapUrls(readSeededSitemap(f)),
+   );
+   const { entries, skipped: variantSkips } = collectLocaleVariantEntries(
+     seededSources,
+     (p) => emittedLocaleVariants.has(p) || ogPagesPaths.has(p),
+   );
+   // Stale-shard sweep: a shrinking cohort must not leave a previous build's
+   // higher-numbered shard behind for the index sweep to re-list.
+   for (const f of fs.readdirSync(distDir)) {
+     if (isLocaleVariantSitemapFile(f)) fs.unlinkSync(np.join(distDir, f));
+   }
+   const shards = renderLocaleVariantSitemaps(entries);
+   for (const shard of shards) {
+     fs.writeFileSync(np.join(distDir, shard.file), shard.xml, 'utf-8');
+   }
+   const skipSummary = [...variantSkips].map(([r, n]) => `${r}=${n}`).join(' ');
+   console.log(
+     `\x1b[36m[static-pages]\x1b[0m Locale-variant sitemap: ${entries.length} <loc> in ${shards.length} shard(s)` +
+       (skipSummary ? ` (skipped ${skipSummary})` : ''),
+   );
+ } catch (err) {
+   console.warn('[static-pages] locale-variant sitemap emit failed (non-fatal):', (err as Error).message);
+ }
 
  /* ── Auto-update sitemap index lastmod dates to today ─────── */
  const sitemapIndexPath = np.join(distDir, 'sitemap.xml');
