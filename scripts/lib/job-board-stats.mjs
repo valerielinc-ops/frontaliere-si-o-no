@@ -1,6 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { baseCompanySlug } from '../../build-plugins/shared/companyProfileSlug.mjs';
 import {
   buildStableJobIdentity,
   jobsDiffer,
@@ -58,20 +59,15 @@ function slugifyTerm(value = '') {
     .slice(0, 200);
 }
 
-function normalizeCompanyKey(value = '') {
-  return normalizeSpace(value)
-    .toLowerCase()
-    .normalize('NFD')
-    .replace(/[\u0300-\u036f]/g, '')
-    .replace(/[^a-z0-9]+/g, ' ')
-    .trim();
-}
-
+// Delegates to the shared company-slug normalisation (#5012 review) instead of keeping a
+// third hand-written copy. getCompanySummary() builds the `url` of topCompaniesActive /
+// topSalaryCompanies from this, consumed by jobsSeoPagesPlugin and jobMarketSnapshotPlugin —
+// funnel-critical output that would diverge from the router in silence if the copies drifted.
+//
+// The 200-char cap is kept: it came from slugifyTerm, not from the shared function, and
+// dropping it would let a pathological company name produce an unbounded URL segment here.
 function canonicalCompanyRouteSlug(company = '', companyKey = '') {
-  const keyNorm = normalizeCompanyKey(companyKey);
-  const companyNorm = normalizeCompanyKey(company);
-  if (keyNorm.includes('lidl') || companyNorm.includes('lidl')) return 'lidl';
-  return slugifyTerm(company);
+  return baseCompanySlug(company, companyKey).slice(0, 200);
 }
 
 function safeArray(value) {

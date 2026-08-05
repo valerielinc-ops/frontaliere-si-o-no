@@ -117,6 +117,30 @@ function normalizeBool(value) {
  return undefined;
 }
 
+/**
+ * Canonical CompanyAlert key (#5012).
+ *
+ * MUST stay byte-equivalent to `baseCompanySlug`
+ * (build-plugins/shared/companyProfileSlug.mjs) — the Cloud Functions bundle
+ * cannot import anything outside `functions/`, so this is a deliberate,
+ * pinned mirror rather than a fourth independent normalisation. Parity is
+ * asserted by tests/company-alert.test.ts. The brand-alias fold is NOT
+ * mirrored: the token API stores what the client canonicalised, and a key that
+ * arrives already folded passes through unchanged.
+ */
+function normalizeCompanyAlertKey(value) {
+ const norm = (x) => String(x || '')
+ .toLowerCase()
+ .normalize('NFD')
+ .replace(/[\u0300-\u036f]/g, '')
+ .replace(/[^a-z0-9]+/g, ' ')
+ .trim();
+ const n = norm(value);
+ if (!n) return '';
+ if (n.includes('lidl')) return 'lidl';
+ return n.replace(/\s+/g, '-');
+}
+
 function serializeAlertDoc(id, data) {
  const created = data?.createdAt;
  const lastMatched = data?.lastMatchedAt;
@@ -133,6 +157,15 @@ function serializeAlertDoc(id, data) {
  // update_alert below. Issue #4298 follow-up fix.
  active: data?.active !== false,
  paused: data?.paused === true,
+ // Pinned scope (#5012). Omitting these made a company/job alert look like an
+ // unfiltered alert to /preferenze-newsletter/, so the user could not see or
+ // manage what they had followed.
+ specificCompanyKey: typeof data?.specificCompanyKey === 'string' && data.specificCompanyKey
+ ? data.specificCompanyKey
+ : null,
+ specificJobId: typeof data?.specificJobId === 'string' && data.specificJobId
+ ? data.specificJobId
+ : null,
  email: typeof data?.email === 'string' ? data.email : null,
  createdAt: created && typeof created.toMillis === 'function'
  ? new Date(created.toMillis()).toISOString()
@@ -143,7 +176,7 @@ function serializeAlertDoc(id, data) {
  };
 }
 
-export async function handleSubscriptionManagement({ action, email, token, locale, secret, enabled = undefined, subscribed = undefined, alertId = undefined, keywords = undefined, locations = undefined, sectors = undefined, frequency = undefined, frequencyOverride = undefined, active = undefined, paused = undefined, db: injectedDb }) {
+export async function handleSubscriptionManagement({ action, email, token, locale, secret, enabled = undefined, subscribed = undefined, alertId = undefined, keywords = undefined, locations = undefined, sectors = undefined, frequency = undefined, frequencyOverride = undefined, active = undefined, paused = undefined, specificCompanyKey = undefined, specificJobId = undefined, db: injectedDb }) {
  const db = injectedDb || getAdminDb();
  const normalizedEmail = normalizeEmail(email);
 
@@ -421,6 +454,18 @@ export async function handleSubscriptionManagement({ action, email, token, local
  const pausedBool = normalizeBool(paused);
  if (pausedBool !== undefined) { patch.paused = pausedBool; fields.push('paused'); }
 
+ // Pinned scope (#5012). `''`/null clears the pin and turns a CompanyAlert
+ // back into a normal alert — the token-mode counterpart of updateAlert() in
+ // services/jobAlertService.ts.
+ if (specificCompanyKey !== undefined) {
+ patch.specificCompanyKey = normalizeCompanyAlertKey(specificCompanyKey) || null;
+ fields.push('specificCompanyKey');
+ }
+ if (specificJobId !== undefined) {
+ patch.specificJobId = String(specificJobId || '').trim().slice(0, 120) || null;
+ fields.push('specificJobId');
+ }
+
  if (fields.length === 0) {
  return { status: 400, json: { success: false, error: 'no_fields_to_update' } };
  }
@@ -456,7 +501,14 @@ export async function handleSubscriptionManagement({ action, email, token, local
  const loc = parseCsvList(locations) || [];
  const sec = parseCsvList(sectors) || [];
 
- if (kw.length === 0 && loc.length === 0) {
+ // A pinned alert IS its own filter (#5012): the matcher
+ // (services/jobAlertMatching.mjs) hard-filters on specificCompanyKey /
+ // specificJobId and bypasses keyword/geo scoring entirely, so requiring a
+ // keyword or a location here rejected every "follow this employer"
+ // subscription with `missing_filters` — the one shape CompanyAlert needs.
+ const companyPin = normalizeCompanyAlertKey(specificCompanyKey);
+ const jobPin = String(specificJobId || '').trim().slice(0, 120);
+ if (kw.length === 0 && loc.length === 0 && !companyPin && !jobPin) {
  return { status: 400, json: { success: false, error: 'missing_filters' } };
  }
 
@@ -486,6 +538,9 @@ export async function handleSubscriptionManagement({ action, email, token, local
  keywords: kw,
  locations: loc,
  sectors: sec,
+ // Pinned scope — null when absent, never `undefined` (Firestore rejects it).
+ specificCompanyKey: companyPin || null,
+ specificJobId: jobPin || null,
  frequency: freq,
  // Creation always shows an explicit frequency picker (see
  // FrequencyToggle in the preferences UI) — the pick is a manual pin

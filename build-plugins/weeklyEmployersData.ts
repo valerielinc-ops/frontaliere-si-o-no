@@ -1,3 +1,4 @@
+import { baseCompanySlug } from './shared/companyProfileSlug.mjs';
 /**
  * Weekly "Aziende che assumono" per-city Hub — pure data/path helpers.
  *
@@ -388,18 +389,10 @@ export function canonicalCompanySlug(
   company: string,
   companyKey?: string,
 ): string {
-  const norm = (s: string): string =>
-    String(s || '')
-      .toLowerCase()
-      .normalize('NFD')
-      .replace(/[\u0300-\u036f]/g, '')
-      .replace(/[^a-z0-9]+/g, ' ')
-      .trim();
-  const keyNorm = norm(companyKey || '');
-  const nameNorm = norm(company);
-  if (keyNorm.includes('lidl') || nameNorm.includes('lidl')) return 'lidl';
-  // Fall back to slugified company name.
-  return norm(company).replace(/\s+/g, '-');
+  // Delegates to the ONE shared implementation (#5012) — this used to be a
+  // hand-copied twin. No brand-alias fold here on purpose: the weekly-employers
+  // SEO surface keys on the raw slug.
+  return baseCompanySlug(company, companyKey);
 }
 
 /**

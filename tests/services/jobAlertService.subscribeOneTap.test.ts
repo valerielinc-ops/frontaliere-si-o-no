@@ -10,6 +10,7 @@
 
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 import type { JobAlert } from '@/services/jobAlertService';
+import { MAX_ALERTS_PER_USER } from '@/services/jobAlertService';
 
 const addDocMock = vi.fn<(...args: unknown[]) => Promise<{ id: string }>>(async () => ({
   id: 'alert-id',
@@ -208,11 +209,16 @@ describe('subscribeJobAlertOneTap', () => {
     expect(alertPayload.sourceJobTitle).toBeNull();
   });
 
-  it('propagates the max-3-alerts cap from createAlert', async () => {
-    getDocsMock.mockResolvedValueOnce({ size: 3, docs: [] });
+  // Both the fixture size and the expected message derive from the constant
+  // (#5012). Pinning "3" in the title, the mock and the regex made one cap
+  // change break this in three places at once, and a stale literal here would
+  // otherwise mock a size that no longer reaches the cap — turning a real
+  // guard into a test that passes for the wrong reason.
+  it('propagates the active-alerts cap from createAlert', async () => {
+    getDocsMock.mockResolvedValueOnce({ size: MAX_ALERTS_PER_USER, docs: [] });
     await expect(
       subscribeJobAlertOneTap('user-1', 'a@b.com', 'Sanità', 'it'),
-    ).rejects.toThrow(/Maximum 3/);
+    ).rejects.toThrow(new RegExp(`Maximum ${MAX_ALERTS_PER_USER}`));
     expect(addDocMock).not.toHaveBeenCalled();
   });
 

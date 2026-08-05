@@ -45,6 +45,7 @@
  */
 
 import { existsSync, readFileSync, writeFileSync } from 'node:fs';
+import { baseCompanySlug } from '../build-plugins/shared/companyProfileSlug.mjs';
 import { join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -122,20 +123,11 @@ function normEmployerKey(company, companyKey) {
     .replace(/^-+|-+$/g, '');
 }
 
-/** Mirror of `canonicalCompanySlug` in weeklyEmployersData.ts:363. */
-function canonicalCompanySlug(company, companyKey) {
-  const norm = (s) =>
-    String(s || '')
-      .toLowerCase()
-      .normalize('NFD')
-      .replace(/[̀-ͯ]/g, '')
-      .replace(/[^a-z0-9]+/g, ' ')
-      .trim();
-  const keyNorm = norm(companyKey || '');
-  const nameNorm = norm(company);
-  if (keyNorm.includes('lidl') || nameNorm.includes('lidl')) return 'lidl';
-  return norm(company).replace(/\s+/g, '-');
-}
+/**
+ * Was a hand-copied mirror of `canonicalCompanySlug` in weeklyEmployersData.ts;
+ * now both call the ONE shared implementation (#5012, Non-Negotiable #6).
+ */
+const canonicalCompanySlug = baseCompanySlug;
 
 /**
  * Enumerate (city × employer) pairs with ≥3 active IT-locale jobs.
