@@ -87,16 +87,60 @@ jobs:
             node scripts/ci/collect-followup-batch.mjs
           fi
 
-      - name: Setup Headroom compression proxy
+      # Sibling della stessa classe misurata su issue-fix.yml (2026-08-05). Il
+      # tracker #1951 segnalava questo workflow al 38% di failure-rate: scaricati
+      # i log delle run fallite, sono **tutte HTTP 429** — quota Max condivisa
+      # esaurita, esattamente come le 60/61 di issue-fix. Claude non esegue (0
+      # turni, $0) e la run muore rossa.
+      #
+      # Qui il RECUPERO era già corretto e NON va toccato: il watermark avanza
+      # solo sulle run di SUCCESSO, quindi una run fallita lascia la finestra
+      # indietro e la successiva (≤3h) la ri-copre — nessun contatore di
+      # tentativi, nessun park, nessuna chiusura automatica, cioè nessuno stato
+      # assorbente come quello che issue-fix aveva. Quello che restava da
+      # eliminare è solo lo SPRECO: durante una finestra di quota aperta ogni run
+      # schedulata spende comunque una chiamata Claude condannata in partenza.
+      # Questo gate la salta e fallisce subito con un messaggio veritiero: il
+      # watermark resta indietro (comportamento identico a prima), la finestra
+      # viene ri-coperta, ma la quota non viene toccata.
+      - name: Pre-flight — quota backoff gate (zero-Claude)
+        id: quota
+        # PROCEED-SAFE come i gate gemelli di issue-fix.yml: lo script è totale
+        # (throw → quota_blocked=false) e continue-on-error impedisce che un
+        # guasto infra sopprima il triage.
+        continue-on-error: true
         if: steps.collect.outputs.batch_count != '0' && steps.collect.outputs.batch_count != ''
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+        # Senza ISSUE_NUMBER lo script è in sola RILEVAZIONE: legge il beacon
+        # `<!-- QUOTA_RESETS_AT: … -->` lasciato sulle issue della coda issue-fix
+        # (stessa quota, stesso account) e non modifica nessuna label.
+        run: node scripts/ci/check-quota-backoff.mjs
+
+      - name: Setup Headroom compression proxy
+        if: steps.quota.outputs.quota_blocked != 'true' && steps.collect.outputs.batch_count != '0' && steps.collect.outputs.batch_count != ''
         uses: ./.github/actions/setup-headroom
+
+      - name: Skip on exhausted quota (no false green — watermark must hold)
+        # RED deliberato, non un warning: il watermark avanza sulle sole run di
+        # SUCCESSO, quindi uscire verdi qui farebbe avanzare la finestra e
+        # perderebbe per sempre il batch di PR non triagiate. Fallire è il
+        # comportamento CORRETTO e identico a quello odierno (la run moriva
+        # comunque sul 429); l'unica differenza è che non spendiamo la chiamata.
+        if: steps.quota.outputs.quota_blocked == 'true'
+        run: |
+          echo "::error::post-merge-followup: quota Claude esaurita (reset epoch ${{ steps.quota.outputs.resets_at }}) — salto la chiamata Claude, che morirebbe su HTTP 429 a turno 1. Il watermark NON avanza: la prossima run schedulata (≤3h) ri-copre l'intera finestra, nessuna PR persa."
+          exit 1
 
       - name: Run Claude follow-up triage (batch)
         id: followup
         # Gira SOLO se il batch ha almeno una PR. Per le altre run (finestra vuota /
         # tutte già-triagiate / tutte scartate dai gate) la sessione Claude è
-        # interamente saltata → quota Max risparmiata.
-        if: steps.collect.outputs.batch_count != '0' && steps.collect.outputs.batch_count != ''
+        # interamente saltata → quota Max risparmiata. La condizione sulla quota è
+        # ridondante (lo step di skip sopra esce 1 e GitHub salta già il resto) ma
+        # esplicita: il gate non deve dipendere dall'ordine degli step per reggere.
+        if: steps.quota.outputs.quota_blocked != 'true' && steps.collect.outputs.batch_count != '0' && steps.collect.outputs.batch_count != ''
         uses: anthropics/claude-code-action@v1
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

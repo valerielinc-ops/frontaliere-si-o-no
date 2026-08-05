@@ -56,11 +56,46 @@ jobs:
           node-version: '22'
           cache: npm
 
+      # PRIMA di `npm ci`: quando la quota è esaurita questo gate chiude il job
+      # in ~15s invece che dopo ~3min di install. Lo script usa solo builtin Node
+      # + `gh` (nessuna dipendenza da node_modules), esattamente come gli altri
+      # pre-flight, quindi può girare qui senza vincoli d'ordine.
+      - name: Pre-flight — quota backoff gate (zero-Claude, pre-npm)
+        id: quota
+        # PROCEED-SAFE, stesso contratto degli altri pre-flight: lo script è
+        # totale (cattura i propri throw → quota_blocked=false) e
+        # continue-on-error è belt-and-suspenders — un guasto infra lascia
+        # l'output non impostato → i gate a valle valutano true → il fixer gira
+        # invariato. L'unico modo per saltare Claude è un `quota_blocked=true`
+        # ESPLICITO (beacon con scadenza futura), mai un errore.
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
+        # STRUCTURAL fix per l'escalation misurata sul tracker #1951 (failure-rate
+        # issue-fix acceso da ≥7 report settimanali consecutivi). Scaricando i log
+        # di TUTTE e 61 le run fallite della finestra 7gg (2026-07-29 → 08-05):
+        # 60 sono HTTP 429 (quota Max settimanale esaurita) con num_turns=1 e
+        # $0 di costo — Claude non ha MAI eseguito — 1 è un 529 transiente, e
+        # ZERO sono error_max_turns / push falliti / timeout. Di quelle 61, **49
+        # (80%) sono cadute dentro una finestra di rate-limit già aperta da un
+        # fallimento precedente**: deterministicamente prevedibili, perché il
+        # payload del 429 dichiara `resetsAt`. Questo gate legge il beacon
+        # `<!-- QUOTA_RESETS_AT: … -->` lasciato dalla run precedente sulle issue
+        # in coda e, se la finestra è ancora aperta, ri-accoda questa issue SENZA
+        # consumare un tentativo e salta ogni step Claude. Rationale completo e
+        # catena assorbente (429 → park → age-out close) in
+        # scripts/ci/claude-rate-limit.mjs.
+        run: node scripts/ci/check-quota-backoff.mjs
+
       - name: Install dependencies
+        if: steps.quota.outputs.quota_blocked != 'true'
         run: npm ci
 
       - name: Pre-flight — already-resolved gate (zero-Claude)
         id: preflight
+        if: steps.quota.outputs.quota_blocked != 'true'
         # PROCEED-SAFE: a gate failure must NEVER strand the issue. The script is total
         # (catches its own throws → emits already_resolved=false), but continue-on-error is
         # belt-and-suspenders: any infra fault (node/npm) leaves the output unset → the
@@ -86,7 +121,7 @@ jobs:
 
       - name: Pre-flight — workflows-scope capability guard (zero-Claude)
         id: scope_guard
-        if: steps.preflight.outputs.already_resolved != 'true'
+        if: steps.quota.outputs.quota_blocked != 'true' && steps.preflight.outputs.already_resolved != 'true'
         # PROCEED-SAFE, same contract as `preflight` above: the script is total (catches
         # its own throws → emits workflows_blocked=false), continue-on-error is
         # belt-and-suspenders so an infra fault never strands the issue.
@@ -114,7 +149,7 @@ jobs:
 
       - name: Pre-flight — in-progress claim gate (zero-Claude, mutex)
         id: claim
-        if: steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true'
+        if: steps.quota.outputs.quota_blocked != 'true' && steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true'
         # PROCEED-SAFE, same contract as `preflight`/`scope_guard` above: the script is
         # total (catches its own throws → emits in_flight=false), continue-on-error is
         # belt-and-suspenders so an infra fault never strands the issue.
@@ -138,7 +173,7 @@ jobs:
 
       - name: Determine fix tier
         id: tier
-        if: steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true' && steps.claim.outputs.in_flight != 'true'
+        if: steps.quota.outputs.quota_blocked != 'true' && steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true' && steps.claim.outputs.in_flight != 'true'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           ISSUE_NUMBER: ${{ github.event.issue.number }}
@@ -234,7 +269,7 @@ jobs:
 
       - name: Check for resumable WIP branch (zero-Claude)
         id: resume
-        if: steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true' && steps.claim.outputs.in_flight != 'true'
+        if: steps.quota.outputs.quota_blocked != 'true' && steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true' && steps.claim.outputs.in_flight != 'true'
         # Problem A (#4337, confermato via GitHub API + run log): prima di questo
         # fix commit+push+PR accadevano SOLO alla fine del flusso (dopo il gate
         # test) — se `--max-turns` si esauriva PRIMA, il container CI moriva e
@@ -260,18 +295,18 @@ jobs:
           fi
 
       - name: Configure git identity
-        if: steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true' && steps.claim.outputs.in_flight != 'true'
+        if: steps.quota.outputs.quota_blocked != 'true' && steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true' && steps.claim.outputs.in_flight != 'true'
         run: |
           git config user.name "Valerie Linc"
           git config user.email "valerielinc@gmail.com"
 
       - name: Setup Headroom compression proxy
-        if: steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true' && steps.claim.outputs.in_flight != 'true'
+        if: steps.quota.outputs.quota_blocked != 'true' && steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true' && steps.claim.outputs.in_flight != 'true'
         uses: ./.github/actions/setup-headroom
 
       - name: Run Claude fix
         id: claude_review
-        if: steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true' && steps.claim.outputs.in_flight != 'true'
+        if: steps.quota.outputs.quota_blocked != 'true' && steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true' && steps.claim.outputs.in_flight != 'true'
         # Non far fallire il job sull'exit non-zero della CLI: lo step finale
         # `Classify outcome` decide il colore in base al LAVORO reale (PR aperta
         # per la issue), non al subtype della CLI. Un `error_max_turns` DOPO che
@@ -352,52 +387,46 @@ jobs:
 
       - name: Claude usage metrics
         # Skip when the pre-flight short-circuited (Claude never ran → no execution file).
-        if: always() && steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true' && steps.claim.outputs.in_flight != 'true'
+        if: always() && steps.quota.outputs.quota_blocked != 'true' && steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true' && steps.claim.outputs.in_flight != 'true'
         # Exact token/cost for this run (replaces estimates). Writes a table to
         # the run Step Summary + a grep-able CLAUDE_USAGE line to the log.
         # Best-effort: never fails the job.
         run: node scripts/ci/claude-usage-summary.mjs "${{ steps.claude_review.outputs.execution_file }}" "issue-fix"
 
-      - name: Mark error_max_turns (granular telemetry, pre-backstop)
-        # Quando la run Claude muore `error_max_turns` (turn budget esaurito) NON
-        # lascia un marker FIX_OUTCOME del fixer → il backstop sotto posta un
-        # generico `no-pr-unspecified` che il drainer IGNORA (BACKSTOP_MARKER) →
-        # l'item viene trattato come orfano ri-tentabile e ri-accodato fino a
-        # MAX_ATTEMPTS, bruciando ~3 run del tier high (claude-sonnet-5) su un item
-        # che esaurisce il budget
-        # in modo DETERMINISTICO (ri-tentarlo lo riproduce). Questo step rileva
-        # SPECIFICAMENTE il subtype `error_max_turns` dall'execution file e posta
-        # un marker granulare `max-turns` (senza BACKSTOP_MARKER → il drainer lo
-        # VEDE) così il drainer può parkare dopo 2 occorrenze (vedi
-        # followup-drainer.mjs). Subtype-gated: i fail transienti (altro subtype)
-        # NON ricevono il marker → restano ri-tentabili (nessuna falsa
-        # escalation). Gira PRIMA del backstop così quest'ultimo trova il marker
-        # e si salta. Best-effort, mai fa fallire il job.
-        if: always() && steps.claude_review.outcome == 'failure' && steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true' && steps.claim.outputs.in_flight != 'true'
+      - name: Mark Claude terminal outcome (granular telemetry, pre-backstop)
+        # Quando la run Claude muore PRIMA di poter postare il proprio verdetto,
+        # NON lascia un marker FIX_OUTCOME → il backstop sotto posta un generico
+        # `no-pr-unspecified` che il drainer IGNORA (BACKSTOP_MARKER) → l'item
+        # viene trattato come orfano ri-tentabile e ri-accodato fino a
+        # MAX_ATTEMPTS. Questo step emette il marker GRANULARE (senza
+        # BACKSTOP_MARKER → il drainer lo VEDE) così il recupero è corretto per
+        # causa. Gira PRIMA del backstop, che quindi trova il marker e si salta.
+        #
+        # Due terminal outcome, entrambi deterministici dall'execution file:
+        #  • `error_max_turns` → marker `max-turns`: il budget di turni è esaurito
+        #    in modo riproducibile → il drainer parka subito con `needs-human`.
+        #  • HTTP 429 (quota Max esaurita) → marker `rate-limited` + beacon
+        #    `<!-- QUOTA_RESETS_AT: … -->`. **È il caso dominante e prima non era
+        #    coperto**: misurato 2026-08-05 sulle 61 run fallite della finestra
+        #    7gg, 60 sono 429 e ZERO sono error_max_turns. Il payload di un 429
+        #    porta `"subtype": "success"` con `is_error: true`, quindi il vecchio
+        #    gate subtype-only non scattava mai e la issue finiva ri-accodata 3×
+        #    contro la stessa quota esaurita → `fu-parked` → age-out close, senza
+        #    che nessun agent l'avesse mai letta (0 turni, $0). Catena assorbente
+        #    completa in scripts/ci/claude-rate-limit.mjs.
+        #
+        # Gli altri failure (5xx transienti, crash infra) restano SENZA marker →
+        # legittimamente ri-tentabili dal rescue. Nessuna falsa escalation.
+        # Best-effort, mai fa fallire il job.
+        if: always() && steps.quota.outputs.quota_blocked != 'true' && steps.claude_review.outcome == 'failure' && steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true' && steps.claim.outputs.in_flight != 'true'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
           ISSUE: ${{ github.event.issue.number }}
           EXEC_FILE: ${{ steps.claude_review.outputs.execution_file }}
-        run: |
-          set -uo pipefail
-          if [ -z "${EXEC_FILE:-}" ] || [ ! -f "$EXEC_FILE" ]; then echo "no execution file → skip"; exit 0; fi
-          SUBTYPE=$(node -e "
-            const fs=require('fs');
-            try {
-              const raw=fs.readFileSync(process.env.EXEC_FILE,'utf8').trim();
-              let msgs;
-              try { msgs=JSON.parse(raw); } catch { msgs=raw.split(/\r?\n/).filter(Boolean).map((l)=>{try{return JSON.parse(l);}catch{return null;}}).filter(Boolean); }
-              if (!Array.isArray(msgs)) msgs=[msgs];
-              const r=[...msgs].reverse().find((m)=>m&&m.type==='result');
-              process.stdout.write(String((r&&r.subtype)||''));
-            } catch { process.stdout.write(''); }
-          " 2>/dev/null || true)
-          echo "claude result subtype: '${SUBTYPE:-<none>}'"
-          if [ "$SUBTYPE" = "error_max_turns" ]; then
-            # Marker granulare SENZA la stringa BACKSTOP_MARKER ('post-step
-            # deterministico') → latestFixOutcomeFromComments del drainer lo legge.
-            gh issue comment "$ISSUE" --body "$(printf '<!-- FIX_OUTCOME: max-turns -->\n_Run terminata error_max_turns (turn budget esaurito) — telemetria granulare per il drainer._')" || true
-          fi
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          WORKFLOW: issue-fix
+        run: node scripts/ci/mark-claude-terminal-outcome.mjs
 
       - name: Emit FIX_OUTCOME telemetry (deterministic backstop)
         # Skip on short-circuit: the pre-flight gate already posted the granular
@@ -412,7 +441,7 @@ jobs:
         # lessons-harvester always has a queryable marker: pr-created if this run
         # opened a PR on fix/issue-<N>, else a coarse no-pr-unspecified. It never
         # overwrites the agent's own granular marker. Best-effort: never fails.
-        if: always() && steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true' && steps.claim.outputs.in_flight != 'true'
+        if: always() && steps.quota.outputs.quota_blocked != 'true' && steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true' && steps.claim.outputs.in_flight != 'true'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           ISSUE: ${{ github.event.issue.number }}
@@ -445,7 +474,7 @@ jobs:
       # passa comunque dal reviewer (cfr. #2514 / #2288 — disambigua intenzionale
       # vs crash, colore != gate).
       - name: Classify outcome (work-done, not CLI exit)
-        if: always() && steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true' && steps.claim.outputs.in_flight != 'true'
+        if: always() && steps.quota.outputs.quota_blocked != 'true' && steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true' && steps.claim.outputs.in_flight != 'true'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           ISSUE: ${{ github.event.issue.number }}
@@ -461,6 +490,21 @@ jobs:
             exit 0
           fi
           if [ "$CLAUDE_OUTCOME" = "failure" ]; then
+            # Quota esaurita (429): il job resta comunque RED — non e' un
+            # successo e non ha consegnato niente, quindi nessun falso-verde
+            # (Non-Negotiable #2, nessun error→warning). Cambia solo il MESSAGGIO:
+            # attribuire questi run al "fixer che non sa fixare" e' una
+            # misattribuzione che ha tenuto acceso l'allarme del tracker #1951 per
+            # ≥7 report senza che nessuno risalisse alla causa. Claude non ha
+            # eseguito (0 turni, $0): il recupero corretto e' aspettare la
+            # finestra, non ri-tentare — e lo fa il marker `rate-limited` emesso
+            # dallo step precedente, letto da followup-drainer.mjs.
+            RL=$(gh issue view "$ISSUE" --json comments \
+              --jq '[.comments[].body | select(test("<!-- FIX_OUTCOME: rate-limited -->"))] | length' 2>/dev/null || echo 0)
+            if [ "${RL:-0}" != "0" ]; then
+              echo "::error::issue-fix #$ISSUE: run terminata su QUOTA Claude esaurita (HTTP 429) al primo turno — l'agent non ha letto la issue (0 turni, costo 0). Non e' un fallimento di diagnosi/fix: la issue e' stata ri-accodata SENZA consumare un tentativo e il drainer sospende le promozioni fino al reset. Job RED perche' nessuna PR e' stata consegnata (nessun falso-verde)."
+              exit 1
+            fi
             echo "::error::issue-fix #$ISSUE: nessuna PR aperta/mergiata e la CLI e' fallita ('$CLAUDE_OUTCOME') → non-delivery reale. Job RED (segnale preservato per loop-health + drainer)."
             exit 1
           fi
@@ -475,7 +519,7 @@ jobs:
         # `in_flight != 'true'` (this run was the one that ADDED the label, not a run
         # that saw it already there and deferred to someone else's claim). Never removes
         # a claim this run didn't set.
-        if: always() && steps.claim.outcome != 'skipped' && steps.claim.outputs.in_flight != 'true'
+        if: always() && steps.quota.outputs.quota_blocked != 'true' && steps.claim.outcome != 'skipped' && steps.claim.outputs.in_flight != 'true'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           ISSUE: ${{ github.event.issue.number }}
