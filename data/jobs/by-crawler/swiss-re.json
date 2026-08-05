@@ -1,6 +1,6 @@
 {
   "crawlerKey": "swiss-re",
-  "assembledAt": "2026-08-05T11:43:12.247Z",
+  "assembledAt": "2026-08-05T11:09:36.213Z",
   "jobs": [
     {
       "id": "swiss-re-eb683c9f7002",
@@ -13602,7 +13602,14 @@
         "records-management-associate-swiss-re-ch",
         "associe-a-la-gestion-des-dossiers-swiss-re-bratislava-sk",
         "engineering-manager-swiss-re-ch-9a86at",
-        "gestione-dell-ingegneria-swiss-re-bratislava-sk"
+        "gestione-dell-ingegneria-swiss-re-bratislava-sk",
+        "gestione-delle-operazioni-swiss-re-bratislava-sk",
+        "operations-manager-swiss-re-ch",
+        "betriebsleiter-swiss-re-bratislava-sk",
+        "directeur-des-operations-swiss-re-bratislava-sk",
+        "gestione-delle-operazioni-legali-e-di-conformita-swiss-re-bratislava-sk",
+        "legal-compliance-operations-manager-swiss-re-ch",
+        "gestionnaire-des-operations-juridiques-et-de-conformite-swiss-re-bratislava-sk"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -13611,21 +13618,30 @@
           "gestione-record-associate-swiss-re-bratislava-sk",
           "records-management-associate-swiss-re-ch",
           "associe-a-la-gestion-des-dossiers-swiss-re-bratislava-sk",
-          "gestione-dell-ingegneria-swiss-re-bratislava-sk"
+          "gestione-dell-ingegneria-swiss-re-bratislava-sk",
+          "gestione-delle-operazioni-swiss-re-bratislava-sk",
+          "operations-manager-swiss-re-ch",
+          "betriebsleiter-swiss-re-bratislava-sk",
+          "directeur-des-operations-swiss-re-bratislava-sk",
+          "gestione-delle-operazioni-legali-e-di-conformita-swiss-re-bratislava-sk",
+          "legal-compliance-operations-manager-swiss-re-ch",
+          "gestionnaire-des-operations-juridiques-et-de-conformite-swiss-re-bratislava-sk"
         ],
         "en": [
-          "engineering-manager-swiss-re-ch-9a86at"
+          "engineering-manager-swiss-re-ch-9a86at",
+          "operations-manager-swiss-re-ch"
         ],
         "de": [
-          "records-management-associate-swiss-re-ch"
+          "records-management-associate-swiss-re-ch",
+          "betriebsleiter-swiss-re-bratislava-sk"
         ],
         "fr": [
           "engineering-manager-swiss-re-ch-2",
-          "associe-a-la-gestion-des-dossiers-swiss-re-bratislava-sk"
+          "associe-a-la-gestion-des-dossiers-swiss-re-bratislava-sk",
+          "directeur-des-operations-swiss-re-bratislava-sk"
         ]
       },
       "firstSeenAt": "2026-07-10T13:04:49.585Z",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -13638,7 +13654,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "needsRetranslation": true
     },
     {
       "id": "swiss-re-fec074130ef8",
@@ -24544,7 +24561,10 @@
         "application-support-ingegnere-iii-swiss-re-hyderabad-in",
         "application-support-engineer-iii-swiss-re-ch",
         "application-support-ingenieur-iii-swiss-re-hyderabad-in",
-        "application-ingegnere-iii-swiss-re-hyderabad-in"
+        "application-ingegnere-iii-swiss-re-hyderabad-in",
+        "application-ingegnere-i-swiss-re-hyderabad-in",
+        "application-engineer-i-swiss-re-ch",
+        "application-ingenieur-i-swiss-re-hyderabad-in"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -24554,10 +24574,14 @@
           "application-support-ingegnere-iii-swiss-re-hyderabad-in",
           "application-support-engineer-iii-swiss-re-ch",
           "application-support-ingenieur-iii-swiss-re-hyderabad-in",
-          "application-ingegnere-iii-swiss-re-hyderabad-in"
+          "application-ingegnere-iii-swiss-re-hyderabad-in",
+          "application-ingegnere-i-swiss-re-hyderabad-in",
+          "application-engineer-i-swiss-re-ch",
+          "application-ingenieur-i-swiss-re-hyderabad-in"
         ],
         "en": [
-          "application-support-engineer-iii-swiss-re-ch"
+          "application-support-engineer-iii-swiss-re-ch",
+          "application-engineer-i-swiss-re-ch"
         ],
         "de": [
           "application-engineer-iii-swiss-re-ch"
@@ -24565,7 +24589,8 @@
         "fr": [
           "application-engineer-iii-swiss-re-ch",
           "application-engineer-iii-java-developer-swiss-re-ch",
-          "application-support-ingenieur-iii-swiss-re-hyderabad-in"
+          "application-support-ingenieur-iii-swiss-re-hyderabad-in",
+          "application-ingenieur-i-swiss-re-hyderabad-in"
         ]
       },
       "firstSeenAt": "2026-07-10T13:01:21.407Z",

@@ -1,6 +1,6 @@
 {
   "crawlerKey": "sro",
-  "assembledAt": "2026-08-05T11:30:41.719Z",
+  "assembledAt": "2026-08-05T11:07:08.245Z",
   "jobs": [
     {
       "id": "sro-6abd7add22f4",
@@ -475,7 +475,11 @@
         "team-leader-psicologia-del-dolore-80-sro-ag-spital-region-oberaargau-langenthal",
         "responsable-equipe-psychologie-de-la-douleur-80-sro-ag-spital-region-oberaargau-langenthal",
         "psicoterapista-in-per-80-in-clinica-dolore-sro-ag-spital-region-oberaargau-langenthal",
-        "psicoterapeuta-cellulare-80-sro-ag-spital-region-oberaargau-langenthal"
+        "psicoterapeuta-cellulare-80-sro-ag-spital-region-oberaargau-langenthal",
+        "cura-educativa-80-100-sro-ag-spital-region-oberaargau-langenthal",
+        "educational-care-80-100-sro-ag-spital-region-oberaargau-langenthal",
+        "bildungsverantwortliche-pflege-80-100-sro-langenthal",
+        "soins-educatifs-80-100-sro-ag-spital-region-oberaargau-langenthal"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -487,15 +491,24 @@
           "team-leader-psicologia-del-dolore-80-sro-ag-spital-region-oberaargau-langenthal",
           "responsable-equipe-psychologie-de-la-douleur-80-sro-ag-spital-region-oberaargau-langenthal",
           "psicoterapista-in-per-80-in-clinica-dolore-sro-ag-spital-region-oberaargau-langenthal",
-          "psicoterapeuta-cellulare-80-sro-ag-spital-region-oberaargau-langenthal"
+          "psicoterapeuta-cellulare-80-sro-ag-spital-region-oberaargau-langenthal",
+          "cura-educativa-80-100-sro-ag-spital-region-oberaargau-langenthal",
+          "educational-care-80-100-sro-ag-spital-region-oberaargau-langenthal",
+          "bildungsverantwortliche-pflege-80-100-sro-langenthal",
+          "soins-educatifs-80-100-sro-ag-spital-region-oberaargau-langenthal"
         ],
         "en": [
           "psychotherapeut-in-schmerzklinik-80-sro-langenthal",
-          "psychotherapist-pain-clinic-80-sro-ag-spital-region-oberaargau-langenthal"
+          "psychotherapist-pain-clinic-80-sro-ag-spital-region-oberaargau-langenthal",
+          "educational-care-80-100-sro-ag-spital-region-oberaargau-langenthal"
         ],
         "fr": [
           "psychotherapeut-in-schmerzklinik-80-sro-langenthal",
-          "responsable-d-equipe-en-psychologie-de-la-douleur-80-sro-ag-spital-region-oberaargau-langenthal"
+          "responsable-d-equipe-en-psychologie-de-la-douleur-80-sro-ag-spital-region-oberaargau-langenthal",
+          "soins-educatifs-80-100-sro-ag-spital-region-oberaargau-langenthal"
+        ],
+        "de": [
+          "bildungsverantwortliche-pflege-80-100-sro-langenthal"
         ]
       },
       "firstSeenAt": "2026-07-21T22:07:29.246Z",

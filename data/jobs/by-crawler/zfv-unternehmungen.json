@@ -1,6 +1,6 @@
 {
   "crawlerKey": "zfv-unternehmungen",
-  "assembledAt": "2026-08-05T11:38:01.635Z",
+  "assembledAt": "2026-08-05T11:21:24.228Z",
   "jobs": [
     {
       "id": "zfv-unternehmungen-74d19ea56c29",
@@ -3854,7 +3854,6 @@
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
       "crawledAt": "2026-08-05T11:37:24.309Z",
-      "needsRetranslation": true,
       "addressLocality": "Basel",
       "postalCode": "4056",
       "streetAddress": "Klingelbergstrasse 48",
@@ -3878,7 +3877,16 @@
         "hilfskochin-hilfskoch-60-zfv-unternehmungen-basel",
         "cuisinier-adjoint-cuisinier-adjoint-60-zfv-unternehmungen-basel",
         "cook-cook-70-80-zfv-unternehmungen-basel",
-        "cucinare-cucinare-70-80-zfv-unternehmungen-basel"
+        "cucinare-cucinare-70-80-zfv-unternehmungen-basel",
+        "assistente-operativo-in-zfv-unternehmungen-basel",
+        "operational-assistant-in-zfv-unternehmungen-basel",
+        "betriebsassistent-in-zfv-unternehmungen-basel",
+        "assistant-operationnel-en-zfv-unternehmungen-basel",
+        "torneo-operativo-e-40-zfv-unternehmungen-basel",
+        "operating-tournament-e-40-zfv-unternehmungen-basel",
+        "betriebstournant-e-40-zfv-unternehmungen-basel",
+        "tournoi-operationnel-e-40-zfv-unternehmungen-basel",
+        "tour-operateur-e-40-zfv-unternehmungen-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3887,18 +3895,30 @@
           "assistant-cook-assistant-cook-60-zfv-unternehmungen-basel",
           "hilfskochin-hilfskoch-60-zfv-unternehmungen-basel",
           "cuisinier-adjoint-cuisinier-adjoint-60-zfv-unternehmungen-basel",
-          "cucinare-cucinare-70-80-zfv-unternehmungen-basel"
+          "cucinare-cucinare-70-80-zfv-unternehmungen-basel",
+          "assistente-operativo-in-zfv-unternehmungen-basel",
+          "operational-assistant-in-zfv-unternehmungen-basel",
+          "betriebsassistent-in-zfv-unternehmungen-basel",
+          "assistant-operationnel-en-zfv-unternehmungen-basel",
+          "torneo-operativo-e-40-zfv-unternehmungen-basel",
+          "operating-tournament-e-40-zfv-unternehmungen-basel",
+          "betriebstournant-e-40-zfv-unternehmungen-basel",
+          "tournoi-operationnel-e-40-zfv-unternehmungen-basel",
+          "tour-operateur-e-40-zfv-unternehmungen-basel"
         ],
         "en": [
           "assistant-cook-assistant-cook-60-zfv-unternehmungen-basel",
           "cook-cook-70-80-zfv-unternehmungen-basel",
-          "kochin-koch-70-80-zfv-unternehmungen-basel"
+          "kochin-koch-70-80-zfv-unternehmungen-basel",
+          "operational-assistant-in-zfv-unternehmungen-basel"
         ],
         "de": [
-          "hilfskochin-hilfskoch-60-zfv-unternehmungen-basel"
+          "hilfskochin-hilfskoch-60-zfv-unternehmungen-basel",
+          "betriebsassistent-in-zfv-unternehmungen-basel"
         ],
         "fr": [
-          "cuisinier-adjoint-cuisinier-adjoint-60-zfv-unternehmungen-basel"
+          "cuisinier-adjoint-cuisinier-adjoint-60-zfv-unternehmungen-basel",
+          "assistant-operationnel-en-zfv-unternehmungen-basel"
         ]
       },
       "firstSeenAt": "2026-07-04T12:44:01.972Z",
@@ -3913,7 +3933,8 @@
           "maxValue": 75200,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "zfv-unternehmungen-4a912cc9a921",

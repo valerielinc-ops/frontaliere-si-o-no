@@ -290,10 +290,10 @@
       "companyDomain": "bellfoodgroup.com",
       "title": "Koch Koechin Efz 2027",
       "titleByLocale": {
-        "it": "Koch Koechin Efz 2027",
-        "en": "Koch Koechin Efz 2027",
         "de": "Koch Koechin Efz 2027",
-        "fr": "Koch Koechin Efz 2027"
+        "it": "Chef Koechin Efz 2027",
+        "en": "Chef Koechin Efz 2027",
+        "fr": "Chef Koechin Efz 2027"
       },
       "description": "Du möchtest kochen, kreative Gerichte zubereiten und dabei wertvolle Berufserfahrung sammeln? In unserem Personalrestaurant bei Bell am Standort in Zell LU erwartet dich ein abwechslungsreicher Ausbildungsplatz mit spannenden Einblicken. Gemeinsam mit einem motivierten Team bereitest du täglich frische, ausgewogene und vielseitige Mahlzeiten für unsere Mitarbeitenden zu. Dabei lernst du verschiedene Küchenbereiche kennen, kannst deine Fähigkeiten weiterentwickeln und Schritt für Schritt Verantwortung übernehmen. Entscheidest Du Dich für eine Lehre als Koch/Köchin EFZ bei Bell, triffst Du eine gute Wahl. Immer unterstütz von uns, machst Du Deine ersten Schritte ins Berufsleben und wirst Teil der Community der Bell Lernenden. Aufgaben:\n• Zubereitung abwechslungsreicher und ausgewogener Mahlzeiten für unsere Mitarbeitenden\n• Fachgerechte Verarbeitung von Lebensmitteln – vom Einkauf bis zur fertigen Mahlzeiten\n• Einhaltung der geltenden Hygiene- und Lebensmittelvorschriften\n• Sorgfältiger und verantwortungsvoller Umgang mit Lebensmitteln, Küchengeräten und Arbeitsmaterialien Anforderungen:\n• Abgeschlossene Volksschule, mittlere Stufe\n• Schnelles Auffassungsvermögen\n• Freude am Umgang mit Lebensmitteln\n• Robuste Gesundheit\n• Organisationstalent",
       "descriptionByLocale": {
@@ -318,8 +318,6 @@
       "source": "Hilcona Dedicated Parser",
       "crawledAt": "2026-08-05T11:46:13.098Z",
       "sourceLang": "de",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-04T22:36:35.545Z",
       "salaryMin": 64500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -333,7 +331,8 @@
         }
       },
       "country": "CH",
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "firstSeenAt": "2026-08-04T22:36:35.545Z"
     },
     {
       "id": "hilcona-6dceedefd072",

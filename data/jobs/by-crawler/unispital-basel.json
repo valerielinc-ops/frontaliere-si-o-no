@@ -1,6 +1,6 @@
 {
   "crawlerKey": "unispital-basel",
-  "assembledAt": "2026-08-05T11:44:42.167Z",
+  "assembledAt": "2026-08-05T11:12:29.784Z",
   "jobs": [
     {
       "id": "unispital-basel-7e895057a061",
@@ -217,21 +217,28 @@
       "previousSlugsByLocale": {
         "de": [
           "oberarztin-oberarzt-notfallmedizin-unispital-basel-ch",
-          "oberarztin-oberarzt-notfallmedizin-universitatsspital-basel-basel"
+          "oberarztin-oberarzt-notfallmedizin-universitatsspital-basel-basel",
+          "ergotherapeutin-ergotherapeut-unispital-basel-ch"
         ],
         "it": [
           "oberarztin-oberarzt-notfallmedizin-unispital-basel-ch",
-          "medicina-del-lavoro-universitatsspital-basel-basel"
+          "medicina-del-lavoro-universitatsspital-basel-basel",
+          "terapeuta-del-lavoro-universitatsspital-basel-basel",
+          "ergotherapeutin-ergotherapeut-universitatsspital-basel-basel",
+          "ergotherapeutin-ergotherapeut-unispital-basel-ch",
+          "ergotherapeute-universitatsspital-basel-basel"
         ],
         "en": [
           "occupational-medicine-universitatsspital-basel-basel",
           "oberarztin-oberarzt-notfallmedizin-unispital-basel-ch",
-          "occupational-medicine-universitatsspital-basel"
+          "occupational-medicine-universitatsspital-basel",
+          "ergotherapeutin-ergotherapeut-universitatsspital-basel-basel"
         ],
         "fr": [
           "medecine-du-travail-universitatsspital-basel-basel",
           "oberarztin-oberarzt-notfallmedizin-unispital-basel-ch",
-          "medecine-du-travail-universitatsspital-basel"
+          "medecine-du-travail-universitatsspital-basel",
+          "ergotherapeute-universitatsspital-basel-basel"
         ]
       },
       "previousSlugs": [
@@ -241,7 +248,11 @@
         "oberarztin-oberarzt-notfallmedizin-universitatsspital-basel-basel",
         "medicina-del-lavoro-universitatsspital-basel-basel",
         "occupational-medicine-universitatsspital-basel",
-        "medecine-du-travail-universitatsspital-basel"
+        "medecine-du-travail-universitatsspital-basel",
+        "terapeuta-del-lavoro-universitatsspital-basel-basel",
+        "ergotherapeutin-ergotherapeut-universitatsspital-basel-basel",
+        "ergotherapeutin-ergotherapeut-unispital-basel-ch",
+        "ergotherapeute-universitatsspital-basel-basel"
       ],
       "firstSeenAt": "2026-05-10T22:38:59.341Z",
       "salaryMin": 62000,
@@ -5132,12 +5143,31 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "fachfrau-fachmann-operationstechnik-spezialisierung-urologie-unispital-basel-ch",
-        "fachfrau-fachmann-operationstechnik-spezialisierung-urologie-universitatsspital-basel-basel"
+        "fachfrau-fachmann-operationstechnik-spezialisierung-urologie-universitatsspital-basel-basel",
+        "specialista-in-tecnologia-chirurgica-universitatsspital-basel-basel",
+        "specialist-in-surgical-technology-universitatsspital-basel-basel",
+        "fachfrau-fachmann-operationstechnik-universitatsspital-basel-basel",
+        "specialiste-en-technologie-chirurgicale-universitatsspital-basel-basel",
+        "fachfrau-fachmann-operationstechnik-unispital-basel-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fachfrau-fachmann-operationstechnik-spezialisierung-urologie-unispital-basel-ch",
-          "fachfrau-fachmann-operationstechnik-spezialisierung-urologie-universitatsspital-basel-basel"
+          "fachfrau-fachmann-operationstechnik-spezialisierung-urologie-universitatsspital-basel-basel",
+          "specialista-in-tecnologia-chirurgica-universitatsspital-basel-basel",
+          "specialist-in-surgical-technology-universitatsspital-basel-basel",
+          "fachfrau-fachmann-operationstechnik-universitatsspital-basel-basel",
+          "specialiste-en-technologie-chirurgicale-universitatsspital-basel-basel",
+          "fachfrau-fachmann-operationstechnik-unispital-basel-ch"
+        ],
+        "en": [
+          "specialist-in-surgical-technology-universitatsspital-basel-basel"
+        ],
+        "de": [
+          "fachfrau-fachmann-operationstechnik-universitatsspital-basel-basel"
+        ],
+        "fr": [
+          "specialiste-en-technologie-chirurgicale-universitatsspital-basel-basel"
         ]
       },
       "firstSeenAt": "2026-07-15T11:10:20.660Z",
