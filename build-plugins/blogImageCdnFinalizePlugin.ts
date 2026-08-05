@@ -77,9 +77,32 @@ const BLOG_REF_MARKER = Buffer.from('/images/blog/');
 // covers EVERY emitted file (no dir is skipped), so a stray /images/blog
 // reference anywhere (even in the job-board corpus, which today carries none)
 // is still caught before any image is deleted.
-function walk(dir: string, fn: (fp: string) => void, root: string = dir): void {
-  for (const e of fs.readdirSync(dir, { withFileTypes: true })) {
-    const fp = path.join(dir, e.name);
+//
+// LAZY, and deliberately so (issue #5169): this runs when the build's RSS is
+// already ~11.2 GB of the runner's 16 GB, and the `it` shard walks ~711k files.
+// Materialising the path list first would add ~70 MB of live strings at exactly
+// the wrong moment, so the sweep pulls one path at a time from this generator
+// instead. Resident cost is the readdir listing of the frames on the current
+// root→leaf path — the same thing the recursive form held on its call stack.
+//
+// Iterative (explicit frame stack) rather than `yield*` recursion: with `yield*`
+// every file costs one generator resume PER DEPTH LEVEL of the delegation chain,
+// which is what made postWalkCoordinator's walk 202 s over 1.3M files. Here
+// there is exactly one generator frame, so it is one resume per file. Traversal
+// order, skip list and shard gate are identical to the recursive form.
+function* walk(root: string): Generator<string> {
+  const frames: Array<{ dir: string; entries: fs.Dirent[]; i: number }> = [
+    { dir: root, entries: fs.readdirSync(root, { withFileTypes: true }), i: 0 },
+  ];
+  while (frames.length > 0) {
+    const f = frames[frames.length - 1];
+    if (f.i >= f.entries.length) {
+      frames.pop();
+      continue;
+    }
+    const e = f.entries[f.i++];
+    const dir = f.dir;
+    const fp = dir + path.sep + e.name;
     if (e.isDirectory()) {
       // Skip ONLY the TOP-LEVEL dist/{assets,data,images} (vite JS/CSS/fonts,
       // CDN-offloaded *.json payloads, *.webp/*.png/og art — none carry the
@@ -105,22 +128,21 @@ function walk(dir: string, fn: (fp: string) => void, root: string = dir): void {
       // walked and scanned. shouldEmitPath returns true for ALL paths on the
       // default all-locale build (EMIT_ALL_LOCALES) → no-op, full coverage.
       if (dir === root && !shouldEmitPath(fp, root)) continue;
-      walk(fp, fn, root);
+      frames.push({ dir: fp, entries: fs.readdirSync(fp, { withFileTypes: true }), i: 0 });
     } else if (SCAN_EXT.has(path.extname(e.name))) {
       // Same shard-ownership gate for root-level files (e.g. dist/index.html on
       // an en/de/fr shard) — pruned post-build, never shipped from here.
       if (!shouldEmitPath(fp, root)) continue;
-      fn(fp);
+      yield fp;
     }
   }
 }
 
 /**
- * Split of the last sweep's wall time, so a deploy log attributes the plugin's
- * `[profile-detail]` wall_s to enumeration vs read/rewrite without a second
- * profiling run. Purely observational.
+ * Shape of the last sweep, so a deploy log can attribute the plugin's
+ * `[profile-detail]` wall_s without a second profiling run. Purely observational.
  */
-export const lastSweepTimings = { enumerateMs: 0, sweepMs: 0, lanes: 0 };
+export const lastSweepTimings = { sweepMs: 0, lanes: 0 };
 
 /** Result of a whole-dist rewrite+guard sweep. `leaks` is sorted (deterministic). */
 export interface BlogImageSweepResult {
@@ -168,12 +190,8 @@ export async function sweepDistBlogImageRefs(
   distDir: string,
   concurrency: number = resolveSweepConcurrency(),
 ): Promise<BlogImageSweepResult> {
-  const tWalk = Date.now();
-  const files: string[] = [];
-  walk(distDir, (fp) => files.push(fp));
-  lastSweepTimings.enumerateMs = Date.now() - tWalk;
-
   const tSweep = Date.now();
+  let scanned = 0;
   let rewritten = 0;
   const leaks: string[] = [];
 
@@ -190,14 +208,19 @@ export async function sweepDistBlogImageRefs(
     if (hasBlogImageLeak(out)) leaks.push(path.relative(distDir, fp));
   };
 
-  const lanes = Math.max(1, Math.min(concurrency, files.length));
-  let next = 0;
+  // Each lane pulls the next path from the shared (lazy) walker and awaits its
+  // own read, so at most `lanes` files are resident at any instant. `it.next()`
+  // is synchronous and JS is single-threaded, so the pull is atomic — two lanes
+  // can never receive the same path.
+  const it = walk(distDir);
+  const lanes = Math.max(1, concurrency);
   await Promise.all(
     Array.from({ length: lanes }, async () => {
       for (;;) {
-        const i = next++;
-        if (i >= files.length) return;
-        await handle(files[i]);
+        const n = it.next();
+        if (n.done) return;
+        scanned++;
+        await handle(n.value);
       }
     }),
   );
@@ -205,7 +228,7 @@ export async function sweepDistBlogImageRefs(
   lastSweepTimings.sweepMs = Date.now() - tSweep;
   lastSweepTimings.lanes = lanes;
   leaks.sort();
-  return { scanned: files.length, rewritten, leaks };
+  return { scanned, rewritten, leaks };
 }
 
 export function blogImageCdnFinalizePlugin(rootDir: string): Plugin {
@@ -252,8 +275,7 @@ export function blogImageCdnFinalizePlugin(rootDir: string): Plugin {
       console.log(
         `[blog-image-cdn] rewrote ${rewritten}/${scanned} files → CDN; ` +
           `deleted ${deleted} full blog images (${(freed / 1048576).toFixed(0)} MB freed; thumbnails kept local) ` +
-          `[enumerate=${(lastSweepTimings.enumerateMs / 1000).toFixed(1)}s ` +
-          `sweep=${(lastSweepTimings.sweepMs / 1000).toFixed(1)}s lanes=${lastSweepTimings.lanes}]`,
+          `[sweep=${(lastSweepTimings.sweepMs / 1000).toFixed(1)}s lanes=${lastSweepTimings.lanes}]`,
       );
     },
   };
