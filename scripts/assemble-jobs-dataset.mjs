@@ -56,6 +56,7 @@ import { commitInChunks } from './lib/firestore-batch.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 import { resolveJobDiffKey } from './lib/job-match-key.mjs';
 import { validateJobUrls } from './lib/validate-job-url.mjs';
+import { archiveRemovedJobsToSlice } from './lib/expired-jobs-archive.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -743,7 +744,7 @@ export async function verifyShrinkAgainstSource(priorJobs, newJobs, options = {}
   // Nothing disappeared (the shrink is pure dedup) — nothing to corroborate,
   // and nothing that could be silently lost either.
   if (disappeared.length === 0) {
-    return { corroborated: true, checked: 0, dead: 0, alive: 0, unverifiable: 0, evidence: [], survivors: [] };
+    return { corroborated: true, checked: 0, dead: 0, alive: 0, unverifiable: 0, evidence: [], survivors: [], disappearedJobs: [] };
   }
 
   // A job with no URL can never be proven dead — treat it as still-alive so
@@ -780,6 +781,10 @@ export async function verifyShrinkAgainstSource(priorJobs, newJobs, options = {}
     unverifiable,
     evidence,
     survivors,
+    // Full job objects (slug + locale data intact) so an accepted shrink can
+    // archive them into the expired soft-landing slice instead of leaving
+    // their indexed URLs to 404.
+    disappearedJobs: disappeared,
   };
 }
 
@@ -831,8 +836,20 @@ export async function writeJobsCrawlerSliceVerified(crawlerKey, jobs, options = 
     for (const e of verdict.evidence.slice(0, 10)) {
       console.warn(`     ↳ gone: ${e.url} (${e.reason})`);
     }
+
+    // SEO continuity: a job leaving the slice without an expired entry turns
+    // its indexed URL into a hard 404 instead of an enriched soft-landing
+    // page (docs/CRAWLERS.md → "Slug Lifecycle & SEO Continuity"). The
+    // template pipeline already archives `diff.removedJobs` at its own step;
+    // archiving here as well is idempotent (the archive merges by slug) and
+    // closes the same gap for bespoke runners that have no such step.
+    const archived = archiveRemovedJobsToSlice(verdict.disappearedJobs, crawlerKey);
+    if (archived > 0) {
+      console.warn(`  📦 Archived ${archived} expired job(s) → data/jobs/expired/by-crawler/${crawlerKey}.json (soft-landing pages preserved).`);
+    }
+
     writeJobsCrawlerSlice(crawlerKey, jobs, { ...writeOptions, skipShrinkGuard: true });
-    return { written: true, shrinkAccepted: true, verdict };
+    return { written: true, shrinkAccepted: true, verdict, archived };
   }
 }
 

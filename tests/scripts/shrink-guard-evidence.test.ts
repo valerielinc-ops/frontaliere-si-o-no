@@ -154,6 +154,27 @@ describe('verifyShrinkAgainstSource()', () => {
     expect(verdict.corroborated).toBe(false);
   });
 
+  it('returns the full disappearing job objects so an accepted shrink can archive them', () => {
+    // SEO continuity: a job that leaves the slice without an expired entry
+    // turns its indexed URL into a hard 404 instead of an enriched
+    // soft-landing page. writeJobsCrawlerSliceVerified() feeds these objects
+    // straight into archiveRemovedJobsToSlice(), so they must arrive whole
+    // (slug + locale data), not as bare URLs.
+    const prior = [
+      { id: 'x1', url: 'https://example.test/jobs/x1', slug: 'sommelier-grace', title: 'Sommelier', slugByLocale: { it: 'sommelier-grace' } },
+      { id: 'x2', url: 'https://example.test/jobs/x2', slug: 'room-attendant-grace', title: 'Room Attendant' },
+    ];
+    const next = [prior[0]];
+    return verifyShrinkAgainstSource(prior, next, {
+      validate: validatorFrom({ [prior[1].url]: gone404(prior[1].url) }),
+    }).then((verdict) => {
+      expect(verdict.corroborated).toBe(true);
+      expect(verdict.disappearedJobs).toHaveLength(1);
+      expect(verdict.disappearedJobs[0].slug).toBe('room-attendant-grace');
+      expect(verdict.disappearedJobs[0].title).toBe('Room Attendant');
+    });
+  });
+
   it('leaves the guard threshold itself untouched (no ratio was lowered)', () => {
     // Same expectations as tests/scripts/shrink-guard.test.ts — restated here
     // so a future edit to the acceptance path cannot quietly relax the gate.
