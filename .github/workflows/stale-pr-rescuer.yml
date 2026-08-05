@@ -66,7 +66,7 @@ jobs:
 
           # PR aperte, autore owner (skip fork/dependabot). updatedAt per age gate.
           prs=$(gh pr list --repo "$REPO" --state open --limit 50 \
-            --json number,headRefName,headRefOid,updatedAt,author,labels)
+            --json number,headRefName,headRefOid,updatedAt,author,labels,isDraft)
 
           echo "$prs" | jq -c '.[]' | while read -r pr; do
             N=$(echo "$pr" | jq -r '.number')
@@ -75,9 +75,21 @@ jobs:
             UPD=$(echo "$pr" | jq -r '.updatedAt')
             AUTHOR=$(echo "$pr" | jq -r '.author.login')
             HAS_LABEL=$(echo "$pr" | jq -r '[.labels[].name] | index("stale-review") // empty')
+            IS_DRAFT=$(echo "$pr" | jq -r '.isDraft')
 
             # Idempotenza: già flaggata → skip.
             if [ -n "$HAS_LABEL" ]; then echo "PR #$N già stale-review — skip"; continue; fi
+
+            # DRAFT → skip. Una draft non è in attesa di review, quindi nessuna
+            # delle tre classi è un vero stallo per lei. Il filtro diventa
+            # NECESSARIO con la classe C: una draft WIP ha spesso vitest rosso o
+            # nessun check per giorni, quindi verrebbe etichettata `stale-review`
+            # — e `recycle-stale-prs.yml` CHIUDE le `stale-review` ferme >24h
+            # senza commit nuovi (quel workflow non filtra le draft). Senza
+            # questa guardia la classe C trasformerebbe un WIP legittimo in una
+            # PR chiusa. `pr-autorebase.mjs` filtra già le draft (`!p.isDraft`);
+            # questo allinea il rescuer alla stessa regola.
+            if [ "$IS_DRAFT" = "true" ]; then echo "PR #$N draft — skip"; continue; fi
 
             # Age gate: aggiornata da <2h → probabile lavoro attivo, non disturbare.
             UPD_S=$(date -u -d "$UPD" +%s 2>/dev/null || echo "$NOW")
