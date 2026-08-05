@@ -1849,6 +1849,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.come-funzionano-votazioni-federali-ch.title': 'Eidgenössische Abstimmungen: Direkte Demokratie erklärt',
     'blog.article.come-funzionano-votazioni-federali-ch.excerpt': 'Erfahren Sie, wie Volksinitiativen und Volksabstimmungen funktionieren, Säulen der direkten Demokratie der Schweiz, an denen Volk und Kantone beteiligt sind.',
     'blog.article.come-funzionano-votazioni-federali-ch.imageAlt': 'Bundeshaus in Bern Sitz der Schweizer Demokratie',
+    'blog.article.frontiere-ricerca-svizzera-2025.title': 'Grenzen der Forschung: Innovation und Wissenschaft in der Schweiz',
+    'blog.article.frontiere-ricerca-svizzera-2025.excerpt': 'Wir erforschen die in der Schweiz entstandenen wissenschaftlichen Innovationen: von der Weltraumforschung über die Materialwissenschaften bis hin zur künstlichen Intelligenz.',
+    'blog.article.frontiere-ricerca-svizzera-2025.imageAlt': 'Blick auf eine Schweizer Stadt mit wissenschaftlichen und technologischen Forschungszentren',
 };
 
 export default blogMetaChDe;

@@ -5545,6 +5545,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'frontiere-ricerca-svizzera-2025',
+    category: 'novita',
+    date: '2026-08-05T06:09:34.358Z',
+    image: '/images/blog/frontiere-ricerca-svizzera-2025.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
