@@ -715,6 +715,38 @@ export const MIN_INDEXABLE_WORDS = 50;
 /** Shared below-floor tag -- reused by both content-gated robots helpers below. */
 const ROBOTS_NOINDEX_FOLLOW = '\n <meta name="robots" content="noindex,follow">';
 
+/** Matches an emitted robots meta tag whatever its `content` value is. */
+const ROBOTS_META_TAG_RE = /<meta\s+name=["']?robots["']?[^>]*>/i;
+
+/**
+ * Rewrite (or insert) the robots meta tag of an already-emitted HTML string.
+ *
+ * Post-emit demotion to `noindex` is how several plugins enforce a policy
+ * decision after the page HTML is built (the thin-content floor in
+ * `exchangeRatePagesPlugin`, the inert-tail band in
+ * `relatedSearchClustersPlugin`). Doing it with a regex that spells out the
+ * INDEXABLE content value couples the guard to whatever string the shell
+ * happens to emit: the day that directive changes, the guard silently stops
+ * matching and pages ship indexable that were meant not to be. Matching the
+ * tag by NAME instead of by value is what keeps the guard correct across any
+ * future change to the directive.
+ *
+ * Quote-flexible on the way IN because dist/ HTML is minified upstream
+ * (PR #478 `removeAttributeQuotes` turns the tag into
+ * `<meta name=robots content=index,follow>`); always quoted on the way OUT.
+ *
+ * NOTE: PR #5170 (#5001) introduces an identical helper in this same file as
+ * part of centralising `max-image-preview:large`. Whichever lands second
+ * should drop its copy and keep one definition -- the two are byte-identical
+ * by design so the merge is a delete, not a redesign.
+ */
+export function replaceRobotsMeta(html: string, content: string): string {
+ const tag = `<meta name="robots" content="${content}">`;
+ return ROBOTS_META_TAG_RE.test(html)
+ ? html.replace(ROBOTS_META_TAG_RE, tag)
+ : html.replace(/<head(\s[^>]*)?>/i, (m) => `${m}${tag}`);
+}
+
 /**
  * Returns the appropriate robots meta tag based on the word count of the page body.
  * Pages with >= MIN_INDEXABLE_WORDS get `index,follow`; below that, `noindex,follow`.
