@@ -52,6 +52,15 @@ jobs:
           # blew through on the repo's current ~1.36GB/868k-object blob history.
           filter: blob:none
           token: ${{ secrets.GITHUB_TOKEN }}
+        # Tetto Checkout (classe #5145/#5144/#5162): senza, un fetch degenere
+        # consuma l'intero budget e il job muore `cancelled` — stato invisibile
+        # agli `if: failure()`, il buco che scan-job-timeouts.mjs tappa solo a
+        # posteriori. Col tetto e' un `failure` diagnosticabile.
+        # Ha gia' blob:none MA i numeri NON dicono che sta bene: Checkout 94-518s
+        # su 7 run e il massimo e' l'86% di un cap da 10min. E' il rischio residuo
+        # piu' alto della classe (vedi `## Non implementato` della PR): il tetto lo
+        # rende diagnosticabile, non lo risolve.
+        timeout-minutes: 9
 
       - uses: actions/setup-node@v5
         with:

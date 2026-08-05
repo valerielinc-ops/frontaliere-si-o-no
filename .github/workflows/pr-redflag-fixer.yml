@@ -105,6 +105,15 @@ jobs:
         with:
           fetch-depth: 0
           ref: ${{ github.event.pull_request.head.ref }}
+          # Checkout 769-1379s su 3 run: il massimo è il 57% di un cap da 40min,
+          # e il lavoro qui è un run Claude (costoso da buttare). Blobless partial
+          # clone come issue-fix #4189, che è l'altro job Claude-driven con la
+          # stessa forma. Sicuro: il fixer legge/scrive file dell'head e fa
+          # `git merge origin/main` — servono i blob dei file toccati, non la
+          # storia dei blob.
+          filter: blob:none
+        # Tetto sullo step → `failure` diagnosticabile invece di `cancelled`.
+        timeout-minutes: 15
 
       # Profilassi workflow-validation drift (anti-401): la GitHub App del reviewer
       # esige che `.github/workflows/pr-review-loop.yml` sul branch sia BYTE-IDENTICO
