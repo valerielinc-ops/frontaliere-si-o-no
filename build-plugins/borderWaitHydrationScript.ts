@@ -29,9 +29,11 @@
  *   }
  *
  * The `{slug}` produced by `slugifyCrossingName()` matches the plugin's
- * `BORDER_WAIT_CROSSINGS` slugs 1:1 for the 22 active crossings (the 2
- * inactive ones — `maslianico-roggiana`, `rodero-stabio` — keep their
- * pre-rendered fallback).
+ * `BORDER_WAIT_CROSSINGS` slugs 1:1. Crossings with no live reading in
+ * `data/border-wait-current.json` (currently `maslianico-roggiana` and
+ * `rodero-stabio`) keep their pre-rendered fallback — the count is derived
+ * from the data, not a number to maintain here; it read "22 active" until
+ * #4545 and was already stale by more than 100 crossings.
  *
  * DOM contract (in pages emitted by `borderWaitPagesPlugin.ts`):
  *

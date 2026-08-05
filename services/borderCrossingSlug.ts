@@ -5,10 +5,12 @@
  * (Wiesenrain)' / 'Widnau-Lustenau (Schmitterbrücke)' both reduce to
  * "widnau-lustenau". 'Wiesenrain' keeps the unchanged slug (it is the first
  * of the two in data/borderCrossings.ts); 'Schmitterbrücke' gets this
- * override instead. Neither crossing has a public /traffico-dogane/ page, so
- * no redirect is needed — do NOT change the general rule itself, 5 other
- * crossings (incl. the primary Chiasso Centro one) have indexed URLs that
- * depend on parens being stripped.
+ * override instead. Both crossings now have a public /traffico-dogane/ page
+ * (#4545 wired 'widnau-lustenau-schmitterbrucke' into the registry) — and
+ * 'Wiesenrain' keeping the unchanged slug is exactly what made that safe:
+ * no already-indexed URL moved. Do NOT change the general rule itself — 5
+ * other crossings (incl. the primary Chiasso Centro one) have indexed URLs
+ * that depend on parens being stripped.
  *
  * Anti-collision regression coverage lives in
  * tests/border-crossing-slug-collision.test.ts — add a new override here

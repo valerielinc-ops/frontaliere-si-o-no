@@ -4,7 +4,8 @@
  * Covers:
  *  - Slug tables + path builders for all 4 locales × (root + regional hubs + crossings)
  *  - Route enumeration (BORDER_WAIT_ROUTES = locales × (1 + regions + crossings), derived
- *    from the live registries — see borderWaitData.ts, expanded post-#4889 from 26 to 134
+ *    from the live registries — see borderWaitData.ts, expanded post-#4889 from 26 to 134, then to the full 143-crossing
+ *    dataset by #4545 (Grigioni/Vallese–Italy corridor)
  *    crossings across 17 regions)
  *  - Page generation: ≥50 words per page (MIN_INDEXABLE_WORDS), JSON-LD
  *    present & parseable, canonical self-referent, webcam section renders
@@ -84,9 +85,9 @@ const MINIMAL_CURRENT: BorderWaitCurrent = {
 // ── Slug / path tests ─────────────────────────────────────────────
 
 describe('borderWaitData — slug tables + path builders', () => {
-  it('exports exactly 134 crossings, all unique (post-#4889 expansion from 26)', () => {
-    expect(BORDER_WAIT_CROSSINGS).toHaveLength(134);
-    expect(new Set(BORDER_WAIT_CROSSINGS).size).toBe(134);
+  it('exports exactly 143 crossings, all unique (post-#4545: the full dataset)', () => {
+    expect(BORDER_WAIT_CROSSINGS).toHaveLength(143);
+    expect(new Set(BORDER_WAIT_CROSSINGS).size).toBe(143);
   });
 
   it('TOP_5_CROSSINGS is a strict subset of 5 crossings', () => {
@@ -114,10 +115,10 @@ describe('borderWaitData — slug tables + path builders', () => {
     expect(buildOggiPath('fr', 'chiasso-brogeda')).toMatch(/^\/fr\/temps-attente-douane\//);
   });
 
-  it('root + regional + crossing routes total 608 (4 locales × (1 + 17 regions + 134 crossings))', () => {
+  it('root + regional + crossing routes total 652 (4 locales × (1 + 19 regions + 143 crossings))', () => {
     const expected = BORDER_WAIT_LOCALES.length * (1 + BORDER_WAIT_REGIONS.length + BORDER_WAIT_CROSSINGS.length);
     expect(BORDER_WAIT_ROUTES).toHaveLength(expected);
-    expect(expected).toBe(608);
+    expect(expected).toBe(652);
     expect(new Set(BORDER_WAIT_ROUTES).size).toBe(expected);
   });
 
