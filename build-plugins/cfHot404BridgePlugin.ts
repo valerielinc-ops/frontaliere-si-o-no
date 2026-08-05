@@ -31,6 +31,7 @@ import type { Plugin } from 'vite';
 import { BASE_URL, buildCanonicalBridgePage } from './constants';
 import { resolveSearchConsoleCompatTarget } from './searchConsoleCompat';
 import { readCompatPaths } from '../scripts/lib/compat-paths-store.mjs';
+import { readAllKnownJobSlugs } from '../scripts/lib/all-known-job-slugs-store.mjs';
 import searchClusterMapFile from '../data/search-cluster-301-map.json';
 
 // Legacy per-canton related-search cluster URLs (old slug format, now 404). The
@@ -167,14 +168,15 @@ export function cfHot404BridgePlugin(rootDir: string): Plugin {
       // globally unique, so an orphaned canton-variant 404 (/cerca-lavoro-<X>/<slug>)
       // resolves to the real (200) page at the slug's CURRENT canonical canton
       // instead of the bare listing. Built once from the committed tracking ledger
-      // (data/all-known-job-slugs.json). Keyed by localized slug (last path
-      // segment of each locale path). Best-effort: missing/unreadable ledger →
-      // the resolver simply falls back to the section listing.
+      // (the sharded store, data/all-known-job-slugs/, #4248). Keyed by localized
+      // slug (last path segment of each locale path). Best-effort: missing/
+      // unreadable ledger → the resolver simply falls back to the section listing.
       const slugCanonical = new Map<string, Partial<Record<'it' | 'en' | 'de' | 'fr', string>>>();
       try {
-        const tracking = JSON.parse(
-          fs.readFileSync(path.resolve(rootDir, 'data/all-known-job-slugs.json'), 'utf-8'),
-        ) as Record<string, Partial<Record<'it' | 'en' | 'de' | 'fr', string>>>;
+        const tracking = readAllKnownJobSlugs(rootDir) as Record<
+          string,
+          Partial<Record<'it' | 'en' | 'de' | 'fr', string>>
+        >;
         for (const key of Object.keys(tracking)) {
           const entry = tracking[key];
           if (!entry) continue;

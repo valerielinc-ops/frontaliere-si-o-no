@@ -35,6 +35,7 @@ import { JOB_BOARD_SEGMENT_RX, JOB_BOARD_SECTION_GSC_STEMS } from './lib/jobBoar
 import { stripScriptsAndStyles } from './lib/crawler-template.mjs';
 import { assertCompatFloor } from './lib/compat-paths-floor-guard.mjs';
 import { readCompatPaths, writeCompatPaths } from './lib/compat-paths-store.mjs';
+import { readAllKnownJobSlugs, writeAllKnownJobSlugs } from './lib/all-known-job-slugs-store.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -45,7 +46,7 @@ let resolvedSiteUrl = SITE_URL;
 const DRY_RUN = process.argv.includes('--dry-run');
 
 /**
- * Reserved hub slugs that MUST NOT be written into all-known-job-slugs.json.
+ * Reserved hub slugs that MUST NOT be written into the canonical slug registry.
  * These paths are owned by jobSectorPagesPlugin / cityJobsHubPlugin and the
  * SPA router treats them as sector/city hubs, not job details. If they leak
  * into the tracking file the soft-landing generator clobbers the hub HTML.
@@ -362,7 +363,7 @@ function buildKnownSlugsSet() {
   }
 
   // 3. All-known-job-slugs
-  const allKnown = readJsonSafe(dataPath('all-known-job-slugs.json'));
+  const allKnown = readAllKnownJobSlugs(ROOT);
   if (allKnown && typeof allKnown === 'object') {
     for (const slug of Object.keys(allKnown)) addSlug(slug);
     console.log(`  📦 all-known-job-slugs: ${Object.keys(allKnown).length} entries (${known.size} slugs so far)`);
@@ -583,8 +584,8 @@ function enrichFromLocalSources(orphans) {
   }
   console.log(`  📚 Slug registry: ${Object.keys(slugRegistry).length} entries, ${registryBySlug.size} slug lookups`);
 
-  // Load all-known-job-slugs for locale paths
-  const allKnownSlugs = readJsonSafe(dataPath('all-known-job-slugs.json')) || {};
+  // Load the canonical slug registry for locale paths
+  const allKnownSlugs = readAllKnownJobSlugs(ROOT);
   console.log(`  📚 All-known-job-slugs: ${Object.keys(allKnownSlugs).length} entries`);
 
   // Enrich each orphan
@@ -1339,8 +1340,7 @@ async function main() {
   let feedbackAdded = 0;
   if (!DRY_RUN) {
     const existingCompatPaths = new Set((compatData?.paths || []).filter(Boolean));
-    const trackingFile = dataPath('all-known-job-slugs.json');
-    const trackingData = readJsonSafe(trackingFile) || {};
+    const trackingData = readAllKnownJobSlugs(ROOT);
 
     // Build reverse index: locale path → tracking entry
     const pathToTrackingEntry = new Map();
@@ -1426,8 +1426,7 @@ async function main() {
   let trackingAdded = 0;
   let trackingPatched = 0;
   if (!DRY_RUN) {
-    const trackingFile = dataPath('all-known-job-slugs.json');
-    const tracking = readJsonSafe(trackingFile) || {};
+    const tracking = readAllKnownJobSlugs(ROOT);
     const cityIndex = buildCityCantonIndex();
 
     // Build reverse index: slug-in-any-locale-path → tracking key
@@ -1501,7 +1500,7 @@ async function main() {
       }
     }
     if (trackingAdded > 0 || trackingPatched > 0) {
-      fs.writeFileSync(trackingFile, JSON.stringify(tracking) + '\n');
+      writeAllKnownJobSlugs(tracking, ROOT);
       console.log(`  ✅ Tracking: ${trackingAdded} new slugs registered, ${trackingPatched} existing entries patched (total: ${Object.keys(tracking).length})`);
     }
     if (reservedHubsSkipped > 0) {
@@ -1539,7 +1538,7 @@ async function main() {
   // Check how many tracking paths are expected to need self-healing at build time.
   // This is informational — the build plugin handles the actual gap-filling.
   console.log('\n📊 Step 7: Tracking coverage analysis...');
-  const finalTracking = readJsonSafe(dataPath('all-known-job-slugs.json')) || {};
+  const finalTracking = readAllKnownJobSlugs(ROOT);
   const totalTrackingPaths = Object.keys(finalTracking).length * 4;
   
   // Count paths that are likely covered by active jobs

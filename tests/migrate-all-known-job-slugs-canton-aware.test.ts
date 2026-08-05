@@ -6,7 +6,9 @@
  *
  * The script resolves data/* against process.cwd(), so it is exercised by
  * running it with cwd set to a temp fixtures dir (real canton reference data is
- * copied in; jobs + tracking are minimal fixtures). No source changes needed.
+ * copied in; jobs + tracking are minimal fixtures). The registry is sharded
+ * (#4248), so the fixture is seeded and read back through the shared store —
+ * never by touching `data/all-known-job-slugs.json` directly.
  */
 import { execFileSync } from 'node:child_process';
 import fs from 'node:fs';
@@ -14,6 +16,10 @@ import os from 'node:os';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { afterEach, describe, expect, it } from 'vitest';
+import {
+  readAllKnownJobSlugs,
+  writeAllKnownJobSlugs,
+} from '../scripts/lib/all-known-job-slugs-store.mjs';
 
 const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const SCRIPT = path.join(repoRoot, 'scripts', 'migrate-all-known-job-slugs-canton-aware.mjs');
@@ -42,7 +48,7 @@ describe('migrate-all-known-job-slugs-canton-aware', () => {
       { id: 'j1', slug: SLUG, canton: 'ZH', location: 'Zürich', slugByLocale: { it: SLUG, en: SLUG, de: SLUG, fr: SLUG } },
     ]));
     // Tracking entry currently under the legacy TI section, per locale.
-    fs.writeFileSync(path.join(dataDir, 'all-known-job-slugs.json'), JSON.stringify({
+    writeAllKnownJobSlugs({
       [SLUG]: {
         it: `/cerca-lavoro-ticino/${SLUG}/`,
         en: `/en/find-jobs-ticino/${SLUG}/`,
@@ -50,11 +56,11 @@ describe('migrate-all-known-job-slugs-canton-aware', () => {
         fr: `/fr/trouver-emploi-tessin/${SLUG}/`,
         source: 'gsc-404-import',
       },
-    }));
+    }, tmp);
 
     execFileSync('node', [SCRIPT], { cwd: tmp, stdio: 'pipe' });
 
-    const out = JSON.parse(fs.readFileSync(path.join(dataDir, 'all-known-job-slugs.json'), 'utf-8'));
+    const out = readAllKnownJobSlugs(tmp);
     const entry = out[SLUG];
 
     // Section prefix migrated TI → ZH. Derive the expected ZH it-slug from the
@@ -95,18 +101,18 @@ describe('migrate-all-known-job-slugs-canton-aware', () => {
     fs.writeFileSync(path.join(dataDir, 'jobs.json'), JSON.stringify([
       { id: 'j3', slug: SLUG, canton: 'BE', location: 'Bern', slugByLocale: { it: SLUG, en: SLUG, de: SLUG, fr: SLUG } },
     ]));
-    fs.writeFileSync(path.join(dataDir, 'all-known-job-slugs.json'), JSON.stringify({
+    writeAllKnownJobSlugs({
       [SLUG]: {
         it: `/cerca-lavoro-${zhItSlug}/${SLUG}/`,
         en: `/en/find-jobs-zurich/${SLUG}/`,
         de: `/de/jobs-in-zurich/${SLUG}/`,
         fr: `/fr/trouver-emploi-zurich/${SLUG}/`,
       },
-    }));
+    }, tmp);
 
     execFileSync('node', [SCRIPT], { cwd: tmp, stdio: 'pipe' });
 
-    const out = JSON.parse(fs.readFileSync(path.join(dataDir, 'all-known-job-slugs.json'), 'utf-8'));
+    const out = readAllKnownJobSlugs(tmp);
     const entry = out[SLUG];
     expect(entry.it).toBe(`/cerca-lavoro-${beItSlug}/${SLUG}/`);
     expect(entry.it).not.toContain(`cerca-lavoro-${zhItSlug}`);
@@ -139,11 +145,11 @@ describe('migrate-all-known-job-slugs-canton-aware', () => {
         en: `/en/find-jobs-ticino/${SLUG}/`, // valid TI section — must reconcile to ZH
       },
     };
-    fs.writeFileSync(path.join(dataDir, 'all-known-job-slugs.json'), JSON.stringify(original));
+    writeAllKnownJobSlugs(original, tmp);
 
     execFileSync('node', [SCRIPT], { cwd: tmp, stdio: 'pipe' });
 
-    const out = JSON.parse(fs.readFileSync(path.join(dataDir, 'all-known-job-slugs.json'), 'utf-8'));
+    const out = readAllKnownJobSlugs(tmp);
     const entry = out[SLUG];
     // Non-section path preserved verbatim (NOT clobbered to /cerca-lavoro-…/).
     expect(entry.it).toBe(`/chi-siamo/${SLUG}/`);
@@ -165,11 +171,11 @@ describe('migrate-all-known-job-slugs-canton-aware', () => {
       { id: 'j2', slug: SLUG, canton: 'TI', location: 'Lugano', slugByLocale: { it: SLUG } },
     ]));
     const original = { [SLUG]: { it: `/cerca-lavoro-ticino/${SLUG}/` } };
-    fs.writeFileSync(path.join(dataDir, 'all-known-job-slugs.json'), JSON.stringify(original));
+    writeAllKnownJobSlugs(original, tmp);
 
     execFileSync('node', [SCRIPT], { cwd: tmp, stdio: 'pipe' });
 
-    const out = JSON.parse(fs.readFileSync(path.join(dataDir, 'all-known-job-slugs.json'), 'utf-8'));
+    const out = readAllKnownJobSlugs(tmp);
     expect(out[SLUG].it).toBe(`/cerca-lavoro-ticino/${SLUG}/`);
   });
 });

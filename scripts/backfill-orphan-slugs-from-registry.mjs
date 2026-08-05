@@ -2,7 +2,7 @@
 /**
  * backfill-orphan-slugs-from-registry.mjs
  *
- * Reconciles "orphan" slugs registered in `data/all-known-job-slugs.json` but
+ * Reconciles "orphan" slugs registered in the canonical slug registry but
  * not owned by any current job (i.e. not in any `slug`, `slugByLocale`,
  * `previousSlugs`, or `previousSlugsByLocale`).
  *
@@ -46,11 +46,15 @@ import {
   slugTokenSet,
 } from './lib/regenerate-slugs-helpers.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
+import {
+  readAllKnownJobSlugs,
+  knownSlugsStoreExists,
+  KNOWN_SLUGS_SHARD_DIR,
+} from './lib/all-known-job-slugs-store.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
 const BY_CRAWLER_DIR = path.resolve(ROOT, 'data', 'jobs', 'by-crawler');
-const REGISTRY_PATH = path.resolve(ROOT, 'data', 'all-known-job-slugs.json');
 
 const args = process.argv.slice(2);
 const APPLY = args.includes('--apply');
@@ -193,11 +197,11 @@ function findBestMatch(orphanSlug, companyIndex) {
 async function main() {
   console.log(`🔧 backfill-orphan-slugs-from-registry — ${APPLY ? 'APPLY' : 'DRY RUN'} (threshold=${THRESHOLD}, max=${MAX_PER_JOB}/job)`);
 
-  if (!fs.existsSync(REGISTRY_PATH)) {
-    console.error(`❌ Registry not found: ${REGISTRY_PATH}`);
+  if (!knownSlugsStoreExists(ROOT)) {
+    console.error(`❌ Registry not found under ${KNOWN_SLUGS_SHARD_DIR}/`);
     process.exit(1);
   }
-  const registry = readJson(REGISTRY_PATH);
+  const registry = readAllKnownJobSlugs(ROOT);
   const registryKeys = Object.keys(registry);
   console.log(`📋 Registry slugs: ${registryKeys.length}`);
 

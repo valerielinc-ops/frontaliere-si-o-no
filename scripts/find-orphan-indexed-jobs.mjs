@@ -19,6 +19,7 @@ import {
   JOB_BOARD_SECTION_GSC_STEMS,
   isJobBoardSectionPath,
 } from './lib/jobBoardSections.mjs';
+import { readAllKnownJobSlugs } from './lib/all-known-job-slugs-store.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -100,14 +101,16 @@ function collectKnownSlugs() {
     }
   }
 
-  // All-known-job-slugs (historical)
-  const allKnownPath = path.join(ROOT, 'data', 'all-known-job-slugs.json');
-  if (fs.existsSync(allKnownPath)) {
-    const known = JSON.parse(fs.readFileSync(allKnownPath, 'utf-8'));
-    if (Array.isArray(known)) {
-      for (const s of known) {
-        if (s) slugs.add(String(s));
-      }
+  // Canonical slug registry (historical). The registry has been a
+  // `{ slug: { locale: path } }` MAP for a long time; this branch used to guard
+  // on `Array.isArray` for a pre-historic array shape and therefore contributed
+  // nothing. Reading the sharded store (#4248) via the shared accessor keeps the
+  // same one behaviour it actually had — no slugs added from an array — without
+  // pretending the raw file is still there.
+  const known = readAllKnownJobSlugs(ROOT);
+  if (Array.isArray(known)) {
+    for (const s of known) {
+      if (s) slugs.add(String(s));
     }
   }
 

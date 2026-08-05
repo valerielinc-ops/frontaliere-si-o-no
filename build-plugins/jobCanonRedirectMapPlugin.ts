@@ -29,12 +29,13 @@
  *
  * Streaming + bounded: one small JSON per shard (a few hundred slugs each), keyed
  * by the localized last segment (identical across all 4 locales), built once from
- * data/all-known-job-slugs.json. apply:'build', enforce:'post', closeBundle.
+ * the sharded data/all-known-job-slugs/ store. apply:'build', enforce:'post', closeBundle.
  */
 
 import path from 'path';
 import fs from 'node:fs';
 import type { Plugin } from 'vite';
+import { readAllKnownJobSlugs } from '../scripts/lib/all-known-job-slugs-store.mjs';
 
 const OUT_SUBDIR = 'job-canon';
 
@@ -59,14 +60,14 @@ export function jobCanonRedirectMapPlugin(rootDir: string): Plugin {
     closeBundle() {
       const distDir = path.resolve(rootDir, 'dist');
       if (!fs.existsSync(distDir)) return;
-      let tracking: Record<string, Partial<Record<'it' | 'en' | 'de' | 'fr', string>>>;
-      try {
-        tracking = JSON.parse(
-          fs.readFileSync(path.resolve(rootDir, 'data/all-known-job-slugs.json'), 'utf-8'),
-        );
-      } catch {
-        return; // no tracking ledger — nothing to emit
-      }
+      // Sharded registry (#4248) via the single shared accessor — never the raw
+      // file. An EMPTY registry means the same thing the old parse failure did:
+      // no ledger, nothing to emit.
+      const tracking = readAllKnownJobSlugs(rootDir) as Record<
+        string,
+        Partial<Record<'it' | 'en' | 'de' | 'fr', string>>
+      >;
+      if (Object.keys(tracking).length === 0) return; // no tracking ledger — nothing to emit
 
       // shard → { slug: { it, en, de, fr } } — per-locale section prefixes. The
       // slug segment is identical across locales, so a flat {slug: prefix} would

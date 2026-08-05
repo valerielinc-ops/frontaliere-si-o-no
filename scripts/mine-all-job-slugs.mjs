@@ -3,8 +3,9 @@
  * mine-all-job-slugs.mjs
  *
  * Comprehensive slug mining: scans ALL local data sources to discover
- * every job slug that has ever existed, ensures they're in the tracking
- * file (all-known-job-slugs.json) with proper 4-locale paths, and
+ * every job slug that has ever existed, ensures they're in the canonical
+ * slug registry (sharded under data/all-known-job-slugs/, #4248) with
+ * proper 4-locale paths, and
  * feeds gaps to the compat file (seo-404-compat-paths.json).
  *
  * This is the stable, automated solution to the 13.4K GSC 404 problem.
@@ -22,6 +23,11 @@ import { execSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { assertCompatFloor } from './lib/compat-paths-floor-guard.mjs';
 import { readCompatPaths, writeCompatPaths } from './lib/compat-paths-store.mjs';
+import {
+  readAllKnownJobSlugs,
+  writeAllKnownJobSlugs,
+  KNOWN_SLUGS_SHARD_COUNT,
+} from './lib/all-known-job-slugs-store.mjs';
 import { JOB_BOARD_SEGMENT_RX } from './lib/jobBoardSections.mjs';
 import { createCantonResolvers } from '../build-plugins/shared/cantonResolvers.mjs';
 
@@ -275,7 +281,7 @@ function mineOrphanData(orphansOverride = null) {
     // before the de-amplification fix those lived in three EXTRA ~2.5 KB
     // records, one per locale, which is what inflated the orphan store past
     // GitHub's 100 MB blob limit. Reading the map here keeps the per-locale
-    // coverage of data/all-known-job-slugs.json byte-identical while the
+    // coverage of the canonical slug registry byte-identical while the
     // duplicates collapse. Legacy records without the map keep working via the
     // `path`/`locale` pair below.
     const observed = o.observedPaths && typeof o.observedPaths === 'object' ? o.observedPaths : null;
@@ -522,8 +528,7 @@ function main() {
   }
 
   // Load current tracking
-  const trackingFile = dataPath('all-known-job-slugs.json');
-  const tracking = readJson(trackingFile) || {};
+  const tracking = readAllKnownJobSlugs(ROOT);
   const initialCount = Object.keys(tracking).length;
 
   // Update tracking: add missing slugs, fill missing locales
@@ -624,7 +629,16 @@ function main() {
     //   FROM the compat file itself and never (re)appeared in primary data. Pruning
     //   them from tracking drops their soft-landing pages but their compat-paths remain,
     //   so 404 compat redirects are preserved until prune-404-compat-paths.ts cleans up.
-    const SIZE_CAP = 95 * 1024 * 1024; // 95 MiB — headroom under GitHub's ~100 MiB limit
+    // The registry is sharded (#4248), so GitHub's ~100 MiB limit applies to
+    // each `data/all-known-job-slugs/part-NN.json`, not to the whole registry.
+    // The invariant this guard enforces is unchanged — "no blob may approach
+    // 100 MiB" — but the budget it translates to is now per-shard × shard count
+    // instead of one file. The two-tier prune below is DESTRUCTIVE (it drops
+    // historical slugs from an accumulator nothing can rebuild), so it must fire
+    // only when a shard would genuinely be unpushable: with the monolith it was
+    // firing on every run at 116 MB, silently deleting slugs to buy headroom the
+    // split now provides structurally.
+    const SIZE_CAP = 95 * 1024 * 1024 * KNOWN_SLUGS_SHARD_COUNT; // 95 MiB per shard
     let serialized = JSON.stringify(tracking);
     if (serialized.length > SIZE_CAP) {
       const preMB = (serialized.length / 1e6).toFixed(1);
@@ -656,7 +670,7 @@ function main() {
         }
       }
     }
-    fs.writeFileSync(trackingFile, serialized + '\n');
+    writeAllKnownJobSlugs(tracking, ROOT);
     const updatedCompat = {
       ...compat,
       paths: [...existingCompat].filter((p) => typeof p === 'string' && p.startsWith('/')).sort(),

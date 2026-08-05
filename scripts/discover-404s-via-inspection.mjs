@@ -36,6 +36,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { assertCompatFloor, COMPAT_PATHS_SANITY_FLOOR } from './lib/compat-paths-floor-guard.mjs';
 import { readCompatPaths, writeCompatPaths } from './lib/compat-paths-store.mjs';
+import { readAllKnownJobSlugs } from './lib/all-known-job-slugs-store.mjs';
 import { createCantonResolvers } from '../build-plugins/shared/cantonResolvers.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -122,7 +123,7 @@ function collectCandidatePaths() {
   const paths = new Set();
 
   // 1. Active job tracking — paths for every (slug, locale) pair
-  const tracking = readJsonSafe(dataPath('all-known-job-slugs.json'), {});
+  const tracking = readAllKnownJobSlugs(ROOT);
   for (const [, localePaths] of Object.entries(tracking)) {
     if (localePaths && typeof localePaths === 'object') {
       for (const p of Object.values(localePaths)) {

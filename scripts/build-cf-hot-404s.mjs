@@ -32,6 +32,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { sweepErrorPathsWindowed, resolveZoneId, DEFAULT_ZONE_NAME } from './lib/cf-analytics.mjs';
+import { readAllKnownJobSlugs } from './lib/all-known-job-slugs-store.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -87,7 +88,7 @@ const AGGREGATE_RE =
   /^\/(cerca-lavoro-svizzera|en\/find-jobs-switzerland|de\/jobs-in-schweiz|fr\/trouver-emploi-suisse)\//;
 
 // Slug → per-locale CURRENT canonical section prefix, from the committed ledger
-// data/all-known-job-slugs.json (same source jobCanonRedirectMapPlugin shards for
+// (the sharded canonical slug registry, #4248 — same source jobCanonRedirectMapPlugin shards for
 // the 404.html runtime resolver). Used ONLY to tell a genuine cross-canton Ticino
 // orphan (slug's canonical now lives under a DIFFERENT section) from a legit
 // Ticino job (canonical IS Ticino → already emitted by the main loop) or an
@@ -97,9 +98,7 @@ const AGGREGATE_RE =
 const slugCanonicalSection = (() => {
   const map = new Map();
   try {
-    const ledger = JSON.parse(
-      fs.readFileSync(path.join(ROOT, 'data', 'all-known-job-slugs.json'), 'utf8'),
-    );
+    const ledger = readAllKnownJobSlugs(ROOT);
     for (const key of Object.keys(ledger)) {
       const entry = ledger[key];
       if (!entry || typeof entry !== 'object') continue;

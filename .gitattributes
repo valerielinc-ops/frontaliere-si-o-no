@@ -51,3 +51,17 @@ data/url-first-seen.json           merge=json-first-seen
 # construction. Driver wired via `git config merge.compat-shard.driver` in
 # scripts/lib/git-push-with-retry.sh and scripts/lib/git-commit-data.sh.
 data/seo-404-compat/part-*.json merge=compat-shard
+
+# data/all-known-job-slugs/part-*.json are the shards of the canonical slug
+# registry (issue #4248 split the >100MB monolith into 32 sorted JSON shards).
+# Each shard is `{ "slugs": { "<slug>": {it,en,de,fr} } }` with sorted keys.
+# Same store shape, same concurrent producers and same failure mode as the
+# seo-404 compat shards above — sync-gsc-orphans, mine-all-job-slugs and
+# migrate-all-known-job-slugs-canton-aware all re-serialise the whole sorted
+# shard, so git's default line merge has no stable anchor and either conflicts
+# (wedging the push-retry loop) or keeps both rewrites, which for a JSON OBJECT
+# means DUPLICATE KEYS. `merge=union` would only add more. The custom
+# `known-slugs-shard` driver does a 3-way MAP merge → sorted + canonical by
+# construction. Driver wired via `git config merge.known-slugs-shard.driver` in
+# scripts/lib/git-push-with-retry.sh and scripts/lib/git-commit-data.sh.
+data/all-known-job-slugs/part-*.json merge=known-slugs-shard

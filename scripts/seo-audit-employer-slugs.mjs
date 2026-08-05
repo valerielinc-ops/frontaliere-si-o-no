@@ -10,13 +10,12 @@
  * Output: .orchestration/audit/employer-slug-coverage.json +
  *         .orchestration/audit/employer-slug-coverage.md
  */
-import { writeFileSync, readFileSync, mkdirSync } from 'node:fs';
+import { writeFileSync, mkdirSync } from 'node:fs';
+import { readAllKnownJobSlugs } from './lib/all-known-job-slugs-store.mjs';
 
 const BASE = 'https://frontaliereticino.ch';
 const OUT_DIR = '.orchestration/audit';
 mkdirSync(OUT_DIR, { recursive: true });
-
-const REGISTRY_FILE = 'data/all-known-job-slugs.json';
 
 // Cloudflare in front of the live site returns 403 to requests carrying
 // undici's default (empty) User-Agent from datacenter IPs (GitHub Actions
@@ -37,7 +36,9 @@ async function fetchText(url) {
 }
 
 function loadRegistrySlugs() {
-  const raw = JSON.parse(readFileSync(REGISTRY_FILE, 'utf8'));
+  // Sharded canonical slug registry (#4248) — cwd-relative, exactly as the old
+  // `data/all-known-job-slugs.json` literal was.
+  const raw = readAllKnownJobSlugs();
   const all = Array.isArray(raw) ? raw : Object.keys(raw);
   const set = new Set();
   for (const k of all) {

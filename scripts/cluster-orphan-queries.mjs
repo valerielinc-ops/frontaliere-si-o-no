@@ -21,7 +21,7 @@
  *     indexability, so we can afford a lower impression floor here
  *     to surface more long-tail orphan queries as candidates).
  *   - Cluster canonical slug must NOT match a known job URL
- *     in `data/all-known-job-slugs.json` (skip to avoid doorway duplicates).
+ *     in the canonical slug registry (skip to avoid doorway duplicates).
  *
  * Note: the "≥3 matching jobs" gate is data-dependent (jobs.json is large +
  * crawler slices live in data/jobs/by-crawler) and is enforced at BUILD TIME
@@ -35,6 +35,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { readAllKnownJobSlugs } from './lib/all-known-job-slugs-store.mjs';
 import {
   normalize,
   tokenize,
@@ -69,7 +70,6 @@ function readJsonSafe(p) {
 
 function main() {
   const inputPath = path.join(ROOT, 'data', 'gsc-orphan-queries.json');
-  const knownSlugsPath = path.join(ROOT, 'data', 'all-known-job-slugs.json');
   const outputPath = path.join(ROOT, 'data', 'gsc-orphan-queries-clusters.json');
 
   const input = readJsonSafe(inputPath);
@@ -144,7 +144,7 @@ function main() {
 
   // Build known slugs set (to avoid doorway duplicates against real job URLs)
   const knownSlugs = new Set();
-  const known = readJsonSafe(knownSlugsPath) || {};
+  const known = readAllKnownJobSlugs(ROOT);
   if (known && typeof known === 'object') {
     for (const [k, entry] of Object.entries(known)) {
       if (typeof k === 'string') knownSlugs.add(k);
