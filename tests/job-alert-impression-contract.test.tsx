@@ -183,6 +183,11 @@ describe('#5040 — the apply hand-off leaves a visible trace on the page', () =
 });
 
 describe('applied-state copy exists in all four locales', () => {
+  it('the release entry is registered in WhatsNewModal', () => {
+    const src = fs.readFileSync(path.join(ROOT, 'components/community/WhatsNewModal.tsx'), 'utf-8');
+    expect(src).toContain("whatsNew.v3910.applyReceipt.title");
+  });
+
   it.each(['it', 'en', 'de', 'fr'])('%s', (locale) => {
     const src = fs.readFileSync(path.join(ROOT, 'services/locales', `${locale}-core.ts`), 'utf-8');
     for (const key of [
@@ -190,6 +195,10 @@ describe('applied-state copy exists in all four locales', () => {
       'jobBoard.applied.body',
       'jobBoard.applied.alertCta',
       'jobBoard.applied.reopen',
+      // User-facing feature ⇒ WhatsNewModal entry (AGENTS.md, Accessibility And UX).
+      'whatsNew.v3910.title',
+      'whatsNew.v3910.applyReceipt.title',
+      'whatsNew.v3910.applyReceipt.desc',
     ]) {
       expect(src, `${locale} is missing ${key}`).toContain(`'${key}'`);
     }
