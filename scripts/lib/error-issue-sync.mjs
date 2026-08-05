@@ -145,6 +145,78 @@ export function isIssueDenied(message) {
   return ISSUE_DENY_PATTERNS.some((p) => p.test(message || ''));
 }
 
+// ── Stale page_404 telemetry (issues #5064 / #5065) ────────────────────────
+//
+// `page_404` is the one app_error class whose truth can be re-checked against
+// production, and the GA4 report window is a TRAILING 30 DAYS. So a 404 that
+// was fixed on day 3 keeps being reported for another 27 days, and each report
+// opens (or recurs) a `priority:high` + `needs-human` backlog issue for a URL
+// that has been serving 200 for weeks. Observed on both #5064 and #5065:
+// verified live, the two job URLs return HTTP 200 with a complete JobPosting
+// page, and the redirect-vs-telemetry race that produced the events was fixed
+// by PR #4840 on 2026-07-28 — inside the window.
+//
+// Re-checking the URL before filing is not "suppressing a signal": a URL that
+// answers 200 is not a 404. It is the same call the deny-list above already
+// makes for self-healed transients, just answered by production instead of by
+// a regex. Every skipped false positive is also a Claude invocation the issue
+// automation does not spend (AGENTS.md → frugalità quota: cut the NUMBER of
+// invocations by architecture).
+//
+// Fails OPEN: any network/timeout/parse problem keeps the issue, so a real
+// outage can never be silently swallowed.
+
+const PROD_ORIGIN = 'https://frontaliereticino.ch';
+const PAGE_404_PROBE_TIMEOUT_MS = 10_000;
+
+/** Extracts the site-relative path a page_404 entry refers to, or ''. */
+export function page404Path(entry) {
+  const type = String(entry?.errorType ?? '').trim();
+  const message = String(entry?.errorMessage ?? '').trim();
+  const isPage404 = type === 'page_404' || /^Page not found:/i.test(message);
+  if (!isPage404) return '';
+  const raw =
+    String(entry?.pagePath ?? '').trim() ||
+    (message.match(/^Page not found:\s*(\S+)/i)?.[1] ?? '');
+  if (!raw.startsWith('/')) return '';
+  // Drop the query string: the 404 is a routing fact about the path.
+  return raw.split(/[?#]/)[0];
+}
+
+/**
+ * True when the entry is a `page_404` whose URL currently resolves on
+ * production — i.e. stale telemetry inside the trailing report window, not a
+ * live defect. Non-page_404 entries always return false.
+ *
+ * @param {object} entry
+ * @param {object} [opts]
+ * @param {typeof fetch} [opts.fetchImpl] Injected for tests.
+ * @param {string} [opts.origin]
+ */
+export async function isSelfHealedPage404(entry, { fetchImpl = fetch, origin = PROD_ORIGIN } = {}) {
+  const path = page404Path(entry);
+  if (!path) return false;
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), PAGE_404_PROBE_TIMEOUT_MS);
+  try {
+    // `redirect: 'manual'` on purpose: a 301 to a live page is also a resolved
+    // URL (the canton-drift recovery in public/404.html does exactly that), and
+    // not following it keeps the probe to a single request.
+    const res = await fetchImpl(`${origin}${path}`, {
+      method: 'GET',
+      redirect: 'manual',
+      signal: controller.signal,
+    });
+    const status = Number(res?.status ?? 0);
+    return status > 0 && status < 400;
+  } catch {
+    // Fail open — an unreachable prod must not hide a genuine 404.
+    return false;
+  } finally {
+    clearTimeout(timer);
+  }
+}
+
 /**
  * @param {object} opts
  * @param {Array<object>} opts.entries    Already-sorted (desc by relevance) list of error entries.

@@ -1,7 +1,7 @@
-import { useEffect, useRef } from 'react';
 import { BellRing, ArrowRight } from 'lucide-react';
 import { useTranslation } from '@/services/i18n';
 import { Analytics } from '@/services/analytics';
+import { useImpressionTracker } from '@/hooks/useImpressionTracker';
 
 interface JobAlertEndCardProps {
  keyword?: string;
@@ -9,15 +9,17 @@ interface JobAlertEndCardProps {
 
 export default function JobAlertEndCard({ keyword }: JobAlertEndCardProps) {
  const { t } = useTranslation();
- // Impression: the card renders when the user has reached the end of the
- // listings. Track once on mount so the end-card funnel has a `shown`
- // denominator (previously only the click was tracked).
- const shownTrackedRef = useRef(false);
- useEffect(() => {
- if (shownTrackedRef.current) return;
- shownTrackedRef.current = true;
+ // Impression: fired the first time the card is genuinely ON SCREEN, not when
+ // it mounts. The card is rendered at the end of the listings on every job-board
+ // load, so the previous mount-based effect counted a "shown" for every visitor
+ // — including the large majority who never scroll that far. Over 14d that was
+ // 440 impressions with 0 clicks and 0 conversions: not an unattractive CTA, a
+ // CTA nobody saw, silently inflating the alert_funnel_conversion denominator
+ // (issue #5039). `trackJobAlertCtaShown` is documented as "the surface became
+ // visible to the user" — this restores that contract.
+ const impressionRef = useImpressionTracker(() => {
  Analytics.trackJobAlertCtaShown('end_card', keyword);
- }, [keyword]);
+ });
  const handleClick = () => {
  Analytics.trackJobAlertCtaClick('end_card', 'open', keyword);
  window.dispatchEvent(new CustomEvent('openJobAlert'));
@@ -28,7 +30,7 @@ export default function JobAlertEndCard({ keyword }: JobAlertEndCardProps) {
  : (t('jobAlert.endCardTitle') || 'Hai visto tutti i lavori');
 
  return (
- <div className="mt-6 rounded-2xl border border-accent-border bg-gradient-to-br from-accent-subtle via-surface to-accent-subtle p-6 text-center">
+ <div ref={impressionRef} className="mt-6 rounded-2xl border border-accent-border bg-gradient-to-br from-accent-subtle via-surface to-accent-subtle p-6 text-center">
  <span className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-accent-strong text-on-accent mb-3 shadow-sm">
  <BellRing className="w-5 h-5" aria-hidden="true" />
  </span>

@@ -3,6 +3,12 @@ import path from 'node:path';
 
 import { describe, expect, it } from 'vitest';
 import { ARTICLE_SECTION_DESCRIPTORS } from '../build-plugins/shared/articleSectionDescriptors';
+import {
+  ARTICLE_HUB_SHELL_NAV_OPEN,
+  ensureArticleHubCards,
+  replaceArticleHubCards,
+} from '../packages/articles/engine/articlesHubCards';
+import { EXTERNALLY_SERVED_SECTIONS } from '../scripts/lib/externally-served-paths.mjs';
 
 /**
  * Issue #4974 (article-corpus separation) regression coverage.
@@ -214,5 +220,79 @@ describe('BUILD_EMIT_SKIP <-> deploy.yml lockstep contract', () => {
     expect(frontaliereCount).toBeGreaterThan(0);
     expect(svizzeraCount).toBeGreaterThan(0);
     expect(frontaliereCount).toBe(svizzeraCount);
+  });
+});
+
+describe('no landing may be excluded from BOTH writers at once', () => {
+  /**
+   * The defect this pins (issue 5097). Two writers can put the hub grid on
+   * `/articoli-svizzera/` & friends, and for a week neither did:
+   *
+   *   - the SITE cannot: `scripts/lib/deploy-shard-sections.sh` excludes both
+   *     article sections from the shard push loop unconditionally, so nothing
+   *     this build emits for them ever reaches the shard the Worker serves —
+   *     flipping `ARTICOLISVIZZERA_BUILD_EMIT_SKIP` back to 'false' would fill
+   *     `dist/` and change nothing live;
+   *   - the CORPUS would not: its refresher could only SWAP an existing
+   *     `ssg-article-grid`, and the live page (emitted by the generic fallback
+   *     branch, before the hub branch existed) had no marker to swap. It
+   *     logged "nothing to refresh" and exited 0.
+   *
+   * Nothing failed, which is why it lasted. The invariant below is what makes
+   * "nobody writes" unreachable: for every section the site has handed off,
+   * the shared engine must be able to CREATE the grid, not only refresh it.
+   */
+  const MARKERLESS_LANDING =
+    '<div class="s-wWmcGm"><article><h1 class="s-lHdmvf">Hub</h1></article>'
+    + '<div style="border:1px solid #e2e8f0;height:38rem"></div>'
+    + `${ARTICLE_HUB_SHELL_NAV_OPEN}<a href="/">Home</a></nav></div>`;
+
+  it('the sections handed off to the corpus are the ones we think they are', () => {
+    // Guards against the set silently emptying: an empty set would make every
+    // assertion below vacuously true while `deploy-shard-sections.sh` quietly
+    // resumed full-replacing the article shards.
+    expect([...EXTERNALLY_SERVED_SECTIONS].sort()).toEqual([
+      'articolifrontaliere',
+      'articolisvizzera',
+    ]);
+    // Same two sections the BUILD_EMIT_SKIP flags gate, by another name.
+    expect(ARTICLE_SECTION_DESCRIPTORS.map((s) => s.name).sort()).toEqual([
+      'frontaliere',
+      'svizzera',
+    ]);
+  });
+
+  it('the corpus-side writer can CREATE a grid, not only refresh one', () => {
+    // The whole deadlock in one assertion: refresh-only returns null on the
+    // exact page production serves, create-or-refresh does not.
+    expect(replaceArticleHubCards(MARKERLESS_LANDING, '<a>c</a>')).toBeNull();
+    const created = ensureArticleHubCards(MARKERLESS_LANDING, '<a>c</a>', 'it');
+    expect(created).not.toBeNull();
+    expect(created).toContain('<div class="ssg-article-grid"><a>c</a></div>');
+  });
+
+  it('the site template still emits the anchor the creator inserts against', () => {
+    // A rename of the shell nav class in staticPagesPlugin would leave
+    // `ensureArticleHubCards` with no anchor and silently re-open the gap on
+    // any hub that ever loses its marker. Fail here instead.
+    expect(
+      staticPagesSource,
+      `staticPagesPlugin.ts no longer emits "${ARTICLE_HUB_SHELL_NAV_OPEN}" — that literal is the `
+        + 'anchor ensureArticleHubCards() inserts the grid against on a landing that has no marker. '
+        + 'Rename it in packages/articles/engine/articlesHubCards.ts in the SAME change.',
+    ).toContain(ARTICLE_HUB_SHELL_NAV_OPEN);
+  });
+
+  it('both hub branches emit the grid through the single shared producer', () => {
+    // Three emitters, one literal. Re-inlining `<div class="ssg-article-grid">`
+    // in a branch is how the two producers drift into markup the other cannot
+    // find.
+    const calls = staticPagesSource.match(/renderArticleHubGridBlock\(/g) ?? [];
+    expect(calls.length, 'expected both hub branches (frontaliere + svizzera) to call it').toBe(2);
+    expect(
+      staticPagesSource,
+      'staticPagesPlugin.ts re-inlines the grid marker instead of going through '
+        + 'renderArticleHubGridBlock() — the corpus scans for that exact literal.',
+    ).not.toMatch(/=\s*`[^`]*<div class="ssg-article-grid">/);
   });
 });

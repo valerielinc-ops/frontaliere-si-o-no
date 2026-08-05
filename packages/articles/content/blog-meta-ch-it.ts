@@ -1864,6 +1864,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.caldo-disparita-sociali-ginevra.title': 'Ondata di calore: donne, anziani e poveri più a rischio',
     'blog.article.caldo-disparita-sociali-ginevra.excerpt': 'Un rapporto dell\'Università di Ginevra rivela che la capacità di affrontare le ondate di calore dipende da fattori sociali, economici e abitativi.',
     'blog.article.caldo-disparita-sociali-ginevra.imageAlt': 'Città svizzera durante una giornata estiva calda',
+    'blog.article.svizzeri-fuga-estero-costo-casa.title': 'Svizzeri in fuga oltreconfine: pesa il costo della casa',
+    'blog.article.svizzeri-fuga-estero-costo-casa.excerpt': 'Oltre 154\'000 svizzeri vivono in zone di confine estere: un aumento del 14% spinto dai prezzi immobiliari insostenibili e affitti in costante crescita.',
+    'blog.article.svizzeri-fuga-estero-costo-casa.imageAlt': 'Vista panoramica di una zona residenziale di confine tra Svizzera e Italia',
 };
 
 export default blogMetaChIt;

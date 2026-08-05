@@ -1,0 +1,95 @@
+name: Article Hub Landing Watchdog
+
+# The article-hub landings are the entry surface for every article the corpus
+# publishes. Two producers can write them and, between 2026-07-29 and today,
+# neither wrote `/articoli-svizzera/`: the site is no longer on that path's
+# serving route (`scripts/lib/deploy-shard-sections.sh` excludes both article
+# sections from the shard push), and the corpus refresher could only swap a
+# grid that was already there. Nothing failed. 617 articles sat behind 9 KB of
+# copy for a week.
+#
+# `ensureArticleHubCards` makes that state unreachable in code and
+# `tests/build-emit-skip-gate.test.ts` pins it in the source — but neither
+# watches what is actually served. This does, from outside, so the next handoff
+# that leaves a path unowned surfaces as an issue instead of as silence.
+#
+# SCOPE — the eight handed-off landings only, derived from the Worker's own
+# SECTION_ROUTES via EXTERNALLY_SERVED_SECTIONS. Article DETAIL pages and the
+# /tutti/ archives have their own publisher-side validation in nanako's
+# fast-publish workflow.
+
+on:
+  schedule:
+    # Twice a day, offset from the corpus's publish windows so a run lands
+    # after them rather than during. Cheap: 9 HTTP GETs.
+    - cron: '40 6,18 * * *'
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+  issues: write
+
+concurrency:
+  group: article-hub-landing-watchdog
+  cancel-in-progress: false
+
+jobs:
+  watchdog:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+
+      # No `npm ci`: the probe imports two first-party ESM modules and uses
+      # global fetch, nothing else. Installing 1.4 GB of node_modules to make
+      # nine HTTP requests would be the slowest part of the run by an order of
+      # magnitude.
+      - name: Probe the article-hub landings
+        id: health
+        run: node scripts/check-article-hub-landings.mjs
+
+      # Degraded → open (or comment on) the canonical issue. The helper dedups
+      # on the first 60 chars of the STABLE title, so consecutive degraded runs
+      # comment on the same issue instead of spawning duplicates.
+      - name: Open / dedup degraded issue
+        if: failure() && steps.health.conclusion == 'failure'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          HEALTH_SUMMARY: ${{ steps.health.outputs.summary }}
+        run: |
+          node scripts/lib/github-issue-creator.mjs \
+            --title "Article hub landing degraded: missing grid or stale article set" \
+            --description "## Article-hub landing watchdog tripped
+
+          One or more of the eight handed-off article-hub landings is degraded:
+          no \`ssg-article-grid\` marker, too few cards, or it no longer links
+          the newest article the corpus published.
+
+          ### Probe report
+          \`\`\`
+          ${HEALTH_SUMMARY}
+          \`\`\`
+
+          **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+
+          ### What to check
+          - **no marker** → the page has no writer. The site is not on the serving path for these
+            prefixes (\`scripts/lib/deploy-shard-sections.sh\`), so only the corpus can fix it:
+            \`refresh-hub-landing.mjs\` must reach \`ensureArticleHubCards\`, which CREATES the grid
+            when it is absent. Check nanako's \`fast-publish-article\` run log for
+            \`[hub-landing] … no article grid\`.
+          - **stale** → the corpus refresher is skipping the page. Its per-page fail-closed reasons
+            are logged verbatim (meta coverage, image CDN leak, unbalanced grid).
+          - **HTTP != 200** → shard or Worker routing problem, not a content one.
+
+          This issue auto-resolves on the next watchdog run once the landings are healthy again." \
+            --priority 2 \
+            --label Bug \
+            --workflow "${{ github.workflow }}"

@@ -70,10 +70,14 @@ jobs:
 
       - name: Resolve run ids (auto-pick last two with github-pages artifact)
         id: pick
+        env:
+          # Dispatch inputs reach the shell as DATA, never as script text.
+          INPUT_RUN_A: ${{ inputs.run_a }}
+          INPUT_RUN_B: ${{ inputs.run_b }}
         run: |
           set -euo pipefail
-          A="${{ inputs.run_a }}"
-          B="${{ inputs.run_b }}"
+          A="$INPUT_RUN_A"
+          B="$INPUT_RUN_B"
           if [ -n "$A" ] && [ -z "$B" ] || [ -z "$A" ] && [ -n "$B" ]; then
             echo "::error::Provide BOTH run_a and run_b, or leave BOTH blank for auto-pick."
             exit 1
@@ -145,10 +149,13 @@ jobs:
           fi
 
       - name: Measure delta (stream-hash, no extract)
+        env:
+          # Dispatch inputs reach the shell as DATA, never as script text.
+          INPUT_SAMPLES: ${{ inputs.samples }}
         run: |
           set -euo pipefail
           ls -la A B
-          python3 scripts/measure-dist-delta.py A/artifact.tar B/artifact.tar report.md "${{ inputs.samples }}"
+          python3 scripts/measure-dist-delta.py A/artifact.tar B/artifact.tar report.md "$INPUT_SAMPLES"
           {
             echo "_Older run [${{ steps.pick.outputs.run_a }}], newer run [${{ steps.pick.outputs.run_b }}]_"
             echo
