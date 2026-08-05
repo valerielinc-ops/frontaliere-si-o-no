@@ -12,7 +12,7 @@
  */
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, fetchJson, normalizeSpace } from './crawler-template.mjs';
-import { inferSwissTargetCanton, findSwissCityInText, canonicalSwissCityName } from './target-swiss-locations.mjs';
+import { inferSwissTargetCanton, swissCityFromLocationField } from './target-swiss-locations.mjs';
 import { assertJsonListShapeMultiKey } from './assert-json-list-shape.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -209,7 +209,7 @@ export async function fetchAllDufercoJobs() {
     // Canonical BFS display name — preserves hyphens for composite municipalities
     // (e.g. "La Chaux-de-Fonds"), which the space-normalized token from
     // findSwissCityInText would otherwise drop, malforming the addressLocality.
-    const swissCity = canonicalSwissCityName(findSwissCityInText(rawLocation));
+    const swissCity = swissCityFromLocationField(rawLocation);
     if (!canton || !swissCity) {
       skippedNonSwiss += 1;
       continue;

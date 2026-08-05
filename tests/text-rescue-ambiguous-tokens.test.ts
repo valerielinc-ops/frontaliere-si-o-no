@@ -6,6 +6,7 @@ import {
   isKnownSwissCity,
   inferAnyCanton,
   rescueSwissCityFromText,
+  swissCityFromLocationField,
 } from '../scripts/lib/target-swiss-locations.mjs';
 
 /**
@@ -69,6 +70,18 @@ describe('text-rescue ambiguous token guard (#5136)', () => {
     // Raw findSwissCityInText is still used on explicit locality fields.
     expect(findSwissCityInText('Rolle')).toBe('rolle');
     expect(findSwissCityInText('Rolle', { skipTokens: TEXT_RESCUE_AMBIGUOUS_TOKENS })).toBe('');
+  });
+
+  it('swissCityFromLocationField reads a location field WITHOUT the blocklist', () => {
+    // The location-field companion: same extraction, opposite policy. Keeping
+    // the two as named functions is what stops a call site from silently
+    // picking the wrong one by inlining the raw expression.
+    expect(swissCityFromLocationField('Rolle')).toBe('Rolle');
+    expect(swissCityFromLocationField('Baden, Aargau')).toBe('Baden');
+    expect(swissCityFromLocationField('2540 Grenchen Phone')).toBe('Grenchen');
+    expect(swissCityFromLocationField('Jakarta')).toBe('');
+    // Same input, opposite verdicts — that is the whole point of the split.
+    expect(rescueSwissCityFromText('Rolle')).toBe('');
   });
 
   it('blocks every token as a bare description word', () => {

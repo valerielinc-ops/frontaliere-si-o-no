@@ -613,14 +613,39 @@ export const TEXT_RESCUE_AMBIGUOUS_TOKENS = new Set([
  * TEXT_RESCUE_AMBIGUOUS_TOKENS). Hence the explicit token blocklist.
  *
  * Returns '' when there is no match, the match is too short, or the match is
- * an everyday word. Single source of truth for every description-text rescue
+ * an everyday word. Single source of truth for every DESCRIPTION-text rescue
  * call site — never inline the raw
- * canonicalSwissCityName(findSwissCityInText(...)) expression instead.
+ * canonicalSwissCityName(findSwissCityInText(...)) expression instead. To pull
+ * a city out of a location FIELD, use swissCityFromLocationField() below.
  */
 export function rescueSwissCityFromText(text = '') {
   const found = findSwissCityInText(text, { skipTokens: TEXT_RESCUE_AMBIGUOUS_TOKENS });
   if (!found || found.length < 4) return '';
   return canonicalSwissCityName(found);
+}
+
+/**
+ * Extract the Swiss city named inside a LOCATION FIELD — `addressLocality`,
+ * `location`, a crawler's raw location string. Companion to
+ * rescueSwissCityFromText, and the reason the two are separate functions:
+ *
+ *   - a description is prose the author never intended as an address, so a
+ *     municipality name appearing in it is usually an everyday word →
+ *     TEXT_RESCUE_AMBIGUOUS_TOKENS applies, and "Ihre Rolle im Team" must not
+ *     resolve to Rolle (VD);
+ *   - a location field is a place the author typed on purpose, so "Rolle" there
+ *     IS Rolle (VD) → no blocklist, and no ≥4-char rule either.
+ *
+ * Handles the decoration crawlers wrap around a city name: "Baden, Aargau",
+ * "Luzern / hybrid", "2540 Grenchen Phone", "Visp-Eyholz". Returns '' when the
+ * field names no known Swiss municipality.
+ *
+ * Exists so neither behaviour is expressed by inlining
+ * canonicalSwissCityName(findSwissCityInText(...)) at a call site, where the
+ * choice of blocklist-or-not becomes invisible and drifts.
+ */
+export function swissCityFromLocationField(value = '') {
+  return canonicalSwissCityName(findSwissCityInText(value));
 }
 
 // ─── Liechtenstein postal-code helper ──────────────────────────────────────

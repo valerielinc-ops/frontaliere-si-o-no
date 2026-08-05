@@ -49,7 +49,7 @@ import { assembleUrlKey } from './lib/job-url-key.mjs';
 import { hardenJobsWithStructuredSalary } from './lib/structured-salary.mjs';
 import { normalizeDescriptionBullets, cleanCrawlerArtifacts } from './lib/crawler-template.mjs';
 import { computeCrawlerQualityAggregate, computeJobQualityScore, buildStableId, cleanPreviousSlugsPerLocale, isLocationExplicitlyForeign, healTruncatedStLocalities, addPreviousSlugForLocale, captureLostSlugs, DEFAULT_PREV_SLUG_CAP, stableSlugHash, appendSlugDisambiguator } from './lib/dedicated-crawler-common.mjs';
-import { inferAnyCanton, isKnownSwissCity, isCantonOnlyLabel, findSwissCityInText, canonicalSwissCityName, rescueSwissCityFromText, isTargetCanton, TARGET_CANTONS } from './lib/target-swiss-locations.mjs';
+import { inferAnyCanton, isKnownSwissCity, isCantonOnlyLabel, swissCityFromLocationField, rescueSwissCityFromText, isTargetCanton, TARGET_CANTONS } from './lib/target-swiss-locations.mjs';
 import { getCantonDisplayName } from './lib/crawler-location-config.mjs';
 import { filterFixtureJobs } from './lib/fixture-data-filter.mjs';
 import { SWISS_LOCALITY_SENTENCE_SPLIT_RX } from './lib/swiss-locality-sentence-split.mjs';
@@ -2086,7 +2086,7 @@ async function assembleJobs() {
       // No blocklist on primaryLoc: an explicit locality field naming "Rolle"
       // or "Fully" is a location the author typed on purpose. The blocklist
       // exists for free-text description scanning only.
-      const rescuedCity = canonicalSwissCityName(findSwissCityInText(primaryLoc))
+      const rescuedCity = swissCityFromLocationField(primaryLoc)
         || rescueSwissCityFromText(haystack);
       if (rescuedCity) {
         job.addressLocality = rescuedCity;

@@ -5,18 +5,31 @@
  * Layers:
  *   1. BFS check — is the city a known Swiss municipality? What canton?
  *   2. inferAnyCanton — does our location engine agree with the stored canton?
- *   3. Crawler-vs-dataset — does the published canton still match the canton the
+ *   3. Crawler-vs-dataset — does the published LOCALITY still match the one the
  *      crawler recorded in `data/jobs/by-crawler/<key>.json`?
  *   4. Nominatim — for cities not in BFS, verify country via geocoding
  *
  * Layer 3 exists because layers 1-2 are BFS-only and are therefore BLIND to the
- * largest mislabel class this audit is supposed to catch. A job in a hamlet BFS
- * does not list as a municipality (Obbürgen, NW — Bürgenstock Hotels AG, #4838)
- * lands in `unknownCity`, where a wrong canton is indistinguishable from a
- * merely unrecognised one: 28 of 39 Bürgenstock postings shipped `canton="TI"`
- * for months while every weekly snapshot reported 0 problems for them. Comparing
- * the published canton against the crawler's own record needs no municipality
- * database, so it catches exactly the cases BFS cannot adjudicate.
+ * largest mislabel class this audit is supposed to catch — in two ways.
+ *
+ * A job in a hamlet BFS does not list as a municipality (Obbürgen, NW —
+ * Bürgenstock Hotels AG, #4838) lands in `unknownCity`, where a wrong canton is
+ * indistinguishable from a merely unrecognised one: 28 of 39 Bürgenstock
+ * postings shipped `canton="TI"` for months while every weekly snapshot
+ * reported 0 problems for them.
+ *
+ * The converse is worse and is what #5136 turned out to be: a job moved onto a
+ * city that IS a real BFS municipality. Layers 1-2 then actively certify it as
+ * correct. Roche postings in Jakarta and Kyiv shipped as "Alle" (JU) — a real
+ * Jura village whose name is also the German word "all" — so `cantonMismatch`
+ * and `foreignInSwiss` both read 0 while 1592 jobs sat on a fabricated location.
+ *
+ * Comparing against the crawler's own record needs no municipality database, so
+ * it adjudicates both cases. Compare the LOCALITY, not the canton: a dedicated
+ * crawler stamps the employer's home canton on every posting it emits (Roche
+ * writes BS on its Shanghai ads), so a canton-only comparison flags ~775 jobs
+ * whose published canton is simply the correct one — noise that buried the real
+ * signal until #5136.
  *
  * Usage: node scripts/audit-job-locations.mjs [--geocode] [--limit N]
  *   --geocode   Enable Nominatim lookups for unknown cities (slow, 1 req/sec)
@@ -30,8 +43,7 @@ import {
   isKnownSwissMunicipality,
   inferAnyCanton,
   isCantonRelevant,
-  findSwissCityInText,
-  canonicalSwissCityName,
+  swissCityFromLocationField,
 } from './lib/target-swiss-locations.mjs';
 import { buildStableJobIdentity } from './lib/job-identity.mjs';
 import { isLocationExplicitlyForeign, geocodeCountry } from './lib/dedicated-crawler-common.mjs';
@@ -133,7 +145,7 @@ function sameRecordedPlace(crawlerCity, publishedCity) {
   const b = publishedCity.toLowerCase();
   if (!a || !b) return false;
   if (a === b) return true;
-  const inner = canonicalSwissCityName(findSwissCityInText(crawlerCity));
+  const inner = swissCityFromLocationField(crawlerCity);
   return Boolean(inner) && inner.toLowerCase() === b;
 }
 
