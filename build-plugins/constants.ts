@@ -737,10 +737,10 @@ const ROBOTS_META_TAG_RE = /<meta\s+name=["']?robots["']?[^>]*>/i;
  * (PR #478 `removeAttributeQuotes` turns the tag into
  * `<meta name=robots content=index,follow>`); always quoted on the way OUT.
  *
- * NOTE: PR #5170 (#5001) introduces an identical helper in this same file as
- * part of centralising `max-image-preview:large`. Whichever lands second
- * should drop its copy and keep one definition -- the two are byte-identical
- * by design so the merge is a delete, not a redesign.
+ * This is the single definition. #5170 (#5001) landed a byte-identical copy
+ * lower in this file while this one was in flight; both merged, esbuild
+ * rejected the duplicate symbol, and 70 test files stopped collecting. The
+ * duplicate is gone — keep it that way.
  */
 export function replaceRobotsMeta(html: string, content: string): string {
  const tag = `<meta name="robots" content="${content}">`;
@@ -795,28 +795,6 @@ export function normalizeRobotsDirective(robots: string): string {
  if (/\bnoindex\b/i.test(robots)) return robots;
  if (/max-image-preview/i.test(robots)) return robots;
  return ROBOTS_INDEX_ENHANCED_CONTENT;
-}
-
-/** Matches an emitted robots meta tag whatever its `content` value is. */
-const ROBOTS_META_TAG_RE = /<meta\s+name=["']?robots["']?[^>]*>/i;
-
-/**
- * Rewrite (or insert) the robots meta tag of an already-emitted HTML string.
- *
- * Post-emit demotion to `noindex` is how several plugins enforce the
- * thin-content floor (Non-Negotiable #4) after the page HTML is built. Doing it
- * with a regex that spells out the INDEXABLE content value -- as
- * exchangeRatePagesPlugin did -- couples the guard to whatever string the shell
- * happens to emit, so the day the shell's directive changed the guard silently
- * stopped matching and thin pages would have shipped indexable. Matching the
- * tag by NAME instead of by value is what keeps the guard correct across any
- * future change to the directive.
- */
-export function replaceRobotsMeta(html: string, content: string): string {
- const tag = `<meta name="robots" content="${content}">`;
- return ROBOTS_META_TAG_RE.test(html)
- ? html.replace(ROBOTS_META_TAG_RE, tag)
- : html.replace(/<head(\s[^>]*)?>/i, (m) => `${m}${tag}`);
 }
 
 /**
