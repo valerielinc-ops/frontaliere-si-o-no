@@ -17,7 +17,6 @@
     "https://jobs.ruag.ch/offene-stellen/facility-manager-gebaeude-elektrotechnik/10071ee0-626c-4b21-bd91-04a5469914e0",
     "https://jobs.ruag.ch/offene-stellen/ai-engineer-c5i/4afaa9aa-74c1-4b4d-9232-cf65651ce8ec",
     "https://jobs.ruag.ch/offene-stellen/software-engineer-c5i/ec08db9a-3b4f-4aad-8eb5-6134c5e87458",
-    "https://jobs.ruag.ch/offene-stellen/technische-r-projektleiterin/813e247b-c8af-4618-b5b0-d520dfbbbd75",
     "https://jobs.ruag.ch/offene-stellen/senior-devops-kubernetes-engineer-c5i/2eef27f6-9546-499d-8492-c1cec22f548a",
     "https://jobs.ruag.ch/offene-stellen/project-management-officer-c5i/a1751097-1da7-4210-b0f1-c75d18fba7ca",
     "https://jobs.ruag.ch/offene-stellen/administrative-coordinator-c5i/df707189-3c2f-4308-ac9c-83f273f5f45a",
@@ -71,7 +70,7 @@
     "https://jobs.ruag.ch/offene-stellen/legal-counsel/9e7711a0-4521-4fdf-a1e4-99dcd29eb969"
   ],
   "notes": "Dedicated RUAG crawler uses official jobs.ruag.ch detail pages and recursive discovery from internal similar-job links because the public listing often returns 400.",
-  "updatedAt": "2026-08-04T22:39:30.851Z",
+  "updatedAt": "2026-08-05T11:44:34.926Z",
   "seedMetaByUrl": {
     "https://jobs.ruag.ch/offene-stellen/facility-manager-technics-betriebselektrikerin/190b7508-d7e8-403d-b49f-7c2f57a59965": {
       "location": "Altdorf",
@@ -114,12 +113,6 @@
       "canton": "BE",
       "company": "RUAG AG",
       "postedDate": "2026-06-15"
-    },
-    "https://jobs.ruag.ch/offene-stellen/technische-r-projektleiterin/813e247b-c8af-4618-b5b0-d520dfbbbd75": {
-      "location": "Zürich Seebach",
-      "canton": "ZH",
-      "company": "RUAG AG",
-      "postedDate": "2026-07-01"
     },
     "https://jobs.ruag.ch/offene-stellen/senior-devops-kubernetes-engineer-c5i/2eef27f6-9546-499d-8492-c1cec22f548a": {
       "location": "Thun",
