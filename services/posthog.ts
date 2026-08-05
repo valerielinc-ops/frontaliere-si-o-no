@@ -10,7 +10,7 @@
  * PostHog EU Cloud runs under legitimate interest basis (GDPR Art. 6(1)(f)).
  */
 
-import { createExceptionFilter } from './posthog-error-filter';
+import { createExceptionFilter, installRawStackRecorder } from './posthog-error-filter';
 import { isLikelyBot } from './botPatterns';
 
 const POSTHOG_KEY = 'phc_u8jsgXxFQNB6WcQt9JBcdj9tJrR4NsMws3nQoKdigjbT';
@@ -66,6 +66,11 @@ async function ensurePostHog(): Promise<any> {
  * Called from App.tsx alongside setDefaultConsent().
  */
 export function initPostHog(): void {
+ // Must run BEFORE the SDK's own window.error listener is attached (which
+ // happens inside posthog.init(), after the dynamic import below) so the
+ // recorder sees the unparsed stack first — see the raw-stack bridge note in
+ // services/posthog-error-filter.ts (#4173).
+ installRawStackRecorder();
  ensurePostHog();
 }
 

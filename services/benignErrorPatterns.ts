@@ -181,3 +181,68 @@ export const BENIGN_ERROR_PATTERNS: readonly RegExp[] = [
 export function isBenignErrorMessage(message: string): boolean {
   return BENIGN_ERROR_PATTERNS.some((re) => re.test(message));
 }
+
+/**
+ * Browser-extension script origin (Chrome / Firefox / Safari content scripts).
+ *
+ * SINGLE SOURCE OF TRUTH — this literal used to be copy-pasted in three
+ * places (`services/analytics.ts` × 2 global handlers, and
+ * `THIRD_PARTY_STACK_ORIGINS` in `services/posthog-error-filter.ts`), which
+ * is exactly the drift Non-Negotiable #6 forbids. Import it instead of
+ * re-typing the alternation.
+ */
+export const BROWSER_EXTENSION_ORIGIN_PATTERN = /(?:chrome|moz|safari)-extension:\/\//;
+
+/**
+ * Minimum frame count before an all-origin-redacted stack is treated as
+ * conclusive. One or two nameless frames say nothing; a long run of them is a
+ * signature.
+ */
+const ORIGIN_REDACTED_MIN_FRAMES = 5;
+
+/**
+ * A WebKit stack frame whose source URL the engine redacted: `name@` or a
+ * bare `@`, with nothing after the separator (optionally `[native code]`).
+ * WebKit emits this shape for frames belonging to a script the page loaded
+ * cross-origin WITHOUT CORS — it keeps the (minified) function name but
+ * blanks the URL, line and column.
+ */
+const WEBKIT_ORIGIN_REDACTED_FRAME = /^[^@\s()]*@(?:\[native code\])?$/;
+
+/**
+ * True when EVERY frame of a WebKit-shaped stack has had its source URL
+ * redacted by the engine — i.e. the throwing code is provably not ours.
+ *
+ * Why this is safe (issue #4173). This site's own JavaScript can only reach a
+ * stack frame through paths that always resolve to a URL:
+ *   • ES module chunks — fetched from `cdn.frontaliereticino.ch/assets/*.js`
+ *     in CORS mode (module scripts always are), so their frames keep the URL;
+ *   • the inline bootstrap scripts in `index.html` / `SELF_HEAL_SCRIPT_CONTENT`
+ *     — inline code resolves to the *document* URL;
+ *   • we never `eval()` / `new Function()`.
+ * A stack in which not one single frame carries a source is therefore
+ * unreachable from first-party code, and no code change on our side can fix
+ * it. This is the stack-shape counterpart to `THIRD_PARTY_STACK_ORIGINS` in
+ * `services/posthog-error-filter.ts`: that one recognises a KNOWN third-party
+ * origin, this one recognises the case where the browser refuses to tell us
+ * the origin at all.
+ *
+ * Evidence (#4173, `RangeError: Maximum call stack size exceeded.`): 160/160
+ * occurrences over 60 d came from iOS in-app WKWebViews (`GSA/` Google app +
+ * `CriOS/` Chrome iOS) and zero from 453,849 events of plain iOS Safari,
+ * Android, Windows or macOS. Every captured `app_error.error_stack` was an
+ * infinite mutual recursion between two adjacent Closure-Compiler names whose
+ * identity rotates with each third-party deploy (`Nk`⇄`Pk`, `Sk`⇄`Qk`,
+ * `Yk`⇄`$k`, `jl`⇄`ll`, …) and not one frame carried a URL. Matching the
+ * message instead would blanket-deny a generic `RangeError` that first-party
+ * code could legitimately raise; matching the stack shape cannot.
+ */
+export function isOriginRedactedThirdPartyStack(stack: string): boolean {
+  if (!stack || typeof stack !== 'string') return false;
+  const frames = stack.split('\n').map((line) => line.trim()).filter(Boolean);
+  if (frames.length < ORIGIN_REDACTED_MIN_FRAMES) return false;
+  // A V8-shaped stack ("Error: msg" header + "    at fn (url)") is out of
+  // scope: there a URL-less frame means `eval`/`<anonymous>`, not a redacted
+  // cross-origin script, so the inference above does not hold.
+  return frames.every((frame) => WEBKIT_ORIGIN_REDACTED_FRAME.test(frame));
+}

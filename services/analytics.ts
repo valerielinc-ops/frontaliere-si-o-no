@@ -96,7 +96,11 @@
 
 import { deriveAnalyticsPageContext } from './analyticsPageContext';
 import { captureEvent as posthogCapture, capturePageView as posthogPageView } from './posthog';
-import { isBenignErrorMessage } from './benignErrorPatterns';
+import {
+ isBenignErrorMessage,
+ isOriginRedactedThirdPartyStack,
+ BROWSER_EXTENSION_ORIGIN_PATTERN,
+} from './benignErrorPatterns';
 
 // ─── Clarity Bridge ────────────────────────────────────────────
 // Tag Clarity sessions with custom events for cross-tool analysis.
@@ -1157,12 +1161,19 @@ export const Analytics = {
  if (!msg || isBenignErrorMessage(msg)) return;
  // Drop errors from browser extension scripts — they run in page context
  // but are third-party; no fix is possible on our end.
- if (event.filename && /(?:chrome|moz|safari)-extension:\/\//.test(event.filename)) return;
- Analytics.trackAppError('unhandled_error', {
+ if (event.filename && BROWSER_EXTENSION_ORIGIN_PATTERN.test(event.filename)) return;
+ const errorStack = event.error?.stack || '';
+ // Re-classify errors whose ENTIRE stack had its source URLs redacted by the
+ // engine: a cross-origin script we do not control, never our own modules
+ // (issue #4173 — see isOriginRedactedThirdPartyStack). Reported as
+ // `cross_origin_script`/non-fatal rather than dropped, so the signal stays
+ // observable without being triaged as a first-party crash.
+ const redactedThirdParty = isOriginRedactedThirdPartyStack(errorStack);
+ Analytics.trackAppError(redactedThirdParty ? 'cross_origin_script' : 'unhandled_error', {
  message: msg || 'Unknown error',
- stack: event.error?.stack || `at ${event.filename}:${event.lineno}:${event.colno}`,
+ stack: errorStack || `at ${event.filename}:${event.lineno}:${event.colno}`,
  pagePath: window.location.pathname + window.location.search,
- fatal: true,
+ fatal: !redactedThirdParty,
  });
  });
 
@@ -1194,13 +1205,19 @@ export const Analytics = {
  const stack = reason instanceof Error ? reason.stack || '' : '';
  // Drop errors from browser extensions — they run in page context but are
  // third-party; no fix is possible on our end.
- if (stack && /(?:chrome|moz|safari)-extension:\/\//.test(stack)) return;
- Analytics.trackAppError('unhandled_rejection', {
+ if (stack && BROWSER_EXTENSION_ORIGIN_PATTERN.test(stack)) return;
+ // Same origin-redaction re-classification as the `error` handler above
+ // (issue #4173): a stack with zero resolvable sources cannot come from our
+ // own modules, so it is third-party rather than an app rejection.
+ Analytics.trackAppError(
+ isOriginRedactedThirdPartyStack(stack) ? 'cross_origin_script' : 'unhandled_rejection',
+ {
  message,
  stack,
  pagePath: window.location.pathname + window.location.search,
  fatal: false,
- });
+ },
+ );
  });
 
  // Check if we're recovering from a stale SW cache reload (set by index.html)
