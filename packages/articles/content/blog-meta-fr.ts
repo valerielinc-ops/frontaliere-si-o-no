@@ -9252,6 +9252,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.pre-festival-locarno-2024.title': 'Pré-festival à Locarno : un événement entre lumières et lumières (trop)',
     'blog.article.pre-festival-locarno-2024.excerpt': 'La 79ème édition du Festival du Film de Locarno s\'ouvre par une projection de « Qui a piégé Roger Rabbit ? » qui suscite perplexité et discussions.',
     'blog.article.pre-festival-locarno-2024.imageAlt': 'Vue aérienne de la Piazza Grande de Locarno pendant le Festival du Film',
+    'blog.article.frontaliere-infortunio-lainf-2026-oltre-20-km.title': 'Frontalier : Accident du travail et assurance LAA en 2026',
+    'blog.article.frontaliere-infortunio-lainf-2026-oltre-20-km.excerpt': 'Découvrez les nouveautés de l\'assurance-accidents LAAF pour les frontaliers en 2026, en mettant l\'accent sur « plus de 20 km » et la checklist opérationnelle.',
+    'blog.article.frontaliere-infortunio-lainf-2026-oltre-20-km.imageAlt': 'Vue aérienne de Castelgrande à Bellinzona, Tessin, Suisse.',
 };
 
 export default blogMetaFr;

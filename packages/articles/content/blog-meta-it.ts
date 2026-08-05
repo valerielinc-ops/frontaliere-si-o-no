@@ -9251,6 +9251,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.pre-festival-locarno-2024.title': 'Pre-festival a Locarno: un evento tra luci e luci (troppe)',
     'blog.article.pre-festival-locarno-2024.excerpt': 'La 79ª edizione del Festival del Film di Locarno si apre con una proiezione di "Chi ha incastrato Roger Rabbit?" che suscita perplessità e discussioni.',
     'blog.article.pre-festival-locarno-2024.imageAlt': 'Vista aerea di Piazza Grande a Locarno durante il Festival del Film',
+    'blog.article.frontaliere-infortunio-lainf-2026-oltre-20-km.title': 'Frontaliere: Infortunio sul lavoro e assicurazione LAINF nel 2026',
+    'blog.article.frontaliere-infortunio-lainf-2026-oltre-20-km.excerpt': 'Scopri le novità sull\'assicurazione infortuni LAINF per i frontalieri nel 2026, con focus su \'oltre 20 km\' e checklist operativa.',
+    'blog.article.frontaliere-infortunio-lainf-2026-oltre-20-km.imageAlt': 'Aerial view of Castelgrande in Bellinzona, Ticino, Switzerland.',
 };
 
 export default blogMetaIt;
