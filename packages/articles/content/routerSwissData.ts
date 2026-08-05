@@ -652,6 +652,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'canicola-lavoro-dialogo-consiglio-stato': { it: 'canicola-lavoro-dialogo-consiglio-stato', en: 'heatwave-work-council-dialogue', de: 'hitze-arbeitsrat-dialog', fr: 'canicule-travail-conseil-dialogue' },
  'glencore-aumenta-utili-e-ricavi-nel-semestre': { it: 'glencore-aumenta-utili-e-ricavi-nel-semestre', en: 'glencore-augments-profits-and-revenues-in-the-first-half', de: 'glencore-steigert-gewinn-und-umsatz-im-ersten-halbjahr', fr: 'glencore-augmente-ses-benefices-et-ses-revenus-dans-la-premiere-mois' },
  'raffreddare-le-citta-svizzere-il-lavoro-e-appena-iniziato': { it: 'raffreddare-le-citta-svizzere-il-lavoro-e-appena-iniziato', en: 'slug-en', de: 'slug-de', fr: 'slug-fr' },
+ 'snl-ricorso-lago-maggiore': { it: 'snl-ricorso-lago-maggiore', en: 'snl-ricorso-lago-maggiore', de: 'snl-ricorso-lago-maggiore', fr: 'snl-ricorso-lago-maggiore' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
