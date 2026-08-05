@@ -66,12 +66,13 @@ jobs:
       github.event_name != 'pull_request' ||
       (github.event.pull_request.state == 'open' && github.event.pull_request.draft == false)
     steps:
-      # Free ~25-30 GB before the full SSG build emits dist/ (33k+ pages × 4
-      # locales). ubuntu-latest ships ~14 GB free on / — the monolith build
-      # fills it mid-Vite-emit and dies with "No space left on device", and the
-      # worker dies before logs flush so the Build step log vanishes from the
-      # archive. deploy.yml's build job already does this; mirror it here.
-      # Deletes only toolchains this repo never uses.
+      # Free ~25-30 GB before dist/ lands. This gate no longer BUILDS dist
+      # (issue #5169 — see the replay steps below), but it still materialises
+      # the whole logical site: the github-pages tarball plus every locale and
+      # section shard, which the rehydrate scripts will `git clone` when a run's
+      # artifacts have expired. ubuntu-latest ships ~14 GB free on /, so the
+      # cleanup is still load-bearing — it just guards the download now, not a
+      # Vite emit. Deletes only toolchains this repo never uses.
       - name: Free disk space (remove unused toolchains)
         shell: bash
         run: |
