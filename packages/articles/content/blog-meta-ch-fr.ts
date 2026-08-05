@@ -1855,6 +1855,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.democrazia-diretta-svizzera-guida.title': 'Votations fédérales Suisse : comment elles fonctionnent et règles',
     'blog.article.democrazia-diretta-svizzera-guida.excerpt': 'Guide complet de la démocratie directe suisse : initiatives populaires, référendums et double majorité du peuple et des cantons.',
     'blog.article.democrazia-diretta-svizzera-guida.imageAlt': 'Le Palais fédéral à Berne siège de la démocratie directe',
+    'blog.article.democrazia-diretta-e-votazioni-federali.title': 'Votations fédérales Suisse : comment fonctionnent les lois',
+    'blog.article.democrazia-diretta-e-votazioni-federali.excerpt': 'Guide complet de la démocratie directe suisse : initiatives populaires, référendums et double majorité du peuple et des cantons.',
+    'blog.article.democrazia-diretta-e-votazioni-federali.imageAlt': 'Palais fédéral à Berne siège des votes et de la démocratie suisse',
 };
 
 export default blogMetaChFr;

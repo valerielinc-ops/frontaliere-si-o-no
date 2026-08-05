@@ -1855,6 +1855,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.democrazia-diretta-svizzera-guida.title': 'Votazioni federali Svizzera: come funzionano e regole',
     'blog.article.democrazia-diretta-svizzera-guida.excerpt': 'Guida completa alla democrazia diretta svizzera: iniziative popolari, referendum e doppia maggioranza di popolo e cantoni.',
     'blog.article.democrazia-diretta-svizzera-guida.imageAlt': 'Il Palazzo federale a Berna sede della democrazia diretta svizzera',
+    'blog.article.democrazia-diretta-e-votazioni-federali.title': 'Votazioni federali Svizzera: come funzionano le leggi',
+    'blog.article.democrazia-diretta-e-votazioni-federali.excerpt': 'Guida completa alla democrazia diretta svizzera: iniziative popolari, referendum e doppia maggioranza di popolo e cantoni.',
+    'blog.article.democrazia-diretta-e-votazioni-federali.imageAlt': 'Palazzo Federale a Berna sede delle votazioni e della democrazia svizzera',
 };
 
 export default blogMetaChIt;

@@ -5563,6 +5563,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'democrazia-diretta-e-votazioni-federali',
+    category: 'pratico',
+    date: '2026-08-05T07:08:47.234Z',
+    image: '/images/blog/democrazia-diretta-e-votazioni-federali.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

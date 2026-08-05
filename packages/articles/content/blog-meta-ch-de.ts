@@ -1855,6 +1855,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.democrazia-diretta-svizzera-guida.title': 'Eidgenössische Abstimmungen Schweiz: Funktionsweise und Regeln',
     'blog.article.democrazia-diretta-svizzera-guida.excerpt': 'Umfassender Leitfaden zur direkten Demokratie der Schweiz: Volksinitiativen, Referenden und doppelte Mehrheit von Volk und Ständen.',
     'blog.article.democrazia-diretta-svizzera-guida.imageAlt': 'Das Bundeshaus in Bern als Sitz der direkten Demokratie',
+    'blog.article.democrazia-diretta-e-votazioni-federali.title': 'Eidgenössische Abstimmungen Schweiz: Wie die Gesetze funktionieren',
+    'blog.article.democrazia-diretta-e-votazioni-federali.excerpt': 'Umfassender Leitfaden zur direkten Demokratie der Schweiz: Volksinitiativen, Referenden und doppelte Mehrheit von Volk und Ständen.',
+    'blog.article.democrazia-diretta-e-votazioni-federali.imageAlt': 'Bundeshaus in Bern Sitz der Schweizer Abstimmungen und Demokratie',
 };
 
 export default blogMetaChDe;
