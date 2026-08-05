@@ -8,16 +8,62 @@
  * (per-build timestamps / build-internal bookkeeping) — NOT page content.
  *
  * Usage: node scripts/ci/dist-hash-manifest.mjs <distDir> <outFile>
+ *                                               [--deploy-artifact-perimeter]
  *
  * Uses `find | xargs sha256sum` for speed on ~1M-file trees, then applies the
  * exclude filter + stable sort in JS so the exclude list stays maintainable.
+ *
+ * ── `--deploy-artifact-perimeter` (issue #4894) ─────────────────────────────
+ * The `github-pages` artifact is NOT a snapshot of the `dist/` a build produces:
+ * it is what `scripts/lib/deploy-it-pages-prep.sh` leaves behind AFTER the CDN
+ * offload. Two whole-tree transforms happen on the deploy path only:
+ *
+ *   1. Offloaded trees are DELETED from the artifact — `dist/assets` (step 5,
+ *      "Drop dist/assets after CDN push", FATAL-on-failure), plus `dist/og`,
+ *      `dist/data`, `dist/job-canon` and the offloaded `dist/images/*` subtrees.
+ *   2. `scripts/offload-generated-images-cdn.mjs` REWRITES every same-origin
+ *      `/assets/`, `/og/`, `/data/`, `/images/<prefix>/` reference in every
+ *      static HTML file to `https://cdn.frontaliereticino.ch/...`.
+ *   3. The SAME script also INJECTS an inline `<script>window.__CDN_DATA_BASE__=
+ *      "…"</script>` (+ a `<link rel="preconnect">`/`dns-prefetch` pair when the
+ *      data CDN origin is new) right after `<head>` in every HTML page — always,
+ *      not gated on any rewrite happening (#1709: decoupled from `hasData` so
+ *      `cdnImageUrl()` still resolves). This tag does not exist in a raw `dist/`
+ *      at all, so it byte-diffs on essentially every HTML page even once the URL
+ *      rewrite above is undone.
+ *
+ * Comparing a raw `dist/` against that tree can only ever be red. Measured on
+ * matrix-equivalence-check run 27749079114: `only-in-matrix: 38049` (all of
+ * `assets/`) and `content-mismatch: 445753` — 99.967 % of the shared paths,
+ * i.e. every page, purely because of the URL rewrite. The check has therefore
+ * verified NOTHING since 2026-06-18.
+ *
+ * This flag makes the comparison well-formed by applying the SAME normalisation
+ * to BOTH sides (never to one):
+ *   - skip the trees the deploy provably removes from the artifact,
+ *   - undo the CDN rewrite in text files before hashing, and
+ *   - strip the injected `__CDN_DATA_BASE__` script (+ its optional preconnect/
+ *     dns-prefetch hint pair) from HTML before hashing,
+ * so the bytes compared are the pre-offload ones on both sides.
+ *
+ * What stays covered: the entire page surface — every HTML page, every sitemap
+ * (including the 4-locale `xhtml:link` alternates), every hreflang block, robots,
+ * feeds. What moves out of scope: the CDN-served binary/bundle trees, which the
+ * artifact does not carry at all and which no byte comparison against it could
+ * ever have covered.
  */
 import { execFileSync } from 'node:child_process';
 import fs from 'node:fs';
 import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 
-const distDir = path.resolve(process.argv[2] || 'dist');
-const outFile = process.argv[3] || 'dist-manifest.txt';
+const argv = process.argv.slice(2);
+const flags = new Set(argv.filter((a) => a.startsWith('--')));
+const positional = argv.filter((a) => !a.startsWith('--'));
+
+const distDir = path.resolve(positional[0] || 'dist');
+const outFile = positional[1] || 'dist-manifest.txt';
+const deployPerimeter = flags.has('--deploy-artifact-perimeter');
 
 if (!fs.existsSync(distDir)) {
   console.error(`[dist-hash-manifest] dist dir not found: ${distDir}`);
@@ -35,8 +81,77 @@ const EXCLUDE = [
   /(^|\/)\.cache(\/|$)/,
 ];
 
+/**
+ * The offloaded image prefixes, read from the module the codebase already
+ * designates as canonical for them.
+ *
+ * `scripts/offload-generated-images-cdn.mjs` (TARGETS), `deploy-it-pages-prep.sh`
+ * (CDN-push staging loop) and `ensure-image-cdn-redirect.mjs` (OFFLOADED_PREFIXES)
+ * all carry their own copy and all three say, in a comment, "MUST stay in sync
+ * with CDN_OFFLOADED_IMAGE_PREFIXES in services/cdnImageBase.ts". Adding a FIFTH
+ * hand-maintained copy here is exactly the drift AGENTS.md #6 forbids, so this
+ * parses the canonical one instead.
+ *
+ * Throws — never returns a partial or empty list. A silently empty list would
+ * make the whole equivalence check pass vacuously, which is worse than a red one.
+ */
+function cdnOffloadedImagePrefixes() {
+  const here = path.dirname(fileURLToPath(import.meta.url));
+  const src = path.resolve(here, '..', '..', 'services', 'cdnImageBase.ts');
+  let text;
+  try {
+    text = fs.readFileSync(src, 'utf-8');
+  } catch (e) {
+    throw new Error(`[dist-hash-manifest] cannot read ${src} for CDN_OFFLOADED_IMAGE_PREFIXES: ${e.message}`);
+  }
+  const block = text.match(/export const CDN_OFFLOADED_IMAGE_PREFIXES\s*=\s*\[([\s\S]*?)\]\s*as const/);
+  if (!block) {
+    throw new Error('[dist-hash-manifest] CDN_OFFLOADED_IMAGE_PREFIXES not found in services/cdnImageBase.ts — was it renamed? Refusing to hash with an unknown offload perimeter.');
+  }
+  const prefixes = [...block[1].matchAll(/'([^']+)'/g)].map((m) => m[1]);
+  if (prefixes.length === 0) {
+    throw new Error('[dist-hash-manifest] CDN_OFFLOADED_IMAGE_PREFIXES parsed empty. Refusing to hash with an empty offload perimeter.');
+  }
+  return prefixes;
+}
+
+/**
+ * Trees the deploy removes from the `github-pages` artifact after pushing them
+ * to the CDN. `assets`/`data`/`og`/`job-canon` are dropped wholesale by
+ * `deploy-it-pages-prep.sh`; the image subtrees come from the canonical list.
+ * `images/blog/thumbnails` is an offload TARGET that is not in
+ * CDN_OFFLOADED_IMAGE_PREFIXES (that constant covers only the self-hosted
+ * brand/logo/author family), so it is named explicitly.
+ */
+function deployOffloadedTrees() {
+  const dirs = ['assets', 'data', 'og', 'job-canon', 'images/blog/thumbnails'];
+  for (const prefix of cdnOffloadedImagePrefixes()) {
+    dirs.push(prefix.replace(/^\/+/, '').replace(/\/+$/, ''));
+  }
+  // Match the tree at the dist root AND under any locale prefix (dist/en/data/…).
+  return dirs.map((d) => new RegExp(`^(?:[a-z]{2}/)?${d.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}/`));
+}
+
+const DEPLOY_OFFLOADED = deployPerimeter ? deployOffloadedTrees() : [];
+
+/** Deploy-time CDN base injected by offload-generated-images-cdn.mjs. */
+const CDN_BASE_RX = /https:\/\/cdn\.frontaliereticino\.ch\//g;
+/** Text surfaces the offload rewrite touches. */
+const TEXT_EXT = /\.(html?|xml|txt|json)$/i;
+/**
+ * The `__CDN_DATA_BASE__` inject (scripts/offload-generated-images-cdn.mjs:326-348):
+ * an optional `<link rel="preconnect"…><link rel="dns-prefetch"…>` hint pair
+ * immediately followed by the data-base `<script>`, spliced in as one contiguous
+ * string right after `<head…>` — never on its own, never reordered. Matches both
+ * the with-hints and hints-omitted (pre-existing preconnect) forms so the raw
+ * dist HTML is recovered on the deploy side regardless of which form ran.
+ */
+const CDN_DATA_INJECT_RX = /(?:<link rel="preconnect" href="[^"]*" crossorigin><link rel="dns-prefetch" href="[^"]*">)?<script>window\.__CDN_DATA_BASE__=(?:"(?:[^"\\]|\\.)*"|'(?:[^'\\]|\\.)*')<\/script>/g;
+
 function excluded(rel) {
-  return EXCLUDE.some((re) => re.test(rel));
+  if (EXCLUDE.some((re) => re.test(rel))) return true;
+  if (DEPLOY_OFFLOADED.some((re) => re.test(rel))) return true;
+  return false;
 }
 
 // `find . -type f -print0 | xargs -0 sha256sum` from inside distDir → paths are
@@ -54,7 +169,7 @@ try {
   process.exit(1);
 }
 
-const lines = [];
+const entries = [];
 for (const line of raw.split('\n')) {
   if (!line) continue;
   // sha256sum format: "<hash>  ./<relpath>"  (two spaces)
@@ -63,8 +178,37 @@ for (const line of raw.split('\n')) {
   const hash = line.slice(0, sp);
   let rel = line.slice(sp + 2).replace(/^\.\//, '');
   if (excluded(rel)) continue;
-  lines.push(`${hash}  ${rel}`);
+  entries.push({ hash, rel });
 }
+
+// Undo the deploy-time CDN rewrite before hashing the text surfaces, so both
+// sides are compared on their pre-offload bytes. Only re-reads files whose
+// extension the offload script actually touches; everything else keeps the
+// sha256sum from the bulk pass above.
+let rewritten = 0;
+if (deployPerimeter) {
+  const { createHash } = await import('node:crypto');
+  for (const e of entries) {
+    if (!TEXT_EXT.test(e.rel)) continue;
+    let buf;
+    try {
+      buf = fs.readFileSync(path.join(distDir, e.rel));
+    } catch {
+      continue; // vanished between walk and read — keep the bulk hash
+    }
+    const text = buf.toString('utf-8');
+    const hasCdnBase = text.includes('https://cdn.frontaliereticino.ch/');
+    const hasDataInject = text.includes('__CDN_DATA_BASE__');
+    if (!hasCdnBase && !hasDataInject) continue;
+    const normalized = text
+      .replace(CDN_BASE_RX, '/')
+      .replace(CDN_DATA_INJECT_RX, '');
+    e.hash = createHash('sha256').update(normalized).digest('hex');
+    rewritten++;
+  }
+}
+
+const lines = entries.map((e) => `${e.hash}  ${e.rel}`);
 // Stable sort by relpath (the part after the 2-space separator).
 lines.sort((a, b) => {
   const pa = a.slice(a.indexOf('  ') + 2);
@@ -74,3 +218,9 @@ lines.sort((a, b) => {
 
 fs.writeFileSync(outFile, lines.join('\n') + '\n');
 console.log(`[dist-hash-manifest] ${lines.length} files hashed → ${outFile} (excluded build-id/commit-hash/collision/manifest)`);
+if (deployPerimeter) {
+  console.log(
+    `[dist-hash-manifest] deploy-artifact perimeter ON: skipped ${DEPLOY_OFFLOADED.length} CDN-offloaded tree pattern(s); ` +
+    `un-rewrote the CDN base + stripped the __CDN_DATA_BASE__ inject in ${rewritten} text file(s) before hashing`,
+  );
+}
