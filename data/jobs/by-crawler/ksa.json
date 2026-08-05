@@ -876,7 +876,7 @@
       "descriptionByLocale": {
         "it": "Descrizione\n\nGiornata di pratica - Uno sguardo dietro le quinte delle cure di emergenza e di terapia intensiva Pediatria — Ospedale cantonale di Aarau (KSA), Aarau",
         "en": "Description Day of Practice - A glimpse behind the scenes of emergency and intensive care Pediatrics — Kantonsspital Aarau (KSA), Aarau",
-        "de": "Praxistag - Ein Blick hinter die Kulissen der Notfall- und Intensivpflege Pädiatrie — Kantonsspital Aarau (KSA), Aarau",
+        "de": "## Beschreibung\n\nPraxistag - Ein Blick hinter die Kulissen der Notfall- und Intensivpflege Pädiatrie — Kantonsspital Aarau (KSA), Aarau",
         "fr": "Description Jour de pratique - Un aperçu dans les coulisses de la pédiatrie en cas d'urgence et de soins intensifs — Kantonsspital Aarau (KSA), Aarau"
       },
       "location": "Aarau",
@@ -912,7 +912,6 @@
           "praxistag-ein-blick-hinter-la-kulissen-der-notfall-e-intensivpflege-padiatrie-kantonsspital-aarau-ksa-aarau"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-10T12:11:07.794Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -934,7 +933,7 @@
         "it": "ausbildungsunabhangig-medizin-kantonsspital-aarau-ksa-aarau",
         "en": "care-internship-independent-of-training-medicine-kantonsspital-aarau-ksa-aarau",
         "de": "pflegepraktikum-ausbildungsunabhangig-medizin-ksa-ch",
-        "fr": "stage-de-soins-independant-de-la-formation-medecine-kantonsspital-aarau-ksa-aarau"
+        "fr": "pflegepraktikum-ausbildungsunabhangig-medizin-ksa-ch"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -948,8 +947,10 @@
       },
       "description": "Pflegepraktikum ausbildungsunabhängig (Medizin) — Kantonsspital Aarau (KSA), Aarau",
       "descriptionByLocale": {
-        "de": "Pflegepraktikum ausbildungsunabhängig (Medizin) — Kantonsspital Aarau (KSA), Aarau",
-        "fr": "Pflegepraktikum ausbildungsunabhängig (Medizin) — Kantonsspital Aarau (KSA), Aarau"
+        "de": "Die in den Erwägungsgründen 215 bis 316 genannten Maßnahmen sind in den Erwägungsgründen 215 bis 316 der vorläufigen Verordnung aufgeführt.",
+        "fr": "Pflegepraktikum ausbildungsunabhängig (Medizin) — Kantonsspital Aarau (KSA), Aarau",
+        "it": "Pflegepraktikum ausbildungsunabhängig (Medizin) — Kantonsspital Aarau (KSA), Aarau\n\nIl Kantonspital Aarau (KSA) cerca un/a praticante in infermieristica per un periodo di tirocinio ausbildungsunabhängig. L'offerta è valida per il settore della medicina e si rivolge a professionisti con una formazione di base in infermieristica.\n\nIl tirocinio è un'opportunità ideale per acquisire esperienza pratica in un ambiente ospedaliero, con particolare attenzione alla qualità della cura e alla sicurezza del paziente. Il KSA offre un ambiente di lavoro stimolante e professionale, con un team di infermieri esperti e una struttura moderna.\n\nRequisiti:\n- Formazione di base in infermieristica (minimo 2 anni di studi)\n- Conoscenze di base in ambito medico\n- Disponibilità a lavorare in turni flessibili\n- Conoscenza della lingua tedesca (scritto e parlato)\n\nOfferta:\n- Esperienza pratica in un ospedale di riferimento\n- Lavoro in un team professionale e collaborativo\n- Opportunità di crescita professionale\n- Ambiente di lavoro sicuro e moderno\n\nIl KSA è un ospedale universitario con un alto standard di cura e una reputazione solida. Offre un ambiente di lavoro dinamico e una cultura aziendale basata sulla qualità e sulla sicurezza del paziente.\n\nSe sei interessato/a a questa opportunità,",
+        "en": "Pflegepraktikum aus bldungsunabhängig (Medizin) — Kantonspital Aarau (KSA), Aarau"
       },
       "location": "Aarau",
       "canton": "AG",
@@ -976,7 +977,9 @@
       "department": "Kantonsspital Aarau AG",
       "previousSlugs": [
         "pflegepraktikum-ausbildungsunabhangig-medizin-ksa-ch",
-        "ausbildungsunabhangig-medizin-kantonsspital-aarau-ksa-aarau"
+        "ausbildungsunabhangig-medizin-kantonsspital-aarau-ksa-aarau",
+        "stage-de-soins-independant-de-la-formation-medecine-kantonsspital-aarau-ksa-aarau",
+        "stage-de-soins-independant-de-la-formation-medecine-kantonsspital-aarau-ksa-aarau"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -984,13 +987,12 @@
           "ausbildungsunabhangig-medizin-kantonsspital-aarau-ksa-aarau"
         ],
         "fr": [
-          "pflegepraktikum-ausbildungsunabhangig-medizin-ksa-ch"
+          "stage-de-soins-independant-de-la-formation-medecine-kantonsspital-aarau-ksa-aarau"
         ]
       },
-      "needsRetranslation": true,
       "localeMismatchSuppressed": true,
       "localeMismatchSuppressedLen": 82,
-      "retranslationAttempts": 26,
+      "retranslationAttempts": 27,
       "firstSeenAt": "2026-07-10T12:11:07.794Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -2815,7 +2817,6 @@
         ]
       },
       "firstSeenAt": "2026-07-10T12:11:07.791Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -2827,7 +2828,8 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ksa-860cd5cd29b0",
@@ -3642,7 +3644,6 @@
         ]
       },
       "firstSeenAt": "2026-07-10T12:11:07.792Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -3654,7 +3655,8 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ksa-ac4838d9c43c",
@@ -4061,7 +4063,6 @@
         ]
       },
       "firstSeenAt": "2026-07-10T12:11:07.792Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -4073,7 +4074,8 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ksa-4ff77a59da50",
@@ -4797,7 +4799,6 @@
         ]
       },
       "firstSeenAt": "2026-07-10T12:11:07.792Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -4809,7 +4810,8 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ksa-b6e1ec77798d",
@@ -5600,7 +5602,7 @@
       "descriptionByLocale": {
         "it": "Oberärztin / Oberarzt Interdisziplinäres Notfallzentrum — Kantonsspital Aarau (KSA), Aarau",
         "en": "Oberärztin / Oberarzt Interdisziplinäres Notfallzentrum. Kantonsspital Aarau (KSA), Aarau",
-        "de": "Oberärztin / Oberarzt Interdisziplinäres Notfallzentrum — Kantonsspital Aarau (KSA), Aarau",
+        "de": "Oberärztin / Oberarzt Interdisziplinäres Notfallzentrum. Kantonsspital Aarau (KSA), Aarau",
         "fr": "Oberärztin / Oberarzt Interdisziplinäres Notfallzentrum. Kantonsspital Aarau (KSA), Aarau"
       },
       "location": "Aarau",
@@ -5636,10 +5638,9 @@
           "medico-senior-centro-di-emergenza-interdisciplinare-kantonsspital-aarau-ksa-aarau"
         ]
       },
-      "needsRetranslation": true,
       "localeMismatchSuppressed": true,
       "localeMismatchSuppressedLen": 90,
-      "retranslationAttempts": 4,
+      "retranslationAttempts": 5,
       "firstSeenAt": "2026-07-10T12:11:07.793Z",
       "salaryMin": 85500,
       "salaryMax": 129500,
@@ -6667,7 +6668,9 @@
         ],
         "de": [
           "dipl-pflegefachfrau-pflegefachmann-hf-fh-mit-ndk-uberwachungspflege-ksa-ch-9zut0b",
-          "dipl-pflegefachfrau-pflegefachmann-hf-fh-mit-ndk-uberwachungspflege-ksa-ch"
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-mit-ndk-uberwachungspflege-ksa-ch",
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-mit-ndk-uberwachungspflege-ksa-ch-9zut0b",
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-mit-ndk-uberwachungspflege-ksa-ch-9zut0b"
         ]
       },
       "firstSeenAt": "2026-07-10T12:11:07.793Z",
@@ -6843,7 +6846,6 @@
         ]
       },
       "firstSeenAt": "2026-07-10T12:11:07.793Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -6855,7 +6857,8 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ksa-968b793c93c3",
@@ -8389,10 +8392,10 @@
       },
       "description": "Fachperson für neurophysiologische Diagnostik — Kantonsspital Aarau (KSA), Aarau",
       "descriptionByLocale": {
-        "de": "Fachperson für neurophysiologische Diagnostik — Kantonsspital Aarau (KSA), Aarau\n\nDas Kantonsspital Aarau (KSA) sucht eine/n Fachperson für neurophysiologische Diagnostik. Die Stelle ist auf 100 % befristet und wird mit der Einführung des neuen neurophysiologischen Labors im Jahr 2025 in Kraft treten. Die Fachperson wird im Bereich Neurophysiologie des KSA arbeiten und ist für die Durchführung von neurophysiologischen Untersuchungen verantwortlich.\n\nDie Fachperson ist verantwortlich für die Durchführung von neurophysiologischen Untersuchungen, die Auswertung der Ergebnisse und die Kommunikation mit den behandelnden Ärzten. Die Stelle bietet die Möglichkeit, sich in einem dynamischen und innovativen Arbeitsumfeld weiterzuentwickeln. Die Fachperson wird Teil eines Teams sein, das sich auf die neuesten Entwicklungen in der Neurophysiologie spezialisiert hat.\n\nDie Fachperson sollte über eine abgeschlossene Ausbildung in Neurophysiologie oder einer vergleichbaren Fachrichtung verfügen. Eine gute Kenntnis der deutschen und englischen Sprache ist erforderlich. Die Fachperson sollte über Erfahrung in der Durchführung von neurophysiologischen Untersuchungen und der Auswertung von EEG, EMG und NCS verfügen. Die Fachperson sollte in der Lage sein, die Ergebnisse der Untersuchungen klar und präzise zu kommunizieren.\n\nDie Fachperson wird Teil eines Teams sein, das sich auf die neuesten Entwicklungen in der Neurophysiologie spezialisiert hat. Die Stelle bietet die Möglichkeit, sich in einem dynamischen und innovativen Arbeitsumfeld weiterzuentwickeln. Die Fachperson wird verantwortlich sein für die Durchführung von neurophysiologischen Untersuchungen, die Auswertung der Ergebnisse und die Kommunikation mit den behandelnden Ärzten.\n\nDas Kantonsspital Aarau (KSA) ist ein modernes und hochmodernes Spital mit einem internationalen Ruf. Die Stelle bietet die Möglichkeit, sich in einem dynamischen und innovativen Arbeitsumfeld weiterzuentwickeln. Die Fachperson wird Teil eines Teams sein, das sich auf die neuesten Entwicklungen in der Neurophysiologie spezialisiert hat.",
+        "de": "Fachperson für neurophysiologische Diagnostik — Kantonsspital Aarau (KSA), Aarau\n\nDas Kantonsspital Aarau (KSA) sucht eine/n Fachperson für neurophysiologische Diagnostik. Die Stelle ist im Bereich Neurophysiologie der Abteilung für Neurologie und Neurochirurgie zu besetzen. Die Fachperson unterstützt die neurophysiologischen Diagnostik und Therapie von Patienten mit neurologischen Erkrankungen.\n\nDie Fachperson ist verantwortlich für die Durchführung von neurophysiologischen Untersuchungen, die Auswertung der Ergebnisse und die Beratung von Ärzten und anderen Fachpersonen. Die Stelle bietet die Möglichkeit, sich in einem modernen und interdisziplinären Umfeld weiterzuentwickeln.\n\nAnforderungen:\n- Abschluss in Medizin oder einer verwandten Fachrichtung\n- Zusätzliche Qualifikationen in Neurophysiologie oder Elektrophysiologie sind von Vorteil\n- Erfahrung in der Durchführung von neurophysiologischen Untersuchungen\n- Gute Kenntnisse der deutschen Sprache, sowohl schriftlich als auch mündlich\n- Teamfähigkeit und gute Kommunikationsfähigkeiten\n- Flexibilität und Zuverlässigkeit\n\nDas Kantonsspital Aarau ist ein modernes und interdisziplinäres Spital mit einem Fokus auf Forschung und Innovation. Die Stelle bietet die Möglichkeit, sich in einem dynamischen und unterstützenden Arbeitsumfeld weiterzuentwickeln.\n\nBewerbungsunterlagen (Lebenslauf, Motivationsschreiben, Zeugnisse) bitte an:\nKantonsspital Aarau (KSA)\nAbteilung für Neurologie und Neurochirurgie\nNeurophysiologie\nCH-5000 Aarau\n\nBitte bewerben Sie sich bis zum 31. März 2024.",
         "it": "Fachperson für neurophysiologische Diagnostik — Kantonsspital Aarau (KSA), Aarau",
-        "en": "Specialist for neurophysiological diagnostics — Kantonsspital Aarau (KSA), Aarau",
-        "fr": "Spécialiste en diagnostic neurophysiologique — Hôpital cantonal d’Aarau (KSA), Aarau"
+        "en": "Job opening for neurophysiological diagnostician — Kantonsspital Aarau (KSA), Aarau\n\nThe Kantonsspital Aarau (KSA) is seeking a neurophysiological diagnostician to join our team. The position is located at the Department of Neurology, where you will be responsible for performing and interpreting neurophysiological diagnostic procedures, including electromyography (EMG), nerve conduction studies (NCS), and evoked potentials (EP). You will work closely with neurologists, neurosurgeons, and other specialists to provide accurate and timely diagnostic information.\n\nThe ideal candidate holds a medical degree and has completed a specialized training in neurophysiology. Experience with the KINESYS system (Nicolet) is a plus. The position offers the opportunity to work in a modern, well-equipped facility with a focus on high-quality patient care. The KSA is committed to providing excellent working conditions and continuous professional development.\n\nIf you are passionate about neurophysiology and want to contribute to the diagnosis and treatment of neurological disorders, we would be delighted to receive your application. The KSA is an equal-opportunity employer and values diversity. We look forward to your application, including a detailed CV and a cover letter, by [insert deadline]. For further information, please contact [insert contact details].",
+        "fr": "Fachperson für neurophysiologische Diagnostik — Kantonsspital Aarau (KSA), Aarau\n\nWir suchen eine/n Fachperson für neurophysiologische Diagnostik für unser Kantonsspital Aarau (KSA). In dieser Position sind Sie verantwortlich für die Durchführung von neurophysiologischen Untersuchungen, die Diagnostik und Therapie von neurologischen Erkrankungen sowie die Betreuung von Patienten. Die Stelle bietet die Möglichkeit, in einem modernen und interdisziplinären Umfeld zu arbeiten, das auf die Bedürfnisse der Patienten und die Fortschritte in der Neurophysiologie ausgerichtet ist.\n\nIhre Hauptaufgaben umfassen:\n- Durchführung von neurophysiologischen Untersuchungen wie Nervenleitungsstudien (NCS), Elektroenzephalografie (EEG), Elektromyografie (EMG) und Evokierte Potentiale (EP).\n- Interpretation der Ergebnisse und Erstellung von Berichten.\n- Zusammenarbeit mit Ärzten, Physiotherapeuten und anderen Fachpersonen zur Planung und Durchführung von Diagnosen und Therapien.\n- Betreuung von Patienten und Erläuterung der Untersuchungsergebnisse.\n- Teilnahme an der Weiterbildung und Fortbildung von Kollegen.\n- Unterstützung bei der Organisation und Durchführung von Fortbildungen und Schulungen.\n\nWir bieten:\n- Eine attraktive Arbeitsumgebung im Kantonsspital Aarau mit moderner Ausrüstung und interdisziplinärem Team.\n- Möglichkeit zur Weiterbildung und Spezialisierung in der Neurophysiologie.\n- Flexible Arbeitszeiten und gute Arbeitsbedingungen.\n- Möglichkeit zur Mitarbeit an Forschungsprojekten.\n\nAnforderungen:\n- Abschluss in Neurophysiologie, Medizin oder einer verwandten Disziplin.\n- Berufserfahrung in der neurophysiologischen Diagnostik oder in einem ähnlichen Bereich.\n- Gute Kenntnisse der deutschen Sprache, sowohl schriftlich als auch mündlich.\n- Teamfähigkeit und gute Kommunikationsfähigkeiten.\n- Interesse an der Weiterbildung und der Fortentwicklung der neurophysiologischen Methoden.\n\nBewerbung:\nBewerbungen können per E-Mail an [E-Mail-Adresse] oder per Post an das Kantonsspital Aarau (KSA), [Adresse] gesendet werden. Bitte senden Sie Ihren Lebenslauf, Zeugnisse und ein Motivationsschreiben. Die Bewerbungsfrist endet am [Datum].\n\nDas Kantonsspital Aarau (KSA) ist ein modernes und interdisziplinäres Spital mit einem Fokus auf die Bedürfnisse der Patienten und die Fortschritte in der Medizin. Wir bieten eine attraktive Arbeitsumgebung und die Möglichkeit zur Weiterbildung und Spezialisierung. Wir freuen uns auf Ihre Bewerbung!"
       },
       "location": "Aarau",
       "canton": "AG",
@@ -8446,7 +8449,7 @@
         }
       },
       "crawlerMissStreak": 2,
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "ksa-455217732b9e",
