@@ -27795,6 +27795,15 @@ const RAW_ARTICLES = [
  authorSlug: 'laura-bianchi',
  authorName: 'Laura Bianchi',
  },
+ {
+ id: 'locarno-film-festival-resistenza-legami',
+ category: 'pratico',
+ date: '2026-08-05T04:40:05.340Z',
+ image: '/images/blog/locarno-film-festival-resistenza-legami.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
