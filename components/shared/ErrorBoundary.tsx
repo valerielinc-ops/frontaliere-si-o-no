@@ -436,7 +436,6 @@ export class ErrorBoundary extends Component<Props, State> {
  adSlot={AD_SLOTS.SSG_END_MULTIPLEX.slot}
  adFormat={AD_SLOTS.SSG_END_MULTIPLEX.format}
  fullWidthResponsive={AD_SLOTS.SSG_END_MULTIPLEX.fullWidthResponsive}
- minHeight={AD_SLOTS.SSG_END_MULTIPLEX.placeholderMinHeight}
  className="mt-4 mb-2"
  />
  )}
