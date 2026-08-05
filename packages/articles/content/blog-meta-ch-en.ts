@@ -1834,6 +1834,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.franco-svizzero-economia-bns-politica-monetaria.title': 'Swiss Franc: Economics and Monetary Policy of the SNB',
     'blog.article.franco-svizzero-economia-bns-politica-monetaria.excerpt': 'Learn about the role of the Swiss National Bank in monetary policy and the impact of the strong franc on the economy and wages.',
     'blog.article.franco-svizzero-economia-bns-politica-monetaria.imageAlt': 'Panoramic view of Lugano with the lake and mountains',
+    'blog.article.medicina-di-genere-svizzera.title': 'Gender medicine in Switzerland: new challenges and opportunities',
+    'blog.article.medicina-di-genere-svizzera.excerpt': 'Gender medicine struggles to become mainstream, but gaps in funding and political resistance make it all very difficult.',
+    'blog.article.medicina-di-genere-svizzera.imageAlt': 'Modern Swiss hospital in Lugano with diverse medical professionals',
 };
 
 export default blogMetaChEn;
