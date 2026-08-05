@@ -16,7 +16,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
-import { addPreviousSlugForLocale, DEFAULT_PREV_SLUG_CAP, LEGACY_PREV_SLUGS_CAP, LOCALES } from './lib/dedicated-crawler-common.mjs';
+import { addPreviousSlugForLocale, restoreLocaleSlug, DEFAULT_PREV_SLUG_CAP, LEGACY_PREV_SLUGS_CAP, LOCALES } from './lib/dedicated-crawler-common.mjs';
 import { resolveJobDiffKey } from './lib/job-match-key.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -196,6 +196,19 @@ export function applyAssembledToSliceJob(sliceJob, assembled) {
   for (const locale of locales) {
     const oldSlug = String(oldSlugs[locale] || '').trim();
     const newSlug = String(newSlugs[locale] || '').trim();
+
+    // Live slug, empty replacement: the merged map lost this locale. The
+    // `oldSlug && newSlug &&` condition below skips the capture in exactly
+    // this case, so `updatedJob.slugByLocale[locale]` would go blank and take
+    // an already-indexed URL down with it, with no journal entry — the #5157
+    // failure mode. Keep serving the existing slug until a real replacement
+    // exists (same rule as mergePreserveLocaleData in
+    // scripts/lib/dedicated-crawler-common.mjs).
+    if (oldSlug && !newSlug) {
+      restoreLocaleSlug(updatedJob, locale, oldSlug, 'scatter-jobs-to-slices/empty-replacement');
+      continue;
+    }
+
     if (oldSlug && newSlug && oldSlug !== newSlug) {
       addPreviousSlugForLocale(updatedJob, locale, oldSlug, 20, 'scatter-jobs-to-slices');
     }
