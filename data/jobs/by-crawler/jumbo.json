@@ -19917,7 +19917,7 @@
       "slug": "rayon-leader-in-garden-jumbo-division-der-coop-genossenschaft-langnau-im-emmental",
       "slugByLocale": {
         "it": "rayon-leader-in-garden-jumbo-division-der-coop-genossenschaft-langnau-im-emmental",
-        "en": "rayon-leader-in-garden-jumbo-langnau-im-emmental",
+        "en": "rayon-leader-in-garden-jumbo-division-der-coop-genossenschaft-langnau-im-emmental-bern",
         "de": "rayonleiter-in-garden-jumbo-langnau-im-emmental-bern-0a6p8f",
         "fr": "chef-de-rayon-a-garden-jumbo-division-der-coop-genossenschaft-langnau-im-emmental"
       },
@@ -19976,13 +19976,19 @@
           "• Deutsch beherrschst du sehr gut – mündlich und schriftlich."
         ]
       },
-      "previousSlugs": [
-        "rayonleiter-in-garden-jumbo-langnau-im-emmental",
-        "rayonleiter-in-garden-jumbo-division-der-coop-genossenschaft-langnau-im-emmental-bern-quyj10",
-        "chef-de-rayon-a-garden-jumbo-division-der-coop-genossenschaft-langnau-im-emmental",
-        "chef-de-rayon-a-garden-jumbo-langnau-im-emmental",
-        "rayon-leader-in-garden-jumbo-langnau-im-emmental"
-      ],
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68500,
+          "maxValue": 104000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-08-04T22:17:07.355Z",
       "previousSlugsByLocale": {
         "it": [
           "rayonleiter-in-garden-jumbo-langnau-im-emmental",
@@ -20002,20 +20008,14 @@
           "chef-de-rayon-a-garden-jumbo-langnau-im-emmental"
         ]
       },
-      "firstSeenAt": "2026-08-04T22:17:07.355Z",
-      "needsRetranslation": true,
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
-          "unitText": "YEAR"
-        }
-      }
+      "previousSlugs": [
+        "rayonleiter-in-garden-jumbo-langnau-im-emmental",
+        "rayonleiter-in-garden-jumbo-division-der-coop-genossenschaft-langnau-im-emmental-bern-quyj10",
+        "chef-de-rayon-a-garden-jumbo-division-der-coop-genossenschaft-langnau-im-emmental",
+        "chef-de-rayon-a-garden-jumbo-langnau-im-emmental",
+        "rayon-leader-in-garden-jumbo-langnau-im-emmental"
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "jumbo-be464d9d-0a0",
@@ -20332,10 +20332,10 @@
       "id": "jumbo-ff580559-398",
       "slug": "venditore-in-cassa-servizi-jumbo-ilanz-glion-b3b1e8",
       "slugByLocale": {
-        "it": "venditore-in-cassa-servizi-jumbo-ilanz-glion-b3b1e8",
-        "en": "seller-in-cash-registers-services-jumbo-ilanz-glion-b3b1e8",
         "de": "verkaufer-in-kassen-services-jumbo-ilanz-glion-graubunden-48cc7e",
-        "fr": "vendeur-dans-les-caisses-enregistreuses-services-jumbo-ilanz-glion-b3b1e8"
+        "it": "venditore-in-cassa-servizi-jumbo-division-der-coop-genossenschaft-ilanz-glion",
+        "en": "seller-in-cash-registers-services-jumbo-division-der-coop-genossenschaft-ilanz-glion",
+        "fr": "vendeur-dans-les-caisses-enregistreuses-services-jumbo-division-der-coop-genossenschaft-ilanz-glion"
       },
       "company": "JUMBO",
       "companyKey": "jumbo",
@@ -20392,27 +20392,6 @@
           "• Am liebsten arbeitet du mit Menschen – mit der Kundschaft und im Team."
         ]
       },
-      "firstSeenAt": "2026-08-05T11:31:28.496Z",
-      "needsRetranslation": true,
-      "previousSlugsByLocale": {
-        "it": [
-          "verkaufer-in-kassen-services-jumbo-ilanz-glion",
-          "venditore-in-cassa-servizi-jumbo-ilanz-glion-b3b1e8"
-        ],
-        "de": [
-          "verkaufer-in-kassen-services-jumbo-ilanz-glion"
-        ],
-        "en": [
-          "verkaufer-in-kassen-services-jumbo-ilanz-glion"
-        ],
-        "fr": [
-          "verkaufer-in-kassen-services-jumbo-ilanz-glion"
-        ]
-      },
-      "previousSlugs": [
-        "verkaufer-in-kassen-services-jumbo-ilanz-glion",
-        "venditore-in-cassa-servizi-jumbo-ilanz-glion-b3b1e8"
-      ],
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -20424,16 +20403,41 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-05T11:31:28.496Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufer-in-kassen-services-jumbo-ilanz-glion",
+          "venditore-in-cassa-servizi-jumbo-ilanz-glion-b3b1e8"
+        ],
+        "en": [
+          "verkaufer-in-kassen-services-jumbo-ilanz-glion",
+          "seller-in-cash-registers-services-jumbo-ilanz-glion-b3b1e8"
+        ],
+        "fr": [
+          "verkaufer-in-kassen-services-jumbo-ilanz-glion",
+          "vendeur-dans-les-caisses-enregistreuses-services-jumbo-ilanz-glion-b3b1e8"
+        ],
+        "de": [
+          "verkaufer-in-kassen-services-jumbo-ilanz-glion"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufer-in-kassen-services-jumbo-ilanz-glion",
+        "venditore-in-cassa-servizi-jumbo-ilanz-glion-b3b1e8",
+        "seller-in-cash-registers-services-jumbo-ilanz-glion-b3b1e8",
+        "vendeur-dans-les-caisses-enregistreuses-services-jumbo-ilanz-glion-b3b1e8"
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "jumbo-b67c7e35-e84",
       "slug": "consulente-commerciale-in-jumbo-do-it-jumbo-st-gallen",
       "slugByLocale": {
-        "it": "consulente-commerciale-in-jumbo-do-it-jumbo-st-gallen",
-        "en": "sales-consultant-in-jumbo-do-it-jumbo-st-gallen",
         "de": "verkaufsberater-in-jumbo-do-it-jumbo-st-gallen-sankt-gallen-ybi4zl",
-        "fr": "consultant-commercial-en-jumbo-do-it-jumbo-st-gallen"
+        "it": "consulente-commerciale-in-jumbo-do-it-jumbo-division-der-coop-genossenschaft-st-gallen",
+        "en": "sales-consultant-in-jumbo-do-it-jumbo-division-der-coop-genossenschaft-st-gallen",
+        "fr": "consultant-commercial-en-jumbo-do-it-jumbo-division-der-coop-genossenschaft-st-gallen"
       },
       "company": "JUMBO",
       "companyKey": "jumbo",
@@ -20489,27 +20493,6 @@
           "• Immer ein freundliches Lächeln – das ist dein Geheimnis zum Erfolg."
         ]
       },
-      "firstSeenAt": "2026-08-05T11:31:28.491Z",
-      "needsRetranslation": true,
-      "previousSlugsByLocale": {
-        "it": [
-          "verkaufsberater-in-jumbo-do-it-jumbo-st-gallen",
-          "consulente-commerciale-in-jumbo-do-it-jumbo-st-gallen"
-        ],
-        "de": [
-          "verkaufsberater-in-jumbo-do-it-jumbo-st-gallen"
-        ],
-        "en": [
-          "verkaufsberater-in-jumbo-do-it-jumbo-st-gallen"
-        ],
-        "fr": [
-          "verkaufsberater-in-jumbo-do-it-jumbo-st-gallen"
-        ]
-      },
-      "previousSlugs": [
-        "verkaufsberater-in-jumbo-do-it-jumbo-st-gallen",
-        "consulente-commerciale-in-jumbo-do-it-jumbo-st-gallen"
-      ],
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -20521,16 +20504,41 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-05T11:31:28.491Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufsberater-in-jumbo-do-it-jumbo-st-gallen",
+          "consulente-commerciale-in-jumbo-do-it-jumbo-st-gallen"
+        ],
+        "en": [
+          "verkaufsberater-in-jumbo-do-it-jumbo-st-gallen",
+          "sales-consultant-in-jumbo-do-it-jumbo-st-gallen"
+        ],
+        "fr": [
+          "verkaufsberater-in-jumbo-do-it-jumbo-st-gallen",
+          "consultant-commercial-en-jumbo-do-it-jumbo-st-gallen"
+        ],
+        "de": [
+          "verkaufsberater-in-jumbo-do-it-jumbo-st-gallen"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufsberater-in-jumbo-do-it-jumbo-st-gallen",
+        "consulente-commerciale-in-jumbo-do-it-jumbo-st-gallen",
+        "sales-consultant-in-jumbo-do-it-jumbo-st-gallen",
+        "consultant-commercial-en-jumbo-do-it-jumbo-st-gallen"
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "jumbo-307c0492-793",
       "slug": "rayon-leader-in-garden-jumbo-thalwil",
       "slugByLocale": {
-        "it": "rayon-leader-in-garden-jumbo-thalwil",
-        "en": "rayonleiter-in-garden-jumbo-thalwil",
         "de": "rayonleiter-in-garden-jumbo-thalwil-zurich-zhwiaz",
-        "fr": "chef-de-rayon-a-garden-jumbo-thalwil-8dee95"
+        "it": "rayon-leader-in-garden-jumbo-division-der-coop-genossenschaft-thalwil",
+        "en": "rayon-leader-in-garden-jumbo-thalwil",
+        "fr": "chef-de-rayon-a-garden-jumbo-division-der-coop-genossenschaft-thalwil"
       },
       "company": "JUMBO",
       "companyKey": "jumbo",
@@ -20587,24 +20595,6 @@
           "• Deutsch beherrschst du sehr gut – mündlich und schriftlich."
         ]
       },
-      "firstSeenAt": "2026-08-05T11:31:28.485Z",
-      "needsRetranslation": true,
-      "previousSlugsByLocale": {
-        "it": [
-          "rayonleiter-in-garden-jumbo-thalwil",
-          "rayon-leader-in-garden-jumbo-thalwil"
-        ],
-        "de": [
-          "rayonleiter-in-garden-jumbo-thalwil"
-        ],
-        "fr": [
-          "rayonleiter-in-garden-jumbo-thalwil"
-        ]
-      },
-      "previousSlugs": [
-        "rayonleiter-in-garden-jumbo-thalwil",
-        "rayon-leader-in-garden-jumbo-thalwil"
-      ],
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -20616,16 +20606,39 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-05T11:31:28.485Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "rayonleiter-in-garden-jumbo-thalwil",
+          "rayon-leader-in-garden-jumbo-thalwil"
+        ],
+        "fr": [
+          "rayonleiter-in-garden-jumbo-thalwil",
+          "chef-de-rayon-a-garden-jumbo-thalwil-8dee95"
+        ],
+        "de": [
+          "rayonleiter-in-garden-jumbo-thalwil"
+        ],
+        "en": [
+          "rayonleiter-in-garden-jumbo-thalwil"
+        ]
+      },
+      "previousSlugs": [
+        "rayonleiter-in-garden-jumbo-thalwil",
+        "rayon-leader-in-garden-jumbo-thalwil",
+        "chef-de-rayon-a-garden-jumbo-thalwil-8dee95"
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "jumbo-1eeabd11-050",
       "slug": "consulente-commerciale-a-deco-jumbo-sissach",
       "slugByLocale": {
-        "it": "consulente-commerciale-a-deco-jumbo-sissach",
-        "en": "sales-consultant-in-deco-jumbo-sissach",
         "de": "verkaufsberater-in-deco-jumbo-division-der-coop-genossenschaft-sissach-basel-landschaft-opou7c",
-        "fr": "consultant-en-ventes-en-deco-jumbo-sissach"
+        "it": "consulente-commerciale-a-deco-jumbo-division-der-coop-genossenschaft-sissach",
+        "en": "sales-consultant-in-deco-jumbo-division-der-coop-genossenschaft-sissach",
+        "fr": "consultant-en-ventes-en-deco-jumbo-division-der-coop-genossenschaft-sissach"
       },
       "company": "JUMBO",
       "companyKey": "jumbo",
@@ -20681,27 +20694,6 @@
           "• Immer ein freundliches Lächeln – das ist dein Geheimnis zum Erfolg."
         ]
       },
-      "firstSeenAt": "2026-08-05T11:31:28.474Z",
-      "needsRetranslation": true,
-      "previousSlugsByLocale": {
-        "it": [
-          "verkaufsberater-in-deco-jumbo-sissach",
-          "consulente-commerciale-a-deco-jumbo-sissach"
-        ],
-        "de": [
-          "verkaufsberater-in-deco-jumbo-sissach"
-        ],
-        "en": [
-          "verkaufsberater-in-deco-jumbo-sissach"
-        ],
-        "fr": [
-          "verkaufsberater-in-deco-jumbo-sissach"
-        ]
-      },
-      "previousSlugs": [
-        "verkaufsberater-in-deco-jumbo-sissach",
-        "consulente-commerciale-a-deco-jumbo-sissach"
-      ],
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -20713,7 +20705,32 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-05T11:31:28.474Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufsberater-in-deco-jumbo-sissach",
+          "consulente-commerciale-a-deco-jumbo-sissach"
+        ],
+        "en": [
+          "verkaufsberater-in-deco-jumbo-sissach",
+          "sales-consultant-in-deco-jumbo-sissach"
+        ],
+        "fr": [
+          "verkaufsberater-in-deco-jumbo-sissach",
+          "consultant-en-ventes-en-deco-jumbo-sissach"
+        ],
+        "de": [
+          "verkaufsberater-in-deco-jumbo-sissach"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufsberater-in-deco-jumbo-sissach",
+        "consulente-commerciale-a-deco-jumbo-sissach",
+        "sales-consultant-in-deco-jumbo-sissach",
+        "consultant-en-ventes-en-deco-jumbo-sissach"
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "jumbo-a7398296-c83",
