@@ -1837,6 +1837,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.medicina-di-genere-svizzera.title': 'Médecine de genre en Suisse : nouveaux défis et opportunités',
     'blog.article.medicina-di-genere-svizzera.excerpt': 'La médecine de genre lutte pour devenir d\'usage courant, mais les lacunes dans les financements et les résistances politiques rendent tout très difficile.',
     'blog.article.medicina-di-genere-svizzera.imageAlt': 'Hôpital moderne en Suisse à Lugano avec des professionnels médicaux divers',
+    'blog.article.comprare-casa-svizzera-mutuo-requisiti.title': 'Acheter une maison en Suisse : exigences et tarifs',
+    'blog.article.comprare-casa-svizzera-mutuo-requisiti.excerpt': 'Découvrez les conditions d\'obtention d\'un prêt en Suisse, les fonds propres minimaux, les taux et les différences entre banques cantonales et privées',
+    'blog.article.comprare-casa-svizzera-mutuo-requisiti.imageAlt': 'Vue aérienne du lac de Lugano avec les Alpes suisses en arrière-plan, montrant un quartier résidentiel moderne avec des maisons et des bateaux',
 };
 
 export default blogMetaChFr;

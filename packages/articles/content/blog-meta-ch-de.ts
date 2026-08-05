@@ -1837,6 +1837,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.medicina-di-genere-svizzera.title': 'Gendermedizin in der Schweiz: Neue Herausforderungen und Chancen',
     'blog.article.medicina-di-genere-svizzera.excerpt': 'Die Geschlechtermedizin kämpft darum, alltäglich zu werden, aber Finanzierungslücken und politischer Widerstand erschweren alles sehr.',
     'blog.article.medicina-di-genere-svizzera.imageAlt': 'Modernes Schweizer Krankenhaus in Lugano mit medizinischem Personal aus verschiedenen Ländern',
+    'blog.article.comprare-casa-svizzera-mutuo-requisiti.title': 'Haus kaufen in der Schweiz: Voraussetzungen und Zinssätze',
+    'blog.article.comprare-casa-svizzera-mutuo-requisiti.excerpt': 'Erfahren Sie mehr über die Voraussetzungen für eine Hypothek in der Schweiz, die Mindesteigenmittel, die Zinssätze und die Unterschiede zwischen Kantonal- und Privatbanken',
+    'blog.article.comprare-casa-svizzera-mutuo-requisiti.imageAlt': 'Luftaufnahme des Luganer Sees mit den Schweizer Alpen im Hintergrund, die ein modernes Wohngebiet mit Häusern und Booten zeigen',
 };
 
 export default blogMetaChDe;

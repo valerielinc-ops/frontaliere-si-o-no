@@ -638,6 +638,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'cile-1988-democrazia-svizzera': { it: 'cile-1988-democrazia-svizzera', en: 'chile-1988-democracy-switzerland', de: 'chile-1988-demokratie-schweiz', fr: 'chili-1988-democratie-suisse' },
  'franco-svizzero-economia-bns-politica-monetaria': { it: 'franco-svizzero-economia-bns-politica-monetaria', en: 'swiss-franc-economy-snb-monetary-policy', de: 'schweizer-franken-wirtschaft-snb-geldpolitik', fr: 'franc-suisse-economie-bns-politique-monetaire' },
  'medicina-di-genere-svizzera': { it: 'medicina-di-genere-svizzera', en: 'swiss-gender-medicine', de: 'schweizer-geschlechtsmedizin', fr: 'medecine-de-genre-suisse' },
+ 'comprare-casa-svizzera-mutuo-requisiti': { it: 'comprare-casa-svizzera-mutuo-requisiti', en: 'buy-house-switzerland-mortgage-requirements', de: 'haus-kaufen-schweiz-hypothekenanforderungen', fr: 'acheter-maison-suisse-requisites-hypotheque' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
