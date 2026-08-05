@@ -58,21 +58,33 @@ describe('capSearchStatsLandingTitle (#3589 sibling: same escape-unaware title-b
     );
   });
 
-  it('rejects a too-short peel, not just an empty one, and degrades through the shared ladder', () => {
-    // truncateTitleAtClauseBoundary's contract is that a result under
-    // MIN_PEELED_TITLE_CHARS must be refused. Testing only `peeled || fallback`
-    // honoured the emptiness half alone: with this input the budget lands inside
-    // a run of stopwords, the peel strips them all, and the 6-char fragment
-    // "Lavoro" was shipped as the indexed <title> — verified by reverting the
-    // guard, at which point this test fails with "expected 6 to be >= 10".
+  it('never ends on a dangling function word, even when that costs length', () => {
+    // The degenerate case, and the one that caught TWO review rounds. This title carries a
+    // single content word inside a 20-char budget, so no prefix is both >= 10 chars AND
+    // ends on a content word: the options are "Lavoro" (6, clean) or "Lavoro: e di il la"
+    // (18, ends on an article). The tie breaks toward the clean ending.
+    //
+    // The first version of this test asserted only length/prefix/no-ellipsis and therefore
+    // passed while shipping "Lavoro: e di il la" as the indexed <title> — the exact defect
+    // class the whole PR exists to remove. Asserting the ENDING is the point.
     const rawTitle = 'Lavoro: e di il la per con in su tra fra Svizzera italiana';
     const capped = capSearchStatsLandingTitle(rawTitle, 20);
 
-    expect(capped.length).toBeGreaterThanOrEqual(MIN_PEELED_TITLE_CHARS);
-    // Still a real prefix of the title, and still inside the budget.
+    expect(capped).not.toMatch(/[\s:,;.!?—–·-]$/);
+    expect(capped).not.toMatch(/(^|\s)(di|in|per|con|il|la|e|su|tra|fra)$/);
+    expect(capped.length).toBeGreaterThan(0);
     expect(rawTitle.startsWith(capped)).toBe(true);
     expect(capped.length).toBeLessThanOrEqual(20);
     expect(capped).not.toContain('…');
+  });
+
+  it('still prefers the longer candidate when it is BOTH long enough and clean', () => {
+    // Guard against "fix" by always taking the short clean peel: MIN_PEELED_TITLE_CHARS
+    // must still do its job whenever a clean alternative reaches it.
+    const rawTitle = 'Offerte di lavoro Infermiere qualificato in Svizzera italiana';
+    const capped = capSearchStatsLandingTitle(rawTitle, 40);
+    expect(capped.length).toBeGreaterThanOrEqual(MIN_PEELED_TITLE_CHARS);
+    expect(capped).not.toMatch(/(^|\s)(di|in|per|con|il|la|e)$/);
   });
 
   it('keeps the peel when it clears the floor', () => {

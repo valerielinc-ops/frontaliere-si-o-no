@@ -179,7 +179,7 @@ export function truncateHeadline(headline: string, max: number): string {
 }
 
 /**
- * Minimum length a peeled title must reach to be usable.
+ * Length a peeled title should reach to be preferred.
  *
  * Part of {@link truncateTitleAtClauseBoundary}'s CONTRACT, not a caller's local
  * preference — which is why it lives here rather than being restated at each call
@@ -188,8 +188,14 @@ export function truncateHeadline(headline: string, max: number): string {
  * honour "the same fallback contract". A threshold every caller must respect but
  * that no caller can import is a rule that drifts by construction (AGENTS.md #6).
  *
- * Below this a peel is technically non-empty but carries no information: the budget
+ * Below this a peel is technically non-empty but carries little information: the budget
  * fitted only stopwords/separators and peeling them off left a fragment.
+ *
+ * A PREFERENCE, NOT AN ABSOLUTE FLOOR. For a title made almost entirely of function
+ * words there is no prefix that is both this long and ends on a content word, and in
+ * that conflict the clean ending wins — see {@link peelDanglingClauseTail} for why a
+ * dangling function word makes Google discard the title outright, which costs more than
+ * a terse one. A caller must never let this threshold force a broken ending.
  */
 export const MIN_PEELED_TITLE_CHARS = 10;
 

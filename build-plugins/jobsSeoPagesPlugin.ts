@@ -278,17 +278,32 @@ export function capSearchStatsLandingTitle(
  // near-empty SERP title that is exactly the CTR-regression class this file
  // is being fixed for.
  //
- // Falls back to truncateClauseAware, NOT to the untruncated title (what the
- // SERP-experiment caller does): this runs inside a shrink loop that must
- // converge within `maxChars`, and returning the full title would never
- // converge. truncateClauseAware is the same degradation ladder truncateHeadline
- // uses — word boundary, then separator-only strip — minus the ellipsis the
- // SERP-title contract forbids, so the fallback still ends cleanly rather than
- // mid-word. When `max` itself is below the floor the peel can never clear it,
- // so the loop's tail always takes the ladder — intended, not an edge case.
- return peeled.length >= MIN_PEELED_TITLE_CHARS
- ? peeled
- : truncateClauseAware(rawTitle, max).trimEnd() || truncateCodeUnits(rawTitle, max).trimEnd();
+ // Priority, in order. Two review rounds pushed in OPPOSITE directions here, and the
+ // ordering below is what satisfies both:
+ //
+ //   round 1: never ship a short-but-non-empty peel when something better exists;
+ //   round 2: never ship a title ending on a dangling function word.
+ //
+ // For a degenerate input neither can be waived: at max=20,
+ // "Lavoro: e di il la per con…" offers only "Lavoro" (6, clean) or
+ // "Lavoro: e di il la" (18, ends on an article). No prefix of that title is BOTH
+ // long enough and clean, because it contains exactly one content word in budget.
+ //
+ // The tie is broken toward the CLEAN ending, because that is this file's own thesis:
+ // peelDanglingClauseTail documents that a snippet stopping on a function word reads as
+ // broken markup and makes Google MORE likely to discard the supplied title and
+ // synthesise its own — losing the title entirely, which is strictly worse than a terse
+ // one. So MIN_PEELED_TITLE_CHARS is a PREFERENCE applied whenever a clean alternative
+ // reaches it, never a floor that can force a broken ending.
+ if (peeled.length >= MIN_PEELED_TITLE_CHARS) return peeled;
+ // The ladder recovers length — but only counts if it did not buy those characters by
+ // ending on a function word. Its low-budget branch strips separators only, never
+ // stopwords (deliberately: truncateHeadline's ellipsis softens that, a <title> has none).
+ const ladder = truncateClauseAware(rawTitle, max).trimEnd();
+ if (ladder.length >= MIN_PEELED_TITLE_CHARS && peelDanglingClauseTail(ladder) === ladder) return ladder;
+ // Nothing is both long enough and clean: take the clean short peel, and only fall to a
+ // hard cut when there is no clean content word at all (single unbroken token).
+ return peeled || truncateCodeUnits(rawTitle, max).trimEnd();
  };
  let capped = capAt(maxChars);
  for (let max = maxChars; measureLength(capped) > maxChars && max > 0; max -= 1) {
