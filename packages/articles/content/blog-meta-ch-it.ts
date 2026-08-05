@@ -1840,6 +1840,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.comprare-casa-svizzera-mutuo-requisiti.title': 'Comprare casa in Svizzera: requisiti e tassi',
     'blog.article.comprare-casa-svizzera-mutuo-requisiti.excerpt': 'Scopri i requisiti per ottenere un mutuo in Svizzera, i fondi propri minimi, i tassi e le differenze tra banche cantonali e private',
     'blog.article.comprare-casa-svizzera-mutuo-requisiti.imageAlt': 'Vista aerea del Lago di Lugano con le Alpi svizzere sullo sfondo, mostrando un quartiere residenziale moderno con case e barche',
+    'blog.article.assicurazione-disoccupazione-svizzera-funzionamento.title': 'Assicurazione disoccupazione svizzera: come funziona',
+    'blog.article.assicurazione-disoccupazione-svizzera-funzionamento.excerpt': 'Guida completa ai requisiti, al calcolo dell\'indennità e agli obblighi verso l\'URC per i lavoratori in Svizzera.',
+    'blog.article.assicurazione-disoccupazione-svizzera-funzionamento.imageAlt': 'Veduta di un centro direzionale a Lugano',
 };
 
 export default blogMetaChIt;
