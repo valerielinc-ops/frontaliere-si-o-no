@@ -9614,7 +9614,6 @@
         ]
       },
       "firstSeenAt": "2026-07-22T11:37:05.944Z",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -9627,7 +9626,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VS"
+      "addressRegion": "VS",
+      "needsRetranslation": true
     },
     {
       "id": "lonza-80e81f66d474",

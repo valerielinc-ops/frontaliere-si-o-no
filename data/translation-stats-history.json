@@ -11398,5 +11398,119 @@
         "pending": 2
       }
     ]
+  },
+  {
+    "timestamp": "2026-08-05T13:05:34.976Z",
+    "label": "before",
+    "total": 26321,
+    "needsRetranslation": 1930,
+    "suppressed": 40,
+    "incomplete": 113,
+    "complete": 26208,
+    "missingByLocale": {
+      "it": 66,
+      "en": 35,
+      "de": 51,
+      "fr": 54
+    },
+    "topPending": [
+      {
+        "company": "Swiss Medical Network",
+        "pending": 35
+      },
+      {
+        "company": "Sunrise Communications AG",
+        "pending": 23
+      },
+      {
+        "company": "CSD ENGINEERS",
+        "pending": 12
+      },
+      {
+        "company": "IKEA",
+        "pending": 11
+      },
+      {
+        "company": "Mikron Group",
+        "pending": 4
+      },
+      {
+        "company": "Julius Baer",
+        "pending": 3
+      },
+      {
+        "company": "Kantonsspital Uri",
+        "pending": 3
+      },
+      {
+        "company": "Kantonsspital Aarau (KSA)",
+        "pending": 3
+      },
+      {
+        "company": "Roche",
+        "pending": 2
+      },
+      {
+        "company": "Sulzer",
+        "pending": 2
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-08-05T14:22:35.194Z",
+    "label": "after",
+    "total": 26321,
+    "needsRetranslation": 556,
+    "suppressed": 40,
+    "incomplete": 112,
+    "complete": 26209,
+    "missingByLocale": {
+      "it": 65,
+      "en": 34,
+      "de": 51,
+      "fr": 53
+    },
+    "topPending": [
+      {
+        "company": "Swiss Medical Network",
+        "pending": 35
+      },
+      {
+        "company": "Sunrise Communications AG",
+        "pending": 23
+      },
+      {
+        "company": "CSD ENGINEERS",
+        "pending": 12
+      },
+      {
+        "company": "IKEA",
+        "pending": 11
+      },
+      {
+        "company": "Mikron Group",
+        "pending": 4
+      },
+      {
+        "company": "Julius Baer",
+        "pending": 3
+      },
+      {
+        "company": "Kantonsspital Uri",
+        "pending": 3
+      },
+      {
+        "company": "Kantonsspital Aarau (KSA)",
+        "pending": 3
+      },
+      {
+        "company": "Roche",
+        "pending": 2
+      },
+      {
+        "company": "Sulzer",
+        "pending": 2
+      }
+    ]
   }
 ]
