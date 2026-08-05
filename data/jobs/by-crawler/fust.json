@@ -263,6 +263,8 @@
       },
       "requirementsByLocale": {},
       "sourceLang": "de",
+      "salaryMin": 62000,
+      "salaryMax": 94000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -280,7 +282,6 @@
       "country": "CH",
       "previousSlugsByLocale": {
         "it": [
-          "produktionsmitarbeiter-in-snacks-zutaten-coop-genossenschaft-pratteln-basel-landschaft-ttvruu",
           "produktionsmitarbeiter-in-snacks-zutaten-coop-genossenschaft-pratteln-basel-landschaft",
           "snack-e-ingredienti-per-i-dipendenti-della-produzione-coop-genossenschaft-pratteln",
           "produktionsmitarbeiter-in-snacks-zutaten-coop-genossenschaft-pratteln-basel-landschaft-ei9d7a",
@@ -288,27 +289,22 @@
           "snacks-et-ingredients-pour-employes-de-production-coop-genossenschaft-pratteln-ei9d7a"
         ],
         "en": [
-          "produktionsmitarbeiter-in-snacks-zutaten-coop-genossenschaft-pratteln-basel-landschaft-ttvruu",
           "production-employee-snacks-ingredients-coop-genossenschaft-pratteln-ei9d7a"
+        ],
+        "fr": [
+          "snacks-et-ingredients-pour-employes-de-production-coop-genossenschaft-pratteln-ei9d7a"
         ],
         "de": [
           "produktionsmitarbeiter-in-snacks-zutaten-coop-genossenschaft-pratteln-basel-landschaft-ei9d7a"
-        ],
-        "fr": [
-          "produktionsmitarbeiter-in-snacks-zutaten-coop-genossenschaft-pratteln-basel-landschaft-ttvruu",
-          "snacks-et-ingredients-pour-employes-de-production-coop-genossenschaft-pratteln-ei9d7a"
         ]
       },
       "previousSlugs": [
-        "produktionsmitarbeiter-in-snacks-zutaten-coop-genossenschaft-pratteln-basel-landschaft-ttvruu",
         "produktionsmitarbeiter-in-snacks-zutaten-coop-genossenschaft-pratteln-basel-landschaft",
         "snack-e-ingredienti-per-i-dipendenti-della-produzione-coop-genossenschaft-pratteln",
         "produktionsmitarbeiter-in-snacks-zutaten-coop-genossenschaft-pratteln-basel-landschaft-ei9d7a",
         "production-employee-snacks-ingredients-coop-genossenschaft-pratteln-ei9d7a",
         "snacks-et-ingredients-pour-employes-de-production-coop-genossenschaft-pratteln-ei9d7a"
-      ],
-      "salaryMin": 62000,
-      "salaryMax": 94000
+      ]
     },
     {
       "id": "company-chkh0t",
@@ -1213,6 +1209,8 @@
       },
       "requirementsByLocale": {},
       "sourceLang": "de",
+      "salaryMin": 62000,
+      "salaryMax": 94000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -1230,7 +1228,6 @@
       "country": "CH",
       "previousSlugsByLocale": {
         "it": [
-          "anlagenfuhrer-in-rosterei-massenherstellung-schokolade-coop-genossenschaft-pratteln-basel-landschaft-l8zh6t",
           "anlagenfuhrer-in-rosterei-massenherstellung-schokolade-coop-genossenschaft-pratteln-basel-landschaft",
           "torrefazione-operatore-di-impianto-cioccolato-di-produzione-di-massa-coop-genossenschaft-pratteln",
           "anlagenfuhrer-in-rosterei-massenherstellung-schokolade-halba-pratteln-basel-landschaft-4ob4iz",
@@ -1239,28 +1236,23 @@
           "anlagenfuhrer-in-rosterei-massenherstellung-schokolade-coop-genossenschaft-pratteln"
         ],
         "en": [
-          "anlagenfuhrer-in-rosterei-massenherstellung-schokolade-coop-genossenschaft-pratteln-basel-landschaft-l8zh6t",
           "plant-operator-roastery-mass-production-chocolate-coop-genossenschaft-pratteln-4ob4iz"
+        ],
+        "fr": [
+          "torrefacteur-operateur-d-usine-chocolat-de-production-de-masse-coop-genossenschaft-pratteln-4ob4iz"
         ],
         "de": [
           "anlagenfuhrer-in-rosterei-massenherstellung-schokolade-halba-pratteln-basel-landschaft-4ob4iz"
-        ],
-        "fr": [
-          "anlagenfuhrer-in-rosterei-massenherstellung-schokolade-coop-genossenschaft-pratteln-basel-landschaft-l8zh6t",
-          "torrefacteur-operateur-d-usine-chocolat-de-production-de-masse-coop-genossenschaft-pratteln-4ob4iz"
         ]
       },
       "previousSlugs": [
-        "anlagenfuhrer-in-rosterei-massenherstellung-schokolade-coop-genossenschaft-pratteln-basel-landschaft-l8zh6t",
         "anlagenfuhrer-in-rosterei-massenherstellung-schokolade-coop-genossenschaft-pratteln-basel-landschaft",
         "torrefazione-operatore-di-impianto-cioccolato-di-produzione-di-massa-coop-genossenschaft-pratteln",
         "anlagenfuhrer-in-rosterei-massenherstellung-schokolade-halba-pratteln-basel-landschaft-4ob4iz",
         "plant-operator-roastery-mass-production-chocolate-coop-genossenschaft-pratteln-4ob4iz",
         "torrefacteur-operateur-d-usine-chocolat-de-production-de-masse-coop-genossenschaft-pratteln-4ob4iz",
         "anlagenfuhrer-in-rosterei-massenherstellung-schokolade-coop-genossenschaft-pratteln"
-      ],
-      "salaryMin": 62000,
-      "salaryMax": 94000
+      ]
     },
     {
       "id": "company-a6p8f",
@@ -8848,7 +8840,7 @@
       },
       "slugByLocale": {
         "it": "rayon-leader-in-garden-jumbo-division-der-coop-genossenschaft-thalwil",
-        "en": "rayonleiter-in-garden-jumbo-thalwil-zurich-zhwiaz",
+        "en": "rayon-leader-in-garden-jumbo-division-der-coop-genossenschaft-thalwil-zurich",
         "de": "rayonleiter-in-garden-jumbo-thalwil-zurich-zhwiaz",
         "fr": "chef-de-rayon-a-garden-jumbo-division-der-coop-genossenschaft-thalwil"
       },
@@ -8870,7 +8862,8 @@
           "rayonleiter-in-garden-jumbo-thalwil-zurich"
         ],
         "en": [
-          "rayonleiter-in-garden-jumbo-division-der-coop-genossenschaft-thalwil-zurich-zhwiaz"
+          "rayonleiter-in-garden-jumbo-division-der-coop-genossenschaft-thalwil-zurich-zhwiaz",
+          "rayonleiter-in-garden-jumbo-thalwil-zurich-zhwiaz"
         ],
         "de": [
           "rayonleiter-in-garden-jumbo-division-der-coop-genossenschaft-thalwil-zurich-zhwiaz"

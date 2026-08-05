@@ -14993,12 +14993,12 @@
     },
     {
       "id": "raiffeisen-9fa25d8edda1",
-      "slug": "credit-officer-h-f-raiffeisen-saignelegier",
+      "slug": "ufficiale-crediti-m-f-raiffeisen-saignelegier",
       "slugByLocale": {
-        "it": "credit-officer-h-f-raiffeisen-saignelegier",
+        "fr": "credit-officer-h-f-raiffeisen-saignelegier",
+        "it": "ufficiale-crediti-m-f-raiffeisen-saignelegier",
         "en": "credit-officer-h-f-raiffeisen-saignelegier",
-        "de": "credit-officer-h-f-raiffeisen-saignelegier",
-        "fr": "credit-officer-h-f-raiffeisen-saignelegier"
+        "de": "kreditoffizier-m-w-raiffeisen-saignelegier"
       },
       "company": "Raiffeisen",
       "companyKey": "raiffeisen",
@@ -15052,7 +15052,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-05T11:46:58.962Z"
+      "firstSeenAt": "2026-08-05T11:46:58.962Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "credit-officer-h-f-raiffeisen-saignelegier"
+        ],
+        "de": [
+          "credit-officer-h-f-raiffeisen-saignelegier"
+        ]
+      },
+      "previousSlugs": [
+        "credit-officer-h-f-raiffeisen-saignelegier"
+      ]
     },
     {
       "id": "raiffeisen-8bea03cb939e",
