@@ -64,6 +64,27 @@ export type FilterAction = 'full' | 'thin' | 'skip';
 export interface FilterDecision {
   action: FilterAction;
   reason?: string;
+  /**
+   * True when the URL falls in the *inert band*: no traffic evidence in ANY
+   * source, and the URL has been discoverable for at least
+   * `noindexMinAgeDays` — long enough that "zero impressions" is a statement
+   * about the URL rather than about how recently it was published.
+   *
+   * Orthogonal to `action`. `action` decides how much HTML the page gets;
+   * `noindex` decides whether Google is invited to rank it.
+   *
+   * OPT-IN, unlike `action`: a caller that ignores this field keeps the
+   * pre-#5168 behaviour exactly. That asymmetry is deliberate. `urlClass`
+   * `gsc-keyword-landing` is shared by four emit sites across two plugins,
+   * and only `relatedSearchClustersPlugin` advertises its URLs in
+   * sitemap-search-clusters -- the surface the band was measured on. The
+   * three sites in `jobsSeoPagesPlugin` advertise theirs in sitemap-jobs,
+   * where the same URL shape measures 29 % impressed rather than 2 %, so they
+   * read `action` and skip this. Each of them says so in place; grep #5168.
+   */
+  noindex?: boolean;
+  /** Why `noindex` is true — surfaces in build logs, mirrors `reason`. */
+  noindexReason?: string;
 }
 
 interface ApprovedPattern {
@@ -78,6 +99,37 @@ interface ApprovedPattern {
    * to accumulate.
    */
   minAgeDays?: number;
+  /**
+   * Age gate for the *inert band* (issue #5168). When set, a URL that has no
+   * traffic evidence in any source AND whose `data/url-first-seen.json`
+   * timestamp is at least this many days old is additionally reported as
+   * `noindex` by {@link TrafficEvidenceFilter.decideMulti}.
+   *
+   * THIS IS THE SINGLE KNOB that sizes the band. Measured against the live
+   * cluster surface on 2026-08-05 (292 795 canonical URLs in
+   * `sitemap-search-clusters-001…008`, 279 658 of them with zero traffic
+   * evidence anywhere):
+   *
+   *   absent / negative →       0 URLs  (feature off, pre-#5168 behaviour)
+   *   90               → 137 935 URLs
+   *   60               → 155 867 URLs
+   *   30               → 279 658 URLs  (the whole zero-evidence tier)
+   *
+   * Widening or reverting the band is a one-number edit in
+   * `data/url-pruning-approved-patterns.json` -- no code change, no
+   * regenerated URLs, no 404s, and the next build restores `index,follow`
+   * because the directive is recomputed from scratch every time.
+   *
+   * Deliberately SEPARATE from (and normally much larger than) `minAgeDays`:
+   * `minAgeDays` protects a fresh URL from being served *thin*, which is
+   * cheap to get wrong. This one protects a fresh URL from being dropped
+   * out of the index on the strength of a 90-day impressions window it has
+   * not been alive long enough to have taken part in -- which is the
+   * expensive mistake. A URL missing from `url-first-seen.json` is never
+   * noindexed: the band requires positive proof of age, not absence of
+   * proof of youth.
+   */
+  noindexMinAgeDays?: number;
 }
 
 interface ApprovedConfig {
@@ -104,6 +156,15 @@ interface EvidenceIndex {
   posthog?: {
     pages?: Record<string, { pageviews?: number }>;
   };
+}
+
+export interface DecideOptions {
+  /**
+   * The URL whose HTML is actually being emitted, when `urlPaths` also
+   * carries evidence-only probes (mirrors, cross-locale variants). Used for
+   * the inert-band age gate. Defaults to `urlPaths[0]`.
+   */
+  readonly primaryPath?: string;
 }
 
 interface ThinPromotions {
@@ -149,6 +210,7 @@ export class TrafficEvidenceFilter {
   private decisionsFull = 0;
   private decisionsThin = 0;
   private decisionsSkip = 0;
+  private decisionsNoindex = 0;
 
   private readonly firstSeen: Map<string, number>;
 
@@ -312,7 +374,11 @@ export class TrafficEvidenceFilter {
    * mirrors. A `decide(canonical, …)` call alone would falsely report
    * zero traffic for ~all clusters.
    */
-  decideMulti(urlPaths: readonly string[], urlClass: UrlClass): FilterDecision {
+  decideMulti(
+    urlPaths: readonly string[],
+    urlClass: UrlClass,
+    opts?: DecideOptions,
+  ): FilterDecision {
     if (!this.active) {
       this.decisionsFull++;
       return { action: 'full', reason: 'filter-dormant' };
@@ -353,6 +419,42 @@ export class TrafficEvidenceFilter {
     }
     if (pattern.action === 'thin') this.decisionsThin++;
     else if (pattern.action === 'skip') this.decisionsSkip++;
+
+    // ── Inert band (issue #5168) ────────────────────────────────────────
+    // Reaching this line already means: not one of the candidate paths
+    // appears in ANY traffic source (GSC page impressions, GSC top landing
+    // pages, GA4 sessions, PostHog pageviews, the indexed-cluster union, the
+    // GSC job/orphan sets, or the hourly thin-page promotions), and the
+    // action-level grace window has expired. The only thing left to
+    // establish before revoking indexation is that the URL has been
+    // DISCOVERABLE long enough for that silence to mean something.
+    const noindexMinAgeDays = pattern.noindexMinAgeDays ?? -1;
+    if (noindexMinAgeDays >= 0) {
+      // Age is read from the PRIMARY path -- the URL that actually carries
+      // the `<meta name="robots">` we are about to rewrite and that sits in
+      // the sitemap. The other entries in `urlPaths` are evidence probes:
+      // canton mirrors and cross-locale variants that legitimately went live
+      // at other times, so borrowing their age to judge this URL would be a
+      // category error in the one direction we cannot afford.
+      const primary = normalizePath(opts?.primaryPath ?? urlPaths[0] ?? '');
+      const seenAt = primary ? this.firstSeen.get(primary) : undefined;
+      // Positive proof of age only. A URL absent from url-first-seen.json is
+      // of UNKNOWN age, and unknown must not read as old: the file is
+      // populated lazily by scripts/refresh-url-first-seen.mjs, so "absent"
+      // is far more likely to mean "the stamper has not caught up" than "this
+      // URL predates everything". The action-level grace window deliberately
+      // treats absence the other way (absent → no grace) because being wrong
+      // there costs a thinner page; being wrong here costs an indexed page.
+      if (seenAt !== undefined && seenAt <= Date.now() - noindexMinAgeDays * 86_400_000) {
+        this.decisionsNoindex++;
+        return {
+          action: pattern.action,
+          reason: pattern.id,
+          noindex: true,
+          noindexReason: `inert-${noindexMinAgeDays}d`,
+        };
+      }
+    }
     return { action: pattern.action, reason: pattern.id };
   }
 
@@ -374,7 +476,8 @@ export class TrafficEvidenceFilter {
     }
     return (
       `[traffic-evidence-filter] full=${this.decisionsFull} ` +
-      `thin=${this.decisionsThin} skip=${this.decisionsSkip}`
+      `thin=${this.decisionsThin} skip=${this.decisionsSkip} ` +
+      `noindex=${this.decisionsNoindex}`
     );
   }
 }

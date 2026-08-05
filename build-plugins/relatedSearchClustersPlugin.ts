@@ -48,7 +48,7 @@ import { Worker } from 'node:worker_threads';
 import type { Plugin } from 'vite';
 
 import { WriteCollector } from './batchWrite';
-import { BASE_URL, buildCanonicalBridgePage } from './constants';
+import { BASE_URL, buildCanonicalBridgePage, replaceRobotsMeta } from './constants';
 import { buildFlatBridgeFromSibling } from './flatHtmlRedirectPlugin';
 import { buildSeoPageHtml } from './shared/seoPageShell';
 import { buildLocaleAlternateBlock } from './shared/localeAlternateBlock';
@@ -2730,6 +2730,7 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
       const trafficFilter = getTrafficEvidenceFilter(rootDir);
       let clusterFullCount = 0;
       let clusterThinCount = 0;
+      let clusterNoindexCount = 0;
       let clusterBytesSaved = 0;
 
       // Cache fast path. If inputs haven't changed since the last emit,
@@ -3198,13 +3199,32 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
           if (__clOtherExtras) for (const p of __clOtherExtras) __clCrossLocaleProbes.push(p);
         }
         const __clAllPaths = [out.urlPath, ...__clMirrorPaths, ...__clCrossLocaleProbes];
-        const __clDecision = trafficFilter.decideMulti(__clAllPaths, 'gsc-keyword-landing');
+        // `primaryPath` pins the inert-band age gate to the URL we are about
+        // to emit. Every other entry above is an evidence-only probe.
+        const __clDecision = trafficFilter.decideMulti(__clAllPaths, 'gsc-keyword-landing', {
+          primaryPath: out.urlPath,
+        });
         const __clAction: 'full' | 'thin' = __clDecision.action === 'thin' ? 'thin' : 'full';
-        const __clHtml = __clAction === 'thin'
-          ? buildClusterThinHtml(out.html, locale)
+        // Inert band (issue #5168): zero traffic evidence in any source AND
+        // discoverable for at least `noindexMinAgeDays`. These leave the index
+        // but stay crawlable (`follow`) — internal link equity and the SPA
+        // navigation value survive, and no URL 404s, so nothing breaks for a
+        // visitor or for an inbound link. The band is sized entirely by the
+        // threshold in data/url-pruning-approved-patterns.json.
+        const __clNoindex = __clDecision.noindex === true;
+        // Enrichment is spent only where it can still pay: a page leaving the
+        // index gains nothing from more prose, while the thin pages that stay
+        // indexed are exactly the residual near-duplicate surface. Same reason
+        // the byte cost lands on ~half the thinned set instead of all of it.
+        const __clThinned = __clAction === 'thin'
+          ? buildClusterThinHtml(out.html, locale, { enrich: !__clNoindex })
           : out.html;
+        const __clHtml = __clNoindex
+          ? replaceRobotsMeta(__clThinned, 'noindex,follow')
+          : __clThinned;
         const __clDelta = __clAction === 'thin' ? out.html.length - __clHtml.length : 0;
         if (__clAction === 'thin') clusterThinCount++; else clusterFullCount++;
+        if (__clNoindex) clusterNoindexCount++;
 
         const indexPath = path.join(distDir, out.urlPath, 'index.html');
         const flatPath = path.join(distDir, out.urlPath.replace(/\/+$/, '') + '.html');
@@ -3410,6 +3430,7 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
         console.log(
           `\x1b[36m[related-search-clusters]\x1b[0m cluster tier: ` +
           `full=${clusterFullCount} thin=${clusterThinCount} ` +
+          `noindex=${clusterNoindexCount} ` +
           `bytes_saved=${fmtBytes(clusterBytesSaved)}`,
         );
         console.log(`\x1b[36m[related-search-clusters]\x1b[0m ${trafficFilter.summary()}`);

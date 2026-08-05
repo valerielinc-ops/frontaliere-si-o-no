@@ -95,6 +95,74 @@ const JOB_FACTS: Record<string, (count: number, samples: string[]) => string> = 
       : '',
 };
 
+/**
+ * Per-locale copy for the ENRICHED shell (issue #5168).
+ *
+ * The `noindex` band from `trafficEvidenceFilter` removes the provably-inert
+ * half of the cluster surface from the index. What is left thin AND indexed is
+ * the band that is too young to judge on a 90-day impressions window — and it
+ * is exactly that band that still reads as scaled content: one paragraph with
+ * a query token swapped, ~140 words, Auto Ads on every one of them.
+ *
+ * These strings are still boilerplate, so they are deliberately the SMALL part
+ * of the enriched page. The weight is carried by `buildJobList` below, which
+ * emits real per-URL rows (title, employer, location) already computed by
+ * `relatedSearchClustersPlugin`'s `jobLinksHtml` — data no sibling page shares.
+ */
+const JOBS_HEADING: Record<string, string> = {
+  it: 'Posizioni aperte in questa ricerca',
+  en: 'Open positions in this search',
+  de: 'Offene Stellen in dieser Suche',
+  fr: 'Postes ouverts dans cette recherche',
+};
+
+const COVERAGE: Record<string, (employers: number, locations: number, topLocations: string) => string> = {
+  it: (e, l, top) =>
+    `Gli annunci elencati qui sotto provengono da ${e} ${e === 1 ? 'datore di lavoro' : 'datori di lavoro'} e coprono ${l} ${l === 1 ? 'località' : 'località'} (${top}). Ogni riga porta direttamente all'annuncio completo, con contratto, sede e link al sito dell'azienda.`,
+  en: (e, l, top) =>
+    `The listings below come from ${e} ${e === 1 ? 'employer' : 'employers'} across ${l} ${l === 1 ? 'location' : 'locations'} (${top}). Each row links straight to the full posting, with contract type, workplace and a link to the employer's own site.`,
+  de: (e, l, top) =>
+    `Die unten aufgeführten Inserate stammen von ${e} ${e === 1 ? 'Arbeitgeber' : 'Arbeitgebern'} an ${l} ${l === 1 ? 'Standort' : 'Standorten'} (${top}). Jede Zeile führt direkt zum vollständigen Inserat, mit Vertragsart, Arbeitsort und Link zur Webseite des Arbeitgebers.`,
+  fr: (e, l, top) =>
+    `Les annonces ci-dessous proviennent de ${e} ${e === 1 ? 'employeur' : 'employeurs'} répartis sur ${l} ${l === 1 ? 'localité' : 'localités'} (${top}). Chaque ligne mène directement à l'annonce complète, avec le type de contrat, le lieu de travail et un lien vers le site de l'employeur.`,
+};
+
+/**
+ * Word floor the enriched shell aims for.
+ *
+ * Not a repo non-negotiable -- that floor is `MIN_INDEXABLE_WORDS = 50` and
+ * every cluster page already cleared it (the live audit measured min 122 words
+ * across 200 samples, issue #5168). This is the *quality* target: the point of
+ * the enriched shell is that the unique-per-page share of the text outweighs
+ * the shared paragraph, and ~300 words of real listings is where that flips.
+ *
+ * Enforced by GROWING the real job list until the target is met rather than by
+ * padding prose, so a page only gets as many bytes as it has genuine rows to
+ * spend them on. Pages with few matching jobs land under the target and that is
+ * the honest outcome -- there is nothing unique left to say about them.
+ */
+const ENRICHED_TARGET_WORDS = 300;
+
+/** Hard ceiling on rows kept, so a 30-job cluster cannot undo the thinning. */
+const ENRICHED_MAX_ROWS = 20;
+
+export interface ThinShellOptions {
+  /**
+   * Emit the enriched block (coverage sentence + real listing rows).
+   *
+   * Set for thinned pages that REMAIN indexable; left off for pages the
+   * inert-band gate is about to mark `noindex`, which gain nothing from more
+   * text and would only pay its bytes. Defaults to `false`, so the shell is
+   * unchanged for every caller that does not opt in.
+   */
+  readonly enrich?: boolean;
+}
+
+function countWords(html: string): number {
+  const text = html.replace(/<[^>]+>/g, ' ').replace(/&[a-z]+;|&#\d+;/gi, ' ');
+  return text.split(/\s+/).filter(Boolean).length;
+}
+
 function htmlEscape(s: string): string {
   return s
     .replace(/&/g, '&amp;')
@@ -120,24 +188,97 @@ function extractH1(html: string): string {
  * tolerates. Text is reused verbatim (no re-escaping needed): the source
  * already HTML-escapes job title/company/location via `esc()`.
  */
-function extractJobFacts(html: string, max: number): { count: number; samples: string[] } {
+function extractJobFacts(html: string, max: number): JobFacts {
+  const empty: JobFacts = { count: 0, samples: [], rows: [], employers: [], locations: [] };
   const listMatch = html.match(/<ul\s+class=["']?cluster-seo-jobs(?=[\s>"'])[^>]*>([\s\S]*?)<\/ul>/i);
-  if (!listMatch) return { count: 0, samples: [] };
+  if (!listMatch) return empty;
   const items = listMatch[1].match(/<li>[\s\S]*?<\/li>/gi) || [];
   const samples: string[] = [];
+  const rows: JobRow[] = [];
+  const employers: string[] = [];
+  const locations: string[] = [];
   for (const item of items) {
-    const anchor = item.match(/<a[^>]*>([\s\S]*?)<\/a>/i);
+    const anchor = item.match(/<a[^>]*href=["']?([^"'\s>]+)["']?[^>]*>([\s\S]*?)<\/a>/i);
     if (!anchor) continue;
-    const text = anchor[1].replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
+    const href = anchor[1];
+    const text = anchor[2].replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
     if (!text) continue;
-    // relatedSearchClustersPlugin joins `title + " — " + meta`; prefer the
+    // relatedSearchClustersPlugin joins `title + " — " + meta`, where meta is
+    // `company + " · " + location` with either half possibly absent. Prefer the
     // shorter "company · location" tail when present, else the full title.
     const dashIdx = text.indexOf(' — ');
-    const fact = dashIdx >= 0 ? text.slice(dashIdx + 3).trim() : text;
-    if (fact && !samples.includes(fact)) samples.push(fact);
-    if (samples.length >= max) break;
+    const title = dashIdx >= 0 ? text.slice(0, dashIdx).trim() : text;
+    const meta = dashIdx >= 0 ? text.slice(dashIdx + 3).trim() : '';
+    if (meta && !samples.includes(meta)) samples.push(meta);
+    rows.push({ href, title, meta, text });
+    if (meta) {
+      const dotIdx = meta.indexOf(' · ');
+      const company = (dotIdx >= 0 ? meta.slice(0, dotIdx) : meta).trim();
+      const place = dotIdx >= 0 ? meta.slice(dotIdx + 3).trim() : '';
+      if (company && !employers.includes(company)) employers.push(company);
+      if (place && !locations.includes(place)) locations.push(place);
+    }
   }
-  return { count: items.length, samples };
+  return { count: items.length, samples: samples.slice(0, max), rows, employers, locations };
+}
+
+interface JobRow {
+  /** Already-relative href emitted by the plugin (BASE_URL stripped). */
+  href: string;
+  title: string;
+  /** `company · location`, possibly empty. */
+  meta: string;
+  /** Full anchor text as rendered upstream. */
+  text: string;
+}
+
+interface JobFacts {
+  count: number;
+  samples: string[];
+  rows: JobRow[];
+  employers: string[];
+  locations: string[];
+}
+
+/**
+ * Build the enriched block: a coverage sentence naming the real employer and
+ * location spread, plus as many real listing rows as it takes to clear
+ * {@link ENRICHED_TARGET_WORDS} (capped at {@link ENRICHED_MAX_ROWS}).
+ *
+ * The rows are re-emitted from `facts.rows`, i.e. from the very `<ul>` the thin
+ * shell is about to discard. No new data is read, nothing is fetched and no
+ * per-page work is added to the build -- the difference is only how much of
+ * what was already rendered survives into the artifact.
+ *
+ * Returns `''` when there are no rows to show, so a cluster with no matching
+ * jobs degrades to exactly today's shell instead of emitting an empty heading.
+ */
+function buildEnrichedBlock(facts: JobFacts, locale: string, baseWords: number): string {
+  if (facts.rows.length === 0) return '';
+  const heading = JOBS_HEADING[locale] || JOBS_HEADING.it;
+  const coverageFn = COVERAGE[locale] || COVERAGE.it;
+  // Reused VERBATIM, never re-escaped — same contract `extractJobFacts` has
+  // always relied on for the prose samples. Everything here was read back out
+  // of HTML that `relatedSearchClustersPlugin` already put through `esc()`, so
+  // a second pass would render `&amp;` as `&amp;amp;` on every employer name
+  // containing an ampersand.
+  const topLocations = facts.locations.slice(0, 3).join(', ');
+  const coverage = facts.employers.length && facts.locations.length
+    ? `<p>${coverageFn(facts.employers.length, facts.locations.length, topLocations)}</p>`
+    : '';
+
+  let words = baseWords + countWords(coverage) + countWords(heading);
+  const rows: string[] = [];
+  for (const row of facts.rows) {
+    if (rows.length >= ENRICHED_MAX_ROWS) break;
+    // Grow only while the page is still short. Every row past the target is
+    // bytes on ~140 k pages buying nothing, which is the cost side of the
+    // trade the thin shell exists to manage in the first place.
+    if (rows.length > 0 && words >= ENRICHED_TARGET_WORDS) break;
+    rows.push(`<li><a href="${row.href}">${row.text}</a></li>`);
+    words += countWords(row.text);
+  }
+  return `${coverage}<h2>${heading}</h2><ul class="cluster-seo-jobs">${rows.join('')}</ul>`;
 }
 
 /**
@@ -151,7 +292,11 @@ function extractJobFacts(html: string, max: number): { count: number; samples: s
  * the deploy log's `cluster tier: bytes_saved=0B` will surface the
  * miss.
  */
-export function buildClusterThinHtml(fullHtml: string, locale: string): string {
+export function buildClusterThinHtml(
+  fullHtml: string,
+  locale: string,
+  opts?: ThinShellOptions,
+): string {
   const h1Text = htmlEscape(extractH1(fullHtml));
   const listingPath = LOCALE_LISTING_PATH[locale] || LOCALE_LISTING_PATH.it;
   const proseFn = PROSE[locale] || PROSE.it;
@@ -161,9 +306,17 @@ export function buildClusterThinHtml(fullHtml: string, locale: string): string {
   // list before it's discarded below. Appended as an extra sentence so
   // the boilerplate paragraph isn't the ONLY content differentiator
   // between the ~300k indexed cluster URLs.
-  const { count: jobCount, samples: jobSamples } = extractJobFacts(fullHtml, 3);
+  const facts = extractJobFacts(fullHtml, 3);
+  const { count: jobCount, samples: jobSamples } = facts;
   const factsFn = JOB_FACTS[locale] || JOB_FACTS.it;
   const factsSentence = factsFn(jobCount, jobSamples);
+
+  // Issue #5168. Off by default so every existing caller keeps today's
+  // output byte-for-byte; the cluster plugin turns it on precisely for the
+  // pages that stay in the index.
+  const enrichedBlock = opts?.enrich
+    ? buildEnrichedBlock(facts, locale, countWords(prose) + countWords(factsSentence) + countWords(h1Text))
+    : '';
 
   // Match the `<main class=cluster-seo-prose...>...</main>` block. The
   // class attribute is single-token (`cluster-seo-prose`), so the
@@ -178,6 +331,7 @@ export function buildClusterThinHtml(fullHtml: string, locale: string): string {
     `<article class="proposal">` +
     `<h1>${h1Text}</h1>` +
     `<p>${prose}${factsSentence ? ` ${factsSentence}` : ''}</p>` +
+    enrichedBlock +
     `</article>` +
     `</main>`;
 

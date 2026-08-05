@@ -1,5 +1,6 @@
 {
   "_doc": "Approved URL-pruning patterns consumed by build-plugins/shared/trafficEvidenceFilter.ts. URL with traffic in any source (data/evidence-index.json GSC topLandingPage / GA4 sessions >=3 / PostHog pageviews + data/indexed-cluster-urls.json + data/gsc-job-urls.json + data/gsc-orphan-job-slugs.json + data/orphan-enriched-data.json + data/thin-page-promotions-active.json) stays 'full'; URL not in any set and matching a pattern here gets the pattern's action AFTER the minAgeDays grace window expires (checked against data/url-first-seen.json).",
+  "_doc_noindex": "noindexMinAgeDays (issue #5168) additionally marks a zero-evidence URL `noindex,follow` once it has been in data/url-first-seen.json for that many days -- it leaves the index but stays crawlable, so internal linking and inbound links keep working and nothing 404s. It is the ONLY knob that sizes the band; raising it shrinks the band, lowering it widens it, removing it reverts to index-everything, and the next build recomputes the directive from scratch either way. Measured on the live cluster surface 2026-08-05 (292795 canonical URLs, 279658 with zero evidence anywhere): 90 -> 137935 URLs, 60 -> 155867, 30 -> 279658, absent -> 0. Set ONLY on gsc-keyword-landing: the other two classes are bridges/soft-landings whose indexation was never the question in #5168.",
   "version": 1,
   "patterns": [
     {
@@ -18,7 +19,8 @@
       "id": "zero-traffic-gsc-keyword-landing",
       "urlClass": "gsc-keyword-landing",
       "action": "thin",
-      "minAgeDays": 15
+      "minAgeDays": 15,
+      "noindexMinAgeDays": 90
     }
   ]
 }
