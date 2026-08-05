@@ -24,7 +24,7 @@ import { renderAuthoritativeSourcesHtml } from './shared/authoritativeSources';
 // flatHtmlRedirect's is — `packages/articles` is its own "type": "module"
 // package, where an extensionless deep specifier does not resolve under plain
 // Node ESM.
-import { renderArticleHubCards, ARTICLES_HEADING } from '../packages/articles/engine/articlesHubCards.ts';
+import { renderArticleHubCards, renderArticleHubGridBlock } from '../packages/articles/engine/articlesHubCards.ts';
 import { SECTION_EDITORIAL, SECTION_EDITORIAL_KEYS } from './editorialContent';
 import { normalizeStructuredData } from '../services/seo/schema-normalizers';
 import { ORGANIZATION_LD_JSON } from '../services/seo/organizationLd';
@@ -4676,7 +4676,7 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  return artSeo ? { title: artSeo.ogT, desc: artSeo.desc } : null;
  },
  });
- rootHtml = `<div class="s-wWmcGm">${heroImg}<article><h1 class="s-lHdmvf">${esc(h1Text)}</h1><p class="s-zvDmuv">${esc(seoData.desc)}</p>${editorialHtml}</article><h2 class="s-sXAwQz">${ARTICLES_HEADING[locale] ?? ARTICLES_HEADING.it}</h2><div class="ssg-article-grid">${swissCardsHtml}</div><nav class="s-eazYqN">${navHtml}</nav></div>`;
+ rootHtml = `<div class="s-wWmcGm">${heroImg}<article><h1 class="s-lHdmvf">${esc(h1Text)}</h1><p class="s-zvDmuv">${esc(seoData.desc)}</p>${editorialHtml}</article>${renderArticleHubGridBlock(swissCardsHtml, locale)}<nav class="s-eazYqN">${navHtml}</nav></div>`;
  } else if (blogSlugs.includes(firstSeg)) {
  const heroImg = blogHeroImageStatic ? `<img class="s-zYpvpO" src="${blogHeroImageStatic}" alt="${esc(seoData.ogT)}" width="800" height="320" fetchpriority="high">` : `<div style="${sp};height:16rem;margin-bottom:1.5rem"></div>`;
  // Ad placeholders reserve vertical space so React hydration doesn't cause layout shifts (CLS).
@@ -4709,7 +4709,7 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  // bytes of repeated inline styles ≈ 75 KB savings). The .ssg-* rules now
  // live in public/assets/seo-static.css (already linked on these pages)
  // instead of a per-page inline <style> block. Visual output unchanged.
- return `<div class="s-wWmcGm">${heroImg}<article><h1 class="s-lHdmvf">${esc(h1Text)}</h1><p class="s-zvDmuv">${esc(seoData.desc)}</p>${editorialHtml}</article><h2 class="s-sXAwQz">${ARTICLES_HEADING[locale] ?? ARTICLES_HEADING.it}</h2><div class="ssg-article-grid">${articleCardsHtml}</div><nav class="s-eazYqN">${navHtml}</nav></div>`;
+ return `<div class="s-wWmcGm">${heroImg}<article><h1 class="s-lHdmvf">${esc(h1Text)}</h1><p class="s-zvDmuv">${esc(seoData.desc)}</p>${editorialHtml}</article>${renderArticleHubGridBlock(articleCardsHtml, locale)}<nav class="s-eazYqN">${navHtml}</nav></div>`;
  })();
  } else if (statsSlugs.includes(firstSeg)) {
  rootHtml = `<div class="s-rO4k66"><div style="${sp};height:6rem;margin-bottom:1.5rem"></div><article><h1 class="s-lHdmvf">${esc(h1Text)}</h1><p class="s-zvDmuv">${esc(seoData.desc)}</p>${editorialHtml}</article><div class="s-d0FtpK"><div style="${sp};height:14rem"></div><div style="${sp};height:14rem"></div></div><nav class="s-eazYqN">${navHtml}</nav></div>`;

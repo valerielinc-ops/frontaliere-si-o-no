@@ -8,6 +8,7 @@
  */
 
 import path from 'path';
+import { buildRelatedArticlesIndex } from './relatedArticlesIndex';
 import type { Plugin } from 'vite';
 import { getSiteShell } from './siteShell';
 import { buildArticleSeoSections, cleanupArticleBodySections, articleBodySectionLabel, renderArticleDerivedSectionsHtml } from './articleSeoFallback';
@@ -793,13 +794,39 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  const relatedArticlesLabel: Record<string, string> = {
  it: 'Articoli correlati', en: 'Related articles', de: 'Verwandte Artikel', fr: 'Articles connexes',
  };
- // Sort entries by date (most recent first) for recency-based fallback
+ // Sort entries by date (most recent first). Still needed by the topical
+ // index as its final tie-break and its vocabulary-isolate fallback.
  const entriesByDate = [...entries].sort((a, b) => (b.datePub || '').localeCompare(a.datePub || ''));
- const buildRelatedArticlesHtml = (currentId: string, currentCategory: string, locale: string): string => {
- // Prefer same category, then fall back to most recent
- const sameCategory = entriesByDate.filter(e => e.articleId !== currentId && articleCategoryById[e.articleId] === currentCategory);
- const others = entriesByDate.filter(e => e.articleId !== currentId && articleCategoryById[e.articleId] !== currentCategory);
- const picks = [...sameCategory.slice(0, 3), ...others.slice(0, 5 - Math.min(sameCategory.length, 3))].slice(0, 5);
+ // Topic-ranked related articles with an inbound-link floor
+ // (packages/articles/engine/relatedArticlesIndex.ts).
+ //
+ // This replaces a picker that took the 3 newest same-category articles plus
+ // the 2 newest overall. That pool is sorted globally by date and does not
+ // vary per article, so every page emitted nearly the same five links:
+ // replayed against the 3.085 published articles, 99,48% of them (3.069)
+ // received ZERO inbound links from any other article, and two articles were
+ // linked from all 3.084 others. `category` could not rescue it either — four
+ // values, with `novita` holding 62% of the corpus.
+ //
+ // Built ONCE for the whole corpus rather than per page: the fairness pass and
+ // the orphan repair are corpus-level properties and cannot be decided one
+ // page at a time. `entries` is guaranteed full/unfiltered here even on the
+ // single-article fast path (see the `onlyArticleIdSet` comment below), which
+ // is exactly what this needs.
+ const relatedArticlesMap = buildRelatedArticlesIndex(
+ entries.map(e => ({
+ articleId: e.articleId,
+ title: e.ogT.replace(/\s*\|\s*Frontaliere Ticino\s*$/i, ''),
+ excerpt: e.ogD,
+ datePub: e.datePub,
+ category: articleCategoryById[e.articleId],
+ })),
+ );
+ const entryById = new Map(entries.map(e => [e.articleId, e]));
+ const buildRelatedArticlesHtml = (currentId: string, _currentCategory: string, locale: string): string => {
+ const picks = (relatedArticlesMap.get(currentId) ?? [])
+ .map(id => entryById.get(id))
+ .filter((e): e is typeof entries[number] => Boolean(e));
  if (picks.length === 0) return '';
  const items = picks.map(art => {
  const slug = blogSlugs[art.articleId]?.[locale] ?? art.articleId;

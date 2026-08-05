@@ -19,7 +19,7 @@
 import { readFileSync } from 'node:fs';
 import { pathToFileURL } from 'node:url';
 import { sanitizeTrackedDiagnosticValue } from './lib/sanitizeTrackedDiagnostics.mjs';
-import { isIssueDenied, syncErrorIssues } from './lib/error-issue-sync.mjs';
+import { isIssueDenied, isSelfHealedPage404, syncErrorIssues } from './lib/error-issue-sync.mjs';
 
 const REPORT_PATH = process.env.ANALYTICS_REPORT_PATH || 'reports/analytics-latest.json';
 const MIN_COUNT = Number(process.env.APP_ERROR_MIN_COUNT || 5);
@@ -30,7 +30,7 @@ export function truncate(value, n) {
   return str.length > n ? `${str.slice(0, n - 1)}…` : str;
 }
 
-export function main() {
+export async function main() {
   let report;
   try {
     report = JSON.parse(readFileSync(REPORT_PATH, 'utf8'));
@@ -76,10 +76,30 @@ export function main() {
     return;
   }
 
+  // Re-check `page_404` entries against production before filing (#5064/#5065).
+  // The GA4 window is a trailing 30 days, so a 404 fixed on day 3 keeps opening
+  // `priority:high` + `needs-human` issues for another 27 days. Only the top
+  // MAX_ISSUES candidates are probed — the rest are never filed anyway.
+  const live = [];
+  for (const e of entries.slice(0, MAX_ISSUES)) {
+    // eslint-disable-next-line no-await-in-loop -- sequential: a handful of probes, keeps prod load trivial
+    if (await isSelfHealedPage404(e)) {
+      console.log(
+        `[app-error-issue-sync] skipping stale page_404 (URL resolves today): ${e.pagePath || e.errorMessage}`,
+      );
+      continue;
+    }
+    live.push(e);
+  }
+  if (!live.length) {
+    console.log('[app-error-issue-sync] every candidate is stale page_404 telemetry — nothing to sync');
+    return;
+  }
+
   const stackByMessage = new Map((eh.topStacks || []).map((s) => [s.message, s.stack]));
 
   return syncErrorIssues({
-    entries,
+    entries: live,
     maxIssues: MAX_ISSUES,
     labels: ['stability', 'app-error'],
     source: 'Weekly Analytics Report — GA4 app_error',
