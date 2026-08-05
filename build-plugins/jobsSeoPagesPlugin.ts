@@ -18,6 +18,7 @@ import { buildSeoPageHtml } from './shared/seoPageShell';
 import { firstParsableMs } from './shared/firstParsableDate';
 import { buildSlimSeed } from './shared/slimJobIndex';
 import { readCompatPaths } from '../scripts/lib/compat-paths-store.mjs';
+import { readAllKnownJobSlugs, writeAllKnownJobSlugs } from '../scripts/lib/all-known-job-slugs-store.mjs';
 import { inlineScriptJson } from './shared/inlineJsonScript';
 import { buildJobPostingFaqPairs, type BuildJobPostingFaqOptions } from './shared/jobPostingFaq';
 import { hostFromUrl } from './shared/hostFromUrl';
@@ -10745,11 +10746,9 @@ ${staticAnalyticsHtml}
 
  /* ── Expired-job soft-landing pages ────────────────────────── */
  // 1. Read tracking file + merge current jobs
- const trackingPath = np.resolve(rootDir, 'data/all-known-job-slugs.json');
- let tracking: Record<string, Record<string, string>> = {};
- try {
- tracking = JSON.parse(fs.readFileSync(trackingPath, 'utf-8'));
- } catch { /* file missing or malformed — start fresh */ }
+ // Sharded registry (data/all-known-job-slugs/part-*.json, #4248) — the store
+ // is the ONLY reader/writer, never the raw file (AGENTS.md #6).
+ let tracking: Record<string, Record<string, string>> = readAllKnownJobSlugs(rootDir) as Record<string, Record<string, string>>;
 
  const currentSlugs = new Set<string>();
  // Collect slug values that differ from slugByLocale.it — these are legacy
@@ -10905,7 +10904,7 @@ ${staticAnalyticsHtml}
  if (hubPaginationKeysRemoved > 0) {
  console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m Removed ${hubPaginationKeysRemoved} hub-pagination/page-number key(s) from tracking (cross-locale all-slug soft-landing leak + bare page-N redirect handoff)`);
  }
- fs.writeFileSync(trackingPath, JSON.stringify(tracking, null, 2) + '\n', 'utf-8');
+ writeAllKnownJobSlugs(tracking, rootDir);
 
  // 1b. Merge orphan indexed slugs (GSC-indexed URLs with no matching job)
  // into the tracking so they get soft-landing pages too.

@@ -13,6 +13,10 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { execFileSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
+import {
+  readAllKnownJobSlugs,
+  knownSlugsStoreExists,
+} from '../scripts/lib/all-known-job-slugs-store.mjs';
 
 import {
   buildOrphanLandingHubPath,
@@ -297,9 +301,9 @@ describe('cluster-orphan-queries.mjs — deterministic output', () => {
   });
 
   it('skips clusters whose canonical slug collides with a known job slug', () => {
-    if (!fs.existsSync(outputPath) || !fs.existsSync(path.join(ROOT, 'data', 'all-known-job-slugs.json'))) return;
+    if (!fs.existsSync(outputPath) || !knownSlugsStoreExists(ROOT)) return;
     const parsed = JSON.parse(fs.readFileSync(outputPath, 'utf-8'));
-    const known = JSON.parse(fs.readFileSync(path.join(ROOT, 'data', 'all-known-job-slugs.json'), 'utf-8'));
+    const known = readAllKnownJobSlugs(ROOT);
     const knownKeys = new Set(Object.keys(known || {}));
     for (const c of parsed.clusters) {
       expect(knownKeys.has(c.canonicalSlug)).toBe(false);

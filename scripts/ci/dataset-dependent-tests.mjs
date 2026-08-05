@@ -50,7 +50,15 @@ const ASSEMBLE_OUTPUTS = [
   // entrambi stanno dietro lo stesso `wait-all`, quindi un test che legge
   // questo file va nello stesso gruppo dei dataset-dipendenti: prima del
   // wait il file è ancora nella versione committata, non migrata.
-  'all-known-job-slugs.json',
+  //
+  // Senza `.json` finale (issue #4248): il registro è passato da monolite a
+  // shard sotto `data/all-known-job-slugs/`, e i lettori ora importano
+  // `scripts/lib/all-known-job-slugs-store.mjs`. Il prefisso senza estensione
+  // matcha entrambe le forme — il path degli shard E il path del modulo store
+  // — così un test che legge il registro tramite l'accessor resta classificato
+  // come dataset-dipendente invece di scivolare nel gruppo veloce e girare
+  // prima che la migrazione canton-aware abbia scritto gli shard.
+  'all-known-job-slugs',
 ];
 
 const OUTPUT_RE = new RegExp(
@@ -68,7 +76,8 @@ const OUTPUT_RE = new RegExp(
  * Conta solo chi LEGGE il file dal filesystem: un fetch di un URL pubblico non
  * ha bisogno che l'assemble sia finito, una readFileSync sì.
  */
-const FS_READ_RE = /\b(readFileSync|readFile|existsSync|statSync|createReadStream|readJson|loadJson)\b/;
+const FS_READ_RE =
+  /\b(readFileSync|readFile|existsSync|statSync|createReadStream|readJson|loadJson|readAllKnownJobSlugs)\b/;
 
 /** true se il sorgente legge un output dell'assemble dal filesystem. */
 function readsDatasetFromDisk(src) {

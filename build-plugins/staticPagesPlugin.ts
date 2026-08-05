@@ -66,6 +66,7 @@ import { differentiateH1FromTitle } from './shared/seoContentTokens';
 import { inlineScriptJson } from './shared/inlineJsonScript';
 import { ARTICLE_SECTION_DESCRIPTORS } from './shared/articleSectionDescriptors';
 import { baseCompanySlug } from './shared/companyProfileSlug.mjs';
+import { readAllKnownJobSlugs } from '../scripts/lib/all-known-job-slugs-store.mjs';
 import {
   parseAnnotatedSitemapUrls,
   collectLocaleVariantEntries,
@@ -1237,11 +1238,11 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  // sitemap-jobs.xml + sitemap-seo-hubs.xml.
  let jobsTotalPages = 1;
  try {
- const jobSlugsRaw = JSON.parse(fs.readFileSync(np.resolve(rootDir, 'data/all-known-job-slugs.json'), 'utf-8'));
+ const jobSlugsRaw = readAllKnownJobSlugs(rootDir);
  const slugCount = (jobSlugsRaw && typeof jobSlugsRaw === 'object') ? Object.keys(jobSlugsRaw).length : 0;
  jobsTotalPages = Math.max(1, Math.ceil(slugCount / JOBS_PAGE_SIZE));
  } catch (e) {
- console.warn('[static-pages] Could not compute jobsTotalPages from all-known-job-slugs.json:', e);
+ console.warn('[static-pages] Could not compute jobsTotalPages from the canonical slug registry:', e);
  }
 
  /* ── BFS-depth closure (May 2026) — TI hub deep navigators ──
@@ -3430,7 +3431,7 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  // (which IS reachable from `/` via the main nav) cascades reachability
  // through each hub's existing internal navigation:
  //   /premi-cassa-malati/        → 26 cantoni → 7 fasce d'età ciascuno  (~183 URL)
- //   /traffico-dogane/           → 26 valichi × 4 locale × oggi  (~104 URL)
+ //   /traffico-dogane/           → 143 valichi × 4 locale × oggi  (~572 URL)
  //   /prezzi-diesel/oggi/        → 5 città Ticino × stazioni  (~45 URL)
  //   /prezzi-benzina/oggi/       → idem  (~45 URL)
  //   /aziende-che-assumono/tutte/ → ~2 pagine paginazione + 233 schede azienda
