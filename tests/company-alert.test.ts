@@ -11,7 +11,7 @@
 import { readFileSync } from 'node:fs';
 import path from 'node:path';
 import { describe, expect, it } from 'vitest';
-import { baseCompanySlug, canonicalCompanyProfileSlug } from '../build-plugins/shared/companyProfileSlug.mjs';
+import { baseCompanySlug, canonicalCompanyProfileSlug, rawCompanySlug } from '../build-plugins/shared/companyProfileSlug.mjs';
 import { canonicalEmployerBrandKey } from '@/services/employerBrands';
 import { canonicalCompanySlug } from '../build-plugins/weeklyEmployersData';
 import { buildAlertProfile, scoreJobForAlert } from '@/services/jobAlertMatching.mjs';
@@ -59,6 +59,71 @@ describe('one company-slug normalisation (#5012, Non-Negotiable #6)', () => {
       'services/jobAlertMatching.mjs',
     ]) {
       expect(readRepoFile(rel).includes(literal), `${rel} still re-implements the slugify`).toBe(false);
+    }
+  });
+
+  it('the Lidl fold lives in exactly one module', () => {
+    // Widened after review: the extraction above MISSED two copies —
+    // `canonicalCompanySlugBuild` in jobsSeoPagesPlugin.ts, the plugin that emits the
+    // indexed /aziende/<slug>/ pages (its own comment called it "Mirror runtime
+    // canonicalCompanyRouteSlug logic"), and `canonicalCompanyRouteSlug` in JobBoard.tsx,
+    // the very file this feature mounts its CTA in. If either drifts, the hub URL and the
+    // token CompanyAlert persists stop agreeing — silently, no error, user convinced they
+    // are subscribed. That is the failure this feature exists to prevent.
+    //
+    // The generic slugify literal is the WRONG fingerprint for these two: both files also
+    // contain unrelated text normalisers that share it (jobsSeoPagesPlugin's
+    // `normalizeSearchTerm` matches search-landing queries, not company URLs), so asserting
+    // on it would fail for a file that is perfectly clean. The Lidl special-case is
+    // specific to the company-slug normalisation, so it is the fingerprint that actually
+    // means "somebody re-implemented this".
+    const fold = "includes('lidl')";
+    expect(readRepoFile('build-plugins/shared/companyProfileSlug.mjs').includes(fold)).toBe(true);
+    for (const rel of [
+      'build-plugins/jobsSeoPagesPlugin.ts',
+      'components/community/JobBoard.tsx',
+      'services/employerBrands.ts',
+      'build-plugins/weeklyEmployersData.ts',
+      'scripts/refresh-weekly-employers-top-pairs.mjs',
+      'services/jobAlertMatching.mjs',
+    ]) {
+      expect(readRepoFile(rel).includes(fold), `${rel} re-implements the company-slug Lidl fold`).toBe(false);
+    }
+  });
+
+  it('the raw (un-folded) slug is shared too, and still differs from the canonical', () => {
+    // rawCompanySlug is NOT an internal detail of baseCompanySlug: the router and the hub
+    // builder keep it alongside the canonical so already-indexed alias URLs still resolve.
+    // Collapsing the two would 404 them, so the distinction is asserted, not assumed.
+    expect(rawCompanySlug('Lidl Schweiz AG')).toBe('lidl-schweiz-ag');
+    expect(baseCompanySlug('Lidl Schweiz AG')).toBe('lidl');
+    expect(rawCompanySlug('Bürgenstock Hotels & Resort')).toBe('burgenstock-hotels-resort');
+    expect(rawCompanySlug('')).toBe('');
+  });
+
+  it('the migrated build/router copies still agree with the shared function', () => {
+    // Behaviour-preservation check for the review fix: the two hand-written copies were
+    // byte-equivalent to baseCompanySlug, so delegating must not move a single slug.
+    // These are the shapes that actually occur in the crawled corpus.
+    for (const [name, key] of [
+      ['Coop Genossenschaft', undefined],
+      ['Migros Ticino', 'migros-ti'],
+      ['Lidl Svizzera DL AG', 'lidl-ch'],
+      ['Bürgenstock Hotels & Resort', undefined],
+      ['  Ospedale  Regionale   di Lugano ', 'orl'],
+      ['', ''],
+    ] as const) {
+      const expected =
+        String(key || '').toLowerCase().includes('lidl') || String(name).toLowerCase().includes('lidl')
+          ? 'lidl'
+          : String(name)
+              .toLowerCase()
+              .normalize('NFD')
+              .replace(/[̀-ͯ]/g, '')
+              .replace(/[^a-z0-9]+/g, ' ')
+              .trim()
+              .replace(/\s+/g, '-');
+      expect(baseCompanySlug(name, key)).toBe(expected);
     }
   });
 });

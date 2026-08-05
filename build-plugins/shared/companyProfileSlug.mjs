@@ -50,18 +50,36 @@ import { resolveBrandCanonical } from './brandCanonicalMap.mjs';
  * @param {string} [companyKey] Optional crawler company key (job.companyKey).
  * @returns {string} URL-safe slug, no leading/trailing dash.
  */
+const normCompanyToken = (s) =>
+  String(s || '')
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[̀-ͯ]/g, '')
+    .replace(/[^a-z0-9]+/g, ' ')
+    .trim();
+
+/**
+ * Slug of the company name with NO brand handling at all — neither the Lidl
+ * special-case nor the alias fold.
+ *
+ * Not an internal detail: both the job-board router and the SEO hub builder keep this
+ * raw form ALONGSIDE the canonical one so an alias URL a crawler already emitted is
+ * still recognised (`companyRouteSlugCandidates`, and the `rawSlugs` set that feeds the
+ * hub redirects). Collapsing it into {@link baseCompanySlug} would fold Lidl's variants
+ * into the canonical and drop those alternates, 404-ing URLs that are already indexed.
+ *
+ * It had a hand-written copy in JobBoard.tsx (`slugifyCompany`) and another in
+ * jobsSeoPagesPlugin.ts (`slugifyCompanyBuild`); this is the one home.
+ */
+export function rawCompanySlug(company) {
+  return normCompanyToken(company).replace(/\s+/g, '-');
+}
+
 export function baseCompanySlug(company, companyKey) {
-  const norm = (s) =>
-    String(s || '')
-      .toLowerCase()
-      .normalize('NFD')
-      .replace(/[̀-ͯ]/g, '')
-      .replace(/[^a-z0-9]+/g, ' ')
-      .trim();
-  const keyNorm = norm(companyKey || '');
-  const nameNorm = norm(company);
+  const keyNorm = normCompanyToken(companyKey || '');
+  const nameNorm = normCompanyToken(company);
   if (keyNorm.includes('lidl') || nameNorm.includes('lidl')) return 'lidl';
-  return nameNorm.replace(/\s+/g, '-');
+  return rawCompanySlug(company);
 }
 
 export function canonicalCompanyProfileSlug(company, companyKey) {

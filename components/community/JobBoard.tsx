@@ -11,6 +11,7 @@ import { resilientImport } from '@/services/resilientImport';
 import { cdnDataUrl } from '@/services/cdnDataBase';
 import { cdnImageUrl } from '@/services/cdnImageBase';
 import { requestJobAlertOpen } from '@/services/jobAlertOpenSignal';
+import { baseCompanySlug, rawCompanySlug } from '@/build-plugins/shared/companyProfileSlug.mjs';
 const JobAlertForm = lazyRetry(() => import('@/components/community/JobAlertForm'));
 const JobAlertStickyBanner = lazyRetry(() => import('@/components/community/JobAlertStickyBanner'));
 const JobAlertEndCard = lazyRetry(() => import('@/components/community/JobAlertEndCard'));
@@ -1585,25 +1586,12 @@ function readCanonicalLocaleContent(job: JobListing, locale: Locale, description
  };
 }
 
-function normalizeCompanyKey(value: string): string {
- return String(value || '')
- .toLowerCase()
- .normalize('NFD')
- .replace(/[\u0300-\u036f]/g, '')
- .replace(/[^a-z0-9]+/g, ' ')
- .trim();
-}
-
-function slugifyCompany(value: string): string {
- return normalizeCompanyKey(value).replace(/\s+/g, '-').trim();
-}
-
-function canonicalCompanyRouteSlug(company: string, companyKey?: string): string {
- const keyNorm = normalizeCompanyKey(String(companyKey || ''));
- const companyNorm = normalizeCompanyKey(String(company || ''));
- if (keyNorm.includes('lidl') || companyNorm.includes('lidl')) return 'lidl';
- return slugifyCompany(company);
-}
+// Both were hand-written copies of the shared normalisation (#5012 review): the token an
+// alert is saved under and the token the router compares must come from the SAME function,
+// or a CompanyAlert silently never matches. They now delegate \u2014 the local names are kept
+// only because this file references them in several places.
+const slugifyCompany = rawCompanySlug;
+const canonicalCompanyRouteSlug = baseCompanySlug;
 
 export function getJobBoardCompanyRoutePrefix(locale: Locale): string {
  switch (locale) {

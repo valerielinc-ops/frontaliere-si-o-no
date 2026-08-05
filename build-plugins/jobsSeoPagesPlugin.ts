@@ -91,6 +91,11 @@ import {
  resolveBrandCanonical,
 } from './shared/brandCanonicalMap';
 import {
+ baseCompanySlug,
+ rawCompanySlug,
+ canonicalCompanyProfileSlug,
+} from './shared/companyProfileSlug.mjs';
+import {
  buildJobCareVariantLandingModel,
  buildJobLocationLandingModel,
  buildJobLocationSectorLandingModel,
@@ -2299,16 +2304,14 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  // so jobOrphanBridgePlugin.ts can share the exact same reserved-namespace
  // guard instead of drifting a second copy (issue #2976 5th-site recurrence).
  const companyRoutePrefix = COMPANY_ROUTE_PREFIX;
- const slugifyCompanyBuild = (value: string): string =>
- String(value || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '')
- .replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '').trim();
- /** Mirror runtime canonicalCompanyRouteSlug logic */
- const canonicalCompanySlugBuild = (company: string, companyKey?: string): string => {
- const keyNorm = String(companyKey || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]+/g, ' ').trim();
- const nameNorm = String(company || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]+/g, ' ').trim();
- if (keyNorm.includes('lidl') || nameNorm.includes('lidl')) return 'lidl';
- return slugifyCompanyBuild(company);
- };
+ // These three were hand-written copies of the shared normalisation, and the docblock
+ // below used to say "Mirror runtime canonicalCompanyRouteSlug logic" \u2014 a mirror kept by
+ // hand is a drift waiting to happen (#6). They now delegate to the one module. It matters
+ // here more than anywhere: this plugin EMITS the indexed /aziende/<slug>/ URLs, so if this
+ // copy and the runtime router ever diverged, the company-hub page and the token
+ // CompanyAlert persists would stop agreeing \u2014 silently, with no error (#5012 review).
+ const slugifyCompanyBuild = rawCompanySlug;
+ const canonicalCompanySlugBuild = baseCompanySlug;
 
  // Company-hub URL slug: same as canonicalCompanySlugBuild but folds declared
  // brand aliases onto their canonical (e.g. migros-ticino → migros). Use this
@@ -2317,9 +2320,11 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  // slug and an alias never produces an indexable self-hub or an orphan link to
  // an un-emitted page. The raw companyMap key (companyMap construction) stays
  // unfolded so the BRAND_UMBRELLAS aggregation still sees each real key.
+ // Delegates to canonicalCompanyProfileSlug, which is base + the same alias fold. The
+ // former inline `raw ? … : raw` guard is preserved by resolveBrandCanonical itself
+ // (`if (!slug) return null`), so the empty-company case still yields ''.
  const companyHubSlugBuild = (company: string, companyKey?: string): string => {
- const raw = canonicalCompanySlugBuild(company, companyKey);
- return raw ? (resolveBrandCanonical(raw) ?? raw) : raw;
+ return canonicalCompanyProfileSlug(company, companyKey);
  };
 
  // ── Pre-compute title-collision map per locale ──
