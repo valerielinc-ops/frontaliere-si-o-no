@@ -8,11 +8,18 @@
  *   /vivere-in-francia-lavorare-in-svizzera/{slug}/   (it, + 3 locale prefixes)
  *   "Vivere a {commune} e lavorare in Svizzera: regime {Ginevra|otto cantoni}"
  *
- * with the sourced fixed-regime annual tax figure (REGIME_TAX in
- * frenchBorderMunicipalityData.ts — ONE regime per canton, no old/new toggle:
- * unlike the Italian fiscal family, the FR/CH accords give each commune a
- * single fixed mechanism depending on which canton it borders), plus rent and
- * distance-to-crossing data.
+ * with the sourced annual tax figure (REGIME_TAX in
+ * frenchBorderMunicipalityData.ts), plus rent and distance-to-crossing data.
+ *
+ * WHICH regime a page may assert is governed by `regimeBasis`, NOT by which
+ * canton the commune happens to border. The applicable accord follows the
+ * canton where the commuter WORKS: the 1973 Geneva arrangement (withholding
+ * at source + 3.5% retrocession) or the 1983 accord (taxation in France +
+ * 4.5% compensation). Where the commune's department borders both — Ain and
+ * Haute-Savoie — the page presents BOTH accords and states the rule instead
+ * of asserting one. Deriving the regime from the nearest crossing's canton
+ * is what told Divonne-les-Bains and Publier the wrong one; see
+ * FrenchRegimeBasis in frenchBorderMunicipalityData.ts.
  *
  * Communes BELOW the floor get a noindex,follow bridge at the SAME URL (never
  * a silent 404 — AGENTS.md § Static SEO Pages), paired with the self-map in
@@ -102,6 +109,28 @@ const REGIME_LABEL: Record<FrenchRegime, Record<FrenchLocale, string>> = {
   },
 };
 
+/**
+ * Label used where `regimeBasis === 'dual'` — the commune's department borders
+ * both canton Geneva and an accord-1983 canton, so the applicable regime is
+ * decided by the reader's canton of employment and the page must not assert
+ * one. See FrenchRegimeBasis in frenchBorderMunicipalityData.ts.
+ */
+const DUAL_REGIME_LABEL: Record<FrenchLocale, string> = {
+  it: 'Ginevra o otto cantoni, secondo il cantone di lavoro',
+  en: 'Geneva or eight cantons, depending on the canton of employment',
+  de: 'Genf oder acht Kantone, je nach Arbeitskanton',
+  fr: 'Genève ou huit cantons, selon le canton de travail',
+};
+
+/** Both regimes' figures, for the dual case where neither can be singled out. */
+function dualTaxLabel(locale: FrenchLocale): string {
+  const ge = money(REGIME_TAX.geneve.amount, REGIME_TAX.geneve.currency, locale);
+  const hc = money(REGIME_TAX['huit-cantons'].amount, REGIME_TAX['huit-cantons'].currency, locale);
+  const geneva = { it: 'Ginevra', en: 'Geneva', de: 'Genf', fr: 'Genève' }[locale];
+  const eight = { it: 'otto cantoni', en: 'eight cantons', de: 'acht Kantone', fr: 'huit cantons' }[locale];
+  return `${ge} (${geneva}) / ${hc} (${eight})`;
+}
+
 interface Copy {
   role: string;
   updated: string;
@@ -131,14 +160,24 @@ interface Copy {
   perYear: string;
   distanceUnit: string;
   explainTitle: string;
+  /**
+   * The determining rule, stated before either regime is described. The
+   * regime follows the canton of EMPLOYMENT — stating anything else (e.g.
+   * "the nearest border canton decides") is a false claim about tax law.
+   */
+  regimeRule: string;
   explainGeneve: (name: string) => string;
   explainHuitCantons: (name: string, tax: string) => string;
+  /** Shown when regimeBasis === 'dual': both regimes are genuinely reachable. */
+  dualNote: (name: string) => string;
   crossTitle: string;
   calcLink: string;
   relatedTitle: string;
   faqTitle: string;
   faqQ1: (name: string) => string;
   faqA1: (name: string, regime: string) => string;
+  /** FAQ answer for the dual case — never asserts a single regime. */
+  faqA1Dual: (name: string) => string;
   faqQ2: string;
   faqA2: string;
   faqQ3: (name: string) => string;
@@ -148,6 +187,8 @@ interface Copy {
   hubLede: string;
   groupGeneve: string;
   groupHuitCantons: string;
+  /** Hub group for dual-basis communes — see FrenchRegimeBasis. */
+  groupDual: string;
   bridgeLede: (name: string) => string;
 }
 
@@ -172,16 +213,23 @@ const COPY: Record<FrenchLocale, Copy> = {
     perYear: '/anno',
     distanceUnit: 'km',
     explainTitle: 'Come funziona la tassazione',
+    regimeRule:
+      'Il regime applicabile dipende dal cantone svizzero in cui lavori, non dal comune in cui risiedi né dal valico più vicino a casa tua. Chi vive nello stesso comune ma lavora in cantoni diversi ricade in regimi diversi.',
     explainGeneve: (n) =>
-      `${n} è nel canton Ginevra, coperto dall'accordo frontalieri del 1973: il datore di lavoro svizzero trattiene l'imposta alla fonte secondo il barème A0. Ginevra retrocede il 3.5% della massa salariale dei frontalieri alla Francia, che concede credito d'imposta pieno — nessuna doppia imposizione.`,
+      `Chi vive a ${n} e lavora nel canton Ginevra ricade nell'accordo frontalieri del 1973: il datore di lavoro svizzero trattiene l'imposta alla fonte secondo il barème A0. Ginevra retrocede il 3.5% della massa salariale dei frontalieri alla Francia, che concede credito d'imposta pieno — nessuna doppia imposizione.`,
     explainHuitCantons: (n, t) =>
-      `${n} è nel gruppo degli otto cantoni (Vaud, Neuchâtel, Giura o Vallese — accordo del 1983): qui è la Francia a tassare per intero il reddito svizzero in dichiarazione, con un abattement forfaitario del 10% e il barème progressivo francese. La Svizzera riceve in cambio una compensazione del 4.5% dalla Francia. Per il profilo di riferimento l'imposta annua è circa ${t}.`,
+      `Chi vive a ${n} e lavora in uno degli otto cantoni dell'accordo del 1983 (qui Vaud, Neuchâtel, Giura o Vallese) è tassato in Francia: è la Francia a tassare per intero il reddito svizzero in dichiarazione, con un abattement forfaitario del 10% e il barème progressivo francese. La Svizzera riceve in cambio una compensazione del 4.5% dalla Francia. Per il profilo di riferimento l'imposta annua è circa ${t}.`,
+    dualNote: (n) =>
+      `${n} si trova in un dipartimento che confina sia con Ginevra sia con un cantone dell'accordo del 1983: entrambi i regimi sono quindi realmente possibili per i suoi residenti. Qui sotto trovi tutti e due — quello che ti riguarda è deciso dal cantone del tuo datore di lavoro.`,
     crossTitle: 'Approfondimenti utili',
     calcLink: 'Calcola il tuo stipendio netto',
     relatedTitle: 'Altri comuni del corridoio',
     faqTitle: 'Domande frequenti',
     faqQ1: (n) => `Che regime fiscale si applica a ${n}?`,
-    faqA1: (n, r) => `${n} segue il regime ${r}, determinato dal cantone svizzero di confine più vicino, non da una scelta personale.`,
+    faqA1: (n, r) =>
+      `Dipende dal cantone svizzero in cui lavori, non dal comune di residenza. Tutti i cantoni che confinano con il dipartimento in cui si trova ${n} rientrano nell'accordo del 1983, quindi in pratica si applica il regime ${r}.`,
+    faqA1Dual: (n) =>
+      `Dipende dal cantone svizzero in cui lavori, non dal comune di residenza. Da ${n} sono raggiungibili sia Ginevra sia cantoni dell'accordo del 1983: se lavori a Ginevra l'imposta è trattenuta alla fonte, se lavori in Vaud, Neuchâtel, Giura o Vallese dichiari e paghi in Francia.`,
     faqQ2: 'Ginevra e gli otto cantoni tassano allo stesso modo?',
     faqA2:
       'No. A Ginevra il datore di lavoro trattiene l\'imposta alla fonte svizzera (barème A0) e la Francia riconosce credito pieno. Nel gruppo Vaud/Neuchâtel/Giura/Vallese è la Francia a tassare per intero in dichiarazione, con un abattement forfaitario del 10%, mentre la Svizzera riceve una compensazione finanziaria diretta dalla Francia.',
@@ -195,6 +243,7 @@ const COPY: Record<FrenchLocale, Copy> = {
       'Affitti, distanza dal valico e regime fiscale (Ginevra vs otto cantoni) per i comuni francesi del corridoio Ginevra-Vaud-Neuchâtel-Giura-Vallese.',
     groupGeneve: 'Regime Ginevra',
     groupHuitCantons: 'Regime otto cantoni',
+    groupDual: 'Ginevra o otto cantoni (secondo il cantone di lavoro)',
     bridgeLede: (n) =>
       `${n} è nel corridoio di confine ma è oltre la soglia di distanza/popolazione: la guida dedicata non è ancora pubblicata. Usa il calcolatore o esplora i comuni principali del corridoio.`,
   },
@@ -218,16 +267,23 @@ const COPY: Record<FrenchLocale, Copy> = {
     perYear: '/year',
     distanceUnit: 'km',
     explainTitle: 'How the taxation works',
+    regimeRule:
+      'Which regime applies depends on the Swiss canton where you work, not on the town you live in and not on the crossing nearest your home. Two people in the same town working in different cantons fall under different regimes.',
     explainGeneve: (n) =>
-      `${n} is in canton Geneva, covered by the 1973 cross-border agreement: the Swiss employer withholds tax at source under barème A0. Geneva retrocedes 3.5% of the cross-border payroll mass to France, which grants a full tax credit — no double taxation.`,
+      `If you live in ${n} and work in canton Geneva, the 1973 cross-border agreement applies: the Swiss employer withholds tax at source under barème A0. Geneva retrocedes 3.5% of the cross-border payroll mass to France, which grants a full tax credit — no double taxation.`,
     explainHuitCantons: (n, t) =>
-      `${n} is in the eight-canton group (Vaud, Neuchâtel, Jura or Valais — 1983 agreement): here France taxes the full Swiss income via the annual return, with a flat-rate 10% allowance and the French progressive scale. Switzerland receives a 4.5% compensation from France in return. For the reference profile the annual tax is about ${t}.`,
+      `If you live in ${n} and work in one of the eight cantons under the 1983 agreement (here Vaud, Neuchâtel, Jura or Valais), France taxes you: it taxes the full Swiss income via the annual return, with a flat-rate 10% allowance and the French progressive scale. Switzerland receives a 4.5% compensation from France in return. For the reference profile the annual tax is about ${t}.`,
+    dualNote: (n) =>
+      `${n} sits in a department bordering both canton Geneva and a canton under the 1983 agreement, so both regimes are genuinely possible for its residents. Both are described below — the one that applies to you is set by your employer's canton.`,
     crossTitle: 'Useful reading',
     calcLink: 'Calculate your net salary',
     relatedTitle: 'Other towns in the corridor',
     faqTitle: 'FAQ',
     faqQ1: (n) => `Which tax regime applies in ${n}?`,
-    faqA1: (n, r) => `${n} follows the ${r} regime, determined by the nearest Swiss border canton, not by personal choice.`,
+    faqA1: (n, r) =>
+      `It depends on the Swiss canton where you work, not on the town you live in. Every canton bordering ${n}'s department falls under the 1983 agreement, so in practice the ${r} regime applies.`,
+    faqA1Dual: (n) =>
+      `It depends on the Swiss canton where you work, not on the town you live in. From ${n} both Geneva and cantons under the 1983 agreement are commutable: work in Geneva and tax is withheld at source; work in Vaud, Neuchâtel, Jura or Valais and you declare and pay in France.`,
     faqQ2: 'Do Geneva and the eight cantons tax the same way?',
     faqA2:
       'No. In Geneva the employer withholds Swiss tax at source (barème A0) and France grants a full credit. In the Vaud/Neuchâtel/Jura/Valais group, France taxes the full income via the annual return with a flat 10% allowance, while Switzerland receives a direct financial compensation from France.',
@@ -241,6 +297,7 @@ const COPY: Record<FrenchLocale, Copy> = {
       'Rent, distance to the border crossing and tax regime (Geneva vs eight cantons) for the French towns in the Geneva-Vaud-Neuchâtel-Jura-Valais corridor.',
     groupGeneve: 'Geneva regime',
     groupHuitCantons: 'Eight-canton regime',
+    groupDual: 'Geneva or eight cantons (by canton of employment)',
     bridgeLede: (n) =>
       `${n} is in the border corridor but beyond the distance/population floor, so its dedicated guide is not published yet. Use the calculator or explore the main towns in the corridor.`,
   },
@@ -264,16 +321,23 @@ const COPY: Record<FrenchLocale, Copy> = {
     perYear: '/Jahr',
     distanceUnit: 'km',
     explainTitle: 'So funktioniert die Besteuerung',
+    regimeRule:
+      'Welches Regime gilt, hängt vom Schweizer Kanton ab, in dem Sie arbeiten — nicht vom Wohnort und nicht vom nächstgelegenen Grenzübergang. Wer im selben Ort wohnt, aber in verschiedenen Kantonen arbeitet, fällt unter verschiedene Regime.',
     explainGeneve: (n) =>
-      `${n} liegt im Kanton Genf, abgedeckt vom Grenzgänger-Abkommen von 1973: Der Schweizer Arbeitgeber behält die Quellensteuer nach Tarif A0 ein. Genf überweist 3.5% der Grenzgänger-Lohnsumme an Frankreich, das im Gegenzug volle Anrechnung gewährt — keine Doppelbesteuerung.`,
+      `Wer in ${n} wohnt und im Kanton Genf arbeitet, fällt unter das Grenzgänger-Abkommen von 1973: Der Schweizer Arbeitgeber behält die Quellensteuer nach Tarif A0 ein. Genf überweist 3.5% der Grenzgänger-Lohnsumme an Frankreich, das im Gegenzug volle Anrechnung gewährt — keine Doppelbesteuerung.`,
     explainHuitCantons: (n, t) =>
-      `${n} gehört zur Acht-Kantone-Gruppe (Waadt, Neuenburg, Jura oder Wallis — Abkommen von 1983): Hier besteuert Frankreich das gesamte Schweizer Einkommen über die Steuererklärung, mit einem Pauschalabzug von 10% und dem französischen Progressionstarif. Die Schweiz erhält im Gegenzug eine Ausgleichszahlung von 4.5% von Frankreich. Für das Referenzprofil beträgt die Jahressteuer rund ${t}.`,
+      `Wer in ${n} wohnt und in einem der acht Kantone des Abkommens von 1983 arbeitet (hier Waadt, Neuenburg, Jura oder Wallis), wird in Frankreich besteuert: Frankreich besteuert das gesamte Schweizer Einkommen über die Steuererklärung, mit einem Pauschalabzug von 10% und dem französischen Progressionstarif. Die Schweiz erhält im Gegenzug eine Ausgleichszahlung von 4.5% von Frankreich. Für das Referenzprofil beträgt die Jahressteuer rund ${t}.`,
+    dualNote: (n) =>
+      `${n} liegt in einem Departement, das sowohl an den Kanton Genf als auch an einen Kanton des Abkommens von 1983 grenzt: Beide Regime sind für die Einwohner real möglich. Unten stehen beide — welches für Sie gilt, bestimmt der Kanton Ihres Arbeitgebers.`,
     crossTitle: 'Nützliche Lektüre',
     calcLink: 'Nettolohn berechnen',
     relatedTitle: 'Weitere Orte im Korridor',
     faqTitle: 'Häufige Fragen',
     faqQ1: (n) => `Welches Steuerregime gilt in ${n}?`,
-    faqA1: (n, r) => `${n} folgt dem Regime ${r}, bestimmt vom nächstgelegenen Schweizer Grenzkanton, nicht durch persönliche Wahl.`,
+    faqA1: (n, r) =>
+      `Das hängt vom Schweizer Kanton ab, in dem Sie arbeiten, nicht vom Wohnort. Alle Kantone, die an das Departement grenzen, in dem ${n} liegt, fallen unter das Abkommen von 1983, daher gilt in der Praxis das Regime ${r}.`,
+    faqA1Dual: (n) =>
+      `Das hängt vom Schweizer Kanton ab, in dem Sie arbeiten, nicht vom Wohnort. Von ${n} aus sind sowohl Genf als auch Kantone des Abkommens von 1983 erreichbar: Arbeiten Sie in Genf, wird die Steuer an der Quelle einbehalten; arbeiten Sie in Waadt, Neuenburg, Jura oder Wallis, erklären und zahlen Sie in Frankreich.`,
     faqQ2: 'Besteuern Genf und die acht Kantone gleich?',
     faqA2:
       'Nein. In Genf behält der Arbeitgeber die Schweizer Quellensteuer ein (Tarif A0), Frankreich gewährt volle Anrechnung. In der Gruppe Waadt/Neuenburg/Jura/Wallis besteuert Frankreich das gesamte Einkommen über die Steuererklärung mit einem Pauschalabzug von 10%, während die Schweiz eine direkte Ausgleichszahlung von Frankreich erhält.',
@@ -287,6 +351,7 @@ const COPY: Record<FrenchLocale, Copy> = {
       'Miete, Distanz zum Grenzübergang und Steuerregime (Genf vs. acht Kantone) für die französischen Orte im Korridor Genf-Waadt-Neuenburg-Jura-Wallis.',
     groupGeneve: 'Regime Genf',
     groupHuitCantons: 'Regime acht Kantone',
+    groupDual: 'Genf oder acht Kantone (je nach Arbeitskanton)',
     bridgeLede: (n) =>
       `${n} liegt im Grenzkorridor, aber jenseits der Distanz-/Bevölkerungsschwelle, daher ist der eigene Ratgeber noch nicht veröffentlicht. Nutzen Sie den Rechner oder erkunden Sie die grösseren Orte im Korridor.`,
   },
@@ -310,16 +375,23 @@ const COPY: Record<FrenchLocale, Copy> = {
     perYear: '/an',
     distanceUnit: 'km',
     explainTitle: 'Comment fonctionne la fiscalité',
+    regimeRule:
+      "Le régime applicable dépend du canton suisse où vous travaillez, pas de la commune où vous résidez ni du passage frontière le plus proche de chez vous. Deux habitants de la même commune travaillant dans des cantons différents relèvent de régimes différents.",
     explainGeneve: (n) =>
-      `${n} est dans le canton de Genève, couvert par l'accord frontalier de 1973 : l'employeur suisse retient l'impôt à la source selon le barème A0. Genève rétrocède 3.5% de la masse salariale frontalière à la France, qui accorde un crédit d'impôt intégral — pas de double imposition.`,
+      `Si vous vivez à ${n} et travaillez dans le canton de Genève, l'accord frontalier de 1973 s'applique : l'employeur suisse retient l'impôt à la source selon le barème A0. Genève rétrocède 3.5% de la masse salariale frontalière à la France, qui accorde un crédit d'impôt intégral — pas de double imposition.`,
     explainHuitCantons: (n, t) =>
-      `${n} est dans le groupe des huit cantons (Vaud, Neuchâtel, Jura ou Valais — accord de 1983) : ici la France impose l'intégralité du revenu suisse via la déclaration, avec un abattement forfaitaire de 10% et le barème progressif français. La Suisse reçoit en retour une compensation de 4.5% de la France. Pour le profil de référence, l'impôt annuel est d'environ ${t}.`,
+      `Si vous vivez à ${n} et travaillez dans l'un des huit cantons de l'accord de 1983 (ici Vaud, Neuchâtel, Jura ou Valais), c'est la France qui vous impose : elle impose l'intégralité du revenu suisse via la déclaration, avec un abattement forfaitaire de 10% et le barème progressif français. La Suisse reçoit en retour une compensation de 4.5% de la France. Pour le profil de référence, l'impôt annuel est d'environ ${t}.`,
+    dualNote: (n) =>
+      `${n} se situe dans un département frontalier à la fois du canton de Genève et d'un canton de l'accord de 1983 : les deux régimes sont donc réellement possibles pour ses habitants. Les deux sont décrits ci-dessous — celui qui vous concerne est déterminé par le canton de votre employeur.`,
     crossTitle: 'À lire aussi',
     calcLink: 'Calculez votre salaire net',
     relatedTitle: 'Autres communes du corridor',
     faqTitle: 'Questions fréquentes',
     faqQ1: (n) => `Quel régime fiscal s'applique à ${n} ?`,
-    faqA1: (n, r) => `${n} suit le régime ${r}, déterminé par le canton suisse frontalier le plus proche, pas par un choix personnel.`,
+    faqA1: (n, r) =>
+      `Cela dépend du canton suisse où vous travaillez, pas de la commune de résidence. Tous les cantons frontaliers du département où se trouve ${n} relèvent de l'accord de 1983, donc en pratique c'est le régime ${r} qui s'applique.`,
+    faqA1Dual: (n) =>
+      `Cela dépend du canton suisse où vous travaillez, pas de la commune de résidence. Depuis ${n}, Genève comme les cantons de l'accord de 1983 sont accessibles : si vous travaillez à Genève l'impôt est retenu à la source ; si vous travaillez dans le canton de Vaud, à Neuchâtel, dans le Jura ou en Valais, vous déclarez et payez en France.`,
     faqQ2: 'Genève et les huit cantons imposent-ils de la même façon ?',
     faqA2:
       'Non. À Genève, l\'employeur retient l\'impôt suisse à la source (barème A0) et la France accorde un crédit intégral. Dans le groupe Vaud/Neuchâtel/Jura/Valais, la France impose l\'intégralité du revenu via la déclaration avec un abattement forfaitaire de 10%, tandis que la Suisse reçoit une compensation financière directe de la France.',
@@ -333,6 +405,7 @@ const COPY: Record<FrenchLocale, Copy> = {
       'Loyers, distance à la frontière et régime fiscal (Genève vs huit cantons) pour les communes françaises du corridor Genève-Vaud-Neuchâtel-Jura-Valais.',
     groupGeneve: 'Régime Genève',
     groupHuitCantons: 'Régime huit cantons',
+    groupDual: 'Genève ou huit cantons (selon le canton de travail)',
     bridgeLede: (n) =>
       `${n} est dans le corridor frontalier mais au-delà du seuil de distance/population : son guide dédié n'est pas encore publié. Utilisez le calculateur ou explorez les principales communes du corridor.`,
   },
@@ -395,8 +468,14 @@ export function renderAboveFloorPage(params: {
   const { municipality, locale, dateStamp, distDir } = params;
   const c = COPY[locale];
   const n = municipality.name;
-  const regimeLabel = REGIME_LABEL[municipality.regime][locale];
-  const taxStr = taxAmountStr(municipality.regime, locale);
+  // Where the department borders both regimes, the commune's own geography
+  // cannot pick one — the canton of employment does. Presenting the
+  // nearest-canton regime as if it were settled is what mislabelled
+  // Divonne-les-Bains and Publier (see FrenchRegimeBasis).
+  const isDual = municipality.regimeBasis === 'dual';
+  const regimeLabel = isDual ? DUAL_REGIME_LABEL[locale] : REGIME_LABEL[municipality.regime][locale];
+  const taxStr = isDual ? dualTaxLabel(locale) : taxAmountStr(municipality.regime, locale);
+  const faqA1Text = isDual ? c.faqA1Dual(n) : c.faqA1(n, regimeLabel);
   const rentStr = eur(municipality.avgRentMonthly, locale);
   const canonicalPath = frenchMunicipalityPathFor(locale, municipality.slug);
   const canonicalUrl = `${BASE_URL}${canonicalPath}`;
@@ -436,7 +515,20 @@ export function renderAboveFloorPage(params: {
 
     <section class="mt-6 rounded-md border border-edge bg-surface p-5">
       <h2 class="text-xl font-bold text-heading">${esc(c.explainTitle)}</h2>
-      <p class="mt-3 text-sm leading-6 text-body">${esc(municipality.regime === 'geneve' ? c.explainGeneve(n) : c.explainHuitCantons(n, taxStr))}</p>
+      <p class="mt-3 text-sm leading-6 text-body">${esc(c.regimeRule)}</p>
+      ${
+        isDual
+          ? `<p class="mt-3 text-sm leading-6 text-body">${esc(c.dualNote(n))}</p>
+      <p class="mt-3 text-sm leading-6 text-body">${esc(c.explainGeneve(n))}</p>
+      <p class="mt-3 text-sm leading-6 text-body">${esc(
+        c.explainHuitCantons(n, taxAmountStr('huit-cantons', locale)),
+      )}</p>`
+          : `<p class="mt-3 text-sm leading-6 text-body">${esc(
+              municipality.regime === 'geneve'
+                ? c.explainGeneve(n)
+                : c.explainHuitCantons(n, taxAmountStr(municipality.regime, locale)),
+            )}</p>`
+      }
     </section>
 
     <section class="mt-6 rounded-md border border-edge bg-surface p-5">
@@ -452,7 +544,7 @@ export function renderAboveFloorPage(params: {
     <section class="mt-6 rounded-md border border-edge bg-surface p-5">
       <h2 class="text-xl font-bold text-heading">${esc(c.faqTitle)}</h2>
       <div class="mt-4 divide-y divide-edge">
-        <details class="py-3" open><summary class="cursor-pointer font-semibold text-heading">${esc(c.faqQ1(n))}</summary><p class="mt-2 text-sm leading-6 text-body">${esc(c.faqA1(n, regimeLabel))}</p></details>
+        <details class="py-3" open><summary class="cursor-pointer font-semibold text-heading">${esc(c.faqQ1(n))}</summary><p class="mt-2 text-sm leading-6 text-body">${esc(faqA1Text)}</p></details>
         <details class="py-3"><summary class="cursor-pointer font-semibold text-heading">${esc(c.faqQ2)}</summary><p class="mt-2 text-sm leading-6 text-body">${esc(c.faqA2)}</p></details>
         <details class="py-3"><summary class="cursor-pointer font-semibold text-heading">${esc(c.faqQ3(n))}</summary><p class="mt-2 text-sm leading-6 text-body">${esc(c.faqA3(n, rentStr))}</p></details>
       </div>
@@ -468,7 +560,7 @@ export function renderAboveFloorPage(params: {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
     mainEntity: [
-      { '@type': 'Question', name: c.faqQ1(n), acceptedAnswer: { '@type': 'Answer', text: c.faqA1(n, regimeLabel) } },
+      { '@type': 'Question', name: c.faqQ1(n), acceptedAnswer: { '@type': 'Answer', text: faqA1Text } },
       { '@type': 'Question', name: c.faqQ2, acceptedAnswer: { '@type': 'Answer', text: c.faqA2 } },
       { '@type': 'Question', name: c.faqQ3(n), acceptedAnswer: { '@type': 'Answer', text: c.faqA3(n, rentStr) } },
     ],
@@ -511,7 +603,12 @@ export function renderBridgePage(params: {
   const { municipality, locale, distDir } = params;
   const c = COPY[locale];
   const n = municipality.name;
-  const regimeLabel = REGIME_LABEL[municipality.regime][locale];
+  // Same rule as the above-floor page: a dual-basis commune must not have one
+  // regime asserted in its H1/description either.
+  const regimeLabel =
+    municipality.regimeBasis === 'dual'
+      ? DUAL_REGIME_LABEL[locale]
+      : REGIME_LABEL[municipality.regime][locale];
   const canonicalPath = frenchMunicipalityPathFor(locale, municipality.slug);
   const canonicalUrl = `${BASE_URL}${canonicalPath}`;
 
@@ -555,15 +652,24 @@ function renderHubPage(params: { locale: FrenchLocale; dateStamp: string; distDi
   const canonicalPath = FRENCH_HUB_PATH[locale];
   const canonicalUrl = `${BASE_URL}${canonicalPath}`;
 
-  const groupLabel: Record<FrenchRegime, string> = {
+  // Three groups, not two: a dual-basis commune belongs under neither regime
+  // heading, because its residents' regime is set by their canton of
+  // employment (see FrenchRegimeBasis). Filing it under one of the two would
+  // reintroduce the assertion the detail pages were fixed to stop making.
+  type HubGroup = FrenchRegime | 'dual';
+  const groupLabel: Record<HubGroup, string> = {
     geneve: c.groupGeneve,
     'huit-cantons': c.groupHuitCantons,
+    dual: c.groupDual,
   };
-  const byRegime = new Map<FrenchRegime, FrenchBorderMunicipality[]>();
+  const groupOf = (m: FrenchBorderMunicipality): HubGroup =>
+    m.regimeBasis === 'dual' ? 'dual' : m.regime;
+  const byRegime = new Map<HubGroup, FrenchBorderMunicipality[]>();
   for (const m of FRENCH_ABOVE_FLOOR) {
-    const arr = byRegime.get(m.regime);
+    const key = groupOf(m);
+    const arr = byRegime.get(key);
     if (arr) arr.push(m);
-    else byRegime.set(m.regime, [m]);
+    else byRegime.set(key, [m]);
   }
   const groups = [...byRegime.entries()]
     .map(([regime, list]) => {
