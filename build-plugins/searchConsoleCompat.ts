@@ -33,6 +33,7 @@ import { isFrenchBorderMunicipalityPath } from './frenchBorderMunicipalityData';
 import { isGermanBorderMunicipalityPath } from './germanBorderMunicipalityData';
 import { isLiechtensteinBorderMunicipalityPath } from './liechtensteinBorderMunicipalityData';
 import { isAustrianBorderMunicipalityPath } from './austrianBorderMunicipalityData';
+import { isBorderMunicipalityPath, isBorderMunicipalityHubPath } from './borderMunicipalityData';
 import { isBorderWaitPath } from './borderWaitData';
 
 type SupportedLocale = CantonLocale;
@@ -658,6 +659,25 @@ export function resolveSearchConsoleCompatTarget(
  // every build, above-floor as an indexable page, below-floor as a
  // noindex,follow bridge, never a silent skip.
  if (isAustrianBorderMunicipalityPath(path)) {
+ return {
+ canonicalPath: ensureTrailingSlash(path),
+ kind: 'legacy',
+ locale,
+ };
+ }
+
+ // Per-municipality ITALIAN border pages (borderMunicipalityPagesPlugin.ts) —
+ // the largest of the five families and, until now, the only one without a
+ // self-map. Its URLs matched the SECTION_FALLBACKS entries below
+ // (`^/vivere-in-ticino/` and the en/de/fr twins), which resolve a comune to
+ // the section HUB rather than to itself. That fallback is right for a truly
+ // dead `/vivere-in-ticino/*` URL and wrong for a comune that is simply
+ // absent from one build, so the enumerated set has to win — hence this
+ // branch sits ahead of the fallback loop, alongside its four siblings.
+ // isBorderMunicipalityPath checks a module-load-precomputed Set (O(1) inside
+ // the 150k+-path compat loop), built from the unfiltered province filter so
+ // BORDER_MUNICIPALITY_PAGE_LIMIT cannot shrink it.
+ if (isBorderMunicipalityPath(path) || isBorderMunicipalityHubPath(path)) {
  return {
  canonicalPath: ensureTrailingSlash(path),
  kind: 'legacy',
