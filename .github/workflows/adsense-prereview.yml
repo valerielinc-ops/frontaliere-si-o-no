@@ -51,9 +51,13 @@ jobs:
     # modules), no disk pressure, no 20k-line Vite asset table truncating the
     # log. Runs in minutes.
     #
-    # The composite action `build-dist-multi-locale-merged` is deliberately NOT
-    # deleted: cathedral-seo-gates-check.yml still uses it and genuinely needs a
-    # built dist.
+    # The composite action `build-dist-multi-locale-merged` was deleted with
+    # #5169. When this comment was written it was kept because
+    # cathedral-seo-gates-check.yml "genuinely needs a built dist" — true, but it
+    # does not need to build that dist ITSELF: it now replays the one deploy.yml
+    # already shipped. With both callers gone the action had no remaining use,
+    # and leaving a build that the kernel OOM-killer took 9 times out of 10
+    # lying around is an invitation to wire it back up.
     timeout-minutes: 20
 
     steps:

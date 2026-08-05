@@ -54,10 +54,12 @@ describe('post-walk worker imports a leaf injector (#4959)', () => {
   });
 
   it('the deploy runs the post-walk with more than one worker again', () => {
-    for (const rel of [
-      '.github/workflows/deploy.yml',
-      '.github/actions/build-dist-multi-locale-merged/action.yml',
-    ]) {
+    // `.github/actions/build-dist-multi-locale-merged/action.yml` used to be in
+    // this list. It was deleted with #5169 — it existed only to run a monolithic
+    // SSG build for two audit workflows, the kernel OOM-killer took 9 of the
+    // last 10 of those runs, and both callers now read a dist they did not
+    // build. deploy.yml is the only place the post-walk worker count is set.
+    for (const rel of ['.github/workflows/deploy.yml']) {
       const src = read(rel);
       expect(src, `${rel} still pins POST_WALK_WORKERS to 1`).not.toMatch(
         /POST_WALK_WORKERS:\s*'1'/,
