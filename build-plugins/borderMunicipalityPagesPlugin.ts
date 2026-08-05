@@ -21,10 +21,15 @@ import { composePlaceTitle, TITLE_MAX_CHARS } from './shared/titleSuffix';
 import { endOfContentMultiplexHtml } from './lib/adSlotHtml';
 import { staticPagesFlushed } from './shared/buildSignals';
 import { MUNICIPALITIES, type Municipality } from '../data/municipalities';
+import {
+  BORDER_MUNICIPALITY_BASE_PATH,
+  borderMunicipalityPathFor,
+  corridorMunicipalities,
+  slugifyMunicipalityName,
+} from './borderMunicipalityData';
 import { borderCrossings, type BorderCrossing } from '../data/borderCrossings';
 import { inlineScriptJson } from './shared/inlineJsonScript';
 import { getCantonDisplayName, type CantonDisplayLocale } from './shared/cantonDisplay';
-import { TICINO_VITA_CORRIDOR_PROVINCES } from './shared/borderMunicipalityCorridors';
 
 type Locale = 'it' | 'en' | 'de' | 'fr';
 type WaitSnapshot = {
@@ -40,18 +45,11 @@ type WaitSnapshot = {
 };
 
 const LOCALES: readonly Locale[] = ['it', 'en', 'de', 'fr'] as const;
-// Moved to shared/borderMunicipalityCorridors.ts (issue #4893) so
-// fiscalMunicipalityPagesPlugin.ts can reuse the same province Set instead
-// of duplicating the literal — see that module's doc comment.
-const TICINO_CORRIDOR_PROVINCES = TICINO_VITA_CORRIDOR_PROVINCES;
 const SITEMAP_NAME = 'sitemap-comuni-frontiera.xml';
 
-const MUNICIPALITY_BASE_PATH: Record<Locale, string> = {
-  it: '/vivere-in-ticino/comuni-di-frontiera',
-  en: '/en/living-in-ticino/border-municipalities',
-  de: '/de/leben-im-tessin/grenzgemeinden',
-  fr: '/fr/vivre-au-tessin/communes-frontiere',
-};
+// Shared with searchConsoleCompat via ./borderMunicipalityData, so the
+// emitted URLs and the compat self-map cannot drift apart.
+const MUNICIPALITY_BASE_PATH = BORDER_MUNICIPALITY_BASE_PATH;
 
 const LOCALE_OG: Record<Locale, string> = {
   it: 'it_CH',
@@ -463,18 +461,10 @@ function esc(value: unknown): string {
     .replace(/"/g, '&quot;');
 }
 
-function slugify(value: string): string {
-  return value
-    .normalize('NFD')
-    .replace(/[\u0300-\u036f]/g, '')
-    .toLowerCase()
-    .replace(/['’]/g, '')
-    .replace(/[^a-z0-9]+/g, '-')
-    .replace(/^-+|-+$/g, '');
-}
+const slugify = slugifyMunicipalityName;
 
 function pathFor(locale: Locale, municipality: Municipality): string {
-  return `${MUNICIPALITY_BASE_PATH[locale]}/${slugify(municipality.name)}/`;
+  return borderMunicipalityPathFor(locale, municipality.name);
 }
 
 function haversineKm(a: { lat: number; lng: number }, b: { lat: number; lng: number }): number {
@@ -505,9 +495,7 @@ function readWaitSnapshot(rootDir: string): WaitSnapshot {
 
 function eligibleMunicipalities(): Municipality[] {
   const limit = Number.parseInt(process.env.BORDER_MUNICIPALITY_PAGE_LIMIT ?? '', 10);
-  const all = MUNICIPALITIES
-    .filter((m) => TICINO_CORRIDOR_PROVINCES.has(m.province))
-    .sort((a, b) => a.province.localeCompare(b.province) || a.name.localeCompare(b.name));
+  const all = corridorMunicipalities();
   return Number.isFinite(limit) && limit > 0 ? all.slice(0, limit) : all;
 }
 
@@ -524,7 +512,7 @@ function nearestCrossings(municipality: Municipality): Array<{ crossing: BorderC
 
 /**
  * Canton this municipality-page generator's routes target. Every Italian
- * border municipality in TICINO_CORRIDOR_PROVINCES today commutes toward
+ * border municipality in the Ticino corridor provinces today commutes toward
  * Ticino, so this is the one corridor canton in scope right now — taking it
  * as a parameter (instead of a bare 'TI' literal inside the filter) is what
  * lets a future non-TI corridor reuse nearestCantonCrossings() without
