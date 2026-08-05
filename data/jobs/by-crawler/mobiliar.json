@@ -970,22 +970,42 @@
       "sfJobId": "1165022855",
       "previousSlugs": [
         "kv-lehrstelle-efz-2027-generalagentur-limmattal-mobiliar-ch",
-        "kv-apprendistato-cfc-2027-agenzia-generale-limmattal-die-mobiliar-dietikon"
+        "kv-apprendistato-cfc-2027-agenzia-generale-limmattal-die-mobiliar-dietikon",
+        "kv-apprendistato-cfc-2027-die-mobiliar-zurich",
+        "kv-teaching-centre-efz-2027-die-mobiliar-zurich",
+        "kv-lehrstelle-efz-2027-mobiliar-ch",
+        "kv-centre-d-enseignement-efz-2027-die-mobiliar-zurich",
+        "kv-apprendistato-cfc-2027-lehre-e-sport-die-mobiliar-bern",
+        "kv-teaching-centre-efz-2027-teaching-and-sport-die-mobiliar-bern",
+        "kv-lehrstelle-efz-2027-lehre-und-sport-mobiliar-ch",
+        "centre-d-enseignement-kv-efz-2027-enseignement-et-sport-die-mobiliar-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "kv-lehrstelle-efz-2027-generalagentur-limmattal-mobiliar-ch",
-          "kv-apprendistato-cfc-2027-agenzia-generale-limmattal-die-mobiliar-dietikon"
+          "kv-apprendistato-cfc-2027-agenzia-generale-limmattal-die-mobiliar-dietikon",
+          "kv-apprendistato-cfc-2027-die-mobiliar-zurich",
+          "kv-teaching-centre-efz-2027-die-mobiliar-zurich",
+          "kv-lehrstelle-efz-2027-mobiliar-ch",
+          "kv-centre-d-enseignement-efz-2027-die-mobiliar-zurich",
+          "kv-apprendistato-cfc-2027-lehre-e-sport-die-mobiliar-bern",
+          "kv-teaching-centre-efz-2027-teaching-and-sport-die-mobiliar-bern",
+          "kv-lehrstelle-efz-2027-lehre-und-sport-mobiliar-ch",
+          "centre-d-enseignement-kv-efz-2027-enseignement-et-sport-die-mobiliar-bern"
         ],
         "en": [
-          "kv-lehrstelle-efz-2027-generalagentur-limmattal-mobiliar-ch"
+          "kv-lehrstelle-efz-2027-generalagentur-limmattal-mobiliar-ch",
+          "kv-teaching-centre-efz-2027-die-mobiliar-zurich"
         ],
         "fr": [
-          "kv-lehrstelle-efz-2027-generalagentur-limmattal-mobiliar-ch"
+          "kv-lehrstelle-efz-2027-generalagentur-limmattal-mobiliar-ch",
+          "kv-centre-d-enseignement-efz-2027-die-mobiliar-zurich"
+        ],
+        "de": [
+          "kv-lehrstelle-efz-2027-mobiliar-ch"
         ]
       },
       "firstSeenAt": "2026-07-02T11:36:26.425Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -998,7 +1018,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "needsRetranslation": true
     },
     {
       "id": "mobiliar-4535d86b30dc",
@@ -2077,19 +2098,35 @@
       "sfJobId": "1164681355",
       "previousSlugs": [
         "kv-lehrstelle-efz-2027-w-m-d-generalagentur-schaffhausen-mobiliar-ch",
-        "kv-apprendistato-cfc-2027-m-w-d-agenzia-generale-schaffhausen-die-mobiliar-schaffhausen"
+        "kv-apprendistato-cfc-2027-m-w-d-agenzia-generale-schaffhausen-die-mobiliar-schaffhausen",
+        "kv-apprendistato-cfc-2027-agenzia-generale-burgdorf-m-w-d-die-mobiliar-burgdorf",
+        "kv-apprenticeship-efz-2027-general-agency-burgdorf-f-m-d-die-mobiliar-burgdorf",
+        "kv-lehrstelle-efz-2027-generalagentur-burgdorf-w-m-d-mobiliar-ch",
+        "cc-place-d-apprentissage-cfc-2027-agence-generale-de-berthoud-w-m-d-die-mobiliar-burgdorf",
+        "kv-lehrstelle-efz-2027-w-m-d-generalagentur-lachen-mobiliar-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "kv-lehrstelle-efz-2027-w-m-d-generalagentur-schaffhausen-mobiliar-ch",
-          "kv-apprendistato-cfc-2027-m-w-d-agenzia-generale-schaffhausen-die-mobiliar-schaffhausen"
+          "kv-apprendistato-cfc-2027-m-w-d-agenzia-generale-schaffhausen-die-mobiliar-schaffhausen",
+          "kv-apprendistato-cfc-2027-agenzia-generale-burgdorf-m-w-d-die-mobiliar-burgdorf",
+          "kv-apprenticeship-efz-2027-general-agency-burgdorf-f-m-d-die-mobiliar-burgdorf",
+          "kv-lehrstelle-efz-2027-generalagentur-burgdorf-w-m-d-mobiliar-ch",
+          "cc-place-d-apprentissage-cfc-2027-agence-generale-de-berthoud-w-m-d-die-mobiliar-burgdorf",
+          "kv-lehrstelle-efz-2027-w-m-d-generalagentur-lachen-mobiliar-ch"
         ],
         "en": [
-          "kv-lehrstelle-efz-2027-w-m-d-generalagentur-schaffhausen-mobiliar-ch"
+          "kv-lehrstelle-efz-2027-w-m-d-generalagentur-schaffhausen-mobiliar-ch",
+          "kv-apprenticeship-efz-2027-general-agency-burgdorf-f-m-d-die-mobiliar-burgdorf"
+        ],
+        "de": [
+          "kv-lehrstelle-efz-2027-generalagentur-burgdorf-w-m-d-mobiliar-ch"
+        ],
+        "fr": [
+          "cc-place-d-apprentissage-cfc-2027-agence-generale-de-berthoud-w-m-d-die-mobiliar-burgdorf"
         ]
       },
       "firstSeenAt": "2026-05-10T22:09:42.039Z",
-      "needsRetranslation": true,
       "salaryMin": 48000,
       "salaryMax": 73000,
       "baseSalary": {
@@ -2102,7 +2139,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "SH"
+      "addressRegion": "SH",
+      "needsRetranslation": true
     },
     {
       "id": "mobiliar-f88512bec8fa",

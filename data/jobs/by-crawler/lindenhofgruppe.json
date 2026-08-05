@@ -3795,17 +3795,25 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "dipl-expertin-experte-anasthesie-intensiv-oder-notfallpflege-nds-oder-dipl-pflegefachfrau"
+        "dipl-expertin-experte-anasthesie-intensiv-oder-notfallpflege-nds-oder-dipl-pflegefachfrau",
+        "dipl-expertin-experte-anasthesie-intensiv-o-notfallpflege-nds-o-dipl-pflegefachfrau-7yy51p",
+        "dipl-expert-anesthesia-intensive-care-or-emergency-care-nds-or-dipl-nursing-professional-with-ndk-surveillance-care",
+        "dipl-anesthesie-experte-soins-intensifs-ou-d-urgence-pdn-ou-dipl-professionnel-infirmier-avec-des-soins-de-surveillance"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-expertin-experte-anasthesie-intensiv-oder-notfallpflege-nds-oder-dipl-pflegefachfrau"
+          "dipl-expertin-experte-anasthesie-intensiv-oder-notfallpflege-nds-oder-dipl-pflegefachfrau",
+          "dipl-expertin-experte-anasthesie-intensiv-o-notfallpflege-nds-o-dipl-pflegefachfrau-7yy51p",
+          "dipl-expert-anesthesia-intensive-care-or-emergency-care-nds-or-dipl-nursing-professional-with-ndk-surveillance-care",
+          "dipl-anesthesie-experte-soins-intensifs-ou-d-urgence-pdn-ou-dipl-professionnel-infirmier-avec-des-soins-de-surveillance"
         ],
         "en": [
-          "dipl-expertin-experte-anasthesie-intensiv-oder-notfallpflege-nds-oder-dipl-pflegefachfrau"
+          "dipl-expertin-experte-anasthesie-intensiv-oder-notfallpflege-nds-oder-dipl-pflegefachfrau",
+          "dipl-expert-anesthesia-intensive-care-or-emergency-care-nds-or-dipl-nursing-professional-with-ndk-surveillance-care"
         ],
         "fr": [
-          "dipl-expertin-experte-anasthesie-intensiv-oder-notfallpflege-nds-oder-dipl-pflegefachfrau"
+          "dipl-expertin-experte-anasthesie-intensiv-oder-notfallpflege-nds-oder-dipl-pflegefachfrau",
+          "dipl-anesthesie-experte-soins-intensifs-ou-d-urgence-pdn-ou-dipl-professionnel-infirmier-avec-des-soins-de-surveillance"
         ]
       },
       "firstSeenAt": "2026-07-27T22:21:35.458Z",
@@ -3872,21 +3880,35 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "teamleiter-in-fur-fachfrau-mann-apotheke-bzw-pharma-assistentin-assistent-lindenhofgruppe"
+        "teamleiter-in-fur-fachfrau-mann-apotheke-bzw-pharma-assistentin-assistent-lindenhofgruppe",
+        "teamleiter-in-per-fachfrau-mann-apotheke-bzw-pharma-assistentin-assistent-lindenhof-jgxgrg",
+        "chef-d-equipe-pour-pharmacie-specialisee-ou-assistant-assistant-pharmaceutique-lindenhofgruppe-lindenhofgruppe",
+        "team-leader-experts-pharmacy-pharmaceutical-assistants-lindenhofgruppe-lindenhofgruppe",
+        "chef-d-equipe-experts-pharmacie-assistants-pharmaceutiques-lindenhofgruppe-lindenhofgruppe",
+        "teamleiter-in-fachpersonen-apotheke-pharma-assistenten-lindenhofgruppe-ch",
+        "team-leader-specialisti-farmacia-assistenti-farmaceutici-lindenhofgruppe-lindenhofgruppe",
+        "teamleiter-in-per-fachfrau-mann-apotheke-bzw-pharma-assistentin-assistent-lindenhof-e2l7sx"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "teamleiter-in-fur-fachfrau-mann-apotheke-bzw-pharma-assistentin-assistent-lindenhofgruppe"
+          "teamleiter-in-fur-fachfrau-mann-apotheke-bzw-pharma-assistentin-assistent-lindenhofgruppe",
+          "teamleiter-in-per-fachfrau-mann-apotheke-bzw-pharma-assistentin-assistent-lindenhof-jgxgrg",
+          "chef-d-equipe-pour-pharmacie-specialisee-ou-assistant-assistant-pharmaceutique-lindenhofgruppe-lindenhofgruppe",
+          "team-leader-experts-pharmacy-pharmaceutical-assistants-lindenhofgruppe-lindenhofgruppe",
+          "chef-d-equipe-experts-pharmacie-assistants-pharmaceutiques-lindenhofgruppe-lindenhofgruppe",
+          "teamleiter-in-fachpersonen-apotheke-pharma-assistenten-lindenhofgruppe-ch",
+          "team-leader-specialisti-farmacia-assistenti-farmaceutici-lindenhofgruppe-lindenhofgruppe",
+          "teamleiter-in-per-fachfrau-mann-apotheke-bzw-pharma-assistentin-assistent-lindenhof-e2l7sx"
         ],
         "en": [
           "teamleiter-in-fur-fachfrau-mann-apotheke-bzw-pharma-assistentin-assistent-lindenhofgruppe"
         ],
         "fr": [
-          "teamleiter-in-fur-fachfrau-mann-apotheke-bzw-pharma-assistentin-assistent-lindenhofgruppe"
+          "teamleiter-in-fur-fachfrau-mann-apotheke-bzw-pharma-assistentin-assistent-lindenhofgruppe",
+          "chef-d-equipe-pour-pharmacie-specialisee-ou-assistant-assistant-pharmaceutique-lindenhofgruppe-lindenhofgruppe"
         ]
       },
       "firstSeenAt": "2026-07-28T22:34:38.509Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -3898,7 +3920,8 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "lindenhofgruppe-3fdd65a83665",

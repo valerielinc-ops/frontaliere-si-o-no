@@ -357,7 +357,15 @@
         "seller-in-flooring-decoration-hornbach-luzern-littau",
         "verkaufer-in-bodenbelage-dekoration-hornbach-luzern-littau",
         "vendeur-en-plancher-decoration-hornbach-luzern-littau",
-        "assistente-alle-vendite-elettriche-hornbach-luzern-littau"
+        "assistente-alle-vendite-elettriche-hornbach-luzern-littau",
+        "assistente-vendita-materiali-da-costruzione-hornbach-luzern-littau",
+        "seller-in-building-materials-hornbach-luzern-littau",
+        "verkaufer-in-baustoffe-hornbach-luzern-littau",
+        "vendeur-dans-les-materiaux-de-construction-hornbach-luzern-littau",
+        "colori-dei-venditori-hornbach-luzern-littau",
+        "seller-in-colours-hornbach-luzern-littau",
+        "verkaufer-in-farben-hornbach-luzern-littau",
+        "vendeur-en-couleurs-hornbach-luzern-littau"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -366,20 +374,33 @@
           "seller-in-flooring-decoration-hornbach-luzern-littau",
           "verkaufer-in-bodenbelage-dekoration-hornbach-luzern-littau",
           "vendeur-en-plancher-decoration-hornbach-luzern-littau",
-          "assistente-alle-vendite-elettriche-hornbach-luzern-littau"
+          "assistente-alle-vendite-elettriche-hornbach-luzern-littau",
+          "assistente-vendita-materiali-da-costruzione-hornbach-luzern-littau",
+          "seller-in-building-materials-hornbach-luzern-littau",
+          "verkaufer-in-baustoffe-hornbach-luzern-littau",
+          "vendeur-dans-les-materiaux-de-construction-hornbach-luzern-littau",
+          "colori-dei-venditori-hornbach-luzern-littau",
+          "seller-in-colours-hornbach-luzern-littau",
+          "verkaufer-in-farben-hornbach-luzern-littau",
+          "vendeur-en-couleurs-hornbach-luzern-littau"
         ],
         "en": [
-          "seller-in-flooring-decoration-hornbach-luzern-littau"
+          "seller-in-flooring-decoration-hornbach-luzern-littau",
+          "seller-in-building-materials-hornbach-luzern-littau",
+          "seller-in-colours-hornbach-luzern-littau"
         ],
         "de": [
-          "verkaufer-in-bodenbelage-dekoration-hornbach-luzern-littau"
+          "verkaufer-in-bodenbelage-dekoration-hornbach-luzern-littau",
+          "verkaufer-in-baustoffe-hornbach-luzern-littau",
+          "verkaufer-in-farben-hornbach-luzern-littau"
         ],
         "fr": [
-          "vendeur-en-plancher-decoration-hornbach-luzern-littau"
+          "vendeur-en-plancher-decoration-hornbach-luzern-littau",
+          "vendeur-dans-les-materiaux-de-construction-hornbach-luzern-littau",
+          "vendeur-en-couleurs-hornbach-luzern-littau"
         ]
       },
       "firstSeenAt": "2026-07-04T10:58:56.900Z",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -391,7 +412,8 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "hornbach-153752",
@@ -1378,16 +1400,34 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "verkaufer-in-fliesen-plattli-hornbach-luzern-littau",
-        "tessere-venditore-tessere-hornbach-luzern-littau"
+        "tessere-venditore-tessere-hornbach-luzern-littau",
+        "legno-del-venditore-hornbach-luzern-littau",
+        "seller-in-wood-hornbach-luzern-littau",
+        "verkaufer-in-holz-hornbach-luzern-littau",
+        "vendeur-en-bois-hornbach-luzern-littau",
+        "verkaufer-innen-holz-zuschnitt-hornbach-luzern-littau"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-fliesen-plattli-hornbach-luzern-littau",
-          "tessere-venditore-tessere-hornbach-luzern-littau"
+          "tessere-venditore-tessere-hornbach-luzern-littau",
+          "legno-del-venditore-hornbach-luzern-littau",
+          "seller-in-wood-hornbach-luzern-littau",
+          "verkaufer-in-holz-hornbach-luzern-littau",
+          "vendeur-en-bois-hornbach-luzern-littau",
+          "verkaufer-innen-holz-zuschnitt-hornbach-luzern-littau"
+        ],
+        "en": [
+          "seller-in-wood-hornbach-luzern-littau"
+        ],
+        "de": [
+          "verkaufer-in-holz-hornbach-luzern-littau"
+        ],
+        "fr": [
+          "vendeur-en-bois-hornbach-luzern-littau"
         ]
       },
       "firstSeenAt": "2026-07-04T10:58:56.889Z",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -1399,7 +1439,8 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "hornbach-153986",

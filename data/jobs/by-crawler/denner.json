@@ -1685,14 +1685,12 @@
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
       "crawledAt": "2026-08-05T22:20:53.789Z",
-      "previousSlugs": [
-        "verkaufer-in-im-stundenlohn-denner",
-        "verkaufer-in-im-stundenlohn-denner-bremgarten"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-im-stundenlohn-denner",
-          "verkaufer-in-im-stundenlohn-denner-bremgarten"
+          "verkaufer-in-im-stundenlohn-denner-bremgarten",
+          "verkaufer-in-im-stundenlohn-denner-dgsjiy",
+          "verkaufer-in-im-stundenlohn-denner-sissach"
         ],
         "en": [
           "verkaufer-in-im-stundenlohn-denner-bremgarten"
@@ -1701,8 +1699,12 @@
           "verkaufer-in-im-stundenlohn-denner-bremgarten"
         ]
       },
-      "firstSeenAt": "2026-08-05T11:32:25.939Z",
-      "needsRetranslation": true,
+      "previousSlugs": [
+        "verkaufer-in-im-stundenlohn-denner",
+        "verkaufer-in-im-stundenlohn-denner-bremgarten",
+        "verkaufer-in-im-stundenlohn-denner-dgsjiy",
+        "verkaufer-in-im-stundenlohn-denner-sissach"
+      ],
       "salaryMin": 83000,
       "salaryMax": 127500,
       "baseSalary": {
@@ -1715,7 +1717,9 @@
           "unitText": "YEAR"
         }
       },
-      "country": "CH"
+      "country": "CH",
+      "firstSeenAt": "2026-08-05T11:32:25.939Z",
+      "needsRetranslation": true
     },
     {
       "id": "denner-de025f820d79",

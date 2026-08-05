@@ -11337,7 +11337,7 @@
       "slug": "medical-direttore-cvm-roche-basel",
       "slugByLocale": {
         "it": "medical-direttore-cvm-roche-basel",
-        "en": "medical-director-cvm-roche-ch",
+        "en": "medical-director-cvm-roche-ch-27mycl",
         "de": "medical-direktor-cvm-roche-basel",
         "fr": "medical-director-cvm-roche-ch-27mycl"
       },
@@ -11407,7 +11407,8 @@
         ],
         "en": [
           "medical-director-cvm-roche-ch-27mycl",
-          "medical-director-roche-ch"
+          "medical-director-roche-ch",
+          "medical-director-cvm-roche-ch"
         ],
         "de": [
           "medical-director-cvm-roche-ch",
@@ -11420,7 +11421,6 @@
         ]
       },
       "firstSeenAt": "2026-06-03T15:16:10.885Z",
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "baseSalary": {
@@ -11433,7 +11433,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "needsRetranslation": true
     },
     {
       "id": "roche-fde92bb4bfa3",
@@ -16667,7 +16668,7 @@
       "slug": "direttore-medico-cvm-roche-basel",
       "slugByLocale": {
         "it": "direttore-medico-cvm-roche-basel",
-        "en": "medical-director-cvm-roche-ch",
+        "en": "medical-director-cvm-roche-ch-iufbmm",
         "de": "medical-direktor-cvm-roche-basel",
         "fr": "medical-director-cvm-roche-ch-iufbmm"
       },
@@ -16726,7 +16727,8 @@
           "direttore-medico-cvm-roche-basel"
         ],
         "en": [
-          "medical-director-cvm-roche-ch-iufbmm"
+          "medical-director-cvm-roche-ch-iufbmm",
+          "medical-director-cvm-roche-ch"
         ],
         "de": [
           "medical-director-cvm-roche-ch"
@@ -16737,7 +16739,6 @@
         ]
       },
       "firstSeenAt": "2026-06-02T14:31:48.519Z",
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "baseSalary": {
@@ -16750,7 +16751,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "needsRetranslation": true
     },
     {
       "id": "roche-2be2bf7bb947",
@@ -30814,7 +30816,7 @@
       "slug": "solution-architetto-dia-r-d-roche-basel",
       "slugByLocale": {
         "it": "solution-architetto-dia-r-d-roche-basel",
-        "en": "solution-architect-dia-r-d-roche-ch",
+        "en": "solution-architect-dia-r-d-roche-ch-3i9uyi",
         "de": "losungsarchitekt-dia-r-d-roche-basel",
         "fr": "solution-architecte-dia-r-d-roche-basel"
       },
@@ -30886,7 +30888,8 @@
         "en": [
           "solution-architect-dia-rd-roche-ch",
           "solution-architect-dia-commercial-operations-roche-ch",
-          "solution-architect-dia-r-d-roche-ch-3i9uyi"
+          "solution-architect-dia-r-d-roche-ch-3i9uyi",
+          "solution-architect-dia-r-d-roche-ch"
         ],
         "de": [
           "solution-architect-dia-r-d-roche-ch",
@@ -37627,18 +37630,28 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "senior-site-reliability-engineer-roche-ch",
-        "senior-site-reliability-ingegnere-roche-basel"
+        "senior-site-reliability-ingegnere-roche-basel",
+        "principal-senior-site-reliability-ingegnere-roche-united-kingdom",
+        "principal-senior-site-reliability-engineer-roche-ch",
+        "principal-senior-site-reliability-ingenieur-roche-united-kingdom"
       ],
       "previousSlugsByLocale": {
         "it": [
           "senior-site-reliability-engineer-roche-ch",
-          "senior-site-reliability-ingegnere-roche-basel"
+          "senior-site-reliability-ingegnere-roche-basel",
+          "principal-senior-site-reliability-ingegnere-roche-united-kingdom",
+          "principal-senior-site-reliability-engineer-roche-ch",
+          "principal-senior-site-reliability-ingenieur-roche-united-kingdom"
         ],
         "de": [
           "senior-site-reliability-engineer-roche-ch"
         ],
         "fr": [
-          "senior-site-reliability-engineer-roche-ch"
+          "senior-site-reliability-engineer-roche-ch",
+          "principal-senior-site-reliability-ingenieur-roche-united-kingdom"
+        ],
+        "en": [
+          "principal-senior-site-reliability-engineer-roche-ch"
         ]
       },
       "firstSeenAt": "2026-06-19T13:19:24.146Z",
@@ -38095,7 +38108,29 @@
         "partner-del-viaggio-paziente-opthalmology-roche-basel",
         "patient-journey-partner-opthalmology-roche-ch",
         "partenaire-de-voyage-patient-opthalmologie-roche-basel",
-        "partner-del-viaggio-paziente-lead-roche-basel"
+        "partner-del-viaggio-paziente-lead-roche-basel",
+        "partner-del-viaggio-paziente-oncologia-roche-mumbai",
+        "patient-journey-partner-oncology-roche-ch",
+        "partenaire-de-voyage-patient-oncologie-roche-mumbai",
+        "partner-del-viaggio-paziente-neurologia-roche-mumbai",
+        "patient-journey-partner-neurology-roche-ch",
+        "patient-journey-partner-neurology-roche-ch-2",
+        "partenaire-voyage-patient-neurologie-roche-mumbai",
+        "partner-di-viaggio-paziente-western-austria-f-m-d-roche-austria",
+        "patient-journey-partner-western-austria-f-m-d-roche-austria",
+        "patient-journey-partner-westosterreich-w-m-d-roche-ch",
+        "partenaire-de-voyage-de-patients-en-autriche-occidentale-f-m-d-roche-austria",
+        "partner-del-viaggio-paziente-islamabad-roche-islamabad",
+        "patient-journey-partner-islamabad-roche-ch",
+        "patient-journey-partner-roche-ch-2",
+        "partner-del-viaggio-paziente-oftalmologia-roche-bangalore",
+        "partner-del-viaggio-paziente-roche-istanbul",
+        "patient-journey-partner-ophthalmology-roche-ch",
+        "patient-journey-partner-roche-ch",
+        "patient-journey-partner-ophthalmology-roche-ch-2",
+        "patient-journey-partner-roche-ch-5",
+        "partenaire-de-voyage-patient-ophtalmologie-roche-bangalore",
+        "partenaire-voyage-patient-roche-istanbul"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -38103,18 +38138,50 @@
           "partner-del-viaggio-paziente-opthalmology-roche-basel",
           "patient-journey-partner-opthalmology-roche-ch",
           "partenaire-de-voyage-patient-opthalmologie-roche-basel",
-          "partner-del-viaggio-paziente-lead-roche-basel"
+          "partner-del-viaggio-paziente-lead-roche-basel",
+          "partner-del-viaggio-paziente-oncologia-roche-mumbai",
+          "patient-journey-partner-oncology-roche-ch",
+          "partenaire-de-voyage-patient-oncologie-roche-mumbai",
+          "partner-del-viaggio-paziente-neurologia-roche-mumbai",
+          "patient-journey-partner-neurology-roche-ch",
+          "patient-journey-partner-neurology-roche-ch-2",
+          "partenaire-voyage-patient-neurologie-roche-mumbai",
+          "partner-di-viaggio-paziente-western-austria-f-m-d-roche-austria",
+          "patient-journey-partner-western-austria-f-m-d-roche-austria",
+          "patient-journey-partner-westosterreich-w-m-d-roche-ch",
+          "partenaire-de-voyage-de-patients-en-autriche-occidentale-f-m-d-roche-austria",
+          "partner-del-viaggio-paziente-islamabad-roche-islamabad",
+          "patient-journey-partner-islamabad-roche-ch",
+          "patient-journey-partner-roche-ch-2",
+          "partner-del-viaggio-paziente-oftalmologia-roche-bangalore",
+          "partner-del-viaggio-paziente-roche-istanbul"
         ],
         "de": [
-          "patient-journey-partner-opthalmology-roche-ch"
+          "patient-journey-partner-opthalmology-roche-ch",
+          "patient-journey-partner-ophthalmology-roche-ch-2",
+          "patient-journey-partner-roche-ch-5",
+          "patient-journey-partner-oncology-roche-ch",
+          "patient-journey-partner-neurology-roche-ch-2",
+          "patient-journey-partner-westosterreich-w-m-d-roche-ch"
         ],
         "fr": [
           "patient-journey-partner-lead-roche-ch",
-          "partenaire-de-voyage-patient-opthalmologie-roche-basel"
+          "partenaire-de-voyage-patient-opthalmologie-roche-basel",
+          "partenaire-de-voyage-patient-ophtalmologie-roche-bangalore",
+          "partenaire-voyage-patient-roche-istanbul",
+          "partenaire-de-voyage-patient-oncologie-roche-mumbai",
+          "partenaire-voyage-patient-neurologie-roche-mumbai",
+          "partenaire-de-voyage-de-patients-en-autriche-occidentale-f-m-d-roche-austria",
+          "patient-journey-partner-islamabad-roche-ch"
+        ],
+        "en": [
+          "patient-journey-partner-ophthalmology-roche-ch",
+          "patient-journey-partner-roche-ch",
+          "patient-journey-partner-neurology-roche-ch",
+          "patient-journey-partner-western-austria-f-m-d-roche-austria"
         ]
       },
       "firstSeenAt": "2026-07-08T22:08:33.066Z",
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "baseSalary": {
@@ -38127,7 +38194,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "needsRetranslation": true
     },
     {
       "id": "roche-3728b0525c34",
@@ -80289,7 +80357,15 @@
         "erp-business-analyst-finanzen-roche-shanghai",
         "erp-business-analyste-finance-roche-shanghai",
         "erp-business-analyst-roche-ch",
-        "erp-business-analista-roche-basel"
+        "erp-business-analista-roche-basel",
+        "business-analista-roche-pune",
+        "business-analyst-roche-ch",
+        "business-analyste-roche-pune",
+        "finanza-business-analista-roche-budapest",
+        "finance-business-analyst-roche-ch",
+        "finanzen-business-analyst-roche-budapest",
+        "partenaire-financier-roche-budapest",
+        "finance-business-partner-roche-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -80298,21 +80374,30 @@
           "erp-business-analyst-finanzen-roche-shanghai",
           "erp-business-analyste-finance-roche-shanghai",
           "erp-business-analyst-roche-ch",
-          "erp-business-analista-roche-basel"
+          "erp-business-analista-roche-basel",
+          "business-analista-roche-pune",
+          "business-analyst-roche-ch",
+          "business-analyste-roche-pune",
+          "finanza-business-analista-roche-budapest",
+          "finance-business-analyst-roche-ch",
+          "finanzen-business-analyst-roche-budapest",
+          "partenaire-financier-roche-budapest",
+          "finance-business-partner-roche-ch"
         ],
         "en": [
           "erp-business-analyst-finance-roche-ch"
         ],
         "de": [
-          "erp-business-analyst-finanzen-roche-shanghai"
+          "erp-business-analyst-finanzen-roche-shanghai",
+          "business-analyst-roche-ch"
         ],
         "fr": [
           "erp-business-analyste-finance-roche-shanghai",
-          "erp-business-analyst-roche-ch"
+          "erp-business-analyst-roche-ch",
+          "business-analyste-roche-pune"
         ]
       },
       "firstSeenAt": "2026-07-17T10:55:27.649Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -80325,7 +80410,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "needsRetranslation": true
     },
     {
       "id": "roche-23312b264cc2",
@@ -84580,20 +84666,33 @@
       "previousSlugs": [
         "gff-finance-enterprise-partner-roche-ch",
         "finanza-enterprise-partner-roche-basel",
-        "gff-finanza-enterprise-partner-roche-basel"
+        "gff-finanza-enterprise-partner-roche-basel",
+        "finanza-enterprise-partner-roche-mississauga",
+        "finance-enterprise-partner-roche-ch-5",
+        "finance-enterprise-partner-roche-ch",
+        "finanzen-enterprise-partner-roche-mississauga"
       ],
       "previousSlugsByLocale": {
         "it": [
           "gff-finance-enterprise-partner-roche-ch",
           "finanza-enterprise-partner-roche-basel",
-          "gff-finanza-enterprise-partner-roche-basel"
+          "gff-finanza-enterprise-partner-roche-basel",
+          "finanza-enterprise-partner-roche-mississauga",
+          "finance-enterprise-partner-roche-ch-5",
+          "finance-enterprise-partner-roche-ch",
+          "finanzen-enterprise-partner-roche-mississauga"
         ],
         "de": [
           "gff-finance-enterprise-partner-roche-ch"
+        ],
+        "en": [
+          "finance-enterprise-partner-roche-ch"
+        ],
+        "fr": [
+          "finance-enterprise-partner-roche-ch-5"
         ]
       },
       "firstSeenAt": "2026-08-04T11:34:10.990Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -84606,7 +84705,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "needsRetranslation": true
     },
     {
       "id": "roche-5b4d28c6e9b7",
@@ -88744,8 +88844,8 @@
       },
       "description": "At Roche you can show up as yourself, embraced for the unique qualities you bring. Our culture encourages personal expression, open dialogue, and genuine connections, where you are valued, accepted and respected for who you are, allowing you to thrive both personally and professionally. This is how we aim to prevent, stop and cure diseases and ensure everyone has access to healthcare today and for generations to come. Join Roche, where every voice matters.\n\nThe Position\nPrimary Purpose of Job (Job Summary)\n● A field-based medical expertise for field medical strategy development and execution on the assigned disease area and related biomarker under the leadership of Medical Science Manager Leader.\n● Be responsible for data generation activities for assigned disease area and related biomarker.\n● Establish long-term, peer-to-peer relationships with TAEs and investigators，including biomarker area experts, in a given therapeutic field and deliver quality interactions and services that bring value to HCPs, and that are aligned with medical strategies.\n● Lead implementation of the tactical / field medical plans in collaboration with Country Medical Manager.\n● Identify opportunities for collaborations between the company and the TAEs and investigators.\n● Ensures strict adherence to the company’s corporate policies, SOP and local regulations for all medical science initiatives for assigned disease area.\n\nPrinciple Roles &\n• Responsibilities / Accountabilities (Major functions of the position)\n1) A field-based medical expertise for medical science in assigned disease area and related biomarker\n● Drive development, implementation and monitoring field medical plan under coaching of MSM Leader and align with country medical strategy.\n● Define and execute field medical short term to long term vision includes scientific communications and strategic partnerships through interaction with TAEs.\n● Collect field TAE insights and determine TAE interest in ongoing research and educational events; Develop and regularly update TAE profile to better understand TAE’s clinical practices, needs, preferences and views of new data.\n● Provide scientific support for cross functional partners in medical training, scientific query handling, speaker material preparation.\n● Lead the local innovative business model developing, implementation and further optimization, such as the establishment of regional pathology referral center with synergy from Roche diagnostic company and other external diagnostic related company or medical society.\n● Contribute to the execution of advisory boards.\n2) Data Generation\n● Translate insights on local stakeholder needs and value decision drivers into an effective medical strategy, prioritize gaps and hurdles related to the local patient journey.\n● Ensure excellence in access evidence planning and generation as part of the medical strategy, incorporating RWE, clinical studies and data inputs for local economic models etc.\n● Receive IISs request, work with country medical manager to review of IISs within the company, and following-up with investigators, in accordance to all local laws and regulations.\n● Support site feasibility assessments, site development plan, patients enrollment in trials and investigator engagementof Phase I-IIIa clinical studies under the direction of PDof Phase IIIb-IV Medical Affairs clinical studies in collaboration with clinical operations\n3) Knowledge exchange\n● Translate clinical/scientific evidence into local value messages and communicate those in cross functional collaboration to relevant stakeholders in a tailored manner.\n● Exchange scientific data with HCPs; facilitate their needs of up to date scientific data, including but not limited to publications of clinical trials, guidelines, by ensuring they have the best quality available information they require.\n● Develop and deliver medical training and education program to the target audience.\n● Provide inputs to country medical manager on the",
       "descriptionByLocale": {
-        "it": "A Roche puoi apparire come te stesso, abbracciato per le qualità uniche che porti. La nostra cultura incoraggia l'espressione personale, il dialogo aperto e i legami genuini, dove siete valorizzati, accettati e rispettati per chi siete, permettendovi di prosperare sia personalmente che professionalmente. Questo è il modo in cui vogliamo prevenire, fermare e curare le malattie e garantire che tutti abbiano accesso alla salute oggi e per le generazioni a venire. Unisciti a Roche, dove ogni voce conta.\n\nLa posizione\nScopo primario di lavoro (Riepilogo del lavoro)\n● Un'esperienza medica basata sul campo per lo sviluppo e l'esecuzione di strategie mediche sul campo nell'area malattia assegnata e biomarcatore correlato sotto la guida di Medical Science Manager Leader.\n● Essere responsabile delle attività di generazione di dati per l'area malattia assegnata e il biomarcatore correlato.\n● Stabilire relazioni a lungo termine e peer-to-peer con TAE e ricercatori, tra cui esperti di area biomarcatrice, in un dato campo terapeutico e fornire interazioni e servizi di qualità che portano valore a HCP, e che sono allineati con strategie mediche.\n● Introduzione dei piani medici tattici / di campo in collaborazione con Country Medical Manager.\n● Identificare opportunità di collaborazioni tra l'azienda e i TAE e gli investigatori.\n● Garantisce una stretta adesione alle politiche aziendali, alle normative SOP e locali per tutte le iniziative di scienze mediche per l'area malattia assegnata.\n\nPrincipio Roles &\n• Responsabilità / Responsabilità (funzioni principali della posizione)\n1) Un'esperienza medica basata sul campo per la scienza medica nell'area malattia assegnata e nel biomarcatore correlato\n● Sviluppo dell'azionamento, implementazione e monitoraggio del campo piano medico in coaching di MSM Leader e allineare con la strategia medica del paese.\n● Definire ed eseguire campo medico a breve termine visione a lungo termine include comunicazioni scientifiche e partnership strategiche attraverso l'interazione con TAEs.\n● Raccogli informazioni sul campo TAE e determina l'interesse TAE per la ricerca in corso e gli eventi educativi; Sviluppare e aggiornare regolarmente il profilo TAE per comprendere meglio le pratiche cliniche, le esigenze, le preferenze e le opinioni di nuovi dati.\n● Fornire supporto scientifico per i partner funzionali incrociati nella formazione medica, gestione delle query scientifiche, preparazione del materiale del diffusore.\n● Guidare lo sviluppo, l'implementazione e l'ulteriore ottimizzazione dell'innovativo modello aziendale locale, come l'istituzione del centro di riferimento di patologia regionale con la sinergia dalla società diagnostica Roche e da altra società diagnostica esterna o società medica.\n● Contribuisci all'esecuzione dei consigli di consulenza.\n2) Generazione dei dati\n● Tradurre intuizioni sulle esigenze degli stakeholder locali e i driver di decisione di valore in una strategia medica efficace, priorità lacune e ostacoli legati al percorso del paziente locale.\n● Assicurare l'eccellenza nell'accesso alla pianificazione delle prove e alla generazione come parte della strategia medica, incorporando RWE, studi clinici e input di dati per i modelli economici locali ecc.\n● Ricevere la richiesta di IIS, lavorare con il gestore medico di paese per rivedere IIS all'interno della società, e il seguente-up con gli investigatori, in conformità a tutte le leggi e regolamenti locali.\n● Valutazioni di fattibilità del sito di supporto, piano di sviluppo del sito, registrazione dei pazienti in prove e coinvolgimento dei ricercatori Studi clinici di Fase I-IIIa sotto la direzione di studi clinici PDof Fase IIIb-IV in collaborazione con le operazioni cliniche\n3) Scambio di conoscenza\n● Tradurre prove cliniche/scientifiche nei messaggi di valore locali e comunicare quelli in collaborazione tra funzionalità e stakeholder rilevanti in modo personalizzato.\n● Scambiare i dati scientifici con HCP; facilitare le loro esigenze di dati scientifici aggiornati, inclusi ma non limitati a pubblicazioni di studi clinici, linee guida, assicurando loro di avere le migliori informazioni disponibili di qualità che richiedono.\n● Sviluppare e fornire il programma di formazione e formazione medica al pubblico di destinazione.\n● Fornire ingressi a country medico manager sul",
         "en": "At Roche you can show up as yourself, embraced for the unique qualities you bring. Our culture encourages personal expression, open dialogue, and genuine connections, where you are valued, accepted and respected for who you are, allowing you to thrive both personally and professionally. This is how we aim to prevent, stop and cure diseases and ensure everyone has access to healthcare today and for generations to come. Join Roche, where every voice matters.\n\nThe Position\nPrimary Purpose of Job (Job Summary)\n● A field-based medical expertise for field medical strategy development and execution on the assigned disease area and related biomarker under the leadership of Medical Science Manager Leader.\n● Be responsible for data generation activities for assigned disease area and related biomarker.\n● Establish long-term, peer-to-peer relationships with TAEs and investigators，including biomarker area experts, in a given therapeutic field and deliver quality interactions and services that bring value to HCPs, and that are aligned with medical strategies.\n● Lead implementation of the tactical / field medical plans in collaboration with Country Medical Manager.\n● Identify opportunities for collaborations between the company and the TAEs and investigators.\n● Ensures strict adherence to the company’s corporate policies, SOP and local regulations for all medical science initiatives for assigned disease area.\n\nPrinciple Roles &\n• Responsibilities / Accountabilities (Major functions of the position)\n1) A field-based medical expertise for medical science in assigned disease area and related biomarker\n● Drive development, implementation and monitoring field medical plan under coaching of MSM Leader and align with country medical strategy.\n● Define and execute field medical short term to long term vision includes scientific communications and strategic partnerships through interaction with TAEs.\n● Collect field TAE insights and determine TAE interest in ongoing research and educational events; Develop and regularly update TAE profile to better understand TAE’s clinical practices, needs, preferences and views of new data.\n● Provide scientific support for cross functional partners in medical training, scientific query handling, speaker material preparation.\n● Lead the local innovative business model developing, implementation and further optimization, such as the establishment of regional pathology referral center with synergy from Roche diagnostic company and other external diagnostic related company or medical society.\n● Contribute to the execution of advisory boards.\n2) Data Generation\n● Translate insights on local stakeholder needs and value decision drivers into an effective medical strategy, prioritize gaps and hurdles related to the local patient journey.\n● Ensure excellence in access evidence planning and generation as part of the medical strategy, incorporating RWE, clinical studies and data inputs for local economic models etc.\n● Receive IISs request, work with country medical manager to review of IISs within the company, and following-up with investigators, in accordance to all local laws and regulations.\n● Support site feasibility assessments, site development plan, patients enrollment in trials and investigator engagementof Phase I-IIIa clinical studies under the direction of PDof Phase IIIb-IV Medical Affairs clinical studies in collaboration with clinical operations\n3) Knowledge exchange\n● Translate clinical/scientific evidence into local value messages and communicate those in cross functional collaboration to relevant stakeholders in a tailored manner.\n● Exchange scientific data with HCPs; facilitate their needs of up to date scientific data, including but not limited to publications of clinical trials, guidelines, by ensuring they have the best quality available information they require.\n● Develop and deliver medical training and education program to the target audience.\n● Provide inputs to country medical manager on the",
+        "it": "A Roche puoi apparire come te stesso, abbracciato per le qualità uniche che porti. La nostra cultura incoraggia l'espressione personale, il dialogo aperto e i legami genuini, dove siete valorizzati, accettati e rispettati per chi siete, permettendovi di prosperare sia personalmente che professionalmente. Questo è il modo in cui vogliamo prevenire, fermare e curare le malattie e garantire che tutti abbiano accesso alla salute oggi e per le generazioni a venire. Unisciti a Roche, dove ogni voce conta.\n\nLa posizione\nScopo primario di lavoro (Riepilogo del lavoro)\n● Un'esperienza medica basata sul campo per lo sviluppo e l'esecuzione di strategie mediche sul campo nell'area malattia assegnata e biomarcatore correlato sotto la guida di Medical Science Manager Leader.\n● Essere responsabile delle attività di generazione di dati per l'area malattia assegnata e il biomarcatore correlato.\n● Stabilire relazioni a lungo termine e peer-to-peer con TAE e ricercatori, tra cui esperti di area biomarcatrice, in un dato campo terapeutico e fornire interazioni e servizi di qualità che portano valore a HCP, e che sono allineati con strategie mediche.\n● Introduzione dei piani medici tattici / di campo in collaborazione con Country Medical Manager.\n● Identificare opportunità di collaborazioni tra l'azienda e i TAE e gli investigatori.\n● Garantisce una stretta adesione alle politiche aziendali, alle normative SOP e locali per tutte le iniziative di scienze mediche per l'area malattia assegnata.\n\nPrincipio Roles &\n• Responsabilità / Responsabilità (funzioni principali della posizione)\n1) Un'esperienza medica basata sul campo per la scienza medica nell'area malattia assegnata e nel biomarcatore correlato\n● Sviluppo dell'azionamento, implementazione e monitoraggio del campo piano medico in coaching di MSM Leader e allineare con la strategia medica del paese.\n● Definire ed eseguire campo medico a breve termine visione a lungo termine include comunicazioni scientifiche e partnership strategiche attraverso l'interazione con TAEs.\n● Raccogli informazioni sul campo TAE e determina l'interesse TAE per la ricerca in corso e gli eventi educativi; Sviluppare e aggiornare regolarmente il profilo TAE per comprendere meglio le pratiche cliniche, le esigenze, le preferenze e le opinioni di nuovi dati.\n● Fornire supporto scientifico per i partner funzionali incrociati nella formazione medica, gestione delle query scientifiche, preparazione del materiale del diffusore.\n● Guidare lo sviluppo, l'implementazione e l'ulteriore ottimizzazione dell'innovativo modello aziendale locale, come l'istituzione del centro di riferimento di patologia regionale con la sinergia dalla società diagnostica Roche e da altra società diagnostica esterna o società medica.\n● Contribuisci all'esecuzione dei consigli di consulenza.\n2) Generazione dei dati\n● Tradurre intuizioni sulle esigenze degli stakeholder locali e i driver di decisione di valore in una strategia medica efficace, priorità lacune e ostacoli legati al percorso del paziente locale.\n● Assicurare l'eccellenza nell'accesso alla pianificazione delle prove e alla generazione come parte della strategia medica, incorporando RWE, studi clinici e input di dati per i modelli economici locali ecc.\n● Ricevere la richiesta di IIS, lavorare con il gestore medico di paese per rivedere IIS all'interno della società, e il seguente-up con gli investigatori, in conformità a tutte le leggi e regolamenti locali.\n● Valutazioni di fattibilità del sito di supporto, piano di sviluppo del sito, registrazione dei pazienti in prove e coinvolgimento dei ricercatori Studi clinici di Fase I-IIIa sotto la direzione di studi clinici PDof Fase IIIb-IV in collaborazione con le operazioni cliniche\n3) Scambio di conoscenza\n● Tradurre prove cliniche/scientifiche nei messaggi di valore locali e comunicare quelli in collaborazione tra funzionalità e stakeholder rilevanti in modo personalizzato.\n● Scambiare i dati scientifici con HCP; facilitare le loro esigenze di dati scientifici aggiornati, inclusi ma non limitati a pubblicazioni di studi clinici, linee guida, assicurando loro di avere le migliori informazioni disponibili di qualità che richiedono.\n● Sviluppare e fornire il programma di formazione e formazione medica al pubblico di destinazione.\n● Fornire ingressi a country medico manager sul",
         "de": "Bei Roche können Sie sich als Sie selbst zeigen, umarmt für die einzigartigen Qualitäten, die Sie mitbringen. Unsere Kultur fördert persönlichen Ausdruck, offenen Dialog und echte Verbindungen, in denen Sie geschätzt, akzeptiert und respektiert werden, wer Sie sind, so dass Sie sowohl persönlich als auch beruflich gedeihen können. Auf diese Weise wollen wir Krankheiten verhindern, stoppen und heilen und sicherstellen, dass jeder heute und für kommende Generationen Zugang zu Gesundheitsversorgung hat. Treten Sie Roche bei, wo jede Stimme wichtig ist.\n\nDie Position\nHauptzweck des Jobs (Job Summary)\n● Eine feldbasierte medizinische Expertise für die Entwicklung und Durchführung von feldmedizinischen Strategien im zugewiesenen Krankheitsgebiet und verwandten Biomarkern unter der Leitung von Medical Science Manager Leader.\n● Verantwortlich für Datengenerierungsaktivitäten für das zugewiesene Krankheitsgebiet und den damit verbundenen Biomarker.\nEtablieren Sie langfristige Peer-to-Peer-Beziehungen mit TAEs und Ermittlern, einschließlich Experten für Biomarker-Bereiche, in einem bestimmten therapeutischen Bereich und liefern Sie qualitativ hochwertige Interaktionen und Dienstleistungen, die HCPs einen Mehrwert bringen und auf medizinische Strategien ausgerichtet sind.\n● Führen Sie die Durchführung der taktischen / medizinischen Pläne in Zusammenarbeit mit Country Medical Manager.\n● Identifizieren Sie Möglichkeiten für die Zusammenarbeit zwischen dem Unternehmen und den TAEs und Ermittlern.\nGewährleistet die strikte Einhaltung der Unternehmensrichtlinien, der SOP und der lokalen Vorschriften für alle medizinwissenschaftlichen Initiativen für den zugewiesenen Krankheitsbereich.\n\nGrundlegende Rollen &\n• Verantwortlichkeiten / Verantwortlichkeiten (Hauptfunktionen der Position)\n1) Eine feldbasierte medizinische Expertise für die medizinische Wissenschaft im zugeordneten Krankheitsbereich und verwandten Biomarker\n● Förderung der Entwicklung, Umsetzung und Überwachung des medizinischen Feldplans unter dem Coaching von MSM Leader und Ausrichtung auf die medizinische Strategie des Landes.\n● Definition und Umsetzung der kurz- bis langfristigen Vision im medizinischen Bereich umfasst wissenschaftliche Kommunikation und strategische Partnerschaften durch Interaktion mit TAEs.\n● Sammeln Sie TAE-Insights vor Ort und ermitteln Sie das Interesse der TAE an laufenden Forschungs- und Bildungsveranstaltungen; Entwicklung und regelmäßige Aktualisierung des TAE-Profils, um die klinischen Praktiken, Bedürfnisse, Präferenzen und Ansichten neuer Daten besser zu verstehen.\n● Bieten Sie wissenschaftliche Unterstützung für funktionsübergreifende Partner in der medizinischen Ausbildung, wissenschaftliche Abfragebehandlung, Sprechermaterialvorbereitung.\n● Führen Sie das lokale innovative Geschäftsmodell Entwicklung, Implementierung und weitere Optimierung, wie die Einrichtung eines regionalen Pathologie-Referenzzentrums mit Synergie von Roche Diagnostikunternehmen und anderen externen diagnostischen Unternehmen oder der medizinischen Gesellschaft.\n● Beitrag zur Ausführung von Beiräten.\n2) Datenerzeugung\n● Insights zu lokalen Stakeholder-Bedürfnissen und Wert Entscheidungstreiber in eine effektive medizinische Strategie zu übersetzen, priorisieren Lücken und Hürden im Zusammenhang mit der lokalen Patientenreise.\n● Sicherstellung von Exzellenz in der Planung und Generierung von Zugangsnachweisen als Teil der medizinischen Strategie unter Einbeziehung von RWE, klinischen Studien und Dateneingaben für lokale Wirtschaftsmodelle usw.\n● IIS-Anfrage erhalten, mit dem medizinischen Manager des Landes zusammenarbeiten, um IISs innerhalb des Unternehmens zu überprüfen und die Untersuchung gemäß allen lokalen Gesetzen und Vorschriften durchzuführen.\n● Unterstützung von Machbarkeitsbewertungen vor Ort, Standortentwicklungsplan, Patienteneinschreibung in Studien und Beteiligung der Forscher Klinische Studien der Phase I-IIIa unter der Leitung von PDof Phase IIIb-IV Medical Affairs klinische Studien in Zusammenarbeit mit klinischen Operationen\n3) Wissensaustausch\nÜbersetzen Sie klinische/wissenschaftliche Nachweise in lokale Wertmeldungen und kommunizieren Sie diese in funktionsübergreifender Zusammenarbeit auf maßgeschneiderte Weise an relevante Stakeholder.\n● Austausch wissenschaftlicher Daten mit HCPs; Erleichterung ihrer Bedürfnisse nach aktuellen wissenschaftlichen Daten, einschließlich, aber nicht beschränkt auf Veröffentlichungen von klinischen Studien, Leitlinien, indem sie sicherstellen, dass sie über die besten verfügbaren Informationen verfügen, die sie benötigen.\n● Entwickeln und liefern medizinische Ausbildung und Ausbildungsprogramm für die Zielgruppe.\n● Geben Sie Eingaben an den medizinischen Landesmanager auf der",
         "fr": "Chez Roche vous pouvez vous montrer comme vous-même, embrassé pour les qualités uniques que vous apportez. Notre culture encourage l'expression personnelle, le dialogue ouvert et les liens authentiques, où vous êtes apprécié, accepté et respecté pour qui vous êtes, vous permettant de prospérer à la fois personnellement et professionnellement. C'est ainsi que nous visons à prévenir, à arrêter et à guérir les maladies et à veiller à ce que chacun ait accès aux soins de santé aujourd'hui et pour les générations à venir. Rejoignez Roche, où chaque voix compte.\n\nLa position\nBut principal de l'emploi (résumé de l'emploi)\n● Une expertise médicale sur le terrain pour l'élaboration et l'exécution de stratégies médicales sur le terrain dans le domaine de la maladie et le biomarqueur connexe, sous la direction du responsable des sciences médicales.\n● Être responsable des activités de production de données pour la zone désignée et le biomarqueur connexe.\n● Établir des relations à long terme entre les pairs et les TAE et les chercheurs, y compris les spécialistes des biomarqueurs, dans un domaine thérapeutique donné et fournir des interactions et des services de qualité qui apportent de la valeur aux PSC, et qui sont conformes aux stratégies médicales.\n● Diriger la mise en oeuvre des plans médicaux tactiques/sur le terrain en collaboration avec Country Medical Manager.\n● Identifier les possibilités de collaboration entre l'entreprise et les TAE et les enquêteurs.\n● Veiller au strict respect des politiques de l'entreprise, des SOP et des règlements locaux pour toutes les initiatives de sciences médicales dans le domaine de la maladie.\n\nRôles principaux &\n• Responsabilités et responsabilités (grandes fonctions du poste)\n1) Une expertise médicale sur le terrain pour les sciences médicales dans le domaine de la maladie assigné et biomarqueur connexe\n:: Encourager l ' élaboration, la mise en œuvre et le suivi du plan médical sur le terrain sous l ' encadrement de MSM Leader et s ' aligner sur la stratégie médicale du pays.\n● Définir et exécuter une vision médicale à court et à long terme comprend des communications scientifiques et des partenariats stratégiques grâce à l'interaction avec les TAE.\n● Recueillir des connaissances sur le terrain et déterminer l'intérêt du TAE pour la recherche et les événements éducatifs en cours; Élaborer et mettre à jour régulièrement le profil TAE pour mieux comprendre les pratiques cliniques, les besoins, les préférences et les points de vue des nouvelles données.\n● Fournir un soutien scientifique aux partenaires interfonctionnels en matière de formation médicale, de traitement des requêtes scientifiques et de préparation du matériel destiné aux conférenciers.\n● Diriger l'élaboration, la mise en œuvre et l'optimisation d'un modèle d'affaires novateur local, comme la création d'un centre régional de référence en pathologie avec la synergie de l'entreprise de diagnostic Roche et d'autres entreprises de diagnostic externes ou de la société médicale.\n● Contribuer à l'exécution des conseils consultatifs.\n2) Production de données\n● Traduire les connaissances sur les besoins des intervenants locaux et les facteurs de décision en une stratégie médicale efficace, hiérarchiser les lacunes et les obstacles liés au cheminement des patients locaux.\n● Assurer l'excellence de la planification et de la production des données dans le cadre de la stratégie médicale, en intégrant l'EER, les études cliniques et les données pour les modèles économiques locaux, etc.\n● Reçoit la demande de SII, collabore avec le directeur médical du pays pour examiner les SII au sein de l'entreprise et assure le suivi auprès des enquêteurs, conformément à toutes les lois et réglementations locales.\n● Soutenir les évaluations de faisabilité du site, le plan de développement du site, l'inscription des patients aux essais et l'engagement des chercheurs Études cliniques de phase I-IIIa sous la direction d'études cliniques de phase IIIb-IV sur les affaires médicales en collaboration avec des opérations cliniques\n3) Échange de connaissances\n● Traduire les données cliniques/scientifiques en messages de valeur locaux et communiquer les données en collaboration interfonctionnelle aux intervenants concernés de façon adaptée.\n∙ Échanger des données scientifiques avec les HCP; faciliter leurs besoins en données scientifiques à jour, y compris, sans s ' y limiter, les publications d ' essais cliniques, les directives, en s ' assurant qu ' elles disposent des meilleures informations disponibles.\n● Élaborer et offrir un programme de formation et d'éducation médicales au public cible.\n● Apporter des contributions au directeur médical de pays"
       },
@@ -88769,11 +88869,6 @@
       "applyUrl": "https://roche.wd3.myworkdayjobs.com/en/roche-ext/job/Shenyang/XMLNAME--Senior--Medical-Science-Manager--Immunology-_202607-119343-1",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "senior-medical-science-manager-immunology-roche-ch",
-        "senior-medical-science-manager-immunology-roche-basel",
-        "senior-medical-science-manager-immunologia-roche-basel"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "senior-medical-science-manager-immunology-roche-ch",
@@ -88783,8 +88878,11 @@
           "senior-medical-science-manager-immunology-roche-basel"
         ]
       },
-      "firstSeenAt": "2026-08-05T11:30:10.065Z",
-      "needsRetranslation": true,
+      "previousSlugs": [
+        "senior-medical-science-manager-immunology-roche-ch",
+        "senior-medical-science-manager-immunology-roche-basel",
+        "senior-medical-science-manager-immunologia-roche-basel"
+      ],
       "salaryMin": 85500,
       "salaryMax": 129500,
       "baseSalary": {
@@ -88797,7 +88895,9 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "firstSeenAt": "2026-08-05T11:30:10.065Z",
+      "needsRetranslation": true
     },
     {
       "id": "roche-dd45541fba51",
