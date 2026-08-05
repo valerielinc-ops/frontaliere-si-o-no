@@ -39,6 +39,33 @@ function articleRootShell(hasSpaBundle: boolean): string {
     : '<div id="root"></div>';
 }
 
+/**
+ * Footer portal target — the OTHER half of the staticOverlay shell contract.
+ *
+ * `articleRootShell` above mirrors only the `#root` mount of
+ * build-plugins/htmlTemplate.ts; the canonical `seoContentOutsideRoot` body
+ * section there emits BOTH `#root` and, after `</main>`, a
+ * `<div id="footer-root"></div>`. App.tsx (`footerPortalTarget`) portals the
+ * footer into that node on every `staticOverlay` route; when the node is
+ * absent the portal resolves to `null` and the footer falls back to an INLINE
+ * render inside `#root` — i.e. ABOVE `main.seo-static-content`, burying the
+ * whole article (and every footer internal link) under ~1500 px of chrome on
+ * mobile. That is the exact failure PR #243 fixed for `/calcola-stipendio/*`
+ * and that `audit:footer-root-presence` (scripts/audit-footer-root-presence.mjs,
+ * zero-tolerance) guards.
+ *
+ * Emitting the article body as a `<main class="seo-static-content">` sibling of
+ * `#root` (#4959) opted these pages INTO that contract without bringing this
+ * half along, so all ~900 articles × 4 locales shipped without the portal
+ * target: 3608 offenders in post-deploy validation run 30974294824, up from 23.
+ *
+ * Deliberately re-stated here rather than imported, for the same reason as
+ * `articleRootShell`: this package must not reach back into `build-plugins`
+ * (tests/packages-articles-confinement.test.ts) and it is loaded inside the
+ * post-walk worker thread.
+ */
+const ARTICLE_FOOTER_ROOT = '<div id="footer-root"></div>';
+
 export interface RenderedArticleEntry {
  articleId: string;
  /** Locale -> path relative to distDir for the directory `index.html` (e.g. `articoli-frontaliere/<slug>/index.html`). */
@@ -1245,7 +1272,7 @@ ${headTags}
  ${OFFERWALL_FC_SNIPPET}
  </head>
  <body class="bg-surface-alt text-heading overflow-x-hidden">
- ${articleRootShell(true)}<main class="seo-static-content"><article class="ft-blog-article"><h1>${esc(differentiateH1FromTitle(localizedTitle, htmlPageTitle, articleLocale))}</h1><p class="article-byline s-L_lk4l">Di ${en.authorSlug && en.authorName ? `<a href="/autori/${en.authorSlug}/" rel="author">${esc(en.authorName)}</a>` : esc(en.authorName || 'Redazione Frontaliere Ticino')} · ${buildDateByline(en.datePub || en.dateMod || todayIso, en.dateMod || en.datePub || todayIso, locale)}</p><p>${esc(localizedDesc)}</p>${articleBodyHtml}${visibleFaqHtml}${buildRelatedArticlesHtml(en.articleId, articleCategoryById[en.articleId] || '', locale)}<nav><a href="/">Simulatore Fiscale</a> | <a href="/compara-servizi/">Confronta Servizi</a> | <a href="/tasse-e-pensione/">Tasse e Pensione</a> | <a href="/guida-frontaliere/">Guida Frontaliere</a> | <a href="/domande-frequenti-frontalieri/">FAQ</a> | <a href="/glossario-frontaliere/">Glossario</a> | <a href="/${SECTION.indexSlug.it}/">Articoli</a></nav></article></main>
+ ${articleRootShell(true)}<main class="seo-static-content"><article class="ft-blog-article"><h1>${esc(differentiateH1FromTitle(localizedTitle, htmlPageTitle, articleLocale))}</h1><p class="article-byline s-L_lk4l">Di ${en.authorSlug && en.authorName ? `<a href="/autori/${en.authorSlug}/" rel="author">${esc(en.authorName)}</a>` : esc(en.authorName || 'Redazione Frontaliere Ticino')} · ${buildDateByline(en.datePub || en.dateMod || todayIso, en.dateMod || en.datePub || todayIso, locale)}</p><p>${esc(localizedDesc)}</p>${articleBodyHtml}${visibleFaqHtml}${buildRelatedArticlesHtml(en.articleId, articleCategoryById[en.articleId] || '', locale)}<nav><a href="/">Simulatore Fiscale</a> | <a href="/compara-servizi/">Confronta Servizi</a> | <a href="/tasse-e-pensione/">Tasse e Pensione</a> | <a href="/guida-frontaliere/">Guida Frontaliere</a> | <a href="/domande-frequenti-frontalieri/">FAQ</a> | <a href="/glossario-frontaliere/">Glossario</a> | <a href="/${SECTION.indexSlug.it}/">Articoli</a></nav></article></main>${ARTICLE_FOOTER_ROOT}
  <script type="module" crossorigin fetchpriority="high" src="/assets/${entryJs}"></script>
  </body>
 </html>`;
@@ -1268,7 +1295,7 @@ ${headTags}
  ${OFFERWALL_FC_SNIPPET}
  </head>
  <body>
- ${articleRootShell(false)}<main class="seo-static-content"><article class="ft-blog-article"><h1>${esc(differentiateH1FromTitle(localizedTitle, htmlPageTitle, articleLocale))}</h1><p>${esc(localizedDesc)}</p><nav><a href="/">Simulatore Fiscale</a> | <a href="/compara-servizi/">Confronta Servizi</a> | <a href="/tasse-e-pensione/">Tasse e Pensione</a> | <a href="/guida-frontaliere/">Guida Frontaliere</a> | <a href="/domande-frequenti-frontalieri/">FAQ</a> | <a href="/glossario-frontaliere/">Glossario</a> | <a href="/${SECTION.indexSlug.it}/">Articoli</a></nav></article></main>
+ ${articleRootShell(false)}<main class="seo-static-content"><article class="ft-blog-article"><h1>${esc(differentiateH1FromTitle(localizedTitle, htmlPageTitle, articleLocale))}</h1><p>${esc(localizedDesc)}</p><nav><a href="/">Simulatore Fiscale</a> | <a href="/compara-servizi/">Confronta Servizi</a> | <a href="/tasse-e-pensione/">Tasse e Pensione</a> | <a href="/guida-frontaliere/">Guida Frontaliere</a> | <a href="/domande-frequenti-frontalieri/">FAQ</a> | <a href="/glossario-frontaliere/">Glossario</a> | <a href="/${SECTION.indexSlug.it}/">Articoli</a></nav></article></main>${ARTICLE_FOOTER_ROOT}
  </body>
 </html>`;
  };

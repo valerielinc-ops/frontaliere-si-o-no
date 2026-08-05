@@ -55,8 +55,12 @@ import { CITY_HUB_KEYS, CITY_HUB_DISPLAY_NAME, buildCityHubPath } from './cityJo
 
 // ── SPA shell <title> handling ────────────────────────────────────────
 // Universal rule: headline VERBATIM, brand suffix appended only when total
-// stays within TITLE_MAX_CHARS (70). See build-plugins/shared/titleSuffix.ts.
+// stays within TITLE_MAX_CHARS (66). See build-plugins/shared/titleSuffix.ts.
 import { buildTitleWithBrand, clampMetaDescription } from './shared/titleSuffix';
+// Border-crossing <title> cascade + its slug→label transform. Leaf module so
+// the #4828 regression suite can assert the 66-char cap over every id in
+// ALL_BORDER_CROSSING_IDS without importing this plugin's data graph.
+import { borderCrossingLabel, buildBorderCrossingTitle, buildBorderCrossingDescription } from './shared/borderCrossingTitle';
 import { differentiateH1FromTitle } from './shared/seoContentTokens';
 import { inlineScriptJson } from './shared/inlineJsonScript';
 import { ARTICLE_SECTION_DESCRIPTORS } from './shared/articleSectionDescriptors';
@@ -2229,11 +2233,13 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  for (const crossingId of crossingIds) {
  const cp = `/guida-frontaliere/tempi-attesa-dogana/${crossingId}`;
  if (seoMap.has(seoKey(cp))) continue;
- const label = crossingId.replace(/-/g, ' ').replace(/\b\w/g, m => m.toUpperCase());
+ const label = borderCrossingLabel(crossingId);
+ const crossingTitle = buildBorderCrossingTitle(label);
+ const crossingDesc = buildBorderCrossingDescription(label);
  seoMap.set(seoKey(cp), {
- title: `Traffico dogana ${label} | Tempi attesa valico`,
- desc: `Traffico dogana ${label} in tempo reale: tempi di attesa, orari apertura e consigli pratici per frontalieri al valico.`,
- ogT: `Traffico dogana ${label} | Tempi attesa valico`,
+ title: crossingTitle,
+ desc: crossingDesc,
+ ogT: crossingTitle,
  ogD: `Traffico dogana ${label}: tempi di attesa, orari e consigli pratici per frontalieri al valico.`,
  });
  }

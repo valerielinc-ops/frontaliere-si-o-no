@@ -20,6 +20,7 @@ import { getCantonDisplayName } from '../build-plugins/shared/cantonDisplay';
 import { resolveJobCanton } from '../build-plugins/shared/cantonSection';
 import { buildTitleWithBrand, buildJobTitleWithLocation, clampMetaDescription, truncateTitleAtClauseBoundary } from '../build-plugins/shared/titleSuffix';
 import { truncateCodeUnits } from '../build-plugins/shared/safeTruncate';
+import { borderCrossingLabel, buildBorderCrossingTitle, buildBorderCrossingDescription } from '../build-plugins/shared/borderCrossingTitle';
 
 /**
  * Retry a dynamic import once after clearing SW caches.
@@ -790,21 +791,22 @@ function buildGlossarySeoMetadata(): Record<string, SEOMetadata> {
  ) as Record<string, SEOMetadata>;
 }
 
-function titleizeBorderCrossingId(crossingId: string): string {
- // Rough human-readable label from slug id
- return crossingId
- .replace(/-/g, ' ')
- .replace(/\b\w/g, (m) => m.toUpperCase());
-}
-
 function buildBorderCrossingSeoMetadata(): Record<string, SEOMetadata> {
  return Object.fromEntries(
  ALL_BORDER_CROSSING_IDS.map((crossingId) => {
  const route = { activeTab: 'guida' as const, guidaSubTab: 'border' as const, borderCrossing: crossingId as any };
  const canonicalPath = buildPath(route, 'it');
- const label = titleizeBorderCrossingId(crossingId);
- const title = `Traffico dogana ${label} | Tempi attesa valico`;
- const description = `Traffico dogana ${label} in tempo reale: tempi di attesa, orari apertura e consigli pratici per frontalieri al valico.`;
+ // Label + <title> both come from the shared leaf module (#4828). This file
+ // used to carry its own `titleizeBorderCrossingId` plus a literal copy of
+ // the `Traffico dogana ${label} | Tempi attesa valico` template — the same
+ // pair staticPagesPlugin emitted, duplicated verbatim. The SSG page and the
+ // SPA runtime head MUST agree on the indexed title, so a cap applied to only
+ // one of them would have left the runtime DOM over the 66-char budget on
+ // exactly the long DE/FR crossings the cap exists for. One module, no drift
+ // by construction (AGENTS.md non-negotiable #6).
+ const label = borderCrossingLabel(crossingId);
+ const title = buildBorderCrossingTitle(label);
+ const description = buildBorderCrossingDescription(label);
  return [
  `valico-${crossingId}`,
  {
