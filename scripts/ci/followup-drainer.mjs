@@ -41,8 +41,9 @@ import {
   CODE_PATH_RE,
   detectWorkflowScoped,
 } from '../lib/workflow-scope-detect.mjs';
+import { detectSecretsScoped, matchSecretsScopedLabel } from '../lib/secrets-scope-detect.mjs';
 
-export { detectWorkflowScoped };
+export { detectWorkflowScoped, detectSecretsScoped, matchSecretsScopedLabel };
 
 const DRY = process.argv.includes('--dry-run');
 const REPO = process.env.GITHUB_REPOSITORY || '';
@@ -417,6 +418,15 @@ function isWorkflowScoped(num) {
   } catch { return true; }
 }
 
+/** Secrets-scope capability-guard for parked-retry (#5057): a park-preemptive gate
+ * driven by `detectSecretsScoped` already ran pre-promotion (see main loop below) —
+ * this mirrors `isWorkflowScoped` for the reparkable pass so these known
+ * credential-blocked categories never cycle un-park → promote → re-park. Pure on
+ * already-fetched labels, no extra `gh` call needed. */
+function isSecretsScoped(iss) {
+  return detectSecretsScoped(names(iss));
+}
+
 function edit(num, { add = [], remove = [] }) {
   const args = ['issue', 'edit', String(num), '--repo', REPO];
   for (const l of add) args.push('--add-label', l);
@@ -587,7 +597,8 @@ function main() {
         console.log(`parked-retry: cap ${RETRY_MAX_PER_RUN}/run raggiunto, ${reparkable.length - retried - skippedWf} rinviati al prossimo tick (no silent cap).`);
         break;
       }
-      if (isWorkflowScoped(iss.number)) { skippedWf++; continue; } // capability-guard → resta parked
+      // capability-guard → resta parked (WF-scope: push bloccato; secrets-scope: credenziali mai disponibili)
+      if (isWorkflowScoped(iss.number) || isSecretsScoped(iss)) { skippedWf++; continue; }
       // (too-large escalation gestita dal pass dedicato sopra, no cooldown)
       const gen = reparkGenOf(iss) + 1;
       const prevGen = reparkGenOf(iss) ? `fu-reparked:${reparkGenOf(iss)}` : null;
@@ -787,6 +798,23 @@ function main() {
       console.log(`PARK #${cand.number} (epic-tracker: sub-issues ${subList}) → no promozione, scope delegato`);
       const note = `⏭️ **Pre-flight drainer (zero-Claude, #4517)**: questa issue è un \`[EPIC]\` di coordinamento — il body delega l'intero scope implementativo alla sezione \`## Sub-issues\` (${subList}), già tracciate indipendentemente nella propria coda \`agent:fix-queued\`/\`agent:fix\`. Promuoverla brucerebbe un run Claude completo per arrivare sempre alla stessa conclusione (nessun target-file proprio da fixare qui). **Non promuovo**: l'epic si chiude quando tutte le sub-issue sono mergiate (o manualmente, come tracker). Rimuovo \`agent:fix-queued\` e parko (riapribile: togli \`fu-parked\` se il contesto cambia).\n\n<!-- FIX_OUTCOME: revenue-tracker-manual -->`;
       if (DRY) { console.log(`[dry] park #${cand.number} (epic-tracker)`); continue; }
+      try { gh(['issue', 'comment', String(cand.number), '--repo', REPO, '--body', note], { json: false }); }
+      catch (e) { console.log(`::warning::comment #${cand.number} fallito: ${String(e).slice(0, 120)}`); }
+      edit(cand.number, { add: [LBL_PARKED], remove: [LBL_QUEUED, LBL_FIX] });
+      continue; // prova il prossimo in coda
+    }
+
+    // Check: secrets-scoped category (escalation #5057) — `cloudflare-5xx` /
+    // `campaign-goal` / `evergreen-refresh` labels mark issues whose root fix
+    // structurally requires a Firebase-RC-loaded credential (CF_API_TOKEN /
+    // POSTHOG_* / GEMINI_API_KEY+GH_MODELS_PAT) never available to `issue-fix`
+    // (GH_TOKEN only). Promoting always burns a full Claude run that ends
+    // `blocked-secrets` — park pre-promotion instead, zero Claude tokens spent.
+    const secretsMatch = matchSecretsScopedLabel(names(cand));
+    if (secretsMatch) {
+      console.log(`PARK #${cand.number} (secrets-scoped: label \`${secretsMatch.label}\`) → no promozione, credenziali non disponibili in issue-fix`);
+      const note = `⏭️ **Pre-flight drainer (zero-Claude, #5057)**: questa issue porta la label \`${secretsMatch.label}\`, categoria il cui fix richiede sempre \`${secretsMatch.secret}\` (${secretsMatch.reason}) — credenziale caricata via Firebase Remote Config, non disponibile nell'ambiente \`issue-fix\` (solo \`GH_TOKEN\` GitHub App). Promuoverla a \`agent:fix\` brucerebbe un run Claude intero per arrivare sempre alla stessa conclusione \`blocked-secrets\`. **Non promuovo**: serve una sessione con Firebase SA/PAT (locale o owner). Rimuovo \`agent:fix-queued\` e parko (riapribile: togli \`fu-parked\` se il contesto cambia).\n\n<!-- FIX_OUTCOME: blocked-secrets -->`;
+      if (DRY) { console.log(`[dry] park #${cand.number} (secrets-scoped)`); continue; }
       try { gh(['issue', 'comment', String(cand.number), '--repo', REPO, '--body', note], { json: false }); }
       catch (e) { console.log(`::warning::comment #${cand.number} fallito: ${String(e).slice(0, 120)}`); }
       edit(cand.number, { add: [LBL_PARKED], remove: [LBL_QUEUED, LBL_FIX] });
