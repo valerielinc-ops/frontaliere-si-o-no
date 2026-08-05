@@ -9281,6 +9281,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.tradate-lite-ferito-trentenne.title': 'Lite davanti alla stazione di Tradate: ferito un trentenne',
     'blog.article.tradate-lite-ferito-trentenne.excerpt': 'Una discussione tra cittadini extracomunitari è degenerata in rissa e un uomo di 30 anni è rimasto ferito.',
     'blog.article.tradate-lite-ferito-trentenne.imageAlt': 'Una lite in una stazione ferroviaria',
+    'blog.article.caso-delmastro-protesta-avs.title': 'Caso Delmastro, la protesta di Avs alla Camera con le bende sugli occhi',
+    'blog.article.caso-delmastro-protesta-avs.excerpt': 'I deputati di Alleanza Verdi e Sinistra si sono bendati gli occhi in aula per protestare contro il non accesso alle chat tra Andrea Delmastro e Mauro Carroccia.',
+    'blog.article.caso-delmastro-protesta-avs.imageAlt': 'Protesta alla Camera',
 };
 
 export default blogMetaIt;

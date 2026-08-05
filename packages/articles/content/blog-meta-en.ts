@@ -9280,6 +9280,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.tradate-lite-ferito-trentenne.title': 'Litigation in front of Tradate station: 30-year-old injured',
     'blog.article.tradate-lite-ferito-trentenne.excerpt': 'An argument between non-EU citizens degenerated into a fight and a 30-year-old man was injured.',
     'blog.article.tradate-lite-ferito-trentenne.imageAlt': 'A fight in a train station',
+    'blog.article.caso-delmastro-protesta-avs.title': 'Case of Delmastro, Avs\'s protest to the Chamber with blindfolds',
+    'blog.article.caso-delmastro-protesta-avs.excerpt': 'The deputies of Alleanza Verdi and Sinistra blindfolded themselves in the room to protest against the lack of access to the chats between Andrea Delmastro and Mauro Carroccia.',
+    'blog.article.caso-delmastro-protesta-avs.imageAlt': 'Protest at the Chamber',
 };
 
 export default blogMetaEn;

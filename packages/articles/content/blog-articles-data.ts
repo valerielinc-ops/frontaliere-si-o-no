@@ -27858,6 +27858,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'caso-delmastro-protesta-avs',
+ category: 'novita',
+ date: '2026-08-05T19:07:50.230Z',
+ image: '/images/blog/caso-delmastro-protesta-avs.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

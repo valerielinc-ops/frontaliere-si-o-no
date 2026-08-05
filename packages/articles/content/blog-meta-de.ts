@@ -9279,6 +9279,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.tradate-lite-ferito-trentenne.title': 'Lite vor dem Bahnhof Tradate: Ein 30-Jähriger verletzt',
     'blog.article.tradate-lite-ferito-trentenne.excerpt': 'Eine Auseinandersetzung zwischen Nicht-EU-Bürgern entartete zu einer Schlägerei und ein 30-jähriger Mann wurde verletzt.',
     'blog.article.tradate-lite-ferito-trentenne.imageAlt': 'Ein Kampf in einem Bahnhof',
+    'blog.article.caso-delmastro-protesta-avs.title': 'Fall Delmastro, der Protest von Avs vor der Kammer mit Augenbinden',
+    'blog.article.caso-delmastro-protesta-avs.excerpt': 'Die Abgeordneten der Grünen und der Linken haben sich im Plenarsaal die Augen verbunden, um gegen den fehlenden Zugang zu den Chats zwischen Andrea Delmastro und Mauro Carroccia zu protestieren.',
+    'blog.article.caso-delmastro-protesta-avs.imageAlt': 'Protest im Abgeordnetenhaus',
 };
 
 export default blogMetaDe;
