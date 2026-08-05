@@ -143,13 +143,6 @@ jobs:
             exit 1
           fi
 
-          # Build a deduplicated list of titles already open. The
-          # `crawler-health` repo label is not created by this workflow
-          # (creating labels needs a separate gh call that can race with
-          # this one), so dedup is by exact title match instead.
-          existing=$(gh issue list --state open \
-            --limit 500 --json title --jq '.[].title' || true)
-
           count=$(jq 'length' data/crawler-health-issues.json)
           echo "Found $count stale crawler(s)."
 
@@ -160,12 +153,18 @@ jobs:
             lastSeen=$(jq -r ".[$i].lastSeenAt // \"never\"" data/crawler-health-issues.json)
             empties=$(jq -r ".[$i].consecutiveEmptyRuns // 0" data/crawler-health-issues.json)
 
-            title="[crawler-health] ${slug}: ${status}"
-
-            if echo "$existing" | grep -Fxq "$title"; then
-              echo "Issue already open for ${slug}; skipping."
-              continue
-            fi
+            # `${slug}` is a legitimate discriminant — one issue per crawler.
+            # `${status}` was NOT: a crawler sliding degraded → broken changed the
+            # title and opened a SECOND issue for the same crawler, still failing
+            # for the same reason. The status moves into the body (and drives the
+            # priority below), so the title stays constant for the whole outage.
+            # The `<slug>:` shape is load-bearing — the "Close recovered
+            # crawler-health issues" step parses the slug back out of it.
+            title="[crawler-health] ${slug}: crawler unhealthy"
+            case "$status" in
+              broken) priority=2 ;;
+              *)      priority=3 ;;
+            esac
 
             body=$(cat <<EOF
           Automated health check flagged crawler **\`${slug}\`** as **${status}**.
@@ -186,10 +185,18 @@ jobs:
           EOF
           )
 
-            gh issue create \
+            # `github-issue-creator.mjs` (ISSUES.md dedup a monte) replaces both
+            # the raw create and the hand-rolled title scan above: a recurring
+            # outage comments on the canonical issue for that crawler instead of
+            # minting a new one, and it creates the `crawler-health` label itself
+            # (the race the old comment worried about is handled inside the
+            # helper's best-effort `ensureLabelsExist`).
+            node scripts/lib/github-issue-creator.mjs \
               --title "$title" \
-              --body "$body" \
-              --repo "$GH_REPO" || echo "Failed to create issue for ${slug} (continuing)."
+              --description "$body" \
+              --priority "$priority" \
+              --label crawler-health \
+              --workflow "${{ github.workflow }}"
           done
 
       - name: Close recovered crawler-health issues
@@ -200,7 +207,7 @@ jobs:
           GH_REPO: ${{ github.repository }}
         run: |
           set -uo pipefail
-          # Auto-close `[crawler-health] <slug>: <status>` issues whose crawler
+          # Auto-close `[crawler-health] <slug>: …` issues whose crawler
           # is now healthy in data/crawler-health.json. Without this, a recovered
           # crawler's issue lingers open forever (the open step only creates,
           # never closes). Matches by slug parsed from the issue title.
