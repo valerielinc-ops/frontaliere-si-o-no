@@ -42,12 +42,18 @@ import {
   detectWorkflowScoped,
 } from '../lib/workflow-scope-detect.mjs';
 import { detectSecretsScoped, matchSecretsScopedLabel } from '../lib/secrets-scope-detect.mjs';
+import { isBackoffActive, maxQuotaResetsAt } from './claude-rate-limit.mjs';
 
 export { detectWorkflowScoped, detectSecretsScoped, matchSecretsScopedLabel };
 
 const DRY = process.argv.includes('--dry-run');
 const REPO = process.env.GITHUB_REPOSITORY || '';
 const MAX_ATTEMPTS = 3;
+// Cap di letture `gh issue view` per la scansione del beacon di quota. Il beacon
+// sta sull'ultima issue processata, quindi in regime normale si trova alla prima
+// o seconda lettura; il cap serve solo a impedire che una coda lunga trasformi il
+// guard in un costo lineare sul backlog.
+const QUOTA_SCAN_MAX = Number(process.env.FOLLOWUP_QUOTA_SCAN_MAX || 8);
 // Margine prima di considerare un agent:fix "orfano" (la run deve aver avuto il
 // tempo di partire + aprire la PR). Conservativo per non ri-accodare run vive.
 const ORPHAN_MIN_AGE_MIN = 30;
@@ -95,6 +101,29 @@ export const NON_RETRYABLE = new Set([
   'revenue-tracker-manual',
   'already-fixed',
 ]);
+
+// Esiti ZERO-WORK: la run è morta PRIMA che l'agent leggesse la issue, quindi
+// non ha prodotto alcuna informazione — né un fix, né un verdetto, né una
+// diagnosi. Sono l'esatto opposto sia di NON_RETRYABLE (verdetto fermo → park)
+// sia di una run crashata a metà lavoro (→ rescue con tentativo consumato):
+// qui la issue è INTATTA e va rimessa in coda **senza consumare un tentativo**.
+//
+// Root cause (misurata 2026-08-05 sui log di tutte e 61 le run fallite di
+// issue-fix nella finestra 7gg 2026-07-29 → 08-05): 60 sono HTTP 429 con
+// `num_turns: 1` e `total_cost_usd: 0`. Il payload di un 429 ha
+// `"subtype": "success"` con `is_error: true`, quindi il vecchio step
+// subtype-gated di issue-fix.yml non emetteva marker granulare; restava il
+// backstop `no-pr-unspecified`, che questo file scarta di proposito
+// (BACKSTOP_MARKER) → `latestFixOutcome()` null → «run davvero morta,
+// ri-tentabile» → `fu-attempt`++ → ri-promossa contro la stessa quota ancora
+// esaurita → altri due 429 → `fu-attempt:3` → `fu-parked` → e, da parked, l'age-out
+// close la chiudeva «not planned» dopo 10 giorni. Osservato su #5008 #5004
+// #5001 #4974: issue mai lette da nessun agent, uscite dal loop autonomo per
+// esaurimento di una quota che non aveva niente a che vedere con loro.
+//
+// Questo è lo stato assorbente lato fixer, gemello di quello del grafo di
+// recupero PR fixato in #5099: un verdetto che nessun predicato copriva.
+export const ZERO_WORK = new Set(['rate-limited']);
 
 const FIX_OUTCOME_RE = /<!--\s*FIX_OUTCOME:\s*([a-z0-9-]+)\s*-->/i;
 // I fallback deterministici del backstop (issue-fix.yml "post-step
@@ -501,6 +530,16 @@ function latestFixOutcome(num) {
   }
 }
 
+/** Beacon di quota sulla issue (epoch di reset), o null. Best-effort. */
+function quotaResetsAt(num) {
+  try {
+    const data = gh(['issue', 'view', String(num), '--repo', REPO, '--json', 'comments']);
+    return maxQuotaResetsAt(Array.isArray(data?.comments) ? data.comments : []);
+  } catch {
+    return null;
+  }
+}
+
 /**
  * Carica la mappa PR aperta → {title, files modificati} per il ciclo drainer
  * corrente. In caso di errore gh → mappa vuota (bias a promuovere: mai bloccare
@@ -657,7 +696,8 @@ function main() {
   // attempt), park a MAX_ATTEMPTS. Solo su categorie queue-managed (route
   // 'queue': ogni categoria tranne crawler, dal 2026-07-05) per non toccare i
   // crawler agent:fix (production-critical, route diretto, gestione separata).
-  const stuckFix = listIssues(LBL_FIX).filter(
+  const allFix = listIssues(LBL_FIX);
+  const stuckFix = allFix.filter(
     (i) => isQueueManaged(i) && !has(i, LBL_QUEUED) && !has(i, LBL_PARKED)
   );
   // Promozioni "in assestamento": un agent:fix follow-up giovane e senza PR ha
@@ -665,6 +705,44 @@ function main() {
   // queue→listing di alcuni secondi). In entrambi i casi lo slot issue-fix è
   // logicamente occupato anche se inFlightFixCount()==0 (vedi guard al DRAIN).
   let settlingPromotions = 0;
+  // Finestra di quota aperta? Se una run è morta su 429 ha lasciato sulla issue
+  // il beacon `<!-- QUOTA_RESETS_AT: <epoch> -->` con la scadenza dichiarata dal
+  // server. Finché non è passata, promuovere QUALSIASI issue produce solo un
+  // altro 429 identico: stessa quota, stessa risposta, ~5 minuti di slot
+  // serializzato bruciati e tutta la coda ritardata. Misurato sulla finestra
+  // 7gg 2026-07-29 → 08-05: 49 delle 61 run fallite (80%) sono cadute dentro
+  // una finestra già aperta da un fallimento precedente; il 2026-07-31 sono
+  // state 27 su 27 (100% di fallimenti in un giorno solo).
+  //
+  // La scansione copre `agent:fix` INTERO (non solo `stuckFix`) e le
+  // `agent:fix-queued` toccate di recente, perché la quota è una risorsa
+  // GLOBALE: il beacon può stare su una issue `crawler` (route diretto, esclusa
+  // da `stuckFix`) o su una issue che il pre-flight `check-quota-backoff.mjs` ha
+  // appena ri-accodato. Restringere lo sguardo alle sole queue-managed lascerebbe
+  // proprio il buco che questo guard esiste per chiudere. Bounded per costo: una
+  // `gh issue view` per candidato, cap QUOTA_SCAN_MAX, e si esce al primo beacon
+  // attivo trovato.
+  let quotaBackoffUntil = null;
+  const quotaScanPool = [
+    ...allFix,
+    ...listIssues(LBL_QUEUED)
+      .filter((i) => !has(i, LBL_PARKED))
+      .sort((a, b) => Date.parse(b.updatedAt) - Date.parse(a.updatedAt))
+      .slice(0, QUOTA_SCAN_MAX),
+  ];
+  const quotaSeen = new Set();
+  for (const iss of quotaScanPool) {
+    if (quotaSeen.size >= QUOTA_SCAN_MAX) break;
+    if (quotaSeen.has(iss.number)) continue;
+    quotaSeen.add(iss.number);
+    const r = quotaResetsAt(iss.number);
+    if (r !== null && isBackoffActive(r)) { quotaBackoffUntil = r; break; }
+  }
+  if (quotaBackoffUntil !== null) {
+    const when = new Date(quotaBackoffUntil * 1000).toISOString();
+    console.log(`QUOTA BACKOFF attivo fino a ${when} — nessuna promozione e nessun tentativo consumato in questo tick.`);
+  }
+
   for (const iss of stuckFix) {
     const ageMin = minutesSince(iss.updatedAt);
     const hasPR = hasFixPR(iss.number);
@@ -693,6 +771,27 @@ function main() {
     // quota (root cause #1478). Distingui via l'ultimo marker FIX_OUTCOME: se è
     // NON_RETRYABLE → park SUBITO senza consumare i tentativi residui (nessuna
     // perdita: resta aperto, ri-triabile a mano se il contesto cambia).
+    // ZERO-WORK (429): la run non ha letto la issue — 0 turni, $0. Non è né un
+    // verdetto fermo (→ park) né una run crashata a metà lavoro (→ tentativo
+    // consumato): la issue è INTATTA. Due comportamenti, entrambi necessari:
+    //  • finestra ANCORA aperta → non toccare nulla. Lasciare `agent:fix` fa sì
+    //    che questa issue resti il beacon del backoff per i tick successivi, e
+    //    il guard al DRAIN sotto impedisce di promuovere qualcun altro contro la
+    //    stessa quota esaurita. Nessuna label cambiata = nessun re-trigger.
+    //  • finestra CHIUSA → ri-accoda **senza incrementare `fu-attempt`**. Era
+    //    esattamente il bump di quel contatore a portare a `fu-parked` (e da lì
+    //    all'age-out close) issue mai lette da nessun agent (#5008 #5004 #5001
+    //    #4974). Un tentativo si consuma quando l'agent PROVA, non quando la
+    //    quota gliel'ha impedito.
+    if (outcome && ZERO_WORK.has(outcome)) {
+      if (quotaBackoffUntil !== null) {
+        console.log(`HOLD #${iss.number} (${outcome}, finestra quota ancora aperta) → resta agent:fix come beacon, nessun tentativo consumato`);
+        continue;
+      }
+      console.log(`RE-QUEUE #${iss.number} (${outcome}, finestra quota chiusa) → tentativo NON consumato (la run non ha mai letto la issue)`);
+      edit(iss.number, { add: [LBL_QUEUED], remove: [LBL_FIX] });
+      continue;
+    }
     if (outcome && NON_RETRYABLE.has(outcome)) {
       console.log(`PARK #${iss.number} (esito non-ri-tentabile: ${outcome}) → no re-queue, evito run identica`);
       edit(iss.number, { add: [LBL_PARKED], remove: [LBL_FIX, LBL_QUEUED] });
@@ -731,6 +830,20 @@ function main() {
   }
 
   // --- DRAIN: promuovi 1 queued a agent:fix (slot già verificato libero) -------
+  // Guard QUOTA (misurato 2026-08-05): lo slot può essere libero e la coda piena
+  // e comunque promuovere è dannoso, perché il collo di bottiglia non è lo slot
+  // ma la quota Max condivisa. Con la finestra 429 aperta, ogni promozione è una
+  // run da ~5 minuti che muore al primo turno senza leggere la issue, occupa lo
+  // slot serializzato e ritarda tutte le altre — ed è per giunta la stessa quota
+  // dell'uso interattivo del proprietario. Il `resetsAt` del payload rende la
+  // condizione DETERMINISTICA, non un'euristica: si aspetta la scadenza
+  // dichiarata dal server. Il beacon resta sulla issue in `agent:fix`, quindi il
+  // tick successivo lo rilegge senza bisogno di alcuno store esterno.
+  if (quotaBackoffUntil !== null) {
+    const mins = Math.max(1, Math.round((quotaBackoffUntil - Math.floor(Date.now() / 1000)) / 60));
+    console.log(`DRAIN sospeso: quota Claude esaurita per altri ~${mins} min (reset ${new Date(quotaBackoffUntil * 1000).toISOString()}). Nessuna promozione — evito run che morirebbero a turno 1.`);
+    return;
+  }
   // Guard race-visibilità-run (#1339 item 2): `gh run list` può ancora non
   // mostrare come `queued` la run di una promozione appena fatta (latenza di
   // registrazione). In quella finestra inFlightFixCount()==0 ma lo slot NON è

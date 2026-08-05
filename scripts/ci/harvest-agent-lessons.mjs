@@ -456,10 +456,23 @@ export function isAvoidableNoRootCause(commentBody) {
 // a shape that only existed in the unit test, not at the real call site.
 // Strip the redundant `${source}:` prefix (same normalization
 // `alreadyDocumented` already does for non-taxonomy keys) before comparing.
+// `rate-limited` (2026-08-05): stessa classe, causa diversa. Il marker dice che
+// la quota Max CONDIVISA era esaurita quando è arrivato il turno di quella issue
+// — la run è morta su HTTP 429 al primo turno, senza mai leggerla (`num_turns: 1`,
+// `total_cost_usd: 0`). Non è una regola che un agent ha violato e che
+// un'aggiunta ai doc potrebbe prevenire: è una condizione ambientale. Farla
+// guidare un'escalation significherebbe spendere il turno Claude della proposta
+// per redigere istruzioni che non possono fixare un'interruzione di quota —
+// per giunta proprio nella finestra in cui la quota manca, cioè il momento
+// peggiore possibile. Come per `no-root-cause`, il bucket resta CONTATO (volume
+// e context nel summary del harvest restano visibili); smette solo di poter
+// aprire una PR di regole. Il segnale di capacità ha già la sua sede giusta: il
+// failure-rate di `issue-fix.yml` nel tracker #1951 (loop-health-report).
 export function isEscalationDriver(source, key) {
   if (source === 'issue-class') return false;
   const bareKey = key.startsWith(`${source}:`) ? key.slice(source.length + 1) : key;
   if (source === 'fix-outcome' && bareKey === 'no-root-cause') return false;
+  if (source === 'fix-outcome' && bareKey === 'rate-limited') return false;
   return true;
 }
 

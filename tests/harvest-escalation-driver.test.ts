@@ -58,3 +58,25 @@ describe('isEscalationDriver — no-root-cause non può più driveare un\'escala
     expect(isEscalationDriver('reviewer-finding', 'sibling-class-fix')).toBe(true);
   });
 });
+
+describe('isEscalationDriver — rate-limited non può driveare un\'escalation (quota ≠ regola violata)', () => {
+  // Il marker `rate-limited` (issue-fix.yml, post-step deterministico) dice che
+  // la quota Max condivisa era esaurita quando è arrivato il turno di quella
+  // issue: run morta su HTTP 429 al primo turno, `num_turns: 1`, costo 0, issue
+  // mai letta. Misurato il 2026-08-05: 60 delle 61 run fallite di issue-fix nella
+  // finestra 7gg erano di questa forma. Senza la carve-out il bucket supererebbe
+  // la soglia ≥3/14gg in poche ore e farebbe partire la proposta Claude del
+  // harvester — un turno speso a redigere regole che non possono fixare
+  // un'interruzione di quota, e speso proprio quando la quota manca.
+  it('fix-outcome:rate-limited → mai driver, in entrambe le shape della chiave', () => {
+    expect(isEscalationDriver('fix-outcome', 'rate-limited')).toBe(false);
+    expect(isEscalationDriver('fix-outcome', 'fix-outcome:rate-limited')).toBe(false);
+  });
+
+  it('resta contato come volume/context: la carve-out tocca solo l\'escalation, non il tally', () => {
+    // `max-turns` è il contro-esempio vicino: anche lui è emesso da un post-step
+    // deterministico, ma indica un budget di turni DAVVERO speso su questa issue
+    // → è un segnale azionabile sui doc e resta driver.
+    expect(isEscalationDriver('fix-outcome', 'max-turns')).toBe(true);
+  });
+});
