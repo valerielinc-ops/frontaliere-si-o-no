@@ -70,6 +70,41 @@ function mergeLocaleTranslations(locale: Locale, translations: Translations): vo
  }
 }
 
+/**
+ * Merge article title/excerpt keys published OUT OF BAND, at runtime.
+ *
+ * The blog list is rendered from data compiled into this bundle, so an article
+ * generated after the last deploy had no title here and could not be listed —
+ * which is what kept new articles invisible on the site until a redeploy
+ * (issue #4974 item 3). `services/articlesOverlay.ts` fetches the index the
+ * articles repo publishes and hands the keys here.
+ *
+ * Deliberately does NOT overwrite: a key already present came from this
+ * build's own chunk and is authoritative. The overlay only fills gaps, so a
+ * stale or malformed index can never change an existing title.
+ *
+ * Bumps the locale tick and notifies subscribers, so components already
+ * mounted re-render with the new keys instead of waiting for the next locale
+ * change.
+ */
+export function mergeArticleMetaOverlay(locale: Locale, translations: Translations): number {
+  const target = loadedLocales[locale];
+  let added = 0;
+  if (!target) {
+    loadedLocales[locale] = { ...translations };
+    added = Object.keys(translations).length;
+  } else {
+    for (const [k, v] of Object.entries(translations)) {
+      if (target[k] === undefined) { target[k] = v; added++; }
+    }
+  }
+  if (added > 0) {
+    localeTick++;
+    listeners.forEach((fn) => fn(currentLocale));
+  }
+  return added;
+}
+
 // Background preloads can be interrupted during test worker teardown.
 // We intentionally swallow those rejections to avoid unhandled promise noise.
 function swallowBackgroundLoadError(_err: unknown): void {

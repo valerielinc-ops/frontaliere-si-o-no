@@ -11,8 +11,200 @@
     "https://www.pemsa.ch/it/le-nostre-offerte-di-lavoro/"
   ],
   "notes": "Dedicated PEMSA crawler. National listing (all cantons). Detail pages have JSON-LD JobPosting with full location data; canton inferred per-job from the city. Construction/trades staffing agency.",
-  "updatedAt": "2026-08-02T22:03:31.790Z",
+  "updatedAt": "2026-08-04T11:40:36.392Z",
   "seedMetaByUrl": {
+    "https://www.pemsa.ch/it/job/elettricista-di-montaggio-afc-m-f-d-2685688/": {
+      "location": "Basel",
+      "canton": "BS",
+      "company": "PEMSA",
+      "postedDate": "2026-08-04"
+    },
+    "https://www.pemsa.ch/it/job/autista-furgone-con-gru-patente-b-2685674/": {
+      "location": "Lugano",
+      "canton": "TI",
+      "company": "PEMSA",
+      "postedDate": "2026-08-04"
+    },
+    "https://www.pemsa.ch/it/job/installatore-di-impianti-di-ventilazione-vd-2685673/": {
+      "location": "Renens VD",
+      "canton": "VD",
+      "company": "PEMSA",
+      "postedDate": "2026-08-04"
+    },
+    "https://www.pemsa.ch/it/job/operario-di-officina-m-f-2685669/": {
+      "location": "Aigle",
+      "canton": "VD",
+      "company": "PEMSA",
+      "postedDate": "2026-08-04"
+    },
+    "https://www.pemsa.ch/it/job/muratore-edile-2685619/": {
+      "location": "Genève",
+      "canton": "GE",
+      "company": "PEMSA",
+      "postedDate": "2026-08-03"
+    },
+    "https://www.pemsa.ch/it/job/dispositivo-di-regolazione-del-rastrello-per-asfalto-2685614/": {
+      "location": "Genève",
+      "canton": "GE",
+      "company": "PEMSA",
+      "postedDate": "2026-08-03"
+    },
+    "https://www.pemsa.ch/it/job/meccanico-di-macchine-agricole-efz-m-f-d-2685587/": {
+      "location": "Basel",
+      "canton": "BS",
+      "company": "PEMSA",
+      "postedDate": "2026-08-03"
+    },
+    "https://www.pemsa.ch/it/job/giardiniere-paesaggista-afc-afc-m-f-d-2685584/": {
+      "location": "Basel",
+      "canton": "BS",
+      "company": "PEMSA",
+      "postedDate": "2026-08-03"
+    },
+    "https://www.pemsa.ch/it/job/falegname-afc-aep-m-f-d-2685581/": {
+      "location": "Basel",
+      "canton": "BS",
+      "company": "PEMSA",
+      "postedDate": "2026-08-03"
+    },
+    "https://www.pemsa.ch/it/job/posatore-di-parquet-efz-eba-m-f-d-2685578/": {
+      "location": "Basel",
+      "canton": "BS",
+      "company": "PEMSA",
+      "postedDate": "2026-08-03"
+    },
+    "https://www.pemsa.ch/it/job/imbianchino-afc-aep-m-f-d-2685574/": {
+      "location": "Basel",
+      "canton": "BS",
+      "company": "PEMSA",
+      "postedDate": "2026-08-03"
+    },
+    "https://www.pemsa.ch/it/job/installatore-elettrico-afc-aec-m-f-d-2685570/": {
+      "location": "Basel",
+      "canton": "BS",
+      "company": "PEMSA",
+      "postedDate": "2026-08-03"
+    },
+    "https://www.pemsa.ch/it/job/stuccatore-afc-aep-m-f-d-2685566/": {
+      "location": "Basel",
+      "canton": "BS",
+      "company": "PEMSA",
+      "postedDate": "2026-08-03"
+    },
+    "https://www.pemsa.ch/it/job/operatore-metalmeccanico-afc-aec-m-f-d-2685563/": {
+      "location": "Basel",
+      "canton": "BS",
+      "company": "PEMSA",
+      "postedDate": "2026-08-03"
+    },
+    "https://www.pemsa.ch/it/job/lattoniere-afc-abi-m-f-d-2685560/": {
+      "location": "Basel",
+      "canton": "BS",
+      "company": "PEMSA",
+      "postedDate": "2026-08-03"
+    },
+    "https://www.pemsa.ch/it/job/carpentiere-afc-aep-m-f-d-2685557/": {
+      "location": "Basel",
+      "canton": "BS",
+      "company": "PEMSA",
+      "postedDate": "2026-08-03"
+    },
+    "https://www.pemsa.ch/it/job/copritetto-afc-aep-m-f-d-2685554/": {
+      "location": "Basel",
+      "canton": "BS",
+      "company": "PEMSA",
+      "postedDate": "2026-08-03"
+    },
+    "https://www.pemsa.ch/it/job/piastrellista-afc-aep-m-f-d-2685551/": {
+      "location": "Basel",
+      "canton": "BS",
+      "company": "PEMSA",
+      "postedDate": "2026-08-03"
+    },
+    "https://www.pemsa.ch/it/job/installatore-di-impianti-di-riscaldamento-afc-abi-m-f-d-2685548/": {
+      "location": "Basel",
+      "canton": "BS",
+      "company": "PEMSA",
+      "postedDate": "2026-08-03"
+    },
+    "https://www.pemsa.ch/it/job/idraulico-afc-aec-m-f-d-2685545/": {
+      "location": "Basel",
+      "canton": "BS",
+      "company": "PEMSA",
+      "postedDate": "2026-08-03"
+    },
+    "https://www.pemsa.ch/it/job/installatore-di-tende-e-tapparelle-efz-eba-m-f-d-2685541/": {
+      "location": "Basel",
+      "canton": "BS",
+      "company": "PEMSA",
+      "postedDate": "2026-08-03"
+    },
+    "https://www.pemsa.ch/it/job/costruttore-di-strade-afc-m-f-d-2685538/": {
+      "location": "Basel",
+      "canton": "BS",
+      "company": "PEMSA",
+      "postedDate": "2026-08-03"
+    },
+    "https://www.pemsa.ch/it/job/costruttore-di-casseforme-2685526/": {
+      "location": "Fribourg",
+      "canton": "FR",
+      "company": "PEMSA",
+      "postedDate": "2026-08-03"
+    },
+    "https://www.pemsa.ch/it/job/installatore-di-impianti-di-ventilazione-2685523/": {
+      "location": "Fribourg",
+      "canton": "FR",
+      "company": "PEMSA",
+      "postedDate": "2026-08-03"
+    },
+    "https://www.pemsa.ch/it/job/idraulico-per-acquedotti-2685518/": {
+      "location": "Massagno",
+      "canton": "TI",
+      "company": "PEMSA",
+      "postedDate": "2026-08-03"
+    },
+    "https://www.pemsa.ch/it/job/idraulico-impianti-riscaldamento-2685515/": {
+      "location": "Lugano",
+      "canton": "TI",
+      "company": "PEMSA",
+      "postedDate": "2026-08-03"
+    },
+    "https://www.pemsa.ch/it/job/idraulico-impianti-sanitari-2685510/": {
+      "location": "Sigirino",
+      "canton": "TI",
+      "company": "PEMSA",
+      "postedDate": "2026-08-03"
+    },
+    "https://www.pemsa.ch/it/job/installatore-idraulico-2685507/": {
+      "location": "Grancia",
+      "canton": "TI",
+      "company": "PEMSA",
+      "postedDate": "2026-08-03"
+    },
+    "https://www.pemsa.ch/it/job/saldatore-tubista-2685504/": {
+      "location": "Torricella",
+      "canton": "TI",
+      "company": "PEMSA",
+      "postedDate": "2026-08-03"
+    },
+    "https://www.pemsa.ch/it/job/carpentiere-con-grande-esperienza-2685503/": {
+      "location": "Fribourg",
+      "canton": "FR",
+      "company": "PEMSA",
+      "postedDate": "2026-08-03"
+    },
+    "https://www.pemsa.ch/it/job/idraulico-2685495/": {
+      "location": "Lugano",
+      "canton": "TI",
+      "company": "PEMSA",
+      "postedDate": "2026-08-03"
+    },
+    "https://www.pemsa.ch/it/job/progettista-di-strutture-metalliche-2685498/": {
+      "location": "Fribourg",
+      "canton": "FR",
+      "company": "PEMSA",
+      "postedDate": "2026-08-03"
+    },
     "https://www.pemsa.ch/it/job/cofra-hussor-2685380/": {
       "location": "Fribourg",
       "canton": "FR",
@@ -134,12 +326,6 @@
       "postedDate": "2026-07-29"
     },
     "https://www.pemsa.ch/it/job/installatore-di-impianti-di-riscaldamento-vd-2685237/": {
-      "location": "Renens VD",
-      "canton": "VD",
-      "company": "PEMSA",
-      "postedDate": "2026-07-29"
-    },
-    "https://www.pemsa.ch/it/job/installatore-di-impianti-di-ventilazione-vd-2685234/": {
       "location": "Renens VD",
       "canton": "VD",
       "company": "PEMSA",
@@ -559,12 +745,6 @@
       "company": "PEMSA",
       "postedDate": "2026-07-22"
     },
-    "https://www.pemsa.ch/it/job/idraulico-impianti-riscaldamento-2684376/": {
-      "location": "Lugano",
-      "canton": "TI",
-      "company": "PEMSA",
-      "postedDate": "2026-07-22"
-    },
     "https://www.pemsa.ch/it/job/copritetto-m-f-d-100-2684249/": {
       "location": "Sion",
       "canton": "VS",
@@ -642,12 +822,6 @@
       "canton": "FR",
       "company": "PEMSA",
       "postedDate": "2026-07-21"
-    },
-    "https://www.pemsa.ch/it/job/idraulico-2684027/": {
-      "location": "Lugano",
-      "canton": "TI",
-      "company": "PEMSA",
-      "postedDate": "2026-07-20"
     },
     "https://www.pemsa.ch/it/job/saldatore-tubista-2684023/": {
       "location": "Lamone",
@@ -822,12 +996,6 @@
       "canton": "TI",
       "company": "PEMSA",
       "postedDate": "2026-07-10"
-    },
-    "https://www.pemsa.ch/it/job/elettricista-con-comprovata-esperienza-2682526/": {
-      "location": "Romont FR",
-      "canton": "FR",
-      "company": "PEMSA",
-      "postedDate": "2026-07-09"
     },
     "https://www.pemsa.ch/it/job/installatore-impianti-sprinkler-2682122/": {
       "location": "Lugano",
