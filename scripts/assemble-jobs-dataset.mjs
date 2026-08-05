@@ -842,16 +842,27 @@ export function isWeakCantonOnlyLabelOverride(existingCanton, locationText) {
  *   (`''` means "do not record a pin for this identity").
  */
 export function resolveCantonAgainstPin({ jobCanton, inferredCanton, pinnedCanton }) {
-  const job = String(jobCanton || '').toUpperCase().trim();
+  const raw = String(jobCanton || '').toUpperCase().trim();
   const inferred = String(inferredCanton || '').toUpperCase().trim();
   const pinned = String(pinnedCanton || '').toUpperCase().trim();
+  // "A canton of our own" means one the funnel actually serves. A crawler that
+  // records the COUNTRY code (`canton: "CH"` — 3 live records) or any other
+  // off-funnel value has no URL section to be placed in, so it must neither
+  // overrule the ledger nor be written INTO it: doing so would turn a job the
+  // pin was placing correctly into an orphan-non-target, the exact outcome
+  // `acceptInferredCantonForFill` already prevents on the inference path. Same
+  // guard, other input.
+  const job = isTargetCanton(raw) ? raw : '';
 
   if (!pinned) {
     // Only pin a NON-EMPTY canton backed by a confident city inference: pinning
     // "" would freeze the job mis-placed forever, and pinning an unverified
     // value would re-create the stale ledger this function exists to drain.
     if (inferred && job) return { canton: job, pin: job, outcome: 'pin-added' };
-    return { canton: job, pin: '', outcome: 'unpinned' };
+    // Nothing better to offer: hand back the value unchanged rather than
+    // blanking it — an off-funnel canton with no pin is a crawler bug for the
+    // location audit to surface, not something to silently erase here.
+    return { canton: raw, pin: '', outcome: 'unpinned' };
   }
   if (!job) {
     // No canton of our own — the pin is the only signal there is. Freeze to it:
