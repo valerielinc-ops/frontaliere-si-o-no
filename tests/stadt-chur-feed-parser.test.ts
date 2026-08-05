@@ -71,6 +71,22 @@ describe('stadt-chur feed parser', () => {
       expect(parsed.length).toBe(1);
       expect(parsed[0].title).toBe('Real');
     });
+
+    it('leaves content empty for the raw `:proxy` passthrough (no full-text expansion)', () => {
+      expect(items.every((e) => e.content === '')).toBe(true);
+    });
+
+    it('extracts <content:encoded> when the feed came back in morss full-text mode', () => {
+      const fullText = `<rss><channel><title>Jobportal</title>
+        <item><title>Real</title><link>https://jobs.chur.ch/Real-de-j999.html</link>
+        <description>Short intro only.</description>
+        <ns0:encoded xmlns:ns0="http://purl.org/rss/1.0/modules/content/">&lt;h2&gt;Ihre Aufgaben&lt;/h2&gt;&lt;p&gt;Volle Beschreibung.&lt;/p&gt;</ns0:encoded>
+        </item>
+      </channel></rss>`;
+      const parsed = parseRssItems(fullText);
+      expect(parsed.length).toBe(1);
+      expect(parsed[0].content).toBe('<h2>Ihre Aufgaben</h2><p>Volle Beschreibung.</p>');
+    });
   });
 
   describe('parseAtomEntries (direct-fetch dialect)', () => {
