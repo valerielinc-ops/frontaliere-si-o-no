@@ -159,8 +159,11 @@ export interface BlogImageSweepResult {
 // time goes. 8 keeps libuv's 4-thread file pool saturated without queueing so
 // deep that a burst of large sitemaps is held in memory at once (peak RSS at
 // this point in the build is ~11.2 GB of 16 — see MALLOC_ARENA_MAX in
-// deploy.yml). Buffers are released as soon as each file is handled, so the
-// resident cost is `concurrency × file size` (tens of MB worst case).
+// deploy.yml, and #5169: the monolithic variant is killed by the KERNEL
+// OOM-killer at ~11.7 GB, so this plugin must not add a plateau). The walk
+// feeding these lanes is lazy and each buffer is released as soon as its file
+// is handled, so the resident cost is `concurrency × file size` — tens of MB
+// worst case, and it does NOT grow with the size of the tree.
 // REVERT TRIGGER: set BLOG_IMAGE_CDN_CONCURRENCY=1 to restore the exact
 // sequential behaviour if a deploy OOMs in this plugin.
 const DEFAULT_SWEEP_CONCURRENCY = 8;
