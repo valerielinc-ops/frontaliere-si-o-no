@@ -9259,6 +9259,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.pensionamento-anticipato-single-2026.title': 'Frontier: early retirement planning 2026',
     'blog.article.pensionamento-anticipato-single-2026.excerpt': 'Operational guide for the single border crossing: impact on AVS, second pillar and tax management between Switzerland and Italy within the framework of the new agreement.',
     'blog.article.pensionamento-anticipato-single-2026.imageAlt': 'Pension planning for cross-border workers in Ticino',
+    'blog.article.locarno-film-festival-resistenza-legami.title': 'Locarno Film Festival: culture as a link',
+    'blog.article.locarno-film-festival-resistenza-legami.excerpt': 'The Locarno Film Festival opens with \'Les Yeux Verts\', exploring themes of trauma and resilience through cinema in Piazza Grande.',
+    'blog.article.locarno-film-festival-resistenza-legami.imageAlt': 'Piazza Grande in Locarno during the Locarno Film Festival',
 };
 
 export default blogMetaEn;

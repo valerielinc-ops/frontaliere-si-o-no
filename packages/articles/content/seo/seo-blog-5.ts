@@ -59117,6 +59117,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-locarno-film-festival-resistenza-legami': {
+    title: 'Locarno Film Festival: la cultura come legame | Frontaliere Ticino',
+    description: 'Il Locarno Film Festival inaugura con Les Yeux Verts. Esploriamo il tema della resilienza e l\'impatto culturale per i lavoratori frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, locarno, film, festival, cultura',
+    ogTitle: 'Locarno Film Festival: la cultura come legame',
+    ogDescription: 'Inaugurazione Locarno Film Festival: cinema, trauma e resilienza in Piazza Grande.',
+    canonicalPath: '/articoli-frontaliere/locarno-film-festival-resistenza-legami',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Locarno Film Festival: la cultura come legame",
+      "description": "Il Locarno Film Festival inaugura con Les Yeux Verts. Esploriamo il tema della resilienza e l'impatto culturale per i lavoratori frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/locarno-film-festival-resistenza-legami.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Piazza Grande a Locarno durante il Locarno Film Festival"
+      },
+      "datePublished": "2026-08-05T04:40:05+00:00",
+      "dateModified": "2026-08-05T04:40:05+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/locarno-film-festival-resistenza-legami/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

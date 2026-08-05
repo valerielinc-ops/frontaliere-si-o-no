@@ -9260,6 +9260,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.pensionamento-anticipato-single-2026.title': 'Frontaliere: pianificazione pensionamento anticipato 2026',
     'blog.article.pensionamento-anticipato-single-2026.excerpt': 'Guida operativa per il frontaliere single: impatto su AVS, secondo pilastro e gestione fiscale tra Svizzera e Italia nel quadro del nuovo accordo.',
     'blog.article.pensionamento-anticipato-single-2026.imageAlt': 'Pianificazione pensionistica per frontalieri in Ticino',
+    'blog.article.locarno-film-festival-resistenza-legami.title': 'Locarno Film Festival: la cultura come legame',
+    'blog.article.locarno-film-festival-resistenza-legami.excerpt': 'Il Locarno Film Festival inaugura con \'Les Yeux Verts\', esplorando temi di trauma e resilienza attraverso il cinema in Piazza Grande.',
+    'blog.article.locarno-film-festival-resistenza-legami.imageAlt': 'Piazza Grande a Locarno durante il Locarno Film Festival',
 };
 
 export default blogMetaIt;

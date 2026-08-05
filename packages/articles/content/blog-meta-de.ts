@@ -9258,6 +9258,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.pensionamento-anticipato-single-2026.title': 'Grenzgänger: Vorruhestandsplanung 2026',
     'blog.article.pensionamento-anticipato-single-2026.excerpt': 'Leitfaden für den Single-Grenzgänger: Auswirkungen auf die AHV, die zweite Säule und die Steuerverwaltung zwischen der Schweiz und Italien im Rahmen des neuen Abkommens.',
     'blog.article.pensionamento-anticipato-single-2026.imageAlt': 'Rentenplanung für Grenzgänger im Tessin',
+    'blog.article.locarno-film-festival-resistenza-legami.title': 'Locarno Film Festival: Kultur als Verbindung',
+    'blog.article.locarno-film-festival-resistenza-legami.excerpt': 'Das Locarno Film Festival eröffnet mit "Les Yeux Verts" und erforscht Themen wie Trauma und Resilienz durch das Kino auf der Piazza Grande.',
+    'blog.article.locarno-film-festival-resistenza-legami.imageAlt': 'Piazza Grande in Locarno während des Locarno Film Festivals',
 };
 
 export default blogMetaDe;
