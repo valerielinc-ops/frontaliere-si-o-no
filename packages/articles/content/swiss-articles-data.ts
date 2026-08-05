@@ -5590,6 +5590,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'svizzeri-fuga-estero-costo-casa',
+    category: 'pratico',
+    date: '2026-08-05T10:03:13.732Z',
+    image: '/images/blog/svizzeri-fuga-estero-costo-casa.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

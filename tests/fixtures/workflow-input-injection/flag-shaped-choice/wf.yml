@@ -1,0 +1,15 @@
+name: fixture-flag-shaped-choice
+on:
+  workflow_dispatch:
+    inputs:
+      mode:
+        type: choice
+        options:
+          - safe
+          - --force
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Do the thing
+        run: node scripts/thing.mjs --mode "${{ inputs.mode }}"

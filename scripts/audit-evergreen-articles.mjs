@@ -12,7 +12,7 @@
 
 import { readFileSync } from 'node:fs';
 import { resolve, dirname } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { fileURLToPath, pathToFileURL } from 'node:url';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
@@ -37,6 +37,32 @@ const ARTICLES_CONST = SECTION === 'svizzera' ? 'SWISS_ARTICLES' : 'ARTICLES';
 
 const EVERGREEN_CATEGORIES = new Set(['fiscale', 'pratico', 'pensione']);
 const STALE_THRESHOLD_MONTHS = 6;
+
+/**
+ * An article whose SLUG names a specific calendar day is about that day, and
+ * no amount of refreshing makes it evergreen again.
+ *
+ * Category is not the property this audit actually needs. `pratico` covers
+ * both "how the G permit works" (true evergreen, worth refreshing) and
+ * "manutenzione-ustat-servizi-chiusure-31-12-2025" (a service-closure notice
+ * for one date, permanently in the past). The second kind gets flagged every
+ * month forever, because the only way to make it "fresh" is to bump its date
+ * without touching a word — which is precisely the freshness manipulation
+ * Google penalises. So the audit must stop asking for it.
+ *
+ * Matches an explicit DD-MM-YYYY or YYYY-MM-DD run in the slug. A bare
+ * trailing year is deliberately NOT matched: `costo-vita-svizzera-2026` and
+ * `premi-cassa-malati-svizzera-2026` are annual editions, and refreshing them
+ * each year is exactly the job. No "is it in the past" test either — a slug
+ * naming next Tuesday is just as ephemeral, and a comparison against today
+ * would put a calendar dependency in the classifier.
+ */
+const DATED_SLUG_RE = /(^|-)(?:(?:[0-2]?\d|3[01])-(?:0?[1-9]|1[0-2])-(?:19|20)\d{2}|(?:19|20)\d{2}-(?:0?[1-9]|1[0-2])-(?:[0-2]?\d|3[01]))(-|$)/;
+
+/** True when the article's id names one specific calendar day. */
+export function isDatedAnnouncement(id) {
+  return DATED_SLUG_RE.test(String(id || ''));
+}
 
 // Remove every top-level `export interface Name { ... }` block using
 // brace-depth counting rather than a `[^}]*` regex. The naive regex stops at
@@ -103,25 +129,46 @@ function monthsBetween(older, newer) {
   );
 }
 
+// ── Audit ──────────────────────────────────────────────────────────
+/**
+ * Split a set of articles into the evergreen pool, the stale subset of it,
+ * and the dated announcements that were never evergreen to begin with.
+ *
+ * Takes the articles rather than reading them, so a test can exercise the
+ * classification without standing up the TypeScript registry parse — and so
+ * importing this module never has a side effect.
+ */
+export function auditEvergreen(articles, now = new Date()) {
+  const inEvergreenCategory = articles.filter((a) => EVERGREEN_CATEGORIES.has(a.category));
+  // Reported, not dropped in silence: an article disappearing from the count
+  // with no trace is how a classifier change becomes invisible.
+  const datedExcluded = inEvergreenCategory
+    .filter((a) => isDatedAnnouncement(a.id))
+    .map((a) => ({ id: a.id, category: a.category, date: a.date }));
+  const datedIds = new Set(datedExcluded.map((a) => a.id));
+  const evergreen = inEvergreenCategory.filter((a) => !datedIds.has(a.id));
+
+  const stale = evergreen
+    .map((a) => {
+      const freshnessDate = new Date(a.updatedAt || a.date);
+      const ageMonths = monthsBetween(freshnessDate, now);
+      return { id: a.id, category: a.category, date: a.date, updatedAt: a.updatedAt ?? null, ageMonths };
+    })
+    .filter((a) => a.ageMonths > STALE_THRESHOLD_MONTHS)
+    .sort((a, b) => b.ageMonths - a.ageMonths); // oldest first
+
+  return {
+    totalEvergreen: evergreen.length,
+    staleCount: stale.length,
+    stale,
+    datedExcludedCount: datedExcluded.length,
+    datedExcluded,
+  };
+}
+
 // ── Main ───────────────────────────────────────────────────────────
-const now = new Date();
-const articles = parseArticles();
-
-const evergreen = articles.filter((a) => EVERGREEN_CATEGORIES.has(a.category));
-
-const stale = evergreen
-  .map((a) => {
-    const freshnessDate = new Date(a.updatedAt || a.date);
-    const ageMonths = monthsBetween(freshnessDate, now);
-    return { id: a.id, category: a.category, date: a.date, updatedAt: a.updatedAt ?? null, ageMonths };
-  })
-  .filter((a) => a.ageMonths > STALE_THRESHOLD_MONTHS)
-  .sort((a, b) => b.ageMonths - a.ageMonths); // oldest first
-
-const result = {
-  totalEvergreen: evergreen.length,
-  staleCount: stale.length,
-  stale,
-};
-
-console.log(JSON.stringify(result));
+// Only when run directly: importing this module (tests) must not parse the
+// registry or print anything.
+if (import.meta.url === pathToFileURL(process.argv[1] || '').href) {
+  console.log(JSON.stringify(auditEvergreen(parseArticles())));
+}

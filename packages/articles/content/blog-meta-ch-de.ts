@@ -1864,6 +1864,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.caldo-disparita-sociali-ginevra.title': 'Hitzewelle: Frauen, ältere und arme Menschen am stärksten gefährdet',
     'blog.article.caldo-disparita-sociali-ginevra.excerpt': 'Ein Bericht der Universität Genf zeigt, dass die Fähigkeit, mit Hitzewellen umzugehen, von sozialen, wirtschaftlichen und Wohnfaktoren abhängt.',
     'blog.article.caldo-disparita-sociali-ginevra.imageAlt': 'Schweizer Stadt an einem heissen Sommertag',
+    'blog.article.svizzeri-fuga-estero-costo-casa.title': 'Schweizer auf der Flucht über die Grenze: Wiegen Sie die Kosten des Hauses',
+    'blog.article.svizzeri-fuga-estero-costo-casa.excerpt': 'Über 154\'000 Schweizerinnen und Schweizer leben in ausländischen Grenzgebieten - ein Plus von 14 Prozent, angetrieben von unhaltbaren Immobilienpreisen und stetig steigenden Mieten.',
+    'blog.article.svizzeri-fuga-estero-costo-casa.imageAlt': 'Panoramablick auf ein Wohngebiet im Grenzgebiet zwischen der Schweiz und Italien',
 };
 
 export default blogMetaChDe;
