@@ -45,7 +45,7 @@ export default function ConfrontiTabContent() {
  {/* AdSense — mid-content display ad */}
  {confrontiSubTab && (
  <Suspense fallback={null}>
- <AdSenseBanner adSlot={AD_SLOTS.HOMEPAGE_MID_DISPLAY.slot} adFormat={AD_SLOTS.HOMEPAGE_MID_DISPLAY.format} fullWidthResponsive={AD_SLOTS.HOMEPAGE_MID_DISPLAY.fullWidthResponsive} minHeight={AD_SLOTS.HOMEPAGE_MID_DISPLAY.placeholderMinHeight} className="my-6" />
+ <AdSenseBanner adSlot={AD_SLOTS.HOMEPAGE_MID_DISPLAY.slot} adFormat={AD_SLOTS.HOMEPAGE_MID_DISPLAY.format} fullWidthResponsive={AD_SLOTS.HOMEPAGE_MID_DISPLAY.fullWidthResponsive} className="my-6" />
  </Suspense>
  )}
 

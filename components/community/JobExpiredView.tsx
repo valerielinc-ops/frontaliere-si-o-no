@@ -358,7 +358,6 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
  adSlot={AD_SLOTS.JOBDETAIL_TOP_BANNER.slot}
  adFormat={AD_SLOTS.JOBDETAIL_TOP_BANNER.format}
  fullWidthResponsive={AD_SLOTS.JOBDETAIL_TOP_BANNER.fullWidthResponsive}
- minHeight={AD_SLOTS.JOBDETAIL_TOP_BANNER.placeholderMinHeight}
  className="flex-1 min-w-0"
  />
  )}
@@ -506,7 +505,13 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
  const adCfg = isDesktopLg ? AD_SLOTS.JOBLIST_INFEED_DESKTOP : AD_SLOTS.JOBLIST_INFEED_MOBILE;
  return [
  card,
- <div key={`rel-infeed-${rjSlug}`} className="my-3 min-h-[280px]">
+ // Reserve from the registry, never a literal: a hard-coded 280 here silently
+ // outlived the #4302 raise to 336 and under-reserved every in-feed unit (#4677).
+ <div
+ key={`rel-infeed-${rjSlug}`}
+ style={{ ['--ad-mh' as string]: `${adCfg.placeholderMinHeight}px` }}
+ className="my-3 min-h-[var(--ad-mh)]"
+ >
  <AdSenseBanner adSlot={adCfg.slot} adFormat={adCfg.format} fullWidthResponsive={adCfg.fullWidthResponsive} />
  </div>,
  ];
@@ -587,6 +592,7 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
  <AdSenseBanner
  adSlot={AD_SLOTS.ARTICLE_INLINE_MOBILE.slot}
  adFormat={AD_SLOTS.ARTICLE_INLINE_MOBILE.format}
+ adLayout={AD_SLOTS.ARTICLE_INLINE_MOBILE.layout}
  />
  )}
 

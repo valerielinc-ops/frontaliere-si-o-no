@@ -294,3 +294,107 @@ export function shouldPlaceInfeedAd(position1Based: number): boolean {
  position1Based <= JOBLIST_AD_EVERY_N * JOBLIST_AD_MAX_PER_LIST
  );
 }
+
+/* ────────────────────────────────────────────────────────────────────────────
+ * Placeholder-height resolution — single source of truth for CLS reservation
+ * ────────────────────────────────────────────────────────────────────────────
+ *
+ * `placeholderMinHeight` above was the declared source of truth for how much
+ * layout space a slot reserves before it fills, but only the BUILD-TIME path
+ * (`build-plugins/lib/adSlotHtml.ts`) ever read it. The runtime SPA path
+ * (`components/shared/AdSenseBanner.tsx`) resolved the reserve from a
+ * format-only heuristic (fluid/in-article → 220, autorelaxed → 400/600,
+ * everything else → 280), and 42 of 49 `<AdSenseBanner>` call sites pass no
+ * `minHeight` override — so for those slots the registry value was inert.
+ *
+ * Concretely that made the #4302 CLS fix a no-op on the SPA: this file raised
+ * JOBLIST_INFEED_MOBILE/DESKTOP from 280 → 336 for exactly that campaign, but
+ * `/cerca-lavoro-ticino/` kept reserving 280px per in-feed unit in production
+ * (verified live: the in-feed wrapper computes `min-height: 280px`), and the
+ * job list interleaves up to `JOBLIST_AD_MAX_PER_LIST` of them — every filled
+ * unit pushing the rest of the list and the footer down. That is the field
+ * CLS regression tracked in issue #4677.
+ *
+ * `resolveSlotPlaceholderMinHeight` closes the loop: the runtime component
+ * reads the same registry entry the build-time emitter does, so the two paths
+ * can no longer drift and a slot's reserve is edited in exactly one place.
+ *
+ * Two registry entries MAY share a triple when they are the same physical ad
+ * unit reused in two placements (e.g. JOBLIST_INFEED_MOBILE and
+ * JOBDETAIL_AUTH_GATE both key to `3205029282|auto|`). That is allowed and
+ * intentional, but it makes their `placeholderMinHeight` values a single value
+ * with two spellings: the resolver returns whichever entry is enumerated last,
+ * so the two MUST stay numerically equal. `tests/adsense-placeholder-registry
+ * .test.ts` turns red the moment they diverge — if you need genuinely different
+ * reserves for two placements, give them different slot ids or formats rather
+ * than editing one number.
+ *
+ * Keyed on the (slot, format, layout) TRIPLE, never the slot id alone: slot
+ * ids are deliberately reused across placements (see the "Slot id REUSES …"
+ * notes above), and `3205029282` is shared by JOBLIST_INFEED_MOBILE (336) and
+ * JOBDETAIL_TOP_BANNER (100) — resolving by id alone would silently pick one
+ * of the two. The triple is collision-free across the whole registry, pinned
+ * by `tests/adsense-placeholder-registry.test.ts`.
+ */
+
+/** Widest viewport (px) still treated as the registry's mobile/SSR floor for
+ *  the multiplex desktop uplift below. Mirrors the `xl:` Tailwind breakpoint
+ *  used by the `xl:min-h-[600px]` Suspense fallbacks. */
+export const MULTIPLEX_DESKTOP_MIN_WIDTH = 1280;
+
+/** Desktop multiplex reserve. `autorelaxed` renders ~380-450px on mobile but
+ *  ~550-650px on desktop (wider grid → more ad rows), so the registry's
+ *  mobile/SSR floor is lifted to this on wide viewports. */
+export const MULTIPLEX_DESKTOP_MIN_HEIGHT = 600;
+
+function slotReserveKey(
+  adSlot: string | undefined,
+  adFormat: string | undefined,
+  adLayout?: string,
+): string {
+  return `${adSlot ?? ''}|${adFormat ?? ''}|${adLayout ?? ''}`;
+}
+
+/** Precomputed at module load — never rebuilt per call. A per-call rebuild
+ *  would re-walk the registry on every ad render (the job list mounts up to
+ *  `JOBLIST_AD_MAX_PER_LIST` units per page). */
+const SLOT_RESERVE_BY_KEY: ReadonlyMap<string, number> = new Map(
+  Object.values(AD_SLOTS)
+    .filter((entry): entry is typeof entry & { placeholderMinHeight: number } =>
+      typeof (entry as { placeholderMinHeight?: number }).placeholderMinHeight === 'number')
+    .map((entry) => [
+      slotReserveKey(
+        (entry as { slot?: string }).slot,
+        (entry as { format?: string }).format,
+        (entry as { layout?: string }).layout,
+      ),
+      entry.placeholderMinHeight,
+    ]),
+);
+
+/**
+ * Registry-declared placeholder height for a slot, or `undefined` when the
+ * (slot, format, layout) triple is not in the registry — the caller then falls
+ * back to its own format heuristic.
+ *
+ * `viewportWidth` only affects `autorelaxed` (multiplex) units, which get the
+ * documented desktop uplift. Pass `undefined` for SSR/build contexts to get
+ * the mobile/SSR floor.
+ */
+export function resolveSlotPlaceholderMinHeight(
+  adSlot: string | undefined,
+  adFormat: string | undefined,
+  adLayout?: string,
+  viewportWidth?: number,
+): number | undefined {
+  const declared = SLOT_RESERVE_BY_KEY.get(slotReserveKey(adSlot, adFormat, adLayout));
+  if (declared === undefined) return undefined;
+  if (
+    adFormat === 'autorelaxed' &&
+    typeof viewportWidth === 'number' &&
+    viewportWidth >= MULTIPLEX_DESKTOP_MIN_WIDTH
+  ) {
+    return Math.max(declared, MULTIPLEX_DESKTOP_MIN_HEIGHT);
+  }
+  return declared;
+}
