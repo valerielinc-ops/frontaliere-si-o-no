@@ -23690,6 +23690,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-franco-svizzero-economia-bns-politica-monetaria': {
+    title: 'Franco svizzero: economia e politica monetaria della BNS',
+    description: 'Scopri il ruolo della Banca Nazionale Svizzera nella politica monetaria e l\'impatto del franco forte sull\'economia e i salari. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, franco, svizzero, economia, politica',
+    ogTitle: 'Franco Svizzero: Economia e Politica Monetaria della BNS',
+    ogDescription: 'Scopri il ruolo della Banca Nazionale Svizzera nella politica monetaria e l\'impatto del franco forte sull\'economia e i salari.',
+    canonicalPath: '/articoli-svizzera/franco-svizzero-economia-bns-politica-monetaria/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Franco svizzero: economia e politica monetaria della BNS",
+      "description": "Scopri il ruolo della Banca Nazionale Svizzera nella politica monetaria e l'impatto del franco forte sull'economia e i salari. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/franco-svizzero-economia-bns-politica-monetaria.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista panoramica di Lugano con il lago e le montagne"
+      },
+      "datePublished": "2026-08-05T02:44:46+00:00",
+      "dateModified": "2026-08-05T02:44:46+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/franco-svizzero-economia-bns-politica-monetaria/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

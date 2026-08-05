@@ -5491,6 +5491,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'franco-svizzero-economia-bns-politica-monetaria',
+    category: 'fiscale',
+    date: '2026-08-05T02:44:46.575Z',
+    image: '/images/blog/franco-svizzero-economia-bns-politica-monetaria.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

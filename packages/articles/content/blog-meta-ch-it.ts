@@ -1831,6 +1831,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.cile-1988-democrazia-svizzera.title': 'Cile 1988: lezioni dalla fine di una dittatura',
     'blog.article.cile-1988-democrazia-svizzera.excerpt': 'Il plebiscito cileno del 1988 ha segnato la fine di 15 anni di dittatura militare guidata da Pinochet.',
     'blog.article.cile-1988-democrazia-svizzera.imageAlt': 'Vista aerea di Lugano con il paesaggio del Ticino in secondo piano',
+    'blog.article.franco-svizzero-economia-bns-politica-monetaria.title': 'Franco svizzero: economia e politica monetaria della BNS',
+    'blog.article.franco-svizzero-economia-bns-politica-monetaria.excerpt': 'Scopri il ruolo della Banca Nazionale Svizzera nella politica monetaria e l\'impatto del franco forte sull\'economia e i salari.',
+    'blog.article.franco-svizzero-economia-bns-politica-monetaria.imageAlt': 'Vista panoramica di Lugano con il lago e le montagne',
 };
 
 export default blogMetaChIt;

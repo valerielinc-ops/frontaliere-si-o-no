@@ -1831,6 +1831,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.cile-1988-democrazia-svizzera.title': 'Chili 1988 : leçons de la fin d\'une dictature',
     'blog.article.cile-1988-democrazia-svizzera.excerpt': 'Le plébiscite chilien de 1988 a marqué la fin de 15 ans de dictature militaire dirigée par Pinochet.',
     'blog.article.cile-1988-democrazia-svizzera.imageAlt': 'Vue aérienne de Lugano avec le paysage du Tessin en arrière-plan',
+    'blog.article.franco-svizzero-economia-bns-politica-monetaria.title': 'Franc suisse : économie et politique monétaire de la BNS',
+    'blog.article.franco-svizzero-economia-bns-politica-monetaria.excerpt': 'Découvrez le rôle de la Banque nationale suisse dans la politique monétaire et l\'impact du franc fort sur l\'économie et les salaires.',
+    'blog.article.franco-svizzero-economia-bns-politica-monetaria.imageAlt': 'Vue panoramique de Lugano avec le lac et les montagnes',
 };
 
 export default blogMetaChFr;

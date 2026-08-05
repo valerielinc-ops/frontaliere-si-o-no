@@ -636,6 +636,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'emigrazione-tasse-obblighi-dopo-partenza': { it: 'emigrazione-tasse-obblighi-dopo-partenza', en: 'emigrating-from-switzerland-tax-obligations-after-leaving', de: 'auswanderung-steuerpflicht-nach-abreise-aus-der-schweiz', fr: 'emigration-de-suisse-obligations-fiscales-apres-le-depart' },
  'banche-cercano-piu-personale': { it: 'banche-cercano-piu-personale', en: 'swiss-banks-look-for-staff-july', de: 'schweizer-banken-suchen-personal-juli', fr: 'banques-suisses-recherchent-personnel-juillet' },
  'cile-1988-democrazia-svizzera': { it: 'cile-1988-democrazia-svizzera', en: 'chile-1988-democracy-switzerland', de: 'chile-1988-demokratie-schweiz', fr: 'chili-1988-democratie-suisse' },
+ 'franco-svizzero-economia-bns-politica-monetaria': { it: 'franco-svizzero-economia-bns-politica-monetaria', en: 'swiss-franc-economy-snb-monetary-policy', de: 'schweizer-franken-wirtschaft-snb-geldpolitik', fr: 'franc-suisse-economie-bns-politique-monetaire' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
