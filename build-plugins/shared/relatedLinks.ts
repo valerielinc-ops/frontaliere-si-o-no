@@ -90,6 +90,7 @@ import {
   BORDER_WAIT_CROSSINGS,
   TOP_5_CROSSINGS,
   REGION_TO_COUNTRY,
+  isTicinoRegion,
   type BorderCrossingSlug,
   type BorderWaitLocale,
 } from '../borderWaitData';
@@ -637,11 +638,13 @@ function crossingForCityOrZone(cityOrZone: string | undefined): BorderCrossingSl
  *
  * Ticino crossings keep sourcing exclusively from `TOP_5_CROSSINGS` — the
  * historical, byte-for-byte-live behavior for the 26 original (already
- * indexed) pages must not change. Non-Ticino crossings (e.g. the German
- * corridor) have no representation in `TOP_5_CROSSINGS` at all, so they
- * derive siblings from the full `BORDER_WAIT_CROSSINGS` registry instead —
- * otherwise every non-Ticino page would link back to unrelated Ticino-Italy
- * crossings hundreds of km away.
+ * indexed) pages must not change. Non-Ticino crossings (the German corridor,
+ * and since #4545 the Grigioni/Vallese–Italy alpine one) have no
+ * representation in `TOP_5_CROSSINGS` at all, so they derive siblings from
+ * the full `BORDER_WAIT_CROSSINGS` registry instead — otherwise every
+ * non-Ticino page would link back to unrelated Ticino crossings hundreds of
+ * km away. "Non-Ticino" is the corridor test, NOT `country !== 'IT'`: the
+ * alpine crossings are Italy-facing and still must not pool with Ticino.
  *
  * Small non-Ticino regions (e.g. Turgovia, 4 crossings) can exhaust their
  * same-region pool before reaching `count`. The fallback tier is same
@@ -657,8 +660,13 @@ function pickSiblingCrossings(
 ): BorderCrossingSlug[] {
   const currentRegion = CROSSING_TO_REGION[current];
   const currentCountry = REGION_TO_COUNTRY[currentRegion];
+  // TICINO, not Italy. `TOP_5_CROSSINGS` is five Ticino crossings, so keying
+  // this on the country would hand a Passo dello Spluga page (Italy-facing,
+  // 200 km from Ticino, added by #4545) a sibling pool of Chiasso/Gaggiolo/
+  // Ponte Tresa — reintroducing the exact cross-corridor link bug #4952 this
+  // function exists to prevent. See `TICINO_REGIONS` in borderWaitData.ts.
   const pool: readonly BorderCrossingSlug[] =
-    currentCountry === 'IT' ? TOP_5_CROSSINGS : BORDER_WAIT_CROSSINGS;
+    isTicinoRegion(currentRegion) ? TOP_5_CROSSINGS : BORDER_WAIT_CROSSINGS;
   const sameRegion: BorderCrossingSlug[] = [];
   const sameCountryOtherRegion: BorderCrossingSlug[] = [];
   const rest: BorderCrossingSlug[] = [];
@@ -667,7 +675,17 @@ function pickSiblingCrossings(
     const region = CROSSING_TO_REGION[c];
     if (region === currentRegion) {
       sameRegion.push(c);
-    } else if (REGION_TO_COUNTRY[region] === currentCountry) {
+    } else if (
+      REGION_TO_COUNTRY[region] === currentCountry &&
+      isTicinoRegion(region) === isTicinoRegion(currentRegion)
+    ) {
+      // Same country AND same corridor family. The corridor half matters
+      // because Italy now spans two unrelated corridors: without it, the
+      // two-crossing `vallese-italia` region exhausts its same-region tier
+      // and the same-COUNTRY tier hands it Chiasso — `BORDER_WAIT_CROSSINGS`
+      // lists the 26 Ticino slugs first, so they win the fallback. Ticino
+      // crossings drop to `rest` for a non-Ticino page (and vice versa),
+      // which is only ever reached when nothing closer exists.
       sameCountryOtherRegion.push(c);
     } else {
       rest.push(c);
