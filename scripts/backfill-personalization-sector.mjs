@@ -46,6 +46,20 @@ const SECTOR_FIELDS = ['sector_interest', 'job_category'];
 // size — it eventually exceeded the workflow's 10-minute timeout as the
 // collection grew (issue #5053). Reads are independent per subscriber, so
 // fanning them out is safe.
+//
+// MEASURED, not assumed (AGENTS.md "unvalidated perf claim"). Dry-run
+// workflow_dispatch on this branch, run 30986186256, against the live
+// collection:
+//   • scan phase 07:46:55.59Z → 07:47:48.28Z = 52.7s for 2383 profiles;
+//   • whole job 3m20s including npm ci, vs the 10-minute workflow timeout.
+// Baseline for the same code path sequential: run 30797095605 was CANCELLED at
+// the timeout after 7m44s WITHOUT finishing a smaller collection (2321
+// profiles). So the fix is verified on a LARGER input than the one that failed.
+//
+// REVERT TRIGGER: this leaves ~9 minutes of headroom at 2383 profiles. If a
+// future scheduled run times out again, the collection has outgrown a flat
+// concurrency of 20 — raise it or paginate the scan; do NOT raise the workflow
+// timeout, which would only re-hide the growth (Non-Negotiable #1).
 const READ_CONCURRENCY = 20;
 
 function parseArgs(argv) {
