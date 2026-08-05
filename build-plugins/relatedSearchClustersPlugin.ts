@@ -51,6 +51,7 @@ import { WriteCollector } from './batchWrite';
 import { BASE_URL, buildCanonicalBridgePage } from './constants';
 import { buildFlatBridgeFromSibling } from './flatHtmlRedirectPlugin';
 import { buildSeoPageHtml } from './shared/seoPageShell';
+import { buildLocaleAlternateBlock } from './shared/localeAlternateBlock';
 import { endOfContentMultiplexHtml } from './lib/adSlotHtml';
 import { stripLiteralMarkdown } from './shared/stripLiteralMarkdown';
 import { ORPHAN_LANDING_SECTION } from './orphanQueryData';
@@ -1567,24 +1568,21 @@ function buildJsonLd(opts: {
 
 function renderHreflang(
   hreflang: ReadonlyArray<{ locale: Locale; url: string }>,
-  fallbackUrl: string,
+  _fallbackUrl: string,
 ): string {
-  // Per audit:hreflang gate: a page WITH hreflang must declare all 4 locales
-  // + x-default (5 entries minimum). Most clusters exist in only 1-2 locales,
-  // so emitting partial hreflang trips the [tooFew] check. Strategy: only
-  // emit hreflang when we have ALL 4 locale alternates; otherwise omit
-  // entirely (single-locale pages don't need hreflang and the audit doesn't
-  // flag pages with zero hreflang entries).
-  const distinctLocales = new Set(hreflang.map((h) => h.locale));
-  if (distinctLocales.size < 4) return '';
-  const lines: string[] = [];
-  for (const alt of hreflang) {
-    lines.push(`    <link rel="alternate" hreflang="${alt.locale}" href="${alt.url}">`);
-  }
-  const itAlt = hreflang.find((h) => h.locale === 'it');
-  const xDefaultUrl = itAlt?.url || hreflang[0]?.url || fallbackUrl;
-  lines.push(`    <link rel="alternate" hreflang="x-default" href="${xDefaultUrl}">`);
-  return lines.join('\n');
+  // The all-or-nothing rule (4 locales + x-default, or nothing at all) now
+  // lives in ONE place — shared/localeAlternateBlock.ts — because
+  // jobsSeoPagesPlugin's three search-landing emitters need the identical
+  // rule and a second literal copy is exactly the drift AGENTS.md #6
+  // forbids. This plugin was already correct: its alternates come from
+  // `byKeywordCity`, i.e. contexts the build planned. #5114 was the OTHER
+  // emitter, which templated all four locales unconditionally.
+  const byLocale = new Map(hreflang.map((h) => [h.locale as string, h.url]));
+  return buildLocaleAlternateBlock({
+    eligibleLocales: byLocale.keys(),
+    hrefFor: (locale) => byLocale.get(locale)!,
+    indent: '    ',
+  });
 }
 
 // Memoize renderJobBoardCommuterContext: pure function, ~52k calls per build

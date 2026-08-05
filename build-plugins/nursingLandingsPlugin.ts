@@ -48,6 +48,7 @@ import np from 'node:path';
 import type { Plugin } from 'vite';
 import { BASE_URL, MIN_INDEXABLE_WORDS, countHtmlBodyWords } from './constants';
 import { buildSeoPageHtml } from './shared/seoPageShell';
+import { buildLocaleAlternateBlock } from './shared/localeAlternateBlock';
 import { endOfContentMultiplexHtml } from './lib/adSlotHtml';
 import { formatUpdatedDate } from './shared/humanDate';
 import { WriteCollector } from './batchWrite';
@@ -319,8 +320,19 @@ function renderPage(opts: {
   dateStamp: string;
   distDir?: string;
   snapshot: NursingJobsSnapshot;
+  /**
+   * Locales whose page for THIS landing `id` the build will actually write.
+   * The `MIN_INDEXABLE_WORDS` floor below is evaluated per locale (and per
+   * id), so it can drop DE while keeping IT for the same landing — and an
+   * hreflang block built from the full `NURSING_LOCALES` list would then
+   * advertise a page nothing wrote (the #5114 `missingTarget` class). Pass 1
+   * of the caller's two-pass render leaves this at the empty default: it only
+   * reads `wordCount`, which is derived from the body and does not depend on
+   * the hreflang block.
+   */
+  eligibleLocales?: ReadonlySet<string>;
 }): RenderResult {
-  const { locale, id, dateStamp, distDir, snapshot } = opts;
+  const { locale, id, dateStamp, distDir, snapshot, eligibleLocales = new Set<string>() } = opts;
   const copy = buildNursingLandingCopy(locale, id, {
     liveCount: snapshot.liveCount,
     fresh30Count: snapshot.fresh30Count,
@@ -329,15 +341,15 @@ function renderPage(opts: {
   const urlPath = buildNursingLandingPath(locale, id);
   const canonicalUrl = `${BASE_URL}${urlPath}`;
 
-  // Hreflang — all 4 locales + x-default → IT canonical.
-  const hreflangLines = NURSING_LOCALES.map((alt) => {
-    const altPath = buildNursingLandingPath(alt, id);
-    return `    <link rel="alternate" hreflang="${alt}" href="${BASE_URL}${altPath}">`;
+  // Hreflang — all 4 locales + x-default → IT canonical, emitted only when
+  // every locale's page for this landing is actually written this build —
+  // otherwise nothing, since a partial set only trades audit-hreflang's
+  // [missingTarget] for [tooFew] (#5114).
+  const alternates = buildLocaleAlternateBlock({
+    eligibleLocales,
+    hrefFor: (alt) => `${BASE_URL}${buildNursingLandingPath(alt as NursingLocale, id)}`,
+    indent: '    ',
   });
-  hreflangLines.push(
-    `    <link rel="alternate" hreflang="x-default" href="${BASE_URL}${buildNursingLandingPath('it', id)}">`,
-  );
-  const alternates = hreflangLines.join('\n');
 
   // Breadcrumbs + downstream URLs
   const homeUrl = locale === 'it' ? `${BASE_URL}/` : `${BASE_URL}/${locale}/`;
@@ -560,11 +572,33 @@ export function nursingLandingsPlugin(rootDir: string): Plugin {
       let thinSkipped = 0;
 
       for (const id of NURSING_LANDING_IDS) {
-        const alternates = NURSING_LOCALES.map((alt) => `${alt}|${BASE_URL}${buildNursingLandingPath(alt, id)}`);
-        alternates.push(`x-default|${BASE_URL}${buildNursingLandingPath('it', id)}`);
+        // ── Pass 1: which locales clear the indexability floor? ────────────
+        // The floor is per-locale AND per landing id, so it can drop DE while
+        // keeping IT for the same landing. Settling the set BEFORE any page is
+        // rendered for real is what makes it impossible to advertise a landing
+        // that never gets written (#5114 class). `wordCount` derives from the
+        // body alone, so this pass is unaffected by the empty hreflang block
+        // it renders with.
+        const eligibleLocales = new Set<string>(
+          NURSING_LOCALES.filter(
+            (locale) =>
+              renderPage({ locale, id, dateStamp, distDir, snapshot: snapshots[id] }).wordCount >=
+              MIN_INDEXABLE_WORDS,
+          ),
+        );
+
+        // Sitemap alternates track the same set: an ineligible locale has no
+        // page, so advertising it would point the crawler at a 404.
+        const alternates = NURSING_LOCALES.filter((alt) => eligibleLocales.has(alt)).map(
+          (alt) => `${alt}|${BASE_URL}${buildNursingLandingPath(alt, id)}`,
+        );
+        if (eligibleLocales.has('it')) {
+          alternates.push(`x-default|${BASE_URL}${buildNursingLandingPath('it', id)}`);
+        }
 
         let itWasWritten = false;
 
+        // ── Pass 2: render for real, with the settled alternate set ────────
         for (const locale of NURSING_LOCALES) {
           const rendered = renderPage({
             locale,
@@ -572,6 +606,7 @@ export function nursingLandingsPlugin(rootDir: string): Plugin {
             dateStamp,
             distDir,
             snapshot: snapshots[id],
+            eligibleLocales,
           });
 
           if (rendered.wordCount < MIN_INDEXABLE_WORDS) {
