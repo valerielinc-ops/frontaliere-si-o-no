@@ -24041,6 +24041,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-congedo-parentale-svizzera-durata': {
+    title: 'Congedo parentale svizzera durata indennita e regole',
+    description: 'Guida ufficiale al congedo parentale in Svizzera: durata, indennità giornaliere, aliquote contributive, imposta alla fonte e accordi bilaterali. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, congedo, parentale, durata, indennita',
+    ogTitle: 'Congedo parentale in Svizzera: durata e indennità',
+    ogDescription: 'Tutto su congedo parentale, durata, indennità e contributi in Svizzera secondo le normative vigenti.',
+    canonicalPath: '/articoli-svizzera/congedo-parentale-svizzera-durata/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Congedo parentale svizzera durata indennita e regole",
+      "description": "Guida ufficiale al congedo parentale in Svizzera: durata, indennità giornaliere, aliquote contributive, imposta alla fonte e accordi bilaterali. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/congedo-parentale-svizzera-durata.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista panoramica di Lugano e del distretto finanziario svizzero"
+      },
+      "datePublished": "2026-08-05T08:05:54+00:00",
+      "dateModified": "2026-08-05T08:05:54+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/congedo-parentale-svizzera-durata/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
