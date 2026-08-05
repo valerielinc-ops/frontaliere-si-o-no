@@ -25,7 +25,7 @@ vi.mock('node:fs', async (importOriginal) => {
   return { ...actual, readFileSync: (...args: unknown[]) => readFileSync(...args) };
 });
 
-const { syncErrorIssues, ISSUE_DENY_PATTERNS, isIssueDenied } = await import('../scripts/lib/error-issue-sync.mjs');
+const { syncErrorIssues, ISSUE_DENY_PATTERNS, isIssueDenied, isSelfHealedPage404, page404Path } = await import('../scripts/lib/error-issue-sync.mjs');
 const { MODULE_LINK_SKEW_PATTERNS } = await import('../services/resilientImport');
 const { UNIVERSAL_BENIGN_PATTERNS } = await import('../services/benignErrorPatterns');
 const appErrorSync = await import('../scripts/app-error-issue-sync.mjs');
@@ -549,5 +549,112 @@ describe('cf-5xx-issue-sync.mjs', () => {
     const title = calls[0][calls[0].indexOf('--title') + 1];
     expect(title).toContain('frontaliereticino.ch/it/lavoro/');
     delete process.env.CF_API_TOKEN;
+  });
+});
+
+
+// ── #5064 / #5065: stale page_404 telemetry ────────────────────────────────
+// The GA4 report window is a TRAILING 30 days, so a 404 fixed on day 3 keeps
+// opening `priority:high` + `needs-human` issues for another 27 days. Both
+// issues were verified live: the two job URLs answer HTTP 200 with a complete
+// JobPosting page. The feeder now re-checks the URL against production before
+// filing — a URL that answers 200 is not a 404.
+describe('page404Path — identifying a page_404 candidate', () => {
+  it('reads the path from pagePath', () => {
+    expect(page404Path({ errorType: 'page_404', pagePath: '/cerca-lavoro-berna/x/' }))
+      .toBe('/cerca-lavoro-berna/x/');
+  });
+
+  it('falls back to the message when pagePath is absent', () => {
+    expect(page404Path({ errorType: 'page_404', errorMessage: 'Page not found: /cerca-lavoro-ginevra/y/' }))
+      .toBe('/cerca-lavoro-ginevra/y/');
+  });
+
+  it('strips the query string (the 404 is a fact about the path)', () => {
+    expect(page404Path({ errorType: 'page_404', pagePath: '/a/b/?utm_source=x' })).toBe('/a/b/');
+  });
+
+  it('returns empty for any other error class', () => {
+    expect(page404Path({ errorType: 'TypeError', pagePath: '/a/' })).toBe('');
+    expect(page404Path({ errorType: 'page_404', pagePath: 'https://evil.example/a' })).toBe('');
+  });
+});
+
+describe('isSelfHealedPage404 — probe production before filing', () => {
+  it('is true when the URL answers 200 today (stale telemetry)', async () => {
+    const fetchImpl = vi.fn(async () => ({ status: 200 }));
+    await expect(
+      isSelfHealedPage404({ errorType: 'page_404', pagePath: '/cerca-lavoro-berna/x/' }, { fetchImpl }),
+    ).resolves.toBe(true);
+  });
+
+  it('is true for a 301 to a live page (canton-drift recovery also resolves the URL)', async () => {
+    const fetchImpl = vi.fn(async () => ({ status: 301 }));
+    await expect(
+      isSelfHealedPage404({ errorType: 'page_404', pagePath: '/a/' }, { fetchImpl }),
+    ).resolves.toBe(true);
+  });
+
+  it('is false when the URL still 404s — a real defect keeps its issue', async () => {
+    const fetchImpl = vi.fn(async () => ({ status: 404 }));
+    await expect(
+      isSelfHealedPage404({ errorType: 'page_404', pagePath: '/a/' }, { fetchImpl }),
+    ).resolves.toBe(false);
+  });
+
+  it('fails OPEN when the probe throws — an unreachable prod never hides a 404', async () => {
+    const fetchImpl = vi.fn(async () => { throw new Error('ECONNRESET'); });
+    await expect(
+      isSelfHealedPage404({ errorType: 'page_404', pagePath: '/a/' }, { fetchImpl }),
+    ).resolves.toBe(false);
+  });
+
+  it('never probes a non-page_404 entry', async () => {
+    const fetchImpl = vi.fn(async () => ({ status: 200 }));
+    await expect(
+      isSelfHealedPage404({ errorType: 'TypeError', errorMessage: 'boom', pagePath: '/a/' }, { fetchImpl }),
+    ).resolves.toBe(false);
+    expect(fetchImpl).not.toHaveBeenCalled();
+  });
+});
+
+describe('app-error-issue-sync.mjs — page_404 liveness gate (#5064/#5065)', () => {
+  const report = (pagePath: string) => JSON.stringify({
+    ga4: {
+      errorHealth: {
+        totalErrors: 45,
+        errorRate: 4.94,
+        healthStatus: '🔴 CRITICAL',
+        appErrors: [
+          {
+            errorType: 'page_404',
+            errorMessage: `Page not found: ${pagePath}`,
+            pagePath,
+            count: 21,
+            users: 13,
+          },
+        ],
+      },
+    },
+  });
+
+  it('does NOT file an issue for a page_404 whose URL resolves today', async () => {
+    issueListEmptyThenCreate(501);
+    readFileSync.mockReturnValue(report('/cerca-lavoro-berna/venditore-in-food-coop-unterseen-3357ff/'));
+    vi.stubGlobal('fetch', vi.fn(async () => ({ status: 200 })));
+
+    await appErrorSync.main();
+
+    expect(createCalls()).toHaveLength(0);
+  });
+
+  it('still files an issue for a page_404 that is genuinely dead', async () => {
+    issueListEmptyThenCreate(502);
+    readFileSync.mockReturnValue(report('/cerca-lavoro-berna/davvero-morto/'));
+    vi.stubGlobal('fetch', vi.fn(async () => ({ status: 404 })));
+
+    await appErrorSync.main();
+
+    expect(createCalls()).toHaveLength(1);
   });
 });
