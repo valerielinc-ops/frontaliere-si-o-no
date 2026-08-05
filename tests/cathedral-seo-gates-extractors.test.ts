@@ -241,6 +241,20 @@ describe('#5169 — the gate replays the deployed dist instead of rebuilding it'
     expect(active).toMatch(/actions:\s*read/);
   });
 
+  it('the OOM-ing composite action is gone and nothing references it any more', () => {
+    expect(fs.existsSync(path.join(REPO_ROOT, '.github/actions/build-dist-multi-locale-merged'))).toBe(
+      false,
+    );
+    const wfDir = path.join(REPO_ROOT, '.github/workflows');
+    for (const name of fs.readdirSync(wfDir)) {
+      if (!name.endsWith('.yml') && !name.endsWith('.yaml')) continue;
+      const body = fs.readFileSync(path.join(wfDir, name), 'utf8');
+      expect(body, `${name} still USES the deleted action`).not.toMatch(
+        /uses:\s*\.\/\.github\/actions\/build-dist-multi-locale-merged/,
+      );
+    }
+  });
+
   it('keeps every referenced helper on disk', () => {
     for (const rel of [
       'scripts/ci/assert-dist-complete.mjs',
