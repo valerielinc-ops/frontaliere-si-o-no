@@ -78,13 +78,33 @@ describe('capSearchStatsLandingTitle (#3589 sibling: same escape-unaware title-b
     expect(capped).not.toContain('…');
   });
 
-  it('still prefers the longer candidate when it is BOTH long enough and clean', () => {
-    // Guard against "fix" by always taking the short clean peel: MIN_PEELED_TITLE_CHARS
-    // must still do its job whenever a clean alternative reaches it.
-    const rawTitle = 'Offerte di lavoro Infermiere qualificato in Svizzera italiana';
-    const capped = capSearchStatsLandingTitle(rawTitle, 40);
-    expect(capped.length).toBeGreaterThanOrEqual(MIN_PEELED_TITLE_CHARS);
-    expect(capped).not.toMatch(/(^|\s)(di|in|per|con|il|la|e)$/);
+  it('never ends mid-word either, even when the longer candidate looks clean', () => {
+    // The stopword check alone is not enough: when no space sits before half the budget,
+    // truncateClauseAware returns a raw slice, and a mid-word slice has NOTHING to peel — so
+    // it passes the "clean" test unchanged. Here the ladder yields "Lavoro Amminis" (14, no
+    // dangling stopword, but cut inside a word) while the peel yields "Lavoro" (6, whole
+    // word). Before the boundary check the mid-word candidate won on length.
+    const rawTitle = 'Lavoro Amministrazione Ticino';
+    const capped = capSearchStatsLandingTitle(rawTitle, 14);
+
+    expect(capped).toBe('Lavoro');
+    // Stated as the general rule too, so a future refactor cannot satisfy it by luck.
+    const nextChar = rawTitle.charAt(capped.length);
+    expect(nextChar === '' || /[^\p{L}\p{N}]/u.test(nextChar)).toBe(true);
+  });
+
+  it('still prefers the longer candidate when it is BOTH long enough and unbroken', () => {
+    // Guard against "fixing" this by always taking the short clean peel: the longer
+    // candidate must still win whenever it ends on a real boundary. Different input and
+    // budget from the cases above so this is not a subset of them.
+    const rawTitle = 'Assistente amministrativa a Chiasso per studio legale';
+    const capped = capSearchStatsLandingTitle(rawTitle, 28);
+    expect(capped.length).toBeGreaterThan(MIN_PEELED_TITLE_CHARS);
+    expect(capped.length).toBeLessThanOrEqual(28);
+    expect(rawTitle.startsWith(capped)).toBe(true);
+    expect(capped).not.toMatch(/(^|\s)(di|in|per|con|il|la|a|e)$/);
+    const nextChar = rawTitle.charAt(capped.length);
+    expect(nextChar === '' || /[^\p{L}\p{N}]/u.test(nextChar)).toBe(true);
   });
 
   it('keeps the peel when it clears the floor', () => {
