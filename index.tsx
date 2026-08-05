@@ -159,6 +159,16 @@ const mountApp = async () => {
      if (fallback && !rootElement.contains(fallback)) {
        const railWrap = fallback.closest<HTMLElement>('.ft-rail-grid');
        fallback.style.removeProperty('display');
+       // This move is what destroys — rather than merely hides — the article
+       // page of anything published since the last deploy: the SPA cannot
+       // resolve its slug, renders the hub list into #root, and the article
+       // that was here goes with it. Stash a clone first so the runtime
+       // resolver can put it back if it turns out we cannot render this one.
+       // Article pages only; nothing else changes about the handoff.
+       if (fallback.querySelector('article.ft-blog-article')) {
+         const { stashStaticArticleFallback } = await import('./services/staticArticleFallback');
+         stashStaticArticleFallback(fallback);
+       }
        rootElement.appendChild(fallback);
        if (railWrap) railWrap.style.display = 'none';
        staticPage = hasStaticContent();

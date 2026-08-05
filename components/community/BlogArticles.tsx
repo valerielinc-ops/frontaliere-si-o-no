@@ -1,8 +1,9 @@
 import { useState, useEffect, useRef, useMemo, useCallback, Suspense, memo, Fragment, type FC, type ReactNode, type ReactElement, type CSSProperties } from 'react';
 import { lazyRetry } from '@/services/lazyRetry';
 import { resilientImport } from '@/services/resilientImport';
-import { useTranslation, useLocale, loadBlogMeta, loadArticleBody, getCantonI18nParams, getLocale } from '@/services/i18n';
+import { useTranslation, useLocale, loadBlogMeta, loadArticleBody, getCantonI18nParams, getLocale, t as translate } from '@/services/i18n';
 import { fetchArticleOverlay, mergeOverlay } from '@/services/articlesOverlay';
+import { runtimeArticleRecords, fetchArticleBodyParts, publishRuntimeArticleBody } from '@/services/runtimeArticleResolution';
 import type { Locale } from '@/services/i18n';
 import { buildPath, preloadBlogData } from '@/services/router';
 import { resolveJobCanton } from '@/build-plugins/shared/cantonSection';
@@ -1223,7 +1224,17 @@ function BlogArticles({
  preloadBlogData().catch(() => {}),
  articlesPromise,
  ]).then(([, , data]) => {
- setArticles(data);
+ // Articles the router already resolved at runtime (issue #4974 item 3).
+ // This component mounts only AFTER that resolution — the article page
+ // stays on the shard's static HTML until then — so by the time we get
+ // here the record is in hand and can be merged synchronously. Without it
+ // `articleById.get(selectedArticle)` misses on the very first render and
+ // the article view returns null: a blank page where the static article
+ // used to be, which is exactly the failure this whole path exists to
+ // avoid. The overlay fetch below still runs and is still authoritative
+ // for the list; this only closes the gap before it lands.
+ const seeded = mergeOverlay(data, runtimeArticleRecords(section), getLocale());
+ setArticles(seeded.articles);
  setBlogReady(true);
 
  // Articles published since this bundle was built (issue #4974 item 3).
@@ -1243,7 +1254,7 @@ function BlogArticles({
    '',
  );
  void fetchArticleOverlay(section, getLocale(), data.length, bundledNewest || undefined).then((overlay) => {
-   const { articles: merged, added } = mergeOverlay(data, overlay, getLocale());
+   const { articles: merged, added } = mergeOverlay(seeded.articles, overlay, getLocale());
    if (added > 0) setArticles(merged);
  }).catch(() => {});
  }).catch(() => {});
@@ -1253,7 +1264,28 @@ function BlogArticles({
  useEffect(() => {
  if (!selectedArticle) { setBodyReady(false); return; }
  setBodyReady(false);
- loadArticleBody(selectedArticle, section).then(() => setBodyReady(true)).catch(() => {});
+ loadArticleBody(selectedArticle, section).then(async () => {
+ // The body chunks are compiled in, so an article published after this
+ // build has none: `loadBlogBodyChunk` resolves to null, `bodyReady` flips
+ // true and the article renders with a title and nothing under it. That is
+ // reachable from the LIST too — the overlay puts the card there, and
+ // clicking it used to open an empty article.
+ //
+ // The corpus API publishes metadata, slugs, sitemaps and feeds but not
+ // bodies, so rather than invent an endpoint we re-read the page the shard
+ // is already serving for this exact URL and recover the body from its
+ // static HTML. Costs one request, only for an article the bundle lacks,
+ // and returns [] on every failure — in which case nothing is merged and
+ // the render is exactly what it is today.
+ if (collectBodyParts(selectedArticle, translate).length === 0) {
+ const route = section === 'svizzera'
+ ? { activeTab: 'blog' as const, blogSection: 'svizzera' as const, swissArticle: selectedArticle }
+ : { activeTab: 'blog' as const, blogArticle: selectedArticle as BlogArticleId };
+ const parts = await fetchArticleBodyParts(buildPath(route)).catch(() => [] as string[]);
+ publishRuntimeArticleBody(selectedArticle, getLocale(), parts);
+ }
+ setBodyReady(true);
+ }).catch(() => {});
  trackArticleView(selectedArticle);
  }, [selectedArticle, section]);
 
