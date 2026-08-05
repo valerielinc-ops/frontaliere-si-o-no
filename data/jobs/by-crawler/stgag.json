@@ -1,95 +1,7 @@
 {
   "crawlerKey": "stgag",
-  "assembledAt": "2026-08-03T12:36:06.836Z",
+  "assembledAt": "2026-08-04T22:17:27.681Z",
   "jobs": [
-    {
-      "id": "stgag-3db0c5b2a0fa",
-      "slug": "mpa-sottosegretario-medico-radiologia-radio-oncologia-spital-thurgau-stgag-munsterlingen",
-      "slugByLocale": {
-        "it": "mpa-sottosegretario-medico-radiologia-radio-oncologia-spital-thurgau-stgag-munsterlingen",
-        "en": "mpa-medical-secretary-in-radiology-radio-oncology-spital-thurgau-stgag-munsterlingen",
-        "de": "mpa-arztsekretar-in-radiologie-radio-onkologie-stgag-ch",
-        "fr": "mpa-secretaire-medical-en-radiologie-radio-oncologie-spital-thurgau-stgag-munsterlingen"
-      },
-      "company": "Spital Thurgau (STGAG)",
-      "companyKey": "stgag",
-      "companyDomain": "stgag.ch",
-      "title": "MPA / Arztsekretär/-in Radiologie Radio-Onkologie",
-      "titleByLocale": {
-        "it": "MPA / Sottosegretario medico / Radiologia Radio-Oncologia",
-        "en": "MPA / Medical Secretary/-in Radiology Radio-Oncology",
-        "de": "MPA / Arztsekretär/-in Radiologie Radio-Onkologie",
-        "fr": "MPA / Secrétaire médical/-en radiologie Radio-oncologie"
-      },
-      "description": "MPA / Arztsekretär/-in Radiologie Radio-Onkologie bei Team Radiologie Plus (Kantonsspital Frauenfeld) in Münsterlingen (8596, TG), Schweiz.\n\n• Bereich: Administration\n• Art: Vollzeit, Teilzeit möglich\n• Befristung: Unbefristet\n• Standort: Münsterlingen (TG)\n• Bewerbung über das Umantis-Karriereportal von Spital Thurgau (STGAG)",
-      "descriptionByLocale": {
-        "it": "Münsterlingen (8596, TG), Svizzera.\n\n• Area: Amministrazione\n• Tipo: A tempo pieno, part-time\n• Termine temporaneo: perpetuo\n• Posizione: Münsterlingen (TG)\n• Applicazione tramite il portale di carriera di Umantis di Spital Thurgau (STGAG)",
-        "en": "MPA / Medical Secretary/-in Radiology Radio-Oncology at Team Radiology Plus (Kantonsspital Frauenfeld) in Münsterlingen (8596, TG), Switzerland.\n\n• Area: Administration\n• Type: Full-time, part-time\n• Temporary term: perpetual\n• Location: Münsterlingen (TG)\n• Application via the Umantis career portal of Spital Thurgau (STGAG)",
-        "de": "MPA / Arztsekretär/-in Radiologie Radio-Onkologie bei Team Radiologie Plus (Kantonsspital Frauenfeld) in Münsterlingen (8596, TG), Schweiz.\n\n• Bereich: Administration\n• Art: Vollzeit, Teilzeit möglich\n• Befristung: Unbefristet\n• Standort: Münsterlingen (TG)\n• Bewerbung über das Umantis-Karriereportal von Spital Thurgau (STGAG)",
-        "fr": "MPA / Medical Secretary/-in Radiologie Radio-Oncologie à l'équipe Radiologie Plus (Kantonsspital Frauenfeld) à Münsterlingen (8596, TG), Suisse.\n\n• Domaine: Administration\n• Type: Temps plein, temps partiel\n• Terme temporaire : perpétuel\n• Lieu: Münsterlingen (TG)\n• Application via le portail de carrière Umantis de Spital Thurgau (STGAG)"
-      },
-      "needsRetranslation": true,
-      "location": "Münsterlingen",
-      "canton": "TG",
-      "url": "https://rekrutierung.stgag.ch/Vacancies/3732/Description/1",
-      "source": "Spital Thurgau (STGAG) Dedicated Parser (Umantis listing @ rekrutierung.stgag.ch)",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-03T12:36:04.170Z",
-      "addressLocality": "Münsterlingen",
-      "addressRegion": "TG",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8596",
-      "category": "Sanità / Ospedali",
-      "contract": "temporary",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-28",
-      "applyUrl": "https://rekrutierung.stgag.ch/Vacancies/3732/Application/CheckLogin/1",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "mpa-arztsekretar-in-radiologie-radio-onkologie-stgag-munsterlingen",
-        "mpa-arztsekretar-in-radiologie-radio-onkologie-stgag-ch",
-        "mpa-arztsekretar-in-radiologie-radio-onkologie-stgag-ch-r134nd",
-        "mpa-sottosegretario-medico-radiologia-radio-oncologia-spital-thurgau-stgag-munsterlingen"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "mpa-arztsekretar-in-radiologie-radio-onkologie-stgag-munsterlingen",
-          "mpa-arztsekretar-in-radiologie-radio-onkologie-stgag-ch",
-          "mpa-sottosegretario-medico-radiologia-radio-oncologia-spital-thurgau-stgag-munsterlingen"
-        ],
-        "en": [
-          "mpa-arztsekretar-in-radiologie-radio-onkologie-stgag-munsterlingen",
-          "mpa-arztsekretar-in-radiologie-radio-onkologie-stgag-ch"
-        ],
-        "de": [
-          "mpa-arztsekretar-in-radiologie-radio-onkologie-stgag-ch-r134nd",
-          "mpa-arztsekretar-in-radiologie-radio-onkologie-stgag-munsterlingen"
-        ],
-        "fr": [
-          "mpa-arztsekretar-in-radiologie-radio-onkologie-stgag-munsterlingen",
-          "mpa-arztsekretar-in-radiologie-radio-onkologie-stgag-ch"
-        ]
-      },
-      "firstSeenAt": "2026-07-28T22:09:34.242Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
-          "unitText": "YEAR"
-        }
-      }
-    },
     {
       "id": "stgag-62a2ae55b723",
       "slug": "oberarzt-arztin-ambulante-erwachsenenpsychiatrie-80-100-stgag-munsterlingen",
@@ -122,7 +34,7 @@
       "url": "https://rekrutierung.stgag.ch/Vacancies/3726/Description/1",
       "source": "Spital Thurgau (STGAG) Dedicated Parser (Umantis listing @ rekrutierung.stgag.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-03T12:36:03.205Z",
+      "crawledAt": "2026-08-04T22:17:25.241Z",
       "addressLocality": "Münsterlingen",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -206,7 +118,7 @@
       "url": "https://rekrutierung.stgag.ch/Vacancies/3729/Description/1",
       "source": "Spital Thurgau (STGAG) Dedicated Parser (Umantis listing @ rekrutierung.stgag.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-03T12:36:02.210Z",
+      "crawledAt": "2026-08-04T22:17:24.366Z",
       "addressLocality": "Münsterlingen",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -290,7 +202,7 @@
       "url": "https://rekrutierung.stgag.ch/Vacancies/3733/Description/1",
       "source": "Spital Thurgau (STGAG) Dedicated Parser (Umantis listing @ rekrutierung.stgag.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-03T12:36:01.316Z",
+      "crawledAt": "2026-08-04T22:17:23.491Z",
       "addressLocality": "Münsterlingen",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -379,7 +291,7 @@
       "url": "https://rekrutierung.stgag.ch/Vacancies/3724/Description/1",
       "source": "Spital Thurgau (STGAG) Dedicated Parser (Umantis listing @ rekrutierung.stgag.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-03T12:36:00.407Z",
+      "crawledAt": "2026-08-04T22:17:22.579Z",
       "addressLocality": "Münsterlingen",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -475,7 +387,7 @@
       "url": "https://rekrutierung.stgag.ch/Vacancies/3635/Description/1",
       "source": "Spital Thurgau (STGAG) Dedicated Parser (Umantis listing @ rekrutierung.stgag.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-03T12:35:59.410Z",
+      "crawledAt": "2026-08-04T22:17:21.609Z",
       "addressLocality": "Münsterlingen",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -568,7 +480,7 @@
       "url": "https://rekrutierung.stgag.ch/Vacancies/3634/Description/1",
       "source": "Spital Thurgau (STGAG) Dedicated Parser (Umantis listing @ rekrutierung.stgag.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-03T12:35:58.385Z",
+      "crawledAt": "2026-08-04T22:17:20.648Z",
       "addressLocality": "Münsterlingen",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -651,7 +563,7 @@
       "url": "https://rekrutierung.stgag.ch/Vacancies/3636/Description/1",
       "source": "Spital Thurgau (STGAG) Dedicated Parser (Umantis listing @ rekrutierung.stgag.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-03T12:35:57.487Z",
+      "crawledAt": "2026-08-04T22:17:19.788Z",
       "addressLocality": "Münsterlingen",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -713,29 +625,29 @@
     },
     {
       "id": "stgag-4469a6549362",
-      "slug": "med-praxisassistenten-in-frauenklinik-stgag-munsterlingen",
+      "slug": "med-assistenti-pratici-in-frauenklinik-spital-thurgau-stgag-kantonsspital-frauenfeld",
       "slugByLocale": {
+        "it": "med-assistenti-pratici-in-frauenklinik-spital-thurgau-stgag-kantonsspital-frauenfeld",
+        "en": "med-practical-assistants-in-frauenklinik-spital-thurgau-stgag-kantonsspital-frauenfeld",
         "de": "med-praxisassistenten-in-frauenklinik-stgag-ch",
-        "it": "med-praxisassistenten-in-frauenklinik-stgag-munsterlingen",
-        "en": "med-praxisassistenten-in-frauenklinik-stgag-munsterlingen",
-        "fr": "med-praxisassistenten-in-frauenklinik-stgag-munsterlingen"
+        "fr": "medicament-assistants-pratiques-in-frauenklinik-spital-thurgau-stgag-kantonsspital-frauenfeld"
       },
       "company": "Spital Thurgau (STGAG)",
       "companyKey": "stgag",
       "companyDomain": "stgag.ch",
       "title": "Med. Praxisassistenten/-in Frauenklinik",
       "titleByLocale": {
+        "it": "Med. Assistenti pratici /-in Frauenklinik",
+        "en": "Med. Practical assistants /-in Frauenklinik",
         "de": "Med. Praxisassistenten/-in Frauenklinik",
-        "it": "Med. Praxisassistenten/-in Frauenklinik",
-        "en": "Med. Praxisassistenten/-in Frauenklinik",
-        "fr": "Med. Praxisassistenten/-in Frauenklinik"
+        "fr": "Médicament. Assistants pratiques /-in Frauenklinik"
       },
       "description": "Für unser Ambulatorium der Frauenklinik Spital Thurgau am Standort Frauenfeld suchen wir zur Ergänzung des MPA Teams per 1. Oktober 2026 oder nach Vereinbarung eine/n Med. Praxisassistenten/-in Frauenklinik 90-100% Suchst du ein Arbeitsumfeld, das mehr ist als nur ein Ort des täglichen Wirkens? Bei uns erlebst du ein inspirierendes Arbeitsklima. Unsere Unternehmenskultur zeichnet sich durch Zusammenhalt, Respekt und Wertschätzung aus. Du übernimmst Empfang unserer Patientinnen und Datenerfassung (SAP)\n\nAdministrative Vor- und Nachbearbeitung der Sprechstunden, Erstellen von Workflows im\n\nSchreiben von medizinischen Sprechstunden-, Operations- und Austrittsberichten ab Diktat oder mit Spracherkennung\n\nVorbereitung klein-chirurgischer Eingriffe\n\nAssistenz bei gynäkologischen und urogynäkologischen Untersuchungen, Ultraschalluntersuchungen,\n\nSchwangerschaftskontrollen und klein-chirurgischen Eingriffen wie Punktionen, Lasertherapien etc.\n\nDurchführung von Venenpunktionen, Impfungen, Injektionen\n\nMaterialbewirtschaftung, Bestellwesen\n\n• Bereich: Med.-technisches & Med.-therapeutisches Personal\n• Art: Vollzeit, Teilzeit möglich\n• Befristung: Unbefristet",
       "descriptionByLocale": {
+        "it": "Per il nostro ambulatorio del Frauenklinik Spital Thurgau presso il sito Frauenfeld, stiamo cercando l'aggiunta della squadra MPA a 1. Ottobre 2026 o per accordo un Med. Assistenti pratici/-in Frauenklinik 90-100% Stai cercando un ambiente di lavoro che sia più di un semplice luogo di lavoro quotidiano? Con noi si sperimenta un'atmosfera di lavoro stimolante. La nostra cultura aziendale è caratterizzata da coesione, rispetto e apprezzamento. Si prende il controllo della ricezione dei nostri pazienti e raccolta dati (SAP)\n\nPre- e post-elaborazione amministrativa delle ore di ufficio, creazione di flussi di lavoro in\n\nScrivere ore di ufficio medico, rapporti chirurgici e di uscita dettati o con riconoscimento vocale\n\nPreparazione di piccole procedure chirurgiche\n\nassistenza in esami ginecologici e uroginecologici, esami ecografici,\n\nControlli di gravidanza e piccole procedure chirurgiche come punture, terapie laser, ecc.\n\nEseguire punture di vena, vaccinazioni, iniezioni\n\nGestione dei materiali, ordinazione\n\n• Area: personale medico-tecnico e medico-terapeutico\n• Tipo: A tempo pieno, part-time\n• Termine temporaneo: perpetuo",
+        "en": "For our ambulatorium of the Frauenklinik Spital Thurgau at the Frauenfeld site, we are looking for the addition of the MPA team as of 1. October 2026 or by arrangement a Med. Practical assistants/-in Frauenklinik 90-100% Are you looking for a working environment that is more than just a place of daily work? With us you experience an inspiring working atmosphere. Our corporate culture is characterized by cohesion, respect and appreciation. You take over reception of our patients and data collection (SAP)\n\nAdministrative pre- and post-processing of office hours, creation of workflows in\n\nWriting medical office hours, surgical and exit reports dictated or with speech recognition\n\nPreparation of small surgical procedures\n\nassistance in gynecological and urogynecological examinations, ultrasound examinations,\n\nPregnancy checks and small surgical procedures such as punctures, laser therapies, etc.\n\nPerforming vein punctures, vaccinations, injections\n\nMaterial management, ordering\n\n• Area: Med.-technical & Med.-therapeutic staff\n• Type: Full-time, part-time\n• Temporary term: perpetual",
         "de": "Für unser Ambulatorium der Frauenklinik Spital Thurgau am Standort Frauenfeld suchen wir zur Ergänzung des MPA Teams per 1. Oktober 2026 oder nach Vereinbarung eine/n Med. Praxisassistenten/-in Frauenklinik 90-100% Suchst du ein Arbeitsumfeld, das mehr ist als nur ein Ort des täglichen Wirkens? Bei uns erlebst du ein inspirierendes Arbeitsklima. Unsere Unternehmenskultur zeichnet sich durch Zusammenhalt, Respekt und Wertschätzung aus. Du übernimmst Empfang unserer Patientinnen und Datenerfassung (SAP)\n\nAdministrative Vor- und Nachbearbeitung der Sprechstunden, Erstellen von Workflows im\n\nSchreiben von medizinischen Sprechstunden-, Operations- und Austrittsberichten ab Diktat oder mit Spracherkennung\n\nVorbereitung klein-chirurgischer Eingriffe\n\nAssistenz bei gynäkologischen und urogynäkologischen Untersuchungen, Ultraschalluntersuchungen,\n\nSchwangerschaftskontrollen und klein-chirurgischen Eingriffen wie Punktionen, Lasertherapien etc.\n\nDurchführung von Venenpunktionen, Impfungen, Injektionen\n\nMaterialbewirtschaftung, Bestellwesen\n\n• Bereich: Med.-technisches & Med.-therapeutisches Personal\n• Art: Vollzeit, Teilzeit möglich\n• Befristung: Unbefristet",
-        "it": "Für unser Ambulatorium der Frauenklinik Spital Thurgau am Standort Frauenfeld suchen wir zur Ergänzung des MPA Teams per 1. Oktober 2026 oder nach Vereinbarung eine/n Med. Praxisassistenten/-in Frauenklinik 90-100% Suchst du ein Arbeitsumfeld, das mehr ist als nur ein Ort des täglichen Wirkens? Bei uns erlebst du ein inspirierendes Arbeitsklima. Unsere Unternehmenskultur zeichnet sich durch Zusammenhalt, Respekt und Wertschätzung aus. Du übernimmst Empfang unserer Patientinnen und Datenerfassung (SAP)\n\nAdministrative Vor- und Nachbearbeitung der Sprechstunden, Erstellen von Workflows im\n\nSchreiben von medizinischen Sprechstunden-, Operations- und Austrittsberichten ab Diktat oder mit Spracherkennung\n\nVorbereitung klein-chirurgischer Eingriffe\n\nAssistenz bei gynäkologischen und urogynäkologischen Untersuchungen, Ultraschalluntersuchungen,\n\nSchwangerschaftskontrollen und klein-chirurgischen Eingriffen wie Punktionen, Lasertherapien etc.\n\nDurchführung von Venenpunktionen, Impfungen, Injektionen\n\nMaterialbewirtschaftung, Bestellwesen\n\n• Bereich: Med.-technisches & Med.-therapeutisches Personal\n• Art: Vollzeit, Teilzeit möglich\n• Befristung: Unbefristet",
-        "en": "Für unser Ambulatorium der Frauenklinik Spital Thurgau am Standort Frauenfeld suchen wir zur Ergänzung des MPA Teams per 1. Oktober 2026 oder nach Vereinbarung eine/n Med. Praxisassistenten/-in Frauenklinik 90-100% Suchst du ein Arbeitsumfeld, das mehr ist als nur ein Ort des täglichen Wirkens? Bei uns erlebst du ein inspirierendes Arbeitsklima. Unsere Unternehmenskultur zeichnet sich durch Zusammenhalt, Respekt und Wertschätzung aus. Du übernimmst Empfang unserer Patientinnen und Datenerfassung (SAP)\n\nAdministrative Vor- und Nachbearbeitung der Sprechstunden, Erstellen von Workflows im\n\nSchreiben von medizinischen Sprechstunden-, Operations- und Austrittsberichten ab Diktat oder mit Spracherkennung\n\nVorbereitung klein-chirurgischer Eingriffe\n\nAssistenz bei gynäkologischen und urogynäkologischen Untersuchungen, Ultraschalluntersuchungen,\n\nSchwangerschaftskontrollen und klein-chirurgischen Eingriffen wie Punktionen, Lasertherapien etc.\n\nDurchführung von Venenpunktionen, Impfungen, Injektionen\n\nMaterialbewirtschaftung, Bestellwesen\n\n• Bereich: Med.-technisches & Med.-therapeutisches Personal\n• Art: Vollzeit, Teilzeit möglich\n• Befristung: Unbefristet",
-        "fr": "Für unser Ambulatorium der Frauenklinik Spital Thurgau am Standort Frauenfeld suchen wir zur Ergänzung des MPA Teams per 1. Oktober 2026 oder nach Vereinbarung eine/n Med. Praxisassistenten/-in Frauenklinik 90-100% Suchst du ein Arbeitsumfeld, das mehr ist als nur ein Ort des täglichen Wirkens? Bei uns erlebst du ein inspirierendes Arbeitsklima. Unsere Unternehmenskultur zeichnet sich durch Zusammenhalt, Respekt und Wertschätzung aus. Du übernimmst Empfang unserer Patientinnen und Datenerfassung (SAP)\n\nAdministrative Vor- und Nachbearbeitung der Sprechstunden, Erstellen von Workflows im\n\nSchreiben von medizinischen Sprechstunden-, Operations- und Austrittsberichten ab Diktat oder mit Spracherkennung\n\nVorbereitung klein-chirurgischer Eingriffe\n\nAssistenz bei gynäkologischen und urogynäkologischen Untersuchungen, Ultraschalluntersuchungen,\n\nSchwangerschaftskontrollen und klein-chirurgischen Eingriffen wie Punktionen, Lasertherapien etc.\n\nDurchführung von Venenpunktionen, Impfungen, Injektionen\n\nMaterialbewirtschaftung, Bestellwesen\n\n• Bereich: Med.-technisches & Med.-therapeutisches Personal\n• Art: Vollzeit, Teilzeit möglich\n• Befristung: Unbefristet"
+        "fr": "Pour notre ambulatoire de la Frauenklinik Spital Thurgau sur le site de Frauenfeld, nous recherchons l'ajout de l'équipe MPA à partir de 1. Octobre 2026 ou par arrangement un Med. Assistants pratiques/-dans Frauenklinik 90-100% Vous cherchez un environnement de travail qui est plus qu'un lieu de travail quotidien? Avec nous, vous vivez une atmosphère de travail inspirante. Notre culture d'entreprise se caractérise par la cohésion, le respect et l'appréciation. Vous prenez en charge la réception de nos patients et la collecte de données (SAP)\n\nPré-traitement administratif et post-traitement des heures de bureau, création de flux de travail\n\nÉcrire les heures de bureau, les rapports chirurgicaux et de sortie dictés ou avec reconnaissance de la parole\n\nPréparation de petites interventions chirurgicales\n\nassistance dans les examens gynécologiques et urogynécologiques, les examens échographiques,\n\nContrôles de grossesse et petites interventions chirurgicales telles que ponctions, thérapies laser, etc.\n\nperforations veineuses, vaccinations, injections\n\nGestion du matériel, commande\n\n• Domaine: Med.-technical & Med.-therapeutic staff\n• Type: Temps plein, temps partiel\n• Terme temporaire : perpétuel"
       },
       "needsRetranslation": true,
       "location": "Münsterlingen",
@@ -743,7 +655,7 @@
       "url": "https://rekrutierung.stgag.ch/Vacancies/3722/Description/1",
       "source": "Spital Thurgau (STGAG) Dedicated Parser (Umantis listing @ rekrutierung.stgag.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-03T12:35:56.600Z",
+      "crawledAt": "2026-08-04T22:17:18.883Z",
       "addressLocality": "Münsterlingen",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -759,9 +671,34 @@
       "postedDate": "2026-08-03",
       "applyUrl": "https://rekrutierung.stgag.ch/Vacancies/3722/Application/CheckLogin/1",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "med-praxisassistenten-in-frauenklinik-stgag-munsterlingen",
+        "med-assistenti-pratici-in-frauenklinik-spital-thurgau-stgag-munsterlingen",
+        "med-practical-assistants-in-frauenklinik-spital-thurgau-stgag-munsterlingen",
+        "medicament-assistants-pratiques-in-frauenklinik-spital-thurgau-stgag-munsterlingen",
+        "med-praxisassistenten-in-frauenklinik-stgag-ch",
+        "med-assistenti-pratici-in-frauenklinik-spital-thurgau-stgag-kantonsspital-frauenfeld"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "med-praxisassistenten-in-frauenklinik-stgag-ch",
+          "med-praxisassistenten-in-frauenklinik-stgag-munsterlingen",
+          "med-assistenti-pratici-in-frauenklinik-spital-thurgau-stgag-munsterlingen",
+          "med-assistenti-pratici-in-frauenklinik-spital-thurgau-stgag-kantonsspital-frauenfeld"
+        ],
+        "en": [
+          "med-praxisassistenten-in-frauenklinik-stgag-ch",
+          "med-praxisassistenten-in-frauenklinik-stgag-munsterlingen",
+          "med-practical-assistants-in-frauenklinik-spital-thurgau-stgag-munsterlingen"
+        ],
+        "fr": [
+          "med-praxisassistenten-in-frauenklinik-stgag-ch",
+          "med-praxisassistenten-in-frauenklinik-stgag-munsterlingen",
+          "medicament-assistants-pratiques-in-frauenklinik-spital-thurgau-stgag-munsterlingen"
+        ]
       },
+      "firstSeenAt": "2026-08-03T12:35:56.600Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -773,34 +710,33 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-08-03T12:35:56.600Z"
+      }
     },
     {
       "id": "stgag-47bfdcb909af",
-      "slug": "stv-teamleiter-in-patisserie-stgag-munsterlingen",
+      "slug": "stv-team-leader-in-patisserie-spital-thurgau-stgag-kantonsspital-munsterlingen",
       "slugByLocale": {
+        "it": "stv-team-leader-in-patisserie-spital-thurgau-stgag-kantonsspital-munsterlingen",
+        "en": "stv-team-leader-in-patisserie-spital-thurgau-stgag-munsterlingen",
         "de": "stv-teamleiter-in-patisserie-stgag-ch",
-        "it": "stv-teamleiter-in-patisserie-stgag-munsterlingen",
-        "en": "stv-teamleiter-in-patisserie-stgag-munsterlingen",
-        "fr": "stv-teamleiter-in-patisserie-stgag-munsterlingen"
+        "fr": "chef-d-equipe-dans-patisserie-spital-thurgau-stgag-kantonsspital-munsterlingen"
       },
       "company": "Spital Thurgau (STGAG)",
       "companyKey": "stgag",
       "companyDomain": "stgag.ch",
       "title": "Stv. Teamleiter/-in Patisserie",
       "titleByLocale": {
+        "it": "Stv. Team Leader/-in Patisserie",
+        "en": "Stv. Team Leader/-in Patisserie",
         "de": "Stv. Teamleiter/-in Patisserie",
-        "fr": "Stv. Teamleiter/-in Patisserie",
-        "it": "Stv. Teamleiter/-in Patisserie",
-        "en": "Stv. Teamleiter/-in Patisserie"
+        "fr": "Stv. Teamleiter/-in Patisserie"
       },
       "description": "Die Hotellerie am Spitalcampus Münsterlingen bietet Ihnen einen interessanten, lebhaften Arbeitsplatz in einem modernen Küchenbetrieb mit kalter Linie, 1'800 Patientenmenüs pro Tag und vielfältigem diätetischem Angebot. Zur Ergänzung der Patisserie suchen wir ab 1. Dezember 2026 oder nach Vereinbarung eine/n\n\nNeben einem Lehrabschluss als Konditor/Koch/Köchin verfügst Du mit Vorteil über einige Jahre Berufspraxis, bist lern- und teamfähig. Dann unterstützen wir Dich gerne bei deiner weiteren Berufslaufbahn. Wir bieten viel Eigenverantwortung, ein breites Aufgabengebiet mit Fokus auf Teamwork. Es erwartet Dich eine moderne Infrastruktur mit Tageslicht, in einem zukunftsorientierten und erfolgreichen Dienstleistungsbetrieb.\n\nTagesbetrieb ohne Zimmerstunde. Die Arbeitszeiten sind üblicherweise von 05.20 -12.00 Uhr / 13.10 - 15.00 Uhr oder 06.30 - 12.10 / 13.50 - 16.40 Uhr.\n\nDer Bereich Verpflegung umfasst die Herstellung der Mahlzeiten für Patienten, Mitarbeitende und Veranstaltungen für das Kantonsspital, die Psychiatrischen Dienste Münsterlingen sowie externe Heime. Dazu gehört auch ein breites Angebot ernährungstherapeutischer Kostformen, das in Zusammenarbeit mit der Ernährungsberatung laufend aktualisiert wird. Die Arbeit in allen Bereichen der Küche runden die abwechslungsreiche Stelle ab. Es erwartet Dich eine dynamische Brigade, mit dem Können und Wissen, wie Du es besitzt. Interessiert an Deiner beruflichen Weiterentwicklung? Dann unterstützten wir Dich auch gerne in Deiner Weiterbildung und in Deinem Weiterkommen.\n\nNeben einem Lehrabschluss EFZ als Konditor-Confiseur/-in oder Koch/Köchin , verfügst Du mit Vorteil über einige Jahre Berufserfahrung. Du hast ein organisatorisches Flair, bist teamfähig, effizient, flexibel und arbeitest gerne Kunden- und ergebnisorientiert.\n\n«Willst Du mehr über diese spannende Stelle erfahren? Ich freue mich über Deine Kontaktaufnahme.»\n\nZum erfolgreichen Unternehmen Spital Thurgau AG gehören die Kantonsspitäler in Frauenfeld und Münsterlingen, die Psychiatrischen Dienste Thurgau in Münsterlingen und Weinfelden sowie die Klink St. Katharinental für Rehabilitation und Langzeitpflege in Diessenhofen. Ebenfalls betreiben wir zentrale medizinische und administrative Dienste und Institute. Wir bieten ein umfassendes Leistungsangebot und investieren stetig in die hochwertige Infrastruktur. Unseren rund 4'100 Mitarbeitenden bieten wir attraktive Arbeitsumgebungen, interdisziplinäre Zusammenarbeit und gezielte Entwicklungsmöglichkeiten. Werde auch Du Teil unserer Erfolgsgeschichte!\n\nWir bevorzugen Direktbewerbungen, Stellenvermittler verzichten bitte auf eine Kontaktaufnahme.\n\n• Bereich: Hotellerie\n• Art: Vollzeit, Teilzeit möglich\n• Befristung: Unbefristet",
       "descriptionByLocale": {
+        "it": "L'industria alberghiera dello Spitalcampus Münsterlingen vi offre un posto di lavoro interessante e vivace in una cucina moderna con una linea fredda, 1.800 menù al giorno e una vasta gamma di opzioni dietetiche. Per integrare la pasticceria cerchiamo da 1. Dicembre 2026 o accordo uno o più\n\nOltre a un corso di apprendistato come pasticcere/confectioner/chef, si ha vantaggiosamente diversi anni di pratica professionale, sono in grado di imparare e lavorare di squadra. Allora vi supporteremo volentieri nella vostra ulteriore carriera. Offriamo un sacco di responsabilità personale, una vasta area di responsabilità con un focus sul lavoro di squadra. Un'infrastruttura moderna con luce del giorno vi aspetta in un'operazione di servizio orientata al futuro e di successo.\n\nFunzionamento di giorno senza orario di camera. Gli orari di lavoro sono di solito da 05.20 -12.00 / 13.10 - 15.00 o 06.30 - 12.10 / 13.50 - 16.40.\n\nL'area ristorazione comprende la produzione di pasti per pazienti, dipendenti ed eventi per l'Ospedale Cantone, i Servizi Psichiatrici Münsterlingen e case esterne. Questo include anche una vasta gamma di forme dietetiche nutrizionali, che viene continuamente aggiornato in collaborazione con la consulenza nutrizionale. Il lavoro in tutte le aree della cucina completa la posizione varia. Una brigata dinamica ti aspetta, con le competenze e le conoscenze che possiedi. Ti interessa lo sviluppo professionale? Allora vi supporteremo volentieri nella vostra ulteriore istruzione e nel vostro progresso.\n\nOltre a un grado di apprendistato EFZ come un confezionatore-confiser o cucinare, si ha vantaggiosamente diversi anni di esperienza professionale. Lei ha un tocco organizzativo, è capace di lavoro di squadra, efficiente, flessibile e come lavorare cliente- e orientato al risultato.\n\n“Vuoi saperne di più su questo lavoro emozionante?” Attendo con ansia il tuo contatto.\n\nLa società di successo Spital Thurgau AG comprende gli ospedali cantonali a Frauenfeld e Münsterlingen, i servizi psichiatrici Thurgau a Münsterlingen e Weinfelden e Klink St. Katharinental per la riabilitazione e la cura a lungo termine a Diessenhofen. Operiamo anche servizi e istituti medici e amministrativi centrali. Offriamo una gamma completa di servizi e investiamo costantemente in infrastrutture di alta qualità. Offriamo ai nostri circa 4.100 dipendenti ambienti di lavoro attraenti, cooperazione interdisciplinare e opportunità di sviluppo mirate. Diventa anche parte della nostra storia di successo!\n\nPreferiamo applicazioni dirette, agenti di lavoro si prega di astenersi dal contatto.\n\n• Area: Industria alberghiera\n• Tipo: A tempo pieno, part-time\n• Termine temporaneo: perpetuo",
+        "en": "The hotel industry at the Spitalcampus Münsterlingen offers you an interesting, lively workplace in a modern kitchen with a cold line, 1,800 patient menus per day and a wide range of dietary options. To supplement the patisserie we search from 1. December 2026 or by agreement one or more\n\nIn addition to an apprenticeship degree as a pastry chef/confectioner/chef, you advantageously have several years of professional practice, are capable of learning and teamwork. Then we will gladly support you in your further career. We offer a lot of personal responsibility, a broad area of responsibility with a focus on teamwork. A modern infrastructure with daylight awaits you in a future-oriented and successful service operation.\n\nDay operation without room hour. Working hours are usually from 05.20 -12.00 / 13.10 - 15.00 or 06.30 - 12.10 / 13.50 - 16.40.\n\nThe catering area includes the production of meals for patients, employees and events for the Canton Hospital, the Psychiatric Services Münsterlingen and external homes. This also includes a wide range of nutritional dietary forms, which is continuously updated in cooperation with the nutrition consultancy. The work in all areas of the kitchen round off the varied position. A dynamic brigade awaits you, with the skills and knowledge you possess. Interested in your professional development? Then we will gladly support you in your further education and in your progress.\n\nIn addition to an apprenticeship degree EFZ as a confectioner-confiser or cook, you advantageously have several years of professional experience. You have an organizational flair, are capable of teamwork, efficient, flexible and like to work customer- and result-oriented.\n\n“Do you want to know more about this exciting job?” I look forward to your contact.\n\nThe successful company Spital Thurgau AG includes the cantonal hospitals in Frauenfeld and Münsterlingen, the psychiatric services Thurgau in Münsterlingen and Weinfelden and the Klink St. Katharinental for rehabilitation and long-term care in Diessenhofen. We also operate central medical and administrative services and institutes. We offer a comprehensive range of services and constantly invest in high-quality infrastructure. We offer our approximately 4,100 employees attractive working environments, interdisciplinary cooperation and targeted development opportunities. Become part of our success story too!\n\nWe prefer direct applications, job agents please refrain from contacting.\n\n• Area: Hotel industry\n• Type: Full-time, part-time\n• Temporary term: perpetual",
         "de": "Die Hotellerie am Spitalcampus Münsterlingen bietet Ihnen einen interessanten, lebhaften Arbeitsplatz in einem modernen Küchenbetrieb mit kalter Linie, 1'800 Patientenmenüs pro Tag und vielfältigem diätetischem Angebot. Zur Ergänzung der Patisserie suchen wir ab 1. Dezember 2026 oder nach Vereinbarung eine/n\n\nNeben einem Lehrabschluss als Konditor/Koch/Köchin verfügst Du mit Vorteil über einige Jahre Berufspraxis, bist lern- und teamfähig. Dann unterstützen wir Dich gerne bei deiner weiteren Berufslaufbahn. Wir bieten viel Eigenverantwortung, ein breites Aufgabengebiet mit Fokus auf Teamwork. Es erwartet Dich eine moderne Infrastruktur mit Tageslicht, in einem zukunftsorientierten und erfolgreichen Dienstleistungsbetrieb.\n\nTagesbetrieb ohne Zimmerstunde. Die Arbeitszeiten sind üblicherweise von 05.20 -12.00 Uhr / 13.10 - 15.00 Uhr oder 06.30 - 12.10 / 13.50 - 16.40 Uhr.\n\nDer Bereich Verpflegung umfasst die Herstellung der Mahlzeiten für Patienten, Mitarbeitende und Veranstaltungen für das Kantonsspital, die Psychiatrischen Dienste Münsterlingen sowie externe Heime. Dazu gehört auch ein breites Angebot ernährungstherapeutischer Kostformen, das in Zusammenarbeit mit der Ernährungsberatung laufend aktualisiert wird. Die Arbeit in allen Bereichen der Küche runden die abwechslungsreiche Stelle ab. Es erwartet Dich eine dynamische Brigade, mit dem Können und Wissen, wie Du es besitzt. Interessiert an Deiner beruflichen Weiterentwicklung? Dann unterstützten wir Dich auch gerne in Deiner Weiterbildung und in Deinem Weiterkommen.\n\nNeben einem Lehrabschluss EFZ als Konditor-Confiseur/-in oder Koch/Köchin , verfügst Du mit Vorteil über einige Jahre Berufserfahrung. Du hast ein organisatorisches Flair, bist teamfähig, effizient, flexibel und arbeitest gerne Kunden- und ergebnisorientiert.\n\n«Willst Du mehr über diese spannende Stelle erfahren? Ich freue mich über Deine Kontaktaufnahme.»\n\nZum erfolgreichen Unternehmen Spital Thurgau AG gehören die Kantonsspitäler in Frauenfeld und Münsterlingen, die Psychiatrischen Dienste Thurgau in Münsterlingen und Weinfelden sowie die Klink St. Katharinental für Rehabilitation und Langzeitpflege in Diessenhofen. Ebenfalls betreiben wir zentrale medizinische und administrative Dienste und Institute. Wir bieten ein umfassendes Leistungsangebot und investieren stetig in die hochwertige Infrastruktur. Unseren rund 4'100 Mitarbeitenden bieten wir attraktive Arbeitsumgebungen, interdisziplinäre Zusammenarbeit und gezielte Entwicklungsmöglichkeiten. Werde auch Du Teil unserer Erfolgsgeschichte!\n\nWir bevorzugen Direktbewerbungen, Stellenvermittler verzichten bitte auf eine Kontaktaufnahme.\n\n• Bereich: Hotellerie\n• Art: Vollzeit, Teilzeit möglich\n• Befristung: Unbefristet",
-        "it": "Die Hotellerie am Spitalcampus Münsterlingen bietet Ihnen einen interessanten, lebhaften Arbeitsplatz in einem modernen Küchenbetrieb mit kalter Linie, 1'800 Patientenmenüs pro Tag und vielfältigem diätetischem Angebot. Zur Ergänzung der Patisserie suchen wir ab 1. Dezember 2026 oder nach Vereinbarung eine/n\n\nNeben einem Lehrabschluss als Konditor/Koch/Köchin verfügst Du mit Vorteil über einige Jahre Berufspraxis, bist lern- und teamfähig. Dann unterstützen wir Dich gerne bei deiner weiteren Berufslaufbahn. Wir bieten viel Eigenverantwortung, ein breites Aufgabengebiet mit Fokus auf Teamwork. Es erwartet Dich eine moderne Infrastruktur mit Tageslicht, in einem zukunftsorientierten und erfolgreichen Dienstleistungsbetrieb.\n\nTagesbetrieb ohne Zimmerstunde. Die Arbeitszeiten sind üblicherweise von 05.20 -12.00 Uhr / 13.10 - 15.00 Uhr oder 06.30 - 12.10 / 13.50 - 16.40 Uhr.\n\nDer Bereich Verpflegung umfasst die Herstellung der Mahlzeiten für Patienten, Mitarbeitende und Veranstaltungen für das Kantonsspital, die Psychiatrischen Dienste Münsterlingen sowie externe Heime. Dazu gehört auch ein breites Angebot ernährungstherapeutischer Kostformen, das in Zusammenarbeit mit der Ernährungsberatung laufend aktualisiert wird. Die Arbeit in allen Bereichen der Küche runden die abwechslungsreiche Stelle ab. Es erwartet Dich eine dynamische Brigade, mit dem Können und Wissen, wie Du es besitzt. Interessiert an Deiner beruflichen Weiterentwicklung? Dann unterstützten wir Dich auch gerne in Deiner Weiterbildung und in Deinem Weiterkommen.\n\nNeben einem Lehrabschluss EFZ als Konditor-Confiseur/-in oder Koch/Köchin , verfügst Du mit Vorteil über einige Jahre Berufserfahrung. Du hast ein organisatorisches Flair, bist teamfähig, effizient, flexibel und arbeitest gerne Kunden- und ergebnisorientiert.\n\n«Willst Du mehr über diese spannende Stelle erfahren? Ich freue mich über Deine Kontaktaufnahme.»\n\nZum erfolgreichen Unternehmen Spital Thurgau AG gehören die Kantonsspitäler in Frauenfeld und Münsterlingen, die Psychiatrischen Dienste Thurgau in Münsterlingen und Weinfelden sowie die Klink St. Katharinental für Rehabilitation und Langzeitpflege in Diessenhofen. Ebenfalls betreiben wir zentrale medizinische und administrative Dienste und Institute. Wir bieten ein umfassendes Leistungsangebot und investieren stetig in die hochwertige Infrastruktur. Unseren rund 4'100 Mitarbeitenden bieten wir attraktive Arbeitsumgebungen, interdisziplinäre Zusammenarbeit und gezielte Entwicklungsmöglichkeiten. Werde auch Du Teil unserer Erfolgsgeschichte!\n\nWir bevorzugen Direktbewerbungen, Stellenvermittler verzichten bitte auf eine Kontaktaufnahme.\n\n• Bereich: Hotellerie\n• Art: Vollzeit, Teilzeit möglich\n• Befristung: Unbefristet",
-        "en": "Die Hotellerie am Spitalcampus Münsterlingen bietet Ihnen einen interessanten, lebhaften Arbeitsplatz in einem modernen Küchenbetrieb mit kalter Linie, 1'800 Patientenmenüs pro Tag und vielfältigem diätetischem Angebot. Zur Ergänzung der Patisserie suchen wir ab 1. Dezember 2026 oder nach Vereinbarung eine/n\n\nNeben einem Lehrabschluss als Konditor/Koch/Köchin verfügst Du mit Vorteil über einige Jahre Berufspraxis, bist lern- und teamfähig. Dann unterstützen wir Dich gerne bei deiner weiteren Berufslaufbahn. Wir bieten viel Eigenverantwortung, ein breites Aufgabengebiet mit Fokus auf Teamwork. Es erwartet Dich eine moderne Infrastruktur mit Tageslicht, in einem zukunftsorientierten und erfolgreichen Dienstleistungsbetrieb.\n\nTagesbetrieb ohne Zimmerstunde. Die Arbeitszeiten sind üblicherweise von 05.20 -12.00 Uhr / 13.10 - 15.00 Uhr oder 06.30 - 12.10 / 13.50 - 16.40 Uhr.\n\nDer Bereich Verpflegung umfasst die Herstellung der Mahlzeiten für Patienten, Mitarbeitende und Veranstaltungen für das Kantonsspital, die Psychiatrischen Dienste Münsterlingen sowie externe Heime. Dazu gehört auch ein breites Angebot ernährungstherapeutischer Kostformen, das in Zusammenarbeit mit der Ernährungsberatung laufend aktualisiert wird. Die Arbeit in allen Bereichen der Küche runden die abwechslungsreiche Stelle ab. Es erwartet Dich eine dynamische Brigade, mit dem Können und Wissen, wie Du es besitzt. Interessiert an Deiner beruflichen Weiterentwicklung? Dann unterstützten wir Dich auch gerne in Deiner Weiterbildung und in Deinem Weiterkommen.\n\nNeben einem Lehrabschluss EFZ als Konditor-Confiseur/-in oder Koch/Köchin , verfügst Du mit Vorteil über einige Jahre Berufserfahrung. Du hast ein organisatorisches Flair, bist teamfähig, effizient, flexibel und arbeitest gerne Kunden- und ergebnisorientiert.\n\n«Willst Du mehr über diese spannende Stelle erfahren? Ich freue mich über Deine Kontaktaufnahme.»\n\nZum erfolgreichen Unternehmen Spital Thurgau AG gehören die Kantonsspitäler in Frauenfeld und Münsterlingen, die Psychiatrischen Dienste Thurgau in Münsterlingen und Weinfelden sowie die Klink St. Katharinental für Rehabilitation und Langzeitpflege in Diessenhofen. Ebenfalls betreiben wir zentrale medizinische und administrative Dienste und Institute. Wir bieten ein umfassendes Leistungsangebot und investieren stetig in die hochwertige Infrastruktur. Unseren rund 4'100 Mitarbeitenden bieten wir attraktive Arbeitsumgebungen, interdisziplinäre Zusammenarbeit und gezielte Entwicklungsmöglichkeiten. Werde auch Du Teil unserer Erfolgsgeschichte!\n\nWir bevorzugen Direktbewerbungen, Stellenvermittler verzichten bitte auf eine Kontaktaufnahme.\n\n• Bereich: Hotellerie\n• Art: Vollzeit, Teilzeit möglich\n• Befristung: Unbefristet",
-        "fr": "Die Hotellerie am Spitalcampus Münsterlingen bietet Ihnen einen interessanten, lebhaften Arbeitsplatz in einem modernen Küchenbetrieb mit kalter Linie, 1'800 Patientenmenüs pro Tag und vielfältigem diätetischem Angebot. Zur Ergänzung der Patisserie suchen wir ab 1. Dezember 2026 oder nach Vereinbarung eine/n\n\nNeben einem Lehrabschluss als Konditor/Koch/Köchin verfügst Du mit Vorteil über einige Jahre Berufspraxis, bist lern- und teamfähig. Dann unterstützen wir Dich gerne bei deiner weiteren Berufslaufbahn. Wir bieten viel Eigenverantwortung, ein breites Aufgabengebiet mit Fokus auf Teamwork. Es erwartet Dich eine moderne Infrastruktur mit Tageslicht, in einem zukunftsorientierten und erfolgreichen Dienstleistungsbetrieb.\n\nTagesbetrieb ohne Zimmerstunde. Die Arbeitszeiten sind üblicherweise von 05.20 -12.00 Uhr / 13.10 - 15.00 Uhr oder 06.30 - 12.10 / 13.50 - 16.40 Uhr.\n\nDer Bereich Verpflegung umfasst die Herstellung der Mahlzeiten für Patienten, Mitarbeitende und Veranstaltungen für das Kantonsspital, die Psychiatrischen Dienste Münsterlingen sowie externe Heime. Dazu gehört auch ein breites Angebot ernährungstherapeutischer Kostformen, das in Zusammenarbeit mit der Ernährungsberatung laufend aktualisiert wird. Die Arbeit in allen Bereichen der Küche runden die abwechslungsreiche Stelle ab. Es erwartet Dich eine dynamische Brigade, mit dem Können und Wissen, wie Du es besitzt. Interessiert an Deiner beruflichen Weiterentwicklung? Dann unterstützten wir Dich auch gerne in Deiner Weiterbildung und in Deinem Weiterkommen.\n\nNeben einem Lehrabschluss EFZ als Konditor-Confiseur/-in oder Koch/Köchin , verfügst Du mit Vorteil über einige Jahre Berufserfahrung. Du hast ein organisatorisches Flair, bist teamfähig, effizient, flexibel und arbeitest gerne Kunden- und ergebnisorientiert.\n\n«Willst Du mehr über diese spannende Stelle erfahren? Ich freue mich über Deine Kontaktaufnahme.»\n\nZum erfolgreichen Unternehmen Spital Thurgau AG gehören die Kantonsspitäler in Frauenfeld und Münsterlingen, die Psychiatrischen Dienste Thurgau in Münsterlingen und Weinfelden sowie die Klink St. Katharinental für Rehabilitation und Langzeitpflege in Diessenhofen. Ebenfalls betreiben wir zentrale medizinische und administrative Dienste und Institute. Wir bieten ein umfassendes Leistungsangebot und investieren stetig in die hochwertige Infrastruktur. Unseren rund 4'100 Mitarbeitenden bieten wir attraktive Arbeitsumgebungen, interdisziplinäre Zusammenarbeit und gezielte Entwicklungsmöglichkeiten. Werde auch Du Teil unserer Erfolgsgeschichte!\n\nWir bevorzugen Direktbewerbungen, Stellenvermittler verzichten bitte auf eine Kontaktaufnahme.\n\n• Bereich: Hotellerie\n• Art: Vollzeit, Teilzeit möglich\n• Befristung: Unbefristet"
+        "fr": "L'industrie hôtelière du Spitalcampus Münsterlingen vous offre un lieu de travail intéressant et animé dans une cuisine moderne avec une ligne froide, 1800 menus patients par jour et une large gamme d'options alimentaires. Pour compléter la pâtisserie nous recherchons à partir de 1. Décembre 2026 ou par accord un ou plusieurs\n\nEn plus d'un diplôme d'apprentissage comme chef pâtissier/confiseur/chef, vous avez avantageusement plusieurs années de pratique professionnelle, sont capables d'apprendre et de travailler en équipe. Alors nous serons heureux de vous soutenir dans votre future carrière. Nous offrons beaucoup de responsabilité personnelle, un large domaine de responsabilité avec un accent sur le travail d'équipe. Une infrastructure moderne avec lumière du jour vous attend dans une opération de service orientée vers l'avenir et réussie.\n\nOpération de jour sans heure de chambre. Les heures de travail sont généralement de 05.20 -12.00 / 13.10 - 15.00 ou 06.30 - 12.10 / 13.50 - 16.40.\n\nLa zone de restauration comprend la production de repas pour les patients, les employés et les événements pour l'hôpital de Canton, les services psychiatriques Münsterlingen et les maisons extérieures. Il s'agit également d'un large éventail de formes alimentaires qui sont constamment mises à jour en collaboration avec le conseil en nutrition. Les travaux dans tous les domaines de la cuisine complètent la position variée. Une brigade dynamique vous attend, avec les compétences et les connaissances que vous possédez. Vous êtes intéressé par votre perfectionnement professionnel? Ensuite, nous serons heureux de vous soutenir dans vos études et dans vos progrès.\n\nEn plus d'un diplôme d'apprentissage EFZ comme confiseur-conservateur ou cuisinier, vous avez avantageusement plusieurs années d'expérience professionnelle. Vous avez un style d'organisation, sont capables de travailler en équipe, efficace, flexible et aiment travailler en fonction des clients et des résultats.\n\nVoulez-vous en savoir plus sur ce travail passionnant ?\n\nLa société à succès Spital Thurgau AG comprend les hôpitaux cantonaux de Frauenfeld et Münsterlingen, les services psychiatriques Thurgau de Münsterlingen et Weinfelden et le Klink St. Katharinental pour la réadaptation et les soins de longue durée à Diessenhofen. Nous gérons également des services et des instituts médicaux et administratifs centraux. Nous offrons une gamme complète de services et investissons constamment dans des infrastructures de haute qualité. Nous offrons à nos quelque 4 100 employés des environnements de travail attrayants, une coopération interdisciplinaire et des possibilités de développement ciblées. Faites partie de notre histoire de réussite aussi!\n\nNous préférons les candidatures directes, les agents d'emploi s'il vous plaît ne pas contacter.\n\n• Zone: Industrie hôtelière\n• Type: Temps plein, temps partiel\n• Terme temporaire : perpétuel"
       },
       "needsRetranslation": true,
       "location": "Münsterlingen",
@@ -808,7 +744,7 @@
       "url": "https://rekrutierung.stgag.ch/Vacancies/3701/Description/1",
       "source": "Spital Thurgau (STGAG) Dedicated Parser (Umantis listing @ rekrutierung.stgag.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-03T12:35:55.624Z",
+      "crawledAt": "2026-08-04T22:17:17.960Z",
       "addressLocality": "Münsterlingen",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -824,9 +760,93 @@
       "postedDate": "2026-08-03",
       "applyUrl": "https://rekrutierung.stgag.ch/Vacancies/3701/Application/CheckLogin/1",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "stv-teamleiter-in-patisserie-stgag-munsterlingen",
+        "stv-team-leader-in-patisserie-spital-thurgau-stgag-munsterlingen",
+        "chef-d-equipe-dans-patisserie-spital-thurgau-stgag-munsterlingen",
+        "stv-teamleiter-in-patisserie-stgag-ch",
+        "stv-team-leader-in-patisserie-spital-thurgau-stgag-kantonsspital-munsterlingen"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "stv-teamleiter-in-patisserie-stgag-ch",
+          "stv-teamleiter-in-patisserie-stgag-munsterlingen",
+          "stv-team-leader-in-patisserie-spital-thurgau-stgag-munsterlingen",
+          "stv-team-leader-in-patisserie-spital-thurgau-stgag-kantonsspital-munsterlingen"
+        ],
+        "en": [
+          "stv-teamleiter-in-patisserie-stgag-ch",
+          "stv-teamleiter-in-patisserie-stgag-munsterlingen"
+        ],
+        "fr": [
+          "stv-teamleiter-in-patisserie-stgag-ch",
+          "stv-teamleiter-in-patisserie-stgag-munsterlingen",
+          "chef-d-equipe-dans-patisserie-spital-thurgau-stgag-munsterlingen"
+        ]
       },
+      "firstSeenAt": "2026-08-03T12:35:55.624Z",
+      "salaryMin": 57500,
+      "salaryMax": 87000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 57500,
+          "maxValue": 87000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "stgag-83bec58ed8df",
+      "slug": "sozialarbeiter-in-fh-stgag-munsterlingen",
+      "slugByLocale": {
+        "de": "sozialarbeiter-in-fh-stgag-ch-r134n9",
+        "it": "sozialarbeiter-in-fh-stgag-munsterlingen",
+        "en": "sozialarbeiter-in-fh-stgag-munsterlingen",
+        "fr": "sozialarbeiter-in-fh-stgag-munsterlingen"
+      },
+      "company": "Spital Thurgau (STGAG)",
+      "companyKey": "stgag",
+      "companyDomain": "stgag.ch",
+      "title": "Sozialarbeiter/-in FH",
+      "titleByLocale": {
+        "it": "Lavoratore sociale/FH",
+        "en": "Social worker/FH",
+        "de": "Sozialarbeiter/-in FH",
+        "fr": "Travailleurs sociaux/FH"
+      },
+      "description": "Zur Verstärkung der Fachgruppe Soziale Arbeit suchen wir im Bereich der Allgemein- und Akutpsychiatrie per 1. September 2026 eine/n Sozialarbeiter/-in FH 60% Befristet bis 31. Dezember 2026 Suchen Sie ein Arbeitsumfeld, das mehr ist als nur ein Ort des täglichen Wirkens? Bei uns erleben Sie ein inspirierendes Arbeitsklima. Unsere Unternehmenskultur zeichnet sich durch Zusammenhalt, Respekt und Wertschätzung aus. Als Mitglied des Sozialdienstes der Psychiatrischen Dienste Thurgau sind Sie eine wertvolle Ergänzung der multiprofessionellen Behandlungsteams, bestehend aus Ärzten/-innen, Psychologen/-innen, Pflegefachkräften und Spezialtherapeut/innen. Sie übernehmen Beurteilung der aktuellen sozialen Situation der Patient/-innen und Definition der sozialen Problembereiche in Zusammenarbeit mit dem multiprofessionellen Team und den Betroffenen\n\nBeratung und Unterstützung der Patient/-innen und ihrer Angehörigen in Fragen der Arbeit, der Finanzen und des Wohnens sowie von sozialversicherungsrechtlichen Angelegenheiten\n\nKontakte zu Behörden und nachbetreuenden Institutionen halten\n\nMitarbeit im Austrittsmanagement und der Organisation von poststationärer Versorgung und / oder neuen Wohnformen\n\nTeilnahme an multiprofessionellen Rapporten, Teamsitzungen und Supervisionen\n\nKoordination der sozialarbeiterischen Aufgaben unter Einbezug des gesamten Patientenumfeldes und des multiprofessionellen Teams\n\nFlexibilität, Selbstständigkeit, Belastbarkeit und Teamfähigkeit\n\nEine abgeschlossene Ausbildung als Sozialarbeiter/in FH\n\n• Bereich: Soziale Berufe\n• Art: Teilzeit\n• Befristung: Befristet",
+      "descriptionByLocale": {
+        "it": "Per rafforzare la sezione del lavoro sociale, stiamo cercando una psichiatria generale e acuta a 1. Settembre 2026 un lavoratore sociale in FH 60% Temporaneo fino al 31. Dicembre 2026 Stai cercando un ambiente di lavoro che sia più di un semplice luogo di lavoro quotidiano? Con noi si sperimenta un'atmosfera di lavoro stimolante. La nostra cultura aziendale è caratterizzata da coesione, rispetto e apprezzamento. Come membro del Servizio Sociale dei Servizi Psichiatrici Thurgau, siete una preziosa aggiunta ai team di trattamento multi-professionali costituiti da medici, psicologi, infermieri e terapisti specializzati. Essi valutano l'attuale situazione sociale dei pazienti e definiscono le aree di problema sociale in collaborazione con il team multi-professionale e quelle interessate\n\nConsulenza e sostegno dei pazienti e dei loro parenti in materia di lavoro, finanza e alloggi nonché questioni di sicurezza sociale\n\nMantenere contatti con le autorità e gli istituti di follow-up\n\nPartecipazione alla gestione delle uscite e all'organizzazione di cure post-stazione e/o nuove forme di alloggio\n\nPartecipazione a relazioni multiprofessionali, incontri di squadra e supervisione\n\nCoordinamento dei compiti di lavoro sociale che coinvolgono l'intero ambiente del paziente e il team multi-professionale\n\nFlessibilità, indipendenza, resilienza e lavoro di squadra\n\nFormazione completa come assistente sociale/FH\n\n• Dominio: professioni sociali\n• Tipo: part-time\n• Termine: Temporaneo",
+        "en": "In order to strengthen the social work section, we are looking for general and acute psychiatry at 1. September 2026 a social worker in FH 60% Temporary until 31. December 2026 Are you looking for a working environment that is more than just a place of daily work? With us you experience an inspiring working atmosphere. Our corporate culture is characterized by cohesion, respect and appreciation. As a member of the Social Service of Psychiatric Services Thurgau, you are a valuable addition to the multi-professional treatment teams consisting of doctors, psychologists, nurses and specialist therapists. They assess the current social situation of patients and define the social problem areas in cooperation with the multi-professional team and those affected\n\nCounselling and support of patients and their relatives in matters of work, finance and housing as well as social security matters\n\nMaintain contacts with authorities and follow-up institutions\n\nParticipation in exit management and the organization of post-stationary care and / or new forms of housing\n\nParticipation in multi-professional reports, team meetings and supervision\n\nCoordination of social work tasks involving the entire patient environment and the multi-professional team\n\nFlexibility, independence, resilience and teamwork\n\nCompleted training as a social worker/FH\n\n• Domain: Social professions\n• Type: part-time\n• Time limit: Temporary",
+        "de": "Zur Verstärkung der Fachgruppe Soziale Arbeit suchen wir im Bereich der Allgemein- und Akutpsychiatrie per 1. September 2026 eine/n Sozialarbeiter/-in FH 60% Befristet bis 31. Dezember 2026 Suchen Sie ein Arbeitsumfeld, das mehr ist als nur ein Ort des täglichen Wirkens? Bei uns erleben Sie ein inspirierendes Arbeitsklima. Unsere Unternehmenskultur zeichnet sich durch Zusammenhalt, Respekt und Wertschätzung aus. Als Mitglied des Sozialdienstes der Psychiatrischen Dienste Thurgau sind Sie eine wertvolle Ergänzung der multiprofessionellen Behandlungsteams, bestehend aus Ärzten/-innen, Psychologen/-innen, Pflegefachkräften und Spezialtherapeut/innen. Sie übernehmen Beurteilung der aktuellen sozialen Situation der Patient/-innen und Definition der sozialen Problembereiche in Zusammenarbeit mit dem multiprofessionellen Team und den Betroffenen\n\nBeratung und Unterstützung der Patient/-innen und ihrer Angehörigen in Fragen der Arbeit, der Finanzen und des Wohnens sowie von sozialversicherungsrechtlichen Angelegenheiten\n\nKontakte zu Behörden und nachbetreuenden Institutionen halten\n\nMitarbeit im Austrittsmanagement und der Organisation von poststationärer Versorgung und / oder neuen Wohnformen\n\nTeilnahme an multiprofessionellen Rapporten, Teamsitzungen und Supervisionen\n\nKoordination der sozialarbeiterischen Aufgaben unter Einbezug des gesamten Patientenumfeldes und des multiprofessionellen Teams\n\nFlexibilität, Selbstständigkeit, Belastbarkeit und Teamfähigkeit\n\nEine abgeschlossene Ausbildung als Sozialarbeiter/in FH\n\n• Bereich: Soziale Berufe\n• Art: Teilzeit\n• Befristung: Befristet",
+        "fr": "Pour renforcer la section du travail social, nous cherchons la psychiatrie générale et aiguë à 1. Septembre 2026 un travailleur social en FH 60% temporaire jusqu'au 31. Décembre 2026 Vous cherchez un environnement de travail qui est plus qu'un lieu de travail quotidien? Avec nous, vous vivez une atmosphère de travail inspirante. Notre culture d'entreprise se caractérise par la cohésion, le respect et l'appréciation. En tant que membre du Service Social des Services Psychiatriques de Thurgau, vous êtes un complément précieux aux équipes multiprofessionnelles de traitement composées de médecins, psychologues, infirmières et thérapeutes spécialisés. Ils évaluent la situation sociale actuelle des patients et définissent les domaines de problèmes sociaux en coopération avec l'équipe multiprofessionnelle et les personnes concernées.\n\nConseil et soutien des patients et de leurs proches en matière de travail, de finances et de logement ainsi que de sécurité sociale\n\nMaintenir des contacts avec les autorités et les institutions de suivi\n\nParticipation à la gestion des sorties et organisation des soins post-stationnaires et/ou nouvelles formes de logement\n\nParticipation aux rapports multiprofessionnels, aux réunions d'équipe et à la supervision\n\nCoordination des tâches de travail social impliquant l'ensemble de l'environnement patient et l'équipe multiprofessionnelle\n\nFlexibilité, indépendance, résilience et travail d'équipe\n\nFormation complète en tant que travailleur social/FH\n\n• Domaine: professions sociales\n• Type: temps partiel\n• Délai: Temporaire"
+      },
+      "location": "Münsterlingen",
+      "canton": "TG",
+      "url": "https://rekrutierung.stgag.ch/Vacancies/3736/Description/1",
+      "source": "Spital Thurgau (STGAG) Dedicated Parser (Umantis listing @ rekrutierung.stgag.ch)",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-04T22:17:17.028Z",
+      "addressLocality": "Münsterlingen",
+      "addressRegion": "TG",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8596",
+      "category": "Sanità / Ospedali",
+      "contract": "temporary",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-04",
+      "applyUrl": "https://rekrutierung.stgag.ch/Vacancies/3736/Application/CheckLogin/1",
+      "requirements": [],
+      "requirementsByLocale": {},
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -839,41 +859,60 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-03T12:35:55.624Z"
+      "firstSeenAt": "2026-08-04T11:37:09.985Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sozialarbeiter-in-fh-stgag-ch"
+        ],
+        "en": [
+          "sozialarbeiter-in-fh-stgag-ch"
+        ],
+        "de": [
+          "sozialarbeiter-in-fh-stgag-ch"
+        ],
+        "fr": [
+          "sozialarbeiter-in-fh-stgag-ch",
+          "sozialarbeiter-in-fh-stgag-munsterlingen-r134n9"
+        ]
+      },
+      "previousSlugs": [
+        "sozialarbeiter-in-fh-stgag-ch",
+        "sozialarbeiter-in-fh-stgag-munsterlingen-r134n9"
+      ],
+      "needsRetranslation": false
     },
     {
-      "id": "stgag-3dde8eb6fa57",
-      "slug": "medizinische-n-praxisassistenten-in-fachmann-frau-gesundheit-spital-thurgau-stgag-munsterlingen",
+      "id": "stgag-3db0c5b2a0fa",
+      "slug": "mpa-sottosegretario-medico-radiologia-radio-oncologia-spital-thurgau-stgag-munsterlingen",
       "slugByLocale": {
-        "it": "medizinische-n-praxisassistenten-in-fachmann-frau-gesundheit-spital-thurgau-stgag-munsterlingen",
-        "en": "medical-n-practice-assistant-in-specialist-woman-health-spital-thurgau-stgag-kantonsspital-frauenfeld",
-        "de": "medizinische-n-praxisassistenten-in-fachmann-frau-gesundheit-stgag-munsterlingen",
-        "fr": "assistant-medical-n-cabinet-in-specialiste-femme-sante-spital-thurgau-stgag-kantonsspital-frauenfeld"
+        "it": "mpa-sottosegretario-medico-radiologia-radio-oncologia-spital-thurgau-stgag-munsterlingen",
+        "en": "mpa-medical-secretary-in-radiology-radio-oncology-spital-thurgau-stgag-munsterlingen",
+        "de": "mpa-arztsekretar-in-radiologie-radio-onkologie-stgag-ch",
+        "fr": "mpa-secretaire-medical-en-radiologie-radio-oncologie-spital-thurgau-stgag-munsterlingen"
       },
       "company": "Spital Thurgau (STGAG)",
       "companyKey": "stgag",
       "companyDomain": "stgag.ch",
-      "title": "Medizinische/n Praxisassistenten/-in / Fachmann/-frau Gesundheit",
+      "title": "MPA / Arztsekretär/-in Radiologie Radio-Onkologie",
       "titleByLocale": {
-        "it": "Assistente medico /-in / specialista /-donna Salute",
-        "en": "Medical/n practice assistant /-in / specialist /-woman Health",
-        "de": "Medizinische/n Praxisassistenten/-in / Fachmann/-frau Gesundheit",
-        "fr": "Assistant médical/n cabinet /-in / spécialiste /-femme Santé"
+        "it": "MPA / Sottosegretario medico / Radiologia Radio-Oncologia",
+        "en": "MPA / Medical Secretary/-in Radiology Radio-Oncology",
+        "de": "MPA / Arztsekretär/-in Radiologie Radio-Onkologie",
+        "fr": "MPA / Secrétaire médical/-en radiologie Radio-oncologie"
       },
-      "description": "Zur Ergänzung des Teams suchen wir zum 1. Novemer 2026 oder nach Vereinbarung für unsere Notfallpraxis eine/n Medizinische/n Praxisassistenten/-in / Fachmann/-frau Gesundheit 40-50% Du arbeitest in Schichten zu 6,5 Stunden und 8,5 Stunden auch Wochenenden und Spätdienste. Du übernimmst Unterstützung der Ärzte/-innen\n\nAllgemeine Praxistätigkeiten\n\nAdministrative Tätigkeiten\n\nAbgeschlossene Ausbildung als Medizinische/r Praxisassistent/-in oder Fachmann/-frau Gesundheit\n\nBerufserfahrung in einer Hausarztpraxis\n\nBelastbarkeit und Kundenorientierung\n\nDie Kantonsspitäler Frauenfeld & Münsterlinge n gehören zur Spital Thurgau AG, einer Tochtergesellschaft der thurmed Gruppe. Unsere Akutspitäler versorgen jährlich rund 32'000 stationäre Patientinnen und Patienten und bieten ein umfassendes Leistungsangebot in einer hochwertigen Infrastruktur. Die Spital Thurgau ist eine der grössten und erfolgreichsten Spitalgruppen der Schweiz und zählt rund 4100 Mitarbeitende an verschiedensten Unternehmensstandorten. Wir bieten attraktive Arbeitsumgebungen, interdisziplinäre Zusammenarbeit und gezielte Entwicklungsmöglichkeiten. Werden auch Sie Teil unserer Erfolgsgeschichte! Wir bevorzugen Direktbewerbungen, Stellenvermittler verzichten bitte auf eine Kontaktaufnahme. ALLE UNSERE OFFENEN STELLEN\n\n• Bereich: Med.-technisches & Med.-therapeutisches Personal\n• Art: Teilzeit\n• Befristung: Unbefristet",
+      "description": "MPA / Arztsekretär/-in Radiologie Radio-Onkologie bei Team Radiologie Plus (Kantonsspital Frauenfeld) in Münsterlingen (8596, TG), Schweiz.\n\n• Bereich: Administration\n• Art: Vollzeit, Teilzeit möglich\n• Befristung: Unbefristet\n• Standort: Münsterlingen (TG)\n• Bewerbung über das Umantis-Karriereportal von Spital Thurgau (STGAG)",
       "descriptionByLocale": {
-        "it": "Per completare la squadra, stiamo cercando 1. Novemer 2026 o su appuntamento per la nostra pratica di emergenza un assistente medico / specialista / salute donna 40-50% Si lavora a turni di 6,5 ore e 8,5 ore anche fine settimana e servizi tardivi. Sostieni i dottori\n\nAttività pratiche generali\n\nAttività amministrative\n\nFormazione completa come assistente medico/pratico/specialista/sanitario\n\nEsperienza professionale in una pratica familiare\n\nResilienza e orientamento del cliente\n\nGli ospedali cantonali Frauenfeld & Münsterlinge n appartengono alla Spital Thurgau AG, filiale del gruppo thurmed. I nostri ospedali per la cura acuta servono ogni anno circa 32.000 pazienti e offrono una gamma completa di servizi in un'infrastruttura di alta qualità. Spital Thurgau è uno dei gruppi ospedalieri più grandi e di maggior successo in Svizzera e conta circa 4100 dipendenti in varie sedi aziendali. Offriamo ambienti di lavoro attraenti, cooperazione interdisciplinare e opportunità di sviluppo mirate. Diventa anche parte della nostra storia di successo! Preferiamo applicazioni dirette, agenti di lavoro si prega di astenersi dal contatto. Tutte le nostre competenze\n\n• Area: personale medico-tecnico e medico-terapeutico\n• Tipo: part-time\n• Termine temporaneo: perpetuo",
-        "en": "To complement the team, we are looking for 1. Novemer 2026 or by appointment for our emergency practice a medical assistant / specialist / woman health 40-50% You work in shifts of 6.5 hours and 8.5 hours also weekends and late services. You support the doctors\n\nGeneral practice activities\n\nAdministrative activities\n\nCompleted training as a medical/practical assistant/specialist/health professional\n\nProfessional experience in a family practice\n\nResilience and customer orientation\n\nThe cantonal hospitals Frauenfeld & Münsterlinge n belong to Spital Thurgau AG, a subsidiary of the thurmed Group. Our acute care hospitals serve around 32,000 inpatients every year and offer a comprehensive range of services in a high-quality infrastructure. Spital Thurgau is one of the largest and most successful hospital groups in Switzerland and has around 4100 employees at various company locations. We offer attractive working environments, interdisciplinary cooperation and targeted development opportunities. Become part of our success story too! We prefer direct applications, job agents please refrain from contacting. ALL OUR OPEN AUTHORITIES\n\n• Area: Med.-technical & Med.-therapeutic staff\n• Type: part-time\n• Temporary term: perpetual",
-        "de": "Zur Ergänzung des Teams suchen wir zum 1. Novemer 2026 oder nach Vereinbarung für unsere Notfallpraxis eine/n Medizinische/n Praxisassistenten/-in / Fachmann/-frau Gesundheit 40-50% Du arbeitest in Schichten zu 6,5 Stunden und 8,5 Stunden auch Wochenenden und Spätdienste. Du übernimmst Unterstützung der Ärzte/-innen\n\nAllgemeine Praxistätigkeiten\n\nAdministrative Tätigkeiten\n\nAbgeschlossene Ausbildung als Medizinische/r Praxisassistent/-in oder Fachmann/-frau Gesundheit\n\nBerufserfahrung in einer Hausarztpraxis\n\nBelastbarkeit und Kundenorientierung\n\nDie Kantonsspitäler Frauenfeld & Münsterlinge n gehören zur Spital Thurgau AG, einer Tochtergesellschaft der thurmed Gruppe. Unsere Akutspitäler versorgen jährlich rund 32'000 stationäre Patientinnen und Patienten und bieten ein umfassendes Leistungsangebot in einer hochwertigen Infrastruktur. Die Spital Thurgau ist eine der grössten und erfolgreichsten Spitalgruppen der Schweiz und zählt rund 4100 Mitarbeitende an verschiedensten Unternehmensstandorten. Wir bieten attraktive Arbeitsumgebungen, interdisziplinäre Zusammenarbeit und gezielte Entwicklungsmöglichkeiten. Werden auch Sie Teil unserer Erfolgsgeschichte! Wir bevorzugen Direktbewerbungen, Stellenvermittler verzichten bitte auf eine Kontaktaufnahme. ALLE UNSERE OFFENEN STELLEN\n\n• Bereich: Med.-technisches & Med.-therapeutisches Personal\n• Art: Teilzeit\n• Befristung: Unbefristet",
-        "fr": "Pour compléter l'équipe, nous cherchons 1. Novemer 2026 ou sur rendez-vous pour notre cabinet d'urgence un assistant médical / spécialiste / santé féminine 40-50% Vous travaillez par quarts de 6,5 heures et 8,5 heures également les week-ends et les services en retard. Vous soutenez les médecins\n\nActivités de pratique générale\n\nActivités administratives\n\nFormation complétée en tant qu'assistant médical/pratique/spécialiste/professionnel de la santé\n\nExpérience professionnelle dans une pratique familiale\n\nRésilience et orientation client\n\nLes hôpitaux cantonaux Frauenfeld & Münsterlinge n appartiennent à Spital Thurgau AG, filiale du groupe thurmed. Nos hôpitaux de soins actifs accueillent environ 32 000 patients chaque année et offrent une gamme complète de services dans une infrastructure de haute qualité. Spital Thurgau est l'un des groupes hospitaliers les plus importants et les plus réussis en Suisse et compte environ 4100 employés dans différents établissements. Nous offrons des environnements de travail attrayants, une coopération interdisciplinaire et des possibilités de développement ciblées. Faites partie de notre histoire de réussite aussi! Nous préférons les candidatures directes, les agents d'emploi s'il vous plaît ne pas contacter. TOUS NOS AUTORITÉS OUVERTES\n\n• Domaine: Med.-technical & Med.-therapeutic staff\n• Type: temps partiel\n• Terme temporaire : perpétuel"
+        "it": "Münsterlingen (8596, TG), Svizzera.\n\n• Area: Amministrazione\n• Tipo: A tempo pieno, part-time\n• Termine temporaneo: perpetuo\n• Posizione: Münsterlingen (TG)\n• Applicazione tramite il portale di carriera di Umantis di Spital Thurgau (STGAG)",
+        "en": "MPA / Medical Secretary/-in Radiology Radio-Oncology at Team Radiology Plus (Kantonsspital Frauenfeld) in Münsterlingen (8596, TG), Switzerland.\n\n• Area: Administration\n• Type: Full-time, part-time\n• Temporary term: perpetual\n• Location: Münsterlingen (TG)\n• Application via the Umantis career portal of Spital Thurgau (STGAG)",
+        "de": "MPA / Arztsekretär/-in Radiologie Radio-Onkologie bei Team Radiologie Plus (Kantonsspital Frauenfeld) in Münsterlingen (8596, TG), Schweiz.\n\n• Bereich: Administration\n• Art: Vollzeit, Teilzeit möglich\n• Befristung: Unbefristet\n• Standort: Münsterlingen (TG)\n• Bewerbung über das Umantis-Karriereportal von Spital Thurgau (STGAG)",
+        "fr": "MPA / Medical Secretary/-in Radiologie Radio-Oncologie à l'équipe Radiologie Plus (Kantonsspital Frauenfeld) à Münsterlingen (8596, TG), Suisse.\n\n• Domaine: Administration\n• Type: Temps plein, temps partiel\n• Terme temporaire : perpétuel\n• Lieu: Münsterlingen (TG)\n• Application via le portail de carrière Umantis de Spital Thurgau (STGAG)"
       },
-      "needsRetranslation": false,
       "location": "Münsterlingen",
       "canton": "TG",
-      "url": "https://rekrutierung.stgag.ch/Vacancies/3730/Description/1",
+      "url": "https://rekrutierung.stgag.ch/Vacancies/3732/Description/1",
       "source": "Spital Thurgau (STGAG) Dedicated Parser (Umantis listing @ rekrutierung.stgag.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-02T22:00:26.464Z",
+      "crawledAt": "2026-08-03T22:25:02.512Z",
       "addressLocality": "Münsterlingen",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -887,37 +926,33 @@
       "currency": "CHF",
       "featured": false,
       "postedDate": "2026-07-28",
-      "applyUrl": "https://rekrutierung.stgag.ch/Vacancies/3730/Application/CheckLogin/1",
+      "applyUrl": "https://rekrutierung.stgag.ch/Vacancies/3732/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "medizinische-n-praxisassistenten-in-fachmann-frau-gesundheit-stgag-munsterlingen",
-        "medizinische-n-praxisassistenten-in-fachmann-frau-gesundheit-stgag-ch",
-        "medizinische-n-praxisassistenten-in-fachmann-frau-gesundheit-spital-thurgau-stgag-kantonsspital-frauenfeld",
-        "medical-n-practice-assistant-in-specialist-woman-health-spital-thurgau-stgag-munsterlingen",
-        "assistant-medical-n-cabinet-in-specialiste-femme-sante-spital-thurgau-stgag-munsterlingen"
+        "mpa-arztsekretar-in-radiologie-radio-onkologie-stgag-munsterlingen",
+        "mpa-arztsekretar-in-radiologie-radio-onkologie-stgag-ch",
+        "mpa-arztsekretar-in-radiologie-radio-onkologie-stgag-ch-r134nd"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "medizinische-n-praxisassistenten-in-fachmann-frau-gesundheit-stgag-munsterlingen",
-          "medizinische-n-praxisassistenten-in-fachmann-frau-gesundheit-stgag-ch",
-          "medizinische-n-praxisassistenten-in-fachmann-frau-gesundheit-spital-thurgau-stgag-kantonsspital-frauenfeld"
+          "mpa-arztsekretar-in-radiologie-radio-onkologie-stgag-munsterlingen",
+          "mpa-arztsekretar-in-radiologie-radio-onkologie-stgag-ch"
         ],
         "en": [
-          "medizinische-n-praxisassistenten-in-fachmann-frau-gesundheit-stgag-ch",
-          "medizinische-n-praxisassistenten-in-fachmann-frau-gesundheit-stgag-munsterlingen",
-          "medical-n-practice-assistant-in-specialist-woman-health-spital-thurgau-stgag-munsterlingen"
+          "mpa-arztsekretar-in-radiologie-radio-onkologie-stgag-munsterlingen",
+          "mpa-arztsekretar-in-radiologie-radio-onkologie-stgag-ch"
         ],
         "de": [
-          "medizinische-n-praxisassistenten-in-fachmann-frau-gesundheit-stgag-ch"
+          "mpa-arztsekretar-in-radiologie-radio-onkologie-stgag-ch-r134nd",
+          "mpa-arztsekretar-in-radiologie-radio-onkologie-stgag-munsterlingen"
         ],
         "fr": [
-          "medizinische-n-praxisassistenten-in-fachmann-frau-gesundheit-stgag-ch",
-          "medizinische-n-praxisassistenten-in-fachmann-frau-gesundheit-stgag-munsterlingen",
-          "assistant-medical-n-cabinet-in-specialiste-femme-sante-spital-thurgau-stgag-munsterlingen"
+          "mpa-arztsekretar-in-radiologie-radio-onkologie-stgag-munsterlingen",
+          "mpa-arztsekretar-in-radiologie-radio-onkologie-stgag-ch"
         ]
       },
-      "firstSeenAt": "2026-07-28T11:38:57.246Z",
+      "firstSeenAt": "2026-07-28T22:09:34.242Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -930,91 +965,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
-    },
-    {
-      "id": "stgag-036d56231f82",
-      "slug": "risorse-umane-sachbearbeiter-in-absenzen-e-sozialversicherungen-spital-thurgau-stgag-munsterlingen",
-      "slugByLocale": {
-        "it": "risorse-umane-sachbearbeiter-in-absenzen-e-sozialversicherungen-spital-thurgau-stgag-munsterlingen",
-        "en": "hr-sachbearbeiter-in-absenzen-und-sozialversicherungen-stgag-munsterlingen",
-        "de": "hr-sachbearbeiter-in-absenzen-und-sozialversicherungen-stgag-ch",
-        "fr": "hr-sachbearbeiter-in-absenzen-und-sozialversicherungen-stgag-munsterlingen"
-      },
-      "company": "Spital Thurgau (STGAG)",
-      "companyKey": "stgag",
-      "companyDomain": "stgag.ch",
-      "title": "HR Sachbearbeiter/-in Absenzen und Sozialversicherungen",
-      "titleByLocale": {
-        "it": "Risorse Umane Sachbearbeiter/-in Absenzen e Sozialversicherungen",
-        "en": "HR Personnel/in absences and social insurance",
-        "de": "HR Sachbearbeiter/-in Absenzen und Sozialversicherungen",
-        "fr": "Ressources Humaines Sachbearbeiter/-in Absenzen und Sozialversicherungen"
-      },
-      "description": "Zur Ergänzung des HR Absenzen Teams suchen wir per 1. Dezember 2026 eine/n HR Sachbearbeiter/-in Absenzen und Sozialversicherungen 50-60% Wünschen Sie sich eine sinnhafte Arbeit mit Möglichkeit zur beruflichen und menschlichen Entfaltung? Bei uns werden Sie fündig! Ausserdem wird Ihr Beitrag nicht nur zum Unternehmenserfolg beisteuern, sondern auch einen positiven Einfluss auf die Aussenwelt haben. Sie übernehmen Zentrale Administration aller Abwesenheiten (Krankheiten, Unfall, EO-Prozesse) inkl. Anmelden und Verarbeitung der Versicherungsfälle\n\nDigitale Bewirtschaftung von Arztzeugnissen\n\nKontrollaufgaben in der konkreten Absenzplanung im PEP\n\nUnterstützung der Vorgesetzten und PEP-Planer bei der Absenzplanung\n\nMonatliche Taggeldabrechnung mit Versicherern (KTG, UTG, EO)\n\nBereitstellen von monatlichen Listen und Rapporten für HR Lohn und HR Service Center\n\nKaufmännische Grundausbildung\n\nWeiterbildung Sachbearbeiter/in Sozialversicherungen oder gleichwertige Weiterbildung\n\n• Bereich: HR\n• Art: Teilzeit\n• Befristung: Unbefristet",
-      "descriptionByLocale": {
-        "it": "Per integrare il Team di obbedienza alle risorse umane, stiamo cercando 1. Dicembre 2026 un impiegato delle risorse umane/in assenza e assicurazione sociale 50-60% Vuoi un lavoro significativo con un'opportunità per lo sviluppo professionale e umano? Lo troverai con noi! Inoltre, il vostro contributo non solo contribuirà al successo dell’azienda, ma avrà anche un impatto positivo sul mondo esterno. Si assume l'amministrazione centrale di tutte le assenze (di mare, incidenti, processi EO) incl. Notifica e trattamento dei crediti\n\nGestione digitale dei certificati medici\n\nAttività di controllo nella pianificazione degli assenti concreti nel PEP\n\nSostegno ai supervisori e ai progettisti PEP in caso di pianificazione dell'assenza\n\nIndennità giornaliera mensile con assicuratori (KTG, UTG, EO)\n\nFornire liste mensili e report per i salari HR e i centri di assistenza HR\n\nFormazione commerciale\n\nPersonale/sicurezza sociale o formazione equivalente\n\n• Area: HR\n• Tipo: part-time\n• Termine temporaneo: perpetuo",
-        "en": "To supplement the HR Absence Team, we are looking for 1. December 2026 an HR clerk/in absences and social insurance 50-60% Do you want a meaningful work with an opportunity for professional and human development? You will find it with us! In addition, your contribution will not only contribute to the company’s success, but also have a positive impact on the outside world. You take over Central Administration of all absences (diseases, accidents, EO processes) incl. Notification and processing of claims\n\nDigital management of medical certificates\n\nControl tasks in concrete absentee planning in the PEP\n\nSupport for supervisors and PEP planners in the event of absence planning\n\nMonthly daily allowance settlement with insurers (KTG, UTG, EO)\n\nProviding monthly lists and reports for HR wages and HR service centers\n\nBasic commercial training\n\nPersonnel/social security or equivalent training\n\n• Area: HR\n• Type: part-time\n• Temporary term: perpetual",
-        "de": "Zur Ergänzung des HR Absenzen Teams suchen wir per 1. Dezember 2026 eine/n HR Sachbearbeiter/-in Absenzen und Sozialversicherungen 50-60% Wünschen Sie sich eine sinnhafte Arbeit mit Möglichkeit zur beruflichen und menschlichen Entfaltung? Bei uns werden Sie fündig! Ausserdem wird Ihr Beitrag nicht nur zum Unternehmenserfolg beisteuern, sondern auch einen positiven Einfluss auf die Aussenwelt haben. Sie übernehmen Zentrale Administration aller Abwesenheiten (Krankheiten, Unfall, EO-Prozesse) inkl. Anmelden und Verarbeitung der Versicherungsfälle\n\nDigitale Bewirtschaftung von Arztzeugnissen\n\nKontrollaufgaben in der konkreten Absenzplanung im PEP\n\nUnterstützung der Vorgesetzten und PEP-Planer bei der Absenzplanung\n\nMonatliche Taggeldabrechnung mit Versicherern (KTG, UTG, EO)\n\nBereitstellen von monatlichen Listen und Rapporten für HR Lohn und HR Service Center\n\nKaufmännische Grundausbildung\n\nWeiterbildung Sachbearbeiter/in Sozialversicherungen oder gleichwertige Weiterbildung\n\n• Bereich: HR\n• Art: Teilzeit\n• Befristung: Unbefristet",
-        "fr": "Pour compléter l'équipe d'absence des RH, nous cherchons 1. Décembre 2026 un commis aux RH/en absence et assurance sociale 50-60% Voulez-vous un travail significatif avec une opportunité de développement professionnel et humain? Vous le trouverez avec nous ! En outre, votre contribution ne contribuera pas seulement au succès de l'entreprise, mais aura également un impact positif sur le monde extérieur. Vous prenez en charge l'administration centrale de toutes les absences (maladies, accidents, processus EO) y compris. Notification et traitement des réclamations\n\nGestion numérique des certificats médicaux\n\nTâches de contrôle de la planification concrète des absents dans le PPE\n\nAppui aux superviseurs et aux planificateurs du PPE en cas d ' absence\n\nRèglement des indemnités journalières mensuelles avec les assureurs (KTG, UTG, EO)\n\nFournir des listes mensuelles et des rapports pour les salaires des RH et les centres de services des RH\n\nFormation commerciale de base\n\nPersonnel/sécurité sociale ou formation équivalente\n\n• Domaine : RH\n• Type: temps partiel\n• Terme temporaire : perpétuel"
-      },
-      "location": "Münsterlingen",
-      "canton": "TG",
-      "url": "https://rekrutierung.stgag.ch/Vacancies/3720/Description/1",
-      "source": "Spital Thurgau (STGAG) Dedicated Parser (Umantis listing @ rekrutierung.stgag.ch)",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-02T22:00:25.610Z",
-      "addressLocality": "Münsterlingen",
-      "addressRegion": "TG",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8596",
-      "category": "Amministrazione",
-      "contract": "temporary",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-23",
-      "applyUrl": "https://rekrutierung.stgag.ch/Vacancies/3720/Application/CheckLogin/1",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "hr-sachbearbeiter-in-absenzen-und-sozialversicherungen-stgag-munsterlingen",
-        "hr-sachbearbeiter-in-absenzen-und-sozialversicherungen-stgag-ch",
-        "risorse-umane-sachbearbeiter-in-absenzen-e-sozialversicherungen-spital-thurgau-stgag-kantonsspital-frauenfeld"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "hr-sachbearbeiter-in-absenzen-und-sozialversicherungen-stgag-munsterlingen",
-          "hr-sachbearbeiter-in-absenzen-und-sozialversicherungen-stgag-ch",
-          "risorse-umane-sachbearbeiter-in-absenzen-e-sozialversicherungen-spital-thurgau-stgag-kantonsspital-frauenfeld"
-        ],
-        "en": [
-          "hr-sachbearbeiter-in-absenzen-und-sozialversicherungen-stgag-ch"
-        ],
-        "de": [
-          "hr-sachbearbeiter-in-absenzen-und-sozialversicherungen-stgag-munsterlingen"
-        ],
-        "fr": [
-          "hr-sachbearbeiter-in-absenzen-und-sozialversicherungen-stgag-ch"
-        ]
-      },
-      "firstSeenAt": "2026-07-23T22:08:12.453Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "needsRetranslation": true
     }
   ]

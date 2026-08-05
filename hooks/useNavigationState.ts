@@ -20,13 +20,15 @@ import {
  updatePathForLocale, scrollToAnchor, AppRoute,
  preloadBlogData, resolveBlogSlug, getLocalizedJobSlug,
  preloadSwissData, resolveSwissSlug,
+ learnRuntimeBlogSlugs, learnRuntimeSwissSlugs,
 } from '@/services/router';
 import type {
  ActiveTab, CalcolatoreSubTab, ConfrontiSubTab, FiscoSubTab,
  GuidaSubTab, VitaSubTab, StatsSubTab, BlogArticleId, SeoLandingId,
  GlossaryTermId, BorderCrossingId,
 } from '@/services/router';
-import { setLocale, onLocaleChange } from '@/services/i18n';
+import { setLocale, onLocaleChange, type Locale } from '@/services/i18n';
+import { hasStaticArticleFallback, restoreStaticArticleFallback } from '@/services/staticArticleFallback';
 import { prefetchTab } from '@/services/prefetch';
 import { enableRuntimeSeo, updateMetaTags, trackSectionView } from '@/hooks/seoHelpers';
 
@@ -44,6 +46,37 @@ const JOB_BOARD_COMPANY_PREFIX_RE = /^(azienda|company|unternehmen|entreprise)-[
 function jobBoardCompanySlugFromPath(pathname: string): string | null {
  const slug = pathname.split('/').filter(Boolean).pop() || '';
  return JOB_BOARD_COMPANY_PREFIX_RE.test(slug) ? slug : null;
+}
+
+/**
+ * The article slug of a route the bundled slug map has not turned into an id.
+ *
+ * `parsePath` returns `blogSlug`/`swissSlug` instead of `blogArticle`/
+ * `swissArticle` in exactly two situations: the lazy `routerBlogData` chunk has
+ * not landed yet (transient, every article page passes through it), or this
+ * build simply does not contain that article — which is the permanent state of
+ * every article published since the last successful deploy.
+ */
+function pendingArticleSlug(route: AppRoute): { section: 'frontaliere' | 'svizzera'; slug: string } | null {
+ if (route.activeTab !== 'blog') return null;
+ if (route.blogSection === 'svizzera') {
+ return route.swissSlug && !route.swissArticle ? { section: 'svizzera', slug: route.swissSlug } : null;
+ }
+ return route.blogSlug && !route.blogArticle ? { section: 'frontaliere', slug: route.blogSlug } : null;
+}
+
+/**
+ * Whether the shard's own static article is available for this URL.
+ *
+ * This is the guard's precondition and the reason it is safe. Standing aside is
+ * only an improvement when there is something correct underneath: `ogPagesPlugin`
+ * emits the full article into `<main class="seo-static-content">`, so on a real
+ * article URL it is there before React runs. If it is not — a route that never
+ * had a static twin, or a client-side arrival — falling back to it would leave
+ * a blank page, so we don't.
+ */
+function staticArticleAvailable(): boolean {
+ return hasStaticArticleFallback();
 }
 
 export interface NavigationState {
@@ -155,8 +188,19 @@ export function useNavigationState(): NavigationState {
  // to calcolatoreSubTab: 'ral') — the SPA takes over and App.tsx hides the
  // static fallback so the user gets the interactive view. See CLAUDE.md
  // rule #14.
+ //
+ // Second source, added for issue #4974 item 3: an article URL whose slug is
+ // still unresolved. Until we know WHICH article this is, the SPA has nothing
+ // true to draw — `activeTab` is 'blog' with no article, which renders the hub
+ // list, and the hub list is what was overwriting correct article pages
+ // ("Guida Frontaliere" post-hydration on 17 live URLs, measured 2026-08-04).
+ // Starting in overlay mode leaves the shard's article on screen and costs
+ // nothing on the happy path: the bundled slug map lands a few hundred ms
+ // later and flips this straight back off. It also removes the hub-list flash
+ // that every article page already paid while that chunk was in flight.
  const [staticOverlay, setStaticOverlay] = useState<boolean>(
- () => !!initialRoute.route.staticOverlay,
+ () => !!initialRoute.route.staticOverlay
+ || (!!pendingArticleSlug(initialRoute.route) && staticArticleAvailable()),
  );
 
  // Refs
@@ -180,6 +224,59 @@ export function useNavigationState(): NavigationState {
  }
  }, []);
 
+ /**
+  * Turn a pending article slug into a selected article, or get out of the way.
+  *
+  * Three outcomes, in the order they are tried:
+  *
+  *  1. The bundle knows it. Unchanged path — this is every article that shipped
+  *     with the build, and nothing about it is routed through the network.
+  *  2. The bundle does not, but the corpus API does AND the page can be drawn
+  *     (index record + a body). The SPA adopts the article and takes over.
+  *  3. Anything else — id unresolvable, index unreachable, JSON malformed, no
+  *     body to render, network down, the module chunk itself failing to load.
+  *     The SPA stays out and the shard's static article remains on screen.
+  *
+  * (3) is the contract. The page a visitor lands on is already correct; the
+  * only way this code can hurt is by replacing it with something less correct,
+  * so every failure route ends in "change nothing".
+  */
+ const resolvePendingArticle = useCallback((route: AppRoute, urlLocale: Locale) => {
+ const pending = pendingArticleSlug(route);
+ if (!pending) return;
+ const { section, slug } = pending;
+ const isSwiss = section === 'svizzera';
+
+ // Put the article back on screen BEFORE flipping to overlay mode: the CLS
+ // handoff in index.tsx may already have moved it inside #root, where React
+ // has since replaced it. Restoring first means App's layout effect finds it
+ // where it expects it on the very render that stops drawing the SPA <main>.
+ const guard = () => { if (restoreStaticArticleFallback()) setStaticOverlay(true); };
+ const adopt = (id: string) => {
+ setStaticOverlay(false);
+ if (isSwiss) setSwissArticle(id); else setBlogArticle(id as BlogArticleId);
+ };
+
+ (isSwiss ? preloadSwissData() : preloadBlogData())
+ .then(() => {
+ const bundled = isSwiss ? resolveSwissSlug(slug, urlLocale) : resolveBlogSlug(slug, urlLocale);
+ if (bundled) { adopt(bundled); return; }
+ // Split out so the corpus-API client is a chunk the common path never
+ // downloads: it is only ever needed once the bundle has already missed.
+ return import('@/services/runtimeArticleResolution')
+ .then((m) => m.adoptRuntimeArticle(section, urlLocale, slug))
+ .then((adopted) => {
+ if (!adopted) { guard(); return; }
+ // Learn the pair even when we won't render: it is what keeps
+ // buildPath, the language switcher and the canonical URL pointing
+ // at the real article instead of the hub.
+ (isSwiss ? learnRuntimeSwissSlugs : learnRuntimeBlogSlugs)(adopted.id, adopted.slugs);
+ if (adopted.renderable) adopt(adopted.id); else guard();
+ });
+ })
+ .catch(guard);
+ }, []);
+
  // Preload blog slug data and resolve any deferred blog slug from initial URL.
  // Gated on blog-related routes (#3528/#3532): the unconditional call shipped
  // the ~670 KB raw routerBlogData chunk on EVERY page — homepage included —
@@ -191,23 +288,16 @@ export function useNavigationState(): NavigationState {
  useEffect(() => {
  const r = initialRoute.route;
  if (r.activeTab === 'blog' || r.blogSlug || r.blogArticle) {
- preloadBlogData().then(() => {
- const slug = initialRoute.route.blogSlug;
- if (slug && !initialRoute.route.blogArticle) {
- const resolved = resolveBlogSlug(slug, initialRoute.locale);
- if (resolved) setBlogArticle(resolved);
+ preloadBlogData().catch(() => {});
  }
- }).catch(() => {});
+ if (r.blogSection === 'svizzera') {
+ preloadSwissData().catch(() => {});
  }
- if (initialRoute.route.blogSection === 'svizzera') {
- preloadSwissData().then(() => {
- const slug = initialRoute.route.swissSlug;
- if (slug && !initialRoute.route.swissArticle) {
- const resolved = resolveSwissSlug(slug, initialRoute.locale);
- if (resolved) setSwissArticle(resolved);
- }
- }).catch(() => {});
- }
+ // Deferred slug → article id, plus the runtime fallback and the fail-open
+ // guard behind it. Same call as applyRoute uses for client-side navigation,
+ // so an article URL behaves identically whether it was typed, followed from
+ // Google, or reached with the back button.
+ resolvePendingArticle(r, initialRoute.locale);
  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
  // Eagerly load svizzera slug data whenever the section becomes svizzera —
@@ -279,7 +369,13 @@ export function useNavigationState(): NavigationState {
  // Toggle lite-shell mode based on the new route. When leaving a static
  // SEO page, we also remove the static `<main class="seo-static-content">`
  // from the DOM so it doesn't appear below the React shell.
- const nextOverlay = !!route.staticOverlay;
+ // An unresolved article slug counts as an overlay for as long as it stays
+ // unresolved — same reasoning as the initial state above. It matters twice
+ // here: the SPA must not render the hub list over the article, AND the
+ // removal below must not happen, or the guard would have nothing left to
+ // fall back to when resolution fails.
+ const nextOverlay = !!route.staticOverlay
+ || (!!pendingArticleSlug(route) && staticArticleAvailable());
  setStaticOverlay(nextOverlay);
  if (!nextOverlay && typeof document !== 'undefined') {
    const staticMain = document.querySelector('main.seo-static-content');
@@ -298,20 +394,8 @@ export function useNavigationState(): NavigationState {
  setBlogArticle(route.blogArticle || null);
  setBlogSection(route.blogSection || 'frontaliere');
  setSwissArticle(route.swissArticle || null);
- // If blog data wasn't loaded yet, resolve the deferred slug
- if (route.blogSlug && !route.blogArticle) {
- preloadBlogData().then(() => {
- const resolved = resolveBlogSlug(route.blogSlug!, urlLocale);
- if (resolved) setBlogArticle(resolved);
- }).catch(() => {});
- }
- // Same deferred-resolution for the svizzera section.
- if (route.swissSlug && !route.swissArticle) {
- preloadSwissData().then(() => {
- const resolved = resolveSwissSlug(route.swissSlug!, urlLocale);
- if (resolved) setSwissArticle(resolved);
- }).catch(() => {});
- }
+ // Deferred slug → article id (bundle first, corpus API second, guard last).
+ resolvePendingArticle(route, urlLocale);
  setSeoLanding(route.seoLanding || null);
  setGlossaryTerm(route.glossaryTerm || null);
  setBorderCrossing(route.borderCrossing || null);
@@ -342,7 +426,7 @@ export function useNavigationState(): NavigationState {
  window.scrollTo({ top: 0, behavior: 'instant' });
  }
  prevAppliedRouteRef.current = route;
- }, []);
+ }, [resolvePendingArticle]);
 
  // Listen for browser back/forward navigation
  useEffect(() => {
@@ -821,9 +905,20 @@ export function useNavigationState(): NavigationState {
  ...(pendingSlug ? { blogSlug: pendingSlug } : {}),
  };
  }
+ // While the slug is unresolved this route's SEO key is plain 'blog' — the
+ // hub — so stamping it would replace the article's own title, description
+ // and canonical (correct, served by the shard) with the hub's, and report the
+ // view as a hub view. On a cold load `enableRuntimeSeo` has not fired yet and
+ // the head survives (verified in Chromium: <title> stayed the article's while
+ // the h1 became "Guida Frontaliere"), but it fires on the first client-side
+ // navigation and the same hub key is still sitting here. Say nothing until we
+ // know which article this is; the effect re-runs with the real key the moment
+ // `blogArticle`/`swissArticle` lands.
  const seoKey = getSeoSection(route);
- updateMetaTags(seoKey);
- trackSectionView(seoKey);
+ if (!pendingArticleSlug(route)) {
+  updateMetaTags(seoKey);
+  trackSectionView(seoKey);
+ }
  if (!isInitialMount.current && !staticOverlay) pushRoute(route);
  if (!window.location.hash) {
  window.scrollTo({ top: 0, behavior: 'instant' });

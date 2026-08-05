@@ -1,6 +1,6 @@
 {
   "crawlerKey": "rhne-reseau-hospitalier-neuchatelois",
-  "assembledAt": "2026-08-03T12:52:32.080Z",
+  "assembledAt": "2026-08-04T22:28:02.487Z",
   "jobs": [
     {
       "id": "rhne-reseau-hospitalier-neuchatelois-625bcbb39612",
@@ -34,7 +34,7 @@
       "url": "https://www.rhne.ch/espace-emploi/emploi/postuler/tous-les-postes?jobId=2560297&cat=all",
       "source": "RHNE Réseau hospitalier neuchâtelois Dedicated Parser (Liferay HTML listing)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-03T12:52:29.623Z",
+      "crawledAt": "2026-08-04T22:27:58.985Z",
       "addressLocality": "Neuchâtel",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -152,7 +152,7 @@
       "url": "https://www.rhne.ch/espace-emploi/emploi/postuler/tous-les-postes?jobId=2563935&cat=all",
       "source": "RHNE Réseau hospitalier neuchâtelois Dedicated Parser (Liferay HTML listing)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-03T12:52:28.824Z",
+      "crawledAt": "2026-08-04T22:27:58.205Z",
       "addressLocality": "Neuchâtel",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -234,7 +234,7 @@
       "url": "https://www.rhne.ch/espace-emploi/emploi/postuler/tous-les-postes?jobId=2564234&cat=all",
       "source": "RHNE Réseau hospitalier neuchâtelois Dedicated Parser (Liferay HTML listing)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-03T12:52:27.989Z",
+      "crawledAt": "2026-08-04T22:27:57.419Z",
       "addressLocality": "Neuchâtel",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -320,7 +320,7 @@
       "url": "https://www.rhne.ch/espace-emploi/emploi/postuler/tous-les-postes?jobId=2565388&cat=all",
       "source": "RHNE Réseau hospitalier neuchâtelois Dedicated Parser (Liferay HTML listing)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-03T12:52:23.616Z",
+      "crawledAt": "2026-08-04T22:27:56.621Z",
       "addressLocality": "La Chaux-de-Fonds",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -413,7 +413,7 @@
       "url": "https://www.rhne.ch/espace-emploi/emploi/postuler/tous-les-postes?jobId=2566224&cat=all",
       "source": "RHNE Réseau hospitalier neuchâtelois Dedicated Parser (Liferay HTML listing)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-03T12:52:19.391Z",
+      "crawledAt": "2026-08-04T22:27:55.823Z",
       "addressLocality": "Neuchâtel",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -433,18 +433,33 @@
       "externalId": "2566224",
       "previousSlugs": [
         "infirmier-ere-chef-fe-du-bloc-operatoire-a-80-100-rhne-reseau-hospitalier-neuchatelois",
+        "infermiera-capo-unita-di-cura-a-80-100-reseau-hospitalier-neuchatelois-rhne-neuchatel-819b40",
+        "nurse-head-of-care-unit-at-80-100-reseau-hospitalier-neuchatelois-rhne-neuchatel-819b40",
+        "nurse-head-of-care-unit-bei-80-100-reseau-hospitalier-neuchatelois-rhne-neuchatel-819b40",
+        "infirmier-ere-chef-fe-d-unite-de-soins-a-80-100-rhne-reseau-hospitalier-neuchatelois",
+        "infirmier-ere-chef-fe-d-unite-de-soins-a-80-100-rhne-reseau-hospitalier-neuchatelois-2",
         "infermiera-capo-dell-unita-operativa-80-100-reseau-hospitalier-neuchatelois-rhne-neuchatel"
       ],
       "previousSlugsByLocale": {
         "it": [
           "infirmier-ere-chef-fe-du-bloc-operatoire-a-80-100-rhne-reseau-hospitalier-neuchatelois",
+          "infermiera-capo-unita-di-cura-a-80-100-reseau-hospitalier-neuchatelois-rhne-neuchatel-819b40",
+          "nurse-head-of-care-unit-at-80-100-reseau-hospitalier-neuchatelois-rhne-neuchatel-819b40",
+          "nurse-head-of-care-unit-bei-80-100-reseau-hospitalier-neuchatelois-rhne-neuchatel-819b40",
+          "infirmier-ere-chef-fe-d-unite-de-soins-a-80-100-rhne-reseau-hospitalier-neuchatelois",
+          "infirmier-ere-chef-fe-d-unite-de-soins-a-80-100-rhne-reseau-hospitalier-neuchatelois-2",
           "infermiera-capo-dell-unita-operativa-80-100-reseau-hospitalier-neuchatelois-rhne-neuchatel"
         ],
         "en": [
-          "infirmier-ere-chef-fe-du-bloc-operatoire-a-80-100-rhne-reseau-hospitalier-neuchatelois"
+          "infirmier-ere-chef-fe-du-bloc-operatoire-a-80-100-rhne-reseau-hospitalier-neuchatelois",
+          "nurse-head-of-care-unit-at-80-100-reseau-hospitalier-neuchatelois-rhne-neuchatel-819b40"
         ],
         "de": [
-          "infirmier-ere-chef-fe-du-bloc-operatoire-a-80-100-rhne-reseau-hospitalier-neuchatelois"
+          "infirmier-ere-chef-fe-du-bloc-operatoire-a-80-100-rhne-reseau-hospitalier-neuchatelois",
+          "nurse-head-of-care-unit-bei-80-100-reseau-hospitalier-neuchatelois-rhne-neuchatel-819b40"
+        ],
+        "fr": [
+          "infirmier-ere-chef-fe-d-unite-de-soins-a-80-100-rhne-reseau-hospitalier-neuchatelois"
         ]
       },
       "firstSeenAt": "2026-07-13T22:32:48.147Z",
@@ -493,7 +508,7 @@
       "url": "https://www.rhne.ch/espace-emploi/emploi/postuler/tous-les-postes?jobId=2566503&cat=all",
       "source": "RHNE Réseau hospitalier neuchâtelois Dedicated Parser (Liferay HTML listing)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-03T12:52:18.573Z",
+      "crawledAt": "2026-08-04T22:27:55.021Z",
       "addressLocality": "Neuchâtel",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -573,7 +588,7 @@
       "url": "https://www.rhne.ch/espace-emploi/emploi/postuler/tous-les-postes?jobId=2566513&cat=all",
       "source": "RHNE Réseau hospitalier neuchâtelois Dedicated Parser (Liferay HTML listing)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-03T12:52:17.759Z",
+      "crawledAt": "2026-08-04T22:27:54.227Z",
       "addressLocality": "Neuchâtel",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -653,7 +668,7 @@
       "url": "https://www.rhne.ch/espace-emploi/emploi/postuler/tous-les-postes?jobId=2566921&cat=all",
       "source": "RHNE Réseau hospitalier neuchâtelois Dedicated Parser (Liferay HTML listing)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-03T12:52:16.914Z",
+      "crawledAt": "2026-08-04T22:27:53.456Z",
       "addressLocality": "Le Locle",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -735,7 +750,7 @@
       "url": "https://www.rhne.ch/espace-emploi/emploi/postuler/tous-les-postes?jobId=2567872&cat=all",
       "source": "RHNE Réseau hospitalier neuchâtelois Dedicated Parser (Liferay HTML listing)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-03T12:52:16.121Z",
+      "crawledAt": "2026-08-04T22:27:52.655Z",
       "addressLocality": "Neuchâtel",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -827,7 +842,7 @@
       "url": "https://www.rhne.ch/espace-emploi/emploi/postuler/tous-les-postes?jobId=2568967&cat=all",
       "source": "RHNE Réseau hospitalier neuchâtelois Dedicated Parser (Liferay HTML listing)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-03T12:52:15.315Z",
+      "crawledAt": "2026-08-04T22:27:51.855Z",
       "addressLocality": "Neuchâtel",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -868,87 +883,6 @@
           "unitText": "YEAR"
         }
       }
-    },
-    {
-      "id": "rhne-reseau-hospitalier-neuchatelois-1a56a3156c85",
-      "slug": "infermiera-capo-unita-di-cura-a-80-100-reseau-hospitalier-neuchatelois-rhne-neuchatel-819b40",
-      "slugByLocale": {
-        "it": "infermiera-capo-unita-di-cura-a-80-100-reseau-hospitalier-neuchatelois-rhne-neuchatel-819b40",
-        "en": "nurse-head-of-care-unit-at-80-100-reseau-hospitalier-neuchatelois-rhne-neuchatel-819b40",
-        "de": "nurse-head-of-care-unit-bei-80-100-reseau-hospitalier-neuchatelois-rhne-neuchatel-819b40",
-        "fr": "infirmier-ere-chef-fe-d-unite-de-soins-a-80-100-rhne-reseau-hospitalier-neuchatelois"
-      },
-      "company": "Réseau hospitalier neuchâtelois (RHNE)",
-      "companyKey": "rhne-reseau-hospitalier-neuchatelois",
-      "companyDomain": "rhne.ch",
-      "title": "Infirmier·ère chef·fe d'unité de soins à 80-100 %",
-      "titleByLocale": {
-        "it": "Infirmiera capo di unità di cure a 80-100%",
-        "en": "Chief Nurse Manager at 80-100%",
-        "de": "Infirmier·ère chef·fe d'unité de soins à 80-100 %",
-        "fr": "Infirmier·ère chef·fe d'unité de soins à 80-100 %"
-      },
-      "description": "L’unité de médecine 3 est une unité de médecine générale en soins aigus. Son équipe pluridisciplinaire accueille les patient·e·s 24h sur 24h et 7j sur 7j.\n\nVos missions\n\n• Diriger et encadrer une équipe composée d'une quarantaine de collaborateur·rice·s\n\n• Gérer et coordonner l’organisation des soins infirmiers d’une unité de 24 lits comprenant des lits de médecine générale\n\n• Garantir une prise en charge efficiente des patient·e·s et assurer la qualité des soins dans le respect des protocoles et recommandations en vigueur\n\n• Garantir l'application des principes d'éthique professionnelle et à la diffusion des valeurs de soins\n\n• Encadrement fonctionnel des équipes, accompagnement des nouveaux·lles arrivant·e·s et assurer le développement de compétences au sein de son service (formation continue)\n\n• Organiser l’unité de manière optimale[BJ1] et efficiente en collaboration avec les différents partenaires\n\nVotre profil\n\n• Bachelor of Science HES-SO en soins infirmiers ou titre jugé équivalent reconnu par la Croix-Rouge suisse\n\n• Autorisation de pratiquer une profession de la santé dans le canton de Neuchâtel\n\n• Expérience professionnelle de minimum 3 ans dans une unité de soins aigus\n\n• Formation de cadre, management de proximité ou volonté de suivre la formation\n\n• Expérience dans la gestion d'équipe, un atout\n\nVos compétences\n\n• Capacité à diriger, gérer et fédérer une équipe\n\n• Sens des responsabilités et leadership naturel\n\n• Aptitudes relationnelles en communication et en gestion de conflits\n\n• Travail en équipe et collaboration interdisciplinaire\n\n• Sens des priorités, capacité à gérer l'imprévu, et son stress\n\n• Être force de proposition, flexible et disponible\n\n• Connaissance logiciels usuels un plus (Outlook, Carefolio, POLYPOINT, Opale)\n\nInformations complémentaires\n\n• Lieu de travail : site de Pourtalès, Neuchâtel\n\n• Entrée en fonction : 1er octobre 2026 ou à convenir\n\n• Renseignement : Mme Marie-Laure Jacquot-Pegeot, Infirmière cheffe de départements médecine-oncologie-chirurgie, +41 79 559 50 55\n\nLes postulations complètes (lettre de motivation, Curriculum Vitae, diplômes, certificats de travail) sont à nous adresser jusqu’au 2 août 2026.\n\nToute question concernant la procédure de postulation peut être adressée par téléphone au service Engagement au +41 32 713 30 13.\n\nLe Réseau hospitalier neuchâtelois (RHNe) regroupe les sites de Pourtalès (Neuchâtel), La Chaux-de-Fonds, Val-de-Travers, Val-de-Ruz, Le Locle et La Chrysalide. Plus de 2'600 collaboratrices et collaborateurs assurent les soins aigus, la réadaptation et les soins palliatifs pour la population neuchâteloise.",
-      "descriptionByLocale": {
-        "it": "Descrizione\n\nL’unità di medicina 3 è un'unità di medicina generale in cure acute. Il suo team multidisciplinare accoglie i pazienti 24 ore su 24, 7 giorni su 7.\n\nI tuoi incarichi\n\n- Dirigere e supervisionare un team composto da una quarantina dicollaboratori\n- Gestire e coordinare l’organizzazione infermieristica di un'unità da 24 posti letto con letti di medicina generale\n- Garantire una gestione efficiente dei pazienti e garantire la qualità delle cure nel rispetto dei protocolli e delle raccomandazioni in vigore\n- Garantire l'applicazione dei principi di etica professionale e la diffusione dei valori di cura\n- Inquadramento funzionale dei team, accompagnamento dei nuovi arrivati e sviluppo delle competenze all'interno del suo servizio (formazione continua)\n- Organizzare l’unità in modo ottimale[BJ1] ed efficiente in collaborazione con i vari partner\n\nIl tuo profilo\n\n- Bachelor of Science HES-SO in infermieristica o titolo ritenuto equivalente riconosciuto dalla Croce Rossa Svizzera\n- Autorizzazione a esercitare una professione sanitaria nel cantone di Neuchâtel\n- Esperienza professionale di almeno 3 anni in un reparto di cure acute\n- Formazione manageriale, gestione di prossimità o volontà di seguire la formazione\n- Esperienza nella gestione del team, un vantaggio\n\nLe tue competenze\n\n- Capacità di guidare, gestire e federare un team\n- Senso di responsabilità e",
-        "en": "Description\n\nThe Medical Unit 3 is a general medical unit in acute care. Its multidisciplinary team welcomes patients 24 hours a day and 7 days a week.\n\nYour missions\n\n- Manage and coordinate the organisation of nursing care, a 24 bed unit comprising beds of general medicine - Ensure efficient care of patients and ensure quality of care in accordance with the protocols and recommendations in force - Ensure the application of the principles of professional ethics and the dissemination of the values of care - Functional supervision of teams, support for new arrivals and ensure the development of skills within the Community\n\nits service (continuous training) - Organize the unit in an optimal and efficient way[BJ1] in collaboration with the different partners\n\nYour profile\n\n- The following are the main features of the project: - The work of the research team in the field of nursing care, or equivalent title recognised by the Swiss Red Cross - Authorization to practise a health profession in the canton of Neuchâtel - Minimum 3 years of professional experience in a acute care unit - Training in management, community management or willingness to attend training - Experience in team management, an asset\n\nYour skills\n\n- Ability to lead, manage and unite a team - Sense of responsibility and natural leadership - Relationship skills in communication and conflict management - Team work and interdisciplinary collaboration - Sense of priorities, ability to manage the unexpected, and its stress - Being proposal force, flexible and available - Knowledge common software one more (Out of year, Carefolio, POLYPOINT, Opale)\n\nFurther information\n\n- Place of work : site de Pourtalès, Neuchâtel - Start of work : 1 October 2026 or to be agreed - Information : Marie-Laure Jacquot-Pgeot, Nurse head of medical-oncology-surgery departments, +32 79 559 50 55\n\nFull applications (motivation letter, curriculume, diplomas, work certificates) are due until 2 August 2026.\n\nAny questions regarding the postulation procedure can be addressed by telephone to the Engaging Department at +32 32 713 30 13.\n\nThe Neuchâtel Hospital Network (RHNE) is a network of sites in Pourtalès (Neuchâtel), La Chaux-de-Fonds, Val-de-Travers, Val-de-Ruz, Le Locle and La chsalide. More than 2,600 collaborators provide acute care, rehabilitation and palliative care for the Neuchâtel population.",
-        "de": "Beschreibung\n\nDie Medizinische Einheit 3 ist eine Allgemeinmedizinische Einheit in der Akutmedizin. Sein multidisziplinäres Team empfängt die Patienten 24 Stunden am Tag und 7 Tage die Woche.\n\nIhre Aufgaben\n\n- Leitung und Betreuung eines Teams von rund 40 Mitarbeitenden\n- Verwaltung und Koordination der Pflegeorganisation einer 24-Bett-Einheit mit allgemeinmedizinischen Betten\n- Sicherstellung einer effizienten Versorgung der Patienten und Sicherstellung der Qualität der Versorgung unter Einhaltung der geltenden Protokolle und Empfehlungen\n- Gewährleistung der Anwendung der berufsethischen Grundsätze und der Verbreitung der Pflegewerte\n- Funktionelle Betreuung der Teams, Begleitung der Neuankömmlinge und Sicherstellung der Kompetenzentwicklung in der Abteilung (Weiterbildung)\n- Einheit in Zusammenarbeit mit den verschiedenen Partnern optimal[BJ1] und effizient organisieren\n\nIhr Profil\n\n- Bachelor of Science HES-SO in Pflege oder vom Schweizerischen Roten Kreuz anerkannter gleichwertiger Titel\n- Bewilligung zur Ausübung eines Gesundheitsberufs im Kanton Neuenburg\n- Mindestens 3 Jahre Berufserfahrung auf einer Akutstation\n- Kaderausbildung, Nähemanagement oder Bereitschaft zur Teilnahme an der Ausbildung\n- Erfahrung im Teammanagement von Vorteil\n\nIhre Fähigkeiten\n\n- Fähigkeit, ein Team zu führen, zu führen und zu vereinen\n- Verantwortungsbewusstsein und",
-        "fr": "L’unité de médecine 3 est une unité de médecine générale en soins aigus. Son équipe pluridisciplinaire accueille les patient·e·s 24h sur 24h et 7j sur 7j.\n\nVos missions\n\n• Diriger et encadrer une équipe composée d'une quarantaine de collaborateur·rice·s\n\n• Gérer et coordonner l’organisation des soins infirmiers d’une unité de 24 lits comprenant des lits de médecine générale\n\n• Garantir une prise en charge efficiente des patient·e·s et assurer la qualité des soins dans le respect des protocoles et recommandations en vigueur\n\n• Garantir l'application des principes d'éthique professionnelle et à la diffusion des valeurs de soins\n\n• Encadrement fonctionnel des équipes, accompagnement des nouveaux·lles arrivant·e·s et assurer le développement de compétences au sein de son service (formation continue)\n\n• Organiser l’unité de manière optimale[BJ1] et efficiente en collaboration avec les différents partenaires\n\nVotre profil\n\n• Bachelor of Science HES-SO en soins infirmiers ou titre jugé équivalent reconnu par la Croix-Rouge suisse\n\n• Autorisation de pratiquer une profession de la santé dans le canton de Neuchâtel\n\n• Expérience professionnelle de minimum 3 ans dans une unité de soins aigus\n\n• Formation de cadre, management de proximité ou volonté de suivre la formation\n\n• Expérience dans la gestion d'équipe, un atout\n\nVos compétences\n\n• Capacité à diriger, gérer et fédérer une équipe\n\n• Sens des responsabilités et leadership naturel\n\n• Aptitudes relationnelles en communication et en gestion de conflits\n\n• Travail en équipe et collaboration interdisciplinaire\n\n• Sens des priorités, capacité à gérer l'imprévu, et son stress\n\n• Être force de proposition, flexible et disponible\n\n• Connaissance logiciels usuels un plus (Outlook, Carefolio, POLYPOINT, Opale)\n\nInformations complémentaires\n\n• Lieu de travail : site de Pourtalès, Neuchâtel\n\n• Entrée en fonction : 1er octobre 2026 ou à convenir\n\n• Renseignement : Mme Marie-Laure Jacquot-Pegeot, Infirmière cheffe de départements médecine-oncologie-chirurgie, +41 79 559 50 55\n\nLes postulations complètes (lettre de motivation, Curriculum Vitae, diplômes, certificats de travail) sont à nous adresser jusqu’au 2 août 2026.\n\nToute question concernant la procédure de postulation peut être adressée par téléphone au service Engagement au +41 32 713 30 13.\n\nLe Réseau hospitalier neuchâtelois (RHNe) regroupe les sites de Pourtalès (Neuchâtel), La Chaux-de-Fonds, Val-de-Travers, Val-de-Ruz, Le Locle et La Chrysalide. Plus de 2'600 collaboratrices et collaborateurs assurent les soins aigus, la réadaptation et les soins palliatifs pour la population neuchâteloise."
-      },
-      "location": "Neuchâtel",
-      "canton": "NE",
-      "url": "https://www.rhne.ch/espace-emploi/emploi/postuler/tous-les-postes?jobId=2567328&cat=all",
-      "source": "RHNE Réseau hospitalier neuchâtelois Dedicated Parser (Liferay HTML listing)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-08-02T10:56:56.044Z",
-      "addressLocality": "Neuchâtel",
-      "addressRegion": "NE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "2000",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-17",
-      "applyUrl": "https://www.jobup.ch/fr/application/create/f3f0220a-d1c5-43b2-9fa2-665889ba36dc",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "externalId": "2567328",
-      "previousSlugs": [
-        "infirmier-ere-chef-fe-d-unite-de-soins-a-80-100-rhne-reseau-hospitalier-neuchatelois",
-        "infirmier-ere-chef-fe-d-unite-de-soins-a-80-100-rhne-reseau-hospitalier-neuchatelois-2"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "infirmier-ere-chef-fe-d-unite-de-soins-a-80-100-rhne-reseau-hospitalier-neuchatelois",
-          "infirmier-ere-chef-fe-d-unite-de-soins-a-80-100-rhne-reseau-hospitalier-neuchatelois-2"
-        ],
-        "en": [
-          "infirmier-ere-chef-fe-d-unite-de-soins-a-80-100-rhne-reseau-hospitalier-neuchatelois-2"
-        ],
-        "de": [
-          "infirmier-ere-chef-fe-d-unite-de-soins-a-80-100-rhne-reseau-hospitalier-neuchatelois-2"
-        ]
-      },
-      "firstSeenAt": "2026-07-18T10:49:38.999Z",
-      "salaryMin": 83000,
-      "salaryMax": 126000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 83000,
-          "maxValue": 126000,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true
     }
   ]
 }

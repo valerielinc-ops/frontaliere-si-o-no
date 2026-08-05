@@ -38,6 +38,12 @@ const RC_TO_ENV = {
   PAGESPEED_API_KEY:              ['PAGESPEED_API_KEY'],
   FB_PAGE_ID:                     ['FB_PAGE_ID'],
   GITHUB_PAT:                     ['GITHUB_PAT', 'GH_MODELS_PAT'],
+  // Provisioned in Remote Config for the nanako-side pushes but never mapped
+  // here, which made it inert: this file is the ONLY Remote Config → env
+  // bridge, so an unmapped param stays `undefined` no matter what RC holds —
+  // exactly the trap the OMNIROUTE_PROVIDER_ALLOWLIST note below describes.
+  // Absent from RC on any project that has not created it: simply skipped.
+  GITHUB_PAT_NANAKO:              ['GITHUB_PAT_NANAKO'],
   // Extra GitHub Models PATs from additional free accounts. GitHub Models'
   // free-tier rate limit is per-account, so each extra PAT multiplies the free
   // generation quota; ai-models.mjs rotates across them on daily-limit/429.
@@ -155,6 +161,10 @@ const RC_TO_ENV = {
   COHERE_API_KEY:                 ['COHERE_API_KEY'],
   CF_API_TOKEN:                   ['CF_API_TOKEN'],
   CF_ACCOUNT_ID:                  ['CF_ACCOUNT_ID'],
+  // Also present in RC and also unmapped until now. Same reasoning as
+  // GITHUB_PAT_NANAKO above — a credential nobody can read is not a fallback,
+  // it is a credential that looks configured.
+  CF_GLOBAL_API_KEY:              ['CF_GLOBAL_API_KEY'],
   // Cloudflare R2 S3 deploy credentials for the CDN (CDN_TARGET=r2). Derived
   // from CF_API_TOKEN by scripts/set-r2-rc.mjs (AccessKeyId = token id, Secret
   // = SHA-256 of token value). Consumed by deploy-it-pages-prep.sh _publish_cdn_r2.

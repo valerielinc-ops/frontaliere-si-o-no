@@ -148,8 +148,9 @@ function parseOlderUiListing(html) {
   const seen = new Set();
   // Find all Description links + capture surrounding context for metadata
   const linkRx = /<a\s+[^>]*href="\/Vacancies\/(\d+)\/Description\/\d+"[^>]*>([^<]+)<\/a>/g;
-  let m;
-  while ((m = linkRx.exec(html))) {
+  const anchors = [...html.matchAll(linkRx)];
+  for (let i = 0; i < anchors.length; i++) {
+    const m = anchors[i];
     const id = m[1];
     if (id === '9999') continue;
     if (seen.has(id)) continue;
@@ -157,10 +158,19 @@ function parseOlderUiListing(html) {
     if (!title || title.length < 3) continue;
     if (isInitiativeApplication(title)) continue;
 
-    // Context window around the anchor (look behind for location, ahead for metadata)
+    // Context window around the anchor (look behind for location, ahead for
+    // metadata), bounded by the neighbouring anchors so a row's metadata
+    // never bleeds from/into an adjacent listing. A fixed-distance window
+    // alone can reach past a short row into the PREVIOUS job's cells — for
+    // multi-property employers (e.g. Bürgenstock's resort brands "Taverne
+    // 1879", "Waldhotel") that leaked a sibling row's property name in as
+    // this job's location, which then fuzzy-matched an unrelated canton
+    // (issue #5011).
     const anchorIdx = m.index;
-    const before = html.slice(Math.max(0, anchorIdx - 2000), anchorIdx);
-    const after = html.slice(anchorIdx, Math.min(html.length, anchorIdx + 3000));
+    const prevAnchorEnd = i > 0 ? anchors[i - 1].index + anchors[i - 1][0].length : 0;
+    const nextAnchorStart = i < anchors.length - 1 ? anchors[i + 1].index : html.length;
+    const before = html.slice(Math.max(0, anchorIdx - 2000, prevAnchorEnd), anchorIdx);
+    const after = html.slice(anchorIdx, Math.min(html.length, anchorIdx + 3000, nextAnchorStart));
 
     const pick = (text, label) => {
       const rx = new RegExp(`${label}:\\s*([^<|]+?)\\s*(?=<|\\|)`);

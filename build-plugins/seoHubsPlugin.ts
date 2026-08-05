@@ -17,6 +17,10 @@
  * vite.config.ts (Phase-2-UI brief — vite.config is read-only).
  */
 
+// Must run before the package module below is evaluated — it wires the real
+// site values into configureSiteShell() that the package's render functions
+// read via getSiteShell(). Same contract as build-plugins/ogPagesPlugin.ts.
+import './articlesSiteShellBootstrap';
 import type fsT from 'node:fs';
 import { clampMetaDescription } from './shared/titleSuffix';
 import { railGutters } from './shared/railGutters';
@@ -2302,6 +2306,31 @@ interface RenderArticleHubCoreArgs {
  * never skipped. No crash, no warning spam (the readers return `[]`/empty
  * maps when the seed files are present-but-empty).
  */
+/**
+ * `id → date` out of a section's registry, for the archive's chronological
+ * order. Mirrors the package's reader of the same name — see the note above
+ * `emitSeoHubs`'s export block on why the two cores stay separate.
+ *
+ * An unreadable registry yields an empty map and the sort leaves the order
+ * untouched, degrading to the previous behaviour rather than to an empty or
+ * arbitrarily shuffled archive.
+ */
+function readArticleDates(
+  fs: typeof fsT,
+  np: typeof npT,
+  rootDir: string,
+  registryFile: string,
+): Map<string, string> {
+  const out = new Map<string, string>();
+  try {
+    const src = fs.readFileSync(np.join(rootDir, registryFile), 'utf-8');
+    const rx = /\{\s*id:\s*'([^']+)',\s*category:\s*'[^']*',\s*date:\s*'([^']+)'/g;
+    let m: RegExpExecArray | null;
+    while ((m = rx.exec(src)) !== null) out.set(m[1], m[2]);
+  } catch { /* registry absent — keep insertion order */ }
+  return out;
+}
+
 function renderArticleHubPagesCore(args: RenderArticleHubCoreArgs): void {
   const { fs, np, rootDir, distDir, section, qw, sitemapEntries, dateStamp, entryJs, entryCss, hasSpaBundle, onPageEmitted, locales } = args;
   const cfg = ARTICLE_SECTIONS[section];
@@ -2334,7 +2363,7 @@ function renderArticleHubPagesCore(args: RenderArticleHubCoreArgs): void {
     const masterSlugs = new Set<string>(itArticles.map((a) => a.slug));
     for (const slug of Object.keys(blogUrlSlugs)) masterSlugs.add(slug);
 
-    const items: Array<{ href: string; label: string; excerpt?: string }> = [];
+    const items: Array<{ href: string; label: string; excerpt?: string; id: string }> = [];
     for (const slug of masterSlugs) {
       const label = localeBySlug.get(slug) ?? itBySlug.get(slug) ?? humanizeSlug(slug);
       const urlSlug = blogUrlSlugs[slug]?.[locale] ?? slug;
@@ -2342,8 +2371,34 @@ function renderArticleHubPagesCore(args: RenderArticleHubCoreArgs): void {
       const excerpt = rawExcerpt && rawExcerpt.length > 140
         ? rawExcerpt.slice(0, 137).trimEnd() + '…'
         : rawExcerpt;
-      items.push({ href: `${prefix}/${blogSection}/${urlSlug}/`, label, excerpt });
+      items.push({ href: `${prefix}/${blogSection}/${urlSlug}/`, label, excerpt, id: slug });
     }
+
+    // Newest first. `masterSlugs` is a Set filled from the meta chunk and the
+    // slug map, i.e. the order articles were APPENDED — so a freshly published
+    // article landed on the LAST page, page 31 of 31.
+    //
+    // Not a reachability fix: the flat pagination nav links every page, so
+    // page-31 was always one hop from page-1, and `sitemapEntries` is pushed
+    // inside the per-page loop so every page gets an entry in a full build.
+    // (Neither is worth much today — no archive URL is in any live sitemap,
+    // because fast-publish passes `sitemapEntries: []` and the site build no
+    // longer emits these pages. That is its own gap.) This is about the page
+    // people and crawlers actually land on carrying the newest articles
+    // instead of the oldest.
+    //
+    // An id the registry has no date for sorts last but keeps its relative
+    // position, so a registry briefly out of step with the meta chunks drops
+    // nothing from the archive.
+    const dateById = readArticleDates(fs, np, rootDir, cfg.registryFile);
+    items.sort((a, b) => {
+      const da = dateById.get(a.id);
+      const db = dateById.get(b.id);
+      if (da && db) return db.localeCompare(da);
+      if (da) return -1;
+      if (db) return 1;
+      return 0;
+    });
 
     const total = items.length;
     // Page count from the shared union size — identical to `total` while the
@@ -2363,9 +2418,22 @@ function renderArticleHubPagesCore(args: RenderArticleHubCoreArgs): void {
         })()
       : undefined;
 
-    // Mirror the master-hubs emission gate: IT keeps every page-N as static
-    // HTML; non-IT locales emit only page-1 (page-N routes via the SPA).
-    const emitNonItPageN = false;
+    // Every locale now emits every page-N as static HTML.
+    //
+    // It used to be IT-only, with non-IT page-N left to the SPA. That was
+    // survivable while the archive listed in append order, because the hub
+    // grid (newest 100) and the archive's only static page (oldest 100)
+    // covered disjoint sets — 200 articles reachable per locale. Sorting the
+    // archive newest-first collapses those two sets onto each other: measured
+    // on EN, overlap goes 0 → 100, so 100 articles per locale would lose their
+    // only static internal link and the two pages would become near-duplicate
+    // listings under different canonicals.
+    //
+    // Emitting page-N everywhere fixes both at once and is the direction the
+    // site wants anyway: more indexable pages, every article statically
+    // linked. Cost is build output — 30 extra pages per non-IT locale per
+    // section.
+    const emitNonItPageN = true;
     for (let page = 1; page <= totalPages; page++) {
       if (page > 1 && locale !== 'it' && !emitNonItPageN) continue;
       const slice = items.slice((page - 1) * pageSize, page * pageSize);
@@ -2396,72 +2464,24 @@ function renderArticleHubPagesCore(args: RenderArticleHubCoreArgs): void {
   }
 }
 
-export interface RenderArticleHubPagesOptions {
-  readonly rootDir: string;
-  readonly distDir: string;
-  readonly section: ArticleSection;
-  /** Narrow which locales render (default: all 4 {@link HUB_LOCALES}). */
-  readonly locales?: readonly HubLocale[];
-}
-
-export interface RenderArticleHubPagesResult {
-  /** Files physically written (post content-hash-manifest skip), this call only. */
-  readonly written: number;
-  /**
-   * Dist-relative path (no leading slash) of every page this call rendered,
-   * regardless of hash-skip, grouped by the locale it belongs to — e.g.
-   * `{ it: ['articoli-svizzera/tutti/index.html', ...], en: [...], ... }`.
-   * Grouped (rather than a flat list) because the caller hands each locale's
-   * paths to `scripts/lib/push-article-shard-incremental.sh` separately —
-   * that script pushes into one locale's shard repo per invocation.
-   */
-  readonly pathsByLocale: Record<HubLocale, string[]>;
-}
-
-/**
- * Standalone async entry point for the fast-publish path (issue #4881 Fase
- * 1): renders one article section's `/tutti/` archive + pagination into a
- * scratch `distDir`, without a full `vite build`. Mirrors the precedent set
- * by `ogPagesPlugin.ts`'s exported `renderArticlePages` (#4837) — resolves
- * its own fs/np/SPA-bundle info and writes through its own `WriteCollector`,
- * then delegates to the SAME synchronous {@link renderArticleHubPagesCore}
- * that the full build's `emitSeoHubs` calls, so a fix to one path benefits
- * both and a fork can't silently drift them apart.
- */
-export async function renderArticleHubPages(
-  opts: RenderArticleHubPagesOptions,
-): Promise<RenderArticleHubPagesResult> {
-  const { rootDir, distDir, section, locales } = opts;
-  const fs = await import('node:fs');
-  const np = await import('node:path');
-  const { resolveSpaBundle } = await import('./spaBundleResolver');
-  const { entryJs, entryCss, hasSpaBundle } = resolveSpaBundle(distDir);
-
-  const collector = new WriteCollector({ distDir, pluginName: 'seoHubsPlugin' });
-  const qw = (filePath: string, content: string) => {
-    collector.add(filePath, content);
-  };
-  const pathsByLocale: Record<HubLocale, string[]> = { it: [], en: [], de: [], fr: [] };
-
-  renderArticleHubPagesCore({
-    fs: fs as unknown as typeof fsT,
-    np: np as unknown as typeof npT,
-    rootDir,
-    distDir,
-    section,
-    qw,
-    sitemapEntries: [],
-    dateStamp: new Date().toISOString().slice(0, 10),
-    entryJs,
-    entryCss,
-    hasSpaBundle,
-    onPageEmitted: (locale, relPath) => { pathsByLocale[locale].push(relPath); },
-    locales,
-  });
-
-  const written = await collector.flush();
-  return { written, pathsByLocale };
-}
+// The fast-publish entry point now lives in the colocated articles package
+// (issue #4974 item 3 / migration §10.4 step 1) so nanako can render an
+// article's archive without this repo. Re-exported here under its original
+// name so every existing `build-plugins/seoHubsPlugin` importer — including
+// scripts/publish-article-fast.mjs — keeps resolving unchanged, exactly like
+// the `build-plugins/ogPagesPlugin.ts` shim left by #4881 Fase 6.
+//
+// `emitSeoHubs` below deliberately keeps calling this file's OWN
+// `renderArticleHubPagesCore`, NOT the package's. That is what keeps
+// tests/render-article-hub-pages-narrow-vs-full.test.ts meaningful: it
+// compares the package's narrowed renderer against this repo's full-build
+// emitter, and would become a vacuous self-comparison if both sides ran the
+// same code. The test IS the guard on the narrowing.
+export {
+  renderArticleHubPages,
+  type RenderArticleHubPagesOptions,
+  type RenderArticleHubPagesResult,
+} from '../packages/articles/engine/articleHubPagesPlugin';
 
 /**
  * Emits all 4 hub families × 4 locales × all paginated pages to dist/.
