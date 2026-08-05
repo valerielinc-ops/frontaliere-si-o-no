@@ -11,8 +11,62 @@
     "https://www.pemsa.ch/it/le-nostre-offerte-di-lavoro/"
   ],
   "notes": "Dedicated PEMSA crawler. National listing (all cantons). Detail pages have JSON-LD JobPosting with full location data; canton inferred per-job from the city. Construction/trades staffing agency.",
-  "updatedAt": "2026-08-05T11:35:14.852Z",
+  "updatedAt": "2026-08-05T22:26:43.294Z",
   "seedMetaByUrl": {
+    "https://www.pemsa.ch/it/job/manovale-edile-2685895/": {
+      "location": "Lugano",
+      "canton": "TI",
+      "company": "PEMSA",
+      "postedDate": "2026-08-05"
+    },
+    "https://www.pemsa.ch/it/job/macchinista-2685892/": {
+      "location": "Lugano",
+      "canton": "TI",
+      "company": "PEMSA",
+      "postedDate": "2026-08-05"
+    },
+    "https://www.pemsa.ch/it/job/muratore-2685889/": {
+      "location": "Bellinzona",
+      "canton": "TI",
+      "company": "PEMSA",
+      "postedDate": "2026-08-05"
+    },
+    "https://www.pemsa.ch/it/job/carpentiere-2685884/": {
+      "location": "Bellinzona",
+      "canton": "TI",
+      "company": "PEMSA",
+      "postedDate": "2026-08-05"
+    },
+    "https://www.pemsa.ch/it/job/operatore-operatrice-per-la-rimozione-dellamianto-2685882/": {
+      "location": "Genève",
+      "canton": "GE",
+      "company": "PEMSA",
+      "postedDate": "2026-08-05"
+    },
+    "https://www.pemsa.ch/it/job/lattoniere-conciatetti-m-f-d-100-2685878/": {
+      "location": "Villeneuve VD",
+      "canton": "VD",
+      "company": "PEMSA",
+      "postedDate": "2026-08-05"
+    },
+    "https://www.pemsa.ch/it/job/copritetto-m-f-d-100-2685875/": {
+      "location": "Villeneuve VD",
+      "canton": "VD",
+      "company": "PEMSA",
+      "postedDate": "2026-08-05"
+    },
+    "https://www.pemsa.ch/it/job/tecnico-impermeabilizzatore-m-f-d-2685872/": {
+      "location": "Villeneuve VD",
+      "canton": "VD",
+      "company": "PEMSA",
+      "postedDate": "2026-08-05"
+    },
+    "https://www.pemsa.ch/it/job/impiegata-o-amministrazione-del-personale-2685842/": {
+      "location": "Cadempino",
+      "canton": "TI",
+      "company": "PEMSA",
+      "postedDate": "2026-08-05"
+    },
     "https://www.pemsa.ch/it/job/lattoniere-conciatetti-m-f-d-100-2685768/": {
       "location": "Martigny",
       "canton": "VS",
@@ -853,18 +907,6 @@
       "company": "PEMSA",
       "postedDate": "2026-07-21"
     },
-    "https://www.pemsa.ch/it/job/installatore-elettrico-industriale-2684203/": {
-      "location": "Montreux",
-      "canton": "VD",
-      "company": "PEMSA",
-      "postedDate": "2026-07-21"
-    },
-    "https://www.pemsa.ch/it/job/progettista-elettrico-di-macchinari-2684190/": {
-      "location": "Montreux",
-      "canton": "VD",
-      "company": "PEMSA",
-      "postedDate": "2026-07-21"
-    },
     "https://www.pemsa.ch/it/job/installatore-di-quadri-elettrici-cablatore-di-quadri-elettrici-m-f-d-2684163/": {
       "location": "Genève",
       "canton": "GE",
@@ -880,12 +922,6 @@
     "https://www.pemsa.ch/it/job/muratore-cat-b-2684156/": {
       "location": "Fribourg",
       "canton": "FR",
-      "company": "PEMSA",
-      "postedDate": "2026-07-21"
-    },
-    "https://www.pemsa.ch/it/job/ingegnere-meccanico-progettista-2684147/": {
-      "location": "Cadempino",
-      "canton": "TI",
       "company": "PEMSA",
       "postedDate": "2026-07-21"
     },
@@ -1002,36 +1038,6 @@
       "canton": "GE",
       "company": "PEMSA",
       "postedDate": "2026-07-14"
-    },
-    "https://www.pemsa.ch/it/job/installatore-di-quadri-elettrici-2683097/": {
-      "location": "Estavayer-le-Lac",
-      "canton": "FR",
-      "company": "PEMSA",
-      "postedDate": "2026-07-13"
-    },
-    "https://www.pemsa.ch/it/job/lattoniere-2682978/": {
-      "location": "Tafers",
-      "canton": "FR",
-      "company": "PEMSA",
-      "postedDate": "2026-07-13"
-    },
-    "https://www.pemsa.ch/it/job/piastrellista-con-esperienza-2682974/": {
-      "location": "Fribourg",
-      "canton": "FR",
-      "company": "PEMSA",
-      "postedDate": "2026-07-13"
-    },
-    "https://www.pemsa.ch/it/job/impermeabilizzatore-2682971/": {
-      "location": "Fribourg",
-      "canton": "FR",
-      "company": "PEMSA",
-      "postedDate": "2026-07-13"
-    },
-    "https://www.pemsa.ch/it/job/assistente-installatore-di-impianti-idraulici-2682968/": {
-      "location": "Marly",
-      "canton": "FR",
-      "company": "PEMSA",
-      "postedDate": "2026-07-13"
     },
     "https://www.pemsa.ch/it/job/idraulico-impianti-riscaldamento-2682760/": {
       "location": "Sigirino",
