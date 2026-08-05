@@ -1852,6 +1852,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.frontiere-ricerca-svizzera-2025.title': 'Frontiere della ricerca: innovazione e scienza in Svizzera',
     'blog.article.frontiere-ricerca-svizzera-2025.excerpt': 'Esploriamo le innovazioni scientifiche nate in Svizzera: dalla ricerca spaziale alle scienze dei materiali, fino all\'intelligenza artificiale.',
     'blog.article.frontiere-ricerca-svizzera-2025.imageAlt': 'Panorama di una città svizzera con centri di ricerca scientifica e tecnologica',
+    'blog.article.democrazia-diretta-svizzera-guida.title': 'Votazioni federali Svizzera: come funzionano e regole',
+    'blog.article.democrazia-diretta-svizzera-guida.excerpt': 'Guida completa alla democrazia diretta svizzera: iniziative popolari, referendum e doppia maggioranza di popolo e cantoni.',
+    'blog.article.democrazia-diretta-svizzera-guida.imageAlt': 'Il Palazzo federale a Berna sede della democrazia diretta svizzera',
 };
 
 export default blogMetaChIt;

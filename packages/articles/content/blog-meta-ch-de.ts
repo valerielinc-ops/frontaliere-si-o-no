@@ -1852,6 +1852,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.frontiere-ricerca-svizzera-2025.title': 'Grenzen der Forschung: Innovation und Wissenschaft in der Schweiz',
     'blog.article.frontiere-ricerca-svizzera-2025.excerpt': 'Wir erforschen die in der Schweiz entstandenen wissenschaftlichen Innovationen: von der Weltraumforschung über die Materialwissenschaften bis hin zur künstlichen Intelligenz.',
     'blog.article.frontiere-ricerca-svizzera-2025.imageAlt': 'Blick auf eine Schweizer Stadt mit wissenschaftlichen und technologischen Forschungszentren',
+    'blog.article.democrazia-diretta-svizzera-guida.title': 'Eidgenössische Abstimmungen Schweiz: Funktionsweise und Regeln',
+    'blog.article.democrazia-diretta-svizzera-guida.excerpt': 'Umfassender Leitfaden zur direkten Demokratie der Schweiz: Volksinitiativen, Referenden und doppelte Mehrheit von Volk und Ständen.',
+    'blog.article.democrazia-diretta-svizzera-guida.imageAlt': 'Das Bundeshaus in Bern als Sitz der direkten Demokratie',
 };
 
 export default blogMetaChDe;

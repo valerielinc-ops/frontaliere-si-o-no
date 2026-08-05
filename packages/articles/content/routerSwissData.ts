@@ -643,6 +643,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'sistema-sanitario-svizzero-lamal-funzionamento': { it: 'sistema-sanitario-svizzero-lamal-funzionamento', en: 'how-swiss-healthcare-system-works', de: 'wie-funktioniert-das-schweizer-gesundheitssystem', fr: 'comment-fonctionne-le-systeme-de-sante-suisse' },
  'come-funzionano-votazioni-federali-ch': { it: 'come-funzionano-votazioni-federali-ch', en: 'how-swiss-federal-votes-work', de: 'wie-funktionieren-eidgenoessische-abstimmungen', fr: 'comment-fonctionnent-les-votations-federales' },
  'frontiere-ricerca-svizzera-2025': { it: 'frontiere-ricerca-svizzera-2025', en: 'switzerland-research-frontiers', de: 'schweiz-forschungsfronten', fr: 'frontieres-recherche-suisse' },
+ 'democrazia-diretta-svizzera-guida': { it: 'democrazia-diretta-svizzera-guida', en: 'swiss-federal-votations-how-they-work', de: 'schweizer-eidgenoessische-abstimmungen-funktionsweise', fr: 'votations-federales-suisse-fonctionnement' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

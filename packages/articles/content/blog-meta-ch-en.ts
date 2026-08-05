@@ -1852,6 +1852,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.frontiere-ricerca-svizzera-2025.title': 'Frontiers of research: innovation and science in Switzerland',
     'blog.article.frontiere-ricerca-svizzera-2025.excerpt': 'Let\'s explore the scientific innovations born in Switzerland: from space research to materials science, to artificial intelligence.',
     'blog.article.frontiere-ricerca-svizzera-2025.imageAlt': 'View of a Swiss city with scientific and technological research centers',
+    'blog.article.democrazia-diretta-svizzera-guida.title': 'Federal votes Switzerland: how they work and rules',
+    'blog.article.democrazia-diretta-svizzera-guida.excerpt': 'A complete guide to Swiss direct democracy: popular initiatives, referendums and a double majority of the people and cantons.',
+    'blog.article.democrazia-diretta-svizzera-guida.imageAlt': 'The Federal Palace in Bern home of Swiss direct democracy',
 };
 
 export default blogMetaChEn;
