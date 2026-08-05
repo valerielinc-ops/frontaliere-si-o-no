@@ -981,6 +981,15 @@ export type SubscriptionAlertSummary = {
  active: boolean;
  /** Pause/resume toggle, orthogonal to `active`. See `active` doc above. */
  paused: boolean;
+ /**
+  * Pinned scope (#5012). `specificCompanyKey` is the canonical
+  * `/aziende/<slug>/` slug of a followed employer (CompanyAlert);
+  * `specificJobId` pins a single ad. Both null = a normal keyword/geo alert.
+  * The matcher has hard-filtered on these since day one; before #5012 nothing
+  * read them back, so a followed employer was invisible and un-unfollowable.
+  */
+ specificCompanyKey: string | null;
+ specificJobId: string | null;
  createdAt: number | null;
 };
 
@@ -1098,6 +1107,9 @@ export type JobAlertSummary = {
  active: boolean;
  /** Pause/resume toggle, orthogonal to `active`. Issue #4298 follow-up fix. */
  paused: boolean;
+ /** Pinned scope (#5012) — see SubscriptionAlertSummary above. */
+ specificCompanyKey: string | null;
+ specificJobId: string | null;
  createdAt: string | number | null;
  lastMatchedAt?: string | null;
  email?: string | null;
@@ -1116,6 +1128,13 @@ export type JobAlertPatch = {
  * on the backend ignores it. Issue #4298 follow-up fix.
  */
  paused?: boolean;
+ /**
+  * Pinned scope (#5012). Pass `null` to CLEAR the pin and turn a CompanyAlert
+  * back into a normal alert — `in` semantics at the call site, same as
+  * `frequencyOverride`/`paused`.
+  */
+ specificCompanyKey?: string | null;
+ specificJobId?: string | null;
 };
 
 export type JobAlertCreatePayload = {
@@ -1123,6 +1142,13 @@ export type JobAlertCreatePayload = {
  locations: string[];
  sectors: string[];
  frequency: JobAlertFrequency;
+ /**
+  * Pinned scope (#5012). A CompanyAlert is created with EMPTY keywords and
+  * locations plus a `specificCompanyKey` — the pin is the filter. Before
+  * #5012 the backend rejected exactly that shape with `missing_filters`.
+  */
+ specificCompanyKey?: string | null;
+ specificJobId?: string | null;
 };
 
 function normalizeAlertResponse(a: any): JobAlertSummary {
@@ -1135,6 +1161,10 @@ function normalizeAlertResponse(a: any): JobAlertSummary {
  frequencyOverride: a?.frequencyOverride === true,
  active: a?.active !== false,
  paused: a?.paused === true,
+ specificCompanyKey: typeof a?.specificCompanyKey === 'string' && a.specificCompanyKey
+ ? a.specificCompanyKey
+ : null,
+ specificJobId: typeof a?.specificJobId === 'string' && a.specificJobId ? a.specificJobId : null,
  createdAt: a?.createdAt ?? null,
  lastMatchedAt: a?.lastMatchedAt ?? null,
  email: typeof a?.email === 'string' ? a.email : null,
@@ -1170,6 +1200,9 @@ export async function updateJobAlert(
  if ('frequencyOverride' in patch) params.set('frequency_override', patch.frequencyOverride ? 'true' : 'false');
  // `in` so callers can deliberately resume (`false`), not just pause (`true`).
  if ('paused' in patch) params.set('paused', patch.paused ? 'true' : 'false');
+ // `in` so callers can deliberately CLEAR the pin by passing `null` (#5012).
+ if ('specificCompanyKey' in patch) params.set('specific_company_key', patch.specificCompanyKey || '');
+ if ('specificJobId' in patch) params.set('specific_job_id', patch.specificJobId || '');
  const url = `${FUNCTIONS_BASE}/newsletterManageSubscription?${params.toString()}`;
  const resp = await fetch(url);
  const data = await resp.json();
@@ -1207,6 +1240,8 @@ export async function createJobAlert(
  params.set('locations', payload.locations.join(','));
  params.set('sectors', payload.sectors.join(','));
  params.set('frequency', payload.frequency);
+ if (payload.specificCompanyKey) params.set('specific_company_key', payload.specificCompanyKey);
+ if (payload.specificJobId) params.set('specific_job_id', payload.specificJobId);
  const url = `${FUNCTIONS_BASE}/newsletterManageSubscription?${params.toString()}`;
  const resp = await fetch(url);
  const data = await resp.json();

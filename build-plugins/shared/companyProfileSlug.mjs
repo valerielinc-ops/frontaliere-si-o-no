@@ -27,7 +27,30 @@
  */
 import { resolveBrandCanonical } from './brandCanonicalMap.mjs';
 
-export function canonicalCompanyProfileSlug(company, companyKey) {
+/**
+ * SINGLE SOURCE OF TRUTH for company-name → URL-safe slug (issue #5012).
+ *
+ * Four byte-identical copies of this normalisation used to live in the repo —
+ * `canonicalCompanyProfileSlug` (here), `canonicalEmployerBrandKey`
+ * (services/employerBrands.ts), `canonicalCompanySlug`
+ * (build-plugins/weeklyEmployersData.ts) and its hand-copied twin in
+ * scripts/refresh-weekly-employers-top-pairs.mjs — differing only in what they
+ * do AFTER slugifying. Non-Negotiable #6 ("una regex duplicata letteralmente
+ * in ≥2 file → estraila in UN modulo condiviso") makes that a bug by
+ * construction: CompanyAlert persists this token, and an alert saved under one
+ * normalisation while the matcher reads another never fires, silently.
+ *
+ * Behaviour is unchanged from the four copies: lowercase, NFD-strip accents,
+ * collapse every non-alphanumeric run to a single `-`, plus the Lidl
+ * special-case (the crawler emits a dozen legal-entity variants of the same
+ * brand). The brand-alias fold stays in `canonicalCompanyProfileSlug` only —
+ * the SEO surfaces that must NOT fold keep calling this base directly.
+ *
+ * @param {string} company      Company display name (job.company).
+ * @param {string} [companyKey] Optional crawler company key (job.companyKey).
+ * @returns {string} URL-safe slug, no leading/trailing dash.
+ */
+export function baseCompanySlug(company, companyKey) {
   const norm = (s) =>
     String(s || '')
       .toLowerCase()
@@ -37,9 +60,12 @@ export function canonicalCompanyProfileSlug(company, companyKey) {
       .trim();
   const keyNorm = norm(companyKey || '');
   const nameNorm = norm(company);
-  const base = keyNorm.includes('lidl') || nameNorm.includes('lidl')
-    ? 'lidl'
-    : norm(company).replace(/\s+/g, '-');
+  if (keyNorm.includes('lidl') || nameNorm.includes('lidl')) return 'lidl';
+  return nameNorm.replace(/\s+/g, '-');
+}
+
+export function canonicalCompanyProfileSlug(company, companyKey) {
+  const base = baseCompanySlug(company, companyKey);
   // Fold declared brand aliases into their canonical primary (single source of
   // truth: brandCanonicalMap). Unmanaged slugs pass through unchanged.
   return resolveBrandCanonical(base) ?? base;

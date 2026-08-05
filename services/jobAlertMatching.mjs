@@ -33,6 +33,7 @@
  */
 
 import { extractKeywords } from './newsletter-content.mjs';
+import { baseCompanySlug } from '../build-plugins/shared/companyProfileSlug.mjs';
 import { locTokenHit } from './locToken.mjs';
 import { municipalityToCantons } from './provinceCantonAffinity.ts';
 
@@ -135,10 +136,13 @@ const uniq = (arr) => [...new Set(arr.filter(Boolean))];
  * @returns {string}
  */
 function normalizeCompanyToken(value) {
-  const t = String(value || '')
-    .toLowerCase()
-    .normalize('NFD').replace(/[̀-ͯ]/g, '')
-    .replace(/[^a-z0-9]+/g, '');
+  // DERIVED from the one shared company slug (#5012) instead of re-implementing
+  // the normalisation: the matcher compares a separator-free token (so
+  // `board-international` still matches `boardinternational`), but the
+  // slugification that produces it must be the SAME one CompanyAlert persists,
+  // or a pinned alert would round-trip through two different normalisations and
+  // silently never fire.
+  const t = baseCompanySlug(value, value).replace(/-/g, '');
   return t.length >= 3 ? t : '';
 }
 

@@ -13,6 +13,7 @@
  */
 
 import type { Firestore } from 'firebase/firestore';
+import { canonicalCompanyProfileSlug } from '@/build-plugins/shared/companyProfileSlug.mjs';
 
 // ── Types ────────────────────────────────────────────────────
 
@@ -82,7 +83,21 @@ export interface JobAlert extends JobAlertConfig {
 
 const SUBSCRIBERS_COLLECTION = 'job_alert_subscribers';
 const ALERTS_SUBCOLLECTION = 'alerts';
-export const MAX_ALERTS_PER_USER = 3;
+/**
+ * Max active alerts per user.
+ *
+ * 10, not 3 (#5012): the token-mode Cloud Function
+ * (functions/src/newsletterSubscriptionManagement.js) has always enforced 10,
+ * so a user who created alerts from the `/preferenze-newsletter/` link could
+ * end up with more alerts than the signed-in UI would let them create — the
+ * next in-app create then failed with "Maximum 3 active alerts per user."
+ * CompanyAlert makes a low cap actively wrong: following four employers is the
+ * ordinary case, not an abuse. Keep in sync with MAX_ALERTS_PER_USER in
+ * functions/src/newsletterSubscriptionManagement.js and
+ * functions/src/jobAlertBackfillCore.js (the functions bundle cannot import
+ * outside `functions/`) — parity is pinned by tests/company-alert.test.ts.
+ */
+export const MAX_ALERTS_PER_USER = 10;
 
 // ── Lazy Firestore init ──────────────────────────────────────
 
@@ -215,7 +230,11 @@ export async function createAlert(
     sourceJobTitle: config.sourceJobTitle ?? null,
     // Job-specific scope (per-job / per-employer alert). null = normal alert.
     specificJobId: config.specificJobId ?? null,
-    specificCompanyKey: config.specificCompanyKey ?? null,
+    // Canonicalised on the ONE write path (#5012) so no caller can persist a
+    // raw company name the matcher would never match.
+    specificCompanyKey: config.specificCompanyKey
+      ? companyAlertKey(config.specificCompanyKey)
+      : null,
     // Salary expectation prefilled from the calculator (issue #4469).
     minNetMonthlyCHF: normalizeMinNet(config.minNetMonthlyCHF),
     // State.
@@ -302,6 +321,16 @@ export async function getUserAlerts(userId: string): Promise<JobAlert[]> {
       // / junk values to null so consumers treat the field as one optional gate.
       minNetMonthlyCHF: normalizeMinNet(d.minNetMonthlyCHF),
       locale: d.locale || 'it',
+      // Pinned scope round-trip (#5012). The matcher has hard-filtered on these
+      // two fields since day one, but NOTHING read them back — a company- or
+      // job-pinned alert reached the client looking like an unfiltered alert,
+      // so the user could neither see what they had followed nor unfollow it
+      // (a GDPR problem before it is a UX one). Normalised to `null` so legacy
+      // alerts written before the fields existed stay one optional gate.
+      specificJobId: typeof d.specificJobId === 'string' && d.specificJobId ? d.specificJobId : null,
+      specificCompanyKey: typeof d.specificCompanyKey === 'string' && d.specificCompanyKey
+        ? d.specificCompanyKey
+        : null,
       active: d.active,
       createdAt: d.createdAt?.toDate?.() || new Date(d.createdAt),
       lastMatchedAt: d.lastMatchedAt?.toDate?.() || null,
@@ -490,6 +519,83 @@ export async function subscribeSalaryAlert(
 }
 
 /**
+ * Canonical persisted token for a CompanyAlert (issue #5012).
+ *
+ * ONE normalisation, deliberately the slug of the public employer page
+ * `/aziende/<slug>/` (`canonicalCompanyProfileSlug`), so what the user follows
+ * and what the site shows them under that URL are the same entity — including
+ * the brand-alias fold, which collapses "Migros Ticino" and "Gruppo Migros"
+ * onto `migros` instead of creating two alerts that each see half the jobs.
+ *
+ * The matcher's `normalizeCompanyToken` (services/jobAlertMatching.mjs) is now
+ * DERIVED from the same slug, so the write side and the read side cannot drift.
+ * Before #5012 the repo held four independent copies of this normalisation;
+ * an alert saved with one and matched with another simply never fires, and the
+ * user is never told.
+ */
+export function companyAlertKey(company: string, companyKey?: string): string {
+  return canonicalCompanyProfileSlug(company, companyKey);
+}
+
+/**
+ * 1-tap subscribe helper for a whole EMPLOYER ("Segui questa azienda").
+ *
+ * Pins the alert to one company via `specificCompanyKey`, which the matcher
+ * (services/jobAlertMatching.mjs) already treats as a HARD filter that bypasses
+ * keyword/geo/sector scoring — the pin IS the scope, exactly like
+ * `subscribeJobAlertForJob`. No new Firestore query shape is introduced: the
+ * write goes through `createAlert`, which reuses the SAME
+ * (userId, active, createdAt desc) collectionGroup index that is already
+ * deployed. That is deliberate — `firestore.indexes.json` is NOT applied by CI
+ * (deploy-firestore-rules.yml ships `firestore:rules` only), so a feature that
+ * needed a new index would go live broken with a FAILED_PRECONDITION, which is
+ * exactly how createAlert broke once before.
+ *
+ * The max-active-alerts limit enforced by `createAlert` propagates to the
+ * caller.
+ */
+export async function subscribeCompanyAlert(
+  userId: string,
+  email: string,
+  company: { name: string; companyKey?: string | null },
+  locale: 'it' | 'en' | 'de' | 'fr',
+  source?: JobAlertSource,
+): Promise<JobAlert> {
+  const key = companyAlertKey(company.name, company.companyKey || undefined);
+  if (!key) throw new Error('subscribeCompanyAlert: empty company name.');
+  const config: JobAlertConfig = {
+    keywords: [],
+    locations: [],
+    contractTypes: [],
+    sectors: [],
+    cantonFilter: null,
+    frequency: 'daily',
+    locale,
+    specificJobId: null,
+    specificCompanyKey: key,
+    sourceJobSlug: source?.slug ?? null,
+    sourceJobUrl: source?.url ?? null,
+    sourceJobTitle: source?.title ?? null,
+  };
+  return createAlert(userId, email, config);
+}
+
+/**
+ * Find the user's active alert for a given company, if any. Reuses
+ * `getUserAlerts` (no extra query, no extra index) so the follow button can
+ * render its "already following" state.
+ */
+export async function findCompanyAlert(
+  userId: string,
+  company: { name: string; companyKey?: string | null },
+): Promise<JobAlert | null> {
+  const key = companyAlertKey(company.name, company.companyKey || undefined);
+  if (!key) return null;
+  const alerts = await getUserAlerts(userId);
+  return alerts.find((a) => a.specificCompanyKey === key) || null;
+}
+
+/**
  * 1-tap subscribe helper for a SPECIFIC job ("Avvisami per questo annuncio").
  *
  * Pins the alert to a single job id via `specificJobId` so the matcher
@@ -557,6 +663,18 @@ export async function updateAlert(
     updateData.minNetMonthlyCHF = normalizeMinNet(changes.minNetMonthlyCHF);
   }
   if (changes.locale) updateData.locale = changes.locale;
+  // Use `in` so a caller can deliberately CLEAR a pin (pass `null`) and turn a
+  // company/job alert back into a normal one — the counterpart of the
+  // read-back above (#5012). A non-empty company key is re-canonicalised on
+  // write so an alert can never be stored under a stale normalisation.
+  if ('specificCompanyKey' in changes) {
+    updateData.specificCompanyKey = changes.specificCompanyKey
+      ? companyAlertKey(changes.specificCompanyKey)
+      : null;
+  }
+  if ('specificJobId' in changes) {
+    updateData.specificJobId = changes.specificJobId || null;
+  }
 
   if (Object.keys(updateData).length > 0) {
     const ref = doc(db, SUBSCRIBERS_COLLECTION, normalizeEmail(email), ALERTS_SUBCOLLECTION, alertId);

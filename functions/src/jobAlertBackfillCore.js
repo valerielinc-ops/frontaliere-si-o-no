@@ -79,7 +79,7 @@ import { isNewsletterExcluded } from './lib/emailSuppression.js';
 import { derivePersonalizationPatch } from './lib/subscriberPersonalization.js';
 import { deriveCantonFromJobBoardUrl } from './lib/jobBoardUrlCanton.js';
 
-export const MAX_ALERTS_PER_USER = 3; // services/jobAlertService.ts:68
+export const MAX_ALERTS_PER_USER = 10; // mirrors services/jobAlertService.ts (#5012)
 export const ALERT_ID = 'backfill-newsletter';
 
 export function normalizeEmail(raw) {
