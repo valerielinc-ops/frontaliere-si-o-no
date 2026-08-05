@@ -34,6 +34,9 @@ import fs from 'node:fs';
 import path from 'node:path';
 import type { Plugin } from 'vite';
 import { WriteCollector } from './batchWrite';
+import { CALC_HREF } from './shared/calcHref';
+import { formatSourceAttribution } from './shared/authoritativeSources';
+import { CALCULATOR_REGIME_SCOPE_NOTICE, CALCULATOR_REGIME_SCOPE_TAG } from './shared/calculatorRegimeScope';
 import { BASE_URL, countHtmlBodyWords, MIN_INDEXABLE_WORDS } from './constants';
 import { buildSeoPageHtml } from './shared/seoPageShell';
 import { endOfContentMultiplexHtml } from './lib/adSlotHtml';
@@ -411,12 +414,6 @@ const COPY: Record<FrenchLocale, Copy> = {
   },
 };
 
-const CALC_PATH: Record<FrenchLocale, string> = {
-  it: '/calcola-stipendio/',
-  en: '/en/calculate-salary/',
-  de: '/de/gehalt-berechnen/',
-  fr: '/fr/calculer-salaire/',
-};
 
 // ── hreflang / breadcrumb ───────────────────────────────────────
 
@@ -529,14 +526,23 @@ export function renderAboveFloorPage(params: {
                 : c.explainHuitCantons(n, taxAmountStr(municipality.regime, locale)),
             )}</p>`
       }
+      <p class="mt-3 text-xs leading-5 text-muted">${esc(
+        formatSourceAttribution(
+          locale,
+          isDual
+            ? `${REGIME_TAX.geneve.source} — ${REGIME_TAX['huit-cantons'].source}`
+            : REGIME_TAX[municipality.regime].source,
+        ),
+      )}</p>
     </section>
 
     <section class="mt-6 rounded-md border border-edge bg-surface p-5">
       <h2 class="text-xl font-bold text-heading">${esc(c.crossTitle)}</h2>
       <div class="mt-4 grid gap-3 sm:grid-cols-2">
-        <a class="rounded-md border border-accent-border bg-accent-subtle p-4 text-sm font-semibold text-heading hover:border-accent-strong" href="${CALC_PATH[locale]}">${esc(c.calcLink)}</a>
+        <a class="rounded-md border border-accent-border bg-accent-subtle p-4 text-sm font-semibold text-heading hover:border-accent-strong" href="${CALC_HREF[locale]}">${esc(c.calcLink)} <span class="font-normal text-muted">(${esc(CALCULATOR_REGIME_SCOPE_TAG[locale])})</span></a>
         <a class="rounded-md border border-edge bg-surface-raised p-4 text-sm font-semibold text-heading hover:border-accent-border" href="${FRENCH_HUB_PATH[locale]}">${esc(c.hubTitle)}</a>
       </div>
+      <p class="mt-3 text-xs leading-5 text-muted">${esc(CALCULATOR_REGIME_SCOPE_NOTICE[locale])}</p>
     </section>
 
     ${renderRelated(locale, municipality)}
@@ -623,7 +629,7 @@ export function renderBridgePage(params: {
     <h1 class="text-2xl font-bold text-heading mb-3">${esc(c.h1(n, regimeLabel))}</h1>
     <p class="text-body mb-5 leading-6">${esc(c.bridgeLede(n))}</p>
     <ul class="space-y-2 list-none p-0 m-0">
-      <li><a href="${CALC_PATH[locale]}" class="text-sm font-semibold text-link">${esc(c.calcLink)} →</a></li>
+      <li><a href="${CALC_HREF[locale]}" class="text-sm font-semibold text-link">${esc(c.calcLink)} →</a> <span class="text-xs text-muted">(${esc(CALCULATOR_REGIME_SCOPE_TAG[locale])})</span></li>
       <li><a href="${FRENCH_HUB_PATH[locale]}" class="text-sm font-semibold text-link">${esc(c.hubTitle)} →</a></li>
     </ul>
   </main>`;
