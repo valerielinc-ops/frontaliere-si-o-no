@@ -7,6 +7,7 @@
 
 import type { SEOMetadata } from '../seoService';
 import { EXCHANGE_RATE_EUR } from './exchangeRateMeta';
+import { ORGANIZATION_LD_FULL } from './organizationLd';
 
 const BASE_URL = 'https://frontaliereticino.ch';
 
@@ -76,32 +77,10 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "publisher": { "@id": "https://frontaliereticino.ch/#organization" }
  },
  {
- "@context": "https://schema.org",
- "@type": "NewsMediaOrganization",
- "@id": "https://frontaliereticino.ch/#organization",
- "name": "Frontaliere Ticino",
- "url": `${BASE_URL}/`,
- "logo": {
- "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/icons/icon-512x512.png`,
- "width": 512,
- "height": 512
- },
- "description": "La risorsa più completa per i lavoratori frontalieri tra Italia e Svizzera: simulatore fiscale, pensione, assicurazione sanitaria, cambio valuta e guide pratiche.",
- "foundingDate": "2024",
- "sameAs": [
- "https://www.facebook.com/profile.php?id=61588174947294"
- ],
- "contactPoint": {
- "@type": "ContactPoint",
- "contactType": "customer support",
- "url": `${BASE_URL}/contattaci/`,
- "availableLanguage": ["Italian", "English", "German", "French"]
- },
- "areaServed": [
- { "@type": "Country", "name": "Switzerland" },
- { "@type": "Country", "name": "Italy" }
- ],
- "knowsAbout": [
+  "@context": "https://schema.org",
+  ...ORGANIZATION_LD_FULL,
+   "description": "La risorsa più completa per i lavoratori frontalieri tra Italia e Svizzera: simulatore fiscale, pensione, assicurazione sanitaria, cambio valuta e guide pratiche.",
+   "knowsAbout": [
  "Cross-border worker taxation",
  "Swiss withholding tax",
  "Italian IRPEF",
@@ -111,11 +90,6 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "Permit G Permit B",
  "Canton Ticino employment"
  ],
- "correctionsPolicy": `${BASE_URL}/correzioni/`,
- "ethicsPolicy": `${BASE_URL}/chi-siamo/#standard-giornalistici`,
- "ownershipFundingInfo": `${BASE_URL}/chi-siamo/#finanziamento`,
- "masthead": `${BASE_URL}/chi-siamo/#team`,
- "verificationFactCheckingPolicy": `${BASE_URL}/metodologia/#fact-checking`
  },
  {
  "@context": "https://schema.org",
@@ -6531,18 +6505,10 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "inLanguage": "it"
  },
  {
- "@context": "https://schema.org",
- "@type": "NewsMediaOrganization",
- "@id": `${BASE_URL}/#organization`,
- "name": "Frontaliere Ticino",
- "url": `${BASE_URL}/`,
- "description": "Guida completa per i lavoratori frontalieri in Svizzera: simulatore fiscale, pensione, assicurazione sanitaria, cambio valuta e offerte di lavoro.",
- "foundingDate": "2024",
- "areaServed": [
- { "@type": "Country", "name": "Switzerland" },
- { "@type": "Country", "name": "Italy" }
- ],
- "knowsAbout": [
+  "@context": "https://schema.org",
+  ...ORGANIZATION_LD_FULL,
+   "description": "Guida completa per i lavoratori frontalieri in Svizzera: simulatore fiscale, pensione, assicurazione sanitaria, cambio valuta e offerte di lavoro.",
+   "knowsAbout": [
  "Fiscalità frontalieri Svizzera-Italia",
  "Nuovo accordo fiscale 2026",
  "Previdenza sociale AVS/LPP",
@@ -6550,11 +6516,6 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "Permesso G e permesso B",
  "Mercato del lavoro Ticino"
  ],
- "correctionsPolicy": `${BASE_URL}/correzioni/`,
- "ethicsPolicy": `${BASE_URL}/chi-siamo/#standard-giornalistici`,
- "ownershipFundingInfo": `${BASE_URL}/chi-siamo/#finanziamento`,
- "masthead": `${BASE_URL}/chi-siamo/#team`,
- "verificationFactCheckingPolicy": `${BASE_URL}/metodologia/#fact-checking`
  }
  ],
  },
@@ -6647,18 +6608,10 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "description": "Frontaliere Ticino is the leading platform for Italian cross-border workers in Switzerland",
  "inLanguage": "en"
  },
- {
+   {
  "@context": "https://schema.org",
- "@type": "Organization",
- "@id": `${BASE_URL}/#organization`,
- "name": "Frontaliere Ticino",
- "url": `${BASE_URL}/`,
+ ...ORGANIZATION_LD_FULL,
  "description": "The comprehensive guide for cross-border workers in Switzerland: tax simulator, pension planning, health insurance, currency exchange, and job board.",
- "foundingDate": "2024",
- "areaServed": [
- { "@type": "Country", "name": "Switzerland" },
- { "@type": "Country", "name": "Italy" }
- ]
  }
  ],
  },
