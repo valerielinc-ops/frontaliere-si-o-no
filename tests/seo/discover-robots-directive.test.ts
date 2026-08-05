@@ -124,13 +124,18 @@ describe('replaceRobotsMeta demotes by tag name, not by content value', () => {
 });
 
 describe('the confined articles package keeps its own copy in sync', () => {
-  it('emits the same qualifier set as build-plugins', () => {
+  it('is BYTE-identical to the build-plugins value, ordering included', () => {
     // `packages/articles` may not import build-plugins (confinement test), so
-    // the string exists twice on purpose. Both must stay Discover-eligible.
-    for (const q of ['index', 'follow', 'max-image-preview:large', 'max-snippet:-1', 'max-video-preview:-1']) {
-      expect(ARTICLE_ROBOTS_INDEX_ENHANCED).toContain(q);
-      expect(ROBOTS_INDEX_ENHANCED_CONTENT).toContain(q);
-    }
+    // the string exists twice on purpose.
+    //
+    // Byte equality, not set equality: `renderArticleHubPages` (this package)
+    // and `emitSeoHubs` (build-plugins/seoHubsPlugin.ts) emit the SAME article
+    // hub URLs by two paths, and tests/render-article-hub-pages-narrow-vs-full
+    // asserts the two renders match byte for byte. A set-equality assertion
+    // here passed while the two constants listed the same five qualifiers in a
+    // different order — and that alone broke the hub byte-identity test.
+    expect(ARTICLE_ROBOTS_INDEX_ENHANCED).toBe(ROBOTS_INDEX_ENHANCED_CONTENT);
+    expect(ARTICLE_ROBOTS_INDEX_ENHANCED).toContain('max-image-preview:large');
   });
 });
 

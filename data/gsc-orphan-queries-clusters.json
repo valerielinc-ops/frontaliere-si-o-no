@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-03T06:43:44.396Z",
+  "generatedAt": "2026-08-05T21:27:33.675Z",
   "sourceFile": "data/gsc-orphan-queries.json",
-  "totalClusters": 1212,
+  "totalClusters": 1222,
   "gates": {
     "minClusterImpressions": 5
   },
@@ -366,6 +366,39 @@
           "query": "lavoro ticino negli ultimi 3 giorni",
           "clicks": 7,
           "impressions": 564
+        }
+      ]
+    },
+    {
+      "clusterId": "it-lavoro-part-time-ticino",
+      "locale": "it",
+      "canonicalQuery": "lavoro part time ticino",
+      "canonicalSlug": "lavoro-part-time-ticino",
+      "roleTokens": [
+        "lavor",
+        "part",
+        "tim"
+      ],
+      "regionTokens": [
+        "ticino"
+      ],
+      "totalImpressions": 559,
+      "totalClicks": 15,
+      "queries": [
+        {
+          "query": "lavoro part time ticino",
+          "clicks": 15,
+          "impressions": 488
+        },
+        {
+          "query": "lavoro ticino part time",
+          "clicks": 0,
+          "impressions": 67
+        },
+        {
+          "query": "ticino lavoro part time",
+          "clicks": 0,
+          "impressions": 4
         }
       ]
     },
@@ -3556,6 +3589,48 @@
       ]
     },
     {
+      "clusterId": "de-teilzeit-jobs-aargau",
+      "locale": "de",
+      "canonicalQuery": "teilzeit jobs aargau",
+      "canonicalSlug": "teilzeit-jobs-aargau",
+      "roleTokens": [
+        "job",
+        "teilzeit"
+      ],
+      "regionTokens": [
+        "aargau"
+      ],
+      "totalImpressions": 67,
+      "totalClicks": 0,
+      "queries": [
+        {
+          "query": "teilzeit jobs aargau",
+          "clicks": 0,
+          "impressions": 38
+        },
+        {
+          "query": "teilzeit job aargau",
+          "clicks": 0,
+          "impressions": 26
+        },
+        {
+          "query": "job aargau teilzeit",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
+          "query": "jobs aargau teilzeit",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
+          "query": "jobs teilzeit aargau",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ]
+    },
+    {
       "clusterId": "it-offerte-lavoro-lugano-per-italiani",
       "locale": "it",
       "canonicalQuery": "offerte lavoro lugano per italiani",
@@ -5684,6 +5759,34 @@
       ]
     },
     {
+      "clusterId": "fr-emploi-temps-partiel-vaud",
+      "locale": "fr",
+      "canonicalQuery": "emploi temps partiel vaud",
+      "canonicalSlug": "emploi-temps-partiel-vaud",
+      "roleTokens": [
+        "emplo",
+        "partiel",
+        "temp"
+      ],
+      "regionTokens": [
+        "vaud"
+      ],
+      "totalImpressions": 40,
+      "totalClicks": 0,
+      "queries": [
+        {
+          "query": "emploi temps partiel vaud",
+          "clicks": 0,
+          "impressions": 39
+        },
+        {
+          "query": "emploi vaud temps partiel",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ]
+    },
+    {
       "clusterId": "de-roche-basel-jobs",
       "locale": "de",
       "canonicalQuery": "roche basel jobs",
@@ -6058,6 +6161,28 @@
           "query": "concierge ticino",
           "clicks": 0,
           "impressions": 39
+        }
+      ]
+    },
+    {
+      "clusterId": "de-pflege-jobs-in-uri",
+      "locale": "de",
+      "canonicalQuery": "pflege jobs in uri",
+      "canonicalSlug": "pflege-jobs-in-uri",
+      "roleTokens": [
+        "job",
+        "pfleg"
+      ],
+      "regionTokens": [
+        "uri"
+      ],
+      "totalImpressions": 38,
+      "totalClicks": 0,
+      "queries": [
+        {
+          "query": "pflege jobs in uri",
+          "clicks": 0,
+          "impressions": 38
         }
       ]
     },
@@ -8531,6 +8656,27 @@
       "queries": [
         {
           "query": "psychologue italien en ligne muttenz",
+          "clicks": 0,
+          "impressions": 26
+        }
+      ]
+    },
+    {
+      "clusterId": "de-pflege-jobs-in-glarus",
+      "locale": "de",
+      "canonicalQuery": "pflege jobs in glarus",
+      "canonicalSlug": "pflege-jobs-in-glarus",
+      "roleTokens": [
+        "glaru",
+        "job",
+        "pfleg"
+      ],
+      "regionTokens": [],
+      "totalImpressions": 26,
+      "totalClicks": 0,
+      "queries": [
+        {
+          "query": "pflege jobs in glarus",
           "clicks": 0,
           "impressions": 26
         }
@@ -12456,6 +12602,37 @@
       ]
     },
     {
+      "clusterId": "de-teilzeit-jobs-thurgau",
+      "locale": "de",
+      "canonicalQuery": "teilzeit jobs thurgau",
+      "canonicalSlug": "teilzeit-jobs-thurgau",
+      "roleTokens": [
+        "job",
+        "teilzeit",
+        "thurgau"
+      ],
+      "regionTokens": [],
+      "totalImpressions": 16,
+      "totalClicks": 0,
+      "queries": [
+        {
+          "query": "teilzeit jobs thurgau",
+          "clicks": 0,
+          "impressions": 8
+        },
+        {
+          "query": "jobs thurgau teilzeit",
+          "clicks": 0,
+          "impressions": 7
+        },
+        {
+          "query": "job thurgau teilzeit",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ]
+    },
+    {
       "clusterId": "fr-emploi-jura",
       "locale": "fr",
       "canonicalQuery": "emploi jura",
@@ -13689,6 +13866,29 @@
           "query": "offre d'emploi denner",
           "clicks": 0,
           "impressions": 2
+        }
+      ]
+    },
+    {
+      "clusterId": "fr-emploi-temps-partiel-valais",
+      "locale": "fr",
+      "canonicalQuery": "emploi temps partiel valais",
+      "canonicalSlug": "emploi-temps-partiel-valais",
+      "roleTokens": [
+        "emplo",
+        "partiel",
+        "temp"
+      ],
+      "regionTokens": [
+        "vallese"
+      ],
+      "totalImpressions": 14,
+      "totalClicks": 0,
+      "queries": [
+        {
+          "query": "emploi temps partiel valais",
+          "clicks": 0,
+          "impressions": 14
         }
       ]
     },
@@ -15069,6 +15269,27 @@
       "queries": [
         {
           "query": "pflege basel",
+          "clicks": 0,
+          "impressions": 12
+        }
+      ]
+    },
+    {
+      "clusterId": "de-pflege-jobs-in-appenzell",
+      "locale": "de",
+      "canonicalQuery": "pflege jobs in appenzell",
+      "canonicalSlug": "pflege-jobs-in-appenzell",
+      "roleTokens": [
+        "appenzell",
+        "job",
+        "pfleg"
+      ],
+      "regionTokens": [],
+      "totalImpressions": 12,
+      "totalClicks": 0,
+      "queries": [
+        {
+          "query": "pflege jobs in appenzell",
           "clicks": 0,
           "impressions": 12
         }
@@ -20086,6 +20307,33 @@
           "query": "versicherungsagentur pregassona",
           "clicks": 0,
           "impressions": 8
+        }
+      ]
+    },
+    {
+      "clusterId": "de-teilzeit-jobs-solothurn",
+      "locale": "de",
+      "canonicalQuery": "teilzeit jobs solothurn",
+      "canonicalSlug": "teilzeit-jobs-solothurn",
+      "roleTokens": [
+        "job",
+        "teilzeit"
+      ],
+      "regionTokens": [
+        "solothurn"
+      ],
+      "totalImpressions": 8,
+      "totalClicks": 0,
+      "queries": [
+        {
+          "query": "teilzeit jobs solothurn",
+          "clicks": 0,
+          "impressions": 5
+        },
+        {
+          "query": "jobs solothurn teilzeit",
+          "clicks": 0,
+          "impressions": 3
         }
       ]
     },
@@ -29432,6 +29680,31 @@
           "query": "commercial alimentaire emploi",
           "clicks": 0,
           "impressions": 5
+        }
+      ]
+    },
+    {
+      "clusterId": "de-teilzeit-jobs",
+      "locale": "de",
+      "canonicalQuery": "teilzeit jobs",
+      "canonicalSlug": "teilzeit-jobs",
+      "roleTokens": [
+        "job",
+        "teilzeit"
+      ],
+      "regionTokens": [],
+      "totalImpressions": 5,
+      "totalClicks": 0,
+      "queries": [
+        {
+          "query": "teilzeit jobs",
+          "clicks": 0,
+          "impressions": 3
+        },
+        {
+          "query": "teilzeit job",
+          "clicks": 0,
+          "impressions": 2
         }
       ]
     },
