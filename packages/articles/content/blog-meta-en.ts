@@ -9256,6 +9256,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.poste-italiane-consulenti-finanziari-varese.title': 'Poste Italiane is looking for financial advisors in the province of Varese',
     'blog.article.poste-italiane-consulenti-finanziari-varese.excerpt': 'The company is looking for graduates/undergraduates for promotion and sale of financial, insurance and financing services until 26 August',
     'blog.article.poste-italiane-consulenti-finanziari-varese.imageAlt': 'Italian post office in Varese with financial advisor',
+    'blog.article.pensionamento-anticipato-single-2026.title': 'Frontier: early retirement planning 2026',
+    'blog.article.pensionamento-anticipato-single-2026.excerpt': 'Operational guide for the single border crossing: impact on AVS, second pillar and tax management between Switzerland and Italy within the framework of the new agreement.',
+    'blog.article.pensionamento-anticipato-single-2026.imageAlt': 'Pension planning for cross-border workers in Ticino',
 };
 
 export default blogMetaEn;

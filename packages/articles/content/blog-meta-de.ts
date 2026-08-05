@@ -9255,6 +9255,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.poste-italiane-consulenti-finanziari-varese.title': 'Poste Italiane sucht Finanzberater in der Provinz Varese',
     'blog.article.poste-italiane-consulenti-finanziari-varese.excerpt': 'Das Unternehmen sucht Absolventen/Absolventen für die Förderung und den Verkauf von Finanz-, Versicherungs- und Finanzierungsdienstleistungen bis zum 26. August',
     'blog.article.poste-italiane-consulenti-finanziari-varese.imageAlt': 'Italienische Postfiliale in Varese mit Finanzberater',
+    'blog.article.pensionamento-anticipato-single-2026.title': 'Grenzgänger: Vorruhestandsplanung 2026',
+    'blog.article.pensionamento-anticipato-single-2026.excerpt': 'Leitfaden für den Single-Grenzgänger: Auswirkungen auf die AHV, die zweite Säule und die Steuerverwaltung zwischen der Schweiz und Italien im Rahmen des neuen Abkommens.',
+    'blog.article.pensionamento-anticipato-single-2026.imageAlt': 'Rentenplanung für Grenzgänger im Tessin',
 };
 
 export default blogMetaDe;

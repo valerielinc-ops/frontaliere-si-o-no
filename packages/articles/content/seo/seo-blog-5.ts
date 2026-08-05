@@ -59078,6 +59078,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-pensionamento-anticipato-single-2026': {
+    title: 'Frontaliere: pianificazione pensionamento anticipato 2026',
+    description: 'Guida per frontalieri single: pensionamento anticipato 2026, impatto su AVS, LPP e gestione fiscale con il nuovo accordo tra Svizzera e Italia. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, pianificazione, pensionamento, anticipato, operativa',
+    ogTitle: 'Pianificazione pensionamento anticipato frontaliere 2026',
+    ogDescription: 'Guida per frontalieri single: pensionamento anticipato 2026, impatto su AVS, LPP e gestione fiscale con il nuovo accordo tra Svizzera e Italia.',
+    canonicalPath: '/articoli-frontaliere/pensionamento-anticipato-single-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Frontaliere: pianificazione pensionamento anticipato 2026",
+      "description": "Guida per frontalieri single: pensionamento anticipato 2026, impatto su AVS, LPP e gestione fiscale con il nuovo accordo tra Svizzera e Italia. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/pensionamento-anticipato-single-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Pianificazione pensionistica per frontalieri in Ticino"
+      },
+      "datePublished": "2026-08-05T04:29:21+00:00",
+      "dateModified": "2026-08-05T04:29:21+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/pensionamento-anticipato-single-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
