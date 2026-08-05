@@ -8,6 +8,7 @@ import {
   resolveSignalTier,
   shouldSkipSubscriber,
 } from '../scripts/backfill-jobalerts-from-newsletter.mjs';
+import { MAX_ALERTS_PER_USER as CLIENT_MAX_ALERTS_PER_USER } from '../services/jobAlertService';
 
 describe('backfill-jobalerts-from-newsletter — getSignalTier stays URL-blind', () => {
   // main()'s lazy `private/personalization` fetch is gated on
@@ -210,7 +211,13 @@ describe('backfill-jobalerts-from-newsletter — constants', () => {
     expect(ALERT_ID).toBe('backfill-newsletter');
   });
 
+  // Asserted as PARITY, not as a literal (#5012). The literal 3 this used to
+  // carry made the test restate the value instead of checking what its name
+  // promises, so raising the cap broke it even though the two sides still
+  // agreed. The functions bundle cannot import outside `functions/`, which is
+  // exactly why the constant is duplicated and why the parity check has to
+  // live here.
   it('matches the client-side active-alerts cap (services/jobAlertService.ts)', () => {
-    expect(MAX_ALERTS_PER_USER).toBe(3);
+    expect(MAX_ALERTS_PER_USER).toBe(CLIENT_MAX_ALERTS_PER_USER);
   });
 });
