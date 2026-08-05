@@ -51,7 +51,19 @@
  * unexpected top-level failure (so it's still visible in the Actions run
  * summary under `continue-on-error: true`), not for these expected skips.
  *
- * Usage: node scripts/publish-edge-files.mjs
+ * Usage:
+ *   node scripts/publish-edge-files.mjs
+ *   node scripts/publish-edge-files.mjs --only=/sitemap-news.xml[,/other.xml]
+ *
+ * `--only` restricts the run to the named registered pathnames. It exists for
+ * callers that own exactly ONE of these files and must not touch the rest:
+ * sync-articles-sitemaps.yml rewrites public/sitemap-news.xml on every
+ * articles-published dispatch, but its checkout is not a build — pushing the
+ * whole table from there would overwrite the llms.txt family with whatever a
+ * non-build checkout happens to render. An unregistered pathname is a hard
+ * error (exit 1), not a silent no-op: a typo in a workflow would otherwise
+ * look exactly like a successful publish that pushed nothing.
+ *
  * Requires the same R2_* env vars as scripts/lib/upload-cdn-file.sh, plus
  * CF_API_TOKEN + CF_ZONE_ID for the purge (all provisioned in CI by
  * `node scripts/load-rc-env.mjs`, already run earlier in this workflow for
@@ -113,14 +125,48 @@ function runLlmsGenerator() {
   }
 }
 
+/**
+ * Resolves the `--only=` filter into the subset of EDGE_PUSHED_FILES this run
+ * publishes. No flag → the whole table (the historical behaviour).
+ *
+ * Unregistered pathname → throw. A `--only` typo has no observable difference
+ * from a correct run that published nothing (every skip in this script is a
+ * ::warning:: and exit 0), so the one place it CAN be caught deterministically
+ * is here, before any work happens.
+ */
+export function selectedEntries(argv = process.argv) {
+  const flag = argv.find((a) => a.startsWith('--only='));
+  if (!flag) return Object.entries(EDGE_PUSHED_FILES);
+
+  const wanted = flag
+    .slice('--only='.length)
+    .split(',')
+    .map((s) => s.trim())
+    .filter(Boolean);
+  if (wanted.length === 0) {
+    throw new Error('--only was passed with no pathnames');
+  }
+
+  const unknown = wanted.filter((p) => !(p in EDGE_PUSHED_FILES));
+  if (unknown.length > 0) {
+    throw new Error(
+      `--only names ${unknown.join(', ')}, which ${unknown.length === 1 ? 'is' : 'are'} not registered in ` +
+        `EDGE_PUSHED_FILES (infra/cloudflare-worker/locale-router.js). Registered: ${Object.keys(EDGE_PUSHED_FILES).join(', ')}`,
+    );
+  }
+
+  return wanted.map((p) => [p, EDGE_PUSHED_FILES[p]]);
+}
+
 function main() {
   const purgeUrls = [];
+  const entries = selectedEntries();
 
-  if (Object.values(EDGE_PUSHED_FILES).some((entry) => entry.source === 'generated')) {
+  if (entries.some(([, entry]) => entry.source === 'generated')) {
     runLlmsGenerator();
   }
 
-  for (const [pathname, entry] of Object.entries(EDGE_PUSHED_FILES)) {
+  for (const [pathname, entry] of entries) {
     const localFile =
       entry.source === 'generated'
         ? path.join(GENERATED_SCRATCH_DIR, pathname.slice(1))

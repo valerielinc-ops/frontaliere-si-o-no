@@ -730,6 +730,20 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
 
  const LOC_TAG: Record<string, string> = { it: 'it_CH', en: 'en_US', de: 'de_CH', fr: 'fr_CH' };
 
+ // Hero-image intrinsic size. Every blog hero this pipeline produces is
+ // 1200x675 (sampled across the live CDN + /images/places: all exactly that),
+ // which is also what og:image:width/height and the Event branch's ImageObject
+ // already asserted — as three separate literals. One constant, because the
+ // <img> below now carries the same numbers and a fourth copy is a drift
+ // waiting to happen: the width/height attributes are what reserve the box
+ // before the bytes arrive, so a stale literal here is CLS on every article
+ // page, which Auto Ads then inherits (Non-Negotiable #7 — reserve space).
+ //
+ // 1200px wide is not incidental: it is Google Discover's documented floor for
+ // the large-image card that `max-image-preview:large` opts into.
+ const HERO_WIDTH = 1200;
+ const HERO_HEIGHT = 675;
+
  // Race-free SPA bundle hash extraction (SiteShellContract.resolveSpaBundle —
  // see build-plugins/spaBundleResolver.ts for the real site-side implementation).
  const spaBundle = resolveSpaBundle(distDir);
@@ -838,6 +852,13 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  // Applied at the single definition point so <meta name="description">,
  // og:description, the visible <p> lede and JSON-LD all stay identical.
  const localizedDesc = repairSerpSnippet(localizedMeta?.excerpt || en.ogD);
+ // Hero alt text. The corpus already carries a per-locale `imageAlt` (parsed
+ // out of the blog-meta chunks alongside title/excerpt) and nothing consumed
+ // it — og:image:alt fell back to the headline. Prefer the real alt, keep the
+ // headline as the floor so the attribute is never empty: an <img> without an
+ // accessible name fails the repo's own accessibility contract, and a decorative
+ // alt="" would tell Discover this image is not about the article.
+ const heroAlt = localizedMeta?.imageAlt || localizedTitle;
  // Pad short descriptions to ≥150 chars for Bing (locale variant excerpts are often <150)
  const LOCALE_DESC_CONTEXT: Partial<Record<string, string>> = {
  en: ' Practical guide and free tools for cross-border workers (frontalieri) between Switzerland and Italy. Frontaliere Ticino.',
@@ -996,8 +1017,8 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  description: sdStr('description') || localizedDesc,
  image: imageObjectLd({
  url: imgU,
- width: 1200,
- height: 675,
+ width: HERO_WIDTH,
+ height: HERO_HEIGHT,
  }),
  url: full,
  inLanguage: locale,
@@ -1044,7 +1065,19 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  '@type': 'NewsArticle',
  headline: localizedTitle,
  description: localizedDesc,
- image: imgU,
+ // ImageObject, not the bare URL string this used to be. Google's
+ // Article/NewsArticle guidance asks for the image's dimensions so card
+ // eligibility can be decided WITHOUT fetching and measuring the file, and
+ // Discover's large-image card has a documented 1200px floor — a bare string
+ // makes that a fetch-and-hope. The Event branch above already builds its
+ // image through this exact helper; this branch, which covers every real
+ // news article, did not.
+ image: imageObjectLd({
+ url: imgU,
+ width: HERO_WIDTH,
+ height: HERO_HEIGHT,
+ caption: heroAlt,
+ }),
  url: full,
  inLanguage: locale,
  // Author matches the visible "Di {authorName}" byline below and the
@@ -1187,8 +1220,8 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  <meta property="og:title" content="${esc(localizedTitle)}">
  <meta property="og:description" content="${esc(clampMetaDescription(localizedDesc))}">
  <meta property="og:image" content="${imgU}">
- <meta property="og:image:width" content="1200">
- <meta property="og:image:height" content="675">
+ <meta property="og:image:width" content="${HERO_WIDTH}">
+ <meta property="og:image:height" content="${HERO_HEIGHT}">
  <meta property="og:image:type" content="${en.img?.includes('.webp') ? 'image/webp' : 'image/jpeg'}">
  <meta property="og:image:alt" content="${esc(localizedTitle)}">
  <meta property="og:locale" content="${LOC_TAG[locale] ?? 'it_CH'}">
@@ -1204,6 +1237,29 @@ ${href}
  <script type="application/ld+json">${ldJsonStr}</script>
  <script type="application/ld+json">${breadcrumbLd}</script>${faqLdTag}
  <link rel="icon" type="image/svg+xml" href="/favicon.svg">`;
+
+ // The hero image, as an ELEMENT. Until now the static article HTML carried
+ // none: measured on four live article pages with a Googlebot-smartphone UA,
+ // `<img` occurred 0 times, `<picture>` 0, `srcset` 0. The only reference was
+ // the preload directly below — a preload with no consumer in the document,
+ // which is both a wasted high-priority fetch and, more to the point, nothing
+ // for Discover to build a card from. The image existed only in the React
+ // render (components/community/BlogArticles.tsx), i.e. behind JS execution.
+ //
+ // `max-image-preview:large` was already set in the head. That directive
+ // raises the CAP on preview size; it does not supply an image. With no <img>
+ // in the crawled markup the cap applied to nothing — which is why this is the
+ // technical half of "appear in Discover", not an editorial one.
+ //
+ // Same `en.img` URL as the preload on purpose, so the preload finally has its
+ // consumer and resolves to one request rather than two. width/height are the
+ // intrinsic size (see HERO_WIDTH/HERO_HEIGHT) so the box is reserved before
+ // the bytes land — no CLS for Auto Ads to inherit. The `/images/blog/...`
+ // src is rewritten to the CDN downstream by rewriteBlogImageRefs(), which is
+ // attribute-agnostic (it matches the path, not the surrounding attribute) and
+ // therefore already covers src= exactly as it covers the preload's href=.
+ const heroFigureHtml =
+ `<figure class="my-4"><img src="${en.img}" alt="${esc(heroAlt)}" width="${HERO_WIDTH}" height="${HERO_HEIGHT}" fetchpriority="high" decoding="async" class="w-full h-auto rounded-lg"></figure>`;
 
  const blogPreloads = [
  `<link rel="preload" as="image" href="${en.img}" fetchpriority="high">`,
@@ -1261,7 +1317,7 @@ ${headTags}
  ${OFFERWALL_FC_SNIPPET}
  </head>
  <body class="bg-surface-alt text-heading overflow-x-hidden">
- ${articleRootShell(true)}<main class="seo-static-content"><article class="ft-blog-article"><h1>${esc(differentiateH1FromTitle(localizedTitle, htmlPageTitle, articleLocale))}</h1><p class="article-byline s-L_lk4l">Di ${en.authorSlug && en.authorName ? `<a href="/autori/${en.authorSlug}/" rel="author">${esc(en.authorName)}</a>` : esc(en.authorName || 'Redazione Frontaliere Ticino')} · ${buildDateByline(en.datePub || en.dateMod || todayIso, en.dateMod || en.datePub || todayIso, locale)}</p><p>${esc(localizedDesc)}</p>${articleBodyHtml}${visibleFaqHtml}${buildRelatedArticlesHtml(en.articleId, articleCategoryById[en.articleId] || '', locale)}<nav><a href="/">Simulatore Fiscale</a> | <a href="/compara-servizi/">Confronta Servizi</a> | <a href="/tasse-e-pensione/">Tasse e Pensione</a> | <a href="/guida-frontaliere/">Guida Frontaliere</a> | <a href="/domande-frequenti-frontalieri/">FAQ</a> | <a href="/glossario-frontaliere/">Glossario</a> | <a href="/${SECTION.indexSlug.it}/">Articoli</a></nav></article></main>
+ ${articleRootShell(true)}<main class="seo-static-content"><article class="ft-blog-article"><h1>${esc(differentiateH1FromTitle(localizedTitle, htmlPageTitle, articleLocale))}</h1><p class="article-byline s-L_lk4l">Di ${en.authorSlug && en.authorName ? `<a href="/autori/${en.authorSlug}/" rel="author">${esc(en.authorName)}</a>` : esc(en.authorName || 'Redazione Frontaliere Ticino')} · ${buildDateByline(en.datePub || en.dateMod || todayIso, en.dateMod || en.datePub || todayIso, locale)}</p>${heroFigureHtml}<p>${esc(localizedDesc)}</p>${articleBodyHtml}${visibleFaqHtml}${buildRelatedArticlesHtml(en.articleId, articleCategoryById[en.articleId] || '', locale)}<nav><a href="/">Simulatore Fiscale</a> | <a href="/compara-servizi/">Confronta Servizi</a> | <a href="/tasse-e-pensione/">Tasse e Pensione</a> | <a href="/guida-frontaliere/">Guida Frontaliere</a> | <a href="/domande-frequenti-frontalieri/">FAQ</a> | <a href="/glossario-frontaliere/">Glossario</a> | <a href="/${SECTION.indexSlug.it}/">Articoli</a></nav></article></main>
  <script type="module" crossorigin fetchpriority="high" src="/assets/${entryJs}"></script>
  </body>
 </html>`;
@@ -1284,7 +1340,7 @@ ${headTags}
  ${OFFERWALL_FC_SNIPPET}
  </head>
  <body>
- ${articleRootShell(false)}<main class="seo-static-content"><article class="ft-blog-article"><h1>${esc(differentiateH1FromTitle(localizedTitle, htmlPageTitle, articleLocale))}</h1><p>${esc(localizedDesc)}</p><nav><a href="/">Simulatore Fiscale</a> | <a href="/compara-servizi/">Confronta Servizi</a> | <a href="/tasse-e-pensione/">Tasse e Pensione</a> | <a href="/guida-frontaliere/">Guida Frontaliere</a> | <a href="/domande-frequenti-frontalieri/">FAQ</a> | <a href="/glossario-frontaliere/">Glossario</a> | <a href="/${SECTION.indexSlug.it}/">Articoli</a></nav></article></main>
+ ${articleRootShell(false)}<main class="seo-static-content"><article class="ft-blog-article"><h1>${esc(differentiateH1FromTitle(localizedTitle, htmlPageTitle, articleLocale))}</h1>${heroFigureHtml}<p>${esc(localizedDesc)}</p><nav><a href="/">Simulatore Fiscale</a> | <a href="/compara-servizi/">Confronta Servizi</a> | <a href="/tasse-e-pensione/">Tasse e Pensione</a> | <a href="/guida-frontaliere/">Guida Frontaliere</a> | <a href="/domande-frequenti-frontalieri/">FAQ</a> | <a href="/glossario-frontaliere/">Glossario</a> | <a href="/${SECTION.indexSlug.it}/">Articoli</a></nav></article></main>
  </body>
 </html>`;
  };
