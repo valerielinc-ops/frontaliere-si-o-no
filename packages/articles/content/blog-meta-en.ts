@@ -9265,6 +9265,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.frontalieri-svizzera-sondaggio-giugno-2026.title': '10 million initiative in Switzerland: those opposed to 52% in the survey',
     'blog.article.frontalieri-svizzera-sondaggio-giugno-2026.excerpt': 'In June 2026, the second SSR survey overturned the fronts: the no to the UDC initiative rose to 52%. Details and percentages.',
     'blog.article.frontalieri-svizzera-sondaggio-giugno-2026.imageAlt': 'View of Bellinzona in Ticino with historical buildings and Swiss flag',
+    'blog.article.vivere-nel-cuore-di-bellinzona.title': 'Living in the heart of Bellinzona: quality of life and homes',
+    'blog.article.vivere-nel-cuore-di-bellinzona.excerpt': 'Discover what it means to live in the historic centre of Bellinzona, among the UNESCO castles, the Saturday market and an advantageous real estate market.',
+    'blog.article.vivere-nel-cuore-di-bellinzona.imageAlt': 'The historic center of Bellinzona with its medieval towers in the morning',
 };
 
 export default blogMetaEn;
