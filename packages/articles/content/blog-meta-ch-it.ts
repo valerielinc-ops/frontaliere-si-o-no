@@ -1867,6 +1867,15 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.svizzeri-fuga-estero-costo-casa.title': 'Svizzeri in fuga oltreconfine: pesa il costo della casa',
     'blog.article.svizzeri-fuga-estero-costo-casa.excerpt': 'Oltre 154\'000 svizzeri vivono in zone di confine estere: un aumento del 14% spinto dai prezzi immobiliari insostenibili e affitti in costante crescita.',
     'blog.article.svizzeri-fuga-estero-costo-casa.imageAlt': 'Vista panoramica di una zona residenziale di confine tra Svizzera e Italia',
+    'blog.article.calo-disavanzo-cantonale-2026.title': 'Disavanzo cantonale 2026: cala a -49,7 milioni di franchi',
+    'blog.article.calo-disavanzo-cantonale-2026.excerpt': 'Il Consiglio di Stato ha aggiornato il preconsuntivo di giugno, riducendo il deficit previsto a -49,7 milioni di CHF, grazie a maggiori ricavi e spese controllate.',
+    'blog.article.calo-disavanzo-cantonale-2026.imageAlt': 'Edificio cantonale di Bellinzona con documenti finanziari sul tavolo, sfondo alpino.',
+    'blog.article.canicola-lavoro-dialogo-consiglio-stato.title': 'Canicola e lavoro: il Consiglio di Stato avvia il dialogo con i sindacati',
+    'blog.article.canicola-lavoro-dialogo-consiglio-stato.excerpt': 'Il Consiglio di Stato di Bellinzona incontra UNIA, OCST, USS e VPOD per definire misure sul lavoro durante le ondate di calore, con coinvolgimento della Deputazione ticinese a livello federale.',
+    'blog.article.canicola-lavoro-dialogo-consiglio-stato.imageAlt': 'Sala del Consiglio di Stato di Bellinzona con luce solare, rappresentanti sindacali e politici in discussione.',
+    'blog.article.glencore-aumenta-utili-e-ricavi-nel-semestre.title': 'Glencore aumenta utili e ricavi nel semestre',
+    'blog.article.glencore-aumenta-utili-e-ricavi-nel-semestre.excerpt': 'La società di trading e mining ha registrato un forte aumento degli utili e dei ricavi nel primo semestre 2026',
+    'blog.article.glencore-aumenta-utili-e-ricavi-nel-semestre.imageAlt': 'Immagine di un centro finanziario di Zurigo con un grande schermo che mostra i dati della Glencore',
 };
 
 export default blogMetaChIt;

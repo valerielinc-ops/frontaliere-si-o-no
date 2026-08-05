@@ -24158,6 +24158,123 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-calo-disavanzo-cantonale-2026': {
+    title: 'Disavanzo cantonale 2026: cala a -49,7 milioni di franchi',
+    description: 'Il Consiglio di Stato di Bellinzona ha aggiornato il preconsuntivo di giugno 2026, riducendo il deficit a -49,7 milioni di franchi grazie a maggiori ricavi',
+    keywords: 'frontalieri, ticino, svizzera, italia, disavanzo, cantonale, cala, milioni',
+    ogTitle: 'Disavanzo cantonale 2026: deficit ridotto a -49,7 milioni di CHF',
+    ogDescription: 'Il Consiglio di Stato di Bellinzona ha aggiornato il preconsuntivo di giugno 2026, riducendo il deficit a -49,7 milioni di franchi grazie a maggiori ricavi',
+    canonicalPath: '/articoli-svizzera/calo-disavanzo-cantonale-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Disavanzo cantonale 2026: cala a -49,7 milioni di franchi",
+      "description": "Il Consiglio di Stato di Bellinzona ha aggiornato il preconsuntivo di giugno 2026, riducendo il deficit a -49,7 milioni di franchi grazie a maggiori ricavi",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/calo-disavanzo-cantonale-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Edificio cantonale di Bellinzona con documenti finanziari sul tavolo, sfondo alpino."
+      },
+      "datePublished": "2026-08-05T10:44:20+00:00",
+      "dateModified": "2026-08-05T10:44:20+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/calo-disavanzo-cantonale-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-canicola-lavoro-dialogo-consiglio-stato': {
+    title: 'Canicola e lavoro: il Consiglio di Stato avvia il dialogo con i sindacati',
+    description: 'Il Consiglio di Stato di Bellinzona incontra UNIA, OCST, USS e VPOD per definire misure sul lavoro durante le ondate di calore, con coinvolgimento della',
+    keywords: 'frontalieri, ticino, svizzera, italia, canicola, lavoro, consiglio, stato',
+    ogTitle: 'Canicola e lavoro: il Consiglio di Stato avvia il dialogo con i sindacati',
+    ogDescription: 'Incontro a Bellinzona tra Consiglio di Stato e sindacati per affrontare le condizioni di lavoro nelle ondate di calore, con nuove iniziative a livello cantonale',
+    canonicalPath: '/articoli-svizzera/canicola-lavoro-dialogo-consiglio-stato/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Canicola e lavoro: il Consiglio di Stato avvia il dialogo con i sindacati",
+      "description": "Il Consiglio di Stato di Bellinzona incontra UNIA, OCST, USS e VPOD per definire misure sul lavoro durante le ondate di calore, con coinvolgimento della",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/canicola-lavoro-dialogo-consiglio-stato.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Sala del Consiglio di Stato di Bellinzona con luce solare, rappresentanti sindacali e politici in discussione."
+      },
+      "datePublished": "2026-08-05T12:43:34+00:00",
+      "dateModified": "2026-08-05T12:43:34+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/canicola-lavoro-dialogo-consiglio-stato/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-glencore-aumenta-utili-e-ricavi-nel-semestre': {
+    title: 'Glencore aumenta utili e ricavi nel semestre | Frontaliere Ticino',
+    description: 'La società di trading e mining ha registrato un forte aumento degli utili e dei ricavi nel primo semestre 2026. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, glencore, aumenta, utili, ricavi',
+    ogTitle: 'Glencore aumenta utili e ricavi nel semestre',
+    ogDescription: 'La società di trading e mining ha registrato un forte aumento degli utili e dei ricavi nel primo semestre 2026',
+    canonicalPath: '/articoli-svizzera/glencore-aumenta-utili-e-ricavi-nel-semestre/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Glencore aumenta utili e ricavi nel semestre",
+      "description": "La società di trading e mining ha registrato un forte aumento degli utili e dei ricavi nel primo semestre 2026. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/glencore-aumenta-utili-e-ricavi-nel-semestre.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine di un centro finanziario di Zurigo con un grande schermo che mostra i dati della Glencore"
+      },
+      "datePublished": "2026-08-05T13:55:33+00:00",
+      "dateModified": "2026-08-05T13:55:33+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/glencore-aumenta-utili-e-ricavi-nel-semestre/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

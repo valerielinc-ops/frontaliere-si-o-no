@@ -1,18 +1,19 @@
 {
   "key": "patek-philippe",
   "label": "Patek Philippe",
-  "generatedAt": "2026-08-04T22:16:32.499Z",
-  "total": 10,
-  "newCount": 1,
-  "updatedCount": 8,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 9512,
-  "avgDurationMs": 9512,
+  "generatedAt": "2026-08-05T11:30:11.573Z",
+  "total": 9,
+  "newCount": 0,
+  "updatedCount": 9,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 9228,
+  "avgDurationMs": 9228,
   "durationHistory": [
-    9512
+    9228
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "patek-philippe-33662cdd1e07",
       "slug": "responsable-operations-rh-h-f-patek-philippe-plan-les-ouates",
@@ -25,7 +26,7 @@
       "url": "https://careers.patek.com/job/Plan-Les-Ouates-Responsable-Op%C3%A9rations-RH-%28HF%29/1362955155/",
       "source": "Patek Philippe Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-04T22:16:24.406Z",
+      "crawledAt": "2026-08-05T11:30:03.531Z",
       "hiringOrganization": "Patek Philippe SA",
       "addressLocality": "Plan-Les-Ouates",
       "postalCode": "1228",
@@ -42,16 +43,15 @@
       "postedDate": "2026-08-04",
       "applyUrl": "https://careers.patek.com/job/Plan-Les-Ouates-Responsable-Op%C3%A9rations-RH-%28HF%29/1362955155/",
       "jobReqId": "1362955155",
-      "_qualityScore": 69,
+      "firstSeenAt": "2026-08-04T22:16:24.406Z",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 23,
         "completeness": 20
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "patek-philippe-55a12021df8a",
       "slug": "responsable-d-atelier-assemblage-sequentiel-h-f-patek-philippe-plan-les-ouates",
@@ -64,7 +64,7 @@
       "url": "https://careers.patek.com/job/Plan-Les-Ouates-Responsable-d'Atelier-Assemblage-S%C3%A9quentiel-%28HF%29/1360288355/",
       "source": "Patek Philippe Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-04T22:16:27.776Z",
+      "crawledAt": "2026-08-05T11:30:07.202Z",
       "hiringOrganization": "Patek Philippe SA",
       "addressLocality": "Plan-Les-Ouates",
       "postalCode": "1228",
@@ -102,7 +102,7 @@
       "url": "https://careers.patek.com/job/Plan-Les-Ouates-Responsable-Rouages-Sp%C3%A9ciaux-%28HF%29/1359898855/",
       "source": "Patek Philippe Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-04T22:16:28.260Z",
+      "crawledAt": "2026-08-05T11:30:07.667Z",
       "hiringOrganization": "Patek Philippe SA",
       "addressLocality": "Plan-Les-Ouates",
       "postalCode": "1228",
@@ -140,7 +140,7 @@
       "url": "https://careers.patek.com/job/La-Chaux-de-Fonds-Sertisseur-baguette-%28HF%29/1359382355/",
       "source": "Patek Philippe Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-04T22:16:25.382Z",
+      "crawledAt": "2026-08-05T11:30:04.569Z",
       "hiringOrganization": "Patek Philippe SA",
       "addressLocality": "La Chaux-de-Fonds",
       "addressRegion": "NE",
@@ -165,42 +165,6 @@
       }
     },
     {
-      "id": "patek-philippe-2a0bd98225e5",
-      "slug": "conseiller-de-ventes-h-f-patek-philippe-geneve",
-      "company": "Patek Philippe",
-      "companyKey": "patek-philippe",
-      "companyDomain": "patek.com",
-      "title": "Conseiller de Ventes (H/F)",
-      "location": "Genève",
-      "canton": "GE",
-      "url": "https://careers.patek.com/job/Gen%C3%A8ve-Conseiller-de-Ventes-%28HF%29/1358754555/",
-      "source": "Patek Philippe Dedicated Parser",
-      "sourceLang": "fr",
-      "crawledAt": "2026-08-04T22:16:25.868Z",
-      "hiringOrganization": "Patek Philippe SA",
-      "addressLocality": "Genève",
-      "addressRegion": "Genève",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Commerciale",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Luxury / Watchmaking (Manufacturing)",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-29",
-      "applyUrl": "https://careers.patek.com/job/Gen%C3%A8ve-Conseiller-de-Ventes-%28HF%29/1358754555/",
-      "jobReqId": "1358754555",
-      "firstSeenAt": "2026-07-04T12:12:11.082Z",
-      "_qualityScore": 82,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 14
-      }
-    },
-    {
       "id": "patek-philippe-3922ff0216d7",
       "slug": "responsable-ligne-nautilus-h-f-patek-philippe-plan-les-ouates",
       "company": "Patek Philippe",
@@ -212,7 +176,7 @@
       "url": "https://careers.patek.com/job/Plan-Les-Ouates-Responsable-Ligne-Nautilus-%28HF%29/1358759455/",
       "source": "Patek Philippe Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-04T22:16:26.340Z",
+      "crawledAt": "2026-08-05T11:30:05.132Z",
       "hiringOrganization": "Patek Philippe SA",
       "addressLocality": "Plan-Les-Ouates",
       "postalCode": "1228",
@@ -239,6 +203,42 @@
       }
     },
     {
+      "id": "patek-philippe-2a0bd98225e5",
+      "slug": "conseiller-de-ventes-h-f-patek-philippe-geneve",
+      "company": "Patek Philippe",
+      "companyKey": "patek-philippe",
+      "companyDomain": "patek.com",
+      "title": "Conseiller de Ventes (H/F)",
+      "location": "Genève",
+      "canton": "GE",
+      "url": "https://careers.patek.com/job/Gen%C3%A8ve-Conseiller-de-Ventes-%28HF%29/1358754555/",
+      "source": "Patek Philippe Dedicated Parser",
+      "sourceLang": "fr",
+      "crawledAt": "2026-08-05T11:30:05.592Z",
+      "hiringOrganization": "Patek Philippe SA",
+      "addressLocality": "Genève",
+      "addressRegion": "Genève",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Commerciale",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Luxury / Watchmaking (Manufacturing)",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-29",
+      "applyUrl": "https://careers.patek.com/job/Gen%C3%A8ve-Conseiller-de-Ventes-%28HF%29/1358754555/",
+      "jobReqId": "1358754555",
+      "firstSeenAt": "2026-07-04T12:12:11.082Z",
+      "_qualityScore": 82,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 14
+      }
+    },
+    {
       "id": "patek-philippe-f6a05088a487",
       "slug": "gestionnaire-systemes-d-informations-h-f-patek-philippe-saint-imier",
       "company": "Patek Philippe",
@@ -250,7 +250,7 @@
       "url": "https://careers.patek.com/job/Saint-Imier-Gestionnaire-Syst%C3%A8mes-d'Informations-%28HF%29/1358617755/",
       "source": "Patek Philippe Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-04T22:16:26.817Z",
+      "crawledAt": "2026-08-05T11:30:06.156Z",
       "hiringOrganization": "Patek Philippe SA",
       "addressLocality": "Saint-Imier",
       "addressRegion": "BE",
@@ -286,7 +286,7 @@
       "url": "https://careers.patek.com/job/Plan-Les-Ouates-Charg%C3%A9-de-Process-Vie-S%C3%A9rie-%28HF%29/1356655355/",
       "source": "Patek Philippe Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-04T22:16:27.295Z",
+      "crawledAt": "2026-08-05T11:30:06.728Z",
       "hiringOrganization": "Patek Philippe SA",
       "addressLocality": "Plan-Les-Ouates",
       "postalCode": "1228",
@@ -324,7 +324,7 @@
       "url": "https://careers.patek.com/job/Plan-Les-Ouates-Horloger-Restaurateur-R%C3%A9gleur-%28HF%29/1351663055/",
       "source": "Patek Philippe Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-04T22:16:24.895Z",
+      "crawledAt": "2026-08-05T11:30:04.049Z",
       "hiringOrganization": "Patek Philippe SA",
       "addressLocality": "Plan-Les-Ouates",
       "postalCode": "1228",
@@ -351,8 +351,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "patek-philippe-dd1d1cb3c17b",
       "slug": "mappa-manager-di-bras-h-f-patek-philippe-plan-les-ouates",
@@ -394,5 +393,6 @@
         "completeness": 25
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }

@@ -25,6 +25,7 @@
 import path from 'path';
 import type { Plugin } from 'vite';
 import { BASE_URL } from './constants';
+import { pruneAlreadyListedLocaleVariants } from './shared/localeVariantSitemap';
 
 /**
  * Filenames that must NEVER appear in the sitemap index itself:
@@ -300,7 +301,7 @@ export function sitemapAliasPlugin(rootDir: string): Plugin {
         // 0. Hreflang-reciprocity sanitizer (issue #3474). Runs BEFORE the
         //    legacy alias copy so sitemap_news.xml inherits sanitized
         //    content, and before index regeneration.
-        const sitemapFiles: SitemapXmlFile[] = fs
+        let sitemapFiles: SitemapXmlFile[] = fs
           .readdirSync(distDir)
           .filter(
             (f) => SITEMAP_FILE_PATTERN.test(f) && !EXCLUDED_SITEMAP_FILES.has(f),
@@ -309,6 +310,30 @@ export function sitemapAliasPlugin(rootDir: string): Plugin {
             file,
             xml: fs.readFileSync(path.join(distDir, file), 'utf-8'),
           }));
+
+        // 0-pre. Locale-variant backfill de-duplication (issue #5110).
+        //    staticPagesPlugin writes sitemap-locale-variants-*.xml from its
+        //    own emit bookkeeping, in a closeBundle that runs in parallel with
+        //    every other SEO plugin's — it cannot know which URLs
+        //    sitemap-salary-hub.xml or sitemap-jobs-*.xml will claim. This is
+        //    the first point where all of them are on disk, so the backfill
+        //    yields here: any URL another sitemap already lists is dropped
+        //    from the cohort. Without it a double-listed URL whose two
+        //    annotation sets disagree trips the cross-file collision guard
+        //    below, which would then drop the annotations on BOTH copies.
+        const deduped = pruneAlreadyListedLocaleVariants(sitemapFiles);
+        if (deduped.size > 0) {
+          for (const [file, xml] of deduped) {
+            fs.writeFileSync(path.join(distDir, file), xml, 'utf-8');
+          }
+          sitemapFiles = sitemapFiles.map((f) =>
+            deduped.has(f.file) ? { file: f.file, xml: deduped.get(f.file)! } : f,
+          );
+          console.log(
+            `\x1b[36m[sitemap-alias]\x1b[0m Locale-variant backfill yielded already-listed URLs in ${deduped.size} shard(s): ${[...deduped.keys()].join(', ')}`,
+          );
+        }
+
         const sanitized = sanitizeSitemapHreflangReciprocity(sitemapFiles);
         for (const [file, xml] of sanitized) {
           fs.writeFileSync(path.join(distDir, file), xml, 'utf-8');

@@ -155,4 +155,50 @@ describe('POSTHOG_INIT_CONTENT before_send (issue #3406/#3407)', () => {
     expect(beforeSend(null)).toBeNull();
     expect(beforeSend(undefined)).toBeNull();
   });
+
+  // ── #4173 parity: origin-redacted stacks (zero resolved frames) ──
+  // The SPA twin lives in tests/origin-redacted-stack-filter.test.ts.
+  const REDACTED_STACK = ['@', '@', '@', 'Nk@', 'Pk@', 'Nk@', 'Pk@', 'Nk@', 'Pk@'].join('\n');
+
+  function zeroFrameException(value: string) {
+    return {
+      event: '$exception',
+      properties: {
+        $exception_values: [value],
+        $exception_list: [{ type: 'RangeError', value, stacktrace: { frames: [] } }],
+      },
+    };
+  }
+
+  it('drops a zero-frame exception whose recorded raw stack is fully origin-redacted (#4173)', () => {
+    (window as unknown as { __frRawStacks?: unknown[] }).__frRawStacks = [
+      ['Maximum call stack size exceeded.', REDACTED_STACK],
+    ];
+    expect(beforeSend(zeroFrameException('Maximum call stack size exceeded.'))).toBeNull();
+  });
+
+  it('keeps the same zero-frame exception when no raw stack was recorded (#4173)', () => {
+    (window as unknown as { __frRawStacks?: unknown[] }).__frRawStacks = [];
+    const event = zeroFrameException('Maximum call stack size exceeded.');
+    expect(beforeSend(event)).toBe(event);
+  });
+
+  it('keeps a zero-frame exception whose recorded raw stack is first-party (#4173)', () => {
+    (window as unknown as { __frRawStacks?: unknown[] }).__frRawStacks = [
+      ['Maximum call stack size exceeded.', [
+        'walk@https://cdn.frontaliereticino.ch/assets/App.js:4:9001',
+        'walk@https://cdn.frontaliereticino.ch/assets/App.js:4:9001',
+        'walk@https://cdn.frontaliereticino.ch/assets/App.js:4:9001',
+        'walk@https://cdn.frontaliereticino.ch/assets/App.js:4:9001',
+        'walk@https://cdn.frontaliereticino.ch/assets/App.js:4:9001',
+      ].join('\n')],
+    ];
+    const event = zeroFrameException('Maximum call stack size exceeded.');
+    expect(beforeSend(event)).toBe(event);
+  });
+
+  it('installs the raw-stack recorder before posthog.init in the snippet (#4173)', () => {
+    expect(POSTHOG_INIT_CONTENT.indexOf('__frRawStacks'))
+      .toBeLessThan(POSTHOG_INIT_CONTENT.indexOf('posthog.init('));
+  });
 });

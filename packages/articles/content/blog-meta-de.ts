@@ -9273,6 +9273,12 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.svizzeri-fuga-alloglio-ticino.title': 'Schweizer auf der Flucht über die Grenze zur Unterkunft',
     'blog.article.svizzeri-fuga-alloglio-ticino.excerpt': '154\'700 Schweizerinnen und Schweizer leben in Grenzregionen. 70% der Westschweizer finden die Mieten zu hoch. Como und Varese zwischen den betroffenen Regionen.',
     'blog.article.svizzeri-fuga-alloglio-ticino.imageAlt': 'Panoramablick auf den Comer See mit Schweizer Bürgern, die sich in die Region bewegen',
+    'blog.article.borsa-rotta-isola-15000-punti.title': 'Börse auf, gebrochen auf der Insel der 15\'000 Punkte?',
+    'blog.article.borsa-rotta-isola-15000-punti.excerpt': 'Neue Allzeithochs auf Dow Jones und S&P-500 drängen auf das psychologische Ziel von 15\'000 Punkten, veranlasst Analysten zu einem ruhigeren Blick auf die Gegenwart',
+    'blog.article.borsa-rotta-isola-15000-punti.imageAlt': 'Schweizer Stadtpanorama mit Finanzdiagrammen in Fenstern, klarer Himmel',
+    'blog.article.tradate-lite-ferito-trentenne.title': 'Lite vor dem Bahnhof Tradate: Ein 30-Jähriger verletzt',
+    'blog.article.tradate-lite-ferito-trentenne.excerpt': 'Eine Auseinandersetzung zwischen Nicht-EU-Bürgern entartete zu einer Schlägerei und ein 30-jähriger Mann wurde verletzt.',
+    'blog.article.tradate-lite-ferito-trentenne.imageAlt': 'Ein Kampf in einem Bahnhof',
 };
 
 export default blogMetaDe;
