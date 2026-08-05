@@ -27,6 +27,7 @@ const __dirname_minwage = np.dirname(fileURLToPath(import.meta.url));
 
 import { BASE_URL, MIN_INDEXABLE_WORDS, countHtmlBodyWords } from './constants';
 import { buildSeoPageHtml } from './shared/seoPageShell';
+import { buildLocaleAlternateBlock } from './shared/localeAlternateBlock';
 import { CALC_HREF } from './shared/calcHref';
 import { formatUpdatedDate } from './shared/humanDate';
 import { WriteCollector } from './batchWrite';
@@ -625,8 +626,19 @@ function renderPage(opts: {
   page: MinWagePage;
   dateStamp: string;
   distDir?: string;
+  /**
+   * Locales whose page for THIS `page` the build will actually write. The
+   * `MIN_INDEXABLE_WORDS` floor below is evaluated per locale (and per page),
+   * so it can drop DE while keeping IT for the same page — and an hreflang
+   * block built from the full `MINWAGE_LOCALES` list would then advertise a
+   * page nothing wrote (the #5114 `missingTarget` class). Pass 1 of the
+   * caller's two-pass render leaves this at the empty default: it only reads
+   * `wordCount`, which is derived from the body and does not depend on the
+   * hreflang block.
+   */
+  eligibleLocales?: ReadonlySet<string>;
 }): RenderResult {
-  const { locale, page, dateStamp, distDir } = opts;
+  const { locale, page, dateStamp, distDir, eligibleLocales = new Set<string>() } = opts;
   const L = COPY[locale];
   const ds = loadDataset();
   const year = ds.meta.year;
@@ -642,14 +654,15 @@ function renderPage(opts: {
   const calcUrl = `${BASE_URL}${CALC_HREF[locale]}`;
   const guideUrl = `${BASE_URL}${PERMITS_GUIDE_URL[locale]}`;
 
-  // hreflang (4 locales + x-default IT)
-  const hreflangLines = MINWAGE_LOCALES.map(
-    (alt) => `    <link rel="alternate" hreflang="${alt}" href="${BASE_URL}${buildMinWageLandingPath(alt, page)}">`,
-  );
-  hreflangLines.push(
-    `    <link rel="alternate" hreflang="x-default" href="${BASE_URL}${buildMinWageLandingPath('it', page)}">`,
-  );
-  const alternates = hreflangLines.join('\n');
+  // hreflang (4 locales + x-default IT), emitted only when every locale's
+  // page for this `page` is actually written this build — otherwise nothing,
+  // since a partial set only trades audit-hreflang's [missingTarget] for
+  // [tooFew] (#5114).
+  const alternates = buildLocaleAlternateBlock({
+    eligibleLocales,
+    hrefFor: (alt) => `${BASE_URL}${buildMinWageLandingPath(alt as MinWageLocale, page)}`,
+    indent: '    ',
+  });
 
   // Shared style block (table + FAQ).
   const styleBlock = `<style>.mwd{${TABLE_HEAD_STYLE}}.mwc{${TABLE_CELL_STYLE}}.mwf{margin:0 0 10px;padding:14px 16px;background:var(--color-surface-alt);border:1px solid var(--color-edge);border-radius:12px}.mwfs{font-weight:700;cursor:pointer;color:var(--color-heading);line-height:1.45}.mwfa{margin:10px 0 0;color:var(--color-body);line-height:1.65}.mwsrc{font-size:13px;color:var(--color-body);opacity:.85;margin:6px 0 0}</style>`;
@@ -954,13 +967,32 @@ export function minimumWageLandingsPlugin(rootDir: string): Plugin {
       let thinSkipped = 0;
 
       for (const page of MINWAGE_PAGES) {
-        const altLinks = MINWAGE_LOCALES.map(
+        // ── Pass 1: which locales clear the indexability floor? ────────────
+        // The floor is per-locale AND per page, so it can drop DE while
+        // keeping IT for the same page. Settling the set BEFORE any page is
+        // rendered for real is what makes it impossible to advertise a
+        // landing that never gets written (#5114 class). `wordCount` derives
+        // from the body alone, so this pass is unaffected by the empty
+        // hreflang block it renders with.
+        const eligibleLocales = new Set<string>(
+          MINWAGE_LOCALES.filter(
+            (locale) =>
+              renderPage({ locale, page, dateStamp, distDir }).wordCount >= MIN_INDEXABLE_WORDS,
+          ),
+        );
+
+        // Sitemap alternates track the same set: an ineligible locale has no
+        // page, so advertising it would point the crawler at a 404.
+        const altLinks = MINWAGE_LOCALES.filter((alt) => eligibleLocales.has(alt)).map(
           (alt) => `${alt}|${BASE_URL}${buildMinWageLandingPath(alt, page)}`,
         );
-        altLinks.push(`x-default|${BASE_URL}${buildMinWageLandingPath('it', page)}`);
+        if (eligibleLocales.has('it')) {
+          altLinks.push(`x-default|${BASE_URL}${buildMinWageLandingPath('it', page)}`);
+        }
 
+        // ── Pass 2: render for real, with the settled alternate set ────────
         for (const locale of MINWAGE_LOCALES) {
-          const rendered = renderPage({ locale, page, dateStamp, distDir });
+          const rendered = renderPage({ locale, page, dateStamp, distDir, eligibleLocales });
           if (rendered.wordCount < MIN_INDEXABLE_WORDS) {
             thinSkipped++;
             console.warn(

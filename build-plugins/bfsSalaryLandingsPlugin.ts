@@ -22,6 +22,7 @@ const __dirname_bfs = np.dirname(fileURLToPath(import.meta.url));
 
 import { BASE_URL, MIN_INDEXABLE_WORDS, countHtmlBodyWords } from './constants';
 import { buildSeoPageHtml } from './shared/seoPageShell';
+import { buildLocaleAlternateBlock } from './shared/localeAlternateBlock';
 import { CALC_HREF } from './shared/calcHref';
 import { formatUpdatedDate } from './shared/humanDate';
 import { WriteCollector } from './batchWrite';
@@ -534,8 +535,18 @@ function renderAgePage(opts: {
   age: SalaryAgeAnchor;
   dateStamp: string;
   distDir?: string;
+  /**
+   * Locales whose page for THIS age anchor the build will actually write. The
+   * `MIN_INDEXABLE_WORDS` floor in `emit()` is evaluated per (anchor, locale),
+   * so it can drop DE while keeping IT — and an hreflang block built from the
+   * full locale list would then advertise a page nothing wrote (the #5114
+   * class). Pass 1 of the caller's two-pass render supplies an empty set: it
+   * only needs `wordCount`, which is computed from the body and does not
+   * depend on the hreflang block.
+   */
+  eligibleLocales?: ReadonlySet<string>;
 }): RenderResult {
-  const { locale, age, dateStamp, distDir } = opts;
+  const { locale, age, dateStamp, distDir, eligibleLocales = new Set<string>() } = opts;
   const ds = loadDataset();
   const L = COPY[locale];
   const band = bandForAge(ds, age);
@@ -546,12 +557,14 @@ function renderAgePage(opts: {
   const bandLabel = band.label;
 
   const urlPath = buildSalaryAgeLandingPath(locale, age);
-  const hreflangLines = SALARY_LOCALES.map(
-    (alt) => `    <link rel="alternate" hreflang="${alt}" href="${BASE_URL}${buildSalaryAgeLandingPath(alt, age)}">`,
-  );
-  hreflangLines.push(
-    `    <link rel="alternate" hreflang="x-default" href="${BASE_URL}${buildSalaryAgeLandingPath('it', age)}">`,
-  );
+  // Hreflang (4 locales + x-default), emitted only when every locale's page
+  // for this anchor is actually written this build — otherwise nothing, since
+  // a partial set trades audit-hreflang's [missingTarget] for [tooFew] (#5114).
+  const alternates = buildLocaleAlternateBlock({
+    eligibleLocales,
+    hrefFor: (alt) => `${BASE_URL}${buildSalaryAgeLandingPath(alt as SalaryLocale, age)}`,
+    indent: '    ',
+  });
 
   // Related: neighbouring age pages + calculator.
   const others = SALARY_AGE_ANCHORS.filter((a) => a !== age).slice(0, 3);
@@ -573,7 +586,7 @@ function renderAgePage(opts: {
     national,
     faqs: L.age.faq(age, medianFmt),
     ctaLine: L.age.ctaLine,
-    alternates: hreflangLines.join('\n'),
+    alternates,
     dateStamp,
     distDir,
     relatedLinks: related,
@@ -585,8 +598,10 @@ function renderEducationPage(opts: {
   eduId: SalaryEducationId;
   dateStamp: string;
   distDir?: string;
+  /** Same contract as {@link renderAgePage}, per education level (#5114). */
+  eligibleLocales?: ReadonlySet<string>;
 }): RenderResult {
-  const { locale, eduId, dateStamp, distDir } = opts;
+  const { locale, eduId, dateStamp, distDir, eligibleLocales = new Set<string>() } = opts;
   const ds = loadDataset();
   const L = COPY[locale];
   const level = ds.educationLevels.find((e) => e.id === eduId);
@@ -598,12 +613,11 @@ function renderEducationPage(opts: {
   const levelName = level.name[locale];
 
   const urlPath = buildSalaryEducationLandingPath(locale, eduId);
-  const hreflangLines = SALARY_LOCALES.map(
-    (alt) => `    <link rel="alternate" hreflang="${alt}" href="${BASE_URL}${buildSalaryEducationLandingPath(alt, eduId)}">`,
-  );
-  hreflangLines.push(
-    `    <link rel="alternate" hreflang="x-default" href="${BASE_URL}${buildSalaryEducationLandingPath('it', eduId)}">`,
-  );
+  const alternates = buildLocaleAlternateBlock({
+    eligibleLocales,
+    hrefFor: (alt) => `${BASE_URL}${buildSalaryEducationLandingPath(alt as SalaryLocale, eduId)}`,
+    indent: '    ',
+  });
 
   const others = SALARY_EDUCATION_IDS.filter((e) => e !== eduId).slice(0, 3);
   const related = others.map((e) => {
@@ -624,7 +638,7 @@ function renderEducationPage(opts: {
     national,
     faqs: L.edu.faq(levelName, medianFmt),
     ctaLine: L.edu.ctaLine,
-    alternates: hreflangLines.join('\n'),
+    alternates,
     dateStamp,
     distDir,
     relatedLinks: related,
@@ -720,20 +734,48 @@ export function bfsSalaryLandingsPlugin(rootDir: string): Plugin {
 
       // Age pages
       for (const age of SALARY_AGE_ANCHORS) {
-        const altLinks = SALARY_LOCALES.map((alt) => `${alt}|${BASE_URL}${buildSalaryAgeLandingPath(alt, age)}`);
-        altLinks.push(`x-default|${BASE_URL}${buildSalaryAgeLandingPath('it', age)}`);
+        // Pass 1: which locales clear the indexability floor for THIS anchor?
+        // The floor is per (anchor, locale), so it can drop DE while keeping
+        // IT; settling it before any page is written is what makes it
+        // impossible to advertise a page nothing writes (#5114). `wordCount`
+        // is derived from the body alone, so the empty hreflang block this
+        // pass renders with does not perturb it.
+        const eligibleLocales = new Set<string>(
+          SALARY_LOCALES.filter(
+            (alt) => renderAgePage({ locale: alt, age, dateStamp, distDir }).wordCount >= MIN_INDEXABLE_WORDS,
+          ),
+        );
+        // Sitemap alternates track the same set: an ineligible locale has no
+        // page, so advertising it would point the crawler at a 404.
+        const altLinks = SALARY_LOCALES.filter((alt) => eligibleLocales.has(alt)).map(
+          (alt) => `${alt}|${BASE_URL}${buildSalaryAgeLandingPath(alt, age)}`,
+        );
+        if (eligibleLocales.has('it')) {
+          altLinks.push(`x-default|${BASE_URL}${buildSalaryAgeLandingPath('it', age)}`);
+        }
         let itWritten = false;
+        // Pass 2: render for real, with the settled alternate set.
         for (const locale of SALARY_LOCALES) {
-          emit(renderAgePage({ locale, age, dateStamp, distDir }), altLinks, locale === 'it', () => itWritten, () => { itWritten = true; });
+          emit(renderAgePage({ locale, age, dateStamp, distDir, eligibleLocales }), altLinks, locale === 'it', () => itWritten, () => { itWritten = true; });
         }
       }
       // Education pages
       for (const eduId of SALARY_EDUCATION_IDS) {
-        const altLinks = SALARY_LOCALES.map((alt) => `${alt}|${BASE_URL}${buildSalaryEducationLandingPath(alt, eduId)}`);
-        altLinks.push(`x-default|${BASE_URL}${buildSalaryEducationLandingPath('it', eduId)}`);
+        // Same two-pass shape as the age loop above, per education level (#5114).
+        const eligibleLocales = new Set<string>(
+          SALARY_LOCALES.filter(
+            (alt) => renderEducationPage({ locale: alt, eduId, dateStamp, distDir }).wordCount >= MIN_INDEXABLE_WORDS,
+          ),
+        );
+        const altLinks = SALARY_LOCALES.filter((alt) => eligibleLocales.has(alt)).map(
+          (alt) => `${alt}|${BASE_URL}${buildSalaryEducationLandingPath(alt, eduId)}`,
+        );
+        if (eligibleLocales.has('it')) {
+          altLinks.push(`x-default|${BASE_URL}${buildSalaryEducationLandingPath('it', eduId)}`);
+        }
         let itWritten = false;
         for (const locale of SALARY_LOCALES) {
-          emit(renderEducationPage({ locale, eduId, dateStamp, distDir }), altLinks, locale === 'it', () => itWritten, () => { itWritten = true; });
+          emit(renderEducationPage({ locale, eduId, dateStamp, distDir, eligibleLocales }), altLinks, locale === 'it', () => itWritten, () => { itWritten = true; });
         }
       }
 

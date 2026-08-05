@@ -21,6 +21,40 @@ name: Post-deploy Publish (side-effects + mark good)
 #
 # Inputs match validate-live (deploy_run_id + deploy_event_name).
 on:
+  # Manual recovery path (issue #5128). `publish` was skipped for 18
+  # consecutive runs, so every URL that went live in that window was never
+  # announced. Without a dispatch trigger the ONLY way to drain that backlog
+  # was to wait for the next green deploy — this lets an operator run the
+  # side-effects directly against a known-good build run.
+  #
+  # Safe to re-run: `submit-indexnow.js` is sitemap-driven and submits the
+  # FULL current URL set (no diff against a snapshot), so one run recovers the
+  # whole backlog rather than just the last deploy's delta; IndexNow is a ping
+  # and duplicates are harmless. `submit-google-indexing*.js` are quota-capped
+  # and deduped by the daily tracker cache. The winners sync is a git
+  # commit+push that no-ops when nothing changed.
+  #
+  # `deploy_event_name` defaults to `recovery` ON PURPOSE: the LinkedIn,
+  # Reddit and live-article-metadata steps below fire only on the literal
+  # 'workflow_dispatch', so the default drains the indexing backlog WITHOUT
+  # re-posting socials that already went out. Pass 'workflow_dispatch'
+  # explicitly only when you do want the article announcement re-sent.
+  workflow_dispatch:
+    inputs:
+      deploy_run_id:
+        description: 'Run ID of the BUILD run whose artifacts to publish (sitemaps, jobs.json, winners).'
+        required: true
+        type: string
+      deploy_event_name:
+        description: "Leave as 'recovery' to skip LinkedIn/Reddit re-posting. Use 'workflow_dispatch' only to re-send the article announcement."
+        required: false
+        type: string
+        default: 'recovery'
+      deploy_ref:
+        description: 'Commit SHA of the build. Empty = checkout the default branch.'
+        required: false
+        type: string
+        default: ''
   workflow_call:
     inputs:
       deploy_run_id:

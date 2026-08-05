@@ -50,6 +50,7 @@ import type { Plugin } from 'vite';
 const __dirname_col_plugin = np.dirname(fileURLToPath(import.meta.url));
 import { BASE_URL, MIN_INDEXABLE_WORDS, countHtmlBodyWords } from './constants';
 import { buildSeoPageHtml } from './shared/seoPageShell';
+import { buildLocaleAlternateBlock } from './shared/localeAlternateBlock';
 import { endOfContentMultiplexHtml } from './lib/adSlotHtml';
 import { formatUpdatedDate } from './shared/humanDate';
 import { WriteCollector } from './batchWrite';
@@ -265,8 +266,19 @@ function renderPage(opts: {
   dateStamp: string;
   distDir?: string;
   snapshot: CityJobsSnapshot;
+  /**
+   * Locales whose page for THIS city the build will actually write. The
+   * `MIN_INDEXABLE_WORDS` floor below is evaluated per locale, so it can drop
+   * DE while keeping IT — and an hreflang block built from the full
+   * `COL_LOCALES` list would then advertise a page nothing wrote (the #5114
+   * class). Pass 1 of the caller's two-pass render supplies the default empty
+   * set: it only needs `wordCount`, computed from the body and thus
+   * independent of the hreflang block.
+   */
+  eligibleLocales?: ReadonlySet<string>;
 }): RenderResult {
   const { locale, city, dateStamp, distDir, snapshot } = opts;
+  const eligibleLocales = opts.eligibleLocales ?? new Set<string>();
   const L = getLocaleStrings(locale);
   const cityName = COL_CITY_DISPLAY[city][locale];
   const geo = COL_CITY_GEO[city];
@@ -278,15 +290,15 @@ function renderPage(opts: {
   const description = L.description(cityName, pairedProvince);
   const h1 = differentiateH1FromTitle(L.h1(cityName), title, locale);
 
-  // Hreflang — 4 locales + x-default (IT canonical).
-  const hreflangLines = COL_LOCALES.map(
-    (alt) =>
-      `    <link rel="alternate" hreflang="${alt}" href="${BASE_URL}${buildCostOfLivingLandingPath(alt, city)}">`,
-  );
-  hreflangLines.push(
-    `    <link rel="alternate" hreflang="x-default" href="${BASE_URL}${buildCostOfLivingLandingPath('it', city)}">`,
-  );
-  const alternates = hreflangLines.join('\n');
+  // Hreflang — 4 locales + x-default (IT canonical), emitted only when every
+  // locale's page for this city is actually written this build; otherwise
+  // nothing, since a partial set trades audit-hreflang's [missingTarget] for
+  // [tooFew] (#5114).
+  const alternates = buildLocaleAlternateBlock({
+    eligibleLocales,
+    hrefFor: (alt) => `${BASE_URL}${buildCostOfLivingLandingPath(alt, city)}`,
+    indent: '    ',
+  });
 
   // Breadcrumbs
   const homeUrl = locale === 'it' ? `${BASE_URL}/` : `${BASE_URL}/${locale}/`;
@@ -726,13 +738,38 @@ export function costOfLivingLandingsPlugin(rootDir: string): Plugin {
       let thinSkipped = 0;
 
       for (const city of COL_CITY_IDS) {
-        const altLinks = COL_LOCALES.map(
+        // ── Pass 1: which locales clear the indexability floor for this city? ─
+        // The floor is per-locale AND per-city, so it can drop DE while keeping
+        // IT on the same city. Settling the set BEFORE any page is rendered for
+        // real is what makes it impossible to advertise a landing that never
+        // gets written (#5114 class). `wordCount` is derived from the body
+        // alone, so this pass is unaffected by the empty hreflang block it
+        // renders with.
+        const eligibleLocales = new Set<string>(
+          COL_LOCALES.filter(
+            (alt) =>
+              renderPage({
+                locale: alt,
+                city,
+                dateStamp,
+                distDir,
+                snapshot: snapshots[city],
+              }).wordCount >= MIN_INDEXABLE_WORDS,
+          ),
+        );
+
+        // Sitemap alternates track the same set: an ineligible locale has no
+        // page, so advertising it would point the crawler at a 404.
+        const altLinks = COL_LOCALES.filter((alt) => eligibleLocales.has(alt)).map(
           (alt) => `${alt}|${BASE_URL}${buildCostOfLivingLandingPath(alt, city)}`,
         );
-        altLinks.push(`x-default|${BASE_URL}${buildCostOfLivingLandingPath('it', city)}`);
+        if (eligibleLocales.has('it')) {
+          altLinks.push(`x-default|${BASE_URL}${buildCostOfLivingLandingPath('it', city)}`);
+        }
 
         let itWasWritten = false;
 
+        // ── Pass 2: render for real, with the settled alternate set ─────────
         for (const locale of COL_LOCALES) {
           const rendered = renderPage({
             locale,
@@ -740,6 +777,7 @@ export function costOfLivingLandingsPlugin(rootDir: string): Plugin {
             dateStamp,
             distDir,
             snapshot: snapshots[city],
+            eligibleLocales,
           });
 
           if (rendered.wordCount < MIN_INDEXABLE_WORDS) {

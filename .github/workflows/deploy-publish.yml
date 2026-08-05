@@ -316,12 +316,45 @@ jobs:
 
   # ───────────────────────────────────────────────────────────────────────
   # publish: post-deploy side effects (IndexNow, Google Indexing API, GSC,
-  # previous-slug-winners sync, LinkedIn/Reddit article posting). Runs only
-  # after both validators pass.
+  # previous-slug-winners sync, LinkedIn/Reddit article posting).
+  #
+  # Gated on the deploy being LIVE and VALID — not on every quality audit
+  # being green (issues #4828, #5114, #5128).
+  #
+  # What changed and why. This used to require
+  # `needs.validate-dist.result == 'success'`. `validate-dist` bundles
+  # dist-integrity gates (sitemap validity, dotfile-html, SPA bundle
+  # injection) together with SEO quality audits (hreflang, title length,
+  # text/html ratio, BFS depth). One red quality audit therefore sequestered
+  # every indexing notification: `audit:hreflang` failed on 22 offenders and
+  # `publish` went `skipped` for 18 consecutive runs — from 2026-08-03 nothing
+  # told Google, Bing or GSC that any new page existed, while the site was
+  # live and updated the whole time (`build-id.txt` confirmed it).
+  #
+  # That coupling was not doing what its comment claimed. `validate-dist` runs
+  # in PARALLEL with `deploy` (see its header above), so when it turns red the
+  # dist is already published; and this workflow wires NO rollback to it. The
+  # historical rationale in post-deploy-publish.yml — "don't announce URLs a
+  # rollback is about to revert" — describes a mechanism that does not exist
+  # in this caller. What was left was: a page with a broken hreflang stays
+  # live AND unannounced, which is strictly worse for that page than
+  # announcing it.
+  #
+  # `integrity_ok` is the reusable workflow's classification of its own red
+  # state, computed by scripts/ci/classify-validate-dist-failures.mjs on a
+  # DEFAULT-DENY list: anything not explicitly a quality gate blocks, and an
+  # unknown/unavailable verdict fails closed (empty ⇒ `== 'true'` is false ⇒
+  # skipped, exactly as before). This is NOT `continue-on-error`: no gate is
+  # widened or downgraded (AGENTS.md non-negotiables #1, #2), `validate-dist`
+  # still reports FAILURE, this workflow still goes red, and
+  # `validate-dist-report` still opens the tracking issue.
+  #
+  # `validate-live` stays a HARD requirement: if the new dist is not actually
+  # serving, submitting its URLs is wrong.
   # ───────────────────────────────────────────────────────────────────────
   publish:
     needs: [deploy, validate-dist, validate-live]
-    if: ${{ !cancelled() && needs.deploy.result == 'success' && needs.validate-dist.result == 'success' && needs.validate-live.result == 'success' }}
+    if: ${{ !cancelled() && needs.deploy.result == 'success' && needs.validate-live.result == 'success' && needs.validate-dist.outputs.integrity_ok == 'true' }}
     uses: ./.github/workflows/post-deploy-publish.yml
     with:
       deploy_run_id: ${{ github.event.workflow_run.id }}
