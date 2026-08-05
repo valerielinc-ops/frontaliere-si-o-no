@@ -874,6 +874,7 @@ const frCore: Record<string, string> = {
  'jobAlert.zone': 'Zone',
  'jobAlert.contractType': 'Type de contrat',
  'jobAlert.frequency': 'Fréquence',
+  'jobAlert.immediate': 'Immédiate',
  'jobAlert.daily': 'Quotidienne',
  'jobAlert.weekly': 'Hebdomadaire',
  'jobAlert.frequencyCreateHint': 'Vous pourrez passer en automatique (la fréquence s\'adapte à vos ouvertures/clics) après la création.',

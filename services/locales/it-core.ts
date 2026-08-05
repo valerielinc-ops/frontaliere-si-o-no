@@ -911,6 +911,7 @@ const translations: Record<string, string> = {
  'jobAlert.zone': 'Zona',
  'jobAlert.contractType': 'Tipo contratto',
  'jobAlert.frequency': 'Frequenza',
+  'jobAlert.immediate': 'Immediata',
  'jobAlert.daily': 'Giornaliera',
  'jobAlert.weekly': 'Settimanale',
  'jobAlert.frequencyCreateHint': 'Potrai passare ad automatico (la cadenza si adatta a quanto apri o clicchi) dopo la creazione.',

@@ -871,6 +871,7 @@ const enCore: Record<string, string> = {
  'jobAlert.zone': 'Area',
  'jobAlert.contractType': 'Contract type',
  'jobAlert.frequency': 'Frequency',
+  'jobAlert.immediate': 'Immediate',
  'jobAlert.daily': 'Daily',
  'jobAlert.weekly': 'Weekly',
  'jobAlert.frequencyCreateHint': 'You can switch to automatic (cadence adapts to how much you open or click) after creating it.',

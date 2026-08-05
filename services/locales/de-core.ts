@@ -874,6 +874,7 @@ const deCore: Record<string, string> = {
  'jobAlert.zone': 'Gebiet',
  'jobAlert.contractType': 'Vertragsart',
  'jobAlert.frequency': 'Häufigkeit',
+  'jobAlert.immediate': 'Sofort',
  'jobAlert.daily': 'Täglich',
  'jobAlert.weekly': 'Wöchentlich',
  'jobAlert.frequencyCreateHint': 'Du kannst nach dem Erstellen auf automatisch umschalten (Häufigkeit passt sich an, wie oft du öffnest oder klickst).',

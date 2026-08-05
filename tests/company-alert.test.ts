@@ -569,6 +569,23 @@ describe('token-mode Cloud Function accepts the immediate cadence (#5012 phase 2
       expect(ui, `missing ${label}`).toContain(`frequencyImmediate: '${label}'`);
     }
   });
+
+  it('the in-app alert manager does not mislabel or silently downgrade it', () => {
+    // Sibling of the formatFrequency fix above, surfaced by the
+    // sibling-patterns gate and genuine: JobAlertForm rendered the cadence as
+    // a `daily ? … : weekly` BINARY, so every immediate CompanyAlert read
+    // "Settimanale". Worse, its <select> had no `immediate` option, so the
+    // control showed no selection and the first interaction rewrote a followed
+    // employer onto the digest — a downgrade the user never asked for.
+    const form = readRepoFile('components/community/JobAlertForm.tsx');
+    expect(form).toContain("alert.frequency === 'immediate'");
+    expect(form).toContain('<option value="immediate">');
+    expect(form.includes("alert.frequency === 'daily' ? (t('jobAlert.daily')")).toBe(false);
+    for (const [loc, label] of [['it', 'Immediata'], ['en', 'Immediate'], ['de', 'Sofort'], ['fr', 'Immédiate']] as const) {
+      expect(readRepoFile(`services/locales/${loc}-core.ts`), `${loc} missing jobAlert.immediate`)
+        .toContain(`'jobAlert.immediate': '${label}'`);
+    }
+  });
 });
 
 describe('anonymous capture + double opt-in (#5012 phase 2)', () => {
