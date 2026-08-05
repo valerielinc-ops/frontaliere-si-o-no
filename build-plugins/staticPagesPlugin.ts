@@ -8,7 +8,7 @@
  */
 
 import type { Plugin } from 'vite';
-import { BASE_URL, ANALYTICS_SNIPPET, OFFERWALL_FC_SNIPPET, DARK_MODE_SCRIPT, SEO_STATIC_CSS_LINK, SEO_STATIC_CSS_FILENAME, CDN_PRECONNECT_HINT } from './constants';
+import { BASE_URL, ANALYTICS_SNIPPET, OFFERWALL_FC_SNIPPET, DARK_MODE_SCRIPT, SEO_STATIC_CSS_LINK, SEO_STATIC_CSS_FILENAME, CDN_PRECONNECT_HINT, ROBOTS_INDEX_ENHANCED_CONTENT } from './constants';
 import { asyncCssLink, rootShell, ASYNC_CSS_FALLBACK_SCRIPT } from './htmlTemplate';
 import { WriteCollector } from './batchWrite';
 import { resolveSpaBundle } from './spaBundleResolver';
@@ -4827,7 +4827,7 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  <meta name="viewport" content="width=device-width, initial-scale=1.0">
  ${CDN_PRECONNECT_HINT ? `${CDN_PRECONNECT_HINT}\n ` : ''}<title>${esc(capTitle70(seoData.title))}</title>
  <meta name="description" content="${esc(clampMetaDescription(seoData.desc))}">
- <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+ <meta name="robots" content="${ROBOTS_INDEX_ENHANCED_CONTENT}">
  <link rel="canonical" href="${fullUrl}">
  <meta property="og:type" content="website">
  <meta property="og:url" content="${fullUrl}">
@@ -4971,7 +4971,7 @@ ${hubChromeSplit.bodyHtml}
  <meta name="viewport" content="width=device-width, initial-scale=1.0">
  ${CDN_PRECONNECT_HINT ? `${CDN_PRECONNECT_HINT}\n ` : ''}<title>${esc(capTitle70(seoData.title))}</title>
  <meta name="description" content="${esc(clampMetaDescription(seoData.desc))}">
- <meta name="robots" content="${NOINDEX_CANONICAL_PATHS.has(canonicalPath) ? 'noindex, nofollow' : 'index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1'}">
+ <meta name="robots" content="${NOINDEX_CANONICAL_PATHS.has(canonicalPath) ? 'noindex, nofollow' : ROBOTS_INDEX_ENHANCED_CONTENT}">
  <link rel="canonical" href="${fullUrl}">
  <meta property="og:type" content="website">
  <meta property="og:url" content="${fullUrl}">
@@ -5012,7 +5012,7 @@ ${hrefTags}
  <meta name="viewport" content="width=device-width, initial-scale=1.0">
  ${CDN_PRECONNECT_HINT ? `${CDN_PRECONNECT_HINT}\n ` : ''}<title>${esc(capTitle70(seoData.title))}</title>
  <meta name="description" content="${esc(clampMetaDescription(seoData.desc))}">
- <meta name="robots" content="${NOINDEX_CANONICAL_PATHS.has(canonicalPath) ? 'noindex, nofollow' : 'index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1'}">
+ <meta name="robots" content="${NOINDEX_CANONICAL_PATHS.has(canonicalPath) ? 'noindex, nofollow' : ROBOTS_INDEX_ENHANCED_CONTENT}">
  <link rel="canonical" href="${fullUrl}">
  <meta property="og:type" content="website">
  <meta property="og:url" content="${fullUrl}">

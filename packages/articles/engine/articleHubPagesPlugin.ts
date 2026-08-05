@@ -61,6 +61,7 @@ import { getSiteShell, type ArticleLocale } from './siteShell';
 import { ARTICLE_SECTIONS, type ArticleSection } from '../articleSections';
 import { readArticleArchiveUnionSlugs } from './shared/articleArchiveUnion';
 import { readArticleSlugs, readBlogUrlSlugs } from './shared/articleReaders';
+import { ARTICLE_ROBOTS_INDEX_ENHANCED } from './shared/robotsDirective';
 
 /** Alias kept so the extracted bodies below read exactly as they did upstream. */
 type HubLocale = ArticleLocale;
@@ -748,7 +749,7 @@ function buildHtml(args: BuildHtmlArgs): string {
     <meta name="viewport" content="width=device-width,initial-scale=1">
     ${CDN_PRECONNECT_HINT ? `${CDN_PRECONNECT_HINT}\n    ` : ''}<title>${esc(pageTitle)}</title>
     <meta name="description" content="${esc(clampMetaDescription(description))}">
-    <meta name="robots" content="index,follow">
+    <meta name="robots" content="${ARTICLE_ROBOTS_INDEX_ENHANCED}">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Frontaliere Ticino">
     <meta property="og:locale" content="${LOCALE_OG[locale]}">

@@ -224,7 +224,8 @@ describe('related search cluster SEO shell', () => {
       ],
     });
 
-    expect(page.html).toMatch(/<meta name="?robots"? content="?index,follow"?/);
+    expect(page.html).toMatch(/<meta name="?robots"? content="?index, follow/);
+    expect(page.html).toContain('max-image-preview:large');
     expect(page.html).toMatch(/<link rel="?canonical"? href="https:\/\/frontaliereticino\.ch\/cerca-lavoro-ticino\/ricerca-data-analyst-lugano\/"/);
     expect(page.html).toMatch(/hreflang="?x-default"?/);
     expect(page.html).toContain('<script type="application/ld+json">');
@@ -311,7 +312,8 @@ describe('below-floor bridge floor decision (issue #4303 item 4 / run 2963670705
       related: [],
     });
 
-    expect(page.html).toMatch(/<meta name="?robots"? content="?index,follow"?/);
+    expect(page.html).toMatch(/<meta name="?robots"? content="?index, follow/);
+    expect(page.html).toContain('max-image-preview:large');
     expect(page.html).toContain(`<link rel=canonical href="${page.loc}"`);
   });
 });

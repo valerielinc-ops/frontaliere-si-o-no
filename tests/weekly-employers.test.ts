@@ -474,7 +474,8 @@ describe('renderWeeklyEmployersPage', () => {
       indexable: true,
     });
     expect(html).toMatch(/Dati iniziali/);
-    expect(html).toContain('index,follow');
+    expect(html).toContain('max-image-preview:large');
+    expect(html).not.toContain('noindex');
   });
 
   it('emits noindex,follow on old archive pages', () => {

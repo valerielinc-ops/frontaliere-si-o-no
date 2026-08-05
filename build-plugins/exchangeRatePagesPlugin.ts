@@ -25,7 +25,7 @@
 import type { Plugin } from 'vite';
 import fs from 'node:fs';
 import np from 'node:path';
-import { BASE_URL, MIN_INDEXABLE_WORDS, countHtmlBodyWords } from './constants';
+import { BASE_URL, MIN_INDEXABLE_WORDS, countHtmlBodyWords, replaceRobotsMeta } from './constants';
 import { buildSeoPageHtml } from './shared/seoPageShell';
 import { endOfContentMultiplexHtml } from './lib/adSlotHtml';
 import { buildDayStampIso } from './shared/buildDayStamp';
@@ -1418,10 +1418,11 @@ export function exchangeRatePagesPlugin(rootDir: string): Plugin {
           // Non-Negotiable #4: never let thin content go out indexable.
           thin += 1;
           console.warn(`[exchange-ssg] ${page.relPath} below ${MIN_INDEXABLE_WORDS} words (${words}) — noindex applied`);
-          const noindexed = page.html.replace(
-            /<meta name="robots" content="index,follow"/,
-            '<meta name="robots" content="noindex,follow"',
-          );
+          // Match the robots tag by NAME, not by its indexable `content` value:
+          // the shell's indexable directive is normalised centrally now, and a
+          // value-coupled regex would silently stop matching and let a thin
+          // page ship indexable (Non-Negotiable #4).
+          const noindexed = replaceRobotsMeta(page.html, 'noindex,follow');
           collector.add(np.join(distDir, page.relPath.replace(/^\/+/, ''), 'index.html'), noindexed);
           continue;
         }
