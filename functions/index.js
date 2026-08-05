@@ -482,6 +482,16 @@ export const newsletterManageSubscription = onRequest(
  const frequency = params.frequency;
  const frequencyOverride = params.frequency_override;
  const active = params.active;
+ // Same inert-field class as the CompanyAlert pin below (#5012):
+ // handleSubscriptionManagement has accepted `paused` since the #4298
+ // follow-up and services/newsletterSubscribers.ts's updateJobAlert has been
+ // sending `paused=…` on the query string, but this entrypoint never read it —
+ // so every pause/resume from /preferenze-newsletter/ was silently dropped.
+ const paused = params.paused;
+ // Pinned scope (#5012): CompanyAlert subscriptions created/managed from the
+ // /preferenze-newsletter/ token link.
+ const specificCompanyKey = params.specific_company_key;
+ const specificJobId = params.specific_job_id;
 
  try {
  const { newsletterSecret } = await getNewsletterSecrets();
@@ -499,6 +509,9 @@ export const newsletterManageSubscription = onRequest(
  frequency,
  frequencyOverride,
  active,
+ paused,
+ specificCompanyKey,
+ specificJobId,
  });
 
  // exchange_auth_code always returns JSON (no HTML page)

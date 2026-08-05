@@ -22,6 +22,7 @@
  */
 
 import type { Locale } from './i18n';
+import { baseCompanySlug } from '@/build-plugins/shared/companyProfileSlug.mjs';
 
 export interface EmployerBenefit {
   /** Short label, e.g. "Formazione continua" */
@@ -1469,23 +1470,10 @@ export const EMPLOYER_BRANDS: Readonly<Record<string, EmployerBrand>> = {
  * keeping the registry usable from both client components and build plugins.
  */
 export function canonicalEmployerBrandKey(company: string, companyKey?: string): string {
-  const norm = (s: string): string =>
-    String(s || '')
-      .toLowerCase()
-      .normalize('NFD')
-      .replace(/[\u0300-\u036f]/g, '')
-      .replace(/[^a-z0-9]+/g, ' ')
-      .trim();
-  const keyNorm = norm(String(companyKey || ''));
-  const nameNorm = norm(String(company || ''));
-  if (keyNorm.includes('lidl') || nameNorm.includes('lidl')) return 'lidl';
-  return String(company || '')
-    .toLowerCase()
-    .normalize('NFD')
-    .replace(/[\u0300-\u036f]/g, '')
-    .replace(/[^a-z0-9]+/g, '-')
-    .replace(/^-+|-+$/g, '')
-    .trim();
+  // Delegates to the ONE shared implementation (#5012, Non-Negotiable #6) —
+  // this was one of four byte-identical copies. No brand-alias fold here: the
+  // brand registry keys on the raw slug.
+  return baseCompanySlug(String(company || ''), String(companyKey || ''));
 }
 
 export function getEmployerBrandBySlug(slug: string): EmployerBrand | null {

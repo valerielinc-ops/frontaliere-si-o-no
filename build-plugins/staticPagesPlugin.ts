@@ -65,6 +65,7 @@ import { borderCrossingLabel, buildBorderCrossingTitle, buildBorderCrossingDescr
 import { differentiateH1FromTitle } from './shared/seoContentTokens';
 import { inlineScriptJson } from './shared/inlineJsonScript';
 import { ARTICLE_SECTION_DESCRIPTORS } from './shared/articleSectionDescriptors';
+import { baseCompanySlug } from './shared/companyProfileSlug.mjs';
 import { readAllKnownJobSlugs } from '../scripts/lib/all-known-job-slugs-store.mjs';
 import {
   parseAnnotatedSitemapUrls,
@@ -1544,9 +1545,11 @@ export function staticPagesPlugin(rootDir: string): Plugin {
          const co = String((j as { company?: string }).company || '').trim();
          if (!co) continue;
          const coKey = String((j as { companyKey?: string }).companyKey || '').trim();
-         const slug = (co.toLowerCase().includes('lidl') || coKey.toLowerCase().includes('lidl'))
-           ? 'lidl'
-           : co.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+         // Delegates to the shared normalisation (#5012 review). The comment above says this
+         // slug MUST mirror the emitter's and the router's — and it now literally does,
+         // instead of being a third hand-written copy kept in step by hand. That is what the
+         // "burkhalter-group" 404 above cost when the mirror was only a promise.
+         const slug = baseCompanySlug(co, coKey);
          if (!slug || slug.length < 2) continue;
          const cur = companyCounts.get(slug);
          if (cur) cur.count++;
