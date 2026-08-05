@@ -1855,6 +1855,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.democrazia-diretta-svizzera-guida.title': 'Federal votes Switzerland: how they work and rules',
     'blog.article.democrazia-diretta-svizzera-guida.excerpt': 'A complete guide to Swiss direct democracy: popular initiatives, referendums and a double majority of the people and cantons.',
     'blog.article.democrazia-diretta-svizzera-guida.imageAlt': 'The Federal Palace in Bern home of Swiss direct democracy',
+    'blog.article.democrazia-diretta-e-votazioni-federali.title': 'Federal Voting Switzerland: How the Laws Work',
+    'blog.article.democrazia-diretta-e-votazioni-federali.excerpt': 'A complete guide to Swiss direct democracy: popular initiatives, referendums and a double majority of the people and cantons.',
+    'blog.article.democrazia-diretta-e-votazioni-federali.imageAlt': 'Federal Palace in Bern seat of Swiss votes and democracy',
 };
 
 export default blogMetaChEn;
