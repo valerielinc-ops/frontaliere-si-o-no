@@ -12,10 +12,18 @@
  * `content-mismatch: 445753` — 99.967 % of the shared paths. The check has
  * therefore verified nothing for two months.
  *
- * `--deploy-artifact-perimeter` normalises BOTH sides. These tests pin the two
+ * `scripts/offload-generated-images-cdn.mjs` also INJECTS an inline
+ * `<script>window.__CDN_DATA_BASE__="…"</script>` (+ an optional
+ * `<link rel="preconnect">`/`dns-prefetch` hint pair) right after `<head>` in
+ * every HTML page — unconditionally, not gated on the URL rewrite happening.
+ * That tag does not exist in a raw `dist/` at all, so undoing the URL rewrite
+ * alone still leaves every HTML page mismatching.
+ *
+ * `--deploy-artifact-perimeter` normalises BOTH sides. These tests pin the
  * properties the fix depends on:
- *   1. a CDN-rewritten page hashes IDENTICALLY to its same-origin original
- *      (this is what collapses the 445753 mismatches);
+ *   1. a CDN-rewritten + data-base-injected page hashes IDENTICALLY to its
+ *      same-origin, non-injected original (this is what collapses the 445753
+ *      mismatches);
  *   2. the offloaded trees are skipped, at the dist root AND under a locale
  *      prefix (`en/data/…`);
  *   3. the offload perimeter is read from the canonical constant and FAILS LOUD
@@ -31,6 +39,8 @@ import path from 'node:path';
 const ROOT = path.resolve(__dirname, '..');
 const SCRIPT = path.join(ROOT, 'scripts', 'ci', 'dist-hash-manifest.mjs');
 const CDN = 'https://cdn.frontaliereticino.ch';
+const DATA_CDN_ORIGIN = 'https://valerielinc-ops.github.io';
+const DATA_CDN_BASE = `${DATA_CDN_ORIGIN}/frontaliere-cdn`;
 
 let distDir = '';
 let outDir = '';
@@ -60,11 +70,26 @@ beforeAll(() => {
   fs.mkdirSync(distDir, { recursive: true });
   fs.mkdirSync(outDir, { recursive: true });
 
-  // The SAME page, as the build emits it and as the deploy rewrites it.
-  const page = (base: string) =>
-    `<!doctype html><html><body><img src="${base}/og/card.png"><script src="${base}/assets/app.js"></script></body></html>`;
-  write('same-origin/index.html', page(''));
-  write('rewritten/index.html', page(CDN));
+  // The SAME page, as the build emits it and as the deploy rewrites + injects it.
+  const body = (base: string) =>
+    `<body><img src="${base}/og/card.png"><script src="${base}/assets/app.js"></script></body>`;
+  const inject =
+    `<link rel="preconnect" href="${DATA_CDN_ORIGIN}" crossorigin><link rel="dns-prefetch" href="${DATA_CDN_ORIGIN}">` +
+    `<script>window.__CDN_DATA_BASE__=${JSON.stringify(DATA_CDN_BASE)}</script>`;
+  write('same-origin/index.html', `<!doctype html><html><head></head>${body('')}</html>`);
+  write('rewritten/index.html', `<!doctype html><html><head>${inject}</head>${body(CDN)}</html>`);
+
+  // Idempotent inject form: a build-shipped preconnect for the SAME origin
+  // already exists, so offload-generated-images-cdn.mjs omits the hint pair and
+  // injects only the `<script>` (offload-generated-images-cdn.mjs:340-342).
+  write(
+    'rewritten-preexisting-preconnect/index.html',
+    `<!doctype html><html><head><link rel="preconnect" href="${DATA_CDN_ORIGIN}" crossorigin><script>window.__CDN_DATA_BASE__=${JSON.stringify(DATA_CDN_BASE)}</script></head>${body(CDN)}</html>`,
+  );
+  write(
+    'same-origin-preexisting-preconnect/index.html',
+    `<!doctype html><html><head><link rel="preconnect" href="${DATA_CDN_ORIGIN}" crossorigin></head>${body('')}</html>`,
+  );
 
   // Trees the deploy drops from the artifact — at the root and under a locale.
   write('assets/app.js', 'console.log(1)');
@@ -85,16 +110,23 @@ afterAll(() => {
 });
 
 describe('dist-hash-manifest --deploy-artifact-perimeter (#4894)', () => {
-  it('makes a CDN-rewritten page hash identically to its same-origin original', () => {
+  it('makes a CDN-rewritten + data-base-injected page hash identically to its same-origin original', () => {
     const plain = manifest();
     const perim = manifest('--deploy-artifact-perimeter');
 
-    // Without normalisation the deploy rewrite alone makes the two pages differ —
-    // this is the 445753-mismatch mechanism, reproduced.
+    // Without normalisation the deploy rewrite + inject alone make the two pages
+    // differ — this is the 445753-mismatch mechanism, reproduced.
     expect(plain.get('same-origin/index.html')).not.toBe(plain.get('rewritten/index.html'));
 
     // With it, they are byte-equal for comparison purposes.
     expect(perim.get('rewritten/index.html')).toBe(perim.get('same-origin/index.html'));
+  });
+
+  it('strips the idempotent inject form (pre-existing preconnect, hint pair omitted) the same way', () => {
+    const perim = manifest('--deploy-artifact-perimeter');
+    expect(perim.get('rewritten-preexisting-preconnect/index.html')).toBe(
+      perim.get('same-origin-preexisting-preconnect/index.html'),
+    );
   });
 
   it('skips every tree the deploy offloads, at the root and under a locale prefix', () => {

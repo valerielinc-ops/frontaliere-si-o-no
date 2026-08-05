@@ -24,6 +24,13 @@
  *   2. `scripts/offload-generated-images-cdn.mjs` REWRITES every same-origin
  *      `/assets/`, `/og/`, `/data/`, `/images/<prefix>/` reference in every
  *      static HTML file to `https://cdn.frontaliereticino.ch/...`.
+ *   3. The SAME script also INJECTS an inline `<script>window.__CDN_DATA_BASE__=
+ *      "…"</script>` (+ a `<link rel="preconnect">`/`dns-prefetch` pair when the
+ *      data CDN origin is new) right after `<head>` in every HTML page — always,
+ *      not gated on any rewrite happening (#1709: decoupled from `hasData` so
+ *      `cdnImageUrl()` still resolves). This tag does not exist in a raw `dist/`
+ *      at all, so it byte-diffs on essentially every HTML page even once the URL
+ *      rewrite above is undone.
  *
  * Comparing a raw `dist/` against that tree can only ever be red. Measured on
  * matrix-equivalence-check run 27749079114: `only-in-matrix: 38049` (all of
@@ -33,9 +40,11 @@
  *
  * This flag makes the comparison well-formed by applying the SAME normalisation
  * to BOTH sides (never to one):
- *   - skip the trees the deploy provably removes from the artifact, and
- *   - undo the CDN rewrite in text files before hashing, so the bytes compared
- *     are the pre-offload ones on both sides.
+ *   - skip the trees the deploy provably removes from the artifact,
+ *   - undo the CDN rewrite in text files before hashing, and
+ *   - strip the injected `__CDN_DATA_BASE__` script (+ its optional preconnect/
+ *     dns-prefetch hint pair) from HTML before hashing,
+ * so the bytes compared are the pre-offload ones on both sides.
  *
  * What stays covered: the entire page surface — every HTML page, every sitemap
  * (including the 4-locale `xhtml:link` alternates), every hreflang block, robots,
@@ -129,6 +138,15 @@ const DEPLOY_OFFLOADED = deployPerimeter ? deployOffloadedTrees() : [];
 const CDN_BASE_RX = /https:\/\/cdn\.frontaliereticino\.ch\//g;
 /** Text surfaces the offload rewrite touches. */
 const TEXT_EXT = /\.(html?|xml|txt|json)$/i;
+/**
+ * The `__CDN_DATA_BASE__` inject (scripts/offload-generated-images-cdn.mjs:326-348):
+ * an optional `<link rel="preconnect"…><link rel="dns-prefetch"…>` hint pair
+ * immediately followed by the data-base `<script>`, spliced in as one contiguous
+ * string right after `<head…>` — never on its own, never reordered. Matches both
+ * the with-hints and hints-omitted (pre-existing preconnect) forms so the raw
+ * dist HTML is recovered on the deploy side regardless of which form ran.
+ */
+const CDN_DATA_INJECT_RX = /(?:<link rel="preconnect" href="[^"]*" crossorigin><link rel="dns-prefetch" href="[^"]*">)?<script>window\.__CDN_DATA_BASE__=(?:"(?:[^"\\]|\\.)*"|'(?:[^'\\]|\\.)*')<\/script>/g;
 
 function excluded(rel) {
   if (EXCLUDE.some((re) => re.test(rel))) return true;
@@ -179,8 +197,12 @@ if (deployPerimeter) {
       continue; // vanished between walk and read — keep the bulk hash
     }
     const text = buf.toString('utf-8');
-    if (!text.includes('https://cdn.frontaliereticino.ch/')) continue;
-    const normalized = text.replace(CDN_BASE_RX, '/');
+    const hasCdnBase = text.includes('https://cdn.frontaliereticino.ch/');
+    const hasDataInject = text.includes('__CDN_DATA_BASE__');
+    if (!hasCdnBase && !hasDataInject) continue;
+    const normalized = text
+      .replace(CDN_BASE_RX, '/')
+      .replace(CDN_DATA_INJECT_RX, '');
     e.hash = createHash('sha256').update(normalized).digest('hex');
     rewritten++;
   }
@@ -199,6 +221,6 @@ console.log(`[dist-hash-manifest] ${lines.length} files hashed → ${outFile} (e
 if (deployPerimeter) {
   console.log(
     `[dist-hash-manifest] deploy-artifact perimeter ON: skipped ${DEPLOY_OFFLOADED.length} CDN-offloaded tree pattern(s); ` +
-    `un-rewrote the CDN base in ${rewritten} text file(s) before hashing`,
+    `un-rewrote the CDN base + stripped the __CDN_DATA_BASE__ inject in ${rewritten} text file(s) before hashing`,
   );
 }
