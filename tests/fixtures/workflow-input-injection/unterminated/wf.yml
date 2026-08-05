@@ -1,0 +1,12 @@
+name: fixture-unterminated
+on:
+  workflow_dispatch:
+    inputs:
+      target:
+        type: string
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Do the thing
+        run: 'node scripts/thing.mjs "${{ inputs.target "'
