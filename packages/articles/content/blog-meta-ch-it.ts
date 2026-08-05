@@ -1861,6 +1861,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.congedo-parentale-svizzera-durata.title': 'Congedo parentale svizzera durata indennita e regole',
     'blog.article.congedo-parentale-svizzera-durata.excerpt': 'Guida completa al congedo di maternità e paternità in Svizzera: durata, indennità giornaliera, contributi e quadro normativo per i lavoratori.',
     'blog.article.congedo-parentale-svizzera-durata.imageAlt': 'Vista panoramica di Lugano e del distretto finanziario svizzero',
+    'blog.article.caldo-disparita-sociali-ginevra.title': 'Ondata di calore: donne, anziani e poveri più a rischio',
+    'blog.article.caldo-disparita-sociali-ginevra.excerpt': 'Un rapporto dell\'Università di Ginevra rivela che la capacità di affrontare le ondate di calore dipende da fattori sociali, economici e abitativi.',
+    'blog.article.caldo-disparita-sociali-ginevra.imageAlt': 'Città svizzera durante una giornata estiva calda',
 };
 
 export default blogMetaChIt;

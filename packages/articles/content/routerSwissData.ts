@@ -646,6 +646,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'democrazia-diretta-svizzera-guida': { it: 'democrazia-diretta-svizzera-guida', en: 'swiss-federal-votations-how-they-work', de: 'schweizer-eidgenoessische-abstimmungen-funktionsweise', fr: 'votations-federales-suisse-fonctionnement' },
  'democrazia-diretta-e-votazioni-federali': { it: 'democrazia-diretta-e-votazioni-federali', en: 'direct-democracy-and-federal-votes', de: 'direkte-demokratie-und-bundesabstimmungen', fr: 'democratie-directe-et-votes-federaux' },
  'congedo-parentale-svizzera-durata': { it: 'congedo-parentale-svizzera-durata', en: 'parental-leave-switzerland-duration-allowance', de: 'elternzeit-schweiz-dauer-entschaedigung', fr: 'conge-parental-suisse-duree-indemnite' },
+ 'caldo-disparita-sociali-ginevra': { it: 'caldo-disparita-sociali-ginevra', en: 'heat-social-disparities-geneva', de: 'hitze-soziale-ungleichheiten-genf', fr: 'chaleur-disparites-sociales-geneve' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

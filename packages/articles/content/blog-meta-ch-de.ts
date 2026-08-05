@@ -1861,6 +1861,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.congedo-parentale-svizzera-durata.title': 'Schweizer Elternurlaub entschädigte Dauer und Regeln',
     'blog.article.congedo-parentale-svizzera-durata.excerpt': 'Vollständiger Leitfaden zum Mutterschafts- und Vaterschaftsurlaub in der Schweiz: Dauer, Taggeld, Beiträge und gesetzlicher Rahmen für Arbeitnehmer.',
     'blog.article.congedo-parentale-svizzera-durata.imageAlt': 'Panoramablick auf Lugano und das Schweizer Finanzviertel',
+    'blog.article.caldo-disparita-sociali-ginevra.title': 'Hitzewelle: Frauen, ältere und arme Menschen am stärksten gefährdet',
+    'blog.article.caldo-disparita-sociali-ginevra.excerpt': 'Ein Bericht der Universität Genf zeigt, dass die Fähigkeit, mit Hitzewellen umzugehen, von sozialen, wirtschaftlichen und Wohnfaktoren abhängt.',
+    'blog.article.caldo-disparita-sociali-ginevra.imageAlt': 'Schweizer Stadt an einem heissen Sommertag',
 };
 
 export default blogMetaChDe;
