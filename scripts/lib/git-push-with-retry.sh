@@ -70,6 +70,12 @@ git config merge.known-slugs-shard.driver 'node scripts/ci/merge-known-slugs-sha
 # of git's default line merge, which on a re-serialised sorted JSON ARRAY
 # produces duplicate records rather than bloat alone.
 git config merge.orphan-enriched-shard.driver 'node scripts/ci/merge-orphan-enriched-shard.mjs %O %A %B' || true
+# Same registration for the crawlers' AI response cache
+# (.gitattributes `merge=ai-cache`, data/jobs-ai-cache.json, issue #4248
+# follow-up): union by entry key keeping the newest observation, then re-apply
+# the byte budget. Without it git's generic array union can push the merged file
+# back over GitHub's 100 MB limit that the persist-time budget just enforced.
+git config merge.ai-cache.driver 'node scripts/ci/merge-ai-cache.mjs %O %A %B' || true
 
 # ── Clear orphaned .git/index.lock left by a crashed prior git operation ────
 # Same class of bug as scripts/lib/git-commit-data.sh (see that file's header
