@@ -157,11 +157,11 @@ jobs:
           : > /tmp/timings.txt
           : > /tmp/failures.txt
 
-          wait_slot() {
-            while (( $(jobs -rp | wc -l) >= MAX_PARALLEL )); do
-              wait -n 2>/dev/null || true
-            done
-          }
+          # Single shared implementation since #5130 — see
+          # scripts/lib/bounded-parallel.sh and the same delegation in
+          # post-deploy-validate-dist.yml.
+          source scripts/lib/bounded-parallel.sh
+          wait_slot() { bp_wait_slot "$MAX_PARALLEL"; }
 
           # `set +e` inside the subshell — see post-deploy-validation.yml
           # spawn_capped for the full rationale. Without it, GH Actions'
