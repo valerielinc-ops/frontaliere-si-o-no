@@ -9278,6 +9278,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.borsa-rotta-isola-15000-punti.title': 'Borsa su, rotta sull\'isola dei 15\'000 punti?',
     'blog.article.borsa-rotta-isola-15000-punti.excerpt': 'Nuovi massimi storici su Dow Jones e S&P-500 spingono verso il traguardo psicologico dei 15\'000 punti, induce gli analisti ad uno sguardo più sereno sul presente',
     'blog.article.borsa-rotta-isola-15000-punti.imageAlt': 'Panoramica città svizzera con grafici finanziari in vetrate, cielo sereno',
+    'blog.article.tradate-lite-ferito-trentenne.title': 'Lite davanti alla stazione di Tradate: ferito un trentenne',
+    'blog.article.tradate-lite-ferito-trentenne.excerpt': 'Una discussione tra cittadini extracomunitari è degenerata in rissa e un uomo di 30 anni è rimasto ferito.',
+    'blog.article.tradate-lite-ferito-trentenne.imageAlt': 'Una lite in una stazione ferroviaria',
 };
 
 export default blogMetaIt;
