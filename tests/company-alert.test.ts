@@ -722,12 +722,32 @@ describe('CTA on the SSG employer pages /aziende/<slug>/ (#5012 requisito 1)', (
     // drift from the matcher, silently.
     const mount = readRepoFile('components/community/CompanyFollowMount.tsx');
     expect(mount).toContain("import CompanyFollowButton from './CompanyFollowButton'");
-    expect(mount).toContain('[data-company-follow-mount]:not([data-company-follow-mounted])');
-    // createPortal APPENDS — it does not clear the container. Without this the
-    // pre-hydration skeleton stays visible under the real button.
-    expect(mount).toContain("el.innerHTML = ''");
-    // Idempotency: the MutationObserver re-scan fires on every DOM change.
-    expect(mount).toContain("el.dataset.companyFollowMounted = '1'");
+    expect(mount).toContain("attribute: 'data-company-follow-mount'");
+    expect(mount).toContain("mountedAttribute: 'data-company-follow-mounted'");
+  });
+
+  it('the scan/portal loop lives in ONE hook, shared with NewsletterMount', () => {
+    // Surfaced by the sibling-patterns gate on the island commit: the first
+    // draft re-typed NewsletterMount's scan loop. Four details in it are each a
+    // bug when forgotten — createPortal appends (skeleton stays underneath), the
+    // MutationObserver re-fires on its own mutations (infinite re-add), an SPA
+    // navigation swaps the static body (one-shot scan stops hydrating), and a
+    // re-scan must append rather than replace (portals from the previous page
+    // unmount). Non-Negotiable #6.
+    for (const rel of [
+      'components/community/CompanyFollowMount.tsx',
+      'components/community/NewsletterMount.tsx',
+    ]) {
+      const src = readRepoFile(rel);
+      expect(src, `${rel} must use the shared hook`).toContain("from '@/hooks/useHydrationIslands'");
+      expect(src.includes('new MutationObserver'), `${rel} re-implements the scan loop`).toBe(false);
+      expect(src.includes("el.innerHTML = ''"), `${rel} re-implements the container clear`).toBe(false);
+    }
+    const hook = readRepoFile('hooks/useHydrationIslands.ts');
+    expect(hook).toContain("el.innerHTML = ''");
+    expect(hook).toContain('new MutationObserver');
+    expect(hook).toContain("window.addEventListener('popstate'");
+    expect(hook).toContain('setTargets((prev) => [...prev, ...next])');
   });
 
   it('is mounted unconditionally from App.tsx, like NewsletterMount', () => {
