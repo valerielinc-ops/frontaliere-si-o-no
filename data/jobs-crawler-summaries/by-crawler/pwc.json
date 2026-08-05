@@ -1,18 +1,110 @@
 {
   "key": "pwc",
   "label": "PwC Switzerland",
-  "generatedAt": "2026-08-03T12:51:00.683Z",
-  "total": 127,
-  "newCount": 4,
-  "updatedCount": 77,
-  "removedCount": 0,
+  "generatedAt": "2026-08-04T22:30:17.026Z",
+  "total": 126,
+  "newCount": 3,
+  "updatedCount": 78,
+  "removedCount": 2,
   "unchangedCount": 10,
-  "durationMs": 3140,
-  "avgDurationMs": 3140,
+  "durationMs": 3134,
+  "avgDurationMs": 3134,
   "durationHistory": [
-    3140
+    3134
   ],
   "newJobs": [
+    {
+      "title": "Senior Associate - Controlling, Advisory Operations",
+      "slug": "senior-associate-controlling-advisory-operations-pwc-zurich",
+      "url": "https://jobs.pwc.ch/job-vacancies/senior-associate-controlling-advisory-operations/eaafb013-89b3-4c30-a38e-9b05dd6318ef",
+      "applyUrl": "https://pwc.wd3.myworkdayjobs.com/Global_Experienced_Careers/job/Zrich/Senior-Associate---Controlling--Advisory-Operations_731395WD/apply",
+      "company": "PwC Switzerland",
+      "companyKey": "pwc",
+      "companyDomain": "pwc.ch",
+      "location": "Zürich",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "canton": "ZH",
+      "country": "CH",
+      "category": "tax",
+      "sector": "Consulenza",
+      "source": "pwc-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-08-04",
+      "validThrough": "2026-09-03",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "_qualityScore": 73,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 16,
+        "completeness": 14
+      }
+    },
+    {
+      "title": "Associate - Karriereeinstieg Steuerberatung",
+      "slug": "associate-karriereeinstieg-steuerberatung-pwc-bern",
+      "url": "https://jobs.pwc.ch/job-vacancies/associate-karriereeinstieg-steuerberatung/cedacd2f-373f-436f-b99d-bf9efabb8329",
+      "applyUrl": "https://pwc.wd3.myworkdayjobs.com/Global_Campus_Careers/job/Bern/Karriereeinstieg-in-die-Steuerberatung-Bern_749882WD/apply",
+      "company": "PwC Switzerland",
+      "companyKey": "pwc",
+      "companyDomain": "pwc.ch",
+      "location": "Bern",
+      "addressLocality": "Bern",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "canton": "BE",
+      "country": "CH",
+      "category": "tax",
+      "sector": "Consulenza",
+      "source": "pwc-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-08-04",
+      "validThrough": "2026-09-02",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "_qualityScore": 73,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 16,
+        "completeness": 14
+      }
+    },
+    {
+      "title": "Praktikant:in - Steuerberatung (6 Monate)",
+      "slug": "praktikant-in-steuerberatung-6-monate-pwc-bern",
+      "url": "https://jobs.pwc.ch/job-vacancies/praktikant-in-steuerberatung-6-monate/2cda0bae-5688-4cc7-9463-8a0f0b089d88",
+      "applyUrl": "https://pwc.wd3.myworkdayjobs.com/Global_Campus_Careers/job/Bern/Praktikum-in-der-Steuerberatung-Bern_749884WD/apply",
+      "company": "PwC Switzerland",
+      "companyKey": "pwc",
+      "companyDomain": "pwc.ch",
+      "location": "Bern",
+      "addressLocality": "Bern",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "canton": "BE",
+      "country": "CH",
+      "category": "tax",
+      "sector": "Consulenza",
+      "source": "pwc-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-08-04",
+      "validThrough": "2026-09-02",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "_qualityScore": 73,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 16,
+        "completeness": 14
+      }
+    }
+  ],
+  "updatedJobs": [
     {
       "title": "(Senior) Manager - Legal Counsel (Arbeitsrecht) 80-100%",
       "slug": "senior-manager-legal-counsel-arbeitsrecht-80-100-pwc-zurich",
@@ -35,12 +127,17 @@
       "validThrough": "2036-07-30",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "_qualityScore": 75,
+      "id": "pwc-bd4e178ca41d",
+      "salaryMin": 101500,
+      "salaryMax": 154000,
+      "currency": "CHF",
+      "firstSeenAt": "2026-08-03T12:51:00.621Z",
+      "_qualityScore": 89,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 16,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 19
       }
     },
     {
@@ -65,12 +162,17 @@
       "validThrough": "2036-07-30",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "_qualityScore": 70,
+      "id": "pwc-3761b04b4355",
+      "salaryMin": 73500,
+      "salaryMax": 111500,
+      "currency": "CHF",
+      "firstSeenAt": "2026-08-03T12:51:00.621Z",
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 20,
-        "translation": 16,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 19
       }
     },
     {
@@ -95,12 +197,17 @@
       "validThrough": "2036-07-30",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "_qualityScore": 73,
+      "id": "pwc-c7323b58d928",
+      "salaryMin": 63500,
+      "salaryMax": 112500,
+      "currency": "CHF",
+      "firstSeenAt": "2026-08-03T12:51:00.621Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 19
       }
     },
     {
@@ -125,16 +232,19 @@
       "validThrough": "2036-07-30",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "_qualityScore": 73,
+      "id": "pwc-7bd352eb77a2",
+      "salaryMin": 63500,
+      "salaryMax": 112500,
+      "currency": "CHF",
+      "firstSeenAt": "2026-08-03T12:51:00.621Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 19
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "title": "Manager - Audit - Trade, Industries and Services",
       "slug": "manager-audit-trade-industries-and-services-pwc-geneva",
@@ -192,17 +302,12 @@
       "validThrough": "2036-07-26",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "id": "pwc-78cd45a3e05f",
-      "salaryMin": 69500,
-      "salaryMax": 106000,
-      "currency": "CHF",
-      "firstSeenAt": "2026-07-30T11:28:10.597Z",
-      "_qualityScore": 87,
+      "_qualityScore": 73,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 25,
-        "completeness": 19
+        "translation": 16,
+        "completeness": 14
       }
     },
     {
@@ -472,17 +577,12 @@
       "validThrough": "2036-07-16",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "id": "pwc-41c531f14a50",
-      "salaryMin": 105000,
-      "salaryMax": 167000,
-      "currency": "CHF",
-      "firstSeenAt": "2026-07-20T11:55:43.230Z",
-      "_qualityScore": 87,
+      "_qualityScore": 73,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 25,
-        "completeness": 19
+        "translation": 16,
+        "completeness": 14
       }
     },
     {
@@ -715,17 +815,12 @@
       "validThrough": "2036-06-26",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "id": "pwc-378fe9f673e4",
-      "salaryMin": 96000,
-      "salaryMax": 146000,
-      "currency": "CHF",
-      "firstSeenAt": "2026-06-30T23:00:56.592Z",
-      "_qualityScore": 87,
+      "_qualityScore": 73,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 25,
-        "completeness": 19
+        "translation": 16,
+        "completeness": 14
       }
     },
     {
@@ -750,18 +845,12 @@
       "validThrough": "2036-06-26",
       "employmentType": "part-time",
       "contractType": "part-time",
-      "id": "pwc-b99b42ece304",
-      "salaryMin": 62000,
-      "salaryMax": 94000,
-      "currency": "CHF",
-      "postalCode": "4001",
-      "firstSeenAt": "2026-06-30T11:59:24.986Z",
-      "_qualityScore": 90,
+      "_qualityScore": 73,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 25,
-        "completeness": 22
+        "translation": 16,
+        "completeness": 14
       }
     },
     {
@@ -822,17 +911,12 @@
       "validThrough": "2036-06-25",
       "employmentType": "part-time",
       "contractType": "part-time",
-      "id": "pwc-2960bacdbee1",
-      "salaryMin": 69500,
-      "salaryMax": 106000,
-      "currency": "CHF",
-      "firstSeenAt": "2026-06-29T13:41:36.881Z",
-      "_qualityScore": 87,
+      "_qualityScore": 73,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 25,
-        "completeness": 19
+        "translation": 16,
+        "completeness": 14
       }
     },
     {
@@ -1016,42 +1100,6 @@
       }
     },
     {
-      "title": "Associate - Junior Legal Counsel (Arbeitsrecht & Ethics) 80–100%",
-      "slug": "associate-junior-legal-counsel-arbeitsrecht-ethics-80-100-pwc-zurich",
-      "url": "https://jobs.pwc.ch/job-vacancies/associate-junior-legal-counsel-arbeitsrecht-ethics-80/0e8d52f6-73a9-44c6-a1c2-86df17fc25a2",
-      "applyUrl": "https://pwc.wd3.myworkdayjobs.com/Global_Experienced_Careers/job/Zrich/Associate--Junior-Legal-Counsel--Arbeitsrecht---Ethics--80-100-_724824WD/apply",
-      "company": "PwC Switzerland",
-      "companyKey": "pwc",
-      "companyDomain": "pwc.ch",
-      "location": "Zürich",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "canton": "ZH",
-      "country": "CH",
-      "category": "audit",
-      "sector": "Consulenza",
-      "source": "pwc-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-06-14",
-      "validThrough": "2036-06-11",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "id": "pwc-e83cac127dca",
-      "salaryMin": 62000,
-      "salaryMax": 94000,
-      "currency": "CHF",
-      "postalCode": "8001",
-      "firstSeenAt": "2026-06-15T15:50:02.438Z",
-      "_qualityScore": 90,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 22
-      }
-    },
-    {
       "title": "Manager - Deals Tax (Mergers and Acquisitions)",
       "slug": "manager-deals-tax-mergers-and-acquisitions-pwc-zurich",
       "url": "https://jobs.pwc.ch/job-vacancies/manager-deals-tax-mergers-and-acquisitions/cd9d166c-5e2d-4a01-b166-9fa731c0ad8d",
@@ -1086,111 +1134,82 @@
         "translation": 25,
         "completeness": 22
       }
-    },
+    }
+  ],
+  "removedJobs": [
     {
-      "title": "Assistant(e) comptabilité, payroll et conseils",
-      "slug": "assistant-e-comptabilite-payroll-et-conseils-pwc-geneva",
-      "url": "https://jobs.pwc.ch/job-vacancies/assistant-e-comptabilite-payroll-et-conseils/0a441c26-cf1b-4bf0-b1f2-764a8d21973d",
-      "applyUrl": "https://pwc.wd3.myworkdayjobs.com/Global_Campus_Careers/job/Genve/FY27---TLW---TLW-ICR-West---Genve---Associate---Start-01092026_736334WD/apply",
+      "title": "Senior Associate - Controlling, Advisory Operations",
+      "slug": "senior-associate-controllo-operazioni-advisory-pwc-switzerland-zurich",
+      "url": "https://jobs.pwc.ch/job-vacancies/senior-associate-controlling-advisory-operations/82b938ff-0601-41bd-8d06-b8c7b9b45418",
+      "applyUrl": "https://pwc.wd3.myworkdayjobs.com/Global_Experienced_Careers/job/Zrich/Senior-Associate---Controlling--Advisory-Operations_731395WD/apply",
       "company": "PwC Switzerland",
       "companyKey": "pwc",
       "companyDomain": "pwc.ch",
-      "location": "Geneva",
-      "addressLocality": "Geneva",
-      "addressRegion": "GE",
+      "location": "Zürich",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
       "addressCountry": "CH",
-      "canton": "GE",
-      "country": "CH",
-      "category": "tax",
-      "sector": "Consulenza",
-      "source": "pwc-dedicated-crawler",
-      "sourceLang": "fr",
-      "postedDate": "2026-06-12",
-      "validThrough": "2036-06-08",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "id": "pwc-2b155b4fa5d1",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "currency": "CHF",
-      "postalCode": "1204",
-      "firstSeenAt": "2026-06-12T12:47:25.729Z",
-      "_qualityScore": 90,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 22
-      }
-    },
-    {
-      "title": "Senior Associate - Audit - Financial Services (Asset Management)",
-      "slug": "senior-associate-audit-financial-services-asset-management-pwc-geneva",
-      "url": "https://jobs.pwc.ch/job-vacancies/senior-associate-audit-financial-services-asset-management/1779feab-c628-4f05-b8d0-97f71eba98e3",
-      "applyUrl": "https://pwc.wd3.myworkdayjobs.com/Global_Experienced_Careers/job/Genve/AM-GE-SA1-FY27_736216WD-1/apply",
-      "company": "PwC Switzerland",
-      "companyKey": "pwc",
-      "companyDomain": "pwc.ch",
-      "location": "Geneva",
-      "addressLocality": "Geneva",
-      "addressRegion": "GE",
-      "addressCountry": "CH",
-      "canton": "GE",
-      "country": "CH",
-      "category": "audit",
-      "sector": "Consulenza",
-      "source": "pwc-dedicated-crawler",
-      "sourceLang": "fr",
-      "postedDate": "2026-06-11",
-      "validThrough": "2036-06-07",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "id": "pwc-6408e0db5b60",
-      "salaryMin": 68000,
-      "salaryMax": 103000,
-      "currency": "CHF",
-      "postalCode": "1204",
-      "firstSeenAt": "2026-06-11T13:19:37.886Z",
-      "_qualityScore": 90,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 22
-      }
-    },
-    {
-      "title": "Senior Associate - Corporate Real Estate & Facility Manager",
-      "slug": "senior-associate-corporate-real-estate-facility-manager-pwc-geneve",
-      "url": "https://jobs.pwc.ch/job-vacancies/senior-associate-corporate-real-estate-facility-manager/f38c5bd9-3b4c-4fd8-a96d-d846443580c8",
-      "applyUrl": "https://pwc.wd3.myworkdayjobs.com/Global_Experienced_Careers/job/Zrich/Senior-Associate---Corporate-Real-Estate---Facility-Manager_734726WD/apply",
-      "company": "PwC Switzerland",
-      "companyKey": "pwc",
-      "companyDomain": "pwc.ch",
-      "location": "Genève",
-      "addressLocality": "Genève",
-      "addressRegion": "GE",
-      "addressCountry": "CH",
-      "canton": "GE",
+      "canton": "ZH",
       "country": "CH",
       "category": "consulting",
       "sector": "Consulenza",
       "source": "pwc-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-06-10",
-      "validThrough": "2036-06-06",
+      "postedDate": "2026-06-03",
+      "validThrough": "2036-05-30",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "_qualityScore": 73,
+      "id": "pwc-06cf5572b6e8",
+      "salaryMin": 75500,
+      "salaryMax": 120500,
+      "currency": "CHF",
+      "postalCode": "8001",
+      "firstSeenAt": "2026-06-03T14:55:10.614Z",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 22
+      }
+    },
+    {
+      "title": "Associate - Payroll Consulting 80-100%",
+      "slug": "associate-payroll-consulting-80-100-pwc-luzern",
+      "url": "https://jobs.pwc.ch/job-vacancies/associate-payroll-consulting/649d5e2a-7bc5-4c7c-a71d-3b4923fe8ea3",
+      "applyUrl": "https://pwc.wd3.myworkdayjobs.com/Global_Experienced_Careers/job/Zrich/Payroll-Manager_707480WD/apply",
+      "company": "PwC Switzerland",
+      "companyKey": "pwc",
+      "companyDomain": "pwc.ch",
+      "location": "Zürich",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "canton": "ZH",
+      "country": "CH",
+      "category": "tax",
+      "sector": "Consulenza",
+      "source": "pwc-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-02-19",
+      "validThrough": "2036-02-16",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "id": "pwc-d865d88c95a4",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "currency": "CHF",
+      "postalCode": "8001",
+      "firstSeenAt": "2026-04-30T11:20:06.387Z",
+      "_qualityScore": 90,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 22
       }
     }
   ],
-  "removedJobs": [],
   "unchangedJobs": [
     {
       "title": "Microsoft Alliance – Cloud & AI Platforms - Sales Director / Senior Manager",

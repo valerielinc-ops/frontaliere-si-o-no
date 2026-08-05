@@ -1,6 +1,6 @@
 {
   "crawlerKey": "fondation-domus",
-  "assembledAt": "2026-08-03T13:05:19.606Z",
+  "assembledAt": "2026-08-04T22:29:28.704Z",
   "jobs": [
     {
       "id": "fondation-domus-3baf057e3cdb",
@@ -17,7 +17,7 @@
       "title": "Infirmier en psychiatrie (60%)",
       "titleByLocale": {
         "it": "Infermiera in psichiatria (60%)",
-        "en": "Infirmier en psychiatrie (60%)",
+        "en": "Nurse in Psychiatry (60%)",
         "de": "Krankenschwester in der Psychiatrie (60%)",
         "fr": "Infirmier en psychiatrie (60%)"
       },
@@ -33,7 +33,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/53cd9483-dd08-4087-8305-56a97a8ddc88/?source=[platform]",
       "source": "Fondation Domus Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-03T13:05:16.808Z",
+      "crawledAt": "2026-08-04T22:29:25.998Z",
       "addressLocality": "Ardon",
       "postalCode": "1957",
       "addressCountry": "CH",
@@ -70,7 +70,6 @@
         ]
       },
       "firstSeenAt": "2026-07-21T23:36:42.519Z",
-      "needsRetranslation": true,
       "salaryMin": 36300,
       "salaryMax": 54900,
       "baseSalary": {

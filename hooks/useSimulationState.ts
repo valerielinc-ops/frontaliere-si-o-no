@@ -20,10 +20,12 @@ import type { SeoLandingId, ActiveTab } from '@/services/router';
 // Unlike every other lazily-loaded service module in this codebase
 // (exchangeRateService/authService/authorProfileService/behaviorTracker/
 // fuelPricesService/jobViewsService/clarity — all wrap via resilientImport),
-// this was a bare `import()` with no retry/reload recovery AND no `.catch()`
-// at either fire-and-forget call site below (the idle initial calc and the
-// auto-recalculate effect) — a stale-deploy chunk-load failure surfaced as an
-// unhandled TypeError straight to PostHog instead of self-healing (#4645).
+// this was a bare `import()` with no retry/reload recovery (#4645, fixed by
+// wrapping in resilientImport below). resilientImport still rethrows once its
+// own retry/reload budget is exhausted, and the two fire-and-forget callers
+// below (the idle initial calc and the auto-recalculate effect) called
+// handleCalculate() with no `.catch()` — that rethrow surfaced as an
+// unhandled TypeError straight to PostHog instead of self-healing (#5084).
 const lazyCalculate = () =>
  resilientImport(() => import('@/services/calculationService'), (m) => typeof m.calculateSimulation === 'function');
 
@@ -180,8 +182,12 @@ export function useSimulationState(activeTab: ActiveTab, seoLanding: SeoLandingI
  if (initialCalcDone.current) return;
  initialCalcDone.current = true;
  // Not user-initiated — fires at idle on any page, even when the
- // visitor never touched a calculator input.
- handleCalculate(false);
+ // visitor never touched a calculator input. Fire-and-forget: catch
+ // so a stale-deploy chunk-load failure (resilientImport exhausts its
+ // retry/reload and rethrows) reports via reportCaughtError instead of
+ // surfacing as an unhandled rejection straight to PostHog (#5084, same
+ // gap #4645 fixed for the bare `import()` this now wraps).
+ handleCalculate(false).catch((e) => reportCaughtError(e, 'simulation.initialCalc'));
  };
  if (typeof requestIdleCallback === 'function') {
  idleId = requestIdleCallback(runInitialCalc, { timeout: 2500 });
@@ -204,7 +210,9 @@ export function useSimulationState(activeTab: ActiveTab, seoLanding: SeoLandingI
  }
  const userInitiated = nextRecalcIsUser.current;
  nextRecalcIsUser.current = false;
- handleCalculate(userInitiated);
+ // Fire-and-forget from an effect — same unhandled-rejection risk as
+ // runInitialCalc above, so the same catch applies here.
+ handleCalculate(userInitiated).catch((e) => reportCaughtError(e, 'simulation.autoRecalc'));
  }, [inputs]);
 
  // Wrapped setInputs that marks the next auto-recalculate as user-initiated.
