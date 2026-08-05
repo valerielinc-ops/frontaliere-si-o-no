@@ -668,7 +668,26 @@ describe('Structured data — Google/Bing compliance rules', () => {
       if (json.includes('http')) {
         const urlMatches = json.match(/https?:\/\/[^"]+/g) || [];
         for (const url of urlMatches) {
-          if (url.includes('frontaliereticino')) {
+          // Match on the HOST, not on the URL string.
+          //
+          // `url.includes('frontaliereticino')` also matches a third-party URL
+          // whose PATH carries our brand — `https://www.facebook.com/
+          // frontaliereticino`, which is a legitimate `sameAs` value and is
+          // supposed to point off-site. `sameAs` exists precisely to name
+          // profiles on other domains, so asserting it starts with BASE_URL
+          // asserts the opposite of what the property means.
+          //
+          // This is narrower, not weaker: the typos this guard exists to catch
+          // (`http://` instead of https, `www.frontaliereticino.ch` instead of
+          // the canonical apex) all live in the HOST and are still caught —
+          // `www.frontaliereticino.ch` still fails, exactly as before.
+          let host: string;
+          try {
+            host = new URL(url).hostname;
+          } catch {
+            continue; // not a parseable URL — other assertions cover shape
+          }
+          if (host === 'frontaliereticino.ch' || host.endsWith('.frontaliereticino.ch')) {
             expect(
               url.startsWith(BASE_URL),
               `${key}: URL "${url}" doesn't use BASE_URL "${BASE_URL}"`
