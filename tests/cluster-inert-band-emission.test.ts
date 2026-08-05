@@ -168,6 +168,18 @@ describe('enriched thin shell — real per-page content, only where it can still
     expect(b).not.toContain('Azienda 1 SA');
   });
 
+  it('reuses already-escaped text verbatim instead of escaping it twice', () => {
+    // Everything the shell re-emits was read back out of HTML the plugin had
+    // already put through `esc()`. Escaping again turns `&amp;` into
+    // `&amp;amp;`, which renders as a literal "&amp;" — and employer names
+    // with an ampersand are common enough ("Ernst & Young", "Marks & Spencer")
+    // that this would be visible across a large slice of the corpus.
+    const amp = fullClusterHtml({ canonical: BASE }).replace('Azienda 1 SA', 'Rossi &amp; Bianchi SA');
+    const out = buildClusterThinHtml(amp, 'it', { enrich: true });
+    expect(out).toContain('Rossi &amp; Bianchi SA');
+    expect(out).not.toContain('&amp;amp;');
+  });
+
   it('caps the list instead of restoring the full 30-row page', () => {
     // The shell exists because this family was 57 % of a 5,17 GB dist. Growing
     // it back to the full listing would trade one problem for the other.

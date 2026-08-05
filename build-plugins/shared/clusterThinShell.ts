@@ -257,9 +257,14 @@ function buildEnrichedBlock(facts: JobFacts, locale: string, baseWords: number):
   if (facts.rows.length === 0) return '';
   const heading = JOBS_HEADING[locale] || JOBS_HEADING.it;
   const coverageFn = COVERAGE[locale] || COVERAGE.it;
+  // Reused VERBATIM, never re-escaped — same contract `extractJobFacts` has
+  // always relied on for the prose samples. Everything here was read back out
+  // of HTML that `relatedSearchClustersPlugin` already put through `esc()`, so
+  // a second pass would render `&amp;` as `&amp;amp;` on every employer name
+  // containing an ampersand.
   const topLocations = facts.locations.slice(0, 3).join(', ');
   const coverage = facts.employers.length && facts.locations.length
-    ? `<p>${coverageFn(facts.employers.length, facts.locations.length, htmlEscape(topLocations))}</p>`
+    ? `<p>${coverageFn(facts.employers.length, facts.locations.length, topLocations)}</p>`
     : '';
 
   let words = baseWords + countWords(coverage) + countWords(heading);
@@ -270,7 +275,7 @@ function buildEnrichedBlock(facts: JobFacts, locale: string, baseWords: number):
     // bytes on ~140 k pages buying nothing, which is the cost side of the
     // trade the thin shell exists to manage in the first place.
     if (rows.length > 0 && words >= ENRICHED_TARGET_WORDS) break;
-    rows.push(`<li><a href="${htmlEscape(row.href)}">${htmlEscape(row.text)}</a></li>`);
+    rows.push(`<li><a href="${row.href}">${row.text}</a></li>`);
     words += countWords(row.text);
   }
   return `${coverage}<h2>${heading}</h2><ul class="cluster-seo-jobs">${rows.join('')}</ul>`;
