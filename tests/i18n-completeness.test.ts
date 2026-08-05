@@ -47,13 +47,32 @@ function getAllSourceFiles(): string[] {
   return files;
 }
 
+/**
+ * Blank out comments before scanning.
+ *
+ * A docstring that QUOTES a call — `services/articlesOverlay.ts` explains that
+ * "every existing `t('blog.article.<id>.title')` call site keeps working" —
+ * was read as a real call site, so the suite demanded a translation for the
+ * literal placeholder key `blog.article.<id>.title` and failed on `main` for
+ * days across all four locales. Prose that describes the API is not a use of
+ * it.
+ *
+ * Replaced with spaces rather than removed so nothing downstream that cares
+ * about offsets shifts.
+ */
+function stripComments(src: string): string {
+  return src
+    .replace(/\/\*[\s\S]*?\*\//g, (m) => m.replace(/[^\n]/g, ' '))
+    .replace(/(^|[^:])\/\/[^\n]*/g, (m, p1) => p1 + ' '.repeat(m.length - p1.length));
+}
+
 function extractTranslationKeys(files: string[]): Set<string> {
   const keys = new Set<string>();
   // Match t('key') and t("key") patterns
   const regex = /\bt\(\s*['"]([^'"]+)['"]\s*[,)]/g;
-  
+
   for (const file of files) {
-    const content = fs.readFileSync(file, 'utf8');
+    const content = stripComments(fs.readFileSync(file, 'utf8'));
     let match;
     while ((match = regex.exec(content)) !== null) {
       const key = match[1];
@@ -62,7 +81,7 @@ function extractTranslationKeys(files: string[]): Set<string> {
       keys.add(key);
     }
   }
-  
+
   return keys;
 }
 

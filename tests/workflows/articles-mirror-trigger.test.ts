@@ -3,66 +3,83 @@ import fs from 'node:fs';
 import path from 'node:path';
 
 /**
- * The corpus mirror must have a trigger that actually fires (issue #4974).
+ * The corpus mirror must NOT be able to fire on its own (issue #4974 item 3).
  *
- * `mirror-articles-corpus.yml` shipped with `on: push` filtered to
- * `packages/articles/**`, which reads like the obvious trigger and never fires
- * for the commits that matter. Every workflow that writes the corpus pushes
- * with the default `GITHUB_TOKEN`, and GitHub's anti-recursion rule means a
- * `GITHUB_TOKEN` push does not trigger another workflow — the same constraint
- * `generate-article.yml` already works around for deploy and fast-publish, and
- * the same one documented in AGENTS.md for the triage→fix label handoff.
+ * This file used to assert the opposite, and was right at the time: while this
+ * repo was the only writer and the articles repo a read-only copy, the mirror
+ * needed a `schedule:`, because a `GITHUB_TOKEN` push never triggers another
+ * workflow — so `on: push` silently never fired and the published API froze at
+ * the extraction snapshot.
  *
- * The failure is silent and total: the mirror simply never runs, the articles
- * repo stays frozen at the snapshot it was extracted at, and everything it
- * publishes from that corpus — sitemaps, the ten RSS feeds, the news-ticker
- * payload — quietly ages out while every workflow involved still reports
- * success. It had already happened: corpus commits landed on main after the
- * first mirror and none of them reached the articles repo.
+ * The cutover reversed the direction. nanako GENERATES articles now, and
+ * `scripts/pull-articles-corpus.mjs` (run by sync-articles-sitemaps.yml) pulls
+ * its `content/` back into `packages/articles/content/`. The mirror still does
+ * `rm -rf content && cp -R packages/articles/content`, so anything that fires
+ * it now DELETES every article generated in nanako since the last pull — and
+ * reports success while doing it. `mirror-articles-corpus.yml` disabled its
+ * `push` and `schedule` triggers for exactly that reason.
  *
- * So the mirror needs a trigger that does not depend on the push event, and the
- * article generator needs to dispatch it explicitly so a new article does not
- * wait for the next scheduled slot.
+ * The dispatch in `generate-article.yml` outlived that change: it was the one
+ * remaining path that could still fire the mirror, and nothing tested for it.
+ * This file was still asserting the pre-cutover invariant, so it failed on
+ * `main` for days and its failure read as noise.
+ *
+ * Hence the inversion. `workflow_dispatch` stays — a human may still need it,
+ * e.g. to seed a fresh corpus — but nothing may fire it automatically.
  */
 
 const ROOT = path.resolve(__dirname, '..', '..');
 const WF = (name: string) =>
   fs.readFileSync(path.join(ROOT, '.github', 'workflows', name), 'utf-8');
 
-describe('article corpus mirror has a trigger that fires (#4974)', () => {
-  it('mirror-articles-corpus.yml is scheduled, not only push-triggered', () => {
-    const src = WF('mirror-articles-corpus.yml');
+/** The `on:` block, up to the next top-level key. */
+function onBlock(src: string): string {
+  return src.match(/^on:\n(?:[ \t].*\n|\n)*/m)?.[0] ?? '';
+}
 
-    // The `on:` block, up to the next top-level key.
-    const onBlock = src.match(/^on:\n(?:[ \t].*\n|\n)*/m)?.[0] ?? '';
-    expect(onBlock, 'no `on:` block found').not.toBe('');
+/** The disabled triggers are kept as comments on purpose — ignore those. */
+function withoutComments(text: string): string {
+  return text.split('\n').filter((l) => !/^\s*#/.test(l)).join('\n');
+}
 
+describe('the corpus mirror cannot fire on its own (#4974 item 3)', () => {
+  it('mirror-articles-corpus.yml is dispatch-only', () => {
+    const block = onBlock(WF('mirror-articles-corpus.yml'));
+    expect(block, 'no `on:` block found').not.toBe('');
+
+    const live = withoutComments(block);
     expect(
-      /^\s+schedule:/m.test(onBlock),
-      'mirror-articles-corpus.yml must keep a `schedule:` trigger — the `push` ' +
-        'trigger never fires, because corpus commits are pushed with GITHUB_TOKEN ' +
-        'and GitHub does not trigger workflows from those pushes. Without it the ' +
-        'mirror only runs when a human dispatches it, and the published article ' +
-        'API silently freezes.',
+      /^\s+workflow_dispatch:/m.test(live),
+      'workflow_dispatch must stay — the mirror is still how a corpus gets seeded by hand',
     ).toBe(true);
 
-    expect(/^\s+- cron:/m.test(onBlock), 'schedule: present but carries no cron entry').toBe(true);
+    for (const trigger of ['push', 'schedule'] as const) {
+      expect(
+        new RegExp(`^\\s+${trigger}:`, 'm').test(live),
+        `mirror-articles-corpus.yml must NOT be ${trigger}-triggered: it does ` +
+          '`rm -rf content && cp -R packages/articles/content`, so an automatic run ' +
+          'deletes every article generated in nanako since the last pull and reports ' +
+          'success. Direction reversed at cutover — nanako writes, this repo pulls ' +
+          '(scripts/pull-articles-corpus.mjs).',
+      ).toBe(false);
+    }
   });
 
-  it('generate-article.yml dispatches the mirror after committing the corpus', () => {
-    const src = WF('generate-article.yml');
+  it('no workflow dispatches the mirror', () => {
+    const dir = path.join(ROOT, '.github', 'workflows');
+    const offenders: string[] = [];
+
+    for (const file of fs.readdirSync(dir).filter((f) => f.endsWith('.yml'))) {
+      if (file === 'mirror-articles-corpus.yml') continue;
+      const live = withoutComments(fs.readFileSync(path.join(dir, file), 'utf-8'));
+      if (live.includes('mirror-articles-corpus.yml')) offenders.push(file);
+    }
 
     expect(
-      src.includes('mirror-articles-corpus.yml'),
-      'generate-article.yml must dispatch mirror-articles-corpus.yml after its ' +
-        'commit — its own push cannot trigger it (GITHUB_TOKEN anti-recursion), ' +
-        'so without this a new article waits for the next scheduled mirror before ' +
-        'it can reach the sitemaps, feeds and ticker the articles repo publishes.',
-    ).toBe(true);
-
-    // Dispatched through the shared engine, like the deploy and fast-publish
-    // triggers — not a hand-rolled curl loop (AGENTS.md #6).
-    const step = src.slice(src.indexOf('mirror-articles-corpus.yml') - 800);
-    expect(step).toContain('scripts/lib/trigger-workflow.sh');
+      offenders,
+      `these workflows still dispatch the mirror: ${offenders.join(', ')}. Each ` +
+        'dispatch is a path to deleting nanako-generated articles — the mirror ' +
+        'replaces its content/ wholesale from this repo.',
+    ).toEqual([]);
   });
 });

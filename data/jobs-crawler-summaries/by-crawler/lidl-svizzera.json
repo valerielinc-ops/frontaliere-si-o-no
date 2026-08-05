@@ -1,53 +1,18 @@
 {
   "key": "lidl-svizzera",
   "label": "Lidl",
-  "generatedAt": "2026-08-03T12:36:37.520Z",
-  "total": 379,
-  "newCount": 1,
-  "updatedCount": 64,
+  "generatedAt": "2026-08-04T22:17:04.895Z",
+  "total": 378,
+  "newCount": 0,
+  "updatedCount": 63,
   "removedCount": 0,
-  "unchangedCount": 314,
-  "durationMs": 183889,
-  "avgDurationMs": 183889,
+  "unchangedCount": 315,
+  "durationMs": 153000,
+  "avgDurationMs": 153000,
   "durationHistory": [
-    183889
+    153000
   ],
-  "newJobs": [
-    {
-      "id": "company-clblww",
-      "slug": "ch-tuttofare-vendita-m-w-d-20-40-lidl-svizzera-sant-antonino",
-      "company": "Lidl Svizzera",
-      "title": "CH_ Tuttofare vendita (m/f/d) 20-40% — Sant'Antonino",
-      "location": "Sant'Antonino",
-      "canton": "TI",
-      "category": "sales",
-      "contract": "part-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-03",
-      "url": "https://team.lidl.ch/it/jobs/ch-tuttofare-vendita-m-f-d-20-40-sant-antonino-674975",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Sant'Antonino",
-        "canton": "TI"
-      },
-      "companyKey": "lidl-svizzera",
-      "companyDomain": "lidl.ch",
-      "crawledAt": "2026-08-03T12:36:28.635Z",
-      "firstSeenAt": "2026-08-03T12:36:28.635Z",
-      "needsRetranslation": true,
-      "country": "CH",
-      "sourceLang": "it",
-      "_qualityScore": 79,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 25,
-        "translation": 15,
-        "completeness": 14
-      }
-    }
-  ],
+  "newJobs": [],
   "updatedJobs": [
     {
       "id": "company-rvoh8q",
@@ -70,7 +35,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-08-03T12:36:28.635Z",
+      "crawledAt": "2026-08-04T22:16:56.241Z",
       "firstSeenAt": "2026-07-29T11:43:30.548Z",
       "country": "CH",
       "sourceLang": "it",
@@ -1292,7 +1257,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-08-01T10:50:47.779Z",
+      "crawledAt": "2026-08-04T11:36:26.996Z",
       "firstSeenAt": "2026-07-28T11:34:21.379Z",
       "country": "CH",
       "sourceLang": "it",
@@ -1306,6 +1271,46 @@
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
+        "translation": 25,
+        "completeness": 19
+      }
+    },
+    {
+      "id": "company-clblww",
+      "slug": "ch-tuttofare-vendita-m-w-d-20-40-lidl-svizzera-sant-antonino-clblww",
+      "company": "Lidl Svizzera",
+      "title": "CH_ Tuttofare vendita (m/f/d) 20-40%",
+      "location": "Sant'Antonino",
+      "canton": "TI",
+      "category": "sales",
+      "contract": "part-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-03",
+      "url": "https://team.lidl.ch/it/jobs/ch-tuttofare-vendita-m-f-d-20-40-sant-antonino-674975",
+      "source": "Company Careers Crawler",
+      "_targetScope": {
+        "type": "adapter_seed_meta",
+        "location": "Sant'Antonino",
+        "canton": "TI"
+      },
+      "companyKey": "lidl-svizzera",
+      "companyDomain": "lidl.ch",
+      "crawledAt": "2026-08-03T22:12:01.927Z",
+      "firstSeenAt": "2026-08-03T12:36:28.635Z",
+      "country": "CH",
+      "sourceLang": "it",
+      "addressLocality": "Sant'Antonino",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "salaryMin": 23600,
+      "salaryMax": 36200,
+      "needsRetranslation": true,
+      "_qualityScore": 94,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 25,
         "translation": 25,
         "completeness": 19
       }
@@ -2400,46 +2405,6 @@
       "employmentType": "FULL_TIME",
       "salaryMin": 34500,
       "salaryMax": 52200,
-      "_qualityScore": 91,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 19
-      }
-    },
-    {
-      "id": "company-8tb6cd",
-      "slug": "verkaufer-verkauferin-con-schichtverantwortung-m-w-d-60-80-lidl-svizzera-amriswil-8tb6cd",
-      "company": "Lidl Svizzera",
-      "title": "Verkäufer / Verkäuferin mit Schichtverantwortung (m/w/d) 60-80% — Amriswil",
-      "location": "Amriswil",
-      "canton": "TG",
-      "category": "admin",
-      "contract": "part-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-10",
-      "url": "https://team.lidl.ch/de/jobs/verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-amriswil-716858",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Amriswil",
-        "canton": "TG"
-      },
-      "companyKey": "lidl-svizzera",
-      "companyDomain": "lidl.ch",
-      "crawledAt": "2026-07-27T12:31:53.616Z",
-      "firstSeenAt": "2026-07-10T22:17:19.398Z",
-      "country": "CH",
-      "sourceLang": "de",
-      "addressLocality": "Amriswil",
-      "addressRegion": "TG",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "salaryMin": 46000,
-      "salaryMax": 69600,
-      "needsRetranslation": true,
       "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,

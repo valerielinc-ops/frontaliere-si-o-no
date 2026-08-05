@@ -36,11 +36,22 @@ name: Fast Publish Reconcile (post-deploy article backfill)
 # targets deploy.yml — it only needs "a deploy finished" for an email that
 # tolerates being early; this job is about to trigger MORE shard writes, so
 # it needs the later, validated point.)
+# RETIRED (issue #4974 item 3). This workflow repairs a race that this repo can
+# no longer cause: it re-dispatched fast-publish for articles a full deploy's
+# FULL-REPLACE shard push had overwritten. That push no longer includes the
+# article sections — see scripts/lib/deploy-shard-sections.sh — so there is
+# nothing left to reconcile.
+#
+# Worse than idle if left armed: it renders from THIS repo's corpus, which no
+# longer receives the articles nanako generates (measured: fourteen live
+# articles absent from packages/articles/content/ here), so any article it did
+# decide to republish would be republished from a stale source.
+#
+# The automatic trigger is removed rather than the file, so the machinery and
+# its reasoning stay readable and a manual dispatch is still possible if the
+# ownership ever moves back.
 on:
-  workflow_run:
-    workflows: ["Publish to GitHub Pages (deploy + validate)"]
-    types: [completed]
-    branches: [main]
+  workflow_dispatch:
 
 # Global, not per-section: this job's own work (2 Contents-API reads + a
 # handful of workflow_dispatch calls) is cheap and rare (fires once per full
@@ -101,8 +112,8 @@ jobs:
           # deploy racing ahead of a fast-published article) can't occur
           # for that section — reconcile-fast-publish-articles.mjs skips
           # it. Default (unset) = unchanged legacy behavior.
-          ARTICOLIFRONTALIERE_BUILD_EMIT_SKIP: ${{ vars.ARTICOLIFRONTALIERE_BUILD_EMIT_SKIP }}
-          ARTICOLISVIZZERA_BUILD_EMIT_SKIP: ${{ vars.ARTICOLISVIZZERA_BUILD_EMIT_SKIP }}
+          ARTICOLIFRONTALIERE_BUILD_EMIT_SKIP: ${{ vars.ARTICOLIFRONTALIERE_BUILD_EMIT_SKIP == 'false' && 'false' || 'true' }}
+          ARTICOLISVIZZERA_BUILD_EMIT_SKIP: ${{ vars.ARTICOLISVIZZERA_BUILD_EMIT_SKIP == 'false' && 'false' || 'true' }}
         run: node scripts/reconcile-fast-publish-articles.mjs
 
       - name: Report failure to GitHub Issues
