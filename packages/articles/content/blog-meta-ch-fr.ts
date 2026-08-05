@@ -1849,6 +1849,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.come-funzionano-votazioni-federali-ch.title': 'Votations fédérales : guide du fonctionnement de la démocratie directe',
     'blog.article.come-funzionano-votazioni-federali-ch.excerpt': 'Découvrez comment fonctionnent les initiatives populaires et les référendums, piliers de la démocratie directe suisse impliquant le peuple et les cantons.',
     'blog.article.come-funzionano-votazioni-federali-ch.imageAlt': 'Palais fédéral à Berne siège de la démocratie suisse',
+    'blog.article.frontiere-ricerca-svizzera-2025.title': 'Frontières de la recherche : innovation et science en Suisse',
+    'blog.article.frontiere-ricerca-svizzera-2025.excerpt': 'Explorons les innovations scientifiques nées en Suisse : de la recherche spatiale aux sciences des matériaux, en passant par l\'intelligence artificielle.',
+    'blog.article.frontiere-ricerca-svizzera-2025.imageAlt': 'Vue d\'une ville suisse avec des centres de recherche scientifique et technologique',
 };
 
 export default blogMetaChFr;

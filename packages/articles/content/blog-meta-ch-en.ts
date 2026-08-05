@@ -1849,6 +1849,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.come-funzionano-votazioni-federali-ch.title': 'Federal Voting: Guiding the Functioning of Direct Democracy',
     'blog.article.come-funzionano-votazioni-federali-ch.excerpt': 'Find out how popular initiatives and referendums, pillars of Swiss direct democracy involving the people and cantons, work.',
     'blog.article.come-funzionano-votazioni-federali-ch.imageAlt': 'Federal Palace in Bern seat of Swiss democracy',
+    'blog.article.frontiere-ricerca-svizzera-2025.title': 'Frontiers of research: innovation and science in Switzerland',
+    'blog.article.frontiere-ricerca-svizzera-2025.excerpt': 'Let\'s explore the scientific innovations born in Switzerland: from space research to materials science, to artificial intelligence.',
+    'blog.article.frontiere-ricerca-svizzera-2025.imageAlt': 'View of a Swiss city with scientific and technological research centers',
 };
 
 export default blogMetaChEn;
