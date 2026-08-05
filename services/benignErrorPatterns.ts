@@ -198,7 +198,7 @@ export const BROWSER_EXTENSION_ORIGIN_PATTERN = /(?:chrome|moz|safari)-extension
  * conclusive. One or two nameless frames say nothing; a long run of them is a
  * signature.
  */
-const ORIGIN_REDACTED_MIN_FRAMES = 5;
+export const ORIGIN_REDACTED_MIN_FRAMES = 5;
 
 /**
  * A WebKit stack frame whose source URL the engine redacted: `name@` or a
@@ -207,7 +207,7 @@ const ORIGIN_REDACTED_MIN_FRAMES = 5;
  * cross-origin WITHOUT CORS — it keeps the (minified) function name but
  * blanks the URL, line and column.
  */
-const WEBKIT_ORIGIN_REDACTED_FRAME = /^[^@\s()]*@(?:\[native code\])?$/;
+export const WEBKIT_ORIGIN_REDACTED_FRAME = /^[^@\s()]*@(?:\[native code\])?$/;
 
 /**
  * True when EVERY frame of a WebKit-shaped stack has had its source URL
