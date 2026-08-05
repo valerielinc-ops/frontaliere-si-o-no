@@ -1,14 +1,14 @@
 {
   "crawlerKey": "holmes-place",
-  "assembledAt": "2026-08-03T22:24:58.454Z",
+  "assembledAt": "2026-08-04T22:26:20.049Z",
   "jobs": [
     {
       "id": "holmes-place-2c12260d3ad6",
       "slug": "sich-bewerben-holmes-place-oberrieden",
       "slugByLocale": {
         "de": "sich-bewerben-holmes-place-oberrieden",
-        "en": "apply-now-holmes-place-oberrieden",
-        "fr": "postuler-holmes-place-oberrieden",
+        "en": "sich-bewerben-holmes-place-oberrieden",
+        "fr": "sich-bewerben-holmes-place-oberrieden",
         "it": "sich-bewerben-holmes-place-oberrieden"
       },
       "company": "Holmes Place",
@@ -16,7 +16,7 @@
       "companyDomain": "holmesplace.ch",
       "title": "sich bewerben",
       "titleByLocale": {
-        "de": "♪",
+        "de": "sich bewerben",
         "it": "sich bewerben",
         "en": "Apply",
         "fr": "Postuler"
@@ -33,7 +33,7 @@
       "url": "https://www.holmesplace.ch/de/karriere",
       "source": "Holmes Place Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-08-03T22:24:54.990Z",
+      "crawledAt": "2026-08-04T22:26:17.991Z",
       "addressLocality": "Oberrieden",
       "addressRegion": "ZH",
       "streetAddress": "Seestrasse 97",
@@ -46,7 +46,7 @@
       "sector": "Fitness / Wellness",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-08-03",
+      "postedDate": "2026-08-04",
       "applyUrl": "https://www.holmesplace.ch/de/karriere",
       "requirements": [],
       "requirementsByLocale": {
@@ -58,10 +58,18 @@
         ],
         "de": [
           "mehr-erfahren-holmes-place-oberrieden"
+        ],
+        "en": [
+          "apply-now-holmes-place-oberrieden"
+        ],
+        "fr": [
+          "postuler-holmes-place-oberrieden"
         ]
       },
       "previousSlugs": [
-        "mehr-erfahren-holmes-place-oberrieden"
+        "mehr-erfahren-holmes-place-oberrieden",
+        "apply-now-holmes-place-oberrieden",
+        "postuler-holmes-place-oberrieden"
       ],
       "needsRetranslation": true,
       "salaryMin": 73500,
@@ -76,7 +84,7 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-03T22:24:54.990Z",
+      "firstSeenAt": "2026-08-04T22:26:17.991Z",
       "retranslationAttempts": 1
     }
   ]

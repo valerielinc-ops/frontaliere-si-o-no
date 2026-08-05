@@ -23456,6 +23456,591 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-le-assenze-totale-dal-dazio-nelle-situazioni-di-emergenza': {
+    title: 'Le condizioni per l\'esenzione totale dal dazio nelle situazioni di emergenza',
+    description: 'La Cassazione ha chiarito il concetto di emergenza ai fini dell\'esenzione dai dazi. La sentenza ha importanti implicazioni pratiche per le autorità doganali.',
+    keywords: 'frontalieri, ticino, svizzera, italia, condizioni, esenzione, totale, dazio',
+    ogTitle: 'Esenzione totale dal dazio nelle situazioni di emergenza',
+    ogDescription: 'La Cassazione ha chiarito il concetto di emergenza ai fini dell\'esenzione dai dazi. La sentenza ha importanti implicazioni pratiche per le autorità doganali.',
+    canonicalPath: '/articoli-svizzera/le-assenze-totale-dal-dazio-nelle-situazioni-di-emergenza/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Le condizioni per l'esenzione totale dal dazio nelle situazioni di emergenza",
+      "description": "La Cassazione ha chiarito il concetto di emergenza ai fini dell'esenzione dai dazi. La sentenza ha importanti implicazioni pratiche per le autorità doganali.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/le-assenze-totale-dal-dazio-nelle-situazioni-di-emergenza.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una scena di emergenza medica in un ospedale svizzero"
+      },
+      "datePublished": "2026-08-04T12:47:50+00:00",
+      "dateModified": "2026-08-04T12:47:50+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/le-assenze-totale-dal-dazio-nelle-situazioni-di-emergenza/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-vigilanza-banche-svizzera-scandali': {
+    title: 'Vigilanza banche in Svizzera: nuove norme dopo i crisi',
+    description: 'Il Governo svizzero potenzia la Finma con multe e trasparenza per evitare nuovi crolli come Credit Suisse. Storia e analisi della vigilanza bancaria.',
+    keywords: 'frontalieri, ticino, svizzera, italia, vigilanza, banche, nuove, norme',
+    ogTitle: 'Vigilanza banche Svizzera: nuovi poteri Finma',
+    ogDescription: 'Nuove norme per l\'autorità di vigilanza bancaria svizzera: multe e trasparenza dopo il caso Credit Suisse.',
+    canonicalPath: '/articoli-svizzera/vigilanza-banche-svizzera-scandali/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vigilanza banche in Svizzera: nuove norme dopo i crisi",
+      "description": "Il Governo svizzero potenzia la Finma con multe e trasparenza per evitare nuovi crolli come Credit Suisse. Storia e analisi della vigilanza bancaria.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/vigilanza-banche-svizzera-scandali.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Palazzo federale a Berna, sede del governo svizzero"
+      },
+      "datePublished": "2026-08-04T13:40:16+00:00",
+      "dateModified": "2026-08-04T13:40:16+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/vigilanza-banche-svizzera-scandali/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-siccita-contadini-mobilitano': {
+    title: 'Di più Siccità: i contadini si mobilitano, arriva la borsa dei foraggi',
+    description: 'La siccità sta causando gravi problemi ai contadini svizzeri, che stanno facendo tutto ciò che è in loro potere per affrontare la situazione. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, siccità, contadini, mobilitano, arriva',
+    ogTitle: 'Di più Siccità: i contadini si mobilitano, arriva la borsa dei foraggi',
+    ogDescription: 'La siccità sta causando gravi problemi ai contadini svizzeri, che stanno facendo tutto ciò che è in loro potere per affrontare la situazione.',
+    canonicalPath: '/articoli-svizzera/siccita-contadini-mobilitano/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Di più Siccità: i contadini si mobilitano, arriva la borsa dei foraggi",
+      "description": "La siccità sta causando gravi problemi ai contadini svizzeri, che stanno facendo tutto ciò che è in loro potere per affrontare la situazione. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/siccita-contadini-mobilitano.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un contadino svizzero che si prepara per la raccolta dei foraggi"
+      },
+      "datePublished": "2026-08-04T15:48:30+00:00",
+      "dateModified": "2026-08-04T15:48:30+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/siccita-contadini-mobilitano/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-emigrazione-tasse-obblighi-dopo-partenza': {
+    title: 'Emigrare dalla Svizzera: cosa succede alle tasse dopo la partenza',
+    description: 'Dopo l’emigrazione dalla Svizzera nel maggio 2025, le tasse non sempre finiscono. Scopri chi rimane assoggettato e quali procedure seguire per evitare sorprese.',
+    keywords: 'frontalieri, ticino, svizzera, italia, emigrare, dalla, cosa, succede',
+    ogTitle: 'Tasse dopo l’emigrazione dalla Svizzera',
+    ogDescription: 'Scopri cosa succede alle tasse dopo aver lasciato la Svizzera: procedure, eccezioni e rischi per chi si trasferisce all’estero.',
+    canonicalPath: '/articoli-svizzera/emigrazione-tasse-obblighi-dopo-partenza/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Emigrare dalla Svizzera: cosa succede alle tasse dopo la partenza",
+      "description": "Dopo l’emigrazione dalla Svizzera nel maggio 2025, le tasse non sempre finiscono. Scopri chi rimane assoggettato e quali procedure seguire per evitare sorprese.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/emigrazione-tasse-obblighi-dopo-partenza.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Persona che esamina documenti fiscali con panorama di Zurigo sullo sfondo, simbolo degli obblighi tributari dopo l'emigrazione dalla Svizzera."
+      },
+      "datePublished": "2026-08-04T18:36:06+00:00",
+      "dateModified": "2026-08-04T18:36:06+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/emigrazione-tasse-obblighi-dopo-partenza/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-banche-cercano-piu-personale': {
+    title: 'Di più Banche cercano più personale, annunci +14% in luglio',
+    description: 'Il numero di annunci di lavoro nelle banche svizzere è aumentato del 14% in luglio 2026. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, banche, cercano, personale, annunci',
+    ogTitle: 'Banche svizzere cercano personale in luglio 2026',
+    ogDescription: 'Il numero di annunci di lavoro nelle banche svizzere è aumentato del 14% in luglio 2026.',
+    canonicalPath: '/articoli-svizzera/banche-cercano-piu-personale/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Di più Banche cercano più personale, annunci +14% in luglio",
+      "description": "Il numero di annunci di lavoro nelle banche svizzere è aumentato del 14% in luglio 2026. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/banche-cercano-piu-personale.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Banche svizzere che cercano personale in luglio 2026"
+      },
+      "datePublished": "2026-08-04T19:28:06+00:00",
+      "dateModified": "2026-08-04T19:28:06+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/banche-cercano-piu-personale/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-cile-1988-democrazia-svizzera': {
+    title: 'Cile 1988: lezioni dalla fine di una dittatura',
+    description: 'Il plebiscito cileno del 1988 ha segnato la fine di 15 anni di dittatura militare guidata da Pinochet e ha dato il via alla transizione verso la democrazia.',
+    keywords: 'frontalieri, ticino, svizzera, italia, cile, 1988, lezioni, dalla',
+    ogTitle: 'Cile 1988: cosa possiamo imparare dalla votazione che ha posto fine a una dittatura?',
+    ogDescription: 'Il plebiscito cileno del 1988 ha segnato la fine di 15 anni di dittatura militare guidata da Pinochet e ha dato il via alla transizione verso la democrazia.',
+    canonicalPath: '/articoli-svizzera/cile-1988-democrazia-svizzera/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Cile 1988: lezioni dalla fine di una dittatura",
+      "description": "Il plebiscito cileno del 1988 ha segnato la fine di 15 anni di dittatura militare guidata da Pinochet e ha dato il via alla transizione verso la democrazia.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/cile-1988-democrazia-svizzera.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea di Lugano con il paesaggio del Ticino in secondo piano"
+      },
+      "datePublished": "2026-08-05T02:09:28+00:00",
+      "dateModified": "2026-08-05T02:09:28+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/cile-1988-democrazia-svizzera/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-franco-svizzero-economia-bns-politica-monetaria': {
+    title: 'Franco svizzero: economia e politica monetaria della BNS',
+    description: 'Scopri il ruolo della Banca Nazionale Svizzera nella politica monetaria e l\'impatto del franco forte sull\'economia e i salari. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, franco, svizzero, economia, politica',
+    ogTitle: 'Franco Svizzero: Economia e Politica Monetaria della BNS',
+    ogDescription: 'Scopri il ruolo della Banca Nazionale Svizzera nella politica monetaria e l\'impatto del franco forte sull\'economia e i salari.',
+    canonicalPath: '/articoli-svizzera/franco-svizzero-economia-bns-politica-monetaria/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Franco svizzero: economia e politica monetaria della BNS",
+      "description": "Scopri il ruolo della Banca Nazionale Svizzera nella politica monetaria e l'impatto del franco forte sull'economia e i salari. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/franco-svizzero-economia-bns-politica-monetaria.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista panoramica di Lugano con il lago e le montagne"
+      },
+      "datePublished": "2026-08-05T02:44:46+00:00",
+      "dateModified": "2026-08-05T02:44:46+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/franco-svizzero-economia-bns-politica-monetaria/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-medicina-di-genere-svizzera': {
+    title: 'Medicina di genere in Svizzera: nuove sfide e opportunità',
+    description: 'La medicina di genere in Svizzera incontra resistenze politiche e finanziarie che ostacolano il suo sviluppo. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, medicina, genere, nuove, sfide',
+    ogTitle: 'Medicina di genere in Svizzera: nuove sfide e opportunità',
+    ogDescription: 'La medicina di genere in Svizzera incontra resistenze politiche e finanziarie che ostacolano il suo sviluppo.',
+    canonicalPath: '/articoli-svizzera/medicina-di-genere-svizzera/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Medicina di genere in Svizzera: nuove sfide e opportunità",
+      "description": "La medicina di genere in Svizzera incontra resistenze politiche e finanziarie che ostacolano il suo sviluppo. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/medicina-di-genere-svizzera.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ospedale moderno a Lugano con professionisti sanitari di diverse origini"
+      },
+      "datePublished": "2026-08-05T03:15:47+00:00",
+      "dateModified": "2026-08-05T03:15:47+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/medicina-di-genere-svizzera/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-comprare-casa-svizzera-mutuo-requisiti': {
+    title: 'Comprare casa in Svizzera: requisiti e tassi | Frontaliere Ticino',
+    description: 'Scopri i requisiti per ottenere un mutuo in Svizzera, i fondi propri minimi, i tassi e le differenze tra banche cantonali e private. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, comprare, casa, requisiti, tassi',
+    ogTitle: 'Comprare casa in Svizzera: requisiti del mutuo ipotecario, fondi propri minimi, tassi, differenze tra banche cantonali e private',
+    ogDescription: 'Scopri i requisiti per ottenere un mutuo in Svizzera, i fondi propri minimi, i tassi e le differenze tra banche cantonali e private',
+    canonicalPath: '/articoli-svizzera/comprare-casa-svizzera-mutuo-requisiti/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Comprare casa in Svizzera: requisiti e tassi",
+      "description": "Scopri i requisiti per ottenere un mutuo in Svizzera, i fondi propri minimi, i tassi e le differenze tra banche cantonali e private. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/comprare-casa-svizzera-mutuo-requisiti.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del Lago di Lugano con le Alpi svizzere sullo sfondo, mostrando un quartiere residenziale moderno con case e barche"
+      },
+      "datePublished": "2026-08-05T03:35:11+00:00",
+      "dateModified": "2026-08-05T03:35:11+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/comprare-casa-svizzera-mutuo-requisiti/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-assicurazione-disoccupazione-svizzera-funzionamento': {
+    title: 'Assicurazione disoccupazione svizzera: come funziona',
+    description: 'Guida pratica all\'assicurazione disoccupazione svizzera: contributi AD/AC, calcolo indennità, obblighi URC e normativa fiscale per i frontalieri.',
+    keywords: 'frontalieri, ticino, svizzera, italia, assicurazione, disoccupazione, funziona, completa',
+    ogTitle: 'Assicurazione disoccupazione svizzera: come funziona',
+    ogDescription: 'Scopri come funziona l\'assicurazione disoccupazione in Svizzera: contributi, obblighi URC e normativa fiscale per i frontalieri.',
+    canonicalPath: '/articoli-svizzera/assicurazione-disoccupazione-svizzera-funzionamento/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Assicurazione disoccupazione svizzera: come funziona",
+      "description": "Guida pratica all'assicurazione disoccupazione svizzera: contributi AD/AC, calcolo indennità, obblighi URC e normativa fiscale per i frontalieri.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/assicurazione-disoccupazione-svizzera-funzionamento.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Veduta di un centro direzionale a Lugano"
+      },
+      "datePublished": "2026-08-05T04:09:39+00:00",
+      "dateModified": "2026-08-05T04:09:39+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/assicurazione-disoccupazione-svizzera-funzionamento/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-sistema-sanitario-svizzero-lamal-funzionamento': {
+    title: 'Sistema sanitario svizzero LAMal: come funziona',
+    description: 'Guida pratica al sistema sanitario svizzero: obbligo LAMal, scelta cassa malati, franchigie, rimborsi e gestione fiscale per lavoratori frontalieri.',
+    keywords: 'frontalieri, ticino, svizzera, italia, sistema, sanitario, svizzero, lamal',
+    ogTitle: 'Sistema sanitario svizzero LAMal: come funziona',
+    ogDescription: 'Scopri come funziona la LAMal, l\'assicurazione sanitaria obbligatoria in Svizzera, e gli adempimenti fiscali per i frontalieri.',
+    canonicalPath: '/articoli-svizzera/sistema-sanitario-svizzero-lamal-funzionamento/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Sistema sanitario svizzero LAMal: come funziona",
+      "description": "Guida pratica al sistema sanitario svizzero: obbligo LAMal, scelta cassa malati, franchigie, rimborsi e gestione fiscale per lavoratori frontalieri.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/sistema-sanitario-svizzero-lamal-funzionamento.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Edificio sanitario svizzero in un contesto urbano"
+      },
+      "datePublished": "2026-08-05T04:36:36+00:00",
+      "dateModified": "2026-08-05T04:36:36+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/sistema-sanitario-svizzero-lamal-funzionamento/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-come-funzionano-votazioni-federali-ch': {
+    title: 'Votazioni federali: guida al funzionamento della democrazia diretta',
+    description: 'Scopri come funzionano le votazioni federali in Svizzera, dalla doppia maggioranza di popolo e Cantoni al diritto di referendum e iniziativa popolare.',
+    keywords: 'frontalieri, ticino, svizzera, italia, votazioni, federali, funzionamento, democrazia',
+    ogTitle: 'Votazioni federali: guida al funzionamento della democrazia diretta',
+    ogDescription: 'Scopri come funzionano le votazioni federali in Svizzera, dalla doppia maggioranza di popolo e Cantoni al diritto di referendum e iniziativa popolare.',
+    canonicalPath: '/articoli-svizzera/come-funzionano-votazioni-federali-ch/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Votazioni federali: guida al funzionamento della democrazia diretta",
+      "description": "Scopri come funzionano le votazioni federali in Svizzera, dalla doppia maggioranza di popolo e Cantoni al diritto di referendum e iniziativa popolare.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/come-funzionano-votazioni-federali-ch.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Palazzo federale a Berna sede della democrazia svizzera"
+      },
+      "datePublished": "2026-08-05T04:48:01+00:00",
+      "dateModified": "2026-08-05T04:48:01+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/come-funzionano-votazioni-federali-ch/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-frontiere-ricerca-svizzera-2025': {
+    title: 'Frontiere della ricerca: innovazione e scienza in Svizzera',
+    description: 'Scopri le innovazioni scientifiche in Svizzera: dalla ricerca spaziale alle scienze dei materiali e all\'intelligenza artificiale. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, frontiere, ricerca, innovazione, scienza',
+    ogTitle: 'Frontiere della ricerca: innovazione e scienza in Svizzera',
+    ogDescription: 'Scopri le innovazioni scientifiche in Svizzera: dalla ricerca spaziale alle scienze dei materiali e all\'intelligenza artificiale.',
+    canonicalPath: '/articoli-svizzera/frontiere-ricerca-svizzera-2025/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Frontiere della ricerca: innovazione e scienza in Svizzera",
+      "description": "Scopri le innovazioni scientifiche in Svizzera: dalla ricerca spaziale alle scienze dei materiali e all'intelligenza artificiale. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/frontiere-ricerca-svizzera-2025.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Panorama di una città svizzera con centri di ricerca scientifica e tecnologica"
+      },
+      "datePublished": "2026-08-05T06:09:34+00:00",
+      "dateModified": "2026-08-05T06:09:34+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/frontiere-ricerca-svizzera-2025/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-democrazia-diretta-svizzera-guida': {
+    title: 'Votazioni federali Svizzera: come funzionano e regole',
+    description: 'Guida completa alla democrazia diretta in Svizzera, iniziative popolari, referendum, doppia maggioranza e regole fiscali per i frontalieri. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, votazioni, federali, funzionano, regole',
+    ogTitle: 'Votazioni federali Svizzera: come funzionano e regole',
+    ogDescription: 'Scopri come funziona la democrazia diretta in Svizzera e le regole fiscali e previdenziali per i lavoratori frontalieri.',
+    canonicalPath: '/articoli-svizzera/democrazia-diretta-svizzera-guida/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Votazioni federali Svizzera: come funzionano e regole",
+      "description": "Guida completa alla democrazia diretta in Svizzera, iniziative popolari, referendum, doppia maggioranza e regole fiscali per i frontalieri. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/democrazia-diretta-svizzera-guida.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Il Palazzo federale a Berna sede della democrazia diretta svizzera"
+      },
+      "datePublished": "2026-08-05T06:24:14+00:00",
+      "dateModified": "2026-08-05T06:24:14+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/democrazia-diretta-svizzera-guida/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-democrazia-diretta-e-votazioni-federali': {
+    title: 'Votazioni federali Svizzera: come funzionano le leggi',
+    description: 'Scopri come funzionano le votazioni federali in Svizzera, la democrazia diretta, i referendum e le regole fiscali per i lavoratori. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, votazioni, federali, funzionano, leggi',
+    ogTitle: 'Votazioni federali Svizzera: come funzionano',
+    ogDescription: 'Guida completa alla democrazia diretta svizzera e alle regole fiscali federali.',
+    canonicalPath: '/articoli-svizzera/democrazia-diretta-e-votazioni-federali/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Votazioni federali Svizzera: come funzionano le leggi",
+      "description": "Scopri come funzionano le votazioni federali in Svizzera, la democrazia diretta, i referendum e le regole fiscali per i lavoratori. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/democrazia-diretta-e-votazioni-federali.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Palazzo Federale a Berna sede delle votazioni e della democrazia svizzera"
+      },
+      "datePublished": "2026-08-05T07:08:47+00:00",
+      "dateModified": "2026-08-05T07:08:47+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/democrazia-diretta-e-votazioni-federali/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

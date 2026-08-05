@@ -1,6 +1,6 @@
 {
   "crawlerKey": "ghol",
-  "assembledAt": "2026-08-04T11:53:20.912Z",
+  "assembledAt": "2026-08-04T22:24:20.778Z",
   "jobs": [
     {
       "id": "ghol-0fd5acb09556",
@@ -47,7 +47,7 @@
       "applyUrl": "https://app.beehire.com/invite/R0-rziyv4",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-04T11:53:17.083Z",
+      "crawledAt": "2026-08-04T22:24:16.406Z",
       "needsRetranslation": true,
       "requirementsByLocale": {
         "it": [
@@ -90,6 +90,83 @@
         ]
       },
       "firstSeenAt": "2026-05-20T05:15:42.711Z",
+      "salaryMin": 86500,
+      "salaryMax": 120500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 86500,
+          "maxValue": 120500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "ghol-ff11106c27c6",
+      "slug": "aiuto-e-accompagnamento-groupement-hospitalier-de-l-ouest-lemanique-rolle",
+      "slugByLocale": {
+        "it": "aiuto-e-accompagnamento-groupement-hospitalier-de-l-ouest-lemanique-rolle",
+        "en": "care-and-support-assistant-groupement-hospitalier-de-l-ouest-lemanique-rolle",
+        "de": "pflege-und-begleitassistent-groupement-hospitalier-de-l-ouest-lemanique-rolle",
+        "fr": "aide-en-soins-et-accompagnement-groupement-hospitalier-de-l-ouest-lemanique-rolle"
+      },
+      "company": "Groupement Hospitalier de l'Ouest Lémanique",
+      "companyKey": "ghol",
+      "companyDomain": "ghol.ch",
+      "title": "Aide en Soins et Accompagnement",
+      "titleByLocale": {
+        "it": "Cura e supporto",
+        "en": "Care and Support",
+        "de": "Pflege und Support",
+        "fr": "Aide en Soins et Accompagnement"
+      },
+      "description": "Le GHOL est l’hôpital de référence pour l’Ouest lémanique avec ses structures sur Nyon et Rolle. Demain, nous vous proposons de poursuivre votre épanouissement professionnel en vous impliquant dans vos nouvelles missions et en participant au développement du GHOL.\n L’EMS « Les Jardins du Léman » d’une capacité de 51 lits a pour but d’offrir à ses résidents·es la meilleure qualité de vie possible, dans un environnement médical adapté à leurs spécificités.\n Notre démarche d’accompagnement est fondée sur la construction d’une relation de confiance avec les résidents·es, leurs proches et le personnel médical ainsi que sur la prise en compte de leurs parcours de vie, de leurs désirs et besoins. Ce respect de la personne s’inscrit à travers des soins médicaux dispensés par notre personnel soignant qualifié.\n Descriptif du poste :\n Dans vos nouvelles fonctions, vos missions ont un impact sur la qualité de prise en charge des résidents·es. Votre rôle consistera notamment à,\n\n• Travailler au sein des 2 services de l’EMS (gériatrie et psycho-gériatrie)\n\n• Prendre en charge un groupe de résidents·es en stimulant leur autonomie ou si nécessaire en suppléant à leurs besoins suivant leur niveau de dépendance\n\n• Assurer une prise en charge personnalisée\n\n• Collaborer au sein d’une équipe interdisciplinaire\n\n• Transmettre et retranscrire ses observations de manière ciblée et pertinente dans le dossier informatisé du·de la résident·e\n Profil requis :\n Nous sommes convaincus de votre réussite rapide dans vos futures fonctions grâce à votre/vos :\n\n• Intérêt marqué pour la prise en charge de la personne âgée et/ou dépendante et/ou présentant des troubles cognitifs\n\n• Patience, empathie, écoute active, compétences élevées en communication verbale et non verbale\n\n• Bonne résistance physique et psychique\n\n• Flexibilité en terme de planification horaire (travail jour/nuit/horaires continus et coupés)\n Niveau de formation :\n Attestation de Formation Professionnelle d’Aide en Soins et Accompagnement (AFP ASA) ou équivalent souhaité\n Diplôme d’Auxiliaire de Santé certifié par la Croix Rouge Suisse (à minima)\n Avantages :\n Evoluer dans un environnement de travail agréable, locaux récents, espaces extérieurs spécialement aménagés\n Intégrer une équipe dynamique et motivée\n Participation active au projet d’accompagnement des résidents·es\n Valorisation de la fonction d’accompagnement auprès des résidents·es par du temps et des moyens dédiés à cette mission\n Salaire en fonction de la grille salariale de la CCT SAN",
+      "descriptionByLocale": {
+        "it": "GHOL è l'ospedale di riferimento per l'Occidente tedesco con le sue strutture su Nyon e Rolle. Domani, proponiamo di continuare il vostro sviluppo professionale coinvolgendovi nelle vostre nuove missioni e partecipando allo sviluppo di GHOL. L'obiettivo del \"Les Jardins du Léman\" (Les Jardins du Léman) è quello di fornire ai propri residenti la migliore qualità di vita possibile in un ambiente medico adattato alle loro specificità. Il nostro approccio di accompagnamento si basa sulla costruzione di un rapporto di fiducia con i residenti, i loro cari e personale medico, nonché tenendo conto del loro stile di vita, desideri e bisogni. Questo rispetto per la persona si riflette nell'assistenza medica fornita dal nostro personale sanitario qualificato. Descrizione del post: Nelle vostre nuove mansioni, le vostre missioni hanno un impatto sulla qualità della cura per i residenti. Il tuo ruolo includerà:\n• Lavoro nei due servizi dello SME (geriatria e psicogeriatria)\n• Sostenere un gruppo di residenti stimolando la loro autonomia o, se necessario, sostituendo le loro esigenze in base al loro livello di dipendenza\n• Assicurare un supporto personalizzato\n• Collaborare in un team interdisciplinare\n• Trasmettere e ritrasmettere le sue osservazioni in modo mirato e rilevante nel file computerizzato del residente Profilo richiesto: Siamo convinti del vostro rapido successo nelle vostre funzioni future attraverso il vostro:\n• Interessi nella cura degli anziani e/o dipendenti e/o con alterazione cognitiva\n• Pazienza, empatia, ascolto attivo, elevata capacità di comunicazione verbale e non verbale\n• Buona resistenza fisica e psicologica\n• Flessibilità in termini di programmazione (lavoro diurno/notte/orario continuo e di taglio) Livello di formazione: Certificazione della formazione professionale nella cura e nel supporto (AFP ASA) o equivalente desiderato Certificato di Croce Rossa svizzera (minimo) Vantaggi: Coinvolgere in un ambiente di lavoro piacevole, locali recenti, spazi esterni appositamente attrezzati Integrare un team dinamico e motivato Partecipazione attiva al progetto per sostenere i residenti Valorizzazione della funzione di accompagnamento ai residenti attraverso il tempo e i mezzi dedicati a questa missione Salario basato su SAN CTC scala salariale",
+        "en": "GHOL is the reference hospital for the German West with its structures on Nyon and Rolle. Tomorrow, we propose to continue your professional development by involving you in your new missions and by participating in the development of GHOL. The aim of the \"Les Jardins du Léman\" (Les Jardins du Léman) is to provide its residents with the best possible quality of life in a medical environment adapted to their specificities. Our accompaniment approach is based on building a relationship of trust with residents, their loved ones and medical staff, as well as taking into account their lifestyle, desires and needs. This respect for the person is reflected in the medical care provided by our qualified healthcare staff. Description of the post: In your new duties, your missions have an impact on the quality of care for residents. Your role will include:\n• Work within the two services of EMS (geriatrics and psycho-geriatrics)\n• Support a group of residents by stimulating their autonomy or if necessary by replacing their needs according to their level of dependency\n• Ensure personalized support\n• Collaborate in an interdisciplinary team\n• Transmit and retransmit its observations in a targeted and relevant manner in the resident's computerized file Profile required: We are convinced of your rapid success in your future functions through your:\n• Interest in the care of the elderly and/or dependent and/or with cognitive impairment\n• Patience, empathy, active listening, high verbal and non-verbal communication skills\n• Good physical and psychological resistance\n• Flexibility in terms of scheduling (day/night work/continuous and cut-off hours) Level of training: Certification of Vocational Training in Care and Support (AFP ASA) or desired equivalent Swiss Red Cross Certificate (minimum) Benefits: Evolve in a pleasant working environment, recent premises, specially equipped outdoor spaces Integrating a dynamic and motivated team Active participation in the project to support residents Valorisation of the function of accompaniment to residents through time and means dedicated to this mission Salary based on SAN CTC salary scale",
+        "de": "GHOL ist das Referenzkrankenhaus für den deutschen Westen mit seinen Strukturen auf Nyon und Rolle. Morgen schlagen wir vor, Ihre berufliche Entwicklung fortzusetzen, indem wir Sie in Ihre neuen Missionen einbinden und an der Entwicklung von GHOL teilnehmen. Ziel des \"Les Jardins du Léman\" (Les Jardins du Léman) ist es, seinen Bewohnern die bestmögliche Lebensqualität in einem medizinischen Umfeld zu bieten, das an ihre Besonderheiten angepasst ist. Unser Begleitansatz basiert auf dem Aufbau einer Vertrauensbeziehung mit Bewohnern, ihren Angehörigen und medizinischen Mitarbeitern sowie unter Berücksichtigung ihres Lebensstils, ihrer Wünsche und Bedürfnisse. Diese Achtung der Person spiegelt sich in der medizinischen Versorgung unserer qualifizierten Gesundheitspersonal wider. Beschreibung des Beitrags: In Ihren neuen Aufgaben haben Ihre Missionen Auswirkungen auf die Qualität der Pflege für Bewohner. Ihre Rolle wird beinhalten:\n• Arbeiten in den beiden Diensten des EMS (Kriminellen und Psycho-Kriminellen)\n• Unterstützung einer Gruppe von Bewohnern durch Förderung ihrer Autonomie oder erforderlichenfalls durch Austausch ihrer Bedürfnisse nach ihrer Abhängigkeit\n• Persönliche Unterstützung gewährleisten\n• Zusammenarbeit in einem interdisziplinären Team\n• Transmittieren und erneut seine Beobachtungen gezielt und relevant in der computergestützten Datei des Anwohners übertragen Profil erforderlich: Wir sind überzeugt von Ihrem schnellen Erfolg in Ihren zukünftigen Funktionen durch Ihre:\n• Interesse an der Pflege älterer und/oder abhängiger und/oder kognitiver Beeinträchtigungen\n• Geduld, Empathie, aktives Zuhören, hohe verbale und nicht-verbale Kommunikationsfähigkeiten\n• Guter körperlicher und psychologischer Widerstand\n• Flexibilität bei der Planung (Tag/Nachtarbeit/kontinuierliche und abgeschnittene Stunden) Ausbildungsstufe: Zertifizierung der Berufsbildung in Pflege und Unterstützung (AFP ASA) oder gewünschtes Äquivalent Swiss Red Cross Certificate (minimum) Vorteile: Entwickeln Sie in einer angenehmen Arbeitsumgebung, neueren Räumlichkeiten, speziell ausgestatteten Außenräumen Integration eines dynamischen und motivierten Teams Aktive Beteiligung am Projekt zur Unterstützung der Bewohner Valorisierung der Funktion der Begleitung der Bewohner durch die Zeit und Mittel, die dieser Mission gewidmet sind Salary basierend auf SAN CTC Gehaltsskala",
+        "fr": "Le GHOL est l’hôpital de référence pour l’Ouest lémanique avec ses structures sur Nyon et Rolle. Demain, nous vous proposons de poursuivre votre épanouissement professionnel en vous impliquant dans vos nouvelles missions et en participant au développement du GHOL.\nL’EMS « Les Jardins du Léman » d’une capacité de 51 lits a pour but d’offrir à ses résidents·es la meilleure qualité de vie possible, dans un environnement médical adapté à leurs spécificités.\nNotre démarche d’accompagnement est fondée sur la construction d’une relation de confiance avec les résidents·es, leurs proches et le personnel médical ainsi que sur la prise en compte de leurs parcours de vie, de leurs désirs et besoins. Ce respect de la personne s’inscrit à travers des soins médicaux dispensés par notre personnel soignant qualifié.\nDescriptif du poste :\nDans vos nouvelles fonctions, vos missions ont un impact sur la qualité de prise en charge des résidents·es. Votre rôle consistera notamment à,\n\n• Travailler au sein des 2 services de l’EMS (gériatrie et psycho-gériatrie)\n\n• Prendre en charge un groupe de résidents·es en stimulant leur autonomie ou si nécessaire en suppléant à leurs besoins suivant leur niveau de dépendance\n\n• Assurer une prise en charge personnalisée\n\n• Collaborer au sein d’une équipe interdisciplinaire\n\n• Transmettre et retranscrire ses observations de manière ciblée et pertinente dans le dossier informatisé du·de la résident·e\nProfil requis :\nNous sommes convaincus de votre réussite rapide dans vos futures fonctions grâce à votre/vos :\n\n• Intérêt marqué pour la prise en charge de la personne âgée et/ou dépendante et/ou présentant des troubles cognitifs\n\n• Patience, empathie, écoute active, compétences élevées en communication verbale et non verbale\n\n• Bonne résistance physique et psychique\n\n• Flexibilité en terme de planification horaire (travail jour/nuit/horaires continus et coupés)\nNiveau de formation :\nAttestation de Formation Professionnelle d’Aide en Soins et Accompagnement (AFP ASA) ou équivalent souhaité\nDiplôme d’Auxiliaire de Santé certifié par la Croix Rouge Suisse (à minima)\nAvantages :\nEvoluer dans un environnement de travail agréable, locaux récents, espaces extérieurs spécialement aménagés\nIntégrer une équipe dynamique et motivée\nParticipation active au projet d’accompagnement des résidents·es\nValorisation de la fonction d’accompagnement auprès des résidents·es par du temps et des moyens dédiés à cette mission\nSalaire en fonction de la grille salariale de la CCT SAN"
+      },
+      "location": "Rolle",
+      "canton": "VD",
+      "addressLocality": "Rolle",
+      "addressRegion": "VD",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1180",
+      "category": "healthcare",
+      "sector": "Salute / Ospedale",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-21",
+      "url": "https://app.beehire.com/invite/Wn7TRyXkp",
+      "applyUrl": "https://app.beehire.com/invite/Wn7TRyXkp",
+      "source": "GHOL Dedicated Parser (Beehire public API)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-08-04T22:24:16.401Z",
+      "needsRetranslation": false,
+      "previousSlugs": [
+        "aide-en-soins-et-accompagnement-groupement-hospitalier-de-l-ouest-lemanique-rolle",
+        "cura-e-supporto-groupement-hospitalier-de-l-ouest-lemanique-rolle",
+        "pflege-und-support-groupement-hospitalier-de-l-ouest-lemanique-rolle",
+        "aiuto-e-accompagnamento-groupement-hospitalier-de-l-ouest-lemanique-rolle"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "aide-en-soins-et-accompagnement-groupement-hospitalier-de-l-ouest-lemanique-rolle",
+          "cura-e-supporto-groupement-hospitalier-de-l-ouest-lemanique-rolle",
+          "aiuto-e-accompagnamento-groupement-hospitalier-de-l-ouest-lemanique-rolle"
+        ],
+        "de": [
+          "pflege-und-support-groupement-hospitalier-de-l-ouest-lemanique-rolle"
+        ]
+      },
+      "firstSeenAt": "2026-05-21T11:59:27.233Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
       "baseSalary": {
@@ -148,7 +225,7 @@
       "applyUrl": "https://app.beehire.com/invite/Ya8SgPnfs",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-04T11:53:17.081Z",
+      "crawledAt": "2026-08-04T22:24:16.401Z",
       "needsRetranslation": true,
       "requirementsByLocale": {
         "it": [
@@ -213,83 +290,6 @@
       }
     },
     {
-      "id": "ghol-ff11106c27c6",
-      "slug": "aiuto-e-accompagnamento-groupement-hospitalier-de-l-ouest-lemanique-rolle",
-      "slugByLocale": {
-        "it": "aiuto-e-accompagnamento-groupement-hospitalier-de-l-ouest-lemanique-rolle",
-        "en": "care-and-support-assistant-groupement-hospitalier-de-l-ouest-lemanique-rolle",
-        "de": "pflege-und-begleitassistent-groupement-hospitalier-de-l-ouest-lemanique-rolle",
-        "fr": "aide-en-soins-et-accompagnement-groupement-hospitalier-de-l-ouest-lemanique-rolle"
-      },
-      "company": "Groupement Hospitalier de l'Ouest Lémanique",
-      "companyKey": "ghol",
-      "companyDomain": "ghol.ch",
-      "title": "Aide en Soins et Accompagnement",
-      "titleByLocale": {
-        "it": "Cura e supporto",
-        "en": "Care and Support",
-        "de": "Pflege und Support",
-        "fr": "Aide en Soins et Accompagnement"
-      },
-      "description": "Le GHOL est l’hôpital de référence pour l’Ouest lémanique avec ses structures sur Nyon et Rolle. Demain, nous vous proposons de poursuivre votre épanouissement professionnel en vous impliquant dans vos nouvelles missions et en participant au développement du GHOL.\n L’EMS « Les Jardins du Léman » d’une capacité de 51 lits a pour but d’offrir à ses résidents·es la meilleure qualité de vie possible, dans un environnement médical adapté à leurs spécificités.\n Notre démarche d’accompagnement est fondée sur la construction d’une relation de confiance avec les résidents·es, leurs proches et le personnel médical ainsi que sur la prise en compte de leurs parcours de vie, de leurs désirs et besoins. Ce respect de la personne s’inscrit à travers des soins médicaux dispensés par notre personnel soignant qualifié.\n Descriptif du poste :\n Dans vos nouvelles fonctions, vos missions ont un impact sur la qualité de prise en charge des résidents·es. Votre rôle consistera notamment à,\n\n• Travailler au sein des 2 services de l’EMS (gériatrie et psycho-gériatrie)\n\n• Prendre en charge un groupe de résidents·es en stimulant leur autonomie ou si nécessaire en suppléant à leurs besoins suivant leur niveau de dépendance\n\n• Assurer une prise en charge personnalisée\n\n• Collaborer au sein d’une équipe interdisciplinaire\n\n• Transmettre et retranscrire ses observations de manière ciblée et pertinente dans le dossier informatisé du·de la résident·e\n Profil requis :\n Nous sommes convaincus de votre réussite rapide dans vos futures fonctions grâce à votre/vos :\n\n• Intérêt marqué pour la prise en charge de la personne âgée et/ou dépendante et/ou présentant des troubles cognitifs\n\n• Patience, empathie, écoute active, compétences élevées en communication verbale et non verbale\n\n• Bonne résistance physique et psychique\n\n• Flexibilité en terme de planification horaire (travail jour/nuit/horaires continus et coupés)\n Niveau de formation :\n Attestation de Formation Professionnelle d’Aide en Soins et Accompagnement (AFP ASA) ou équivalent souhaité\n Diplôme d’Auxiliaire de Santé certifié par la Croix Rouge Suisse (à minima)\n Avantages :\n Evoluer dans un environnement de travail agréable, locaux récents, espaces extérieurs spécialement aménagés\n Intégrer une équipe dynamique et motivée\n Participation active au projet d’accompagnement des résidents·es\n Valorisation de la fonction d’accompagnement auprès des résidents·es par du temps et des moyens dédiés à cette mission\n Salaire en fonction de la grille salariale de la CCT SAN",
-      "descriptionByLocale": {
-        "it": "GHOL è l'ospedale di riferimento per l'Occidente tedesco con le sue strutture su Nyon e Rolle. Domani, proponiamo di continuare il vostro sviluppo professionale coinvolgendovi nelle vostre nuove missioni e partecipando allo sviluppo di GHOL. L'obiettivo del \"Les Jardins du Léman\" (Les Jardins du Léman) è quello di fornire ai propri residenti la migliore qualità di vita possibile in un ambiente medico adattato alle loro specificità. Il nostro approccio di accompagnamento si basa sulla costruzione di un rapporto di fiducia con i residenti, i loro cari e personale medico, nonché tenendo conto del loro stile di vita, desideri e bisogni. Questo rispetto per la persona si riflette nell'assistenza medica fornita dal nostro personale sanitario qualificato. Descrizione del post: Nelle vostre nuove mansioni, le vostre missioni hanno un impatto sulla qualità della cura per i residenti. Il tuo ruolo includerà:\n• Lavoro nei due servizi dello SME (geriatria e psicogeriatria)\n• Sostenere un gruppo di residenti stimolando la loro autonomia o, se necessario, sostituendo le loro esigenze in base al loro livello di dipendenza\n• Assicurare un supporto personalizzato\n• Collaborare in un team interdisciplinare\n• Trasmettere e ritrasmettere le sue osservazioni in modo mirato e rilevante nel file computerizzato del residente Profilo richiesto: Siamo convinti del vostro rapido successo nelle vostre funzioni future attraverso il vostro:\n• Interessi nella cura degli anziani e/o dipendenti e/o con alterazione cognitiva\n• Pazienza, empatia, ascolto attivo, elevata capacità di comunicazione verbale e non verbale\n• Buona resistenza fisica e psicologica\n• Flessibilità in termini di programmazione (lavoro diurno/notte/orario continuo e di taglio) Livello di formazione: Certificazione della formazione professionale nella cura e nel supporto (AFP ASA) o equivalente desiderato Certificato di Croce Rossa svizzera (minimo) Vantaggi: Coinvolgere in un ambiente di lavoro piacevole, locali recenti, spazi esterni appositamente attrezzati Integrare un team dinamico e motivato Partecipazione attiva al progetto per sostenere i residenti Valorizzazione della funzione di accompagnamento ai residenti attraverso il tempo e i mezzi dedicati a questa missione Salario basato su SAN CTC scala salariale",
-        "en": "GHOL is the reference hospital for the German West with its structures on Nyon and Rolle. Tomorrow, we propose to continue your professional development by involving you in your new missions and by participating in the development of GHOL. The aim of the \"Les Jardins du Léman\" (Les Jardins du Léman) is to provide its residents with the best possible quality of life in a medical environment adapted to their specificities. Our accompaniment approach is based on building a relationship of trust with residents, their loved ones and medical staff, as well as taking into account their lifestyle, desires and needs. This respect for the person is reflected in the medical care provided by our qualified healthcare staff. Description of the post: In your new duties, your missions have an impact on the quality of care for residents. Your role will include:\n• Work within the two services of EMS (geriatrics and psycho-geriatrics)\n• Support a group of residents by stimulating their autonomy or if necessary by replacing their needs according to their level of dependency\n• Ensure personalized support\n• Collaborate in an interdisciplinary team\n• Transmit and retransmit its observations in a targeted and relevant manner in the resident's computerized file Profile required: We are convinced of your rapid success in your future functions through your:\n• Interest in the care of the elderly and/or dependent and/or with cognitive impairment\n• Patience, empathy, active listening, high verbal and non-verbal communication skills\n• Good physical and psychological resistance\n• Flexibility in terms of scheduling (day/night work/continuous and cut-off hours) Level of training: Certification of Vocational Training in Care and Support (AFP ASA) or desired equivalent Swiss Red Cross Certificate (minimum) Benefits: Evolve in a pleasant working environment, recent premises, specially equipped outdoor spaces Integrating a dynamic and motivated team Active participation in the project to support residents Valorisation of the function of accompaniment to residents through time and means dedicated to this mission Salary based on SAN CTC salary scale",
-        "de": "GHOL ist das Referenzkrankenhaus für den deutschen Westen mit seinen Strukturen auf Nyon und Rolle. Morgen schlagen wir vor, Ihre berufliche Entwicklung fortzusetzen, indem wir Sie in Ihre neuen Missionen einbinden und an der Entwicklung von GHOL teilnehmen. Ziel des \"Les Jardins du Léman\" (Les Jardins du Léman) ist es, seinen Bewohnern die bestmögliche Lebensqualität in einem medizinischen Umfeld zu bieten, das an ihre Besonderheiten angepasst ist. Unser Begleitansatz basiert auf dem Aufbau einer Vertrauensbeziehung mit Bewohnern, ihren Angehörigen und medizinischen Mitarbeitern sowie unter Berücksichtigung ihres Lebensstils, ihrer Wünsche und Bedürfnisse. Diese Achtung der Person spiegelt sich in der medizinischen Versorgung unserer qualifizierten Gesundheitspersonal wider. Beschreibung des Beitrags: In Ihren neuen Aufgaben haben Ihre Missionen Auswirkungen auf die Qualität der Pflege für Bewohner. Ihre Rolle wird beinhalten:\n• Arbeiten in den beiden Diensten des EMS (Kriminellen und Psycho-Kriminellen)\n• Unterstützung einer Gruppe von Bewohnern durch Förderung ihrer Autonomie oder erforderlichenfalls durch Austausch ihrer Bedürfnisse nach ihrer Abhängigkeit\n• Persönliche Unterstützung gewährleisten\n• Zusammenarbeit in einem interdisziplinären Team\n• Transmittieren und erneut seine Beobachtungen gezielt und relevant in der computergestützten Datei des Anwohners übertragen Profil erforderlich: Wir sind überzeugt von Ihrem schnellen Erfolg in Ihren zukünftigen Funktionen durch Ihre:\n• Interesse an der Pflege älterer und/oder abhängiger und/oder kognitiver Beeinträchtigungen\n• Geduld, Empathie, aktives Zuhören, hohe verbale und nicht-verbale Kommunikationsfähigkeiten\n• Guter körperlicher und psychologischer Widerstand\n• Flexibilität bei der Planung (Tag/Nachtarbeit/kontinuierliche und abgeschnittene Stunden) Ausbildungsstufe: Zertifizierung der Berufsbildung in Pflege und Unterstützung (AFP ASA) oder gewünschtes Äquivalent Swiss Red Cross Certificate (minimum) Vorteile: Entwickeln Sie in einer angenehmen Arbeitsumgebung, neueren Räumlichkeiten, speziell ausgestatteten Außenräumen Integration eines dynamischen und motivierten Teams Aktive Beteiligung am Projekt zur Unterstützung der Bewohner Valorisierung der Funktion der Begleitung der Bewohner durch die Zeit und Mittel, die dieser Mission gewidmet sind Salary basierend auf SAN CTC Gehaltsskala",
-        "fr": "Le GHOL est l’hôpital de référence pour l’Ouest lémanique avec ses structures sur Nyon et Rolle. Demain, nous vous proposons de poursuivre votre épanouissement professionnel en vous impliquant dans vos nouvelles missions et en participant au développement du GHOL.\nL’EMS « Les Jardins du Léman » d’une capacité de 51 lits a pour but d’offrir à ses résidents·es la meilleure qualité de vie possible, dans un environnement médical adapté à leurs spécificités.\nNotre démarche d’accompagnement est fondée sur la construction d’une relation de confiance avec les résidents·es, leurs proches et le personnel médical ainsi que sur la prise en compte de leurs parcours de vie, de leurs désirs et besoins. Ce respect de la personne s’inscrit à travers des soins médicaux dispensés par notre personnel soignant qualifié.\nDescriptif du poste :\nDans vos nouvelles fonctions, vos missions ont un impact sur la qualité de prise en charge des résidents·es. Votre rôle consistera notamment à,\n\n• Travailler au sein des 2 services de l’EMS (gériatrie et psycho-gériatrie)\n\n• Prendre en charge un groupe de résidents·es en stimulant leur autonomie ou si nécessaire en suppléant à leurs besoins suivant leur niveau de dépendance\n\n• Assurer une prise en charge personnalisée\n\n• Collaborer au sein d’une équipe interdisciplinaire\n\n• Transmettre et retranscrire ses observations de manière ciblée et pertinente dans le dossier informatisé du·de la résident·e\nProfil requis :\nNous sommes convaincus de votre réussite rapide dans vos futures fonctions grâce à votre/vos :\n\n• Intérêt marqué pour la prise en charge de la personne âgée et/ou dépendante et/ou présentant des troubles cognitifs\n\n• Patience, empathie, écoute active, compétences élevées en communication verbale et non verbale\n\n• Bonne résistance physique et psychique\n\n• Flexibilité en terme de planification horaire (travail jour/nuit/horaires continus et coupés)\nNiveau de formation :\nAttestation de Formation Professionnelle d’Aide en Soins et Accompagnement (AFP ASA) ou équivalent souhaité\nDiplôme d’Auxiliaire de Santé certifié par la Croix Rouge Suisse (à minima)\nAvantages :\nEvoluer dans un environnement de travail agréable, locaux récents, espaces extérieurs spécialement aménagés\nIntégrer une équipe dynamique et motivée\nParticipation active au projet d’accompagnement des résidents·es\nValorisation de la fonction d’accompagnement auprès des résidents·es par du temps et des moyens dédiés à cette mission\nSalaire en fonction de la grille salariale de la CCT SAN"
-      },
-      "location": "Rolle",
-      "canton": "VD",
-      "addressLocality": "Rolle",
-      "addressRegion": "VD",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1180",
-      "category": "healthcare",
-      "sector": "Salute / Ospedale",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-21",
-      "url": "https://app.beehire.com/invite/Wn7TRyXkp",
-      "applyUrl": "https://app.beehire.com/invite/Wn7TRyXkp",
-      "source": "GHOL Dedicated Parser (Beehire public API)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-08-04T11:53:17.080Z",
-      "needsRetranslation": false,
-      "previousSlugs": [
-        "aide-en-soins-et-accompagnement-groupement-hospitalier-de-l-ouest-lemanique-rolle",
-        "cura-e-supporto-groupement-hospitalier-de-l-ouest-lemanique-rolle",
-        "pflege-und-support-groupement-hospitalier-de-l-ouest-lemanique-rolle",
-        "aiuto-e-accompagnamento-groupement-hospitalier-de-l-ouest-lemanique-rolle"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "aide-en-soins-et-accompagnement-groupement-hospitalier-de-l-ouest-lemanique-rolle",
-          "cura-e-supporto-groupement-hospitalier-de-l-ouest-lemanique-rolle",
-          "aiuto-e-accompagnamento-groupement-hospitalier-de-l-ouest-lemanique-rolle"
-        ],
-        "de": [
-          "pflege-und-support-groupement-hospitalier-de-l-ouest-lemanique-rolle"
-        ]
-      },
-      "firstSeenAt": "2026-05-21T11:59:27.233Z",
-      "salaryMin": 86500,
-      "salaryMax": 120500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 86500,
-          "maxValue": 120500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "ghol-c0180cff0ed5",
       "slug": "codificatore-medico-groupement-hospitalier-de-l-ouest-lemanique-nyon",
       "slugByLocale": {
@@ -334,7 +334,7 @@
       "applyUrl": "https://app.beehire.com/invite/j92t_xzbO",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-04T11:53:17.080Z",
+      "crawledAt": "2026-08-04T22:24:16.400Z",
       "needsRetranslation": true,
       "requirementsByLocale": {
         "it": [
@@ -423,7 +423,7 @@
       "applyUrl": "https://app.beehire.com/invite/AWZGWt1g8",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-04T11:53:17.078Z",
+      "crawledAt": "2026-08-04T22:24:16.395Z",
       "needsRetranslation": true,
       "previousSlugs": [
         "assistant-technique-en-sterilisation-groupement-hospitalier-de-l-ouest-lemanique-nyon",
@@ -500,7 +500,7 @@
       "applyUrl": "https://app.beehire.com/invite/iMHZFWFWX",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-04T11:53:17.077Z",
+      "crawledAt": "2026-08-04T22:24:16.394Z",
       "needsRetranslation": false,
       "previousSlugs": [
         "sage-femme-groupement-hospitalier-de-l-ouest-lemanique-nyon",
@@ -592,7 +592,7 @@
       "applyUrl": "https://app.beehire.com/invite/iNewpVG3m",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-04T11:53:17.076Z",
+      "crawledAt": "2026-08-04T22:24:16.392Z",
       "needsRetranslation": true,
       "previousSlugs": [
         "infirmier-ere-urgentiste-groupement-hospitalier-de-l-ouest-lemanique-nyon",
@@ -635,83 +635,6 @@
           "@type": "QuantitativeValue",
           "minValue": 60500,
           "maxValue": 91500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "ghol-432e849660be",
-      "slug": "coordinatore-qualita-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-      "slugByLocale": {
-        "it": "coordinatore-qualita-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "en": "coordinator-quality-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "de": "koordinator-qualitat-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "fr": "coordinateur-trice-qualite-groupement-hospitalier-de-l-ouest-lemanique-nyon"
-      },
-      "company": "Groupement Hospitalier de l'Ouest Lémanique",
-      "companyKey": "ghol",
-      "companyDomain": "ghol.ch",
-      "title": "Coordinateur(trice) Qualité",
-      "titleByLocale": {
-        "it": "Coordinatore Qualità",
-        "en": "Coordinator Quality",
-        "de": "Koordinator Qualität",
-        "fr": "Coordinateur(trice) Qualité"
-      },
-      "description": "Le/La Coordinateur(trice) Qualité Santé est rattaché(e) au Responsable Qualité et travaille en étroite collaboration avec les équipes soignantes, les cadres, les médecins et les services supports.\n Il/Elle participe au déploiement, au suivi et à l'amélioration du système de management de la qualité au sein de l'hôpital de Nyon et Rolle et de l’ EMS Les Jardins du Léman. Il/Elle contribue au respect des exigences réglementaires et normatives, accompagne les équipes dans la démarche qualité et participe à l'amélioration continue de la qualité et de la sécurité des soins.\n Description du poste :\n\n• Participer à la mise en œuvre et au suivi du système de management de la qualité.\n\n• Assurer le suivi des indicateurs qualité et contribuer à l'élaboration des tableaux de bord.\n\n• Participer à l'organisation et à la réalisation des audits internes.\n\n• Contribuer au suivi des plans d'actions issus des audits, des événements indésirables et des inspections.\n\n• Participer à la préparation des certifications, évaluations externes et visites de conformité.\n\n• Contribuer à la gestion de la documentation institutionnelle.\n\n• Participer à l'analyse des événements indésirables et au suivi des actions correctives.\n\n• Participer à la gestion des plaintes.\n\n• Contribuer à la sensibilisation et à la formation des professionnels aux démarches qualité.\n Niveau de formation et expérience professionnelle :\n\n• Bachelor of Science HES-SO en soins infirmiers ou titre jugé équivalent reconnu par la Croix-Rouge suisse avec une expérience d’au moins 5 ans en milieu hospitalier et/ou EMS.\n\n• DAS ou CAS en qualité et sécurité des soins ou diplôme en management de la qualité avec expérience professionnel en milieu hospitalier et/ou EMS d’au moins 2 ans.\n\n• Maitrise de la norme ISO 9001:2015.\n Profil requis :\n\n• Motivation à développer une culture de l'amélioration continue.\n\n• Bonnes capacités rédactionnelles, d'analyse et de synthèse.\n\n• Maîtrise du français oral et écrit\n\n• Sens de l'organisation, rigueur et autonomie\n\n• Esprit d'équipe, sens de l'écoute et de la communication.\n\n• Rigueur et discrétion.\n\n• Maîtrise des outils bureautiques (Microsoft Office).\n\n• Déplacements entre les différents sites selon les besoins de l'établissement.\n Avantages\n\n• Un poste en CDI à 80-100 %, au sein d’une petite équipe engagée, partageant des valeurs de respect, d’entraide et de coopération\n\n• Un environnement stimulant favorisant l’innovation, la collaboration interprofessionnelle et le développement des compétences.\n\n• Des possibilités de formation continue et de développement professionnel.\n\n• Les avantages d’une structure privée reconnue d’intérêt public, offrant des conditions de travail régies par la CCT du secteur parapublic de la santé.",
-      "descriptionByLocale": {
-        "it": "Il Coordinatore della Salute di Qualità è attaccato al Responsabile della Qualità e lavora a stretto contatto con team di assistenza sanitaria, manager, medici e servizi di supporto.\nÈ coinvolto nella distribuzione, monitoraggio e miglioramento del sistema di gestione della qualità presso l'ospedale Nyon e Rolle e lo SME Les Jardins du Léman. Contribuisce al rispetto dei requisiti normativi e normativi, assiste i team nell'approccio di qualità e contribuisce al continuo miglioramento della qualità e della sicurezza della cura.\nDescrizione della posizione:\n\n• Partecipa all'implementazione e al monitoraggio del sistema di gestione della qualità.\n\n• Monitorare gli indicatori di qualità e contribuire allo sviluppo dei tabelloni.\n\n• Partecipa all'organizzazione e alla conduzione di audit interni.\n\n• Contribuire al monitoraggio dei piani di azione derivanti da audit, eventi avversi e ispezioni.\n\n• Partecipa alla preparazione di certificazioni, valutazioni esterne e visite di conformità.\n\n• Contribuire alla gestione della documentazione istituzionale.\n\n• Partecipa all'analisi avversa degli eventi e al follow-up delle azioni correttive.\n\n• Partecipare alla gestione dei reclami.\n\n• Contribuire alla consapevolezza e alla formazione dei professionisti in approcci di qualità.\nLivello di formazione e esperienza professionale:\n\n• Bachelor of Science HES-SO in stato di allattamento o equivalente riconosciuto dalla Croce Rossa svizzera con almeno 5 anni di esperienza in ospedale e/o SME.\n\n• DAS o CAS in qualità e sicurezza della cura o del diploma nella gestione della qualità con esperienza professionale in ospedale e/o SME di almeno 2 anni.\n\n• Masterizzazione della ISO 9001:2015.\nProfilo richiesto:\n\n• Motivazione per sviluppare una cultura di miglioramento continuo.\n\n• Buone competenze editoriali, analitiche e di sintesi.\n\n• Masterizzazione di francese orale e scritto\n\n• Senso organizzativo, rigore e autonomia\n\n• Spirito di squadra, senso di ascolto e comunicazione.\n\n• Rigor e discrezione.\n\n• Mastery di strumenti di ufficio (Microsoft Office).\n\n• Viaggiare tra diversi siti in base alle esigenze della struttura.\nVantaggi\n\n• Una posizione 80-100% CDI in un piccolo team impegnato, condivisione dei valori di rispetto, assistenza reciproca e cooperazione\n\n• Un ambiente stimolante per l'innovazione, la collaborazione interprofessionale e lo sviluppo delle competenze.\n\n• Opportunità di formazione continua e sviluppo professionale.\n\n• I benefici di una struttura privata riconosciuta nell'interesse pubblico, fornendo condizioni di lavoro disciplinate dal CTC del settore della sanità pubblica.",
-        "en": "The Quality Health Coordinator is attached to the Quality Manager and works closely with health care teams, managers, physicians and support services.\nHe/She is involved in the deployment, monitoring and improvement of the quality management system at Nyon and Rolle Hospital and EMS Les Jardins du Léman. He/she contributes to compliance with regulatory and normative requirements, assists teams in the quality approach and contributes to the continuous improvement of the quality and safety of care.\nDescription of position:\n\n• Participate in the implementation and monitoring of the quality management system.\n\n• Monitor quality indicators and contribute to the development of scoreboards.\n\n• Participate in the organization and conduct of internal audits.\n\n• Contribute to the monitoring of action plans resulting from audits, adverse events and inspections.\n\n• Participate in the preparation of certifications, external evaluations and compliance visits.\n\n• Contribute to the management of institutional documentation.\n\n• Participate in adverse event analysis and follow-up of corrective actions.\n\n• Participate in the management of complaints.\n\n• To contribute to the awareness and training of professionals in quality approaches.\nLevel of training and professional experience:\n\n• Bachelor of Science HES-SO in nursing or equivalent status recognized by the Swiss Red Cross with at least 5 years of experience in hospital and/or EMS.\n\n• DAS or CAS in quality and safety of care or diploma in quality management with professional experience in hospital and/or EMS of at least 2 years.\n\n• Mastery of ISO 9001:2015.\nProfile required:\n\n• Motivation to develop a culture of continuous improvement.\n\n• Good editorial, analytical and synthesis skills.\n\n• Mastery of oral and written French\n\n• Organizational sense, rigour and autonomy\n\n• Team spirit, sense of listening and communication.\n\n• Rigor and discretion.\n\n• Mastery of office tools (Microsoft Office).\n\n• Travel between different sites according to the needs of the establishment.\nBenefits\n\n• One 80-100% CDI position in a small committed team, sharing values of respect, mutual assistance and cooperation\n\n• A stimulating environment for innovation, interprofessional collaboration and skills development.\n\n• Opportunities for continuing training and professional development.\n\n• The benefits of a private structure recognized in the public interest, providing working conditions governed by the CTC of the parapublic health sector.",
-        "de": "Der Quality Health Coordinator ist dem Quality Manager angeschlossen und arbeitet eng mit Gesundheitsteams, Managern, Ärzten und Support-Services zusammen.\nEr ist an der Einführung, Überwachung und Verbesserung des Qualitätsmanagementsystems im Nyon and Rolle Hospital und EMS Les Jardins du Léman beteiligt. Er trägt zur Einhaltung regulatorischer und normativer Anforderungen bei, unterstützt Teams beim Qualitätsansatz und trägt zur kontinuierlichen Verbesserung der Qualität und Sicherheit der Pflege bei.\nBeschreibung der Position:\n\n• Beteiligen Sie sich an der Umsetzung und Überwachung des Qualitätsmanagementsystems.\n\n• Überwachung von Qualitätsindikatoren und Beitrag zur Entwicklung von Anzeigetafeln.\n\n• Beteiligen Sie sich an der Organisation und Durchführung von internen Audits.\n\n• Beitrag zur Überwachung von Aktionsplänen, die sich aus Audits, Zwischenfällen und Inspektionen ergeben.\n\n• Beteiligen Sie sich an der Vorbereitung von Zertifizierungen, externen Bewertungen und Compliance-Besuchen.\n\n• Beitrag zur Verwaltung der institutionellen Dokumentation.\n\n• Beteiligen Sie sich an der Analyse unerwünschter Ereignisse und der Nachverfolgung von Korrekturmaßnahmen.\n\n• Beteiligen Sie sich an der Verwaltung von Beschwerden.\n\n• Beitrag zur Sensibilisierung und Ausbildung von Fachleuten in Qualitätsansätzen.\nAusbildung und Berufserfahrung:\n\n• Bachelor of Science HES-SO in Pflege oder gleichwertigen Status vom Schweizerischen Roten Kreuz mit mindestens 5 Jahren Erfahrung im Krankenhaus und / oder EMS anerkannt.\n\n• DAS oder CAS in Qualität und Sicherheit der Pflege oder Diplom in Qualitätsmanagement mit Berufserfahrung im Krankenhaus und / oder EMS von mindestens 2 Jahren.\n\n• Beherrschung der ISO 9001:2015.\nProfil erforderlich:\n\n• Motivation, eine Kultur der kontinuierlichen Verbesserung zu entwickeln.\n\n• Gute redaktionelle, analytische und Synthesefähigkeiten.\n\n• Beherrschung von mündlichem und schriftlichem Französisch\n\n• Organisatorischer Sinn, Strenge und Autonomie\n\n• Teamgeist, Sinn für Zuhören und Kommunikation.\n\n• Strenge und Diskretion.\n\n• Beherrschung von Office-Tools (Microsoft Office).\n\n• Reisen zwischen verschiedenen Standorten nach den Bedürfnissen der Einrichtung.\nVorteile\n\n• Eine 80-100% CDI-Position in einem kleinen engagierten Team, das Werte wie Respekt, gegenseitige Hilfe und Zusammenarbeit teilt\n\n• Ein stimulierendes Umfeld für Innovation, interprofessionelle Zusammenarbeit und Kompetenzentwicklung.\n\n• Möglichkeiten zur Weiterbildung und beruflichen Weiterentwicklung.\n\n• Die Vorteile einer privaten Struktur, die im öffentlichen Interesse anerkannt ist und Arbeitsbedingungen bietet, die von der CTC des paraöffentlichen Gesundheitssektors geregelt werden.",
-        "fr": "Le/La Coordinateur(trice) Qualité Santé est rattaché(e) au Responsable Qualité et travaille en étroite collaboration avec les équipes soignantes, les cadres, les médecins et les services supports.\nIl/Elle participe au déploiement, au suivi et à l'amélioration du système de management de la qualité au sein de l'hôpital de Nyon et Rolle et de l’ EMS Les Jardins du Léman. Il/Elle contribue au respect des exigences réglementaires et normatives, accompagne les équipes dans la démarche qualité et participe à l'amélioration continue de la qualité et de la sécurité des soins.\nDescription du poste :\n\n• Participer à la mise en œuvre et au suivi du système de management de la qualité.\n\n• Assurer le suivi des indicateurs qualité et contribuer à l'élaboration des tableaux de bord.\n\n• Participer à l'organisation et à la réalisation des audits internes.\n\n• Contribuer au suivi des plans d'actions issus des audits, des événements indésirables et des inspections.\n\n• Participer à la préparation des certifications, évaluations externes et visites de conformité.\n\n• Contribuer à la gestion de la documentation institutionnelle.\n\n• Participer à l'analyse des événements indésirables et au suivi des actions correctives.\n\n• Participer à la gestion des plaintes.\n\n• Contribuer à la sensibilisation et à la formation des professionnels aux démarches qualité.\nNiveau de formation et expérience professionnelle :\n\n• Bachelor of Science HES-SO en soins infirmiers ou titre jugé équivalent reconnu par la Croix-Rouge suisse avec une expérience d’au moins 5 ans en milieu hospitalier et/ou EMS.\n\n• DAS ou CAS en qualité et sécurité des soins ou diplôme en management de la qualité avec expérience professionnel en milieu hospitalier et/ou EMS d’au moins 2 ans.\n\n• Maitrise de la norme ISO 9001:2015.\nProfil requis :\n\n• Motivation à développer une culture de l'amélioration continue.\n\n• Bonnes capacités rédactionnelles, d'analyse et de synthèse.\n\n• Maîtrise du français oral et écrit\n\n• Sens de l'organisation, rigueur et autonomie\n\n• Esprit d'équipe, sens de l'écoute et de la communication.\n\n• Rigueur et discrétion.\n\n• Maîtrise des outils bureautiques (Microsoft Office).\n\n• Déplacements entre les différents sites selon les besoins de l'établissement.\nAvantages\n\n• Un poste en CDI à 80-100 %, au sein d’une petite équipe engagée, partageant des valeurs de respect, d’entraide et de coopération\n\n• Un environnement stimulant favorisant l’innovation, la collaboration interprofessionnelle et le développement des compétences.\n\n• Des possibilités de formation continue et de développement professionnel.\n\n• Les avantages d’une structure privée reconnue d’intérêt public, offrant des conditions de travail régies par la CCT du secteur parapublic de la santé."
-      },
-      "location": "Nyon",
-      "canton": "VD",
-      "addressLocality": "Nyon",
-      "addressRegion": "VD",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1260",
-      "category": "healthcare",
-      "sector": "Salute / Ospedale",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-09",
-      "url": "https://app.beehire.com/invite/3u8B76lVr",
-      "applyUrl": "https://app.beehire.com/invite/3u8B76lVr",
-      "source": "GHOL Dedicated Parser (Beehire public API)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-08-04T11:53:17.075Z",
-      "needsRetranslation": false,
-      "previousSlugs": [
-        "coordinateur-trice-qualite-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "coordinatore-qualita-groupement-hospitalier-de-l-ouest-lemanique-nyon"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "coordinateur-trice-qualite-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-          "coordinatore-qualita-groupement-hospitalier-de-l-ouest-lemanique-nyon"
-        ],
-        "en": [
-          "coordinateur-trice-qualite-groupement-hospitalier-de-l-ouest-lemanique-nyon"
-        ],
-        "de": [
-          "coordinateur-trice-qualite-groupement-hospitalier-de-l-ouest-lemanique-nyon"
-        ]
-      },
-      "firstSeenAt": "2026-07-09T22:35:45.169Z",
-      "salaryMin": 86500,
-      "salaryMax": 120500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 86500,
-          "maxValue": 120500,
           "unitText": "YEAR"
         }
       }
@@ -761,7 +684,7 @@
       "applyUrl": "https://app.beehire.com/invite/v6aaZampn",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-04T11:53:17.074Z",
+      "crawledAt": "2026-08-04T22:24:16.391Z",
       "needsRetranslation": false,
       "previousSlugs": [
         "infirmier-ere-anesthesiste-certifie-e-groupement-hospitalier-de-l-ouest-lemanique-nyon",
@@ -838,7 +761,7 @@
       "applyUrl": "https://app.beehire.com/invite/CsBCCNTDM",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-04T11:53:17.073Z",
+      "crawledAt": "2026-08-04T22:24:16.389Z",
       "needsRetranslation": true,
       "previousSlugs": [
         "infirmier-ere-en-pneumologie-groupement-hospitalier-de-l-ouest-lemanique-rolle",
@@ -871,6 +794,82 @@
           "unitText": "YEAR"
         }
       }
+    },
+    {
+      "id": "ghol-432e849660be",
+      "slug": "coordinatore-qualita-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+      "slugByLocale": {
+        "it": "coordinatore-qualita-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "en": "coordinator-quality-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "de": "koordinator-qualitat-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "fr": "coordinateur-trice-qualite-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+      },
+      "company": "Groupement Hospitalier de l'Ouest Lémanique",
+      "companyKey": "ghol",
+      "companyDomain": "ghol.ch",
+      "title": "Coordinateur(trice) Qualité",
+      "titleByLocale": {
+        "it": "Coordinatore Qualità",
+        "en": "Coordinator Quality",
+        "de": "Koordinator Qualität",
+        "fr": "Coordinateur(trice) Qualité"
+      },
+      "description": "Le/La Coordinateur(trice) Qualité Santé est rattaché(e) au Responsable Qualité et travaille en étroite collaboration avec les équipes soignantes, les cadres, les médecins et les services supports.\n Il/Elle participe au déploiement, au suivi et à l'amélioration du système de management de la qualité au sein de l'hôpital de Nyon et Rolle et de l’ EMS Les Jardins du Léman. Il/Elle contribue au respect des exigences réglementaires et normatives, accompagne les équipes dans la démarche qualité et participe à l'amélioration continue de la qualité et de la sécurité des soins.\n Description du poste :\n\n• Participer à la mise en œuvre et au suivi du système de management de la qualité.\n\n• Assurer le suivi des indicateurs qualité et contribuer à l'élaboration des tableaux de bord.\n\n• Participer à l'organisation et à la réalisation des audits internes.\n\n• Contribuer au suivi des plans d'actions issus des audits, des événements indésirables et des inspections.\n\n• Participer à la préparation des certifications, évaluations externes et visites de conformité.\n\n• Contribuer à la gestion de la documentation institutionnelle.\n\n• Participer à l'analyse des événements indésirables et au suivi des actions correctives.\n\n• Participer à la gestion des plaintes.\n\n• Contribuer à la sensibilisation et à la formation des professionnels aux démarches qualité.\n Niveau de formation et expérience professionnelle :\n\n• Bachelor of Science HES-SO en soins infirmiers ou titre jugé équivalent reconnu par la Croix-Rouge suisse avec une expérience d’au moins 5 ans en milieu hospitalier et/ou EMS.\n\n• DAS ou CAS en qualité et sécurité des soins ou diplôme en management de la qualité avec expérience professionnel en milieu hospitalier et/ou EMS d’au moins 2 ans.\n\n• Maitrise de la norme ISO 9001:2015.\n Profil requis :\n\n• Motivation à développer une culture de l'amélioration continue.\n\n• Bonnes capacités rédactionnelles, d'analyse et de synthèse.\n\n• Maîtrise du français oral et écrit\n\n• Sens de l'organisation, rigueur et autonomie\n\n• Esprit d'équipe, sens de l'écoute et de la communication.\n\n• Rigueur et discrétion.\n\n• Maîtrise des outils bureautiques (Microsoft Office).\n\n• Déplacements entre les différents sites selon les besoins de l'établissement.\n Avantages\n\n• Un poste en CDI à 80-100 %, au sein d’une petite équipe engagée, partageant des valeurs de respect, d’entraide et de coopération\n\n• Un environnement stimulant favorisant l’innovation, la collaboration interprofessionnelle et le développement des compétences.\n\n• Des possibilités de formation continue et de développement professionnel.\n\n• Les avantages d’une structure privée reconnue d’intérêt public, offrant des conditions de travail régies par la CCT du secteur parapublic de la santé.",
+      "descriptionByLocale": {
+        "it": "Il Coordinatore della Salute di Qualità è attaccato al Responsabile della Qualità e lavora a stretto contatto con team di assistenza sanitaria, manager, medici e servizi di supporto.\nÈ coinvolto nella distribuzione, monitoraggio e miglioramento del sistema di gestione della qualità presso l'ospedale Nyon e Rolle e lo SME Les Jardins du Léman. Contribuisce al rispetto dei requisiti normativi e normativi, assiste i team nell'approccio di qualità e contribuisce al continuo miglioramento della qualità e della sicurezza della cura.\nDescrizione della posizione:\n\n• Partecipa all'implementazione e al monitoraggio del sistema di gestione della qualità.\n\n• Monitorare gli indicatori di qualità e contribuire allo sviluppo dei tabelloni.\n\n• Partecipa all'organizzazione e alla conduzione di audit interni.\n\n• Contribuire al monitoraggio dei piani di azione derivanti da audit, eventi avversi e ispezioni.\n\n• Partecipa alla preparazione di certificazioni, valutazioni esterne e visite di conformità.\n\n• Contribuire alla gestione della documentazione istituzionale.\n\n• Partecipa all'analisi avversa degli eventi e al follow-up delle azioni correttive.\n\n• Partecipare alla gestione dei reclami.\n\n• Contribuire alla consapevolezza e alla formazione dei professionisti in approcci di qualità.\nLivello di formazione e esperienza professionale:\n\n• Bachelor of Science HES-SO in stato di allattamento o equivalente riconosciuto dalla Croce Rossa svizzera con almeno 5 anni di esperienza in ospedale e/o SME.\n\n• DAS o CAS in qualità e sicurezza della cura o del diploma nella gestione della qualità con esperienza professionale in ospedale e/o SME di almeno 2 anni.\n\n• Masterizzazione della ISO 9001:2015.\nProfilo richiesto:\n\n• Motivazione per sviluppare una cultura di miglioramento continuo.\n\n• Buone competenze editoriali, analitiche e di sintesi.\n\n• Masterizzazione di francese orale e scritto\n\n• Senso organizzativo, rigore e autonomia\n\n• Spirito di squadra, senso di ascolto e comunicazione.\n\n• Rigor e discrezione.\n\n• Mastery di strumenti di ufficio (Microsoft Office).\n\n• Viaggiare tra diversi siti in base alle esigenze della struttura.\nVantaggi\n\n• Una posizione 80-100% CDI in un piccolo team impegnato, condivisione dei valori di rispetto, assistenza reciproca e cooperazione\n\n• Un ambiente stimolante per l'innovazione, la collaborazione interprofessionale e lo sviluppo delle competenze.\n\n• Opportunità di formazione continua e sviluppo professionale.\n\n• I benefici di una struttura privata riconosciuta nell'interesse pubblico, fornendo condizioni di lavoro disciplinate dal CTC del settore della sanità pubblica.",
+        "en": "The Quality Health Coordinator is attached to the Quality Manager and works closely with health care teams, managers, physicians and support services.\nHe/She is involved in the deployment, monitoring and improvement of the quality management system at Nyon and Rolle Hospital and EMS Les Jardins du Léman. He/she contributes to compliance with regulatory and normative requirements, assists teams in the quality approach and contributes to the continuous improvement of the quality and safety of care.\nDescription of position:\n\n• Participate in the implementation and monitoring of the quality management system.\n\n• Monitor quality indicators and contribute to the development of scoreboards.\n\n• Participate in the organization and conduct of internal audits.\n\n• Contribute to the monitoring of action plans resulting from audits, adverse events and inspections.\n\n• Participate in the preparation of certifications, external evaluations and compliance visits.\n\n• Contribute to the management of institutional documentation.\n\n• Participate in adverse event analysis and follow-up of corrective actions.\n\n• Participate in the management of complaints.\n\n• To contribute to the awareness and training of professionals in quality approaches.\nLevel of training and professional experience:\n\n• Bachelor of Science HES-SO in nursing or equivalent status recognized by the Swiss Red Cross with at least 5 years of experience in hospital and/or EMS.\n\n• DAS or CAS in quality and safety of care or diploma in quality management with professional experience in hospital and/or EMS of at least 2 years.\n\n• Mastery of ISO 9001:2015.\nProfile required:\n\n• Motivation to develop a culture of continuous improvement.\n\n• Good editorial, analytical and synthesis skills.\n\n• Mastery of oral and written French\n\n• Organizational sense, rigour and autonomy\n\n• Team spirit, sense of listening and communication.\n\n• Rigor and discretion.\n\n• Mastery of office tools (Microsoft Office).\n\n• Travel between different sites according to the needs of the establishment.\nBenefits\n\n• One 80-100% CDI position in a small committed team, sharing values of respect, mutual assistance and cooperation\n\n• A stimulating environment for innovation, interprofessional collaboration and skills development.\n\n• Opportunities for continuing training and professional development.\n\n• The benefits of a private structure recognized in the public interest, providing working conditions governed by the CTC of the parapublic health sector.",
+        "de": "Der Quality Health Coordinator ist dem Quality Manager angeschlossen und arbeitet eng mit Gesundheitsteams, Managern, Ärzten und Support-Services zusammen.\nEr ist an der Einführung, Überwachung und Verbesserung des Qualitätsmanagementsystems im Nyon and Rolle Hospital und EMS Les Jardins du Léman beteiligt. Er trägt zur Einhaltung regulatorischer und normativer Anforderungen bei, unterstützt Teams beim Qualitätsansatz und trägt zur kontinuierlichen Verbesserung der Qualität und Sicherheit der Pflege bei.\nBeschreibung der Position:\n\n• Beteiligen Sie sich an der Umsetzung und Überwachung des Qualitätsmanagementsystems.\n\n• Überwachung von Qualitätsindikatoren und Beitrag zur Entwicklung von Anzeigetafeln.\n\n• Beteiligen Sie sich an der Organisation und Durchführung von internen Audits.\n\n• Beitrag zur Überwachung von Aktionsplänen, die sich aus Audits, Zwischenfällen und Inspektionen ergeben.\n\n• Beteiligen Sie sich an der Vorbereitung von Zertifizierungen, externen Bewertungen und Compliance-Besuchen.\n\n• Beitrag zur Verwaltung der institutionellen Dokumentation.\n\n• Beteiligen Sie sich an der Analyse unerwünschter Ereignisse und der Nachverfolgung von Korrekturmaßnahmen.\n\n• Beteiligen Sie sich an der Verwaltung von Beschwerden.\n\n• Beitrag zur Sensibilisierung und Ausbildung von Fachleuten in Qualitätsansätzen.\nAusbildung und Berufserfahrung:\n\n• Bachelor of Science HES-SO in Pflege oder gleichwertigen Status vom Schweizerischen Roten Kreuz mit mindestens 5 Jahren Erfahrung im Krankenhaus und / oder EMS anerkannt.\n\n• DAS oder CAS in Qualität und Sicherheit der Pflege oder Diplom in Qualitätsmanagement mit Berufserfahrung im Krankenhaus und / oder EMS von mindestens 2 Jahren.\n\n• Beherrschung der ISO 9001:2015.\nProfil erforderlich:\n\n• Motivation, eine Kultur der kontinuierlichen Verbesserung zu entwickeln.\n\n• Gute redaktionelle, analytische und Synthesefähigkeiten.\n\n• Beherrschung von mündlichem und schriftlichem Französisch\n\n• Organisatorischer Sinn, Strenge und Autonomie\n\n• Teamgeist, Sinn für Zuhören und Kommunikation.\n\n• Strenge und Diskretion.\n\n• Beherrschung von Office-Tools (Microsoft Office).\n\n• Reisen zwischen verschiedenen Standorten nach den Bedürfnissen der Einrichtung.\nVorteile\n\n• Eine 80-100% CDI-Position in einem kleinen engagierten Team, das Werte wie Respekt, gegenseitige Hilfe und Zusammenarbeit teilt\n\n• Ein stimulierendes Umfeld für Innovation, interprofessionelle Zusammenarbeit und Kompetenzentwicklung.\n\n• Möglichkeiten zur Weiterbildung und beruflichen Weiterentwicklung.\n\n• Die Vorteile einer privaten Struktur, die im öffentlichen Interesse anerkannt ist und Arbeitsbedingungen bietet, die von der CTC des paraöffentlichen Gesundheitssektors geregelt werden.",
+        "fr": "Le/La Coordinateur(trice) Qualité Santé est rattaché(e) au Responsable Qualité et travaille en étroite collaboration avec les équipes soignantes, les cadres, les médecins et les services supports.\nIl/Elle participe au déploiement, au suivi et à l'amélioration du système de management de la qualité au sein de l'hôpital de Nyon et Rolle et de l’ EMS Les Jardins du Léman. Il/Elle contribue au respect des exigences réglementaires et normatives, accompagne les équipes dans la démarche qualité et participe à l'amélioration continue de la qualité et de la sécurité des soins.\nDescription du poste :\n\n• Participer à la mise en œuvre et au suivi du système de management de la qualité.\n\n• Assurer le suivi des indicateurs qualité et contribuer à l'élaboration des tableaux de bord.\n\n• Participer à l'organisation et à la réalisation des audits internes.\n\n• Contribuer au suivi des plans d'actions issus des audits, des événements indésirables et des inspections.\n\n• Participer à la préparation des certifications, évaluations externes et visites de conformité.\n\n• Contribuer à la gestion de la documentation institutionnelle.\n\n• Participer à l'analyse des événements indésirables et au suivi des actions correctives.\n\n• Participer à la gestion des plaintes.\n\n• Contribuer à la sensibilisation et à la formation des professionnels aux démarches qualité.\nNiveau de formation et expérience professionnelle :\n\n• Bachelor of Science HES-SO en soins infirmiers ou titre jugé équivalent reconnu par la Croix-Rouge suisse avec une expérience d’au moins 5 ans en milieu hospitalier et/ou EMS.\n\n• DAS ou CAS en qualité et sécurité des soins ou diplôme en management de la qualité avec expérience professionnel en milieu hospitalier et/ou EMS d’au moins 2 ans.\n\n• Maitrise de la norme ISO 9001:2015.\nProfil requis :\n\n• Motivation à développer une culture de l'amélioration continue.\n\n• Bonnes capacités rédactionnelles, d'analyse et de synthèse.\n\n• Maîtrise du français oral et écrit\n\n• Sens de l'organisation, rigueur et autonomie\n\n• Esprit d'équipe, sens de l'écoute et de la communication.\n\n• Rigueur et discrétion.\n\n• Maîtrise des outils bureautiques (Microsoft Office).\n\n• Déplacements entre les différents sites selon les besoins de l'établissement.\nAvantages\n\n• Un poste en CDI à 80-100 %, au sein d’une petite équipe engagée, partageant des valeurs de respect, d’entraide et de coopération\n\n• Un environnement stimulant favorisant l’innovation, la collaboration interprofessionnelle et le développement des compétences.\n\n• Des possibilités de formation continue et de développement professionnel.\n\n• Les avantages d’une structure privée reconnue d’intérêt public, offrant des conditions de travail régies par la CCT du secteur parapublic de la santé."
+      },
+      "location": "Nyon",
+      "canton": "VD",
+      "addressLocality": "Nyon",
+      "addressRegion": "VD",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1260",
+      "category": "healthcare",
+      "sector": "Salute / Ospedale",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-09",
+      "url": "https://app.beehire.com/invite/3u8B76lVr",
+      "applyUrl": "https://app.beehire.com/invite/3u8B76lVr",
+      "source": "GHOL Dedicated Parser (Beehire public API)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-08-04T11:53:17.075Z",
+      "needsRetranslation": false,
+      "previousSlugs": [
+        "coordinateur-trice-qualite-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "coordinateur-trice-qualite-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+        ],
+        "en": [
+          "coordinateur-trice-qualite-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+        ],
+        "de": [
+          "coordinateur-trice-qualite-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+        ]
+      },
+      "firstSeenAt": "2026-07-09T22:35:45.169Z",
+      "salaryMin": 86500,
+      "salaryMax": 120500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 86500,
+          "maxValue": 120500,
+          "unitText": "YEAR"
+        }
+      },
+      "crawlerMissStreak": 1
     }
   ]
 }

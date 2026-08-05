@@ -1,6 +1,6 @@
 {
   "crawlerKey": "klinik-gut",
-  "assembledAt": "2026-08-04T11:40:20.908Z",
+  "assembledAt": "2026-08-04T22:25:19.198Z",
   "jobs": [
     {
       "id": "klinik-gut-1581-00c45976f0f5",
@@ -34,7 +34,7 @@
       "url": "https://www.klinik-gut.ch/de/offene-stellen#drz-accordion-id-1581",
       "source": "Klinik Gut Dedicated Parser (Drupal accordion)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-04T11:40:18.356Z",
+      "crawledAt": "2026-08-04T22:25:15.988Z",
       "addressLocality": "Fläsch",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -119,7 +119,7 @@
       "url": "https://www.klinik-gut.ch/de/offene-stellen#drz-accordion-id-3890",
       "source": "Klinik Gut Dedicated Parser (Drupal accordion)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-04T11:40:18.355Z",
+      "crawledAt": "2026-08-04T22:25:15.986Z",
       "addressLocality": "Fläsch",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -150,6 +150,85 @@
         ],
         "fr": [
           "teamleitung-operationspflege-leadership-80-100-klinik-gut-flasch"
+        ]
+      },
+      "firstSeenAt": "2026-06-29T22:54:47.989Z",
+      "salaryMin": 57500,
+      "salaryMax": 87000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 57500,
+          "maxValue": 87000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "klinik-gut-3888-299dfde7d875",
+      "slug": "team-management-operazioni-manutenzione-organizzazione-80-100-klinik-gut-ag-flasch",
+      "slugByLocale": {
+        "it": "team-management-operazioni-manutenzione-organizzazione-80-100-klinik-gut-ag-flasch",
+        "en": "team-management-operations-maintenance-organization-80-100-klinik-gut-ag-flasch",
+        "de": "teamleitung-operationspflege-organisation-80-100-klinik-gut-flasch",
+        "fr": "gestion-d-equipe-maintenance-des-operations-organisation-80-100-klinik-gut-ag-flasch"
+      },
+      "company": "Klinik Gut AG",
+      "companyKey": "klinik-gut",
+      "companyDomain": "klinik-gut.ch",
+      "title": "Teamleitung Operationspflege Organisation 80 - 100 %",
+      "titleByLocale": {
+        "it": "Team management Operazioni manutenzione Organizzazione 80 - 100%",
+        "en": "Teamleitung Operationspflege Organisation 80 - 100 %",
+        "de": "Teamleitung Operationspflege Organisation 80 - 100 %",
+        "fr": "Gestion d'équipe Maintenance des opérations Organisation 80 - 100%"
+      },
+      "description": "Du behältst auch in einem dynamischen OP Umfeld den Überblick und sorgst für reibungslose Abläufe? Zur Verstärkung unseres Führungsteams suchen wir eine engagierte Persönlichkeit als Teamleitung Operationspflege Organisation  80- 100%.\n In dieser neu geschaffenen Funktion verantwortest du die organisatorischen Abläufe im Operationsbereich und arbeitest eng mit der Teamleitung Leadership sowie der Leitung Operationspflege zusammen.\n Deine Aufgaben\n\n• Organisation und Koordination des täglichen OP Betriebs\n\n• Verantwortung für Materialbewirtschaftung und Bestellungen\n\n• Koordination von Leihmaterialien\n\n• Sicherstellung der Material und Instrumentenverfügbarkeit\n\n• Zusammenarbeit mit Einkauf und externen Partnern\n\n• Optimierung von Prozessen und Standards\n\n• Enge Zusammenarbeit mit der zweiten Teamleitung und der Leitung Operationspflege\n Du bringst mit\n\n• Dipl. Pflegefachperson HF/FH mit Weiterbildung Operationspflege oder Dipl. Fachperson Operationstechnik HF\n\n• Mehrjährige Berufserfahrung im OP\n\n• Führungserfahrung oder Motivation, Führungsverantwortung zu übernehmen\n\n• Organisationstalent und hohes Verantwortungsbewusstsein\n\n• Sozial und Kommunikationskompetenz\n\n• Selbstständige und lösungsorientierte Arbeitsweise\n\n• Freude an interprofessioneller Zusammenarbeit\n Wir bieten dir\n\n• Die Möglichkeit, eine neue Führungsstruktur aktiv mitzugestalten\n\n• Verantwortungsvolle Führungsaufgabe mit klaren Zuständigkeiten\n\n• Viel Gestaltungsspielraum für Prozesse und Zusammenarbeit\n\n• Ein engagiertes und kollegiales OP Team\n\n• Attraktive Anstellungsbedingungen sowie Möglichkeiten zur persönlichen und fachlichen Weiterbildung\n\n• Familiäre Atmosphäre, flache Hierarchien und eine gelebte Du Kultur, wie sie die Klinik Gut auszeichnet\n Interessiert?\n Für weitere Auskünfte steht dir Frau Rina Müller, Leiterin OP, gerne unter +41 81 595 56 01 zur Verfügung.\n Wir freuen uns auf deine vollständigen Bewerbungsunterlagen per E-Mail an: R.Mueller@klinik-gut.ch\n PS: Wir sind neugierig: Wie bist du auf unsere Stelle gestossen? Lass es uns in deinem Motivationsschreiben wissen.",
+      "descriptionByLocale": {
+        "it": "Si mantiene anche una panoramica in un ambiente operativo dinamico e garantire processi lisci? Al fine di rafforzare il nostro team di gestione, siamo alla ricerca di una personalità impegnata come team gestione operazioni manutenzione organizzazione 80- 100%.\nIn questa nuova funzione, sei responsabile dei processi organizzativi nell'area operativa e lavori a stretto contatto con la leadership della gestione del team e la gestione della manutenzione delle operazioni.\nI tuoi compiti\n\n• Organizzazione e coordinamento delle operazioni quotidiane\n\n• Responsabilità per la gestione e gli ordini dei materiali\n\n• Coordinamento dei materiali di noleggio\n\n• Garantire la disponibilità di materiali e strumenti\n\n• Cooperazione con gli acquisti e i partner esterni\n\n• Ottimizzazione dei processi e degli standard\n\n• Una stretta collaborazione con la seconda gestione del team e la gestione delle operazioni di manutenzione\nPorta con te\n\n• Dipl. Specialista infermieristico HF/FH con ulteriore addestramento chirurgico o Dipl. Tecnica chirurgica specialistica HF\n\n• Diversi anni di esperienza professionale in OR\n\n• Esperienza di leadership o motivazione per assumere responsabilità di leadership\n\n• Talenti organizzativi e un alto senso di responsabilità\n\n• Capacità sociali e di comunicazione\n\n• Metodo di lavoro indipendente e orientato alla soluzione\n\n• Sfruttamento della cooperazione interprofessionale\nVi offriamo\n\n• L'opportunità di plasmare attivamente una nuova struttura di leadership\n\n• ruolo di leadership responsabile con chiare responsabilità\n\n• Un sacco di spazio per la manovra per processi e cooperazione\n\n• Un team OP dedicato e collegiale\n\n• Condizioni di lavoro interessanti e opportunità di formazione personale e professionale\n\n• Atmosfera familiare, gerarchie piatte e una cultura vissuta, come distingue il Klinik Gut\nInteressante?\nPer ulteriori informazioni, la sig.ra Rina Müller, responsabile del PO, è a vostra disposizione il +41 81 595 56 01.\nAttendiamo con ansia i vostri documenti applicativi completi via e-mail a: R.Mueller@klinik-gut.ch\nPS: Siamo curiosi: Come avete incontrato il nostro posto? Fateci sapere nella vostra lettera di motivazione.",
+        "en": "You also keep an overview in a dynamic operating environment and ensure smooth processes? In order to strengthen our management team, we are looking for a committed personality as team management operations maintenance organization 80- 100%.\nIn this newly created function, you are responsible for the organizational processes in the operation area and work closely with the team management leadership and the management of operations maintenance.\nYour tasks\n\n• Organisation and coordination of daily operations\n\n• Responsibility for material management and orders\n\n• Coordination of rental materials\n\n• Ensuring material and instrument availability\n\n• Cooperation with purchasing and external partners\n\n• Optimization of processes and standards\n\n• Close cooperation with the second team management and the management of operations maintenance\nYou bring with you\n\n• Dipl. Nursing specialist HF/FH with further training surgery care or Dipl. Specialist surgical technique HF\n\n• Several years of professional experience in the OR\n\n• Leadership experience or motivation to take on leadership responsibility\n\n• Organizational talent and a high sense of responsibility\n\n• Social and communication skills\n\n• Independent and solution-oriented working method\n\n• Enjoyment of interprofessional cooperation\nWe offer you\n\n• The opportunity to actively shape a new leadership structure\n\n• Responsible leadership role with clear responsibilities\n\n• Lots of room for manoeuvre for processes and cooperation\n\n• A dedicated and collegial OP team\n\n• Attractive employment conditions and opportunities for personal and professional training\n\n• Family atmosphere, flat hierarchies and a lived culture, as it distinguishes the Klinik Gut\nInterested?\nFor further information, Mrs. Rina Müller, Head of the OP, is at your disposal on +41 81 595 56 01.\nWe look forward to your complete application documents by e-mail to: R.Mueller@klinik-gut.ch\nPS: We are curious: How did you come across our place? Let us know in your motivation letter.",
+        "de": "Du behältst auch in einem dynamischen OP Umfeld den Überblick und sorgst für reibungslose Abläufe? Zur Verstärkung unseres Führungsteams suchen wir eine engagierte Persönlichkeit als Teamleitung Operationspflege Organisation 80- 100%.\nIn dieser neu geschaffenen Funktion verantwortest du die organisatorischen Abläufe im Operationsbereich und arbeitest eng mit der Teamleitung Leadership sowie der Leitung Operationspflege zusammen.\nDeine Aufgaben\n\n• Organisation und Koordination des täglichen OP Betriebs\n\n• Verantwortung für Materialbewirtschaftung und Bestellungen\n\n• Koordination von Leihmaterialien\n\n• Sicherstellung der Material und Instrumentenverfügbarkeit\n\n• Zusammenarbeit mit Einkauf und externen Partnern\n\n• Optimierung von Prozessen und Standards\n\n• Enge Zusammenarbeit mit der zweiten Teamleitung und der Leitung Operationspflege\nDu bringst mit\n\n• Dipl. Pflegefachperson HF/FH mit Weiterbildung Operationspflege oder Dipl. Fachperson Operationstechnik HF\n\n• Mehrjährige Berufserfahrung im OP\n\n• Führungserfahrung oder Motivation, Führungsverantwortung zu übernehmen\n\n• Organisationstalent und hohes Verantwortungsbewusstsein\n\n• Sozial und Kommunikationskompetenz\n\n• Selbstständige und lösungsorientierte Arbeitsweise\n\n• Freude an interprofessioneller Zusammenarbeit\nWir bieten dir\n\n• Die Möglichkeit, eine neue Führungsstruktur aktiv mitzugestalten\n\n• Verantwortungsvolle Führungsaufgabe mit klaren Zuständigkeiten\n\n• Viel Gestaltungsspielraum für Prozesse und Zusammenarbeit\n\n• Ein engagiertes und kollegiales OP Team\n\n• Attraktive Anstellungsbedingungen sowie Möglichkeiten zur persönlichen und fachlichen Weiterbildung\n\n• Familiäre Atmosphäre, flache Hierarchien und eine gelebte Du Kultur, wie sie die Klinik Gut auszeichnet\nInteressiert?\nFür weitere Auskünfte steht dir Frau Rina Müller, Leiterin OP, gerne unter +41 81 595 56 01 zur Verfügung.\nWir freuen uns auf deine vollständigen Bewerbungsunterlagen per E-Mail an: R.Mueller@klinik-gut.ch\nPS: Wir sind neugierig: Wie bist du auf unsere Stelle gestossen? Lass es uns in deinem Motivationsschreiben wissen.",
+        "fr": "Vous gardez également un aperçu dans un environnement d'exploitation dynamique et vous assurez des processus en douceur? Afin de renforcer notre équipe de gestion, nous recherchons une personnalité engagée en tant qu'organisation de maintenance des opérations de gestion d'équipe 80- 100%.\nDans cette fonction nouvellement créée, vous êtes responsable des processus organisationnels dans la zone opérationnelle et travaillez en étroite collaboration avec la direction de l'équipe et la gestion de l'entretien des opérations.\nVos tâches\n\n• Organisation et coordination des opérations quotidiennes\n\n• Responsabilité de la gestion du matériel et des commandes\n\n• Coordination du matériel de location\n\n• Assurer la disponibilité du matériel et des instruments\n\n• Coopération avec les acheteurs et les partenaires extérieurs\n\n• Optimisation des processus et des normes\n\n• Coopération étroite avec la seconde équipe de gestion et la gestion de l'entretien des opérations\nTu amènes avec toi\n\n• Dipl. Spécialiste des soins infirmiers HF/FH avec des soins chirurgicaux de formation continue ou Dipl. Technique chirurgicale spécialisée HF\n\n• Plusieurs années d'expérience professionnelle dans les OR\n\n• Expérience ou motivation en matière de leadership\n\n• Le talent organisationnel et le sens élevé des responsabilités\n\n• Compétences sociales et de communication\n\n• Méthode de travail indépendante axée sur la solution\n\n• Appréciation de la coopération interprofessionnelle\nNous vous offrons\n\n• L'occasion de façonner activement une nouvelle structure de leadership\n\n• Rôle de leadership responsable et responsabilités claires\n\n• Beaucoup de marge de manœuvre pour les processus et la coopération\n\n• Une équipe OP dédiée et collégiale\n\n• Conditions d'emploi attrayantes et possibilités de formation personnelle et professionnelle\n\n• Ambiance familiale, hiérarchies plates et culture vécue, car elle distingue le Klinik Gut\nIntéressé ?\nPour plus d'informations, Mme Rina Müller, Chef du PO, est à votre disposition au +41 81 595 56 01.\nNous attendons avec intérêt vos documents de candidature complets par courriel à : R.Mueller@klinik-gut.ch\nPS: Nous sommes curieux: Comment avez-vous rencontré notre place? Faites-nous savoir dans votre lettre de motivation."
+      },
+      "needsRetranslation": true,
+      "location": "Fläsch",
+      "canton": "GR",
+      "url": "https://www.klinik-gut.ch/de/offene-stellen#drz-accordion-id-3888",
+      "source": "Klinik Gut Dedicated Parser (Drupal accordion)",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-04T22:25:15.984Z",
+      "addressLocality": "Fläsch",
+      "addressRegion": "GR",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "7306",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-29",
+      "applyUrl": "https://www.klinik-gut.ch/de/offene-stellen#drz-accordion-id-3888",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "teamleitung-operationspflege-organisation-80-100-klinik-gut-flasch",
+        "team-management-operazioni-manutenzione-organizzazione-80-100-klinik-gut-ag-flasch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "teamleitung-operationspflege-organisation-80-100-klinik-gut-flasch",
+          "team-management-operazioni-manutenzione-organizzazione-80-100-klinik-gut-ag-flasch"
+        ],
+        "en": [
+          "teamleitung-operationspflege-organisation-80-100-klinik-gut-flasch"
+        ],
+        "fr": [
+          "teamleitung-operationspflege-organisation-80-100-klinik-gut-flasch"
         ]
       },
       "firstSeenAt": "2026-06-29T22:54:47.989Z",
@@ -198,7 +277,7 @@
       "url": "https://www.klinik-gut.ch/de/offene-stellen#drz-accordion-id-3117",
       "source": "Klinik Gut Dedicated Parser (Drupal accordion)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-04T11:40:18.354Z",
+      "crawledAt": "2026-08-04T22:25:15.983Z",
       "addressLocality": "Fläsch",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -226,85 +305,6 @@
         ]
       },
       "firstSeenAt": "2026-06-29T22:54:47.986Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "klinik-gut-3888-299dfde7d875",
-      "slug": "team-management-operazioni-manutenzione-organizzazione-80-100-klinik-gut-ag-flasch",
-      "slugByLocale": {
-        "it": "team-management-operazioni-manutenzione-organizzazione-80-100-klinik-gut-ag-flasch",
-        "en": "team-management-operations-maintenance-organization-80-100-klinik-gut-ag-flasch",
-        "de": "teamleitung-operationspflege-organisation-80-100-klinik-gut-flasch",
-        "fr": "gestion-d-equipe-maintenance-des-operations-organisation-80-100-klinik-gut-ag-flasch"
-      },
-      "company": "Klinik Gut AG",
-      "companyKey": "klinik-gut",
-      "companyDomain": "klinik-gut.ch",
-      "title": "Teamleitung Operationspflege Organisation 80 - 100 %",
-      "titleByLocale": {
-        "it": "Team management Operazioni manutenzione Organizzazione 80 - 100%",
-        "en": "Teamleitung Operationspflege Organisation 80 - 100 %",
-        "de": "Teamleitung Operationspflege Organisation 80 - 100 %",
-        "fr": "Gestion d'équipe Maintenance des opérations Organisation 80 - 100%"
-      },
-      "description": "Du behältst auch in einem dynamischen OP Umfeld den Überblick und sorgst für reibungslose Abläufe? Zur Verstärkung unseres Führungsteams suchen wir eine engagierte Persönlichkeit als Teamleitung Operationspflege Organisation  80- 100%.\n In dieser neu geschaffenen Funktion verantwortest du die organisatorischen Abläufe im Operationsbereich und arbeitest eng mit der Teamleitung Leadership sowie der Leitung Operationspflege zusammen.\n Deine Aufgaben\n\n• Organisation und Koordination des täglichen OP Betriebs\n\n• Verantwortung für Materialbewirtschaftung und Bestellungen\n\n• Koordination von Leihmaterialien\n\n• Sicherstellung der Material und Instrumentenverfügbarkeit\n\n• Zusammenarbeit mit Einkauf und externen Partnern\n\n• Optimierung von Prozessen und Standards\n\n• Enge Zusammenarbeit mit der zweiten Teamleitung und der Leitung Operationspflege\n Du bringst mit\n\n• Dipl. Pflegefachperson HF/FH mit Weiterbildung Operationspflege oder Dipl. Fachperson Operationstechnik HF\n\n• Mehrjährige Berufserfahrung im OP\n\n• Führungserfahrung oder Motivation, Führungsverantwortung zu übernehmen\n\n• Organisationstalent und hohes Verantwortungsbewusstsein\n\n• Sozial und Kommunikationskompetenz\n\n• Selbstständige und lösungsorientierte Arbeitsweise\n\n• Freude an interprofessioneller Zusammenarbeit\n Wir bieten dir\n\n• Die Möglichkeit, eine neue Führungsstruktur aktiv mitzugestalten\n\n• Verantwortungsvolle Führungsaufgabe mit klaren Zuständigkeiten\n\n• Viel Gestaltungsspielraum für Prozesse und Zusammenarbeit\n\n• Ein engagiertes und kollegiales OP Team\n\n• Attraktive Anstellungsbedingungen sowie Möglichkeiten zur persönlichen und fachlichen Weiterbildung\n\n• Familiäre Atmosphäre, flache Hierarchien und eine gelebte Du Kultur, wie sie die Klinik Gut auszeichnet\n Interessiert?\n Für weitere Auskünfte steht dir Frau Rina Müller, Leiterin OP, gerne unter +41 81 595 56 01 zur Verfügung.\n Wir freuen uns auf deine vollständigen Bewerbungsunterlagen per E-Mail an: R.Mueller@klinik-gut.ch\n PS: Wir sind neugierig: Wie bist du auf unsere Stelle gestossen? Lass es uns in deinem Motivationsschreiben wissen.",
-      "descriptionByLocale": {
-        "it": "Si mantiene anche una panoramica in un ambiente operativo dinamico e garantire processi lisci? Al fine di rafforzare il nostro team di gestione, siamo alla ricerca di una personalità impegnata come team gestione operazioni manutenzione organizzazione 80- 100%.\nIn questa nuova funzione, sei responsabile dei processi organizzativi nell'area operativa e lavori a stretto contatto con la leadership della gestione del team e la gestione della manutenzione delle operazioni.\nI tuoi compiti\n\n• Organizzazione e coordinamento delle operazioni quotidiane\n\n• Responsabilità per la gestione e gli ordini dei materiali\n\n• Coordinamento dei materiali di noleggio\n\n• Garantire la disponibilità di materiali e strumenti\n\n• Cooperazione con gli acquisti e i partner esterni\n\n• Ottimizzazione dei processi e degli standard\n\n• Una stretta collaborazione con la seconda gestione del team e la gestione delle operazioni di manutenzione\nPorta con te\n\n• Dipl. Specialista infermieristico HF/FH con ulteriore addestramento chirurgico o Dipl. Tecnica chirurgica specialistica HF\n\n• Diversi anni di esperienza professionale in OR\n\n• Esperienza di leadership o motivazione per assumere responsabilità di leadership\n\n• Talenti organizzativi e un alto senso di responsabilità\n\n• Capacità sociali e di comunicazione\n\n• Metodo di lavoro indipendente e orientato alla soluzione\n\n• Sfruttamento della cooperazione interprofessionale\nVi offriamo\n\n• L'opportunità di plasmare attivamente una nuova struttura di leadership\n\n• ruolo di leadership responsabile con chiare responsabilità\n\n• Un sacco di spazio per la manovra per processi e cooperazione\n\n• Un team OP dedicato e collegiale\n\n• Condizioni di lavoro interessanti e opportunità di formazione personale e professionale\n\n• Atmosfera familiare, gerarchie piatte e una cultura vissuta, come distingue il Klinik Gut\nInteressante?\nPer ulteriori informazioni, la sig.ra Rina Müller, responsabile del PO, è a vostra disposizione il +41 81 595 56 01.\nAttendiamo con ansia i vostri documenti applicativi completi via e-mail a: R.Mueller@klinik-gut.ch\nPS: Siamo curiosi: Come avete incontrato il nostro posto? Fateci sapere nella vostra lettera di motivazione.",
-        "en": "You also keep an overview in a dynamic operating environment and ensure smooth processes? In order to strengthen our management team, we are looking for a committed personality as team management operations maintenance organization 80- 100%.\nIn this newly created function, you are responsible for the organizational processes in the operation area and work closely with the team management leadership and the management of operations maintenance.\nYour tasks\n\n• Organisation and coordination of daily operations\n\n• Responsibility for material management and orders\n\n• Coordination of rental materials\n\n• Ensuring material and instrument availability\n\n• Cooperation with purchasing and external partners\n\n• Optimization of processes and standards\n\n• Close cooperation with the second team management and the management of operations maintenance\nYou bring with you\n\n• Dipl. Nursing specialist HF/FH with further training surgery care or Dipl. Specialist surgical technique HF\n\n• Several years of professional experience in the OR\n\n• Leadership experience or motivation to take on leadership responsibility\n\n• Organizational talent and a high sense of responsibility\n\n• Social and communication skills\n\n• Independent and solution-oriented working method\n\n• Enjoyment of interprofessional cooperation\nWe offer you\n\n• The opportunity to actively shape a new leadership structure\n\n• Responsible leadership role with clear responsibilities\n\n• Lots of room for manoeuvre for processes and cooperation\n\n• A dedicated and collegial OP team\n\n• Attractive employment conditions and opportunities for personal and professional training\n\n• Family atmosphere, flat hierarchies and a lived culture, as it distinguishes the Klinik Gut\nInterested?\nFor further information, Mrs. Rina Müller, Head of the OP, is at your disposal on +41 81 595 56 01.\nWe look forward to your complete application documents by e-mail to: R.Mueller@klinik-gut.ch\nPS: We are curious: How did you come across our place? Let us know in your motivation letter.",
-        "de": "Du behältst auch in einem dynamischen OP Umfeld den Überblick und sorgst für reibungslose Abläufe? Zur Verstärkung unseres Führungsteams suchen wir eine engagierte Persönlichkeit als Teamleitung Operationspflege Organisation 80- 100%.\nIn dieser neu geschaffenen Funktion verantwortest du die organisatorischen Abläufe im Operationsbereich und arbeitest eng mit der Teamleitung Leadership sowie der Leitung Operationspflege zusammen.\nDeine Aufgaben\n\n• Organisation und Koordination des täglichen OP Betriebs\n\n• Verantwortung für Materialbewirtschaftung und Bestellungen\n\n• Koordination von Leihmaterialien\n\n• Sicherstellung der Material und Instrumentenverfügbarkeit\n\n• Zusammenarbeit mit Einkauf und externen Partnern\n\n• Optimierung von Prozessen und Standards\n\n• Enge Zusammenarbeit mit der zweiten Teamleitung und der Leitung Operationspflege\nDu bringst mit\n\n• Dipl. Pflegefachperson HF/FH mit Weiterbildung Operationspflege oder Dipl. Fachperson Operationstechnik HF\n\n• Mehrjährige Berufserfahrung im OP\n\n• Führungserfahrung oder Motivation, Führungsverantwortung zu übernehmen\n\n• Organisationstalent und hohes Verantwortungsbewusstsein\n\n• Sozial und Kommunikationskompetenz\n\n• Selbstständige und lösungsorientierte Arbeitsweise\n\n• Freude an interprofessioneller Zusammenarbeit\nWir bieten dir\n\n• Die Möglichkeit, eine neue Führungsstruktur aktiv mitzugestalten\n\n• Verantwortungsvolle Führungsaufgabe mit klaren Zuständigkeiten\n\n• Viel Gestaltungsspielraum für Prozesse und Zusammenarbeit\n\n• Ein engagiertes und kollegiales OP Team\n\n• Attraktive Anstellungsbedingungen sowie Möglichkeiten zur persönlichen und fachlichen Weiterbildung\n\n• Familiäre Atmosphäre, flache Hierarchien und eine gelebte Du Kultur, wie sie die Klinik Gut auszeichnet\nInteressiert?\nFür weitere Auskünfte steht dir Frau Rina Müller, Leiterin OP, gerne unter +41 81 595 56 01 zur Verfügung.\nWir freuen uns auf deine vollständigen Bewerbungsunterlagen per E-Mail an: R.Mueller@klinik-gut.ch\nPS: Wir sind neugierig: Wie bist du auf unsere Stelle gestossen? Lass es uns in deinem Motivationsschreiben wissen.",
-        "fr": "Vous gardez également un aperçu dans un environnement d'exploitation dynamique et vous assurez des processus en douceur? Afin de renforcer notre équipe de gestion, nous recherchons une personnalité engagée en tant qu'organisation de maintenance des opérations de gestion d'équipe 80- 100%.\nDans cette fonction nouvellement créée, vous êtes responsable des processus organisationnels dans la zone opérationnelle et travaillez en étroite collaboration avec la direction de l'équipe et la gestion de l'entretien des opérations.\nVos tâches\n\n• Organisation et coordination des opérations quotidiennes\n\n• Responsabilité de la gestion du matériel et des commandes\n\n• Coordination du matériel de location\n\n• Assurer la disponibilité du matériel et des instruments\n\n• Coopération avec les acheteurs et les partenaires extérieurs\n\n• Optimisation des processus et des normes\n\n• Coopération étroite avec la seconde équipe de gestion et la gestion de l'entretien des opérations\nTu amènes avec toi\n\n• Dipl. Spécialiste des soins infirmiers HF/FH avec des soins chirurgicaux de formation continue ou Dipl. Technique chirurgicale spécialisée HF\n\n• Plusieurs années d'expérience professionnelle dans les OR\n\n• Expérience ou motivation en matière de leadership\n\n• Le talent organisationnel et le sens élevé des responsabilités\n\n• Compétences sociales et de communication\n\n• Méthode de travail indépendante axée sur la solution\n\n• Appréciation de la coopération interprofessionnelle\nNous vous offrons\n\n• L'occasion de façonner activement une nouvelle structure de leadership\n\n• Rôle de leadership responsable et responsabilités claires\n\n• Beaucoup de marge de manœuvre pour les processus et la coopération\n\n• Une équipe OP dédiée et collégiale\n\n• Conditions d'emploi attrayantes et possibilités de formation personnelle et professionnelle\n\n• Ambiance familiale, hiérarchies plates et culture vécue, car elle distingue le Klinik Gut\nIntéressé ?\nPour plus d'informations, Mme Rina Müller, Chef du PO, est à votre disposition au +41 81 595 56 01.\nNous attendons avec intérêt vos documents de candidature complets par courriel à : R.Mueller@klinik-gut.ch\nPS: Nous sommes curieux: Comment avez-vous rencontré notre place? Faites-nous savoir dans votre lettre de motivation."
-      },
-      "needsRetranslation": true,
-      "location": "Fläsch",
-      "canton": "GR",
-      "url": "https://www.klinik-gut.ch/de/offene-stellen#drz-accordion-id-3888",
-      "source": "Klinik Gut Dedicated Parser (Drupal accordion)",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-04T11:40:18.354Z",
-      "addressLocality": "Fläsch",
-      "addressRegion": "GR",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "7306",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-29",
-      "applyUrl": "https://www.klinik-gut.ch/de/offene-stellen#drz-accordion-id-3888",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "teamleitung-operationspflege-organisation-80-100-klinik-gut-flasch",
-        "team-management-operazioni-manutenzione-organizzazione-80-100-klinik-gut-ag-flasch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "teamleitung-operationspflege-organisation-80-100-klinik-gut-flasch",
-          "team-management-operazioni-manutenzione-organizzazione-80-100-klinik-gut-ag-flasch"
-        ],
-        "en": [
-          "teamleitung-operationspflege-organisation-80-100-klinik-gut-flasch"
-        ],
-        "fr": [
-          "teamleitung-operationspflege-organisation-80-100-klinik-gut-flasch"
-        ]
-      },
-      "firstSeenAt": "2026-06-29T22:54:47.989Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -350,7 +350,7 @@
       "url": "https://www.klinik-gut.ch/de/offene-stellen#drz-accordion-id-1764",
       "source": "Klinik Gut Dedicated Parser (Drupal accordion)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-04T11:40:18.353Z",
+      "crawledAt": "2026-08-04T22:25:15.982Z",
       "addressLocality": "Fläsch",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -423,7 +423,7 @@
       "url": "https://www.klinik-gut.ch/de/offene-stellen#drz-accordion-id-1575",
       "source": "Klinik Gut Dedicated Parser (Drupal accordion)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-04T11:40:18.352Z",
+      "crawledAt": "2026-08-04T22:25:15.981Z",
       "addressLocality": "Fläsch",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -496,7 +496,7 @@
       "url": "https://www.klinik-gut.ch/de/offene-stellen#drz-accordion-id-3886",
       "source": "Klinik Gut Dedicated Parser (Drupal accordion)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-04T11:40:18.351Z",
+      "crawledAt": "2026-08-04T22:25:15.979Z",
       "addressLocality": "St. Moritz",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -576,7 +576,7 @@
       "url": "https://www.klinik-gut.ch/de/offene-stellen#drz-accordion-id-3876",
       "source": "Klinik Gut Dedicated Parser (Drupal accordion)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-04T11:40:18.350Z",
+      "crawledAt": "2026-08-04T22:25:15.977Z",
       "addressLocality": "St. Moritz",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -649,7 +649,7 @@
       "url": "https://www.klinik-gut.ch/de/offene-stellen#drz-accordion-id-3196",
       "source": "Klinik Gut Dedicated Parser (Drupal accordion)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-04T11:40:18.348Z",
+      "crawledAt": "2026-08-04T22:25:15.974Z",
       "addressLocality": "St. Moritz",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -724,7 +724,7 @@
       "url": "https://www.klinik-gut.ch/de/offene-stellen#drz-accordion-id-3038",
       "source": "Klinik Gut Dedicated Parser (Drupal accordion)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-04T11:40:18.346Z",
+      "crawledAt": "2026-08-04T22:25:15.970Z",
       "addressLocality": "St. Moritz",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -797,7 +797,7 @@
       "url": "https://www.klinik-gut.ch/de/offene-stellen#drz-accordion-id-2110",
       "source": "Klinik Gut Dedicated Parser (Drupal accordion)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-04T11:40:18.340Z",
+      "crawledAt": "2026-08-04T22:25:15.954Z",
       "addressLocality": "St. Moritz",
       "addressRegion": "GR",
       "addressCountry": "CH",

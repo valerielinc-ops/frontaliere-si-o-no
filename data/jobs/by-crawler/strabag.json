@@ -1,6 +1,6 @@
 {
   "crawlerKey": "strabag",
-  "assembledAt": "2026-08-04T11:52:14.801Z",
+  "assembledAt": "2026-08-04T22:22:31.341Z",
   "jobs": [
     {
       "id": "strabag-1f8e18007391",
@@ -34,7 +34,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/f51c11f5-1d29-4873-bcf8-1dc129577476/",
       "source": "STRABAG AG Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-04T11:52:08.327Z",
+      "crawledAt": "2026-08-04T22:22:24.351Z",
       "addressLocality": "Lindau",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -114,7 +114,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/1a74fa72-67f8-4d0c-964d-6f853a79fc46/",
       "source": "STRABAG AG Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-04T11:52:08.291Z",
+      "crawledAt": "2026-08-04T22:22:24.314Z",
       "addressLocality": "CH- 8315 Lindau, Rigacher 1",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -192,7 +192,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/a27f3a58-45e8-4df2-9a64-5cbe51011f40/",
       "source": "STRABAG AG Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-04T11:52:08.253Z",
+      "crawledAt": "2026-08-04T22:22:24.251Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -216,6 +216,11 @@
         "construction-machine-operator-in-engineering-civil-engineering-strabag-ag-thusis",
         "baumaschinenfuhrer-in-ingenieurtiefbau-strabag-thusis",
         "operateur-de-machines-de-construction-en-genie-civil-strabag-ag-thusis",
+        "baufuhrer-in-genio-civile-80-100-strabag-ag-schlieren",
+        "construction-manager-in-civil-engineering-80-100-strabag-ag-schlieren",
+        "baufuhrer-in-tiefbau-80-100-strabag-schlieren",
+        "directeur-de-construction-en-genie-civil-80-100-strabag-ag-schlieren",
+        "baufuhrer-in-tiefbau-80-100-baufuhrer-in-tiefbau-80-100-id-1219-strabag-schlieren",
         "baumaschinenfuhrer-in-ingegneria-civile-strabag-ag-schlieren"
       ],
       "previousSlugsByLocale": {
@@ -225,18 +230,26 @@
           "construction-machine-operator-in-engineering-civil-engineering-strabag-ag-thusis",
           "baumaschinenfuhrer-in-ingenieurtiefbau-strabag-thusis",
           "operateur-de-machines-de-construction-en-genie-civil-strabag-ag-thusis",
+          "baufuhrer-in-genio-civile-80-100-strabag-ag-schlieren",
+          "construction-manager-in-civil-engineering-80-100-strabag-ag-schlieren",
+          "baufuhrer-in-tiefbau-80-100-strabag-schlieren",
+          "directeur-de-construction-en-genie-civil-80-100-strabag-ag-schlieren",
+          "baufuhrer-in-tiefbau-80-100-baufuhrer-in-tiefbau-80-100-id-1219-strabag-schlieren",
           "baumaschinenfuhrer-in-ingegneria-civile-strabag-ag-schlieren"
         ],
         "en": [
           "baumaschinenfuhrer-in-ingenieurbau-strabag-schlieren",
-          "construction-machine-operator-in-engineering-civil-engineering-strabag-ag-thusis"
+          "construction-machine-operator-in-engineering-civil-engineering-strabag-ag-thusis",
+          "construction-manager-in-civil-engineering-80-100-strabag-ag-schlieren"
         ],
         "de": [
-          "baumaschinenfuhrer-in-ingenieurtiefbau-strabag-thusis"
+          "baumaschinenfuhrer-in-ingenieurtiefbau-strabag-thusis",
+          "baufuhrer-in-tiefbau-80-100-strabag-schlieren"
         ],
         "fr": [
           "baumaschinenfuhrer-in-ingenieurbau-strabag-schlieren",
-          "operateur-de-machines-de-construction-en-genie-civil-strabag-ag-thusis"
+          "operateur-de-machines-de-construction-en-genie-civil-strabag-ag-thusis",
+          "directeur-de-construction-en-genie-civil-80-100-strabag-ag-schlieren"
         ]
       },
       "firstSeenAt": "2026-07-29T22:23:58.944Z",
@@ -285,7 +298,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/cc3feeae-a934-4d8c-a5ba-8fdbc6c9537d/",
       "source": "STRABAG AG Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-04T11:52:08.116Z",
+      "crawledAt": "2026-08-04T22:22:24.081Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -365,7 +378,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/c4dcaf21-c057-4cdc-be48-2b4edb651b9f/",
       "source": "STRABAG AG Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-04T11:52:08.072Z",
+      "crawledAt": "2026-08-04T22:22:24.016Z",
       "addressLocality": "Lindau",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -443,7 +456,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/af3ac95c-beef-40d2-96b9-3ab934d6f116/",
       "source": "STRABAG AG Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-04T11:52:07.945Z",
+      "crawledAt": "2026-08-04T22:22:23.932Z",
       "addressLocality": "Amriswil",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -523,7 +536,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/91717b96-c39c-4394-973b-08edfd4fb024/",
       "source": "STRABAG AG Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-04T11:52:07.909Z",
+      "crawledAt": "2026-08-04T22:22:23.887Z",
       "addressLocality": "Subingen",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -603,7 +616,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/3b0ac532-699e-44bb-8aea-bdc663e6128b/",
       "source": "STRABAG AG Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-04T11:52:07.863Z",
+      "crawledAt": "2026-08-04T22:22:23.831Z",
       "addressLocality": "Erstfeld",
       "addressRegion": "UR",
       "addressCountry": "CH",
@@ -623,18 +636,31 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "projektleiter-in-ingenieurbau-strabag-erstfeld",
+        "responsabile-di-progetto-ingegneria-civile-strabag-ag-schlieren",
+        "project-manager-ingenieurbau-strabag-ag-schlieren",
+        "projektleiter-in-ingenieurbau-strabag-schlieren",
+        "chef-de-projet-ingenieurbau-strabag-ag-schlieren",
         "responsabile-di-progetto-ingegneria-civile-strabag-ag-erstfeld"
       ],
       "previousSlugsByLocale": {
         "it": [
           "projektleiter-in-ingenieurbau-strabag-erstfeld",
+          "responsabile-di-progetto-ingegneria-civile-strabag-ag-schlieren",
+          "project-manager-ingenieurbau-strabag-ag-schlieren",
+          "projektleiter-in-ingenieurbau-strabag-schlieren",
+          "chef-de-projet-ingenieurbau-strabag-ag-schlieren",
           "responsabile-di-progetto-ingegneria-civile-strabag-ag-erstfeld"
         ],
         "en": [
-          "projektleiter-in-ingenieurbau-strabag-erstfeld"
+          "projektleiter-in-ingenieurbau-strabag-erstfeld",
+          "project-manager-ingenieurbau-strabag-ag-schlieren"
+        ],
+        "de": [
+          "projektleiter-in-ingenieurbau-strabag-schlieren"
         ],
         "fr": [
-          "projektleiter-in-ingenieurbau-strabag-erstfeld"
+          "projektleiter-in-ingenieurbau-strabag-erstfeld",
+          "chef-de-projet-ingenieurbau-strabag-ag-schlieren"
         ]
       },
       "firstSeenAt": "2026-08-03T12:56:30.803Z",
@@ -683,7 +709,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/71b0ed91-5b53-4059-a5d3-790f0814e3b1/",
       "source": "STRABAG AG Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-04T11:52:07.813Z",
+      "crawledAt": "2026-08-04T22:22:23.770Z",
       "addressLocality": "Amriswil",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -763,7 +789,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/4c2e0647-3362-4287-aa16-ae3983e2b6c6/",
       "source": "STRABAG AG Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-04T11:52:07.772Z",
+      "crawledAt": "2026-08-04T22:22:23.729Z",
       "addressLocality": "Amriswil",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -783,18 +809,55 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "baufuhrer-in-tiefbau-und-strassenbau-strabag-amriswil",
+        "baufuhrer-in-strassenbau-e-genio-civile-strabag-ag-amriswil",
+        "construction-manager-in-road-construction-and-civil-engineering-strabag-ag-amriswil",
+        "baufuhrer-in-strassenbau-und-tiefbau-strabag-amriswil",
+        "directeur-de-construction-construction-routiere-et-genie-civil-strabag-ag-amriswil",
+        "baufuhrer-in-genio-civile-e-strassenbau-strabag-ag-olten",
+        "construction-manager-in-civil-engineering-and-road-construction-strabag-ag-olten",
+        "baufuhrer-in-tiefbau-und-strassenbau-strabag-olten",
+        "directeur-de-construction-en-genie-civil-et-construction-routiere-strabag-ag-olten",
+        "baufuhrer-in-genio-civile-e-strassenbau-strabag-ag-bern",
+        "construction-manager-in-civil-engineering-and-road-construction-strabag-ag-bern",
+        "baufuhrer-in-tiefbau-und-strassenbau-strabag-bern",
+        "directeur-de-construction-en-genie-civil-et-construction-routiere-strabag-ag-bern",
+        "baufuhrer-in-genio-civile-e-strassenbau-strabag-ag-bern-oi4va4",
+        "baufuhrer-in-genio-civile-e-strassenbau-strabag-ag-bern-4x8lcp",
+        "baufuhrer-in-tiefbau-und-strassenbau-strabag-bern-2",
         "baufuhrer-in-genio-civile-e-strassenbau-strabag-ag-amriswil"
       ],
       "previousSlugsByLocale": {
         "it": [
           "baufuhrer-in-tiefbau-und-strassenbau-strabag-amriswil",
+          "baufuhrer-in-strassenbau-e-genio-civile-strabag-ag-amriswil",
+          "construction-manager-in-road-construction-and-civil-engineering-strabag-ag-amriswil",
+          "baufuhrer-in-strassenbau-und-tiefbau-strabag-amriswil",
+          "directeur-de-construction-construction-routiere-et-genie-civil-strabag-ag-amriswil",
+          "baufuhrer-in-genio-civile-e-strassenbau-strabag-ag-olten",
+          "construction-manager-in-civil-engineering-and-road-construction-strabag-ag-olten",
+          "baufuhrer-in-tiefbau-und-strassenbau-strabag-olten",
+          "directeur-de-construction-en-genie-civil-et-construction-routiere-strabag-ag-olten",
+          "baufuhrer-in-genio-civile-e-strassenbau-strabag-ag-bern",
+          "construction-manager-in-civil-engineering-and-road-construction-strabag-ag-bern",
+          "baufuhrer-in-tiefbau-und-strassenbau-strabag-bern",
+          "directeur-de-construction-en-genie-civil-et-construction-routiere-strabag-ag-bern",
+          "baufuhrer-in-genio-civile-e-strassenbau-strabag-ag-bern-oi4va4",
+          "baufuhrer-in-genio-civile-e-strassenbau-strabag-ag-bern-4x8lcp",
+          "baufuhrer-in-tiefbau-und-strassenbau-strabag-bern-2",
           "baufuhrer-in-genio-civile-e-strassenbau-strabag-ag-amriswil"
         ],
         "en": [
-          "baufuhrer-in-tiefbau-und-strassenbau-strabag-amriswil"
+          "baufuhrer-in-tiefbau-und-strassenbau-strabag-amriswil",
+          "construction-manager-in-road-construction-and-civil-engineering-strabag-ag-amriswil"
+        ],
+        "de": [
+          "baufuhrer-in-strassenbau-und-tiefbau-strabag-amriswil"
         ],
         "fr": [
-          "baufuhrer-in-tiefbau-und-strassenbau-strabag-amriswil"
+          "baufuhrer-in-tiefbau-und-strassenbau-strabag-amriswil",
+          "directeur-de-construction-construction-routiere-et-genie-civil-strabag-ag-amriswil",
+          "directeur-de-construction-en-genie-civil-et-construction-routiere-strabag-ag-olten",
+          "directeur-de-construction-en-genie-civil-et-construction-routiere-strabag-ag-bern"
         ]
       },
       "firstSeenAt": "2026-08-03T12:56:30.674Z",
@@ -843,7 +906,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/6d111b87-0c32-4bbf-bf57-95fb37b9bb82/",
       "source": "STRABAG AG Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-04T11:52:07.744Z",
+      "crawledAt": "2026-08-04T22:22:23.608Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -929,7 +992,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/59c58d21-aa31-499d-8bff-c3507b5e3113/",
       "source": "STRABAG AG Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-04T11:52:07.685Z",
+      "crawledAt": "2026-08-04T22:22:23.576Z",
       "addressLocality": "Beringen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -1031,7 +1094,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/69c00fb6-763b-48c2-8675-93e5319b72b0/",
       "source": "STRABAG AG Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-04T11:52:07.642Z",
+      "crawledAt": "2026-08-04T22:22:23.534Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1105,7 +1168,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/36714bd6-99e0-4dc4-a1d0-4732dae93e15/",
       "source": "STRABAG AG Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-04T11:52:07.557Z",
+      "crawledAt": "2026-08-04T22:22:23.448Z",
       "addressLocality": "Erstfeld",
       "addressRegion": "UR",
       "addressCountry": "CH",

@@ -630,6 +630,21 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'rientro-in-svizzera-senza-lavoro-guida': { it: 'rientro-in-svizzera-senza-lavoro-guida', en: 'returning-to-switzerland-unemployed-guide', de: 'zurueck-in-die-schweiz-ohne-job-leitfaden', fr: 'retour-en-suisse-sans-emploi-guide' },
  'leclanche-crisi-finanziaria-2025': { it: 'leclanche-crisi-finanziaria-2025', en: 'leclanche-financial-difficulties-2025-report', de: 'leclanche-finanzielle-schwierigkeiten-2025-bericht', fr: 'leclanche-difficultes-financieres-rapport-2025' },
  'attacco-hacker-liechtenstein-svizzera': { it: 'attacco-hacker-liechtenstein-svizzera', en: 'hacker-attack-liechtenstein-switzerland', de: 'hacker-angriff-liechtenstein-schweiz', fr: 'attaque-pirate-liechtenstein-suisse' },
+ 'le-assenze-totale-dal-dazio-nelle-situazioni-di-emergenza': { it: 'le-assenze-totale-dal-dazio-nelle-situazioni-di-emergenza', en: 'exemption-total-duties-emergency', de: 'vollstandige-steuerbefreiung-in-notfallen', fr: 'exemption-totale-des-droits-de-douane-en-cas-d-urgence' },
+ 'vigilanza-banche-svizzera-scandali': { it: 'vigilanza-banche-svizzera-scandali', en: 'swiss-banking-oversight-scandals', de: 'schweizer-bankenaufsicht-skandale', fr: 'surveillance-banques-suisses-scandales' },
+ 'siccita-contadini-mobilitano': { it: 'siccita-contadini-mobilitano', en: 'drought-farmers-mobilize', de: 'durre-bauern-mobilisieren', fr: 'secheresse-farmers-mobilisent' },
+ 'emigrazione-tasse-obblighi-dopo-partenza': { it: 'emigrazione-tasse-obblighi-dopo-partenza', en: 'emigrating-from-switzerland-tax-obligations-after-leaving', de: 'auswanderung-steuerpflicht-nach-abreise-aus-der-schweiz', fr: 'emigration-de-suisse-obligations-fiscales-apres-le-depart' },
+ 'banche-cercano-piu-personale': { it: 'banche-cercano-piu-personale', en: 'swiss-banks-look-for-staff-july', de: 'schweizer-banken-suchen-personal-juli', fr: 'banques-suisses-recherchent-personnel-juillet' },
+ 'cile-1988-democrazia-svizzera': { it: 'cile-1988-democrazia-svizzera', en: 'chile-1988-democracy-switzerland', de: 'chile-1988-demokratie-schweiz', fr: 'chili-1988-democratie-suisse' },
+ 'franco-svizzero-economia-bns-politica-monetaria': { it: 'franco-svizzero-economia-bns-politica-monetaria', en: 'swiss-franc-economy-snb-monetary-policy', de: 'schweizer-franken-wirtschaft-snb-geldpolitik', fr: 'franc-suisse-economie-bns-politique-monetaire' },
+ 'medicina-di-genere-svizzera': { it: 'medicina-di-genere-svizzera', en: 'swiss-gender-medicine', de: 'schweizer-geschlechtsmedizin', fr: 'medecine-de-genre-suisse' },
+ 'comprare-casa-svizzera-mutuo-requisiti': { it: 'comprare-casa-svizzera-mutuo-requisiti', en: 'buy-house-switzerland-mortgage-requirements', de: 'haus-kaufen-schweiz-hypothekenanforderungen', fr: 'acheter-maison-suisse-requisites-hypotheque' },
+ 'assicurazione-disoccupazione-svizzera-funzionamento': { it: 'assicurazione-disoccupazione-svizzera-funzionamento', en: 'swiss-unemployment-insurance-how-it-works', de: 'schweizer-arbeitslosenversicherung-funktionsweise', fr: 'assurance-chomage-suisse-fonctionnement' },
+ 'sistema-sanitario-svizzero-lamal-funzionamento': { it: 'sistema-sanitario-svizzero-lamal-funzionamento', en: 'how-swiss-healthcare-system-works', de: 'wie-funktioniert-das-schweizer-gesundheitssystem', fr: 'comment-fonctionne-le-systeme-de-sante-suisse' },
+ 'come-funzionano-votazioni-federali-ch': { it: 'come-funzionano-votazioni-federali-ch', en: 'how-swiss-federal-votes-work', de: 'wie-funktionieren-eidgenoessische-abstimmungen', fr: 'comment-fonctionnent-les-votations-federales' },
+ 'frontiere-ricerca-svizzera-2025': { it: 'frontiere-ricerca-svizzera-2025', en: 'switzerland-research-frontiers', de: 'schweiz-forschungsfronten', fr: 'frontieres-recherche-suisse' },
+ 'democrazia-diretta-svizzera-guida': { it: 'democrazia-diretta-svizzera-guida', en: 'swiss-federal-votations-how-they-work', de: 'schweizer-eidgenoessische-abstimmungen-funktionsweise', fr: 'votations-federales-suisse-fonctionnement' },
+ 'democrazia-diretta-e-votazioni-federali': { it: 'democrazia-diretta-e-votazioni-federali', en: 'direct-democracy-and-federal-votes', de: 'direkte-demokratie-und-bundesabstimmungen', fr: 'democratie-directe-et-votes-federaux' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
