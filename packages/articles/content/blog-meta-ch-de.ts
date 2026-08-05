@@ -1879,6 +1879,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.raffreddare-le-citta-svizzere-il-lavoro-e-appena-iniziato.title': 'Schweizer Städte kühlen? „Die Arbeit hat gerade erst begonnen“',
     'blog.article.raffreddare-le-citta-svizzere-il-lavoro-e-appena-iniziato.excerpt': 'Die Schweiz versucht sich an die Hitzewellen anzupassen, aber der Weg ist noch lang.',
     'blog.article.raffreddare-le-citta-svizzere-il-lavoro-e-appena-iniziato.imageAlt': 'Eine Schweizer Stadt während einer Hitzewelle.',
+    'blog.article.snl-ricorso-lago-maggiore.title': 'SNL-Klage am Lago Maggiore: Risiken für das Gebiet',
+    'blog.article.snl-ricorso-lago-maggiore.excerpt': 'Der Einspruch von SNL eröffnet eine neue Phase der Konfrontation bei der kantonalen Finanzierung der Schifffahrt auf dem Verbano, mit möglichen Auswirkungen auf die Arbeitnehmer und die lokale Wirtschaft.',
+    'blog.article.snl-ricorso-lago-maggiore.imageAlt': 'Blick auf den Lago Maggiore bei Locarno mit Fähren und Alpen im Hintergrund',
 };
 
 export default blogMetaChDe;
