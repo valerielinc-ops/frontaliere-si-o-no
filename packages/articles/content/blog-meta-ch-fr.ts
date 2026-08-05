@@ -1840,6 +1840,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.comprare-casa-svizzera-mutuo-requisiti.title': 'Acheter une maison en Suisse : exigences et tarifs',
     'blog.article.comprare-casa-svizzera-mutuo-requisiti.excerpt': 'Découvrez les conditions d\'obtention d\'un prêt en Suisse, les fonds propres minimaux, les taux et les différences entre banques cantonales et privées',
     'blog.article.comprare-casa-svizzera-mutuo-requisiti.imageAlt': 'Vue aérienne du lac de Lugano avec les Alpes suisses en arrière-plan, montrant un quartier résidentiel moderne avec des maisons et des bateaux',
+    'blog.article.assicurazione-disoccupazione-svizzera-funzionamento.title': 'Assurance chômage suisse : comment ça marche',
+    'blog.article.assicurazione-disoccupazione-svizzera-funzionamento.excerpt': 'Guide complet des exigences, du calcul de l\'indemnité et des obligations envers l\'ORP pour les travailleurs en Suisse.',
+    'blog.article.assicurazione-disoccupazione-svizzera-funzionamento.imageAlt': 'Vue d\'un quartier d\'affaires à Lugano',
 };
 
 export default blogMetaChFr;

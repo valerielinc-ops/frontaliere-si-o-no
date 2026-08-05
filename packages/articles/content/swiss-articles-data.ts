@@ -5518,6 +5518,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'assicurazione-disoccupazione-svizzera-funzionamento',
+    category: 'pratico',
+    date: '2026-08-05T04:09:39.024Z',
+    image: '/images/blog/assicurazione-disoccupazione-svizzera-funzionamento.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

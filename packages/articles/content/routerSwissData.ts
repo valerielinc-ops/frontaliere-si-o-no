@@ -639,6 +639,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'franco-svizzero-economia-bns-politica-monetaria': { it: 'franco-svizzero-economia-bns-politica-monetaria', en: 'swiss-franc-economy-snb-monetary-policy', de: 'schweizer-franken-wirtschaft-snb-geldpolitik', fr: 'franc-suisse-economie-bns-politique-monetaire' },
  'medicina-di-genere-svizzera': { it: 'medicina-di-genere-svizzera', en: 'swiss-gender-medicine', de: 'schweizer-geschlechtsmedizin', fr: 'medecine-de-genre-suisse' },
  'comprare-casa-svizzera-mutuo-requisiti': { it: 'comprare-casa-svizzera-mutuo-requisiti', en: 'buy-house-switzerland-mortgage-requirements', de: 'haus-kaufen-schweiz-hypothekenanforderungen', fr: 'acheter-maison-suisse-requisites-hypotheque' },
+ 'assicurazione-disoccupazione-svizzera-funzionamento': { it: 'assicurazione-disoccupazione-svizzera-funzionamento', en: 'swiss-unemployment-insurance-how-it-works', de: 'schweizer-arbeitslosenversicherung-funktionsweise', fr: 'assurance-chomage-suisse-fonctionnement' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

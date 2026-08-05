@@ -23807,6 +23807,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-assicurazione-disoccupazione-svizzera-funzionamento': {
+    title: 'Assicurazione disoccupazione svizzera: come funziona',
+    description: 'Guida pratica all\'assicurazione disoccupazione svizzera: contributi AD/AC, calcolo indennità, obblighi URC e normativa fiscale per i frontalieri.',
+    keywords: 'frontalieri, ticino, svizzera, italia, assicurazione, disoccupazione, funziona, completa',
+    ogTitle: 'Assicurazione disoccupazione svizzera: come funziona',
+    ogDescription: 'Scopri come funziona l\'assicurazione disoccupazione in Svizzera: contributi, obblighi URC e normativa fiscale per i frontalieri.',
+    canonicalPath: '/articoli-svizzera/assicurazione-disoccupazione-svizzera-funzionamento/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Assicurazione disoccupazione svizzera: come funziona",
+      "description": "Guida pratica all'assicurazione disoccupazione svizzera: contributi AD/AC, calcolo indennità, obblighi URC e normativa fiscale per i frontalieri.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/assicurazione-disoccupazione-svizzera-funzionamento.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Veduta di un centro direzionale a Lugano"
+      },
+      "datePublished": "2026-08-05T04:09:39+00:00",
+      "dateModified": "2026-08-05T04:09:39+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/assicurazione-disoccupazione-svizzera-funzionamento/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
