@@ -373,7 +373,6 @@ export default function JobOrphanView({ slug, onBack, hasAccess: hasAccessProp, 
  adSlot={AD_SLOTS.JOBDETAIL_TOP_BANNER.slot}
  adFormat={AD_SLOTS.JOBDETAIL_TOP_BANNER.format}
  fullWidthResponsive={AD_SLOTS.JOBDETAIL_TOP_BANNER.fullWidthResponsive}
- minHeight={AD_SLOTS.JOBDETAIL_TOP_BANNER.placeholderMinHeight}
  className="flex-1 min-w-0"
  />
  )}
