@@ -1024,13 +1024,27 @@ export const Analytics = {
  // self-healed version-skew error slips past the deny-list and files a
  // spurious backlog issue (#4589). Strip the leading bracket annotation
  // before it's used as error_message so the raw text gets priority within
- // GA4's window; `description` below keeps the full annotated string.
+ // GA4's window.
  const classifiableMessage = decodedMessage.replace(/^\[[^\]]*\]\s*/, '');
 
  // GA4 recommended exception event — include error_type and error_message
  // so the Data API can query them regardless of which event name is used.
  log('exception', {
- description: truncate(`[${type}] ${decodedMessage}`, 150),
+ // `description` used to carry the FULL annotated string (`[type]
+ // [Component:Name] message`), which reproduced the exact #4589 class of
+ // bug one level up: scripts/analytics-report.mjs falls back to this
+ // `exception`/`description` custom dimension (customEvent:description)
+ // when the `app_error`/`error_message` dimension isn't registered/
+ // available, and app-error-issue-sync.mjs runs ISSUE_DENY_PATTERNS
+ // against whatever that fallback yields. With both bracket annotations
+ // ahead of it, GA4's ~100-char ingestion cap sliced the deny-relevant
+ // substring off before app-error-issue-sync.mjs ever saw it, so an
+ // already self-healed version-skew SyntaxError filed a spurious backlog
+ // issue (#5061). `description` keeps only the (short, stable) `[type]`
+ // prefix and drops the variable-length `[Component:Name]` annotation so
+ // the classification-relevant text has the same truncation headroom
+ // `error_message` already gets.
+ description: truncate(`[${type}] ${classifiableMessage}`, 150),
  fatal: info.fatal ?? false,
  error_type: type,
  error_message: truncate(classifiableMessage, 100),
