@@ -119,14 +119,18 @@ jobs:
           # pass: ai-models.mjs only offers the model when this AND the RC
           # flag are both set.
           CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          # Dispatch inputs reach the shell as DATA, never as script text.
+          INPUT_LIMIT: ${{ inputs.limit || '200' }}
+          INPUT_CONCURRENCY: ${{ inputs.concurrency || '1' }}
+          INPUT_SKIP_TRANSLATE: ${{ inputs.skip_translate }}
         run: |
-          ARGS="--limit ${{ inputs.limit || '200' }} --concurrency ${{ inputs.concurrency || '1' }}"
-          if [ "${{ inputs.skip_translate }}" = "true" ]; then
-            ARGS="$ARGS --skip-translate"
+          ARGS=(--limit "$INPUT_LIMIT" --concurrency "$INPUT_CONCURRENCY")
+          if [ "$INPUT_SKIP_TRANSLATE" = "true" ]; then
+            ARGS+=(--skip-translate)
           fi
 
-          echo "🚀 Running: node scripts/batch-add-faq-to-articles.mjs $ARGS"
-          node scripts/batch-add-faq-to-articles.mjs $ARGS
+          echo "🚀 Running: node scripts/batch-add-faq-to-articles.mjs ${ARGS[*]}"
+          node scripts/batch-add-faq-to-articles.mjs "${ARGS[@]}"
 
       - name: Fix FAQ locales (translate missing/wrong-locale FAQs)
         id: fix-locales
@@ -186,11 +190,16 @@ jobs:
 
       - name: Summary
         if: always()
+        env:
+          # Dispatch inputs reach the shell as DATA, never as script text.
+          INPUT_LIMIT: ${{ inputs.limit || '50' }}
+          INPUT_CONCURRENCY: ${{ inputs.concurrency || '3' }}
+          INPUT_SKIP_TRANSLATE: ${{ inputs.skip_translate || 'false' }}
         run: |
           echo "### Batch FAQ Generation Summary" >> "$GITHUB_STEP_SUMMARY"
-          echo "- **Articles limit**: ${{ inputs.limit || '50' }}" >> "$GITHUB_STEP_SUMMARY"
-          echo "- **Concurrency**: ${{ inputs.concurrency || '3' }}" >> "$GITHUB_STEP_SUMMARY"
-          echo "- **Skip translate**: ${{ inputs.skip_translate || 'false' }}" >> "$GITHUB_STEP_SUMMARY"
+          echo "- **Articles limit**: $INPUT_LIMIT" >> "$GITHUB_STEP_SUMMARY"
+          echo "- **Concurrency**: $INPUT_CONCURRENCY" >> "$GITHUB_STEP_SUMMARY"
+          echo "- **Skip translate**: $INPUT_SKIP_TRANSLATE" >> "$GITHUB_STEP_SUMMARY"
           echo "- **Modified files**: ${{ steps.count.outputs.modified_count || '0' }}" >> "$GITHUB_STEP_SUMMARY"
 
       - name: Report failure to GitHub Issues

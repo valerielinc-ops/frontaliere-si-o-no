@@ -73,7 +73,10 @@ jobs:
 
       - name: Crawl tio.ch agenda
         id: crawl-tio
-        run: node scripts/crawl-tio-agenda.mjs --days "${{ github.event.inputs.days || '21' }}"
+        env:
+          # Dispatch inputs reach the shell as DATA, never as script text.
+          INPUT_DAYS: ${{ github.event.inputs.days || '21' }}
+        run: node scripts/crawl-tio-agenda.mjs --days "$INPUT_DAYS"
 
       - name: Persist geo/translation caches (survives downstream failures)
         id: persist-caches

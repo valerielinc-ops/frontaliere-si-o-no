@@ -1,0 +1,9 @@
+name: fixture-undeclared
+on:
+  workflow_dispatch:
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Do the thing
+        run: node scripts/thing.mjs "${{ github.event.inputs.mystery }}"

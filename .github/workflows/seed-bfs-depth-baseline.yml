@@ -191,18 +191,24 @@ jobs:
         run: node scripts/ci/assert-dist-complete.mjs
 
       - name: Generate BFS-depth baseline
+        env:
+          # Dispatch inputs reach the shell as DATA, never as script text.
+          INPUT_MAX_DEPTH: ${{ inputs.max_depth }}
         run: |
           node scripts/audit-bfs-depth.mjs \
-            --max-depth=${{ inputs.max_depth }} \
+            --max-depth="$INPUT_MAX_DEPTH" \
             --write-baseline=data/bfs-depth-baseline.json
           echo ""
           echo "==== baseline preview ===="
           head -50 data/bfs-depth-baseline.json
 
       - name: Generate diagnostic JSON (per-sitemap top 30 offenders)
+        env:
+          # Dispatch inputs reach the shell as DATA, never as script text.
+          INPUT_MAX_DEPTH: ${{ inputs.max_depth }}
         run: |
           node scripts/audit-bfs-depth.mjs \
-            --max-depth=${{ inputs.max_depth }} \
+            --max-depth="$INPUT_MAX_DEPTH" \
             --limit=30 \
             --json > /tmp/bfs-depth-diagnostic.json
           echo ""
