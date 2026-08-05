@@ -1,25 +1,51 @@
-import { useCallback, useEffect, useState } from 'react';
-import { Building2, Check, Loader2 } from 'lucide-react';
+import React, { useCallback, useEffect, useState } from 'react';
+import { Building2, Check, Loader2, Mail } from 'lucide-react';
 import { useTranslation } from '@/services/i18n';
 import type { Locale } from '@/services/i18n';
+import EmailInput, { validateEmailStrict } from '@/components/shared/EmailInput';
 import {
   companyAlertKey,
   deleteAlert,
   findCompanyAlert,
   subscribeCompanyAlert,
 } from '@/services/jobAlertService';
+import { savePendingCompanyFollow } from '@/services/companyFollowIntent';
+import { upsertNewsletterSubscriber, requestConfirmationEmail } from '@/services/newsletterSubscribers';
+import { getFirestore } from 'firebase/firestore';
+import { getApp } from '@/services/firebase';
+import { reportCaughtError } from '@/services/errorReporter';
+import { buildPath } from '@/services/router';
 
-export type CompanyFollowButtonStatus = 'idle' | 'loading' | 'submitting' | 'following' | 'error';
+export type CompanyFollowButtonStatus =
+  | 'idle'
+  | 'loading'
+  | 'submitting'
+  | 'following'
+  | 'error'
+  /** Anonymous visitor tapped "Segui": the email field is open (#5012 phase 2). */
+  | 'capture'
+  /** Opt-in email sent; the follow is parked until the link is clicked. */
+  | 'pendingOptIn';
+
+/**
+ * GDPR consent proof recorded when an anonymous visitor follows an employer.
+ * Same shape and register as SAVE_SIGNIN_CONSENT_TEXT in
+ * SaveSignInPromptModal.tsx — the consent text must describe what the address
+ * will actually be used for, and following an employer subscribes to the same
+ * newsletter list every other email gate on the site does.
+ */
+const COMPANY_FOLLOW_CONSENT_TEXT =
+  'Seguendo un\'azienda, accetto di ricevere una email quando pubblica nuovi annunci e la newsletter per frontalieri (cambio CHF/EUR, traffico e novità fiscali). Posso disiscrivermi in qualsiasi momento.';
 
 export interface CompanyFollowButtonProps {
   /** Employer display name (`job.company`). */
   company: string;
   /** Optional crawler company key (`job.companyKey`) — improves canonicalisation. */
   companyKey?: string | null;
-  /** Authenticated user id. */
-  userId: string;
-  /** Authenticated user email. */
-  email: string;
+  /** Authenticated user id. `null`/absent → the anonymous email-capture path. */
+  userId?: string | null;
+  /** Authenticated user email. `null`/absent → the anonymous email-capture path. */
+  email?: string | null;
   /** Active locale — passed straight to the alert config. */
   locale: Locale;
   /** Slug of the job the user followed from — stored as provenance. */
@@ -32,12 +58,15 @@ export interface CompanyFollowButtonProps {
   onSubscribed?: () => void;
   /** Called on a successful unfollow. */
   onUnsubscribed?: () => void;
+  /** Called once an anonymous visitor's opt-in email has been requested. */
+  onOptInRequested?: (email: string) => void;
   /** Called when a write throws. */
   onErrored?: (error: unknown) => void;
   /** Test seams. */
   lookup?: typeof findCompanyAlert;
   subscribe?: typeof subscribeCompanyAlert;
   unfollow?: typeof deleteAlert;
+  captureEmail?: (email: string, intent: { company: string; companyKey?: string | null }) => Promise<void>;
 }
 
 /**
@@ -47,6 +76,20 @@ export interface CompanyFollowButtonProps {
  * matcher (services/jobAlertMatching.mjs) has always supported as a hard scope.
  * The persisted token is `companyAlertKey()` — the canonical `/aziende/<slug>/`
  * slug, the ONE normalisation shared with the matcher.
+ *
+ * ── TWO PATHS (phase 2) ───────────────────────────────────────────────────
+ * Signed in  → write the alert immediately (`subscribeCompanyAlert`).
+ * Anonymous  → capture the address, subscribe it as PENDING through the site's
+ *              existing double opt-in (`upsertNewsletterSubscriber` fires
+ *              `newsletterSendConfirmation`), and PARK the follow in
+ *              services/companyFollowIntent.ts. App.tsx replays it once the
+ *              confirmation link signs the visitor in.
+ *
+ * Phase 1 returned `null` for anonymous visitors, so the highest-intent reader
+ * on the page — someone looking at a specific employer's ad — could not follow
+ * at all. No alert document is ever written for an unconfirmed address:
+ * consent first, subscription second. That ordering is what double opt-in
+ * means, and it is why the intent is parked instead of written optimistically.
  *
  * Unfollow DEACTIVATES the alert (`deleteAlert` → `active:false` + `unsubscribed_at`).
  *
@@ -79,16 +122,21 @@ export default function CompanyFollowButton({
   sourceJobTitle,
   onSubscribed,
   onUnsubscribed,
+  onOptInRequested,
   onErrored,
   lookup = findCompanyAlert,
   subscribe = subscribeCompanyAlert,
   unfollow = deleteAlert,
+  captureEmail,
 }: CompanyFollowButtonProps) {
   const { t } = useTranslation();
   const [status, setStatus] = useState<CompanyFollowButtonStatus>('loading');
   const [alertId, setAlertId] = useState<string | null>(null);
+  const [typedEmail, setTypedEmail] = useState('');
+  const [captureError, setCaptureError] = useState('');
 
   const slug = companyAlertKey(company, companyKey || undefined);
+  const signedIn = Boolean(userId && email);
 
   useEffect(() => {
     let cancelled = false;
@@ -106,9 +154,13 @@ export default function CompanyFollowButton({
 
   const handleFollow = useCallback(async () => {
     if (!slug) return;
+    // Anonymous: open the capture field instead of writing. The alert needs a
+    // confirmed address, and asking for it here IS the growth case — an
+    // anonymous visitor who wants one employer's ads is an acquired email.
+    if (!signedIn) { setStatus('capture'); return; }
     setStatus('submitting');
     try {
-      const created = await subscribe(userId, email, { name: company, companyKey }, locale, {
+      const created = await subscribe(userId as string, email as string, { name: company, companyKey }, locale, {
         slug: sourceJobSlug ?? null,
         url: sourceJobUrl ?? null,
         title: sourceJobTitle ?? null,
@@ -120,10 +172,71 @@ export default function CompanyFollowButton({
       setStatus('error');
       if (onErrored) onErrored(error);
     }
-  }, [company, companyKey, email, locale, onErrored, onSubscribed, slug, sourceJobSlug, sourceJobTitle, sourceJobUrl, subscribe, userId]);
+  }, [company, companyKey, email, locale, onErrored, onSubscribed, signedIn, slug, sourceJobSlug, sourceJobTitle, sourceJobUrl, subscribe, userId]);
+
+  /**
+   * Anonymous submit. Reuses the site's ONE consent mechanism end to end:
+   * `upsertNewsletterSubscriber` writes `status:'pending'` and auto-fires the
+   * confirmation email — but only for a genuinely NEW pending record. Following
+   * SaveSignInPromptModal's precedent, an address that already exists gets an
+   * explicit `purpose:'login'` link instead. Without that branch a returning
+   * visitor would tap "Segui", receive no email, and never be followed: silent
+   * failure, the exact defect class this feature keeps being audited for.
+   */
+  const handleCaptureSubmit = useCallback(async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (status === 'submitting') return;
+    const trimmed = typedEmail.trim().toLowerCase();
+    if (!validateEmailStrict(trimmed).valid) {
+      setCaptureError(t('newsletter.invalidEmail'));
+      return;
+    }
+    setCaptureError('');
+    setStatus('submitting');
+    try {
+      if (captureEmail) {
+        await captureEmail(trimmed, { company, companyKey });
+      } else {
+        const firestore = getFirestore(await getApp());
+        const upsert = await upsertNewsletterSubscriber(firestore, {
+          email: trimmed,
+          preferences: { exchangeRate: true, traffic: true, taxUpdates: true, tips: false },
+          source: 'company_follow_button',
+          sourcePage: typeof window !== 'undefined' ? window.location.pathname : '',
+          sourceCta: 'company_follow_button',
+          sourceComponent: 'CompanyFollowButton',
+          sourceRouteFamily: 'community',
+          locale: typeof navigator !== 'undefined' ? navigator.language || 'it-IT' : 'it-IT',
+          consentGiven: true,
+          consentText: COMPANY_FOLLOW_CONSENT_TEXT,
+          consentMethod: 'email_checkbox',
+          consentUserAgent: typeof navigator !== 'undefined' ? navigator.userAgent : '',
+        });
+        if (upsert.existed) await requestConfirmationEmail(trimmed, 'login');
+      }
+      // Park the follow. It becomes an alert only after the confirmation link
+      // lands (App.tsx → flushPendingCompanyFollows), never before.
+      savePendingCompanyFollow({
+        company,
+        companyKey: companyKey ?? null,
+        locale: locale as 'it' | 'en' | 'de' | 'fr',
+        sourceJobSlug: sourceJobSlug ?? null,
+        sourceJobUrl: sourceJobUrl ?? null,
+        sourceJobTitle: sourceJobTitle ?? null,
+        email: trimmed,
+      });
+      setStatus('pendingOptIn');
+      if (onOptInRequested) onOptInRequested(trimmed);
+    } catch (error: unknown) {
+      reportCaughtError(error, 'companyFollow.captureEmail');
+      setCaptureError(t('jobAlert.companyFollow.error'));
+      setStatus('capture');
+      if (onErrored) onErrored(error);
+    }
+  }, [captureEmail, company, companyKey, locale, onErrored, onOptInRequested, sourceJobSlug, sourceJobTitle, sourceJobUrl, status, t, typedEmail]);
 
   const handleUnfollow = useCallback(async () => {
-    if (!alertId) return;
+    if (!alertId || !email) return;
     setStatus('submitting');
     try {
       // Deactivates the alert (active:false + unsubscribed_at) rather than only
@@ -143,11 +256,57 @@ export default function CompanyFollowButton({
     }
   }, [alertId, email, onErrored, onUnsubscribed, unfollow]);
 
-  if (!slug || !userId || !email) return null;
+  if (!slug) return null;
   if (status === 'loading') return null;
+
+  if (status === 'pendingOptIn') {
+    return (
+      <div className="mt-3 rounded-lg border border-edge bg-surface-raised px-4 py-3">
+        <p className="text-sm font-semibold text-heading flex items-center gap-2">
+          <Mail className="w-4 h-4 text-accent" aria-hidden="true" />
+          {t('jobAlert.companyFollow.optInSentTitle')}
+        </p>
+        <p className="mt-1 text-xs text-muted">
+          {t('jobAlert.companyFollow.optInSentBody')}
+        </p>
+      </div>
+    );
+  }
 
   const busy = status === 'submitting';
   const following = status === 'following';
+
+  if (status === 'capture' || (busy && !signedIn)) {
+    return (
+      <form className="mt-3 rounded-lg border border-edge bg-surface-raised px-4 py-3" onSubmit={handleCaptureSubmit}>
+        <label className="block text-sm font-semibold text-heading" htmlFor="company-follow-email">
+          {t('jobAlert.companyFollow.emailLabel')}
+        </label>
+        <p className="mt-1 text-xs text-muted">
+          {t('jobAlert.companyFollow.emailHint')}
+        </p>
+        <div className="mt-2 flex flex-col sm:flex-row gap-2">
+          <EmailInput
+            id="company-follow-email"
+            value={typedEmail}
+            onChange={setTypedEmail}
+            className="flex-1"
+            ariaLabel={t('jobAlert.companyFollow.emailLabel')}
+          />
+          <button
+            type="submit"
+            disabled={busy}
+            aria-busy={busy}
+            className="inline-flex items-center justify-center gap-2 px-4 py-2 min-h-[44px] text-sm font-semibold rounded-lg border border-accent-border bg-accent text-on-accent hover:bg-accent-hover disabled:opacity-60"
+          >
+            {busy ? <Loader2 className="w-4 h-4 animate-spin" aria-hidden="true" /> : <Building2 className="w-4 h-4" aria-hidden="true" />}
+            {t('jobAlert.companyFollow.cta')}
+          </button>
+        </div>
+        {captureError && <p className="mt-2 text-xs text-danger">{captureError}</p>}
+      </form>
+    );
+  }
 
   return (
     <div className="mt-3">
@@ -179,6 +338,17 @@ export default function CompanyFollowButton({
           ? t('jobAlert.companyFollow.followingHint', 'Ti scriviamo quando pubblica un nuovo annuncio. Tocca per smettere di seguirla.')
           : t('jobAlert.companyFollow.hint', 'Ricevi una email quando questa azienda pubblica nuovi lavori.')}
       </p>
+      {following && (
+        // Entry point to the dedicated manager (#5012 phase 2). Built through
+        // buildPath, never a hardcoded /it|/en|… segment — that is what
+        // scripts/ci/check-hardcoded-locale-segments.mjs guards.
+        <a
+          href={buildPath({ activeTab: 'followed-companies' }, locale)}
+          className="mt-1 inline-block text-xs font-semibold text-accent hover:underline"
+        >
+          {t('jobAlert.companyFollow.manageAll')}
+        </a>
+      )}
       {status === 'error' && (
         <p className="mt-2 text-xs text-danger">
           {t('jobAlert.companyFollow.error', 'Non sono riuscito ad aggiornare il seguito. Riprova.')}

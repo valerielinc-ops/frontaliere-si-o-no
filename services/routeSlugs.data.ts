@@ -127,6 +127,11 @@ export interface SlugTable {
  emailConfirmed: string;
  // Newsletter preferences (HMAC-authed opt-out page)
  newsletterPreferences: string;
+ // "Le mie aziende seguite" — CompanyAlert manager (#5012). Signed-in only,
+ // absent from every sitemap and from tests/seo-completeness.ts's
+ // `standalones` on purpose: a private page, same convention as
+ // newsletterPreferences / publisherDashboard.
+ followedCompanies: string;
  // hidden admin route
  admin: string;
  // About / Chi Siamo page (E-E-A-T)
@@ -250,6 +255,7 @@ export const SLUG_TABLES: Record<Locale, SlugTable> = {
  toolOfWeek: 'strumento-della-settimana',
  emailConfirmed: 'benvenuto-frontaliere',
  newsletterPreferences: 'preferenze-newsletter',
+ followedCompanies: 'aziende-seguite',
  admin: 'gestione-contenuti-xk9mp2q',
  chiSiamo: 'chi-siamo',
  correzioni: 'correzioni',
@@ -355,6 +361,7 @@ export const SLUG_TABLES: Record<Locale, SlugTable> = {
  toolOfWeek: 'tool-of-the-week',
  emailConfirmed: 'welcome',
  newsletterPreferences: 'newsletter-preferences',
+ followedCompanies: 'followed-companies',
  admin: 'gestione-contenuti-xk9mp2q',
  chiSiamo: 'about-us',
  correzioni: 'corrections',
@@ -463,6 +470,7 @@ export const SLUG_TABLES: Record<Locale, SlugTable> = {
  toolOfWeek: 'werkzeug-der-woche',
  emailConfirmed: 'willkommen',
  newsletterPreferences: 'newsletter-einstellungen',
+ followedCompanies: 'gefolgte-unternehmen',
  admin: 'gestione-contenuti-xk9mp2q',
  chiSiamo: 'ueber-uns',
  correzioni: 'korrekturen',
@@ -571,6 +579,7 @@ export const SLUG_TABLES: Record<Locale, SlugTable> = {
  toolOfWeek: 'outil-de-la-semaine',
  emailConfirmed: 'bienvenue',
  newsletterPreferences: 'preferences-newsletter',
+ followedCompanies: 'entreprises-suivies',
  admin: 'gestione-contenuti-xk9mp2q',
  chiSiamo: 'a-propos',
  correzioni: 'corrections',
