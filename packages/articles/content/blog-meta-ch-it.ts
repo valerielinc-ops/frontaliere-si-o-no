@@ -1828,6 +1828,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.banche-cercano-piu-personale.title': 'Di più Banche cercano più personale, annunci +14% in luglio',
     'blog.article.banche-cercano-piu-personale.excerpt': 'Il numero di annunci di lavoro nelle banche svizzere è aumentato del 14% in luglio 2026.',
     'blog.article.banche-cercano-piu-personale.imageAlt': 'Banche svizzere che cercano personale in luglio 2026',
+    'blog.article.cile-1988-democrazia-svizzera.title': 'Cile 1988: lezioni dalla fine di una dittatura',
+    'blog.article.cile-1988-democrazia-svizzera.excerpt': 'Il plebiscito cileno del 1988 ha segnato la fine di 15 anni di dittatura militare guidata da Pinochet.',
+    'blog.article.cile-1988-democrazia-svizzera.imageAlt': 'Vista aerea di Lugano con il paesaggio del Ticino in secondo piano',
 };
 
 export default blogMetaChIt;

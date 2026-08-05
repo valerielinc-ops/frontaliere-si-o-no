@@ -1828,6 +1828,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.banche-cercano-piu-personale.title': 'Mehr Banken suchen mehr Personal, Inserate +14% im Juli',
     'blog.article.banche-cercano-piu-personale.excerpt': 'Die Zahl der Stellenausschreibungen in Schweizer Banken stieg im Juli 2026 um 14%.',
     'blog.article.banche-cercano-piu-personale.imageAlt': 'Schweizer Banken suchen Personal im Juli 2026',
+    'blog.article.cile-1988-democrazia-svizzera.title': 'Chile 1988: Lehren aus dem Ende einer Diktatur',
+    'blog.article.cile-1988-democrazia-svizzera.excerpt': 'Das chilenische Plebiszit von 1988 markierte das Ende von 15 Jahren Militärdiktatur unter Pinochet.',
+    'blog.article.cile-1988-democrazia-svizzera.imageAlt': 'Luftbild von Lugano mit dem Tessin-Landschaft im Hintergrund',
 };
 
 export default blogMetaChDe;
