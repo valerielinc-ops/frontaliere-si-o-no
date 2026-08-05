@@ -13,6 +13,7 @@ import { describe, it, expect } from 'vitest';
 import {
   latestCompletedVitestConclusion,
   vitestFailureIsTransientCancellation,
+  vitestFailureIsNotAttributableToPr,
 } from '../scripts/ci/lib/vitestCheck.mjs';
 import { VITEST_CHECK_NAME } from '../scripts/ci/lib/constants.mjs';
 
@@ -210,5 +211,107 @@ describe('vitestFailureIsTransientCancellation (#2438 cancelled→failure heal)'
   it('input non-array → false (difensivo, niente throw)', () => {
     expect(vitestFailureIsTransientCancellation(undefined as unknown as [])).toBe(false);
     expect(vitestFailureIsTransientCancellation(null as unknown as [])).toBe(false);
+  });
+});
+
+/**
+ * vitestFailureIsNotAttributableToPr — l'escape hatch dello stato ASSORBENTE
+ * misurato il 2026-08-05 su 8 PR (#5019 #5067 #5068 #5070 #5072 #5073 #5074
+ * #5085), tutte con `vitest (unit + integration)` come UNICO check rosso.
+ *
+ * `tests.yml` gira sul MERGE REF, quindi il verdetto include il codice di main:
+ * main rosso 2026-08-02T09:14Z→2026-08-04T13:37Z ⇒ ogni PR testata in quella
+ * finestra ha ereditato il rosso. Da lì non si esce: pr-review-loop richiede
+ * `tests` success (niente review ⇒ niente LGTM ⇒ niente label), stale-pr-rescuer
+ * richiede tests success o una review 🔴, pr-autorebase richiede LGTM/label.
+ * Questa funzione è l'unico arco uscente, e deve restare STRETTA: si ri-testa
+ * solo con prova positiva che il rosso non è della PR.
+ */
+describe('vitestFailureIsNotAttributableToPr (stato assorbente stuck-red)', () => {
+  const FAILED_AT = '2026-08-04T12:10:35Z'; // vitest reale di PR #5085
+  const NOW = Date.parse('2026-08-05T06:30:00Z');
+  const redHead = [vitest('failure', FAILED_AT)];
+  const mainRun = (conclusion: string, updated_at: string) => ({ conclusion, updated_at });
+
+  it('main tornato VERDE dopo il test della PR → rescue red-main', () => {
+    // main green run reale: 2026-08-04T18:02Z (commit 3641631c), dopo le 12:10Z.
+    expect(
+      vitestFailureIsNotAttributableToPr({
+        checkRuns: redHead,
+        mainTestsRuns: [mainRun('success', '2026-08-04T18:02:25Z'), mainRun('failure', '2026-08-04T13:37:59Z')],
+        nowMs: NOW,
+      }),
+    ).toEqual({ rescue: true, reason: 'red-main' });
+  });
+
+  it('main verde solo PRIMA del test della PR → nessun rescue (il rosso è suo)', () => {
+    expect(
+      vitestFailureIsNotAttributableToPr({
+        checkRuns: [vitest('failure', '2026-08-05T06:00:00Z')],
+        mainTestsRuns: [mainRun('success', '2026-08-04T18:02:25Z')],
+        nowMs: NOW,
+      }),
+    ).toEqual({ rescue: false, reason: '' });
+  });
+
+  it('main rosso anche dopo → nessun rescue (rebasare non farebbe ereditare nulla di buono)', () => {
+    expect(
+      vitestFailureIsNotAttributableToPr({
+        checkRuns: redHead,
+        mainTestsRuns: [mainRun('failure', '2026-08-04T19:00:00Z'), mainRun('cancelled', '2026-08-04T20:00:00Z')],
+        nowMs: NOW,
+        staleHours: 0,
+      }),
+    ).toEqual({ rescue: false, reason: '' });
+  });
+
+  it('backstop stale: rosso >24h con main sempre verde → rescue stale (caso INFRA #5019)', () => {
+    // #5019 è morta il 2026-08-01T08:17Z su `RPC failed; curl 56` + runner
+    // shutdown durante il CHECKOUT (zero test eseguiti) mentre main era VERDE:
+    // `red-main` non la copre, il backstop sì.
+    expect(
+      vitestFailureIsNotAttributableToPr({
+        checkRuns: [vitest('failure', '2026-08-01T08:17:38Z')],
+        mainTestsRuns: [mainRun('success', '2026-07-31T01:52:46Z')],
+        nowMs: NOW,
+      }),
+    ).toEqual({ rescue: true, reason: 'stale' });
+  });
+
+  it('rosso FRESCO (<24h) e main mai tornato verde dopo → nessun rescue', () => {
+    expect(
+      vitestFailureIsNotAttributableToPr({
+        checkRuns: [vitest('failure', '2026-08-05T05:00:00Z')],
+        mainTestsRuns: [mainRun('success', '2026-08-04T18:02:25Z')],
+        nowMs: NOW,
+      }),
+    ).toEqual({ rescue: false, reason: '' });
+  });
+
+  it('run vitest già in volo sull\'head → nessun rescue (si risolve da sé)', () => {
+    expect(
+      vitestFailureIsNotAttributableToPr({
+        checkRuns: [vitest('failure', FAILED_AT), vitest(null, null, 'in_progress')],
+        mainTestsRuns: [mainRun('success', '2026-08-04T18:02:25Z')],
+        nowMs: NOW,
+      }),
+    ).toEqual({ rescue: false, reason: '' });
+  });
+
+  it('vitest VERDE sull\'head → nessun rescue', () => {
+    expect(
+      vitestFailureIsNotAttributableToPr({
+        checkRuns: [vitest('success', FAILED_AT)],
+        mainTestsRuns: [mainRun('success', '2026-08-04T18:02:25Z')],
+        nowMs: NOW,
+      }),
+    ).toEqual({ rescue: false, reason: '' });
+  });
+
+  it('input assenti/non-array → nessun rescue (difensivo, niente throw)', () => {
+    expect(vitestFailureIsNotAttributableToPr()).toEqual({ rescue: false, reason: '' });
+    expect(
+      vitestFailureIsNotAttributableToPr({ checkRuns: redHead, mainTestsRuns: null, staleHours: 0 }),
+    ).toEqual({ rescue: false, reason: '' });
   });
 });

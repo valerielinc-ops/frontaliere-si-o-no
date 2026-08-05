@@ -1,6 +1,6 @@
 {
   "crawlerKey": "zermatt-bergbahnen",
-  "assembledAt": "2026-08-02T22:10:28.198Z",
+  "assembledAt": "2026-08-04T22:38:44.147Z",
   "jobs": [
     {
       "id": "zermatt-bergbahnen-1d2568bbb7e6",
@@ -46,13 +46,15 @@
       "applyUrl": "https://www.matterhornparadise.ch/de/ueber-uns/job-und-karriere/baumaschinenmechaniker/in_job_5142094",
       "source": "Zermatt Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-02T22:10:25.987Z",
+      "crawledAt": "2026-08-04T22:38:42.191Z",
       "previousSlugs": [
-        "baumaschinenmechaniker-in-zermatt-zermatt-bergbahnen"
+        "baumaschinenmechaniker-in-zermatt-zermatt-bergbahnen",
+        "meccanico-di-costruzione-zermatt-bergbahnen-zermatt"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "baumaschinenmechaniker-in-zermatt-zermatt-bergbahnen"
+          "baumaschinenmechaniker-in-zermatt-zermatt-bergbahnen",
+          "meccanico-di-costruzione-zermatt-bergbahnen-zermatt"
         ],
         "en": [
           "baumaschinenmechaniker-in-zermatt-zermatt-bergbahnen"
@@ -120,10 +122,11 @@
       "applyUrl": "https://www.matterhornparadise.ch/de/ueber-uns/job-und-karriere/lehrstelle-metallbauer/in-efz_job_4602024",
       "source": "Zermatt Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-02T22:10:25.212Z",
+      "crawledAt": "2026-08-04T22:38:41.549Z",
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-metallbauer-in-efz-zermatt-zermatt-bergbahnen"
+          "lehrstelle-metallbauer-in-efz-zermatt-zermatt-bergbahnen",
+          "apprendistato-metallbauer-in-cfc-zermatt-bergbahnen-zermatt"
         ],
         "en": [
           "lehrstelle-metallbauer-in-efz-zermatt-zermatt-bergbahnen"
@@ -133,7 +136,8 @@
         ]
       },
       "previousSlugs": [
-        "lehrstelle-metallbauer-in-efz-zermatt-zermatt-bergbahnen"
+        "lehrstelle-metallbauer-in-efz-zermatt-zermatt-bergbahnen",
+        "apprendistato-metallbauer-in-cfc-zermatt-bergbahnen-zermatt"
       ],
       "firstSeenAt": "2026-07-11T10:52:32.296Z",
       "salaryMin": 49000,
@@ -194,13 +198,15 @@
       "applyUrl": "https://www.matterhornparadise.ch/de/ueber-uns/job-und-karriere/sachbearbeiter/in-lohnbuchhaltung_job_4524271",
       "source": "Zermatt Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-02T22:10:24.514Z",
+      "crawledAt": "2026-08-04T22:38:40.911Z",
       "previousSlugs": [
-        "sachbearbeiter-in-lohnbuchhaltung-zermatt-zermatt-bergbahnen"
+        "sachbearbeiter-in-lohnbuchhaltung-zermatt-zermatt-bergbahnen",
+        "dipendente-regista-zermatt-bergbahnen-zermatt"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sachbearbeiter-in-lohnbuchhaltung-zermatt-zermatt-bergbahnen"
+          "sachbearbeiter-in-lohnbuchhaltung-zermatt-zermatt-bergbahnen",
+          "dipendente-regista-zermatt-bergbahnen-zermatt"
         ],
         "en": [
           "sachbearbeiter-in-lohnbuchhaltung-zermatt-zermatt-bergbahnen"
@@ -210,6 +216,7 @@
         ]
       },
       "firstSeenAt": "2026-07-11T10:52:30.862Z",
+      "needsRetranslation": true,
       "salaryMin": 104500,
       "salaryMax": 183500,
       "currency": "CHF",
@@ -268,15 +275,17 @@
       "applyUrl": "https://www.matterhornparadise.ch/de/ueber-uns/job-und-karriere/lehrstelle-informatiker/in-efz_job_3706844",
       "source": "Zermatt Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-02T22:10:23.719Z",
+      "crawledAt": "2026-08-04T22:38:40.263Z",
       "previousSlugsByLocale": {
         "en": [
           "it-and-telecommunications-technician-efz-zermatt-bergbahnen-zermatt",
           "it-and-telecommunications-internship-zermatt-bergbahnen-zermatt",
-          "lehrstelle-informatiker-in-efz-zermatt-zermatt-bergbahnen"
+          "lehrstelle-informatiker-in-efz-zermatt-zermatt-bergbahnen",
+          "apprenticeship-computer-scientist-efz-zermatt-bergbahnen-zermatt"
         ],
         "it": [
-          "lehrstelle-informatiker-in-efz-zermatt-zermatt-bergbahnen"
+          "lehrstelle-informatiker-in-efz-zermatt-zermatt-bergbahnen",
+          "apprendistato-informatiker-in-cfc-zermatt-bergbahnen-zermatt"
         ],
         "fr": [
           "lehrstelle-informatiker-in-efz-zermatt-zermatt-bergbahnen"
@@ -285,7 +294,9 @@
       "previousSlugs": [
         "lehrstelle-informatiker-in-efz-zermatt-zermatt-bergbahnen",
         "it-and-telecommunications-technician-efz-zermatt-bergbahnen-zermatt",
-        "it-and-telecommunications-internship-zermatt-bergbahnen-zermatt"
+        "it-and-telecommunications-internship-zermatt-bergbahnen-zermatt",
+        "apprenticeship-computer-scientist-efz-zermatt-bergbahnen-zermatt",
+        "apprendistato-informatiker-in-cfc-zermatt-bergbahnen-zermatt"
       ],
       "firstSeenAt": "2026-07-11T10:52:29.425Z",
       "salaryMin": 51000,
@@ -346,13 +357,15 @@
       "applyUrl": "https://www.matterhornparadise.ch/de/ueber-uns/job-und-karriere/lehrstelle-seilbahn-mechatroniker/in-efz-seilbahner/in-eba_job_3704876",
       "source": "Zermatt Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-02T22:10:22.839Z",
+      "crawledAt": "2026-08-04T22:38:39.580Z",
       "previousSlugs": [
-        "lehrstelle-seilbahn-mechatroniker-in-efz-seilbahner-in-eba-zermatt-zermatt-bergbahnen"
+        "lehrstelle-seilbahn-mechatroniker-in-efz-seilbahner-in-eba-zermatt-zermatt-bergbahnen",
+        "apprendistato-seilbahn-mechatroniker-in-cfc-seilbahner-in-afp-zermatt-bergbahnen-zermatt"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-seilbahn-mechatroniker-in-efz-seilbahner-in-eba-zermatt-zermatt-bergbahnen"
+          "lehrstelle-seilbahn-mechatroniker-in-efz-seilbahner-in-eba-zermatt-zermatt-bergbahnen",
+          "apprendistato-seilbahn-mechatroniker-in-cfc-seilbahner-in-afp-zermatt-bergbahnen-zermatt"
         ],
         "en": [
           "lehrstelle-seilbahn-mechatroniker-in-efz-seilbahner-in-eba-zermatt-zermatt-bergbahnen"
@@ -381,9 +394,9 @@
       "slug": "apprendistato-polymechaniker-in-produktionsmechaniker-in-zermatt-bergbahnen-zermatt",
       "slugByLocale": {
         "it": "apprendistato-polymechaniker-in-produktionsmechaniker-in-zermatt-bergbahnen-zermatt",
-        "en": "apprenticeship-polymechanic-production-mechanic-zermatt-bergbahnen-zermatt",
+        "en": "lehrstelle-polymechaniker-in-produktionsmechaniker-in-zermatt-bergbahnen-zermatt",
         "de": "lehrstelle-polymechaniker-in-produktionsmechaniker-in-zermatt-zermatt-bergbahnen",
-        "fr": "apprentissage-polymecanique-mecanicien-de-production-zermatt-bergbahnen-zermatt"
+        "fr": "lehrstelle-polymechaniker-in-produktionsmechaniker-in-zermatt-bergbahnen-zermatt"
       },
       "company": "Zermatt Bergbahnen",
       "companyKey": "zermatt-bergbahnen",
@@ -420,24 +433,30 @@
       "applyUrl": "https://www.matterhornparadise.ch/de/ueber-uns/job-und-karriere/lehrstelle-polymechaniker/in-produktionsmechaniker/in_job_3700464",
       "source": "Zermatt Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-02T22:10:22.032Z",
+      "crawledAt": "2026-08-04T22:38:38.753Z",
       "previousSlugsByLocale": {
         "fr": [
+          "apprentissage-polymecanique-mecanicien-de-production-zermatt-bergbahnen-zermatt",
           "lehrstelle-polymechaniker-in-produktionsmechaniker-in-zermatt-zermatt-bergbahnen",
           "lehrstelle-polymechaniker-in-produktionsmechaniker-in-zermatt-bergbahnen-zermatt"
         ],
         "it": [
           "lehrstelle-polymechaniker-in-produktionsmechaniker-in-zermatt-zermatt-bergbahnen",
-          "lehrstelle-polymechaniker-in-produktionsmechaniker-in-zermatt-bergbahnen-zermatt"
+          "lehrstelle-polymechaniker-in-produktionsmechaniker-in-zermatt-bergbahnen-zermatt",
+          "apprendistato-polymechaniker-in-produktionsmechaniker-in-zermatt-bergbahnen-zermatt"
         ],
         "en": [
           "lehrstelle-polymechaniker-in-produktionsmechaniker-in-zermatt-zermatt-bergbahnen",
+          "apprenticeship-polymechanic-production-mechanic-zermatt-bergbahnen-zermatt",
           "lehrstelle-polymechaniker-in-produktionsmechaniker-in-zermatt-bergbahnen-zermatt"
         ]
       },
       "previousSlugs": [
         "lehrstelle-polymechaniker-in-produktionsmechaniker-in-zermatt-zermatt-bergbahnen",
-        "lehrstelle-polymechaniker-in-produktionsmechaniker-in-zermatt-bergbahnen-zermatt"
+        "lehrstelle-polymechaniker-in-produktionsmechaniker-in-zermatt-bergbahnen-zermatt",
+        "apprentissage-polymecanique-mecanicien-de-production-zermatt-bergbahnen-zermatt",
+        "apprenticeship-polymechanic-production-mechanic-zermatt-bergbahnen-zermatt",
+        "apprendistato-polymechaniker-in-produktionsmechaniker-in-zermatt-bergbahnen-zermatt"
       ],
       "firstSeenAt": "2026-07-11T10:52:26.388Z",
       "salaryMin": 49000,
@@ -459,19 +478,19 @@
       "slug": "informatica-zermatt-bergbahnen-zermatt",
       "slugByLocale": {
         "it": "informatica-zermatt-bergbahnen-zermatt",
-        "en": "computer-scientist-zermatt-bergbahnen-zermatt",
+        "en": "informatiker-in-zermatt-bergbahnen-zermatt",
         "de": "informatiker-in-zermatt-zermatt-bergbahnen",
-        "fr": "informatique-zermatt-bergbahnen-zermatt"
+        "fr": "informatiker-in-zermatt-bergbahnen-zermatt"
       },
       "company": "Zermatt Bergbahnen",
       "companyKey": "zermatt-bergbahnen",
       "companyDomain": "matterhornparadise.ch",
       "title": "Informatiker/in",
       "titleByLocale": {
-        "en": "Computer scientist",
+        "en": "Informatiker/in",
         "de": "Informatiker/in",
-        "it": "Informatica",
-        "fr": "Informatique"
+        "it": "Informatiker/in",
+        "fr": "Informatiker/in"
       },
       "description": "•\n\nIT und Telekommunikation\n\nInformatiker/in\n\nHome\n\nÜber uns\n\nJobs und Karriere\n\nDie Zermatt IT AG bietet umfassende IT-Services aus einer Hand – flexibel, innovativ und partnerschaftlich. Wir implementieren und betreiben IT-Prozesse, -Infrastrukturen und -Applikationen, damit sich unsere Kunden auf ihre Kernkompetenzen konzentrieren können. Zu unseren Kunden gehören Bergbahnen, Hotels, KMUs und Privatkunden.\n\nWir sind auf der Suche nach einem aufgestellten und motivierten Menschen, der unser Team ergänzt als Informatiker/in.\n\nJetzt bewerben\n\nBeginn\n\nab sofort oder nach Vereinbarung\n\n16.08.2026\n\nBewerbungsfrist\n\n80-100%\n\nunbefristet\n\nTeam\n\nZermatt IT AG\n\nDein Job\n\nDeine Karriere bei uns\n\n• Du arbeitest an Hard- und Softwareinstallationen und stellst die IT Services unserer Kunden sicher.\n\n• Du sorgst für den reibungslosen Betrieb von Kundenserver und sorgst für deren Sicherheit.\n\n• Du betreust und falls nötig erweiterst du die Netzwerkinstallationen unserer Kunden.\n\n• Du betreust im Rahmen unseres Supports aktiv unsere Kunden entweder am Telefon oder vor Ort.\n\n• Du arbeitest bei Projekten mit.\n\nZermatt Bergbahnen\n\nWas du von uns erwarten kannst:\n\n• Wir bieten dir einen Arbeitsplatz mit interessanten und abwechslungsreichen Arbeiten.\n\n• Wir versprechen dir eine aktive Zusammenarbeit in einem familiären Arbeitsklima.\n\n• Wir bieten dir geregelte Arbeitszeiten im Gleitzeitmodell und 6 Wochen Ferien.\n\n• Wir bieten zahlreiche Gehaltsnebenleistungen inkl. einem Jahresabo der Zermatt Bergbahnen AG.\n\nWas wir von dir erwarten:\n\n• Du hast eine abgeschlossene Ausbildung als Informatiker EFZ oder eine gleichwertige Ausbildung.\n\n• Du verfügst über gute Analysefähigkeiten und ein vernetztes Denken.\n\n• Du hast gute Team- und Kommunikationsfähigkeiten.\n\n• Du bist bereit Pikettdienst und sporadische Wochenendeinsätze zu leisten.\n\nBeginn ab sofort oder nach Vereinbarung\n\n16.08.2026 Bewerbungsfrist\n\n80-100% unbefristet\n\nTeam Zermatt IT AG\n\nAuf zu einem neuen Abenteuer\n\nBewerbungsunterlagen\n\nSchicken Sie uns Ihre Bewerbungsunterlagen. Ganz einfach und sicher online bewerben!\n\nAnrede\n\nBitte auswählen\n\nFrau\n\nHerr\n\nDivers\n\nVorname\n\nNachname\n\nE-Mail Adresse\n\nTelefonnummer für Rückfragen\n\nLebenslauf\n\nDatei hochladen\n\nMotivationsschreiben\n\nArbeits- und Ausbildungszeugnisse\n\nWeitere Dateien\n\nJa, ich habe die Datenschutzbestimmungen gelesen und stimme diesen ausdrücklich zu. Widerruf ist jederzeit möglich.\n\n* Pflichtfelder bitte ausfüllen\n\nNeuigkeiten aus Zermatt\n\nJEDERZEIT INFORMIERT MIT UNSEREM NEWSLETTER\n\nJetzt anmelden\n\nJETZT PROFITIEREN\n\nErlebnisse, Skipässe und vieles mehr\n\nFrühbucher profitieren\n\nSicherer Online-Einkauf\n\nohne Anstehen in die Berge\n\nTickets kaufen",
       "descriptionByLocale": {
@@ -498,25 +517,31 @@
       "applyUrl": "https://www.matterhornparadise.ch/de/ueber-uns/job-und-karriere/informatiker/in_job_3001250",
       "source": "Zermatt Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-02T22:10:21.054Z",
+      "crawledAt": "2026-08-04T22:38:37.877Z",
       "previousSlugsByLocale": {
         "en": [
+          "computer-scientist-zermatt-bergbahnen-zermatt",
           "informatiker-in-zermatt-zermatt-bergbahnen",
           "informatiker-in-zermatt-bergbahnen-zermatt"
         ],
         "it": [
-          "informatiker-in-zermatt-zermatt-bergbahnen"
+          "informatiker-in-zermatt-zermatt-bergbahnen",
+          "informatica-zermatt-bergbahnen-zermatt"
         ],
         "fr": [
           "informatiker-in-zermatt-zermatt-bergbahnen",
-          "informatiker-in-zermatt-bergbahnen-zermatt",
-          "informaticien-ne-zermatt-bergbahnen-zermatt"
+          "informaticien-ne-zermatt-bergbahnen-zermatt",
+          "informatique-zermatt-bergbahnen-zermatt",
+          "informatiker-in-zermatt-bergbahnen-zermatt"
         ]
       },
       "previousSlugs": [
         "informatiker-in-zermatt-zermatt-bergbahnen",
+        "informaticien-ne-zermatt-bergbahnen-zermatt",
+        "computer-scientist-zermatt-bergbahnen-zermatt",
+        "informatique-zermatt-bergbahnen-zermatt",
         "informatiker-in-zermatt-bergbahnen-zermatt",
-        "informaticien-ne-zermatt-bergbahnen-zermatt"
+        "informatica-zermatt-bergbahnen-zermatt"
       ],
       "firstSeenAt": "2026-07-11T10:52:24.845Z",
       "salaryMin": 60500,

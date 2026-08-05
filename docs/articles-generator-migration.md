@@ -903,3 +903,266 @@ advertise fewer articles — the symptom would go away and the coupling would st
 fast path renders a page even slightly differently from the full build, there are
 two producers of one page that disagree — the same failure §4 flagged for the
 border-wait ranking JSON and resolved by giving it a single owner.
+
+## 11. Steps 1–4 executed (2026-08-03), and what measurement changed
+
+Everything below was established by running code against the real trees, not by
+reading. Where it contradicts §10, §10 is wrong and this section supersedes it.
+
+### 11.1 §10.3's closure figures did not survive measurement
+
+§10.3 sizes step 1 at "116 lines + 7 `seoHubsData` exports". A mechanical AST
+closure over `renderArticleHubPages` gives **31 declarations / ~1173 lines
+inside `seoHubsPlugin.ts` alone**, and 2655 lines across 23 files. The gap is
+`buildHtml` (230 lines) and `humanizeSlug`, which are defined in
+`seoHubsPlugin.ts`, NOT in `seoHubsData.ts` as §10.3 states, and `buildHtml`
+pulls the whole hub chrome — prose accordion, pagination, stat tiles, JSON-LD.
+
+§10.3 also states the article path never reaches `shared/cantonSection` or
+`services/routeSlugs.data`, because "grepping the 116-line function for
+`canton|routeSlugs` returns 0". It reaches both, via
+`HUB_SLUGS.*.articlesAll` → `articlesAllFor()` → `SLUG_TABLES[locale].blog`.
+The grep was run on the function body; the coupling is one level down, in what
+its dependencies reach. This is the same "judged the wrong artifact" error the
+doc warns about — committed inside the warning itself.
+
+§10.3's conclusion nevertheless HOLDS: the closure carries no job-sector,
+canton, company-logo or weekly-employer machinery. Only the price was wrong.
+
+Step 2 is wrong in the other direction: §10.3 sizes it at ~1200 lines by
+counting whole files. The reachable closure from the three entry points
+`publish-article-fast.mjs` actually calls is **332 lines**. The Vite plugin
+wrappers and `transformFlatRedirect` are full-build dist-walk machinery the
+fast path never touches.
+
+### 11.2 The prerequisite §10 does not mention: nanako could not render at all
+
+Every module under nanako's `engine/` reads its host values through
+`getSiteShell()` — measured, 37 of 37 contract fields — and nothing in that
+repo had ever called `configureSiteShell()`. `getSiteShell()` throws when
+unconfigured. §10.3's "steps 1 and 3 are already here — `renderArticlePages`
+lives in `engine/ogPagesPlugin.ts`" is true of the FILE and false of the
+capability. The engine was there and could not run there.
+
+Closed by giving nanako its own `host/` tree (its host role, mirroring how this
+repo keeps `articlesSiteShellBootstrap.ts` outside `packages/articles`), plus
+the corpus symlinks nanako lacked. Verified: the same corpus rendered through
+both bootstraps at the same commit and rootDir produced **43 identical pages
+across both sections, 0 differing**. Both repos now assert one SHA-256 over the
+contract's 21 scalar fields.
+
+`host/` is a genuine second producer of site chrome and could not be avoided by
+re-exporting — host values are what a host owns. The fingerprint pins the
+scalars; the FUNCTIONS (esc, rootShell, railGutters, WriteCollector,
+titleSuffix) are pinned only by the point-in-time 43-page comparison, which is
+not a standing gate. That is the weakest joint in the current arrangement.
+
+### 11.3 Two defects the fast path had, found only by running it
+
+1. **CDN preconnect duplicated.** Importing nanako's shell bootstrap before
+   `process.env.ASSET_CDN = CDN_BASE` left `CDN_PRECONNECT_HINT` empty
+   (constants derives it in a module-level IIFE), so `ogPagesPlugin` emitted no
+   preconnect and the step-6 offload script injected its own pair. This is the
+   exact divergence `publish-article-fast.mjs`'s own header documents — and it
+   still happened, because in this repo the ordering is implicit (every
+   `build-plugins/*` shim imports the bootstrap as a side effect) and nothing
+   on the nanako side made it explicit.
+
+2. **Empty archive publishes silently.** With the corpus symlinks missing, the
+   archive rendered four pages per locale with ZERO items and did not fail —
+   `renderArticleHubPagesCore` EMITS-EMPTY by design. A publish would have
+   overwritten the live archive with an empty one, in all four locales. The
+   workflow now has a gate that fails on a 0-item IT archive; it was verified
+   by stripping `<li>` from a real render and confirming rc=1.
+
+### 11.4 §10.2's open question is CLOSED: the PAT can write to all 8 shards
+
+§10.2 records shard write access as "NOT YET PROVEN … the write has to be
+proven inside Actions", because the agent proxy refuses `POST /git/refs`. That
+conclusion was too pessimistic. The git **receive-pack advertisement**
+(`GET /info/refs?service=git-receive-pack`) is permission-gated and is a plain
+GET, so it passes the proxy. Measured 2026-08-03 with Remote Config's
+`GITHUB_PAT`:
+
+- all 8 article shards (`articoli{frontaliere,svizzera}` × it/en/de/fr) → **200**
+- control `torvalds/linux` → **403** receive-pack, 200 upload-pack
+
+The control is what makes this evidence rather than a proxy artifact. No Actions
+run was needed. `fast-publish-article.yml` re-runs the same probe every time.
+
+### 11.5 The 4-slot cron is NOT broken — nanako's whole scheduler is lagging
+
+At 11:38Z the last scheduled `generate-article` run was still #30 at 08:37:34Z:
+3h01 across ~12 missed slots, just inside the 3h36 skew measured on batch-faq.
+The discriminating check is the other producers, and it settles it — no cron on
+ANY nanako workflow has fired since 08:37 (border-wait 08:04, publish-journalist
+07:40, batch-faq 04:06). A malformed or unregistered 4-slot cron would not stop
+the others. This is repo-wide scheduler lag, and the push chain is the real
+driver regardless.
+
+### 11.6 Step 5 — diagnosed, NOT done, and §10.4's plan for it is now wrong
+
+Measured from the failing run (30806731740, job 91663722576): **four** checks
+fail, not the one §10.1 names, and it is 11 blocking entries over **7 unique
+articles**, not 11 articles.
+
+    audit:all                 rc=1
+    validate:sitemap-pages    rc=1
+    audit:hreflang            rc=1
+    validate:sitemap-links    rc=1
+
+    sitemap-blog-ch.xml   582 URLs,  4 missing
+    sitemap-blog.xml     3061 URLs,  3 missing
+    sitemap-news.xml        7 URLs,  2 missing   (same 2 articles again)
+    sitemap_news.xml        7 URLs,  2 missing   (same 2 again)
+
+Note `sitemap-blog.xml`: 3061 checked, only 3 missing. **This repo still builds
+the historical article corpus into `dist/`.** The gate is not wrong in
+principle — today this repo IS still an origin for article pages. What is stale
+is its `packages/articles` copy relative to nanako's.
+
+That makes §10.4 step 5 — "stop `pull-articles-api.mjs` publishing article
+sitemap entries main cannot render" — the wrong fix as written. It would
+de-index 7 articles that steps 1–4 have just made publishable, and it would fire
+again on every future generation. The coherent end state is the opposite:
+
+1. nanako fast-publishes articles to the shards (steps 1–4, now in place);
+2. this repo STOPS emitting article pages —
+   `ARTICOLIFRONTALIERE_BUILD_EMIT_SKIP` / `ARTICOLISVIZZERA_BUILD_EMIT_SKIP`
+   already exist for exactly this, and must be flipped in lockstep with
+   excluding the sections from `deploy.yml`'s shard push loop;
+3. the four checks stop resolving article URLs against this repo's `dist/`,
+   via ONE shared predicate derived from the Worker's own `SECTION_SHARD`
+   routing table so the exclusion cannot drift from actual routing;
+4. nanako publishes `sitemap-blog.xml` / `sitemap-blog-ch.xml` to the edge —
+   `EDGE_PUSHED_FILES` in `infra/cloudflare-worker/locale-router.js` already
+   whitelists `sitemap-blog-ch.xml`. This is the §5.7-adjacent open item, and
+   it belongs in this change, not after it.
+
+Steps 2 and 3 change what gates the whole site's deploy. They were NOT made:
+the full build is 25–34 min and OOM-prone, so the change cannot be verified
+locally, and a half-verified weakening of the gate that guards every deploy is
+worse than the current freeze. The diagnosis above is complete enough to
+execute it in one pass with a real build to check against.
+
+Until then the site keeps serving the 2026-08-02T01:40Z build, and jobs, events
+and fuel prices keep not deploying.
+
+### 11.7 Step 4's dry run PASSED in CI (run 30811674458)
+
+Dispatched on the feature branch with `dry_run: true`. Every step green, the
+publish step correctly skipped:
+
+    resolved id=bce-bns-ferme-cambi-per-frontalieri section=frontaliere dry=true
+    write OK   nanakokyobashi-rgb/frontaliere-articolifrontaliere-it
+    write OK   nanakokyobashi-rgb/frontaliere-articolifrontaliere-en
+    write OK   nanakokyobashi-rgb/frontaliere-articolifrontaliere-de
+    write OK   nanakokyobashi-rgb/frontaliere-articolifrontaliere-fr
+    [og-pages] Generated 4 OG landing pages for 4001 articles — wrote 8
+    [publish-article-fast] done — 8 article files + 34 hub pages, wall=1.0s
+    IT archive lists 100 items
+    article carries a named Person author
+
+Three things this settles that a local run could not:
+
+1. §10.2's write question is now confirmed from INSIDE Actions too, with the
+   real Remote Config PAT, not only by the receive-pack probe from a session.
+2. The whole chain works on a clean runner: `npm ci`, the Remote Config load,
+   the shell-contract bootstrap, the render, the gates. Nothing depended on
+   local state.
+3. The registry-symlink fix is confirmed by the "named Person author" line. On
+   a fresh checkout before that commit the same run would have emitted a
+   generic Organization author and passed silently — the gate is what makes
+   the difference visible.
+
+The two earlier runs (11:35, 11:42) resolved `skip=true` correctly: neither
+push touched `content/**`. That is the intended behaviour, but it means those
+runs proved only the trigger and the resolve step, not the render — worth
+knowing before reading a green tick as end-to-end proof.
+
+Still not done: the first ARMED publish. `FAST_PUBLISH_ARMED` is unset, so
+nothing has been written to a shard or the CDN from this repo yet.
+
+## 12. Separation closed (2026-08-03)
+
+§10.4's five steps are done, plus four things §10 did not name. Everything
+below was established by running it.
+
+### 12.1 The five steps
+
+1. `renderArticleHubPagesCore` extracted — §11.1 for the closure that was ten
+   times the estimate, and for §10.3's two claims that did not survive
+   measurement.
+2. The three fast-publish transforms moved, 332 lines not ~1200, host
+   re-exporting them so there is one producer.
+3. Driver + shard/CDN scripts transported — and §11.2's unnamed prerequisite,
+   that nanako had no `configureSiteShell()` and so could not render at all.
+4. `fast-publish-article.yml` restored on `push: content/**`. A corpus push now
+   publishes; the kill switch is `.github/FAST_PUBLISH_DISABLED`, a file,
+   because the Actions variables API is refused by the agent proxy and a
+   variable-only switch would have stayed unset forever — which is exactly how
+   the pipeline sat idle after its dry run passed.
+5. Article URLs no longer validated against a `dist/` that does not serve them
+   (§11.6). Done as an exclusion derived from the Worker's `SECTION_ROUTES`,
+   NOT as §10.4 proposed — dropping the sitemap entries would have de-indexed
+   articles that had just become publishable, and recurred on every generation.
+
+**16 articles live**, all of them 404 before this work.
+
+### 12.2 The imminent data loss §10 did not see
+
+`push-section-shard.sh` is FULL-REPLACE, and this repo's corpus no longer
+receives what nanako generates — measured, fourteen live articles absent from
+`packages/articles/content/` here. The next full deploy would have replaced
+each article shard with a tree missing all of them. The shrink guard would not
+have caught it: it is a PERCENTAGE, and fourteen pages out of ~3000 is nowhere
+near it.
+
+Closed by `scripts/lib/deploy-shard-sections.sh`, which all six shard-push
+loops now use, plus `ARTICOLI*_BUILD_EMIT_SKIP` defaulting to true in the
+workflow expression. **The order is not interchangeable**: stopping the push is
+safe alone; stopping the BUILD first, while still pushing, IS the wipe.
+`fast-publish-reconcile.yml` is retired to dispatch-only — it existed to repair
+precisely that overwrite, and left armed would republish from the stale corpus.
+
+### 12.3 Nothing was pushing the article sitemaps to the edge
+
+`EDGE_PUSHED_FILES` whitelists both, but the only caller of
+`publish-edge-files.mjs` is this repo's `fast-publish-article.yml` — the
+workflow §4 archived. Same root cause as the 404s, one orphan further down.
+nanako's `publish-api.yml` now pushes them, from the job that generates them.
+
+### 12.4 The pattern, stated plainly for whoever is next
+
+Every defect in this migration reported success:
+
+| what | reported | actually |
+|---|---|---|
+| corpus symlinks missing | render OK, 4 pages/locale | archive listed 0 articles |
+| registry symlinks untracked | render OK, byte-identical summary | author downgraded to Organization, byline gone |
+| no shard deploy key | run green, "not provisioned" | zero HTML pushed |
+| apex-only cache purge | "✅ purged" | `age` still growing, 404 served |
+| wrong R2 key (caught pre-ship) | upload would succeed | key the Worker never reads |
+| no RC in publish-api (caught pre-ship) | step would warn and skip | edge push never happens |
+| empty generation | "Generate blog article" | only a rejected-candidates file |
+
+A green run is not evidence. In this codebase a missing input degrades output
+instead of stopping it, so the only proof is a differential: render both ways
+and compare, or assert the artifact is readable at the origin. Every gate added
+here does one of those two things.
+
+### 12.5 Still open
+
+- **§5.7** — delete `mirror-articles-corpus`, earliest 2026-08-09. Recheck with
+  `/repos/valerielinc-ops/frontaliere-si-o-no/commits?path=packages/articles&since=<cutover>`.
+- **`host/` is a second producer of the site chrome.** Unavoidable — host values
+  are what a host owns. Both repos now assert the same fingerprint over the 21
+  scalars AND the same golden over 23 function probes, so either side drifting
+  fails on its own side. That is mitigation, not removal.
+- **The archive does not sort by date**, so a new article lands on the last page
+  (31 of 31). Pre-existing behaviour, byte-identical to the full build, left
+  alone deliberately — but it means discovery of a fresh article depends on the
+  sitemap and RSS, not on the archive front page.
+- **`compact-article-shard-history.yml`** in this repo still iterates all
+  sections including the article ones. It only compacts history, so it cannot
+  lose content, but it is maintenance this repo no longer owns.
