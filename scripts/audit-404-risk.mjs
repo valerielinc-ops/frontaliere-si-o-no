@@ -351,6 +351,20 @@ async function mapPool(items, limit, fn) {
   return results;
 }
 
+// ── Deploy-generation provenance (issue #4079) ──────────────────────────────
+// Every shard push stamps the SOURCE repo's commit into its own commit
+// subject: push-section-shard.sh writes "<section>-<loc> shard <sha8> (run
+// <run_id>)" and push-locale-shard.sh writes "locale shard <loc> <sha8> (run
+// <run_id>)". The apex publishes the same commit as /commit-hash.txt. That
+// pair is what lets this audit tell "this URL has no page" apart from "these
+// two snapshots are from different deploys" — see resolveApexGeneration().
+const SHA8_IN_SUBJECT = /\b([0-9a-f]{8})\b/;
+
+function shaFromSubject(subject) {
+  const m = SHA8_IN_SUBJECT.exec(String(subject || ''));
+  return m ? m[1] : null;
+}
+
 async function listShardTree(repo) {
   const dir = await mkdtemp(join(tmpdir(), 'audit404-'));
   try {
@@ -362,7 +376,17 @@ async function listShardTree(repo) {
       const { stdout } = await execFileP('git', ['-C', dir, 'ls-tree', '-r', '--name-only', 'HEAD'], {
         maxBuffer: 256 * 1024 * 1024,
       });
-      return stdout.split('\n').filter(Boolean);
+      const entries = stdout.split('\n').filter(Boolean);
+      // Free: the commit is already local from the --depth 1 clone.
+      let generation = null;
+      try {
+        const { stdout: head } = await execFileP('git', ['-C', dir, 'log', '-1', '--format=%s%x09%cI'], {
+          maxBuffer: 1024 * 1024,
+        });
+        const [subject, at] = head.trim().split('\t');
+        generation = { sha: shaFromSubject(subject), at: at || null, subject: (subject || '').slice(0, 120) };
+      } catch { /* provenance is best-effort — absence downgrades to "cannot classify" */ }
+      return { entries, generation };
     } catch (err) {
       if (/Not a valid object name HEAD/.test(String(err.stderr || err.message || ''))) return null;
       throw err;
@@ -395,7 +419,14 @@ async function listDistRoutes() {
 
 async function buildServedSet() {
   const served = new Set();
-  const meta = { shards: {}, sectionShards: {}, itSource: null, distRoutes: 0 };
+  const meta = {
+    shards: {},
+    sectionShards: {},
+    itSource: null,
+    distRoutes: 0,
+    // Filled below: which deploy each side of the comparison came from.
+    generation: { apexSha: null, shards: {}, sectionShards: {} },
+  };
 
   // Main IT routes: prefer local dist; else use the live IT sitemap <loc>s.
   const distRoutes = await listDistRoutes();
@@ -415,7 +446,9 @@ async function buildServedSet() {
       // below) — a `null` here (empty repo) is exactly as bad as n=0 from a
       // truncated tree, so it flows into the same floor check rather than a
       // silent skip.
-      const entries = (await listShardTree(repo)) ?? [];
+      const result = await listShardTree(repo);
+      const entries = result?.entries ?? [];
+      meta.generation.shards[loc] = result?.generation ?? null;
       let n = 0;
       for (const e of entries) {
         if (!/\.html$/i.test(e)) continue;
@@ -443,6 +476,7 @@ async function buildServedSet() {
     // frontaliere-<section>-<loc>. See SECTION_SHARD_REPOS comment.
     for (const section of Object.keys(SECTION_SHARD_REPOS)) {
       meta.sectionShards[section] = {};
+      meta.generation.sectionShards[section] = {};
     }
     const shardTasks = Object.entries(SECTION_SHARD_REPOS).flatMap(([section, repos]) =>
       Object.entries(repos).map(([loc, repo]) => ({ section, loc, repo })),
@@ -453,7 +487,9 @@ async function buildServedSet() {
     // deploy pipeline it audits.
     await mapPool(shardTasks, 4, async ({ section, loc, repo }) => {
       log(`[404] listing ${loc} ${section} shard tree (${repo}) …`);
-      const entries = await listShardTree(repo);
+      const result = await listShardTree(repo);
+      const entries = result === null ? null : result.entries;
+      meta.generation.sectionShards[section][loc] = result?.generation ?? null;
       if (entries === null) {
         // Genuinely empty repo (no commits) — this section isn't seeded/
         // live yet (e.g. a new section between `gh repo create` and its
@@ -498,6 +534,138 @@ function makeResolver(served, meta) {
     }
     if (NO_SHARDS && loc !== 'it') return true; // shards skipped → can't disprove
     return served.has(path);
+  };
+}
+
+// ── Publish-generation classification (issue #4079) ─────────────────────────
+//
+// WHY THIS EXISTS. This audit compares the LIVE apex sitemap against the LIVE
+// shard repos' git trees. Those are two DIFFERENT publication channels with
+// different latencies: a shard goes live the instant push-section-shard.sh
+// force-pushes it, while the apex sitemap only goes live once
+// deploy-publish.yml's `actions/deploy-pages` finishes. The deploy is not
+// atomic across ~110 repos, so at any given moment the two sides can be from
+// different deploys — and then a URL "missing" from a shard tree is not
+// evidence of a 404, it is evidence of a snapshot skew this audit cannot see.
+//
+// Measured (2026-08-05), five consecutive daily runs: 32 · 0 · 0 · 97 · 0
+// offenders, ZERO of them persisting into the next run, and 5/5 sampled
+// offenders from the 97-offender run returning HTTP 200 live. The 32-offender
+// run (2026-08-01) was ENTIRELY `…/2026-07` month-scoped URLs — a July
+// sitemap measured against August shard trees, which is the skew signature in
+// its purest form.
+//
+// So the offenders are classified, not suppressed: every one is still listed
+// in the report and in the issue body. What changes is which ones FAIL the
+// audit — only those whose owning shard is from the same deploy as the
+// sitemap, i.e. the ones where "no served page" is a sound conclusion. A
+// URL attributed to an off-generation shard is a measurement artifact, and
+// reporting it as a silent 404 is what made this issue unactionable enough to
+// be parked `needs-human` after six recurrences.
+//
+// This is strictly MORE information, never less: nothing is hidden, and the
+// per-shard generation table now surfaces publish drift the audit previously
+// could not see at all.
+
+// Route prefix → owning section shard, from the same single source of truth
+// the shard mechanism itself uses (section-shard-slugs.json).
+const SECTION_BY_ROUTE_PREFIX = new Map();
+for (const [section, byLoc] of Object.entries(SECTION_SLUGS)) {
+  if (section.startsWith('_')) continue;
+  for (const [loc, slug] of Object.entries(byLoc)) {
+    if (!slug) continue;
+    SECTION_BY_ROUTE_PREFIX.set(loc === 'it' ? `/${slug}` : `/${loc}/${slug}`, { section, loc });
+  }
+}
+
+/** Which repo actually serves this path: a section shard, a locale shard, or the apex. */
+function shardOwnerOf(path) {
+  const loc = localeOf(path);
+  const segs = path.split('/').filter(Boolean);
+  const prefix = loc === 'it' ? `/${segs[0] ?? ''}` : `/${segs[0] ?? ''}/${segs[1] ?? ''}`;
+  const section = SECTION_BY_ROUTE_PREFIX.get(prefix);
+  if (section) return { kind: 'section', section: section.section, loc };
+  if (loc !== 'it') return { kind: 'locale', loc };
+  return { kind: 'apex', loc };
+}
+
+function ownerGeneration(owner, gen) {
+  if (owner.kind === 'section') return gen.sectionShards?.[owner.section]?.[owner.loc] ?? null;
+  if (owner.kind === 'locale') return gen.shards?.[owner.loc] ?? null;
+  return null;
+}
+
+/**
+ * 'unserved'     — the owning shard is from the SAME deploy as the sitemap, so
+ *                  the page really is absent. This is what fails the audit.
+ * 'publish-skew' — the owning shard is from a DIFFERENT deploy, so the two
+ *                  sides are not comparable for this URL.
+ *
+ * Every ambiguity resolves to 'unserved': no apex sha, no shard provenance,
+ * an apex-owned path — all keep today's behaviour rather than quietly
+ * excusing an offender.
+ */
+function classifyOffender(path, gen) {
+  if (!gen?.apexSha) return 'unserved';
+  const owner = shardOwnerOf(path);
+  if (owner.kind === 'apex') return 'unserved';
+  const g = ownerGeneration(owner, gen);
+  if (!g || !g.sha) return 'unserved';
+  return gen.apexSha.startsWith(g.sha) ? 'unserved' : 'publish-skew';
+}
+
+function splitByGeneration(paths, gen) {
+  const unserved = [];
+  const skew = [];
+  for (const p of paths) (classifyOffender(p, gen) === 'unserved' ? unserved : skew).push(p);
+  return { unserved, skew };
+}
+
+// A shard that is merely off-generation is a transient: the deploy is still
+// in flight. A shard that has not been pushed for this long has stopped
+// publishing, and deferring its URLs forever would be exactly the silent skip
+// this classification must not become. Deploys run every ~2.5 h, so 24 h is
+// ~10 missed deploys. push-section-shard.sh only skips a push when the tree is
+// byte-identical to the remote, which for a job-board shard does not survive a
+// day. Overridable for a deliberately-frozen shard.
+const SHARD_MAX_AGE_H = Number(process.env.AUDIT_404_SHARD_MAX_AGE_H ?? 24);
+
+/** Flatten the per-shard generation table into a compact, reportable summary. */
+function generationSummary(gen, now = Date.now()) {
+  const rows = [];
+  for (const [loc, g] of Object.entries(gen.shards || {})) {
+    rows.push({ shard: `locale-${loc}`, sha: g?.sha ?? null, at: g?.at ?? null });
+  }
+  for (const [section, byLoc] of Object.entries(gen.sectionShards || {})) {
+    for (const [loc, g] of Object.entries(byLoc || {})) {
+      // A not-yet-seeded shard has no commit at all — that is already covered
+      // by the section floor logic, not a stale-publish signal.
+      if (g === null && byLoc[loc] === null) continue;
+      rows.push({ shard: `${section}-${loc}`, sha: g?.sha ?? null, at: g?.at ?? null });
+    }
+  }
+  const isSame = (r) => Boolean(r.sha && gen.apexSha && gen.apexSha.startsWith(r.sha));
+  const ageH = (r) => (r.at ? (now - Date.parse(r.at)) / 3_600_000 : null);
+  const offGeneration = rows.filter((r) => !isSame(r));
+  return {
+    apexSha: gen.apexSha,
+    maxAgeHours: SHARD_MAX_AGE_H,
+    shardsTotal: rows.length,
+    shardsSameGeneration: rows.length - offGeneration.length,
+    offGeneration: offGeneration
+      .map((r) => ({ shard: r.shard, sha: r.sha, at: r.at, ageHours: ageH(r) }))
+      .sort((a, b) => String(a.at).localeCompare(String(b.at))),
+    // Off-generation AND not pushed for longer than the window: this shard has
+    // stopped publishing. Incident 2026-07-30: uri-it failed on every deploy
+    // for 3 days behind a `::warning::` inside a green run, and this audit had
+    // no way to see it.
+    staleShards: offGeneration
+      .filter((r) => {
+        const h = ageH(r);
+        return h !== null && h > SHARD_MAX_AGE_H;
+      })
+      .map((r) => ({ shard: r.shard, sha: r.sha, at: r.at, ageHours: Math.round(ageH(r)) }))
+      .sort((a, b) => b.ageHours - a.ageHours),
   };
 }
 
@@ -559,6 +727,16 @@ function expectedHubPath(slug, locale) {
 async function main() {
   log('[404] building served-path set (main IT + shards) …');
   const { served, meta } = await buildServedSet();
+  // Which deploy the sitemap side of the comparison came from. Published by
+  // the same build that publishes the sitemap, so this is the reference the
+  // shard stamps are compared against. Best-effort: on failure every offender
+  // stays classified 'unserved', i.e. exactly today's behaviour.
+  try {
+    meta.generation.apexSha = (await fetchText(`${HOST}/commit-hash.txt`)).trim().toLowerCase() || null;
+    log(`[404] apex generation: ${meta.generation.apexSha}`);
+  } catch (e) {
+    log(`[404]   WARN could not read ${HOST}/commit-hash.txt (${e.message}) — every offender will be reported as unserved`);
+  }
   const resolves = makeResolver(served, meta);
   log(`[404] served set: ${served.size} paths | IT source: ${meta.itSource} | shards: ${JSON.stringify(meta.shards)} | section shards: ${JSON.stringify(meta.sectionShards)}`);
 
@@ -593,10 +771,19 @@ async function main() {
     log(`[404]   FATAL: sitemap index fetch failed: ${e.message}`);
     process.exit(2);
   }
+  const sitemapSplit = splitByGeneration(sitemapOffenders, meta.generation);
+  report.checks.publishGeneration = generationSummary(meta.generation);
   report.checks.sitemapCoverage = {
     totalUrls: sitemapTotal,
-    wouldBe404: sitemapOffenders.length,
-    sample: sitemapOffenders.slice(0, LIMIT),
+    // Only same-generation offenders are a sound "no served page" verdict —
+    // see classifyOffender()'s comment for the measurement behind this.
+    wouldBe404: sitemapSplit.unserved.length,
+    sample: sitemapSplit.unserved.slice(0, LIMIT),
+    // Reported, never suppressed: these are the URLs whose owning shard is
+    // from a different deploy than the sitemap.
+    publishSkew: sitemapSplit.skew.length,
+    publishSkewSample: sitemapSplit.skew.slice(0, LIMIT),
+    offendersBeforeGenerationSplit: sitemapOffenders.length,
   };
 
   // ── (B) NEWSLETTER HUB-LINK CORRECTNESS ────────────────────────────────
@@ -625,18 +812,31 @@ async function main() {
       }
     }
   }
+  // Same generation split as (A) — a company hub on an off-generation shard is
+  // the identical measurement artifact.
+  const hubUnserved = [];
+  const hubSkew = [];
+  for (const o of hubOffenders) {
+    (classifyOffender(o.builderUrl, meta.generation) === 'unserved' ? hubUnserved : hubSkew).push(o);
+  }
   report.checks.newsletterHubLinks = {
     companiesSampled: companies.length,
-    wouldBe404: hubOffenders.length,
-    sample: hubOffenders.slice(0, LIMIT),
+    wouldBe404: hubUnserved.length,
+    sample: hubUnserved.slice(0, LIMIT),
+    publishSkew: hubSkew.length,
+    publishSkewSample: hubSkew.slice(0, LIMIT),
+    offendersBeforeGenerationSplit: hubOffenders.length,
   };
 
   // ── (live) optional HTTP confirmation of a small offender sample ────────
   if (LIVE) {
     log(`[404] (live) probing up to ${LIVE_N} offending URLs against ${HOST} …`);
+    // Probe the SOUND offenders first — those are the ones a live 404 would
+    // confirm; skew candidates fill any remaining budget.
     const probe = [
-      ...sitemapOffenders.slice(0, Math.ceil(LIVE_N / 2)),
-      ...hubOffenders.slice(0, Math.floor(LIVE_N / 2)).map((o) => o.builderUrl),
+      ...sitemapSplit.unserved.slice(0, Math.ceil(LIVE_N / 2)),
+      ...hubUnserved.slice(0, Math.floor(LIVE_N / 2)).map((o) => o.builderUrl),
+      ...sitemapSplit.skew,
     ].slice(0, LIVE_N);
     const live = [];
     for (const p of probe) {
@@ -651,14 +851,41 @@ async function main() {
   const a = report.checks.sitemapCoverage;
   const b = report.checks.newsletterHubLinks;
   const total404 = a.wouldBe404 + b.wouldBe404;
+  // A shard that stopped publishing is a real, currently-invisible outage —
+  // and it is also what stops the publish-skew deferral from being open-ended.
+  const staleCount = report.checks.publishGeneration.staleShards.length;
+
+  const g = report.checks.publishGeneration;
 
   process.stdout.write('\n=== 404-RISK AUDIT ===\n');
-  process.stdout.write(`served set: ${served.size} paths (IT: ${meta.itSource}; shards: ${JSON.stringify(meta.shards)}; section shards: ${JSON.stringify(meta.sectionShards)})\n\n`);
-  process.stdout.write(`(A) Sitemap coverage:       ${a.wouldBe404} / ${a.totalUrls} URLs would 404\n`);
+  process.stdout.write(`served set: ${served.size} paths (IT: ${meta.itSource}; shards: ${JSON.stringify(meta.shards)}; section shards: ${JSON.stringify(meta.sectionShards)})\n`);
+  process.stdout.write(`publish generation: apex ${g.apexSha ?? 'UNKNOWN'} · ${g.shardsSameGeneration}/${g.shardsTotal} shards on the same deploy\n`);
+  if (g.offGeneration.length) {
+    process.stdout.write('  shards on a different deploy than the sitemap (their URLs are not comparable this run):\n');
+    for (const r of g.offGeneration.slice(0, LIMIT)) {
+      process.stdout.write(`      · ${r.shard}  ${r.sha ?? '(no stamp)'}  ${r.at ?? ''}\n`);
+    }
+  }
+  if (g.staleShards.length) {
+    process.stdout.write(`\n(C) Stale shards:           ${g.staleShards.length} shard(s) have not published for > ${g.maxAgeHours}h\n`);
+    for (const r of g.staleShards) {
+      process.stdout.write(`      ✗ ${r.shard} last pushed ${r.at} (${r.ageHours}h ago, stamp ${r.sha ?? 'none'})\n`);
+    }
+  }
+  process.stdout.write(`\n(A) Sitemap coverage:       ${a.wouldBe404} / ${a.totalUrls} URLs would 404\n`);
   for (const u of a.sample) process.stdout.write(`      ✗ ${u}\n`);
+  if (a.publishSkew) {
+    process.stdout.write(`    + ${a.publishSkew} URL(s) on an off-generation shard — snapshot skew, not a verdict:\n`);
+    for (const u of a.publishSkewSample) process.stdout.write(`      ~ ${u}\n`);
+  }
   process.stdout.write(`\n(B) Newsletter hub links:   ${b.wouldBe404} would 404 (${b.companiesSampled} companies × 4 locales)\n`);
   for (const o of b.sample) process.stdout.write(`      ✗ [${o.locale}] ${o.builderUrl}  →  expected ${o.expectedUrl}  (${o.reason})\n`);
-  process.stdout.write(`\nTOTAL would-be-404s: ${total404}\n`);
+  if (b.publishSkew) {
+    process.stdout.write(`    + ${b.publishSkew} hub link(s) on an off-generation shard — snapshot skew, not a verdict\n`);
+  }
+  process.stdout.write(`\nTOTAL would-be-404s: ${total404}`);
+  const skewTotal = (a.publishSkew || 0) + (b.publishSkew || 0);
+  process.stdout.write(skewTotal ? ` (+ ${skewTotal} deferred as publish skew)\n` : '\n');
 
   if (JSON_OUT) {
     const { writeFile } = await import('node:fs/promises');
@@ -666,8 +893,9 @@ async function main() {
     log(`[404] wrote report → ${JSON_OUT}`);
   }
 
-  if (total404 > 0) {
-    process.stdout.write('\n❌ would-be-404s detected — failing.\n');
+  if (total404 > 0 || staleCount > 0) {
+    if (total404 > 0) process.stdout.write('\n❌ would-be-404s detected — failing.\n');
+    if (staleCount > 0) process.stdout.write(`\n❌ ${staleCount} shard(s) have stopped publishing — failing.\n`);
     process.exit(1);
   }
   process.stdout.write('\n✅ no would-be-404s detected.\n');
