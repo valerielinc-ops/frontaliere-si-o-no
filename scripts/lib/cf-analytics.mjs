@@ -71,6 +71,19 @@ query($zone:String!,$limit:Int!,$filter:ZoneHttpRequestsAdaptiveGroupsFilter_Inp
   }}
 }`;
 
+// See fetchErrorDiagnostics(). The three extra dimensions (hour, origin status, cache
+// outcome) were verified against the live zone before any code was written on top of them:
+// the adaptive dataset exposes all three, returning e.g.
+// `edge=502 origin=0 cache=none host=cdn.…` alongside `edge=502 origin=502 cache=bypass`.
+const ERROR_DIAGNOSTICS_QUERY = `
+query($zone:String!,$limit:Int!,$filter:ZoneHttpRequestsAdaptiveGroupsFilter_InputObject){
+  viewer{ zones(filter:{zoneTag:$zone}){
+    httpRequestsAdaptiveGroups(limit:$limit,filter:$filter,orderBy:[count_DESC]){
+      count dimensions{ datetimeHour edgeResponseStatus originResponseStatus cacheStatus clientRequestHTTPHost }
+    }
+  }}
+}`;
+
 /**
  * Fetch `(status, host, path, count)` rows for requests with
  * edgeResponseStatus >= minStatus over a single sub-1-day window.
@@ -125,6 +138,60 @@ export async function fetchErrorPaths(token, zoneId, opts = {}) {
     status: r.dimensions.edgeResponseStatus,
     host: r.dimensions.clientRequestHTTPHost,
     path: r.dimensions.clientRequestPath,
+    count: r.count,
+  }));
+}
+
+/**
+ * 5xx rows grouped by HOUR and by the dimensions that explain *why*.
+ *
+ * `fetchErrorPaths()` above answers "which URLs failed". This answers the two questions it
+ * cannot, and that cost a wrong diagnosis on 2026-08-05:
+ *
+ *   - `originResponseStatus` — 0 means the origin never answered and the error is
+ *     SYNTHESISED by Cloudflare; a real value means the origin itself returned the error.
+ *     Opposite remedies.
+ *   - `cacheStatus` — says whether a servable copy existed, i.e. whether `serve_stale` had
+ *     any material to act on. Without it the mitigation's effectiveness is unmeasurable.
+ *
+ * Grouping by `datetimeHour` is what makes the never-verified "5xx cluster inside deploy
+ * windows" hypothesis testable: cardinality stays tiny (24 hours x a handful of combinations),
+ * so the 10k row cap never bites and the windowing of `sweepErrorPathsWindowed()` is not needed.
+ *
+ * Deliberately does NOT include `clientRequestPath`: mixing path into these dimensions blows
+ * up cardinality and puts the query back under the 10k cap. Per-URL detail stays in
+ * `fetchErrorPaths()`. Two queries, two purposes, one shared GraphQL construct.
+ *
+ * @param {string} token
+ * @param {string} zoneId
+ * @param {object} [opts]
+ * @param {number} [opts.hours=23.9]
+ * @param {number} [opts.minStatus=500]
+ * @param {Date|string} [opts.until=now]
+ * @param {string|null} [opts.requestSource='eyeball']  see the anti-phantom note in fetchErrorPaths
+ * @returns {Promise<Array<{hour:string,edgeStatus:number,originStatus:number|null,cacheStatus:string|null,host:string,count:number}>>}
+ */
+export async function fetchErrorDiagnostics(token, zoneId, opts = {}) {
+  const hours = Math.min(opts.hours ?? MAX_HOURS, MAX_HOURS);
+  const minStatus = opts.minStatus ?? 500;
+  const until = opts.until ? new Date(opts.until) : new Date();
+  const sinceISO = new Date(until.getTime() - hours * 3600 * 1000).toISOString();
+  const requestSource = opts.requestSource === undefined ? 'eyeball' : opts.requestSource;
+  const filter = {
+    datetime_geq: sinceISO,
+    datetime_leq: until.toISOString(),
+    edgeResponseStatus_geq: minStatus,
+  };
+  if (requestSource) filter.requestSource = requestSource;
+
+  const data = await cfGraphQL(token, ERROR_DIAGNOSTICS_QUERY, { zone: zoneId, limit: 10000, filter });
+  const rows = data.viewer.zones[0]?.httpRequestsAdaptiveGroups || [];
+  return rows.map((r) => ({
+    hour: r.dimensions.datetimeHour,
+    edgeStatus: r.dimensions.edgeResponseStatus,
+    originStatus: r.dimensions.originResponseStatus ?? null,
+    cacheStatus: r.dimensions.cacheStatus ?? null,
+    host: r.dimensions.clientRequestHTTPHost,
     count: r.count,
   }));
 }
