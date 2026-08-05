@@ -38,7 +38,11 @@
  *       request round-tripped to R2 origin with zero edge buffering, so any
  *       transient R2 hiccup surfaced immediately as a live 5xx. Excludes
  *       /cdn-build-id.txt (kept no-store — the #2569 cross-shard publish
- *       gate polls it and must always see the live origin value).
+ *       gate polls it and must always see the live origin value) AND
+ *       /assets/early-boot.js — this rule is appended LAST and a later rule
+ *       wins in the cache phase, so without that exclusion its `cache: true`
+ *       silently overrode the `early-boot-js-bypass-cache` rule and the file
+ *       served HIT instead of BYPASS (#5176).
  *
  * 3. FIREWALL RULES — the managed entries in MANAGED_FIREWALL_RULES (keyed by
  *    `description`; foreign rules on the entrypoint preserved). Three today:
@@ -73,7 +77,7 @@
  *
  * 4. REDIRECT RULES — the managed entries in MANAGED_REDIRECT_RULES (keyed by
  *    `description`; foreign rules on the entrypoint — e.g. the image→CDN
- *    apex-404 recovery — preserved). Currently one: trailing-slash-301 —
+ *    apex-404 recovery — preserved). Two today. First, trailing-slash-301 —
  *    301s every extensionless no-trailing-slash apex path to its slash form
  *    (#3472). Every canonical URL on the site is slash-terminated
  *    (buildPath()/sitemap/hreflang), but GitHub Pages' extensionless
@@ -88,6 +92,12 @@
  *    senders, which silently killed RUM ingest, #3503) and /disiscrivi-*
  *    (RFC 8058 one-click unsubscribe — a 301 would not be re-issued as a
  *    POST by mail clients).
+ *    Second, cdn-root-301 — 301s the bare CDN root to the apex. R2 has no root
+ *    object, so `cdn.frontaliereticino.ch/` answered Cloudflare's stock ~28 KB
+ *    R2 error page 42_919 times in 23h (315.3 MB of egress, the zone's largest
+ *    non-2xx by far). Measured as external scanning, not a broken link of ours
+ *    — 99.4% HTTP/1.1, unrecognised UA, bursty, one country — so the fix is to
+ *    stop paying for the answer, not to chase a referrer (#5176).
  *
  * Auth: CF_API_TOKEN — needs Zone→Workers Routes:Edit (already required by
  * deploy-worker.yml) + Zone→Zone Settings/Cache Rules:Edit + Zone→Firewall
@@ -341,6 +351,19 @@ const CDN_CACHE_ACTION_PARAMETERS = {
   serve_stale: { disable_stale_while_updating: false },
 };
 
+// The one path whose cache bypass must never be overridden by the broad CDN
+// passthrough rule below. Declared once so the rule expression and
+// tests/cdn-zone-rule-invariants.test.ts cannot drift apart (AGENTS.md #6).
+// Owned live by the foreign rule `early-boot-js-bypass-cache` (`cache: false`);
+// see the exclusion comment in cdn-r2-passthrough-cache for why it is excluded
+// here rather than fixed by reordering.
+//
+// NOT exported, deliberately: this module runs its work at TOP LEVEL (the
+// `const zoneId = await resolveZoneId()` block at the end issues live PUTs), so
+// importing it from a test would reconfigure the production zone as a side
+// effect of collecting the suite. The guard test reads this file as TEXT.
+const EARLY_BOOT_PATH = '/assets/early-boot.js';
+
 // Every cache rule this script owns, keyed by description (the idempotency
 // marker — foreign rules sharing the entrypoint are preserved untouched).
 const MANAGED_CACHE_RULES = [
@@ -382,10 +405,36 @@ const MANAGED_CACHE_RULES = [
     // Excludes /cdn-build-id.txt: the #2569 cross-shard publish-ordering gate
     // (scripts/lib/wait-cdn-build-id.sh) polls this exact URL and must always
     // observe the live origin value, never a cached one.
+    //
+    // ALSO excludes /assets/early-boot.js, and that exclusion is load-bearing
+    // (2026-08-05, #5176). In the `http_request_cache_settings` phase EVERY
+    // matching rule is applied in order and a LATER rule overrides an earlier
+    // one. `early-boot-js-bypass-cache` (`cache: false`, foreign rule, index 2)
+    // is meant to keep that one file uncacheable so the version-skew self-heal
+    // script is never stale. But assertCacheRules() below appends a managed
+    // rule it does not already find (`rules.push(desired)`), so this rule lands
+    // at index 4 — AFTER the bypass — and its `cache: true` silently won.
+    // Measured live: `GET https://cdn.frontaliereticino.ch/assets/early-boot.js`
+    // returned `cf-cache-status: HIT`, not `BYPASS`. The window that rule exists
+    // to close was open the whole time.
+    //
+    // Fixing this by reordering would be fragile: the ordering is a side effect
+    // of append-on-create, and a foreign rule can be re-created at any index by
+    // whoever owns it. Excluding the path here makes the bypass the ONLY rule
+    // that matches it, so it cannot be overridden no matter how the list is
+    // ordered. Same shape as the /cdn-build-id.txt exclusion above.
+    //
+    // Why it matters beyond tidiness: a stale early-boot.js serves an old
+    // self-heal listener set against new HTML, which is the cross-chunk skew
+    // behind #3216 / #5062 / #4644 — the same dynamic-import failure #5165 just
+    // closed from the 502 side. Leaving this open lets that issue come back for
+    // a different reason and look like a regression of that fix.
+    // Guarded by tests/cdn-zone-rule-invariants.test.ts.
     description: 'cdn-r2-passthrough-cache (managed by scripts/cf-locale-failover-setup.mjs)',
     expression:
       '(http.host eq "cdn.frontaliereticino.ch" and ' +
-      'http.request.uri.path ne "/cdn-build-id.txt")',
+      'http.request.uri.path ne "/cdn-build-id.txt" and ' +
+      `http.request.uri.path ne "${EARLY_BOOT_PATH}")`,
     action_parameters: CDN_CACHE_ACTION_PARAMETERS,
   },
 ];
@@ -433,6 +482,62 @@ const MANAGED_REDIRECT_RULES = [
           expression: 'concat("https://", http.host, http.request.uri.path, "/")',
         },
         preserve_query_string: true,
+      },
+    },
+  },
+  {
+    // CDN root -> apex (2026-08-05, #5176). `cdn.frontaliereticino.ch/` served
+    // 42_919 404s in 23h — by far the zone's largest non-2xx, and larger than
+    // every 5xx put together.
+    //
+    // It is NOT our defect. Measured before adding this rule:
+    //   - 99.4% arrived over HTTP/1.1 (42_641 / 42_919) with an unrecognised
+    //     user agent; browsers reach this zone over HTTP/2, and our own asset
+    //     traffic is overwhelmingly HTTP/2.
+    //   - bursty, not referenced: ~0/h for hours, then 6.5k / 7.9k / 10.3k /
+    //     10.2k in single hours.
+    //   - single-origin: 42_543 of them from one country (BE), which sends
+    //     44_219 CDN requests in total — i.e. essentially all of it is this.
+    //   - nothing the site emits requests the bare CDN root; the arriving tail
+    //     alongside it is plain WordPress probing (/wp-json/batch/v1,
+    //     /index.php, /config/.env, /wp-content/…).
+    //
+    // So the remedy is not to "fix a broken link" but to stop paying for the
+    // answer. R2 has no root object, so each of those 404s returned
+    // Cloudflare's stock ~28 KB R2 error page: 315.3 MB of egress in 23h to
+    // tell a scanner the CDN has no home page.
+    //
+    // A 301 is the cheapest correct answer: no body, and semantically right for
+    // anyone who does land there (the CDN root is not a page — the site is).
+    // Deliberately NOT a WAF block: this costs nothing to serve, cannot produce
+    // a false positive against a real client, and needs no allowlist upkeep.
+    //
+    // The dynamic-redirect phase runs BEFORE the cache and before the R2 object
+    // lookup, so this intercepts ahead of the 404 — the same mechanism already
+    // proven on this zone by scripts/ensure-cdn-fonts-redirect.mjs (#3248).
+    // Exact-match on "/" only, so no other CDN path can be caught by it and a
+    // redirect loop is impossible (the target is a different host).
+    //
+    // The target deliberately uses the `expression` + concat() form rather than
+    // the static `target_url.value` form. Every redirect rule live on this zone
+    // uses concat() — including "CDN fonts -> apex", whose construct this copies
+    // byte for byte — whereas `value` is unproven here. This script REWRITES
+    // action_parameters wholesale on every run, so an unverified schema would not
+    // fail in isolation: the PUT bails and takes routes, cache, firewall and
+    // redirect config down with it. Same reasoning the serve_stale field was held
+    // back for until it could be checked against the live zone.
+    // Since the expression matches only path == "/", concat() here always yields
+    // exactly https://frontaliereticino.ch/ .
+    // Guarded by tests/cdn-zone-rule-invariants.test.ts.
+    description: 'cdn-root-301 (managed by scripts/cf-locale-failover-setup.mjs)',
+    expression: '(http.host eq "cdn.frontaliereticino.ch" and http.request.uri.path eq "/")',
+    action_parameters: {
+      from_value: {
+        status_code: 301,
+        target_url: {
+          expression: 'concat("https://frontaliereticino.ch", http.request.uri.path)',
+        },
+        preserve_query_string: false,
       },
     },
   },
@@ -661,7 +766,19 @@ function redirectRuleInShape(current, desired) {
   const from = (current.action_parameters || {}).from_value || {};
   const want = desired.action_parameters.from_value;
   if (from.status_code !== want.status_code) return false;
-  if ((from.target_url || {}).expression !== want.target_url.expression) return false;
+  // A redirect target is EITHER dynamic (`expression`) or static (`value`), and
+  // both must be compared. Checking only `expression` is drift-blind for a
+  // static target: both sides read `undefined`, the comparison passes, and any
+  // change to the destination URL — including one made by hand in the dashboard
+  // — reports "already in shape" forever.
+  //
+  // No managed rule uses the static form today (cdn-root-301 deliberately uses
+  // concat(), see its comment), so this is a latent bug rather than an active
+  // one — surfaced while evaluating that form for #5176. It is guarded here so
+  // the first static rule someone adds is not silently unmanaged.
+  const fromTarget = from.target_url || {};
+  if (fromTarget.expression !== want.target_url.expression) return false;
+  if (fromTarget.value !== want.target_url.value) return false;
   if (from.preserve_query_string !== want.preserve_query_string) return false;
   return true;
 }

@@ -72,6 +72,24 @@ purpose/rollback. Rule 3 is the subject of this doc:
   request, shrinking the stale-self-heal-script window to ~0 at the CDN
   layer. Pairs with the `early-boot-js-no-cache` response-header rule below,
   which does the same for the *browser* cache.
+- **⚠️ This rule was silently overridden for an unknown period, fixed 2026-08-05
+  (#5176).** In `http_request_cache_settings` every matching rule applies in
+  order and a **later rule wins**. `cdn-r2-passthrough-cache` (`cache: true`)
+  matches every CDN path and is *appended* by
+  `scripts/cf-locale-failover-setup.mjs` (`rules.push(desired)` when the rule is
+  not already present), so it landed at index 4 — after this one at index 2 —
+  and its `cache: true` beat this `cache: false`. Measured live:
+  `GET https://cdn.frontaliereticino.ch/assets/early-boot.js` returned
+  `cf-cache-status: HIT`, not `BYPASS`, so the stale-self-heal window this rule
+  exists to close was open the whole time.
+  The fix is an **exclusion, not a reordering**: `cdn-r2-passthrough-cache` now
+  excludes `/assets/early-boot.js` (the same shape as its existing
+  `/cdn-build-id.txt` exclusion), which makes this the only rule matching that
+  path regardless of index. Reordering would have been one dashboard edit away
+  from silently reverting, since the order is only a side effect of
+  append-on-create. Guarded by `tests/cdn-zone-rule-invariants.test.ts`.
+  *When probing this by hand, use `GET`* — `curl -I` sends `HEAD`, which
+  Cloudflare never serves from cache, so every path misreports `DYNAMIC`.
 - **Rollback:** delete rule `856ceaeb0c354cdfba01c3e162762ab8` from ruleset
   `d738dd4c3c32463ba40f1ac6bdd74d78` (leaves rules 1-2 untouched):
   ```bash
