@@ -25,6 +25,15 @@ on:
   # this repo has never seen and strip the generator's dependencies. The mirror
   # is kept dispatch-only rather than deleted, per §5.7: it stays until every
   # producer is confirmed stopped, plus a week.
+  #
+  # 2026-08-05: it is no longer the code channel. Disabling it also stranded
+  # `engine/`, which this repo still owns and nanako executes — four engine
+  # changes never arrived and article pages shipped without their footer portal
+  # target for three days (docs/articles-generator-migration.md §13). That job
+  # now belongs to mirror-articles-engine.yml, which carries engine/ ONLY and
+  # can therefore run automatically. Deleting this file no longer removes the
+  # last connection between the two repos; check §13.2 for the corrected §5.7
+  # criterion, because the obvious path query cannot return 0 any more.
   # push:
   #   branches: [main]
   #   paths:
