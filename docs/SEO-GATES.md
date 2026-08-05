@@ -134,3 +134,31 @@ Use `FAST_BUILD= npx vite build && npm run audit:title-length` to reproduce loca
 2. Find colliding pair: grep `services/locales/blog-meta-it.ts` for the base title (without brand suffix). Two articles with the same `'.title'` value will be the cause.
 3. Fix at source by editing one article's `'.title'` in all four locale meta files (`blog-meta-{it,en,de,fr}.ts`). Add a year/city/source qualifier: `"Primo Maggio a Varese"` → `"Primo Maggio a Varese 2026: corteo CGIL"`.
 4. NEVER widen the baseline as a workaround.
+
+---
+
+## 7. Discover eligibility (REPORT-ONLY — not a gate)
+
+**Why.** Google Discover applies a hard prerequisite before a page can take a large-image card: `max-image-preview:large` in the robots meta. On 2026-08-05 one URL from each of the 87 sitemaps in `sitemap.xml` was fetched with a Googlebot UA; **50 of the 83 families that answered 200 shipped without it**. The gap had previously been recorded as "already present on every page" — a spot check on four article URLs, generalised. This report exists so the next such claim is a number CI produces on every deploy.
+
+The root cause is fixed at the source (see below), so the directive is now true by construction. What the report still measures per family is the part that source code cannot assert: whether the emitted pages actually carry one `<h1>`, a canonical, and a crawlable image wide enough for the large card.
+
+**Where.**
+- Local: `npm run audit:discover-eligibility` (add `--strict` to exit 1 on findings, `--json` for machine output, `--dist=<path>` to point elsewhere)
+- CI: step `Discover eligibility report (non-blocking)` in `.github/workflows/post-deploy-validate-dist.yml`, job `validate-dist-postbuild`, with `continue-on-error: true`
+- Report artifact: `dist/audit-reports/discover-eligibility.json` (`extra.perFamily` carries the per-family pass rates)
+- Vitest: `tests/seo/audit-discover-eligibility.test.ts`
+
+**Checks.** `maxImagePreviewLarge`, `singleH1` (exactly one — zero fails too), `canonical` are *required*; `largeImage` (an `<img>` with a declared `width` ≥ 1200) is *advisory*. `noindex` and meta-refresh pages are excluded — they are outside Discover's universe by construction.
+
+**Hard rule — this must NOT become a blocking gate by accident.** A red `validate-dist` skips the entire `publish` job (IndexNow, Google Indexing API, GSC sync). An eligibility report that blocks indexation costs more traffic than the gap it measures. `createAuditor().report()` therefore always returns `passed: true`, and `tests/seo/audit-discover-eligibility.test.ts` pins that. Promoting a check to blocking is a deliberate, per-check decision to be taken once that check's numbers are clean — not a side effect of tightening the script.
+
+**Where the enforcement actually lives.** The universal half is enforced at the source, which is where it belongs:
+- `build-plugins/constants.ts:normalizeRobotsDirective()` upgrades any indexable directive to `ROBOTS_INDEX_ENHANCED_CONTENT` at the single emission point in `build-plugins/htmlTemplate.ts`, so all ~59 `buildSeoPageHtml` families are covered without touching their 88 call sites.
+- `packages/articles/engine/shared/robotsDirective.ts` carries the same value on the confined side of the package boundary.
+- `tests/seo/discover-robots-directive.test.ts` scans `build-plugins/**` and `packages/articles/engine/**` and fails, with `file:line`, on any hand-rolled indexable robots meta that omits `max-image-preview:large`.
+
+**Playbook.**
+1. `npm run audit:discover-eligibility` — the table is one row per page family with a pass rate per check.
+2. A family at 0% on `maxImagePreviewLarge` means its plugin hand-rolls a `<head>` and bypassed the normaliser. `tests/seo/discover-robots-directive.test.ts` will name the file and line.
+3. A family at 0% on `largeImage` is usually correct-by-nature (data landings with no hero photograph). Treat it as a content decision, not a defect — and remember `max-image-preview:large` raises the CAP on preview size, it does not supply an image (that was the #5101 defect on article pages).
